@@ -26,10 +26,10 @@ fmt包实现了格式化的I/O函数,这点类似Ｃ语言中的printf和scanf,�
 - %%  字面上的百分号, 并非值的占位符
 - %d  十进制表示
 - %c  the character represented by the corresponding Unicode code point
-- %x	base 16, with lower-case letters for a-f
-- %X	base 16, with upper-case letters for A-F
-- %p	address of 0th element in base 16 notation, with leading 0x
-- %t	the word true or false, (bool)
+- %x    base 16, with lower-case letters for a-f
+- %X    base 16, with upper-case letters for A-F
+- %p    address of 0th element in base 16 notation, with leading 0x
+- %t    the word true or false, (bool)
 
 >https://pkg.go.dev/fmt
 

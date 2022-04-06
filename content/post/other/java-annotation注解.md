@@ -449,35 +449,35 @@ public void method_3() {
 */
       
 public static void main(String[] args) {
-	  
+      
 Method[] methods = Test_1.class.getDeclaredMethods();
-	  
+      
 for (Method method : methods) {
-	      
+          
 /*
-	       
+           
 * 判断方法中是否有指定注解类型的注解
-	       
+           
 */
-	      
+          
 boolean hasAnnotation = method.isAnnotationPresent(Test.class);
-	      
+          
 if (hasAnnotation) {
-		  
+          
 /*
-		   
+           
 * 根据注解类型返回方法的指定类型注解
-		   
+           
 */
-		  
+          
 Test annotation = method.getAnnotation(Test.class);
-		  
+          
 System.out.println("Test( method = " + method.getName() + " , id = "
-			  
+              
 + annotation.id() + " , description = " + annotation.description() + " )");
-	      
+          
 }
-	  
+      
 }
       
 }

@@ -47,22 +47,22 @@ func main() {
 ## golang shell, 在 golang 中调用 shell
 ```go
 func shellExec(command string) string {
-	log.Printf("exec: %s\n", command)
-	cmd := exec.Command("/bin/sh", "-c", command)
-	var out bytes.Buffer
+    log.Printf("exec: %s\n", command)
+    cmd := exec.Command("/bin/sh", "-c", command)
+    var out bytes.Buffer
 
-	cmd.Stdout = &out
-	err := cmd.Run()
-	if err != nil {
-		log.Printf("failed to exec: %s, err: %v", command, err)
-		return ""
-	}
-	ourStr := out.String()
-	log.Printf("exec response: \n%s", ourStr)
-	return ourStr
+    cmd.Stdout = &out
+    err := cmd.Run()
+    if err != nil {
+        log.Printf("failed to exec: %s, err: %v", command, err)
+        return ""
+    }
+    ourStr := out.String()
+    log.Printf("exec response: \n%s", ourStr)
+    return ourStr
 }
 func shellExecFmt(format string, params ...interface{}) string {
-	return shellExec(fmt.Sprintf(format, params...))
+    return shellExec(fmt.Sprintf(format, params...))
 }
 ```
 

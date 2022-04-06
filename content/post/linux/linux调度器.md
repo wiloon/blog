@@ -354,14 +354,14 @@ Sched.c 中scheduler_tick()函数会被时钟中断直接调用。它首先更�
 
 static void entity_tick(struct cfs_rq *cfs_rq, struct sched_entity *curr)
 {
-	struct sched_entity *next;
-	dequeue_entity(cfs_rq, curr, 0);
-	enqueue_entity(cfs_rq, curr, 0);
-	next = __pick_next_entity(cfs_rq);
-	if (next == curr)
-		return;
-	__check_preempt_curr_fair(cfs_rq, next, curr,
-			sched_granularity(cfs_rq));
+    struct sched_entity *next;
+    dequeue_entity(cfs_rq, curr, 0);
+    enqueue_entity(cfs_rq, curr, 0);
+    next = __pick_next_entity(cfs_rq);
+    if (next == curr)
+        return;
+    __check_preempt_curr_fair(cfs_rq, next, curr,
+            sched_granularity(cfs_rq));
 }复制代码
 首先调用dequeue_entity()函数将当前进程从红黑树中删除，再调用enqueue_entity () 重新 插入。这两个动作就调整了当前进程在红黑树中的位置。_pick_next_entity()返回红黑树中最左边的节点，如果不再是当前进程，就调用 _check_preempt_curr_fair。该函数设置调度标志，当中断返回时就会调用schedule()进行调度。
 
@@ -369,54 +369,54 @@ static void entity_tick(struct cfs_rq *cfs_rq, struct sched_entity *curr)
 
 enqueue_entity(struct cfs_rq *cfs_rq, struct sched_entity *se, int wakeup)
 {
-	/*
-	 * Update the fair clock.
-	 */
-	update_curr(cfs_rq);
-	if (wakeup)
-		enqueue_sleeper(cfs_rq, se);
-	update_stats_enqueue(cfs_rq, se);
-	__enqueue_entity(cfs_rq, se);
+    /*
+     * Update the fair clock.
+     */
+    update_curr(cfs_rq);
+    if (wakeup)
+        enqueue_sleeper(cfs_rq, se);
+    update_stats_enqueue(cfs_rq, se);
+    __enqueue_entity(cfs_rq, se);
 }复制代码
 它的第一个工作是更新调度信息。然后将进程插入红黑树中。其中update_curr()函数是核心。完成调度信息的更新。
 
 static void update_curr(struct cfs_rq *cfs_rq)
 {
-	struct sched_entity *curr = cfs_rq_curr(cfs_rq);
-	unsigned long delta_exec;
-	if (unlikely(!curr))
-		return;
-	delta_exec = (unsigned long)(rq_of(cfs_rq)->clock - curr->exec_start);
-	curr->delta_exec += delta_exec;
-	if (unlikely(curr->delta_exec > sysctl_sched_stat_granularity)) {
-		__update_curr(cfs_rq, curr);
-		curr->delta_exec = 0;
-	}
-	curr->exec_start = rq_of(cfs_rq)->clock;
+    struct sched_entity *curr = cfs_rq_curr(cfs_rq);
+    unsigned long delta_exec;
+    if (unlikely(!curr))
+        return;
+    delta_exec = (unsigned long)(rq_of(cfs_rq)->clock - curr->exec_start);
+    curr->delta_exec += delta_exec;
+    if (unlikely(curr->delta_exec > sysctl_sched_stat_granularity)) {
+        __update_curr(cfs_rq, curr);
+        curr->delta_exec = 0;
+    }
+    curr->exec_start = rq_of(cfs_rq)->clock;
 }复制代码
 该函数首先统计当前进程所获得的CPU时间，rq_of(cfs_rq)->clock值在tick中断中被更 新，curr->exec_start就是当前进程开始获得CPU时的时间戳。两值相减就是当前进程所获得的CPU时间。将该变量存入 curr->delta_exec中。然后调用__update_curr()
 
 __update_curr(struct cfs_rq *cfs_rq, struct sched_entity *curr)
 {
-	unsigned long delta, delta_exec, delta_fair, delta_mine;
-	struct load_weight *lw = &cfs_rq-load;
-	unsigned long load = lw->weight;
-	delta_exec = curr->delta_exec;
-	schedstat_set(curr->exec_max, max((u64)delta_exec, curr->exec_max));
-	curr->sum_exec_runtime += delta_exec;
-	cfs_rq->exec_clock += delta_exec;
-	if (unlikely(!load))		return;
-	delta_fair = calc_delta_fair(delta_exec, lw);
-	delta_mine = calc_delta_mine(delta_exec, curr->load.weight, lw);
-	if (cfs_rq->sleeper_bonus > sysctl_sched_min_granularity) {
-		delta = min((u64)delta_mine, cfs_rq->sleeper_bonus);
-		delta = min(delta, (unsigned long)(
-			(long)sysctl_sched_runtime_limit - curr->wait_runtime));
-		cfs_rq->sleeper_bonus -= delta;
-		delta_mine -= delta;
-	}
-	cfs_rq->fair_clock += delta_fair;
-	add_wait_runtime(cfs_rq, curr, delta_mine - delta_exec);
+    unsigned long delta, delta_exec, delta_fair, delta_mine;
+    struct load_weight *lw = &cfs_rq-load;
+    unsigned long load = lw->weight;
+    delta_exec = curr->delta_exec;
+    schedstat_set(curr->exec_max, max((u64)delta_exec, curr->exec_max));
+    curr->sum_exec_runtime += delta_exec;
+    cfs_rq->exec_clock += delta_exec;
+    if (unlikely(!load))        return;
+    delta_fair = calc_delta_fair(delta_exec, lw);
+    delta_mine = calc_delta_mine(delta_exec, curr->load.weight, lw);
+    if (cfs_rq->sleeper_bonus > sysctl_sched_min_granularity) {
+        delta = min((u64)delta_mine, cfs_rq->sleeper_bonus);
+        delta = min(delta, (unsigned long)(
+            (long)sysctl_sched_runtime_limit - curr->wait_runtime));
+        cfs_rq->sleeper_bonus -= delta;
+        delta_mine -= delta;
+    }
+    cfs_rq->fair_clock += delta_fair;
+    add_wait_runtime(cfs_rq, curr, delta_mine - delta_exec);
 }复制代码
 __update_curr()的主要工作就是更新前面提到的fair_clock和wait_runtime。这两个 值的差值就是后面进程插入红黑树的键值。变量Delta_exec保存了前面获得的当前进程所占用的CPU时间。函数calc_delta_fair() 根据cpu负载 (保存在lw变量中) ，对delta_exec进行修正，然后将结果保存到delta_fair变量中，随后将fair_clock增加 delta_fair。函数calc_delta_mine()根据nice值 (保存在curr->load.weight中) 和cpu负载修正 delta_exec，将结果保存在delta_mine中。根据源代码中的注释，delta_mine就表示当前进程应该获得的CPU时间。
 

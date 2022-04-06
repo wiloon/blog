@@ -493,61 +493,61 @@ factory.close();
 <?xml version="1.0" encoding="UTF-8"?>
   
 <persistence xmlns="http://java.sun.com/xml/ns/persistence"
-	  
+      
 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.0">
 
 <persistence-unit name="oracle" transaction-type="RESOURCE_LOCAL">
-		  
+          
 <provider>
-			  
+              
 org.apache.openjpa.persistence.PersistenceProviderImpl
-		  
+          
 </provider>
-		  
+          
 <class>com.openjpa.entity.Animal</class>
 
 <properties>
-			  
+              
 <property name="openjpa.ConnectionURL" value="jdbc:oracle:thin:@192.168.1.8:1521:test" />
-			  
+              
 <property name="openjpa.ConnectionDriverName" value="oracle.jdbc.OracleDriver" />
-			  
+              
 <property name="openjpa.ConnectionUserName" value="test" />
-			  
+              
 <property name="openjpa.ConnectionPassword" value="test" />
-			  
+              
 <property name="openjpa.Log" value="SQL=TRACE" />
-		  
+          
 </properties>
-	  
+      
 </persistence-unit>
 
 <persistence-unit name="MySQL" transaction-type="RESOURCE_LOCAL">
-		  
+          
 <provider>
-			  
+              
 org.apache.openjpa.persistence.PersistenceProviderImpl
-		  
+          
 </provider>
 
 <class>com.wiloon.openjpa.entity.Animal</class>
 
 <properties>
-			  
+              
 <property name="openjpa.ConnectionURL" value="jdbc:MySQL://localhost:3306/tmp" />
-			  
+              
 <property name="openjpa.ConnectionDriverName" value="com.MySQL.jdbc.Driver" />
-			  
+              
 <property name="openjpa.ConnectionUserName" value="wiloon" />
-			  
+              
 <property name="openjpa.ConnectionPassword" value="xxx" />
-			  
+              
 <property name="openjpa.Log"
-				  
+                  
 value="DefaultLevel=WARN, Runtime=INFO, Tool=INFO, SQL=TRACE"/>
-		  
+          
 </properties>
-	  
+      
 </persistence-unit>
   
 </persistence>
@@ -587,7 +587,7 @@ mavenCentral( )
 }
 
 dependencies{
-	  
+      
 compile "MySQL:MySQL-connector-java:5.1.18"
       
 compile "org.apache.openjpa:openjpa-persistence-jdbc:1.2.0"
@@ -617,45 +617,45 @@ public class TestAnimalDaoImpl {
 @Test
       
 public void testAnimal() {
-	  
+      
 AnimalDao animalDao = new AnimalDaoImpl();
 
 // 新增
-	  
+      
 Animal a = new Animal();
-	  
+      
 a.setName("rabbit");
-	  
+      
 animalDao.persistAnimal(a);
 
 // 查询
-	  
+      
 List animals = animalDao.findAnimalsByName("rabbit");
-	  
+      
 for (Animal animal : animals) {
-	      
+          
 System.out.println("name = " + animal.getName());
-	  
+      
 }
 
 // 查询单个
-	  
+      
 Animal an = animalDao.getAnimalByPrimaryKey(2);
-	  
+      
 System.out.println("Aniaml id = " + a.getId() + " , name = " + an.getName());
 
 // 删除
-	  
+      
 //animalDao.removeAnimal(a.getId());
 
 // 查询
-	  
+      
 animals = animalDao.findAnimalsByName("rabbit");
-	  
+      
 for (Animal animal : animals) {
-	      
+          
 System.out.println("name = " + animal.getName());
-	  
+      
 }
 
 }

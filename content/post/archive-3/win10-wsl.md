@@ -154,8 +154,8 @@ https://github.com/nodesource/distributions/blob/master/README.md
     node -v && npm -v && go version
 
 ### maven sprint boot run 
-	  mvn spring-boot:run
-	  
+      mvn spring-boot:run
+      
 ### 固定ip
 #### wsl 自动设置display ip
 vim .bashrc
@@ -164,8 +164,8 @@ vim .zshrc
     export DISPLAY=$(awk '/nameserver / {print $2; exit}' /etc/resolv.conf 2>/dev/null):0
 
 ### windows firewall
-	advanced rule add rule: tcp port 0
-	
+    advanced rule add rule: tcp port 0
+    
 #### windows脚本设置网卡Ip
 https://blog.csdn.net/manbu_cy/article/details/108476859
 

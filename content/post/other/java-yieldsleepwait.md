@@ -10,13 +10,13 @@ tags:
   - reprint
 ---
 ## java 线程 sleep, wait, join, yield
-### wait()	
+### wait()    
 调用该方法的线程进入 WAITING 状态，只有等待另外线程的通知或被中断才会返回，需要注意，
 
 调用wait()方法后，会释放对象的锁。
 
-wait(long)	超时等待一段时间，这里的参数是毫秒，也就是等待长达n毫秒，如果没有通知就超时返回。
-wait(long, int)	对于超时时间更细粒度的控制，可以达到毫秒。
+wait(long)    超时等待一段时间，这里的参数是毫秒，也就是等待长达n毫秒，如果没有通知就超时返回。
+wait(long, int)    对于超时时间更细粒度的控制，可以达到毫秒。
 
 ```java
 Thread.sleep(3000);

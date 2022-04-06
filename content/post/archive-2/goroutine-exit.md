@@ -30,35 +30,35 @@ Then each of the goroutines runs and calls Done when finished. At the same time,
 
 ```go
 import (
-	"fmt"
-	"sync"
-	"time"
+    "fmt"
+    "sync"
+    "time"
 )
 
 func main() {
-	wg := &sync.WaitGroup{}
+    wg := &sync.WaitGroup{}
 
-	wg.Add(1)
-	go func() {
-		for i := 0; i < 10; i++ {
-			fmt.Println("goroutine-0: ", i)
-			time.Sleep(1 * time.Second)
-		}
-		wg.Done()
-	}()
+    wg.Add(1)
+    go func() {
+        for i := 0; i < 10; i++ {
+            fmt.Println("goroutine-0: ", i)
+            time.Sleep(1 * time.Second)
+        }
+        wg.Done()
+    }()
 
-	go goroutine1(wg)
-	wg.Wait()
+    go goroutine1(wg)
+    wg.Wait()
 }
 
 func goroutine1(wg *sync.WaitGroup) {
-	defer func() {
-		wg.Done()
-	}()
-	for i := 0; i < 10; i++ {
-		fmt.Println("goroutine-1: ", i)
-		time.Sleep(1 * time.Second)
-	}
+    defer func() {
+        wg.Done()
+    }()
+    for i := 0; i < 10; i++ {
+        fmt.Println("goroutine-1: ", i)
+        time.Sleep(1 * time.Second)
+    }
 }
 ```
 

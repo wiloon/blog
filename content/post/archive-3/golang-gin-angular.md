@@ -25,7 +25,7 @@ https://www.cnblogs.com/zisefeizhu/p/12739223.html
       //http重定向
       r.GET("/index", func(c *gin.Context) {
         //c.JSON(http.StatusOK, gin.H{
-        //	"status": "ok",
+        //    "status": "ok",
         //})
         //跳转到sogo
         c.Redirect(http.StatusMovedPermanently, "https://www.sogo.com")

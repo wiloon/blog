@@ -186,12 +186,12 @@ ArrayList.toArray
 #### Collections.addAll()方法(最高效)
 
 private void testArrayCastToListEfficient(){
-		String[] strArray = new String[2];
-		ArrayList< String> arrayList = new ArrayList<String>(strArray.length);
-		Collections.addAll(arrayList, strArray);
-		arrayList.add("1");
-		System.out.println(arrayList);
-	}
+        String[] strArray = new String[2];
+        ArrayList< String> arrayList = new ArrayList<String>(strArray.length);
+        Collections.addAll(arrayList, strArray);
+        arrayList.add("1");
+        System.out.println(arrayList);
+    }
 
 ### Instant > Date
 ```java

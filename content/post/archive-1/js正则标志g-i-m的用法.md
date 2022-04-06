@@ -116,7 +116,7 @@ http://blog.51yip.com/jsjquery/1076.html
 ```
 let testPassword = /^(?=.*?[a-z])(?=.*?[A-Z])(?=.*?\d)(?=.*?[!@#$%^&;*()_=+\-])[a-zA-Z\d!@#$%^&;*()_=+\-]*$/; //判断输入格式
             if(testPassword.test(this.passwordText)){
-             	...密码匹配成功
+                 ...密码匹配成功
             }else {
              ...密码匹配失败
             }

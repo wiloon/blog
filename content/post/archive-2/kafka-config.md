@@ -148,10 +148,10 @@ https://stackoverflow.com/questions/53039752/kafka-how-to-calculate-the-value-of
 ### max.request.size
 The maximum size of a request in bytes. This setting will limit the number of record batches the producer will send in a single request to avoid sending huge requests. This is also effectively a cap on the maximum uncompressed record batch size. Note that the server has its own cap on the record batch size (after compression if compression is enabled) which may be different from this.
 
-Type:	int
-Default:	1048576
-Valid Values:	[0,...]
-Importance:	medium
+Type:    int
+Default:    1048576
+Valid Values:    [0,...]
+Importance:    medium
 
 ## kafka server, topic config
 ### max.message.bytes

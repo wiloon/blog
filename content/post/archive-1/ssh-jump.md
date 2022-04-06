@@ -15,21 +15,19 @@ tags:
 # jump0:跳板机
 # server0: 目标服务器
 host jump0
-	HostName 192.168.0.1
-	User user0
+  HostName 192.168.0.1
+  User user0
 
 Host server0
-	HostName 192.168.0.2
-	User user0
-	ProxyCommand ssh -q -W %h:%p jump0
+  HostName 192.168.0.2
+  User user0
+  ProxyCommand ssh -q -W %h:%p jump0
 # %h: ~/.ssh/config 的语法, 代表主机名, 执行的时候会用 HostName 的值替换
 # %p: 端口
 # https://linux.die.net/man/5/ssh_config
 ```
-	
+
 这里说的 ssh 跳板，是指我们通过一个中继服务器其访问另一台内网服务器。典型的应用场景是在 VPN 网络中，我们进入了 VPN 服务器之后再访问另一个网段的内网服务器。
-
-
 
 1 动态跳板列表
 最简单的方法是在 ssh 命令中使用 -J 选项来指明跳板列表。这里称「列表」，意味着你可以给出一长串的服务器，ssh 会顺序经过所有的跳板然后到达最终的远程服务器。命令的形式如下：
@@ -77,16 +75,16 @@ ssh -J vps1 contabo
 10
 11
 Host vps1
-	HostName vps1.example.org
-	IdentityFile ~/.ssh/vps1.pem
-	User ec2-user
+    HostName vps1.example.org
+    IdentityFile ~/.ssh/vps1.pem
+    User ec2-user
 
 Host contabo
-	HostName contabo.example.org	
-	IdentityFile ~/.ssh/contabovps
-	Port 22
-	User admin	
-	ProxyCommand ssh -q -W %h:%p vps1
+    HostName contabo.example.org    
+    IdentityFile ~/.ssh/contabovps
+    Port 22
+    User admin    
+    ProxyCommand ssh -q -W %h:%p vps1
 其中关键的配置是 ProxyCommand，其中-q表示代理命令工作在静默模式下，而 -W 则表示 stdio 转发。
 
 然后我们就可以通过下面的命令访问 contabo 了

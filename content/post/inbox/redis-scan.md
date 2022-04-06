@@ -105,7 +105,7 @@ scan的优缺点
 返回的数据可能有重复，应用层必须能够处理重入逻辑；上面的示例代码中，redisTemplate.execute方法是个Set，相当于已经对于返回的key去重
 count是每次扫描的key个数，并不是结果集个数。count要根据扫描数据量大小而定，Scan虽然无锁，但是也不能保证在超过百万数据量级别搜索效率；count不能太小，网络交互会变多，count要尽可能的大。在搜索结果集1万以内，建议直接设置为与所搜集大小相同
 spring中使用scan实现keys
-	/** * 以count为步长查找符合pattern条件的keys * * @param redisTemplate 指定redis * @param pattern 匹配条件 * @param count 一次在count条记录中match符合pattern条件的记录。若count<=0,使用1000 * @return Set<String> 若limit<= 0,返回所有;否则返回查找结果 */
+    /** * 以count为步长查找符合pattern条件的keys * * @param redisTemplate 指定redis * @param pattern 匹配条件 * @param count 一次在count条记录中match符合pattern条件的记录。若count<=0,使用1000 * @return Set<String> 若limit<= 0,返回所有;否则返回查找结果 */
     public Set<String> scanKeys(RedisTemplate<String, Object> redisTemplate, String pattern, int count) {
 
         log.info("pattern:{}, count:{}", pattern, count);
@@ -129,7 +129,7 @@ spring中使用scan实现keys
         });
     }
 Jedis使用scan实现keys
-	/** * 扫描keys方法，替代Keys接口 * @param jedis * @param keyPattern * @return */
+    /** * 扫描keys方法，替代Keys接口 * @param jedis * @param keyPattern * @return */
     public static Set<String> scanKeys(Jedis jedis, String keyPattern) {
         Set<String> keys = new HashSet<>();
         String cursor = ScanParams.SCAN_POINTER_START;

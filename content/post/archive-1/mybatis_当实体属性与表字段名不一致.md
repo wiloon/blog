@@ -19,11 +19,11 @@ http://m.blog.csdn.net/blog/wuqinfei_cs/12873135
   /*
 <!-- 将表字段与实体属性一一对应 -->
 <resultMap type="com.hehe.mybatis.domain.User" id="userMap">
-	<id column="id" property="id"/>
-	<result column="name" property="username"/>
-	<result column="address" property="uaddress"/>
+    <id column="id" property="id"/>
+    <result column="name" property="username"/>
+    <result column="address" property="uaddress"/>
 </resultMap>
 
 <select id="selectUserById" parameterType="string" resultMap="userMap">
-	select * from user where id = #{id}
+    select * from user where id = #{id}
 </select>

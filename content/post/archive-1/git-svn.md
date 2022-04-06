@@ -42,8 +42,10 @@ Installing the perl-term-readkey package fixes this
 ```bash
 sudo pacman -S perl-term-readkey
 ```
+
 ### The name org.freedesktop.secrets was not provided by any .service file
-insall gnome-keyring, 
+
+insall gnome-keyring,
 
     pacman -S gnome-keyring
 

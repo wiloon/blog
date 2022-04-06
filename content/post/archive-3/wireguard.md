@@ -3,32 +3,41 @@ title: wireguard
 author: "-"
 date: 2020-03-15T16:20:26+00:00
 url: wireguard
-tag: vpn
-
 categories:
-  - inbox
+  - network
 tags:
   - reprint
+  - remix
+  - vpn
 ---
 ## wireguard
+
 ## install
-#### archlinux
+
+### archlinux
+
 archlinux 如果使用的是新版本的内核的话，就不需要单独安装 wireguard 了， wireguard 已经被集成进了内核。
 
-    pacman -Syu
-    # 安装 wireguard 管理工具
-    pacman -S wireguard-tools
+```bash
+pacman -Syu
+# 安装 wireguard 管理工具
+pacman -S wireguard-tools
 
-    lsmod | grep wireguard
-    sudo modprobe wireguard
+lsmod | grep wireguard
+sudo modprobe wireguard
+```
 
-#### debian
-    echo "deb http://deb.debian.org/debian/ unstable main" | sudo tee /etc/apt/sources.list.d/unstable-wireguard.list
-    printf 'Package: *\nPin: release a=unstable\nPin-Priority: 90\n' | sudo tee /etc/apt/preferences.d/limit-unstable
-    apt update
-    apt install wireguard
+### debian
+
+```bash
+echo "deb http://deb.debian.org/debian/ unstable main" | sudo tee /etc/apt/sources.list.d/unstable-wireguard.list
+printf 'Package: *\nPin: release a=unstable\nPin-Priority: 90\n' | sudo tee /etc/apt/preferences.d/limit-unstable
+apt update
+apt install wireguard
+```
 
 ### 生成密钥 peer A & peer B
+
 ```bash
 # 生成私钥
 wg genkey > peer_A.key
@@ -42,23 +51,28 @@ wg genkey | tee peer_A.key | wg pubkey > peer_A.pub
 ### optional, pre-shared key
 wg genpsk > peer_A-peer_B.psk
 ```
+
 ### 参数
-    # 设置可以被路由到对端的ip/段
-    allowed-ips
 
-    # 路由所有流量到对端
-    allowed-ips 0.0.0.0/0
+```bash
+# 设置可以被路由到对端的ip/段
+allowed-ips
 
-    # 路由指定ip/段到对端
-    allowed-ips 192.168.53.1/32
+# 路由所有流量到对端
+allowed-ips 0.0.0.0/0
 
-    # 路由多个ip/段到对端 
-    allowed-ips 192.168.53.1/32,192.168.50.0/24
+# 路由指定ip/段到对端
+allowed-ips 192.168.53.1/32
 
-    # endpoint
-    对端的ip和端口
+# 路由多个ip/段到对端 
+allowed-ips 192.168.53.1/32,192.168.50.0/24
+
+# endpoint
+对端的ip和端口
+```
 
 #### Peer A setup
+
 ```bash
 sudo ip link add dev wg0 type wireguard
 sudo ip addr add 192.168.53.1/24 dev wg0
@@ -75,48 +89,62 @@ ip link set wg0 up
 ```
 
 ### peer B
-    sudo ip link add dev wg0 type wireguard
-    # ip要改一下...
-    sudo ip addr add 192.168.53.2/24 dev wg0
-    sudo wg set wg0 private-key ./privatekey
 
-    # 配置监听端口，监听 peer A 发起的连接请求，仅作为客户端使用时，可以不配置监听, 忽略此步骤
-    sudo wg set wg0 listen-port 9000 allowed-ips 0.0.0.0/0 peer_B 
-    
-    # 所有的ip包都 会被 发往 peer_A
-    # endpoint 对端的地址,ip或域名
-    # PEER_A_PUBLIC_KEY 对端公钥
-    sudo wg set wg0 peer PEER_A_PUBLIC_KEY persistent-keepalive 25 allowed-ips 0.0.0.0/0 endpoint 192.168.50.215:9000
-    sudo ip link set wg0 up
+```bash
+sudo ip link add dev wg0 type wireguard
+# ip要改一下...
+sudo ip addr add 192.168.53.2/24 dev wg0
+sudo wg set wg0 private-key ./privatekey
+
+# 配置监听端口，监听 peer A 发起的连接请求，仅作为客户端使用时，可以不配置监听, 忽略此步骤
+sudo wg set wg0 listen-port 9000 allowed-ips 0.0.0.0/0 peer_B 
+
+# 所有的ip包都 会被 发往 peer_A
+# endpoint 对端的地址,ip或域名
+# PEER_A_PUBLIC_KEY 对端公钥
+sudo wg set wg0 peer PEER_A_PUBLIC_KEY persistent-keepalive 25 allowed-ips 0.0.0.0/0 endpoint 192.168.50.215:9000
+sudo ip link set wg0 up
+```
 
 ### 添加路由
-    # ipv4
-    ip route add 192.168.50.0/24 dev wg0
-    # ipv6
-    ip route add fd7b:d0bd:7a6e::/64 dev wg0
+
+```bash
+# ipv4
+ip route add 192.168.50.0/24 dev wg0
+# ipv6
+ip route add fd7b:d0bd:7a6e::/64 dev wg0
+```
 
 ### remove peer
+
     wg set wg0 peer PEER_A_PUBLIC_KEY remove  
 
 ### 配置文件
+
     /etc/wireguard/wg0.conf
 
 #### 保存配置到文件
+
     wg showconf wg0 > /etc/wireguard/wg0.conf
     wg-quick up wg0
     wg-quick down wg0
 
 ### systemd-networkd
+
     systemd-networkd-wait-online.service
     systemd-resolvconf  
     openresolv
+
 ### iptables, 设置iptables规则，客户端连接之后就能Ping通服务端局域网里的其它ip了。
+
     iptables -A FORWARD -i wg0 -j ACCEPT
     iptables -t nat -A POSTROUTING -o <eth0> -j MASQUERADE
     iptables -t nat -A POSTROUTING -o wlp1s0 -j MASQUERADE
 
 ### systemd-networkd, 用 systemd-networkd 配置 wireguard,开机自动加载 wireguard 配置
+
 #### vim /etc/systemd/network/99-wg0.netdev
+
     [NetDev]
     Name = wg0
     Kind = wireguard
@@ -189,7 +217,8 @@ mtu: auto
 17. 连接保活间隔(单位:秒): 不填
 
 ### chromeos > crostini
-使用 android 版本的 wireguard   
+
+使用 android 版本的 wireguard
 chromeos 从 google play 安装wireguard,连接成功后，vpn全局生效包括crostini里的linux也可以使用vpn通道
 
 ### win 11
@@ -198,7 +227,7 @@ chromeos 从 google play 安装wireguard,连接成功后，vpn全局生效包括
   - 名称: pingd
   - 公钥: 自动生成的本端公钥
 
-```
+```bash
 [Interface]
 PrivateKey = privateKey0
 Address = 192.168.53.8/32
@@ -208,7 +237,7 @@ DNS = 192.168.50.1
 PublicKey = publicKey0
 AllowedIPs = 192.168.50.0/24, 192.168.53.0/24
 Endpoint = foo.bar.com:51900
-
+# endpoint 配置了域名的时候, wireguard 建立连接时会先把域名解析成ip,再建连接,断网重连的时候直接用上一次的ip重连, 用DDNS的情况, ip变了之后会导致重连失败.
 ```
 
 ---

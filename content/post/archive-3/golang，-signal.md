@@ -20,12 +20,12 @@ https://colobu.com/2015/10/09/Linux-Signals/
 signals := make(chan os.Signal)
   signal.Notify(signals, os.Interrupt, os.Kill, syscall.SIGTERM)
   // ...
-  	for s := range signals {
-		if s == os.Interrupt || s == os.Kill || s == syscall.SIGTERM {
-			break
-		}
-	}
-	signal.Stop(signals)
+      for s := range signals {
+        if s == os.Interrupt || s == os.Kill || s == syscall.SIGTERM {
+            break
+        }
+    }
+    signal.Stop(signals)
 ```
 
 

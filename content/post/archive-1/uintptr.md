@@ -53,32 +53,32 @@ type uintptr uintptr
 
 ```go
 func main() {
-	n := 10
+    n := 10
 
-	b := make([]int, n)
-	for i := 0; i < n; i++ {
-		b[i] = i
-	}
-	fmt.Println(b)
-	// [0 1 2 3 4 5 6 7 8 9]
+    b := make([]int, n)
+    for i := 0; i < n; i++ {
+        b[i] = i
+    }
+    fmt.Println(b)
+    // [0 1 2 3 4 5 6 7 8 9]
 
-	// 取slice的最后的一个元素
-	firstP := &b[0]
-	fmt.Printf("firstP: %v\n", firstP)
-	firstUnsafe := unsafe.Pointer(firstP)
-	fmt.Printf("firstUnsafe: %v\n", firstUnsafe)
-	firstUintPtr := uintptr(firstUnsafe)
-	fmt.Printf("firstUintPtr: %v\n", firstUintPtr)
-	itemSize := unsafe.Sizeof(b[0])
-	fmt.Printf("itemSize: %v\n", itemSize)
-  // 	lastUintP := firstUintPtr + 9*itemSize // 错误用法，firstUintPtr 可能随时被 GC 回收， GC会把 firstUintPtr 当成 普通 uint， GC 并不知道它是一个指针
-	lastUintP := uintptr(firstUnsafe) + 9*itemSize
-	fmt.Printf("itemSize: %v\n", uintptr(firstUnsafe) + 9*itemSize)
-	end := unsafe.Pointer(lastUintP)
-	fmt.Printf("end: %v\n", end)
-	// 等价于unsafe.Pointer(&b[9])
-	fmt.Println(*(*int)(end))
-	// 9
+    // 取slice的最后的一个元素
+    firstP := &b[0]
+    fmt.Printf("firstP: %v\n", firstP)
+    firstUnsafe := unsafe.Pointer(firstP)
+    fmt.Printf("firstUnsafe: %v\n", firstUnsafe)
+    firstUintPtr := uintptr(firstUnsafe)
+    fmt.Printf("firstUintPtr: %v\n", firstUintPtr)
+    itemSize := unsafe.Sizeof(b[0])
+    fmt.Printf("itemSize: %v\n", itemSize)
+  //     lastUintP := firstUintPtr + 9*itemSize // 错误用法，firstUintPtr 可能随时被 GC 回收， GC会把 firstUintPtr 当成 普通 uint， GC 并不知道它是一个指针
+    lastUintP := uintptr(firstUnsafe) + 9*itemSize
+    fmt.Printf("itemSize: %v\n", uintptr(firstUnsafe) + 9*itemSize)
+    end := unsafe.Pointer(lastUintP)
+    fmt.Printf("end: %v\n", end)
+    // 等价于unsafe.Pointer(&b[9])
+    fmt.Println(*(*int)(end))
+    // 9
 }
 ```
 

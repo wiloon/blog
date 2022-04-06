@@ -241,19 +241,19 @@ Linux内核使用struct rq结构来描述运行队列,关键字段如下:
  * acquire operations must be ordered by ascending &runqueue.
  */
 struct rq {
-	/* runqueue lock: */
-	raw_spinlock_t lock;
+    /* runqueue lock: */
+    raw_spinlock_t lock;
 
-	/*
-	 * nr_running and cpu_load should be in the same cacheline because
-	 * remote CPUs use both these fields when doing load calculation.
-	 */
-	unsigned int nr_running;
+    /*
+     * nr_running and cpu_load should be in the same cacheline because
+     * remote CPUs use both these fields when doing load calculation.
+     */
+    unsigned int nr_running;
     
     /* 三个调度队列: CFS调度,RT调度,DL调度 */
-	struct cfs_rq cfs;
-	struct rt_rq rt;
-	struct dl_rq dl;
+    struct cfs_rq cfs;
+    struct rt_rq rt;
+    struct dl_rq dl;
 
     /* stop指向迁移内核线程, idle指向空闲内核线程 */
     struct task_struct *curr, *idle, *stop;

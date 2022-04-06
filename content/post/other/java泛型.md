@@ -53,25 +53,25 @@ class Gen<T> {
 private T ob; // 定义泛型成员变量
 
 public Gen(T ob) {
-	  
+      
 this.ob = ob;
       
 }
 
 public T getOb() {
-	  
+      
 return ob;
       
 }
 
 public void setOb(T ob) {
-	  
+      
 this.ob = ob;
       
 }
 
 public void showType() {
-	  
+      
 System.out.println("T的实际类型是: " + ob.getClass().getName());
       
 }
@@ -81,27 +81,27 @@ System.out.println("T的实际类型是: " + ob.getClass().getName());
 public class GenDemo {
       
 public static void main(String[] args) {
-	  
+      
 // 定义泛型类Gen的一个Integer版本
-	  
+      
 Gen<Integer> intOb = new Gen<Integer>(88);
-	  
+      
 intOb.showType();
-	  
+      
 int i = intOb.getOb();
-	  
+      
 System.out.println("value= " + i);
-	  
+      
 System.out.println("------------");
-	  
+      
 // 定义泛型类Gen的一个String版本
-	  
+      
 Gen<String> strOb = new Gen<String>("Hello Gen!");
-	  
+      
 strOb.showType();
-	  
+      
 String s = strOb.getOb();
-	  
+      
 System.out.println("value= " + s);
       
 }
@@ -121,19 +121,19 @@ class Gen2 {
 private Object ob; // 定义一个通用类型成员
 
 public Gen2(Object ob) {
-	  
+      
 this.ob = ob;
       
 }
 
 public Object getOb() {
-	  
+      
 return ob;
       
 }
 
 public void setOb(Object ob) {
-	  
+      
 this.ob = ob;
       
 }
@@ -144,14 +144,14 @@ System.out.println("T的实际类型是: " + ob.getClass().getName());
 
 public class GenDemo2 {
 public static void main(String[] args) {
-	  
+      
 // 定义类Gen2的一个Integer版本
 Gen2 intOb = new Gen2(new Integer(88));
 intOb.showTyep();
 int i = (Integer) intOb.getOb();
 System.out.println("value= " + i);
 System.out.println("-----------");
-	  
+      
 // 定义类Gen2的一个String版本
 Gen2 strOb = new Gen2("Hello Gen!");
 strOb.showTyep();
@@ -196,19 +196,19 @@ public class StringFoo {
 private String x;
 
 public StringFoo(String x) {
-	  
+      
 this.x = x;
       
 }
 
 public String getX() {
-	  
+      
 return x;
       
 }
 
 public void setX(String x) {
-	  
+      
 this.x = x;
       
 }
@@ -226,19 +226,19 @@ public class DoubleFoo {
 private Double x;
 
 public DoubleFoo(Double x) {
-	  
+      
 this.x = x;
       
 }
 
 public Double getX() {
-	  
+      
 return x;
       
 }
 
 public void setX(Double x) {
-	  
+      
 this.x = x;
       
 }
@@ -261,19 +261,19 @@ public class ObjectFoo {
 private Object x;
 
 public ObjectFoo(Object x) {
-	  
+      
 this.x = x;
       
 }
 
 public Object getX() {
-	  
+      
 return x;
       
 }
 
 public void setX(Object x) {
-	  
+      
 this.x = x;
       
 }
@@ -291,21 +291,21 @@ package com.wiloon.test.generics;
 public class ObjectFooDemo {
       
 public static void main(String args[]) {
-	  
+      
 ObjectFoo strFoo = new ObjectFoo("Hello Generics!");
-	  
+      
 ObjectFoo douFoo = new ObjectFoo(33.0);
-	  
+      
 ObjectFoo objFoo = new ObjectFoo(new Object());
-	  
+      
 System.out.println("strFoo.getX=" + (String) strFoo.getX());
-	  
+      
 System.out.println("douFoo.getX=" + (Double) douFoo.getX());
-	  
+      
 System.out.println("objFoo.getX=" + objFoo.getX());
-	  
+      
 System.out.println("strFoo.getX=" + strFoo.getX());
-	  
+      
 System.out.println("douFoo.getX=" + douFoo.getX());
       
 }
@@ -337,19 +337,19 @@ class GenericsFoo<T> {
 private T x;
 
 public GenericsFoo(T x) {
-	  
+      
 this.x = x;
       
 }
 
 public T getX() {
-	  
+      
 return x;
       
 }
 
 public void setX(T x) {
-	  
+      
 this.x = x;
       
 }
@@ -359,17 +359,17 @@ this.x = x;
 public class GenericsFooDemo {
       
 public static void main(String args[]) {
-	  
+      
 GenericsFoo<String> strFoo = new GenericsFoo<String>("Hello Generics!");
-	  
+      
 GenericsFoo<Double> douFoo = new GenericsFoo<Double>(new Double("33.0"));
-	  
+      
 GenericsFoo<Object> objFoo = new GenericsFoo<Object>(new Object());
-	  
+      
 System.out.println("strFoo.getX=" + strFoo.getX());
-	  
+      
 System.out.println("douFoo.getX=" + douFoo.getX());
-	  
+      
 System.out.println("objFoo.getX=" + objFoo.getX());
       
 }
@@ -439,35 +439,35 @@ public class CollectionGenFoo<T extends Collection> {
 private T x;
 
 public CollectionGenFoo(T x) {
-	  
+      
 this.x = x;
       
 }
 
 public T getX() {
-	  
+      
 return x;
       
 }
 
 public void setX(T x) {
-	  
+      
 this.x = x;
       
 }
 
 public static void main(String args[]) {
-	  
+      
 CollectionGenFoo listFoo = null;
-	  
+      
 listFoo = new CollectionGenFoo(new ArrayList());
-	  
+      
 // // 出错了,不让这么干。
-	  
+      
 // CollectionGenFoo<Collection> listFoo = null;
-	  
+      
 // listFoo = new CollectionGenFoo(new ArrayList());
-	  
+      
 System.out.println("实例化成功!");
       
 }
@@ -493,15 +493,15 @@ import java.util.Collection;
 public class CollectionGenFooDemo {
       
 public static void main(String args[]) {
-	  
+      
 CollectionGenFoo<? extends Collection> listFoo = null;
-	  
+      
 listFoo = new CollectionGenFoo(new ArrayList());
-	  
+      
 // 现在不会出错了
-	  
+      
 listFoo = new CollectionGenFoo<Collection>(new ArrayList());
-	  
+      
 System.out.println("实例化成功!");
       
 }
@@ -529,7 +529,7 @@ package com.wiloon.test.generics;
 public class ExampleA {
       
 public <T> void f(T x) {
-	  
+      
 System.out.println(x.getClass().getName());
       
 }
@@ -551,15 +551,15 @@ return x;
 }
 
 public static void main(String[] args) {
-	  
+      
 ExampleA ea = new ExampleA();
-	  
+      
 ea.f(" ");
-	  
+      
 ea.f(10);
-	  
+      
 ea.f('a');
-	  
+      
 ea.f(ea);
       
 }

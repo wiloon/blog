@@ -119,7 +119,7 @@ To use nxml-mode automatically for files with an extension of xml,
 xsl, rng or xhtml, add
 (setq auto-mode-alist
         (cons '("\.\(xml\|xsl\|rng\|xhtml\)\'" . nxml-mode)
-	      auto-mode-alist))
+          auto-mode-alist))
 
 ## 'emacs  删除空行'
 flush-lines命令

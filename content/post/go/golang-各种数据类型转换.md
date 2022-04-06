@@ -139,8 +139,8 @@ string:=strconv.FormatInt(foo,10)
 int32(i)
 
 // uint8 > string
-	var s uint8 = 10
-	fmt.Print("out: "+strconv.Itoa(int(s)))
+    var s uint8 = 10
+    fmt.Print("out: "+strconv.Itoa(int(s)))
 
 // uint64 > string
 str := strconv.FormatUint(myNumber, 10)
@@ -241,7 +241,7 @@ func Uint32ToBytes(i uint32) []byte {
 
 ### hex > signed int
     i, _ := strconv.ParseUint(hexValue, 16, 64)
-	result = int32(i) / int32(rule.Rate)
+    result = int32(i) / int32(rule.Rate)
 
     a := binary.LittleEndian.Uint64(sampleA)
     // If you need int64:
@@ -289,36 +289,36 @@ func FormatFloat(f float64, fmt byte, prec, bitSize int) string
 package main
 
 import (
-	"fmt"
-	"strconv"
+    "fmt"
+    "strconv"
 )
 
 func main() {
-	f := 100.12345678901234567890123456789
-	fmt.Println(strconv.FormatFloat(f, 'b', 5, 32))
-	// 13123382p-17
-	fmt.Println(strconv.FormatFloat(f, 'e', 5, 32))
-	// 1.00123e+02
-	fmt.Println(strconv.FormatFloat(f, 'E', 5, 32))
-	// 1.00123E+02
-	fmt.Println(strconv.FormatFloat(f, 'f', 5, 32))
-	// 100.12346
-	fmt.Println(strconv.FormatFloat(f, 'g', 5, 32))
-	// 100.12
-	fmt.Println(strconv.FormatFloat(f, 'G', 5, 32))
-	// 100.12
-	fmt.Println(strconv.FormatFloat(f, 'b', 30, 32))
-	// 13123382p-17
-	fmt.Println(strconv.FormatFloat(f, 'e', 30, 32))
-	// 1.001234588623046875000000000000e+02
-	fmt.Println(strconv.FormatFloat(f, 'E', 30, 32))
-	// 1.001234588623046875000000000000E+02
-	fmt.Println(strconv.FormatFloat(f, 'f', 30, 32))
-	// 100.123458862304687500000000000000
-	fmt.Println(strconv.FormatFloat(f, 'g', 30, 32))
-	// 100.1234588623046875
-	fmt.Println(strconv.FormatFloat(f, 'G', 30, 32))
-	// 100.1234588623046875
+    f := 100.12345678901234567890123456789
+    fmt.Println(strconv.FormatFloat(f, 'b', 5, 32))
+    // 13123382p-17
+    fmt.Println(strconv.FormatFloat(f, 'e', 5, 32))
+    // 1.00123e+02
+    fmt.Println(strconv.FormatFloat(f, 'E', 5, 32))
+    // 1.00123E+02
+    fmt.Println(strconv.FormatFloat(f, 'f', 5, 32))
+    // 100.12346
+    fmt.Println(strconv.FormatFloat(f, 'g', 5, 32))
+    // 100.12
+    fmt.Println(strconv.FormatFloat(f, 'G', 5, 32))
+    // 100.12
+    fmt.Println(strconv.FormatFloat(f, 'b', 30, 32))
+    // 13123382p-17
+    fmt.Println(strconv.FormatFloat(f, 'e', 30, 32))
+    // 1.001234588623046875000000000000e+02
+    fmt.Println(strconv.FormatFloat(f, 'E', 30, 32))
+    // 1.001234588623046875000000000000E+02
+    fmt.Println(strconv.FormatFloat(f, 'f', 30, 32))
+    // 100.123458862304687500000000000000
+    fmt.Println(strconv.FormatFloat(f, 'g', 30, 32))
+    // 100.1234588623046875
+    fmt.Println(strconv.FormatFloat(f, 'G', 30, 32))
+    // 100.1234588623046875
 }
 
 

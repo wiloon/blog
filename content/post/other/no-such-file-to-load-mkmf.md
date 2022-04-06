@@ -16,13 +16,13 @@ tags:
 Building native extensions. This could take a while...
   
 ERROR: Error installing rails:
-	  
+      
 ERROR: Failed to build gem native extension.
 
 /usr/bin/ruby1.8 extconf.rb
   
 extconf.rb:1:in \`require': no such file to load - mkmf (LoadError)
-	  
+      
 from extconf.rb:1
   
 ```

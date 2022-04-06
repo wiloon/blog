@@ -20,37 +20,37 @@ ServletContextListener处理Web应用的 servlet上下文(context)的变化的�
 import javax.servlet.ServletContextEvent;
 import javax.servlet.*;
 
-public	class MyListener implements ServletContextListener {
+public    class MyListener implements ServletContextListener {
 
-	private ServletContext context = null;
+    private ServletContext context = null;
 
-	/* 这个方法在Web应用服务被移除，没有能力再接受请求的时候被调用。
-	 */
-	public void contextDestroyed(ServletContextEvent event){
-		//Output a simple message to the server's console
-		System.out.println("The Simple Web App. Has Been Removed");
-		this.context = null;
+    /* 这个方法在Web应用服务被移除，没有能力再接受请求的时候被调用。
+     */
+    public void contextDestroyed(ServletContextEvent event){
+        //Output a simple message to the server's console
+        System.out.println("The Simple Web App. Has Been Removed");
+        this.context = null;
 
-	}
+    }
 
-	// 这个方法在Web应用服务做好接受请求的时候被调用。
-	public void contextInitialized(ServletContextEvent event){
-		this.context = event.getServletContext();
+    // 这个方法在Web应用服务做好接受请求的时候被调用。
+    public void contextInitialized(ServletContextEvent event){
+        this.context = event.getServletContext();
 
-		//Output a simple message to the server's console
-		System.out.println("The Simple Web App. Is Ready");
+        //Output a simple message to the server's console
+        System.out.println("The Simple Web App. Is Ready");
 
-	}
+    }
 }
 
 <web-app>
-	
-		
-			com.listeners.MyContextListener
-		</listener-class>
-	</listener>
-	<servlet/>
-	<servlet-mapping/>
+    
+        
+            com.listeners.MyContextListener
+        </listener-class>
+    </listener>
+    <servlet/>
+    <servlet-mapping/>
 </web-app>
 ----------------------------------------转载http://blog.csdn.net/ezerg/archive/2004/09/24/115894.aspx
   

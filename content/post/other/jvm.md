@@ -86,7 +86,7 @@ Java堆中对象的对象指针被压缩到32bit
   
 使用堆基地址 (如果在低26G内存空间中，为0) 即，指针的偏移量针对于堆的基地址
 
-### -XX:+TraceClassLoading	-Xlog:class+load=info
+### -XX:+TraceClassLoading    -Xlog:class+load=info
 -XX:+TraceClassLoading 显示类的加载信息, jdk 16 里面作废掉了,  用 -Xlog:class+load=info
 
 ### -XX:+HeapDumpOnOutOfMemoryError

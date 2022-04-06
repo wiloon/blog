@@ -94,7 +94,7 @@ Vue-cli3.x比Vue-cli2.x构建的项目要简化很多，根目录下只有`./src
     server {
             listen 80;
             server_name foo.wiloon.com;
-    	    rewrite ^/(.*)$ https://$host/;
+            rewrite ^/(.*)$ https://$host/;
     }
     server {
             listen 443 ssl;

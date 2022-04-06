@@ -47,8 +47,8 @@ echo 'nameserver 114.114.114.114' >> resolv.conf
 pacman -S gvim openssh grub sudo neofetch python
 
 echo 'pingd0' > /etc/hostname
-echo '127.0.0.1	localhost' >> /etc/hosts
-echo '127.0.0.1	pingd0' >> /etc/hosts
+echo '127.0.0.1    localhost' >> /etc/hosts
+echo '127.0.0.1    pingd0' >> /etc/hosts
 
 systemctl enable systemd-networkd
 systemctl enable systemd-resolved

@@ -49,10 +49,10 @@ package main
 import "strings"
  
 func main(){
-	a := "hahaha"
-	b := "hehehe"
-	c := strings.Join([]string{a,b},",")
-	println(c)
+    a := "hahaha"
+    b := "hehehe"
+    c := strings.Join([]string{a,b},",")
+    println(c)
 
 ```
 ### 字符串截取

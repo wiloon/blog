@@ -22,21 +22,21 @@ type Student struct {
 
 ### 匿名结构体
 ```go
-	person := struct { //匿名结构
-		Name string
-		Age  int
-	}{Name: "匿名", Age: 1}
-	jsonBytes, _ := json.Marshal(person)
-	fmt.Println("person:", string(jsonBytes))
+    person := struct { //匿名结构
+        Name string
+        Age  int
+    }{Name: "匿名", Age: 1}
+    jsonBytes, _ := json.Marshal(person)
+    fmt.Println("person:", string(jsonBytes))
 ```
 
 ```go
 type foo struct {
-	Field0 string `json:"field0"`
-	Field1  struct {
-		Field2 string `json:"field2"`
-	} `json:"field1"`
-	Field3 int `json:"field3"`
+    Field0 string `json:"field0"`
+    Field1  struct {
+        Field2 string `json:"field2"`
+    } `json:"field1"`
+    Field3 int `json:"field3"`
 }
 ```
 

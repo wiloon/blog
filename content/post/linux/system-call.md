@@ -38,13 +38,13 @@ linux内核中设置了一组用于实现系统功能的子程序，称为系统
 
 Linux 的系统调用主要有以下这些: 
 
-Task	   Commands
-进程控制	fork(); exit(); wait();
-进程通信	pipe(); shmget(); mmap();
-文件操作	open(); read(); write();
-设备操作	ioctl(); read(); write();
-信息维护	getpid(); alarm(); sleep();
-安全	    chmod(); umask(); chown();
+Task       Commands
+进程控制    fork(); exit(); wait();
+进程通信    pipe(); shmget(); mmap();
+文件操作    open(); read(); write();
+设备操作    ioctl(); read(); write();
+信息维护    getpid(); alarm(); sleep();
+安全        chmod(); umask(); chown();
 
 
 
@@ -60,7 +60,7 @@ char buf[2] = { 0 };
 int ret = 0;
 do 
 {
-	ret = fread(buf, 1, 1, pf);
+    ret = fread(buf, 1, 1, pf);
 } while (ret);
 ```
 #### read
@@ -72,7 +72,7 @@ char buf[2] = { 0 };
 int ret = 0;
 do 
 {
-	ret = read(buf, 1, 1, pf);
+    ret = read(buf, 1, 1, pf);
 } while (ret);
 ```
 
@@ -115,7 +115,7 @@ fstat(fd, &statbuf);
 start = mmap(NULL, statbuf, st_size, PROT_READ, MAP_PRIVATE, fd, 0);
 do 
 {
-	*buf = start[ret++];
+    *buf = start[ret++];
 } while (ret < statbuf.st_size);
 ```
 

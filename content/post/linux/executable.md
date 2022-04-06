@@ -31,11 +31,11 @@ PE文件头
 调试信息
 
 PE文件种类如下表所示：
-种类	主扩展名
-可执行系列	EXE, SCR
-库系列	DLL, OCX, CPL, DRV
-驱动程序系列	SYS, VXD
-对象文件系列	OBJ
+种类    主扩展名
+可执行系列    EXE, SCR
+库系列    DLL, OCX, CPL, DRV
+驱动程序系列    SYS, VXD
+对象文件系列    OBJ
 
 在Windows下所谓PE文件即Portable Executable，意为可移植的可执行的文件。常见的.EXE、.DLL、.OCX、.SYS、.COM都是PE文件。PE文件有一个共同特点：前两个字节为4D 5A (MZ）。如果一个文件前两个字节不是4D 5A则其肯定不是可执行文件。比如用16进制文本编辑器打开一个“.xls”文件其前两个字节为：0XD0 0XCF；打开一个“.pdf”其前两个字节为：0X25 0X50。
 ————————————————

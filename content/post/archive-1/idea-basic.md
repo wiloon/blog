@@ -5,7 +5,6 @@ date: 2013-01-14T07:37:05+00:00
 url: idea
 categories:
   - IDE
-
 tags:
   - reprint
 ---
@@ -15,10 +14,10 @@ tags:
 生成.iws文件: mvn idea:workspace
 生成.iml文件: mvn idea:module
 
-###
-https://www.jetbrains.com/idea/download/download-thanks.html?platform=linux&code=IIC
+<https://www.jetbrains.com/idea/download/download-thanks.html?platform=linux&code=IIC>
 
 ### settings repository
+
     mkdir local-jetbrain-setting-repo
     cd local-jetbrain-setting-repo
     git init --bare
@@ -91,24 +90,39 @@ windows
  -XX:+UseParNewGC 使用并行收集算法。
   
   
-    内存大的可以改idea.exe.vmoptions文件为: 
+内存大的可以改idea.exe.vmoptions文件为: 
+
+-Xms256m
+-Xmx384m
+-XX:MaxPermSize=128m
+-XX:NewRatio=4
+-Xss128k
+-Dsun.awt.keepWorkingSetOnMinimize=true
+-server
   
-  
-    -Xms256m
- -Xmx384m
- -XX:MaxPermSize=128m
- -XX:NewRatio=4
- -Xss128k
- -Dsun.awt.keepWorkingSetOnMinimize=true
- -server
-  
-  
-    还有是idea.properties   可以修改一些配置，比如缓冲区设置到C盘外的其他盘下
- 除了对idea启动的内存分配外，还有: 
- 1、你的C盘空闲是否足够，因为idea会在c盘你的用户目录下建立缓存。如果你的c盘空间小，运转起来会比较累。
- 2、你的project是否臃肿。因为默认的idea会将所有文件都当成project的文件，而其实我们需要在idea里编辑的基本都是程序文件。而 class文件、jar文件、doc文件等等都是不需要的。打开module setting界面，切换到source选项把不属于程序文件的都exclude掉，大大降低idea的负荷。
+还有是idea.properties   可以修改一些配置，比如缓冲区设置到C盘外的其他盘下
+除了对idea启动的内存分配外，还有
+
+1. 你的C盘空闲是否足够，因为idea会在c盘你的用户目录下建立缓存。如果你的c盘空间小，运转起来会比较累。
+2. 你的project是否臃肿。因为默认的idea会将所有文件都当成project的文件，而其实我们需要在idea里编辑的基本都是程序文件。而 class文件、jar文件、doc文件等等都是不需要的。打开module setting界面，切换到source选项把不属于程序文件的都exclude掉，大大降低idea的负荷。
 
 ### Coverage
-Run Test选择 Run “test()”with coverage 
+
+Run Test选择 Run “test()”with coverage
 
 http://hi.baidu.com/geeree/blog/item/1eeb29fab2c35f9d58ee9075.html
+
+## native keychain is not available
+
+```bash
+pacman -S gnome-keyring
+
+```
+
+## idea 中文乱码
+
+```bash
+pacman -S wqy-microhei
+# 重启 idea
+
+```

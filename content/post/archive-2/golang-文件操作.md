@@ -13,10 +13,10 @@ tags:
 ## 文件大小
 ```go
 func main() {
-	fi,err:=os.Stat("water")
-	if err ==nil {
-		fmt.Println("file size is ",fi.Size(),err)
-	}
+    fi,err:=os.Stat("water")
+    if err ==nil {
+        fmt.Println("file size is ",fi.Size(),err)
+    }
 }
 
 ```
@@ -25,88 +25,88 @@ func main() {
 package main
 
 import (
-	"bufio"
-	"fmt"
-	"io"
-	"io/ioutil"
-	"os"
+    "bufio"
+    "fmt"
+    "io"
+    "io/ioutil"
+    "os"
 )
 
 func main() {
-	dir := "/tmp/foo/bar"
-	fileName := "file0.txt"
-	writeTxtFile(dir, fileName, "foo")
-	out := readTxtFile(dir, fileName)
-	fmt.Println("read result: " + out)
+    dir := "/tmp/foo/bar"
+    fileName := "file0.txt"
+    writeTxtFile(dir, fileName, "foo")
+    out := readTxtFile(dir, fileName)
+    fmt.Println("read result: " + out)
 }
 func writeTxtFile0(dir, fileName, content string) {
-	if !isExist(dir) {
-		err := os.MkdirAll(dir, 0777)
-		if err != nil {
-			fmt.Printf("%s\n", err)
-		} else {
-			fmt.Println("Create Directory OK!")
-		}
-	}
+    if !isExist(dir) {
+        err := os.MkdirAll(dir, 0777)
+        if err != nil {
+            fmt.Printf("%s\n", err)
+        } else {
+            fmt.Println("Create Directory OK!")
+        }
+    }
 
-	fullFileName := dir + string(os.PathSeparator) + fileName
-	file, e := os.OpenFile(fullFileName, os.O_WRONLY|os.O_TRUNC|os.O_CREATE, 0777)
-	if e != nil {
-		fmt.Println("open file: " + e.Error())
-	}
-	defer file.Close()
+    fullFileName := dir + string(os.PathSeparator) + fileName
+    file, e := os.OpenFile(fullFileName, os.O_WRONLY|os.O_TRUNC|os.O_CREATE, 0777)
+    if e != nil {
+        fmt.Println("open file: " + e.Error())
+    }
+    defer file.Close()
 
-	n, err := file.WriteString(content)
-	if err != nil {
-		fmt.Println("write string: " + err.Error())
-		return
-	}
-	fmt.Printf("write length: %v\n", n)
+    n, err := file.WriteString(content)
+    if err != nil {
+        fmt.Println("write string: " + err.Error())
+        return
+    }
+    fmt.Printf("write length: %v\n", n)
 }
 func writeTxtFile(dir, fileName, content string) {
-	if !isExist(dir) {
-		err := os.MkdirAll(dir, 0777)
-		if err != nil {
-			fmt.Printf("%s\n", err)
-		} else {
-			fmt.Println("Create Directory OK!")
-		}
-	}
-	err := ioutil.WriteFile(dir+string(os.PathSeparator)+fileName, []byte(content), 0777)
-	if err != nil {
-		fmt.Printf("failed to write file, file name: %v, err: %v", fileName, err)
-		return
-	}
+    if !isExist(dir) {
+        err := os.MkdirAll(dir, 0777)
+        if err != nil {
+            fmt.Printf("%s\n", err)
+        } else {
+            fmt.Println("Create Directory OK!")
+        }
+    }
+    err := ioutil.WriteFile(dir+string(os.PathSeparator)+fileName, []byte(content), 0777)
+    if err != nil {
+        fmt.Printf("failed to write file, file name: %v, err: %v", fileName, err)
+        return
+    }
 }
 
 func readTxtFile(dir, fileName string) string {
-	path := dir + string(os.PathSeparator) + fileName
-	dat, err := ioutil.ReadFile(path)
-	if err != nil {
-		fmt.Println("failed to read file: " + fileName)
-	}
-	return string(dat)
+    path := dir + string(os.PathSeparator) + fileName
+    dat, err := ioutil.ReadFile(path)
+    if err != nil {
+        fmt.Println("failed to read file: " + fileName)
+    }
+    return string(dat)
 }
 
 func check(e error) {
-	if e != nil {
-		panic(e)
-	}
+    if e != nil {
+        panic(e)
+    }
 }
 
 func isExist(fileName string) bool {
-	_, err := os.Stat(fileName)
-	if err == nil {
-		fmt.Println("file exist: " + fileName)
-		return true
-	} else if os.IsNotExist(err) {
-		fmt.Println("file not exist")
-		return false
+    _, err := os.Stat(fileName)
+    if err == nil {
+        fmt.Println("file exist: " + fileName)
+        return true
+    } else if os.IsNotExist(err) {
+        fmt.Println("file not exist")
+        return false
 
-	} else {
-		fmt.Println("file error")
-	}
-	return false
+    } else {
+        fmt.Println("file error")
+    }
+    return false
 }
 
 ```
@@ -120,12 +120,12 @@ func isExist(fileName string) bool {
 
 ```go
 func main() {
-	oldLocation := "/var/www/html/test.txt"
-	newLocation := "/var/www/html/src/test.txt"
-	err := os.Rename(oldLocation, newLocation)
-	if err != nil {
-		log.Fatal(err)
-	}
+    oldLocation := "/var/www/html/test.txt"
+    newLocation := "/var/www/html/src/test.txt"
+    err := os.Rename(oldLocation, newLocation)
+    if err != nil {
+        log.Fatal(err)
+    }
 }
 ```
 

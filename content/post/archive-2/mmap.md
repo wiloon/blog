@@ -115,8 +115,8 @@ main(int argc, char** argv) // map a normal file as shared mem:
         p_map = (people*) mmap( NULL,sizeof(people)*10,PROT_READ|PROT_WRITE,MAP_SHARED,fd,0 );
         close( fd );
         temp = 'a';
-		
-		//直接使用这种写入方式
+        
+        //直接使用这种写入方式
         for(i=0; i<10; i++)
         {
                 temp += 1;

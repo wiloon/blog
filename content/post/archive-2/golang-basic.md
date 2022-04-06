@@ -472,15 +472,15 @@ fmt.Println(spirit)
 
  执行下面代码会出现”type *net.Conn is pointer to interface, not interface)“错误，原因是因为”net.Conn”是interface而不是struct，不能用指针方式传递。
 
-1	func connHandler(client *net.Conn) {
-2		// do something
-3	}
-4	
-5	func somefunc() {
-6		// ...
-7		client, _ := listener.Accept()
-8		connHandler(&client)
-9	}
+1    func connHandler(client *net.Conn) {
+2        // do something
+3    }
+4    
+5    func somefunc() {
+6        // ...
+7        client, _ := listener.Accept()
+8        connHandler(&client)
+9    }
 GO语言中interface是一种特殊的数据结构，包含两部分内容：
 
 一个指向方法表的指针
@@ -489,15 +489,15 @@ interface
 
 因为这种特殊的数据结构所以interface的指针指向的结构既没有实际数据也没有对应方法，那么就无法直接访问所需的内容，鉴于此原因我推测GO语言的开发者直接屏蔽掉了指向interface指针的用法。这种情况的正确如下：
 
-1	func connHandler(client net.Conn) {
-2		// do something
-3	}
-4	
-5	func somefunc() {
-6		// ...
-7		client, _ := listener.Accept()
-8		connHandler(client)
-9	}
+1    func connHandler(client net.Conn) {
+2        // do something
+3    }
+4    
+5    func somefunc() {
+6        // ...
+7        client, _ := listener.Accept()
+8        connHandler(client)
+9    }
 
 >http://www.singleye.net/2017/11/go%E8%AF%AD%E8%A8%80%E7%BC%96%E7%A8%8B%E9%99%B7%E9%98%B1/
 

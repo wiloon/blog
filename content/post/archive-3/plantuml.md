@@ -122,9 +122,9 @@ interface Interface0
 @startuml
 
 skinparam class {
-	BackgroundColor Lightblue
-	ArrowColor #0ACF97
-	BorderColor #d5d5d5
+    BackgroundColor Lightblue
+    ArrowColor #0ACF97
+    BorderColor #d5d5d5
 }
 
 skinparam stereotypeCBackgroundColor YellowGreen

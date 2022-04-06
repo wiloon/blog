@@ -20,17 +20,17 @@ http://www.benben.cc/blog/?p=9
         <script>alert("我是html根节点之外的内部脚本");</script>
 <html>
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<title>js</title>
-	<style type="text/css">body {margin:0;padding:0;}</style>
-	<script>alert("我是头部header里的内部脚本");</script>
-	<script src="header.js"></script>
-	<script src="outer.js"></script>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>js</title>
+    <style type="text/css">body {margin:0;padding:0;}</style>
+    <script>alert("我是头部header里的内部脚本");</script>
+    <script src="header.js"></script>
+    <script src="outer.js"></script>
 </head>
 <body>
-	<script>alert("我是页面body里的内部脚本");</script>
-	<script src="body.js"></script>
-	<input type="button" value="绑定事件" onclick="javascript:alert('我是body中的按钮,这是我自己绑定的事件');"></input>
+    <script>alert("我是页面body里的内部脚本");</script>
+    <script src="body.js"></script>
+    <input type="button" value="绑定事件" onclick="javascript:alert('我是body中的按钮,这是我自己绑定的事件');"></input>
 </body>
 </html>
 <script>alert("我是html根节点之外的内部脚本");</script>

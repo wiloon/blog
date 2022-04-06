@@ -23,11 +23,11 @@ xterm和Terminal的区别
 访问在Linux系统中打开终端的最简单方法之一是同时按住Ctrl + Alt + T键的组合，终端窗口将打开。只能通过打开"终端"应用程序从"应用程序"文件夹中的"实用工具"文件夹访问它。也可以在Dash中查找Terminal，或为Launcher添加快捷方式。同时按Alt + F2并键入" gnome-terminal"也将打开"终端"窗口。但是，您只需在"终端"窗口中键入xterm，然后按Enter键即可启动X11环境以及xterm窗口。
 
 总结尽管xterm和Terminal都是基于Linux和UNIX的系统的终端仿真器程序，但是xterm是运行X Windows System的系统的默认终端仿真应用程序。 终端是命令行界面，允许用户访问Shell。 它是Linux的心脏，也是系统管理员最常用的最强大功能之一，因为大多数内置命令行程序本身并不出色，并且它们需要第三方程序通过命令与系统进行交互。 Linux提供了各种终端仿真器，包括xterm，它是X Windows系统的默认终端仿真器。
-							
-							  本站文章除注明转载外，均为本站原创或编译。欢迎任何形式的转载，但请务必注明出处，尊重他人劳动成果。
-							  转载请注明: 文章转载自 有区别网 [http://www.hasdiffer.com]
-							  本文标题: Xterm和终端的区别
-							  本文链接: http://www.hasdiffer.com/xterm-vs-terminal.html
+                            
+                              本站文章除注明转载外，均为本站原创或编译。欢迎任何形式的转载，但请务必注明出处，尊重他人劳动成果。
+                              转载请注明: 文章转载自 有区别网 [http://www.hasdiffer.com]
+                              本文标题: Xterm和终端的区别
+                              本文链接: http://www.hasdiffer.com/xterm-vs-terminal.html
 
 //更多关于【Xterm和终端的区别】请查看: http://www.hasdiffer.com/xterm-vs-terminal.html
 

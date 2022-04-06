@@ -13,32 +13,37 @@ tags:
 
 ### 创建一个指定时间的日期对象
 
-    start := time.Date(2021, 1, 7, 12, 0, 0, 0, time.Local)
+```go
+start := time.Date(2021, 1, 7, 12, 0, 0, 0, time.Local)
+```
 
 ### 比较
 
-先把当前时间格式化成相同格式的字符串,然后使用time的Before, After, Equal 方法即可.
+先把当前时间格式化成相同格式的字符串, 然后使用time的Before, After, Equal 方法即可.
 
 ```go
-    time1 := "2015-03-20 08:50:29"
-    time2 := "2015-03-21 09:04:25"
-    //先把时间字符串格式化成相同的时间类型
-    t1, err := time.Parse("2006-01-02 15:04:05", time1)
-    t2, err := time.Parse("2006-01-02 15:04:05", time2)
-    if err == nil && t1.Before(t2) {
-        //处理逻辑
-        fmt.Println("true")
-    }
+time1 := "2015-03-20 08:50:29"
+time2 := "2015-03-21 09:04:25"
+//先把时间字符串格式化成相同的时间类型
+t1, err := time.Parse("2006-01-02 15:04:05", time1)
+t2, err := time.Parse("2006-01-02 15:04:05", time2)
+if err == nil && t1.Before(t2) {
+    //处理逻辑
+    fmt.Println("true")
+}
 ```
 
 #### duration 比较
+
 ```go
-    func minDuration(a, b time.Duration) time.Duration {
+func minDuration(a, b time.Duration) time.Duration {
     if a <= b { return a }
     return b
 }
 ```
+
 ### layout
+
 ```bash
 # 时区
 2006-01-02T15:04:05Z07:00
@@ -50,6 +55,7 @@ Mon, 2 Jan 2006 15:04:05 MST
 ```
 
 ### unix nano > time
+
 ```go
 unixnano:=int64(1570603226000000000)
 t:=time.Unix(0,unixnano)
@@ -57,6 +63,7 @@ fmt.Println(t)
 ```
 
 ### 毫秒, get microsecond, mill second
+
 ```go
 time.Now().UnixNano() / int64(time.Millisecond)
 ```
@@ -106,6 +113,7 @@ time.Now().Format("2006-01-02 15:04:05")
 ```
 
 ### string > date
+
 在windows下,time.Parse()的时区和time.Format()的时区是一致的。
   
 但是在linux环境下,time.Parse()的默认时区是UTC,time.Format()的时区默认是本地, 使用ParseInLocation 解决时区问题
@@ -116,6 +124,7 @@ localTime, err := time.ParseInLocation("2006-01-02 15:04:05", "2017-12-03 22:01:
 ```
 
 ### 时区
+
 ```go
  now := time.Now()
     local1, err1 := time.LoadLocation("") //等同于"UTC"
@@ -141,9 +150,12 @@ localTime, err := time.ParseInLocation("2006-01-02 15:04:05", "2017-12-03 22:01:
 ```
 
 ### 时间计算
-    h, _ := time.ParseDuration("-1h")
-	start := time.Now().Add(h)
-    
+
+```go
+h, _ := time.ParseDuration("-1h")
+start := time.Now().Add(h)
+```
+
 https://github.com/jemygraw/TechDoc/blob/master/Go%E7%A4%BA%E4%BE%8B%E5%AD%A6/Go%20%E6%97%B6%E9%97%B4%E6%A0%BC%E5%BC%8F%E5%8C%96%E5%92%8C%E8%A7%A3%E6%9E%90.markdown
 
 Go 时间格式化和解析
@@ -157,9 +169,9 @@ import "fmt"
 import "time"
 
 func main() {
-      
+
 p := fmt.Println
- 
+
     // Format 函数使用一种基于示例的模式匹配方式,
     // 它使用已经格式化的时间模式来决定所给定参数
     // 的输出格式
@@ -190,7 +202,6 @@ p := fmt.Println
     
     // 你可以使用一些预定义的格式来格式化或解析时间
     p(t.Format(time.Kitchen))
-    
 
 }
   
@@ -214,8 +225,8 @@ parsing time "8:41PM" as "Mon Jan _2 15:04:05 2006": cannot parse "8:41PM" as "M
   
 10:39PM
 
-
 ### 字符串毫秒转时间格式
+
 ```go
 package main
 
@@ -245,11 +256,12 @@ func msToTime(ms string) (time.Time, error) {
 ```
 
 ### RFC3339
+
 RFC3339 比 ISO 8601 有一个很一个明显的限制,这里提一下: ISO允许24点,而 RFC3339 为了减少混淆,限制小时必须在0至23之间。23:59过1分钟,是第二天的0:00。
 标准时间
 本地时间只包括当前的时间,不包含任何时区信息。同一时刻,东八区的本地时间比零时区的本地时间快了8个小时。在不同时区之间交换时间数据,除了用纯数字的时间戳,还有一种更方便人类阅读的表示方式: 标准时间的偏移量表示方法。
 
-RFC3339详细定义了互联网上日期/时间的偏移量表示: 
+RFC3339详细定义了互联网上日期/时间的偏移量表示:
 
 2017-12-08T00:00:00.00Z
 这个代表了UTC时间的2017年12月08日零时
@@ -260,8 +272,6 @@ RFC3339详细定义了互联网上日期/时间的偏移量表示:
 上面两个时间的时间戳是等价的。两个的区别,就是在本地时间后面增加了时区信息。Z表示零时区。+08:00表示UTC时间增加8小时。
 
 这种表示方式容易让人疑惑的点是从标准时间换算UTC时间。以CST转换UTC为例,没有看文档的情况下,根据 +08:00 的结尾,很容易根据直觉在本地时间再加上8小时。正确的计算方法是本地时间减去多增加的8小时。+08:00减去8小时才是UTC时间,-08:00加上8小时才是UTC时间。
----
-
 
 https://blog.csdn.net/CodyGuo/article/details/53009451
   

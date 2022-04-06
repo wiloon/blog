@@ -34,9 +34,9 @@ http://mrcelite.blog.51cto.com/2977858/745913
 drop table if exists c;
 
 CREATE TABLE `heyf_t10` (
-	`empid` INT(11) NULL DEFAULT NULL,
-	`deptid` INT(11) NULL DEFAULT NULL,
-	`line` DECIMAL(10,2) NULL DEFAULT NULL
+    `empid` INT(11) NULL DEFAULT NULL,
+    `deptid` INT(11) NULL DEFAULT NULL,
+    `line` DECIMAL(10,2) NULL DEFAULT NULL
 )
 COLLATE='utf8mb4_unicode_ci'
 ENGINE=InnoDB

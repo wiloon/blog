@@ -29,10 +29,10 @@ tags:
 ```bash
 #！/bin/hash
 db_set() {
-	echo "$1,$2" >> database
+    echo "$1,$2" >> database
 }
 db_get() {
-	grep "^$1, "database | sed -e "s/^$1,//" | tail -n 1
+    grep "^$1, "database | sed -e "s/^$1,//" | tail -n 1
 }
 ```
 上面我们用两个Bash 函数实现了一个Key-value型数据库，用文件读写的方式将数据记录到磁盘上。 每行是用逗号分割的key，value 形式。  (这种存储方式也叫CSV文件格式）

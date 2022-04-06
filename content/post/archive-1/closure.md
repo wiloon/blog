@@ -19,9 +19,9 @@ tags:
 ### golang 闭包
 ```go
 func Add(y int) {
-	return func(x int) int {
-		return x + y
-	}
+    return func(x int) int {
+        return x + y
+    }
 }
 
 a := Add(10)

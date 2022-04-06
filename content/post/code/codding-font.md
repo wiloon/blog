@@ -42,15 +42,15 @@ JetBrain Mono
 
 ### 等宽字体
 #status { /*width: auto;*/
-	  
+      
 background: #ffff99;
-	  
+      
 /* -webkit-border-radius: 6px; */
-	  
+      
 padding: 1px 3px 1px 3px;
-	  
+      
 display: none;
-	  
+      
 font-family: "Courier", "Arial", "Verdana", "sans-serif";
   
 }

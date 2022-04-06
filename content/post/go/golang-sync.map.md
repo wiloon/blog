@@ -4,34 +4,34 @@ author: "-"
 date: ""
 url: ""
 categories:
-  - inbox
+  - Go
 tags:
   - inbox
 ---
-## "golang sync.Map"
 
+## "golang sync.Map"
 
 ```go
 func main() {
-	m := sync.Map{}
-	m.Store(1,1)
-	go do(m)
-	go do(m)
+    m := sync.Map{}
+    m.Store(1,1)
+    go do(m)
+    go do(m)
 
-	time.Sleep(1*time.Second)
-	fmt.Println(m.Load(1))
+    time.Sleep(1*time.Second)
+    fmt.Println(m.Load(1))
 }
 
 func do (m sync.Map) {
-	i := 0
-	for i < 10000 {
-		m.Store(1,1)
-		i++
-	}
+    i := 0
+    for i < 10000 {
+        m.Store(1,1)
+        i++
+    }
 }
 ```
 
-在Go 1.6之前, 内置的map类型是部分goroutine安全的,并发的读没有问题,并发的写可能有问题。自go 1.6之后, 并发地读写map会报错,这在一些知名的开源库中都存在这个问题,所以go 1.9之前的解决方案是额外绑定一个锁,封装成一个新的struct或者单独使用锁都可以。
+在Go 1.6之前, 内置的 map 类型是部分 goroutine 安全的, 并发的读没有问题, 并发的写可能有问题。自 go 1.6之后, 并发地读写 map 会报错, 这在一些知名的开源库中都存在这个问题, 所以go 1.9之前的解决方案是额外绑定一个锁, 封装成一个新的struct或者单独使用锁都可以。
 
 本文带你深入到`sync.Map`的具体实现中,看看为了增加一个功能,代码是如何变的复杂的,以及作者在实现`sync.Map`的一些思想。
 

@@ -95,4 +95,4 @@ menuentry "arch iso" {
 
 ### Linux GRUB磁盘分区表示法
 
-    第一个主分区	/dev/sda1	hd(0,0)
+    第一个主分区    /dev/sda1    hd(0,0)

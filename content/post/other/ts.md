@@ -29,9 +29,9 @@ ts(){
 curl -s
           
 "http://fanyi.youdao.com/translate?smartresult=dict&smartresult=rule&smartresult=ugc&sessionFrom=dict.top"
-	  
+      
 -d
-	  
+      
 "type=AUTO& i=$1&doctype=json&xmlVersion=1.4&keyfrom=fanyi.web&ue=UTF-8&typoResult=true&flag=false"
           
 | sed -E -n 's/.\*tgt":"([^"]+)".\*entries":["","([^"]+)".*/1n 2/p';

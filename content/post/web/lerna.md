@@ -75,8 +75,8 @@ lerna到底是什么呢？lerna官网上是这样描述的。
 执行完毕，工程下的目录结构如下
 
     --packages
-    	--module-1
-    		package.json
+        --module-1
+            package.json
     --lerna.json
     --package.json
     

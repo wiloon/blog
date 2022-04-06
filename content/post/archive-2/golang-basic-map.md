@@ -10,30 +10,35 @@ tags:
   - reprint
 ---
 ## golang map set
+
 ### map
 
 #### 直接创建
+
     m2 := make(map[string]string)
     // 然后赋值
     m2["a"] = "aa"
     m2["b"] = "bb"
 
 #### 初始化 + 赋值一体化
+
     m3 := map[string]string{
         "a": "aa",
         "b": "bb",
     }
 
 #### 查找键值是否存在
+
 if v, ok := m1["a"]; ok {
-	fmt.Println(v)
+    fmt.Println(v)
 } else {
-	fmt.Println("Key Not Found")
+    fmt.Println("Key Not Found")
 }
 
 #### 遍历map
+
 for k, v := range m1 {
-	fmt.Println(k, v)
+    fmt.Println(k, v)
 }
 
 ### map 清空
@@ -56,18 +61,18 @@ package main
 import "github.com/emirpasic/gods/sets/hashset"
 
 func main() {
-	set := hashset.New()   // empty
-	set.Add(1)             // 1
-	set.Add(2, 2, 3, 4, 5) // 3, 1, 2, 4, 5 (random order, duplicates ignored)
-	set.Remove(4)          // 5, 3, 2, 1 (random order)
-	set.Remove(2, 3)       // 1, 5 (random order)
-	set.Contains(1)        // true
-	set.Contains(1, 5)     // true
-	set.Contains(1, 6)     // false
-	_ = set.Values()       // []int{5,1} (random order)
-	set.Clear()            // empty
-	set.Empty()            // true
-	set.Size()             // 0
+    set := hashset.New()   // empty
+    set.Add(1)             // 1
+    set.Add(2, 2, 3, 4, 5) // 3, 1, 2, 4, 5 (random order, duplicates ignored)
+    set.Remove(4)          // 5, 3, 2, 1 (random order)
+    set.Remove(2, 3)       // 1, 5 (random order)
+    set.Contains(1)        // true
+    set.Contains(1, 5)     // true
+    set.Contains(1, 6)     // false
+    _ = set.Values()       // []int{5,1} (random order)
+    set.Clear()            // empty
+    set.Empty()            // true
+    set.Size()             // 0
 }
 ```
 

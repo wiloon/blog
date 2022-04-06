@@ -46,11 +46,11 @@ int main ()
 {   
     pid_t fpid; //fpid表示fork函数返回的值  
     int count=0;
-	
-	// 调用fork，创建出子进程  
+    
+    // 调用fork，创建出子进程  
     fpid=fork();
 
-	// 所以下面的代码有两个进程执行！
+    // 所以下面的代码有两个进程执行！
     if (fpid < 0)   
         printf("创建进程失败!/n");   
     else if (fpid == 0) {  

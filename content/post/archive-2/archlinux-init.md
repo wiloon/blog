@@ -75,7 +75,8 @@ sudo pacman -S xfce4-goodies
 
 ### restart to desktop to continue
 
-### wenquanyi
+### wenquanyi 中文字体
+
 sudo pacman -S wqy-microhei
 #font for terminal
 sudo pacman -S ttf-inconsolata

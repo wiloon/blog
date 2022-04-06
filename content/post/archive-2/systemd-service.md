@@ -209,9 +209,9 @@ snapshot : 与 targetunit 相似,快照本身不做什么,唯一的目的就是�
     /run/systemd/system/*     ――――  运行时配置文件
     /usr/lib/systemd/system/*   ――――  安装程序使用 (如RPM包安装) 
     
-- After	本服务在哪些服务启动之后启动，仅定义启动顺序，不定义服务依赖关系，即使要求先启动的服务启动失败，本服务也依然会启动
-- ConditionPathExists, AssertPathExists	要求给定的绝对路径文件已经存在，否则不做任何事(condition)或进入failed状态(assert)，可在路径前使用!表示条件取反，即不存在时才启动服务。
-- ConditionPathIsDirectory, AssertPathIsDirectory	如上，路径存在且是目录时启动。
+- After    本服务在哪些服务启动之后启动，仅定义启动顺序，不定义服务依赖关系，即使要求先启动的服务启动失败，本服务也依然会启动
+- ConditionPathExists, AssertPathExists    要求给定的绝对路径文件已经存在，否则不做任何事(condition)或进入failed状态(assert)，可在路径前使用!表示条件取反，即不存在时才启动服务。
+- ConditionPathIsDirectory, AssertPathIsDirectory    如上，路径存在且是目录时启动。
 
 
 作者: 骏马金龙

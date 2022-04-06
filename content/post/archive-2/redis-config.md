@@ -159,9 +159,9 @@ slave-priority 100
 appendonly no
 appendfilename "foo.aof"
 # appendfsync
-# always	将 aof_buf 缓冲区中的所有内容写入并同步到 AOF 文件。
-# everysec	将 aof_buf 缓冲区中的所有内容写入到 AOF 文件, 如果上次同步 AOF 文件的时间距离现在超过一秒钟, 那么再次对 AOF 文件进行同步, 并且这个同步操作是由一个线程专门负责执行的。
-# no	    将 aof_buf 缓冲区中的所有内容写入到 AOF 文件, 但并不对 AOF 文件进行同步, 何时同步由操作系统来决定。
+# always    将 aof_buf 缓冲区中的所有内容写入并同步到 AOF 文件。
+# everysec    将 aof_buf 缓冲区中的所有内容写入到 AOF 文件, 如果上次同步 AOF 文件的时间距离现在超过一秒钟, 那么再次对 AOF 文件进行同步, 并且这个同步操作是由一个线程专门负责执行的。
+# no        将 aof_buf 缓冲区中的所有内容写入到 AOF 文件, 但并不对 AOF 文件进行同步, 何时同步由操作系统来决定。
 appendfsync everysec
 # no-appendfsync-on-rewrite
 # no,是最安全的方式,不会丢失数据,但是要忍受阻塞的问题。

@@ -446,11 +446,11 @@ class Derived
         
           
             
-              	switch (x)
- 	{ case 1: …;
+                  switch (x)
+     { case 1: …;
           case 2: …;
           case 3: …
-	  default: assert false:"x value is invalid: "+x;
+      default: assert false:"x value is invalid: "+x;
 }
             
           

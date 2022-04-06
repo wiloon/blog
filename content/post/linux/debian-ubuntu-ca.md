@@ -13,7 +13,7 @@ tags:
 https://www.jianshu.com/p/abcee3270e9a
     
     mkdir /usr/share/ca-certificates/extra
-	cp /tmp/$1.crt /usr/share/ca-certificates/extra/$1.crt
+    cp /tmp/$1.crt /usr/share/ca-certificates/extra/$1.crt
     update-ca-certificates
 
 直白的说，运行这个工具，它最终会更新 /etc/ssl/certs/ca-certificates.crt 文件。这下你应该明白了，有了这个文件，不管是 Curl 还是 openssl 在发送 HTTPS 请求的时候，都可以校验 HTTPS 网站的真实身份了。

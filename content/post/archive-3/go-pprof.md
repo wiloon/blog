@@ -108,10 +108,10 @@ go tool pprof cpu.pprof
 Memory Profiling：内存分析，在应用程序进行堆分配时记录堆栈跟踪，用于监视当前和历史内存使用情况，以及检查内存泄漏
 
 ```go
-import 	"github.com/pkg/profile"
+import     "github.com/pkg/profile"
 func main() {
-	defer profile.Start(profile.MemProfile, profile.MemProfileRate(1)).Stop()
-	concat(100)
+    defer profile.Start(profile.MemProfile, profile.MemProfileRate(1)).Stop()
+    concat(100)
 }
 
 ```

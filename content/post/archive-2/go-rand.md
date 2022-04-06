@@ -83,13 +83,13 @@ fmt.Println(rand.Intn(100))
 package main
 
 import (
-	"fmt"
-	"math/rand"
+    "fmt"
+    "math/rand"
 )
 
 func main() {
-	bytes := make([]byte, 5)
-	rand.Read(bytes)
-	fmt.Println(bytes)
+    bytes := make([]byte, 5)
+    rand.Read(bytes)
+    fmt.Println(bytes)
 }
 ```

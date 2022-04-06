@@ -23,10 +23,10 @@ tags:
 
 每个进程都会预留3个默认的 fd: stdin(标准输入)、stdout(标准输出)、stderr(标准错误); 它们的值分别是 0, 1, 2
 
-Integer   value	Name	      symbolic constant	file stream
-0	        Standard input	  STDIN_FILENO	stdin
-1	        Standard output	  STDOUT_FILENO	stdout
-2	        Standard error	  STDERR_FILENO	stderr
+Integer   value    Name          symbolic constant    file stream
+0            Standard input      STDIN_FILENO    stdin
+1            Standard output      STDOUT_FILENO    stdout
+2            Standard error      STDERR_FILENO    stderr
 
 #### 文件描述符表, file descriptors table
 Linux系统中的每个进程会在其进程控制块 (PCB) 内维护属于自己的文件描述符表 (file descriptor table). 表中每个条目包含两个域: 一是控制该描述符的标记域 (flags, O_APPEND 之类的flag) ,二是指向系统级别的打开文件表中对应条目的指针。那么打开文件表又是什么呢？

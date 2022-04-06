@@ -29,7 +29,7 @@ tags:
         current: 'zhHans'
       },
       icons:{
-        iconfont: 'mdi',	// 设置使用本地的icon资源
+        iconfont: 'mdi',    // 设置使用本地的icon资源
       }
     });
 

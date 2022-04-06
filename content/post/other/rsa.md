@@ -21,11 +21,11 @@ Cipher 实例化
 我们可以通过调用静态getInstance方法，传入具体的转换模式名称，就可以实例化一个 Cipher 对象。下面是实例化 Cipher 的示例代码: 
 
 public class Encryptor {
-	public byte[] encryptMessage(byte[] message, byte[] keyBytes) 
+    public byte[] encryptMessage(byte[] message, byte[] keyBytes) 
   throws InvalidKeyException, NoSuchPaddingException, NoSuchAlgorithmException {
     Cipher cipher = Cipher.getInstance("AES/ECB/PKCS5Padding");
     //...
-	}
+    }
 }
 转换模式 (transformation) 的具体含义
 转换模式 (transformation) 是 Cipher 实例化的一个核心参数。transformation 参数的格式是: 算法/工作模式/填充模式(algorithm/mode/padding)，如上述示例中AES/ECB/PKCS5Padding。
@@ -40,12 +40,12 @@ public class Encryptor {
 多次使用相同的密钥对多个分组加密，会引发一些安全问题；
 分组密码工作模式本质上是一项增强密码算法或者使算法适应具体应用的技术，例如将分组密码应用于数据块组成的序列或者数据流。目前主要包括下面五种由NIST定义的工作模式: 
 
-模式	名称	描述	典型应用
-电子密码本(ECB)	Electronic CodeBook	用相同的密钥分别对明文分组独立加密	单个数据的安全传输(例如一个加密密钥)
-密码分组链接(CBC)	Cipher Block Chaining	加密算法的输入是上一个密文组合下一个明文组的异或	面向分组的通用传输或者认证
-密文反馈(CFB)	Cipher FeedBack	一次处理s位，上一块密文作为加密算法的输入，产生的伪随机数输出与明文异或作为下一单元的密文	面向分组的通用传输或者认证
-输出反馈(OFB)	Output FeedBack	与CFB类似，只是加密算法的输入是上一次加密的输出，并且使用整个分组	噪声信道上的数据流的传输(如卫星通信)
-计数器(CTR)	Counter	每个明文分组都与一个经过加密的计数器相异或。对每个后续分组计数器递增	面向分组的通用传输或者用于高速需求
+模式    名称    描述    典型应用
+电子密码本(ECB)    Electronic CodeBook    用相同的密钥分别对明文分组独立加密    单个数据的安全传输(例如一个加密密钥)
+密码分组链接(CBC)    Cipher Block Chaining    加密算法的输入是上一个密文组合下一个明文组的异或    面向分组的通用传输或者认证
+密文反馈(CFB)    Cipher FeedBack    一次处理s位，上一块密文作为加密算法的输入，产生的伪随机数输出与明文异或作为下一单元的密文    面向分组的通用传输或者认证
+输出反馈(OFB)    Output FeedBack    与CFB类似，只是加密算法的输入是上一次加密的输出，并且使用整个分组    噪声信道上的数据流的传输(如卫星通信)
+计数器(CTR)    Counter    每个明文分组都与一个经过加密的计数器相异或。对每个后续分组计数器递增    面向分组的通用传输或者用于高速需求
 填充模式(Padding)
 分组密码工作模式只能加密长度等于密码分组长度的单块数据，所以通常来讲，最后一块数据也需要使用合适填充方式将数据扩展到匹配密码块大小的长度。所以填充是指在加密之前，在原始信息的开头、结尾或者中间添加特定格式的数据，使被加密信息满足固定加密长度的操作。例如我们约定块的长度为128，但是需要加密的原文长度为129，那么需要分成两个加密块，第二个加密块需要填充127长度的数据，填充模式决定怎么填充数据。
 

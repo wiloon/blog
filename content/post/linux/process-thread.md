@@ -405,9 +405,9 @@ LWP虽然本质上属于用户线程，但LWP线程库是建立在内核之上�
 
 根据操作系统内核是否对线程可感知，可以把线程分为内核线程和用户线程
 
-名称								描述
-用户级线程(User-LevelThread, ULT)	由应用程序所支持的线程实现, 内核意识不到用户级线程的实现
-内核级线程(Kemel-LevelThread, KLT)	内核级线程又称为内核支持的线程
+名称                                描述
+用户级线程(User-LevelThread, ULT)    由应用程序所支持的线程实现, 内核意识不到用户级线程的实现
+内核级线程(Kemel-LevelThread, KLT)    内核级线程又称为内核支持的线程
 
 
 在多线程操作系统中，各个系统的实现方式并不相同，在有的系统中实现了用户级线程，有的系统中实现了内核级线程
@@ -733,52 +733,52 @@ Linux 进程标准的内存段布局，如下图所示，地址空间中的各�
 C语言程序实例分析如下所示: 
 
 
-	 #include<stdio.h>  
-	 #include <malloc.h>  
-	   
-	 void print(char *,int);  
-	 int main()  
-	{  
-	      char *s1 = "abcde";  //"abcde"作为字符串常量存储在常量区 s1、s2、s5拥有相同的地址
-	      char *s2 = "abcde";  
-	      char s3[] = "abcd";  
-	      long int *s4[100];  
-	      char *s5 = "abcde";  
-	      int a = 5;  
-	      int b =6;//a,b在栈上，&a>&b地址反向增长  
-	   
-	     printf("variables address in main function: s1=%p  s2=%p s3=%p s4=%p s5=%p a=%p b=%p \n",   
-	             s1,s2,s3,s4,s5,&a,&b); 
-	     printf("variables address in processcall:n");  
+     #include<stdio.h>  
+     #include <malloc.h>  
+       
+     void print(char *,int);  
+     int main()  
+    {  
+          char *s1 = "abcde";  //"abcde"作为字符串常量存储在常量区 s1、s2、s5拥有相同的地址
+          char *s2 = "abcde";  
+          char s3[] = "abcd";  
+          long int *s4[100];  
+          char *s5 = "abcde";  
+          int a = 5;  
+          int b =6;//a,b在栈上，&a>&b地址反向增长  
+       
+         printf("variables address in main function: s1=%p  s2=%p s3=%p s4=%p s5=%p a=%p b=%p \n",   
+                 s1,s2,s3,s4,s5,&a,&b); 
+         printf("variables address in processcall:n");  
          print("ddddddddd",5);//参数入栈从右至左进行,p先进栈,str后进 &p>&str  
-	     printf("main=%p print=%p \n",main,print);  
-	     //打印代码段中主函数和子函数的地址，编译时先编译的地址低，后编译的地址高main<print  
-	 }  
+         printf("main=%p print=%p \n",main,print);  
+         //打印代码段中主函数和子函数的地址，编译时先编译的地址低，后编译的地址高main<print  
+     }  
  
-	 void print(char *str,int p)  
-	{  
-	     char *s1 = "abcde";  //abcde在常量区，s1在栈上  
-	     char *s2 = "abcde";  //abcde在常量区，s2在栈上 s2-s1=6可能等于0，编译器优化了相同的常量，只在内存保存一份  
-	     //而&s1>&s2  
-	     char s3[] = "abcdeee";//abcdeee在常量区，s3在栈上，数组保存的内容为abcdeee的一份拷贝  
-	    long int *s4[100];  
-	     char *s5 = "abcde";  
-	     int a = 5;  
-	     int b =6;  
-	     int c;  
-	     int d;           //a,b,c,d均在栈上，&a>&b>&c>&d地址反向增长  
-	    char *q=str; 
-	    int m=p;         
-	    char *r=(char *)malloc(1);  
-	    char *w=(char *)malloc(1) ;  // r<w 堆正向增长  
-	  
-	    printf("s1=%p s2=%p s3=%p s4=%p s5=%p a=%p b=%p c=%p d=%p str=%p q=%p p=%p m=%p r=%p w=%p \n",  
-	            s1,s2,s3,s4,s5,&a,&b,&c,&d,&str,q,&p,&m,r,w); 
-		/* 栈和堆是在程序运行时候动态分配的，局部变量均在栈上分配。
-		    栈是反向增长的，地址递减；malloc等分配的内存空间在堆空间。堆是正向增长的，地址递增。  
-			r,w变量在栈上(则&r>&w)，r,w所指内容在堆中(即r<w)。*/ 
-	 }  
-	 
+     void print(char *str,int p)  
+    {  
+         char *s1 = "abcde";  //abcde在常量区，s1在栈上  
+         char *s2 = "abcde";  //abcde在常量区，s2在栈上 s2-s1=6可能等于0，编译器优化了相同的常量，只在内存保存一份  
+         //而&s1>&s2  
+         char s3[] = "abcdeee";//abcdeee在常量区，s3在栈上，数组保存的内容为abcdeee的一份拷贝  
+        long int *s4[100];  
+         char *s5 = "abcde";  
+         int a = 5;  
+         int b =6;  
+         int c;  
+         int d;           //a,b,c,d均在栈上，&a>&b>&c>&d地址反向增长  
+        char *q=str; 
+        int m=p;         
+        char *r=(char *)malloc(1);  
+        char *w=(char *)malloc(1) ;  // r<w 堆正向增长  
+      
+        printf("s1=%p s2=%p s3=%p s4=%p s5=%p a=%p b=%p c=%p d=%p str=%p q=%p p=%p m=%p r=%p w=%p \n",  
+                s1,s2,s3,s4,s5,&a,&b,&c,&d,&str,q,&p,&m,r,w); 
+        /* 栈和堆是在程序运行时候动态分配的，局部变量均在栈上分配。
+            栈是反向增长的，地址递减；malloc等分配的内存空间在堆空间。堆是正向增长的，地址递增。  
+            r,w变量在栈上(则&r>&w)，r,w所指内容在堆中(即r<w)。*/ 
+     }  
+     
 附录: 
 
 栈与堆的区别
@@ -840,14 +840,14 @@ http://blog.chinaunix.net/uid-26838492-id-3162146.html
 
 摘录Linux注释的内容如下: 
 
-	Process Context
-	-------------------------------------------
-	One of the most important parts of a process is the executing program code. This code is read in from an executable file and executed within the program's address space. Normal program execution occurs in user-space. When a program executes a system call or triggers an exception, it enters kernel-space. At this point, the kernel is said to be "executing on behalf of the process" and is in process context. When in process context, the current macro is valid[7]. Upon exiting the kernel, the process resumes execution in user-space, unless a higher-priority process has become runnable in the interim(过渡期), in which case the scheduler is invoked to select the higher priority process.
+    Process Context
+    -------------------------------------------
+    One of the most important parts of a process is the executing program code. This code is read in from an executable file and executed within the program's address space. Normal program execution occurs in user-space. When a program executes a system call or triggers an exception, it enters kernel-space. At this point, the kernel is said to be "executing on behalf of the process" and is in process context. When in process context, the current macro is valid[7]. Upon exiting the kernel, the process resumes execution in user-space, unless a higher-priority process has become runnable in the interim(过渡期), in which case the scheduler is invoked to select the higher priority process.
 
-	Other than process context there is interrupt context, In interrupt context, the system is not running on behalf of a process, but is executing an interrupt handler. There is no process tied to interrupt handlers and consequently no process context. 
+    Other than process context there is interrupt context, In interrupt context, the system is not running on behalf of a process, but is executing an interrupt handler. There is no process tied to interrupt handlers and consequently no process context. 
 
-	System calls and exception handlers are well-defined interfaces into the kernel. A process can begin executing in kernel-space only through one of these interfaces -- all access to the kernel is through these interfaces.
-	-------------------------------------------
+    System calls and exception handlers are well-defined interfaces into the kernel. A process can begin executing in kernel-space only through one of these interfaces -- all access to the kernel is through these interfaces.
+    -------------------------------------------
 
 Interrupt Context
 -------------------------------------------

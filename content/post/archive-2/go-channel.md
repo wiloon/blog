@@ -185,14 +185,14 @@ fmt.Pritf("(%v): %v", ok, integer)
 复制代码上面例子中通过返回值ok来判断channel是否关闭，我们还可以通过range这种更优雅的方式来处理已经关闭的channel：
 intStream := make(chan int) 
 go func() {
-	defer close(intStream) 
-	for i:=1; i<=5; i++{ 
-		intStream <- i 
-	}
+    defer close(intStream) 
+    for i:=1; i<=5; i++{ 
+        intStream <- i 
+    }
 }()
 
 for integer := range intStream { 
-	fmt.Printf("%v ", integer)
+    fmt.Printf("%v ", integer)
 }
 // 1 2 3 4 5
 

@@ -69,14 +69,14 @@ REST (Representational State Transfer) 是 Roy Fielding 提出的一个描述互
       
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <users>
-	<user>
-			<name>tester</name>
-			http://localhost:8182/v1/users/tester</link>
-	</user>
-	<user>
-			<name>tester1</name>
-			http://localhost:8182/v1/users/tester1</link>
-	</user>
+    <user>
+            <name>tester</name>
+            http://localhost:8182/v1/users/tester</link>
+    </user>
+    <user>
+            <name>tester1</name>
+            http://localhost:8182/v1/users/tester1</link>
+    </user>
 </users>
     
   
@@ -90,11 +90,11 @@ REST (Representational State Transfer) 是 Roy Fielding 提出的一个描述互
       
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <user>
-	<name>tester</name>
-	<title>software engineer</title>
-	<company>IBM</company>
-	<email>tester@cn.ibm.com</email>
-	<description>testing!</description>
+    <name>tester</name>
+    <title>software engineer</title>
+    <company>IBM</company>
+    <email>tester@cn.ibm.com</email>
+    <description>testing!</description>
 </user>
     
   
@@ -133,63 +133,63 @@ public static final tring APPLICATION_URI = "http://localhost:8182/v1";
 
 //Get the URI of user resource by user name.
 private static String getUserUri(String name) {
-	return APPLICATION_URI + "/users/" + name;
+    return APPLICATION_URI + "/users/" + name;
 }
 
 //Get the URI of user list resource.
 private static String getUsersUri() {
-	return APPLICATION_URI + "/users";
+    return APPLICATION_URI + "/users";
 }
 //Delete user resource from server by user name.
 //使用 HTTP DELETE 方法经由 URI 删除用户资源
 public static void deleteFromServer(String name) {
-	Response response = new Client(Protocol.HTTP).delete(getUserUri(name));
-	……
+    Response response = new Client(Protocol.HTTP).delete(getUserUri(name));
+    ……
 }
 //Put user resource to server.
 //使用 HTTP PUT 方法经由 URI 增加或者修改用户资源
 public static void putToServer(User user) {
-	//Fill FORM using user data.
-	Form form = new Form();
- 	form.add("user[title]", user.getTitle());
- 	form.add("user[company]", user.getCompany());
- 	form.add("user[email]", user.getEmail());
- 	form.add("user[description]", user.getDescription());
-	Response putResponse = new Client(Protocol.HTTP).put(
-	getUserUri(user.getName()), form.getWebRepresentation());
- 	……
+    //Fill FORM using user data.
+    Form form = new Form();
+     form.add("user[title]", user.getTitle());
+     form.add("user[company]", user.getCompany());
+     form.add("user[email]", user.getEmail());
+     form.add("user[description]", user.getDescription());
+    Response putResponse = new Client(Protocol.HTTP).put(
+    getUserUri(user.getName()), form.getWebRepresentation());
+     ……
 }
 //Output user resource to console.
 public static void printUser(String name) {
-	printUserByURI(getUserUri(name));
+    printUserByURI(getUserUri(name));
 }
 
 //Output user list resource to console.
 //使用 HTTP GET 方法经由 URI 显示用户列表资源
 public static void printUserList() {
-	Response getResponse = new Client(Protocol.HTTP).get(getUsersUri());
-	if (getResponse.getStatus().isSuccess()) {
-			DomRepresentation result = getResponse.getEntityAsDom();
+    Response getResponse = new Client(Protocol.HTTP).get(getUsersUri());
+    if (getResponse.getStatus().isSuccess()) {
+            DomRepresentation result = getResponse.getEntityAsDom();
  //The following code line will explore this XML document and output
  //each user resource to console.
-			……
-	} else {
-	 	System.out.println("Unexpected status:"+ getResponse.getStatus());
-	}
+            ……
+    } else {
+         System.out.println("Unexpected status:"+ getResponse.getStatus());
+    }
 }
 
 //Output user resource to console.
 //使用 HTTP GET 方法经由 URI 显示用户资源
 private static void printUserByURI(String uri) {
-	Response getResponse = new Client(Protocol.HTTP).get(uri);
-	if (getResponse.getStatus().isSuccess()) {
- 		DomRepresentation result = getResponse.getEntityAsDom();
- 		//The following code line will explore this XML document and output
+    Response getResponse = new Client(Protocol.HTTP).get(uri);
+    if (getResponse.getStatus().isSuccess()) {
+         DomRepresentation result = getResponse.getEntityAsDom();
+         //The following code line will explore this XML document and output
  //current user resource to console.
  ……
- 	} else {
- 		System.out.println("unexpected status:"+ getResponse.getStatus());
- 	}
+     } else {
+         System.out.println("unexpected status:"+ getResponse.getStatus());
+     }
 }
 }
     
@@ -216,17 +216,17 @@ public UserResource(Context context, Request request, Response response) {
 }
 //响应 HTTP DELETE 请求逻辑
 public void delete() {
-	// Remove the user from container.
-	getContainer().remove(_userName);
- 	getResponse().setStatus(Status.SUCCESS_OK);
+    // Remove the user from container.
+    getContainer().remove(_userName);
+     getResponse().setStatus(Status.SUCCESS_OK);
 }
 
 //This method will be called by handleGet.
 public Representation getRepresentation(Variant variant) {
  Representation result = null;
  if (variant.getMediaType().equals(MediaType.TEXT_XML)) {
- 	Document doc = createDocument(this._user);
- 	result = new DomRepresentation(MediaType.TEXT_XML, doc);
+     Document doc = createDocument(this._user);
+     result = new DomRepresentation(MediaType.TEXT_XML, doc);
  }
  return result;
 }
@@ -238,7 +238,7 @@ public void put(Representation entity) {
  getUser().setName(this._userName);
  getResponse().setStatus(Status.SUCCESS_CREATED);
  } else {
- 	getResponse().setStatus(Status.SUCCESS_NO_CONTENT);
+     getResponse().setStatus(Status.SUCCESS_NO_CONTENT);
  }
  //Parse the entity as a Web form.
  Form form = new Form(entity);
@@ -247,23 +247,23 @@ public void put(Representation entity) {
  getUser().setEmail(form.getFirstValue("user[email]"));
  getUser().setDescription(form.getFirstValue("user[description]"));
  //Put the user to the container.
-	getApplication().getContainer().put(_userName, getUser());
+    getApplication().getContainer().put(_userName, getUser());
 }
 //响应 HTTP GET 请求逻辑。
 public void handleGet() {
-	super.handleGet();
-	if(this._user != null ) {
-	    getResponse().setEntity(getRepresentation(
-	               new Variant(MediaType.TEXT_XML)));
-	    getResponse().setStatus(Status.SUCCESS_OK);
-	} else {
-		getResponse().setStatus(Status.CLIENT_ERROR_NOT_FOUND);
-	}
+    super.handleGet();
+    if(this._user != null ) {
+        getResponse().setEntity(getRepresentation(
+                   new Variant(MediaType.TEXT_XML)));
+        getResponse().setStatus(Status.SUCCESS_OK);
+    } else {
+        getResponse().setStatus(Status.CLIENT_ERROR_NOT_FOUND);
+    }
 }
 //build XML document for user resource.
 private Document createDocument(User user) {
  //The following code line will create XML document according to user info.
-	……
+    ……
 }
 //The remaining methods here
 ……
@@ -303,9 +303,9 @@ SOAP Web 服务架构
       
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
-	<soap:Body>
-		<p:getUserList xmlns:p="http://www.exmaple.com"/>
-	</soap:Body>
+    <soap:Body>
+        <p:getUserList xmlns:p="http://www.exmaple.com"/>
+    </soap:Body>
 </soap:Envelope>
     
   
@@ -322,16 +322,16 @@ SOAP Web 服务架构
       
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
-	<soap:Body>
-			<p:get
-				UserListResponse xmlns:p="http://www.exmaple.com">
-				<Users>
-				<username>tester<username>
-				<username>tester1<username>
-				......
-				</Users>
-				<p: getUserListResponse >
-	</soap:Body>
+    <soap:Body>
+            <p:get
+                UserListResponse xmlns:p="http://www.exmaple.com">
+                <Users>
+                <username>tester<username>
+                <username>tester1<username>
+                ......
+                </Users>
+                <p: getUserListResponse >
+    </soap:Body>
 </soap:Envelope>
     
   
@@ -348,11 +348,11 @@ SOAP Web 服务架构
       
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
-	<soap:Body>
-	 <p:getUserByName xmlns:p="http://www.exmaple.com">
-				<username>tester</username>
-				</p:getUserByName >
-	</soap:Body>
+    <soap:Body>
+     <p:getUserByName xmlns:p="http://www.exmaple.com">
+                <username>tester</username>
+                </p:getUserByName >
+    </soap:Body>
 </soap:Envelope>
     
   
@@ -370,13 +370,13 @@ SOAP Web 服务架构
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
 <soap:Body>
-	<p:getUserByNameResponse xmlns:p="http://www.exmaple.com">
-			<name>tester</name>
-			<title>software engineer</title>
-			<company>IBM</company>
-			<email>tester@cn.ibm.com</email>
-			<description>testing!</description>
-	</p:getUserByNameResponse>
+    <p:getUserByNameResponse xmlns:p="http://www.exmaple.com">
+            <name>tester</name>
+            <title>software engineer</title>
+            <company>IBM</company>
+            <email>tester@cn.ibm.com</email>
+            <description>testing!</description>
+    </p:getUserByNameResponse>
 </soap:Body>
 </soap:Envelope>
     

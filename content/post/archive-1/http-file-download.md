@@ -14,15 +14,15 @@ tags:
 ### golang + gin
 
 ```go
-	c.Writer.WriteHeader(http.StatusOK)
-	c.Header("Content-Disposition", fmt.Sprintf("attachment; filename=%s.bin", "foo"))
-	c.Header("Content-Type", "application/octet-stream")
-	c.Header("Content-Transfer-Encoding", "binary")
-	c.Header("Accept-Ranges", "bytes")
-	c.Header("Connection", "keep-alive")
-	c.Header("Content-Length", fmt.Sprintf("%d", len(paramsBytes)))
+    c.Writer.WriteHeader(http.StatusOK)
+    c.Header("Content-Disposition", fmt.Sprintf("attachment; filename=%s.bin", "foo"))
+    c.Header("Content-Type", "application/octet-stream")
+    c.Header("Content-Transfer-Encoding", "binary")
+    c.Header("Accept-Ranges", "bytes")
+    c.Header("Connection", "keep-alive")
+    c.Header("Content-Length", fmt.Sprintf("%d", len(paramsBytes)))
 
-	c.Writer.Write(paramsBytes)
+    c.Writer.Write(paramsBytes)
 ```
 
 ### vuetify

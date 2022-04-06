@@ -47,10 +47,10 @@ package main
 import "fmt"
 
 func main() {
-	var cat int = 1
-	var str string = "banana"
-	// 0xc00001a0b0 0xc000010230
-	fmt.Printf("%p %p", &cat, &str)
+    var cat int = 1
+    var str string = "banana"
+    // 0xc00001a0b0 0xc000010230
+    fmt.Printf("%p %p", &cat, &str)
 }
 ```
 
@@ -94,26 +94,26 @@ package main
 import "fmt"
 
 type abc struct {
-	v int
+    v int
 }
 
 func (a abc) foo() { //传入的是值,而不是引用
-	a.v = 1
-	fmt.Printf("1:%d\n", a.v)
+    a.v = 1
+    fmt.Printf("1:%d\n", a.v)
 }
 func (a *abc) bar() { //传入的是引用,而不是值
-	fmt.Printf("2:%d\n", a.v)
-	a.v = 2
-	fmt.Printf("3:%d\n", a.v)
+    fmt.Printf("2:%d\n", a.v)
+    a.v = 2
+    fmt.Printf("3:%d\n", a.v)
 }
 func (a *abc) fooBar() { //传入的是引用,而不是值
-	fmt.Printf("4:%d\n", a.v)
+    fmt.Printf("4:%d\n", a.v)
 }
 func main() {
-	oneObj := abc{} //new(abc);
-	oneObj.foo()
-	oneObj.bar()
-	oneObj.fooBar()
+    oneObj := abc{} //new(abc);
+    oneObj.foo()
+    oneObj.bar()
+    oneObj.fooBar()
 }
 ```
   
@@ -244,20 +244,20 @@ package main
 import "fmt"
 
 func byval(q *int) {
-	fmt.Printf("3. byval -- q %T: &q=%p q=&i=%p  *q=i=%v\n", q, &q, q, *q)
-	*q = 4143
-	fmt.Printf("4. byval -- q %T: &q=%p q=&i=%p  *q=i=%v\n", q, &q, q, *q)
-	q = nil
+    fmt.Printf("3. byval -- q %T: &q=%p q=&i=%p  *q=i=%v\n", q, &q, q, *q)
+    *q = 4143
+    fmt.Printf("4. byval -- q %T: &q=%p q=&i=%p  *q=i=%v\n", q, &q, q, *q)
+    q = nil
 }
 
 func main() {
-	i := int(42)
-	fmt.Printf("1. main  -- i  %T: &i=%p i=%v\n", i, &i, i)
-	p := &i
-	fmt.Printf("2. main  -- p %T: &p=%p p=&i=%p p=%v *p=i=%v\n", p, &p, p, p, *p)
-	byval(p)
-	fmt.Printf("5. main  -- p %T: &p=%p p=&i=%p  *p=i=%v\n", p, &p, p, *p)
-	fmt.Printf("6. main  -- i  %T: &i=%p i=%v\n", i, &i, i)
+    i := int(42)
+    fmt.Printf("1. main  -- i  %T: &i=%p i=%v\n", i, &i, i)
+    p := &i
+    fmt.Printf("2. main  -- p %T: &p=%p p=&i=%p p=%v *p=i=%v\n", p, &p, p, p, *p)
+    byval(p)
+    fmt.Printf("5. main  -- p %T: &p=%p p=&i=%p  *p=i=%v\n", p, &p, p, *p)
+    fmt.Printf("6. main  -- i  %T: &i=%p i=%v\n", i, &i, i)
 }
 ```
 

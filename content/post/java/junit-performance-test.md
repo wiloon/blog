@@ -13,13 +13,13 @@ tags:
 http://databene.org/contiperf.html
           
 @Rule
-	  
+      
 public ContiPerfRule i = new ContiPerfRule();
 
 @Test
-	  
+      
 @PerfTest(invocations = 5)
-	  
+      
 @Required(max = 9000, average = 8000)
 
 invocation sequence:

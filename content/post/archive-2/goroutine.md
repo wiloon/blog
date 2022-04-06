@@ -225,28 +225,28 @@ https://zhuanlan.zhihu.com/p/25513336
 
 ```go
 import (
-	"fmt"
-	"github.com/cihub/seelog"
-	"runtime"
-	"strconv"
-	"strings"
+    "fmt"
+    "github.com/cihub/seelog"
+    "runtime"
+    "strconv"
+    "strings"
 )
 
 func GoroutineId() int {
-	defer func() {
-		if err := recover(); err != nil {
-			seelog.Error("panic recover:panic info:", err)
-		}
-	}()
+    defer func() {
+        if err := recover(); err != nil {
+            seelog.Error("panic recover:panic info:", err)
+        }
+    }()
 
-	var buf [64]byte
-	n := runtime.Stack(buf[:], false)
-	idField := strings.Fields(strings.TrimPrefix(string(buf[:n]), "goroutine "))[0]
-	id, err := strconv.Atoi(idField)
-	if err != nil {
-		panic(fmt.Sprintf("cannot get goroutine id: %v", err))
-	}
-	return id
+    var buf [64]byte
+    n := runtime.Stack(buf[:], false)
+    idField := strings.Fields(strings.TrimPrefix(string(buf[:n]), "goroutine "))[0]
+    id, err := strconv.Atoi(idField)
+    if err != nil {
+        panic(fmt.Sprintf("cannot get goroutine id: %v", err))
+    }
+    return id
 }
 
 
