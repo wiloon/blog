@@ -14,6 +14,7 @@ tags:
 
 ## 在vi中添加文本
 
+```bash
     a 在光标后插入文本
     A 在当前行插入文本
     i 在光标前插入文本
@@ -24,6 +25,7 @@ tags:
     :nr file 读入文件file内容，并插在第n行后
     escape 回到命令模式
     ^v char 插入时忽略char的指定意义，这是为了插入特殊字符
+```
 
 ### vim 编辑二进制文件
 
@@ -38,6 +40,7 @@ vim -b test.bin
 ```
 
 ### vim utf8 乱码
+
 #### 查看文件编码
 
 ```bash
@@ -110,6 +113,7 @@ s...只替换行中匹配到的第一个，s/pattern/replacement/g 意味着替�
     按esc后，然后ggvG或者ggVG
 
 ### 替换换行符
+
 ```bash
 windows 中将空格符替换为换行符的方法: 
 :%s/xx/\r/g(因为windows的CTRL+V是粘贴的功能，所以不能输入^M)
@@ -118,20 +122,25 @@ linux中方法:
 :%s/xx/\r/g
 :%s/xx/^M/g(^M的输入方法是: 先按CTRL+V，松开然后按回车键) 
 ```
+
 ### 复制
+
 全部复制: 按esc键后，先按gg，然后ggyG
 单行复制: 按esc键后，然后yy
 
 ### 执行上一次的命令
+
     # 点
     .
 
 ### visual
 visual模式
  (1) 在普通模式 (normal) 下，直接按键 v  就可以进入默认visual模式，可以使用v+j/k/h/l 进行文本选择
+
 #### 复制，剪切，粘贴
+
 用v选中文本
-对于选中的文本进行如下按键: 
+对于选中的文本进行如下按键
  (1.1) d   ------ 剪切操作
  (1.2) y   -------复制操作
  (1.3) p   -------粘贴操作
@@ -155,6 +164,7 @@ visual模式
 
             输入字符之后，按键ESC，完成多行的插入
 //todo, visual move to separate post.
+
 ### 查找，替换
 
 [http://blog.wiloon.com/?p=13147](http://blog.wiloon.com/?p=13147)
