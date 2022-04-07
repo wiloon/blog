@@ -10,7 +10,7 @@ tags:
   - reprint
 ---
 ## IPC, 进程间通信IPC (InterProcess Communication)
-## IPC, 进程间通信IPC (Inter-Process Communication)
+
 每个进程各自有不同的用户地址空间，任何一个进程的全局变量在另一个进程中都看不到，所以进程之间要交换数据必须通过内核，在内核中开辟一块缓冲区，进程1把数据从用户空间拷到内核缓冲区，进程2再从内核缓冲区把数据读走，内核提供的这种机制称为进程间通信 (IPC，InterProcess Communication) 
 进程间通信模型
 ### 进程间通信的7种方式
