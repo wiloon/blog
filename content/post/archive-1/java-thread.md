@@ -15,12 +15,14 @@ tags:
 线程是比进程更轻量级的调度执行单位，线程的引入可以把一个进程的资源分配和执行调度分开，各个线程既可以共享进程资源(内存地址，文件IO等)，又可以独立调度 (线程是CPU调度的基本单位) 。
 
 ### 线程共享以下进程的资源和环境
-1. 文件描述符表 (重点) 
-2. 每种信号的处理方式 (SIG_IGN、SIG_DFL或者自定义的信号处理函数) 
+
+1. 文件描述符表 (重点)
+2. 每种信号的处理方式 (SIG_IGN、SIG_DFL或者自定义的信号处理函数)
 3. 当前工作目录
 4. 用户id和组id
 
 ### 线程有自己的私有数据
+
 1. 线程id
 2. 上下文信息, 包括各种寄存器的值, 程序计数器, 栈指针
 3. 栈空间 (临时变量存储在栈空间中) (重点)
@@ -28,8 +30,10 @@ tags:
 5. 信号屏蔽字
 6. 调度优先级
 
-Linux上线程位于libpthread共享库中，因此在编译时要加上-lpthread选项 (-l :指明所链接的库)   
+Linux上线程位于libpthread共享库中，因此在编译时要加上-lpthread选项 (-l :指明所链接的库)
+
 ### 进程与线程的联系与区别
+
 1. 线程是在进程内部运行的执行分支
 2. 线程是为了资源共享 (共享地址空间) ，进程是为了资源独占 (私有地址空间) 
 3. Linux下没有真正的线程，它是利用轻量级进程来代替实现的
@@ -39,7 +43,9 @@ Linux上线程位于libpthread共享库中，因此在编译时要加上-lpthrea
 实现线程主要有三种方式: 使用内核线程实现，使用用户线程实现和使用用户线程加轻量级进程混合实现。
 
 ### java thread
+
 ### Thread Dump日志的线程信息
+
     "resin-22129" daemon prio=10 tid=0x00007fbe5c34e000 nid=0x4cb1 waiting on condition [0x00007fbe4ff7c000]
       java.lang.Thread.State: WAITING (parking)
         at sun.misc.Unsafe.park(Native Method)
@@ -56,7 +62,8 @@ Linux上线程位于libpthread共享库中，因此在编译时要加上-lpthrea
         - locked <0x00000006f0620ff0> (a java.util.TaskQueue)
         at java.util.TimerThread.run(Timer.java:505)
 
-以上依次是:   
+以上依次是:
+
 - "resin-22129" 线程名称: 如果使用 java.lang.Thread 类生成一个线程的时候，线程名称为 Thread-(数字) 的形式，这里是resin生成的线程；
 - daemon 线程类型: 线程分为守护线程 (daemon) 和非守护线程 (non-daemon) 两种，通常都是守护线程；
 - prio=10 线程优先级: 默认为5，数字越大优先级越高；
@@ -66,8 +73,9 @@ Linux上线程位于libpthread共享库中，因此在编译时要加上-lpthrea
 - [0x00007fbe4ff7c000] 起始栈地址: 线程堆栈调用的其实内存地址；
 - java.lang.Thread.State: WAITING (parking) JVM线程状态: 这里标明了线程在代码级别的状态，详细的内容见下面的 JVM线程运行状态 部分。
 - 线程调用栈信息: 下面就是当前线程调用的详细栈信息，用于代码的分析。堆栈信息应该从下向上解读，因为程序调用的顺序是从下向上的。
- 
+
 ### java 线程创建
+
 - 继承Thread类
 - 实现 Runnable 接口
 - 使用 Callable 和 Future 创建线程

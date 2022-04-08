@@ -10,6 +10,7 @@ tags:
   - reprint
 ---
 ## 从JVM角度理解线程
+
 http://blog.csdn.net/iter_zc/article/details/41843595
 
 这篇说说如何从JVM的角度来理解线程，可以对Java的线程模型有一个更加深入的理解，对GC的一些细节也会理解地更加深刻。本文基于HotSpot的OpenJDK7实现。
@@ -17,9 +18,9 @@ http://blog.csdn.net/iter_zc/article/details/41843595
 我们知道JVM主要是用C++实现的，JVM定义的Thread的类继承结构如下:
 
 Class hierarchy
-   
+
 - Thread
-- NamedThread 
+- NamedThread
 - VMThread
        
 - ConcurrentGCThread
