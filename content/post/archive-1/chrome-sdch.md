@@ -10,6 +10,7 @@ tags:
   - reprint
 ---
 ## chrome sdch
+
 sdch: chrome 支持的新HTTP传输压缩算法
 
 我们知道，为了加快网络传输，一般都使用gzip对文本进行压缩。如果你现在用最新版的chrome去访问页面，然后打开network控制面板，查看http headers，细心的你会发现在Request Headers里的Accept-Encoding不再是gzip,deflate，而是多了个sdch，变成了gzip,deflate,sdch。如图: 
