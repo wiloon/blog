@@ -308,6 +308,7 @@ Runnable实现的是void run() 方法，Callable实现的是 V call() 方法，�
 https://www.cnblogs.com/0xJDchen/p/5988275.html
 
 ### 数据争用(data race) 和竞态条件(race condition)
+
 在有关多线程编程的话题中，数据争用(data race) 和竞态条件(race condition)是两个经常被提及的名词，它们两个有着相似的名字，也是我们在并行编程中极力避免出现的。但在处理实际问题时，我们应该能明确区分它们两个。
 
 1. 数据争用(data race)

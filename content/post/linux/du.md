@@ -24,10 +24,12 @@ disk usage
     du -hd1 --exclude=proc
 
 ### 参数
+
     # 排除文件或目录
     --exclude=foo
 
 ### 排序
+
     du -d1 |sort -rn
 
 ```bash

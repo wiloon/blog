@@ -1,35 +1,40 @@
 ---
-title: "race condition"
+title: race condition, 竞态条件
 author: "-"
 date: "2021-07-01 21:56:55"
-url: "template"
-
+url: race-condition
 categories:
-  - inbox
+  - cs
 tags:
   - reprint
 ---
-## "race condition"
-数据争用(data race) 和竞态条件(race condition)
+## race condition
 
-在有关多线程编程的话题中，数据争用(data race) 和竞态条件(race condition)是两个经常被提及的名词，它们两个有着相似的名字，也是我们在并行编程中极力避免出现的。但在处理实际问题时，我们应该能明确区分它们两个。
+数据争用 (data race) 和竞态条件 (race condition)
 
-1.数据争用(data race)
-定义: 多个线程对于同一个变量、同时地、进行读/写操作的现象并且至少有一个线程进行写操作。 (也就是说，如果所有线程都是只进行读操作，那么将不构成数据争用) 
+在有关多线程编程的话题中，数据争用 (data race) 和竞态条件 (race condition) 是两个经常被提及的名词，它们两个有着相似的名字，也是我们在并行编程中极力避免出现的。但在处理实际问题时，我们应该能明确区分它们两个。
+
+## 数据争用 (data race)
+
+定义: 多个线程对于同一个变量、同时地、进行读/写操作的现象并且至少有一个线程进行写操作。 (也就是说，如果所有线程都是只进行读操作，那么将不构成数据争用)
 后果: 如果发生了数据争用，读取该变量时得到的值将变得不可知，使得该多线程程序的运行结果将完全不可预测，可能直接崩溃。
 如何防止: 对于有可能被多个线程同时访问的变量使用排他访问控制，具体方法包括使用mutex (互斥量) 和monitor (监视器) ，或者使用atomic变量。
 
-2.竞态条件(race condition)
-相对于数据争用(data race)，竞态条件(race condition)指的是更加高层次的更加复杂的现象，一般需要在设计并行程序时进行细致入微的分析，才能确定。 (也就是隐藏得更深) 
+## 竞态条件 (race condition)
+
+相对于数据争用，竞态条件(race condition) 指的是更加高层次的更加复杂的现象，一般需要在设计并行程序时进行细致入微的分析，才能确定。 (也就是隐藏得更深)
 定义: 受各线程上代码执行的顺序和时机的影响，程序的运行结果产生 (预料之外) 的变化。
 后果: 如果存在竞态条件(race condition)，多次运行程序对于同一个输入将会有不同的结果，但结果并非完全不可预测，它将由输入数据和各线程的执行顺序共同决定。
-如何预防: 竞态条件产生的原因很多是对于同一个资源的一系列连续操作并不是原子性的，也就是说有可能在执行的中途被其他线程抢占，同时这个“其他线程”刚好也要访问这个资源。解决方法通常是: 将这一系列操作作为一个critical section (临界区) 。
+如何预防: 竞态条件产生的原因很多是对于同一个资源的一系列连续操作并不是原子性的，也就是说有可能在执行的中途被其他线程抢占，同时这个“其他线程”刚好也要访问这个资源。解决方法通常是: 将这一系列操作作为一个 critical section (临界区) 。
 
-3.代码示例
+### 代码示例
+
 下面以C++实现的一个银行存款转账操作为例，说明数据争用(data race) 和竞态条件(race condition)的区别。
 
 该系统的不変性条件: 存款余额≥0，不允许借款。
 3.1.数据争用的例子
+
+```c
 int my_account = 0;      //我的账户余额
 int your_account = 100;  //你的账户余额
 
@@ -45,13 +50,17 @@ bool racy_transfer(int& src, int& dst, int m)
   }
 }
 
+```
+
 // 将下面两个函数在两个线程分别运行
 racy_transfer(your_account, my_account, 50);
 racy_transfer(your_account, my_account, 80);
 运行上面的的代码后，不光我们双方账号的余额不可预测，甚至整个系统会发生什么事情都无法保证。
 
-3.2.竞态条件的例子
-#include 
+### 竞态条件的例子
+
+```c
+#include
 std::atomic<int> my_account = 0; //我的账户余额
 std::atomic<int> your_account = 100;  //你的账户余额
 
@@ -71,6 +80,7 @@ bool unsafe_transfer(std::atomic<int>& src, std::atomic<int>& dst, int m)
 //将下面两个函数在两个线程分别运行
 unsafe_transfer(your_account, my_account, 50);//[A]
 unsafe_transfer(your_account, my_account, 80);//[B]
+```
 
 上面代码中★所标注的就是竞态条件，也就是这时候m > src是完全有可能的。考虑以下三种情况: 
 

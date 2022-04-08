@@ -100,6 +100,8 @@ markdown 语法检查
 
 配置同步
 
+File> Preference> Settings Sync
+
 ### Markdown Preview Github Styling
 
 ### REST Client

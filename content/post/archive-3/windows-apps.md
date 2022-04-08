@@ -4,13 +4,13 @@ author: "-"
 date: 2019-03-28T02:03:39+00:00
 url: windows/apps
 keys: win apps, windows apps
-
 categories:
   - windows
 tags:
   - reprint
 ---
 ## windows apps, win apps
+
 ### choco
 
 ```bash
@@ -67,13 +67,12 @@ https://chocolatey.org/packages
 | alacritty        |                    |
 | Windows Terminal |                    |
 | wsl2             |                    |
-|x410              | windows x server   |
+|x410              | x server           |
 |T-Clock           | 可以显示周数的任务栏时钟, 格式模板: "mm-dd HH:nn \nW Wi ddd", https://github.com/White-Tiger/T-Clock |
-|VcXsrc            |x server|
+|VcXsrc            | x server           |
 |PowerToys||
 |截图工具|搜索 截图工具|
 
- 
 MobaXterm
 
 wps/liberoffice
