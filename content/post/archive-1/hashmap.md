@@ -6,13 +6,15 @@ draft: true
 url: hashmap
 categories:
   - java
-
 tags:
   - reprint
 ---
 ## HashMap
+
 ## Java HashMap
+
 ### jdk 1.7
+
 默认容量为 16，负载因子为 0.75。Map 在使用过程中不断的往里面存放数据，当数量达到了 16 * 0.75 = 12 就需要将当前 16 的容量进行扩容，而扩容这个过程涉及到 rehash、复制数据等操作，所以非常消耗性能。
 因此通常建议能提前预估 HashMap 的大小最好，尽量的减少扩容带来的性能损耗。
 
@@ -41,12 +43,14 @@ public V put(K key, V value) {
     return null;
 }
 ```
+
 判断当前数组是否需要初始化。
 如果 key 为空，则 put 一个空值进去。
 根据 key 计算出 hashcode。
 根据计算出的 hashcode 定位出所在桶。
 如果桶是一个链表则需要遍历判断里面的 hashcode、key 是否和传入 key 相等，如果相等则进行覆盖，并返回原来的值。
 如果桶是空的，说明当前位置没有数据存入；新增一个 Entry 对象写入当前位置。
+
 ```java
 
 void addEntry(int hash, K key, V value, int bucketIndex) {
