@@ -2,16 +2,25 @@
 title: ping, fping
 author: "-"
 date: 2020-04-13T10:43:01+00:00
-url: /?p=15936
-
+url: ping
 categories:
-  - inbox
+  - network
 tags:
   - reprint
 ---
 ## ping, fping
+
+## windows 长 ping
+
+```bat
+ping 192.168.1.100 -t
+```
+
 ### 指定网络设备
+
+```bash
     ping -c 1 -I veth0 192.168.3.102
+```
 
 ### 同时显示统计信息
 
@@ -20,6 +29,7 @@ fping -l google.com
 ```
 
 ### 什么是ping
+
 PING (Packet Internet Grope)，因特网包探索器，用于测试网络连接量的程序。Ping发送一个ICMP回声请求消息给目的地并报告是否收到所希望的ICMP回声应答。
 
 ### 什么是TTL
@@ -53,8 +63,6 @@ Windows 2000
 Windows XP
 ICMP 回显应答的 TTL 字段值为 128
 这样，我们就可以通过这种方法来辨别操作系统
-
-
 
 https://unix.stackexchange.com/questions/329110/display-the-missing-icmp-seq-count-ping-command
 

@@ -79,4 +79,5 @@ rdesktop 的使用很简单，可通过#rdesktop-h得到使用的帮助。一般
 ```bash
 pacman -S freerdp
 xfreerdp /u:"user0" /v:192.168.50.182:3389
+xfreerdp /v:192.168.50.9:3389 /u:"wiloon" /p:haCahpro /size:1680x1024  +clipboard
 ```

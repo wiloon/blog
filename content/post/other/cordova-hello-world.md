@@ -10,13 +10,14 @@ tags:
   - reprint
 ---
 ## Cordova Hello World
+
 install node.js/npm
 install cordova using npm
 C:\>npm install -g cordova
 
 create the app
-```
 
+```
 cordova create hello com.example.hello HelloWorld```
 
 cd hello
@@ -26,6 +27,7 @@ cordova platform add android
 ```
 
 cordova platform add ios
+
 ```
 
 cordova platform add wp8```

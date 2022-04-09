@@ -10,6 +10,7 @@ tags:
   - reprint
 ---
 ## concat
+
 和其他数据库系统类似，[Oracle][1]字符串连接使用"||"进行字符串拼接，其使用方式和MSSQLServer中的加号"+"一样。
 
 比如执行下面的SQL语句: 

@@ -10,8 +10,8 @@ tags:
   - reprint
 ---
 ## 'socks5 -> http/https proxy, privoxy/cow'
+
 ```bash
-  
 curl -L git.io/cow | bash
 
 #edit /home/user0/.cow/rc
@@ -28,6 +28,7 @@ export https_proxy=http://127.0.0.1:7777
   
 ```
 
+
 sudo pacman -S privoxy
 
 edit /etc/privoxy/config
@@ -40,20 +41,39 @@ sudo systemctl start privoxy
 
 * * *
 
-proxychains
+## proxychains
 
-Debian/Ubuntu:
-  
+```bash
+#Arch Linux
+sudo pacman -S proxychains-ng
+
+#Debian/Ubuntu  
 apt-get install proxychains
-  
-Mac OS X:
-  
+
+#Mac OS X  
 brew install proxychains-ng
-  
-配置文件
+
+# 用户级配置文件
   
 编辑~/.proxychains/proxychains.conf:
-  
+
+# 系统级配置文件
+vim /etc/proxychains.conf
+
+# content
+[ProxyList] 
+socks5  192.168.50.205 1080 
+http    127.0.0.1 4321
+```
+
+### 使用
+
+```bash
+proxychains4 git svn rebase
+```
+
+---
+
 strict_chain
   
 proxy_dns
@@ -72,7 +92,7 @@ quiet_mode
   
 socks5 127.0.0.1 1080
   
-通过proxychains运行命令: 
+通过 proxychains 运行命令: 
   
 proxychains4 curl https://www.twitter.com/
   

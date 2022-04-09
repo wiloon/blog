@@ -93,6 +93,7 @@ rootfs用gz打包后的文件
     sed -i 's_downloads.openwrt.org_mirrors.tuna.tsinghua.edu.cn/openwrt_' /etc/opkg/distfeeds.conf
 
 ### 安装证书
+
 openwrt 里访问 使用let's encrypt 签发的证书站点报错:  
 
     x509: certificate signed by unknown authority
@@ -106,6 +107,7 @@ https://blog.csdn.net/xushx_bigbear/article/details/47746285
 https://blog.csdn.net/lee244868149/article/details/57076615
 
 ### openwrt lan 改网段
+
 https://www.cnblogs.com/double-win/p/3841017.html
 
 ```bash
@@ -127,6 +129,7 @@ option 'netmask' '255.255.255.0'
 ```
 
 ### mirror
+
     sed -i 's_downloads.openwrt.org_mirrors.tuna.tsinghua.edu.cn/openwrt_' /etc/opkg/distfeeds.conf
 
 ### build
@@ -148,6 +151,7 @@ odhcpd 是openwrt 默认的dhcp服务
 配置文件: /etc/config/dhcp
 
 ### init script
+
 ```bash
 vim /etc/init.d/foo
 
@@ -170,6 +174,7 @@ stop() {
 ```
 
 ### opkg
+
 opkg 工具 (一个 ipkg 变种) 是一个用来从本地软件仓库或互联网软件仓库上下载并安装 OpenWrt 软件包的轻量型软件包管理器。
 
 ```bash
@@ -180,11 +185,16 @@ opkg install xxx.ipk # 安装本地的软件包
 opkg remove xxx
 ```
 
-### 自定义防火墙规则 
+### 自定义防火墙规则
+
     /etc/firewall.user
-### 系统防火墙规则 
+
+### 系统防火墙规则
+
     /etc/config/firewall
+
 #### 端口转发
+
 config redirect
         option dest_port '80'
         option src 'wan'
@@ -195,19 +205,21 @@ config redirect
         option dest 'lan'
 
 ### 查看日志
+
 logread
 
 ### 启动脚本位置
+
     /etc/rc.d
 
 ### openwrt添加开机运行脚本
+
 openwrt添加开机运行脚本
 进入/etc/init.d/目录创建脚本test
 
     vim test
 
 在/etc/init.d/test中按照以下格式编写shell脚本
-
 
     #!/bin/sh /etc/rc.common
     START=99
@@ -226,7 +238,6 @@ start()里执行增加的功能脚步或者写脚本启动自己的程序
 #### 创建一个软链接
 
     /etc/init.d/test enable
- 
 ---
 
 https://wiki.openwrt.org/zh-cn/doc/techref/opkg  

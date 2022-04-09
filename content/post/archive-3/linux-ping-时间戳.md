@@ -10,6 +10,7 @@ tags:
   - reprint
 ---
 ## linux ping 时间戳
+
 ```bash
 ping 192.168.2.1 -c 10 | awk '{ print $0"\t" strftime("%H:%M:%S",systime()) } '
 ```

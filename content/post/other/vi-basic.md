@@ -756,10 +756,11 @@ vim默认使用magic设置，这个设置也可以在正则表达式中通过 /m
 关于正则表达式的详细信息，请参见参考文献。
 
 ### config
+
 >https://www.ruanyifeng.com/blog/2018/09/vimrc.html
 
 http://www.cnblogs.com/88999660/articles/1581524.html
 
 http://www.cnblogs.com/taizi1985/archive/2007/08/13/853190.html
 https://www.cnblogs.com/luosongchao/p/3193153.html
-  
+

@@ -10,6 +10,7 @@ tags:
 
 ---
 ## CountDownLatch
+
 CountDownLatch是一个同步辅助类,在完成一组正在其他线程中执行的操作之前,它允许一个或多个线程一直等待。
 
 **CountDownLatch和CyclicBarrier的区别**

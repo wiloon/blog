@@ -127,3 +127,13 @@ pacman -S wqy-microhei
 # 重启 idea
 
 ```
+
+## idea maven proxy
+
+```bash
+File> settings> Build,Execution,Deployment>Build Tools> maven> importing> vm options for importer:
+
+# 192.168.50.9:1080 socks5 proxy
+-DproxySet=true -DproxyHost=192.168.50.9 -DproxyPort=1080
+
+```
