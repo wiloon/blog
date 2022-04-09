@@ -163,6 +163,7 @@ ip route add fd7b:d0bd:7a6e::/64 dev wg0
     AllowedIPs = 192.168.xx.xx/32 
 
 #### vim /etc/systemd/network/99-wg0.network
+
     [Match]
     Name = wg0
 
@@ -176,7 +177,9 @@ ip route add fd7b:d0bd:7a6e::/64 dev wg0
 ### config router, add port forward config
 
 ## client
+
 ### android client
+
 安装wireguard
 https://f-droid.org/en/packages/com.wireguard.android/  
 点右下角的加号新建 连接  
