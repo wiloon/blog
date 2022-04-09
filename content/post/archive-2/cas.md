@@ -10,7 +10,7 @@ tags:
   - reprint
 ---
 ## CAS, Compare and Swap, 比较并交换
-### CAS
+
 JDK 5 的并发包中提供了很多类,这些类提供了比原有的并发机制更好的性能和伸缩性。要想理解这些类的工作机理,那就不得不提到 CAS。
 CAS 全称是 Compare and Swap (比较并交换),是指现代主流 CPU 都支持的一种指令,这个指令能为多线程编程带来更好的性能 (稍后会详细介绍) 。  
 另外一个可能会被当做 CAS 的是 Compare and Set,是指 JDK 5 并发包中广泛使用的一种基于 Compare and Swap 的并发算法。严格说 CAS 仅指代前者。
@@ -20,6 +20,7 @@ java.util.concurrent 包完全建立在CAS之上的,没有CAS就不会有此包�
 java.util.concurrent 包中借助CAS实现了区别于 synchronouse 同步锁的一种乐观锁。
 
 ### CAS应用
+
 CAS: 全称Compare and swap,字面意思:”比较并交换“,一个 CAS 涉及到以下操作: 
 
 我们假设内存中的原数据V,旧的预期值A,需要修改的新值B。
@@ -43,6 +44,7 @@ private volatile int value;
 public final int get() { return value; }
 
 然后来看看++i是怎么做到的。
+
 ```java
 public final int incrementAndGet() {
 
@@ -60,6 +62,7 @@ for (;;) {
 在这里采用了CAS操作,每次从内存中读取数据然后将此数据和 +1 后的结果进行 CAS 操作,如果成功就返回结果,否则重试直到成功为止。
 
 而compareAndSet利用JNI来完成CPU指令的操作。
+
 ```java
 public final boolean compareAndSet(int expect, int update) {
       
@@ -74,7 +77,7 @@ return unsafe.compareAndSwapInt(this, valueOffset, expect, update);
 unsafe.compareAndSwapInt(this, valueOffset, expect, update);
 ```
 
-类似: 
+类似:
 ```java
 if (this == expect) {
   this = update

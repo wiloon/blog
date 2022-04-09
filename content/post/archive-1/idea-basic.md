@@ -26,10 +26,11 @@ tags:
     git push origin master
 
 ### fetch
+
     git fetch origin master
 
-
 ### keys
+
 |||
 |-|-|
 |列编辑|Alt+Shift+Insert,ctrl+alt+i |
@@ -46,6 +47,7 @@ ctl+alt+S setting
 ---
 
 ### settings repository
+
     mkdir local-jetbrain-setting-repo
     cd local-jetbrain-setting-repo
     git init --bare
@@ -53,7 +55,6 @@ ctl+alt+S setting
     git branch -m main # 默认创建
     git remote add origin git@github.com:wiloon/jetbrain-idea-setting.git
     git push origin main
-
 
 ### 解决 Intellij IDEA Cannot Resolve Symbol ‘XXX’ 问题
 

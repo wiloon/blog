@@ -4,12 +4,13 @@ author: "-"
 date: 2013-11-24T06:29:26+00:00
 url: /?p=5989
 categories:
-  - Uncategorized
+  - english
 tags:
   - English
 
 ---
 ## changealtervarymodify
+
 changealtervarymodify
   
 这组动词的一般含义是"改变"或"变化".
