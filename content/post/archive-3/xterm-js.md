@@ -10,6 +10,7 @@ tags:
   - reprint
 ---
 ## xterm.js
+
 xterm.js
   
 xterm是一个使用TypeScript编写的前端终端组件。并在Vscode等热门项目中得到了应用
