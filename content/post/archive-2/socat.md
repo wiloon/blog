@@ -5,34 +5,56 @@ date: 2022-02-11 00:20:39
 url: socat
 categories:
   - network
-
 tags:
   - reprint
   - remix
 
-
 ---
 ## socat
 
+## socat 测试 端口连通性
+
+```bash
+# test tcp port
+socat - TCP4:192.168.1.15:22,connect-timeout=2
+
+# test udp port
+#set up a server listening on UDP port 48772
+socat UDP-RECV:48772 STDOUT
+
+# test udp port
+socat - UDP:localhost:48772
+```
+
 ## tcp 代理
 
+```bash
     socat TCP-LISTEN:3389,fork TCP:192.168.55.2:3389
+```
 
 ### 建立TCP连接
 
+```bash
     socat - tcp:192.168.1.18:80
+```
 
 ### 建立连接并发送数据
 
+```bash
     echo "hahaha" | socat - tcp:192.168.1.18:80
+```
 
 #### IPv6
 
+```bash
     socat - tcp:[fd00::123]:12345 
+```
 
 ### test a remote port is reachable with socat
 
+```bash
     socat - TCP4:192.168.1.15:22,connect-timeout=2
+```
 
 ### http echo server
 
@@ -55,7 +77,7 @@ due to reuseaddr, it allows immediate restart after master processes termination
 加了 fork 的参数后，就能同时应答多个链接过来的客户端，每个客户端会 fork 一个进程出来进行通信，加上 reuseaddr 可以防止链接没断开玩无法监听的问题。
 每次 accept 一个链接都会 fork 出一份来不影响接收其他的新连接，这样 socat 就可以当一个端口转发服务，一直启动在那里。还可以用 supervisor 托管起来，开机自动启动。
 - crlf: use CR+NL on this connection, relay data to and from stdio
-- SYSTEM: <shell-command>, Forks a sub process that establishes communication with its parent process and invokes the specified program with system()
+- SYSTEM: `<shell-command>`, Forks a sub process that establishes communication with its parent process and invokes the specified program with system()
 
 ### socat send http request
 
@@ -74,7 +96,9 @@ echo stat | socat - TCP:192.168.1.xxx:2181
 
 ### proxy http port
 
-    socat TCP4-LISTEN:188,reuseaddr,fork TCP4:192.168.97.11:8888
+```bash
+socat TCP4-LISTEN:188,reuseaddr,fork TCP4:192.168.97.11:8888
+```
 
 Socat 是 Linux 下的一个多功能的网络工具,名字来由是 「Socket CAT」, 其功能与有"瑞士军刀"之称的 netcat 类似, 不过据说可以看做netcat的加强版。的确如此,它有一些netcat所不具备却又很有需求的功能,例如ssl连接这种。nc可能是因为比较久没有维护,确实显得有些陈旧了。
 
@@ -82,9 +106,11 @@ Socat 的主要特点就是在两个数据流之间建立通道，且支持众�
 
 ### 安装
 
+```bash
     pacman -S socat
     yum install -y socat
     apt-get install socat
+```
 
 ### 基本语法
 
@@ -92,11 +118,11 @@ Socat 的主要特点就是在两个数据流之间建立通道，且支持众�
 socat [options] <address> <address>
 ```
 
-其中这两个address就是关键了,如果要解释的话,address就类似于一个文件描述符, socat所做的工作就是在2个address指定的描述符间建立一个pipe用于发送和接收数据。
+其中这两个 address 就是关键了, 如果要解释的话, address 就类似于一个文件描述符, socat 所做的工作就是在两个 address 指定的文件描述符间建立一个 pipe 用于发送和接收数据。
 
-那么address的描述就是socat的精髓所在了,几个常用的描述方式如下:
+那么 address 的描述就是 socat 的精髓所在了, 几个常用的描述方式如下:
 
--,STDIN,STDOUT : 表示标准输入输出,可以就用一个横杠代替
+-, STDIN, STDOUT : 表示标准输入输出,可以就用一个横杠代替
   
 /var/log/syslog : 也可以是任意路径,如果是相对路径要使用 ./,打开一个文件作为数据流。
   

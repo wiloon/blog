@@ -10,16 +10,21 @@ tags:
   - reprint
 ---
 ## golang 异常处理, err, error, panic, recover
+
 ### 基础知识
+
 错误指的是可能出现问题的地方出现了问题,比如打开一个文件时失败,这种情况在人们的意料之中；而异常指的是不应该出现问题的地方出现了问题,比如引用了空指针,这种情况在人们的意料之外。可见,错误是业务过程的一部分,而异常不是。
 
 ### 自定义异常
+
 ```go
 return errors.New("string")
 ```
 
 ### 打印调用栈
+
 #### using runtime
+
 ```go
 defer func() {
     if p := recover(); p != nil {
@@ -35,6 +40,7 @@ defer func() {
 ```
 
 #### using debug
+
 ```go
 if p := recover(); p != nil {
     logs.Error("message push panic: %v", p)
@@ -49,12 +55,13 @@ Go语言追求简洁优雅, 所以,Go语言不支持传统的 try…catch…fina
 这几个异常的使用场景可以这么简单描述: Go中可以抛出一个panic的异常,然后在defer中通过recover捕获这个异常,然后正常处理。
 
 ### defer
+
 ```go
 func main(){
-    defer func(){  // 必须要先声明defer,否则不能捕获到panic异常
+    defer func() {  // 必须要先声明defer,否则不能捕获到panic异常
     fmt.Println("c")
-    if err:=recover();err!=nil{
-        fmt.Println(err) // 这里的err其实就是panic传入的内容,55
+    if err:=recover();err!=nil {
+        fmt.Println(err) // 这里的 err 其实就是panic传入的内容,55
     }
     fmt.Println("d")
     }()
@@ -69,16 +76,20 @@ func f(){
 }
 ```
 
-#### 输出结果: 
+#### 输出结果
+
+```bash
     a
     c
     d
+```
   
 exit code 0, process exited normally.
 
 参考:  http://blog.csdn.net/ghost911_slb/article/details/7831574
 
 ### defer
+
 defer 英文原意:  vi. 推迟；延期；服从   vt. 使推迟；使延期。  
 
 defer的思想类似于C++中的析构函数,不过Go语言中"析构"的不是对象,而是函数,defer就是用来添加函数结束时执行的语句。注意这里强调的是添加,而不是指定,因为不同于C++中的析构函数是静态的,Go中的defer是动态的。
@@ -95,7 +106,7 @@ defer的思想类似于C++中的析构函数,不过Go语言中"析构"的不是�
         
         }
   
-上面函数返回1,因为defer中添加了一个函数,在函数返回前改变了命名返回值的值。是不是很好用呢。但是,要注意的是,如果我们的defer语句没有执行,那么defer的函数就不会添加,如果把上面的程序改成这样: 
+上面函数返回1,因为defer中添加了一个函数,在函数返回前改变了命名返回值的值。是不是很好用呢。但是,要注意的是,如果我们的defer语句没有执行,那么defer的函数就不会添加,如果把上面的程序改成这样:
 
 func f() (result int) {
 
@@ -137,11 +148,11 @@ Go语言提供了recover内置函数,前面提到,一旦panic,逻辑就会走到
 
 不过要注意的是,recover之后,逻辑并不会恢复到panic那个点去,函数还是会在defer之后返回。
   
-用Go实现类似 try catch 的异常处理有个例子在: 
+用Go实现类似 try catch 的异常处理有个例子在:
   
 http://www.douban.com/note/238705941/
   
-结论: 
+结论:
   
 Go对待异常 (准确的说是panic) 的态度就是这样,没有全面否定异常的存在,同时极力不鼓励多用异常。
   

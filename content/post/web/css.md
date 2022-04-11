@@ -10,6 +10,7 @@ tags:
 
 ---
 ## CSS basic
+
 #border
   
 border: 1px solid red;
@@ -43,3 +44,13 @@ hand:手型
   
 pointer:手型
 
+## css 字母大写
+css 字母大写及其它
+
+text-transform:uppercase;
+
+capitalize : 将每个单词的第一个字母转换成大写,其余无转换发生
+  
+uppercase : 转换成大写
+  
+lowercase : 转换成小写

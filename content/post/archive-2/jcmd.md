@@ -61,7 +61,8 @@ jcmd <PID> VM.system_properties
 jcmd [ pid | main-class ] command [ arguments ]
 
 ### JFR
-#JFR需要JDK的商业证书,需要解锁jdk的商业特性。
+
+JFR需要JDK的商业证书,需要解锁jdk的商业特性。
   
 JFR.stop
   
@@ -72,6 +73,7 @@ JFR.dump
 JFR.check
 
 ### NMT
+
 VM.native_memory
 
 ### 解锁jdk的商业特性

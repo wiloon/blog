@@ -22,7 +22,22 @@ npm --prefix /path/to/project run build
 
 ### node-gyp
 
-gyp是为Chromium项目创建的项目生成工具，可以从平台无关的配置生成平台相关的Visual Studio、Xcode、Makefile的项目文件。这样一来我们就不需要花额外的时间处理每个平台不同的项目配置以及项目之间的依赖关系。
+gyp 是为 Chromium 项目创建的项目生成工具，可以从平台无关的配置生成平台相关的 Visual Studio、Xcode、Makefile 的项目文件。这样一来我们就不需要花额外的时间处理每个平台不同的项目配置以及项目之间的依赖关系。
+
+## 更新包
+
+### 手动跟新
+
+修改package.json中依赖包版本，执行 npm install --force
+
+### 使用第三方插件
+
+```bash
+npm install -g npm-check-updates
+ncu # 查看可更新包
+ncu -u # 更新package.json
+npm install # 升级到最新版本
+```
 
 ### commands
 
@@ -151,6 +166,7 @@ npm info pkg
 ### report
 
     npm run build --report
+
 --save和--save-dev区别
 一句话:--save-dev是你开发时依赖的东西，--save是发布后还依赖的东西.
 

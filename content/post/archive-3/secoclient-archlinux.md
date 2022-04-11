@@ -38,7 +38,7 @@ cd /usr/local/SecoClient/
 
 ### 启动脚本
 
-把server_address替换成服务端IP
+把 server_address 替换成服务端IP
 
 ```bash
 #!/bin/bash                 
@@ -52,7 +52,7 @@ count=`ps -ef |grep SecoClientPromoteService |grep -v "grep" |wc -l`
 count=`ps -ef |grep SecoClient |grep -v "grep" |wc -l`
       echo $count
       if [ 1 == $count ];then
-            cd /usr/local/SecoClient/ 
+            cd /usr/local/SecoClient/
            sudo ./SecoClient
       fi
 ```

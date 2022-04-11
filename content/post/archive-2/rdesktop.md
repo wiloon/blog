@@ -8,16 +8,16 @@ categories:
 tags:
   - reprint
 
-
 ---
 ## windows 远程桌面
+
 ### 剪切板
 
 >http://www.cnblogs.com/hobinly/archive/2012/09/20/2694708.htmlT2001V00000087FG3
 
 这几天遇到远程桌面控制服务器时,无法剪切、粘贴一些东西,上网搜了一下,原来是rdpclip.exe(remote desktop clipboard)不起作用了。此程序负责管理本地机与远程服务器之间共享剪切板,它运行在远程服务器上。
 
-解决方法: 
+解决方法:
 
 1. 打开任务管理器－〉结束此进程 (rdpclip.exe) 
 
@@ -73,3 +73,11 @@ rdesktop 的使用很简单，可通过#rdesktop-h得到使用的帮助。一般
 
 
 其中 "g 1024×768"设置分辨率为1024×768，"d 24"设置真彩24 位，hostname为 Windows 机器的主机名或者IP 地址。在输入了Windows XP的用户名和密码后，就可以登录并操作远程的Windows系统.
+
+## freerdp
+
+```bash
+pacman -S freerdp
+xfreerdp /u:"user0" /v:192.168.50.182:3389
+xfreerdp /v:192.168.50.9:3389 /u:"wiloon" /p:haCahpro /size:1680x1024  +clipboard
+```

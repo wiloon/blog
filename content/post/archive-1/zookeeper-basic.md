@@ -9,10 +9,11 @@ tags:
   - zookeeper
 ---
 ## zookeeper
-### [16/11/21 03:20:30:030 CST] main-SendThread(192.168.50.100:2181)  WARN zookeeper.ClientCnxn: Session 0x0 for server 192.168.50.100/<unresolved>:2181, unexpected error, closing socket connection and attempting reconnect
+
+>[16/11/21 03:20:30:030 CST] main-SendThread(192.168.50.100:2181)  WARN zookeeper.ClientCnxn: Session 0x0 for server 192.168.50.100/<unresolved>:2181, unexpected error, closing socket connection and attempting reconnect
 
 检查zookeeper包版本和连接的服务端版本，有可能是版本不一致
->https://blog.csdn.net/richie696/article/details/112910751
+<https://blog.csdn.net/richie696/article/details/112910751>
 
 ### 向 zookeeper 发送 stat 命令 查询 zookeeper版本
 
@@ -55,8 +56,6 @@ podman run \
 -d \
 zookeeper:3.7.0
 
-
-
 # client
 docker run -it --rm zookeeper zkCli.sh -server 127.0.0.1
 
@@ -73,11 +72,14 @@ create /k0 v0
 # 删除一个节点
 delete /k0
 ```
+
 ### install
+
 download zookeeper
 cp zoo_sample.cfg zoo.cfg
 
 ### 配置，vim zoo.cfg
+
 ```bash
 #zookeeper 服务器心跳时间，单位为ms
 tickTime=2000
@@ -98,12 +100,10 @@ dataLogDir=/data/logs/zookeeper
 # clientPort, 服务器对外服务端口，一般设置为2181
 clientPort=2181
 
-
-
-
 autopurge.purgeInterval=1
 ```
-从3.4.0开始，zookeeper提供了自动清理snapshot和事务日志的功能，通过配置 autopurge.snapRetainCount 和 autopurge.purgeInterval 这两个参数能够实现定时清理了。这两个参数都是在zoo.cfg中配置的: 
+
+从3.4.0开始，zookeeper提供了自动清理snapshot和事务日志的功能，通过配置 autopurge.snapRetainCount 和 autopurge.purgeInterval 这两个参数能够实现定时清理了。这两个参数都是在zoo.cfg中配置的:
 
 autopurge.purgeInterval 这个参数指定了清理频率，单位是小时，需要填写一个1或更大的整数，默认是0，表示不开启自己清理功能。
 
@@ -135,7 +135,9 @@ zkServer.sh start
 ```
 
 ZooKeeper确实对数据的大小有限制，默认就是1M，如果希望传输超过1M的数据，可以修改环境变量“jute.maxbuffer”
+
 ### 为什么要限制ZOOKEEPER中ZNODE的大小
+
 ZooKeeper是一套高吞吐量的系统，为了提高系统的读取速度，ZooKeeper不允许从文件中读取需要的数据，而是直接从内存中查找。
 
 还句话说，ZooKeeper集群中每一台服务器都包含全量的数据，并且这些数据都会加载到内存中。同时ZNode的数据并支持Append操作，全部都是Replace。
@@ -152,3 +154,168 @@ https://www.ibm.com/developerworks/cn/opensource/os-cn-zookeeper/
   
 https://my.oschina.net/xianggao/blog/531613
 >https://www.jianshu.com/p/30bcaf55f451
+
+## zookeeper client zkCli.sh
+
+```bash
+#zkCli.sh
+#连接zookeeper
+bin/zkCli.sh -server localhost:2181
+
+#键入help查看所有支持的命令
+help
+
+#查看根节点列表
+ls /
+
+#创建节点
+create /k0 v0
+
+#创建Ephemeral节点
+create -e /test
+
+#创建sequential节点
+create -s /test
+
+#设置节点数据
+set /test "111111"
+
+#查看节点数据
+get /test 
+
+#删除节点
+delete /test
+```
+
+zookeeper提供了很多方便的功能,方便我们查看服务器的状态,增加,修改,删除数据 (入口是zkServer.sh和zkCli.sh) 。
+  
+还提供了一系列四字命令,方便我们跟服务器进行各种交互,来确认服务器当前的工作情况 (这也是服务器监控告警的基础) 。
+  
+本文所讲的zkCli.sh和zkServer.sh均位于以下目录中: 
+  
+/usr/local/zookeeper-server1
+  
+目录分布情况请参考我的另一篇文章: 
+  
+zookeeper集群搭建 - http://www.cnblogs.com/linuxbug/p/4840137.html
+  
+zkServer.sh
+  
+提供的主要功能如下: 
+
+1. 查看服务器状态
+
+[root@rocket zookeeper-server1]# bin/zkServer.sh status
+
+JMX enabled by default
+
+Using config: /usr/local/zookeeper-server1/bin/../conf/zoo.cfg
+
+Mode: leader
+
+2. 启停服务器
+
+[root@rocket zookeeper-server1]# bin/zkServer.sh help
+
+JMX enabled by default
+
+Using config: /usr/local/zookeeper-server1/bin/../conf/zoo.cfg
+
+Usage: bin/zkServer.sh {start|start-foreground|stop|restart|status|upgrade|print-cmd}
+
+四字命令
+  
+功能描述
+  
+conf
+  
+输出相关服务配置的详细信息。
+  
+cons
+  
+列出所有连接到服务器的客户端的完全的连接 /会话的详细信息。包括"接受 / 发送"的包数量、会话 id 、操作延迟、最后的操作执行等等信息。
+  
+dump
+  
+列出未经处理的会话和临时节点。
+  
+envi
+  
+输出关于服务环境的详细信息 (区别于 conf命令) 。
+  
+reqs
+  
+列出未经处理的请求
+  
+ruok
+  
+测试服务是否处于正确状态。如果确实如此,那么服务返回"imok ",否则不做任何相应。
+  
+stat
+  
+输出关于性能和连接的客户端的列表。
+  
+wchs
+  
+列出服务器 watch的详细信息。
+  
+wchc
+  
+通过 session列出服务器 watch的详细信息,它的输出是一个与watch相关的会话的列表。
+  
+wchp
+  
+通过路径列出服务器 watch的详细信息。它输出一个与 session相关的路径。
+  
+查看连接到结点上所有的client信息,被选作leader还是follower
+
+[root@rocket zookeeper-server1]# echo stat|nc 127.0.0.1 2181
+
+Zookeeper version: 3.4.6-1569965, built on 02/20/2014 09:09 GMT
+
+Clients:
+
+/127.0.0.1:52547[][1]
+
+/0:0:0:0:0:0:0:1:53913[1][2]
+
+ 
+
+Latency min/avg/max: 0/3/9
+
+Received: 13
+
+Sent: 12
+
+Connections: 2
+
+Outstanding: 0
+
+Zxid: 0x300000005
+
+Mode: leader
+
+Node count: 4
+
+ 
+
+测试是否启动了该Server,若回复imok表示已经启动
+
+[root@rocket zookeeper-server1]# echo ruok|nc 127.0.0.1 2181
+
+Imok
+
+查看连接到服务器的所有客户端的会话信息
+
+[root@rocket zookeeper-server1]# echo cons|nc 127.0.0.1 2181
+
+/127.0.0.1:52552[][1]
+
+/0:0:0:0:0:0:0:1:53913[1][3]
+
+http://izualzhy.cn/c/cpp/2016/09/24/zkcli-introduction
+
+ [1]: queued=0,recved=1,sent=0
+ [2]: queued=0,recved=4,sent=4
+ [3]: queued=0,recved=88,sent=88,sid=0x14ffe63e9ce0001,lop=PING,est=1443098949817,to=30000,lcxid=0x2,lzxid=0x30000000a,lresp=1443099814079,llat=0,minlat=0,avglat=0,maxlat=3
+

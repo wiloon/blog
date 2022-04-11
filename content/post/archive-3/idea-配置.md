@@ -23,6 +23,7 @@ View>Active Editor>show whitespaces
 https://blog.csdn.net/shiyibodec/article/details/73549501
 
 ### java compiler
+
 File > Settings > Build, Execution, Deployment > Compiler > Java Compiler
 
 Change Target bytecode version to 1.8 of the module that you are working for.
@@ -30,6 +31,7 @@ Change Target bytecode version to 1.8 of the module that you are working for.
 https://yangbingdong.com/2017/note-of-learning-idea-under-ubuntu/
 
 ### font
+
 JetBrain推出了一个新的字体 JetBrain Mono. 号称是最适合程序员的编码的字体
 
 ### terminal 字体
@@ -37,6 +39,7 @@ JetBrain推出了一个新的字体 JetBrain Mono. 号称是最适合程序员�
 Setting->Editor->Color Scheme->Console Font
 
 ### openjdk source
+
 Go to Project Structure dialog, select the "SDKs" node, select your JDK,
 
 select the "Sourcepath" tab, press the "Add" button and select src.zip (it's
@@ -48,15 +51,18 @@ automatically for you). You don't need to unpack the archive or add it as
 a source root.
 
 ### sql语法检查
+
 勾掉Unresolved refereence
 
 Settings>Editor>inspections>SQL
 
 ### java system property, system env
+
 Run configuration> vm option : java system property
 environment variable : system env
 
 ### hidpi --
+
 https://intellij-support.jetbrains.com/hc/en-us/articles/360007994999-HiDPI-configuration
 
 Settings > Appearance and Behavior > Appearance > Use custom font

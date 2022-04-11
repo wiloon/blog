@@ -12,9 +12,12 @@ tags:
 ## java 模块 hello world
 
 ### java 模块
+
     mkdir -p  src/speaker/com/pingd/test/java/module
     vim src/speaker/com/pingd/test/java/module/Hello.java
+
 ### src/speaker/com/pingd/test/java/module/Hello.java 
+
     package com.pingd.test.java.module;
 
     public class Hello{
@@ -22,7 +25,9 @@ tags:
                     System.out.println("hello world");
             }
     }
+
 ### src/speaker/module-info.java
+
 speaker:  模块名
 requires xxx;表示这个模块需要引用的其他模块名。  
     java.base可以被自动引入  
@@ -33,6 +38,7 @@ exports:  到package级
     }
 
 ### src/app/com/pingd/test/java/module/app/App.java
+
     package com.pingd.test.java.module.app;
 
     public class App{
@@ -42,25 +48,30 @@ exports:  到package级
     }
 
 ### src/app/module-info.java
+
     module app{
             requires speaker;
     }
 
 ### build
+
     cd java-module-x
     javac -d out --module-source-path src -m speaker
     javac -d out --module-source-path src -m app
 
-### run 
+### run
+
    java --module-path ./out --module app/com.pingd.test.java.module.app.App
 
 ### build jar
+
     jar --create --file speaker.jar -C out/speaker .
     jar --create --file app.jar --main-class com.pingd.test.java.module.app.App -C out/app .
 
 ### run jar
+
     java --module-path . --module app
-    
+
 ### 目录 结构
 
     ├── out
@@ -100,8 +111,7 @@ exports:  到package级
             │                   └── Hello.java
             └── module-info.java
 
-
-module-info.java一般包含以下信息: 
+module-info.java一般包含以下信息
   
 模块名称
   
@@ -113,7 +123,7 @@ module-info.java一般包含以下信息:
   
 命名的模块 (也称为应用程序模块) 包含上述module-info.java
   
-平台模块 (类似于前者，但这些都是随JDK一起发货) 
+平台模块 (类似于前者，但这些都是随JDK一起发货)
   
 自动模块是在模块路径上提供的那些旧JAR
   
@@ -126,14 +136,14 @@ module-info.java一般包含以下信息:
 ```xml
 <plugin>
   <groupId>org.apache.maven.plugins</groupId>
-  maven-compiler-plugin</artifactId>
+  <artifactId>maven-compiler-plugin</artifactId>
   <version>3.6.1</version>
   <configuration>
     <showWarnings>true</showWarnings>
     <showDeprecation>true</showDeprecation>
   </configuration>
 </plugin>
-``` 
+```
 
 #### 工具链插件
 

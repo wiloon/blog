@@ -10,7 +10,9 @@ tags:
   - reprint
 ---
 ## java 7, jdk 7
+
 ### 数字文字中的下划线
+
 Java 7的一个特性是数字文字中的下划线。可以在任何数字文字的数字之间放置下划线，如：int，byte，short，float，long，double。在数字文字中使用下划线将它们分成组以获得更好的可读性。
 
 ```java

@@ -89,6 +89,7 @@ vim  /etc/telegraf/telegraf.conf
 ```
 
 ### ping plugin
+
 https://github.com/influxdata/telegraf/blob/release-1.10/plugins/inputs/ping/README.md
 
     [[inputs.ping]]

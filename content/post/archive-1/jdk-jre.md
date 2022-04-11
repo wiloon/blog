@@ -10,6 +10,7 @@ tags:
 
 ---
 ## JRE和JDK的区别
+
 ### JDK
 
 JDK 是整个Java的核心,包括了Java运行环境(JRE) (Java Runtime Envirnment), 一堆Java工具和Java基础的类库 (rt.jar) 。不论什么Java应用服务器实质都是内置了某个版本的JDK.最主流的JDK是Sun公司发布的JDK,除了Sun之外,还有很多公司和组织都开发了自己的JDK,例如IBM公司开发的JDK,BEA公司的Jrocket,还有GNU组织开发的JDK等等。其中IBM的JDK包含的JVM (Java Virtual Machine) 运行效率要比Sun JDK包含的JVM高出许多。而专门运行在x86平台的Jrocket在服务端运行效率也要比Sun JDK好很多。但不管怎么说,我们还是需要先把Sun JDK掌握好。
