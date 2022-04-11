@@ -5,11 +5,11 @@ date: 2014-02-19T05:50:38+00:00
 url: npm
 tags:
   - node, npm
-
 categories:
   - inbox
 ---
 ## npm basic
+
 ## 编译
 
 ```bash
@@ -19,9 +19,13 @@ npm run build
 # /path/to/project 是包含 package.json 的目录。
 npm --prefix /path/to/project run build
 ```
+
 ### node-gyp
+
 gyp是为Chromium项目创建的项目生成工具，可以从平台无关的配置生成平台相关的Visual Studio、Xcode、Makefile的项目文件。这样一来我们就不需要花额外的时间处理每个平台不同的项目配置以及项目之间的依赖关系。
+
 ### commands
+
 ```bash
 npm cache clean
 npm cache clean --force
@@ -33,7 +37,9 @@ npm update webpack
 ```
 
 ### install npm
+
 ### archlinux
+
 ```bash
 sudo npm uninstall -g @angular/cli
 pacman -S nodejs
@@ -41,7 +47,7 @@ npm info pkg
 ```
 
 ### nvm, Node Version Manager
-https://github.com/nvm-sh/nvm
+<https://github.com/nvm-sh/nvm>
 
     yay -S nvm
     source /usr/share/nvm/init-nvm.sh
@@ -50,13 +56,16 @@ https://github.com/nvm-sh/nvm
     nvm install --lts
 
 ### ubuntu
+
     apt install python3.9
     apt install python
 
 ### npm install
+
     npm install --registry=https://registry.npm.taobao.org
 
 ### registory, mirror
+
     # list registory
     npm config get registry
     # set registry
@@ -65,7 +74,7 @@ https://github.com/nvm-sh/nvm
     npm config set registry https://registry.npmjs.org
 
 ### cnpm
-https://developer.aliyun.com/mirror/NPM
+<https://developer.aliyun.com/mirror/NPM>
 
     npm install -g cnpm --registry=https://registry.npm.taobao.org
     # 或:  
@@ -75,6 +84,7 @@ https://developer.aliyun.com/mirror/NPM
       --userconfig=$HOME/.cnpmrc"' >> ~/.zshrc && source ~/.zshrc
 
 ### npm commands
+
     # global install
     sudo npm install --global @vue/cli
     # 指定仓库
@@ -85,16 +95,20 @@ https://developer.aliyun.com/mirror/NPM
     npm cache clean
 
 ### npm uninstall
+
     # 删除 node_modules 目录下面的包 (package) 
     npm uninstall lodash
     # 从 package.json 文件中删除依赖，需要在命令后添加参数 --save
     npm uninstall --save lodash
 
     npm uninstall vue-cli -g 
+
 #### 安装但不写入package.json
+
     npm install xxx
 
 #### 安装并写入 package.json的"dependencies"中
+
     npm install xxx –S
     # 简写
     npm i @vue/composition-api -S
@@ -102,6 +116,7 @@ https://developer.aliyun.com/mirror/NPM
     npm install jquery@3.0.0 --save
 
 ### commands
+
     # 查看缓存目录位置
     npm config get cache
     #清空缓存目录
@@ -111,21 +126,30 @@ https://developer.aliyun.com/mirror/NPM
     # --save参数表示将该模块写入dependencies属性，--save-dev表示将该模块写入devDependencies属性。
 
 ### 打印依赖树
+
     npm ls
+
 ### 查看包版本
+
     npm info vue
     npm view vue version
     # 查看所有版本
     npm view vue versions
 
 ### 安装并写入package.json的"devDependencies"中
+
     npm install xxx –D
+
 ### 全局安装
+
     npm install xxx -g
+
 ### 安装指定版本
+
     npm install xxx@1.2.0
 
 ### report
+
     npm run build --report
 --save和--save-dev区别
 一句话:--save-dev是你开发时依赖的东西，--save是发布后还依赖的东西.
@@ -135,12 +159,13 @@ nodejs的出现，可以算是前端里程碑式的一个事件，它让前端�
 随着一系列基于nodejs的应用/工具的出现，工作中与nodejs打交道的机会越来越多。无论在node应用的开发，还是使用中，包管理都扮演着一个很重要的作用。NPM (node package manager) ，作为node的包管理工具，极大地便利了我们的开发工作，很有必要了解一下。
 
 ### NPM是什么
+
 NPM (node package manager) ，通常称为node包管理器。顾名思义，它的主要功能就是管理node包，包括: 安装、卸载、更新、查看、搜索、发布等。
 
 npm的背后，是基于couchdb的一个数据库，详细记录了每个包的信息，包括作者、版本、依赖、授权信息等。它的一个很重要的作用就是: 将开发者从繁琐的包管理工作 (版本、依赖等) 中解放出来，更加专注于功能的开发。
 
-npm官网: https://npmjs.org/
-npm官方文档: https://npmjs.org/doc/README.html
+npm官网: <https://npmjs.org/>
+npm官方文档: <https://npmjs.org/doc/README.html>
 我们需要了解什么
 npm的安装、卸载、升级、配置
   
@@ -149,16 +174,18 @@ npm的使用: package的安装、卸载、升级、查看、搜索、发布
 npm包的安装模式: 本地 vs 全局
   
 ### package.json: 包描述信息
+
 package版本: 常见版本声明形式
 
 #### keywords
+
 "keywords": ["server", "osiolabs", "express", "compression"]
 
 npm包安装模式
 
 在具体介绍npm包的管理之前，我们首先得来了解一下npm包的两种安装模式。
 
-本地安装 vs 全局安装 (重要) 
+本地安装 vs 全局安装 (重要)
 
 node包的安装分两种: 本地安装、全局安装。两者的区别如下，后面会通过简单例子说明
 
@@ -168,11 +195,11 @@ node包的安装分两种: 本地安装、全局安装。两者的区别如下�
   
 npm install pkg – 本地安装
 
-运行如下命令，就会在当前目录下安装grunt-cli (grunt命令行工具) 
+运行如下命令，就会在当前目录下安装grunt-cli (grunt命令行工具)
 
 npm install grunt-cli
   
-安装结束后，当前目录下回多出一个node_modules目录，grunt-cli就安装在里面。同时注意控制台输出的信息: 
+安装结束后，当前目录下回多出一个node_modules目录，grunt-cli就安装在里面。同时注意控制台输出的信息:
 
 grunt-cli@0.1.9 node_modules/grunt-cli
   
@@ -182,7 +209,7 @@ grunt-cli@0.1.9 node_modules/grunt-cli
   
 └── findup-sync@0.1.2 (lodash@1.0.1, glob@3.1.21)
   
-简单说明一下: 
+简单说明一下:
 
 grunt-cli@0.1.9: 当前安装的package为grunt-cli，版本为0.19
   
@@ -272,7 +299,7 @@ npm ls pkg: 查看特定package的信息
 
 npm ls grunt-cli
   
-输出的信息比较有限，只有安装目录、版本，如下: 
+输出的信息比较有限，只有安装目录、版本，如下:
 
 /private/tmp/npm└── grunt-cli@0.1.9
   
@@ -292,11 +319,11 @@ npm search grunt-cli
   
 返回结果如下
 
-npm http GET http://registry.npmjs.org/-/all/since?stale=update_after&startkey=1375519407838npm http 200 http://registry.npmjs.org/-/all/since?stale=update_after&startkey=1375519407838NAME DESCRIPTION AUTHOR DATE KEYWORDSgrunt-cli The grunt command line interface. =cowboy =tkellen 2013-07-27 02:24grunt-cli-dev-exitprocess The grunt command line interface. =dnevnik 2013-03-11 16:19grunt-client-compiler Grunt wrapper for client-compiler. =rubenv 2013-03-26 09:15 gruntplugingrunt-clientside Generate clientside js code from CommonJS modules =jga 2012-11-07 01:20 gruntplugin
+npm http GET <http://registry.npmjs.org/-/all/since?stale=update_after&startkey=1375519407838npm> http 200 <http://registry.npmjs.org/-/all/since?stale=update_after&startkey=1375519407838NAME> DESCRIPTION AUTHOR DATE KEYWORDSgrunt-cli The grunt command line interface. =cowboy =tkellen 2013-07-27 02:24grunt-cli-dev-exitprocess The grunt command line interface. =dnevnik 2013-03-11 16:19grunt-client-compiler Grunt wrapper for client-compiler. =rubenv 2013-03-26 09:15 gruntplugingrunt-clientside Generate clientside js code from CommonJS modules =jga 2012-11-07 01:20 gruntplugin
   
 npm发布
 
-这个命令我自己也还没实际用过，不误导大家，语法如下，也可参考官方对于package发布的说明https://npmjs.org/doc/developers.html: 
+这个命令我自己也还没实际用过，不误导大家，语法如下，也可参考官方对于package发布的说明<https://npmjs.org/doc/developers.html>:
 
 npm publish <tarball>npm publish <folder>
   
@@ -306,13 +333,13 @@ npm的配置工作主要是通过npm config命令，主要包含增、删、改�
 
 设置proxy
 
-内网使用npm很头痛的一个问题就是代理，假设我们的代理是 http://proxy.example.com:8080，那么命令如下: 
+内网使用npm很头痛的一个问题就是代理，假设我们的代理是 <http://proxy.example.com:8080>，那么命令如下:
 
-npm config set proxy http://proxy.example.com:8080
+npm config set proxy <http://proxy.example.com:8080>
   
 由于npm config set命令比较常用，于是可以如下简写
 
-npm set proxy http://proxy.example.com:8080
+npm set proxy <http://proxy.example.com:8080>
   
 查看proxy
 
@@ -320,11 +347,11 @@ npm set proxy http://proxy.example.com:8080
 
 npm config get proxy
   
-输出如下: 
+输出如下:
 
-http://proxy.example.com:8080/
+<http://proxy.example.com:8080/>
   
-同样可如下简写: 
+同样可如下简写:
 
 npm get proxy
   
@@ -346,7 +373,7 @@ npm config edit
   
 关于package.json
 
-这货在官网似乎没有详细的描述，其实就是包的描述信息啦。假设当我们下载了node应用，这个node应用依赖于A、B、C三个包，如果没有package.json，我们需要人肉安装这个三个包 (如果对版本有特定要求就更悲剧了) : 
+这货在官网似乎没有详细的描述，其实就是包的描述信息啦。假设当我们下载了node应用，这个node应用依赖于A、B、C三个包，如果没有package.json，我们需要人肉安装这个三个包 (如果对版本有特定要求就更悲剧了) :
 
 npm install Anpm install Bnpm install C
   
@@ -358,9 +385,9 @@ package.json字段简介
 
 字段相当多，但最重要的的是下面几个
 
-name: package的名字 (由于他会成为url的一部分，所以 non-url-safe 的字母不会通过，也不允许出现"."、"_") ，最好先在http://registry.npmjs.org/上搜下你取的名字是否已经存在
+name: package的名字 (由于他会成为url的一部分，所以 non-url-safe 的字母不会通过，也不允许出现"."、"_") ，最好先在<http://registry.npmjs.org/>上搜下你取的名字是否已经存在
   
-version: package的版本，当package发生变化时，version也应该跟着一起变化，同时，你声明的版本需要通过semver的校验 (semver可自行谷歌) 
+version: package的版本，当package发生变化时，version也应该跟着一起变化，同时，你声明的版本需要通过semver的校验 (semver可自行谷歌)
   
 dependencies: package的应用依赖模块，即别人要使用这个package，至少需要安装哪些东西。应用依赖模块会安装到当前模块的node_modules目录下。
   
@@ -370,7 +397,7 @@ devDependencies: package的开发依赖模块，即别人要在这个package上�
   
 package版本
 
-在package.json里，你经常会在包名后看到类似"~0.1.0″这样的字符串，这就是包的版本啦。下面会列举最常见的版本声明形式，以及版本书写的要求: 
+在package.json里，你经常会在包名后看到类似"~0.1.0″这样的字符串，这就是包的版本啦。下面会列举最常见的版本声明形式，以及版本书写的要求:
 
 常见版本声明形式
 
@@ -384,7 +411,7 @@ b、"1.x.x"是什么意思呢，继续自行领悟
   
 版本书写要求
 
-版本可以v开头，比如 v1.0.1 (v只是可选) 
+版本可以v开头，比如 v1.0.1 (v只是可选)
   
 1.0.1-7，这里的7是所谓的"构建版本号"，不理是神马，反正版本大于1.0.1
   
@@ -398,15 +425,15 @@ b、"1.x.x"是什么意思呢，继续自行领悟
 
 Windows平台下的Node.js安装
 
-在过去，Node.js一直不支持在Windows平台下原生编译，需要借助Cygwin或MinGW来模拟POSIX系统，才能编译安装。幸运的是2011年6月微软开始与Joyent合作移植Node.js到Windows平台上 (http://www.infoq.com/cn/news/2011/06/node-exe ) ，这次合作的成果最终呈现在0.6.x的稳定版的发布上。这次的版本发布使得Node.js在Windows平台上的性能大幅度提高，使用方面也更容易和轻巧，完全摆脱掉Cygwin或MinGW等实验室式的环境，并且在某些细节方面，表现出比Linux下更高的性能，细节参见http://www.infoq.com/news/2011/11/Nodejs-Windows。
+在过去，Node.js一直不支持在Windows平台下原生编译，需要借助Cygwin或MinGW来模拟POSIX系统，才能编译安装。幸运的是2011年6月微软开始与Joyent合作移植Node.js到Windows平台上 (<http://www.infoq.com/cn/news/2011/06/node-exe> ) ，这次合作的成果最终呈现在0.6.x的稳定版的发布上。这次的版本发布使得Node.js在Windows平台上的性能大幅度提高，使用方面也更容易和轻巧，完全摆脱掉Cygwin或MinGW等实验室式的环境，并且在某些细节方面，表现出比Linux下更高的性能，细节参见<http://www.infoq.com/news/2011/11/Nodejs-Windows>。
 
 在Windows (Windows7) 平台下，我将介绍二种安装Node.js的方法，即普通和文艺安装方法。
 
 普通的安装方法
 
-普通安装方法其实就是最简单的方法了，对于大多Windows用户而言，都是不太喜欢折腾的人，你可以从这里 (http://nodejs.org/dist/v0.6.1/node-v0.6.1.msi ) 直接下载到Node.js编译好的msi文件。然后双击即可在程序的引导下完成安装。
+普通安装方法其实就是最简单的方法了，对于大多Windows用户而言，都是不太喜欢折腾的人，你可以从这里 (<http://nodejs.org/dist/v0.6.1/node-v0.6.1.msi> ) 直接下载到Node.js编译好的msi文件。然后双击即可在程序的引导下完成安装。
 
-在命令行中直接运行: 
+在命令行中直接运行:
 
 node -v
   
@@ -417,6 +444,7 @@ v0.6.1
 该引导步骤会将node.exe文件安装到C:\Program Files (x86)\nodejs\目录下，并将该目录添加进PATH环境变量。
 
 ### npm ci 和 npm install 差异v
+
 项目必须存在 package-lock.json 或 npm-shrinkwrap.json。
 如果 lockfiles 中的依赖和 package.json 中不匹配，npm ci 会退出并且报错，而不是去更新 lockfiles。
 npm ci 只能安装整个项目的依赖，无法安装单个依赖。
@@ -425,26 +453,24 @@ npm ci 永远不会改变 package.json 和 package-lock.json。
 
 补充
 
-
 npm install 读取 package.json 创建依赖项列表，并使用 package-lock.json 来通知要安装这些依赖项的哪个版本。如果某个依赖项在 package.json 中，但是不在 package-lock.json 中，运行 npm install 会将这个依赖项的确定版本更新到 package-lock.json 中。
-
 
 npm ci 是根据 package-lock.json 去安装确定的依赖，package.json 只是用来验证是不是有不匹配的版本，假设 package-lock.json 中存在一个确定版本的依赖 A，如果 package.json 中不存在依赖 A 或者依赖 A 版本和 lock 中不兼容，npm ci 就会报错。
 
 作者: 小被子
-链接: https://juejin.cn/post/6844903903193104398
+链接: <https://juejin.cn/post/6844903903193104398>
 来源: 掘金
 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
 
 ### npx
+
 npm 从5.2版开始，增加了 npx 命令  
 npx 想要解决的主要问题，就是调用项目内部安装的模块  
 
-
 ---
 
-http://weibo.com/chyingp  
-http://www.zcool.com.cn/u/346408/  
-http://www.cnblogs.com/chyingp/p/npm.html  
-http://www.infoq.com/cn/articles/nodejs-npm-install-config  
-https://github.com/joyent/node/wiki/Installing-Node.js-via-package-manager#arch-linux
+<http://weibo.com/chyingp>  
+<http://www.zcool.com.cn/u/346408/>  
+<http://www.cnblogs.com/chyingp/p/npm.html>  
+<http://www.infoq.com/cn/articles/nodejs-npm-install-config>  
+<https://github.com/joyent/node/wiki/Installing-Node.js-via-package-manager#arch-linux>

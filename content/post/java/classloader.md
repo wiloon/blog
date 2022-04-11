@@ -2,40 +2,54 @@
 title: java classloader
 author: "-"
 date: 2011-09-09T09:16:20+00:00
-url: /?p=666
-
+url: classloader
 categories:
-  - inbox
+  - Java
 tags:
   - reprint
 ---
 ## java classloader
-不同的JVM的实现不同，本文所描述的内容均只限于Hotspot Jvm.
 
-本文将会从JDK默认的提供的ClassLoader，双亲委托模型，如何自定义ClassLoader以及Java中打破双亲委托机制的场景四个方面入手去讨论和总结一下。
+- 双亲委托模型
+- AppClassLoader
+- ExtClassLoader
+- Bootstrap Class Loader
+- URLClassLoader
 
-JDK默认ClassLoader
-  
-JDK 默认提供了如下几种ClassLoader
+## JDK 17
+
+- AppClassLoader
+- PlatformClassLoader, 模块加载器
+- BootClassLoader
+
+不同的 JVM 的实现不同，本文所描述的内容均只限于 Hotspot Jvm.
+
+本文将会从 JDK 默认的提供的 ClassLoader，**双亲委托模型**，如何自定义 ClassLoader 以及 Java 中打破双亲委托机制的场景四个方面入手去讨论和总结一下。
+
+JDK 默认提供了如下几种 ClassLoader
 
 ### Bootstrap Class Loader, 引导类装载器
-虚拟机的内置类加载器 (称为 "bootstrap class loader") 本身没有父类加载器，但是可以将它用作 ClassLoader 实例的父类加载器。  
-Bootstrap Class Loader加载器是由c++实现的  
-不继承java.lang.ClassLoader类, 所以它不属于"ClassLoader 实例"，也没有办法在Java代码中获取到它。  
-用来加载核心类库，如 java.lang.* 等.它是在Java虚拟机启动后初始化的，它主要负责加载%JAVA_HOME%/jre/lib,-Xbootclasspath参数指定的路径以及%JAVA_HOME%/jre/classes中的类。  
+
+- 虚拟机的内置类加载器 (称为 "bootstrap class loader") 本身没有父类加载器，但是可以将它用作 ClassLoader 实例的父类加载器。  
+- Bootstrap Class Loader 加载器是由 c++ 实现的  
+- 不继承 java.lang.ClassLoader 类, 所以它不属于 "ClassLoader 实例"，也没有办法在 Java 代码中获取到它。  
+- 用来加载核心类库，如 java.lang.* 等. 它是在 Java 虚拟机启动后初始化的，它主要负责加载 %JAVA_HOME%/jre/lib, -Xbootclasspath 参数指定的路径以及 %JAVA_HOME%/jre/classes 中的类。  
 
 ### ExtClassLoader, 扩展类装载器
-Bootstrp loader加载ExtClassLoader,并且将ExtClassLoader的父加载器设置为Bootstrp loader  
-ExtClassLoader是用Java写的，具体来说就是 sun.misc.Launcher$ExtClassLoader，ExtClassLoader主要加载%JAVA_HOME%/jre/lib/ext，此路径下的所有classes目录以及java.ext.dirs系统变量指定的路径中类库。
+
+Bootstrp loader 加载 ExtClassLoader, 并且将 ExtClassLoader 的父加载器设置为 Bootstrp loader  
+ExtClassLoader 是用Java写的，具体来说就是 sun.misc.Launcher$ExtClassLoader，ExtClassLoader 主要加载 %JAVA_HOME%/jre/lib/ext，此路径下的所有 classes 目录以及 java.ext.dirs 系统变量指定的路径中类库。
 
 ### AppClassLoader
-Bootstrp loader加载完ExtClassLoader后，就会加载AppClassLoader,并且将AppClassLoader的父加载器指定为 ExtClassLoader。
-AppClassLoader 也是用Java写成的，它的实现类是 sun.misc.Launcher$AppClassLoader，另外我们知道ClassLoader中有个getSystemClassLoader方法,此方法返回的正是AppclassLoader.AppClassLoader主要负责加载classpath所指定的位置的类或者是jar包，它也是Java程序默认的类加载器。
+
+Bootstrp loader 加载完 ExtClassLoader后， 就会加载 AppClassLoader, 并且将 AppClassLoader 的父加载器指定为 ExtClassLoader。
+AppClassLoader 也是用 Java 写成的，它的实现类是 sun.misc.Launcher$AppClassLoader，另外我们知道 ClassLoader 中有个 getSystemClassLoader 方法, 此方法返回的正是 AppclassLoader.AppClassLoader 主要负责加载 classpath 所指定的位置的类或者是 jar 包，它也是 Java 程序默认的类加载器。
 
 ### URLClassLoader
+
 AppClassLoader 和 ExtClassLoader 都扩展于 URLClassLoader 加载器.
+
 ```java
-  
 public class ClassLoaderX {
     public static void main(String[] args) {
         ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
@@ -55,36 +69,37 @@ public class ClassLoaderX {
 ```
 
 ### 委托模型 (双亲委托模型)
-Java中ClassLoader的加载采用了双亲委托机制，采用双亲委托机制加载类的时候采用如下的几个步骤:   
-当前ClassLoader首先从自己已经加载的类中查询是否此类已经加载，如果已经加载则直接返回原来已经加载的类。  
+
+Java 中 ClassLoader 的加载采用了双亲委托机制，采用双亲委托机制加载类的时候采用如下的几个步骤  
+当前 ClassLoader 首先从自己已经加载的类中查询是否此类已经加载，如果已经加载则直接返回原来已经加载的类。  
 每个类加载器都有自己的加载缓存，当一个类被加载了以后就会放入缓存，等下次加载的时候就可以直接返回了。  
-当前classLoader的缓存中没有找到被加载的类的时候，委托父类加载器去加载，父类加载器采用同样的策略，首先查看自己的缓存，然后委托父类的父类去加载，一直到bootstrp ClassLoader.  
+当前 classLoader 的缓存中没有找到被加载的类的时候，委托父类加载器去加载，父类加载器采用同样的策略，首先查看自己的缓存，然后委托父类的父类去加载，一直到 bootstrp ClassLoader.  
   
 当所有的父类加载器都没有加载的时候，再由当前的类加载器加载，并将其放入它自己的缓存中，以便下次有加载请求的时候直接返回。  
-说到这里大家可能会想，Java为什么要采用这样的委托机制？理解这个问题，我们引入另外一个关于Classloader的概念"命名空间"， 它是指要确定某一个类，需要类的全限定名以及加载此类的ClassLoader来共同确定。也就是说即使两个类的全限定名是相同的，但是因为不同的 ClassLoader加载了此类，那么在JVM中它是不同的类。明白了命名空间以后，我们再来看看委托模型。采用了委托模型以后加大了不同的 ClassLoader的交互能力，比如上面说的，我们JDK本身提供的类库，比如hashmap,linkedlist等等，这些类由bootstrp 类加载器加载了以后，无论你程序中有多少个类加载器，那么这些类其实都是可以共享的，这样就避免了不同的类加载器加载了同样名字的不同类以后造成混乱。
 
-### 自定义ClassLoader
-Java除了上面所说的默认提供的classloader以外，它还容许应用程序可以自定义classloader，那么要想自定义classloader我们需要通过继承java.lang.ClassLoader来实现,接下来我们就来看看再自定义Classloader的时候，我们需要注意的几个重要的方法: 
+### Java 为什么要采用这样的委托机制
 
-1.loadClass 方法
+理解这个问题，我们引入另外一个关于 Classloader 的概念"命名空间"， 它是指要确定某一个类，需要类的全限定名以及加载此类的 ClassLoader 来共同确定。也就是说即使两个类的全限定名是相同的，但是因为不同的 ClassLoader 加载了此类，那么在 JVM 中它是不同的类。明白了命名空间以后，我们再来看看委托模型。采用了委托模型以后加大了不同的 ClassLoader 的交互能力，比如上面说的，我们 JDK本身提供的类库，比如 hashmap, linkedlist 等等，这些类由 bootstrp 类加载器加载了以后，无论你程序中有多少个类加载器，那么这些类其实都是可以共享的，这样就避免了不同的类加载器加载了同样名字的不同类以后造成混乱。
+
+### 自定义 ClassLoader
+
+Java除了上面所说的默认提供的 classloader 以外，它还容许应用程序可以自定义 classloader，那么要想自定义 classloader 我们需要通过继承 java.lang.ClassLoader 来实现, 接下来我们就来看看再自定义 Classloader 的时候，我们需要注意的几个重要的方法:
+
+#### loadClass 方法
   
-loadClass method declare
-
+```java
 public Class<?> loadClass(String name)  throws ClassNotFoundException
-  
+```
+
 上面是loadClass方法的原型声明，上面所说的双亲委托机制的实现其实就实在此方法中实现的。下面我们就来看看此方法的代码来看看它到底如何实现双亲委托的。
 
-loadClass method implement
-
-public Class<?> loadClass(String name) throws ClassNotFoundException
-  
-{
-  
-return loadClass(name, false);
-  
+```java
+public Class<?> loadClass(String name) throws ClassNotFoundException {
+return loadClass(name, false);  
 }
+```
   
-从上面可以看出loadClass方法调用了loadcClass(name,false)方法，那么接下来我们再来看看另外一个loadClass方法的实现。
+从上面可以看出loadClass方法调用了 loadcClass(name,false) 方法，那么接下来我们再来看看另外一个 loadClass 方法的实现。
 
 Class loadClass(String name, boolean resolve)
 
@@ -187,6 +202,7 @@ What class loaders do
 Classes are introduced into the Java environment when they are referenced by name in a class that is already running. There is a bit of magic that goes on to get the first class running (which is why you have to declare the main() method as static, taking a string array as an argument), but once that class is running, future attempts at loading classes are done by the class loader.
 
 At its simplest, a class loader creates a flat name space of class bodies that are referenced by a string name. The method definition is:
+
 ```java
 Class r = loadClass(String className, boolean resolveIt);
 ```
@@ -370,7 +386,15 @@ Student stu = c1.newInstance();
 <https://my.oschina.net/aminqiao/blog/262601>
   
 <http://www.ticmy.com/?p=257>
-https://blog.csdn.net/a729913162/article/details/81698109
-https://sourceforge.net/p/corn/corn-cps/code/HEAD/tree/corn-cps/trunk/src/main/java/net/sf/corn/cps/CPScanner.java
-https://blog.csdn.net/neosmith/article/details/43955963
-https://segmentfault.com/a/1190000023229787
+<https://blog.csdn.net/a729913162/article/details/81698109>
+<https://sourceforge.net/p/corn/corn-cps/code/HEAD/tree/corn-cps/trunk/src/main/java/net/sf/corn/cps/CPScanner.java>
+<https://blog.csdn.net/neosmith/article/details/43955963>
+<https://segmentfault.com/a/1190000023229787>
+
+## PlatformClassLoader
+
+jdk9 之后用来代替　ExtClassLoader 的加载器，用来加载 jdk 中的非核心模块类。
+
+## BootClassLoader
+
+BootClassLoader 是 ClassLoaders 的一个静态内部类，虽然它从代码实现上是 BuiltinClassLoader 的子类，但是从功能上说它是 PlatformClassLoader 的 parent 类

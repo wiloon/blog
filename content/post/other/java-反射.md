@@ -10,20 +10,22 @@ tags:
   - reprint
 ---
 ## java 反射, reflect
->http://www.iteye.com/topic/137944
+
+<http://www.iteye.com/topic/137944>
   
-一、什么是反射: 
-反射的概念是由Smith在1982年首次提出的，主要是指程序可以访问、检测和修改它本身状态或行为的一种能力。这一概念的提出很快引发了计算机科学领域关于应用反射性的研究。它首先被程序语言的设计领域所采用,并在Lisp和面向对象方面取得了成绩。其中LEAD/LEAD++ 、OpenC++ 、MetaXa和OpenJava等就是基于反射机制的语言。最近，反射机制也被应用到了视窗系统、操作系统和文件系统中。
+## 什么是反射
+
+反射的概念是由 Smith 在 1982 年首次提出的，主要是指程序可以访问、检测和修改它本身状态或行为的一种能力。这一概念的提出很快引发了计算机科学领域关于应用反射性的研究。它首先被程序语言的设计领域所采用, 并在 Lisp 和面向对象方面取得了成绩。其中 LEAD/LEAD++ 、OpenC++ 、MetaXa 和 OpenJava 等就是基于反射机制的语言。最近，反射机制也被应用到了视窗系统、操作系统和文件系统中。
 
 反射本身并不是一个新概念，尽管计算机科学赋予了反射概念新的含义。在计算机科学领域，反射是指一类应用，它们能够自描述和自控制。也就是说，这类应用通过采用某种机制来实现对自己行为的描述 (self-representation) 和监测 (examination) ，并能根据自身行为的状态和结果，调整或修改应用所描述行为的状态和相关的语义。
 
-二、什么是Java中的类反射: 
+## 什么是Java中的类反射
   
 Reflection 是 Java 程序开发语言的特征之一，它允许运行中的 Java 程序对自身进行检查，或者说"自审"，并能直接操作程序的内部属性和方法。Java 的这一能力在实际应用中用得不是很多，但是在其它的程序设计语言中根本就不存在这一特性。例如，Pascal、C 或者 C++ 中就没有办法在程序中获得函数定义相关的信息。
   
 Reflection 是 Java 被视为动态 (或准动态) 语言的关键，允许程序于执行期 Reflection APIs 取得任何已知名称之 class 的內部信息，包括 package、type parameters、superclass、implemented interfaces、inner classes, outer class, fields、constructors、methods、modifiers，並可于执行期生成instances、变更 fields 內容或唤起 methods。
 
-三、Java类反射中所必须的类: 
+## Java类反射中所必须的类
   
 Java的类反射所需要的类并不多，它们分别是: Field、Constructor、Method、Class、Object，下面我将对这些类做一个简单的说明。
   
@@ -37,42 +39,34 @@ Class类: 类的实例表示正在运行的 Java 应用程序中的类和接口�
   
 Object类: 每个类都使用 Object 作为超类。所有对象 (包括数组) 都实现这个类的方法。
 
-四、Java的反射类能做什么: 
+## Java的反射类能做什么
   
 看完上面的这么多我想你已经不耐烦了，你以为我在浪费你的时间，那么好吧！下面我们就用一些简单的小例子来说明它。
   
 首先我们来看一下通过Java的反射机制我们能得到些什么。
-  
-首先我们来写一个类: 
-  
+
+```java
 import java.awt.event.ActionListener;
-  
 import java.awt.event.ActionEvent;
-  
+
 class A extends Object implements ActionListener{
-  
-private int a = 3;
-  
-public Integer b = new Integer(4);
-  
-public A(){}
-  
-public A(int id,String name){}
-  
-public int abc(int id,String name){return 0;}
-  
-public void actionPerformed(ActionEvent e){}
-  
+  private int a = 3;
+  public Integer b = new Integer(4);
+  public A(){}
+  public A(int id,String name){}
+  public int abc(int id,String name){return 0;}
+  public void actionPerformed(ActionEvent e){}
 }
-  
+```
+
 你可能被我这个类弄糊涂了，你看不出我要做什么，那就不要看这个类了，这个类是用来测试的，你知道知道它继承了Object类，有一个接口是ActionListener，两个属性int和Integer,两个构造方法和两个方法，这就足够了。
   
 下面我们把A这个类作为一个反射类，来过去A类中的一些信息，首先我们先来过去一下反射类中的属性和属性值。
-  
+
 import java.lang.reflect.*;
-  
+
 class B{
-  
+
 public static void main(String args[]){
   
 A r = new A();
@@ -124,7 +118,7 @@ e.printStackTrace();
 }
 
 }
-  
+
 这里用到了两个方法，getFields()、getDeclaredFields()，它们分别是用来获取反射类中所有公有属性和反射类中所有的属性的方法。另外还有getField(String)和getDeclaredField(String)方法都是用来过去反射类中指定的属性的方法，要注意的是getField方法只能取到反射类中公有的属性，而getDeclaredField方法都能取到。
   
 这里还用到了Field 类的setAccessible方法，它是用来设置是否有权限访问反射类中的私有属性的，只有设置为true时才可以访问，默认为false。另外Field类还有set(Object AttributeName,Object value)方法，可以改变指定属性的值。
@@ -741,3 +735,25 @@ System.out.println(str);
 }
 
 }
+
+## Java 反射真的很慢吗？
+
+反射带来的问题
+到现在为止，我们已经把反射生成实例的所有流程都搞清楚了。回到文章开头的问题，我们现在反思下，反射性能低么？为什么？
+
+反射调用过程中会产生大量的临时对象，这些对象会占用内存，可能会导致频繁 gc，从而影响性能。
+反射调用方法时会从方法数组中遍历查找，并且会检查可见性等操作会耗时。
+反射在达到一定次数时，会动态编写字节码并加载到内存中，这个字节码没有经过编译器优化，也不能享受JIT优化。
+反射一般会涉及自动装箱/拆箱和类型转换，都会带来一定的资源开销。
+
+在Android中，我们可以在某些情况下对反射进行优化。举个例子，EventBus 2.x 会在 register 方法运行时，遍历所有方法找到回调方法；而EventBus 3.x 则在编译期间，将所有回调方法的信息保存的自己定义的 SubscriberMethodInfo 中，这样可以减少对运行时的性能影响。
+本文的结论如下：
+
+不要在性能敏感的应用中，频繁调用反射。
+如果反射执行的次数小于1000这个数量级，反射的耗时实际上与正常调用无太大差异。
+反射对内存占用还有一定影响的，在内存敏感的场景下，谨慎使用反射。
+
+作者：orzangleli
+链接：https://juejin.cn/post/6844904098207105038
+来源：稀土掘金
+著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。

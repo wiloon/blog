@@ -9,9 +9,9 @@ categories:
 tags:
   - reprint
 ---
-## 通过java反射机制获取该类的所有属性类型、值、
-http://blog.csdn.net/sd4000784/article/details/7448221
+## 通过java反射机制获取该类的所有属性类型、值
 
+http://blog.csdn.net/sd4000784/article/details/7448221
 
 方法使用了这俩个包下的 field 和method
 
@@ -19,9 +19,7 @@ import Java.lang.reflect.Field;
 
 import java.lang.reflect.Method;
 
-
-```java view plain copy
-  
+```java
 public static void getObjectValue(Object object) throws Exception {
   
 //我们项目的所有实体类都继承BaseDomain  (所有实体基类: 该类只是串行化一下) 
