@@ -2,20 +2,21 @@
 title: Nginx
 author: "-"
 date: 2013-07-17T04:40:17+00:00
-url: /?p=5670
+url: nginx
 categories:
   - web
 tags:
   - reprint
 ---
 ## Nginx
-Nginx 是十分轻量级的 HTTP 服务器, Nginx, 它的发音为"engine X",是一个高性能的 HTTP 和反向代理服务器, 同时也是一个 IMAP/POP3/SMTP 代理服务器。Nginx 是由俄罗斯人 Igor Sysoev 为俄罗斯访问量第二的 Rambler.ru 站点开发的。Igor Sysoev 在建立的项目时,使用基于 BSD 许可。
+
+Nginx 是十分轻量级的 HTTP 服务器, Nginx, 它的发音为 "engine X", 是一个高性能的 HTTP 和反向代理服务器, 同时也是一个 IMAP/POP3/SMTP 代理服务器。 Nginx 是由俄罗斯人 Igor Sysoev 为俄罗斯访问量第二的 Rambler.ru 站点开发的。Igor Sysoev 在建立的项目时,使用基于 BSD 许可。
 
 Nginx 以事件驱动的方式编写,所以有非常好的性能,同时也是一个非常高效的反向代理、负载平衡。其拥有匹配 Lighttpd 的性能,同时还没有 Lighttpd 的内存泄漏问题,而且 Lighttpd 的 mod_proxy 也有一些问题并且很久没有更新。
 
-现在,Igor 将源代码以类 BSD 许可证的形式发布。Nginx 因为它的稳定性、丰富的模块库、灵活的配置和低系统资源的消耗而闻名．业界一致认为它是 Apache2.2+mod_proxy_balancer 的轻量级代替者,不仅是因为响应静态页面的速度非常快,而且它的模块数量达到 Apache 的近 2/3。对 proxy 和 rewrite 模块的支持很彻底,还支持 mod_fcgi、ssl、vhosts ,适合用来做 mongrel clusters 的前端 HTTP 响应。
+现在, Igor 将源代码以类 BSD 许可证的形式发布。Nginx 因为它的稳定性、丰富的模块库、灵活的配置和低系统资源的消耗而闻名．业界一致认为它是 Apache2.2+mod_proxy_balancer 的轻量级代替者,不仅是因为响应静态页面的速度非常快,而且它的模块数量达到 Apache 的近 2/3。对 proxy 和 rewrite 模块的支持很彻底,还支持 mod_fcgi、ssl、vhosts ,适合用来做 mongrel clusters 的前端 HTTP 响应。
 
-Nginx 具有很高的稳定性。其它 HTTP 服务器,当遇到访问的峰值,或者有人恶意发起慢速连接时,也很可能会导致服务器物理内存耗尽频繁交换,失去响应,只能重启服务器。例如当前 apache 一旦上到 200 个以上进程,web响应速度就明显非常缓慢了。而 Nginx 采取了分阶段资源分配技术,使得它的 CPU 与内存占用率非常低。Nginx 官方表示保持 10,000 个没有活动的连接,它只占 2.5M 内存,所以类似 DOS 这样的攻击对 Nginx 来说基本上是毫无用处的。就稳定性而言,Nginx 比 lighthttpd 更胜一筹。
+Nginx 具有很高的稳定性。其它 HTTP 服务器,当遇到访问的峰值, 或者有人恶意发起慢速连接时,也很可能会导致服务器物理内存耗尽频繁交换, 失去响应,只能重启服务器。例如当前 apache 一旦上到 200 个以上进程,web响应速度就明显非常缓慢了。而 Nginx 采取了分阶段资源分配技术,使得它的 CPU 与内存占用率非常低。Nginx 官方表示保持 10,000 个没有活动的连接,它只占 2.5M 内存,所以类似 DOS 这样的攻击对 Nginx 来说基本上是毫无用处的。就稳定性而言,Nginx 比 lighthttpd 更胜一筹。
   
 Nginx 支持热部署。它的启动特别容易, 并且几乎可以做到 7*24 不间断运行,即使运行数个月也不需要重新启动。你还能够在不间断服务的情况下,对软件版本进行升级。
   
@@ -29,7 +30,7 @@ worker 进程之间是平等的,每个进程,处理请求的机会也是一样�
 
 对于每个 worker 进程来说,独立的进程,不需要加锁,所以省掉了锁带来的开销,同时在编程以及问题查找时,也会方便很多。其次,采用独立的进程,可以让互相之间不会影响,一个进程退出后,其它进程还在工作,服务不会中断,master 进程则很快启动新的 worker 进程。当然,worker 进程的异常退出,肯定是程序有 bug 了,异常退出,会导致当前 worker 上的所有请求失败,不过不会影响到所有请求,所以降低了风险。
 
-Nginx 也是可以作为客户端来请求其它 server 的数据的 (如 upstream 模块) 
+Nginx 也是可以作为客户端来请求其它 server 的数据的 (如 upstream 模块)
 
 centos install nginx
   
@@ -39,7 +40,7 @@ emacs /etc/yum.repos.d/nginx.repo
   
 name=nginx repo
   
-baseurl=http://nginx.org/packages/mainline/centos/7/$basearch/
+baseurl=<http://nginx.org/packages/mainline/centos/7/$basearch/>
   
 gpgcheck=0
   
@@ -47,4 +48,4 @@ enabled=1
 
 yum install nginx
 
-下载 地址: http://nginx.org/packages/centos/7/x86_64/RPMS/
+下载 地址: <http://nginx.org/packages/centos/7/x86_64/RPMS/>

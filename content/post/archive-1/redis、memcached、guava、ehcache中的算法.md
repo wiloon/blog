@@ -11,11 +11,13 @@ tags:
 
 ---
 ## Redis, Memcache, Guava, Ehcache 中的算法
+
 缓存那些事，一是内存爆了要用LRU(最近最少使用, Least Recently Used)、LFU(最少访问次数, Least Frequently Used)、FIFO的算法清理一些；二是设置了超时时间的键过期便要删除，用主动或惰性的方法。
 
 在看所有的细节之前，可以看一篇相当专业的《缓存算法》，世界真宽阔，算法真奇妙。
 
 ### LRU
+
 简单粗暴的Redis
   
 今天看Redis3.0的发行通告里说，LRU算法大幅提升了，就翻开源码来八卦一下，结果哭笑不得，这旧版的"近似LRU"算法，实在太简单，太偷懒，太Redis了。
@@ -74,4 +76,4 @@ Ehcache更乱，首先它的内存存储中只有惰性检查，没有主动检�
 
 然后磁盘存储那有一条8小时左右跑一次的线程，每次遍历所有元素.....见DiskStorageFactory里的DiskExpiryTask。 一圈看下来，Ehcache的实现最弱。
   
-文章持续修改，转载时请保留原链接:  http://calvin1978.blogcn.com/articles/lru.html
+文章持续修改，转载时请保留原链接:  <http://calvin1978.blogcn.com/articles/lru.html>

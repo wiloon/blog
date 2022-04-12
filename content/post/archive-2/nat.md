@@ -4,12 +4,12 @@ author: "-"
 date: 2016-01-24T14:16:47+00:00
 url: /?p=8704
 categories:
-  - Uncategorized
-
+  - nat
 tags:
   - reprint
 ---
 ## nat, napt,snat,dnat
+
 NAT英文全称是 "Network Address Translation",中文意思是"网络地址转换",它是一个IETF(Internet Engineering Task Force, Internet工程任务组)标准,允许一个整体机构以一个公用IP (Internet Protocol) 地址出现在Internet上。顾名思义,它是一种把内部私有网络地址 (IP地址) 翻译成合法网络IP地址的技术。因此我们可以认为,NAT在一定程度上,能够有效的解决公网地址不足的问题。
 
 - 分类

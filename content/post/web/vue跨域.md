@@ -1,14 +1,15 @@
 ---
 author: "-"
 date: "2020-05-22T05:23:52Z"
-title: "Vue 跨域"
+title: Vue 跨域
 
 categories:
   - inbox
 tags:
   - reprint
 ---
-## "Vue 跨域"
+## Vue 跨域
+
 ## 缘起
 
 最近实验课上需要重构以前写过的一个项目 (垃圾堆) ，需要添加发生邮件提醒的功能，记得以前写过一个PHP版的实现，所以想把PHP写的功能整理成一个服务，然后在前端调用。但是这个项目是JavaWeb，也就是说我需要面对跨域的问题。不过本篇文章，讲的并不是如何解决这样的跨域问题，而是我在找如何解决这个问题的路上遇到的坑。
@@ -23,7 +24,7 @@ tags:
 
 Vue-cli3.x比Vue-cli2.x构建的项目要简化很多，根目录下只有`./src`和`./public`文件夹，所以网上很多教程说`config`目录下的`vue.config.js`是说的vue-cli 2.x版本。那么对于Vue-cli 3.x版本，构建也很简单，直接在根目录里建一个`vue.config.js`配置文件就可以了，我们直接看`devServer.proxy`里的代码:
 
-我这里devServer的地址是: localhost:8080/，需要代理的地址是: localhost/index/phpinfo.php  (我自己写的一个测试跨域用的php，返回一个'ok') 
+我这里devServer的地址是: localhost:8080/，需要代理的地址是: localhost/index/phpinfo.php  (我自己写的一个测试跨域用的php，返回一个'ok')
 
 下面是根据上面的地址需要配置的proxy对象
 
@@ -63,7 +64,7 @@ Vue-cli3.x比Vue-cli2.x构建的项目要简化很多，根目录下只有`./src
 
 这个使用任意一个ajax封装的库都是可行的，axios，jquery.ajax或者是vue-resource都是可以的。
 
-在Vue中使用axios，网上有两种方法，一种是将axios加入Vue的原型里，我更推荐第二种方法: 
+在Vue中使用axios，网上有两种方法，一种是将axios加入Vue的原型里，我更推荐第二种方法:
 
     npm install axios vue-axios
 
@@ -72,12 +73,11 @@ Vue-cli3.x比Vue-cli2.x构建的项目要简化很多，根目录下只有`./src
     import VueAxios from 'vue-axios';
     Vue.use(VueAxios,axios);
 
-以我上面的proxy配置为基础，想要让代理成功转发到`localhost/index/phpinfo.php`，在Vue实例中axios需要这样写访问地址: 
+以我上面的proxy配置为基础，想要让代理成功转发到`localhost/index/phpinfo.php`，在Vue实例中axios需要这样写访问地址:
 
     this.axios.get('/index/phpinfo.php').then((res)=>{
             console.log(res);
           })
-
 
 我们来分析这些代码整个发挥作用的原理是什么？首先，axios去访问`/index/phpinfo.php`，这是个相对地址，所以真实访问地址其实是`localhost:8080/index/phpinfo.php`，然而`/index/phpinfo.php`被我们配置的`/index`匹配到了 ，所以访问被proxy代理，那转发到哪个路径呢？在`pathRewrite`中，我们将模式`^/index`的路径清除了，所以最终的访问路径是 `target`+`pathRewrite`+ 剩余的部分 ， 这样也就是 `http://localhost/index`++`/phpinfo.php`
 
@@ -89,7 +89,7 @@ Vue-cli3.x比Vue-cli2.x构建的项目要简化很多，根目录下只有`./src
 * 或者看看axios，有没有使用正确姿势？
 * 还有一点，或许你看到返回的response里的url依然显示的是本地主机，但是数据已经正常返回，这是正常的，因为我们访问的本来就是本地主机，只不过proxy转发了这个请求到一个新的地址。
 
-###  生产环境部署用nginx解决
+### 生产环境部署用nginx解决
 
     server {
             listen 80;
@@ -110,12 +110,10 @@ Vue-cli3.x比Vue-cli2.x构建的项目要简化很多，根目录下只有`./src
                     proxy_pass http://192.168.50.xxx:38080/;
             }
     }
-    
 
-https://segmentfault.com/a/1190000010792260
+<https://segmentfault.com/a/1190000010792260>
 
-https://juejin.im/post/5d1cc073f265da1bcb4f486d
-
+<https://juejin.im/post/5d1cc073f265da1bcb4f486d>
 
 ### axios 302
 
@@ -127,5 +125,5 @@ axios.post('.', Data)
          }
      })
      .catch(error => {console.log(error)});
-     
->https://xudany.github.io/axios/2020/07/14/%E5%85%B3%E4%BA%8E-axios-302-%E9%87%8D%E5%AE%9A%E5%90%91%E7%9A%84%E9%97%AE%E9%A2%98/
+
+><https://xudany.github.io/axios/2020/07/14/%E5%85%B3%E4%BA%8E-axios-302-%E9%87%8D%E5%AE%9A%E5%90%91%E7%9A%84%E9%97%AE%E9%A2%98/>

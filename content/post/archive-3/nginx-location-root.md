@@ -74,6 +74,5 @@ nginx 是通过 alias 设置虚拟目录，在 nginx 的配置中，alias 目录
     但是如果location匹配的path目录后面加上"/"，那么访问的url地址中这个path目录必须要加上"/"，访问时它不会自动加上"/"。如果不加上"/"，访问就会失败！
 5）root目录配置中，location匹配的path目录后面带不带"/"，都不会影响访问。
 
-
 >https://www.cnblogs.com/kevingrace/p/6187482.html
 

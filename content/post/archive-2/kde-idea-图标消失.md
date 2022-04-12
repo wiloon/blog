@@ -10,6 +10,7 @@ tags:
   - reprint
 ---
 ## kde idea 图标消失
+
 Open folder /home/USERNAME/.local/share/applications/
   
 Find jetbrains-idea.desktop.
@@ -22,4 +23,4 @@ Next to the Command section click Browse... button and select idea.sh file in /p
   
 Click OK.
 
-https://stackoverflow.com/questions/43706663/intellij-idea-lost-icon-after-launch
+<https://stackoverflow.com/questions/43706663/intellij-idea-lost-icon-after-launch>

@@ -2,26 +2,22 @@
 title: Interview – Database
 author: lcf
 date: 2012-11-27T14:55:38+00:00
-url: /?p=4781
+url: database
 categories:
   - DataBase
-
 tags:
   - reprint
 ---
 ## Interview – Database
+
 ## SQL tuning 类
+
 ### 列举几种表连接方式
-等连接 (内连接) 、非等连接、自连接、外连接 (左、右、全)  Or hash join/merge join/nest loop(cluster join)/index join ？？ ORACLE 8i，9i 表连接方法。   一般的相等连接: 
-select * from a, b where a.id = b.id; 这个就属于内连接。   
+
+等连接 (内连接) 、非等连接、自连接、外连接 (左、右、全)  Or hash join/merge join/nest loop(cluster join)/index join ？？ ORACLE 8i，9i 表连接方法。   一般的相等连接:
+select * from a, b where a.id = b.id; 这个就属于内连接。
 对于外连接:  Oracle中可以使用"(+) "来表示，9i可以使用LEFT/RIGHT/FULL OUTER JOIN   LEFT OUTER JOIN: 左外关联 SELECT e.last_name, e.department_id, d.department_name FROM employees e LEFT OUTER JOIN departments d ON (e.department_id = d.department_id); 等价于 SELECT e.last_name, e.department_id, d.department_name FROM employees e, departments d WHERE e.department_id=d.department_id(+) 结果为: 所有员工及对应部门的记录，包括没有对应部门编号department_id的员工记录。   RIGHT OUTER JOIN: 右外关联 SELECT e.last_name, e.department_id, d.department_name FROM employees e RIGHT OUTER JOIN departments d ON (e.department_id = d.department_id); 等价于 SELECT e.last_name, e.department_id, d.department_name FROM employees e, departments d WHERE e.department_id(+)=d.department_id 结果为: 所有员工及对应部门的记录，包括没有任何员工的部门记录。   FULL OUTER JOIN: 全外关联 SELECT e.last_name, e.department_id, d.department_name FROM employees e FULL OUTER JOIN departments d ON (e.department_id = d.department_id); 结果为: 所有员工及对应部门的记录，包括没有对应部门编号department_id的员工记录和没有任何员工的部门记录。   ORACLE8i是不直接支持完全外连接的语法，也就是说不能在左右两个表上同时加上(+)，下面是在ORACLE8i可以参考的完全外连接语法 select t1.id,t2.id from table1 t1,table t2 where t1.id=t2.id(+) union select t1.id,t2.id from table1 t1,table t2 where t1.id(+)=t2.id
   
-  
-    
-      
-         
-        
-        
           连接类型
         
       
@@ -214,11 +210,9 @@ select * from a, b where a.id = b.id; 这个就属于内连接。
   
     检查系统的I/O问题 sar－d能检查整个系统的iostat (IO statistics)    查看该SQL的response time(db block gets/consistent gets/physical reads/sorts (disk))
   
-  
-### 说说你对索引的认识 (索引的结构、对dml影响、对查询影响、为什么提高查询性能) 
+### 说说你对索引的认识 (索引的结构、对dml影响、对查询影响、为什么提高查询性能)
   
 索引有B-TREE、BIT、CLUSTER等类型。ORACLE使用了一个复杂的自平衡B-tree结构;通常来说，在表上建立恰当的索引，查询时会改进查询性能。但在进行插入、删除、修改时，同时会进行索引的修改，在性能上有一定的影响。有索引且查询条件能使用索引时，数据库会先度取索引，根据索引内容和查询条件，查询出ROWID，再根据ROWID取出需要的数据。由于索引内容通常比全表内容要少很多，因此通过先读索引，能减少I/O，提高查询性能。   b-tree index/bitmap index/function index/patitional index(local/global)索引通常能提高select/update/delete的性能,会降低insert的速度,
-  
   
     8.      使用索引查询一定能提高查询的性能吗？为什么
   
@@ -289,7 +283,6 @@ select * from a, b where a.id = b.id; 这个就属于内连接。
   
     日志文件 (Log File) 记录所有对数据库数据的修改，主要是保护数据库以防止故障,以及恢复数据时使用。其特点如下:  a)每一个数据库至少包含两个日志文件组。每个日志文件组至少包含两个日志文件成员。 b)日志文件组以循环方式进行写操作。 c)每一个日志文件成员对应一个物理文件。   记录数据库事务,最大限度地保证数据的一致性与安全性 重做日志文件: 含对数据库所做的更改记录，这样万一出现故障可以启用数据恢复,一个数据库至少需要两个重做日志文件 归档日志文件: 是重做日志文件的脱机副本，这些副本可能对于从介质失败中进行恢复很必要。
   
-  
 ### SGA主要有那些部分，主要作用是什么
   
 系统全局区 (SGA) :是ORACLE为实例分配的一组共享缓冲存储区，用于存放数据库数据和控制信息，以实现对数据库数据的管理和操作。 SGA主要包括: a)共享池(shared pool) : 用来存储最近执行的SQL语句和最近使用的数据字典的数据。 b)数据缓冲区 (database buffer cache): 用来存储最近从数据文件中读写过的数据。 c)重作日志缓冲区 (redo log buffer) : 用来记录服务或后台进程对数据库的操作。 另外在SGA中还有两个可选的内存结构:  d)Java pool:  用来存储Java代码。 e)Large pool: 用来存储不与SQL直接相关的大型内存结构。备份、恢复使用。   GA: db_cache/shared_pool/large_pool/java_pool db_cache: 数据库缓存 (Block Buffer) 对于Oracle数据库的运转和性能起着非常关键的作用，它占据Oracle数据库SGA (系统共享内存区) 的主要部分。Oracle数据库通过使用LRU算法，将最近访问的数据块存放到缓存中，从而优化对磁盘数据的访问. shared_pool: 共享池的大小对于Oracle 性能来说都是很重要的。共享池中保存数据字典高速缓冲和完全解析或编译的的PL/SQL 块和SQL 语句及控制结构 large_pool: 使用MTS配置时，因为要在SGA中分配UGA来保持用户的会话，就是用Large_pool来保持这个会话内存使用RMAN做备份的时候，要使用Large_pool这个内存结构来做磁盘I/O缓存器 java_pool: 为java procedure预备的内存区域,如果没有使用java proc,java_pool不是必须的
@@ -303,7 +296,6 @@ select * from a, b where a.id = b.id; 这个就属于内连接。
 #### 归档是什么含义
   
 关于归档日志: Oracle要将填满的在线日志文件组归档时,则要建立归档日志 (archived redo log) 。其对数据库备份和恢复有下列用处:  数据库后备以及在线和归档日志文件，在操作系统和磁盘故障中可保证全部提交的事物可被恢复。 在数据库打开和正常系统使用下，如果归档日志是永久保存，在线后备可以进行和使用。 数据库可运行在两种不同方式下: NOARCHIVELOG方式或ARCHIVELOG 方式 数据库在NOARCHIVELOG方式下使用时，不能进行在线日志的归档, 数据库在ARCHIVELOG方式下运行，可实施在线日志的归档   归档是归档当前的联机redo日志文件。 SVRMGR> alter system archive log current; 数据库只有运行在ARCHIVELOG模式下，并且能够进行自动归档，才可以进行联机备份。有了联机备份才有可能进行完全恢复。
-  
   
     3 如果一个表在2004-08-04 10:30:00 被drop，在有完善的归档和备份的情况下，如何恢复
   
@@ -341,9 +333,7 @@ select * from a, b where a.id = b.id; 这个就属于内连接。
 
     1.      列举几种诊断IO、CPU、性能状况的方法
 
-  
 top  uptime  vmstat  iostat  statspack  sql_trace/tkprof 查 v$system_event/v$session_event/v$session_wait 查v$sqlarea(disk_reads或buffer_gets/executions较大的SQL) 或者第三方的监视工具，TOAD就不错。
-  
   
     1.      对statspack有何认识
   
@@ -537,33 +527,31 @@ top  uptime  vmstat  iostat  statspack  sql_trace/tkprof 查 v$system_event/v$se
     1.   Question6: How can I add row numbers to my result set? In database pubs, have a table titles , now I want the result shown as below,each row have a row number, how can you do that? Result:
 
 line-no     title_id ---- --- 1           BU1032 2           BU1111 3           BU2075 4           BU7832 5           MC2222 6           MC3021 7           MC3026 8           PC1035 9           PC8888 10          PC9999 11          PS1372 12          PS2091 13          PS2106 14          PS3333 15          PS7777 16          TC3218 17          TC4203 18          TC7777
-          
+
 Answer 6:  -SQL 2005的写法 select row_number() as line_no ,title_id from titles -SQL 2000的写法 select line_no identity(int,1,1),title_id into #t from titles select * from #t drop table #t
 
-1.  Question 7: Can you tell me what the difference of two SQL statements at performance of execution?
-Statement 1: if NOT EXISTS ( select * from publishers where state = 'NY') begin SELECT 'Sales force needs to penetrate New York market' end else begin SELECT 'We have publishers in New York' end Statement 2: if EXISTS ( select * from publishers where state = 'NY') begin SELECT 'We have publishers in New York' end else begin SELECT 'Sales force needs to penetrate New York market' end Answer 7: 不同点:执行时的事务数,处理时间,从客户端到服务器端传送的数据量大小
+1. Question 7: Can you tell me what the difference of two SQL statements at performance of execution?
+Statement 1: if NOT EXISTS ( select *from publishers where state = 'NY') begin SELECT 'Sales force needs to penetrate New York market' end else begin SELECT 'We have publishers in New York' end Statement 2: if EXISTS ( select* from publishers where state = 'NY') begin SELECT 'We have publishers in New York' end else begin SELECT 'Sales force needs to penetrate New York market' end Answer 7: 不同点:执行时的事务数,处理时间,从客户端到服务器端传送的数据量大小
   
-1.  Question8: How can I list all California authors regardless of whether they have written a book? In database pubs, have a table authors and titleauthor , table authors has a column state, and titleauhtor have books each author written. CA behalf of california in table authors. Answer 8:  select * from  authors where state='CA'
-
+1. Question8: How can I list all California authors regardless of whether they have written a book? In database pubs, have a table authors and titleauthor , table authors has a column state, and titleauhtor have books each author written. CA behalf of california in table authors. Answer 8:  select * from  authors where state='CA'
 
 27. Question9: How can I get a list of the stores that have bought both 'bussiness' and 'mod_cook' type books? In database pubs, use three table stores,sales and titles to implement this requestment. Now I want to get the result as below:
 
 stor_id stor_name --- -------------- ... 7896    Fricative Bookshop ... ... ... Answer 9:  select distinct a.stor_id, a.stor_name from stores a,sales b,titles c where a.stor_id=b.stor_id and b.title_id=c.title_id and c.type='business' and exists(select 1 from sales k,titles g where stor_id=b.stor_id and k.title_id=g.title_id and g.type='mod_cook')
-          
+
 28. Question10: How can I list non-contignous data? In database pubs, I create a table test using statement as below, and I insert several row as below
 create table test ( id int primary key ) go
-          
+
 insert into test values (1 ) insert into test values (2 ) insert into test values (3 ) insert into test values (4 ) insert into test values (5 ) insert into test values (6 ) insert into test values (8 ) insert into test values (9 ) insert into test values (11) insert into test values (12) insert into test values (13) insert into test values (14) insert into test values (18) insert into test values (19) go
 
 Now I want to list the result of the non-contignous row as below,how can I do it? Missing after Missing before ----- ----- 6             8 9             11 ...
-          
+
 Answer 10:  select id from test t where not exists(select 1 from test where id=t.id+1) or not exists(select 1 from test where id=t.id-1)
   
 29. Question11: How can I list all book with prices greather than the average price of books of the same type? In database pubs, have a table named titles , its column named price mean the price of the book, and another named type mean the type of books. Now I want to get the result as below:
 
-
 type         title                                                                            price ---- --------------------------- ------- business     The Busy Executive's Database Guide                                              19.9900 ... ... ... ...
-          
+
 Answer 11:  select a.type,a.title,a.price from titles a, (select type,price=avg(price) from titles group by type)b where a.type=b.type and a.price>b.price
   
 试题点评: 通览整个试题，我们不难发现，这份试题是针对SQL Server数据库人员的。而从难度分析上来看，这份试题也属于同类试题中比较难的了。之所以说它难，首先是限定时间的全英文试题；其次，尽管这份试题主要是考核开发能力，但却涉及到了算法的选择和性能的调优；最后，这份试题还夹进了SQL Server数据库的升级问题。因此，综上所述，我们估计这是一家从事程序外包工作的外企招聘后台开发或与后台开发相关的SQL Server高级程序员的试题。

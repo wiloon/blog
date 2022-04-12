@@ -10,6 +10,7 @@ tags:
   - reprint
 ---
 ## SonarQube
+
 SonarQube (曾用名Sonar (声纳) [1]) 是一个开源的代码质量管理系统。
 
 Sonar是一个用于代码质量管理的开源平台，用于管理源代码的质量，可以从七个维度检测代码质量
@@ -52,7 +53,7 @@ sonar可以通过PMD,CheckStyle,Findbugs等等代码规则检测工具规范代�
   
 sonar可以通过PMD,CheckStyle,Findbugs等等代码规则检测工具检测出潜在的bug
   
-7.糟糕的设计 (原文Spaghetti Design，意大利面式设计) 
+7.糟糕的设计 (原文Spaghetti Design，意大利面式设计)
   
 通过sonar可以找出循环，展示包与包、类与类之间的相互依赖关系
   
@@ -64,7 +65,7 @@ sonar可以通过PMD,CheckStyle,Findbugs等等代码规则检测工具检测出�
   
 检测耦合
 
-关于Spaghetti Design: http://docs.codehaus.org/display/SONAR/Spaghetti+Design
+关于Spaghetti Design: <http://docs.codehaus.org/display/SONAR/Spaghetti+Design>
 
 通过sonar可以有效检测以上在程序开发过程中的七大问题
   
@@ -76,17 +77,17 @@ SonarQube安装
   
 2.已安装有MySQL数据库
 
-软件下载地址: http://www.sonarqube.org/downloads/
+软件下载地址: <http://www.sonarqube.org/downloads/>
   
 下载SonarQube与SonarQube Runner
   
-中文补丁包下载: http://docs.codehaus.org/display/SONAR/Chinese+Pack
+中文补丁包下载: <http://docs.codehaus.org/display/SONAR/Chinese+Pack>
 
 1.数据库配置
   
 进入数据库命令
   
-#MySQL -u root -p
+# MySQL -u root -p
 
 MySQL> CREATE DATABASE sonar CHARACTER SET utf8 COLLATE utf8_general_ci;
   
@@ -112,12 +113,8 @@ MySQL> FLUSH PRIVILEGES;
   
 这里使用MySQL，因此取消MySQL模块的注释
   
-#vi sonar.properties
+# vi sonar.properties
 
-
-
-
-  
 sonar.jdbc.username:                       sonar
   
 sonar.jdbc.password:                       sonar
@@ -134,45 +131,41 @@ sonar.jdbc.driverClassName:                com.MySQL.jdbc.Driver
   
 根据实际使用数据库情况取消相应注释
 
-
-
-
+# Configure here general information about the environment, such as SonarQube DB details for example
   
-#Configure here general information about the environment, such as SonarQube DB details for example
+# No information about specific project should appear here
   
-#No information about specific project should appear here
+# -- Default SonarQube server
   
-#-- Default SonarQube server
+sonar.host.url=<http://localhost:9000>
   
-sonar.host.url=http://localhost:9000
+# -- PostgreSQL
   
-#-- PostgreSQL
+# sonar.jdbc.url=jdbc:postgresql://localhost/sonar
   
-#sonar.jdbc.url=jdbc:postgresql://localhost/sonar
-  
-#-- MySQL
+# -- MySQL
   
 sonar.jdbc.url=jdbc:MySQL://localhost:3306/sonar?useUnicode=true&characterEncoding=utf8
   
-#-- Oracle
+# -- Oracle
   
-#sonar.jdbc.url=jdbc:oracle:thin:@localhost/XE
+# sonar.jdbc.url=jdbc:oracle:thin:@localhost/XE
   
-#-- Microsoft SQLServer
+# -- Microsoft SQLServer
   
-#sonar.jdbc.url=jdbc:jtds:sqlserver://localhost/sonar;SelectMethod=Cursor
+# sonar.jdbc.url=jdbc:jtds:sqlserver://localhost/sonar;SelectMethod=Cursor
   
-#-- Global database settings
+# -- Global database settings
   
 sonar.jdbc.username=sonar
   
 sonar.jdbc.password=sonar
   
-#-- Default source code encoding
+# -- Default source code encoding
   
 sonar.sourceEncoding=UTF-8
   
-#-- Security (when 'sonar.forceAuthentication' is set to 'true')
+# -- Security (when 'sonar.forceAuthentication' is set to 'true')
   
 sonar.login=admin
   
@@ -188,11 +181,11 @@ sonar.password=admin
   
 目录切换至sonar的<install_directory>/bin/linux-x86-64/目录，启动服务
   
-#./sonar.sh start   启动服务
+# ./sonar.sh start   启动服务
   
-#./sonar.sh stop    停止服务
+# ./sonar.sh stop    停止服务
   
-#./sonar.sh restart 重启服务
+# ./sonar.sh restart 重启服务
 
 至此，sonar就安装好了
   
@@ -208,13 +201,9 @@ sonar.password=admin
 
 sonar作为Linux服务并开机自启动
   
-新建文件/etc/init.d/sonar，输入如下内容: 
+新建文件/etc/init.d/sonar，输入如下内容:
 
-
-
-
-  
-#!/bin/sh
+# !/bin/sh
   
 #
   
@@ -248,7 +237,7 @@ sonar作为Linux服务并开机自启动
 
 /usr/bin/sonar $*
 
-SonarQube开机自启动 (Ubuntu, 32位) : 
+SonarQube开机自启动 (Ubuntu, 32位) :
   
 sudo ln -s $SONAR_HOME/bin/linux-x86-32/sonar.sh /usr/bin/sonar
   
@@ -256,7 +245,7 @@ sudo chmod 755 /etc/init.d/sonar
   
 sudo update-rc.d sonar defaults
   
-SonarQube开机自启动 (RedHat, CentOS, 64位) : 
+SonarQube开机自启动 (RedHat, CentOS, 64位) :
   
 sudo ln -s $SONAR_HOME/bin/linux-x86-64/sonar.sh /usr/bin/sonar
   
@@ -272,12 +261,8 @@ sudo chkconfig -add sonar
 
 1.在项目源码的根目录下创建sonar-project.properties配置文件
   
-以android项目为例: 
+以android项目为例:
 
-
-
-
-  
 sonar.projectKey=android-sonarqube-runner
   
 sonar.projectName=Simple Android project analyzed with the SonarQube Runner
@@ -306,32 +291,32 @@ sonar.profile=Android Lint
   
 分析成功后访问http:\\localhost:9000即可查看分析结果
 
-不同参数的意思: 
+不同参数的意思:
   
-http://docs.codehaus.org/display/SONAR/Analysis+Parameters
+<http://docs.codehaus.org/display/SONAR/Analysis+Parameters>
   
-不同项目的源码分析示例下载: 
+不同项目的源码分析示例下载:
   
-https://github.com/SonarSource/sonar-examples/zipball/master
+<https://github.com/SonarSource/sonar-examples/zipball/master>
   
 与IDE关联
 
 最后，当然了，得与IDE相关联，才能更方便地实时查看
 
-以Eclipse为例，请见: http://docs.sonarqube.org/display/SONAR/SonarQube+in+Eclipse
+以Eclipse为例，请见: <http://docs.sonarqube.org/display/SONAR/SonarQube+in+Eclipse>
 
-附: 
+附:
 
-sonarQube官网地址: http://www.sonarqube.org/
+sonarQube官网地址: <http://www.sonarqube.org/>
   
-sonarQube官方文档地址: http://docs.codehaus.org/display/SONAR/Documentation
+sonarQube官方文档地址: <http://docs.codehaus.org/display/SONAR/Documentation>
   
-sonarQube示例地址: http://nemo.sonarqube.org/
+sonarQube示例地址: <http://nemo.sonarqube.org/>
   
-网上另两篇相关的文章: http://www.cnblogs.com/gao241/p/3190701.html
+网上另两篇相关的文章: <http://www.cnblogs.com/gao241/p/3190701.html>
   
-http://www.myexception.cn/open-source/1307345.html
+<http://www.myexception.cn/open-source/1307345.html>
 
-http://blog.csdn.net/hunterno4/article/details/11687269
+<http://blog.csdn.net/hunterno4/article/details/11687269>
 
-http://zh.wikipedia.org/wiki/SonarQube
+<http://zh.wikipedia.org/wiki/SonarQube>

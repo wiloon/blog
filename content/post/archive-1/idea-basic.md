@@ -83,7 +83,7 @@ windows
  -ea
   
   
-    -server 使用server jvm。酌情使用，有些doc说IDEA加该选项可以提高速度。
+-server 使用server jvm。酌情使用，有些doc说IDEA加该选项可以提高速度。
  -Xverify: none 关闭Java字节码验证，从而加快了类装入的速度，并使得在仅为验证目的而启动的过程中无需装入类，缩短了启动时间。
  -Xms: 是另一个设置内存的参数,用它来设置程序初始化的时候内存栈的大小，增加这个值的话你的程序的启动性能会得到提高。不过同样有前面的限制，以及受到xmx的限制。
  -Xmx: 是java的一个选项，用来设置你的应用程序能够使用的最大内存数 (看好，致使你的应用程序，不是整个jvm) ,如果你的程序要花很大内存的话，那就需要修改缺省的设置，比如配置tomcat的时候，如果流量啊程序啊都很大的话就需要加大这个值了，不过有一点是要记住的，不要大得超过你的机器的内存，那样你的机器会受不了的，到时候就死翘翘了。。
@@ -137,3 +137,11 @@ File> settings> Build,Execution,Deployment>Build Tools> maven> importing> vm opt
 -DproxySet=true -DproxyHost=192.168.50.9 -DproxyPort=1080
 
 ```
+
+## JDK源代码附加到IntelliJ IDEA
+
+2.1文件->项目结构
+
+2.2平台设置-> Sourcepath >选择源路径->加号图标->从JDK安装路径中选择src.zip 。
+
+<https://blog.csdn.net/cyan20115/article/details/106549340>
