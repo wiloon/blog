@@ -11,26 +11,53 @@ tags:
 ---
 ## Nginx config, 配置, nginx.conf
 
+## nginx 配置文件结构
+
+```bash
+Global: nginx 运行相关
+Events: 与用户的网络连接相关
+http
+    http Global: 代理，缓存，日志，以及第三方模块的配置
+    server
+        server Global: 虚拟主机相关
+        location: 地址定向，数据缓存，应答控制，以及第三方模块的配置
 ```
+
+## http > https
+
+```bash
+server {
+        listen 80;
+        server_name foo.bar.com;
+            rewrite ^/(.*) https://$host/$1 permanent;
+}
+```
+
+```bash
 server {
     listen       19999;
     location / {
         proxy_pass http://192.168.122.153:19999;
     }
 }
-
 ```
+
 ### location>proxy_redirect
+
 proxy_redirect：修改后端服务器返回的响应头部中的location货refresh，与proxy_pass配合使用：
-### location>proxy_ssl_session_reuse on | off;
+
+### location>proxy_ssl_session_reuse on | off
+
 proxy_ssl_session_reuse:配置是否基于SSL协议与后端服务器建立连接
 proxy_ssl_trusted_certificate指令命名的文件中的受信任CA证书用于在上游验证证书
 proxy_ssl_trusted_certificate指令设置的那个可信CA证书文件是用来验证后端服务器的证书。
 
 ### nginx 414 Request-URI Too Large
+
     client_header_buffer_size 512k;
 
-### worker_processes, nginx进程数，建议设置为等于CPU总核心数。
+### worker_processes, nginx进程数，建议设置为等于CPU总核心数
+
     worker_processes 8;
   
 官方英文版wiki配置说明中的描述如下，个人理解为worker角色的进程个数 (nginx启动后有多少个worker处理http请求。master不处理请求，而是根据相应配置文件信息管理worker进程. master进程主要负责对外揽活 (即接收客户端的请求) ，并将活儿合理的分配给多个worker，每个worker进程主要负责干活 (处理请求) ) 。
@@ -43,23 +70,23 @@ proxy_ssl_trusted_certificate指令设置的那个可信CA证书文件是用来�
 
 ### worker_rlimit_nofile
 
-#一个nginx进程打开的最多文件描述符数目，理论值应该是最多打开文件数 (系统的值ulimit -n) 与nginx进程数相除，但是nginx分配请求并不均匀，所以建议与ulimit -n的值保持一致。
+# 一个nginx进程打开的最多文件描述符数目，理论值应该是最多打开文件数 (系统的值ulimit -n) 与nginx进程数相除，但是nginx分配请求并不均匀，所以建议与ulimit -n的值保持一致。
   
     worker_rlimit_nofile 65535;
 
 proxy_bind
 
-https://pengpengxp.github.io/2017-06-27-%E4%BD%BF%E7%94%A8nginx%E7%9A%84proxy_bind%E9%80%89%E9%A1%B9%E9%85%8D%E7%BD%AE%E9%80%8F%E6%98%8E%E7%9A%84%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86.html
+<https://pengpengxp.github.io/2017-06-27-%E4%BD%BF%E7%94%A8nginx%E7%9A%84proxy_bind%E9%80%89%E9%A1%B9%E9%85%8D%E7%BD%AE%E9%80%8F%E6%98%8E%E7%9A%84%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86.html>
 
-#定义Nginx运行的用户和用户组
+# 定义Nginx运行的用户和用户组
   
 user www www;
 
-#全局错误日志定义类型，[ debug | info | notice | warn | error | crit ]
+# 全局错误日志定义类型，[ debug | info | notice | warn | error | crit ]
   
 error_log /var/log/nginx/error.log info;
 
-#进程文件
+# 进程文件
   
 pid /var/run/nginx.pid;
 
@@ -69,17 +96,17 @@ events
   
 {
   
-#参考事件模型，use [ kqueue | rtsig | epoll | /dev/poll | select | poll ]; epoll模型是Linux 2.6以上版本内核中的高性能网络I/O模型，如果跑在FreeBSD上面，就用kqueue模型。
+# 参考事件模型，use [ kqueue | rtsig | epoll | /dev/poll | select | poll ]; epoll模型是Linux 2.6以上版本内核中的高性能网络I/O模型，如果跑在FreeBSD上面，就用kqueue模型。
   
 use epoll;
   
-#单个进程最大连接数 (最大连接数=连接数*进程数) 
+# 单个进程最大连接数 (最大连接数=连接数*进程数)
   
 worker_connections 65535;
   
 }
 
-#设定http服务器
+# 设定http服务器
   
 http
   
@@ -89,7 +116,7 @@ include mime.types; #文件扩展名与文件类型映射表
   
 default_type application/octet-stream; #默认文件类型
   
-#charset utf-8; #默认编码
+# charset utf-8; #默认编码
   
 server_names_hash_bucket_size 128; #服务器名字的hash表大小
   
@@ -114,6 +141,7 @@ tcp_nodelay on;
 TCP_NOPUSH 是 FreeBSD 的一个 socket 选项，对应 Linux 的 TCP_CORK， Nginx 里统一用 tcp_nopush 来控制它，并且只有在启用了 sendfile 之后才生效。启用它之后，数据包会累计到一定大小之后才会发送，减小了额外开销，提高网络效率。
 
 ### TCP_NODELAY
+
 TCP_NODELAY 也是一个 socket 选项，启用后会禁用 Nagle 算法，尽快发送数据，某些情况下可以节约 200ms  
  (Nagle 算法原理是: 在发出去的数据还未被确认之前，新生成的小数据先存起来，凑满一个 MSS 或者等到收到确认后再发送) 。Nginx 只会针对处于 keep-alive 状态的 TCP 连接才会启用 tcp_nodelay。
 
@@ -121,7 +149,7 @@ TCP_NODELAY 也是一个 socket 选项，启用后会禁用 Nagle 算法，尽�
 
 keepalive_timeout 120; #长连接超时时间，单位是秒
 
-#FastCGI相关参数是为了改善网站的性能: 减少资源占用，提高访问速度。下面参数看字面意思都能理解。
+# FastCGI相关参数是为了改善网站的性能: 减少资源占用，提高访问速度。下面参数看字面意思都能理解。
   
 fastcgi_connect_timeout 300;
   
@@ -137,7 +165,7 @@ fastcgi_busy_buffers_size 128k;
   
 fastcgi_temp_file_write_size 128k;
 
-#gzip模块设置
+# gzip模块设置
   
 gzip on; #开启gzip压缩输出
   
@@ -145,21 +173,21 @@ gzip_min_length 1k; #最小压缩文件大小
   
 gzip_buffers 4 16k; #压缩缓冲区
   
-gzip_http_version 1.0; #压缩版本 (默认1.1，前端如果是squid2.5请使用1.0) 
+gzip_http_version 1.0; #压缩版本 (默认1.1，前端如果是squid2.5请使用1.0)
   
 gzip_comp_level 2; #压缩等级
   
 gzip_types text/plain application/x-javascript text/css application/xml;
   
-#压缩类型，默认就已经包含text/html，所以下面就不用再写了，写上去也不会有问题，但是会有一个warn。
+# 压缩类型，默认就已经包含text/html，所以下面就不用再写了，写上去也不会有问题，但是会有一个warn。
   
 gzip_vary on;
   
-#limit_zone crawler $binary_remote_addr 10m; #开启限制IP连接数的时候需要使用
+# limit_zone crawler $binary_remote_addr 10m; #开启限制IP连接数的时候需要使用
 
 upstream blog.ha97.com {
   
-#upstream的负载均衡，weight是权重，可以根据机器配置定义权重。weigth参数表示权值，权值越高被分配到的几率越大。
+# upstream的负载均衡，weight是权重，可以根据机器配置定义权重。weigth参数表示权值，权值越高被分配到的几率越大。
   
 server 192.168.80.121:80 weight=3;
   
@@ -169,17 +197,17 @@ server 192.168.80.123:80 weight=3;
   
 }
 
-#虚拟主机的配置
+# 虚拟主机的配置
   
 server
   
 {
   
-#监听端口
+# 监听端口
   
 listen 80;
   
-#域名可以有多个，用空格隔开
+# 域名可以有多个，用空格隔开
   
 server_name www.ha97.com ha97.com;
   
@@ -199,7 +227,7 @@ include fastcgi.conf;
   
 }
   
-#图片缓存时间设置
+# 图片缓存时间设置
   
 location ~ ._&#46;(gif|jpg|jpeg|png|bmp|swf)$
   
@@ -209,7 +237,7 @@ expires 10d;
   
 }
   
-#JS和CSS缓存时间设置
+# JS和CSS缓存时间设置
   
 location ~ .*&#46;(js|css)?$
   
@@ -219,7 +247,7 @@ expires 1h;
   
 }
   
-#日志格式设定
+# 日志格式设定
   
 log_format access '$remote_addr - $remote_user [$time_local] "$request" '
   
@@ -227,29 +255,27 @@ log_format access '$remote_addr - $remote_user [$time_local] "$request" '
   
 '"$http_user_agent" $http_x_forwarded_for';
   
-#定义本虚拟主机的访问日志
+# 定义本虚拟主机的访问日志
   
 access_log /var/log/nginx/ha97access.log access;
 
-#对 "/" 启用反向代理
+# 对 "/" 启用反向代理
   
 location / {
   
-proxy_pass http://127.0.0.1:88;
+proxy_pass <http://127.0.0.1:88>;
   
 proxy_redirect off;
   
 proxy_set_header X-Real-IP $remote_addr;
   
-#后端的Web服务器可以通过X-Forwarded-For获取用户真实IP
+# 后端的Web服务器可以通过X-Forwarded-For获取用户真实IP
   
 proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
   
-#以下是一些反向代理的配置，可选。
+# 以下是一些反向代理的配置，可选。
   
 proxy_set_header Host $host;
-  
-
   
 client_body_buffer_size 128k; #缓冲区代理缓冲用户端请求的最大字节数，
   
@@ -263,15 +289,15 @@ proxy_buffer_size 4k; #设置代理服务器 (nginx) 保存用户头信息的缓
   
 proxy_buffers 4 32k; #proxy_buffers缓冲区，网页平均在32k以下的设置
   
-proxy_busy_buffers_size 64k; #高负荷下缓冲大小 (proxy_buffers*2) 
+proxy_busy_buffers_size 64k; #高负荷下缓冲大小 (proxy_buffers*2)
   
 proxy_temp_file_write_size 64k;
   
-#设定缓存文件夹大小，大于这个值，将从upstream服务器传
+# 设定缓存文件夹大小，大于这个值，将从upstream服务器传
   
 }
 
-#设定查看Nginx状态的地址
+# 设定查看Nginx状态的地址
   
 location /NginxStatus {
   
@@ -283,13 +309,13 @@ auth_basic "NginxStatus";
   
 auth_basic_user_file conf/htpasswd;
   
-#htpasswd文件的内容可以用apache提供的htpasswd工具来产生。
+# htpasswd文件的内容可以用apache提供的htpasswd工具来产生。
   
 }
 
-#本地动静分离反向代理配置
+# 本地动静分离反向代理配置
   
-#所有jsp的页面均交由tomcat或resin处理
+# 所有jsp的页面均交由tomcat或resin处理
   
 location ~ .(jsp|jspx|do)?$ {
   
@@ -299,11 +325,11 @@ proxy_set_header X-Real-IP $remote_addr;
   
 proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
   
-proxy_pass http://127.0.0.1:8080;
+proxy_pass <http://127.0.0.1:8080>;
   
 }
   
-#所有静态文件由nginx直接读取不经过tomcat或resin
+# 所有静态文件由nginx直接读取不经过tomcat或resin
   
 location ~ ._.(htm|html|gif|jpg|jpeg|png|bmp|swf|ioc|rar|zip|txt|flv|mid|doc|ppt|pdf|xls|mp3|wma)$
   
@@ -317,69 +343,66 @@ location ~ ._.(js|css)?$
   
 }
 
-更详细的模块参数请参考: http://wiki.nginx.org/Main
+更详细的模块参数请参考: <http://wiki.nginx.org/Main>
 
 ### proxy_pass结尾有无"/"的区别
-转载自: http://www.cnblogs.com/naniannayue/archive/2010/08/07/1794520.html
-见配置，摘自nginx.conf 里的server 段: 
+
+转载自: <http://www.cnblogs.com/naniannayue/archive/2010/08/07/1794520.html>
+见配置，摘自nginx.conf 里的server 段:
 
 server {
 listen 80;
 server_name abc.163.com ;
 location / {
-proxy_pass http://ent.163.com/ ;
+proxy_pass <http://ent.163.com/> ;
 }
 location /star/ {
-proxy_pass http://ent.163.com ;
+proxy_pass <http://ent.163.com> ;
 }
 }
-里面有两个location，我先说第一个，/ 。其实这里有两种写法，分别是: 
+里面有两个location，我先说第一个，/ 。其实这里有两种写法，分别是:
 
 location / {
-proxy_pass http://ent.163.com/ ;
+proxy_pass <http://ent.163.com/> ;
 }
 location / {
-proxy_pass http://ent.163.com ;
+proxy_pass <http://ent.163.com> ;
 }
 出来的效果都一样的。
 
 第二个location，/star/。同样两种写法都有，都出来的结果，就不一样了。
 
 location /star/ {
-proxy_pass http://ent.163.com ;
+proxy_pass <http://ent.163.com> ;
 }
-当访问 http://abc.163.com/star/ 的时候，nginx 会代理访问到 http://ent.163.com/star/ ，并返回给我们。
+当访问 <http://abc.163.com/star/> 的时候，nginx 会代理访问到 <http://ent.163.com/star/> ，并返回给我们。
 
 location /star/ {
-proxy_pass http://ent.163.com/ ;
+proxy_pass <http://ent.163.com/> ;
 }
-当访问 http://abc.163.com/star/ 的时候，nginx 会代理访问到 http://ent.163.com/ ，并返回给我们。
+当访问 <http://abc.163.com/star/> 的时候，nginx 会代理访问到 <http://ent.163.com/> ，并返回给我们。
 
-这两段配置，分别在于， proxy_pass http://ent.163.com/ ; 这个"/"，令到出来的结果完全不同。
+这两段配置，分别在于， proxy_pass <http://ent.163.com/> ; 这个"/"，令到出来的结果完全不同。
 
-前者，相当于告诉nginx，我这个location，是代理访问到http://ent.163.com 这个server的，我的location是什么，nginx 就把location 加在proxy_pass 的 server 后面，这里是/star/，所以就相当于 http://ent.163.com/star/。如果是location /blog/ ，就是代理访问到 http://ent.163.com/blog/。
+前者，相当于告诉nginx，我这个location，是代理访问到<http://ent.163.com> 这个server的，我的location是什么，nginx 就把location 加在proxy_pass 的 server 后面，这里是/star/，所以就相当于 <http://ent.163.com/star/。如果是location> /blog/ ，就是代理访问到 <http://ent.163.com/blog/>。
 
-后者，相当于告诉nginx，我这个location，是代理访问到http://ent.163.com/的，http://abc.163.com/star/ == http://ent.163.com/ ，可以这样理解。改变location，并不能改变返回的内容，返回的内容始终是http://ent.163.com/ 。 如果是location /blog/ ，那就是 http://abc.163.com/blog/ == http://ent.163.com/ 。
+后者，相当于告诉nginx，我这个location，是代理访问到<http://ent.163.com/的，http://abc.163.com/star/> == <http://ent.163.com/> ，可以这样理解。改变location，并不能改变返回的内容，返回的内容始终是<http://ent.163.com/> 。 如果是location /blog/ ，那就是 <http://abc.163.com/blog/> == <http://ent.163.com/> 。
 
 这样，也可以解释了上面那个location / 的例子，/ 嘛，加在server 的后面，仍然是 / ，所以，两种写法出来的结果是一样的。
 
-PS: 如果是 location ~* ^/start/(.*).html 这种正则的location，是不能写"/"上去的，nginx -t 也会报错的了。因为，路径都需要正则匹配了嘛，并不是一个相对固定的locatin了，必然要代理到一个server。
+PS: 如果是 location ~*^/start/(.*).html 这种正则的location，是不能写"/"上去的，nginx -t 也会报错的了。因为，路径都需要正则匹配了嘛，并不是一个相对固定的locatin了，必然要代理到一个server。
 
 ### location匹配顺序
-https://www.jianshu.com/p/38810b49bc29
+<https://www.jianshu.com/p/38810b49bc29>
 
-
-  
     nginx.conf
   
-
-
-https://blog.wiloon.com/?p=5626&embed=true#?secret=1NahDK0zlm
+<https://blog.wiloon.com/?p=5626&embed=true#?secret=1NahDK0zlm>
 
 client_max_body_size 20m; 20m为允许最大上传的大小。
-   
-## use epoll;
-   
+
+## use epoll
+
 在 Linux 操作系统下，nginx 使用 epoll 事件模型，得益于此，nginx在Linux操作系统下效率相当高。同时 Nginx 在 OpenBSD 或 FreeBSD 操作系统上采用类似于 epoll 的高效事件模型 kqueue。nginx 同时是一个高性能的 HTTP 和 反向代理 服务器，也是一个 IMAP/POP3/SMTP 代理服务器。
 
 multi_accept 告诉nginx收到一个新连接通知后接受尽可能多的连接。
@@ -389,9 +412,9 @@ multi_accept
 multi_accept可以让nginx worker进程尽可能多地接受请求。它的作用是让worker进程一次性地接受监听队列里的所有请求，然后处理。如果multi_accept的值设为off，那么worker进程必须一个一个地接受监听队列里的请求。
 
 events {
-   
+
 multi_accept on;
-   
+
 }
   
 默认Nginx没有开启multi_accept。
@@ -404,7 +427,7 @@ Nginx的缓冲配置
 
 ### client_body_buffer_size
   
-这个参数设定了 request body 的缓冲大小。如果 body 超过了缓冲的大小，那么整个 body 或者部分 body 将被写入一个临时文件。如果 Nginx 被设置成使用文件缓冲而不使用内存缓冲，那么这个参数就无效。client_body_buffer_size 在 32 位系统上默认是8k，在 64 位系统上默认是16k。可以在 http, server 和 location 模块中指定，如下: 
+这个参数设定了 request body 的缓冲大小。如果 body 超过了缓冲的大小，那么整个 body 或者部分 body 将被写入一个临时文件。如果 Nginx 被设置成使用文件缓冲而不使用内存缓冲，那么这个参数就无效。client_body_buffer_size 在 32 位系统上默认是8k，在 64 位系统上默认是16k。可以在 http, server 和 location 模块中指定，如下:
 
 ```
 server {
@@ -418,17 +441,17 @@ client_body_buffer_size 8k;
   
 这个directive设定Nginx可以处理的最大request body大小。如果收到的请求大于指定的大小，那么Nginx会回复HTTP 413错误 (Request Entity too large) 。如果web服务器提供大文件上传的话，那么设置好这个directive很重要。
 
-Nginx默认为这个directive设定的值是1m，可以在http, server 和 location模块中定义，例如: 
+Nginx默认为这个directive设定的值是1m，可以在http, server 和 location模块中定义，例如:
 
 server {
-     
+
 client_max_body_size 2m;
   
 }
   
 client_body_in_file_only
   
-启用这个directive会关闭Nginx的请求缓冲，将request body存储在临时文件当中，在http, server 和 location模块中定义。它可以有三个值: 
+启用这个directive会关闭Nginx的请求缓冲，将request body存储在临时文件当中，在http, server 和 location模块中定义。它可以有三个值:
 
 off: 禁止文件写入
   
@@ -436,10 +459,10 @@ clean: request body将被写入文件，文件在请求处理完成后删除
   
 on: request body将被写入文件，但文件在请求处理完成后不会被删除
   
-默认这个directive的值是off。我们可以将它设为off，例如: 
+默认这个directive的值是off。我们可以将它设为off，例如:
 
 http {
-      
+
 client_body_in_file_only clean;
   
 }
@@ -451,7 +474,7 @@ client_body_in_single_buffer
 这个directive让Nginx将所有的request body存储在一个缓冲当中，它的默认值是off。启用它可以优化读取$request_body变量时的I/O性能。可以在http, server 和 location模块中定义。
 
 server {
-      
+
 client_body_in_single_buffer on;
   
 }
@@ -461,7 +484,7 @@ client_body_temp_path
 这个directive指定存储request body的临时文件路径。另外，它可以指定目录层次。Nginx默认在Nginx的安装目录下面的client_body_temp子目录下面创建临时文件。这个directive可以在http, server 和 location 模块中定义。
 
 server {
-       
+
 client_body_temp_pathtemp_files 1 2;
   
 }
@@ -471,7 +494,7 @@ client_header_buffer_size
 这个directive类似于client_body_buffer_size。它给request header分配缓冲。默认的值是1k，可以在http 和 server模块中定义。
 
 http {
-    
+
 client_header_buffer_size 1m;
   
 }
@@ -481,14 +504,14 @@ large_client_header_buffers
 这个directive指定request header缓冲的数量和大小。只有当默认的缓冲不够用时，它才能被使用。当请求处理完成后或者连接进入 keep-alive 状态时，它被释放。可以在http 和 server模块中定义。
 
 http {
-     
+
 large_client_header_buffers 4 8k;
   
 }
   
 如果请求的URI超过了单个缓冲的大小，那么Nginx会返回HTTP 414错误 (Request URI Too Long) 。如果有任何request header超过了单个缓冲的大小，那么Nginx会返回HTTP 400错误 (Bad Request) 。
 
-Nginx的超时设置 (timeout) 
+Nginx的超时设置 (timeout)
   
 Nginx处理的每一个请求都会有相应的超时设置。如果做好这些超时的优化，就可以大大提升Nginx的性能。超时过后，系统资源被释放，用来处理其他的请求。下面，我们将讨论Nginx提供的多个关于超时的directive。
 
@@ -509,22 +532,22 @@ keepalive_timeout
 这个directive用于设置keepalive连接的超时时间，默认为65秒。若将它设置为0，那么就禁止了keepalive连接。它在http, server 和 location模块中定义。
 
 http {
-     
+
 keepalive_timeout 20s;
   
 }
   
-这个directive有另外一个可选的时间参数，例如: 
+这个directive有另外一个可选的时间参数，例如:
 
 http {
-      
+
 keepalive_timeout 20s 18s;
   
 }
   
 第二个参数18s被包含在回复header里。
 
-curl -I http://www.example.com
+curl -I <http://www.example.com>
 
 ........
 
@@ -539,7 +562,7 @@ keepalive_requests
 这个directive设定了使用keepalive连接的请求数量上限。当使用keepalive连接的请求数量超过这个上限时，web服务器关闭keepalive连接。默认值为100，可以在http, server 和 location模块中定义。
 
 http {
-     
+
 keepalive_requests 20;
   
 }
@@ -549,7 +572,7 @@ keepalive_disabled
 这条directive可以针对特定的浏览器关闭keepalive连接。默认值为msie6。可以在http, server 和 location模块中定义。
 
 http {
-     
+
 keepalive_disabled msie6 safari;
   
 }
@@ -559,7 +582,7 @@ send_timeout
 这条directive指定了向客户端传输数据的超时时间。默认值为60秒，可以在http, server 和 location模块中定义。
 
 server {
-     
+
 send_timeout 30s;
   
 }
@@ -569,7 +592,7 @@ client_body_timeout
 这条directive设定客户端与服务器建立连接后发送request body的超时时间。如果客户端在此时间内没有发送任何内容，那么Nginx返回HTTP 408错误 (Request Timed Out) 。它的默认值是60秒，在http, server 和 location模块中定义。
 
 server {
-      
+
 client_body_timeout 30s;
   
 }
@@ -579,12 +602,12 @@ client_header_timeout
 这条directive设定客户端向服务器发送一个完整的request header的超时时间。如果客户端在此时间内没有发送一个完整的request header，那么Nginx返回HTTP 408错误 (Request Timed Out) 。它的默认值是60秒，在http 和 server模块中定义。
 
 server {
-     
+
 client_header_timeout 30s;
   
 }
   
-Nginx的压缩配置 (compression) 
+Nginx的压缩配置 (compression)
   
 压缩可以减少服务器发送的数据包大小，从而加快了网页的加载速度。
 
@@ -597,7 +620,7 @@ gzip
 这条directive可以Nginx启用gzip压缩功能，默认值为on，可以在http, server 和 location 以及if 当中定义。
 
 http {
-      
+
 gzip on;
   
 }
@@ -607,7 +630,7 @@ gzip_comp_level
 这条directive设定gzip的压缩水平，压缩水平可以是1到9。太高的压缩水平对性能提升并没有太大好处，因为这需要更多的CPU时间。默认值是1，其中1到3是比较好的压缩水平，因为它们在最终的压缩数据大小和需要花费的CPU时间之间做出了很好的平衡。可以在http, server 和 location模块中定义。
 
 http {
-      
+
 gzip_comp_level 2;
   
 }
@@ -617,7 +640,7 @@ gzip_min_length
 这条directive指定了压缩数据的最小长度，只有大于或等于最小长度才会对其压缩。它从Content-Length中获取数据的长度。默认值是20字节，在http, server 和 location中定义。
 
 http {
-     
+
 gzip_min_length 1000;
   
 }
@@ -627,7 +650,7 @@ gzip_types
 这条directive指定了允许进行压缩的回复类型。默认值为text/html，在http, server 和 location中定义。
 
 http {
-     
+
 gzip_types text/html text/css text/plain;
   
 }
@@ -639,7 +662,7 @@ gzip_http_version
 这条directive指定一个HTTP版本。只有当请求的HTTP版本比这个版本更高或一样，Nginx才会压缩数据。默认值是1.1，在http, server 和 location模块中定义。
 
 http {
-     
+
 gzip_http_versioin 1.1;
   
 }
@@ -649,7 +672,7 @@ gzip_vary
 这条directive可以在回复的header中添加Vary:Accept-Encoding这一栏。默认值是off，在http, server 和 location中定义。
 
 http {
-     
+
 gzip_vary on;
   
 }
@@ -659,7 +682,7 @@ gzip_disable
 有些浏览器很弱智，比如IE6，它们看不懂gzip压缩后的数据。Nginx从请求header的User-Agent中确定浏览器，gzip_disable可以对弱智的浏览器关闭gzip压缩功能。在http, server, 和 location中定义。
 
 http {
-       
+
 gzip_disable "MSIE [1-6]&#46;";
   
 }
@@ -675,7 +698,7 @@ gzip_static
 gzip_static也会查看gzip_http_version, gzip_proxied和gzip_disable的值来确定客户端是否支持压缩。它的值在http, server 和 location中定义。
 
 server {
-      
+
 gzip_static always;
   
 }
@@ -690,7 +713,7 @@ gzip_types text/plain application/xml;
   
 以上的配置都很容易理解，看看上述官方文档就可以了，只有一个比较难理解:gzip_proxied
   
-这个参数用于指定当 http请求来自代理服务器时 (如何判断？请求头里包含 VIA 这个参数就认为这个请求来自代理服务器) 
+这个参数用于指定当 http请求来自代理服务器时 (如何判断？请求头里包含 VIA 这个参数就认为这个请求来自代理服务器)
   
 基于代理服务器的类型来决定是否进行压缩。如上述配置中，请求头里 包含了 expired 那么就启用压缩，其他的参数也类似。其中有两个特殊的参数，any表示全部都开启压缩，off表示全部都不压缩
   
@@ -702,15 +725,14 @@ gzip_types text/plain application/xml;
   
 反正，具体场景具体分析把，到时遇到了真的不用压缩的场景，我们记得有这么一个选项就好了
 
-
 gunzip
   
 这个directive用来解压.gz文件。默认值为off，在http, server 和 location当中定义。
 
 location / {
-       
+
 gzip_static always;
-       
+
 gunzip on;
   
 }
@@ -767,16 +789,16 @@ Nginx默认启用了错误日志，error_log可以在http, server, location模�
     }
 
 NGINX配置超时时间 原
-   
+
 谢思华 谢思华 发布于 2014/02/13 18:29 字数 1181 阅读 25013 收藏 14 点赞 1 评论 0
   
 一、啥时候用到
-         
+
 用来设置请求资源和服务器返回的时间，保证一个请求占用固定时间，超出后报504超时！这样可以保证一个请求占用过长时间。
 
 二、主要参数
-        
-使用nginx服务器如果遇到timeou情况时可以如下设置参数，使用fastcgi: 
+
+使用nginx服务器如果遇到timeou情况时可以如下设置参数，使用fastcgi:
 
          fastcgi_connect_timeout 75;  链接
     
@@ -789,18 +811,16 @@ NGINX配置超时时间 原
          fastcgi_send_timeout是指nginx进程向fastcgi进程发送request的整个过程的超时时间
     
      这两个选项默认都是秒(s),可以手动指定为分钟(m),小时(h)等
-    
 
 三 其他常用参数以及参数说明
-          
+
 keepalive_timeout 600; 连接超时时间，1分钟，具体时间可以根据请求 (例如后台导入) 需要的时间来设置
 
         proxy_connect_timeout 600;    1分钟
     
         proxy_read_timeout 600;    1分钟
-    
 
-nginx超时配置参数说明: 
+nginx超时配置参数说明:
   
 keepalive_timeout
 
@@ -810,7 +830,7 @@ keepalive_timeout
 
 上下文 http server location
 
-说明 第一个参数指定了与client的keep-alive连接超时时间。服务器将会在这个时间后关闭连接。可选的第二个参数指定了在响应头Keep-Alive: timeout=time中的time值。这个头能够让一些浏览器主动关闭连接，这样服务器就不必要去关闭连接了。没有这个参数，nginx不会发送Keep-Alive响应头 (尽管并不是由这个头来决定连接是否"keep-alive") 
+说明 第一个参数指定了与client的keep-alive连接超时时间。服务器将会在这个时间后关闭连接。可选的第二个参数指定了在响应头Keep-Alive: timeout=time中的time值。这个头能够让一些浏览器主动关闭连接，这样服务器就不必要去关闭连接了。没有这个参数，nginx不会发送Keep-Alive响应头 (尽管并不是由这个头来决定连接是否"keep-alive")
 
 两个参数的值可并不相同
 
@@ -898,7 +918,7 @@ proxy_send_timeout
 
 说明 这个指定设置了发送请求给upstream服务器的超时时间。超时设置不是为了整个发送期间，而是在两次write操作期间。如果超时后，upstream没有收到新的数据，nginx会关闭连接
 
-proxy_upstream_fail_timeout (fail_timeout) 
+proxy_upstream_fail_timeout (fail_timeout)
 
 语法 server address [fail_timeout=30s]
 
@@ -909,39 +929,39 @@ proxy_upstream_fail_timeout (fail_timeout)
 说明 Upstream模块下 server指令的参数，设置了某一个upstream后端失败了指定次数 (max_fails) 后，该后端不可操作的时间，默认为10秒
 
 四、其他说明
-     
+
 针对这两个常用参数，还可以设置一定的规则，例如单独针对后台，设置读取超时时间。规则可以类似这: /admin/*
 
-具体可参考这个: http://www.cnblogs.com/discuss/articles/1866851.html
+具体可参考这个: <http://www.cnblogs.com/discuss/articles/1866851.html>
 
 五、nginx基本配置与参数说明
   
-http://my.oschina.net/xsh1208/blog/492374
+<http://my.oschina.net/xsh1208/blog/492374>
   
-https://www.linuxdashen.com/nginx%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%E4%B9%8B%E9%85%8D%E7%BD%AE%E7%BC%93%E5%86%B2%E3%80%81%E8%B6%85%E6%97%B6%E3%80%81%E5%8E%8B%E7%BC%A9%E5%92%8C%E6%97%A5%E5%BF%97
+<https://www.linuxdashen.com/nginx%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%E4%B9%8B%E9%85%8D%E7%BD%AE%E7%BC%93%E5%86%B2%E3%80%81%E8%B6%85%E6%97%B6%E3%80%81%E5%8E%8B%E7%BC%A9%E5%92%8C%E6%97%A5%E5%BF%97>
 
-https://my.oschina.net/xsh1208/blog/199674
+<https://my.oschina.net/xsh1208/blog/199674>
   
-https://blog.51cto.com/liuqunying/1420556
+<https://blog.51cto.com/liuqunying/1420556>
 
 作者: skyesx
   
-链接: https://hacpai.com/article/1447946179819
+链接: <https://hacpai.com/article/1447946179819>
   
 来源: 黑客派
   
-协议: CC BY-SA 4.0 https://creativecommons.org/licenses/by-sa/4.0/
+协议: CC BY-SA 4.0 <https://creativecommons.org/licenses/by-sa/4.0/>
 
+### server_tokens off
 
-### server_tokens off;
 隐藏版本号
 
-## client_max_body_size 10m; 
+## client_max_body_size 10m
+
 允许客户端请求的最大单文件字节数
 
 ## nginx 配置文件 单位
 
 Sizes can be specified in bytes, kilobytes (suffixes k and K) or megabytes (suffixes m and M), for example, “1024”, “8k”, “1m”.
 
-
->http://nginx.org/en/docs/syntax.html
+><http://nginx.org/en/docs/syntax.html>

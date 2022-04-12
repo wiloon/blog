@@ -10,6 +10,36 @@ tags:
 ---
 ## 正则表达式, regex
 
+## PCREs
+
+PCRE: Perl-compatible regular expressions
+
+- `^` 匹配字符串的开始位置
+- `$` 匹配字符串的结束位置
+- `\` 将下一个字符标记为一个特殊字符（File Format Escape，清单见本表）、或一个原义字符（Identity Escape，有 `^$()*+?.[{|` 共计12个)、或一个向后引用（backreferences）、或一个八进制转义符。例如，“n”匹配字符“n”。“\n”匹配一个换行符。序列“\\”匹配“\”而“\(”则匹配“(”。
+- `.` 匹配除 “\r”“\n”之外的任何单个字符。要匹配包括“\r”“\n”在内的任何字符，请使用像“(.|\r|\n)”的模式。
+- `*` 匹配前面的子表达式**零次**或多次。例如，zo能匹配“z”、“zo”以及“zoo”。等价于{0,}。
+- `(pattern)` 匹配pattern并获取这一匹配的子字符串。该子字符串用于向后引用。所获取的匹配可以从产生的Matches集合得到，在VBScript中使用SubMatches集合，在JScript中则使用$0…$9属性。要匹配圆括号字符，请使用“\(”或“\)”。可带数量后缀。
+
+## linux 测试正则表达式
+
+<https://anjia0532.github.io/2017/06/29/nginx-regex-test-way/>
+
+```bash
+echo 'a.gif' | grep -P '\.(jp?g|gif|bmp|png)'
+
+#输出
+a.gif
+
+# 如果只想输出匹配部分,则加上 -o 参数
+
+$ echo 'a.gif' | grep -P -o '\.(jp?g|gif|bmp|png)'
+
+#输出
+.gif
+```
+
+
 正则表达式“派别”简述
 
 相信大家对于正则表达式都不陌生，在文本处理中或多或少的都会使用到它。但是，我们在使用linux下的文本处理工具如awk、sed等时，正则表达式的语法貌似还不一样，在awk中能正常工作的正则，在sed中总是不起作用，这是为什么呢？
@@ -31,25 +61,26 @@ Ken Thompson大牛在1968年发表了Regular Expression Search Algorithm论文�
 成熟期
 这种混乱度情况一直持续到了1986年。在1986年，POSIX (Portable Operating System Interface) 标准公诸于世，POSIX制定了不同的操作系统都需要遵守的一套规则，当然，正则表达式也包括其中。
 
-当然，除了POSIX标准外，还有一个Perl分支，也就是我们现在熟知的PCRE，随着Perl语言的发展，Perl语言中的正则表达式功能越来越强悍，为了把Perl语言中正则的功能移植到其他语言中，PCRE就诞生了。现在的编程语言中的正则表达式，大部分都属于PCRE这个分支。
+当然，除了 POSIX 标准外，还有一个 Perl 分支，也就是我们现在熟知的 PCRE，随着 Perl 语言的发展，Perl 语言中的正则表达式功能越来越强悍，为了把 Perl 语言中正则的功能移植到其他语言中，PCRE 就诞生了。现在的编程语言中的正则表达式，大部分都属于 PCRE 这个分支。
 
 下面分别所说这两个分支。
 
-POSIX标准
-POSIX把正则表达式分为两种 (favor) : BRE (Basic Regular Expressions) 与ERE (Extended Regular Expressions ) 。所有的POSIX程序可以选择支持其中的一种。具体规范如下表:   posix-regexp-favor
+## POSIX 标准正则
 
-从上图可以看出，有三个空白栏，那么是不是就意味这无法使用该功能了呢？答案是否定的，因为我们现在使用的linux发行版，都是集成GNU套件的，GNU是Gnu’s Not Unix的缩写，GNU在实现了POXIS标准的同时，做了一定的扩展，所以上面空白栏中的功能也能使用。下面一一讲解: 
+POSIX把正则表达式分为两种 (favor) : BRE (Basic Regular Expressions) 与 ERE (Extended Regular Expressions ) 。所有的 POSIX 程序可以选择支持其中的一种。具体规范如下表:
 
-BRE如何使用+、?呢？需要用\+、\?
-BRE如何使用|呢？需要用\|
-ERE如何使用\1、\2…\9这样的反引用？和BRE一样，就是\1、\2…\9
-通过上面总结，可以发现: GNU中的ERE与BRE的功能相同，只是语法不同 (BRE需要用\进行转义，才能表示特殊含义) 。例如a{1,2}，在ERE表示的是a或aa，在BRE中表示的是a{1,2}这个字符串。为了能够在Linux下熟练使用文本处理工具，我们必须知道这些命令支持那种正则表达式。现对常见的命令总结如下: 
+从上图可以看出，有三个空白栏，那么是不是就意味这无法使用该功能了呢？答案是否定的，因为我们现在使用的linux发行版，都是集成GNU套件的，GNU是Gnu’s Not Unix的缩写，GNU 在实现了 POXIS 标准的同时，做了一定的扩展，所以上面空白栏中的功能也能使用。下面一一讲解:
+
+BRE 如何使用 +、?呢？需要用\+、\?
+BRE 如何使用|呢？ 需要用 \|
+ERE 如何使用 \1、\2…\9这样的反引用？和BRE一样，就是\1、\2…\9
+通过上面总结，可以发现: GNU中的ERE与BRE的功能相同，只是语法不同 (BRE需要用\进行转义，才能表示特殊含义) 。例如a{1,2}，在ERE表示的是a或aa，在BRE中表示的是a{1,2}这个字符串。为了能够在Linux下熟练使用文本处理工具，我们必须知道这些命令支持那种正则表达式。现对常见的命令总结如下:
 
 － 使用BRE语法的命令有: grep、ed、sed、vim － 使用ERE语法的命令有: egrep、awk、emacs
 
 当然，这也不是绝对的，比如 sed 通过-r选项就可以使用ERE了，大家到时自己man一下就可以了。
 
-还值得一提的是POSIX还定义了一些shorthand，具体如下: 
+还值得一提的是POSIX还定义了一些shorthand，具体如下:
 
 [:alnum:]
 [:alpha:]
@@ -66,33 +97,37 @@ ERE如何使用\1、\2…\9这样的反引用？和BRE一样，就是\1、\2…\
 
 如果你对sed、awk比较熟悉，你会发现我们平常在变成语言中用的\d、\w在这些命令中不能用，原因很简单，因为POSIX规范根本没有定义这些shorthand，这些是由下面将要说的PCRE中定义的。
 
-PCRE标准
-Perl语言第一版是由Larry Wall发布于1987年12月，Perl在发布之初，就因其强大的功能而一票走红，Perl的定位目标就是“天天要使用的工具”。Perl比较显诸特征之一是与sed与awk兼容，这造就了Perl成为第一个通用性脚本语言。
+## PCRE 标准
 
-随着Perl的不断发展，其支持的正则表达式的功能也越来越强大。其中影响较大的是于1994年10月发布的Perl 5，其增加了很多特性，比如non-capturing parentheses、lazy quantifiers、look-ahead、元符号\G等等。
+Perl 语言第一版是由 Larry Wall 发布于1987年12月，Perl 在发布之初，就因其强大的功能而一票走红，Perl 的定位目标就是“天天要使用的工具”。Perl 比较显诸特征之一是与 sed 与 awk 兼容，这造就了 Perl 成为第一个通用性脚本语言。
 
-正好这时也是WWW兴起的时候，而Perl就是为了文本处理而发明的，所以Perl基本上成了web开发的首选语言。Perl语言应用是如此广泛，以至于其他语言开始移植Perl，最终Perl compatible (兼容) 的PCRE诞生了，这其中包括了Tcl, Python, Microsoft’s .NET , Ruby, PHP, C/C++, Java等等。
+随着 Perl 的不断发展，其支持的正则表达式的功能也越来越强大。其中影响较大的是于1994年10月发布的 Perl 5，其增加了很多特性，比如 non-capturing parentheses、lazy quantifiers、look-ahead、元符号\G等等。
 
-前面说了shorthand在POSIX与PCRE是不同的，PCRE中我们常用的有如下这些: 
+正好这时也是 WWW 兴起的时候，而 Perl 就是为了文本处理而发明的，所以 Perl 基本上成了 web 开发的首选语言。Perl 语言应用是如此广泛，以至于其他语言开始移植 Perl，最终 Perl compatible (兼容) 的 PCRE 诞生了，这其中包括了 Tcl, Python, Microsoft’s .NET , Ruby, PHP, C/C++, Java 等等。
 
-\w 表示[a-zA-Z]
-\W 表示[^a-zA-Z]
-\s 表示[ \t\r\n\f]
-\S 表示[^ \t\r\n\f]
-\d 表示[1-9]
-\D 表示[^1-9]
-\< 表示一个单词的起始
-\> 表示一个单词的结尾
-关于shorthand在两种标准的比较，更多可参考Wikipedia
+前面说了 shorthand 在 POSIX 与 PCRE 是不同的，PCRE 中我们常用的有如下这些
+
+    \w 表示[a-zA-Z]
+    \W 表示[^a-zA-Z]
+    \s 表示[ \t\r\n\f]
+    \S 表示[^ \t\r\n\f]
+    \d 表示[1-9]
+    \D 表示[^1-9]
+    \< 表示一个单词的起始
+    \> 表示一个单词的结尾
+
+关于shorthand在两种标准的比较，更多可参考 Wikipedia
 
 总结
-我相信大家最初接触正则表达式 (RE) 这东西，都是在某个语言中，像 Java、Python等，其实这些语言的正则表达式都是基于PCRE标准的。 而Linux下使用各种处理文本的命令，是继承自POSIX标准，不过是由GNU扩展后的而已。
+我相信大家最初接触正则表达式 (RE) 这东西，都是在某个语言中，像 Java、Python 等，其实这些语言的正则表达式都是基于 PCRE 标准的。 而 Linux 下使用各种处理文本的命令，是继承自 POSIX标准，不过是由 GNU扩展后的而已。
 
-大家如果对 sed、awk命令不熟悉，可以参考耗子叔下面的两篇文章: 
+大家如果对 sed、awk 命令不熟悉，可以参考耗子叔下面的两篇文章:
 
-sed 简明教程
-awk 简明教程
-参考
+>sed 简明教程
+>awk 简明教程
+
+## 其它参考
+
 GNU Regular Expression Extensions
 POSIX Bracket Expressions
 Different types of regular expressions Gnulib supports
@@ -100,15 +135,16 @@ Regular_expression
 Linux/Unix工具与正则表达式的POSIX规范
 
 ### 元字符 描述
-将下一个字符标记为一个特殊字符、或一个原义字符、或一个向后引用、或一个八进制转义符。例如，"n"匹配字符"n"。"n"匹配一个换行符。序列"\"匹配""而"("则匹配"("。
-- `^` 匹配输入字符串的开始位置。如果设置了RegExp对象的Multiline属性，^也匹配"n"或"r"之后的位置。
-- `$` 匹配输入字符串的结束位置。如果设置了RegExp对象的Multiline属性，$也匹配"n"或"r"之前的位置。
+
+将下一个字符标记为一个特殊字符, 或一个原义字符, 或一个向后引用, 或一个八进制转义符。例如，"n" 匹配字符 "n"。"\n" 匹配一个换行符。
+
 - `*` 匹配前面的子表达式零次或多次。例如，zo_能匹配"z"以及"zoo"。_等价于{0,}。
 - `+` 匹配前面的子表达式一次或多次。例如，"zo+"能匹配"zo"以及"zoo"，但不能匹配"z"。+等价于{1,}。
 - `?` 匹配前面的子表达式零次或一次。例如，"do(es)?"可以匹配"does"或"does"中的"do"。?等价于{0,1}。
 - `{n}` n是一个非负整数。匹配确定的n次。例如，"o{2}"不能匹配"Bob"中的"o"，但是能匹配"food"中的两个o。
 - `{n,}` n是一个非负整数。至少匹配n次。例如，"o{2,}"不能匹配"Bob"中的"o"，但能匹配"foooood"中的所有o。"o{1,}"等价于"o+"。"o{0,}"则等价于"o_"。
-{n,m} m和n均为非负整数，其中n<=m。最少匹配n次且最多匹配m次。例如，"o{1,3}"将匹配"fooooood"中的前三个o。"o{0,1}"等价于"o?"。请注意在逗号和两个数之间不能有空格。
+
+{n,m} m 和 n 均为非负整数，其中n<=m。最少匹配n次且最多匹配m次。例如，"o{1,3}"将匹配"fooooood"中的前三个o。"o{0,1}"等价于"o?"。请注意在逗号和两个数之间不能有空格。
 ? 当该字符紧跟在任何一个其他限制符 (_,+,?，{n}，{n,}，{n,m}) 后面时，匹配模式是非贪婪的。非贪婪模式尽可能少的匹配所搜索的字符串，而默认的贪婪模式则尽可能多的匹配所搜索的字符串。例如，对于字符串"oooo"，"o+?"将匹配单个"o"，而"o+"将匹配所有"o"。
 .点 匹配除"n"之外的任何单个字符。要匹配包括"n"在内的任何字符，请使用像"(.|n)"的模式。
 (pattern) 匹配pattern并获取这一匹配。所获取的匹配可以从产生的Matches集合得到，在VBScript中使用SubMatches集合，在JScript中则使用$0…$9属性。要匹配圆括号字符，请使用"("或")"。
@@ -193,20 +229,21 @@ un 匹配n，其中n是一个用四个十六进制数字表示的Unicode字符�
 很可能你使用过Windows/Dos下用于文件查找的通配符(wildcard)，也就是_和?。如果你想查找某个目录下的所有的Word文档的话，你会搜索_.doc。在这里，*会被解释成任意的字符串。和通配符类似，正则表达式也是用来进行文本匹配的工具，只不过比起通配符，它能更精确地描述你的需求——当然，代价就是更复杂——比如你可以编写一个正则表达式，用来查找所有以0开头，后面跟着2-3个数字，然后是一个连字号"-"，最后是7或8位数字的字符串(像010-12345678或0376-7654321)。
 
 ### email
-合法E-mail地址：   
-    1. 必须包含一个并且只有一个符号“@”   
-    2. 第一个字符不得是“@”或者“.”   
-    3. 不允许出现“@.”或者.@   
-    4. 结尾不得是字符“@”或者“.”   
-    5. 允许“@”前的字符中出现“＋”   
-    6. 不允许“＋”在最前面，或者“＋@”   
-      
+
+合法E-mail地址：
+    1. 必须包含一个并且只有一个符号“@”
+    2. 第一个字符不得是“@”或者“.”
+    3. 不允许出现“@.”或者.@
+    4. 结尾不得是字符“@”或者“.”
+    5. 允许“@”前的字符中出现“＋”
+    6. 不允许“＋”在最前面，或者“＋@”
+
     正则表达式如下：   
 
 ```
 ^(\w+((-\w+)|(\.\w+))*)\+\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z0-9]+$ 
 ```
- 
+
     字符描述：   
     ^ ：匹配输入的开始位置。   
     \：将下一个字符标记为特殊字符或字面值。   
@@ -222,12 +259,18 @@ un 匹配n，其中n是一个用四个十六进制数字表示的Unicode字符�
 
 ---
 
-http://deerchao.net/tutorials/regex/regex.htm
+<http://deerchao.net/tutorials/regex/regex.htm>  
 
-http://blog.csdn.net/newjerryj/article/details/7621014
+<http://blog.csdn.net/newjerryj/article/details/7621014>  
 
-http://www.infoq.com/cn/news/2011/04/regular-expressions-4
+<http://www.infoq.com/cn/news/2011/04/regular-expressions-4>  
   
-https://my.oschina.net/u/3080373/blog/1550653
+<https://my.oschina.net/u/3080373/blog/1550653>  
 
-https://liujiacai.net/blog/2014/12/07/regexp-favors/
+<https://liujiacai.net/blog/2014/12/07/regexp-favors/>  
+<https://www.cnblogs.com/netsa/p/6383094.html>
+
+作者：Mage
+链接：https://www.jianshu.com/p/1af0493b474d
+来源：简书
+著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。

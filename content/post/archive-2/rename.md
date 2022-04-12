@@ -10,7 +10,9 @@ tags:
   - reprint
 ---
 ## rename
+
 ## 重命名 rename
+
 ```bash
   
 #files
@@ -37,16 +39,18 @@ node-7002
   
 ```
 
-### rename + 正则 
+### rename + 正则
+
 ```bash
 rename 's/\d{4}-\d{2}-\d{2}-//' *.md
 ```
 
 ### 批量重命名
+
 ```bash
 find . -name '*.md' -exec rename 's/\d{4}-\d{2}-\d{2}-//' {} \;
 ```
 
-http://www.cnblogs.com/longdouhzt/archive/2012/04/30/2477282.html
+<http://www.cnblogs.com/longdouhzt/archive/2012/04/30/2477282.html>
   
-http://blog.51cto.com/jiemian/1846951
+<http://blog.51cto.com/jiemian/1846951>

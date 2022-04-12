@@ -1,31 +1,30 @@
 ---
-title: vscode basic， vscode, visual studio code
+title: vscode basic，vscode, visual studio code
 author: "-"
 date: 2018-09-01T03:34:42+00:00
 url: vscode
-
 categories:
-  - inbox
+  - vscode
 tags:
   - reprint
 ---
-## vscode basic， vscode, visual studio code
+## vscode basic，vscode, visual studio code
 
 ### debian install visual studio code
 
 #### install from repo
 
-https://linuxize.com/post/how-to-install-visual-studio-code-on-debian-9/
+<https://linuxize.com/post/how-to-install-visual-studio-code-on-debian-9/>
 
 #### download deb
 
-https://code.visualstudio.com/#
+<https://code.visualstudio.com/>#
 
-### vscode 列编辑
+## vscode 列编辑
 
-Alt+Shift+鼠标左键拖动,选中拖动的区域内容
+Alt+Shift+鼠标左键拖动, 选中拖动的区域内容
 
-https://blog.csdn.net/u011127019/article/details/74039598
+<https://blog.csdn.net/u011127019/article/details/74039598>
 
 ### remote ssh, A >ssh> B
 
@@ -117,23 +116,28 @@ vscode 发http请求
 
 config plant uml rander server
 File>Preferences>Extensions>PlantUML config>Rander: server
-File>Preferences>Extensions>PlantUML config>Server: http://plantuml.wiloon.com
+File>Preferences>Extensions>PlantUML config>Server: <http://plantuml.wiloon.com>
 
 ### hexdump
 
 hex viewer
 
 ### 显示空格
+
 打开setting,在搜索框中输入renderControlCharacters,选中勾选框,即可显示tab.  
 在搜索框中输入renderWhitespace,选择all,即可显示空格.  
 
-### vscode + wsl 版本更新 
+### vscode + wsl 版本更新
+
 有新版本时, vscode左下角会有提示,点击更新 windows里安装的vscode, vscode打开 wsl里的目录时,会自动更新wsl里安装的vscode.
 
 ---
 
->https://code.visualstudio.com/docs/remote/ssh-tutorial  
->https://www.justhx.com/partly-technical/optiumise-chinese-characters-in-vscode  
->https://blog.csdn.net/bmzk123/article/details/86501706  
+><https://code.visualstudio.com/docs/remote/ssh-tutorial>  
+><https://www.justhx.com/partly-technical/optiumise-chinese-characters-in-vscode>  
+><https://blog.csdn.net/bmzk123/article/details/86501706>  
 
- 
+## 修改语言
+
+按键盘上的Ctrl+Shift+P，之后在VScode的顶部会弹出一个搜索框
+在弹出的搜索框中输入configure language，即可进入语言设置，选择你想要的即可。中文选择zh-cn，英文选择en，如果没有可以选择install additional languages进行下载

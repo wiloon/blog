@@ -10,6 +10,7 @@ tags:
 
 ---
 ## JAVA 正则表达式 分组与捕获
+
 ```java
 import java.util.*;
 import java.util.regex.Matcher;
@@ -38,15 +39,13 @@ System.out.println("捕获个数:groupCount()="+m.groupCount());
 
 ```
 
- 
-
 1        概述
 
 1.1     什么是捕获组
 
 捕获组就是把正则表达式中子表达式匹配的内容，保存到内存中以数字编号或显式命名的组里，方便后面引用。当然，这种引用既可以是在正则表达式内部，也可以是在正则表达式外部。
 
-捕获组有两种形式，一种是普通捕获组，另一种是命名捕获组，通常所说的捕获组指的是普通捕获组。语法如下: 
+捕获组有两种形式，一种是普通捕获组，另一种是命名捕获组，通常所说的捕获组指的是普通捕获组。语法如下:
 
 普通捕获组: (Expression)
 
@@ -68,15 +67,10 @@ System.out.println("捕获个数:groupCount()="+m.groupCount());
 
 正则表达式: **(\d{4})-(\d{2}-(\d\d))**
 
- 
-
 上面的正则表达式可以用来匹配格式为yyyy-MM-dd的日期，为了在下表中得以区分，月和日分别采用了\d{2}和\d\d这两种写法。
 
-用以上正则表达式匹配字符串: 2008-12-31，匹配结果为: 
+用以上正则表达式匹配字符串: 2008-12-31，匹配结果为:
 
-
-  
-    
       编号
     
     
@@ -158,9 +152,6 @@ System.out.println("捕获个数:groupCount()="+m.groupCount());
     
     
       31
-    
-  
-
 
 ### 1.2.2  命名捕获组编号规则
 
@@ -170,15 +161,10 @@ System.out.println("捕获个数:groupCount()="+m.groupCount());
 
 正则表达式: **(?<year>\d{4})-(?<date>\d{2}-(?<day>\d\d))**
 
- 
-
 用以上正则表达式匹配字符串: 2008-12-31
 
-匹配结果为: 
+匹配结果为:
 
-
-  
-    
       编号
     
     
@@ -263,9 +249,6 @@ System.out.println("捕获个数:groupCount()="+m.groupCount());
     
     
       31
-    
-  
-
 
 ### 1.2.3  普通捕获组与命名捕获组混合编号规则
 
@@ -277,13 +260,8 @@ System.out.println("捕获个数:groupCount()="+m.groupCount());
 
 正则表达式: **(\d{4})-(?<date>\d{2}-(\d\d))**
 
- 
+用以上正则表达式匹配字符串: 2008-12-31，匹配结果为:
 
-用以上正则表达式匹配字符串: 2008-12-31，匹配结果为: 
-
-
-  
-    
       编号
     
     
@@ -366,19 +344,16 @@ System.out.println("捕获个数:groupCount()="+m.groupCount());
     
     
       31
-    
-  
-
 
 # 2       捕获组的引用
 
-对捕获组的引用一般有以下几种: 
+对捕获组的引用一般有以下几种:
 
-1)       正则表达式中，对前面捕获组捕获的内容进行引用，称为反向引用；
+1) 正则表达式中，对前面捕获组捕获的内容进行引用，称为反向引用；
 
-2)       正则表达式中，(?(name)yes|no)的条件判断结构；
+2) 正则表达式中，(?(name)yes|no)的条件判断结构；
 
-3)       在程序中，对捕获组捕获内容的引用。
+3) 在程序中，对捕获组捕获内容的引用。
 
 ## 2.1     反向引用
 
@@ -386,7 +361,7 @@ System.out.println("捕获个数:groupCount()="+m.groupCount());
 
 反向引用的作用通常是用来查找或限定重复，限定指定标识配对出现等等。
 
-对于普通捕获组和命名捕获组的引用，语法如下: 
+对于普通捕获组和命名捕获组的引用，语法如下:
 
 普通捕获组反向引用: \k<number>，通常简写为\number
 
@@ -410,27 +385,17 @@ System.out.println("捕获个数:groupCount()="+m.groupCount());
 
 注: 以下应用举例仅考虑简单应用场景，对于这种复杂场景暂不考虑。
 
-1)         在Replace中引用，通常是通过$number方式引用。
+1) 在Replace中引用，通常是通过$number方式引用。
 
-举例: 替换掉html标签中的属性。<textareaid="result"rows="10"cols="100"></textarea><scripttype="text/javascript">var data ="   
-
-  
+举例: 替换掉html标签中的属性。<textareaid="result"rows="10"cols="100"></textarea><scripttype="text/javascript">var data ="
 
 ";var reg = /<([a-z]+)[^>]*>/ig;document.getElementById("result").value = data.replace(reg,"<$1>");</script>//输出
 
-
-  
-    
       test 
-    
-  
 
-
-2)         在匹配时的引用，通常通过RegExp.$number方式引用。
+2) 在匹配时的引用，通常通过RegExp.$number方式引用。
 
 举例: 同时获取<img…>中的src和name属性值，属性的顺序不固定。参考 [一条正则能不能同时取出一个img标记的src和name?][2]
-
- 
 
 [javascript][/javascript]
 
@@ -440,32 +405,28 @@ System.out.println("捕获个数:groupCount()="+m.groupCount());
 
 ol>
 
-  * <textarea id="result" rows="10" cols="100"></textarea>
-  * <script type="text/javascript">
-  * **var** data = [' <img alt="" border="0" name="g6-o44-1" onload="DrawImage" src="/bmp/foo1.jpg" />', ' <img src="/bmp/foo2.jpg" alt="" border="0" name="g6-o44-2" onload="DrawImage" />'] ;
-  * **var** reg = /<img\b(?=(?:(?!name=).)_name=(['"]?)([^'"\s>]+)\1)(?:(?!src=).)_src=(['"]?)([^'"\s>]+)\3[^>]*>/i;
-  * **for**(**var** i=0;i<data.length;i++)
-  * {
-  *     **var** s = data[i];
-  *     document.getElementById("result").value += "源字符串: " + s + "\n";
-  *     document.write("<br />");
-  *     **if**(reg.test(s))
-  *     {
-  *         document.getElementById("result").value += "name: " + RegExp.$2 + "\n";
-  *         document.getElementById("result").value += "src: " + RegExp.$4 + "\n";
-  *     }
-  * }
-  * </script> 
-
- 
-
- 
+* <textarea id="result" rows="10" cols="100"></textarea>
+* <script type="text/javascript">
+* **var** data = [' <img alt="" border="0" name="g6-o44-1" onload="DrawImage" src="/bmp/foo1.jpg" />', ' <img src="/bmp/foo2.jpg" alt="" border="0" name="g6-o44-2" onload="DrawImage" />'] ;
+* **var** reg = /<img\b(?=(?:(?!name=).)_name=(['"]?)([^'"\s>]+)\1)(?:(?!src=).)_src=(['"]?)([^'"\s>]+)\3[^>]*>/i;
+* **for**(**var** i=0;i<data.length;i++)
+* {
+* **var** s = data[i];
+* document.getElementById("result").value += "源字符串: " + s + "\n";
+* document.write("<br />");
+* **if**(reg.test(s))
+* {
+* document.getElementById("result").value += "name: " + RegExp.$2 + "\n";
+* document.getElementById("result").value += "src: " + RegExp.$4 + "\n";
+* }
+* }
+* </script>
 
 ### 2.3.2  .NET中的引用
 
 由于.NET支持命名捕获组，所以在.NET中的引用方式会多一些。通常也是在两种场景下应用，一是替换，一是匹配。
 
-1)         替换中的引用
+1) 替换中的引用
 
 普通捕获组: $number
 
@@ -477,27 +438,17 @@ ol>
 
 string data = "  
 
-  
-
 ";
 
 richTextBox2.Text = Regex.Replace(data, @"(?i)<([a-z]+)[^>]*>", "<$1>");
 
 [//输出][4]
 
-
-  
-    
       test 
-    
-  
-
 
 使用命名捕获组。
 
 string data = "  
-
-  
 
 ";
 
@@ -505,15 +456,9 @@ richTextBox2.Text = Regex.Replace(data, @"(?i)<(?<tag>[a-z]+)[^>]*>", "<${tag}>"
 
 [//输出][4]
 
-
-  
-    
       test 
-    
-  
 
-
-2)         匹配后的引用
+2) 匹配后的引用
 
 对于匹配结果中捕获组捕获内容的引用，可以通过Groups和Result对象进行引用。
 
@@ -559,13 +504,13 @@ m.Result("$0"):           [CSDN][5]
 
 m.Groups[0].Value:        [CSDN][5]
 
-m.Result("$2"):           http://www.csdn.net
+m.Result("$2"):           <http://www.csdn.net>
 
-m.Groups[2].Value:        http://www.csdn.net
+m.Groups[2].Value:        <http://www.csdn.net>
 
-m.Result("${url}"):       http://www.csdn.net
+m.Result("${url}"):       <http://www.csdn.net>
 
-m.Groups["url"].Value:    http://www.csdn.net
+m.Groups["url"].Value:    <http://www.csdn.net>
 
 m.Result("$3"):           CSDN
 
@@ -577,12 +522,8 @@ m.Groups["text"].Value:   CSDN
 
 对于捕获组0的引用，可以简写作m.Value。
 
- 
-
 <http://blog.csdn.net/lovingprince/article/details/2774819>
 
-
-  
     正则表达式在字符串处理中经常使用，关于正则简单的用法相信有一点程序基础的人都懂得一些，这里就不介绍简单基础了。这里主要讲解一下在JAVA中实现了的正则的高级用法-分组与捕获。
   
   
@@ -900,7 +841,6 @@ m.Groups["text"].Value:   CSDN
     
     
       http://blog.csdn.net/zhuche110/article/details/2233023
-    
 
  [1]: http://blog.csdn.net/lxcnn/archive/2009/08/03/4402808.aspx
  [2]: http://topic.csdn.net/u/20090803/17/7bb3267c-321d-4d9b-aa34-d157a63e954d.html

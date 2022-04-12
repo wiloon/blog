@@ -10,6 +10,7 @@ tags:
 
 ---
 ## js正则标志/g /i /m的用法
+
 正则的思想都是一样的，但是具体的写法会有所不同，在这里提到的/g,/i,/m在其他的地方也许就不能用了。
 
 一，js正则标志/g,/i,/m说明
@@ -110,9 +111,10 @@ alert(RegExp.rightContext); //显示为6
 
 上面说的三个例子，/i,/g,/m分开来说的，可以排列组合使用的。个人觉得/m没有多大用处
 
-http://blog.51yip.com/jsjquery/1076.html
+<http://blog.51yip.com/jsjquery/1076.html>
 
-### javascript 密码 正则 
+### javascript 密码 正则
+
 ```
 let testPassword = /^(?=.*?[a-z])(?=.*?[A-Z])(?=.*?\d)(?=.*?[!@#$%^&;*()_=+\-])[a-zA-Z\d!@#$%^&;*()_=+\-]*$/; //判断输入格式
             if(testPassword.test(this.passwordText)){
@@ -125,4 +127,4 @@ let testPassword = /^(?=.*?[a-z])(?=.*?[A-Z])(?=.*?\d)(?=.*?[!@#$%^&;*()_=+\-])[
 
 ————————————————
 版权声明：本文为CSDN博主「weixin_42553179」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
-原文链接：https://blog.csdn.net/weixin_42553179/article/details/103045970
+原文链接：<https://blog.csdn.net/weixin_42553179/article/details/103045970>

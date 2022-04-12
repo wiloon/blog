@@ -10,9 +10,9 @@ tags:
 ---
 ## grep
 
-按行处理,输出文件中包含搜索字符串的所有行。  
-
 grep: Global Regular Expression Print
+
+按行处理, 输出文件中包含搜索字符串的所有行。  
 
 ```bash
 grep [OPTION...] PATTERNS [FILE...]
@@ -61,6 +61,7 @@ grep -r 'linux' *
 - -a, --text: 强制作为文本文件处理， 报错: Binary file [some_file] matches 的时候可以用。
 - -w pattern files : 只匹配整个单词，而不是字符串的一部分(如匹配'magic'，而不是'magical')
 - -q, --quiet, --silent, 不显示任何东西到 stdout
+- -P, --perl-regexp 使用 PCREs
 
 ### grep正则
 
@@ -69,7 +70,7 @@ grep -r 'linux' *
 ### grep 与 egrep 的区别
 
 #### grep
-  
+
     传统的 grep 程序, 在没有参数的情况下, 只输出符合 RE 字符串之句子. 常见参数如下:
   
     -v: 逆反模示, 只输出"不含" RE 字符串之句子.
@@ -82,17 +83,17 @@ grep -r 'linux' *
     -o: 只输出符合 RE 的字符串. (gnu 新版独有, 不见得所有版本都支持.)
     -E: 切换为 egrep . 
 
-#### egrep:
+#### egrep
   
     为 grep 的扩充版本, 改良了许多传统 grep 不能或不便的操作. 比方说:
 
-  * grep 之下不支持 ? 与 + 这两种 modifier, 但 egrep 则可.
-  * grep 不支持 a|b 或 (abc|xyz) 这类"或一"比对, 但 egrep 则可.
-  * grep 在处理 {n,m} 时, 需用 { 与 } 处理, 但 egrep 则不需.
+- grep 之下不支持 ? 与 + 这两种 modifier, 但 egrep 则可.
+- grep 不支持 a|b 或 (abc|xyz) 这类"或一"比对, 但 egrep 则可.
+- grep 在处理 {n,m} 时, 需用 { 与 } 处理, 但 egrep 则不需.
   
     诸如此类的... 我个人会建议能用 egrep 就不用 grep 啦... ^_^
 
-  * fgrep:
+- fgrep:
   
     不作 RE 处理, 表达式仅作一般字符串处理, 所有 meta 均失去功能.
 
@@ -105,10 +106,10 @@ sudo sysctl -a | egrep "rmem|wmem|adv_win|moderate"
 
 egrep 命令会在输入文件 (缺省值为标准输入) 中搜索与用 Pattern 参数指定的模式相匹配的行。这些模式是完整的 正则表达式就像在 ed 命令中的那样(除了 (反斜杠)和 \ (双反斜杠))。下列规则也应用于 egrep 命令:
 
-  * 一个正则表达式后面带一个 + (加号)会匹配一个或多个的正则表达式。
-  * 一个正则表达式后面带一个 ？ (问号)会匹配零个或一个该正则表达式。
-  * 由 | (竖线)或者换行符隔开的多个正则表达式会匹配与任何一个正则表达式所匹配的字符串。
-  * 一个正则表达式可以被包括在"()" (括弧) 中进行分组。
+- 一个正则表达式后面带一个 + (加号)会匹配一个或多个的正则表达式。
+- 一个正则表达式后面带一个 ？ (问号)会匹配零个或一个该正则表达式。
+- 由 | (竖线)或者换行符隔开的多个正则表达式会匹配与任何一个正则表达式所匹配的字符串。
+- 一个正则表达式可以被包括在"()" (括弧) 中进行分组。
 
 换行符将不会被正则表达式匹配。
 
@@ -118,9 +119,9 @@ egrep 命令会在输入文件 (缺省值为标准输入) 中搜索与用 Patter
 
 egrep 命令会显示包含该匹配行的文件，如果您指定了多于一个 File 参数的话。对 shell 有特殊含义的字符 ($, *, [, |, ^, (, ), ) 出现在 Pattern 参数中时必须带双引号。如果 Pattern 参数不是简单字符串，通常必须用单引号将整个模式括起来。在表达式中比如 [a-z]，减号表示通过当前整理序列。整理序列可以定义等价的类以供在字符范围中使用。它使用了快速确定性的算法，有时需要外部空间。
 
-注意: 
+注意:
 
-  1. 行被限制在 2048 字节。 
+  1. 行被限制在 2048 字节。
   2. 段落(在 -p 标志下)当前限制在 5000 字符长。
   3. 不要在特殊文件上运行 grep 命令，因为它会产生不可预测的结果。
   4. 输入行不应该包含 NULL 字符。
@@ -165,9 +166,9 @@ egrep 命令会显示包含该匹配行的文件，如果您指定了多于一�
 
 1 未找到匹配项。
 
-> 1 发现语法错误，或者文件不可访问 (即使找到了匹配项) 。 
+> 1 发现语法错误，或者文件不可访问 (即使找到了匹配项) 。
 
-要想使用包含模式匹配字 +, ?, |, (, 和 ) 中的一个扩展模式，请输入: 
+要想使用包含模式匹配字 +, ?, |, (, 和 ) 中的一个扩展模式，请输入:
 
 egrep "(([A-z]+|[0-9]+))" my.txt
 
@@ -179,7 +180,7 @@ egrep "(([A-z]+|[0-9]+))" my.txt
 
 /bin/egrep 指定了指向 egrep 命令的符号链接。
   
-https://blog.csdn.net/joby1981/article/details/19346279
+<https://blog.csdn.net/joby1981/article/details/19346279>
 
 BRE(basic regular expression)
 
@@ -197,7 +198,7 @@ grep [options]
 
 3.主要参数
   
-[options]主要参数: 
+[options]主要参数:
 
 －c: 只输出匹配行的计数。
 
@@ -211,7 +212,7 @@ grep [options]
   
 －s: 不显示不存在或无匹配文本的错误信息。
 
-pattern正则表达式主要参数: 
+pattern正则表达式主要参数:
   
 \:  忽略正则表达式中特殊字符的原有含义。
   
@@ -229,7 +230,7 @@ $: 匹配正则表达式的结束行。
   
 。: 所有的单个字符。
   
-* : 有字符，长度可以为0。
+- : 有字符，长度可以为0。
 
 4.grep命令使用简单实例
   
@@ -251,7 +252,7 @@ $ grep 'w(es)t._\1′ aa
 
 5.grep命令使用复杂实例
   
-假设您正在'/usr/src/Linux/Doc'目录下搜索带字符 串'magic'的文件: 
+假设您正在'/usr/src/Linux/Doc'目录下搜索带字符 串'magic'的文件:
   
 $ grep magic /usr/src/Linux/Doc/*
   
@@ -261,17 +262,17 @@ sysrq.txt:* How do I use the magic SysRQ key?
   
 其中文件'sysrp.txt'包含该字符串，讨论的是 SysRQ 的功能。
   
-默认情况下，'grep'只搜索当前目录。如果 此目录下有许多子目录，'grep'会以如下形式列出: 
+默认情况下，'grep'只搜索当前目录。如果 此目录下有许多子目录，'grep'会以如下形式列出:
   
 grep: sound: Is a directory
   
-这可能会使'grep' 的输出难于阅读。这里有两种解决的办法: 
+这可能会使'grep' 的输出难于阅读。这里有两种解决的办法:
   
 明确要求搜索子目录: grep -r
   
 或忽略子目录: grep -d skip
   
-如果有很多 输出时，您可以通过管道将其转到'less'上阅读: 
+如果有很多 输出时，您可以通过管道将其转到'less'上阅读:
   
 $ grep magic /usr/src/Linux/Documentation/* | less
   
@@ -279,7 +280,7 @@ $ grep magic /usr/src/Linux/Documentation/* | less
 
 有一点要注意，您必需提供一个文件过滤方式(搜索全部文件的话用 *)。如果您忘了，'grep'会一直等着，直到该程序被中断。如果您遇到了这样的情况，按 <CTRL c> ，然后再试。
 
-下面还有一些有意思的命令行参数: 
+下面还有一些有意思的命令行参数:
   
 grep -i pattern files : 不区分大小写地搜索。默认情况区分大小写，
   
@@ -299,11 +300,11 @@ grep -n pattern files 即可显示行号信息
 
 grep -c pattern files 即可查找总行数
 
-这里还有些用于搜索的特殊符号: 
+这里还有些用于搜索的特殊符号:
   
 \< 和 > 分别标注单词的开始与结尾。
   
-例如: 
+例如:
   
 grep man * 会匹配 'Batman'、'manic'、'man'等，
   
@@ -317,7 +318,7 @@ grep '\<man>' 只匹配'man'，而不是'Batman'或'manic'等其他的字符串�
 
 Grep 命令 用法大全
 
-1.  参数: 
+1. 参数:
   
 -I : 忽略大小写
   
@@ -329,7 +330,7 @@ Grep 命令 用法大全
   
 -n: 打印包含匹配项的行和行标
 
-2. RE (正则表达式) 
+2. RE (正则表达式)
   
 \ 忽略正则表达式中特殊字符的原有含义
   
@@ -347,7 +348,7 @@ $ 匹配正则表达式的结束行
   
 . 所有的单个字符
   
-* 所有字符，长度可以为0
+- 所有字符，长度可以为0
 
 3. 举例
 
@@ -566,32 +567,32 @@ BADc2345
 case "$1" in
 
 > /tmp/sharetab.$$
-    
+
 > [ "x$fstype" != xnfs ] &&
-    
+
 > echo "$path\t$res\t$fstype\t$opts\t$desc"
 
 > > /tmp/sharetab.$$
-      
+
 > > /usr/bin/touch -r /etc/dfs/sharetab /tmp/sharetab.$$
-      
+
 > > /usr/bin/mv -f /tmp/sharetab.$$ /etc/dfs/sharetab
-      
+
 > > if [ -f /etc/dfs/dfstab ] && /usr/bin/egrep -v '^[ ]*(#|$)'
-      
+
 > > if [ $startnfsd -eq 0 -a -f /etc/rmmount.conf ] &&
-      
+
 > > if [ $startnfsd -ne 0 ]; then
-      
+
 > > elif [ ! -n "$_INIT_RUN_LEVEL" ]; then
-      
+
 > > while [ $wtime -gt 0 ]; do
-      
+
 > > wtime=`expr $wtime – 1`
-      
+
 > > if [ $wtime -eq 0 ]; then
-      
-> > echo "Usage: $0 { start | stop }" 
+
+> > echo "Usage: $0 { start | stop }"
 
 # more size.txt
 
@@ -649,7 +650,7 @@ grep pattern [file…]
   
 -c 只输出匹配行的计数
   
--i 不区分大小写 (用于单字符) 
+-i 不区分大小写 (用于单字符)
   
 -n 显示匹配的行号
   
@@ -707,7 +708,7 @@ grep -E '219|216' data.doc
 
 5, 使用类名
   
-可以使用国际模式匹配的类名: 
+可以使用国际模式匹配的类名:
   
 [[:upper:]] [A-Z]
   
@@ -725,8 +726,6 @@ grep -E '219|216' data.doc
   
 grep '5[[:upper:]][[:upper:]]' data.doc #查询以5开头以两个大写字母结尾的行
 
-
-  
     Grep命令选项
  -?
  同时显示匹配行上下的？行，如: grep -2 pattern filename同时显示匹配行的上下2行。
@@ -757,12 +756,7 @@ grep '5[[:upper:]][[:upper:]]' data.doc #查询以5开头以两个大写字母�
  -V，–version
  显示软件版本信息。
   
-  
-    
       grep简介
-    
-  
-
 
 grep  (global search regular expression(RE) and print out the line,全面搜索正则表达式并把行打印出来) 是一种强大的文本搜索工具，它能使用正则表达式搜索文本，并把匹配的行打印出来。Unix的grep家族包括grep、egrep和fgrep。egrep和fgrep的命令只跟grep有很小不同。egrep是grep的扩展，支持更多的re元字符， fgrep就是fixed grep或fast grep，它们把所有的字母都看作单词，也就是说，正则表达式中的元字符表示回其自身的字面意义，不再特殊。Linux使用GNU版本的grep。它功能更强，可以通过-G、-E、-F命令行选项来使用egrep和fgrep的功能。
 
@@ -770,8 +764,6 @@ grep的工作方式是这样的，它在一个或多个文件中搜索字符串�
 
 grep可用于shell脚本，因为grep通过返回一个状态值来说明搜索的状态，如果模板搜索成功，则返回0，如果搜索不成功，则返回1，如果搜索的文件不存在，则返回2。我们利用这些返回值就可进行一些自动化的文本处理工作。
 
-
-  
     grep正则表达式元字符集 (基本集) 
  ^
  锚定行的开始 如: '^grep'匹配所有以grep开头的行。
@@ -802,9 +794,9 @@ grep可用于shell脚本，因为grep通过返回一个状态值来说明搜索�
  b
  单词锁定符，如: 'bgrepb'只匹配grep。
   
-  
     用于egrep和 grep -E的元字符扩展集
- +
+
++
  匹配一个或多个先前的字符。如: '[a-z]+able'，匹配一个或多个小写字母后跟able的串，如loveable,enable,disable等。
  ?
  匹配零个或多个先前的字符。如: 'gr?p'匹配gr后跟一个或没有字符，然后是p的行。
@@ -814,9 +806,9 @@ grep可用于shell脚本，因为grep通过返回一个状态值来说明搜索�
  分组符号，如: love(able|rs)ov+匹配loveable或lovers，匹配一个或多个ov。
  x,x,x
  作用同x,x,x
- 
-    
+
 ### POSIX字符类
+
  为了在不同国家的字符编码中保持一至，POSIX(The Portable Operating System Interface)增加了特殊的字符类，如[:alnum:]是A-Za-z0-9的另一个写法。要把它们放到[]号内才能成为正则表达式，如[A- Za-z0-9]或[[:alnum:]]。在Linux下的grep除fgrep外，都支持POSIX的字符类。
  [:alnum:]
  文字数字字符
@@ -825,26 +817,22 @@ grep可用于shell脚本，因为grep通过返回一个状态值来说明搜索�
  [:digit:]
  数字字符
  [:graph:]
- 非空字符 (非空格、控制字符) 
+ 非空字符 (非空格、控制字符)
  [:lower:]
  小写字符
  [:cntrl:]
  控制字符
  [:print:]
- 非空字符 (包括空格) 
+ 非空字符 (包括空格)
  [:punct:]
  标点符号
  [:space:]
- 所有空白字符 (新行，空格，制表符) 
+ 所有空白字符 (新行，空格，制表符)
  [:upper:]
  大写字符
  [:xdigit:]
- 十六进制数字 (0-9，a-f，A-F) 
-    
-  
-  
-  
-    
+ 十六进制数字 (0-9，a-f，A-F)
+
       实例
  要用好grep这个工具，其实就是要写好正则表达式，所以这里不对grep的所有功能进行实例讲解，只列几个例子，讲解一个正则表达式的写法。
  $ ls -l | grep '^a'
@@ -858,12 +846,11 @@ grep可用于shell脚本，因为grep通过返回一个状态值来说明搜索�
  $ grep 'w(es)t.' aa
  如果west被匹配，则es就被存储到内存中，并标记为1，然后搜索任意个字符 (.) ，这些字符后面紧跟着另外一个es () ，找到就显示该行。如果用egrep或grep -E，就不用""号进行转义，直接写成'w(es)t.*'就可以了。
 
-
 ### grep命令
 
 格式: grep [-acinv] '搜索字符串' filename
 
-参数说明: 
+参数说明:
 
 -a: 在二进制文件中,以文本文件的方式搜索数据；
 
@@ -877,22 +864,18 @@ grep可用于shell脚本，因为grep通过返回一个状态值来说明搜索�
 
 -E: 扩展正则表达式
 
-例子: 在文件a.txt中搜索包含字符串good或glad的行: 
+例子: 在文件a.txt中搜索包含字符串good或glad的行:
   
 grep -E 'g(oo|la)d' a.txt
 
-找到以字母a结尾的单词: 
+找到以字母a结尾的单词:
 
 grep -E 'a[[:blank]]' a.txt
 
 grep -E 'a\\b' a.txt
 
-
+<http://www.cnblogs.com/end/archive/2012/02/21/2360965.htm>
   
-
-
-http://www.cnblogs.com/end/archive/2012/02/21/2360965.htm
+<https://www.cnblogs.com/sparkdev/p/11294517.html>
   
-https://www.cnblogs.com/sparkdev/p/11294517.html
-  
-https://www.cnblogs.com/ywl925/p/3947778.html
+<https://www.cnblogs.com/ywl925/p/3947778.html>

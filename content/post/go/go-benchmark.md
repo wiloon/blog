@@ -11,7 +11,6 @@ tags:
 ---
 ## go benchmark
 
-
 稳定的测试环境
 当我们尝试去优化代码的性能时，首先得知道当前的性能怎么样。Go 语言标准库内置的 testing 测试框架提供了基准测试(benchmark)的能力，能让我们很容易地对某一段代码进行性能测试。
 
@@ -36,8 +35,7 @@ go test -bench .
 
 ```
 
->https://geektutu.com/post/hpg-benchmark.html
-
+><https://geektutu.com/post/hpg-benchmark.html>
 
     BenchmarkReader-8         409231              2549 ns/op
 
@@ -48,8 +46,8 @@ go test -bench .
     go test -bench='Sort$' .
 
 ### CPU 核数
-BenchmarkFib-8 中的 -8 即 GOMAXPROCS，默认等于 CPU 核数。可以通过 -cpu 参数改变 GOMAXPROCS，-cpu 支持传入一个列表作为参数
 
+BenchmarkFib-8 中的 -8 即 GOMAXPROCS，默认等于 CPU 核数。可以通过 -cpu 参数改变 GOMAXPROCS，-cpu 支持传入一个列表作为参数
 
      go test -run=none -bench=. -cpu=2,4
 
@@ -81,7 +79,6 @@ benchmark 的默认时间是 1s，那么我们可以使用 -benchtime 指定为 
 
 ### ResetTimer, StopTimer & StartTimer
 
-
 benchmark 和普通的单元测试用例一样，都位于 _test.go 文件中。
 函数名以 Benchmark 开头，参数是 b *testing.B。和普通的单元测试用例很像，单元测试函数名以 Test 开头，参数是 t *testing.T。
 
@@ -98,7 +95,6 @@ BenchmarkFib-8 中的 -8 即 GOMAXPROCS，默认等于 CPU 核数。可以通过
 
 202 和 5980669 ns/op 表示用例执行了 202 次，每次花费约 0.006s。总耗时比 1s 略多。
 
-
 提升准确度
 对于性能测试来说，提升测试准确度的一个重要手段就是增加测试的次数。我们可以使用 -benchtime 和 -count 两个参数达到这个目的。
 
@@ -108,6 +104,5 @@ benchmark 的默认时间是 1s，那么我们可以使用 -benchtime 指定为 
 
 -benchtime 的值除了是时间外，还可以是具体的次数。例如，执行 30 次可以用 -benchtime=30x：
 
-
->https://geektutu.com/post/hpg-benchmark.html
->https://www.cnblogs.com/jiujuan/p/14604609.html
+><https://geektutu.com/post/hpg-benchmark.html>
+><https://www.cnblogs.com/jiujuan/p/14604609.html>

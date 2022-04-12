@@ -272,7 +272,7 @@ hz 的默认值是 10,可以通过提高这个值来使得 CPU 在空闲的时�
 
 ### aof-rewrite-incremental-fsync yes
 
-当子进程进行 AOF 的重写时,如果启用了 aof-rewrite-incremental-fsync, 子进程会每生成 32 MB 数据就进行一次 fsync 操作。 通过这种方式将数据分批提交到硬盘可以避免高延迟峰值。
+当子进程进行 AOF 的重写时, 如果启用了 aof-rewrite-incremental-fsync, 子进程会每生成 32 MB 数据就进行一次 fsync 操作。 通过这种方式将数据分批提交到硬盘可以避免高延迟峰值。
 
 ### vm-enabled yes
 

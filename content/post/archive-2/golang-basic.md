@@ -441,8 +441,8 @@ var numbers = [1, 2, 3, 4]
 var thing = {name: "Raspberry Pi", generation: 2, model: "B"}
 // 复合字面量: name: "Raspberry Pi", generation: 2, model: "B"
 ```
-```go
 
+```go
 type location struct {
     lat, long float64
 }

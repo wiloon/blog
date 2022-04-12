@@ -1,15 +1,15 @@
 ---
-title: nginx basic, command, docker
+title: nginx basic, command
 author: "-"
 date: 2017-10-26T06:17:15+00:00
-url: /?p=11308
+url: nginx/basic
 categories:
-  - Uncategorized
-
+  - nginx
 tags:
   - reprint
 ---
-## nginx basic, command, docker
+## nginx basic, command
+
 ```bash
 # Do not run, just test the configuration file.
 sudo nginx -t
@@ -65,7 +65,7 @@ kill -HUP pid
 kill -s QUIT 1628
 ```
 
-### 文件下载 
+### 文件下载
 
     server {
             listen 8088;
@@ -74,9 +74,10 @@ kill -s QUIT 1628
             }
     }
 
-#### curl 
+#### curl
+
     curl "http://my_ip_address:8088/download/images/fei_ji.jpg" > test.jpg
 
 ————————————————
 版权声明: 本文为CSDN博主「tomeasure」的原创文章,遵循CC 4.0 BY-SA版权协议,转载请附上原文出处链接及本声明。
-原文链接: https://blog.csdn.net/qq_29695701/article/details/86491331
+原文链接: <https://blog.csdn.net/qq_29695701/article/details/86491331>
