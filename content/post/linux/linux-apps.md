@@ -31,6 +31,7 @@ sudo pacman -S powerdevil kmix kscreen ark
 
 | name                  | comments                                                                                |
 | :-------------------- | :-------------------------------------------------------------------------------------- |
+| flameshot             | 截图工具,screenshot                                                                     |
 | ncdu                  | 磁盘空间清理                                                                              |
 | netdata               | 系统资源监控                                                                            |
 | qalculate-gtk         | 全宇宙最好用的计算器                                                                    |
@@ -72,7 +73,6 @@ sudo pacman -S powerdevil kmix kscreen ark
 | podman                |                                                                                         |
 | v2ray                 |                                                                                         |
 | nethogs               |                                                                                         |
-| flameshot             | 截图工具,screenshot                                                                     |
 | ttf-jetbrains-mono    | jetbrain的mono字体                                                                      |
 | gpick                 | 颜色拾取工具                                                                            |
 | telegram-desktop      | telegram                                                                                |
@@ -118,9 +118,9 @@ sudo pacman -S powerdevil kmix kscreen ark
 | telegraf-bin                          |                                                                |
 | goland                                | yay -S goland goland-jre, 两个一起安装                         |
 | webstorm-jre                          | yay -S webstorm webstorm-jre                                   |
-| clion                                 | yay -S clion clion-jre                                                               |
-| deepin-wine-wechat                    | 微信,https://github.com/countstarlight/deepin-wine-wechat-arch |
+| clion                                 | yay -S clion clion-jre                                         |
 | google-chrome                         |                                                                |
+| deepin-wine-wechat                    | 微信,https://github.com/countstarlight/deepin-wine-wechat-arch |
 | google-chrome-beta                    |                                                                |
 | redis-desktop-manager                 | rdm                                                            |
 | wps-office                            | 依赖                                                           |
