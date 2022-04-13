@@ -3,9 +3,8 @@ title: Nginx config, 配置, nginx.conf
 author: "-"
 date: 2013-07-09T05:59:32+00:00
 url: nginx/config
-
 categories:
-  - inbox
+  - nginx
 tags:
   - reprint
 ---
@@ -22,6 +21,178 @@ http
         server Global: 虚拟主机相关
         location: 地址定向，数据缓存，应答控制，以及第三方模块的配置
 ```
+
+## worker_processes, nginx 进程数，建议设置为等于 CPU 总核心数
+
+```bash
+worker_processes 8;
+```
+
+## worker_connections
+
+每一个 worker 进程能并发处理 (发起) 的最大连接数 (包含所有连接数).
+
+```bash
+events {
+    worker_connections  20480;
+    multi_accept on;
+    use epoll;
+}
+```
+
+```bash
+max_clients = worker_processes * worker_connections;
+```
+
+## multi_accept
+
+multi_accept 告诉 nginx 收到一个新连接通知后接受尽可能多的连接。
+
+multi_accept 可以让 nginx worker 进程尽可能多地接受请求。它的作用是让 worker 进程一次性地接受监听队列里的所有请求，然后处理。如果 multi_accept 的值设为off，那么 worker 进程必须一个一个地接受监听队列里的请求。
+
+默认 Nginx 没有开启 multi_accept。
+
+如果 web 服务器面对的是一个持续的请求流，那么启用 multi_accept 可能会造成 worker 进程一次接受的请求大于 worker_connections 指定可以接受的请求数。这就是 overflow，这个 overflow 会造成性能损失，overflow 这部分的请求不会受到处理。
+
+Nginx 的缓冲配置
+  
+请求缓冲在 Nginx 请求处理中扮演了重要的角色。当收到一条请求时，Nginx 将请求写入缓冲当中。缓冲中的数据成为 Nginx 的变量，比如$request_body。如果缓冲容量比请求容量小，那么多出来的请求会被写入硬盘，这时便会有 I/O 操作。Nginx 提供了多个 directive 来修改请求缓冲。
+
+## use epoll
+
+在 Linux 操作系统下，nginx 使用 epoll 事件模型，得益于此，nginx 在 Linux 操作系统下效率相当高。同时 Nginx 在 OpenBSD 或 FreeBSD 操作系统上采用类似于 epoll 的高效事件模型 kqueue。
+
+## http
+
+```bash
+http {
+    include       mime.types;
+    default_type  application/octet-stream;
+
+    sendfile        on;
+
+    keepalive_timeout  65;
+
+    include /etc/nginx/conf.d/*.conf;
+    include /etc/nginx/conf.d/foo/*.conf;
+    include /etc/nginx/conf.d/bar/*.conf;
+}
+```
+
+## include       mime.types
+
+文件位于 /etc/nginx/mime.types  
+include表示纳入mime.types文件的配置，
+如果nginx.conf有重复的指令，可以抽取出来，利用include来帮我们简化配置，避免修改一个相同的配置，要改动好几个地方。
+
+incluee   xxx.conf;
+
+default_type
+如果Web程序没设置，Nginx也没找到对应文件的扩展名的话，就使用默认的Type，这个在Nginx 里用 default_type定义: default_type application/octet-stream，这是应用程序文件类型的默认值。
+
+application/octet-stream
+是HTTP规范中Content-Type的一种，意思是 未知的应用程序文件 ，浏览器一般不会自动执行或询问执行。
+只能提交一个二进制，如果提交文件的话，只能提交一个文件,后台接收参数只能有一个，而且只能是流（或者字节数组）。
+
+这里形如text/html格式的字符串就是用来说明数据类型的，/前的是主类型，/之后的是该主类型下的子类型。详细的类型定义在RFC2046中。
+Nginx通过服务器端文件的后缀名来判断这个文件属于什么类型，再将该数据类型写入HTTP头部的Content-Type字段中，发送给客户端。
+
+比如，当我们打开OSC的一个页面，看到一个PNG格式的图片的时候，Nginx是这样发送格式信息的：
+
+服务器上有enter_narrow.png这个文件，后缀名是png；
+根据mime.types，这个文件的数据类型应该是image/png；
+将Content-Type的值设置为image/png，然后发送给客户端。
+————————————————
+版权声明：本文为CSDN博主「真理剑客」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
+原文链接：<https://blog.csdn.net/Veritas_C/article/details/83897001>
+
+## sendfile on
+  
+sendfile 开启高效文件传输模式，sendfile 指令指定 nginx 是否调用sendfile函数来输出文件，对于普通应用设为 on，如果用来进行下载等应用磁盘 IO 重负载应用，可设置为 off，以平衡磁盘与网络 I/O 处理速度，降低系统的负载。注意: 如果图片显示不正常把这个改成 off。
+  
+sendfile 配置可以提高 Nginx 静态资源托管效率。 sendfile 是一个系统调用，直接在内核空间完成文件发送，不需要先 read 再 write，没有上下文切换开销。
+  
+tcp_nopush on;
+  
+tcp_nodelay on;
+
+TCP_NOPUSH 是 FreeBSD 的一个 socket 选项，对应 Linux 的 TCP_CORK， Nginx 里统一用 tcp_nopush 来控制它，并且只有在启用了 sendfile 之后才生效。启用它之后，数据包会累计到一定大小之后才会发送，减小了额外开销，提高网络效率。
+
+## keepalive_timeout
+
+长连接超时时间，单位是秒, 这个 directive 用于设置 keepalive 连接的超时时间，默认为65秒。若将它设置为0，那么就禁止了keepalive连接。它在http, server 和 location模块中定义。
+
+Nginx的超时设置 (timeout)
+  
+Nginx处理的每一个请求都会有相应的超时设置。如果做好这些超时的优化，就可以大大提升Nginx的性能。超时过后，系统资源被释放，用来处理其他的请求。下面，我们将讨论Nginx提供的多个关于超时的directive。
+
+keepalive
+  
+HTTP是一种无状态的、基于请求+回复的协议。客户端打开一个 TCP 端口向服务器发送请求，服务器发送回复后断开完成的连接以释放服务器资源。
+
+如果客户端向服务器发送多个请求，那么每个请求都要建立各自独立的连接以传输数据。在网页包含大量内容的情况下，这种方式变得效率低下，因为浏览器要为每一个内容打开一个连接。
+
+HTTP有一个 keepalive 模式，keepalive 告诉web服务器在处理完请求后保持TCP连接不断开。如果客户端发出另外一个请求，它可以利用这些保持打开的连接，而不必另外打开一个连接。当客户端感觉不再需要这些保持打开的连接时，或者web服务器发现经过一段时间 (timeout) 这些保持打开的连接没有任何活动，那么它们就会断开。浏览器一般会打开多个keepalive连接。
+
+由于 keepalive 连接在一段时间内会保持打开状态，它们会在这段时间占用系统资源。如果web服务器流量大，而timeout的时间设置得过长，那么系统的性能会受到很大影响。
+
+Nginx 提供了多个可以用来设置 keepalive 连接的 directive。
+
+keepalive_timeout
+  
+这个directive用于设置keepalive连接的超时时间，默认为65秒。若将它设置为0，那么就禁止了keepalive连接。它在http, server 和 location模块中定义。
+
+```bash
+http {
+    keepalive_timeout 20s;
+}
+```
+  
+这个directive有另外一个可选的时间参数，例如:
+
+```bash
+http {
+    keepalive_timeout 20s 18s;
+}
+```
+  
+第二个参数 18s 被包含在回复 header 里
+
+curl -I <http://www.example.com>
+
+```bash
+Connection: keep-alive
+Keep-Alive: timeout=18
+```
+
+## server 模块
+
+sever 模块是http的子模块，它用来定一个虚拟主机
+
+```bash
+server {
+        listen 80;
+        server_name foo.bar.com;
+            rewrite ^/(.*) https://$host/$1 permanent;
+}
+```
+
+- server 定义虚拟主机开始。
+- listen 指定虚拟主机的服务端口。
+- server_name 指定IP地址或者域名，多个域名之间用空格分开。
+- root 表示在这整个server虚拟主机内，全部的 root web 根目录。注意要和 location {} 下面定义的区分开来。
+- index 全局定义访问的默认首页地址。注意要和 location {}下面定义的区分开来。
+- charset  网页的默认编码格式。
+- access_log 用来指定此虚拟主机的访问日志存放路径，最后的main用于指定访问日志的输出格式。
+- location 指令的功能是用来匹配不同的 URI 请求
+
+>wiloon.com/nginx/location
+
+————————————————
+版权声明：本文为CSDN博主「喵学长」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
+原文链接：<https://blog.csdn.net/qq_35448976/article/details/79512766>
+
+---
 
 ## http > https
 
@@ -42,11 +213,16 @@ server {
 }
 ```
 
-### location>proxy_redirect
+## proxy_pass 
+
+Nginx 的ngx_stream_proxy_module和ngx_http_proxy_module两个模块中，都有 proxy_pass 指令。其主要功能是为后端做代理，协议转发，请求转发等。
+
+
+### location> proxy_redirect
 
 proxy_redirect：修改后端服务器返回的响应头部中的location货refresh，与proxy_pass配合使用：
 
-### location>proxy_ssl_session_reuse on | off
+### location> proxy_ssl_session_reuse on | off
 
 proxy_ssl_session_reuse:配置是否基于SSL协议与后端服务器建立连接
 proxy_ssl_trusted_certificate指令命名的文件中的受信任CA证书用于在上游验证证书
@@ -56,21 +232,11 @@ proxy_ssl_trusted_certificate指令设置的那个可信CA证书文件是用来�
 
     client_header_buffer_size 512k;
 
-### worker_processes, nginx进程数，建议设置为等于CPU总核心数
-
-    worker_processes 8;
-  
 官方英文版wiki配置说明中的描述如下，个人理解为worker角色的进程个数 (nginx启动后有多少个worker处理http请求。master不处理请求，而是根据相应配置文件信息管理worker进程. master进程主要负责对外揽活 (即接收客户端的请求) ，并将活儿合理的分配给多个worker，每个worker进程主要负责干活 (处理请求) ) 。
-
-### worker_connections
-
-    max_clients = worker_processes * worker_connections;
-  
-官方解释如下，个人认为是每一个worker进程能并发处理 (发起) 的最大连接数 (包含所有连接数) 。
 
 ### worker_rlimit_nofile
 
-# 一个nginx进程打开的最多文件描述符数目，理论值应该是最多打开文件数 (系统的值ulimit -n) 与nginx进程数相除，但是nginx分配请求并不均匀，所以建议与ulimit -n的值保持一致。
+# 一个nginx进程打开的最多文件描述符数目，理论值应该是最多打开文件数 (系统的值ulimit -n) 与nginx进程数相除，但是nginx分配请求并不均匀，所以建议与ulimit -n的值保持一致
   
     worker_rlimit_nofile 65535;
 
@@ -96,10 +262,8 @@ events
   
 {
   
-# 参考事件模型，use [ kqueue | rtsig | epoll | /dev/poll | select | poll ]; epoll模型是Linux 2.6以上版本内核中的高性能网络I/O模型，如果跑在FreeBSD上面，就用kqueue模型。
-  
-use epoll;
-  
+# 参考事件模型，use [ kqueue | rtsig | epoll | /dev/poll | select | poll ]; epoll模型是Linux 2.6以上版本内核中的高性能网络I/O模型，如果跑在FreeBSD上面，就用kqueue模型
+
 # 单个进程最大连接数 (最大连接数=连接数*进程数)
   
 worker_connections 65535;
@@ -128,18 +292,6 @@ client_max_body_size 8m; #设定请求缓
 
 autoindex on; #开启目录列表访问，合适下载服务器，默认关闭。
 
-sendfile on;
-  
-sendfile 开启高效文件传输模式，sendfile 指令指定nginx是否调用sendfile函数来输出文件，对于普通应用设为 on，如果用来进行下载等应用磁盘IO重负载应用，可设置为off，以平衡磁盘与网络I/O处理速度，降低系统的负载。注意: 如果图片显示不正常把这个改成off。
-  
-sendfile 配置可以提高 Nginx 静态资源托管效率。 sendfile 是一个系统调用，直接在内核空间完成文件发送，不需要先 read 再 write，没有上下文切换开销。
-  
-tcp_nopush on;
-  
-tcp_nodelay on;
-
-TCP_NOPUSH 是 FreeBSD 的一个 socket 选项，对应 Linux 的 TCP_CORK， Nginx 里统一用 tcp_nopush 来控制它，并且只有在启用了 sendfile 之后才生效。启用它之后，数据包会累计到一定大小之后才会发送，减小了额外开销，提高网络效率。
-
 ### TCP_NODELAY
 
 TCP_NODELAY 也是一个 socket 选项，启用后会禁用 Nagle 算法，尽快发送数据，某些情况下可以节约 200ms  
@@ -147,9 +299,7 @@ TCP_NODELAY 也是一个 socket 选项，启用后会禁用 Nagle 算法，尽�
 
 可以看到 TCP_NOPUSH 是要等数据包累积到一定大小才发送，TCP_NODELAY 是要尽快发送，二者相互矛盾。实际上，它们确实可以一起用，最终的效果是先填满包，再尽快发送。
 
-keepalive_timeout 120; #长连接超时时间，单位是秒
-
-# FastCGI相关参数是为了改善网站的性能: 减少资源占用，提高访问速度。下面参数看字面意思都能理解。
+# FastCGI相关参数是为了改善网站的性能: 减少资源占用，提高访问速度。下面参数看字面意思都能理解
   
 fastcgi_connect_timeout 300;
   
@@ -179,7 +329,7 @@ gzip_comp_level 2; #压缩等级
   
 gzip_types text/plain application/x-javascript text/css application/xml;
   
-# 压缩类型，默认就已经包含text/html，所以下面就不用再写了，写上去也不会有问题，但是会有一个warn。
+# 压缩类型，默认就已经包含text/html，所以下面就不用再写了，写上去也不会有问题，但是会有一个warn
   
 gzip_vary on;
   
@@ -187,7 +337,7 @@ gzip_vary on;
 
 upstream blog.ha97.com {
   
-# upstream的负载均衡，weight是权重，可以根据机器配置定义权重。weigth参数表示权值，权值越高被分配到的几率越大。
+# upstream的负载均衡，weight是权重，可以根据机器配置定义权重。weigth参数表示权值，权值越高被分配到的几率越大
   
 server 192.168.80.121:80 weight=3;
   
@@ -273,7 +423,7 @@ proxy_set_header X-Real-IP $remote_addr;
   
 proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
   
-# 以下是一些反向代理的配置，可选。
+# 以下是一些反向代理的配置，可选
   
 proxy_set_header Host $host;
   
@@ -309,7 +459,7 @@ auth_basic "NginxStatus";
   
 auth_basic_user_file conf/htpasswd;
   
-# htpasswd文件的内容可以用apache提供的htpasswd工具来产生。
+# htpasswd文件的内容可以用apache提供的htpasswd工具来产生
   
 }
 
@@ -329,7 +479,7 @@ proxy_pass <http://127.0.0.1:8080>;
   
 }
   
-# 所有静态文件由nginx直接读取不经过tomcat或resin
+## 所有静态文件由nginx直接读取不经过tomcat或resin
   
 location ~ ._.(htm|html|gif|jpg|jpeg|png|bmp|swf|ioc|rar|zip|txt|flv|mid|doc|ppt|pdf|xls|mp3|wma)$
   
@@ -345,7 +495,7 @@ location ~ ._.(js|css)?$
 
 更详细的模块参数请参考: <http://wiki.nginx.org/Main>
 
-### proxy_pass结尾有无"/"的区别
+## proxy_pass 结尾有无"/"的区别
 
 转载自: <http://www.cnblogs.com/naniannayue/archive/2010/08/07/1794520.html>
 见配置，摘自nginx.conf 里的server 段:
@@ -393,6 +543,7 @@ proxy_pass <http://ent.163.com/> ;
 PS: 如果是 location ~*^/start/(.*).html 这种正则的location，是不能写"/"上去的，nginx -t 也会报错的了。因为，路径都需要正则匹配了嘛，并不是一个相对固定的locatin了，必然要代理到一个server。
 
 ### location匹配顺序
+
 <https://www.jianshu.com/p/38810b49bc29>
 
     nginx.conf
@@ -400,30 +551,6 @@ PS: 如果是 location ~*^/start/(.*).html 这种正则的location，是不能�
 <https://blog.wiloon.com/?p=5626&embed=true#?secret=1NahDK0zlm>
 
 client_max_body_size 20m; 20m为允许最大上传的大小。
-
-## use epoll
-
-在 Linux 操作系统下，nginx 使用 epoll 事件模型，得益于此，nginx在Linux操作系统下效率相当高。同时 Nginx 在 OpenBSD 或 FreeBSD 操作系统上采用类似于 epoll 的高效事件模型 kqueue。nginx 同时是一个高性能的 HTTP 和 反向代理 服务器，也是一个 IMAP/POP3/SMTP 代理服务器。
-
-multi_accept 告诉nginx收到一个新连接通知后接受尽可能多的连接。
-
-multi_accept
-  
-multi_accept可以让nginx worker进程尽可能多地接受请求。它的作用是让worker进程一次性地接受监听队列里的所有请求，然后处理。如果multi_accept的值设为off，那么worker进程必须一个一个地接受监听队列里的请求。
-
-events {
-
-multi_accept on;
-
-}
-  
-默认Nginx没有开启multi_accept。
-
-如果web服务器面对的是一个持续的请求流，那么启用multi_accept可能会造成worker进程一次接受的请求大于worker_connections指定可以接受的请求数。这就是overflow，这个overflow会造成性能损失，overflow这部分的请求不会受到处理。
-
-Nginx的缓冲配置
-  
-请求缓冲在Nginx请求处理中扮演了重要的角色。当收到一条请求时，Nginx将请求写入缓冲当中。缓冲中的数据成为Nginx的变量，比如$request_body。如果缓冲容量比请求容量小，那么多出来的请求会被写入硬盘，这时便会有I/O操作。Nginx提供了多个directive来修改请求缓冲。
 
 ### client_body_buffer_size
   
@@ -511,52 +638,6 @@ large_client_header_buffers 4 8k;
   
 如果请求的URI超过了单个缓冲的大小，那么Nginx会返回HTTP 414错误 (Request URI Too Long) 。如果有任何request header超过了单个缓冲的大小，那么Nginx会返回HTTP 400错误 (Bad Request) 。
 
-Nginx的超时设置 (timeout)
-  
-Nginx处理的每一个请求都会有相应的超时设置。如果做好这些超时的优化，就可以大大提升Nginx的性能。超时过后，系统资源被释放，用来处理其他的请求。下面，我们将讨论Nginx提供的多个关于超时的directive。
-
-keepalive
-  
-HTTP是一种无状态的、基于请求+回复的协议。客户端打开一个TCP端口向服务器发送请求，服务器发送回复后断开完成的连接以释放服务器资源。
-
-如果客户端向服务器发送多个请求，那么每个请求都要建立各自独立的连接以传输数据。在网页包含大量内容的情况下，这种方式变得效率低下，因为浏览器要为每一个内容打开一个连接。
-
-HTTP有一个keepalive模式，keepalive告诉web服务器在处理完请求后保持TCP连接不断开。如果客户端发出另外一个请求，它可以利用这些保持打开的连接，而不必另外打开一个连接。当客户端感觉不再需要这些保持打开的连接时，或者web服务器发现经过一段时间 (timeout) 这些保持打开的连接没有任何活动，那么它们就会断开。浏览器一般会打开多个keepalive连接。
-
-由于keepalive连接在一段时间内会保持打开状态，它们会在这段时间占用系统资源。如果web服务器流量大，而timeout的时间设置得过长，那么系统的性能会受到很大影响。
-
-Nginx提供了多个可以用来设置keepalive连接的directive。
-
-keepalive_timeout
-  
-这个directive用于设置keepalive连接的超时时间，默认为65秒。若将它设置为0，那么就禁止了keepalive连接。它在http, server 和 location模块中定义。
-
-http {
-
-keepalive_timeout 20s;
-  
-}
-  
-这个directive有另外一个可选的时间参数，例如:
-
-http {
-
-keepalive_timeout 20s 18s;
-  
-}
-  
-第二个参数18s被包含在回复header里。
-
-curl -I <http://www.example.com>
-
-........
-
-Connection: keep-alive
-
-Keep-Alive: timeout=18
-
-.....
-  
 keepalive_requests
   
 这个directive设定了使用keepalive连接的请求数量上限。当使用keepalive连接的请求数量超过这个上限时，web服务器关闭keepalive连接。默认值为100，可以在http, server 和 location模块中定义。

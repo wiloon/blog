@@ -29,9 +29,10 @@ NAME      TYPE      SIZE USED PRIO
 ```
 
 ```bash
-# 启用swap分区
+# 启用 swap 分区
 swapon /dev/vda2
 # 如果是文件则
+swapon /swap-file
 swapoff /swap-file
 
 # -s, --summary
@@ -47,6 +48,7 @@ swapoff /dev/vda2
 ```
 
 ### priority
+
 swap分区的优先级 (priority）有啥用？
 在使用多个swap分区或者文件的时候，还有一个优先级的概念 (Priority）。
 
@@ -60,14 +62,14 @@ swap分区的优先级 (priority）有啥用？
 
 另外，编程时使用mlock()也可以将指定的内存标记为不会换出，具体帮助可以参考man 2 mlock。
 
->https://www.cnblogs.com/276815076/p/5564085.html
-><http://coolnull.com/3699.html>
- 
+<https://www.cnblogs.com/276815076/p/5564085.html>
+<http://coolnull.com/3699.html>
+
 ### SWAP
 
 当系统的物理内存不够用的时候,就需要将物理内存中的一部分空间释放出来,以供当前运行的程序使用。那些被释放的空间可能来自一些很长时间没有什么操作的程序,这些被释放的空间被临时保存到Swap空间中,等到那些程序要运行时,再从Swap中恢复保存的数据到内存中。这样,系统总是在物理内存不够时,才进行Swap交换。这个是SWAP 交换分区的作用。 实际上,我们更关注的应该是SWAP分区的大小问题。 设置多大才是最优的。
 
-一般来说可以按照如下规则设置swap大小: 
+一般来说可以按照如下规则设置swap大小:
   
 4G以内的物理内存,SWAP 设置为内存的2倍。
   
@@ -93,7 +95,7 @@ swappiness＝100 的时候表示积极的使用swap分区,并且把内存上的�
 
 ### 如何修改swappiness参数？
   
-临时修改: 
+临时修改:
 
     sysctl vm.swappiness=10
   
@@ -103,7 +105,7 @@ vm.swappiness = 10
   
 这里我们的修改已经生效,但是如果我们重启了系统,又会变成60.
 
-永久修改: 
+永久修改:
   
 在 /etc/sysctl.conf 文件里添加如下参数,
 
@@ -112,13 +114,12 @@ vm.swappiness=10
 或echo 'vm.swappiness=10' >> /etc/sysctl.conf
   
 保存,重启,就生效了。
- 
 
 ### 增加swap空间
   
-使用文件来作为SWAP 交换分区, 这里我们使用文件添加一个交换区,具体操作如下: 
+使用文件来作为SWAP 交换分区, 这里我们使用文件添加一个交换区,具体操作如下:
   
-在根目录下生成一个文件: swap-file,大小1G: 
+在根目录下生成一个文件: swap-file,大小1G:
 
     dd if=/dev/zero of=/swap-file bs=1M count=1024
   
@@ -144,12 +145,12 @@ boot dev home lib64 media mnt opt root selinux swap-file tmp u02 var
 
     chmod 0600 /swap-file
 
-将生成的文件格式化成交换分区: 
+将生成的文件格式化成交换分区:
 
     mkswap /swap-file
   
 mkswap: /swap-file: warning: don't erase bootbitssectors
-          
+
 onwhole disk. Use -f to force.
   
 Setting up swapspace version 1, size = 1048572 KiB
@@ -157,12 +158,12 @@ Setting up swapspace version 1, size = 1048572 KiB
 no label, UUID=653bbeb5-4abb-4295-b110-5847e073140d
   
 这里没有分区的lable,只有一个UUID。
- 
+
 ### 使用磁盘添加swap
   
 这个后面添加
 
-四、停用swap交换分区: 
+四、停用swap交换分区:
 
 [root@coolnull ~]# swapoff /dev/sda2 //如果是文件则swapoff /swap-file
   
@@ -170,7 +171,7 @@ no label, UUID=653bbeb5-4abb-4295-b110-5847e073140d
   
 Filename Type Size Used Priority
   
-附录: 
+附录:
   
 Linux Add a Swap File – Howto
   
@@ -178,4 +179,4 @@ Do We Really Still Need Swap Space?
   
 Knowledge Base:Is swap space really necessary
 
-https://blog.csdn.net/tianlesoftware/article/details/8741873
+<https://blog.csdn.net/tianlesoftware/article/details/8741873>

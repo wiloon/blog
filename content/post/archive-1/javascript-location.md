@@ -10,7 +10,8 @@ tags:
 
 ---
 ## javascript Location
-location.href 返回整个当前url,若对其赋值: 
+
+location.href 返回整个当前url,若对其赋值:
   
 location.href="http://www.highya.com" 则跳转其url
   
@@ -26,7 +27,7 @@ location.hash 跳到本页的某个锚
   
 location.search 取url?后的部分
 
-location对象: 
+location对象:
 
 location提供了关于当前打开窗口或者特定框架的url信息。一个多框架的窗口对象在location属性显示的是父窗口的URL，每个框架也有一个与之相伴的location对象。
 
