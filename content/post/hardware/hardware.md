@@ -6,17 +6,17 @@ url: ""
 categories:
   - inbox
 tags:
-  - inbox
+  - archive
 ---
 ## hardware
 
-https://www.passmark.com/
+<https://www.passmark.com/>
 
 ## QNAP TS453Bmini
 
 ## pixel3
 
-5.5 英寸显示屏, 2160 x 1080) 柔性 OLED 屏幕 (443ppi), 18:9
+5.5 英寸显示屏, 2160 x 1080 柔性 OLED 屏幕 (443ppi), 18:9
 后置摄像头1220 万像素
 Qualcomm® Snapdragon™ 845, 2.5Ghz + 1.6Ghz，64 位八核
 内存, 4GB LPDDR4x RAM
@@ -24,7 +24,7 @@ Qualcomm® Snapdragon™ 845, 2.5Ghz + 1.6Ghz，64 位八核
 
 ### esim
 
-https://support.google.com/pixelphone/answer/9449293?hl=zh-Hans
+<https://support.google.com/pixelphone/answer/9449293?hl=zh-Hans>
 
 ## Sharp
 
@@ -61,7 +61,7 @@ TS流输入接口
 S/PDIF, I2S, PCM输入输出接口
 模拟立体声输出
 数字立体麦克风输入
-P授权 (可选) 
+P授权 (可选)
 Dolby Digital, Dolby Digital Plus
 DTS Digital Surround, DTS HD, DTS Express
 Real, DivX HD
@@ -80,8 +80,8 @@ Intel® Celeron® J4105 Processor (4M Cache, up to 2.50 GHz), TDP 10 W
 ## PC
 
 2015-09-05
-华硕 (ASUS) Z170M-PLUS 主板  (Intel Z170/LGA 1151)    
-Intel(R) Core(TM) i7-6700 CPU @ 3.40GHz   
+华硕 (ASUS) Z170M-PLUS 主板  (Intel Z170/LGA 1151)
+Intel(R) Core(TM) i7-6700 CPU @ 3.40GHz
 Kingston DDR4 2133 16GB(8Gx2条)  
 wifi: Intel Corporation Wireless 7260 (rev 5b)  
     最高速度            300/867 Mbps
@@ -97,7 +97,7 @@ wifi: Intel Corporation Wireless 7260 (rev 5b)
 
 1920x1200
 
-### 接口
+### Dell U2412M 接口
 
 - DP
 - DVI
@@ -105,7 +105,7 @@ wifi: Intel Corporation Wireless 7260 (rev 5b)
 
 ## ViewSonic
 
-### 接口
+### ViewSonic 接口
 
 - DVI
 - VGA
@@ -118,23 +118,23 @@ wifi: Intel Corporation Wireless 7260 (rev 5b)
 
 ## nuc8i5beh
 
-https://www.intel.com/content/www/us/en/products/boards-kits/nuc/kits/nuc8i5beh.html
+<https://www.intel.com/content/www/us/en/products/boards-kits/nuc/kits/nuc8i5beh.html>
 
     i5-8259U 
     Intel® Iris® Plus Graphics 655
     Memory Types DDR4-2400 1.2V SO-DIMM
 
-### 显示输出
+### nuc8i5beh 显示输出
 
 - HDMI > dvi
 - type-c > vga
 
 ## Pixelbook
 
-CPU: i5  
-MEM: 8G  
-DISK: 128G  
-display: 2400x1600
+- CPU: i5-7Y57
+- MEM: 8G  
+- DISK: 128G  
+- display: 2400x1600
 
 ## Pixel2
 
@@ -153,6 +153,7 @@ display: 2400x1600
         https://www.broadcom.cn/products/wireless/wireless-lan-bluetooth/bcm43013
 
 ## Netgear R7800
+
     CPU: Qualcomm Atheros IPQ8065 ARMv7 32bit
     IEEE® 802.11 b/g/n 2.4 GHz–256 QAM support
     IEEE® 802.11 a/n/ac 5.0 GHz
@@ -167,7 +168,7 @@ display: 2400x1600
 ## Dell Latitude 3450
 
 <https://www.dell.com/support/manuals/zh-cn/latitude-3450-laptop/lat_14_3450_om-v1/specifications?guid=guid-42d27b81-8d57-4219-9b9b-0c51cfa756b5&lang=en-us>
-https://www.dell.com/support/home/zh-cn/product-support/product/latitude-3450-laptop/drivers
+<https://www.dell.com/support/home/zh-cn/product-support/product/latitude-3450-laptop/drivers>
 Network adapter    10/100/1000 Mbps Ethernet LAN on Motherboard (LOM)
 
 ### Wireless
@@ -218,29 +219,30 @@ Power-over-Ethernet (PoE) support (requires separate PoE HAT)
 ### 斐讯 TC1
 
 ### Ruckus R310, 优科
-Wi-Fi 标准    
+
+Wi-Fi 标准
 IEEE 802.11a/b/g/n/ac
 
-支持的速率    
+支持的速率
 802.11ac：6.5 到 867Mbps (MCS0 到 MCS9，VHT20/40/80 NSS = 1 到 2）
 802.11n：6.5 Mbps 到 300Mbps  (MCS0 到 MCS15）
 802.11a/g：54、48、36、24、18、12、9 和 6 Mbps
 802.11b：11，5.5，2 和 1 Mbps
 
-支持的信道    
+支持的信道
 2.4GHz：1-13
 5GHz：36-64、100-144 和 149-165
 
-多输入多输出    
+多输入多输出
 2x2 SU-MIMO
-空间串流    
+空间串流
 2 个 SU-MIMO
-信道化    
+信道化
 20, 40, 80MHZ
-安全    
+安全
 WPA-PSK、WPA-TKIP、WPA2 AES、802.11i、Dynamic PSK
 WIPS/WIDS
-其他 Wi-Fi 功能    
+其他 Wi-Fi 功能
 WMM、节电、Tx 波束成形、LDPC、STBC、802.11r/k/v
 热点
 Hotspot 2.0
