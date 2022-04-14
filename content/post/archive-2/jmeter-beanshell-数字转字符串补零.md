@@ -10,6 +10,7 @@ tags:
   - reprint
 ---
 ## jmeter beanshell 数字转字符串补零
+
 http://localhost:7000/?id=${__counter(FALSE,eIndex)}&p=prefix${__BeanShell(333+${eIndex})}sufix
 
 ```bash
