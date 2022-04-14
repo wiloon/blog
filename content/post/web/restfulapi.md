@@ -12,7 +12,7 @@ tags:
 
 http://www.ruanyifeng.com/blog/2014/05/restful_api.html
 
-路径 (Endpoint) 
+路径 (Endpoint)
 路径又称"终点" (endpoint) ，表示API的具体网址。
 
 在RESTful架构中，每个网址代表一种资源 (resource) ，所以网址中不能有动词，只能有名词，而且所用的名词往往与数据库的表格名对应。一般来说，数据库中的表都是同种记录的"集合" (collection) ，所以API中的名词也应该使用复数。

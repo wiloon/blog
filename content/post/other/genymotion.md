@@ -24,4 +24,3 @@ Android 模拟器一直以速度奇慢无比著称，基本慢到不可用。本
  [1]: http://www.genymotion.com/
  [2]: http://androvm.org/blog/
  [3]: https://shop.genymotion.com/index.php?controller=order-opc
-http://mobile.51cto.com/android-405002.htm

@@ -10,21 +10,24 @@ tags:
 
 ---
 ## ps
+
 Linux中的 ps 命令是 Process Status 的缩写。
 
 ### 输出指定的字段
+
 ```bash
 ps -eo pid, ppid, command
 ps -e -o 'pid,comm,args,pcpu,rsz,vsz,stime,user,uid' 其中 rsz 是是实际内存
 ps -e -o 'pid,comm,args,pcpu,rsz,vsz,stime,user,uid' | grep oracle | sort -nrk5
 ```
+
 其中 rsz 为实际内存，上例实现按内存排序，由大到小
   
 ### ububtu install ps command
 
    apt install procps
 
-http://blog.fpliu.com/it/software/procps
+<http://blog.fpliu.com/it/software/procps>
 
 ps命令用来列出系统中当前运行的那些进程。ps命令列出的是当前那些进程的快照，就是执行ps命令的那个时刻的那些进程，如果想要动态的显示进程信息，就可以使用top命令。
 
@@ -34,20 +37,21 @@ ps 为我们提供了进程的一次性的查看，它所提供的查看结果�
 
 kill 命令用于杀死进程。
 
-linux 上进程有5种状态: 
-1. 运行 (正在运行或在运行队列中等待) 
-2. 中断 (休眠中, 受阻, 在等待某个条件的形成或接受到信号) 
-3. 不可中断 (收到信号不唤醒和不可运行, 进程必须等待直到有中断发生) 
-4. 僵死 (进程已终止, 但进程描述符存在, 直到父进程调用wait4()系统调用后释放) 
-5. 停止 (进程收到SIGSTOP, SIGSTP, SIGTIN, SIGTOU信号后停止运行运行) 
+linux 上进程有5种状态:
 
-ps工具标识进程的5种状态码: 
-- R 运行 runnable (on run queue) 
-- S 中断 sleeping 
-- D 不可中断 uninterruptible sleep (usually IO) 
-- Z 僵死 a defunct ("zombie") process 
-- T 停止 traced or stopped 
+1. 运行 (正在运行或在运行队列中等待)
+2. 中断 (休眠中, 受阻, 在等待某个条件的形成或接受到信号)
+3. 不可中断 (收到信号不唤醒和不可运行, 进程必须等待直到有中断发生)
+4. 僵死 (进程已终止, 但进程描述符存在, 直到父进程调用wait4()系统调用后释放)
+5. 停止 (进程收到SIGSTOP, SIGSTP, SIGTIN, SIGTOU信号后停止运行运行)
 
+ps工具标识进程的5种状态码:
+
+- R 运行 runnable (on run queue)
+- S 中断 sleeping
+- D 不可中断 uninterruptible sleep (usually IO)
+- Z 僵死 a defunct ("zombie") process
+- T 停止 traced or stopped
 
 **默认情况下，ps 不会显示很多进程信息，只是列出与当前终端会话相关的进程**
 
@@ -68,6 +72,7 @@ ps -eo pid,ppid,command
 ```
 
 ### 参数
+
     -e, -A  显示所有进程, 默认情况下，ps 不会显示很多进程信息，只是列出与当前终端会话相关的进程, -e 参数会显示系统所有进程
     -j     作业格式
     -l     长格式 (有F,wchan,C,PRI,NI 等字段) 
@@ -81,9 +86,11 @@ ps -eo pid,ppid,command
     -o, o, --format <format>     用户自定义格式,输出指定的字段
 
 #### 输出格式控制
+
     -f  打印完整格式的列表, -f 参数可以跟其它 UNIX-style 参数一起使用(如: ps -fa, ps -fx ...), 附加 -f 之后会输出一些额外的字段, 并且会打印进程的完整的命令行参数.
 
 ### Head 标头
+
     F           代表这个程序的旗标 (flag)， 4 代表使用者为 super user  
     S           代表这个程序的状态 (STAT)，关于各 STAT 的意义将在内文介绍  
     USER        用户名  
@@ -118,6 +125,7 @@ ps -eo pid,ppid,command
     MAJFL is the major page fault count,
 
 ### STAT 进程的状态
+
     R 运行    Runnable (on run queue)            正在运行或在运行队列中等待。
     S 睡眠    Sleeping                休眠中, 受阻, 在等待某个条件的形成或接受到信号。
     I 空闲    Idle
@@ -135,10 +143,15 @@ ps -eo pid,ppid,command
     + 位于后台的进程组 
 
 ### CPU占用最多的前10个进程
+
     ps auxw|head -1;ps auxw|sort -rn -k3|head -10
+
 ### 内存消耗最多的前10个进程
+
     ps auxw|head -1;ps auxw|sort -rn -k4|head -10
+
 ### 虚拟内存使用最多的前10个进程
+
     ps auxw|head -1;ps auxw|sort -rn -k5|head -10
 
 ### 也可以试试
@@ -146,15 +159,14 @@ ps -eo pid,ppid,command
 ps auxw -sort=rss
   
 ps auxw -sort=%cpu
- 
 
-串行端口终端 (/dev/ttySn) 
+串行端口终端 (/dev/ttySn)
   
-伪终端 (/dev/pty/) 
+伪终端 (/dev/pty/)
   
-控制终端 (/dev/tty) 
+控制终端 (/dev/tty)
   
-控制台终端 (/dev/ttyn,   /dev/console) 
+控制台终端 (/dev/ttyn,   /dev/console)
   
 虚拟终端(/dev/pts/n)
 
@@ -163,7 +175,7 @@ ps auxw -sort=%cpu
 Linux下显示系统进程的命令ps，最常用的有ps -ef 和ps aux。这两个到底有什么区别呢？两者没太大差别，讨论这个问题，要追溯到Unix系统中的两种风格，
 
 System Ｖ风格和BSD 风格，ps aux最初用到Unix Style中(BSD的格式)，而ps -ef被用在System V Style中，两者输出略有不同。现在的大部分Linux系统都是可以同时使用这两种方式的。
->https://www.cnblogs.com/5201351/p/4206461.html
+><https://www.cnblogs.com/5201351/p/4206461.html>
 
 ## ps aux
 
@@ -175,9 +187,9 @@ rss        RSS      resident set size, the non-swapped physical memory that a
                     task has used (in kiloBytes). (alias rssize, rsz).
 
 版权声明：本文为CSDN博主「逝鸿」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
-原文链接：https://blog.csdn.net/qq_21127313/article/details/79877483
+原文链接：<https://blog.csdn.net/qq_21127313/article/details/79877483>
 
->https://www.cnblogs.com/hunttown/p/5452253.html
->http://elinux.org/Runtime_Memory_Measurement   
->https://www.cnblogs.com/peida/archive/2012/12/19/2824418.html  
->https://man7.org/linux/man-pages/man1/ps.1.html
+><https://www.cnblogs.com/hunttown/p/5452253.html>
+><http://elinux.org/Runtime_Memory_Measurement>
+><https://www.cnblogs.com/peida/archive/2012/12/19/2824418.html>  
+><https://man7.org/linux/man-pages/man1/ps.1.html>

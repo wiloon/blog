@@ -3,7 +3,6 @@ title: archlinux kvm windows
 author: "-"
 date: 2016-02-01T08:05:51+00:00
 url: /?p=8723
-
 categories:
   - inbox
 tags:
@@ -16,6 +15,7 @@ tags:
 - 配置网络
 
 ### check if cpu suport kvm
+
 ```bash
 egrep --color=auto 'vmx|svm|0xc0f' /proc/cpuinfo
 zgrep CONFIG_KVM /proc/config.gz
@@ -25,6 +25,7 @@ lsmod | grep virtio
 ```
 
 ### install qemu
+
 ```bash
 sudo pacman -Sy
 sudo pacman -S qemu libvirt
@@ -36,12 +37,14 @@ yay -S virtio-win
 ```
 
 ### 创建磁盘文件
+
     qemu-img create -f raw win10.raw 30G
 
     # 如果磁盘文件所在分区为btrfs文件系统,在创建磁盘文件之前先在外层目录禁用COW。
     chattr +C /path/to/qemu-img/
 
 ### 安装 win10
+
 ```bash
 qemu-system-x86_64 \
 -enable-kvm \
@@ -54,6 +57,7 @@ qemu-system-x86_64 \
 ```
 
 ### 如果遇到 -fda read-only 的问题, 去修改一下权限
+
 qemu-system-x86_64: Initialization of device isa-fdc failed: Could not reopen file: Permission denied
 qemu-system-x86_64: Initialization of device isa-fdc failed: Block node is read-only
 
@@ -62,21 +66,27 @@ chmod 777 /usr/share/virtio/virtio-win_x86_64.vfd
 ```
 
 ### 配置网络
+
 #### ip forward
+
 <https://blog.wiloon.com/?p=13701>
 
 #### 创建tap
+
 <https://blog.wiloon.com/?p=13281>
 
-#### config nat, nftables 实现, 跟下面的iptables实现二选一。
+#### config nat, nftables 实现, 跟下面的iptables实现二选一
+
 <https://blog.wiloon.com/?p=8681>
 
 #### 用 iptables 实现的 nat
+
 ```bash
 sudo iptables -t nat -A POSTROUTING -o wlp3s0 -j MASQUERADE
 ```
 
 ### start win10
+
 第一次启动要挂载virtio-win_x86_64.vfd,启动之后到win里面安装网卡驱动。
 
 ```bash
@@ -108,14 +118,14 @@ qemu-system-x86_64 \
 
 Make sure that each virtual machine has a unique link-level address, but it should always start with 52:54:.
 
-https://blog.csdn.net/liqiangxo/article/details/62443481
+<https://blog.csdn.net/liqiangxo/article/details/62443481>
   
-https://wiki.archlinux.org/index.php/KVM#How_to_use_KVM
+<https://wiki.archlinux.org/index.php/KVM#How_to_use_KVM>
   
-https://wiki.archlinux.org/index.php/Internet_sharing
+<https://wiki.archlinux.org/index.php/Internet_sharing>
   
-https://wiki.archlinux.org/index.php/QEMU#Installing_virtio_drivers
-
+<https://wiki.archlinux.org/index.php/QEMU#Installing_virtio_drivers>
 
 ## linux virtual machine manager
+
 virt-manager
