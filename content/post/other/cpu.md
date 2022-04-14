@@ -22,7 +22,6 @@ CPU执行过的指令都遵循以下的流程: CPU首先依据指令指针取得
   
 >http://www.infoq.com/cn/articles/x86-high-performance-programming-pipeline?utm_campaign=infoq_content&utm_source=infoq&utm_medium=feed&utm_term=global
 
-
 ### 乱序执行
 乱序执行 vs 顺序提交
 我们知道，在cpu中为了能够让指令的执行尽可能地并行起来，从而发明了流水线技术。但是如果两条指令的前后存在依赖关系，比如数据依赖，控制依赖等，此时后一条语句就必需等到前一条指令完成后，才能开始。
