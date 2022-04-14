@@ -10,6 +10,7 @@ tags:
   - reprint
 ---
 ## Fastjson
+
 ```java
 // 序列化
 String text = JSON.toJSONString(obj);
@@ -18,15 +19,15 @@ String text = JSON.toJSONString(obj);
 ```
 
 ### fastjson 对象转换时重命名字段名
+
     @JSONField(name="total_count")
     private int totalCount;
 
     @JSONField(name="incomplete_results")
     private boolean incompleteResults = false;
- 
 
 Map<String, Object> userMap =
-          
+
 JSON.parseObject(o, new TypeReference<Map<String, Object>>() {});
   
 使用Fastjson序列化与反序列化对象
@@ -47,12 +48,6 @@ public void setcolor(String color) { this.color = color; }
 
 }
 
-
-
-
-
-
-  
 public class fastjson {
 
 public static void main(String[] args) {
@@ -83,7 +78,7 @@ System.out.println(ins1.getObj());
 
 }
   
-显示的结果是: 
+显示的结果是:
 
 {"color":"red","obj":"s"}
   
@@ -95,10 +90,6 @@ s
 
 如果解析List<object[]>类型的话，需要新版本的fastjson,旧版本的会出错，而且一定要有默认的构造函数
 
-
-
-
-  
 public class part {
   
 public String attr;
@@ -135,10 +126,6 @@ public void setValue(String value) { this.value = value; }
   
 }
 
-
-
-
-  
 import java.util.ArrayList;
   
 import java.util.List;
@@ -165,10 +152,6 @@ public void setColor(String color) { this.color = color; }
 
 }
 
-
-
-
-  
 import com.alibaba.fastjson.JSON;
 
 public class fastjson {
@@ -209,5 +192,5 @@ System.out.println(ins1.getObj());
 
 }
 
-http://code.alibabatech.com/wiki/display/FastJSON/Tutorial  
-https://blog.csdn.net/quan20111992/article/details/88918585  
+<http://code.alibabatech.com/wiki/display/FastJSON/Tutorial>  
+<https://blog.csdn.net/quan20111992/article/details/88918585>  

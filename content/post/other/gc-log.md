@@ -10,6 +10,7 @@ tags:
   - reprint
 ---
 ## GC日志
+
 本文是 Plumbr 发行的 Java垃圾收集指南 的部分内容。文中将介绍GC日志的输出格式, 以及如何解读GC日志, 从中提取有用的信息。我们通过 -XX:+UseSerialGC 选项,指定JVM使用串行垃圾收集器, 并使用下面的启动参数让 JVM 打印出详细的GC日志:
 
 -XX:+PrintGCDetails
