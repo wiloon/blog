@@ -4,24 +4,22 @@ author: "-"
 date: 2017-11-09T06:11:50+00:00
 url: go/channel
 categories:
-  - go
-
+  - Go
 tags:
   - reprint
 ---
 ## go channel
 
-channel 是 Go 中的一个核心类型, 你可以把它看成一个管道, 通过它并发核心单元就可以发送或者接收数据进行通讯。
+channel 是 Go 中的一个核心类型, 可以把它看成一个管道, 通过它并发核心单元就可以发送或者接收数据进行通讯。
 
-goroutine是Go语言的基本调度单位，而channels则是它们之间的通信机制。操作符`<-`用来指定管道的方向，发送或接收。如果未指定方向，则为双向管道。
+goroutine 是 Go 语言的基本调度单位, 而 channels 则是它们之间的通信机制。操作符 `<-` 用来指定管道的方向，发送或接收。如果未指定方向，则为双向管道。
 
-golang 的 channel 就是一个环形队列（ringbuffer）的实现。我们称 chan 为管理结构，channel 里面可以放任何类型的对象，我们称之为元素。
-
+golang 的 channel 就是一个 **环形队列/ringbuffer** 的实现。 我们称 chan 为管理结构，channel 里面可以放任何类型的对象，我们称之为元素。
 
 ```go
-<-          // channel 的操作符是箭头
+<-          // channel 的操作符
 ch <- v     // 发送值 v 到 Channel ch 中
-v := <-ch   // 从 Channel c h中接收数据, 并将数据赋值给 v
+v := <-ch   // 从 Channel ch 中接收数据, 并将数据赋值给 v
 
 // Channel类型的定义格式如下：
 ChannelType = ( "chan" | "chan" "<-" | "<-" "chan" ) ElementType .
@@ -41,7 +39,7 @@ chan (<-chan int)
 // channel 定义
 var dataChan <-chan []byte
 
-// 使用make初始化Channel,并且可以设置容量, channel 初始化, 初始化之后才能使用
+// 使用 make 初始化 Channel, 并且可以设置容量, channel 初始化, 初始化之后才能使用
 // 未设置容量的channel, 如果没有设置容量，或者容量设置为0, 说明Channel没有缓存，只有sender和receiver都准备好了后它们的通讯
 // 无缓冲的channel由于没有缓冲发送和接收需要同步.
 // channel无缓冲时，发送阻塞直到数据被接收，接收阻塞直到读到数据。
@@ -78,6 +76,7 @@ x = <-ch
 // 忽略接收到的值，合法
 <-ch     
 ```
+
 就像 map 和 slice 数据类型一样, channel 必须先创建再使用
 
 ```go

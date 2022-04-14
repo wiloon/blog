@@ -16,15 +16,16 @@ tags:
 
 ## options
 
-    -s, --silent, 不显示下载进度
-    -C, --continue-at, 断点续传
+```bash
+-s, --silent, 不显示下载进度
+-C, --continue-at, 断点续传
+```
 
 ## 断点续传
 
 ```bash
 # -C -, curl 自动检测续传位置
 curl -C - "http://foo.bar"
-
 ```
 
 ### cookie
@@ -54,24 +55,32 @@ curl -v -b cookie.txt "http://localhost:8080/get"
 ```bash
 curl -v -d "name=admin&password=admin" -b cookie.txt -c cookie.txt "http://localhost:8080/user/login" && curl -v -b cookie.txt "http://localhost:8080/get"
 ```
->https://stackoverflow.com/questions/30760213/save-cookies-between-two-curl-requests/37127263
+
+<https://stackoverflow.com/questions/30760213/save-cookies-between-two-curl-requests/37127263>
 
 ### 追踪重定向 -L
 
-    curl -L xxx
+```bash
+curl -L xxx
+```
 
-### post request
+## post request
 
-可以用 -X POST 来声明请求方法，用 -d 参数传送参数, 使用 -d 时, 默认为POST请求, -X POST 可以省略
+用 -d 传 POST 参数  
+可以用 -X POST 来声明请求方法, 使用 -d 时, 默认为 POST 请求, -X POST 可以省略  
 
-    curl -d "user=admin&passwd=12345678" http://127.0.0.1:8080/login
-    # 把请求参数放到文件里, foo 是一个包含请求数据的文件
-    curl -i -XPOST 'http://localhost:8186/write?db=db0' --data-binary @foo  
+```bash
+curl -d "user=admin&passwd=12345678" http://127.0.0.1:8080/login
+# 把请求参数放到文件里, foo 是一个包含请求数据的文件
+curl -i -XPOST 'http://localhost:8186/write?db=db0' --data-binary @foo  
+```
 
 ### with header
 
-    curl -H "Content-Type: application/json"  \
-    -d "user=nickwolfe&password=12345" http://www.yahoo.com/login.cgi
+```bash
+curl -H "Content-Type: application/json"  \
+-d "user=nickwolfe&password=12345" http://www.yahoo.com/login.cgi
+```
 
 ## use proxy
 
@@ -113,14 +122,19 @@ curl -G -v "http://localhost:30001/data" --data-urlencode "msg=hello world" --da
 > Accept: */*
 ```
 
-https://unix.stackexchange.com/questions/86729/any-way-to-encode-the-url-in-curl-command
+<https://unix.stackexchange.com/questions/86729/any-way-to-encode-the-url-in-curl-command>
 
 ### 格式化返回的json数据
-    curl http://foo.com/bar | jq .
-    
-### 限制下载速率
-    curl "http://toutiao.sogoucdn.com/ykvideo/20181130/0575139af28f38c336912739acf33a88.mp4" -o video --limit-rate 100k
 
+```bash
+    curl http://foo.com/bar | jq .
+```
+
+### 限制下载速率
+
+```bash
+    curl "http://toutiao.sogoucdn.com/ykvideo/20181130/0575139af28f38c336912739acf33a88.mp4" -o video --limit-rate 100k
+```
 
 ```bash
 curl http://foo.wiloon.com -v --retry 0 --connect-timeout 1
@@ -154,6 +168,7 @@ curl -v --socks5-hostname 127.0.0.1:1080 https://www.google.com/
 如果使用了-F参数，curl会以multipart/form-data的方式发送POST请求。-F以key=value的形式指定要上传的参数，如果是文件，则需要使用key=@file的形式。
 
 ```
+
 ### websocket
 
 ```bash
@@ -174,8 +189,8 @@ curl -v -i -N -H "Connection: Upgrade" -H "Upgrade: websocket" -H "Host: 127.0.0
 
 ```
 
-http://www.ruanyifeng.com/blog/2011/09/curl.html
+<http://www.ruanyifeng.com/blog/2011/09/curl.html>
   
-http://blog.51cto.com/xoyabc/1950743
+<http://blog.51cto.com/xoyabc/1950743>
   
-https://blog.csdn.net/dreamer2020/article/details/52050001
+<https://blog.csdn.net/dreamer2020/article/details/52050001>
