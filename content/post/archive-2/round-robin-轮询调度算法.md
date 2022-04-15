@@ -4,8 +4,7 @@ author: "-"
 date: 2017-11-10T02:53:58+00:00
 url: round-robin
 categories:
-  - algorithm
-
+  - Algorithm
 tags:
   - reprint
 ---

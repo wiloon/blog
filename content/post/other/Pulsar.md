@@ -4,7 +4,7 @@ author: "-"
 date: 2021-09-01T13:11:10+00:00
 url: Pulsar
 categories:
-  - queue
+  - Inbox
 
 tags:
   - reprint

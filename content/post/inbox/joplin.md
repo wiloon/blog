@@ -4,7 +4,7 @@ author: "-"
 date: "2021-03-06 14:53:35"
 url: ""
 categories:
-  - inbox
+  - Editor
 tags:
   - inbox
 ---

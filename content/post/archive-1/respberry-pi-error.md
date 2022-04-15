@@ -4,7 +4,7 @@ author: "-"
 date: 2015-05-04T03:56:10+00:00
 url: /?p=7599
 categories:
-  - Uncategorized
+  - resp
 tags:
   - Raspberry Pi
 

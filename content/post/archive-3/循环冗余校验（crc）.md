@@ -4,8 +4,7 @@ author: "-"
 date: 2019-03-21T04:04:34+00:00
 url: /?p=13895
 categories:
-  - Uncategorized
-
+  - Algorithm
 tags:
   - reprint
 ---

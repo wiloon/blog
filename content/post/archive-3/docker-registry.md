@@ -4,8 +4,7 @@ author: "-"
 date: 2019-03-25T15:01:06+00:00
 url: docker/registry
 categories:
-  - docker
-
+  - container
 tags:
   - reprint
 ---

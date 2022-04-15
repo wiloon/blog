@@ -2,9 +2,8 @@
 author: "-"
 date: "2020-09-29 10:05:41" 
 title: "Service Worker"
-
 categories:
-  - inbox
+  - Web
 tags:
   - reprint
 ---

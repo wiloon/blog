@@ -4,7 +4,7 @@ author: "-"
 date: "2021-12-30 10:10:08"
 url: ""
 categories:
-  - archlinux
+  - Linux
 tags:
   - inbox
 ---

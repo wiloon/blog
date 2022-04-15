@@ -2,9 +2,8 @@
 author: "-"
 date: "2020-12-17 13:20:53" 
 title: "chrome devtools"
-
 categories:
-  - inbox
+  - chrome
 tags:
   - reprint
 ---

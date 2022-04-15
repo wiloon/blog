@@ -4,7 +4,7 @@ author: "-"
 date: 2013-12-01T11:55:37.000+00:00
 url: "/?p=5999"
 categories:
-- Uncategorized
+  - Raspberry-Pi
 tags:
 - linux
 - Network

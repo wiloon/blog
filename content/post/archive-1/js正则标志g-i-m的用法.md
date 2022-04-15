@@ -4,9 +4,9 @@ author: "-"
 date: 2014-03-10T10:13:48+00:00
 url: /?p=6394
 categories:
-  - Uncategorized
-tags:
   - JavaScript
+tags:
+  - regex
 
 ---
 ## js正则标志/g /i /m的用法

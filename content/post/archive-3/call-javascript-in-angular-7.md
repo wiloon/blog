@@ -4,8 +4,7 @@ author: "-"
 date: 2019-06-02T15:57:02+00:00
 url: /?p=14442
 categories:
-  - Uncategorized
-
+  - JavaScript
 tags:
   - reprint
 ---

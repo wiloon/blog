@@ -4,12 +4,13 @@ author: "-"
 date: 2014-11-26T06:43:53+00:00
 url: callable
 categories:
-  - thread
-
+  - Java
 tags:
   - reprint
+  - thread
 ---
 ## Java Callable, Future 和 FutureTask
+
 创建线程有2种方式，一种是直接继承 Thread，另外一种就是实现Runnable接口。
   
 这2种方式都有一个缺陷就是: 在执行完任务之后无法获取执行结果。

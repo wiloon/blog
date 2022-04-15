@@ -3,7 +3,7 @@ author: "w1100n"
 date: "2020-10-18 22:17:53" 
 title: books
 categories:
-  - book
+  - w10n
 tags:
   - origin
 ---

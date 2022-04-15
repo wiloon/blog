@@ -4,7 +4,7 @@ author: "-"
 date: 2019-04-13T06:39:45+00:00
 url: graphviz
 categories:
-  - apps
+  - tools
 tags:
   - reprint
 ---

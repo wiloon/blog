@@ -4,8 +4,7 @@ author: "-"
 date: 2019-08-06T04:57:47+00:00
 url: /?p=14770
 categories:
-  - MySQL
-
+  - Database
 tags:
   - reprint
 ---

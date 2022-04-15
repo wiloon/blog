@@ -3,9 +3,8 @@ title: docker mirror
 author: "-"
 date: 2018-07-15T07:50:12+00:00
 url: /?p=12430
-
 categories:
-  - inbox
+  - container
 tags:
   - reprint
 ---

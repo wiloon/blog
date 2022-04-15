@@ -4,12 +4,12 @@ author: "-"
 date: 2019-06-21T00:18:13+00:00
 url: /?p=14537
 categories:
-  - Uncategorized
-
+  - shell
 tags:
   - reprint
 ---
 ## linux shell 查找文件位置，which, command -v, hash, type
+
 ```bash
 command -v foo
 ```
@@ -22,6 +22,6 @@ command -v foo
 
 很多linux发行版上的which会做一些邪恶的事情，比如改变输出结果甚至会接入到包管理器中。
 
-https://stackoverflow.com/questions/592620/how-to-check-if-a-program-exists-from-a-bash-script?page=1&tab=votes#tab-top
+<https://stackoverflow.com/questions/592620/how-to-check-if-a-program-exists-from-a-bash-script?page=1&tab=votes#tab-top>
   
-https://blog.51cto.com/xoyabc/1902804
+<https://blog.51cto.com/xoyabc/1902804>

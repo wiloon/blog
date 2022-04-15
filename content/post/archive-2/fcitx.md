@@ -4,8 +4,7 @@ author: "-"
 date: 2017-01-12T04:50:30.000+00:00
 url: fcitx
 categories:
-  - desktop
-
+  - Desktop
 tags:
   - reprint
 ---

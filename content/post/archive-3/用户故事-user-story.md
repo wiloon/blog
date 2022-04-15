@@ -4,10 +4,10 @@ author: "-"
 date: 2019-05-05T10:22:03+00:00
 url: /?p=14293
 categories:
-  - Uncategorized
-
+  - Agile
 tags:
   - reprint
+  - Scrum
 ---
 ## 用户故事, user story
 故事story是粗略的勾勒的需求，它是信！号！卡！，指向真正的需求或者叫故事详情，怎么说都好。

@@ -4,8 +4,7 @@ author: "-"
 date: 2018-08-31T02:21:50+00:00
 url: shell/dev/null
 categories:
-  - linux
-
+  - shell
 tags:
   - reprint
 ---

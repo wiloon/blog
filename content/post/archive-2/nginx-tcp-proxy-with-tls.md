@@ -9,7 +9,7 @@ categories:
 tags:
   - reprint
   - nginx
-
+  - proxy
 
 ---
 ## nginx tcp proxy with tls

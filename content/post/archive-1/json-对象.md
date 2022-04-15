@@ -4,9 +4,9 @@ author: "-"
 date: 2015-05-10T07:27:59+00:00
 url: /?p=7637
 categories:
-  - Uncategorized
-tags:
   - JavaScript
+tags:
+  - JSON
 
 ---
 ## json 对象

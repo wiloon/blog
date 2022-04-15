@@ -4,9 +4,9 @@ author: "-"
 date: ""
 url: ""
 categories:
-  - inbox
+  - Editor
 tags:
-  - inbox
+  - VIM
 ---
 ## "vim宏录制"
 

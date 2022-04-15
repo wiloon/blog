@@ -4,12 +4,11 @@ author: "w1100n"
 date: 2021-11-16T01:00:00+08:00
 url: about
 categories:
-  - about
+  - w10n
 tags:
   - original
 ---
-## 关于本站/关于我
-## 关于本站/About
+## 关于本站/关于我/About
 
 本站主要是个人使用的读书笔记，因为早期使用了Wordpress所以申请了域名, 转到 Github + Markdown 后也保留了公开访问，本人使用频率比较高的技术文档都有仔细整理和验证过，希望能帮助到有需要的同学。当然...也有大量的转载未整理的内容，在不段完善整理中...
 
@@ -18,7 +17,7 @@ tags:
 - 基本上是我接触过的知识的一个集合
 - 大部分内容是转载的 70%+
   - 一般第一次接触的知识会找质量比较好的或者能解决问题的文章收集进来
-  - 有一部分原因是防止源站消失 (比如...已经消失的一个站点 https://my.oschina.net/goberl/blog/85816 )，还有方便查找，省掉重新 Google 的过程。
+  - 有一部分原因是防止源站消失 (比如...已经消失的一个站点 <https://my.oschina.net/goberl/blog/85816> )，还有方便查找，省掉重新 Google 的过程。
   - 有仔细读过的会修正 typo
   - 日常遇到问题会逐渐整理，也会补充其它引用来源
   - 有明显整理痕迹的都是仔细读过的，比如有段落标题，有代码语法高亮。
@@ -28,7 +27,7 @@ tags:
   - 没有明显的知识共享协议的文章会逐渐转移到私有仓库 Joplin + AWS S3
   - 转载内容的 Author 会标记为"-"
 - 会不定期删除本人使用频率低的内容, 比如早期接触过的ASP.net, Wordpress, PHP...
-- 因为从Wordpress转到Markdown, 最近都在频繁调整格式, 所以本站在Github上对应的仓库目前是私有的， 等稳定之后会考虑转成Public. 
+- 因为从Wordpress转到Markdown, 最近都在频繁调整格式, 所以本站在Github上对应的仓库目前是私有的， 等稳定之后会考虑转成Public.
 - 转载内容有侵权可以随时联系我删除
 
 ### 整理过的
@@ -96,8 +95,8 @@ tags:
 ### 联系方式
 
 - email: d2lsb29uLnd5QGdtYWlsLmNvbQ==
-- GitHub: https://github.com/wiloon
-- Stackoverflow: https://stackoverflow.com/users/1431884/w1100n
+- GitHub: <https://github.com/wiloon>
+- Stackoverflow: <https://stackoverflow.com/users/1431884/w1100n>
 
 ### 共享协议
 

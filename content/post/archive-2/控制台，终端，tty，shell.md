@@ -4,8 +4,7 @@ author: "-"
 date: 2018-12-24T04:52:41+00:00
 url: /?p=13199
 categories:
-  - Uncategorized
-
+  - shell
 tags:
   - reprint
 ---

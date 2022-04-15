@@ -4,7 +4,7 @@ author: "-"
 date: 2015-01-26T02:33:26+00:00
 url: /?p=7288
 categories:
-  - Uncategorized
+  - Algorithm
 tags:
   - Algorithm
 

@@ -11,11 +11,13 @@ tags:
 
 ---
 ## 代理模式, proxy pattern
+
 为其他对象提供一种代理以控制对这个对象的访问。
 
 代理模式，即Proxy，它和 Adapter 模式很类似。我们先回顾Adapter模式，它用于把A接口转换为B接口：
 
 ### Adapter 模式
+
 ```java
 public BAdapter implements B {
     private A a;
@@ -27,8 +29,11 @@ public BAdapter implements B {
     }
 }
 ```
+
 ### Proxy模式
+
 而Proxy模式不是把A接口转换成B接口，它还是转换成A接口：
+
 ```java
 public AProxy implements A {
     private A a;
@@ -40,15 +45,19 @@ public AProxy implements A {
     }
 }
 ```
+
 合着Proxy就是为了给A接口再包一层，这不是脱了裤子放屁吗？
 
 当然不是。我们观察Proxy的实现A接口的方法：
+
 ```java
 public void a() {
     this.a.a();
 }
 ```
+
 这样写当然没啥卵用。但是，如果我们在调用a.a()的前后，加一些额外的代码：
+
 ```java
 public void a() {
     if (getCurrentUser().isRoot()) {
@@ -58,6 +67,7 @@ public void a() {
     }
 }
 ```
+
 这样一来，我们就实现了权限检查，只有符合要求的用户，才会真正调用目标方法，否则，会直接抛出异常。
 
 有的同学会问，为啥不把权限检查的功能直接写到目标实例A的内部？
@@ -76,19 +86,25 @@ APermissionProxy类：只实现A接口的权限检查代理。
 实际上权限检查只是代理模式的一种应用。Proxy还广泛应用在：
 
 ### 远程代理
+
 远程代理即Remote Proxy，本地的调用者持有的接口实际上是一个代理，这个代理负责把对接口的方法访问转换成远程调用，然后返回结果。Java内置的RMI机制就是一个完整的远程代理模式。
 
 ### 虚代理
+
 虚代理即Virtual Proxy，它让调用者先持有一个代理对象，但真正的对象尚未创建。如果没有必要，这个真正的对象是不会被创建的，直到客户端需要真的必须调用时，才创建真正的对象。JDBC的连接池返回的JDBC连接 (Connection对象）就可以是一个虚代理，即获取连接时根本没有任何实际的数据库连接，直到第一次执行JDBC查询或更新操作时，才真正创建实际的JDBC连接。
 
 ### 保护代理
+
 保护代理即Protection Proxy，它用代理对象控制对原始对象的访问，常用于鉴权。
 
 ### 智能引用
+
 智能引用即Smart Reference，它也是一种代理对象，如果有很多客户端对它进行访问，通过内部的计数器可以在外部调用者都不使用后自动释放它。
+
 ### Decorator
+
 Decorator模式让调用者自己创建核心类，然后组合各种功能，而Proxy模式决不能让调用者自己创建再组合，否则就失去了代理的功能。Proxy模式让调用者认为获取到的是核心类接口，但实际上是代理类。
 
->https://www.jianshu.com/p/5ab7672b935f
->https://www.liaoxuefeng.com/wiki/1252599548343744/1281319432618017
->https://refactoringguru.cn/design-patterns/proxy
+><https://www.jianshu.com/p/5ab7672b935f>
+><https://www.liaoxuefeng.com/wiki/1252599548343744/1281319432618017>
+><https://refactoringguru.cn/design-patterns/proxy>

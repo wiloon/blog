@@ -4,8 +4,7 @@ author: "-"
 date: 2013-01-14T04:47:29+00:00
 url: /?p=5010
 categories:
-  - Web
-
+  - JavaScript
 tags:
   - reprint
 ---

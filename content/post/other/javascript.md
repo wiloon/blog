@@ -4,7 +4,7 @@ author: "-"
 date: 2011-07-30T06:20:10+00:00
 url: javascript
 tags:
-  - javascript
+  - regex
 categories:
   - inbox
 ---

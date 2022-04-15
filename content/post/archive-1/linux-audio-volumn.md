@@ -4,7 +4,7 @@ author: "-"
 date: 2014-03-30T12:10:53+00:00
 url: audio
 categories:
-  - audio
+  - Inbox
 tags:
   - linux
 

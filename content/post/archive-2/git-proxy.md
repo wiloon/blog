@@ -7,6 +7,7 @@ categories:
   - git
 tags:
   - reprint
+  - proxy
 ---
 ## git proxy
 

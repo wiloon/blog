@@ -4,7 +4,7 @@ author: "-"
 date: 2018-12-22T13:02:46+00:00
 url: dockerfile
 categories:
-  - docker
+  - container
 tags:
   - reprint
 ---

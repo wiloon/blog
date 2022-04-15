@@ -4,10 +4,10 @@ author: "-"
 date: 2018-12-19T08:49:53+00:00
 url: vim/find/replace
 categories:
-  - vim
+  - Editor
 tags:
   - reprint
-  - eidtor
+  - VIM
 ---
 ## Vim  查找, 替换
 

@@ -4,8 +4,7 @@ author: "-"
 date: 2012-10-26T05:27:39+00:00
 url: consensus
 categories:
-  - foo
-
+  - Algorithm
 tags:
   - reprint
 ---

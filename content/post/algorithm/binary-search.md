@@ -4,7 +4,7 @@ author: "-"
 date: 2012-06-25T05:31:56+00:00
 url: /?p=3667
 categories:
-  - algorithm
+  - Algorithm
 tags:
   - reprint
 

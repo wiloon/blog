@@ -4,8 +4,7 @@ author: "-"
 date: 2021-11-08T23:59:21+00:00
 url: raft
 categories:
-  - algorithm
-
+  - Algorithm
 tags:
   - reprint
 ---

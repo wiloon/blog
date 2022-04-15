@@ -4,7 +4,7 @@ author: "-"
 date: 2011-09-18T14:09:37+00:00
 url: gorun
 categories:
-  - golang
+  - Go
 tags:
   - shell
 
