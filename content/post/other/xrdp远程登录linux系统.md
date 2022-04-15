@@ -11,15 +11,25 @@ tags:
 ---
 ## linux remote desktop server, xrdp
 
+```bash
+yay -S xrdp
+yay -S xorgxrdp
+vim ~/.xinitrc
+# content
+exec startxfce4
+
+```
+
 ### remove
+
 yay -R xorgxrdp-devel-git
 yay -R xrdp
 Install xrdp on CentOS 7 / RHEL 7
   
 By Raj Last updated Mar 29, 2018
-   
+
 88
-      
+
 Share
   
 xrdp is an Open Source Remote desktop Protocol server, which allows you to RDP to your Linux server from Windows machine; it is capable of accepting connections from rdesktop, freerdp, and remote desktop clients.
@@ -30,9 +40,9 @@ Prerequisites
   
 1. First, install Gnome GUI on CentOS 7 / RHEL 7
 
-  1. xrdp is available in EPEL repository, so Install and configure EPEL repository.
+1. xrdp is available in EPEL repository, so Install and configure EPEL repository.
 
-rpm -Uvh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+rpm -Uvh <https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm>
   
 Install xrdp on CentOS 7
   
@@ -46,16 +56,17 @@ Use YUM command to install xrdp package on CentOS 7 / RHEL 7.
 -> Finished Dependency Resolution
 
 ### install tigervnc
+
 # Package Arch Version Repository Size
 
 Installing:
-   
+
 tigervnc-server x86_64 1.8.0-2.el7_4 updates 213 k
-   
+
 xrdp x86_64 1:0.9.5-1.el7 epel 413 k
   
 Installing for dependencies:
-   
+
 xorgxrdp x86_64 0.2.5-3.el7 epel 61 k
 
 # Transaction Summary
@@ -83,13 +94,13 @@ Total 409 kB/s | 688 kB 00:00:01
 Retrieving key from file:///etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-7
   
 Importing GPG key 0x352C64E5:
-   
+
 Userid : "Fedora EPEL (7) [&#x65;&#x70;&#x65;&#x6c;&#x40;&#x66;&#x65;&#100;&#111;&#114;&#97;&#112;&#114;&#111;&#106;&#101;&#99;&#116;&#46;&#111;&#114;&#103;][1]"
-   
+
 Fingerprint: 91e9 7d7c 4a5e 96f1 7f3e 888f 6a2f aea2 352c 64e5
-   
+
 Package : epel-release-7-11.noarch (installed)
-   
+
 From : /etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-7
   
 Running transaction check
@@ -101,25 +112,25 @@ Transaction test succeeded
 Running transaction
   
 Warning: RPMDB altered outside of yum.
-    
+
 Installing : xorgxrdp-0.2.5-3.el7.x86_64 1/3
-    
+
 Installing : 1:xrdp-0.9.5-1.el7.x86_64 2/3
-    
+
 Installing : tigervnc-server-1.8.0-2.el7_4.x86_64 3/3
-    
+
 Verifying : xorgxrdp-0.2.5-3.el7.x86_64 1/3
-    
+
 Verifying : tigervnc-server-1.8.0-2.el7_4.x86_64 2/3
-    
+
 Verifying : 1:xrdp-0.9.5-1.el7.x86_64 3/3
 
 Installed:
-    
+
 tigervnc-server.x86_64 0:1.8.0-2.el7_4 xrdp.x86_64 1:0.9.5-1.el7
 
 Dependency Installed:
-    
+
 xorgxrdp.x86_64 0:0.2.5-3.el7
 
 Complete!
@@ -200,7 +211,7 @@ xrdp安装配置方法
   
 如果是RedHat系发行版，可以到这里下载安装包
   
-xrdp依赖于pam和openssl-del，编译前需要先安装pam-devel和openssl-devel这两个包 (不同发行版的包名称有一点不同) 
+xrdp依赖于pam和openssl-del，编译前需要先安装pam-devel和openssl-devel这两个包 (不同发行版的包名称有一点不同)
   
 如果是RedHat系，设置好源直接yum install pam-devel openssl-devel
 
@@ -232,7 +243,7 @@ bitmap_compression=yes 位图压缩
   
 port=3389 监听端口
   
-crypt_level=low 加密程度 (low为40位，high为128位，medium为双40位) 
+crypt_level=low 加密程度 (low为40位，high为128位，medium为双40位)
   
 channel_code=1 不知道是什么
 

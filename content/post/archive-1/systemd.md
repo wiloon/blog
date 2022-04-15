@@ -9,8 +9,11 @@ tags:
   - reprint
 ---
 ## systemd, systemctl basic, command
+
 Systemd 是 Linux 系统中最新的初始化系统 (init），它主要的设计目标是克服 sysvinit 固有的缺点，提高系统的启动速度
-### Systemd新特性：
+
+### Systemd新特性
+
 - 系统引导时实现服务并行启动
 - 按需启动守护进程
 - 自动化的服务依赖关系管理
@@ -57,7 +60,7 @@ Environment：指定环境变量
 EnvironmentFile: 指定文件，可定义多个环境变量，按分行方式存储。
 ————————————————
 版权声明：本文为CSDN博主「Golden_Chen」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
-原文链接：https://blog.csdn.net/Golden_Chen/article/details/114689804
+原文链接：<https://blog.csdn.net/Golden_Chen/article/details/114689804>
 
 ### Environment, 环境变量
 
@@ -68,7 +71,9 @@ Environment="ANOTHER_SECRET=JP8YLOc2bsNlrGuD6LVTq7L36obpjzxd"
 ```
 
 ### systemd-analyze
+
 # 查看启动耗时
+
     $ systemd-analyze
     
     # 查看每个服务的启动耗时
@@ -80,7 +85,10 @@ Environment="ANOTHER_SECRET=JP8YLOc2bsNlrGuD6LVTq7L36obpjzxd"
     # 显示指定服务的启动流
     $ systemd-analyze critical-chain atd.service
 
+## systemd 版本
+
     systemctl --version
+
     # 生成一张启动详细信息矢量图, .svg可以用chrome打开
     sudo systemd-analyze plot > /home/wiloon/tmp/boot3.svg
 
@@ -105,6 +113,7 @@ sudo hostnamectl set-hostname new-host-name
 ```
 
 ### timedatectl
+
     # 查看当前时区设置
     $ timedatectl
 
@@ -116,6 +125,7 @@ sudo hostnamectl set-hostname new-host-name
     $ sudo timedatectl set-time HH:MM:SS
 
 ### loginctl
+
     # 列出当前session
     $ loginctl list-sessions
 
@@ -125,16 +135,22 @@ sudo hostnamectl set-hostname new-host-name
     # 列出显示指定用户的信息
     $ loginctl show-user ruanyf
 
+    ## 查看 session 类型, x or wayland
+    loginctl show-session <SESSION_ID> -p Type
+
 ### cat
+
     systemctl cat bluetooth|grep Condition
 
 ### mask
+
 ```bash
 systemctl mask service0
 systemctl unmask service0
 ```
 
 ### check the boot performance
+
 ```bash
 systemd-analyze blame
 systemctl list-timers --all
@@ -181,6 +197,7 @@ systemctl status xxx
 ```
 
 ### systemctl status
+
     Loaded行: 配置文件的位置,是否设为开机启动
     Active行: 表示正在运行
     Main PID行: 主进程ID
@@ -194,9 +211,10 @@ systemctl status service0 -l
 
 ```
 
->http://www.ruanyifeng.com/blog/2016/03/systemd-tutorial-commands.html
+><http://www.ruanyifeng.com/blog/2016/03/systemd-tutorial-commands.html>
 
 ### Unit
+
 Systemd 可以管理所有系统资源。不同的资源统称为 Unit (单位) 。
 Unit 一共分成12种。
 
@@ -214,6 +232,7 @@ Unit 一共分成12种。
     Timer Unit: 定时器
 
 ### systemctl list-units
+
     # 列出正在运行的 Unit
     $ systemctl list-units
 
@@ -259,6 +278,7 @@ Unit 一共分成12种。
     $ sudo systemctl set-property httpd.service CPUShares=500
 
 ### 依赖关系
+
  systemctl list-dependencies nginx.service
  systemctl list-dependencies --all nginx.service
 
@@ -272,7 +292,7 @@ systemctl mask和systemctl disable的区别一般很难注意到，因为我大�
 
 systemctl enable的作用
 我们知道，在系统中安装了某个服务以后，需要将该服务设置为开机自启，那么一般会执行systemctl enable xxx，这个时候会发现shell中会输出两行提示，一般类似如下：
-[root@NameNode01 system]# systemctl enable NetworkManager 
+[root@NameNode01 system]# systemctl enable NetworkManager
 Created symlink from /etc/systemd/system/multi-user.target.wants/NetworkManager.service to /usr/lib/systemd/system/NetworkManager.service.
 Created symlink from /etc/systemd/system/dbus-org.freedesktop.nm-dispatcher.service to /usr/lib/systemd/system/NetworkManager-dispatcher.service.
 Created symlink from /etc/systemd/system/network-online.target.wants/NetworkManager-wait-online.service to /usr/lib/systemd/system/NetworkManager-wait-online.service.
@@ -287,7 +307,7 @@ Removed symlink /etc/systemd/system/network-online.target.wants/NetworkManager-w
 在执行systemctl disable xxx的时候，实际只是删除了软连接，并不会产生其他影响。
 systemctl mask xxx的作用
 执行 systemctl mask xxx会屏蔽这个服务。它和systemctl disable xxx的区别在于，前者只是删除了符号链接，后者会建立一个指向/dev/null的符号链接，这样，即使有其他服务要启动被mask的服务，仍然无法执行成功。执行该命令的效果一般类似如下：
-[root@NameNode01 system]# systemctl mask NetworkManager 
+[root@NameNode01 system]# systemctl mask NetworkManager
 Created symlink from /etc/systemd/system/NetworkManager.service to /dev/null.
 systemctl mask xxx和systemctl disable xxx的区别
 在执行过mask后，如果想要启动服务，那么会报类似如下错误：
@@ -298,13 +318,13 @@ Failed to start NetworkManager.service: Unit is masked.
 如果使用了mask，要想重新启动服务，必须先执行unmask将服务取消屏蔽。mask和unmask是一对操作，用来屏蔽和取消屏蔽服务。
 ————————————————
 版权声明：本文为CSDN博主「stpice」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
-原文链接：https://blog.csdn.net/stpice/article/details/104569146
+原文链接：<https://blog.csdn.net/stpice/article/details/104569146>
 
 ---
 
-https://www.ruanyifeng.com/blog/2016/03/systemd-tutorial-part-two.html
-https://www.cnblogs.com/xingmuxin/p/11413784.html
->https://blog.csdn.net/stpice/article/details/104569146
+<https://www.ruanyifeng.com/blog/2016/03/systemd-tutorial-part-two.html>
+<https://www.cnblogs.com/xingmuxin/p/11413784.html>
+><https://blog.csdn.net/stpice/article/details/104569146>
 
 ### 配置文件
 
@@ -320,15 +340,12 @@ systemd 用户实例不会继承类似 .bashrc 中定义的环境变量。system
 提示： 如果想一次设置多个环境变量，可以写一个配置文件，文件里面每一行定义一个环境变量，用 "key=value" 的键值对表示，然后在你的启动脚本里添加xargs systemctl --user set-environment < /path/to/file.conf。
 ————————————————
 版权声明：本文为CSDN博主「Golden_Chen」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
-原文链接：https://blog.csdn.net/Golden_Chen/article/details/114689804
-
-
+原文链接：<https://blog.csdn.net/Golden_Chen/article/details/114689804>
 
 ## systemd资源控制
 
->https://www.cnblogs.com/jimbo17/p/9107052.html
->https://documentation.suse.com/zh-cn/sles/15-SP2/html/SLES-all/cha-tuning-cgroups.html
-
+><https://www.cnblogs.com/jimbo17/p/9107052.html>
+><https://documentation.suse.com/zh-cn/sles/15-SP2/html/SLES-all/cha-tuning-cgroups.html>
 
 ```bash
 systemctl set-property user.slice MemoryAccounting=yes
