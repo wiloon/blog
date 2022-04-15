@@ -14,7 +14,7 @@ tags:
 fmt.Printf("ab %d %d %d cd\n", 1, 2, 3)
 ```
 
-fmt包实现了格式化的I/O函数,这点类似Ｃ语言中的printf和scanf,但是更加简单．
+fmt包实现了格式化的I/O函数,这点类似C语言中的printf和scanf,但是更加简单．
   
 占位符: 
 
