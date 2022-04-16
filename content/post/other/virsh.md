@@ -33,6 +33,7 @@ group = "root"
 ```
 
 ## restart libvirtd
+
 ```bash
 systemctl restart libvirtd
 
@@ -53,12 +54,13 @@ virt-install \
 ```
 
 ## install vnc
+
 ```bash
 pacman -S tigervnc 
 vncviewer 10.1.10.2:1
 ```
 
-## 参数 
+## 参数
 
 ```
 --name    #虚拟机名称
@@ -77,6 +79,7 @@ vncviewer 10.1.10.2:1
 ```
 
 ## 命令
+
 ```bash
 virt-install --osinfo list
 virsh list                                  # 查看活动虚拟机状态
@@ -159,7 +162,7 @@ virsh detach-device <虚拟机名称> /etc/libvirt/qemu/test2-add.xml --persiste
 
 ```
 
->https://linux.die.net/man/1/virt-install
+><https://linux.die.net/man/1/virt-install>
 
 ### 虚拟机改名
 
@@ -171,7 +174,7 @@ virsh undefine foo
 virsh define /etc/libvirt/qemukvm_00.xml 
 ```
 
->http://www.cnblogs.com/5201351/p/4464350.html
+><http://www.cnblogs.com/5201351/p/4464350.html>
 
 ## 调整内存
 
@@ -185,7 +188,7 @@ virsh setmem vm0 16G
 
 ————————————————
 版权声明：本文为CSDN博主「tom马」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
-原文链接：https://blog.csdn.net/mshxuyi/article/details/98305715
+原文链接：<https://blog.csdn.net/mshxuyi/article/details/98305715>
 
 ## centos6
 

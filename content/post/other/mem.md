@@ -5,12 +5,13 @@ date: 2012-09-25T05:30:38+00:00
 url: /?p=4259
 categories:
   - Linux
-
 tags:
   - reprint
 ---
 ## linux 内存
+
 ## linux 查看内存
+
 ```bash
   
 free -h
@@ -38,10 +39,14 @@ ps -e -o 'pid,comm,args,pcpu,rsz,vsz,stime,user,uid' | grep oracle | sort -nrk5
 ```
 
 ### 内存映射
+
+```bash
     cat /proc/PID/maps
     cat /proc/PID/smaps
+```
 
 ### free>total 跟物理内存不一致
+
 系统启动时会初始化相关设备，该过程会占用内存，内核启动时，也会占用一部分的内存。
 
-http://www.cnblogs.com/gaojun/p/3406096.html
+<http://www.cnblogs.com/gaojun/p/3406096.html>

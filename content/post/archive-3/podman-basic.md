@@ -2,7 +2,7 @@
 title: podman basic
 author: "-"
 date: 2020-01-19T15:30:35+00:00
-url: podman
+url: container
 tags:
   - podman
   - remix
@@ -15,34 +15,43 @@ categories:
 
 ### install
 
->https://podman.io/getting-started/installation
+<https://podman.io/getting-started/installation>
 
 ### archlinux
+
 ```bash
-pacman -S podman
-# 正常情况，安装podman之后不需要重启系统, 但是如果有异常，比如 CNI 之类 的问题，可以考虑重启一下...
+pacman -S netavark aardvark-dns podman
+# 正常情况，安装 podman 之后不需要重启系统, 但是如果有异常，比如 CNI 之类 的问题，可以考虑重启一下...
 ```
 
 ### ubuntu
 
-    . /etc/os-release
-    echo "deb https://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable/xUbuntu_${VERSION_ID}/ /" | sudo tee /etc/apt/sources.list.d/devel:kubic:libcontainers:stable.list
-    curl -L https://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable/xUbuntu_${VERSION_ID}/Release.key | sudo apt-key add -
+```bash
+. /etc/os-release
+echo "deb https://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable/xUbuntu_${VERSION_ID}/ /" | sudo tee /etc/apt/sources.list.d/devel:kubic:libcontainers:stable.list
+curl -L https://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable/xUbuntu_${VERSION_ID}/Release.key | sudo apt-key add -
 
-    sudo apt-get update
-    sudo apt-get -y upgrade
-    sudo apt-get -y install podman
+sudo apt-get update
+sudo apt-get -y upgrade
+sudo apt-get -y install podman
+```
 
 ### centos
-    dnf install podman
+
+```bash
+dnf install podman
+```
 
 ### hello world
+
 测试一下podman 环境
+
 ```bash
 podman run --rm hello-world
 ```
 
 ### podman command
+
 ```bash
 podman version
 podman info --debug
@@ -66,20 +75,27 @@ podman image ls -f dangling=true
 # 删除无效镜像
 podman image prune
 ```
+
 ### 虚悬镜像(dangling image)
-为什么会有 `<none>` 这样命名的镜像？这些镜像 docker 称为 虚悬镜像，当镜像被新的镜像覆盖时候，老版本镜像名称会变成 `<none> `。
+
+为什么会有 `<none>` 这样命名的镜像？这些镜像 docker 称为 虚悬镜像，当镜像被新的镜像覆盖时候，老版本镜像名称会变成 `<none>`。
 
 ### env
+
 使用 env 命令来查看容器的环境变量
+
 ```bash
 podman run --rm hello-world env
 ```
+
 ### 查看 cpu 内存占用
+
 ```bash
 podman stats
 ```
 
 ### 配置driver
+
     vim /etc/containers/storage.conf
     [storage]
 
@@ -87,18 +103,21 @@ podman stats
     driver = "overlay2"
 
 修改driver之后 要删除 文件 sudo rm -rf ~/.local/share/containers/, 否则会报错: User-selected graph driver "overlay2" overwritten by graph driver "overlay" from database - delete libpod local files to resolve
->https://github.com/containers/podman/issues/5114
+><https://github.com/containers/podman/issues/5114>
 
 ## logs
+
     podman logs --since 1m -f conter_id_0
     podman logs --latest
 
 ### registry config, mirror
+
 配置文件有两种版本格式，v1和v2，两种格式的配置不能混用，混用会提示错误。
 
 vim /etc/containers/registries.conf
 
-#### v2 
+#### v2
+
 ```
 # 例：使用 podman pull registry.access.redhat.com/ubi8-minimal 时，
 # 仅仅会从registry.access.redhat.com去获取镜像。
@@ -124,7 +143,8 @@ location = "docker.mirrors.ustc.edu.cn"
 [[registry.mirror]]
 location = "registry.docker-cn.com"
 ```
->https://blog.csdn.net/leave00608/article/details/114156354
+
+><https://blog.csdn.net/leave00608/article/details/114156354>
 
 ```
 [registries.search]
@@ -145,7 +165,9 @@ location = "******.mirror.aliyuncs.com"
 prefix = "docker.io"
 location = "docker-registries.wiloon.com"
 ```
+
 #### 另外一种配置文件
+
     unqualified-search-registries = ["docker.io"]
     [[registry]]
     prefix = "docker.io"
@@ -226,7 +248,9 @@ podman volume rm volume0
 ```
 
 ## pod
+
 ### podman pod
+
     podman pod --help
     podman pod create --help
     podman pod ps
@@ -236,25 +260,23 @@ podman volume rm volume0
     # 使用pod, 端口映射要配置到pod上，pod内的容器不配端口
 
 #### 创建容器并加入pod
+
     podman run -d --pod pod_name_0 influxdb
 
-
-
-https://www.hangge.com/blog/cache/detail_2475.html
+<https://www.hangge.com/blog/cache/detail_2475.html>
   
-https://www.mankier.com/1/podman-unshare
+<https://www.mankier.com/1/podman-unshare>
   
-https://opensource.com/article/19/2/how-does-rootless-podman-work
+<https://opensource.com/article/19/2/how-does-rootless-podman-work>
   
-https://www.mankier.com/1/podman-generate-systemd
-https://computingforgeeks.com/how-to-install-epel-repository-on-rhel-8-centos-8/"
-https://computingforgeeks.com/how-to-install-epel-repository-on-rhel-8-centos-8/embed/#?secret=Vw63QL1LVb"
-https://computingforgeeks.com/how-to-install-and-use-podman-on-centos-rhel/"
-https://computingforgeeks.com/how-to-install-and-use-podman-on-centos-rhel/embed/#?secret=kP3lpS51yS"
+<https://www.mankier.com/1/podman-generate-systemd>
+<https://computingforgeeks.com/how-to-install-epel-repository-on-rhel-8-centos-8/>"
+<https://computingforgeeks.com/how-to-install-epel-repository-on-rhel-8-centos-8/embed/#?secret=Vw63QL1LVb>"
+<https://computingforgeeks.com/how-to-install-and-use-podman-on-centos-rhel/>"
+<https://computingforgeeks.com/how-to-install-and-use-podman-on-centos-rhel/embed/#?secret=kP3lpS51yS>"
 
-
-    
 ### rootless
+
 ```bash
 pacman  -S crun
 usr/share/containers/libpod.conf -- runtime="crun"
@@ -268,7 +290,7 @@ getcap /usr/bin/newgidmap
 ```
 
 ### macvlan
-https://ctimbai.github.io/2019/04/14/tech/docker-macvlan/
+<https://ctimbai.github.io/2019/04/14/tech/docker-macvlan/>
 
 ```bash
 # docker network create -d macvlan --subnet=172.16.10.0/24 --gateway=172.16.10.1 -o parent=enp0s8 mac1
@@ -284,44 +306,49 @@ podman network create \
  cat /etc/cni/net.d/mac1.conflist
 ```
 
-在 host1 运行容器 c1，并指定使用 macvlan 网络: 
+在 host1 运行容器 c1，并指定使用 macvlan 网络:
+
 ```bash
 podman run -itd --name c1 --ip=192.168.50.99 --network mac1 busybox
 ```
 
-https://stackoverflow.com/questions/59515026/how-do-i-replicate-a-docker-macvlan-network-with-podman
+<https://stackoverflow.com/questions/59515026/how-do-i-replicate-a-docker-macvlan-network-with-podman>
 
-### podman 
-http://docs.podman.io/en/latest/
+### podman
+<http://docs.podman.io/en/latest/>
 
 ### VFS , fuse-overlayfs
+
 Our first recommendation in these cases is usually to avoid using VFS, and instead use fuse-overlayfs.
 
 ### image, images
+
     podman images -a
     podman image prune
     podman image rm image-id-0
-    
+
 ---
 
-https://github.com/containernetworking/plugins
+<https://github.com/containernetworking/plugins>
 
+### other
 
-### other 
     podman unshare cat /proc/self/uid_map
     unshare -U
 
-
 ### reset, 执行工厂重置
+
     podman system reset
 
 ### podman history, 查看构建命令
+
     podman history image0
 
 ### filter
+
     podman ps -a -f "status=exited"
 
->https://docs.podman.io/en/latest/markdown/podman-ps.1.html
+><https://docs.podman.io/en/latest/markdown/podman-ps.1.html>
 
 ## 导出镜像
 
@@ -335,4 +362,4 @@ Netavark 是一个 用 rust 实现的 配置 linux 容器网络的工具。
 
 In addition to the existing CNI Out of the stack ,Podman Now it also supports based on  Netavark  and  Aardvark New network stack . The new stack features improved support for containers in multiple networks 、 improvement IPv6 Support , And improve performance . To ensure that there is no impact on existing users , used CNI The stack will keep the default value of the existing installation , The new installation will use Netvark.
 
->https://github.com/containers/netavark
+><https://github.com/containers/netavark>

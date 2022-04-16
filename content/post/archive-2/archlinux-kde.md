@@ -62,7 +62,19 @@ text: Qt.formatDate(timeSource.data["Local"]["DateTime"], "yyyy-MM-dd");
 按Ctrl + Alt + L锁定屏幕并立即查看更改。
  ```
 
- ### kde 配置
- #### 多显示器
+### kde 配置
+
+#### 多显示器
+
  Right-click on the background of the second screen -> Add Panel -> Empty Panel 
  add widgets: task manager
+
+## Arch Linux, KDE, Wayland
+
+```bash
+pacman -S plasma-desktop plasma-wayland-session
+dbus-run-session startplasma-wayland
+```
+
+## wayland rdp
+

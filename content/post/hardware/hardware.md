@@ -22,11 +22,11 @@ Qualcomm® Snapdragon™ 845, 2.5Ghz + 1.6Ghz，64 位八核
 内存, 4GB LPDDR4x RAM
 2915 毫安时的电池
 
-### esim
+### eSIM
 
 <https://support.google.com/pixelphone/answer/9449293?hl=zh-Hans>
 
-## Sharp
+## Sharp TV
 
 3840*2160
 
@@ -71,11 +71,11 @@ Real, DivX HD
 
 ## Back-UPS Pro 550
 
-## Dell wyse 5070
+## Dell Wyse 5070
 
 Intel® Celeron® J4105 Processor (4M Cache, up to 2.50 GHz), TDP 10 W
-威刚(ADATA) 120GB SSD固态硬盘 M.2接口(SATA协议) SP580M2系列
-金士顿(Kingston) DDR4 2666 8GB 笔记本内存条 骇客神条 Impact系列
+威刚(ADATA) 120GB SSD固态硬盘 M.2接口(SATA协议) SP580M2 系列
+金士顿(Kingston) DDR4 2666 8GB 笔记本内存条 骇客神条 Impact系列 * 2
 
 ## PC
 
@@ -120,9 +120,11 @@ wifi: Intel Corporation Wireless 7260 (rev 5b)
 
 <https://www.intel.com/content/www/us/en/products/boards-kits/nuc/kits/nuc8i5beh.html>
 
-    i5-8259U 
-    Intel® Iris® Plus Graphics 655
-    Memory Types DDR4-2400 1.2V SO-DIMM
+- i5-8259U
+- Intel® Iris® Plus Graphics 655
+- Memory Types DDR4-2400 1.2V SO-DIMM
+- LAN: 1C-69-7A-A2-7A-96
+- WLAN: 18-CC-18-C5-C2-77
 
 ### nuc8i5beh 显示输出
 
@@ -143,7 +145,7 @@ wifi: Intel Corporation Wireless 7260 (rev 5b)
 - cpu: Intel(R) Atom(TM) x5-Z8300 CPU @ 1.44GHz  
 - mac: 00:21:5C:D5:FB:9C
 
-## board
+## R board
 
     cpu: Intel(R) Celeron(R) CPU 1037U @ 1.80GHz
     MEM: DDR3
@@ -181,14 +183,14 @@ Bluetooth 4.0
 
 Intel HD Graphics 4400 (shared memory)
 
-### WNDR4300 v1
+## WNDR4300 v1
 
     WNDR4300  
     Flash容量: 128 MiB NAND  
     RAM: 128 MiB  
     mips, not mipsle  
 
-### Raspberry Pi 3 Model B+
+## Raspberry Pi 3 Model B+
 
 Broadcom BCM2837B0, Cortex-A53 (ARMv8) 64-bit SoC @ 1.4GHz
   
@@ -216,9 +218,9 @@ Micro SD port for loading your operating system and storing data
   
 Power-over-Ethernet (PoE) support (requires separate PoE HAT)
 
-### 斐讯 TC1
+## 斐讯 TC1
 
-### Ruckus R310, 优科
+## Ruckus R310, 优科
 
 Wi-Fi 标准
 IEEE 802.11a/b/g/n/ac
@@ -255,3 +257,11 @@ WISPr
 屏幕: 分辨率为1448×1072，像素度也达到了300ppi
 飞思卡尔半导体 MCIMX6L8DVN10AB 处理器
 三星 512 MB SDRAM
+
+## 软路由
+
+- J4105
+- intel i211
+- DDR4 16G
+- MSATA
+- BIOS F2

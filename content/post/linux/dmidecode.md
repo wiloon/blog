@@ -10,25 +10,23 @@ tags:
   - reprint
 ---
 ## 'Dmidecode,在 Linux 下获取硬件信息'
+
 <http://linuxtoy.org/archives/dmidecode.html>
 
-Dmidecode 应该在主流的 Linux 发行版中都可以找到，因此你只需通过所用发行版的包管理器安装即可，如: 
+Dmidecode 应该在主流的 Linux 发行版中都可以找到，因此你只需通过所用发行版的包管理器安装即可，如:
 
 ```bash
-  
-aptitude install dmidecode # Debian/Ubuntu
-  
-yum install dmidecode # Fedora
-  
 pacman -S dmidecode # Arch Linux
-  
 emerge -av dmidecode # Gentoo
-  
+aptitude install dmidecode # Debian/Ubuntu
+yum install dmidecode # Fedora
 ```
 
-不带选项执行 `dmidecode` 通常会输出所有的硬件信息，以下是在笔者机器上执行 dmidecode 后所得到的结果 (部分) : 
+不带选项执行 `dmidecode` 通常会输出所有的硬件信息，以下是在笔者机器上执行 dmidecode 后所得到的结果 (部分) :
 
+```bash
 # dmidecode 2.10
+
 SMBIOS 2.3 present.
 26 structures occupying 1285 bytes.
 Table at 0x000FC010.
@@ -41,15 +39,20 @@ BIOS Information
         Address: 0xF0000
         Runtime Size: 64 kB
         ROM Size: 512 kB
-...
+        ...
+```
 
 Dmidecode 有个很有用的选项 -t，可以按指定类型输出相关信息，假如要获得处理器方面的信息，则可以执行
 
+```bash
     dmidecode -t processor 
+```
 
-输出: 
+输出:
 
+```bash
 # dmidecode 2.10
+
 SMBIOS 2.3 present.
 
 Handle 0x0004, DMI type 4, 35 bytes
@@ -72,5 +75,17 @@ Processor Information
         Serial Number: To Be Filled By O.E.M.
         Asset Tag: To Be Filled By O.E.M.
         Part Number: To Be Filled By O.E.M.
+```
 
 关于 Dmidecode 的更多用法，你可以通过指定 -h 选项查询。
+
+## 查看 内存 个数, list memory slot
+
+```bash
+dmidecode|grep -P -A5 "Memory\s+Device"|grep Size|grep -v Range
+
+```
+
+<https://blog.csdn.net/yongqingcloud/article/details/8489710>
+
+<https://blog.csdn.net/BeautyGao/article/details/51538650>

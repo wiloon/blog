@@ -32,7 +32,7 @@ sudo pacman -S powerdevil kmix kscreen ark
 | name                  | comments                                                                                |
 | :-------------------- | :-------------------------------------------------------------------------------------- |
 | flameshot             | 截图工具,screenshot                                                                     |
-| ncdu                  | 磁盘空间清理                                                                              |
+| ncdu                  | 磁盘空间占用分析/清理                                                                              |
 | netdata               | 系统资源监控                                                                            |
 | qalculate-gtk         | 全宇宙最好用的计算器                                                                    |
 | neofetch              | 系统信息显示命令行脚本,Neofetch 和 ScreenFetch 或者 Linux_Logo 很像，但是它可以高度定制          |
@@ -114,6 +114,7 @@ sudo pacman -S powerdevil kmix kscreen ark
 
 | name                                  | comments                                                       |
 | :------------------------------------ | :------------------------------------------------------------- |
+|intellij-idea-ultimate-edition |yay -S intellij-idea-ultimate-edition intellij-idea-ultimate-edition-jre|
 | telegraf-bin                          |                                                                |
 | goland                                | yay -S goland goland-jre, 两个一起安装                         |
 | webstorm-jre                          | yay -S webstorm webstorm-jre                                   |

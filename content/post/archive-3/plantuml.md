@@ -5,7 +5,6 @@ date: 2020-01-26T04:41:00+00:00
 url: plantuml
 categories:
   - uml
-
 tags:
   - reprint
 ---
@@ -13,9 +12,11 @@ tags:
 
 ### 安装 graphviz
 
-    sudo apt-get install -y graphviz
+```bash
+sudo apt-get install -y graphviz
+```
 
->https://graphviz.org/download/
+<https://graphviz.org/download/>
 
 VS-Code扩展
 
@@ -72,13 +73,17 @@ end note
 ```
 
 ### vs code渲染uml的快捷键
-    alt+d
 
-https://www.jianshu.com/p/ed0e979657f4
+```bash
+alt+d
+```
+
+<https://www.jianshu.com/p/ed0e979657f4>
 
 theme: plain,sandstone,sketchy-outline
 
 ### 活动图
+
 ```puml
 @startuml
 !theme plain
@@ -96,6 +101,7 @@ stop
 ```
 
 ### 类图
+
 ```puml
 @startuml
 skinparam classFontColor red
@@ -132,15 +138,18 @@ skinparam stereotypeCBackgroundColor YellowGreen
 Class101 <|.. Class102
 @enduml
 ```
+
 ### 线路径
+
 添加隐藏行a -[hidden]- b
-延长线a --- b的长度 (更多破折号，更长的线) 
-指定行的首选方向 (a -left- b) 
-交换关联结束 (a -- b→b -- a) 
-更改定义的顺序 (订单 重要......有时候) 
+延长线a --- b的长度 (更多破折号，更长的线)
+指定行的首选方向 (a -left- b)
+交换关联结束 (a -- b→b -- a)
+更改定义的顺序 (订单 重要......有时候)
 添加空白节点，背景/边框颜色设置为透明
 
 ### 部署图
+
 ```puml
 @startuml
 circle 1
@@ -156,6 +165,7 @@ agent 4
 ```
 
 ### 时序图, Sequence Diagram
+
 ```puml
 @startuml
 Alice -> Bob: Authentication Request
@@ -167,17 +177,19 @@ Alice ->> Bob: async msg
 @enduml
 ```
 
-
-
 ### plantuml server
+
 ```bash
 podman run -d \
 --name plantuml-server \
--p 30001:8080 plantuml/plantuml-server:jetty-v1.2021.12
+-p 30001:8080 plantuml/plantuml-server:jetty-v1.2022.4
 ```
+
 ### 定义组件的相对位置
+
 一种典型的方法是将一行标记为隐藏(hidden)
 hidden只支持从左到右`->`和从上到下的 `-->` 行,因此您需要相应地放置左侧和右侧(X <[hidden]- Y似乎不支持语法).
+
 ```plantuml
 @startuml
 component JMM {
@@ -193,4 +205,5 @@ component JMM {
 }
 @enduml
 ```
->https://github.com/plantuml/plantuml-server
+
+><https://github.com/plantuml/plantuml-server>

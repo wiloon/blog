@@ -96,11 +96,9 @@ markdown 语法检查
 
     code --install-extension jsynowiec.vscode-insertdatestring-2.3.1.vsix
 
-### Settings Sync
+### 配置同步, Plugin Name: Settings Sync
 
-配置同步
-
-File> Preference> Settings Sync
+- 同步配置：shift + alt + u
 
 ### Markdown Preview Github Styling
 

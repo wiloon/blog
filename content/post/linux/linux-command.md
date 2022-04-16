@@ -165,10 +165,6 @@ pacman -S scrot
 scrot -s rectangle.png
 <https://wiki.archlinux.org/index.php/Taking_a_screenshot_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87>)
 
-### list memory slot
-<https://blog.csdn.net/yongqingcloud/article/details/8489710>
-
-    sudo dmidecode|grep -P -A5 "Memory\s+Device"|grep Size|grep -v Range
 
 ### delete folder
 

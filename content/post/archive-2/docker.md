@@ -130,6 +130,7 @@ docker stats
 <https://www.cnblogs.com/sparkdev/p/7821376.html>
 
 ### logs
+
 ```bash
 docker logs --since 10s -f influxdb
 ```
@@ -264,6 +265,7 @@ docker network create -d bridge my-net
 ```
 
 ### macvlan, --net, --ip
+
     docker run \
     --name memcache \
     -d \
@@ -278,7 +280,7 @@ default volumn path /var/lib/docker/volumes/
 
 ---
 
->https://segmentfault.com/a/1190000012063374
->https://www.cnblogs.com/sparkdev/p/8052522.html
->https://colobu.com/2018/05/15/Stop-and-remove-all-docker-containers-and-images/
->https://cizixs.com/2017/08/04/docker-resources-limit/
+><https://segmentfault.com/a/1190000012063374>
+><https://www.cnblogs.com/sparkdev/p/8052522.html>
+><https://colobu.com/2018/05/15/Stop-and-remove-all-docker-containers-and-images/>
+><https://cizixs.com/2017/08/04/docker-resources-limit/>

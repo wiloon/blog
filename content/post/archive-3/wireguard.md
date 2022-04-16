@@ -117,7 +117,7 @@ ip route add fd7b:d0bd:7a6e::/64 dev wg0
 
 ### remove peer
 
-    wg set wg0 peer PEER_A_PUBLIC_KEY remove  
+    wg set wg0 peer PEER_A_PUBLIC_KEY remove
 
 ### 配置文件
 
