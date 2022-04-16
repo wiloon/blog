@@ -4,8 +4,7 @@ author: "-"
 date: 2012-08-25T11:40:04+00:00
 url: license
 categories:
-  - open-souce
-
+  - CS
 tags:
   - reprint
 ---

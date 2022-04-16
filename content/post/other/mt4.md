@@ -4,7 +4,7 @@ author: "-"
 date: 2012-05-17T23:21:50+00:00
 url: /?p=3151
 categories:
-  - Finance
+  - Inbox
 tags:
   - MT4
 

@@ -3,9 +3,8 @@ title: gnome keyring
 author: "-"
 date: 2019-11-05T00:27:44+00:00
 url: /?p=15111
-
 categories:
-  - inbox
+  - Linux
 tags:
   - reprint
 ---

@@ -4,9 +4,10 @@ author: "-"
 date: 2015-10-12T10:32:47+00:00
 url: lvm
 categories:
-  - LVM
+  - filesystem
 tags:
   - reprint
+  - LVM
 ---
 ## LVM
 

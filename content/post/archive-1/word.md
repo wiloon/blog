@@ -4,8 +4,7 @@ author: "-"
 date: 2012-12-12T03:25:17+00:00
 url: word
 categories:
-  - office
-
+  - Inbox
 tags:
   - reprint
 ---

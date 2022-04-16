@@ -4,7 +4,7 @@ author: "-"
 date: 2012-04-08T04:27:11+00:00
 url: regex
 categories:
-  - cs
+  - regex
 tags:
   - reprint
 ---

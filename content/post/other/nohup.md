@@ -4,8 +4,7 @@ author: "-"
 date: 2011-10-08T02:39:02+00:00
 url: nohup
 categories:
-  - Linux
-
+  - shell
 tags:
   - reprint
 ---

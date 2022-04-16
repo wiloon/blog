@@ -3,13 +3,14 @@ title: openvpn
 author: "-"
 date: 2017-02-17T00:23:48+00:00
 url: openvpn
+categories:
+  - network
 tags:
   - VPN
 
-categories:
-  - inbox
 ---
 ## openvpn
+
 ### VPN, Virtual Private Network, 虚拟专用网络
 
 OpenVPN 是一个基于 OpenSSL 库的应用层 VPN 实现, 最早由James Yonan编写
@@ -33,7 +34,6 @@ OpenVPN提供了多种身份验证方式,
   
 OpenVPN所有的通信都基于一个单一的IP端口,默认且推荐使用UDP协议通讯,同时TCP也被支持。OpenVPN连接能通过大多数的代理服务器,并且能够在NAT的环境中很好地工作。服务端具有向客户端"推送"某些网络配置信息的功能,这些信息包括: IP地址、路由设置等。OpenVPN提供了两种虚拟网络接口: 通用Tun/Tap驱动,通过它们,可以建立三层IP隧道,或者虚拟二层以太网,后者可以传送任何类型的二层以太网络数据。传送的数据可通过LZO算法压缩。IANA (Internet Assigned Numbers Authority) 指定给OpenVPN的官方端口为1194。OpenVPN 2.0以后版本每个进程可以同时管理数个并发的隧道。[1]
   
-
 OpenVPN使用通用网络协议 (TCP与UDP) 的特点使它成为IPsec等协议的理想替代,尤其是在ISP (Internet service provider) 过滤某些特定VPN协议的情况下。[1]
   
 在选择协议时候,需要注意2个加密隧道之间的网络状况,如有高延迟或者丢包较多的情况下,请选择TCP协议作为底层协议,UDP协议由于存在无连接和重传机制,导致要隧道上层的协议进行重传,效率非常低下。[1]
@@ -45,6 +45,7 @@ OpenVPN与生俱来便具备了许多安全特性: 它在用户空间运行,无�
 OpenVPN通过PKCS#11支持硬件加密标识,如智能卡。
 
 ### install
+
 ```bash
 #install
 sudo pacman -S openvpn
@@ -52,10 +53,13 @@ apt-get install openvpn
 ```
 
 ### server
+
 #### create keys
+
     pacman -S easy-rsa
 
 #### use Elliptic curve instead of RSA
+
     # append line to /etc/easy-rsa/vars
     set_var EASYRSA_ALGO ec
     set_var EASYRSA_CURVE secp521r1
@@ -63,6 +67,7 @@ apt-get install openvpn
     set_var EASYRSA_NS_SUPPORT "yes"
 
 #### easy-rsa
+
     cd /etc/easy-rsa
     export EASYRSA=$(pwd)
     export EASYRSA_VARS_FILE=/etc/easy-rsa/vars
@@ -95,12 +100,15 @@ apt-get install openvpn
     chown root:openvpn /etc/openvpn/server/servername.crt
 
 ### client
+
     pacman -S easy-rsa
 
 #### use Elliptic curve instead of RSA
+
     ...
 
 #### easy-rsa
+
     cd /etc/easy-rsa
     export EASYRSA=$(pwd)
     export EASYRSA_VARS_FILE=/etc/easy-rsa/vars
@@ -117,12 +125,17 @@ apt-get install openvpn
     # easyrsa sign-req client client1
 
 ### config
+
 “＃”前缀是指定的注释标签。openvpn网站上的示例广泛使用'＃'注释。另外,分号 ';' 用于注释掉单行或单项。
+
 ### sample
+
     /usr/share/openvpn/examples/server.conf
     cp /usr/share/openvpn/examples/server.conf /etc/openvpn/server/pingd.conf
     # 服端配置文件名跟systemd 启动命令里的服务名要一致
+
 ### server
+
 ```bash
 # local 服务端监听的ip地址, 默认0.0.0.0
 local 0.0.0.0
@@ -268,16 +281,18 @@ redirect-gateway def1 #使客户端中所有流量经过VPN
 ```
 
 ### start server
+
     chown openvpn:openvpn /etc/openvpn/server/*.*
     openvpn /etc/openvpn/server/pingd.conf
     systemctl start openvpn-server@pingd.service
 
-### start client 
+### start client
+
     openvpn /etc/openvpn/server/client.conf
 
-
 ### OpenVPN 合并证书到配置文件中
-删除或者注释以下几行内容: 
+
+删除或者注释以下几行内容:
 ca ca.crt改为: #ca ca.crt
 cert client.crt改为: #cert client.crt
 key client.key改为: #key client.key
@@ -299,15 +314,15 @@ tls-auth ta.key 1改为: #tls-auth ta.key 1
     </tls-auth>
 
 ### server端配置转发
+
     url: ip-forward
     
     iptables -t nat -A POSTROUTING -o wlp1s0 -j MASQUERADE
 
 ---
 
->https://wiki.archlinux.org/title/Easy-RSA  
-https://wiki.archlinux.org/index.php/OpenVPN  
-https://baike.baidu.com/item/OpenVPN/10718662?fr=aladdin  
+><https://wiki.archlinux.org/title/Easy-RSA>  
+<https://wiki.archlinux.org/index.php/OpenVPN>  
+<https://baike.baidu.com/item/OpenVPN/10718662?fr=aladdin>  
 
-https://www.xiaobo.li/notes/archives/1151
-
+<https://www.xiaobo.li/notes/archives/1151>

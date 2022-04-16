@@ -10,7 +10,9 @@ tags:
 
 ---
 ## bash
+
 ### bash -c
+
 用法:bash -c "cmd string"
 通常使用shell去运行脚本，两种方法 bash xxx.sh，另外一种就是bash -c "cmd string"
 对于bash xxx.sh, 首先bash 会在当前目录去寻找xxx.sh，如果找到，就直接运行，找不到则按照环境变量$PATH的指定路径，按顺序去找，如果找到，则执行，找不到则报错。
@@ -42,18 +44,17 @@ world
 $BASH_ARGV 参数数组
 $BASH_ARGC 参数数组的长度
 我们可以在bash中直接使用，但是这些都是bash特有的，具体参见：
-https://www.gnu.org/software/bash/manual/html_node/Bash-Variables.html
+<https://www.gnu.org/software/bash/manual/html_node/Bash-Variables.html>
 
 ### shopt
+
 在 Bash 中，有两个内置命令用来控制 Bash 的各种可配置行为的开关 (打开或关闭），这些开关称之为选项 (option）。其中一个命令是 set，set 命令有三种功能：显示所有的变量和函数；修改 Bash 的位置参数；控制 Bash 的第一套选项。可见 set 命令完全违背了“一个命令只干一件事”的 UNIX 哲学。另外一个命令是 shopt，从名字 (shell options 的缩写）就可以看出，它的功能是控制 Bash 的另一套选项。
 
 shopt 也可以控制 set 的选项
 
->https://www.cnblogs.com/ziyunfei/p/4913758.html
-
-
+><https://www.cnblogs.com/ziyunfei/p/4913758.html>
 
 作者：llicety
-链接：https://www.jianshu.com/p/198d819d24d1
+链接：<https://www.jianshu.com/p/198d819d24d1>
 来源：简书
 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。

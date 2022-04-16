@@ -4,8 +4,7 @@ author: "-"
 date: 2013-07-27T06:54:08+00:00
 url: /?p=5708
 categories:
-  - Uncategorized
-
+  - Java
 tags:
   - reprint
 ---

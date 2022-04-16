@@ -4,8 +4,7 @@ author: "-"
 date: 2019-07-13T08:00:44+00:00
 url: /?p=14679
 categories:
-  - Uncategorized
-
+  - Raspberry-Pi
 tags:
   - reprint
 ---

@@ -4,8 +4,7 @@ author: "-"
 date: 2015-09-17T01:22:10+00:00
 url: command/text
 categories:
-  - command
-
+  - Linux
 tags:
   - reprint
 ---

@@ -4,8 +4,7 @@ author: "-"
 date: 2011-08-27T13:06:15+00:00
 url: /?p=592
 categories:
-  - Linux
-
+  - Editor
 tags:
   - reprint
 ---

@@ -2,9 +2,8 @@
 author: "-"
 date: "2020-06-27T04:11:36Z"
 title: "chrome basic"
-
 categories:
-  - inbox
+  - chrome
 tags:
   - reprint
 ---

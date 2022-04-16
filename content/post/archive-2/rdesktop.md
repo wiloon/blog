@@ -4,7 +4,7 @@ author: "-"
 date: 2016-10-18T08:23:01+00:00
 url: rdesktop
 categories:
-  - desktop
+  - Desktop
 tags:
   - reprint
 
@@ -71,7 +71,6 @@ rdesktop 是UNIX 和Linux 系统的一个远程桌面连接软件，它通过Mic
 
 rdesktop 的使用很简单，可通过#rdesktop-h得到使用的帮助。一般常用的登录命令为: 
 
-
 其中 "g 1024×768"设置分辨率为1024×768，"d 24"设置真彩24 位，hostname为 Windows 机器的主机名或者IP 地址。在输入了Windows XP的用户名和密码后，就可以登录并操作远程的Windows系统.
 
 ## freerdp
@@ -81,3 +80,10 @@ pacman -S freerdp
 xfreerdp /u:"user0" /v:192.168.50.182:3389
 xfreerdp /v:192.168.50.9:3389 /u:"wiloon" /p:haCahpro /size:1680x1024  +clipboard
 ```
+
+## freerdp-shadow-cli
+
+```bash
+freerdp-shadow-cli -auth /port:12345
+```
+<https://www.mankier.com/1/freerdp-shadow-cli#>

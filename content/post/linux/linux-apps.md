@@ -1,6 +1,6 @@
 ---
 title: linux apps
-author: "-"
+author: "w10n"
 date: 2022-04-04 17:43:03
 url: linux/apps
 categories:
@@ -86,7 +86,6 @@ sudo pacman -S powerdevil kmix kscreen ark
 | pycharm               |                                                                      |
 |cmake||
 |linux-lts|lts 内核|
-
 |filelight|图形化的磁盘空间管理工具|
 |okular|pdf reader|
 |audacity|一款免费的音频处理软件。它是在linux下发展起来的，一款遵循GNU协议的免费软件。有着傻瓜式的操作界面和专业的音频处理效果。|
@@ -120,7 +119,7 @@ sudo pacman -S powerdevil kmix kscreen ark
 | webstorm-jre                          | yay -S webstorm webstorm-jre                                   |
 | clion                                 | yay -S clion clion-jre                                         |
 | google-chrome                         |                                                                |
-| deepin-wine-wechat                    | 微信,https://github.com/countstarlight/deepin-wine-wechat-arch |
+| deepin-wine-wechat                    | 微信,<https://github.com/countstarlight/deepin-wine-wechat-arch> |
 | google-chrome-beta                    |                                                                |
 | redis-desktop-manager                 | rdm                                                            |
 | wps-office                            | 依赖                                                           |

@@ -4,9 +4,9 @@ author: "-"
 date: 2015-01-14T09:32:00+00:00
 url: zookeeper
 categories:
-  - zookeeper
+  - middleware
 tags:
-  - zookeeper
+  - middleware
 ---
 ## zookeeper
 

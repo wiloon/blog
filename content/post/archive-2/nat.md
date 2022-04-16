@@ -4,9 +4,10 @@ author: "-"
 date: 2016-01-24T14:16:47+00:00
 url: /?p=8704
 categories:
-  - nat
+  - Network
 tags:
   - reprint
+  - nat
 ---
 ## nat, napt,snat,dnat
 
@@ -80,3 +81,12 @@ http://blog.sina.com.cn/s/blog_5a1d98bc0100zk0h.html
 http://lustlost.blog.51cto.com/2600869/943110
   
 http://blog.csdn.net/hzhsan/article/details/45038265
+
+## 局域网保留地址
+
+- 10.0.0.0/8
+- 100.64.0.0/10
+- 172.16.0.0/12
+- 192.0.0.0/24
+
+<https://www.iana.org/assignments/iana-ipv4-special-registry/iana-ipv4-special-registry.xhtml>

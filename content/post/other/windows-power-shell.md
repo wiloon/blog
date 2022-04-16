@@ -5,17 +5,18 @@ date: 2012-03-12T04:28:25+00:00
 url: /?p=2534
 categories:
   - Windows
-
 tags:
   - reprint
 ---
 ## Windows Power Shell
+
 ### 查看 power shell 版本
+
     $PSVersionTable
 
 ### install
+
     https://github.com/PowerShell/PowerShell/releases
-    
 
 ```bash
 
@@ -23,7 +24,7 @@ Set-Aliasll dir
 
 ```
 
-http://marui.blog.51cto.com/1034148/290067/
+<http://marui.blog.51cto.com/1034148/290067/>
 
 Windows PowerShell 是一种命令行外壳程序和脚本环境，使命令行用户和脚本编写者可以利用 .NET Framework 的强大功能。它引入了许多非常有用的新概念，从而进一步扩展了您在 Windows 命令提示符和 Windows Script Host 环境中获得的知识和创建的脚本。
 
@@ -49,11 +50,11 @@ Windows PowerShell 入门主要面向之前没有 Windows PowerShell 背景知�
   
 可发现特性
   
-您可轻易发现 Windows Powershell 的功能。例如，若要查找用于查看和更改 Windows 服务的 cmdlet 列表，请键入: 
+您可轻易发现 Windows Powershell 的功能。例如，若要查找用于查看和更改 Windows 服务的 cmdlet 列表，请键入:
   
 get-command *-service
   
-在发现可完成任务的 cmdlet 之后，可以使用 Get-Help cmdlet 了解有关该 cmdlet 的详细信息。例如，若要显示有关 Get-Service cmdlet 的帮助，请键入: 
+在发现可完成任务的 cmdlet 之后，可以使用 Get-Help cmdlet 了解有关该 cmdlet 的详细信息。例如，若要显示有关 Get-Service cmdlet 的帮助，请键入:
   
 get-help get-service
   
@@ -89,7 +90,7 @@ Windows PowerShell 将交互式环境和脚本环境组合在一起，从而允�
   
 使用Set-Location和Get-ChildItem浏览数据 Set-Location用于改变当前目录，以及选择当前的provider，而Get-ChildItem用于获取当前目录或者指定目录下的子对象:  例子:  set-location hkcu:software get-childitem 例子2:  GCI -path HKLM:software
   
-有两种连接WMI服务的方法: l 使用Get-WmiObject可以很容易地连接到WMI服务，并且获取WMI对象。 l 使用一个COM对象，"WbemScripting.SWbemLocator"，可以连接WMI的服务。SWbemLocator对象只有一个方法，就是ConnectServer()。该方法接受5个参数: 用户名，密码，语言代码，验证方法 (Kerberos, NTLM等) ，标志 (超时值) 。下例中，我们使用New-Object命令，创建了一个"WbemScripting.SWbemLocator"的实例。然后用这个实例的ConnectServer方法连接了到了一个WMI的名字空间 (rootcimv2) ，ConnectServer方法返回了一个WMIService对象，接着又用这个对象的subClassesOf () 方法，返回了一系列WMI的CLASS:  $strComputer = "." $wmiNS = "rootcimv2" $strUsr ="" #Blank for current security. DomainUsername $strPWD = "" #Blank for current security. $strLocl = "MS_409" #US English. Can leave blank for current language $strAuth = "" #if specify domain in strUsr this must be blank $iFlag = "0" #only two values allowed: 0 and 128. $objLocator = New-Object -comobject "WbemScripting.SWbemLocator" $objWMIService = $objLocator.ConnectServer($strComputer, \` $wmiNS, $strUsr, $strPWD, $strLocl, $strAuth, $iFLag) $colItems = $objWMIService.subClassesOf() Write-Host "There are: " $colItems.count " classes in $wmiNS" foreach ($objItem In $colItems) { $objItem.path_.class }新脚本语言由于以下原因，Windows PowerShell 使用它自己的语言，而不是重用现有的语言: 
+有两种连接WMI服务的方法: l 使用Get-WmiObject可以很容易地连接到WMI服务，并且获取WMI对象。 l 使用一个COM对象，"WbemScripting.SWbemLocator"，可以连接WMI的服务。SWbemLocator对象只有一个方法，就是ConnectServer()。该方法接受5个参数: 用户名，密码，语言代码，验证方法 (Kerberos, NTLM等) ，标志 (超时值) 。下例中，我们使用New-Object命令，创建了一个"WbemScripting.SWbemLocator"的实例。然后用这个实例的ConnectServer方法连接了到了一个WMI的名字空间 (rootcimv2) ，ConnectServer方法返回了一个WMIService对象，接着又用这个对象的subClassesOf () 方法，返回了一系列WMI的CLASS:  $strComputer = "." $wmiNS = "rootcimv2" $strUsr ="" #Blank for current security. DomainUsername $strPWD = "" #Blank for current security. $strLocl = "MS_409" #US English. Can leave blank for current language $strAuth = "" #if specify domain in strUsr this must be blank $iFlag = "0" #only two values allowed: 0 and 128. $objLocator = New-Object -comobject "WbemScripting.SWbemLocator" $objWMIService = $objLocator.ConnectServer($strComputer, \` $wmiNS, $strUsr, $strPWD, $strLocl, $strAuth, $iFLag) $colItems = $objWMIService.subClassesOf() Write-Host "There are: " $colItems.count " classes in $wmiNS" foreach ($objItem In $colItems) { $objItem.path_.class }新脚本语言由于以下原因，Windows PowerShell 使用它自己的语言，而不是重用现有的语言:
   
 Windows PowerShell 需要用于管理.NET 对象的语言。该语言需要为使用cmdlet 提供一致的环境。该语言需要支持复杂的任务，而不会使简单的任务变得更复杂。 · 该语言需要与在.NET 编程中使用的高级语言 (如C#) 一致
   
@@ -103,21 +104,21 @@ PowerShell脚本十个基本概念
   
 2. 执行权限
   
-为防止恶意脚本的执行，PowerShell有一个执行策略，默认情况下，这个执行策略被设为受限的 (Restricted) ，意味着PowerShell脚本无法执行，你可以使用下面的cmdlet命令确定当前的执行策略: 
+为防止恶意脚本的执行，PowerShell有一个执行策略，默认情况下，这个执行策略被设为受限的 (Restricted) ，意味着PowerShell脚本无法执行，你可以使用下面的cmdlet命令确定当前的执行策略:
   
-Get-ExecutionPolicy 你可以选择使用的执行策略有: 
+Get-ExecutionPolicy 你可以选择使用的执行策略有:
   
 Restricted - 脚本不能运行。 RemoteSigned - 本地创建的脚本可以运行，但从网上下载的脚本不能运行 (除非它们拥有由受信任的发布者签署的数字签名) 。 AllSigned – 仅当脚本由受信任的发布者签名才能运行。 Unrestricted – 脚本执行不受限制，不管来自哪里，也不管它们是否有签名。
   
-你可以使用下面的cmdlet命令设置PowerShell的执行策略: 
+你可以使用下面的cmdlet命令设置PowerShell的执行策略:
   
 Set-ExecutionPolicy 3、运行脚本
   
 如果你想从命令行运行一个可执行文件，多年来一个永恒不变的方法是，在命令行转到该执行文件所在的位置，然后键入该执行文件的名称，但这个古老的方法现在却不能适用于PowerShell可执行脚本了。
   
-如果你想执行一个PowerShell脚本，通常必须键入完整的路径和文件名，例如，假设你要运行一个名为a.PS1的脚本，你可以键入: 
+如果你想执行一个PowerShell脚本，通常必须键入完整的路径和文件名，例如，假设你要运行一个名为a.PS1的脚本，你可以键入:
   
-C:Scriptsaps1 最大的例外是，如果PowerShell脚本文件刚好位于你的系统目录中，那么你可以直接在命令提示符后键入脚本文件名即可运行，如: 
+C:Scriptsaps1 最大的例外是，如果PowerShell脚本文件刚好位于你的系统目录中，那么你可以直接在命令提示符后键入脚本文件名即可运行，如:
   
 .a.ps1 注意前面需要加上.，这和Linux下执行Shell脚本的方法如出一辙。
   
@@ -125,35 +126,35 @@ C:Scriptsaps1 最大的例外是，如果PowerShell脚本文件刚好位于你�
   
 管道的作用是将一个命令的输出作为另一个命令的输入，两个命令 (或cmdlet) 之间只需要用管道符号 (|) 连接即可。
   
-为了帮助你了解管道是如何工作的，我们以一个例子进行说明，假设你想创建运行在服务器上的进程列表，并按进程的ID号进行排序，可以使用Get-Process cmdlet命令获得进程列表，但默认情况下列表不会排序，如果将这个cmdlet命令的输出用管道输送给Sort-Object ID命令，进程列表将会按进程ID号进行排序，如: 
+为了帮助你了解管道是如何工作的，我们以一个例子进行说明，假设你想创建运行在服务器上的进程列表，并按进程的ID号进行排序，可以使用Get-Process cmdlet命令获得进程列表，但默认情况下列表不会排序，如果将这个cmdlet命令的输出用管道输送给Sort-Object ID命令，进程列表将会按进程ID号进行排序，如:
   
 Get-Process | Sort-Object ID 5、变量
   
 虽然可以使用管道将一个命令的输出输送给另一个命令，但管道本身也是有限制的，当你用管道从一个命令向另一个命令传递输出结果时，输出结果立即被使用，但有时候，你可能需要保存输出结果一段时间，以便以后可以使用 (或重用) ，这个时候管道就应该下场，轮到变量上场了。
   
-人们很容易将变量想象成一个仓库，但在PowerShell中，变量可以保存命令的完整输出，例如，假设你想保存服务器处于运行中的进程列表，你可以将它赋给一个变量，如: 
+人们很容易将变量想象成一个仓库，但在PowerShell中，变量可以保存命令的完整输出，例如，假设你想保存服务器处于运行中的进程列表，你可以将它赋给一个变量，如:
   
 $a = Get-Process 在这里，变量被命名为$a，如果你想使用这个变量，只需要简单地调用它的名称即可，例如，键入$a便可在屏幕上打印变量的内容。
   
-你可以将多个用管道连接的命令的最终输出赋给一个变量，只需要用一对小括号将命令括起来即可，例如，假设你想按进程ID对运行中的进程进行排序，然后将结果输出给一个变量，你可以使用下面这个命令: 
+你可以将多个用管道连接的命令的最终输出赋给一个变量，只需要用一对小括号将命令括起来即可，例如，假设你想按进程ID对运行中的进程进行排序，然后将结果输出给一个变量，你可以使用下面这个命令:
   
 $a = (Get-Process | Sort-Object ID) 6、@符号
   
 通过使用@符号，你可以将列表内容转换成一个数组，例如，下面的代码创建了一个名为$Procs的变量，它包含多行文本内容 (一个数组) : $procs = @{name="explorer","svchost"}
   
-使用变量时你也可以使用@符号，为了确保它作为数组而不是单个值处理，例如，下面的代码将在我前面定义的变量上运行Get-Process cmdlet命令: 
+使用变量时你也可以使用@符号，为了确保它作为数组而不是单个值处理，例如，下面的代码将在我前面定义的变量上运行Get-Process cmdlet命令:
   
 Get-Process @procs Windows将显示Windows资源管理器和Svchost使用的所有进程，注意变量前使用的@符号，而不是常见的$符号。
   
 7. Split
   
-Split操作符根据你指定的字符拆分一个文本字符串，例如，假设你想将一个句子拆分成一个单词组成的一个数组，你可以使用下面的命令做到: 
+Split操作符根据你指定的字符拆分一个文本字符串，例如，假设你想将一个句子拆分成一个单词组成的一个数组，你可以使用下面的命令做到:
   
-"This is a test" -split " " 拆分后的结果如下: 
+"This is a test" -split " " 拆分后的结果如下:
   
 This is a test 8、Join
   
-就像Split可以将一个文本字符串拆分成多块一样，Join的操作则是逆向的，将多个独立的块连接成一个整体，例如，下面这行代码将会创建一个文本字符串，由我的名字和姓氏组成: 
+就像Split可以将一个文本字符串拆分成多块一样，Join的操作则是逆向的，将多个独立的块连接成一个整体，例如，下面这行代码将会创建一个文本字符串，由我的名字和姓氏组成:
   
 "Brien","Posey" -join " " 命令末尾双引号之间的空格告诉Windows在两个文本字符串之间插入一个空格。
   
@@ -161,9 +162,9 @@ This is a test 8、Join
   
 运行一个新创建的PowerShell脚本时，如果脚本有Bug，会遇到意想不到的后果，保护自己的一个方法是在脚本的关键位置插入断点，这样你就可以确保脚本正常运行先，然后再处理可能存在的问题。
   
-插入断点最简单的方法是根据行号插入，例如，假设你要在第10行插入一个断点，可以使用下面的命令: 
+插入断点最简单的方法是根据行号插入，例如，假设你要在第10行插入一个断点，可以使用下面的命令:
   
-New-PSBreakpoint -Script C:Scriptsa.ps1 -Line 10 你也可以将断点绑定到变量上，如果你希望你的脚本任何时候都可以修改a$的内容，可以使用下面的命令: 
+New-PSBreakpoint -Script C:Scriptsa.ps1 -Line 10 你也可以将断点绑定到变量上，如果你希望你的脚本任何时候都可以修改a$的内容，可以使用下面的命令:
   
 New-PSBreakpoint -Script C:scriptsa.ps1 -variables a 注意，我在变量名后并没有包括美元符号。
   

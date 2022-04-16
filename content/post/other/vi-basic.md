@@ -4,10 +4,10 @@ author: "-"
 date: 2012-06-21T04:20:00.000+00:00
 url: vim
 categories:
-  - Linux
+  - Editor
 tags:
   - reprint
-
+  - VIM
 ---
 
 ## vi/vim basic, command

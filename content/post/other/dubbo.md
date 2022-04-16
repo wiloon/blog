@@ -4,8 +4,7 @@ author: "-"
 date: 2015-08-28T10:07:41+00:00
 url: dubbo
 categories:
-  - microservice
-
+  - Inbox
 tags:
   - reprint
 ---

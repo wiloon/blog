@@ -4,7 +4,7 @@ author: "-"
 date: 2019-05-06T04:27:52+00:00
 url: shell
 categories:
-  - linux
+  - shell
 tags:
   - reprint
 
@@ -52,6 +52,7 @@ exit 0                                       # 返回一个零退出状态，退
 ```
 
 ## 字符串
+
 ### shell字符串大小写转换
 
 #### typeset
@@ -75,8 +76,7 @@ echo 'HELLO' | tr '[:upper:]' '[:lower:]'
 
 ————————————————
 版权声明：本文为CSDN博主「LLZK_」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
-原文链接：https://blog.csdn.net/LLZK_/article/details/66972407
-
+原文链接：<https://blog.csdn.net/LLZK_/article/details/66972407>
 
 ### 判断字符串是否相等
 
@@ -95,7 +95,7 @@ echo "[ == ]"
 fi
 ```
 
-## 退出 shell 脚本 
+## 退出 shell 脚本
 
 exit 命令可以接受一个整数值作为参数，代表退出状态。如果不指定，默认状态值是 0。
 
@@ -106,6 +106,7 @@ exit 8
 echo "after exit"
 
 ```
+
 ## $
 
 ### 特殊变量: Shell $0, $#, $*, $@, $?, $$和命令行参数
@@ -121,13 +122,15 @@ echo "after exit"
     $!      上一个后台进程的进程号 (PID)
 
 ### $(), $( Dollar Single Parentheses )
+
 Usage of the $ like ${HOME} gives the value of HOME. Usage of the $ like $(echo foo) means run whatever is inside the parentheses in a subshell and return that as the value.
 
 #### Command Substitution
 
-> https://www.gnu.org/software/bash/manual/html_node/Command-Substitution.html
+> <https://www.gnu.org/software/bash/manual/html_node/Command-Substitution.html>
 
 ## 括号
+
 ## shell 括号
 
 #### 小括号，圆括号 `()`
@@ -144,11 +147,11 @@ Usage of the $ like ${HOME} gives the value of HOME. Usage of the $ like $(echo 
 单纯用 (( )) 也可重定义变量值，比如 a=5; ((a++)) 可将 $a 重定义为6
 常用于算术运算比较，双括号中的变量可以不使用$符号前缀。括号内支持多个表达式用逗号分开。 只要括号中的表达式符合C语言运算规则,比如可以直接使用for((i=0;i<5;i++)), 如果不使用双括号, 则为for i in `seq 0 4`或者for i in {0..4}。再如可以直接使用if (($i<5)), 如果不使用双括号, 则为if [ $i -lt 5 ]。
 
-
 #### 单中括号 `[]`, [ Single Square Brackets ]
+
 中括号 `[]` 是 bash 的内部命令，[ 和 test 是等同的。如果我们不用绝对路径指明，通常我们用的都是bash自带的命令。if/test 结构中的左中括号是调用test的命令标识，右中括号是关闭条件判断的。  
 这个命令把它的参数作为比较表达式或者作为文件测试，并且根据比较的结果来返回一个退出状态码。  
- 
+
 Test 和 [] 中可用的比较运算符只有 == 和 !=，两者都是用于字符串比较的，不可用于整数比较，整数比较只能使用 -eq，-gt 这种形式。无论是字符串比较还是整数比较都不支持大于号小于号。如果实在想用，对于字符串比较可以使用转义形式，如果比较 "ab" 和 "bc"[ ab \< bc ]，结果为真，也就是返回状态为0。
 [] 中的逻辑与和逻辑或使用 -a 和 -o 表示。
 
@@ -167,19 +170,17 @@ Test 和 [] 中可用的比较运算符只有 == 和 !=，两者都是用于字�
 
 the $[ syntax was an early syntax that was deprecated in favor of $((, since the latter was already used by the Korn shell.
 
->https://unix.stackexchange.com/questions/209833/what-does-a-dollar-sign-followed-by-a-square-bracket-mean-in-bash
+><https://unix.stackexchange.com/questions/209833/what-does-a-dollar-sign-followed-by-a-square-bracket-mean-in-bash>
 
 #### { Single Curly Braces }
-
 
 #### <( Angle Parentheses )
 
 #### <<Double Angle Heredocs
 
-
->https://zhuanlan.zhihu.com/p/75145247
->https://www.runoob.com/w3cnote/linux-shell-brackets-features.html
->https://dev.to/rpalo/bash-brackets-quick-reference-4eh6
+><https://zhuanlan.zhihu.com/p/75145247>
+><https://www.runoob.com/w3cnote/linux-shell-brackets-features.html>
+><https://dev.to/rpalo/bash-brackets-quick-reference-4eh6>
 
 ## 循环, shell loop
 
@@ -217,6 +218,7 @@ done
 ```
 
 ### 布尔值变量
+
 ```bash
 the_world_is_flat=true
 # ...do something interesting...
@@ -224,9 +226,11 @@ if [ "$the_world_is_flat" = true ] ; then
     echo 'Be careful not to fall off!'
 fi
 ```
->https://stackoverflow.com/questions/2953646/how-can-i-declare-and-use-boolean-variables-in-a-shell-script?rq=1
+
+><https://stackoverflow.com/questions/2953646/how-can-i-declare-and-use-boolean-variables-in-a-shell-script?rq=1>
 
 ### 字符串包含
+
 ```bash
 # grep
 strA="long string"
@@ -269,12 +273,15 @@ echo $tmp
 ```
 
 ### -f
-检查文件是否存在 
+
+检查文件是否存在
+
 ```bash
 if [ -f filename ]
 ```
 
 ### 转义字符
+
 在双引号中即可变普通字符的特殊字符
 
     空格 '\ `
@@ -291,7 +298,8 @@ if [ -f filename ]
 
 ### Shell 变量
   
-shell的使用比较简单，就像这样，并且没有数据类型的概念，所有的变量都可以当成字符串来处理: 
+shell的使用比较简单，就像这样，并且没有数据类型的概念，所有的变量都可以当成字符串来处理:
+
 ```bash
 #!/bin/bash
 foo="tom"
@@ -306,6 +314,7 @@ echo $ABC #使用变量前面加$美元符号
 echo "ABC=$ABC" #可以直接在字符串里面引用
 echo "ABC=${ABC}" #但是建议把变量名字用{}包起来
 ```
+
 #### 只读变量
 
 ```bash
@@ -360,18 +369,20 @@ echo $B
   
 echo $C
 ```
-https://my.oschina.net/u/2428064/blog/3045121
+<https://my.oschina.net/u/2428064/blog/3045121>
 
 ## string
+
 ### Replace
 
 用法
+
 ```bash
 ${parameter/pattern/string}
 ```
 
 使用
- 
+
 ```bash
 $ a=/data/wxnacy/data/log/log.txt
 $ echo ${a/data/User}                # 将第一个 data 替换为 User
@@ -393,20 +404,25 @@ $ echo $a | sed -e "s/data/User/g"
 /User/wxnacy/User/log/log.txt
 ```
 
-
 ### 16进制转换成10进制
+
     printf %d 0x45b9
 
 ### 10进制转换成16进制
+
     printf "%x\n" tid
-### 文件,目录 
+
+### 文件,目录
+
 ```bash
 #如果文件夹不存在，创建文件夹
 if [ ! -d "/myfolder" ]; then
   mkdir /myfolder
 fi
 ```
+
 ### 判断单双周
+
 ```bash
 if [ $(expr $(date +%W) \% 2) -eq 0 ] ; then
     echo "foo"
@@ -414,23 +430,25 @@ else
     echo "bar"
 fi
 ```
+
 ### shell脚本中echo显示内容带颜色
 
-shell脚本中echo显示内容带颜色显示,echo显示带颜色，需要使用参数-e 
+shell脚本中echo显示内容带颜色显示,echo显示带颜色，需要使用参数-e
 格式如下:  
 
     echo -e "\033[字背景颜色；文字颜色m字符串\033[0m" 
 例如:  
 
     echo -e "\033[41;36m something here \033[0m" 
-其中41的位置代表底色， 36的位置是代表字的颜色 
+其中41的位置代表底色， 36的位置是代表字的颜色
 注:  
-1. 字背景颜色和文字颜色之间是英文的"" 
-2. 文字颜色后面有个m 
-3. 字符串前后可以没有空格，如果有的话，输出也是同样有空格 
-下面是相应的字和背景颜色，可以自己来尝试找出不同颜色搭配 
 
-例 
+1. 字背景颜色和文字颜色之间是英文的""
+2. 文字颜色后面有个m
+3. 字符串前后可以没有空格，如果有的话，输出也是同样有空格
+下面是相应的字和背景颜色，可以自己来尝试找出不同颜色搭配
+
+例
 
         echo -e "\033[31m 红色字 \033[0m" 
         echo -e "\033[34m 黄色字 \033[0m" 
@@ -438,55 +456,56 @@ shell脚本中echo显示内容带颜色显示,echo显示带颜色，需要使用
         echo -e "\033[41;37m 红底白字 \033[0m" 
         字颜色: 30—–37 
 
+echo -e "\033[30m 黑色字 \033[0m"
+echo -e "\033[31m 红色字 \033[0m"
+echo -e "\033[32m 绿色字 \033[0m"
+echo -e "\033[33m 黄色字 \033[0m"
+echo -e "\033[34m 蓝色字 \033[0m"
+echo -e "\033[35m 紫色字 \033[0m"
+echo -e "\033[36m 天蓝字 \033[0m"
 
-echo -e "\033[30m 黑色字 \033[0m" 
-echo -e "\033[31m 红色字 \033[0m" 
-echo -e "\033[32m 绿色字 \033[0m" 
-echo -e "\033[33m 黄色字 \033[0m" 
-echo -e "\033[34m 蓝色字 \033[0m" 
-echo -e "\033[35m 紫色字 \033[0m" 
-echo -e "\033[36m 天蓝字 \033[0m" 
-
-字背景颜色范围: 40—–47 
-
-复制代码
-echo -e "\033[40;37m 黑底白字 \033[0m" 
-echo -e "\033[41;37m 红底白字 \033[0m" 
-echo -e "\033[42;37m 绿底白字 \033[0m" 
-echo -e "\033[43;37m 黄底白字 \033[0m" 
-echo -e "\033[44;37m 蓝底白字 \033[0m" 
-echo -e "\033[45;37m 紫底白字 \033[0m" 
-echo -e "\033[46;37m 天蓝底白字 \033[0m" 
-echo -e "\033[47;30m 白底黑字 \033[0m" 
-复制代码
-最后面控制选项说明 
+字背景颜色范围: 40—–47
 
 复制代码
-\33[0m 关闭所有属性 
-\33[1m 设置高亮度 
-\33[4m 下划线 
-\33[5m 闪烁 
-\33[7m 反显 
-\33[8m 消隐 
-\33[30m — \33[37m 设置前景色 
-\33[40m — \33[47m 设置背景色 
-\33[nA 光标上移n行 
-\33[nB 光标下移n行 
-\33[nC 光标右移n行 
-\33[nD 光标左移n行 
-\33[y;xH设置光标位置 
-\33[2J 清屏 
-\33[K 清除从光标到行尾的内容 
-\33[s 保存光标位置 
-\33[u 恢复光标位置 
-\33[?25l 隐藏光标 
+echo -e "\033[40;37m 黑底白字 \033[0m"
+echo -e "\033[41;37m 红底白字 \033[0m"
+echo -e "\033[42;37m 绿底白字 \033[0m"
+echo -e "\033[43;37m 黄底白字 \033[0m"
+echo -e "\033[44;37m 蓝底白字 \033[0m"
+echo -e "\033[45;37m 紫底白字 \033[0m"
+echo -e "\033[46;37m 天蓝底白字 \033[0m"
+echo -e "\033[47;30m 白底黑字 \033[0m"
+复制代码
+最后面控制选项说明
+
+复制代码
+\33[0m 关闭所有属性
+\33[1m 设置高亮度
+\33[4m 下划线
+\33[5m 闪烁
+\33[7m 反显
+\33[8m 消隐
+\33[30m — \33[37m 设置前景色
+\33[40m — \33[47m 设置背景色
+\33[nA 光标上移n行
+\33[nB 光标下移n行
+\33[nC 光标右移n行
+\33[nD 光标左移n行
+\33[y;xH设置光标位置
+\33[2J 清屏
+\33[K 清除从光标到行尾的内容
+\33[s 保存光标位置
+\33[u 恢复光标位置
+\33[?25l 隐藏光标
 \33[?25h 显示光标
 
 ### sleep
+
 休眠5分钟,  s 为秒，m 为 分钟，h 为小时，d 为日数
 sleep 5m
 
 ### 数组
+
 ```bash
 my_array=(A B "C" D)
 
@@ -500,6 +519,7 @@ echo "第一个元素为: ${my_array[0]}"
 ```
 
 ### 单引号内引入变量
+
 ```bash
 #!/bin/bash
 
@@ -517,16 +537,18 @@ $i is : 10
 ```
 
 ### 查看当前使用的shell
+
 ```bash
 echo $SHELL
 ps |  grep $$  |  awk '{print $4}'
 ```
 
-命令行式shell (Command Line Interface shell ，即CLI shell) 
+命令行式shell (Command Line Interface shell ，即CLI shell)
   
 也就是通过命令行和计算机交互的shell。 Windows NT 系统下有 cmd.exe (命令提示字符) 和近年来微软大力推广的 Windows PowerShell。 Linux下有bash / sh / ksh / csh/zsh等 一般情况下，习惯把命令行shell (CLI shell) 直接称做shell，以后，如果没有特别说明，shell就是指 CLI shell，后文也是主要讲Linux下的 CLI shell。
 
 ### 查看系统里有几种shell
+
 ```bash
 cat /etc/shells
 ```
@@ -555,13 +577,14 @@ zsh网上说的目前使用的人很少，但是感觉使用的人比较多。 z
 
 执行并获取返回结果，有点类似JavaScript 的eval函数。
 
-#!/bin/bash
+# !/bin/bash
   
 dt=`date` #反引号内的字符串会当作shell执行 ，并且返回结果。
   
 echo "dt=${dt}"
   
 ### 逻辑与，或表达式
+
     与&&: 
     1) if [ $str=a -a $str=b ] 
     2) if [ $str=a ] && [  $str=b ]
@@ -570,12 +593,13 @@ echo "dt=${dt}"
     1) if [ $str=a -o $str=b ] 
     2) if [ $str=a ] || [  $str=b ]
 
-### 字符串长度 
+### 字符串长度
 
     ${\#}
 
 ### 模式匹配截断
->https://blog.csdn.net/K346K346/article/details/51819236
+
+><https://blog.csdn.net/K346K346/article/details/51819236>
 
 ### 以-分隔取最后一段字符串
 
@@ -598,46 +622,46 @@ echo "dt=${dt}"
 ```
 
 ### 去掉最后一段
+
     a="foo-bar-foobar" && a="${a%-*}" && echo "${a}"
     # 输出
     foo-bar
-    
-https://stackoverflow.com/questions/16153446/bash-last-index-of
+
+<https://stackoverflow.com/questions/16153446/bash-last-index-of>
 
 ### Shell中去除字符串前后空格
+
     echo ' A B C ' | awk '{gsub(/^\s+|\s+$/, "");print}'
 
-
-
-#将pwd的执行结果放到变量value中保存，
+# 将pwd的执行结果放到变量value中保存，
 
 value=$(pwd)
 
-另一种方法: 
+另一种方法:
 
 value=`pwd`
 
-#将pwd的执行结果放到变量value中保存，
+# 将pwd的执行结果放到变量value中保存，
 
 value=$(pwd)
 
-另一种方法: 
+另一种方法:
 
 value=`pwd`
 
 ### 字符串连接
+
     strA="aaa"
     strB="bbb"
     strC=$strA$strB
 
-
-
 ### shell变量
+
 定义变量时，变量名不加美元符号
 
     key0="value0"
 
-注意，变量名和等号之间不能有空格，这可能和你熟悉的所有编程语言都不一样。同时，变量名的命名须遵循如下规则: 
+注意，变量名和等号之间不能有空格，这可能和你熟悉的所有编程语言都不一样。同时，变量名的命名须遵循如下规则:
 
 命名只能使用英文字母，数字和下划线，首个字符不能以数字开头。
 中间不能有空格，可以使用下划线 (_) 。
@@ -658,7 +682,7 @@ ${var:-newstring}
 
 ```
 
-### 整数比较 
+### 整数比较
 
     -eq       等于,如:if [ "$a" -eq "$b" ] 
     -ne       不等于,如:if [ "$a" -ne "$b" ] 
@@ -671,7 +695,8 @@ ${var:-newstring}
     >       大于(需要双括号),如:(("$a" > "$b")) 
     >=       大于等于(需要双括号),如:(("$a" >= "$b")) 
 
-### 字符串比较 
+### 字符串比较
+
     =       等于,如:if [ "$a" = "$b" ] 
     ==      等于,如:if [ "$a" == "$b" ],与=等价 
         注意:==的功能在[[]]和[]中的行为是不同的,如下: 
@@ -700,8 +725,8 @@ ${var:-newstring}
         或者就是未用""引用的字符串本身,放到[]结构中。虽然一般情况下可 
         以工作,但这是不安全的.习惯于使用""来测试字符串是一种好习惯.
 
+### 参数
 
-### 参数 
     [-p file] 如果 file 存在且是一个名字管道 (F如果O) 则为真 
     [-r file] 如果file存在且是可读的则为真 
     [-s file] 如果file存在且大小不为0则为真 
@@ -727,7 +752,7 @@ ${var:-newstring}
 
 ---
 版权声明: 本文为CSDN博主「无知的蜗牛」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
-原文链接: https://blog.csdn.net/weixin_37998647/java/article/details/79718821
+原文链接: <https://blog.csdn.net/weixin_37998647/java/article/details/79718821>
 
 ## grep 操作的返回值
 
@@ -735,12 +760,12 @@ ${var:-newstring}
   
 如果没有匹配， 会返回1。
 
-
 ## shell, if/else
   
 和C语言类似，在Shell中用if、then、elif、else、fi这几条命令实现分支控制。这种流程控制语句本质上也是由若干条Shell命令组成的，例如
 
 ### if
+
 ```bash
 if [ -f ~/.bashrc ]; then
     . ~/.bashrc
@@ -755,9 +780,9 @@ fi
     if ... elif ... else ... fi 语句
 ```
 
-其实是三条命令，if [ -f ~/.bashrc ]是第一条，then . ~/.bashrc是第二条，fi是第三条。如果两条命令写在同一行则需要用;号隔开，一行只写一条命令就不需要写;号了，另外，then后面有换行，但这条命令没写完，Shell会自动续行，把下一行接在then后面当作一条命令处理。和[命令一样，要注意命令和各参数之间必须用空格隔开。if命令的参数组成一条子命令，如果该子命令的Exit Status为0 (表示真) ，则执行then后面的子命令，如果Exit Status非0 (表示假) ，则执行elif、else或者fi后面的子命令。if后面的子命令通常是测试命令，但也可以是其它命令。Shell脚本没有{}括号，所以用fi表示if语句块的结束。见下例: 
+其实是三条命令，if [ -f ~/.bashrc ]是第一条，then . ~/.bashrc是第二条，fi是第三条。如果两条命令写在同一行则需要用;号隔开，一行只写一条命令就不需要写;号了，另外，then后面有换行，但这条命令没写完，Shell会自动续行，把下一行接在then后面当作一条命令处理。和[命令一样，要注意命令和各参数之间必须用空格隔开。if命令的参数组成一条子命令，如果该子命令的Exit Status为0 (表示真) ，则执行then后面的子命令，如果Exit Status非0 (表示假) ，则执行elif、else或者fi后面的子命令。if后面的子命令通常是测试命令，但也可以是其它命令。Shell脚本没有{}括号，所以用fi表示if语句块的结束。见下例:
 
-#! /bin/sh
+# ! /bin/sh
   
 if [ -f /bin/bash ]
   
@@ -769,26 +794,26 @@ fi
   
 if :; then echo "always true"; fi
   
-:是一个特殊的命令，称为空命令，该命令不做任何事，但Exit Status总是真。此外，也可以执行/bin/true或/bin/false得到真或假的Exit Status。再看一个例子: 
+:是一个特殊的命令，称为空命令，该命令不做任何事，但Exit Status总是真。此外，也可以执行/bin/true或/bin/false得到真或假的Exit Status。再看一个例子:
 
-#! /bin/sh
+# ! /bin/sh
 
 echo "Is it morning? Please answer yes or no."
   
 read YES_OR_NO
   
 if [ "$YES_OR_NO" = "yes" ]; then
-    
+
 echo "Good morning!"
   
 elif [ "$YES_OR_NO" = "no" ]; then
-    
+
 echo "Good afternoon!"
   
 else
-    
+
 echo "Sorry, $YES_OR_NO not recognized. Enter yes or no."
-    
+
 exit 1
   
 fi
@@ -797,7 +822,7 @@ exit 0
   
 上例中的read命令的作用是等待用户输入一行字符串，将该字符串存到一个Shell变量中。
 
-此外，Shell还提供了&&和||语法，和C语言类似，具有Short-circuit特性，很多Shell脚本喜欢写成这样: 
+此外，Shell还提供了&&和||语法，和C语言类似，具有Short-circuit特性，很多Shell脚本喜欢写成这样:
 
 test "$(whoami)" != 'root' && (echo you are using a non-privileged account; exit 1)
   
@@ -825,7 +850,7 @@ if [ ! -d /mnt/u ];
   
 判断目录非空
 
-#如果结果为0则目录为空
+# 如果结果为0则目录为空
   
 ls dirname|wc -l
 
@@ -849,7 +874,7 @@ filename1 -nt filename2 如果 filename1 比 filename2 新，则为真 [ /tmp/in
   
 filename1 -ot filename2 如果 filename1 比 filename2 旧，则为真 [ /boot/bzImage -ot arch/i386/boot/bzImage ]
   
-字符串比较运算符  (请注意引号的使用，这是防止空格扰乱代码的好方法) 
+字符串比较运算符  (请注意引号的使用，这是防止空格扰乱代码的好方法)
   
 -z string 如果 string 长度为零，则为真 [ -z "$myvar" ]
   
@@ -899,7 +924,7 @@ num1 -ge num2 大于或等于 [ 3 -ge $mynum ]
 
 test命令用于检查某个条件是否成立，它可以进行数值、字符和文件3个方面的测试，其测试符和相应的功能分别如下。
 
- (1) 数值测试: 
+ (1) 数值测试:
 
 -eq 等于则为真。
 
@@ -913,7 +938,7 @@ test命令用于检查某个条件是否成立，它可以进行数值、字符�
 
 -le 小于等于则为真。
 
- (2) 字串测试: 
+ (2) 字串测试:
 
 = 等于则为真。
 
@@ -944,62 +969,54 @@ test命令用于检查某个条件是否成立，它可以进行数值、字符�
 -b文件名 如果文件存在且为块特殊文件则为真
 
 条件变量替换:
-     
+
 Bash Shell可以进行变量的条件替换,既只有某种条件发生时才进行替换,替换
   
 条件放在{}中.
   
 (1) ${value:-word}
-         
+
 当变量未定义或者值为空时,返回值为word的内容,否则返回变量的值.
 
 (2) ${value:=word}
 
        与前者类似,只是若变量未定义或者值为空时,在返回word的值的同时将 word赋值给value 
-    
 
 (3) ${value:?message}
 
        若变量已赋值的话,正常替换.否则将消息message送到标准错误输出(若此替换出现在Shell程序中,那么该程序将终止运行) 
-    
 
 (4) ${value:+word}
 
        若变量已赋值的话,其值才用word替换,否则不进行任何替换 
-    
 
 (5) ${value:offset}
 
        ${value:offset:length} 从变量中提取子串,这里offset和length可以是算术表达式. 
-    
 
 (6) ${#value}
 
        变量的字符个数 
-    
 
 (7) ${value#pattern}
 
        ${value##pattern} 
        去掉value中与pattern相匹配的部分,条件是value的开头与pattern相匹配 
        #与##的区别在于一个是最短匹配模式,一个是最长匹配模式. 
-    
 
 (8) ${value%pattern}
 
        ${value%%pattern} 
        于(7)类似,只是是从value的尾部于pattern相匹配,%与%%的区别与#与##一样 
-    
 
 (9) ${value/pattern/string}
 
        ${value//pattern/string} 
        进行变量内容的替换,把与pattern匹配的部分替换为string的内容,/与//的区别与上同 
-    
 
 注意: 上述条件变量替换中,除(2)外,其余均不影响变量本身的值
 
-#!/bin/bash
+# !/bin/bash
 
 var1="1"
   
@@ -1008,7 +1025,7 @@ var2="2"
 下面是"与"运算符-a，另外注意，用一个test命令就可以了，还有if条件后面的分号
 
 if test $var1 = "1"-a $var2 = "2" ; then
-     
+
 echo "equal"
   
 fi
@@ -1016,7 +1033,7 @@ fi
 下面是"或"运算符 -o，有一个为真就可以
 
 if test $var1 != "1" -o $var2 != "3" ; then
-     
+
 echo "not equal"
   
 fi
@@ -1026,14 +1043,14 @@ fi
 if条件是为真的时候执行，如果使用！运算符，那么原表达式必须为false
 
 if ! test $var1 != "1"; then
-     
+
 echo "not 1"
   
 fi
 
 以上三个if都为真，所以三个echo都会打印
 
-示例: 
+示例:
 
 ```bash
  view plain copy
@@ -1079,8 +1096,6 @@ true
 * * *
 ```
 
-
-
 ### shell字符串比较、判断是否为数字
 
 二元比较操作符,比较变量或者比较数字.注意数字与字符串的区别.
@@ -1105,14 +1120,13 @@ true
 
 - > 大于(需要双括号),如:(("$a" > "$b"))
 
-
-> = 大于等于(需要双括号),如:(("$a" >= "$b")) 
+> = 大于等于(需要双括号),如:(("$a" >= "$b"))
 
 整数比较实例
 
 [css] view plain copy
   
-#!/bin/bash
+# !/bin/bash
 
 file='folder_url_top24/url_usa_top24_0'
   
@@ -1120,25 +1134,25 @@ fileSize=`ls -l folder_url_top24/url_usa_top24_0 | awk -F '[" "]' '{print $5}'`
   
 FILESIZE=1000
   
-#while [ ! -f $file -o "$fileSize" -lt "$FILESIZE" ]
+# while [ ! -f $file -o "$fileSize" -lt "$FILESIZE" ]
   
-#while [ ! -f $file -o "$fileSize" -lt 1000 ]
+# while [ ! -f $file -o "$fileSize" -lt 1000 ]
   
 while (("$fileSize" < 1000))
   
 do
-      
+
 echo "down again..."
   
 done
   
-其中，下面三种整数比较都成立: 
+其中，下面三种整数比较都成立:
   
-1)  while [ ! -f $file -o "$fileSize" -lt "$FILESIZE" ]
+1) while [ ! -f $file -o "$fileSize" -lt "$FILESIZE" ]
 
-2)  while [ ! -f $file -o "$fileSize" -lt 1000 ]
+2) while [ ! -f $file -o "$fileSize" -lt 1000 ]
 
-3)  (("$fileSize" < 1000))
+3) (("$fileSize" < 1000))
 
 推荐使用第一种
 
@@ -1147,33 +1161,33 @@ done
 = 等于,如:if [ "$a" = "$b" ]
 
 == 等于,如:if [ "$a" == "$b" ],与=等价
-         
+
 注意:==的功能在[[]]和[]中的行为是不同的,如下:
-         
+
 1 [[ $a == z* ]] # 如果$a以"z"开头(模式匹配)那么将为true
-         
+
 2 [[ $a == "z_" ]] # 如果$a等于z_(字符匹配),那么结果为true
-         
+
 3
-         
+
 4 [ $a == z* ] # File globbing 和word splitting将会发生
-         
+
 5 [ "$a" == "z_" ] # 如果$a等于z_(字符匹配),那么结果为true
-         
+
 一点解释,关于File globbing是一种关于文件的速记法,比如"*.c"就是,再如~也是.
-         
+
 但是file globbing并不是严格的正则表达式,虽然绝大多数情况下结构比较像.
 
 != 不等于,如:if [ "$a" != "$b" ]
-         
+
 这个操作符将在[[]]结构中使用模式匹配.
 
 < 小于,在ASCII字母顺序下.如:
-         
+
 if [[ "$a" < "$b" ]]
-         
+
 if [ "$a" \< "$b" ]
-         
+
 注意:在[]结构中"<"需要被转义.
 
 大于,在ASCII字母顺序下.如:
@@ -1182,21 +1196,20 @@ if [ "$a" \> "$b" ]
 注意:在[]结构中">"需要被转义.
 具体参考Example 26-11来查看这个操作符应用的例子.
 
-
 -z 字符串为"null".就是长度为0
 
 -n 字符串不为"null"
 
-判断shell传入的参数个数是否为空: 
+判断shell传入的参数个数是否为空:
 
 [python] view plain copy
   
-#!/bin/bash
+# !/bin/bash
 
 port=6379 # 命令行没参数，默认指定端口号为 6379
   
 if [ $# -ge 1 ]; then # 命令行参数个数大于等于1，则使用传入的参数port
-      
+
 port=$1 # 获取指定端口号
   
 fi
@@ -1205,33 +1218,33 @@ echo "redis port: $port"
   
 redis-cli -h 172.1628.10.114 -p $port
 
-字符串比较实例: 
+字符串比较实例:
 
 if [ "$var1" = "$var2" ]
 
-代码: 
+代码:
 
 [css] view plain copy
   
-#!/bin/sh
+# !/bin/sh
 
 aa="August 15, 2012"
   
 bb="August 15, 2012"
 
 if [ "$aa" = "$bb" ]; then
-      
+
 echo "yes"
   
 else
-      
+
 echo "no"
   
 fi
 
 判断子字符串包含关系:  =~
 
-代码: 
+代码:
 
 [python] view plain copy
   
@@ -1242,21 +1255,21 @@ a2="ithomer.net"
 a3="blog.ithomer.net"
 
 if [[ "$a3" =~ "$a1" ]]; then
-           
+
 echo "$a1是$a3的子串！"
   
 else
-           
+
 echo "$a1不是$a3的子串！"
   
 fi
 
 if [[ "$a3" =~ "$a2" ]];then
-           
+
 echo "$a2是$a3的子串！"
   
 else
-           
+
 echo "$a2不是$a3的子串！"
   
 fi
@@ -1267,37 +1280,34 @@ fi
 
 awk '{print $2}' class.txt | grep '^[0-9.]' > res
   
-https://www.linuxquestions.org/questions/programming-9/bash-put-output-from-%60ls%60-into-an-array-346719/
+<https://www.linuxquestions.org/questions/programming-9/bash-put-output-from-%60ls%60-into-an-array-346719/>
 
 ————————————————
   
 版权声明: 本文为CSDN博主「DevMaster」的原创文章，遵循 CC 4.0 BY-SA 版权协议，转载请附上原文出处链接及本声明。
   
-原文链接: https://blog.csdn.net/wncnke/java/article/details/54847140
-
+原文链接: <https://blog.csdn.net/wncnke/java/article/details/54847140>
 
 参考
 
-http://fyan.iteye.com/blog/1130034   
+<http://fyan.iteye.com/blog/1130034>
 作者: 翔云翔云  
-来源: CSDN    
-原文: https://blog.csdn.net/lanyang123456/article/details/57416906    
+来源: CSDN
+原文: <https://blog.csdn.net/lanyang123456/article/details/57416906>
 版权声明: 本文为博主原创文章，转载请附上博文链接！
-本文来自 wujiangguizhen 的CSDN 博客 ，全文地址请点击: https://blog.csdn.net/wujiangguizhen/article/details/26992353?utm_source=copy
+本文来自 wujiangguizhen 的CSDN 博客 ，全文地址请点击: <https://blog.csdn.net/wujiangguizhen/article/details/26992353?utm_source=copy>
 
 ---
 
-https://www.shellscript.sh/functions.html
-http://www.cnblogs.com/barrychiao/archive/2012/10/22/2733210.html
-https://www.cnblogs.com/lr-ting/archive/2013/02/28/2936792.html
+<https://www.shellscript.sh/functions.html>
+<http://www.cnblogs.com/barrychiao/archive/2012/10/22/2733210.html>
+<https://www.cnblogs.com/lr-ting/archive/2013/02/28/2936792.html>
 
-https://wxnacy.com/2018/06/20/shell-replace/
-
-
+<https://wxnacy.com/2018/06/20/shell-replace/>
 
 ## 'linux #!/bin/sh'
-#!/bin/sh 是指此脚本使用/bin/sh来解释执行，#!是特殊的表示符，其后面根的是此解释此脚本的shell的路径。 $bash $表示系统提示符，$ 表示此用户为普通用户，超级用户的提示符是＃，bash是shell的一种，是linux下最常用的一种shell，$bash的意思是执行一个子shell，此子shell为bash.
 
+# !/bin/sh 是指此脚本使用/bin/sh来解释执行，#!是特殊的表示符，其后面根的是此解释此脚本的shell的路径。 $bash $表示系统提示符，$ 表示此用户为普通用户，超级用户的提示符是＃，bash是shell的一种，是linux下最常用的一种shell，$bash的意思是执行一个子shell，此子shell为bash.
 
 ## case, esac
 

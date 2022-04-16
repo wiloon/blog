@@ -4,13 +4,14 @@ author: "-"
 date: 2012-05-28T07:05:44+00:00
 url: /?p=3276
 categories:
-  - Java
-
+  - Algorithm
 tags:
   - reprint
+  - Java
 ---
 ## 一致性哈希算法与Java实现
-# 一致性哈希算法, consistent hashing
+
+## 一致性哈希算法, consistent hashing
 
   1. 概述
   2. 引出
@@ -19,11 +20,13 @@ tags:
   5. 另一种改进
   
     参考链接: 
+
   6. 概述
   
     在维基百科中，是这么定义的
   
     一致哈希是一种特殊的哈希算法。在使用一致哈希算法后，哈希表槽位数 (大小) 的改变平均只需要对 K/n个关键字重新映射，其中K是关键字的数量， n是槽位数量。然而在传统的哈希表中，添加或删除一个槽位的几乎需要对所有关键字进行重新映射。
+
   7. 引出
   
     我们在上文中已经介绍了一致性Hash算法的基本优势，我们看到了该算法主要解决的问题是: 当slot数发生变化时，能够尽量少的移动数据。那么，我们思考一下，普通的Hash算法是如何实现？又存在什么问题呢？
@@ -117,6 +120,7 @@ tags:
     翻译一下就是，如果有100个item，当增加一个node，之前99%的数据都需要重新移动。
   
     这显然是不能忍的，普通哈希算法的问题我们已经发现了，如何对其进行改进呢？没错，我们的一致性哈希算法闪亮登场。
+
   8. 登场
   
     我们上节介绍了普通Hash算法的劣势，即当node数发生变化 (增加、移除) 后，数据项会被重新"打散"，导致大部分数据项不能落到原来的节点上，从而导致大量数据需要迁移。
@@ -158,18 +162,18 @@ tags:
     hash2node[h] = n
 
 for item in range(ITEMS):
-      
+
 h = _hash(item)
-      
+
 n = bisect_left(ring, h) % NODES
-      
+
 node_stat[hash2node[ring[n]]] += 1
   
-我们依然对其进行了实现consist_hash_add.py，并且观察了数据迁移的结果: 
+我们依然对其进行了实现consist_hash_add.py，并且观察了数据迁移的结果:
   
 Change: 235603 (2.36%)
   
-虽然一致性Hash算法解决了节点变化导致的数据迁移问题，但是，我们回过头来再看看数据项分布的均匀性，进行了一致性Hash算法的实现consist_hash.py: 
+虽然一致性Hash算法解决了节点变化导致的数据迁移问题，但是，我们回过头来再看看数据项分布的均匀性，进行了一致性Hash算法的实现consist_hash.py:
   
 Ave: 100000
   
@@ -192,32 +196,32 @@ consist_hash_virtual
 详细实现请见virtual_consist_hash.py
   
 for n in range(NODES):
-      
+
 for v in range(VNODES):
-          
+
 h = _hash(str(n) + str(v))
-          
+
 # 构造ring
-          
+
 ring.append(h)
-          
+
 # 记录hash所对应节点
-          
+
 hash2node[h] = n
   
 ring.sort()
 
 for item in range(ITEMS):
-      
+
 h = _hash(str(item))
-      
+
 # 搜索ring上最近的hash
-      
+
 n = bisect_left(ring, h) % (NODES*VNODES)
-      
+
 node_stat[hash2node[ring[n]]] += 1
   
-输出结果是这样的: 
+输出结果是这样的:
   
 Ave: 100000
   
@@ -227,18 +231,18 @@ Min: 9492 (90.51%)
   
 因此，通过增加虚节点的方法，使得每个节点在环上所"管辖"更加均匀。这样就既保证了在节点变化时，尽可能小的影响数据分布的变化，而同时又保证了数据分布的均匀。也就是靠增加"节点数量"加强管辖区间的均匀。
   
-同时，观察增加节点后数据变动情况，详细的代码请见virtual_consist_hash_add.py: 
+同时，观察增加节点后数据变动情况，详细的代码请见virtual_consist_hash_add.py:
   
 for item in range(ITEMS):
-      
+
 h = _hash(str(item))
-      
+
 n = bisect_left(ring, h) % (NODES*VNODES)
-      
+
 n2 = bisect_left(ring2, h) % (NODES2*VNODES)
-      
+
 if hash2node[ring[n]] != hash2node2[ring2[n2]]:
-          
+
 change += 1
   
 100000
@@ -256,19 +260,19 @@ consist_hash_ring
 代码实现见part_consist_hash.py
   
 for part in range(2 ** LOG_NODE):
-      
+
 ring.append(part)
-      
+
 part2node[part] = part % NODES
 
 for item in range(ITEMS):
-      
+
 h = _hash(item) >> PARTITION
-      
+
 part = bisect_left(ring, h)
-      
+
 n = part % NODES
-      
+
 node_stat[n] += 1
   
 Ave: 100000
@@ -282,38 +286,38 @@ Min: 77405 (22.59%)
 15
 
 for part in range(2 ** LOG_NODE):
-      
+
 ring.append(part)
-      
+
 part2node[part] = part % NODES
-      
+
 part2node2[part] = part % NODES2
 
 change = 0
   
 for item in range(ITEMS):
-      
+
 h = _hash(item) >> PARTITION
-      
+
 p = bisect_left(ring, h)
-      
+
 p2 = bisect_left(ring, h)
-      
+
 n = part2node[p] % NODES
-      
+
 n2 = part2node2[p] % NODES2
-      
+
 if n2 != n:
-          
+
 change += 1
   
-结果如下所示: 
+结果如下所示:
   
 Change: 2190208 (21.90%)
   
 可以看到，移动也是比较理想的。
   
-参考链接: 
+参考链接:
   
 深入云存储系统Swift核心组件: Ring实现原理剖析
   
@@ -323,19 +327,18 @@ Partition Ring vs. Hash Ring
 
     一致性哈希算法是分布式系统中常用的算法。比如，一个分布式的存储系统，要将数据存储到具体的节点上，如果采用普通的hash方法，将数据映射到具体的节点上，如key%N，key是数据的key，N是机器节点数，如果有一个机器加入或退出这个集群，则所有的数据映射都无效了，如果是持久化存储则要做数据迁移，如果是分布式缓存，则其他缓存就失效了。
     因此，引入了一致性哈希算法: 
-    
 
 把数据用hash函数 (如MD5) ，映射到一个很大的空间里，如图所示。数据的存储时，先得到一个hash值，对应到这个环中的每个位置，如k1对应到了图中所示的位置，然后沿顺时针找到一个机器节点B，将k1存储到B这个节点中。
   
-如果B节点宕机了，则B上的数据就会落到C节点上，如下图所示: 
+如果B节点宕机了，则B上的数据就会落到C节点上，如下图所示:
 
 这样，只会影响C节点，对其他的节点A，D的数据不会造成影响。然而，这又会造成一个"雪崩"的情况，即C节点由于承担了B节点的数据，所以C节点的负载会变高，C节点很容易也宕机，这样依次下去，这样造成整个集群都挂了。
-         
-为此，引入了"虚拟节点"的概念: 即把想象在这个环上有很多"虚拟节点"，数据的存储是沿着环的顺时针方向找一个虚拟节点，每个虚拟节点都会关联到一个真实节点，如下图所使用: 
+
+为此，引入了"虚拟节点"的概念: 即把想象在这个环上有很多"虚拟节点"，数据的存储是沿着环的顺时针方向找一个虚拟节点，每个虚拟节点都会关联到一个真实节点，如下图所使用:
 
 图中的A1、A2、B1、B2、C1、C2、D1、D2都是虚拟节点，机器A负载存储A1、A2的数据，机器B负载存储B1、B2的数据，机器C负载存储C1、C2的数据。由于这些虚拟节点数量很多，均匀分布，因此不会造成"雪崩"现象。
   
-Java实现: 
+Java实现:
 
 ```java
   
@@ -469,10 +472,9 @@ return h;
   
 ```
 
-http://yikun.github.io/2016/06/09/%E4%B8%80%E8%87%B4%E6%80%A7%E5%93%88%E5%B8%8C%E7%AE%97%E6%B3%95%E7%9A%84%E7%90%86%E8%A7%A3%E4%B8%8E%E5%AE%9E%E8%B7%B5/
+<http://yikun.github.io/2016/06/09/%E4%B8%80%E8%87%B4%E6%80%A7%E5%93%88%E5%B8%8C%E7%AE%97%E6%B3%95%E7%9A%84%E7%90%86%E8%A7%A3%E4%B8%8E%E5%AE%9E%E8%B7%B5/>
   
-http://blog.csdn.net/wuhuan_wp/article/details/7010071
+<http://blog.csdn.net/wuhuan_wp/article/details/7010071>
 
-https://segmentfault.com/a/1190000021199728  
-https://blog.csdn.net/suifeng629/article/details/81567777
-
+<https://segmentfault.com/a/1190000021199728>  
+<https://blog.csdn.net/suifeng629/article/details/81567777>

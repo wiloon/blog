@@ -4,9 +4,9 @@ author: "-"
 date: "2021-04-21 13:17:52"
 url: sendfile
 categories:
-  - IO
+  - OS
 tags:
-  - sendfile
+  - IO
 ---
 ## sendfile
 

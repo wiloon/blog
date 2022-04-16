@@ -4,8 +4,7 @@ author: "-"
 date: 2011-07-18T04:47:44+00:00
 url: /?p=358
 categories:
-  - IDE
-
+  - Editor
 tags:
   - reprint
 ---

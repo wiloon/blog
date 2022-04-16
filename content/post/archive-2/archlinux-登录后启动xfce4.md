@@ -4,8 +4,7 @@ author: "-"
 date: 2016-04-25T05:51:34+00:00
 url: /?p=8940
 categories:
-  - Uncategorized
-
+  - Desktop
 tags:
   - reprint
 ---

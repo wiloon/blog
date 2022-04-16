@@ -4,9 +4,10 @@ author: "-"
 date: 2018-09-01T03:34:42+00:00
 url: vscode
 categories:
-  - vscode
+  - Editor
 tags:
   - reprint
+  - vscode
 ---
 ## vscode basic，vscode, visual studio code
 

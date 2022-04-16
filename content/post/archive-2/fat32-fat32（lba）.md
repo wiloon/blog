@@ -4,8 +4,7 @@ author: "-"
 date: 2016-12-16T15:30:01+00:00
 url: fat
 categories:
-  - file
-
+  - filesystem
 tags:
   - reprint
 ---

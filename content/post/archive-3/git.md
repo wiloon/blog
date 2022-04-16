@@ -112,9 +112,6 @@ https://blog.csdn.net/taiyangdao/article/details/52761572
 
 作者： fandyst
 出处： http://www.cnblogs.com/todototry/
-关注语言： python、javascript(node.js)、objective-C、java、R、C++
-兴趣点： 互联网、大数据技术、大数据IO瓶颈、col-oriented DB、Key-Value DB、数据挖掘、模式识别、deep learning、开发与成本管理
-产品：
 本文版权归作者和博客园共有,欢迎转载,但未经作者同意必须保留此段声明,且在文章页面明显位置给出原文连接。
 
 作者：波罗学

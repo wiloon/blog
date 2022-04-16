@@ -10,7 +10,9 @@ tags:
 
 ---
 ## C++
+
 ## 双冒号 (::）
+
 1、表示“域操作符”
 例：声明了一个类A，类A里面声明了一个成员函数 void click()，但没有在类的声明里边给出 click 的定义，那么在类外定义 click 时，就要写成 void A::click()，表示这个 click() 函数是类A的成员函数。
 
@@ -37,7 +39,8 @@ void OFViewHelper::setReturnKeyForAllTextFields(UIReturnKeyType lastKey, UIView*
 System::Math::Sqrt() // 相当于 System.Math.Sqrt()
 
 ```
+
 作者：管乐_VICTOR
-链接：https://www.jianshu.com/p/0c2965f59780
+链接：<https://www.jianshu.com/p/0c2965f59780>
 来源：简书
 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。

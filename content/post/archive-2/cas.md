@@ -4,8 +4,7 @@ author: "-"
 date: 2015-12-01T02:00:55+00:00
 url: cas
 categories:
-  - java
-
+  - OS
 tags:
   - reprint
 ---

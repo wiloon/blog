@@ -4,10 +4,10 @@ author: "-"
 date: 2020-02-01T03:59:45+00:00
 url: secoclient
 categories:
-  - VPN
-
+  - network
 tags:
   - reprint
+  - VPN
 ---
 ## huawei vpn, sslvpn, secoclient in archlinux, 华为SSLVPN客户端
 

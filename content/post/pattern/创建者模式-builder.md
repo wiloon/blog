@@ -4,7 +4,7 @@ author: "-"
 date: 2012-10-10T04:23:22+00:00
 url: /?p=4421
 categories:
-  - Java
+  - Design Pattern
 tags:
   - DesignPattern
 

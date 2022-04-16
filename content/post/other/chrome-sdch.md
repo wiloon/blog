@@ -4,8 +4,7 @@ author: "-"
 date: 2015-09-06T02:24:22+00:00
 url: /?p=8219
 categories:
-  - Uncategorized
-
+  - chrome
 tags:
   - reprint
 ---

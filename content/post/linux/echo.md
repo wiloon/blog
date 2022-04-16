@@ -4,7 +4,7 @@ author: "-"
 date: 2012-06-21T01:21:27+00:00
 url: echo
 categories:
-  - Linux
+  - shell
 tags:
   - reprint
 ---

@@ -30,7 +30,7 @@ error(String format, Object... arguments)这个方法也会打印异常堆栈信
 
 最后一个参数．如果不遵守这个规定，异常堆栈信息不会ｌｏｇ出来．
 
-官方ＦＡＱ: http://www.slf4j.org/faq.html
+官方ＦAＱ: http://www.slf4j.org/faq.html
 
 Can I log an exception without an accompanying message?
   

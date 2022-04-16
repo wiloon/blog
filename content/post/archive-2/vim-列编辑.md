@@ -4,10 +4,10 @@ author: "-"
 date: 2018-12-25T01:58:57+00:00
 url: /?p=13209
 categories:
-  - Uncategorized
-
+  - Editor
 tags:
   - reprint
+  - VIM
 ---
 ## VIM 列编辑
 

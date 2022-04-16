@@ -8,7 +8,7 @@ categories:
 tags:
   - reprint
   - remix
-  - vpn
+  - VPN
 ---
 ## wireguard
 

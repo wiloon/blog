@@ -3,9 +3,8 @@ title: windows wsl
 author: "w1100n"
 date: 2019-03-28T09:40:51.000+00:00
 url: "wsl"
-
 categories:
-  - inbox
+  - Linux
 tags:
   - reprint
 ---

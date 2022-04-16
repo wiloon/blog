@@ -4,10 +4,10 @@ author: "-"
 date: 2015-10-12T14:44:49+00:00
 url: /?p=8396
 categories:
-  - Uncategorized
+  - Agile
 tags:
+  - reprint
   - Scrum
-
 ---
 ## 迭代回顾, Sprint Retrospective
 Scrum - Sprint Retrospective

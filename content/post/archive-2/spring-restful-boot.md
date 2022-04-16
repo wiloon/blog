@@ -5,12 +5,14 @@ date: 2017-02-22T08:51:55+00:00
 url: spring/boot
 categories:
   - Spring
-
 tags:
   - reprint
+  - RESTful
 ---
 ## spring restful, spring boot, maven,gradle
+
 ### spring-boot-starter-parent
+
 ```xml
   <parent>
     <groupId>org.springframework.boot</groupId>
@@ -46,21 +48,24 @@ Java版本 (Java8）
     </dependency>
 </dependencies>
 ```
+
 假设我们需要定制自己的版本号，可以通过下面的方式重写：
 
 ### spring-boot-starter-web
+
 <properties>
     <spring-data-releasetrain.version>Fowler-SR2</spring-data-releasetrain.version>
 </properties>
 
+###
 
-### 
 ```xml
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-web</artifactId>
     </dependency>
 ```
+
 Spring Web Starter使用Spring MVC，REST和Tomcat作为默认的嵌入式服务器
 
 Spring Boot还支持另外两个嵌入式服务器：
@@ -76,22 +81,22 @@ gradle bootRun
 
     java -jar xxx.jar --spring.profiles.active=prod
 
->https://tengj.github.io/2017/02/26/springboot1/
-http://git.oschina.net/wiloon/java8x/tree/master/java-web-x?dir=1&filepath=java-web-x&oid=f781e8d83fbb0bf06b36e766fbe0bbaeb8f51756&sha=121ba0714d171c1fe53e246cf86a43fb145589b4
+><https://tengj.github.io/2017/02/26/springboot1/>
+<http://git.oschina.net/wiloon/java8x/tree/master/java-web-x?dir=1&filepath=java-web-x&oid=f781e8d83fbb0bf06b36e766fbe0bbaeb8f51756&sha=121ba0714d171c1fe53e246cf86a43fb145589b4>
 
-https://spring.io/guides/gs/rest-service/
+<https://spring.io/guides/gs/rest-service/>
 
-https://github.com/mariuszs/spring-boot-web-jsp-example
+<https://github.com/mariuszs/spring-boot-web-jsp-example>
 
 作者：Johnny_
-链接：https://www.jianshu.com/p/628acadbe3d8
+链接：<https://www.jianshu.com/p/628acadbe3d8>
 来源：简书
 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
 
->https://www.yiibai.com/spring-boot/spring-boot-starter-web.html
+><https://www.yiibai.com/spring-boot/spring-boot-starter-web.html>
 
+### Spring Boot 启动时，让方法自动执行的 4 种方法
 
-### Spring Boot 启动时，让方法自动执行的 4 种方法！
 1. 实现ServletContextAware接口并重写其setServletContext方法
 
 ```java
@@ -108,12 +113,14 @@ public class TestStarted implements ServletContextAware {
     }
 }
 ```
+
 注意：该方法会在填充完普通Bean的属性，但是还没有进行Bean的初始化之前执行
 
 2、实现ServletContextListener接口
 
 /**
- * 在初始化Web应用程序中的任何过滤器或servlet之前，将通知所有servletContextListener上下文初始化。
+
+* 在初始化Web应用程序中的任何过滤器或servlet之前，将通知所有servletContextListener上下文初始化。
  */
 @Override
 public void contextInitialized(ServletContextEvent sce) {
@@ -139,8 +146,9 @@ public class Test2 {
 4、实现ApplicationRunner接口
 
 /**
- * 用于指示bean包含在SpringApplication中时应运行的接口。可以定义多个applicationrunner bean
- * 在同一应用程序上下文中，可以使用有序接口或@order注释对其进行排序。
+
+* 用于指示bean包含在SpringApplication中时应运行的接口。可以定义多个applicationrunner bean
+* 在同一应用程序上下文中，可以使用有序接口或@order注释对其进行排序。
  */
 @Override
 public void run(ApplicationArguments args) throws Exception {
@@ -149,16 +157,19 @@ public void run(ApplicationArguments args) throws Exception {
 5、实现CommandLineRunner接口
 
 /**
- * 用于指示bean包含在SpringApplication中时应运行的接口。可以在同一应用程序上下文中定义多个commandlinerunner bean，并且可以使用有序接口或@order注释对其进行排序。
- * 如果需要访问applicationArguments而不是原始字符串数组，请考虑使用applicationrunner。
- * 
+
+* 用于指示bean包含在SpringApplication中时应运行的接口。可以在同一应用程序上下文中定义多个commandlinerunner bean，并且可以使用有序接口或@order注释对其进行排序。
+* 如果需要访问applicationArguments而不是原始字符串数组，请考虑使用applicationrunner。
+
+*
  */
 @Override
 public void run(String... ) throws Exception {
     System.out.println("CommandLineRunner的run方法");
 }
 
->https://segmentfault.com/a/1190000039363178
+><https://segmentfault.com/a/1190000039363178>
 
 ### 参数检验
+
 @NotEmpty用在集合类上面 @NotBlank 用在String上面 @NotNull 用在基本类型上

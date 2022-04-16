@@ -4,8 +4,7 @@ author: "-"
 date: 2020-04-13T05:24:16+00:00
 url: docker/save
 categories:
-  - docker
-
+  - container
 tags:
   - reprint
 ---

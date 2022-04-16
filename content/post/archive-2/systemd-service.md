@@ -4,7 +4,7 @@ author: "-"
 date: 2018-02-23T07:17:35+00:00
 url: systemd/script
 categories:
-  - systemd
+  - Linux
 
 tags:
   - reprint

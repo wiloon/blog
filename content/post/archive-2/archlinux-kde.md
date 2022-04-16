@@ -3,11 +3,11 @@ title: archlinux kde, config
 author: "-"
 date: 2018-06-11T10:48:46+00:00
 url: kde
-tags:
-  - kde
-
+categories:
+  - Desktop
 categories:
   - inbox
+  - KDE
 ---
 ## archlinux kde, config
 ```bash

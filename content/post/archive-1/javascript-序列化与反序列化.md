@@ -4,7 +4,7 @@ author: "-"
 date: 2015-06-10T03:50:37+00:00
 url: /?p=7781
 categories:
-  - Uncategorized
+  - JavaScript
 tags:
   - JavaScript
 

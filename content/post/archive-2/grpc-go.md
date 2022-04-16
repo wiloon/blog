@@ -4,10 +4,10 @@ author: "-"
 date: 2017-09-07T04:25:32+00:00
 url: grpc/go
 categories:
-  - rpc
-
+  - Go
 tags:
   - reprint
+  - RPC
 ---
 ### grpc
 gRPC通过 HTTP2 协议传输

@@ -8,5 +8,6 @@ categories:
 
 tags:
   - reprint
+  - Scrum
 ---
 ## 'Scrum,Sprint Review Meeting'

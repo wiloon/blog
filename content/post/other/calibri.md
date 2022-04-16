@@ -3,10 +3,8 @@ title: Resume, CV
 author: "-"
 date: 2011-09-07T05:08:28+00:00
 url: resume
-
 categories:
-  - CV
-
+  - Inbox
 tags:
   - reprint
 ---

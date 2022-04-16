@@ -3,9 +3,8 @@ title: raspberry pi networking to systemd-networkd
 author: "-"
 date: 2018-12-26T14:35:39+00:00
 url: /?p=13214
-
 categories:
-  - inbox
+  - Raspberry-Pi
 tags:
   - reprint
 ---

@@ -4,8 +4,7 @@ author: "-"
 date: 2020-01-01T16:26:14+00:00
 url: shell/file/create
 categories:
-  - linux
-
+  - shell
 tags:
   - reprint
 ---

@@ -5,9 +5,9 @@ date: 2021-10-02T01:27:23+00:00
 url: tcp/proxy
 categories:
   - network
-
 tags:
   - reprint
+  - proxy
 ---
 ## tcp proxy
 
