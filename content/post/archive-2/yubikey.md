@@ -70,13 +70,11 @@ yubico-piv-tool -a status
 ssh-add -s /usr/lib/libykcs11.so
 ssh-add -L
 
-
 Host github.com
  PKCS11Provider /usr/lib/libykcs11.so
  Port 22
  User foobar
 
-# ---
 yubico-piv-tool -s 9a  -a import-key -k --pin-policy=once --touch-policy=always -i id_rsa.pem
 ssh-keygen -D /usr/lib/libykcs11.so -e
 ssh-add -s /usr/lib/libykcs11.so
@@ -91,7 +89,7 @@ yubico-piv-tool -a status
 
 Step 7: So far, so good. The problem comes when you unplug the device and reinsert it. SSH just gives an error "agent refused operation":
 
-$ ssh babyspice.example.com
+ssh babyspice.example.com
 sign_and_send_pubkey: signing failed for RSA "Public key for PIV Authentication" from agent: agent refused operation
 jes@babyspice.example.com's password:
 It took me a little while to find out what was going on here because it wasn't mentioned in the YubiCo tutorial. Eventually I found this GitHub issue. The problem is that the SSH agent does not reinitialise libykcs11 when the YubiKey is plugged in (because it has no way to know that it should), which means libykcs11 doesn't get a chance to ask you for the PIN, which means it can't unlock the YubiKey, which means it can't use it for SSH authentication.
@@ -106,3 +104,38 @@ alias yf="ssh-add -e /usr/lib/x86_64-linux-gnu/libykcs11.so; ssh-add -s /usr/lib
 
 
 https://ruimarinho.gitbooks.io/yubikey-handbook/content/ssh/authenticating-ssh-with-piv-and-pkcs11-client/
+
+
+## 其它
+
+### 硬件密钥
+
+yubikey, Nitrokey，Google Titan， CanoKeys
+
+### 软件密钥
+
+Solokeys，U2F-zero
+
+## TOTP
+
+- Google Authenticator
+- Microsoft Authenticator
+- Authy
+- andOTP
+
+## WebAuthn
+
+<https://webauthn.io/>
+
+## CanoKey
+
+<https://blog.cubercsl.site/post/canokey-unboxing/>
+
+CanoKey由清华大学的一些老师/学生（同时也是开源社区的大佬）所写，有软硬件（包括PCB设计）皆开源的stm32版本，也有使用密码学芯片的发售版本（其核心功能一致，只是速度较大差别），可供国内广大用户、企业选用，满足其硬件密钥乃至安全性需求。
+
+这是「合法」的（参考《密码法》），「廉价」的（比市场同类商品价格低，功能更加丰富），「易用」的（相关软件已经发布）。
+
+同时，用户可以体验虚拟硬件密钥，进行构建/购买前的测试与游玩！同时也欢迎用户参与核心代码库的贡献，您的贡献可能出现在下一版的发售中！
+
+## fido2
+

@@ -11,14 +11,13 @@ tags:
 ---
 ## mobile apps, ios apps, android apps, app list, apk
 
-todo: 用列表代替表格,方便编辑
-
 |name|comments|
 |-|-|
 | 古诗文网 ||
 | Wander  ||
 
 ### ios app
+
 |name|comments|
 |-|-|
 |Strongbox  |keepassxc的ios实现|
@@ -29,6 +28,7 @@ todo: 用列表代替表格,方便编辑
 |默沙东诊疗手册||
 
 ### android app, apk list
+
 |name|comments|
 |-|-|
 |英语轻松读|英语学习|
@@ -47,8 +47,10 @@ todo: 用列表代替表格,方便编辑
 |Quizlet|英语学习工具|
 | shareit|茄子快传|
 | Internet Speed Meter Lite | 网速监控                                  |
+|F-droid|应用商店|
 
 ### android/chromeos apps
+
 #### android apps
 
 | Name                      | Comments                              |
@@ -69,7 +71,6 @@ todo: 用列表代替表格,方便编辑
 | EBuoy                     | Learn English through video subtitles |
 | AnkiDroid Flashcards      |                                       |
 
-
 sfdroid
   
 yalp store
@@ -88,8 +89,8 @@ nextcloud
 |Secure Shell App||
 |crosh|window|
 
-
 ### list
+
 - AnXray
 - 冰箱
 - chrome
@@ -126,35 +127,34 @@ nextcloud
 - Ingress
 - IITC Mobile
 
-
 ---
 
-  * producteev
-  * evernote
-  * sms backup
-  * astro
-  * -------------
-  * 凤凰移动台
-  * touch china
-  * any radio
-  * 8684地铁
-  * AIDE
-  * QQ
-  * opera
-  * 京东
-  * 淘宝
-  * 支付宝
-  * camera360
-  * battery indicator
-  * Instagram
-  * TED
-  * google earth
-  * wiregoggles
-  * switchpro
-  * CPU usage monitor
-  * newsrob
-  * astrid
-  * proxy: <http://forum.xda-developers.com/showthread.php?t=766569>
+- producteev
+- evernote
+- sms backup
+- astro
+- -------------
+- 凤凰移动台
+- touch china
+- any radio
+- 8684地铁
+- AIDE
+- QQ
+- opera
+- 京东
+- 淘宝
+- 支付宝
+- camera360
+- battery indicator
+- Instagram
+- TED
+- google earth
+- wiregoggles
+- switchpro
+- CPU usage monitor
+- newsrob
+- astrid
+- proxy: <http://forum.xda-developers.com/showthread.php?t=766569>
 
 ringtone: hangout_ringtone
 

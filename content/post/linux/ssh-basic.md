@@ -10,16 +10,19 @@ tags:
   - reprint
 ---
 ## ssh basic
+
 ## 指定私钥
 
     ssh -i /path/to/id_rsa
   
 ### 测试
+
     ssh -T git@github.com
 
 ### 强制使用密码登录, force ssh client to use only password auth
+
     ssh -o PreferredAuthentications=password -o PubkeyAuthentication=no 192.168.2.x -l user0
-    
+
 ```bash
   
 #debian
@@ -35,17 +38,20 @@ sudo /etc/init.d/ssh start|stop|restart
 ssh IP
   
 ssh IP -p 1234 -l root
-  
+
+# ssh version 
+ssh -V
 ```
 
-### -A option enables forwarding of the authentication agent connection.
+### -A option enables forwarding of the authentication agent connection
+
 There is a shortcut to archive this, if we don't want to create a config file, we have another option, using -A flag with the ssh command.
 
     ssh -A user@myhost.com 
 
 ## ssh, block ip, blacklist
-Add sshd: 116.31.116.20 to /etc/hosts.deny
 
+Add sshd: 116.31.116.20 to /etc/hosts.deny
 
 SSH两种登录验证方式
 
@@ -95,5 +101,4 @@ SSH登录主要分为两个阶段：
 
 8）服务器使用相同的会话共享密钥和他生成的随机数计算出MD5哈希值，并与客户端返回的MD5哈希值进行比较。如果两个值相等，证明客户端拥有对应私钥，则通过验证。
 
->https://zhuanlan.zhihu.com/p/139285610
-
+><https://zhuanlan.zhihu.com/p/139285610>
