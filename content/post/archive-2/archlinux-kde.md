@@ -84,5 +84,14 @@ weston --backend=rdp-backend.so --port=3389
 
 ```
 
+## 编译 Weston
+
+```bash
+git clone git@gitlab.freedesktop.org:wayland/weston.git
+pacman -S wayland-protocols cmake seatd
+meson build/ --prefix=/root/tmp/foo
+# Failed to load module: libicuuc.so.70, 等 weston 升版本
+```
+
 <https://man.archlinux.org/man/weston.1>
 <https://gitlab.freedesktop.org/wayland/weston>
