@@ -2,10 +2,9 @@
 title: SSD
 author: "-"
 date: 2019-04-14T02:04:41+00:00
-url: /?p=14152
+url: ssd
 categories:
-  - Uncategorized
-
+  - Hardware
 tags:
   - reprint
 ---
@@ -29,6 +28,12 @@ SSD中提供了一个TRIM命令，操作系统在删除文件时可以通过向S
 
 <https://zhuanlan.zhihu.com/p/34683444>
 
+## SSD 检测工具
+
 ## Crystal Dick Info
 
 ## Crystal Disk Mark
+
+## Samsung_Magician_Installer_Official_7.0.1.630
+
+<https://semiconductor.samsung.com/consumer-storage/support/tools/>

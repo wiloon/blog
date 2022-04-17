@@ -265,3 +265,9 @@ WISPr
 - DDR4 16G
 - MSATA
 - BIOS F2
+
+---
+
+## GD41
+
+<https://post.smzdm.com/p/avwqm59m/>

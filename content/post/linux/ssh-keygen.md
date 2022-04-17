@@ -4,31 +4,28 @@ author: "-"
 date: 2011-11-24T04:41:17+00:00
 url: ssh-keygen
 categories:
-  - Linux
+  - Security
 tags:
   - reprint
-  - security
-
 
 ---
 ## ssh-keygen
 
-ssh-keygen是用于为SSH创建新的身份验证密钥对的工具。此类密钥对用于自动登录，单点登录和验证主机。目前广泛的用在linux服务验证、git身份验证上。
+ssh-keygen 是用于为 SSH 创建新的身份验证密钥对的工具。此类密钥对用于自动登录，单点登录和验证主机。目前广泛的用在 linux 服务验证、git 身份验证上。
 
 执行ssh-keygen可以生成一个密钥对 ,这个密钥对称为公钥文件和私钥 文件 ,例如：
 
-使用rsa算法： id_rsa(密钥),id_rsa.pub(公钥)
-使用dsa算法：id_dsa(密钥),id_dsa.pub(公钥)
-
+使用 rsa算法： id_rsa(密钥),id_rsa.pub(公钥)
+使用 dsa算法：id_dsa(密钥),id_dsa.pub(公钥)
 
 -t 选择加密算法
-ssh-keygen目前支持三种加密算法:rsa,dsa,ecdsa, 默认使用的是rsa，ssh-keygen程序是交互式的， 
-
+ssh-keygen目前支持三种加密算法:rsa,dsa,ecdsa, 默认使用的是rsa，ssh-keygen程序是交互式的，
 
 在 ~/.ssh 目录下生成私钥 id_rsa 和公钥 id_rsa.pub 文件
 
 ```bash
 # 优先使用 ed25519
+ssh-keygen -t ed25519 -C "bar"
 ssh-keygen -t ed25519 -f foo -C "bar"
 # -t ed25519,  使用加密算法 ed25519
 # -f foo, 生成的密钥文件名, 不指定文件名的话, ed25519 算法默认的文件名是 id_ed25519 
@@ -57,11 +54,13 @@ cat /root/id_rsa.pub >> /root/.ssh/authorized_keys
    ssh-copy-id -i ~/.ssh/id_rsa.pub root@10.1.0.2
 
 ### print SHA256 fingerprint
+
     ssh-keygen -lf /path/to/ssh/key
 
-### 
+###
+
     ssh-keygen -A
-    
+
 public key file: authorized_keys
 
 this command will generating public/private rsa key pair.
@@ -70,17 +69,16 @@ Your identification has been saved in /root/.ssh/id_rsa
   
 Your public key has been saved in /root/.ssh/id_rsa.pub
 
-### WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED!
-    ssh-keygen -f "/home/wiloon/.ssh/known_hosts" -R "192.168.1.2"
+### WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED
 
+    ssh-keygen -f "/home/wiloon/.ssh/known_hosts" -R "192.168.1.2"
 
 ### multiple ssh private keys
 
 by **Karanbir Singh**
 
-http://www.karan.org/blog/index.php/2009/08/25/multiple-ssh-private-keys
+<http://www.karan.org/blog/index.php/2009/08/25/multiple-ssh-private-keys>
   
-    
       In quite a few situations its preferred to have ssh keys dedicated for a service or a specific role. Eg. a key to use for home / fun stuff and another one to use for Work things, and another one for Version Control access etc. Creating the keys is simple, just use
     
     
@@ -98,10 +96,7 @@ http://www.karan.org/blog/index.php/2009/08/25/multiple-ssh-private-keys
  chmod 600 ~/.ssh/config
  echo "IdentityFile ~/.ssh/id_rsa.work" >> ~/.ssh/config
  echo "IdentityFile ~/.ssh/id_rsa.misc" >> ~/.ssh/config
-      
-    
-    
-    
+
       This would make sure that both the keys are always used whenever ssh makes a connection. However, ssh config lets you get down to a much finer level of control on keys and other per-connection setups. And I recommend, if you are able to, to use a key selection based on the Hostname. My ~/.ssh/config looks like this :
     
     
@@ -119,14 +114,10 @@ Host *.d0.karan.org
   IdentityFile ~/.ssh/id_rsa.d0
   User admin
   Port 21871
-    
-    
-    
+
       Ofcourse, if I am connecting to a remote host that does not match any of these selections, ssh will default back to checking for and using the 'usual' key, ~/.ssh/id_dsa or ~/.ssh/id_rsa
   
-
-
 作者：Martain
-链接：https://www.jianshu.com/p/75bf863c4ab6
+链接：<https://www.jianshu.com/p/75bf863c4ab6>
 来源：简书
 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。

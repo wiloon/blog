@@ -5,12 +5,11 @@ date: 2012-09-13T13:35:41+00:00
 url: /?p=4031
 categories:
   - Linux
-
 tags:
   - reprint
+
 ---
 ## kvm虚拟机vnc开启音频+rdp
-# 
   
     为了方便使用virt-manager来创建和管理kvm的虚拟机。默认创建好的windows xp虚拟机，用vnc连接的时候会没有声音，用rdesktop连接的时候声音是正常的。
   

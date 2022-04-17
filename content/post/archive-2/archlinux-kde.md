@@ -78,3 +78,11 @@ dbus-run-session startplasma-wayland
 
 ## wayland rdp
 
+```bash
+pacman -S weston freerdp
+weston --backend=rdp-backend.so --port=3389
+
+```
+
+<https://man.archlinux.org/man/weston.1>
+<https://gitlab.freedesktop.org/wayland/weston>

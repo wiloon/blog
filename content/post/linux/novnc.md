@@ -1,17 +1,16 @@
 ---
 author: "-"
 date: "2020-06-28T15:23:44Z"
-title: "novnc"
-
+title: novnc
 categories:
   - inbox
 tags:
   - reprint
 ---
-## "novnc"
 ### novnc
-https://github.com/novnc/noVNC
-https://novnc.com/info.html
+
+<https://github.com/novnc/noVNC>
+<https://novnc.com/info.html>
 
     podman run  \
     -e REMOTE_HOST=192.168.50.114 \
@@ -21,8 +20,8 @@ https://novnc.com/info.html
     --name novnc-dell \
     dougw/novnc
 
-
 ### nginx config
+
     server {
             listen 80;
             server_name  vnc.wiloon.com; 
