@@ -13,7 +13,10 @@ tags:
 ## ssh config
 
 ### public key
-    vim ~/.ssh/authorized_keys
+
+```bash
+vim ~/.ssh/authorized_keys
+```
 
 ## sshd config, /etc/sshsshd_config
 
