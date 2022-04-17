@@ -4,13 +4,64 @@ author: "-"
 date: 2018-05-11T01:04:23+00:00
 url: ssh-agent
 categories:
-  - linux
+  - Linux
 tags:
   - reprint
   - remix
-  - ssh
+  - SSH
 ---
 ## ssh-agent, ssh agent, ssh forward
+
+## ssh agent forward
+
+A > B > C
+
+- 主机 A：运行 ssh-agent，并且已经加载私钥
+- 主机 B：跳板机
+- 主机 C: 目标机，已经配置好公钥，启动 sshd
+
+主机 A ssh-agent 已经在运行
+
+```bash
+ps -ef | grep ssh-agent
+```
+
+主机 A ssh-agent 已经加载了密钥
+
+```bash
+ssh-add -l
+```
+
+主机 A 允许入站连接上的 SSH 代理转发, 将 AllowAgentForwarding 的值设置为 yes，表示允许进行代理转发， openssh 中 AllowAgentForwarding 默认值即为yes，所以，如果配置没有修改过，保持默认即可。
+
+```bash
+vim /etc/ssh/sshd_config
+    AllowAgentForwarding yes
+```
+
+主机 A ssh 配置 ForwardAgent yes
+
+```bash
+vim ~/.ssh/config
+
+#content
+host *
+  ForwardAgent yes
+```
+
+主机 B 不需要运行 ssh-agent, 也不需要配置 ssh 的 `ForwardAgent yes`, 但是主机 B 在使用 ssh agent forward 连接 主机 C 成功之后，会创建 环境变量 `$SSH_AUTH_SOCK`
+
+### 测试密钥是否可用
+
+从 主机 A ssh 登录到主机 B，然后运行:
+
+```bash
+ssh -T git@host-C.com
+# 比如 github就相当于是 主机 C
+ssh -T git@github.com
+```
+
+---
 
 ## 临时运行
 
@@ -89,23 +140,21 @@ ssh-add -l
 
 ## kill ssh-agent
 
+```bash
     kill $SSH_AGENT_PID
+```
 
 ## 把密钥添加到 ssh-agent
 
+```bash
     ssh-add /path/to/private_key
+```
 
 ### 环境变量
 
 ```bash
     echo $SSH_AGENT_PID
     echo $SSH_AUTH_SOCK
-```
-
-### 测试密钥是否可用
-
-```bash
-    ssh -T git@github.com
 ```
 
 ssh-agent 是用于管理 SSH private keys 的, 长时间持续运行的守护进程 (daemon) . 唯一目的就是对解密的私钥进行高速缓存.
@@ -156,7 +205,7 @@ User root
     sudo systemctl restart sshd
 ```
 
-## ssh agent forward
+---
 
 <https://www.jianshu.com/p/12de50582e63>
 
@@ -271,36 +320,6 @@ Get-Service ssh-agent
 
 ```
 
-## ssh agent forward
+<https://corvo.myseu.cn/2020/10/16/2020-10-16-OpenSSH%E7%B3%BB%E5%88%97(%E6%89%A9%E5%B1%95%E4%B8%89)-%E5%85%B3%E4%BA%8Eforward%20agent%E7%9A%84%E4%BD%BF%E7%94%A8%E4%BB%A5%E5%8F%8A%E8%B0%83%E8%AF%95/>
 
-- 本地：运行 ssh-agent上
-
-
-1. 本地 ssh-agent 已经在运行
-
-    echo "$SSH_AUTH_SOCK"
-
-2. 密钥已经加载到了 ssh-agent
-
-    ssh-add -l
-
-3. 服务器允许入站连接上的 SSH 代理转发, 将 AllowAgentForwarding 的值设置为 yes，表示允许进行代理转发， openssh 中 AllowAgentForwarding 默认值即为yes，所以，如果配置没有修改过，保持默认即可。
-
-```bash
-vim /etc/ssh/sshd_config
-    AllowAgentForwarding yes
-```
-
-4. 本地 ssh 配置 ForwardAgent yes
-
-```bash
-host *
-        ForwardAgent yes
-
-```
-
-5. 代理机 ssh 配置 ForwardAgent yes
-6. 跳板机可能需要有 ssh-agent (待验证)
-
-><https://corvo.myseu.cn/2020/10/16/2020-10-16-OpenSSH%E7%B3%BB%E5%88%97(%E6%89%A9%E5%B1%95%E4%B8%89)-%E5%85%B3%E4%BA%8Eforward%20agent%E7%9A%84%E4%BD%BF%E7%94%A8%E4%BB%A5%E5%8F%8A%E8%B0%83%E8%AF%95/>
-><https://www.zsythink.net/archives/2422>
+<https://www.zsythink.net/archives/2422>
