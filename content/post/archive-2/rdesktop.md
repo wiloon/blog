@@ -1,5 +1,5 @@
 ---
-title: 远程桌面, rdesktop
+title: 远程桌面, freerdp, rdesktop
 author: "-"
 date: 2016-10-18T08:23:01+00:00
 url: rdesktop
@@ -9,6 +9,8 @@ tags:
   - reprint
 
 ---
+## 远程桌面, freerdp, rdesktop
+
 ## windows 远程桌面
 
 ### 剪切板
@@ -19,7 +21,7 @@ tags:
 
 解决方法:
 
-1. 打开任务管理器－〉结束此进程 (rdpclip.exe) 
+1. 打开任务管理器－〉结束此进程 (rdpclip.exe)
 
 2. 点击任务管理器菜单"文件－〉新建任务",在输入框中输入"rdpclip",确定
 
@@ -86,4 +88,5 @@ xfreerdp /v:192.168.50.9:3389 /u:"wiloon" /p:haCahpro /size:1680x1024  +clipboar
 ```bash
 freerdp-shadow-cli -auth /port:12345
 ```
+
 <https://www.mankier.com/1/freerdp-shadow-cli#>

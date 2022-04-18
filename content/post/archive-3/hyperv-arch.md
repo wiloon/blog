@@ -76,7 +76,7 @@ export XDG_SESSION_TYPE=x11
 export XDG_CURRENT_DESKTOP="XFCE"
 exec startxfce4
 
-##### 用socat"测试vsock
+##### 用socat 测试vsock
 
     pacman -S socat
     socat -b65536 UNIX-LISTEN:/tmp/.X11-unix/X0,fork,mode=777 SOCKET-CONNECT:40:0:x0000x70170000x02000000x00000000 &
