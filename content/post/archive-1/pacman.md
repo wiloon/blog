@@ -4,17 +4,25 @@ author: "-"
 date: 2015-04-25T03:37:27+00:00
 url: pacman
 categories:
-  - linux
+  - Linux
 tags:
-  - archlinux
+  - Arch Linux
   - remix
 
 ---
 ## pacman
 
+### 在仓库里搜索有关 foo 的包
+
+```bash
+pacman -Ss foo
+```
+
 ### error: signature from xxx is invalid
 
+```bash
     pacman -Sy archlinux-keyring
+```
 
 ```bash
 # pacman 的 help
@@ -52,7 +60,7 @@ pacman -U /var/cache/pacman/pkg/gvim-8.2.4106-1-x86_64.pkg.tar.zst
 error: unzip: signature from "Jonas Witschel <diabonas@gmx.de>" is unknown trust
 :: File /var/cache/pacman/pkg/unzip-6.0-16-x86_64.pkg.tar.zst is corrupted (invalid or corrupted package (PGP signature)).
 
-查看key的状态：
+查看key的状态
 pacman-key --list-sigs Witschel
 提示是expired
 pacman-key --refresh-keys
@@ -63,15 +71,13 @@ pacman-key --list-sigs Master
 pacman-key --delete 91FFE0700E80619CEB73235CA88E23E377514E00
 pacman-key --populate archlinux
 
-### 在仓库里搜索有关 foo 的包
-
-    pacman -Ss foo
-
 ### downgrade one package
 
-    yay -S downgrade
-    sudo downgrade cmake
-    #输入要降级到的版本前面的数字并回车。
+```bash
+yay -S downgrade
+sudo downgrade cmake
+#输入要降级到的版本前面的数字并回车。
+```
 
 ### pacman mirror list
 
@@ -89,13 +95,15 @@ Server = http://mirrors.kernel.org/archlinux/$repo/os/$arch
 
 #### 按名字找包
 
-    pacman -Sl |grep jdk
+```bash
+pacman -Sl |grep jdk
+```
 
 ### Enabling multilib
 
 To enable multilib repository, uncomment the [multilib] section in /etc/pacman.conf:
 
-```
+```bash
 /etc/pacman.conf
 [multilib]
 Include = /etc/pacman.d/mirrorlist
@@ -125,7 +133,9 @@ pacman -Rdd package_name
 
 ### Fix "unable to lock database"
 
-    sudo rm /var/lib/pacman/db.lck
+```bash
+sudo rm /var/lib/pacman/db.lck
+```
 
 ### 查看软件包依赖
 
@@ -139,7 +149,9 @@ pactree <packageName>
 
 #### pactree，查看 packageName 被哪些软件包依赖了
 
-    pactree -r <packageName>
+```bash
+pactree -r <packageName>
+```
 
 # 升级系统中所有已安装的包
   
@@ -212,15 +224,15 @@ XferCommand = /usr/bin/wget –passive-ftp –limit-rate=10k -c -O %o %u
 
 查询包数据库
   
-Pacman可以在包数据库中查询软件包，查询位置包含了包的名字和描述:
+Pacman 可以在包数据库中查询软件包，查询位置包含了包的名字和描述:
 
-Pacman包管理器是ArchLinux的一大亮点。它汲取了其他Linux版本软件管理的优点，譬如Debian的APT机制、Redhat的Yum机制、 Suse的Yast等，对于安装软件提供了无与伦比的方便。另外由于ArchLinux是一个针对i686架构优化的发行版，因此对于软件的效率提高也有一定的帮助。pacman可以说是ArchLinux的基础，因为ArchLinux默认安装非常少的软件，其他软件都是使用pacman通过网络来安装的。它将一个简单的二进制包格式和易用的构建系统结合了起来。Pacman使得简单的管理与自定义软件包成为了可能，而不论他们来自于官方的Arch软件库或是用户自己创建的。Pacman可以通过和主服务器同步包列表来进行系统更新，这使得注重安全的系统管理员的维护工作成为轻而易举的事情。
+Pacman 包管理器是 ArchLinux 的一大亮点。它汲取了其他 Linux 版本软件管理的优点，譬如Debian的APT机制、Redhat的Yum机制、 Suse的Yast等，对于安装软件提供了无与伦比的方便。另外由于ArchLinux是一个针对i686架构优化的发行版，因此对于软件的效率提高也有一定的帮助。pacman可以说是ArchLinux的基础，因为ArchLinux默认安装非常少的软件，其他软件都是使用pacman通过网络来安装的。它将一个简单的二进制包格式和易用的构建系统结合了起来。Pacman使得简单的管理与自定义软件包成为了可能，而不论他们来自于官方的Arch软件库或是用户自己创建的。Pacman可以通过和主服务器同步包列表来进行系统更新，这使得注重安全的系统管理员的维护工作成为轻而易举的事情。
 
 下面是偶总结的Pacman命令参数:
 
 安装软件包
-  
-安装或者升级单个软件包，或者一列软件包 (包含依赖包) ，使用如下命令:
+
+安装或者升级单个软件包，或者一列软件包 (包含依赖包)， 使用如下命令:
 
 pacman -S package_name1 package_name2
   

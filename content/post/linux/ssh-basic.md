@@ -32,17 +32,19 @@ sudo apt-get install openssh-server
 #archlinux
   
 sudo pacman -S openssh
-
 sudo /etc/init.d/ssh start|stop|restart
-
 ssh IP
-  
 ssh IP -p 1234 -l root
-
 # ssh version 
 ssh -V
 ```
 
+## ubuntu
+
+```bash
+sudo apt install openssh-server
+sudo systemctl start sshd
+```
 ### -A option enables forwarding of the authentication agent connection
 
 There is a shortcut to archive this, if we don't want to create a config file, we have another option, using -A flag with the ssh command.

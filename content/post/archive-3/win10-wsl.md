@@ -122,6 +122,7 @@ ssh-add -L
 ## 进入wsl2 的 ubuntu
 
 ### 配置ubuntu 镜像源, aliyun mirror
+
 <https://developer.aliyun.com/mirror/ubuntu?spm=a2c6h.13651102.0.0.3e221b111bQgY0>
 
     vim /etc/apt/source.list
@@ -151,11 +152,13 @@ deb-src http://mirrors.aliyun.com/ubuntu/ focal-backports main restricted univer
     sudo apt upgrade
 
 ### 安装各种依赖包
+
 <https://www.jianshu.com/p/572c86b55a68>
 
     sudo apt install golang git python make maven openjdk-8-jdk ttf-wqy-microhei ttf-wqy-zenhei xfonts-wqy
 
 ### 安装nodejs
+
 <https://github.com/nodesource/distributions/blob/master/README.md>
     curl -sL <https://deb.nodesource.com/setup_14.x> | sudo -E bash -
     sudo apt-get install -y nodejs
@@ -197,6 +200,7 @@ vim .zshrc
     advanced rule add rule: tcp port 0
 
 #### windows脚本设置网卡Ip
+
 <https://blog.csdn.net/manbu_cy/article/details/108476859>
 
     @echo off
@@ -297,6 +301,7 @@ vim .zshrc
         Ctrl + Click 打开光标处的文件、目录名或者网址
 
 ### wsl2 Install the Linux kernel update package
+
 <https://docs.microsoft.com/en-us/windows/wsl/wsl2-kernel>
 
 ### command
@@ -332,9 +337,11 @@ Run powershell.exe as Administrator
     Ubuntu (Default)
 
 ### wsl2 graphical
+
 <https://zhuanlan.zhihu.com/p/150555651>
 
 ### wsl2的ip每次都 会变的问题, 在windows里可以直接访问 localhost:xxxx, wsl2会把所有端口映射到windows 的 localhost
+
 <https://github.com/microsoft/WSL/issues/4210>  
 With the latest update, you can access remote ports(WSL2) as local on Windows Host
 

@@ -11,9 +11,9 @@ tags:
 ---
 ## 协程, Coroutine
 
-协程的概念很早就提出来了， 但是直到最近几年才某些语言 如 Lua, Golang 中得到广泛应用。
+协程别名: 微线程，纤程。英文:Coroutine, Green threads, fibers
 
-协程，Green threads， fibers
+传统编程语言中子程序或者叫函数是层级调用的,
 
 - 没有线程切换的开销, 协程之间的切换不需要涉及任何系统调用或任何阻塞调用
 - 协程是协作式多任务的

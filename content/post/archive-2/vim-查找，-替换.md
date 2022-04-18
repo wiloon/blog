@@ -15,13 +15,15 @@ tags:
 
 ## 大小写敏感 \c, \C
 
-在查找模式中加入\c表示大小写不敏感查找,\C表示大小写敏感查找。例如: 
+在查找模式中加入\c表示大小写不敏感查找,\C表示大小写敏感查找。例如:
 
+```bash
     /foo\c
+```
 
 ## 大小写敏感配置
 
-Vim 默认采用大小写敏感的查找,为了方便我们常常将其配置为大小写不敏感: 
+Vim 默认采用大小写敏感的查找,为了方便我们常常将其配置为大小写不敏感:
 "设置默认进行大小写不敏感查找
   
 set ignorecase
@@ -63,17 +65,21 @@ Vim查找支持正则表达式,例如/vim$匹配行尾的"vim"。 需要查找�
 ```
 
 #### 删除以 "#" 开头的行
-    :%s/^#.*$//g
 
-会在全局范围(%)查找foo并替换为bar,所有出现都会被替换 (g) 。
+```bash
+    :%s/^#.*$//g
+```
+
+会在全局范围(%)查找foo并替换为bar, 所有出现都会被替换 (g) 。
 
 #### 作用范围
+
 作用范围分为当前行、全文、选区等等。
 当前行:
 
     :s/foo/bar/g
 
-全文: 
+全文:
 
     :%s/foo/bar/g
 
@@ -81,31 +87,31 @@ Vim查找支持正则表达式,例如/vim$匹配行尾的"vim"。 需要查找�
 
     :'<,'>s/foo/bar/g
 
-2-11行: 
+2-11行:
 
     :5,12s/foo/bar/g
 
-当前行.与接下来两行+2: 
+当前行.与接下来两行+2:
 
     :.,+2s/foo/bar/g
 
 #### 替换标志
   
-上文中命令结尾的g即是替换标志之一,表示全局global替换 (即替换目标的所有出现) 。 还有很多其他有用的替换标志: 
+上文中命令结尾的g即是替换标志之一,表示全局global替换 (即替换目标的所有出现) 。 还有很多其他有用的替换标志:
 
-空替换标志表示只替换从光标位置开始,目标的第一次出现: 
+空替换标志表示只替换从光标位置开始,目标的第一次出现:
 
     :%s/foo/bar
   
-i表示大小写不敏感查找,I表示大小写敏感: 
+i表示大小写不敏感查找,I表示大小写敏感:
 
     :%s/foo/bar/i
 
-#### 等效于模式中的\c (不敏感) 或\C (敏感) 
+#### 等效于模式中的\c (不敏感) 或\C (敏感)
 
     :%s/foo\c/bar
   
-c表示需要确认,例如全局查找"foo"替换为"bar"并且需要确认: 
+c表示需要确认,例如全局查找"foo"替换为"bar"并且需要确认:
 
     :%s/foo/bar/gc
   
@@ -119,7 +125,7 @@ c表示需要确认,例如全局查找"foo"替换为"bar"并且需要确认:
   
 高亮颜色设置
   
-如果你像我一样觉得高亮的颜色不太舒服,可以在 ~/.vimrc 中进行设置: 
+如果你像我一样觉得高亮的颜色不太舒服,可以在 ~/.vimrc 中进行设置:
 
 highlight Search ctermbg=yellow ctermfg=black
   
@@ -129,11 +135,11 @@ highlight MatchParen cterm=underline ctermbg=NONE ctermfg=NONE
   
 上述配置指定 Search 结果的前景色 (foreground) 为黑色,背景色 (background) 为灰色； 渐进搜索的前景色为黑色,背景色为黄色；光标处的字符加下划线。
 
-更多的CTERM颜色可以查阅: http://vim.wikia.com/wiki/Xterm256_color_names_for_console_Vim
+更多的CTERM颜色可以查阅: <http://vim.wikia.com/wiki/Xterm256_color_names_for_console_Vim>
 
 禁用/启用高亮
   
-有木有觉得每次查找替换后 Vim 仍然高亮着搜索结果？ 可以手动让它停止高亮,在normal模式下输入: 
+有木有觉得每次查找替换后 Vim 仍然高亮着搜索结果？ 可以手动让它停止高亮,在normal模式下输入:
 
 :nohighlight
   
@@ -167,7 +173,7 @@ noremap \* \*:set hlsearch<cr>
 
 一键禁用
   
-如果延时禁用搜索高亮仍然不够舒服,可以设置快捷键来一键禁用/开启搜索高亮: 
+如果延时禁用搜索高亮仍然不够舒服,可以设置快捷键来一键禁用/开启搜索高亮:
 
 noremap n :set hlsearch<cr>n
   
@@ -182,7 +188,7 @@ noremap \* \*:set hlsearch<cr>
 nnoremap <c-h> :call DisableHighlight()<cr>
   
 function! DisableHighlight()
-      
+
 set nohlsearch
   
 endfunc
@@ -191,14 +197,14 @@ endfunc
 
 参考阅读
   
-XTERM 256色: http://vim.wikia.com/wiki/Xterm256_color_names_for_console_Vim
+XTERM 256色: <http://vim.wikia.com/wiki/Xterm256_color_names_for_console_Vim>
   
-Vim Wikia - 查找与替换: http://vim.wikia.com/wiki/Search_and_replace
+Vim Wikia - 查找与替换: <http://vim.wikia.com/wiki/Search_and_replace>
   
-用 Vim 打造 IDE 环境: https://harttle.land/2015/11/04/vim-ide.html
+用 Vim 打造 IDE 环境: <https://harttle.land/2015/11/04/vim-ide.html>
   
-本文采用 知识共享署名 4.0 国际许可协议 (CC-BY 4.0) 进行许可。转载请注明来源:  https://harttle.land/2016/08/08/vim-search-in-file.html 欢迎对文中引用进行考证,欢迎指出任何不准确和模糊之处。可以在下面评论区评论,也可以邮件至 harttle@harttle.com。
+本文采用 知识共享署名 4.0 国际许可协议 (CC-BY 4.0) 进行许可。转载请注明来源:  <https://harttle.land/2016/08/08/vim-search-in-file.html> 欢迎对文中引用进行考证,欢迎指出任何不准确和模糊之处。可以在下面评论区评论,也可以邮件至 harttle@harttle.com。
 
 ---
 
-https://harttle.land/2016/08/08/vim-search-in-file.html
+<https://harttle.land/2016/08/08/vim-search-in-file.html>

@@ -87,7 +87,7 @@ set encoding=utf-8
 
     s/pattern/replacement/
 
-开始处的g是全局命令，意味着对所有与地址匹配的行进行改变。结尾处的g是一个标志，意味着改变一行上的每个。
+开始处的 g 是全局命令，意味着对所有与地址匹配的行进行改变。结尾处的g是一个标志，意味着改变一行上的每个。
 
     g/pattern/s/pattern/replacement/g
 

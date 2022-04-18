@@ -22,6 +22,7 @@ sudo pacman -S openjdk-src
 sudo pacman -S jdk8-openjdk openjdk8-src
 archlinux-java status
 sudo archlinux-java set java-11-openjdk
+sudo pacman -S jdk17-openjdk openjdk17-src
 ```
 
 ### 切换jdk版本
@@ -44,8 +45,7 @@ sudo archlinux-java status
 ```bash
 sudo apt install openjdk-8-jdk
 sudo apt install openjdk-8-source
-sudo apt install openjdk-17-jdk
-sudo apt install openjdk-17-source
+sudo apt install openjdk-17-jdk openjdk-17-source
 
 # 默认目录
 ls -l /usr/lib/jvm/
