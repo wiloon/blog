@@ -4,7 +4,7 @@ author: "-"
 date: 2015-05-04T00:34:26+00:00
 url: systemd
 categories:
-  - inbox
+  - Linux
 tags:
   - reprint
 ---
@@ -12,7 +12,15 @@ tags:
 
 Systemd 是 Linux 系统中最新的初始化系统 (init），它主要的设计目标是克服 sysvinit 固有的缺点，提高系统的启动速度
 
-### Systemd新特性
+## --now
+
+```bash
+# enable and start service0
+systemctl --now enable service0
+
+```
+
+### Systemd 新特性
 
 - 系统引导时实现服务并行启动
 - 按需启动守护进程
@@ -22,7 +30,9 @@ Systemd 是 Linux 系统中最新的初始化系统 (init），它主要的设�
 
 ### 查看配置文件位置
 
+```bash
     systemctl status service0
+```
 
 配置文件主要放在/usr/lib/systemd/system 目录,也可能在/etc/systemd/system目录
 

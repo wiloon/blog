@@ -1,16 +1,23 @@
 ---
-title: linux remote desktop server, xrdp
+title: xrdp
 author: "-"
 date: 2012-01-31T08:19:29+00:00
-url: /?p=2199
+url: xrdp
 categories:
   - Linux
-
 tags:
   - reprint
 ---
-## linux remote desktop server, xrdp
+## xrdp
 
+## ubuntu
+
+```bash
+sudo systemctl enable --now xrdp
+sudo ufw allow from any to any port 3389 proto tcp
+```
+
+## archlinux
 ```bash
 yay -S xrdp
 yay -S xorgxrdp
@@ -65,7 +72,7 @@ Use YUM command to install xrdp package on CentOS 7 / RHEL 7.
 
 ### install tigervnc
 
-# Package Arch Version Repository Size
+## Package Arch Version Repository Size
 
 Installing:
 

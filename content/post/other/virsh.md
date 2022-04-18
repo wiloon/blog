@@ -9,7 +9,6 @@ tags:
   - reprint
   - kvm
 
-
 ---
 ## libvirt, virsh
 
@@ -36,7 +35,6 @@ group = "root"
 
 ```bash
 systemctl restart libvirtd
-
 ```
 
 ```bash
@@ -62,7 +60,7 @@ vncviewer 10.1.10.2:1
 
 ## 参数
 
-```
+```bash
 --name    #虚拟机名称
 --ram     #分配给虚拟机的内存，单位MB
 --vcpus   #分配给虚拟机的cpu个数
