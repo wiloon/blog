@@ -269,10 +269,13 @@ console.log("Mozilla is " + x.length + " code units long");
 
 ### base64
 
+```bash
     let str = 'foo'
+    # encode
     let base64Str = btoa(str)
-
+# decode
     let str = atob(base64Str)
+```
 
 ### window.location 对象所包含的属性
 

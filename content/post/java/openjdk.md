@@ -1,19 +1,20 @@
 ---
-title: jdk, openjdk
+title: openjdk
 author: "-"
 date: 2017-04-21T00:26:31+00:00
 url: jdk
 categories:
-  - java
+  - Java
 tags:
   - reprint
 ---
-## jdk, openjdk
+## openjdk
 
 <http://openjdk.java.net/projects/jdk/>
->https://jdk.java.net/
 
-## archlinux
+<https://jdk.java.net>
+
+## archlinux openjdk
 
 ```bash
 sudo pacman -S jdk-openjdk
@@ -40,7 +41,7 @@ java -version
 sudo archlinux-java status
 ```
 
-## ubuntu
+## ubuntu openjdk
 
 ```bash
 sudo apt install openjdk-8-jdk
@@ -57,12 +58,11 @@ sudo update-alternatives --config java
 
 ```
 
-## 手动安装
+## 手动安装 openjdk
 
 ### download jdk
 
-    https://jdk.java.net/archive/
-    https://jdk.java.net/17/
+<https://jdk.java.net/17>
 
 ### AdoptOpenJDK
 
@@ -70,7 +70,7 @@ AdoptOpenJDK 是一个由OpenJDK构建，并以免费软件的形式提供社区
 
 ### AdoptOpenJDK mirror
 
-    https://mirrors.tuna.tsinghua.edu.cn/AdoptOpenJDK/16/jdk/x64/linux/
+<https://mirrors.tuna.tsinghua.edu.cn/AdoptOpenJDK/16/jdk/x64/linux>
 
 #### jdk 8
 
@@ -103,12 +103,14 @@ udo update-alternatives -config java
 
 ### redhat build of openjdk
 
-    https://developers.redhat.com/products/openjdk/download?sc_cid=701f2000000RWTnAAO
+<https://developers.redhat.com/products/openjdk/download?sc_cid=701f2000000RWTnAAO>
 
 ### jvm specs
+
 <https://docs.oracle.com/javase/specs/index.html>
 
 ### jdk source code
+
 <https://github.com/openjdk/jdk>
 
 ### /usr/lib/jvm/java-8-openjdk-amd64/jre/lib/ext/libatk-wrapper.so
@@ -119,3 +121,7 @@ ATK-Bridge.
 <https://developer.gnome.org/accessibility-devel-guide/stable/dev-start-5.html.zh_CN>
 
 <https://blog.csdn.net/oschina_40188932/article/details/78833754>
+
+## openjdk archive
+
+<https://jdk.java.net/archive>

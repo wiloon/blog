@@ -1,5 +1,5 @@
 ---
-title: ps
+title: ps command
 author: "-"
 date: 2011-07-20T07:50:28+00:00
 url: ps
@@ -9,7 +9,7 @@ tags:
   - remix
 
 ---
-## ps
+## ps command
 
 Linux中的 ps 命令是 Process Status 的缩写。
 
@@ -193,3 +193,10 @@ rss        RSS      resident set size, the non-swapped physical memory that a
 ><http://elinux.org/Runtime_Memory_Measurement>
 ><https://www.cnblogs.com/peida/archive/2012/12/19/2824418.html>  
 ><https://man7.org/linux/man-pages/man1/ps.1.html>
+
+## ps install
+
+```bash
+# centos
+yum install procps-ng
+```

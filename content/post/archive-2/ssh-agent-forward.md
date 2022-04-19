@@ -18,9 +18,9 @@ A > B > C
 
 - 主机 A：运行 ssh-agent，并且已经加载私钥
 - 主机 B：跳板机
-- 主机 C: 目标机，已经配置好公钥，启动 sshd
+- 主机 C: 目标机，已经配置好公钥，并且运行 sshd
 
-主机 A ssh-agent 已经在运行
+检查主机 A ssh-agent 是否已经在运行
 
 ```bash
 ps -ef | grep ssh-agent
@@ -49,7 +49,8 @@ host *
   ForwardAgent yes
 ```
 
-主机 B 不需要运行 ssh-agent, 也不需要配置 ssh 的 `ForwardAgent yes`, 但是主机 B 在使用 ssh agent forward 连接 主机 C 成功之后，会创建 环境变量 `$SSH_AUTH_SOCK`
+主机 B 不需要运行 ssh-agent, 也不需要配置 ssh 的 `ForwardAgent yes`,  
+主机 B 在使用 ssh agent forward 连接 主机 C 成功之后，会创建 环境变量 `$SSH_AUTH_SOCK`
 
 ### 测试密钥是否可用
 

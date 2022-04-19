@@ -9,7 +9,9 @@ tags:
   - mysql
 ---
 ## MySQL basic
+
 ## install
+
 ```bash
 # client
 sudo pacman -S mariadb-clients
@@ -17,56 +19,66 @@ sudo pacman -S mariadb-clients
 sudo pacman -S mariadb
 
 ```
-### 查看表结构:
+
+### 查看表结构
 
 ```sql
 desc table_name;
 ```
 
 ### mysqldump
+
 ```bash
 mysqldump -h 192.168.50.100 -uroot -p --databases rssx --tables user --where=user_id='0'
 ```
+
 ## mysql GUI client for Linux
 
     IDEA
 
 ### jdbc url
+
     jdbc:MySQL://localhost:3306/tmp
     # driver
     com.MySQL.jdbc.Driver
 
 ### MySQL heidisql 变量
+
     SET @total_count := 10;
     select @total_count;
 
 ### 配置文件位置
+
     /etc/my.cnf
 
 ### 查端口
+
     show variables like 'port';
 
 ### 字段默认值
+
     alter tabe tbl_ecp modify load_count default 0;
 
 MySQL管理员用户名: root
   
 密码安装MySQL时指定.
   
-登录MySQL: 
+登录MySQL:
     MySQL -u root -p
 
 ### 查看有哪些数据库
   
 show databases;
 
-### 创建新用户 wiloon ......
+### 创建新用户 wiloon
 
 ```sql
 CREATE USER wiloon IDENTIFIED BY '123456';
 -- 密码要带引号
 ```
-### 创建数据库, 数据库名 mydb.
+
+### 创建数据库, 数据库名 mydb
+
 ```sql
 create database mydb;
 ```
@@ -77,7 +89,7 @@ create database mydb;
 create database mydb character set utf8;
 ```
 
-### 授权用户wiloon 拥有数据库 enx 的所有权限.
+### 授权用户wiloon 拥有数据库 enx 的所有权限
 
 ```sql
     grant all privileges on enlab.* to wiloon@'%' identified by 'password';
@@ -86,12 +98,14 @@ create database mydb character set utf8;
 退出后用wiloon登录, 然后show databases; 应该可以看到enlab了.
 
 ### 查看建表语句
+
 ```sql
     show create table table0;
     SHOW CREATE TABLE table0 \G;
 ```
 
 ### 查看版本
+
 ```sql
 select version();
 -- 查看sql_model参数命令: 
@@ -150,6 +164,7 @@ MySQL -u root -p
 ```
 
 ### 查表字段名
+
 ```sql
 select COLUMN_NAME from information_schema.COLUMNS where table_name = 'your_table_name';
 select COLUMN_NAME from information_schema.COLUMNS where table_name = 'your_table_name' AND COLUMN_NAME='column_name_0'
@@ -196,6 +211,7 @@ select length(xxx) from txxx;
 ```
 
 ### insert
+
 ```sql
     INSERT INTO items (name,city,price,number,picture) VALUES ('耐克运动鞋','广州',500,1000,'003.jpg');
 
@@ -264,7 +280,7 @@ set password
 
 SET PASSWORD FOR user0@localhost= PASSWORD("password");
   
-#注意后面这句话 "COLLATE utf8_general_ci",大致意思是在排序时根据utf8变码格式来排序
+# 注意后面这句话 "COLLATE utf8_general_ci",大致意思是在排序时根据utf8变码格式来排序
 
 授权之后该用户才能用他自己的用户名密码访问MySQL.
 
@@ -274,7 +290,7 @@ SELECT * FROM table  LIMIT [offset,] rows | rows OFFSET offset
   
 SELECT  * FROM  table  order by time desc LIMIT  n;
   
-##auto_increment
+## auto_increment
 
 alter table tb_name modify id int auto_increment primary key;
 
@@ -307,8 +323,6 @@ drop table table_name ;
 ALTER TABLE table_name ADD field_name field_type;
   
 alter table tbl_user add email varchar(2255);
-  
-
   
 把字段 id 设成自增: auto_increment.
 
@@ -351,8 +365,8 @@ alter table tbl_user change password password varchar(256)
 alter table tbl_user modify deleted char(1) not null;
 
 > alter table 表名称 modify 字段名称 字段类型 [是否允许非空];
-    
-> 4.3.修改某个表的字段名称及指定为空或非空 
+
+> 4.3.修改某个表的字段名称及指定为空或非空
 
 alter table 表名称 change 字段原名称 字段新名称 字段类型 [是否允许非空
 
@@ -367,16 +381,17 @@ MySQLdump -uwiloon -pPASSWORD -default-character-set=utf8 enlab >enlab.sql
 MySQL -uusername -ppassword db_name < db_name.sql
   
 ### 日期格式化函数date_format()
+
 ```sql
     -- %Y: 年 %c: 月 %d: 日 %H: 小时 %i: 分钟 %s: 秒
     select date_format(now(),'%Y');
 ```
 
-还可以用一个USE db_name语句启动文本文件。在这种情况下，不需要在命令行中指定数据库名: 
+还可以用一个USE db_name语句启动文本文件。在这种情况下，不需要在命令行中指定数据库名:
 
 shell> MySQL < text_file
 
-如果正运行MySQL，可以使用source或.命令执行SQL脚本文件: 
+如果正运行MySQL，可以使用source或.命令执行SQL脚本文件:
 
 MySQL> source filename
 
@@ -384,7 +399,7 @@ MySQL> source filename
 
 在MySQL中: MySQL> status;
 
-eg: 
+eg:
   
 [root@linuxtest test]# MySQL -u root -p
   
@@ -422,16 +437,16 @@ MySQL> show databases;
   
 5 rows in set (
 
-索引相关常用命令: 
+索引相关常用命令:
   
 1) 创建主键
-   
+
 CREATE TABLE `pk_tab2` (
-    
+
 `id` int(11) NOT NULL AUTO_INCREMENT,
-    
+
 `a1` varchar(45) DEFAULT NULL,
-    
+
 PRIMARY KEY (`id`)
   
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -477,29 +492,31 @@ show index from tablename;
 show create table pk_tab2;
 
 ### ClassNotFoundException: com.MySQL.jdbc.Driver
+
 download and install connector/J , the JDBC driver for MySQL.  
 MySQL-connector-java-5.1.15-bin.jar
 
-http://blog.sina.com.cn/s/blog_5dc960cd0100ea2h.html
+<http://blog.sina.com.cn/s/blog_5dc960cd0100ea2h.html>
 
-http://database.51cto.com/art/201011/234549.htm
+<http://database.51cto.com/art/201011/234549.htm>
 
-http://blog.csdn.net/myxx520/article/details/5130249
+<http://blog.csdn.net/myxx520/article/details/5130249>
 
-http://yh1022.iteye.com/blog/288693
+<http://yh1022.iteye.com/blog/288693>
 
-http://blog.sina.com.cn/s/blog_5dc960cd0100ea2h.html
+<http://blog.sina.com.cn/s/blog_5dc960cd0100ea2h.html>
 
-http://blog.csdn.net/flying_hawk/article/details/3498476
+<http://blog.csdn.net/flying_hawk/article/details/3498476>
 
-http://blog.sina.com.cn/s/blog_4d73c2c20100h8gp.html
+<http://blog.sina.com.cn/s/blog_4d73c2c20100h8gp.html>
 
-http://bbs.csdn.net/topics/350006598
+<http://bbs.csdn.net/topics/350006598>
 
-http://blog.chinaunix.net/uid-20382003-id-3022768.html
->https://blog.csdn.net/weixin_40482816/article/details/87074689
+<http://blog.chinaunix.net/uid-20382003-id-3022768.html>
+><https://blog.csdn.net/weixin_40482816/article/details/87074689>
 
 ## MySQL 查看版本,version
+
 MySQL -V
   
 MySQL Ver 14.14 Distrib 5.5.32, for debian-linux-gnu (x86_64) using readline 6.2
@@ -508,7 +525,7 @@ MySQL Ver 14.14 Distrib 5.5.32, for debian-linux-gnu (x86_64) using readline 6.2
 
 select version();
 
-### 在MySQL中: MySQL> status;
+### 在MySQL中: MySQL> status
 
 MySQL> status;
 
@@ -540,4 +557,4 @@ MySQL> status;
 
 MySQL –help | grep Distrib
   
-MySQL Ver 14.7 Distrib 4.1.10a, for redhat-linux-gnu (i686) 
+MySQL Ver 14.7 Distrib 4.1.10a, for redhat-linux-gnu (i686)
