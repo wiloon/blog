@@ -11,7 +11,9 @@ categories:
   - inbox
 ---
 ## kafka basic, command
+
 ### consumer
+
 ```bash
 bin/kafka-console-consumer.sh --topic topic0 --bootstrap-server localhost:9092
 bin/kafka-console-consumer.sh --topic topic0 --from-beginning --bootstrap-server localhost:9092
@@ -30,6 +32,7 @@ bin/kafka-console-consumer.sh \
 ```
 
 ### producer
+
 ```bash
 bin/kafka-console-producer.sh \
 --broker-list kafka.wiloon.com:9092 \
@@ -38,14 +41,15 @@ bin/kafka-console-producer.sh \
 bin/kafka-console-producer.sh \
 --broker-list kafka.wiloon.com:9092 \
 --topic topic0
---property parse.key=true
+--property "parse.key=true" --property "key.separator=:"
 ```
 
-
 ### kafka package
+
     https://mirrors.bfsu.edu.cn/apache/kafka/2.6.0/kafka_2.13-2.6.0.tgz
 
 ### group
+
     # list all group
     bin/kafka-consumer-groups.sh \
     --bootstrap-server kafka.wiloon.com:9092 --list
@@ -90,7 +94,7 @@ bin/kafka-topics.sh --describe --topic topic0 --bootstrap-server 192.168.50.169:
 ```
 
 replication-factor: 副本数, partitions: 分区数
-topic名中有. 或 _ 会提示:  WARNING: Due to limitations in metric names, topics with a period ('.') or underscore ('_') could collide. To avoid issues it is best to use either, but not both.
+topic名中有. 或 _会提示:  WARNING: Due to limitations in metric names, topics with a period ('.') or underscore ('_') could collide. To avoid issues it is best to use either, but not both.
 
 ### create topic
 
@@ -125,29 +129,35 @@ bin/kafka-topics.sh --create --partitions 3 --replication-factor 3 --topic topic
 <https://cloud.tencent.com/developer/article/1436988>
 
 ### 调整分区数
+
 注意该命令分区数partitions只能增加,不能减少, --partitions 5: 调整之后的分区数, topic可以动态增加分区数。
 
+```bash
     bin/kafka-topics.sh \
     --zookeeper ip0:2181 \
     --alter \
     --topic topic0 \
     --partitions 5
+```
 
 ### 重置offset
-    ./kafka-consumer-groups.sh \
-    --bootstrap-server broker_ip_0:9092 \
-    --reset-offsets --group <group id> \
-    --topic topic0:partition0 \
-    --to-offset 20 --execute
-    
-    bin/kafka-consumer-groups.sh \
-    --bootstrap-server localhost:9092 \
-    --group test-group --reset-offsets \
-    --all-topics --to-offset 500000 --execute
-    
-    bin/kafka-consumer-groups.sh --bootstrap-server localhost:9092 \
-    --group test-group --reset-offsets --all-topics \
-    --to-datetime 2017-08-04T14:30:00.000
+
+```bash
+./kafka-consumer-groups.sh \
+--bootstrap-server broker_ip_0:9092 \
+--reset-offsets --group <group id> \
+--topic topic0:partition0 \
+--to-offset 20 --execute
+
+bin/kafka-consumer-groups.sh \
+--bootstrap-server localhost:9092 \
+--group test-group --reset-offsets \
+--all-topics --to-offset 500000 --execute
+
+bin/kafka-consumer-groups.sh --bootstrap-server localhost:9092 \
+--group test-group --reset-offsets --all-topics \
+--to-datetime 2017-08-04T14:30:00.000
+```
 
 ### 查看kafka版本
 
@@ -167,6 +177,7 @@ zookeeper.connect=localhost:2181
 
 ### 删除topic
 
+```bash
     bin/kafka-topics.sh --topic t0 --delete --zookeeper test-zookeeper-1
 
     #edit bin/kafka-server-start.sh, change memory setting KAFKA_HEAP_OPTS
@@ -189,9 +200,10 @@ zookeeper.connect=localhost:2181
 
     # 会只消费 N 条数据,如果配合 --from-beginning,就会消费最早 N 条数据。
     bin/kafka-console-consumer.sh --bootstrap-server test-kafka-1:9092 --topic t0 --max-messages 10
+```
 
-    
 ### 调整 ReplicationFactor
+
 ```bash
 cat increase-replication-factor.json
     
@@ -204,7 +216,7 @@ cat increase-replication-factor.json
 
 ### install
 
-download http://kafka.apache.org/downloads.html
+download <http://kafka.apache.org/downloads.html>
 
 #### kraft
 
@@ -214,16 +226,22 @@ bin/kafka-server-start.sh config/kraft/server.properties
 ```
 
 #### kraft podmann
->https://github.com/bitnami/bitnami-docker-kafka/issues/159
->https://github.com/bitnami/bitnami-docker-kafka/blob/master/README.md
+
+><https://github.com/bitnami/bitnami-docker-kafka/issues/159>
+><https://github.com/bitnami/bitnami-docker-kafka/blob/master/README.md>
+
 ##### create volume
+
 ```bash
 podman volume create kafka-config
 ```
+
 ##### server.properies
+
 可以复制 kafka_2.13-3.0.0.tgz 里的 config/kraft/server.properties 文件改造一下.
 
 >vim /var/lib/containers/storage/volumes/kafka-config/_data/server.properties
+
 ```
 process.roles=broker,controller
 node.id=1
@@ -272,6 +290,7 @@ bitnami/kafka:3.0.0
 [http://blog.wiloon.com/?p=7242](http://blog.wiloon.com/?p=7242)
 
 - docker
+
 ```bash
 docker run  -d --name kafka \
 -p 9092:9092 \
@@ -286,7 +305,9 @@ docker run  -d --name kafka \
 -v kafka-data:/kafka \
 -t wurstmeister/kafka
 ```
+
 - podman
+
 ```bash
 podman run  -d --name kafka \
 -p 9092:9092 \
@@ -309,6 +330,7 @@ podman run  -d --name kafka \
 ```
 
 ### server.properties
+
     advertised.host.name: 是注册到zookeeper,client要访问的broker地址。 (可能producer也是拿这个值,没有验证) 
     
     如果advertised.host.name没有设,会用host.name的值注册到zookeeper,如果host.name也没有设,则会使用JVM拿到的本机hostname注册到zk。
@@ -328,8 +350,9 @@ podman run  -d --name kafka \
     简单的检查broker是否可以被client访问到的办法,就是在zookeeper中看broker信息,上面显示的hostname是否是client可以访问到的地址。
     
     在zkCli中执行get /brokers/<id>
-    
+
 ### Kafka 访问协议说明
+
     Kafka当前支持四种协议类型的访问: PLAINTEXT、SSL、SASL_PLAINTEXT、SASL_SSL。
     
     Kafka服务启动时,默认会启动PLAINTEXT和SASL_PLAINTEXT两种协议类型的访问监听。可通过设置Kafka服务配置"ssl.mode.enable"为"true",来启动SSL和SASL_SSL两种协议类型的访问监听。
@@ -349,6 +372,7 @@ podman run  -d --name kafka \
     新API和旧API
 
 ### kafka manager
+
 ```bash
 podman run -d --name cmak\
      -p 9000:9000  \
@@ -356,14 +380,15 @@ podman run -d --name cmak\
      hlebalbau/kafka-manager:stable
 ```
 
-https://www.jianshu.com/p/25a7b0ceb78a  
-https://github.com/wurstmeister/kafka-docker  
-https://juejin.im/entry/5cbfe36b6fb9a032036187aa  
-https://my.oschina.net/u/218540/blog/223501  
-https://www.cnblogs.com/AcAc-t/p/kafka_topic_consumer_group_command.html  
-https://blog.csdn.net/lzufeng/article/details/81743521  
->https://www.jianshu.com/p/26495e334613
+<https://www.jianshu.com/p/25a7b0ceb78a>  
+<https://github.com/wurstmeister/kafka-docker>  
+<https://juejin.im/entry/5cbfe36b6fb9a032036187aa>  
+<https://my.oschina.net/u/218540/blog/223501>  
+<https://www.cnblogs.com/AcAc-t/p/kafka_topic_consumer_group_command.html>  
+<https://blog.csdn.net/lzufeng/article/details/81743521>  
+><https://www.jianshu.com/p/26495e334613>
 
 ### kafka producer, consumer api doc
->https://kafka.apache.org/30/javadoc/org/apache/kafka/clients/producer/KafkaProducer.html
->https://kafka.apache.org/30/javadoc/org/apache/kafka/clients/consumer/KafkaConsumer.html
+
+><https://kafka.apache.org/30/javadoc/org/apache/kafka/clients/producer/KafkaProducer.html>
+><https://kafka.apache.org/30/javadoc/org/apache/kafka/clients/consumer/KafkaConsumer.html>
