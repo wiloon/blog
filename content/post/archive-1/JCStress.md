@@ -10,8 +10,9 @@ tags:
   - reprint
 ---
 ## 'java 并发 测试  JCStress'
-http://openjdk.java.net/projects/code-tools/jcstress/
+
+<http://openjdk.java.net/projects/code-tools/jcstress/>
   
-http://www.oschina.net/translate/concurrency-torture-testing-your-code-within-the-java-memory-model
+<http://www.oschina.net/translate/concurrency-torture-testing-your-code-within-the-java-memory-model>
   
-https://wiki.openjdk.java.net/display/CodeTools/jcstress
+<https://wiki.openjdk.java.net/display/CodeTools/jcstress>

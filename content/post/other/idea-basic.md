@@ -63,17 +63,15 @@ ctl+alt+S setting
   点击菜单中的 "File" -> "Invalidate Caches / Restart"，然后点击对话框中的 "Invalidate and Restart"，清空 cache 并且重启。
 
 ### IDEA内存设置
+
 linux
 
 修改idea.vmoptions或idea64.vmoptions
-
 
 windows
 
 修改IntelliJ IDEA 7.0/bin下idea.exe.vmoptions
 
-
-  
  -server
  -Xverify:none
  -Xms300M
@@ -82,7 +80,6 @@ windows
  -XX:PermSize=128m
  -ea
   
-  
 -server 使用server jvm。酌情使用，有些doc说IDEA加该选项可以提高速度。
  -Xverify: none 关闭Java字节码验证，从而加快了类装入的速度，并使得在仅为验证目的而启动的过程中无需装入类，缩短了启动时间。
  -Xms: 是另一个设置内存的参数,用它来设置程序初始化的时候内存栈的大小，增加这个值的话你的程序的启动性能会得到提高。不过同样有前面的限制，以及受到xmx的限制。
@@ -90,8 +87,7 @@ windows
  -XX: PermSize 永久区的大小。
  -XX:+UseParNewGC 使用并行收集算法。
   
-  
-内存大的可以改idea.exe.vmoptions文件为: 
+内存大的可以改idea.exe.vmoptions文件为:
 
 -Xms256m
 -Xmx384m
@@ -111,7 +107,7 @@ windows
 
 Run Test选择 Run “test()”with coverage
 
-http://hi.baidu.com/geeree/blog/item/1eeb29fab2c35f9d58ee9075.html
+<http://hi.baidu.com/geeree/blog/item/1eeb29fab2c35f9d58ee9075.html>
 
 ## native keychain is not available
 
