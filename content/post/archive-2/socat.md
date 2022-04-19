@@ -1,7 +1,7 @@
 ---
 title: socat
 author: "-"
-date: 2022-02-11 00:20:39
+date: 2022-04-19 16:54:43
 url: socat
 categories:
   - network
@@ -18,6 +18,8 @@ tags:
 echo "foo">foo.html
 socat -v -v TCP-LISTEN:8000,crlf,reuseaddr,fork SYSTEM:"echo HTTP/1.0 200; echo Content-Type\: text/plain; echo; cat foo.html"
 ```
+
+<https://stackoverflow.com/questions/29739901/socat-fake-http-server-use-a-file-as-server-response>
 
 ## socat 测试 端口连通性
 
