@@ -1,7 +1,7 @@
 ---
 title: curl
 author: "-"
-date: 2011-11-24T12:47:12+00:00
+date: 2022-04-18 22:48:04
 url: curl
 categories:
   - Linux
@@ -64,10 +64,11 @@ curl -v -d "name=admin&password=admin" -b cookie.txt -c cookie.txt "http://local
 curl -L xxx
 ```
 
-## post request
+## POST
 
 用 -d 传 POST 参数  
 可以用 -X POST 来声明请求方法, 使用 -d 时, 默认为 POST 请求, -X POST 可以省略  
+发送 POST 请求时 Content-Type 默认是 application/x-www-form-urlencoded  
 
 ```bash
 curl -d "user=admin&passwd=12345678" http://127.0.0.1:8080/login

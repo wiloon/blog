@@ -10,7 +10,8 @@ tags:
   - reprint
 ---
 ## MVCC, 多版本并发控制
-http://donghui.blog.51cto.com/2709336/692586
+
+<http://donghui.blog.51cto.com/2709336/692586>
 
 多版本并发控制技术已经被广泛运用于各大数据库系统中,如Oracle,MS SQL Server 2005+, Postgresql, Firebird, Maria等等,开源数据库MySQL中流行的INNODB引擎也采用了类似的并发控制技术.本文就将结合实例来解析不同事务隔离等级下INNODB的MVCC实现原理.1 MVCC概述
 
@@ -95,7 +96,6 @@ insert into emp values(300,"3yihongbin");
 session 1
 
 session 2
-
 
 set transaction isolation level read committed;
 
@@ -200,7 +200,6 @@ session 2
 session 3
 
 session 4
-
 
 set transaction isolation level repeatable read;
 

@@ -1,5 +1,5 @@
 ---
-author: "w1100n"
+author: "w10n"
 date: "2020-10-18 22:17:53" 
 title: books
 categories:
@@ -8,6 +8,20 @@ tags:
   - origin
 ---
 ## books
+
+## Template
+
+- 书名
+  - 原作名:
+  - 作者:
+  - 译者:
+
+## 2022
+
+- 七周七并发模型
+  - 原作名: Seven Concurrency Models in Seven Weeks - When Threads Unravel
+  - 作者: Paul Butcher
+  - 译者: 黄炎
 
 ## 2021
 

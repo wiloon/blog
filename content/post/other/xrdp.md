@@ -21,6 +21,14 @@ sudo ufw allow from any to any port 3389 proto tcp
 ```bash
 yay -S xrdp
 yay -S xorgxrdp
+vim /etc/X11/Xwrapper.config
+
+# content
+allowed_users=anybody
+
+systemctl start xrdp
+systemctl enable xrdp
+
 vim ~/.xinitrc
 # content
 exec startxfce4

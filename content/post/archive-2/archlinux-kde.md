@@ -10,6 +10,7 @@ categories:
   - KDE
 ---
 ## archlinux kde, config
+
 ```bash
 sudo pacman -S xorg xorg-xinit
 sudo pacman -S plasma-desktop
@@ -26,6 +27,7 @@ sudo pacman -S kwalletmanager
 ```
 
 ### 登录后启动kde
+
 ```bash
 vim /home/wiloon/.zshrc
 if [[ ! $DISPLAY && $XDG_VTNR -eq 1 ]]; then
@@ -37,12 +39,14 @@ fi
 
 sddm
   
-https://wiki.archlinux.org/index.php/Display_manager#Loading_the_display_manager
+<https://wiki.archlinux.org/index.php/Display_manager#Loading_the_display_manager>
 
  [1]: https://wiki.archlinux.org/index.php/Xinit#Autostart_X_at_login "https://wiki.archlinux.org/index.php/Xinit#Autostart_X_at_login"
 
- ### 锁屏界面的日期时间格式
- https://chubuntu.com/questions/28565/how-to-display-kde-lock-screen-time-in-24-hour-format.html
+### 锁屏界面的日期时间格式
+
+ <https://chubuntu.com/questions/28565/how-to-display-kde-lock-screen-time-in-24-hour-format.html>
+
  ```bash
 vim  /usr/share/plasma/look-and-feel/org.kde.breeze.desktop/contents/components/Clock.qml
 找到这一行: 
@@ -66,7 +70,7 @@ text: Qt.formatDate(timeSource.data["Local"]["DateTime"], "yyyy-MM-dd");
 
 #### 多显示器
 
- Right-click on the background of the second screen -> Add Panel -> Empty Panel 
+ Right-click on the background of the second screen -> Add Panel -> Empty Panel
  add widgets: task manager
 
 ## Arch Linux, KDE, Wayland

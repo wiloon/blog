@@ -137,31 +137,31 @@ pacman -Rdd package_name
 sudo rm /var/lib/pacman/db.lck
 ```
 
-### 查看软件包依赖
+## 查看软件包依赖
 
-#### pactree，查看 packageName 依赖了哪些软件包
+### pactree, 查看 packageName 依赖了哪些软件包
 
 ```bash
-# pactree 在 pacman-contrib包里
+# pactree 在 pacman-contrib 包里
 pacman -S pacman-contrib
 pactree <packageName>
 ```
 
-#### pactree，查看 packageName 被哪些软件包依赖了
+### pactree，查看 packageName 被哪些软件包依赖了
 
 ```bash
 pactree -r <packageName>
 ```
 
-# 升级系统中所有已安装的包
+## 升级系统中所有已安装的包
   
 pacman -Su
 
-# 升级系统和同步仓库数据
+## 升级系统和同步仓库数据
   
 pacman -Syu
 
-# 忽略/排除指定包
+## 忽略/排除指定包
   
 pacman -Su -ignore postgresql -ignore libpqxx
 
@@ -214,7 +214,7 @@ pacman -Su –ignore foo #升级时不升级包foo
   
 pacman -Sg abc #查询abc这个包组包含的软件包
 
-限速
+## 限速
   
 由于办公室装修，临时借宿到另一个兄弟公司干活。不过这兄弟可不够厚道，分配给我们的网络做了非常不人道的限制，每个网卡限速20k，于是乎瞬间回退到小猫时代。在这样的环境下，如果有时需要安装一些东西，就会由于pacman把带宽全部抢占而导致网页打不开、MSN断线等一系列严重后果。
 
@@ -342,7 +342,7 @@ Pacman的配置文件位于/etc/pacman.conf。关于配置文件的进一步信�
   
 常用选项都在[options]段。阅读man手册或者查看缺省的pacman.conf可以获得有关信息和用途。
 
-**忽略/排除升级软件包**
+## 忽略/排除升级软件包
   
 如果由于某种原因，你不希望升级某个软件包，可以加入内容如下:
   
