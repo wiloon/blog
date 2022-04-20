@@ -5,7 +5,7 @@ title: books
 categories:
   - w10n
 tags:
-  - origin
+  - original
 ---
 ## books
 

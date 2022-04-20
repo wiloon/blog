@@ -6,7 +6,7 @@ url: go/ulimit
 categories:
   - go
 tags:
-  - origin
+  - original
 
 ---
 ## golang 程序 too many open files
@@ -26,11 +26,12 @@ ulimit -Sn
 65535
 
 ### systemd limit
->https://unix.stackexchange.com/questions/345595/how-to-set-ulimits-on-service-with-systemd
 
+><https://unix.stackexchange.com/questions/345595/how-to-set-ulimits-on-service-with-systemd>
 
 ### Go rlimit
->https://stackoverflow.com/questions/17817204/how-to-set-ulimit-n-from-a-golang-program
+
+><https://stackoverflow.com/questions/17817204/how-to-set-ulimit-n-from-a-golang-program>
 
 >wangyue.dev/lsof
 >wangyue.dev/ulimit
