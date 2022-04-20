@@ -10,7 +10,8 @@ tags:
   - reprint
 ---
 ## Install GUI on debian 7 wheezy
-http://namhuy.net/1085/install-gui-on-debian-7-wheezy.html
+
+<http://namhuy.net/1085/install-gui-on-debian-7-wheezy.html>
 
 This article will show you how to install GUI (Graphical User Interface) of your choice (gnome, kde, Cinnamon, mate, enlightenment, xfce, or lxde) on debian 7. The two biggest players in the game are Gnome and KDE, but there are also many smaller GUIs, like Xfce and LXDE that have just as much to offer.
 
@@ -18,9 +19,9 @@ Download Debian 7 wheezy
 
 For leaner and better control of what you install on your machine, I highly recommend you to download and install debian minimal CD or netinst.
 
-x32 http://cdimage.debian.org/debian-cd/7.4.0/i386/iso-cd/debian-7.4.0-i386-netinst.iso
+x32 <http://cdimage.debian.org/debian-cd/7.4.0/i386/iso-cd/debian-7.4.0-i386-netinst.iso>
 
-x64 http://cdimage.debian.org/debian-cd/7.4.0/amd64/iso-cd/debian-7.4.0-amd64-netinst.iso
+x64 <http://cdimage.debian.org/debian-cd/7.4.0/amd64/iso-cd/debian-7.4.0-amd64-netinst.iso>
 
 When you are at "Software selection" screen, \*unselect\* all the option.
 
@@ -60,7 +61,7 @@ Compiz
 
 Compiz is truly one of the original compositing window managers for the X Window System which is capable to make use of OpenGL-acceleration. The integration enables it to run compositing effects in window management, for example a minimization effect and a cube workspace. Compiz conforms to the ICCCM standard together with replacement for the main Metacity in GNOME or KWin in KDE.
 
-# echo "deb http://ftp.us.debian.org/debian/ sid main non-free contrib" >> /etc/apt/sources.list
+# echo "deb <http://ftp.us.debian.org/debian/> sid main non-free contrib" >> /etc/apt/sources.list
 
 # echo 'APT::Default-Release "testing";' >> /etc/apt/apt.conf
 
@@ -82,13 +83,13 @@ Edit /etc/apt/sources.list
 
 Add these to the file
 
-deb http://packages.linuxmint.com/ debian main upstream import
+deb <http://packages.linuxmint.com/> debian main upstream import
 
-deb http://debian.linuxmint.com/latest testing main contrib non-free
+deb <http://debian.linuxmint.com/latest> testing main contrib non-free
 
-deb http://debian.linuxmint.com/latest/security testing/updates main contrib non-free
+deb <http://debian.linuxmint.com/latest/security> testing/updates main contrib non-free
 
-deb http://debian.linuxmint.com/latest/multimedia testing main non-free
+deb <http://debian.linuxmint.com/latest/multimedia> testing main non-free
 
 Change the content of /etc/apt/preferences like this
 
@@ -138,13 +139,13 @@ Add one of MATE repositories to your source.list
 
 # main repository
 
-deb http://repo.mate-desktop.org/debian wheezy main
+deb <http://repo.mate-desktop.org/debian> wheezy main
 
 # mirrors
 
-deb http://packages.mate-desktop.org/repo/debian wheezy main
+deb <http://packages.mate-desktop.org/repo/debian> wheezy main
 
-deb http://mirror1.mate-desktop.org/debian wheezy main
+deb <http://mirror1.mate-desktop.org/debian> wheezy main
 
 Install MATE on debian
 
@@ -154,7 +155,7 @@ Install MATE on debian
 
 # apt-get update
 
-# Now to install MATE choose 1 of the 3 apt-get lines below.
+# Now to install MATE choose 1 of the 3 apt-get lines below
 
 # this installs the base packages
 
@@ -164,7 +165,7 @@ Install MATE on debian
 
 # apt-get install mate-desktop-environment
 
-#or this to install mate-core + mate-desktop-environment and even more extras.
+# or this to install mate-core + mate-desktop-environment and even more extras
 
 # apt-get install mate-desktop-environment-extra
 

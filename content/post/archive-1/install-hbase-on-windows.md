@@ -10,6 +10,7 @@ tags:
 
 ---
 ## hbase install
+
 ```bash
   
 tar xzvf hbase-2.0.0-SNAPSHOT-bin.tar.gz
@@ -25,6 +26,7 @@ cd hbase-2.0.0-SNAPSHOT/
 #edit hbase-site.xml
   
 ```
+
 ```xml  
 <configuration>
     

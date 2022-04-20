@@ -10,6 +10,8 @@ tags:
 ---
 ## hardware
 
+## benchmark
+
 <https://www.passmark.com/>
 
 ## QNAP TS453Bmini
@@ -131,7 +133,7 @@ wifi: Intel Corporation Wireless 7260 (rev 5b)
 - HDMI > dvi
 - type-c > vga
 
-## Pixelbook
+## Pixelbook 2017
 
 - CPU: i5-7Y57
 - MEM: 8G  
@@ -258,7 +260,7 @@ WISPr
 飞思卡尔半导体 MCIMX6L8DVN10AB 处理器
 三星 512 MB SDRAM
 
-## 软路由
+## Intel J4105 软路由
 
 - J4105
 - intel i211

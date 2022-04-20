@@ -10,9 +10,9 @@ tags:
   - reprint
 ---
 ## IntelliJ tomat
+
 [IntelliJ and Tomcat][1]{.question-hyperlink}
 
-
-http://stackoverflow.com/questions/19596779/intellij-and-tomcat-changed-files-are-not-automatically-recognized-by-tomcat/19609115#19609115
+<http://stackoverflow.com/questions/19596779/intellij-and-tomcat-changed-files-are-not-automatically-recognized-by-tomcat/19609115#19609115>
 
  [1]: http://stackoverflow.com/questions/19596779/intellij-and-tomcat-changed-files-are-not-automatically-recognized-by-tomcat
