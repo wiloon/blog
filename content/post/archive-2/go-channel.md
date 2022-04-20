@@ -16,14 +16,20 @@ goroutine 是 Go 语言的基本调度单位, 而 channels 则是它们之间的
 
 golang 的 channel 就是一个 **环形队列/ringbuffer** 的实现。 我们称 chan 为管理结构，channel 里面可以放任何类型的对象，我们称之为元素。
 
+## Channel 定义
+
+```bash
+ChannelType = ( "chan" | "chan<-" | "<-chan" ) ElementType .
+```
+
+可选的`<-`代表 channel 的方向(是数据的流向)。如果没有指定方向，那么 Channel 就是双向的，既可以接收数据，也可以发送数据。
+
+
 ```go
 <-          // channel 的操作符
 ch <- v     // 发送值 v 到 Channel ch 中
 v := <-ch   // 从 Channel ch 中接收数据, 并将数据赋值给 v
 
-// Channel类型的定义格式如下：
-ChannelType = ( "chan" | "chan" "<-" | "<-" "chan" ) ElementType .
-// 可选的<-代表channel的方向(是数据的流向)。如果没有指定方向，那么Channel就是双向的，既可以接收数据，也可以发送数据。
 
 
 var foo chan T        // 可以接收和发送类型为 T 的数据
