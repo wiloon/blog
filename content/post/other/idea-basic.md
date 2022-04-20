@@ -4,7 +4,7 @@ author: "-"
 date: 2013-01-14T07:37:05+00:00
 url: idea
 categories:
-  - IDE
+  - Inbox
 tags:
   - reprint
 ---

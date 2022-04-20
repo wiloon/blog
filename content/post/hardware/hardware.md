@@ -1,14 +1,14 @@
 ---
-title: hardware
+title: Hardware
 author: "-"
 date: "2021-01-13 08:49:13"
 url: ""
 categories:
-  - inbox
+  - w10n
 tags:
-  - archive
+  - Hardware
 ---
-## hardware
+## Hardware
 
 ## benchmark
 
@@ -18,11 +18,11 @@ tags:
 
 ## pixel3
 
-5.5 英寸显示屏, 2160 x 1080 柔性 OLED 屏幕 (443ppi), 18:9
-后置摄像头1220 万像素
-Qualcomm® Snapdragon™ 845, 2.5Ghz + 1.6Ghz，64 位八核
-内存, 4GB LPDDR4x RAM
-2915 毫安时的电池
+- 5.5 英寸显示屏, 2160 x 1080 柔性 OLED 屏幕 (443ppi), 18:9
+- 后置摄像头1220 万像素
+- Qualcomm® Snapdragon™ 845, 2.5Ghz + 1.6Ghz，64 位八核
+- 内存, 4GB LPDDR4x RAM
+- 电池: 2915 毫安时
 
 ### eSIM
 

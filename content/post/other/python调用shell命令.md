@@ -4,7 +4,7 @@ author: "-"
 date: 2012-11-17T08:34:06+00:00
 url: /?p=4709
 categories:
-  - Python
+  - Inbox
 tags:
   - reprint
 ---

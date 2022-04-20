@@ -28,27 +28,15 @@ gyp 是为 Chromium 项目创建的项目生成工具，可以从平台无关的
 
 ### 手动跟新
 
-修改package.json中依赖包版本，执行 npm install --force
+修改 package.json 中依赖包版本，执行 npm install --force
 
 ### 使用第三方插件
 
 ```bash
 npm install -g npm-check-updates
 ncu # 查看可更新包
-ncu -u # 更新package.json
+ncu -u # 更新 package.json
 npm install # 升级到最新版本
-```
-
-### commands
-
-```bash
-npm cache clean
-npm cache clean --force
-
-# 检查更新
-npm outdated
-### 更新依赖
-npm update webpack
 ```
 
 ### install npm
@@ -62,110 +50,163 @@ npm info pkg
 ```
 
 ### nvm, Node Version Manager
+
 <https://github.com/nvm-sh/nvm>
 
-    yay -S nvm
-    source /usr/share/nvm/init-nvm.sh
-    echo 'source /usr/share/nvm/init-nvm.sh' >> ~/.bashrc
-    nvm ls-remote
-    nvm install --lts
+```bash
+yay -S nvm
+source /usr/share/nvm/init-nvm.sh
+echo 'source /usr/share/nvm/init-nvm.sh' >> ~/.bashrc
+nvm ls-remote
+nvm install --lts
+```
 
 ### ubuntu
 
-    apt install python3.9
-    apt install python
+```bash
+apt install python3.9
+apt install python
+```
 
 ### npm install
 
-    npm install --registry=https://registry.npm.taobao.org
+```bash
+npm install --registry=https://registry.npm.taobao.org
+```
 
 ### registory, mirror
 
-    # list registory
-    npm config get registry
-    # set registry
-    npm config set registry https://registry.npm.taobao.org
-    # 恢复
-    npm config set registry https://registry.npmjs.org
+```bash
+# list registory
+npm config get registry
+# set registry
+npm config set registry https://registry.npm.taobao.org
+# 恢复
+npm config set registry https://registry.npmjs.org
+```
 
 ### cnpm
+
 <https://developer.aliyun.com/mirror/NPM>
 
-    npm install -g cnpm --registry=https://registry.npm.taobao.org
-    # 或:  
-    echo '\n#alias for cnpm\nalias cnpm="npm --registry=https://registry.npm.taobao.org \
-      --cache=$HOME/.npm/.cache/cnpm \
-      --disturl=https://npm.taobao.org/dist \
-      --userconfig=$HOME/.cnpmrc"' >> ~/.zshrc && source ~/.zshrc
+```bash
+npm install -g cnpm --registry=https://registry.npm.taobao.org
+# 或:  
+echo '\n#alias for cnpm\nalias cnpm="npm --registry=https://registry.npm.taobao.org \
+    --cache=$HOME/.npm/.cache/cnpm \
+    --disturl=https://npm.taobao.org/dist \
+    --userconfig=$HOME/.cnpmrc"' >> ~/.zshrc && source ~/.zshrc
+```
 
 ### npm commands
 
-    # global install
-    sudo npm install --global @vue/cli
-    # 指定仓库
-    npm install --registry=https://registry.npm.taobao.org
-    # 指定缓存目录
-    npm install --cache /tmp/empty-cache
-    # 清除缓存
-    npm cache clean
+```bash
+npm install -help
+# global install
+sudo npm install --global @vue/cli
+# 指定仓库
+npm install --registry=https://registry.npm.taobao.org
+# 指定缓存目录
+npm install --cache /tmp/empty-cache
+# 清除缓存
+npm cache clean
+
+# 查看缓存目录位置
+npm config get cache
+#清空缓存目录
+npm cache clean
+npm install express --save
+npm install express --save-dev
+# --save参数表示将该模块写入dependencies属性，--save-dev表示将该模块写入devDependencies属性。
+
+npm cache clean
+npm cache clean --force
+
+# 检查更新
+npm outdated
+### 更新依赖
+npm update webpack
+npm uninstall grunt-cli
+  
+# 卸载0.1.9版本的grunt-cli
+
+npm uninstall grunt-cli@"0.1.9"
+```
 
 ### npm uninstall
 
-    # 删除 node_modules 目录下面的包 (package) 
-    npm uninstall lodash
-    # 从 package.json 文件中删除依赖，需要在命令后添加参数 --save
-    npm uninstall --save lodash
+ ```bash
+# 删除 node_modules 目录下面的包 (package) 
+npm uninstall lodash
+# 从 package.json 文件中删除依赖，需要在命令后添加参数 --save
+npm uninstall --save lodash
 
-    npm uninstall vue-cli -g 
+npm uninstall vue-cli -g 
+ ```
 
 #### 安装但不写入package.json
 
+```bash
     npm install xxx
+```
 
 #### 安装并写入 package.json的"dependencies"中
 
+```bash
     npm install xxx –S
     # 简写
     npm i @vue/composition-api -S
     # 指定版本
     npm install jquery@3.0.0 --save
-
-### commands
-
-    # 查看缓存目录位置
-    npm config get cache
-    #清空缓存目录
-    npm cache clean
-    npm install express --save
-    npm install express --save-dev
-    # --save参数表示将该模块写入dependencies属性，--save-dev表示将该模块写入devDependencies属性。
+```
 
 ### 打印依赖树
 
-    npm ls
+```bash
+# list dependency
+npm list
+npm ls
+
+# 查看某一个包的依赖树
+npm install -g npm-remote-ls
+npm-remote-ls foo
+
+# 查看某个包为什么被安装
+
+```
 
 ### 查看包版本
 
+```bash
     npm info vue
     npm view vue version
     # 查看所有版本
     npm view vue versions
+```
 
 ### 安装并写入package.json的"devDependencies"中
 
+```bash
     npm install xxx –D
+```
 
 ### 全局安装
 
+```bash
     npm install xxx -g
+```
 
 ### 安装指定版本
 
+```bash
     npm install xxx@1.2.0
+```
 
 ### report
 
+```bash
     npm run build --report
+```
 
 --save和--save-dev区别
 一句话:--save-dev是你开发时依赖的东西，--save是发布后还依赖的东西.
@@ -275,40 +316,6 @@ npm install grunt-cli@"0.1.9"
 
 如果我们的项目依赖了很多package，一个一个地安装那将是个体力活。我们可以将项目依赖的包都在package.json这个文件里声明，然后一行命令搞定
 
-npm install
-  
-其他package安装命令
-
-运行如下命令，列出所有npm install可能的参数形式
-
-npm install -help
-  
-输出如下，有兴趣的童鞋可以了解下
-
-npm install <tarball file>npm install <tarball url>npm install <folder>npm install <pkg>npm install <pkg>@<tag>npm install <pkg>@<version>npm install <pkg>@<version range>
-  
-卸载grunt-cli
-
-比如卸载grunt-cli
-
-npm uninstall grunt-cli
-  
-卸载0.1.9版本的grunt-cli
-
-npm uninstall grunt-cli@"0.1.9"
-  
-npm ls: 查看安装了哪些包
-
-运行如下命令，就可以查看当前目录安装了哪些package
-
-npm ls
-  
-输出如下
-
-/private/tmp/npm└─┬ grunt-cli@0.1.9 ├─┬ findup-sync@0.1.2 │ ├─┬ glob@3.1.21 │ │ ├── graceful-fs@1.2.3 │ │ ├── inherits@1.0.0 │ │ └─┬ minimatch@0.2.12 │ │ ├── lru-cache@2.3.0 │ │ └── sigmund@1.0.0 │ └── lodash@1.0.1 ├─┬ nopt@1.0.10 │ └── abbrev@1.0.4 └── resolve@0.3.1
-  
-输出如下，同样，如果是要查看package的全局安装信息，加上-g就可以
-
 npm ls pkg: 查看特定package的信息
 
 运行如下命令，输出grunt-cli的信息
@@ -341,7 +348,9 @@ npm发布
 
 这个命令我自己也还没实际用过，不误导大家，语法如下，也可参考官方对于package发布的说明<https://npmjs.org/doc/developers.html>:
 
-npm publish <tarball>npm publish <folder>
+```bash
+npm publish <tarball> npm publish <folder>
+```
   
 NPM配置
 
@@ -490,3 +499,9 @@ npx 想要解决的主要问题，就是调用项目内部安装的模块
 <http://www.cnblogs.com/chyingp/p/npm.html>  
 <http://www.infoq.com/cn/articles/nodejs-npm-install-config>  
 <https://github.com/joyent/node/wiki/Installing-Node.js-via-package-manager#arch-linux>
+
+## 版本号规则
+
+- `^`: 只会执行不更改最左边非零数字的更新。 如果写入的是 ^0.13.0，则当运行 npm update 时，可以更新到 0.13.1、0.13.2 等，但不能更新到 0.14.0 或更高版本。 如果写入的是 ^1.13.0，则当运行 npm update 时，可以更新到 1.13.1、1.14.0 等，但不能更新到 2.0.0 或更高版本。
+- `~`: 如果写入的是 〜0.13.0，则当运行 npm update 时，会更新到补丁版本：即 0.13.1 可以，但 0.14.0 不可以。
+- `*` 匹配 >=0.0.0

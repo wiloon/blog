@@ -5,14 +5,16 @@ date: 2012-07-05T04:54:22+00:00
 url: awk
 categories:
   - Linux
-  - remix
-
 tags:
   - reprint
+  - remix
 ---
 ## awk
+
 ## awk `[ɔk]`
+
 ### commands
+
 ```bash
 # 单独使用 awk, 不需要 cat
 awk  '{print $1}' /tmp/foo.txt
@@ -26,11 +28,13 @@ ip addr | awk '/^[0-9]+: / {}; /inet.*global/ {print gensub(/(.*)\/(.*)/, "\\1",
 ```
 
 ### 变量
+
 除了$ + 数字表示某个字段，awk还提供其他一些变量。
 
 变量NF表示当前行有多少个字段，因此$NF就代表最后一个字段。
 
 ### AWK
+
 AWK是贝尔实验室1977年搞出来的文本处理神器
   
 之所以叫AWK是因为其取了三位创始人 Alfred Aho，Peter Weinberger, 和 Brian Kernighan 的Family Name的首字符
@@ -47,7 +51,7 @@ awk '{if(NR>3 && $2 != "") {print $2}}'|sort -u
 
 ### awk输出单引号，双引号
 
-双引号: 
+双引号:
 
 ```bash
 awk '{print "\""}'
@@ -55,7 +59,7 @@ awk '{print "\""}'
 
 使用""双引号把一个双引号括起来，然后用转义字符\对双引号进行转义，输出双引号。
 
-单引号: 
+单引号:
 
 ```bash
 awk '{print "'\''"}'
@@ -65,7 +69,7 @@ awk '{print "'\''"}'
 
 ### 多个分隔符
 
-关于多个分割符号: 
+关于多个分割符号:
   
 1. awk -F ',' 表示使用逗号多分隔符
   
@@ -87,6 +91,7 @@ echo "i have two apples and one banana" | awk -F'one|two' '{for(i=1;i<=NF;i++)pr
 ```
 
 ### substr
+
 ```bash
 substr($4,20)    --->  表示是从第4个字段里的第20个字符开始，一直到设定的分隔符","结束.
 substr($3,12,8)  --->  表示是从第3个字段里的第12个字符开始，截取8个字符结束.
@@ -154,7 +159,7 @@ awk [-F field-separator] 'commands' input-file(s)
   
 可以换成: #!/bin/awk
 
-3.将所有的awk命令插入一个单独文件，然后调用: 
+3.将所有的awk命令插入一个单独文件，然后调用:
   
 awk -f awk-script-file input-file(s)
   
@@ -180,7 +185,7 @@ root tty1 Fri Sep 5 14:09 - 14:10 (00:01)
   
 如果只是显示最近登录的5个帐号
 
-#last -n 5 | awk '{print $1}'
+# last -n 5 | awk '{print $1}'
   
 root
   
@@ -194,11 +199,9 @@ root
   
 awk工作流程是这样的: 读入有'\n'换行符分割的一条记录，然后将记录按指定的域分隔符划分域，填充域，$0则表示所有域,$1表示第一个域,$n表示第n个域。默认域分隔符是"空白键" 或 "[tab]键",所以$1表示登录用户，$3表示登录用户ip,以此类推。
 
- 
-
 如果只是显示/etc/passwd的账户
 
-#cat /etc/passwd |awk -F ':' '{print $1}'
+# cat /etc/passwd |awk -F ':' '{print $1}'
   
 root
   
@@ -212,11 +215,9 @@ sys
 
 -F指定域分隔符为':'。
 
- 
-
 如果只是显示/etc/passwd的账户和账户对应的shell,而账户与shell之间以tab键分割
 
-#cat /etc/passwd |awk -F ':' '{print $1"\t"$7}'
+# cat /etc/passwd |awk -F ':' '{print $1"\t"$7}'
   
 root /bin/bash
   
@@ -246,19 +247,15 @@ blue,/bin/nosh
 
 awk工作流程是这样的: 先执行BEGING，然后读取文件，读入有/n换行符分割的一条记录，然后将记录按指定的域分隔符划分域，填充域，$0则表示所有域,$1表示第一个域,$n表示第n个域,随后开始执行模式所对应的动作action。接着开始读入第二条记录······直到所有的记录都读完，最后执行END操作。
 
- 
-
 搜索/etc/passwd有root关键字的所有行
 
-#awk -F: '/root/' /etc/passwd
+# awk -F: '/root/' /etc/passwd
   
 root:x:0:0:root:/root:/bin/bash
   
 这种是pattern的使用示例，匹配了pattern(这里是root)的行才会执行action(没有指定action，默认输出每行的内容)。
 
 搜索支持正则，例如找root开头的: awk -F: '/^root/' /etc/passwd
-
- 
 
 搜索/etc/passwd有root关键字的所有行，并显示对应的shell
 
@@ -267,8 +264,6 @@ root:x:0:0:root:/root:/bin/bash
 /bin/bash
   
 这里指定了action{print $7}
-
- 
 
 awk内置变量
   
@@ -298,11 +293,9 @@ RS 控制记录分隔符
 
 此外,$0变量是指整条记录。$1表示当前行的第一个域,$2表示当前行的第二个域,......以此类推。
 
- 
-
 统计/etc/passwd:文件名，每行的行号，每行的列数，对应的完整行内容:
 
-#awk -F ':' '{print "filename:" FILENAME ",linenumber:" NR ",columns:" NF ",linecontent:"$0}' /etc/passwd
+# awk -F ':' '{print "filename:" FILENAME ",linenumber:" NR ",columns:" NF ",linecontent:"$0}' /etc/passwd
   
 filename:/etc/passwd,linenumber:1,columns:7,linecontent:root:x:0:0:root:/root:/bin/bash
   
@@ -324,8 +317,6 @@ awk中同时提供了print和printf两种打印输出的函数。
 
 printf函数，其用法和c语言中printf基本相似,可以格式化字符串,输出复杂时，printf更加好用，代码更易懂。
 
- 
-
 awk编程
   
 变量和赋值
@@ -343,8 +334,6 @@ root:x:0:0:root:/root:/bin/bash
 user count is  40
 
 count是自定义变量。之前的action{}里都是只有一个print,其实print只是一个语句，而action{}可以有多个语句，以;号隔开。
-
- 
 
 这里没有初始化count，虽然默认是0，但是妥当的做法还是初始化为0:
 
@@ -364,8 +353,6 @@ ls -l |awk 'BEGIN {size=0;} {size=size+$5;} END{print "[end]size is ", size}'
   
 [end]size is  8657198
 
- 
-
 如果以M为单位显示:
 
 ls -l |awk 'BEGIN {size=0;} {size=size+$5;} END{print "[end]size is ", size/1024/1024,"M"}'
@@ -374,11 +361,9 @@ ls -l |awk 'BEGIN {size=0;} {size=size+$5;} END{print "[end]size is ", size/1024
   
 注意，统计不包括文件夹的子目录。
 
- 
-
 条件语句
 
-awk中的条件语句是从C语言中借鉴来的，见如下声明方式: 
+awk中的条件语句是从C语言中借鉴来的，见如下声明方式:
   
 if (expression) {
   
@@ -424,13 +409,9 @@ ls -l |awk 'BEGIN {size=0;print "[start]size is ", size} {if($5!=4096){size=size
 
 awk中的循环语句同样借鉴于C语言，支持while、do/while、for、break、continue，这些关键字的语义和C语言中的语义完全相同。
 
- 
-
 数组
 
 因为awk中数组的下标可以是数字和字母，数组的下标通常被称为关键字(key)。值和关键字都存储在内部的一张针对key/value应用hash的表格里。由于hash不是顺序存储，因此在显示数组内容时会发现，它们并不是按照你预料的顺序显示出来的。数组和变量一样，都是在使用时自动创建的，awk也同样会自动判断其存储的是数字还是字符串。一般而言，awk中的数组用来从记录中收集信息，可以用于计算总和、统计单词以及跟踪模板被匹配的次数等等。
-
- 
 
 显示/etc/passwd的账户
   
@@ -452,7 +433,7 @@ awk -F ':' 'BEGIN {count=0;} {name[count] = $1;count++;}; END{for (i = 0; i < NR
 
 这里使用for循环遍历数组
 
-### awk的流程控制BEGIN和END
+## awk的流程控制BEGIN和END
 
 BEGIN模块后紧跟着动作块，这个动作块在awk处理任何输入文件之前执行。所以它可以在没有任何输入的情况下进行测试。它通常用来改变内建变量的值，如OFS,RS和FS等，以及打印标题。如: $ awk'BEGIN{FS=":"; OFS="\t"; ORS="\n\n"}{print $1,$2,$3} test。上式表示，在处理输入文件以前，域分隔符(FS)被设为冒号，输出文件分隔符(OFS)被设置为制表符，输出记录分隔符(ORS)被设置为两个换行符。$ awk 'BEGIN{print "TITLE TEST"}只打印标题.
 
@@ -472,20 +453,27 @@ awk 'BEGIN {FS=":";OFS=":"} gsub(/root/,"hwl") {print $0}' passwd 作用于全�
 
 任何在BEGIN之后列出的操作 (在{}内) 将在Unix awk开始扫描输入之前执行，而END之后列出的操作将在扫描完全部的输入之后执行。因此，通常使用BEGIN来显示变量和预置 (初始化) 变量，使用END来输出最终结果。
 
-#!/bin/awk -f
-#运行前
+# !/bin/awk -f
+
+# 运行前
+
 BEGIN {
     printf "begin0\n"
     FS="Unk|:L"
 }
-#运行中
+
+# 运行中
+
 {
     {printf "%s L%s\n", substr($2,14,4),substr($3,0,16)}
 }
-#运行后
+
+# 运行后
+
 END {
     printf "---------------------------------------------\n"
 }
+
 ```
 
 https://blog.51cto.com/151wqooo/1309851

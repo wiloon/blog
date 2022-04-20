@@ -4,7 +4,7 @@ author: "-"
 date: 2019-08-17T06:58:40+00:00
 url: /?p=14805
 categories:
-  - TypeScript
+  - Inbox
 tags:
   - reprint
 ---

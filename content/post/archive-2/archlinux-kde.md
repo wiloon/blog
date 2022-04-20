@@ -4,8 +4,8 @@ author: "-"
 date: 2018-06-11T10:48:46+00:00
 url: kde
 categories:
-  - Desktop
-categories:
+  - Linux
+tags:
   - inbox
   - KDE
 ---

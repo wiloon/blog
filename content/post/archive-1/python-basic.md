@@ -3,7 +3,6 @@ title: python basic
 author: "-"
 date: 2013-03-24T02:25:43+00:00
 url: /?p=5343
-
 categories:
   - inbox
 tags:
