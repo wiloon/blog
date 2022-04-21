@@ -252,7 +252,9 @@ dd if=/dev/fd0 of=disk.img count=1 bs=1440k
 
 将内存里的数据拷贝到root目录下的mem.bin文件
 
-    dd if=/dev/mem of=/root/mem.bin bs=1024
+```bash
+dd if=/dev/mem of=/root/mem.bin bs=1024
+```
   
 ### 从光盘拷贝iso镜像
 
