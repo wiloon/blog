@@ -113,7 +113,7 @@ symlink(): 创建符号链接。
 mkdir(): 创建新的目录。
 等等，我们常规的文件操作，都能在索引节点中找到相应的操作接口。
 
-## 目录项, dentry
+## 目录项, dentry, directory entry
 
 前面提到VFS把目录当做文件对待，比如/usr/bin/vim，usr、bin和vim都是文件，不过vim是一个普通文件，usr和bin都是目录文件，都是由索引节点对象标识。
 
@@ -438,7 +438,6 @@ block 当中
 >https://blog.51cto.com/u_15265005/2888316
 >https://blog.csdn.net/wh8_2011/article/details/49883411
 
-
 文件系统
 ​ 关于文件系统的三个易混淆的概念：后续我们逐一对三个概念进行澄清。
 
@@ -465,3 +464,4 @@ block 当中
 
 inode number 在单个磁盘分区中是唯一的.
 
+<https://www.leftpocket.cn/post/linux/cp/>

@@ -4,19 +4,17 @@ author: "-"
 date: 2018-04-05T04:04:19+00:00
 url: inode
 categories:
-  - OS
+  - filesystem
 tags:
   - reprint
   - file
 
-
 ---
 ## inode
 
->An inode stores all the information about a regular file, directory, or other file system
-object, except its data and name.
+>An inode stores all the information about a regular file, directory, or other file system object, except its data and name.
 
-每个文件都对应一个 inode，inode 存储了除文件名和文件内容之外的所有信息。
+每个文件都对应一个 inode, inode 存储了除文件名和文件内容之外的所有信息。
 
 inode (发音: eye-node) 译成中文就是索引节点, 它用来存放文件和目录的基本信息, 包含时间、档名、使用者，群组，权限， 一个文件占用一个inode,同时记录此文件的数据所在的 block 号码；
 
@@ -36,7 +34,9 @@ inode是一个重要概念, 是理解 Unix/Linux 文件系统和硬盘储存的�
 
 ## inode是什么？
 
-理解inode,要从文件储存说起。
+Inode 用于存储 文件 或 目录的信息.
+
+理解inode, 要从文件储存说起。
 
 ## 扇区 (Sector)
 
@@ -46,6 +46,8 @@ inode是一个重要概念, 是理解 Unix/Linux 文件系统和硬盘储存的�
 
 文件系统不是一个扇区一个扇区的来读数据，太慢了，所以有了block（块）的概念，它是一个块一个块的读取的，block才是文件存取的最小单位。
 
+文件数据存储在硬盘上，硬盘的最小存储单位叫做"扇区"（512Bytes）。OS读取硬盘的时候，为了提高效率会一次性读取一个"块"（8*扇区=4K）。所以一个大文件的数据内容在磁盘上可能不是连续空间的，就需要inode来把各个Block串联起来。
+
 操作系统读取硬盘的时候, 不会一个个扇区地读取, 这样效率太低, 而是一次性连续读取多个扇区, 即一次性读取一个"块" (block) 。这种由多个扇区组成的"块", 是文件存取的最小单位。"块"的大小,最常见的是4KB, 即连续八个 sector 组成一个 block。
 
 文件数据都储存在"块"中, 那么很显然, 我们还必须找到一个地方储存文件的元信息, 比如文件的创建者、文件的创建日期、**文件的大小**等等。 这种储存文件元信息的区域就叫做 inode, 中文译名为"索引节点"。
@@ -54,15 +56,15 @@ inode是一个重要概念, 是理解 Unix/Linux 文件系统和硬盘储存的�
 
 ### inode的内容  
 
-inode包含文件的元信息, 具体来说有以下内容
+inode 包含文件的元信息(meta data), 每个文件都对应一个 inode，inode 存储了除**文件名**和**文件内容**之外的所有信息。
 
-- 文件的长度(字节数)
+- 文件的长度/size (字节数)
 - 文件拥有者的 User ID
 - 文件的 Group ID
-- 文件的读、写、执行权限
-- 文件的时间戳,共有三个: ctime指inode上一次变动的时间,mtime指文件内容上一次变动的时间,atime指文件上一次打开的时间。
-- 链接数, 即有多少文件名指向这个inode
-- 文件数据block的位置
+- 文件类型和文件的读、写、执行权限
+- 文件的时间戳, 共有三个: ctime 指 inode 上一次变动的时间, mtime指文件内容上一次变动的时间, atime指文件上一次打开的时间。
+- 链接/link 数, 即有多少文件名指向这个 inode
+- 存储位置指针, 文件的 data block 的位置
 
 ### 可以用stat命令,查看某个文件的inode信息
 
@@ -70,7 +72,7 @@ inode包含文件的元信息, 具体来说有以下内容
 
 总之,除了文件名以外的所有文件信息, 都存在inode之中。至于为什么没有文件名,下文会有详细解释。
 
-三、inode的大小
+三、inode 的大小
 
 inode也会消耗硬盘空间,所以硬盘格式化的时候,操作系统自动将硬盘分成两个区域。一个是数据区,存放文件数据；另一个是inode区 (inode table) ,存放inode所包含的信息。
 
@@ -79,7 +81,7 @@ inode也会消耗硬盘空间,所以硬盘格式化的时候,操作系统自动�
 查看每个硬盘分区的inode总数和已经使用的数量,可以使用df命令。
 
 df -i
-查看每个inode节点的大小,可以用如下命令: 
+查看每个inode节点的大小,可以用如下命令:
 
 sudo dumpe2fs -h /dev/hda | grep "Inode size"
 
@@ -95,9 +97,16 @@ sudo dumpe2fs -h /dev/hda | grep "Inode size"
 
 表面上,用户通过文件名,打开文件。实际上,系统内部这个过程分成三步: 首先,系统找到这个文件名对应的inode号码；其次,通过inode号码,获取inode信息；最后,根据inode信息,找到文件数据所在的block,读出数据。
 
-使用ls -i命令,可以看到文件名对应的inode号码: 
+使用ls -i命令,可以看到文件名对应的inode号码:
 
 ls -i example.txt
+
+linux的文件名是保存在目录文件上的,
+
+文档信息
+版权声明: 自由转载-非商用-非衍生-保持署名 (创意共享3.0许可证)
+发表日期:  2011年12月 4日
+<https://www.ruanyifeng.com/blog/2011/12/inode.html>
 
 #### 目录文件
 
@@ -105,11 +114,11 @@ Unix/Linux系统中,目录 (directory) 也是一种文件。打开目录,实际�
 
 目录文件的结构非常简单,就是一系列目录项 (dirent) 的列表。每个目录项,由两部分组成: 所包含文件的**文件名**,以及该文件名对应的 **inode**。
 
-ls命令只列出目录文件中的所有文件名: 
+ls命令只列出目录文件中的所有文件名:
 
 ls /etc
 
-ls -i命令列出整个目录文件,即文件名和inode号码: 
+ls -i命令列出整个目录文件,即文件名和inode号码:
 
 ls -i /etc
 
@@ -166,7 +175,7 @@ ln -s 源文文件或目录 目标文件或目录
 
 第3点使得软件更新变得简单,可以在不关闭软件的情况下进行更新,不需要重启。因为系统通过inode号码,识别运行中的文件,不通过文件名。更新的时候,新版文件以同样的文件名,生成一个新的inode,不会影响到运行中的文件。等到下一次运行这个软件的时候,文件名就自动指向新版文件,旧版文件的inode则被回收
 
-#### 怎么判断是软链接还是硬链接 
+#### 怎么判断是软链接还是硬链接
 
 软链接可以用 ls -l 查看， 软连接开头是l, 文件名显示时有“->”指向  
 硬链接是无法判断的，前后两个文件地位是相等的，没有谁是谁的硬链接的说法
@@ -178,20 +187,20 @@ ln -s 源文文件或目录 目标文件或目录
 硬链接不能跨文件系统，不能作用于目录。多个文件同时指向一个inode号。
 软连接可以跨文件系统，可以作用于目录和文件。
 
-### 文件名
-linux的文件名是保存在目录文件上的,
-
-文档信息
-版权声明: 自由转载-非商用-非衍生-保持署名 (创意共享3.0许可证) 
-发表日期:  2011年12月 4日
-https://www.ruanyifeng.com/blog/2011/12/inode.html
-
 ### 目录
 
 在Linux操作系统中,目录就是目录文件。目录项中存放文件名和一个指向inode的指针。  
 一个目录项主要包括了文件名和inode,索引节点号是指向inode表( system inode table )中对应的索引节点的。  
-https://unix.stackexchange.com/questions/117325/where-are-filenames-stored-on-a-filesystem
+<https://unix.stackexchange.com/questions/117325/where-are-filenames-stored-on-a-filesystem>
 
->https://zhuanlan.zhihu.com/p/143430585
->https://www.h5w3.com/84540.html
->https://www.jianshu.com/p/d60a2b44e78e
+<https://zhuanlan.zhihu.com/p/143430585>
+
+<https://www.h5w3.com/84540.html>
+
+<https://www.jianshu.com/p/d60a2b44e78e>
+
+<https://www.leftpocket.cn/post/linux/cp/>
+
+## inode> 文件权限和类型
+
+<https://man7.org/linux/man-pages/man7/inode.7.html> > The file type and mode

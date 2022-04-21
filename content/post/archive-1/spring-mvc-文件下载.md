@@ -10,7 +10,8 @@ tags:
 
 ---
 ## Spring MVC 文件下载
-http://mayday85.iteye.com/blog/1622445
+
+<http://mayday85.iteye.com/blog/1622445>
 
 不知道起这个标题是不是因为我有妄想症
 
@@ -194,15 +195,11 @@ Java代码 收藏代码
 
 <property name="messageConverters">
 
-
-
 [color=red]<bean class="org.springframework.http.converter.ByteArrayHttpMessageConverter"/>[/color]
 
 <bean id="jsonHttpMessageConverter" class="org.springframework.http.converter.json.MappingJacksonHttpMessageConverter" >
 
 <property name = "supportedMediaTypes">
-
-
 
 <value>text/plain;charset=UTF-8</value>
 

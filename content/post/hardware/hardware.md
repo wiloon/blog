@@ -16,6 +16,14 @@ tags:
 
 ## QNAP TS453Bmini
 
+## Intel J4105 软路由
+
+- J4105
+- intel i211
+- DDR4 16G
+- MSATA
+- BIOS F2
+
 ## pixel3
 
 - 5.5 英寸显示屏, 2160 x 1080 柔性 OLED 屏幕 (443ppi), 18:9
@@ -259,14 +267,6 @@ WISPr
 屏幕: 分辨率为1448×1072，像素度也达到了300ppi
 飞思卡尔半导体 MCIMX6L8DVN10AB 处理器
 三星 512 MB SDRAM
-
-## Intel J4105 软路由
-
-- J4105
-- intel i211
-- DDR4 16G
-- MSATA
-- BIOS F2
 
 ---
 

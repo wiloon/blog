@@ -117,3 +117,7 @@ KHTML拥有速度快捷的优点，但对错误语法的容忍度则比Mozilla�
     正斜杠( forward slash '/' ) 和反斜杠 ( backslash '\')
 
 反斜杠“\”是计算机出现了之后为了表示程序设计里的特殊含义才发明的专用标点。就是说，除了程序设计领域外，任何地方你都不应该有使用反斜杠的情况，请永远使用正斜杠“/”。
+
+## metadata
+
+metadata: data that describes data

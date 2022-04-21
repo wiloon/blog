@@ -5,14 +5,13 @@ date: 2018-02-23T07:17:35+00:00
 url: systemd/script
 categories:
   - Linux
-
 tags:
   - reprint
   - remix
 
-
 ---
 ## systemd start script, 启动脚本
+
 ```bash
 vim /etc/systemd/system/foo.service
 
@@ -33,6 +32,7 @@ WantedBy=multi-user.target
 ```
 
 ### systemd 添加开机启动运行shell脚本
+
 systemd 添加开机启动运行shell脚本
   
 1.首先在/etc/systemd/systemd/下新建一个开机启动服务名为cs.service
@@ -61,14 +61,16 @@ After=pulseaudio.service
 
 >注 脚本里的命令也必须是写绝对路径！！！！！！！！！！！！！！！
 
->http://lxiaogao.lofter.com/post/1cc6a101_62292d3
+><http://lxiaogao.lofter.com/post/1cc6a101_62292d3>
 
 ### 执行shell脚本
 
 ```bash
 vim /usr/lib/systemd/system/foo.service
 ```
+
 #### foo.service
+
 ```bash
 [Unit]
 Description=description0
@@ -131,7 +133,9 @@ ExecStop=/data/server/zookeeper/zookeeper-3.4.12/bin/zkServer.sh stop
 [Install]
 WantedBy=multi-user.target
 ```
+
 ### java
+
 ```bash
 #!/bin/sh
 service_name="service0"
@@ -184,7 +188,8 @@ Unit文件专门用于systemd下控制资源,这些资源包括服务(service)�
   
 所有的unit文件都应该配置[Unit]或者[Install]段.由于通用的信息在[Unit]和[Install]中描述,每一个unit应该有一个指定类型段,例如[Service]来对应后台服务类型unit.
 
-### unit 类型如下: 
+### unit 类型如下
+
 service : 守护进程的启动、停止、重启和重载是此类 unit 中最为明显的几个类型。
   
 socket : 此类 unit 封装系统和互联网中的一个 socket。当下, systemd支持流式,数据报和连续包的 AF_INET,AF_INET6,AF_UNIX socket 也支持传统的 FIFOs 传输模式。每一个 socket unit 都有一个相应的服务 unit 。相应的服务在第一个"连接"进入 socket 或 FIFO 时就会启动 (例如: nscd.socket 在有新连接后便启动 nscd.service)。
@@ -195,27 +200,26 @@ mount : 此类 unit 封装系统结构层次中的一个挂载点。
   
 automount : 此类 unit 封装系统结构层次中的一个自挂载点。每一个自挂载 unit 对应一个已挂载的挂载 unit (需要在自挂载目录可以存取的情况下尽早挂载)。
   
-target : 此类 unit 为其他 unit 进行逻辑分组。它们本身实际上并不做什么,只是引用其他 unit 而已。这样便可以对 unit 做一个统一的控制。(例如: multi-user.target 相当于在传统使用 SysV 的系统中运行级别5)；bluetooth.target 只有在蓝牙适配器可用的情况下才调用与蓝牙相关的服务,如: bluetooth 守护进程、obex 守护进程等) 
-   
+target : 此类 unit 为其他 unit 进行逻辑分组。它们本身实际上并不做什么,只是引用其他 unit 而已。这样便可以对 unit 做一个统一的控制。(例如: multi-user.target 相当于在传统使用 SysV 的系统中运行级别5)；bluetooth.target 只有在蓝牙适配器可用的情况下才调用与蓝牙相关的服务,如: bluetooth 守护进程、obex 守护进程等)
+
 snapshot : 与 targetunit 相似,快照本身不做什么,唯一的目的就是引用其他 unit 。
 
 认识service的unit文件
   
 扩展名: .service
 
-路径: 
+路径:
 
     /etc/systemd/system/*     ――――  供系统管理员和用户使用
     /run/systemd/system/*     ――――  运行时配置文件
     /usr/lib/systemd/system/*   ――――  安装程序使用 (如RPM包安装) 
-    
+
 - After    本服务在哪些服务启动之后启动，仅定义启动顺序，不定义服务依赖关系，即使要求先启动的服务启动失败，本服务也依然会启动
 - ConditionPathExists, AssertPathExists    要求给定的绝对路径文件已经存在，否则不做任何事(condition)或进入failed状态(assert)，可在路径前使用!表示条件取反，即不存在时才启动服务。
 - ConditionPathIsDirectory, AssertPathIsDirectory    如上，路径存在且是目录时启动。
 
-
 作者: 骏马金龙
-链接: https://www.junmajinlong.com/linux/systemd/service_1/
+链接: <https://www.junmajinlong.com/linux/systemd/service_1/>
 来源: 骏马金龙
 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
 
@@ -257,7 +261,8 @@ Also=NetworkManager-dispatcher.service
 
 [Install]: 安装信息。
 
-### Unit主要包含以下内容: 
+### Unit主要包含以下内容
+
 - Description: 对本service的描述。
 - Before, After: 定义启动顺序,Before=xxx.service,代表本服务在xxx.service启动之前启动。After=xxx.service,代表本服务在xxx之后启动。
 - Requires: 这个单元启动了,那么它"需要"的单元也会被启动; 它"需要"的单元被停止了,它自己也活不了。但是请注意,这个设定并不能控制某单元与它"需要"的单元的启动顺序 (启动顺序是另外控制的) ,即 Systemd 不是先启动 Requires 再启动本单元,而是在本单元被激活时,并行启动两者。于是会产生争分夺秒的问题,如果 Requires 先启动成功,那么皆大欢喜; 如果 Requires 启动得慢,那本单元就会失败 (Systemd 没有自动重试) 。所以为了系统的健壮性,不建议使用这个标记,而建议使用 Wants 标记。可以使用多个 Requires。
@@ -266,14 +271,15 @@ Also=NetworkManager-dispatcher.service
 - Wants: 推荐使用。本单元启动了,它"想要"的单元也会被启动。但是启动不成功,对本单元没有影响。
 - Conflicts: 一个单元的启动会停止与它"冲突"的单元,反之亦然。
 
-### Service 主要包含以下内容: 
-- Type: service的种类,包含下列几种类型: 
-    - simple 默认,这是最简单的服务类型。意思就是说启动的程序就是主体程序,这个程序要是退出那么一切都退出。Type=simple类型的服务只适合那些在shell下运行在前台的命令。也就是说，当一个命令本身会以daemon模式运行时，将不能使用simple，而应该使用Type=forking。
-    - forking 标准 Unix Daemon 使用的启动方式。启动程序后会调用 fork() 函数,把必要的通信频道都设置好之后父进程退出,留下守护精灵的子进程
-    - oneshot种服务类型就是启动,完成,没进程了。
-    
+### Service 主要包含以下内容
+
+- Type: service的种类,包含下列几种类型:
+  - simple 默认,这是最简单的服务类型。意思就是说启动的程序就是主体程序,这个程序要是退出那么一切都退出。Type=simple类型的服务只适合那些在shell下运行在前台的命令。也就是说，当一个命令本身会以daemon模式运行时，将不能使用simple，而应该使用Type=forking。
+  - forking 标准 Unix Daemon 使用的启动方式。启动程序后会调用 fork() 函数,把必要的通信频道都设置好之后父进程退出,留下守护精灵的子进程
+  - oneshot种服务类型就是启动,完成,没进程了。
 
 notify,idle类型比较少见,不介绍。
+
 - ExecStart: 服务启动时执行的命令,通常此命令就是服务的主体。
 
         ------如果你服务的类型不是 oneshot,那么它只可以接受一个命令,参数不限。
@@ -285,18 +291,17 @@ notify,idle类型比较少见,不介绍。
 - SuccessExitStatus: 参考ExecStart中返回值,定义何种情况算是启动成功。
 
     eg: SuccessExitStatus=1 2 8 SIGKILL
-    
 
-Install主要包含以下内容: 
+Install主要包含以下内容:
+
 - WantedBy: 何种情况下,服务被启用。
 
-    eg: WantedBy=multi-user.target (多用户环境下启用) 
+    eg: WantedBy=multi-user.target (多用户环境下启用)
 - Alias: 别名
 
 multi-user.target
 
 systemd有一个默认target，即multi-user.target，Linux系统启动后即处于该默认target的状态。
-
 
 旧的命令与systemd命令的映射
   
@@ -344,7 +349,7 @@ chkconfig -list --> systemctl list-unit-files –type service
 
 在本例中,尝试写一个命名为my-demo.service的服务,整个服务很简单: 在开机的时候将服务启动时的时间写到一个文件当中。可以通过这个小小的例子来说明整个服务的创建过程。
 
-Step1: 编写属于自己的unit文件,命令为my-demo.service,整个文件如下: 
+Step1: 编写属于自己的unit文件,命令为my-demo.service,整个文件如下:
 
 [Unit]
 
@@ -366,13 +371,13 @@ WantedBy=multi-user.target
 
 Step2: 将上述的文件拷贝到RHEL 7系统中/usr/lib/systemd/system/*目录下
 
-Step3: 编写unit文件中ExecStart=/bin/bash /root/test.sh所定义的test.sh文件,将其放在定义的目录当中,此文件是服务的执行主体。文件内容如下: 
+Step3: 编写unit文件中ExecStart=/bin/bash /root/test.sh所定义的test.sh文件,将其放在定义的目录当中,此文件是服务的执行主体。文件内容如下:
 
-#!/bin/bash
+# !/bin/bash
 
 date >> /tmp/date
 
-Step4: 将my-demo.service注册到系统当中执行命令: 
+Step4: 将my-demo.service注册到系统当中执行命令:
 
 # systemctl enable my-demo.service
 
@@ -382,23 +387,14 @@ Step4: 将my-demo.service注册到系统当中执行命令:
 
 至此服务已经创建完成。重新启动系统,会发现/tmp/date文件已经生成,服务在开机时启动成功。当然本例当中的test.sh文件可以换成任意的可执行文件作为服务的主体,这样就可以实现各种各样的功能。
 
-
-
-
-
-http://www.jinbuguo.com/systemd/systemd.service.html
+<http://www.jinbuguo.com/systemd/systemd.service.html>
   
-https://blog.csdn.net/fu_wayne/article/details/38018825
+<https://blog.csdn.net/fu_wayne/article/details/38018825>
 
-
-  
     systemctl开机启动zookeeper
   
-
-
-https://www.pocketdigi.com/20180131/1593.html/embed#?secret=rpemgAP8dW
->https://www.junmajinlong.com/linux/systemd/service_2/
-
+<https://www.pocketdigi.com/20180131/1593.html/embed#?secret=rpemgAP8dW>
+><https://www.junmajinlong.com/linux/systemd/service_2/>
 
 ```bash
 #!/bin/sh

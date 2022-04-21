@@ -10,7 +10,8 @@ tags:
   - reprint
 ---
 ## Maven类包冲突终极三大解决技巧 mvn dependency,tree
-http://ian.wang/106.htm
+
+<http://ian.wang/106.htm>
 
 Maven对于新手来说是《步步惊心》,因为它包罗万象,博大精深,因为当你初来乍到时,你就像一个进入森林的陌生访客一样迷茫。
   
@@ -32,7 +33,7 @@ A依赖于B及C,而B又依赖于X、Y,而C依赖于X、M,则A除引B及C的依�
 
 dependency:tree是把照妖照,pom.xml用它照照,所有传递性依赖都将无处遁形,并且会以层级树方式展现,非常直观。
 
-以下就是执行dependency:tree后的一个输出: 
+以下就是执行dependency:tree后的一个输出:
   
 引用
 
@@ -80,17 +81,17 @@ dependency:tree是把照妖照,pom.xml用它照照,所有传递性依赖都将�
   
 刚才吹嘘dependency:tree时,我用到了"无处遁形",其实有时你会发现简单地用dependency:tree往往并不能查看到所有的传递依赖。不过如果你真的想要看所有的,必须得加一个-Dverbose参数,这时就必定是最全的了。
   
-全是全了,但显示出来的东西太多,头晕目眩,有没有好法呢？当然有了,加上Dincludes或者Dexcludes说出你喜欢或讨厌,dependency:tree就会帮你过滤出来: 
+全是全了,但显示出来的东西太多,头晕目眩,有没有好法呢？当然有了,加上Dincludes或者Dexcludes说出你喜欢或讨厌,dependency:tree就会帮你过滤出来:
   
 引用
   
 Dincludes=org.springframework:spring-tx
   
-过滤串使用groupId:artifactId:version的方式进行过滤,可以不写全啦,如: 
+过滤串使用groupId:artifactId:version的方式进行过滤,可以不写全啦,如:
 
 mvn dependency:tree -Dverbose -Dincludes=asm:asm
 
-就会出来asm依赖包的分析信息: 
+就会出来asm依赖包的分析信息:
 
 [INFO] - maven-dependency-plugin:2.1:tree (default-cli) @ ridge-test -
   
@@ -114,7 +115,7 @@ mvn dependency:tree -Dverbose -Dincludes=asm:asm
 
 第二板斧:将不想要的传递依赖剪除掉
 
-承上,假设我们不希望asm:asm:jar:1.5.3出现,根据分析,我们知道它是经由org.unitils:unitils-dbmaintainer:jar:3.3引入的,那么在pom.xml中找到这个依赖,做其它的调整: 
+承上,假设我们不希望asm:asm:jar:1.5.3出现,根据分析,我们知道它是经由org.unitils:unitils-dbmaintainer:jar:3.3引入的,那么在pom.xml中找到这个依赖,做其它的调整:
 
 <dependency>
   
@@ -148,7 +149,7 @@ asm</artifactId>
   
 </dependency>
   
-再分析一下,你可以看到传递依赖没有了: 
+再分析一下,你可以看到传递依赖没有了:
   
 [INFO]
   
@@ -164,7 +165,7 @@ asm</artifactId>
 
 第三板斧:查看运行期类来源的JAR包
 
-有时,你以为解决了,但是偏偏还是报类包冲突 (典型症状是java.lang.ClassNotFoundException或Method不兼容等异常) ,这时你可以设置一个断点,在断点处通过下面这个我做的工具类来查看Class所来源的JAR包: 
+有时,你以为解决了,但是偏偏还是报类包冲突 (典型症状是java.lang.ClassNotFoundException或Method不兼容等异常) ,这时你可以设置一个断点,在断点处通过下面这个我做的工具类来查看Class所来源的JAR包:
 
 package com.ridge.util;
 
@@ -260,15 +261,15 @@ return result.toString();
 
 }
   
-随便写一个测试,设置好断点,在执行到断点处按alt+F8动态执行代码 (intelij idea) ,假设我们输入: 
+随便写一个测试,设置好断点,在执行到断点处按alt+F8动态执行代码 (intelij idea) ,假设我们输入:
   
 Java代码 收藏代码
 
 ClassLocationUtils.where(org.objectweb.asm.ClassVisitor.class)
 
-即可马上查出类对应的JAR了: 
+即可马上查出类对应的JAR了:
 
-这就是org.objectweb.asm.ClassVisitor类在运行期对应的JAR包,如果这个JAR包版本不是你期望你,就说明是你的IDE缓存造成的,这时建议你Reimport一下maven列表就可以了,如下所示(idea): 
+这就是org.objectweb.asm.ClassVisitor类在运行期对应的JAR包,如果这个JAR包版本不是你期望你,就说明是你的IDE缓存造成的,这时建议你Reimport一下maven列表就可以了,如下所示(idea):
 
 Reimport一下,IDE会强制根据新的pom.xml设置重新分析并加载依赖类包,以得到和pom.xml设置相同的依赖。 (这一步非常重要哦,经常项目组pom.xml是相同的,但是就是有些人可以运行,有些人不能运行,俗称人品问题,其实都是IDE的缓存造成的了
   

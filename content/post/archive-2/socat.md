@@ -38,7 +38,7 @@ socat - UDP:localhost:48772
 ## tcp 代理
 
 ```bash
-    socat TCP-LISTEN:3389,fork TCP:192.168.55.2:3389
+socat TCP-LISTEN:3389,fork TCP:192.168.55.2:3389
 ```
 
 ### 建立TCP连接

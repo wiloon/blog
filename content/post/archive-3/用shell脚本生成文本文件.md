@@ -16,9 +16,7 @@ tags:
 echo "nohup ${app_path}/goland/default/bin/goland.sh >/dev/null 2>&1 &" | sudo tee /usr/local/bin/goland > /dev/null
 ```
 
-在Linux上写shell脚本的一个很重要的意图是自动化。假如我们希望自动生成一个具有特定内容的文本文件，应该怎么实现呢？
-
-我用过两个方法，下面分别举例说明。为了更通用，这两个例子中的文本内容都是多行的。
+生成一个具有特定内容的文本文件
 
 ### 使用echo命令
 

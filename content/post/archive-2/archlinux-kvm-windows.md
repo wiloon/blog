@@ -38,10 +38,13 @@ yay -S virtio-win
 
 ### 创建磁盘文件
 
-    qemu-img create -f raw win10.raw 30G
+```bash
+qemu-img create -f raw win10.raw 30G
 
-    # 如果磁盘文件所在分区为btrfs文件系统,在创建磁盘文件之前先在外层目录禁用COW。
-    chattr +C /path/to/qemu-img/
+# 如果磁盘文件所在分区为btrfs文件系统,在创建磁盘文件之前先在外层目录禁用COW。
+chattr +C /path/to/qemu-img/
+
+```
 
 ### 安装 win10
 
