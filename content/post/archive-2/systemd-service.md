@@ -19,7 +19,7 @@ vim /etc/systemd/system/foo.service
 Description=foo
 [Service]
 WorkingDirectory=/data/foo
-ExecStart=/data/foo/foo
+ExecStart=/data/foo/foo -bar=foobar
 User=root
 Type=simple
 Restart=on-failure
@@ -30,6 +30,10 @@ LimitNOFILE=100000
 WantedBy=multi-user.target
 
 ```
+
+### ExecStart 命令行参数
+
+ExecStart 执行的命令有参数时, 不要把可执行文件的路径和参数放在双引号里, ExceStart 会把参数 当作路径 的一部分, 然后报错说找不到文件.
 
 ### systemd 添加开机启动运行shell脚本
 

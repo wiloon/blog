@@ -4,7 +4,7 @@ author: "-"
 date: 2019-11-20T08:00:32+00:00
 url: pprof
 categories:
-  - go
+  - Go
 tags:
   - reprint
 ---

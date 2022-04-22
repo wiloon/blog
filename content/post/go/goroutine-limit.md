@@ -4,7 +4,7 @@ author: "-"
 date: 2011-10-31T09:13:20+00:00
 url: goroutine/limit
 categories:
-  - go
+  - Go
 
 tags:
   - reprint

@@ -4,7 +4,7 @@ author: "-"
 date: 2015-09-02T00:49:30+00:00
 url: go/ulimit
 categories:
-  - go
+  - Go
 tags:
   - original
 

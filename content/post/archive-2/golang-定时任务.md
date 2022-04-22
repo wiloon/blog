@@ -4,7 +4,7 @@ author: "-"
 date: 2017-09-10T07:20:58.000+00:00
 url: "go/ticker"
 categories:
-  - golang
+  - Go
 tags:
   - timer
 ---

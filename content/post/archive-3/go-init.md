@@ -4,7 +4,7 @@ author: "-"
 date: 2020-02-18T05:01:48+00:00
 url: go/init
 categories:
-  - go
+  - Go
 tags:
   - reprint
 ---

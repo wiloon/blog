@@ -4,7 +4,7 @@ author: "-"
 date: 2017-11-17T08:37:36+00:00
 url: go/select
 categories:
-  - golang
+  - Go
 tags:
   - reprint
 ---

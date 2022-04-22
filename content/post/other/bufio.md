@@ -4,8 +4,7 @@ author: "-"
 date: 2015-01-16T03:17:33+00:00
 url: bufio
 categories:
-  - go
-
+  - Go
 tags:
   - reprint
   - io
@@ -19,7 +18,6 @@ bufio包实现了有缓冲的I/O。它包装一个io.Reader或io.Writer接口对
 
 简单的说就是bufio会把文件内容读取到缓存中 (内存），然后再取读取需要的内容的时候，直接在缓存中读取，避免文件的i/o操作。同样，通过bufio写入内容，也是先写入到缓存中 (内存），然后由缓存写入到文件。避免多次小内容的写入操作I/O。
 
-
 bufio.Read(p []byte) 的思路如下：
 
 1、当缓存区有内容的时，将缓存区内容全部填入p并清空缓存区
@@ -27,13 +25,11 @@ bufio.Read(p []byte) 的思路如下：
 3、当缓存区没有内容的时候且len(p)<len(buf),即要读取的内容比缓存区小，缓存区从文件读取内容充满缓存区，并将p填满 (此时缓存区有剩余内容）
 4、以后再次读取时缓存区有内容，将缓存区内容全部填入p并清空缓存区 (此时和情况1一样）
 
->https://www.cnblogs.com/ricklz/p/13188188.html
+<https://www.cnblogs.com/ricklz/p/13188188.html>
 
->http://www.cnblogs.com/golove/p/3282667.html
+<http://www.cnblogs.com/golove/p/3282667.html>
 
 // bufio 包实现了带缓存的 I/O 操作
-
-* * *
 
 type Reader struct { ... }
 
@@ -51,7 +47,7 @@ func NewReaderSize(rd io.Reader, size int) *Reader
   
 func NewReader(rd io.Reader) *Reader
 
-// bufio.Reader 实现了如下接口: 
+// bufio.Reader 实现了如下接口:
   
 // io.Reader
   
@@ -75,7 +71,7 @@ func (b *Reader) Peek(n int) ([]byte, error)
   
 // 如果缓存不为空，则只能读出缓存中的数据，不会从底层 io.Reader
   
-// 中提取数据，如果缓存为空，则: 
+// 中提取数据，如果缓存为空，则:
   
 // 1、len(p) >= 缓存大小，则跳过缓存，直接从底层 io.Reader 中读
   
@@ -109,7 +105,7 @@ func (b *Reader) Discard(n int) (discarded int, err error)
   
 // 如果找到 delim，则返回查找结果，err 返回 nil。
   
-// 如果未找到 delim，则: 
+// 如果未找到 delim，则:
   
 // 1、缓存不满，则将缓存填满后再次查找。
   
@@ -149,7 +145,7 @@ func (b *Reader) ReadSlice(delim byte) (line []byte, err error)
   
 // 如果找到行尾标记，则返回查找结果，isPrefix 返回 false。
   
-// 如果未找到行尾标记，则: 
+// 如果未找到行尾标记，则:
   
 // 1、缓存不满，则将缓存填满后再次查找。
   
@@ -186,11 +182,11 @@ func (b *Reader) Reset(r io.Reader)
 // 示例: Peek、Read、Discard、Buffered
   
 func main() {
-      
+
 sr := strings.NewReader("ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890")
-      
+
 buf := bufio.NewReaderSize(sr, 0)
-      
+
 b := make([]byte, 10)
 
     fmt.Println(buf.Buffered()) // 0
@@ -210,7 +206,6 @@ b := make([]byte, 10)
     // 0   "123456"   <nil>
     // 0   "7890"   <nil>
     // 0   ""   EOF
-    
 
 }
 
@@ -219,9 +214,9 @@ b := make([]byte, 10)
 // 示例: ReadLine
   
 func main() {
-      
+
 sr := strings.NewReader("ABCDEFGHIJKLMNOPQRSTUVWXYZ\n1234567890")
-      
+
 buf := bufio.NewReaderSize(sr, 0)
 
     for line, isPrefix, err := []byte{0}, false, error(nil); len(line) > 0 && err == nil; {
@@ -256,7 +251,6 @@ buf := bufio.NewReaderSize(sr, 0)
     }
     // "ABCDEFG"   false   <nil>
     // ""   false   EOF
-    
 
 }
 
@@ -265,9 +259,9 @@ buf := bufio.NewReaderSize(sr, 0)
 // 示例: ReadSlice
   
 func main() {
-      
+
 // 尾部有换行标记
-      
+
 buf := bufio.NewReaderSize(strings.NewReader("ABCDEFG\n"), 0)
 
     for line, err := []byte{0}, error(nil); len(line) > 0 && err == nil; {
@@ -287,7 +281,6 @@ buf := bufio.NewReaderSize(strings.NewReader("ABCDEFG\n"), 0)
         fmt.Printf("%q   %v\n", line, err)
     }
     // "ABCDEFG"   EOF
-    
 
 }
 
@@ -309,7 +302,7 @@ func NewWriterSize(wr io.Writer, size int) *Writer
   
 func NewWriter(wr io.Writer) *Writer
 
-// bufio.Writer 实现了如下接口: 
+// bufio.Writer 实现了如下接口:
   
 // io.Writer
   
@@ -348,9 +341,9 @@ func (b *Writer) Reset(w io.Writer)
 // 示例: Available、Buffered、WriteString、Flush
   
 func main() {
-      
+
 buf := bufio.NewWriterSize(os.Stdout, 0)
-      
+
 fmt.Println(buf.Available(), buf.Buffered()) // 4096 0
 
     buf.WriteString("ABCDEFGHIJKLMNOPQRSTUVWXYZ")
@@ -358,7 +351,6 @@ fmt.Println(buf.Available(), buf.Buffered()) // 4096 0
     
     // 缓存后统一输出，避免终端频繁刷新，影响速度
     buf.Flush() // ABCDEFGHIJKLMNOPQRSTUVWXYZ
-    
 
 }
 
@@ -367,9 +359,9 @@ fmt.Println(buf.Available(), buf.Buffered()) // 4096 0
 // ReadWriter 集成了 bufio.Reader 和 bufio.Writer
   
 type ReadWriter struct {
-      
+
 *Reader
-      
+
 *Writer
   
 }
@@ -388,7 +380,7 @@ func NewReadWriter(r \*Reader, w \*Writer) *ReadWriter
   
 // 和"单词匹配函数"，用户也可以自定义"匹配函数"。默认的"匹配函数"为"行匹配函
   
-// 数"，用于获取数据中的一行内容 (不包括行尾标记) 
+// 数"，用于获取数据中的一行内容 (不包括行尾标记)
   
 //
   
@@ -398,7 +390,7 @@ func NewReadWriter(r \*Reader, w \*Writer) *ReadWriter
   
 //
   
-// Scan 在遇到下面的情况时会终止扫描并返回 false (扫描一旦终止，将无法再继续) : 
+// Scan 在遇到下面的情况时会终止扫描并返回 false (扫描一旦终止，将无法再继续) :
   
 // 1、遇到 io.EOF
   
@@ -500,7 +492,7 @@ func ScanRunes(data []byte, atEOF bool) (advance int, token []byte, err error)
 
 // ScanLines 是一个"匹配函数"，用来找出 data 中的单行数据并返回 (包括空行) 。
   
-// 行尾标记可以是 \n 或 \r\n (返回值不包含行尾标记) 
+// 行尾标记可以是 \n 或 \r\n (返回值不包含行尾标记)
   
 func ScanLines(data []byte, atEOF bool) (advance int, token []byte, err error)
 
@@ -515,61 +507,61 @@ func ScanWords(data []byte, atEOF bool) (advance int, token []byte, err error)
 // 示例: 扫描
   
 func main() {
-      
+
 // 逗号分隔的字符串，最后一项为空
-      
+
 const input = "1,2,3,4,"
-      
+
 scanner := bufio.NewScanner(strings.NewReader(input))
-      
-// 定义匹配函数 (查找逗号分隔的字符串) 
-      
+
+// 定义匹配函数 (查找逗号分隔的字符串)
+
 onComma := func(data []byte, atEOF bool) (advance int, token []byte, err error) {
-          
+
 for i := 0; i < len(data); i++ {
-              
+
 if data[i] == ',' {
-                  
+
 return i + 1, data[:i], nil
-              
+
 }
-          
+
 }
-          
+
 if atEOF {
-              
+
 // 告诉 Scanner 扫描结束。
-              
+
 return 0, data, bufio.ErrFinalToken
-          
+
 } else {
-              
+
 // 告诉 Scanner 没找到匹配项，让 Scan 填充缓存后再次扫描。
-              
+
 return 0, nil, nil
-          
+
 }
-      
+
 }
-      
+
 // 指定匹配函数
-      
+
 scanner.Split(onComma)
-      
+
 // 开始扫描
-      
+
 for scanner.Scan() {
-          
+
 fmt.Printf("%q ", scanner.Text())
-      
+
 }
-      
+
 // 检查是否因为遇到错误而结束
-      
+
 if err := scanner.Err(); err != nil {
-          
+
 fmt.Fprintln(os.Stderr, "reading input:", err)
-      
+
 }
   
 }
@@ -579,49 +571,49 @@ fmt.Fprintln(os.Stderr, "reading input:", err)
 // 示例: 带检查扫描
   
 func main() {
-      
+
 const input = "1234 5678 1234567901234567890 90"
-      
+
 scanner := bufio.NewScanner(strings.NewReader(input))
-      
+
 // 自定义匹配函数
-      
+
 split := func(data []byte, atEOF bool) (advance int, token []byte, err error) {
-          
+
 // 获取一个单词
-          
+
 advance, token, err = bufio.ScanWords(data, atEOF)
-          
+
 // 判断其能否转换为整数，如果不能则返回错误
-          
+
 if err == nil && token != nil {
-              
+
 _, err = strconv.ParseInt(string(token), 10, 32)
-          
+
 }
-          
+
 // 这里包含了 return 0, nil, nil 的情况
-          
+
 return
-      
+
 }
-      
+
 // 设置匹配函数
-      
+
 scanner.Split(split)
-      
+
 // 开始扫描
-      
+
 for scanner.Scan() {
-          
+
 fmt.Printf("%s\n", scanner.Text())
-      
+
 }
-      
+
 if err := scanner.Err(); err != nil {
-          
+
 fmt.Printf("Invalid input: %s", err)
-      
+
 }
   
 }

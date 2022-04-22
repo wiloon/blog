@@ -6,7 +6,7 @@ url: /?p=9093
 categories:
   - Uncategorized
 tags:
-  - Golang
+  - Go
 
 ---
 ## golang flag 获取命令行参数

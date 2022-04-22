@@ -10,7 +10,8 @@ tags:
   - reprint
 ---
 ## disruptor
-http://www.cnblogs.com/haiq/p/4112689.html
+
+<http://www.cnblogs.com/haiq/p/4112689.html>
 
 已经不记得最早接触到 Disruptor 是什么时候了,只记得发现它的时候它是以具有闪电般的速度被介绍的。于是在脑子里, Disruptor 和"闪电"一词关联了起来,然而却一直没有时间去探究一下。
 
@@ -24,7 +25,7 @@ http://www.cnblogs.com/haiq/p/4112689.html
 
 我们知道 BlockingQueue 是一个 FIFO 队列,生产者(Producer)往队列里发布(publish)一项事件(或称之为"消息"也可以)时,消费者(Consumer)能获得通知；如果没有事件时,消费者被堵塞,直到生产者发布了新的事件。
 
-这些都是 Disruptor 能做到的,与之不同的是,Disruptor 能做更多: 
+这些都是 Disruptor 能做到的,与之不同的是,Disruptor 能做更多:
 
 同一个"事件"可以有多个消费者,消费者之间既可以并行处理,也可以相互依赖形成处理的先后次序(形成一个依赖图)；
   
@@ -42,7 +43,7 @@ http://www.cnblogs.com/haiq/p/4112689.html
 
 Ring Buffer
   
-如其名,环形的缓冲区。曾经 RingBuffer 是 Disruptor 中的最主要的对象,但从3.0版本开始,其职责被简化为仅仅负责对通过 Disruptor 进行交换的数据 (事件) 进行存储和更新。在一些更高级的应用场景中,Ring Buffer 可以由用户的自定义实现来完全替代。
+如其名,环形的缓冲区。曾经 RingBuffer 是 Disruptor 中的最主要的对象,但从3.0版本开始, 其职责被简化为仅仅负责对通过 Disruptor 进行交换的数据 (事件) 进行存储和更新。在一些更高级的应用场景中,Ring Buffer 可以由用户的自定义实现来完全替代。
   
 Sequence  Disruptor
   
@@ -56,11 +57,11 @@ Sequencer 是 Disruptor 的真正核心。此接口有两个实现类 SingleProd
   
 Sequence Barrier
   
-用于保持对RingBuffer的 main published Sequence 和Consumer依赖的其它Consumer的 Sequence 的引用。 Sequence Barrier 还定义了决定 Consumer 是否还有可处理的事件的逻辑。
+用于保持对 RingBuffer 的 main published Sequence 和Consumer依赖的其它Consumer的 Sequence 的引用。 Sequence Barrier 还定义了决定 Consumer 是否还有可处理的事件的逻辑。
   
 Wait Strategy
   
-定义 Consumer 如何进行等待下一个事件的策略。  (注: Disruptor 定义了多种不同的策略,针对不同的场景,提供了不一样的性能表现) 
+定义 Consumer 如何进行等待下一个事件的策略。  (注: Disruptor 定义了多种不同的策略,针对不同的场景,提供了不一样的性能表现)
   
 Event
   

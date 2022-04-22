@@ -5,7 +5,6 @@ date: 2013-02-22T08:44:36+00:00
 url: string/intern
 categories:
   - java
-
 tags:
   - reprint
 ---
@@ -33,7 +32,7 @@ public class StringIntern {
 
 ```
 
-```
+```raw
 true
 false
 true
@@ -50,16 +49,15 @@ string pool是使用Map结构存储字符串及引用，如果想要增加string
  -XX:StringTableSize=1000003
 Java8中默认是60013，设置的值最好是素数，以减少Hash碰撞，提高查询效率。
 
+<https://segmentfault.com/a/1190000021643930>
 
->https://segmentfault.com/a/1190000021643930
-
-http://tech.meituan.com/in_depth_understanding_string_intern.html
+<http://tech.meituan.com/in_depth_understanding_string_intern.html>
   
 引言
   
 在 JAVA 语言中有8中基本类型和一种比较特殊的类型String。这些类型为了使他们在运行过程中速度更快，更节省内存，都提供了一种常量池的概念。常量池就类似一个JAVA系统级别提供的缓存。
 
-8种基本类型的常量池都是系统协调的，String类型的常量池比较特殊。它的主要使用方法有两种: 
+8种基本类型的常量池都是系统协调的，String类型的常量池比较特殊。它的主要使用方法有两种:
 
 直接使用双引号声明出来的String对象会直接存储在常量池中。
   
@@ -99,15 +97,17 @@ http://tech.meituan.com/in_depth_understanding_string_intern.html
     */
 public native String intern();
 ```
+
 String#intern方法中看到，这个方法是一个 native 的方法，但注释写的非常明了。"如果常量池中存在当前字符串, 就会直接返回当前字符串. 如果常量池中没有此字符串, 会将此字符串放入常量池中后, 再返回"。
 
 2，native 代码
   
 在 jdk7后，oracle 接管了 JAVA 的源码后就不对外开放了，根据 jdk 的主要开发人员声明 openJdk7 和 jdk7 使用的是同一分主代码，只是分支代码会有些许的变动。所以可以直接跟踪 openJdk7 的源码来探究 intern 的实现。
 
-####native实现代码:
+### native实现代码:
   
 \openjdk7\jdk\src\share\native\java\lang\String.c
+
 ```c
 
 Java_java_lang_String_intern(JNIEnv *env, jobject this)
@@ -204,7 +204,7 @@ JAVA 使用 jni 调用c++实现的StringTable的intern方法, StringTable的inte
 
 要注意的是，String的String Pool是一个固定大小的Hashtable，默认值大小长度是1009，如果放进String Pool的String非常多，就会造成Hash冲突严重，从而导致链表会很长，而链表长了后直接会造成的影响就是当调用String.intern时性能会大幅下降 (因为要一个一个找) 。
 
-在 jdk6中StringTable是固定的，就是1009的长度，所以如果常量池中的字符串过多就会导致效率下降很快。在jdk7中，StringTable的长度可以通过一个参数指定: 
+在 jdk6中StringTable是固定的，就是1009的长度，所以如果常量池中的字符串过多就会导致效率下降很快。在jdk7中，StringTable的长度可以通过一个参数指定:
 
 -XX:StringTableSize=99991
   
@@ -212,7 +212,7 @@ JAVA 使用 jni 调用c++实现的StringTable的intern方法, StringTable的inte
   
 相信很多 JAVA 程序员都做做类似 String s = new String("abc")这个语句创建了几个对象的题目。 这种题目主要就是为了考察程序员对字符串对象的常量池掌握与否。上述的语句中是创建了两个对象，第一个对象是"abc"字符串存储在常量池中，第二个对象在JAVA Heap中的 String 对象。
 
-来看一段代码: 
+来看一段代码:
 
 ```java
 public static void main(String[] args) {
@@ -234,6 +234,7 @@ System.out.println(s == s2);
 }
   
 ```
+
 打印结果是
 
 jdk6 下false false
@@ -241,6 +242,7 @@ jdk6 下false false
 jdk7 下false true
   
 具体为什么稍后再解释，然后将s3.intern();语句下调一行，放到String s4 = "11";后面。将s.intern(); 放到String s2 = "1";后面。是什么结果呢
+
 ```java
 
 public static void main(String[] args) {
@@ -262,7 +264,7 @@ System.out.println(s == s2);
 }
 ```
   
-打印结果为: 
+打印结果为:
 
 jdk6 下false false
   
@@ -292,7 +294,7 @@ jdk6中的情况，在 jdk6中上述的所有打印都是 false 的，因为 jdk
   
 第二段代码中的 s 和 s2 代码中，s.intern();，这一句往后放也不会有什么影响了，因为对象池中在执行第一句代码String s = new String("1");的时候已经生成"1"对象了。下边的s2声明都是直接从常量池中取地址引用的。 s 和 s2 的引用地址是不会相等的。
 
-从上述的例子代码可以看出 jdk7 版本对 intern 操作和常量池都做了一定的修改。主要包括2点: 
+从上述的例子代码可以看出 jdk7 版本对 intern 操作和常量池都做了一定的修改。主要包括2点:
 
 将String常量池 从 Perm 区移动到了 Java Heap区
   
@@ -304,37 +306,36 @@ String#intern 方法时，如果存在堆中的对象，会直接保存对象的
   
 接下来我们来看一下一个比较常见的使用String#intern方法的例子。
 
-代码如下: 
+代码如下:
 
 static final int MAX = 1000 * 10000;
   
 static final String[] arr = new String[MAX];
 
 public static void main(String[] args) throws Exception {
-      
+
 Integer[] DB_DATA = new Integer[10];
-      
+
 Random random = new Random(10 * 10000);
-      
+
 for (int i = 0; i < DB_DATA.length; i++) {
-          
+
 DB_DATA[i] = random.nextInt();
-      
+
 }
-      
+
 long t = System.currentTimeMillis();
-      
+
 for (int i = 0; i < MAX; i++) {
-          
+
 //arr[i] = new String(String.valueOf(DB_DATA[i % DB_DATA.length]));
-           
+
 arr[i] = new String(String.valueOf(DB_DATA[i % DB_DATA.length])).intern();
-      
+
 }
 
     System.out.println((System.currentTimeMillis() - t) + "ms");
     System.gc();
-    
 
 }
   
@@ -379,45 +380,45 @@ org/apache/logging/log4j/core/async/AsyncLogger.log(Marker, String, Level, Messa
 Log4jLogEvent.calcLocation()的代码如下:
 
 public static StackTraceElement calcLocation(final String fqcnOfLogger) {
-      
+
 if (fqcnOfLogger == null) {
-          
+
 return null;
-      
+
 }
-      
+
 final StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();
-      
+
 boolean next = false;
-      
+
 for (final StackTraceElement element : stackTrace) {
-          
+
 final String className = element.getClassName();
-          
+
 if (next) {
-              
+
 if (fqcnOfLogger.equals(className)) {
-                  
+
 continue;
-              
+
 }
-              
+
 return element;
-          
+
 }
-          
+
 if (fqcnOfLogger.equals(className)) {
-              
+
 next = true;
-          
+
 } else if (NOT_AVAIL.equals(className)) {
-              
+
 break;
-          
+
 }
-      
+
 }
-      
+
 return null;
   
 }
@@ -429,58 +430,58 @@ return null;
 Thread.currentThread().getStackTrace();native的方法:
 
 public StackTraceElement[] getStackTrace() {
-      
+
 if (this != Thread.currentThread()) {
-          
+
 // check for getStackTrace permission
-          
+
 SecurityManager security = System.getSecurityManager();
-          
+
 if (security != null) {
-              
+
 security.checkPermission(
-                  
+
 SecurityConstants.GET_STACK_TRACE_PERMISSION);
-          
+
 }
-          
+
 // optimization so we do not call into the vm for threads that
-          
+
 // have not yet started or have terminated
-          
+
 if (!isAlive()) {
-              
+
 return EMPTY_STACK_TRACE;
-          
+
 } StackTraceElement[][] stackTraceArray = dumpThreads(new Thread[] {this});
-          
+
 StackTraceElement[] stackTrace = stackTraceArray[0];
-          
+
 // a thread that was alive during the previous isAlive call may have
-          
+
 // since terminated, therefore not having a stacktrace.
-          
+
 if (stackTrace == null) {
-              
+
 stackTrace = EMPTY_STACK_TRACE;
-          
+
 }
-          
+
 return stackTrace;
-      
+
 } else {
-          
+
 // Don't need JVM help for current thread
-          
+
 return (new Exception()).getStackTrace();
-      
+
 }
   
 }
 
 private native static StackTraceElement[][] dumpThreads(Thread[] threads);
   
-下载 openJdk7的源码查询 jdk 的 native 实现代码，列表如下【这里因为篇幅问题，不详细罗列涉及到的代码，有兴趣的可以根据文件名称和行号查找相关代码】: 
+下载 openJdk7的源码查询 jdk 的 native 实现代码，列表如下【这里因为篇幅问题，不详细罗列涉及到的代码，有兴趣的可以根据文件名称和行号查找相关代码】:
 
 \openjdk7\jdk\src\share\native\java\lang\Thread.c
   
@@ -504,44 +505,44 @@ oop filename = StringTable::intern(source, CHECK_0);
   
 这三段代码是获取类名、方法名、和文件名。因为类名、方法名、文件名都是存储在字符串常量池中的，所以每次获取它们都是通过String#intern方法。但没有考虑到的是默认的 StringPool 的长度是1009且不可变的。因此一旦常量池中的字符串达到的一定的规模后，性能会急剧下降。
 
-####3,fastjson 不当使用 String#intern
+#### 3,fastjson 不当使用 String#intern
 
 导致这个 intern 变慢的原因是因为 fastjson 对String#intern方法的使用不当造成的。跟踪 fastjson 中的实现代码发现，
 
 com.alibaba.fastjson.parser.JSONScanner#scanFieldSymbol()
 
 if (ch == '\"') {
-      
+
 bp = index;
-      
+
 this.ch = ch = buf[bp];
-      
+
 strVal = symbolTable.addSymbol(buf, start, index - start - 1, hash);
-      
+
 break;
   
 }
   
-####com.alibaba.fastjson.parser.SymbolTable#addSymbol():
+#### com.alibaba.fastjson.parser.SymbolTable#addSymbol():
 
 /**
-   
+
 * Constructs a new entry from the specified symbol information and next entry reference.
-   
+
 */
   
 public Entry(char[] ch, int offset, int length, int hash, Entry next){
-      
+
 characters = new char[length];
-      
+
 System.arraycopy(ch, offset, characters, 0, length);
-      
+
 symbol = new String(characters).intern();
-      
+
 this.next = next;
-      
+
 this.hashCode = hash;
-      
+
 this.bytes = null;
   
 }
@@ -555,7 +556,7 @@ fastjson 中对所有的 json 的 key 使用了 intern 方法，缓存到了字�
 public static final int MAX_SIZE = 1024;
 
 if (size >= MAX_SIZE) {
-      
+
 return new String(buffer, offset, len);
   
 }
@@ -566,7 +567,7 @@ return new String(buffer, offset, len);
   
 本文大体的描述了 String#intern和字符串常量池的日常使用，jdk 版本的变化和String#intern方法的区别，以及不恰当使用导致的危险等内容，让大家对系统级别的 String#intern有一个比较深入的认识。让我们在使用和接触它的时候能避免出现一些 bug，增强系统的健壮性。
 
-引用: 
+引用:
   
 以下是几个比较关键的几篇博文。感谢！
 
@@ -579,4 +580,3 @@ Understanding String Table Size in HotSpot
 How is Java's String#intern() method implemented?
   
 JDK7里的String.intern的变化
-

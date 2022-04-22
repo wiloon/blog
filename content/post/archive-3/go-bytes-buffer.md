@@ -4,7 +4,7 @@ author: "-"
 date: 2019-03-21T02:43:54+00:00
 url: go/bytes-buffer
 categories:
-  - golang
+  - Go
 tags:
   - reprint
 ---

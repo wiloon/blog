@@ -4,7 +4,7 @@ author: "-"
 date: "2021-09-03 13:36:17"
 url: "ent"
 categories:
-  - golang
+  - Go
 tags:
   - orm
 ---

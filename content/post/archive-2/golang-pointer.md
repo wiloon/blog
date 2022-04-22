@@ -4,7 +4,7 @@ author: "-"
 date: 2016-10-12T00:12:13+00:00
 url: go/pointer
 categories:
-  - go
+  - Go
 tags:
   - reprint
 

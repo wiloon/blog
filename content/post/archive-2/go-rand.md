@@ -4,7 +4,7 @@ author: "-"
 date: 2017-07-27T07:14:38+00:00
 url: go/rand
 categories:
-  - golang
+  - Go
 
 tags:
   - reprint

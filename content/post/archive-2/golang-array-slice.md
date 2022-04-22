@@ -4,7 +4,7 @@ author: "-"
 date: 2016-11-24T01:41:36+00:00
 url: slice
 categories:
-  - go
+  - Go
 tags:
   - reprint
 ---

@@ -6,7 +6,7 @@ url: /?p=8776
 categories:
   - Uncategorized
 tags:
-  - Golang
+  - Go
 ---
 ## objdump
 功能：以一种可阅读的格式让你更多地了解目标文件、可执行文件可能带有的附加信息，也能完成目标文件或者可执行文件的反汇编。

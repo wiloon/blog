@@ -6,7 +6,7 @@ url: /?p=9088
 categories:
   - Uncategorized
 tags:
-  - Golang
+  - Go
   - tcp
 
 ---

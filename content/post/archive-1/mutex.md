@@ -112,7 +112,7 @@ FI;
 首先我们看一下互斥锁。所谓的互斥就是线程之间互相排斥，获得资源的线程排斥其它没有获得资源的线程。Linux使用互斥锁来实现这种机制。
 既然叫锁，就有加锁和解锁的概念。当线程获得了加锁的资格，那么它将独享这个锁，其它线程一旦试图去碰触这个锁就立即被系统“拍晕”。当加锁的线程解开并放弃了这个锁之后，那些被“拍晕”的线程会被系统唤醒，然后继续去争抢这个锁。至于谁能抢到，只有天知道。但是总有一个能抢到。于是其它来凑热闹的线程又被系统给“拍晕”了……如此反复。感觉线程的“头”很痛: ) 
 从互斥锁的这种行为看，线程加锁和解锁之间的代码相当于一个独木桥，同意时刻只有一个线程能执行。从全局上看，在这个地方，所有并行运行的线程都变成了排队运行了。比较专业的叫法是同步执行，这段代码区域叫临界区。同步执行就破坏了线程并行性的初衷了，临界区越大破坏得越厉害。所以在实际应用中，应该尽量避免有临界区出现。实在不行，临界区也要尽量的小。如果连缩小临界区都做不到，那还使用多线程干嘛？
-互斥锁在Linux中的名字是mutex。这个似乎优点眼熟。对，在前面介绍NPTL的时候提起过，但是那个叫futex，是系统底层机制。对于提供给用户使用的则是这个mutex。Linux初始化和销毁互斥锁的接口是pthread_mutex_init()和pthead_mutex_destroy()，对于加锁和解锁则有pthread_mutex_lock()、pthread_mutex_trylock()和pthread_mutex_unlock()。这些接口的完整定义如下: 
+互斥锁在Linux中的名字是mutex。这个似乎优点眼熟。对，在前面介绍 NPTL 的时候提起过，但是那个叫futex，是系统底层机制。对于提供给用户使用的则是这个mutex。Linux初始化和销毁互斥锁的接口是pthread_mutex_init()和pthead_mutex_destroy()，对于加锁和解锁则有pthread_mutex_lock()、pthread_mutex_trylock()和pthread_mutex_unlock()。这些接口的完整定义如下: 
 int pthread_mutex_init(pthread_mutex_t *restrict mutex,const pthread_mutexattr_t *restrict attr);  
 int pthread_mutex_destory(pthread_mutex_t *mutex );  
 int pthread_mutex_lock(pthread_mutex_t *mutex);  

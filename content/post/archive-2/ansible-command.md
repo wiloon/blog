@@ -13,6 +13,7 @@ tags:
 ## ansible basic command
 
 ## install
+
 ### Installing Ansible on Ubuntu
 
 ```bash
@@ -21,9 +22,12 @@ sudo apt install software-properties-common
 sudo add-apt-repository --yes --update ppa:ansible/ansible
 sudo apt install ansible
 ```
+
 ## ansible 配置文件
 
-    /etc/ansible/ansible.cfg
+```bash
+/etc/ansible/ansible.cfg
+```
 
 ### 文件内容
 
@@ -34,6 +38,25 @@ interpreter_python = auto_legacy_silent
 gather_timeout=30
 
 ```
+
+## 复制文件, copy 模块
+
+```bash
+sudo ansible 192.168.1.11 -m copy -a 'src=/home/roy/xxx/x.jar dest=/home/ansible/' --sudo
+```
+
+## 创建目录, file 模块
+
+```bash
+sudo ansible 192.168.1.11 -m file -a 'path=/home/roy/xxx/ dest=directory'
+
+## yaml
+- name: Creates directory
+  file:
+    path: /src/www
+    state: directory
+```
+
 ### hibernate
 
     ansible -i '192.168.97.1,' all  -m shell -a 'sudo systemctl hibernate'  -u user0
@@ -89,8 +112,7 @@ ansible 192.168.2.11 -m shell -a 'ls -l'
 #用root权限执行
 ansible --sudo -m shell 192.168.2.11 -a "/etc/init.d/AppName restart"
 
-#copy 模块
-sudo ansible 192.168.1.11 -m copy -a 'src=/home/roy/xxx/x.jar dest=/home/ansible/' --sudo
+
 
 #fetch 模块
 ansible 192.168.1.11 -m fetch -a 'src=/data/logs/xxx/debug.log dest=./' --sudo
@@ -110,7 +132,7 @@ command比较安全有可预知性,最好用command, 需要用到shell特性的�
 
 <http://www.wiloon.com/?p=9403>
 
-http://liumissyou.blog.51cto.com/4828343/1616462
+<http://liumissyou.blog.51cto.com/4828343/1616462>
 
 用命令行传递参数
 定义命令行变量
@@ -124,6 +146,4 @@ tasks:
 …
 使用命令行变量
 在命令行里面传值得的方法：
- ansible-playbook e33_var_in_command.yml --extra-vars "hosts=web user=root" 
-
- 
+ ansible-playbook e33_var_in_command.yml --extra-vars "hosts=web user=root"

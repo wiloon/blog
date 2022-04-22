@@ -719,7 +719,7 @@ c.      void *(*start_rtn)(void *): 指定线程函数指针，该函数返回�
 d.      void *restrict arg: 传入给线程函数的参数
 e.      返回错误值。
 2.      pthread函数在出错的时候不会设置errno，而是直接返回错误值
-3.      在Linux 系统下面，在老的内核中，由于Thread也被看作是一种特殊，可共享地址空间和资源的Process，因此在同一个Process中创建的不同 Thread具有不同的Process ID (调用getpid获得) 。而在新的2.6内核之中，Linux采用了NPTL(Native POSIX Thread Library)线程模型 (可以参考 http://en.wikipedia.org/wiki/Native_POSIX_Thread_Library和 http://www-128.ibm.com/developerworks/linux/library/l-threading.html?ca=dgr-lnxw07LinuxThreadsAndNPTL) ，在该线程模型下同一进程下不同线程调用getpid返回同一个PID。
+3.      在Linux 系统下面，在老的内核中，由于Thread也被看作是一种特殊，可共享地址空间和资源的Process，因此在同一个Process中创建的不同 Thread具有不同的Process ID (调用getpid获得) 。而在新的2.6内核之中，Linux采用了 NPTL (Native POSIX Thread Library) 线程模型 (可以参考 http://en.wikipedia.org/wiki/Native_POSIX_Thread_Library和 http://www-128.ibm.com/developerworks/linux/library/l-threading.html?ca=dgr-lnxw07LinuxThreadsAndNPTL) ，在该线程模型下同一进程下不同线程调用getpid返回同一个PID。
 4.      不能对创建的新线程和当前创建者线程的运行顺序作出任何假设
 5 Thread Termination
 1.      exit, _Exit, _exit用于中止当前进程，而非线程
