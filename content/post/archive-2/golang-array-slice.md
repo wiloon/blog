@@ -81,7 +81,7 @@ sl := []int{1,2,3}      //创建有初始化元素的slice
 len(sl)
 cap(sl)
 
-通过内置函数append(slice []Type,elems …Type)追加元素
+通过内置函数 `append(slice []Type,elems …Type)` 追加元素
 
 // 将 arr 中从下标 startIndex 到 endIndex-1 下的元素创建为一个新的切片。
 s := arr[startIndex:endIndex] 
