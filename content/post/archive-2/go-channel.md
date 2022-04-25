@@ -113,17 +113,16 @@ receive 操作符
 
 如前所述,你可以使用一个额外的返回参数来检查channel是否关闭。
 
-
 <http://colobu.com/2016/04/14/Golang-Channels/>
 
-
 ### 使用chan struct{}作为信号channel
+
 场景：使用channel传递信号，而不是传递数据时
 原理：没数据需要传递时，传递空struct
 用法：
 
 ```go
-// 上例中的Handler.stopCh就是一个例子，stopCh 并不需要传递任何数据
+// 上例中的 Handler.stopCh 就是一个例子，stopCh 并不需要传递任何数据
 // 只是要给所有协程发送退出的信号
 type Handler struct {
     stopCh chan struct{}
@@ -134,10 +133,10 @@ type Handler struct {
 
 通常struct{}类型channel的用法是使用同步，一般不需要往channel里面写数据，只有读等待，而读等待会在channel被关闭的时候返回。
 
-
 往chann struct{}写入数据
 另一个问题，我们能不能往struct{}类型的channel里面写数据呢，答案当然也是可以的。
 
+```go
 package main
 
 import (
@@ -157,54 +156,55 @@ func foo() {
 }
 
 func main() {
-    
+
     log.Println("main() 111");
     go foo()
     log.Println("main() 222");
     <-ch
     log.Println("main() 333");
 }
+```
+
 在foo()入口处给ch赋了一个值
 注意写法是"struct{}{}"，第一个"{}"对表示类型，第二个"{}"对表示一个类型对象实例。
 
 作者：CodingCode
-链接：https://www.jianshu.com/p/7f45d7989f3a
+链接：<https://www.jianshu.com/p/7f45d7989f3a>
 来源：简书
 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
 
->https://segmentfault.com/a/1190000017958702
+><https://segmentfault.com/a/1190000017958702>
 如前所述,你可以使用一个额外的返回参数来检查channel是否关闭。
 
->https://www.jianshu.com/p/d24dfbb33781
->https://go101.org/article/channel-closing.html
-
+><https://www.jianshu.com/p/d24dfbb33781>
+><https://go101.org/article/channel-closing.html>
 
 关闭channel
 Channel支持close操作，用于关闭channel，后面对该channel的任何发送操作都将导致panic异常。对一个已经被close过的channel进行接收操作依然可以接受到之前已经成功发送的数据；如果channel中已经没有数据的话将产生一个零值的数据。
 从已经关闭的channel中读：
-intStream := make(chan int) 
+intStream := make(chan int)
 close(intStream)
 integer, ok := <- intStream
 fmt.Pritf("(%v): %v", ok, integer)
 // (false): 0
 复制代码上面例子中通过返回值ok来判断channel是否关闭，我们还可以通过range这种更优雅的方式来处理已经关闭的channel：
-intStream := make(chan int) 
+intStream := make(chan int)
 go func() {
-    defer close(intStream) 
-    for i:=1; i<=5; i++{ 
-        intStream <- i 
+    defer close(intStream)
+    for i:=1; i<=5; i++{
+        intStream <- i
     }
 }()
 
-for integer := range intStream { 
+for integer := range intStream {
     fmt.Printf("%v ", integer)
 }
 // 1 2 3 4 5
 
 作者：彬叔
-链接：https://juejin.cn/post/6844903623667744781
+链接：<https://juejin.cn/post/6844903623667744781>
 来源：稀土掘金
 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
 
->https://colobu.com/2016/04/14/Golang-Channels/
->https://zhuanlan.zhihu.com/p/299592156
+><https://colobu.com/2016/04/14/Golang-Channels/>
+><https://zhuanlan.zhihu.com/p/299592156>
