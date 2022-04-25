@@ -14,12 +14,17 @@ Go 是 Google 开发的一种静态强类型、编译型、并发型, 并具有�
 Go 语言是静态类型的编程语言
 
 ## version
-### latest 
+
+### latest
+
 1.18
-### current 
+
+### current
+
 1.17.7
 
 ## The Go Programming Language
+
 Go 语言虽然是静态编译型语言,但是它却拥有脚本化的语法,支持多种编程范式(函数式和面向对象)。
 
 ### hello world
@@ -40,32 +45,44 @@ go build hello-world.go
 
 ## 升级包版本
 
-    go get -u github.com/gin-gonic/gin
-    go get -u github.com/gin-gonic/gin@v1.7.7
+```bash
+go get -u github.com/gin-gonic/gin
+go get -u github.com/gin-gonic/gin@v1.7.7
+```
 
-http://studygolang.com/articles/1941
+<http://studygolang.com/articles/1941>
   
-https://gobyexample.com/hello-world
+<https://gobyexample.com/hello-world>
 
 ### math
+
    float64 保留2位小数
    value, _ = strconv.ParseFloat(fmt.Sprintf("%.2f", value), 64)
+
 ### go process, exec
-    https://colobu.com/2020/12/27/go-with-os-exec/
-    
+
+```bash
+https://colobu.com/2020/12/27/go-with-os-exec/
+```
+
 ### commands
+
     go get -u xorm.io/xorm
     go run -race cmd.go // 竞态检测
 
 ### install
+
 china mainland download
->https://golang.google.cn/
+><https://golang.google.cn/>
+
 #### ubuntu
+
     sudo add-apt-repository ppa:longsleep/golang-backports
     sudo apt update
     sudo apt install golang-go
 
 ### 环境变量
+
 ```bash
 # gopath bin
 export PATH="$PATH:$(go env GOPATH)/bin"
@@ -83,15 +100,18 @@ export GOBIN=/path/to/go/bin
 ```
 
 ### internal package
+
 Go语言 1.4 版本增加了 Internal packages 特征用于控制包的导入, 即internal package只能被特定的包导入。
 内部包的规范约定: 导出路径包含internal关键字的包, 只允许internal的父级目录及父级目录的子包导入, 其它包无法导入。
 
 ### 变量
+
 变量是几乎所有编程语言中最基本的组成元素。从根本上说,变量相当于是对一块数据存储空间的命名,程序可以通过定义一个变量来申请一块数据存储空间,之后可以通过引用变量名来使用这块存储空间。
   
 Go语言中的变量使用方式与C语言接近,但具备更大的灵活性。
 
 #### 变量声明
+
 Go语言的变量声明方式与C和C++语言有明显的不同。对于纯粹的变量声明,Go语言引入了关键字var,而类型信息放在变量名之后,示例如下:
 
 ```go
@@ -112,7 +132,8 @@ var v7 map[string]intvar v8 func(a int) int   // map,key为string类型,value为
 变量声明语句不需要使用分号作为结束符。与C语言相比,Go语言摒弃了语句必须以分号作为语句结束标记的习惯。
   
 ### 变量初始化
-对于声明变量时需要进行初始化的场景,var关键字可以保留,但不再是必要的元素,如下: 
+
+对于声明变量时需要进行初始化的场景,var关键字可以保留,但不再是必要的元素,如下:
 
 ```go
 var v1 int = 10 // 正确的使用方式1
@@ -123,7 +144,7 @@ v3 := 10 // 正确的使用方式3,编译器可以自动推导出v3的类型
 以上三种用法的效果是完全一样的。与第一种用法相比,第三种用法需要输入的字符数大大减少,是懒程序员和聪明程序员的最佳选择。这里Go语言也引入了另一个C和C++中没有的符号 (冒号和等号的组合:=),用于明确表达同时进行变量声明和初始化的工作 。
 指定类型已不再是必需的,Go编译器可以从初始化表达式的右值推导出该变量应该声明为 4
 哪种类型,这让Go语言看起来有点像动态类型语言,尽管Go语言实际上是 不折不扣 的强类型语言(静态类型语言)。
-当然,出现在:=左侧的变量不应该是已经被声明过的,否则会导致编译错误,比如下面这个 : 
+当然,出现在:=左侧的变量不应该是已经被声明过的,否则会导致编译错误,比如下面这个 :
 var i inti := 2
   
 会导致类似如下的编译错误:
@@ -148,7 +169,7 @@ t = i; i = j; j = t;
   
 我们在使用传统的强类型语言编程时,经常会出现这种情况,即在调用函数时为了获取一个值,却因为该函数返回多个值而不得不定义一堆没用的变量。在Go中这种情况可以通过结合使用多重返回和匿名变量来避免这种丑陋的写法,让代码看起来更加优雅。
   
-_, _, nickName := "May", "Chan", "Chibi Maruko"
+_,_, nickName := "May", "Chan", "Chibi Maruko"
 
 ## 常量
 
@@ -184,7 +205,7 @@ const u, v float32 = 0, 3
   
 const a, b, c = 3, 4, "foo"//a=3,b=4,c="foo", 无类型整型和字符串常量
 
-Go的常量定义可以限定常量类型,但不是必需的。如果定义常量时没有指定类型,那么它与字面常量一样,是无类型常量。常量定义的右值也可以是一个在编译期运算的常量表达式,比如: 
+Go的常量定义可以限定常量类型,但不是必需的。如果定义常量时没有指定类型,那么它与字面常量一样,是无类型常量。常量定义的右值也可以是一个在编译期运算的常量表达式,比如:
   
 const mask = 1 << 3
 
@@ -228,7 +249,7 @@ c1 = iota // c1 == 1
   
 c2 = iota // c2 == 2
   
-) 
+)
   
 const (
   
@@ -251,27 +272,37 @@ func main(){
 ```
 
 ### 废弃的函数
+
     // Deprecated
     func foo(){}
 
 ## go env
+
 ### 查看go语言的环境变量
+
     go env
+
 ### 设置 go env
+
     go env -w GO111MODULE=on
+
 ## date time
+
     time.Now()
+
 ### 时间差
+
     t2.Sub(t1)
 
 ### sha256
+
      sum := sha256.Sum256([]byte("hello world\n"))
 
-
 ### csv
-https://cloud.tencent.com/developer/article/1059643
+<https://cloud.tencent.com/developer/article/1059643>
 
 ### math
+
 func Dim(x, y float64) float64
 函数返回x-y和0中的最大值
 
@@ -308,6 +339,7 @@ go mod init github.com/you/hello
 ```
 
 ### go install
+
 go install 可忽略当前目录或上层目录的 go.mod 文件,这对于在不影响主模块依赖的情况下，安装二进制很方便；
 go install 被设计为“用于构建和安装二进制文件”， go get 则被设计为 “用于编辑 go.mod 变更依赖”，并且使用时，应该与 -d 参数共用，在将来版本中 -d 可能会默认启用；
 如果你在模块目录中，并且你不带 @version 执行安装的话，只能安装 go.mod 中已经包含的版本。并且不能安装未出现在 go.mod 中的包。
@@ -319,7 +351,7 @@ go install 将可执行文件安装到与src同级别的bin目录下,bin目录�
   
 go install 将可执行文件依赖的各种package编译后,放在与src同级别的pkg目录下.
 
->http://tonybai.com/2012/08/17/hello-go/
+><http://tonybai.com/2012/08/17/hello-go/>
 
 ```bash
 go install github.com/wiloon/pingd-proxy@v0.0.1
@@ -347,22 +379,25 @@ func main() {
 ```
 
 ### humanize
-github.com/dustin/go-humanize
 
+github.com/dustin/go-humanize
 
 ---
 
-https://cyent.github.io/golang/datatype/funcvalue_parameter/
+<https://cyent.github.io/golang/datatype/funcvalue_parameter/>
 
 ## release notes
-### 1.17 
-https://tip.golang.org/doc/go1.17
+
+### 1.17
+<https://tip.golang.org/doc/go1.17>
 
 ### Go 程序是怎样跑起来的
->https://zhuanlan.zhihu.com/p/71993748
-### go 程序启动过程
->https://juejin.cn/post/6942509882281033764
 
+><https://zhuanlan.zhihu.com/p/71993748>
+
+### go 程序启动过程
+
+><https://juejin.cn/post/6942509882281033764>
 
 ## golang install
 
@@ -388,13 +423,12 @@ windows:
   
 GOPATH=C:\workspace\myproject\golang\lib;C:\workspace\myproject\golang\gox
 
+><https://moelove.info/2020/12/19/Go-1.16-%E4%B8%AD%E5%85%B3%E4%BA%8E-go-get-%E5%92%8C-go-install-%E4%BD%A0%E9%9C%80%E8%A6%81%E6%B3%A8%E6%84%8F%E7%9A%84%E5%9C%B0%E6%96%B9/>
 
->https://moelove.info/2020/12/19/Go-1.16-%E4%B8%AD%E5%85%B3%E4%BA%8E-go-get-%E5%92%8C-go-install-%E4%BD%A0%E9%9C%80%E8%A6%81%E6%B3%A8%E6%84%8F%E7%9A%84%E5%9C%B0%E6%96%B9/
-
-
-### 查看 golang 文档 
+### 查看 golang 文档
 
     go doc io.EOF
+
 ### os.Exit()
 
 Conventionally, code zero indicates success, non-zero an error
@@ -431,8 +465,7 @@ func main() {
 }
 该程序打印：30
 
-
->https://studygolang.com/articles/14628
+><https://studygolang.com/articles/14628>
 
 ## 复合字面量
 
@@ -463,19 +496,17 @@ fmt.Println(spirit)
 
 ```
 
->https://studygolang.com/articles/12913
->https://livebook.manning.com/concept/go/composite-literal
+><https://studygolang.com/articles/12913>
+><https://livebook.manning.com/concept/go/composite-literal>
 
-
- 
- ### is pointer to interface, not interface
+### is pointer to interface, not interface
 
  执行下面代码会出现”type *net.Conn is pointer to interface, not interface)“错误，原因是因为”net.Conn”是interface而不是struct，不能用指针方式传递。
 
 1    func connHandler(client *net.Conn) {
 2        // do something
 3    }
-4    
+4
 5    func somefunc() {
 6        // ...
 7        client, _ := listener.Accept()
@@ -492,15 +523,14 @@ interface
 1    func connHandler(client net.Conn) {
 2        // do something
 3    }
-4    
+4
 5    func somefunc() {
 6        // ...
 7        client, _ := listener.Accept()
 8        connHandler(client)
 9    }
 
->http://www.singleye.net/2017/11/go%E8%AF%AD%E8%A8%80%E7%BC%96%E7%A8%8B%E9%99%B7%E9%98%B1/
-
+><http://www.singleye.net/2017/11/go%E8%AF%AD%E8%A8%80%E7%BC%96%E7%A8%8B%E9%99%B7%E9%98%B1/>
 
 ## range
 
@@ -512,4 +542,3 @@ for pos, char := range str {
 ```
 
 ## 创建长度为0的slice时发生了什么
-

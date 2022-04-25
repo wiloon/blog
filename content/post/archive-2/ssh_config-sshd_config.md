@@ -21,19 +21,24 @@ vim ~/.ssh/authorized_keys
 ## sshd config, /etc/sshsshd_config
 
 ### PermitRootLogin
-是否允许 root 登录。默认值是"prohibit-password", 其它可用值如下: 
+
+是否允许 root 登录。默认值是"prohibit-password", 其它可用值如下:
 
 - prohibit-password, 新版本的 sshd 的默认值: 禁止root用户使用密码和基于键盘交互的认证。
 - without-password 废弃的值，新版本的 sshd 使用了更符合直觉的名字 prohibit-password。
 - forced-commands-only 表示只有在指定了 command 选项的情况下才允许使用公钥认证登录。同时其它认证方法全部被禁止。这个值常用于做远程备份之类的事情。
 - yes 允许root用户以任何认证方式登录 (貌似也就两种认证方式: 用户名密码认证,公钥认证)
 
-### WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED!
+### WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED
+
 ```bash
 ssh-keygen -f "/home/wiloonwy/.ssh/known_hosts" -R "192.168.50.99"
 ```
+
 ### /etc/ssh/sshd_config
+
 #### 服务端鉴权重试最大次数
+
 ssh 连接服务器时 agent 里保存的密钥过多会遇到异常 Too Many Authentication Failures, 可以调整服务器 sshd 配置
 
 ```bash
@@ -43,9 +48,7 @@ MaxAuthTries 20
 Port 22  
 port用来设置sshd监听的端口,为了安全起见,建议更改默认的22端口为5位以上陌生端口
 
-
 第二行配置表示如果发送 keep-alive 包数量达到 60 次，客户端依然没有反应，则服务端 sshd 断开连接。如果什么都不操作，该配置可以让连接保持 30s*60 ， 30 min
-
 
 ---
 
@@ -76,13 +79,14 @@ Cipher blowfish
 EscapeChar ~
 ```
 
-下面对上述选项参数逐进行解释: 
+下面对上述选项参数逐进行解释:
 
 Host *
   
 "Host"只对匹配后面字串的计算机有效,"_"表示所有的计算机。从该项格式前置一些可以看出,这是一个类似于全局的选项,表示下面缩进的选项都适用于该设置,可以指定某计算机替换_号使下面选项只针对该算机器生效。
   
 ### ForwardAgent no
+
 连接是否经过验证代理 (如果存在) 转发给远程计算机。
   
 ForwardX11 no
@@ -100,7 +104,6 @@ RhostsRSAAuthentication no
 RSAAuthentication yes
   
 "RSAAuthentication"设置是否使用RSA算法进行安全验证。
-  
   
 FallBackToRsh no
   
@@ -138,7 +141,7 @@ EscapeChar ~
   
 "EscapeChar"设置escape字符。
 
-下面逐行说明上面的选项设置: 
+下面逐行说明上面的选项设置:
 Port 22
   
 "Port"设置sshd监听的端口号。
@@ -207,17 +210,37 @@ RSAAuthentication yes
   
 "RSAAuthentication"设置是否允许只有RSA安全验证。
   
-  
 PermitEmptyPasswords no
   
 "PermitEmptyPasswords"设置是否允许用口令为空的帐号登录。
   
-AllowUsers admin
+## AllowUsers admin
   
-"AllowUsers"的后面可以跟任意的数量的用户名的匹配串,这些字符串用空格隔开。主机名可以是域名或IP地址。
+"AllowUsers" 的后面可以跟任意的数量的用户名的匹配串, 这些字符串用空格隔开。主机名可以是域名或IP地址。
+
+AllowUsers
+
+这个指令后面跟着一串用空格分隔的用户名列表(其中可以使用"*"和"?"通配符)。默认允许所有用户登录。
+
+如果使用了这个指令,那么将仅允许这些用户登录,而拒绝其它所有用户。
+
+如果指定了 USER@HOST 模式的用户,那么 USER 和 HOST 将同时被检查。
+
+这里只允许使用用户的名字而不允许使用UID。相关的 allow/deny 指令按照下列顺序处理:
+
+DenyUsers, AllowUsers, DenyGroups, AllowGroups
 
 ---
 
-https://segmentfault.com/a/1190000014822400
-http://matt-u.iteye.com/blog/851158  
+<https://segmentfault.com/a/1190000014822400>
+<http://matt-u.iteye.com/blog/851158>  
 
+## input_userauth_request: invalid user
+
+如果启动了 UsePAM yes, 检查 一下用户名,看是否存在, 有可能是用户名拼错了
+
+## refused connect from
+
+登录验证失败n 次之后 ip 被加到黑名单里了
+
+vim /etc/hosts.deny

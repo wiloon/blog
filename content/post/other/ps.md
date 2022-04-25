@@ -7,7 +7,7 @@ categories:
   - Linux
 tags:
   - remix
-
+  - command
 ---
 ## ps command
 
@@ -173,20 +173,21 @@ ps auxw -sort=%cpu
   
 虚拟终端(/dev/pts/n)
 
-### ps aux, ps -ef
-
-Linux下显示系统进程的命令ps，最常用的有ps -ef 和ps aux。这两个到底有什么区别呢？两者没太大差别，讨论这个问题，要追溯到Unix系统中的两种风格，
-
-System Ｖ风格和BSD 风格，ps aux最初用到Unix Style中(BSD的格式)，而ps -ef被用在System V Style中，两者输出略有不同。现在的大部分Linux系统都是可以同时使用这两种方式的。
-<https://www.cnblogs.com/5201351/p/4206461.html>
-
 ## ps aux
 
 ### 输出字段
 
-```bash
-USER       PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
-```
+1. USER
+2. PID
+3. %CPU
+4. %MEM
+5. VSZ
+6. RSS
+7. TTY
+8. STAT
+9. START
+10. TIME
+11. COMMAND
 
 - RSS
 
@@ -209,3 +210,10 @@ rss        RSS      resident set size, the non-swapped physical memory that a
 # centos
 yum install procps-ng
 ```
+
+### `ps aux` VS. `ps -ef`
+
+Linux下显示系统进程的命令 ps，最常用的有ps -ef 和ps aux。这两个到底有什么区别呢？两者没太大差别，讨论这个问题，要追溯到Unix系统中的两种风格，
+
+System V 风格和 BSD 风格, ps aux 最初用到 Unix Style 中( BSD的格式)，而  ps -ef 被用在 System V Style 中，两者输出略有不同。现在的大部分Linux系统都是可以同时使用这两种方式的。
+<https://www.cnblogs.com/5201351/p/4206461.html>

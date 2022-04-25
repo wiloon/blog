@@ -45,16 +45,24 @@ gather_timeout=30
 sudo ansible 192.168.1.11 -m copy -a 'src=/home/roy/xxx/x.jar dest=/home/ansible/' --sudo
 ```
 
-## 创建目录, file 模块
+## 创建目录, file module
 
 ```bash
-sudo ansible 192.168.1.11 -m file -a 'path=/home/roy/xxx/ dest=directory'
+sudo ansible 192.168.1.11 -m file -a 'path=/home/roy/xxx/ state=directory mode=0755'
 
 ## yaml
 - name: Creates directory
   file:
     path: /src/www
     state: directory
+    mode: '0755'
+```
+
+## delete file
+
+```bash
+sudo ansible 192.168.1.11 -m file -a 'path=/home/roy/xxx/ state=absent'
+
 ```
 
 ### hibernate

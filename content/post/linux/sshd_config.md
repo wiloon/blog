@@ -11,7 +11,9 @@ tags:
 ---
 ## 查看 sshd 运行参数
 
+```bash
     sshd -T | sort
+```
 
 ## sshd 日志
 
@@ -19,6 +21,7 @@ tags:
 journalctl -u sshd -f
 
 ```
+
 ## sshd config
 
 AddressFamily
@@ -72,17 +75,7 @@ PermitUserEnvironment
                
 默认值是"no"。如果设为"yes"可能会导致用户有机会使用某些机制(比如 LD_PRELOAD)绕过访问控制,造成安全漏洞。
 
-AllowUsers
-               
-这个指令后面跟着一串用空格分隔的用户名列表(其中可以使用"*"和"?"通配符)。默认允许所有用户登录。
-               
-如果使用了这个指令,那么将仅允许这些用户登录,而拒绝其它所有用户。
-               
-如果指定了 USER@HOST 模式的用户,那么 USER 和 HOST 将同时被检查。
-               
-这里只允许使用用户的名字而不允许使用UID。相关的 allow/deny 指令按照下列顺序处理: 
-               
-DenyUsers, AllowUsers, DenyGroups, AllowGroups
+
 
 Ciphers
                
