@@ -19,4 +19,4 @@ tags:
 
 ### goland
 
-<https://github.com/pelletier/go-toml>
+<https://github.com/pelletier/go-toml/tree/v2>
