@@ -121,7 +121,7 @@ receive 操作符
 用法：
 
 ```go
-// 上例中的Handler.stopCh就是一个例子，stopCh 并不需要传递任何数据
+// 上例中的 Handler.stopCh 就是一个例子，stopCh 并不需要传递任何数据
 // 只是要给所有协程发送退出的信号
 type Handler struct {
     stopCh chan struct{}
@@ -135,6 +135,7 @@ type Handler struct {
 往chann struct{}写入数据
 另一个问题，我们能不能往struct{}类型的channel里面写数据呢，答案当然也是可以的。
 
+```go
 package main
 
 import (
@@ -161,6 +162,8 @@ func main() {
     <-ch
     log.Println("main() 333");
 }
+```
+
 在foo()入口处给ch赋了一个值
 注意写法是"struct{}{}"，第一个"{}"对表示类型，第二个"{}"对表示一个类型对象实例。
 
