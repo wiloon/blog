@@ -1,16 +1,32 @@
 ---
-title: 'golang 获取interface{} 的数据类型'
+title: golang interface
 author: "-"
 date: 2020-02-11T05:42:52+00:00
-url: /?p=15516
+url: go/interface
 categories:
-  - Uncategorized
-
+  - Go
 tags:
   - reprint
 ---
+## golang interface
+
+interface 是一种类型
+
+```go
+type foo interface {
+    Get() int
+}
+```
+
+首先 interface 是一种类型，从它的定义可以看出来用了 type 关键字，更准确的说 interface 是一种具有一组方法的类型，这些方法定义了 interface 的行为。
+
+go 允许不带任何方法的 interface ，这种类型的 interface 叫 empty interface。
+
+如果一个类型实现了一个 interface 中所有方法，我们说类型实现了该 interface，所以所有类型都实现了 empty interface，因为任何一种类型至少实现了 0 个方法。go 没有显式的关键字用来实现 interface，只需要实现 interface 包含的方法即可。
+
 ## 'golang 获取interface{} 的数据类型'
-https://blog.csdn.net/xia_xing/article/details/49423771
+
+<https://blog.csdn.net/xia_xing/article/details/49423771>
 
 interface{} 可以接受任何类型的对象值
   
@@ -21,27 +37,27 @@ interface{} 可以接受任何类型的对象值
 package main
 
 import (
-      
+
 "fmt"
   
 )
 
 type Bag struct {
-      
+
 Key string
   
 }
 
 type Bag2 struct {
-      
+
 Key int
   
 }
 
 func main() {
-      
+
 var b1 interface{}
-      
+
 var b2 interface{}
 
     b1 = Bag{Key: "1"}
@@ -65,7 +81,6 @@ var b2 interface{}
     default:
         fmt.Println("b1.(type):", "other", v)
     }
-    
 
 }
   
@@ -93,4 +108,6 @@ fmt.Println("b1.(type):", "other", v)
   
 版权声明: 本文为CSDN博主「夏星笑语」的原创文章，遵循 CC 4.0 BY-SA 版权协议，转载请附上原文出处链接及本声明。
   
-原文链接: https://blog.csdn.net/xia_xing/article/details/49423771
+原文链接: <https://blog.csdn.net/xia_xing/article/details/49423771>
+
+<https://sanyuesha.com/2017/07/22/how-to-understand-go-interface/>

@@ -34,30 +34,42 @@ mysqldump -h 192.168.50.100 -uroot -p --databases rssx --tables user --where=use
 
 ## mysql GUI client for Linux
 
+```bash
     IDEA
+```
 
 ### jdbc url
 
+```r
     jdbc:MySQL://localhost:3306/tmp
     # driver
     com.MySQL.jdbc.Driver
+```
 
 ### MySQL heidisql 变量
 
+```bash
     SET @total_count := 10;
     select @total_count;
+```
 
 ### 配置文件位置
 
+```r
     /etc/my.cnf
+```
 
 ### 查端口
 
+```r
     show variables like 'port';
+```
 
 ### 字段默认值
 
+```sql
     alter tabe tbl_ecp modify load_count default 0;
+```
 
 MySQL管理员用户名: root
   

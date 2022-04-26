@@ -10,6 +10,7 @@ tags:
   - reprint
 ---
 ## golang struct/结构体
+
 ```go
 //定义一个struct
 type Student struct {
@@ -21,13 +22,16 @@ type Student struct {
 ```
 
 ### 匿名结构体
+
 ```go
-    person := struct { //匿名结构
-        Name string
-        Age  int
-    }{Name: "匿名", Age: 1}
-    jsonBytes, _ := json.Marshal(person)
-    fmt.Println("person:", string(jsonBytes))
+//匿名结构
+person := struct { 
+    Name string
+    Age  int
+}{Name: "匿名", Age: 1}
+
+jsonBytes, _ := json.Marshal(person)
+fmt.Println("person:", string(jsonBytes))
 ```
 
 ```go
@@ -40,6 +44,6 @@ type foo struct {
 }
 ```
 
-https://github.com/jemygraw/TechDoc/blob/master/Go%E8%BD%BB%E6%9D%BE%E5%AD%A6/go_tutorial_8_struct_interface.md
+<https://github.com/jemygraw/TechDoc/blob/master/Go%E8%BD%BB%E6%9D%BE%E5%AD%A6/go_tutorial_8_struct_interface.md>
   
-https://blog.csdn.net/books1958/article/details/22720033
+<https://blog.csdn.net/books1958/article/details/22720033>

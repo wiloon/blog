@@ -4,19 +4,19 @@ author: "-"
 date: 2019-03-30T00:11:19+00:00
 url: /?p=14005
 categories:
-  - Uncategorized
-
+  - filesystem
 tags:
   - reprint
 ---
 ## btrfs
+
 ### 禁用COW
 
 ```bash
 chattr +C /path/to/dir/
 ```
 
-https://typeblog.net/migrate-to-btrfs/
+<https://typeblog.net/migrate-to-btrfs/>
 
 数据一致性相关的特性
 
@@ -30,7 +30,7 @@ https://typeblog.net/migrate-to-btrfs/
 
 ### 什么是事务？
 
-COW 只能保证单一数据更新的原子性。但文件系统中很多操作需要更新多个不同的元数据，比如创建文件需要修改以下这些元数据: 
+COW 只能保证单一数据更新的原子性。但文件系统中很多操作需要更新多个不同的元数据，比如创建文件需要修改以下这些元数据:
 
 修改 extent tree，分配一段磁盘空间
   
@@ -56,6 +56,8 @@ A 是 FS Tree 的根节点，新的 inode 的信息将被插入节点 C 。首�
 
 ## Delay allocation
 
-https://blog.51cto.com/marvin89/2107489
+<https://blog.51cto.com/marvin89/2107489>
 
-https://www.ibm.com/developerworks/cn/linux/l-cn-btrfs/index.html
+<https://www.ibm.com/developerworks/cn/linux/l-cn-btrfs/index.html>
+
+<https://hedzr.com/devops/linux/btrfs-file-system-reviews/>
