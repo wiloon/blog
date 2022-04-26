@@ -10,7 +10,8 @@ tags:
   - reprint
 ---
 ## netty 文件上传
-http://blog.csdn.net/mcpang/article/details/41140409
+
+<http://blog.csdn.net/mcpang/article/details/41140409>
 
 【初学与研发之NETTY】netty4之文件上传
   
@@ -18,13 +19,13 @@ http://blog.csdn.net/mcpang/article/details/41140409
   
 2014-11-15 04:35 6005人阅读 评论(29) 收藏 举报
   
-分类: 
+分类:
   
-JAVA (48)  Netty (6) 
+JAVA (48)  Netty (6)
   
 版权声明: 本文为博主原创文章,未经博主允许不得转载。
   
-客户端: 
+客户端:
 
  view plain copy
   
@@ -278,8 +279,7 @@ ctx.channel().close();
   
 }
 
-
-服务端: 
+服务端:
 
  view plain copy
   

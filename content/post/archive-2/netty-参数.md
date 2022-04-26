@@ -10,7 +10,9 @@ tags:
   - reprint
 ---
 ## netty tcp 参数
+
 ### TCP_NODELAY
+
 这个选项的作用就是禁用 Nagle's Algorithm
 NAGLE算法通过将缓冲区内的小封包自动相连,组成较大的封包,阻止大量小封包的发送阻塞网络,从而提高网络应用效率。但是对于时延敏感的应用场景需要关闭该优化算法；
 
@@ -24,11 +26,9 @@ SO_KEEPALIVE 保持连接检测对方主机是否崩溃,避免 (服务器) 永�
 
 SO_REUSEADDR
 
-
 SO_BACKLOG
 
 The `backlog` argument is the requested maximum number of pending connections on the socket.
-
 
 ## SO_RCVBUF ,SO_SNDBUF
 
@@ -40,10 +40,7 @@ The `backlog` argument is the requested maximum number of pending connections on
   
 这两个选项就是来设置TCP连接的两个buffer尺寸的。
 
-
-
    /**
-
 
                * 100 Continue
 
@@ -59,13 +56,10 @@ The `backlog` argument is the requested maximum number of pending connections on
 
                */
 
+<http://www.cnblogs.com/qq78292959/archive/2013/01/18/2865926.html>
 
+<http://elf8848.iteye.com/blog/1961192>
 
-http://www.cnblogs.com/qq78292959/archive/2013/01/18/2865926.html
+<http://blog.chinaunix.net/uid-29075379-id-3905006.html>
 
-
-http://elf8848.iteye.com/blog/1961192
-
-http://blog.chinaunix.net/uid-29075379-id-3905006.html
-
-http://blog.csdn.net/russell_tao/article/details/18711023
+<http://blog.csdn.net/russell_tao/article/details/18711023>

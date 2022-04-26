@@ -10,10 +10,13 @@ tags:
   - reprint
 ---
 ## Lambda 表达式
+
 # Lambda
+
 "Lambda 表达式"是一个匿名函数,它可以包含表达式和语句,并且可用于创建委托或表达式目录树类型。 所有 Lambda 表达式都使用 Lambda 运算符 =>,该运算符读为"goes to"。该 Lambda 运算符的左边是输入参数 (如果有) ,右边包含表达式或语句块。Lambda 表达式 x => x * x 读作"x goes to x times x"。
 
 ### 函数式接口functional interface, @FunctionalInterface
+
 函数式接口(Functional Interface)是Java 8对一类特殊类型的接口的称呼。 这类接口只定义了唯一的抽象方法的接口 (除了隐含的Object对象的公共方法) , 因此最开始也就做SAM类型的接口 (Single Abstract Method) 。
 
 为什么会单单从接口中定义出此类接口呢？ 原因是在 Java Lambda 的实现中, 开发组不想再为Lambda表达式单独定义一种特殊的Structural函数类型,称之为箭头类型 (arrow type) , 依然想采用Java既有的类型系统(class, interface, method等), 原因是增加一个结构化的函数类型会增加函数类型的复杂性,破坏既有的Java类型,并对成千上万的Java类库造成严重的影响。 权衡利弊, 因此最终还是利用SAM 接口作为 Lambda表达式的目标类型。
@@ -22,9 +25,11 @@ JDK中已有的一些接口本身就是函数式接口,如Runnable。 JDK 8中�
 
 函数式接口代表的一种契约, 一种对某个特定函数类型的契约。 在它出现的地方,实际期望一个符合契约要求的函数。 Lambda表达式不能脱离上下文而存在,它必须要有一个明确的目标类型,而这个目标类型就是某个函数式接口。
 
-### 方法引用 (method reference) 
+### 方法引用 (method reference)
+
 双冒号 "::" 是 Java 8 引入 Lambda 表达式后的一种用法,表示方法引用 (method reference) ,可以更加简洁的实例化接口
-双冒号表达式返回的是一个 函数式接口对象  (用 @FunctionalInterface 注解的 interface 类型) 的实例,如下: 
+双冒号表达式返回的是一个 函数式接口对象  (用 @FunctionalInterface 注解的 interface 类型) 的实例,如下:
+
 ```java
 @Test
 public void test0() {
@@ -42,31 +47,38 @@ public interface Consumer<T> {
 ```
 
 ### 方法引用 Method Reference
+
 双冒号 (::) 运算符在 Java 8 中被用作方法引用 (method reference) ,方法引用是与 lambda 表达式相关的一个重要特性。
 它提供了一种不执行方法的方法: 双冒号的方式只是指明方法引用,具体执行还是传统的方式。
 方法引用需要兼容函数式接口组成的目标类型上下文: 也就是说被引用的方法的参数和 函数式接口 的参数类型必须一致。
 具体使用方式有以下几种
 
 ### 静态方法引用(Reference to a static method)
+
 语法: ContainingClass::staticMethodName
 例如: Person::getAge
 
 ### 对象的实例方法引用(Reference to an instance method of a particular object)
+
 语法: containingObject::instanceMethodName
 例如: System.out::println
 
 ### 特定类型的任意对象实例的方法(Reference to an instance method of an arbitrary object of a particular type)
+
 语法: (ContainingType::methodName)
 例如: String::compareToIgnoreCase
 
-### 类构造器引用语法 (Reference to a constructor): 
+### 类构造器引用语法 (Reference to a constructor)
+
 语法: ClassName::new
 例如: ArrayList::new
 
 简单地说,就是一个 Lambda 表达式。在 Java 8 中,我们会使用 Lambda 表达式创建匿名方法,但是有时候,我们的 Lambda 表达式可能仅仅调用一个已存在的方法,而不做任何其它事,对于这种情况,通过一个方法名字来引用这个已存在的方法会更加清晰,Java 8 的方法引用允许我们这样做。方法引用是一个更加紧凑,易读的 Lambda 表达式,注意方法引用是一个 Lambda 表达式,其中方法引用的操作符是双冒号 "::"。
 
 ### 方法引用例子
-首先定义一个 Person 类,如下: 
+
+首先定义一个 Person 类,如下:
+
 ```java
 public class Person { 
     String name;
@@ -91,9 +103,11 @@ public class Person {
     }
 }
 ```
-假设我们有一个 Person 数组,并且想对它进行排序,这时候,我们可能会这样写: 
+
+假设我们有一个 Person 数组,并且想对它进行排序,这时候,我们可能会这样写:
 
 ### 原始写法
+
 ```java
 public class Main { 
     static class PersonAgeComparator implements Comparator<Person> { 
@@ -115,7 +129,8 @@ public class Main {
     }
 }
 ```
-其中,Arrays类的sort方法定义如下: 
+
+其中,Arrays类的sort方法定义如下:
 
 ```java
 public static <T> void sort(T[] a, Comparator<? super T> c)
@@ -127,11 +142,13 @@ public interface Comparator<T> {
     //...
 }
 ```
+
 Comparator接口是一个函数式接口,因此可以使用 Lambda 表达式,而不需要定义一个实现 Comparator 接口的类,并创建它的实例对象,传给 sort 方法。
 
-使用 Lambda 表达式,我们可以这样写: 
+使用 Lambda 表达式,我们可以这样写:
 
 ### 改进一,使用 Lambda 表达式, 未调用已存在的方法
+
 ```java
 public class Main { 
     public static void main(String[] args) {
@@ -149,9 +166,11 @@ public class Main {
     }
 }
 ```
+
 然而,在以上代码中,关于两个人生日的比较方法在 Person 类中已经定义了,因此,我们可以直接使用已存在的 Person.compareByAge 方法。
 
 ### 改进二,使用 Lambda 表达式,调用已存在的方法
+
 ```java
 public class Main { 
     public static void main(String[] args) {
@@ -167,9 +186,11 @@ public class Main {
     }
 }
 ```
+
 因为这个 Lambda 表达式调用了一个已存在的方法,因此,我们可以直接使用方法引用来替代这个 Lambda 表达式
 
 ### 改进三,使用方法引用
+
 ```java
 public class Main { 
     public static void main(String[] args) {
@@ -185,21 +206,24 @@ public class Main {
     }
 }
 ```
+
 在以上代码中,方法引用 Person::compareByAge 在语义上与 Lambda 表达式 (a, b) -> Person.compareByAge(a, b) 是等同的
 
 四种方法引用类型
+
 ### 静态方法引用
-ContainingClass::staticMethodName 
+
+ContainingClass::staticMethodName
 比较容易理解,和静态方法调用相比,只是把 . 换为 ::
 
-例子: 
+例子:
 
 String::valueOf,等价于 Lambda: s -> String.valueOf(s)
 Math::pow 等价于lambda表达式 (x, y) -> Math.pow(x, y);
 前面举的例子 Person::compareByAge 就是一个静态方法引用
-从一个数字列表中找出最大的一个数字,方法引用方式: 
+从一个数字列表中找出最大的一个数字,方法引用方式:
 Function, Integer> maxFn = Collections::max;
-// 等价于 Lambda 表达式: 
+// 等价于 Lambda 表达式:
 // Function, Integer> maxFn = (numbers) -> Collections.max(numbers);
 maxFn.apply(Arrays.asList(1, 10, 3, 5))。
 字符串反转
@@ -231,15 +255,19 @@ class MethodRefDemo {
         System.out.println("String reserved: " + outStr);  
     }  
 }  
+
 ### 引用特定对象的实例方法
+
 实例上的实例方法引用
+
 ```java
 instanceReference::instanceMethodName 
 ```
+
 例子: x::toString,对应的 Lambda: () -> this.toString()
 与引用静态方法相比,都换为实例对象而已
 
-如下示例,引用的方法是 myComparisonProvider 对象的 compareByName 方法: 
+如下示例,引用的方法是 myComparisonProvider 对象的 compareByName 方法:
 
 ```java
 class ComparisonProvider { 
@@ -257,22 +285,23 @@ class ComparisonProvider {
 ComparisonProvider myComparisonProvider = new ComparisonProvider();
 Arrays.sort(rosterAsArray, myComparisonProvider::compareByName);
 ```
+
 超类上的实例方法引用
 super::methodName
 通过使用 super,可以引用方法的超类版本。除此以外,还可以捕获 this 指针
 
 this::equals 等价于 Lambda 表达式 x -> this.equals(x)
-引用特定类型的任意对象的实例方法  (较少用) 
-ClassName::methodName 
+引用特定类型的任意对象的实例方法  (较少用)
+ClassName::methodName
 若类型的实例方法是泛型的,就需要在::分隔符前提供类型参数,或者 (多数情况下) 利用目标类型推导出其类型。
 静态方法引用和引用特定类型的任意对象的实例方法拥有一样的语法。编译器会根据实际情况做出决定。
 一般我们不需要指定方法引用中的参数类型,因为编译器往往可以推导出结果,但如果需要我们也可以显式在::分隔符之前提供参数类型信息。
 
-例子: 
+例子:
 
 String::toString,对应的 Lambda: (s) -> s.toString()
 这里不太容易理解,实例方法要通过对象来调用,方法引用对应 Lambda,Lambda 的第一个参数会成为调用实例方法的对象。
-字符串数组中任意一个对象的 compareToIgnoreCase 方法: 
+字符串数组中任意一个对象的 compareToIgnoreCase 方法:
 String[] stringArray = { "Barbara", "James", "Mary" };
 Arrays.sort(stringArray, String::compareToIgnoreCase);
 在泛型类或泛型方法中,也可以使用方法引用
@@ -307,11 +336,11 @@ class GenericMethodRefDemo {
 构造方法引用
 构造方法引用又分构造方法引用和数组构造方法引用
 
-构造方法引用  (也可以称作构造器引用) 
-ClassName::new 
+构造方法引用  (也可以称作构造器引用)
+ClassName::new
 构造函数本质上是静态方法,只是方法名字比较特殊,使用前提是该类必须有无参构造函数
 
-例子: 
+例子:
 
 String::new,对应的 Lambda: () -> new String()
 Supplier
@@ -364,21 +393,19 @@ Arrays.sort(persons, Person::compareTo);
 当一个 Lambda 表达式调用了一个已存在的方法
 
 什么场景不适合使用方法引用
-需要往引用的方法传参数的时候不适合: 
+需要往引用的方法传参数的时候不适合:
 
 IsReferable demo = () -> ReferenceDemo.commonMethod("Argument in method.");
 
 作者: 杰哥长得帅
-链接: https://www.jianshu.com/p/4a3da6a11b58
+链接: <https://www.jianshu.com/p/4a3da6a11b58>
 来源: 简书
 著作权归作者所有。商业转载请联系作者获得授权,非商业转载请注明出处。
 
-
-
 ---
 
-https://colobu.com/2014/10/28/secrets-of-java-8-functional-interface/
+<https://colobu.com/2014/10/28/secrets-of-java-8-functional-interface/>
 
-http://ckjava.com/2019/05/14/understand-Java-8-method-reference/  
-https://liujiacai.net/blog/2014/10/12/lambda-calculus-introduction/
-https://www.jianshu.com/p/4a3da6a11b58  
+<http://ckjava.com/2019/05/14/understand-Java-8-method-reference/>  
+<https://liujiacai.net/blog/2014/10/12/lambda-calculus-introduction/>
+<https://www.jianshu.com/p/4a3da6a11b58>  
