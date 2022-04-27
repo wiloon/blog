@@ -14,7 +14,7 @@ tags:
   
 大多数 Deque 实现对于它们能够包含的元素数没有固定限制, 但此接口既支持有容量限制的双端队列, 也支持没有固定大小限制的双端队列.
 
-### ArrayBlockingQueue
+## ArrayBlockingQueue
 
 基于数组的阻塞队列
 
@@ -59,7 +59,7 @@ ConcurrentLinkedQueue 是一个基于链接节点的无界线程安全队列
 ## Queue
 
 - add 增加一个元索 如果队列已满，则抛出一个IIIegaISlabEepeplian异常, AbstractQueue, Queue
-- offer 添加一个元素并返回true 如果队列已满，则返回false, AbstractQueue, Queue
+- offer 添加一个元素并返回true 如果队列已满，则返回 false, AbstractQueue, Queue
 - put 添加一个元素 如果队列满，则阻塞
 
 - element 返回队列头部的元素 如果队列为空，则抛出一个NoSuchElementException异常, AbstractQueue, Queue

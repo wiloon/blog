@@ -214,3 +214,13 @@ in.close();
 }
   
 }
+
+## ArrayBlockingQueue VS LinkedBlockingQueue
+
+ArrayBlockingQueue
+ArrayBlockingQueue是接口BlockingQueue的阻塞实现队列之一。基于数组实现的一个阻塞队列，在创建对象时必须**指定容量大小**。并且可以**指定公平性与非公平性**，默认情况下为非公平的，即不保证等待时间最长的队列最优先能够访问队列。它能够实现插入和取出的阻塞方法put()和take()方法其实也是通过使用通知模式来实现。查看源码就可以知道ArrayBlockingQueue生产者方放入数据、消费者取出数据都是使用**同一把重入锁**，这就两者无法真正的实现生产者和消费者的并行。
+LinkedBlockingQueue
+LinkedBlockingQueue也是接口BlockingQueue的阻塞实现队列之一。基于链表实现的一个阻塞队列，在创建对象时如果不指定容量大小，则**默认大小为Integer.MAX_VALUE**，所以要注意一个问题，如果初始化时没有指定容量，生产者放入元素远大于消费者取出元素的速度时，那么生产的元素一直在链表中存在，这会对内存造成很大压力。由于是基于链表的，所以生产者每次放入元素会构造一个新节点对象，在大量并发的情况下可能会对系统**GC**造成一定影响，而ArrayBlockingQueue不存在这种情况。LinkedBlockingQueue同样是使用通知模式来实现。相对于ArrayBlockingQueue，LinkedBlockingQueue生产者和消费者分别使用**两把重入锁**来实现同步，所以可以提高系统的并发度。
+————————————————
+版权声明：本文为CSDN博主「乐乐Java路漫漫」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
+原文链接：<https://blog.csdn.net/b1303110335/article/details/105769565>
