@@ -9,7 +9,9 @@ tags:
   - reprint
 ---
 ## dev graph
+
 ### 图
+
 ```puml
 @startuml
 skinparam componentStyle rectangle
@@ -237,6 +239,7 @@ pattern--strategy_pattern
 ```
 
 ### palette
+
 ```
 #90CAF9   Point
 #FF8A80   Index
