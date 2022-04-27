@@ -1,5 +1,5 @@
 ---
-title: 键盘上特殊符号的英文读法
+title: 键盘上特殊符号的英文读法, keyboard character english
 author: "-"
 date: 2011-09-17T06:23:35+00:00
 url: keyboard
@@ -8,7 +8,7 @@ categories:
 tags:
   - reprint
 ---
-##  键盘上特殊符号的英文读法
+## 键盘上特殊符号的英文读法
 
     ! 叹号 exclamation mark/bang
     ? 问号 question mark
@@ -17,7 +17,7 @@ tags:
     : 冒号 colon
     ; 分号 semicolon
     " 双引号 quotation marks/double quote
-    ‘ 单引号/撇号 apostrophe/single quote
+    ' 单引号/撇号 apostrophe/single quote
     ` 反引号，重音号 backquote/grave accent
     * 星号 asterisk/star
     + 加号 plus sign
@@ -41,4 +41,4 @@ tags:
     < 大于号 less than
     > 小于号 greater than
 
->https://www.douban.com/group/topic/12410327/
+<https://www.douban.com/group/topic/12410327/>

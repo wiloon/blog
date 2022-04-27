@@ -59,11 +59,17 @@ struct task_struct
 ```
 
 大多数计算机上系统的全部虚拟地址空间分为两个部分: 供用户态程序访问的虚拟地址空间和供内核访问的内核空间。每当内核执行上下文切换时, 虚拟地址空间的用户层部分都会切换, 以便当前运行的进程匹配, 而内核空间不会放生切换。
+
 ### mm
+
 对于普通用户进程来说，mm 指向虚拟地址空间的用户空间部分，而对于内核线程，mm 为NULL。这为优化提供了一些余地, 可遵循所谓的惰性 TLB 处理(lazy TLB handing)。
+
 ### active_mm
+
 active_mm 主要用于优化，由于内核线程不与任何特定的用户层进程相关，内核并不需要倒换虚拟地址空间的用户层部分，保留旧设置即可。由于内核线程之前可能是任何用户层进程在执行，故用户空间部分的内容本质上是随机的，内核线程决不能修改其内容，故将mm设置为NULL，同时如果切换出去的是用户进程，内核将原来进程的 mm 存放在新内核线程的 active_mm 中，因为某些时候内核必须知道用户空间当前包含了什么。
+
 ### 惰性 TLB 进程
+
 为什么没有 mm 指针的进程称为惰性 TLB 进程?
 
 假如内核线程之后运行的进程与之前是同一个, 在这种情况下, 内核并不需要修改用户空间地址表。地址转换后备缓冲器(即TLB)中的信息仍然有效。只有在内核线程之后, 执行的进程是与此前不同的用户层进程时, 才需要切换(并对应清除TLB数据)。
@@ -71,6 +77,7 @@ active_mm 主要用于优化，由于内核线程不与任何特定的用户层�
 内核线程和普通的进程间的区别在于内核线程没有独立的地址空间，mm指针被设置为NULL；它只在 内核空间运行，从来不切换到用户空间去；并且和普通进程一样，可以被调度，也可以被抢占。
 
 ### 内核线程的创建
+
 创建内核线程接口的演变
 内核线程可以通过两种方式实现:
 
@@ -85,6 +92,7 @@ active_mm 主要用于优化，由于内核线程不与任何特定的用户层�
 使用kthread_run，与kthread_create不同的是，其创建新线程后立即唤醒它，其本质就是先用kthread_create创建一个内核线程，然后通过wake_up_process唤醒它
 
 ### 2号进程 kthreadd 的诞生
+
 早期的 kernel_create 和daemonize接口
 
 在早期的内核中, 提供了kernel_create和daemonize接口, 但是这种机制操作复杂而且将所有的任务交给内核去完成。
@@ -93,7 +101,7 @@ active_mm 主要用于优化，由于内核线程不与任何特定的用户层�
 
 ### Workqueue 机制
 
-因此在linux-2.6以后, 提供了更加方便的接口kthead_create和kthread_run, 同时将内核线程的创建操作延后, 交给一个工作队列workqueue, 参见http://lxr.linux.no/linux+v2.6.13/kernel/kthread.c#L21，
+因此在linux-2.6以后, 提供了更加方便的接口kthead_create和kthread_run, 同时将内核线程的创建操作延后, 交给一个工作队列workqueue, 参见<http://lxr.linux.no/linux+v2.6.13/kernel/kthread.c#L21>，
 
 Linux中的workqueue机制就是为了简化内核线程的创建。通过kthread_create并不真正创建内核线程, 而是将创建工作create work插入到工作队列helper_wq中, 随后调用 workqueue 的接口就能创建内核线程。并且可以根据当前系统CPU的个数创建线程的数量，使得线程处理的事务能够并行化。workqueue是内核中实现简单而有效的机制，他显然简化了内核daemon的创建，方便了用户的编程.
 
@@ -113,6 +121,7 @@ Linux中的workqueue机制就是为了简化内核线程的创建。通过kthrea
 使用 ps -eo pid,ppid,command, 我们可以看到系统中, 所有内核线程都用[]标识, 而且这些进程父进程id均是2, 而2号进程kthreadd的父进程是0号进程
 
 ### kernel_thread
+
 kernel_thread是最基础的创建内核线程的接口, 它通过将一个函数直接传递给内核来创建一个进程, 创建的进程运行在内核空间, 并且与其他进程线程共享内核虚拟地址空间
 
 kernel_thread的实现经历过很多变革
@@ -128,7 +137,7 @@ kthreadd is a daemon thread that runs in kernel space. The reason is that kernel
 
 参见
 
-http://lxr.free-electrons.com/source/kernel/fork.c?v=2.4.37#L613
+<http://lxr.free-electrons.com/source/kernel/fork.c?v=2.4.37#L613>
 
 我们可以看到它内部调用了更加底层的 arch_kernel_thread创建了一个线程
 
@@ -136,16 +145,16 @@ arch_kernel_thread
 
 其具体实现请参见
 
-http://lxr.free-electrons.com/ident?v=2.4.37;i=arch_kernel_thread
+<http://lxr.free-electrons.com/ident?v=2.4.37;i=arch_kernel_thread>
 
 但是这种方式创建的线程并不适合运行，因此内核提供了daemonize函数, 其声明在include/linux/sched.h中
 
-//  http://lxr.free-electrons.com/source/include/linux/sched.h?v=2.4.37#L800
+//  <http://lxr.free-electrons.com/source/include/linux/sched.h?v=2.4.37#L800>
 extern void daemonize(void);
 
 定义在kernel/sched.c
 
-http://lxr.free-electrons.com/source/kernel/sched.c?v=2.4.37#L1326
+<http://lxr.free-electrons.com/source/kernel/sched.c?v=2.4.37#L1326>
 
 主要执行如下操作
 
@@ -159,7 +168,7 @@ http://lxr.free-electrons.com/source/kernel/sched.c?v=2.4.37#L1326
 
 可以参见
 
-http://lxr.free-electrons.com/ident?v=2.4.37;i=daemonize
+<http://lxr.free-electrons.com/ident?v=2.4.37;i=daemonize>
 
 我们将了这么多kernel_thread, 但是我们并不提倡我们使用它, 因为这个是底层的创建内核线程的操作接口, 使用kernel_thread在内核中执行大量的操作, 虽然创建的代价已经很小了, 但是对于追求性能的linux内核来说还不能忍受
 
@@ -169,13 +178,12 @@ http://lxr.free-electrons.com/ident?v=2.4.37;i=daemonize
 
 于是linux-3.x下之后, 有了更好的实现, 那就是
 
-
 延后内核的创建工作, 将内核线程的创建工作交给一个内核线程来做, 即kthreadd 2号进程
 
 但是在kthreadd还没创建之前, 我们只能通过kernel_thread这种方式去创建,
 同时kernel_thread的实现也改为由_do_fork(早期内核中是do_fork)来实现, 参见kernel/fork.c
 
-pid_t kernel_thread(int (*fn)(void *), void *arg, unsigned long flags)
+pid_t kernel_thread(int (*fn)(void*), void *arg, unsigned long flags)
 {
     return _do_fork(flags|CLONE_VM|CLONE_UNTRACED, (unsigned long)fn,
             (unsigned long)arg, NULL, NULL, 0);
@@ -183,29 +191,30 @@ pid_t kernel_thread(int (*fn)(void *), void *arg, unsigned long flags)
 
 kthread_create
 struct task_struct *kthread_create_on_node(int (*threadfn)(void *data),
-                                           void *data,
+void*data,
                                           int node,
                                           const char namefmt[], ...);
 
-#define kthread_create(threadfn, data, namefmt, arg...) \
+# define kthread_create(threadfn, data, namefmt, arg...) \
        kthread_create_on_node(threadfn, data, NUMA_NO_NODE, namefmt, ##arg)
 
 创建内核更常用的方法是辅助函数kthread_create，该函数创建一个新的内核线程。最初线程是停止的，需要使用wake_up_process启动它。
 
 kthread_run
 /**
- * kthread_run - create and wake a thread.
- * @threadfn: the function to run until signal_pending(current).
- * @data: data ptr for @threadfn.
- * @namefmt: printf-style name for the thread.
- *
- * Description: Convenient wrapper for kthread_create() followed by
- * wake_up_process().  Returns the kthread or ERR_PTR(-ENOMEM).
+
+- kthread_run - create and wake a thread.
+- @threadfn: the function to run until signal_pending(current).
+- @data: data ptr for @threadfn.
+- @namefmt: printf-style name for the thread.
+*
+- Description: Convenient wrapper for kthread_create() followed by
+- wake_up_process().  Returns the kthread or ERR_PTR(-ENOMEM).
  */
-#define kthread_run(threadfn, data, namefmt, ...)                          \
+# define kthread_run(threadfn, data, namefmt, ...)                          \
 ({                                                                         \
-    struct task_struct *__k                                            \
-            = kthread_create(threadfn, data, namefmt, ## __VA_ARGS__); \
+struct task_struct*__k                                            \
+            = kthread_create(threadfn, data, namefmt, ## **VA_ARGS**); \
     if (!IS_ERR(__k))                                                  \
             wake_up_process(__k);                                      \
     __k;                                                               \
@@ -223,7 +232,7 @@ kthread_stop() 通过发送信号给线程。
 
 在执行kthread_stop的时候，目标线程必须没有退出，否则会Oops。原因很容易理解，当目标线程退出的时候，其对应的task结构也变得无效，kthread_stop引用该无效task结构就会出错。
 
-为了避免这种情况，需要确保线程没有退出，其方法如代码中所示: 
+为了避免这种情况，需要确保线程没有退出，其方法如代码中所示:
 
 thread_func()
 {
@@ -243,20 +252,24 @@ exit_code()
 这种退出机制很温和，一切尽在thread_func()的掌控之中，线程在退出时可以从容地释放资源，而不是莫名其妙地被人"暗杀"。
 ————————————————
 版权声明: 本文为CSDN博主「CHENG Jian」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
-原文链接: https://blog.csdn.net/gatieme/article/details/51589205
+原文链接: <https://blog.csdn.net/gatieme/article/details/51589205>
 
 ### idle进程(PID = 0)
+
 ### init进程(PID = 1)
 
 ### kthreadd(PID = 2)
+
 kthreadd进程由idle通过kernel_thread创建，并始终运行在内核空间, 负责所有内核线程的调度和管理
 它的任务就是管理和调度其他内核线程kernel_thread, 会循环执行一个kthreadd的函数，该函数的作用就是运行kthread_create_list全局链表中维护的kthread, 当我们调用kernel_thread创建的内核线程会被加入到此链表中，因此所有的内核线程都是直接或者间接的以kthreadd为父进程
 
 所有其它的内核线程的ppid 都是 2，也就是说它们都是由kthreadd thread创建的
 所有的内核线程在大部分时间里都处于阻塞状态(TASK_INTERRUPTIBLE)只有在系统满足进程需要的某种资源的情况下才会运行
+
 ### ksoftirq/n
+
 处理软中断  
-http://abcdxyzk.github.io/blog/2015/01/03/kernel-irq-ksoftirqd/  
+<http://abcdxyzk.github.io/blog/2015/01/03/kernel-irq-ksoftirqd/>  
 
 softirq实际上也是一种注册回调的机制，ps –elf 可以看到注册的函数由一个守护进程 (ksoftirgd) 专门来处理，而且是每个cpu一个守护进程。
 
@@ -270,13 +283,14 @@ softirq实际上也是一种注册回调的机制，ps –elf 可以看到注册
 
 ————————————————
 版权声明：本文为CSDN博主「lyblyblyblin」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
-原文链接：https://blog.csdn.net/lyblyblyblin/article/details/79346459
+原文链接：<https://blog.csdn.net/lyblyblyblin/article/details/79346459>
 
 kworker意思是’Linux kernel doing work’(系统调用，processing system calls)，它是内核工作线程的’占位符’进程，它实际上执行内核的大部分工作，如中断、计时器、I/O等，CPU中’system’时间大部分由此产生。在系统中，一般会出现多个kworker进程，如kworker/0:1跟第一个cpu核心有关，依次类推。
 
 在日常维护中，kworker进程有时会占用大量的io或cpu。
 
 ### migration
+
 migration: 每个处理器核对应一个migration内核线程，主要作用是作为相应CPU核的迁移进程，用来执行进程迁移操作，内核中的函数是migration_thread()。属于2.6内核的负载平衡系统，该进程在系统启动时自动加载 (每个 cpu 一个) ，并将自己设为 SCHED_FIFO 的实时进程，然后检查 runqueue::migration_queue 中是否有请求等待处理，如果没有，就在 TASK_INTERRUPTIBLE 中休眠，直至被唤醒后再次检查。migration_queue仅在set_cpu_allowed() 中添加，当进程 (比如通过 APM 关闭某 CPU 时) 调用set_cpu_allowed()改变当前可用 cpu，从而使某进程不适于继续在当前 cpu 上运行时，就会构造一个迁移请求数据结构 migration_req_t，将其植入进程所在 cpu 就绪队列的migration_queue 中，然后唤醒该就绪队列的迁移 daemon (记录在runqueue::migration_thread 属性中) ，将该进程迁移到合适的cpu上去在目前的实现中，目的 cpu 的选择和负载无关，而是"any_online_cpu(req->task->cpus_allowed)"，也就是按 CPU 编号顺序的第一个 allowed 的CPU。所以，和 load_balance() 与调度器、负载平衡策略密切相关不同，migration_thread() 应该说仅仅是一个 CPU 绑定以及 CPU 电源管理等功能的一个接口。这个线程是调度系统的重要组成部分，也不能被关闭。
 
 ### watchdog
@@ -287,17 +301,22 @@ migration: 每个处理器核对应一个migration内核线程，主要作用是
 处取消watchdog功能
 
 ### kdevtmpfs
+
 this thread populates and maintains a device node tree
+
 ### kauditd
+
 内核线程 kauditd 通过 netlink 机制 (NETLINK_AUDIT) 将审计消息定向发送给用户态的审计后台 auditd的主线程，auditd主线程再通过事件队列将审计消息传给审计后台的写log文件线程，写入log文件。另一方面，审计后台还通过一个与 socket 绑定的管道将审计消息发送给audispd应用程序，可把事件传送给其他应用程序做进一步处理。
->https://ixyzero.com/blog/archives/3421.html
+><https://ixyzero.com/blog/archives/3421.html>
+
 ### khungtaskd
+
 khungtaskd 监控TASK_UNINTERRUPTIBLE状态的进程，如果在120s周期内没有切换，就会打印详细信息。
->https://www.cnblogs.com/arnoldlu/p/10529621.html
+><https://www.cnblogs.com/arnoldlu/p/10529621.html>
 
 ### kcompactd*
+
 页面整理
 
-
->https://www.coder.work/article/6802420
->https://blog.csdn.net/gatieme/article/details/51566690
+><https://www.coder.work/article/6802420>
+><https://blog.csdn.net/gatieme/article/details/51566690>

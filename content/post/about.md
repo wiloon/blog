@@ -1,10 +1,10 @@
 ---
 title: 关于本站/关于我
-author: "w1100n"
+author: "W10N"
 date: 2021-11-16T01:00:00+08:00
 url: about
 categories:
-  - w10n
+  - W10N
 tags:
   - original
 ---

@@ -4,10 +4,10 @@ author: "-"
 date: 2018-01-03T13:52:10+00:00
 url: /?p=11670
 categories:
-  - Uncategorized
-
+  - Java
 tags:
   - reprint
 ---
 ## ConcurrentLinkedQueue
-http://www.infoq.com/cn/articles/ConcurrentLinkedQueue
+
+<http://www.infoq.com/cn/articles/ConcurrentLinkedQueue>
