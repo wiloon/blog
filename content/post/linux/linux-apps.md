@@ -20,9 +20,6 @@ sudo pacman -S code go jdk-openjdk openjdk-src \
 maven gradle openvpn nftables zstd chromium \
 git jdk8-openjdk openjdk8-src kotlin docker
 
-# for PC
-sudo pacman -S wine rdesktop pulseaudio
-
 # kde
 sudo pacman -S powerdevil kmix kscreen ark
 ```
@@ -202,11 +199,12 @@ sudo apt install ./google-chrome-stable_current_amd64.deb
 
 file-roller
 
-### downlaod tar
+### tar
 
 | Name   | Comments              |
 | ------ | --------------------- |
 | Ventoy | 各种iso安装盘引导工具 |
+| jetbrains-toolbox ||
 
 ### openwrt
 
@@ -220,4 +218,4 @@ file-roller
 | Name    | Comments |
 | ------- | -------- |
 | datagrip   |          |
-|  |          |
+| Joplin | Joplin.AppImage         |
