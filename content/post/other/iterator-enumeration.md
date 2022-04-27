@@ -10,8 +10,8 @@ tags:
 
 ---
 ## Iterator, Enumeration
-http://www.cnblogs.com/skywang12345/p/3311275.html
 
+<http://www.cnblogs.com/skywang12345/p/3311275.html>
 
 Iterator和Enumeration区别
   
@@ -19,7 +19,7 @@ Iterator和Enumeration区别
 
 我们先看看 Enumeration.java 和 Iterator.java的源码，再说它们的区别。
 
-Enumeration是一个接口，它的源码如下: 
+Enumeration是一个接口，它的源码如下:
   
 package java.util;
 
@@ -31,7 +31,7 @@ E nextElement();
   
 }
 
-Iterator也是一个接口，它的源码如下: 
+Iterator也是一个接口，它的源码如下:
   
 package java.util;
 
@@ -59,16 +59,15 @@ Enumeration 是JDK 1.0添加的接口。使用到它的函数包括Vector、Hash
   
 而Iterator 是JDK 1.2才添加的接口，它也是为了HashMap、ArrayList等集合提供遍历接口。Iterator是支持fail-fast机制的: 当多个线程对同一个集合的内容进行操作时，就可能会产生fail-fast事件。
 
-
 第2部分 Iterator和Enumeration实例
   
-下面，我们编写一个Hashtable，然后分别通过 Iterator 和 Enumeration 去遍历它，比较它们的效率。代码如下: 
+下面，我们编写一个Hashtable，然后分别通过 Iterator 和 Enumeration 去遍历它，比较它们的效率。代码如下:
 
 按 Ctrl+C 复制代码
   
 按 Ctrl+C 复制代码
   
-运行结果如下: 
+运行结果如下:
 
 time: 9ms
   

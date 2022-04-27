@@ -10,13 +10,14 @@ tags:
 
 ---
 ## Java 强引用, 软引用, 弱引用, 虚引用
+
 强引用 StrongReference
 
 强引用是使用最普遍的引用。如果一个对象具有强引用，那垃圾回收器绝不会回收它。当内存空间不足，Java虚拟机宁愿抛出OutOfMemoryError错误，使程序异常终止，也不会靠随意回收具有强引用的对象来解决内存不足的问题。
 
 Object o=new Object(); // 强引用
   
-如果不使用时，要通过如下方式来弱化引用，如下: 
+如果不使用时，要通过如下方式来弱化引用，如下:
 
 o=null; // 帮助垃圾收集器回收此对象
   
@@ -26,20 +27,20 @@ o=null; // 帮助垃圾收集器回收此对象
 
 但是如果这个o是全局的变量时，就需要在不用这个对象时赋值为null，因为强引用不会被垃圾回收。
 
-强引用在实际中有非常重要的用处，举个ArrayList的实现源代码: 
+强引用在实际中有非常重要的用处，举个ArrayList的实现源代码:
 
 private transient Object[] elementData;
   
 public void clear() {
-   
+
 modCount++;
-   
+
 // Let gc do its work
-   
+
 for (int i = 0; i < size; i++)
-   
+
 elementData[i] = null;
-   
+
 size = 0;
   
 }
@@ -67,6 +68,7 @@ PhantomReference pr = new PhantomReference (object, queue);
 程序可以通过判断引用队列中是否已经加入了虚引用，来了解被引用的对象是否将要被垃圾回收。如果程序发现某个虚引用已经被加入到引用队列，那么就可以在所引用的对象的内存被回收之前采取必要的行动。
 
 ### 弱引用 WeakReference
+
 弱引用的定义是: 如果一个对象仅被一个弱引用指向，那么当下一次GC到来时，这个对象一定会被垃圾回收器回收掉。  
 生命周期只能存活到下次GC前  
 类似于可有可无的东西。在垃圾回收器线程扫描它所管辖的内存区域的过程中，一旦发现了只具有弱引用的对象，不管当前内存空间足够与否，都会回收它的内存
@@ -85,10 +87,10 @@ WeakHashMap类，这个类和哈希表HashMap几乎一样，但就是在键 key�
 
 ---
 
-http://blog.csdn.net/matthewei6/article/details/12839327
+<http://blog.csdn.net/matthewei6/article/details/12839327>
 
-http://speed847.iteye.com/blog/374006
+<http://speed847.iteye.com/blog/374006>
 
-http://droidyue.com/blog/2014/10/12/understanding-weakreference-in-java/
+<http://droidyue.com/blog/2014/10/12/understanding-weakreference-in-java/>
   
-http://blog.csdn.net/mxbhxx/article/details/9111711
+<http://blog.csdn.net/mxbhxx/article/details/9111711>

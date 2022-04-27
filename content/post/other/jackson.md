@@ -2,11 +2,10 @@
 title: Jackson
 author: "-"
 date: 2014-04-04T01:29:29+00:00
-url: /?p=6477
+url: Jackson
 categories:
-  - Uncategorized
-tags:
   - Java
+tags:
   - Json
 
 ---

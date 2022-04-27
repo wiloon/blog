@@ -3,37 +3,41 @@ title: iptables
 author: "-"
 date: 2013-11-10T06:49:31+00:00
 url: iptables
+categories:
+  - network
 tags:
   - linux
-  - Network
 
-categories:
-  - inbox
 ---
 ## iptables
+
 iptables 是 Linux 内核集成的 IP 信息包过滤系统。该系统用于在 Linux 系统上控制 IP 数据包过滤和防火墙配置
   
 iptables操作的是2.4以上内核的netfilter。所以需要linux的内核在2.4以上。其功能与安全性远远比其前辈ipfwadm,ipchains强大，iptables大致是工作在OSI七层的二、三、四层，其前辈ipchains不能单独实现对tcp/udp port以及对mac地址的的定义与操作
 
-### iptables 包含4个表，5个链。
+### iptables 包含4个表，5个链
 
 其中表是按照对数据包的操作区分的，链是按照不同的Hook点来区分的，表和链实际上是netfilter的两个维度.  
 4个表: filter,nat,mangle,raw，默认表是filter (没有指定表 ( -t ) 的时候就是filter表) 。  
 表的处理优先级: raw>mangle>nat>filter
+
 #### 4个表
-  * filter: 一般的过滤功能， 这是默认的表，包含了内建的链INPUT (处理进入的包) 、FORWARD (处理通过的包) 和OUTPUT (处理本地生成的包) 。
-  * nat: 用于nat功能 (端口映射，地址映射等) ，对应的链: PREROUTING  (修改到来的包) 、OUTPUT (修改路由之前本地的包) 、POSTROUTING (修改准备出去的包) ，centos6没有input链，centos7有input链。
-  * mangle: 用于对特定数据包的修改， 对应的链: PREROUTING (修改路由之前进入的包) ,input, OUTPUT (修改路由 IPTABLES之前本地的包) , forward,postrouting
-  * raw: 优先级最高，设置raw时一般是为了不再让iptables做数据包的链接跟踪处理，提高性能
 
-### 5个链: PREROUTING,INPUT,FORWARD,OUTPUT,POSTROUTING。
-  * PREROUTING: 数据包进入路由表之前
-  * INPUT: 通过路由表后目的地为本机
-  * FORWARD: 通过路由表后，目的地不为本机
-  * OUTPUT: 由本机产生，向外转发
-  * POSTROUTIONG: 发送到网卡接口之前。
+* filter: 一般的过滤功能， 这是默认的表，包含了内建的链INPUT (处理进入的包) 、FORWARD (处理通过的包) 和OUTPUT (处理本地生成的包) 。
+* nat: 用于nat功能 (端口映射，地址映射等) ，对应的链: PREROUTING  (修改到来的包) 、OUTPUT (修改路由之前本地的包) 、POSTROUTING (修改准备出去的包) ，centos6没有input链，centos7有input链。
+* mangle: 用于对特定数据包的修改， 对应的链: PREROUTING (修改路由之前进入的包) ,input, OUTPUT (修改路由 IPTABLES之前本地的包) , forward,postrouting
+* raw: 优先级最高，设置raw时一般是为了不再让iptables做数据包的链接跟踪处理，提高性能
 
-### iptables 规则的语法:
+### 5个链: PREROUTING,INPUT,FORWARD,OUTPUT,POSTROUTING
+
+* PREROUTING: 数据包进入路由表之前
+* INPUT: 通过路由表后目的地为本机
+* FORWARD: 通过路由表后，目的地不为本机
+* OUTPUT: 由本机产生，向外转发
+* POSTROUTIONG: 发送到网卡接口之前。
+
+### iptables 规则的语法
+
     iptables [-t table] COMMAND chain CRETIRIA -j ACTION
         -t table : 3个filter nat mangle
         COMMAND: 定义如何对规则进行管理
@@ -74,19 +78,21 @@ net.nf_conntrack_max = 2000500
 ```
 
 ### iptables 图
+
 [![11HP74.md.png][1]][2]{.wp-editor-md-post-content-link}
   
-https://zh.wikipedia.org/wiki/Iptables#/media/File:Netfilter-packet-flow.svg
+<https://zh.wikipedia.org/wiki/Iptables#/media/File:Netfilter-packet-flow.svg>
 
 [![11bp8I.md.png][3]][4]{.wp-editor-md-post-content-link}
   
-https://www.zsythink.net/wp-content/uploads/2017/02/021217_0051_6.png
+<https://www.zsythink.net/wp-content/uploads/2017/02/021217_0051_6.png>
 
 [![11v2WQ.md.png][5]][6]{.wp-editor-md-post-content-link}
   
 ![13pGXd.png][7]
 
 ### 查看定义规则的详细信息
+
 ```bash
 iptables -t nat -vnL --line-number
 iptables -t nat -vnL PREROUTING --line-number
@@ -137,7 +143,9 @@ service iptables restart
 iptables-save > /etc/network/iptables
 iptables-restore < /etc/network/iptables
 ```
+
 ### 示例
+
 ```bash
 iptables [-t tables] <-A/I/D/R> 规则链名 [规则号] <-i/o 网卡名> -p 协议名 <-s 源IP/源子网> --sport 源端口 <-d 目标IP/目标子网> --dport 目标端口 -j 动作
 # tables 表名
@@ -148,36 +156,43 @@ iptables -t filter -A INPUT -s 172.16.0.0/16 -p udp --dport 53 -j DROP
 iptables -t filter -R INPUT 1 -s 172.16.0.0/16 -p udp --dport 53 -j REJECT
 ```
 
-### save iptable rules 
+### save iptable rules
+
 ```bash
 # save iptable rules in iptables.rules
 iptables-save > /etc/iptables/iptables.rules
 ```
+
 ### load iptables on boot
+
 ```bash
 iptables-save -f /etc/iptables/iptables.rules
 systemctl enable iptables
 ```
+
 ### archlinux
+
 if you want iptables to be loaded automatically on boot, you must enable iptables.service
 
 ## command, parameters
+
 #### COMMAND
+
 这些选项指定执行明确的动作: 若指令行下没有其他规定，该行只能指定一个选项.对于长格式的命令和选项名，所用字母长度只要保证iptables能从其他选项中区分出该指令就行了。
   
-- -A -append  
+* -A -append  
 添加一条规则  
 在所选择的链末添加一条或更多规则。当源 (地址) 或者/与 目的 (地址) 转换为多个地址时，这条规则会加到所有可能的地址 (组合) 后面。
   
-- -D -delete
+* -D -delete
 删除一条规则  
 从所选链中删除一条或更多规则。这条命令可以有两种方法: 可以把被删除规则指定为链中的序号 (第一条序号为1) ，或者指定为要匹配的规则。
   
-- -R -replace
+* -R -replace
   
 从选中的链中取代一条规则。如果源 (地址) 或者/与 目的 (地址) 被转换为多地址，该命令会失败。规则序号从1开始。
   
-- -I -insert
+* -I -insert
   
 根据给出的规则序号向所选链中插入一条或更多规则。所以，如果规则序号为1，规则会被插入链的头部。这也是不指定规则序号时的默认方式。
   
@@ -214,13 +229,13 @@ if you want iptables to be loaded automatically on boot, you must enable iptable
   
 帮助。给出当前命令语法非常简短的说明。
 
-我们可以用两种办法中的任一种删除规则。首先，因为知道这是INPUT链中唯一的规则，我们用编号删除: 
+我们可以用两种办法中的任一种删除规则。首先，因为知道这是INPUT链中唯一的规则，我们用编号删除:
 
     iptables -D INPUT 1
 
 删除INPUT链中的编号为1的规则
 
-第二种办法是 -A 命令的映射，不过用-D替换-A。当你的链中规则很复杂，而你不想计算它们的编号的时候这就十分有用了。这样的话，我们可以使用: 
+第二种办法是 -A 命令的映射，不过用-D替换-A。当你的链中规则很复杂，而你不想计算它们的编号的时候这就十分有用了。这样的话，我们可以使用:
 
     iptables -D INPUT -s 127.0.0.1 -p icmp -j DROP
 
@@ -257,20 +272,21 @@ return退出的是当前CHIAN，
 如果当前CHIAN不是子CHAIN，那么就以默认策略执行.
 
 就像C语言里调用一个函数，函数return不会影响调用者的执行，但是main函数return，程序就终止了
-The RETURN target will cause the current packet to stop traveling through the chain where it hit the rule. If it is the subchain of another chain, the packet will continue to travel through the superior chains as if nothing had happened. If the chain is the main chain, for example the INPUT chain, the packet will have the default policy taken on it. The default policy is normally set to ACCEPT, DROP or similar. 
+The RETURN target will cause the current packet to stop traveling through the chain where it hit the rule. If it is the subchain of another chain, the packet will continue to travel through the superior chains as if nothing had happened. If the chain is the main chain, for example the INPUT chain, the packet will have the default policy taken on it. The default policy is normally set to ACCEPT, DROP or similar.
 
 OPTIONS
   
 这些可被iptables识别的选项可以区分不同的种类。
 
 ### PARAMETERS, 参数
+
 以下参数构成规则详述，如用于add, delete, replace, ppend 和 check命令。
   
-- -p -protocal [!]protocol
+* -p -protocal [!]protocol
   
 规则或者包检查 (待检查包) 的协议。指定协议可以是tcp、udp、icmp中的一个或者全部，也可以是数值，代表这些协议中的某一个。当然也可以使用在/etc/protocols中定义的协议名。在协议名前加上"!"表示相反的规则。数字0相当于所有all。Protocol all会匹配所有协议，而且这是缺省时的选项。在和check命令结合时，all可以不被使用。
   
-- -s -source [!] address[/mask]
+* -s -source [!] address[/mask]
   
 指定源地址，可以是主机名、网络名和清楚的IP地址。mask说明可以是网络掩码或清楚的数字，在网络掩码的左边指定网络掩码左边"1"的个数，因此，mask值为24等于255.255.255.0。在指定地址前加上"!"说明指定了相反的地址段。标志 -src 是这个选项的简写。
   
@@ -278,7 +294,7 @@ OPTIONS
   
 指定目标地址，要获取详细说明请参见 -s标志的说明。标志 -dst 是这个选项的简写。
   
-- -j -jump target  
+* -j -jump target  
 目标跳转  
 指定规则的目标；也就是说，如果包匹配应当做什么。目标可以是用户自定义链 (不是这条规则所在的) ，某个会立即决定包的命运的专用内建目标，或者一个扩展 (参见下面的EXTENSIONS) 。如果规则的这个选项被忽略，那么匹配的过程不会对包产生影响，不过规则的计数器会增加。
 
@@ -304,7 +320,7 @@ OTHER OPTIONS
   
 其他选项
   
-还可以指定下列附加选项: 
+还可以指定下列附加选项:
   
 -v -verbose
   
@@ -336,7 +352,7 @@ iptables能够使用一些与模块匹配的扩展包。以下就是含于基本
   
 tcp
   
-当 -protocol tcp 被指定，且其他匹配的扩展未被指定时，这些扩展被装载。它提供以下选项: 
+当 -protocol tcp 被指定，且其他匹配的扩展未被指定时，这些扩展被装载。它提供以下选项:
   
 -source-port [!] [port[:port]]
   
@@ -351,7 +367,7 @@ tcp
 ```
   
 匹配指定的TCP标记。第一个参数是我们要检查的标记，一个用逗号分开的列表，第二个参数是用逗号分开的标记表，是必须被设置的。标记如下: SYN ACK FIN RST URG PSH ALL NONE。
-因此这条命令: 
+因此这条命令:
 
 ```bash
 iptables -A FORWARD -p tcp -tcp-flags SYN,ACK,FIN,RST
@@ -369,7 +385,7 @@ SYN只匹配那些SYN标记被设置而ACK、FIN和RST标记没有设置的包�
   
 udp
   
-当protocol udp 被指定，且其他匹配的扩展未被指定时，这些扩展被装载，它提供以下选项: 
+当protocol udp 被指定，且其他匹配的扩展未被指定时，这些扩展被装载，它提供以下选项:
   
 -source-port [!] [port:[port]]
   
@@ -381,7 +397,7 @@ udp
   
 icmp
   
-当protocol icmp被指定，且其他匹配的扩展未被指定时，该扩展被装载。它提供以下选项: 
+当protocol icmp被指定，且其他匹配的扩展未被指定时，该扩展被装载。它提供以下选项:
   
 -icmp-type [!] typename
   
@@ -397,7 +413,7 @@ mac
   
 MASQUERADE
   
-只用于nat表的POSTROUTING链。只能用于动态获取IP (拨号) 连接: 如果你拥有静态IP地址，你要用SNAT。伪装相当于给包发出时所经过接口的IP地址设置一个映像，当接口关闭连接会终止。这是因为当下一次拨号时未必是相同的接口地址 (以后所有建立的连接都将关闭) 。它有一个选项: 
+只用于nat表的POSTROUTING链。只能用于动态获取IP (拨号) 连接: 如果你拥有静态IP地址，你要用SNAT。伪装相当于给包发出时所经过接口的IP地址设置一个映像，当接口关闭连接会终止。这是因为当下一次拨号时未必是相同的接口地址 (以后所有建立的连接都将关闭) 。它有一个选项:
   
 -to-ports [-port>]
   
@@ -405,7 +421,7 @@ MASQUERADE
   
 REDIRECT
   
-只适用于nat表的PREROUTING和OUTPUT链，和只调用它们的用户自定义链。它修改包的目标IP地址来发送包到机器自身 (本地生成的包被安置为地址127.0.0.1) 。它包含一个选项: 
+只适用于nat表的PREROUTING和OUTPUT链，和只调用它们的用户自定义链。它修改包的目标IP地址来发送包到机器自身 (本地生成的包被安置为地址127.0.0.1) 。它包含一个选项:
   
 -to-ports []
   
@@ -429,7 +445,7 @@ COMPATIBILITY WITH IPCHAINS
   
 与ipchains的兼容性
   
-iptables和Rusty Russell的ipchains非常相似。主要区别是INPUT 链只用于进入本地主机的包，而OUTPUT只用于自本地主机生成的包。因此每个包只经过三个链的一个；以前转发的包会经过所有三个链。其他主要区别是 -i 引用进入接口；-o引用输出接口，两者都适用于进入FORWARD链的包。当和可选扩展模块一起使用默认过滤器表时，iptables是一个纯粹的包过滤器。这能大大减少以前对IP伪装和包过滤结合使用的混淆，所以以下选项作了不同的处理: 
+iptables和Rusty Russell的ipchains非常相似。主要区别是INPUT 链只用于进入本地主机的包，而OUTPUT只用于自本地主机生成的包。因此每个包只经过三个链的一个；以前转发的包会经过所有三个链。其他主要区别是 -i 引用进入接口；-o引用输出接口，两者都适用于进入FORWARD链的包。当和可选扩展模块一起使用默认过滤器表时，iptables是一个纯粹的包过滤器。这能大大减少以前对IP伪装和包过滤结合使用的混淆，所以以下选项作了不同的处理:
   
 -j MASQ
   
@@ -441,7 +457,7 @@ iptables和Rusty Russell的ipchains非常相似。主要区别是INPUT 链只用
   
 limit
   
-这个模块匹配标志用一个标记桶过滤器一一定速度进行匹配，它和LOG目标结合使用来给出有限的登陆数.当达到这个极限值时，使用这个扩展包的规则将进行匹配. (除非使用了"!"标记) 
+这个模块匹配标志用一个标记桶过滤器一一定速度进行匹配，它和LOG目标结合使用来给出有限的登陆数.当达到这个极限值时，使用这个扩展包的规则将进行匹配. (除非使用了"!"标记)
   
 -limit rate
   
@@ -549,7 +565,7 @@ REJECT
   
 作为对匹配的包的响应，返回一个错误的包: 其他情况下和DROP相同。
   
-此目标只适用于INPUT、FORWARD 和OUTPUT链，和调用这些链的用户自定义链。这几个选项控制返回的错误包的特性: 
+此目标只适用于INPUT、FORWARD 和OUTPUT链，和调用这些链的用户自定义链。这几个选项控制返回的错误包的特性:
   
 -reject-with type
   
@@ -569,13 +585,13 @@ MIRROR
   
 SNAT
   
-这个目标只适用于nat表的POSTROUTING链。它规定修改包的源地址 (此连接以后所有的包都会被影响) ，停止对规则的检查，它包含选项: 
+这个目标只适用于nat表的POSTROUTING链。它规定修改包的源地址 (此连接以后所有的包都会被影响) ，停止对规则的检查，它包含选项:
   
 -to-source [-][:port-port]
   
 源端口中512以下的 (端口) 会被安置为其他的512以下的端口；512到1024之间的端口会被安置为1024以下的，其他端口会被安置为1024或以上。如果可能，端口不会被修改。
 
-### target:
+### target
 
 DNAT: DNAT之后数据包会走到nat 表 fowarad链
   
@@ -589,26 +605,25 @@ ESTABLISHED - meaning that the packet is associated with a connection which has 
 
 RELATED - meaning that the packet is starting a new connection, but is associated with an existing connection, such as an FTP data transfer, or an ICMP error.
 
-
-
 ### others
+
 tcp通信是双向的，访问公网只会经过OUTPUT链和POSTROUTING链， 访问公网IP不需要经过PREROUTING链，但被访问的服务器向网关返回信息时要经过PREROUTING链。
 
 ---
 
-http://baike.baidu.com/view/504557.htm  
-https://wsgzao.github.io/post/iptables/  
-http://blog.chinaunix.net/uid-26495963-id-3279216.html  
-https://www.linuxidc.com/Linux/2012-08/67505.htm  
-https://www.frozentux.net/iptables-tutorial/cn/iptables-tutorial-cn-1.1.19.html  
-http://xstarcd.github.io/wiki/Linux/iptables_forward_internetshare.html  
-https://s2.ax1x.com/2020/01/31/11HP74.md.png  
-https://imgchr.com/i/11HP74  
-https://s2.ax1x.com/2020/01/31/11bp8I.md.png  
-https://imgchr.com/i/11bp8I  
-https://s2.ax1x.com/2020/01/31/11v2WQ.md.png  
-https://imgchr.com/i/11v2WQ  
-https://s2.ax1x.com/2020/01/31/13pGXd.png  
+<http://baike.baidu.com/view/504557.htm>  
+<https://wsgzao.github.io/post/iptables/>  
+<http://blog.chinaunix.net/uid-26495963-id-3279216.html>  
+<https://www.linuxidc.com/Linux/2012-08/67505.htm>  
+<https://www.frozentux.net/iptables-tutorial/cn/iptables-tutorial-cn-1.1.19.html>  
+<http://xstarcd.github.io/wiki/Linux/iptables_forward_internetshare.html>  
+<https://s2.ax1x.com/2020/01/31/11HP74.md.png>  
+<https://imgchr.com/i/11HP74>  
+<https://s2.ax1x.com/2020/01/31/11bp8I.md.png>  
+<https://imgchr.com/i/11bp8I>  
+<https://s2.ax1x.com/2020/01/31/11v2WQ.md.png>  
+<https://imgchr.com/i/11v2WQ>  
+<https://s2.ax1x.com/2020/01/31/13pGXd.png>  
 
 ## 示例
 

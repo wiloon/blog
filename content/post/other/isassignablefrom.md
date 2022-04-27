@@ -10,6 +10,7 @@ tags:
 
 ---
 ## isAssignableFrom
+
 isAssignableFrom 是用来判断一个类Class1和另一个类Class2是否相同或是另一个类的超类或接口。
   
 通常调用格式是

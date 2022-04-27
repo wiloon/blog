@@ -10,11 +10,12 @@ tags:
 
 ---
 ## JavaEE 7
+
 <http://www.iteye.com/news/27980>
 
 甲骨文公司在2013年6月中旬正式发布了JavaEE 7 (JSR 342) 。
 
-该版本特性主要集中在以下3个方面: 
+该版本特性主要集中在以下3个方面:
 
 1. 提供HTML5动态可伸缩应用程序
 
@@ -42,7 +43,7 @@ tags:
 
 JavaEE 7提供了一个完整、全面、集成的堆栈来帮助你构建企业和Web应用程序。下面的这个图表有助于你了解这些组件之间是如何合作的。橙色部分为该版本中新添加的组件。
 
-以下是JavaEE 7开发过程中14个活跃的JSR: 
+以下是JavaEE 7开发过程中14个活跃的JSR:
 
 342: Java EE 7 Platform
 
@@ -64,15 +65,15 @@ JavaEE 7提供了一个完整、全面、集成的堆栈来帮助你构建企业
 
 349: Bean Validation 1.1
 
-352: Batch Applications for the Java Platform 1.0 (新添加) 
+352: Batch Applications for the Java Platform 1.0 (新添加)
 
-353: Java API for JSON Processing 1.0 (新添加) 
+353: Java API for JSON Processing 1.0 (新添加)
 
-356: Java API for WebSocket 1.0 (新添加) 
+356: Java API for WebSocket 1.0 (新添加)
 
-236: Concurrency Utilities for Java EE 1.0 (新添加) 
+236: Concurrency Utilities for Java EE 1.0 (新添加)
 
-下面是9个维护版本的JSR: 
+下面是9个维护版本的JSR:
 
 250: Common Annotations 1.2
 
@@ -92,33 +93,33 @@ JavaEE 7提供了一个完整、全面、集成的堆栈来帮助你构建企业
 
 245: JavaServer Pages 2.3
 
-相关资源下载: 
+相关资源下载:
 
-二进制包: 
+二进制包:
 
 Java EE 7 SDK
 
 GlassFish Server 4.0开源版本
 
-开发工具: 
+开发工具:
 
 NetBeans 7.3.1
 
-GlassFish Tools for Kepler (技术预览版) 
+GlassFish Tools for Kepler (技术预览版)
 
 Maven Coordinates
 
-相关文档: 
+相关文档:
 
 Java EE 7白皮书
 
-Java EE 7教程 (html、pdf) 
+Java EE 7教程 (html、pdf)
 
 第一个示例应用
 
 Java EE 7实践实验室
 
-Javadocs  (在线、下载) 
+Javadocs  (在线、下载)
 
 规范
 

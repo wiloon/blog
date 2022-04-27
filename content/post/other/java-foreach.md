@@ -10,14 +10,15 @@ tags:
 
 ---
 ## 'java 循环/loop  while,for,foreach'
+
 while( 布尔表达式 ) {
-    
+
 //循环内容
   
 }
 
 do {
-         
+
 //代码语句
   
 }while(布尔表达式);
@@ -27,13 +28,13 @@ JAVA for循环执行顺序 及 i++和++i的区别
 1.i与i++的区别是:  ++i 是先执行 i=i+1 再使用 i 的值，而 i++ 是先使用 i 的值再执行 i=i+1。
   
 2.但是如果不了解 for 循环的执行顺序则容易出错。
-   
-for循环的执行顺序如下: 
+
+for循环的执行顺序如下:
   
 for(sta1;sta2;sta3)
   
 {
-     
+
 sta4;
   
 }
@@ -56,15 +57,15 @@ foreach语句是for语句的特殊简化版本，但是foreach语句并不能完
   
 foreach并不是一个关键字，习惯上将这种特殊的for语句格式称之为"foreach"语句。从英文字面意思理解foreach也就是"for 每一个"的意思。实际上也就是这个意思。
   
-foreach的语句格式: 
+foreach的语句格式:
   
 for(元素类型t 元素变量x : 遍历对象obj){
-       
+
 引用了x的java语句;
   
 }
   
-下面通过两个例子简单例子看看foreach是如何简化编程的。代码如下: 
+下面通过两个例子简单例子看看foreach是如何简化编程的。代码如下:
   
 一、foreach简化数组和集合的遍历
   
@@ -242,7 +243,7 @@ System.out.println(x);
   
 }
 
-运行结果: 
+运行结果:
   
 —-1—-排序前的一维数组
   
@@ -258,7 +259,7 @@ Process finished with exit code 0
 
 二、foreach语句的局限性
   
-通过上面的例子可以发现，如果要引用数组或者集合的索引，则foreach语句无法做到，foreach仅仅老老实实地遍历数组或者集合一遍。下面看一个例子就明白了: 
+通过上面的例子可以发现，如果要引用数组或者集合的索引，则foreach语句无法做到，foreach仅仅老老实实地遍历数组或者集合一遍。下面看一个例子就明白了:
   
 /**
   
@@ -314,13 +315,9 @@ System.out.println(x);
   
 }
 
-运行结果: 
+运行结果:
   
 —-未赋值前输出刚刚定义的数组—-
-  
-  
-  
-  
   
 —-通过循环变量给数组元素赋值—-
   
@@ -332,8 +329,8 @@ Process finished with exit code 0
   
 foreach语句是for语句特殊情况下的增强版本，简化了编程，提高了代码的可读性和安全性 (不用怕数组越界) 。相对老的for语句来说是个很好的补充。提倡能用foreach的地方就不要再用for了。在用到对集合或者数组索引的情况下，foreach显得力不从心，这个时候是用for语句的时候了。
   
-http://lavasoft.blog.51cto.com/62575/53321
+<http://lavasoft.blog.51cto.com/62575/53321>
   
-http://blog.csdn.net/lee_yaob/article/details/7731185
+<http://blog.csdn.net/lee_yaob/article/details/7731185>
   
-http://www.runoob.com/java/java-loop.html
+<http://www.runoob.com/java/java-loop.html>

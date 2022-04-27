@@ -10,7 +10,8 @@ tags:
   - reprint
 ---
 ## Java Exchanger
-http://mouselearnjava.iteye.com/blog/1921947
+
+<http://mouselearnjava.iteye.com/blog/1921947>
 
 本文介绍Exchanger工具类, 然后采用Exchanger给出一个两个线程交换数值的简单实例。
 
@@ -64,7 +65,6 @@ public class ThreadA implements Runnable {
             e.printStackTrace();  
         }  
     }  
-    
 
 }
 
@@ -98,7 +98,6 @@ public class ThreadB implements Runnable {
             e.printStackTrace();  
         }  
     }  
-    
 
 }
 
@@ -115,6 +114,5 @@ public class ExchangerTest {
         new Thread(new ThreadA(exchanger)).start();  
         new Thread(new ThreadB(exchanger)).start();  
     }  
-    
 
 }

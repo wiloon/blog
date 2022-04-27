@@ -4,16 +4,14 @@ author: "-"
 date: 2015-09-22T10:05:46+00:00
 url: /?p=8331
 categories:
-  - Uncategorized
-
+  - Java
 tags:
   - reprint
 ---
 ## java.sql.Timestamp cannot be cast to java.sql.Date
+
 java.sql.Timestamp cannot be cast to java.sql.Date
-  
-分类:  Java EE2010-05-10 18:14 3425人阅读 评论(0) 收藏 举报
-  
+
 date数据库sqlstringjava
   
 java.lang.ClassCastException: java.sql.Timestamp cannot be cast to java.sql.Date
