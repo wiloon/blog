@@ -13,6 +13,8 @@ tags:
 
 ## shell basic, shell script
 
+doc `man bash`
+
 ## 自动输入密码, Y
 
 ```bash
@@ -227,7 +229,7 @@ if [ "$the_world_is_flat" = true ] ; then
 fi
 ```
 
-><https://stackoverflow.com/questions/2953646/how-can-i-declare-and-use-boolean-variables-in-a-shell-script?rq=1>
+<https://stackoverflow.com/questions/2953646/how-can-i-declare-and-use-boolean-variables-in-a-shell-script?rq=1>
 
 ### 字符串包含
 
@@ -1307,7 +1309,7 @@ awk '{print $2}' class.txt | grep '^[0-9.]' > res
 
 ## 'linux #!/bin/sh'
 
-# !/bin/sh 是指此脚本使用/bin/sh来解释执行，#!是特殊的表示符，其后面根的是此解释此脚本的shell的路径。 $bash $表示系统提示符，$ 表示此用户为普通用户，超级用户的提示符是＃，bash是shell的一种，是linux下最常用的一种shell，$bash的意思是执行一个子shell，此子shell为bash.
+`#!/bin/sh` 是指此脚本使用/bin/sh来解释执行，#!是特殊的表示符，其后面根的是此解释此脚本的shell的路径。 $bash $表示系统提示符，$ 表示此用户为普通用户，超级用户的提示符是＃，bash是shell的一种，是linux下最常用的一种shell，$bash的意思是执行一个子shell，此子shell为bash.
 
 ## case, esac
 
@@ -1325,3 +1327,11 @@ case $ides in
 esac
 
 ```
+
+## declare
+
+`man bash`, line:2995
+
+声明变量，设置或显示变量的值和属性。
+
+-A 创建关联数组(associative array)（如果支持）
