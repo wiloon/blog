@@ -113,28 +113,28 @@ sudo pacman -S powerdevil kmix kscreen ark
 
 ## AUR
 
-| name                                  | comments                                                       |
-| :------------------------------------ | :------------------------------------------------------------- |
-|intellij-idea-ultimate-edition |yay -S intellij-idea-ultimate-edition intellij-idea-ultimate-edition-jre|
-| telegraf-bin                          |                                                                |
-| goland                                | yay -S goland goland-jre, 两个一起安装                         |
-| webstorm-jre                          | yay -S webstorm webstorm-jre                                   |
-| clion                                 | yay -S clion clion-jre                                         |
-| google-chrome                         |                                                                |
-| deepin-wine-wechat                    | 微信,<https://github.com/countstarlight/deepin-wine-wechat-arch> |
-| google-chrome-beta                    |                                                                |
-| redis-desktop-manager                 | rdm                                                            |
-| wps-office                            | 依赖                                                           |
-| ttf-wps-fonts                         | wps字体                                                        |
-| nixnote2-git                          | evernote linux 客户端                                          |
-| gitkraken                             | git GUI clinet, Free for non-commercial use                    |
-| github-desktop-bin                    | MIT Linense                                                    |
-| heidisql                              | MySQL客户端                                                    |
-| jd-gui-bin                            | java反编译                                                     |
-| eclipse-mat                           | Eclipse Memory Analyzer (MAT)                                  |
-| dingtalk                              | 钉钉                                                           |
-| menulibre                             | xfce的系统菜单管理工具                                         |
-| ttf-consolas-with-yahei-powerline-git | Consolas-with-Yahei字体                                        |
+| name                                  | comments                                                                 |
+| :------------------------------------ | :-------------------------------------------------------------           |
+| intellij-idea-ultimate-edition        | yay -S intellij-idea-ultimate-edition intellij-idea-ultimate-edition-jre |
+| telegraf-bin                          |                                                                          |
+| goland                                | yay -S goland goland-jre, 两个一起安装                                     |
+| webstorm-jre                          | yay -S webstorm webstorm-jre                                             |
+| clion                                 | yay -S clion clion-jre                                                   |
+| google-chrome                         |                                                                          |
+| deepin-wine-wechat                    | 微信,<https://github.com/countstarlight/deepin-wine-wechat-arch>          |
+| google-chrome-beta                    |                                                                          |
+| redis-desktop-manager                 | rdm                                                                      |
+| wps-office                            | 依赖                                                                      |
+| ttf-wps-fonts                         | wps字体                                                                   |
+| nixnote2-git                          | evernote linux 客户端                                                     |
+| gitkraken                             | git GUI clinet, Free for non-commercial use                              |
+| github-desktop-bin                    | MIT Linense                                                              |
+| heidisql                              | MySQL客户端                                                               |
+| jd-gui-bin                            | java反编译                                                                |
+| eclipse-mat                           | Eclipse Memory Analyzer (MAT)                                            |
+| dingtalk                              | 钉钉                                                                      |
+| menulibre                             | xfce的系统菜单管理工具                                                      |
+| ttf-consolas-with-yahei-powerline-git | Consolas-with-Yahei字体                                                   |
 | zoom                                  |                                                                |
 | shutter                               |                                                                |
 | perl-goo-canvas                       | shutter 的画线插件                                             |
