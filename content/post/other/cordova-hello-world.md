@@ -26,7 +26,7 @@ specify a set of target platforms```
 cordova platform add android
 ```
 
-cordova platform add ios
+cordova platform add iOS
 
 ```
 

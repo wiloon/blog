@@ -99,4 +99,4 @@ return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobil
 
 http://blog.csdn.net/yakson/article/details/9390863
 
-http://stackoverflow.com/questions/12606245/detect-if-browser-is-running-on-an-android-or-ios-device
+http://stackoverflow.com/questions/12606245/detect-if-browser-is-running-on-an-android-or-iOS-device

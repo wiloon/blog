@@ -11,59 +11,6 @@ tags:
 ---
 ## Collection, Array, Vector, ArrayList, List, LinkedList
 
-```puml
-@startuml
-interface Collection
-interface List
-Collection<|-left- List
-class AbstractList
-List <|.. AbstractList
-class ArrayList
-AbstractList <|-- ArrayList
-class Vector
-AbstractList <|-- Vector
-class Stack
-Vector <|-- Stack
-class AbstractSequentialList
-AbstractList <|-- AbstractSequentialList
-class LinkedList
-AbstractSequentialList <|-- LinkedList
-interface Queue
-Collection<|--Queue
-class AbstractCollection
-Collection<|.. AbstractCollection
-class AbstractQueue
-AbstractCollection<|--AbstractQueue
-class PriorityQueue
-AbstractQueue<|--PriorityQueue
-Queue<|.. AbstractQueue
-interface Set
-Collection<|--Set
-class AbstractSet
-AbstractCollection<|--AbstractSet
-Set<|..AbstractSet
-class HashSet
-AbstractSet<|-- HashSet
-AbstractSet<|-- TreeSet
-HashSet<|-- LinkedHashSet
-class LinkedHashMap
-LinkedHashMap <.. HashSet
-class HashMap
-HashMap <.. HashSet
-interface Map
-class AbstractMap
-Map <|.. AbstractMap
-AbstractMap<|-- HashMap
-Map <|.. HashMap
-HashMap<|-- LinkedHashMap
-Map <|.. LinkedHashMap
-class Hashtable
-Map <|.. Hashtable
-class Dictionary
-Dictionary <|-- Hashtable
-@enduml
-```
-
 array(数组)和Vector是十分相似的Java构件 (constructs) ，两者全然不同，在选择使用时应根据各自的功能来确定。
 
 ### 数组 Array
@@ -118,7 +65,7 @@ List list = Collections.synchronizedList(new LinkedList(...));
 
 ### ArrayList
 
-ArrayList实现了可变大小的数组。它允许所有元素，包括null。和LinkedList一样，ArrayList也是非同步的 (unsynchronized) 。
+ArrayList 实现了可变大小的数组。它允许所有元素，包括 null。和LinkedList一样，ArrayList也是非同步的 (unsynchronized) 。
   
 size，isEmpty，get，set方法运行时间为常数。但是add方法开销为分摊的常数，添加n个元素需要O(n)的时间。其他的方法运行时间为线性。
   
@@ -126,17 +73,9 @@ size，isEmpty，get，set方法运行时间为常数。但是add方法开销为
   
 ArrrayList底层的数据结构是数组，支持随机访问，而 LinkedList 的底层数据结构是双向循环链表，不支持随机访问。使用下标访问一个元素，ArrayList 的时间复杂度是 O(1)，而 LinkedList 是 O(n)。
 
-### ArrayList vs LinkedList
+为什么多线程环境下ArrayList是线程不安全的？因为在进行写操作（add方法）的时候，方法上为了保证并发性，没有添加synchronized修饰。
 
-1. ArrayList是实现了基于动态**数组**的数据结构，而LinkedList是基于**链表**的数据结构；
-2. 对于随机访问get和set，ArrayList要优于LinkedList，因为LinkedList要移动指针；
-3. 对于添加和删除操作 add和 remove，一般大家都会说 LinkedList要比ArrayList快，因为ArrayList要移动数据。但是实际情况并非这样，对于添加或删除，LinkedList 和 ArrayList并不能明确说明谁快谁慢， ArrayList想要在指定位置插入或删除元素时，主要耗时的是System.arraycopy动作，会移动index后面所有的元素；LinkedList主耗时的是要先通过for循环找到index，然后直接插入或删除。这就导致了两者并非一定谁快谁慢，   主要有两个因素决定他们的效率，插入的数据量和插入的位置。我们可以在程序里改变这两个因素来测试它们的效率。
-        当数据量较小时，测试程序中，大约小于30的时候，两者效率差不多，没有显著区别；当数据量较大时，大约在容量的1/10处开始，LinkedList的效率就开始没有ArrayList效率高了，特别到一半以及后半的位置插入时，LinkedList效率明显要低于ArrayList，而且数据量越大，越明显。
-
-当插入的数据量很小时，两者区别不太大，当插入的数据量大时，大约在容量的1/10之前，LinkedList会优于ArrayList，在其后就劣与ArrayList，且越靠近后面越差。
-
-版权声明：本文为CSDN博主「武哥聊编程」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
-原文链接：<https://blog.csdn.net/eson_15/article/details/51145788>
+ArrayList 不是线程安全的，Vector 是线程安全。而保障 Vector 线程安全的方式，是非常粗暴的在方法上用 synchronized 独占锁，将多线程执行变成串行化。要想将 ArrayList 变成线程安全的也可以使用Collections.synchronizedList(List<T> list)方法 ArrayList 转换成线程安全的，但这种转换方式依然是通过 synchronized 修饰方法实现的，很显然这不是一种高效的方式，
 
 ### Vector
 
@@ -154,7 +93,7 @@ Vector 由于使用了synchronized方法 (线程安全) ，通常性能上较 Ar
 
 Stack继承自Vector，实现一个后进先出的堆栈。Stack提供5个额外的方法使得 Vector得以被当作堆栈使用。基本的push和pop方法，还有peek方法得到栈顶的元素，empty方法测试堆栈是否为空，search方法检测一个元素在堆栈中的位置。Stack刚创建后是空栈。
 
-### Set接口
+### Set 接口
 
 Set是一种不包含重复的元素的Collection，即任意的两个元素e1和e2都有e1.equals(e2)=false，Set最多有一个null元素。
   
@@ -162,11 +101,11 @@ Set是一种不包含重复的元素的Collection，即任意的两个元素e1�
   
 请注意: 必须小心操作可变对象 (Mutable Object) 。如果一个Set中的可变元素改变了自身状态导致Object.equals(Object)=true将导致一些问题。
 
-### Map接口
+### Map 接口
 
 请注意，Map没有继承Collection接口，Map提供key到value的映射。一个Map中不能包含相同的key，每个key只能映射一个 value。Map接口提供3种集合的视图，Map的内容可以被当作一组key集合，一组value集合，或者一组key-value映射。
 
-### Hashtable类
+### Hashtable 类
 
 Hashtable 实现 Map接口，实现一个key-value映射的哈希表。任何非空 (non-null) 的对象都可作为key或者value。
   
@@ -177,21 +116,14 @@ Hashtable 通过initial capacity和load factor两个参数调整性能。通常�
 使用Hashtable的简单示例如下，将1，2，3放到Hashtable中，他们的key分别是"one"，"two"，"three":
 
 ```java
-
 Hashtable numbers = new Hashtable();
-  
 numbers.put("one", new Integer(1));
-  
 numbers.put("two", new Integer(2));
-  
 numbers.put("three", new Integer(3));
-  
-//要取出一个数，比如2，用相应的key: 
-  
-Integer n = (Integer)numbers.get("two");
-  
-System.out.println("two = " + n);
 
+// 要取出一个数，比如2，用相应的key
+Integer n = (Integer)numbers.get("two");  
+System.out.println("two = " + n);
 ```
 
 由于作为key的对象将通过计算其散列函数来确定与之对应的value的位置，因此任何作为key的对象都必须实现hashCode和equals方法。hashCode和equals方法继承自根类Object，如果你用自定义的类当作key的话，要相当小心，按照散列函数的定义，如果两个对象相同，即obj1.equals(obj2)=true，则它们的hashCode必须相同，但如果两个对象不同，则它们的hashCode不一定不同，如果两个不同对象的hashCode相同，这种现象称为冲突，冲突会导致操作哈希表的时间开销增大，所以尽量定义好的hashCode()方法，能加快哈希表的操作。
@@ -242,19 +174,19 @@ Vector 是同步的。这个类中的一些方法保证了Vector中的对象是�
 
 最后，在《Practical Java》一书中Peter Haggar建议使用一个简单的数组 (Array) 来代替Vector或ArrayList。尤其是对于执行效率要求高的程序更应如此。因为使用数组(Array)避免了同步、额外的方法调用和不必要的重新分配空间的操作。
 
-### 为什么java.util.concurrent 包里没有并发的ArrayList实现？
+### 为什么 java.util.concurrent 包里没有并发的 ArrayList 实现？
 
-问: JDK 5在java.util.concurrent里引入了ConcurrentHashMap，在需要支持高并发的场景，我们可以使用它代替HashMap。但是为什么没有ArrayList的并发实现呢？难道在多线程场景下我们只有Vector这一种线程安全的数组实现可以选择么？为什么在java.util.concurrent 没有一个类可以代替Vector呢？
+问: JDK 5在java.util.concurrent 里引入了 ConcurrentHashMap，在需要支持高并发的场景，我们可以使用它代替 HashMap。但是为什么没有 ArrayList 的并发实现呢？难道在多线程场景下我们只有Vector 这一种线程安全的数组实现可以选择么？为什么在 java.util.concurrent 没有一个类可以代替 Vector 呢？
 
-答: 我认为在java.util.concurrent包中没有加入并发的ArrayList实现的主要原因是: 很难去开发一个通用并且没有并发瓶颈的线程安全的List。
+答: 我认为在 java.util.concurrent 包中没有加入并发的ArrayList实现的主要原因是: 很难去开发一个通用并且没有并发瓶颈的线程安全的List。
 
-像ConcurrentHashMap这样的类的真正价值 (The real point / value of classes) 并不是它们保证了线程安全。而在于它们在保证线程安全的同时不存在并发瓶颈。举个例子，ConcurrentHashMap采用了锁分段技术和弱一致性的Map迭代器去规避并发瓶颈。
+像ConcurrentHashMap 这样的类的真正价值 (The real point / value of classes) 并不是它们保证了线程安全。而在于它们在保证线程安全的同时不存在并发瓶颈。举个例子，ConcurrentHashMap采用了锁分段技术和弱一致性的Map 迭代器去规避并发瓶颈。
 
-所以问题在于，像"Array List"这样的数据结构，你不知道如何去规避并发的瓶颈。拿contains() 这样一个操作来说，当你进行搜索的时候如何避免锁住整个list？
+所以问题在于，像"Array List"这样的数据结构，你不知道如何去规避并发的瓶颈。拿 contains() 这样一个操作来说，当你进行搜索的时候如何避免锁住整个list？
 
-另一方面，Queue 和Deque (基于Linked List)有并发的实现是因为他们的接口相比List的接口有更多的限制，这些限制使得实现并发成为可能。
+另一方面，Queue 和 Deque (基于Linked List) 有并发的实现是因为他们的接口相比 List的接口有更多的限制，这些限制使得实现并发成为可能。
 
-CopyOnWriteArrayList是一个有趣的例子，它规避了只读操作 (如get/contains) 并发的瓶颈，但是它为了做到这点，在修改操作中做了很多工作和修改可见性规则。 此外，修改操作还会锁住整个List，因此这也是一个并发瓶颈。所以从理论上来说，CopyOnWriteArrayList并不算是一个通用的并发List。
+CopyOnWriteArrayList 是一个有趣的例子，它规避了只读操作 (如get/contains) 并发的瓶颈，但是它为了做到这点，在修改操作中做了很多工作和修改可见性规则。 此外，修改操作还会锁住整个List，因此这也是一个并发瓶颈。所以从理论上来说，CopyOnWriteArrayList并不算是一个通用的并发List。
 
 ### LinkedHashMap
 
@@ -271,3 +203,101 @@ CopyOnWriteArrayList是一个有趣的例子，它规避了只读操作 (如get/
 <http://blog.csdn.net/mandymai/article/details/3966667/>
 
 <http://blog.csdn.net/smallboy_5/article/details/2119123>
+
+### ArrayList vs LinkedList
+
+1. ArrayList 不是线程安全的
+2. ArrayList 是实现了基于动态**数组**的数据结构，而 LinkedList 是基于**链表**的数据结构；
+3. 对于随机访问 get 和 set，ArrayList 要优于 LinkedList，因为 LinkedList 要移动指针；
+4. 对于添加和删除操作 add 和 remove，一般大家都会说 LinkedList 要比 ArrayList 快，因为 ArrayList 要移动数据。但是实际情况并非这样，对于添加或删除，LinkedList 和 ArrayList 并不能明确说明谁快谁慢， ArrayList 想要在指定位置插入或删除元素时，主要耗时的是 System.arraycopy 动作，会移动 index 后面所有的元素；LinkedList 主耗时的是要先通过 for 循环找到 index，然后直接插入或删除。这就导致了两者并非一定谁快谁慢，主要有两个因素决定他们的效率，插入的数据量和插入的位置。我们可以在程序里改变这两个因素来测试它们的效率。
+
+当数据量较小时，测试程序中，大约小于30的时候，两者效率差不多，没有显著区别；当数据量较大时，大约在容量的1/10处开始，LinkedList的效率就开始没有ArrayList效率高了，特别到一半以及后半的位置插入时，LinkedList效率明显要低于ArrayList，而且数据量越大，越明显。
+
+当插入的数据量很小时，两者区别不太大，当插入的数据量大时，大约在容量的1/10之前，LinkedList会优于ArrayList，在其后就劣与ArrayList，且越靠近后面越差。
+
+版权声明：本文为CSDN博主「武哥聊编程」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
+原文链接：<https://blog.csdn.net/eson_15/article/details/51145788>
+
+## HashSet
+
+HashSet线程不安全
+用CopyOnWriteArraySet（底层还是用的CopyOnWriteArrayList）
+
+## HashMap线程不安全
+
+HashMap线程不安全
+使用Collections.synchronizedMap(new HashMap<>())
+使用ConcurrentHashMap
+
+## 图
+
+```puml
+@startuml
+interface Collection
+interface List
+Collection<|-left- List
+class AbstractList
+List <|.. AbstractList
+class ArrayList
+AbstractList <|-- ArrayList
+class Vector
+AbstractList <|-- Vector
+class Stack
+Vector <|-- Stack
+class AbstractSequentialList
+AbstractList <|-- AbstractSequentialList
+class LinkedList
+AbstractSequentialList <|-- LinkedList
+interface Queue
+Collection<|--Queue
+class AbstractCollection
+Collection<|.. AbstractCollection
+class AbstractQueue
+AbstractCollection<|--AbstractQueue
+class PriorityQueue
+AbstractQueue<|--PriorityQueue
+Queue<|.. AbstractQueue
+interface Set
+Collection<|--Set
+class AbstractSet
+AbstractCollection<|--AbstractSet
+Set<|..AbstractSet
+class HashSet
+AbstractSet<|-- HashSet
+AbstractSet<|-- TreeSet
+HashSet<|-- LinkedHashSet
+class LinkedHashMap
+LinkedHashMap <.. HashSet
+class HashMap
+HashMap <.. HashSet
+interface Map
+class AbstractMap
+Map <|.. AbstractMap
+AbstractMap<|-- HashMap
+Map <|.. HashMap
+HashMap<|-- LinkedHashMap
+Map <|.. LinkedHashMap
+class Hashtable
+Map <|.. Hashtable
+class Dictionary
+Dictionary <|-- Hashtable
+
+interface RandomAccess
+interface Cloneable
+interface Serializable
+
+class CopyOnWriteArrayList
+List<|.. CopyOnWriteArrayList
+RandomAccess<|.. CopyOnWriteArrayList
+Cloneable<|.. CopyOnWriteArrayList
+Serializable<|.. CopyOnWriteArrayList
+@enduml
+```
+
+<https://segmentfault.com/a/1190000039264628>
+
+作者：你听___
+链接：https://juejin.cn/post/6844903602427805704
+来源：稀土掘金
+著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
+

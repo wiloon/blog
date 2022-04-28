@@ -50,7 +50,7 @@ PE文件种类如下表所示：
 ELF (Executable Linkable Format）：linux下的可执行文件格式，按照ELF格式编写的文件包括：.so、.a等
 
 ### Mach-O
-Mach-O：IOS／MacOS下可执行文件格式，平时常见的.app或者ipa只是zip压缩包并非可执行文件，可执行文件在压缩包中。在mac下使用file命令打印任意可执行文件便可以看到如下内容：
+Mach-O：iOS／MacOS下可执行文件格式，平时常见的.app或者ipa只是zip压缩包并非可执行文件，可执行文件在压缩包中。在mac下使用file命令打印任意可执行文件便可以看到如下内容：
 
 
 > file /Applications/filename.app/Contents/MacOS/filename

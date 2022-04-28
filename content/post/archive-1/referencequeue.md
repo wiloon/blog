@@ -7,12 +7,11 @@ categories:
   - Java
 tags:
   - Java
-
 ---
 ## ReferenceQueue
 
 引用队列 ReferenceQueue
-使用SoftReference，WeakReference，PhantomReference 的时候，可以关联一个ReferenceQueue。那么当垃圾回收器准备回收一个被引用包装的对象时，该引用会被加入到关联的ReferenceQueue。程序可以通过判断引用队列中是否已经加入引用,来了解被引用的对象是否被GC回收。
+使用 SoftReference，WeakReference，PhantomReference 的时候，可以关联一个 ReferenceQueue。那么当垃圾回收器准备回收一个被引用包装的对象时，该引用会被加入到关联的 ReferenceQueue。程序可以通过判断引用队列中是否已经加入引用, 来了解被引用的对象是否被GC回收。
 
 作者: leilifengxingmw
 链接: <https://www.jianshu.com/p/6ae4f53a4752>
@@ -23,11 +22,12 @@ tags:
 
 在java的引用体系中，存在着强引用，软引用，虚引用，幽灵引用，这4种引用类型。在正常的使用过程中，我们定义的类型都是强引用的，这种引用类型在回收中，只有当其它对象没有对这个对象的引用时，才会被GC回收掉。简单来说，对于以下定义:
 
+```java
 Object obj = new Object();
-  
 Ref ref = new Ref(obj);
+```
   
-在这种情况下，如果ref没有被GC，那么obj这个对象肯定不会GC的。因为ref引用到了obj。如果obj是一个大对象呢，多个这种对象的话，应用肯定一会就挂掉了。
+在这种情况下，如果 ref 没有被 GC，那么 obj 这个对象肯定不会 GC 的。因为 ref 引用到了 obj。如果 obj 是一个大对象呢，多个这种对象的话，应用肯定一会就挂掉了。
 
 那么，如果我们希望在这个体系中，如果obj没有被其它对象引用，只是在这个Ref中存在引用时，就把obj对象gc掉。这时候就可以使用这里提到的Reference对象了。
 
@@ -37,6 +37,7 @@ Ref ref = new Ref(obj);
 
 一个简单的例子，通过往map中放入10000个对象，每个对象大小为1M字节数组。使用引用队列监控被放入的key的回收情况。代码如下所示:
 
+```java
 Object value = new Object();
   
 Map<Object, Object> map = new HashMap<>();
@@ -53,6 +54,8 @@ map.put(weakReference, value);
   
 System.out.println("map.size->" + map.size());
   
+```
+
 这里使用了weakReference对象，即当值不再被引用时，相应的数据被回收。另外使用一个线程不断地从队列中获取被gc的数据，代码如下:
 
 Thread thread = new Thread(() -> {

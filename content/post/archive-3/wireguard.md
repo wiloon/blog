@@ -200,7 +200,7 @@ mtu: auto
 对端/endpoint: xxx.wiloon.com:51xxx
 路由的ip地址: 0.0.0.0/0
 
-### IOS client
+### iOS client
 1. Create from scratch
 2. Name/名称: <foo>
 3. Generate keypair/生成密钥对

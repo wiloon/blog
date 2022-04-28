@@ -153,7 +153,7 @@ public static class MCSNode {
 
 ### qspinlock, queued spinlock
 
-我们来到了 qspinlock 的时代,qspinlock的出现就是为了解决tickeet spinlock的上述问题。我先来思考下造成该问题的原因。根因就是每个CPU都spin在共享变量spinlock上。所以我们只需要保证每个CPU spin的变量是不同的就可以避免这种情况了。所以我们需要换一种排队的方式。例如单链表。单链表也可以做到FIFO,每次解锁时,也只需要通知链表头的CPU即可。这其实就是MCS锁的实现原理。qspinlock的实现是建立在MCS锁的理论基础上。我们先探究下MCS锁是如何实现。
+我们来到了 qspinlock 的时代, qspinlock 的出现就是为了解决 tickeet spinlock 的上述问题。我先来思考下造成该问题的原因。根因就是每个 CPU 都 spin 在共享变量 spinlock 上。所以我们只需要保证每个 CPU spin 的变量是不同的就可以避免这种情况了。所以我们需要换一种排队的方式。例如单链表。单链表也可以做到 FIFO, 每次解锁时, 也只需要通知链表头的 CPU 即可。这其实就是 MCS 锁的实现原理。qspinlock 的实现是建立在 MCS锁 的理论基础上。
 
 ---
 

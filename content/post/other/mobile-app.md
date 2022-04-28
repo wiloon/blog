@@ -1,22 +1,23 @@
 ---
-title: mobile apps, ios apps, android apps, app list, apk
+title: mobile apps, iOS apps, android apps, app list, apk
 author: "-"
 date: 2011-12-24T07:04:18+00:00
 url: mobile/app
-
 categories:
-  - inbox
+  - Inbox
 tags:
   - reprint
 ---
-## mobile apps, ios apps, android apps, app list, apk
+## mobile apps, iOS apps, android apps, app list, apk
+
+## iOS/Android
 
 |name|comments|
 |-|-|
 | 古诗文网 ||
 | Wander  ||
 
-### ios app
+### iOS app
 
 |name|comments|
 |-|-|
@@ -26,6 +27,8 @@ tags:
 |wireguard|vpn|
 |Chanify|消息推送工具|
 |默沙东诊疗手册||
+|Sun Surveyor Lite| 查看太阳轨迹|
+|Star Walk 2 ||
 
 ### android app, apk list
 
@@ -133,17 +136,12 @@ nextcloud
 - evernote
 - sms backup
 - astro
-- -------------
-- 凤凰移动台
 - touch china
 - any radio
 - 8684地铁
 - AIDE
 - QQ
 - opera
-- 京东
-- 淘宝
-- 支付宝
 - camera360
 - battery indicator
 - Instagram

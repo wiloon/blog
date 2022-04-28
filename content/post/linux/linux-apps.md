@@ -4,7 +4,7 @@ author: "w10n"
 date: 2022-04-04 17:43:03
 url: linux/apps
 categories:
-  - linux
+  - Linux
 tags:
   - remix
 ---

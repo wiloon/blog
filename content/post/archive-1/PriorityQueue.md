@@ -2,12 +2,12 @@
 title: PriorityQueue
 author: "-"
 date: 2015-06-27T13:00:28+00:00
-url: /?p=7904
+url: PriorityQueue
 categories:
-  - Uncategorized
-tags:
   - Java
-
+tags:
+  - reprint
+  - Queue
 ---
 ## PriorityQueue
 

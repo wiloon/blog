@@ -1,15 +1,15 @@
 ---
-title: 消息队列/message queue/MQ,CORBA、DCOM, RMI, RPC
+title: 消息队列/message queue/MQ, CORBA, DCOM, RMI, RPC
 author: "-"
 date: 2012-11-15T03:41:46+00:00
 url: /?p=4686
 categories:
-  - Uncategorized
-
+  - CS
 tags:
   - reprint
+  - Queue
 ---
-## 消息队列/message queue/MQ,CORBA、DCOM, RMI, RPC
+## 消息队列/message queue/MQ, CORBA, DCOM, RMI, RPC
 
 <http://blog.csdn.net/mr_smile2014/article/details/47452281>
 
