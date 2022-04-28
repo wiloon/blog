@@ -10,6 +10,7 @@ tags:
   - reprint
 ---
 ## Maven jar plugin
+
 1.修改pom.xml增加如下内容
 
 ```xml
@@ -47,8 +48,6 @@ true</addClasspath>
 
 ```html```
 
-
-
 <build>
   
 <finalName>...</finalName><sourceDirectory>src/main/java</sourceDirectory>
@@ -82,8 +81,6 @@ true</addClasspath>
 <artifactId>maven-jar-plugin</artifactId>
   
 <configuration>
-  
-
   
 <manifest>
   
@@ -159,11 +156,7 @@ true</attach>
 
 4.
 
- 
-
 ```html```
-
-
 
 <build>
   
@@ -231,14 +224,12 @@ maven-shade-plugin</artifactId>
   
 </executions> </plugin> </plugins> </build>
   
-地址: http://blog.csdn.net/johnnywww/article/details/7964326
+地址: <http://blog.csdn.net/johnnywww/article/details/7964326>
 
 上一篇Eclipse Fat jar 插件地址
   
-下一篇Java 高手之路笔记 (1) 
+下一篇Java 高手之路笔记 (1)
 
- 
+<http://blog.csdn.net/zhangdaiscott/article/details/6911640>
 
-http://blog.csdn.net/zhangdaiscott/article/details/6911640
-
-http://blog.csdn.net/johnnywww/article/details/7964326
+<http://blog.csdn.net/johnnywww/article/details/7964326>
