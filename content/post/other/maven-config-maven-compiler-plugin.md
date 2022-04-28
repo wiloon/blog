@@ -4,7 +4,7 @@ author: "-"
 date: 2014-12-30T05:56:31+00:00
 url: maven/plugin
 categories:
-  - java
+  - Java
 tags:
   - Maven
 ---

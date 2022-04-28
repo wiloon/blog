@@ -4,7 +4,7 @@ author: "-"
 date: ""
 url: ""
 categories:
-  - java
+  - Java
 tags:
   - inbox
 ---

@@ -10,6 +10,8 @@ tags:
 ---
 ## remote dev
 
+## virtual box
+
 ## vm@server, xforward
 
 - 延迟: 22ms

@@ -39,9 +39,7 @@ meta_block--bloom_filter
 leveldb--AtomicPointer
 
 [thread]
-[callable]
 [Future]
-callable--Future
 [FutureTask]
 Future--FutureTask
 [VarHandle] as VarHandle #C5E1A5
@@ -63,7 +61,6 @@ get--LockSupport
 [cancel]
 FutureTask--cancel
 cancel--interrupt
-thread--callable
 [MethodHandles]
 VarHandle--MethodHandles
 [atomic]

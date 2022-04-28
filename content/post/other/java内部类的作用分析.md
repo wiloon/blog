@@ -4,7 +4,7 @@ author: "-"
 date: 2014-04-04T01:00:31+00:00
 url: inner-class
 categories:
-  - java
+  - Java
 tags:
   - Java
 

@@ -4,9 +4,9 @@ author: "-"
 date: 2013-10-20T04:59:53+00:00
 url: jdk-jre
 categories:
-  - java
+  - Java
 tags:
-  - java
+  - Java
 
 ---
 ## JRE和JDK的区别

@@ -6,7 +6,7 @@ url: "lock"
 categories:
   - lock
 tags:
-  - java
+  - Java
 ---
 ## "Java LockSupport, park unpark"
 

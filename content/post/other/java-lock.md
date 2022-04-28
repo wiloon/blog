@@ -4,7 +4,7 @@ author: "-"
 date: 2015-03-05T02:32:58+00:00
 url: java-lock
 categories:
-  - java
+  - Java
 
 tags:
   - reprint

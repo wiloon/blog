@@ -4,7 +4,7 @@ author: "-"
 date: 2015-09-08T06:40:32+00:00
 url: java/metrics
 categories:
-  - java
+  - Java
 tags:
   - reprint
 ---

@@ -43,5 +43,5 @@ tags:
 
 ### android
 
-- 照片 > NAS
+* 照片 > NAS
 * Contacts

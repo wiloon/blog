@@ -11,25 +11,18 @@ tags:
 ---
 ## pixel2 root, android root
 
-  
     Root Android Q on Google Pixel 2, Google Pixel
   
-
-
-https://www.teamandroid.com/2019/03/17/root-android-q-beta-google-pixel-2-pixel/embed/#?secret=dymLQPYWmm
+<https://www.teamandroid.com/2019/03/17/root-android-q-beta-google-pixel-2-pixel/embed/#?secret=dymLQPYWmm>
 
 线刷 android 10
 
-
-  
     安卓线刷升级 flash factory image for android device
   
-
-
-http://blog.wiloon.com/?p=7296&embed=true#?secret=Im4BCxWQUv
+<http://blog.wiloon.com/?p=7296&embed=true#?secret=Im4BCxWQUv>
 
 Enable USB Debugging mode
-   
+
 Download MagiskManager apk 并安装 到手机
   
 从第一步线刷升级用的镜像文件 里解压出boot.img, 传到手机 上的download目录

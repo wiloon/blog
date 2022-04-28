@@ -33,7 +33,7 @@ tags:
 #### 事件驱动, reactor
 
 The reactor design pattern is an event handling pattern for handling service requests delivered concurrently to a service handler by one or more inputs.
-><https://en.wikipedia.org/wiki/Reactor_pattern>
+<https://en.wikipedia.org/wiki/Reactor_pattern>
 
 #### 响应式 和 事件驱动编程
 
@@ -49,7 +49,7 @@ Event data programming 和 Reactive programming 区别在于:
 
 Event data programming 事件是全局性的当发出一个信号大家都会听看看是不是自己的, reactive programing 每个事件是唯一的, 如果你想监听这个事件你需要订阅它, 在这方面感觉 reactive 极大优化了性能.
 Event data programing 只处理事件, Reactive programming 除了可以订阅事件还可以订阅某个数据变化.
-><https://cnodejs.org/topic/5ccdb79d776fb66e0d171c2a>
+<https://cnodejs.org/topic/5ccdb79d776fb66e0d171c2a>
 
 ### Reactor
 

@@ -58,18 +58,16 @@ ConcurrentLinkedQueue 是一个基于链接节点的无界线程安全队列
 
 ## Queue
 
-- add 增加一个元索 如果队列已满，则抛出一个IIIegaISlabEepeplian异常, AbstractQueue, Queue
-- offer 添加一个元素并返回true 如果队列已满，则返回 false, AbstractQueue, Queue
-- put 添加一个元素 如果队列满，则阻塞
+- add   增加一个元索 如果队列已满, 则抛出一个 IIIegaISlabEepeplian 异常
+- offer 添加一个元素并返回 true 如果队列已满, 则返回 false
+- put   添加一个元素 如果队列满, 则阻塞
 
-- element 返回队列头部的元素 如果队列为空，则抛出一个NoSuchElementException异常, AbstractQueue, Queue
-- peek 返回队列头部的元素 如果队列为空，则返回null, AbstractQueue, Queue
-- take 移除并返回队列头部的元素 如果队列为空，则阻塞
+- remove 移除并返回队列头部的元素如果队列为空, 则抛出一个 NoSuchElementException 异常
+- poll   移除并返回队列头部的元素如果队列为空，则返回 null
+- take   移除并返回队列头部的元素 如果队列为空，则阻塞
 
-- remove 移除并返回队列头部的元素 如果队列为空，则抛出一个NoSuchElementException异常, AbstractQueue, Queue
-- poll   移除并返回队列头部的元素 如果队列为空，则返回null, AbstractQueue, Queue
-
-remove、element、offer 、poll、peek 其实是属于 Queue 接口。
+- element 返回队列头部的元素 如果队列为空，则抛出一个 NoSuchElementException 异常
+- peek    返回队列头部的元素 如果队列为空，则返回 null
 
 ### add() 和 offer()
 

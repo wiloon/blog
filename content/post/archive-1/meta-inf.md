@@ -4,9 +4,9 @@ author: "-"
 date: 2014-01-01T14:36:05+00:00
 url: /?p=6102
 categories:
-  - java
+  - Java
 tags:
-  - java
+  - Java
 
 ---
 ## META-INF, MANIFEST.MF

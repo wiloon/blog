@@ -10,6 +10,7 @@ tags:
   - reprint
 ---
 ## android root nexus 6p
+
 angler: Nexus 6P (codenamed Angler)
   
 provided you've already unlocked your bootloader,
@@ -17,6 +18,7 @@ provided you've already unlocked your bootloader,
   1. Download the TWRP Recovery
   
     <https://dl.twrp.me/angler/> 
+
   2. Download the SuperSU and push the zip to your device.
   
     <http://www.supersu.com/download>
@@ -39,14 +41,14 @@ provided you've already unlocked your bootloader,
 
 ## -
 
-SuperSU Stable, https://download.chainfire.eu/969/SuperSU/UPDATE-SuperSU-v2.76-20160630161323.zip
+SuperSU Stable, <https://download.chainfire.eu/969/SuperSU/UPDATE-SuperSU-v2.76-20160630161323.zip>
 
-flash the modified boot.img:http://forum.xda-developers.com/nexus-6p/general/stock-modified-boot-img-regular-root-t3306684
+flash the modified boot.img:<http://forum.xda-developers.com/nexus-6p/general/stock-modified-boot-img-regular-root-t3306684>
   
 Decrypt Your Data Partition, fastboot format userdata //todo remove this line?
 
-https://android.gadgethacks.com/how-to/root-android-o-nexus-5x-6p-0176736/
+<https://android.gadgethacks.com/how-to/root-android-o-nexus-5x-6p-0176736/>
   
-http://wccftech.com/root-android-7-1-1-nmf26f/
+<http://wccftech.com/root-android-7-1-1-nmf26f/>
   
-http://forum.xda-developers.com/nexus-6p/general/guides-how-to-guides-beginners-t3206928
+<http://forum.xda-developers.com/nexus-6p/general/guides-how-to-guides-beginners-t3206928>
