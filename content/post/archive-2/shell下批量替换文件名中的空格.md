@@ -10,7 +10,8 @@ tags:
   - shell
 ---
 ## shell下批量替换文件名中的空格
-http://blog.csdn.net/dliyuedong/article/details/14229121
+
+<http://blog.csdn.net/dliyuedong/article/details/14229121>
 
 ```bash
   

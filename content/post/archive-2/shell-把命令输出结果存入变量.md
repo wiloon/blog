@@ -9,6 +9,7 @@ tags:
   - reprint
 ---
 ## shell 把命令输出结果存入变量
+
 ```bash
   
 var=$(ls -lR|grep "^d"|wc -l)
@@ -19,4 +20,4 @@ var=\`ls -lR|grep "^d"|wc -l\`
   
 ```
 
-https://blog.csdn.net/baidu_35757025/article/details/64440047
+<https://blog.csdn.net/baidu_35757025/article/details/64440047>
