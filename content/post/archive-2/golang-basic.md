@@ -73,7 +73,7 @@ https://colobu.com/2020/12/27/go-with-os-exec/
 ### install
 
 china mainland download
-><https://golang.google.cn/>
+<https://golang.google.cn/>
 
 #### ubuntu
 

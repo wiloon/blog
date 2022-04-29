@@ -11,6 +11,10 @@ tags:
 ## xmllint, xml 格式化
 
 ```bash
+sudo apt install libxml2-utils  
+```
+
+```bash
 pacman -S libxml2
 xmllint --format settings.xml > settings.xml.new
 
