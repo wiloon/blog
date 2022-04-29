@@ -10,6 +10,8 @@ tags:
 ---
 ## VirtualBox
 
+<https://wiki.archlinux.org/title/VirtualBox>
+
 ## NAT 端口转发
 
 虚拟机> 设置> 网络> 网卡1> 高级> 端口转发> 添加
@@ -20,6 +22,18 @@ tags:
 - 主机端口: 2022
 - 子系统IP: 10.0.2.15
 - 子系统端口: 22
+
+## archlinux guest
+
+```bash
+# for VirtualBox Guest utilities with X support
+sudo pacman -S virtualbox-guest-utils
+```
+
+在virtual box 内安装的archlinux, 需要安装 virtualbox-guest-utils, 可以获得更流畅的图形界面,如virtual的无缝模式。
+  
+<https://wiki.archlinux.org/index.php/VirtualBox>
+<https://bbs.archlinux.org/viewtopic.php?id=118986>
 
 ---
 

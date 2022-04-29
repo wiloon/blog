@@ -62,22 +62,26 @@ set encoding=utf-8
 
 ### 上移一行
 
-    ddkP
+```vi
+ddkP
+```
 
 ### install
 
 #### debian install nvim
 
->https://vra.github.io/2019/03/13/ubuntu-install-neovim/
+<https://vra.github.io/2019/03/13/ubuntu-install-neovim/>
 
-    sudo apt-get install software-properties-common
-    sudo add-apt-repository ppa:neovim-ppa/stable
-    sudo apt update
-    sudo apt install -y neovim
-    sudo add-apt-repository ppa:neovim-ppa/unstable
-    sudo apt update
-    sudo apt install -y neovim
-    # after install, type 'nvim' to open neovim 
+```bash
+sudo apt-get install software-properties-common
+sudo add-apt-repository ppa:neovim-ppa/stable
+sudo apt update
+sudo apt install -y neovim
+sudo add-apt-repository ppa:neovim-ppa/unstable
+sudo apt update
+sudo apt install -y neovim
+# after install, type 'nvim' to open neovim 
+```
 
 ### vim g 和 % 区别
 
@@ -85,36 +89,51 @@ set encoding=utf-8
 
 替换行中出现的每一个pattern
 
+```v
     s/pattern/replacement/
+```
 
 开始处的 g 是全局命令，意味着对所有与地址匹配的行进行改变。结尾处的g是一个标志，意味着改变一行上的每个。
 
+```v
     g/pattern/s/pattern/replacement/g
+```
 
 linux中的grep = g/rep/p
 
 #### %: 代表这文件本身每一行, 本文件的所有的行
 
+```v
     % == g/.*/
+```
 
 g要与模式/pattern/一起使用 表示在某个范围内 (一行或者整个文本) 中所有与该模式匹配的部分  
 
 对所有与地址匹配的行，/pattern/ 意味着与这个地址匹配的第一行
 
+```v
     g/pattern/
+```
 
 s...只替换行中匹配到的第一个，s/pattern/replacement/g 意味着替换行中匹配到的所有
 
+```v
     s/pattern/replacement/ 
+```
 
 %s/pattern/replacement == g/.*/s/pattern/replacement
 
 对所有有任意数量的任意字符的行
 
+```v
     g/.*/ : 
+```
 
 ### 全选
+
+```v
     按esc后，然后ggvG或者ggVG
+```
 
 ### 替换换行符
 
@@ -134,10 +153,13 @@ linux中方法:
 
 ### 执行上一次的命令
 
+```v
     # 点
     .
+```
 
 ### visual
+
 visual模式
  (1) 在普通模式 (normal) 下，直接按键 v  就可以进入默认visual模式，可以使用v+j/k/h/l 进行文本选择
 
@@ -148,8 +170,8 @@ visual模式
  (1.1) d   ------ 剪切操作
  (1.2) y   -------复制操作
  (1.3) p   -------粘贴操作
- (1.4) ^  --------选中当前行，光标位置到行首 (或者使用键盘的HOME键) 
- (1.5) $  --------选中当前行，光标位置到行尾 (或者使用键盘的END键) 
+ (1.4) ^  --------选中当前行，光标位置到行首 (或者使用键盘的HOME键)
+ (1.5) $  --------选中当前行，光标位置到行尾 (或者使用键盘的END键)
 
  (2) Visual Line模式  按键V可以进入
 
@@ -158,7 +180,7 @@ visual模式
      (3) Visual Block模式，按键Ctrl + V可以进入
 
            按键Ctrl+V之后，进入Visual Block模式，使用 j/k/h/l键可以选中一块
-在块模式下，可以进行多列的同时修改，修改方法是: 
+在块模式下，可以进行多列的同时修改，修改方法是:
 
             首先进入块模式 Ctrl+ v
 
@@ -320,8 +342,6 @@ $ 移到当前行的最后一个字符
 \+或return 移到下一行的第一个字符
 
 – 移到前一行的第一个非空字符
-
-
 
 修改vi文本
 
@@ -585,7 +605,7 @@ n>> 使n行都向右移动一个宽度，例如3>>就将接下来的三行每行
 
 ?pattern<Enter>: 向上查找pattern匹配字符串
 
-使用了查找命令之后，使用如下两个键快速查找: 
+使用了查找命令之后，使用如下两个键快速查找:
 
 n: 按照同一方向继续查找
 
@@ -593,11 +613,11 @@ N: 按照反方向查找
 
 字符串匹配
 
-pattern是需要匹配的字符串，例如: 
+pattern是需要匹配的字符串，例如:
 
 1: /abc<Enter> #查找abc
 
-2: / abc <Enter> #查找abc单词 (注意前后的空格) 
+2: / abc <Enter> #查找abc单词 (注意前后的空格)
 
 除此之外，pattern还可以使用一些特殊字符，包括 (/、^、$、*、.) ，其中前三个这两个是vi与vim通用的，"/"为转义字符。
 
@@ -619,7 +639,7 @@ pattern是需要匹配的字符串，例如:
 
 4: :n,$s/vivian/sky/g #替换第 n 行开始到最后一行中每一行所有 vivian 为 sky
 
-5:  (n 为数字，若 n 为 .，表示从当前行开始到最后一行) 
+5:  (n 为数字，若 n 为 .，表示从当前行开始到最后一行)
 
 6:
 
@@ -645,13 +665,13 @@ pattern是需要匹配的字符串，例如:
 
 需要注意的是在1、2两种方法中，^V和^M指的是Ctrl+V和Ctrl+M。你必须要手工进行输入，而不是粘贴。
 
-在vi中处理: 首先使用vi打开文件，然后按ESC键，接着输入命令: 
+在vi中处理: 首先使用vi打开文件，然后按ESC键，接着输入命令:
 
 1: :%s/^V^M//
 
 2: :%s/^M$//g
 
-如果上述方法无用，则正确的解决办法是: 
+如果上述方法无用，则正确的解决办法是:
 
 1: tr -d "/r" < src >dest
 
@@ -673,7 +693,7 @@ pattern是需要匹配的字符串，例如:
 
 5: :g/str1/s//str2/g #功能同上
 
-从上述替换命令可以看到: 
+从上述替换命令可以看到:
 
 g 放在命令末尾，表示对指定行的搜索字符串的每次出现进行替换；不加 g，表示只对指定行的搜索字符串的首次出现进行替换；
 
@@ -683,7 +703,7 @@ g 放在命令开头，表示对正文中所有包含搜索字符串的行进行
 
 三、简单的vim正则表达式规则
 
-在vim中有四种表达式规则: 
+在vim中有四种表达式规则:
 
 magic(/m): 除了$.*^之外其他元字符都要加反斜杠
 
@@ -693,11 +713,11 @@ nomagic(/M): 除了$^之外其他元字符都要加反斜杠
 
 /V (即 very nomagic 之意) : 任何元字符都必须加反斜杠
 
-vim默认使用magic设置，这个设置也可以在正则表达式中通过 /m /M /v /V开关临时切换。例如: 
+vim默认使用magic设置，这个设置也可以在正则表达式中通过 /m /M /v /V开关临时切换。例如:
 
 1: //m.* # 查找任意字符串
 
-2: //M.* # 查找字符串 .*  (点号后面跟个星号) 
+2: //M.*# 查找字符串 .*  (点号后面跟个星号)
 
 3:
 
@@ -709,7 +729,7 @@ vim默认使用magic设置，这个设置也可以在正则表达式中通过 /m
 
 7: //V(a.c){3}$ # 查找任意位置的(a.c){3}$
 
-推荐使用默认的magic设置，在这种情况下，常用的匹配有: 
+推荐使用默认的magic设置，在这种情况下，常用的匹配有:
 
 1: // #查找以test结束的字符串
 
@@ -761,10 +781,9 @@ vim默认使用magic设置，这个设置也可以在正则表达式中通过 /m
 
 ### config
 
->https://www.ruanyifeng.com/blog/2018/09/vimrc.html
+><https://www.ruanyifeng.com/blog/2018/09/vimrc.html>
 
-http://www.cnblogs.com/88999660/articles/1581524.html
+<http://www.cnblogs.com/88999660/articles/1581524.html>
 
-http://www.cnblogs.com/taizi1985/archive/2007/08/13/853190.html
-https://www.cnblogs.com/luosongchao/p/3193153.html
-
+<http://www.cnblogs.com/taizi1985/archive/2007/08/13/853190.html>
+<https://www.cnblogs.com/luosongchao/p/3193153.html>

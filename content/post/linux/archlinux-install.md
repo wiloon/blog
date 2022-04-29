@@ -65,126 +65,63 @@ vscode git keepassxc chromium wqy-microhei
 
 # init
 systemctl enable sshd
-
-
-This is your chosen configuration:
-{
-    "audio": "none",
-    "bootloader": "grub-install",
-    "dry-run": false,
-    "harddrives": [
-        "/dev/sda"
-    ],
-    "hostname": "host0",
-    "kernels": [
-        "linux"
-    ],
-    "keyboard-layout": "us",
-    "mirror-region": {
-        "China": {
-            "http://mirror.lzu.edu.cn/archlinux/$repo/os/$arch": true,
-            "http://mirrors.163.com/archlinux/$repo/os/$arch": true,
-            "http://mirrors.aliyun.com/archlinux/$repo/os/$arch": true,
-            "http://mirrors.bfsu.edu.cn/archlinux/$repo/os/$arch": true,
-            "http://mirrors.dgut.edu.cn/archlinux/$repo/os/$arch": true,
-            "http://mirrors.hit.edu.cn/archlinux/$repo/os/$arch": true,
-            "http://mirrors.neusoft.edu.cn/archlinux/$repo/os/$arch": true,
-            "http://mirrors.nju.edu.cn/archlinux/$repo/os/$arch": true,
-            "http://mirrors.tuna.tsinghua.edu.cn/archlinux/$repo/os/$arch": true,
-            "http://mirrors.ustc.edu.cn/archlinux/$repo/os/$arch": true,
-            "http://mirrors.zju.edu.cn/archlinux/$repo/os/$arch": true,
-            "https://mirrors.aliyun.com/archlinux/$repo/os/$arch": true,
-            "https://mirrors.bfsu.edu.cn/archlinux/$repo/os/$arch": true,
-            "https://mirrors.dgut.edu.cn/archlinux/$repo/os/$arch": true,
-            "https://mirrors.hit.edu.cn/archlinux/$repo/os/$arch": true,
-            "https://mirrors.neusoft.edu.cn/archlinux/$repo/os/$arch": true,
-            "https://mirrors.nju.edu.cn/archlinux/$repo/os/$arch": true,
-            "https://mirrors.sjtug.sjtu.edu.cn/archlinux/$repo/os/$arch": true,
-            "https://mirrors.tuna.tsinghua.edu.cn/archlinux/$repo/os/$arch": true,
-            "https://mirrors.ustc.edu.cn/archlinux/$repo/os/$arch": true,
-            "https://mirrors.xjtu.edu.cn/archlinux/$repo/os/$arch": true
-        }
-    },
-    "nic": {
-        "nic": "ens18"
-    },
-    "ntp": true,
-    "packages": [],
-    "profile": {
-        "path": "/usr/lib/python3.10/site-packages/archinstall/profiles/minimal.py"
-    },
-    "script": "guided",
-    "swap": false,
-    "sys-encoding": "utf-8",
-    "sys-language": "en_US",
-    "timezone": "Asia/Shanghai"
-}
-{
-    "/dev/sda": {
-        "partitions": [
-            {
-                "boot": true,
-                "encrypted": false,
-                "filesystem": {
-                    "format": "fat32"
-                },
-                "format": true,
-                "mountpoint": "/boot",
-                "size": "513MB",
-                "start": "5MB",
-                "type": "primary"
-            },
-            {
-                "encrypted": false,
-                "filesystem": {
-                    "format": "xfs"
-                },
-                "format": true,
-                "mountpoint": "/",
-                "size": "100%",
-                "start": "518MB",
-                "type": "primary"
-            }
-        ],
-        "wipe": true
-    }
-}
-
 ```
 
-## archinstall config
+## archinstall config, user_configuration.json
 
 ```json
 {
-    "dry-run": true,
-    "audio": "none",
-    "bootloader": "systemd-bootctl",
+    "config_version": "2.4.1",
+    "debug": false,
+    "desktop-environment": "xfce4",
+    "gfx_driver": "VMware / VirtualBox (open-source)",
     "harddrives": [
         "/dev/sda"
     ],
-    "hostname": "foo",
-    "kernels": [
-        "linux"
-    ],
-    "keyboard-layout": "us",
+    "hostname": "archlinux",
     "mirror-region": {
         "China": {
-            "http://mirrors.aliyun.com/archlinux/$repo/os/$arch": true,
-            "http://mirrors.163.com/archlinux/$repo/os/$arch": true,
-            "http://mirrors.neusoft.edu.cn/archlinux/$repo/os/$arch": true
+            "https://mirrors.aliyun.com/archlinux/$repo/os/$arch": true,
+            "https://mirrors.163.com/archlinux/$repo/os/$arch": true,
+            "https://mirrors.neusoft.edu.cn/archlinux/$repo/os/$arch": true,
+            "https://mirrors.tuna.tsinghua.edu.cn/archlinux/$repo/os/$arch": true
         }
     },
+    "mount_point": null,
     "nic": {
-        "nic": "ens18"
+        "dhcp": true,
+        "dns": null,
+        "gateway": null,
+        "iface": null,
+        "ip": null,
+        "type": "iso"
     },
-    "ntp": true,
-    "packages": [],
-    "profile": null,
+    "packages": [
+        "git",
+        "wqy-microhei"
+    ],
+    "plugin": null,
+    "profile": {
+        "path": "/usr/lib/python3.10/site-packages/archinstall/profiles/desktop.py"
+    },
     "script": "guided",
+    "silent": false,
     "swap": false,
-    "sys-encoding": "utf-8",
-    "sys-language": "en_US",
-    "timezone": "Asia/Shanghai"
+    "timezone": "Asia/Shanghai",
+    "version": "2.4.1"
+}
+```
+
+## archinstall config, user_credentials.json
+
+```json
+{
+    "!superusers": {},
+    "!users": {
+        "wiloon": {
+            "!password": "password0"
+        }
+    }
 }
 ```
 
@@ -209,7 +146,7 @@ setup network with shell script <https://gist.github.com/wiloon/xxxxxx>
 #### or  
 
 title: systemd-networkd  
-><https://wiloon.com/systemd-networkd>
+<https://wiloon.com/systemd-networkd>
 
 ```bash
 # 给root设置密码
@@ -244,7 +181,7 @@ pacman -Sy
 ### 用 parted 分区
 
 title: parted
-><http://blog.wiloon.com/parted>
+<http://blog.wiloon.com/parted>
 
 #### 用 fdisk 分区
 
