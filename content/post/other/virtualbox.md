@@ -10,8 +10,20 @@ tags:
 ---
 ## VirtualBox
 
-<https://www.virtualbox.org/wiki/Downloads>
+## NAT 端口转发
 
+虚拟机> 设置> 网络> 网卡1> 高级> 端口转发> 添加
+
+- 名称: ssh
+- 协议: TCP
+- 主机IP: 0.0.0.0
+- 主机端口: 2022
+- 子系统IP: 10.0.2.15
+- 子系统端口: 22
+
+---
+
+<https://www.virtualbox.org/wiki/Downloads>
 
 VirtualBox 是一款开源 x86 虚拟机软件。Oracle VM VirtualBox 是由Sun Microsystems公司出品的软件，原由德国innotek公司开发，2008年Sun收购了Innotek，而Sun于2010年被Oracle收购，2010年1月21日改名成 Oracle VM VirtualBox。2007 年1月InnoTek 以 GNU General Public License (GPL) 释出 VirtualBox，并提供二进位版本及开放源码版本的代码。VirtualBox 可在 Linux 和 Windows 主机中运行，并支持在其中安装 Windows (NT 4.0、2000、XP、Server 2003、Vista)、DOS/Windows 3.x、Linux (2.4 和 2.6)、OpenBSD 等系列的客户操作系统。
 
@@ -36,6 +48,7 @@ Windows7的引导程序能够引导vhd格式的虚拟硬盘，而VirtualBox创�
 VirtualBox提供了VBoxManager.exe用来转换格式。
 
 ## virtualbox STATUS_OBJECT_NAME_NOT_FOUND
+
 <https://forums.virtualbox.org/viewtopic.php?t=66442>
 
 Went to the C:\Program Files\Oracle\VirtualBox\drivers\vboxdrv directory, right clicked on VBoxDrv.inf and selected Install. I then went back to my console and typed 'sc start vboxdrv' and got this:
@@ -61,7 +74,8 @@ PID : 0
 FLAGS :
 
 ## virtualbox mount shard folder
-https://wiki.archlinux.org/index.php/VirtualBox#Shared_Folders_as_Arch_Linux_Guest
+
+<https://wiki.archlinux.org/index.php/VirtualBox#Shared_Folders_as_Arch_Linux_Guest>
 
 ```bash
   
@@ -78,7 +92,8 @@ sharedFolderName /path/to/mntPtOnGuestMachine vboxsf uid=user,gid=group,rw,dmode
 ```
 
 ## VirtualBox 共享文件夹
-http://blkstone.github.io/2016/08/05/virtualbox-shared-folder/
+
+<http://blkstone.github.io/2016/08/05/virtualbox-shared-folder/>
 
 前提是已经安装过增强功能。
 
@@ -90,7 +105,7 @@ http://blkstone.github.io/2016/08/05/virtualbox-shared-folder/
 
 挂载共享文件夹
   
-重新进入虚拟Ubuntu,在命令行终端下输入: 
+重新进入虚拟Ubuntu,在命令行终端下输入:
 
 sudo mkdir /mnt/shared
   
@@ -110,7 +125,7 @@ gongxiang /mnt/shared vboxsf rw,gid=username,uid=username,auto 0 0
   
 sudo umount -f /mnt/shared
   
-注意: 
+注意:
   
 共享文档夹的名称千万不要和挂载点的名称相同。
 

@@ -38,29 +38,27 @@ curl -O http://mirrors.163.com/archlinux/iso/2022.02.01/archlinux-2022.02.01-x86
 
 ```bash
 pacman -Sy
-
-# ssh to 
 pacman -S archinstall
 # 执行 archinstall, 开始安装
 archinstall
 
-Select one of the above keyboard languages (by number or full name): us
-Select one of the above regions to download packages from (by number or full name): China
-Select one or more harddrives to use and configure (leave blank to skip this step): 1 
-Select what you wish to do with the selected block devices: 0
-Select which filesystem your main partition should use (by number or name): 2
-Enter disk encryption password (leave blank for no encryption):
-Would you like to use swap on zram? (Y/n): n
-Desired hostname for the installation: host0
-Enter root password (leave blank to disable root & create superuser): 
-Enter a pre-programmed profile name if you want to install one: 1
-Choose an audio server or leave blank to use none:
-Choose which kernels to use (leave blank for default: linux): 0 
-Write additional packages to install (space separated, leave blank to skip): 
-Select one network interface to configure (leave blank to skip): 2
-Select which mode to configure for ens18 or leave blank for DHCP: 0
-Enter a valid timezone (examples: Europe/Stockholm, US/Eastern) or press enter to use UTC: Asia/Shanghai
-Would you like to use automatic time synchronization (NTP) with the default time servers? [Y/n]: y
+# Select one of the above keyboard languages (by number or full name): us
+# Select one of the above regions to download packages from (by number or full name): China
+# Select one or more harddrives to use and configure (leave blank to skip this step): 1 
+# Select what you wish to do with the selected block devices: 0
+# Select which filesystem your main partition should use (by number or name): 2
+# Enter disk encryption password (leave blank for no encryption):
+# Would you like to use swap on zram? (Y/n): n
+# Desired hostname for the installation: host0
+# Enter root password (leave blank to disable root & create superuser): 
+# Enter a pre-programmed profile name if you want to install one: 1
+# Choose an audio server or leave blank to use none:
+# Choose which kernels to use (leave blank for default: linux): 0 
+# Write additional packages to install (space separated, leave blank to skip): 
+# Select one network interface to configure (leave blank to skip): 2
+# Select which mode to configure for ens18 or leave blank for DHCP: 0
+# Enter a valid timezone (examples: Europe/Stockholm, US/Eastern) or press enter to use UTC: Asia/Shanghai
+# Would you like to use automatic time synchronization (NTP) with the default time servers? [Y/n]: y
 
 # package
 vscode git keepassxc chromium wqy-microhei 
@@ -154,12 +152,47 @@ This is your chosen configuration:
 
 ```
 
+## archinstall config
+
+```json
+{
+    "dry-run": true,
+    "audio": "none",
+    "bootloader": "systemd-bootctl",
+    "harddrives": [
+        "/dev/sda"
+    ],
+    "hostname": "foo",
+    "kernels": [
+        "linux"
+    ],
+    "keyboard-layout": "us",
+    "mirror-region": {
+        "China": {
+            "http://mirrors.aliyun.com/archlinux/$repo/os/$arch": true,
+            "http://mirrors.163.com/archlinux/$repo/os/$arch": true,
+            "http://mirrors.neusoft.edu.cn/archlinux/$repo/os/$arch": true
+        }
+    },
+    "nic": {
+        "nic": "ens18"
+    },
+    "ntp": true,
+    "packages": [],
+    "profile": null,
+    "script": "guided",
+    "swap": false,
+    "sys-encoding": "utf-8",
+    "sys-language": "en_US",
+    "timezone": "Asia/Shanghai"
+}
+```
+
 最小化安装，启动后内存占用 70MB, 磁盘占用：2G
 
 初始化脚本后，70MB, 2.4G
 
 ## 从U盘引导安装
-
 
 ```bash
 # 创建USB启动盘
@@ -170,11 +203,13 @@ sudo dd bs=4M if=archlinux-2020.03.01-x86_64.iso of=/dev/sdx status=progress && 
 ```
 
 ### 设置网络
-setup network with shell script https://gist.github.com/wiloon/xxxxxx
+
+setup network with shell script <https://gist.github.com/wiloon/xxxxxx>
 
 #### or  
+
 title: systemd-networkd  
->https://wiloon.com/systemd-networkd
+><https://wiloon.com/systemd-networkd>
 
 ```bash
 # 给root设置密码
@@ -193,20 +228,26 @@ ls /sys/firmware/efi/efivars
 ```
 
 ### config pacman mirror
+
 >wangyue.dev/pacman
 
 <https://blog.wiloon.com/?p=7501>
-### pacman 更新， 不要用-Syu， -Syu有可能会把U盘写满。
+
+### pacman 更新， 不要用-Syu， -Syu有可能会把U盘写满
+
 ```bash
 pacman -Sy
 ```
 
 ## 分区并格式化硬盘
-#### 用 parted 分区
+
+### 用 parted 分区
+
 title: parted
->http://blog.wiloon.com/parted
+><http://blog.wiloon.com/parted>
 
 #### 用 fdisk 分区
+
 <http://blog.wiloon.com/?p=7609>
 
 ```bash
@@ -224,7 +265,9 @@ pacstrap /mnt/tmp base linux linux-firmware
 # 建议使用UUID方式生成fstab和启动管理器配置
 genfstab -p -U /mnt/tmp >> /mnt/tmp/etc/fstab
 ```
+
 ### 把网络配置文件复制到新系统
+
 ```bash
 cp /etc/systemd/network/wifi.network  /mnt/tmp/etc/systemd/network/
 ```
@@ -266,6 +309,7 @@ vim /etc/ssh/sshd_config # PermitRootLogin yes
 ```
 
 ### bootloader, systemd-boot
+
 ```bash
 # boot with uefi
 bootctl install
@@ -294,7 +338,6 @@ options root=PARTUUID=xxx rw
 
 <https://blog.wiloon.com/?p=15345>
 
-
 ```bash
 useradd -m -s /bin/bash wiloon
 passwd wiloon
@@ -322,25 +365,26 @@ poweroff
 ```
 
 ### 拔掉U盘开机
+
 ## archlinux init
 
 <http://blog.wiloon.com/?p=8913>
 
 * * *
 
-https://wiki.archlinux.org/index.php/Install_from_existing_Linux
+<https://wiki.archlinux.org/index.php/Install_from_existing_Linux>
   
-https://wiki.archlinux.org/index.php/Installation_guide
+<https://wiki.archlinux.org/index.php/Installation_guide>
   
-https://wiki.archlinux.org/index.php/Installing_Arch_Linux_on_a_USB_key
+<https://wiki.archlinux.org/index.php/Installing_Arch_Linux_on_a_USB_key>
   
-https://wiki.archlinux.org/index.php/Installing_Arch_Linux_on_a_USB_key_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)
+<https://wiki.archlinux.org/index.php/Installing_Arch_Linux_on_a_USB_key_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87>)
   
-http://www.linuxidc.com/Linux/2014-04/99749.htm
+<http://www.linuxidc.com/Linux/2014-04/99749.htm>
   
-https://wiki.archlinux.org/index.php/Syslinux
+<https://wiki.archlinux.org/index.php/Syslinux>
   
-https://wiki.archlinux.org/index.php/syslinux#Installation_on_BIOS
+<https://wiki.archlinux.org/index.php/syslinux#Installation_on_BIOS>
 
 * * *
 
@@ -369,4 +413,5 @@ LABEL Arch
 ```
 
 ### Arch Linux Fast Installer
->https://github.com/MatMoul/archfi
+
+><https://github.com/MatMoul/archfi>

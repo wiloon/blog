@@ -10,7 +10,7 @@ tags:
 ---
 ## remote dev
 
-## virtual box
+## virtualbox
 
 ## vm@server, xforward
 
