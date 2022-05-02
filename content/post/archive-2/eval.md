@@ -14,7 +14,7 @@ tags:
   
 eval 会对后面的 cmdLine 进行两遍扫描, 如果第一遍扫描后, cmdLine 是个普通命令, 则执行此命令；如果 cmdLine 中含有变量的间接引用, 则保证间接引用的语义。
 
-举例如下: 
+举例如下:
   
 set 11 22 33 44
   
@@ -24,7 +24,7 @@ set 11 22 33 44
   
 但是如果我们不知道有几个参数的时候, 要输出最后一个参数, 大家可能会想到使用 `$#` 来输出最后一个参数
   
-如果使用命令: 
+如果使用命令:
   
     echo "\$$#"
 
@@ -63,6 +63,6 @@ echo "Last argument is $(eval echo $#)"
 
 ---
 
-转自: http://www.2cto.com/os/201311/255577.html
-转自: http://www.cnblogs.com/xdzone/archive/2011/03/15/1984971.html
-https://blog.csdn.net/vizts/article/details/47043695
+转自: <http://www.2cto.com/os/201311/255577.html>
+转自: <http://www.cnblogs.com/xdzone/archive/2011/03/15/1984971.html>
+<https://blog.csdn.net/vizts/article/details/47043695>

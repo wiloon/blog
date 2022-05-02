@@ -132,13 +132,13 @@ Usage of the $ like ${HOME} gives the value of HOME. Usage of the $ like $(echo 
 
 #### Command Substitution
 
-> <https://www.gnu.org/software/bash/manual/html_node/Command-Substitution.html>
+<https://www.gnu.org/software/bash/manual/html_node/Command-Substitution.html>
 
 ## 括号
 
 ## shell 括号
 
-#### 小括号，圆括号 `()`
+### 小括号，圆括号 `()`
 
 单小括号 `()`
 命令组。括号中的命令将会新开一个子 shell 顺序执行，所以括号中的变量不能够被脚本余下的部分使用。括号中多个命令之间用分号隔开，最后一个命令可以没有分号，各命令和括号之间不必有空格。
@@ -1378,3 +1378,17 @@ fun0 foo
 <https://www.runoob.com/linux/linux-shell-func.html>
   
 <https://wiki.jikexueyuan.com/project/shell-tutorial/shell-function-parameter.html>
+
+## shell 把命令输出结果存入变量
+
+```bash
+  
+var=$(ls -lR|grep "^d"|wc -l)
+  
+或者另外一种 不建议的方式
+  
+var=\`ls -lR|grep "^d"|wc -l\`
+  
+```
+
+<https://blog.csdn.net/baidu_35757025/article/details/64440047>

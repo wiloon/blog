@@ -10,6 +10,7 @@ tags:
   - reprint
 ---
 ## 'clean arch  linux'
+
 ```bash
   
 sudo pacman -R $(pacman -Qtdq)
@@ -26,4 +27,4 @@ sudo pacman -S filelight
   
 ```
 
-https://www.youtube.com/watch?v=3OoMvyHYWDY
+<https://www.youtube.com/watch?v=3OoMvyHYWDY>

@@ -25,7 +25,7 @@ xargs 可以将输入内容 (通常通过命令行管道传递), 转成后续命
 ```bash
 ls *.js | xargs -t -n2 ls -al
 # 输出如下, -n2表示, 将参数以两个为一组, 传给后面的命令。
-curl http://foo.bar.com |xargs -t -n1 -d '\n' |xmllint --format
+curl http://foo.bar.com | xargs -t -n1 -d '\n' | xmllint --format
 ```
 
 例子: 参数分组
