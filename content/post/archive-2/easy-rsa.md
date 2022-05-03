@@ -10,6 +10,7 @@ tags:
   - reprint
 ---
 ## easy-rsa
+
 ```bash
 #debian
 apt-get install easy-rsa
@@ -38,4 +39,4 @@ chown root:root /etc/openvpn/server/ca.crt
 
 ```
 
-https://www.digitalocean.com/community/tutorials/how-to-set-up-an-openvpn-server-on-debian-8
+<https://www.digitalocean.com/community/tutorials/how-to-set-up-an-openvpn-server-on-debian-8>

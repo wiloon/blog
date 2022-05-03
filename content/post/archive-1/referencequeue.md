@@ -4,31 +4,30 @@ author: "-"
 date: 2015-06-26T14:11:54+00:00
 url: ReferenceQueue
 categories:
-  - Uncategorized
+  - Java
 tags:
   - Java
-
 ---
 ## ReferenceQueue
+
 引用队列 ReferenceQueue
-使用SoftReference，WeakReference，PhantomReference 的时候，可以关联一个ReferenceQueue。那么当垃圾回收器准备回收一个被引用包装的对象时，该引用会被加入到关联的ReferenceQueue。程序可以通过判断引用队列中是否已经加入引用,来了解被引用的对象是否被GC回收。
+使用 SoftReference，WeakReference，PhantomReference 的时候，可以关联一个 ReferenceQueue。那么当垃圾回收器准备回收一个被引用包装的对象时，该引用会被加入到关联的 ReferenceQueue。程序可以通过判断引用队列中是否已经加入引用, 来了解被引用的对象是否被GC回收。
 
 作者: leilifengxingmw
-链接: https://www.jianshu.com/p/6ae4f53a4752
+链接: <https://www.jianshu.com/p/6ae4f53a4752>
 来源: 简书
 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
 
-http://www.iflym.com/index.php/java-programe/201407140001.html
+<http://www.iflym.com/index.php/java-programe/201407140001.html>
 
+在java的引用体系中，存在着强引用，软引用，虚引用，幽灵引用，这4种引用类型。在正常的使用过程中，我们定义的类型都是强引用的，这种引用类型在回收中，只有当其它对象没有对这个对象的引用时，才会被GC回收掉。简单来说，对于以下定义:
 
-### ReferenceQueue
-在java的引用体系中，存在着强引用，软引用，虚引用，幽灵引用，这4种引用类型。在正常的使用过程中，我们定义的类型都是强引用的，这种引用类型在回收中，只有当其它对象没有对这个对象的引用时，才会被GC回收掉。简单来说，对于以下定义: 
-
+```java
 Object obj = new Object();
-  
 Ref ref = new Ref(obj);
+```
   
-在这种情况下，如果ref没有被GC，那么obj这个对象肯定不会GC的。因为ref引用到了obj。如果obj是一个大对象呢，多个这种对象的话，应用肯定一会就挂掉了。
+在这种情况下，如果 ref 没有被 GC，那么 obj 这个对象肯定不会 GC 的。因为 ref 引用到了 obj。如果 obj 是一个大对象呢，多个这种对象的话，应用肯定一会就挂掉了。
 
 那么，如果我们希望在这个体系中，如果obj没有被其它对象引用，只是在这个Ref中存在引用时，就把obj对象gc掉。这时候就可以使用这里提到的Reference对象了。
 
@@ -36,9 +35,9 @@ Ref ref = new Ref(obj);
 
 2 使用队列进行数据监控
 
-一个简单的例子，通过往map中放入10000个对象，每个对象大小为1M字节数组。使用引用队列监控被放入的key的回收情况。代码如下所示: 
+一个简单的例子，通过往map中放入10000个对象，每个对象大小为1M字节数组。使用引用队列监控被放入的key的回收情况。代码如下所示:
 
-
+```java
 Object value = new Object();
   
 Map<Object, Object> map = new HashMap<>();
@@ -55,7 +54,9 @@ map.put(weakReference, value);
   
 System.out.println("map.size->" + map.size());
   
-这里使用了weakReference对象，即当值不再被引用时，相应的数据被回收。另外使用一个线程不断地从队列中获取被gc的数据，代码如下: 
+```
+
+这里使用了weakReference对象，即当值不再被引用时，相应的数据被回收。另外使用一个线程不断地从队列中获取被gc的数据，代码如下:
 
 Thread thread = new Thread(() -> {
   
@@ -83,7 +84,7 @@ thread.setDaemon(true);
   
 thread.start();
   
-结果如下所示: 
+结果如下所示:
 
 9992回收了:java.lang.ref.WeakReference@1d13cd4
   
@@ -107,7 +108,7 @@ weakHashMap即使用weakReference当作key来进行数据的存储，当key中�
 
 从简单来看，我们认为其中所有一个类似的机制从queue中获取引用信息，从而使得被gc掉的key值所对应的entry从map中被移除。这个处理点就在我们调用weakhashmap的各个处理点中，比如get,size,put等。简单点来说，就是在调用get时，weakHashMap会先处理被gc掉的key值，然后再处理我们的业务调用。
 
-简单点代码如下: 
+简单点代码如下:
 
 public int size() {
   
@@ -121,7 +122,7 @@ return size;
   
 }
   
-此处的expungeStaleEntries即移除方法，具体的逻辑可以由以下的流程来描述: 
+此处的expungeStaleEntries即移除方法，具体的逻辑可以由以下的流程来描述:
 
 A:使用一个继承于WeakReference的entry对象表示每一个kv对，其中的原引用对象即我们在放入map中的key值
   
@@ -131,7 +132,7 @@ C:由queue拿到的事件对象，即这里的entry值。通过entry定位到具
   
 因此，这里的引用处理并不是自动的，其实是我们在调用某些方法的时候处理，所以我们认为它不是一种自动的，只是表面上看起来是这种处理。
   
-具体的代码，即将开始的map定义为一个WeakHashMap，最终的输出类似如下所示: 
+具体的代码，即将开始的map定义为一个WeakHashMap，最终的输出类似如下所示:
 
 9993回收了:java.lang.ref.WeakReference@12aa816
   
@@ -147,7 +148,7 @@ weakHashMap.size->4
 
 反向操作，即意味着一个数据变化了，可以通过weakReference对象反向拿相关的数据，从而进行业务的处理。比如，我们可以通过继承weakReference对象，加入自定义的字段值，额外处理。一个类似weakHashMap如下，这时，我们不再将key值作为弱引用处理，而是封装在weakReference对象中，以实现额外的处理。
 
-WeakR对象定义如下: 
+WeakR对象定义如下:
 
 //描述一种强key关系的处理，当value值被回收之后，我们可以通过反向引用将key从map中移除的做法
   
@@ -167,7 +168,7 @@ this.key = key;
   
 }
   
-那么，相应的map，我们就使用普通的hashMap，将weakR作为value进行存储，如下所示: 
+那么，相应的map，我们就使用普通的hashMap，将weakR作为value进行存储，如下所示:
 
 final Map<Object, WeakR> hashMap = new HashMap<>();
   
@@ -181,7 +182,7 @@ hashMap.put(bytesKey, new WeakR(bytesKey, bytesValue, referenceQueue));
   
 }
   
-相应的队列，我们则一样地进行监控，不同的是，我们对获取的WeakR对象进行了额外的处理，如下所示: 
+相应的队列，我们则一样地进行监控，不同的是，我们对获取的WeakR对象进行了额外的处理，如下所示:
 
 int cnt = 0;
   
@@ -205,7 +206,7 @@ hashMap.remove(k.key);
   
 在cache中，key不重要并且通常都很少，value才是需要对待的。这里通过监控value变化，反向修改map，以达到控制kv的目的，避免出现无用的kv映射。
 
-相应的输出，如下所示: 
+相应的输出，如下所示:
 
 9995回收了:com.m_ylf.study.java.reference.TestCase$1WeakR@13c5f83
   
@@ -221,4 +222,4 @@ hashMap.size->1
 
 转载请标明出处:i flym
   
-本文地址:http://www.iflym.com/index.php/java-programe/201407140001.html
+本文地址:<http://www.iflym.com/index.php/java-programe/201407140001.html>

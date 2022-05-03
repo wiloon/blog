@@ -122,7 +122,7 @@ CMD命令设置容器启动后默认执行的命令及其参数，但CMD设置�
 
 ENTRYPOINT配置容器启动时的执行命令 (不会被忽略，一定会被执行，即使运行 docker run 时指定了其他命令）
 
-## Shell格式和Exec格式运行命令
+## Shell 格式和 Exec 格式运行命令
 
 我们可用两种方式指定 RUN、CMD 和 ENTRYPOINT 要运行的命令：Shell 格式和 Exec 格式：
 

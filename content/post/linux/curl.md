@@ -19,6 +19,16 @@ tags:
 ```bash
 -s, --silent, 不显示下载进度
 -C, --continue-at, 断点续传
+-o, --output <file>, write  output to <file> instead of stdout.
+--connect-timeout <seconds>
+-G/--get 以get的方式来发送数据
+-i, --include 输出时包括protocol头信息, 显示response header
+-v, verbos
+-N, Disables the buffering of the output stream
+-H, --header LINE Custom header to pass to server (H)
+-d, --data DATA HTTP POST data, 如果使用-d命令，curl会以application/x-www-url-encoded格式上传参数。
+--retry, 重试次数
+# 如果使用了-F参数，curl会以multipart/form-data的方式发送POST请求。-F以key=value的形式指定要上传的参数，如果是文件，则需要使用key=@file的形式。
 ```
 
 ## 断点续传
@@ -134,7 +144,7 @@ curl -G -v "http://localhost:30001/data" --data-urlencode "msg=hello world" --da
 ### 限制下载速率
 
 ```bash
-    curl "http://toutiao.sogoucdn.com/ykvideo/20181130/0575139af28f38c336912739acf33a88.mp4" -o video --limit-rate 100k
+curl "http://toutiao.sogoucdn.com/ykvideo/20181130/0575139af28f38c336912739acf33a88.mp4" -o video --limit-rate 100k
 ```
 
 ```bash
@@ -155,18 +165,6 @@ curl -O http://foo.com/foo.txt
 curl -O -J  "http://localhost:63005/file-server?name=foo.txt"
 
 curl -v --socks5-hostname 127.0.0.1:1080 https://www.google.com/
-
-# --connect-timeout <seconds>
-# -G/--get 以get的方式来发送数据
-# -i, --include 输出时包括protocol头信息, 显示response header
-# -v, verbos
-# -N, Disables the buffering of the output stream
-# -H, --header LINE Custom header to pass to server (H)
-# -d, --data DATA HTTP POST data, 如果使用-d命令，curl会以application/x-www-url-encoded格式上传参数。
-# -o, --output <file>, write  output to <file> instead of stdout.
-# --retry, 重试次数
-
-如果使用了-F参数，curl会以multipart/form-data的方式发送POST请求。-F以key=value的形式指定要上传的参数，如果是文件，则需要使用key=@file的形式。
 
 ```
 

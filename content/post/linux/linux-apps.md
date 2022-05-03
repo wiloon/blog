@@ -4,7 +4,7 @@ author: "w10n"
 date: 2022-04-04 17:43:03
 url: linux/apps
 categories:
-  - linux
+  - Linux
 tags:
   - remix
 ---
@@ -19,9 +19,6 @@ tags:
 sudo pacman -S code go jdk-openjdk openjdk-src \
 maven gradle openvpn nftables zstd chromium \
 git jdk8-openjdk openjdk8-src kotlin docker
-
-# for PC
-sudo pacman -S wine rdesktop pulseaudio
 
 # kde
 sudo pacman -S powerdevil kmix kscreen ark
@@ -188,8 +185,8 @@ sudo pacman -S powerdevil kmix kscreen ark
 | neofetch         | 发行版logo                                                  |
 | tree             | 以树型结构显示文件目录结构, tree -L N 子文件夹显示到第 N 层 |
 | x11-apps         | xclock, xserver 测试用                                      |
-|rar||
-|unrar||
+| rar ||
+| unrar ||
 
 ### ubuntu install chrome
 
@@ -202,11 +199,12 @@ sudo apt install ./google-chrome-stable_current_amd64.deb
 
 file-roller
 
-### downlaod tar
+### tar
 
 | Name   | Comments              |
 | ------ | --------------------- |
 | Ventoy | 各种iso安装盘引导工具 |
+| jetbrains-toolbox ||
 
 ### openwrt
 
@@ -220,4 +218,4 @@ file-roller
 | Name    | Comments |
 | ------- | -------- |
 | datagrip   |          |
-|  |          |
+| Joplin | Joplin.AppImage         |

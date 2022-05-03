@@ -10,18 +10,22 @@ tags:
   - reprint
 ---
 ## google 搜索
-  * 转义, 加引号
+
+- 转义, 加引号
 
 ```bash
 linux "-xxx"
 ```
 
 ### 特定域
-```
+
+```r
 site: 在特定域中进行搜索
 -site: 排除特定域
 ```
 
 ### 文件类型
 
+```r
     filetype: PDF
+```

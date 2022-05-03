@@ -17,7 +17,7 @@ Go 语言是静态类型的编程语言
 
 ### latest
 
-1.18
+1.18.1
 
 ### current
 
@@ -67,13 +67,15 @@ https://colobu.com/2020/12/27/go-with-os-exec/
 
 ### commands
 
+```bash
     go get -u xorm.io/xorm
     go run -race cmd.go // 竞态检测
+```
 
 ### install
 
 china mainland download
-><https://golang.google.cn/>
+<https://golang.google.cn/>
 
 #### ubuntu
 

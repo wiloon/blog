@@ -4,7 +4,7 @@ author: "-"
 date: 2017-06-04T09:15:09+00:00
 url: java/gc
 categories:
-  - java
+  - Java
 tags:
   - reprint
   - GC

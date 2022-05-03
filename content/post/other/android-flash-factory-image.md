@@ -10,12 +10,14 @@ tags:
   - reprint
 ---
 ## 安卓线刷升级, flash factory image for android
+
 ### download factory image from
+
 <https://developer.android.com/preview/get>
   
 <https://developers.google.com/android/images>
 
->https://developer.android.com/about/versions/12/download
+><https://developer.android.com/about/versions/12/download>
 
 ```bash
 wget https://dl.google.com/dl/android/aosp/angler-opr6.170623.013-factory-a63b2f21.zip
@@ -25,9 +27,13 @@ wget https://dl.google.com/dl/android/aosp/angler-opr6.170623.013-factory-a63b2f
 for linux
 https://wiki.archlinux.org/index.php/android#Detect_the_device
 ```
+
 ### 开发者模式
+
 ...
+
 ### unlock
+
 开发者模式>oem unlock
     adb reboot bootloader
      fastboot flashing unlock
@@ -83,9 +89,9 @@ fastboot format cache
   
 ```
 
-http://www.inexus.co/thread-386-1-1.html
+<http://www.inexus.co/thread-386-1-1.html>
 
-https://blog.nraboy.com/2014/11/manually-update-nexus-device-android-5-0-lollipop/
+<https://blog.nraboy.com/2014/11/manually-update-nexus-device-android-5-0-lollipop/>
   
 nexus中文网原创教程，本文以nexus 5为例编写，其他nexus设备原理一样，只需下载不同的系统底包即可，转贴请注明。
 
@@ -93,12 +99,11 @@ nexus中文网原创教程，本文以nexus 5为例编写，其他nexus设备原
 
 准备工具: 需要保证您的手机解锁了，如果没有解锁的话，需要先解锁，inexus论坛也很多办法，建议您用论坛置顶的帖子 (其实bootloader模式里，用fastboot oem unlock即可解锁 ) ，已经解锁过的同学可以忽略。
 
-以下是具体的步骤:  (同学们如果有不明白的地方请单独发贴，不然无法回应) 
+以下是具体的步骤:  (同学们如果有不明白的地方请单独发贴，不然无法回应)
 
+最后你将有类似以下的文件 (图比较老，仅供参考，各个设备的安卓系统包内不完全一样) :
 
-最后你将有类似以下的文件 (图比较老，仅供参考，各个设备的安卓系统包内不完全一样) : 
-
-4.如果想保留数据升级到安卓5.0.1 nexus 5,nexus 7,nexus 6,nexus 9,nexus 10用户用下面的办法修改flash-all.bat: 
+4.如果想保留数据升级到安卓5.0.1 nexus 5,nexus 7,nexus 6,nexus 9,nexus 10用户用下面的办法修改flash-all.bat:
 
 pc电脑用文本编辑器例如记事本等打开flash-all.bat,linux或者mac使用相关编辑器打开里面的flash-all.sh,将 fastboot update命令之前的"-w"给去掉，如果不去掉这个-w的话，您的数据将被删除。
 
@@ -118,8 +123,6 @@ pc电脑用文本编辑器例如记事本等打开flash-all.bat,linux或者mac�
   
 待手机进入这个模式后，再输入 flash-all.bat，见下图(一定要使用去掉-w的.bat，不然就会清空数据的)，或者直接在电脑上双击flash-all.bat运行它。
 
- 
-
 然后就是等待，如果出现遇到"missing system.img"问题，恭喜您，需要移步到小编写的另外一个教程来进行手动刷机，见解决手动升级安卓5.0遇到"missing system.img"问题
   
 如果您严格按照上面的办法做了，就不会失败了。
@@ -127,7 +130,6 @@ pc电脑用文本编辑器例如记事本等打开flash-all.bat,linux或者mac�
 亲自测试成功。
 
 * * *
-
 
 adb devices
   
@@ -147,12 +149,8 @@ List of devices attached
 
 If the device is shown as unauthorized, go to the developer options on the phone and click "Revoke USB debugging authorization" (tested with JellyBean & Samsung GalaxyIII).
 
-
-  
     Restart ADB Server:
   
-
-
 Then restarted adb server
 
 adb kill-server
@@ -163,12 +161,8 @@ adb start-server
 
 The device will ask if you are agree to connect the computer id. You need to confirm it.
 
-
-  
     Now Check the device
   
-
-
 It is now authorized!
 
 adb devices
@@ -179,6 +173,6 @@ List of devices attached
   
 4df798d76f98cf6d device
 
->https://stackoverflow.com/questions/23081263/adb-android-device-unauthorized
+><https://stackoverflow.com/questions/23081263/adb-android-device-unauthorized>
 
-http://sspai.com/27429
+<http://sspai.com/27429>

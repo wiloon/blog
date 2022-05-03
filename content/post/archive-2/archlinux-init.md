@@ -120,14 +120,7 @@ pacman -S file-roller
 # xfce4 date time plugin format #%b %d%n%V %a%n%R
 <http://goodies.xfce.org/projects/panel-plugins/xfce4-datetime-plugin>
 
-# for virtualbox
 
-在virtual box 内安装的archlinux, 需要安装 virtualbox-guest-utils, 可以获得更流畅的图形界面,如virtual的无缝模式。
-  
-<https://wiki.archlinux.org/index.php/VirtualBox>
-<https://bbs.archlinux.org/viewtopic.php?id=118986>
-
-```
 
 ### sddm
     systemctl enable sddm

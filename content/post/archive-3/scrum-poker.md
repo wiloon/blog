@@ -10,7 +10,7 @@ tags:
   - reprint
 ---
 ## scrum poker
-android,ios: Scrum Poker Cards (Agile)
+android,iOS: Scrum Poker Cards (Agile)
 
 
   

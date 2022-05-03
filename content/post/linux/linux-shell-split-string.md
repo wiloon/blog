@@ -9,6 +9,7 @@ tags:
   - reprint
 ---
 ## linux shell split string
+
 ```bash
   
 sentence="This is   a sentence."

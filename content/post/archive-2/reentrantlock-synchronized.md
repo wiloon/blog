@@ -10,11 +10,13 @@ tags:
   - reprint
 ---
 ## Java ReentrantLock, synchronized
-http://www.ibm.com/developerworks/cn/java/j-jtp10264/index.html
+
+<http://www.ibm.com/developerworks/cn/java/j-jtp10264/index.html>
 
 多线程和并发性并不是什么新内容,但是 Java 语言设计中的创新之一就是,它是第一个直接把跨平台线程模型和正规的内存模型集成到语言中的主流语言。核心类库包含一个 Thread 类,可以用它来构建、启动和操纵线程,Java 语言包括了跨线程传达并发性约束的构造 - synchronized 和 volatile. 在简化与平台无关的并发类的开发的同时,它决没有使并发类的编写工作变得更繁琐,只是使它变得更容易了。
 
 ### synchronized 快速回顾
+
 把代码块声明为 synchronized,有两个重要后果, 通常是指该代码具有 原子性 (atomicity) 和 可见性 (visibility) 。
   
 原子性意味着一个线程一次只能执行由一个指定监控对象 (lock) 保护的代码,从而防止多个线程在更新共享状态时相互冲突。
@@ -27,17 +29,18 @@ synchronized (lockObject) {
 }
 ```
 
-所以,实现同步操作需要考虑安全更新多个共享变量所需的一切,不能有争用条件, 不能破坏数据 (假设同步的边界位置正确) ,而且要保证正确同步的其他线程可以看到这些变量的最新值。通过定义一个清晰的、跨平台的内存模型 (该模型在 JDK 5.0 中做了修改,改正了原来定义中的某些错误) ,通过遵守下面这个简单规则,构建"一次编写,随处运行"的并发类是有可能的: 
+所以,实现同步操作需要考虑安全更新多个共享变量所需的一切,不能有争用条件, 不能破坏数据 (假设同步的边界位置正确) ,而且要保证正确同步的其他线程可以看到这些变量的最新值。通过定义一个清晰的、跨平台的内存模型 (该模型在 JDK 5.0 中做了修改,改正了原来定义中的某些错误) ,通过遵守下面这个简单规则,构建"一次编写,随处运行"的并发类是有可能的:
 
 不论什么时候,只要您将编写的变量接下来可能被另一个线程读取,或者您将读取的变量最后是被另一个线程写入的,那么您必须进行同步。
   
-不过现在好了一点,在最近的 JVM 中,没有争用的同步 (一个线程拥有锁的时候,没有其他线程企图获得锁) 的性能成本还是很低的。 (也不总是这样；早期 JVM 中的同步还没有优化,所以让很多人都这样认为,但是现在这变成了一种误解,人们认为不管是不是争用,同步都有很高的性能成本。) 
+不过现在好了一点,在最近的 JVM 中,没有争用的同步 (一个线程拥有锁的时候,没有其他线程企图获得锁) 的性能成本还是很低的。 (也不总是这样；早期 JVM 中的同步还没有优化,所以让很多人都这样认为,但是现在这变成了一种误解,人们认为不管是不是争用,同步都有很高的性能成本。)
 
 对 synchronized 的改进
   
 如此看来同步相当好了,是么？那么为什么 JSR 166 小组花了这么多时间来开发 java.util.concurrent.lock 框架呢？ 答案很简单－同步是不错,但它并不完美。它有一些功能性的限制 —— 它无法中断一个正在等候获得锁的线程,也无法通过投票得到锁,如果不想等下去,也就没法得到锁。同步还要求锁的释放只能在与获得锁所在的堆栈帧相同的堆栈帧中进行,多数情况下,这没问题 (而且与异常处理交互得很好) ,但是,确实存在一些非块结构的锁定更合适的情况。
 
 ### ReentrantLock/重入锁
+
 ReentrantLock的实现不仅可以替代隐式的 synchronized 关键字,而且能够提供超过关键字本身的多种功能。
   
 这里提到一个锁获取的公平性问题,如果在绝对时间上,先对锁进行获取的请求一定被先满足,那么这个锁是公平的,反之,是不公平的,也就是说等待时间最长的线程最有机会获取锁,也可以说锁的获取是有序的。ReentrantLock 这个锁提供了一个构造函数,能够控制这个锁是否是公平的。
@@ -46,7 +49,7 @@ ReentrantLock的实现不仅可以替代隐式的 synchronized 关键字,而且�
   
 事实上公平的锁机制往往没有非公平的效率高,因为公平的获取锁没有考虑到操作系统对线程的调度因素,这样造成JVM对于等待中的线程调度次序和操作系统对线程的调度之间的不匹配。对于锁的快速且重复的获取过程中,连续获取的概率是非常高的,而公平锁会压制这种情况,虽然公平性得以保障,但是响应比却下降了,但是并不是任何场景都是以TPS作为唯一指标的,因为公平锁能够减少"饥饿"发生的概率,等待越久的请求越是能够得到优先满足。
 
-java.util.concurrent.lock 中的 Lock 框架是锁定的一个抽象,它允许把锁定的实现作为 Java 类,而不是作为语言的特性来实现。这就为 Lock 的多种实现留下了空间,各种实现可能有不同的调度算法、性能特性或者锁定语义。 ReentrantLock 类实现了 Lock ,它拥有与 synchronized 相同的并发性和内存语义,但是添加了类似锁投票、定时锁等候和可中断锁等候的一些特性。此外,它还提供了在激烈争用情况下更佳的性能。 (换句话说,当许多线程都想访问共享资源时,JVM 可以花更少的时候来调度线程,把更多时间用在执行线程上。) 
+java.util.concurrent.lock 中的 Lock 框架是锁定的一个抽象,它允许把锁定的实现作为 Java 类,而不是作为语言的特性来实现。这就为 Lock 的多种实现留下了空间,各种实现可能有不同的调度算法、性能特性或者锁定语义。 ReentrantLock 类实现了 Lock ,它拥有与 synchronized 相同的并发性和内存语义,但是添加了类似锁投票、定时锁等候和可中断锁等候的一些特性。此外,它还提供了在激烈争用情况下更佳的性能。 (换句话说,当许多线程都想访问共享资源时,JVM 可以花更少的时候来调度线程,把更多时间用在执行线程上。)
 
 reentrant 锁意味着什么呢？简单来说,它有一个与锁相关的获取计数器,如果拥有锁的某个线程再次得到锁,那么获取计数器就加1,然后锁需要被释放两次才能获得真正释放。这模仿了 synchronized 的语义；如果线程进入由线程已经拥有的监控器保护的 synchronized 块,就允许线程继续进行,当线程退出第二个 (或者后续)  synchronized 块的时候,不释放锁,只有线程退出它进入的监控器保护的第一个 synchronized 块时,才释放锁。
 
@@ -74,7 +77,7 @@ lock.unlock();
   
 比较 ReentrantLock 和 synchronized 的可伸缩性
 
-Tim Peierls 用一个简单的线性全等伪随机数生成器 (PRNG) 构建了一个简单的评测,用它来测量 synchronized 和 Lock 之间相对的可伸缩性。这个示例很好,因为每次调用 nextRandom() 时,PRNG 都确实在做一些工作,所以这个基准程序实际上是在测量一个合理的、真实的 synchronized 和 Lock 应用程序,而不是测试纯粹纸上谈兵或者什么也不做的代码 (就像许多所谓的基准程序一样。) 
+Tim Peierls 用一个简单的线性全等伪随机数生成器 (PRNG) 构建了一个简单的评测,用它来测量 synchronized 和 Lock 之间相对的可伸缩性。这个示例很好,因为每次调用 nextRandom() 时,PRNG 都确实在做一些工作,所以这个基准程序实际上是在测量一个合理的、真实的 synchronized 和 Lock 应用程序,而不是测试纯粹纸上谈兵或者什么也不做的代码 (就像许多所谓的基准程序一样。)
 
 在这个基准程序中,有一个 PseudoRandom 的接口,它只有一个方法 nextRandom(int bound) 。该接口与 java.util.Random 类的功能非常类似。因为在生成下一个随机数时,PRNG 用最新生成的数字作为输入,而且把最后生成的数字作为一个实例变量来维护,其重点在于让更新这个状态的代码段不被其他线程抢占,所以我要用某种形式的锁定来确保这一点。 ( java.util.Random 类也可以做到这点。) 我们为 PseudoRandom 构建了两个实现；一个使用 syncronized,另一个使用 java.util.concurrent.ReentrantLock 。驱动程序生成了大量线程,每个线程都疯狂地争夺时间片,然后计算不同版本每秒能执行多少轮。图 1 和 图 2 总结了不同线程数量的结果。这个评测并不完美,而且只在两个系统上运行了 (一个是双 Xeon 运行超线程 Linux,另一个是单处理器 Windows 系统) ,但是,应当足以表现 synchronized 与 ReentrantLock 相比所具有的伸缩性优势了。
   
@@ -104,7 +107,7 @@ Tim Peierls 用一个简单的线性全等伪随机数生成器 (PRNG) 构建了
 
 虽然 ReentrantLock 是个非常动人的实现,相对 synchronized 来说,它有一些重要的优势,但是我认为急于把 synchronized 视若敝屣,绝对是个严重的错误。 java.util.concurrent.lock 中的锁定类是用于高级用户和高级情况的工具 。一般来说,除非您对 Lock 的某个高级特性有明确的需要,或者有明确的证据 (而不是仅仅是怀疑) 表明在特定情况下,同步已经成为可伸缩性的瓶颈,否则还是应当继续使用 synchronized。
 
-为什么我在一个显然"更好的"实现的使用上主张保守呢？因为对于 java.util.concurrent.lock 中的锁定类来说,synchronized 仍然有一些优势。比如,在使用 synchronized 的时候,不能忘记释放锁；在退出 synchronized 块时,JVM 会为您做这件事。您很容易忘记用 finally 块释放锁,这对程序非常有害。您的程序能够通过测试,但会在实际工作中出现死锁,那时会很难指出原因 (这也是为什么根本不让初级开发人员使用 Lock 的一个好理由。) 
+为什么我在一个显然"更好的"实现的使用上主张保守呢？因为对于 java.util.concurrent.lock 中的锁定类来说,synchronized 仍然有一些优势。比如,在使用 synchronized 的时候,不能忘记释放锁；在退出 synchronized 块时,JVM 会为您做这件事。您很容易忘记用 finally 块释放锁,这对程序非常有害。您的程序能够通过测试,但会在实际工作中出现死锁,那时会很难指出原因 (这也是为什么根本不让初级开发人员使用 Lock 的一个好理由。)
 
 另一个原因是因为,当 JVM 用 synchronized 管理锁定请求和释放时,JVM 在生成线程转储时能够包括锁定信息。这些对调试非常有价值,因为它们能标识死锁或者其他异常行为的来源。 Lock 类只是普通的类,JVM 不知道具体哪个线程拥有 Lock 对象。而且,几乎每个开发人员都熟悉 synchronized,它可以在 JVM 的所有版本中工作。在 JDK 5.0 成为标准 (从现在开始可能需要两年) 之前,使用 Lock 类将意味着要利用的特性不是每个 JVM 都有的,而且不是每个开发人员都熟悉的。
 
@@ -113,7 +116,6 @@ Tim Peierls 用一个简单的线性全等伪随机数生成器 (PRNG) 构建了
 既然如此,我们什么时候才应该使用 ReentrantLock 呢？答案非常简单 —— 在确实需要一些 synchronized 所没有的特性的时候,比如时间锁等候、可中断锁等候、无块结构锁、多个条件变量或者锁投票。 ReentrantLock 还具有可伸缩性的好处,应当在高度争用的情况下使用它,但是请记住,大多数 synchronized 块几乎从来没有出现过争用,所以可以把高度争用放在一边。我建议用 synchronized 开发,直到确实证明 synchronized 不合适,而不要仅仅是假设如果使用 ReentrantLock "性能会更好"。请记住,这些是供高级用户使用的高级工具。 (而且,真正的高级用户喜欢选择能够找到的最简单工具,直到他们认为简单的工具不适用为止。) 。一如既往,首先要把事情做好,然后再考虑是不是有必要做得更快。
   
 Lock 框架是同步的兼容替代品,它提供了 synchronized 没有提供的许多特性,它的实现在争用下提供了更好的性能。但是,这些明显存在的好处,还不足以成为用 ReentrantLock 代替 synchronized 的理由。相反,应当根据您是否 需要 ReentrantLock 的能力来作出选择。大多数情况下,您不应当选择它 —— synchronized 工作得很好,可以在所有 JVM 上工作,更多的开发人员了解它,而且不太容易出错。只有在真正需要 Lock 的时候才用它。在这些情况下,您会很高兴拥有这款工具。
-
 
 ### ReentrantLock与synchronized的系统调用
 
@@ -126,12 +128,7 @@ Lock 框架是同步的兼容替代品,它提供了 synchronized 没有提供的
 
 前置知识
 ReentrantLock原理
-一图胜前言,ReentrantLock从大局上看原理如下 (注意ReentrantLock继承自AbstractQueuedSynchronizer) 
-
-
-
-
-
+一图胜前言,ReentrantLock从大局上看原理如下 (注意ReentrantLock继承自AbstractQueuedSynchronizer)
 
 一个数字state表示资源,一个线程尝试CAS地去+1,操作成功即上锁,那么可以欢快的执行锁内的代码
 另一个哥们(线程)也来尝试CAS地+1,不好意思锁别人占着,你乖乖排队去 (双向的CLH队列) 阻塞,后面的线程来抢锁,抢不到都排队去就完事
@@ -140,11 +137,6 @@ ReentrantLock原理
 
 synchronized原理
 synchronized由于是JDK自带的锁,是JVM层面去实现的 (因为JDK1.6后synchronized有锁升级的过程,此处只分析synchronized重量级锁) ,具体是用ObjectMonitor来实现,开局一张原理图
-
-
-
-
-
 
 ObjectMonitor主要数据结构如下
 
@@ -169,7 +161,7 @@ ObjectMonitor() {
 屏蔽硬件的复杂性: 硬件千奇百怪,各种型号,需要各种匹配的驱动才能运行,一个应用层软件想从硬盘读取数据,如果没有操作系统这个黑盒子给你提供便利 (系统调用) ,那你要从硬盘驱动开始写？等你写好了塑料花儿都谢了。
 所以,系统调用开销是很大的,因此在程序中尽量减少系统调用的次数,并且让每次系统调用完成尽可能多的工作,例如每次读写大量的数据而不是每次仅读写一个字符。
 
-那么Linux有哪些系统调用？这里可以查(系统调用表): http://blog.rchapman.org/posts/Linux_System_Call_Table_for_x86_64
+那么Linux有哪些系统调用？这里可以查(系统调用表): <http://blog.rchapman.org/posts/Linux_System_Call_Table_for_x86_64>
 
 从系统调用的角度分析
 就一个锁而言,那么关键的东西我认为是如何上锁以及如何让线程阻塞以及唤醒线程,那么就从这三个方面分析
@@ -194,9 +186,10 @@ protected final boolean compareAndSetState(int expect, int update) {
     // See below for intrinsics setup to support this
     return unsafe.compareAndSwapInt(this, stateOffset, expect, update);
 }
- 
+
 /**
-* 源码在http://hg.openjdk.java.net/jdk8/jdk8/jdk/file/687fd7c7986d/src/share/classes/sun/misc/Unsafe.java
+
+* 源码在<http://hg.openjdk.java.net/jdk8/jdk8/jdk/file/687fd7c7986d/src/share/classes/sun/misc/Unsafe.java>
 * Unsafe.compareAndSwapInt
 * Atomically update Java variable to x if it is currently
 * holding expected
@@ -205,7 +198,7 @@ protected final boolean compareAndSetState(int expect, int update) {
 public final native boolean compareAndSwapInt(Object o, long offset,
                                               int expected,
                                               int x);
-继续跟踪在JVM中的实现,源码位置: http://hg.openjdk.java.net/jdk8/jdk8/hotspot/file/tip/src/share/vm/prims/unsafe.cpp
+继续跟踪在JVM中的实现,源码位置: <http://hg.openjdk.java.net/jdk8/jdk8/hotspot/file/tip/src/share/vm/prims/unsafe.cpp>
 
 UNSAFE_ENTRY(jboolean, Unsafe_CompareAndSwapInt(JNIEnv *env, jobject unsafe, jobject obj, jlong offset, jint e, jint x))
   UnsafeWrapper("Unsafe_CompareAndSwapInt");
@@ -213,7 +206,7 @@ UNSAFE_ENTRY(jboolean, Unsafe_CompareAndSwapInt(JNIEnv *env, jobject unsafe, job
   jint* addr = (jint *) index_oop_from_field_offset_long(p, offset);
   return (jint)(Atomic::cmpxchg(x, addr, e)) == e;//此处调用了Atomic::cmpxchg
 UNSAFE_END
-里面又调用了Atomic::cmpxchg,源码位置: http://hg.openjdk.java.net/jdk8/jdk8/hotspot/file/87ee5ee27509/src/os_cpu/linux_x86/vm/atomic_linux_x86.inline.hpp
+里面又调用了Atomic::cmpxchg,源码位置: <http://hg.openjdk.java.net/jdk8/jdk8/hotspot/file/87ee5ee27509/src/os_cpu/linux_x86/vm/atomic_linux_x86.inline.hpp>
 
 inline jint     Atomic::cmpxchg    (jint     exchange_value, volatile jint*     dest, jint     compare_value) {
   int mp = os::is_MP();
@@ -256,28 +249,28 @@ private final boolean parkAndCheckInterrupt() {
     return Thread.interrupted();
 }
 
-
 /**
- * 源码在http://hg.openjdk.java.net/jdk8/jdk8/jdk/file/687fd7c7986d/src/share/classes/sun/misc/Unsafe.java
- * Block current thread, returning when a balancing
- * unpark occurs, or a balancing unpark has
- * already occurred, or the thread is interrupted, or, if not
- * absolute and time is not zero, the given time nanoseconds have
- * elapsed, or if absolute, the given deadline in milliseconds
- * since Epoch has passed, or spuriously (i.e., returning for no
- * "reason"). Note: This operation is in the Unsafe class only
- * because unpark is, so it would be strange to place it
- * elsewhere.
+
+* 源码在<http://hg.openjdk.java.net/jdk8/jdk8/jdk/file/687fd7c7986d/src/share/classes/sun/misc/Unsafe.java>
+* Block current thread, returning when a balancing
+* unpark occurs, or a balancing unpark has
+* already occurred, or the thread is interrupted, or, if not
+* absolute and time is not zero, the given time nanoseconds have
+* elapsed, or if absolute, the given deadline in milliseconds
+* since Epoch has passed, or spuriously (i.e., returning for no
+* "reason"). Note: This operation is in the Unsafe class only
+* because unpark is, so it would be strange to place it
+* elsewhere.
  */
 public native void park(boolean isAbsolute, long time);
-看JVM中Unsafe.park的实现,源码在http://hg.openjdk.java.net/jdk8/jdk8/hotspot/file/tip/src/share/vm/prims/unsafe.cpp
+看JVM中Unsafe.park的实现,源码在<http://hg.openjdk.java.net/jdk8/jdk8/hotspot/file/tip/src/share/vm/prims/unsafe.cpp>
 
 UNSAFE_ENTRY(void, Unsafe_Park(JNIEnv *env, jobject unsafe, jboolean isAbsolute, jlong time))
   ...省略
   thread->parker()->park(isAbsolute != 0, time);
   ...省略
 UNSAFE_END
-调用了parker()->park(),即Parker::park,看一下Parker的定义,源码在http://hg.openjdk.java.net/jdk7/jdk7/hotspot/file/81d815b05abb/src/share/vm/runtime/park.hpp
+调用了parker()->park(),即Parker::park,看一下Parker的定义,源码在<http://hg.openjdk.java.net/jdk7/jdk7/hotspot/file/81d815b05abb/src/share/vm/runtime/park.hpp>
 
 class Parker : public os::PlatformParker {
     public:
@@ -311,7 +304,7 @@ void Parker::park(bool isAbsolute, jlong time) {
         return;
     }
     // 记录线程的状态
-    OSThreadWaitState osts(thread->osthread(), false /* not Object.wait() */);
+    OSThreadWaitState osts(thread->osthread(), false /*not Object.wait()*/);
     jt->set_suspend_equivalent();
     // cleared by handle_special_suspend_equivalent_condition() or java_suspend_self()
     if (time == 0) {
@@ -321,7 +314,7 @@ void Parker::park(bool isAbsolute, jlong time) {
     } else {
         _cur_index = isAbsolute ? ABS_INDEX : REL_INDEX;
         // 进入等待并自动释放 mutex 锁,这里没有通过 while 包裹 wait 过程,所以会出现伪唤醒问题
-        status = pthread_cond_timedwait(&_cond[_cur_index], _mutex, &absTime);
+        status = pthread_cond_timedwait(&_cond[_cur_index],_mutex, &absTime);
     }
     _cur_index = -1;
     // 已经从block住状态中恢复返回了, 把_counter设0.
@@ -339,7 +332,7 @@ void Parker::park(bool isAbsolute, jlong time) {
         jt->java_suspend_self();
     }
 }
-其实park方法内部也用了CAS！重点关注一下此调用: pthread_cond_wait,就是调用此函数让线程阻塞的,这是POSIX线程(pthread)函数库中一个函数,感兴趣的可以看下它的源码: https://code.woboq.org/userspace/glibc/nptl/pthread_cond_wait.c.html
+其实park方法内部也用了CAS！重点关注一下此调用: pthread_cond_wait,就是调用此函数让线程阻塞的,这是POSIX线程(pthread)函数库中一个函数,感兴趣的可以看下它的源码: <https://code.woboq.org/userspace/glibc/nptl/pthread_cond_wait.c.html>
 
 pthread_cond_wait内部调用了futex,而futex里面进行了系统调用sys_futex！那么futex是啥？参考下man 2 futex
 
@@ -353,7 +346,7 @@ futex的使用模式
 为了唤醒等待线程,获取锁的线程在释放锁后,需要调用系统调用,来通知锁释放,内核会唤醒等待者进行竞争锁。
 介绍说明futex不一定会进行系统调用,但是调用LockSupport.park()的时候线程确实阻塞了,没有在自旋 (spin重试) ,因为自旋会消耗很多CPU资源,但是阻塞不会消耗,文末会证明LockSupport.park()确实进行了系统调用。
 
-总结: 
+总结:
 
 LockSupport.park -> Unsafe.park -> JNI(JVM) -> Parker::park -> pthread_cond_wait -> futex -> sys_futex(系统调用)
 如何唤醒
@@ -364,19 +357,20 @@ Node s = node.next;
 if (s != null)
     LockSupport.unpark(s.thread);//叫醒后面一个
 
-
 /**
- * 源码在: http://hg.openjdk.java.net/jdk8/jdk8/jdk/file/687fd7c7986d/src/share/classes/sun/misc/Unsafe.java
- * Unblock the given thread blocked on park, or, if it is
- * not blocked, cause the subsequent call to park not to
- * block.  Note: this operation is "unsafe" solely because the
- * caller must somehow ensure that the thread has not been
- * destroyed. Nothing special is usually required to ensure this
- * when called from Java (in which there will ordinarily be a live
- * reference to the thread) but this is not nearly-automatically
- * so when calling from native code.
- * @param thread the thread to unpark.
- *
+
+* 源码在: <http://hg.openjdk.java.net/jdk8/jdk8/jdk/file/687fd7c7986d/src/share/classes/sun/misc/Unsafe.java>
+* Unblock the given thread blocked on park, or, if it is
+* not blocked, cause the subsequent call to park not to
+* block.  Note: this operation is "unsafe" solely because the
+* caller must somehow ensure that the thread has not been
+* destroyed. Nothing special is usually required to ensure this
+* when called from Java (in which there will ordinarily be a live
+* reference to the thread) but this is not nearly-automatically
+* so when calling from native code.
+* @param thread the thread to unpark.
+
+*
  */
 public native void unpark(Object thread);
 JVM中unpark的实现,调用了Parker::unpark
@@ -412,7 +406,7 @@ void Parker::unpark() {
                 assert (status == 0, "invariant");
             } else {
             // must capture correct index before unlocking
-                int index = _cur_index;
+int index =_cur_index;
                 status = pthread_mutex_unlock(_mutex);
                 assert (status == 0, "invariant");
                 status = pthread_cond_signal (&_cond[index]);
@@ -429,9 +423,9 @@ void Parker::unpark() {
 }
 调用了pthread_cond_signal,pthread_cond_signal和pthread_cond_wait是一对,都调用了系统调用sys_futex,不过传参不一样而已,看看sys_futex的定义
 
-int futex(int *uaddr, int op, int val, const struct timespec *timeout,
+int futex(int *uaddr, int op, int val, const struct timespec*timeout,
           int *uaddr2, int val3);
-第二个参数op即operation有下面可选,参考: https://linux.die.net/man/2/futex
+第二个参数op即operation有下面可选,参考: <https://linux.die.net/man/2/futex>
 
 pthread_cond_wait传参为FUTEX_WAIT,而pthread_cond_signal传参为FUTEX_WAKE
 
@@ -450,11 +444,6 @@ synchronized
 
 前置知识
 java中每个对象都有个markword,里面包含了锁信息,当为重量级锁的时候markword的一部分会指向一个ObjectMonitor的数据结构,这个ObjectMonitor就是JVM用来实现重量级锁的,图示如下
-
-
-
-
-
 
 ObjectMonitor结构如下
 
@@ -479,7 +468,7 @@ ObjectMonitor::ObjectMonitor() {
 由于synchronized是JVM来实现的,所以下面代码都是c/c++的
 
 如何上锁
-由于我们省略了锁升级的过程,直接看重量级锁的进入,代码在https://github.com/JetBrains/jdk8u_hotspot/blob/master/src/share/vm/runtime/objectMonitor.cpp
+由于我们省略了锁升级的过程,直接看重量级锁的进入,代码在<https://github.com/JetBrains/jdk8u_hotspot/blob/master/src/share/vm/runtime/objectMonitor.cpp>
 
 注意看源码的方法,看源码顺着一条线索去看,比如如何上锁,不要在乎细节,因为看了也看不懂(笑),反而导致丧失了继续看下去的耐心,当以后能力提升了再来看这些细节
 
@@ -502,7 +491,7 @@ void ATTR ObjectMonitor::EnterI (TRAPS) {
         //这下不自旋了,我就默默的TryLock一下
         return ;
     }
- 
+
     DeferredInitialize () ;
     //此处又有自旋获取锁的操作
     if (TrySpin (Self) > 0) {
@@ -556,9 +545,9 @@ void ATTR ObjectMonitor::EnterI (TRAPS) {
 }
 看TryLock
 
-int ObjectMonitor::TryLock (Thread * Self) {
+int ObjectMonitor::TryLock (Thread *Self) {
    for (;;) {
-      void * own = _owner ;
+void* own = _owner ;
       if (own != NULL) return 0 ;//如果有线程还拥有着重量级锁,退出
       //CAS操作将_owner修改为当前线程,操作成功return>0
       if (Atomic::cmpxchg_ptr (Self, &_owner, NULL) == NULL) {
@@ -570,7 +559,7 @@ int ObjectMonitor::TryLock (Thread * Self) {
 }
 看Atomic::cmpxchg_ptr,看这名像啥？这不就是CAS么,所以又来到了熟悉的Atomic::cmpxchg,不明白的可以看上面ReentrantLock如何上锁
 
-inline intptr_t Atomic::cmpxchg_ptr(intptr_t exchange_value, volatile intptr_t* dest, intptr_t compare_value) {
+inline intptr_t Atomic::cmpxchg_ptr(intptr_t exchange_value, volatile intptr_t*dest, intptr_t compare_value) {
   return (intptr_t)cmpxchg((jlong)exchange_value, (volatile jlong*)dest, (jlong)compare_value);
 }
 
@@ -582,24 +571,24 @@ inline jint     Atomic::cmpxchg    (jint     exchange_value, volatile jint*     
                     : "cc", "memory");
   return exchange_value;
 }
-总结: 
+总结:
 
 所谓上锁就是给ObjectMonitor._owner设置为指向获得锁的线程
 
 如何阻塞
-看上面的ObjectMonitor::EnterI方法,获取不到锁的时候调用了ParkEvent::park()方法,看到这是不是想到Parker::park()？那么到底有啥区别,看一下ParkEvent的定义,源码在https://github.com/JetBrains/jdk8u_hotspot/blob/master/src/share/vm/runtime/park.hpp
+看上面的ObjectMonitor::EnterI方法,获取不到锁的时候调用了ParkEvent::park()方法,看到这是不是想到Parker::park()？那么到底有啥区别,看一下ParkEvent的定义,源码在<https://github.com/JetBrains/jdk8u_hotspot/blob/master/src/share/vm/runtime/park.hpp>
 
 class ParkEvent : public os::PlatformEvent {
   public:
     // MCS-CLH list linkage and Native Mutex/Monitor
-    ParkEvent * volatile ListNext ;
-    ParkEvent * volatile ListPrev ;
+    ParkEvent *volatile ListNext ;
+ParkEvent* volatile ListPrev ;
     volatile intptr_t OnList ;
     volatile int TState ;
     volatile int Notified ;             // for native monitor construct
     volatile int IsWaiting ;            // Enqueued on WaitSet
   public:
-    static ParkEvent * Allocate (Thread * t) ;
+    static ParkEvent *Allocate (Thread* t) ;
     static void Release (ParkEvent * e) ;
 } ;
 发现没有park方法,因为ParkEvent继承自PlatformEvent,所以去父类找
@@ -608,27 +597,27 @@ int os::PlatformEvent::park(jlong millis) {
   ...
   while (_Event < 0) {  // 当令牌不足时,会循环进入等待状态
     status = os::Linux::safe_cond_timedwait(_cond, _mutex, &abst);
-  ... 
+  ...
 }
 继续看os::Linux::safe_cond_timedwait
 
-int os::Linux::safe_cond_timedwait(pthread_cond_t *_cond, pthread_mutex_t *_mutex, const struct timespec *_abstime)
+int os::Linux::safe_cond_timedwait(pthread_cond_t *_cond, pthread_mutex_t*_mutex, const struct timespec *_abstime)
 {
    if (is_NPTL()) {
-      return pthread_cond_timedwait(_cond, _mutex, _abstime);
+      return pthread_cond_timedwait(_cond,_mutex, _abstime);
    } else {
       // 6292965: LinuxThreads pthread_cond_timedwait() resets FPU control
       // word back to default 64bit precision if condvar is signaled. Java
       // wants 53bit precision.  Save and restore current value.
       int fpu = get_fpu_control_word();
-      int status = pthread_cond_timedwait(_cond, _mutex, _abstime);
+      int status = pthread_cond_timedwait(_cond, _mutex,_abstime);
       set_fpu_control_word(fpu);
       return status;
    }
 }
 看到没有,调用了pthread_cond_timedwait,pthread_cond_timedwait和pthread_cond_wait的区别一个是有超时设置,一个没有
 
-总结: 
+总结:
 
 ObjectMonitor::enter -> os::PlatformEvent::park -> pthread_cond_timedwait -> futex -> sys_futex(系统调用)
 如何唤醒
@@ -648,12 +637,12 @@ void ATTR ObjectMonitor::exit(TRAPS) {
 }
 看ExitEpilog
 
-void ObjectMonitor::ExitEpilog (Thread * Self, ObjectWaiter * Wakee) {
+void ObjectMonitor::ExitEpilog (Thread *Self, ObjectWaiter* Wakee) {
    _succ = Knob_SuccEnabled ? Wakee->_thread : NULL ;
    ParkEvent * Trigger = Wakee->_event ;
    ...
    Trigger->unpark() ; //唤醒线程
-   ... 
+   ...
 }
 继续看ParkEvent::unpark(),找不到这个方法,找父类os::PlatformEvent::unpark
 
@@ -689,10 +678,8 @@ synchronized队列是在JVM层面实现的,无法自定义
 yum install -y strace
 安装java环境,已安装则忽略
 
-# 安装java
-yum -y install java-1.8.0-openjdk java-1.8.0-openjdk-devel which
+## 环境变量设置
 
-# 环境变量设置
 cat > /etc/profile.d/java8.sh <<EOF
 export JAVA_HOME=$(dirname $(dirname $(readlink $(readlink $(which javac)))))
 export PATH=\$PATH:\$JAVA_HOME/bin
@@ -710,9 +697,10 @@ import sun.misc.Unsafe;
 import java.lang.reflect.Field;
 
 /**
- * 证明cas操作没有调用系统调用
- * strace -ff -o out java CASTest
- * 然后观察输出
+
+* 证明cas操作没有调用系统调用
+* strace -ff -o out java CASTest
+* 然后观察输出
  */
 public class CASTest {
 
@@ -733,21 +721,20 @@ public class CASTest {
         }
     }
 
-
     /**
-     * 获取unsafe
-     * @return
-     * @throws IllegalAccessException
+  * 获取unsafe
+  * @return
+  * @throws IllegalAccessException
      */
     public static Unsafe getUnsafe() throws IllegalAccessException {
         //Unsafe unsafe = Unsafe.getUnsafe();
 
         /**
-         * 为什么不直接通过Unsafe unsafe = Unsafe.getUnsafe();拿到unsafe实例 ?
-         * 因为直接拿要抛异常,不信你可以试试看,原因在于直接拿Unsafe会检查当前类加载器是不是Bootstrap加载器
-         * 如果不是就抛异常,当前类加载器是AppClassLoader,当然不是Bootstrap ClassLoader,
-         * 也就是说,Unsafe只允许JVM的某些系统来拿,但是你非要用,也可以自己通过下面的骚操作拿
-         * 参考: https://blog.csdn.net/a7980718/article/details/83279728
+    * 为什么不直接通过Unsafe unsafe = Unsafe.getUnsafe();拿到unsafe实例 ?
+    * 因为直接拿要抛异常,不信你可以试试看,原因在于直接拿Unsafe会检查当前类加载器是不是Bootstrap加载器
+    * 如果不是就抛异常,当前类加载器是AppClassLoader,当然不是Bootstrap ClassLoader,
+    * 也就是说,Unsafe只允许JVM的某些系统来拿,但是你非要用,也可以自己通过下面的骚操作拿
+    * 参考: <https://blog.csdn.net/a7980718/article/details/83279728>
          */
         Field unsafeField = Unsafe.class.getDeclaredFields()[0];
         unsafeField.setAccessible(true);
@@ -788,16 +775,15 @@ import java.io.IOException;
 import java.util.concurrent.locks.LockSupport;
 
 /**
- * 证明park和unpark都调用了系统调用sys_futex
- * strace -ff -o out java LockSupportTest
- * 然后观察输出
+
+* 证明park和unpark都调用了系统调用sys_futex
+* strace -ff -o out java LockSupportTest
+* 然后观察输出
  */
 public class LockSupportTest {
 
-
     static Thread t1 = null,t2 = null;
     public static void main(String[] args) throws IOException, InterruptedException {
-
 
         t1 = new Thread(()->{
             while(true){
@@ -831,7 +817,6 @@ public class LockSupportTest {
 
     }
 
-
 }
 追踪系统调用
 strace -ff -o out java LockSupportTest
@@ -864,31 +849,39 @@ exited with 130
 这信息就很丰富了,看输出write(1, "1614501167372 thread 2 prepare p"..., 36) = 36可以知道这是线程2的系统调用,具体来解释一下
 
 # 打印了输出
+
 write(1, "1614501167372 thread 2 prepare p"..., 36) = 36
+
 # 打印一个换行符,所以System.out.println其实调用了两次系统调用
+
 write(1, "\n", 1)                       = 1
 
-# 打印完开始叫醒线程1,这里就是系统调用sys_futex！！！
-# 打印完开始叫醒线程1,这里就是系统调用sys_futex！！！
-# 打印完开始叫醒线程1,这里就是系统调用sys_futex！！！
+# 打印完开始叫醒线程1,这里就是系统调用sys_futex
+
+# 打印完开始叫醒线程1,这里就是系统调用sys_futex
+
+# 打印完开始叫醒线程1,这里就是系统调用sys_futex
+
 futex(0x7fdee81bef54, FUTEX_WAKE_OP_PRIVATE, 1, 1, 0x7fdee81bef50, FUTEX_OP_SET<<28|0<<12|FUTEX_OP_CMP_GT<<24|0x1) = 1
 
-# 然后开始自己阻塞住,这里也就是系统调用sys_futex！！！
-# 然后开始自己阻塞住,这里也就是系统调用sys_futex！！！
-# 然后开始自己阻塞住,这里也就是系统调用sys_futex！！！
+# 然后开始自己阻塞住,这里也就是系统调用sys_futex
+
+# 然后开始自己阻塞住,这里也就是系统调用sys_futex
+
+# 然后开始自己阻塞住,这里也就是系统调用sys_futex
+
 futex(0x7fdee81c0c04, FUTEX_WAIT_PRIVATE, 541, NULL) = ?
 所以证明了pthread_cond_wait和pthread_cond_signal都调用了系统调用sys_futex
 
 由于个人水平有限,有些细节难免有疏漏或错误,敬请指正。
 
 参考
-https://juejin.cn/post/6844903918653145102#heading-15
-https://albk.tech/%E8%81%8A%E8%81%8ACPU%E7%9A%84LOCK%E6%8C%87%E4%BB%A4.html
-https://www.beikejiedeliulangmao.top/java/concurrent/thread-park/
-https://blog.csdn.net/zwjyyy1203/article/details/106217887
-https://zhuanlan.zhihu.com/p/151271009
+<https://juejin.cn/post/6844903918653145102#heading-15>
+<https://albk.tech/%E8%81%8A%E8%81%8ACPU%E7%9A%84LOCK%E6%8C%87%E4%BB%A4.html>
+<https://www.beikejiedeliulangmao.top/java/concurrent/thread-park/>
+<https://blog.csdn.net/zwjyyy1203/article/details/106217887>
+<https://zhuanlan.zhihu.com/p/151271009>
 
 ---
 
-https://zhuanlan.zhihu.com/p/353546643
-
+<https://zhuanlan.zhihu.com/p/353546643>

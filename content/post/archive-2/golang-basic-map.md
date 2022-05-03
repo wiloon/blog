@@ -2,12 +2,12 @@
 title: golang map set
 author: "-"
 date: 2016-11-23T07:14:53+00:00
-url: /?p=9419
-
+url: go/map
 categories:
-  - inbox
+  - Go
 tags:
   - reprint
+  - Map
 ---
 ## golang map set
 

@@ -72,15 +72,10 @@ awk '{print "'\''"}'
 关于多个分割符号:
   
 1. awk -F ',' 表示使用逗号多分隔符
-  
 2. awk -F 'AB' 表示使用符号AB做分隔符 echo ABCDABDDCADAFB | awk -F 'AB' '{for(i=1;i<=NF;i++)printf $i" "}'输出 CD DDCADAFB
-  
 3. awk -F '[AB]' 表示使用A或者B做分隔符，就是遇到字符A或者B都分割 echo ABCDABDDCADAFB | awk -F '[AB]' '{for(i=1;i<=NF;i++)printf $i" "}' 输出 CD DDC D F
-  
 4. awk -F '[&#92;|]' 表示使用符号'|'做分隔符，这里有两层转义，先转义\,然后转义|。
-  
 5. echo "ABC|DAB|DD CA DAFB" | awk -F '[ &#92;|]' '{for(i=1;i<=NF;i++)printf $i" "}' 输出 ABC DAB DD CA DAFB
-  
 6. print打印会换行，printf打印不换行
 
 ```bash
@@ -97,8 +92,6 @@ substr($4,20)    --->  表示是从第4个字段里的第20个字符开始，一
 substr($3,12,8)  --->  表示是从第3个字段里的第12个字符开始，截取8个字符结束.
 substr($3,6)     --->  表示是从第3个字段里的第6个字符开始，一直到设定的分隔.
 ```
-
-###
 
 ```bash
 tail -n 10000 info.log | grep 'xxx.*Unknown.*LF'|awk -F 'Unk|:L' '{print substr($2,14,7),substr($3,0,16)}'

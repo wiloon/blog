@@ -1,5 +1,5 @@
 ---
-title: pixelbook, chromeos, developer mode,crouton
+title: pixelbook, chromeos, developer mode, crouton
 author: "-"
 date: 2018-02-04T09:22:37+00:00
 url: /?p=11818
@@ -9,11 +9,11 @@ tags:
   - reprint
 ---
 
-## pixelbook, chromeos, developer mode,crouton
+## pixelbook, chromeos, developer mode, crouton
 
 developer mode
   
-https://www.theverge.com/2017/11/16/16656420/google-pixelbook-chromebook-development-linux-crouton-how-to
+<https://www.theverge.com/2017/11/16/16656420/google-pixelbook-chromebook-development-linux-crouton-how-to>
   
 hold the Esc, Refresh, and power button for a little while and the laptop reboots into Recovery Mode. Once you're there, you hit Ctrl-D to boot into Developer Mode.
   
@@ -23,7 +23,7 @@ hold the Esc, Refresh, and power button for a little while and the laptop reboot
 
 ### crouton
 
-https://github.com/dnschneid/crouton
+<https://github.com/dnschneid/crouton>
 
 ```bash
 sudo crouton -r list
@@ -62,4 +62,4 @@ shell
 sudo -s
 ```
 
-https://gist.github.com/daemonp/ecead946317b175e3b54731a513efe94
+<https://gist.github.com/daemonp/ecead946317b175e3b54731a513efe94>

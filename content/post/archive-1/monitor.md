@@ -13,6 +13,7 @@ categories:
   - inbox
 ---
 ## 管程, monitor
+
 ### 管程, 监视器, Moniter
 
 Java程序设计语言中，每个对象都可以作为一个管程。需要互斥使用的方法必须明确标示关键字 synchronized . 代码块也可以标示关键字synchronized.
@@ -37,7 +38,7 @@ Java中的同步方法与其他经典管程有本质差别: Java没有内嵌的�
   
 我们知道每个对象/类都关联一个管程。我认为更好的说法应该是每个对象都有一个管程，因为每个对象可以有它自己的临界区，并能够监控线程顺序。
 
-为了使不同的线程协作，JAVA为提供了wait()和notify()来挂起线程和唤醒另外一个等待的线程。此外，还有其他3个方法: 
+为了使不同的线程协作，JAVA为提供了wait()和notify()来挂起线程和唤醒另外一个等待的线程。此外，还有其他3个方法:
 
 wait(long timeout, int nanos)
   
@@ -96,7 +97,7 @@ notify(all)
 系统调度程序只能在其中选择一个使其恢复运行。
 
 线程可能需要等待某个条件P为真，才能继续执行。在一个忙等待(busy waiting)循环中
-     
+
 while not( P ) do skip
   
 将会导致所有其它进程都无法进入临界区使得该条件P为真，该管程发生死锁.
@@ -134,7 +135,6 @@ Java中的同步方法与其他经典管程有本质差别: Java没有内嵌的�
 不过，当它们在同步方法中使用时，它们不受竞争条件约束。理论上，方法wait可以被中断，它本身就是与中断有关的代码。Java需要显式表示异常处理。
 
 Java的Concurrent包中ReentrantLock具有上述所有特性，可以用来实现管程。管程是一个非常实用且常见的技术，可以用来实现很多常用的并发数据结构，例如阻塞队列。
-
 
 操作系统的互斥解决方案
 临界区概念 临界区意味着这个区域是敏感的，因为一旦进程运行到这个区域，那么意味着会对公共数据区域或者文件进行操作，也意味着有可能有其它进程也正运行到了临界区。如果能够采用适当的方式，使得这两个进程不会同时处于临界区，那么就能避免竞态条件。
@@ -190,11 +190,9 @@ ObjectMonitor() {
 
 多个线程访问一段同步去代码，多个线程会被存放在EntryList集合中，并处堵塞状态的线程都会在该表中，当某个线程获取了到对象的monitor时候，管程是依靠底层操作系统的Mutex lock来实现互斥，当申请成功，就持有mutex锁。如果有线程调用wait()方法 就会释放持有的mutex锁，并且该线程会进入WaitSet集合中，等到下一次呗唤醒，如果线程顺利执行完方法，也会释放mutex锁
 
-
-
-http://www.linuxidc.com/Linux/2014-09/106539.htm
+<http://www.linuxidc.com/Linux/2014-09/106539.htm>
   
-http://www.lilihongblog.com/Blog/monitors+java+synchronization+mechanism
+<http://www.lilihongblog.com/Blog/monitors+java+synchronization+mechanism>
   
-http://blog.5ibc.net/p/77567.html
->https://jinlipool.com/2019/10/15/monitors/
+<http://blog.5ibc.net/p/77567.html>
+><https://jinlipool.com/2019/10/15/monitors/>

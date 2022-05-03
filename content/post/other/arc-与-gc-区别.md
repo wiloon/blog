@@ -22,6 +22,6 @@ the short and sweet answer is as follow:
 
 **1.http://stackoverflow.com/questions/6385212/how-does-the-new-automatic-reference-counting-mechanism-work**
 
-**2.http://stackoverflow.com/questions/7900167/objective-c-2-0-garbage-collector-vs-automatic-reference-counter-in-ios-5-sdk**
+**2.http://stackoverflow.com/questions/7900167/objective-c-2-0-garbage-collector-vs-automatic-reference-counter-in-iOS-5-sdk**
 
 **3.http://longweekendmobile.com/2011/09/07/objc-automatic-reference-counting-in-xcode-explained/**

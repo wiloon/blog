@@ -4,16 +4,19 @@ author: "-"
 date: 2015-12-25T12:34:28+00:00
 url: /?p=8604
 categories:
-  - Uncategorized
-
+  - Inbox
 tags:
   - reprint
 ---
 ## tightvnc, tigervnc
+
 ### tighervnc nightly build
-http://tigervnc.bphinz.com/nightly/
+
+<https://github.com/TigerVNC/tigervnc/releases>  
+<http://tigervnc.bphinz.com/nightly/>
 
 ### archlinux
+
 ```bash
 pacman -S tigervnc
 # vncserver
@@ -27,7 +30,6 @@ vncserver -kill :1
 vncviewer 192.168.2.228:1
 ```
 
-
 ```bash
 #edis config file
 .vnc/xstartup
@@ -37,13 +39,11 @@ startxfce4
 
 ```
 
-
 exit full screen ctrl+alt+shift+F
 
 vncviewer: disable allow jpeg
 
-https://unix.stackexchange.com/questions/67096/xterm-warning-tried-to-connect-to-session-manager
-
+<https://unix.stackexchange.com/questions/67096/xterm-warning-tried-to-connect-to-session-manager>
 
 - centos
 

@@ -304,7 +304,7 @@ b.start();
 
 ```
 
-### 通过 java.util.concurrent 包中的线程池 创建线程
+### 通过 java.util.concurrent 包中的线程池创建线程
 
 ```java
 ExecutorService es = Executors.newSingleThreadExecutor();  
@@ -314,9 +314,6 @@ ExecutorService es = Executors.newSingleThreadExecutor();
         Future<Integer> future =es.submit(calTask); 
 ```
 
-### Callable
-
-Runnable实现的是void run() 方法，Callable实现的是 V call() 方法，并且可以返回执行结果，其中Runnable可以提交给Thread来包装下，直接启动一个线程来执行，而Callable则一般都是提交给ExecuteService来执行。通常在开发中结合ExecutorService使用,将任务的提交与任务的执行解耦开,同时也能更好地利用Executor提供的各种特性
 
 ### 竞争条件 Race condition
 

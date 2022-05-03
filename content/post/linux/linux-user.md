@@ -5,7 +5,6 @@ date: 2011-09-25T09:49:33+00:00
 url: user
 categories:
   - Linux
-
 tags:
   - reprint
 ---
@@ -32,40 +31,52 @@ sudo useradd -M -s /bin/false user1
 sudo useradd user0
 ```
 
-    # -M - Don't create a home directory
-    # -m: create home folder, 不加-m 参数，默认不创建home
-    # -s: specify shell for user, 默认是 /bin/bash
-    # -s /bin/false - Don't assign a shell (or more accurately, make the shell /bin/false, so the user cannot be logged into)
-    # -r: create system account
-    # -d: home dir
-    # -r - Make a system user
-    # -g <群组>: 指定用户所属的群组；
-    # -G <群组>: 指定用户所属的附加群组
-    # -c <备注>：加上备注文字。备注文字会保存在passwd的备注栏位中；
+```bash
+# -M - Don't create a home directory
+# -m: create home folder, 不加-m 参数，默认不创建home
+# -s: specify shell for user, 默认是 /bin/bash
+# -s /bin/false - Don't assign a shell (or more accurately, make the shell /bin/false, so the user cannot be logged into)
+# -r: create system account
+# -d: home dir
+# -r - Make a system user
+# -g <群组>: 指定用户所属的群组；
+# -G <群组>: 指定用户所属的附加群组
+# -c <备注>：加上备注文字。备注文字会保存在passwd的备注栏位中；
+```
 
 ### 删除用户
-userdel -r test
-# -r, 删除用户home目录
 
-#创建密码
+userdel -r test
+
+```bash
+-r, 删除用户home目录
+```
+
+## 创建密码
+
 sudo passwd user0
 输入密码: 一般密码至少要有六个字符，这里输入的密码是看不见的，屏幕没显示
-重新输一次密码: 
+重新输一次密码:
 
-#切换用户
+## 切换用户
+
 su -
 
 ### group
-/etc/group 的内容包括用户组 (Group) 
+
+/etc/group 的内容包括用户组 (Group)
 
 ## usermod
+
 Add the john account to the sales group
+
 ```bash
 # add user to docker group
 sudo usermod -aG docker $USER
 ```
 
 ## linux 用户 组
+
 groups
 
 **/etc/group文件包含所有组**
@@ -74,7 +85,7 @@ groups
   
 usermod -s /sbin/nologin user0
 
-应用举例: 
+应用举例:
   
 1. 将 newuser2 添加到组 staff 中
 
@@ -98,7 +109,8 @@ usermod -s /sbin/nologin user0
 
 补充说明: usermod可用来修改用户帐号的各项设定。
 
-#### 参数: 
+#### 参数
+
     -a, append
   
 -c<备注> 修改用户帐号的备注文字。
@@ -153,9 +165,10 @@ gpasswd -d ${USER} docker
 
 在Linux下创建用户和删除用户，必须在root用户下，如果你当前不是用根用户登录，你可以打开终端，输入"su root"命令，再输入根口令，就可以进入root用户模式下。
 
-
 # 查看用户是否过期
+
 chage -l user0
+
 ```
 
 (su为switch user，即切换用户的简写)

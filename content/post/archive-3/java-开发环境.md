@@ -4,7 +4,7 @@ author: "-"
 date: 2020-02-28T09:28:55+00:00
 url: /?p=15640
 categories:
-  - java
+  - Java
 
 tags:
   - reprint

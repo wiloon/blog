@@ -4,18 +4,17 @@ author: "-"
 date: 2016-02-15T03:05:53+00:00
 url: /?p=8734
 categories:
-  - Uncategorized
-
+  - Java
 tags:
   - reprint
 ---
 ## LMAX Disruptor
-LMAX Disruptor——一个高性能、低延迟且简单的框架
+
+LMAX Disruptor 一个高性能、低延迟且简单的框架
   
 原文地址: LMAX Disruptor – High Performance, Low Latency and Simple Too 翻译: 杨帆 校对: 丁一
 
-Disruptor是一个用于在线程间通信的高效低延时的消息组件,它像个增强的队列,并且它是让LMAX Exchange跑的如此之快的一个关键创新。关于什么是Disruptor、为何它很重要以及它的工作原理方面的信息都呈爆炸性增长 —— 这些文章很适合开始学习Disruptor,还可跟着LMAX BLOG深入学习。这里还有一份更详细的白皮书。
-
+Disruptor 是一个用于在线程间通信的高效低延时的消息组件,它像个增强的队列,并且它是让LMAX Exchange 跑的如此之快的一个关键创新。关于什么是Disruptor、为何它很重要以及它的工作原理方面的信息都呈爆炸性增长 —— 这些文章很适合开始学习Disruptor,还可跟着LMAX BLOG深入学习。这里还有一份更详细的白皮书。
 
 虽然disruptor模式使用起来很简单,但是建立多个消费者以及它们之间的依赖关系需要的样板代码太多了。为了能快速又简单适用于99%的场景,我为Disruptor模式准备了一个简单的领域特定语言。例如,为建立一个消费者的"四边形模式":
 
@@ -75,7 +74,7 @@ dw.consumeWith(handler1, handler2).then(handler3);
   
 ProducerBarrier producerBarrier = dw.createProducerBarrier();
   
-我们甚至可以在一个更复杂的六边形模式中构建一个并行消费者链: 
+我们甚至可以在一个更复杂的六边形模式中构建一个并行消费者链:
 
 查看源代码
   

@@ -48,6 +48,7 @@ skinparam nodesep 10
 skinparam ranksep 10
 skinparam ParticipantFontColor #A9DCDF
 
+' comments line starts by single quote, 注释
 [First component]
 [Another component] as Comp2  
 component Comp3
@@ -72,7 +73,7 @@ end note
 @enduml
 ```
 
-### vs code渲染uml的快捷键
+### vs code 渲染uml的快捷键
 
 ```bash
 alt+d
@@ -121,6 +122,8 @@ Foo--|>Abstract0
 
 interface Interface0
 
+' 注意, 接口名和冒号之间必须用空格分隔
+Interface0 : void method0()
 @enduml
 ```
 

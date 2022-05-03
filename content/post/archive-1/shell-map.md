@@ -2,7 +2,7 @@
 title: shell map
 author: "-"
 date: 2013-02-19T06:14:59+00:00
-url: /?p=5198
+url: shell/map
 categories:
   - shell
 tags:
@@ -10,18 +10,25 @@ tags:
 ---
 ## shell map
 
-Map定义：
-在使用map时，需要先声明，否则结果可能与预期不同，array可以不声明
+## Map定义
+
+在使用map时，需要先声明，否则结果可能与预期不同，array 可以不声明
 
 方式1：
 
+```bash
 declare -A myMap
 myMap["my03"]="03"
+```
+
 方式2：
 
+```bash
 declare -A myMap=(["my01"]="01" ["my02"]="02")
 myMap["my03"]="03"
 myMap["my04"]="04"
+```
+
 Map初始化：
 与array类似，可以使用括号直接初始化，也可以通过添加的方式来初始化数据，与array不同的是，括号直接初始化时使用的为一个键值对，添加元素时，下标可以不是整数
 
@@ -29,7 +36,8 @@ myMap["my03"]="03"
 myMap["my04"]="04"
 输出Map所有的key、value、长度：
 复制代码
-# 1）输出所有的key
+
+输出所有的key
 #若未使用declare声明map，则此处将输出0，与预期输出不符，此处输出语句格式比arry多了一个！
 echo ${!myMap[@]}
 #2）输出所有value

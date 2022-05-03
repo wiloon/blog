@@ -26,7 +26,7 @@ WSL: windows subsystem for Linux
 
 ### 微软的官方安装文档
 
-><https://docs.microsoft.com/zh-cn/windows/wsl/install>
+<https://docs.microsoft.com/zh-cn/windows/wsl/install>
 
 ### 开启 windows 功能
 
@@ -47,7 +47,7 @@ download the linux kernel update package
 
 ### wslg
 
-><https://github.com/microsoft/wslg>
+<https://github.com/microsoft/wslg>
 
 升级wsl到最新版本
 
@@ -59,7 +59,7 @@ download the linux kernel update package
 
 ### ssh-agent, keepassxc
 
-><https://code.mendhak.com/wsl2-keepassxc-ssh/>
+<https://code.mendhak.com/wsl2-keepassxc-ssh/>
 
 ### 启用 openssh authentication agent
 
@@ -67,7 +67,7 @@ download the linux kernel update package
 
 ## 下载 npiperelay
 
-><https://github.com/jstarks/npiperelay/releases/download/v0.1.0/npiperelay_windows_amd64.zip>
+<https://github.com/jstarks/npiperelay/releases/download/v0.1.0/npiperelay_windows_amd64.zip>
 
 ### 安装 socat
 
@@ -306,14 +306,16 @@ vim .zshrc
 
 ### command
 
-    # 列出当前已经安装且随时可用的发行版
-    wslconfig /list
-    # 列出所有发行版，包括正在安装、卸载和已损坏的发行版
-    wslconfig /list /all
-    # 卸载已经安装的发行版
-    wslconfig /unregister <这里填你要卸载的名称，只能填写使用wslconfig /list或者wslconfig /list /all中所包含的，不是随便填的>
+```bash
+# 列出当前已经安装且随时可用的发行版
+wslconfig /list
+# 列出所有发行版，包括正在安装、卸载和已损坏的发行版
+wslconfig /list /all
+# 卸载已经安装的发行版
+wslconfig /unregister <这里填你要卸载的名称，只能填写使用wslconfig /list或者wslconfig /list /all中所包含的，不是随便填的>
+```
 
-### 把wsl的磁盘移到 d 盘
+## 把wsl的磁盘移到 d 盘
 
 Run powershell.exe as Administrator
 

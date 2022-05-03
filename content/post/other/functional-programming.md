@@ -6,7 +6,7 @@ url: Functional-Programming
 categories:
   - Java
 tags:
-  - java
+  - Java
 
 ---
 ## 函数式编程, Functional Programming

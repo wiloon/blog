@@ -1,10 +1,10 @@
 ---
 title: 关于本站/关于我
-author: "w1100n"
+author: "W10N"
 date: 2021-11-16T01:00:00+08:00
 url: about
 categories:
-  - w10n
+  - W10N
 tags:
   - original
 ---
@@ -67,7 +67,7 @@ tags:
 
 - 中学时期一度沉迷计算机硬件，是<<微型计算机>>的忠实读者, 练就了一手装机技能。大学时期人称"机修"。
 - 工作之后有三年时间被派到上海出差，期间接触到了当地的 Linux 用户组, 也因为自己的二手IBM笔记本跑 Windows 太吃力所以转投了 Linux, 在各种发行版之间折腾了很长时间, 最后选择了Arch Linux.
-- 写过 Java, C#, Android, IOS, Go; 目前工作主力: Java, Go
+- 写过 Java, C#, Android, iOS, Go; 目前工作主力: Java, Go
 - 日常系统 Arch Linux + KDE
 - Goolge 粉，用过Google的各种好用的和不好用的产品: Nexus5, Nexus6P, Nexus7, Moto 360, Pixel1/2/3, Pixelbook
 

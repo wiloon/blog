@@ -4,7 +4,7 @@ author: "-"
 date: 2011-12-01T07:38:21+00:00
 url: Comparable
 categories:
-  - java
+  - Java
 
 tags:
   - reprint

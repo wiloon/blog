@@ -33,20 +33,6 @@ Alt+Shift+鼠标左键拖动, 选中拖动的区域内容
 2. 在目标linux(B)上配置ssh密钥
 3. A, 点击vscode左下角,选择 remote-ssh: connect to host
 
-### 快捷键
-
-#### Settings
-
-    Ctrl + ,
-
-#### terminal
-
-    Ctrl + `
-
-#### 命令框,查找文件
-
-    Ctrl + Shift + p
-
 ### 字体
 
 打开 VSCode,Windows 下按 Ctrl + ,,macOS 下按 Cmd + ,,进入设定。在上方搜索框搜索 editor.fontFamily,在
@@ -59,7 +45,9 @@ Controls the font family.
 
 #### 改成
 
-    Consolas,'Courier New','微软雅黑',monospace
+```r
+Consolas,'Courier New','微软雅黑',monospace
+```
 
 我喜欢萍方所以就 Consolas, 'Courier New', monospace,"萍方-简"。
 
@@ -85,16 +73,20 @@ markdown 语法检查
 
 ### Markdown All in One
 
+```r
     ctrl+shift+i - 表格格式化
     ctrl+b: 粗体
     命令: Format Document: 格式化表格
+```
 
 ## vscode 扩展 离线安装
 
 - 下载 .vsix 文件
 - 安装
 
+```r
     code --install-extension jsynowiec.vscode-insertdatestring-2.3.1.vsix
+```
 
 ### 配置同步, Plugin Name: Settings Sync
 
@@ -132,11 +124,41 @@ hex viewer
 
 ---
 
-><https://code.visualstudio.com/docs/remote/ssh-tutorial>  
-><https://www.justhx.com/partly-technical/optiumise-chinese-characters-in-vscode>  
-><https://blog.csdn.net/bmzk123/article/details/86501706>  
+<https://code.visualstudio.com/docs/remote/ssh-tutorial>  
+<https://www.justhx.com/partly-technical/optiumise-chinese-characters-in-vscode>  
+<https://blog.csdn.net/bmzk123/article/details/86501706>  
 
 ## 修改语言
 
-按键盘上的Ctrl+Shift+P，之后在VScode的顶部会弹出一个搜索框
-在弹出的搜索框中输入configure language，即可进入语言设置，选择你想要的即可。中文选择zh-cn，英文选择en，如果没有可以选择install additional languages进行下载
+按键盘上的 Ctrl+Shift+P，之后在 VScode   的顶部会弹出一个搜索框
+在弹出的搜索框中输入 configure language，即可进入语言设置，选择你想要的即可。中文选择 zh-cn，英文选择 en，如果没有可以选择  install additional languages 进行下载
+
+## vscode 快捷键
+
+```json
+{
+  "key": "ctrl+,",
+  "command": "workbench.action.openSettings"
+},
+{
+  "key": "ctrl+shift+e",
+  "command": "workbench.action.quickOpen"
+},
+{
+  "key": "ctrl+`",
+  "command": "workbench.action.terminal.toggleTerminal",
+  "when": "terminal.active"
+},
+{
+  "key": "ctrl+shift+p",
+  "command": "workbench.action.showCommands"
+},
+{
+  "key": "ctrl+alt+d",
+  "command": "plantuml.preview"
+},
+{
+  "key": "ctrl+shift+d",
+  "command": "editor.action.duplicateSelection"
+}
+```

@@ -7,16 +7,21 @@ categories:
   - shell
 tags:
   - reprint
-
-
 ---
 
 ## shell basic, shell script
 
-## 自动输入密码, Y
+## doc for bash
 
 ```bash
-    echo "y"|sudo podman image prune
+man bash
+man zsh
+```
+
+## 自动输入密码/Y
+
+```bash
+echo "y" | sudo podman image prune
 ```
 
 ```bash
@@ -107,19 +112,19 @@ echo "after exit"
 
 ```
 
-## $
+## 特殊变量: Shell $0, $#, $*, $@, $?, $$和命令行参数
 
-### 特殊变量: Shell $0, $#, $*, $@, $?, $$和命令行参数
-
-    变量    含义
-    $0        当前脚本的文件名
-    $n        传递给脚本或函数的参数。n 是一个数字，表示第几个参数。例如，第一个参数是$1，第二个参数是$2/.
-    $#        传递给脚本或函数的参数个数。
-    $*        传递给脚本或函数的所有参数。
-    $@        传递给脚本或函数的所有参数。被双引号(" ")包含时，与 $* 稍有不同，下面将会讲到。
-    $?        上个命令的退出状态，或函数的返回值。
-    $$        Shell本身的进程ID(PID, Process ID)。对于 Shell 脚本，就是这些脚本所在的进程ID。
-    $!      上一个后台进程的进程号 (PID)
+```bash
+#变量       含义
+$0        当前脚本的文件名
+$n        传递给脚本或函数的参数。n 是一个数字，表示第几个参数。例如，第一个参数是$1，第二个参数是$2/.
+$#        传递给脚本或函数的参数个数。
+$*        传递给脚本或函数的所有参数。
+$@        传递给脚本或函数的所有参数。被双引号(" ")包含时，与 $* 稍有不同，下面将会讲到。
+$?        上个命令的退出状态，或函数的返回值。
+$$        Shell本身的进程ID(PID, Process ID)。对于 Shell 脚本，就是这些脚本所在的进程ID。
+$!      上一个后台进程的进程号 (PID)
+```
 
 ### $(), $( Dollar Single Parentheses )
 
@@ -127,13 +132,13 @@ Usage of the $ like ${HOME} gives the value of HOME. Usage of the $ like $(echo 
 
 #### Command Substitution
 
-> <https://www.gnu.org/software/bash/manual/html_node/Command-Substitution.html>
+<https://www.gnu.org/software/bash/manual/html_node/Command-Substitution.html>
 
 ## 括号
 
 ## shell 括号
 
-#### 小括号，圆括号 `()`
+### 小括号，圆括号 `()`
 
 单小括号 `()`
 命令组。括号中的命令将会新开一个子 shell 顺序执行，所以括号中的变量不能够被脚本余下的部分使用。括号中多个命令之间用分号隔开，最后一个命令可以没有分号，各命令和括号之间不必有空格。
@@ -227,7 +232,7 @@ if [ "$the_world_is_flat" = true ] ; then
 fi
 ```
 
-><https://stackoverflow.com/questions/2953646/how-can-i-declare-and-use-boolean-variables-in-a-shell-script?rq=1>
+<https://stackoverflow.com/questions/2953646/how-can-i-declare-and-use-boolean-variables-in-a-shell-script?rq=1>
 
 ### 字符串包含
 
@@ -571,35 +576,41 @@ C shell 使用的是"类C"语法,csh是具有C语言风格的一种shell，tcsh�
   
 最早，bash交互体验很好，csh作为非交互式使用很爽，ksh就吸取了2者的优点。
 
-3.5、zsh
+## zsh
   
-zsh网上说的目前使用的人很少，但是感觉使用的人比较多。 zsh本身是不兼容bash的，但是他可以使用仿真模式 (emulation mode) 来模拟bash等，基本可以实现兼容。 在交互式的使用中，目前很多人都是zsh，因为zsh拥有很强大的提示和插件功能，炫酷吊炸天。推荐在终端的交互式使用中使用zsh，再安利一个插件Oh My Zsh 其实我个人的理解是，在终端中使用shell，基本上只是调用各种命令，比如: curl cat ls等等，基本不会使用到zsh的编程，所以终端中使用zsh是可以的。但是在写shell脚本的时候，需要考虑兼容性， 最主流的还是bash shell，所以，后文我们介绍的shell脚本也是bash shell的。
+zsh 本身是不兼容bash的，但是他可以使用仿真模式 (emulation mode) 来模拟 bash等，基本可以实现兼容。 zsh拥有很强大的提示和插件功能，推荐在终端的交互式使用中使用zsh，再安利一个插件Oh My Zsh 其实我个人的理解是，在终端中使用 shell，基本上只是调用各种命令，比如: curl cat ls等等，基本不会使用到 zsh的编程，所以终端中使用zsh是可以的。但是在写shell脚本的时候，需要考虑兼容性， 最主流的还是 bash shell，所以，后文我们介绍的shell脚本也是bash shell的。
 
-执行并获取返回结果，有点类似JavaScript 的eval函数。
+执行并获取返回结果，有点类似 JavaScript 的eval函数。
 
+```bash
 # !/bin/bash
   
 dt=`date` #反引号内的字符串会当作shell执行 ，并且返回结果。
   
 echo "dt=${dt}"
-  
-### 逻辑与，或表达式
+```
 
-    与&&: 
-    1) if [ $str=a -a $str=b ] 
-    2) if [ $str=a ] && [  $str=b ]
-    
-    或||: 
-    1) if [ $str=a -o $str=b ] 
-    2) if [ $str=a ] || [  $str=b ]
+## 逻辑与，或表达式
+
+```bash
+#与&&: 
+if [ $str=a -a $str=b ] 
+if [ $str=a ] && [  $str=b ]
+
+#或||: 
+if [ $str=a -o $str=b ] 
+if [ $str=a ] || [  $str=b ]
+```
 
 ### 字符串长度
 
-    ${\#}
+```bash
+${\#}
+```
 
 ### 模式匹配截断
 
-><https://blog.csdn.net/K346K346/article/details/51819236>
+<https://blog.csdn.net/K346K346/article/details/51819236>
 
 ### 以-分隔取最后一段字符串
 
@@ -1222,10 +1233,7 @@ redis-cli -h 172.1628.10.114 -p $port
 
 if [ "$var1" = "$var2" ]
 
-代码:
-
-[css] view plain copy
-  
+```bash  
 # !/bin/sh
 
 aa="August 15, 2012"
@@ -1273,6 +1281,7 @@ else
 echo "$a2不是$a3的子串！"
   
 fi
+```
 
 注意:
   
@@ -1281,8 +1290,6 @@ fi
 awk '{print $2}' class.txt | grep '^[0-9.]' > res
   
 <https://www.linuxquestions.org/questions/programming-9/bash-put-output-from-%60ls%60-into-an-array-346719/>
-
-————————————————
   
 版权声明: 本文为CSDN博主「DevMaster」的原创文章，遵循 CC 4.0 BY-SA 版权协议，转载请附上原文出处链接及本声明。
   
@@ -1307,7 +1314,7 @@ awk '{print $2}' class.txt | grep '^[0-9.]' > res
 
 ## 'linux #!/bin/sh'
 
-# !/bin/sh 是指此脚本使用/bin/sh来解释执行，#!是特殊的表示符，其后面根的是此解释此脚本的shell的路径。 $bash $表示系统提示符，$ 表示此用户为普通用户，超级用户的提示符是＃，bash是shell的一种，是linux下最常用的一种shell，$bash的意思是执行一个子shell，此子shell为bash.
+`#!/bin/sh` 是指此脚本使用/bin/sh来解释执行，#!是特殊的表示符，其后面根的是此解释此脚本的shell的路径。 $bash $表示系统提示符，$ 表示此用户为普通用户，超级用户的提示符是＃，bash是shell的一种，是linux下最常用的一种shell，$bash的意思是执行一个子shell，此子shell为bash.
 
 ## case, esac
 
@@ -1325,3 +1332,63 @@ case $ides in
 esac
 
 ```
+
+## declare
+
+`man bash`, line:2995
+
+声明变量，设置或显示变量的值和属性。
+
+-A 创建关联数组(associative array)（如果支持）
+
+## Shell 函数, function
+
+```template
+[ function ] funname [()]
+{
+    action;
+    [return int;]
+}
+```
+
+```bash
+# 定义函数 fun0
+fun0(){
+    echo "run fun0 "
+}
+# 调用函数 fun0
+fun0
+
+```
+
+```bash
+# 定义带参数的函数 fun0
+# 在Shell中，调用函数时可以向其传递参数。在函数体内部，通过 $n 的形式来获取参数的值，例如，$1表示第一个参数，$2表示第二个参数...
+fun0(){
+    echo "run fun0 $1 "
+    echo "第一个参数为 $1 !"
+    echo "第二个参数为 $2 !"
+    echo "第十个参数为 $10 !"
+}
+# 调用带参数的函数 fun0
+fun0 foo
+
+```
+
+<https://www.runoob.com/linux/linux-shell-func.html>
+  
+<https://wiki.jikexueyuan.com/project/shell-tutorial/shell-function-parameter.html>
+
+## shell 把命令输出结果存入变量
+
+```bash
+  
+var=$(ls -lR|grep "^d"|wc -l)
+  
+或者另外一种 不建议的方式
+  
+var=\`ls -lR|grep "^d"|wc -l\`
+  
+```
+
+<https://blog.csdn.net/baidu_35757025/article/details/64440047>

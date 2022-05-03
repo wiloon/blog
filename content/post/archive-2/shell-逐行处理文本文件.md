@@ -9,7 +9,8 @@ tags:
   - reprint
 ---
 ## Shell 逐行处理文本文件
-https://www.cnblogs.com/dwdxdy/archive/2012/07/25/2608816.html
+
+<https://www.cnblogs.com/dwdxdy/archive/2012/07/25/2608816.html>
 
 1.通过read命令完成．
 
