@@ -1,14 +1,26 @@
 ---
 title: Hardware
-author: "-"
+author: "W10N"
 date: "2021-01-13 08:49:13"
 url: ""
 categories:
-  - w10n
+  - W10N
 tags:
   - Hardware
 ---
 ## Hardware
+
+## Dell Wyse 5070
+
+Intel® Celeron® J4105 Processor (4M Cache, up to 2.50 GHz), TDP 10 W
+Realtek®以太网LAN 10 Mb/100 Mb/1 Gb铜缆RJ45,LAN唤醒
+威刚(ADATA) 120GB SSD固态硬盘 M.2接口(SATA协议) SP580M2 系列
+金士顿(Kingston) DDR4 2666 8GB 笔记本内存条 骇客神条 Impact系列 * 2
+
+3个USB 2.0（2个前置，1个内置）
+6个USB 3.0（1个前置，4个后置，1个内置）
+1个USB 3.1 Type C（前置）
+2个DisplayPort™ 1.2a（赛扬）
 
 ## benchmark
 
@@ -80,12 +92,6 @@ Real, DivX HD
 28nm HKMG
 
 ## Back-UPS Pro 550
-
-## Dell Wyse 5070
-
-Intel® Celeron® J4105 Processor (4M Cache, up to 2.50 GHz), TDP 10 W
-威刚(ADATA) 120GB SSD固态硬盘 M.2接口(SATA协议) SP580M2 系列
-金士顿(Kingston) DDR4 2666 8GB 笔记本内存条 骇客神条 Impact系列 * 2
 
 ## PC
 

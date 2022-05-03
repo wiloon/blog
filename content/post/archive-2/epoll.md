@@ -97,11 +97,13 @@ clipboard.png
 
 在IO multiplexing Model中,实际中,对于每一个socket,一般都设置成为non-blocking,但是,如上图所示,整个用户的process其实是一直被block的。只不过process是被select这个函数block,而不是被socket IO给block。
 
-Epoll,位于头文件sys/epoll.h,是Linux系统上的I/O事件通知基础设施。epoll API为Linux系统专有,于内核2.5.44中首次引入,glibc于2.3.2版本加入支持。其它提供类似的功能的系统,包括FreeBSD kqueue, Solaris /dev/poll等。
-  
-Epoll API
+## Epoll
 
-Epoll API实现了与poll类似的功能: 监测多个文件描述符上是否可以执行I/O操作。支持边缘触发ET和水平触发LT,相比poll支持监测数量更多的文件描述符。
+Epoll, 位于头文件 sys/epoll.h, 是Linux 系统上的I/O 事件通知基础设施。epoll API 为Linux 系统专有,于内核2.5.44 中首次引入, glibc 于 2.3.2 版本加入支持。其它提供类似的功能的系统,包括 FreeBSD kqueue, Solaris /dev/poll等。
+  
+### Epoll API
+
+Epoll API实现了与poll 类似的功能: 监测多个文件描述符上是否可以执行I/O操作。支持边缘触发ET和水平触发LT,相比poll支持监测数量更多的文件描述符。
   
 poll_create: 创建Epoll实例,并返回Epoll实例关联的文件描述符。 (最新的epoll_create1扩展了epoll_create的功能)
 

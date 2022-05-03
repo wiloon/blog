@@ -390,3 +390,9 @@ installing xorgproto (2019.2-2) breaks dependency 'xf86dgaproto' required by lib
 ```bash
 sudo pacman -Rdd libdmx libxxf86dga && sudo pacman -Syu
 ```
+
+## error: oniguruma: signature from is marginal trust
+
+```bash
+sudo pacman -Sy archlinux-keyring
+```

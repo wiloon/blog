@@ -84,9 +84,9 @@ ldconfig 并不设置链接的名字，通常的做法是在安装过程中完�
 
 3.2. 这些函数库如何使用
 
-在基于GNU glibc的系统里，包括所有的linux系统，启动一个ELF格式的二进制可执行文件会自动启动和运行一个program loader。对于Linux系统，这个loader的名字是/lib/ld-linux.so.X (X是版本号) 。这个loader启动后，反过来就会load所有的其他本程序要使用的共享函数库。
+在基于GNU glibc 的系统里，包括所有的linux 系统，启动一个ELF 格式的二进制可执行文件会自动启动和运行一个program loader。对于Linux 系统，这个loader 的名字是 /lib/ld-linux.so.X (X是版本号) 。这个loader 启动后，反过来就会load所有的其他本程序要使用的共享函数库。
 
-到底在哪些目录里查找共享函数库呢？这些定义缺省的是放在/etc/ld.so.conf文件里面，我们可以修改这个文件，加入我们自己的一些特殊的路径要求。大多数RedHat系列的发行包的/etc/ld.so.conf文件里面不包括/usr/local/lib这个目录，如果没有这个目录的话，我们可以修改/etc/ld.so.conf，自己手动加上这个条目。
+到底在哪些目录里查找共享函数库呢？这些定义缺省的是放在 /etc/ld.so.conf 文件里面，我们可以修改这个文件，加入我们自己的一些特殊的路径要求。大多数RedHat系列的发行包的 /etc/ld.so.conf文件里面不包括 /usr/local/lib这个目录，如果没有这个目录的话，我们可以修改 /etc/ld.so.conf，自己手动加上这个条目。
 
 如果你想覆盖某个库中的一些函数，用自己的函数替换它们，同时保留该库中其他的函数的话，你可以在 /etc/ld.so.preload中加入你想要替换的库 (.o结尾的文件) ，这些preloading的库函数将有优先加载的权利。
 

@@ -3,7 +3,6 @@ title: alpine basic
 author: "-"
 date: 2019-04-23T06:24:28+00:00
 url: /?p=14227
-
 categories:
   - inbox
 tags:
@@ -28,9 +27,8 @@ busybox-extras telnet localhost 6900
 
 apk add drill
 apk add tcpdump
-```
-
     apk add curl
+```
 
 明明镜像中有对应的二进制文件，但是执行时却提示 not found 或 no such file¶
 有时可能会遇到明明镜像中存在相应的二进制文件，但是执行对应的二进制文件时却提示 not found 或 no such file 错误，类似下面这样:
@@ -71,6 +69,5 @@ CMD ["bin/server"]
 
 ```
 
->https://megamorf.gitlab.io/2019/09/08/alpine-go-builds-with-cgo-enabled/
->https://pkgs.alpinelinux.org/packages
-
+><https://megamorf.gitlab.io/2019/09/08/alpine-go-builds-with-cgo-enabled/>
+><https://pkgs.alpinelinux.org/packages>

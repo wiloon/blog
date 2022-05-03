@@ -188,14 +188,14 @@ podman run \
 image0_name
 ```
 
-## systemd script
+## systemd
 
 generate systemd script
 
 ```bash
 export service_name=foo
 podman generate systemd $service_name > /usr/lib/systemd/system/$service_name.service
-systemctl enable $service_name && systemctl start $service_name
+systemctl --now enable $service_name
 ```
 
 ### network
