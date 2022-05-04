@@ -4,7 +4,7 @@ author: "-"
 date: 2017-01-23T06:47:46+00:00
 url: /?p=9678
 categories:
-  - Design Pattern
+  - pattern
 tags:
   - reprint
 ---

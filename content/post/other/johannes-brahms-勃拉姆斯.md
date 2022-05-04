@@ -4,7 +4,7 @@ author: "-"
 date: 2015-05-16T10:19:36+00:00
 url: /?p=7671
 categories:
-  - Piano
+  - Inbox
 tags:
   - Piano
 

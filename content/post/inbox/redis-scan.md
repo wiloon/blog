@@ -4,12 +4,14 @@ author: "-"
 date: "2021-07-21 22:27:27"
 url: "redis-scan"
 categories:
-  - cache
+  - Inbox
 tags:
   - redis
 ---
 ## "redis scan"
+
 ### redis用scan代替keys
+
 众所周知，当redis中key数量越大，keys 命令执行越慢，而且最重要的会阻塞服务器，对单线程的redis来说，简直是灾难，且在生产环境，keys命令一般是被禁止的。scan可用来替换keys请求。
 
 所以说官方的建议是: 生产环境屏蔽掉 keys 命令。
@@ -17,52 +19,64 @@ tags:
 在对键进行增量式迭代的过程中， 键可能会被修改， 所以增量式迭代命令只能对被返回的元素提供有限的保证 。
 
 ### scan用法
+
     SCAN cursor [MATCH pattern] [COUNT count]
     scan 0  match *news* count 3
 
 scan是一个增量迭代式的命令，这意味着每次调用这个命令都会返回一个游标cursor，该游标用于下次查询。查询开始时，cursor值为0；当查询结束时，cursor的值也回归到0。
 
-举个例子: 
+举个例子:
 
 # 开始查询，scan cursor为0，返回的cursor为17
+
 redis 127.0.0.1:6379> scan 0
+
 1) "17"
-2)  1) "key:12"
-    2) "key:8"
-    3) "key:4"
-    4) "key:14"
-    5) "key:16"
-    6) "key:17"
-    7) "key:15"
-    8) "key:10"
-    9) "key:3"
-   10) "key:7"
-   11) "key:1"
+2) 1) "key:12"
+2) "key:8"
+3) "key:4"
+4) "key:14"
+5) "key:16"
+6) "key:17"
+7) "key:15"
+8) "key:10"
+9) "key:3"
+10) "key:7"
+11) "key:1"
+
 # 下一次查询，以上一次查询返回的cursor为起始位置
+
 redis 127.0.0.1:6379> scan 17
+
 # 查询返回cursor为0，标志查询结束
+
 1) "0"
 2) 1) "key:5"
-   2) "key:18"
-   3) "key:0"
-   4) "key:2"
-   5) "key:19"
-   6) "key:13"
-   7) "key:6"
-   8) "key:9"
-   9) "key:11"
+2) "key:18"
+3) "key:0"
+4) "key:2"
+5) "key:19"
+6) "key:13"
+7) "key:6"
+8) "key:9"
+9) "key:11"
 count
 count可理解为迭代过程中的步长，指每次调用scan时应执行的工作量，该值默认为10。每次调用count的值可以随意指定，只要下一次传递cursor是上一次调用返回的cursor就行。
 
 match
-需要注意的是，match操作时在元素被检出后执行的。假设redis中只有少量元素符合pattern条件，那么很可能在多次调用中scan返回的数据为空，例如: 
+需要注意的是，match操作时在元素被检出后执行的。假设redis中只有少量元素符合pattern条件，那么很可能在多次调用中scan返回的数据为空，例如:
 
 # 查找key中包含11的键，因为这里没有指定count，所以默认为10
+
 redis 127.0.0.1:6379> scan 0 MATCH *11*
+
 1) "288"
 2) 1) "key:911"
+
 # 在这次调用中，count为10，起始cursor为288，返回的结果中并没有满足*11*条件的key
+
 redis 127.0.0.1:6379> scan 288 MATCH *11*
+
 1) "224"
 2) (empty list or set)
 redis 127.0.0.1:6379> scan 224 MATCH *11*
@@ -71,30 +85,33 @@ redis 127.0.0.1:6379> scan 224 MATCH *11*
 redis 127.0.0.1:6379> scan 80 MATCH *11*
 1) "176"
 2) (empty list or set)
-# count指定为1000，找到了。
+
+# count指定为1000，找到了
+
 redis 127.0.0.1:6379> scan 176 MATCH *11* COUNT 1000
+
 1) "0"
-2)  1) "key:611"
-    2) "key:711"
-    3) "key:118"
-    4) "key:117"
-    5) "key:311"
-    6) "key:112"
-    7) "key:111"
-    8) "key:110"
-    9) "key:113"
-   10) "key:211"
-   11) "key:411"
-   12) "key:115"
-   13) "key:116"
-   14) "key:114"
-   15) "key:119"
-   16) "key:811"
-   17) "key:511"
-   18) "key:11"
+2) 1) "key:611"
+2) "key:711"
+3) "key:118"
+4) "key:117"
+5) "key:311"
+6) "key:112"
+7) "key:111"
+8) "key:110"
+9) "key:113"
+10) "key:211"
+11) "key:411"
+12) "key:115"
+13) "key:116"
+14) "key:114"
+15) "key:119"
+16) "key:811"
+17) "key:511"
+18) "key:11"
 redis 127.0.0.1:6379>
 scan的优缺点
-可以看出，Redis的SCAN操作由于其整体的数据设计，无法提供特别准的scan操作，仅仅是一个“can ‘ t guarantee ， just do my best”的实现: 
+可以看出，Redis的SCAN操作由于其整体的数据设计，无法提供特别准的scan操作，仅仅是一个“can ‘ t guarantee ， just do my best”的实现:
 
 提供键空间的遍历操作，支持游标，复杂度O(1), 整体遍历一遍只需要O(N)；
 提供结果模式匹配；
@@ -149,11 +166,10 @@ Jedis使用scan实现keys
         return keys;
     }
 参考链接
-https://redis.io/commands/scan
+<https://redis.io/commands/scan>
 
-https://blog.csdn.net/qq_27623337/article/details/53201202
+<https://blog.csdn.net/qq_27623337/article/details/53201202>
 
-https://my.oschina.net/u/3747772/blog/1588983
+<https://my.oschina.net/u/3747772/blog/1588983>
 
-
-https://horizonliu.github.io/2019/07/25/Redis%E7%94%A8scan%E4%BB%A3%E6%9B%BFkeys/
+<https://horizonliu.github.io/2019/07/25/Redis%E7%94%A8scan%E4%BB%A3%E6%9B%BFkeys/>

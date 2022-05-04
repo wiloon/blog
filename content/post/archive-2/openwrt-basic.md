@@ -3,11 +3,11 @@ title: openwrt basic, opkg basic, ipk
 author: "-"
 date: 2018-07-26T05:04:27+00:00
 url: openwrt
-
 categories:
-  - inbox
+  - network
 tags:
   - reprint
+  - HomeLab
 ---
 ## openwrt basic, opkg basic, ipk
 ### wan dns

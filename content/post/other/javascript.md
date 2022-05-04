@@ -3,10 +3,11 @@ title: javascript
 author: "-"
 date: 2011-07-30T06:20:10+00:00
 url: javascript
-tags:
-  - regex
 categories:
   - inbox
+tags:
+  - regex
+
 ---
 ## javascript
 

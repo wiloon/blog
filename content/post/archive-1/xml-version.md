@@ -4,7 +4,7 @@ author: "-"
 date: 2013-12-20T14:07:08+00:00
 url: /?p=6050
 categories:
-  - Uncategorized
+  - Inbox
 tags:
   - Xml
 

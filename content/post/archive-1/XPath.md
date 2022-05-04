@@ -4,7 +4,7 @@ author: "-"
 date: 2014-04-24T06:56:39+00:00
 url: XPath
 categories:
-  - xml
+  - Inbox
 tags:
   - reprint
 ---

@@ -4,13 +4,14 @@ author: "-"
 date: 2018-01-05T09:00:17+00:00
 url: memcache
 categories:
-  - cache
-
+  - Inbox
 tags:
   - reprint
 ---
 ## memcache basic,command
-### run as docker 
+
+### run as docker
+
 ```bash
 podman run \
 --name memcache \
@@ -21,9 +22,11 @@ memcached -m 16
 ```
 
 ### connect
+
     telnet HOST PORT
 
 ### set
+
 ```bash
     set key flags exptime bytes [noreply]
     value
@@ -100,6 +103,6 @@ quit 退出
 
 memcached go
   
-https://github.com/bradfitz/gomemcache
+<https://github.com/bradfitz/gomemcache>
   
-http://blog.51cto.com/151wqooo/1309088
+<http://blog.51cto.com/151wqooo/1309088>

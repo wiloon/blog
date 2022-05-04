@@ -10,6 +10,7 @@ tags:
   - reprint
 ---
 ## filebeat
+
 ### elasticsearch output 配置索引
 
 vim /etc/filebeat/filebeat.yml
@@ -33,11 +34,11 @@ Create a file with a .repo extension (for example, elastic.repo) in your /etc/yu
   
 name=Elastic repository for 6.x packages
   
-baseurl=https://artifacts.elastic.co/packages/6.x/yum
+baseurl=<https://artifacts.elastic.co/packages/6.x/yum>
   
 gpgcheck=1
   
-gpgkey=https://artifacts.elastic.co/GPG-KEY-elasticsearch
+gpgkey=<https://artifacts.elastic.co/GPG-KEY-elasticsearch>
   
 enabled=1
   

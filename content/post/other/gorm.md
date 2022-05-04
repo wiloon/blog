@@ -4,7 +4,7 @@ author: "-"
 date: 2013-06-20T06:57:46+00:00
 url: gorm
 categories:
-  - gorm
+  - Go
 tags:
   - reprint
 ---

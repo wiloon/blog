@@ -4,12 +4,14 @@ author: "-"
 date: 2011-10-29T07:59:18+00:00
 url: design-pattern
 categories:
-  - Design Pattern
+  - pattern
 tags:
   - reprint
 ---
 ## GOF 23种设计模式, Design pattern
+
 ## GoF的23种设计模式
+
 1. 单例 (Singleton）模式：某个类只能生成一个实例，该类提供了一个全局访问点供外部获取该实例，其拓展是有限多例模式。
 2. 原型 (Prototype）模式：将一个对象作为原型，通过对其进行复制而克隆出多个和原型类似的新实例。
 3. 工厂方法 (Factory Method）模式：定义一个用于创建产品的接口，由子类决定生产什么产品。
@@ -35,37 +37,42 @@ tags:
 23. 解释器 (Interpreter）模式：提供如何定义语言的文法，以及对语言句子的解释方法，即解释器。
 
 ## 分类
+
 ### 创建模式
-  * Simple Factory Pattern 简单工厂模式 <https://blog.wiloon.com/?p=1399>
-  * Factory Method Pattern 工厂方法
-  * Abstract Factory Pattern 抽象工厂模式
-  * prototype, 原型
-  * Builder, 建造者
-  * Singleton, 单例
+
+* Simple Factory Pattern 简单工厂模式 <https://blog.wiloon.com/?p=1399>
+* Factory Method Pattern 工厂方法
+* Abstract Factory Pattern 抽象工厂模式
+* prototype, 原型
+* Builder, 建造者
+* Singleton, 单例
 
 ### 结构模式
-  * Facade, 外观
-  * Proxy, 代理
-  * Adapter, 适配器
-  * Composite, 组合
-  * Decorator, 装饰器 <https://blog.wiloon.com/?p=847>
-  * Bridge, 桥接
-  * Flyweight, 享元
+
+* Facade, 外观
+* Proxy, 代理
+* Adapter, 适配器
+* Composite, 组合
+* Decorator, 装饰器 <https://blog.wiloon.com/?p=847>
+* Bridge, 桥接
+* Flyweight, 享元
 
 ### 行为模式
-  * Template Method, 模板方法 <https://blog.wiloon.com/?p=5526>
-  * Memento, 备忘录
-  * Observer - 观察者 <https://wiloon.com/observer>
-  * Chain Of Responsibility - 责任链, 亦称: 职责链模式、命令链、CoR、Chain of Command、Chain of Responsibility
-  * Command, 命令模式 (别名: 动作模式(Action)或事务模式(Transaction))
-  * State, 状态 - <https://blog.wiloon.com/?p=9678>
-  * Strategy, 策略
-  * Meidator, 中介者
-  * Interpreter, 解释器
-  * Visitor, 访问者
-  * Iterator, 迭代器
+
+* Template Method, 模板方法 <https://blog.wiloon.com/?p=5526>
+* Memento, 备忘录
+* Observer - 观察者 <https://wiloon.com/observer>
+* Chain Of Responsibility - 责任链, 亦称: 职责链模式、命令链、CoR、Chain of Command、Chain of Responsibility
+* Command, 命令模式 (别名: 动作模式(Action)或事务模式(Transaction))
+* State, 状态 - <https://blog.wiloon.com/?p=9678>
+* Strategy, 策略
+* Meidator, 中介者
+* Interpreter, 解释器
+* Visitor, 访问者
+* Iterator, 迭代器
 
 ### GoF: (Gang of Four，GOF设计模式) - 四人组
+
 Design Patterns: Elements of Reusable Object-Oriented Software (即后述《设计模式》一书) ，由 Erich Gamma、Richard Helm、Ralph Johnson 和 John Vlissides 合著 (Addison-Wesley，1995) 。这几位作者常被称为"四人组 (Gang of Four) "，而这本书也就被称为"四人组 (或 GoF) "书。
 
 在《设计模式》这本书的最大部分是一个目录，该目录列举并描述了 23 种设计模式。另外，近来这一清单又增加了一些类别，最重要的是使涵盖范围扩展到更具体的问题类型。例如，Mark Grand 在 Patterns in Java: A Catalog of Reusable Design Patterns Illustrated with UML (即后述《模式 Java 版》一书) 中增加了解决涉及诸如并发等问题的模式，而由 Deepak Alur、John Crupi 和 Dan Malks 合著的 Core J2EE Patterns: Best Practices and Design Strategies 一书中主要关注使用 Java 2 企业技术的多层应用程序上的模式。
@@ -89,6 +96,7 @@ GoF的设计模式表面上好像也是一种具体的"技术"，而且新的设
 JaveEE等属于一种框架软件，什么是框架软件？它不同于我们以前接触的Java API等，那些属于Toolkist(工具箱)，它不再被动的被使用，被调用，而是深刻的介入到一个领域中去，JavaEE等框架软件设计的目的是将一个领域中不变的东西先定义好，比如整体结构和一些主要职责(如数据库操作, 事务跟踪, 安全等)，剩余的就是变化的东西，针对这个领域中具体应用产生的具体不同的变化需求，而这些变化东西就是JavaEE程序员所要做的。
 
 由此可见，设计模式和JavaEE在思想和动机上是一脉相承，只不过:
+
 1. 设计模式更抽象，JavaEE是具体的产品代码，我们可以接触到，而设计模式在对每个应用时才会产生具体代码。
   
 2.设计模式是比JavaEE等框架软件更小的体系结构，JavaEE中许多具体程序都是应用设计模式来完成的，当你深入到JavaEE的内部代码研究时，这点尤其明显，因此，如果你不具备设计模式的基础知识(GoF的设计模式)，你很难快速的理解JavaEE。不能理解JavaEE,如何能灵活应用？
@@ -117,7 +125,7 @@ Iterator
 
 工厂模式: 客户类和工厂类分开。消费者任何时候需要某种产品，只需向工厂请求即可。消费者无须修改就可以接纳新产品。缺点是当产品修改时，工厂类也要做相应的修改。如: 如何创建及如何向客户端提供。
 
-2. BUILDER—MM最爱听的就是"我爱你"这句话了，见到不同地方的MM,要能够用她们的方言跟她说这句话哦，我有一个多种语言翻译机，上面每种语言都有一个按键，见到MM我只要按对应的键，它就能够用相应的语言说出"我爱你"这句话了，国外的MM也可以轻松搞掂，这就是我的"我爱你"builder。 (这一定比美军在伊拉克用的翻译机好卖) 
+2. BUILDER—MM最爱听的就是"我爱你"这句话了，见到不同地方的MM,要能够用她们的方言跟她说这句话哦，我有一个多种语言翻译机，上面每种语言都有一个按键，见到MM我只要按对应的键，它就能够用相应的语言说出"我爱你"这句话了，国外的MM也可以轻松搞掂，这就是我的"我爱你"builder。 (这一定比美军在伊拉克用的翻译机好卖)
 
 建造模式: 将产品的内部表象和产品的生成过程分割开来，从而使一个建造过程生成具有不同的内部表象的产品对象。建造模式使得产品内部表象可以独立的变化，客户不必知道产品内部组成的细节。建造模式可以强制实行一种分步骤进行的建造过程。
 
@@ -125,7 +133,7 @@ Iterator
 
 工厂方法模式: 核心工厂类不再负责所有产品的创建，而是将具体创建的工作交给子类去做，成为一个抽象工厂角色，仅负责给出具体工厂类必须实现的接口，而不接触哪一个产品类应当被实例化这种细节。
 
-4. PROTOTYPE—跟MM用QQ聊天，一定要说些深情的话语了，我搜集了好多肉麻的情话，需要时只要copy出来放到QQ里面就行了，这就是我的情话prototype了。 (100块钱一份，你要不要) 
+4. PROTOTYPE—跟MM用QQ聊天，一定要说些深情的话语了，我搜集了好多肉麻的情话，需要时只要copy出来放到QQ里面就行了，这就是我的情话prototype了。 (100块钱一份，你要不要)
 
 原始模型模式: 通过给出一个原型对象来指明所要创建的对象的类型，然后用复制这个原型对象的方法创建出更多同类型的对象。原始模型模式允许动态的增加或减少产品类，产品类不需要非得有任何事先确定的等级结构，原始模型模式适用于任何的等级结构。缺点是每一个类都必须配备一个克隆方法。
 
@@ -160,6 +168,7 @@ Iterator
 享元模式: FLYWEIGHT在拳击比赛中指最轻量级。享元模式以共享的方式高效的支持大量的细粒度对象。享元模式能做到共享的关键是区分内蕴状态和外蕴状态。内蕴状态存储在享元内部，不会随环境的改变而有所不同。外蕴状态是随环境的改变而改变的。外蕴状态不能影响内蕴状态，它们是相互独立的。将可以共享的状态和不可以共享的状态从常规类中区分开来，将不可以共享的状态从类里剔除出去。客户端不可以直接创建被共享的对象，而应当使用一个工厂对象负责创建被共享的对象。享元模式大幅度的降低内存中对象的数量。
 
 ### PROXY 代理模式
+
 跟MM在网上聊天，一开头总是"hi,你好","你从哪儿来呀？""你多大了？""身高多少呀？"这些话，真烦人，写个程序做为我的Proxy吧，凡是接收到这些话都设置好了自动的回答，接收到其他的话时再通知我回答，怎么样，酷吧。
 
 代理模式: 代理模式给某一个对象提供一个代理对象，并由代理对象控制对源对象的引用。代理就是一个人或一个机构代表另一个人或者一个机构采取行动。某些情况下，客户不想或者不能够直接引用一个对象，代理对象可以在客户和目标对象直接起到中介的作用。客户端分辨不出代理主题对象与真实主题对象。代理模式可以并不知道真正的被代理对象，而仅仅持有一个被代理对象的接口，这时候代理对象不能够创建被代理对象，被代理对象必须有系统的其他角色代为创建并传入。
@@ -231,8 +240,8 @@ Mary: "你的小弟弟必须要有50cm长"
 访问者模式: 访问者模式的目的是封装一些施加于某种数据结构元素之上的操作。一旦这些操作需要修改的话，接受这个操作的数据结构可以保持不变。访问者模式适用于数据结构相对未定的系统，它把数据结构和作用于结构上的操作之间的耦合解脱开，使得操作集合可以相对自由的演化。访问者模式使得增加新的操作变的很容易，就是增加一个新的访问者类。访问者模式将有关的行为集中到一个访问者对象中，而不是分散到一个个的节点类中。当使用访问者模式时，要将尽可能多的对象浏览逻辑放在访问者类中，而不是放到它的子类中。访问者模式可以跨过几个类的等级结构访问属于不同的等级结构的成员类。
 
 ---
->https://refactoringguru.cn
-http://fsjoy.blog.51cto.com/318484/73091
-http://baike.baidu.com/view/66964.htm
-https://refactoringguru.cn/design-patterns/chain-of-responsibility
->https://design-patterns.readthedocs.io/zh_CN/latest/behavioral_patterns/command.html
+><https://refactoringguru.cn>
+<http://fsjoy.blog.51cto.com/318484/73091>
+<http://baike.baidu.com/view/66964.htm>
+<https://refactoringguru.cn/design-patterns/chain-of-responsibility>
+><https://design-patterns.readthedocs.io/zh_CN/latest/behavioral_patterns/command.html>

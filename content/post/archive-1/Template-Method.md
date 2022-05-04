@@ -4,7 +4,7 @@ author: "-"
 date: 2013-06-13T03:05:58+00:00
 url: design-pattern/template-method
 categories:
-  - design-pattern
+  - pattern
 tags:
   - reprint
 ---

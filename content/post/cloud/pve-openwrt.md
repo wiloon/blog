@@ -4,7 +4,7 @@ author: "-"
 date: ""
 url: ""
 categories:
-  - inbox
+  - network
 tags:
   - inbox
 ---

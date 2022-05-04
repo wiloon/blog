@@ -3,7 +3,6 @@ title: dev
 author: "w1100n"
 date: "2015-08-06 15:52:37"
 url: dev
-
 categories:
   - inbox
 tags:
@@ -14,18 +13,20 @@ tags:
 - archlinux dev env init
 - windows dev env
 
-
 #### 语言
+
 - Java, jdk8
 - Golang
 - Shell Script
 
 #### IDE
+
 - IDEA
 - VSCODE
 - Eclipse
 
 #### 中间件, Middleware
+
 - Redis
 - Leveldb
 - zookeeper
@@ -35,7 +36,8 @@ tags:
 - MySQL
 
 ### 第三方包
-- io.netty:netty-all:jar:4.1.22.Final, https://wiloon.com/netty
+
+- io.netty:netty-all:jar:4.1.22.Final, <https://wiloon.com/netty>
 - junit:junit:jar:4.12
 - com.squareup.okhttp3:okhttp:jar:4.7.2
 - com.google.guava:guava:jar:19.0
@@ -52,6 +54,7 @@ tags:
 - commons-codec:commons-codec:jar:1.14
 
 ### OS/linux/tool
+
 - Windows
 - Archlinux
 - CentOS
@@ -70,6 +73,7 @@ tags:
 - KVM
 
 ### other
+
 - maven, setting.xml
 - gradle
 - plantuml
@@ -84,9 +88,11 @@ tags:
 - AWS
 
 ### dev env
-- 字体 https://blog.wiloon.com/?p=6077
- 
+
+- 字体 <https://blog.wiloon.com/?p=6077>
+
 ### board, dev server
+
 - ro....dx
 - ro....dx-server
 - pingd
@@ -99,6 +105,7 @@ tags:
 - chronograf
 
 ### windows dev env
+
     # install latest version of powershell
     https://github.com/PowerShell/PowerShell/releases/tag/v7.1.0
 

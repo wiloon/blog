@@ -7,6 +7,7 @@ categories:
   - W10N
 tags:
   - Hardware
+  - HomeLab
 ---
 ## Hardware
 

@@ -4,9 +4,10 @@ author: "-"
 date: 2021-09-26 00:09:45
 url: k8s
 categories:
-  - k8s
+  - Inbox
 tags:
   - reprint
+  - k8s
 ---
 ## archlinux, k8s
 

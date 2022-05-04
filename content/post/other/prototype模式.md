@@ -4,7 +4,7 @@ author: "-"
 date: 2012-10-10T03:25:48+00:00
 url: /?p=4418
 categories:
-  - Design Pattern
+  - pattern
 tags:
   - DesignPattern
 

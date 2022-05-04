@@ -12,15 +12,19 @@ tags:
 
 ---
 ## telegraf
+
 ### archlinux, telegraf
+
 ```bash
 yay -S telegraf-bin
 ```
 
 ### binary
+
     https://portal.influxdata.com/downloads/
 
 ### 配置文件 vim /etc/telegraf/telegraf.conf
+
 ```bash
 [global_tags]
 [agent]
@@ -57,24 +61,30 @@ yay -S telegraf-bin
 [[inputs.netstat]]
 [[inputs.linux_sysctl_fs]]
 ```
+
 #### inputs.linux_sysctl_fs
->https://www.kernel.org/doc/Documentation/sysctl/fs.txt
+
+><https://www.kernel.org/doc/Documentation/sysctl/fs.txt>
 
 ### hsperfdata
-https://github.com/njwhite/telegraf/tree/master/plugins/inputs/hsperfdata
+<https://github.com/njwhite/telegraf/tree/master/plugins/inputs/hsperfdata>
 
 ### windows
+
     choco install telegraf
-#### 配置文件 
+
+#### 配置文件
+
     C:\Program Files\telegraf\telegraf.conf
-    
+
 #### install as windows serivce, choco 安装的 telegraf 默认会安装成 service
-https://docs.influxdata.com/telegraf/v1.14/administration/windows_service/
+<https://docs.influxdata.com/telegraf/v1.14/administration/windows_service/>
 
     C:\"Program Files"\Telegraf\telegraf.exe --service install
     net start telegraf
 
 ### telegraf influxdb_listener
+
 ```
 vim  /etc/telegraf/telegraf.conf
 [[outputs.influxdb]]
@@ -90,7 +100,7 @@ vim  /etc/telegraf/telegraf.conf
 
 ### ping plugin
 
-https://github.com/influxdata/telegraf/blob/release-1.10/plugins/inputs/ping/README.md
+<https://github.com/influxdata/telegraf/blob/release-1.10/plugins/inputs/ping/README.md>
 
     [[inputs.ping]]
       ## List of urls to ping
@@ -120,24 +130,24 @@ https://github.com/influxdata/telegraf/blob/release-1.10/plugins/inputs/ping/REA
       ## when arguments is not empty, other options (ping_interval, timeout, etc) will be ignored
       # arguments = ["-c", "3"]
 
-
 ### openwrt
+
 #### telegraf, 下载 static 版本
-https://github.com/influxdata/telegraf/releases/tag/v1.19.0  
-https://dl.influxdata.com/telegraf/releases/telegraf-1.19.0_static_linux_amd64.tar.gz
+<https://github.com/influxdata/telegraf/releases/tag/v1.19.0>  
+<https://dl.influxdata.com/telegraf/releases/telegraf-1.19.0_static_linux_amd64.tar.gz>
 
 mv telegraf-1.19.0/usr/bin/telegraf /usr/bin/
 mv telegraf-1.19.0/usr/lib/telegraf /usr/lib
-mv telegraf-1.19.0/var/log/* /var/log
+mv telegraf-1.19.0/var/log/*/var/log
 mv telegraf-1.19.0/etc/* /etc
 
 #### 配置开机启动
+
 登录到 openwrt web 管理页面, 点击菜单 System > Startup > Local Startup, 在exit0 上面插入一行, 填写以下命令
 
     /usr/bin/telegraf --config /etc/telegraf/telegraf.conf
 
 ### docker
-
 
 ```bash
 podman run --rm telegraf telegraf config > telegraf.conf
@@ -169,12 +179,12 @@ podman run --name telegraf -d \
 ```
 
 运行在容器里的 telegraf 监控宿主机资源
-https://www.jacobtomlinson.co.uk/monitoring/2016/06/23/running-telegraf-inside-a-container/
-
+<https://www.jacobtomlinson.co.uk/monitoring/2016/06/23/running-telegraf-inside-a-container/>
 
 ### wireguard, telegraf
+
     https://github.com/influxdata/telegraf/blob/master/plugins/inputs/wireguard/README.md
-      
+
 ### exec
 
 ```bash
@@ -197,8 +207,8 @@ https://www.jacobtomlinson.co.uk/monitoring/2016/06/23/running-telegraf-inside-a
   data_format = "influx"
 ```
 
-
 #### count.sh
+
 ```bash
 #!/bin/sh
 cd /data/blog/wiloon.com
@@ -210,5 +220,5 @@ echo 'blog,domain=wiloon post_count='''$post_count'''i,word_count='''$word_count
 
 
 ```
->https://github.com/influxdata/telegraf/blob/release-1.21/plugins/inputs/exec/README.md
 
+><https://github.com/influxdata/telegraf/blob/release-1.21/plugins/inputs/exec/README.md>

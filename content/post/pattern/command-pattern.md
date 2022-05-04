@@ -4,12 +4,13 @@ author: "-"
 date: 2011-08-29T02:18:19+00:00
 url: pattern/command
 categories:
-  - Design Pattern
+  - pattern
 tags:
   - reprint
 ---
 ## 命令模式, Command pattern
-# 命令模式, Command pattern , 行动(Action)模式或者交易(Transaction)模式。
+
+# 命令模式, Command pattern , 行动(Action)模式或者交易(Transaction)模式
 
 定义
 命令模式属于对象的行为模式。命令模式又称为行动(Action)模式或者交易(Transaction)模式。
@@ -50,8 +51,8 @@ tags:
 由于发起命令的对象和具体的实现完全解耦，因此拓展新的命令就很容易，只需要实现新的命令对象，然后在装配的时候，把具体的实现对象设置到命令对象中，然后就可以使用这个命令对象，已有的实现完全不用变化。
 
 作者：步积
-链接：https://www.jianshu.com/p/5901e76a6348
+链接：<https://www.jianshu.com/p/5901e76a6348>
 来源：简书
 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
 
->https://design-patterns.readthedocs.io/zh_CN/latest/behavioral_patterns/command.html
+><https://design-patterns.readthedocs.io/zh_CN/latest/behavioral_patterns/command.html>

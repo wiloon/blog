@@ -96,14 +96,16 @@ podman stats
 
 ### 配置driver
 
-    vim /etc/containers/storage.conf
-    [storage]
+```bash
+vim /etc/containers/storage.conf
+[storage]
 
-    # Default Storage Driver, Must be set for proper operation.
-    driver = "overlay2"
+# Default Storage Driver, Must be set for proper operation.
+driver = "overlay2"
+```
 
 修改driver之后 要删除 文件 sudo rm -rf ~/.local/share/containers/, 否则会报错: User-selected graph driver "overlay2" overwritten by graph driver "overlay" from database - delete libpod local files to resolve
-><https://github.com/containers/podman/issues/5114>
+<https://github.com/containers/podman/issues/5114>
 
 ## logs
 
