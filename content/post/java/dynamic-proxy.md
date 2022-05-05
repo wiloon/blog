@@ -10,11 +10,12 @@ tags:
 
 ---
 ## 动态代理 Dynamic Proxy
+
 从JDK1.3开始，Java就引入了动态代理的概念。动态代理 (Dynamic Proxy) 可以帮助你减少代码行数，真正提高代码的可复用度。例如，你不必为所有的类的方法里面都写上相同的Log代码行，取而代之的是实用类的动态代理类。当然，这种便利是有条件的。本文简单介绍Java动态代理的原理，并实现一个被代理的Servlet创建，和调用的过程。
 
-### 代理模式 (Proxy Pattern) 
+### 代理模式 (Proxy Pattern)
+
 在JDK1.3以前，代理模式就已流行，所以得代理模式是生成一个和类相同接口的代理类，用户通过使用代理类来封装某个实现类。如图1，其目的是加强实现类的某个方法的功能，而不必改变原有的源代码。
-  
   
     <img src="http://p.blog.csdn.net/images/p_blog_csdn_net/tyrone1979/proxy1.JPG" alt="" />
   
@@ -39,9 +40,8 @@ tags:
   
   
     ```java
- package org.colimas.servlet; 
-    
-    
+ package org.colimas.servlet;
+
       import javax.servlet.Servlet;
     
     
@@ -165,9 +165,7 @@ tags:
       }
  }
  然后实现InvocationHandler
-    
-    
-    
+
       package org.colimas.webapp;
     
     
@@ -182,9 +180,7 @@ tags:
     
       import javax.servlet.Servlet;
  public class ServletHandler implements InvocationHandler {
-    
-    
-    
+
       private Servlet obj;
     
     
@@ -546,7 +542,7 @@ tags:
     
     
       }
- 
+
  ```
   
   
@@ -852,7 +848,6 @@ tags:
       }
  
  ```
-  
   
     HttpServletRequestWrapper和HttpServletResponseWrapper实现HttpServletRequest，和HttpServletResponse。
   

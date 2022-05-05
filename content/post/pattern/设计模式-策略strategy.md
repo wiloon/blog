@@ -2,23 +2,23 @@
 title: 设计模式 – 策略/Strategy
 author: "-"
 date: 2017-01-30T08:43:37+00:00
-url: /?p=9694
+url: Strategy
 categories:
   - pattern
 tags:
   - reprint
 ---
 ## 设计模式 – 策略/Strategy
+
 设计模式之Strategy(策略)
   
-板桥里人 http://www.jdon.com 2002/03/30
+板桥里人 <http://www.jdon.com> 2002/03/30
   
 Strategy策略模式是属于设计模式中 对象行为型模式,主要是定义一系列的算法,把这些算法一个个封装成单独的类.
 
 Stratrgy应用比较广泛,比如, 公司经营业务变化图, 可能有两种实现方式,一个是线条曲线,一个是框图(bar),这是两种算法,可以使用Strategy实现.
 
 这里以字符串替代为例, 有一个文件,我们需要读取后,希望替代其中相应的变量,然后输出.关于替代其中变量的方法可能有多种方法,这取决于用户的要求,所以我们要准备几套变量字符替代方案.
-
 
 首先,我们建立一个抽象类RepTempRule 定义一些公用变量和方法:
 
@@ -104,7 +104,6 @@ strategy = newAlgorithm;
 
 }
   
-
 调用如下:
 
 public class test{
@@ -124,7 +123,6 @@ solver.getNewContext(site,context);
 solver=new RepTempRuleSolve(new RepTempRuleTwo());
   
 solver.getNewContext(site,context);
-
 
 }
 

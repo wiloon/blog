@@ -4,14 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "6c51cbbfef8848ef",
+        "id": "bbbff831eb66498c",
         "type": "leaf",
         "state": {
-          "type": "markdown",
-          "state": {
-            "file": "content/post/inbox/编译器指令重排.md",
-            "mode": "source"
-          }
+          "type": "empty",
+          "state": {}
         }
       }
     ],
@@ -39,17 +36,16 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "进程",
+                "query": "GOF",
                 "matchingCase": false,
                 "explainSearch": false,
-                "collapseAll": false,
+                "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical"
               }
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "horizontal",
@@ -69,7 +65,6 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "content/post/inbox/编译器指令重排.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -87,17 +82,17 @@
     "width": 300,
     "collapsed": true
   },
-  "active": "6c51cbbfef8848ef",
+  "active": "bbbff831eb66498c",
   "lastOpenFiles": [
+    "content/post/pattern/Singleton.md",
+    "content/post/pattern/GOF-23种设计模式.md",
+    "单例-singleton.md",
+    "content/post/pattern/单例-singleton.md",
+    "content/post/pattern/设计模式-策略strategy.md",
+    "content/post/pattern/Template-Method.md",
+    "content/post/archive-1/Template-Method.md",
+    "content/post/linux/调度策略.md",
     "content/post/inbox/编译器指令重排.md",
-    "content/post/archive-2/dbunit.md",
-    "content/post/linux/ktl.md",
-    "content/post/linux/process-thread.md",
-    "content/post/other/java-thread.md",
-    "content/post/other/java-thread-pool.md",
-    "content/post/other/java-thread-id.md",
-    "content/post/other/java-thread-0.md",
-    "content/post/archive-2/fork-join.md",
-    "content/post/archive-2/datax.md"
+    "content/post/archive-2/dbunit.md"
   ]
 }

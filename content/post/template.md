@@ -1,14 +1,14 @@
 ---
-title: template
+title: "template"
 author: "-"
 date: ""
 url: ""
 categories:
-  - inbox
+  - "Inbox"
 tags:
-  - inbox
-  - original
-  - remix
-  - reprint
+  - "Inbox"
+  - "original"
+  - "remix"
+  - "reprint"
 ---
 ## template

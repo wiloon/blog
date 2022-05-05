@@ -2,17 +2,17 @@
 title: 原型模式 Prototype
 author: "-"
 date: 2012-10-10T03:25:48+00:00
-url: /?p=4418
+url: Prototype
 categories:
   - pattern
 tags:
   - DesignPattern
-
 ---
 ## 原型模式 Prototype
+
 Prototype模式是一种对象创建型模式，它跟工厂模式，Builder模式等一样，都用来创建类的实例对象。
 
-但Prototype模式的对象创建方法，**具有以下特点: **
+但Prototype模式的对象创建方法，**具有以下特点:**
   
 - 由原型对象自身创建目标对象。也就是说，对象创建这一动作发自原型对象本身。
   
@@ -24,8 +24,7 @@ Prototype模式是一种对象创建型模式，它跟工厂模式，Builder模�
   
 **Prototype模式提供一种方法，让类的对象可以实现对自身的复制。**
 
-
-  Prototype模式的应用场景: 
+  Prototype模式的应用场景:
 
 - 在创建对象的时候，我们不只是希望被创建的对象继承其基类的基本结构，还希望继承原型对象的数据。
   
@@ -33,12 +32,11 @@ Prototype模式是一种对象创建型模式，它跟工厂模式，Builder模�
   
 - 隐藏克隆操作的细节。很多时候，对对象本身的克隆需要涉及到类本身的数据细节。
 
-现实生活中，就有许多这样的例子: 
+现实生活中，就有许多这样的例子:
   
 生物细胞的自身复制；根据产品模型生产产品等等
 
-
-  Prototype模式的模型定义: 
+  Prototype模式的模型定义:
 
 Prototype {
   
@@ -48,7 +46,6 @@ Prototype {
   
 即: 原型类Prototype 提供clone()方法，实现对对象自身的复制 (克隆) 。
 
-
   Prototype模式的实现范例
 
 下面我们使用Prototype模式来实现细胞 (Cell) 的自身复制过程。
@@ -57,8 +54,6 @@ Java语言提供了对象复制的机制，Prototype模式的Java实现一般也
   
 这里我们也通过实现Cloneable接口来说明Prototype模式。
   
-    
-      
         public   class  Cell  implements  Cloneable {
       
       
@@ -161,8 +156,5 @@ Java语言提供了对象复制的机制，Prototype模式的Java实现一般也
       
       
         }
-      
-    
-  
 
 这里使用了一个简单的例子说明了Prototype模式的对象创建过程与方法。里面省略了某些无关紧要的代码。

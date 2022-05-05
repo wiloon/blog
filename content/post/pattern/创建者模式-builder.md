@@ -1,5 +1,5 @@
 ---
-title: 创建者模式 Builder
+title: 创建者模式, 建造者模式, Builder
 author: "-"
 date: 2012-10-10T04:23:22+00:00
 url: /?p=4421
@@ -9,9 +9,7 @@ tags:
   - DesignPattern
 
 ---
-## 创建者模式 Builder
-
-## 建造者模式
+## 创建者模式, 建造者模式, Builder
 
 定义: 将一个复杂对象的构建与它的表示分离，使得同样的构建过程可以创建不同的表示  
 

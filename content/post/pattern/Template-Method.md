@@ -1,5 +1,5 @@
 ---
-title: 设计模式 – 模板方法,Template Method
+title: 设计模式 – 模板方法, Template Method
 author: "-"
 date: 2013-06-13T03:05:58+00:00
 url: design-pattern/template-method
@@ -7,9 +7,11 @@ categories:
   - pattern
 tags:
   - reprint
+  - pattern
 ---
-## 设计模式 – 模板方法,Template Method
-http://www.cnblogs.com/java-my-life/archive/2012/05/14/2495235.html
+## 设计模式 – 模板方法, Template Method
+
+<http://www.cnblogs.com/java-my-life/archive/2012/05/14/2495235.html>
 
 模板方法模式是类的行为模式。准备一个抽象类，将部分逻辑以具体方法以及具体构造函数的形式实现，然后声明一些抽象方法来迫使子类实现剩余的逻辑。不同的子类可以以不同的方式实现这些抽象方法，从而对剩余的逻辑有不同的实现。这就是模板方法模式的用意。
 
@@ -19,19 +21,17 @@ http://www.cnblogs.com/java-my-life/archive/2012/05/14/2495235.html
 
 模板方法模式需要开发抽象类和具体子类的设计师之间的协作。一个设计师负责给出一个算法的轮廓和骨架，另一些设计师则负责给出这个算法的各个逻辑步骤。代表这些具体逻辑步骤的方法称做基本方法(primitive method)；而将这些基本方法汇总起来的方法叫做模板方法(template method)，这个设计模式的名字就是从此而来。
 
-模板方法所代表的行为称为顶级行为，其逻辑称为顶级逻辑。模板方法模式的静态结构图如下所示: 
+模板方法所代表的行为称为顶级行为，其逻辑称为顶级逻辑。模板方法模式的静态结构图如下所示:
 
+这里涉及到两个角色:
 
-
-这里涉及到两个角色: 
-
-抽象模板(Abstract Template)角色有如下责任: 
+抽象模板(Abstract Template)角色有如下责任:
 
 ■定义了一个或多个抽象操作，以便让子类实现。这些抽象操作叫做基本操作，它们是一个顶级逻辑的组成步骤。
 
 ■定义并实现了一个模板方法。这个模板方法一般是一个具体方法，它给出了一个顶级逻辑的骨架，而逻辑的组成步骤在相应的抽象操作中，推迟到子类实现。顶级逻辑也有可能调用一些具体方法。
 
-具体模板(Concrete Template)角色又如下责任: 
+具体模板(Concrete Template)角色又如下责任:
 
 ■实现父类所定义的一个或多个抽象方法，它们是一个顶级逻辑的组成步骤。
 
@@ -44,51 +44,51 @@ http://www.cnblogs.com/java-my-life/archive/2012/05/14/2495235.html
 按 Ctrl+C 复制代码
 
 public abstract class AbstractTemplate {
-      
+
 /**
-       
+
 * 模板方法
-       
+
 */
-      
+
 public void templateMethod(){
-          
+
 //调用基本方法
-          
+
 abstractMethod();
-          
+
 hookMethod();
-          
+
 concreteMethod();
-      
+
 }
-      
+
 /**
-       
-* 基本方法的声明 (由子类实现) 
-       
+
+* 基本方法的声明 (由子类实现)
+
 */
-      
+
 protected abstract void abstractMethod();
-      
+
 /**
-       
+
 * 基本方法(空方法)
-       
+
 */
-      
+
 protected void hookMethod(){}
-      
+
 /**
-       
-* 基本方法 (已经实现) 
-       
+
+* 基本方法 (已经实现)
+
 */
-      
+
 private final void concreteMethod(){
-          
+
 //业务相关的代码
-      
+
 }
   
 }
@@ -100,25 +100,25 @@ private final void concreteMethod(){
 按 Ctrl+C 复制代码
 
 public class ConcreteTemplate extends AbstractTemplate{
-      
+
 //基本方法的实现
-      
+
 @Override
-      
+
 public void abstractMethod() {
-          
+
 //业务相关的代码
-      
+
 }
-      
+
 //重写父类的方法
-      
+
 @Override
-      
+
 public void hookMethod() {
-          
+
 //业务相关的代码
-      
+
 }
   
 }
@@ -176,59 +176,59 @@ public void hookMethod() {
 按 Ctrl+C 复制代码
 
 public abstract class Account {
-      
+
 /**
-       
+
 * 模板方法，计算利息数额
-       
+
 * @return 返回利息数额
-       
+
 */
-      
+
 public final double calculateInterest(){
-          
+
 double interestRate = doCalculateInterestRate();
-          
+
 String accountType = doCalculateAccountType();
-          
+
 double amount = calculateAmount(accountType);
-          
+
 return amount * interestRate;
-      
+
 }
-      
+
 /**
-       
+
 * 基本方法留给子类实现
-       
+
 */
-      
+
 protected abstract String doCalculateAccountType();
-      
+
 /**
-       
+
 * 基本方法留给子类实现
-       
+
 */
-      
+
 protected abstract double doCalculateInterestRate();
-      
+
 /**
-       
+
 * 基本方法，已经实现
-       
+
 */
-      
+
 private double calculateAmount(String accountType){
-          
+
 /**
-           
+
 * 省略相关的业务逻辑
-           
+
 */
-          
+
 return 7243.00;
-      
+
 }
   
 }
@@ -252,7 +252,6 @@ public class MoneyMarketAccount extends Account {
     
         return 0.045;
     }
-    
 
 }
   
@@ -271,7 +270,6 @@ public class CDAccount extends Account {
     protected double doCalculateInterestRate() {
         return 0.06;
     }
-    
 
 }
   
@@ -289,7 +287,6 @@ public class Client {
         account = new CDAccount();
         System.out.println("定期账号的利息数额为: " + account.calculateInterest());
     }
-    
 
 }
   
@@ -297,12 +294,12 @@ public class Client {
 
 模板方法模式在Servlet中的应用
   
-使用过Servlet的人都清楚，除了要在web.xml做相应的配置外，还需继承一个叫HttpServlet的抽象类。HttpService类提供了一个service()方法，这个方法调用七个do方法中的一个或几个，完成对客户端调用的响应。这些do方法需要由HttpServlet的具体子类提供，因此这是典型的模板方法模式。下面是service()方法的源代码: 
+使用过Servlet的人都清楚，除了要在web.xml做相应的配置外，还需继承一个叫HttpServlet的抽象类。HttpService类提供了一个service()方法，这个方法调用七个do方法中的一个或几个，完成对客户端调用的响应。这些do方法需要由HttpServlet的具体子类提供，因此这是典型的模板方法模式。下面是service()方法的源代码:
 
 复制代码
-      
+
 protected void service(HttpServletRequest req, HttpServletResponse resp)
-          
+
 throws ServletException, IOException {
 
         String method = req.getMethod();
@@ -360,15 +357,12 @@ throws ServletException, IOException {
             resp.sendError(HttpServletResponse.SC_NOT_IMPLEMENTED, errMsg);
         }
     }
-    
 
 复制代码
 
 当然，这个service()方法也可以被子类置换掉。
 
-下面给出一个简单的Servlet例子: 
-
-
+下面给出一个简单的Servlet例子:
 
 从上面的类图可以看出，TestServlet类是HttpServlet类的子类，并且置换掉了父类的两个方法: doGet()和doPost()。
 
@@ -388,7 +382,6 @@ public class TestServlet extends HttpServlet {
     
         System.out.println("using the POST method");
     }
-    
 
 }
   
