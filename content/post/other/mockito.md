@@ -9,7 +9,8 @@ tags:
   - reprint
 ---
 ## Mockito
-### 部分mock (partial mock) 
+
+### 部分mock (partial mock)
 
 部分mock是说一个类的方法有些是实际调用，有些是使用mockito的stubbing (桩实现) 。
 
@@ -40,11 +41,9 @@ spy的原理是，如果不打桩默认都会执行真实的方法，如果打�
         Assert.assertEquals(3, exampleService.add(1, 2));
 ```
 
-一、什么是mock测试，什么是mock对象？ 
+一、什么是mock测试，什么是mock对象？
 
 一种替代方案就是使用mocks
-
- 
 
 从图中可以清晰的看出
 
@@ -54,13 +53,9 @@ mock测试就是在测试过程中，对那些不容易构建的对象用一个�
 
 知道什么是mock测试后，那么我们就来认识一下mock框架—Mockito
 
- 
-
 二、什么是Mockito
 
 除了有一个好记的名字外，Mockito尝试用不一样的方法做mocking测试，是简单轻量级能够替代EasyMock的框架。使用简单，测试代码可读性高，丰富的文档包含在javadoc中，直接在IDE中可查看文档，实例，说明。更多信息: [http://code.google.com/p/mockito/](http://code.google.com/p/mockito/)
-
- 
 
 三、Stub和Mock
 
@@ -68,16 +63,9 @@ mock测试就是在测试过程中，对那些不容易构建的对象用一个�
 
 不同点: 而stub完全是模拟一个外部依赖，用来提供测试时所需要的测试数据。而mock对象用来判断测试是否能通过，也就是用来验证测试中依赖对象间的交互能否达到预期。在mocking框架中mock对象可以同时作为stub和mock对象使用，两者并没有严格区别。 更多信息: [http://martinfowler.com/articles/mocksArentStubs.html](http://martinfowler.com/articles/mocksArentStubs.html)
 
- 
-
 四、mockito入门实例
 
 Maven依赖: (没用maven管理的可以下载相关jar包导入classpath)
-
- 
-
-
-
 
 Xml代码
 
@@ -85,40 +73,22 @@ Xml代码
       </embed> 
       
       <img class="star" src="http://liuzhijun.iteye.com/images/icon_star.png" alt="收藏代码" />
-    
-
-
-
 
 <dependencies>
 
-
 <dependency>
-
 
 <groupId>org.mockito</groupId>
 
-
 <artifactId>mockito-all</artifactId>
-
 
 <version>1.8.5</version>
 
-
 <scope>test</scope>
-
 
 </dependency>
 
-
 </dependencies>
-
-
-
- 
-
-
-
 
 Java代码
 
@@ -126,57 +96,32 @@ Java代码
       </embed> 
       
       <img class="star" src="http://liuzhijun.iteye.com/images/icon_star.png" alt="收藏代码" />
-    
-
-
-
 
 import static org.mockito.Mockito.*;
 
-
-
-
 import java.util.List;
-
-
-
 
 import org.junit.Assert;
 
-
 import org.junit.Test;
-
-
-
 
 /**
 
+*
 
- * 
+* @author lzjun
 
+* @version 0.1
 
- * @author lzjun
+* @date 2012-5-5
 
+* {@link <http://weibo.com/u/1697702241>}
 
- * @version 0.1
-
-
- * @date 2012-5-5
-
-
- * {@link http://weibo.com/u/1697702241} 
-
-
- *
-
+*
 
  */
 
-
 public class SimpleTest {
-
-
-
 
     @Test
 
@@ -223,47 +168,24 @@ public class SimpleTest {
 
     }
 
-
 }
-
-
 
 好了，五分钟差不多了，还想继续了解那就可以往下面看![](http://liuzhijun.iteye.com/images/smiles/icon_biggrin.gif)
 
- 
-
 创建mock对象不能对final，Anonymous ，primitive类进行mock。
-
- 
 
 可对方法设定返回异常
 
- 
-
-
-
-
 Java代码
 
       <embed src="http://liuzhijun.iteye.com/javascripts/syntaxhighlighter/clipboard_new.swf" type="application/x-shockwave-flash" width="14" height="15">
       </embed> 
       
       <img class="star" src="http://liuzhijun.iteye.com/images/icon_star.png" alt="收藏代码" />
-    
-
-
-
 
 when(list.get(1)).thenThrow(new RuntimeException("test excpetion"));
 
-
-
- 
-
 stubbing另一种语法(设置预期值的方法)，可读性不如前者
-
-
-
 
 Java代码
 
@@ -271,19 +193,10 @@ Java代码
       </embed> 
       
       <img class="star" src="http://liuzhijun.iteye.com/images/icon_star.png" alt="收藏代码" />
-    
-
-
-
 
 doReturn("secondhello").when(list).get(1);
 
-
-
 没有返回值的void方法与其设定(支持迭代风格，第一次调用donothing,第二次dothrow抛出runtime异常)
-
-
-
 
 Java代码
 
@@ -291,34 +204,18 @@ Java代码
       </embed> 
       
       <img class="star" src="http://liuzhijun.iteye.com/images/icon_star.png" alt="收藏代码" />
-    
-
-
-
 
 doNothing().doThrow(new RuntimeException("void exception")).when(list).clear();
 
-
 list.clear();
 
-
 list.clear();
-
 
 verify(list,times(2)).clear();
 
-
-
- 
-
 五、参数匹配器(Argument Matcher)
 
-Matchers类内加你有很多参数匹配器  anyInt、anyString、anyMap…..Mockito类继承于Matchers,Stubbing时使用内建参数匹配器，下例: 
-
- 
-
-
-
+Matchers类内加你有很多参数匹配器  anyInt、anyString、anyMap…..Mockito类继承于Matchers,Stubbing时使用内建参数匹配器，下例:
 
 Java代码
 
@@ -326,18 +223,10 @@ Java代码
       </embed> 
       
       <img class="star" src="http://liuzhijun.iteye.com/images/icon_star.png" alt="收藏代码" />
-    
-
-
-
 
 @Test
 
-
 public void argumentMatcherTest(){
-
-
-
 
     List<String> list = mock(List.class);
 
@@ -361,21 +250,9 @@ public void argumentMatcherTest(){
 
     Assert.assertEquals("helloworld", result);
 
-
-
-
 }
 
-
-
- 
-
 需要注意的是: 如果使用参数匹配器，那么所有的参数都要使用参数匹配器，不管是stubbing还是verify的时候都一样。
-
- 
-
-
-
 
 Java代码
 
@@ -383,18 +260,10 @@ Java代码
       </embed> 
       
       <img class="star" src="http://liuzhijun.iteye.com/images/icon_star.png" alt="收藏代码" />
-    
-
-
-
 
 @Test
 
-
 public void argumentMatcherTest2(){
-
-
-
 
     Map<Integer,String> map = mock(Map.class);
 
@@ -407,21 +276,9 @@ public void argumentMatcherTest2(){
 
     verify(map).put(eq(1), eq("world")); //eq("world")替换成"world"也会报错
 
-
-
-
 }
 
-
-
- 
-
 六、方法调用的验证(具体的调用次数、至少一次，一次也没有)
-
- 
-
-
-
 
 Java代码
 
@@ -429,18 +286,10 @@ Java代码
       </embed> 
       
       <img class="star" src="http://liuzhijun.iteye.com/images/icon_star.png" alt="收藏代码" />
-    
-
-
-
 
 @Test
 
-
 public void verifyInvocate(){
-
-
-
 
     List<String> mockedList = mock(List.class);
 
@@ -522,20 +371,11 @@ public void verifyInvocate(){
 
      verify(mockedList, atMost(5)).add("three times");
 
-
-
-
 }
-
-
-
- 
-
- 
 
 一次写不完，慢慢分析。。。
 
-参考: 
+参考:
 
 [http://mockito.googlecode.com/svn/branches/1.6/javadoc/org/mockito/Mockito.html](http://mockito.googlecode.com/svn/branches/1.6/javadoc/org/mockito/Mockito.html)
 
@@ -545,15 +385,11 @@ public void verifyInvocate(){
 
 [http://qiuguo0205.iteye.com/blog/1443344](http://qiuguo0205.iteye.com/blog/1443344)
 
- 
+<http://bijian1013.iteye.com/blog/1986068>
 
-http://bijian1013.iteye.com/blog/1986068
+<http://blog.csdn.net/onlyqi/article/details/6396646>
 
-http://blog.csdn.net/onlyqi/article/details/6396646
-
-http://site.mockito.org/mockito/docs/current/org/mockito/Mockito.html
-
- 
+<http://site.mockito.org/mockito/docs/current/org/mockito/Mockito.html>
 
 ockito是一种mock工具/框架。我理解EasyMock有点过时了，Mockito是现在比较流行的。
 
@@ -565,22 +401,20 @@ ockito是一种mock工具/框架。我理解EasyMock有点过时了，Mockito是
 
 mock可以模拟各种各样的对象，从而代替真正的对象做出希望的响应。
 
-关于mock的概念和EasyMock，可以参考: 
+关于mock的概念和EasyMock，可以参考:
 
 Mock object and EasyMock framework
 
 [http://blog.csdn.net/OnlyQi/archive/2011/04/26/6364885.aspx](http://blog.csdn.net/OnlyQi/archive/2011/04/26/6364885.aspx)
 
- 
-
 官网: [http://mockito.org/](http://mockito.org/)
 
-一篇很好的入门文章: 
+一篇很好的入门文章:
 
-http://blog.csdn.net/huoshuxiao/archive/2010/12/30/6107835.aspx
+<http://blog.csdn.net/huoshuxiao/archive/2010/12/30/6107835.aspx>
 
-一些稍微复杂且实用一点的例子: 
+一些稍微复杂且实用一点的例子:
 
 [http://gojko.net/2009/10/23/mockito-in-six-easy-examples/](http://gojko.net/2009/10/23/mockito-in-six-easy-examples/)
 
-http://liuzhijun.iteye.com/blog/1512780
+<http://liuzhijun.iteye.com/blog/1512780>

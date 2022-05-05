@@ -28,6 +28,7 @@ sudo pacman -S powerdevil kmix kscreen ark
 
 | name                  | comments                                                                                |
 | :-------------------- | :-------------------------------------------------------------------------------------- |
+| obsidian              | 知识管理 |
 | flameshot             | 截图工具,screenshot                                                                     |
 | ncdu                  | 磁盘空间占用分析/清理                                                                              |
 | netdata               | 系统资源监控                                                                            |

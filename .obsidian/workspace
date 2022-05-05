@@ -4,14 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "5456f9c56b7f393f",
+        "id": "8d10dac2639a7edf",
         "type": "leaf",
         "state": {
-          "type": "markdown",
-          "state": {
-            "file": "content/post/archive-2/iostat.md",
-            "mode": "source"
-          }
+          "type": "empty",
+          "state": {}
         }
       }
     ],
@@ -39,17 +36,16 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "iotop",
+                "query": "linux apps",
                 "matchingCase": false,
                 "explainSearch": false,
-                "collapseAll": false,
+                "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical"
               }
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "horizontal",
@@ -69,7 +65,6 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "content/post/archive-2/iostat.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -84,14 +79,20 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
-  "active": "5456f9c56b7f393f",
+  "active": "8d10dac2639a7edf",
   "lastOpenFiles": [
-    "content/post/archive-2/iostat.md",
-    "content/post/archive-3/shell.md",
-    "content/post/archive-2/iotop.md",
-    "content/post/other/db-inter.md",
-    "content/post/archive-1/maven-jvm-opts.md"
+    "content/post/archive-1/openjdk-jmh.md",
+    "content/post/archive-1/omniweb.md",
+    "content/post/archive-1/modelandview.md",
+    "content/post/archive-1/mockito.md",
+    "content/post/archive-1/mkfs.md",
+    "content/post/archive-1/mitm-arp缓存中毒.md",
+    "content/post/archive-1/metrics.md",
+    "content/post/archive-1/meta-inf.md",
+    "content/post/archive-1/mes系统.md",
+    "content/post/archive-1/memcache.md"
   ]
 }

@@ -10,7 +10,7 @@ tags:
 
 ---
 ## nl80211 not found
+
 加载mac80211模块， modprobe  mac80211
 
 <http://blog.sina.com.cn/s/blog_64de8a0301018jty.html>
-
