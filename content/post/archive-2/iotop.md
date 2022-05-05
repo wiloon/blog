@@ -84,3 +84,7 @@ iotop -o
 - r 反向排序
 - o 是只显示有IO输出的进程
 - q 退出
+
+## 系统级的 IO 使用
+
+[[iostat#iostat]]

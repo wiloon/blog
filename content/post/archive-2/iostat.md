@@ -490,4 +490,4 @@ avg-cpu:  %user   %nice %system %iowait  %steal   %idle
 
 ## 找到 IO 占用高的进程
 
-iotop, <https://wangyue.dev/iotop>
+[[iotop#iotop]]
