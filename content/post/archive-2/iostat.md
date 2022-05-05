@@ -4,12 +4,20 @@ author: "-"
 date: 2016-04-10T04:29:25+00:00
 url: iostat
 categories:
-  - linux
-
+  - Linux
 tags:
   - reprint
+  - IO
 ---
 ## iostat
+
+通过iostat方便查看CPU、网卡、tty设备、磁盘、CD-ROM 等等设备的活动情况, 负载信息。
+
+### 命令格式
+
+```g
+iostat[参数][时间][次数]
+```
 
 ```bash
 sudo pacman -S sysstat
@@ -21,55 +29,38 @@ iostat -x 1
 
 ### 参数
 
-    -x     Display extended statistics; 显示详细信息
+```p
+-x Display extended statistics; 显示详细信息
+-C 显示CPU使用情况
+-d 显示磁盘使用情况
+-k 以 KB 为单位显示
+-m 以 M 为单位显示
+-N 显示磁盘阵列(LVM) 信息
+-n 显示NFS 使用情况
+-p[磁盘] 显示磁盘和分区的情况
+-t 显示终端和CPU的信息
+-V 显示版本信息
+```
 
 ### 字段
 
-    rrqm/s:         每秒进行 merge 的读操作数目。即 delta(rmerge)/s
-    wrqm/s:         每秒进行 merge 的写操作数目。即 delta(wmerge)/s
-    r/s:            每秒完成的读 I/O 设备次数。即 delta(rio)/s
-    w/s:            每秒完成的写 I/O 设备次数。即 delta(wio)/s
-    rsec/s:         每秒读扇区数。即 delta(rsect)/s
-    wsec/s:         每秒写扇区数。即 delta(wsect)/s
-    rkB/s:          每秒读K字节数。是 rsect/s 的一半,因为每扇区大小为512字节。(需要计算)
-    wkB/s:          每秒写K字节数。是 wsect/s 的一半。(需要计算)
-    avgrq-sz:       平均每次设备I/O操作的数据大小 (扇区)。delta(rsect+wsect)/delta(rio+wio)
-    avgqu-sz:       平均I/O队列长度。即 delta(aveq)/s/1000 (因为aveq的单位为毫秒)。
-    await:          平均每次设备I/O操作的等待时间 (毫秒)。即 delta(ruse+wuse)/delta(rio+wio)
-    svctm:          平均每次设备I/O操作的服务时间 (毫秒)。即 delta(use)/delta(rio+wio)
-    %util:          一秒中有百分之多少的时间用于 I/O 操作,或者说一秒中有多少时间 I/O 队列是非空的。即 delta(use)/s/1000 (因为use的单位为毫秒)
+```b
+rrqm/s:         每秒进行 merge 的读操作数目。即 delta(rmerge)/s
+wrqm/s:         每秒进行 merge 的写操作数目。即 delta(wmerge)/s
+r/s:            每秒完成的读 I/O 设备次数。即 delta(rio)/s
+w/s:            每秒完成的写 I/O 设备次数。即 delta(wio)/s
+rsec/s:         每秒读扇区数。即 delta(rsect)/s
+wsec/s:         每秒写扇区数。即 delta(wsect)/s
+rkB/s:          每秒读K字节数。是 rsect/s 的一半,因为每扇区大小为512字节。(需要计算)
+wkB/s:          每秒写K字节数。是 wsect/s 的一半。(需要计算)
+avgrq-sz:       平均每次设备 I/O操作的数据大小 (扇区)。delta(rsect+wsect)/delta(rio+wio)
+avgqu-sz:       平均I/O队列长度。即 delta(aveq)/s/1000 (因为aveq的单位为毫秒)。
+await:          平均每次设备I/O操作的等待时间 (毫秒)。即 delta(ruse+wuse)/delta(rio+wio)
+svctm:          平均每次设备I/O操作的服务时间 (毫秒)。即 delta(use)/delta(rio+wio)
+%util:          一秒中有百分之多少的时间用于 I/O 操作, 或者说一秒中有多少时间 I/O 队列是非空的。即 delta(use)/s/1000 (因为use的单位为毫秒)
+```
 
 Linux系统中的 iostat是I/O statistics (输入/输出统计) 的缩写,iostat工具将对系统的磁盘操作活动进行监视。它的特点是汇报磁盘活动统计情况,同时也会汇报出CPU使用情况。同vmstat一样,iostat也有一个弱点,就是它不能对某个进程进行深入分析,仅对系统的整体情况进行分析。iostat属于sysstat软件包。可以用yum install sysstat 直接安装。
-
-### 命令格式
-
-    iostat[参数][时间][次数]
-
-### 命令功能
-
-    通过iostat方便查看CPU、网卡、tty设备、磁盘、CD-ROM 等等设备的活动情况, 负载信息。
-
-3．命令参数:
-  
--C 显示CPU使用情况
-  
--d 显示磁盘使用情况
-  
--k 以 KB 为单位显示
-  
--m 以 M 为单位显示
-  
--N 显示磁盘阵列(LVM) 信息
-  
--n 显示NFS 使用情况
-
--p[磁盘] 显示磁盘和分区的情况
-
--t 显示终端和CPU的信息
-
--x 显示详细信息
-
--V 显示版本信息
 
 4．使用实例:
 
@@ -496,3 +487,7 @@ avg-cpu:  %user   %nice %system %iowait  %steal   %idle
 <http://lirenke.net/2015/01/07/io-model-dd-cmd/>
   
 <http://guozengxin.me/2013/08/24/linux-dd-introduction/>
+
+## 找到 IO 占用高的进程
+
+iotop, <https://wangyue.dev/iotop>

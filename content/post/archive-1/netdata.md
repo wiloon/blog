@@ -4,7 +4,7 @@ author: "-"
 date: 2014-12-23T03:09:27+00:00
 url: netdata
 categories:
-  - linux
+  - Linux
 
 tags:
   - reprint

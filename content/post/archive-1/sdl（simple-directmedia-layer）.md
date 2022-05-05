@@ -7,7 +7,7 @@ categories:
   - Uncategorized
 tags:
   - KVM
-  - linux
+  - Linux
 
 ---
 ## SDL (Simple DirectMedia Layer)

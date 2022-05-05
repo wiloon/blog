@@ -4,7 +4,7 @@ author: "-"
 date: 2018-06-20T07:38:39+00:00
 url: date
 categories:
-  - linux
+  - Linux
 tags:
   - command
   - reprint

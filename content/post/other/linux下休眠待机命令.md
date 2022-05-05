@@ -6,7 +6,7 @@ url: /?p=6302
 categories:
   - Uncategorized
 tags:
-  - linux
+  - Linux
 
 ---
 ## linux下休眠/待机命令

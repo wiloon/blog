@@ -4,7 +4,7 @@ author: "-"
 date: 2017-06-08T02:55:24+00:00
 url: strace
 categories:
-  - linux
+  - Linux
 tags:
   - reprint
 ---

@@ -7,7 +7,7 @@ url: /?p=6810
 categories:
   - Uncategorized
 tags:
-  - linux
+  - Linux
 
 ---
 ## 理解和使用 alsa 配置-默认静音,必须先用amixer解除主音量和pcm音量的静音

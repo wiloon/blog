@@ -6,7 +6,7 @@ url: /?p=6438
 categories:
   - Uncategorized
 tags:
-  - linux
+  - Linux
 
 ---
 ## linux sha1sum

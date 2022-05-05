@@ -6,7 +6,7 @@ url: /?p=6306
 categories:
   - Uncategorized
 tags:
-  - linux
+  - Linux
 
 ---
 ## deluged

@@ -6,7 +6,7 @@ url: /?p=7601
 categories:
   - Uncategorized
 tags:
-  - linux
+  - Linux
 
 ---
 ## Linux下查看文件编码，文件或文件名编码格式转换

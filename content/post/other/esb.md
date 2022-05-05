@@ -4,9 +4,9 @@ author: "-"
 date: 2012-05-10T13:55:37+00:00
 url: set
 categories:
-  - linux
+  - Linux
 tags:
-  - linux
+  - Linux
 
 ---
 ## set

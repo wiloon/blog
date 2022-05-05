@@ -4,7 +4,7 @@ author: "-"
 date: 2014-08-13T08:28:06+00:00
 url: findmnt
 categories:
-  - linux
+  - Linux
 
 tags:
   - reprint

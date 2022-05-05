@@ -6,7 +6,7 @@ url: /?p=7325
 categories:
   - Uncategorized
 tags:
-  - linux
+  - Linux
 
 ---
 ## 文件权限

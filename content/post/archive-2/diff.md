@@ -4,7 +4,7 @@ author: "-"
 date: 2019-02-22T11:50:08+00:00
 url: diff
 categories:
-  - linux
+  - Linux
 tags:
   - reprint
 ---

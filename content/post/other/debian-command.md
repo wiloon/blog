@@ -6,7 +6,7 @@ url: /?p=7589
 categories:
   - Uncategorized
 tags:
-  - linux
+  - Linux
 
 ---
 ## debian command

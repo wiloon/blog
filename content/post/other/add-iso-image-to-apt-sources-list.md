@@ -4,7 +4,7 @@ author: "-"
 date: 2013-11-01T13:59:58+00:00
 url: apt/iso
 categories:
-  - linux
+  - Linux
 
 tags:
   - reprint

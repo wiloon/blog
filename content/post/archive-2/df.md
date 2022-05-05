@@ -4,7 +4,7 @@ author: "-"
 date: 2015-10-17T05:38:58+00:00
 url: df
 categories:
-  - linux
+  - Linux
 
 tags:
   - reprint

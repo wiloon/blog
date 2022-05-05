@@ -4,7 +4,7 @@ author: "-"
 date: 2020-04-18T12:36:57+00:00
 url: ssh/config
 categories:
-  - linux
+  - Linux
 tags:
   - reprint
 ---

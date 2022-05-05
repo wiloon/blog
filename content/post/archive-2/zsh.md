@@ -4,7 +4,7 @@ author: "-"
 date: 2017-04-06T04:56:02+00:00
 url: zsh
 categories:
-  - linux
+  - Linux
 tags:
   - reprint
   - remix

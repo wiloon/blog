@@ -4,7 +4,7 @@ author: "-"
 date: 2017-08-01T08:16:10+00:00
 url: selinux
 categories:
-  - linux
+  - Linux
 tags:
   - reprint
   - security

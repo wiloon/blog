@@ -4,7 +4,7 @@ author: "-"
 date: 2011-12-18T10:35:27+00:00
 url: kate
 categories:
-  - linux
+  - Linux
 tags:
   - reprint
 ---

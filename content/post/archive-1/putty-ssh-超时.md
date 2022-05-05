@@ -6,7 +6,7 @@ url: /?p=6397
 categories:
   - Uncategorized
 tags:
-  - linux
+  - Linux
 
 ---
 ## putty ssh 超时

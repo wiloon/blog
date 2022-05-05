@@ -6,7 +6,7 @@ url: /?p=8169
 categories:
   - Uncategorized
 tags:
-  - linux
+  - Linux
 
 ---
 ## 'Linux 查看 用户, 当前登录用户,  登录日志'

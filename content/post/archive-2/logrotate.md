@@ -4,7 +4,7 @@ author: "-"
 date: 2017-07-25T09:26:39+00:00
 url: logrotate
 categories:
-  - linux
+  - Linux
 tags:
   - reprint
 ---

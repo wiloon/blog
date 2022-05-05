@@ -6,7 +6,7 @@ url: /?p=7575
 categories:
   - Uncategorized
 tags:
-  - linux
+  - Linux
 
 ---
 ## Linux /etc/init.d /etc/rc.local

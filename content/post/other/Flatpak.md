@@ -4,7 +4,7 @@ author: "-"
 date: 2011-07-29T13:27:07+00:00
 url: wording
 categories:
-  - linux
+  - Linux
 
 tags:
   - reprint

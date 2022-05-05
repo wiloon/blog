@@ -4,7 +4,7 @@ author: "-"
 date: 2017-02-28T07:29:45+00:00
 url: tee
 categories:
-  - linux
+  - Linux
 tags:
   - reprint
 ---

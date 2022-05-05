@@ -6,7 +6,7 @@ url: signal
 categories:
   - OS
 tags:
-  - linux
+  - Linux
   - ipc
 
 ---

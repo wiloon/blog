@@ -4,7 +4,7 @@ author: "-"
 date: 2011-12-14T13:42:00+00:00
 url: fedora
 categories:
-  - linux
+  - Linux
 tags:
   - Fedora
 

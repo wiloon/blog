@@ -4,7 +4,7 @@ author: "-"
 date: 2015-04-22T04:30:58+00:00
 url: deleteonwrite
 categories:
-  - linux
+  - Linux
 tags:
   - reprint
 ---

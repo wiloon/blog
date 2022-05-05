@@ -4,7 +4,7 @@ author: "-"
 date: 2017-02-20T01:15:40+00:00
 url: ulimit
 categories:
-  - linux
+  - Linux
 tags:
   - reprint
   - remix

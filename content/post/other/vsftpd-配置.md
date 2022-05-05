@@ -8,7 +8,7 @@ categories:
   - Network
 tags:
   - FTP
-  - linux
+  - Linux
 
 ---
 ## debian VSFTPD

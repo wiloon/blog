@@ -4,7 +4,7 @@ author: "-"
 date: 2014-12-23T10:20:54+00:00
 url: WinSCP
 categories:
-  - linux
+  - Linux
 tags:
   - reprint
 

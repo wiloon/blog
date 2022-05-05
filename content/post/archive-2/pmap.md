@@ -4,7 +4,7 @@ author: "-"
 date: 2017-02-06T07:45:09+00:00
 url: pmap
 categories:
-  - linux
+  - Linux
 
 tags:
   - reprint

@@ -6,7 +6,7 @@ url: /?p=7609
 categories:
   - Uncategorized
 tags:
-  - linux
+  - Linux
 
 ---
 ## fdisk for linux

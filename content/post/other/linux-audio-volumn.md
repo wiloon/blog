@@ -6,7 +6,7 @@ url: audio
 categories:
   - Inbox
 tags:
-  - linux
+  - Linux
 
 ---
 ## audio, 音量, 静音, ALSA

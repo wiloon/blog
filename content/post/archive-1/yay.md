@@ -9,7 +9,7 @@ tags:
   - remix
 
 categories:
-  - linux
+  - Linux
 ---
 ## archlinux AUR, yay, Yaourt
 

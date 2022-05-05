@@ -6,7 +6,7 @@ url: /?p=5861
 categories:
   - Network
 tags:
-  - linux
+  - Linux
   - TCP
   - SSH
 

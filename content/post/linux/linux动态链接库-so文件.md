@@ -6,7 +6,7 @@ url: /?p=6535
 categories:
   - Uncategorized
 tags:
-  - linux
+  - Linux
 
 ---
 ## Linux动态链接库.so文件

@@ -4,7 +4,7 @@ author: "-"
 date: 2018-10-26T09:28:49+00:00
 url: delete-by-date
 categories:
-  - linux
+  - Linux
 tags:
   - find
 

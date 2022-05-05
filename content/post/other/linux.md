@@ -4,9 +4,9 @@ author: "-"
 date: 2015-04-18T10:54:55+00:00
 url: linux
 categories:
-  - linux
+  - Linux
 tags:
-  - linux
+  - Linux
 
 ---
 ## linux basic

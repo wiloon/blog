@@ -6,7 +6,7 @@ url: /?p=6003
 categories:
   - Uncategorized
 tags:
-  - linux
+  - Linux
 
 ---
 ## usermod

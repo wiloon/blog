@@ -4,7 +4,7 @@ author: "-"
 date: 2011-08-28T04:56:36+00:00
 url: slabinfo
 categories:
-  - linux
+  - Linux
 tags:
   - Gradle
 

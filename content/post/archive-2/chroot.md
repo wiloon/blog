@@ -4,7 +4,7 @@ author: "-"
 date: 2017-02-28T05:00:51+00:00
 url: chroot
 categories:
-  - linux
+  - Linux
 
 tags:
   - reprint

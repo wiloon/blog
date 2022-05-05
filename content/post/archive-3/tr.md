@@ -4,7 +4,7 @@ author: "-"
 date: 2020-02-14T02:56:46+00:00
 url: tr
 categories:
-  - linux
+  - Linux
 tags:
   - reprint
 ---

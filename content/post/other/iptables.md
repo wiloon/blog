@@ -6,7 +6,7 @@ url: iptables
 categories:
   - network
 tags:
-  - linux
+  - Linux
 
 ---
 ## iptables

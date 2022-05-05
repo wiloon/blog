@@ -6,7 +6,7 @@ url: /?p=7607
 categories:
   - Uncategorized
 tags:
-  - linux
+  - Linux
 
 ---
 ## linux disk format, mkfs,mke2fs 格式化磁盘

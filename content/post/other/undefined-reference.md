@@ -4,9 +4,9 @@ author: "-"
 date: 2012-03-22T03:42:56+00:00
 url: /?p=2599
 categories:
-  - linux
+  - Linux
 tags:
-  - linux
+  - Linux
 
 ---
 ## undefined reference to ...
