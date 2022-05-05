@@ -1,0 +1,93 @@
+{
+  "main": {
+    "id": "ad0155cdac72f6ec",
+    "type": "split",
+    "children": [
+      {
+        "id": "9cd495ee272422b1",
+        "type": "leaf",
+        "state": {
+          "type": "markdown",
+          "state": {
+            "file": "content/post/archive-1/maven-jvm-opts.md",
+            "mode": "source"
+          }
+        }
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "ff79c27c7447da16",
+    "type": "split",
+    "children": [
+      {
+        "id": "ff8fc28c1c9044da",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "e76cd1090dd92166",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {}
+            }
+          },
+          {
+            "id": "d29a067347defb8c",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "ea85b4267b207c54",
+    "type": "split",
+    "children": [
+      {
+        "id": "3a5b4ac4ce578763",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "209b7bee1e0a22c4",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "content/post/archive-1/maven-jvm-opts.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "active": "9cd495ee272422b1",
+  "lastOpenFiles": [
+    "content/post/archive-1/maven-jvm-opts.md"
+  ]
+}
