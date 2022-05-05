@@ -4,11 +4,14 @@
     "type": "split",
     "children": [
       {
-        "id": "8d10dac2639a7edf",
+        "id": "15de93d3eb356554",
         "type": "leaf",
         "state": {
-          "type": "empty",
-          "state": {}
+          "type": "markdown",
+          "state": {
+            "file": "content/post/other/java-thread.md",
+            "mode": "source"
+          }
         }
       }
     ],
@@ -36,20 +39,21 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "linux apps",
+                "query": "file:java-thread",
                 "matchingCase": false,
                 "explainSearch": false,
-                "collapseAll": true,
+                "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical"
               }
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 341
   },
   "right": {
     "id": "ea85b4267b207c54",
@@ -65,6 +69,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "content/post/other/java-thread.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -82,17 +87,17 @@
     "width": 300,
     "collapsed": true
   },
-  "active": "8d10dac2639a7edf",
+  "active": "15de93d3eb356554",
   "lastOpenFiles": [
-    "content/post/archive-1/openjdk-jmh.md",
-    "content/post/archive-1/omniweb.md",
-    "content/post/archive-1/modelandview.md",
-    "content/post/archive-1/mockito.md",
-    "content/post/archive-1/mkfs.md",
-    "content/post/archive-1/mitm-arp缓存中毒.md",
-    "content/post/archive-1/metrics.md",
-    "content/post/archive-1/meta-inf.md",
-    "content/post/archive-1/mes系统.md",
-    "content/post/archive-1/memcache.md"
+    "content/post/other/java-thread.md",
+    "content/post/other/java-thread-pool.md",
+    "content/post/other/java-thread-id.md",
+    "content/post/other/java-thread-0.md",
+    "content/post/archive-2/fork-join.md",
+    "content/post/archive-2/datax.md",
+    "content/post/other/countdownlatch.md",
+    "content/post/other/cache.md",
+    "content/post/java/aop.md",
+    "content/post/pattern/actor.md"
   ]
 }

@@ -10,13 +10,14 @@ tags:
   - reprint
 ---
 ## thread join
+
 thread join 之后,主线程的状态是waiting
 
 一、在研究join的用法之前,先明确两件事情。
 
 1.join方法定义在Thread类中,则调用者必须是一个线程,
 
-例如: 
+例如:
 
 Thread t = new CustomThread();//这里一般是自定义的线程类
 
@@ -40,7 +41,7 @@ customThread.join();
 
 三、join方法的作用
 
-在网上看到有人说"将两个线程合并"。这样解释我觉得理解起来还更麻烦。不如就借鉴下API里的说法: 
+在网上看到有人说"将两个线程合并"。这样解释我觉得理解起来还更麻烦。不如就借鉴下API里的说法:
 
 "等待该线程终止。"
 
@@ -48,14 +49,14 @@ customThread.join();
 
 四、用实例来理解
 
-写一个简单的例子来看一下join()的用法,一共三个类: 
+写一个简单的例子来看一下join()的用法,一共三个类:
 
 1.CustomThread 类
 
-  1. CustomThread1类 
+  1. CustomThread1类
   2. JoinTestDemo 类,main方法所在的类。
 
-代码1: 
+代码1:
 
 ```java view plain copy
   

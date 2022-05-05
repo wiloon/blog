@@ -24,7 +24,7 @@ tags:
 Executors 提供了一些创建线程池的工具方法。
 
 ```java
-Executors.newSingleThreadExecutor()
+ExecutorService es = Executors.newSingleThreadExecutor()
 ```
   
 源码实现:
@@ -100,6 +100,7 @@ ThreadPoolExecutor
 
 线程池类为 java.util.concurrent.ThreadPoolExecutor，常用构造方法为:
 
+```java
 ThreadPoolExecutor(
   
 int corePoolSize,
@@ -114,6 +115,8 @@ BlockingQueue<Runnable> workQueue,
 
 RejectedExecutionHandler handler)
   
+```
+
 corePoolSize:  线程池维护线程的最少数量
 
 maximumPoolSize: 线程池维护线程的最大数量
