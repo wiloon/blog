@@ -3,9 +3,8 @@ title: 线程
 author: "-"
 date: 2015-06-30T02:52:35+00:00
 url: thread
-
 categories:
-  - inbox
+  - Java
 tags:
   - reprint
 ---

@@ -10,15 +10,15 @@ tags:
 ---
 ## 文本处理命令， text command
 
-1. 正则表达式 (regular expression) 
+1. 正则表达式 (regular expression)
   
 元字符 (如下图) 是正则表达式中含有的字符,在正则表达式中可以在字符串中使用元字符以匹配字符串的各种可能的情况。
 
-注意: 
+注意:
 
 (1) 在"[ ]"中还可以使用"-"来表示某一范围。例如"[a-z0-9]"匹配任意的小写字母或者数字,"[^A-Z]"表示非大写字母,"[0-9]{8}"表示任意一个8位数字。
 
-(2) 元字符还可以配合使用: 
+(2) 元字符还可以配合使用:
   
 ".\*"可以匹配任意个字符,如"r.\*d"会匹配"rd"、"red"、"read"。
   
@@ -28,12 +28,12 @@ tags:
   
 "^$"匹配空白行。
 
-(3) 在[ ]中还可以使用一些特殊匹配模式,如下表: 
+(3) 在[ ]中还可以使用一些特殊匹配模式,如下表:
   
 以"\"开头得元字符
 
-  
 - grep
+
 >wangyue.dev/grep
   
 - find
@@ -52,14 +52,13 @@ echo $PATH | cut -d ':' -f 3-5,取出环境变量PATH中的第3个到第5个路�
   
 export | cut -c 12-, 将export中的每行的前面11个字符删除留,保留从第12个字符开始的所有字符。
   
-  
 4. awk工具
   
 命令说明:  将一行消息分成数个段来处理,适合处理小型的数据。
   
 格式: awk '条件类型 {动作}' file
   
-awk的内置变量: 
+awk的内置变量:
   
 $n: 该行的第n个字段；
   
@@ -71,13 +70,14 @@ FS: 分隔符,默认为空格键；
 
 例如: cat /etc/passwd | awk 'BEGIN {FS=":"} $S3<10 {print $1 "\t" $3}',打印passwd文件第三栏小于10的行的第1、3栏。
   
-
 ### sort
+
 命令说明: 将文本文件的内容按行排序。
   
 格式: sort [-fbMnrtuk] [file or stdin]
   
 #### 参数  
+
     -f: 忽略大小写；
     -b: 忽略最前面的空格；
     -g, --general-numeric-sort  compare according to general numerical value, 按照常规数值排序
@@ -103,31 +103,33 @@ sort -n -k 2 test
 sort -n -t "," -k 2 test
 ————————————————
 版权声明：本文为CSDN博主「sunjiangangok」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
-原文链接：https://blog.csdn.net/sunjiangangok/article/details/69943756
+原文链接：<https://blog.csdn.net/sunjiangangok/article/details/69943756>
 
 ### uniq
+
 命令说明: 如果排序完成了, 将重复的行仅显示一次. 注意, 若文件未排序,该命令失效。
   
 格式: uniq [-ic]
   
-参数说明: 
+参数说明:
   
 -i: 忽略大小写；
   
 -c: 统计每行重复的次数；
   
 ### wc
+
 wc(Word Count)命令用来统计文件内容信息,包括字数，行数、字符数等  
 
 #### 统计输出信息的行数
+
     wc -l
 
 格式: wc [-lwm] fine_name
 
 若不接文件，则统计标准输入
 
-参数说明: 
-    
+参数说明:
 
 ```bash
 #显示文件内容信息,输出信息依次是:行数,字数,字节数,文件名称
@@ -155,11 +157,12 @@ wc -L filename
 ```
 
 ### tee命令
+
 命令说明: 双向重导向,从标准输入读取数据,输出到屏幕上,同时保存成文件。
   
 格式: tee [-a] file
   
-参数说明: 
+参数说明:
   
 -a: 以累加的方式,将数据加入到file中。
   
@@ -171,7 +174,7 @@ wc -L filename
   
 格式: tr [-ds] SET1....
   
-参数说明: 
+参数说明:
   
 -d: 删除,例如: cat file | tr -d '\r',相当于dos2unix命令所起的作用。
   
@@ -185,7 +188,7 @@ cat file | tr [a-z] [A-Z],将file中的小写字符全部改为大写。
   
 格式: col [-x]
   
-参数说明: 
+参数说明:
   
 -x: 将tab键转换成对等的空格键；
   
@@ -197,8 +200,7 @@ cat file | tr [a-z] [A-Z],将file中的小写字符全部改为大写。
   
 格式: expand [-t] file
 
-
-参数说明: 
+参数说明:
   
 -t n: 后面可以接一个数字n,一个tab键替换为n个空格键,默认值为8。
 
@@ -208,7 +210,7 @@ cat file | tr [a-z] [A-Z],将file中的小写字符全部改为大写。
   
 格式: join [-ti12] file1 file2
 
-参数说明: 
+参数说明:
   
 -i: 忽略大小写；
   
@@ -224,7 +226,7 @@ cat file | tr [a-z] [A-Z],将file中的小写字符全部改为大写。
   
 格式: paste [-d] file1 file2
   
-参数说明: 
+参数说明:
   
 -d: 后面接分隔符,默认为tab键。
   
@@ -234,7 +236,7 @@ cat file | tr [a-z] [A-Z],将file中的小写字符全部改为大写。
   
 格式: diff [-bBi] file1 file2
   
-参数: 
+参数:
   
 -b: 忽略一行中有多个空白的差异；
   
@@ -248,7 +250,7 @@ cat file | tr [a-z] [A-Z],将file中的小写字符全部改为大写。
   
 格式: cmp [-s] file1 file2
   
-参数: 
+参数:
   
 -s: 将所有不同点的位都列出来,默认仅输出第一个发现的不同点；
   
@@ -260,14 +262,13 @@ cat file | tr [a-z] [A-Z],将file中的小写字符全部改为大写。
   
 参数: -pN表示取消N层目录。
 
-
 18. split命令
   
 命令说明: 将一个大文件拆分为几个小文件。
   
 格式: split [-bl] fle
   
-参数说明: 
+参数说明:
   
 -b: 拆分的文件大小,可加单位,如b, k, m等；
   
@@ -280,11 +281,11 @@ split -l 10 bigfile smallfile,将文件bigfile中的每10行拆分成一个小�
 19. xargs命令
 
 ### head
+
 head 命令可用于查看文件的开头部分的内容,有一个常用的参数 -n 用于显示行数,默认为 10,即显示 10 行的内容。
     -q 隐藏文件名
     -v 显示文件名
     -c<数目> 显示的字节数。
     -n<行数> 显示的行数。
 
-> http://blog.csdn.net/forgotaboutgirl/article/details/6801525#t16
-
+> <http://blog.csdn.net/forgotaboutgirl/article/details/6801525#t16>

@@ -10,7 +10,7 @@ tags:
   - reprint
 ---
 ## Java Scanner
-http://blog.csdn.net/carolzhang8406/article/details/6726589
+<http://blog.csdn.net/carolzhang8406/article/details/6726589>
   
 一、扫描控制台输入
 
@@ -50,7 +50,7 @@ System.out.println(">>>" + line);
   
 }
 
-请输入字符串: 
+请输入字符串:
   
 >>>234
   
@@ -74,7 +74,7 @@ Process finished with exit code 0
 
 三、Scanner默认使用空格作为分割符来分隔文本,但允许你指定新的分隔符
 
-使用默认的空格分隔符: 
+使用默认的空格分隔符:
   
 public static void main(String[] args) throws FileNotFoundException {
   
@@ -104,7 +104,7 @@ las
 
 Process finished with exit code 0
 
-将注释行去掉,使用空格或逗号或点号作为分隔符,输出结果如下: 
+将注释行去掉,使用空格或逗号或点号作为分隔符,输出结果如下:
   
 asdf
   

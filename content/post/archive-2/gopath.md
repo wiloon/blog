@@ -10,13 +10,14 @@ tags:
   - reprint
 ---
 ## gopath
+
 GOPATH
 
 ### GOBIN
 
 bin 目录里面存放的都是通过 go install 命令安装后,由 Go 命令源码文件生成的可执行文件 ( 在 Mac 平台下是 Unix executable 文件,在 Windows 平台下是 exe 文件) 。
 
-该环境变量的值为 Go 语言的工作区的集合 (意味着可以有很多个) 。工作区类似于工作目录。每个不同的目录之间用: 分隔。 (不同操作系统,GOPATH 列表分隔符不同,UNIX-like 使用 :冒号,Windows 使用;分号) 
+该环境变量的值为 Go 语言的工作区的集合 (意味着可以有很多个) 。工作区类似于工作目录。每个不同的目录之间用: 分隔。 (不同操作系统,GOPATH 列表分隔符不同,UNIX-like 使用 :冒号,Windows 使用;分号)
   
 注意: 有两种情况下,bin 目录会变得没有意义。
 
@@ -34,7 +35,7 @@ $GOPATH/pkg/$GOOS_$GOARCH 中,同样以代码包为组织形式。
   
 $GOOS_$GOARCH 命名的,Mac 平台上这个目录名就是 darwin_amd64。
   
-命令源码文件: 
+命令源码文件:
   
 声明自己属于 main 代码包、包含无参数声明和结果声明的 main 函数。
   
@@ -46,7 +47,7 @@ $GOOS_$GOARCH 命名的,Mac 平台上这个目录名就是 darwin_amd64。
 
 ### src
 
-#### 命令源码文件: 
+#### 命令源码文件
 
 声明自己属于 main 代码包、包含无参数声明和结果声明的 main 函数。
   
@@ -80,6 +81,6 @@ func BenchmarkXXX( b *testing.B) {
 
 名称以 Benchmark 为名称前缀的函数,只能接受 *testing.B 的参数,这种测试函数是性能测试函数。
 
-https://www.jianshu.com/p/35a4ec1b3067
+<https://www.jianshu.com/p/35a4ec1b3067>
   
-https://github.com/astaxie/build-web-application-with-golang/blob/master/zh/01.2.md
+<https://github.com/astaxie/build-web-application-with-golang/blob/master/zh/01.2.md>
