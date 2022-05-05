@@ -10,7 +10,8 @@ tags:
 
 ---
 ## JPA
- (1) 、JPA介绍: 
+
+ (1) 、JPA介绍:
 
 JPA全称为Java Persistence API ,Java持久化API是Sun公司在Java EE 5规范中提出的Java持久化接口。JPA吸取了目前Java持久化技术的优点,旨在规范、简化Java对象的持久化工作。使用JPA持久化对象,并不是依赖于某一个ORM框架。
 
@@ -18,7 +19,7 @@ JPA全称为Java Persistence API ,Java持久化API是Sun公司在Java EE 5规范
   
 在说为什么要使用JPA之前,我们有必要了解为什么要使用ORM技术。
 
-ORM 是Object-Relation-Mapping,即对象关系影射技术,是对象持久化的核心。ORM是对JDBC的封装,从而解决了JDBC的各种存在问题: 
+ORM 是Object-Relation-Mapping,即对象关系影射技术,是对象持久化的核心。ORM是对JDBC的封装,从而解决了JDBC的各种存在问题:
 
 a) 繁琐的代码问题
 
@@ -58,8 +59,7 @@ pstmt.executeUpdate();
 
 采用ORM技术,ORM框架将根据具体数据库操作需要,会自动延迟向后台数据库发送SQL请求,ORM也可以根据实际情况,将数据库访问操作合成,尽量减少不必要的数据库操作请求。
 
-
-JPA是目前比较流行的一种ORM技术之一,所以他拥有ORM技术的各种特点,当然他还有自己的一些优势: 
+JPA是目前比较流行的一种ORM技术之一,所以他拥有ORM技术的各种特点,当然他还有自己的一些优势:
 
 1 标准化
   
@@ -80,3 +80,33 @@ JPA的查询语言是面向对象而非面向数据库的,它以面向对象的�
 5 支持面向对象的高级特性
   
 JPA 中能够支持面向对象的高级特性，如类之间的继承、多态和类之间的复杂关系，这样的支持能够让开发者最大限度的使用面向对象的模型设计企业应用，而不需要自行处理这些特性在关系数据库的持久化。
+
+## JPA的merge和persist
+
+原创作品，允许转载，转载时请务必以超链接形式标明文章 原始出处 、作者信息和本声明。否则将追究法律责任。<http://pz0513.blog.51cto.com/443986/113098>
+  
+原来merge()也有persist()的作用！
+  
+persist会把传进去的实体放到持久化上下文中，此时如果持久化上下文中有了这个实体，就会抛出javax.persistence.EntityExistsException，没有的话事务提交的时候把那个对象加进数据库中，如果数据库中已经存在了那个对象 (那一行) ，就会抛出com.MySQL.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException；
+
+而merge会在持久化上下文中生成传进去的实体的受管版本，如果已经有了受管版本，那也不会抛出异常，然后把那个受管的实体返回出来，事务提交的时候如果数据库中不存在那个对象 (那一行) ，就把把那个受管的加进去，存在的话就替换掉原来的数据。merge是如果持久化上下文中有了受管版本，那就更新，没有就复制一份，返回受管的。
+
+再次总结persist (①，②-③，④-⑤) :
+  
+ (这里说的抛出的异常都是指对象 (或者数据库中的行) 重复的异常)
+  
+① 如果persist的是一个受管实体 (即已经在上下文中) ，就不会抛出异常。
+  
+②如果persist的是一个游离实体 (即上下文中没有它) ，而上下文中又没有它的受管版本，数据库中也没有，也不会抛出异常，而会把这个实体写进数据库中。
+  
+③如果persist的是一个游离实体 (即上下文中没有) ，而上下文中又没有它的受管版本，数据库却有这个实体，那么EntityManager在persist它的时候不会抛出异常，但是事务提交的时候就会抛出异常:
+  
+Caused by: com.MySQL.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException: Duplicate entry '7' for key 1；
+  
+④如果persist的是一个游离实体 (即上下文中没有) ，而上下文中却有它的受管版本，数据库中又没有这个实体，那么还是不会抛出异常，而是把它的受管版本加进去 (不是那个游离的，是那个受管的！)  (即，这种情况persist和没persist是一样的！) 。
+  
+⑤如果persist的是一个游离实体 (即上下文中没有) ，而上下文中却有它的受管版本，数据库中也有了这个实体，那么EntityManager在persist它的时候就会抛出异常: javax.persistence.EntityExistsException
+  
+而merge就不会抛出什么对象重复的异常的了。。
+  
+本文出自 "辽源大火的奋斗历程" 博客，请务必保留此出处<http://pz0513.blog.51cto.com/443986/113098>

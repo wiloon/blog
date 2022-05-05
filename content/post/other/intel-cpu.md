@@ -1,5 +1,5 @@
 ---
-title: CPU
+title: Intel CPU
 author: "-"
 date: 2012-11-14T06:56:36+00:00
 url: /?p=4672
@@ -8,7 +8,7 @@ categories:
 tags:
   - reprint
 ---
-## CPU
+## Intel CPU
 
 ## Cascade Lake
 

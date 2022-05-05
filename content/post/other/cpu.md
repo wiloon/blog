@@ -44,4 +44,4 @@ store buffer是什么
 
  超线程技术就是利用特殊的硬件指令，把一个物理芯片模拟成两个逻辑处理核心，让单个处理器都能使用线程级并行计算，进而兼容多线程操作系统和软件，减少了CPU的闲置时间，提高的CPU的运行效率。这种超线程技术(如双核四线程)由处理器硬件的决定，同时也需要操作系统的支持才能在计算机中表现出来
 
-><https://www.cnblogs.com/Survivalist/p/11527949.html>
+<https://www.cnblogs.com/Survivalist/p/11527949.html>
