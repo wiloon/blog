@@ -17,11 +17,9 @@ iotop命令是专门显示硬盘IO的命令,界面风格类似top命令。这个
 ```bash
 yum install iotop
 ```
-
-1. 直接yum安装, rh6的光盘里有包。
-yum install iotop
   
-2. 命令参数介绍
+## 参数
+
 -o, -only
   
 Only show processes or threads actually doing I/O, instead of showing all processes or threads. This can be dynamically toggled by pressing o.
@@ -80,9 +78,9 @@ suppress some lines of header (implies -batch). This option can be specified up 
 iotop -o
 ```
   
-iotop命令的键盘快捷键:
+## 快捷键
   
-1. 左右箭头改变排序方式,默认是按IO排序
-2. r键是反向排序
-3. o键是只显示有IO输出的进程
-4. 同样q是退出
+- 左右箭头改变排序方式,默认是按IO排序
+- r 反向排序
+- o 是只显示有IO输出的进程
+- q 退出

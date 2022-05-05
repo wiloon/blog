@@ -10,6 +10,7 @@ tags:
 
 ---
 ## linux disk format, mkfs,mke2fs 格式化磁盘
+
 ```bash
 sudo mkfs.msdos -F 32 /dev/sdx1
 mkfs.ntfs -Q -L diskLabel /dev/sdXY
@@ -30,7 +31,7 @@ linux mkfs
   
 说明 :  建立 linux 档案系统在特定的 partition 上
   
-参数 : 
+参数 :
   
 device :  预备检查的硬盘 partition，例如: /dev/sda1
   
@@ -66,11 +67,11 @@ mkfs -t ext2 /dev/sda7     //将sda7分区格式化为ext2格式
 
 [root@localhost beinan]# mkfs -t 文件系统  存储设备
 
-注: 
+注:
   
 这里的文件系统是要指定的，比如 ext3 ；reiserfs ；ext2 ；fat32 ；msdos 等... ...
   
-设备比如是一个硬盘的分区，软盘，光驱等.. ... 在格式化分区之前，您得懂得如何查看硬盘分区情况，并有针对性的格式化；比如用 fdisk -l 来查看； 请参考: 《Linux 查看磁盘分区、文件系统、使用情况的命令和相关工具介绍》 比如我想格式化一个移动U盘中的一个分区；全景应该是: 
+设备比如是一个硬盘的分区，软盘，光驱等.. ... 在格式化分区之前，您得懂得如何查看硬盘分区情况，并有针对性的格式化；比如用 fdisk -l 来查看； 请参考: 《Linux 查看磁盘分区、文件系统、使用情况的命令和相关工具介绍》 比如我想格式化一个移动U盘中的一个分区；全景应该是:
   
 [root@localhost beinan]# fdisk -l
 
@@ -116,7 +117,7 @@ Device Boot      Start         End      Blocks   Id  System
   
 /dev/sda6              51          76      200781     83  Linux
   
-我们可以看到有sda这个设备，所以可以用 fdisk -l /dev/sda专门来显示他的分区情况；比如我想格式化 /dev/sda6 分区为 ext3文件系统，则为: 
+我们可以看到有sda这个设备，所以可以用 fdisk -l /dev/sda专门来显示他的分区情况；比如我想格式化 /dev/sda6 分区为 ext3文件系统，则为:
   
 [root@localhost beinan]# mkfs -t ext3  /dev/sda6
   
@@ -224,15 +225,14 @@ Filename                                Type            Size    Used    Priority
   
 /dev/sda6                               partition       225144  0       -3
   
-
 为什么我的系统有两个交换分区？因为我用移动U盘做的实验，主要是为写教程之用；sda6是我在U盘上建的swap分区；
 如果让swap开机就加载，应该改 /etc/fstab文件，加类似如下一行；
 
-http://www.linuxso.com/command/mkfs.html
+<http://www.linuxso.com/command/mkfs.html>
 mke2fs命令
 
 mke2fs命令是专门用于管理ext系列文件系统的一个专门的工具。其还有像mkfs.ext2，mkfs.ext3，mkfs.ext4等衍生的命令，它们的用法mke2fs类似，在系统man下它们的帮助手册会直接跳转mke2fs命令的帮助手册。
-命令格式: 
+命令格式:
 
 mke2fs [options] [device]
 
@@ -250,7 +250,7 @@ mke2fs [options] [device]
 -m: 设置为文件系统预留的块的百分比；
 作者: 小尛酒窝
 
-链接: https://www.jianshu.com/p/bf939474d69b
+链接: <https://www.jianshu.com/p/bf939474d69b>
 
 来源: 简书
 
