@@ -570,3 +570,13 @@ MySQL> status;
 MySQL –help | grep Distrib
   
 MySQL Ver 14.7 Distrib 4.1.10a, for redhat-linux-gnu (i686)
+
+## MySQL删除指定数据库中的表
+
+<http://phpcode8.com/lamp/MySQL-lamp/MySQL-empty-tables.html>
+
+SELECT concat('DROP TABLE IF EXISTS ', table_name, ';')
+
+FROM information_schema.tables
+
+WHERE table_schema = 'table0';

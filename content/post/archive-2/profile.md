@@ -15,7 +15,7 @@ tags:
 
 ### /etc/profile.d/ 目录
 
-在 /etc/profile.d 目录中存放的是一些应用程序所需的启动脚本,比如vim等命令的一些附加设置,在 /etc/profile.d 目录下添加相关的环境变量设置的 .sh 脚本文件,这些脚本文件的环境变量能够被生效,是因为在 /etc/profile 被读取的时候,会使用一个for循环语句来调用 /etc/profile.d 下的脚本,这些脚本文件所设置的环境变量就和 /etc/profile 启动时一起被设置起来了,cat /etc/profile 可以看到有一段加载 /etc/profile.d 目录下所有 .sh 脚本文件的代码: 
+在 /etc/profile.d 目录中存放的是一些应用程序所需的启动脚本,比如vim等命令的一些附加设置,在 /etc/profile.d 目录下添加相关的环境变量设置的 .sh 脚本文件,这些脚本文件的环境变量能够被生效,是因为在 /etc/profile 被读取的时候,会使用一个for循环语句来调用 /etc/profile.d 下的脚本,这些脚本文件所设置的环境变量就和 /etc/profile 启动时一起被设置起来了,cat /etc/profile 可以看到有一段加载 /etc/profile.d 目录下所有 .sh 脚本文件的代码:
 
 ```bash
 if [ -d /etc/profile.d ]; then
@@ -30,24 +30,26 @@ fi
 
 从上面的代码不难理解,/etc/profile.d/ 目录下设置环境变量和 /etc/profile 效果是一样的,都是全局环境变量,一旦生效后也都是永久环境变量； /etc/profile.d/ 比 /etc/profile 好维护,不想要的环境变量从 /etc/profile.d/ 目录中移除即可,创建好的环境变量拷贝文件就轻松的移植到其他的计算机,不用每次去改动 /etc/profile 文件。
 
-根据上面描述可以推理出: 
+根据上面描述可以推理出:
 
 /etc/profile.d 目录下的环境变量是 /etc/profile 启动时一起被读取,那么想要在当前shell终端临时生效可以使用 source /etc/profile,要全局生效则需要注销重登录或者直接重启系统,和 /etc/profile 原理一样；
 /etc/profile.d 目录下的环境变量和 /etc/profile 的环境变量优先级,根据环境变量在 /etc/profile 的for循环语句调用 /etc/profile.d 的前面还是后面,在前则被 /etc/profile.d 目录下的环境变量覆盖,在后则被 /etc/profile 的环境变量覆盖
-关于/etc/profile.d 目录,我使用我的Ubuntu 14.04.5系统,切换到 /etc/profile.d 目录,再使用 ls 命令列出目录下的所有脚本文件: 
+关于/etc/profile.d 目录,我使用我的Ubuntu 14.04.5系统,切换到 /etc/profile.d 目录,再使用 ls 命令列出目录下的所有脚本文件:
 
 ```bash
 unset key
-
 ```
 
 ### ~/.bashrc
 
-Archlinux login shell 不会加载  ~/.bashrc
+Archlinux Interactive, non-login shells 会加载 `~/.bashrc`, login shell 不会加载  `~/.bashrc`
+
+win10 WSL + zsh + oh my zsh 用 root 用户  SSH 登录 archlinux 会加载 .bash_profile, 不会加载 .bashrc
+win10 putty SSH 登录 同上
 
 ### ~/.bash_profile
 
-All interactive shells source /etc/bash.bashrc and ~/.bashrc, while interactive login shells also source /etc/profile and ~/.bash_profile
+All interactive shells source `/etc/bash.bashrc` and `~/.bashrc`, while interactive login shells also source /etc/profile and `~/.bash_profile`
 
 不知道你有没有遇到过这样的场景,当你需要设置一个环境变量,或者运行一个程序设置你的shell或桌面环境,但是不知道在哪里是最方便设置的位置。
 
@@ -83,7 +85,6 @@ export PATH
 
 Debian GNU/linux通常预装Dash,Dash是一个仅仅旨在实现POSIX (和一些伯克利) 扩展的基本shell。如果我们修改/etc/profile (修改之前先备份) 让PS1='$ '这一行设置不同的值,然后模拟一个Dash登录 (通过dash -l命令) ,我们可以看到Dash会使用我们自定义的提示。但是,如果我们调用不带-l参数的dash命令,dash将不会读取/etc/profile。此时Dash会使用默认值 (这意味着此时PS1的值是我们修改之前的值) 。
 
-
 换句话说,任何匹配/etc/profile.d/_.sh的可读内容都会被当作变量来源。这个非常重要,因为它表明直接编辑/etc/profile从来都不是实际需要的 (所以恢复你之前的备份) 。上面定义的任何变量都可以通过在一个单独的文件中配置,然后覆盖/etc/profile中的设置。这样做的好处是: 它允许系统升级时自动添加相应的变更到/etc/profile文件中。因为Debian的Apt包管理系统通常不会修改默认的配置文件。
 
 ~/.bash_profile, ~/.bash_login, and ~/.profile
@@ -96,7 +97,7 @@ Debian GNU/linux通常预装Dash,Dash是一个仅仅旨在实现POSIX (和一些
 
 我曾经看到过一些项目的安装说明,例如RVN,这个项目建议用户创建一个.bash_profile文件,但是这样做是非常危险的,根据上面提到的知识我们知道,这个会改变用户的shell环境。即使用户没有修改.profile文件,它也可能利用默认~/.profile功能,将~/bin添加到$PATH环境变量。一个可能提高安全性的选项是,在创建用户的账户之前,将.bash_profile作为.bash_rc的符号链接文件,放到/etc/skel目录中。
 
-如果我们查看Debian Jessie的默认.profile脚本,我们可以看到下面的代码片段: 
+如果我们查看Debian Jessie的默认.profile脚本,我们可以看到下面的代码片段:
 
 # if running bash
   
@@ -132,7 +133,7 @@ Debian Jessie包含一个名叫40×11-common_xsessionrc的文件,这个文件做
 
 和~/.xsessionrc相似,~/.xsession默认也是不存在的,在你需要的时候你可以创建一个。你可能会创建一个类似下面给的简单的.xsession脚本
 
-# Start our session manager of choice.
+# Start our session manager of choice
   
 #
   
@@ -170,10 +171,10 @@ export vblank_mode=0
 
 在接下来的系列中,我们将讨论dotfile管理选项。
 
-译文链接: http://www.codeceo.com/article/linux-unix-login-script.html
+译文链接: <http://www.codeceo.com/article/linux-unix-login-script.html>
   
 英文原文: Understanding *NIX Login Scripts
   
 翻译作者: 码农网 – 韩先生
 
-https://www.oschina.net/news/78491/linux-unix-login-script
+<https://www.oschina.net/news/78491/linux-unix-login-script>

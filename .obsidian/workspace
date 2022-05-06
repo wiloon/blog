@@ -7,8 +7,11 @@
         "id": "bbbff831eb66498c",
         "type": "leaf",
         "state": {
-          "type": "empty",
-          "state": {}
+          "type": "markdown",
+          "state": {
+            "file": "content/post/other/maven.md",
+            "mode": "source"
+          }
         }
       }
     ],
@@ -36,7 +39,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "GOF",
+                "query": "maven basic",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": true,
@@ -45,7 +48,8 @@
               }
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
@@ -65,6 +69,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "content/post/other/maven.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -84,6 +89,7 @@
   },
   "active": "bbbff831eb66498c",
   "lastOpenFiles": [
+    "content/post/other/maven.md",
     "content/post/pattern/Singleton.md",
     "content/post/pattern/GOF-23种设计模式.md",
     "单例-singleton.md",
@@ -92,7 +98,6 @@
     "content/post/pattern/Template-Method.md",
     "content/post/archive-1/Template-Method.md",
     "content/post/linux/调度策略.md",
-    "content/post/inbox/编译器指令重排.md",
-    "content/post/archive-2/dbunit.md"
+    "content/post/inbox/编译器指令重排.md"
   ]
 }

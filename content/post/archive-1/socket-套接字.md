@@ -9,7 +9,8 @@ tags:
   - reprint
 
 ---
-## socket, 套接字, 套接口 
+## socket, 套接字, 套接口
+
 应用层通过传输层进行数据通信时，TCP 和 UDP 会遇到同时为多个应用程序进程提供并发服务的问题。多个 TCP 连接或多个应用程序进程可能需要通过同一个 TCP 协议端口传输数据。为了区别不同的应用程序进程和连接，许多计算机操作系统为应用程序与 TCP/IP 协议交互提供了称为 socket  (Socket) 的接口，区分不同应用程序进程间的网络通信和连接。
   
 生成 socket ，主要有3个参数: 通信的`目的 IP 地址`、使用的传输层协议(TCP或UDP)和使用的`端口号`。Socket原意是"插座"。通过将这3个参数结合起来，与一个"插座"Socket绑定，应用层就可以和传输 层通过 socket 接口，区分来自不同应用程序进程或网络连接的通信，实现数据传输的并发服务。
@@ -30,7 +31,7 @@ Host A上的程序A将一段信息写入Socket中，Socket的内容被Host A的�
   
 socket的英文原义是"孔"或"插座"。作为4BDS UNIX的进程通信机制，取后一种意思。通常也称作" socket "，用于描述IP地址和端口，是一个通信链的句柄。在Internet上的主机一般运行了多个服务软件，同时提供几种服务。每种服务都打开一个Socket，并绑定到一个端口上，不同的端口对应于不同的服务。Socket正如其英文原意那样，象一个多孔插座。一台主机犹如布满各种插座的房间，每个插座有一个编号，有的插座提供220伏交流电， 有的提供110伏交流电，有的则提供有线电视节目。 客户软件将插头插到不同编号的插座，就可以得到不同的服务。
 
- socket 
+ socket
 
 现象解释
 
@@ -40,9 +41,9 @@ socket非常类似于电话插座。以一个国家级电话网为例，电话�
 
 在电话系统中，一般用户只能感受到本地电话机和对方电话号码的存在，建立通话的过程，话音传输的过程以及整个电话系统的技术细节对他都是透明的，这也与socket机制非常相似。socket利用网间网通信设施实现进程通信，但它对通信设施的细节毫不关心，只要通信设施能提供足够的通信能力，它就满足了。
   
-至此，我们对socket进行了直观的描述。抽象出来，socket实质上提供了进程通信的端点。进程通信之前，双方首先必须各自创建一个端点，否则是没有办法建立联系并相互通信的。正如打电话之前，双方必须各自拥有一台电话机一样。在网间网内部，每一个socket用一个半相关描述: 
+至此，我们对socket进行了直观的描述。抽象出来，socket实质上提供了进程通信的端点。进程通信之前，双方首先必须各自创建一个端点，否则是没有办法建立联系并相互通信的。正如打电话之前，双方必须各自拥有一台电话机一样。在网间网内部，每一个socket用一个半相关描述:
   
- (协议，本地地址，本地端口) 
+ (协议，本地地址，本地端口)
   
 一个完整的socket有一个本地唯一的socket号，由操作系统分配。
   
@@ -76,24 +77,24 @@ getOutputStream方法连接的另一端将得到输入，同时返回一个Outpu
 
 当客户端调用connect时，触发了连接请求，向服务器发送了SYN J包，这时connect进入阻塞状态；服务器监听到连接请求，即收到SYN J包，调用accept函数接收请求向客户端发送SYN K ，ACK J+1，这时accept进入阻塞状态；客户端收到服务器的SYN K ，ACK J+1之后，这时connect返回，并对SYN K进行确认；服务器收到ACK K+1时，accept返回，至此三次握手完毕，连接建立。
   
-http://www.cnblogs.com/skynet/archive/2010/12/12/1903949.html
-
+<http://www.cnblogs.com/skynet/archive/2010/12/12/1903949.html>
 
 ### 四元组
 
        源IP地址、目的IP地址、源端口、目的端口
 
-## 五元组是:
+## 五元组是
+
       源IP地址、目的IP地址、协议号、源端口、目的端口
 
-## 七元组是:
+## 七元组是
 
        源IP地址、目的IP地址、协议号、源端口、目的端口，服务类型, 接口索引
 
 协议号:IP是网络层协议，IP头中的协议号用来说明IP报文中承载的是哪种协议,协议号标识上层是什么协议 (一般是传输层协议，比如6 TCP，17 UDP；但也可能是网络层协议，比如1 ICMP；也可能是应用层协议，比如89 OSPF）。
 TCP/UDP是传输层协议，TCP/UDP的端口号用来说明是哪种上层应用，比如TCP 80代表WWW，TCP 23代表Telnet，UDP 69代表TFTP。
 目的主机收到IP包后，根据IP协议号确定送给哪个模块 (TCP/UDP/ICMP...）处理，送给TCP/UDP模块的报文根据端口号确定送给哪个应用程序处理。
->https://www.coonote.com/tcpip-note/tcp-quadruple-quintuple.html
+><https://www.coonote.com/tcpip-note/tcp-quadruple-quintuple.html>
 
 ### SO_REUSEADDR 地址复用
 
@@ -137,19 +138,18 @@ SO_REUSEPORT选项有如下语义：
 
     一个套接字由相关五元组构成，协议、本地地址、本地端口、远程地址、远程端口。SO_REUSEADDR 仅仅表示可以重用本地本地地址、本地端口，整个相关五元组还是唯一确定的。所以，重启后的服务程序有可能收到非期望数据。必须慎重使用 SO_REUSEADDR 选项。【2】
 
-
-【1】 http://topic.csdn.net/u/20090103/16/a0414edb-b289-4c72-84da-39e155e8f4be.html
+【1】 <http://topic.csdn.net/u/20090103/16/a0414edb-b289-4c72-84da-39e155e8f4be.html>
 
 【2】
 
 以下博客对这个问题进行了对答式的解答：
 
-http://blog.sina.com.cn/s/blog_53a2ecbf010095db.html
+<http://blog.sina.com.cn/s/blog_53a2ecbf010095db.html>
 
-【3】 http://www.sudu.cn/info/html/edu/20050101/296180.html
+【3】 <http://www.sudu.cn/info/html/edu/20050101/296180.html>
 
 同一个机器上一个端口PORT1，TCP socket1 绑定PORT1，然后UDP socket2绑定PORT1会成功；
-同一个ip, 同一个端口可以跑不同的协议 tcp, udp 
+同一个ip, 同一个端口可以跑不同的协议 tcp, udp
 
->https://www.cnblogs.com/mydomain/archive/2011/08/23/2150567.html
->https://www.jianshu.com/p/711be2f1ec6a
+><https://www.cnblogs.com/mydomain/archive/2011/08/23/2150567.html>
+><https://www.jianshu.com/p/711be2f1ec6a>

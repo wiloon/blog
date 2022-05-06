@@ -9,7 +9,9 @@ tags:
   - remix
 ---
 ## yum
+
 ## yum command
+
 ### 按版本安装
 
 ```bash
@@ -58,9 +60,6 @@ yum -y install httpd
 #local install
 sudo yum localinstall influxdb-1.2.4.x86_64.rpm
 
-
-
-
 #yum mirror
 /etc/yum.repos.d
 #Yum更新中排除特定的包
@@ -69,6 +68,7 @@ https://www.howtoing.com/exclude-packages-from-yum-update
 ```
 
 ## 卸载
+
 ```bash
 # 默认会卸载依赖包
 yum remove httpd
@@ -78,33 +78,37 @@ yum -y remove httpd
 rpm -e --nodeps foo
 ```
 
-### Delta RPMs disabled because /usr/bin/applydeltarpm not installed.
+### Delta RPMs disabled because /usr/bin/applydeltarpm not installed
+
     # 查看哪个包提供 applydeltarpm
     yum provides '*/applydeltarpm'  
     # 安装 deltarpm
     yum install deltarpm -y
 
 ### 清除metadata
+
     run yum --enablerepo=updates clean metadata
 
 ### yum 安装报错“rpmdb: BDB0113”
+
 ```
 error: rpmdb: BDB0113 Thread/process ****/************* failed: BDB1507 Thread died in Berkeley DB library
 error: db5 error(-30973) from dbenv->failchk: BDB0087 DB_RUNRECOVERY: Fatal error, run database recovery
 error: cannot open Packages index using db5 -  (-30973)
 error: cannot open Packages database in /var/lib/rpm
 ```
+
 ```bash
 rm -f /var/lib/rpm/__db*
 rpm --rebuilddb
 ```
 
-https://my.oschina.net/andyfeng/blog/601291
+<https://my.oschina.net/andyfeng/blog/601291>
   
-http://gzmaster.blog.51cto.com/299556/72278
+<http://gzmaster.blog.51cto.com/299556/72278>
   
-http://www.cnblogs.com/kevingrace/p/6252659.html
-
+<http://www.cnblogs.com/kevingrace/p/6252659.html>
 
 ### rpm repo
->https://www.rpmfind.net/linux/RPM/index.html
+
+><https://www.rpmfind.net/linux/RPM/index.html>

@@ -11,8 +11,8 @@ tags:
   - reprint
 ---
 ## Servlet url-pattern
-Servlet和Filter的url匹配以及url-pattern详解<o:p></o:p>
 
+Servlet和Filter的url匹配以及url-pattern详解<o:p></o:p>
 
 Servlet和filter是J2EE开发中常用的技术，使用方便，配置简单，老少皆宜。估计大多数朋友都是直接配置用，也没有关心过具体的细节，今天遇到一个问题，上网查了servlet的规范才发现，servlet和filter中的url-pattern还是有一些文章在里面的，总结了一些东西，放出来供大家参考，以免遇到问题又要浪费时间。<o:p></o:p>
 
@@ -20,11 +20,11 @@ Servlet和filter是J2EE开发中常用的技术，使用方便，配置简单，
 
 <o:p></o:p>
 
-当一个请求发送到servlet容器的时候，容器先会将请求的url减去当前应用上下文的路径作为servlet的映射url，比如我访问的是http://localhost/test/aaa.html，我的应用上下文是test，容器会将http://localhost/test去掉，剩下的/aaa.html部分拿来做servlet的映射匹配。这个映射匹配过程是有顺序的，而且当有一个servlet匹配成功以后，就不会去理会剩下的servlet了 (filter不同，后文会提到) 。其匹配规则和顺序如下: <o:p></o:p>
+当一个请求发送到servlet容器的时候，容器先会将请求的url减去当前应用上下文的路径作为servlet的映射url，比如我访问的是<http://localhost/test/aaa.html，我的应用上下文是test，容器会将http://localhost/test去掉，剩下的/aaa.html部分拿来做servlet的映射匹配。这个映射匹配过程是有顺序的，而且当有一个servlet匹配成功以后，就不会去理会剩下的servlet>了 (filter不同，后文会提到) 。其匹配规则和顺序如下: <o:p></o:p>
 
-1. 精确路径匹配。例子: 比如servletA 的url-pattern为 /test，servletB的url-pattern为 /* ，这个时候，如果我访问的url为http://localhost/test ，这个时候容器就会先 进行精确路径匹配，发现/test正好被servletA精确匹配，那么就去调用servletA，也不会去理会其他的servlet了。<o:p></o:p>
+1. 精确路径匹配。例子: 比如servletA 的url-pattern为 /test，servletB的url-pattern为 /* ，这个时候，如果我访问的url为<http://localhost/test> ，这个时候容器就会先 进行精确路径匹配，发现/test正好被servletA精确匹配，那么就去调用servletA，也不会去理会其他的servlet了。<o:p></o:p>
 
-2. 最长路径匹配。例子: servletA的url-pattern为/test/*，而servletB的url-pattern为/test/a/*，此时访问http://localhost/test/a时，容器会选择路径最长的servlet来匹配，也就是这里的servletB。<o:p></o:p>
+2. 最长路径匹配。例子: servletA的url-pattern为/test/*，而servletB的url-pattern为/test/a/*，此时访问<http://localhost/test/a时，容器会选择路径最长的servlet来匹配，也就是这里的servletB。<o:p></o:p>>
 
 3. 扩展匹配，如果url最后一段包含扩展，容器将会根据扩展选择合适的servlet。例子: servletA的url-pattern: *.action<o:p></o:p>
 
@@ -36,7 +36,7 @@ Servlet和filter是J2EE开发中常用的技术，使用方便，配置简单，
 
 二，url-pattern详解<o:p></o:p>
 
-在web.xml文件中，以下语法用于定义映射: 
+在web.xml文件中，以下语法用于定义映射:
 
 l 以"/'开头和以"/*"结尾的是用来做路径映射的。
 

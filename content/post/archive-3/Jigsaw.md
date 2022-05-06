@@ -66,10 +66,12 @@ java.desktop.jmod
 第四，提升 Java 语言开发效率。Java 9 之后，Java 像开挂了一般，一改原先一延再延的风格，严格遵循每半年一个大版本的发布策略，从 2017 年 9 月到 2020 年 3 月，从 Java 9 到 Java 14，三年时间相继发布了 6 个版本，无一延期，参见图-4。这无疑跟模块系统的引入有莫大关系。前文提到，Java 9 之后，JDK 被拆分为 94 个模块，每个模块有清晰的边界(module descriptor)和独立的单元测试，对于每个 Java 语言的开发者而言，每个人只需要关注其所负责的模块，开发效率因此大幅提升。这其中的差别，就好比单体应用架构升级到微服务架构一般。
 
 ## 基础
+
 ### module descriptor
+
 模块的核心在于 module descriptor，对应根目录下的 module-info.class 文件，而这个 class 文件是由源代码根目录下的 module-info.java 编译生成。Java 为 module-info.java 设计了专用的语法，包含 module、 requires、exports等多个关键词
 
-语法解读: 
+语法解读:
 
 - [open] module : 声明一个模块，模块名称应全局唯一，不可重复。加上 open 关键词表示模块内的所有包都允许通过 Java 反射访问，模块声明体内不再允许使用 opens 语句。
 - requires [transitive] : 声明模块依赖，一次只能声明一个依赖，如果依赖多个模块，需要多次声明。加上 transitive 关键词表示传递依赖，比如模块 A 依赖模块 B，模块 B 传递依赖模块 C，那么模块 A 就会自动依赖模块 C，类似于 Maven。
@@ -78,15 +80,14 @@ java.desktop.jmod
 - provides with [, ...]: 声明模块提供的 Java SPI 服务，一次可以声明多个服务实现类(逗号分隔)。
 - uses : 声明模块依赖的 Java SPI 服务，加上之后模块内的代码就可以通过 ServiceLoader.load(Class) 一次性加载所声明的 SPI 服务的所有实现类。
 
-
 ### -p & -m 参数
 
-Java 9 引入了一系列新的参数用于编译和运行模块，其中最重要的两个参数是 -p 和 -m。-p 参数指定模块路径，多个模块之间用 ":"(Mac, Linux)或者 ";"(Windows)分隔，同时适用于 javac 命令和 java 命令，用法和Java 8 中的 -cp非常类似。-m 参数指定待运行的模块主函数，输入格式为模块名/主函数所在的类名，仅适用于 java 命令。两个参数的基本用法如下: 
+Java 9 引入了一系列新的参数用于编译和运行模块，其中最重要的两个参数是 -p 和 -m。-p 参数指定模块路径，多个模块之间用 ":"(Mac, Linux)或者 ";"(Windows)分隔，同时适用于 javac 命令和 java 命令，用法和Java 8 中的 -cp非常类似。-m 参数指定待运行的模块主函数，输入格式为模块名/主函数所在的类名，仅适用于 java 命令。两个参数的基本用法如下:
 
 javac -p <module_path> <source>
 java -p <module_path> -m <module>/<main_class>
 
-从Java 9开始，原有的Java标准库已经由一个单一巨大的rt.jar分拆成了几十个模块，这些模块以.jmod扩展名标识，可以在$JAVA_HOME/jmods目录下找到它们: 
+从Java 9开始，原有的Java标准库已经由一个单一巨大的rt.jar分拆成了几十个模块，这些模块以.jmod扩展名标识，可以在$JAVA_HOME/jmods目录下找到它们:
 
 java.base.jmod
   
@@ -98,15 +99,13 @@ java.desktop.jmod
   
 这些.jmod文件每一个都是一个模块，模块名就是文件名。例如: 模块java.base对应的文件就是java.base.jmod。模块之间的依赖关系已经被写入到模块内的module-info.class文件了。所有的模块都直接或间接地依赖java.base模块，只有java.base模块不依赖任何模块，它可以被看作是"根模块"，好比所有的类都是从Object直接或间接继承而来。
 
-### maven
-maven-compiler-plugin>3.6.1
+
 
 ---
 
-https://www.liaoxuefeng.com/wiki/1252599548343744/1281795926523938
-https://www.jianshu.com/p/bec282e8fb41
-https://developer.51cto.com/art/202007/620291.htm
-
+<https://www.liaoxuefeng.com/wiki/1252599548343744/1281795926523938>
+<https://www.jianshu.com/p/bec282e8fb41>
+<https://developer.51cto.com/art/202007/620291.htm>
 
 ## java 模块 hello world
 
@@ -115,7 +114,7 @@ https://developer.51cto.com/art/202007/620291.htm
     mkdir -p  src/speaker/com/pingd/test/java/module
     vim src/speaker/com/pingd/test/java/module/Hello.java
 
-### src/speaker/com/pingd/test/java/module/Hello.java 
+### src/speaker/com/pingd/test/java/module/Hello.java
 
     package com.pingd.test.java.module;
 
@@ -272,7 +271,7 @@ $HOME/.m2/toolchains.xml
     </configuration>
   </toolchain>
 </toolchains>
-``` 
+```
 
 #### pom.xml
 
@@ -297,21 +296,21 @@ $HOME/.m2/toolchains.xml
     </execution>
   </executions>
 </plugin>
-``` 
+```
 
-### 启用Java 9语言支持
+### 启用 Java 9 语言支持
 
 ```xml
 <properties>
   <maven.compiler.release>9</maven.compiler.release>
 </properties>
-``` 
+```
 
-属性 maven.compiler.release直接映射到该-release标志javac，而另外两个属性只对IntelliJ有必要 ，用来了解源码兼容性。
+属性 maven.compiler.release 直接映射到该 -release 标志javac，而另外两个属性只对IntelliJ有必要 ，用来了解源码兼容性。
 
 ### 一个模块示例
 
-https://blog.csdn.net/rickiyeat/article/details/78068316
+<https://blog.csdn.net/rickiyeat/article/details/78068316>
 
 ### 模块文件 module-info.java
 
@@ -355,12 +354,12 @@ avac -d mods/com.wiloon.java9x src/com.wiloon.java9x/module-info.java src/com.wi
 java --module-path mods -m com.wiloon.java9x/com.wiloon.java9x.Java9Tester
 ```
 
-
 ---
 
-http://lizhe.name/index.php/node/273
+<http://lizhe.name/index.php/node/273>
 
 ## 'java 8 > java 9+ 模块'
+
 在src / main / java目录中创建一个名为module-info.java的文件
 
 ### maven plugin
@@ -402,19 +401,16 @@ http://lizhe.name/index.php/node/273
             </plugin>
 ```
 
-
 ## 'jigsaw  hello world'
+
 git@github.com:wiloon/java9x.git
 
+<http://blog.oneapm.com/apm-tech/724.html>
 
-http://blog.oneapm.com/apm-tech/724.html
-
-http://stackoverflow.com/questions/39882669/unrecognized-option-modulepath
+<http://stackoverflow.com/questions/39882669/unrecognized-option-modulepath>
 
 ```bash
 
 java -module-path mods -m com.mycompany.helloworld/com.mycompany.helloworld.HelloWorld
 
 ```
-
-

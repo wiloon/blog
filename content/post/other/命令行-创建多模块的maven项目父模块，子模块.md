@@ -10,6 +10,7 @@ tags:
 
 ---
 ## 命令行 创建多模块的Maven项目(父模块,子模块)
+
 我们都知道,我们常常将一个复杂的java应用拆分成多个java子应用。由于maven的出现,这种拆分就更加容易了,因为我们通过maven可以创建多个关联模块的项目 (Multiple Module Projects) 。由一个总的模块,下面包含多个子模块 (子模块还可以包含子模块) 。
 
 一、通过在Maven命令行创建。
@@ -40,7 +41,7 @@ cd cms-validator
   
 mvn archetype:create -DgroupId=com.ebay.tools.cms.validator.web -DartifactId=validator-web -DarchetypeArtifactId=maven-archetype-webapp
 
-完成以上3步以后,会在总的pom.xml中已经自动加入: 
+完成以上3步以后,会在总的pom.xml中已经自动加入:
   
 <modules>
   
@@ -50,7 +51,7 @@ mvn archetype:create -DgroupId=com.ebay.tools.cms.validator.web -DartifactId=val
   
 </modules>
   
-在各个子模块中也自动的加入了: 
+在各个子模块中也自动的加入了:
   
 <parent>
 
@@ -66,7 +67,7 @@ mvn archetype:create -DgroupId=com.ebay.tools.cms.validator.web -DartifactId=val
   
 validator-web模块覆盖为<packaging>war</packaging>, validator-rest模块修改为: <packaging>jar</packaging>。
 
-4. 对父模块的特别设置: 
+4. 对父模块的特别设置:
   
 需要在上级模块中设置java编译的参数,现在eclipse一般都使用比较新的版本,默认jdk是1.6,而maven默认的Jdk版本很有可能还是1.4。 所以需要设置java编译参数。
   
@@ -86,7 +87,7 @@ validator-web模块覆盖为<packaging>war</packaging>, validator-rest模块修�
 
 </plugin>
   
-5. 如果web子模块需要wtp的支持,则可以在web模块的pom中设置wtp的支持,需要设置elcipse插件: 
+5. 如果web子模块需要wtp的支持,则可以在web模块的pom中设置wtp的支持,需要设置elcipse插件:
   
 <build>
 
@@ -114,9 +115,9 @@ validator-web模块覆盖为<packaging>war</packaging>, validator-rest模块修�
 
 </build>
   
-6. 生成eclipse项目: 
+6. 生成eclipse项目:
   
-在父模块的根目录下,执行命令: 
+在父模块的根目录下,执行命令:
   
 mvn eclipse:eclipse
 
@@ -126,5 +127,4 @@ mvn eclipse:eclipse
   
 新建一个 M2_REPO 的变量,变量值指向你系统的Maven2的数据仓库位置(例如我自己的路径为: C:\maven-repo\swang\ebox)。如果要在eclipse中使用m2eclipse,需要执行命令mvn eclipse:m2eclipse, 这样就不需要设置M2_REPO类库变量了。
 
-
-http://josh-persistence.iteye.com/blog/1930785
+<http://josh-persistence.iteye.com/blog/1930785>
