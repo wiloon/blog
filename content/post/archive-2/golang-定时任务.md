@@ -10,11 +10,11 @@ tags:
 ---
 ## golang 定时器, timer, ticker
 
-Go 可以借助 time.After/time.Ticker 来实现延迟/定时触发器,主要原理是借助无缓冲 channel 无数据时读取操作会阻塞当前协程,Go 会在给定的时间后向 channel 中写入一些数据 (当前时间) ,故阻塞的协程可以恢复运行,达到延迟或定时执行的功能。
+Go 可以借助 time.After/time.Ticker 来实现延迟/定时触发器, 主要原理是借助无缓冲 channel 无数据时读取操作会阻塞当前协程, Go 会在给定的时间后向 channel 中写入一些数据 (当前时间), 故阻塞的协程可以恢复运行, 达到延迟或定时执行的功能。
 
 ## time.Ticker
 
-ticker只要定义完成,从此刻开始计时,不需要任何其他的操作,每隔固定时间都会触发。
+ticker 只要定义完成,从此刻开始计时, 不需要任何其他的操作, 每隔固定时间都会触发。
 
 ```go
 ticker := time.NewTicker(500 * time.Millisecond)
