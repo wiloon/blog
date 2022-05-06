@@ -12,7 +12,7 @@ tags:
 
 Goroutine 是 Go 中最基本的执行单元。事实上每一个 Go 程序至少有一个 goroutine：主 goroutine。当程序启动时，它会自动创建。
 
-goroutine 采用了一种 fork-join 的模型。
+goroutine 采用了一种 fork-join 的模型 [[fork-join#ForkJoin]]
 
 每个协程至少需要消耗 2KB 的空间
 

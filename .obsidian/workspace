@@ -4,11 +4,14 @@
     "type": "split",
     "children": [
       {
-        "id": "bbbff831eb66498c",
+        "id": "f6c520bba96f20b8",
         "type": "leaf",
         "state": {
-          "type": "empty",
-          "state": {}
+          "type": "markdown",
+          "state": {
+            "file": "content/post/archive-2/goroutine.md",
+            "mode": "source"
+          }
         }
       }
     ],
@@ -36,7 +39,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "GOF",
+                "query": "goroutine",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": true,
@@ -65,6 +68,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "content/post/archive-2/goroutine.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -82,17 +86,17 @@
     "width": 300,
     "collapsed": true
   },
-  "active": "bbbff831eb66498c",
+  "active": "f6c520bba96f20b8",
   "lastOpenFiles": [
+    "content/post/archive-2/goroutine.md",
+    "content/post/archive-1/pivot-table.md",
+    "content/post/archive-1/phonegap和cordova.md",
+    "content/post/archive-1/perforce.md",
+    "content/post/archive-1/pentaho-pdi-hello-world.md",
     "content/post/pattern/Singleton.md",
     "content/post/pattern/GOF-23种设计模式.md",
     "单例-singleton.md",
     "content/post/pattern/单例-singleton.md",
-    "content/post/pattern/设计模式-策略strategy.md",
-    "content/post/pattern/Template-Method.md",
-    "content/post/archive-1/Template-Method.md",
-    "content/post/linux/调度策略.md",
-    "content/post/inbox/编译器指令重排.md",
-    "content/post/archive-2/dbunit.md"
+    "content/post/pattern/设计模式-策略strategy.md"
   ]
 }
