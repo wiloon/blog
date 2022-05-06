@@ -164,6 +164,9 @@ agent 4
 1 -- 3
 1 -- 4
 
+queue 5
+4 -right- 5
+5 -right-2
 @enduml
 ```
 

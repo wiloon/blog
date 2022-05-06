@@ -3,12 +3,11 @@ title: kafka basic, command
 author: "-"
 date: 2018-05-07T08:44:53.000+00:00
 url: "kafka"
+categories:
+  - inbox
 tags:
   - remix
   - command
-
-categories:
-  - inbox
 ---
 ## kafka basic, command
 
@@ -46,10 +45,11 @@ bin/kafka-console-producer.sh \
 
 ### kafka package
 
-    https://mirrors.bfsu.edu.cn/apache/kafka/2.6.0/kafka_2.13-2.6.0.tgz
+<https://mirrors.bfsu.edu.cn/apache/kafka/2.6.0/kafka_2.13-2.6.0.tgz>
 
 ### group
 
+```bash
     # list all group
     bin/kafka-consumer-groups.sh \
     --bootstrap-server kafka.wiloon.com:9092 --list
@@ -69,6 +69,7 @@ bin/kafka-console-producer.sh \
     --describe \
     --group my-group
     --state
+```
 
 ## topic
 
