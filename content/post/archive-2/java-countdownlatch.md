@@ -10,17 +10,14 @@ tags:
   - reprint
 ---
 ## 'Juc中的同步辅助类,  CountDownLatch,CyclicBarrier,Semaphore'
-CountDownLatch
-  
-CyclicBarrier
-  
-Semaphore
-  
-Phaser
-  
-Exchanger
 
-CountDownLatch
+- CountDownLatch
+- CyclicBarrier
+- Semaphore
+- Phaser
+- Exchanger
+
+## CountDownLatch
   
 在完成一组正在其他线程中执行的操作之前,它允许一个或多个线程一直等待/阻塞
   
@@ -32,21 +29,21 @@ CountDownLatch的一个非常典型的应用场景是: 有一个任务想要往�
   
 <http://www.wiloon.com/?p=7869>
 
-CyclicBarrier
+## CyclicBarrier
   
 一种可重置的多路同步点, 在某些并发编程场景很有用. 它允许一组线程互相等待, 直到到达某个公共的屏障点 (common barrier point). 在涉及一组固定大小的线程的程序中, 这些线程必须不时地互相等待, 此时 CyclicBarrier 很有用.因为该 barrier在释放等待线程后可以重用, 所以称它为循环的barrier.
   
 CyclicBarrier类似于CountDownLatch也是个计数器, 不同的是CyclicBarrier数的是调用了CyclicBarrier.await()进入等待的线程数, 当线程数达到了CyclicBarrier初始时规定的数目时,所有进入等待状态的线程被唤醒并继续。 CyclicBarrier就象它名字的意思一样,可看成是个障碍, 所有的线程必须到齐后才能一起通过这个障碍。 CyclicBarrier初始时还可带一个Runnable的参数,此Runnable任务在CyclicBarrier的数目达到后,所有其它线程被唤醒前被执行。
 
-Semaphore
+## Semaphore
   
 信号量是一类经典的同步工具. 信号量通常用来限制线程可以同时访问的 (物理或逻辑) 资源数量.
   
 一个计数信号量。从概念上讲,信号量维护了一个许可集。如有必要,在许可可用前会阻塞每一个 acquire(),然后再获取该许可。每个 release() 添加一个许可,从而可能释放一个正在阻塞的获取者。但是,不使用实际的许可对象,Semaphore 只对可用许可的号码进行计数,并采取相应的行动。拿到信号量的线程可以进入代码,否则就等待。通过acquire()和release()获取和释放访问许可。
 
-Phaser
+## Phaser
   
-一种可重用的同步屏障, 功能上类似于CyclicBarrier和CountDownLatch, 但使用上更为灵活. 非常适用于在多线程环境下同步协调分阶段计算任务 (Fork/Join框架中的子任务之间需同步时, 优先使用Phaser) 
+一种可重用的同步屏障, 功能上类似于 CyclicBarrier 和 CountDownLatch, 但使用上更为灵活. 非常适用于在多线程环境下同步协调分阶段计算任务 (Fork/Join框架中的子任务之间需同步时, 优先使用 Phaser) 
   
 <http://www.wiloon.com/?p=11214>
 
