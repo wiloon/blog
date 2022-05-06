@@ -21,7 +21,7 @@ Fork/Join 框架是 Java7 提供的一个用于并行执行任务的框架(Fork/
 
 ForkJoinPool 不是为了替代 ExecutorService, 而是它的补充, 在某些应用场景下性能比 ExecutorService 更好。 (见 Java Tip: When to use ForkJoinPool vs ExecutorService )
   
-ForkJoinPool 主要用于实现"分而治之"的算法,特别是分治之后递归调用的函数, 例如 quick sort 等。
+ForkJoinPool 主要用于实现"分而治之"的算法, 特别是分治之后递归调用的函数, 例如 quick sort 等。
 
 ForkJoinPool 最适合的是计算密集型的任务, 如果存在 I/O, 线程间同步, sleep() 等会造成线程长时间阻塞的情况时, 最好配合使用 ManagedBlocker。
   
@@ -67,7 +67,7 @@ System.out.println(calculator.sumUp(numbers)); // 打印结果500500
 }
 ```
 
-接下来就是我们的 Plain Old For-loop Calculator,简称 POFLC 的实现了。 (这其实是个段子,和主题完全无关,感兴趣的请见文末的彩蛋)
+接下来就是我们的 Plain Old For-loop Calculator, 简称 POFLC 的实现了。 (这其实是个段子, 和主题完全无关, 感兴趣的请见文末的彩蛋)
 
 ```java
 public class ForLoopCalculator implements Calculator {
@@ -89,10 +89,9 @@ return total;
 }
 ```
 
-ForkJoinPool
-  
-前面花了点时间讲解了 ForkJoinPool 之前的实现方法,主要为了在代码的编写难度上进行一下对比。现在就列出本篇文章的重点——ForkJoinPool 的实现方法。
+前面花了点时间讲解了 ForkJoinPool 之前的实现方法,主要为了在代码的编写难度上进行一下对比。现在就列出本篇文章的重点 - ForkJoinPool 的实现方法。
 
+```java
 public class ForkJoinCalculator implements Calculator {
 
 private ForkJoinPool pool;
@@ -141,18 +140,19 @@ private ForkJoinPool pool;
     }
 
 }
-  
+```
+
 可以看出,使用了 ForkJoinPool 的实现逻辑全部集中在了 compute() 这个函数里,仅用了14行就实现了完整的计算过程。特别是,在这段代码里没有显式地"把任务分配给线程",只是分解了任务,而把具体的任务到线程的映射交给了 ForkJoinPool 来完成。
 
 原理
 
-如果你除了 ForkJoinPool 的用法以外,对 ForkJoinPoll 的原理也感兴趣的话,那么请接着阅读这一节。在这一节中,我会结合 ForkJoinPool 的作者 Doug Lea 的论文——《A Java Fork/Join Framework》,尽可能通俗地解释 Fork/Join Framework 的原理。
+如果你除了 ForkJoinPool 的用法以外,对 ForkJoinPoll 的原理也感兴趣的话,那么请接着阅读这一节。在这一节中,我会结合 ForkJoinPool 的作者 Doug Lea 的论文——《A Java Fork/Join Framework》, 尽可能通俗地解释 Fork/Join Framework 的原理。
 
-我一直以为,要理解一样东西的原理,最好就是自己尝试着去实现一遍。根据上面的示例代码,可以看出 fork() 和 join() 是 Fork/Join Framework "魔法"的关键。我们可以根据函数名假设一下 fork() 和 join() 的作用:
+我一直以为, 要理解一样东西的原理, 最好就是自己尝试着去实现一遍。根据上面的示例代码, 可以看出 fork() 和 join() 是 Fork/Join Framework "魔法"的关键。我们可以根据函数名假设一下 fork() 和 join() 的作用:
 
-fork(): 开启一个新线程 (或是重用线程池内的空闲线程) ,将任务交给该线程处理。
+fork(): 开启一个新线程 (或是重用线程池内的空闲线程), 将任务交给该线程处理。
   
-join(): 等待该任务的处理线程处理完毕,获得返回值。
+join(): 等待该任务的处理线程处理完毕, 获得返回值。
   
 以上模型似乎可以 (？) 解释 ForkJoinPool 能够多线程执行的事实,但有一个很明显的问题
 
@@ -180,13 +180,13 @@ ForkJoinPool 的每个工作线程都维护着一个工作队列 (WorkQueue) ,�
   
 每个工作线程在运行中产生新的任务 (通常是因为调用了 fork()) 时,会放入工作队列的队尾,并且工作线程在处理自己的工作队列时,使用的是 LIFO 方式,也就是说每次从队尾取出任务来执行。
   
-每个工作线程在处理自己的工作队列同时,会尝试窃取一个任务 (或是来自于刚刚提交到 pool 的任务,或是来自于其他工作线程的工作队列) ,窃取的任务位于其他线程的工作队列的队首,也就是说工作线程在窃取其他工作线程的任务时,使用的是 FIFO 方式。
+每个工作线程在处理自己的工作队列同时, 会尝试窃取一个任务 (或是来自于刚刚提交到 pool 的任务,或是来自于其他工作线程的工作队列), 窃取的任务位于其他线程的工作队列的队首, 也就是说工作线程在窃取其他工作线程的任务时, 使用的是 FIFO 方式。
   
-在遇到 join() 时,如果需要 join 的任务尚未完成,则会先处理其他任务,并等待其完成。
+在遇到 join() 时,如果需要 join 的任务尚未完成, 则会先处理其他任务, 并等待其完成。
   
-在既没有自己的任务,也没有可以窃取的任务时,进入休眠。
+在既没有自己的任务, 也没有可以窃取的任务时, 进入休眠。
   
-下面来介绍一下关键的两个函数: fork() 和 join() 的实现细节,相比来说 fork() 比 join() 简单很多,所以先来介绍 fork()。
+下面来介绍一下关键的两个函数: fork() 和 join() 的实现细节, 相比来说 fork() 比 join() 简单很多,所以先来介绍 fork()。
 
 fork
 
@@ -260,8 +260,6 @@ I've come to the conclusion that people forget about regular Java objects becaus
 
 ><https://www.infoq.cn/article/fork-join-introduction>
 ><https://zhuanlan.zhihu.com/p/68554017>
-
-
 
 之所以煞有介事地取名为 POFLC，显然是为了模仿 POJO 。而 POJO —— Plain Old Java Object 这个词是如何产生的，在 stackoverflow 上有个帖子讨论过，摘录一下就是
 

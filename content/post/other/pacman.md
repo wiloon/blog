@@ -8,9 +8,15 @@ categories:
 tags:
   - Arch Linux
   - remix
-
 ---
 ## pacman
+
+## 参数
+
+```bash
+-Q 查询 pacman 数据库
+-o <file> 查看某个文件属于哪个包
+```
 
 ### 在仓库里搜索有关 foo 的包
 
@@ -21,7 +27,7 @@ pacman -Ss foo
 ### error: signature from xxx is invalid
 
 ```bash
-    pacman -Sy archlinux-keyring
+pacman -Sy archlinux-keyring
 ```
 
 ```bash
@@ -33,13 +39,11 @@ pacman -Q -h
 
 pacman -Q  boost-libs    #Display version
 pacman -Ql boost-libs    #Display file list provided by local package
-pacman -Qk boost-libs    #Check the local package database
-pacman -Qo /path/to/file #Check if the file is owned by any package
 
-# 查看文件属于哪个包
+# 查看文件属于哪个包, Check if the file is owned by any package, 查看命令由哪个包提供.
 pacman -Qo /etc/profile
 
-# 检查包对应的文件有没有缺失
+# 检查包对应的文件有没有缺失, #Check the local package database
 pacman -Qk filesystem
 
 # 打印详细信息,比如 文件 是否有修改 修改时间, 大小 , md5
@@ -47,8 +51,6 @@ pacman -Qkk filesystem
 
 # 安装下载的 gvim 包，或新编译的 gvim 包
 pacman -U /var/cache/pacman/pkg/gvim-8.2.4106-1-x86_64.pkg.tar.zst
-
-
 ```
 
 ## 降级软件包
@@ -90,8 +92,6 @@ Server = http://mirrors.neusoft.edu.cn/archlinux/
 Server = http://mirrors.lug.mtu.edu/archlinux/
 Server = http://mirrors.kernel.org/archlinux/$repo/os/$arch
 ```
-
-### 参数
 
 #### 按名字找包
 

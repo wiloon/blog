@@ -22,12 +22,6 @@ ps -e -o 'pid,comm,args,pcpu,rsz,vsz,stime,user,uid' | grep oracle | sort -nrk5
 ```
 
 其中 rsz 为实际内存，上例实现按内存排序，由大到小s
-  
-### ububtu install ps command
-
-```bash
-apt install procps
-```
 
 <http://blog.fpliu.com/it/software/procps>
 
@@ -199,17 +193,10 @@ rss        RSS      resident set size, the non-swapped physical memory that a
 版权声明：本文为CSDN博主「逝鸿」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
 原文链接：<https://blog.csdn.net/qq_21127313/article/details/79877483>
 
-><https://www.cnblogs.com/hunttown/p/5452253.html>
-><http://elinux.org/Runtime_Memory_Measurement>
-><https://www.cnblogs.com/peida/archive/2012/12/19/2824418.html>  
-><https://man7.org/linux/man-pages/man1/ps.1.html>
-
-## ps install
-
-```bash
-# centos
-yum install procps-ng
-```
+<https://www.cnblogs.com/hunttown/p/5452253.html>
+<http://elinux.org/Runtime_Memory_Measurement>
+<https://www.cnblogs.com/peida/archive/2012/12/19/2824418.html>  
+<https://man7.org/linux/man-pages/man1/ps.1.html>
 
 ### `ps aux` VS. `ps -ef`
 
@@ -217,3 +204,12 @@ Linux下显示系统进程的命令 ps，最常用的有ps -ef 和ps aux。这�
 
 System V 风格和 BSD 风格, ps aux 最初用到 Unix Style 中( BSD的格式)，而  ps -ef 被用在 System V Style 中，两者输出略有不同。现在的大部分Linux系统都是可以同时使用这两种方式的。
 <https://www.cnblogs.com/5201351/p/4206461.html>
+
+## install
+
+```bash
+# ububtu
+apt install procps
+# redhat, centos
+yum install procps-ng
+```

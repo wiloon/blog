@@ -1,15 +1,15 @@
 ---
-title: proc
+title: 存储过程, proc
 author: "-"
 date: 2013-04-17T06:01:25+00:00
 url: /?p=5402
 categories:
   - DataBase
-
 tags:
   - reprint
 ---
-## proc
+## 存储过程, proc
+
 SET ANSI_NULLS ON
 
 SQL-92 标准要求在对空值进行等于 (=) 或不等于 (<>) 比较时取值为 FALSE。当 SET ANSI_NULLS 为 ON 时，即使 column_name 中包含空值，使用 WHERE column_name = NULL 的 SELECT 语句仍返回零行。
@@ -61,7 +61,7 @@ GO
 CREATE TABLE "select" ("identity" int IDENTITY, "order" int)
 GO
 
-SELECT "identity","order" 
+SELECT "identity","order"
 FROM "select"
 ORDER BY "order"
 GO
@@ -83,7 +83,7 @@ IF EXISTS(SELECT TABLE_NAME FROM INFORMATION_SCHEMA.VIEWS
    DROP TABLE Test
 GO
 USE pubs
-CREATE TABLE Test ( Id int, String varchar (30) ) 
+CREATE TABLE Test ( Id int, String varchar (30) )
 GO
 
 -- Literal strings can be in single or double quotation marks.
@@ -98,14 +98,14 @@ GO
 SET QUOTED_IDENTIFIER ON
 GO
 
--- Strings inside double quotation marks are now treated 
+-- Strings inside double quotation marks are now treated
 -- as object names, so they cannot be used for literals.
 INSERT INTO "Test" VALUES (7,'Text with a single '' quote')
 GO
 
 -- Object identifiers do not have to be in double quotation marks
 -- if they are not reserved keywords.
-SELECT * 
+SELECT *
 FROM Test
 GO
 
@@ -115,14 +115,14 @@ GO
 SET QUOTED_IDENTIFIER OFF
 GO
 
-下面是结果集: 
+下面是结果集:
 
-Id          String                         
------------ ------------------------------ 
-1           'Text in single quotes'        
-2           'Text in single quotes'        
-3           Text with 2 '' single quotes   
-4           "Text in double quotes"        
-5           "Text in double quotes"        
-6           Text with 2 "" double quotes   
+Id          String
+----------- ------------------------------
+1           'Text in single quotes'
+2           'Text in single quotes'
+3           Text with 2 '' single quotes
+4           "Text in double quotes"
+5           "Text in double quotes"
+6           Text with 2 "" double quotes
 7           Text with a single ' quote

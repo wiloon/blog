@@ -10,6 +10,7 @@ tags:
   - reprint
 ---
 ## Qt, GTK
+
 ### 查看Qt 版本
 
 qmake -v

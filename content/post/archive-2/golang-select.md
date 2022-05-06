@@ -12,9 +12,9 @@ tags:
 
 select 语句的行为
   
-为了便于理解,我们首先给出一个代码片段: 
+为了便于理解,我们首先给出一个代码片段:
 
->https://talks.golang.org/2012/concurrency.slide#32
+<https://talks.golang.org/2012/concurrency.slide#32>
   
 ```go
 select {
@@ -33,7 +33,7 @@ select {
   
 ```
 
-上面这段代码中, select 语句有四个 case 子语句, 前两个是 receive 操作,第三个是 send 操作,最后一个是默认操作。代码执行到 select 时, case 语句会按照源代码的顺序被评估, 且只评估一次,评估的结果会出现下面这几种情况: 
+上面这段代码中, select 语句有四个 case 子语句, 前两个是 receive 操作,第三个是 send 操作,最后一个是默认操作。代码执行到 select 时, case 语句会按照源代码的顺序被评估, 且只评估一次,评估的结果会出现下面这几种情况:
 
 - 除 default 外, 如果只有一个 case 语句评估通过, 那么就执行这个case里的语句；
 - 除 default 外, 如果有多个 case 语句评估通过, 那么通过伪随机的方式随机选一个；
@@ -41,11 +41,11 @@ select {
 - 如果没有 default, 那么代码块会被阻塞, 直到有一个 case 通过评估；否则一直阻塞
 - 如果 case 语句中 的 receive 操作的对象是 nil channel, 那么也会阻塞
 
->https://yanyiwu.com/work/2014/11/08/golang-select-typical-usage.html
+<https://yanyiwu.com/work/2014/11/08/golang-select-typical-usage.html>
 
 golang 的 select 的功能和 select, poll, epoll 相似, 就是监听 IO 操作, 当 IO 操作发生时, 触发相应的动作。
 
-示例: 
+示例:
 
 ```go
 ch1 := make (chan int, 1)
@@ -69,7 +69,7 @@ case <-ch2:
 
 【使用 select 实现 timeout 机制】
 
-如下: 
+如下:
 
 ```go
 timeout := make (chan bool, 1)
@@ -99,7 +99,7 @@ fmt.Println("timeout!")
 
 下面这个更有意思一点。
 
-当 select 语句带有 default 的时候: 
+当 select 语句带有 default 的时候:
 
 ```go
 ch1 := make (chan int, 1)
@@ -127,7 +127,7 @@ fmt.Println("default")
 
 就是因为这个 default 特性, 我们可以使用 select 语句来检测 chan 是否已经满了。
 
-如下: 
+如下:
 
 ```go
 ch := make (chan int, 1)
@@ -149,4 +149,4 @@ fmt.Println("channel is full !")
 
 比如我们有一个服务, 当请求进来的时候我们会生成一个 job 扔进 channel, 由其他协程从 channel 中获取 job 去执行。 但是我们希望当 channel 瞒了的时候, 将该 job 抛弃并回复 【服务繁忙,请稍微再试。】 就可以用 select 实现该需求。
 
-https://segmentfault.com/a/1190000006815341
+<https://segmentfault.com/a/1190000006815341>

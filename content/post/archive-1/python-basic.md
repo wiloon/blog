@@ -9,9 +9,13 @@ tags:
   - reprint
 ---
 ## python basic
+
 ## 查看python的版本
+
 python -V
+
 ### ubuntu
+
 sudo apt install python3
 sudo apt install -y python3-venv
 mkdir python3-env
@@ -19,13 +23,15 @@ cd python3-env
 python3 -m venv my_env
 source my_env/bin/activate
 
->https://www.digitalocean.com/community/tutorials/ubuntu-18-04-python-3-zh
+><https://www.digitalocean.com/community/tutorials/ubuntu-18-04-python-3-zh>
+
 ### debian
+
 Download latest release of Python
 
-Fetch and extract source. Please refer to http://www.python.org/download/releases to ensure the latest source is used.
+Fetch and extract source. Please refer to <http://www.python.org/download/releases> to ensure the latest source is used.
 
-wget http://www.python.org/ftp/python/3.x/Python-3.x.tar.bz2
+wget <http://www.python.org/ftp/python/3.x/Python-3.x.tar.bz2>
   
 3- Extract and cd the extracted directory
 
@@ -49,16 +55,17 @@ $ /opt/python3/bin/python3 -V Python 3.x
 
 That is all.
   
-http://www.unixmen.com/howto-install-python-3-x-in-ubuntu-debian-fedora-centos/
+<http://www.unixmen.com/howto-install-python-3-x-in-ubuntu-debian-fedora-centos/>
 
-### archlinux 
+### archlinux
+
     pacman -S python
   
 ### boolean variable
 
 直接定义a=True/False就行，示例代码：
 
-#定义布尔值类型参数a,b，值分别为True,False
+# 定义布尔值类型参数a,b，值分别为True,False
 
 a=True
 
@@ -68,15 +75,15 @@ print a,b
 
 print type(a),type(b)
 
-
 ## python 遍历目录
+
 <http://www.cnblogs.com/vivilisa/archive/2009/03/01/1400968.html>
 
 <http://laocao.blog.51cto.com/480714/525140>
 
 [python]
 
-#!/usr/bin/python
+# !/usr/bin/python
   
 import os,sys
   
@@ -87,9 +94,9 @@ list = os.listdir(dir)
 print list
 
 for line in list:
-   
+
 path = os.path.join(dir, line)
-   
+
 print path
 
 [/python]

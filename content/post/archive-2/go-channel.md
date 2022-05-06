@@ -114,23 +114,22 @@ receive 操作符
 
 <http://colobu.com/2016/04/14/Golang-Channels/>
 
-### 使用chan struct{}作为信号channel
+### 使用 chan struct{} 作为信号 channel
 
 场景：使用channel传递信号，而不是传递数据时
 原理：没数据需要传递时，传递空struct
 用法：
 
 ```go
-// 上例中的 Handler.stopCh 就是一个例子，stopCh 并不需要传递任何数据
-// 只是要给所有协程发送退出的信号
+// 上例中的 Handler.stopCh 就是一个例子，
+// stopCh 并不需要传递任何数据, 只是要给所有协程发送退出的信号
 type Handler struct {
     stopCh chan struct{}
     reqCh chan *Request
 }
-
 ```
 
-通常struct{}类型channel的用法是使用同步，一般不需要往channel里面写数据，只有读等待，而读等待会在channel被关闭的时候返回。
+通常 struct{} 类型 channel的用法是使用同步，一般不需要往channel里面写数据，只有读等待，而读等待会在channel被关闭的时候返回。
 
 往chann struct{}写入数据
 另一个问题，我们能不能往struct{}类型的channel里面写数据呢，答案当然也是可以的。

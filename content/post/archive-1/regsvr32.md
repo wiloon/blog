@@ -10,6 +10,7 @@ tags:
   - reprint
 ---
 ## Regsvr32
+
 Regsvr32命令的作用是将动态链接库文件注册为注册表中的命令组成。WInXP系统的regsvr32.exe在windowssystem32文件夹下；2000系统的regsvr32.exe在winntsystem32文件夹下。
 
 Regsvr 32命令是Windows中控件文件(如扩展名为DLL、OCX、CPL的文件)的注册和反注册工具。命令格式
@@ -126,5 +127,4 @@ regsvr32 mshtml.dll
   
 "错误: 无法定位INF文件C:WINDOWSINFicw.inf
 
-
-http://carywu.blog.51cto.com/13185/9536
+<http://carywu.blog.51cto.com/13185/9536>
