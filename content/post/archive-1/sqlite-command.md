@@ -10,6 +10,7 @@ tags:
 
 ---
 ## sqlite command
+
 ```bash
 # 安装
 sudo pacman -S sqlite
@@ -30,13 +31,13 @@ alter table feed
 
 ```
 
-在列模式下，每条记录在一个单独的行中以数据列对齐的方式显示。列如: 
+在列模式下，每条记录在一个单独的行中以数据列对齐的方式显示。列如:
 
 sqlite> .mode column
 
 显示 列名.header on
 
-查出所有的表: 
+查出所有的表:
   
 select name from sqlite_master where type='table' order by name;
 
@@ -48,9 +49,9 @@ cur.execute("PRAGMA table_info(table)")
   
 print cur.fetchall()
   
-http://duduhehe.iteye.com/blog/1344858
+<http://duduhehe.iteye.com/blog/1344858>
   
-http://www.cnblogs.com/riskyer/p/3333809.html
+<http://www.cnblogs.com/riskyer/p/3333809.html>
 
 ## Go sqlite
 
