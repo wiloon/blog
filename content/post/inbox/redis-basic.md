@@ -12,12 +12,16 @@ tags:
 
 ### commands
 
-    # OBJECT ENCODING 命令可以查看一个数据库键的值对象的编码
-    OBJECT ENCODING key0
+```r
+# OBJECT ENCODING 命令可以查看一个数据库键的值对象的编码
+OBJECT ENCODING key0
+```
 
 #### 延迟时间
 
+```bash
      redis-cli --latency -h 192.168.50.100 -p 6379
+```
 
 ### sort
 
@@ -38,7 +42,9 @@ SORT mylist DESC
 
 #### watchdog
 
-    CONFIG SET watchdog-period 500
+```bash
+CONFIG SET watchdog-period 500
+```
 
 用户通过命令 CONFIG SET 开启软件看门狗
 
@@ -51,21 +57,25 @@ Redis 启动监测程序监测自己的状态
 
 ### cluster
 
-    ./redis-cli -p 7000 cluster nodes
-    ./redis-cli -p 7000 CLUSTER FAILOVER
-    redis-cli --cluster add-node 127.0.0.1:7006 127.0.0.1:7000
-    redis-cli --cluster add-node 127.0.0.1:7006 127.0.0.1:7000 --cluster-slave
-    redis-cli --cluster add-node 127.0.0.1:7006 127.0.0.1:7000 --cluster-slave --cluster-master-id 3c3a0c74aae0b56170ccb03a76b60cfe7dc1912e
-    ./redis-cli -p 7006> cluster replicate 3c3a0c74aae0b56170ccb03a76b60cfe7dc1912e
-    redis-cli --cluster del-node 127.0.0.1:7000 3c3a0c74aae0b56170ccb03a76b60cfe7dc1912e
-    ./redis-cli --cluster check 127.0.0.1:7000
+```bash
+./redis-cli -p 7000 cluster nodes
+./redis-cli -p 7000 CLUSTER FAILOVER
+redis-cli --cluster add-node 127.0.0.1:7006 127.0.0.1:7000
+redis-cli --cluster add-node 127.0.0.1:7006 127.0.0.1:7000 --cluster-slave
+redis-cli --cluster add-node 127.0.0.1:7006 127.0.0.1:7000 --cluster-slave --cluster-master-id 3c3a0c74aae0b56170ccb03a76b60cfe7dc1912e
+./redis-cli -p 7006> cluster replicate 3c3a0c74aae0b56170ccb03a76b60cfe7dc1912e
+redis-cli --cluster del-node 127.0.0.1:7000 3c3a0c74aae0b56170ccb03a76b60cfe7dc1912e
+./redis-cli --cluster check 127.0.0.1:7000
+```
 
 ### DEBUG SEGFAULT
 
 Redis Debug Segfault 命令执行一个非法的内存访问从而让 Redis 崩溃，仅在开发时用于 BUG 调试。制造一次服务器当机。
 
-    redis 127.0.0.1:6379> DEBUG SEGFAULT 
-    redis-cli -p 7002 debug segfault
+```bash
+redis 127.0.0.1:6379> DEBUG SEGFAULT 
+redis-cli -p 7002 debug segfault
+```
 
 ### java sdk
 
@@ -74,30 +84,42 @@ Redis Debug Segfault 命令执行一个非法的内存访问从而让 Redis 崩�
 
 ### 查看版本等信息
 
-    info
+```bash
+info
+```
 
 ### version
 
-    current: 5.0.5
-    latest: 6.2
+```o
+current: 5.0.5
+latest: 6.2
+```
 
 ### URLs
 
-    https://redis.io/
-    https://github.com/redis/redis
+```o
+https://redis.io/
+https://github.com/redis/redis
+```
 
-### install
+## install
+
+### centos
 
 ```bash
-#centos
 sudo yum install epel-release
-yum install redis
+sudo yum install snapd
+sudo systemctl enable --now snapd.socket
+sudo ln -s /var/lib/snapd/snap /snap
+sudo snap install redis
 
 ```
 
-#### rpm
+### rpm
 
 download redis rpm from <https://pkgs.org/download/redis>
+
+<https://rpms.remirepo.net/enterprise/7/remi/x86_64/redis-7.0.0-1.el7.remi.x86_64.rpm>
 
 下载Redis的依赖包: libjemalloc
 
@@ -107,10 +129,6 @@ download redis rpm from <https://pkgs.org/download/redis>
 rpm -ivh jemalloc-3.6.0-1.el6.art.x86_64.rpm
 rpm -ivh redis-2.8.20-3.el6.art.x86_64.rpm
 ```
-
-### ubuntu
-
-    sudo apt-get install redis-server
 
 ### podman, 单机 redis
 
@@ -358,6 +376,7 @@ redis-cli -h 127.0.0.1 -p 6379 FLUSHDB
 <https://github.com/redis/redis>
 
 ### Redis 响应延时问题排查
+
 <https://xie.infoq.cn/article/1ccbd30d94ab781a4f85ab2fc?utm_source=rss&utm_medium=article>
 
 ### RESP协议
@@ -388,4 +407,5 @@ RESP是二进制安全的，不需要处理从一个进程传输到另一个进�
 <https://mp.weixin.qq.com/s/MtvEf_jWWDb6yCXPqvqF0w>
 
 <https://mp.weixin.qq.com/s/aOiadiWG2nNaZowmoDQPMQ>
-><https://blog.csdn.net/AlbertFly/article/details/80169717>
+
+<https://blog.csdn.net/AlbertFly/article/details/80169717>

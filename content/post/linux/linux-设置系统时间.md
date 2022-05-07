@@ -10,6 +10,7 @@ tags:
   - reprint
 ---
 ## linux 时区，时间
+
 ```bash
 #把硬件时间设置成系统时间
 hwclock --hctosys
@@ -73,9 +74,9 @@ sudo date -set "08/31/2012 10:19"
 
 设置硬件时间
 
-# hwclock -set -date="07/07/06 10:19"  (月/日/年 时:分:秒) 
+# hwclock -set -date="07/07/06 10:19"  (月/日/年 时:分:秒)
 
-或者# clock -set -date="07/07/06 10:19"  (月/日/年 时:分:秒) 
+或者# clock -set -date="07/07/06 10:19"  (月/日/年 时:分:秒)
 
 3. 硬件时间和系统时间的同步
 
@@ -111,4 +112,4 @@ Therefore TZ="Asia/Shanghai" will be used.Local time is now: Fri Jul 7 10:32:18 
 
 重新启动即可。
 
-http://www.cnblogs.com/zhangeamon/p/5500744.html
+<http://www.cnblogs.com/zhangeamon/p/5500744.html>

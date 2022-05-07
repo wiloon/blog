@@ -2,8 +2,7 @@
 title: redis config
 author: "-"
 date: 2019-02-22T11:26:25+00:00
-url: /?p=13678
-
+url: redis/config
 categories:
   - inbox
 tags:
@@ -15,16 +14,17 @@ tags:
 
 ```bash
 bind 0.0.0.0
-#参数是为了禁止外网访问redis,如果启用了,则只能够通过lookback ip (127.0.0.1) 访问Redis
+# bind 参数是为了禁止外网访问redis,如果启用了,则只能够通过lookback ip (127.0.0.1) 访问Redis
+
 protected-mode no
 port 6379
-#tcp-backlog, 此参数确定了TCP连接中已完成队列(完成三次握手之后)的长度,当然此值必须不大于Linux系统定义的/proc/sys/net/core/somaxconn值,默认是511,而Linux的默认参数值是128。当系统并发量大并且客户端速度缓慢的时候,可以将这二个参数一起参考设定,了解了下tcp的三次握手进行中的一些queue的知识. 参考下图我们可以看到在server接收到syn的时候会进入到一个syn queue队列, 当server端最终收到ack时转换到accept queue队列. 上面终端显示在listen状态下的连接, 其 Send-Q 就是这个 accept queue 队列的最大值. 只有 server 端执行了 accept 后才会从这个队列中移除这个连接. 这个值的大小是受 somaxconn 影响的, 因为是取的它们两者的最小值, 所以如果要调大的话必需修改内核的 somaxconn 值.建议修改为 2048
+#tcp-backlog, 此参数确定了TCP连接中已完成队列(完成三次握手之后)的长度, 当然此值必须不大于Linux系统定义的/proc/sys/net/core/somaxconn值,默认是511,而Linux的默认参数值是128。当系统并发量大并且客户端速度缓慢的时候,可以将这二个参数一起参考设定,了解了下tcp的三次握手进行中的一些queue的知识. 参考下图我们可以看到在server接收到syn的时候会进入到一个syn queue队列, 当server端最终收到ack时转换到accept queue队列. 上面终端显示在listen状态下的连接, 其 Send-Q 就是这个 accept queue 队列的最大值. 只有 server 端执行了 accept 后才会从这个队列中移除这个连接. 这个值的大小是受 somaxconn 影响的, 因为是取的它们两者的最小值, 所以如果要调大的话必需修改内核的 somaxconn 值.建议修改为 2048
 tcp-backlog 511
 
 # timeout, 设置客户端连接时的超时时间,单位为秒。当客户端在这段时间内没有发出任何指令,那么关闭该连接
 # 0 是关闭此设置
-timeout
-#tcp keepalive参数。如果设置不为0,就使用配置tcp的SO_KEEPALIVE值,使用keepalive有两个好处:检测挂掉的对端。降低中间设备出问题而导致网络看似连接却已经与对端断开的问题。在Linux内核中,设置了keepalive,redis会定时给对端发送ack。检测到对端关闭需要两倍的设置值。
+timeout 0
+#tcp keepalive参数。如果设置不为0, 就使用配置tcp的SO_KEEPALIVE值, 使用keepalive有两个好处: 检测挂掉的对端。降低中间设备出问题而导致网络看似连接却已经与对端断开的问题。在Linux内核中,设置了keepalive, redis会定时给对端发送ack。检测到对端关闭需要两倍的设置值。
 tcp-keepalive 0
 
 # 是否守护线程
@@ -47,15 +47,20 @@ pidfile /path/to/redis.pid
 # This can be one of:
 # debug (a lot of information, useful for development/testing)
 # verbose (many rarely useful info, but not a mess like the debug level)
-# notice (moderately verbose, what you want in production probably)
+# notice (moderately verbose, what you want in production probably), 适用于生产环境
 # warning (only very important / critical messages are logged)
 loglevel notice
+
+# Specify the log file name. Also the empty string can be used to force
+# Redis to log on the standard output. Note that if you use standard
+# output for logging but daemonize, logs will be sent to /dev/null
+logfile /var/log/redis/redis.log
 
 # Set the number of databases. The default database is DB 0, you can select
 # a different one on a per-connection basis using SELECT <dbid> where
 # dbid is a number between 0 and 'databases'-1
 # 
-# 设置数据库数量。默认会使用 0 数据库,也可以使用  SELECT <dbid> 指令为每个连接选择不同的数据库,
+# 设置数据库数量。默认会使用 0 数据库, 也可以使用  SELECT <dbid> 指令为每个连接选择不同的数据库,
 # 其中 dbid 的取值在 0 和  ('databases' 设置值) -1 之间
 # 不同的数据库使用不同的内存空间, 互不影响, 不同的库里可以有相同的key
 # 在redis 集群模式, 不支持多库.
@@ -84,8 +89,11 @@ databases 16
 #   save ""  
 # Snapshotting can be completely disabled with a single empty string argument
 # as in following example:
-#
+
+# 关闭 RDB
 # save ""
+
+# 开启 RDB
 save 900 1  
 save 300 10  
 save 60 10000 

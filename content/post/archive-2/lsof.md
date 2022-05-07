@@ -9,11 +9,16 @@ tags:
   - reprint
   - remix
   - Command
-
 ---
 ## lsof
 
-List all open files on the system
+List all open files on the system or open files for specified PID
+
+## install
+
+```bash
+yum install lsof -y
+```
 
 ## lsof 输出的字段
 
@@ -37,15 +42,21 @@ lsof /path/to/file/foo.txt
 
 ### 使用-i显示所有连接
 
+```bash
     lsof -i
+```
 
 ### 使用-i 6 仅获取IPv6流量
 
+```bash
     lsof -i 6
+```
 
 ### 仅显示 TCP 连接同理可获得UDP连接
 
+```bash
     lsof  -iTCP
+```
 
 ### 使用@host来显示指定到指定主机的连接
 
@@ -68,7 +79,9 @@ lsoflist open files. 是一个列出当前系统打开文件的工具。在linux
 
 ### 命令格式
 
+```bash
     lsof [参数][文件]
+```
 
 ### 命令功能
 
@@ -76,6 +89,7 @@ lsoflist open files. 是一个列出当前系统打开文件的工具。在linux
 
 ### lsof打开的文件类型
 
+```p
     1.普通文件
     2.目录
     3.网络文件系统的文件
@@ -85,9 +99,11 @@ lsoflist open files. 是一个列出当前系统打开文件的工具。在linux
     7.符号链接
     8.网络文件例如: NFS file、网络socket,unix域名socket. 
     9.还有其它类型的文件,等等
+```
 
 ### 命令参数
 
+```p
     -p <进程ID> 列出指定进程ID所打开的文件
     -a 列出打开文件存在的进程
     -c <进程名> 列出指定进程所打开的文件
@@ -100,6 +116,7 @@ lsoflist open files. 是一个列出当前系统打开文件的工具。在linux
     -u 列出UID号进程详情
     -h 显示帮助信息
     -v 显示版本信息
+```
 
 ### 输出的列
 
