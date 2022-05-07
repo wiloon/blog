@@ -138,7 +138,7 @@ lock.unlock();// 释放锁
 
 如果说这就是Lock,那么它不能成为同步问题更完美的处理方式,下面要介绍的是读写锁(ReadWriteLock),我们会有一种需求,在对数据进行读写的时候,为了保证数据的一致性和完整性,需要读和写是互斥的,写和写是互斥的,但是读和读是不需要互斥的,这样读和读不互斥性能更高些,来看一下不考虑互斥情况的代码原型: 
 
-view plain copy
+
   
 print?
   
@@ -234,7 +234,7 @@ System.out.println(Thread.currentThread().getName() + "读取" + this.data);
   
 部分输出结果: 
 
-view plain copy
+
   
 print?
   
@@ -260,7 +260,7 @@ Thread-1写入12
   
 我们要实现写入和写入互斥,读取和写入互斥,读取和读取互斥,在set和get方法加入sychronized修饰符: 
 
-view plain copy
+
   
 print?
   
@@ -270,7 +270,7 @@ public synchronized void get() {…}
   
 部分输出结果: 
   
-view plain copy
+
   
 print?
   
@@ -296,7 +296,7 @@ Thread-5读取9
   
 我们发现,虽然写入和写入互斥了,读取和写入也互斥了,但是读取和读取之间也互斥了,不能并发执行,效率较低,用读写锁实现代码如下: 
 
-view plain copy
+
   
 print?
   
@@ -368,7 +368,7 @@ rwl.readLock().unlock();// 释放读锁
   
 部分输出结果: 
 
-view plain copy
+
   
 print?
   

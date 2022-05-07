@@ -10,7 +10,8 @@ tags:
   - reprint
 ---
 ## PreparedStatement
-jdbc(java database connectivity,java数据库连接)的api中的主要的四个类之一的java.sql.statement要求开发者付出大量的时间和精力。在使用statement获取jdbc访问时所具有的一个共通的问题是输入适当格式的日期和时间戳: 2002-02-05 20:56 或者 02/05/02 8:56 pm。 
+
+jdbc(java database connectivity,java数据库连接)的api中的主要的四个类之一的java.sql.statement要求开发者付出大量的时间和精力。在使用statement获取jdbc访问时所具有的一个共通的问题是输入适当格式的日期和时间戳: 2002-02-05 20:56 或者 02/05/02 8:56 pm。
   
 通过使用java.sql.preparedstatement,这个问题可以自动解决。一个preparedstatement是从java.sql.connection对象和所提供的sql字符串得到的,sql字符串中包含问号 (?) ,这些问号标明变量的位置,然后提供变量的值,最后执行语句,例如:  
   
@@ -22,11 +23,11 @@ ps.setint(1,id);
   
 ps.setstring(2,name);
   
-resultset rs = ps.executequery(); 
+resultset rs = ps.executequery();
   
 使用preparedstatement的另一个优点是字符串不是动态创建的。下面是一个动态创建字符串的例子:  
   
-stringsql = "select * from people p where p.i = "+id; 
+stringsql = "select * from people p where p.i = "+id;
 
 这允许jvm (javavirtual machine,java虚拟机) 和驱动/数据库缓存语句和字符串并提高性能。
   

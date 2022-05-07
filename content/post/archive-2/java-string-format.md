@@ -145,7 +145,7 @@ FF.35AE
 
  
 
-```java view plain copy
+```java 
   
 public static void main(String[] args) {
   
@@ -187,7 +187,7 @@ System.out.printf("字母A的散列码是: %h %n", 'A');
 
  
 
- view plain copy
+ 
   
 Hi,王力
   
@@ -306,7 +306,7 @@ $
   
  
 
-```java view plain copy
+```java 
   
 public static void main(String[] args) {
   
@@ -344,7 +344,7 @@ System.out.printf("一本书的价格是: % 50.5f元%n", 49.8);
 
  
 
- view plain copy
+ 
   
 格式参数$的使用: 99,abc
   
@@ -412,7 +412,7 @@ R
 
  
 
-```java view plain copy
+```java 
   
 public static void main(String[] args) {
   
@@ -448,7 +448,7 @@ System.out.printf("HH:MM格式 (24时制) : %tR",date);
 
  
 
- view plain copy
+ 
   
 全部日期和时间信息: 星期一 九月 10 10:43:36 CST 2012
   
@@ -464,7 +464,7 @@ HH:MM格式 (24时制) : 10:43
   
 定义日期格式的转换符可以使日期通过指定的转换符生成新字符串。这些日期转换符如图所示。
   
-```java view plain copy
+```java 
   
 public static void main(String[] args) {
   
@@ -526,7 +526,7 @@ System.out.printf("月份的日 (前面不补0) : %te",date);
 
  
 
- view plain copy
+ 
   
 英文月份简称: Sep
   
@@ -632,7 +632,7 @@ Q
 
  
 
-```java view plain copy
+```java 
   
 public static void main(String[] args) {
   
@@ -700,7 +700,7 @@ System.out.printf("1970-1-1 00:00:00 到现在所经过的毫秒数: %tQ%n", dat
 
  
 
- view plain copy
+ 
   
 2位数字24时制的小时 (不足2位前面补0) :11
   

@@ -16,7 +16,7 @@ tags:
 
 命令格式
 
- view plain copy
+ 
   
 id [选项]... [用户名]
   
@@ -42,7 +42,7 @@ id [选项]... [用户名]
   
 使用案例
 
- view plain copy
+ 
   
 heihaier@heihaier-desktop:~$ id root
   
@@ -52,7 +52,7 @@ uid=0(root) gid=0(root) groups=0(root)
   
 /etc/password 文件格式
   
- view plain copy
+ 
   
 root:x:0:0:root:/root:/bin/bash
 
@@ -74,7 +74,7 @@ root 用户ID信息: 用户备注信息。
   
 使用案例
   
- view plain copy
+ 
   
 heihaier@heihaier-desktop:~$ sudo cat /etc/passwd | grep root
   

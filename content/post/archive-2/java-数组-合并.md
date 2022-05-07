@@ -51,7 +51,7 @@ static <T> T[] concat(T[] first, T[] second) {}
 
 二、System.arraycopy()
   
- view plain copy
+ 
   
 static String[] concat(String[] a, String[] b) {
   
@@ -73,7 +73,7 @@ String[] both = concat(first, second);
   
 在java6中,有一个方法Arrays.copyOf(),是一个泛型函数。我们可以利用它,写出更通用的合并方法: 
 
- view plain copy
+ 
   
 public static <T> T[] concat(T[] first, T[] second) {
   
@@ -87,7 +87,7 @@ return result;
   
 如果要合并多个,可以这样写: 
 
- view plain copy
+ 
   
 public static <T> T[] concatAll(T[] first, T[]... rest) {
   
@@ -125,7 +125,7 @@ String[] more = concat(first, second, third, fourth);
   
 还可以使用Array.newInstance来生成数组: 
 
- view plain copy
+ 
   
 private static <T> T[] concat(T[] a, T[] b) {
   

@@ -183,7 +183,7 @@ pointer to above: &{}, &[], &map[]
 
 其中对于字符串％s或者浮点类型％f,来说,精度可以截断数据的长度．如下所示．
 
-view plain copy
+
   
 func main() {
   
@@ -227,7 +227,7 @@ fmt.Printf("%+010d\n", a) //+000000123,利用０来补齐位数,而不是空格,
 
 不考虑占位符的话,如果操作数是接口值,就会使用其内部的具体值,而非接口本身。如下所示:
 
-view plain copy
+
   
 package main
 
@@ -257,7 +257,7 @@ fmt.Printf("%v\n", i)//{1 a}
 
 go中支持显示参数占位符,通过在输出格式中指定其输出的顺序即可,如下所示:
 
-view plain copy
+
   
 func main() {
   
@@ -269,7 +269,7 @@ fmt.Printf("%[2]d, %[1]d\n", 11, 22) //22, 11,先输出第二个值,再输出第
 
 如果给占位符提供了无效的实参 (如将一个字符串提供给％d) ,便会出现格式化错误．所有的错误都始于"%!",有时紧跟着单个字符 (占位符) ,并以小括号括住的描述结尾。
 
-view plain copy
+
   
 func main() {
   
@@ -305,7 +305,7 @@ func Errorf(format string, a …interface{}) error
 
 Errorf 根据于格式说明符进行格式化,并将字符串作为满足 error 的值返回,其返回类型是error．
 
-view plain copy
+
   
 func main() {
   
@@ -323,7 +323,7 @@ func Fprintf(w io.Writer, format string, a …interface{}) (n int, err error) //
   
 func Fprintln(w io.Writer, a …interface{}) (n int, err error) //Fprintln 使用其操作数的默认格式进行格式化并写入到 w。其操作数之间总是添加空格,且总在最后追加一个换行符。它返回写入的字节数以及任何遇到的错误。
 
-view plain copy
+
   
 func main() {
   
@@ -345,7 +345,7 @@ func Fscanln(r io.Reader, a …interface{}) (n int, err error) //Fscanln 类似�
 
 注: Fscan类的也是由空格进行分割的．
 
-view plain copy
+
   
 func main() {
   
@@ -373,7 +373,7 @@ func Printf(format string, a …interface{}) (n int, err error) //Printf 根据�
   
 func Println(a …interface{}) (n int, err error) //println 使用其操作数的默认格式进行格式化并写入到标准输出。其操作数之间总是添加空格,且总在最后追加一个换行符。它返回写入的字节数以及任何遇到的错误。
 
-view plain copy
+
   
 func main() {
   
@@ -395,7 +395,7 @@ func Scanf(format string, a …interface{}) (n int, err error) //Scanf 扫描从
   
 func Scanln(a …interface{}) (n int, err error) //Scanln 类似于 Scan,但它在换行符处停止扫描,且最后的条目之后必须为换行符或 EOF。
 
-view plain copy
+
   
 func main() {
   
@@ -419,7 +419,7 @@ func Sprintf(format string, a …interface{}) string //Fprintf 根据于格式�
   
 func Sprintln(a …interface{}) string //Sprintln 使用其操作数的默认格式进行格式化并写返回其结果字符串。其操作数之间总是添加空格,且总在最后追加一个换行符。
 
-view plain copy
+
   
 func main() {
   
@@ -437,7 +437,7 @@ func Sscanln(str string, a …interface{}) (n int, err error) //Sscanln 类似�
 
 注: Sscanf有固定格式去进行分割读取数值,而Sscan和Sscanln靠空格进行分割进行值存储．
 
-view plain copy
+
   
 func main() {
   
@@ -459,7 +459,7 @@ fmt.Println(a, c)
 
 type Formatter
 
-view plain copy
+
   
 // Formatter 用于实现对象的自定义格式输出
   
@@ -477,7 +477,7 @@ Format(f State, c rune)
 
 type GoStringer
 
-view plain copy
+
   
 type GoStringer interface {
   
@@ -489,7 +489,7 @@ GoString() string
 
 type ScanState
 
-view plain copy
+
   
 // ScanState 会返回扫描状态给自定义的 Scanner
   
@@ -541,7 +541,7 @@ Flag(c int) bool
 
 type Stringer
 
-view plain copy
+
   
 type Stringer interface {
   
@@ -553,7 +553,7 @@ String() string
   
 示例如下:
 
-view plain copy
+
   
 type Ustr string
 

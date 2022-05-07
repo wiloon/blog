@@ -211,7 +211,7 @@ return sync.getWriteHoldCount();
 
 清单3 写入锁获取片段
 
-```java view plain copy
+```java 
 
 protected final boolean tryAcquire(int acquires) {
       
@@ -257,7 +257,7 @@ return true;
 
 清单4 公平读写锁写线程是否阻塞
 
-```java view plain copy
+```java 
 
 final boolean writerShouldBlock(Thread current) {
       
@@ -267,7 +267,7 @@ return !isFirst(current);
 
 清单5 非公平读写锁写线程是否阻塞
 
-```java view plain copy
+```java 
 
 final boolean writerShouldBlock(Thread current) {
       
@@ -279,7 +279,7 @@ return false;
 
 清单6 写入锁释放逻辑片段
 
-```java view plain copy
+```java 
 
 protected final boolean tryRelease(int releases) {
       
@@ -311,7 +311,7 @@ return false;
 
 清单7 读取锁获取过程片段
 
-```java view plain copy
+```java 
 
 protected final int tryAcquireShared(int unused) {
       
@@ -405,7 +405,7 @@ return 1;
 
 清单8 读取锁释放过程
 
-```java view plain copy
+```java 
 
 protected final boolean tryReleaseShared(int unused) {
       
@@ -445,7 +445,7 @@ return nextc == 0;
 
 清单9 线程持有读取锁数量的计数器
 
-```java view plain copy
+```java 
 
 static final class HoldCounter {
       
@@ -489,7 +489,7 @@ return new HoldCounter();
 
 清单10 读取锁的tryLock()
 
-```java view plain copy
+```java 
 
 final boolean tryReadLock() {
       
@@ -529,7 +529,7 @@ return true;
 
 清单11 写入锁的tryLock()
 
-```java view plain copy
+```java 
 
 final boolean tryWriteLock() {
       

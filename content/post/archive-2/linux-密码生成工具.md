@@ -24,7 +24,7 @@ pwgen生成的密码易于记忆且相当安全。从技术上来说,容易记�
 
 安装pwgen,在终端窗口输入: 
 
- view plain copy
+ 
   
 sudo apt-get install pwgen
   
@@ -32,7 +32,7 @@ sudo apt-get install pwgen
   
 运行pwgen,在终端输入:
 
- view plain copy
+ 
   
 pwgen
 
@@ -40,19 +40,19 @@ pwgen
 
 如果你确定背后没有人,可以使用"-1"来告知pwgen只产生一个密码。
 
- view plain copy
+ 
   
 pwgen -1
 
 如果想生成一个完全随机的密码,使用"-s"参数。
 
- view plain copy
+ 
   
 pwgen -1 -s
 
 在密码中使用特殊字符 (感叹号,逗号,引号,加号,减号,冒号等) 可以提高密码的安全等级。使用"-y"参数使生成的密码中至少包括一个特殊字符。
 
- view plain copy
+ 
   
 pwgen -1 -s -y
 
@@ -70,25 +70,25 @@ makepasswd和pwgen的工作方式类似,但是它生成的密码不容易记忆�
   
 安装makepasswd,在终端输入: 
   
- view plain copy
+ 
   
 sudo apt-get install makepasswd
   
 生成一个密码,输入: 
 
- view plain copy
+ 
   
 makepasswd
   
 生成五个密码,每个密码最少包含10个字符,输入: 
 
- view plain copy
+ 
   
 makepasswd -count 5 -minchars 10
   
 还可以指定以某个字符串为基础生成随机密码。这在生成PIN方面可能很有用。比如说,生成4位PIN,输入: 
 
- view plain copy
+ 
   
 makepasswd -string 1234567890 -chars 4
 
@@ -96,13 +96,13 @@ makepasswd -string 1234567890 -chars 4
   
 passwordmaker与之前的pwgen和makepasswd不同。它本来是IE,Firefox等浏览器的一个扩展程序。passwordmaker-cli是passwordmaker的命令行版本。安装passwordmaker-cli,输入: 
 
- view plain copy
+ 
   
 sudo apt-get install passwordmaker-cli
   
 在使用passwordmaker的时候,你需要输入一个域名 (URL) 和主密码 (master password) ,passwordmaker会利用这些输入的信息为这个URL生成一个独一无二的密码。
 
- view plain copy
+ 
   
 passwordmaker -url maketecheasier.com
   

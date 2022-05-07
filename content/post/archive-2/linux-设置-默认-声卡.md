@@ -25,7 +25,7 @@ gentoo (47)
 还有两个配置文件/etc/asound.conf和~/.asoundrc,它俩有效是因为它俩被alsa.conf引用。以下是alsa.conf的原文: 
 
 
- view plain copy
+ 
   
 # pre-load the configuration files
 
@@ -70,7 +70,7 @@ errors false
 首先,如果机器有多于一个声卡,可以用下面的命令显示出来: 
 
 
- view plain copy
+ 
   
 $ cat /proc/asound/cards
   
@@ -85,7 +85,7 @@ HDA VIA VT82xx at 0xfeafc000 irq 17
 其次,每一个声卡有一个card number和一个device number,可以用下面命令显示出来: 
 
 
- view plain copy
+ 
   
 $ aplay -l
   
@@ -106,7 +106,7 @@ Subdevice #0: subdevice #0
 最后,alsa设置了一个defaults设备,音频播放软件默认使用defaults设备输出声音。defaults设备定义在alsa.conf中,内容如下: 
 
 
- view plain copy
+ 
   
 #
   
@@ -147,7 +147,7 @@ defaults.pcm.subdevice -1
 如果要修改,则修改/etc/asound.conf或~/.asoundrc。比如我要把defaults匹配到card 1,device 0上,则添加一下几行: 
 
 
- view plain copy
+ 
   
 $ sudo vim /etc/asound.conf
   

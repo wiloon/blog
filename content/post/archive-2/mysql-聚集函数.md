@@ -44,7 +44,7 @@ SUM()
   
 可以返回所有列的平均值,也可以返回特定列的平均值。
   
-```sql``` view plain copy
+```sql``` 
   
 print?
   
@@ -76,7 +76,7 @@ MIN()返回指定列的最小值,要求指定列名,忽略NULL值。
   
 用来返回指定列的和 (总计) ,忽略NULL值的行。
   
-```sql``` view plain copy
+```sql``` 
   
 print?
   
@@ -88,7 +88,7 @@ Where order_id=123456;
   
 SUM()也可以合计计算值。
   
-```sql``` view plain copy
+```sql``` 
   
 print?
   
@@ -102,7 +102,7 @@ DISTINCT关键字
   
 如下面的SQL将返回vend_id=1003的不同价格商品的平均值
   
-```sql``` view plain copy
+```sql``` 
   
 print?
   
@@ -114,7 +114,7 @@ Where vend_id=1003;
   
 聚集函数可以组合使用
   
-```sql``` view plain copy
+```sql``` 
   
 print?
   

@@ -17,7 +17,7 @@ tags:
 
 那么当Java线程运行到safepoint的时候，JVM如何让Java线程挂起呢？这是一个复杂的操作。很多文章里面说了JIT编译模式下，编译器会把很多safepoint检查的操作插入到编译偶的指令中，比如下面的指令来自内存篇: JVM内存回收理论与实现
   
-```java view plain copy
+```java
   
 0x01b6d627: call 0x01b2b210 ; OopMap{[60]=Oop off=460}
                                          
@@ -241,7 +241,7 @@ JVM要阻塞全部的Java线程的时候，要先检查所有的Java线程所处
 
 这个话题还涉及到JVM性能分析的一些场景。通过设置JVM参数 -XX:+PrintGCApplicationStoppedTime 会打出系统停止的时间，类似的日志如下面
 
-```java view plain copy
+```java 
   
 Total time for which application threads were stopped: 0.0041000 seconds
   
@@ -323,7 +323,7 @@ GC的标记阶段需要stop the world，让所有Java线程挂起，这样JVM才
 
 例如hotspot在x86中为轮询safepoint会生成一条类似于"test %eax,0x160100"的指令，JVM需要进入gc前，先把0x160100设置为不可读，那所有线程执行到检查0x160100的test指令后都会停顿下来
 
-```html view plain copy
+```html 
   
 0x01b6d627: call 0x01b2b210 ; OopMap{[60]=Oop off=460}
                                          

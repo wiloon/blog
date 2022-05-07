@@ -58,7 +58,7 @@ customThread.join();
 
 代码1:
 
-```java view plain copy
+```java 
   
 package wxhx.csdn2;
   
@@ -202,7 +202,7 @@ main end!//线程CustomThread结束,此线程在t.join();阻塞处起动,向下�
 
 修改一下代码,得到代码2: (这里只写出修改的部分)
 
-```java view plain copy
+```java 
   
 public class JoinTestDemo {
       
@@ -266,7 +266,7 @@ main end!// Thread.sleep(2000);结束,虽然在线程CustomThread执行了t1.joi
 
 在CustomThread的run方法里,执行了t1.join();,进入看一下它的JDK源码: 
 
-```java view plain copy
+```java 
   
 public final void join() throws InterruptedException {
   
@@ -276,7 +276,7 @@ n(0);
 
 然后进入join(0)方法: 
 
-```java view plain copy
+```java 
      
 /**
       

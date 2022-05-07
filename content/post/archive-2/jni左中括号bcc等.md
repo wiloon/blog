@@ -38,7 +38,7 @@ http://blog.csdn.net/qinjuning/article/details/7599796
                  例如: 二维整型数组就是指向一位数组的数组,其声明使用方式如下: 
     
 
-```java view plain copy
+```java 
 
 print?
   

@@ -129,7 +129,7 @@ oom killer机制分析
          触发oom killer时/var/log/message打印了进程的score:
     
 
- view plain copy
+ 
   
 Apr 18 16:56:18 v125000100.bja kernel: : [22254386.758297] [ pid ] uid tgid total_vm rss cpu oom_adj oom_score_adj name
   

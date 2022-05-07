@@ -1064,7 +1064,7 @@ fi
 示例:
 
 ```bash
- view plain copy
+ 
   
 #!/bin/sh
 
@@ -1135,7 +1135,7 @@ true
 
 整数比较实例
 
-[css] view plain copy
+[css] 
   
 # !/bin/bash
 
@@ -1213,7 +1213,7 @@ if [ "$a" \> "$b" ]
 
 判断shell传入的参数个数是否为空:
 
-[python] view plain copy
+[python] 
   
 # !/bin/bash
 
@@ -1254,7 +1254,7 @@ fi
 
 代码:
 
-[python] view plain copy
+[python] 
   
 a1="ithomer"
   
