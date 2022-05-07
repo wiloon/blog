@@ -14,8 +14,7 @@ tags:
 - iftop
 - slurm
 
-
-## nethogs 
+## nethogs
 
 ```bash
 sudo pacman -S nethogs
@@ -27,7 +26,7 @@ sudo pacman -S nethogs
 nethogs -d 5
 
 ```
-https://linux.cn/article-2808-1.html
+<https://linux.cn/article-2808-1.html>
 
 NetHogs 是一个开源的命令行工具 (类似于Linux的top命令), 用来按进程或程序实时统计网络带宽使用率.
 
@@ -79,7 +78,6 @@ $ sudo iftop -n
   
 n选项可以防止iftop将IP地址解析成主机名,解析本身就会带来额外的网络流量。
 
-
 安装iftop: Ubuntu/Debian/Fedora用户可以从默认软件库获得它。CentOS用户可以从Epel获得它。
 
 # fedora或centos
@@ -96,13 +94,13 @@ iptraf是一款交互式、色彩鲜艳的IP局域网监控工具。它可以显
 
 $ sudo iptraf
   
-安装iptraf: 
+安装iptraf:
 
-# Centos (基本软件库) 
+# Centos (基本软件库)
   
 $ yum install iptraf
   
-# fedora或centos (带epel) 
+# fedora或centos (带epel)
   
 $ yum install iptraf-ng -y
   
@@ -118,11 +116,11 @@ $ sudo nethogs
 
 安装nethogs: Ubuntu、Debian和Fedora用户可以从默认软件库获得。CentOS用户则需要Epel。
 
-# ubuntu或debian (默认软件库) 
+# ubuntu或debian (默认软件库)
   
 $ sudo apt-get install nethogs
   
-# fedora或centos (来自epel) 
+# fedora或centos (来自epel)
   
 $ sudo yum install nethogs -y
   
@@ -136,7 +134,7 @@ bmon (带宽监控器) 是一款类似nload的工具,它可以显示系统上所
   
 $ sudo apt-get install bmon
   
-# fedora或centos (来自repoforge) 
+# fedora或centos (来自repoforge)
   
 $ sudo yum install bmon
   
@@ -168,7 +166,7 @@ tcptrack类似iftop,使用pcap库来捕获数据包,并计算各种统计信息,
   
 $ sudo apt-get install tcptrack
   
-# fedora, centos (来自repoforge软件库) 
+# fedora, centos (来自repoforge软件库)
   
 $ sudo yum install tcptrack
   
@@ -178,7 +176,7 @@ vnstat与另外大多数工具有点不一样。它实际上运行后台服务/�
 
 $ service vnstat status
   
-* vnStat daemon is running
+- vnStat daemon is running
   
 运行没有任何选项的vnstat,只会显示自守护进程运行以来所传输的数据总量。
 
@@ -236,7 +234,7 @@ vnstat支持许多选项,支持哪些选项方面的详细信息请参阅参考�
   
 $ sudo apt-get install vnstat
   
-# fedora或 centos (来自epel) 
+# fedora或 centos (来自epel)
   
 $ sudo yum install vnstat
   
@@ -274,7 +272,7 @@ $ bwm-ng -o curses2
   
 $ sudo apt-get install bwm-ng
   
-# fedora或centos (来自epel) 
+# fedora或centos (来自epel)
   
 $ sudo apt-get install bwm-ng
   
@@ -356,7 +354,7 @@ HH:MM:SS   KB/s in  KB/s out
   
 $ sudo apt-get install ifstat
   
-# fedora, centos (Repoforge) 
+# fedora, centos (Repoforge)
   
 $ sudo yum install ifstat
   
@@ -390,9 +388,9 @@ $ collectl -sn -oT -i0.5
   
 waiting for 0.5 second sample...
   
-#         <----Network---->
+# <----Network---->
   
-#Time       KBIn  PktIn  KBOut  PktOut
+# Time       KBIn  PktIn  KBOut  PktOut
   
 10:32:01      40     58     43      66
   
@@ -410,7 +408,7 @@ waiting for 0.5 second sample...
   
 $ sudo apt-get install collectl
   
-#Fedora
+# Fedora
   
 $ sudo yum install collectl
   
@@ -420,7 +418,7 @@ $ sudo yum install collectl
 
 ntop和darkstat是面向Linux系统的其中两个基本的基于Web的网络监控工具。除此之外还有企业级监控工具,比如nagios,它们提供了一批功能特性,不仅仅可以监控服务器,还能监控整个基础设施。
 
-原文链接: http://www.binarytides.com/linux-commands-monitor-network/
+原文链接: <http://www.binarytides.com/linux-commands-monitor-network/>
 
 【编辑推荐】
 
@@ -432,15 +430,15 @@ ntop和darkstat是面向Linux系统的其中两个基本的基于Web的网络监
   
 10个实用的 Linux 网络和监控命令
 
-
 ## linux 网络 监控 iftop
 
 在类Unix系统中可以使用top查看系统资源、进程、内存占用等信息。查看网络状态可以使用netstat、nmap等工具。若要查看实时的网络流量，监控TCP/IP连接等，则可以使用iftop。
   
 ### iftop是什么？
+
 iftop是类似于top的实时流量监控工具。
   
-官方网站: http://www.ex-parrot.com/~pdw/iftop/
+官方网站: <http://www.ex-parrot.com/~pdw/iftop/>
   
 二、iftop有什么用？
   
@@ -450,7 +448,7 @@ iftop可以用来监控网卡的实时流量 (可以指定网段) 、反向解�
   
 中间的这两个左右箭头，表示的是流量的方向，2行显示时，进和出的流量是分开计算的，一行显示时是加在一起计算的;单独显示进或出时就是单独的进或出的流量。
   
-右侧的三列数值: 
+右侧的三列数值:
   
 第一列是: 在此次刷新之前2s或10s或40s的平均流量 (按B设置秒数) ;
   
@@ -462,7 +460,7 @@ iftop可以用来监控网卡的实时流量 (可以指定网段) 、反向解�
   
 界面最下面的三行显示的分别是发送、接收、总计的流量，右侧值分别是总流量 (过滤后的，没过滤就是全部的) 、在此次刷新之前40秒内的峰值流量、最近2秒的平均传输速率、最近10秒的平均传输速率、最近40秒的平均传输速率。
 
-### 常用的参数: 
+### 常用的参数
 
 /usr/local/iftop
   
@@ -492,7 +490,7 @@ iftop可以用来监控网卡的实时流量 (可以指定网段) 、反向解�
   
 -c指定具体的设定文件，暂时没用过;
 
-### 进入iftop画面后的一些操作命令(注意大小写): 
+### 进入iftop画面后的一些操作命令(注意大小写)
 
 按h切换是否显示帮助;
   
@@ -562,14 +560,11 @@ rates: 分别表示过去 2s 10s 40s 的平均流量
 
 Linux流量监控工具 - iftop (最全面的iftop教程)
   
- 
-
->https://www.vpser.net/manage/iftop.html/embed#?secret=MdTvcxHN5f
-
+><https://www.vpser.net/manage/iftop.html/embed#?secret=MdTvcxHN5f>
 
 ## slurm 实时网络流量监控
 
-虽然GNOME的系统监视器可以查看到网络状态，但是像slurm这样的命令行工具，占用资源少，查看方便，用起来到是别有一番风味。slurm 最初是给FreeBSD的做端口状态监视器，功能概述: 
+虽然GNOME的系统监视器可以查看到网络状态，但是像slurm这样的命令行工具，占用资源少，查看方便，用起来到是别有一番风味。slurm 最初是给FreeBSD的做端口状态监视器，功能概述:
 
 显示实时流量吐吞状态
 
@@ -580,7 +575,6 @@ Linux流量监控工具 - iftop (最全面的iftop教程)
 显示关于接口的详细信息
 
 安装slurm到Ubuntu
-
 
 print?
 
@@ -600,7 +594,7 @@ print?
 
 slurm [-hHz] [-csl] [-d delay] -i interface
 
-如果你想监视第一块网卡 (eth0) ,使用下面的命令: 
+如果你想监视第一块网卡 (eth0) ,使用下面的命令:
 
 [cpp][/cpp]
 

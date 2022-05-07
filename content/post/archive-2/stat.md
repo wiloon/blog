@@ -14,6 +14,7 @@ tags:
 stat命令，查看某个文件的 inode 信息, 除了文件名以外的所有文件信息，都存在inode之中。
 
 ### stat, linux 文件创建时间, 修改时间
+
 ### atime, mtime, ctime
 
     简名     全名           中文名       含义
@@ -45,10 +46,12 @@ Tue Aug 4 15:13:44 HKT 2009
   
 -rw-r–r– 1 root root 39 2009-08-04 15:13:44.000000000 +0800 filetime.txt
 
-### 通过stat 命令查 atime, mtime, ctime 
+### 通过stat 命令查 atime, mtime, ctime
+
     stat filetime.txt
 
 #### output
+
     File:   filetime.txt
     Size:   39                 Blocks: 8             IO Block: 4096   regular file
     Device: 803h/2051d         Inode:  16280696    Links: 1
@@ -74,7 +77,7 @@ Modify: 文件内容最后修改时间
 -Change: 文件属性最后修改时间
 
 作者：BlackChen
-链接：https://www.jianshu.com/p/d7acd00945cd
+链接：<https://www.jianshu.com/p/d7acd00945cd>
 来源：简书
 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
 
@@ -96,11 +99,11 @@ mtime=modifiy time
 
 另个除了可以通过stat来查看文件的mtime,ctime,atime等属性,也可以通过ls命令来查看,具体如下:
   
-ls -lc filename 列出文件的 ctime  (最后更改时间) 
+ls -lc filename 列出文件的 ctime  (最后更改时间)
   
-ls -lu filename 列出文件的 atime (最后存取时间) 
+ls -lu filename 列出文件的 atime (最后存取时间)
   
-ls -l filename 列出文件的 mtime  (最后修改时间) 
+ls -l filename 列出文件的 mtime  (最后修改时间)
 
 在linux中stat函数中,用st_atime表示文件数据最近的存取时间(last accessed time)；用st_mtime表示文件数据最近的修改时间(last modified time)；使用st_ctime表示文件inode数据最近的修改时间(last i-node's status changed time)。
 
@@ -120,7 +123,7 @@ ext4、xfs、btrfs 都支持创建时间
   
 内核已经通过 4.11 版本引入的 statx 系统调用支持获取创建时间了。
   
->http://blog.sina.com.cn/s/blog_605f5b4f01015k56.html
->https://man.linuxde.net/stat
->https://man.linuxde.net/stat/embed#?secret=0aBZM4XyiK 
->https://blog.lilydjwg.me/2018/7/11/get-file-birth-time-in-linux.213101.html
+><http://blog.sina.com.cn/s/blog_605f5b4f01015k56.html>
+><https://man.linuxde.net/stat>
+><https://man.linuxde.net/stat/embed#?secret=0aBZM4XyiK>
+><https://blog.lilydjwg.me/2018/7/11/get-file-birth-time-in-linux.213101.html>

@@ -9,6 +9,9 @@ tags:
   - reprint
 ---
 ## ls command
+
+ls 默认列出当前目录的内容, ls 是 list 的缩写
+
 ```bash
 find $PWD | xargs ls -ld
 ls -lrth
@@ -18,10 +21,18 @@ ls -l
 
 # 只列出目录
 ls -d foo*
-ls -dl foo*
+ls -dl foo*    
+ls -l | grep ^d
+
+# 子目录所有文件
+ls -lR|grep ^-
+ls -lR|grep ^-|awk '{print $9}'
+
+# 列出重复的行
+ls -lR|grep ^-|awk '{print $9}'|sort|uniq -d
 ```
 
-ls命令就是list的缩写
+## 参数
 
 - -i 打印出文件的 inode
 - -R 同时列出所有子目录层
@@ -40,4 +51,4 @@ ls 命令默认会按照文件名字母序排序
   
 以上影响排序的选项如果结合 -r 选项一起使用，则按相反顺序排列
 
-https://www.iteye.com/blog/wxl24life-2041310
+<https://www.iteye.com/blog/wxl24life-2041310>

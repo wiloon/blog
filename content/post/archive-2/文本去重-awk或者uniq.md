@@ -9,6 +9,7 @@ tags:
   - reprint
 ---
 ## linux shell 文本 去重 – awk或者uniq
+
 uniq
   
 不带参数时, 默认合并重复的行. 类似MySQL的 distinct
@@ -57,13 +58,13 @@ awk处理第二行时:  先读取a[$3]值再自增,a[$3]即a[3]值为1,即为awk
 
 最后实现的效果就是对于$3是第一次出现的行进行打印,也就是去除$3重复的行
 
-转自: http://bbs.chinaunix.net/forum.php?mod=viewthread&tid=1672726#pid11904888
+转自: <http://bbs.chinaunix.net/forum.php?mod=viewthread&tid=1672726#pid11904888>
   
 sort和uniq
 
 重复行通常不会造成问题,但是有时候它们的确会引起问题。此时,不必花上一个下午的时间来为它们编制过滤器,uniq 命令便是唾手可得的好工具。
 
-了解一下它是如何节省您的时间和精力的。进行排序之后,您会发现有些行是重复的。有时候该重复信息是不需要的,可以将它除去以节省磁盘空间。不必对文本行进行排序,但是您应当记住 uniq 在读取行时会对它们进行比较并将只除去两个或更多的连续行。下面的示例说明了它实际上是如何工作的: 
+了解一下它是如何节省您的时间和精力的。进行排序之后,您会发现有些行是重复的。有时候该重复信息是不需要的,可以将它除去以节省磁盘空间。不必对文本行进行排序,但是您应当记住 uniq 在读取行时会对它们进行比较并将只除去两个或更多的连续行。下面的示例说明了它实际上是如何工作的:
 
   1. 用 uniq 除去重复行
 
@@ -76,8 +77,6 @@ Happy Birthday to You!
 Happy Birthday Dear Tux!
   
 Happy Birthday to You!
-
- 
 
 $ sort happybirthday.txt
   
@@ -97,12 +96,8 @@ Happy Birthday to You!
 
 警告: 请不要使用 uniq 或任何其它工具从包含财务或其它重要数据的文件中除去重复行。在这种情况下,重复行几乎总是表示同一金额的另一个交易,将它除去会给会计部造成许多困难。千万别这么干！
 
-
-  
     使用 -u 和 -d 选项
   
-
-
 $ sort happybirthday.txt | uniq -u
   
 Happy Birthday Dear Tux!
@@ -111,16 +106,12 @@ $ sort happybirthday.txt | uniq -d
   
 Happy Birthday to You!
   
-您还可以用 -c 选项从 uniq 中获取一些统计信息: 
+您还可以用 -c 选项从 uniq 中获取一些统计信息:
 
 清单
 
-
-  
     使用 -c 选项
   
-
-
 $ sort happybirthday.txt | uniq -uc
   
 1 Happy Birthday Dear Tux!
@@ -133,4 +124,4 @@ $ sort happybirthday.txt | uniq -dc
 
 还有另一个选项 -s ,它的功能就像 -f 一样,但是跳过给定数目的字符。您可以一起使用 -f 和 -s 。 uniq 先跳过字段,再跳过字符。如果您只想使用一些预先设置的字符进行比较,那么该怎么办呢？试试看 -w 选项。
 
-转自: http://weiyingjun.blog.hexun.com/55766273_d.html
+转自: <http://weiyingjun.blog.hexun.com/55766273_d.html>

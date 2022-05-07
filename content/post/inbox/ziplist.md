@@ -1,5 +1,5 @@
 ---
-title: "redis list"
+title: "redis ziplist"
 author: "-"
 date: "2021-07-04 15:29:28"
 url: "template"

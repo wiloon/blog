@@ -13,11 +13,8 @@ tags:
 
 ### Maven 标准目录结构
 
-好的目录结构可以使开发人员更容易理解项目,为以后的维护工作也打下良好的基础。Maven2根据业界公认的最佳目录结构,为开发者提供了缺省的标准目录模板。Maven2的标准目录结构如下: 
+好的目录结构可以使开发人员更容易理解项目,为以后的维护工作也打下良好的基础。Maven2根据业界公认的最佳目录结构,为开发者提供了缺省的标准目录模板。Maven2的标准目录结构如下:
 
-
-  
-    
       src/main/java
     
     
@@ -153,32 +150,28 @@ tags:
     
     
       Project's readme
-    
-  
 
+使用目录模板,可以使 pom.xml 更简洁。因为 Maven2 已经根据缺省目录,预定义了相关的动作,而无需人工的干预。以 resources 目录为例:
 
-使用目录模板,可以使 pom.xml 更简洁。因为 Maven2 已经根据缺省目录,预定义了相关的动作,而无需人工的干预。以 resources 目录为例: 
-
-  * src/main/resources,负责管理项目主体的资源。在使用Maven2执行compile之后,这个目录中的所有文件及子目录,会复制到target/classes目录中,为以后的打包提供了方便。
-  * src/test/resources,负责管理项目测试的资源。在使用Maven2执行test-compile之后,这个目录中的所有文件及子目录,会复制到target/test-classes目录中,为后续的测试做好了准备。
+* src/main/resources,负责管理项目主体的资源。在使用Maven2执行compile之后,这个目录中的所有文件及子目录,会复制到target/classes目录中,为以后的打包提供了方便。
+* src/test/resources,负责管理项目测试的资源。在使用Maven2执行test-compile之后,这个目录中的所有文件及子目录,会复制到target/test-classes目录中,为后续的测试做好了准备。
 
 这些动作在 Maven1 中,是需要在 maven.xml 中使用或<postGoal>来完成的。如今,完全不需要在pom.xml中指定就能够自动完成。在src和test都使用resources,方便构建和测试,这种方式本就已是前人的经验。通过使用Maven2,使这个经验在开发团队中得到普及。
 
-创建标准目录模板,可以通过如下命令: 
+创建标准目录模板,可以通过如下命令:
 
   mvn archetype:create -DgroupId=com.codeline.commons -DartifactId=codelineCommons
 
 groupId和artifactId的含义与Maven1中的含义一样,参数artifactId的值会作为项目根目录的名字。除了建立相应的目录之外,Maven2还会创建缺省的pom.xml。
 
-Maven2也考虑到: 不同类型的项目需要拥有不同的目录结构。如创建web项目,可以使用命令: 
+Maven2也考虑到: 不同类型的项目需要拥有不同的目录结构。如创建web项目,可以使用命令:
 
   mvn archetype:create -DgroupId=com.mycompany.app
 -DartifactId=my-webapp
 -DarchetypeArtifactId=maven-archetype-webapp
 
-### 
 
-在Eclipse中只要创建一个Dynamic Web Project,就可以根据创建向导创建出一个典型Java Web站点的目录结构。除非有特殊需要,在大多数情况下都没有必要修改这个目录结构,这也是Web容器的缺省目录结构,我们只要直接使用即可。一般的目录结构如下: 
+在Eclipse中只要创建一个Dynamic Web Project,就可以根据创建向导创建出一个典型Java Web站点的目录结构。除非有特殊需要,在大多数情况下都没有必要修改这个目录结构,这也是Web容器的缺省目录结构,我们只要直接使用即可。一般的目录结构如下:
 
 WebContent (站点根目录)
 
@@ -214,9 +207,9 @@ WebContent (站点根目录)
 
 4．凡是客户端能访问的资源(\*.html,\*.jpg)必须跟WEB-INF在同一目录。即放在Web根目录下的资源,从客户端是可以通过URL地址直接访问。
 
-5. 切忌: 凡是WEB-INF里面的文件都不能被客户端直接访问(比如隐藏的信息)。WEB-INF目录下的资源对用户来说是不可见的,而对Web服务器来说则没有这样的限制。
+1. 切忌: 凡是WEB-INF里面的文件都不能被客户端直接访问(比如隐藏的信息)。WEB-INF目录下的资源对用户来说是不可见的,而对Web服务器来说则没有这样的限制。
 
-例如在WEB-INF下的index.htm,客户端无法与对待其他文件夹内的信息一样,通过http://yourserver/yourwebapp/WEB-INF/index.htm访问。WEB-INF文件夹是禁止通过URL访问的。
+例如在WEB-INF下的index.htm,客户端无法与对待其他文件夹内的信息一样,通过<http://yourserver/yourwebapp/WEB-INF/index.htm访问。WEB-INF文件夹是禁止通过URL>访问的。
 
 6. 在WEB-INF目录的classes及lib子目录下,都可以存放Java类文件。在运行时,Servlet容器的类加载器先加载classes目录下的类,再加载lib目录下的JAR文件 (Java类库的打包文件) 中的类,jar包是许多class文件的集合。因此,如果两个目录下存在同名的类,classes目录下的类具有优先权。
 

@@ -25,9 +25,6 @@ MySQL的大小写敏感性 lower_case_table_names
 
 换句话说，如果你希望在数据库里面创建表的时候保留大小写字符状态，则应该把这个参数置:  lower_case_table_names=0 。否则的话你会发现同样的sqldump脚本在不同的操作系统下最终导入的结果不一样 (在Windows下所有的大写字符都变成小写了) 。
 
-
-  
-    
       值
     
     
@@ -62,10 +59,6 @@ MySQL的大小写敏感性 lower_case_table_names
     
     
       表名和数据库名在硬盘上使用CREATE TABLE或CREATE DATABASE语句指定的大小写进行保存，但MySQL将它们转换为小写以便查找。名称比较对大小写敏感。注释:  只 在对大小写不敏感的文件系统上适用! InnoDB表名以小写保存，例如lower_case_tables_name=1。
-    
-  
-
-
 
 MySQL的大小写敏感其实是根据用户的操作系统来的， 可以强制以 -O lower_case_table_names=1 参数启动 MySQLd (如果使用 -defaults-file=...\\my.cnf 参数来读取指定的配置文件启动 MySQLd 的话，你需要在配置文件的 [MySQLd] 区段下增加一行 lower_case_table_names=1) 。
   
@@ -77,9 +70,9 @@ MySQL的大小写敏感其实是根据用户的操作系统来的， 可以强�
   
 否则的话你会发现同样的sqldump脚本在不同的操作系统下最终导入的结果不一样 (在Windows下所有的大写字符都变成小写了) 。
   
-注意: 
+注意:
   
-在Win32上，尽管数据库和表名是忽略MySQL大小写的，你不应该在同一个查询中使用不同的大小写来引用一个给定的数据库和表。下列查询将不工作，因为它作为my_table和作为MY_TABLE引用一个表: 
+在Win32上，尽管数据库和表名是忽略MySQL大小写的，你不应该在同一个查询中使用不同的大小写来引用一个给定的数据库和表。下列查询将不工作，因为它作为my_table和作为MY_TABLE引用一个表:
   
 代码如下 复制代码
   
@@ -91,7 +84,7 @@ MySQL的大小写敏感其实是根据用户的操作系统来的， 可以强�
   
 3. 表的别名
   
-表的别名是区分大小写的。下列查询将不工作，: 因为它用a和A引用别名: 
+表的别名是区分大小写的。下列查询将不工作，: 因为它用a和A引用别名:
   
 代码如下 复制代码
   
@@ -113,7 +106,7 @@ LIKE比较在每个字符的大写值上进行("E"="e")。
   
 如果你想要一个列总是被当作MySQL大小写敏感的方式，声明它为BINARY。
   
-例如: 
+例如:
   
 代码如下 复制代码
 
@@ -125,9 +118,8 @@ LIKE比较在每个字符的大写值上进行("E"="e")。
   
 MySQL大小写
 
-http://www.111cn.net/database/MySQL/44937.htm
+<http://www.111cn.net/database/MySQL/44937.htm>
 
-http://fygh6318.blog.51cto.com/390568/385507
+<http://fygh6318.blog.51cto.com/390568/385507>
 
-http://blog.chinaunix.net/uid-26602509-id-4104999.html
-
+<http://blog.chinaunix.net/uid-26602509-id-4104999.html>

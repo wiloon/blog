@@ -1,57 +1,128 @@
 ---
-title: /proc
+title: 存储过程, proc
 author: "-"
-date: 2011-10-27T23:19:33+00:00
-url: proc
+date: 2013-04-17T06:01:25+00:00
+url: /?p=5402
 categories:
-  - OS
-
+  - DataBase
 tags:
   - reprint
 ---
-## /proc
-在GUN/Linux操作系统中，/proc 是一个位于内存中的伪文件系统(in-memory pseudo-file system)。该目录下保存的不是真正的文件和目录，而是一些“运行时”信息，如系统内存、磁盘io、设备挂载信息和硬件配置信息等。proc目录是一个控制中心，用户可以通过更改其中某些文件来改变内核的运行状态。proc目录也是内核提供给我们的查询中心，我们可以通过这些文件查看有关系统硬件及当前正在运行进程的信息。在Linux系统中，许多工具的数据来源正是proc目录中的内容。例如，lsmod命令就是cat /proc/modules命令的别名，lspci命令是cat /proc/pci命令的别名。
+## 存储过程, proc
 
-### cat /proc/pagetypeinfo
-查看内存碎片情况
+SET ANSI_NULLS ON
 
-cat / proc / pagetypeinfo
+SQL-92 标准要求在对空值进行等于 (=) 或不等于 (<>) 比较时取值为 FALSE。当 SET ANSI_NULLS 为 ON 时，即使 column_name 中包含空值，使用 WHERE column_name = NULL 的 SELECT 语句仍返回零行。
+SET QUOTED_IDENTIFIER
+使 Microsoft® SQL Server™ 遵从关于引号分隔标识符和文字字符串的 SQL-92 规则。由双引号分隔的标识符可以是 Transact-SQL 保留关键字，或者可以包含 Transact-SQL 标识符语法规则通常不允许的字符。
 
-我看到三种types的内存区域;
+语法
+SET QUOTED_IDENTIFIER { ON | OFF }
 
-DMA
-DMA32
-正常
-Linux如何select一个内存区域来分配一个新的页面？
+注释
+当 SET QUOTED_IDENTIFIER 为 ON 时，标识符可以由双引号分隔，而文字必须由单引号分隔。当 SET QUOTED_IDENTIFIER 为 OFF 时，标识符不可加引号，且必须遵守所有 Transact-SQL 标识符规则。有关更多信息，请参见使用标识符。文字可以由单引号或双引号分隔。
 
-写入/读取受内存保护的进程的内存
-我怎样才能减less最小的Linux进程的内存占用量
-区分Java应用程序mmaped内存和Linux上的JVM mmapped内存
-使用C用户空间代码读取Linux / proc接口的最佳方法是什么？
-在Linux程序中跟踪积极使用的内存
-找出一个进程在Linux上使用多less内存页面
-OSError：无法从python subprocess.call分配内存
-python subprocess.Popen错误与OSError：一段时间后不能分配内存
-Shell脚本循环在CygWin下耗尽内存
-在fork (）中重复的段？
-这些内存区域仅为32位系统定义，而不在64位中定义。
+当 SET QUOTED_IDENTIFIER 为 ON 时，由双引号分隔的所有字符串都被解释为对象标识符。因此，加引号的标识符不必遵守 Transact-SQL 标识符规则。它们可以是保留关键字，并且可以包含 Transact-SQL 标识符中通常不允许的字符。不能使用双引号分隔文字字符串表达式，而必须用单引号括住文字字符串。如果单引号 (') 是文字字符串的一部分，则可以由两个单引号 ('') 表示。当对数据库中的对象名使用保留关键字时，SET QUOTED_IDENTIFIER 必须为 ON。
 
-记住这些是我们正在讨论的内核可访问的main memory 。 在32 bit  (4GB）系统中，内核与用户空间之间的分割为1:3 。 含义内核可以访问1GB和用户空间3GB。 内核的1GB分割如下：
+当 SET QUOTED_IDENTIFIER 为 OFF (默认值) 时，表达式中的文字字符串可以由单引号或双引号分隔。如果文字字符串由双引号分隔，则可以在字符串中包含嵌入式单引号，如省略号。
 
-Zone_DMA (0-16MB）： 永久映射到内核地址空间。
-出于兼容性原因，较旧的ISA设备只能处理较低的16MB主内存。
+当在计算列或索引视图上创建或操作索引时，SET QUOTED_IDENTIFIER 必须为 ON。如果 SET QUOTED_IDENTIFIER 为 OFF，则计算列或索引视图上带索引的表上的 CREATE、UPDATE、INSERT 和 DELETE 语句将失败。有关计算列上的索引视图和索引所必需的 SET 选项设置的更多信息，请参见 SET 中的"使用 SET 语句时的注意事项"。
 
-Zone_Normal (16MB-896MB）： 永久映射到内核地址空间。
-许多内核操作只能使用ZONE_NORMAL所以它是性能最关键的区域，并且是内核主要分配的内存。
+在进行连接时，SQL Server ODBC 驱动程序和用于 SQL Server 的 Microsoft OLE DB 提供程序自动将 QUOTED_IDENTIFIER 设置为 ON。这可以在 ODBC 数据源、ODBC 连接特性或 OLE DB 连接属性中进行配置。对来自 DB-Library 应用程序的连接，SET QUOTED_IDENTIFIER 设置默认为 OFF。
 
-ZONE_HIGH_MEM (896MB以上）： 没有永久映射到内核的地址空间。
-内核可以访问整个4GB的主内存。 内核的1GB通过Zone_DMA ＆ Zone_Normal和用户的3GB通过ZONE_HIGH_MEM 。 使用英特尔的Physical Address Extension (PAE) ，可以获得4个额外的位来寻址主存储器，产生36位，总共可以访问64GB的内存。 增量地址空间 (36位地址 – 32位地址）是ZONE_HIGH_MEM用于映射到用户访问的主存储器 (即2GB – 4GB之间）的位置。
+当创建存储过程时，将捕获 SET QUOTED_IDENTIFIER 和 SET ANSI_NULLS 设置，用于该存储过程的后续调用。
 
-阅读更多：
+当在存储过程内执行 SET QUOTED_IDENTIFIER 时，其设置不更改。
 
-http://www.quora.com/Linux-coreel/Why-is-there-ZONE_HIGHMEM-in-the-x86-32-Linux-kernel-but-not-in-the-x86-64-kernel
-http://www.quora.com/Linux-coreel/What-is-the-difference-between-high-memory-and-normal-memory
-Linux 3/1虚拟地址分割
+当 SET ANSI_DEFAULTS 为 ON时，将启用 SET QUOTED_IDENTIFIER。
 
+SET QUOTED_IDENTIFIER 还与 sp_dboption 的 quoted identifier 设置相对应。如果 SET QUOTED_IDENTIFIER 为 OFF，则 SQL Server 使用 sp_dboption 的 quoted identifier 设置。有关数据库设置的更多信息，请参见 sp_dboption 和设置数据库选项。
 
->https://zhuanlan.zhihu.com/p/26923061
+SET QUOTED_IDENTIFIER 是在分析时进行设置的。在分析时进行设置意味着: SET 语句只要出现在批处理或存储过程中即生效，与代码执行实际上是否到达该点无关；并且 SET 语句在任何语句执行之前生效。
+
+权限
+SET QUOTED_IDENTIFIER 权限默认授予所有用户。
+
+示例
+A. 使用被引用的标识符设置和保留字对象名
+下例显示 SET QUOTED_IDENTIFIER 设置必须为 ON，而且表名内的关键字必须在双引号内，才能创建和使用带保留关键字的对象名。
+
+SET QUOTED_IDENTIFIER OFF
+GO
+-- Attempt to create a table with a reserved keyword as a name
+-- should fail.
+CREATE TABLE "select" ("identity" int IDENTITY, "order" int)
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+-- Will succeed.
+CREATE TABLE "select" ("identity" int IDENTITY, "order" int)
+GO
+
+SELECT "identity","order"
+FROM "select"
+ORDER BY "order"
+GO
+
+DROP TABLE "SELECT"
+GO
+
+SET QUOTED_IDENTIFIER OFF
+GO
+
+B. 在被引用的标识符设置中使用单引号和双引号
+下例显示将 SET QUOTED_IDENTIFIER 设置为 ON 和 OFF 时，在字符串表达式中使用单引号和双引号的方式。
+
+SET QUOTED_IDENTIFIER OFF
+GO
+USE pubs
+IF EXISTS(SELECT TABLE_NAME FROM INFORMATION_SCHEMA.VIEWS
+      WHERE TABLE_NAME = 'Test')
+   DROP TABLE Test
+GO
+USE pubs
+CREATE TABLE Test ( Id int, String varchar (30) )
+GO
+
+-- Literal strings can be in single or double quotation marks.
+INSERT INTO Test VALUES (1,"'Text in single quotes'")
+INSERT INTO Test VALUES (2,'''Text in single quotes''')
+INSERT INTO Test VALUES (3,'Text with 2 '''' single quotes')
+INSERT INTO Test VALUES (4,'"Text in double quotes"')
+INSERT INTO Test VALUES (5,"""Text in double quotes""")
+INSERT INTO Test VALUES (6,"Text with 2 """" double quotes")
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+-- Strings inside double quotation marks are now treated
+-- as object names, so they cannot be used for literals.
+INSERT INTO "Test" VALUES (7,'Text with a single '' quote')
+GO
+
+-- Object identifiers do not have to be in double quotation marks
+-- if they are not reserved keywords.
+SELECT *
+FROM Test
+GO
+
+DROP TABLE Test
+GO
+
+SET QUOTED_IDENTIFIER OFF
+GO
+
+下面是结果集:
+
+Id          String
+----------- ------------------------------
+1           'Text in single quotes'
+2           'Text in single quotes'
+3           Text with 2 '' single quotes
+4           "Text in double quotes"
+5           "Text in double quotes"
+6           Text with 2 "" double quotes
+7           Text with a single ' quote
