@@ -4,7 +4,7 @@ author: "-"
 date: 2014-12-25T10:54:44+00:00
 url: /?p=7131
 categories:
-  - Uncategorized
+  - Inbox
 tags:
   - OS X
 

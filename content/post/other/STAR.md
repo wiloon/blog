@@ -4,7 +4,7 @@ author: "-"
 date: 2011-09-15T11:18:41+00:00
 url: star
 categories:
-  - Uncategorized
+  - Inbox
 tags:
   - star
 

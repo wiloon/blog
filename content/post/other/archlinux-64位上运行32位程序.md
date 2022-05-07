@@ -4,7 +4,7 @@ author: "-"
 date: 2015-05-29T23:55:49+00:00
 url: /?p=7728
 categories:
-  - Uncategorized
+  - Inbox
 tags:
   - Arch Linux
 

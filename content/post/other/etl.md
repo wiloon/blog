@@ -4,7 +4,7 @@ author: "-"
 date: 2015-01-08T06:54:27+00:00
 url: /?p=7211
 categories:
-  - Uncategorized
+  - Inbox
 tags:
   - ETL
 

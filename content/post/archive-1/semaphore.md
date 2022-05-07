@@ -5,7 +5,6 @@ date: 2014-10-31T02:46:50+00:00
 url: semaphore
 categories:
   - OS
-
 tags:
   - reprint
 ---
@@ -13,17 +12,18 @@ tags:
 
 信号量是 Edsger Dijkstra 发明的数据结构，在解决多种同步问题时很有用。其本质是一个整数，并关联两个操作：
 
-申请acquire（也称为 wait、decrement 或 P 操作）
-释放release（也称 signal、increment 或 V 操作）
+申请 acquire（也称为 wait、decrement 或 P 操作）
+释放 release（也称 signal、increment 或 V 操作）
+
 acquire操作将信号量减 1，如果结果值为负则线程阻塞，且直到其他线程进行了信号量累加为正数才能恢复。如结果为正数，线程则继续执行。
 
 release操作将信号量加 1，如存在被阻塞的线程，此时他们中的一个线程将解除阻塞。
 
-Go 运行时提供的runtime_SemacquireMutex和runtime_Semrelease函数可用来实现sync.RWMutex互斥锁。
+Go 运行时提供的 runtime_SemacquireMutex 和runtime_Semrelease 函数可用来实现sync.RWMutex互斥锁。
 
 ## semaphore/信号量, mutex/互斥锁
 
-Mutex是一把钥匙，一个人拿了就可进入一个房间，出来的时候把钥匙交给队列的第一个。一般的用法是用于串行化对 critical section 代码的访问，保证这段代码不会被并行的运行。
+Mutex 是一把钥匙，一个人拿了就可进入一个房间，出来的时候把钥匙交给队列的第一个。一般的用法是用于串行化对 critical section 代码的访问，保证这段代码不会被并行的运行。
 
 Semaphore/信号量 是一件可以容纳 N 人的房间，如果人不满就可以进去，如果人满了, 就要等待有人出来. 对于N=1的情况，称为binary semaphore。一般的用法是，用于限制对于某一资源的同时访问。
 
@@ -31,7 +31,7 @@ Semaphore/信号量 是一件可以容纳 N 人的房间，如果人不满就可
 
 在 有的系统中 Binary semaphore 与 Mutex 是没有差异的。在有的系统上，主要的差异是mutex一定要由获得锁的进程来释放。而semaphore可以由其它进程释放 (这时的semaphore实际就是个原子的变量，大家可以加或减) ，因此semaphore可以用于进程间同步。Semaphore的同步功能是所有系统都支持的，而Mutex能否由其他进程释放则未定，因此建议mutex只用于保护critical section。而semaphore则用于保护某变量，或者同步。
 
-关于semaphore和mutex的区别，网上有著名的厕所理论 (http://koti.mbnet.fi/niclasw/MutexSemaphore.html) : 
+关于semaphore和mutex的区别，网上有著名的厕所理论 (<http://koti.mbnet.fi/niclasw/MutexSemaphore.html>) :
 
 #### Mutex
 
@@ -47,7 +47,7 @@ Is the number of free identical toilet keys. Example, say we have four toilets w
 Officially: “A semaphore restricts the number of simultaneous users of a shared resource up to a maximum number. Threads can request access to the resource (decrementing the semaphore), and can signal that they have finished using the resource (incrementing the semaphore).”
 Ref: Symbian Developer Library
 
-所以，mutex就是一个binary semaphore  (值就是0或者1) 。但是他们的区别又在哪里呢？主要有两个方面: 
+所以，mutex就是一个binary semaphore  (值就是0或者1) 。但是他们的区别又在哪里呢？主要有两个方面:
 
 - 初始状态不一样: mutex的初始值是1 (表示锁available) ，而semaphore的初始值是0 (表示unsignaled的状态) 。随后的操 作基本一样。mutex_lock和sem_post都把值从0变成1，mutex_unlock和sem_wait都把值从1变成0 (如果值是零就等 待) 。初始值决定了: 虽然mutex_lock和sem_wait都是执行V操作，但是sem_wait将立刻将当前线程block住，直到有其他线程 post；mutex_lock在初始状态下是可以进入的。
 - 用法不一样 (对称 vs. 非对称) : 这里说的是“用法”。Semaphore实现了signal，但是mutex也有signal (当一个线程lock后另外一个线程 unlock，lock住的线程将收到这个signal继续运行) 。在mutex的使用中，模型是对称的。unlock的线程也要先lock。而 semaphore则是非对称的模型，对于一个semaphore，只有一方post，另外一方只wait。就拿上面的厕所理论来说，mutex是一个钥 匙不断重复的使用，传递在各个线程之间，而semaphore择是一方不断的制造钥匙，而供另外一方使用 (另外一方不用归还) 。
@@ -124,8 +124,7 @@ void* helloWorld(void* arg) {
 
 ```
 
-编译运行: 
-
+编译运行:
 
 [root@localhost semaphore]# gcc semaphore.c -lpthread
 [root@localhost semaphore]# ./a.out
@@ -138,8 +137,6 @@ Hello World
 In main, sleep several seconds.
 Hello World
 
- 
-
 semaphore
  信号量(Semaphore)，有时被称为信号灯，是在多线程环境下使用的一种设施, 它负责协调各个线程, 以保证它们能够正确、合理的使用公共资源。
 什么是信号量(Semaphore0
@@ -148,9 +145,9 @@ Semaphore分为单值和多值两种，前者只能被一个线程获得，后�
 在这个停车场系统中，车位是公共资源，每辆车好比一个线程，看门人起的就是信号量的作用。
 更进一步，信号量的特性如下: 信号量是一个非负整数 (车位数) ，所有通过它的线程 (车辆) 都会将该整数减一 (通过它当然是为了使用资源) ，当该整数值为零时，所有试图通过它的线程都将处于等待状态。在信号量上我们定义两种操作:  Wait (等待)  和 Release (释放) 。 当一个线程调用Wait等待) 操作时，它要么通过然后将信号量减一，要么一自等下去，直到信号量大于一或超时。Release (释放) 实际上是在信号量上执行加操作，对应于车辆离开停车场，该操作之所以叫做“释放”是应为加操作实际上是释放了由信号量守护的资源。
 实现
-大家都知道，.Net Framework类库中提供的线程同步设施包括: 
+大家都知道，.Net Framework类库中提供的线程同步设施包括:
 Monitor， AutoResetEvent， ManualResetEvent，Mutex，ReadWriteLock和 InterLock。 其中 AutoResetEvent， ManualResetEvent，Mutex派生自WaitHandler，它们实际上是封装了操作系统提供的内核对象。而其它的应当是在.Net虚拟机中土生土长的。显然来自操作系统内核对象的设施使用起来效率要差一些。不过效率并不是我们这里要考虑的问题，我们将使用两个 Monitor 和 一个ManualResetEvent 对象来模拟一个信号量。
-代码如下: 
+代码如下:
 public class Semaphore
 {
     private ManualResetEvent waitEvent = new ManualResetEvent(false);
@@ -236,15 +233,14 @@ public bool Release()
       return true;
      }
 }
- 
 
  ---
 
  Mutex 的发音是 /mjuteks/ ，其含义为互斥(体)，这个词是Mutual Exclude的缩写。
-Mutex在计算机中是互斥也就是排他持有的一种方式，和信号量-Semaphore有可以对比之处。有人做过如下类比: 
-    * Mutex是一把钥匙，一个人拿了就可进入一个房间，出来的时候把钥匙交给队列的第一个。一般的用法是用于串行化对critical section代码的访问，保证这段代码不会被并行的运行。
+Mutex在计算机中是互斥也就是排他持有的一种方式，和信号量-Semaphore有可以对比之处。有人做过如下类比:
+    *Mutex是一把钥匙，一个人拿了就可进入一个房间，出来的时候把钥匙交给队列的第一个。一般的用法是用于串行化对critical section代码的访问，保证这段代码不会被并行的运行。
     * Semaphore是一件可以容纳N人的房间，如果人不满就可以进去，如果人满了，就要等待有人出来。对于N=1的情况，称为binary semaphore。一般的用法是，用于限制对于某一资源的同时访问。
-对于Binary semaphore与Mutex，这两者之间就存在了很多相似之处: 
+对于Binary semaphore与Mutex，这两者之间就存在了很多相似之处:
     在有的系统中Binary semaphore与Mutex是没有差异的。在有的系统上，主要的差异是mutex一定要由获得锁的进程来释放。而semaphore可以由其它进程释放 (这时的semaphore实际就是个原子的变量，大家可以加或减) ，因此semaphore可以用于进程间同步。Semaphore的同步功能是所有系统都支持的，而Mutex能否由其他进程释放则未定，因此建议mutex只用于保护critical section。而semaphore则用于保护某变量，或者同步。
 
 网摘2:  
@@ -259,27 +255,26 @@ mutex与semaphore的区别
 正确使用semaphore是为了使信号从一项任务传至另一项任务．mutex意味着取得与释放，使用受保护共享资源的每一次任务都是以这样的顺序进行．相比之下，使用semaphore的任务通常不是发送信号，就是进入等待状态，不可能同时发生．
 例如，任务1可能包含程序代码，当按下＂电源＂(power)按钮时，即可提出(如发送信号或增量)一个特别的semaphore; 任务2则依据相同的semaphore而用于唤醒显示器. 在这种情况下，其中一项任务是信号的生产者，另一项任务是信号的消费者．
 
-用一个例子来做总结，首先展示如何使用mutex: 
-/* Task 1 */
+用一个例子来做总结，首先展示如何使用mutex:
+/*Task 1*/
 mutexWait(mutex_mens_room);
 // Safely use shared resource
 mutexRelease(mutex_mens_room);
 
-/* Task 2 */
+/*Task 2*/
 mutexWait(mutex_mens_room);
 // Safely use shared resource
 mutexRelease(mutex_mens_room);
 
 相应地，你总是采用下列方法使用semaphore:
-/* Task 1 - Producer */
+/*Task 1 - Producer*/
 semPost(sem_power_btn); // Send the signal
 
-/* Task 2 - Consumer */
+/*Task 2 - Consumer*/
 semPend(sem_power_btn); // Wait for signal
 
 重 要的是，semaphores可以被interrupt service routine(ISR)中断服务程序用来向task发送信号．发送一个semaphore是一个非阻塞的RTOS行为，并且ISR安全．因为这种技术排 除了在task级别的为了是中断不使能而引起的错误的可能性，从ISR中发出信号是一种使嵌入式软件更加可靠的设计方式.
 
-
 ---
 
-https://blog.51cto.com/sddai/3106478
+<https://blog.51cto.com/sddai/3106478>

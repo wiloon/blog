@@ -4,8 +4,7 @@ author: "-"
 date: 2017-09-30T04:10:48+00:00
 url: rename
 categories:
-  - Uncategorized
-
+  - Inbox
 tags:
   - reprint
 ---

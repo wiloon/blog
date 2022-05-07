@@ -4,7 +4,7 @@ author: "-"
 date: 2016-06-29T00:16:05+00:00
 url: /?p=9088
 categories:
-  - Uncategorized
+  - Inbox
 tags:
   - Go
   - tcp

@@ -4,7 +4,7 @@ author: "-"
 date: 2014-05-27T06:14:33+00:00
 url: /?p=6667
 categories:
-  - Uncategorized
+  - Inbox
 tags:
   - MyBatis
 

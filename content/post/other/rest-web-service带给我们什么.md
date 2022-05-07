@@ -4,8 +4,7 @@ author: lcf
 date: 2012-11-07T06:06:59+00:00
 url: /?p=4630
 categories:
-  - Uncategorized
-
+  - Inbox
 tags:
   - reprint
 ---

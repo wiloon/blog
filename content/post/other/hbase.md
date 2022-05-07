@@ -4,7 +4,7 @@ author: "-"
 date: 2015-01-07T06:55:32+00:00
 url: /?p=7192
 categories:
-  - Uncategorized
+  - Inbox
 tags:
   - Hbase
 

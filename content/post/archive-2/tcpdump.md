@@ -43,7 +43,7 @@ tcpdump -nn -i eth0 dst host 172.16.0.213 and 'tcp[tcpflags] & (tcp-rst) != 0'
 tcpdump 'tcp[tcpflags] & (tcp-syn|tcp-fin) != 0 and not src and dst net localnet'
 ```
 
->https://blog.csdn.net/cbbbc/article/details/48897363
+<https://blog.csdn.net/cbbbc/article/details/48897363>
 
 ### 指定主机
 
@@ -84,7 +84,9 @@ tcpdump -nn icmp
 
 ### 保存到文件, 然后用  Wireshark 分析
 
-    tcpdump -i eth1 src port 25 -w foo.cap
+```bash
+tcpdump -i eth1 src port 25 -w foo.cap
+```
 
 ```bash
 # -e Print the link-level header on each dump line
@@ -112,7 +114,9 @@ yum install -y tcpdump
 pacman -S tcpdump
 ```
 
-### 命令选项
+### 选项
+
+```o
     -A: 以 ASCII 码方式显示每一个数据包(不会显示数据包中链路层头部信息). 在抓取包含网页数据的数据包时, 可方便查看数据
     -i any: 监听所有网络接口
     -i eth0: 监听指定的网络接口 (eth0) 
@@ -125,7 +129,7 @@ pacman -S tcpdump
     -X: 以 HEX 和 ASCII 模式输出数据包的内容
     -XX: 与 -X 选项相同,同时还输出 ethernet 头
     -v, -vv, -vvv: 输出更多数据包的信息
-    -c: count 接受到 count 个数据包后退出.
+    -c: count 接受到 count 个数据包后退出, 限制读取的数据包数量.
     -s: 定义 snaplength (size) ,-s0 表示获取全部
     -S: 输出绝对序列号
     -e: 获取 ethernet 头信息
@@ -143,6 +147,7 @@ pacman -S tcpdump
     -xx: 打印每个包的头部数据, 同时会以16进制打印出每个包的数据, 其中包括数据链路层的头部
     -X: 打印每个包的头部数据, 同时会以16进制和 ASCII 码形式打印出每个包的数据(但不包括连接层的头部)
     -XX: 打印每个包的头部数据, 同时会以16进制和 ASCII 码形式打印出每个包的数据, 其中包括数据链路层的头部
+```
 
 ### flags
 
@@ -159,15 +164,18 @@ flags 是TCP包中的标志信息,一个包中有可以设置多个标志位
 | NONE       | A dot . | Placeholder, usually used for ACK.                        |
 
 ### seq, ack
-seq和ack号存在于TCP报文段的首部中,seq是序号,ack是确认号,大小均为4字节 (注意与大写的ACK不同,ACK是6个控制位之一,大小只有一位, 仅当 ACK=1 时ack字段才有效。建立 TCP 连接后,所有报文段都必须把 ACK 字段置为 1。) 
 
-### seq: 
+seq和ack号存在于TCP报文段的首部中,seq是序号,ack是确认号,大小均为4字节 (注意与大写的ACK不同,ACK是6个控制位之一,大小只有一位, 仅当 ACK=1 时ack字段才有效。建立 TCP 连接后,所有报文段都必须把 ACK 字段置为 1。)
+
+### seq
+
 Sequence Number是包的序号,用来解决网络包乱序 (reordering) 问题。  
-sequence number: 表示的是我方 (发送方) 这边,这个packet的数据部分的第一位应该在整个data stream中所在的位置。 (注意这里使用的是"应该"。因为对于没有数据的传输,如ACK,虽然它有一个seq,但是这次传输在整个data stream中是不占位置的。所以下一个实际有数据的传输,会依旧从上一次发送ACK的数据包的seq开始) 
+sequence number: 表示的是我方 (发送方) 这边,这个packet的数据部分的第一位应该在整个data stream中所在的位置。 (注意这里使用的是"应该"。因为对于没有数据的传输,如ACK,虽然它有一个seq,但是这次传输在整个data stream中是不占位置的。所以下一个实际有数据的传输,会依旧从上一次发送ACK的数据包的seq开始)
 
 seq: 占 4 字节,序号范围[0,2^32-1],序号增加到 2^32-1 后,下个序号又回到 0。TCP 是面向字节流的,通过 TCP 传送的字节流中的每个字节都按顺序编号,而报头中的序号字段值则指的是本报文段数据的第一个字节的序号。
 
-### ack: 
+### ack
+
 Acknowledgement Number就是ACK——用于确认收到,用来解决不丢包的问题。
 ack: 占 4 字节,期望收到对方下个报文段的第一个数据字节的序号。
 
@@ -175,10 +183,12 @@ ack: 占 4 字节,期望收到对方下个报文段的第一个数据字节的�
 
 Advertised-Window, 也就是著名的滑动窗口 (Sliding Window) ,用于解决流控的。
 
-### data-seqno 
+### data-seqno
+
 数据包中的数据的顺序号, ack是下次期望的顺序号, window是接收缓存的窗口大小,
   
 ### urgent
+
 表明数据包中是否有紧急指针. Options是选项.
 
 ---
@@ -195,7 +205,7 @@ tcpdump host 210.27.48.1 and \ (210.27.48.2 or 210.27.48.3 )
 
 tcpdump ip host ace and not helios
   
-如果想要获取主机210.27.48.1除了和主机210.27.48.2之外所有主机通信的ip包,使用命令: 
+如果想要获取主机210.27.48.1除了和主机210.27.48.2之外所有主机通信的ip包,使用命令:
 
 tcpdump ip host 210.27.48.1 and ! 210.27.48.2
 
@@ -368,6 +378,7 @@ CSAM RTSG 0806 64: arp reply csam is-at CSAM
 包的总长度为64字节.
 
 ### TCP 数据包
+
 (注意:以下将会假定你对 RFC-793所描述的TCP熟悉. 如果不熟, 以下描述以及tcpdump程序可能对你帮助不大.(nt:警告可忽略,只需继续看, 不熟悉的地方可回头再看.).
   
 通常tcpdump对tcp数据包的显示格式如下:
@@ -728,8 +739,6 @@ reply ok 128 lookup fh 9,74/4134.3150
   
 类型(nt: 不同op 所对应args 含义不相同), 其格式遵循NFS 协议, 追求简洁明了.
 
- 
-
 如果tcpdump 的-v选项(详细打印选项) 被设置, 附加的信息将被显示. 比如:
   
 sushi.1372a > wrl.nfs:
@@ -1022,11 +1031,9 @@ hh:mm:ss.frac(nt: 小时:分钟:秒.(nt: frac未知, 需补充))
   
 而数据包从物理线路传递到内核的时间, 以及内核花费在此包上的中断处理时间都没有算进来.
 
- 
-
 命令使用
   
-tcpdump采用命令行方式,它的命令格式为: 
+tcpdump采用命令行方式,它的命令格式为:
   
 tcpdump [ -AdDeflLnNOpqRStuUvxX ] [ -c count ]
   
@@ -1045,8 +1052,6 @@ tcpdump [ -AdDeflLnNOpqRStuUvxX ] [ -c count ]
 [ expression ]
 
 tcpdump的简单选项介绍
-
- 
 
 -C file-size (nt: 此选项用于配合-w file 选项使用)
   
@@ -1891,6 +1896,7 @@ icmp-routersolicit, icmp-timx-ceed, icmp-paramprob, icmp-tstamp, icmp-tstamprepl
 icmp-ireq, icmp-ireqreply, icmp-maskreq, icmp-maskreply.
 
 ### Libpcap
+
 libcap主要用于网络嗅探  
 Libpcap是 Packet Capture Libray 的英文缩写, 即数据包捕获的 C 函数库, 用于捕获网卡数据或分析 pcap 格式的抓包报文。Tcpdump 和 wireshark 均是以此为基础的。
 主要功能有: 网络报文抓取；网络报文的构建；抓包文件的分析；自定义BFP过滤。
@@ -1898,6 +1904,7 @@ Libpcap是 Packet Capture Libray 的英文缩写, 即数据包捕获的 C 函数
 libpcap (Packet Capture Library）即数据包捕获函数库，是Unix/Linux平台下的网络数据包捕获函数库。它是一个独立于系统的用户层包捕获的API接口，为底层网络监测提供了一个可移植的框架。著名的软件TCPDUMP就是在libpcap的的基础上开发而成的
 
 libpcap可以实现以下功能：
+
 - 数据包捕获：捕获流经网卡的原始数据包
 - 自定义数据包发送：任何构造格式的原始数据包
 - 流量采集与统计：网络采集的中流量信息
@@ -1910,38 +1917,38 @@ libpcap主要由两部份组成：网络分接口(Network Tap)和数据过滤器
 
 ————————————————
 版权声明：本文为CSDN博主「ptmozhu」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
-原文链接：https://blog.csdn.net/ptmozhu/article/details/78743126
+原文链接：<https://blog.csdn.net/ptmozhu/article/details/78743126>
 
 ---
 
-https://linuxwiki.github.io/NetTools/tcpdump.html
+<https://linuxwiki.github.io/NetTools/tcpdump.html>
   
-https://www.jianshu.com/p/1ff7f77e2718
+<https://www.jianshu.com/p/1ff7f77e2718>
   
-http://amits-notes.readthedocs.io/en/latest/networking/tcpdump.html
+<http://amits-notes.readthedocs.io/en/latest/networking/tcpdump.html>
   
-http://www.01happy.com/linux-use-tcpdump-capture-network-packets/
+<http://www.01happy.com/linux-use-tcpdump-capture-network-packets/>
   
-http://linuxwiki.github.io/NetTools/tcpdump.html
-    TCP 的那些事儿 (上) 
+<http://linuxwiki.github.io/NetTools/tcpdump.html>
+    TCP 的那些事儿 (上)
 
-https://coolshell.cn/articles/11564.html/embed#?secret=zWlvvi8V4N
-http://www.informit.com/articles/article.aspx?p=170902&seqNum=4
+<https://coolshell.cn/articles/11564.html/embed#?secret=zWlvvi8V4N>
+<http://www.informit.com/articles/article.aspx?p=170902&seqNum=4>
   
-https://linuxwiki.github.io/NetTools/tcpdump.html
+<https://linuxwiki.github.io/NetTools/tcpdump.html>
   
-http://cizixs.com/2015/03/12/tcpdump-introduction
+<http://cizixs.com/2015/03/12/tcpdump-introduction>
   
-https://linuxwiki.github.io/NetTools/tcpdump.html
+<https://linuxwiki.github.io/NetTools/tcpdump.html>
 
 作者: 明翼
-链接: https://www.jianshu.com/p/77ee42f0fea6
+链接: <https://www.jianshu.com/p/77ee42f0fea6>
 来源: 简书
 著作权归作者所有。商业转载请联系作者获得授权,非商业转载请注明出处。
-http://www.cnblogs.com/ggjucheng/archive/2012/01/14/2322659.html
+<http://www.cnblogs.com/ggjucheng/archive/2012/01/14/2322659.html>
   
-http://www.cnblogs.com/maifengqiang/p/3863168.html  
+<http://www.cnblogs.com/maifengqiang/p/3863168.html>  
   
-http://dngood.blog.51cto.com/446195/1084796  
-https://mozillazg.com/2018/01/tcpdump-common-useful-examples-cookbook.html  
->https://www.cnblogs.com/jiujuan/p/9017495.html
+<http://dngood.blog.51cto.com/446195/1084796>  
+<https://mozillazg.com/2018/01/tcpdump-common-useful-examples-cookbook.html>  
+><https://www.cnblogs.com/jiujuan/p/9017495.html>

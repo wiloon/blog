@@ -4,7 +4,7 @@ author: "-"
 date: 2014-08-10T07:38:21+00:00
 url: closure
 categories:
-  - Uncategorized
+  - Inbox
 tags:
   - Java
 

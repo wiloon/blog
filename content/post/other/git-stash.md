@@ -4,7 +4,7 @@ author: "-"
 date: 2014-08-09T01:13:47+00:00
 url: /?p=6915
 categories:
-  - Uncategorized
+  - Inbox
 tags:
   - Git
 

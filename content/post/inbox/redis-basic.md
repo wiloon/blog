@@ -1,8 +1,8 @@
 ---
 title: "redis basic"
 author: "-"
-date: ""
-url: ""
+date: "2021-05-07 14:38:02"
+url: "redis"
 categories:
   - inbox
 tags:
@@ -21,20 +21,20 @@ tags:
 
 ### sort
 
-https://segmentfault.com/a/1190000002806846
+<https://segmentfault.com/a/1190000002806846>
 
 基本使用
 命令格式:  SORT key [BY pattern] [LIMIT offset count] [GET pattern [GET pattern ...]] [ASC|DESC] [ALPHA] [STORE destination]
 
-默认情况下，排序是基于数字的，各个元素将会被转化成双精度浮点数来进行大小比较，这是SORT命令最简单的形式，也就是下面这种形式: 
+默认情况下，排序是基于数字的，各个元素将会被转化成双精度浮点数来进行大小比较，这是SORT命令最简单的形式，也就是下面这种形式:
 
 SORT mylist
 
-如果mylist是一个包含了数字元素的列表，那么上面的命令将会返回升序排列的一个列表。如果想要降序排序，要使用DESC描述符，如下所示: 
+如果mylist是一个包含了数字元素的列表，那么上面的命令将会返回升序排列的一个列表。如果想要降序排序，要使用DESC描述符，如下所示:
 
 SORT mylist DESC
 
-如果mylist包含的元素是string类型的，想要按字典顺序排列这个列表，那么就要用到ALPHA描述符，如下所示: 
+如果mylist包含的元素是string类型的，想要按字典顺序排列这个列表，那么就要用到ALPHA描述符，如下所示:
 
 #### watchdog
 
@@ -97,11 +97,11 @@ yum install redis
 
 #### rpm
 
-download redis rpm from https://pkgs.org/download/redis
+download redis rpm from <https://pkgs.org/download/redis>
 
 下载Redis的依赖包: libjemalloc
 
-下载地址: https://pkgs.org/centos-6/atomic-x86_64/jemalloc-3.6.0-1.el6.art.x86_64.rpm.html
+下载地址: <https://pkgs.org/centos-6/atomic-x86_64/jemalloc-3.6.0-1.el6.art.x86_64.rpm.html>
 
 ```bash
 rpm -ivh jemalloc-3.6.0-1.el6.art.x86_64.rpm
@@ -158,9 +158,11 @@ del key1 key2
 exists key_name
 
 ### 查看key的类型
+
     type key0
 
 ### 删除 key
+
     DEL key [key ...]
 
 ### 设置过期时间
@@ -168,8 +170,11 @@ exists key_name
 EXPIRE key0 10
 
 ### ttl: 返回给定 key 的剩余生存时间(TTL, time to live)
+
     TTL key
+
 ### 查看各个库的key数量
+
     info keyspace
 
 以秒为单位，返回给定 key 的剩余生存时间(TTL, time to live)。
@@ -178,7 +183,7 @@ EXPIRE key0 10
 
 时间复杂度: O(1)
 
-返回值: 
+返回值:
   
 当 key 不存在时，返回 -2 。
   
@@ -261,6 +266,7 @@ redis-cli --cluster del-node 192.168.163.132:6384 f6a6957421b00009106cb36be3c7ba
 ```
 
 ### unlink 命令
+
     unlink key [key ...]
 
 该命令和 DEL 十分相似: 删除指定的key(s), 若key不存在则该 key 被跳过。但是，相比DEL会产生阻塞，该命令会在另一个线程中回收内存，因此它是非阻塞的。 这也是该命令名字的由来: 仅将keys从keyspace元数据中删除，真正的删除会在后续异步操作。
@@ -269,30 +275,31 @@ redis-cli --cluster del-node 192.168.163.132:6384 f6a6957421b00009106cb36be3c7ba
     List: 4.0只有一种编码，quicklist，所以编码无限制，直接返回element个数。
     Set: 非hash table编码，即intset编码时返回1.当一个集合只包含整数值元素， 并且这个集合的元素数量不多时， Redis 就会使用intset作为集合键的底层实现。
     Hash: 同上。
-        当hash键值满足下面任意条件编码为hash table: 
+        当hash键值满足下面任意条件编码为hash table:
     ->element count > "hash-max-ziplist-entries",default 512. ->value length > "hash-max-ziplist-value",default 64
     Zset: 非skiplist编码，返回1.
-       当zset键值满足下面任意条件编码为hash table: 
+       当zset键值满足下面任意条件编码为hash table:
     ->element count >"zset-max-ziplist-entries"，default 128 ->value length > "zset-max-ziplist-value", default 64
      举例:  1 一个包含100元素的list key, 它的free cost就是100 2 一个512MB的string key, 它的free cost是
-     
+
     总结: 
         不管是del还是unlink，key都是同步删除的。
         使用unlink命令时，如果value分配的空间不大，使用异步删除反而会降低效率，所以redis会先评估一下free value的effort，根据 effort 的值来决定是否做异步删除。
         使用unlink命令时，由于string类型的effort一直返回的是1，z所以string类型不会做异步删除。
 
 作者: willcat
-链接: https://juejin.cn/post/6844903810792423432
+链接: <https://juejin.cn/post/6844903810792423432>
 来源: 掘金
 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
 
-
 ### FLUSHALL
+
 可用版本:  >= 1.0.0
 时间复杂度:  O(N)
 清空整个 Redis 服务器的数据(删除所有数据库的所有 key )。
 
 ### FLUSHALL [ASYNC]
+
 (Redis 4.0.0 or greater)  
 删除 所有DB 中的 所有数据, 默认是同步操作，选项 ASYNC 表示异步，即清空操作在一个新的线程中进行，不会阻塞主线程。
 
@@ -303,29 +310,40 @@ redis-cli -h 127.0.0.1 -p 6379 FLUSHALL ASYNC
 ```
 
 ### FLUSHDB [ASYNC]
+
 表示删除 当前DB 中的 所有数据 。默认是同步操作，和 FLUSHall 一样，支持选项ASYNC ，表示异步。要删除指定DB中的所有数据，可以使用 SELECT 命令先选中DB，然后使用 FLUSHDB 命令清空数据
 
 ```bash
 redis-cli -h 127.0.0.1 -p 6379 SELECT 0
 redis-cli -h 127.0.0.1 -p 6379 FLUSHDB
 ```
+
 ### module
+
      https://redis.io/modules
+
 #### 下载编译好的 redis module
+
      https://app.redislabs.com/
 
 #### redis.conf 中使用 模块有两种加载方式，一是在配置文件 redis.conf 中使用
+
     loadmodule /path/to/mymodule.so 在 Redis 启动时加载。
+
 #### load a module at runtime
+
     module load /data/redis/redisbloom.so
 
 #### list modules
+
     module list
 
 ### 卸载
+
    MODULE UNLOAD bf
 
 ### RedisBloom
+
     https://oss.redislabs.com/redisbloom/
 
     podman run -d -p 6379:6379 --name redis-redisbloom redislabs/rebloom:latest
@@ -337,17 +355,18 @@ redis-cli -h 127.0.0.1 -p 6379 FLUSHDB
 
 ---
 
-https://github.com/redis/redis
+<https://github.com/redis/redis>
 
 ### Redis 响应延时问题排查
-https://xie.infoq.cn/article/1ccbd30d94ab781a4f85ab2fc?utm_source=rss&utm_medium=article
+<https://xie.infoq.cn/article/1ccbd30d94ab781a4f85ab2fc?utm_source=rss&utm_medium=article>
 
-### RESP协议 
+### RESP协议
+
 什么是 RESP？
 是基于TCP的应用层协议 RESP(REdis Serialization Protocol)；
 RESP底层采用的是TCP的连接方式，通过tcp进行数据传输，然后根据解析规则解析相应信息,
 
-Redis 的客户端和服务端之间采取了一种独立名为 RESP(REdis Serialization Protocol) 的协议，作者主要考虑了以下几个点: 
+Redis 的客户端和服务端之间采取了一种独立名为 RESP(REdis Serialization Protocol) 的协议，作者主要考虑了以下几个点:
 
 容易实现
 
@@ -358,14 +377,15 @@ RESP可以序列化不同的数据类型，如整数，字符串，数组。还�
 RESP是二进制安全的，不需要处理从一个进程传输到另一个进程的批量数据，因为它使用前缀长度来传输批量数据。
 注意: RESP 虽然是为 Redis 设计的，但是同样也可以用于其他 C/S 的软件。Redis Cluster使用不同的二进制协议(gossip)，以便在节点之间交换消息。
 
-关于协议的具体描述，官方文档 https://redis.io/topics/protocol
+关于协议的具体描述，官方文档 <https://redis.io/topics/protocol>
 
 ### pipeline
+
 可以将多次IO往返的时间缩减为一次，前提是pipeline执行的指令之间没有因果相关性。
 
 ---
 
-https://mp.weixin.qq.com/s/MtvEf_jWWDb6yCXPqvqF0w
+<https://mp.weixin.qq.com/s/MtvEf_jWWDb6yCXPqvqF0w>
 
-https://mp.weixin.qq.com/s/aOiadiWG2nNaZowmoDQPMQ
->https://blog.csdn.net/AlbertFly/article/details/80169717
+<https://mp.weixin.qq.com/s/aOiadiWG2nNaZowmoDQPMQ>
+><https://blog.csdn.net/AlbertFly/article/details/80169717>

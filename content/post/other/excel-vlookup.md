@@ -4,7 +4,7 @@ author: "-"
 date: 2014-03-21T05:37:34+00:00
 url: /?p=6420
 categories:
-  - Uncategorized
+  - Inbox
 tags:
   - Excel
 

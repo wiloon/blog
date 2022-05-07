@@ -4,7 +4,7 @@ author: "-"
 date: 2015-05-04T03:02:58+00:00
 url: /?p=7597
 categories:
-  - Uncategorized
+  - Inbox
 tags:
   - emacs
 

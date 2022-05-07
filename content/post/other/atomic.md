@@ -4,8 +4,7 @@ author: "-"
 date: 2013-06-03T08:04:37+00:00
 url: Atomic
 categories:
-  - Uncategorized
-
+  - Inbox
 tags:
   - reprint
 ---

@@ -4,7 +4,7 @@ author: "-"
 date: 2015-01-06T02:22:56+00:00
 url: /?p=7181
 categories:
-  - Uncategorized
+  - Inbox
 tags:
   - Hadoop
 

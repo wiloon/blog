@@ -4,8 +4,7 @@ author: "-"
 date: 2012-06-28T04:34:12+00:00
 url: acid
 categories:
-  - Uncategorized
-
+  - Inbox
 tags:
   - reprint
 ---

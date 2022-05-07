@@ -4,7 +4,7 @@ author: "-"
 date: 2015-05-03T04:07:10+00:00
 url: /?p=7579
 categories:
-  - Uncategorized
+  - Inbox
 tags:
   - Windows
 

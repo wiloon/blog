@@ -4,8 +4,7 @@ author: "-"
 date: 2019-03-27T14:46:45+00:00
 url: wal
 categories:
-  - Uncategorized
-
+  - Inbox
 tags:
   - reprint
 ---

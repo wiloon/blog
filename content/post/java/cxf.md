@@ -6,8 +6,7 @@ url: /?p=1413
 categories:
   - Java
   - Network
-  - Uncategorized
-
+  - Inbox
 tags:
   - reprint
 ---

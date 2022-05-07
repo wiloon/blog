@@ -4,8 +4,7 @@ author: "-"
 date: 2014-08-13T07:33:32+00:00
 url: kindle
 categories:
-  - inbox
-
+  - Inbox
 tags:
   - reprint
 ---

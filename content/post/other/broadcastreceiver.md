@@ -4,8 +4,7 @@ author: "-"
 date: 2014-07-31T02:15:00+00:00
 url: /?p=6861
 categories:
-  - Uncategorized
-
+  - Inbox
 tags:
   - reprint
 ---

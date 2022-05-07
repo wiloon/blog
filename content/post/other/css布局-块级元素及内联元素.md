@@ -4,7 +4,7 @@ author: "-"
 date: 2014-01-06T05:39:45+00:00
 url: /?p=6154
 categories:
-  - Uncategorized
+  - Inbox
 tags:
   - CSS
 

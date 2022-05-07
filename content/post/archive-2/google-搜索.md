@@ -4,8 +4,7 @@ author: "-"
 date: 2018-10-26T10:00:15+00:00
 url: google
 categories:
-  - Uncategorized
-
+  - Inbox
 tags:
   - reprint
 ---

@@ -4,7 +4,7 @@ author: "-"
 date: 2014-02-24T06:44:56+00:00
 url: /?p=6277
 categories:
-  - Uncategorized
+  - Inbox
 tags:
   - Spring
 

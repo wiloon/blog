@@ -4,7 +4,7 @@ author: "-"
 date: 2015-03-06T03:19:15+00:00
 url: /?p=7402
 categories:
-  - Uncategorized
+  - Inbox
 tags:
   - Sqlite
 
