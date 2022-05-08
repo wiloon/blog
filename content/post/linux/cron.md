@@ -11,6 +11,7 @@ tags:
 
 ---
 ## cron, crond, crontab, linux 定时任务, cronie
+
 ### 安装 cron
 
 ```bash
@@ -24,6 +25,7 @@ yum install cronie    # vixie-cron 已经不再维护, 建议安装 cronie
 ```
 
 ### 查看 crond 状态
+
 ```bash
 # check status
 systemctl status crond
@@ -70,10 +72,13 @@ crontab -r # 删除没个用户的 cron 服务
 ### 配置自动生效
 cron will then examine the modification time on all crontabs and reload those which have changed. Thus cron need not be restarted whenever a crontab file is modified
 ```
-### 在线crontab表达式执行时间计算
-https://www.matools.com/crontab
+
+### 在线crontab 表达式执行时间计算
+
+<https://www.matools.com/crontab>
 
 ### 示例
+
 ```bash
 # 每天早上5点运行
 0 5 * * * /root/bin/backup.sh
@@ -103,20 +108,22 @@ https://www.matools.com/crontab
 ```
 
 ### 每两个小时
+
     0 */2 * * * echo "foo" >> /tmp/foo.txt
 
 run-parts
 
 ### 每个小时去执行一遍/etc/cron.hourly内的脚本
+
     01 * * * * root run-parts /etc/cron.hourly
   
-02 4 * * * root run-parts /etc/cron.daily // 每天去执行一遍/etc/cron.daily内的脚本
+02 4 ** * root run-parts /etc/cron.daily // 每天去执行一遍/etc/cron.daily内的脚本
 
 每星期去执行一遍/etc/cron.weekly内的脚本
 
     22 4 * * 0 root run-parts /etc/cron.weekly 
   
-42 4 1 * * root run-parts /etc/cron.monthly //每个月去执行一遍/etc/cron.monthly内的脚本
+42 4 1 ** root run-parts /etc/cron.monthly //每个月去执行一遍/etc/cron.monthly内的脚本
 
 ```bash
 #centos
@@ -140,47 +147,45 @@ crontab -e
 
 ---
 
-再例如，root想删除fred的cron设置: 
+再例如，root想删除fred的cron设置:
   
 引用:
   
 crontab -u fred -r
   
-在编辑cron服务时，编辑的内容有一些格式和约定，输入: 
+在编辑cron服务时，编辑的内容有一些格式和约定，输入:
   
 引用:
   
 crontab -u root -e
   
-进入vi编辑模式，编辑的内容一定要符合下面的格式: 
+进入vi编辑模式，编辑的内容一定要符合下面的格式:
   
 引用:
   
 _/1 * * * * ls >> /tmp/ls.txt
   
-这个格式的前一部分是对时间的设定，后面一部分是要执行的命令，如果要执行的命令太多，可以把这些命令写到一个脚本里面，然后在这里直接调用这个脚本就可 以了，调用的时候记得写出命令的完整路径。时间的设定我们有一定的约定，前面五个_号代表五个数字，数字的取值范围和含义如下: 
+这个格式的前一部分是对时间的设定，后面一部分是要执行的命令，如果要执行的命令太多，可以把这些命令写到一个脚本里面，然后在这里直接调用这个脚本就可 以了，调用的时候记得写出命令的完整路径。时间的设定我们有一定的约定，前面五个_号代表五个数字，数字的取值范围和含义如下:
 
-分钟 (0-59) 
+分钟 (0-59)
   
-小时 (0-23) 
+小时 (0-23)
   
-日期 (1-31) 
+日期 (1-31)
   
-月份 (1-12) 
+月份 (1-12)
   
 星期 (0-6) //0代表星期天
   
-除了数字还有几个个特殊的符号就是"_"、"/"和"-"、","，_代表所有的取值范围内的数字，"/"代表每的意思,"*/5″表示每5个单位，"-"代表从某个数字到某个数字,","分开几个离散的数字。以下举几个例子说明问题: 
+除了数字还有几个个特殊的符号就是"_"、"/"和"-"、","，_代表所有的取值范围内的数字，"/"代表每的意思,"*/5″表示每5个单位，"-"代表从某个数字到某个数字,","分开几个离散的数字。以下举几个例子说明问题:
 
 每天凌晨4点
   
-0 4 * * * echo "Good morning." >> /tmp/test.txt //注意单纯echo，从屏幕上看不到任何输出，因为cron把任何输出都email到root的信箱了。
+0 4 ** * echo "Good morning." >> /tmp/test.txt //注意单纯echo，从屏幕上看不到任何输出，因为cron把任何输出都email到root的信箱了。
 
-
-  
 晚上11点到早上8点之间每两个小时，早上八点
   
-0 23-7/2，8 * * * echo "Welcome to http://beyl.cn.: ) " >> /tmp/test.txt
+0 23-7/2，8 ** * echo "Welcome to <http://beyl.cn>.: ) " >> /tmp/test.txt
   
 每个月的4号和每个礼拜的礼拜一到礼拜三的早上11点
   
@@ -194,7 +199,7 @@ _/1 * * * * ls >> /tmp/ls.txt
   
 2.编辑/etc/crontab 文件配置cron
   
-cron 服务每分钟不仅要读一次/var/spool/cron内的所有文件，还需要读一次/etc/crontab,因此我们配置这个文件也能运用cron服务 做一些事情。用crontab配置是针对某个用户的，而编辑/etc/crontab是针对系统的任务。此文件的文件格式是: 
+cron 服务每分钟不仅要读一次/var/spool/cron内的所有文件，还需要读一次/etc/crontab,因此我们配置这个文件也能运用cron服务 做一些事情。用crontab配置是针对某个用户的，而编辑/etc/crontab是针对系统的任务。此文件的文件格式是:
   
 引用:
   
@@ -208,13 +213,13 @@ HOME=/
 
 # run-parts
 
-01 * * * * root run-parts /etc/cron.hourly //每个小时去执行一遍/etc/cron.hourly内的脚本
+01 **** root run-parts /etc/cron.hourly //每个小时去执行一遍/etc/cron.hourly内的脚本
   
-02 4 * * * root run-parts /etc/cron.daily //每天去执行一遍/etc/cron.daily内的脚本
+02 4 ** * root run-parts /etc/cron.daily //每天去执行一遍/etc/cron.daily内的脚本
   
-22 4 * * 0 root run-parts /etc/cron.weekly //每星期去执行一遍/etc/cron.weekly内的脚本
+22 4 ** 0 root run-parts /etc/cron.weekly //每星期去执行一遍/etc/cron.weekly内的脚本
   
-42 4 1 * * root run-parts /etc/cron.monthly //每个月去执行一遍/etc/cron.monthly内的脚本
+42 4 1 ** root run-parts /etc/cron.monthly //每个月去执行一遍/etc/cron.monthly内的脚本
   
 使用者 运行的路径
   
@@ -222,7 +227,7 @@ HOME=/
   
 cron
   
-定时执行指令 ( cron ): 
+定时执行指令 ( cron ):
   
 crontab [_/Minute] [_/Hour] [_/Day] [_/Month] [*(/DayOfWeek)?] Command
   
@@ -270,16 +275,16 @@ MAILTO=paul
 
 # run five minutes after midnight, every day
 
-5 0 * * * $HOME/bin/daily.job >> $HOME/tmp/out 2>&1
+5 0 ** * $HOME/bin/daily.job >> $HOME/tmp/out 2>&1
 
 # run at 2:15pm on the first of every month — output mailed to paul
 
-15 14 1 * * $HOME/bin/monthly
+15 14 1 ** $HOME/bin/monthly
 
 # run at 10 pm on weekdays, annoy Joe
 
-0 22 * * 1-5 mail -s "It's 10pm" joe%Joe,%%Where are your kids?%
+0 22 ** 1-5 mail -s "It's 10pm" joe%Joe,%%Where are your kids?%
   
-23 0-23/2 * * * echo "run 23 minutes after midn, 2am, 4am …, everyday"
+23 0-23/2 ** * echo "run 23 minutes after midn, 2am, 4am …, everyday"
 
-https://wiki.gentoo.org/wiki/Cron
+<https://wiki.gentoo.org/wiki/Cron>

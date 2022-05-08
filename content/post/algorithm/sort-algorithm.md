@@ -8,7 +8,7 @@ categories:
 tags:
   - reprint
 ---
-## 排序算法, Sorting Algorithm 
+## 排序算法, Sorting Algorithm
 
 - 快速排序和
 - 归并排序

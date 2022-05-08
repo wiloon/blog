@@ -11,11 +11,11 @@ tags:
 ---
 ## Ansible
 
-https://linuxtoy.org/archives/hands-on-with-ansible.html
+<https://linuxtoy.org/archives/hands-on-with-ansible.html>
 
 最近纠结于在 [Puppet][1]、[Chef][2]、[SaltStack][3]、[Ansible][4] 等一干配置管理工具中如何选择。考虑到一旦开始没有选好,以后更改又是一堆麻烦事,所以就稍微有些慎重。
 
-Puppet 和 SaltStack 我曾用过,但不是十分符合预期,所以先行排除。至于 Chef,虽然老早就听说过,但却一直没有找到机会尝试。翻了翻文档,Chef 跟 Puppet 及 SaltStack 也是一样采用服务端/客户端模式,对于在现有一定数量的机器上部署仍然有 些麻烦。最后落单到 Ansible 上。经过对 Ansible 的把玩,我感觉 Ansible 于我比较相投。我喜欢 Ansible 的方面包括: 
+Puppet 和 SaltStack 我曾用过,但不是十分符合预期,所以先行排除。至于 Chef,虽然老早就听说过,但却一直没有找到机会尝试。翻了翻文档,Chef 跟 Puppet 及 SaltStack 也是一样采用服务端/客户端模式,对于在现有一定数量的机器上部署仍然有 些麻烦。最后落单到 Ansible 上。经过对 Ansible 的把玩,我感觉 Ansible 于我比较相投。我喜欢 Ansible 的方面包括:
 
 * 充分利用现有设施。使用 Ansible 无需安装服务端和客户端,只要 SSH 即可。这意味着,任何一台装有 Ansible 的机器都可以成为强大的管理端。我觉得,这种去中心化的思路显得更为灵活。可能有人会担心 SSH 的效率,Ansible 的并行执行及加速模式或许可以打消你的顾虑。
 * 使用简单,快速上手相当容易。我在用 Puppet 之前,就没少花时间钻研它。想想吧,我们使用这类自动化管理工具不就是想把自己从重复的、复杂的事情中解放出来么？为了简化一件事,而沉入另一件复杂的事,是不是有些不划算？从我的体验来看,Ansible 上手十分快,用 Ad-Hoc 可以应付简单的管理任务,麻烦点的也可以定义 Playbook 文件来搞定。
@@ -29,6 +29,7 @@ Puppet 和 SaltStack 我曾用过,但不是十分符合预期,所以先行排除
 Ansible 能够安装到 Linux、BSD、Mac OS X 等平台,Python 版本最低要求为 2.6。常用 Linux 发行一般可以通过其自带的包管理器[安装 Ansible][5]
 
 ### ubuntu
+
 ```bash
 # apt安装的可能不是新版本
 apt instll ansible
@@ -45,112 +46,91 @@ emerge -avt ansible     # Gentoo/Funtoo
 ```
 
 **准备 Inventory**
-Inventory 文件用来定义你要管理的主机。其默认位置在 `/etc/ansible/hosts` ,如果不保存在默认位置,也可通过 `-i` 选项指定。被管理的机器可以通过其 IP 或域名指定。未分组的机器需保留在 hosts 的顶部,分组可以使用`[]` 指定,如: 
+Inventory 文件用来定义你要管理的主机。其默认位置在 `/etc/ansible/hosts` ,如果不保存在默认位置,也可通过 `-i` 选项指定。被管理的机器可以通过其 IP 或域名指定。未分组的机器需保留在 hosts 的顶部,分组可以使用`[]` 指定,如:
 
 [web]  
 linuxtoy.org
 
-
-同时,分组也能嵌套: 
+同时,分组也能嵌套:
 
 [vps:children]  
 web  
 db
 
-
-此外,也可以通过数字和字母模式来指定一系列连续主机,如: 
-
+此外,也可以通过数字和字母模式来指定一系列连续主机,如:
 
 [1:3].linuxtoy.org # 等价于
 1.linuxtoy.org、2.linuxtoy.org、3.linuxtoy.org  
 [a:c].linuxtoy.org # 等价于
 a.linuxtoy.org、b.linuxtoy.org、c.linuxtoy.org
 
-
 **小试牛刀**
 
-现在,我们执行以下命令来看看 Ansible 是否能正常工作: 
-
+现在,我们执行以下命令来看看 Ansible 是否能正常工作:
 
   ansible -i hosts all -m ping -u www
 
+该命令选项的作用分别为:
 
-该命令选项的作用分别为: 
+* `-i`: 指定 inventory 文件,使用当前目录下的 hosts
+* `all`: 针对 hosts 定义的所有主机执行,这里也可以指定组名或模式
+* `-m`: 指定所用的模块,我们使用 Ansible 内置的 ping 模块来检查能否正常管理远端机器
+* `-u`: 指定远端机器的用户
 
-  * `-i`: 指定 inventory 文件,使用当前目录下的 hosts
-  * `all`: 针对 hosts 定义的所有主机执行,这里也可以指定组名或模式
-  * `-m`: 指定所用的模块,我们使用 Ansible 内置的 ping 模块来检查能否正常管理远端机器
-  * `-u`: 指定远端机器的用户
-
-如果返回如下结果: 
-
+如果返回如下结果:
 
   linuxtoy.org | success >> {  
 "changed": false,  
 "ping": "pong"  
 }
 
-
 则说明一切正常。
 
-下面我们再看看远端机器的 uptime: 
-
+下面我们再看看远端机器的 uptime:
 
   ansible vps -a 'uptime'
 
-
-这将输出: 
-
+这将输出:
 
   linuxtoy.org | success | rc=0 >>  
 11:23:16 up 177 days, 21:19, 0 users, load average: 0.55, 0.45, 0.39
-
 
 此处我们省略了 `-m`,Ansible 默认使用 command 模块；`-a` 指定模块的参数,即执行 `uptime` 命令。
 
 **使用 Ad-Hoc 管理简单任务**
 
-执行 Ad-Hoc 就跟我们在 Linux 下执行单行命令差不多,用来快速完成简单的任务十分方便。比如: 如果被管理端的 Python 为 2.4,那么需要 python-simplejson 这个包。我们可以通过以下命令在所有 CentOS 主机上安装它: 
-
+执行 Ad-Hoc 就跟我们在 Linux 下执行单行命令差不多,用来快速完成简单的任务十分方便。比如: 如果被管理端的 Python 为 2.4,那么需要 python-simplejson 这个包。我们可以通过以下命令在所有 CentOS 主机上安装它:
 
   ansible all -m raw -a 'yum -y install python-simplejson'
 
-
-花时间看看 [Ansible 的模块][6]非常值得,你将明白它能干什么。创建用户及组、安装软件包、分发配置文件、管理服务等等不一而足。在命令行下,可通过 `ansible-doc` 查询模块文档,如: 
-
+花时间看看 [Ansible 的模块][6]非常值得,你将明白它能干什么。创建用户及组、安装软件包、分发配置文件、管理服务等等不一而足。在命令行下,可通过 `ansible-doc` 查询模块文档,如:
 
   ansible-doc raw
 
-
 **使用 Playbook 管理复杂任务**
 
-对于需反复执行的、较为复杂的任务,我们可以通过定义 Playbook 来搞定。Playbook 是 Ansible 真正强大的地方,它允许使用变量、条件、循环、以及模板,也能通过角色及包含指令来重用既有内容。我们来看一个简单的例子,该例子在远端机器上创建一个新的用户: 
-
+对于需反复执行的、较为复杂的任务,我们可以通过定义 Playbook 来搞定。Playbook 是 Ansible 真正强大的地方,它允许使用变量、条件、循环、以及模板,也能通过角色及包含指令来重用既有内容。我们来看一个简单的例子,该例子在远端机器上创建一个新的用户:
 
   ---  
-- name: create user  
+* name: create user  
 hosts: vps  
 user: root  
 gather_facts: false
 
 vars:  
-- user: "toy"
+* user: "toy"
 
 tasks:  
-- name: create {{ user }} on vps  
+* name: create {{ user }} on vps  
 user: name="{{ user }}"
-
 
 首先,我们给 Playbook 指定了一个名称；接着,通过 `hosts` 让该 Playbook 仅作用于 vps 组；`user` 指定以 root 帐号执行,Ansible 也支持普通用户以 `sudo` 方式执行；`gather_facts` 的作用是搜集远端机器的相关信息,稍后可通过变量形式在 Playbook 中使用；`vars` 定义变量,也可单独放在文件中；`tasks` 指定要执行的任务。
 
-要执行 Playbook,可以敲入: 
-
+要执行 Playbook,可以敲入:
 
   ansible-playbook user.yml
 
-
-执行结果为: 
-
+执行结果为:
 
 PLAY [createuser] ************************************************************
 
@@ -160,7 +140,6 @@ changed: [linuxtoy.org]
 PLAY
 RECAP ********************************************************************  
 linuxtoy.org : ok=1 changed=1 unreachable= failed=
-
 
 关于 Playbook 的详细用法,推荐阅读 Ansible 的[官方文档][7],并参考[官方示例][8]。
 

@@ -8,37 +8,28 @@ categories:
 tags:
   - reprint
 ---
-## Shell 逐行处理文本文件
+## Shell 逐行处理文本文件， shell 读文件
 
 <https://www.cnblogs.com/dwdxdy/archive/2012/07/25/2608816.html>
 
-1.通过read命令完成．
+## read命令
 
 read命令接收标准输入,或其他文件描述符的输入,得到输入后,read命令将数据放入一个标准变量中．
 
-利用read读取文件时,每次调用read命令都会读取文件中的"一行"文本．
+用read读取文件时,每次调用read命令都会读取文件中的"一行"文本．
 
-当文件没有可读的行时,read命令将以非零状态退出．
+当文件没有可读的行时, read命令将以非零状态退出．
 
-复制代码
-  
-1 cat data.dat | while read line
-  
-2 do
-  
-3 echo "File:${line}"
-  
-4 done
-  
-6 while read line
-  
-7 do
-  
-8 echo "File:${line}"
-  
-9 done < data.dat
-  
-复制代码
+```bash
+#!/bin/bash
+cat data.dat | while read line; do
+    echo "File:${line}"
+done
+
+while read line; do
+    echo "File:${line}"
+done <data.dat
+```
   
 2.使用awk命令完成
 
