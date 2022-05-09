@@ -99,7 +99,8 @@ save 300 10
 save 60 10000 
 
 # 配置redis 数据文件的目录, 配置了dir之后, node.conf, rdb, aof文件都 会保存到这个目录 下.
-dir
+dir /var/lib/redis
+
 # 缺省情况下,如果 RDB 快照被启用 (至少有一个存储点) 时,若后台保存快照失败,Redis 将拒绝接受写入。
 # 这将会促使用户发现 (以一种强硬的方式) 数据持久化到磁盘出问题了,否则,很有可能没人会注意到这一点,最终带来灾难性的后果。
 stop-writes-on-bgsave-error yes
@@ -258,7 +259,9 @@ replica -> 复制客户端
 pubsub -> 订阅了至少一个频道的客户端
 client-output-buffer-limit 选项的语法为:
 
-    client-output-buffer-limit <class> <hard limit> <soft limit> <soft seconds>
+```bash
+client-output-buffer-limit <class> <hard limit> <soft limit> <soft seconds>
+```
 
 当一个客户端到达 hard limit 后会马上被断开,或者在到达 soft limit 并持续 soft seconds 秒后会被断开。
 

@@ -21,25 +21,32 @@ Java任务控制工具(Java Mission Control),主要用于HotSpot JVM的生产时
 <https://blog.wiloon.com/?p=9724>
 
 ### java
-Java运行工具,用于运行.class字节码文件或.jar文件。
+
+Java解释器/运行工具,用于运行.class 字节码文件或.jar文件。
 
 ### javac
-Java编译工具(Java Compiler),用于编译Java源代码文件。
+
+Java编译工具(Java Compiler),用于编译Java源代码文件。将Java源代码转换成字节码。
 
 ### jconsole
+
 图形化用户界面的监测工具,主要用于监测并显示运行于Java平台上的应用程序的性能和资源占用等信息。
 
 ### jhat
+
 Java堆分析工具(Java Heap Analysis Tool),用于分析Java堆内存中的对象信息。
 
 ### jmap
+
 Java内存映射工具(Java Memory Map),主要用于打印指定Java进程、核心文件或远程调试服务器的共享对象内存映射或堆内存细节。
 
 ### jstack
+
 Java堆栈跟踪工具,主要用于打印指定Java进程、核心文件或远程调试服务器的Java线程的堆栈跟踪信息。
 wiloon.com/jstack
 
 ### jstat
+
 JVM统计监测工具(JVM Statistics Monitoring Tool),主要用于监测并显示JVM的性能统计信息。
   
 <https://blog.wiloon.com/?p=411>
@@ -56,7 +63,7 @@ JVM监测、故障排除、分析工具,主要以图形化界面的方式提供�
 
 ### appletviewer
 
-小程序浏览器,一种执行HTML文件上的Java小程序的Java浏览器。 (chrome, firefox 不再支持NPAPI) 
+小程序浏览器,一种执行HTML文件上的Java小程序的Java浏览器。 (chrome, firefox 不再支持NPAPI)
 
 ### extcheck
 
@@ -78,19 +85,26 @@ jar密匙签名工具。
 
 ### javadoc
 
-Java文档工具,主要用于根据Java源代码中的注释信息生成HTML格式的API帮助文档。
+Java文档工具, 主要用于根据Java 源代码中的注释信息生成HTML格式的API帮助文档。
 
 ### javah
 
 Java头文件工具,用于根据Java类生成C/C++头文件和源文件(主要用于JNI开发领域)。
+产生可以调用Java过程的C过程,或建立能被Java程序调用的C过程的头文件。
+javah命令主要用于在JNI开发的时,把java代码声明的JNI方法转化成C\C++头文件,以便进行JNI的C\C++端程序的开发。
+
+但是需要注意的是javah命令对Android编译生成的类文件并不能正常工作。如果对于Android的JNI要想生成C\C++头文件的话,可能只有先写个纯的java代码来进行JNI定义,接着用JDK编译,然后再用javah命令生成JNI的C\C++头文件。当然你也可以不用javah命令,直接手写JNI的C\C++头文件。
+
+使用javah或javah -help将看到javah命令的语法信息。
 
 ### javap
 
 Java反编译工具,主要用于根据Java字节码文件反汇编为Java源代码文件。
+Java反汇编器,显示编译类文件中的可访问功能和数据,同时显示字节代码含义。
 
 ### javapackager
 
-JavaFX包装器,用于执行与封装或签名JavaFX应用有关的任务。javafxpackager在JDK1.8的时候更名为javapackager包含在 jdk 里,可以用于常规 Java 独立应用程序的打包 (包括打包 jre 和附带一个启动器) 
+JavaFX包装器,用于执行与封装或签名JavaFX应用有关的任务。javafxpackager在JDK1.8的时候更名为javapackager包含在 jdk 里,可以用于常规 Java 独立应用程序的打包 (包括打包 jre 和附带一个启动器)
 
 ### javaws
 
@@ -104,7 +118,7 @@ Java Web Start自身是一个Java应用程序,所以该软件是平台独立的,
 
 ### jdb
 
-Java调试工具(Java Debugger),主要用于对Java应用进行断点调试。
+Java调试工具(Java Debugger), 主要用于对Java应用进行断点调试。可以逐行执行程序, 设置断点和检查变量。
 
 ### jinfo
 
@@ -115,6 +129,7 @@ Java配置信息工具(Java Configuration Information),用于打印指定Java进
 jjs是个基于Nashorn引擎的命令行工具。它接受一些JavaScript源代码为参数,并且执行这些源代码。
 
 ### jps
+
 JVM进程状态工具(JVM Process Status Tool),用于显示目标系统上的HotSpot JVM的Java进程信息。
 
 ### jrunscript
@@ -231,4 +246,4 @@ Kerberos密钥表管理工具,允许用户管理存储于本地密钥表中的�
 
 这是微软提供的对象包装程序,用于对象安装包。
 
-http://0opslab.com/2016/01/20/JDK%E5%91%BD%E4%BB%A4/
+<http://0opslab.com/2016/01/20/JDK%E5%91%BD%E4%BB%A4/>
