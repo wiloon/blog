@@ -17,7 +17,7 @@ JDK 是整个Java的核心,包括了Java运行环境(JRE) (Java Runtime Envirnme
 
 JDK一般有三种版本: SE (J2SE) ,standard edition,标准版,是我们通常用的一个版本EE (J2EE) ,enterpsise edtion,企业版,使用这种JDK开发J2EE应用程序,ME (J2ME) ,micro edtion,主要用于移动设备、嵌入式设备上的java应用程序Java开发工具 (JDK) 是许多Java专家最初使用的开发环境。尽管许多编程人员已经使用第三方的开发工具,但JDK仍被当作Java开发的重要工具。JDK由一个标准类库和一组建立,测试及建立文档的Java实用程序组成。其核心Java API是一些预定义的类库,开发人员需要用这些类来访问Java语言的功能。Java API包括一些重要的语言结构以及基本图形,网络和文件I/O.一般来说,Java API的非I/O部分对于运行Java的所有平台是相同的,而I/O部分则仅在通用Java环境中实现。
 
-作为JDK实用程序, 工具库中有七种主要程序。 Javac, Java, appletviewer, Javadoc, Jdb, Javah, Javap;
+作为JDK实用程序, 工具库中有七种主要程序。 Javac, Java, appletviewer, Javadoc, Jdb, Javah, Javap; [[jdk-tool#jdk tool java tool jvm tool]]
 
 ### JRE
 
