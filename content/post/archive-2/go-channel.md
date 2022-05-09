@@ -116,7 +116,7 @@ receive 操作符
 
 ### 使用 chan struct{} 作为信号 channel
 
-场景：使用channel传递信号，而不是传递数据时
+场景：使用channel 传递信号，而不是传递数据时
 原理：没数据需要传递时，传递空struct
 用法：
 
