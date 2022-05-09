@@ -10,26 +10,42 @@ tags:
 ---
 ## JAVA 调试, JPDA
 
+远程调试
+远程调试分为主动连接调试，和被动连接调试。这里以Eclipse为例。
+
+主动连接调试：服务端配置监控端口，本地IDE连接远程监听端口进行调试，一般调试问题用这种方式。
+
+被动连接调试：本地IDE监听某端口，等待远程连接本地端口。一般用于远程服务启动不了，启动时连接到本地调试分析。
+
+主动连接调试
+首先需要远程服务配置启动脚本:
+
+JAVA_OPTS="$JAVA_OPTS -Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=n,address=5005"
+如果是启动jar包，指令：
+
+java -Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=y,address=8000 -jar test.jar
+
 JAVA 自身支持调试功能，并提供了一个简单的调试工具 - JDB, 类似于功能强大的 GDB，JDB 也是一个字符界面的调试环境，并支持设置断点，支持线程线级的调试。
 
 JAVA的调试方法如下:
 首先设置JVM，并设置参数，使之工作在 DEBUG 模式下，加入参数: -Xdebug -Xrunjdwp,transport=dt_socket,server=y,address=5432,suspend=n,onthrow=java.io.IOException,launch=/sbin/echo
 
 - -Xdebug: 通知 JVM 工作在 DEBUG 模式下  
-- -Xrunjdwp 是通知 JVM 使用 (java debug wire protocol) 来运行调试环境。该参数同时了一系列的调试选项:
-- transport 指定调试数据的传送方式，dt_socket 是指用 SOCKET 模式，另有 dt_shmem 指用共享内存方式，其中，dt_shmem 只适用于 Windows 平台。  
-- server 参数是指是否支持在 server 模式的 JVM 中.
-- onthrow 当产生该类型的 Exception 时，JVM 就会中断下来，进行调式。(可选参数)
-- launch 当JVM被中断下来时，执行的可执行程序。(可选参数)
-- suspend 指明，是否在调试客户端建立起来后，再执行JVM。  
-- onuncaught (=y或n) 指明出现 uncaught exception 后， 是否中断JVM的执行.  
+- -Xrunjdwp 是通知 JVM 使用 (java debug wire protocol) 来运行调试环境。该参数提供了一系列的调试选项:
+  - transport 指定调试数据的传送方式，dt_socket 是指用 SOCKET 模式，另有 dt_shmem 指用共享内存方式，其中，dt_shmem 只适用于 Windows 平台。  
+  - server 参数是指是否支持在 server 模式的 JVM 中.
+  - onthrow 当产生该类型的 Exception 时，JVM 就会中断下来，进行调式。(可选参数)
+  - launch 当JVM被中断下来时，执行的可执行程序。(可选参数)
+  - suspend: y/n 指明，是否在调试客户端建立起来后，再执行JVM。  
+  - onuncaught (=y或n) 指明出现 uncaught exception 后， 是否中断JVM的执行.  
+  - address 端口
 
 启动调试工具。  
 最简单的调试工具就是上面提到的JDB，以上述调试用JVM为例，可以用下面的命运行启动JDB:
 
     jdb -connect com.sun.jdi.SocketAttach:port=5432,hostname=192.168.11.213
   
-另外，还有好多的可视化调试工具，如 IDEA, eclipse,jsawt等等。Eclipses可用 ant debug来建立一个调试方法。  
+另外，还有好多的可视化调试工具，如 IDEA, eclipse, jsawt 等等。Eclipses 可用 ant debug 来建立一个调试方法。  
 其实就是使用了JDK的 JPDA，在启动服务器 (Jboss或者Tomcat等) 的命令行参数里面加上:
 -Xdebug -Xrunjdwp:transport=dt_socket,address=8787,server=y,suspend=n
 
@@ -41,10 +57,10 @@ JAVA的调试方法如下:
 
     CATALINA_OPTS="-Xdebug -Xrunjdwp:transport=dt_socket,address=5005,suspend=n,server=y"
 
-### IDEA设置
+## IDEA设置
 
-      Edit Configuration > Add new configuration > remote
-      command line arguments for remote JVM: -agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=5005
+Edit Configuration > Add new configuration > remote jvm debug  
+command line arguments for remote JVM: -agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=5005
 
 #### use module classpath
 
@@ -146,7 +162,6 @@ mvn jetty:run
   
 原文链接: <https://blog.csdn.net/wxyFighting/article/details/9408153>
 
-
 ### Java JPDA
 
 JPDA 全称: Java Platform Debugger Architecture (Java调试器架构)。是一套Java虚拟机自带的调试体系。
@@ -192,8 +207,13 @@ JDI (Java Debug Interface) 是三个模块中最高层的接口，在多数的 J
 <http://articles.techrepublic.com.com/5100-10878_11-6139512.html>
 <http://www.lifevv.com/tenyo/doc/20070918003423784.html>
 
-
 ## JSR45, JPDA
+
+JPDA（Java Platform Debugger Architecture）是Java平台调试体系结构的缩写。由3个规范组成，分别是JVMTI(JVM Tool Interface)，JDWP(Java Debug Wire Protocol)，JDI(Java Debug Interface) 。
+
+1. JVMTI 定义了虚拟机应该提供的调试服务，包括调试信息（Information譬如栈信息）、调试行为（Action譬如客户端设置一个断点）和通知（Notification譬如到达某个断点时通知客户端），该接口由虚拟机实现者提供实现，并结合在虚拟机中
+2. JDWP 定义调试服务和调试器之间的通信，包括定义调试信息格式和调试请求机制
+3. JDI 在语言的高层次上定义了调试者可以使用的调试接口以能方便地与远程的调试服务进行交互，Java语言实现，调试器实现者可直接使用该接口访问虚拟机调试服务。 java调试工具jdb，就是sun公司提供的JDI实现。eclipse IDE，它的两个插件org.eclipse.jdt.debug.ui和org.eclipse.jdt.debug与其强大的调试功能密切相关，其中前者是eclipse调试工具界面的实现，而后者则是JDI的一个完整实现。
 
 JAVA Debug 和 JSR-45
 
@@ -255,7 +275,7 @@ JSP 编译后产生的Hello_jsp.java 如下:
   
 Hello_jsp.java: 1 package org.apache.jsp; 2 3 import javax.servlet.\*; 4 import javax.servlet.http.\*; 5 import javax.servlet.jsp.*; 6 7 public final class Hello_jsp extends org.apache.jasper.runtime.HttpJspBase 8 implements org.apache.jasper.runtime.JspSourceDependent { 9 10 private static java.util.Vector _jspx_dependants; 11 12 static { 13 _jspx_dependants = new java.util.Vector(1); 14 _jspx_dependants.add("/greeting.jsp"); 15 } 16 17 public java.util.List getDependants() { 18 return _jspx_dependants; 19 } 20 21 public void _jspService(HttpServletRequest request,
   
-HttpServletResponse response) 22 throws java.io.IOException, ServletException { 23 24 JspFactory _jspxFactory = null; 25 PageContext pageContext = null; 26 HttpSession session = null; 27 ServletContext application = null; 28 ServletConfig config = null; 29 JspWriter out = null; 30 Object page = this; 31 JspWriter_jspx_out = null; 32 33 34 try { 35 _jspxFactory = JspFactory.getDefaultFactory(); 36 response.setContentType("text/html"); 37 pageContext =_jspxFactory.getPageContext(this, request, response, 38 null, true, 8192, true); 39 application = pageContext.getServletContext(); 40 config = pageContext.getServletConfig(); 41 session = pageContext.getSession(); 42 out = pageContext.getOut(); 43 _jspx_out = out; 44 45 out.write(" rn"); 46 out.write(" rn"); 50 out.write(" rn"); 51 out.write("Hello There!"); 52 out.write("
+HttpServletResponse response) 22 throws java.io.IOException, ServletException { 23 24 JspFactory _jspxFactory = null; 25 PageContext pageContext = null; 26 HttpSession session = null; 27 ServletContext application = null; 28 ServletConfig config = null; 29 JspWriter out = null; 30 Object page = this; 31 JspWriter_jspx_out = null; 32 33 34 try { 35_jspxFactory = JspFactory.getDefaultFactory(); 36 response.setContentType("text/html"); 37 pageContext =_jspxFactory.getPageContext(this, request, response, 38 null, true, 8192, true); 39 application = pageContext.getServletContext(); 40 config = pageContext.getServletConfig(); 41 session = pageContext.getSession(); 42 out = pageContext.getOut(); 43_jspx_out = out; 44 45 out.write(" rn"); 46 out.write(" rn"); 50 out.write(" rn"); 51 out.write("Hello There!"); 52 out.write("
 
 rnGoodbye on "); 53 out.write(String.valueOf( new java.util.Date() )); 54 out.write(" rn"); 55 out.write(" rn"); 56 out.write("</body> rn"); 57 out.write("</html> rn"); 58 } catch (Throwable t) { 59 if (!(t instanceof javax.servlet.jsp.SkipPageException)){ 60 out = _jspx_out; 61 if (out != null && out.getBufferSize() != 0) 62 out.clearBuffer(); 63 if (pageContext != null) pageContext.handlePageException(t); 64 } 65 } finally { 66 if (_jspxFactory != null) _jspxFactory.releasePageContext ( pageContext); 67 } 68 } 69 }
   
@@ -292,3 +312,39 @@ greeting.jsp: 1 -> Hello_jsp.java: 51 52
 2 -> 53
 
 7#0:56 8:57(7#0表示 Hello.jsp 的第7行)
+
+## Java 调试器（JDB）
+
+Java™ 调试器 (JDB) 包含在 SDK 中。 该调试器通过 jdb 命令启动；它使用 JPDA 连接到 JVM。
+
+要调试 Java 应用程序：
+使用以下选项启动 JVM：
+java -agentlib:jdwp=transport=dt_shmem,server=y,address=<port> <class>
+
+JVM 启动，但在它启动 Java 应用程序之前将暂缓执行。
+您可以在单独的会话中将调试器连接到 JVM：
+jdb -attach <port>
+
+调试器将连接到 JVM，您现在可以发出一系列命令来检查和控制 Java 应用程序；例如，输入 run 可以启动 Java 应用程序。
+有关 JDB 选项的更多信息，请输入：
+jdb -help
+
+有关 JDB 命令的更多信息：
+输入 jdb
+在 jdb 提示符下，输入 help
+还可以使用 JDB 来调试远程工作站上运行的 Java 应用程序。JPDA 使用 TCP/IP 套接字连接到远程 JVM。
+使用以下选项启动 JVM：
+java -agentlib:jdwp=transport=dt_shmem,server=y,address=<port> <class>
+
+JVM 启动，但在它启动 Java 应用程序之前将暂缓执行。
+将调试器连接到远程 JVM：
+jdb -connect com.sun.jdi.SocketAttach:hostname=<host>,port=<port>
+
+Java 虚拟机调试接口（JVMDI）在此发行版中不受支持。已将它替换为 Java 虚拟机工具接口（JVMTI）。
+
+有关 JDB 和 JPDA 及其用法的更多信息，请参阅以下 Web 站点：
+<http://www.oracle.com/technetwork/java/javase/tech/jpda-141715.html>
+<https://docs.oracle.com/javase/7/docs/technotes/guides/jpda/>
+<https://docs.oracle.com/javase/7/docs/technotes/guides/jpda/jdb.html>
+
+<https://www.ibm.com/docs/zh/sdk-java-technology/7?topic=dja-java-debugger-jdb-1>

@@ -3,9 +3,8 @@ title: jcmd
 author: "-"
 date: 2017-02-06T04:58:07+00:00
 url: jcmd
-
 categories:
-  - inbox
+  - Java
 tags:
   - reprint
 ---
