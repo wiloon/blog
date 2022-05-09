@@ -4,7 +4,7 @@ author: "-"
 date: 2014-01-08T05:03:45+00:00
 url: /?p=6168
 categories:
-  - Uncategorized
+  - Inbox
 tags:
   - Aspect
   - Java

@@ -4,7 +4,7 @@ author: "-"
 date: 2014-03-09T02:56:05+00:00
 url: /?p=6383
 categories:
-  - Uncategorized
+  - Inbox
 tags:
   - JavaEE
 

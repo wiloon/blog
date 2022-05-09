@@ -4,7 +4,7 @@ author: "-"
 date: 2015-05-04T09:52:55+00:00
 url: /?p=7607
 categories:
-  - Uncategorized
+  - Inbox
 tags:
   - Linux
 

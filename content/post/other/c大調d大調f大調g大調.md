@@ -4,7 +4,7 @@ author: "-"
 date: 2015-05-02T11:06:06+00:00
 url: /?p=7572
 categories:
-  - Uncategorized
+  - Inbox
 tags:
   - Music
 

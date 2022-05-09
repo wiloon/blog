@@ -14,6 +14,7 @@ tags:
 ### 管理multiplexing
   
 #### 查看当前的状态
+
 ```bash
 ssh -O check machine1
 ssh -O check 192.168.50.169 -l root
@@ -22,12 +23,14 @@ ssh -O check 192.168.50.169 -l root
 ```
 
 ### 停止接受新的会话
+
 ```bash
 ssh -O stop machine1
 $ ssh -O stop root@47.91._._
   
 # Stop listening request sent.
 ```
+
 ### 退出所有会话
   
 ```bash
@@ -47,7 +50,7 @@ ControlPath   ~/.ssh/master-%r@%h:%p
 ControlPersist 10m
 ```
 
-http://schin.space/ops/OPS-openssh-multiplexing/
+<http://schin.space/ops/OPS-openssh-multiplexing/>
 
 很多使用类Unix的用户常常头疼的一个问题是，多次登录远程主机的时候，需要重复的输入密码，尤其在登录跳板机还要输入动态token的时候，开多个会话窗口是一件很繁琐的事情
 
@@ -57,16 +60,14 @@ multiplexing
 
 实现multiplexing后，无论打开多少个ssh会话窗口，netstat显示的ssh连接都只有第一次会话建立的连接
 
-#mac
-  
 $netstat -navp tcp | grep 22
   
 tcp4 0 0 192.168._._.60603 47.91._._.22 ESTABLISHED 131072 131768 79974 0
   
 $ps -ef|grep ssh|grep -v grep
-   
+
 501 79974 79973 0 8:34下午 ttys003 0:00.08 ssh root@47.91._._ -p 22
-   
+
 501 80150 80149 0 8:34下午 ttys004 0:00.01 ssh root@47.91._._ -p 22
   
 multiplexing的实现，显然减少了多重连接建立的开销，因为每台机器可接受的连接数有限，所以在跳板机这类应用中 (虽然很多公司的堡垒机不是单机应用) ，可显著的降低成本；而另一个好处是，对于客户端来讲，由于可以复用ssh连接，因此新的会话不需要重复建立TCP连接, 进行认证授权这一过程，克隆远程对话的成本与耗时都显著下降，从而提升了工作的效率
@@ -83,7 +84,7 @@ X11 and ssh-agent(1) forwarding is supported over these multiplexed connections,
 
 Two additional options allow for opportunistic multiplexing: try to use a master connection but fall back to creating a new one if one does not already exist. These options are: auto and autoask. The latter requires confirmation like the ask option.
 
-ControlMaster 用来管理是否启用multiplexing，有2个可选参数: auto与autoask，前者会在没有socket文件时自动创建一个，后者在开启新的会话时会要求输入密码
+ControlMaster 用来管理是否启用multiplexing，有2个可选参数: auto 与 autoask，前者会在没有 socket 文件时自动创建一个，后者在开启新的会话时会要求输入密码
 
 ControlPath Specify the path to the control socket used for connection sharing as described in the ControlMaster section above or the string none to disable connection sharing. Arguments to ControlPath may use the tilde syntax to refer to a user's home directory or the tokens described in the TOKENS section. It is recommended that any ControlPath used for opportunistic connection sharing include at least %h, %p, and %r (or alternatively %C) and be placed in a directory that is not writable by other users. This ensures that shared connections are uniquely identified.
 
@@ -134,4 +135,4 @@ $file ssh-root@47.91._._
 ssh-root@47.91._._: socket
   
 ### ssh agnet not working
-https://superuser.com/questions/840340/ssh-agent-forwarding-not-working-even-when-using-ssh-a
+<https://superuser.com/questions/840340/ssh-agent-forwarding-not-working-even-when-using-ssh-a>

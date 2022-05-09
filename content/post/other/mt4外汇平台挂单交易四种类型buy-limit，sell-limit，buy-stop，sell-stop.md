@@ -5,7 +5,6 @@ date: 2013-08-07T16:11:10+00:00
 url: /?p=5762
 categories:
   - Inbox
-
 tags:
   - reprint
 ---

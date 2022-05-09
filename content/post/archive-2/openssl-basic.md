@@ -4,8 +4,7 @@ author: "-"
 date: 2017-10-30T09:16:49+00:00
 url: openssl
 categories:
-  - Uncategorized
-
+  - Inbox
 tags:
   - reprint
 ---

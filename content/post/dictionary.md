@@ -123,4 +123,25 @@ KHTML拥有速度快捷的优点，但对错误语法的容忍度则比Mozilla�
 metadata: data that describes data
 
 ## SDL
+
 SDL (Simple DirectMedia Layer) 是一套开放源代码的跨平台多媒体开发库，使用C语言写成。SDL提供了数种控制图像、声音、输出入的函数，让开发者只要用相同或是相似的代码就可以开发出跨多个平台 (Linux、Windows、Mac OS X等) 的应用软件。目前SDL多用于开发游戏、模拟器、媒体播放器等多媒体应用领域。
+
+## SDL (Simple DirectMedia Layer)
+
+**SDL** (Simple DirectMedia Layer) 是一个用C语言编写的、跨平台的、免费和开源的多媒体程序库，它提供了一个简单的接口用于操作硬件平台的图形显示、声音、输入设备等。SDL库被广泛应用于各种操作系统 (如Linux、FreeBSD、Windows、Mac OS、iOS、Android等) 上的游戏开发、多媒体播放器、模拟器 (如QEMU) 等众多应用程序之中。尽管SDL是用C语言编写的，但是其他很多流行的编程语言 (如C++、C#、Java、Objective C、Lisp、Erlang、Pascal、Perl、Python、PHP、Ruby等等) 都提供了SDL库的绑定，在这些编程语言中都可以很方便的调用SDL的功能。
+
+在QEMU模拟器中的图形显示默认就是使用SDL的。当然，需要在编译qemu-kvm时需要配置SDL的支持，之后才能编译SDL功能到QEMU的命令行工具中，最后才能启动客户机时使用SDL的功能。在编译qemu-kvm的系统中，需要有SDL的开发包的支持，在RHEL6.3系统中需要安装SDL-devel这个RPM包。如果有SDL-devel软件包，在3.4.2节中配置QEMU时默认就会配置为提供SDL的支持，通过运行configure程序，在其输出信息中可以看到"SDL support   yes"即表明SDL支持将会被编译进去。当然，如果不想将SDL的支持编译进去，在配置qemu-kvm时加上"–disable-sdl"的参数即可，configure输出信息中会显示提示"SDL support   no"。
+
+debian install sdl
+
+open synaptic..... install libsdl1.2-dev
+
+## "cat"
+
+CAT (Central Application Tracking) 是一个实时和接近全量的监控系统，它侧重于对Java应用的监控，基本接入了美团上海侧所有核心应用。目前在中间件 (MVC、RPC、数据库、缓存等) 框架中得到广泛应用，为美团各业务线提供系统的性能指标、健康状况、监控告警等。
+
+<https://github.com/dianping/cat>
+
+## Seam Security
+
+Seam Security 中的验证特性是基于JAAS  (Java Authentication and Authorization Service) 开发的，它提供了用来进行用户身份认证的高度可配置的接口。然而，针对复杂多变的验证需求，Seam Security 提供了一套非常简单的验证方法来隐藏 JAAS的复杂性。

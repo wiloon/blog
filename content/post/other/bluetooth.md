@@ -4,8 +4,7 @@ author: "-"
 date: 2011-12-24T06:24:13+00:00
 url: bluetooth
 categories:
-  - Uncategorized
-
+  - Inbox
 tags:
   - reprint
 ---

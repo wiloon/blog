@@ -1,5 +1,5 @@
 ---
-title: awk
+title: awk command
 author: "-"
 date: 2012-07-05T04:54:22+00:00
 url: awk
@@ -9,7 +9,7 @@ tags:
   - reprint
   - remix
 ---
-## awk
+## awk command
 
 ## awk `[ɔk]`
 

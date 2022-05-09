@@ -4,8 +4,7 @@ author: "-"
 date: 2015-01-13T05:52:17+00:00
 url: thread-join
 categories:
-  - Uncategorized
-
+  - Inbox
 tags:
   - reprint
 ---

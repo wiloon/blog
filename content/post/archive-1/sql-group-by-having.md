@@ -4,15 +4,16 @@ author: "-"
 date: 2014-01-19T04:23:16+00:00
 url: /?p=6238
 categories:
-  - Uncategorized
+  - Inbox
 tags:
   - SQL
 
 ---
 ## 'sql group by   having'
-http://www.cnblogs.com/wang-123/archive/2012/01/05/2312676.html
 
--sql中的group by 用法解析: 
+<http://www.cnblogs.com/wang-123/archive/2012/01/05/2312676.html>
+
+-sql中的group by 用法解析:
   
 - Group By语句从英文的字面意义上理解就是"根据(by)一定的规则进行分组(Group)"。
   
@@ -60,7 +61,7 @@ select DepartmentID,DepartmentName from BasicDepartment group by DepartmentID
   
 -数据格中，那么完成这个步骤的就是聚合函数。这就是为什么这些函数叫聚合函数(aggregate functions)了
 
--group by all语法解析: 
+-group by all语法解析:
   
 -如果使用 ALL 关键字，那么查询结果将包括由 GROUP BY 子句产生的所有组，即使某些组没有符合搜索条件的行。
   
@@ -124,7 +125,7 @@ Insert into Table1 values(2,'女',19
   
 select COUNT(*)as '>20岁人数',classid  from Table1 where sex='男' group by classid,age having age>20
   
--需要注意说明: 当同时含有where子句、group by 子句 、having子句及聚集函数时，执行顺序如下: 
+-需要注意说明: 当同时含有where子句、group by 子句 、having子句及聚集函数时，执行顺序如下:
   
 -执行where子句查找符合条件的数据；
   
@@ -135,5 +136,3 @@ select COUNT(*)as '>20岁人数',classid  from Table1 where sex='男' group by c
 -having子句和where子句都可以用来设定限制条件以使查询结果满足一定的条件限制。
   
 -having子句限制的是组，而不是行。where子句中不能使用聚集函数，而having子句中可以。
-
-

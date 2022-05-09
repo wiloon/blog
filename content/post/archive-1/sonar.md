@@ -320,3 +320,6 @@ sonarQube示例地址: <http://nemo.sonarqube.org/>
 <http://blog.csdn.net/hunterno4/article/details/11687269>
 
 <http://zh.wikipedia.org/wiki/SonarQube>
+
+## sonar
+http://docs.sonarqube.org/display/SCAN/Analyzing+with+SonarQube+Scanner+for+Maven

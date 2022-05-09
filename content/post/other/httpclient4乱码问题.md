@@ -4,7 +4,7 @@ author: "-"
 date: 2014-05-26T09:16:52+00:00
 url: Meson
 categories:
-  - Uncategorized
+  - Inbox
 tags:
   - Java
 

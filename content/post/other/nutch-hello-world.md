@@ -4,7 +4,7 @@ author: "-"
 date: 2015-01-06T04:00:00+00:00
 url: /?p=7187
 categories:
-  - Uncategorized
+  - Inbox
 tags:
   - Crawler
   - Nutch

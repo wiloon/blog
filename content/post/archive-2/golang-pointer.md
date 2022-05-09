@@ -19,9 +19,11 @@ tags:
 Go 语言保留着C中值和指针的区别, 但是对于指针繁琐用法进行了大量的简化,引入引用的概念。所以在Go语言中,你几乎不用担心会因为直接操作内寸而引起各式各样的错误。Go语言的指针, 基本上只剩下用于区分 by ref 和 by val 语义。
 
 ## 指针地址和指针类型
+
 一个指针变量可以指向任何一个值的内存地址，它所指向的值的内存地址在 32 和 64 位机器上分别占用 4 或 8 个字节，占用字节的大小与所指向的值的大小无关。当一个指针被定义后没有分配到任何变量时，它的默认值为 nil。指针变量通常缩写为 ptr。
 
 每个变量在运行时都拥有一个地址，这个地址代表变量在内存中的位置。Go语言中使用在变量名前面添加&操作符 (前缀）来获取变量的内存地址 (取地址操作），格式如下：
+
 ```go
 ptr := &v    // v 的类型为 T
 ```
@@ -79,7 +81,7 @@ func PointerTest() {
 
 ```
 
-这段代码执行结果: 
+这段代码执行结果:
   
 ```
 i=1;p=0x4212f100;_p=1
@@ -88,6 +90,7 @@ i=3;p=0x4212f100;*p=3
 ```
 
 ### 函数的参数传递
+
 ```bash
 package main
 
@@ -117,7 +120,7 @@ func main() {
 }
 ```
   
-### 输出结果 
+### 输出结果
 
 ```
 1:1
@@ -132,11 +135,9 @@ func main() {
 
 传指针比较轻量级 (8 bytes), 只是传内存地址, 我们可以用指针传递体积大的结构体。如果用参数值传递的话, 在每次copy上面就会花费相对较多的系统开销 (内存和时间) 。所以当你要传递大的结构体的时候,用指针是一个明智的选择。
 
-Go语言中string,slice,map这三种类型的实现机制类似指针,所以可以直接传递,而不用取地址后传递指针。 (注: 若函数需改变slice的长度,则仍需要取地址传递指针) 
+Go语言中string,slice,map这三种类型的实现机制类似指针,所以可以直接传递,而不用取地址后传递指针。 (注: 若函数需改变slice的长度,则仍需要取地址传递指针)
 
 要访问指针 p 指向的结构体中某个元素 x,不需要显式地使用 * 运算,可以直接 p.x ；
-
- 
 
 一个稍微复杂的例子
 
@@ -176,7 +177,7 @@ fmt.Printf("Summary(content):%v\r\n",*s)
   
 }
 
-输出: 
+输出:
   
 Summary(address): 0x42131100
   
@@ -184,19 +185,12 @@ Summary(content): map[profession:[Java programmer Project Manager] interest(lang
   
 exit code 0, process exited normally.
   
-参考资料: 
+参考资料:
 
 使用Go语言一段时间的感受
 
-
-  
     使用Go语言一段时间的感受
   
-
-
-
-
-
 ### T的副本创建
 
     package main
@@ -238,6 +232,7 @@ exit code 0, process exited normally.
     }
 
 ### 打印对象地址
+
 ```go
 package main
 
@@ -263,16 +258,16 @@ func main() {
 
 ---
 
-http://blog.jobbole.com/14386/embed/#?secret=rAI8Jn2kEL
-http://my.oschina.net/nalan/blog/77373
-http://ilovers.sinaapp.com/drupal/node/33
-http://www.cnblogs.com/ghj1976/archive/2013/02/28/2936595.html
-https://colobu.com/2017/01/05/-T-or-T-it-s-a-question/
->http://c.biancheng.net/view/21.html
+<http://blog.jobbole.com/14386/embed/#?secret=rAI8Jn2kEL>
+<http://my.oschina.net/nalan/blog/77373>
+<http://ilovers.sinaapp.com/drupal/node/33>
+<http://www.cnblogs.com/ghj1976/archive/2013/02/28/2936595.html>
+<https://colobu.com/2017/01/05/-T-or-T-it-s-a-question/>
+><http://c.biancheng.net/view/21.html>
 
 ---
 
->https://shockerli.net/post/golang-faq-cannot-take-the-address/
+><https://shockerli.net/post/golang-faq-cannot-take-the-address/>
 
 先看代码
  1
@@ -423,7 +418,7 @@ func main() {
 ./main.go:34:8: cannot call pointer method on B literal
 ./main.go:34:8: cannot take the address of B literal
 问题总结
-假设 T 类型的方法上接收器既有 T 类型的，又有 *T 指针类型的，那么就不可以在不能寻址的 T 值上调用 *T 接收器的方法
+假设 T 类型的方法上接收器既有 T 类型的，又有 *T 指针类型的，那么就不可以在不能寻址的 T 值上调用*T 接收器的方法
 
 &B{} 是指针，可寻址
 B{} 是值，不可寻址
@@ -435,9 +430,9 @@ For an operand x of type T, the address operation &x generates a pointer of type
 
 对于类型为 T 的操作数 x，地址操作符 &x 将生成一个类型为 *T 的指针指向 x。操作数必须可寻址，即，变量、间接指针、切片索引操作，或可寻址结构体的字段选择器，或可寻址数组的数组索引操作。作为可寻址性要求的例外，x 也可为 (圆括号括起来的）复合字面量。如果对 x 的求值会引起运行时恐慌，那么对 &x 的求值也会引起恐慌。
 
-For an operand x of pointer type *T, the pointer indirection *x denotes the variable of type T pointed to by x. If x is nil, an attempt to evaluate *x will cause a run-time panic.
+For an operand x of pointer type *T, the pointer indirection*x denotes the variable of type T pointed to by x. If x is nil, an attempt to evaluate *x will cause a run-time panic.
 
-对于指针类型为 *T 的操作数 x，间接指针 *x 表示类型为 T 的值指向 x。若 x 为 nil，尝试求值 *x 将会引发运行时恐慌。
+对于指针类型为 *T 的操作数 x，间接指针*x 表示类型为 T 的值指向 x。若 x 为 nil，尝试求值 *x 将会引发运行时恐慌。
 
 以下几种是可寻址的：
 
@@ -497,6 +492,6 @@ go addressable 详解
 许可协议 CC BY-NC-ND 4.0
  (如需转载，请在评论区留言您的博客地址或公众号名称等，留言后可无需等待确认）
 
-原文链接 https://shockerli.net/post/golang-faq-cannot-take-the-address/
+原文链接 <https://shockerli.net/post/golang-faq-cannot-take-the-address/>
 
->https://shockerli.net/post/golang-faq-cannot-take-the-address/
+><https://shockerli.net/post/golang-faq-cannot-take-the-address/>

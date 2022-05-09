@@ -4,12 +4,12 @@ author: "-"
 date: 2018-01-18T09:05:15+00:00
 url: /?p=11755
 categories:
-  - Uncategorized
-
+  - Inbox
 tags:
   - reprint
 ---
 ## logstash
+
 /etc/logstash/conf.d/logstash.conf
 
 ```bash/usr/share/logstash/bin/logstash --path.settings=/root/tmp/logstash/

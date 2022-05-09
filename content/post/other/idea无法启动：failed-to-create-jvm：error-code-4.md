@@ -4,7 +4,7 @@ author: "-"
 date: 2014-12-10T01:49:51+00:00
 url: /?p=7107
 categories:
-  - Uncategorized
+  - Inbox
 tags:
   - IDEA
 

@@ -4,7 +4,7 @@ author: "-"
 date: 2013-01-20T13:54:30+00:00
 url: /?p=5055
 categories:
-  - Uncategorized
+  - Inbox
 tags:
   - JSP
 

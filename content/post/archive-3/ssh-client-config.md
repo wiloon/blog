@@ -9,7 +9,8 @@ tags:
   - reprint
 ---
 ## ssh config
->https://daemon369.github.io/ssh/2015/03/21/using-ssh-config-file
+
+<https://daemon369.github.io/ssh/2015/03/21/using-ssh-config-file>
 
 ```bash
 vim ~/.ssh/config
@@ -22,7 +23,7 @@ Host *
     User root # 默认用户
 ```
 
-#### 使用通配符 (wildcard)
+### 使用通配符 (wildcard)
 
 ```bash
 host 192.168.*
@@ -79,13 +80,9 @@ ClientAliveInterval 30
 ClientAliveCountMax 3
 ```
 
-
-
-
 #### Session Multiplexing
+
 <https://blog.wiloon.com/?p=16030>
-
-
 
 - ssh agent forward
 <https://blog.wiloon.com/?p=16034>
@@ -130,11 +127,9 @@ maxsessions
 
 同一地址的最大连接数,也就是同一个IP地址最大可以保持多少个链接
 
-https://blog.csdn.net/u014686399/java/article/details/84778292
+<https://blog.csdn.net/u014686399/java/article/details/84778292>
 
-
-
-SSH 参数配置有3个层次: 
+SSH 参数配置有3个层次:
 
 命令行参数，如-p 10086, -i /path/to/identity_file 等选项来设置SSH的端口号或认证证书位置
   
@@ -147,13 +142,13 @@ SSH 参数配置有3个层次:
 用户配置文件在 ~/.ssh/config, 没有的话新建一个
   
 Host 名称(自己决定，方便输入记忆的)
-      
+
 HostName 主机名
-      
+
 Port 22
-      
+
 User 登录的用户名
-      
+
 IdentityFile 证书文件路径
 
 Host
@@ -162,10 +157,10 @@ Host配置项标识了一个配置区段。
   
 ssh配置项参数值可以使用通配符: *代表0～n个非空白字符，?代表一个非空白字符，!表示例外通配。
   
-我们可以在系统配置文件中看到一个匹配所有host的默认配置区段: 
+我们可以在系统配置文件中看到一个匹配所有host的默认配置区段:
 
 ```bash
-$ cat /etc/ssh/ssh_config | grep '^Host'
+cat /etc/ssh/ssh_config | grep '^Host'
 ```
 
 Host *
@@ -191,11 +186,11 @@ man ssh_config
 两个SSH帐号，一个是github的，一个是其他服务器的，证书文件正如其名，那么可以这样写
 
 Host github.com
-      
+
 HostName github.com
-      
+
 User git
-      
+
 IdentityFile ~/.ssh/github
 
 注意，github的Host必须写成"github.com"。你可以会有其他要求，比如指定端口号、绑定本地端口，这些都可以通过man来查询，比如
@@ -241,10 +236,11 @@ chmod 600 authorized_keys
 PubkeyAuthentication yes
   
 ### PasswordAuthentication
+
 是否允许使用基于密码的认证。默认为"yes"。
   
 之后重启sshd服务
   
-https://vra.github.io/2017/07/09/ssh-config/
+<https://vra.github.io/2017/07/09/ssh-config/>
   
-http://www.lainme.com/doku.php/blog/2011/01/%E4%BD%BF%E7%94%A8ssh_config
+<http://www.lainme.com/doku.php/blog/2011/01/%E4%BD%BF%E7%94%A8ssh_config>

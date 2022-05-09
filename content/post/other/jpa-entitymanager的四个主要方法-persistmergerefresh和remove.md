@@ -4,7 +4,7 @@ author: "-"
 date: 2014-05-28T08:42:21+00:00
 url: /?p=6676
 categories:
-  - Uncategorized
+  - Inbox
 tags:
   - JPA
 

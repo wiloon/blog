@@ -4,7 +4,7 @@ author: "-"
 date: 2014-05-06T11:31:21+00:00
 url: /?p=6582
 categories:
-  - Uncategorized
+  - Inbox
 tags:
   - Servlet
 

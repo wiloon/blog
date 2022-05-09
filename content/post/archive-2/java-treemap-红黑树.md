@@ -4,8 +4,7 @@ author: "-"
 date: 2017-06-28T06:44:53+00:00
 url: red–black-tree
 categories:
-  - Uncategorized
-
+  - Inbox
 tags:
   - reprint
 ---

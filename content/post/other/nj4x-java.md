@@ -4,7 +4,7 @@ author: "-"
 date: 2015-05-31T14:47:40+00:00
 url: /?p=7734
 categories:
-  - Uncategorized
+  - Inbox
 tags:
   - MT4
 

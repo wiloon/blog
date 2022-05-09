@@ -4,7 +4,7 @@ author: "-"
 date: 2014-06-11T13:41:07+00:00
 url: /?p=6724
 categories:
-  - Uncategorized
+  - Inbox
 tags:
   - Java
 

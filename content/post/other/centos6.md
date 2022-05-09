@@ -4,8 +4,7 @@ author: "-"
 date: 2015-01-18T03:38:49+00:00
 url: centos6
 categories:
-  - Uncategorized
-
+  - Inbox
 tags:
   - reprint
 ---

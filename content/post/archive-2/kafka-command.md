@@ -82,7 +82,7 @@ bin/kafka-topics.sh --list --bootstrap-server 192.168.50.169:9092
 bin/kafka-topics.sh --list --zookeeper localhost:2181
 ```
 
-### 查看topic详细信息, 如: 分区数, replication
+### 查看topic 详细信息, 如: 分区数, replication
 
 ```bash
 # kafka 3.0.0
@@ -101,7 +101,8 @@ topic名中有. 或 _会提示:  WARNING: Due to limitations in metric names, to
 
 ```bash
 # kafka 3.0.0
-bin/kafka-topics.sh --create --partitions 3 --replication-factor 3 --topic topic0 --bootstrap-server 192.168.50.169:9092
+# 个人习惯, topic 名字用下划线分隔, 鼠标双击能选中...
+bin/kafka-topics.sh --create --partitions 3 --replication-factor 3 --topic topic_0 --bootstrap-server 192.168.50.169:9092
 
 # cloudera kafka
 /opt/cloudera/parcels/KAFKA/bin/kafka-topics --create \

@@ -43,7 +43,7 @@ fi
 
 ```
 
-## read
+## read, 读取标准输入， 接收标准输入
 
 read命令接收标准输入（键盘）的输入，或者其他文件描述符的输入。在得到输入之后，read命令把输入数据放入一个标准变量中。下面是read命令的基本形式:
 
@@ -51,7 +51,7 @@ read命令接收标准输入（键盘）的输入，或者其他文件描述符�
 # !/bin/bash                                 # 指定shell类型
 
 echo -n "Enter your name:"                   # 参数 -n 的作用是不换行，echo 默认换行
-read  name                                   # 把键盘输入放入变量name
+read  name                                   # 把键盘输入保存到变量 name
 echo "hello $name,welcome to my program"     # 显示输入信息
 exit 0                                       # 返回一个零退出状态，退出shell程序
 ```

@@ -4,8 +4,7 @@ author: "-"
 date: 2012-06-24T08:54:21+00:00
 url: pki
 categories:
-  - Uncategorized
-
+  - Inbox
 tags:
   - reprint
 ---

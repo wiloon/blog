@@ -31,7 +31,7 @@ systemctl --now enable service0
 ### 查看配置文件位置
 
 ```bash
-    systemctl status service0
+systemctl status service0
 ```
 
 配置文件主要放在/usr/lib/systemd/system 目录,也可能在/etc/systemd/system目录
@@ -74,7 +74,7 @@ EnvironmentFile: 指定文件，可定义多个环境变量，按分行方式存
 
 ### Environment, 环境变量
 
-```
+```f
 [Service]
 Environment="GODEBUG='gctrace=1'"
 Environment="ANOTHER_SECRET=JP8YLOc2bsNlrGuD6LVTq7L36obpjzxd"
@@ -95,12 +95,14 @@ Environment="ANOTHER_SECRET=JP8YLOc2bsNlrGuD6LVTq7L36obpjzxd"
     # 显示指定服务的启动流
     $ systemd-analyze critical-chain atd.service
 
-## systemd 版本
+## systemd 版本/version
 
+```bash
     systemctl --version
 
     # 生成一张启动详细信息矢量图, .svg可以用chrome打开
     sudo systemd-analyze plot > /home/wiloon/tmp/boot3.svg
+```
 
 ### hostnamectl, 查看主机信息, 查看主机名, 查看机器名, 查 hostname
 
@@ -185,6 +187,7 @@ systemctl hybrid-sleep
 systemctl
 systemctl list-unit-files | grep enabled
 
+# 查看是否启用
 systemctl is-enabled SERVICE
 
 显示所有已启动的服务
@@ -221,7 +224,7 @@ systemctl status service0 -l
 
 ```
 
-><http://www.ruanyifeng.com/blog/2016/03/systemd-tutorial-commands.html>
+<http://www.ruanyifeng.com/blog/2016/03/systemd-tutorial-commands.html>
 
 ### Unit
 

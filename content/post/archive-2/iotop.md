@@ -4,7 +4,7 @@ author: "-"
 date: 2016-04-17T06:29:45+00:00
 url: iotop
 categories:
-  - IO
+  - Inbox
 tags:
   - reprint
 ---

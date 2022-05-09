@@ -156,7 +156,7 @@ h, _ := time.ParseDuration("-1h")
 start := time.Now().Add(h)
 ```
 
-https://github.com/jemygraw/TechDoc/blob/master/Go%E7%A4%BA%E4%BE%8B%E5%AD%A6/Go%20%E6%97%B6%E9%97%B4%E6%A0%BC%E5%BC%8F%E5%8C%96%E5%92%8C%E8%A7%A3%E6%9E%90.markdown
+<https://github.com/jemygraw/TechDoc/blob/master/Go%E7%A4%BA%E4%BE%8B%E5%AD%A6/Go%20%E6%97%B6%E9%97%B4%E6%A0%BC%E5%BC%8F%E5%8C%96%E5%92%8C%E8%A7%A3%E6%9E%90.markdown>
 
 Go 时间格式化和解析
 
@@ -255,32 +255,14 @@ func msToTime(ms string) (time.Time, error) {
 
 ```
 
-### RFC3339
-
-RFC3339 比 ISO 8601 有一个很一个明显的限制,这里提一下: ISO允许24点,而 RFC3339 为了减少混淆,限制小时必须在0至23之间。23:59过1分钟,是第二天的0:00。
-标准时间
-本地时间只包括当前的时间,不包含任何时区信息。同一时刻,东八区的本地时间比零时区的本地时间快了8个小时。在不同时区之间交换时间数据,除了用纯数字的时间戳,还有一种更方便人类阅读的表示方式: 标准时间的偏移量表示方法。
-
-RFC3339详细定义了互联网上日期/时间的偏移量表示:
-
-2017-12-08T00:00:00.00Z
-这个代表了UTC时间的2017年12月08日零时
-
-2017-12-08T00:08:00.00+08:00
-这个代表了同一时刻的,东八区北京时间 (CST) 表示的方法
-
-上面两个时间的时间戳是等价的。两个的区别,就是在本地时间后面增加了时区信息。Z表示零时区。+08:00表示UTC时间增加8小时。
-
-这种表示方式容易让人疑惑的点是从标准时间换算UTC时间。以CST转换UTC为例,没有看文档的情况下,根据 +08:00 的结尾,很容易根据直觉在本地时间再加上8小时。正确的计算方法是本地时间减去多增加的8小时。+08:00减去8小时才是UTC时间,-08:00加上8小时才是UTC时间。
-
-https://blog.csdn.net/CodyGuo/article/details/53009451
+<https://blog.csdn.net/CodyGuo/article/details/53009451>
   
-https://www.kancloud.cn/itfanr/go-by-example/81698
+<https://www.kancloud.cn/itfanr/go-by-example/81698>
   
-https://yourbasic.org/golang/days-between-dates/
+<https://yourbasic.org/golang/days-between-dates/>
   
-https://programming.guide/go/format-parse-string-time-date-example.html
+<https://programming.guide/go/format-parse-string-time-date-example.html>
   
-https://www.jianshu.com/p/92d9344425a7
+<https://www.jianshu.com/p/92d9344425a7>
 
-https://zhuanlan.zhihu.com/p/31829454
+<https://zhuanlan.zhihu.com/p/31829454>

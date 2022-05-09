@@ -4,7 +4,7 @@ author: "-"
 date: 2014-02-21T08:28:19+00:00
 url: /?p=6274
 categories:
-  - Uncategorized
+  - Inbox
 tags:
   - JavaScript
   - Json

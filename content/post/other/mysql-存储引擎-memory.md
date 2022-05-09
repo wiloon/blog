@@ -4,7 +4,7 @@ author: "-"
 date: 2015-06-28T06:19:57+00:00
 url: /?p=7947
 categories:
-  - Uncategorized
+  - Inbox
 tags:
   - MySQL
 

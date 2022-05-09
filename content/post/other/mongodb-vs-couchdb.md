@@ -4,7 +4,7 @@ author: "-"
 date: 2014-02-19T05:54:45+00:00
 url: /?p=6257
 categories:
-  - Uncategorized
+  - Inbox
 tags:
   - MongoDB
   - NoSQL

@@ -10,11 +10,11 @@ tags:
 ---
 ## redis list
 
-在Redis中,List类型是按照插入顺序排序的字符串链表。和数据结构中的普通链表一样,我们可以在其头部(left)和尾部(right)添加新的元素。在插入时,如果该键并不存在,Redis将为该键创建一个新的链表。与此相反,如果链表中所有的元素均被移除,那么该键也将会被从数据库中删除。List中可以包含的最大元素数量是4294967295。
+在Redis中, List 类型是按照插入顺序排序的字符串链表。和数据结构中的普通链表一样,我们可以在其头部(left)和尾部(right)添加新的元素。在插入时,如果该键并不存在,Redis将为该键创建一个新的链表。与此相反,如果链表中所有的元素均被移除,那么该键也将会被从数据库中删除。List中可以包含的最大元素数量是4294967295。
   
 从元素插入和删除的效率视角来看,如果我们是在链表的两头插入或删除元素,这将会是非常高效的操作,即使链表中已经存储了百万条记录,该操作也可以在常量时间内完成。然而需要说明的是,如果元素插入或删除操作是作用于链表中间,那将会是非常低效的。
 
-Redis的列表经常被用作队列(queue),用于在不同程序之间有序地交换消息(message)。
+Redis 的列表经常被用作队列(queue),用于在不同程序之间有序地交换消息(message)。
   
 一个程序(称之为生产者,producer)通过LPUSH命令将消息放入队列中,而另一个程序(称之为消费者,consumer)通过RPOP命令取出队列中等待时间最长的消息。
 
@@ -36,39 +36,61 @@ Redis的列表经常被用作队列(queue),用于在不同程序之间有序地�
   
 一个列表最多可以包含 232 – 1 个元素 (4294967295, 每个列表超过40亿个元素)。
 
-### 相关命令列表: 
+### 相关命令
+
 ### LPUSH
+
     LPUSH key value1 [value2]
     将一个或多个值插入到列表头部
 
 ### RPUSH
+
     RPUSH key value1 [value2]
     将一个或多个值value插入到列表key的表尾。
+
 ### LPOP key
 
-### RPOP
+移出并获取列表的第一个元素
+
+### RPOP key
+
     RPOP key
     移除列表的最后一个元素,返回值为移除的元素。
+
 ### LLEN key
+
+获取列表长度
 
 ### LRANGE key start stop
 
 ### LTRIM key start stop
+
 对一个列表进行修剪(trim),就是说,让列表只保留指定区间内的元素,不在指定区间之内的元素都将被删除。
+
 ### BLPOP
+
     BLPOP key1 [key2 ] timeout
     移出并获取列表的第一个元素, 如果列表没有元素会阻塞列表直到等待超时或发现可弹出元素为止。
+
 ### BRPOP key1 [key2 ] timeout
+
 移出并获取列表的最后一个元素, 如果列表没有元素会阻塞列表直到等待超时或发现可弹出元素为止。
+
 ### BRPOPLPUSH source destination timeout
+
 从列表中弹出一个值,将弹出的元素插入到另外一个列表中并返回它； 如果列表没有元素会阻塞列表直到等待超时或发现可弹出元素为止。
+
 ### RPOPLPUSH source destination
+
 移除列表的最后一个元素,并将该元素添加到另一个列表并返回
+
 ### LINDEX key index
+
 ### LINSERT key BEFORE|AFTER pivot value
+
 ### LPUSHX key value
-    c将值value插入到列表key的表头,当且仅当key存在并且是一个列表。
-    和LPUSH命令相反,当key不存在时,LPUSHX命令什么也不做。
+
+将值value插入到列表key的表头,当且仅当key存在并且是一个列表。    和LPUSH命令相反,当key不存在时,LPUSHX命令什么也不做。
 
 RPUSHX key value
 
@@ -84,11 +106,11 @@ BRPOP key1 [key2 …] timeout
   
 关于阻塞操作的更多信息,请查看BLPOP命令,BRPOP除了弹出元素的位置和BLPOP不同之外,其他表现一致。
 
-时间复杂度: 
+时间复杂度:
   
 O(1)
   
-返回值: 
+返回值:
   
 假如在指定时间内没有任何元素被弹出,则返回一个nil和等待时长。
   
@@ -140,7 +162,7 @@ O(S+N)
 
 ### LPOPkey
 
-从list的头部删除元素,并返回删除元素: 
+从list的头部删除元素,并返回删除元素:
 
 返回链表头部的元素。
   
@@ -150,7 +172,7 @@ O(1)
 
 ### LLEN key
 
-返回key对应list的长度: 
+返回key对应list的长度:
 
 返回链表中元素的数量。
   
@@ -159,6 +181,7 @@ O(1)
 返回指定Key关联的链表中元素的数量,如果该Key不存在,则返回0。如果与该Key关联的Value的类型不是链表,则返回相关的错误信息。
 
 ### LREM key count value
+
 从key对应list中删除count个和value相同的元素。
 
 count>0时,按从头到尾的顺序删除
@@ -175,7 +198,7 @@ O(N)
 
 ### LSETkey index value
 
-设置list中指定下标的元素值(下标从0开始): 
+设置list中指定下标的元素值(下标从0开始):
   
 O(N)
   
@@ -183,7 +206,7 @@ O(N)
 
 ### LINDEX key index
 
-返回名称为key的list中index位置的元素: 
+返回名称为key的list中index位置的元素:
   
 O(N)
   
@@ -193,7 +216,7 @@ O(N)
 
 ### LLTRIM key start stop
 
-保留指定key 的值范围内的数据: 
+保留指定key 的值范围内的数据:
   
 O(N)
   
@@ -211,7 +234,7 @@ O(N)
 
 RPOPLPUSH source destination
   
-从第一个list的尾部移除元素并添加到第二个list的头部,最后返回被移除的元素值,整个操作是原子的.如果第一个list是空或者不存在返回nil: 
+从第一个list的尾部移除元素并添加到第二个list的头部,最后返回被移除的元素值,整个操作是原子的.如果第一个list是空或者不存在返回nil:
   
 O(1)
   
@@ -219,7 +242,7 @@ O(1)
   
 返回弹出和插入的元素。
   
-命令RPOPLPUSH在一个原子时间内,执行以下两个动作: 
+命令RPOPLPUSH在一个原子时间内,执行以下两个动作:
 
 将列表source中的最后一个元素(尾元素)弹出,并返回给客户端。
   
@@ -233,7 +256,7 @@ O(1)
 
 RPUSH key value [value …]
   
-在key对应list的尾部添加字符串元素: 
+在key对应list的尾部添加字符串元素:
   
 返回插入后链表中元素的数量。
   
@@ -247,7 +270,7 @@ O(1)
 
 RPOP key
   
-从list的尾部删除元素,并返回删除元素: 
+从list的尾部删除元素,并返回删除元素:
   
 O(1)
   
@@ -255,7 +278,7 @@ O(1)
   
 链表尾部的元素。
 
-三、命令示例: 
+三、命令示例:
 
   1. LPUSH/LPUSHX/LRANGE:
   
@@ -316,6 +339,7 @@ O(1)
     redis 127.0.0.1:6379> lrange mykey 0 0
   
     1) "e" 
+
   2. LPOP/LLEN:
   
     redis 127.0.0.1:6379> lpush mykey a b c d
@@ -558,28 +582,27 @@ O(1)
   
     4) "c"
 
-四、链表结构的小技巧: 
+四、链表结构的小技巧:
 
 针对链表结构的Value,Redis在其官方文档中给出了一些实用技巧,如RPOPLPUSH命令,下面给出具体的解释。
   
 Redis链表经常会被用于消息队列的服务,以完成多程序之间的消息交换。假设一个应用程序正在执行LPUSH操作向链表中添加新的元素,我们通常将这样的程序称之为"生产者(Producer)",而另外一个应用程序正在执行RPOP操作从链表中取出元素,我们称这样的程序为"消费者(Consumer)"。如果此时,消费者程序在取出消息元素后立刻崩溃,由于该消息已经被取出且没有被正常处理,那么我们就可以认为该消息已经丢失,由此可能会导致业务数据丢失,或业务状态的不一致等现象的发生。然而通过使用RPOPLPUSH命令,消费者程序在从主消息队列中取出消息之后再将其插入到备份队列中,直到消费者程序完成正常的处理逻辑后再将该消息从备份队列中删除。同时我们还可以提供一个守护进程,当发现备份队列中的消息过期时,可以重新将其再放回到主消息队列中,以便其它的消费者程序继续处理。
 
 内部编码
-列表类型的 内部编码 有两种: 
+列表类型的 内部编码 有两种:
 
-2.1. ziplist (压缩列表) 
+2.1. ziplist (压缩列表)
 当列表的元素个数 小于 list-max-ziplist-entries 配置 (默认 512 个) ,同时列表中 每个元素 的值都 小于  list-max-ziplist-value 配置时 (默认 64 字节) ,Redis 会选用 ziplist 来作为 列表 的 内部实现 来减少内存的使用。
- linkedlist (链表) 
+ linkedlist (链表)
 当 列表类型 无法满足 ziplist 的条件时, Redis 会使用 linkedlist 作为 列表 的 内部实现。
 
 Redis3.2 版本提供了 quicklist 内部编码,简单地说它是以一个 ziplist 为 节点 的 linkedlist,它结合了 ziplist 和 linkedlist 两者的优势,为 列表类型 提供了一种更为优秀的 内部编码 实现,它的设计原理可以参考 Redis 的另一个作者 Matt Stancliff 的博客 redis-quicklist。
 
-
 作者: 零壹技术栈
-链接: https://juejin.cn/post/6844903696120152071
+链接: <https://juejin.cn/post/6844903696120152071>
 来源: 掘金
 著作权归作者所有。商业转载请联系作者获得授权,非商业转载请注明出处。
 
-http://www.cnblogs.com/stephen-liu74/archive/2012/02/14/2351859.html
+<http://www.cnblogs.com/stephen-liu74/archive/2012/02/14/2351859.html>
 
-http://tech.it168.com/a2011/0926/1251/000001251881_1.shtml
+<http://tech.it168.com/a2011/0926/1251/000001251881_1.shtml>

@@ -4,8 +4,7 @@ author: "-"
 date: 2019-03-16T09:52:21+00:00
 url: ansible
 categories:
-  - Uncategorized
-
+  - Inbox
 tags:
   - reprint
 ---

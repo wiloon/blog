@@ -4,7 +4,7 @@ author: "-"
 date: 2011-10-19T07:10:57+00:00
 url: /?p=1192
 categories:
-  - Uncategorized
+  - Inbox
 tags:
   - Nexus
 

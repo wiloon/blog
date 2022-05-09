@@ -4,8 +4,7 @@ author: "-"
 date: 2015-01-29T16:01:21+00:00
 url: Conway
 categories:
-  - Uncategorized
-
+  - Inbox
 tags:
   - reprint
 ---

@@ -4,8 +4,7 @@ author: "-"
 date: 2018-08-26T10:32:10+00:00
 url: rclone
 categories:
-  - Uncategorized
-
+  - Inbox
 tags:
   - reprint
 ---

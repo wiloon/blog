@@ -4,7 +4,7 @@ author: "-"
 date: 2012-04-28T02:15:43+00:00
 url: /?p=3042
 categories:
-  - Uncategorized
+  - Inbox
 tags:
   - Fitnesse
 

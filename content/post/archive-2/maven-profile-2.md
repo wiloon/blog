@@ -4,7 +4,7 @@ author: "-"
 date: 2016-01-06T03:01:01+00:00
 url: /?p=8651
 categories:
-  - Uncategorized
+  - Inbox
 tags:
   - Maven
 

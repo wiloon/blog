@@ -83,7 +83,7 @@ export PATH
 
 所以从这一点上,我们可以推断/etc/profile在登陆期间 (例如使用login命令) 会被所有的shell读取。/etc/profile调用id命令来读取用户ID,而不是使用更高效的Bash内置变量${UID}。Bash使用特定来源的配置,而不是定义一个花哨的shell提示符,因为Bash支持反斜杠转义的特殊字符,例如\u(用户名) 和 \h (主机名) ,许多其他的shell都不支持这样定义。/etc/profile应该尝试和POSIX兼容,以便与用户可能自己安装的任何shell兼容。
 
-Debian GNU/linux通常预装Dash,Dash是一个仅仅旨在实现POSIX (和一些伯克利) 扩展的基本shell。如果我们修改/etc/profile (修改之前先备份) 让PS1='$ '这一行设置不同的值,然后模拟一个Dash登录 (通过dash -l命令) ,我们可以看到Dash会使用我们自定义的提示。但是,如果我们调用不带-l参数的dash命令,dash将不会读取/etc/profile。此时Dash会使用默认值 (这意味着此时PS1的值是我们修改之前的值) 。
+Debian GNU/linux通常预装Dash,Dash是一个仅仅旨在实现POSIX (和一些伯克利) 扩展的基本shell。如果我们修改 /etc/profile (修改之前先备份) 让PS1='$ '这一行设置不同的值,然后模拟一个Dash登录 (通过dash -l命令) , 我们可以看到Dash会使用我们自定义的提示。但是,如果我们调用不带-l参数的dash命令,dash将不会读取/etc/profile。此时Dash会使用默认值 (这意味着此时PS1的值是我们修改之前的值) 。
 
 换句话说,任何匹配/etc/profile.d/_.sh的可读内容都会被当作变量来源。这个非常重要,因为它表明直接编辑/etc/profile从来都不是实际需要的 (所以恢复你之前的备份) 。上面定义的任何变量都可以通过在一个单独的文件中配置,然后覆盖/etc/profile中的设置。这样做的好处是: 它允许系统升级时自动添加相应的变更到/etc/profile文件中。因为Debian的Apt包管理系统通常不会修改默认的配置文件。
 

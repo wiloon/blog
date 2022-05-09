@@ -4,8 +4,7 @@ author: "-"
 date: 2017-02-06T04:49:49+00:00
 url: /?p=9722
 categories:
-  - Uncategorized
-
+  - Inbox
 tags:
   - reprint
   - proxy

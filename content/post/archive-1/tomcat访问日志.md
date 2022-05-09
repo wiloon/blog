@@ -4,7 +4,7 @@ author: "-"
 date: 2014-01-10T06:12:27+00:00
 url: /?p=6194
 categories:
-  - Uncategorized
+  - Inbox
 tags:
   - Java
   - Tomcat

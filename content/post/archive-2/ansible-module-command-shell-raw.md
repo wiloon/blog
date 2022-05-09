@@ -2,14 +2,14 @@
 title: ansible module
 author: "-"
 date: 2016-11-18T06:28:45+00:00
-url: /?p=9403
+url: ansible/module
 categories:
-  - Uncategorized
-
+  - Inbox
 tags:
   - reprint
 ---
 ## ansible module
+
 ### local_action
 
 local_action 需要sudo密码
@@ -19,16 +19,19 @@ export ANSIBLE_ASK_SUDO_PASS=true
 --extra-vars "ansible_sudo_pass=xxx"
 ```
 
+```yml
 - name: "Create an empty directory (locally)"
   local_action:
     module: file
     path: "/tmp/empty"
     state: directory
   tags: tag0
+
 ```
 
 ### 批量删除文件
 
+```yml
   - name: Ansible delete file glob
     find:
       paths: /etc/Ansible
@@ -44,14 +47,14 @@ export ANSIBLE_ASK_SUDO_PASS=true
 
 ### lineinfile
 
-用于改变一个文件的一行。如果想要改变文件中相似的多行,可以使用replace模块
+用于改变一个文件的一行。如果想要改变文件中相似的多行,可以使用 replace模块
 
 ```bash
 ansible 192.168.x.x -m lineinfile -a "path=/etc/ssh/sshd_config line='xxx' state=present"
-
+ansible 192.168.x.x -m lineinfile -a 'path="/etc/filebeat/filebeat.yml" regexp="10\.xx\.0\.xx" line="  hosts: [\"xx.xx.0.xx:6379\"]"'
 ```
 
-http://www.jianshu.com/p/f400f600b17c
+<http://www.jianshu.com/p/f400f600b17c>
 
 这篇总结一下Inventory,变量,目标匹配,及/usr/bin/ansible 命令行常用的模块
 
@@ -167,9 +170,9 @@ MySQL-port: 3306
   
 下面总结下,ansible的patterns,ansible目标的匹配相对来说还是比较简单,单一的,不像salt很强大,grains,pillar,正则等等都可以用来匹配目标。
   
-基本格式: 
+基本格式:
 
-ansible <pattern_goes_here> -m <module_name> -a 
+ansible <pattern_goes_here> -m <module_name> -a
   
 匹配所有主机
 
@@ -645,4 +648,4 @@ lixc@ansible:~$ ansible salt-master -m setup >/dev/null
   
 lixc@ansible:~$
 
-原创作品,允许转载,转载时请务必以超链接形式标明文章 原始出处 、作者信息和本声明。否则将追究法律责任。http://lixcto.blog.51cto.com/4834175/1431659
+原创作品,允许转载,转载时请务必以超链接形式标明文章 原始出处 、作者信息和本声明。否则将追究法律责任。<http://lixcto.blog.51cto.com/4834175/1431659>

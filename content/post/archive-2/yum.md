@@ -4,7 +4,7 @@ author: "-"
 date: 2017-07-21T01:42:58+00:00
 url: yum
 categories:
-  - Uncategorized
+  - Inbox
 tags:
   - remix
 ---

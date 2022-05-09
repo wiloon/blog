@@ -4,8 +4,7 @@ author: "-"
 date: 2021-11-11T02:46:23+00:00
 url: Chubby
 categories:
-  - Uncategorized
-
+  - Inbox
 tags:
   - reprint
 ---

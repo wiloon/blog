@@ -4,8 +4,7 @@ author: "-"
 date: 2013-07-08T12:37:39+00:00
 url: Cloc
 categories:
-  - Uncategorized
-
+  - Inbox
 tags:
   - reprint
 ---

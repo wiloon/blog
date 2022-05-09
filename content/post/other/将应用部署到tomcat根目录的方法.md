@@ -11,17 +11,16 @@ tags:
 
 ---
 ## 将应用部署到Tomcat根目录的方法
-http://rongjih.blog.163.com/blog/static/335744612011426103345778/
 
-将应用部署到Tomcat根目录的目的是可以通过"http://[ip]:[port]"直接访问应用,而不是使用"http://[ip]:[port]/[appName]"上下文路径进行访问。
+<http://rongjih.blog.163.com/blog/static/335744612011426103345778/>
 
-  方法一:  (最简单直接的方法) 
+将应用部署到Tomcat根目录的目的是可以通过"<http://[ip>]:[port]"直接访问应用,而不是使用"<http://[ip>]:[port]/[appName]"上下文路径进行访问。
 
+  方法一:  (最简单直接的方法)
 
       删除原 webapps/ROOT 目录下的所有文件,将应用下的所有文件和文件夹复制到ROOT文件夹下。
 
-  方法二: 
-
+  方法二:
 
       删除原 webapps/ROOT 目录下的所有文件,修改文件"conf/server.xml",在Host节点下增加如下Context的内容配置: 
 
@@ -31,7 +30,7 @@ http://rongjih.blog.163.com/blog/static/335744612011426103345778/
     <Context path="" docBase="C:/apache-tomcat-6.0.32/myapps/bc.war"></Context>
 </Host>
 
-**注意: **
+**注意:**
 
       1) path 的值设置为空；
 
@@ -54,6 +53,5 @@ http://rongjih.blog.163.com/blog/static/335744612011426103345778/
     
           与方法二类似,但不是修改全局配置文件"conf/server.xml",而是在"conf/Catalina/localhost"目录下增加新的文件"ROOT.xml" (注意大小写哦) ,文件内容如下: 
   
-
 <?xml version="1.0" encoding="UTF-8"?>
 <Context path="" docBase="C:/apache-tomcat-6.0.32/myapps/bc.war"></Context>

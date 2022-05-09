@@ -4,7 +4,7 @@ author: "-"
 date: 2014-12-30T02:57:04+00:00
 url: /?p=7147
 categories:
-  - Uncategorized
+  - Inbox
 tags:
   - Gradle
 
