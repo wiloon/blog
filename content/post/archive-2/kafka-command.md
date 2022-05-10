@@ -4,7 +4,7 @@ author: "-"
 date: 2018-05-07T08:44:53.000+00:00
 url: "kafka"
 categories:
-  - inbox
+  - Kafka
 tags:
   - remix
   - command
@@ -50,25 +50,25 @@ bin/kafka-console-producer.sh \
 ### group
 
 ```bash
-    # list all group
-    bin/kafka-consumer-groups.sh \
-    --bootstrap-server kafka.wiloon.com:9092 --list
+# list all group
+bin/kafka-consumer-groups.sh \
+--bootstrap-server kafka.wiloon.com:9092 --list
 
-    # list group detail, offset
-    bin/kafka-consumer-groups.sh \
-    --bootstrap-server kafka.wiloon.com:9092 \
-    --describe \
-    --group my-group
+# list group detail, offset
+bin/kafka-consumer-groups.sh \
+--bootstrap-server kafka.wiloon.com:9092 \
+--describe \
+--group my-group
 
-    bin/kafka-consumer-groups.sh --bootstrap-server localhost:9092 \
-    --describe \
-    --group my-group
-    --members
+bin/kafka-consumer-groups.sh --bootstrap-server localhost:9092 \
+--describe \
+--group my-group
+--members
 
-    bin/kafka-consumer-groups.sh --bootstrap-server localhost:9092 \
-    --describe \
-    --group my-group
-    --state
+bin/kafka-consumer-groups.sh --bootstrap-server localhost:9092 \
+--describe \
+--group my-group
+--state
 ```
 
 ## topic
@@ -161,11 +161,15 @@ bin/kafka-consumer-groups.sh --bootstrap-server localhost:9092 \
 --to-datetime 2017-08-04T14:30:00.000
 ```
 
-### 查看kafka版本
+### 查看kafka版本, kafka version
 
-到kafka/libs 目录下查看kafka包的文件名,如:
+```bash
+# kafka 客户端的版本
+bin/kafka-topics.sh --version
 
-kafka_2.10-0.8.2-beta.jar, where 2.10 is Scala version and 0.8.2-beta is Kafka version.
+# 到kafka/libs 目录下查看kafka包的文件名, where 2.13 is Scala version and 3.1.0 is Kafka version.
+kafka_2.13-3.1.0.jar
+```
 
 ### config kafka server
 

@@ -29,7 +29,7 @@ CMD "/data/${APPLICATION_NAME}"
 
 ```
 
-```
+```bash
 FROM golang:1.12.4 AS build
 
 ENV GO111MODULE on

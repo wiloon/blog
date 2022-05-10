@@ -11,14 +11,18 @@ tags:
 ## samba
 
 ```bash
-#安装samba
+# archlinux 安装 samba
 sudo pacman -S samba
 
-#创建共享目录
-sudo mkdir /home/user0/share
+# centos install samba
+sudo yum install samba samba-client
+
 ```
 
 ```bash
+#创建共享目录
+sudo mkdir /home/user0/share
+
 # 创建 samba 用户，使用已有用户的话，可以跳过,pdbedit是samba的用户管理命令
 sudo useradd -m -s /bin/bash user0
 sudo pdbedit -a user0
@@ -57,3 +61,6 @@ file share url: \\hostname0\share0
 ```bash
 mount -t cifs //SERVER/sharename /mnt/mountpoint -o username=username,password=password,iocharset=utf8,vers=3.1.1
 ```
+
+
+<https://linuxize.com/post/how-to-install-and-configure-samba-on-centos-7/>

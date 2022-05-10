@@ -1,14 +1,15 @@
 ---
-title: Kafka文件存储机制
+title: Kafka 文件存储机制
 author: "-"
 date: 2019-05-10T06:51:16+00:00
 url: /?p=14317
 categories:
-  - Inbox
+  - Kafka
 tags:
   - reprint
 ---
 ## Kafka文件存储机制
+
 Kafka是什么
   
 Kafka是最初由Linkedin公司开发，是一个分布式、分区的、多副本的、多订阅者，基于zookeeper协调的分布式日志系统(也可以当做MQ系统)，常见可以用于web/nginx日志、访问日志，消息服务等等，Linkedin于2010年贡献给了Apache基金会并成为顶级开源项目。
@@ -21,7 +22,7 @@ Kafka是最初由Linkedin公司开发，是一个分布式、分区的、多副�
 
 2.Kafka文件存储机制
   
-Kafka部分名词解释如下: 
+Kafka部分名词解释如下:
 
 Broker: 消息中间件处理结点，一个Kafka节点就是一个broker，多个broker可以组成一个Kafka集群。
   
@@ -33,7 +34,7 @@ Segment: partition物理上由多个segment组成，下面2.2和2.3有详细说�
   
 offset: 每个partition都由一系列有序的、不可变的消息组成，这些消息被连续的追加到partition中。partition中的每个消息都有一个连续的序列号叫做offset,用于partition唯一标识一条消息.
   
-分析过程分为以下4个步骤: 
+分析过程分为以下4个步骤:
 
 topic中partition存储分布
   
@@ -49,7 +50,7 @@ partiton中segment文件存储结构
   
 假设实验环境中Kafka集群只有一个broker，xxx/message-folder为数据文件存储根目录，在Kafka broker中server.properties文件配置(参数log.dirs=xxx/message-folder)，例如创建2个topic名称分别为report_push、launch_info, partitions数量都为partitions=4
   
-存储路径和目录规则为: 
+存储路径和目录规则为:
 
 复制代码
   
@@ -63,7 +64,6 @@ xxx/message-folder
               |--launch_info-1
               |--launch_info-2
               |--launch_info-3
-    
 
 复制代码
 
@@ -78,7 +78,6 @@ xxx/message-folder
 image
 
                               图1
-    
 
 每个partion(目录)相当于一个巨型文件被平均分配到多个大小相等segment(段)数据文件中。但每个段segment file消息数量不一定相等，这种特性方便old segment file快速被删除。
   
@@ -94,32 +93,29 @@ segment file组成: 由2大部分组成，分别为index file和data file，此2
   
 segment文件命名规则: partion全局的第一个segment从0开始，后续每个segment文件名为上一个segment文件最后一条消息的offset值。数值最大为64位long大小，19位数字字符长度，没有数字用0填充。
   
-下面文件列表是笔者在Kafka broker上做的一个实验，创建一个topicXXX包含1 partition，设置每个segment大小为500MB,并启动producer向Kafka broker写入大量数据,如下图2所示segment文件列表形象说明了上述2个规则: 
+下面文件列表是笔者在Kafka broker上做的一个实验，创建一个topicXXX包含1 partition，设置每个segment大小为500MB,并启动producer向Kafka broker写入大量数据,如下图2所示segment文件列表形象说明了上述2个规则:
   
 image
 
             图2
-    
 
-以上述图2中一对segment file文件为例，说明segment中index<—->data file对应关系物理结构如下: 
+以上述图2中一对segment file文件为例，说明segment中index<—->data file对应关系物理结构如下:
   
 image
 
             图3
-    
 
 上述图3中索引文件存储大量元数据，数据文件存储大量消息，索引文件中元数据指向对应数据文件中message的物理偏移地址。
   
 其中以索引文件中元数据3,497为例，依次在数据文件中表示第3个message(在全局partiton表示第368772个message)、以及该消息的物理偏移地址为497。
 
-从上述图3了解到segment data file由许多message组成，下面详细说明message物理结构如下: 
+从上述图3了解到segment data file由许多message组成，下面详细说明message物理结构如下:
   
 image
 
            图4
-    
 
-参数说明: 
+参数说明:
   
 关键字 解释说明
   
@@ -157,7 +153,7 @@ value bytes payload 表示实际消息数据。
 
 3 Kafka文件存储机制–实际运行效果
   
-实验环境: 
+实验环境:
 
 Kafka集群: 由2台虚拟机组成
   
@@ -174,7 +170,6 @@ jvm heap: 4GB
 image
 
                               图5                                 
-    
 
 从上述图5可以看出，Kafka运行时很少有大量读磁盘的操作，主要是定期批量写磁盘操作，因此操作磁盘很高效。这跟Kafka文件存储中读写message的设计是息息相关的。Kafka中读写message有如下特点:
 
@@ -211,9 +206,9 @@ image
 from kafka import KafkaConsumer
 
 class KafkaStreamTest:
-      
+
 "'
-      
+
 This class consume all external Kafka topics"'
 
     def __init__(self):
@@ -239,16 +234,13 @@ This class consume all external Kafka topics"'
     
             # for debug
             print kafkaMsg.topic, kafkaMsg.partition, kafkaMsg.offset, kafkaMsg.key, kafkaMsg.value
-    
 
 if **name** =="**main**":
-      
+
 test = KafkaStreamTest()
-      
+
 test.start()
   
-
-
 enable_auto_commit (bool) – If True , the consumer's offset will be periodically committed in the background. Default: True设置为true，表示offset自动托管到kafka内部的一个特定名称为__consumer_offsets的topic
 
 auto_offset_reset: What to do when there is no initial offset in Kafka or if the current offset does not exist any more on the server (e.g. because that data has been deleted):
@@ -261,11 +253,11 @@ latest: automatically reset the offset to the latest offset
 
 其他详细内容请参看
 
-https://github.com/dpkp/kafka-python
+<https://github.com/dpkp/kafka-python>
 
-https://kafka-python.readthedocs.io/en/master/apidoc/KafkaConsumer.html
+<https://kafka-python.readthedocs.io/en/master/apidoc/KafkaConsumer.html>
 
-https://stackoverflow.com/questions/35432326/how-to-get-latest-offset-for-a-partition-for-a-kafka-topic
+<https://stackoverflow.com/questions/35432326/how-to-get-latest-offset-for-a-partition-for-a-kafka-topic>
 
 Kafka 如何读取offset topic内容 (__consumer_offsets)
   
@@ -316,11 +308,11 @@ from com.ericsson.analytics.oamf.client.logging import elogging
 from com.ericsson.analytics.fms.common.common import HDFSOperation
 
 class KafkaStreamTest:
-      
+
 "'
-      
+
 This class consume all external Kafka topics, store the data into Parquet and send the data to internal Kafka topics
-      
+
 "'
 
     def __init__(self):
@@ -448,12 +440,11 @@ This class consume all external Kafka topics, store the data into Parquet and se
         else:
             traceInfo = traceback.format_exc()
             elogging.error(self.appName, elogging.faultCID(), "Failed to create DStream " + traceInfo)
-    
 
 if **name** =="**main**":
-      
+
 test = KafkaStreamTest()
-      
+
 test.start()
   
 复制代码
@@ -478,6 +469,6 @@ Kafka把topic中一个parition大文件分成多个小文件段，通过多个�
   
 3.Kafka Offset Storage
 
-https://www.cnblogs.com/ITtangtang/p/8027217.html
+<https://www.cnblogs.com/ITtangtang/p/8027217.html>
   
-https://tech.meituan.com/2015/01/13/kafka-fs-design-theory.html
+<https://tech.meituan.com/2015/01/13/kafka-fs-design-theory.html>

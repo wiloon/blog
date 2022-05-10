@@ -4,11 +4,12 @@ author: "-"
 date: 2019-11-27T08:06:03+00:00
 url: /?p=15152
 categories:
-  - Inbox
+  - Kafka
 tags:
   - reprint
 ---
 ## kafka 分区数
+
 Kafka的分区数是不是越多越好？
   
 分区多的优点
@@ -19,7 +20,7 @@ kafka使用分区将topic的消息打散到多个分区分布保存在不同的b
 
 分区不是越多越好
   
-分区是否越多越好呢？显然也不是，因为每个分区都有自己的开销: 
+分区是否越多越好呢？显然也不是，因为每个分区都有自己的开销:
 
 一、客户端/服务器端需要使用的内存就越多
   
@@ -45,4 +46,4 @@ Kafka通过副本(replica)机制来保证高可用。具体做法就是为每个
   
 版权声明: 本文为CSDN博主「AlferWei」的原创文章，遵循 CC 4.0 BY-SA 版权协议，转载请附上原文出处链接及本声明。
   
-原文链接: https://blog.csdn.net/OiteBody/article/details/80595971
+原文链接: <https://blog.csdn.net/OiteBody/article/details/80595971>

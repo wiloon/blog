@@ -9,9 +9,10 @@ tags:
   - reprint
 ---
 ## nexus go proxy
+
 nexus: 3.21.1
 
-remote storage: https://goproxy.cn
+remote storage: <https://goproxy.cn>
   
 勾选 Use certificates stored in the Nexus truststore to connect to external system
   

@@ -3,24 +3,25 @@ title: systemd-networkd
 author: "-"
 date: 2017-02-28T09:08:28+00:00
 url: systemd-networkd
-
 categories:
   - inbox
 tags:
   - reprint
 ---
 ## systemd-networkd
+
 ### dhcp
+
 networkd内置了dhcp client。如果需要更新resolv.conf,则需要启动 systemd-resolved.service
 
 配置文件存放在 /usr/lib/systemd/network (上游提供的配置), /run/systemd/network (运行时配置), 以及 /etc/systemd/network (本地配置). 其中 /etc/systemd/network 有着最高的优先级.
 
-### 有三类配置文件:
+### 有三类配置文件
+
 - .link 文件: 当一个网络设备出现时, udev 会寻找第一个匹配到的 .link 文件.
 - .network 文件: 给匹配到的设备应用一个网络配置
 - .netdev 文件: 给匹配到的环境创建一个虚拟的网络设备
 
-  
 他们都遵循一些相同的规则:
 
 如果 [Match] 部分满足了条件, 在接下来的段落中的配置会被应用  
@@ -31,6 +32,7 @@ networkd内置了dhcp client。如果需要更新resolv.conf,则需要启动 sys
 相同名字的配置文件会相互替代
 
 ### .network 配置
+
     [Match]
     Name= 设备名 (比如Br0, enp4s0, 也可以用通配符, 比如 en*)
     Host= 匹配的 hostname
@@ -72,19 +74,24 @@ sudo systemctl start wpa_supplicant@wlp2s0
 
 
 ```
+
 ### DHCP
-# for eth0, vim  /etc/systemd/network/eth.network
+
+for eth0, vim  /etc/systemd/network/eth.network
+
     [Match]
     Name=en*
     [Network]
     DHCP=yes
 
 ### 配置静态 IP, 网关
+
 ```bash
 vim /etc/systemd/network/eth.network
 ```
 
-文件内容: 
+文件内容:
+
 ```bash
 [Match]
 Name=ens3
@@ -94,7 +101,9 @@ Address=192.168.50.10/24
 Gateway=192.168.50.1
 DNS=192.168.50.1
 ```
+
 ### 把网卡加入网桥 /etc/systemd/network/10-eth1.network
+
     [Match]
     Name=enp3s0
 
@@ -102,6 +111,7 @@ DNS=192.168.50.1
     Bridge=br0
 
 ### check network config
+
 ```bash
    networkctl status -a
 ```
@@ -114,7 +124,7 @@ DNS=192.168.50.1
 
 ---
 
-https://blog.felixc.at/2014/04/try-new-network-configuration-tool-systemd-networkd/  
-https://blog.felixc.at/2014/04/try-new-network-configuration-tool-systemd-networkd/embed/#?secret=GLctgxboIR   
-https://zhuanlan.zhihu.com/p/19770401  
-https://linux.cn/article-6629-1.html  
+<https://blog.felixc.at/2014/04/try-new-network-configuration-tool-systemd-networkd/>  
+<https://blog.felixc.at/2014/04/try-new-network-configuration-tool-systemd-networkd/embed/#?secret=GLctgxboIR>
+<https://zhuanlan.zhihu.com/p/19770401>  
+<https://linux.cn/article-6629-1.html>  

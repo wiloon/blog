@@ -4,7 +4,7 @@ author: "-"
 date: 2016-07-26T13:24:33+00:00
 url: kafka
 categories:
-  - Inbox
+  - Kafka
 tags:
   - reprint
   - kafka
@@ -75,7 +75,7 @@ broker存储topic的数据。如果某topic有N个partition,集群有N个broker,
 
 ### Partition
 
-Parition是物理上的概念,每个Topic包含一个或多个Partition.
+Parition 是物理上的概念,每个Topic包含一个或多个Partition.
 
 ### Producer
 
@@ -83,16 +83,16 @@ Parition是物理上的概念,每个Topic包含一个或多个Partition.
 
 ### Consumer
 
-消息消费者,向Kafka broker读取消息的客户端。
+消息消费者, 向Kafka broker读取消息的客户端。
 
 ### Consumer Group
 
-每个Consumer属于一个特定的Consumer Group (可为每个Consumer指定group name,若不指定group name则属于默认的group) 。
-消息系统有两类,一是广播,二是订阅发布。广播是把消息发送给所有的消费者；发布订阅是把消息只发送给订阅者。Kafka通过Consumer Group组合实现了这两种机制:  实现一个topic消息广播 (发给所有的consumer) 和单播 (发给任意一个consumer) 。一个topic可以有多个CG。
+每个Consumer 属于一个特定的 Consumer Group (可为每个Consumer指定group name,若不指定group name则属于默认的group) 。
+消息系统有两类, 一是广播, 二是订阅发布。广播是把消息发送给所有的消费者；发布订阅是把消息只发送给订阅者。Kafka通过Consumer Group组合实现了这两种机制:  实现一个topic消息广播 (发给所有的consumer) 和单播 (发给任意一个consumer) 。一个topic可以有多个Consumer Group.
 
 ### Leader
 
-每个partition有多个副本,其中有且仅有一个作为Leader,Leader是当前负责数据的读写的partition。
+每个partition 有多个副本,其中有且仅有一个作为Leader,Leader是当前负责数据的读写的partition。
 
 ### Follower
 
@@ -136,14 +136,14 @@ Consumer读消息也是从Leader读取,只有被commit过的消息 (offset低于
 
 ### kafka生产环境规划
 
-><https://juejin.cn/post/6844903713916583944>
-><https://juejin.cn/post/6844903700616445960>
+<https://juejin.cn/post/6844903713916583944>
+<https://juejin.cn/post/6844903700616445960>
 
 ### kraft
 
-><https://developer.confluent.io/learn/kraft/>
-><https://cwiki.apache.org/confluence/display/KAFKA/KIP-500%3A+Replace+ZooKeeper+with+a+Self-Managed+Metadata+Quorum>
-><https://issues.apache.org/jira/browse/KAFKA-9119>
+<https://developer.confluent.io/learn/kraft/>
+<https://cwiki.apache.org/confluence/display/KAFKA/KIP-500%3A+Replace+ZooKeeper+with+a+Self-Managed+Metadata+Quorum>
+<https://issues.apache.org/jira/browse/KAFKA-9119>
 
 <http://kafka.apache.org>
   

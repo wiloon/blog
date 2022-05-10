@@ -9,7 +9,9 @@ tags:
   - reprint
 ---
 ## linux kvm nat nftables
+
 ### nft command
+
 <https://blog.wiloon.com/nft>
 
 #### ip forward
@@ -17,6 +19,7 @@ tags:
 <https://blog.wiloon.com/?p=13701>
 
 ### 配置TAP
+
 <http://blog.wiloon.com/?p=13281>
 
 ```bash
@@ -41,6 +44,7 @@ nft list ruleset > /etc/nftables.conf
 ```
 
 [http://wiki.nftables.org/wiki-nftables/index.php/Performing_Network_Address_Translation_(NAT)][1]
+
 ```bash
 sudo brctl addbr br0
 sudo brctl show
@@ -60,7 +64,7 @@ sudo iptables -t nat -A POSTROUTING -o wlp3s0 -j MASQUERADE
 
 linux下brctl配置网桥
   
-http://zhumeng8337797.blog.163.com/blog/static/1007689142011643834429/
+<http://zhumeng8337797.blog.163.com/blog/static/1007689142011643834429/>
 
 先装好网卡,连上网线,这是废话,不用说了。
   
@@ -68,11 +72,11 @@ http://zhumeng8337797.blog.163.com/blog/static/1007689142011643834429/
 
 设置linux让网桥运行    配置网桥
   
-我们需要让linux知道网桥,首先告诉它,我们想要一个虚拟的以太网桥接口:  (这将在主机bridge上执行,不清楚的看看测试场景) 
+我们需要让linux知道网桥,首先告诉它,我们想要一个虚拟的以太网桥接口:  (这将在主机bridge上执行,不清楚的看看测试场景)
   
 root@bridge:~> brctl addbr br0
   
-其次,我们不需要STP(生成树协议)等。因为我们只有一个路由器,是绝对不可能形成一个环的。我们可以关闭这个功能。 (这样也可以减少网络环境的数据包污染) : 
+其次,我们不需要STP(生成树协议)等。因为我们只有一个路由器,是绝对不可能形成一个环的。我们可以关闭这个功能。 (这样也可以减少网络环境的数据包污染) :
   
 root@bridge:~> brctl stp br0 off
   
@@ -102,7 +106,7 @@ root@bridge:~> ifconfig eth1 0.0.0.0 up
   
 root@bridge:~> ifconfig br0 10.0.3.129
 
-或者把最后这两步合成一步: 
+或者把最后这两步合成一步:
   
 root@bridge:~> ifconfig br0 10.0.3.129 up
   
@@ -122,7 +126,7 @@ brctl delbr ena;
 
 ALinux网桥的实现分析与使用
   
-http://www.ibm.com/developerworks/cn/linux/kernel/l-netbr/index.html
+<http://www.ibm.com/developerworks/cn/linux/kernel/l-netbr/index.html>
   
 一、什么是桥接
 
@@ -198,15 +202,11 @@ http://www.ibm.com/developerworks/cn/linux/kernel/l-netbr/index.html
 
 # brctl addbr br0 ( 建立一个逻辑网段,名称为br0)
 
- 
-
 # brctl delbr br0
 
 实际上,我们可以把逻辑网段192.168.1.0/24 看作使一个VLAN ,而br0 则是这个VLAN 的名称。
 
 建立一个逻辑网段之后,我们还需要为这个网段分配特定的端口。在Linux 中,一个端口实际上就是一个物理网卡。而每个物理网卡的名称则分别为eth0 ,eth1 ,eth2 ,eth3 。我们需要把每个网卡一一和br0 这个网段联系起来,作为br0 中的一个端口。
-
- 
 
 # brctl addif br0 eth0       (让eth0 成为br0 的一个端口)
 
@@ -216,15 +216,9 @@ http://www.ibm.com/developerworks/cn/linux/kernel/l-netbr/index.html
 
 # brctl addif br0 eth3                ( 让eth3 成为br0 的一个端口)
 
- 
-
 # brctl delif br0 eth0
 
 网桥的每个物理网卡作为一个端口,运行于混杂模式,而且是在链路层工作,所以就不需要IP了。
-
- 
-
- 
 
 # ifconfig eth0 0.0.0.0
 
@@ -236,11 +230,9 @@ http://www.ibm.com/developerworks/cn/linux/kernel/l-netbr/index.html
 
 # ip addr add 127.0.0.1/8 dev lo brd +
 
- (ip 是iproute2 软件包里面的一个强大的网络配置工具,它能够替代一些传统的网络管理工具。例如: ifconfig 、route 等。这个手册将分章节介绍ip 命令及其选项。) 
+ (ip 是iproute2 软件包里面的一个强大的网络配置工具,它能够替代一些传统的网络管理工具。例如: ifconfig 、route 等。这个手册将分章节介绍ip 命令及其选项。)
   
 然后给br0 的虚拟网卡配置IP : 192.168.1.1 。那样就能远程管理网桥。
-
- 
 
 # ifconfig br0 192.168.1.1
 
@@ -270,10 +262,8 @@ http://www.ibm.com/developerworks/cn/linux/kernel/l-netbr/index.html
 
  ( 4 )  # brctl delbr br0
 
- 
+<http://blog.csdn.net/x_nazgul/article/details/20233237>
 
-http://blog.csdn.net/x_nazgul/article/details/20233237
-
-https://www.ibm.com/developerworks/community/blogs/5144904d-5d75-45ed-9d2b-cf1754ee936a/entry/%25e6%2589%258b%25e5%258a%25a8%25e5%2588%259b%25e5%25bb%25banat%25e7%25bd%2591%25e7%25bb%259c?lang=en
+<https://www.ibm.com/developerworks/community/blogs/5144904d-5d75-45ed-9d2b-cf1754ee936a/entry/%25e6%2589%258b%25e5%258a%25a8%25e5%2588%259b%25e5%25bb%25banat%25e7%25bd%2591%25e7%25bb%259c?lang=en>
 
  [1]: http://wiki.nftables.org/wiki-nftables/index.php/Performing_Network_Address_Translation_(NAT)
