@@ -2,14 +2,14 @@
 title: samba
 author: "-"
 date: 2012-02-13T11:45:25+00:00
-url: /?p=2304
+url: samba
 categories:
   - Linux
-
 tags:
   - reprint
 ---
 ## samba
+
 ```bash
 #安装samba
 sudo pacman -S samba
@@ -19,7 +19,7 @@ sudo mkdir /home/user0/share
 ```
 
 ```bash
-# 创建samba用户，使用已有用户的话，可以跳过,pdbedit是samba的用户管理命令
+# 创建 samba 用户，使用已有用户的话，可以跳过,pdbedit是samba的用户管理命令
 sudo useradd -m -s /bin/bash user0
 sudo pdbedit -a user0
 # set password for user，设置密码，使用系统现有的用户时，也要设置密码，samba可以跟linux系统共享用户名，但是密码是独立的。
