@@ -9,6 +9,7 @@ tags:
   - reprint
 ---
 ## cpu瓶颈分析
+
 ```bash
 #系统的平均负载
 uptime
@@ -20,11 +21,11 @@ pidstat
 stress
 ```
 
-  * stress <https://www.hi-linux.com/posts/59095.html>
+* stress <https://www.hi-linux.com/posts/59095.html>
   
-    https://www.infoq.cn/article/5jjIdOPx12RWWvGX_H9J?utm_source=rss&utm_medium=article
+    <https://www.infoq.cn/article/5jjIdOPx12RWWvGX_H9J?utm_source=rss&utm_medium=article>
   
-    http://9leg.com/java/2016/08/09/cpu-consumption-analysis.html
+    <http://9leg.com/java/2016/08/09/cpu-consumption-analysis.html>
 
 通常性能瓶颈的表现是资源消耗过多、外部处理系统的性能不足，或者资源消耗不多，但程序的响应速度却达不到要求。
 
@@ -37,6 +38,7 @@ stress
 在linux中，cpu主要用于中断、内核和用户进程的任务处理，优先级为中断>内核>用户进程，下面先讲述三个重要的概念。
 
 ### 上下文切换
+
 每个cpu (多核cpu中的每个cpu) 在同一时间只能执行一个线程，linux采用的是抢占式调度。为每个线程分配一定的执行时间， 当到达执行时间、线程中有io阻塞或高优先级的线程要执行时，linux将切换执行的线程，在切换时要存储目前的线程的执行状态， 并恢复要执行的线程的状态，这个过程就是上下文切换。对于java应用而言，典型的是在进行文件io操作、网络io操作、锁等待或者线程sleep时， 当前线程会进入阻塞或休眠状态，从而触发上下文切换，上下文切换过多会造成内核占据较多的cpu使用，从而使应用响应速度变慢。
 
 ### 运行队列
@@ -78,10 +80,10 @@ us过高
 java应用造成us过高的原因主要是线程一直处于可运行的状态Runnable，通常是这些线程在执行无阻塞、循环、正则或纯粹的计算等动作造成。 另外一个可能会造成us过高的原因是频繁的gc。如每次请求都需要分配较多内存，当访问量高时就导致不断的进行gc，系统响应速度下降， 进而造成堆积的请求更多，消耗的内存严重不足，最严重的时候会导致系统不断进行FullGC，对于频繁的gc需要通过分析jvm内存的消耗来查找原因。
 
 ### sy过高
+
 当sy值过高时，表示linux花费了更多的时间在进行线程切换。java应用造成这种现象的主要原因是启动的线程比较多， 且这些线程多处于不断的阻塞 (例如锁等待，io等待) 和执行状态的变化过程中，这就导致了操作系统要不断的切换执行的线程， 产生大量的上下文切换。在这种情况下，对java应用而言，最重要的是找出不断切换状态的原因， 可采用的方法为通过kill -3 pid 或jstack -l pid的方法dump出java应用程序的线程信息，查看线程的状态信息以及锁信息， 找出等待状态或锁竞争过多的线程。
 
 进程和线程的上下文切换都涉及进出系统内核和寄存器的保存和还原，这是它们的最大开销。但与进程的上下文切换相比，线程还是要轻量一些， 最大的区别是线程上下文切换时虚拟内存地址保持不变，所以像TLB等CPU缓存不会失效。但要注意的是另一份提问 What is the overhead of a context-switch?的中提到了: Intel和AMD在2008年引入的技术可能会使TLB不失效。
 
-
->http://itindex.net/detail/54482-netty-%E5%BC%80%E5%8F%91-%E4%B8%AD%E9%97%B4%E4%BB%B6 
->http://www.infoq.com/cn/articles/netty-high-performance
+><http://itindex.net/detail/54482-netty-%E5%BC%80%E5%8F%91-%E4%B8%AD%E9%97%B4%E4%BB%B6>
+><http://www.infoq.com/cn/articles/netty-high-performance>

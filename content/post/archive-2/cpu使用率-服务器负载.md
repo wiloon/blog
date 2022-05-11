@@ -1,5 +1,5 @@
 ---
-title: CPU使用率, 服务器负载
+title: CPU 使用率, 服务器负载
 author: "-"
 date: 2017-06-08T02:35:36+00:00
 url: /?p=10508
@@ -8,7 +8,7 @@ categories:
 tags:
   - reprint
 ---
-## CPU使用率, 服务器负载
+## CPU 使用率, 服务器负载
 
 <http://www.jianshu.com/p/e134b8498413>
 

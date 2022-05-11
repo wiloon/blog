@@ -12,7 +12,7 @@ tags:
 
 ### chrome os 多桌面
 
-    https://support.google.com/chromebook/answer/9594869?hl=en
+<https://support.google.com/chromebook/answer/9594869?hl=en>
 
 Drag windows and apps to your preferred desk.
 Or use shortcuts:
@@ -25,7 +25,9 @@ Crosh stands for “Chrome Shell,” and it lets you run commands that usually d
 
 #### 进入crosh环境
 
+```bash
     ctrl+t
+```
 
 #### 管理 linux 虚拟机
 
@@ -52,6 +54,7 @@ exit
     chrome://sys-internals/
 
 ### openvpn
+
 <https://docs.google.com/document/d/18TU22gueH5OKYHZVJ5nXuqHnk2GN6nDvfu2Hbrb4YLE/pub#h.bta4pj6t7nhs>
 
 your profile can not be used... ...
