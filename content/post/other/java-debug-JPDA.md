@@ -1,5 +1,5 @@
 ---
-title: 'JAVA 调试, JPDA'
+title: 'JAVA 调试, JPDA, Java Debug'
 author: "-"
 date: 2012-06-07T07:22:32+00:00
 url: java/remote/debugging
@@ -8,7 +8,7 @@ categories:
 tags:
   - reprint
 ---
-## JAVA 调试, JPDA
+## JAVA 调试, JPDA, Java Debug
 
 远程调试
 远程调试分为主动连接调试，和被动连接调试。这里以Eclipse为例。
@@ -348,3 +348,17 @@ Java 虚拟机调试接口（JVMDI）在此发行版中不受支持。已将它�
 <https://docs.oracle.com/javase/7/docs/technotes/guides/jpda/jdb.html>
 
 <https://www.ibm.com/docs/zh/sdk-java-technology/7?topic=dja-java-debugger-jdb-1>
+
+## Remote Debugging | Fitnesse with Eclipse
+
+In your Eclipse IDE
+
+1. Go to Run->Open Debug Dialog
+2. Right click on Remote Java Application option in the left hand menu tree and say new
+3. Add the sources to the configuration. These should be all your java projects.These are required so that while remotely debugging you can walk through your code
+4. Now your Eclipse configuration is done. Note that we have told eclipse to listen at port 1044 and have specified all the source files that it should use for code walkthrough.
+5. Make sure your Fitnesse is up and running.
+6. Now add the following line to the fixture that you want to debug:  **!define COMMAND_PATTERN {java -Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=y,address=1044 -cp %p %m}**
+7. Start the test in fitnesse
+8. Goto Eclipse, open Debug dialog, select the Remote java application that we just created and hit debug button.
+9. The debug view would now open at the first breakpoint.

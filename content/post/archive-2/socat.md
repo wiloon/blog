@@ -20,7 +20,7 @@ socat -v -v TCP-LISTEN:8000,crlf,reuseaddr,fork SYSTEM:"echo HTTP/1.0 200; echo 
 
 <https://stackoverflow.com/questions/29739901/socat-fake-http-server-use-a-file-as-server-response>
 
-## socat 测试 端口连通性
+## socat 测试 端口连通性, test a remote port is reachable with socat
 
 ```bash
 # test tcp port
@@ -56,12 +56,6 @@ socat TCP-LISTEN:3389,fork TCP:192.168.55.2:3389
 
 ```bash
     socat - tcp:[fd00::123]:12345 
-```
-
-### test a remote port is reachable with socat
-
-```bash
-    socat - TCP4:192.168.1.15:22,connect-timeout=2
 ```
 
 ### http echo server

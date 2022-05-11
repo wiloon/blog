@@ -3,7 +3,6 @@ title: ldd 查看程序依赖 动态链接库
 author: "-"
 date: 2019-04-05T14:05:40+00:00
 url: ldd
-
 categories:
   - Linux
 tags:
@@ -25,7 +24,6 @@ ldd /bin/pwd
         linux-vdso.so.1 =>  (0x00007ffeb73e5000)
         libc.so.6 => /lib64/libc.so.6 (0x00007f908b321000)
         /lib64/ld-linux-x86-64.so.2 (0x00007f908b6ef000)
-
 
 作用: 用来查看程式运行所需的共享库,常用来解决程式因缺少某个库文件而不能运行的一些问题。
   

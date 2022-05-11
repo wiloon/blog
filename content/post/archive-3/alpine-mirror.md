@@ -12,11 +12,13 @@ tags:
 
 ### alpine mirror
 
+```bash
     vi /etc/apk/repositories
   
-b. 将里面 dl-cdn.alpinelinux.org 的 改成 mirrors.aliyun.com ; 保存退出即可
+# b. 将里面 dl-cdn.alpinelinux.org 的 改成 mirrors.aliyun.com ; 保存退出即可
 
     sed -i 's/dl-cdn.alpinelinux.org/mirrors.aliyun.com/g' /etc/apk/repositories
+```
 
 ### alpine install telnet
 

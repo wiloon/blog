@@ -10,6 +10,11 @@ tags:
 ---
 ## ForkJoin
 
+ForkJoinPool适合执行计算密集型且可进行拆分任务并汇总结果(类似MapReduce)的任务，执行这种任务可以充分利用多核处理器优势提高任务处理速度，实际上ForkJoinPool内部的工作窃取队列的高性能(远高于普通线程池的BlockingQueue)也决定其适用于执行大量的简短的小任务。
+————————————————
+版权声明：本文为CSDN博主「heng_zou」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
+原文链接：<https://blog.csdn.net/heng_zou/article/details/118193846>
+
 什么是 Fork/Join 框架
 Fork/Join 框架是 Java7 提供的一个用于并行执行任务的框架(Fork/Join Framework)， 是一个把大任务分割成若干个小任务，最终汇总每个小任务结果后得到大任务结果的框架。
 
@@ -20,26 +25,26 @@ Fork/Join 框架是 Java7 提供的一个用于并行执行任务的框架(Fork/
 <http://blog.dyngr.com/blog/2016/09/15/java-forkjoinpool-internals/>
 
 ForkJoinPool 不是为了替代 ExecutorService, 而是它的补充, 在某些应用场景下性能比 ExecutorService 更好。 (见 Java Tip: When to use ForkJoinPool vs ExecutorService )
+
+<https://www.infoworld.com/article/2078440/java-tip-when-to-use-forkjoinpool-vs-executorservice.html>
   
-ForkJoinPool 主要用于实现"分而治之"的算法, 特别是分治之后递归调用的函数, 例如 quick sort 等。
+ForkJoinPool 主要用于实现"分而治之"的算法, 特别是分治之后递归调用的函数, 例如 quick sort 等。 [[quick-sort]]
 
-ForkJoinPool 最适合的是计算密集型的任务, 如果存在 I/O, 线程间同步, sleep() 等会造成线程长时间阻塞的情况时, 最好配合使用 ManagedBlocker。
-  
-## 使用
+ForkJoinPool 最适合的是**计算密集型**的任务, 如果存在 I/O, 线程间同步, sleep() 等会造成线程长时间阻塞的情况时, 最好配合使用 ManagedBlocker
 
-求整数数组所有元素之和
+## ManagedBlocker怎么使用？
 
-问题
+答：ManagedBlocker相当于明确告诉ForkJoinPool框架要阻塞了，ForkJoinPool就会启另一个线程来运行任务，以最大化地利用CPU。
 
-计算1 至1000 的正整数之和。
+<https://juejin.cn/post/6844903990556098567>
 
-解决方法
+## 示例
+
+求整数数组所有元素之和: 计算1 至1000 的正整数之和。
 
 ## For-loop
   
-最简单的, 显然是不使用任何并行编程的手段, 只用最直白的 for-loop 来实现。下面就是具体的实现代码。
-
-不过为了便于横向对比, 也为了让代码更加 Java Style, 首先我们先定义一个 interface。
+最简单的, 显然是不使用任何并行编程的手段, 只用最直白的 for-loop 来实现。下面就是具体的实现代码。不过为了便于横向对比, 也为了让代码更加 Java Style, 首先我们先定义一个 interface。
 
 ```java
 public interface Calculator {

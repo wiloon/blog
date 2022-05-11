@@ -27,14 +27,13 @@ gcc pkg-config --cflags --libs glib-2.0 hello.c -o hello
 eglibc
 eglic是二进制兼容glibc的，就是说如果代码使用的是eglic的库，那么换成glic之后无需重新编译。glibc为了实现最优化处理，致使在空间占用上越来越为人诟病。eglibc的主要特性是更好的支持嵌入式架构，支持不同的shell(GLIBC只支持bash)，支持-Os，可配置组件，稳定分支修正了一些重要Bug等。
 
-### 查看 glibc 版本
+### 查看 glibc 版本, glibc version
 
 ```bash
-ll /lib64/libc.so.6
 ldd --version
-# ldd --version    //ldd命令为glibc提供
+# ldd命令为 glibc 提供
 dpkg -s libc6 | grep Ver
 ```
 
-><https://nieyong.github.io/wiki_ny/glibc,%20eglibc%E5%92%8C%20glib%E7%9A%84%E5%8C%BA%E5%88%AB.html>  
-><https://shixiangwang.github.io/home/cn/post/2020-09-28-note-about-glibc/>  
+<https://nieyong.github.io/wiki_ny/glibc,%20eglibc%E5%92%8C%20glib%E7%9A%84%E5%8C%BA%E5%88%AB.html>  
+<https://shixiangwang.github.io/home/cn/post/2020-09-28-note-about-glibc/>  

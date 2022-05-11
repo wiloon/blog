@@ -110,7 +110,7 @@ wifi: Intel Corporation Wireless 7260 (rev 5b)
 - HDMI
 - VGA
 
-## Dell U2412M * 2
+## Dell U2412M * 2, 显示器
 
 1920x1200
 
@@ -184,7 +184,7 @@ wifi: Intel Corporation Wireless 7260 (rev 5b)
     2.4G QCA9984
     有线网络 QCA8337
 
-## Dell Latitude 3450
+## Dell Latitude 3450, work
 
 <https://www.dell.com/support/manuals/zh-cn/latitude-3450-laptop/lat_14_3450_om-v1/specifications?guid=guid-42d27b81-8d57-4219-9b9b-0c51cfa756b5&lang=en-us>
 <https://www.dell.com/support/home/zh-cn/product-support/product/latitude-3450-laptop/drivers>
@@ -280,3 +280,8 @@ WISPr
 ## GD41
 
 <https://post.smzdm.com/p/avwqm59m/>
+
+## Dell Inspiron N4050
+
+- i3-2370M 2nd gen Intel® Core™ i3
+- 8G DDR3-SDRAM

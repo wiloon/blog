@@ -2,7 +2,7 @@
 title: remote jobs
 author: "-"
 date: 2020-02-09T07:23:58+00:00
-url: /?p=15506
+url: remote-jobs
 categories:
   - Inbox
 tags:
@@ -10,6 +10,6 @@ tags:
 ---
 ## remote jobs
 
-https://github.com/remoteintech/remote-jobs
+<https://github.com/remoteintech/remote-jobs>
   
-https://github.com/lukasz-madon/awesome-remote-job
+<https://github.com/lukasz-madon/awesome-remote-job>
