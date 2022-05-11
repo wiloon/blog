@@ -2,7 +2,7 @@
 title: Hardware
 author: "W10N"
 date: "2021-01-13 08:49:13"
-url: ""
+url: "hardware"
 categories:
   - W10N
 tags:
@@ -10,6 +10,19 @@ tags:
   - HomeLab
 ---
 ## Hardware
+
+## benchmark
+
+<https://www.passmark.com/>
+
+## R86S
+
+- N5100, 10 nm
+- 16G
+- 128G EMMC
+- NVME
+
+<https://item.taobao.com/item.htm?spm=a1z09.2.0.0.39d42e8dLydghg&id=672470434606&_u=c2lc6g0c441>
 
 ## Dell Wyse 5070
 
@@ -23,15 +36,11 @@ Realtek®以太网LAN 10 Mb/100 Mb/1 Gb铜缆RJ45,LAN唤醒
 1个USB 3.1 Type C（前置）
 2个DisplayPort™ 1.2a（赛扬）
 
-## benchmark
-
-<https://www.passmark.com/>
-
 ## QNAP TS453Bmini
 
 ## Intel J4105 软路由
 
-- J4105
+- J4105, 14 nm
 - intel i211
 - DDR4 16G
 - MSATA

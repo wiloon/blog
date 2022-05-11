@@ -9,7 +9,8 @@ tags:
   - reprint
 ---
 ## Golang runtime
-http://www.jianshu.com/p/e45cea3e1723
+
+<http://www.jianshu.com/p/e45cea3e1723>
 
 runtime 调度器是个非常有用的东西,关于 runtime 包几个方法:
 
@@ -30,24 +31,24 @@ NumCPU
 package main
 
 import (
-      
+
 "fmt"
-      
+
 "runtime"
   
 )
 
 func main() {
-      
+
 fmt.Println("cpus:", runtime.NumCPU())
-      
+
 fmt.Println("goroot:", runtime.GOROOT())
-      
+
 fmt.Println("archive:", runtime.GOOS)
   
 }
   
-运行结果: 
+运行结果:
 
 GOMAXPROCS
 
@@ -56,21 +57,21 @@ Golang 默认所有任务都运行在一个 cpu 核里,如果要在 goroutine �
 package main
 
 import (
-      
+
 "fmt"
-      
+
 "runtime"
   
 )
 
 func init() {
-      
+
 runtime.GOMAXPROCS(1)
   
 }
 
 func main() {
-      
+
 // 任务逻辑...
 
 }
@@ -82,33 +83,33 @@ Gosched
 package main
 
 import (
-      
+
 "fmt"
-      
+
 "runtime"
   
 )
 
 func init() {
-      
+
 runtime.GOMAXPROCS(1) //使用单核
   
 }
 
 func main() {
-      
+
 exit := make(chan int)
-      
+
 go func() {
-          
+
 defer close(exit)
-          
+
 go func() {
-              
+
 fmt.Println("b")
-          
+
 }()
-      
+
 }()
 
     for i := 0; i < 4; i++ {
@@ -119,44 +120,43 @@ fmt.Println("b")
         }
     }
     <-exit
-    
 
 }
   
-结果: 
+结果:
 
-使用多核测试: 
+使用多核测试:
 
 package main
 
 import (
-      
+
 "fmt"
-      
+
 "runtime"
   
 )
 
 func init() {
-      
+
 runtime.GOMAXPROCS(4) //使用多核
   
 }
 
 func main() {
-      
+
 exit := make(chan int)
-      
+
 go func() {
-          
+
 defer close(exit)
-          
+
 go func() {
-              
+
 fmt.Println("b")
-          
+
 }()
-      
+
 }()
 
     for i := 0; i < 4; i++ {
@@ -167,12 +167,11 @@ fmt.Println("b")
         }
     }
     <-exit
-    
 
 }
   
-结果: 
+结果:
 
-根据你机器来设定运行时的核数,但是运行结果不一定与上面相同,或者在 main 函数的最后加上 select{} 让程序阻塞,则结果如下: 
+根据你机器来设定运行时的核数,但是运行结果不一定与上面相同,或者在 main 函数的最后加上 select{} 让程序阻塞,则结果如下:
 
 多核比较适合那种 CPU 密集型程序,如果是 IO 密集型使用多核会增加 CPU 切换的成本。
