@@ -5,8 +5,7 @@ date: 2012-09-24T08:38:55+00:00
 url: /?p=4224
 categories:
   - Linux
-
-tags:
+tags:$
   - reprint
 ---
 ## linux 时区，时间

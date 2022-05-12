@@ -5,8 +5,7 @@ date: 2011-08-24T01:27:47+00:00
 url: /?p=541
 categories:
   - English
-
-tags:
+tags:$
   - reprint
 ---
 ## Math

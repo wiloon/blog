@@ -5,8 +5,7 @@ date: 2018-08-03T02:51:50+00:00
 url: /?p=12482
 categories:
   - git
-
-tags:
+tags:$
   - reprint
 ---
 ## Git detached HEAD

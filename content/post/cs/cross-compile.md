@@ -5,8 +5,7 @@ date: 2012-04-03T06:09:32+00:00
 url: /?p=2762
 categories:
   - Linux
-
-tags:
+tags:$
   - reprint
 ---
 ## 交叉编译

@@ -5,8 +5,7 @@ date: 2012-09-21T08:37:25+00:00
 url: /?p=4163
 categories:
   - Java
-
-tags:
+tags:$
   - reprint
 ---
 ## java native

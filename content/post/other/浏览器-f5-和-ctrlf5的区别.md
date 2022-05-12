@@ -5,8 +5,7 @@ date: 2013-05-09T00:53:53+00:00
 url: /?p=5438
 categories:
   - Web
-
-tags:
+tags:$
   - reprint
 ---
 ## '浏览器,F5 和 Ctrl+F5的区别'

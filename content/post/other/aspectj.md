@@ -5,8 +5,7 @@ date: 2012-12-15T13:52:51+00:00
 url: /?p=4899
 categories:
   - Java
-
-tags:
+tags:$
   - reprint
 ---
 ## AspectJ

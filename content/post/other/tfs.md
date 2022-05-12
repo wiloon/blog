@@ -5,8 +5,7 @@ date: 2012-06-07T12:59:36+00:00
 url: /?p=3438
 categories:
   - VCS
-
-tags:
+tags:$
   - reprint
 ---
 ## TFS

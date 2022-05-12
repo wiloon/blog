@@ -5,8 +5,7 @@ date: 2011-09-13T11:39:24+00:00
 url: /?p=772
 categories:
   - Java
-
-tags:
+tags:$
   - reprint
 ---
 ## path, absolute path, and canonical path

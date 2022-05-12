@@ -5,8 +5,7 @@ date: 2012-03-10T04:21:42+00:00
 url: /?p=2530
 categories:
   - Linux
-
-tags:
+tags:$
   - reprint
 ---
 ## XMMS

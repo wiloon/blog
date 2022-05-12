@@ -5,8 +5,7 @@ date: 2013-05-16T10:48:32+00:00
 url: /?p=5475
 categories:
   - Windows
-
-tags:
+tags:$
   - reprint
 ---
 ## windows默认共享的打开和关闭？

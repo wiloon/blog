@@ -5,8 +5,7 @@ date: 2012-09-30T08:25:13+00:00
 url: /?p=4358
 categories:
   - Java
-
-tags:
+tags:$
   - reprint
 ---
 ## OCR之 Tesseract

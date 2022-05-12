@@ -5,8 +5,7 @@ date: 2012-07-01T08:38:20+00:00
 url: /?p=3706
 categories:
   - DataBase
-
-tags:
+tags:$
   - reprint
 ---
 ## SQL92

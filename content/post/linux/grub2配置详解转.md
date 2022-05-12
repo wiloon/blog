@@ -5,8 +5,7 @@ date: 2011-11-26T09:14:14+00:00
 url: /?p=1640
 categories:
   - Linux
-
-tags:
+tags:$
   - reprint
 ---
 ## Grub2配置详解(转)

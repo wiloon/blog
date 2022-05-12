@@ -5,8 +5,7 @@ date: 2013-01-06T02:09:22+00:00
 url: /?p=4979
 categories:
   - Java
-
-tags:
+tags:$
   - reprint
 ---
 ## EhCache

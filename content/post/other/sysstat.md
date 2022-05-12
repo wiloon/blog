@@ -5,8 +5,7 @@ date: 2012-02-27T13:47:01+00:00
 url: /?p=2474
 categories:
   - Linux
-
-tags:
+tags:$
   - reprint
 ---
 ## sysstat

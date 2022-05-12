@@ -5,8 +5,7 @@ date: 2012-03-18T04:41:13+00:00
 url: calculator
 categories:
   - Linux
-
-tags:
+tags:$
   - reprint
 ---
 ## 计算器 bc, expr、dc、echo、awk)

@@ -5,8 +5,7 @@ date: 2013-01-12T06:09:07+00:00
 url: /?p=5002
 categories:
   - Linux
-
-tags:
+tags:$
   - reprint
 ---
 ## linux 摄像头

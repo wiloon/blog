@@ -5,8 +5,7 @@ date: 2013-04-04T11:06:30+00:00
 url: /?p=5377
 categories:
   - Java
-
-tags:
+tags:$
   - reprint
 ---
 ## EL, Ognl, Struts Tag, JSTL

@@ -6,8 +6,7 @@ url: /?p=2155
 categories:
   - Linux
   - Network
-
-tags:
+tags:$
   - reprint
 ---
 ## squid cache_peer 参数详解

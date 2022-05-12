@@ -5,8 +5,7 @@ date: 2013-06-28T01:45:21+00:00
 url: /?p=5593
 categories:
   - DataBase
-
-tags:
+tags:$
   - reprint
 ---
 ## number integer

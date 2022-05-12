@@ -5,8 +5,7 @@ date: 2012-11-11T11:21:57+00:00
 url: /?p=4647
 categories:
   - Linux
-
-tags:
+tags:$
   - reprint
 ---
 ## 'Linux  双显示器/多屏/扩展屏幕/xrandr'

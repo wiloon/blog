@@ -5,8 +5,7 @@ date: 2012-09-26T07:02:08+00:00
 url: /?p=4316
 categories:
   - Java
-
-tags:
+tags:$
   - reprint
 ---
 ## Java ClassLoader

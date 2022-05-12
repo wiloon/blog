@@ -6,8 +6,7 @@ url: /?p=1814
 categories:
   - Linux
   - Network
-
-tags:
+tags:$
   - reprint
 ---
 ## linux网络的热插拔

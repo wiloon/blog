@@ -5,8 +5,7 @@ date: 2012-09-26T07:05:26+00:00
 url: /?p=4318
 categories:
   - Java
-
-tags:
+tags:$
   - reprint
 ---
 ## Java JAXB Unmarshaller

@@ -5,8 +5,7 @@ date: 2012-05-02T15:05:12+00:00
 url: linux/benchmark
 categories:
   - Linux
-
-tags:
+tags:$
   - reprint
 ---
 ## linux Benchmark Tools

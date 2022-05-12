@@ -5,8 +5,7 @@ date: 2012-01-07T10:45:15+00:00
 url: /?p=2100
 categories:
   - Linux
-
-tags:
+tags:$
   - reprint
 ---
 ## linux ftp

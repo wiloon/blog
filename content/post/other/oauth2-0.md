@@ -5,8 +5,7 @@ date: 2012-06-24T06:53:01+00:00
 url: /?p=3646
 categories:
   - Web
-
-tags:
+tags:$
   - reprint
 ---
 ## OAuth2.0

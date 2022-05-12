@@ -6,8 +6,7 @@ url: /?p=1627
 categories:
   - Linux
   - VM
-
-tags:
+tags:$
   - reprint
 ---
 ## 虚拟化技术 KVM Xen 对比

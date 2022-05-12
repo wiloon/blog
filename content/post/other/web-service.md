@@ -6,8 +6,7 @@ url: /?p=3545
 categories:
   - Java
   - Web
-
-tags:
+tags:$
   - reprint
 ---
 ## web service

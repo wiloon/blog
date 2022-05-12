@@ -5,8 +5,7 @@ date: 2013-04-01T15:36:34+00:00
 url: /?p=5362
 categories:
   - Development
-
-tags:
+tags:$
   - reprint
 ---
 ## The MIT License

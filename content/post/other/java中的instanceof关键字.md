@@ -6,8 +6,7 @@ url: /?p=4585
 categories:
   - Development
   - Java
-
-tags:
+tags:$
   - reprint
 ---
 ## Java中的instanceof关键字

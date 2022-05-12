@@ -5,8 +5,7 @@ date: 2013-05-17T03:18:45+00:00
 url: /?p=5478
 categories:
   - Java
-
-tags:
+tags:$
   - reprint
 ---
 ## eclipse.ini

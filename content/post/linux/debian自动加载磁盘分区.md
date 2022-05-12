@@ -5,8 +5,7 @@ date: 2011-12-10T10:38:00+00:00
 url: /?p=1831
 categories:
   - Linux
-
-tags:
+tags:$
   - reprint
 ---
 ## debian自动加载磁盘分区

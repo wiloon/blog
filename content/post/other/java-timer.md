@@ -5,8 +5,7 @@ date: 2011-10-13T08:55:42+00:00
 url: /?p=673
 categories:
   - Java
-
-tags:
+tags:$
   - reprint
 ---
 ## java timer

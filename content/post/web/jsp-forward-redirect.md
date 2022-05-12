@@ -5,8 +5,7 @@ date: 2012-09-21T07:07:03+00:00
 url: /?p=4153
 categories:
   - Java
-
-tags:
+tags:$
   - reprint
 ---
 ## forward redirect

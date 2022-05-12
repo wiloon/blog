@@ -5,23 +5,28 @@ date: 2011-09-25T09:54:40+00:00
 url: ssh
 categories:
   - Linux
-
-tags:
+tags:$
   - reprint
 ---
 ## ssh basic
 
 ## 指定私钥
 
+```bash
     ssh -i /path/to/id_rsa
+```
   
 ### 测试
 
+```bash
     ssh -T git@github.com
+```
 
 ### 强制使用密码登录, force ssh client to use only password auth
 
+```bash
     ssh -o PreferredAuthentications=password -o PubkeyAuthentication=no 192.168.2.x -l user0
+```
 
 ```bash
   

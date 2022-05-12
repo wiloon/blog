@@ -5,8 +5,7 @@ date: 2012-01-31T09:13:17+00:00
 url: /?p=2203
 categories:
   - Linux
-
-tags:
+tags:$
   - reprint
 ---
 ## linux vnc

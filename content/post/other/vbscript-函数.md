@@ -5,8 +5,7 @@ date: 2011-12-16T06:39:50+00:00
 url: /?p=1899
 categories:
   - Development
-
-tags:
+tags:$
   - reprint
 ---
 ## ON DUPLICATE KEY UPDATE重复插入时更新

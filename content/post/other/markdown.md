@@ -5,8 +5,7 @@ date: 2012-09-17T12:51:31+00:00
 url: /?p=4069
 categories:
   - Linux
-
-tags:
+tags:$
   - reprint
 ---
 ## Markdown 语法

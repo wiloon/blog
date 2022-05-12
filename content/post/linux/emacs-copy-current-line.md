@@ -5,8 +5,7 @@ date: 2011-04-30T09:32:53+00:00
 url: /?p=148
 categories:
   - Emacs
-
-tags:
+tags:$
   - reprint
 ---
 ## emacs copy current line

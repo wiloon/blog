@@ -5,8 +5,7 @@ date: 2012-09-26T06:50:45+00:00
 url: /?p=4308
 categories:
   - Java
-
-tags:
+tags:$
   - reprint
 ---
 ## Java Singleton

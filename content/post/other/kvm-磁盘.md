@@ -6,8 +6,7 @@ url: /?p=1739
 categories:
   - Linux
   - VM
-
-tags:
+tags:$
   - reprint
 ---
 ## kvm 磁盘

@@ -5,8 +5,7 @@ date: 2013-03-25T04:53:48+00:00
 url: /?p=5348
 categories:
   - Windows
-
-tags:
+tags:$
   - reprint
 ---
 ## windows SC命令详解

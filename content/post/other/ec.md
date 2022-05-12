@@ -6,8 +6,7 @@ url: /?p=4058
 categories:
   - Java
   - Web
-
-tags:
+tags:$
   - reprint
 ---
 ## EC编码

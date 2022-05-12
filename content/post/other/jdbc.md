@@ -5,8 +5,7 @@ date: 2012-03-27T08:05:36+00:00
 url: jdbc
 categories:
   - DataBase
-
-tags:
+tags:$
   - reprint
 ---
 ## JDBC

@@ -6,8 +6,7 @@ url: /?p=3156
 categories:
   - Linux
   - Network
-
-tags:
+tags:$
   - reprint
 ---
 ## 无线WI-FI路由器的信道选择

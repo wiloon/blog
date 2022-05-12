@@ -5,8 +5,7 @@ date: 2013-06-14T15:06:04+00:00
 url: /?p=5538
 categories:
   - DataBase
-
-tags:
+tags:$
   - reprint
 ---
 ## mariaDB

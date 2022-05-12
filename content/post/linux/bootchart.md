@@ -5,8 +5,7 @@ date: 2012-02-28T14:43:40+00:00
 url: bootchart
 categories:
   - Linux
-
-tags:
+tags:$
   - reprint
 ---
 ## Bootchart, systemd-analyze

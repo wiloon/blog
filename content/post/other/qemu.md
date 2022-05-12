@@ -6,8 +6,7 @@ url: /?p=1642
 categories:
   - Linux
   - VM
-
-tags:
+tags:$
   - reprint
 ---
 ## QEMU

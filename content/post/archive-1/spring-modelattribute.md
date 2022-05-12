@@ -6,8 +6,7 @@ url: /?p=4921
 categories:
   - Java
   - Web
-
-tags:
+tags:$
   - reprint
 ---
 ## spring @ModelAttribute

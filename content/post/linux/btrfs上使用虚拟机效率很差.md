@@ -6,8 +6,7 @@ url: /?p=1682
 categories:
   - Linux
   - VM
-
-tags:
+tags:$
   - reprint
 ---
 ## btrfs上使用虚拟机效率很差

@@ -5,8 +5,7 @@ date: 2012-09-14T06:07:55+00:00
 url: java/thread/sleep
 categories:
   - Java
-
-tags:
+tags:$
   - reprint
 ---
 ## java 线程 sleep, wait, join, yield

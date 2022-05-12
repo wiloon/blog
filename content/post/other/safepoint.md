@@ -5,8 +5,7 @@ date: 2013-09-13T10:49:30+00:00
 url: /?p=5807
 categories:
   - Java
-
-tags:
+tags:$
   - reprint
 ---
 ## 进入safepoint时如何让Java线程全部阻塞

@@ -5,8 +5,7 @@ date: 2013-09-16T07:08:48+00:00
 url: /?p=5814
 categories:
   - Java
-
-tags:
+tags:$
   - reprint
 ---
 ## 虚拟机栈(Virtual Machine Stack)，栈帧(Stack Frame)

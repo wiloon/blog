@@ -6,8 +6,7 @@ url: /?p=3591
 categories:
   - Java
   - Web
-
-tags:
+tags:$
   - reprint
 ---
 ## HttpSessionListener

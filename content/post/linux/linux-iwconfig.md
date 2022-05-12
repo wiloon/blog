@@ -6,8 +6,7 @@ url: /?p=2065
 categories:
   - Linux
   - Network
-
-tags:
+tags:$
   - reprint
 ---
 ## linux iwconfig

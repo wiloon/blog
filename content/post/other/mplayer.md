@@ -5,8 +5,7 @@ date: 2011-08-27T14:49:28+00:00
 url: mplayer
 categories:
   - Linux
-
-tags:
+tags:$
   - reprint
 ---
 ## mplayer

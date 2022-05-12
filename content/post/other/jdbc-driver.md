@@ -6,8 +6,7 @@ url: /?p=4859
 categories:
   - DataBase
   - Java
-
-tags:
+tags:$
   - reprint
 ---
 ## jdbc driver

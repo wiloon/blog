@@ -5,8 +5,7 @@ date: 2019-06-11T05:17:27+00:00
 url: go/gc
 categories:
   - Go
-
-tags:
+tags:$
   - reprint
 ---
 ## Go gc

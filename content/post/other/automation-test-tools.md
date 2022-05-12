@@ -5,8 +5,7 @@ date: 2012-10-24T07:15:07+00:00
 url: /?p=4537
 categories:
   - Agile
-
-tags:
+tags:$
   - reprint
 ---
 ## automation test tools

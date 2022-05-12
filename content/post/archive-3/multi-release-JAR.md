@@ -6,8 +6,7 @@ draft: true
 url: /?p=15716
 categories:
   - Java
-
-tags:
+tags:$
   - reprint
 ---
 ## multi-release JAR (MR JAR)

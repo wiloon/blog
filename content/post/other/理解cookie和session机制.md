@@ -6,8 +6,7 @@ url: cookie/session
 categories:
   - Java
   - Web
-
-tags:
+tags:$
   - reprint
 ---
 ## cookie, session

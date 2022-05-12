@@ -6,8 +6,7 @@ url: rxjava
 
 categories:
   - Java
-
-tags:
+tags:$
   - reprint
 ---
 ## RxJava

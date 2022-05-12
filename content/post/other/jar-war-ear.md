@@ -5,8 +5,7 @@ date: 2012-04-08T12:17:35+00:00
 url: /?p=2879
 categories:
   - Java
-
-tags:
+tags:$
   - reprint
 ---
 ## JAR    WAR EAR

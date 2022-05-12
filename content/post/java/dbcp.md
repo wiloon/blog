@@ -6,8 +6,7 @@ url: /?p=2661
 categories:
   - DataBase
   - Java
-
-tags:
+tags:$
   - reprint
 ---
 ## DBCP

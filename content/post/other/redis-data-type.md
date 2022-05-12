@@ -5,8 +5,7 @@ date: 2015-09-22T08:12:47+00:00
 url: /?p=8329
 categories:
   - database
-
-tags:
+tags:$
   - reprint
 ---
 ## redis data type, 数据类型

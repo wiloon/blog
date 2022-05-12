@@ -5,8 +5,7 @@ date: 2012-07-08T07:44:04+00:00
 url: /?p=3800
 categories:
   - Java
-
-tags:
+tags:$
   - reprint
 ---
 ## ConcurrentHashMap/CopyOnWriteArrayList

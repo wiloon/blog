@@ -5,8 +5,7 @@ date: 2013-02-12T14:51:01+00:00
 url: /?p=5134
 categories:
   - Linux
-
-tags:
+tags:$
   - reprint
 ---
 ## SCons

@@ -5,8 +5,7 @@ date: 2017-07-12T15:09:01+00:00
 url: /?p=10825
 categories:
   - DataBase
-
-tags:
+tags:$
   - reprint
 ---
 ## InfluxDB

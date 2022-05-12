@@ -5,8 +5,7 @@ date: 2013-04-04T08:19:47+00:00
 url: /?p=5365
 categories:
   - English
-
-tags:
+tags:$
   - reprint
 ---
 ## toeic

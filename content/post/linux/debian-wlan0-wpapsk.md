@@ -6,8 +6,7 @@ url: /?p=1723
 categories:
   - Linux
   - Network
-
-tags:
+tags:$
   - reprint
 ---
 ## debian wlan0 wpa/psk

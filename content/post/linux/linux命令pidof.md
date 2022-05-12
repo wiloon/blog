@@ -5,8 +5,7 @@ date: 2012-04-06T14:55:41+00:00
 url: /?p=2813
 categories:
   - Linux
-
-tags:
+tags:$
   - reprint
 ---
 ## Linux命令pidof

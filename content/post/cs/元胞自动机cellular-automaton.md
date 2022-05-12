@@ -6,8 +6,7 @@ url: /?p=3854
 categories:
   - Development
   - Science
-
-tags:
+tags:$
   - reprint
 ---
 ## 元胞自动机,Cellular Automaton

@@ -6,8 +6,7 @@ url: /?p=3755
 categories:
   - Java
   - Web
-
-tags:
+tags:$
   - reprint
 ---
 ## cxf wsdl2java

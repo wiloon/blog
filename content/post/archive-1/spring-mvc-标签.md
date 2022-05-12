@@ -6,8 +6,7 @@ url: /?p=5053
 categories:
   - Java
   - Web
-
-tags:
+tags:$
   - reprint
 ---
 ## spring mvc 标签

@@ -5,8 +5,7 @@ date: 2014-11-19T07:10:27+00:00
 url: /?p=7023
 categories:
   - Java
-
-tags:
+tags:$
   - reprint
 ---
 ## java 对象

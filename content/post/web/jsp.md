@@ -5,8 +5,7 @@ date: 2012-09-22T07:32:25+00:00
 url: /?p=4176
 categories:
   - Java
-
-tags:
+tags:$
   - reprint
 ---
 ## JSP

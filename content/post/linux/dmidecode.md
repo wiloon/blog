@@ -5,8 +5,7 @@ date: 2012-09-25T05:35:24+00:00
 url: dmidecode
 categories:
   - Linux
-
-tags:
+tags:$
   - reprint
 ---
 ## 'Dmidecode,在 Linux 下获取硬件信息'

@@ -5,8 +5,7 @@ date: 2012-09-25T06:29:27+00:00
 url: /?p=4276
 categories:
   - Java
-
-tags:
+tags:$
   - reprint
 ---
 ## stop() 和 suspend() 方法为何不推荐使用？

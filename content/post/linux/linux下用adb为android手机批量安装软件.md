@@ -5,8 +5,7 @@ date: 2012-09-24T14:58:35+00:00
 url: /?p=4235
 categories:
   - Linux
-
-tags:
+tags:$
   - reprint
 ---
 ## linux下用adb为android手机批量安装软件

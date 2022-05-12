@@ -5,8 +5,7 @@ date: 2012-11-30T13:50:30+00:00
 url: /?p=4818
 categories:
   - Linux
-
-tags:
+tags:$
   - reprint
 ---
 ## Awesome

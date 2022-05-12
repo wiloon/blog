@@ -6,8 +6,7 @@ url: /?p=3489
 categories:
   - Java
   - Web
-
-tags:
+tags:$
   - reprint
 ---
 ## XHR与fetch

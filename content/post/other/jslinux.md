@@ -5,8 +5,7 @@ date: 2013-02-21T10:39:39+00:00
 url: /?p=5221
 categories:
   - Linux
-
-tags:
+tags:$
   - reprint
 ---
 ## jstatd

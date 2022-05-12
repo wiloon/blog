@@ -5,8 +5,7 @@ date: 2012-02-15T04:35:09+00:00
 url: /?p=2312
 categories:
   - Network
-
-tags:
+tags:$
   - reprint
 ---
 ## CDN加速

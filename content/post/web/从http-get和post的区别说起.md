@@ -6,8 +6,7 @@ url: /?p=3385
 categories:
   - Java
   - Web
-
-tags:
+tags:$
   - reprint
 ---
 ## 从HTTP GET和POST的区别说起

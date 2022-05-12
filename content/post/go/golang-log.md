@@ -6,8 +6,7 @@ url: /?p=2118
 categories:
   - Java
   - Web
-
-tags:
+tags:$
   - reprint
 ---
 ## golang log

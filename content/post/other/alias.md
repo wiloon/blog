@@ -5,8 +5,7 @@ date: 2013-07-27T11:23:52+00:00
 url: /?p=5711
 categories:
   - Linux
-
-tags:
+tags:$
   - reprint
 ---
 ## alias 别名

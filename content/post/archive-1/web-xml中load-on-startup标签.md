@@ -6,8 +6,7 @@ url: /?p=4604
 categories:
   - Java
   - Web
-
-tags:
+tags:$
   - reprint
 ---
 ## web.xml中load-on-startup标签

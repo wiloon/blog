@@ -5,8 +5,7 @@ date: 2013-09-08T01:59:16+00:00
 url: /?p=5797
 categories:
   - Web
-
-tags:
+tags:$
   - reprint
 ---
 ## 'button input, type="button"   Which to use?'

@@ -5,8 +5,7 @@ date: 2013-01-16T04:31:49+00:00
 url: /?p=5029
 categories:
   - Java
-
-tags:
+tags:$
   - reprint
 ---
 ## java IO, InputStream, OutputStream

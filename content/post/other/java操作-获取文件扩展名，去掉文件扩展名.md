@@ -5,8 +5,7 @@ date: 2012-09-04T09:37:25+00:00
 url: /?p=4014
 categories:
   - Java
-
-tags:
+tags:$
   - reprint
 ---
 ## JAVA操作——获取文件扩展名，去掉文件扩展名

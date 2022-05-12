@@ -5,8 +5,7 @@ date: 2013-07-16T08:35:31+00:00
 url: /?p=5668
 categories:
   - Emacs
-
-tags:
+tags:$
   - reprint
 ---
 ## Emacs的搜索功能

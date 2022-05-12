@@ -5,8 +5,7 @@ date: 2011-10-31T09:13:20+00:00
 url: goroutine/limit
 categories:
   - Go
-
-tags:
+tags:$
   - reprint
 ---
 ## 控制协程(goroutine)的并发数量

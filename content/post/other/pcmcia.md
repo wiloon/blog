@@ -5,8 +5,7 @@ date: 2012-04-22T01:33:21+00:00
 url: /?p=2979
 categories:
   - Hardware
-
-tags:
+tags:$
   - reprint
 ---
 ## PCMCIA

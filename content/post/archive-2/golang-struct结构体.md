@@ -5,8 +5,7 @@ date: 2017-10-10T14:52:35+00:00
 url: go-struct
 categories:
   - Go
-
-tags:
+tags:$
   - reprint
 ---
 ## golang struct/结构体

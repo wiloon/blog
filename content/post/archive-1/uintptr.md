@@ -5,8 +5,7 @@ date: 2014-12-30T09:09:43+00:00
 url: uintptr
 categories:
   - Go
-
-tags:
+tags:$
   - reprint
 ---
 ## uintptr

@@ -5,8 +5,7 @@ date: 2012-06-15T15:03:41+00:00
 url: /?p=3530
 categories:
   - Linux
-
-tags:
+tags:$
   - reprint
 ---
 ## hashtable, 哈希表, Hash表

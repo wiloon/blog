@@ -6,8 +6,7 @@ url: /?p=5520
 categories:
   - Development
   - Web
-
-tags:
+tags:$
   - reprint
 ---
 ## How browsers work

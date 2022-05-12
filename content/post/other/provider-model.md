@@ -5,8 +5,7 @@ date: 2011-08-20T18:43:35+00:00
 url: provider
 categories:
   - Linux
-
-tags:
+tags:$
   - reprint
 ---
 ## Provider 模式

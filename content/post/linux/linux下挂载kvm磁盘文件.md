@@ -6,8 +6,7 @@ url: /?p=2844
 categories:
   - Linux
   - VM
-
-tags:
+tags:$
   - reprint
 ---
 ## linux下挂载kvm磁盘文件

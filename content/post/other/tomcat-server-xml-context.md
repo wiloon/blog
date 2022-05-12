@@ -6,8 +6,7 @@ url: /?p=3318
 categories:
   - Java
   - Web
-
-tags:
+tags:$
   - reprint
 ---
 ## tomcat server.xml
