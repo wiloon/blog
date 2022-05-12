@@ -5,7 +5,7 @@ date: 2012-11-04T13:01:17+00:00
 url: /?p=4616
 categories:
   - Development
-tags:$
+tags:
   - reprint
 ---
 ## Smalltalk

@@ -5,7 +5,7 @@ date: 2012-04-02T14:03:09+00:00
 url: /?p=2735
 categories:
   - Linux
-tags:$
+tags:
   - reprint
 ---
 ## 'Linux下的DOS环境  (DOSEMU)'

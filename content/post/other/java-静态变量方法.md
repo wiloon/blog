@@ -5,7 +5,7 @@ date: 2012-06-28T14:15:30+00:00
 url: /?p=3689
 categories:
   - Java
-tags:$
+tags:
   - reprint
 ---
 ## java 静态变量/方法

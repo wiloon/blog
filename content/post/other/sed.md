@@ -5,7 +5,7 @@ date: 2012-04-07T12:01:31+00:00
 url: sed
 categories:
   - Linux
-tags:$
+tags:
   - reprint
 ---
 ## sed 

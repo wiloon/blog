@@ -5,7 +5,7 @@ date: 2012-04-02T12:39:34+00:00
 url: /?p=2728
 categories:
   - Linux
-tags:$
+tags:
   - reprint
 ---
 ## FreeDOS USB Bootable Drive

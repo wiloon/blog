@@ -5,7 +5,7 @@ date: 2012-06-22T11:27:10+00:00
 url: /?p=3615
 categories:
   - Java
-tags:$
+tags:
   - reprint
 ---
 ## java thread id, name

@@ -6,7 +6,7 @@ url: /?p=4043
 categories:
   - Development
   - Java
-tags:$
+tags:
   - reprint
 ---
 ## Spring中bean的作用域

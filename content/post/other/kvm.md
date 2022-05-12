@@ -6,7 +6,7 @@ url: /?p=1619
 categories:
   - Linux
   - VM
-tags:$
+tags:
   - reprint
 ---
 ## 虚拟化, KVM

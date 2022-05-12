@@ -6,7 +6,7 @@ url: /?p=3399
 categories:
   - Java
   - Web
-tags:$
+tags:
   - reprint
 ---
 ## HTTP POST GET 本质区别详解

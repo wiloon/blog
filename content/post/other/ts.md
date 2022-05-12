@@ -5,7 +5,7 @@ date: 2012-03-27T14:03:01+00:00
 url: /?p=2666
 categories:
   - Linux
-tags:$
+tags:
   - reprint
 ---
 ## ts

@@ -5,7 +5,7 @@ date: 2011-12-26T09:57:58+00:00
 url: java-generic
 categories:
   - Java
-tags:$
+tags:
   - reprint
 ---
 ## java generic, 泛型

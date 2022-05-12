@@ -6,7 +6,7 @@ url: /?p=1678
 categories:
   - Linux
   - VM
-tags:$
+tags:
   - reprint
 ---
 ## 虚拟机硬盘格式的选择 qcow2、 raw

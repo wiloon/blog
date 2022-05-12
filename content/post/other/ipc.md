@@ -5,7 +5,7 @@ date: 2012-02-28T13:12:53+00:00
 url: ipc
 categories:
   - Linux
-tags:$
+tags:
   - reprint
 ---
 ## IPC, 进程间通信IPC (InterProcess Communication)

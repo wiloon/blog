@@ -5,7 +5,7 @@ date: 2012-07-01T08:41:57+00:00
 url: /?p=3709
 categories:
   - DataBase
-tags:$
+tags:
   - reprint
 ---
 ## SQL99

@@ -6,7 +6,7 @@ url: /?p=1718
 categories:
   - Linux
   - Network
-tags:$
+tags:
   - reprint
 ---
 ## debian 网络配置

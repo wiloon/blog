@@ -5,7 +5,7 @@ date: 2011-08-18T02:19:41+00:00
 url: /?p=422
 categories:
   - Linux
-tags:$
+tags:
   - reprint
 ---
 ## 蓝牙 HID

@@ -5,7 +5,7 @@ date: 2012-04-04T07:54:19+00:00
 url: /?p=2780
 categories:
   - Linux
-tags:$
+tags:
   - reprint
 ---
 ## linux search

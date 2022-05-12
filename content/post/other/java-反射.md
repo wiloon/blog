@@ -5,7 +5,7 @@ date: 2011-09-09T03:34:28+00:00
 url: /?p=736
 categories:
   - Java
-tags:$
+tags:
   - reprint
 ---
 ## java 反射, reflect

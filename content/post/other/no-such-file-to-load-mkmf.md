@@ -6,7 +6,7 @@ url: /?p=2800
 categories:
   - Development
   - Linux
-tags:$
+tags:
   - reprint
 ---
 ## no such file to load — mkmf

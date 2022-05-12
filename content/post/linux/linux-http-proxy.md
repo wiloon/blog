@@ -6,7 +6,7 @@ url: /?p=2151
 categories:
   - Linux
   - Network
-tags:$
+tags:
   - reprint
 ---
 ## linux http proxy

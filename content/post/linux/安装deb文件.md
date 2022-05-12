@@ -5,7 +5,7 @@ date: 2012-01-08T04:08:51+00:00
 url: deb
 categories:
   - Linux
-tags:$
+tags:
   - reprint
 ---
 ## deb

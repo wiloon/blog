@@ -6,7 +6,7 @@ url: /?p=1625
 categories:
   - Linux
   - VM
-tags:$
+tags:
   - reprint
 ---
 ## KVM与Xen和VMware的PK

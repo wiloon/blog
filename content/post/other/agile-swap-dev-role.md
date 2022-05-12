@@ -5,7 +5,7 @@ date: 2013-07-20T08:19:10+00:00
 url: /?p=5685
 categories:
   - Agile
-tags:$
+tags:
   - reprint
 ---
 ## 角色互换, Swapping Roles

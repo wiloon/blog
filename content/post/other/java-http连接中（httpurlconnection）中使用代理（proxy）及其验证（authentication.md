@@ -5,7 +5,7 @@ date: 2012-09-27T02:11:49+00:00
 url: /?p=4338
 categories:
   - Java
-tags:$
+tags:
   - reprint
 ---
 ## Java Http连接中 (HttpURLConnection) 中使用代理 (Proxy) 及其验证 (Authentication)

@@ -6,7 +6,7 @@ url: /?p=5049
 categories:
   - Java
   - VCS
-tags:$
+tags:
   - reprint
 ---
 ## Git 分支

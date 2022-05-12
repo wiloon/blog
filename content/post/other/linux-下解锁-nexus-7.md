@@ -5,7 +5,7 @@ date: 2013-03-23T01:54:26+00:00
 url: /?p=5335
 categories:
   - Linux
-tags:$
+tags:
   - reprint
 ---
 ## linux 下解锁 nexus 7

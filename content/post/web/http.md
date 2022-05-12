@@ -6,7 +6,7 @@ url: /?p=1075
 categories:
   - Development
   - Web
-tags:$
+tags:
   - reprint
 ---
 ## HTTP protocol， HTTP response status codes, 状态码/响应代码

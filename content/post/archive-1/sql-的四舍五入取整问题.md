@@ -5,7 +5,7 @@ date: 2013-08-20T07:44:44+00:00
 url: /?p=5780
 categories:
   - DataBase
-tags:$
+tags:
   - reprint
 ---
 ## sql 的四舍五入取整问题

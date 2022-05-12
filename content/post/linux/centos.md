@@ -5,7 +5,7 @@ date: 2012-01-25T01:22:34+00:00
 url: centos
 categories:
   - Linux
-tags:$
+tags:
   - reprint
 ---
 ## centos basic

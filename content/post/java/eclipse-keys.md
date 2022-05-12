@@ -6,7 +6,7 @@ url: /?p=622
 categories:
   - Eclipse
   - Java
-tags:$
+tags:
   - reprint
 ---
 ## Eclipse keys(schema=Emacs)

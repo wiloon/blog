@@ -5,7 +5,7 @@ date: 2013-01-29T04:50:00+00:00
 url: /?p=5083
 categories:
   - Java
-tags:$
+tags:
   - reprint
 ---
 ## Java方法返回多个值

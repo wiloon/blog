@@ -6,7 +6,7 @@ url: /?p=1713
 categories:
   - Linux
   - Network
-tags:$
+tags:
   - reprint
 ---
 ## linux 网络命令

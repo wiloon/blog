@@ -6,7 +6,7 @@ url: /?p=223
 categories:
   - Eclipse
   - Java
-tags:$
+tags:
   - reprint
 ---
 ## eclipse basic

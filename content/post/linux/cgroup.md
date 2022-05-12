@@ -5,7 +5,7 @@ date: 2011-10-13T08:11:53+00:00
 url: cgroup
 categories:
   - Linux
-tags:$
+tags:
   - reprint
 ---
 ## cgroup， namespace

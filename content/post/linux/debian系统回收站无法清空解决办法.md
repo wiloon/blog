@@ -5,7 +5,7 @@ date: 2012-08-16T23:43:21+00:00
 url: /?p=3903
 categories:
   - Linux
-tags:$
+tags:
   - reprint
 ---
 ## Debian系统回收站无法清空解决办法

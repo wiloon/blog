@@ -5,7 +5,7 @@ date: 2012-06-23T01:32:36+00:00
 url: /?p=3623
 categories:
   - Linux
-tags:$
+tags:
   - reprint
 ---
 ## android adb

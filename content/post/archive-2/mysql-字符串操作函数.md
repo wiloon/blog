@@ -5,7 +5,7 @@ date: 2016-04-11T11:15:05.000+00:00
 url: "/?p=8876"
 categories:
 - Uncategorized
-tags:$
+tags:
   - reprint
 ---
 ## MySQL 字符串操作函数

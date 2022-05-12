@@ -5,7 +5,7 @@ date: 2011-08-30T08:50:49+00:00
 url: /?p=649
 categories:
   - Java
-tags:$
+tags:
   - reprint
 ---
 ## jdk中的jar包, rt.jar ,dt.jar ,tool.jar

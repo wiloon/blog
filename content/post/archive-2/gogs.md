@@ -5,7 +5,7 @@ date: 2018-01-17T05:54:40+00:00
 url: git/gogs
 categories:
   - git
-tags:$
+tags:
   - reprint
 ---
 ## golang git server, gogs, gitea

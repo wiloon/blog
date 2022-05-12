@@ -6,7 +6,7 @@ url: /?p=3371
 categories:
   - Java
   - Web
-tags:$
+tags:
   - reprint
 ---
 ## Java web 乱码

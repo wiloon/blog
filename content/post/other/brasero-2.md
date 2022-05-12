@@ -5,7 +5,7 @@ date: 2012-12-03T14:14:48+00:00
 url: /?p=4823
 categories:
   - Linux
-tags:$
+tags:
   - reprint
 ---
 ## Brasero

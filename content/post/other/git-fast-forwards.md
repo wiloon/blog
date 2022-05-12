@@ -5,7 +5,7 @@ date: 2012-07-04T10:06:20+00:00
 url: git/fast-forward
 categories:
   - Git
-tags:$
+tags:
   - reprint
 ---
 ## git fast-forwards

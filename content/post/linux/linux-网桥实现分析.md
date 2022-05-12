@@ -6,7 +6,7 @@ url: /?p=1753
 categories:
   - Linux
   - Network
-tags:$
+tags:
   - reprint
 ---
 ## 网桥

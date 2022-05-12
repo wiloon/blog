@@ -5,7 +5,7 @@ date: 2011-12-04T06:43:49+00:00
 url: telnet/ssh
 categories:
   - Network
-tags:$
+tags:
   - reprint
 ---
 ## Telnet, SSH

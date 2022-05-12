@@ -5,7 +5,7 @@ date: 2012-06-03T03:46:54+00:00
 url: /?p=3344
 categories:
   - Java
-tags:$
+tags:
   - reprint
 ---
 ## eclipse 图标含意

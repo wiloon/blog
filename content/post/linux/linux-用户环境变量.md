@@ -5,7 +5,7 @@ date: 2011-07-18T04:58:48+00:00
 url: /?p=360
 categories:
   - Linux
-tags:$
+tags:
   - reprint
 ---
 ## 环境变量

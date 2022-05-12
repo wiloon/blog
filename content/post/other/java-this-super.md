@@ -5,7 +5,7 @@ date: 2012-01-02T09:20:30+00:00
 url: /?p=730
 categories:
   - Java
-tags:$
+tags:
   - reprint
 ---
 ## java this super

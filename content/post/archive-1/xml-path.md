@@ -5,7 +5,7 @@ date: 2013-07-29T08:27:48+00:00
 url: /?p=5741
 categories:
   - DataBase
-tags:$
+tags:
   - reprint
 ---
 ## FOR XML PATH

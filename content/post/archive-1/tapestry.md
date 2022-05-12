@@ -6,7 +6,7 @@ url: /?p=4809
 categories:
   - Java
   - Web
-tags:$
+tags:
   - reprint
 ---
 ## Tapestry

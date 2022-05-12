@@ -5,7 +5,7 @@ date: 2012-03-06T12:57:43+00:00
 url: /?p=2525
 categories:
   - Linux
-tags:$
+tags:
   - reprint
 ---
 ## 第一届黑客信息战 MIT CTF 2011记录

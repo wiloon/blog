@@ -5,7 +5,7 @@ date: 2013-02-18T03:09:42+00:00
 url: /?p=5182
 categories:
   - Windows
-tags:$
+tags:
   - reprint
 ---
 ## Regsvr32

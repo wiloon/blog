@@ -5,7 +5,7 @@ date: 2012-01-02T02:29:11+00:00
 url: /?p=2071
 categories:
   - Linux
-tags:$
+tags:
   - reprint
 ---
 ## Grub磁盘分区表示方法

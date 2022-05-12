@@ -6,7 +6,7 @@ url: /?p=1701
 categories:
   - Linux
   - VM
-tags:$
+tags:
   - reprint
 ---
 ## qemu basic, kvm 参数

@@ -5,7 +5,7 @@ date: 2012-04-29T06:57:04+00:00
 url: /?p=3068
 categories:
   - Linux
-tags:$
+tags:
   - reprint
 ---
 ## wine

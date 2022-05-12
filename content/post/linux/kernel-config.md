@@ -5,7 +5,7 @@ date: 2012-02-28T13:13:59+00:00
 url: /?p=2483
 categories:
   - Linux
-tags:$
+tags:
   - reprint
 ---
 ## kernel config 3.2.8

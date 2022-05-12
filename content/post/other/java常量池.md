@@ -5,7 +5,7 @@ date: 2013-03-06T06:37:47+00:00
 url: constantpool
 categories:
   - Java
-tags:$
+tags:
   - reprint
 ---
 ## Java 常量池

@@ -5,7 +5,7 @@ date: 2011-11-26T08:29:54+00:00
 url: /?p=1633
 categories:
   - Linux
-tags:$
+tags:
   - reprint
 ---
 ## grub2 配置文件

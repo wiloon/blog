@@ -5,7 +5,7 @@ date: 2011-10-23T01:30:12+00:00
 url: /?p=1240
 categories:
   - Network
-tags:$
+tags:
   - reprint
 ---
 ## Conditional Get

@@ -5,7 +5,7 @@ date: 2011-10-26T14:25:39+00:00
 url: glibc
 categories:
   - Linux
-tags:$
+tags:
   - reprint
   - c
 

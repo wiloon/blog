@@ -6,7 +6,7 @@ url: /?p=1409
 categories:
   - Java
   - Web
-tags:$
+tags:
   - reprint
 ---
 ## CXF Axis2

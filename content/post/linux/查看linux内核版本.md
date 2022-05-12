@@ -5,7 +5,7 @@ date: 2012-02-01T05:28:07+00:00
 url: uname
 categories:
   - Linux
-tags:$
+tags:
   - reprint
 ---
 ## linux version, Linux 查看版本, 发行版, 内核版本, uname

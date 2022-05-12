@@ -5,7 +5,7 @@ date: 2011-07-28T11:21:11+00:00
 url: /?p=376
 categories:
   - Linux
-tags:$
+tags:
   - reprint
 ---
 ## netstat, 端口

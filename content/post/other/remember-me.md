@@ -5,7 +5,7 @@ date: 2011-12-26T06:43:20+00:00
 url: remember-me
 categories:
   - web
-tags:$
+tags:
   - reprint
 ---
 ## remember me

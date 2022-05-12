@@ -5,7 +5,7 @@ date: 2017-12-20T09:04:09+00:00
 url: /?p=11646
 categories:
   - network
-tags:$
+tags:
   - reprint
 ---
 ## 网卡命名规则

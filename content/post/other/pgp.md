@@ -5,7 +5,7 @@ date: 2011-10-16T09:06:56+00:00
 url: /?p=1068
 categories:
   - Java
-tags:$
+tags:
   - reprint
 ---
 ## One or more PGP signatures could not be verified

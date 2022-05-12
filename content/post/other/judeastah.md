@@ -5,7 +5,7 @@ date: 2012-11-09T06:01:56+00:00
 url: /?p=4643
 categories:
   - UML
-tags:$
+tags:
   - reprint
 ---
 ## JUDE,Astah

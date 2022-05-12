@@ -5,7 +5,7 @@ date: 2022-01-21 15:35:49
 url: sqlite
 categories:
   - database
-tags:$
+tags:
   - reprint
 ---
 ## sqlite

@@ -6,7 +6,7 @@ url: /?p=4925
 categories:
   - Java
   - Web
-tags:$
+tags:
   - reprint
 ---
 ## Spring annoation

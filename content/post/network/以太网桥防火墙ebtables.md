@@ -6,7 +6,7 @@ url: /?p=1850
 categories:
   - Linux
   - Network
-tags:$
+tags:
   - reprint
 ---
 ## linux ebtables

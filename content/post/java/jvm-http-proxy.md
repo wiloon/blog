@@ -5,7 +5,7 @@ date: 2012-07-05T06:10:33+00:00
 url: /?p=3746
 categories:
   - Java
-tags:$
+tags:
   - reprint
 ---
 ## jvm http proxy

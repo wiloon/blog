@@ -2,29 +2,40 @@
 title: alias 别名
 author: "-"
 date: 2013-07-27T11:23:52+00:00
-url: /?p=5711
+url: alias
 categories:
   - Linux
-tags:$
+tags:
   - reprint
 ---
 ## alias 别名
+
 ### 查看所有的alias
+
+```bash
     alias
     alias -p
+```
 
-### 显示已定义的别名 (假设当前环境存在以下别名) 
+### 显示已定义的别名 (假设当前环境存在以下别名)
+
+```bash
     alias ls
     alias ls grep
+```
 
 ### 在命令行直接输入后缀为 html 的文件名,会在 vim 中打开 (zsh)
+
+```bash
     alias -s html=vim
     alias -s gz='tar -xzvf'
+```
 
 ```bash
 alias ll='ls -l --color=auto'
 alias la='ls -la --color=auto'
 ```
+
 ```bash
   
 #查看命令别名
@@ -59,6 +70,6 @@ alias ll='ls -lht'
   
 alias df='df -h'
 
-原文地址: 
+原文地址:
   
-http://www.idcnews.net/html/edu/linux/20080425/301436.html
+<http://www.idcnews.net/html/edu/linux/20080425/301436.html>

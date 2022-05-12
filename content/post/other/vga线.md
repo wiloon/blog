@@ -5,7 +5,7 @@ date: 2012-08-07T04:44:44+00:00
 url: /?p=3888
 categories:
   - Hardware
-tags:$
+tags:
   - reprint
 ---
 ## VGA线

@@ -6,7 +6,7 @@ url: /?p=1751
 categories:
   - Linux
   - Network
-tags:$
+tags:
   - reprint
 ---
 ## STP

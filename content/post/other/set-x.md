@@ -5,7 +5,7 @@ date: 2011-12-10T08:47:33+00:00
 url: /?p=1829
 categories:
   - Linux
-tags:$
+tags:
   - reprint
 ---
 ## set -x

@@ -5,7 +5,7 @@ date: 2012-09-21T05:24:11+00:00
 url: hash/map-table
 categories:
   - Java
-tags:$
+tags:
   - reprint
 ---
 ## HashMap,Hashtable

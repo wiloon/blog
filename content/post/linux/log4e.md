@@ -6,7 +6,7 @@ url: /?p=332
 categories:
   - Eclipse
   - Java
-tags:$
+tags:
   - reprint
 ---
 ## log4e

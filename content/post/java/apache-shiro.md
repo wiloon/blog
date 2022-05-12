@@ -5,7 +5,7 @@ date: 2012-12-12T04:49:01+00:00
 url: shiro
 categories:
   - Java
-tags:$
+tags:
   - reprint
 ---
 ## Apache Shiro

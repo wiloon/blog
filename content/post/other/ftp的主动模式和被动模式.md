@@ -6,7 +6,7 @@ url: /?p=3238
 categories:
   - Linux
   - Network
-tags:$
+tags:
   - reprint
 ---
 ## FTP的主动模式和被动模式

@@ -6,7 +6,7 @@ url: /?p=2284
 categories:
   - Linux
   - Network
-tags:$
+tags:
   - reprint
 ---
 ## 'tap0, ERROR while getting interface flags'

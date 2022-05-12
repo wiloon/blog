@@ -5,7 +5,7 @@ date: 2012-04-15T13:05:03+00:00
 url: class
 categories:
   - Java
-tags:$
+tags:
   - reprint
 ---
 ## Class 文件内容, 方法区, 常量池

@@ -5,7 +5,7 @@ date: 2012-10-08T09:05:13+00:00
 url: /?p=4386
 categories:
   - Java
-tags:$
+tags:
   - reprint
 ---
 ## java Delegate

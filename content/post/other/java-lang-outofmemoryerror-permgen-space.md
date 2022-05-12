@@ -5,7 +5,7 @@ date: 2012-05-28T02:21:45+00:00
 url: /?p=3267
 categories:
   - Java
-tags:$
+tags:
   - reprint
 ---
 ## 'java.lang.OutOfMemoryError, PermGen space'

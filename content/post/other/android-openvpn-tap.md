@@ -5,7 +5,7 @@ date: 2011-10-16T08:57:13+00:00
 url: /?p=1066
 categories:
   - Java
-tags:$
+tags:
   - reprint
 ---
 ## 'Android  OpenVPN-TAP 模式/策略路由'

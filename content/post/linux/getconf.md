@@ -5,7 +5,7 @@ date: 2012-05-26T03:19:32+00:00
 url: getconf
 categories:
   - OS
-tags:$
+tags:
   - reprint
 ---
 ## getconf

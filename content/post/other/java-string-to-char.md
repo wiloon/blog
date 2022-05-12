@@ -5,7 +5,7 @@ date: 2012-06-14T01:23:47+00:00
 url: /?p=3528
 categories:
   - Java
-tags:$
+tags:
   - reprint
 ---
 ## java string api

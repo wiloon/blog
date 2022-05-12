@@ -6,7 +6,7 @@ url: /?p=3160
 categories:
   - Linux
   - Network
-tags:$
+tags:
   - reprint
 ---
 ## debian 修改无线网卡的信道

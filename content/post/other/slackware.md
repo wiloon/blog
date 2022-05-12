@@ -5,7 +5,7 @@ date: 2011-11-26T06:36:29+00:00
 url: /?p=1605
 categories:
   - Linux
-tags:$
+tags:
   - reprint
 ---
 ## slackware

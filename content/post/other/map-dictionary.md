@@ -5,7 +5,7 @@ date: 2012-09-27T09:34:36+00:00
 url: /?p=4345
 categories:
   - Java
-tags:$
+tags:
   - reprint
 ---
 ## Map, Dictionary

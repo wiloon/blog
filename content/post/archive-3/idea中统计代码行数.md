@@ -5,7 +5,7 @@ date: 2020-04-07T01:49:34+00:00
 url: idea/plugin
 categories:
   - Java
-tags:$
+tags:
   - reprint
 ---
 ## idea plugin

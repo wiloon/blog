@@ -5,7 +5,7 @@ date: 2018-02-13T04:33:45+00:00
 url: time
 categories:
   - Linux
-tags:$
+tags:
   - reprint
 ---
 ## time command

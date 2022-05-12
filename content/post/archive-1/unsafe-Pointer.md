@@ -5,7 +5,7 @@ date: 2015-01-12T09:00:50+00:00
 url: 7230
 categories:
   - Go
-tags:$
+tags:
   - reprint
 ---
 ## unsafe.Pointer

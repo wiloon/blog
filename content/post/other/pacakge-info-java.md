@@ -6,7 +6,7 @@ url: /?p=3901
 categories:
   - Development
   - Java
-tags:$
+tags:
   - reprint
 ---
 ## pacakge-info.java

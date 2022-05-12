@@ -5,7 +5,7 @@ date: 2012-09-16T07:34:25+00:00
 url: /?p=4047
 categories:
   - Java
-tags:$
+tags:
   - reprint
 ---
 ## java List 排序 Collections.sort() 对 List 排序

@@ -5,7 +5,7 @@ date: 2011-09-21T07:08:09+00:00
 url: /?p=822
 categories:
   - Emacs
-tags:$
+tags:
   - reprint
 ---
 ## emacs format, 格式化

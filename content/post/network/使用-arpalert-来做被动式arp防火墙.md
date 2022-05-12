@@ -6,7 +6,7 @@ url: /?p=4111
 categories:
   - Linux
   - Network
-tags:$
+tags:
   - reprint
 ---
 ## 使用 arpalert 来做被动式arp防火墙

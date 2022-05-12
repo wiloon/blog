@@ -5,7 +5,7 @@ date: 2017-05-04T07:47:46+00:00
 url: gomock
 categories:
   - Go
-tags:$
+tags:
   - reprint
 ---
 ## gomock

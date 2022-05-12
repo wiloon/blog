@@ -5,7 +5,7 @@ date: 2011-09-25T09:54:40+00:00
 url: ssh
 categories:
   - Linux
-tags:$
+tags:
   - reprint
 ---
 ## ssh basic

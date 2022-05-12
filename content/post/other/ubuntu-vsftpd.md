@@ -5,7 +5,7 @@ date: 2012-05-25T14:59:25+00:00
 url: /?p=3216
 categories:
   - Linux
-tags:$
+tags:
   - reprint
 ---
 ## ubuntu vsftpd

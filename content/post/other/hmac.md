@@ -5,7 +5,7 @@ date: 2011-08-25T05:06:49+00:00
 url: /?p=560
 categories:
   - security
-tags:$
+tags:
   - reprint
 ---
 ## Hash， MAC, HMAC

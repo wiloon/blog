@@ -6,7 +6,7 @@ url: /?p=2620
 categories:
   - Linux
   - Network
-tags:$
+tags:
   - reprint
 ---
 ## tunctl

@@ -5,7 +5,7 @@ date: 2011-12-25T03:52:55+00:00
 url: /?p=1962
 categories:
   - Java
-tags:$
+tags:
   - reprint
 ---
 ## JTA

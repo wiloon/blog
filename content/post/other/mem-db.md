@@ -5,7 +5,7 @@ date: 2014-01-15T05:05:46+00:00
 url: mem-db
 categories:
   - database
-tags:$
+tags:
   - reprint
 ---
 ## 内存数据库

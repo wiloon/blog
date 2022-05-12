@@ -5,7 +5,7 @@ date: 2011-04-23T12:00:20+00:00
 url: /?p=113
 categories:
   - Emacs
-tags:$
+tags:
   - reprint
 ---
 ## emacs 自动补全括号

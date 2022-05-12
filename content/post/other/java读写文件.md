@@ -5,7 +5,7 @@ date: 2012-09-27T02:31:11+00:00
 url: /?p=4340
 categories:
   - Java
-tags:$
+tags:
   - reprint
 ---
 ## java读写文件

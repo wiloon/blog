@@ -5,7 +5,7 @@ date: 2011-08-19T02:34:08+00:00
 url: /?p=450
 categories:
   - Linux
-tags:$
+tags:
   - reprint
 ---
 ## yaml

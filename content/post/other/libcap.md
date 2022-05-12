@@ -5,7 +5,7 @@ date: 2021-10-31T04:20:17+00:00
 url: libcap
 categories:
   - network
-tags:$
+tags:
   - reprint
 ---
 ## linux 报文高速捕获技术对比, napi/libpcap/afpacket/pfring/dpdk/xdp

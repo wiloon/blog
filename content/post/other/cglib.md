@@ -5,7 +5,7 @@ date: 2012-12-15T14:05:37+00:00
 url: /?p=4901
 categories:
   - Java
-tags:$
+tags:
   - reprint
 ---
 ## cglib

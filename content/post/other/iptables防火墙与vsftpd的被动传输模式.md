@@ -6,7 +6,7 @@ url: /?p=3234
 categories:
   - Linux
   - Network
-tags:$
+tags:
   - reprint
 ---
 ## iptables防火墙与vsftpd的被动传输模式

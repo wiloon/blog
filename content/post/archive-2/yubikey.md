@@ -5,7 +5,7 @@ date: 2018-06-20T13:55:29+00:00
 url: /?p=12337
 categories:
   - security
-tags:$
+tags:
   - reprint
 
 ---

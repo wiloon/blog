@@ -5,7 +5,7 @@ date: 2013-09-13T11:07:15+00:00
 url: /?p=5812
 categories:
   - Java
-tags:$
+tags:
   - reprint
 ---
 ## 偏向锁(Biased Locking)

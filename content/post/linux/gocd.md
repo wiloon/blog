@@ -5,7 +5,7 @@ date: 2012-05-29T13:04:13+00:00
 url: gocd
 categories:
   - devops
-tags:$
+tags:
   - reprint
 ---
 ## gocd

@@ -5,7 +5,7 @@ date: 2012-06-10T05:08:51+00:00
 url: /?p=3481
 categories:
   - Development
-tags:$
+tags:
   - reprint
 ---
 ## xml 编码

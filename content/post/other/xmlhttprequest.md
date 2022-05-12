@@ -6,7 +6,7 @@ url: /?p=4021
 categories:
   - Java
   - Web
-tags:$
+tags:
   - reprint
 ---
 ## XMLHttpRequest, XHR

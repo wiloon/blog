@@ -5,7 +5,7 @@ date: 2019-08-06T10:43:50+00:00
 url: /?p=14772
 categories:
   - redis
-tags:$
+tags:
   - reprint
 ---
 ## redis stream

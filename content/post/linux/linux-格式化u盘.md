@@ -5,7 +5,7 @@ date: 2012-03-29T14:49:17+00:00
 url: /?p=2691
 categories:
   - Linux
-tags:$
+tags:
   - reprint
 ---
 ## linux 格式化U盘

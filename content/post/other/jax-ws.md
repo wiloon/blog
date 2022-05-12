@@ -6,7 +6,7 @@ url: /?p=1404
 categories:
   - Java
   - Web
-tags:$
+tags:
   - reprint
 ---
 ## JAX-WS
