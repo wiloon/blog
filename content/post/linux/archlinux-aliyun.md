@@ -11,7 +11,12 @@ tags:
 ## aliyun ecs, 阿里云安装 archlinux
 
 ```bash
+cd /tmp
 curl -O http://mirrors.163.com/archlinux/iso/2022.02.01/archlinux-bootstrap-2022.02.01-x86_64.tar.gz
+
+# singapore
+curl -O curl -O https://mirror.aktkn.sg/archlinux/iso/2022.05.01/archlinux-bootstrap-2022.05.01-x86_64.tar.gz
+
 tar zxvf archlinux-bootstrap-2022.02.01-x86_64.tar.gz
 sudo mount --bind /tmp/root.x86_64 /tmp/root.x86_64
 /tmp/root.x86_64/bin/arch-chroot /tmp/root.x86_64/
