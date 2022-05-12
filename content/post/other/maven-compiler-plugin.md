@@ -25,7 +25,7 @@ maven-compiler-plugin 3.6 和更高版本提供了一种新的配置方法
 </plugin>
 ```
 
-jdk 9 以上也可以只声明 maven.compiler.release
+jdk 9 以上可以只声明 maven.compiler.release
 
 ```xml
 <properties>
