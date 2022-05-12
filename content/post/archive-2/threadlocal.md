@@ -44,7 +44,7 @@ Object initValue() 返回该线程局部变量的初始值,使用protected修饰
 1. HashMap 的数据结构是数组+链表
 2. ThreadLocalMap的数据结构仅仅是数组
 3. HashMap 是通过链地址法解决 hash 冲突的问题
-4. ThreadLocalMap 是通过开放地址法来解决hash 冲突的问题
+4. ThreadLocalMap 是通过开放地址法来解决 hash 冲突的问题
 5. HashMap 里面的Entry 内部类的引用都是强引用
 6. ThreadLocalMap里面的Entry 内部类中的key 是弱引用,value 是强引用
 
@@ -360,32 +360,33 @@ ThreadLocal内部的ThreadLocalMap键为弱引用,会有内存泄漏的风险。
 
 ### 魔数0x61c88647
 
-魔数0x61c88647与碰撞解决#
+魔数0x61c88647与碰撞解决
 机智的读者肯定发现ThreadLocalMap并没有使用链表或红黑树去解决hash冲突的问题,而仅仅只是使用了数组来维护整个哈希表,那么重中之重的散列性要如何保证就是一个很大的考验
 ThreadLocalMap通过结合三个巧妙的设计去解决这个问题:
-1.Entry的key设计成弱引用,因此key随时可能被GC (也就是失效快) ,尽量多的面对空槽
-2.(单个ThreadLocal时)当遇到碰撞时,通过线性探测的开放地址法解决冲突问题
-3.(多个ThreadLocal时)引入了神奇的0x61c88647,增强其的散列性,大大减少碰撞几率
+
+1. Entry的key设计成弱引用,因此key随时可能被GC (也就是失效快) ,尽量多的面对空槽
+2. (单个ThreadLocal时)当遇到碰撞时,通过线性探测的开放地址法解决冲突问题
+3. (多个ThreadLocal时)引入了神奇的0x61c88647,增强其的散列性,大大减少碰撞几率
 之所以不用累加而用该值,笔者认为可能跟其找最近的空槽有关 (跳跃查找比自增1查找用来找空槽可能更有效一些,因为有了更多可选择的空间spreading out) ,同时也跟其良好的散列性有关
 0x61c88647与黄金比例、Fibonacci 数有关,读者可参见What is the meaning of 0x61C88647 constant in ThreadLocal.java
 
-><https://stackoverflow.com/questions/38994306/what-is-the-meaning-of-0x61c88647-constant-in-threadlocal-java>
-><https://web.archive.org/web/20161121124236/http://brpreiss.com/books/opus4/html/page214.html>
+<https://stackoverflow.com/questions/38994306/what-is-the-meaning-of-0x61c88647-constant-in-threadlocal-java>
+<https://web.archive.org/web/20161121124236/http://brpreiss.com/books/opus4/html/page214.html>
 
 ### 链地址法和开放地址法的优缺点
 
-开放地址法:
+#### 开放地址法
 
-容易产生堆积问题,不适于大规模的数据存储。
-散列函数的设计对冲突会有很大的影响,插入时可能会出现多次冲突的现象。
-删除的元素是多个冲突元素中的一个,需要对后面的元素作处理,实现较复杂。
+- 容易产生堆积问题,不适于大规模的数据存储。
+- 散列函数的设计对冲突会有很大的影响, 插入时可能会出现多次冲突的现象。
+- 删除的元素是多个冲突元素中的一个, 需要对后面的元素作处理, 实现较复杂。
 
-链地址法:
+#### 链地址法, 链表法
 
-处理冲突简单,且无堆积现象,平均查找长度短。
-链表中的结点是动态申请的,适合构造表不能确定长度的情况。
-删除结点的操作易于实现。只要简单地删去链表上相应的结点即可。
-指针需要额外的空间,故当结点规模较小时,开放定址法较为节省空间。
+- 处理冲突简单, 且无堆积现象, 平均查找长度短。
+- 链表中的结点是动态申请的, 适合构造表不能确定长度的情况。
+- 删除结点的操作易于实现。只要简单地删去链表上相应的结点即可。
+- 指针需要额外的空间, 故当结点规模较小时,开放定址法较为节省空间。
 
 ThreadLocalMap 采用开放地址法原因
 

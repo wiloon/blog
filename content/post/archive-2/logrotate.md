@@ -15,13 +15,17 @@ tags:
 <http://wiloon.com/cron>
 
 ### 全局配置
+
 /etc/logrotate.conf
 
 ### 不同应用的具体配置则在
+
 /etc/logrotate.d/*
 
 ### 配置文件内容
+
 ### vim /etc/logrotate.d/ansiblelog
+
 ```bash
 /var/log/ansible.log {
     daily
@@ -81,6 +85,7 @@ crontab -e
 ```
 
 ### /etc/crontab
+
     01 * * * * root run-parts /etc/cron.hourly
     02 4 * * * root run-parts /etc/cron.daily
     22 4 * * 0 root run-parts /etc/cron.weekly
@@ -94,7 +99,7 @@ run-parts 命令位于 /usr/bin/run-parts, 内容是很简单的一个shell脚�
 
 运行机制
 
-logrotate 在很多 Linux 发行版上都是默认安装的。 系统会定时运行 logrotate, 一般是每天一次。 系统是这么实现按天执行的。 crontab 会每天定时执行 /etc/cron.daily 目录下的脚本,而这个目录下有个文件叫 logrotate。在 centos 上脚本内容是这样的: 
+logrotate 在很多 Linux 发行版上都是默认安装的。 系统会定时运行 logrotate, 一般是每天一次。 系统是这么实现按天执行的。 crontab 会每天定时执行 /etc/cron.daily 目录下的脚本,而这个目录下有个文件叫 logrotate。在 centos 上脚本内容是这样的:
 
 ```bash
 /usr/sbin/logrotate /etc/logrotate.conf >/dev/null 2>&1
@@ -107,7 +112,7 @@ exit 0
 
 可以看到这个脚本主要做的事就是以 /etc/logrotate.conf 为配置文件执行了 logrotate。 就是这样实现了每天执行一次 logrotate。
 
-因为我的系统执行 /etc/cron.daily 目录下的脚本不是我想滚动日志的时间,所以我把/etc/cron.daily/logrotate拷了出来,改了一下logrotate配置文件的路径,然后在crontab里加上一条指定时间执行这个脚本的记录,自定义周期滚动日志就大功告成了。这种自定义的方式有两点要注意: 
+因为我的系统执行 /etc/cron.daily 目录下的脚本不是我想滚动日志的时间,所以我把/etc/cron.daily/logrotate拷了出来,改了一下logrotate配置文件的路径,然后在crontab里加上一条指定时间执行这个脚本的记录,自定义周期滚动日志就大功告成了。这种自定义的方式有两点要注意:
 
 配置文件里一定要配置rotate 文件数目这个参数。如果不配置默认是0个,也就是只允许存在一份日志,刚切分出来的日志会马上被删除。多么痛的领悟,说多了都是泪。
 
@@ -141,7 +146,7 @@ inodes
 
 默认方案没有名字, 姑且叫它create吧。因为这个方案会创建一个新的日志文件给程序输出日志, 而且第二个方案名 copytruncate 是个配置项, 与 create 配置项是互斥的。
 
-这个方案的思路是重命名原日志文件,创建新的日志文件。详细步骤如下: 
+这个方案的思路是重命名原日志文件,创建新的日志文件。详细步骤如下:
 
 1. 重命名程序当前正在输出日志的程序。因为重命名只会修改目录文件的内容,而进程操作文件靠的是inode编号,所以并不影响程序继续输出日志。
 2. 创建新的日志文件,文件名和原来日志文件一样。虽然新的日志文件和原来日志文件的名字一样, 但是inode编号不一样, 所以程序输出的日志还是往原日志文件输出。
@@ -155,7 +160,7 @@ inodes
 
 如果程序不支持重新打开日志的功能, 又不能粗暴地重启程序, 怎么滚动日志呢？ copytruncate 的方案出场了。
 
-这个方案的思路是把正在输出的日志拷(copy)一份出来,再清空(trucate)原来的日志。详细步骤如下: 
+这个方案的思路是把正在输出的日志拷(copy)一份出来,再清空(trucate)原来的日志。详细步骤如下:
 
 拷贝程序当前正在输出的日志文件, 保存文件名为滚动结果文件名。 这期间程序照常输出日志到原来的文件中, 原来的文件名也没有变。
 
@@ -169,6 +174,6 @@ inodes
 
 日志在拷贝完到清空文件这段时间内, 程序输出的日志没有备份就清空了, 这些日志不是丢了吗？是的, copytruncate有丢失部分日志内容的风险。所以能用create的方案就别用 copytruncate。所以很多程序提供了通知我更新打开日志文件的功能来支持 create 方案,或者自己做了日志滚动,不依赖 logrotate。
 
-http://www.lightxue.com/how-logrotate-works
+<http://www.lightxue.com/how-logrotate-works>
   
-https://jin-yang.github.io/post/logrotate-usage.html
+<https://jin-yang.github.io/post/logrotate-usage.html>

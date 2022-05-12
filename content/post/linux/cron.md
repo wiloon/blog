@@ -8,7 +8,6 @@ categories:
 tags:
   - remix
   - reprint
-
 ---
 ## cron, crond, crontab, linux 定时任务, cronie
 
@@ -82,6 +81,8 @@ cron will then examine the modification time on all crontabs and reload those wh
 ```bash
 # 每天早上5点运行
 0 5 * * * /root/bin/backup.sh
+# 从5点开始, 连续一个小时, 每分钟运行一次
+* 5 * * * /root/bin/backup.sh
 # 每三分钟
 */3 * * * * echo "foo" >> /tmp/foo.txt
 # 每三分钟, 8点到17点
@@ -109,19 +110,25 @@ cron will then examine the modification time on all crontabs and reload those wh
 
 ### 每两个小时
 
+```bash
     0 */2 * * * echo "foo" >> /tmp/foo.txt
+```
 
 run-parts
 
 ### 每个小时去执行一遍/etc/cron.hourly内的脚本
 
+```bash
     01 * * * * root run-parts /etc/cron.hourly
+```
   
 02 4 ** * root run-parts /etc/cron.daily // 每天去执行一遍/etc/cron.daily内的脚本
 
 每星期去执行一遍/etc/cron.weekly内的脚本
 
-    22 4 * * 0 root run-parts /etc/cron.weekly 
+```bash
+    22 4 * * 0 root run-parts /etc/cron.weekly
+```
   
 42 4 1 ** root run-parts /etc/cron.monthly //每个月去执行一遍/etc/cron.monthly内的脚本
 
@@ -211,7 +218,7 @@ MAILTO=root //如果出现错误，或者有数据输出，数据作为邮件发
   
 HOME=/
 
-# run-parts
+run-parts
 
 01 **** root run-parts /etc/cron.hourly //每个小时去执行一遍/etc/cron.hourly内的脚本
   
@@ -263,25 +270,23 @@ Minute，Houre，Day，Month，DayOfWeek? 为条件式，需要符合所有条�
 
 crontab 的指令，预设是以 /bin/sh 为直译器，而以使用者的家目录为工作目录。然而使用者可以用 HOME、SHELL、PATH 的变量改变执行时的直译器、预设执行目录与路径。也可以透过设定 MAILTO 设定执行后的纪录要以电子邮件记送到何处。
 
-# use /bin/sh to run commands, no matter what /etc/passwd says
+use /bin/sh to run commands, no matter what /etc/passwd says
 
 SHELL=/bin/sh
 
-# mail any output to \`paul', no matter whose crontab this is
+mail any output to \`paul', no matter whose crontab this is
 
 MAILTO=paul
   
-#
-
-# run five minutes after midnight, every day
+run five minutes after midnight, every day
 
 5 0 ** * $HOME/bin/daily.job >> $HOME/tmp/out 2>&1
 
-# run at 2:15pm on the first of every month — output mailed to paul
+run at 2:15pm on the first of every month — output mailed to paul
 
 15 14 1 ** $HOME/bin/monthly
 
-# run at 10 pm on weekdays, annoy Joe
+run at 10 pm on weekdays, annoy Joe
 
 0 22 ** 1-5 mail -s "It's 10pm" joe%Joe,%%Where are your kids?%
   

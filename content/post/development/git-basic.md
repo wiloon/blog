@@ -4,16 +4,17 @@ author: "-"
 date: 2022-01-29 10:33:11
 url: git
 categories:
-  - Linux
+  - Git
 tags:
-    - Git
     - remix
-
 ---
 ## Git basic commands, git 常用命令
 
 ## 连通性测试
-    ssh -T git@github.com
+
+```bash
+ssh -T git@github.com
+```
 
 ### git add
 
@@ -21,15 +22,19 @@ git add 命令可将该文件添加到 `暂存区`。
 
 ### config git editor
 
-    git config --global core.editor vim
-    export EDITOR=vim
+```bash
+git config --global core.editor vim
+export EDITOR=vim
+```
 
 ### commit
 
 #### 修改最近一次的 commit message
 
-    git commit --amend
-    git commit --amend -m "New commit message."
+```bash
+git commit --amend
+git commit --amend -m "New commit message."
+```
 
 Rewriting the most recent commit message
 You can change the most recent commit message using the git commit --amend command.
@@ -56,7 +61,9 @@ git push --force origin master
 
 #### 查看所有被 Git 忽略的文件, Git 1.6+
 
+```bash
     git ls-files --others -i --exclude-standard
+```
 
 #### Git 1.4, 1.5
 
@@ -94,13 +101,15 @@ git clean -nf
 git clean -nfd
 ```
 
->https://ruby-china.org/topics/17951
+<https://ruby-china.org/topics/17951>
 
 ## git remote
 
 ### 查看远程仓库地址
 
-    git remote -v
+```bash
+git remote -v
+```
 
 ### 添加远程库
 
@@ -117,7 +126,9 @@ git push -u origin master
 
 ### 删除远程库
 
+```bash
     gitremote rm repo0
+```
 
 ### 删除文件
 
@@ -126,19 +137,23 @@ git rm -r xxx/xxx
 
 ### 将指定的提交 (commit) 应用于其他分支
 
+```bash
     git cherry-pick <commitHash>
+```
 
 <https://www.ruanyifeng.com/blog/2020/04/git-cherry-pick.html>
 
-
-
 ### 指定ssh 私钥
 
+```bash
     GIT_SSH_COMMAND="ssh -i ~/tmp/id_rsa" git clone git@github.com:wiloon/foo.git
+```
 
 ### 打印当前版本
 
+```bash
     git rev-parse HEAD
+```
 
 ### git checkout
 
@@ -150,7 +165,9 @@ git checkout HEAD . # 将所有代码都 checkout 出來(最后一次 commit 的
 
 ### checkout 指定版本
 
+```bash
     git checkout 788258e49531eb24bfd347a600d69a16f966c495
+```
 
 ### 放弃本地未提交的修改
 
@@ -160,8 +177,7 @@ To discard all local changes, you do not use revert. revert is for reverting com
 git checkout . #本地所有修改的。没有的提交的，都返回到原来的状态
 ```
 
-><https://blog.csdn.net/leedaning/article/details/51304690>
-
+<https://blog.csdn.net/leedaning/article/details/51304690>
 
 ### 指定克隆深度
 
@@ -177,20 +193,27 @@ git checkout master
 
 config 配置有system级别 global (用户级别)  和local (当前仓库) 三个 设置先从system-》global-》local  底层配置会覆盖顶层配置 分别使用--system/global/local 可以定位到配置文件
 
+```bash
     git config --list
     git config --system --list
     git config --global core.editor vim
+```
 
 查看当前用户 (global) 配置
 
+```bash
     git config --global  --list
+```
 
 查看当前仓库配置信息
 
+```bash
     git config --local  --list
+```
 
 #### 设置
 
+```bash
     #设置电子邮件地址
     # global
     git config --global user.name "name0"
@@ -203,6 +226,7 @@ config 配置有system级别 global (用户级别)  和local (当前仓库) 三�
     #确认在 Git 中正确设置了电子邮件地址
     git config --global user.email
     git config --local  user.email
+```
 
 ### git log
 
@@ -239,11 +263,15 @@ git rm -f
 git fetch 命令用来拉取其它仓库的数据(objects and refs).
 默认情况下，git fetch取回**所有**分支 (branch) 的更新。如果只想取回特定分支的更新，可以指定分支名。  
 
+```bash
     git fetch <远程主机名> <分支名>
+```
 
 比如，取回 origin 主机的 master 分支。
 
+```bash
     git fetch origin master
+```
 
 ### git fetch 与 git pull
 
@@ -286,8 +314,6 @@ git pull <远程主机名> <远程分支名>:<本地分支名>
 
 因此，与git pull相比git fetch相当于是从远程获取最新版本到本地，但不会自动merge。如果需要有选择的合并git fetch是更好的选择。效果相同时git pull将更为快捷。
 
-### git pull
-
 ```bash
 git pull
 # verbos
@@ -322,6 +348,7 @@ git tag -a v1.2 9fceb02
 ```
 
 ### 轻量标签 (lightweight）
+
 ```bash
 # list local tags
 git tag
@@ -349,7 +376,8 @@ git tag -d v1.0.0
 # delete remote tag
 git push origin :refs/tags/v1.0.0
 ```
->https://git-scm.com/book/zh/v2/Git-%E5%9F%BA%E7%A1%80-%E6%89%93%E6%A0%87%E7%AD%BE
+
+<https://git-scm.com/book/zh/v2/Git-%E5%9F%BA%E7%A1%80-%E6%89%93%E6%A0%87%E7%AD%BE>
 
 ## 分支, branch
 
@@ -367,60 +395,81 @@ git branch -m main
 
 ### 打印当前分支名
 
+```bash
     git symbolic-ref --short HEAD  
+```
 
 #### 查看本地所有分支, 当前分支前面会标一个*号
 
+```bash
     git branch
     # check branch detail
     git branch -v
+```
 
 #### 查看远程所有分支
 
+```bash
     git branch -r 
+```
 
 #### 查看所有的分支
 
+```bash
     git branch -a
+```
 
 #### 新建分支
 
+```bash
     git branch branch0
+```
 
 #### 切换到分支
 
+```bash
     git switch branch0
     git checkout branch0
+```
 
 #### 新建并切换到分支
 
+```bash
     git switch -c dev
     git checkout -b branch0
+```
 
 #### 删除分支
 
+```bash
     git branch -d branch0
     # 强制删除分支，删除没merge的分支
     git branch -D branch0
+```
 
 #### 删除远程的todo branch
 
+```bash
     git branch -d -r origin/todo
+```
 
 #### 分支合并, git merge 命令用于合并指定分支到当前分支
 
+```bash
     git merge branch1 -m "MSG0"
+```
 
 ### 本地分支重命名(还没有推送到远程)
 
+```bash
     git branch -m oldName newName
+```
 
 ### git clone
 
 git clone <版本库的网址> <本地目录名>
 
-```
-
+```bash
 git log
 git reflog
 git log --pretty=oneline
@@ -529,8 +578,6 @@ $ git submodule add <https://github.com/maonx/vimwiki-assets.git> assets
 卸载电脑原先的Git，安装32位Git。
 或者卸载监控软件
 
-
-
 ### git restore
 
 将在工作空间但是不在暂存区的文件撤销更改
@@ -571,12 +618,12 @@ git config –global http.sslVerify false
 ><https://www.jianshu.com/p/9000cd49822c>
 ><https://blog.csdn.net/CrazyZhang1990/article/details/42780285>
 
-
 ### pre-commit
+
 .git/hook/pre-commit
 
-
 ### create a new repository on the command line
+
 echo "# jetbrain-eap-installer" >> README.md
 git init
 git add README.md
@@ -585,14 +632,15 @@ git branch -M main
 git remote add origin git@github.com:wiloon/jetbrain-eap-installer.git
 git push -u origin main
 
-###  push an existing repository from the command line
+### push an existing repository from the command line
+
 git remote add origin git@github.com:wiloon/jetbrain-eap-installer.git
 git branch -M main
 git push -u origin main
 
-## 删除大文件 
+## 删除大文件
 
->https://harttle.land/2016/03/22/purge-large-files-in-gitrepo.html
+><https://harttle.land/2016/03/22/purge-large-files-in-gitrepo.html>
 
 ## 按修改次数排序
 
@@ -613,6 +661,6 @@ git pull --allow-unrelated-histories
 原因："git merge" used to allow merging two branches that have no common base by default, which led to a brand new history of an existing project created and then get pulled by an unsuspecting maintainer, which allowed an unnecessary parallel history merged into the existing project. The command has been taught not to allow this by default, with an escape hatch "--allow-unrelated-histories" option to be used in a rare event that merges histories of two projects that started their lives independently（stackoverflow）.
 
 作者：勿以浮沙筑高台
-链接：https://www.jianshu.com/p/536080638cc9
+链接：<https://www.jianshu.com/p/536080638cc9>
 来源：简书
 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
