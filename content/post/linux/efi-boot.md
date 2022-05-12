@@ -5,7 +5,6 @@ date: 2012-07-02T04:59:13+00:00
 url: /?p=3714
 categories:
   - Hardware
-
 tags:
   - reprint
 ---

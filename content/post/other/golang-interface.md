@@ -8,7 +8,32 @@ categories:
 tags:
   - reprint
 ---
-## golang  方法, 接口, 继承
+## golang 方法, 接口, 继承
+
+```go
+package main
+
+import "fmt"
+
+type Foo struct{
+ Field0 string
+ Field1 string
+}
+
+type Bar struct{
+ Foo
+ Field2 string
+ Field3 string
+}
+
+func main(){
+ fmt.Println("hello")
+ bar:=Bar{Field2: "f2",Field3: "f3"}
+ bar.Field0="f0"
+ 
+ fmt.Printf("%v",bar)
+}
+```
 
 <http://www.cnblogs.com/chenny7/p/4497969.html>
 
@@ -46,7 +71,7 @@ var a Integer = 1
 }
 ```
 
-可以看出，Go语言在自定义类型的对象中没有C++/Java那种隐藏的this指针，而是在定义成员方法时显式声明了其所属的对象。
+可以看出，Go语言在自定义类型的对象中没有 C++/Java 那种隐藏的 this指针，而是在定义成员方法时显式声明了其所属的对象。
 
 method的语法如下:
 

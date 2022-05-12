@@ -5,7 +5,6 @@ date: 2012-05-29T03:05:36+00:00
 url: java/convert
 categories:
   - Java
-
 tags:
   - reprint
 ---

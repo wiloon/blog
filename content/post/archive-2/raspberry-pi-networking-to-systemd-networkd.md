@@ -9,7 +9,8 @@ tags:
   - reprint
 ---
 ## raspberry pi networking to systemd-networkd
-https://raspberrypi.stackexchange.com/questions/78787/howto-migrate-from-networking-to-systemd-networkd-with-dynamic-failover
+
+<https://raspberrypi.stackexchange.com/questions/78787/howto-migrate-from-networking-to-systemd-networkd-with-dynamic-failover>
 
 ```bash
 vim /etc/resolvconf.conf

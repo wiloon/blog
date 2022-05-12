@@ -5,7 +5,6 @@ date: 2011-09-17T04:28:12+00:00
 url: reflect
 categories:
   - Java
-
 tags:
   - reprint
 ---

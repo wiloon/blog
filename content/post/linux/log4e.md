@@ -6,7 +6,6 @@ url: /?p=332
 categories:
   - Eclipse
   - Java
-
 tags:
   - reprint
 ---

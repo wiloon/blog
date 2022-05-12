@@ -5,7 +5,6 @@ date: 2011-08-20T19:58:44+00:00
 url: dmesg
 categories:
   - Linux
-
 tags:
   - reprint
 ---

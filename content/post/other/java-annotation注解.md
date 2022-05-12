@@ -5,7 +5,6 @@ date: 2011-12-26T05:36:33+00:00
 url: annotation
 categories:
   - Java
-
 tags:
   - reprint
 ---

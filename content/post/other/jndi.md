@@ -5,7 +5,6 @@ date: 2011-12-25T03:59:59+00:00
 url: jndi
 categories:
   - Java
-
 tags:
   - reprint
 ---

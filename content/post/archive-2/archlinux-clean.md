@@ -5,7 +5,6 @@ date: 2018-09-03T08:17:29+00:00
 url: archlinux/clean
 categories:
   - Linux
-
 tags:
   - reprint
 ---

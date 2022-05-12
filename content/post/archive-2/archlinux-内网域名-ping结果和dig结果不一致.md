@@ -9,6 +9,7 @@ tags:
   - reprint
 ---
 ## archlinux 内网域名 ping结果和dig结果不一致
+
 确认/etc/resolv.conf配置是否正确: 没问题；
 
 确认/etc/hosts中是否添加了额外域名: 没问题；

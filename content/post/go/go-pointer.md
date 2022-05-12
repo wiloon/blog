@@ -1,5 +1,5 @@
 ---
-title: golang 指针
+title: Go 指针, pointer
 author: "-"
 date: 2016-10-12T00:12:13+00:00
 url: go/pointer
@@ -7,10 +7,13 @@ categories:
   - Go
 tags:
   - reprint
-
+  - Pointer
 ---
+## Go 指针, pointer
 
-## golang 指针
+- 普通指针
+- uintptr
+- unsafe.Pointer
 
 对于Go语言, 严格意义上来讲, 只有一种传递, 也就是按值传递 (by value)。当一个变量当作参数传递的时候, 会创建一个变量的副本, 然后传递给函数或者方法, 你可以看到这个副本的地址和变量的地址是不一样的。
 
@@ -495,3 +498,151 @@ go addressable 详解
 原文链接 <https://shockerli.net/post/golang-faq-cannot-take-the-address/>
 
 ><https://shockerli.net/post/golang-faq-cannot-take-the-address/>
+
+## uintptr
+
+如果你看go 的源码，尤其是 runtime 的部分的源码，你一定经常会发现 unsafe.Pointer 和 uintptr 这两个函数，例如下面就是 runtime 里面的 map 源码实现里面的一个函数
+
+```go
+func (b *bmap) overflow(t *maptype) *bmap {
+    return *(**bmap)(add(unsafe.Pointer(b), uintptr(t.bucketsize)-sys.PtrSize))
+}
+```
+
+Go 中的指针及与指针对指针的操作主要有以下三种：
+
+- 普通的指针类型，例如 var intptr *T，定义一个T类型指针变量。
+- 内置类型 uintptr，本质是一个无符号的整型，它的长度是跟平台相关的，它的长度可以用来保存一个指针地址。
+- 是 unsafe 包提供的 Pointer，表示可以指向任意类型的指针。
+
+## 普通的指针类型
+
+```go
+count := 1
+Counter(&count)
+fmt.Println(count)
+
+func Counter(count *int) {
+    *count++
+}
+```
+
+普通指针可以通过引用来修改变量的值，这个跟C语言指针有点像。
+
+## uintptr 类型
+
+uintptr 用来进行指针计算，因为它是整型，所以很容易计算出下一个指针所指向的位置。uintptr 在builtin 包中定义，定义如下：
+
+```go
+// uintptr is an integer type that is large enough to hold the bit pattern of any pointer.
+// uintptr是一个能足够容纳指针位数大小的整数类型
+type uintptr uintptr
+```
+
+虽然uintpr 保存了一个指针地址，但它只是一个值，不引用任何对象。因此使用的时候要注意以下情况：
+
+1. 如果uintptr 地址相关联对象移动，则其值也不会更新。例如goroutine 的堆栈信息发生变化
+2. uintptr 地址关联的对象可以被垃圾回收。GC不认为uintptr 是活引用，因此unitptr 地址指向的对象可以被垃圾收集。
+
+一个uintptr 可以被转换成 unsafe.Pointer, 同时 unsafe.Pointer 也可以被转换为 uintptr。可以使用使用 uintptr + offset 计算出地址，然后使用unsafe.Pointer 进行转换，格式如下：p = unsafe.Pointer(uintptr(p) + offset)
+
+```go
+func main() {
+    n := 10
+
+    b := make([]int, n)
+    for i := 0; i < n; i++ {
+        b[i] = i
+    }
+    fmt.Println(b)
+    // [0 1 2 3 4 5 6 7 8 9]
+
+    // 取slice的最后的一个元素
+    firstP := &b[0]
+    fmt.Printf("firstP: %v\n", firstP)
+	
+    firstUnsafe := unsafe.Pointer(firstP)
+    fmt.Printf("firstUnsafe: %v\n", firstUnsafe)
+    
+	firstUintPtr := uintptr(firstUnsafe)
+    fmt.Printf("firstUintPtr: %v\n", firstUintPtr)
+    
+	itemSize := unsafe.Sizeof(b[0])
+    fmt.Printf("itemSize: %v\n", itemSize)
+    
+	// lastUintP := firstUintPtr + 9*itemSize // 错误用法，firstUintPtr 可能随时被 GC 回收， GC会把 firstUintPtr 当成 普通 uint， GC 并不知道它是一个指针
+    lastUintP := uintptr(firstUnsafe) + 9*itemSize
+    fmt.Printf("itemSize: %v\n", uintptr(firstUnsafe) + 9*itemSize)
+    end := unsafe.Pointer(lastUintP)
+    fmt.Printf("end: %v\n", end)
+    // 等价于unsafe.Pointer(&b[9])
+    fmt.Println(*(*int)(end))
+    // 9
+}
+```
+
+<https://segmentfault.com/a/1190000039165125>
+
+## unsafe.Pointer
+
+Go 的普通指针是不支持指针运算和转换
+
+首先，Go 是一门静态语言，所有的变量都必须为标量类型。不同的类型不能够进行赋值、计算等跨类型的操作。那么指针也对应着相对的类型，也在 Compile 的静态类型检查的范围内。同时静态语言，也称为强类型。也就是一旦定义了，就不能再改变它
+
+```go
+// 错误示例
+func main(){
+    num := 5
+    numPointer := &num
+
+    flnum := (*float32)(numPointer)
+    fmt.Println(flnum)
+}
+
+// ...: cannot convert numPointer (type *int) to type*float32
+```
+
+在示例中，我们创建了一个 num 变量，值为 5，类型为 int。取了其对于的指针地址后，试图强制转换为 *float32，结果失败...
+
+unsafe.Pointer 表示任意类型且可寻址的指针值， 可以在不同的指针类型之间转换
+
+- 任何类型的指针值都可以转换为 unsafe.Pointer
+- unsafe.Pointer 可以转换为任何类型的指针值
+- uintptr 可以转换为 unsafe.Pointer
+- unsafe.Pointer 可以转换为 uintptr
+
+## Offsetof
+
+```go
+type Num struct {
+    i string
+    j int64
+}
+
+func main() {
+    n := Num{i: "foo", j: 1}
+    nPointer := unsafe.Pointer(&n)
+
+    niPointer := (*string)(nPointer)
+    *niPointer = "bar"
+
+    njPointer := (*int64)(unsafe.Pointer(uintptr(nPointer) + unsafe.Offsetof(n.j)))
+    *njPointer = 2
+
+    fmt.Printf("n.i: %s, n.j: %d", n.i, n.j)
+}
+
+// n.i: bar, n.j: 2
+```
+
+## 结构体的一些基本概念
+
+结构体的成员变量在内存存储上是一段连续的内存
+结构体的初始地址就是第一个成员变量的内存地址
+基于结构体的成员地址去计算偏移量。就能够得出其他成员变量的内存地址
+
+nsafe.Offsetof：返回成员变量 x 在结构体当中的偏移量。更具体的讲，就是返回结构体初始位置到 x 之间的字节数。需要注意的是入参 ArbitraryType 表示任意类型，并非定义的 int。它实际作用是一个占位符
+
+func Offsetof(x ArbitraryType) uintptr
+
+<https://segmentfault.com/a/1190000017389782>

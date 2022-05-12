@@ -5,7 +5,6 @@ date: 2011-08-27T14:51:45+00:00
 url: iterator
 categories:
   - Linux
-
 tags:
   - reprint
 ---

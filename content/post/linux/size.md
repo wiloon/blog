@@ -5,7 +5,6 @@ date: 2012-07-12T04:17:32+00:00
 url: size
 categories:
   - Linux
-
 tags:
   - reprint
 ---
