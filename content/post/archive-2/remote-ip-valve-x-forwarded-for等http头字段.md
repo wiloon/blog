@@ -9,11 +9,12 @@ tags:
   - reprint
 ---
 ## Remote IP Valve, X-Forwarded-For等http头字段
-http://www.10tiao.com/html/308/201702/2650076434/1.html
-  
-http://tomcat.apache.org/tomcat-8.0-doc/api/org/apache/catalina/valves/RemoteIpValve.html
 
-X-Forwarded-For等http头字段与Tomcat的 Remote IP Valve (Valve源码分析之六) 
+<http://www.10tiao.com/html/308/201702/2650076434/1.html>
+  
+<http://tomcat.apache.org/tomcat-8.0-doc/api/org/apache/catalina/valves/RemoteIpValve.html>
+
+X-Forwarded-For等http头字段与Tomcat的 Remote IP Valve (Valve源码分析之六)
   
 2017-02-18 16:28 feiying 0 0 阅读 297
   
@@ -23,9 +24,9 @@ Proxies Valve是代理Valve,其作用是可以对负载均衡代理服务器的I
 
 1.X-Forwarded-For等http头字段
 
-在我们现实的真正的场景中,通常Tomcat直接和用户接触的场景不多,主要是通过代理转发机制进行,如下: 
+在我们现实的真正的场景中,通常Tomcat直接和用户接触的场景不多,主要是通过代理转发机制进行,如下:
 
-真正的用户客户端是Client1,代理转发服务器采用的是Nginx,Proxy1,那么在此场景下,如果在Tomcat中进行获取客户端的地址: 
+真正的用户客户端是Client1,代理转发服务器采用的是Nginx,Proxy1,那么在此场景下,如果在Tomcat中进行获取客户端的地址:
 
 request.getRemoteAddr,获得的IP地址绝对是Proxy1的,也就是负载均衡的地址；
 
@@ -75,7 +76,7 @@ remoteIpHeader
   
 Name of the HTTP Header read by this valve that holds the list of traversed IP addresses starting from the requesting client. If not specified, the default of x-forwarded-for is used.
 
-X-Forwarded-For属性 (可以更改为其它的属性) 
+X-Forwarded-For属性 (可以更改为其它的属性)
 
 internalProxies
   
@@ -87,7 +88,7 @@ proxiesHeader
   
 Name of the HTTP header created by this valve to hold the list of proxies that have been processed in the incoming remoteIpHeader. If not specified, the default of x-forwarded-by is used.
 
-x-forwarded-by 属性 (可以更改为其它的属性) 
+x-forwarded-by 属性 (可以更改为其它的属性)
 
 requestAttributesEnabled
   
@@ -155,7 +156,7 @@ If true, the value returned by ServletRequest.getLocalPort() and ServletRequest.
 
 我们可以从属性推断,Tomcat实际是通过http头的属性,来找到原始IP地址,proxy地址的；
 
-上述属性中需要区分的是internalProxies,trustProxies两个属性,这两个属性都是过滤的: 
+上述属性中需要区分的是internalProxies,trustProxies两个属性,这两个属性都是过滤的:
 
 3.invoke方法源码解析
 

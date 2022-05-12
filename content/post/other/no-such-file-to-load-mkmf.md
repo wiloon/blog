@@ -6,7 +6,6 @@ url: /?p=2800
 categories:
   - Development
   - Linux
-
 tags:
   - reprint
 ---

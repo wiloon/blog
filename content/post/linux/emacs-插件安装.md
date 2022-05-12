@@ -5,7 +5,6 @@ date: 2011-04-23T08:34:58+00:00
 url: /?p=98
 categories:
   - Emacs
-
 tags:
   - reprint
 ---

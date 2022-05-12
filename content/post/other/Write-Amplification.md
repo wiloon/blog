@@ -5,7 +5,6 @@ date: 2012-02-19T11:39:24+00:00
 url: write-amplification
 categories:
   - Linux
-
 tags:
   - reprint
 ---

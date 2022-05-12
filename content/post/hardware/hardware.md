@@ -2,7 +2,7 @@
 title: Hardware
 author: "W10N"
 date: "2021-01-13 08:49:13"
-url: ""
+url: "hardware"
 categories:
   - W10N
 tags:
@@ -10,6 +10,19 @@ tags:
   - HomeLab
 ---
 ## Hardware
+
+## benchmark
+
+<https://www.passmark.com/>
+
+## R86S
+
+- N5100, 10 nm
+- 16G
+- 128G EMMC
+- NVME
+
+<https://item.taobao.com/item.htm?spm=a1z09.2.0.0.39d42e8dLydghg&id=672470434606&_u=c2lc6g0c441>
 
 ## Dell Wyse 5070
 
@@ -23,15 +36,11 @@ Realtek®以太网LAN 10 Mb/100 Mb/1 Gb铜缆RJ45,LAN唤醒
 1个USB 3.1 Type C（前置）
 2个DisplayPort™ 1.2a（赛扬）
 
-## benchmark
-
-<https://www.passmark.com/>
-
 ## QNAP TS453Bmini
 
 ## Intel J4105 软路由
 
-- J4105
+- J4105, 14 nm
 - intel i211
 - DDR4 16G
 - MSATA
@@ -110,7 +119,7 @@ wifi: Intel Corporation Wireless 7260 (rev 5b)
 - HDMI
 - VGA
 
-## Dell U2412M * 2
+## Dell U2412M * 2, 显示器
 
 1920x1200
 
@@ -184,7 +193,7 @@ wifi: Intel Corporation Wireless 7260 (rev 5b)
     2.4G QCA9984
     有线网络 QCA8337
 
-## Dell Latitude 3450
+## Dell Latitude 3450, work
 
 <https://www.dell.com/support/manuals/zh-cn/latitude-3450-laptop/lat_14_3450_om-v1/specifications?guid=guid-42d27b81-8d57-4219-9b9b-0c51cfa756b5&lang=en-us>
 <https://www.dell.com/support/home/zh-cn/product-support/product/latitude-3450-laptop/drivers>
@@ -280,3 +289,8 @@ WISPr
 ## GD41
 
 <https://post.smzdm.com/p/avwqm59m/>
+
+## Dell Inspiron N4050
+
+- i3-2370M 2nd gen Intel® Core™ i3
+- 8G DDR3-SDRAM

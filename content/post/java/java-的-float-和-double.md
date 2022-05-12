@@ -5,7 +5,6 @@ date: 2011-07-03T12:17:33+00:00
 url: /?p=321
 categories:
   - Java
-
 tags:
   - reprint
 ---

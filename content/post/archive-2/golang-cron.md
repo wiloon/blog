@@ -10,11 +10,12 @@ tags:
   - reprint
 ---
 ## golang cron
-https://www.jianshu.com/p/626acb9549b1
+
+<https://www.jianshu.com/p/626acb9549b1>
 
 cron 表达式的基本格式
   
-用过 linux 的应该对 cron 有所了解。linux 中可以通过 crontab -e 来配置定时任务。不过,linux 中的 cron 只能精确到分钟。而我们这里要讨论的 Go 实现的 cron 可以精确到秒,除了这点比较大的区别外,cron 表达式的基本语法是类似的。 (如果使用过 Java 中的 Quartz,对 cron 表达式应该比较了解,而且它和这里我们将要讨论的 Go 版 cron 很像,也都精确到秒) 
+用过 linux 的应该对 cron 有所了解。linux 中可以通过 crontab -e 来配置定时任务。不过,linux 中的 cron 只能精确到分钟。而我们这里要讨论的 Go 实现的 cron 可以精确到秒,除了这点比较大的区别外,cron 表达式的基本语法是类似的。 (如果使用过 Java 中的 Quartz,对 cron 表达式应该比较了解,而且它和这里我们将要讨论的 Go 版 cron 很像,也都精确到秒)
 
 cron(计划任务),顾名思义,按照约定的时间,定时的执行特定的任务 (job) 。cron 表达式 表达了这种约定。
 
@@ -34,7 +35,7 @@ cron 表达式代表了一个时间集合,使用 6 个空格分隔的字段表�
   
 星期(Day of week) 否 0-6 or SUM-SAT * / , – ?
   
-注: 
+注:
   
 1) 月(Month)和星期(Day of week)字段的值不区分大小写,如: SUN、Sun 和 sun 是一样的。
   
@@ -56,7 +57,7 @@ cron 表达式代表了一个时间集合,使用 6 个空格分隔的字段表�
 
 4) 连字号(-)
   
-表示一个范围,如第3个字段的值为 9-17 表示 9am 到 5pm 直接每个小时 (包括9和17) 
+表示一个范围,如第3个字段的值为 9-17 表示 9am 到 5pm 直接每个小时 (包括9和17)
 
 5) 问号(?)
   
@@ -69,37 +70,36 @@ cron 表达式代表了一个时间集合,使用 6 个空格分隔的字段表�
 package main
 
 import (
-      
+
 "github.com/robfig/cron"
-      
+
 "log"
   
 )
 
 func main() {
-      
+
 i := 0
-      
+
 c := cron.New()
-      
-spec := "*/5 \* \* \* * ?"
-      
+
+spec := "*/5 \* \* \** ?"
+
 c.AddFunc(spec, func() {
-          
+
 i++
-          
+
 log.Println("cron running:", i)
-      
+
 })
-      
+
 c.Start()
 
     select{}
-    
 
 }
   
-启动后输出如下: 
+启动后输出如下:
 
 2017/07/06 18:28:30 cron running: 1
   
@@ -118,11 +118,11 @@ c.Start()
 package main
 
 import (
-      
+
 "github.com/robfig/cron"
-      
+
 "log"
-      
+
 "fmt"
   
 )
@@ -132,7 +132,7 @@ type TestJob struct {
 }
 
 func (this TestJob)Run() {
-      
+
 fmt.Println("testJob1...")
   
 }
@@ -142,7 +142,7 @@ type Test2Job struct {
 }
 
 func (this Test2Job)Run() {
-      
+
 fmt.Println("testJob2...")
   
 }
@@ -150,9 +150,9 @@ fmt.Println("testJob2...")
 //启动多个任务
   
 func main() {
-      
+
 i := 0
-      
+
 c := cron.New()
 
     //AddFunc
@@ -173,13 +173,12 @@ c := cron.New()
     defer c.Stop()
     
     select{}
-    
 
 }
   
 go run crontab/crontab-2.go
   
-启动后输出如下: 
+启动后输出如下:
   
 testJob1...
   
@@ -219,11 +218,11 @@ testJob1...
   
 参考
   
-http://ju.outofmemory.cn/entry/65356
+<http://ju.outofmemory.cn/entry/65356>
 
 作者: 水滴穿石
   
-链接: https://www.jianshu.com/p/626acb9549b1
+链接: <https://www.jianshu.com/p/626acb9549b1>
   
 來源: 简书
   

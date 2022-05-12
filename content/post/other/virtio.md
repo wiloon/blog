@@ -6,7 +6,6 @@ url: /?p=1709
 categories:
   - Linux
   - VM
-
 tags:
   - reprint
 ---

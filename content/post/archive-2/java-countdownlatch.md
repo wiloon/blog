@@ -42,12 +42,12 @@ CyclicBarrier类似于CountDownLatch也是个计数器, 不同的是CyclicBarrie
 
 ## Phaser
   
-一种可重用的同步屏障, 功能上类似于 CyclicBarrier 和 CountDownLatch, 但使用上更为灵活. 非常适用于在多线程环境下同步协调分阶段计算任务 (Fork/Join框架中的子任务之间需同步时, 优先使用 Phaser) 
+一种可重用的同步屏障, 功能上类似于 CyclicBarrier 和 CountDownLatch, 但使用上更为灵活. 非常适用于在多线程环境下同步协调分阶段计算任务 (Fork/Join框架中的子任务之间需同步时, 优先使用 Phaser)
   
 <http://www.wiloon.com/?p=11214>
 
 Exchanger 允许两个线程在某个汇合点交换对象, 在某些管道设计时比较有用. Exchanger提供了一个同步点, 在这个同步点, 一对线程可以交换数据. 每个线程通过exchange()方法的入口提供数据给他的伙伴线程, 并接收他的伙伴线程提供的数据并返回. 当两个线程通过Exchanger交换了对象, 这个交换对于两个线程来说都是安全的. Exchanger可以认为是 SynchronousQueue 的双向形式, 在运用到遗传算法和管道设计的应用中比较有用.
 
-http://zapldy.iteye.com/blog/746458
+<http://zapldy.iteye.com/blog/746458>
   
-http://www.jianshu.com/p/d424d02ed9eb
+<http://www.jianshu.com/p/d424d02ed9eb>

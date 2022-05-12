@@ -13,7 +13,7 @@ categories:
 
 ## podman basic
 
-### install
+## install
 
 <https://podman.io/getting-started/installation>
 

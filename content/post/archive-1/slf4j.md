@@ -5,7 +5,6 @@ date: 2012-12-25T02:43:26+00:00
 url: slf4j
 categories:
   - Java
-
 tags:
   - reprint
 ---

@@ -20,8 +20,8 @@ choco install keepassxc
 choco upgrade keepassxc
 ```
 
-https://blog.wiloon.com/?p=8340  
-https://chocolatey.org/packages  
+<https://blog.wiloon.com/?p=8340>  
+<https://chocolatey.org/packages>  
 
 ### chocolatey packages
 
@@ -41,12 +41,13 @@ https://chocolatey.org/packages
 
 ### 录屏
 
->https://www.v1tx.com/post/best-screen-recorder/
+<https://www.v1tx.com/post/best-screen-recorder/>
 
 - apps
 
 | Name             | Comments |
 | ---------------- | -------- |
+|Open Hardware Monitor|监控,温度,内存|
 |WizTree|硬盘占用分析|
 |Process Hacker|代替任务管理器|
 |chrome||
@@ -107,10 +108,7 @@ rdm redis desktop manager
   
 visualbox
 
-
-
 avirnt
- 
 
 steam
 

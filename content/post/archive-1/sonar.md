@@ -5,7 +5,6 @@ date: 2015-02-12T09:23:36+00:00
 url: sonar
 categories:
   - dev
-
 tags:
   - reprint
 ---

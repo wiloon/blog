@@ -46,7 +46,8 @@ sudo archlinux-java status
 ```bash
 sudo apt install openjdk-8-jdk
 sudo apt install openjdk-8-source
-sudo apt install openjdk-17-jdk openjdk-17-source
+# openjdk 17, depends libc6 (>= 2.33)
+sudo sudo apt update && sudo apt install openjdk-17-jdk openjdk-17-source
 
 # 默认目录
 ls -l /usr/lib/jvm/

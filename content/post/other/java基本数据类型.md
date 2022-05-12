@@ -5,7 +5,6 @@ date: 2012-09-19T08:44:40+00:00
 url: java/primitive
 categories:
   - Java
-
 tags:
   - reprint
 ---

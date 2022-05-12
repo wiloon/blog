@@ -5,7 +5,6 @@ date: 2020-02-24T03:41:55+00:00
 url: /?p=15626
 categories:
   - Go
-
 tags:
   - reprint
 ---

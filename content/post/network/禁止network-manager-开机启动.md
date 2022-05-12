@@ -5,7 +5,6 @@ date: 2012-02-08T14:38:46+00:00
 url: /?p=2278
 categories:
   - Linux
-
 tags:
   - reprint
 ---

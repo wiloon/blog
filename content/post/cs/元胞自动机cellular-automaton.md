@@ -6,7 +6,6 @@ url: /?p=3854
 categories:
   - Development
   - Science
-
 tags:
   - reprint
 ---

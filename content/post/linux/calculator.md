@@ -5,7 +5,6 @@ date: 2012-03-18T04:41:13+00:00
 url: calculator
 categories:
   - Linux
-
 tags:
   - reprint
 ---

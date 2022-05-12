@@ -10,6 +10,16 @@ categories:
 ---
 ## npm basic
 
+## version
+
+### current
+
+6.14.15
+
+### latest
+
+xxx
+
 ## 编译
 
 ```bash

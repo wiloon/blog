@@ -5,7 +5,6 @@ date: 2012-04-22T01:37:04+00:00
 url: git/conflict
 categories:
   - Git
-
 tags:
   - reprint
 ---

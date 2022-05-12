@@ -68,7 +68,7 @@ func do (m sync.Map) {
 
 它使用嵌入struct为map增加一个读写锁。
 
-读数据的时候很方便的加锁: 
+读数据的时候很方便的加锁:
 
 | --- | --- |
 | 1234 | counter.RLock()n := counter.m["some_key"]counter.RUnlock()fmt.Println("some_key:", n) |
@@ -97,7 +97,7 @@ func do (m sync.Map) {
 
 下面我们介绍`sync.Map`的重点代码,以便理解它的实现思想。
 
-首先,我们看一下`sync.Map`的数据结构: 
+首先,我们看一下`sync.Map`的数据结构:
 
 | --- | --- |
 | 123456789101112131415161718 | type Map struct { // 当涉及到dirty数据的操作的时候,需要使用这个锁 mu Mutex // 一个只读的数据结构,因为只读,所以不会有读写冲突。 // 所以从这个数据中读取总是安全的。 // 实际上,实际也会更新这个数据的entries,如果entry是未删除的(unexpunged), 并不需要加锁。如果entry已经被删除了,需要加锁,以便更新dirty数据。 read atomic.Value // readOnly // dirty数据包含当前的map包含的entries,它包含最新的entries(包括read中未删除的数据,虽有冗余,但是提升dirty字段为read的时候非常快,不用一个一个的复制,而是直接将这个数据结构作为read字段的一部分),有些数据还可能没有移动到read字段中。 // 对于dirty的操作需要加锁,因为对它的操作可能会有读写竞争。 // 当dirty为空的时候, 比如初始化或者刚提升完,下一次的写操作会复制read字段中未删除的数据到这个数据中。 dirty map[interface{}]*entry // 当从Map中读取entry的时候,如果read中不包含这个entry,会尝试从dirty中读取,这个时候会将misses加一, // 当misses累积到 dirty的长度的时候, 就会将dirty提升为read,避免从dirty中miss太多次。因为操作dirty需要加锁。 misses int} |
@@ -106,7 +106,7 @@ func do (m sync.Map) {
 
 它使用了冗余的数据结构`read`、`dirty`。`dirty`中会包含`read`中为删除的entries,新增加的entries会加入到`dirty`中。
 
-`read`的数据结构是: 
+`read`的数据结构是:
 
 | --- | --- |
 | 1234 | type readOnly struct { m map[interface{}]*entry amended bool // 如果Map.dirty有些数据不在中的时候,这个值为true} |
@@ -122,7 +122,7 @@ func do (m sync.Map) {
 | --- | --- |
 | 123 | type entry struct { p unsafe.Pointer // *interface{}} |
 
-p有三种值: 
+p有三种值:
 
 * nil: entry已被删除了,并且m.dirty为nil
 * expunged: entry已被删除了,并且m.dirty不为nil,而且这个entry不存在于m.dirty中
@@ -132,7 +132,7 @@ p有三种值:
 
 #### Load
 
-加载方法,也就是提供一个键`key`,查找对应的值`value`,如果不存在,通过`ok`反映: 
+加载方法,也就是提供一个键`key`,查找对应的值`value`,如果不存在,通过`ok`反映:
 
 | --- | --- |
 | 123456789101112131415161718192021222324252627 | func (m *Map) Load(key interface{}) (value interface{}, ok bool) { // 1.首先从m.read中得到只读readOnly,从它的map中查找,不需要加锁 read, _ := m.read.Load().(readOnly) e, ok := read.m[key] // 2. 如果没找到,并且m.dirty中有新数据,需要从m.dirty查找,这个时候需要加锁 if !ok && read.amended { m.mu.Lock() // 双检查,避免加锁的时候m.dirty提升为m.read,这个时候m.read可能被替换了。 read, _ = m.read.Load().(readOnly) e, ok = read.m[key] // 如果m.read中还是不存在,并且m.dirty中有新数据 if !ok && read.amended { // 从m.dirty查找 e, ok = m.dirty[key] // 不管m.dirty中存不存在,都将misses计数加一 // missLocked()中满足条件后就会提升m.dirty m.missLocked() } m.mu.Unlock() } if !ok { return nil, false } return e.load()} |
@@ -162,7 +162,7 @@ p有三种值:
 这个方法是更新或者新增一个entry。
 
 | --- | --- |
-| 1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253 | func (m *Map) Store(key, value interface{}) { // 如果m.read存在这个键,并且这个entry没有被标记删除,尝试直接存储。 // 因为m.dirty也指向这个entry,所以m.dirty也保持最新的entry。 read, _ := m.read.Load().(readOnly) if e, ok := read.m[key]; ok && e.tryStore(&value) { return } // 如果\`m.read\`不存在或者已经被标记删除 m.mu.Lock() read, _ = m.read.Load().(readOnly) if e, ok := read.m[key]; ok { if e.unexpungeLocked() { //标记成未被删除 m.dirty[key] = e //m.dirty中不存在这个键,所以加入m.dirty } e.storeLocked(&value) //更新 } else if e, ok := m.dirty[key]; ok { // m.dirty存在这个键,更新 e.storeLocked(&value) } else { //新键值 if !read.amended { //m.dirty中没有新的数据,往m.dirty中增加第一个新键 m.dirtyLocked() //从m.read中复制未删除的数据 m.read.Store(readOnly{m: read.m, amended: true}) } m.dirty[key] = newEntry(value) //将这个entry加入到m.dirty中 } m.mu.Unlock()}func (m *Map) dirtyLocked() { if m.dirty != nil { return } read, _ := m.read.Load().(readOnly) m.dirty = make(map[interface{}]*entry, len(read.m)) for k, e := range read.m { if !e.tryExpungeLocked() { m.dirty[k] = e } }}func (e *entry) tryExpungeLocked() (isExpunged bool) { p := atomic.LoadPointer(&e.p) for p == nil { // 将已经删除标记为nil的数据标记为expunged if atomic.CompareAndSwapPointer(&e.p, nil, expunged) { return true } p = atomic.LoadPointer(&e.p) } return p == expunged} |
+| 1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253 | func (m *Map) Store(key, value interface{}) { // 如果m.read存在这个键,并且这个entry没有被标记删除,尝试直接存储。 // 因为m.dirty也指向这个entry,所以m.dirty也保持最新的entry。 read, _ := m.read.Load().(readOnly) if e, ok := read.m[key]; ok && e.tryStore(&value) { return } // 如果\`m.read\`不存在或者已经被标记删除 m.mu.Lock() read, _ = m.read.Load().(readOnly) if e, ok := read.m[key]; ok { if e.unexpungeLocked() { //标记成未被删除 m.dirty[key] = e //m.dirty中不存在这个键,所以加入m.dirty } e.storeLocked(&value) //更新 } else if e, ok := m.dirty[key]; ok { // m.dirty存在这个键,更新 e.storeLocked(&value) } else { //新键值 if !read.amended { //m.dirty中没有新的数据,往m.dirty中增加第一个新键 m.dirtyLocked() //从m.read中复制未删除的数据 m.read.Store(readOnly{m: read.m, amended: true}) } m.dirty[key] = newEntry(value) //将这个entry加入到m.dirty中 } m.mu.Unlock()}func (m*Map) dirtyLocked() { if m.dirty != nil { return } read, _ := m.read.Load().(readOnly) m.dirty = make(map[interface{}]*entry, len(read.m)) for k, e := range read.m { if !e.tryExpungeLocked() { m.dirty[k] = e } }}func (e *entry) tryExpungeLocked() (isExpunged bool) { p := atomic.LoadPointer(&e.p) for p == nil { // 将已经删除标记为nil的数据标记为expunged if atomic.CompareAndSwapPointer(&e.p, nil, expunged) { return true } p = atomic.LoadPointer(&e.p) } return p == expunged} |
 
 你可以看到,以上操作都是先从操作`m.read`开始的,不满足条件再加锁,然后操作`m.dirty`。
 
@@ -177,7 +177,7 @@ p有三种值:
 
 同样,删除操作还是从`m.read`中开始, 如果这个entry不存在于`m.read`中,并且`m.dirty`中有新数据,则加锁尝试从`m.dirty`中删除。
 
-注意,还是要双检查的。 从`m.dirty`中直接删除即可,就当它没存在过,但是如果是从`m.read`中删除,并不会直接删除,而是打标记: 
+注意,还是要双检查的。 从`m.dirty`中直接删除即可,就当它没存在过,但是如果是从`m.read`中删除,并不会直接删除,而是打标记:
 
 | --- | --- |
 | 12345678910111213 | func (e *entry) delete() (hadValue bool) { for { p := atomic.LoadPointer(&e.p) // 已标记为删除 if p == nil \|\| p == expunged { return false } // 原子操作,e.p标记为nil if atomic.CompareAndSwapPointer(&e.p, p, nil) { return true } }} |
@@ -211,5 +211,5 @@ Go 1.9源代码中提供了性能的测试:  [map_bench_test.go](https://github.
 
 `LoadOrStore`方法如果提供的key存在,则返回已存在的值(Load),否则保存提供的键值(Store)。
 
-https://juejin.im/post/5d36a7cbf265da1bb47da444
-https://colobu.com/2017/07/11/dive-into-sync-Map/#sync-Map%E7%9A%84%E6%80%A7%E8%83%BD
+<https://juejin.im/post/5d36a7cbf265da1bb47da444>
+<https://colobu.com/2017/07/11/dive-into-sync-Map/#sync-Map%E7%9A%84%E6%80%A7%E8%83%BD>

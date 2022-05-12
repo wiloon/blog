@@ -5,7 +5,6 @@ date: 2011-11-09T06:08:32+00:00
 url: dentry
 categories:
   - Linux
-
 tags:
   - reprint
 ---

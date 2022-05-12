@@ -5,7 +5,6 @@ date: 2013-09-04T11:37:36+00:00
 url: /?p=5792
 categories:
   - CI
-
 tags:
   - reprint
 ---

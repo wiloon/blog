@@ -6,7 +6,6 @@ url: /?p=1404
 categories:
   - Java
   - Web
-
 tags:
   - reprint
 ---
