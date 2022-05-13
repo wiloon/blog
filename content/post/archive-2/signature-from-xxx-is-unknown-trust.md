@@ -9,9 +9,9 @@ tags:
   - reprint
 ---
 ## signature from xxx is unknown trust
-https://bbs.archlinux.org/viewtopic.php?id=128682
+
+<https://bbs.archlinux.org/viewtopic.php?id=128682>
 
 set up in pacman.conf
-
 
   SigLevel = Optional TrustAll```
