@@ -10,19 +10,20 @@ tags:
   - reprint
 ---
 ## golang log
+
 seelog
   
-https://github.com/cihub/seelog
+<https://github.com/cihub/seelog>
 
 log, glog, logrus
 
-https://sites.google.com/site/kjellhedstrom2/g2log-efficient-background-io-processign-with-c11/g2log-vs-google-s-glog-performance-comparison
+<https://sites.google.com/site/kjellhedstrom2/g2log-efficient-background-io-processign-with-c11/g2log-vs-google-s-glog-performance-comparison>
   
-https://logmatic.io/blog/our-guide-to-a-golang-logs-world/
+<https://logmatic.io/blog/our-guide-to-a-golang-logs-world/>
   
-https://www.goinggo.net/2013/11/using-log-package-in-go.html
+<https://www.goinggo.net/2013/11/using-log-package-in-go.html>
   
-http://legendtkl.com/2016/03/11/go-log/
+<http://legendtkl.com/2016/03/11/go-log/>
 
 log
   
@@ -33,27 +34,27 @@ log
 package main
 
 import (
-      
+
 "log"
-      
+
 "os"
   
 )
 
 func main() {
-      
+
 f, err := os.OpenFile("logfile.log", os.O_RDWR|os.O_CREATE|os.O_APPEND, 0666)
-      
+
 if err != nil {
-          
+
 log.Fatalf("file open error : %v", err)
-      
+
 }
-      
+
 defer f.Close()
-      
+
 log.SetOutput(f)
-      
+
 log.Println("This is a test log entry")
   
 }
@@ -67,29 +68,29 @@ log.Println("This is a test log entry")
 package main
 
 import (
-      
+
 "log"
-      
+
 "os"
   
 )
 
 func main() {
-      
+
 f, err := os.OpenFile("logfile.log", os.O_RDWR|os.O_CREATE|os.O_APPEND, 0666)
-      
+
 if err != nil {
-          
+
 log.Fatalf("file open error : %v", err)
-      
+
 }
-      
+
 defer f.Close()
-      
+
 log.SetOutput(f)
-      
+
 log.SetFlags(0)
-      
+
 log.Println("This is a test log entry")
   
 }
@@ -97,17 +98,17 @@ log.Println("This is a test log entry")
 SetFlags(flag int)函数可以用来自定义log的输出格式，flag可选如下任意个标志的或操作的组合。
 
 const (
-      
+
 Ldate = 1 << iota // the date: 2009/01/23
-      
+
 Ltime // the time: 01:23:23
-      
+
 Lmicroseconds // microsecond resolution: 01:23:23.123123. assumes Ltime.
-      
+
 Llongfile // full file name and line number: /a/b/c/d.go:23
-      
+
 Lshortfile // final file name element and line number: d.go:23. overrides Llongfile
-      
+
 LstdFlags = Ldate | Ltime // initial values for the standard logger
   
 )
@@ -123,22 +124,22 @@ logger是log的一个简单封装，使用logger可以使记log更加的便捷�
 package main
 
 import (
-      
+
 "log"
-      
+
 "os"
   
 )
 
 func main() {
-      
+
 logger := log.New(os.Stdout, "DEBUG", log.Ldata | log.Ltime)
-      
+
 logger.Println("This is a DEBUG LOG")
   
 }
   
-运行上述go程序，将在终端得到如下结果: 
+运行上述go程序，将在终端得到如下结果:
 
 DEBUG: 2016/03/11 22:21:19 This is a DEBUG LOG
   
@@ -151,33 +152,33 @@ os.Stdout表示标准输出，如果你想记录到文件中，将os.Open()或�
 package main
 
 import (
-      
+
 "io"
-      
+
 "io/ioutil"
-      
+
 "log"
-      
+
 "os"
   
 )
 
 var (
-      
+
 Info *log.Logger
-      
+
 Warning *log.Logger
-      
+
 Error *log.Logger
   
 )
 
 func Init(
-      
+
 infoHandle io.Writer,
-      
+
 warningHandle io.Writer,
-      
+
 errorHandle io.Writer) {
 
     Info = log.New(infoHandle,
@@ -191,17 +192,15 @@ errorHandle io.Writer) {
     Error = log.New(errorHandle,
         "ERROR: ",
         log.Ldate|log.Ltime|log.Lshortfile)
-    
 
 }
 
 func main() {
-      
+
 Init(ioutil.Discard, os.Stdout, os.Stdout, os.Stderr)
 
     Info.Println("Special Information")
     Warning.Println("There is something you need to know about")
     Error.Println("Something has failed")
-    
 
 }

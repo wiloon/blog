@@ -83,10 +83,6 @@ SonarQube安装
 中文补丁包下载: <http://docs.codehaus.org/display/SONAR/Chinese+Pack>
 
 1.数据库配置
-  
-进入数据库命令
-  
-# MySQL -u root -p
 
 MySQL> CREATE DATABASE sonar CHARACTER SET utf8 COLLATE utf8_general_ci;
   
@@ -112,7 +108,7 @@ MySQL> FLUSH PRIVILEGES;
   
 这里使用MySQL，因此取消MySQL模块的注释
   
-# vi sonar.properties
+vi sonar.properties
 
 sonar.jdbc.username:                       sonar
   
@@ -120,7 +116,7 @@ sonar.jdbc.password:                       sonar
   
 sonar.jdbc.url:                            jdbc:MySQL://localhost:3306/sonar?useUnicode=true&characterEncoding=utf8&rewriteBatchedStatements=true
 
-# Optional properties
+## Optional properties
   
 sonar.jdbc.driverClassName:                com.MySQL.jdbc.Driver
   
@@ -130,41 +126,41 @@ sonar.jdbc.driverClassName:                com.MySQL.jdbc.Driver
   
 根据实际使用数据库情况取消相应注释
 
-# Configure here general information about the environment, such as SonarQube DB details for example
+Configure here general information about the environment, such as SonarQube DB details for example
   
-# No information about specific project should appear here
+No information about specific project should appear here
   
-# -- Default SonarQube server
+-- Default SonarQube server
   
 sonar.host.url=<http://localhost:9000>
   
-# -- PostgreSQL
+-- PostgreSQL
   
-# sonar.jdbc.url=jdbc:postgresql://localhost/sonar
+sonar.jdbc.url=jdbc:postgresql://localhost/sonar
   
-# -- MySQL
+-- MySQL
   
 sonar.jdbc.url=jdbc:MySQL://localhost:3306/sonar?useUnicode=true&characterEncoding=utf8
   
-# -- Oracle
+-- Oracle
   
-# sonar.jdbc.url=jdbc:oracle:thin:@localhost/XE
+sonar.jdbc.url=jdbc:oracle:thin:@localhost/XE
   
-# -- Microsoft SQLServer
+-- Microsoft SQLServer
   
-# sonar.jdbc.url=jdbc:jtds:sqlserver://localhost/sonar;SelectMethod=Cursor
+sonar.jdbc.url=jdbc:jtds:sqlserver://localhost/sonar;SelectMethod=Cursor
   
-# -- Global database settings
+-- Global database settings
   
 sonar.jdbc.username=sonar
   
 sonar.jdbc.password=sonar
   
-# -- Default source code encoding
+-- Default source code encoding
   
 sonar.sourceEncoding=UTF-8
   
-# -- Security (when 'sonar.forceAuthentication' is set to 'true')
+-- Security (when 'sonar.forceAuthentication' is set to 'true')
   
 sonar.login=admin
   
@@ -180,11 +176,11 @@ sonar.password=admin
   
 目录切换至sonar的<install_directory>/bin/linux-x86-64/目录，启动服务
   
-# ./sonar.sh start   启动服务
+./sonar.sh start   启动服务
   
-# ./sonar.sh stop    停止服务
+./sonar.sh stop    停止服务
   
-# ./sonar.sh restart 重启服务
+./sonar.sh restart 重启服务
 
 至此，sonar就安装好了
   
@@ -202,35 +198,29 @@ sonar作为Linux服务并开机自启动
   
 新建文件/etc/init.d/sonar，输入如下内容:
 
-# !/bin/sh
+!/bin/sh
   
-#
+rc file for SonarQube
   
-# rc file for SonarQube
+chkconfig: 345 96 10
   
-#
-  
-# chkconfig: 345 96 10
-  
-# description: SonarQube system (www.sonarsource.org)
-  
-#
+description: SonarQube system (www.sonarsource.org)
   
 ### BEGIN INIT INFO
   
-# Provides: sonar
+Provides: sonar
   
-# Required-Start: $network
+Required-Start: $network
   
-# Required-Stop: $network
+Required-Stop: $network
   
-# Default-Start: 3 4 5
+Default-Start: 3 4 5
   
-# Default-Stop: 0 1 2 6
+Default-Stop: 0 1 2 6
   
-# Short-Description: SonarQube system (www.sonarsource.org)
+Short-Description: SonarQube system (www.sonarsource.org)
   
-# Description: SonarQube system (www.sonarsource.org)
+Description: SonarQube system (www.sonarsource.org)
   
 ### END INIT INFO
 
@@ -286,7 +276,7 @@ sonar.profile=Android Lint
   
 切换到项目源码根目录，执行命令
   
-# sonar-runner
+sonar-runner
   
 分析成功后访问http:\\localhost:9000即可查看分析结果
 
@@ -320,5 +310,4 @@ sonarQube示例地址: <http://nemo.sonarqube.org/>
 
 <http://zh.wikipedia.org/wiki/SonarQube>
 
-## sonar
-http://docs.sonarqube.org/display/SCAN/Analyzing+with+SonarQube+Scanner+for+Maven
+<http://docs.sonarqube.org/display/SCAN/Analyzing+with+SonarQube+Scanner+for+Maven>
