@@ -3,7 +3,6 @@ title: iproute2 basic
 author: "-"
 date: 2018-03-25T01:20:23+00:00
 url: /?p=12054
-
 categories:
   - inbox
 tags:

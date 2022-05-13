@@ -2,7 +2,6 @@
 author: "-"
 date: "2021-04-17 15:43:23" 
 title: "pmod, 实模式和保护模式"
-
 categories:
   - inbox
 tags:

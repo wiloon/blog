@@ -5,7 +5,6 @@ date: 2015-04-26T08:29:37+00:00
 url: /?p=7520
 tags:
   - Arch Linux
-
 categories:
   - inbox
 ---

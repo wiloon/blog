@@ -2,7 +2,6 @@
 author: "-"
 date: "2020-11-07 23:20:14" 
 title: "tcp window scaling, 滑动窗口"
-
 categories:
   - inbox
 tags:

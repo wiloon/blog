@@ -3,7 +3,6 @@ title: linux tail
 author: "-"
 date: 2016-08-14T15:41:25+00:00
 url: /?p=9182
-
 categories:
   - inbox
 tags:

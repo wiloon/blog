@@ -2,7 +2,6 @@
 author: "-"
 date: "2020-10-08 12:29:54" 
 title: "RV basic, 房车"
-
 categories:
   - inbox
 tags:

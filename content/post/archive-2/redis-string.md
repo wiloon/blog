@@ -3,7 +3,6 @@ title: redis string
 author: "-"
 date: 2018-11-06T02:19:24+00:00
 url: redis-string
-
 categories:
   - inbox
 tags:

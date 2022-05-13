@@ -2,7 +2,6 @@
 author: "-"
 date: "2020-09-07 16:14:43" 
 title: "windows install"
-
 categories:
   - inbox
 tags:

@@ -5,7 +5,6 @@ date: 2014-01-06T08:48:48+00:00
 url: /?p=6158
 tags:
   - Web
-
 categories:
   - inbox
 ---

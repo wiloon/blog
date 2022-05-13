@@ -5,7 +5,6 @@ date: 2015-04-25T03:02:55+00:00
 url: /?p=7497
 tags:
   - Linux
-
 categories:
   - inbox
 ---

@@ -3,7 +3,6 @@ title: CAP, BASE
 author: "-"
 date: 2012-06-28T04:36:17+00:00
 url: cap
-
 categories:
   - inbox
 tags:

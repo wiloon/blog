@@ -2,7 +2,6 @@
 author: "-"
 date: "2020-09-11 00:50:45" 
 title: "n1 coreelec"
-
 categories:
   - inbox
 tags:

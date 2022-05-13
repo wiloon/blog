@@ -7,7 +7,6 @@ tags:
   - database
   - redis
   - cache
-
 categories:
   - inbox
 ---

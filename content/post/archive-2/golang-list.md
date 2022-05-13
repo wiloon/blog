@@ -3,7 +3,6 @@ title: golang list
 author: "-"
 date: 2017-10-06T10:06:18+00:00
 url: /?p=11239
-
 categories:
   - inbox
 tags:

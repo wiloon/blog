@@ -13,11 +13,13 @@ tags:
 ### pve + openwrt
 
 ### download openwrt image
+
 下载 "combined-ext4.img.gz"  
 
     curl -O https://downloads.openwrt.org/releases/19.07.7/targets/x86/64/openwrt-19.07.7-x86-64-combined-ext4.img.gz
 
 #### 创建虚拟机
+
     点击"创建虚拟机"，填写虚拟机名称 (例如Openwrt) ,选"高级"，勾选"开机自启动" (软路由必须随机启动) ，点击"下一步"。
     CD/DVD选择"Do not use any media"，操作系统和版本默认即可，点击"下一步"。
     系统选项卡全部默认，点击"下一步"。
@@ -29,23 +31,28 @@ tags:
     删除不用的硬盘和光驱: 选中"未使用的磁盘0"，点击"删除"；再用同样的方法删除不用的光驱。
 
 ### upload
+
     pve>local(xxx)>ISO Images>upload
+
 ### 添加启动盘
+
     上传Openwrt镜像: 选择"pve"节点 > local存储空间 > 内容 > 点击上传 > 选择"openwrt.img"镜像 > 点击"上传"，openwrt镜像最好提前重命名一下，原来的太长了。
 
-网上绝大多数教程都使用WinSCP或其他FTP工具把镜像上传到root根目录，个人认为是多此一举，不妨看下"local"和"local-lvm"存储空间的内容说明: 
+网上绝大多数教程都使用WinSCP或其他FTP工具把镜像上传到root根目录，个人认为是多此一举，不妨看下"local"和"local-lvm"存储空间的内容说明:
 
 local: VZDump备份文件, ISO镜像, 容器模板
 local-lvm: 磁盘映像, 容器
 其中local-lvm不能上传文件，只能用"qm importdisk"命令把镜像转换成虚拟磁盘并存储在里面 (或创建磁盘和磁盘映射) ，这样做比上传到root根目录更便捷而且便于管理。
 
+### 查看上传镜像的目录
 
-### 查看上传镜像的目录: 
-点击网页下端的任务选项卡 > 双击最新的"数据拷贝"任务 > "target file"后面就是刚刚上传的镜像文件完整目录: 
+点击网页下端的任务选项卡 > 双击最新的"数据拷贝"任务 > "target file"后面就是刚刚上传的镜像文件完整目录:
 
 target file: /var/lib/vz/template/iso/openwrt.img
-### 把镜像转成虚拟磁盘并导入到虚拟机: 
-选择"pve"节点 > shell > 输入以下命令并回车: 
+
+### 把镜像转成虚拟磁盘并导入到虚拟机
+
+选择"pve"节点 > shell > 输入以下命令并回车:
 
     # 后面的参数‘102’是Openwrt虚拟机的编号
     qm importdisk 102 /var/lib/vz/template/iso/openwrt.img local-lvm
@@ -59,17 +66,20 @@ qm importdisk是PVE导入磁盘到虚拟机的工具，后面的参数‘102’�
 切换到虚拟机的"选项"选项卡，双击"引导顺序"，第一引导项选"Disk ‘sata0’"。
 
 ### 添加虚拟网卡
-PVE安装完后系统只会创建一个虚拟网桥，前面创建虚拟机的时候添加的"vmbr0"对应openwrt软路由的"eth0网卡"，默认是软路由LAN口；所以还要创建一个"vmbr1"对应软路由的"eth1网卡"，用作软路由的WAN口: 
+
+PVE安装完后系统只会创建一个虚拟网桥，前面创建虚拟机的时候添加的"vmbr0"对应openwrt软路由的"eth0网卡"，默认是软路由LAN口；所以还要创建一个"vmbr1"对应软路由的"eth1网卡"，用作软路由的WAN口:
 
 选择"pve"节点 > 网络 > 创建 > Linux Bridge > 桥接名称填写"vmbr1" > 端口(Bridge Ports)填写其他未使用的网卡名称 > 最后点击"创建"。
 
-### 添加虚拟网卡到虚拟机: 
-选择"Openwrt"虚拟机 > 硬件 > 添加 > 网络设备 > 桥接选"vmbr1" > 网卡模型选"Virto" > 最后点击"添加"。 
+### 添加虚拟网卡到虚拟机
+
+选择"Openwrt"虚拟机 > 硬件 > 添加 > 网络设备 > 桥接选"vmbr1" > 网卡模型选"Virto" > 最后点击"添加"。
 
 到此Openwrt/LEDE虚拟机软路由就创建完成了，在你面前的是一台崭新的功能丰富的高端有线路由器。
 
 ### Openwrt/LEDE设置
-最后启动openwrt软路由虚拟机，把电脑接到PVE实体机的"enp2s0"网口 (vmbr1网桥对应的网口) ，如果设置都正确的话电脑将自动获取ip地址， (不行就手动指定电脑的IP: 
+
+最后启动openwrt软路由虚拟机，把电脑接到PVE实体机的"enp2s0"网口 (vmbr1网桥对应的网口) ，如果设置都正确的话电脑将自动获取ip地址， (不行就手动指定电脑的IP:
 192.168.1.xxx，子网掩码: 255.255.255.0 网关: 192.168.1.1 DNS: 114.114.114.14) ，就能访问192.168.1.1就能进入openwrt的登录页面
 
 最后设置一下软路由的WAN口拨号和LAN口地址连上光猫就能上网了，WAN口要自己选PPPOE，在这里设置: 网络 > 接口 > WAN >  编辑 > 基本设置 > 协议，选好保存再编辑就能输入宽带账号密码。
@@ -83,7 +93,3 @@ openwrt-LEDE LAN口设置
 至此，PVE安装Openwrt/LEDE虚拟机软路由教程就结束了，软路由的优点是性能可以定制，性价比可以轻易碾压中高端物理路由器。
 
 还有一个好处是有线和无线分离，有线部分将来容易扩展万兆或多千兆，无线部分可以用POE交换机带面板AP，也为将来无线部分换Wi-Fi 6做好准备。
-
-
-
-

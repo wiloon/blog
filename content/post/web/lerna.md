@@ -2,7 +2,6 @@
 author: "-"
 date: "2020-05-16T06:30:12Z"
 title: "lerna"
-
 categories:
   - inbox
 tags:

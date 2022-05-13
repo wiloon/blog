@@ -3,7 +3,6 @@ title: ntp, chrony
 author: "-"
 date: 2017-07-20T00:57:34+00:00
 url: ntp
-
 categories:
   - inbox
 tags:

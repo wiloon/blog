@@ -2,7 +2,6 @@
 author: "-"
 date: "2020-07-08 16:52:26"
 title: "debian ubuntu ca"
-
 categories:
   - inbox
 tags:

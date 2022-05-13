@@ -2,7 +2,6 @@
 author: "-"
 date: "2020-09-06 14:46:32" 
 title: "bt, pt"
-
 categories:
   - inbox
 tags:

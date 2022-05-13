@@ -2,7 +2,6 @@
 author: "-"
 date: "" 
 title: "http method, get, head, post, options, put, delte, trace, connect"
-
 categories:
   - inbox
 tags:

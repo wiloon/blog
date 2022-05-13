@@ -5,7 +5,6 @@ date: 2015-06-28T06:52:56+00:00
 url: hash/salt
 tags:
   - Security
-
 categories:
   - inbox
 ---

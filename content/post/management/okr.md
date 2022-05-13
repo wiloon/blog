@@ -2,7 +2,6 @@
 author: "-"
 date: "2020-06-06T06:28:04Z"
 title: "OKR"
-
 categories:
   - inbox
 tags:

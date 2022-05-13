@@ -2,7 +2,6 @@
 author: "-"
 date: "2020-06-26T13:04:56Z"
 title: "nginx config, tls"
-
 categories:
   - inbox
 tags:

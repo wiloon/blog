@@ -2,7 +2,6 @@
 author: "-"
 date: "2020-05-30T06:52:05Z"
 title: "DKMS"
-
 categories:
   - inbox
 tags:

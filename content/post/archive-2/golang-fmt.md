@@ -3,7 +3,6 @@ title: golang fmt/Println
 author: "-"
 date: 2016-10-14T00:09:01+00:00
 url: /?p=9293
-
 categories:
   - inbox
 tags:

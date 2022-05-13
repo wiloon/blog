@@ -14,7 +14,7 @@ tags:
 sk_buff (internal networking structure used by linux kernel)
 sk_buff的意思是socket buffer，这是Linux网络子系统中的核心数据结构
 
-><https://liu-jianhao.github.io/2019/05/linux%E5%86%85%E6%A0%B8%E7%BD%91%E7%BB%9C%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%901sk_buff%E7%BB%93%E6%9E%84/>
+<https://liu-jianhao.github.io/2019/05/linux%E5%86%85%E6%A0%B8%E7%BD%91%E7%BB%9C%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%901sk_buff%E7%BB%93%E6%9E%84/>
 
 ## tcp连接的资源占用
 
