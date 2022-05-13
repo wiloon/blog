@@ -23,6 +23,7 @@ tags:
 - NVME
 
 <https://item.taobao.com/item.htm?spm=a1z09.2.0.0.39d42e8dLydghg&id=672470434606&_u=c2lc6g0c441>
+<https://docs.r86s.net/#/README>
 
 ## Dell Wyse 5070
 

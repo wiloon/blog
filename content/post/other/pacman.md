@@ -146,7 +146,7 @@ pacman -Rdd package_name
 
 ```
 
-### Fix "unable to lock database"
+### "unable to lock database"
 
 ```bash
 sudo rm /var/lib/pacman/db.lck

@@ -67,15 +67,15 @@ for i, value := range arrayOrSlice {
 ## 切片/slice
 
 slice 切片类型是一个引用类型, 是一个动态的指向数组切片的指针。
-slice 是一个不定长的, 总是指向底层的数组array的数据结构。
+slice 是一个不定长的, 总是指向底层的数组 array 的数据结构。
 
 ```go
 // 切片声明需要指定元素组成的类型，但不需要指定存储元素的数量
-// 在切片声明后，会被初始化为nil(零值)，表示暂不存在的切片。如下:
+// 在切片声明后，会被初始化为 nil(零值)，表示暂不存在的切片。如下:
 // []int{} 空切片指的是底层数组没有存储元素
 // var nums []int nil切片指的是底层数组是指向nil，没有申请内存空间的，在append的时候申请
-var al []int          //创建slice, 并初始化
-sl := make([]int,10)  //创建有10个元素的 slice
+var al []int          // 创建slice, 并初始化
+sl := make([]int,10)  // 创建有10个元素的 slice
 sl := []int{1,2,3}      //创建有初始化元素的slice
 
 len(sl)

@@ -31,33 +31,33 @@ func do (m sync.Map) {
 }
 ```
 
-在Go 1.6之前, 内置的 map 类型是部分 goroutine 安全的, 并发的读没有问题, 并发的写可能有问题。自 go 1.6之后, 并发地读写 map 会报错, 这在一些知名的开源库中都存在这个问题, 所以go 1.9之前的解决方案是额外绑定一个锁, 封装成一个新的struct或者单独使用锁都可以。
+在Go 1.6 之前, 内置的 map 类型是部分 goroutine 安全的, 并发的读没有问题, 并发的写可能有问题。自 go 1.6之后, 并发地读写 map 会报错, 这在一些知名的开源库中都存在这个问题, 所以go 1.9之前的解决方案是额外绑定一个锁, 封装成一个新的struct或者单独使用锁都可以。
 
 本文带你深入到`sync.Map`的具体实现中,看看为了增加一个功能,代码是如何变的复杂的,以及作者在实现`sync.Map`的一些思想。
 
 ### 有并发问题的map
 
-官方的[faq](https://golang.org/doc/faq#atomic_maps)已经提到内建的`map`不是线程(goroutine)安全的。
+官方的[faq](https://golang.org/doc/faq#atomic_maps) 已经提到内建的`map`不是线程(goroutine)安全的。
 
-首先,让我们看一段并发读写的代码,下列程序中一个goroutine一直读,一个goroutine一只写同一个键值,即即使读写的键不相同,而且map也没有"扩容"等操作,代码还是会报错。
+首先,让我们看一段并发读写的代码,下列程序中一个goroutine 一直读,一个goroutine 一只写同一个键值, 即即使读写的键不相同, 而且map 也没有"扩容"等操作, 代码还是会报错。
 
 | --- | --- |
 | 12345678910111213141516171819 | package mainfunc main() { m := make(map[int]int) go func() { for { _ = m[1] } }() go func() { for { m[2] = 2 } }() select {}} |
 
-错误信息是: `fatal error: concurrent map read and map write`。
+错误信息是: `fatal error: concurrent map read and map write`
 
-如果你查看Go的源代码: [hashmap_fast.go#L118](https://github.com/golang/go/blob/master/src/runtime/hashmap_fast.go#L118),会看到读的时候会检查`hashWriting`标志, 如果有这个标志,就会报并发错误。
+如果你查看Go的源代码: [hashmap_fast.go#L118](https://github.com/golang/go/blob/master/src/runtime/hashmap_fast.go#L118), 会看到读的时候会检查 `hashWriting` 标志, 如果有这个标志,就会报并发错误。
 
 写的时候会设置这个标志: [hashmap.go#L542](https://github.com/golang/go/blob/master/src/runtime/hashmap.go#L542)
 
 | --- | --- |
 | 1 | h.flags \|= hashWriting |
 
-[hashmap.go#L628](https://github.com/golang/go/blob/master/src/runtime/hashmap.go#L628)设置完之后会取消这个标记。
+[hashmap.go#L628](https://github.com/golang/go/blob/master/src/runtime/hashmap.go#L628) 设置完之后会取消这个标记。
 
-当然,代码中还有好几处并发读写的检查, 比如写的时候也会检查是不是有并发的写,删除键的时候类似写,遍历的时候并发读写问题等。
+当然,代码中还有好几处并发读写的检查, 比如写的时候也会检查是不是有并发的写, 删除键的时候类似写, 遍历的时候并发读写问题等。
 
-有时候,map的并发问题不是那么容易被发现, 你可以利用`-race`参数来检查。
+有时候, map的并发问题不是那么容易被发现, 你可以利用 `-race` 参数来检查。
 
 ### Go 1.9之前的解决方案
 
@@ -80,13 +80,13 @@ func do (m sync.Map) {
 
 ### sync.Map
 
-可以说,上面的解决方案相当简洁,并且利用读写锁而不是Mutex可以进一步减少读写的时候因为锁带来的性能。
+可以说, 上面的解决方案相当简洁,并且利用读写锁而不是Mutex可以进一步减少读写的时候因为锁带来的性能。
 
-但是,它在一些场景下也有问题,如果熟悉Java的同学,可以对比一下java的`ConcurrentHashMap`的实现,在map的数据非常大的情况下,一把锁会导致大并发的客户端共争一把锁,Java的解决方案是`shard`, 内部使用多个锁,每个区间共享一把锁,这样减少了数据共享一把锁带来的性能影响,[orcaman](https://github.com/orcaman)提供了这个思路的一个实现:  [concurrent-map](https://github.com/orcaman/concurrent-map),他也询问了Go相关的开发人员是否在Go中也实现这种[方案](https://github.com/golang/go/issues/20360),由于实现的复杂性,答案是`Yes, we considered it.`,但是除非有特别的性能提升和应用场景,否则没有进一步的开发消息。
+但是, 它在一些场景下也有问题,如果熟悉Java的同学,可以对比一下java的`ConcurrentHashMap` 的实现,在map的数据非常大的情况下, 一把锁会导致大并发的客户端共争一把锁, Java 的解决方案是 `shard`, 内部使用多个锁, 每个区间共享一把锁,这样减少了数据共享一把锁带来的性能影响, [orcaman](https://github.com/orcaman)提供了这个思路的一个实现:  [concurrent-map](https://github.com/orcaman/concurrent-map), 他也询问了Go 相关的开发人员是否在Go 中也实现这种 [方案](https://github.com/golang/go/issues/20360), 由于实现的复杂性, 答案是`Yes, we considered it.`, 但是除非有特别的性能提升和应用场景, 否则没有进一步的开发消息。
 
-那么,在Go 1.9中`sync.Map`是怎么实现的呢？它是如何解决并发提升性能的呢？
+那么, 在Go 1.9 中`sync.Map`是怎么实现的呢？它是如何解决并发提升性能的呢？
 
-`sync.Map`的实现有几个优化点,这里先列出来,我们后面慢慢分析。
+`sync.Map` 的实现有几个优化点,这里先列出来,我们后面慢慢分析。
 
 1. 空间换时间。 通过冗余的两个数据结构(read、dirty),实现加锁对性能的影响。
 2. 使用只读数据(read),避免读写冲突。
