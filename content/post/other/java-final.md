@@ -3,7 +3,6 @@ title: java final
 author: "-"
 date: 2011-09-08T07:11:59+00:00
 url: final
-
 categories:
   - inbox
 tags:

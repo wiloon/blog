@@ -2,7 +2,6 @@
 author: "-"
 date: "2021-03-27 13:37:15" 
 title: "kux"
-
 categories:
   - inbox
 tags:

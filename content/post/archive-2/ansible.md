@@ -3,7 +3,6 @@ title: Ansible
 author: "-"
 date: 2015-10-14T07:14:28+00:00
 url: Ansible
-
 categories:
   - inbox
 tags:

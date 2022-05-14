@@ -2,7 +2,6 @@
 author: "-"
 date: "2021-04-18 12:04:24" 
 title: "fork exec system()"
-
 categories:
   - inbox
 tags:

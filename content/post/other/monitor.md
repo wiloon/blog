@@ -8,7 +8,6 @@ tags:
   - Java
   - synchronized
   - monitor
-
 categories:
   - inbox
 ---

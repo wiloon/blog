@@ -23,6 +23,7 @@ tags:
 - NVME
 
 <https://item.taobao.com/item.htm?spm=a1z09.2.0.0.39d42e8dLydghg&id=672470434606&_u=c2lc6g0c441>
+<https://docs.r86s.net/#/README>
 
 ## Dell Wyse 5070
 
@@ -34,7 +35,7 @@ Realtek®以太网LAN 10 Mb/100 Mb/1 Gb铜缆RJ45,LAN唤醒
 3个USB 2.0（2个前置，1个内置）
 6个USB 3.0（1个前置，4个后置，1个内置）
 1个USB 3.1 Type C（前置）
-2个DisplayPort™ 1.2a（赛扬）
+2个DisplayPort™ 1.2a
 
 ## QNAP TS453Bmini
 

@@ -3,13 +3,14 @@ title: Proxmox VE, pve
 author: "-"
 date: 2020-04-25T16:35:56+00:00
 url: /?p=16081
-
 categories:
   - inbox
 tags:
   - reprint
 ---
 ## Proxmox VE, pve
+
+<https://www.proxmox.com/en/>
 
 一、Proxmox VE 简介
   
@@ -32,6 +33,7 @@ PVE网络配置官方文档: <https://pve.proxmox.com/wiki/Network_Configuration
 
 ## 网桥模式(默认网络模式)
 
+网桥模式(默认网络模式)
 网桥就像用软件实现的物理网络交换机。所有虚拟机都可以共享一个网桥，或者您可以创建多个网桥来分离网络域。每个主机最多可以有4094个网桥。
 安装程序将创建一个名为vmbr0的网桥，该网桥连接到第一个以太网卡。/etc/network/interfaces中的相应配置可能如下所示 (不同网口配置，需要使用空行分隔) :
 

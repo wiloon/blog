@@ -57,21 +57,36 @@ pacman -U /var/cache/pacman/pkg/gvim-8.2.4106-1-x86_64.pkg.tar.zst
 
 去 archive 时手动下载 <https://archive.archlinux.org/packages/>, 然后 pacman -U 安装
 
-### (invalid or corrupted package (PGP signature))
+### (invalid or corrupted package (PGP signature)), signature from xxx is unknown trust
 
 error: unzip: signature from "Jonas Witschel <diabonas@gmx.de>" is unknown trust
 :: File /var/cache/pacman/pkg/unzip-6.0-16-x86_64.pkg.tar.zst is corrupted (invalid or corrupted package (PGP signature)).
 
-查看key的状态
+<https://bbs.archlinux.org/viewtopic.php?id=128682>
+
+#### trust all
+
+```bash
+vim /etc/pacman.conf
+# content
+SigLevel = Optional TrustAll
+```
+
+#### refresh keys
+
+```bash
+# 查看key的状态, 提示是expired
 pacman-key --list-sigs Witschel
-提示是expired
+
+# 更新 keys
 pacman-key --refresh-keys
-查看Master组的key的状态
+# 查看Master组的key的状态
 pacman-key --list-sigs Master
-提示undefined，所以用对应的ID删除再重新导入即可：
+# 提示 undefined，所以用对应的ID删除再重新导入即可
 
 pacman-key --delete 91FFE0700E80619CEB73235CA88E23E377514E00
 pacman-key --populate archlinux
+```
 
 ### downgrade one package
 
@@ -131,7 +146,7 @@ pacman -Rdd package_name
 
 ```
 
-### Fix "unable to lock database"
+### "unable to lock database"
 
 ```bash
 sudo rm /var/lib/pacman/db.lck

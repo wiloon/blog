@@ -3,7 +3,6 @@ title: stat command
 author: "-"
 date: 2017-03-25T02:32:27+00:00
 url: stat
-
 categories:
   - inbox
 tags:

@@ -9,9 +9,10 @@ tags:
   - reprint
 ---
 ## OpenVPN 使用账号+密码方式登陆
-http://openwrt.iteye.com/blog/2306421
 
-https://xu3352.github.io/linux/2017/06/08/openvpn-use-username-and-password-authentication
+<http://openwrt.iteye.com/blog/2306421>
+
+<https://xu3352.github.io/linux/2017/06/08/openvpn-use-username-and-password-authentication>
 
 OpenVPN 使用账号+密码方式登陆
   
@@ -39,9 +40,9 @@ script-security 3 execve
   
 如果加上client-cert-not-required则代表只使用用户名密码方式验证登录,如果不加,则代表需要证书和用户名密码双重验证登录！
 
-/etc/openvpn/checkpsw.sh 文件内容: 
+/etc/openvpn/checkpsw.sh 文件内容:
 
-#!/bin/sh
+# !/bin/sh
   
 ###########################################################
 
@@ -55,7 +56,7 @@ script-security 3 execve
 
 # one row per user with the username first followed by
 
-# one or more space(s) or tab(s) and then the password.
+# one or more space(s) or tab(s) and then the password
 
 PASSFILE="/etc/openvpn/psw-file"
   
@@ -66,9 +67,9 @@ TIME_STAMP=`date "+%Y-%m-%d %T"`
 ###########################################################
 
 if [ ! -r "${PASSFILE}" ]; then
-    
+
 echo "${TIME_STAMP}: Could not open password file \"${PASSFILE}\" for reading." >> ${LOG_FILE}
-    
+
 exit 1
   
 fi
@@ -76,17 +77,17 @@ fi
 CORRECT_PASSWORD=`awk '!/^;/&&!/^#/&&$1=="'${username}'"{print $2;exit}' ${PASSFILE}`
 
 if [ "${CORRECT_PASSWORD}" = "" ]; then
-    
+
 echo "${TIME_STAMP}: User does not exist: username=\"${username}\", password=\"${password}\"." >> ${LOG_FILE}
-    
+
 exit 1
   
 fi
 
 if [ "${password}" = "${CORRECT_PASSWORD}" ]; then
-    
+
 echo "${TIME_STAMP}: Successful authentication: username=\"${username}\"." >> ${LOG_FILE}
-    
+
 exit 0
   
 fi
@@ -95,7 +96,7 @@ echo "${TIME_STAMP}: Incorrect password: username=\"${username}\", password=\"${
   
 exit 1
   
-配置 账号/密码,新增账号/密码增加到这里即可,一行一个账号,密码用空格隔开: 
+配置 账号/密码,新增账号/密码增加到这里即可,一行一个账号,密码用空格隔开:
 
 $ cat psw-file
   
@@ -111,7 +112,7 @@ $ chown nobody.nobody psw-file
 
 客户端配置
   
-client.conf 文件里: 
+client.conf 文件里:
 
 # 注释掉即可
 
@@ -135,11 +136,11 @@ script-security 3 execve
   
 如果没有这个的话,会有个很神奇的现象,就是账号可以传过来,但是密码获取不到,可以在登录日志里查看日志！！！
 
-如果客户端需要记住账号/密码,可以在客户端配置里设置:  (Tunnelblick试过不好使) 
+如果客户端需要记住账号/密码,可以在客户端配置里设置:  (Tunnelblick试过不好使)
 
 auth-user-pass login.conf
   
-然后 login.conf 内容: 
+然后 login.conf 内容:
 
 xu3352
   

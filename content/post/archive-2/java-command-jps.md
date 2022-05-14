@@ -3,7 +3,6 @@ title: java jps
 author: "-"
 date: 2017-05-05T04:30:59+00:00
 url: /?p=10222
-
 categories:
   - inbox
 tags:

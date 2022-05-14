@@ -3,7 +3,6 @@ title: 技术大牛谈HTML 5设计原理
 author: "-"
 date: 2011-10-31T08:38:47+00:00
 url: /?p=1417
-
 categories:
   - inbox
 tags:

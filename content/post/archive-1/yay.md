@@ -7,7 +7,6 @@ tags:
   - archlinux
   - reprint
   - remix
-
 categories:
   - Linux
 ---

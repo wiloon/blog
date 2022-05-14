@@ -3,7 +3,6 @@ title: unix domain socket, UDS
 author: "-"
 date: 2015-08-26T00:50:32+00:00
 url: uds
-
 categories:
   - Linux
 tags:

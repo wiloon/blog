@@ -3,7 +3,6 @@ title: JAVA String.format()
 author: "-"
 date: 2017-03-02T08:01:23+00:00
 url: /?p=9890
-
 categories:
   - inbox
 tags:

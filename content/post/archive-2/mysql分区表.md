@@ -5,7 +5,6 @@ date: 2017-04-07T02:27:33+00:00
 url: /?p=10037
 tags:
  - MySQL
-
 categories:
   - inbox
 ---

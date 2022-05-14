@@ -2,7 +2,6 @@
 author: "-"
 date: "2021-04-30 17:54:53" 
 title: "neofetch, linux logo ascii"
-
 categories:
   - inbox
 tags:

@@ -3,7 +3,6 @@ title: 安卓线刷升级, flash factory image for android
 author: "-"
 date: 2015-01-29T15:55:53+00:00
 url: android/factory-image
-
 categories:
   - inbox
 tags:

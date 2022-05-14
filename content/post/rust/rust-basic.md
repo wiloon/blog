@@ -2,7 +2,6 @@
 author: "-"
 date: "2021-01-01 23:23:06" 
 title: "rust basic"
-
 categories:
   - inbox
 tags:

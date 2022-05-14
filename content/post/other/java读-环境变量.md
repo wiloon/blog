@@ -5,7 +5,6 @@ date: 2015-08-14T07:37:39+00:00
 url: /?p=8122
 tags:
   - Java
-
 categories:
   - inbox
 ---

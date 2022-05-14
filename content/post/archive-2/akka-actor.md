@@ -3,7 +3,6 @@ title: AKKA
 author: "-"
 date: 2015-12-15T11:39:45+00:00
 url: /?p=8560kjn
-
 categories:
   - inbox
 tags:

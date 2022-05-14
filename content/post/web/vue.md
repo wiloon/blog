@@ -3,7 +3,6 @@ author: "-"
 date: "2020-05-16T03:03:37Z"
 title: "vue basic"
 
-
 categories:
   - inbox
 tags:

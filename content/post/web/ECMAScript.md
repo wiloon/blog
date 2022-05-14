@@ -2,7 +2,6 @@
 author: "-"
 date: "2020-12-03 11:18:50" 
 title: "ECMAScript, javascript basic"
-
 categories:
   - inbox
 tags:

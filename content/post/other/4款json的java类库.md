@@ -6,7 +6,6 @@ url: /?p=6454
 tags:
   - Java
   - Json
-
 categories:
   - inbox
 ---

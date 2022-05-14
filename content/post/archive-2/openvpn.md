@@ -282,9 +282,12 @@ redirect-gateway def1 #使客户端中所有流量经过VPN
 
 ### start server
 
+```bash
     chown openvpn:openvpn /etc/openvpn/server/*.*
     openvpn /etc/openvpn/server/pingd.conf
     systemctl start openvpn-server@pingd.service
+    systemctl status  openvpn-server@pingd
+```
 
 ### start client
 
