@@ -9,47 +9,48 @@ tags:
   - reprint
 ---
 ## go语言的模板，text/template包
-#go语言的模板，text/template包 ##定义 模板就是将一组文本嵌入另一组文本里
 
-##传入string-最简单的替换
+# go语言的模板，text/template包 ##定义 模板就是将一组文本嵌入另一组文本里
+
+## 传入string-最简单的替换
 
 package main
 
 import (
-      
+
 "os"
-      
+
 "text/template"
   
 )
 
 func main() {
-      
+
 name := "waynehu"
-      
+
 tmpl, err := template.New("test").Parse("hello, {{.}}") //建立一个模板，内容是"hello, {{.}}"
-      
+
 if err != nil {
-              
+
 panic(err)
-      
+
 }
-      
+
 err = tmpl.Execute(os.Stdout, name) //将string与模板合成，变量name的内容会替换掉{{.}}
-      
+
 //合成结果放到os.Stdout里
-      
+
 if err != nil {
-              
+
 panic(err)
-      
+
 }
   
 }
   
 //输出 :  hello, waynehu
   
-因为"hello, {{.}}"也是一个字符串，所以可以单独拎出来，如下: 
+因为"hello, {{.}}"也是一个字符串，所以可以单独拎出来，如下:
 
 //这句
   
@@ -63,53 +64,53 @@ tmpl, err := template.New("test").Parse(muban)
   
 //之后的例子都用两句的方式表达
   
-##传入struct 模板合成那句，第2个参数是interface{}，所以可以传入任何类型，现在传入struct看看 要取得struct的值，只要使用成员名字即可，看代码吧: 
+## 传入struct 模板合成那句，第2个参数是interface{}，所以可以传入任何类型，现在传入struct看看 要取得struct的值，只要使用成员名字即可，看代码吧:
 
 package main
 
 import (
-      
+
 "os"
-      
+
 "text/template"
   
 )
 
 type Inventory struct {
-      
+
 Material string
-      
+
 Count uint
   
 }
 
 func main() {
-      
+
 sweaters := Inventory{"wool", 17}
-      
+
 muban := "{{.Count}} items are made of {{.Material}}"
-      
+
 tmpl, err := template.New("test").Parse(muban) //建立一个模板
-      
+
 if err != nil {
-              
+
 panic(err)
-      
+
 }
-      
+
 err = tmpl.Execute(os.Stdout, sweaters) //将struct与模板合成，合成结果放到os.Stdout里
-      
+
 if err != nil {
-              
+
 panic(err)
-      
+
 }
   
 }
   
 //输出 :  17 items are made of wool
   
-##多模板，介绍New，Name，Lookup
+## 多模板，介绍New，Name，Lookup
 
 //一个模板可以有多种，以Name来区分
   
@@ -149,7 +150,7 @@ tmpl=tmpl.Lookup("english")//必须要有返回，否则不生效
   
 fmt.Println(tmpl.Name()) //打印出english
   
-##文件模板，介绍ParseFiles
+## 文件模板，介绍ParseFiles
 
 //模板可以是一行
   
@@ -181,9 +182,9 @@ tmpl, err := template.New("test").Parse(muban) //建立一个模板
   
 tmpl, err := template.ParseFiles("mb.txt") //建立一个模板，这里不需要new("name")的方式，因为name自动为文件名
   
-##文件模板，介绍ParseGlob
+## 文件模板，介绍ParseGlob
 
-ParseFiles接受一个字符串，字符串的内容是一个模板文件的路径 (绝对路径or相对路径) 
+ParseFiles接受一个字符串，字符串的内容是一个模板文件的路径 (绝对路径or相对路径)
   
 ParseGlob也差不多，是用正则的方式匹配多个文件
 
@@ -193,7 +194,7 @@ ParseGlob也差不多，是用正则的方式匹配多个文件
   
 而用ParseGlob只要写成template.ParseGlob("*.txt") 即可
   
-##模板的输出，介绍ExecuteTemplate和Execute
+## 模板的输出，介绍ExecuteTemplate和Execute
 
 模板下有多套模板，其中有一套模板是当前模板
   
@@ -203,7 +204,7 @@ err = tmpl.ExecuteTemplate(os.Stdout, "english", sweaters) //指定模板名，�
   
 err = tmpl.Execute(os.Stdout, sweaters) //模板名省略，打印的是当前模板
   
-##模板的复用 模板里可以套模板，以达到复用目的，用template关键字
+## 模板的复用 模板里可以套模板，以达到复用目的，用template关键字
 
 muban1 := `hi, {{template "M2"}},
 
@@ -221,26 +222,26 @@ tmpl.New("M3").Parse(muban3)
   
 err = tmpl.Execute(os.Stdout, nil)
   
-完整代码: 
+完整代码:
 
 package main
 
 import (
-      
+
 "os"
-      
+
 "text/template"
   
 )
 
 func main() {
-      
+
 muban1 := `hi, {{template "M2"}},
 
 hi, {{template "M3"}}`
-      
+
 muban2 := `我是模板2，{{template "M3"}}`
-      
+
 muban3 := "ha我是模板3ha!"
 
     tmpl, err := template.New("M1").Parse(muban1)
@@ -259,7 +260,6 @@ muban3 := "ha我是模板3ha!"
     if err != nil {
             panic(err)
     }   
-    
 
 }
   
@@ -269,7 +269,7 @@ hi, 我是模板2，ha我是模板3ha!,
   
 hi, ha我是模板3ha!
   
-##模板的回车 模板文件里的回车也是模板的一部分，如果对回车位置控制不好，合成出来的文章会走样 标准库里的Example(Template)写的还是有点乱，我整理如下: 
+## 模板的回车 模板文件里的回车也是模板的一部分，如果对回车位置控制不好，合成出来的文章会走样 标准库里的Example(Template)写的还是有点乱，我整理如下:
 
 const letter = \`Dear {{.Name}},
 
@@ -289,7 +289,7 @@ Josie
 
 \`
   
-解释一下: 
+解释一下:
 
 Dear某某某的Dear应该是在第一行，所以在D前面不能有回车，否则Dear会跑到第2行去
   
@@ -325,4 +325,4 @@ hi false{{end}}
   
 只有这样写，不管有没有"Thank you"，正文和Best wishes,之间始终只有1行空白
 
-https://my.oschina.net/u/943306/blog/153156
+<https://my.oschina.net/u/943306/blog/153156>

@@ -8,9 +8,7 @@ categories:
 tags:
   - remix
   - reprint
-
 ---
-
 ## journal, journalctl, syslog
 
 ```bash
@@ -18,7 +16,7 @@ tags:
 journalctl -u file-server
 ```
 
-Arch Linux 启用 systemd 后, 很多服务都被替换掉了, 当然syslog也不例外, 被 Systemd Journal 所替代。
+Arch Linux 启用 systemd 后, 很多服务都被替换掉了, 当然syslog 也不例外, 被 Systemd Journal 所替代。
 
 systemd 拥有强大的处理与系统日志记录功能。在使用其它工具时,日志往往被分散在整套系统当中,由不同的守护进程及进程负责处理,这意味着我们很难跨越多种应用程序对其内容进行解读。
 
@@ -34,12 +32,16 @@ SystemMaxUse=1024M
 
 ### journald unit log, max size of journal log
 
+```bash
     sudo journalctl -b -u systemd-journald
+```
 
 ### customiz journal size
 
+```bash
     /etc/systemd/journald.conf
     SystemMaxUse=50M
+```
 
 ```bash
 # 最近一次重新引导后收集到的日志
@@ -94,7 +96,7 @@ $ sudo journalctl --vacuum-time=1years
 
 大家可以配置自己的服务器以限定journal所能占用的最高容量。要实现这一点,我们需要编辑/etc/systemd/journald.conf文件。
 
-以下条目可用于限定journal体积的膨胀速度: 
+以下条目可用于限定journal体积的膨胀速度:
 
 SystemMaxUse=: 指定journal所能使用的最高持久存储容量。
   
@@ -118,8 +120,8 @@ systemd journal本身未提供日志分发功能。
   
 注: systemd-212引入了 systemd-journal-remote >systemd-journal-remote is a command to receive serialized journal events and store them to the journal.
   
-https://huataihuang.gitbooks.io/cloud-atlas/os/linux/redhat/system_administration/systemd/systemd_clear_journalctl.html
+<https://huataihuang.gitbooks.io/cloud-atlas/os/linux/redhat/system_administration/systemd/systemd_clear_journalctl.html>
   
-http://fangpeishi.com/systemd_chapter4.html
+<http://fangpeishi.com/systemd_chapter4.html>
   
-http://blog.csdn.net/zstack_org/article/details/56274966
+<http://blog.csdn.net/zstack_org/article/details/56274966>
