@@ -120,6 +120,7 @@ Qemu 代理即 qemu-guest-agent，是一个运行在虚拟机里面的程序 qem
 <https://www.10bests.com/win10-htpc-on-pve/>
 
 #### virtio-win.iso
+
 <https://fedorapeople.org/groups/virt/virtio-win/direct-downloads/archive-virtio/>
 
 ### 创建网桥
@@ -138,7 +139,8 @@ bridge ports: 支持同时添加多个网口，用空格分隔
 
 #### 备份虚拟机
 
-登录pve01选择要备份的虚拟机
+登录pve 选择要备份的虚拟机
+tick the box, Hardware> Hard Disk> Edit> Advanced> Backup
 点击子菜单中的备份按钮
 点击立即备份按钮
 设置备份到的存储 (local的备份路径为: /var/lib/vz/dump)
