@@ -9,9 +9,10 @@ tags:
   - reprint
 ---
 ## The MIT License
-http://baike.baidu.com/view/3159946.htm
+
+<http://baike.baidu.com/view/3159946.htm>
   
-MIT许可证 (The MIT License) 是许多软件授权条款中,被广泛使用的其中一种。与其他常见的软件授权条款 (如GPL、LPGL、BSD) 相比,MIT是相对宽松的软件授权条款。MIT许可证之名源自麻省理工学院 (Massachusetts Institute of Technology, MIT) ,又称"X条款" (X License) 或"X11条款" (X11 License) 
+MIT许可证 (The MIT License) 是许多软件授权条款中,被广泛使用的其中一种。与其他常见的软件授权条款 (如GPL、LPGL、BSD) 相比,MIT是相对宽松的软件授权条款。MIT许可证之名源自麻省理工学院 (Massachusetts Institute of Technology, MIT) ,又称"X条款" (X License) 或"X11条款" (X11 License)
   
 MIT内容与三条款BSD许可证 (3-clause BSD license) 内容颇为近似,但是赋予软件被授权人更大的权利与更少的限制。有许多团体均采用MIT许可证。例如著名的ssh连接软件PuTTY与X Windows System (X11)即为例子。Expat, Mono开发平台库,Ruby on Rails, Lua 5.0 onwards等等也都采用MIT授权条款。被授权人权利
   

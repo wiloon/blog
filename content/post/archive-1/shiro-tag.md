@@ -9,6 +9,7 @@ tags:
   - reprint
 ---
 ## shiro tag
+
 ```xml
 
 <shiro:principal/> - Displays the user's principal or a property of the user's principal.

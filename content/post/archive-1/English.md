@@ -1,14 +1,15 @@
 ---
-title: toeic
+title: English
 author: "-"
 date: 2013-04-04T08:19:47+00:00
-url: /?p=5365
+url: English
 categories:
   - English
 tags:
   - reprint
 ---
-## toeic
+## English
+
 Bart Lorang may be the best boss ever.
 
 巴特-洛朗或许将成为最佳老板。
