@@ -90,7 +90,7 @@ markdown 语法检查
 
 ### 配置同步, Plugin Name: Settings Sync
 
-- 同步配置：shift + alt + u
+- 同步配置：shift + alt + u, Sync: update/upload setting
 
 ### Markdown Preview Github Styling
 
@@ -106,8 +106,8 @@ vscode 发http请求
 #### vscode > PlantUML
 
 config plant uml rander server
-File>Preferences>Extensions>PlantUML config>Rander: server
-File>Preferences>Extensions>PlantUML config>Server: <http://plantuml.wiloon.com>
+File> Preferences> Extensions> PlantUML config> Rander: server
+File> Preferences> Extensions> PlantUML config> Server: <http://plantuml.wiloon.com>
 
 ### hexdump
 
@@ -115,7 +115,7 @@ hex viewer
 
 ### 显示空格
 
-打开setting,在搜索框中输入renderControlCharacters,选中勾选框,即可显示tab.  
+打开setting, 在搜索框中输入renderControlCharacters,选中勾选框,即可显示tab.  
 在搜索框中输入renderWhitespace,选择all,即可显示空格.  
 
 ### vscode + wsl 版本更新

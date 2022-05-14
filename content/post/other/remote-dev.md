@@ -10,6 +10,8 @@ tags:
 ---
 ## remote dev
 
+## vscode remote ssh
+
 ## virtualbox
 
 ## vm@server, xforward
