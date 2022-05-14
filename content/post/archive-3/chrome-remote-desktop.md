@@ -9,6 +9,7 @@ tags:
   - reprint
 ---
 ## chrome remote desktop
-https://aur.archlinux.org/packages/chrome-remote-desktop/
+
+<https://aur.archlinux.org/packages/chrome-remote-desktop/>
   
 yay -S chrome-remote-desktop
