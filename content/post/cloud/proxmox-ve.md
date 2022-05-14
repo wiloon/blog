@@ -10,6 +10,7 @@ tags:
   - reprint
 ---
 ## Proxmox VE, pve
+
 一、Proxmox VE 简介
   
 Proxmox Virtual Environment，或 Proxmox VE，是来自德国的开源虚拟化方案。软件和社区支持都是免费的，企业用户则可以通过订阅制获得付费商业支持。
@@ -20,18 +21,18 @@ Proxmox Virtual Environment，或 Proxmox VE，是来自德国的开源虚拟化
 
 二、Proxmox VE 安装
   
-用户可以直接在现有的 Debian 上安装 PVE 相关的软件包，将之改造成 PVE 节点，但更推荐的方法是直接用官方提供的 ISO 文件，完成全系统的安装。安装过程中除了问装到哪儿之类的常规问题，没有别的复杂情况。安装完之后会重启，重启完成后即可使用 SSH 登录，或是用 https://<ipaddress>:8006/ 访问网页管理页面 (注意是 https://) ，这一地址也会打印在屏幕上 (如果你忘了的话) 。
+用户可以直接在现有的 Debian 上安装 PVE 相关的软件包，将之改造成 PVE 节点，但更推荐的方法是直接用官方提供的 ISO 文件，完成全系统的安装。安装过程中除了问装到哪儿之类的常规问题，没有别的复杂情况。安装完之后会重启，重启完成后即可使用 SSH 登录，或是用 `https://<ipaddress>:8006/` 访问网页管理页面 (注意是 https://) ，这一地址也会打印在屏幕上 (如果你忘了的话) 。
 
 网页或是命令行管理真是方便啊，再也不用在 Windows 虚拟机里运行 Citrix XenCenter 或是 VMware vSphere Client 了。
 
 网络
-PVE网络配置官方文档: https://pve.proxmox.com/wiki/Network_Configuration
+PVE网络配置官方文档: <https://pve.proxmox.com/wiki/Network_Configuration>
 
 可以通过GUI或通过手动编辑文件/etc/network/interfaces来完成网络配置，该文件包含整个网络配置。以下介绍两种常用模式。
 
-网桥模式(默认网络模式)
-网桥就像用软件实现的物理网络交换机。所有虚拟机都可以共享一个网桥，或者您可以创建多个网桥来分离网络域。每个主机最多可以有4094个网桥。
-安装程序将创建一个名为vmbr0的网桥，该网桥连接到第一个以太网卡。/etc/network/interfaces中的相应配置可能如下所示 (不同网口配置，需要使用空行分隔) : 
----
+## 网桥模式(默认网络模式)
 
-https://wzyboy.im/post/1293.html
+网桥就像用软件实现的物理网络交换机。所有虚拟机都可以共享一个网桥，或者您可以创建多个网桥来分离网络域。每个主机最多可以有4094个网桥。
+安装程序将创建一个名为vmbr0的网桥，该网桥连接到第一个以太网卡。/etc/network/interfaces中的相应配置可能如下所示 (不同网口配置，需要使用空行分隔) :
+
+<https://wzyboy.im/post/1293.html>

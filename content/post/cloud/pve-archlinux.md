@@ -12,8 +12,6 @@ tags:
 
 ## "pve + openwrt"
 
-### pve + openwrt
-
 ### download openwrt image
 
 下载 iso
