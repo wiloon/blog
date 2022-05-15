@@ -9,6 +9,7 @@ tags:
   - reprint
 ---
 ## netstat, 端口
+
 netstat -ntlp
   
 -n 以网络IP地址代替名称
@@ -20,7 +21,7 @@ netstat -ntlp
 -p 显示正在使用Socket的程序识别码和程序名称。
   
 -a, -all
-         
+
 Show both listening and non-listening sockets. With the -interfaces option, show interfaces that are not marked
 
        yum install net-tools
