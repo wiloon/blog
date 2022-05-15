@@ -11,6 +11,7 @@ tags:
 ## go module proxy, goproxy, goproxy.io, goproxy.cn, athens
 
 ```bash
+export GOPROXY=https://proxy.golang.com.cn,direct
 export GOPROXY=https://goproxy.io,direct
 
 export GOPROXY=https://goproxy.cn
