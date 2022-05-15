@@ -52,6 +52,27 @@ deb https://mirrors.aliyun.com/debian-security buster/updates main contrib non-f
 deb https://mirrors.ustc.edu.cn/proxmox/debian/pve buster pve-no-subscription
 ```
 
+## pve 7.2
+
+```bash
+deb http://mirrors.aliyun.com/debian/ bullseye main non-free contrib
+deb-src http://mirrors.aliyun.com/debian/ bullseye main non-free contrib
+deb http://mirrors.aliyun.com/debian-security/ bullseye-security main
+deb-src http://mirrors.aliyun.com/debian-security/ bullseye-security main
+deb http://mirrors.aliyun.com/debian/ bullseye-updates main non-free contrib
+deb-src http://mirrors.aliyun.com/debian/ bullseye-updates main non-free contrib
+deb http://mirrors.aliyun.com/debian/ bullseye-backports main non-free contrib
+deb-src http://mirrors.aliyun.com/debian/ bullseye-backports main non-free contrib
+
+deb http://ftp.debian.org/debian bullseye main contrib
+
+deb http://ftp.debian.org/debian bullseye-updates main contrib
+
+# security updates
+deb http://security.debian.org bullseye-security main contrib
+deb http://download.proxmox.com/debian/pve bullseye pve-no-subscription
+```
+
 ### 访问管理页面
 
     https://192.168.50.xxx:8006
@@ -61,7 +82,7 @@ deb https://mirrors.ustc.edu.cn/proxmox/debian/pve buster pve-no-subscription
 #### 上传iso
 
 把ISO上传到Proxmox宿主机的存储里
-Datacenter>nuc8>local(nuc8)>ISO Images>-->Upload
+Datacenter> nuc8> local(nuc8) >ISO Images >-->Upload
 
 ### 创建虚拟机
 
@@ -128,7 +149,7 @@ Qemu 代理即 qemu-guest-agent，是一个运行在虚拟机里面的程序 qem
 system>network>linux bridge
 bridge ports: 支持同时添加多个网口，用空格分隔
 
-### vm  export/import
+### vm export/import
 
 利用pve的备份恢复功能进行虚拟机的导入导出
 

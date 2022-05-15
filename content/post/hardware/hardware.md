@@ -39,6 +39,8 @@ Realtek®以太网LAN 10 Mb/100 Mb/1 Gb铜缆RJ45,LAN唤醒
 
 ## QNAP TS453Bmini
 
+- Intel® Celeron® J3455 4-core 1.5 GHz processor (burst up to 2.3 GHz)
+
 ## Intel J4105 软路由
 
 - J4105, 14 nm
