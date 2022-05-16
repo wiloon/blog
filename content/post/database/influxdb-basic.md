@@ -295,3 +295,22 @@ select f0,f1  from s0 where t0=~ /xxx.*/
 sELECT mean(m1) * 10 FROM metric0."default".m0 WHERE time >= now() - 10m  AND host='host0'  GROUP BY time(10s), host
 
 ```
+
+## 协议, 整数, 浮点数
+
+浮点数 —— 默认是浮点数，InfluxDB假定收到的所有field value都是浮点数。
+以浮点类型存储上面的82：
+
+weather,location=us-midwest temperature=82 1465839830100400200
+整数 —— 添加一个i在field之后，告诉InfluxDB以整数类型存储：
+以整数类型存储上面的82：
+
+weather,location=us-midwest temperature=82i 1465839830100400200
+字符串 —— 双引号把字段值引起来表示字符串:
+以字符串类型存储值too warm：
+
+weather,location=us-midwest temperature="too warm" 1465839830100400200
+布尔型 —— 表示TRUE可以用t,T,true,True,TRUE;表示FALSE可以用f,F,false,False或者FALSE：
+以布尔类型存储值true：
+
+weather,location=us-midwest too_hot=true 1465839830100400200

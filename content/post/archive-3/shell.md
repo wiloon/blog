@@ -58,6 +58,20 @@ exit 0                                       # 返回一个零退出状态，退
 
 ## 字符串
 
+## 字符串截取, substring
+
+```bash
+url="c.biancheng.net"
+echo ${url: 2: 9}
+# 结果为biancheng
+
+url="c.biancheng.net"
+echo ${url: 2}  #省略 length，截取到字符串末尾
+# 结果为biancheng.net。
+```
+
+<http://c.biancheng.net/view/1120.html>
+
 ### shell字符串大小写转换
 
 #### typeset

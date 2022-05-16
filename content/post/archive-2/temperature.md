@@ -1,14 +1,57 @@
 ---
-title: linux下的cpu温度监控软件 lm-sensors
+title: 温度监控, lm-sensors, temperature
 author: "-"
-date: 2012-04-15T14:06:43+00:00
-url: /?p=2942
+date: 2018-06-17T03:15:48+00:00
+url: /?p=12312
 categories:
-  - Linux
+  - Inbox
 tags:
   - reprint
 ---
-## linux下的cpu温度监控软件 lm-sensors
+## 温度监控, lm-sensors, temperature
+
+### 不用安装其它软件的方法
+
+```bash
+cat /sys/class/thermal/thermal_zone0/temp
+echo $[$(cat /sys/class/thermal/thermal_zone0/temp)/1000]°
+
+```
+
+### sensors
+
+```bash
+apt-get install lm-sensors
+# 检测传感器
+sh -c "yes|sensors-detect"
+
+# 查看CPU的温度
+sensors
+```
+
+#### 输出
+
+```r
+coretemp-isa-0000
+Adapter: ISA adapter
+Package id 0:  +57.0°C  (high = +105.0°C, crit = +105.0°C)
+Core 0:        +57.0°C  (high = +105.0°C, crit = +105.0°C)
+Core 1:        +57.0°C  (high = +105.0°C, crit = +105.0°C)
+Core 2:        +57.0°C  (high = +105.0°C, crit = +105.0°C)
+Core 3:        +58.0°C  (high = +105.0°C, crit = +105.0°C)
+
+acpitz-acpi-0
+Adapter: ACPI interface
+temp1:        +27.8°C  (crit = +119.0°C)
+
+nvme-pci-0400
+Adapter: PCI adapter
+Composite:    +64.8°C  (low  = -273.1°C, high = +84.8°C)
+                       (crit = +84.8°C)
+Sensor 1:     +64.8°C  (low  = -273.1°C, high = +65261.8°C)
+Sensor 2:     +74.8°C  (low  = -273.1°C, high = +65261.8°C)
+```
+
 
 原贴:<http://goodfifagun.pixnet.net/blog/post/21587839>
 

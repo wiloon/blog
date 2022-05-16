@@ -10,7 +10,7 @@ tags:
 ---
 ## ForkJoin
 
-ForkJoinPool适合执行计算密集型且可进行拆分任务并汇总结果(类似MapReduce)的任务，执行这种任务可以充分利用多核处理器优势提高任务处理速度，实际上ForkJoinPool内部的工作窃取队列的高性能(远高于普通线程池的BlockingQueue)也决定其适用于执行大量的简短的小任务。
+ForkJoinPool 适合执行计算密集型且可进行拆分任务并汇总结果(类似MapReduce)的任务，执行这种任务可以充分利用多核处理器优势提高任务处理速度，实际上 ForkJoinPool 内部的工作窃取队列的高性能 (远高于普通线程池的BlockingQueue) 也决定其适用于执行大量的简短的小任务。
 ————————————————
 版权声明：本文为CSDN博主「heng_zou」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
 原文链接：<https://blog.csdn.net/heng_zou/article/details/118193846>

@@ -17,6 +17,16 @@ tags:
 yay -S telegraf-bin
 ```
 
+### ubuntu && debian
+
+```bash
+curl -s https://repos.influxdata.com/influxdb.key | tee /etc/apt/trusted.gpg.d/influxdb.asc >/dev/null
+source /etc/os-release
+echo "deb https://repos.influxdata.com/${ID} ${VERSION_CODENAME} stable" | tee /etc/apt/sources.list.d/influxdb.list
+apt-get update && apt-get install telegraf
+
+```
+
 ### binary
 
 <https://portal.influxdata.com/downloads/>
@@ -71,22 +81,28 @@ yay -S telegraf-bin
 
 ### windows
 
+```bash
     choco install telegraf
+```
 
 #### 配置文件
 
+```bash
     C:\Program Files\telegraf\telegraf.conf
+```
 
 #### install as windows serivce, choco 安装的 telegraf 默认会安装成 service
 
 <https://docs.influxdata.com/telegraf/v1.14/administration/windows_service/>
 
+```bash
     C:\"Program Files"\Telegraf\telegraf.exe --service install
     net start telegraf
+```
 
 ### telegraf influxdb_listener
 
-```
+```bash
 vim  /etc/telegraf/telegraf.conf
 [[outputs.influxdb]]
   urls = ["http://influxdb.wiloon.com"]
@@ -103,6 +119,7 @@ vim  /etc/telegraf/telegraf.conf
 
 <https://github.com/influxdata/telegraf/blob/release-1.10/plugins/inputs/ping/README.md>
 
+```bash
     [[inputs.ping]]
       ## List of urls to ping
       urls = ["example.org"]
@@ -130,6 +147,7 @@ vim  /etc/telegraf/telegraf.conf
       ## Arguments for ping command
       ## when arguments is not empty, other options (ping_interval, timeout, etc) will be ignored
       # arguments = ["-c", "3"]
+```
 
 ### openwrt
 
@@ -147,7 +165,9 @@ mv telegraf-1.19.0/etc/* /etc
 
 登录到 openwrt web 管理页面, 点击菜单 System > Startup > Local Startup, 在exit0 上面插入一行, 填写以下命令
 
+```bash
     /usr/bin/telegraf --config /etc/telegraf/telegraf.conf
+```
 
 ### docker
 
@@ -185,9 +205,9 @@ podman run --name telegraf -d \
 
 ### wireguard, telegraf
 
-    https://github.com/influxdata/telegraf/blob/master/plugins/inputs/wireguard/README.md
+<https://github.com/influxdata/telegraf/blob/master/plugins/inputs/wireguard/README.md>
 
-### exec
+### exec, 执行 shell 脚本
 
 ```bash
 [[inputs.exec]]
@@ -219,8 +239,8 @@ post_count=$(ls -lR content/post |grep '\.md'|wc -l)
 word_count=$(ls -lR content/post |grep '\.md'|wc -m)
 
 echo 'blog,domain=wiloon post_count='''$post_count'''i,word_count='''$word_count'''i'
-
-
 ```
 
-><https://github.com/influxdata/telegraf/blob/release-1.21/plugins/inputs/exec/README.md>
+telegraf 默认用 tellegraf 用户启动, 所以... 记得给脚本加执行权限.
+
+<https://github.com/influxdata/telegraf/blob/release-1.21/plugins/inputs/exec/README.md>

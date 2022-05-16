@@ -2,18 +2,23 @@
 title: Gradle basic, command
 author: "-"
 date: 2011-11-20T07:58:09+00:00
-url: /?p=1548
+url: Gradle
 categories:
   - inbox
 tags:
   - reprint
 ---
 ## Gradle basic, command
+
 ### command
+
+```bash
     gradle build
-    
+```
+
 ### install
-download latest version of gradle from http://www.gradle.org/downloads.html
+
+download latest version of gradle from <http://www.gradle.org/downloads.html>
   
 extract the gradle package
 
@@ -69,7 +74,6 @@ gradle cleanIdea
 dependencies {
     compile project(":project-name")
 }
-```
 
 // 设置 maven 库地址
   

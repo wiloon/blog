@@ -85,7 +85,7 @@ echo "i have two apples and one banana" | awk -F'one|two' '{for(i=1;i<=NF;i++)pr
 # 3 = banana
 ```
 
-### substr
+### substr, awk 字符串截取, substr
 
 ```bash
 substr($4,20)    --->  表示是从第4个字段里的第20个字符开始，一直到设定的分隔符","结束.

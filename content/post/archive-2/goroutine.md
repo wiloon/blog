@@ -13,7 +13,7 @@ tags:
 - routine, [ruːˈtiːn], 例程
 - coroutine, [kəruːˈtiːn], 协同程序, 协程
 
-Goroutine 是 Go 中最基本的执行单元。每一个 Go 程序至少有一个 goroutine：主 goroutine。当程序启动时，它会自动创建。
+Goroutine 是 Go 中最基本的执行单元。每一个 Go 程序至少有一个 goroutine：主 goroutine. 当程序启动时， 它被自动创建。
 
 goroutine 采用了一种 fork-join 的模型 [[fork-join#ForkJoin]]
 
