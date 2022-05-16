@@ -8,8 +8,6 @@ categories:
 tags:
   - reprint
   - remix
-
-
 ---
 ## telegraf
 
@@ -21,7 +19,7 @@ yay -S telegraf-bin
 
 ### binary
 
-    https://portal.influxdata.com/downloads/
+<https://portal.influxdata.com/downloads/>
 
 ### 配置文件 vim /etc/telegraf/telegraf.conf
 
@@ -36,7 +34,8 @@ yay -S telegraf-bin
   flush_interval = "10s"
   flush_jitter = "0s"
   precision = ""
-  hostname = ""
+# 修改主机名
+  hostname = "foo"
   omit_hostname = false
 [[outputs.influxdb]]
   urls = ["http://influxdb.wiloon.com:8086"]
@@ -67,6 +66,7 @@ yay -S telegraf-bin
 ><https://www.kernel.org/doc/Documentation/sysctl/fs.txt>
 
 ### hsperfdata
+
 <https://github.com/njwhite/telegraf/tree/master/plugins/inputs/hsperfdata>
 
 ### windows
@@ -78,6 +78,7 @@ yay -S telegraf-bin
     C:\Program Files\telegraf\telegraf.conf
 
 #### install as windows serivce, choco 安装的 telegraf 默认会安装成 service
+
 <https://docs.influxdata.com/telegraf/v1.14/administration/windows_service/>
 
     C:\"Program Files"\Telegraf\telegraf.exe --service install
@@ -133,6 +134,7 @@ vim  /etc/telegraf/telegraf.conf
 ### openwrt
 
 #### telegraf, 下载 static 版本
+
 <https://github.com/influxdata/telegraf/releases/tag/v1.19.0>  
 <https://dl.influxdata.com/telegraf/releases/telegraf-1.19.0_static_linux_amd64.tar.gz>
 

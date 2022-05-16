@@ -47,8 +47,8 @@ choco upgrade keepassxc
 
 | Name             | Comments |
 | ---------------- | -------- |
-|Open Hardware Monitor|监控,温度,内存|
-|WizTree|硬盘占用分析|
+| Open Hardware Monitor | 监控,温度,内存 |
+| WizTree | 硬盘占用分析 |
 |Process Hacker|代替任务管理器|
 |chrome||
 |rufus|创建启动盘,iso to usb |
