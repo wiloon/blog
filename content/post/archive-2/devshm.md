@@ -9,13 +9,14 @@ tags:
   - reprint
 ---
 ## /dev/shm
-http://dbua.iteye.com/blog/1271574
+
+<http://dbua.iteye.com/blog/1271574>
 
 1.linux下的/dev/shm是什么？
   
 /dev/shm/是linux下一个目录,/dev/shm目录不在磁盘上,而是在内存里,因此使用linux /dev/shm/的效率非常高,直接写进内存。
   
-我们可以通过以下两个脚本来验证linux /dev/shm的性能: 
+我们可以通过以下两个脚本来验证linux /dev/shm的性能:
   
 [root@db1 oracle]# ls -l linux_11gR2_grid.zip
   
@@ -23,7 +24,7 @@ http://dbua.iteye.com/blog/1271574
   
 [root@db1 oracle]# cat mycp.sh
   
-#!/bin/sh
+# !/bin/sh
   
 echo `date`
   
@@ -42,7 +43,7 @@ Fri Jul 15 18:44:29 CST 2011
 Filesystem Size Used Avail Use% Mounted on
   
 /dev/mapper/rootvg-lv01
-                         
+
 97G 9.2G 83G 10% /
   
 /dev/sda1 99M 15M 80M 16% /boot
@@ -51,7 +52,7 @@ tmpfs 2.0G 0 2.0G 0% /dev/shm
 
 [root@db1 oracle]# cat mycp1.sh
   
-#!/bin/sh
+# !/bin/sh
   
 echo `date`
   
@@ -81,7 +82,7 @@ tmpfs 2.0G 937M 1.1G 46% /dev/shm
   
 可以看出,在对一个将近1g为文件的复制,拷到磁盘上与拷到/dev/shm下还是有很大差距的。
   
-tmpfs有以下特点: 
+tmpfs有以下特点:
   
 1.tmpfs 是一个文件系统, 而不是块设备；您只是安装它, 它就可以使用了。
   
@@ -111,7 +112,7 @@ mount -o size=1500M -o nr_inodes=1000000 -o noatime,nodiratime -o remount /dev/s
   
 在2G的机器上,将最大容量调到1.5G,并且inode数量调到1000000,这意味着大致可存入最多一百万个小文件
   
-通过/etc/fstab文件来修改/dev/shm的容量(增加size选项即可),修改后,重新挂载即可: 
+通过/etc/fstab文件来修改/dev/shm的容量(增加size选项即可),修改后,重新挂载即可:
   
 [root@db1 shm]# grep tmpfs /etc/fstab
   
@@ -134,7 +135,7 @@ tmpfs 2.0G 0 2.0G 0% /dev/shm
 Filesystem Size Used Avail Use% Mounted on
   
 /dev/mapper/rootvg-lv01
-                         
+
 97G 9.2G 83G 10% /
   
 /dev/sda1 99M 15M 80M 16% /boot
