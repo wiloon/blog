@@ -21,29 +21,31 @@ iptables操作的是2.4以上内核的netfilter。所以需要linux的内核在2
 4个表: filter,nat,mangle,raw，默认表是filter (没有指定表 ( -t ) 的时候就是filter表) 。  
 表的处理优先级: raw>mangle>nat>filter
 
-#### 4个表
+#### 4 个表
 
-* filter: 一般的过滤功能， 这是默认的表，包含了内建的链INPUT (处理进入的包) 、FORWARD (处理通过的包) 和OUTPUT (处理本地生成的包) 。
-* nat: 用于nat功能 (端口映射，地址映射等) ，对应的链: PREROUTING  (修改到来的包) 、OUTPUT (修改路由之前本地的包) 、POSTROUTING (修改准备出去的包) ，centos6没有input链，centos7有input链。
+* filter: 一般的过滤功能， 这是默认的表，包含了内建的链 INPUT (处理进入的包)、FORWARD (处理通过的包) 和OUTPUT (处理本地生成的包) 。
+* nat: 用于nat功能 (端口映射，地址映射等)，对应的链: PREROUTING (修改到来的包)、OUTPUT (修改路由之前本地的包) 、POSTROUTING (修改准备出去的包) ，centos6没有input链，centos7 有 input 链。
 * mangle: 用于对特定数据包的修改， 对应的链: PREROUTING (修改路由之前进入的包) ,input, OUTPUT (修改路由 IPTABLES之前本地的包) , forward,postrouting
 * raw: 优先级最高，设置raw时一般是为了不再让iptables做数据包的链接跟踪处理，提高性能
 
-### 5个链: PREROUTING,INPUT,FORWARD,OUTPUT,POSTROUTING
+### 5 个链: PREROUTING,INPUT,FORWARD,OUTPUT,POSTROUTING
 
 * PREROUTING: 数据包进入路由表之前
 * INPUT: 通过路由表后目的地为本机
-* FORWARD: 通过路由表后，目的地不为本机
-* OUTPUT: 由本机产生，向外转发
-* POSTROUTIONG: 发送到网卡接口之前。
+* FORWARD: 通过路由表后, 目的地不为本机
+* OUTPUT: 由本机产生, 向外转发
+* POSTROUTIONG: 发送到网卡接口之前
 
 ### iptables 规则的语法
 
-    iptables [-t table] COMMAND chain CRETIRIA -j ACTION
-        -t table : 3个filter nat mangle
-        COMMAND: 定义如何对规则进行管理
-        chain: 指定你接下来的规则到底是在哪个链上操作的，当定义策略的时候，是可以省略的
-        CRETIRIA:指定匹配标准
-        -j ACTION :指定如何进行处理
+```bash
+iptables [-t table] COMMAND chain CRETIRIA -j ACTION
+    -t table : 3个filter nat mangle
+    COMMAND: 定义如何对规则进行管理
+    chain: 指定你接下来的规则到底是在哪个链上操作的，当定义策略的时候，是可以省略的
+    CRETIRIA:指定匹配标准
+    -j ACTION :指定如何进行处理
+```
 
 ```bash
 iptables [-t table] COMMAND chain CRETIRIA -j ACTION

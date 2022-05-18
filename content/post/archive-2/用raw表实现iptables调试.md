@@ -42,6 +42,7 @@ modprobe xt_LOG
 日志输出在journalctl 里查看, 用journalctl -f 查看调试日志。
 
 #### TRACE
+
 TRACE This target marks packes so that the kernel will log every rule which match the packets as those traverse the tables, chains, rules. (The ipt_LOG or ip6t_LOG module is required for the logging.) The packets are logged with the string prefix:
 
 "TRACE: tablename:chainname:type:rulenum " where type can be "rule" for plain rule, "return" for implicit rule at the end of a user defined chain and "policy" for the policy of the built in chains. It can only be used in the raw table.
@@ -158,16 +159,12 @@ COMMIT
   
 把这条规则删掉后重启iptables,vm能顺利连接外网,问题解决。
 
-https://www.howtoing.com/enable-logging-in-iptables-on-linux
+<https://www.howtoing.com/enable-logging-in-iptables-on-linux>
 
-
-  
     iptables debugging
   
-
-
-https://backreference.org/2010/06/11/iptables-debugging/embed/#?secret=GkDsoEKKiO
+<https://backreference.org/2010/06/11/iptables-debugging/embed/#?secret=GkDsoEKKiO>
   
-http://blog.51cto.com/flymanhi/1276331
+<http://blog.51cto.com/flymanhi/1276331>
   
-http://blog.youlingman.info/debugging-iptables-with-raw-table/
+<http://blog.youlingman.info/debugging-iptables-with-raw-table/>
