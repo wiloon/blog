@@ -9,6 +9,7 @@ tags:
   - reprint
 ---
 ## SSH端口转发
+
 SSH端口转发
 2014/11/12 VMUNIX
 ssh是个多用途的工具，不仅可以远程登录，还可以搭建socks代理、进行内网穿透，这是利用它的端口转发功能来实现的。
@@ -30,6 +31,7 @@ ssh端口转发功能默认是打开的。控制它的开关叫做 AllowTcpForwa
 
 怎样设置端口转发？
 设置端口转发之前要注意 iptables 设置，确保相应的端口未被屏蔽，如果嫌麻烦的话也可以临时禁用 iptables：
+
 # service iptables stop
 
 定向转发和动态转发的设置方法是不一样的，以下分别介绍。
@@ -121,5 +123,4 @@ ssh client 和 ssh server 是同一台机器，并充当socks5代理：
 
 通过SSH建立的SOCKS服务器使用的是SOCKS5协议，在为应用程序设置SOCKS代理的时候要注意。
 
->http://linuxperf.com/?p=30
-
+><http://linuxperf.com/?p=30>

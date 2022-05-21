@@ -9,9 +9,10 @@ tags:
   - reprint
 ---
 ## Spark
-http://www.cnblogs.com/jerrylead/archive/2012/08/13/2636115.html
+
+<http://www.cnblogs.com/jerrylead/archive/2012/08/13/2636115.html>
   
-摘要: Spark是继Hadoop之后的新一代大数据分布式处理框架，由UC Berkeley的Matei Zaharia主导开发。我只能说是神一样的人物造就的神器，详情请猛击http://www.spark-project.org/
+摘要: Spark是继Hadoop之后的新一代大数据分布式处理框架，由UC Berkeley的Matei Zaharia主导开发。我只能说是神一样的人物造就的神器，详情请猛击<http://www.spark-project.org/>
   
 Created 2012-05-09
 
@@ -21,7 +22,7 @@ Modified 2012-08-13
   
 当前，Spark最新版本是0.5，由于我写这篇文档时，版本还是0.4，因此本文下面的所有描述基于0.4版本。
 
-不过淘宝的达人已经尝试了0.5，并写了相关安装文档在此http://rdc.taobao.com/team/jm/archives/tag/spark。
+不过淘宝的达人已经尝试了0.5，并写了相关安装文档在此<http://rdc.taobao.com/team/jm/archives/tag/spark>。
 
 ~~~~~~~~~~~~~~~以下开始我的安装文档~~~~~~~~~~~~~~
 

@@ -11,9 +11,10 @@ tags:
 
 ---
 ## spring MVC json
+
 [spring mvc 返回json格式数据的方式][1]
 
-http://blog.csdn.net/skmbw/article/details/12263253
+<http://blog.csdn.net/skmbw/article/details/12263253>
 
 ```xml
 

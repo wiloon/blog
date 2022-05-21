@@ -9,6 +9,7 @@ tags:
   - reprint
 ---
 ## subsonic 调用 存储过程
+
 [csharp]
   
 public static int GetRUID(string tblName)

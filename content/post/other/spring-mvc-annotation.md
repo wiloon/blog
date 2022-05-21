@@ -10,19 +10,17 @@ tags:
 
 ---
 ## spring mvc annotation
-  * 参数处理 (明确指定参数 匹配 自动转换类型)  
-    >>普通属性和对象及属性: @RequestParam("id")注解，所以它将和id的URL参数绑定 
-    
-      * 
-      * **@RequestBody** 将HTTP请求正文转换为适合的HttpMessageConverter对象。
-      * **@ResponseBody** 将内容或对象作为 HTTP 响应正文返回，并调用适合HttpMessageConverter的Adapter转换对象，写入输出流。
-      * @PathVariable 
-    
-    @PathVariable是用来对指定请求的URL路径里面的变量 eg: 
-    
-    
-      
-        
+
+* 参数处理 (明确指定参数 匹配 自动转换类型)  
+    >>普通属性和对象及属性: @RequestParam("id")注解，所以它将和id的URL参数绑定
+
+  *
+  * **@RequestBody** 将HTTP请求正文转换为适合的HttpMessageConverter对象。
+  * **@ResponseBody** 将内容或对象作为 HTTP 响应正文返回，并调用适合HttpMessageConverter的Adapter转换对象，写入输出流。
+  * @PathVariable
+
+    @PathVariable是用来对指定请求的URL路径里面的变量 eg:
+
           Java代码  <img class="star" src="http://yeak2001.iteye.com/images/icon_star.png" alt="收藏代码" />
         
       
@@ -30,40 +28,19 @@ tags:
       
         
           "form/{id}/apply", method = {RequestMethod.PUT, RequestMethod.POST})  
-        
-      
-    
-    
+
     @PathVariable和@RequestParam的区别就在于: @RequestParam用来获得静态的URL请求入参
-    
-    
-    
-    ### 、 @PathVariable 
-    
+
+### 、 @PathVariable
+
     当使用@RequestMapping URI template 样式映射时， 即 someUrl/{paramId}, 这时的paramId可通过 @Pathvariable注解绑定它传过来的值到方法的参数上。
-    
-    示例代码: 
-    
-    
-    
-    
-      
-        
-          
+
+    示例代码:
+
             ```java```
-          
-          
-          
-http://blog.csdn.net/walkerjong/article/details/7946109#
-          
-          
-          
-          
-        
-      
-      
-      
-        
+
+<http://blog.csdn.net/walkerjong/article/details/7946109>#
+
           @Controller  
         
         

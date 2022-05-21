@@ -9,6 +9,7 @@ tags:
   - reprint
 ---
 ## startActivityForResult()
+
 举例说我想要做的一个事情是,在一个主界面(主Activity)上能连接往许多不同子功能模块(子Activity上去),当子模块的事情做完之后就回到主界面,或许还同时返回一些子模块完成的数据交给主Activity处理。
 
 ---
@@ -51,7 +52,7 @@ Bundle b=data.getExtras(); //data为B中回传的Intent
   
 String str=b.getString("ListenB");//str即为回传的值"Hello, this is B speaking"
   
-/* 得到B回传的数据后做什么... 略 */
+/*得到B回传的数据后做什么... 略*/
   
 break;
   
@@ -71,7 +72,7 @@ break;
   
 Intent aintent = new Intent(B.this, A.class);
   
-/* 将数据打包到aintent Bundle 的过程略 */
+/*将数据打包到aintent Bundle 的过程略*/
   
 setResut(RESULT_OK,aintent); //这理有2个参数(int resultCode, Intent intent)
   
