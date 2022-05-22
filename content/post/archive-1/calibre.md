@@ -43,3 +43,8 @@ podman run -d \
   lscr.io/linuxserver/calibre:latest
 
 ```
+
+## mail server setup
+
+<https://github.com/janeczku/calibre-web/wiki/Setup-Mailserver>
+
