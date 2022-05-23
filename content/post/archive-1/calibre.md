@@ -1,5 +1,5 @@
 ---
-title: calibre
+title: calibre, 电子书管理
 author: "-"
 date: 2015-05-03T07:51:04+00:00
 url: /?p=7582
@@ -9,7 +9,7 @@ tags:
   - Music
 
 ---
-## calibre
+## calibre, 电子书管理
 
 ## web
 
