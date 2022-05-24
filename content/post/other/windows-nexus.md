@@ -2,13 +2,14 @@
 title: nexus OSS
 author: "-"
 date: 2012-04-24T10:52:10+00:00
-url: /?p=3021
+url: nexus
 categories:
   - Inbox
 tags:
   - reprint
 ---
 ## nexus OSS
+
 ### docker
 
 ```bash
@@ -43,7 +44,7 @@ provider Maven2
 
 Repository Policy: Release
 
-Remote Storage location: http://maven.aliyun.com/nexus/content/groups/public/
+Remote Storage location: <http://maven.aliyun.com/nexus/content/groups/public/>
 
 click save
 
@@ -81,7 +82,7 @@ click on the check box that says "Run as Administrator".
   
 click OK
 
-### 上传jar包
+## 上传jar包
 
 ### 上传pom
 

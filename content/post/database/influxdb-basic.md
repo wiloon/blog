@@ -20,10 +20,12 @@ curl -i -XPOST http://localhost:8086/query --data-urlencode "db=mydb" --data-url
 curl -i -XPOST "http://192.168.97.1:8086/write?db=monitor" --data-binary 'measurement_0,location=us-midwest temperature=82 1594349970000000000'
 ```
 
-### 
+###
+
     curl -x http://127.0.0.1:8899/ -i -XPOST "http://192.168.97.1:8086/write?db=monitor" --data-binary 'measurement_0,location=us-midwest temperature=86 1594349970000000000'
 
 ### database management
+
 ```bash
 #show db
 show databases
@@ -66,6 +68,7 @@ influx -database 'db0' -execute "select field0,\"field1\" from measurement0 wher
 ```
 
 ### 安装, influxdb install & config
+
 ### dnf
 
 ```bash
@@ -102,6 +105,7 @@ emacs /etc/influxdb/influxdb.conf
 ```
 
 ### /etc/influxdb/influxdb.conf
+
     #reporting-disabled = false
 
     [meta]
@@ -163,7 +167,9 @@ influx -precision rfc3339
 
 
 ```
+
 ### docker
+
 ```bash
 # docker
 docker run -d \
@@ -200,6 +206,7 @@ influxdb
 ```
 
 ### chronograf
+
     podman run -d \
     --name chronograf \
     --pod monitor \
@@ -208,6 +215,7 @@ influxdb
     chronograf --influxdb-url=http://monitor:8086
 
 #### run influx
+
     sudo podman exec -it influxdb influx
     sudo podman run -it --rm influxdb influx -host influxdb.wiloon.com
 
@@ -229,13 +237,16 @@ ALTER  RETENTION POLICY "default" ON db0 DURATION 3h REPLICATION 1 SHARD DURATIO
 ```
 
 ### shard
+
 #### list shard id
+
 ```sql
 show shards
 DROP SHARD <shard_id_number>
 ```
 
 ### measurement
+
 ```sql
 show measurements
 DROP MEASUREMENT <measurement_name>
@@ -243,6 +254,7 @@ DROP MEASUREMENT "kernel"
 ```
 
 ### select
+
 ```sql
 select * from ping where time > now()-1s
 
