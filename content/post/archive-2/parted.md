@@ -9,6 +9,7 @@ tags:
   - reprint
 ---
 ## parted
+
 ```bash
 # 查看磁盘信息
 lsblk
@@ -101,10 +102,9 @@ sudo mkfs.btrfs -L data0 /dev/sdx3
 #genfstab -p -U /mnt > /mnt/etc/fstab
 ```
 
->https://www.gnu.org/software/parted/manual/html_chapter/parted_2.html
->https://www.gnu.org/software/parted/manual/html_node/mklabel.html
->https://linux.cn/article-3167-1.html
-
+><https://www.gnu.org/software/parted/manual/html_chapter/parted_2.html>
+><https://www.gnu.org/software/parted/manual/html_node/mklabel.html>
+><https://linux.cn/article-3167-1.html>
 
 ### parted分区NTFS文件系统
 
@@ -113,22 +113,22 @@ sudo pacman -S ntfs-3g
 # 不安装ntfs-3g 会提示 mkfs.ntfs: command not found
 ```
 
-parted /dev/sdb                                      
+parted /dev/sdb
 1
 分区表选择gpt，文件系统选ntfs，起始点和结束点分别为0%和100%，你也可以按照需要的磁盘量来选择。
 
 (parted) mklabel gpt
-(parted) mkpart 
+(parted) mkpart
 分区名称？  []? LyData2
-文件系统类型？  [ext2]? ntfs                                              
-起始点？ 0%                                                               
-结束点？ 100%                                                             
+文件系统类型？  [ext2]? ntfs
+起始点？ 0%
+结束点？ 100%
 (parted) print
 Model: ATA TOSHIBA MG04ACA4 (scsi)
 磁盘 /dev/sdb: 4001GB
 Sector size (logical/physical): 512B/512B
 分区表：gpt
-Disk Flags: 
+Disk Flags:
 
 数字  开始：  End     大小    文件系统  Name     标志
  1    1049kB  4001GB  4001GB  ntfs      LyData2
@@ -164,7 +164,7 @@ ls /dev/sd*
 2
 可以看到多了一个/dev/sdb1，就是刚才分好区的那块硬盘。
 
-mkfs.ntfs -f /dev/sdb1 
+mkfs.ntfs -f /dev/sdb1
 ————————————————
 版权声明：本文为CSDN博主「Litedg」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
-原文链接：https://blog.csdn.net/Litedg/article/details/111504305
+原文链接：<https://blog.csdn.net/Litedg/article/details/111504305>

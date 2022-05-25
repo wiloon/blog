@@ -1,13 +1,24 @@
 ---
-title: KVM 虚拟磁盘扩容, qemu-img resize
+title: 磁盘扩容
 author: "-"
 date: 2018-03-24T13:35:19+00:00
-url: /?p=12049
+url: disk/resize
 categories:
-  - Inbox
+  - OS
 tags:
   - reprint
 ---
+## 磁盘扩容
+
+## PVE xfs
+
+```bash
+# cloud-guest-utils 提供了 growpart 命令
+pacman -S cloud-guest-utils
+growpart /dev/sda 2
+xfs_growfs /dev/sda2
+```
+
 ## KVM 虚拟磁盘扩容, qemu-img resize
 
 ### kvm 虚拟磁盘扩容
