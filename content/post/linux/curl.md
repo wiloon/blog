@@ -47,13 +47,13 @@ curl -v -d "name=admin&password=admin" -b cookie.txt "http://localhost:8080/user
 curl -v --cookie "JSESSIONID=C62172C780C581AE8212836C5F4A13EB" "http://localhost:8080/get"
 ```
 
-#### 保存cookie 到文件
+#### 保存 cookie 到文件
 
 ```bash
 curl -v -d "name=admin&password=admin" -b cookie.txt -c cookie.txt "http://localhost:8080/user/login"
 ```
 
-#### 从文件读取cookie
+#### 从文件读取 cookie
 
 ```bash
 curl -v --cookie cookie.txt "http://localhost:8080/get"

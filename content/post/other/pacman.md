@@ -146,7 +146,12 @@ pacman -Rdd package_name
 
 ```
 
-### "unable to lock database"
+### unable to lock database
+
+出现这个提示一般有两种情况
+
+- 有 .lck 文件
+- 磁盘满了
 
 ```bash
 sudo rm /var/lib/pacman/db.lck

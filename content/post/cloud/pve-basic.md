@@ -22,9 +22,11 @@ dd bs=1M conv=fdatasync if=./proxmox-ve_*.iso of=/dev/XYZ
 
 ### 安装vim
 
-    apt update && apt install vim
+```bash
+apt update && apt install vim
+```
 
-### 去除Proxmox企业源
+### 去除 Proxmox 企业源
 
 ```bash
 vi /etc/apt/sources.list.d/pve-enterprise.list
@@ -75,7 +77,7 @@ deb http://download.proxmox.com/debian/pve bullseye pve-no-subscription
 
 ### 访问管理页面
 
-    https://192.168.50.xxx:8006
+<https://192.168.50.xxx:8006>
 
 ### create vm
 
@@ -86,6 +88,7 @@ Datacenter> nuc8> local(nuc8) >ISO Images >-->Upload
 
 ### 创建虚拟机
 
+```bash
     create vm > 
         general > name: foo
         general > advanced
@@ -100,10 +103,8 @@ Datacenter> nuc8> local(nuc8) >ISO Images >-->Upload
         Hard Disk>Disk size
         Hard Disk>Backup
 
-
-
-
     create vm > system > qemu agent: select
+```
 
 ### create vm from template
 
@@ -130,7 +131,9 @@ Qemu 代理即 qemu-guest-agent，是一个运行在虚拟机里面的程序 qem
 
 ### 改ip
 
+```bash
      vi /etc/network/interfaces
+```
 
 ### 显卡直通
 
@@ -139,8 +142,6 @@ Qemu 代理即 qemu-guest-agent，是一个运行在虚拟机里面的程序 qem
 #### virtio-win.iso
 
 <https://www.10bests.com/win10-htpc-on-pve/>
-
-#### virtio-win.iso
 
 <https://fedorapeople.org/groups/virt/virtio-win/direct-downloads/archive-virtio/>
 
@@ -212,17 +213,24 @@ WinSCP下载地址: WinSCP官网
 
 #### 查看一下虚拟机的运行状态
 
+```bash
     pvesh get /cluster/resources
+```
 
 #### 取得虚拟机当前状态
 
+```bash
     pvesh get /nodes/PVE节点名称/qemu/虚拟机的id/status/current
+```
 
 #### 启动虚拟机的命令
 
+```bash
     pvesh create /nodes/PVE节点名称/qemu/虚拟机的id/status/start
----
+```
 
 <https://pve.proxmox.com/wiki/Main_Page>
+
 <https://wangxingcs.com/2020/0307/1424/>
+
 <https://www.10bests.com/install-openwrt-lede-on-pve/>

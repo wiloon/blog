@@ -9,9 +9,10 @@ tags:
   - reprint
 ---
 ## KVM 虚拟磁盘扩容, qemu-img resize
+
 ### kvm 虚拟磁盘扩容
 
-磁盘扩容分为raw和qcow2两种扩容方式,命令相同,区别是后缀名
+磁盘扩容分为 raw和qcow2两种扩容方式,命令相同,区别是后缀名
 
 ```bash
 # 查看磁盘信息
@@ -25,7 +26,7 @@ qemu-img resize /data/daixuan1.qcow2 +5G
 
 在 This PC 上点右键》选择Manage>Storage>Disk Management>右键点击分区》选择extend volume
 
-http://blog.51cto.com/daixuan/1743047
+<http://blog.51cto.com/daixuan/1743047>
 
 fdisk -l 列出系统中所有的磁盘设备和分区表,这里磁盘设备容量已经增加5G
 
@@ -45,7 +46,7 @@ tmpfs 246M 0 246M 0% /dev/shm
 
 /dev/vda1 477M 33M 419M 8% /boot
 
- (1) 因为新增加的空间还没有划分使用,所以要继续分区: 
+ (1) 因为新增加的空间还没有划分使用,所以要继续分区:
 
 [root@localhost ~]# fdisk /dev/vda
 
@@ -54,7 +55,6 @@ WARNING: DOS-compatible mode is deprecated. It's strongly recommended to
          switch off the mode (command 'c') and change display units to
     
          sectors (command 'u').
-    
 
 Command (m for help): p
 
@@ -136,7 +136,7 @@ the next reboot or after you run partprobe(8) or kpartx(8)
 
 Syncing disks.
 
- (2) 然后再把这个/dev/vda3 加入到lvm里面去: 
+ (2) 然后再把这个/dev/vda3 加入到lvm里面去:
 
 [root@localhost ~]# ls /dev/vda3 //如果没有这个分区,需要重启一下
 
@@ -233,7 +233,7 @@ tmpfs 246M 0 246M 0% /dev/shm
 复制增加如下: 注意是vdb,qcow2
 
 <disk type='file' device='disk'>
-    
+
 <driver name='qemu' type='qcow2' cache='none'/><source file='/data/daixuan1_2.qcow2'/><target dev='vdb' bus='virtio'/>
   
 </disk>
