@@ -443,7 +443,7 @@ git branch -m main
 
 ```bash
     git branch -d branch0
-    # 强制删除分支，删除没merge的分支
+    # 强制删除分支，删除没 merge 的分支
     git branch -D branch0
 ```
 
