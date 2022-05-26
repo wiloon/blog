@@ -24,25 +24,18 @@ HEAD 处于游离状态时,我们可以很方便地在历史版本之间互相�
 
 detached head,即游离的HEAD,HEAD指向了未知的分支,即不在所有已知的分支范围内。
 
-上网看了些资料,道友们是遇到这样的问题然后解决了,但是出于好奇心来了解的我并没有这样的问题,但是仍然按照道友的解决顺序尝试了下,发现执行下面这句代码git checkout origin/master,会产生detached HEAD这种情况.
+上网看了些资料, 道友们是遇到这样的问题然后解决了,但是出于好奇心来了解的我并没有这样的问题,但是仍然按照道友的解决顺序尝试了下,发现执行下面这句代码git checkout origin/master,会产生detached HEAD这种情况.
 
 $ git checkout origin/master
   
 Note: checking out 'origin/master'.
 
-You are in 'detached HEAD' state. You can look around, make experimental
-  
-changes and commit them, and you can discard any commits you make in this
-  
-state without impacting any branches by performing another checkout.
+You are in 'detached HEAD' state. You can look around, make experimental changes and commit them, and you can discard any commits you make in this state without impacting any branches by performing another checkout. If you want to create a new branch to retain commits you create, you may do so (now or later) by using -b with the checkout command again. Example:
 
-If you want to create a new branch to retain commits you create, you may
-  
-do so (now or later) by using -b with the checkout command again. Example:
-
+```bash
 git checkout -b <new-branch-name>
-
-HEAD is now at 3e74a7a... merge bug fixed in issue1
+# HEAD is now at 3e74a7a... merge bug fixed in issue1
+```
   
 此时用status指令查看,工作目录是干净的。
 
@@ -62,7 +55,7 @@ dev
 
 master
   
-HEAD指向了一个未知的分支,再返回上面的提示,可以用 git checkout -b 基于当前分支创建一个新的临时分支保留代码,合并到合适的分支后删除。
+HEAD 指向了一个未知的分支,再返回上面的提示,可以用 git checkout -b 基于当前分支创建一个新的临时分支保留代码,合并到合适的分支后删除。
 
 $ git checkout -b temp
   

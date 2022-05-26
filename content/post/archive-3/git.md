@@ -57,13 +57,13 @@ Tips：不要手动修改 .git 目录的内容
 
 ### 理解 git fetch, git pull
 
-要讲清楚git fetch，git pull,必须要附加讲清楚git remote，git merge 、远程repo， branch 、 commit-id 以及 FETCH_HEAD。
+要讲清楚 git fetch，git pull, 必须要附加讲清楚git remote，git merge 、远程repo， branch 、 commit-id 以及 FETCH_HEAD。
 
 ### git remote
 
-git是一个分布式的结构，这意味着本地和远程是一个相对的名称。
+git 是一个分布式的结构，这意味着本地和远程是一个相对的名称。
 
-本地的repo仓库要与远程的repo配合完成版本对应必须要有 git remote 子命令，通过 git remote add 来添加当前本地仓库的远程 repo， 有了这个动作本地的repo就知道了当遇到 git push 的时候应该往哪里提交代码。
+本地的 repo 仓库要与远程的 repo配合完成版本对应必须要有 git remote 子命令，通过 git remote add 来添加当前本地仓库的远程 repo， 有了这个动作本地的 repo就知道了当遇到 git push 的时候应该往哪里提交代码。
 
 ### git branch
 

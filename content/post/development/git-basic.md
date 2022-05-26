@@ -127,7 +127,7 @@ git push -u origin master
 ### 删除远程库
 
 ```bash
-    gitremote rm repo0
+git remote rm repo0
 ```
 
 ### 删除文件
@@ -670,4 +670,16 @@ git pull --allow-unrelated-histories
 ```bash
 git filter-branch --force --index-filter 'git rm --cached --ignore-unmatch /content/post/archive-2/cross-compile.md' --prune-empty --tag-name-filter cat -- --all
 
+# 本地记录覆盖到Github,(所有branch以及所有tags)
+git push origin --force --all
+git push origin --force --tags
+
+# 确保没有什么问题之后,强制解除对本地存储库中的所有对象的引用和垃圾收集
+git for-each-ref --format='delete %(refname)' refs/original | git update-ref --stdin
+git reflog expire --expire=now --all
+
 ```
+
+————————————————
+版权声明：本文为CSDN博主「JAVA|Mr.Java」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
+原文链接：https://blog.csdn.net/q258523454/article/details/83899911
