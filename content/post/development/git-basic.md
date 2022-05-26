@@ -664,3 +664,10 @@ git pull --allow-unrelated-histories
 链接：<https://www.jianshu.com/p/536080638cc9>
 来源：简书
 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
+
+## Git 删除某个文件的历史记录
+
+```bash
+git filter-branch --force --index-filter 'git rm --cached --ignore-unmatch /content/post/archive-2/cross-compile.md' --prune-empty --tag-name-filter cat -- --all
+
+```
