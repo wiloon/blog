@@ -435,34 +435,34 @@ git checkout branch0
 #### 新建并切换到分支
 
 ```bash
-    git switch -c dev
-    git checkout -b branch0
+git switch -c dev
+git checkout -b branch0
 ```
 
 #### 删除分支
 
 ```bash
-    git branch -d branch0
-    # 强制删除分支，删除没 merge 的分支
-    git branch -D branch0
+git branch -d branch0
+# 强制删除分支，删除没 merge 的分支
+git branch -D branch0
 ```
 
 #### 删除远程的todo branch
 
 ```bash
-    git branch -d -r origin/todo
+git branch -d -r origin/todo
 ```
 
 #### 分支合并, git merge 命令用于合并指定分支到当前分支
 
 ```bash
-    git merge branch1 -m "MSG0"
+git merge branch1 -m "MSG0"
 ```
 
 ### 本地分支重命名(还没有推送到远程)
 
 ```bash
-    git branch -m oldName newName
+git branch -m oldName newName
 ```
 
 ### git clone

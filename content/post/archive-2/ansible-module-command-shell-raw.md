@@ -66,9 +66,7 @@ ansible 192.168.x.x -m lineinfile -a 'path="/etc/filebeat/filebeat.yml" regexp="
 
 用ansible或ansible-playbook的 -i参数去调用就OK了。不过这个要建立个目录结构,后面写playbook的时候再总结一下。
 
-楼主这里没权限,还看不到资源管理系统,就不搞动态Inventory
-  
-OK,先看看静态的Inventory
+静态 Inventory
 
 lixc@ansible:~$ cat -n /etc/ansible/hosts
   
