@@ -357,6 +357,9 @@ git tag -l "v1.8.5*"
 # 显示提交信息
 git show v0.0.1
 
+# 查看commit内容
+git show commit_id
+
 # list remote tags
 git ls-remote --tags origin
 

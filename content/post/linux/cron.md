@@ -79,9 +79,9 @@ cron will then examine the modification time on all crontabs and reload those wh
 ### 示例
 
 ```bash
-# 每天早上5点运行
+# 每天早上 5 点运行
 0 5 * * * /root/bin/backup.sh
-# 从5点开始, 连续一个小时, 每分钟运行一次
+# 从 5点开始, 连续一个小时, 每分钟运行一次
 * 5 * * * /root/bin/backup.sh
 # 每三分钟
 */3 * * * * echo "foo" >> /tmp/foo.txt

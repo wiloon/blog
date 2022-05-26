@@ -18,7 +18,7 @@ v14.18.1
 
 ### latest
 
-xxx
+v18.2.0
 
 ### js nodejs npm 的关系
 
@@ -59,6 +59,7 @@ npm 本来是 Node.js 的包管理工具,但随着 JS 这几年的蓬勃发展,�
   pacman -S nodejs
 
 #### debian/ubuntu
+
 <https://github.com/nodesource/distributions/blob/master/README.md#debinstall>  
 
     curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash -
