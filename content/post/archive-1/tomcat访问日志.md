@@ -21,8 +21,7 @@ tags:
   
     引用
   
-  
-        <Valve className="org.apache.catalina.valves.AccessLogValve"
+<Valve className="org.apache.catalina.valves.AccessLogValve"
  directory="logs"  prefix="localhost_access_log." suffix=".txt"
  pattern="common" resolveHosts="false"/>
   
@@ -32,7 +31,7 @@ tags:
     引用
   
   
-    %a – 远程主机的IP (Remote IP address)
+%a – 远程主机的IP (Remote IP address)
  %A – 本机IP (Local IP address)
  %b – 发送字节数，不包含HTTP头，0字节则显示 '-' (Bytes sent, excluding HTTP headers, or '-' if no bytes
  were sent)
