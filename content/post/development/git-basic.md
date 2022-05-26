@@ -396,40 +396,40 @@ git branch -m main
 ### 打印当前分支名
 
 ```bash
-    git symbolic-ref --short HEAD  
+git symbolic-ref --short HEAD  
 ```
 
 #### 查看本地所有分支, 当前分支前面会标一个*号
 
 ```bash
-    git branch
-    # check branch detail
-    git branch -v
+git branch
+# check branch detail
+git branch -v
 ```
 
 #### 查看远程所有分支
 
 ```bash
-    git branch -r 
+git branch -r 
 ```
 
 #### 查看所有的分支
 
 ```bash
-    git branch -a
+git branch -a
 ```
 
 #### 新建分支
 
 ```bash
-    git branch branch0
+git branch branch0
 ```
 
 #### 切换到分支
 
 ```bash
-    git switch branch0
-    git checkout branch0
+git switch branch0
+git checkout branch0
 ```
 
 #### 新建并切换到分支
