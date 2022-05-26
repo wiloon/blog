@@ -14,9 +14,7 @@ tags:
   
     http://hooray520.iteye.com/blog/1335156
   
-
-
-  Tomcat的访问日志是靠org.apache.catalina.valves.AccessLogValve来控制的，你可以修改$tomcat/conf/server.xml来启用它 ($tomcat是Tomcat安装的目录)。AccessLogValve默认应该是注释掉的，简单的将其注释去掉，然后重启Tomcat就可以了。 
+  Tomcat的访问日志是靠org.apache.catalina.valves.AccessLogValve来控制的，你可以修改$tomcat/conf/server.xml来启用它 ($tomcat是Tomcat安装的目录)。AccessLogValve默认应该是注释掉的，简单的将其注释去掉，然后重启Tomcat就可以了。
   
     以下是Tomcat默认的配置: 
   
@@ -27,7 +25,6 @@ tags:
         <Valve className="org.apache.catalina.valves.AccessLogValve"
  directory="logs"  prefix="localhost_access_log." suffix=".txt"
  pattern="common" resolveHosts="false"/>
-  
   
     你可以设置日志保存的目录(directory)，日志的文件名的前缀(prefix)，后缀(suffix)和日志的具体格式。保存目录，文件名的前缀、后缀都很简单，一般默认设置也就可以了。resolveHost出于性能的考虑，一般也设为false. 但访问日志的格式(pattern)却有很多的选项供你选择。以下列出了一些基本的日志格式项: 
   
@@ -56,24 +53,19 @@ tags:
  %v – 本地服务器名 (Local server name)
  %D – 处理请求所耗费的毫秒数 (Time taken to process the request, in millis)
  %T – 处理请求所耗费的秒数 (Time taken to process the request, in seconds)
- 你可以用以上的任意组合来定制你的访问日志格式，也可以用下面两个别名common和combined来指定常用的日志格式: 
-  
+ 你可以用以上的任意组合来定制你的访问日志格式，也可以用下面两个别名common和combined来指定常用的日志格式:
   
     common – %h %l %u %t "%r" %s %b
  combined -
  %h %l %u %t "%r" %s %b "%{Referer}i" "%{User-Agent}i"
  另外你还可以将cookie, 客户端请求中带的HTTP头(incoming header), 会话(session)或是ServletRequest中的数据都写到Tomcat的访问日志中，你可以用下面的语法来引用。
   
-  
     %{xxx}i – 记录客户端请求中带的HTTP头xxx(incoming headers)
  %{xxx}c – 记录特定的cookie xxx
  %{xxx}r – 记录ServletRequest中的xxx属性(attribute)
  %{xxx}s – 记录HttpSession中的xxx属性(attribute)
- 比如下面是实际的一个访问日志格式的配置: 
+ 比如下面是实际的一个访问日志格式的配置:
   
-  
-    
-      
         Java代码  <img alt="收藏代码" src="http://hooray520.iteye.com/images/icon_star.png" />
       
     
@@ -146,6 +138,3 @@ tags:
       
       
         xxx.xxx.xx.xxx – 0.083 [14/Jul/2008:21:20:55 +0800] POST /phone/xxx/gprs HTTP/1.1 200 404 – SonyEricssonW910i/R1FA Profile/MIDP-2.1 Configuration/CLDC-1.1 MSISDN=11111111111
-      
-    
-  
