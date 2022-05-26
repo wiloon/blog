@@ -9,7 +9,8 @@ tags:
   - reprint
 ---
 ## Java assert
-http://lavasoft.blog.51cto.com/62575/43735
+
+<http://lavasoft.blog.51cto.com/62575/43735>
   
 一、概述
 
@@ -21,7 +22,7 @@ http://lavasoft.blog.51cto.com/62575/43735
 
 在Java中，assert关键字是从JAVA SE 1.4 引入的，为了避免和老版本的Java代码中使用了assert关键字导致错误，Java在执行的时候默认是不启动断言检查的 (这个时候，所有的断言语句都将忽略！) ，如果要开启断言检查，则需要用开关-enableassertions或-ea来开启。
 
-assert关键字语法很简单，有两种用法: 
+assert关键字语法很简单，有两种用法:
 
 1. assert <boolean表达式>
   
@@ -37,16 +38,16 @@ assert关键字语法很简单，有两种用法:
 
 三、应用实例
 
-下面给出一个例子，通过例子说明其用法: 
+下面给出一个例子，通过例子说明其用法:
 
 public class AssertFoo {
-      
+
 public static void main(String args[]) {
-          
+
 //断言1结果为true，则继续往下执行
-          
+
 assert true;
-          
+
 System.out.println("断言1没有问题，Go！");
 
         System.out.println("\n-----------------\n");
@@ -55,17 +56,16 @@ System.out.println("断言1没有问题，Go！");
         assert false : "断言失败，此表达式的信息将会在抛出异常的时候输出！";
         System.out.println("断言2没有问题，Go！");
     }
-    
 
 }
 
-保存代码到C:\AssertFoo.java，然后按照下面的方式执行，查看控制台输出结果: 
+保存代码到C:\AssertFoo.java，然后按照下面的方式执行，查看控制台输出结果:
 
-1. 编译程序: 
+1. 编译程序:
   
 C:>javac AssertFoo.java
 
-2. 默认执行程序，没有开启-ea开关: 
+2. 默认执行程序，没有开启-ea开关:
   
 C:>java AssertFoo
   
@@ -75,7 +75,7 @@ C:>java AssertFoo
 
 断言2没有问题，Go！
 
-3. 开启-ea开关，执行程序: 
+3. 开启-ea开关，执行程序:
   
 C:>java -ea AssertFoo
   
@@ -86,12 +86,12 @@ C:>java -ea AssertFoo
 Exception in thread "main" java.lang.AssertionError: 断言失败，此表达式的信息将
   
 会在抛出异常的时候输出！
-          
+
 at AssertFoo.main(AssertFoo.java:10)
 
 四、陷阱
 
-assert关键字用法简单，但是使用assert往往会让你陷入越来越深的陷阱中。应避免使用。笔者经过研究，总结了以下原因: 
+assert关键字用法简单，但是使用assert往往会让你陷入越来越深的陷阱中。应避免使用。笔者经过研究，总结了以下原因:
 
 1. assert关键字需要在运行时候显式开启才能生效，否则你的断言就没有任何意义。而现在主流的Java IDE工具默认都没有开启-ea断言检查功能。这就意味着你如果使用IDE工具编码，调试运行时候会有一定的麻烦。并且，对于Java Web应用，程序代码都是部署在容器里面，你没法直接去控制程序的运行，如果一定要开启-ea的开关，则需要更改Web容器的运行配置参数。这对程序的移植和部署都带来很大的不便。
 

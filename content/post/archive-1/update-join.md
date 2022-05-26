@@ -9,6 +9,7 @@ tags:
   - reprint
 ---
 ## update join, delete join
+
 ```sql
    
 UPDATE t1
@@ -39,6 +40,6 @@ WHERE b.c1='xxx'
   
 ```
 
-http://stackoverflow.com/questions/1980738/sql-delete-with-join-another-table-for-where-condition
+<http://stackoverflow.com/questions/1980738/sql-delete-with-join-another-table-for-where-condition>
 
-http://stackoverflow.com/questions/652770/delete-with-join-in-MySQL/29204958#29204958
+<http://stackoverflow.com/questions/652770/delete-with-join-in-MySQL/29204958#29204958>

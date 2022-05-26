@@ -10,6 +10,7 @@ tags:
 
 ---
 ## usermod
+
 ```bash
 # add user to docker group
 sudo usermod -aG docker $USER
@@ -19,7 +20,7 @@ sudo usermod -aG docker $USER
   
 usermod -s /sbin/nologin user0
 
-应用举例: 
+应用举例:
   
 1. 将 newuser2 添加到组 staff 中
 
@@ -43,7 +44,7 @@ usermod -s /sbin/nologin user0
 
 补充说明: usermod可用来修改用户帐号的各项设定。
 
-参数: 
+参数:
   
 -a, append
   
