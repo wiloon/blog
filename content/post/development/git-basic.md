@@ -10,6 +10,13 @@ tags:
 ---
 ## Git basic commands, git 常用命令
 
+## commands
+
+```bash
+# 计算对象数和磁盘消耗
+git count-objects -vH
+```
+
 ## 连通性测试
 
 ```bash
@@ -228,16 +235,21 @@ git config --global user.email
 git config --local  user.email
 ```
 
-### git log
+## git log
 
+```bash
 git log
 git log file0
 git log -3 file0
 git log --oneline
 
-echo "# project name" >> README.md
+# git log 倒序, 仓库创建时间
+git log --reverse
 
-#### 更改最多的文件
+echo "# project name" >> README.md
+```
+
+### 更改最多的文件
 
 git log --pretty=format: --name-only | sort | uniq -c | sort -rg | head -10
 
@@ -685,4 +697,4 @@ git reflog expire --expire=now --all
 
 ————————————————
 版权声明：本文为CSDN博主「JAVA|Mr.Java」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
-原文链接：https://blog.csdn.net/q258523454/article/details/83899911
+原文链接：<https://blog.csdn.net/q258523454/article/details/83899911>
