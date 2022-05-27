@@ -26,15 +26,9 @@ tags:
       
         
           The dialog boxes and menu commands you see might differ from those described in Help depending on your active settings or edition. To change your settings, clickImport and Export Settings on the Tools menu. For more information, see Working with Settings.
-        
-      
-    
-  
 
 ### To list current keyboard shortcut mappings
 
-  
-    
       On the Tools menu, point to Macros, and then click Macros IDE.
     
     
@@ -116,13 +110,7 @@ tags:
     owp.OutputString(String.Join(vbCrLf, sArray))
 
 End Sub
-            
-          
-        
-      
-    
-    
-    
+
       On the File menu, click Save MyMacros.
     
     
@@ -144,4 +132,3 @@ End Sub
             
             
               http://msdn.microsoft.com/en-us/library/ms247076(v=VS.100).aspx
-            

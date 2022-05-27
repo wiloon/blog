@@ -8,7 +8,7 @@ categories:
 tags:
   - reprint
 ---
-## 键盘上特殊符号的英文读法
+## 键盘上特殊符号的英文读法, keyboard character english
 
     ! 叹号 exclamation mark/bang
     ? 问号 question mark
@@ -16,7 +16,7 @@ tags:
     . 点号 dot/period/point
     : 冒号 colon
     ; 分号 semicolon
-    " 双引号 quotation marks/double quote
+    " 双引号 quotation marks/double quote/double quotation marks
     ' 单引号/撇号 apostrophe/single quote
     ` 反引号，重音号 backquote/grave accent
     * 星号 asterisk/star

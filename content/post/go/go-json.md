@@ -9,9 +9,9 @@ tags:
   - reprint
 ---
 ## golang JSON
-### time.Time 序列化
-https://www.cnblogs.com/chenqionghe/p/13409556.html
 
+### time.Time 序列化
+<https://www.cnblogs.com/chenqionghe/p/13409556.html>
 
 ```go
 json.Marshal(struct {
@@ -28,7 +28,7 @@ json.Unmarshal()
 ```
 
 ### struct json tag
-https://colobu.com/2017/06/21/json-tricks-in-Go/
+<https://colobu.com/2017/06/21/json-tricks-in-Go/>
 
 ```go
 type Result struct {
@@ -47,9 +47,9 @@ func main() {
 
 ### gjson
 
-https://github.com/tidwall/gjson
+<https://github.com/tidwall/gjson>
 
-http://www.cnblogs.com/fengbohello/p/4665883.html
+<http://www.cnblogs.com/fengbohello/p/4665883.html>
 
 本文介绍如何使用Go语言自带的库把对象转换为JSON格式，并在channel中进行传输后，并把JSON格式的信息转换回对象。
 
@@ -63,7 +63,7 @@ func Marshal(v interface{}) ([]byte, error)
 
 也就是说，这个函数接收任意类型的数据 v，并转换为字节数组类型，返回值就是我们想要的JSON数据和一个错误代码。当转换成功的时候，这个错误代码为nil
 
-在进行对象转换为 JSON 的过程中，会遵循如下几条规则: 
+在进行对象转换为 JSON 的过程中，会遵循如下几条规则:
 
 • 布尔型转换为 JSON 后仍是布尔型， 如true -> true
 
@@ -75,7 +75,7 @@ func Marshal(v interface{}) ([]byte, error)
 
 • 结构体会转化为JSON对象，并且只有结构体里边以大写字母开头的可被导出的字段才会被转化输出，而这些可导出的字段会作为JSON对象的字符串索引
 
-• 转化一个map 类型的数据结构时，该数据的类型必须是 map[string]T (T 可以是encoding/json 包支持的任意数据类型) 
+• 转化一个map 类型的数据结构时，该数据的类型必须是 map[string]T (T 可以是encoding/json 包支持的任意数据类型)
 
 1.2) 把 JSON 转换回对象的方法 (函数) 为 json.Unmarshal()，其函数原型如下
 
@@ -95,7 +95,7 @@ func Unmarshal(data [] byte, v interface{}) error
 
 注意: 如果JSON中的字段在Go目标类型中不存在，json.Unmarshal() 函数在解码过程中会丢弃该字段。
 
-• 当JSON 的结构是未知的时候，会遵循如下规则: 
+• 当JSON 的结构是未知的时候，会遵循如下规则:
 
 § JSON中的布尔值将会转换为Go中的bool类型
 
@@ -113,45 +113,45 @@ func Unmarshal(data [] byte, v interface{}) error
 
 2. 代码实例
 
-假设我们有如下一个类 (结构体) student 及其一个实例对象st: 
+假设我们有如下一个类 (结构体) student 及其一个实例对象st:
 
 复制代码
   
 type Student struct {
-      
+
 Name string
-      
+
 Age int
-      
+
 Guake bool
-      
+
 Classes []string
-      
+
 Price float32
   
 }
 
 st := &Student {
-      
+
 "Xiao Ming",
-      
+
 16,
-      
+
 true,
-      
+
 []string{"Math", "English", "Chinese"},
-       
+
 9.99,
   
 }
   
 复制代码
   
-现在我们需要把这个类的一个对象转换为JSON格式，并且传输给远方的朋友，那么我们就可以这么做: 
+现在我们需要把这个类的一个对象转换为JSON格式，并且传输给远方的朋友，那么我们就可以这么做:
 
 b, err := json.Marshal(st)
   
-这样就转换好了。是不是很简单！转换回来就更简单了，比如我们有一个新的student对象，就叫stb，那么我们可以这样转换回来: 
+这样就转换好了。是不是很简单！转换回来就更简单了，比如我们有一个新的student对象，就叫stb，那么我们可以这样转换回来:
 
 stb := &Student{}
   
@@ -159,28 +159,28 @@ err = json.Unmarshal([]byte(strData), &stb)
   
 这样就转换回来了，是不是很简单！
 
-下面是完整代码及运行结果: 
+下面是完整代码及运行结果:
 
 $ cat gojson.go
 
 复制代码
-   
+
 1 package main
-   
+
 2
-   
+
 3 import (
-   
+
 4 "fmt"
-   
+
 5 "encoding/json"
-   
+
 6 )
-   
+
 7
-   
+
 8 type Student struct {
-   
+
 9 Name string
   
 10 Age int
@@ -287,7 +287,7 @@ $ cat gojson.go
   
 复制代码
   
-运行结果: 
+运行结果:
 
 复制代码
   
@@ -296,15 +296,15 @@ $ go run gojson.go
 before JSON encoding :
   
 show Student :
-      
+
 Name : Xiao Ming
-      
+
 Age : 16
-      
+
 Guake : true
-      
+
 Price : 9.99
-      
+
 Classes : Math English Chinese
   
 encoded data :
@@ -314,29 +314,29 @@ encoded data :
 ## {"Name":"Xiao Ming","Age":16,"Guake":true,"Classes":["Math","English","Chinese"],"Price":9.99}
 
 show Student :
-      
+
 Name :
-      
+
 Age : 0
-      
+
 Guake : false
-      
+
 Price : 0
-      
+
 Classes :
   
 Unmarshal success
   
 show Student :
-      
+
 Name : Xiao Ming
-      
+
 Age : 16
-      
+
 Guake : true
-      
+
 Price : 9.99
-      
+
 Classes : Math English Chinese
 
-http://colobu.com/2017/06/21/json-tricks-in-Go/#%E4%B8%B4%E6%97%B6%E6%94%B9%E5%90%8Dstruct%E7%9A%84%E5%AD%97%E6%AE%B5
+<http://colobu.com/2017/06/21/json-tricks-in-Go/#%E4%B8%B4%E6%97%B6%E6%94%B9%E5%90%8Dstruct%E7%9A%84%E5%AD%97%E6%AE%B5>
