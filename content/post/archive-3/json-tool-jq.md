@@ -17,6 +17,7 @@ tags:
 ```bash
 jq ".[0]|.releases| .[0]|.downloads.linux.link"
 cat foo.txt|jq '.checklists|.[0]|.checkItems|.[].name'
+cat foo.txt|jq '.checklists|.[0]|.checkItems|.[]|if .state == "incomplete" then .name else "" end'|grep -v '""'
 ```
 
 jq 可以对 json 数据进行分片、过滤、映射和转换
