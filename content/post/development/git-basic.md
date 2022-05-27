@@ -10,6 +10,10 @@ tags:
 ---
 ## Git basic commands, git 常用命令
 
+```bash
+git count-objects -vH
+```
+
 ## 连通性测试
 
 ```bash
@@ -234,6 +238,7 @@ git log
 git log file0
 git log -3 file0
 git log --oneline
+git log --reverse
 
 echo "# project name" >> README.md
 
