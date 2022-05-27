@@ -1,5 +1,5 @@
 ---
-title: Git库空间优化
+title: Git 库空间优化/清理
 author: "-"
 date: 2012-10-26T04:44:51+00:00
 url: /?p=4549
@@ -8,7 +8,19 @@ categories:
 tags:
   - reprint
 ---
-## Git库空间优化
+## Git 库空间优化/清理
+
+git仓库过大会导致哪些问题?
+
+git仓库体积过大,占用电脑本地闪存的存储空间;
+clone git仓库时,耗时过长,甚至完全clone不下来导致git报错;
+git pull时会由于引用对象过多会报错,导致本地代码无法更新;
+在切换分支的时候经常会出现cpu占满,内存占满的情况导致电脑死机;
+
+作者：江霖丶
+链接：<https://juejin.cn/post/7024922528514572302>
+来源：稀土掘金
+著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
 
 Git库随着使用时间的延续，空间会不断增长，但实际代码其实只占很小的空间，更多的是git库本身的归档文件，其中包括已删除的文件纪录。Git优化的本质就是清除已删除文件的归档历史，并重写commit记录。
 
@@ -18,9 +30,9 @@ Git库随着使用时间的延续，空间会不断增长，但实际代码其�
 $ git clone remote-url
 用下面的脚本获取所有分支.
 
-#!/bin/bash
+# !/bin/bash
 for branch in `git branch -a | grep remotes | grep -v HEAD`
-do 
+do
   git branch --track ${branch##*/} $branchdone
 done
 现在你拥有了远程git库的完整克隆，可先在本地进行一些测试、验证工作。
@@ -29,19 +41,25 @@ done
 代码文件一般都很小，Git库的优化主要从大文件入手。
 用下面的脚本可以找出git归档记录中排名前十的大文件，包括已删除的文件。
 
-#!/bin/bash
-#set -x 
+# !/bin/bash
+# set -x
 
-# Shows you the largest objects in your repo's pack file.
-# Written for osx.
+# Shows you the largest objects in your repo's pack file
+
+# Written for osx
+
 #
-# @see http://stubbisms.wordpress.com/2009/07/10/git-script-to-show-largest-pack-objects-and-trim-your-waist-line/
+
+# @see <http://stubbisms.wordpress.com/2009/07/10/git-script-to-show-largest-pack-objects-and-trim-your-waist-line/>
+
 # @author Antony Stubbs
 
 # set the internal field spereator to line break, so that we can iterate easily over the verify-pack output
+
 IFS=$'\n';
 
 # list all objects including their size, sort by size, take top 10
+
 objects=`git verify-pack -v .git/objects/pack/pack-*.idx | grep -v chain | sort -k3nr | head`
 
 echo "All sizes are in kB. The pack column is the size of the object, compressed, inside the pack file."
@@ -86,9 +104,9 @@ $ git push origin --force --tags
 操作前一定做好备份，告知所有成员，优化完成后需要重新clone代码.
 
 文中的脚本和命令参考了下面的文章:
-http://stevelorek.com/how-to-shrink-a-git-repository.html
+<http://stevelorek.com/how-to-shrink-a-git-repository.html>
 
 作者：真徐小白
-链接：https://www.jianshu.com/p/28a6d82b2085
+链接：<https://www.jianshu.com/p/28a6d82b2085>
 来源：简书
 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。

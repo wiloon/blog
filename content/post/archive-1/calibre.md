@@ -2,7 +2,7 @@
 title: calibre, 电子书管理
 author: "-"
 date: 2015-05-03T07:51:04+00:00
-url: /?p=7582
+url: calibre
 categories:
   - Inbox
 tags:
@@ -47,4 +47,3 @@ podman run -d \
 ## mail server setup
 
 <https://github.com/janeczku/calibre-web/wiki/Setup-Mailserver>
-
