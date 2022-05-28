@@ -2,7 +2,7 @@
 title: java version
 author: "-"
 date: 2014-05-13T06:45:04+00:00
-url: /?p=6615
+url: java/version
 categories:
   - Java
 tags:
@@ -10,6 +10,7 @@ tags:
 
 ---
 ## java version
+
 ## Java class file format major version numbers
 
     Java 1.2 uses major version 46

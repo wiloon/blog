@@ -9,6 +9,7 @@ tags:
   - reprint
 ---
 ## yubikey, archlinux sudo, challenge-response
+
 install yubi pam
   
 set configuration sloat 2 as hmac-sha1

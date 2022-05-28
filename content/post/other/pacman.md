@@ -11,11 +11,12 @@ tags:
 ---
 ## pacman
 
-## 参数
+## 参数, options
 
 ```bash
 -Q 查询 pacman 数据库
 -o <file> 查看某个文件属于哪个包
+--needed 已经是最新版本的包，不会再重新安装
 ```
 
 ### 在仓库里搜索有关 foo 的包

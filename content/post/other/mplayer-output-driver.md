@@ -9,6 +9,7 @@ tags:
   - reprint
 ---
 ## mplayer output driver
+
 Output drivers (directx, xv, x11, gl, alsa, oss...) what are they? Which one is the best?
 
 MPlayer has several output drivers, for video and sound. SMPlayer allows you to select the one you want among all of them (Preferences -> General -> Video/Audio).

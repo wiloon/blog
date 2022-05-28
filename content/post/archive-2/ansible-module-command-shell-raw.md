@@ -10,6 +10,30 @@ tags:
 ---
 ## ansible module
 
+## systemd
+
+```yml
+   - name: restart telegraf
+      systemd:
+        state: restarted
+        daemon_reload: yes
+        name: telegraf
+
+```
+
+## shell
+
+ansible-playbook显示执行shell的模块的返回结果
+
+```yaml
+    - name: who am i
+      shell: "whoami"
+      register: shell_result
+    - debug:
+        var: shell_result.stdout_lines
+
+```
+
 ### local_action
 
 local_action 需要sudo密码

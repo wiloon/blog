@@ -23,6 +23,14 @@ sudo add-apt-repository --yes --update ppa:ansible/ansible
 sudo apt install ansible
 ```
 
+## commands
+
+```bash
+# localhost
+ansible localhost -m shell -a 'ls'
+
+```
+
 ## ansible 配置文件
 
 ```bash

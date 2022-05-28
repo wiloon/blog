@@ -17,6 +17,8 @@ tags:
 sudo pacman -S mariadb-clients
 # server + client
 sudo pacman -S mariadb
+mariadb-install-db --user=mysql --basedir=/usr --datadir=/var/lib/mysql
+systemctl start mysql
 
 ```
 

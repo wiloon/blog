@@ -21,6 +21,7 @@ sudo pacman -S jdk-openjdk
 sudo pacman -S openjdk-src
 # jdk8
 sudo pacman -S jdk8-openjdk openjdk8-src
+sudo pacman -S jdk11-openjdk
 archlinux-java status
 sudo archlinux-java set java-11-openjdk
 sudo pacman -S jdk17-openjdk openjdk17-src

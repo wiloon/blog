@@ -31,7 +31,7 @@ Write the prompt to the standard error and read the password from the standard i
 
 可见加上-S参数sudo才会从标准输入中读取密码，不加-S参数以上命令将起不到作用
 
-><https://askubuntu.com/questions/470383/how-to-avoid-being-prompted-for-a-password-by-sudo>
+<https://askubuntu.com/questions/470383/how-to-avoid-being-prompted-for-a-password-by-sudo>
 
 ### sudo 免密码
 
