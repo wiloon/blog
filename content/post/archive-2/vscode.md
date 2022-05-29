@@ -160,5 +160,9 @@ hex viewer
 {
   "key": "ctrl+shift+d",
   "command": "editor.action.duplicateSelection"
+},
+{
+  "key": "ctrl+p",
+  "command": "workbench.action.quickOpen"
 }
 ```

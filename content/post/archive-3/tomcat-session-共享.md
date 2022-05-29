@@ -9,4 +9,5 @@ tags:
   - reprint
 ---
 ## tomcat session 共享， redis集群
-https://github.com/ran-jit/tomcat-cluster-redis-session-manager
+
+<https://github.com/ran-jit/tomcat-cluster-redis-session-manager>

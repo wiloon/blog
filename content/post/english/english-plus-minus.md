@@ -10,6 +10,8 @@ tags:
 ---
 ## 加减乘除,大于,小于,等于,分数,小数和百分数英文表达
 
+ add  (+),  subtract  (-),  multiply  (*),  and  divide  (/)  
+ 
 加减乘除: + - × ÷
   
 加+: plus

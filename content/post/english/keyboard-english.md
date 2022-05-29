@@ -29,7 +29,7 @@ tags:
     _ 下划线 underline/underscore
     $ 美元符号 dollar sign
     @ at at sign
-    # 井号 crosshatch/sharp/hash
+    # 井号 crosshatch/sharp/hash mark
     % 百分号 percent sign/mod
     & and/和/兼 and/ampersand
     ^ 折音号 circumflex/caret
