@@ -30,11 +30,11 @@ worker_processes 8;
 
 ## worker_connections
 
-每一个 worker 进程能并发处理 (发起) 的最大连接数 (包含所有连接数).
+**每一个** worker 进程能并发处理 (发起) 的最大连接数 (包含所有连接数). 总连接数 = `worker_processes * worker_connections`
 
 ```bash
 events {
-    worker_connections  20480;
+    worker_connections 20480;
     multi_accept on;
     use epoll;
 }
@@ -213,10 +213,9 @@ server {
 }
 ```
 
-## proxy_pass 
+## proxy_pass
 
 Nginx 的ngx_stream_proxy_module和ngx_http_proxy_module两个模块中，都有 proxy_pass 指令。其主要功能是为后端做代理，协议转发，请求转发等。
-
 
 ### location> proxy_redirect
 
@@ -230,15 +229,19 @@ proxy_ssl_trusted_certificate指令设置的那个可信CA证书文件是用来�
 
 ### nginx 414 Request-URI Too Large
 
+```bash
     client_header_buffer_size 512k;
+```
 
 官方英文版wiki配置说明中的描述如下，个人理解为worker角色的进程个数 (nginx启动后有多少个worker处理http请求。master不处理请求，而是根据相应配置文件信息管理worker进程. master进程主要负责对外揽活 (即接收客户端的请求) ，并将活儿合理的分配给多个worker，每个worker进程主要负责干活 (处理请求) ) 。
 
 ### worker_rlimit_nofile
 
-# 一个nginx进程打开的最多文件描述符数目，理论值应该是最多打开文件数 (系统的值ulimit -n) 与nginx进程数相除，但是nginx分配请求并不均匀，所以建议与ulimit -n的值保持一致
+一个 nginx 进程打开的最多文件描述符数目，理论值应该是最多打开文件数 (系统的值 ulimit -n) 与 nginx 进程数相除，但是nginx分配请求并不均匀，所以建议与 ulimit -n 的值保持一致
   
+```bash
     worker_rlimit_nofile 65535;
+```
 
 proxy_bind
 

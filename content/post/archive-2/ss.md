@@ -31,11 +31,9 @@ ss 是 Socket Statistics 的缩写。ss 命令可以用来获取 socket 统计�
 -a, --all 对 TCP 协议来说，既包含监听的端口，也包含建立的连接
 -r, --resolve 把 IP 解释为域名，把端口号解释为协议名称
 
->https://www.cnblogs.com/sparkdev/p/8421897.html
+<https://www.cnblogs.com/sparkdev/p/8421897.html>
 
-
-
-网络状态工具 
+网络状态工具
 
 ss 是 iproute2 包附带的一个查询 socket 有关的统计信息的工具, 它的功能跟 netstat 类似, 比netstat更快速更高效.当服务器的socket连接数量变得非常大时，无论是使用 `netstat` 命令还是直接 `cat /proc/net/tcp`，执行速度都会很慢。ss快的秘诀在于，它利用到了TCP协议栈中tcp_diag。tcp_diag是一个用于分析统计的模块，可以获得Linux 内核中第一手的信息，这就确保了ss的快捷高效。当然，如果你的系统中没有tcp_diag，ss也可以正常运行，只是效率会变得稍慢。
 
@@ -66,7 +64,8 @@ ss -l
 - -o, --options   显示计时器信息, 连接时间
 - -s, -summary show socket usage summary
 
-### ss tcp states 
+### ss tcp states
+
 - established
 - syn-sent
 - syn-recv
@@ -79,9 +78,10 @@ ss -l
 - listen
 - closing
 
->http://www.ttlsa.com/linux-command/ss-replace-netstat/
+><http://www.ttlsa.com/linux-command/ss-replace-netstat/>
 
 ## Recv-Q, Send-Q
+
 LISTEN 状态：
 
 Recv-Q 表示当前 listen backlog 队列中的连接数目 (等待用户调用 accept() 获取的、已完成 3 次握手的 socket 连接数量），而 Send-Q 表示了 listen socket 最大能容纳的 backlog ，即 min(backlog, somaxconn) 值。
@@ -91,11 +91,11 @@ Recv-Q 表示当前 listen backlog 队列中的连接数目 (等待用户调用 
     // Recv-Q, 等待接收的下一个 tcp 段的序号 - 尚未从内核空间 copy 到用户空间的段最前面的一个序号
     // Send-Q, 已加入发送队列中的 tcp 段的最后一个序号 - 已发送但尚未确认的最早一个序号
 
->https://github.com/moooofly/MarkSomethingDown/blob/master/Linux/%E5%85%B3%E4%BA%8E%20Recv-Q%20%E5%92%8C%20Send-Q%20%E7%9A%84%E8%AF%B4%E6%98%8E.md
+><https://github.com/moooofly/MarkSomethingDown/blob/master/Linux/%E5%85%B3%E4%BA%8E%20Recv-Q%20%E5%92%8C%20Send-Q%20%E7%9A%84%E8%AF%B4%E6%98%8E.md>
 
 ---
 
-ss 命令用于显示 socket 状态. 可以显示 PACKET sockets, TCP sockets, UDP sockets, DCCP sockets, RAW sockets, Unix domain sockets 等等统计. 它比其他工具展示等多tcp和state信息. 它是一个非常实用、快速、有效的跟踪IP连接和sockets的新工具.SS命令可以提供如下信息: 
+ss 命令用于显示 socket 状态. 可以显示 PACKET sockets, TCP sockets, UDP sockets, DCCP sockets, RAW sockets, Unix domain sockets 等等统计. 它比其他工具展示等多tcp和state信息. 它是一个非常实用、快速、有效的跟踪IP连接和sockets的新工具.SS命令可以提供如下信息:
 
 所有的 TCP sockets
   
@@ -109,7 +109,7 @@ ss 命令用于显示 socket 状态. 可以显示 PACKET sockets, TCP sockets, U
   
 所有的 state FIN-WAIT-1 tcpsocket 连接以及更多
   
-很多流行的 Linux 发行版都支持 ss 以及很多监控工具使用 ss 命令. 熟悉这个工具有助于您更好的发现与解决系统性能问题. 
+很多流行的 Linux 发行版都支持 ss 以及很多监控工具使用 ss 命令. 熟悉这个工具有助于您更好的发现与解决系统性能问题.
 
 netstat, ss 命令对比, 统计服务器并发连接数
 
@@ -145,7 +145,7 @@ netstat
 
 结果很明显ss 性能更好一些
 
-### 常用ss命令: 
+### 常用ss命令
 
 ss -l 显示本地打开的所有端口
   
@@ -177,11 +177,9 @@ ss -o state established '( dport = :http or sport = :http )' 显示所有已建�
   
 ss -x src /tmp/.X11-unix/* 找出所有连接X服务器的进程
   
- 
 ss列出每个进程名及其监听的端口
 
 # ss -pl
-
 
 # ss -pl
 
@@ -189,20 +187,17 @@ ss列所有的tcp sockets
 
 # ss -t -a
 
-
 # ss -t -a
 
 ss列出所有udp sockets
 
 # ss -u -a
 
-
 # ss -u -a
 
 ss列出所有http连接中的连接
 
 # ss -o state established '( dport = :http or sport = :http )'
-
 
 # ss -o state established '( dport = :http or sport = :http )'
 
@@ -214,18 +209,14 @@ ss列出本地哪个进程连接到x server
 
 # ss -x src /tmp/.X11-unix/*
 
-
 # ss -x src /tmp/.X11-unix/*
 
 ss列出处在FIN-WAIT-1状态的http、https连接
 
    ss -o state fin-wait-1 '( sport = :http or sport = :https )'
 
-
     ss -o state fin-wait-1 '( sport = :http or sport = :https )'
 
-
-  
 all : All of the above states
   
 connected : All the states except for listen and closed
@@ -235,8 +226,7 @@ synchronized : All the connected states except for syn-sent
 bucket : Show states, which are maintained as minisockets, i.e. time-wait and syn-recv.
   
 big : Opposite to bucket state.
- 
-  
+
 connected : All the states except for listen and closed
   
 synchronized : All the connected states except for syn-sent
@@ -253,7 +243,7 @@ src: 表示来源
   
 ADDRESS_PATTERN: 表示地址规则
 
-如下: 
+如下:
   
 ss src 120.33.31.1 # 列出来之20.33.31.1的连接
 
@@ -269,7 +259,7 @@ src: 表示来源
   
 ADDRESS_PATTERN: 表示地址规则
 
-如下: 
+如下:
   
 ss src 120.33.31.1 # 列出来之20.33.31.1的连接
 
@@ -297,7 +287,7 @@ PORT: 表示端口
   
 dport: 表示过滤目标端口、相反的有sport
   
-OP运算符如下: 
+OP运算符如下:
 
 <= or le : 小于等于 >= or ge : 大于等于
   
@@ -357,7 +347,7 @@ ss ( sport = :http or sport = :https )
   
 ss -o state fin-wait-1 ( sport = :http or sport = :https ) dst 192.168.1/24
   
-为什么ss比netstat快: 
+为什么ss比netstat快:
   
 netstat是遍历/proc下面每个PID目录,ss直接读/proc/net下面的统计信息。所以ss执行的时候消耗资源以及消耗的时间都比netstat少很多
 
@@ -366,59 +356,59 @@ ss命令帮助
 # ss -h
 
 Usage: ss [ OPTIONS ]
-         
+
 ss [ OPTIONS ] [ FILTER ]
-     
+
 -h, -help this message
-     
+
 -V, -version output version information
-     
+
 -n, -numeric don't resolve service names
-     
+
 -r, -resolve resolve host names
-     
+
 -a, -all display all sockets
-     
+
 -l, -listening display listening sockets
-     
+
 -o, -options show timer information
-     
+
 -e, -extended show detailed socket information
-     
+
 -m, -memory show socket memory usage
-     
+
 -p, -processes show process using socket
-     
+
 -i, -info show internal TCP information
-     
+
 -s, -summary show socket usage summary
 
 -4, -ipv4 display only IP version 4 sockets
-     
+
 -6, -ipv6 display only IP version 6 sockets
-     
+
 -0, -packet display PACKET sockets
-     
+
 -t, -tcp display only TCP sockets
-     
+
 -u, -udp display only UDP sockets
-     
+
 -d, -dccp display only DCCP sockets
-     
+
 -w, -raw display only RAW sockets
-     
+
 -x, -unix display only Unix domain sockets
-     
+
 -f, -family=FAMILY display sockets of type FAMILY
 
 -A, -query=QUERY, -socket=QUERY
-         
+
 QUERY := {all|inet|tcp|udp|raw|unix|packet|netlink}[,QUERY]
 
 -D, -diag=FILE Dump raw information about TCP sockets to FILE
-     
+
 -F, -filter=FILE read filter information from FILE
-         
+
 FILTER := [ state TCP-STATE ] [ EXPRESSION ]
   
 32
@@ -426,57 +416,54 @@ FILTER := [ state TCP-STATE ] [ EXPRESSION ]
 # ss -h
 
 Usage: ss [ OPTIONS ]
-         
+
 ss [ OPTIONS ] [ FILTER ]
-     
+
 -h, -help this message
-     
+
 -V, -version output version information
 
 -r, -resolve resolve host names
-     
+
 -a, -all display all sockets
 -e, -extended show detailed socket information
-     
--m, -memory show socket memory usage
-     
--p, -processes show process using socket
-     
--i, -info show internal TCP information
-     
 
+-m, -memory show socket memory usage
+
+-p, -processes show process using socket
+
+-i, -info show internal TCP information
 
 -4, -ipv4 display only IP version 4 sockets
-     
+
 -6, -ipv6 display only IP version 6 sockets
-     
+
 -0, -packet display PACKET sockets
-     
+
 -t, -tcp display only TCP sockets
-     
+
 -u, -udp display only UDP sockets
-     
+
 -d, -dccp display only DCCP sockets
-     
+
 -w, -raw display only RAW sockets
-     
+
 -x, -unix display only Unix domain sockets
-     
+
 -f, -family=FAMILY display sockets of type FAMILY
 
 -A, -query=QUERY, -socket=QUERY
-         
+
 QUERY := {all|inet|tcp|udp|raw|unix|packet|netlink}[,QUERY]
 
 -D, -diag=FILE Dump raw information about TCP sockets to FILE
-     
+
 -F, -filter=FILE read filter information from FILE
-         
+
 FILTER := [ state TCP-STATE ] [ EXPRESSION ]
   
-参考: http://www.cyberciti.biz/tips/linux-investigate-sockets-network-connections.html
+参考: <http://www.cyberciti.biz/tips/linux-investigate-sockets-network-connections.html>
   
-转摘请注明出处: Linux网络状态工具ss命令详解 http://www.ttlsa.com/html/2070.html
+转摘请注明出处: Linux网络状态工具ss命令详解 <http://www.ttlsa.com/html/2070.html>
 
->https://wangchujiang.com/linux-command/c/ss.html
-
+><https://wangchujiang.com/linux-command/c/ss.html>
