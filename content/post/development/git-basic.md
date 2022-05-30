@@ -2,7 +2,7 @@
 title: Git basic commands, git 常用命令
 author: "-"
 date: 2022-01-29 10:33:11
-url: git
+url: git/basic
 categories:
   - Git
 tags:
