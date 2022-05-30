@@ -502,8 +502,9 @@ fmt.Println(spirit)
 
 ```
 
-><https://studygolang.com/articles/12913>
-><https://livebook.manning.com/concept/go/composite-literal>
+<https://studygolang.com/articles/12913>
+
+<https://livebook.manning.com/concept/go/composite-literal>
 
 ### is pointer to interface, not interface
 
@@ -536,7 +537,7 @@ interface
 8        connHandler(client)
 9    }
 
-><http://www.singleye.net/2017/11/go%E8%AF%AD%E8%A8%80%E7%BC%96%E7%A8%8B%E9%99%B7%E9%98%B1/>
+<http://www.singleye.net/2017/11/go%E8%AF%AD%E8%A8%80%E7%BC%96%E7%A8%8B%E9%99%B7%E9%98%B1/>
 
 ## range
 
