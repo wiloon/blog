@@ -317,6 +317,7 @@ wslconfig /unregister <这里填你要卸载的名称，只能填写使用wslcon
 
 ## 把wsl的磁盘移到 d 盘
 
+```bash
 Run powershell.exe as Administrator
 
     PS C:\WINDOWS\system32> wsl -l
@@ -337,6 +338,7 @@ Run powershell.exe as Administrator
     PS W:\VMs> wsl -l
     Windows Subsystem for Linux Distributions:
     Ubuntu (Default)
+```
 
 ### wsl2 graphical
 

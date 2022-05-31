@@ -20,7 +20,7 @@ OBJECT ENCODING key0
 #### 延迟时间
 
 ```bash
-     redis-cli --latency -h 192.168.50.100 -p 6379
+redis-cli --latency -h 192.168.50.100 -p 6379
 ```
 
 ### sort
@@ -54,19 +54,6 @@ Redis 启动监测程序监测自己的状态
 
 用户通过 Redis Google Group 发送消息给开发人员，消息包括看门狗报表。
 时间间隔以毫秒为单位。在上面的例子中，我指定了，当服务器检测到 500 毫秒或更大的延迟的时候，才记录延迟事件。最小的时间间隔是 200 毫秒。
-
-### cluster
-
-```bash
-./redis-cli -p 7000 cluster nodes
-./redis-cli -p 7000 CLUSTER FAILOVER
-redis-cli --cluster add-node 127.0.0.1:7006 127.0.0.1:7000
-redis-cli --cluster add-node 127.0.0.1:7006 127.0.0.1:7000 --cluster-slave
-redis-cli --cluster add-node 127.0.0.1:7006 127.0.0.1:7000 --cluster-slave --cluster-master-id 3c3a0c74aae0b56170ccb03a76b60cfe7dc1912e
-./redis-cli -p 7006> cluster replicate 3c3a0c74aae0b56170ccb03a76b60cfe7dc1912e
-redis-cli --cluster del-node 127.0.0.1:7000 3c3a0c74aae0b56170ccb03a76b60cfe7dc1912e
-./redis-cli --cluster check 127.0.0.1:7000
-```
 
 ### DEBUG SEGFAULT
 
@@ -256,41 +243,12 @@ flushdb
 # http://redisdoc.com/server/info.html
 ```
 
-### cluster
-
-```bash
-创建集群主节点
-
-redis-cli --cluster create 192.168.163.132:6379 192.168.163.132:6380 192.168.163.132:6381
-创建集群主从节点
-
-/redis-cli --cluster create 192.168.163.132:6379 192.168.163.132:6380 192.168.163.132:6381 192.168.163.132:6382 192.168.163.132:6383 192.168.163.132:6384 --cluster-replicas 1
-
-#  检查集群
-redis-cli --cluster check 192.168.163.132:6384 --cluster-search-multiple-owners
-
-# 集群信息查看
-redis-cli --cluster info 192.168.163.132:6384
-# 修复集群
-redis-cli --cluster fix 192.168.163.132:6384 --cluster-search-multiple-owners
-# 添加集群主节点
-
-redis-cli --cluster add-node 192.168.163.132:6382 192.168.163.132:6379 
-说明: 为一个指定集群添加节点，需要先连到该集群的任意一个节点IP (192.168.163.132:6379) ，再把新节点加入。该2个参数的顺序有要求: 新加入的节点放前
-# 添加集群从节点
-
-redis-cli --cluster add-node 192.168.163.132:6382 192.168.163.132:6379 --cluster-slave --cluster-master-id 117457eab5071954faab5e81c3170600d5192270
-说明: 把6382节点加入到6379节点的集群中，并且当做node_id为 117457eab5071954faab5e81c3170600d5192270 的从节点。如果不指定 --cluster-master-id 会随机分配到任意一个主节点。
-
-删除节点
-
-redis-cli --cluster del-node 192.168.163.132:6384 f6a6957421b00009106cb36be3c7ba41f3b603ff
-说明: 指定IP、端口和node_id 来删除一个节点，从节点可以直接删除，主节点不能直接删除，删除之后，该节点会被shutdown。
-```
 
 ### unlink 命令
 
+```bash
     unlink key [key ...]
+```
 
 该命令和 DEL 十分相似: 删除指定的key(s), 若key不存在则该 key 被跳过。但是，相比DEL会产生阻塞，该命令会在另一个线程中回收内存，因此它是非阻塞的。 这也是该命令名字的由来: 仅将keys从keyspace元数据中删除，真正的删除会在后续异步操作。
 

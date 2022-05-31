@@ -60,8 +60,12 @@ go get -u github.com/gin-gonic/gin@v1.7.7
 
 ### math
 
-   float64 保留2位小数
-   value, _ = strconv.ParseFloat(fmt.Sprintf("%.2f", value), 64)
+```go
+float64 保留2位小数
+value, _ = strconv.ParseFloat(fmt.Sprintf("%.2f", value), 64)
+func Dim(x, y float64) float64
+函数返回x-y和0中的最大值
+```
 
 ### go process, exec
 
@@ -83,9 +87,11 @@ china mainland download
 
 #### ubuntu
 
+```bash
     sudo add-apt-repository ppa:longsleep/golang-backports
     sudo apt update
     sudo apt install golang-go
+```
 
 ### 环境变量
 
@@ -279,38 +285,46 @@ func main(){
 
 ### 废弃的函数
 
+```bash
     // Deprecated
     func foo(){}
+```
 
 ## go env
 
 ### 查看go语言的环境变量
 
+```bash
     go env
+```
 
 ### 设置 go env
 
+```bash
     go env -w GO111MODULE=on
+```
 
 ## date time
 
+```bash
     time.Now()
+```
 
 ### 时间差
 
+```bash
     t2.Sub(t1)
+```
 
 ### sha256
 
+```bash
      sum := sha256.Sum256([]byte("hello world\n"))
+```
 
 ### csv
+
 <https://cloud.tencent.com/developer/article/1059643>
-
-### math
-
-func Dim(x, y float64) float64
-函数返回x-y和0中的最大值
 
 ### go build
 
@@ -395,6 +409,7 @@ github.com/dustin/go-humanize
 ## release notes
 
 ### 1.17
+
 <https://tip.golang.org/doc/go1.17>
 
 ### Go 程序是怎样跑起来的
@@ -433,7 +448,9 @@ GOPATH=C:\workspace\myproject\golang\lib;C:\workspace\myproject\golang\gox
 
 ### 查看 golang 文档
 
+```bash
     go doc io.EOF
+```
 
 ### os.Exit()
 

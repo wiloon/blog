@@ -267,7 +267,7 @@ tcpdump 'ether[0] & 1 = 0 and ip[16] >= 224'
 
 tcpdump 'icmp[icmptype] != icmp-echo and icmp[icmptype] != icmp-echoreply'
 
-    tcpdump tcp -i eth1 -t -s 0 -c 100 and dst port ! 22 and src net 192.168.1.0/24 -w ./target.cap
+tcpdump tcp -i eth1 -t -s 0 -c 100 and dst port ! 22 and src net 192.168.1.0/24 -w ./target.cap
   
 (1)tcp: ip icmp arp rarp 和 tcp、udp、icmp 这些选项等都要放到第一个参数的位置,用来过滤数据报的类型
   
@@ -393,15 +393,15 @@ W(ECN CWT(nt | rep:未知, 需补充))或者 E(ECN-Echo(nt | rep:未知,需补�
   
 每段有一个顺序号, 所有的顺序号构成一个序列号空间)(可参考以下例子). Ack 描述的是同一个连接,同一个方向,下一个本端应该接收的(对方应该发送的)数据片段的顺序号. Window是本端可用的数据接收缓冲区的大小(也是对方发送数据时需根据这个大小来组织数据).
   
-Urg(urgent) 表示数据包中有紧急的数据. options 描述了tcp的一些选项, 这些选项都用尖括号来表示(如 <mss 1024>).
+Urg(urgent) 表示数据包中有紧急的数据. options 描述了tcp的一些选项, 这些选项都用尖括号来表示 (如 `<mss 1024>`).
 
 src, dst 和 flags 这三个域总是会被显示. 其他域的显示与否依赖于tcp协议头里的信息.
 
 这是一个从trsg到csam的一个rlogin应用登录的开始阶段.
   
-rtsg.1023 > csam.login: S 768512:768512(0) win 4096 <mss 1024>
+rtsg.1023 > csam.login: S 768512:768512(0) win 4096 `<mss 1024>`
   
-csam.login > rtsg.1023: S 947648:947648(0) ack 768513 win 4096 <mss 1024>
+csam.login > rtsg.1023: S 947648:947648(0) ack 768513 win 4096 `<mss 1024>`
   
 rtsg.1023 > csam.login: . ack 1 win 4096
   
@@ -584,8 +584,6 @@ _2^7 + 0_2^6 + 0_2^5 + 1_2^4 + 0_2^3 + 0_2^2 + 1_2^1 + 0_2 = 18(nt: 1 * 2^6 表�
 00010010 SYN-ACK 00000010 SYN
   
 AND 00000010 (we want SYN) AND 00000010 (we want SYN)
-
-* * *
 
 = 00000010 = 00000010
 
