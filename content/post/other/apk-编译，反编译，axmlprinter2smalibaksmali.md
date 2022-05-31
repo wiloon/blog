@@ -9,7 +9,7 @@ tags:
   - reprint
 ---
 ## apk 编译,反编译,AXMLPrinter2,smali,baksmali
-http://blog.csdn.net/android_tutor/article/details/5724435
+<http://blog.csdn.net/android_tutor/article/details/5724435>
 
 1.AXMLPrinter2.jar
 
@@ -37,13 +37,7 @@ java -jar AXMLPrinter2.jar main.xml > main.txt. (如下图所示)
 
 打开main.txt代码如下(是不是有个123了呵呵~):
 
-
-
-
-
 <?xml version="1.0" encoding="utf-8"?>
-
-
 
 <WebView android:id="@7F050000" android:layout_width="-1" android:layout_height="-2" >
 
@@ -52,10 +46,6 @@ java -jar AXMLPrinter2.jar main.xml > main.txt. (如下图所示)
 </LinearLayout>
 
 为了比对打开源程序中的main.xml代码如下(大家比对一下吧):
-
-
-
-
 
 <?xml version="1.0" encoding="utf-8"?>
 
@@ -66,8 +56,6 @@ android:orientation="vertical"
 android:layout_width="fill_parent"
 
 android:layout_height="fill_parent"
-
-
 
 <WebView
 
@@ -91,11 +79,7 @@ java -jar baksmali.jar -o classout/ classes.dex .(如下图所示:)
 
 从上面看出除了Android本身资源的类R开头的,我的源程序里只有一个ApkInstaller.java,完全吻合,真TMD的猥琐呵呵~
 
-下面我们看一下ApkInstaller.smali内容是什么,如以下代码: 
-
-
-
-
+下面我们看一下ApkInstaller.smali内容是什么,如以下代码:
 
 .class public Lcom/tutor/apkinstaller/ApkInstaller;
 
@@ -190,10 +174,6 @@ return-void
 .end method
 
 同样为了比对我们看一下ApkInstaller.java的源代码如下:
-
-
-
-
 
 package com.tutor.apkinstaller;
 
