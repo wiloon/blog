@@ -21,7 +21,7 @@ WSL: windows subsystem for Linux
     # 查看wsl状态
     wsl --status
 
-    # reboot, 先shutdown再打开就行了...
+    # reboot, 先 shutdown 再打开就行了...
 ```
 
 ### 微软的官方安装文档
@@ -351,6 +351,7 @@ With the latest update, you can access remote ports(WSL2) as local on Windows Ho
 
 ### .wslconfig
 
+```r
     %UserProfile%\.wslconfig
     C:\Users\user0\.wslconfig
 
@@ -365,10 +366,11 @@ With the latest update, you can access remote ports(WSL2) as local on Windows Ho
 
     # <path> entries must be absolute Windows paths with escaped backslashes, for example C:\\Users\\Ben\\kernel
     # <size> entries must be size followed by unit, for example 8GB or 512MB
+```
 
 ### auto start service
 
-    https://github.com/shayne/wsl2-hacks/blob/master/README.md
+<https://github.com/shayne/wsl2-hacks/blob/master/README.md>
 
 ### Windows Terminal 中 WSL2 默认打开路径(startingDirectory)
 
@@ -376,13 +378,16 @@ With the latest update, you can access remote ports(WSL2) as local on Windows Ho
 
 找到如下内容:
 
-            {
-                "guid": "{07b52e3e-de2c-5db4-bd2d-ba144ed6c273}",
-                "hidden": false,
-                "name": "Ubuntu-20.04",
-                "source": "Windows.Terminal.Wsl",
-                "startingDirectory": "\\wsl$\Ubuntu-20.04\home\wiloon",
-            },
+```json
+{
+    "guid": "{07b52e3e-de2c-5db4-bd2d-ba144ed6c273}",
+    "hidden": false,
+    "name": "Ubuntu-20.04",
+    "source": "Windows.Terminal.Wsl",
+    "startingDirectory": "\\wsl$\Ubuntu-20.04\home\wiloon",
+},
+```
+
 添加/修改如下行:
 
 "startingDirectory": "\\wsl$\Ubuntu-20.04\home\wiloon",
@@ -398,11 +403,15 @@ guid 需要替换为自己配置文件中的相应值。
 
 ### keepassxc win10 wsl2
 
+```r
     title: keepassxc
+```
 
 ### windows 访问wsl2文件
 
+```bat
     \\wsl$\Ubuntu-20.04\usr\bin\git
+```
 
 ---
 

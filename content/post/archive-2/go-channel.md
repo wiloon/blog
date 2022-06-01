@@ -10,11 +10,7 @@ tags:
 ---
 ## go channel
 
-channel 是 Go 中的一个核心类型, 可以把它看成一个管道, 通过它并发核心单元就可以发送或者接收数据进行通讯。
-
-goroutine 是 Go 语言的基本调度单位, 而 channels 则是它们之间的通信机制。操作符 `<-` 用来指定管道的方向，发送或接收。如果未指定方向，则为双向管道。
-
-golang 的 channel 就是一个 **环形队列/ringbuffer** 的实现。 我们称 chan 为管理结构，channel 里面可以放任何类型的对象，我们称之为元素。
+channel 是 Go 中的一个核心类型, 可以把它看成一个管道, 通过它并发核心单元就可以发送或者接收数据进行通讯。goroutine 是 Go 语言的基本调度单位, 而 channels 则是它们之间的通信机制。操作符 `<-` 用来指定管道的方向，发送或接收。如果未指定方向，则为双向管道。golang 的 channel 就是一个 **环形队列/ringbuffer** 的实现。 我们称 chan 为管理结构，channel 里面可以放任何类型的对象，我们称之为元素。
 
 ## Channel 定义
 
@@ -22,7 +18,7 @@ golang 的 channel 就是一个 **环形队列/ringbuffer** 的实现。 我们�
 ChannelType = ( "chan" | "chan<-" | "<-chan" ) ElementType .
 ```
 
-可选的`<-`代表 channel 的方向(是数据的流向)。如果没有指定方向，那么 Channel 就是双向的，既可以接收数据，也可以发送数据。
+可选的`<-` 代表 channel 的方向(是数据的流向)。如果没有指定方向，那么 Channel 就是双向的，既可以接收数据，也可以发送数据。
 
 ```go
 <-          // channel 的操作符
@@ -31,10 +27,10 @@ v := <-ch   // 从 Channel ch 中接收数据, 并将数据赋值给 v
 
 
 
-var foo chan T        // 可以接收和发送类型为 T 的数据
+var foo chan T          // 可以接收和发送类型为 T 的数据
 var foo chan<- float64  // 只可以用来发送 float64 类型的数据
 var foo <-chan int      // 只可以用来接收 int 类型的数据
-// <-总是优先和最左边的类型结合。(The <- operator associates with the leftmost chan possible)
+// <- 总是优先和最左边的类型结合。(The <- operator associates with the leftmost chan possible)
 
 chan<- chan int    // 等价 chan<- (chan int)
 chan<- <-chan int  // 等价 chan<- (<-chan int)
@@ -44,10 +40,11 @@ chan (<-chan int)
 // channel 定义
 var dataChan <-chan []byte
 
+// 无缓冲的 channel
 // 使用 make 初始化 Channel, 并且可以设置容量, channel 初始化, 初始化之后才能使用
-// 未设置容量的channel, 如果没有设置容量，或者容量设置为0, 说明Channel没有缓存，只有sender和receiver都准备好了后它们的通讯
-// 无缓冲的channel由于没有缓冲发送和接收需要同步.
-// channel无缓冲时，发送阻塞直到数据被接收，接收阻塞直到读到数据。
+// 未设置容量的 channel, 如果没有设置容量，或者容量设置为0, 说明Channel没有缓存，只有sender和receiver都准备好了后它们的通讯
+// 无缓冲的 channel 由于没有缓冲发送和接收需要同步.
+// channel 无缓冲时，发送阻塞直到数据被接收，接收阻塞直到读到数据。
 dataChan := make(<-chan []byte)
 // 容量为100的 channel
 ch := make(chan int, 100)
