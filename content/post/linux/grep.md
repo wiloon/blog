@@ -1,5 +1,5 @@
 ---
-title: grep
+title: grep command
 author: "-"
 date: 2011-08-20T20:00:03+00:00
 url: grep
@@ -8,7 +8,7 @@ categories:
 tags:
   - reprint
 ---
-## grep
+## grep command
 
 grep: Global Regular Expression Print
 

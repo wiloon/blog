@@ -9,16 +9,21 @@ tags:
   - reprint
 ---
 ## ASCII、Unicode,UTF-8编码的区别
+
 ### Unicode
+
 unicode是国际组织制定的可以容纳世界上所有文字和符号的字符编码方案。Unicode用数字0-0x10FFFF来映射这些字符,最多可以容纳1114112个字符,或者说有1114112个码位。码位就是可以分配给字符的数字。UTF-8、UTF-16、UTF-32都是将数字转换到程序数据的编码方案。
+
 ### UCS
+
 通用字符集 (Universal Character Set,UCS) 是由ISO制定的ISO 10646 (或称ISO/IEC 10646) 标准所定义的标准字符集。UCS-2用两个字节编码,UCS-4用4个字节编码。
 
 UNICODE与UCS实际上是两个不同组织的产物,为了编码一体化而进行协商,可以把unicode看做UCS-2的父集,UCS-4的子集,以为UNICODE只支持U+0FFFF-U+10FFFF的编码,而UCS-4支持31个平面。
 
-https://www.jianshu.com/p/1a39be00f5b8
+<https://www.jianshu.com/p/1a39be00f5b8>
 
 ### Unicode ASCII UTF-8 GBK关系
+
 首先必须知道一个概念 - 字符集
 
 计算机中的所有字符, 说到底都是用二进制的 0/1 排列组合来表示的, 因此就需要有一个规范来规定每个字符对应 0/1 排列组合, 这样的规范就是字符集.
@@ -26,6 +31,7 @@ https://www.jianshu.com/p/1a39be00f5b8
 Unicode, ASCII, GB2312, GBK 都是字符集. UTF-8不是!
 
 #### ASCII
+
 最早的计算机在设计时采用 8 个 bit 作为一个字节 - byte, 所以, 一个字节能表示的范围就是 00000000 到 11111111, 也就是 0 到 255, 一共 256 种状态, 每一个状态对应一个符号, 可以表示 256 个符号.
 
 美国有关的标准化组织就出台了 ASCII 编码, 对英语字符, 数字以及部分符号与二进制位之间的关系, 做了统一规定, 一共规定了 128 个字符的编码. 只占用了一个字节的后面 7 位, 最前面一位统一规定为 0, 一直沿用至今.
@@ -37,6 +43,7 @@ Unicode, ASCII, GB2312, GBK 都是字符集. UTF-8不是!
 但是中文怎么办?
 
 #### GBK与GB2312
+
 如果要表示中文, 显然一个字节是不够的, 至少需要两个字节, 而且还不能和 ASCII 编码冲突, 所以, 中国制定了 GB2312 编码, 用来把中文编进去.
 
 后来发现这 GB2312 还是不够用, 汉字实在是太多了, 于是国内程序员又对这个字符集进行了扩充, 总之最后扩充成了GBK标准, GBK 依旧使用两个字节表示一个汉字. GBK 是在 GB2312 基础上扩容后兼容 GB2312 的标准.
@@ -44,6 +51,7 @@ Unicode, ASCII, GB2312, GBK 都是字符集. UTF-8不是!
 同理, 日文和韩文等其他语言也有这个问题. 为了统一所有文字的编码, Unicode 应运而生.
 
 #### Unicode
+
 它为每种语言中的每个字符设定了统一并且唯一的二进制编码, 能够使计算机实现跨语言、跨平台的文本转换及处理.
 
 Unicode 与 ASCII 是兼容的, 通常用两个字节表示一个字符, 原有的英文编码从单字节变成双字节,只需要把高字节全部填为 0 就可以.
@@ -52,42 +60,49 @@ Unicode 与 ASCII 是兼容的, 通常用两个字节表示一个字符, 原有�
 因此,Unicode 有了各种各样的实现形式,最出名的是UTF-8
 
 #### UTF-8
+
 UTF-8 就是在互联网上使用最广的一种 Unicode 的实现方式.  
 UTF-8 最大的一个特点, 就是它是一种变长的编码方式. 它可以使用1~4个字节表示一个符号, 根据不同的符号而变化字节长度.
 
-##### UTF-8 的编码规则:
+##### UTF-8 的编码规则
+
 对于单字节的符号, 字节的第一位设为0, 后面7位为这个符号的 Unicode 码. ***因此对于英语字母, UTF-8 编码和 ASCII 码是相同的.***  
 对于 n 字节的符号 (n > 1) , 第一个字节的前 n 位都设为1, 第 n + 1 位设为 0, 后面字节的前两位一律设为 10. 剩下的没有提及的二进制位, 全部为这个符号的 Unicode 码.
   
-###### 举例:
+###### 举例
+
     Unicode符号范围(十六进制)  UTF-8编码方式 (二进制) 
     0000 0000-0000 007F     0xxxxxxx
     0000 0080-0000 07FF     110xxxxx 10xxxxxx
     0000 0800-0000 FFFF     1110xxxx 10xxxxxx 10xxxxxx
     0001 0000-0010 FFFF     11110xxx 10xxxxxx 10xxxxxx 10xxxxxx
 
-### 字符: 【
+### 字符:
+
 #### unicode
+
     0x30103011
 
     00110000
     00010000
 
 #### utf-8
+
     0xe38090e38091
     11100011
     10000000
     10010000
 
 ### 总结
+
 Unicode, ASCII, GB2312, GBK 都是字符集. UTF-8不是.
 Unicode 只规定了符号的二进制代码, 并没有规定这个二进制代码应该如何进行存储. UTF-8 是则是 Unicode 储存的实现方式之一.  
-GB2312 是为了解决 ASCII 不支持中文的问题.   
+GB2312 是为了解决 ASCII 不支持中文的问题.
 GBK 是在 GB2312 基础上扩容后兼容 GB2312 的标准.
 
-https://blog.csdn.net/weiwenjuan0923/article/details/52713387
+<https://blog.csdn.net/weiwenjuan0923/article/details/52713387>
 
-摘要总结: 
+摘要总结:
 
 ASCII编码是128个字符
 
@@ -97,7 +112,7 @@ Unicode是为了解决各国乱码的,但浪费存储空间
 
 UTF-8编码把一个Unicode字符根据不同的数字大小编码成1-6字节,英文字母是1字节,汉字通常是3字节,生僻字符是4-6字节
 
-简单归纳: 
+简单归纳:
   
 编码 大小 支持语言
   
@@ -107,7 +122,7 @@ Unicode 2个字节 (生僻字4个)  所有语言
   
 UTF-8 1-6个字节,英文字母1个字节,汉字3个字节,生僻字4-6个字节 所有语言
   
-具体解释: 
+具体解释:
   
 最早只有127个字母被编码到计算机里,也就是大小写英文字母、数字和一些符号,这个编码表被称为ASCII编码,比如大写字母A的编码是65,小写字母z的编码是122。
   
@@ -129,7 +144,7 @@ UTF-8编码有一个额外的好处,就是ASCII编码实际上可以被看成是
   
 所以,大量只支持ASCII编码的历史遗留软件可以在UTF-8编码下继续工作。
 
-理论解释: 
+理论解释:
 
 1. ASCII码
   
@@ -177,7 +192,7 @@ UTF-8最大的一个特点,就是它是一种变长的编码方式。
   
 它可以使用1~4个字节表示一个符号,根据不同的符号而变化字节长度。
   
-UTF-8的编码规则很简单,只有二条: 
+UTF-8的编码规则很简单,只有二条:
   
 1) 对于单字节的符号,字节的第一位设为0,后面7位为这个符号的unicode码。因此对于英语字母,UTF-8编码和ASCII码是相同的。
   
@@ -186,7 +201,7 @@ UTF-8的编码规则很简单,只有二条:
 5. Unicode与UTF-8之间的转换
   
 1) ANSI是默认的编码方式。
-      
+
 对于英文文件是ASCII编码,对于简体中文文件是GB2312编码。(繁体中文版会采用Big5码)
   
 2) Unicode编码指的是UCS-2编码方式,即直接用两个字节存入字符的Unicode码。little endian格式
@@ -206,7 +221,7 @@ Unicode只是定义了一个庞大的、全球通用的字符集,并为每个字
 <?php
 
 ////////////////////////////////////////////////////////////////////
-// PHP截取中英文及标点符号混合的字符串函数 (绝对不会出现乱码) 
+// PHP截取中英文及标点符号混合的字符串函数 (绝对不会出现乱码)
 // 本程序在utf-8、gb2312中测试通过。使用者自行测试big5。
 // 函数 left( 源字符串, 截取指定的字符串个数, 编码 (可省略,默认为utf-8)  )
 ////////////////////////////////////////////////////////////////////
@@ -223,59 +238,58 @@ function left($str, $len, $charset="utf-8")
     $sLen = strlen($str);
     if( $len >= $sLen )
 
-      
 {
-          
+
 return $str;
-      
+
 }
 
 //判断使用什么编码,默认为utf-8
-      
+
 if ( strtolower($charset) == "utf-8" )
-      
+
 {
-          
+
 $len_step = 3; //如果是utf-8编码,则中文字符长度为3
-      
+
 }else{
-          
+
 $len_step = 2; //如果是gb2312或big5编码,则中文字符长度为2
-      
-} 
+
+}
 
 //执行截取操作
-      
+
 $len_i = 0;
-      
-//初始化计数当前已截取的字符串个数,此值为字符串的个数值 (非字节数) 
-      
+
+//初始化计数当前已截取的字符串个数,此值为字符串的个数值 (非字节数)
+
 $substr_len = 0; //初始化应该要截取的总字节数
 
 for( $i=0; $i < $sLen; $i++ ) { if ( $len_i >= $len ) break; //总截取$len个字符串后,停止循环
-          
+
 //判断,如果是中文字符串,则当前总字节数加上相应编码的中文字符长度
-          
+
 if( ord(substr($str,$i,1)) > 0xa0 )
-          
+
 {
-              
+
 $i += $len_step - 1;
-              
+
 $substr_len += $len_step;
-          
+
 }else{ //否则,为英文字符,加1个字节
-              
+
 $substr_len ++;
-          
+
 }
-          
+
 $len_i ++;
-      
+
 }
-      
+
 $result_str = substr($str,0,$substr_len );
-      
+
 return $result_str;
   
 }
@@ -294,8 +308,8 @@ echo "截取后的字符串: ".left($str,14);
   
 ?>
 
-
 ### 你应该记住的一个UTF-8字符「EF BF BD」
+
 发表于2015-03-28
 utf-8是一种变长 (1 byte ~ 6 bytes) 的unicode字符集编码方案。所谓编码方案即讲字符集到码点 (code point) 的映射方式。
 
@@ -332,15 +346,15 @@ fmt.Printf("%X", []byte(str)) // EFBFBD,即字符「�」
 
 ---
 
-https://liudanking.com/golang/utf-8_replacement_character/
+<https://liudanking.com/golang/utf-8_replacement_character/>
 
-参考链接1: http://www.ruanyifeng.com/blog/2007/10/ascii_unicode_and_utf-8.html
-                      
-https://my.oschina.net/darionyaphet/blog/221124
-              
-http://blog.csdn.net/u012223913/article/details/51772610
+参考链接1: <http://www.ruanyifeng.com/blog/2007/10/ascii_unicode_and_utf-8.html>
+
+<https://my.oschina.net/darionyaphet/blog/221124>
+
+<http://blog.csdn.net/u012223913/article/details/51772610>
   
-参考链接2: http://blog.csdn.net/u012223913/article/details/51772610
-http://www.cnblogs.com/malecrab/p/5300503.html
+参考链接2: <http://blog.csdn.net/u012223913/article/details/51772610>
+<http://www.cnblogs.com/malecrab/p/5300503.html>
   
-http://www.ruanyifeng.com/blog/2007/10/ascii_unicode_and_utf-8.html
+<http://www.ruanyifeng.com/blog/2007/10/ascii_unicode_and_utf-8.html>
