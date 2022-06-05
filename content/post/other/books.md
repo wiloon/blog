@@ -9,19 +9,14 @@ tags:
 ---
 ## books
 
-## Template
+读书  
 
-- 书名
-  - 原作名:
-  - 作者:
-  - 译者:
+平时看到有人推荐好书就忍不住想屯几本，但是到了读书的时候大都是看了几页几十页就被各种事情打断了...,很少有一本书能读完的，从2021年开始想多读些书，从第一页读到最后一页的那种。然后就有了这里的列表。
 
 ## 2022
 
-- 七周七并发模型
-  - 原作名: Seven Concurrency Models in Seven Weeks - When Threads Unravel
-  - 作者: Paul Butcher
-  - 译者: 黄炎
+- Python Crash Course: A Hands-On, Project-Based Introduction to Programming, 2nd Edition
+  - Author: Eric Matthes
 
 ## 2021
 
@@ -37,3 +32,17 @@ tags:
   - 原作名: Hackers and Painters: Big Ideas from the Computer Age
   - 作者: Paul Graham
   - 译者: 阮一峰
+
+## 想读
+
+- 七周七并发模型
+  - 原作名: Seven Concurrency Models in Seven Weeks - When Threads Unravel
+  - 作者: Paul Butcher
+  - 译者: 黄炎
+
+## Template
+
+- 书名
+  - 原作名:
+  - Author/作者:
+  - 译者:
