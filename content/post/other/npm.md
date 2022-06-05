@@ -34,7 +34,7 @@ npm --prefix /path/to/project run build
 
 gyp 是为 Chromium 项目创建的项目生成工具，可以从平台无关的配置生成平台相关的 Visual Studio、Xcode、Makefile 的项目文件。这样一来我们就不需要花额外的时间处理每个平台不同的项目配置以及项目之间的依赖关系。
 
-## 更新包
+## 更新包, 升级软件包
 
 ### 手动跟新
 
@@ -182,7 +182,7 @@ npm install -g npm-remote-ls
 npm-remote-ls foo
 
 # 查看某个包为什么被安装
-
+npx npm-why async
 ```
 
 ### 查看包版本
