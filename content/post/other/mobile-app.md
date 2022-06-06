@@ -69,7 +69,7 @@ tags:
 | Squid                     | pixelbook 笔记或草稿软件                     |
 | Infinite Painter          | 绘画软件                                  |
 | Imaging Edge Mobile       | Sony 相机远程控制                           |
-| Sony                      | Headphones Connect|Sony 耳机管理软件        |
+| Sony                      | Headphones Connect, Sony 耳机管理软件        |
 | rd client                 | 微软的远程桌面安卓版                            |
 | EBuoy                     | Learn English through video subtitles |
 | AnkiDroid Flashcards      |                                       |

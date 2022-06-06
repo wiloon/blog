@@ -2,24 +2,31 @@
 title: telnet, nc, socat
 author: "-"
 date: 2011-12-04T06:38:48+00:00
-url: /?p=1767
+url: telnet
 categories:
   - Network
 tags:
   - reprint
 ---
 ## telnet, nc, socat
+
 ```bash
 pacman -S inetutils
 ```
 
 ### telnet 退出
 
+```bash
 ctrl+] quit
+```
 
 ### nc
-    TCP: nc host port
-    UDP: nc -u host port (this does not seem to supported out of the box)
+
+```bash
+TCP: nc host port
+UDP: nc -u host port (this does not seem to supported out of the box)
+```
+
 用telent 发送http get 请求
   
 telnet www.wiloon.com 80
@@ -28,7 +35,7 @@ GET / HTTP/1.1
   
 host: www.wiloon.com
 
-Telnet 客户端命常用命令: 
+Telnet 客户端命常用命令:
 
 open : 使用 openhostname 可以建立到主机的 Telnet 连接。
 
@@ -36,7 +43,7 @@ close : 使用命令 close 命令可以关闭现有的 Telnet 连接。
 
 display : 使用 display 命令可以查看 Telnet 客户端的当前设置。
 
-send : 使用 send 命令可以向 Telnet 服务器发送命令。支持以下命令: 
+send : 使用 send 命令可以向 Telnet 服务器发送命令。支持以下命令:
 
 ao : 放弃输出命令。
 
@@ -90,6 +97,12 @@ SSH是替代Telnet和其他远程控制台管理应用程序的行业标准。SS
   
 通过使用SSH把所有传输的数据进行加密，这样"中间人"这种攻击方式就不可能实现了，而且也能够防止DNS和IP欺骗。还有一个额外的好处就是传输的数据是经过压缩的，所以可以加快传输的速度。SSH有很多功能，它既可以代替telnet，又可以为ftp、pop、甚至ppp提供一个安全的"通道"。
 
-http://bbs.chinaunix.net/thread-2163553-1-1.html
+<http://bbs.chinaunix.net/thread-2163553-1-1.html>
   
-http://www.cnblogs.com/peida/archive/2013/03/13/2956992.html
+<http://www.cnblogs.com/peida/archive/2013/03/13/2956992.html>
+
+## win10 telnet
+
+设置> 应用> 程序和功能> 启用或关闭 Windows 功能> Telnet Client
+
+<https://jingyan.baidu.com/article/4d58d54119d4db9dd4e9c0aa.html>

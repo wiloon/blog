@@ -11,6 +11,8 @@ tags:
 ---
 ## Hardware
 
+- SONY WF-1000XM3
+
 ## benchmark
 
 <https://www.passmark.com/>
@@ -297,3 +299,7 @@ WISPr
 
 - i3-2370M 2nd gen Intel® Core™ i3
 - 8G DDR3-SDRAM
+
+## SONY WF-1000XM3
+
+说明书: <https://helpguide.sony.net/mdr/wf1000xm3/v1/zh-cn/index.html>

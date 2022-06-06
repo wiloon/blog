@@ -1,5 +1,5 @@
 ---
-title: Tomcat访问日志
+title: Tomcat 访问日志
 author: "-"
 date: 2014-01-10T06:12:27+00:00
 url: /?p=6194
@@ -10,14 +10,13 @@ tags:
   - Tomcat
 
 ---
-## Tomcat访问日志
+## Tomcat 访问日志
   
-    http://hooray520.iteye.com/blog/1335156
+<http://hooray520.iteye.com/blog/1335156>
   
-  Tomcat的访问日志是靠org.apache.catalina.valves.AccessLogValve来控制的，你可以修改$tomcat/conf/server.xml来启用它 ($tomcat是Tomcat安装的目录)。AccessLogValve默认应该是注释掉的，简单的将其注释去掉，然后重启Tomcat就可以了。
+Tomcat的访问日志是靠org.apache.catalina.valves.AccessLogValve来控制的，你可以修改$tomcat/conf/server.xml来启用它 ($tomcat是Tomcat安装的目录)。AccessLogValve默认应该是注释掉的，简单的将其注释去掉，然后重启Tomcat就可以了。
   
-    以下是Tomcat默认的配置: 
-  
+以下是Tomcat默认的配置:
   
     引用
   
@@ -30,7 +29,7 @@ tags:
   
     引用
 
-%a – 远程主机的IP (Remote IP address)
+ %a – 远程主机的IP (Remote IP address)
  %A – 本机IP (Local IP address)
  %b – 发送字节数，不包含HTTP头，0字节则显示 '-' (Bytes sent, excluding HTTP headers, or '-' if no bytes
  were sent)
@@ -120,19 +119,6 @@ tags:
   
     实际的访问日志如下: 
   
-  
-    
-      
-        Java代码  <img alt="收藏代码" src="http://hooray520.iteye.com/images/icon_star.png" />
-      
-    
-    
-    
-      
-        xxx.xxx.xx.xxx – 0.270 [14/Jul/2008:13:10:53 +0800] POST /phone/xxx/gprs HTTP/1.1 200 91812 – SonyEricssonW890i/R1EA Profile/MIDP-2.1 Configuration/CLDC-1.1 MSISDN=11111111111
-      
-      
-        … …
-      
-      
-        xxx.xxx.xx.xxx – 0.083 [14/Jul/2008:21:20:55 +0800] POST /phone/xxx/gprs HTTP/1.1 200 404 – SonyEricssonW910i/R1FA Profile/MIDP-2.1 Configuration/CLDC-1.1 MSISDN=11111111111
+xxx.xxx.xx.xxx – 0.270 [14/Jul/2008:13:10:53 +0800] POST /phone/xxx/gprs HTTP/1.1 200 91812 – xxx/R1EA Profile/MIDP-2.1 Configuration/CLDC-1.1 MSISDN=11111111111
+
+xxx.xxx.xx.xxx – 0.083 [14/Jul/2008:21:20:55 +0800] POST /phone/xxx/gprs HTTP/1.1 200 404 – xxx/R1FA Profile/MIDP-2.1 Configuration/CLDC-1.1 MSISDN=11111111111

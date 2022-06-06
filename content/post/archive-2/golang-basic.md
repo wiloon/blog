@@ -286,8 +286,8 @@ func main(){
 ### 废弃的函数
 
 ```bash
-    // Deprecated
-    func foo(){}
+// Deprecated
+func foo(){}
 ```
 
 ## go env
@@ -295,31 +295,31 @@ func main(){
 ### 查看go语言的环境变量
 
 ```bash
-    go env
+go env
 ```
 
 ### 设置 go env
 
 ```bash
-    go env -w GO111MODULE=on
+go env -w GO111MODULE=on
 ```
 
 ## date time
 
 ```bash
-    time.Now()
+time.Now()
 ```
 
 ### 时间差
 
 ```bash
-    t2.Sub(t1)
+t2.Sub(t1)
 ```
 
 ### sha256
 
 ```bash
-     sum := sha256.Sum256([]byte("hello world\n"))
+sum := sha256.Sum256([]byte("hello world\n"))
 ```
 
 ### csv
@@ -371,7 +371,7 @@ go install 将可执行文件安装到与src同级别的bin目录下,bin目录�
   
 go install 将可执行文件依赖的各种package编译后,放在与src同级别的pkg目录下.
 
-><http://tonybai.com/2012/08/17/hello-go/>
+<http://tonybai.com/2012/08/17/hello-go/>
 
 ```bash
 go install github.com/wiloon/pingd-proxy@v0.0.1
@@ -414,11 +414,11 @@ github.com/dustin/go-humanize
 
 ### Go 程序是怎样跑起来的
 
-><https://zhuanlan.zhihu.com/p/71993748>
+<https://zhuanlan.zhihu.com/p/71993748>
 
 ### go 程序启动过程
 
-><https://juejin.cn/post/6942509882281033764>
+<https://juejin.cn/post/6942509882281033764>
 
 ## golang install
 
@@ -444,7 +444,7 @@ windows:
   
 GOPATH=C:\workspace\myproject\golang\lib;C:\workspace\myproject\golang\gox
 
-><https://moelove.info/2020/12/19/Go-1.16-%E4%B8%AD%E5%85%B3%E4%BA%8E-go-get-%E5%92%8C-go-install-%E4%BD%A0%E9%9C%80%E8%A6%81%E6%B3%A8%E6%84%8F%E7%9A%84%E5%9C%B0%E6%96%B9/>
+<https://moelove.info/2020/12/19/Go-1.16-%E4%B8%AD%E5%85%B3%E4%BA%8E-go-get-%E5%92%8C-go-install-%E4%BD%A0%E9%9C%80%E8%A6%81%E6%B3%A8%E6%84%8F%E7%9A%84%E5%9C%B0%E6%96%B9/>
 
 ### 查看 golang 文档
 
@@ -488,7 +488,7 @@ func main() {
 }
 该程序打印：30
 
-><https://studygolang.com/articles/14628>
+<https://studygolang.com/articles/14628>
 
 ## 复合字面量
 
@@ -566,3 +566,10 @@ for pos, char := range str {
 ```
 
 ## 创建长度为0的slice时发生了什么
+
+## gofmt
+
+```bash
+gofmt -w foo.go
+# -w    write result to (source) file instead of stdout
+```

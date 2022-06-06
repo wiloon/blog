@@ -891,11 +891,7 @@ Linux 内核中设计较新的一种虚拟的基于内存的文件系统，它�
   
     采用Linux的超级电脑亦愈来愈多，根据2008年11月的TOP500超级电脑列表，现时世上最快速的超级电脑使用Linux作为其操作系统。而在表列的500套系统里，采用Linux为操作系统的，占了439组 (即87.8%) 。
   
-  
-  
-    2006年开始发售的SONY PlayStation 3亦可使用Linux的操作系统，它有一个能使其成为一个桌面系统的Yellow Dog Linux。之前，Sony亦曾为他们的PlayStation 2推出过一套名为PS2 Linux的DIY组件。Ubuntu自9.04版本，恢复了PPC支持 (包括PlayStation 3) 。
-  
-  
+2006年开始发售的 SONY PlayStation 3亦可使用Linux的操作系统，它有一个能使其成为一个桌面系统的Yellow Dog Linux。之前，Sony亦曾为他们的PlayStation 2推出过一套名为PS2 Linux的DIY组件。Ubuntu自9.04版本，恢复了PPC支持 (包括PlayStation 3) 。
   
     而随着OLPC的XO-1，华硕的Eee PC等低价电脑的推行，许多人乐观的认为在低端PC市场，linux的市场占有率正在快速的增长。但在Windows进入此一市场后，Linux的市占率快速下滑。现在Windows系统在所有的PC市场中，都占有绝对优势。
   
