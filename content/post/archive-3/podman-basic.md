@@ -119,7 +119,7 @@ vim /etc/containers/registries.conf
 
 #### v2
 
-```
+```r
 # 例：使用 podman pull registry.access.redhat.com/ubi8-minimal 时，
 # 仅仅会从registry.access.redhat.com去获取镜像。
 # 如果直接使用 podman pull ubuntu 时，没有明确指明仓库的时候，使用以下配置的仓库顺序去获取
@@ -145,9 +145,9 @@ location = "docker.mirrors.ustc.edu.cn"
 location = "registry.docker-cn.com"
 ```
 
-><https://blog.csdn.net/leave00608/article/details/114156354>
+>`<https://blog.csdn.net/leave00608/article/details/114156354>
 
-```
+```r
 [registries.search]
 registries = ['docker-registries.wiloon.com']
 [registries.insecure]
@@ -334,12 +334,16 @@ Our first recommendation in these cases is usually to avoid using VFS, and inste
 
 ### other
 
+```bash
     podman unshare cat /proc/self/uid_map
     unshare -U
+```
 
 ### reset, 执行工厂重置
 
+```bash
     podman system reset
+```
 
 ### podman history, 查看构建命令
 
