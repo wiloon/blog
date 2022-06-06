@@ -16,13 +16,15 @@ pacman -S inetutils
 
 ### telnet 退出
 
+```bash
 ctrl+] quit
+```
 
 ### nc
 
 ```bash
-    TCP: nc host port
-    UDP: nc -u host port (this does not seem to supported out of the box)
+TCP: nc host port
+UDP: nc -u host port (this does not seem to supported out of the box)
 ```
 
 用telent 发送http get 请求
@@ -101,6 +103,6 @@ SSH是替代Telnet和其他远程控制台管理应用程序的行业标准。SS
 
 ## win10 telnet
 
-设置>应用>程序和功能>启用或关闭Windows功能>Telnet Client
+设置> 应用> 程序和功能> 启用或关闭 Windows 功能> Telnet Client
 
 <https://jingyan.baidu.com/article/4d58d54119d4db9dd4e9c0aa.html>
