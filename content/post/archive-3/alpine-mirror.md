@@ -2,7 +2,7 @@
 title: alpine basic
 author: "-"
 date: 2019-04-23T06:24:28+00:00
-url: /?p=14227
+url: alpine
 categories:
   - inbox
 tags:

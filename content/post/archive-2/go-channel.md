@@ -128,8 +128,8 @@ type Handler struct {
 
 通常 struct{} 类型 channel的用法是使用同步，一般不需要往channel里面写数据，只有读等待，而读等待会在channel被关闭的时候返回。
 
-往chann struct{}写入数据
-另一个问题，我们能不能往struct{}类型的channel里面写数据呢，答案当然也是可以的。
+往chann struct{} 写入数据
+另一个问题，我们能不能往 struct{} 类型的channel里面写数据呢，答案当然也是可以的。
 
 ```go
 package main
@@ -168,11 +168,13 @@ func main() {
 来源：简书
 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
 
-><https://segmentfault.com/a/1190000017958702>
+<https://segmentfault.com/a/1190000017958702>
+
 如前所述,你可以使用一个额外的返回参数来检查channel是否关闭。
 
-><https://www.jianshu.com/p/d24dfbb33781>
-><https://go101.org/article/channel-closing.html>
+<https://www.jianshu.com/p/d24dfbb33781>
+
+<https://go101.org/article/channel-closing.html>
 
 关闭channel
 Channel支持close操作，用于关闭channel，后面对该channel的任何发送操作都将导致panic异常。对一个已经被close过的channel进行接收操作依然可以接受到之前已经成功发送的数据；如果channel中已经没有数据的话将产生一个零值的数据。
@@ -201,5 +203,6 @@ for integer := range intStream {
 来源：稀土掘金
 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
 
-><https://colobu.com/2016/04/14/Golang-Channels/>
-><https://zhuanlan.zhihu.com/p/299592156>
+<https://colobu.com/2016/04/14/Golang-Channels/>
+
+<https://zhuanlan.zhihu.com/p/299592156>
