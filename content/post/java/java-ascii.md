@@ -1,27 +1,31 @@
 ---
-title: "java 替换ascii不可见字符, StringEscapeUtils.escapeJava"
+title: "java 替换 ascii 不可见字符, StringEscapeUtils.escapeJava"
 author: "-"
 date: ""
-url: ""
+url: "escape"
 categories:
-  - inbox
+  - Java
 tags:
   - inbox
 ---
 ## "java 替换ascii不可见字符, StringEscapeUtils.escapeJava"
 
 ### StringEscapeUtils.escapeJava
+
+```java
    StringEscapeUtils.escapeJava
+```
 
 ### String.replaceAll 替换成?
 
+```java
     my_string.replaceAll("\\p{C}", "?");
- 
- 
- https://stackoverflow.com/questions/6198986/how-can-i-replace-non-printable-unicode-characters-in-java
- 
- ### StringEscapeUtils
- 
+```
+
+ <https://stackoverflow.com/questions/6198986/how-can-i-replace-non-printable-unicode-characters-in-java>
+
+### StringEscapeUtils
+
  在java.commons.lang3的包中有许多方便好用的工具类，类似于处理字符串的StringUtils，处理日期的DateUtils等等，StringEscapeUtils也是其中的一员。
 
 StringEscapeUtils是在java.commons.lang3的2.0版本中加入的工具类，在3.6版本中被标注为@deprecated，表明在之后的版本中则为过时状态，之后StringEscapeUtils类被移到java.commons.text包下。
@@ -86,8 +90,9 @@ public class EscapeTest {
 }
 ```
 
-### 结果 
-```
+### 结果
+
+```java
 转义/反转义Java字符串
 \u8FD9\u662FJava\u5B57\u7B26\u4E32
 这是Java字符串
@@ -113,4 +118,4 @@ public class EscapeTest {
 <script>alert('1111')</script>
 ```
 
-https://github.com/lq920320/blogs/issues/9
+<https://github.com/lq920320/blogs/issues/9>
