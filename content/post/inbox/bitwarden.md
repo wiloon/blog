@@ -4,9 +4,9 @@ author: "-"
 date: "2022-06-06 22:00:54"
 url: "bitwarden"
 categories:
-  - inbox
+  - Security
 tags:
-  - inbox
+  - Security
 ---
 ## "bitwarden"
 
