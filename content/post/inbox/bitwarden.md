@@ -25,8 +25,18 @@ podman run -d --name vaultwarden -v bitwarden-data/:/data/ -p 80:80 vaultwarden/
 pacman -S bitwarden
 ```
 
+## bitwarden ssh key, bw-key
+
+```bash
+bw-key.exe -h https://bitwarden.wiloon.com -n wiloon.wy@gmail.com
+```
+
+<https://github.com/haipengno1/bw-key>
+
 ---
 
 <https://hub.docker.com/r/bitwardenrs/server>
+
 <https://github.com/dani-garcia/bitwarden_rs>
+
 <https://github.com/bitwarden/desktop>
