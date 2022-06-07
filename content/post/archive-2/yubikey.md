@@ -34,29 +34,27 @@ U2F是一个开源的认证标准协议,使用非对称加密算法,在每次需
 - CCID mode, Smartcard 模式:
   
 CCID (SmartCard)
-   
+
 OpenPGP card 和 PIV card, 可以用来安全地保存 RSA 私钥
   
 YubiKey还可以作为标准的 OpenPGP Smart Card 使用, 用来存储 PGP 私钥 (设备中私钥是可写不可读的, 解密/签名操作在设备上完成) 。关于PGP Smart Card 的更多信息,可以参考这篇文章。
 
 以上提到的三个功能是可以同时使用的,相互之间并不冲突。
 
-https://wiki.archlinux.org/index.php/yubikey#Introduction
+<https://wiki.archlinux.org/index.php/yubikey#Introduction>
   
-https://www.bookstack.cn/read/yubikey-handbook-chinese/ssh-authenticating-ssh-with-piv-and-pkcs11-client-troubleshooting.md
+<https://www.bookstack.cn/read/yubikey-handbook-chinese/ssh-authenticating-ssh-with-piv-and-pkcs11-client-troubleshooting.md>
   
-https://blog.dwx.io/yubikey4/
+<https://blog.dwx.io/yubikey4/>
   
-https://www.bookstack.cn/read/yubikey-handbook-chinese/piv-use-cases.md
+<https://www.bookstack.cn/read/yubikey-handbook-chinese/piv-use-cases.md>
 
-https://bigeagle.me/2012/05/yubikey/
+<https://bigeagle.me/2012/05/yubikey/>
   
-https://bigeagle.me/2016/02/yubikey-4/
+<https://bigeagle.me/2016/02/yubikey-4/>
   
-https://blog.blahgeek.com/yubikey-intro/
->https://bitbili.net/yubikey_5_nfc_functions.html
-
-
+<https://blog.blahgeek.com/yubikey-intro/>
+><https://bitbili.net/yubikey_5_nfc_functions.html>
 
 ### piv ssh key
 
@@ -80,11 +78,8 @@ ssh-add -s /usr/lib/libykcs11.so
 yubico-piv-tool -a status
 ```
 
-
->https://ruimarinho.gitbooks.io/yubikey-handbook/content/ssh/authenticating-ssh-with-piv-and-pkcs11-client/
->https://mdrights.github.io/os-observe/posts/2020/12/yubikey-ssh-login.html
-
-
+><https://ruimarinho.gitbooks.io/yubikey-handbook/content/ssh/authenticating-ssh-with-piv-and-pkcs11-client/>
+><https://mdrights.github.io/os-observe/posts/2020/12/yubikey-ssh-login.html>
 
 Step 7: So far, so good. The problem comes when you unplug the device and reinsert it. SSH just gives an error "agent refused operation":
 
@@ -97,13 +92,9 @@ This seems like a pretty big oversight, but fortunately it's quite easy to work 
 
 alias yf="ssh-add -e /usr/lib/x86_64-linux-gnu/libykcs11.so; ssh-add -s /usr/lib/x86_64-linux-gnu/libykcs11.so"
 
+><https://incoherency.co.uk/blog/stories/yubikey.html>
 
->https://incoherency.co.uk/blog/stories/yubikey.html
-
-
-
-https://ruimarinho.gitbooks.io/yubikey-handbook/content/ssh/authenticating-ssh-with-piv-and-pkcs11-client/
-
+<https://ruimarinho.gitbooks.io/yubikey-handbook/content/ssh/authenticating-ssh-with-piv-and-pkcs11-client/>
 
 ## 其它
 
@@ -137,4 +128,3 @@ CanoKey由清华大学的一些老师/学生（同时也是开源社区的大佬
 同时，用户可以体验虚拟硬件密钥，进行构建/购买前的测试与游玩！同时也欢迎用户参与核心代码库的贡献，您的贡献可能出现在下一版的发售中！
 
 ## fido2
-

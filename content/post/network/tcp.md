@@ -8,22 +8,22 @@ tags:
   - reprint
   - tcp
 
-
 ---
 ### tcp
 
 TCP将数据分解成网络数据包，并在每个数据包中添加少量数据。这些附加数据包括一个序列号，用于检测丢失或到达顺序不正确的数据包，以及一个校验和，可以检测数据包数据内的错误。当其中任何一个问题发生时，TCP使用自动重传请求 (ARQ）告诉发送方重新发送丢失或损坏的数据包。
 
-https://luoguochun.cn/post/2016-09-23-tcp-fuck/
+<https://luoguochun.cn/post/2016-09-23-tcp-fuck/>
 
 TCP 的连接标识是通过 “源IP + 源Port + 目标IP + 目标Port + 协议号“ 组成的唯一五元组，一旦其中一个参数发生变化，则需要重新创建新的 TCP 连接。
 
 tcp协议是一个比较复杂的协议,对tcp协议深入理解的,真的非常少非常少；对tcp协议误理解或理解片面的,真的非常多非常多。当然这也包括自己在内,当然也可能包括这篇小结在内。 P.S.: 《TCP/IP详解卷1:协议》是介绍TCP/IP协议栈最经典的著作(神级已故人物W.Richard Stevens经典书籍之一),然而个人觉得这个"详解"对于tcp的介绍有点简略或者理解起来印象非深,读了一次,一次又一次,还是概念模糊。当然这也与中文译本烂得一塌糊涂有关。同时这本经典书籍也有了它的更新版,不同的是作者已经不是原来的神级人物,相同的是译文继续烂。
 
 ### tcp协议头
+
 tcp协议头 tcp基本协议头占用20个字节,协议中Header Length(4bits)中标明协议头的长度,含义是多少个32bit数据,该字段占用4位,所有整个tcp头最多可以占用60字节。当tcp建立时,主机会生成一个初始的序列号(ISN, Initial Sequence Number),在tcpdump程序抓取的报文中可以看到该初始Sequence,Sequence的生成方式有一定的算法,一般tcp分析很少关注。如果tcpdump查看报文,可以发现,第一个SYN包收到ACK后,后续的SEQ都变成了ISN的偏移量。如果是用大鲨鱼wireshark查看报文,则可以发现,seq总是从0开始,并提示这个值是相对值,大鲨鱼已经处理好这些细节。如:  tcpdump seq wireshark seq
 
-tcp报文SYN ACK的计算如下: 
+tcp报文SYN ACK的计算如下:
 
      A -> B SYN J ACK K LEN L
      B -> A SYN K ACK J+L LEN M
@@ -46,10 +46,12 @@ MSS(Maximum Segment Size) tcp报文最大传输长读,tcp在三次握手建立�
 
 SACK(Selective Acknowledgements) 选择ACK,用于处理segment不连续的情况,这样可以减少报文重传。比如:  A 向B发送4个segment,B收到了1,2,4个segment,网络丢失了3这个segment。B收到1,2segment后,回应ACK 3,表示1,2这两个ACK已经收到,同时在选项字段里面,包括4这个段,表示4这个segment也收到了。于是A就重传3这个segment,不必重传4这个segment。B收到3这个segment后,直接ACK 5,表明3,4都收到了。
 
-## WS(Window Scale) 
+## WS (Window Scale)
+
 在tcp头部,Window Size(16Bit)表面接收窗口大小,但是对于现代网络而言,这个值太小了。所以tcp通过选项来增加这个窗口的值。WS值的范围0～14,表示 Window Size(16Bit)数值先向左移动的位数。这样实际上窗口的大小可达31位。在程序网络设计时,有个SO_RECVBUF,表示设置接收缓冲的大小,然而需要注意的是,这个值和接收窗口的大小不完全相等,但是这个数值和接收窗口存在一定的关系,在内核配置的范围内,大小比较接近。
 
-## TS(Timestamps) 
+## TS(Timestamps)
+
 Timestamps在tcp选项中包括两个32位的 timestamp: TSval(Timestamp value) 和 TSecr(Timestamp Echo Reply)。 如果设置了TS这个选项, 发送方发送时, 将当前时间填入TSval, 接收方回应时, 将发送方的TSval 填入 TSecr 即可(注意发送或接收都有设置TSval和TSecr )。TS 选项的存在有两个重要作用: 一是可以更加精确计算 RTT(Round-Trip-Time), 只需要在回应报文里面用当前时间减去 TSecr 即可；二是P AWS(Protection Against Wrapped Sequence number, 防止sequence回绕), 什么意思呢？比如说,发送大量的数据: 0-10G,假设segment比较大为1G而且sequence比较小为5G,接收端接收1,3,4,5数据段正常接收,收到的发送时间分别1,3,4,5,第2 segment丢失了,由于SACK,导致2被重传,在接收6时,sequence由于回绕变成了1,这时收到的发送时间为6,然后又收到迷途的2,seq为2,发送时间为2,这个时间比6小,是不合法的,tcp直接丢弃这个迷途的报文。
 
 UTO(User Timeout) UTO指的是发送SYN,收到ACK的超时时间,如果在UTO内没有收到,则认为对端已挂。 在网络程序设计的时候,为了探测对端是否存活,经常涉及心跳报文,通过tcp的keepalive和UTO机制也可以实现,两者的区别是,前者可以通过心跳报文实时知道对端是否存活,二后者只有等待下次调用发送或接收函数才可以断定:  1) SO_KEEPALIVE相关选项 设置SO_KEEPALIVE 选项,打开keepalive机制。 设置TCP_KEEPIDLE 选项,空闲时间间隔启动keepalive机制,默认为2小时。 设置TCP_KEEPINTVL选项,keepalive机制启动后,每隔多长时间发送一个keepalive报文。默认为75秒。 设置TCP_KEEPCNT选项,设置发送多少个keepalive数据包都没有正常响应,则断定对端已经崩溃。默认为9。 由于tcp有超时重传机制,如果对于ACK丢失的情况,keepalive机制将有可能失效。
@@ -59,13 +61,13 @@ UTO(User Timeout) UTO指的是发送SYN,收到ACK的超时时间,如果在UTO内
 配合SO_KEEPALIVE和TCP_USER_TIMEOUT选项,可以利用tcp机制实现探测对端存活。
 
 ### tcp 建立和终止
+
 对于建链接的3次握手,主要是要初始化Sequence Number 的初始值。通信的双方要互相通知对方自己的初始化的Sequence Number (缩写为ISN: Inital Sequence Number) ——所以叫SYN,全称Synchronize Sequence Numbers。也就上图中的 x 和 y。这个号要作为以后的数据通信的序号,以保证应用层接收到的数据不会因为网络上的传输的问题而乱序 (TCP会用这个序号来拼接数据) 。
 
 <https://imgchr.com/i/Bo6VQx>
 
-正常情况下,tcp的建立需要进行3次握手,tcp断开需要进行4次挥手。抓包看下建立连接和断开过程,通过抓取22端口报文,用telnent远程连接22端口测试,测试命令如下: 
+正常情况下,tcp的建立需要进行3次握手,tcp断开需要进行4次挥手。抓包看下建立连接和断开过程,通过抓取22端口报文,用telnent远程连接22端口测试,测试命令如下:
 
- 
     heidong@HEIDONGVM:~$ sudo tcpdump -i eth0 port 22 -s 0 -w tcpdump-est-fin.cap
 
     heidong@HEIDONGVM:~$ telnet 192.168.1.101 22
@@ -90,7 +92,7 @@ wireshark tcp 报文 1. TCP3次握手的过程是帧1到3 - 第1帧,发送SYN J:
 
 第3帧,发送ACK K+1:
 
-36600→22 [ACK] Seq=1 Ack=1 Win=29200 Len=0 
+36600→22 [ACK] Seq=1 Ack=1 Win=29200 Len=0
 这是建立TCP连接的第3次握手,是主机10.0.2.15对第二帧的应答,这时win=29200,意思是,接收窗口的大小。
 
 当这3次交互完成后,连接真正建立,就可以接收和发送数据了。
@@ -115,14 +117,13 @@ TCP终止连接的4次挥手过程是帧6到9
 异常情况
 建立连接异常 1.1 建立连接端口不存在 如果对端的端口不存在,那么在报文中回应RST标志,表示连接不可达。事实上发送端在需要重复一次SYN报文,对端才会响应RST。如:
 
- 
 heidong@HEIDONGVM:~$ telnet 192.168.1.101 9900
 Trying 192.168.1.101...
 telnet: Unable to connect to remote host: Connection refused
-heidong@HEIDONGVM:~$ 
+heidong@HEIDONGVM:~$
 
 heidong@HEIDONGVM:~$ sudo tcpdump -i eth0 host 192.168.1.101
-[sudo] password for heidong: 
+[sudo] password for heidong:
 tcpdump: verbose output suppressed, use -v or -vv for full protocol decode
 listening on eth0, link-type EN10MB (Ethernet), capture size 65535 bytes
 21:19:36.424426 IP 10.0.2.15.52519 > 192.168.1.101.9900: Flags [S], seq 4012293140, win 29200, options [mss 1460,sackOK,TS val 5302548 ecr 0,nop,wscale 7], length 0
@@ -132,14 +133,13 @@ listening on eth0, link-type EN10MB (Ethernet), capture size 65535 bytes
 3 packets captured
 3 packets received by filter
 0 packets dropped by kernel
-heidong@HEIDONGVM:~$ 
+heidong@HEIDONGVM:~$
 1.2 建立连接主机不存在 如果连接的主机不存在,那么tcp 会重发报文SYN。重发的次数在内核参数了net.ipv4.tcp_syn_retries配置,如:
 
     heidong@HEIDONGVM:~$ cat /proc/sys/net/ipv4/tcp_syn_retries 
     6
 重连重试的是时间分别是。2^X-1秒。如:
 
- 
     heidong@HEIDONGVM:~$ telnet 192.168.1.101 9900
     Trying 192.168.1.101...
     telnet: Unable to connect to remote host: Connection refused
@@ -166,16 +166,20 @@ heidong@HEIDONGVM:~$
 断开连接异常 对于没有正常收到FIN异常终止连接的情况,tcp回应RST。 另外,SO_LINGER选项提供异常终止的能力:  默认的情况下,使用close函数关闭一个连接,tcp默认的行为是,1) 如果发送缓冲没有数据,发送FIN并直接返回 2) 如果缓冲存在数据,tcp将尽力把数据发送出去,然后发送FIN并返回。SO_LINGER选项可以改变这默认行为,相关数据结构
 
 struct linger {
-    int l_onoff; /* 0=off, nozero=on */
-    int l_linger; /* linger time, POSIX specifies units as seconds*/
+    int l_onoff; /*0=off, nozero=on*/
+    int l_linger; /*linger time, POSIX specifies units as seconds*/
 }
+
 1) l_onoff = 0,l_linger被忽略,同默认行为 2) l_onoff 非0,l_linger为0,close清空发送缓冲,并发送RST,然后返回,这中情况下,可以避免TIME_WAIT状态的产生。 3) l_onoff非0,l_linger大于0,close将使内核推延一段时间。如果缓冲有数据,进程将进入睡眠状态,直到数据发送完毕并收到对方的ACK或者滞留超时(close返回EWOULDBLOCK),缓冲去数据丢失。(如果是非阻塞,则直接返回EWOULDBLOCK) shutdown使用可以避免关闭时还有数据的处理。
 
 ## tcp 状态机
+
 tcp在每个时刻都存在于一个特定的状态(CLOSED状态为假想状态),这里的状态和netstat显示的状态是一致的,各个状态以及状态转换如下:  TCP状态机 TIME_WAIT 也称为 2MSL(Maximum Segment Lifetime) 状态, 它可以保证对端发送最后的 FIN (重发的), 能够响应ACK, 另外一个含是, 保证端口在 2MSL 端口不被重发使用。 在服务端编程的时候, 我们通常会使用 SO_REUSEADDR 这个选项, 这样可以避免如果服务端进入 TIME_WAIT 状态后, 可以及时重启。 FIN_WAIT_2 状态是在发送 FIN, 接收到ACK时, 进入的状态, 如果对端没有发送 FIN 那么, 将无法进入 TIME_WAIT 状态, 这时对端一直是CLOSE_WAIT 状态,当服务器出现大量的 FIN_WAIT_2 或 CLOSE_WAIT 状态时, 一般都是被动关闭那端忘记了调用close函数关闭socket。
 
-##  TCP数据传输
+## TCP数据传输
+
 滑动窗口 在tcp头部,窗口大小占用16位,再加上WS选项,实际上可以达31位。已经建立连接的TCP双方,都维护两个窗口,分别为接收窗口和接收窗口。
+
 1. 发送方窗口 发送方窗口 如图示,在任意一时刻,发送方的发送窗口数据可分4大类: 1) 已经发送并收到ACK的,2) 已经发送并未收到ACK的,3) 准备发送的,4) 未发送的。第1和第2类数据之间的边界称为左边界；第3和第4类之间的数据称之为右边界。第2和第3类数据之间的窗口称之为Offered Window,是接收方通告的窗口大小。左边界向做右移动,称为窗口合拢；右边界向右移动,称为窗口张开；右边界向左移动,称为窗口的收缩(实际tcp实现不一定有)。如果左边界到达右边界,那么窗口为0,不能发送任何数据。当窗口变为0时,这里存在一个问题: 因为接收方的窗口大小是通过ACK告知的,如果窗口为0了,那么哪里来的ACK呢？解决的办法是,发送方会发送ZWP(Zero Windonw Probe)的报文给接收端,让接收端应答ACK告知窗口大小,当发送方发送3次ZWP后(一般设置3次,每次给30~60秒),如果窗口依然是0,那么有些tcp实现将关闭连接。在当发送方收到发送数据的ACK时,左边界向右合拢或窗口向右移动。注意到,只有收到ACK时,左边界才会右移。
 
 2. 接收方窗口 接收方窗口 如图示,类似发送方窗口,接收方窗口分为3大类,1) 已经接收并发送ACK的,2) 将接收存储的,3) 不能接收的。第1和2类之间的边界称为左边界,第2和第3类数据之间的边界称之为右边界。当接收方收到报文的SEQ小与左边界,则当做是重发报文直接丢弃；当接收的报文的SEQ大于右边界,则认为是溢出也直接丢弃,只有报文在左边界和右边界 之间的报文才允许接收。如果在左边界和右边界 之间收到的非连续的报文(由于SACK,报文将缓存),那么左边界并不会向右移动,等待重传数据连续后,才移动。
@@ -205,22 +209,23 @@ TCP阻塞控制
 小结
 这里小结只是tcp的很小一部分,没有涉及到tcp的方方面面,也没有涉及到内核调优,编程技巧等方方面面。另外tcp目前还是发展中的协议,随着时间推移,有很多新的功能特性添加进来,这里也没有涉及到。对于tcp的熟悉,必须通过抓包实践才能进行一步了解,停留在读书计理论,永远无法理解。期待以后有更全面的认识！
 
-tcpdump 使用参考:  https://luoguochun.cn/2015/07/25/tcpdump-usage/ 完。
+tcpdump 使用参考:  <https://luoguochun.cn/2015/07/25/tcpdump-usage/> 完。
 
 一些参考:  TCP_DEFER_ACCEPT TFO–TCP Fast Open – 由于存在安全隐患而没有广泛使用。
 
 ### tcp包发送流程
+
 [![IBT7gH.jpg](https://z3.ax1x.com/2021/11/12/IBT7gH.jpg)](https://imgtu.com/i/IBT7gH)
 
-###  自动重传请求 ARQ 
+### 自动重传请求 ARQ
 
 ---
 
-https://coolshell.cn/articles/11564.html
-https://www.cnblogs.com/liwei0526vip/p/14587300.html 
+<https://coolshell.cn/articles/11564.html>
+<https://www.cnblogs.com/liwei0526vip/p/14587300.html>
 
-https://xie.infoq.cn/article/760f379a3e3f2694b5e994ffd?utm_source=rss&utm_medium=article
->https://developer.aliyun.com/article/720202
+<https://xie.infoq.cn/article/760f379a3e3f2694b5e994ffd?utm_source=rss&utm_medium=article>
+><https://developer.aliyun.com/article/720202>
 
 RWIN (receivers advertised window size)
 
@@ -230,9 +235,8 @@ MSL是 Maximum Segment Lifetime 英文的缩写，中文可以译为“报文最
 
 2MSL 即两倍的 MSL，TCP 的 TIME_WAIT 状态也称为 2MSL 等待状态，当 TCP 的一端发起主动关闭，在发出最后一个 ACK 包后，即第3次握手完成后发送了第四次握手的 ACK 包后就进入了 TIME_WAIT 状态，必须在此状态上停留两倍的MSL时间，等待 2MSL 时间主要目的是怕最后一个 ACK 包对方没收到，那么对方在超时后将重发第三次握手的FIN包，主动关闭端接到重发的FIN包后可以再发一个ACK应答包。在TIME_WAIT 状态时两端的端口不能使用，要等到 2MSL 时间结束才可继续使用。当连接处于2MSL等待阶段时任何迟到的报文段都将被丢弃。不过在实际应用中可以通过设置 SO_REUSEADDR 选项达到不必等待 2MSL 时间结束再使用此端口。
 
-
 TTL与MSL是有关系的但不是简单的相等的关系，MSL要大于等于TTL。
 
 ————————————————
 版权声明：本文为CSDN博主「xiaofei0859」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
-原文链接：https://blog.csdn.net/xiaofei0859/article/details/6044694
+原文链接：<https://blog.csdn.net/xiaofei0859/article/details/6044694>

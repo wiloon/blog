@@ -71,7 +71,9 @@ download the linux kernel update package
 
 ### 安装 socat
 
-    sudo apt install socat
+```bash
+sudo apt install socat
+```
 
 ### vim .zshrc
 

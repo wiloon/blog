@@ -1,7 +1,7 @@
 ---
 title: ssh-agent, ssh agent, ssh forward
 author: "-"
-date: 2018-05-11T01:04:23+00:00
+date: 2022-06-07 18:25:49
 url: ssh-agent
 categories:
   - Linux
@@ -318,7 +318,14 @@ XiaoleideMacBook-Pro:ssh professor$ ssh-add -L
 # run in powershell
 # 查看 ssh-agent
 Get-Service ssh-agent
+```
 
+## ssh-add
+
+```bash
+ssh-add -l
+ssh-add -L
+ssh-add -D # 删除全部 key
 ```
 
 <https://corvo.myseu.cn/2020/10/16/2020-10-16-OpenSSH%E7%B3%BB%E5%88%97(%E6%89%A9%E5%B1%95%E4%B8%89)-%E5%85%B3%E4%BA%8Eforward%20agent%E7%9A%84%E4%BD%BF%E7%94%A8%E4%BB%A5%E5%8F%8A%E8%B0%83%E8%AF%95/>
