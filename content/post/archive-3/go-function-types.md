@@ -11,9 +11,11 @@ tags:
 ## golang, function types, 函数类型
 
 ### function types
+
 A function type denotes the set of all functions with the same parameter and result types.
 
 ### 示例
+
 ```go
 package main
 
@@ -103,7 +105,6 @@ Bonjour, World
 
 回到Go: net/http的HandlerFunc类型，只要Martini的函数遵循文档中type HandlerFunc func(ResponseWriter, *Request)的要求，就可以转换成HandlerFunc类型，也就可以调用func (HandlerFunc)ServeHTTP函数。
 
-
 ---
 
-https://www.jianshu.com/p/fc4902159cf5
+<https://www.jianshu.com/p/fc4902159cf5>
