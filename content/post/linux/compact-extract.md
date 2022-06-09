@@ -46,6 +46,19 @@ tags:
 gunzip -c /data/tmp/foo.tar.gz | tar xf - -C /data/server/bar
 ```
 
+#### 解压并指定输出目录
+
+```bash
+gunzip -c /data/tmp/foo.tar.gz | tar xf - -C /data/server/bar
+```
+
+## .7z
+
+```bash
+    yum install p7zip
+    pacman -S p7zip
+    sudo apt install p7zip-full p7zip-rar
+
 ## .7z
 
 ```bash
@@ -161,6 +174,9 @@ cat logs.tar.bz2.a* | tar xj
 
 # 指定操作目录
 tar -zcf ${package_path} -C ${war_path} .
+
+# “tar xxx.tar --strip 1”，--strip 1 的意思是表明把解压文件的内容里的所有最上层目录去掉。
+tar xvf /backup/bitwarden-data.tar -C /tmp --strip 1
 ```
 
 ### 向已有的 tar 包里增加文件
@@ -518,6 +534,7 @@ lha请到: <http://www.infor.kanazawa-it.ac.jp/…/lhaunix/>下载！
 > [root@www2 tmp]# cp sEx /usr/bin/
 
 ## 压缩算法, deflate、gzip、bzip2、lzo、snappy
+
 <http://www.infoq.com/cn/news/2017/07/eBay-shopping-i-o?utm_campaign=infoq_content&utm_source=infoq&utm_medium=feed&utm_term=global>
 
 常用的压缩算法主要有: deflate、gzip、bzip2、lzo、snappy等。差别如下所示:
@@ -537,8 +554,13 @@ Snappy是Google基于LZ77的思路用C++语言编写的快速数据压缩与解�
 ---
 
 <https://blog.csdn.net/wuhenyan/article/details/53117642>
+
 <https://www.howtoing.com/zstd-fast-data-compression-algorithm-used-by-facebook>
+
 <https://blog.csdn.net/lj402159806/article/details/76618174>
+
 <http://blog.csdn.net/silvervi/article/details/6325698>
+
 <http://blog.csdn.net/xiaotuni/article/details/2099609>
+
 <http://xxw8393.blog.163.com/blog/static/37256834201172910058899/>
