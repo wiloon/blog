@@ -111,6 +111,10 @@ docker network inspect 网络ID
 docker volume ls
 docker volume create --name influxdb-config
 docker volume rm influxdb-config
+# 删除实例同时删除 volume
+docker rm -v instance0
+# 清理 无主 (dangling) 的数据卷
+docker volume prune
 ```
 
 容器创建后不能再新增volume, 可以先commit到镜像, 再创建新的容器。
