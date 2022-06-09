@@ -261,6 +261,7 @@ podman run --rm \
   alpine \
   tar cvf /backup/volume0.tar /tmp
 
+# restore
 podman run --rm \
   --volume volume0:/tmp \
   --volume $(pwd):/backup \

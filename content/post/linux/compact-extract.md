@@ -46,12 +46,6 @@ tags:
 gunzip -c /data/tmp/foo.tar.gz | tar xf - -C /data/server/bar
 ```
 
-#### 解压并指定输出目录
-
-```bash
-gunzip -c /data/tmp/foo.tar.gz | tar xf - -C /data/server/bar
-```
-
 ## .7z
 
 ```bash
