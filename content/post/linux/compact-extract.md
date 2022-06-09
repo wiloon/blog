@@ -10,45 +10,60 @@ tags:
 
 ---
 ## compact/extract 压缩/解压
+
 ## 解压多个文件
+
+```bash
     ls *.gz|xargs -t -n1 gunzip
     gunzip *.gz
+```
 
 ## .rar
+
+```bash
     # 解压
     unrar x foo.rar
     # 压缩
     rar e FileName.rar
     # 解压
     rar a FileName.rar
+```
 
 ## .gz
+
+```bash
     # 压缩
     gzip FileName
     # 解压1
     gunzip FileName.gz
     # 解压2
     gzip -d FileName.gz
+```
 
-#### 解压并指定输出目录
+### 解压并指定输出目录
+
 ```bash
 gunzip -c /data/tmp/foo.tar.gz | tar xf - -C /data/server/bar
 ```
-## .7z
-```bash
-    yum install p7zip
-    pacman -S p7zip
-    sudo apt install p7zip-full p7zip-rar
 
-    7z x filename.7z
+## .7z
+
+```bash
+yum install p7zip
+pacman -S p7zip
+sudo apt install p7zip-full p7zip-rar
+
+7z x filename.7z
 ```
 
 ## .zip
+
 ```bash
 pacman -S zip unzip
 ```
 
 - 压缩
+
 ```bash
 zip all.zip *.jpg
 
@@ -60,6 +75,7 @@ zip -r temp.zip temp
 ```
 
 - 分卷压缩
+
 ```bash
 # 分卷压缩的话，需要先将文件打包成一个zip包，然后执行
 zip -s SIZE origin.zip --out new.zip
@@ -70,6 +86,7 @@ zip spiltfile.zip -s=0 --out single.zip
 ```
 
 - 解压
+
 ```bash
 unzip all.zip
 unzip -o -d /home/sunny myfile.zip
@@ -87,11 +104,13 @@ find . -maxdepth 1 -mtime -4 -type f  -name "*.zip"|xargs -t -n1 unzip
 ```
 
 - 解压并指定目录
+
 ```bash
 unzip /path/to/source.zip -d /path/to/target/path
 ```
 
 ## Zstandard, zstd
+
 ```bash
 # zstd 不能压缩目录, -r参数会把目录里的文件压缩成单独的文件
 
@@ -123,6 +142,7 @@ zstd -T0 foo.txt
 ```
 
 ## .tar
+
 Tar是在Linux中使用得非常广泛的文档打包格式。它的好处就是它只消耗非常少的CPU以及时间去打包文件，他仅仅只是一个打包工具，并不负责压缩。  
 **(注: tar只是打包，没有压缩功能！)**
 
@@ -144,55 +164,64 @@ tar -zcf ${package_path} -C ${war_path} .
 ```
 
 ### 向已有的 tar 包里增加文件
+
 这条命令是将所有.gif的文件增加到all.tar的包里面去。-r是表示增加文件的意思。
+
 ```bash
 tar -rf all.tar *.gif
 ```
 
 #### tar参数
-    -c, --create : 创建新的压缩文件
-    -x : 从压缩的文件中提取文件
-    -t : 查看 tarfile 里面的文件, 特别注意，在参数的下达中， c/x/t 仅能存在一个！不可同时存在因为不可能同时压缩与解压缩。 
-    -z : 是否同时具有 gzip 的属性？亦即是否需要用 gzip 压缩？
-    -j : 是否同时具有 bzip2 的属性？亦即是否需要用 bzip2 压缩？
-    -v : 压缩的过程中显示文件！这个常用，在后台执行时不建议用!
-    -f, --file=ARCHIVE : 指定文件或设备,如果不加这个参数 tar 默认会去找环境变量里配置的 TAPE, 注意，在 f 之后要立即接文件名,不要再加其它参数, 例如使用『 tar -zcvfP tfile sfile』就是错误的写法，要写成 『 tar -zcvPf tfile sfile』才对
-    -p : 使用原文件的原来属性 (属性不会依据使用者而变)  
-    -P : 可以使用绝对路径来压缩！ 
-    -N : 比后面接的日期(yyyy/mm/dd)还要新的才会被打包进新建的文件中！ 
-    --exclude FILE: 在压缩的过程中，不要将 FILE 打包！  
-    -C : 在执行后续的指令前切换目录, 此参数是顺序敏感的.
-    -A 新增压缩文件到已存在的压缩
-    -B 设置区块大小
-    -d 记录文件的差别
-    -r 添加文件到已经压缩的文件
-    -u 添加改变了和现有的文件到已经存在的压缩文件
-    -Z 支持compress解压文件
-    -l 文件系统边界设置
-    -k 保留原有文件不覆盖
-    -m 保留文件不被覆盖
-    -W 确认压缩文件的正确性
-    
-    可选参数如下: 
-    -b 设置区块数目
-    -C 切换到指定目录
-    -f 指定压缩文件
-    -help 显示帮助信息
-    -version 显示版本信息
+
+```a
+-c, --create : 创建新的压缩文件
+-x : 从压缩的文件中提取文件
+-t : 查看 tarfile 里面的文件, 特别注意，在参数的下达中， c/x/t 仅能存在一个！不可同时存在因为不可能同时压缩与解压缩。 
+-z : 是否同时具有 gzip 的属性？亦即是否需要用 gzip 压缩？
+-j : 是否同时具有 bzip2 的属性？亦即是否需要用 bzip2 压缩？
+-v : 压缩的过程中显示文件！这个常用，在后台执行时不建议用!
+-f, --file=ARCHIVE : 指定文件或设备,如果不加这个参数 tar 默认会去找环境变量里配置的 TAPE, 注意，在 f 之后要立即接文件名,不要再加其它参数, 例如使用『 tar -zcvfP tfile sfile』就是错误的写法，要写成 『 tar -zcvPf tfile sfile』才对
+-p : 使用原文件的原来属性 (属性不会依据使用者而变)  
+-P : 可以使用绝对路径来压缩！ 
+-N : 比后面接的日期(yyyy/mm/dd)还要新的才会被打包进新建的文件中！ 
+--exclude FILE: 在压缩的过程中，不要将 FILE 打包！  
+-C : 在执行后续的指令前切换目录, 此参数是顺序敏感的.
+-A 新增压缩文件到已存在的压缩
+-B 设置区块大小
+-d 记录文件的差别
+-r 添加文件到已经压缩的文件
+-u 添加改变了和现有的文件到已经存在的压缩文件
+-Z 支持compress解压文件
+-l 文件系统边界设置
+-k 保留原有文件不覆盖
+-m 保留文件不被覆盖
+-W 确认压缩文件的正确性
+
+可选参数如下: 
+-b 设置区块数目
+-C 切换到指定目录
+-f 指定压缩文件
+-help 显示帮助信息
+-version 显示版本信息
+```
 
 ### .tar.gz 和 .tgz
+
 这种格式是我使用得最多的压缩格式。它在压缩时不会占用太多CPU的，而且可以得到一个非常理想的压缩率。  
 默认tar打包和系统默认的压缩工具是单线程的，pigz是gzip的多线程实现,默认用当前逻辑cpu个数来并发压缩，无法检测个数的话，则并发8个线程
 
 #### 解压到指定目录
+
 ```bash
 tar -zxvf /path/to/foo.tar.gz -C /path/to/target/dir/
 ```
 
 #### 压缩到指定目录
+
 ```bash
 tar -zcvf /data/tmp/foo.tar.gz /data/server/source
 ```
+
 ```bash
 #压缩
 tar -zcvf all.tar.gz *.jpg
@@ -254,7 +283,7 @@ tar可以为文件和目录创建档案。利用tar，用户可以为某一特�
 
 使用该命令时，主选项是必须要有的，它告诉tar要做什么事情，辅选项是辅助使用的，可以选用。
 
-主选项: 
+主选项:
 
 c 创建新的档案文件。如果用户想备份一个目录或是一些文件，就要选择这个选项。
 
@@ -266,7 +295,7 @@ u 更新文件。就是说，用新增的文件取代原备份文件，如果在
 
 x 从档案文件中释放文件。
 
-辅助选项: 
+辅助选项:
 
 b 该选项是为磁带机设定的。其后跟一数字，用来说明区块的大小，系统预设值为20 (20*512 bytes) 。
 
@@ -290,15 +319,13 @@ z 用gzip来压缩/解压缩文件，加上该选项后可以将档案文件进�
 
 在具体总结各类压缩文件之前，首先要 弄清两个概念: 打包和压缩。打包是指将一大堆文件或目录什么的变成一个总的文件，压缩则是将一个大的文件通过一些压缩算法变成一个小文件。为什么要区分这 两个概念呢？其实这源于Linux中的很多压缩程序只能针对一个文件进行压缩，这样当你想要压缩一大堆文件时，你就得先借助另外的工具将这一大堆文件先打 成一个包，然后再就原来的压缩程序进行压缩。
 
-Linux下最常用的打包程序就是tar了，使用tar程序打出来的包我们常称为tar包，tar包文件的命令通常都是以.tar结尾的。生成tar包后，就可以用其它的程序来进行压缩了，所以首先就来讲讲tar命令的基本用法: 
+Linux下最常用的打包程序就是tar了，使用tar程序打出来的包我们常称为tar包，tar包文件的命令通常都是以.tar结尾的。生成tar包后，就可以用其它的程序来进行压缩了，所以首先就来讲讲tar命令的基本用法:
 
-tar命令的选项有很多(用man tar可以查看到)，但常用的就那么几个选项，下面来举例说明一下: 
+tar命令的选项有很多(用man tar可以查看到)，但常用的就那么几个选项，下面来举例说明一下:
 
     tar -cf all.tar *.jpg
 
 这条命令是将所有.jpg的文件打成一个名为all.tar的包。-c是表示产生新的包，-f指定包的文件名。
-
-
 
 # tar -uf all.tar logo.gif
 
@@ -316,7 +343,7 @@ tar命令的选项有很多(用man tar可以查看到)，但常用的就那么�
 
 #### tar调用gzip
 
-gzip是GNU组织开发的一个压缩程序，.gz结尾的文件就是gzip压缩的结果。与gzip相对的解压程序是gunzip。tar中使用-z这个参数来调用gzip。下面来举例说明一下: 
+gzip是GNU组织开发的一个压缩程序，.gz结尾的文件就是gzip压缩的结果。与gzip相对的解压程序是gunzip。tar中使用-z这个参数来调用gzip。下面来举例说明一下:
 
 # tar -czf all.tar.gz *.jpg
 
@@ -328,7 +355,7 @@ gzip是GNU组织开发的一个压缩程序，.gz结尾的文件就是gzip压缩
 
 ### tar调用bzip2
 
-bzip2是一个压缩能力更强的压缩程序，.bz2结尾的文件就是bzip2压缩的结果。与bzip2相对的解压程序是bunzip2。tar中使用-j这个参数来调用bzip2。下面来举例说明一下: 
+bzip2是一个压缩能力更强的压缩程序，.bz2结尾的文件就是bzip2压缩的结果。与bzip2相对的解压程序是bunzip2。tar中使用-j这个参数来调用bzip2。下面来举例说明一下:
 
 # tar -cjf all.tar.bz2 *.jpg
 
@@ -340,7 +367,7 @@ bzip2是一个压缩能力更强的压缩程序，.bz2结尾的文件就是bzip2
 
 3)tar调用compress
 
-compress也是一个压缩程序，但是好象使用compress的人不如gzip和bzip2的人多。.Z结尾的文件就是bzip2压缩的结果。与compress相对的解压程序是uncompress。tar中使用-Z这个参数来调用gzip。下面来举例说明一下: 
+compress也是一个压缩程序，但是好象使用compress的人不如gzip和bzip2的人多。.Z结尾的文件就是bzip2压缩的结果。与compress相对的解压程序是uncompress。tar中使用-Z这个参数来调用gzip。下面来举例说明一下:
 
 # tar -cZf all.tar.Z *.jpg
 
@@ -350,7 +377,7 @@ compress也是一个压缩程序，但是好象使用compress的人不如gzip和
 
 这条命令是将上面产生的包解开
 
-有了上面的知识，你应该可以解开多种压缩文件了，下面对于tar系列的压缩文件作一个小结: 
+有了上面的知识，你应该可以解开多种压缩文件了，下面对于tar系列的压缩文件作一个小结:
 
 1)对于.tar结尾的文件
 
@@ -380,13 +407,13 @@ uncompress all.Z
 
 tar -xZf all.tar.z
 
-另外对于Window下的常见压缩文件.zip和.rar，Linux也有相应的方法来解压它们: 
+另外对于Window下的常见压缩文件.zip和.rar，Linux也有相应的方法来解压它们:
 
 2)对于.rar
 
 要在linux下处理.rar文件，需要安装RAR for Linux，可以从网上下载，但要记住，RAR for Linux
 
-不是免费的；然后安装: 
+不是免费的；然后安装:
 
 # tar -xzpvf rarlinux-3.2.0.tar.gz
 
@@ -394,7 +421,7 @@ tar -xZf all.tar.z
 
 # make
 
-这样就安装好了，安装后就有了rar和unrar这两个程序，rar是压缩程序，unrar是解压程序。它们的参数选项很多，这里只做简单介绍，依旧举例说明一下其用法: 
+这样就安装好了，安装后就有了rar和unrar这两个程序，rar是压缩程序，unrar是解压程序。它们的参数选项很多，这里只做简单介绍，依旧举例说明一下其用法:
 
 # rar a all *.jpg
 
@@ -460,20 +487,20 @@ tar -xZf all.tar.z
 
 压缩: tar Zcvf FileName.tar.Z DirName
 
-
 .lha
 
 解压: lha -e FileName.lha
 
 压缩: lha -a FileName.lha FileName
 
-lha请到: http://www.infor.kanazawa-it.ac.jp/…/lhaunix/下载！
+lha请到: <http://www.infor.kanazawa-it.ac.jp/…/lhaunix/>下载！
 
-> 解压后请将lha拷贝到/usr/bin目录 (其他由$PATH环境变量指定的目录也可以) : 
+> 解压后请将lha拷贝到/usr/bin目录 (其他由$PATH环境变量指定的目录也可以) :
 
 > [root@www2 tmp]# cp lha /usr/bin/
 
 ### .rpm
+
 解包: rpm2cpio FileName.rpm | cpio -div
 
 > .lzx .lzs .arc .sda .sfx .lnx .zoo .cab .kar .cpt .pit .sit .sea
@@ -484,16 +511,16 @@ lha请到: http://www.infor.kanazawa-it.ac.jp/…/lhaunix/下载！
 
 > sEx只是调用相关程序，本身并无压缩、解压功能，请注意！
 
-> sEx请到:  http://sourceforge.net/projects/sex下载！
+> sEx请到:  <http://sourceforge.net/projects/sex>下载！
 
-> 解压后请将sEx拷贝到/usr/bin目录 (其他由$PATH环境变量指定的目录也可以) : 
+> 解压后请将sEx拷贝到/usr/bin目录 (其他由$PATH环境变量指定的目录也可以) :
 
 > [root@www2 tmp]# cp sEx /usr/bin/
 
 ## 压缩算法, deflate、gzip、bzip2、lzo、snappy
-http://www.infoq.com/cn/news/2017/07/eBay-shopping-i-o?utm_campaign=infoq_content&utm_source=infoq&utm_medium=feed&utm_term=global
+<http://www.infoq.com/cn/news/2017/07/eBay-shopping-i-o?utm_campaign=infoq_content&utm_source=infoq&utm_medium=feed&utm_term=global>
 
-常用的压缩算法主要有: deflate、gzip、bzip2、lzo、snappy等。差别如下所示: 
+常用的压缩算法主要有: deflate、gzip、bzip2、lzo、snappy等。差别如下所示:
 
 deflate、gzip都是基于LZ77算法与哈夫曼编码的无损数据压缩算法，gzip只是在deflate格式上增加了文件头和文件尾；
 
@@ -509,9 +536,9 @@ Snappy是Google基于LZ77的思路用C++语言编写的快速数据压缩与解�
 
 ---
 
-https://blog.csdn.net/wuhenyan/article/details/53117642
-https://www.howtoing.com/zstd-fast-data-compression-algorithm-used-by-facebook
-https://blog.csdn.net/lj402159806/article/details/76618174
-http://blog.csdn.net/silvervi/article/details/6325698
-http://blog.csdn.net/xiaotuni/article/details/2099609
-http://xxw8393.blog.163.com/blog/static/37256834201172910058899/
+<https://blog.csdn.net/wuhenyan/article/details/53117642>
+<https://www.howtoing.com/zstd-fast-data-compression-algorithm-used-by-facebook>
+<https://blog.csdn.net/lj402159806/article/details/76618174>
+<http://blog.csdn.net/silvervi/article/details/6325698>
+<http://blog.csdn.net/xiaotuni/article/details/2099609>
+<http://xxw8393.blog.163.com/blog/static/37256834201172910058899/>

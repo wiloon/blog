@@ -95,7 +95,9 @@ startxfce4
 ### wenquanyi 中文字体
 
 sudo pacman -S wqy-microhei
+
 # font for terminal
+
 sudo pacman -S ttf-inconsolata
 sudo pacman -S chromium
 yay -S google-chrome
@@ -116,12 +118,12 @@ yay -S google-chrome
 
 pacman -S file-roller
   
-# xfce4 date time plugin format #%b %d%n%V %a%n%R
+xfce4 date time plugin format #%b %d%n%V %a%n%R
+
 <http://goodies.xfce.org/projects/panel-plugins/xfce4-datetime-plugin>
 
-
-
 ### sddm
+
     systemctl enable sddm
 
 removed "SigLevel = RecquiredPackage" from /etc/pacman.conf and now it's O.K.
@@ -134,4 +136,5 @@ ntfs-3g
 mount -t ntfs-3g /dev/sda5 /mnt
 
 ### 重启
+
     reboot

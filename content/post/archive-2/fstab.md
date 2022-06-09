@@ -13,7 +13,9 @@ tags:
 
 ### 格式
 
-    <file system> <dir> <type> <options> <dump> <pass>
+```bash
+<file system> <dir> <type> <options> <dump> <pass>
+```
 
 ### 示例
 

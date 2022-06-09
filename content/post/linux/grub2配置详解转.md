@@ -9,47 +9,48 @@ tags:
   - reprint
 ---
 ## Grub2配置详解(转)
+
 grub.cfg 默认为只读，要修改前先设为可写
   
 sudo chmod +w /boot/grub/grub.cfg
 
 set default=0
   
-#默认为0
+# 默认为0
   
 insmod jpeg
   
-#添加jpg支持，如要使用png或tga文件做背景，加上 insmod png或insmod tga
+# 添加jpg支持，如要使用png或tga文件做背景，加上 insmod png或insmod tga
   
 insmod ext2
   
-#除了用作启动的分区外，其他分区格式可在menu底下再添加
+# 除了用作启动的分区外，其他分区格式可在menu底下再添加
   
 set root=(hd0,7)
   
-#设定root分区
+# 设定root分区
   
 search -no-floppy -fs-uuid -set f255285a-5ad4-4eb8-93f5-4f767190d3b3
   
-#设定uuid=\****的分区为root，和上句重复，可删除
+# 设定uuid=\****的分区为root，和上句重复，可删除
   
 # 以下为终端配置
   
 if loadfont /usr/share/grub/unicode.pf2 ; then
   
-#设置终端字体，unicode.pf2支持中文显示
+# 设置终端字体，unicode.pf2支持中文显示
   
 set gfxmode=640x480
   
-#设置分辨率，默认为 640x480，可用800x600，1024x768，建议跟你想设定的图片大小一致
+# 设置分辨率，默认为 640x480，可用800x600，1024x768，建议跟你想设定的图片大小一致
   
 insmod gfxterm
   
-#插入模块 gfxterm，支持中文显 示，它还支持 24 位图像
+# 插入模块 gfxterm，支持中文显 示，它还支持 24 位图像
   
 insmod vbe
   
-#插入 vbe 模块，GRUB 2 引入很多模块的东西，要使用它，需要在这里加入
+# 插入 vbe 模块，GRUB 2 引入很多模块的东西，要使用它，需要在这里加入
   
 if terminal_output gfxterm ; then true ; else
   
@@ -59,7 +60,7 @@ if terminal_output gfxterm ; then true ; else
   
 terminal gfxterm
   
-#设置 GRUB 2 终端为 gfxterm
+# 设置 GRUB 2 终端为 gfxterm
   
 fi
   
@@ -69,7 +70,7 @@ set timeout=10
   
 background_image (hd0,7)/boot/images/1.jpg
   
-#设置背景图片
+# 设置背景图片
   
 ### END /etc/grub.d/00_header
 
@@ -79,7 +80,7 @@ set menu_color_normal=white/black
   
 set menu_color_highlight=cyan/black
   
-#这两行为 Debian 下的菜单颜色设置，如果默认的话，你会发现背景完全被蓝色挡住了，你需要修改 blue 为 black，这样背景就会出现
+# 这两行为 Debian 下的菜单颜色设置，如果默认的话，你会发现背景完全被蓝色挡住了，你需要修改 blue 为 black，这样背景就会出现
   
 ### END /etc/grub.d/05_debian_theme ###
 
@@ -87,7 +88,7 @@ set menu_color_highlight=cyan/black
   
 ### BEGIN /etc/grub.d/10_linux ###
   
-#菜单项，要包括 menuentry 双引号" " 和大括号 { }才完整，否则不显示菜单
+# 菜单项，要包括 menuentry 双引号" " 和大括号 { }才完整，否则不显示菜单
   
 menuentry "Ubuntu, Linux 2.6.31-9-386" {
   
@@ -97,11 +98,11 @@ set root=(hd0,7)
   
 search -no-floppy -fs-uuid -set f255285a-5ad4-4eb8-93f5-4f767190d3b3
   
-#这句与set root=(hd0,7)重复，可删除
+# 这句与set root=(hd0,7)重复，可删除
   
 linux /boot/vmlinuz-2.6.31-9-386 root=UUID=f255285a-5ad4-4eb8-93f5-4f767190d3b3 ro quite splash
   
-#不喜欢看到一长串的， roo=UUID=\***可用root=/dev/sda7代替
+# 不喜欢看到一长串的， roo=UUID=\***可用root=/dev/sda7代替
   
 initrd /boot/initrd.img-2.6.31-9-386
   
@@ -123,21 +124,21 @@ linux16 /boot/memtest86+.bin
   
 ### BEGIN /etc/grub.d/30_os-prober ###
   
-#windows 启动菜单
+# windows 启动菜单
   
 menuentry "Windows Vista (loader) (on /dev/sda1)" {
   
 insmod ntfs
   
-#windows格式为ntfs，或为fat32改为 insmod fat
+# windows格式为ntfs，或为fat32改为 insmod fat
   
 set root=(hd0,1)
   
 search -no-floppy -fs-uuid -set ece067d2e067a196
   
-#可删除
+# 可删除
   
-#grub2比较先进的地方就是如果发现windows启动是通过ntldr 引导的，定为2000/xp/2003，会在这加上 drivemap -s (hd0) ${root} ，作用相当于grub的map，可正常启动非第一硬盘的xp/2003系统。
+# grub2比较先进的地方就是如果发现windows启动是通过ntldr 引导的，定为2000/xp/2003，会在这加上 drivemap -s (hd0) ${root} ，作用相当于grub的map，可正常启动非第一硬盘的xp/2003系统。
   
 chainloader +1
   
@@ -159,7 +160,7 @@ initrd /boot/initrd.img-2.6.31-9-generic
   
 }
   
-#若存在macos会自动在这里添加。
+# 若存在macos会自动在这里添加。
   
 ### END /etc/grub.d/30_os-prober ###
   
@@ -237,7 +238,7 @@ linux (lo0)/memdisk
   
 initrd (lo0)/abc.img
 
-要删除某一回放设备，可以使用-d参数: 
+要删除某一回放设备，可以使用-d参数:
   
 loopback -d lo0
   
@@ -326,7 +327,7 @@ grub2的boot.img设定root的uuid从第一分区开始搜索分区的/boot/grub�
 在Windows启动项上加上grub4dos启动 (不多说了，看置顶贴) ，重启选择进入grub，在命令行下输入(/boot单独分区的去掉 /boot)
   
 代码:
-       
+
 grub>find -set-root /boot/grub/core.img
   
 grub>kernel /boot/grub/core.img
@@ -336,10 +337,10 @@ grub>boot
 进入grub2菜单，进入系统后再执行
   
 代码:
-      
+
 sudo grub-install /dev/sd？
 
-方法二 进入Livecd 后修复 (感谢billbear) 
+方法二 进入Livecd 后修复 (感谢billbear)
   
 引用:
   
@@ -349,7 +350,7 @@ mount 你的根分区 /mnt
   
 mount 你的/boot 分区 /mnt/boot #如果有的话
   
-#挂载你其他的分区，如果有的话
+# 挂载你其他的分区，如果有的话
   
 # 重建grub到sda的mbr
   
@@ -455,7 +456,7 @@ chainloader +1
   
 }
 
-实际上 drivemap 有了更方便的用法: 
+实际上 drivemap 有了更方便的用法:
   
 menuentry "Windows XP" {
   
