@@ -182,7 +182,7 @@ int searchLastEqual(int *arr, int n, int key)
 
 终止：
 
-        结束时发生了什么？即left==right-1时，根据循环不变式始终有array[left]<=key, array[right]>=key (否则就不应该在这里找）。显然我们把两个指针缩小到只有left和right两个情况，只要检查两个位置的值与key相等与否即可得到满足问题的解。因此算法是正确的。
+结束时发生了什么？即left==right-1时，根据循环不变式始终有array[left]<=key, array[right]>=key (否则就不应该在这里找）。显然我们把两个指针缩小到只有left和right两个情况，只要检查两个位置的值与key相等与否即可得到满足问题的解。因此算法是正确的。
 
 以上两个算法尽管参考别人博客，但是证明以及具体二分写法都不一样，可以仔细对比学习。
 
@@ -318,10 +318,11 @@ b）一定要判断死循环与否，这是最重要的。
 例子1
 在一个有序数组中查找要插入的位置
 
-原文地址，<LeetCode OJ> 35. Search Insert Position
+原文地址，`<LeetCode OJ> 35. Search Insert Position`
 
 用low来记录答案
 
+```java
 class Solution {  
 public:  
     int searchInsert(vector<int>& nums, int target) {  //数组不能空
@@ -339,11 +340,12 @@ public:
         return low;  
     }  
 };
+```
 
 例子2
 任意相邻元素不相等的数组中，寻找峰位置 (任意一个峰都行）
 
-原文地址，<LeetCode OJ> 162. Find Peak Element
+原文地址，`<LeetCode OJ> 162. Find Peak Element`
 
 注意：题目说了相邻元素不会相等，这个条件很重要。
 
@@ -365,6 +367,7 @@ b)   nums[mid] > nums[mid + 1]，
 
 用low来记录最终答案
 
+```bash
 class Solution {  
 public:  
     int findPeakElement(vector<int>& nums) {  
@@ -381,11 +384,12 @@ public:
         return low;   
     }  
 };
+```
 
 例子3
 在有序数组中，寻找第一个坏的版本
 
-原文地址，<LeetCode OJ> 278. First Bad Version
+原文地址，`<LeetCode OJ> 278. First Bad Version`
 
 用low来记录解
 
@@ -431,8 +435,9 @@ public:
 例子4
 在每一行有序的二维数组中寻找值
 
-原文地址，<LeetCode OJ> 74. / 240. Search a 2D Matrix  (I / II）
+原文地址，`<LeetCode OJ> 74. / 240. Search a 2D Matrix  (I / II）`
 
+```java
 class Solution {  
 public:  
     bool searchMatrix(vector<vector<int>>& matrix, int target) {  
@@ -460,6 +465,7 @@ public:
         return false;   
     }  
 };  
+```
 
 未完待续，持续学习二分法中........
 
