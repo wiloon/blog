@@ -13,28 +13,34 @@ tags:
 
 ## 解压多个文件
 
+```bash
     ls *.gz|xargs -t -n1 gunzip
     gunzip *.gz
+```
 
 ## .rar
 
+```bash
     # 解压
     unrar x foo.rar
     # 压缩
     rar e FileName.rar
     # 解压
     rar a FileName.rar
+```
 
 ## .gz
 
+```bash
     # 压缩
     gzip FileName
     # 解压1
     gunzip FileName.gz
     # 解压2
     gzip -d FileName.gz
+```
 
-#### 解压并指定输出目录
+### 解压并指定输出目录
 
 ```bash
 gunzip -c /data/tmp/foo.tar.gz | tar xf - -C /data/server/bar
@@ -47,7 +53,14 @@ gunzip -c /data/tmp/foo.tar.gz | tar xf - -C /data/server/bar
     pacman -S p7zip
     sudo apt install p7zip-full p7zip-rar
 
-    7z x filename.7z
+## .7z
+
+```bash
+yum install p7zip
+pacman -S p7zip
+sudo apt install p7zip-full p7zip-rar
+
+7z x filename.7z
 ```
 
 ## .zip
@@ -170,35 +183,37 @@ tar -rf all.tar *.gif
 
 #### tar参数
 
-    -c, --create : 创建新的压缩文件
-    -x : 从压缩的文件中提取文件
-    -t : 查看 tarfile 里面的文件, 特别注意，在参数的下达中， c/x/t 仅能存在一个！不可同时存在因为不可能同时压缩与解压缩。 
-    -z : 是否同时具有 gzip 的属性？亦即是否需要用 gzip 压缩？
-    -j : 是否同时具有 bzip2 的属性？亦即是否需要用 bzip2 压缩？
-    -v : 压缩的过程中显示文件！这个常用，在后台执行时不建议用!
-    -f, --file=ARCHIVE : 指定文件或设备,如果不加这个参数 tar 默认会去找环境变量里配置的 TAPE, 注意，在 f 之后要立即接文件名,不要再加其它参数, 例如使用『 tar -zcvfP tfile sfile』就是错误的写法，要写成 『 tar -zcvPf tfile sfile』才对
-    -p : 使用原文件的原来属性 (属性不会依据使用者而变)  
-    -P : 可以使用绝对路径来压缩！ 
-    -N : 比后面接的日期(yyyy/mm/dd)还要新的才会被打包进新建的文件中！ 
-    --exclude FILE: 在压缩的过程中，不要将 FILE 打包！  
-    -C : 在执行后续的指令前切换目录, 此参数是顺序敏感的.
-    -A 新增压缩文件到已存在的压缩
-    -B 设置区块大小
-    -d 记录文件的差别
-    -r 添加文件到已经压缩的文件
-    -u 添加改变了和现有的文件到已经存在的压缩文件
-    -Z 支持compress解压文件
-    -l 文件系统边界设置
-    -k 保留原有文件不覆盖
-    -m 保留文件不被覆盖
-    -W 确认压缩文件的正确性
-    
-    可选参数如下: 
-    -b 设置区块数目
-    -C 切换到指定目录
-    -f 指定压缩文件
-    -help 显示帮助信息
-    -version 显示版本信息
+```a
+-c, --create : 创建新的压缩文件
+-x : 从压缩的文件中提取文件
+-t : 查看 tarfile 里面的文件, 特别注意，在参数的下达中， c/x/t 仅能存在一个！不可同时存在因为不可能同时压缩与解压缩。 
+-z : 是否同时具有 gzip 的属性？亦即是否需要用 gzip 压缩？
+-j : 是否同时具有 bzip2 的属性？亦即是否需要用 bzip2 压缩？
+-v : 压缩的过程中显示文件！这个常用，在后台执行时不建议用!
+-f, --file=ARCHIVE : 指定文件或设备,如果不加这个参数 tar 默认会去找环境变量里配置的 TAPE, 注意，在 f 之后要立即接文件名,不要再加其它参数, 例如使用『 tar -zcvfP tfile sfile』就是错误的写法，要写成 『 tar -zcvPf tfile sfile』才对
+-p : 使用原文件的原来属性 (属性不会依据使用者而变)  
+-P : 可以使用绝对路径来压缩！ 
+-N : 比后面接的日期(yyyy/mm/dd)还要新的才会被打包进新建的文件中！ 
+--exclude FILE: 在压缩的过程中，不要将 FILE 打包！  
+-C : 在执行后续的指令前切换目录, 此参数是顺序敏感的.
+-A 新增压缩文件到已存在的压缩
+-B 设置区块大小
+-d 记录文件的差别
+-r 添加文件到已经压缩的文件
+-u 添加改变了和现有的文件到已经存在的压缩文件
+-Z 支持compress解压文件
+-l 文件系统边界设置
+-k 保留原有文件不覆盖
+-m 保留文件不被覆盖
+-W 确认压缩文件的正确性
+
+可选参数如下: 
+-b 设置区块数目
+-C 切换到指定目录
+-f 指定压缩文件
+-help 显示帮助信息
+-version 显示版本信息
+```
 
 ### .tar.gz 和 .tgz
 
@@ -513,6 +528,7 @@ lha请到: <http://www.infor.kanazawa-it.ac.jp/…/lhaunix/>下载！
 > [root@www2 tmp]# cp sEx /usr/bin/
 
 ## 压缩算法, deflate、gzip、bzip2、lzo、snappy
+
 <http://www.infoq.com/cn/news/2017/07/eBay-shopping-i-o?utm_campaign=infoq_content&utm_source=infoq&utm_medium=feed&utm_term=global>
 
 常用的压缩算法主要有: deflate、gzip、bzip2、lzo、snappy等。差别如下所示:
@@ -532,8 +548,13 @@ Snappy是Google基于LZ77的思路用C++语言编写的快速数据压缩与解�
 ---
 
 <https://blog.csdn.net/wuhenyan/article/details/53117642>
+
 <https://www.howtoing.com/zstd-fast-data-compression-algorithm-used-by-facebook>
+
 <https://blog.csdn.net/lj402159806/article/details/76618174>
+
 <http://blog.csdn.net/silvervi/article/details/6325698>
+
 <http://blog.csdn.net/xiaotuni/article/details/2099609>
+
 <http://xxw8393.blog.163.com/blog/static/37256834201172910058899/>

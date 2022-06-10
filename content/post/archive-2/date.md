@@ -10,15 +10,18 @@ tags:
   - reprint
   - remix
 
-
 ---
 ## date command
 
-    date [OPTION]... [+FORMAT]
+```bash
+date [OPTION]... [+FORMAT]
+```
 
 ### 日期格式化
 
-    date '+%Y-%m-%d %H:%M:%S'
+```bash
+date '+%Y-%m-%d %H:%M:%S'
+```
 
 ## 纳秒，毫秒
 
@@ -35,8 +38,10 @@ echo $[$(date +%s%N)/1000000]
 
 ## 参数
 
-    %s     seconds since 1970-01-01 00:00:00 UTC
-    %N     nanoseconds (000000000..999999999)
+```bash
+%s     seconds since 1970-01-01 00:00:00 UTC
+%N     nanoseconds (000000000..999999999)
+```
 
 ```bash
 # output date and time in RFC 5322 format.  Example: Mon, 14 Aug 2006 02:34:56 -0600
@@ -53,8 +58,9 @@ date -s 11/03/2009
 date -s 17:55:55
 ```
 
-><http://jerrybear.blog.51cto.com/629421/393097>
-><https://blog.csdn.net/BalterNotz/article/details/52949493>
+<http://jerrybear.blog.51cto.com/629421/393097>
+
+<https://blog.csdn.net/BalterNotz/article/details/52949493>
 
 BASH SHELL中可以定义变量显示当前日期
 

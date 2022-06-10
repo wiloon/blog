@@ -10,6 +10,10 @@ tags:
 ---
 ## mount, umount
 
+## archlinux 挂载 NTFS 分区
+
+新版本的 archlinux 支持直接挂载 NTFS 分区 2022-06-08 21:41:25
+
 ### commands
 
 ```bash

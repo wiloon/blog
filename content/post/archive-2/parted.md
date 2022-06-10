@@ -102,11 +102,11 @@ sudo mkfs.btrfs -L data0 /dev/sdx3
 #genfstab -p -U /mnt > /mnt/etc/fstab
 ```
 
-><https://www.gnu.org/software/parted/manual/html_chapter/parted_2.html>
-><https://www.gnu.org/software/parted/manual/html_node/mklabel.html>
-><https://linux.cn/article-3167-1.html>
+<https://www.gnu.org/software/parted/manual/html_chapter/parted_2.html>
+<https://www.gnu.org/software/parted/manual/html_node/mklabel.html>
+<https://linux.cn/article-3167-1.html>
 
-### parted分区NTFS文件系统
+### parted 分区 NTFS 文件系统
 
 ```bash
 sudo pacman -S ntfs-3g
