@@ -39,7 +39,7 @@ GOPRIVATE 环境变量
 环境变量 GOPRIVATE 用来控制 go 命令把哪些仓库看做是私有的仓库，这样的话，就可以跳过 proxy server 和校验检查，这个变量的值支持用逗号分隔，可以填写多个值，例如：
 
 ```bash
-    GOPRIVATE=*.corp.example.com,rsc.io/private
+GOPRIVATE=*.corp.example.com,rsc.io/private
 ```
 
 这样 go 命令会把所有包含这个后缀的软件包，包括 git.corp.example.com/xyzzy , rsc.io/private, 和 rsc.io/private/quux 都以私有仓库来对待。
