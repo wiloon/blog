@@ -15,7 +15,7 @@ tags:
 
 <http://www.learn-english-today.com/lessons/lesson_contents/grammar/travel-trip-journey.html>
 
-<strong class="ind-10">TravelThe word 'travel' is used to talk about going from one place to another.
+TravelThe word 'travel' is used to talk about going from one place to another.
   
 It can be a verb, a noun or an adjective :
 
@@ -23,13 +23,13 @@ It can be a verb, a noun or an adjective :
 * **Noun** : **Travel** nowadays is faster than before.
 * **Adjective** : There is a **travel** agency beside the bank.
 
-<strong class="ind-10">TripThe word **trip** is used to talk about a short journey somewhere for a purpose, business or pleasure.
+TripThe word **trip** is used to talk about a short journey somewhere for a purpose, business or pleasure.
 
 * For our wedding anniversary, we went on a **trip** to Venice.
 * My boss is often away on business **trips**.
 * During our holiday we took a boat **trip** to the islands.
 
-<strong class="ind-10">JourneyA **journey** is the distance covered when travelling from one place to another.
+JourneyA **journey** is the distance covered when travelling from one place to another.
   
 'Journey' can refer to a long distance or a short regular one.
 
@@ -37,14 +37,14 @@ It can be a verb, a noun or an adjective :
 * Did you have a good **journey**? Yes, it was quite pleasant.
 * How long is you**r journey** to work? Just about 20 minutes.
 
-<strong class="ind-10">TourA **tour** is a journey during which several places are visited, especially on a holiday.
+TourA **tour** is a journey during which several places are visited, especially on a holiday.
   
 'Tour' can be a noun or a verb.
 
 * **Noun** : We went on **a tour** of Italy.
 * **Verb** : **We toured** the north of India.
 
-<strong class="ind-10">VoyageA **voyage** is a long journey by sea or in space.
+VoyageA **voyage** is a long journey by sea or in space.
 
 * Before the 20th century, long **sea voyages** were common.
 * A spacecraft will take you on a **voyage through space**.

@@ -15,7 +15,13 @@ tags:
 
 ```bash
 # archlinux 
-pacman -S cronie
+#pacman -S cronie
+When using the systemd init system, (persistent) timers are available as a replacement of (ana)cron. Systemd#Timer_services
+
+Since version 197 systemd supports timers, making cron unnecessary on a systemd system. Since version 212 persistent services are supported, replacing even anacron. Persistent timers are run at the next opportunity if the system was powered down when the timer was scheduled to run.
+
+# https://wiki.gentoo.org/wiki/Cron
+# https://wiki.gentoo.org/wiki/Systemd#Timer_services
 
 # 查看 cron 是否已经安装
 # centos

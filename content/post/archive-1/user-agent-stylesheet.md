@@ -9,6 +9,7 @@ tags:
   - reprint
 ---
 ## User Agent Stylesheet
+
 大家通常看到一个没有带任何CSS样式文件的HTML却带有不错的样式，这是由于在W3C的HTML标准里，一些HTML标签自带一些CSS样式。
 
 不同的浏览器把实现这些HTML自带样式的模块称作User Agent Stylesheet。

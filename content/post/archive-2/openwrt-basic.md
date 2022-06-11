@@ -40,19 +40,25 @@ $ cat /etc/dnsmasq.conf
 
 #### 手动指定上游dns vi /etc/dnsmasq.conf
 
+```bash
 server=223.5.5.5
 server=223.6.6.6
+```
 
 ### openwrt 修改IP地址
 
+```bash
     vi /etc/config/network
+```
 
 ### opwnert init
 
+```bash
 opkg install coreutils-nohup
 opkg install ipset
 opkg remove dnsmasq
 opkg install dnsmasq-full
+```
 
 ### openwrt cron
 

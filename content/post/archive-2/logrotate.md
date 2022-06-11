@@ -86,10 +86,12 @@ crontab -e
 
 ### /etc/crontab
 
+```r
     01 * * * * root run-parts /etc/cron.hourly
     02 4 * * * root run-parts /etc/cron.daily
     22 4 * * 0 root run-parts /etc/cron.weekly
     42 4 1 * * root run-parts /etc/cron.monthly
+```
 
 run-parts 命令位于 /usr/bin/run-parts, 内容是很简单的一个shell脚本, 就是遍历目标文件夹, 执行第一层目录下的可执行权限的文件。
 

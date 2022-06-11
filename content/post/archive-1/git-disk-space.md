@@ -2,7 +2,7 @@
 title: Git 库空间优化/清理
 author: "-"
 date: 2012-10-26T04:44:51+00:00
-url: /?p=4549
+url: git/disk
 categories:
   - Git
 tags:
