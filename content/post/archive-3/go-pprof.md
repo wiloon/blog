@@ -25,23 +25,23 @@ go func() {
 
 ```
 
-     http://localhost:8080/debug/pprof/
+<http://localhost:8080/debug/pprof/>
 
 ### cpu
 
-go tool pprof http://localhost:8080/debug/pprof/profile?seconds=60
+go tool pprof <http://localhost:8080/debug/pprof/profile?seconds=60>
 
 ### mem
 
-go tool pprof http://localhost:6060/debug/pprof/heap
+go tool pprof <http://localhost:6060/debug/pprof/heap>
 
 ### block
 
-go tool pprof http://localhost:8080/debug/pprof/block
+go tool pprof <http://localhost:8080/debug/pprof/block>
 
 ### mutex
 
-go tool pprof http://localhost:6060/debug/pprof/mutex
+go tool pprof <http://localhost:6060/debug/pprof/mutex>
 
 ## runtime/pprof
 
@@ -67,6 +67,7 @@ defer profile.Start(profile.MemProfile).Stop()
 defer profile.Start(profile.MutexProfile).Stop()
 
 ```
+
 ## CPU profiling
 
 CPU 性能分析(CPU profiling) 是最常见的性能分析类型。
@@ -86,6 +87,7 @@ defer f.Close()
 pprof.StartCPUProfile(f)
 defer pprof.StopCPUProfile()
 ```
+
 ### 分析数据
 
 ```bash
@@ -133,13 +135,14 @@ go tool pprof -http=:9999 /tmp/profile215959616/mem.pprof
 一般情况下，当所有的 CPU 和内存瓶颈解决后，才会考虑这一类分析。
 
 ## 锁性能分析
+
 锁性能分析(mutex profiling) 与阻塞分析类似，但专注于因为锁竞争导致的等待或延时。
 
-https://colobu.com/2016/12/21/how-to-dump-goroutine-stack-traces/
+<https://colobu.com/2016/12/21/how-to-dump-goroutine-stack-traces/>
   
-https://golang.org/pkg/net/http/pprof/
+<https://golang.org/pkg/net/http/pprof/>
   
-https://segmentfault.com/a/1190000016412013
+<https://segmentfault.com/a/1190000016412013>
 
 ```go
 import _ "net/http/pprof"
@@ -167,20 +170,20 @@ go tool pprof http://localhost:6060/debug/pprof/heap
     http://localhost:8080/debug/pprof/
     默认512kb进行 一次采样
 
-https://lrita.github.io/2017/05/26/golang-memory-pprof/#golang-pprof
+<https://lrita.github.io/2017/05/26/golang-memory-pprof/#golang-pprof>
 
 ### runtime.MemStats
-MemStats是一个结构体,里面指标很多,常用的有: 
+
+MemStats是一个结构体,里面指标很多,常用的有:
 
 HeapObjects: 堆中已经分配的对象总数,GC内存回收后HeapObjects取值相应减小。
 HeapAlloc:  堆中已经分配给对象的字节数,GC内存回收后HeapAlloc取值相应减小。
 TotalAlloc:  堆中已经分配给对象的总的累计字节数,只增不减,GC内存回收后也不减小。
 HeapSys: 从操作系统为堆申请到的字节数。
-HeapIdle: 堆的闲置区间,包括已经归还给操作系统的物理字节数 (HeapReleased) 
+HeapIdle: 堆的闲置区间,包括已经归还给操作系统的物理字节数 (HeapReleased)
 HeapReleased: 已经归还给操作系统的物理字节数,是HeapIdle的子集。
 
->https://blog.haohtml.com/archives/21685
->https://blog.csdn.net/pengpengzhou/article/details/106901368
->https://geektutu.com/post/hpg-pprof.html
->https://github.com/google/pprof/tree/master/doc
-
+><https://blog.haohtml.com/archives/21685>
+><https://blog.csdn.net/pengpengzhou/article/details/106901368>
+><https://geektutu.com/post/hpg-pprof.html>
+><https://github.com/google/pprof/tree/master/doc>

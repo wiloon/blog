@@ -2,13 +2,14 @@
 title: nfs
 author: "-"
 date: 2018-12-16T08:36:59+00:00
-url: /?p=13116
+url: nfs
 categories:
   - Inbox
 tags:
   - reprint
 ---
 ## nfs
+
 ```bash
 # nfs-utils 包含客户端和服务端实现
 sudo pacman -S  nfs-utils
@@ -43,6 +44,7 @@ sudo systemctl enable nfs-server
 ## client
 
 ### linux client
+
 ```bash
 showmount -e servername
 mount server:/ /mountpoint/on/client
@@ -83,14 +85,23 @@ umount z:
 
 ```
 
-https://wiki.archlinux.org/index.php/NFS#Installation
+<https://wiki.archlinux.org/index.php/NFS#Installation>
   
-https://blogs.msdn.microsoft.com/sfu/2009/03/27/can-i-set-up-user-name-mapping-in-windows-vista/
+<https://blogs.msdn.microsoft.com/sfu/2009/03/27/can-i-set-up-user-name-mapping-in-windows-vista/>
 
-
+NFS on CentOS 7 & Windows 10 NFS Client Configuration
   
-    NFS on CentOS 7 & Windows 10 NFS Client Configuration
-  
+<https://dovidenko.com/2017/505/nfs-centos-7-windows-10-network-shares.html/embed#?secret=DYEnZkJ5i8>
 
+## 其他选项
 
-https://dovidenko.com/2017/505/nfs-centos-7-windows-10-network-shares.html/embed#?secret=DYEnZkJ5i8
+- secure：限制客户端只能从小于1024的TCP/IP端口连接NFS服务器（默认设置）。
+- insecure：允许客户端从大于1024的TCP/IP端口连接NFS服务器。
+- sync：将数据同步写入内存缓冲区与磁盘中，虽然这样做效率较低，但可以保证数据的一致性。
+- async：将数据先保存在内存缓冲区中，必要时才写入磁盘。
+- wdelay：检查是否有相关的写操作，如果有则将这些写操作一起执行，这样可提高效率（默认设置）。
+- no_wdelay：若有写操作则立即执行，应与sync配合使用。
+- subtree_check：所输出目录是一个子目录，则NFS服务器将检查其父目录的权限（默认设置）。
+- no_subtree_check：即使输出目录是一个子目录，NFS服务器也不检查其父目录的权限，这样做可以提高效率。
+
+<https://www.cnblogs.com/nufangrensheng/p/3486839.html>

@@ -160,7 +160,7 @@ virsh detach-device <虚拟机名称> /etc/libvirt/qemu/test2-add.xml --persiste
 
 ```
 
-><https://linux.die.net/man/1/virt-install>
+<https://linux.die.net/man/1/virt-install>
 
 ### 虚拟机改名
 
@@ -172,7 +172,7 @@ virsh undefine foo
 virsh define /etc/libvirt/qemukvm_00.xml 
 ```
 
-><http://www.cnblogs.com/5201351/p/4464350.html>
+<http://www.cnblogs.com/5201351/p/4464350.html>
 
 ## 调整内存
 
