@@ -26,8 +26,8 @@ choco upgrade keepassxc
 ### chocolatey packages
 
 | Name                       | 备注                  |
-| -------------------------- | ---------------------  |
-| chocolatey                 | choco可以自己更新自己    |
+| -------------------------- | --------------------- |
+| chocolatey                 | choco可以自己更新自己   |
 | keepassxc                  |                       |
 | microsoft-windows-terminal | 1.12.10393.0          |
 | winscp                     |                       |
@@ -47,16 +47,13 @@ choco upgrade keepassxc
 
 | Name             | Comments |
 | ---------------- | -------- |
-|MobaXterm|ssh client|
-| Open Hardware Monitor | 监控,温度,内存 |
+| MiniTool Partition Wizard |磁盘分区工具|
+| MobaXterm                 |ssh client|
+| Open Hardware Monitor     | 监控,温度,内存 |
 | WizTree | 硬盘占用分析 |
 |Process Hacker|代替任务管理器|
 |chrome||
 |rufus|创建启动盘,iso to usb |
-|搜狗五笔||
-|微信||
-|企业微信||
-|企业QQ||
 |foxmail||
 |TortoiseSVN||
 |powershell||
@@ -82,11 +79,7 @@ wps/liberoffice
 xmind
   
 picpick
-  
-hedisql
 
-firefox
-  
 base64tools
   
 everything
