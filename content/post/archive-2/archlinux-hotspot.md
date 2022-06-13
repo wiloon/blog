@@ -14,9 +14,9 @@ system: archlinux
 interface: eth*2, wlan*1  
 无线网卡必须支持AP模式  
 
-###
-
+```bash
     iw list
+```
 
 配置
 接入点的设置包含两个主要部分:

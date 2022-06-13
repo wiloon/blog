@@ -24,11 +24,11 @@ OpenVPN 使用账号+密码方式登陆
 
 服务端配置
 
-# 修改服务端配置文件,文件最后追加几行
+修改服务端配置文件,文件最后追加几行
 
 $ vim /etc/openvpn/delta.conf
 
-# use username and password login
+use username and password login
 
 auth-user-pass-verify /etc/openvpn/checkpsw.sh via-env
   

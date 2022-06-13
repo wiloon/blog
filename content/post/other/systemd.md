@@ -34,7 +34,11 @@ systemctl --now enable service0
 systemctl status service0
 ```
 
-配置文件主要放在/usr/lib/systemd/system 目录,也可能在/etc/systemd/system目录
+配置文件主要放在 /usr/lib/systemd/system 目录, 也可能在/etc/systemd/system 目录
+
+- /lib/systemd/system：系统默认的单元文件
+- /etc/systemd/system：用户安装的软件的单元文件
+- /usr/lib/systemd/system：用户自己定义的单元文件
 
 ### 配置文件
 
@@ -82,8 +86,9 @@ Environment="ANOTHER_SECRET=JP8YLOc2bsNlrGuD6LVTq7L36obpjzxd"
 
 ### systemd-analyze
 
-# 查看启动耗时
+查看启动耗时
 
+```bash
     $ systemd-analyze
     
     # 查看每个服务的启动耗时
@@ -94,6 +99,7 @@ Environment="ANOTHER_SECRET=JP8YLOc2bsNlrGuD6LVTq7L36obpjzxd"
 
     # 显示指定服务的启动流
     $ systemd-analyze critical-chain atd.service
+```
 
 ## systemd 版本/version
 

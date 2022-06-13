@@ -22,10 +22,10 @@ tags:
     ssh -T git@github.com
 ```
 
-### 强制使用密码登录, force ssh client to use only password auth
+### ssh 强制使用密码登录, force ssh client to use only password auth
 
 ```bash
-    ssh -o PreferredAuthentications=password -o PubkeyAuthentication=no 192.168.2.x -l user0
+ssh -o PreferredAuthentications=password -o PubkeyAuthentication=no 192.168.2.x -l user0
 ```
 
 ```bash

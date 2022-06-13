@@ -27,8 +27,6 @@ LLMNR=false
 
 <https://cloud-atlas.readthedocs.io/zh_CN/latest/linux/redhat_linux/systemd/systemd_resolved.html>
 
-## resolv.conf, systemd-resolved
-
 ```bash
 ### check status
 resolvectl status

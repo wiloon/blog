@@ -47,7 +47,7 @@ pacman -S openssh
 systemctl start sshd
 systemctl enable sshd
 
-# connect to new system with user0 via ssh
+connect to new system with user0 via ssh
 
 ### ntp, chrony
 

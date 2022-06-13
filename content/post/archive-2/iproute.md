@@ -11,10 +11,11 @@ tags:
 ## iproute2 basic
 
 ### install
+
    apt install iproute2
 
-
 ### 查看IP地址
+
 ```bash
 # 显示所有网络地址
 ip address show
@@ -52,11 +53,14 @@ ip addr show dev eth1
 ```
 
 ### 设置网卡为混杂模式
+
 ip link set enp1s0 promisc on
 
-##### 系统启动后把网卡设置为混杂模式
+#### 系统启动后把网卡设置为混杂模式
+
 vim /usr/lib/systemd/system/promiscuous_mode@.service
 
+```bash
     [Unit]
     Description=Control promiscuous mode for interface %i
     After=network-online.target
@@ -70,9 +74,13 @@ vim /usr/lib/systemd/system/promiscuous_mode@.service
 
     [Install]
     WantedBy=multi-user.target
+```
 
 ##### systemctl enable
+
+```bash
     systemctl enable promiscuous_mode@enp1s0.service
+```
 
 ```bash
 ip addr add 192.168.53.0/24 dev wg0
@@ -82,6 +90,7 @@ ip link delete dev wg0
 ```
 
 ### 显示链路信息
+
 ```bash
 ip link list # 显示ip链路状态信息
 
@@ -90,9 +99,8 @@ ip link
 ip link show dev eth0
 ```
 
-
-
 ### 路由
+
 title: iproute2 > 路由表, routing table
 
 ---
@@ -109,7 +117,7 @@ $: iptables -t mangle -A OUTPUT -p tcp -sport 8080 -j MARK -set-mark 2
 
 $: ip rule add priority 10000 fwmark 2 table 2
 
-https://segmentfault.com/a/1190000000638244
+<https://segmentfault.com/a/1190000000638244>
 
 iproute基本介绍
   
@@ -146,19 +154,19 @@ ip基本使用方法
 # ip -help
 
 Usage: ip [ OPTIONS ] OBJECT { COMMAND | help }
-         
+
 ip [ -force ] -batch filename
   
 where OBJECT := { link | addr | addrlabel | route | rule | neigh | ntable |
-                     
+
 tunnel | maddr | mroute | mrule | monitor | xfrm }
-         
+
 OPTIONS := { -V[ersion] | -s[tatistics] | -d[etails] | -r[esolve] |
-                      
+
 -f[amily] { inet | inet6 | ipx | dnet | link } |
-                      
+
 -o[neline] | -t[imestamp] | -b[atch] [filename] |
-                      
+
 -rc[vbuf] [size]}
   
 OBJECT
@@ -188,17 +196,17 @@ ip utility, iproute2-ss091226
 # ip link
 
 1: lo: <LOOPBACK,UP,LOWER_UP> mtu 16436 qdisc noqueue state UNKNOWN
-      
+
 link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
   
 2: eth0: <BROADCAST,MULTICAST> mtu 1500 qdisc pfifo_fast state DOWN qlen 1000
-      
+
 link/ether 00:0c:29:3b:9c:6f brd ff:ff:ff:ff:ff:ff
 
 # ip link show dev eth0
 
 2: eth0: <BROADCAST,MULTICAST> mtu 1500 qdisc pfifo_fast state DOWN qlen 1000
-      
+
 link/ether 00:0c:29:3b:9c:6f brd ff:ff:ff:ff:ff:ff
   
 显示IP地址
@@ -206,21 +214,20 @@ link/ether 00:0c:29:3b:9c:6f brd ff:ff:ff:ff:ff:ff
 # ip addr
 
 1: lo: <LOOPBACK,UP,LOWER_UP> mtu 16436 qdisc noqueue state UNKNOWN
-      
+
 link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
-      
+
 inet 127.0.0.1/8 scope host lo
-      
+
 inet6 ::1/128 scope host
-         
+
 valid_lft forever preferred_lft forever
   
 2: eth0: <BROADCAST,MULTICAST> mtu 1500 qdisc pfifo_fast state DOWN qlen 1000
-      
-link/ether 00:0c:29:3b:9c:6f brd ff:ff:ff:ff:ff:ff
-      
-inet 192.168.0.10/24 brd 192.168.0.255 scope global eth0
 
+link/ether 00:0c:29:3b:9c:6f brd ff:ff:ff:ff:ff:ff
+
+inet 192.168.0.10/24 brd 192.168.0.255 scope global eth0
 
 ```bash
 # Change link MTU
@@ -240,15 +247,13 @@ ip route show
 ip tuntap list
 ```
 
-
 ---
 
-
-https://baturin.org/docs/iproute2/
+<https://baturin.org/docs/iproute2/>
   
-https://segmentfault.com/a/1190000000638244
+<https://segmentfault.com/a/1190000000638244>
   
-https://access.redhat.com/sites/default/files/attachments/rh_ip_command_cheatsheet_1214_jcs_print.pdf
-https://www.cnblogs.com/LiuYanYGZ/p/12368421.html
-http://linux-ip.net/html/routing-tables.html
->http://linux-ip.net/gl/ip-cref/ip-cref.html
+<https://access.redhat.com/sites/default/files/attachments/rh_ip_command_cheatsheet_1214_jcs_print.pdf>
+<https://www.cnblogs.com/LiuYanYGZ/p/12368421.html>
+<http://linux-ip.net/html/routing-tables.html>
+><http://linux-ip.net/gl/ip-cref/ip-cref.html>

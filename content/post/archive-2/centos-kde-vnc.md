@@ -134,8 +134,8 @@ VNC viewer的基本无需额外设置,点击菜单file-> new connection,然后VN
 
 vncserver -list
 
-
 ## centos vncserver
+
 CENTOS6的VNC SERVER
   
 CENTOS6中的VNC SERVER已更換成tightvnc
