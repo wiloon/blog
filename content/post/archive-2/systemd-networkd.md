@@ -33,6 +33,7 @@ networkd内置了dhcp client。如果需要更新resolv.conf,则需要启动 sys
 
 ### .network 配置
 
+```bash
     [Match]
     Name= 设备名 (比如Br0, enp4s0, 也可以用通配符, 比如 en*)
     Host= 匹配的 hostname
@@ -44,6 +45,7 @@ networkd内置了dhcp client。如果需要更新resolv.conf,则需要启动 sys
     Bridge= 如果要将这个连接加入网桥, 在这里写入目标网桥的名字
     Address= 静态的 IPv4 或者 IPv6 地址, 以及相应的用/<数字>方式表示的掩码(如 192.168.1.90/24).
     Gateway= 网关地址.
+```
 
 如果需要指定多个 DNS, Address 或者 Gateway, 你可以多次指定相应的键值对. (也就是说, 多写几行 DNS=xxx, DNS=yyy…)
 
@@ -79,10 +81,12 @@ sudo systemctl start wpa_supplicant@wlp2s0
 
 for eth0, vim  /etc/systemd/network/eth.network
 
+```bash
     [Match]
     Name=en*
     [Network]
     DHCP=yes
+```
 
 ### 配置静态 IP, 网关
 
@@ -104,11 +108,13 @@ DNS=192.168.50.1
 
 ### 把网卡加入网桥 /etc/systemd/network/10-eth1.network
 
+```bash
     [Match]
     Name=enp3s0
 
     [Network]
     Bridge=br0
+```
 
 ### check network config
 

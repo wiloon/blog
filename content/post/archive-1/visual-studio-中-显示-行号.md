@@ -1,12 +1,17 @@
 ---
-title: 'visual studio 中 显示  行号'
+title: udev
 author: "-"
 date: 2013-02-19T06:39:50+00:00
-url: /?p=5200
+url: udev
 categories:
-  - Inbox
+  - Linux
 tags:
   - reprint
 ---
-## 'visual studio 中 显示  行号'
-工具-〉选项-〉文本编辑器-〉语言 (比如C#) -〉显示-〉行号
+## udev
+
+udev 是Linux kernel的设备管理器, 2012年4月，udev被合并至systemd。
+
+<https://linux.cn/article-13691-1.html>
+
+<https://www.jianshu.com/p/f9385d5703a7>

@@ -161,7 +161,7 @@ WantedBy=multi-user.target
 
 ### The mappings of systemd limits to ulimit
 
-```
+```bash
 Directive        ulimit equivalent     Unit
 LimitCPU=        ulimit -t             Seconds      
 LimitFSIZE=      ulimit -f             Bytes

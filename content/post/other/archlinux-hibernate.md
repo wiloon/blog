@@ -12,10 +12,12 @@ tags:
 ## archlinux hibernate
 
 ### edit config file  /etc/mkinitcpio.conf add resume field
+
 ```bash
 sudo vim /etc/mkinitcpio.conf
 HOOKS=(base udev resume autodetect modconf block filesystems keyboard fsck)
 ```
+
 Configure the initramfs
 
 When an initramfs with the base hook is used, which is the default, the resume hook is required in /etc/mkinitcpio.conf. Whether by label or by UUID, the swap partition is referred to with a udev device node, so the resume hook must go after the udev hook. This example was made starting from the default hook configuration:
@@ -25,11 +27,13 @@ Remember to rebuild the initramfs for these changes to take effect.
 run mkinitcpio -p linux to rebuild the initramfs
 
 ### rebuild initramfs
+
 ```bash
 sudo mkinitcpio -p linux
 ```
 
 ### for uefi
+
 ```bash
 vim /boot/loader/entries/arch.conf
 # add line
@@ -37,6 +41,7 @@ options resume=UUID=ed325732-b768-4680-a4ff-24dd0da24509
 ```
 
 ### for syslinux
+
 edit /boot/syslinux/syslinux.cfg
 
 Required kernel parameters
@@ -59,4 +64,4 @@ systemctl hibernate
 
 hibernate and re start the system.
 
-https://wiki.archlinux.org/index.php/Power_management/Suspend_and_hibernate
+<https://wiki.archlinux.org/index.php/Power_management/Suspend_and_hibernate>

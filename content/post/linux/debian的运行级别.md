@@ -9,6 +9,7 @@ tags:
   - reprint
 ---
 ## Debian的运行级别
+
 转自: <http://dagai.net/archives/569>
 
 最近在看王旭的《debian标准教程》，讲的真的是很广，但很浅，就运行级别这一小段，让老夫琢磨了好几天，也就明白debian的运行级别与redhat系的那些不一样，在centos中，runlevel 5就是图形界面，3是文本界面，而在debian中，runlevel 2-5都是多用户状态，这几个级别一样的，怎么设置这些服务的状态呢，centos有ntsysv和chkconfig啊，王旭在书中也就提到了rcconf这个命令，弄了半天弄得莫名其妙，到处搜啊搜的，终于发现，原来debian下还有个比chkconfig更好用的sysv-rc-conf。
@@ -37,7 +38,7 @@ sysv-r-conf可以按ctrl+n和ctrl+p下翻和上翻，也可以按-来停止某�
   
 至于怎么把程序加入到服务，update-rc.d。
 
-下面是一些常见的系统服务: 
+下面是一些常见的系统服务:
   
 acpi-support 高级电源管理支持
   
