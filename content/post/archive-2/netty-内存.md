@@ -10,6 +10,6 @@ tags:
 ---
 ## netty 内存
 
-https://www.jianshu.com/p/ce7c6f5cb5f6
+<https://www.jianshu.com/p/ce7c6f5cb5f6>
   
-https://www.jianshu.com/p/ed43572052ae
+<https://www.jianshu.com/p/ed43572052ae>

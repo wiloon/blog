@@ -10,7 +10,7 @@ tags:
 ---
 ## java 对象
 
-http://www.jianshu.com/p/ebaa1a03c594
+<http://www.jianshu.com/p/ebaa1a03c594>
 
 Java程序执行时,第一步系统创建虚拟机进程,然后虚拟器用类加载器Class Loader加载java程序类文件到方法区。
 
@@ -22,13 +22,13 @@ Java程序执行时,第一步系统创建虚拟机进程,然后虚拟器用类�
 
 详细Java程序运行的内存结构介绍 点此处
 
-简要过程: 
+简要过程:
 
 类加载完成后,主线程运行static main () 时在虚拟机栈中建栈帧,压栈。
 
 执行到new Object () 时,在堆heap里创建对象。
 
-对象创建的过程就是堆上分配实例对象内容空间的过程,在堆中对象内存空间的具体结构如下: 
+对象创建的过程就是堆上分配实例对象内容空间的过程,在堆中对象内存空间的具体结构如下:
 
 对象头 这个头包括两个部分,第一部分用于存储自身运行时的数据例如GC标志位、哈希码、锁状态等信息。第二部分存放指向方法区类静态数据的指针。
 
@@ -42,7 +42,7 @@ Java虚拟机规范规定该区域可抛出OutOfMemoryError。
 
 详细步骤
 
-例如: 
+例如:
 
 Dog dog= new Dog()；
   
@@ -60,7 +60,7 @@ Dog dog= new Dog()；
 
 到此,new运算符可以返回堆中这个对象的引用了。
 
-此刻,会根据dog这个变量是实例变量、局部变量或静态变量的不同将引用放在不同的地方: 
+此刻,会根据dog这个变量是实例变量、局部变量或静态变量的不同将引用放在不同的地方:
 
 如果dog局部变量,dog变量在栈帧的局部变量表,这个对象的引用就放在栈帧。
 
@@ -68,10 +68,10 @@ Dog dog= new Dog()；
 
 如果dog是静态变量,dog变量在方法区,对象的引用就放在方法区。
 
-
 Java有三种方法可以创建对象实例。
 
 ### new
+
 通常都是使用java的关键字new来创建对象实例。
 
 若有一个Something类,则可以通过下面的语句创建Something类的对象实例并指定到变量obj。
@@ -85,6 +85,7 @@ Something something New = new Something()；
 通过new创建对象实例必须把类名写在原代码里面。
 
 ### clone
+
 若程序写成如下,则可以根据当前对象 (this) 建立一个新实例对象 (没有调用构造函数) .
 
 ```java
@@ -121,7 +122,7 @@ return obj;
 
 但是为什么不直接使用somethingNew.clone()呢？
 
-JDK中Object# clone()方法的原型是: 
+JDK中Object# clone()方法的原型是:
 
 protected native Object clone() throws CloneNotSupportedException;
 
@@ -163,7 +164,7 @@ somethingNew.getClass().newInstance().
 
 ```
 
-或者使用下面的语句 (只需要存在相应的.class文件即可) 
+或者使用下面的语句 (只需要存在相应的.class文件即可)
 
 ```java
 
@@ -177,19 +178,20 @@ Something instance = (Something) Class.forName("cn.softkid.test.Something").newI
 
 抛出java.lang.InstantiationException异常。无法进行实例化。
 
-
 ### 打印对象内存地址
 
 ```java
 String s3 = "helloworld";
 System.out.println(System.identityHashCode(s3));
 ```
+
 String类重写了hashCode方法,它根据String的值来确定hashCode的值,所以只要值一样,hashCode就会一样。
 identityHashCode和hashCode的区别是,identityHashCode会返回对象的hashCode,而不管对象是否重写了hashCode方法。
 
 ### Java对象结构
+
 Java对象存储在堆 (Heap) 内存。那么一个Java对象到底包含什么呢？概括起来分为对象头、对象体和对齐字节。
-几个部分的作用: 
+几个部分的作用:
 
 1. 对象头中的Mark Word (标记字) 主要用来表示对象的线程锁状态,另外还可以用来配合GC、存放该对象的hashCode；
 2. Klass Word是一个指向方法区中Class信息的指针,意味着该对象可随时知道自己是哪个Class的实例；
@@ -199,11 +201,13 @@ Java对象存储在堆 (Heap) 内存。那么一个Java对象到底包含什么�
 
 ————————————————
 版权声明: 本文为CSDN博主「六吨代码」的原创文章,遵循CC 4.0 BY-SA版权协议,转载请附上原文出处链接及本声明。
-原文链接: https://blog.csdn.net/liudun_cool/article/details/86286872
+原文链接: <https://blog.csdn.net/liudun_cool/article/details/86286872>
 
-### Mark Word (标记字) 
+### Mark Word (标记字)
+
 #### lock
-2位的锁状态标记位,由于希望用尽可能少的二进制位表示尽可能多的信息,所以设置了lock标记。该标记的值不同,整个Mark Word表示的含义不同。biased_lock和lock一起,表达的锁状态含义如下: 
+
+2位的锁状态标记位,由于希望用尽可能少的二进制位表示尽可能多的信息,所以设置了lock标记。该标记的值不同,整个Mark Word表示的含义不同。biased_lock和lock一起,表达的锁状态含义如下:
 
     biased_lock       lock            状态
     0                 01              无锁
@@ -212,11 +216,12 @@ Java对象存储在堆 (Heap) 内存。那么一个Java对象到底包含什么�
                       10              重量级锁
                       11              GC标记
 
-
 #### biased_lock
+
 对象是否启用偏向锁标记,只占1个二进制位。为1时表示对象启用偏向锁,为0时表示对象没有偏向锁。lock和biased_lock共同表示对象处于什么锁状态。
 
 #### age
+
 4位的Java对象年龄。在GC中,如果对象在Survivor区复制一次,年龄增加1。当对象达到设定的阈值时,将会晋升到老年代。默认情况下,并行GC的年龄阈值为15,并发GC的年龄阈值为6。由于age只有4位,所以最大值为15,这就是-XX:MaxTenuringThreshold选项最大值为15的原因。
 
 identity_hashcode: 31位的对象标识hashCode,采用延迟加载技术。调用方法System.identityHashCode()计算,并会将结果写到该对象头中。当对象加锁后 (偏向、轻量级、重量级) ,MarkWord的字节没有足够的空间保存hashCode,因此该值会移动到管程Monitor中。
@@ -229,7 +234,7 @@ ptr_to_lock_record: 轻量级锁状态下,指向栈中锁记录的指针。
 
 ptr_to_heavyweight_monitor: 重量级锁状态下,指向对象监视器Monitor的指针。
 
-我们通常说的通过synchronized实现的同步锁,真实名称叫做重量级锁。但是重量级锁会造成线程排队 (串行执行) ,且会使CPU在用户态和核心态之间频繁切换,所以代价高、效率低。为了提高效率,不会一开始就使用重量级锁,JVM在内部会根据需要,按如下步骤进行锁的升级: 
+我们通常说的通过synchronized实现的同步锁,真实名称叫做重量级锁。但是重量级锁会造成线程排队 (串行执行) ,且会使CPU在用户态和核心态之间频繁切换,所以代价高、效率低。为了提高效率,不会一开始就使用重量级锁,JVM在内部会根据需要,按如下步骤进行锁的升级:
 
         1.初期锁对象刚创建时,还没有任何线程来竞争,对象的Mark Word是下图的第一种情形,这偏向锁标识位是0,锁状态01,说明该对象处于无锁状态 (无线程竞争它) 。
 
@@ -239,15 +244,15 @@ ptr_to_heavyweight_monitor: 重量级锁状态下,指向对象监视器Monitor�
 
         4.如果竞争的这个锁对象的线程更多,导致了更多的切换和等待,JVM会把该锁对象的锁升级为重量级锁,这个就叫做同步锁,这个锁对象Mark Word再次发生变化,会指向一个监视器对象,这个监视器对象用集合的形式,来登记和管理排队的线程。如下图第四种情形。
 
-### Klass Word (类指针) 
+### Klass Word (类指针)
+
 这一部分用于存储对象的类型指针,该指针指向它的类元数据,JVM通过这个指针确定对象是哪个类的实例。该指针的位长度为JVM的一个字大小,即32位的JVM为32位,64位的JVM为64位。
 
-如果应用的对象过多,使用64位的指针将浪费大量内存,统计而言,64位的JVM将会比32位的JVM多耗费50%的内存。为了节约内存可以使用选项+UseCompressedOops 开启指针压缩,其中,oop即 ordinary object pointer 普通对象指针。开启该选项后,下列指针将压缩至32位: 
+如果应用的对象过多,使用64位的指针将浪费大量内存,统计而言,64位的JVM将会比32位的JVM多耗费50%的内存。为了节约内存可以使用选项+UseCompressedOops 开启指针压缩,其中,oop即 ordinary object pointer 普通对象指针。开启该选项后,下列指针将压缩至32位:
 
-- 每个Class的属性指针 (即静态变量) 
-- 每个对象的属性指针 (即对象变量) 
+- 每个Class的属性指针 (即静态变量)
+- 每个对象的属性指针 (即对象变量)
 - 普通对象数组的每个元素指针
-
 
 当然,也不是所有的指针都会压缩,一些特殊类型的指针JVM不会优化,比如指向 PermGen 的 Class 对象指针 (JDK8中指向元空间的Class对象指针)、本地变量、堆栈元素、入参、返回值和NULL指针等。
 
@@ -255,7 +260,4 @@ ptr_to_heavyweight_monitor: 重量级锁状态下,指向对象监视器Monitor�
 如果对象是一个数组,那么对象头还需要有额外的空间用于存储数组的长度,这部分数据的长度也随着JVM架构的不同而不同: 32位的JVM上,长度为32位；64位JVM则为64位。64位JVM如果开启+UseCompressedOops选项,该区域长度也将由64位压缩至32位
 ————————————————
 版权声明: 本文为CSDN博主「六吨代码」的原创文章,遵循CC 4.0 BY-SA版权协议,转载请附上原文出处链接及本声明。
-原文链接: https://blog.csdn.net/liudun_cool/article/details/86286872
-
-
-
+原文链接: <https://blog.csdn.net/liudun_cool/article/details/86286872>

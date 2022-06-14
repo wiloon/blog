@@ -15,7 +15,7 @@ tags:
 屏障技术
 内存屏障技术是一种屏障指令，它可以让 CPU 或者编译器在执行内存相关操作时遵循特定的约束，目前多数的现代处理器都会乱序执行指令以最大化性能，但是该技术能够保证内存操作的顺序性，在内存屏障前执行的操作一定会先于内存屏障后执行的操作6。
 
-><https://draveness.me/golang/docs/part3-runtime/ch07-memory/golang-garbage-collector/>
+<https://draveness.me/golang/docs/part3-runtime/ch07-memory/golang-garbage-collector/>
 
 ### 内存屏障 Memory Barrior
 

@@ -35,7 +35,7 @@ go test -bench .
 
 ```
 
-><https://geektutu.com/post/hpg-benchmark.html>
+<https://geektutu.com/post/hpg-benchmark.html>
 
     BenchmarkReader-8         409231              2549 ns/op
 

@@ -124,6 +124,7 @@ func SliceClear2(s *[]interface{}) {
     dir1 := path[:sepIndex]
 
 ### Full Slice Expression, 后续的 append() 操作将会导致重新分配内存
+
 <https://coolshell.cn/articles/21128.html>
 
     dir1 := path[:sepIndex:sepIndex]
