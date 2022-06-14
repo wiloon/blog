@@ -11,14 +11,19 @@ tags:
 ---
 ## cron, crond, crontab, linux 定时任务, cronie
 
+When using the systemd init system, (persistent) timers are available as a replacement of (ana)cron. Systemd#Timer_services
+
+Since version 197 systemd supports timers, making cron unnecessary on a systemd system. Since version 212 persistent services are supported, replacing even anacron. Persistent timers are run at the next opportunity if the system was powered down when the timer was scheduled to run.
+
+[[systemd-timer#systemd timer]]
+
+---
+
 ### 安装 cron
 
 ```bash
 # archlinux 
-#pacman -S cronie
-When using the systemd init system, (persistent) timers are available as a replacement of (ana)cron. Systemd#Timer_services
-
-Since version 197 systemd supports timers, making cron unnecessary on a systemd system. Since version 212 persistent services are supported, replacing even anacron. Persistent timers are run at the next opportunity if the system was powered down when the timer was scheduled to run.
+pacman -S cronie
 
 # https://wiki.gentoo.org/wiki/Cron
 # https://wiki.gentoo.org/wiki/Systemd#Timer_services
@@ -63,11 +68,11 @@ crontab -r # 删除没个用户的 cron 服务
 
 ```bash
 # Use the hash sign to prefix a comment
-# +—————- minute (0 – 59)
-# |  +————- hour (0 – 23)
-# |  |  +———- day of month (1 – 31)
-# |  |  |  +——- month (1 – 12)
-# |  |  |  |  +—- day of week (0 – 7) (Sunday=0 or 7)
+# +----- minute (0 – 59)
+# |  +---- hour (0 – 23)
+# |  |  +--- day-of-the-month (1 – 31)
+# |  |  |  +-- month (1 – 12)
+# |  |  |  |  +- day-of-the-week (0 – 7) (Sunday=0 or 7)
 # |  |  |  |  |
 # *  *  *  *  *  user-name command to be executed
 ```

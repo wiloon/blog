@@ -617,5 +617,15 @@ Garbage collection (computer science) - Wikipedia
 <https://sylvanassun.github.io/2017/10/29/2017-10-29-virtual_memory/>
 
 <https://zhuanlan.zhihu.com/p/43526907>
-><https://www.eet-china.com/mp/a87720.html>
-><https://www.hi-linux.com/posts/42797.html>
+
+<https://www.eet-china.com/mp/a87720.html>
+
+<https://www.hi-linux.com/posts/42797.html>
+
+## 金士顿型号解码器
+
+<https://www.kingston.com.cn/cn/memory/memory-part-number-decoder>
+
+## 低电压版
+
+普通的DDR3内存条额定工作电压是1.5V，而DDR3L的电压市面上有两种标注版本，一种是 1.35V，另一种是1.28V。不过近年又出现一种DDR3U的内存，Ultra Low Voltage DDR3，意思是超低电压DDR3内存，其工作电压可以低至1.25V，但市场占有率不太高。

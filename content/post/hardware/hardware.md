@@ -13,6 +13,7 @@ tags:
 
 - Intel J4105 软路由
 - SONY WF-1000XM3
+- CanoKey
 
 ## benchmark
 
@@ -305,3 +306,36 @@ WISPr
 ## SONY WF-1000XM3
 
 说明书: <https://helpguide.sony.net/mdr/wf1000xm3/v1/zh-cn/index.html>
+
+## CanoKey
+
+CanoKey Pigeon 支持以下协议：
+FIDO2 / WebAuthn
+无限量普通密钥
+最多 64 组 resident keys
+支持 HMAC 扩展
+
+OpenPGP
+OpenPGP Smart Card 3.4 Compatible
+RSA 2048 / 4096
+NIST P-256 / P-384
+secp256k1
+ED25519 / X25519
+
+PIV
+NIST SP 800-73-4 Compatible
+RSA 2048
+NIST P-256 / P-384
+
+其他功能
+
+HOTP/TOTP
+NDEF
+
+文档：<https://docs.canokeys.org>
+
+注1：NFC 功能可能无法在部分较老的 NFC 手机上使用。
+
+注2：本产品支持不少于6万次签名，如需更频繁的签名操作，建议使用 HSM 设备
+
+注3：macOS系统使用需要升级到 Monterey 或以上
