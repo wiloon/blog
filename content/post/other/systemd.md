@@ -193,6 +193,15 @@ systemctl hybrid-sleep
 systemctl
 systemctl list-unit-files | grep enabled
 
+# 查看所有单元
+$ systemctl list-unit-files
+
+# 查看所有 Service 单元
+$ systemctl list-unit-files --type service
+
+# 查看所有 Timer 单元
+$ systemctl list-unit-files --type timer
+
 # 查看是否启用
 systemctl is-enabled SERVICE
 

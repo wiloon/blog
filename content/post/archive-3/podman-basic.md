@@ -23,6 +23,14 @@ pacman -S netavark aardvark-dns podman
 # 正常情况，安装 podman 之后不需要重启系统, 但是如果有异常，比如 CNI 之类 的问题，可以考虑重启一下...
 ```
 
+### Netavark
+
+Netavark 是一个 用 rust 实现的 配置 linux 容器网络的工具。
+
+In addition to the existing CNI Out of the stack ,Podman Now it also supports based on  Netavark  and  Aardvark New network stack . The new stack features improved support for containers in multiple networks 、 improvement IPv6 Support , And improve performance . To ensure that there is no impact on existing users , used CNI The stack will keep the default value of the existing installation , The new installation will use Netvark.
+
+<https://github.com/containers/netavark>
+
 ### ubuntu
 
 ```bash
@@ -395,15 +403,25 @@ Our first recommendation in these cases is usually to avoid using VFS, and inste
 ## 导出镜像
 
 ```bash
-    podman save be96e19ac6ef >pingd-proxy.tar
+podman save be96e19ac6ef >pingd-proxy.tar
 ```
 
 >wangyue.dev/docker/save
 
-### Netavark
+## 备份 volume
 
-Netavark 是一个 用 rust 实现的 配置 linux 容器网络的工具。
+```bash
+#!/bin/sh
+workdir=/data/bitwarden/backup
+find $workdir -mtime +30 -type f -name "*.*" -exec rm -f {} \;
 
-In addition to the existing CNI Out of the stack ,Podman Now it also supports based on  Netavark  and  Aardvark New network stack . The new stack features improved support for containers in multiple networks 、 improvement IPv6 Support , And improve performance . To ensure that there is no impact on existing users , used CNI The stack will keep the default value of the existing installation , The new installation will use Netvark.
+timestamp=$(date '+%Y%m%d%H%M%S')
+filename=bitwarden-data-${timestamp}.tar 
 
-<https://github.com/containers/netavark>
+container_path=/backup
+podman run --rm \
+  --volume bitwarden-data:/tmp \
+  --volume $workdir:$container_path \
+  alpine \
+  tar cvf $container_path/$filename /tmp
+```

@@ -1,5 +1,5 @@
 ---
-title: systemd start script, 启动脚本
+title: systemd unit
 author: "-"
 date: 2018-02-23T07:17:35+00:00
 url: systemd/script
@@ -10,6 +10,8 @@ tags:
   - remix
 
 ---
+## systemd unit
+
 ## systemd start script, 启动脚本
 
 ```bash
@@ -30,6 +32,10 @@ LimitNOFILE=100000
 WantedBy=multi-user.target
 
 ```
+
+- WorkingDirectory, 工作目录，程序启动时的当前目录。如果使用到workingdirectory，需要事先保证该目录的创建
+- ExecStart, 服务启动时要执行的命令
+- Restart, 服务在什么情况下会被重启，no, on-success, on-failure, on-abnormal, on-watchdog, on-abort, or always， 默认值: no
 
 ### ExecStart 命令行参数
 

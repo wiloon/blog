@@ -10,26 +10,28 @@ tags:
 ---
 ## archlinux netctl wifi
 
-Essay Address: http://blog.csdn.net/sunnypotter/article/details/23201339
-  
-  
-  
+Essay Address: <http://blog.csdn.net/sunnypotter/article/details/23201339>
   
     # 如果之前systemctl enable dhcpcd.service
  systemctl dhcpcd.service
  systemctl disable dhcpcd.service
- # 然后
+
+# 然后
+
  cd /etc/netctl
  cp examples/wireless-wpa .    # A simple WPA encrypted wireless connection
  vim wireless-wpa    # Modify
- + Interface=wlp8s0 # iw dev查看, 或ip link 或ifconfig
- + Connection=wireless
- + Security=wpa
- +
- + IP=dhcp
- + ESSID='wifi-name'
- + Key='wifi-passwd'
- # 注意,必须先完成以上才能进行一下,否则有一系列问题
+
++ Interface=wlp8s0 # iw dev查看, 或ip link 或ifconfig
++ Connection=wireless
++ Security=wpa
++
++ IP=dhcp
++ ESSID='wifi-name'
++ Key='wifi-passwd'
+
+# 注意,必须先完成以上才能进行一下,否则有一系列问题
+
  netctl enable wireless-wpa
  netctl start wireless-wpa
  reboot
@@ -41,14 +43,10 @@ Essay Address: http://blog.csdn.net/sunnypotter/article/details/23201339
  相关命令:
  journalctl -xn
  systemctl -failed
- systemctl list-unit-files
- systemctl daemon-reload
-  
   
     ip link
  ifconfig wlp8s0 up  # start wireless adapter
  ifconfig eno1 up # start wire adapter
-  
   
     # dhcpcd network-adapter 动态分配IP
  dhcpcd eno1

@@ -75,7 +75,9 @@ sudo ansible 192.168.1.11 -m file -a 'path=/home/roy/xxx/ state=absent'
 
 ### hibernate
 
-    ansible -i '192.168.97.1,' all  -m shell -a 'sudo systemctl hibernate'  -u user0
+```bash
+ansible -i '192.168.97.1,' all  -m shell -a 'sudo systemctl hibernate'  -u user0
+```
 
 ### verbos
 

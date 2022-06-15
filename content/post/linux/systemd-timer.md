@@ -4,7 +4,7 @@ author: "-"
 date: 2013-08-21T04:21:22+00:00
 url: systemd/timer
 categories:
-  - OS
+  - Linux
 tags:
   - reprint
 ---
@@ -15,18 +15,36 @@ systemctl list-timers
 systemctl list-timers --all
 ```
 
-```bash
-/etc/systemd/system/foo.timer
-[Unit]
-Description=Run foo weekly
+## /etc/systemd/system/foo.service
 
-[Timer]
-OnCalendar=Mon..Fri 21:00
-OnCalendar=Sat,Sun 21:00
-Persistent=true
+```bash
+[Unit]
+Description=foo service
+[Service]
+ExecStart=/path/to/foo.sh
 
 [Install]
-WantedBy=timers.target
+WantedBy=multi-user.target
+```
+
+## /etc/systemd/system/foo.timer
+
+```bash
+[Unit]
+Description=foo timer
+
+[Timer]
+OnCalendar=*-*-* 12:00:00
+Persistent=true
+Unit=foo.service
+
+[Install]
+WantedBy=multi-user.target
+```
+
+```bash
+systemctl --now enable foo.timer
+
 ```
 
 <http://www.ruanyifeng.com/blog/2018/03/systemd-timer.html>
@@ -52,3 +70,8 @@ It is divided into 3 parts -
 
 - Every day at 2am `*-*-* 02:00:00`
 
+## systemd timer 相比 cron 的优点
+
+- 日志更丰富 journald
+- 可以设置内存和 CPU 的使用额度
+- 任务可以拆分，依赖其他 Systemd 单元，完成非常复杂的任务

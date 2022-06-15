@@ -4,14 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "936faaabfc36d009",
+        "id": "9f0967ce0b08b0ad",
         "type": "leaf",
         "state": {
-          "type": "markdown",
-          "state": {
-            "file": "content/post/archive-1/CanoKey.md",
-            "mode": "source"
-          }
+          "type": "empty",
+          "state": {}
         }
       }
     ],
@@ -68,7 +65,6 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "content/post/archive-1/CanoKey.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -85,7 +81,7 @@
     "direction": "horizontal",
     "width": 300
   },
-  "active": "936faaabfc36d009",
+  "active": "9f0967ce0b08b0ad",
   "lastOpenFiles": [
     "content/post/archive-1/CanoKey.md",
     "content/post/other/apache访问日志access-log.md",
