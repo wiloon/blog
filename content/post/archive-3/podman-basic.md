@@ -277,6 +277,40 @@ podman run --rm \
   tar xvf /backup/volume0.tar -C /tmp --strip 1
 ```
 
+## 备份 volume
+
+```bash
+#!/bin/sh
+workdir=/data/bitwarden/backup
+find $workdir -mtime +30 -type f -name "*.*" -exec rm -f {} \;
+
+timestamp=$(date '+%Y%m%d%H%M%S')
+filename=bitwarden-data-${timestamp}.tar 
+
+container_path=/backup
+podman run --rm \
+  --volume bitwarden-data:/tmp \
+  --volume $workdir:$container_path \
+  alpine \
+  tar cvf $container_path/$filename /tmp
+```
+
+```bash
+workdir=/data/bitwarden/backup
+find $workdir -mtime +30 -type f -name "*.*" -exec rm -f {} \;
+
+timestamp=$(date '+%Y%m%d%H%M%S')
+filename=bitwarden-data-${timestamp}.tar 
+
+container_path=/backup
+
+docker run --rm \
+  --volume bitwarden-data:/tmp \
+  --volume $workdir:$container_path \
+  alpine \
+  tar xvf $container_path/$filename -C /tmp --strip 1
+```
+
 ## pod
 
 ### podman pod
@@ -407,21 +441,3 @@ podman save be96e19ac6ef >pingd-proxy.tar
 ```
 
 >wangyue.dev/docker/save
-
-## 备份 volume
-
-```bash
-#!/bin/sh
-workdir=/data/bitwarden/backup
-find $workdir -mtime +30 -type f -name "*.*" -exec rm -f {} \;
-
-timestamp=$(date '+%Y%m%d%H%M%S')
-filename=bitwarden-data-${timestamp}.tar 
-
-container_path=/backup
-podman run --rm \
-  --volume bitwarden-data:/tmp \
-  --volume $workdir:$container_path \
-  alpine \
-  tar cvf $container_path/$filename /tmp
-```

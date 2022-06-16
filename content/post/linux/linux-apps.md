@@ -29,11 +29,11 @@ sudo pacman -S powerdevil kmix kscreen ark
 | name                  | comments                                                                                |
 | :-------------------- | :-------------------------------------------------------------------------------------- |
 | obsidian              | 知识管理 |
-| flameshot             | 截图工具screenshot                                                                     |
+| flameshot             | 截图工具 screenshot                                                                     |
 | ncdu                  | 磁盘空间占用分析/清理                                                                              |
 | netdata               | 系统资源监控                                                                            |
 | qalculate-gtk         | 全宇宙最好用的计算器                                                                    |
-| neofetch              | 系统信息显示命令行脚本,Neofetch 和 ScreenFetch 或者 Linux_Logo 很像，但是它可以高度定制          |
+| neofetch              | 系统信息显示命令行脚本, Neofetch 和 ScreenFetch 或者 Linux_Logo 很像，但是它可以高度定制          |
 | screenfetch           | 打印发行版的 logo                                                                            |
 | keepassxc             |                                                                                         |
 | sqlectron-gui         |                                                                                         |

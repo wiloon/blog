@@ -11,9 +11,16 @@ tags:
 ---
 ## Hardware
 
+- ThinkPad X1 Carbon Gen 9
 - Intel J4105 软路由
 - SONY WF-1000XM3
 - CanoKey
+
+## ThinkPad X1 Carbon Gen 9
+
+- i7-1185G7
+- 16G
+- 512G
 
 ## benchmark
 
