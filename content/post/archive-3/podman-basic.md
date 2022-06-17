@@ -51,7 +51,7 @@ dnf install podman
 
 ### hello world
 
-测试一下podman 环境
+测试一下 podman 环境
 
 ```bash
 podman run --rm hello-world

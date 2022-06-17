@@ -1,7 +1,7 @@
 ---
 title: "pve + openwrt"
 author: "-"
-date: ""
+date: "2021-06-17 22:28:37"
 url: ""
 categories:
   - network
@@ -9,8 +9,6 @@ tags:
   - inbox
 ---
 ## "pve + openwrt"
-
-### pve + openwrt
 
 ### download openwrt image
 
