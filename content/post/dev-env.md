@@ -1,16 +1,25 @@
 ---
-title: dev graph
+title: dev env
 author: "-"
 date: 2011-08-01T15:43:50+00:00
-url: dev/graph
+url: dev/env
 categories:
   - inbox
 tags:
   - reprint
 ---
-## dev graph
+## dev env
 
-### 图
+## apps
+
+- 搜狗五笔
+- vscode
+- git
+- TortoiseGit
+- VirtualBox
+- bitwarden
+- Chrome
+- Firefox
 
 ```puml
 @startuml

@@ -28,16 +28,18 @@ deb-src http://mirrors.aliyun.com/ubuntu/ jammy-proposed main restricted univers
 
 deb http://mirrors.aliyun.com/ubuntu/ jammy-backports main restricted universe multiverse
 deb-src http://mirrors.aliyun.com/ubuntu/ jammy-backports main restricted universe multiverse
-
 ```
 
 ### mirror
 
+```bash
     vim /etc/apt/sources.list
     %s/archive.ubuntu.com/mirrors.aliyun.com/g
+```
 
-### 开发环境
+### WSL
 
+```bash
     export DISPLAY=172.18.80.1:0 # windows 里ipconfig看到的连接wsl的ip
     apt install git-svn
     apt install openjdk-8-jdk
@@ -48,9 +50,11 @@ deb-src http://mirrors.aliyun.com/ubuntu/ jammy-backports main restricted univer
     sudo apt-get install ttf-wqy-zenhei  #文泉驿-正黑
     sudo apt-get install xfonts-wqy #文泉驿-点阵宋体
     sudo apt install keepassxc
+```
 
 ### 中文乱码问题
 
+```bash
     # 安装中文支持包language-pack-zh-hans
     sudo apt-get install language-pack-zh-hans
     # 设置语言
@@ -71,18 +75,23 @@ deb-src http://mirrors.aliyun.com/ubuntu/ jammy-backports main restricted univer
     sudo locale-gen
     # 中文乱码是空格的情况，安装中文字体解决
     sudo apt-get install fonts-droid-fallback ttf-wqy-zenhei ttf-wqy-microhei fonts-arphic-ukai fonts-arphic-uming
+```
 
 <https://blog.csdn.net/weixin_39792252/article/details/80415550>
 
 ### 查看软件安装位置
 
+```bash
     dpkg -L openjdk-8-source
     whereis openjdk-8-source
+```
 
 ### 查询版本
 
+```bash
     apt show openjdk-8-source
     dpkg -l openjdk-8-source
+```
 
 ### PPA
 

@@ -11,6 +11,7 @@ tags:
 
 ---
 ## gitosis install
+
 1. 用apt-get update 和 apt-get upgrade 更新当前系统.
   
 2. 安装OpenSSH Server: sudo apt-get install openssh-server
@@ -23,7 +24,7 @@ PermitRootLogin no # 禁止root用户登陆
 
 # 检查密钥的用户和权限是否正确，默认打开的
   
-#设置ssh在接收登录请求之前是否检查用户家目录和rhosts文件的权限和所有 权。这通常是必要的，因为新手经常会把自己的目录和文件设成任何人都有写权限。
+# 设置ssh在接收登录请求之前是否检查用户家目录和rhosts文件的权限和所有 权。这通常是必要的，因为新手经常会把自己的目录和文件设成任何人都有写权限。
   
 StrictModes yes
   
@@ -31,12 +32,11 @@ RSAAuthentication yes # 启用 RSA 认证
   
 PubkeyAuthentication yes # 启用公钥认证
 
-  
 ServerKeyBits 1024 #将ServerKey强度改为1024比特
   
 PermitEmptyPasswords no # 禁止空密码进行登录
 
-＃修改完成后，重启ssh服务: 
+＃修改完成后，重启ssh服务:
   
 sudo /etc/init.d/ssh restart
 

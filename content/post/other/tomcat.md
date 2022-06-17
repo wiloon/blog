@@ -11,7 +11,7 @@ tags:
 ---
 ## Tomcat basic
 
-## archlinux install tomcat
+## archlinux
 
 ```bash
 sudo pacman -S tomcat8
