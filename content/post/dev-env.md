@@ -17,6 +17,9 @@ tags:
 - git
 - TortoiseGit
 - VirtualBox
+- bitwarden
+- Chrome
+- Firefox
 
 ```puml
 @startuml
