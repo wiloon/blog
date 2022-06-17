@@ -10,11 +10,11 @@ tags:
 ---
 ## golang开发目录结构
 
-https://github.com/golang-standards/project-layout
+<https://github.com/golang-standards/project-layout>
 
 在实际的项目中发现大家的目录结构都比较凌乱，基本每个人都有每个人的风格，一个项目在不断地变大，一些新的文件或目录又不断地被添加进来，从这里面去找到自己需要的信息的成本越来越高，一个统一的通用的目录结构非常有必要。
 
-以下内容来自于github上的这个项目 (https://github.com/golang-sta...) 
+以下内容来自于github上的这个项目 (<https://github.com/golang-sta>...)
 
 /cmd
   
@@ -84,4 +84,4 @@ web服务所需要的静态文件
   
 其他一些依赖的静态资源
 
-https://www.jianshu.com/p/1c47d99f33ed
+<https://www.jianshu.com/p/1c47d99f33ed>
