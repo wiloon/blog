@@ -65,16 +65,20 @@ kill -s QUIT 1628
 
 ### 文件下载
 
-    server {
-            listen 8088;
-            location /download/images {
-                    alias /home/net-files/images; # 我在这个路径下放了一张图片: fei_ji.jpg
-            }
-    }
+```f
+server {
+        listen 8088;
+        location /download/images {
+                alias /home/net-files/images; # 我在这个路径下放了一张图片: fei_ji.jpg
+        }
+}
+```
 
 #### curl
 
-    curl "http://my_ip_address:8088/download/images/fei_ji.jpg" > test.jpg
+```f
+curl "http://my_ip_address:8088/download/images/fei_ji.jpg" > test.jpg
+```
 
 ————————————————
 版权声明: 本文为CSDN博主「tomeasure」的原创文章,遵循CC 4.0 BY-SA版权协议,转载请附上原文出处链接及本声明。

@@ -9,12 +9,13 @@ tags:
   - reprint
 ---
 ## 'button input, type="button"   Which to use?'
+
 <http://web.archive.org/web/20110721191046/http://particletree.com/features/rediscovering-the-button-element/>
 
 <http://www.peterbe.com/plog/button-tag-in-IE>
 
-  * [Here's a page][1] describing the differences (basically you can put html into a `<button></button>`)
-  * [And an other page][2] describing why people avoid `<button></button>` (Hint: IE6)
+* [Here's a page][1] describing the differences (basically you can put html into a `<button></button>`)
+* [And an other page][2] describing why people avoid `<button></button>` (Hint: IE6)
 
 Another IE problem when using `<button />`:
 

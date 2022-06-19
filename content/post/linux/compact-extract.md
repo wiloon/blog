@@ -14,30 +14,30 @@ tags:
 ## 解压多个文件
 
 ```bash
-    ls *.gz|xargs -t -n1 gunzip
-    gunzip *.gz
+ls *.gz|xargs -t -n1 gunzip
+gunzip *.gz
 ```
 
 ## .rar
 
 ```bash
-    # 解压
-    unrar x foo.rar
-    # 压缩
-    rar e FileName.rar
-    # 解压
-    rar a FileName.rar
+# 解压
+unrar x foo.rar
+# 压缩
+rar e FileName.rar
+# 解压
+rar a FileName.rar
 ```
 
 ## .gz
 
 ```bash
-    # 压缩
-    gzip FileName
-    # 解压1
-    gunzip FileName.gz
-    # 解压2
-    gzip -d FileName.gz
+# 压缩
+gzip FileName
+# 解压1
+gunzip FileName.gz
+# 解压2
+gzip -d FileName.gz
 ```
 
 ### 解压并指定输出目录
@@ -45,13 +45,6 @@ tags:
 ```bash
 gunzip -c /data/tmp/foo.tar.gz | tar xf - -C /data/server/bar
 ```
-
-## .7z
-
-```bash
-    yum install p7zip
-    pacman -S p7zip
-    sudo apt install p7zip-full p7zip-rar
 
 ## .7z
 
@@ -69,7 +62,7 @@ sudo apt install p7zip-full p7zip-rar
 pacman -S zip unzip
 ```
 
-- 压缩
+### zip 压缩
 
 ```bash
 zip all.zip *.jpg
@@ -81,7 +74,7 @@ zip ~/all.zip *.jpg
 zip -r temp.zip temp
 ```
 
-- 分卷压缩
+### zip 分卷压缩
 
 ```bash
 # 分卷压缩的话，需要先将文件打包成一个zip包，然后执行
@@ -92,7 +85,7 @@ zip -s SIZE origin.zip --out new.zip
 zip spiltfile.zip -s=0 --out single.zip
 ```
 
-- 解压
+### zip 解压
 
 ```bash
 unzip all.zip
@@ -110,7 +103,7 @@ ls *.zip | xargs -n1 unzip -o
 find . -maxdepth 1 -mtime -4 -type f  -name "*.zip"|xargs -t -n1 unzip
 ```
 
-- 解压并指定目录
+### zip 解压并指定目录
 
 ```bash
 unzip /path/to/source.zip -d /path/to/target/path
@@ -154,7 +147,7 @@ Tar是在Linux中使用得非常广泛的文档打包格式。它的好处就是
 **(注: tar只是打包，没有压缩功能！)**
 
 ```bash
-# 打包:
+# 打包: -c是表示产生新的包，-f指定包的文件名。
 tar cvf FileName.tar DirName
 
 # 解包:
@@ -333,33 +326,29 @@ Linux下最常用的打包程序就是tar了，使用tar程序打出来的包我
 
 tar命令的选项有很多(用man tar可以查看到)，但常用的就那么几个选项，下面来举例说明一下:
 
-    tar -cf all.tar *.jpg
-
-这条命令是将所有.jpg的文件打成一个名为all.tar的包。-c是表示产生新的包，-f指定包的文件名。
-
-# tar -uf all.tar logo.gif
+tar -uf all.tar logo.gif
 
 这条命令是更新原来tar包all.tar中logo.gif文件，-u是表示更新文件的意思。
 
-# tar -tf all.tar
+tar -tf all.tar
 
 这条命令是列出all.tar包中所有文件，-t是列出文件的意思
 
-# tar -xf all.tar
+tar -xf all.tar
 
 这条命令是解出all.tar包中所有文件，-x是解包的意思
 
 以上就是tar的最基本的用法。为了方便用户在打包解包的同时可以压缩或解压文件，tar提供了一种特殊的功能。这就是tar可以在打包或解包的同时调用其它的压缩程序，比如调用gzip、bzip2等。
 
-#### tar调用gzip
+### tar调用 gzip
 
 gzip是GNU组织开发的一个压缩程序，.gz结尾的文件就是gzip压缩的结果。与gzip相对的解压程序是gunzip。tar中使用-z这个参数来调用gzip。下面来举例说明一下:
 
-# tar -czf all.tar.gz *.jpg
+tar -czf all.tar.gz *.jpg
 
 这条命令是将所有.jpg的文件打成一个tar包，并且将其用gzip压缩，生成一个gzip压缩过的包，包名为all.tar.gz
 
-# tar -xzf all.tar.gz
+tar -xzf all.tar.gz
 
 这条命令是将上面产生的包解开。
 
@@ -367,11 +356,11 @@ gzip是GNU组织开发的一个压缩程序，.gz结尾的文件就是gzip压缩
 
 bzip2是一个压缩能力更强的压缩程序，.bz2结尾的文件就是bzip2压缩的结果。与bzip2相对的解压程序是bunzip2。tar中使用-j这个参数来调用bzip2。下面来举例说明一下:
 
-# tar -cjf all.tar.bz2 *.jpg
+tar -cjf all.tar.bz2 *.jpg
 
 这条命令是将所有.jpg的文件打成一个tar包，并且调用bzip2压缩，生成一个bzip2压缩过的包，包名为all.tar.bz2
 
-# tar -xjf all.tar.bz2
+tar -xjf all.tar.bz2
 
 这条命令是将上面产生的包解开。
 
@@ -379,11 +368,11 @@ bzip2是一个压缩能力更强的压缩程序，.bz2结尾的文件就是bzip2
 
 compress也是一个压缩程序，但是好象使用compress的人不如gzip和bzip2的人多。.Z结尾的文件就是bzip2压缩的结果。与compress相对的解压程序是uncompress。tar中使用-Z这个参数来调用gzip。下面来举例说明一下:
 
-# tar -cZf all.tar.Z *.jpg
+tar -cZf all.tar.Z *.jpg
 
 这条命令是将所有.jpg的文件打成一个tar包，并且调用compress压缩，生成一个uncompress压缩过的包，包名为all.tar.Z
 
-# tar -xZf all.tar.Z
+tar -xZf all.tar.Z
 
 这条命令是将上面产生的包解开
 
@@ -425,19 +414,19 @@ tar -xZf all.tar.z
 
 不是免费的；然后安装:
 
-# tar -xzpvf rarlinux-3.2.0.tar.gz
+tar -xzpvf rarlinux-3.2.0.tar.gz
 
-# cd rar
+cd rar
 
-# make
+make
 
 这样就安装好了，安装后就有了rar和unrar这两个程序，rar是压缩程序，unrar是解压程序。它们的参数选项很多，这里只做简单介绍，依旧举例说明一下其用法:
 
-# rar a all *.jpg
+rar a all *.jpg
 
 这条命令是将所有.jpg的文件压缩成一个rar包，名为all.rar，该程序会将.rar 扩展名将自动附加到包名后。
 
-# unrar e all.rar
+unrar e all.rar
 
 这条命令是将all.rar中的所有文件解压出来
 
@@ -505,27 +494,27 @@ tar -xZf all.tar.z
 
 lha请到: <http://www.infor.kanazawa-it.ac.jp/…/lhaunix/>下载！
 
-> 解压后请将lha拷贝到/usr/bin目录 (其他由$PATH环境变量指定的目录也可以) :
+解压后请将lha拷贝到/usr/bin目录 (其他由$PATH环境变量指定的目录也可以) :
 
-> [root@www2 tmp]# cp lha /usr/bin/
+cp lha /usr/bin/
 
 ### .rpm
 
 解包: rpm2cpio FileName.rpm | cpio -div
 
-> .lzx .lzs .arc .sda .sfx .lnx .zoo .cab .kar .cpt .pit .sit .sea
+.lzx .lzs .arc .sda .sfx .lnx .zoo .cab .kar .cpt .pit .sit .sea
 
-> 解压: sEx x FileName.*
+解压: sEx x FileName.*
 
-> 压缩: sEx a FileName.* FileName
+压缩: sEx a FileName.* FileName
 
-> sEx只是调用相关程序，本身并无压缩、解压功能，请注意！
+sEx只是调用相关程序，本身并无压缩、解压功能，请注意！
 
-> sEx请到:  <http://sourceforge.net/projects/sex>下载！
+sEx请到:  <http://sourceforge.net/projects/sex>下载！
 
-> 解压后请将sEx拷贝到/usr/bin目录 (其他由$PATH环境变量指定的目录也可以) :
+解压后请将sEx拷贝到/usr/bin目录 (其他由$PATH环境变量指定的目录也可以) :
 
-> [root@www2 tmp]# cp sEx /usr/bin/
+[root@www2 tmp]# cp sEx /usr/bin/
 
 ## 压缩算法, deflate、gzip、bzip2、lzo、snappy
 

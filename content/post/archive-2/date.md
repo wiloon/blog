@@ -118,7 +118,7 @@ date -date='1970-01-01 00:00:01 UTC +5 hours' +%s
   
 Suppose you had not specified time zone information in the example above. Then, date would have used your computer's idea of the time zone when interpreting the string. Here's what you would get if you were in Greenwich, England:
 
-# local time zone used
+local time zone used
 
 date -date='1970-01-01 00:00:01' +%s
   
@@ -137,4 +137,5 @@ date -d '1970-01-01 946684800 sec' +"%Y-%m-%d %T %z"
 ---
 
 <https://blog.csdn.net/shanliangliuxing/article/details/16821175>
-><https://man7.org/linux/man-pages/man1/date.1.html>
+
+<https://man7.org/linux/man-pages/man1/date.1.html>

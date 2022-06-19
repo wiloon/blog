@@ -25,7 +25,7 @@ ssh-keygen目前支持三种加密算法:rsa,dsa,ecdsa, 默认使用的是rsa，
 
 ```bash
 # 优先使用 ed25519
-ssh-keygen -t ed25519 -C "bar"
+ssh-keygen -t ed25519 -C "foo"
 ssh-keygen -t ed25519 -f foo -C "bar"
 # -t ed25519,  使用加密算法 ed25519
 # -f foo, 生成的密钥文件名, 不指定文件名的话, ed25519 算法默认的文件名是 id_ed25519 

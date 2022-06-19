@@ -45,10 +45,10 @@ server=223.5.5.5
 server=223.6.6.6
 ```
 
-### openwrt 修改IP地址
+### openwrt 改IP
 
 ```bash
-    vi /etc/config/network
+vi /etc/config/network
 ```
 
 ### opwnert init
@@ -71,7 +71,7 @@ crontab -l
 
 ### x86, firmware download
 
-    https://downloads.openwrt.org/releases/19.07.6/targets/x86/
+<https://downloads.openwrt.org/releases/19.07.6/targets/x86/>
 
 #### 64 (推荐使用)
 
@@ -93,8 +93,8 @@ crontab -l
 
 #### combined-ext4.img.gz (推荐使用)
 
-: 包含vmlinuz rootfs (ext4) 、引导信息以及相关分区信息的img,一般是两个分区,可以把它看成是硬盘镜像,直接dd到某个磁盘
-此磁盘映像使用单个读写ext4分区,没有只读squashfs根文件系统,因此可以扩大分区。故障安全模式或出厂重置等功能将不可用,因为它们需要只读的squashfs分区才能起作用。
+包含 vmlinuz rootfs (ext4), 引导信息以及相关分区信息的 img, 一般是两个分区, 可以把它看成是硬盘镜像, 直接 dd 到某个磁盘
+此磁盘映像使用单个读写ext4分区, 没有只读 squashfs 根文件系统, 因此可以扩大分区。故障安全模式或出厂重置等功能将不可用, 因为它们需要只读的 squashfs 分区才能起作用。
 
 #### Combined-squashfs.img.gz
 
@@ -120,7 +120,7 @@ rootfs用gz打包后的文件
 
 ### mirror
 
-    sed -i 's_downloads.openwrt.org_mirrors.tuna.tsinghua.edu.cn/openwrt_' /etc/opkg/distfeeds.conf
+sed -i 's_downloads.openwrt.org_mirrors.tuna.tsinghua.edu.cn/openwrt_' /etc/opkg/distfeeds.conf
 
 ### 安装证书
 

@@ -12,11 +12,15 @@ tags:
 
 ### before ansible script
 
+```bash
    pacman -Syu && pacman -S git ansible
+```
 
 ### clone ansible script
 
+```bash
     git clone git@github.com:wiloon/ansible.git
+```
 
 ### config network by systemd-networkd
 
@@ -34,12 +38,16 @@ yay 不能在root下执行, 需要新建个用户
 
 /etc/sudoer.d/wiloon.conf
 
+```bash
     wiloon ALL=(ALL) NOPASSWD: ALL
+```
 
 ln -s /usr/bin/vim /usr/bin/vi
 visudo
 
+```bash
     wiloon ALL=(ALL) NOPASSWD: ALL
+```
 
 ### install and enable sshd
 
@@ -96,7 +104,7 @@ startxfce4
 
 sudo pacman -S wqy-microhei
 
-# font for terminal
+## font for terminal
 
 sudo pacman -S ttf-inconsolata
 sudo pacman -S chromium
@@ -124,7 +132,9 @@ xfce4 date time plugin format #%b %d%n%V %a%n%R
 
 ### sddm
 
-    systemctl enable sddm
+```bash
+systemctl enable sddm
+```
 
 removed "SigLevel = RecquiredPackage" from /etc/pacman.conf and now it's O.K.
 
@@ -137,4 +147,6 @@ mount -t ntfs-3g /dev/sda5 /mnt
 
 ### 重启
 
-    reboot
+```bash
+reboot
+```

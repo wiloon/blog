@@ -129,7 +129,7 @@ vim /etc/containers/registries.conf
 
 #### v2
 
-```r
+```bash
 # 例：使用 podman pull registry.access.redhat.com/ubi8-minimal 时，
 # 仅仅会从registry.access.redhat.com去获取镜像。
 # 如果直接使用 podman pull ubuntu 时，没有明确指明仓库的时候，使用以下配置的仓库顺序去获取

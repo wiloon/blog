@@ -25,13 +25,15 @@ tags:
 
 ## archlinux guest
 
+在virtual box 内安装的archlinux, 需要安装 virtualbox-guest-utils, 可以获得更流畅的图形界面,如 virtual的无缝模式。
+
 ```bash
 # for VirtualBox Guest utilities with X support
 sudo pacman -S virtualbox-guest-utils
+# 启用vboxservice, 否则无缝模式(seamless mode)的选项会是灰色的不可用状态
+sudo systemctl --now enable vboxservice.service
 ```
 
-在virtual box 内安装的archlinux, 需要安装 virtualbox-guest-utils, 可以获得更流畅的图形界面,如virtual的无缝模式。
-  
 <https://wiki.archlinux.org/index.php/VirtualBox>
 <https://bbs.archlinux.org/viewtopic.php?id=118986>
 

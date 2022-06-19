@@ -132,6 +132,7 @@ sudo hostnamectl set-hostname new-host-name
 
 ### timedatectl
 
+```bash
     # 查看当前时区设置
     $ timedatectl
 
@@ -141,9 +142,11 @@ sudo hostnamectl set-hostname new-host-name
     $ sudo timedatectl set-timezone America/New_York
     $ sudo timedatectl set-time YYYY-MM-DD
     $ sudo timedatectl set-time HH:MM:SS
+```
 
 ### loginctl
 
+```bash
     # 列出当前session
     $ loginctl list-sessions
 
@@ -155,10 +158,13 @@ sudo hostnamectl set-hostname new-host-name
 
     ## 查看 session 类型, x or wayland
     loginctl show-session <SESSION_ID> -p Type
+```
 
 ### cat
 
+```bash
     systemctl cat bluetooth|grep Condition
+```
 
 ### mask
 
@@ -214,8 +220,12 @@ systemctl daemon-reload
 
 # check service enabled
 systemctl list-unit-files |grep enabled
-查看服务是否开机启动: systemctl is-enabled service0.service
-在开机时禁用一个服务: systemctl disable service0.service
+# 查看服务是否开机启动
+systemctl is-enabled foo.service
+# 禁止 foo.service 开机启动
+systemctl disable foo.service
+# 禁止 foo.service 开机启动， 同时停掉服务
+systemctl --now disable foo.service
 
 journalctl -f
 systemd-analyze blame
@@ -226,12 +236,14 @@ systemctl status xxx
 
 ### systemctl status
 
+```bash
     Loaded行: 配置文件的位置,是否设为开机启动
     Active行: 表示正在运行
     Main PID行: 主进程ID
     Status行: 由应用本身 (这里是 httpd ) 提供的软件当前状态
     CGroup块: 应用的所有子进程
     日志块: 应用的日志
+```
 
 ```bash
 # 打印完整的控制台日志, 不加 -l 的话, 默认会截断.
@@ -246,6 +258,7 @@ systemctl status service0 -l
 Systemd 可以管理所有系统资源。不同的资源统称为 Unit (单位) 。
 Unit 一共分成12种。
 
+```bash
     Service unit: 系统服务
     Target unit: 多个 Unit 构成的一个组
     Device Unit: 硬件设备
@@ -258,9 +271,11 @@ Unit 一共分成12种。
     Socket Unit: 进程间通信的 socket
     Swap Unit: swap 文件
     Timer Unit: 定时器
+```
 
 ### systemctl list-units
 
+```bash
     # 列出正在运行的 Unit
     $ systemctl list-units
 
@@ -275,9 +290,11 @@ Unit 一共分成12种。
 
     # 列出所有正在运行的、类型为 service 的 Unit
     $ systemctl list-units --type=service
+```
 
 ### Unit 管理
 
+```bash
     # 立即启动一个服务
     $ sudo systemctl start apache.service
 
@@ -304,6 +321,7 @@ Unit 一共分成12种。
 
     # 设置某个 Unit 的指定属性
     $ sudo systemctl set-property httpd.service CPUShares=500
+```
 
 ### 依赖关系
 
@@ -351,10 +369,12 @@ Failed to start NetworkManager.service: Unit is masked.
 ---
 
 <https://www.ruanyifeng.com/blog/2016/03/systemd-tutorial-part-two.html>
-<https://www.cnblogs.com/xingmuxin/p/11413784.html>
-><https://blog.csdn.net/stpice/article/details/104569146>
 
-### 配置文件
+<https://www.cnblogs.com/xingmuxin/p/11413784.html>
+
+<https://blog.csdn.net/stpice/article/details/104569146>
+
+### systemd 配置文件
 
 1. 系统配置文件： /etc/systemd/system.conf
 2. 用户配置文件： /etc/systemd/user.conf
