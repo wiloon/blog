@@ -10,7 +10,9 @@ tags:
 ---
 ## VirtualBox
 
-<https://wiki.archlinux.org/title/VirtualBox>
+## 剪贴板共享
+
+Settings> General> Advanced> Shared Clipboard: Bidirectional
 
 ## NAT 端口转发
 
@@ -19,7 +21,7 @@ tags:
 - 名称: ssh
 - 协议: TCP
 - 主机IP: 0.0.0.0
-- 主机端口: 2022
+- 主机端口: 22
 - 子系统IP: 10.0.2.15
 - 子系统端口: 22
 
@@ -148,3 +150,5 @@ sudo umount -f /mnt/shared
 参考资料
   
 [1] Virtualbox虚拟机Ubuntu共享文件夹设置自动挂载
+
+<https://wiki.archlinux.org/title/VirtualBox>

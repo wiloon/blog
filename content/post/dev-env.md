@@ -20,6 +20,8 @@ tags:
 - bitwarden
 - Chrome
 - Firefox
+- Python
+- Go
 
 ```puml
 @startuml
