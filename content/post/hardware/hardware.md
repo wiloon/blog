@@ -346,3 +346,7 @@ NDEF
 注2：本产品支持不少于6万次签名，如需更频繁的签名操作，建议使用 HSM 设备
 
 注3：macOS系统使用需要升级到 Monterey 或以上
+
+## Dell Latitude E7470
+
+- Screen Resolution 1920x1080
