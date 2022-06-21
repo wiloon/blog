@@ -1,22 +1,32 @@
 ---
-title: 磁盘扩容
+title: 磁盘扩容, PVE, Archlinux
 author: "-"
-date: 2018-03-24T13:35:19+00:00
+date: 2022-06-21 08:19:27
 url: disk/resize
 categories:
   - OS
 tags:
-  - reprint
+  - Reprint
+  - Disk
+  - PVE
+  - Archlinux
 ---
 ## 磁盘扩容
 
-## PVE xfs
+## PVE archlinux xfs disk resize
+
+1. 虚拟机关机
+2. 在 PVE 控制台给虚拟机磁盘扩容：Hardware> Hard Disk> Disk Action> resize: 填写新增的容量
+3. 启动虚拟机
+4. SSH 登录之后 `sudo fdisk -l` 看到磁盘容量已经增加了，但是 `df -h` 容量没变
+5. 执行以下命令
 
 ```bash
 # cloud-guest-utils 提供了 growpart 命令
 pacman -S cloud-guest-utils
 growpart /dev/sda 2
 xfs_growfs /dev/sda2
+# 然后 df -h 应该能看到正确的磁盘容量了。
 ```
 
 ## KVM 虚拟磁盘扩容, qemu-img resize

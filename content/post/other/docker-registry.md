@@ -23,8 +23,6 @@ prefix = "docker.io"
 location = "registry-1.docker.io"
 ```
 
-## docker registry
-
 ## 删除镜像与空间回收
 
 <https://zhuanlan.zhihu.com/p/33324217>

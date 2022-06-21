@@ -4,7 +4,7 @@ author: "-"
 date: 2021-09-26 00:09:45
 url: k8s
 categories:
-  - Inbox
+  - K8S
 tags:
   - reprint
   - k8s

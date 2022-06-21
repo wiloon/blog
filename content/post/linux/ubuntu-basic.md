@@ -30,8 +30,6 @@ deb http://mirrors.aliyun.com/ubuntu/ jammy-backports main restricted universe m
 deb-src http://mirrors.aliyun.com/ubuntu/ jammy-backports main restricted universe multiverse
 ```
 
-### mirror
-
 ```bash
     vim /etc/apt/sources.list
     %s/archive.ubuntu.com/mirrors.aliyun.com/g
@@ -107,3 +105,12 @@ Ubuntu 不会立即提供该新版本的软件。需要一个步骤来检查此�
 另一种情况是在 beta 测试阶段。即使官方软件仓库中提供了稳定版本的软件，软件开发人员也可能希望某些终端用户测试他们即将发布的版本。他们是如何使终端用户对即将发布的版本进行 beta 测试的呢？
 
 通过 PPA！
+
+## 网络
+
+### 动态IP
+
+```bash
+vim  /etc/netplan/00-installer-config.yaml 
+
+```

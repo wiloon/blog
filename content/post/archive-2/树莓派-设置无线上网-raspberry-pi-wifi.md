@@ -9,7 +9,7 @@ tags:
   - reprint
 ---
 ## '树莓派 设置无线上网  Raspberry Pi  wifi'
-http://www.jianshu.com/p/b42e8d3df449
+<http://www.jianshu.com/p/b42e8d3df449>
 
 树莓派 Raspberry Pi 设置无线上网
   
@@ -29,21 +29,21 @@ usb 1-1.3: Manufacturer: Realtek
 
 如果现在你的树莓派能联网,输入安装命令就可以安装Realtek的驱动了。
 
-首先搜索Realtek驱动: 
+首先搜索Realtek驱动:
 
 apt-cache search realtek
   
-看到下面信息: 
+看到下面信息:
 
 firmware-realtek - Binary firmware for Realtek wired and wireless network adapters
   
-安装Realtek驱动: 
+安装Realtek驱动:
 
 sudo apt-get install firmware-realtek
   
-如果你的树莓派现在不能上网,那么你可以去镜像站点中下载相关驱动。我推荐阿里云的镜像站点,速度比较快。http://mirrors.aliyun.com/raspbian/raspbian/pool/non-free/f/firmware-nonfree
+如果你的树莓派现在不能上网,那么你可以去镜像站点中下载相关驱动。我推荐阿里云的镜像站点,速度比较快。<http://mirrors.aliyun.com/raspbian/raspbian/pool/non-free/f/firmware-nonfree>
 
-下载firmware-realtek_0.43_all.deb,用winscp上传到树莓派的/tmp目录中。输入命令安装: 
+下载firmware-realtek_0.43_all.deb,用winscp上传到树莓派的/tmp目录中。输入命令安装:
 
 sudo dpkg -i /tmp/firmware-realtek_0.43_all.deb
   
@@ -53,7 +53,7 @@ sudo dpkg -i /tmp/firmware-realtek_0.43_all.deb
 
 sudo nano /etc/network/interfaces
   
-我的interfaces文件是这样的: 
+我的interfaces文件是这样的:
 
 auto lo
 
@@ -69,7 +69,7 @@ wpa-roam /etc/wpa_supplicant/wpa_supplicant.conf
   
 iface default inet dhcp
   
-我们把无线网卡部分全部用#注释掉,然后添加自己的配置信息,最终结果如下: 
+我们把无线网卡部分全部用#注释掉,然后添加自己的配置信息,最终结果如下:
 
 auto lo
 
@@ -79,21 +79,21 @@ iface eth0 inet dhcp
 
 auto wlan0
   
-#allow-hotplug wlan0
+# allow-hotplug wlan0
   
-#iface wlan0 inet manual
+# iface wlan0 inet manual
   
 iface wlan0 inet dhcp
   
 wpa-conf /etc/wpa.conf
   
-#wpa-roam /etc/wpa_supplicant/wpa_supplicant.conf
+# wpa-roam /etc/wpa_supplicant/wpa_supplicant.conf
   
 iface default inet dhcp
   
 使用nano编辑器,ctrl+o保存,ctrl+x退出。
 
-用编辑器nano创建 /etc/wpa.conf 文件: 
+用编辑器nano创建 /etc/wpa.conf 文件:
 
 sudo nano /etc/wpa.conf
   
@@ -135,7 +135,7 @@ network={
 
 注2: 如果你不清楚wifi的加密模式,可以在安卓手机上用root explorer打开 /data/misc/wifi/wpa/wpa_supplicant.conf,查看wifi的信息。
 
-比如,我的wpa.conf文件是这样的: 
+比如,我的wpa.conf文件是这样的:
 
 network={
   
@@ -147,7 +147,7 @@ psk="MTIzNA1234"
   
 }
   
-最后输入命令启用无线网卡: 
+最后输入命令启用无线网卡:
 
 sudo ifup wlan0
   

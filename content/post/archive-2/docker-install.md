@@ -2,16 +2,42 @@
 title: docker install
 author: "-"
 date: 2018-11-28T06:08:37+00:00
-url: /?p=12943
+url: docker/install
 categories:
   - container
 tags:
   - reprint
 ---
 ## docker install
-https://docs.docker.com/install/linux/docker-ce/centos/
+
+## ubuntu
+
+<https://docs.docker.com/engine/install/ubuntu/>
+
+```bash
+ sudo apt-get update
+ sudo apt-get install \
+    ca-certificates \
+    curl \
+    gnupg \
+    lsb-release
+
+sudo mkdir -p /etc/apt/keyrings
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+
+echo \
+  "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \
+  $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+
+sudo apt-get update
+sudo apt-get install docker-ce docker-ce-cli containerd.io docker-compose-plugin
+
+sudo docker run hello-world
+```
+
+<https://docs.docker.com/install/linux/docker-ce/centos/>
   
-https://yq.aliyun.com/articles/110806
+<https://yq.aliyun.com/articles/110806>
 
 ```bash
 # centos
@@ -45,4 +71,4 @@ sudo systemctl start docker
 sudo systemctl enable docker
 ```
 
-https://yq.aliyun.com/articles/110806
+<https://yq.aliyun.com/articles/110806>

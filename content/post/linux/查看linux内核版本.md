@@ -10,8 +10,12 @@ tags:
 ---
 ## linux version, Linux 查看版本, 发行版, 内核版本, uname
 
-
 ```bash
+uname -srm
+# -s kernel name, ubuntu 和 archlinux 都输出的是 Linux, 没见过其它输出
+# -r kernel release, 内核版本号
+# -m machine hardware name, 硬件架构 x86_64
+
 # 查看内核版本
 uname -r
 
@@ -39,7 +43,7 @@ file /bin/ls
 ### ubuntu
 
 ```bash
-    lsb_release -a
+lsb_release -a
 ```
 
 <https://my.oschina.net/vshcxl/blog/698656>
@@ -52,10 +56,7 @@ uname -m
 sudo file /sbin/init
 /sbin/init: ELF 64-bit LSB shared object, x86-64, version 1 (SYSV), dynamically linked ...
 
-
-
 uname -a
-
 
 getconf LONG_BIT
 # 32/64
@@ -85,12 +86,9 @@ intel平台包括8086,80286,80386,80486,奔腾系列(1.2.3.4)、赛扬系列,Pen
   
 2. X86_64 适用于intel的Core 2 Duo, Centrino Core 2 Duo, and Xeon 和AMD Athlon64/x2, Sempron64/x2, Duron64等采用X86架构的64位cpu.
 3. PPC   适用于Apple Macintosh G3, G4, G5, PowerBook, and other non-Intel models
-
 安装DVD包括的软件要比安装光盘多一些,安装DVD也包括了两种图形界面(KDE和gnome).
   
 4. Jigdo
 也可以通过 Jigdo 下载 Fedora 发行版。Jigdo 可以加速下载安装盘的 ISO 镜像。同 BT 下载等待任务完全完成所不同，Jidgo 自动定位最快的镜像服务器(通过 Fedora 镜像管理器)，并且从中下载所需要的文件。为了减少所需的网络流量，可以让 Jigdo 扫描现存的 DVD 或 CD 介质。这个功能对于以下用户特别有用。
 
-http://blog.csdn.net/carolzhang8406/article/details/6080400  
-
-
+<http://blog.csdn.net/carolzhang8406/article/details/6080400>  

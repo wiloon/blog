@@ -47,13 +47,15 @@ docker port [OPTIONS] CONTAINER [PRIVATE_PORT[/PROTO]]
 
 ### docker pod log
 
+```bash
 /var/log/containers/
 /var/log/pods/<container id>/container-0
 /var/lib/docker/containers/<container id>
+```
 
 ### install
 
-<https://blog.wiloon.com/?p=12943>
+<https://blog.wiloon.com/docker/install>
 
 ### image
 
@@ -76,7 +78,7 @@ Error response from daemon: conflict: unable to delete f8ab12e03d53 (must be for
 docker rmi 192.168.0.1/you/tom:1.0.8
 ```
 
-### install
+## archlinux install docker
 
 ```bash
 docker ps -s
@@ -268,6 +270,7 @@ docker network create -d bridge my-net
 
 ### macvlan, --net, --ip
 
+```bash
     docker run \
     --name memcache \
     -d \
@@ -277,6 +280,7 @@ docker network create -d bridge my-net
     -v /etc/localtime:/etc/localtime:ro \
     --restart=always \
     memcached -m 16
+```
 
 default volumn path /var/lib/docker/volumes/
 

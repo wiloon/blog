@@ -1,19 +1,37 @@
 ---
-title: debian install deb package
+title: dpkg
 author: "-"
 date: 2020-03-22T07:48:28+00:00
-url: /?p=15801
+url: dpkg
 categories:
-  - Inbox
+  - Linux
 tags:
   - reprint
 ---
+## dpkg
+
+## Ubuntu 查看软件包是否安装
+
+```bash
+dpkg -s <package-name>
+# -s status, 查看软件包状态
+
+dpkg-query -l <package-name> # 可以加通配符*
+
+# 列出软件包的位置
+dpkg -L <package-name>
+
+# 列出哪些软件包被安装
+dpkg --get-selections | grep <package-name>*
+```
+
 ## debian install deb package
+
 deb包
   
 deb包是debian，ubuntu等LINUX发行版的软件安装包，是类似于rpm的软件包，而非debian,ubuntu系统不推荐使用deb软件包，因为要解决软件包依赖问题，安装也比较麻烦。
   
-安装方法有两种: 
+安装方法有两种:
   
 一般在此类发行版中可以直接双击安装。
   
@@ -29,4 +47,6 @@ deb包是debian，ubuntu等LINUX发行版的软件安装包，是类似于rpm的
   
 版权声明: 本文为CSDN博主「wangmg0118」的原创文章，遵循 CC 4.0 BY-SA 版权协议，转载请附上原文出处链接及本声明。
   
-原文链接: https://blog.csdn.net/wangmg0118/article/details/72026739
+原文链接: <https://blog.csdn.net/wangmg0118/article/details/72026739>
+
+<https://blog.csdn.net/HelloJinYe/article/details/109112976>

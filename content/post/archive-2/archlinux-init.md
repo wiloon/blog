@@ -19,7 +19,7 @@ tags:
 ### clone ansible script
 
 ```bash
-    git clone git@github.com:wiloon/ansible.git
+git clone git@github.com:wiloon/ansible.git
 ```
 
 ### config network by systemd-networkd
@@ -39,7 +39,7 @@ yay 不能在root下执行, 需要新建个用户
 /etc/sudoer.d/wiloon.conf
 
 ```bash
-    wiloon ALL=(ALL) NOPASSWD: ALL
+wiloon ALL=(ALL) NOPASSWD: ALL
 ```
 
 ln -s /usr/bin/vim /usr/bin/vi
