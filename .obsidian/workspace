@@ -4,14 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "9f0967ce0b08b0ad",
+        "id": "09824f17ae7a83b4",
         "type": "leaf",
         "state": {
-          "type": "markdown",
-          "state": {
-            "file": "content/post/english/english.md",
-            "mode": "source"
-          }
+          "type": "empty",
+          "state": {}
         }
       }
     ],
@@ -39,7 +36,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "英语语法",
+                "query": "",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -48,8 +45,7 @@
               }
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "horizontal",
@@ -69,13 +65,12 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "content/post/english/english.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
                 "showSearch": false,
                 "searchQuery": "",
-                "backlinkCollapsed": true,
+                "backlinkCollapsed": false,
                 "unlinkedCollapsed": false
               }
             }
@@ -86,17 +81,17 @@
     "direction": "horizontal",
     "width": 300
   },
-  "active": "9f0967ce0b08b0ad",
+  "active": "09824f17ae7a83b4",
   "lastOpenFiles": [
+    "和.md",
+    "content/post/other/eclipse打开当前文件所在文件夹的两种方法.md",
+    "content/post/linux/grep.md",
+    "content/post/other/alias.md",
     "content/post/english/english.md",
     "content/post/archive-2/english.md",
     "content/post/archive-1/CanoKey.md",
     "content/post/other/apache访问日志access-log.md",
     "content/post/archive-3/shell.md",
-    "content/post/archive-2/ansible-module-command-shell-raw.md",
-    "content/post/other/android程序的反破解技术.md",
-    "和.md",
-    "content/post/linux/systemd-timer.md",
-    "content/post/linux/cron.md"
+    "content/post/archive-2/ansible-module-command-shell-raw.md"
   ]
 }

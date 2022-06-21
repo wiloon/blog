@@ -11,4 +11,4 @@ tags:
 ## 英语语法
 
 - 时态, wiloon.com/tense [[Tense#英语时态， Tense]]
-- 第三人称单数, wiloon.com/third-person-singular
+- 第三人称单数, wiloon.com/third-person-singular [[third-person-singular#第三人称单数 third person singular]]
