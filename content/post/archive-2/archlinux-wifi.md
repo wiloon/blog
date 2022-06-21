@@ -16,7 +16,7 @@ Essay Address: <http://blog.csdn.net/sunnypotter/article/details/23201339>
  systemctl dhcpcd.service
  systemctl disable dhcpcd.service
 
-# 然后
+然后
 
  cd /etc/netctl
  cp examples/wireless-wpa .    # A simple WPA encrypted wireless connection
@@ -30,7 +30,7 @@ Essay Address: <http://blog.csdn.net/sunnypotter/article/details/23201339>
 + ESSID='wifi-name'
 + Key='wifi-passwd'
 
-# 注意,必须先完成以上才能进行一下,否则有一系列问题
+注意,必须先完成以上才能进行一下,否则有一系列问题
 
  netctl enable wireless-wpa
  netctl start wireless-wpa

@@ -9,7 +9,8 @@ tags:
   - reprint
 ---
 ## archlinux 登录后启动xfce4
-https://wiki.archlinux.org/index.php/xinitrc
+
+<https://wiki.archlinux.org/index.php/xinitrc>
 
 ```bash
 vim  ~/.xinitrc

@@ -9,6 +9,7 @@ tags:
   - reprint
 ---
 ## ansible create file
+
 ```bash
   
 - name: ensure file exists
@@ -29,4 +30,4 @@ mode: 0555
   
 ```
 
-https://stackoverflow.com/questions/28347717/how-to-create-an-empty-file-with-ansible
+<https://stackoverflow.com/questions/28347717/how-to-create-an-empty-file-with-ansible>

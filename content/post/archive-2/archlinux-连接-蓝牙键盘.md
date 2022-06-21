@@ -9,6 +9,7 @@ tags:
   - reprint
 ---
 ## archlinux 连接 蓝牙键盘
+
 filco 配对 ctrl+alt+fn
   
 忘记已配对设备 connect 长按3秒
@@ -45,6 +46,6 @@ systemctl start bluetooth
   
 ```
 
-https://wiki.archlinux.org/index.php/Bluetooth_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)#.E5.AE.89.E8.A3.85
+<https://wiki.archlinux.org/index.php/Bluetooth_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)#.E5.AE.89.E8.A3.85>
   
-https://bbs.archlinux.org/viewtopic.php?id=217451
+<https://bbs.archlinux.org/viewtopic.php?id=217451>

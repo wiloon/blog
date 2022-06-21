@@ -9,6 +9,7 @@ tags:
   - reprint
 ---
 ## ansible playbook
+
 ```bash
 ---                         #任何playbook文件(其实就是yaml文件)都要以这个开头
 - hosts: '{{ hosts }}'      #可以是主机组或IP
@@ -117,6 +118,6 @@ ansible-playbook /etc/ansible/xxx.yml --limit 192.168.xxx.xxx --tags "tag0,tag1"
 --step # one-step-at-a-time: confirm each task before running
 ```
 
->http://sapser.github.io/ansible/2014/07/21/ansible-playbook
->https://stackoverflow.com/questions/18195142/safely-limiting-ansible-playbooks-to-a-single-machine
->http://liuzhengwei521.blog.51cto.com/4855442/1962382
+><http://sapser.github.io/ansible/2014/07/21/ansible-playbook>
+><https://stackoverflow.com/questions/18195142/safely-limiting-ansible-playbooks-to-a-single-machine>
+><http://liuzhengwei521.blog.51cto.com/4855442/1962382>

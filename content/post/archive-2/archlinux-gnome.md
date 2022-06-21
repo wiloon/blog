@@ -9,8 +9,9 @@ tags:
   - reprint
 ---
 ## archlinux gnome
+
 Gnome shell system monitor extension
   
-https://aur.archlinux.org/packages/gnome-shell-extension-system-monitor-git/
+<https://aur.archlinux.org/packages/gnome-shell-extension-system-monitor-git/>
   
-https://github.com/paradoxxxzero/gnome-shell-system-monitor-applet
+<https://github.com/paradoxxxzero/gnome-shell-system-monitor-applet>

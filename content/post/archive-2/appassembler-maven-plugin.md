@@ -9,12 +9,12 @@ tags:
   - reprint
 ---
 ## appassembler-maven-plugin
+
 ### Goals Overview
 
-  * [appassembler:assemble][1] Assembles the artifacts and generates bin scripts for the configured applications.
-  * [appassembler:create-repository][2] Creates an appassembler repository.
-  * [appassembler:generate-daemons][3] Generates JSW based daemon wrappers.
-
+* [appassembler:assemble][1] Assembles the artifacts and generates bin scripts for the configured applications.
+* [appassembler:create-repository][2] Creates an appassembler repository.
+* [appassembler:generate-daemons][3] Generates JSW based daemon wrappers.
 
 maven 自动生成运行脚本插件appassembler-maven-plugin
   
@@ -25,7 +25,6 @@ appassembler-maven-plugin可以自动生成跨平台的启动脚本,省去了手
 appassembler的配置比较简单,在pom.xml的配置文件加入插件配置。
 
 比如说不同的启动脚本,可以如下配置
-
 
 Xml代码
   
@@ -85,7 +84,6 @@ ${project.build.directory}/chj-search-client</assembleDirectory>
 
 就可以自动生成整个的依赖文件,配置文件和运行脚本了。
 
-
 一些配置说明
 
 configurationDirectory: 生成配置文件路径
@@ -106,8 +104,7 @@ programs: 这个必须参数,启动的主class
 
 生成jsw也是一个简单的配置
 
-eg: 
-
+eg:
 
 Xml代码
   
@@ -263,10 +260,9 @@ appassembler-maven-plugin</artifactId>
   
 </plugin>
 
+<http://lavafree.iteye.com/blog/1502594>
 
-http://lavafree.iteye.com/blog/1502594
-
-http://www.mojohaus.org/appassembler/appassembler-maven-plugin/
+<http://www.mojohaus.org/appassembler/appassembler-maven-plugin/>
 
  [1]: http://www.mojohaus.org/appassembler/appassembler-maven-plugin/assemble-mojo.html
  [2]: http://www.mojohaus.org/appassembler/appassembler-maven-plugin/create-repository-mojo.html

@@ -9,6 +9,7 @@ tags:
   - reprint
 ---
 ## archlinux UEFI
+
 ```bash
 # boot with iso-usb
 ls /sys/firmware/efi

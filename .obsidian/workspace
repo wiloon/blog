@@ -7,8 +7,11 @@
         "id": "9f0967ce0b08b0ad",
         "type": "leaf",
         "state": {
-          "type": "empty",
-          "state": {}
+          "type": "markdown",
+          "state": {
+            "file": "content/post/english/english.md",
+            "mode": "source"
+          }
         }
       }
     ],
@@ -36,7 +39,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "\"##.*timer",
+                "query": "英语语法",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -45,7 +48,8 @@
               }
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
@@ -65,6 +69,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "content/post/english/english.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -83,6 +88,8 @@
   },
   "active": "9f0967ce0b08b0ad",
   "lastOpenFiles": [
+    "content/post/english/english.md",
+    "content/post/archive-2/english.md",
     "content/post/archive-1/CanoKey.md",
     "content/post/other/apache访问日志access-log.md",
     "content/post/archive-3/shell.md",
@@ -90,8 +97,6 @@
     "content/post/other/android程序的反破解技术.md",
     "和.md",
     "content/post/linux/systemd-timer.md",
-    "content/post/linux/cron.md",
-    "content/post/archive-2/cron-anacron.md",
-    "content/post/archive-2/go-map-set.md"
+    "content/post/linux/cron.md"
   ]
 }

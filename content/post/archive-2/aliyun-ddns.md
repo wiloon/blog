@@ -9,7 +9,8 @@ tags:
   - reprint
 ---
 ## aliyun ddns
-https://github.com/honwen/aliyun-ddns-cli
+
+<https://github.com/honwen/aliyun-ddns-cli>
 
 ```bash
 aliyun-ddns-cli --access-key-id=ak0 --access-key-secret=sk0  auto-update --domain=domain0.wiloon.com --redo=600
@@ -25,4 +26,4 @@ docker run -d \
 
 ## jeessy2/ddns-go
 
-    https://github.com/jeessy2/ddns-go
+<https://github.com/jeessy2/ddns-go>

@@ -9,6 +9,7 @@ tags:
   - reprint
 ---
 ## ansible inventory
+
 ```bash
 ansible_user=root
 ```

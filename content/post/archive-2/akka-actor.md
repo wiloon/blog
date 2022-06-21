@@ -9,9 +9,9 @@ tags:
   - reprint
 ---
 ## AKKA
-http://sunxiang0918.cn/2016/01/10/Akka-in-JAVA-1/
 
-# AKKA
+<http://sunxiang0918.cn/2016/01/10/Akka-in-JAVA-1/>
+
 Akka是一个由Scala编写的,能兼容Sacala和JAVA的,用于编写高可用和高伸缩性的**Actor模型**框架.它基于了事件驱动的并发处理模式,性能非常的高,并且有很高的可用性.大大的简化了我们在应用系统中开发并发处理的过程.它在各个领域都有很好的表现.
   
 使用AKKA的好处
@@ -47,6 +47,7 @@ akka-zeromq:整合ZeroMQ
 其中最总要的就是akka-actor,最简单的AKKA使用的话,只需要引入这个包就可以了.
   
 ### Actor模型
+
 什么是Actor
   
 既然说AKKA是一个Actor模型框架,那么就需要搞清楚什么是Actor模型.Actor模型是由Carl Hewitt于上世纪70年代提出的,目的是为了解决分布式编程中的一系列问题而产生.
@@ -67,5 +68,5 @@ akka-zeromq:整合ZeroMQ
   
 要在JAVA中实现一个Actor也非常的简单,直接继承akka.actor.UntypedActor类,然后实现public void onReceive(Object message) throws Exception方法即可.
 
->https://guobinhit.github.io/akka-guide/
->https://www.zhihu.com/question/279512440/answer/407373037
+><https://guobinhit.github.io/akka-guide/>
+><https://www.zhihu.com/question/279512440/answer/407373037>

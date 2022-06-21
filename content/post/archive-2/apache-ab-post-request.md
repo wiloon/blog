@@ -9,6 +9,7 @@ tags:
   - reprint
 ---
 ## apache ab/Apache Bench
+
 ApacheBench
 
 ### install
@@ -27,7 +28,7 @@ ab -n 1 -c 1 -p abpost.txt -T 'application/x-www-form-urlencoded' "http://127.0.
 ab -n 1 -c 1 -p abpost.txt -T 'application/json' "http://127.0.0.1:8080/"
 ```
 
-参数: 
+参数:
   
 -n requests Number of requests to perform
   
@@ -43,11 +44,11 @@ ab -n 1 -c 1 -p abpost.txt -T 'application/json' "http://127.0.0.1:8080/"
 
 -p postfile File containing data to POST
   
-//包含了需要POST的数据的文件,文件格式如"p1=1&p2=2".使用方法是 -p 111.txt 。  (配合-T) 
+//包含了需要POST的数据的文件,文件格式如"p1=1&p2=2".使用方法是 -p 111.txt 。  (配合-T)
 
 -T content-type Content-type header for POSTing
   
-//POST数据所使用的Content-type头信息,如 -T "application/x-www-form-urlencoded" 。  (配合-p) 
+//POST数据所使用的Content-type头信息,如 -T "application/x-www-form-urlencoded" 。  (配合-p)
 
 -v verbosity How much troubleshooting info to print
   
@@ -107,27 +108,21 @@ are a colon separated username and password.
 
 参数很多,一般我们用 -c 和 -n 参数就可以了。例如:
 
-# ab -c 5000 -n 600 http://127.0.0.1/index.php
+# ab -c 5000 -n 600 <http://127.0.0.1/index.php>
 
-ApacheBench用法详解: 
+ApacheBench用法详解:
 
 在Linux系统,一般安装好Apache后可以直接执行；
 
-# ab -n 4000 -c 1000 http://www.ha97.com/
+# ab -n 4000 -c 1000 <http://www.ha97.com/>
 
 如果是Win系统下,打开cmd命令行窗口,cd到apache安装目录的bin目录下；
 
 -n后面的4000代表总共发出4000个请求；-c后面的1000表示采用1000个并发 (模拟1000个人同时访问) ,后面的网址表示测试的目标URL。
 
- 
-
- 
-
- 
-
 使用ab发送post请求
 
-ab -n 100000 -c 149  -H keywords:dt -p  /root/file/param.conf  -T 'application/x-www-form-urlencoded'  http://cc-tt.chinacloudapp.cn/restaurant
+ab -n 100000 -c 149  -H keywords:dt -p  /root/file/param.conf  -T 'application/x-www-form-urlencoded'  <http://cc-tt.chinacloudapp.cn/restaurant>
 
 解释: -p:包含post请求的参数文件。文件内容类似: sk=1babb55a0b4b4dd2a&apitype=restaurant&p=tJoLaT4mon
 
@@ -139,16 +134,8 @@ c:并发客户端数
 
 H:自定义消息头
 
-http://nanchengru.com/2015/01/apache-ab%E5%8F%91%E9%80%81post%E8%AF%B7%E6%B1%82%E4%BB%A5%E5%8F%8A%E5%8F%82%E6%95%B0%E8%A7%A3%E9%87%8A/?replytocom=9
+<http://nanchengru.com/2015/01/apache-ab%E5%8F%91%E9%80%81post%E8%AF%B7%E6%B1%82%E4%BB%A5%E5%8F%8A%E5%8F%82%E6%95%B0%E8%A7%A3%E9%87%8A/?replytocom=9>
 
- 
-
-
-  
      (总结) Web性能压力测试工具之ApacheBench (ab) 详解
   
-
-
-http://www.ha97.com/4617.html/embed#?secret=uK0hS4Tawl
-
- 
+<http://www.ha97.com/4617.html/embed#?secret=uK0hS4Tawl>
