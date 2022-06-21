@@ -55,7 +55,7 @@ fdisk -l 列出系统中所有的磁盘设备和分区表,这里磁盘设备容�
 
 Disk /dev/vda: 16.1 GB, 16106127360 bytes
 
-2. 但是磁盘挂载的空间并没有增加,依然是8.3G
+但是磁盘挂载的空间并没有增加,依然是8.3G
 
 [root@localhost ~]# df -h //查看可用磁盘总容量和使用容量
 
@@ -73,9 +73,9 @@ tmpfs 246M 0 246M 0% /dev/shm
 
 WARNING: DOS-compatible mode is deprecated. It's strongly recommended to
 
-         switch off the mode (command 'c') and change display units to
-    
-         sectors (command 'u').
+switch off the mode (command 'c') and change display units to
+
+sectors (command 'u').
 
 Command (m for help): p
 

@@ -4,7 +4,7 @@ author: "-"
 date: 2018-12-16T08:36:59+00:00
 url: nfs
 categories:
-  - Inbox
+  - Linux
 tags:
   - reprint
 ---
@@ -14,6 +14,8 @@ tags:
 # nfs-utils 包含客户端和服务端实现
 sudo pacman -S  nfs-utils
 
+# ubuntu, nfs client
+sudo apt install nfs-common
 ```
 
 ### nfs 依赖时钟, 需要ntp服务

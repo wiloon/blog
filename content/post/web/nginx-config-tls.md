@@ -3,13 +3,39 @@ author: "-"
 date: "2020-06-26T13:04:56Z"
 title: "nginx config, tls"
 categories:
-  - inbox
+  - Nginx
 tags:
   - reprint
 ---
 ## "nginx config, tls"
+
+## TLS, nginx config include
+
+```bash
+cat > /etc/nginx/tls.conf << EOF
+ssl_certificate     /etc/letsencrypt/fullchain.pem;
+ssl_certificate_key /etc/letsencrypt/privkey.pem;
+ssl_protocols       TLSv1.2;
+ssl_ciphers         HIGH:!aNULL:!MD5;
+EOF
+
+vim /etc/nginx/conf.d/default.conf
+
+# server config
+server {
+        listen 443 ssl;
+        server_name foo.wiloon.com;
+        include    /etc/nginx/tls.conf;
+
+        location / {
+          # ...
+        }
+}
+```
+
 ### stream
-代理远程桌面3389的tcp连接   
+
+代理远程桌面3389的tcp连接
 
     stream {
         upstream mstsc {

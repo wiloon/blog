@@ -4,24 +4,24 @@ author: "-"
 date: 2012-04-24T10:52:10+00:00
 url: nexus
 categories:
-  - Inbox
+  - CS
 tags:
   - reprint
 ---
 ## nexus OSS
 
-### docker
+### podman
 
 ```bash
 podman run \
 -d \
 --name nexus \
--p 8081:8081 \
--p 8083:8083 \
+-p 30081:8081 \
+-p 30083:8083 \
 -v /etc/localtime:/etc/localtime:ro \
--v /data/nexus-data:/nexus-data \
-sonatype/nexus3
-
+-v nexus-data:/nexus-data \
+-e INSTALL4J_ADD_VM_PARAMS=-Xms128m -Xmx256m -XX:MaxDirectMemorySize=256m \
+sonatype/nexus3:3.39.0
 ```
 
 ### config

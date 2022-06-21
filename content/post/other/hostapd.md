@@ -46,7 +46,7 @@ Line 2: invalid/unknown driver 'nl80211'
 
 ### 下载和编译hostpad {#Download_and_compile_hostapd}
 
-_使用基于nl80211的hostapd需要你有至少libnl-1.0 pre8或更新的 genl版本,nl80211依赖Generic Netlink. 大多数发行版都自带有这个或者更新的.在fedora或其它开发包和安装包分开发行版编译 _时,你需要libnl-devel 包
+使用基于nl80211的hostapd需要你有至少libnl-1.0 pre8或更新的 genl版本,nl80211依赖Generic Netlink. 大多数发行版都自带有这个或者更新的.在fedora或其它开发包和安装包分开发行版编译 _时,你需要libnl-devel 包
 
 _使用下面命令在线获取hostapd:_
 

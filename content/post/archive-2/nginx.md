@@ -65,7 +65,7 @@ kill -s QUIT 1628
 
 ### 文件下载
 
-```f
+```conf
 server {
         listen 8088;
         location /download/images {

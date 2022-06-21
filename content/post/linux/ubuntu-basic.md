@@ -113,4 +113,31 @@ Ubuntu 不会立即提供该新版本的软件。需要一个步骤来检查此�
 ```bash
 vim  /etc/netplan/00-installer-config.yaml 
 
+network:
+  ethernets:
+    ens18:
+      dhcp4: true
+  version: 2
+```
+
+## 静态 IP
+
+```bash
+network:
+  ethernets:
+    ens18:
+      addresses: [192.168.50.140/24]
+      dhcp4: false
+      optional: true
+      gateway4: 192.168.50.4
+      nameservers:
+        addresses: [192.168.50.1]
+  version: 2
+
+```
+
+```bash
+# 使配置生效
+sudo netplan apply
+
 ```

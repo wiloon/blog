@@ -31,21 +31,21 @@ podman run -d --name kafka1 \
   -e KAFKA_CFG_ZOOKEEPER_CONNECT=192.168.50.169:2181 \
   -e KAFKA_CFG_ADVERTISED_LISTENERS=PLAINTEXT://192.168.50.169:9092 \
   -p 9092:9092 \
-  bitnami/kafka:3.0.0
+  bitnami/kafka:3.2.0
 
 podman run -d --name kafka2 \
   -e ALLOW_PLAINTEXT_LISTENER=yes \
   -e KAFKA_CFG_ZOOKEEPER_CONNECT=192.168.50.169:2181 \
   -e KAFKA_CFG_ADVERTISED_LISTENERS=PLAINTEXT://192.168.50.169:9093 \
   -p 9093:9092 \
-  bitnami/kafka:3.0.0
+  bitnami/kafka:3.2.0
 
 podman run -d --name kafka3 \
   -e ALLOW_PLAINTEXT_LISTENER=yes \
   -e KAFKA_CFG_ZOOKEEPER_CONNECT=192.168.50.169:2181 \
   -e KAFKA_CFG_ADVERTISED_LISTENERS=PLAINTEXT://192.168.50.169:9094 \
   -p 9094:9092 \
-  bitnami/kafka:3.0.0
+  bitnami/kafka:3.2.0
 ```
 
 <https://github.com/bitnami/bitnami-docker-kafka/blob/master/README.md>

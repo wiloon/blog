@@ -19,8 +19,9 @@ categories:
 我们先不讨论xdm/gdm/kdm这些东西。而是先看看启动X最直接的方式。首先来认识两个重要的文件，一个是X视窗启动文件-xinitrc，另外一个就是X视窗资源文件-Xdefaults.
 
 ### X视窗启动文件-xinitrc
+
 事实上，我们一般执行startx来启动X Window System，其中startx就是xinit的前端界面[front-end].倘若我们以startx或xinit启动X，这指令会启动X server并且会执行$HOME/.xinitrc文件内的所设置的指令。倘若 $HOME没有这个文件，则系统会使用内定的的配置文件/etc/X11/xinit/xinitrc。而事实上xinitrc文件一般只包含有启动X时所要执行clients的shell script,里面定义一些指令和shell script，让X启动时，可以遵照里面的shell script来启动必要的应用程序。
-例如我的简单而又实用的的$HOME/.xinitrc的内容如下: 
+例如我的简单而又实用的的$HOME/.xinitrc的内容如下:
 
         LANG=zh_CN.GB2312
         LC_ALL=zh_CN.GB2312
@@ -59,10 +60,9 @@ X Window System的启动方法很多，最常用的还是上面得到的startx�
 
 ### 以xinit/startx来启动X
 
-这是一般的方法:我在Debain也是经常以这种方式来启动X的。就是执行/usr/XR116/bin/startx.事实上这个方法就是与直接执行/usr/X11R6/bin/xinit或是/usr/X11R6/bin/X是无异的。差别在于xinit和"X"并不会去执行读取读资源文件而去执行X Window Manager，所以一般的情况你得到的X视窗系统是个非常简朴的的一个X型鼠标指针与简朴的 xterm 而已。但xinit就是最标准的X启动方法，估计是绝大部分的系统X Window System都会支持。它是X Window System核心的程序，而startx仅是个启动xinit的shell script而已，里面同样定义执行xinit命令以启动X视窗系统。当一般执行startx时，X启动的过程大约就是这些东西了: 
+这是一般的方法:我在Debain也是经常以这种方式来启动X的。就是执行/usr/XR116/bin/startx.事实上这个方法就是与直接执行/usr/X11R6/bin/xinit或是/usr/X11R6/bin/X是无异的。差别在于xinit和"X"并不会去执行读取读资源文件而去执行X Window Manager，所以一般的情况你得到的X视窗系统是个非常简朴的的一个X型鼠标指针与简朴的 xterm 而已。但xinit就是最标准的X启动方法，估计是绝大部分的系统X Window System都会支持。它是X Window System核心的程序，而startx仅是个启动xinit的shell script而已，里面同样定义执行xinit命令以启动X视窗系统。当一般执行startx时，X启动的过程大约就是这些东西了:
   
 1)xinit启动X server程序；
-  
   
     2)X server会寻找$HOME/.xinintrc文件，有就执行它，没有就会转到/etc/X11/xinit/xinitrc读取系统内定的启动文件。
   
@@ -81,13 +81,11 @@ X Window System的启动方法很多，最常用的还是上面得到的startx�
   
     这就是你能在屏幕上移动光标的原因，但由于目前还没有任何X client程序要求键盘和鼠标的输入。所以X server只是和鼠标一直移动而已。而其它的键盘或鼠标输入虽然都经过X server处理，但均被视为无作用(因为没有什么x clinet程序所接收)。这也是X启动的初期，按键盘或鼠标都没有反应的原因。但如果你能送信号给X server和X client的话，这下就有会作用了。比如: Ctrl+Alt+Backspace即是送给X Server的中断信号,当X启动到中途或者是执行时，只要按下这组合键，便会立即结束X server，跳回到command prompt terminal的状态。
   
-  
 7)接下来，在xinitrc唤起X server后，xinit会启动xterm程序。呵呵，xterm就是X Window terminal的缩写吧。它对X server而言是一个X Clietn程序而已。要求X server建立一个视窗，而且会告知X server在这个视窗中的鼠标和键盘的输入状态(Event)，因而启动xterm时便会视窗执行一个shell，内定的就是bash。当指标被移至视窗之内时，xterm便准备接受输入。键盘输入会被关到xterm中的shell就如同真的终端机输入一般。而从shell本身或其副程序的输出则借着 xterm显示在视窗上，xterm也接受输入，便得你能设置不同的程序操作参数和进行文本的一些操作，比如copy或paste.对于这些操作，你可以通过在xterm中执行ps auxw命令来观察到系统执行这些命令的详细步骤。
   
-  
-### 以xdm/gdm来启动你的X。
+### 以xdm/gdm来启动你的X
+
 上面说到了以startx来启动你的X，也可通过xdm/gdm来启动你的X来启动你的X，这正是其它一些发行版本的采用的方式。比如 Redhat是gdm，而Mandrake用kdm。一般的情况，如果你要用调整你系统的run-level。比如修改你的/etc/inittab，把 id:3:initdefault中的3改为5。
-  
   
     当系统以xdm/gdm来启动X Windows System。大约的步骤就是这些了:
   
@@ -229,7 +227,6 @@ X Window System的启动方法很多，最常用的还是上面得到的startx�
     这个大家都会了吧。最简单的就是选择X Window Manager中的exit或logout或相关的就可以了。
  呵呵，还记前面介绍的个 HOME/.xinitrc文件吧，是就在结束.xinitrc文件吧，执行了一个叫exec kde3的程序，这样的好处就是结束X Window Manager的时候，会连同x-server一起结束。另外的就是按CRTL+ALT+Backspace来结束你的X Window Manager吧，它就是把中断信号送给X-server结束X回到console terminal。
   
-  
     上面的情况是针对用startx启动X的，如果你是用xdm/kdm/gdm来启动你的X的话，你按上面的方法是又会回到X视窗的登录界面的，X -server并不会结束。你可以在console下，运行init 3就会结束你的X-server，如果你是init 5的话，那X-server又回来了。
   
   
@@ -243,21 +240,16 @@ X Window System的启动方法很多，最常用的还是上面得到的startx�
  我拿到了FreeBSD 5.1后，就赶紧安装了起来。5.1版本的兼容性和硬件支持确实不错，在我的计算机上很顺利地就安装好了。
  由于我是预备把FreeBSD用作开发工作站，图形化的界面自然会比较轻易使用一些。我安装X-Window底层支持，和KDE、GNOME这两大窗口管理器。通过设置".xinitrc"文件，也能够在KDE和GNOME之间换来换去。但是总感觉不那么自然和彻底。看过了Linux发行版的窗口界面，知 道了Display Manager，这才开始熟悉了DM三兄弟。假如你已经安装了X-Server、KDE和GNOME，它们就已经在你的系统里了。没有的话，…。
   
-  
     1. XDM
- 前面说了，老大XDM比较随和。我们可以修改/etc/ttys文件，将下面的一行: 
+ 前面说了，老大XDM比较随和。我们可以修改/etc/ttys文件，将下面的一行:
  代码: ttyv8 "/usr/X11R6/bin/xdm -nodaemon" xterm off secure 中的off改为on。
  代码: ttyv8 "/usr/X11R6/bin/xdm -nodaemon" xterm on secure 重新启动系统，就会自动进入XDM，输入账号和密码，就会进入你原来设置好的KDE或GNOME桌面了。
  XDM确实够丑的，相信没有人想多看两眼的。裁判，换人！
   
-  
     2. KDM
- 为了老二KDM能够出场，我再次修改/etc/ttys文件。还是那一行，这次改为: 
+ 为了老二KDM能够出场，我再次修改/etc/ttys文件。还是那一行，这次改为:
  代码: ttyv8 "/usr/local/bin/kdm -nodaemon" xterm on secure 要让KDM自动在KDE和GNOME中切换，还要修改文件"/usr/X11R6/lib/X11/xdm/Xsession"。把中间的这段文字，
   
-  
-    
-      
         Java代码  
       
     
@@ -349,14 +341,10 @@ X Window System的启动方法很多，最常用的还是上面得到的startx�
  慢点，还有一个地方需要修改一下。用root进入KDE中，找到"Login Manager"，在"Sessions"页下的"New Type"中，"kde"项已经有了，只要增加"gnome"，顺便再调整一下顺序吧。
  好了，现在再次重起系统，感觉如何？KDM还是很能干的。
   
-  
     3. GDM
  老三GDM的大名，早有耳闻，在Linux家里也见到过，但把它请到咱FreeBSD家里来，我可是花了三个晚上，敲了无数次的门，才让它露出了真容。下面就是它提出来的条件。
  第一点，GDM好贱，需要一个特定的系统的账户，据说是为了安全。
   
-  
-    
-      
         Java代码  
       
     
@@ -374,9 +362,6 @@ X Window System的启动方法很多，最常用的还是上面得到的startx�
     如此，新建了一个gdm的Group，GID是42，一个gdm的User，UID是42。GID和UID，必须是没有被系统中其它账号占用，假如已被占 用，改用其它小于1000的。
  第二点，GDM需要一个有安全门的单间，还得过户到它的名下。
   
-  
-    
-      
         Java代码  
       
     
@@ -395,15 +380,12 @@ X Window System的启动方法很多，最常用的还是上面得到的startx�
   
   
     第三点，拉拉关系，搞好配置。这得修改 "/usr/X11R6/share/gnome/gdm/gdm.conf"才行，
- ServAuthDir=/usr/X11R6/share/gnome/gdm 改为: 
+ ServAuthDir=/usr/X11R6/share/gnome/gdm 改为:
  ServAuthDir=/var/gdm
- 再改Greeter=/usr/X11R6/bin/gdmlogin 为: 
+ 再改Greeter=/usr/X11R6/bin/gdmlogin 为:
  Greeter=/usr/X11R6/bin/gdmgreeter
  另外，下面的这三行，是true还是改成false，随便你了。
   
-  
-    
-      
         Java代码  
       
     
@@ -457,11 +439,8 @@ X Window System的启动方法很多，最常用的还是上面得到的startx�
   
   
     第五点，现在该给老三让位了。用gdm替换kdm，这又要改"/etc/ttys"中的
- ttyv8 "/usr/local/bin/kdm -nodaemon" xterm on secure 为: 
+ ttyv8 "/usr/local/bin/kdm -nodaemon" xterm on secure 为:
  ttyv8 "/usr/X11R6/bin/gdm -nodaemon" xterm on secure
  做完上面的工作，重新启动系统。终于GDM总算给了面子，揭开了那漂亮的面纱，原来这GDM是她不是他，难怪难怪。忍不住要多看上几眼。
  辛劳的工作，由漂亮的DM开始，心情真好！
   
-
-
-

@@ -198,7 +198,7 @@ select a.id,a.va,b.id,b.vb from @ta a full outer join @tb b
 
 on a.id=b.id
 
--交叉连接
+交叉连接
 
 -没有两个表之间关系的交叉连接,将产生连接所涉及的表的笛卡尔积。
 

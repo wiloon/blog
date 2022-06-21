@@ -1,14 +1,14 @@
 ---
-title: kde basic
+title: kde config
 author: "-"
 date: 2019-04-07T03:31:52+00:00
-url: /?p=14117
+url: kde/config
 categories:
   - Desktop
 tags:
   - reprint
 ---
-## kde basic
+## kde config
 
 ### 快捷键
 
@@ -39,3 +39,11 @@ balooctl status  #查看baloo的状态
 <https://community.kde.org/Baloo/Configuration>
 
 ---
+
+## 任务栏
+
+用 task manager widget 替换 icon only task manager widget
+
+icon only task manager widget 任务栏只显示图标，同一个应用打开了多个窗口时不能区分不同的窗口。
+
+task manager widget 会在任务栏上显示 window title

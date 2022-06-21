@@ -9,6 +9,7 @@ tags:
   - reprint
 ---
 ## ACL (Access Control List)
+
 setfacl命令可以用来细分linux下的文件权限。
   
 chmod命令可以把文件权限分为u,g,o三个组,而setfacl可以对每一个文件或目录设置更精确的文件权限。
@@ -17,7 +18,7 @@ chmod命令可以把文件权限分为u,g,o三个组,而setfacl可以对每一�
   
 比如: 让某一个用户对某一个文件具有某种权限。
 
-这种独立于传统的u,g,o的rwx权限之外的具体权限设置叫ACL (Access Control List) 
+这种独立于传统的u,g,o的rwx权限之外的具体权限设置叫ACL (Access Control List)
   
 ACL可以针对单一用户、单一文件或目录来进行r,w,x的权限控制,对于需要特殊权限的使用状况有一定帮助。
   
@@ -26,41 +27,41 @@ ACL可以针对单一用户、单一文件或目录来进行r,w,x的权限控制
 setfacl 参数
   
 Usage: setfacl [-bkndRLP] { -m|-M|-x|-X ... } file ...
-    
+
 -m, -modify=acl modify the current ACL(s) of file(s)
-    
+
 -M, -modify-file=file read ACL entries to modify from file
-    
+
 -x, -remove=acl remove entries from the ACL(s) of file(s)
-    
+
 -X, -remove-file=file read ACL entries to remove from file
-    
+
 -b, -remove-all remove all extended ACL entries
-    
+
 -k, -remove-default remove the default ACL
-        
+
 -set=acl set the ACL of file(s), replacing the current ACL
-        
+
 -set-file=file read ACL entries to set from file
-        
+
 -mask do recalculate the effective rights mask
-    
+
 -n, -no-mask don't recalculate the effective rights mask
-    
+
 -d, -default operations apply to the default ACL
-    
+
 -R, -recursive recurse into subdirectories
-    
+
 -L, -logical logical walk, follow symbolic links
-    
+
 -P, -physical physical walk, do not follow symbolic links
-        
+
 -restore=file restore ACLs (inverse of \`getfacl -R')
-        
+
 -test test mode (ACLs are not modified)
-    
+
 -v, -version print version and exit
-    
+
 -h, -help this help text
 
 例子: 在/test 下建立一个test文件 将权限改为777 并查看其ACL设置
@@ -123,7 +124,7 @@ mask::rwx
   
 other::rwx
 
-通过handsome用户验证一下: 
+通过handsome用户验证一下:
   
 [root@localhost test]# su - handsome
   
@@ -137,7 +138,7 @@ other::rwx
 
 还能对有效权限 (mask) 进行设置: 有效权限(mask) 即用户或组所设置的权限必须要存在于mask的权限设置范围内才会生效
 
-最后取消ACL权限: 
+最后取消ACL权限:
   
 [root@localhost test]# setfacl -x u:handsome test.txt
   

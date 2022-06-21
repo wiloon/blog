@@ -10,7 +10,7 @@ tags:
 ---
 ## 文件系统 Ext2, Ext3, Ext4, xfs
 
-Linux kernel 自 2.6.28 开始正式支持新的文件系统 Ext4。 Ext4 是 Ext3 的改进版，修改了 Ext3 中部分重要的数据结构，而不仅仅像 Ext3 对 Ext2 那样，只是增加了一个日志功能而已。Ext4 可以提供更佳的性能和可靠性，还有更为丰富的功能: 
+Linux kernel 自 2.6.28 开始正式支持新的文件系统 Ext4。 Ext4 是 Ext3 的改进版，修改了 Ext3 中部分重要的数据结构，而不仅仅像 Ext3 对 Ext2 那样，只是增加了一个日志功能而已。Ext4 可以提供更佳的性能和可靠性，还有更为丰富的功能:
 
 1. 与 Ext3 兼容。执行若干条命令，就能从 Ext3 在线迁移到 Ext4，而无须重新格式化磁盘或重新安装系统。原有 Ext3 数据结构照样保留，Ext4 作用于新数据，当然，整个文件系统因此也就获得了 Ext4 所支持的更大容量。
 
@@ -36,15 +36,15 @@ FS
 
 12. 持久预分配 (Persistent preallocation) 。P2P 软件为了保证下载文件有足够的空间存放，常常会预先创建一个与所下载文件大小相同的空文件，以免未来的数小时或数天之内磁盘空间不足导致下载失败。 Ext4 在文件系统层面实现了持久预分配并提供相应的 API (libc 中的 posix_fallocate()) ，比应用软件自己实现更有效率。
 
-13. 默认启用 barrier。磁盘上配有内部缓存，以便重新调整批量数据的写操作顺序，优化写入性能，因此文件系统必须在日志数据写入磁盘之后才能写 commit 记录，若 commit 记录写入在先，而日志有可能损坏，那么就会影响数据完整性。Ext4 默认启用 barrier，只有当 barrier 之前的数据全部写入磁盘，才能写 barrier 之后的数据。 (可通过 "mount -o barrier=0" 命令禁用该特性。) 
+13. 默认启用 barrier。磁盘上配有内部缓存，以便重新调整批量数据的写操作顺序，优化写入性能，因此文件系统必须在日志数据写入磁盘之后才能写 commit 记录，若 commit 记录写入在先，而日志有可能损坏，那么就会影响数据完整性。Ext4 默认启用 barrier，只有当 barrier 之前的数据全部写入磁盘，才能写 barrier 之后的数据。 (可通过 "mount -o barrier=0" 命令禁用该特性。)
   
 Ext4 随 Linux kernel 2.6.28 正式发布已有数周，一直苦于找不到测试用的磁盘，正巧年前 Intel 送来几块 SSD 测试样品，这两天就顺带把 SSD 也测了。测试所使用的 Linux 内核版本为 2.6.28.2，测试工具为 IOzone 3.318。
 
-IOzone 测试命令为: 
+IOzone 测试命令为:
 
 time /opt/iozone/bin/iozone -a -s 4G -q 256 -y 4 >|/root/ext4-iozone-stdout.txt
   
-上述命令的说明如下: 
+上述命令的说明如下:
 
 Auto Mode
   
@@ -66,9 +66,10 @@ Processor cache line size set to 32 bytes.
   
 File stride size set to 17 * record size.
   
-测试结果除了表明 Intel SSD 的读写速度快得令人咋舌之外，还可以说明 Ext4 的各方面性能都超过了上一代 Ext3，甚至在大多数情况下，比没有日志功能的 Ext2 还要快出不少: 
+测试结果除了表明 Intel SSD 的读写速度快得令人咋舌之外，还可以说明 Ext4 的各方面性能都超过了上一代 Ext3，甚至在大多数情况下，比没有日志功能的 Ext2 还要快出不少:
 
 ### ext4, xfs
+
 centos7.0开始默认文件系统是xfs，centos6是ext4，centos5是ext3
 
 ext3和ext4的最大区别在于，ext3在fsck时需要耗费大量时间 (文件越多，时间越长) ，而ext4在fsck时用的时间会少非常多
@@ -86,12 +87,12 @@ xfs是一个64位文件系统，最大支持8EB减1字节的单个文件系统�
 xfs在很多方面确实做的比ext4好，ext4受限制于磁盘结构和兼容问题，可扩展性和scalability确实不如xfs，另外xfs经过很多年发展，各种锁的细化做的也比较好。
 
 XFS在很多方面确实做的比Ext4好，Ext4受限制于磁盘结构和兼容问题，可扩展性和scalability确实不如XFS，另外XFS经过很多年发展，各种锁的细化做的也比较好.2. Btrfs 性能太差，稳定性不行，提不上prodcution use..3. 要知道XFS的Mainainer Dave Chineer是受雇于Redhat,而Ext4的Maintainer Ted受雇于google..
- 
+
 Ext4 作为传统的文件系统确实非常成熟稳定，但是随着存储需求的越来越大，Ext4 渐渐适应不了了。比如说现在虽然Ext4 目录索引采用了Hash Index Tree, 但是依然限制高度为2. 做过实际测试Ext4的单个目录文件超过200W个，性能下降的就比较厉害了。
 由于历史磁盘结构原因Ext4 的inode 个数限制(32位数)最多只能有大概40多亿文件。而且Ext4的单个文件大小最大只能支持到16T(4K block size) 的话，这些至少对于目前来说已经是瓶颈了...而XFS使用64位管理空间，文件系统规模可以达到EB级别，可以说未来几年XFS彻底取代Ext4是早晚的事情！另外，我看了一下XFS 目前redhat 至少投入了5个Kernel developer 在上面，因为XFS 是基于B+Ttree 管理元数据，即将支持reflink, dedupe等高级特性(Oracle 开发者已经开发了patch)。综上所述，XFS 取代Ext4 已经成为必然。
 
 作者: wangsl
-链接: https://www.zhihu.com/question/24413471/answer/38883787
+链接: <https://www.zhihu.com/question/24413471/answer/38883787>
 来源: 知乎
 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
 
@@ -103,12 +104,11 @@ Ext4受限制于磁盘结构和兼容问题，可扩展性和scalability不如XF
 
 XFS文件系统的卷无法被直接收缩，只能通过“备份->重灌->还原”的方式间接进行容量缩减 (这也是云端主机供应商会告知存储空间只能增加不能缩减的其中一个原因) ，在准备多一组存储卷的情况下，有工具可对XFS卷进行上述操作: xfsdump和xfsrestore。
 
-http://xiaqunfeng.cc/2017/07/06/XFS-vs-EXT4/
-
-
+<http://xiaqunfeng.cc/2017/07/06/XFS-vs-EXT4/>
 
 ### XFS vs EXT4
-ceph 默认的文件系统是XFS，centos7之前的版本默认文件系统是EXT4，现在是XFS，这里对比了一下，然后针对4k大小的随机读写进行了小小的测试。
+
+ceph 默认的文件系统是 XFS，centos7之前的版本默认文件系统是EXT4，现在是XFS，这里对比了一下，然后针对4k大小的随机读写进行了小小的测试。
 
 前言
 Linux操作系统有很多不同的文件系统选择，所有现有的默认文件系统都是ext4。 通常文件系统被用来处理当程序不再使用信息之后如何保存信息，如何管理信息的可访问性，其他信息 (元数据）与数据本身如何相关联等。
@@ -135,5 +135,4 @@ Ext4受限制于磁盘结构和兼容问题，可扩展性和scalability不如XF
 虽然Ext4 目录索引采用了Hash Index Tree, 但是依然限制高度为2。
 由于历史磁盘结构原因Ext4 的inode 个数限制(32位数)最多只能有大概40多亿文件。而且Ext4的单个文件大小最大只能支持到16T(4K block size) ，目前来说已经是瓶颈。XFS使用64位管理空间，文件系统规模可以达到EB级别。
 
->http://xiaqunfeng.cc/2017/07/06/XFS-vs-EXT4/
-
+><http://xiaqunfeng.cc/2017/07/06/XFS-vs-EXT4/>

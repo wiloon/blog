@@ -33,7 +33,7 @@ CRI-O完整实现CRI接口功能，并且严格兼容OCI标准，CRI-O比Contain
 提供CRI要求的资源隔离功能
 
 CRI-O通过命令行调用默认运行时runC，所以runC二进制文件必须部署在目录/usr/bin/runc。CRI-O和Containerd调用runtime的方式不同，前者是通过Linux命令调用，后者是通过gRPC服务调用，所以只要符合OCI规范的runtime，都能直接接入CRI-O提供运行时服务，而除runC外的其他运行时要接入Containerd，只能走shim v2接口，因此我们看到像kata-runtime这样的运行时项目就是通过shim v2接口来适配Containerd的。
->http://dockone.io/article/8891
+><http://dockone.io/article/8891>
 
 ```bash
 # check crio state and version 
@@ -53,7 +53,7 @@ kubeadm可以在多种设备上运行，可以是Linux笔记本电脑，虚拟�
 kubeadm是一种简单的方式让新用户开始尝试Kubernetes，也可能是第一次让现有用户轻松测试他们的应用程序并缝合到一起的方式，也可以作为其他生态系统中的构建块，或者具有更大范围的安装工具。
 
 可以在支持安装deb或rpm软件包的操作系统上非常轻松地安装kubeadm。SIG集群生命周期SIG Cluster Lifecycle kubeadm的SIG相关维护者提供了预编译的这些软件包，也可以在其他操作系统上使用。
->https://github.com/kubernetes/kubeadm
+><https://github.com/kubernetes/kubeadm>
 
 ## kubelet
 
@@ -243,9 +243,11 @@ kubeadm join 192.168.50.110:6443 --token abcdef.0123456789abcdef \
 ```
 
 ### export
-echo 'export KUBECONFIG=/etc/kubernetes/admin.conf' > ~/.bash_profile    
+
+echo 'export KUBECONFIG=/etc/kubernetes/admin.conf' > ~/.bash_profile
 
 ### install worker node
+
 ```bash
 pacman -S cri-o kubeadm kubelet kubectl
 systemctl enable kubelet && systemctl enable crio
@@ -269,11 +271,13 @@ kubectl get nodes
 ```
 
 ## CNI, flannel
+
 ```bash
 curl -O https://raw.githubusercontent.com/flannel-io/flannel/master/Documentation/kube-flannel.yml
 ```
 
-### 应用 
+### 应用
+
 ```bash
 kubectl apply -f kube-flannel.yml
 
@@ -291,6 +295,7 @@ kubectl logs -f kube-flannel-ds-kp9mt
 ```
 
 ### ingress
+
 ```bash
 curl -O https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.1.1/deploy/static/provider/cloud/deploy.yaml
 
@@ -312,6 +317,7 @@ kubectl port-forward --namespace=ingress-nginx service/ingress-nginx-controller 
 
 curl http://demo.localdev.me:8080/
 ```
+
 ### commands
 
 ```bash
@@ -342,31 +348,29 @@ kubectl delete pod kube-flannel-ds-trxtz  -n kube-system
 kubectl logs -f --since 5m istiod-9cbc77d98-kk98q -n istio-system
 ```
 
->https://www.lixueduan.com/post/kubernetes/01-install/
->https://wiki.archlinux.org/title/Kubernetes
->https://kubernetes.io/zh/docs/home/
->https://kubernetes.io/zh/docs/setup/production-environment/tools/kubeadm/create-cluster-kubeadm/
+><https://www.lixueduan.com/post/kubernetes/01-install/>
+><https://wiki.archlinux.org/title/Kubernetes>
+><https://kubernetes.io/zh/docs/home/>
+><https://kubernetes.io/zh/docs/setup/production-environment/tools/kubeadm/create-cluster-kubeadm/>
 
->https://www.qikqiak.com/post/containerd-usage/
->https://landscape.cncf.io/card-mode?category=container-runtime&grouping=category
->https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/kubelet-integration/
+><https://www.qikqiak.com/post/containerd-usage/>
+><https://landscape.cncf.io/card-mode?category=container-runtime&grouping=category>
+><https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/kubelet-integration/>
 
-
-
->https://juejin.cn/post/6894457482635116551
+><https://juejin.cn/post/6894457482635116551>
 
 ### pod cidr not assgned
->https://github.com/flannel-io/flannel/issues/728
+
+><https://github.com/flannel-io/flannel/issues/728>
 
 ### kubectl run
+
 ```bash
 kubectl run hello --image=hello-world
 kubectl run nginx --image=nginx --port=38080
 curl -v http://10.85.0.3
 ```
 
+><https://segmentfault.com/a/1190000020675199>
 
->https://segmentfault.com/a/1190000020675199
-
->https://imroc.cc/post/202105/why-enable-bridge-nf-call-iptables/
-
+><https://imroc.cc/post/202105/why-enable-bridge-nf-call-iptables/>

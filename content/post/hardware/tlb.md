@@ -12,38 +12,36 @@ tags:
 
 TLB是translation lookaside buffer的简称。首先，我们知道MMU的作用是把虚拟地址转换成物理地址。虚拟地址和物理地址的映射关系存储在页表中，而现在页表又是分级的。64位系统一般都是3~5级。常见的配置是4级页表，就以4级页表为例说明。分别是PGD、PUD、PMD、PTE四级页表。在硬件上会有一个叫做页表基地址寄存器，它存储PGD页表的首地址。MMU就是根据页表基地址寄存器从PGD页表一路查到PTE，最终找到物理地址(PTE页表中存储物理地址)。这就像在地图上显示你的家在哪一样，我为了找到你家的地址，先确定你是中国，再确定你是某个省，继续往下某个市，最后找到你家是一样的原理。一级一级找下去。这个过程你也看到了，非常繁琐。如果第一次查到你家的具体位置，我如果记下来你的姓名和你家的地址。下次查找时，是不是只需要跟我说你的姓名是什么，我就直接能够告诉你地址，而不需要一级一级查找。四级页表查找过程需要四次内存访问。延时可想而知，非常影响性能。页表查找过程的示例如下图所示。以后有机会详细展开，这里了解下即可。
 
-
 TLB  
 Translation Look-aside Buffer  
 地址变换高速缓存  
 地址转换后备缓冲器  
 
 学习理解TLB (Translation Look-aside Buffer) 地址变换高速缓存
- 
 
-前言: 
+前言:
 
 本文学习思路是: 存在缘由   --> 存在好处 --> 定义性质 --> 具体分析
 
-存在缘由: 
+存在缘由:
 
 由于地址映射 (从虚拟地址转换成物理地址) 需要的开销开大。
 
-转换过程如下: 
+转换过程如下:
 
 第一次访问内存是访问页表，取出虚拟页对应的物理页。
 第二次访问内存是访问实际内存地址。
 为了提高效率，现代CPU都包含了一个特殊Cache来跟踪最近使用过的地址变换，这个就是TLB。
 
-明显好处: 
+明显好处:
 
-如果有了TLB，那么地址转换变成如下过程: 
+如果有了TLB，那么地址转换变成如下过程:
 
 第一次访问TLB，得到虚拟页对应的物理页
 第二次访问的是内存，访问实际地址。
 这样就省去了一次访问内存的时间，大大提高了效率。
 
-概念概括: 
+概念概括:
 
 TLB英文全称: Translation Look-aside Buffer
 
@@ -51,16 +49,14 @@ TLB中文全称: 地址变换高速缓存
 TLB中文简称: 快表  
 TLB实际性质: 它是一种cache
 
- 
-
 TLB的每一项中包含
 
 有效位(valid)。现在的计算机基本都是使用虚拟存储器，简单来说就是假如你要打开一个很大的程序，它不会把所有的文件都加载进内存。当需要用的内容不在内存上时，它再去硬盘上找并加载到内存。故，有效位的作用就是，假如是0，就代表该页不在内存中，需要去硬盘中找。
 引用位(reference)。由于TLB中的项数是一定的，所以当有新的TLB项需要进来但是又满了的话，如果根据LRU算法，就将最近最少使用的项替换成新的项。故需要引用位。同时要注意的是，页表中也有引用位。
 脏位(dirty)。现在的计算机基本都是使用虚拟存储器，简单来说就是假如你要打开一个很大的程序，它不会把所有的文件都加载进内存。当需要用的内容不在内存上时，它再去硬盘上找并加载到内存。故脏位的作用就是，当内存上的某个块需要被新的块替换时，它需要根据脏位判断这个块之前有没有被修改过，如果被修改过，先把这个块更新到硬盘再替换，否则就直接替换。
 物理页号。
-       
-过程描述如下: 
+
+过程描述如下:
 
 首先，先去TLB中根据标志Tag寻找，假如找到了并且有效位是1，说明TLB命中了，那么直接就可以从TLB中获取该虚拟页号对应的物理页号。假如有效位是0，说明该页不在内存中，这时候就发生缺页异常，CPU需要先去外存中将该页调入内存并将页表和TLB更新。
 
@@ -76,9 +72,7 @@ TLB的每一项中包含
 
     当TLB的某一项要被替换时，它的引用位和脏位都会被更新会页表。
 
- 
-
-补充: 
+补充:
 
     虚拟地址转换成物理地址的简略图 (没有TLB只有页表时的情况) 
 
@@ -88,13 +82,14 @@ CPU每次访问虚拟内存，虚拟地址都必须转换为对应的物理地�
 
 TLB的工作机制如下。对于一次虚拟内存访问，CPU搜索TLB中要访问的内存页的页号(page number)，称为TLB查找(TLB lookup)。如果可以找到与虚拟页号匹配的TLB条目，称为发生TLB命中(TLB hit)，CPU就会使用TLB条目中存储的PTE来计算目标物理地址。现在，TLB使虚拟内存成为现实的原因是它很小——一般几十个——可以直接在CPU中构建并且使CPU全速执行。这意味着只要TLB中能找到转换条目，访问虚拟内存就跟访问物理内存一样快。实际上，现代CPU在虚拟内存中运行的更快，因为TLB记录还包含了访问特定内存是否安全的信息(例如，预取指令)。
 
-如果没有找到与虚拟页号匹配的TLB记录会发生什么？会触发一个TLB未命中(TLB miss)事件，这与CPU架构相关，处理方式有两种: 
+如果没有找到与虚拟页号匹配的TLB记录会发生什么？会触发一个TLB未命中(TLB miss)事件，这与CPU架构相关，处理方式有两种:
 
 硬件处理TLB未命中: 在这个方案中，CPU会遍历页表，找到正确的PTE。如果能够找到PTE并且标记是存在的(present)，CPU就会把新的转换信息放到TLB中。否则，CPU会发起一个页错误并将控制权限交给操作系统。
 软件处理TLB未命中: 在这个方案中，CPU就简单的发起一个TLB未命中错误。由操作系统来处理这个错误，调用TLB未命中处理方法。未命中处理程序通过软件的方式遍历页表，如果能够找到标记为present的PTE，就会在TLB中插入新的转换信息。如果PTE找不到，由页错误处理程序来接管。
 不论TLB未命中是由软件还是硬件处理，底层都会导致遍历页表，如果能找到标记为present的PTE，就会在TLB中更新新的转换信息。大部分CISC架构(比如IA-32)平台，TLB未命中使用硬件方式处理，大部分RISC架构(比如Alpha)使用软件方式处理。硬件的解决方案通常比较快，但是缺乏灵活性。实际上，如果硬件不太能满足操作系统需求的时候，性能优势会少很多。像后面提到的，IA-64提供了一个混合的解决方案，能够保留软件处理方式的灵活性，同时不会牺牲硬件处理方式的处理速度。
 
 ### TLB替换策略
+
 看一下TLB满(所有的TLB条目都在使用)的时候，CPU或者TLB未命中处理程序需要插入新的转换信息时会发生什么。现在的问题是，要删除或者重写哪条，让新的数据插入进来。这个由TLB替换策略(TLB replacement policy)来选择。通常会使用一些类似LRU的算法来。根据LRU算法，最长时间未使用的数据会被替换掉。替换策略的精确选择通常依赖于这个策略是通过硬件还是软件实现的。硬件的解决方案倾向于简单的策略，比如最近未使用(not recently used, NRU)，然而软件解决方案可以使用完全的LRU甚至更复杂的方法都不会有什么问题。
 
 注意，如果TLB未命中处理程序是由硬件实现的，很明显替换策略也必须由硬件实现。然而，对于软件实现的TLB未命中处理程序，替换策略可以用硬件实现，也可以用软件实现。一些架构(例如MIPS)采用软件替换策略，但是很多新的架构，包括IA-64，提供了一个硬件替换策略。
@@ -110,7 +105,7 @@ IA-64 TLB架构
 IA-64架构使用了一种有趣的方法来提升虚拟地址到物理地址的转换效率。与普通的TLB不同，还有另外3个硬件结构，两个region寄存器，一个protection key寄存器，用来提升LTB的效率。第三个是虚拟哈希表遍历(virtual hash page table walker VHPT walker)，用来减少TLB未命中的损失。
 图4.29描述了IA-64 CPU怎么将虚拟地址转换到物理地址。先从图的右上角开始。这里有一个虚拟地址，分成三个字段: 虚拟域号 vrn(virtual region number)，虚拟页号vpn(virtual page number)和页偏移量字段。
 通常，页偏移量不会参与到转换中，而是直接复制偏移量字到物理地址，如图中右下角所示。相反，3bit的域号(region number) vrn首先放到域(region)寄存器中，图中左上角。域寄存器通过vrn检索出来，将region ID的值发送给TLB。在TLB中，region ID与虚拟页号vpn关联起来组成region ID/vpn 键值，用来搜索TLB。如果某条记录与搜索的键值匹配，记录中剩下的字段提供一些必要信息来完成这个地址转换。具体的就是pfn字段提供页帧号(page frame number)与虚拟页号关联。这个字段也可以复制到物理地址中对应的字段。内存属性字段ma指示这个内存访问是否可以缓存。如果可以，物理地址中的uc字段(bit 63)被清零；否则，设置为1。最后两个字段，+rights(正权值)和键值，用来检测内存访问的权限。字段提供了一系列权值(positive rights)用来控制在什么权限级别(用户层或内核层)下可以做什么访问(读、写或执行)。键值(key)字段放到保护键值寄存器(protection key registers)中。这里，与寄存器匹配的键值对读取出来，它的 –rights(负权值)字段提供了禁止权限(negative rights)来完成权限检测。具体点说就是-rights指定的任何访问都是禁止的，即使+rights字段是允许的。如果没有寄存器与键值对匹配，会发出一个键值未命中错误(KEY MISS FAULT)。操作系统可以解释这个错误并且决定是否安装这个未命中的键值，或者采取一些其它的动作(比如终止进程)。从这个角度来讲，CPU已经拿到了物理地址，并且还有内存访问权限的信息，因此转换完成。
-[外链图片转存失败(img-7sZiQLEa-1569163834307)(https://img-blog.csdn.net/20170810144910372?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvaG53eWxsbW0=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast)]
+[外链图片转存失败(img-7sZiQLEa-1569163834307)(<https://img-blog.csdn.net/20170810144910372?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvaG53eWxsbW0=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast>)]
 
 图4.29 IA-64 虚拟地址转换硬件
 
@@ -144,7 +139,7 @@ VHPT walker和线性表虚拟映射
 图4.32 Linux/ia64域下虚拟映射线性页表
 图4.32 Linux/ia64域下虚拟映射线性页表
 
-现在看一下VHPT walker是如何运转的。当一个va虚拟地址发生了TLB未命中，walker会计算与va对应的Pte的虚拟地址va3。根据虚拟映射线性页表，这个地址这样计算: 
+现在看一下VHPT walker是如何运转的。当一个va虚拟地址发生了TLB未命中，walker会计算与va对应的Pte的虚拟地址va3。根据虚拟映射线性页表，这个地址这样计算:
 
 va´ = Îva/261 ˚ ·261 + pta.base ·215+8 · (Îva/PAGE_SIZE˚ mod 2pta.size)
 这就是说va3 就是域基址(base address)、线性页表中域偏移量与线性页表中PTE的偏移量的和。最后一个加数，乘上一个8，因为每个PTE都有8个字节大小，而且取模运算去掉了不会被页表映射的最重要的地址位。接着VHPT walker尝试读取这个地址的PTE。因为这还是一个虚拟地址，CPU会继续正常的虚拟地址到物理地址的转换。如果存在va3的TLB记录，这个转换就成功了，walker就可以从物理内存中读取PTE然后安装va的PTE。然而，如果va3的TLB记录不存在，walker就会结束，然后通过发起VHPT转换错误(VHPT TRANSLATION FAULT)来请求协助。
@@ -172,15 +167,15 @@ TLB一致性维护
 
 IA-64实现
 在Linux/ia64上，flush_tlb_mm()的实现是通过参数mm强制分配一个新的地址空间号(域ID)给地址空间标识。逻辑上与清除指定地址空间上所有的TLB记录相同，但是相对于要求执行TLB清除指令来说是有优势的。
-flush_tlb_all()基于ptc.e(清除转换缓存记录 purge translation cache entry)指令实现的，这个指令会清除TLB中一大块区域的数据。至于多大会被清除，依赖于CPU模式。刷新整个TLB的结构化指令是这样的: 
+flush_tlb_all()基于ptc.e(清除转换缓存记录 purge translation cache entry)指令实现的，这个指令会清除TLB中一大块区域的数据。至于多大会被清除，依赖于CPU模式。刷新整个TLB的结构化指令是这样的:
 
 long flags, i, j, addr = BASE_ADDR;
-local irq_save( flags); /* 禁用中断 */
+local irq_save( flags); /*禁用中断*/
 for ( i = 0; i < COUNT0; ++ i, addr += STRIDE0) {
    for ( j = 0; j < COUNT1; ++ j, addr += STRIDE1)
      ptc e( addr);
 }
-local irq restore( flags);       /* 开启中断 */
+local irq restore( flags);       /*开启中断*/
 其中BASE_ADDR, COUNTO, STRIDEO, COUNT1和STRIDE1都是CPU特定模式的值，可以从PAL固件中获取(请看第10章，Booting)。使用这样一个结构化的循环，而不是一条指令是为了保证刷新整个TLB，因为对于多级CPU上和不同类型的TLB，ptc.e更容易实现。例如，一个特殊的CPU模式可能有两级不同的指令和数据TLB，这就给使用单条指令自动清除所有TLB造成困难。然而，对安腾(Itanium)来说有个特例，COUNTO和COUNT1的值都是1，这就意味着一个单独的ptc.e指令就会刷新整个TLB。
 其它的刷新函数都是基于ptc.l(清除局部转换缓存 purge local translation cache)或ptc.ga(清除全局转换缓存和ALAT purge global translation cache and ALAT)指令实现的。前面一个用于UP机器，后面一个用于MP机器。两个指令都有两个操作数——其实地址和大小——指定了需要清除TLB记录的虚拟地址范围。ptc.l指令仅仅影响局部TLB，因此通常会比ptc.ga快，ptc.ga会影响整个机器(请看架构手册中的精确定义[26])。在同一个时间只能有一个CPU执行ptc.ga。为了保证这点，Linux/ia64内核使用一个spinlock序列化指令的执行。
 Linux/ia64使用update_mmu_cache()实现了缓存刷新功能，这个在4.6节会有更详细的解释。这个函数也可以用来主动在TLB中安装一个新的转换信息。不过Linux没有说明这个转换信息是用于指令执行的还是数据访问的，所以不能确切地知道这个转换应该安装在指令还是数据TLB(或者都是)。因为这个不确定性，还有安装一条新的转换信息常常会替换掉另一个，甚至更有用的一个TLB记录，所以最好避免主动安装TLB记录。
@@ -198,6 +193,7 @@ reload_context()函数负责激活当前CPU上的代表mm context的ASN。逻辑
 最后，ASN不再使用时，Linux调用destroy_context()释放它。这个调用会标记用mm context表示的ASN可以被其它地址空间再次使用，并且释放在get_mmu_context()中申请的内存。即使调用这个函数之后ASN就可以重用了，TLB仍然可能包含这个ASN的旧转换信息。为了保证正常运行，特定平台代码需要在激活可重用ASN之前清除这些旧的转换信息。通常使用轮转的方式实现，并且在转一圈到第一个可用ASN时，刷新整个TLB。
 
 ### IA-64实现
+
 Linux/ia64使用域ID来实现ASN接口。mm结构体中的mm context包含了一个单字(single word)存储地址空间的域ID。0表示未分配ASN。因此init_new_context()函数简单的将mm context清为0。
 IA-64架构定义域ID 24位宽，不过这取决于CPU模式，最少可以支持18位。例如，安腾(Itanium)架构上支持最小的18位宽。在Linux/ia64上，域ID 0是内核保留的，其余的ID可以供get_mmu_context()以轮转的方式使用。最后一个可用的域ID用掉后，会刷新整个TLB，然后计算一个新范围的可用域ID，并使当前正在使用的域ID都在这个范围之外。一旦找到了这个范围，get_mmu_context()就可以以轮转的方式继续分配新的域ID，直到这个范围再次用光，然后再次重复刷新TLB和查找域ID的可用范围。
 域ID有18到24位宽，但是只有15到21位在Linux上是可用的。原因是IA-64要求TLB必须匹配域ID和虚拟页号(请看图4.29)，但是不需要与虚拟域号(vrn)匹配。因此TLB可能区分不了，除非rr1和rr2中的域ID是不同的，比如0x2000000000000000到0x4000000000000000的地址。为了确保这单，Linux/ia64将vrn编码到域ID的三个最低位上。
@@ -205,27 +201,20 @@ IA-64架构定义域ID 24位宽，不过这取决于CPU模式，最少可以支�
 在IA-64上，reload_context()具有根据mm 上下文的值加载rr0到rr4域寄存器的作用。就像前面章节介绍的，真正在域寄存器中存放的值是mm上下文的值左移三位再放到编码域的vrn值最后面。
 IA-64版本的destroy_context()什么都不用做。get_mmu_context()不会分配内存，所以这里也不需要释放。类似的，可用域ID范围仅仅在现存范围用光的时候才重新计算，因此这里不需要刷新TLB中旧的转换信息。
 
-原文地址: 
-http://www.informit.com/articles/article.aspx?p=29961&seqNum=4
+原文地址:
+<http://www.informit.com/articles/article.aspx?p=29961&seqNum=4>
 
-
-  
-
- 
-
-本文博客地址: http://www.cnblogs.com/toulanboy/#
+本文博客地址: <http://www.cnblogs.com/toulanboy/>#
 作者: toulanboy
 
-出处: https://www.cnblogs.com/toulanboy/p/7745880.html
+出处: <https://www.cnblogs.com/toulanboy/p/7745880.html>
 
 版权: 本作品采用「署名-非商业性使用-相同方式共享 4.0 国际」许可协议进行许可。
 
 希望对你有用，么么哒~
 
+<https://www.cnblogs.com/toulanboy/p/7745880.html>
 
-https://www.cnblogs.com/toulanboy/p/7745880.html
+<https://blog.csdn.net/hnwyllmm/article/details/77051135>
 
-https://blog.csdn.net/hnwyllmm/article/details/77051135
-
-https://zhuanlan.zhihu.com/p/108425561
-
+<https://zhuanlan.zhihu.com/p/108425561>

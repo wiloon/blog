@@ -10,13 +10,14 @@ tags:
 
 ---
 ## Java 反编译
+
 Java Decompiler
 
 "Java Decompiler", 由 Pavel Kouznetsov开发，目前最新版本为0.2.5. 它由 C++开发，并且官方可以下载windows、linux和苹果Mac Os三个平台的可执行程序。
 
-http://jd.benow.ca/
+<http://jd.benow.ca/>
 
-http://www.oschina.net/p/java+decompiler
+<http://www.oschina.net/p/java+decompiler>
 
 DJ Java Decompiler(不免费)
 
@@ -28,10 +29,10 @@ DJ Java Decompiler 在 Windows 95、Windows 98、Windows 2000、Windows XP、Win
 
 **另外，DJ Java Decompiler 是一个独立的 windows 应用程序，它不要求安装Java，所以运行使用相当方便，大家不妨试一下。**
 
-个人觉得比较好的功能有: 
+个人觉得比较好的功能有:
 
-1.  可以直接打开jar 档， 查看jar 包里原文件
+1. 可以直接打开jar 档， 查看jar 包里原文件
 
-2.  可以直接保存整个jar 档里的所有原文件。
+2. 可以直接保存整个jar 档里的所有原文件。
 
-**官方地址:  http://dj.navexpress.com/**
+**官方地址:  <http://dj.navexpress.com/>**

@@ -1,5 +1,5 @@
 ---
-title: Interview – Database
+title: Database
 author: lcf
 date: 2012-11-27T14:55:38+00:00
 url: database
@@ -8,7 +8,7 @@ categories:
 tags:
   - reprint
 ---
-## Interview – Database
+## Database
 
 ## SQL tuning 类
 
@@ -152,28 +152,11 @@ select * from a, b where a.id = b.id; 这个就属于内连接。
       
         
           select A.c1,B.c2 from A join B on A.c3 != B.c3;
-        
-      
-    
-    
-    
-      
-        
-          交叉连接
-        
-      
-      
-      
-        
-          生成笛卡尔积——它不使用任何匹配或者选取条件，而是直接将一个数据源中的每个行与另一个数据源的每个行一一匹配
-        
-      
-      
-      
-      
-      
-      
-        
+
+交叉连接
+
+生成笛卡尔积——它不使用任何匹配或者选取条件，而是直接将一个数据源中的每个行与另一个数据源的每个行一一匹配
+
           select A.c1,B.c2 from A,B;
         
       
@@ -181,31 +164,31 @@ select * from a, b where a.id = b.id; 这个就属于内连接。
   
   
   
-    2.      不借助第三方工具，怎样查看sql的执行计划
+    1.      不借助第三方工具，怎样查看sql的执行计划
   
   
     I) 使用Explain Plan,查询PLAN_TABLE; EXPLAIN  PLAN SET STATEMENT_ID='QUERY1' FOR SELECT * FROM a WHERE aa=1; SELECT   operation, options, object_name, object_type, ID, parent_id FROM plan_table WHERE STATEMENT_ID = 'QUERY1' ORDER BY ID; II)SQLPLUS中的SET TRACE 即可看到Execution Plan Statistics SET AUTOTRACE ON;
   
   
-    3.      如何使用CBO,CBO与RULE的区别
+    1.      如何使用CBO,CBO与RULE的区别
   
   
     IF 初始化参数 OPTIMIZER_MODE = CHOOSE THEN  -(8I DEFAULT) IF 做过表分析 THEN 优化器 Optimizer=CBO(COST);          /*高效*/ ELSE 优化器 Optimizer=RBO(RULE);               /*高效*/ END IF; END IF;   区别:  RBO根据规则选择最佳执行路径来运行查询。 CBO根据表统计找到最低成本的访问数据的方法确定执行计划。 使用CBO需要注意:  I)  需要经常对表进行ANALYZE命令进行分析统计; II) 需要稳定执行计划; III)需要使用提示(Hint); 使用RULE需要注意:  I)  选择最有效率的表名顺序 II) 优化SQL的写法;     在optimizer_mode=choose时,如果表有统计信息 (分区表外) ,优化器将选择CBO,否则选RBO。 RBO遵循简单的分级方法学,使用15种级别要点，当接收到查询，优化器将评估使用到的要点数目,然后选择最佳级别 (最少的数量) 的执行路径来运行查询。 CBO尝试找到最低成本的访问数据的方法,为了最大的吞吐量或最快的初始响应时间,计算使用不同的执行计划的成本，并选择成本最低的一个,关于表的数据内容的统计被用于确定执行计划。
   
   
-    4.      如何定位重要(消耗资源多)的SQL
+    1.      如何定位重要(消耗资源多)的SQL
   
   
     使用CPU多的用户session SELECT a.SID, spid, status, SUBSTR (a.program, 1, 40) prog, a.terminal,a.SQL_TEXT, osuser, VALUE / 60 / 100 VALUE FROM v$session a, v$process b, v$sesstat c WHERE c.statistic# = 12 AND c.SID = a.SID AND a.paddr = b.addr ORDER BY VALUE DESC;   select sql_text from v$sql where disk_reads > 1000 or (executions > 0 and buffer_gets/executions > 30000);
   
   
-    5.      如何跟踪某个session的SQL
+    1.      如何跟踪某个session的SQL
   
   
     利用TRACE 跟踪 ALTER SESSION SET SQLTRACE ON; COLUMN SQL format a200; SELECT   machine, sql_text SQL FROM v$sqltext a, v$session b WHERE address = sql_address AND machine = '&A' ORDER BY hash_value, piece;   exec dbms_system.set_sql_trace_in_session(sid,serial#,&sql_trace); select sid,serial# from v$session where sid = (select sid from v$mystat where rownum = 1); exec dbms_system.set_ev(&sid,&serial#,&event_10046,&level_12,");
   
   
-    6.      SQL调整最关注的是什么
+    1.      SQL调整最关注的是什么
   
   
     检查系统的I/O问题 sar－d能检查整个系统的iostat (IO statistics)    查看该SQL的response time(db block gets/consistent gets/physical reads/sorts (disk))
@@ -214,31 +197,31 @@ select * from a, b where a.id = b.id; 这个就属于内连接。
   
 索引有B-TREE、BIT、CLUSTER等类型。ORACLE使用了一个复杂的自平衡B-tree结构;通常来说，在表上建立恰当的索引，查询时会改进查询性能。但在进行插入、删除、修改时，同时会进行索引的修改，在性能上有一定的影响。有索引且查询条件能使用索引时，数据库会先度取索引，根据索引内容和查询条件，查询出ROWID，再根据ROWID取出需要的数据。由于索引内容通常比全表内容要少很多，因此通过先读索引，能减少I/O，提高查询性能。   b-tree index/bitmap index/function index/patitional index(local/global)索引通常能提高select/update/delete的性能,会降低insert的速度,
   
-    8.      使用索引查询一定能提高查询的性能吗？为什么
+    1.      使用索引查询一定能提高查询的性能吗？为什么
   
   
     通常,通过索引查询数据比全表扫描要快.但是我们也必须注意到它的代价. 索引需要空间来存储,也需要定期维护, 每当有记录在表中增减或索引列被修改时,索引本身也会被修改. 这意味着每条记录的INSERT,DELETE,UPDATE将为此多付出4,5 次的磁盘I/O. 因为索引需要额外的存储空间和处理,那些不必要的索引反而会使查询反应时间变慢.使用索引查询不一定能提高查询性能,索引范围查询(INDEX RANGE SCAN)适用于两种情况: 基于一个范围的检索,一般查询返回结果集小于表中记录数的30%宜采用; 基于非唯一性索引的检索   索引就是为了提高查询性能而存在的,如果在查询中索引没有提高性能,只能说是用错了索引,或者讲是场合不同
   
   
-    9.      绑定变量是什么？绑定变量有什么优缺点？
+    1.      绑定变量是什么？绑定变量有什么优缺点？
   
   
     绑定变量是指在SQL语句中使用变量，改变变量的值来改变SQL语句的执行结果。 优点: 使用绑定变量，可以减少SQL语句的解析，能减少数据库引擎消耗在SQL语句解析上的资源。提高了编程效率和可靠性。减少访问数据库的次数, 就能实际上减少ORACLE的工作量。 缺点: 经常需要使用动态SQL的写法，由于参数的不同，可能SQL的执行效率不同；   绑定变量是相对文本变量来讲的,所谓文本变量是指在SQL直接书写查询条件， 这样的SQL在不同条件下需要反复解析,绑定变量是指使用变量来代替直接书写条件，查询bind value在运行时传递，然后绑定执行。 优点是减少硬解析,降低CPU的争用,节省shared_pool 缺点是不能使用histogram,sql优化比较困难
   
   
-    10.  如何稳定(固定)执行计划
+    1.   如何稳定(固定)执行计划
   
   
     可以在SQL语句中指定执行计划。使用HINTS; query_rewrite_enabled = true star_transformation_enabled = true optimizer_features_enable = 9.2.0 创建并使用stored outline
   
   
-    11.  和排序相关的内存在8i和9i分别怎样调整，临时表空间的作用是什么
+    1.   和排序相关的内存在8i和9i分别怎样调整，临时表空间的作用是什么
   
   
     SORT_AREA_SIZE 在进行排序操作时，如果排序的内容太多，内存里不能全部放下，则需要进行外部排序， 此时需要利用临时表空间来存放排序的中间结果。   8i中sort_area_size/sort_area_retained_size决定了排序所需要的内存， 如果排序操作不能在sort_area_size中完成,就会用到temp表空间 9i中如果workarea_size_policy=auto时, 排序在pga内进行,通常pga_aggregate_target的1/20可以用来进行disk sort; 如果workarea_size_policy=manual时,排序需要的内存由sort_area_size决定， 在执行order by/group by/distinct/union/create index/index rebuild/minus等操作时,如果在pga或sort_area_size中不能完成,排序将在临时表空间进行 (disk sort) ,临时表空间主要作用就是完成系统中的disk sort.
   
   
-    12.  存在表T(a,b,c,d),要根据字段c排序后取第21—30条记录显示，请给出sql
+    1.   存在表T(a,b,c,d),要根据字段c排序后取第21—30条记录显示，请给出sql
   
   
     SELECT   * FROM (SELECT ROWNUM AS row_num, tmp_tab.* FROM (SELECT   a, b, c, d FROM T ORDER BY c) tmp_tab WHERE ROWNUM <= 30) WHERE row_num >= 20 ORDER BY row_num;   create table t(a number(,b number(,c number(,d number(); / begin for i in 1 .. 300 loop insert into t values(mod(i,2),i/2,dbms_random.value(1,300),i/4); end loop; end; / select * from (select c.*,rownum as rn from (select * from t order by c desc) c) where rn between 21 and 30; / select * from (select * from test order by c desc) x where rownum < 30 minus select * from (select * from test order by c desc) y where rownum < 20 order by 3 desc 相比之 minus性能较差

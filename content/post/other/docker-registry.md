@@ -10,22 +10,7 @@ tags:
 ---
 ## docker registry
 
-- registry-1.docker.io
-
-```bash
-vim /etc/containers/registries.conf
-
-# content
-unqualified-search-registries = ["docker.io"]
-
-[[registry]]
-prefix = "docker.io"
-location = "registry-1.docker.io"
-```
-
-## 删除镜像与空间回收
-
-<https://zhuanlan.zhihu.com/p/33324217>
+## install registry
 
 ```bash
 mkdir -p /data/docker-registry/
@@ -39,7 +24,7 @@ log:
     service: registry
 storage:
     delete:
-        enabled: true  cache:
+        enabled: true
         blobdescriptor: inmemory
     filesystem:
         rootdirectory: /var/lib/registry
@@ -49,7 +34,8 @@ http:
         X-Content-Type-Options: [nosniff]
 health:
   storagedriver:
-    enabled: true  interval: 10s
+    enabled: true
+    interval: 10s
     threshold: 3
 # EOF
 # sample, https://docs.docker.com/registry/configuration/
@@ -59,7 +45,7 @@ podman run -d \
 -p 5000:5000 \
 --name registry \
 -v docker-registry:/var/lib/registry \
-registry:2.8.0
+registry:2.8.1
 
 buildah tag de3ebb1b260b registry.wiloon.com/pingd-proxy:v0.0.1
 buildah push registry.wiloon.com/pingd-proxy:v0.0.1
@@ -69,9 +55,21 @@ registry.wiloon.com/pingd-proxy
 registry.wiloon.com/ping-proxy
 ```
 
-### nginx config
+## docker 测试
+
+```bash
+sudo docker image tag hello-world registry.wiloon.com/myfirstimage
+sudo docker image ls
+sudo docker push registry.wiloon.com/myfirstimage
+sudo docker image rm hello-world
+sudo docker pull  registry.wiloon.com/myfirstimage
+sudo docker image ls
 
 ```
+
+### nginx config
+
+```conf
 server {
     listen              443 ssl;
     server_name         registry.wiloon.com;
@@ -88,7 +86,7 @@ server {
         return 404;
       }
 
-      proxy_pass                          http://192.168.50.90:5000;
+      proxy_pass                          http://192.168.50.13:5000;
       proxy_set_header  Host              $http_host;   # required for docker client's sake
       proxy_set_header  X-Real-IP         $remote_addr; # pass on real client's IP
       proxy_set_header  X-Forwarded-For   $proxy_add_x_forwarded_for;
@@ -99,4 +97,27 @@ server {
 
 ```
 
-https://docs.docker.com/registry/recipes/nginx/
+## 删除镜像与空间回收
+
+<https://zhuanlan.zhihu.com/p/33324217>
+
+<https://docs.docker.com/registry/>
+
+<https://docs.docker.com/registry/recipes/nginx/>
+
+## podman registry config
+
+```bash
+vim /etc/containers/registries.conf
+
+# content
+unqualified-search-registries = ["docker.io"]
+
+[[registry]]
+prefix = "docker.io"
+location = "registry-1.docker.io"
+```
+
+## docker registry list
+
+- registry-1.docker.io

@@ -9,6 +9,7 @@ tags:
   - reprint
 ---
 ## JVM编译器
+
 即时编译器
 
 Java虚拟机中内置了两个即时编译器,分别为Client和Server或则叫C1和C2.
@@ -21,8 +22,8 @@ C1编译器将字节码编译为本地代码,进行简单可靠的优化,C2编�
   
 回边计数器统计的是一个方法中循环体代码执行的次数,它没有热度衰减。建立回边计数器统计的目的是为了处罚OSR编译,OSR即栈上替换,也就是编译发生在方法执行过程之中。
 
-http://blog.csdn.net/tingfeng96/article/details/52261219
+<http://blog.csdn.net/tingfeng96/article/details/52261219>
 
-http://blog.csdn.net/zhuyijian135757/article/details/38391785
+<http://blog.csdn.net/zhuyijian135757/article/details/38391785>
   
-https://cyberdak.github.io/jvm/2017/03/25/jvm-restart-cause-high-load
+<https://cyberdak.github.io/jvm/2017/03/25/jvm-restart-cause-high-load>

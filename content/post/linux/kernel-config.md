@@ -9,6 +9,7 @@ tags:
   - reprint
 ---
 ## kernel config 3.2.8
+
 <http://0123.blog.163.com/blog/static/4788312011112214258169/>
 
 <http://www.cnblogs.com/unicode/archive/2010/05/19/1739675.html>
@@ -79,6 +80,6 @@ tags:
 
 **[*] ..Enable system-call auditing support** CONFIG_AUDITSYSCALL=y 开启系统调用的审计功能
 
-** IRQ subsystem ->** 中断子系统
+**IRQ subsystem ->** 中断子系统
 
 **-*- Support sparse irq numbering** CONFIG_SPARSE_IRQ=y 支持稀有的中断号

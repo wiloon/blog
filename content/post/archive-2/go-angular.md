@@ -9,14 +9,19 @@ tags:
   - reprint
 ---
 ## angular basic
+
 ## install angular
+
 ### install nodejs
+
 @see nodejs basic
+
 ### install yarn
 
     http://blog.wiloon.com/?p=11228
 
 # install angular cli
+
 yarn global add @angular/cli
 yarn add angular-in-memory-web-api --dev
 
@@ -26,14 +31,21 @@ add yarn global bin to $PATH
 ### angular command
 
 # 创建工作区
+
 ng new project0
+
 # 创建组件
+
 ng generate component heroes
+
 # 创建组件 简写
+
 ng g c heroes
 
 ng generate component hero -it
+
 # 创建service
+
 ng generate service hero
 
 ng serve --host 0.0.0.0 --port 4200 --open
@@ -41,10 +53,12 @@ ng build --aot
 ng build --prod --build-optimizer
 
 ng generate module app-routing --flat --module=app
-# --flat 把这个文件放进了 src/app 中,而不是单独的目录中。
-# --module=app 告诉 CLI 把它注册到 AppModule 的 imports 数组中。
 
-https://github.com/aralroca/helloworld-angular-with-golang
+# --flat 把这个文件放进了 src/app 中,而不是单独的目录中
+
+# --module=app 告诉 CLI 把它注册到 AppModule 的 imports 数组中
+
+<https://github.com/aralroca/helloworld-angular-with-golang>
 
 ### 修改angular编译输出目录
 
@@ -70,7 +84,7 @@ div> 被列表中的每个商品都重复渲染一次。
 ```xml
 
 </div>
-``` 
+```
 
 *ngIf
 
@@ -82,7 +96,7 @@ div> 被列表中的每个商品都重复渲染一次。
 
 ```xml
 
-``` 
+```
 
 插值表达式 {{}} 允许你把属性值渲染为文本；而属性绑定语法 [] 则允许你在模板表达式中使用属性值。
 
@@ -92,7 +106,7 @@ div> 被列表中的每个商品都重复渲染一次。
 
 ```xml
 <button (click)="share()">
-``` 
+```
 
 ### 双向数据绑定
 
@@ -101,8 +115,8 @@ div> 被列表中的每个商品都重复渲染一次。
 ```xml
 import { FormsModule } from '@angular/forms';
 <input [(ngModel)]="hero.name" placeholder="name"/>
-``` 
+```
 
-https://zhuanlan.zhihu.com/p/27696268
+<https://zhuanlan.zhihu.com/p/27696268>
   
-https://medium.com/@anshap1719/getting-started-with-angular-and-go-setting-up-a-boilerplate-project-8c273b81aa6
+<https://medium.com/@anshap1719/getting-started-with-angular-and-go-setting-up-a-boilerplate-project-8c273b81aa6>

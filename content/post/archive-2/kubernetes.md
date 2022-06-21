@@ -9,7 +9,8 @@ tags:
   - reprint
 ---
 ## Kubernetes
-Kubernetes是Google开源的容器集群管理系统,其提供应用部署、维护、 扩展机制等功能,利用Kubernetes能方便地管理跨机器运行容器化的应用,其主要功能如下: 
+
+Kubernetes是Google开源的容器集群管理系统,其提供应用部署、维护、 扩展机制等功能,利用Kubernetes能方便地管理跨机器运行容器化的应用,其主要功能如下:
   
 1) 使用Docker对应用程序包装(package)、实例化(instantiate)、运行(run)。
 

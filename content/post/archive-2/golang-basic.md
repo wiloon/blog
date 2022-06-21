@@ -348,14 +348,20 @@ CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -ldflags '-s -w --extldflags "-st
 ```
 
 ```bash
-#查看golang 环境变量
+#查看 golang 环境变量
 go env
-# 查看Go支持OS和平台列表
+# 查看 Go 支持 OS 和平台列表
 go tool dist list
 
 # go mod initialize a new module
 go mod init github.com/you/hello
 
+```
+
+## Go 交叉编译
+
+```bash
+GOOS=windows/amd64 go build foo.go 
 ```
 
 ### go install
@@ -573,3 +579,4 @@ for pos, char := range str {
 gofmt -w foo.go
 # -w    write result to (source) file instead of stdout
 ```
+

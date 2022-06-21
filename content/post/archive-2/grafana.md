@@ -9,6 +9,7 @@ tags:
   - reprint
 ---
 ## grafana
+
 ```bash
 # podman
 podman run \
@@ -19,7 +20,7 @@ podman run \
 -p 3100:3000 \
 -v grafana-storage:/var/lib/grafana \
 -v /etc/localtime:/etc/localtime:ro \
-grafana/grafana:8.4.4
+grafana/grafana:8.5.6
 
 # in pod
 podman run \
@@ -44,4 +45,4 @@ Q. How do I use the second y axis, secondYAxis function does not work
 
 A. You can switch any series to the second y axis by clicking on the colored line to left of the series name in the legend below the graph. Alternately, use the "Display Styles" > "Series Specific overrides" to define an alias or regex + "Y-axis: 2" to move metrics to the right Axis
 
-https://github.com/grafana/grafana/wiki/FAQ
+<https://github.com/grafana/grafana/wiki/FAQ>

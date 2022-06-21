@@ -9,12 +9,13 @@ tags:
   - reprint
 ---
 ## go env
+
 名称
   
 说明
 
 CGO_ENABLED
-  
+
 指明 cgo 工具是否可用的标识
 
 GOARCH
@@ -61,4 +62,4 @@ GOTOOLDIR
   
 Go 工具目录的绝对路径
   
-https://www.jianshu.com/p/35a4ec1b3067
+<https://www.jianshu.com/p/35a4ec1b3067>

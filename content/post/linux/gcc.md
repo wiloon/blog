@@ -9,6 +9,7 @@ tags:
   - reprint
 ---
 ## GCC
+
 GCC (GNU Compiler Collection ) ，GCC是一系列编译器的集合, 是Linux操作系统的核心组件之一。是一套由 GNU 开发的编程语言编译器。它是一套GNU编译器套装以 GPL 及 LGPL 许可证所发行的自由软件，也是 GNU计划的关键部分，亦是自由的类Unix及苹果电脑 Mac OS X 操作系统的标准编译器。GCC 原名为 GNU C 语言编译器，因为它原本只能处理 C语言。GCC 很快地扩展，变得可处理 C++。之后也变得可处理 Fortran、Pascal、Objective-C、Java, 以及 Ada与其他语言。
 
 GCC最初名为GNU C Compiler，当时它只是一款C语言的编译器，不过随着后续迭代，它支持C++、Fortran、Go等语言，GCC也因此成为一个编译器集合。GCC有以下特点：
@@ -16,7 +17,6 @@ GCC最初名为GNU C Compiler，当时它只是一款C语言的编译器，不�
 GCC支持的编程语言多。比如，g++ 是 C++ 编译器，gfortran是 Fortran 编译器。
 GCC支持的硬件全。GCC可以将源代码编译成x86_64、ARM、PowerPC等硬件架构平台的可执行文件。
 GCC支持众多业界标准。GCC能很快支持最新的C++标准，GCC支持OpenMP、OpenACC。
-
 
 虽然编译器并非只有GCC一种，macOS上有Clang，Windows上有MSVC，但GCC的这些特点让它从众多编译器间脱颖而出，很多开源软件会选择GCC完成编译工作。
 
@@ -27,8 +27,8 @@ GDB：GNU Debugger，用于调试。
 GNU Binutils：一组二进制工具集，包括链接器ld、汇编器as等，GNU Bintuils可以和GCC、GNU Make一起完成构建过程。我们将在下文使用这些工具。
 综上，GCC在Linux操作系统占有举足轻重的地位。
 
-
 ### 预处理
+
 使用预处理器cpp工具进行预处理。注意，这里的cpp是C Preprocessor的缩写，并不是C-plus-plus的意思。
 
 cpp hello.c -o hello.i
@@ -69,13 +69,10 @@ $ ld -o myhello hello.o /usr/lib/x86_64-linux-gnu/crt1.o /usr/lib/x86_64-linux-g
 
 $ find /usr/lib -name 'crt1.o'
 
-
-
 ### Hello World背后的故事：如何在Linux上编译C语言程序
-https://lulaoshi.info/blog/compile-c-hello-world-on-linux  
 
+<https://lulaoshi.info/blog/compile-c-hello-world-on-linux>  
 
-### 查询gcc能否搜寻到指定的库文件:
+### 查询gcc能否搜寻到指定的库文件
 
     gcc -lhdf5 --verbose
-

@@ -30,21 +30,21 @@ categories:
 
 在同一程序中运行多个线程本身不会导致问题，问题在于多个线程访问了相同的资源。如，同一内存区 (变量，数组，或对象) 、系统 (数据库，web services 等) 或文件。实际上，这些问题只有在一或多个线程向这些资源做了写操作时才有可能发生，只要资源没有发生变化,多个线程读取相同的资源就是安全的。
 
-多线程同时执行下面的代码可能会出错: 
+多线程同时执行下面的代码可能会出错:
 
 public class Counter {
-      
+
 protected long count = 0;
-      
+
 public void add(long value){
-          
+
 this.count = this.count + value;
-      
+
 }
   
 }
   
-想象下线程 A 和 B 同时执行同一个 Counter 对象的 add()方法，我们无法知道操作系统何时会在两个线程之间切换。JVM 并不是将这段代码视为单条指令来执行的，而是按照下面的顺序: 
+想象下线程 A 和 B 同时执行同一个 Counter 对象的 add()方法，我们无法知道操作系统何时会在两个线程之间切换。JVM 并不是将这段代码视为单条指令来执行的，而是按照下面的顺序:
 
 从内存获取 this.count 的值放到寄存器
   
@@ -52,7 +52,7 @@ this.count = this.count + value;
   
 将寄存器中的值写回内存
   
-观察线程 A 和 B 交错执行会发生什么: 
+观察线程 A 和 B 交错执行会发生什么:
 
 this.count = 0;
   
@@ -74,4 +74,4 @@ A: 回写寄存器值(3)到内存. this.count 现在等于 3
   
 当两个线程竞争同一资源时，如果对资源的访问顺序敏感，就称存在竞态条件。导致竞态条件发生的代码区称作临界区。上例中 add()方法就是一个临界区,它会产生竞态条件。在临界区中使用适当的同步就可以避免竞态条件。
 
-http://wiki.jikexueyuan.com/project/java-concurrent/race-conditions-and-critical-sections.html
+<http://wiki.jikexueyuan.com/project/java-concurrent/race-conditions-and-critical-sections.html>

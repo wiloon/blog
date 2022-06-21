@@ -57,9 +57,9 @@ systemctl enable sshd
 
 connect to new system with user0 via ssh
 
-### ntp, chrony
+- ntp, chrony
 
-<http://blog.wiloon.com/?p=10869>
+<http://blog.wiloon.com/ntp>
 
 - 监控, telegraf
 

@@ -10,8 +10,8 @@ tags:
 
 ---
 ## windows command
-tasklist
 
+tasklist
 
 1. 查看进程对应哪服务 tasklist -svc
   
@@ -25,21 +25,15 @@ tasklist
 
   EQ:等于
 
-
   NE:不等于
-
 
   LT:小于
 
-
   LE:小于等于
-
 
   GT:大于
 
-
   GE:大于等于
-
 
   tasklist -fi "username ne NT authority\system" -fi "status eq running" 列出系统中正在运行的非SYSTEM状态的所有进程
   
@@ -91,8 +85,6 @@ tasklist
   
     命令范例: ntsd -c q -pn explorer.exe
   
-
-
   大家有补充的，请留言
 
 本文出自 "[Colt-'s-Cyberspace][1]" 博客，请务必保留此出处<http://coltiam.blog.51cto.com/1364465/394060>

@@ -27,10 +27,9 @@ LLMNR=false
 
 <https://cloud-atlas.readthedocs.io/zh_CN/latest/linux/redhat_linux/systemd/systemd_resolved.html>
 
+## 测试 域名解析
+
 ```bash
-### check status
-resolvectl status
-### 测试 域名解析
 resolvectl query baidu.com
 resolvectl query google.com
 ```

@@ -9,11 +9,12 @@ tags:
   - reprint
 ---
 ## windows SC命令详解
+
 SC命令详解(一个很有用的command)
   
 作为一个命令行工具,SC.exe可以用来测试你自己的系统,你可以设置一个批处理文件来使用不同的参数调用 SC.exe来控制服务。
   
-一.SC使用这样的语法: 
+一.SC使用这样的语法:
   
 1. SC [Servername] command Servicename [Optionname= Optionvalues]
   
@@ -33,15 +34,15 @@ Command
   
 下面列出SC可以使用的命令。
   
-config--改变一个服务的配置。 (长久的) 
+config--改变一个服务的配置。 (长久的)
   
 continue-对一个服务送出一个继续控制的要求。
   
 control--对一个服务送出一个控制。
   
-create--创建一个服务。 (增加到注册表中) 
+create--创建一个服务。 (增加到注册表中)
   
-delete--删除一个服务。 (从注册表中删除) 
+delete--删除一个服务。 (从注册表中删除)
   
 EnumDepend-列举服务的从属关系。
   
@@ -221,30 +222,30 @@ SERVICE_START_NAME-lpServiceStartName
   
 例1
   
-下面这个例子询问了在上面例子中建立的"mirror"服务的配置: 
+下面这个例子询问了在上面例子中建立的"mirror"服务的配置:
   
 sc qc
   
-sc显示下面的信息: 
+sc显示下面的信息:
   
 SERVICE_NAME: mirror
-          
+
 TYPE : 10 WIN32_OWN_PROCESS
-          
+
 START_TYPE : 2 AUTO_START
-          
+
 ERROR_CONTROL : 1 NORMAL
-          
+
 BINARY_PATH_NAME : D:Ftp
-          
+
 LOAD_ORDER_GROUP :
-          
+
 TAG : 0
-          
+
 DISPLAY_NAME : mirror
-          
+
 DEPENDENCIES :
-          
+
 SERVICE_START_NAME : LocalSystem
   
 mirror有能力和其他的服务共享一个进程。这个服务 不依靠与其它的的服务,而且运行在lcoalsystem的安全上下关系中。这些都是调用QueryServiceStatus基本的返回,如果还需要更多的细节届时,可以看看API函数文件。 mirror
@@ -253,11 +254,11 @@ mirror有能力和其他的服务共享一个进程。这个服务 不依靠与�
   
 SC QUERY命令可以获得服务的信息。
   
-语法: 
+语法:
   
 sc [Servername] query { Servicename | ptionname= Optionvalues... }
   
-参数: 
+参数:
   
 servername, servicename, optionname, optionvalues不在解释。只谈一下这个命令提供的数值。
   
@@ -289,7 +290,7 @@ Comments
   
 SC QUERY命令可以显示SERVICE_STATUS结构的内容。
   
-下面是SERVICE_STATUS结构相应的信息: 
+下面是SERVICE_STATUS结构相应的信息:
   
 TYPE--dwServiceType
   
@@ -307,65 +308,65 @@ WAIT_HINT--dwWaitHint
   
 例子
   
-查询"mirror'服务状态,键入: 
+查询"mirror'服务状态,键入:
   
 sc query mirror
   
-显示一下信息: 
+显示一下信息:
   
 SERVICE_NAME: mirror
-          
+
 TYPE : 10 WIN32_OWN_PROCESS
-          
+
 STATE : 1 STOPPED
-                                  
+
 (NOT_STOPPABLE,NOT_PAUSABLE,IGNORES_SHUTDOWN
-          
+
 WIN32_EXIT_CODE : 0 (0x0)
-          
+
 SERVICE_EXIT_CODE : 0 (0x0)
-          
+
 CHECKPOINT : 0x0
-          
+
 WAIT_HINT : 0x0
   
-注意,这里存在一个给这个服务的退出码,即使这个服务部不在运行,键入net helpmsg 1077,将会得到对1077错误信息的说明: 
+注意,这里存在一个给这个服务的退出码,即使这个服务部不在运行,键入net helpmsg 1077,将会得到对1077错误信息的说明:
   
 上次启动之后,仍未尝试引导服务。
   
 所以,这里我想说一句,希望大家可以活用net helpmsg,这会对你的学习有很大的帮助。
   
-下面在对SC query的命令在说明一下: 
+下面在对SC query的命令在说明一下:
   
-列举活动服务和驱动程序状态,使用以下命令: 
+列举活动服务和驱动程序状态,使用以下命令:
   
 sc query
   
-显示messenger服务,使用以下命令: 
+显示messenger服务,使用以下命令:
   
 sc query messenger
   
-只列举活动的驱动程序,使用以下命令: 
+只列举活动的驱动程序,使用以下命令:
   
 sc query type= driver
   
-列举Win32服务,使用以下命令: 
+列举Win32服务,使用以下命令:
   
 sc query type= service
   
-列举所有的服务和驱动程序,使用以下命令: 
+列举所有的服务和驱动程序,使用以下命令:
   
 sc query state= all
   
-用50 byte的缓冲区来进行列举,使用以下命令: 
+用50 byte的缓冲区来进行列举,使用以下命令:
   
 sc query bufsize= 50
   
-在恢复列举时使用index=14,使用以下命令: 
+在恢复列举时使用index=14,使用以下命令:
   
 sc query ri=14
   
-列举所有的交互式服务,使用以下命令: 
+列举所有的交互式服务,使用以下命令:
   
 sc query type= service type= interact
   

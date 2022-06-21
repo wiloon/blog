@@ -341,7 +341,7 @@ man git-fetch
 git fetch --prune  #在本地删除在远程不存在的branch
 git fetch --all 告诉 Git 同步所有的远端仓库。
 
-#git分析指定的tag标签创建分支的命令
+# git分析指定的tag标签创建分支的命令
 git checkout -b branch_name tag_name
 ```
 
@@ -368,14 +368,14 @@ git tag -a v1.2 9fceb02
 git tag
 git tag -l "v1.8.5*"
 
+# list remote tags
+git ls-remote --tags origin
+
 # 显示提交信息
 git show v0.0.1
 
 # 查看commit内容
 git show commit_id
-
-# list remote tags
-git ls-remote --tags origin
 
 # checkout tag
 git checkout tag_name
@@ -398,7 +398,7 @@ git push origin :refs/tags/v1.0.0
 
 ## 分支, branch
 
-最新版本的Git提供了新的git switch命令来切换分支, 使用新的git switch命令，比 git checkout 要更容易理解。
+最新版本的 Git 提供了新的git switch 命令来切换分支, 使用新的 git switch 命令，比 git checkout 要更容易理解。
 
 ### 设置默认的分支名
 
