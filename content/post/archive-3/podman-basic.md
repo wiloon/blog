@@ -399,9 +399,9 @@ Our first recommendation in these cases is usually to avoid using VFS, and inste
 ### image, images
 
 ```bash
-    podman images -a
-    podman image prune
-    podman image rm image-id-0
+podman images -a
+podman image prune
+podman image rm image-id-0
 ```
 
 ---
@@ -411,26 +411,26 @@ Our first recommendation in these cases is usually to avoid using VFS, and inste
 ### other
 
 ```bash
-    podman unshare cat /proc/self/uid_map
-    unshare -U
+podman unshare cat /proc/self/uid_map
+unshare -U
 ```
 
 ### reset, 执行工厂重置
 
 ```bash
-    podman system reset
+podman system reset
 ```
 
 ### podman history, 查看构建命令
 
 ```bash
-    podman history image0
+podman history image0
 ```
 
 ### filter
 
 ```bash
-    podman ps -a -f "status=exited"
+podman ps -a -f "status=exited"
 ```
 
 <https://docs.podman.io/en/latest/markdown/podman-ps.1.html>
@@ -442,3 +442,14 @@ podman save be96e19ac6ef >pingd-proxy.tar
 ```
 
 >wangyue.dev/docker/save
+
+## template
+
+```bash
+podman run \
+-d \
+--name foo \
+-p 1234:80 \
+-v /etc/localtime:/etc/localtime:ro \
+project0:0.0.1
+```
