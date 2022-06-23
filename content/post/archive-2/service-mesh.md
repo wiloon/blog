@@ -9,6 +9,7 @@ tags:
   - reprint
 ---
 ## service mesh
+
 ### 微服务
 
 >wiloon.com/microservice
@@ -24,7 +25,6 @@ A Service Mesh is a dedicated infrastructure layer for handling service-to-servi
 
 服务网格 (Service Mesh）是处理服务间通信的基础设施层。它负责在现代的云原生应用的复杂的服务拓补中可靠的交付请求。在实践中，Service Mesh 通常以轻量级网络代理阵列的形式实现，这些代理与应用程序代码部署在一起，应用程序无需感知代理的存在。
 
-
 Service Mesh 有如下几个特点：
 
 应用程序间通信的中间层
@@ -32,7 +32,6 @@ Service Mesh 有如下几个特点：
 应用程序无感知
 解耦应用程序的重试/超时、监控、追踪和服务发现
 目前两款流行的 Service Mesh 开源软件 Istio 和 Linkerd 都可以直接在 Kubernetes 中集成，
-
 
 Phil Calçado 在他的这篇博客 Pattern: Service Mesh 中详细解释了 Service Mesh 的来龙去脉：
 
@@ -44,7 +43,6 @@ Phil Calçado 在他的这篇博客 Pattern: Service Mesh 中详细解释了 Ser
 出现了专门用于服务发现和断路器的软件包/库，如 Twitter 的 Finagle 和 Facebook 的 Proxygen，这时候还是集成在应用程序内部
 出现了专门用于服务发现和断路器的开源软件，如 Netflix OSS、Airbnb 的 synapse 和 nerve
 最后作为微服务的中间层 Service Mesh 出现
-
 
 Service Mesh如何工作？
 下面以 Istio 为例讲解 Service Mesh 如何工作，后续文章将会详解 Istio 如何在 Kubernetes 中工作。
@@ -62,8 +60,8 @@ SIdecar 以 metric 和分布式追踪的形式捕获上述行为的各个方面�
 <https://buoyant.io/what-is-a-service-mesh/>  
 <https://philcalcado.com/2017/08/03/pattern_service_mesh.html>
 
-
 ## Istio, Service Mesh
+
 service mesh是微服务时代的TCP协议
 
 Istio是由Google/IBM/Lyft共同开发的新一代Service Mesh开源项目
@@ -86,21 +84,22 @@ Istio是由Google/IBM/Lyft共同开发的新一代Service Mesh开源项目
 
  [1]: http://www.infoq.com/cn/articles/istio-future-service-mesh?utm_campaign=infoq_content&utm_source=infoq&utm_medium=feed&utm_term=global
 
-
-https://cloudnative.to/sig-istio/big-talk/overview.html
->https://jimmysong.io/blog/envoy-sidecar-injection-in-istio-service-mesh-deep-dive/
+<https://cloudnative.to/sig-istio/big-talk/overview.html>
+><https://jimmysong.io/blog/envoy-sidecar-injection-in-istio-service-mesh-deep-dive/>
 
 ### service mesh 2021
->https://jimmysong.io/blog/service-mesh-2021/
+
+><https://jimmysong.io/blog/service-mesh-2021/>
 
 ### dapr
->https://www.zhihu.com/question/351298264
+
+><https://www.zhihu.com/question/351298264>
 
 ### ebpf
->https://cloudnative.to/blog/ebpf-solve-service-mesh-sidecar/
+
+><https://cloudnative.to/blog/ebpf-solve-service-mesh-sidecar/>
 
 ### k8s, istio, Cilium, dapr
-
 
 ### k8s install istio
 
