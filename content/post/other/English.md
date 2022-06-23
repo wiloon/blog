@@ -2,7 +2,7 @@
 title: English
 author: "-"
 date: 2013-04-04T08:19:47+00:00
-url: English
+url: English/words
 categories:
   - English
 tags:

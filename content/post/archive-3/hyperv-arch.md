@@ -49,6 +49,7 @@ DNS: 192.168.1.xxx
 ### GUI
 
 #### VSOCK + x410
+
 <https://x410.dev/cookbook/hyperv/using-x410-with-hyper-v-linux-virtual-machines-via-vsock/>
 
 ##### 卸载 xrdp

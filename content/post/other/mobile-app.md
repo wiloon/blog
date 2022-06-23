@@ -12,10 +12,10 @@ tags:
 
 ## iOS/Android
 
-|name|comments|
+|name       |comments|
 |-|-|
-| 古诗文网 ||
-| Wander  ||
+| 古诗文网    ||
+| Wander      ||
 
 ### iOS app
 
@@ -34,19 +34,19 @@ tags:
 
 |name|comments|
 |-|-|
-|英语轻松读|英语学习|
-|ebuoy|英语学习|
-|酷安|应用商店|
-|internet speed meter lite|网速监控|
-|随手记||
-|Cellular-Z|移动信号监测|
-|PingTools Network Utilities||
+|macrodroid                 |设备自动化|
+|英语轻松读                   |英语学习|
+|ebuoy                      |英语学习|
+|酷安                       |应用商店|
+|internet speed meter lite  |网速监控|
+|随手记                       ||
+|Cellular-Z                   |移动信号监测|
+|PingTools Network Utilities  ||
 |炼妖壶  |流氓软件管理|
 |半导小蕊||
 |Live Transcribe & Sound Notifications|语音转文字|
 |RssX||
 |DevCheck|手机硬件检测工具|
-|macrodroid||
 |Quizlet|英语学习工具|
 | shareit|茄子快传|
 | Internet Speed Meter Lite | 网速监控                                  |

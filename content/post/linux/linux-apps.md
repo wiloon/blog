@@ -220,3 +220,7 @@ file-roller
 | ------- | -------- |
 | datagrip   |          |
 | Joplin | Joplin.AppImage         |
+
+## raspberry pi
+
+omxplayer
