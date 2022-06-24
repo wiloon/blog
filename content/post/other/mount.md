@@ -21,6 +21,7 @@ tags:
 pacman -S nfs-utils
 
 showmount -e 192.168.50.227
+# 如果提示 showmount command not found, 安装 nfs-utils, pacman -S nfs-utils
 mount -t nfs 192.168.50.227:/data1t /mnt/nas
 ```
 

@@ -41,7 +41,7 @@ pacman -Q -h
 pacman -Q  boost-libs    #Display version
 pacman -Ql boost-libs    #Display file list provided by local package
 
-# 查看文件属于哪个包, Check if the file is owned by any package, 查看命令由哪个包提供.
+# 查看文件/命令属于哪个包, Check if the file is owned by any package, 查看命令由哪个包提供.
 pacman -Qo /etc/profile
 
 # 检查包对应的文件有没有缺失, #Check the local package database
