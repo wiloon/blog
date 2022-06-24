@@ -111,7 +111,7 @@ Ubuntu 不会立即提供该新版本的软件。需要一个步骤来检查此�
 ### 动态IP
 
 ```bash
-vim  /etc/netplan/00-installer-config.yaml 
+sudo vim /etc/netplan/00-installer-config.yaml
 
 network:
   ethernets:
@@ -133,7 +133,6 @@ network:
       nameservers:
         addresses: [192.168.50.1]
   version: 2
-
 ```
 
 ```bash

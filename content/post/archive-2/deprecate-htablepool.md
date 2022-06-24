@@ -9,8 +9,9 @@ tags:
   - reprint
 ---
 ## Deprecate HTablePool
-https://issues.apache.org/jira/browse/HBASE-6580
+
+<https://issues.apache.org/jira/browse/HBASE-6580>
   
-http://blog.csdn.net/jiyiqinlovexx/article/details/36526433
+<http://blog.csdn.net/jiyiqinlovexx/article/details/36526433>
   
-http://blog.csdn.net/u010967382/article/details/38046821
+<http://blog.csdn.net/u010967382/article/details/38046821>

@@ -27,7 +27,7 @@ Settings> General> Advanced> Shared Clipboard: Bidirectional
 
 ## archlinux guest
 
-在virtual box 内安装的archlinux, 需要安装 virtualbox-guest-utils, 可以获得更流畅的图形界面,如 virtual的无缝模式。
+在 virtual box 内安装的archlinux, 需要安装 virtualbox-guest-utils, 可以获得更流畅的图形界面,如 virtual的无缝模式。
 
 ```bash
 # for VirtualBox Guest utilities with X support

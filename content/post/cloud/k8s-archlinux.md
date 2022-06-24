@@ -74,6 +74,13 @@ CRI：遵循CRI规范，通过封装的两个服务(Remote Runtime Service 和 R
 可以使用 Kubectl 命令行工具管理 Kubernetes 集群
 kubectl 是 Kubernetes 的命令行工具 (CLI），是 Kubernetes 用户和管理员必备的管理工具。
 
+```bash
+# install kubctl
+curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
+sudo install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl
+kubectl version --client
+```
+
 ### archlinux 安装  k8s
 
 ```bash

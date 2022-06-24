@@ -44,3 +44,43 @@ k3s 将安装 Kubernetes 所需的一切打包进仅有 XXMB 大小的二进制�
 因为在高可用的场景中，其没有办法做到或很难做到。所以如果你要进行大型的集群部署，那么我建议你选择使用 K8s 来安装部署。如果你处于边缘计算等小型部署的场景或仅仅需要部署一些非核心集群进行开发/测试，那么选择 k3s 则是性价比更高的选择。
 在单个 master 的 k3s 中，默认使用的是 SQLite 数据库存储数据的，这对于小型数据库十分友好，但是如果遭受重击，那么 SQLite 将成为主要痛点。但是，Kubernetes 控制平面中发生的更改更多是与频繁更新部署、调度 Pod 等有关，因此对于小型开发/测试集群而言，数据库不会造成太大负载。
 
+## quick start
+
+```bash
+# server a, linux node, install k3s
+curl -sfL https://get.k3s.io | sh -s - server
+# save the server ip
+
+# server b, workstation
+mkdir -p ~/.kube/
+scp root@192.168.50.140:/etc/rancher/k3s/k3s.yaml ~/.kube/config
+
+# edit ~/.kube/config on server b, fill the ip of server a
+vi ~/.kube/config
+
+# install helm on server b
+# install kubctl on server b
+# Install Rancher with Helm
+
+helm repo add rancher-latest https://releases.rancher.com/server-charts/latest
+
+kubectl create namespace cattle-system
+
+kubectl apply -f https://github.com/cert-manager/cert-manager/releases/download/v1.7.2/cert-manager.crds.yaml
+
+helm repo add jetstack https://charts.jetstack.io
+
+helm repo update
+
+helm install cert-manager jetstack/cert-manager \
+  --namespace cert-manager \
+  --create-namespace \
+  --version v1.7.1
+
+helm install rancher rancher-latest/rancher \
+  --namespace cattle-system \
+  --set hostname=tmp.wiloon.com \
+  --set replicas=1 \
+  --set bootstrapPassword=password0
+
+```

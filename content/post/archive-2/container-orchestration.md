@@ -2,7 +2,7 @@
 title: 容器编排
 author: "-"
 date: 2017-09-08T02:44:01+00:00
-url: /?p=11136
+url: orchestration
 categories:
   - Inbox
 tags:
