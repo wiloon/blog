@@ -18,13 +18,13 @@ tags:
 vim ~/.ssh/authorized_keys
 ```
 
-## sshd config, /etc/sshsshd_config
+## sshd config, /etc/ssh/sshd_config
 
 ### PermitRootLogin
 
 是否允许 root 登录。默认值是"prohibit-password", 其它可用值如下:
 
-- prohibit-password, 新版本的 sshd 的默认值: 禁止root用户使用密码和基于键盘交互的认证。
+- prohibit-password, 新版本的 sshd 的默认值: 禁止 root 用户使用密码和基于键盘交互的认证。
 - without-password 废弃的值，新版本的 sshd 使用了更符合直觉的名字 prohibit-password。
 - forced-commands-only 表示只有在指定了 command 选项的情况下才允许使用公钥认证登录。同时其它认证方法全部被禁止。这个值常用于做远程备份之类的事情。
 - yes 允许root用户以任何认证方式登录 (貌似也就两种认证方式: 用户名密码认证,公钥认证)

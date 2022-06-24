@@ -110,26 +110,6 @@ Environment="ANOTHER_SECRET=JP8YLOc2bsNlrGuD6LVTq7L36obpjzxd"
     sudo systemd-analyze plot > /home/wiloon/tmp/boot3.svg
 ```
 
-### hostnamectl, 查看主机信息, 查看主机名, 查看机器名, 查 hostname
-
-```bash
-hostnamectl
-# 设置主机名
-sudo hostnamectl set-hostname rhel7
-
-hostnamectl
-  
-hostnamectl status
-  
-hostnamectl -static
-  
-hostnamectl -transient
-  
-hostnamectl -pretty
-  
-sudo hostnamectl set-hostname new-host-name
-```
-
 ### timedatectl
 
 ```bash

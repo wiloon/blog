@@ -16,11 +16,12 @@ tags:
 diff是Unix系统的一个很重要的工具程序。它用来比较两个文本文件的差异，是代码版本管理的基石之一。
 
 ## diff的三种格式
+
 - 正常格式（normal diff）
 - 上下文格式（context diff）
 - 合并格式（unified diff）
 
-### 命令格式: 
+### 命令格式
 
     diff [参数] [文件1或目录1] [文件2或目录2]
 
@@ -64,11 +65,11 @@ diff foo.log bar.log
 ```
 
 ## 说明
+
 - 3c3 用来说明变动位置, 分为三个部分, 第一个数字表示 foo.log 的第3行有变化, 中间的 c 表示变动模式是内容改变 (change), 后面的 3 表示 变动后变成 bar.log 文件的第3行.
 - < 2014-03, 分为两个部分, 前面 的小于号表示 foo.log 比 bar.log 少了这一行, 2014-03 是该行的内容
 - --- 分隔线, 用于分隔 foo.log bar.log
 - > 2013-03, 大于号表示 bar.log 增加了这行
-
 
 上面的"3c3"和"8c8"表示 log2014.log 和 log20143log 文件在 3 行和第 8 行内容有所不同；"11,12d10" 表示第一个文件比第二个文件多了第11和12行。
   
@@ -80,13 +81,13 @@ diff 的 normal 显示格式有三种提示:
 
 diff 命令是 linux 上非常重要的工具, 用于比较文件的内容, 特别是比较两个版本不同的文件以找到改动的地方。 diff在命令行中打印每一个行的改动。 最新版本的 diff 还支持二进制文件。 diff 程序的输出被称为补丁 (patch), 因为 Linux 系统中还有一个 patch 程序, 可以根据 diff 的输出将 a.c 的文件内容更新为 b.c。diff是svn、cvs、git等版本控制工具不可或缺的一部分。
 
-2．命令功能: 
+2．命令功能:
   
 diff命令能比较单个文件或者目录内容。如果指定比较的是文件,则只有当输入为文本文件时才有效。以逐行的方式,比较文本文件的异同处。如果指定比较的是目录的的时候,diff 命令会比较两个目录下名字相同的文本文件。列出不同的二进制文件、公共子目录和只在一个目录出现的文件。
 
-3．命令参数: 
+3．命令参数:
 
-  * 指定要显示多少行的文本。此参数必须与-c或-u参数一并使用。
+- 指定要显示多少行的文本。此参数必须与-c或-u参数一并使用。
 
 -a或-text diff预设只会逐行比较文本文件。
   
@@ -142,12 +143,11 @@ diff命令能比较单个文件或者目录内容。如果指定比较的是文�
 
 -suppress-common-lines 在使用-y参数时,仅显示不同之处。
   
-http://www.ruanyifeng.com/blog/2012/08/how_to_read_diff.html
+<http://www.ruanyifeng.com/blog/2012/08/how_to_read_diff.html>
   
-https://superuser.com/questions/644680/how-can-i-make-diff-x-ignore-specific-paths-and-not-file-names
+<https://superuser.com/questions/644680/how-can-i-make-diff-x-ignore-specific-paths-and-not-file-names>
   
-https://www.cnblogs.com/peida/archive/2012/12/12/2814048.html
-
+<https://www.cnblogs.com/peida/archive/2012/12/12/2814048.html>
 
 ## 上下文格式的diff
 
@@ -258,5 +258,4 @@ https://www.cnblogs.com/peida/archive/2012/12/12/2814048.html
 版权声明：自由转载-非商用-非衍生-保持署名（创意共享3.0许可证）
 发表日期： 2012年8月29日
 作者： 阮一峰
->https://www.ruanyifeng.com/blog/2012/08/how_to_read_diff.html
-
+><https://www.ruanyifeng.com/blog/2012/08/how_to_read_diff.html>
