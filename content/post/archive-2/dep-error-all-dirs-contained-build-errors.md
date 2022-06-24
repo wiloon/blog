@@ -1,5 +1,5 @@
 ---
-title: dep error all dirs contained build errors
+title: 容器编排
 author: "-"
 date: 2017-09-08T02:44:01+00:00
 url: /?p=11136
@@ -8,7 +8,32 @@ categories:
 tags:
   - reprint
 ---
-## dep error all dirs contained build errors
-add package xxx before import in xxx.go
-  
-the rerun dep ensure
+## 容器编排
+
+众所周知，Kubernetes 是一个容器编排平台，它有非常丰富的原始的 API 来支持容器编排，但是对于用户来说更加关心的是一个应用的编排，包含多容器和服务的组合，管理它们之间的依赖关系，以及如何管理存储。
+
+在这个领域，Kubernetes 用 Helm 的来管理和打包应用，但是 Helm 并不是十全十美的，在使用过程中我们发现它并不能完全满足我们的需求，所以在 Helm 的基础上，我们自己研发了一套编排组件……
+
+什么是编排？
+
+不知道大家有没仔细思考过编排到底是什么意思? 我查阅了 Wiki 百科，了解到我们常说的编排的英文单词为 “Orchestration”，它常被解释为:
+
+本意:为管弦乐中的配器法，主要是研究各种管弦乐器的运用和配合方法，通过各种乐器的不同音色，以便充分表现乐曲的内容和风格。
+计算机领域:引申为描述复杂计算机系统、中间件 (middleware) 和业务的自动化的安排、协调和管理。
+有趣的是 “Orchestration” 的标准翻译应该为“编配”，而“编排”则是另外一个单词 “Choreography”，为了方便大家理解， 符合平时的习惯，我们还是使用编排 (Orchestration) 来描述下面的问题。至于“编配 (Orchestration)” 和 “编排(Choreography)” 之争，这里有一篇文章，有兴趣可以看一下 。
+
+<https://cloud.tencent.com/developer/article/1683430>
+
+Kubernetes 容器编排技术
+当我们在说容器编排的时候，我们在说什么？
+
+在传统的单体式架构的应用中，我们开发、测试、交付、部署等都是针对单个组件，我们很少听到编排这个概念。而在云的时代，微服务和容器大行其道，除了为我们显示出了它们在敏捷性，可移植性等方面的巨大优势以外，也为我们的交付和运维带来了新的挑战：我们将单体式的架构拆分成越来越多细小的服务，运行在各自的容器中，那么该如何解决它们之间的依赖管理，服务发现，资源管理，高可用等问题呢？
+
+在容器环境中，编排通常涉及到三个方面:
+
+资源编排 - 负责资源的分配，如限制 namespace 的可用资源，scheduler 针对资源的不同调度策略；
+工作负载编排 - 负责在资源之间共享工作负载，如 Kubernetes 通过不同的 controller 将 Pod 调度到合适的 node 上，并且负责管理它们的生命周期；
+服务编排 - 负责服务发现和高可用等，如 Kubernetes 中可用通过 Service 来对内暴露服务，通过 Ingress 来对外暴露服务。
+在 Kubernetes 中有 5 种我们经常会用到的控制器来帮助我们进行容器编排，它们分别是 Deployment, StatefulSet, DaemonSet, CronJob, Job。
+
+在这 5 种常见资源中，Deployment 经常被作为无状态实例控制器使用; StatefulSet 是一个有状态实例控制器; DaemonSet 可以指定在选定的 Node 上跑，每个 Node 上会跑一个副本，它有一个特点是它的 Pod 的调度不经过调度器，在 Pod 创建的时候就直接绑定 NodeName；最后一个是定时任务，它是一个上级控制器，和 Deployment 有些类似，当一个定时任务触发的时候，它会去创建一个 Job ，具体的任务实际上是由 Job 来负责执行的。
