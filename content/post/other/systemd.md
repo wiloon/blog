@@ -161,6 +161,10 @@ systemctl list-timers --all
 ```
 
 ```bash
+
+# 查看是否启用
+systemctl is-enabled service0
+
 # to see which units have failed.
 systemctl --failed
 
@@ -187,9 +191,6 @@ $ systemctl list-unit-files --type service
 
 # 查看所有 Timer 单元
 $ systemctl list-unit-files --type timer
-
-# 查看是否启用
-systemctl is-enabled SERVICE
 
 显示所有已启动的服务
 systemctl list-units --type=service

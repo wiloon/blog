@@ -208,22 +208,6 @@ wifi: Intel Corporation Wireless 7260 (rev 5b)
     2.4G QCA9984
     有线网络 QCA8337
 
-## Dell Latitude 3450, work
-
-<https://www.dell.com/support/manuals/zh-cn/latitude-3450-laptop/lat_14_3450_om-v1/specifications?guid=guid-42d27b81-8d57-4219-9b9b-0c51cfa756b5&lang=en-us>
-<https://www.dell.com/support/home/zh-cn/product-support/product/latitude-3450-laptop/drivers>
-Network adapter    10/100/1000 Mbps Ethernet LAN on Motherboard (LOM)
-
-### Wireless
-
-Dell Wireless 1707 802.11b/g/n (2.4GHz)
-Wi-Fi 802.11 b/g/n and 802.11a/b/g/n/ac
-Bluetooth 4.0
-
-### 显卡
-
-Intel HD Graphics 4400 (shared memory)
-
 ## WNDR4300 v1
 
     WNDR4300  
@@ -347,6 +331,22 @@ NDEF
 
 注3：macOS系统使用需要升级到 Monterey 或以上
 
-## Dell Latitude E7470
+## Dell Latitude E7470, xing's work pc
 
 - Screen Resolution 1920x1080
+
+## Dell Latitude 3450, work, deprecated
+
+<https://www.dell.com/support/manuals/zh-cn/latitude-3450-laptop/lat_14_3450_om-v1/specifications?guid=guid-42d27b81-8d57-4219-9b9b-0c51cfa756b5&lang=en-us>
+<https://www.dell.com/support/home/zh-cn/product-support/product/latitude-3450-laptop/drivers>
+Network adapter    10/100/1000 Mbps Ethernet LAN on Motherboard (LOM)
+
+### Wireless
+
+Dell Wireless 1707 802.11b/g/n (2.4GHz)
+Wi-Fi 802.11 b/g/n and 802.11a/b/g/n/ac
+Bluetooth 4.0
+
+### 显卡
+
+Intel HD Graphics 4400 (shared memory)

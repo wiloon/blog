@@ -83,4 +83,38 @@ helm install rancher rancher-latest/rancher \
   --set replicas=1 \
   --set bootstrapPassword=password0
 
+# config dns 
+# 192.168.50.140 tmp.wiloon.com
+# 用浏览器打开地址 https://tmp.wiloon.com/
 ```
+
+## Installing Rancher on a Single Node Using Docker
+
+<https://rancher.com/docs/rancher/v2.6/en/installation/other-installation-methods/single-node-docker/>
+
+ubuntu 22.04 fix <https://github.com/rancher/rancher/issues/36238>
+
+```bash
+vim /etc/default/grub
+
+GRUB_CMDLINE_LINUX="cgroup_memory=1 cgroup_enable=memory swapaccount=1 systemd.unified_cgroup_hierarchy=0"
+sudo update-grub
+sudo reboot
+```
+
+```bash
+sudo docker run -d --restart=unless-stopped \
+  -p 80:80 -p 443:443 \
+  --privileged \
+  rancher/rancher:latest
+```
+
+url: <https://192.168.50.167>
+
+## create k8s cluster
+
+rancher> cluster management> create
+
+- name: cluster0
+- Kubernetes Version: 1.23.7
+- 

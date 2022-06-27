@@ -12,15 +12,21 @@ tags:
 
 ## ubuntu
 
+### apt 从仓库里安装, 落后两个小版本, 也算比较新了
+
+sudo apt install docker.io
+
+### curl, 配置官方源, 一般会高几个小版本
+
 <https://docs.docker.com/engine/install/ubuntu/>
 
 ```bash
- sudo apt-get update
- sudo apt-get install \
-    ca-certificates \
-    curl \
-    gnupg \
-    lsb-release
+sudo apt-get update
+sudo apt-get install \
+  ca-certificates \
+  curl \
+  gnupg \
+  lsb-release
 
 sudo mkdir -p /etc/apt/keyrings
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg

@@ -13,7 +13,7 @@ tags:
 ## sudo 提供密码
 
 ```bash
-    echo 'password' | sudo -S command
+echo 'password' | sudo -S command
 ```
 
 ```bash
