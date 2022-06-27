@@ -290,3 +290,7 @@ default volumn path /var/lib/docker/volumes/
 ><https://www.cnblogs.com/sparkdev/p/8052522.html>
 ><https://colobu.com/2018/05/15/Stop-and-remove-all-docker-containers-and-images/>
 ><https://cizixs.com/2017/08/04/docker-resources-limit/>
+
+## docker 日志
+https://kevinguo.me/2017/07/06/Docker-configuring-logging-drivers/
+
