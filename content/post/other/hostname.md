@@ -14,6 +14,7 @@ tags:
 
 ```bash
 hostnamectl
+
 # 设置主机名
 sudo hostnamectl set-hostname rhel7
 

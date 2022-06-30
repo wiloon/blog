@@ -76,6 +76,10 @@ kubectl 是 Kubernetes 的命令行工具 (CLI），是 Kubernetes 用户和管�
 
 ```bash
 # install kubctl
+# archlinux
+pacman -S kubectl
+
+# curl
 curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
 sudo install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl
 kubectl version --client
@@ -378,6 +382,21 @@ kubectl run nginx --image=nginx --port=38080
 curl -v http://10.85.0.3
 ```
 
-><https://segmentfault.com/a/1190000020675199>
+<https://segmentfault.com/a/1190000020675199>
 
-><https://imroc.cc/post/202105/why-enable-bridge-nf-call-iptables/>
+<https://imroc.cc/post/202105/why-enable-bridge-nf-call-iptables/>
+
+## ubuntu install k8s
+
+```bash
+sudo apt update
+
+ssh-keygen -t ed25519 -C "k8s"
+
+sudo apt install docker.io
+sudo apt install apt-transport-https curl
+curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add
+sudo apt-add-repository "deb http://apt.kubernetes.io/ kubernetes-jammy main"
+sudo apt install kubeadm kubelet kubectl kubernetes-cni
+
+```
