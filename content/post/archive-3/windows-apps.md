@@ -11,6 +11,9 @@ tags:
 ---
 ## windows apps, win apps
 
+- anydeak 远程桌面
+- todesk 远程桌面
+
 ### choco
 
 ```bash
