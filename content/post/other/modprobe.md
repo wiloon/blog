@@ -1,5 +1,5 @@
 ---
-title: modprobe
+title: modprobe, lsmod
 author: "-"
 date: 2011-08-20T20:06:06+00:00
 url: modprobe
@@ -8,18 +8,18 @@ categories:
 tags:
   - reprint
 ---
-## modprobe
+## modprobe, lsmod
 
-modprobe 可载入指定的个别模块，或是载入一组相依的模块。modprobe会根据depmod所产生的相依关系，决定要载入哪些模块。若在载入过程中发生错误，在modprobe会卸载整组的模块
+modprobe 可载入指定的个别模块，或是载入一组相依的模块。modprobe 会根据depmod 所产生的相依关系，决定要载入哪些模块。若在载入过程中发生错误，在modprobe 会卸载整组的模块
 
 <https://blog.csdn.net/future_fighter/article/details/3862795>
 
 ### lsmod
 
-    功能: 列出内核已载入模块的状态
-    用法: lsmod
-    描述: lsmod 列出/proc/modules的内容。
-    输出为: Module(模块名) Size(模块大小) Used by(被...使用)
+- 功能: 列出内核已载入模块的状态
+- 用法: lsmod
+- 描述: lsmod 列出/proc/modules的内容。
+- 输出为: Module(模块名) Size(模块大小) Used by(被...使用)
 
 ### command
 
@@ -46,15 +46,17 @@ modprobe --show-depends
 
 ### modinfo 查看内核模块的信息，包括开发人员信息，依赖信息
 
-    modinfo module_name
+```bash
+modinfo module_name
+```
 
 ### load kernel module at boot
 
-    vim /etc/modules-load.d/wireguard.conf
+```bash
+vim /etc/modules-load.d/wireguard.conf
 
-    #load wireguard at boot
-    wireguard
-
----
+# load wireguard module at boot
+wireguard
+```
 
 <https://wiki.archlinux.org/index.php/Kernel_modules_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87>)

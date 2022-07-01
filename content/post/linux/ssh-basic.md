@@ -1,5 +1,5 @@
 ---
-title: ssh basic
+title: ssh basic, ssh command
 author: "-"
 date: 2011-09-25T09:54:40+00:00
 url: ssh
@@ -9,6 +9,12 @@ tags:
   - reprint
 ---
 ## ssh basic
+
+## 参数
+
+- -f：后台执行ssh指令
+- -N：不执行远程指令
+- -L listen-port:host:port 指派本地的 port 到达端机器地址上的 port, 建立本地SSH隧道(本地客户端建立监听端口), 将本地机(客户机)的某个端口转发到远端指定机器的指定端口.
 
 ## 指定私钥
 
@@ -50,11 +56,14 @@ ssh -V
 sudo apt install openssh-server
 sudo systemctl start sshd
 ```
+
 ### -A option enables forwarding of the authentication agent connection
 
 There is a shortcut to archive this, if we don't want to create a config file, we have another option, using -A flag with the ssh command.
 
-    ssh -A user@myhost.com 
+```bash
+ssh -A user@myhost.com 
+```
 
 ## ssh, block ip, blacklist
 

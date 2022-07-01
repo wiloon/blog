@@ -361,7 +361,7 @@ go mod init github.com/you/hello
 ## Go 交叉编译
 
 ```bash
-GOOS=windows/amd64 go build foo.go 
+GOOS=windows GOARCH=amd64 go build foo.go 
 ```
 
 ### go install
@@ -579,4 +579,3 @@ for pos, char := range str {
 gofmt -w foo.go
 # -w    write result to (source) file instead of stdout
 ```
-

@@ -14,23 +14,31 @@ disk usage
 
 ### 查看文件占用的磁盘空间
 
-     du --block-size=1 sparse-file
+```bash
+du --block-size=1 sparse-file-0
+```
 
 ### 查看各子目录大小 -d, --max-depth
 
+```bash
     du -hd 1
     du -hd1
     du -h --max-depth=1
     du -hd1 --exclude=proc
+```
 
 ### 参数
 
+```bash
     # 排除文件或目录
     --exclude=foo
+```
 
 ### 排序
 
+```bash
     du -d1 |sort -rn
+```
 
 ```bash
 du -sh
@@ -52,7 +60,7 @@ du -s ./* | sort -rn | tail
 
 ```
 
--s, --summarize    
+-s, --summarize
 display only a total for each argument
   
 -h, --human-readable
@@ -66,7 +74,7 @@ du(disk usage)
 
 补充说明: du会显示指定的目录或文件所占用的磁盘空间。
 
-参数: 
+参数:
   
     -a 或-all 递归地显示指定目录中各文件及子目录中各文件占用的数据块数。若既不指定-s，也不指定-a，则只显示Names中的每一个目录及其中的各子目录所占的磁盘块数。
     -b 或 -bytes 显示目录或文件大小时，以byte为单位。 (数据可能来自 inode)
@@ -99,4 +107,4 @@ du(disk usage)
 
 * * *
 
-https://blog.csdn.net/windone0109/article/details/4445518
+<https://blog.csdn.net/windone0109/article/details/4445518>

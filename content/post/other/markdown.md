@@ -18,7 +18,7 @@ tags:
 
 ### 斜体
 
-要倾斜的文字左右分别用一个*号包起来
+要倾斜的文字左右分别用一个*号包起来 `*foo*`
 
 *foo*
 
@@ -111,13 +111,13 @@ Markdown 是一种轻量级的标记语言，由John Gruber和Aaron Swartz创建
 <https://markdown.com.cn/basic-syntax/line-breaks.html>
 
 ## markdown test
-http://wowubuntu.com/markdown/#autolink
+<http://wowubuntu.com/markdown/#autolink>
 
 # Title
 
 <https://en.support.wordpress.com/markdown-quick-reference/>
 
-_Emphasize_
+*Emphasize*
   
 **Strong**
   
@@ -127,19 +127,19 @@ Some text with [a link][1] and
   
 another [link][2].
 
-  * Item
-  * Item
-  * Item
-  * Item
+* Item
+* Item
+* Item
+* Item
 
   1. Item
   2. Item
 
   3. Item
 
-  4. Item 
+  4. Item
       * Mixed
-      * Mixed 
+      * Mixed
   5. Item
 
 # foo

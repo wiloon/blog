@@ -55,6 +55,10 @@ Consolas,'Courier New','微软雅黑',monospace
 
 ## vscode plugin
 
+### JSON Tools
+
+JSON 格式化工具, 快捷键 `ctl+alt+m`
+
 ### Filter Line
 
 按关键字过滤
@@ -74,9 +78,9 @@ markdown 语法检查
 ### Markdown All in One
 
 ```r
-    ctrl+shift+i - 表格格式化
-    ctrl+b: 粗体
-    命令: Format Document: 格式化表格
+ctrl+shift+i - 表格格式化
+ctrl+b: 粗体
+命令: Format Document: 格式化表格
 ```
 
 ## vscode 扩展 离线安装

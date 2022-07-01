@@ -9,6 +9,7 @@ tags:
   - reprint
 ---
 ## 环境变量
+
 #####################################################
 
 .bashrc文件
@@ -17,7 +18,7 @@ tags:
   
 (1)用文本编辑器打开用户目录下的.bashrc文件
   
-(2)在.bashrc文件末尾加入: 
+(2)在.bashrc文件末尾加入:
 
 JAVA_HOME=/usr/share/jdk1.5.0_05
   
@@ -31,7 +32,7 @@ CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar
   
 export CLASSPATH
   
-#重新加载
+重新加载
   
 source .bashrc
 
@@ -43,7 +44,7 @@ source .bashrc
   
 (1)用文本编辑器打开/etc/profile
   
-(2)在profile文件末尾加入: 
+(2)在profile文件末尾加入:
   
 JAVA_HOME=/usr/share/jdk1.5.0_05
   
@@ -57,7 +58,7 @@ export PATH
   
 export CLASSPATH
   
-#使环境变量生效
+使环境变量生效
   
 source /etc/profile
 
@@ -79,7 +80,7 @@ f. 大小写必须严格区分。
   
 不赞成使用这种方法，因为换个shell，你的设置就无效了，因此这种方法仅仅是临时使用，以后要使用的时候又要重新设置，比较麻烦。
   
-只需在shell终端执行下列命令: 
+只需在shell终端执行下列命令:
   
 export JAVA_HOME=/usr/share/jdk1.5.0_05
   
@@ -89,7 +90,7 @@ export CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar
 
 －－－
   
-摘自IBM官方网站，原文地址: http://publib.boulder.ibm.com/infocenter/pseries/v5r3/index.jsp?topic=/com.ibm.aix.baseadmn/doc/baseadmndita/etc_env_file.htm
+摘自IBM官方网站，原文地址: <http://publib.boulder.ibm.com/infocenter/pseries/v5r3/index.jsp?topic=/com.ibm.aix.baseadmn/doc/baseadmndita/etc_env_file.htm>
 
 The /etc/environment, /etc/profile, and .profile files are run once at login time. The .env file, on the other hand, is run every time you open a new shell or a window.
 
