@@ -249,7 +249,7 @@ mtu: auto
 使用 android 版本的 wireguard
 chromeos 从 google play 安装wireguard,连接成功后，vpn全局生效包括crostini里的linux也可以使用vpn通道
 
-### win 11
+### windows
 
 - 新建空隧道
   - 名称: pingd
@@ -257,6 +257,7 @@ chromeos 从 google play 安装wireguard,连接成功后，vpn全局生效包括
 
 ```bash
 [Interface]
+# 自动生成的私钥
 PrivateKey = privateKey0
 Address = 192.168.53.8/32
 DNS = 192.168.50.1
