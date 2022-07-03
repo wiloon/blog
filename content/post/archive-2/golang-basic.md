@@ -10,7 +10,7 @@ tags:
 ---
 ## go basic, golang basic
 
-Go 是 Google 开发的一种静态强类型、编译型、并发型, 并具有垃圾回收功能的编程语言。 罗伯特·格瑞史莫, 罗勃·派克及肯·汤普逊于 2007年9月开始设计 Go,稍后 Ian Lance Taylor、Russ Cox 加入项目。 Go是基于 Inferno 操作系统所开发的。
+Go 是 Google 开发的一种静态强类型、编译型、并发型, 并具有垃圾回收功能的编程语言。 罗伯特·格瑞史莫, 罗勃·派克及肯·汤普逊于 2007年9月开始设计 Go, 稍后 Ian Lance Taylor, Russ Cox 加入项目。 Go 是基于 Inferno 操作系统所开发的。
 Go 语言是静态类型的编程语言
 
 ## go source code
@@ -358,10 +358,19 @@ go mod init github.com/you/hello
 
 ```
 
-## Go 交叉编译
+## Go 交叉编译, go cross compile
 
 ```bash
 GOOS=windows GOARCH=amd64 go build foo.go 
+```
+
+## 条件编译
+
+windows 环境编译时忽略标注 `//go:build linux` 的文件
+
+```go
+//go:build linux
+
 ```
 
 ### go install

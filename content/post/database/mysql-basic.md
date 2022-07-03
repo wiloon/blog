@@ -50,9 +50,9 @@ mysqldump -h 192.168.50.100 -uroot -p --databases rssx --tables user --where=use
 
 ### MySQL heidisql 变量
 
-```bash
-    SET @total_count := 10;
-    select @total_count;
+```sql
+SET @total_count := 10;
+select @total_count;
 ```
 
 ### 配置文件位置

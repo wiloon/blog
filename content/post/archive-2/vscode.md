@@ -83,15 +83,6 @@ ctrl+b: 粗体
 命令: Format Document: 格式化表格
 ```
 
-## vscode 扩展 离线安装
-
-- 下载 .vsix 文件
-- 安装
-
-```r
-    code --install-extension jsynowiec.vscode-insertdatestring-2.3.1.vsix
-```
-
 ### 配置同步, Plugin Name: Settings Sync
 
 - 同步配置：shift + alt + u, Sync: update/upload setting
@@ -116,6 +107,15 @@ File> Preferences> Extensions> PlantUML config> Server: <http://plantuml.wiloon.
 ### hexdump
 
 hex viewer
+
+## vscode 扩展 离线安装
+
+- 下载 .vsix 文件
+- 安装
+
+```r
+code --install-extension jsynowiec.vscode-insertdatestring-2.3.1.vsix
+```
 
 ### 显示空格
 

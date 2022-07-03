@@ -260,15 +260,17 @@ chromeos 从 google play 安装wireguard,连接成功后，vpn全局生效包括
 # 自动生成的私钥
 PrivateKey = privateKey0
 Address = 192.168.53.8/32
+# DNS 可选字段, 配置之后 DNS 请求会发到这个地址
 DNS = 192.168.50.1
 
 [Peer]
+# publicKey0: 服务端公钥, 对端公钥
 PublicKey = publicKey0
 AllowedIPs = 192.168.50.0/24, 192.168.53.0/24
-Endpoint = foo.bar.com:51900
-# publicKey0: 服务端公钥, 对端公钥
 # endpoint 配置了域名的时候, wireguard 建立连接时会先把域名解析成ip,再建连接,断网重连的时候直接用上一次的ip重连, 用DDNS的情况, ip变了之后会导致重连失败.
-
+Endpoint = foo.bar.com:51900
+# keep alive
+PersistentKeepalive = 25
 ```
 
 ---
@@ -335,3 +337,17 @@ chromeos从 google play 安装wireguard,连接成功后，vpn全局生效包括c
 <https://wiki.debian.org/Wireguard>
 <https://docs.linuxconsulting.mn.it/notes/setup-wireguard-vpn-on-debian9>
 <https://github.com/wgredlong/WireGuard/blob/master/2.%E7%94%A8%20wg-quick%20%E8%B0%83%E7%94%A8%20wg0.conf%20%E7%AE%A1%E7%90%86%20WireGuard.md>
+
+## network manager + wireguard
+
+在 network manager 图标上点右键> edit connections...> add a new connection> choose a connection type> wireguard> create
+
+- interface name: wg0
+- private key: input private key
+
+peers> Add>
+
+- public key:
+- allowed ips: 192.168.53.0/24
+
+<https://www.xmodulo.com/wireguard-vpn-network-manager-gui.html>

@@ -9,6 +9,7 @@ tags:
   - reprint
 ---
 ## echo $$, $BASHPID
+
 $$是当前bash进程的pid 等同于 $BASHPID
 
-https://www.zhihu.com/question/50517601
+<https://www.zhihu.com/question/50517601>
