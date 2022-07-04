@@ -11,6 +11,7 @@ tags:
 ## golang JSON
 
 ### time.Time 序列化
+
 <https://www.cnblogs.com/chenqionghe/p/13409556.html>
 
 ```go
@@ -28,6 +29,7 @@ json.Unmarshal()
 ```
 
 ### struct json tag
+
 <https://colobu.com/2017/06/21/json-tricks-in-Go/>
 
 ```go
@@ -144,9 +146,7 @@ true,
 9.99,
   
 }
-  
-复制代码
-  
+
 现在我们需要把这个类的一个对象转换为JSON格式，并且传输给远方的朋友，那么我们就可以这么做:
 
 b, err := json.Marshal(st)

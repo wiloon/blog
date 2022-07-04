@@ -10,6 +10,13 @@ tags:
 ---
 ## ssh config
 
+```conf
+host host0
+    hostname 192.168.1.10
+    port 22
+    user root
+```
+
 <https://daemon369.github.io/ssh/2015/03/21/using-ssh-config-file>
 
 ```bash
@@ -29,9 +36,7 @@ Host *
 host 192.168.*
     user root
 
-host name0
-    hostname 192.168.1.1
-    user root
+
 ```
 
 ## ssh client config, 保持连接

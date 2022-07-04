@@ -4,7 +4,7 @@ author: "-"
 date: 2022-02-11 10:55:05
 url: iproute2/route
 categories:
-  - inbox
+  - Network
 tags:
   - reprint
   - remix
@@ -51,16 +51,16 @@ linux 系统路由表可以自定义从1－252个路由表,
 #### 数字与名字的关联
 
 ```bash
-    /etc/iproute2/rt_tables
+/etc/iproute2/rt_tables
 ```
 
 此文件保存的是路由表序号和表名的对应关系, 可手动编辑
 
 ```bash
-    echo 200 John >> /etc/iproute2/rt_tables
+echo 200 John >> /etc/iproute2/rt_tables
 ```
 
-### 显示路由
+### 查看路由
 
 ```bash
 
@@ -78,6 +78,9 @@ ip route list table local
 
 # main 路由表
 ip route list table main
+
+# get 指定目的 IP/网段 的路由信息
+ip route get 172.18.0.10
 ```
 
 ## 删除路由
@@ -85,6 +88,7 @@ ip route list table main
 ```bash
 ip r del default
 ip r del 10.61.90.0/24
+ip route del 192.168.0.0/24 via 172.16.15.253 dev eth0
 ```
 
 ## 添加路由, ip route add
@@ -96,6 +100,7 @@ ip route add DESTINATION       [via NEXT_HOP]      [src SOURCE_ADDRESS]    [dev 
 
 ip route add default           via 192.168.50.4    src 192.168.50.169      dev ens18
 ip route add 192.168.54.0/24   via 192.168.50.11   src 192.168.50.8        dev enp0s31f6
+ip route add 192.168.0.0/24     via 172.16.15.253                           dev eth0
 ```
 
 - DESTINATION
@@ -118,18 +123,6 @@ ip route add 78.22.45.0/24 via 10.45.22.1 src 10.45.22.12  (发到 78.22.45.0/24
 ```bash
 ip route add default via 192.168.1.1 table 1        在一号表中添加默认路由为192.168.1.1
 ip route add 192.168.0.0/24 via 192.168.1.2 table 1 在一号表中添加一条到192.168.0.0网段的路由为192.168.1.2
-```
-
-```bash
-
-# add
-ip route add 192.168.0.0/24 via 172.16.15.253 dev eth0
-# del
-ip route del 192.168.0.0/24 via 172.16.15.253 dev eth0
-# get 指定目的IP的路由信息
-ip route get 172.18.0.10
-172.18.0.10 dev br-6e39d6696d98 src 172.18.0.1
-    cache
 ```
 
 ### 路由表示例

@@ -23,6 +23,7 @@ tags:
 GET http://localhost:8000/api/v1/public/echo?msg=1345asdf HTTP/1.1
 
 GET http://localhost:8000/api/v1/public/echo?msg={{foo}} HTTP/1.1
+// comments
 ```
 
 ### http 请求

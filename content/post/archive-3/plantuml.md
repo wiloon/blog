@@ -151,7 +151,7 @@ Class101 <|.. Class102
 更改定义的顺序 (订单 重要......有时候)
 添加空白节点，背景/边框颜色设置为透明
 
-### 部署图
+## 部署图
 
 ```puml
 @startuml
@@ -212,4 +212,10 @@ component JMM {
 @enduml
 ```
 
-><https://github.com/plantuml/plantuml-server>
+<https://github.com/plantuml/plantuml-server>
+
+## dot executable /opt/local/bin/dot File does not exist
+
+```bash
+pacman -S graphviz
+```
