@@ -4,7 +4,7 @@ author: "-"
 date: "2021-05-07 14:38:02"
 url: "redis"
 categories:
-  - inbox
+  - redis
 tags:
   - inbox
 ---
@@ -12,12 +12,16 @@ tags:
 
 ### commands
 
-```r
+```bash
 # OBJECT ENCODING 命令可以查看一个数据库键的值对象的编码
 OBJECT ENCODING key0
 
 ## -a 使用认证密码登录
-redis-cli -h 127.0.0.1 -p 6379 -a 'thisizmy!PASS' 
+redis-cli -h 127.0.0.1 -p 6379 -a 'thisizmy!PASS'
+
+# 分析 redis key 大小
+debug object key0
+# Value at:0x7f6bffc22a00 refcount:1 encoding:raw serializedlength:7164 lru:12841785 lru_seconds_idle:95
 ```
 
 #### 延迟时间
@@ -156,7 +160,9 @@ redis-server --version
 
 ### list all keys
 
+```bash
     keys *
+```
 
 ### delete key
 
@@ -164,7 +170,9 @@ del key1 key2
 
 ### unlink
 
+```bash
     unlink key [key ...]
+```
 
 ### 判断key是否存在
 
@@ -172,11 +180,15 @@ exists key_name
 
 ### 查看key的类型
 
+```bash
     type key0
+```
 
 ### 删除 key
 
+```bash
     DEL key [key ...]
+```
 
 ### 设置过期时间
 
@@ -184,11 +196,15 @@ EXPIRE key0 10
 
 ### ttl: 返回给定 key 的剩余生存时间(TTL, time to live)
 
+```bash
     TTL key
+```
 
 ### 查看各个库的key数量
 
+```bash
     info keyspace
+```
 
 以秒为单位，返回给定 key 的剩余生存时间(TTL, time to live)。
 
@@ -246,7 +262,6 @@ flushdb
 # http://redisdoc.com/server/info.html
 ```
 
-
 ### unlink 命令
 
 ```bash
@@ -266,10 +281,10 @@ flushdb
     ->element count >"zset-max-ziplist-entries"，default 128 ->value length > "zset-max-ziplist-value", default 64
      举例:  1 一个包含100元素的list key, 它的free cost就是100 2 一个512MB的string key, 它的free cost是
 
-    总结: 
-        不管是del还是unlink，key都是同步删除的。
-        使用unlink命令时，如果value分配的空间不大，使用异步删除反而会降低效率，所以redis会先评估一下free value的effort，根据 effort 的值来决定是否做异步删除。
-        使用unlink命令时，由于string类型的effort一直返回的是1，z所以string类型不会做异步删除。
+总结:
+    不管是del还是unlink，key都是同步删除的。
+    使用unlink命令时，如果value分配的空间不大，使用异步删除反而会降低效率，所以redis会先评估一下free value的effort，根据 effort 的值来决定是否做异步删除。
+    使用unlink命令时，由于string类型的effort一直返回的是1，z所以string类型不会做异步删除。
 
 作者: willcat
 链接: <https://juejin.cn/post/6844903810792423432>
@@ -304,23 +319,33 @@ redis-cli -h 127.0.0.1 -p 6379 FLUSHDB
 
 ### module
 
+```bash
      https://redis.io/modules
+```
 
 #### 下载编译好的 redis module
 
+```bash
      https://app.redislabs.com/
+```
 
 #### redis.conf 中使用 模块有两种加载方式，一是在配置文件 redis.conf 中使用
 
+```bash
     loadmodule /path/to/mymodule.so 在 Redis 启动时加载。
+```
 
 #### load a module at runtime
 
+```bash
     module load /data/redis/redisbloom.so
+```
 
 #### list modules
 
+```bash
     module list
+```
 
 ### 卸载
 
@@ -328,6 +353,7 @@ redis-cli -h 127.0.0.1 -p 6379 FLUSHDB
 
 ### RedisBloom
 
+```bash
     https://oss.redislabs.com/redisbloom/
 
     podman run -d -p 6379:6379 --name redis-redisbloom redislabs/rebloom:latest
@@ -336,6 +362,7 @@ redis-cli -h 127.0.0.1 -p 6379 FLUSHDB
     BF.EXISTS newFilter bar
     BF.MADD myFilter foo bar baz
     BF.MEXISTS myFilter foo nonexist bar
+```
 
 ---
 
@@ -368,7 +395,11 @@ RESP是二进制安全的，不需要处理从一个进程传输到另一个进�
 
 可以将多次IO往返的时间缩减为一次，前提是pipeline执行的指令之间没有因果相关性。
 
----
+## redis 切换 db
+
+```bash
+select 10
+```
 
 <https://mp.weixin.qq.com/s/MtvEf_jWWDb6yCXPqvqF0w>
 

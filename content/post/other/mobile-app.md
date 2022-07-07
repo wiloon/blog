@@ -12,6 +12,8 @@ tags:
 
 ## iOS/Android
 
+- bitwarden
+
 |name       |comments|
 |-|-|
 | 古诗文网    ||
@@ -21,14 +23,14 @@ tags:
 
 |name|comments|
 |-|-|
-|Strongbox  |keepassxc的ios实现|
-|英语轻松读||
+|英语轻松读      ||
 |surge|网络调试工具|
 |wireguard|vpn|
 |Chanify|消息推送工具|
 |默沙东诊疗手册||
 |Sun Surveyor Lite| 查看太阳轨迹|
 |Star Walk 2 ||
+|Strongbox  |keepassxc的ios实现, deprecated, > bitwarden|
 
 ### android app, apk list
 
@@ -36,7 +38,7 @@ tags:
 |-|-|
 |macrodroid                 |设备自动化|
 |英语轻松读                   |英语学习|
-|ebuoy                      |英语学习|
+|ebuoy                      |english buoy 英语学习|
 |酷安                       |应用商店|
 |internet speed meter lite  |网速监控|
 |随手记                       ||

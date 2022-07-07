@@ -7,8 +7,8 @@ categories:
   - "Inbox"
 tags:
   - "Inbox"
+  - "reprint"
   - "original"
   - "remix"
-  - "reprint"
 ---
 ## template
