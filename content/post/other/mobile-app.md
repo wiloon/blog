@@ -58,6 +58,8 @@ tags:
 
 #### android apps
 
+- Live Transcribe & Notification
+
 | Name                      | Comments                              |
 | ------------------------- | ------------------------------------- |
 | airdroid                  | 文件传输                                  |
