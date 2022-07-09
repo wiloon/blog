@@ -54,7 +54,7 @@ Consolas,'Courier New','微软雅黑',monospace
 
 还可以 Consolas, 'Courier New', monospace,DengXian 和 Consolas, 'Courier New', "微软雅黑", monospace 这样。
 
-## vscode plugin
+## vscode plugin, 扩展
 
 ### JSON Tools
 
