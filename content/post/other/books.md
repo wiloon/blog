@@ -15,6 +15,12 @@ tags:
 
 ## 2022
 
+- 只是为了好玩
+  - 副标题: Linux 之父林纳斯自传
+  - 原作名: Just for Fun: The Story of an Accidental Revolutionary
+  - Author/作者: Linus Torvalds / David Diamond
+  - 译者: 陈少芸
+
 - Python Crash Course: A Hands-On, Project-Based Introduction to Programming, 2nd Edition
   - Author: Eric Matthes
 
