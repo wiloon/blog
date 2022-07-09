@@ -1,7 +1,7 @@
 ---
 title: systemd timer
 author: "-"
-date: 2013-08-21T04:21:22+00:00
+date: 2022-07-09 21:27:03
 url: systemd/timer
 categories:
   - Linux
@@ -15,7 +15,7 @@ systemctl list-timers
 systemctl list-timers --all
 ```
 
-## /etc/systemd/system/foo.service
+## 创建一个服务 /etc/systemd/system/foo.service
 
 ```bash
 [Unit]
@@ -27,7 +27,7 @@ ExecStart=/path/to/foo.sh
 WantedBy=multi-user.target
 ```
 
-## /etc/systemd/system/foo.timer
+## 再创建一个对应的 timer, /etc/systemd/system/foo.timer
 
 ```bash
 [Unit]
@@ -42,9 +42,10 @@ Unit=foo.service
 WantedBy=multi-user.target
 ```
 
+## 启用 timer
+
 ```bash
 systemctl --now enable foo.timer
-
 ```
 
 <http://www.ruanyifeng.com/blog/2018/03/systemd-timer.html>
