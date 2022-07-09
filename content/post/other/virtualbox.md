@@ -152,3 +152,9 @@ sudo umount -f /mnt/shared
 [1] Virtualbox虚拟机Ubuntu共享文件夹设置自动挂载
 
 <https://wiki.archlinux.org/title/VirtualBox>
+
+## 扩磁盘
+
+File> Virtual Media Manager> Properties> Size> Apply
+
+<https://linux.cn/article-12869-1.html>

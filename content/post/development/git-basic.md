@@ -4,11 +4,99 @@ author: "-"
 date: 2022-01-29 10:33:11
 url: git/basic
 categories:
-  - Git
+    - Git
 tags:
     - remix
 ---
 ## Git basic commands, git 常用命令
+
+## 分支, branch
+
+最新版本的 Git 提供了新的 `git switch` 命令来切换分支, `git switch`，比 `git checkout` 要更容易理解。
+
+### 设置默认的分支名
+
+```bash
+# 设置默认分支名，不设置的话，默认是 master
+git config --global init.defaultBranch <name>
+git config --global init.defaultBranch main
+# The just-created branch can be renamed via this command
+git branch -m main
+```
+
+### 打印当前分支名
+
+```bash
+git symbolic-ref --short HEAD  
+```
+
+#### 查看本地所有分支, 当前分支前面会标一个*号
+
+```bash
+git branch
+# check branch detail
+git branch -v
+```
+
+#### 查看远程所有分支
+
+```bash
+git branch -r 
+```
+
+#### 查看所有的分支
+
+```bash
+git branch -a
+```
+
+#### 新建分支
+
+```bash
+git branch branch0
+```
+
+#### 切换到分支
+
+```bash
+git switch branch0
+git checkout branch0
+```
+
+#### 新建并切换到分支
+
+```bash
+git switch -c dev
+git checkout -b branch0
+```
+
+#### 删除分支
+
+```bash
+git branch -d branch0
+# 强制删除分支，删除没 merge 的分支
+git branch -D branch0
+```
+
+#### 删除远程的todo branch
+
+```bash
+git branch -d -r origin/todo
+```
+
+#### 分支合并, git merge 命令用于合并指定分支到当前分支
+
+```bash
+git merge branch1 -m "MSG0"
+```
+
+### 本地分支重命名(还没有推送到远程)
+
+```bash
+git branch -m oldName newName
+```
+
+## commands
 
 ```bash
 ## commands
@@ -395,92 +483,6 @@ git push origin :refs/tags/v1.0.0
 ```
 
 <https://git-scm.com/book/zh/v2/Git-%E5%9F%BA%E7%A1%80-%E6%89%93%E6%A0%87%E7%AD%BE>
-
-## 分支, branch
-
-最新版本的 Git 提供了新的git switch 命令来切换分支, 使用新的 git switch 命令，比 git checkout 要更容易理解。
-
-### 设置默认的分支名
-
-```bash
-# 设置默认分支名，不设置的话，默认是 master
-git config --global init.defaultBranch <name>
-git config --global init.defaultBranch main
-# The just-created branch can be renamed via this command
-git branch -m main
-```
-
-### 打印当前分支名
-
-```bash
-git symbolic-ref --short HEAD  
-```
-
-#### 查看本地所有分支, 当前分支前面会标一个*号
-
-```bash
-git branch
-# check branch detail
-git branch -v
-```
-
-#### 查看远程所有分支
-
-```bash
-git branch -r 
-```
-
-#### 查看所有的分支
-
-```bash
-git branch -a
-```
-
-#### 新建分支
-
-```bash
-git branch branch0
-```
-
-#### 切换到分支
-
-```bash
-git switch branch0
-git checkout branch0
-```
-
-#### 新建并切换到分支
-
-```bash
-git switch -c dev
-git checkout -b branch0
-```
-
-#### 删除分支
-
-```bash
-git branch -d branch0
-# 强制删除分支，删除没 merge 的分支
-git branch -D branch0
-```
-
-#### 删除远程的todo branch
-
-```bash
-git branch -d -r origin/todo
-```
-
-#### 分支合并, git merge 命令用于合并指定分支到当前分支
-
-```bash
-git merge branch1 -m "MSG0"
-```
-
-### 本地分支重命名(还没有推送到远程)
-
-```bash
-git branch -m oldName newName
-```
 
 ### git clone
 

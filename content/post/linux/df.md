@@ -10,9 +10,15 @@ tags:
 ---
 ## df
 
+## 文件系统类型, 磁盘分区类型
+  
+```bash
+df -T
+```
+
 df 是来自于coreutils 软件包，系统安装时，就自带的；我们通过这个命令可以查看磁盘的使用情况以及文件系统被挂载的位置；
 
-举例: 
+举例:
 
 [root@localhost beinan]# df -lh
 Filesystem            容量  已用 可用 已用% 挂载点
@@ -23,7 +29,6 @@ Filesystem            容量  已用 可用 已用% 挂载点
 我们从中可以看到,系统安装在/dev/hda8 ；还有一个56G的磁盘分区/dev/sda1挂载在 /mnt/sda1中；
 
 其它的参数请参考 man df
-
 
 ## df command
 
@@ -44,21 +49,21 @@ df命令可以获取硬盘被占用了多少空间, 目前还剩下多少空间�
 
 ## df选项
 
-    -T: 显示文件系统类型。
-    -a: 显示所有文件系统的磁盘使用情况,包括0块 (block) 的文件系统,如/proc文件系统。
-    -k: 以k字节为单位显示。
-    -i: 查看 inode 信息, 而不是磁盘块。
-    -t: 显示各指定类型的文件系统的磁盘空间使用情况。
-    -x: 列出不是某一指定类型文件系统的磁盘空间使用情况 (与t选项相反) 。
-    -i, --inodes 列出 inode 资讯，不列出已使用 block
-    
+```r
+-T: 显示文件系统类型。
+-a: 显示所有文件系统的磁盘使用情况,包括0块 (block) 的文件系统,如/proc文件系统。
+-k: 以k字节为单位显示。
+-i: 查看 inode 信息, 而不是磁盘块。
+-t: 显示各指定类型的文件系统的磁盘空间使用情况。
+-x: 列出不是某一指定类型文件系统的磁盘空间使用情况 (与t选项相反) 。
+-i, --inodes 列出 inode 资讯，不列出已使用 block
+```
 
-  
-我们先看看使用df命令的例子: 
+我们先看看使用df命令的例子:
 
 //列出各文件系统的磁盘空间使用情况
   
-#df
+df
   
 Filesystem 1k-blocks Used Available Use% Mounted on
   
@@ -82,7 +87,7 @@ none 127372 0 127372 0% /dev/shm
 
 //列出各文件系统的i节点使用情况。
   
-#df -ia
+# df -ia
   
 Filesystem Inodes IUsed IFree IUse% Mounted on
   
@@ -102,10 +107,6 @@ none 31843 1 31842 1% /dev/shm
   
 /dev/hda6 66264 9876 56388 15% /var
 
-//列出文件系统的类型。
-  
-#df -T
-  
 Filesystem Type 1k-blocks Used Available Use% Mounted on
   
 /dev/hda5 ext3 381139 332921 28540 93% /
@@ -120,13 +121,13 @@ none tmpfs 127372 0 127372 0% /dev/shm
   
 /dev/hda6 ext3 256667 232729 10686 96% /var2
 
-http://os.51cto.com/art/201012/240726_all.htm
+<http://os.51cto.com/art/201012/240726_all.htm>
 
 ## df
 
 df 是来自于coreutils 软件包，系统安装时，就自带的；我们通过这个命令可以查看磁盘的使用情况以及文件系统被挂载的位置；
 
-举例: 
+举例:
 
 [root@localhost beinan]# df -lh
 Filesystem            容量  已用 可用 已用% 挂载点
