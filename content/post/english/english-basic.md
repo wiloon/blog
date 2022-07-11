@@ -21,3 +21,5 @@ A learning experience is what you get when you don't get what you want.
 Single week Dual weeks
 
 PTO 是 Paid Time Off 的意思，中文意思是：带薪休假。
+
+manage to do: 
