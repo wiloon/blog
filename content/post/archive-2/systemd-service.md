@@ -14,6 +14,26 @@ tags:
 
 ## systemd start script, 启动脚本
 
+### java
+
+```bash
+[Unit]
+Description=上传多媒体文件服务
+After=network.target syslog.target
+[Service]
+PrivateTmp=true
+Restart=always
+Type=simple
+WorkingDirectory=/home/exc-led/uploader
+ExecStart=/usr/java/jre1.8.0_201-amd64/bin/java -jar boot-uploader-0.0.1.jar
+ExecStop=/usr/bin/kill -15  $MAINPID
+[Install]
+WantedBy=multi-user.target
+
+```
+
+<https://xie.infoq.cn/article/2de71d4489a44ae58b6cef4d0>
+
 ```bash
 vim /etc/systemd/system/foo.service
 
@@ -71,7 +91,7 @@ After=pulseaudio.service
 
 >注 脚本里的命令也必须是写绝对路径！！！！！！！！！！！！！！！
 
-><http://lxiaogao.lofter.com/post/1cc6a101_62292d3>
+<http://lxiaogao.lofter.com/post/1cc6a101_62292d3>
 
 ### 执行shell脚本
 

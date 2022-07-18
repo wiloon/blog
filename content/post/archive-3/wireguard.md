@@ -347,7 +347,7 @@ chromeos从 google play 安装wireguard,连接成功后，vpn全局生效包括c
 
 peers> Add>
 
-- public key:
+- public key: `<public key>`
 - allowed ips: 192.168.53.0/24
 
 <https://www.xmodulo.com/wireguard-vpn-network-manager-gui.html>

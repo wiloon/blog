@@ -50,21 +50,7 @@ echo '{"kind": "Service", "apiVersion": "v1", "status": {"loadBalancer": true}}'
     "loadBalancer": true
   }
 }
-
-作者: 网易云
-链接: https://www.zhihu.com/question/20057446/answer/489588448
-来源: 知乎
-著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
 ```
-
-作者：软件测试技能栈
-链接：<https://www.jianshu.com/p/6de3cfdbdb0e>
-来源：简书
-著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
-
-<https://www.jianshu.com/p/6de3cfdbdb0e>
-
-<https://justcode.ikeepstudying.com/2018/02/shell%EF%BC%9A%E6%97%A0%E6%AF%94%E5%BC%BA%E5%A4%A7%E7%9A%84shell%E4%B9%8Bjson%E8%A7%A3%E6%9E%90%E5%B7%A5%E5%85%B7jq-linux%E5%91%BD%E4%BB%A4%E8%A1%8C%E8%A7%A3%E6%9E%90json-jq%E8%A7%A3%E6%9E%90-json/>
 
 ## jq 生成 json 字符串
 
@@ -78,6 +64,10 @@ JSON_STRING=$(jq -n \
                   --arg objectname "$OBJECT_NAME" \
                   --arg targetlocation "$TARGET_LOCATION" \
                    '$ARGS.named')
+
+jq -n \
+--arg foo "bar" \
+  '$ARGS.named'
 ```
 
 - --null-input | -n, 禁止 jq 读取输入, 在用 jq 生成 json 字符串时需要用这个选项把输入置空.
@@ -85,3 +75,17 @@ JSON_STRING=$(jq -n \
 - Named arguments are also available to the jq program as $ARGS.named.
 
 <https://stackoverflow.com/questions/48470049/build-a-json-string-with-bash-variables>
+
+作者: 网易云
+链接: https://www.zhihu.com/question/20057446/answer/489588448
+来源: 知乎
+著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
+
+作者：软件测试技能栈
+链接：<https://www.jianshu.com/p/6de3cfdbdb0e>
+来源：简书
+著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
+
+<https://www.jianshu.com/p/6de3cfdbdb0e>
+
+<https://justcode.ikeepstudying.com/2018/02/shell%EF%BC%9A%E6%97%A0%E6%AF%94%E5%BC%BA%E5%A4%A7%E7%9A%84shell%E4%B9%8Bjson%E8%A7%A3%E6%9E%90%E5%B7%A5%E5%85%B7jq-linux%E5%91%BD%E4%BB%A4%E8%A1%8C%E8%A7%A3%E6%9E%90json-jq%E8%A7%A3%E6%9E%90-json/>

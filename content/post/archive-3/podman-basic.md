@@ -453,3 +453,14 @@ podman run \
 -v /etc/localtime:/etc/localtime:ro \
 project0:0.0.1
 ```
+
+## podman-compose
+
+```bash
+sudo pacman -S podman-compose
+
+podman-compose --help
+podman-compose up --help
+podman-compose up
+
+```
