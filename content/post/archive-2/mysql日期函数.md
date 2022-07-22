@@ -9,6 +9,7 @@ tags:
   - reprint
 ---
 ## MySQL日期函数
+
 MySQL日期函数,时间函数使用的总结,以及时间加减运算(转)
   
 博客分类: MySQL
@@ -25,13 +26,11 @@ select TO_DAYS('2008-09-08')-TO_DAYS('2008-08-08')     --两日期相减
 
 SELECT   substring( '2009-06-17 10:00:00',   1,   10   )   --从datetime中提取"日期"
 
-
  (\***\***\***\***\***\***\***
 
 时间戳是从1970年1月1日开始到目标时间所经过的秒数.
   
-可以进行两个datetime时间间隔的运算\***\***\***\***\***\***\***\***\***\***) 
-
+可以进行两个datetime时间间隔的运算\***\***\***\***\***\***\***\***\***\***)
 
 一、MySQL 获得当前日期时间 函数
   
@@ -49,7 +48,7 @@ MySQL> select now();
   
 +-------+
 
-除了 now() 函数能获得当前的日期时间外,MySQL 中还有下面的函数: 
+除了 now() 函数能获得当前的日期时间外,MySQL 中还有下面的函数:
   
 current_timestamp()
   
@@ -67,7 +66,7 @@ current_timestamp()
   
 1.2 获得当前日期+时间 (date + time) 函数: sysdate()
   
-sysdate() 日期时间函数跟 now() 类似,不同之处在于: now() 在执行开始时值就得到了, sysdate() 在函数执行时动态得到值。看下面的例子就明白了: 
+sysdate() 日期时间函数跟 now() 类似,不同之处在于: now() 在执行开始时值就得到了, sysdate() 在函数执行时动态得到值。看下面的例子就明白了:
   
 MySQL> select now(), sleep(3), now();
 
@@ -111,7 +110,7 @@ MySQL> select curdate();
   
 +----+
 
-其中,下面的两个日期函数等同于 curdate(): 
+其中,下面的两个日期函数等同于 curdate():
   
 current_date()
   
@@ -131,7 +130,7 @@ MySQL> select curtime();
   
 +----+
 
-其中,下面的两个时间函数等同于 curtime(): 
+其中,下面的两个时间函数等同于 curtime():
   
 current_time()
   
@@ -181,7 +180,7 @@ select second(@dt); - 30
   
 select microsecond(@dt); - 123456
 
-2. MySQL Extract() 函数,可以上面实现类似的功能: 
+2. MySQL Extract() 函数,可以上面实现类似的功能:
   
 set @dt = '2008-09-10 07:15:30.123456';
 
@@ -261,7 +260,7 @@ select yearweek(@dt); - 200831
 
 MySQL week() 函数,可以有两个参数,具体可看手册。 weekofyear() 和 week() 一样,都是计算"某天"是位于一年中的第几周。 weekofyear(@dt) 等价于 week(@dt,3)。
   
-MySQL weekday() 函数和 dayofweek() 类似,都是返回"某天"在一周中的位置。不同点在于参考的标准, weekday: (0 = Monday, 1 = Tuesday, ..., 6 = Sunday)； dayofweek:  (1 = Sunday, 2 = Monday, ..., 7 = Saturday) 
+MySQL weekday() 函数和 dayofweek() 类似,都是返回"某天"在一周中的位置。不同点在于参考的标准, weekday: (0 = Monday, 1 = Tuesday, ..., 6 = Sunday)； dayofweek:  (1 = Sunday, 2 = Monday, ..., 7 = Saturday)
   
 MySQL yearweek() 函数,返回 year(2008) + week 位置(31)。
   
@@ -281,7 +280,7 @@ select last_day('2008-02-01'); - 2008-02-29
   
 select last_day('2008-08-08'); - 2008-08-31
 
-MySQL last_day() 函数非常有用,比如我想得到当前月份中有多少天,可以这样来计算: 
+MySQL last_day() 函数非常有用,比如我想得到当前月份中有多少天,可以这样来计算:
   
 MySQL> select now(), day(last_day(now())) as days;
 
@@ -321,7 +320,7 @@ select date_add(@dt, interval 1 year);
 
 select date_add(@dt, interval -1 day); - sub 1 day
 
-MySQL adddate(), addtime()函数,可以用 date_add() 来替代。下面是 date_add() 实现 addtime() 功能示例: 
+MySQL adddate(), addtime()函数,可以用 date_add() 来替代。下面是 date_add() 实现 addtime() 功能示例:
   
 MySQL> set @dt = '2008-08-09 12:12:33';
 
@@ -493,11 +492,11 @@ MySQL 日期、时间转换函数: date_format(date,format), time_format(time,fo
   
 5. MySQL 获得国家地区时间格式函数: get_format()
   
-MySQL get_format() 语法: 
+MySQL get_format() 语法:
   
 get_format(date|time|datetime, 'eur'|'usa'|'jis'|'iso'|'internal'
 
-MySQL get_format() 用法的全部示例: 
+MySQL get_format() 用法的全部示例:
   
 select get_format(date,'usa') ; - '%m.%d.%Y'
   
@@ -555,7 +554,7 @@ MySQL> select current_timestamp, current_timestamp();
   
 +-------+-------+
 
-2. MySQL  (Unix 时间戳、日期) 转换函数: 
+2. MySQL  (Unix 时间戳、日期) 转换函数:
   
 unix_timestamp(),
   
@@ -565,7 +564,7 @@ from_unixtime(unix_timestamp),
   
 from_unixtime(unix_timestamp,format)
 
-下面是示例: 
+下面是示例:
   
 select unix_timestamp(); - 1218290027
   
@@ -581,7 +580,7 @@ select from_unixtime(1218169800); - '2008-08-08 12:30:00'
 
 select from_unixtime(1218169800, '%Y %D %M %h:%i:%s %x'); - '2008 8th August 12:30:00 2008'
 
-3. MySQL 时间戳 (timestamp) 转换、增、减函数: 
+3. MySQL 时间戳 (timestamp) 转换、增、减函数:
   
 timestamp(date) - date to timestamp
   
@@ -591,7 +590,7 @@ timestampadd(unit,interval,datetime_expr) -
   
 timestampdiff(unit,datetime_expr1,datetime_expr2) -
 
-请看示例部分: 
+请看示例部分:
   
 select timestamp('2008-08-08'); - 2008-08-08 00:00:00
   
@@ -629,5 +628,4 @@ select date_sub('2008-08-08 12:00:00', interval 8 hour); - 2008-08-08 04:00:00
   
 select timestampadd(hour, -8, '2008-08-08 12:00:00'); - 2008-08-08 04:00:00
 
-
-http://xuantan.iteye.com/blog/1143706
+<http://xuantan.iteye.com/blog/1143706>

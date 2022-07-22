@@ -1507,3 +1507,5 @@ var=\`ls -lR|grep "^d"|wc -l\`
 ```
 
 <https://blog.csdn.net/baidu_35757025/article/details/64440047>
+
+<https://wangdoc.com/bash/quotation.html>
