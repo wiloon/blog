@@ -32,7 +32,7 @@ charset
 - image/jpeg ：jpg图片格式
 - image/png：png图片格式
 - 以application开头的媒体格式类型：
-- 
+
 - application/xhtml+xml ：XHTML格式
 - application/xml： XML数据格式
 - application/atom+xml ：Atom XML聚合格式

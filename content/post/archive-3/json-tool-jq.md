@@ -67,6 +67,7 @@ JSON_STRING=$(jq -n \
 
 jq -n \
 --arg foo "bar" \
+--arg bar "foo" \
   '$ARGS.named'
 ```
 

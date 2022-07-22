@@ -58,6 +58,8 @@ exit 0                                       # 返回一个零退出状态，退
 
 ## 字符串
 
+Bash 允许字符串放在单引号或双引号之中，加以引用。
+
 ## 字符串截取, substring
 
 ```bash
@@ -189,7 +191,7 @@ Test 和 [] 中可用的比较运算符只有 == 和 !=，两者都是用于字�
 
 the $[ syntax was an early syntax that was deprecated in favor of $((, since the latter was already used by the Korn shell.
 
-><https://unix.stackexchange.com/questions/209833/what-does-a-dollar-sign-followed-by-a-square-bracket-mean-in-bash>
+<https://unix.stackexchange.com/questions/209833/what-does-a-dollar-sign-followed-by-a-square-bracket-mean-in-bash>
 
 #### { Single Curly Braces }
 
@@ -299,21 +301,69 @@ echo $tmp
 if [ -f filename ]
 ```
 
-### 转义字符
+## 转义
+
+Bash 只有一种数据类型，就是字符串。不管用户输入什么数据，Bash 都视为字符串。因此，字符串相关的引号和转义，对 Bash 来说就非常重要。
+
+### 单引号
+
+Bash 允许字符串放在单引号或双引号之中，加以引用。
+
+单引号用于保留字符的字面含义，各种特殊字符在单引号里面，都会变为普通字符，比如星号（*）、美元符号（$）、反斜杠（\）等。
+
+```bash
+$ echo '*'
+*
+
+$ echo '$USER'
+$USER
+
+$ echo '$((2+2))'
+$((2+2))
+
+$ echo '$(echo foo)'
+$(echo foo)
+```
+
+上面命令中，单引号使得 Bash 扩展、变量引用、算术运算和子命令，都失效了。如果不使用单引号，它们都会被 Bash 自动扩展。
+
+由于反斜杠在单引号里面变成了普通字符，所以如果单引号之中，还要使用单引号，不能使用转义，需要在外层的单引号前面加上一个美元符号（$），然后再对里层的单引号转义。
+
+```bash
+# 不正确
+$ echo it's
+
+# 不正确
+$ echo 'it\'s'
+
+# 正确
+$ echo $'it\'s'
+```
+
+不过，更合理的方法是改在双引号之中使用单引号。
+
+```bash
+$ echo "it's"
+it's
+```
 
 在双引号中即可变普通字符的特殊字符
 
-    空格 '\ `
-    星号 '\*`
-    井号 `#`
-    换行符
+```r
+空格 '\ `
+星号 '\*`
+井号 `#`
+换行符
+```
 
 即便在引号中也依然被 Shell 解释的特殊字符
 
-    双引号 '\"'
-    反引号 `` ` ``
-    美元符 `\$`
-    反斜杠 `\`
+```r
+双引号 '\"'
+反引号 `` ` ``
+美元符 `\$`
+反斜杠 `\`
+```
 
 ### Shell 变量
   
@@ -388,6 +438,7 @@ echo $B
   
 echo $C
 ```
+
 <https://my.oschina.net/u/2428064/blog/3045121>
 
 ## string
@@ -425,11 +476,15 @@ $ echo $a | sed -e "s/data/User/g"
 
 ### 16进制转换成10进制
 
+```bash
     printf %d 0x45b9
+```
 
 ### 10进制转换成16进制
 
+```bash
     printf "%x\n" tid
+```
 
 ### 文件,目录
 
@@ -455,10 +510,16 @@ fi
 shell脚本中echo显示内容带颜色显示,echo显示带颜色，需要使用参数-e
 格式如下:  
 
+```bash
     echo -e "\033[字背景颜色；文字颜色m字符串\033[0m" 
+```
+
 例如:  
 
+```bash
     echo -e "\033[41;36m something here \033[0m" 
+```
+
 其中41的位置代表底色， 36的位置是代表字的颜色
 注:  
 
@@ -469,11 +530,12 @@ shell脚本中echo显示内容带颜色显示,echo显示带颜色，需要使用
 
 例
 
-        echo -e "\033[31m 红色字 \033[0m" 
-        echo -e "\033[34m 黄色字 \033[0m" 
-        echo -e "\033[41;33m 红底黄字 \033[0m" 
-        echo -e "\033[41;37m 红底白字 \033[0m" 
-        字颜色: 30—–37 
+```bash
+echo -e "\033[31m 红色字 \033[0m" 
+echo -e "\033[34m 黄色字 \033[0m" 
+echo -e "\033[41;33m 红底黄字 \033[0m" 
+echo -e "\033[41;37m 红底白字 \033[0m" 
+字颜色: 30—–37
 
 echo -e "\033[30m 黑色字 \033[0m"
 echo -e "\033[31m 红色字 \033[0m"
@@ -482,6 +544,7 @@ echo -e "\033[33m 黄色字 \033[0m"
 echo -e "\033[34m 蓝色字 \033[0m"
 echo -e "\033[35m 紫色字 \033[0m"
 echo -e "\033[36m 天蓝字 \033[0m"
+```
 
 字背景颜色范围: 40—–47
 
@@ -648,17 +711,21 @@ ${\#}
 
 ### 去掉最后一段
 
+```bash
     a="foo-bar-foobar" && a="${a%-*}" && echo "${a}"
     # 输出
     foo-bar
+```
 
 <https://stackoverflow.com/questions/16153446/bash-last-index-of>
 
 ### Shell中去除字符串前后空格
 
+```bash
     echo ' A B C ' | awk '{gsub(/^\s+|\s+$/, "");print}'
+```
 
-# 将pwd的执行结果放到变量value中保存，
+将pwd的执行结果放到变量value中保存
 
 value=$(pwd)
 
@@ -666,7 +733,7 @@ value=$(pwd)
 
 value=`pwd`
 
-# 将pwd的执行结果放到变量value中保存，
+将pwd的执行结果放到变量value中保存，
 
 value=$(pwd)
 
@@ -676,15 +743,19 @@ value=`pwd`
 
 ### 字符串连接
 
+```bash
     strA="aaa"
     strB="bbb"
     strC=$strA$strB
+```
 
 ### shell变量
 
 定义变量时，变量名不加美元符号
 
+```bash
     key0="value0"
+```
 
 注意，变量名和等号之间不能有空格，这可能和你熟悉的所有编程语言都不一样。同时，变量名的命名须遵循如下规则:
 
@@ -695,9 +766,11 @@ value=`pwd`
 
 #### 可以用语句给变量赋值
 
+```bash
     for file in `ls /etc`
     或
     for file in $(ls /etc)
+```
 
 ```bash
 $var
@@ -709,6 +782,7 @@ ${var:-newstring}
 
 ### 整数比较
 
+```bash
     -eq       等于,如:if [ "$a" -eq "$b" ] 
     -ne       不等于,如:if [ "$a" -ne "$b" ] 
     -gt       大于,如:if [ "$a" -gt "$b" ] 
@@ -719,9 +793,11 @@ ${var:-newstring}
     <=       小于等于(需要双括号),如:(("$a" <= "$b")) 
     >       大于(需要双括号),如:(("$a" > "$b")) 
     >=       大于等于(需要双括号),如:(("$a" >= "$b")) 
+```
 
 ### 字符串比较
 
+```bash
     =       等于,如:if [ "$a" = "$b" ] 
     ==      等于,如:if [ "$a" == "$b" ],与=等价 
         注意:==的功能在[[]]和[]中的行为是不同的,如下: 
@@ -749,9 +825,11 @@ ${var:-newstring}
         使用-n在[]结构中测试必须要用""把变量引起来.使用一个未被""的字符串来使用! -z 
         或者就是未用""引用的字符串本身,放到[]结构中。虽然一般情况下可 
         以工作,但这是不安全的.习惯于使用""来测试字符串是一种好习惯.
+```
 
 ### 参数
 
+```bash
     [-p file] 如果 file 存在且是一个名字管道 (F如果O) 则为真 
     [-r file] 如果file存在且是可读的则为真 
     [-s file] 如果file存在且大小不为0则为真 
@@ -774,6 +852,7 @@ ${var:-newstring}
     [string1!=string2] 如果字符串不相等则为真 
     [string1<string2] 如果"string1"sorts before"string2"lexicographically in the current locale则为真 
     [arg1 OP arg2] "OP"is one of –eq,-ne,-lt,-le,-gt or –ge.These arithmetic binary oprators return true if "arg1"is equal to,not equal to,less than,less than or equal to,greater than,or greater than or equal to"agr2",respectively."arg1"and "agr2"are integers. 
+```
 
 ---
 版权声明: 本文为CSDN博主「无知的蜗牛」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
@@ -807,6 +886,7 @@ fi
 
 其实是三条命令，if [ -f ~/.bashrc ]是第一条，then . ~/.bashrc是第二条，fi是第三条。如果两条命令写在同一行则需要用;号隔开，一行只写一条命令就不需要写;号了，另外，then后面有换行，但这条命令没写完，Shell会自动续行，把下一行接在then后面当作一条命令处理。和[命令一样，要注意命令和各参数之间必须用空格隔开。if命令的参数组成一条子命令，如果该子命令的Exit Status为0 (表示真) ，则执行then后面的子命令，如果Exit Status非0 (表示假) ，则执行elif、else或者fi后面的子命令。if后面的子命令通常是测试命令，但也可以是其它命令。Shell脚本没有{}括号，所以用fi表示if语句块的结束。见下例:
 
+```bash
 # ! /bin/sh
   
 if [ -f /bin/bash ]
@@ -819,8 +899,11 @@ fi
   
 if :; then echo "always true"; fi
   
+```
+
 :是一个特殊的命令，称为空命令，该命令不做任何事，但Exit Status总是真。此外，也可以执行/bin/true或/bin/false得到真或假的Exit Status。再看一个例子:
 
+```bash
 # ! /bin/sh
 
 echo "Is it morning? Please answer yes or no."
@@ -844,6 +927,7 @@ exit 1
 fi
   
 exit 0
+```
   
 上例中的read命令的作用是等待用户输入一行字符串，将该字符串存到一个Shell变量中。
 
@@ -875,7 +959,7 @@ if [ ! -d /mnt/u ];
   
 判断目录非空
 
-# 如果结果为0则目录为空
+如果结果为0则目录为空
   
 ls dirname|wc -l
 
@@ -925,12 +1009,15 @@ num1 -ge num2 大于或等于 [ 3 -ge $mynum ]
 
 算术运算符
   
+```bash
     + - * / % 表示加减乘除和取余运算
+```
   
 += -= *= /= 同 C 语言中的含义
 
 位操作符
 
+```bash
         > > > = 表示位左右移一位操作
             
         > > > & &= | |= 表示按位与、位或操作
@@ -938,6 +1025,7 @@ num1 -ge num2 大于或等于 [ 3 -ge $mynum ]
         > > > ~ ! 表示非操作
             
         > > > ^ ^= 表示异或操作 
+```
 
 关系运算符
 
@@ -1005,47 +1093,55 @@ Bash Shell可以进行变量的条件替换,既只有某种条件发生时才进
 
 (2) ${value:=word}
 
-       与前者类似,只是若变量未定义或者值为空时,在返回word的值的同时将 word赋值给value 
+与前者类似,只是若变量未定义或者值为空时,在返回word的值的同时将 word赋值给value
 
 (3) ${value:?message}
 
-       若变量已赋值的话,正常替换.否则将消息message送到标准错误输出(若此替换出现在Shell程序中,那么该程序将终止运行) 
+若变量已赋值的话,正常替换.否则将消息message送到标准错误输出(若此替换出现在Shell程序中,那么该程序将终止运行)
 
 (4) ${value:+word}
 
-       若变量已赋值的话,其值才用word替换,否则不进行任何替换 
+若变量已赋值的话,其值才用word替换,否则不进行任何替换
 
 (5) ${value:offset}
 
-       ${value:offset:length} 从变量中提取子串,这里offset和length可以是算术表达式. 
+${value:offset:length} 从变量中提取子串,这里offset和length可以是算术表达式.
 
 (6) ${#value}
 
-       变量的字符个数 
+变量的字符个数
 
 (7) ${value#pattern}
 
-       ${value##pattern} 
-       去掉value中与pattern相匹配的部分,条件是value的开头与pattern相匹配 
-       #与##的区别在于一个是最短匹配模式,一个是最长匹配模式. 
+```bash
+${value##pattern}
+去掉value中与pattern相匹配的部分,条件是value的开头与pattern相匹配
+# 与##的区别在于一个是最短匹配模式,一个是最长匹配模式.
+```
 
 (8) ${value%pattern}
 
-       ${value%%pattern} 
-       于(7)类似,只是是从value的尾部于pattern相匹配,%与%%的区别与#与##一样 
+```bash
+${value%%pattern}
+于(7)类似,只是是从value的尾部于pattern相匹配,%与%%的区别与#与##一样
+```
 
 (9) ${value/pattern/string}
 
-       ${value//pattern/string} 
-       进行变量内容的替换,把与pattern匹配的部分替换为string的内容,/与//的区别与上同 
+```bash
+${value//pattern/string} 
+进行变量内容的替换,把与pattern匹配的部分替换为string的内容,/与//的区别与上同 
+```
 
 注意: 上述条件变量替换中,除(2)外,其余均不影响变量本身的值
 
+```bash
 # !/bin/bash
 
 var1="1"
   
 var2="2"
+```
 
 下面是"与"运算符-a，另外注意，用一个test命令就可以了，还有if条件后面的分号
 
@@ -1149,8 +1245,9 @@ true
 
 整数比较实例
 
-[css] 
+[css]
   
+```bash
 # !/bin/bash
 
 file='folder_url_top24/url_usa_top24_0'
@@ -1171,6 +1268,8 @@ echo "down again..."
   
 done
   
+```
+
 其中，下面三种整数比较都成立:
   
 1) while [ ! -f $file -o "$fileSize" -lt "$FILESIZE" ]
@@ -1227,8 +1326,9 @@ if [ "$a" \> "$b" ]
 
 判断shell传入的参数个数是否为空:
 
-[python] 
+[python]
   
+```bash
 # !/bin/bash
 
 port=6379 # 命令行没参数，默认指定端口号为 6379
@@ -1246,6 +1346,7 @@ redis-cli -h 172.1628.10.114 -p $port
 字符串比较实例:
 
 if [ "$var1" = "$var2" ]
+```
 
 ```bash  
 # !/bin/sh
