@@ -2,13 +2,18 @@
 title: adb command
 author: "-"
 date: 2014-08-07T02:40:16+00:00
-url: /?p=6899
+url: adb
 categories:
   - Inbox
 tags:
   - reprint
 ---
 ## adb command
+
+```bash
+pacman -S android-tools
+```
+
 在手机上打开USB调试
 
 ```bash
@@ -62,13 +67,9 @@ export PATH=${PATH}:<你的sdk目录>/tools
 
 现在说下ADB常用的几个命令
 
-
-  
     安装软件 –将指定的apk文件安装到设备上
   
-
-
-adb install 
+adb install
   
 3. 卸载软件
 
