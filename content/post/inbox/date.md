@@ -13,6 +13,35 @@ tags:
 ---
 ## date command
 
+## 输出指定时区的时间
+
+shell支持在date命令前，指定TZ参数，即指定时区，这样date输出将会输出指定时区的时间。TZ是timezone的缩写。
+
+```bash
+TZ=0 date
+
+```
+
+## date 打印的日期格式
+
+默认打印12小时制的
+
+```bash
+# 默认打印 24小时制时间
+vim /etc/profile.d/lctime.sh
+
+export LC_TIME=POSIX
+```
+
+`LC_TIME` 选择C语言环境的时间格式类别
+
+## `-d` 参数支持自然语言输入，无符号默认为 `+`
+
+```bash
+date -d "+1 day"
+date -d "-1 month"
+```
+
 ```bash
 date [OPTION]... [+FORMAT]
 ```

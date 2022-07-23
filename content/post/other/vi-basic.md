@@ -175,20 +175,20 @@ visual模式
 
  (2) Visual Line模式  按键V可以进入
 
-          按键V之后，进入Visual Line模式，使用 j/k键可以选中一行或者多行
+按键V之后，进入Visual Line模式，使用 j/k键可以选中一行或者多行
 
-     (3) Visual Block模式，按键Ctrl + V可以进入
+(3) Visual Block模式，按键Ctrl + V可以进入
 
-           按键Ctrl+V之后，进入Visual Block模式，使用 j/k/h/l键可以选中一块
+按键Ctrl+V之后，进入Visual Block模式，使用 j/k/h/l键可以选中一块
 在块模式下，可以进行多列的同时修改，修改方法是:
 
-            首先进入块模式 Ctrl+ v
+首先进入块模式 Ctrl+ v
 
-            使用按键j/k/h/l进行选中多列
+使用按键j/k/h/l进行选中多列
 
-            按键Shift + i 进行 块模式下的插入
+按键Shift + i 进行 块模式下的插入
 
-            输入字符之后，按键ESC，完成多行的插入
+输入字符之后，按键ESC，完成多行的插入
 //todo, visual move to separate post.
 
 ### 查找，替换
@@ -547,7 +547,7 @@ z- 将当前行置为屏幕的底行
 
 nz- 将当前行上的第n行置为屏幕的底行
 
-### vi中的shell转义命令
+### vi中的 shell 转义命令
 
 选项 作用
 
@@ -601,9 +601,9 @@ n>> 使n行都向右移动一个宽度，例如3>>就将接下来的三行每行
 
 查找命令
 
-/pattern<Enter> : 向下查找pattern匹配字符串
+`/pattern<Enter>` : 向下查找pattern匹配字符串
 
-?pattern<Enter>: 向上查找pattern匹配字符串
+`?pattern<Enter>`: 向上查找pattern匹配字符串
 
 使用了查找命令之后，使用如下两个键快速查找:
 
@@ -615,17 +615,17 @@ N: 按照反方向查找
 
 pattern是需要匹配的字符串，例如:
 
-1: /abc<Enter> #查找abc
+1: `/abc<Enter>` #查找abc
 
-2: / abc <Enter> #查找abc单词 (注意前后的空格)
+2: `/ abc <Enter>` #查找abc单词 (注意前后的空格)
 
 除此之外，pattern还可以使用一些特殊字符，包括 (/、^、$、*、.) ，其中前三个这两个是vi与vim通用的，"/"为转义字符。
 
-1: /^abc<Enter> #查找以abc开始的行
+1: `/^abc<Enter>` #查找以abc开始的行
 
-2: /test$<Enter> #查找以abc结束的行
+2: `/test$<Enter>` #查找以abc结束的行
 
-3: //^test<Enter> #查找^tabc字符串
+3: `//^test<Enter>` #查找^tabc字符串
 
 二、替换
 
@@ -741,7 +741,7 @@ vim默认使用magic设置，这个设置也可以在正则表达式中通过 /m
 
 6: /< 匹配一个单词的开始，例如//:查找以abc开始的字符串
 
-7: /> 匹配一个单词的结束，例如/abc/><Enter>:查找以abc结束的字符串
+7: /> 匹配一个单词的结束，例如`/abc/><Enter>`:查找以abc结束的字符串
 
 8:
 

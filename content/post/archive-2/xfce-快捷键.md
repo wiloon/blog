@@ -1,14 +1,23 @@
 ---
-title: xfce 快捷键
+title: xfce
 author: "-"
-date: 2017-01-09T23:56:56+00:00
-url: /?p=9647
+date: 2022-07-12 17:33:53
+url: xfce
 categories:
-  - Desktop
+  - Linux
 tags:
   - reprint
 ---
+## xfce
+
+## disable taskbar items grouping
+
+Right click on the taskbar, select Panel -> Panel Preferences
+Select the Items tab , select Window Buttons in the list, click the Edit button on the right side
+Change Window grouping to Never
+
 ## xfce 快捷键
+
 ```bash
 
 ctrl+F1    #切换工作区

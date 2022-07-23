@@ -50,6 +50,8 @@ mysqldump -h 192.168.50.100 -uroot -p --databases rssx --tables user --where=use
 
 ### MySQL heidisql 变量
 
+这种变量语法只能用在 mysql 里, postgresql 不支持
+
 ```sql
 SET @total_count := 10;
 select @total_count;
@@ -294,7 +296,7 @@ set password
 
 SET PASSWORD FOR user0@localhost= PASSWORD("password");
   
-# 注意后面这句话 "COLLATE utf8_general_ci",大致意思是在排序时根据utf8变码格式来排序
+注意后面这句话 "COLLATE utf8_general_ci",大致意思是在排序时根据utf8变码格式来排序
 
 授权之后该用户才能用他自己的用户名密码访问MySQL.
 
@@ -379,7 +381,6 @@ alter table tbl_user change password password varchar(256)
 alter table tbl_user modify deleted char(1) not null;
 
 > alter table 表名称 modify 字段名称 字段类型 [是否允许非空];
-
 > 4.3.修改某个表的字段名称及指定为空或非空
 
 alter table 表名称 change 字段原名称 字段新名称 字段类型 [是否允许非空
@@ -465,25 +466,25 @@ PRIMARY KEY (`id`)
   
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-2) 创建唯一索引
+创建唯一索引
   
 create unique index indexname on tablename(columnname);
   
 alter table tablename add unique index indexname(columnname);
 
-3) 创建单列一般索引
+1) 创建单列一般索引
   
 create index indexname on tablename(columnname);
   
 alter table tablename add index indexname(columnname);
 
-4) 创建单列前缀索引
+创建单列前缀索引
   
 create index indexname on tablename(columnname(10)); //单列的前10个字符创建前缀索引
   
 alter table tablename add index indexname(columnname(10)); //单列的前10个字符创建前缀索引
 
-5) 创建复合索引
+1) 创建复合索引
   
 create index indexname on tablename(columnname1，columnname2); //多列的复合索引
   
@@ -493,13 +494,13 @@ alter table tablename add index indexname(columnname1，columnname2); //多列�
   
 alter table tablename add index indexname(columnname1，columnname(10)); //多列的包含前缀的复合索引
 
-6) 删除索引
+删除索引
   
 drop index indexname on tablename;;
   
 alter table tablename drop index indexname;
 
-7) 查看索引
+查看索引
   
 show index from tablename;
   
@@ -535,7 +536,7 @@ MySQL -V
   
 MySQL Ver 14.14 Distrib 5.5.32, for debian-linux-gnu (x86_64) using readline 6.2
 
-# MySQL函数
+MySQL函数
 
 select version();
 
@@ -543,29 +544,29 @@ select version();
 
 MySQL> status;
 
-    MySQL Ver 14.7 Distrib 4.1.10a, for redhat-linux-gnu (i686)Connection id: 416
-      
-    SSL: Not in use
-      
-    Current pager: stdout
-      
-    Using outfile: "
-      
-    Using delimiter: ;
-      
-    Server version: 3.23.56-log
-      
-    Protocol version: 10
-      
-    Connection: Localhost via UNIX socket
-      
-    Client characterset: latin1
-      
-    Server characterset: latin1
-      
-    UNIX socket: /tmp/MySQL_3311.sock
-      
-    Uptime: 62 days 21 hours 21 min 57 secThreads: 1 Questions: 584402560 Slow queries: 424 Opens: 59664208 Flush tables: 1 Open tables: 64 Queries per second avg: 107.551
+MySQL Ver 14.7 Distrib 4.1.10a, for redhat-linux-gnu (i686)Connection id: 416
+
+SSL: Not in use
+
+Current pager: stdout
+
+Using outfile: "
+
+Using delimiter: ;
+
+Server version: 3.23.56-log
+
+Protocol version: 10
+
+Connection: Localhost via UNIX socket
+
+Client characterset: latin1
+
+Server characterset: latin1
+
+UNIX socket: /tmp/MySQL_3311.sock
+
+Uptime: 62 days 21 hours 21 min 57 secThreads: 1 Questions: 584402560 Slow queries: 424 Opens: 59664208 Flush tables: 1 Open tables: 64 Queries per second avg: 107.551
 
 ### MySQL -help
 

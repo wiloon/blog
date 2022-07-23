@@ -10,8 +10,6 @@ tags:
   - remix
 
 ---
-## curl
-
 ## curl, [kɜrl]
 
 ## options
@@ -38,9 +36,9 @@ tags:
 curl -C - "http://foo.bar"
 ```
 
-### cookie
+## cookie
 
-#### cookie, 发送请求时附带 cookie, cookie 值从登录请求返回的 `Set-Cookie:` 里取
+### cookie, 发送请求时附带 cookie, cookie 值从登录请求返回的 `Set-Cookie:` 里取
 
 ```bash
 curl -v -d "name=admin&password=admin" -b cookie.txt "http://localhost:8080/user/login"
@@ -83,10 +81,13 @@ curl -L xxx
 ```bash
 curl -d "user=admin&passwd=12345678" http://127.0.0.1:8080/login
 # 把请求参数放到文件里, foo 是一个包含请求数据的文件
-curl -i -XPOST 'http://localhost:8186/write?db=db0' --data-binary @foo  
+curl -i -XPOST 'http://localhost:8186/write?db=db0' --data-binary @foo
+
+curl -X POST https://reqbin.com/echo/post/json -H "Content-Type: application/json" -d '{"productId": 123456, "quantity": 100}'  
+
 ```
 
-### with header
+## with header
 
 ```bash
 curl -H "Content-Type: application/json"  \

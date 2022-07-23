@@ -159,14 +159,14 @@ bridge ports: 支持同时添加多个网口，用空格分隔
 使用WinSCP等软件上传vma备份文件至另一台pve
 使用恢复功能恢复虚拟机
 
-#### 备份虚拟机
+## 备份虚拟机
 
 登录 pve 选择要备份的虚拟机
-勾选备份选项: tick the box, Hardware> Hard Disk> Edit> Advanced> Backup
+磁盘需要勾选备份选项: tick the box, Hardware> Hard Disk> Edit> Advanced> Backup
 从 Hardware 菜单切换到 Backup 点击子菜单中的备份按钮
-点击立即备份按钮
+点击立即备份按钮(Backup)
 设置备份到的存储 (local的备份路径为: /var/lib/vz/dump)
-设置模式: 停止(Stop)
+设置模式(Mode): 停止(Stop)
 设置压缩: 无
 等待备份完毕
 
