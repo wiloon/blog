@@ -6,7 +6,7 @@ url: backup
 categories:
   - w10n
 tags:
-  - reprint
+  - original
 ---
 ## backup list, 备份列表
 
