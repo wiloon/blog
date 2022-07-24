@@ -23,9 +23,9 @@ mkdir local-jetbrain-setting-repo
 cd local-jetbrain-setting-repo
 git init --bare
 # configure IntelliJ to save settings to git repo URL: "/path/to/local-jetbrain-setting-repo"
+git branch -m main # 默认创建
 git remote add origin git@github.com:wiloon/jetbrain-idea-setting.git
-git push origin master
-
+git push origin main
 ```
 
 ### fetch
@@ -50,18 +50,6 @@ ctl+alt+Y sychronize
 ctl+alt+S setting
 
 ---
-
-### settings repository
-
-```bash
-    mkdir local-jetbrain-setting-repo
-    cd local-jetbrain-setting-repo
-    git init --bare
-    # configure IntelliJ to save settings to git repo URL: "/path/to/local-jetbrain-setting-repo"
-    git branch -m main # 默认创建
-    git remote add origin git@github.com:wiloon/jetbrain-idea-setting.git
-    git push origin main
-```
 
 ### 解决 Intellij IDEA Cannot Resolve Symbol ‘XXX’ 问题
 
