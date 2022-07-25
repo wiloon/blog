@@ -85,9 +85,11 @@ curl -i -XPOST 'http://localhost:8186/write?db=db0' --data-binary @foo
 
 curl -X POST https://reqbin.com/echo/post/json -H "Content-Type: application/json" -d '{"productId": 123456, "quantity": 100}'  
 
+curl -X POST --cookie "session=61122afb-8aae-4125-b6fa-da6919e6fb67" -H "Content-Type: application/json"  "http://localhost/api/foo/" --data-binary '{"productId": 123456, "quantity": 100}'   | jq .
+
 ```
 
-## with header
+## header
 
 ```bash
 curl -H "Content-Type: application/json"  \
