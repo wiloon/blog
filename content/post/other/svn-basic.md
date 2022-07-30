@@ -9,12 +9,19 @@ tags:
   - reprint
 ---
 ## svn basic, command
+
 ### ignore ca
-    --trust-server-cert-failures="unknown-ca,cn-mismatch,expired,not-yet-valid,other"
-    svn checkout https://your.repository.url/ --non-interactive --trust-server-cert-failures="unknown-ca,cn-mismatch,expired,not-yet-valid,other" --username=blah --password=blah
-    
+
+```bash
+--trust-server-cert-failures="unknown-ca,cn-mismatch,expired,not-yet-valid,other"
+svn checkout https://your.repository.url/ --non-interactive --trust-server-cert-failures="unknown-ca,cn-mismatch,expired,not-yet-valid,other" --username=blah --password=blah
+```
+
 ### 查看 svn 版本
-    svn --version
+
+```bash
+svn --version
+```
 
 ### svn merge
 
@@ -114,14 +121,14 @@ cd repos
   
 svn log -v
 
-https://www.kancloud.cn/i281151/svn/197097
+<https://www.kancloud.cn/i281151/svn/197097>
   
-http://my.oschina.net/shelllife/blog/142257
+<http://my.oschina.net/shelllife/blog/142257>
   
-http://svnbook.red-bean.com/en/1.7/svn.ref.svn.c.revert.html
+<http://svnbook.red-bean.com/en/1.7/svn.ref.svn.c.revert.html>
   
-http://riaoo.com/subpages/svn_cmd_reference.html#commit
+<http://riaoo.com/subpages/svn_cmd_reference.html#commit>
   
-http://riaoo.com/subpages/svn_cmd_reference.html
+<http://riaoo.com/subpages/svn_cmd_reference.html>
   
-https://www.cnblogs.com/zhenjing/archive/2012/12/22/svn_usage.html
+<https://www.cnblogs.com/zhenjing/archive/2012/12/22/svn_usage.html>

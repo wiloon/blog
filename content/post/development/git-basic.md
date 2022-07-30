@@ -201,7 +201,7 @@ git clean -nfd
 
 ## git remote
 
-### 查看远程仓库地址
+### 查看远程仓库地址 url
 
 ```bash
 git remote -v

@@ -9,6 +9,7 @@ tags:
   - reprint
 ---
 ## chrome 扩展
+
 - uBlacklist
 
 轻量级进程 栈 -site:qastack.cn -site:coder.work -site:i4k.xyz -site:cxymm.net -site:codenong.com
@@ -16,6 +17,7 @@ tags:
 *://www.coder.work/*
 
 ## chrome 扩展 导出
+
 打开扩展程序页面
   
 chrome://extensions/
@@ -26,6 +28,6 @@ linux path:
   
 /home/USER0/.config/chromium/Default/Extensions/fhhdlnnepfjhlhilgmeepgkhjmhhhjkh/2.8.5_0
 
-http://blog.csdn.net/sonictl/article/details/9069977
+<http://blog.csdn.net/sonictl/article/details/9069977>
 
-http://jingyan.baidu.com/article/9158e0004ff9bba25512284d.html
+<http://jingyan.baidu.com/article/9158e0004ff9bba25512284d.html>

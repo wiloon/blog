@@ -19,7 +19,7 @@ vim /etc/systemd/resolved.conf
 #switch off binding to port 53
 DNSStubListener=no
 
-#disable LLMNR
+# disable LLMNR
 LLMNR=false
 ```
 
@@ -39,7 +39,7 @@ resolvectl query google.com
 ```bash
 vim /etc/systemd/resolved.conf
 [Resolve]
-# 上游的dns服务器,可以配置多条
+# 上游的dns服务器, 可以配置多条
 DNS=192.168.50.1
 FallbackDNS=223.5.5.5 223.6.6.6 114.114.114.114
 #Domains=
@@ -92,4 +92,15 @@ prepend domain-name-servers 223.5.5.5;
 supersede domain-name-servers 223.5.5.5;
 sudo dhclient -r
 sudo dhclient
+```
+
+## Failed to get global data: Unit dbus-org.freedesktop.resolve1.service not found
+
+```bash
+# 重新连接服务
+sudo ln -sf /lib/systemd/system/systemd-resolved.service /etc/systemd/system/dbus-org.freedesktop.resolve1.service
+# 重启服务 
+sudo systemctl restart systemd-resolved.service
+# 确认状态
+systemd-resolve --status
 ```

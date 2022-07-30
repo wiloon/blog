@@ -1,14 +1,20 @@
 ---
-title: postgresql
+title: postgres
 author: "-"
 date: 2017-12-31T06:25:26+00:00
-url: postgresql
+url: postgres
 categories:
   - database
 tags:
   - reprint
 ---
-## postgresql
+## postgres
+
+## install
+
+```bash
+podman run --name postgres -e POSTGRES_PASSWORD=password0 -d postgres
+```
 
 ```bash
 pacman -S postgresql

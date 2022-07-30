@@ -2,9 +2,9 @@
 title: Fiddler
 author: "-"
 date: 2016-03-17T14:50:44+00:00
-url: /?p=8808
+url: Fiddler
 categories:
-  - Inbox
+  - Network
 tags:
   - reprint
 ---

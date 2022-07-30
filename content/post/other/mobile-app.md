@@ -90,6 +90,8 @@ nextcloud
 
 #### chromeos extention
 
+- Proxy SwitchyOmega
+
 | Name                                | Comments |
 | ----------------------------------- | -------- |
 | Minimalist Markdown Editor Markdown | 编辑软件     |
