@@ -76,11 +76,11 @@ rdesktop 是UNIX 和Linux 系统的一个远程桌面连接软件，它通过Mic
 
 一、 **rdesktop的下载和安装**
 
-**debian安装apt-get install rdesktop**
+### debian安装apt-get install rdesktop
 
 安装成功后，在/usr/local/bin下生成了可执行的rdesktop 程序。
 
-**二、rdesktop 的使用**
+### 二、rdesktop 的使用
 
 1.远程Windows 系统的设置
 

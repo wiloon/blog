@@ -12,9 +12,12 @@ tags:
 
 ### install
 
-   apt install iproute2
+```bash
+# ubuntu
+apt install iproute2
+```
 
-### 查看IP地址
+### 查看 IP 地址
 
 ```bash
 # 显示所有网络地址
@@ -25,19 +28,23 @@ ip addr
 ip a
 ```
 
+## 设置网络接口的 IP 地址
+
+```bash
+# 为网络接口分配 IPv4 地址
+# 使用这些命令配置网络接口的 IPv4 地址。
+sudo ip addr add 10.0.0.1/24 dev eth1
+```
+
 ```bash
 # Delete all IPv4 addresses on interface wlp3s0
 sudo ip -f inet addr del dev wlp3s0
-  
-#为网络接口分配IPv4地址
-#使用这些命令配置网络接口的IPv4地址。
-sudo ip addr add 10.0.0.1/24 dev eth1
 
 # 查端口
 ss -ntlp | grep ",1234,"
 
 sudo ip link set down eth1
-  
+
 sudo ip link set up eth1
 
 #查所有网卡的ip
@@ -47,9 +54,7 @@ ip addr show
 ip link show
 
 #查看某一个网卡的ip
-  
 ip addr show dev eth1
-
 ```
 
 ### 设置网卡为混杂模式
@@ -61,19 +66,19 @@ ip link set enp1s0 promisc on
 vim /usr/lib/systemd/system/promiscuous_mode@.service
 
 ```bash
-    [Unit]
-    Description=Control promiscuous mode for interface %i
-    After=network-online.target
-    Wants=network-online.target
+[Unit]
+Description=Control promiscuous mode for interface %i
+After=network-online.target
+Wants=network-online.target
 
-    [Service]
-    Type=oneshot
-    ExecStart=/sbin/ip link set promisc on dev %i
-    ExecStop=/sbin/ip link set promisc off dev %i
-    RemainAfterExit=yes
+[Service]
+Type=oneshot
+ExecStart=/sbin/ip link set promisc on dev %i
+ExecStop=/sbin/ip link set promisc off dev %i
+RemainAfterExit=yes
 
-    [Install]
-    WantedBy=multi-user.target
+[Install]
+WantedBy=multi-user.target
 ```
 
 ##### systemctl enable

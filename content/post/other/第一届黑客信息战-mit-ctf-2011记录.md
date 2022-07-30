@@ -9,6 +9,7 @@ tags:
   - reprint
 ---
 ## 第一届黑客信息战 MIT CTF 2011记录
+
 这个是前两天我朋友 dcluo 在 MIT(麻省理工学院) 参加的一个黑客竞赛的实战记录
 
 分享给大家看看 感受一下国外的技术竞赛魅力
@@ -21,7 +22,7 @@ tags:
 
 (我尽量写的详细，希望各大学校组织效仿这类比赛)
 
-前言: 
+前言:
 
 事情追溯到几个月前在 hackathon 有幸认识了一位MIT 计算机女强人 haoqi 同学。
 
@@ -39,11 +40,11 @@ tags:
 
 地点: MIT
 
-人物: 韩国网安内核牛+haoqi+我 + 其他12个组 (～45人) 
+人物: 韩国网安内核牛+haoqi+我 + 其他12个组 (～45人)
 
-比赛规格: 
+比赛规格:
 
-• 13组小队 (MIT，BU，UMASS，NE…) 
+• 13组小队 (MIT，BU，UMASS，NE…)
 
 • 一个组一个VM (ubuntu 10.10 + 最新apache+MySQL+wordpress) 分别运行在同一个虚拟机服务器上但是不同IP和Domain。
 
@@ -53,9 +54,9 @@ tags:
 
 • 每天可以有一个snapshot和三次全盘恢复机会。
 
-任务目标: 
+任务目标:
 
-1. 获取其他组的flag (128位String) 这个flag 散落在VM的各个角落 (文件或数据库里) 
+1. 获取其他组的flag (128位String) 这个flag 散落在VM的各个角落 (文件或数据库里)
 
 2. 保护自己的wordpress 和 plugins 都能正常运行，保护自己的flag 没有被更改过
 
@@ -63,7 +64,7 @@ tags:
 
 除了ddos 和 spoofing 其余手段的均可
 
-评分标准: 
+评分标准:
 
 • Availability (可以fetch wordpress的xmlrc 以及plugin的正常工作)
 
@@ -125,7 +126,7 @@ sudo rm /etc/apache2/conf.d/javascript-common.confsudo 和rm /etc/apache2/conf.d
 
 坏笑着apache2/access.log 里面各种各样被拒绝的变种数据包，随便粘几个地址，节省我好多vim plugin的时间！
 
-前文我提到了我同时用6个terminals，我说下每个terminals的工作: 
+前文我提到了我同时用6个terminals，我说下每个terminals的工作:
 
 2个terminal负责 apache 和 inode 文件创建修改 log， 1个(半屏)负责读php 代码找漏洞，另外三个nc 端口待命。
 
@@ -169,7 +170,7 @@ sudo rm /etc/apache2/conf.d/javascript-common.confsudo 和rm /etc/apache2/conf.d
 
 韩国牛迅速写了个py收集，我负责迅速编写反弹shell+找php漏洞， haoqi同学负责提交 flag。
 
-这里给下例子flag 长什么样: 
+这里给下例子flag 长什么样:
 
 lfTogfKGCdnt5pEACWISafVsyqAuXYQEmfMbaBQc0QnuoYNrWZQ0aWkSFzqcyrb8ViGds3QebrBCjWMIoUQjkNWcMY7vE8sVwGbG7glOy1IIuBY2UWXQbaLPk3tQ8u8b
 
@@ -209,7 +210,7 @@ Ssh一通，我们顺利的吧脚本传上去，
 
 一个小时很快就过去了。 9: 00 我们带着激动和希望回家了。
 
-第一天入侵总结: 
+第一天入侵总结:
 
 Eval(), exec() 是基本利用，但效率才是输赢关键。
 
@@ -257,7 +258,7 @@ Well， 我们还是等了他们。 这时的我们做下资源清点: 我们手
 
 我们可爱的队长，就这么被社工了。其他队伍真是yd啊！
 
-跑去注册了http://mitctf-2011.wikispaces.com/grading-Key 做的和官方网站一模一样，
+跑去注册了<http://mitctf-2011.wikispaces.com/grading-Key> 做的和官方网站一模一样，
 
 但是多了个警示: 所有的队伍请检查ssh key是不是和这个相等，
 
@@ -341,7 +342,7 @@ Iptable屏蔽了怎么还是被入侵了？难道裁判被入侵了？
 
 我们灰溜溜的离开了这个无硝烟战场。
 
-第二天入侵总结: 
+第二天入侵总结:
 
 有付出就有回报。垫底总有翻身的一天！坚持不懈，就会看到光荣榜上你的名字。
 
@@ -355,7 +356,7 @@ Iptable屏蔽了怎么还是被入侵了？难道裁判被入侵了？
 
 VM:
 
-http://mitctf2011.wikispaces.com/Competition+VM
+<http://mitctf2011.wikispaces.com/Competition+VM>
 
 说明下 我和 dcluo 测试过
 
@@ -363,10 +364,10 @@ http://mitctf2011.wikispaces.com/Competition+VM
 
 plugin打包:
 
-http://u.115.com/file/f47ab66eae
+<http://u.115.com/file/f47ab66eae>
 
 攻防wiki:
 
-http://mitctf2011.wikispaces.com/MIT+CTF+external+links+for+self-study
+<http://mitctf2011.wikispaces.com/MIT+CTF+external+links+for+self-study>
 
-来源: http://hi.baidu.com/hackercasper/blog/item/1e165434c681340490ef398c.html
+来源: <http://hi.baidu.com/hackercasper/blog/item/1e165434c681340490ef398c.html>
