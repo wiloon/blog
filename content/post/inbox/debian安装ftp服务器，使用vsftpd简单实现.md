@@ -9,7 +9,8 @@ tags:
   - reprint
 ---
 ## Debian安装FTP服务器,使用vsftpd简单实现
-http://wudixiaozi.com/1694.html
+
+<http://wudixiaozi.com/1694.html>
 
 Debian安装FTP服务器,使用vsftpd简单实现
   
@@ -19,7 +20,7 @@ Debian自己安装的时候若没有勾选FTP服务器的话,那就需要在后�
 
 Debian下实现FTP的软件很多,我这里推荐vsftpd,因为他非常的短小精干,只要设置得当还是不错的！那我们就按照下面的命令一步步的来完成！
 
-首先我们更新下软件源: 
+首先我们更新下软件源:
   
 aptitude update
 
@@ -39,7 +40,7 @@ nano /etc/vsftpd.conf
   
 然后在配置文件的最后一行加上: chroot_local_user=YES 目的是让登陆用户锁定在指定目录里面！放置用户可以返回上层目录！
 
-接下来创建用户组: 
+接下来创建用户组:
   
 groupadd ftp
   
