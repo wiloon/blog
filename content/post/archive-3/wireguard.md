@@ -303,7 +303,7 @@ opkg install luci-i18n-wireguard-zh-cn
 Network> interface> add new interface>Name: wg0> protocol: wireguard vpn> create interface
 
 - general settings
-  - private key: private key0
+  - private key: generate key
   - ip address: 192.168.53.12
 - peers> add peer
   - description: description0
@@ -315,6 +315,8 @@ Network> interface> add new interface>Name: wg0> protocol: wireguard vpn> create
   - persistent keep alive: 60
 
 ---
+
+<https://www.whosneo.com/wireguard-openwrt-ipv6/>
 
 ### crostini
 
