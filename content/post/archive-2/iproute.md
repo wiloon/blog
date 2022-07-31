@@ -34,9 +34,14 @@ ip a
 # 为网络接口分配 IPv4 地址
 # 使用这些命令配置网络接口的 IPv4 地址。
 sudo ip addr add 10.0.0.1/24 dev eth1
+ip addr add 192.168.53.0/24 dev wg0
+
 ```
 
+## 删除网络接口的 IP 地址
+
 ```bash
+ip addr del 192.168.53.0/24 dev wg0
 # Delete all IPv4 addresses on interface wlp3s0
 sudo ip -f inet addr del dev wlp3s0
 
@@ -53,8 +58,17 @@ ip addr show
 #查看所有网卡
 ip link show
 
-#查看某一个网卡的ip
+#查看某一个网卡的 ip
 ip addr show dev eth1
+```
+
+## set link up or down
+
+```bash
+# Bring a link up or down
+ip link set dev ${interface name} up
+ip link set eth0 up
+
 ```
 
 ### 设置网卡为混杂模式
@@ -84,13 +98,7 @@ WantedBy=multi-user.target
 ##### systemctl enable
 
 ```bash
-    systemctl enable promiscuous_mode@enp1s0.service
-```
-
-```bash
-ip addr add 192.168.53.0/24 dev wg0
-ip addr del 192.168.53.0/24 dev wg0
-
+systemctl enable promiscuous_mode@enp1s0.service
 ```
 
 ## ip link
@@ -250,10 +258,6 @@ ip link set dev tun0 mtu 1480
 # check arp cache
 ip neigh
 
-# Bring a link up or down
-ip link set dev ${interface name} up
-ip link set eth0 up
-
 ip link set dev ${interface name} down
 
 ip route show
@@ -267,6 +271,9 @@ ip tuntap list
 <https://segmentfault.com/a/1190000000638244>
   
 <https://access.redhat.com/sites/default/files/attachments/rh_ip_command_cheatsheet_1214_jcs_print.pdf>
+
 <https://www.cnblogs.com/LiuYanYGZ/p/12368421.html>
+
 <http://linux-ip.net/html/routing-tables.html>
-><http://linux-ip.net/gl/ip-cref/ip-cref.html>
+
+<http://linux-ip.net/gl/ip-cref/ip-cref.html>

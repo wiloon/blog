@@ -16,7 +16,7 @@ xxx-factory.img
 - 把网线连接路由器的 LAN 口 和 PC 的网口
 - 路由器断电, 用牙签或其他工具, 捅路由器的 reset 口
 - 开启设备电源开关, 观察电源灯 (此时保持按住 reset/ Restore Factory Settings 按钮不要松手), 直到电源灯由橙色闪烁状态变到绿色闪烁状态(wndr4300) (说明设备已经进入到了TFTP修复模式)
-  - R7800: 橙色闪烁变成白色闪烁。
+  - R7800: 电源灯从橙色闪烁变成白色闪烁。
 - 在win下面使用DOS命令, `tftp -i 192.168.1.1 put image0.img`
 - 在mac下面, 同样也是使用 tftp 命令。
   - 自己的 ip 改成192.168.1.10, 网关即路由 ip 192.168.1.1
@@ -27,9 +27,11 @@ xxx-factory.img
 
 ```bash
 tftp
+(to) 192.168.1.1
 tftp> binary
 tftp> verbose
-tftp> put 192.168.1.1:openwrt0.img
+tftp> put openwrt0.img
+tftp> quit
 ```
 
 - 文件传送完毕后,等待 80 秒左右, 设备会自动重启 (请耐心等待, 切勿将路由器手动断电)。至此, TFTP 修复完成。

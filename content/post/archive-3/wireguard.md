@@ -1,7 +1,7 @@
 ---
 title: wireguard
 author: "-"
-date: 2020-03-15T16:20:26+00:00
+date: 2022-07-31 13:54:01
 url: wireguard
 categories:
   - network
@@ -9,8 +9,11 @@ tags:
   - reprint
   - remix
   - VPN
+  - Wireguard
 ---
 ## wireguard
+
+wireguard default port: 51820
 
 ## install
 
@@ -93,7 +96,7 @@ ip link set wg0 up
 
 ```bash
 sudo ip link add dev wg0 type wireguard
-# ip要改一下...
+# ip 要改一下 ...
 sudo ip addr add 192.168.53.2/24 dev wg0
 sudo wg set wg0 private-key ./private.key
 
@@ -140,17 +143,17 @@ ip route add fd7b:d0bd:7a6e::/64 dev wg0
 ### systemd-networkd
 
 ```bash
-    systemd-networkd-wait-online.service
-    systemd-resolvconf  
-    openresolv
+systemd-networkd-wait-online.service
+systemd-resolvconf  
+openresolv
 ```
 
 ### iptables, 设置iptables规则，客户端连接之后就能Ping通服务端局域网里的其它ip了
 
 ```bash
-    iptables -A FORWARD -i wg0 -j ACCEPT
-    iptables -t nat -A POSTROUTING -o <eth0> -j MASQUERADE
-    iptables -t nat -A POSTROUTING -o wlp1s0 -j MASQUERADE
+iptables -A FORWARD -i wg0 -j ACCEPT
+iptables -t nat -A POSTROUTING -o <eth0> -j MASQUERADE
+iptables -t nat -A POSTROUTING -o wlp1s0 -j MASQUERADE
 ```
 
 ### systemd-networkd, 用 systemd-networkd 配置 wireguard, 开机自动加载 wireguard 配置
@@ -273,6 +276,44 @@ Endpoint = foo.bar.com:51900
 PersistentKeepalive = 25
 ```
 
+## network manager + wireguard
+
+在 network manager 图标上点右键> edit connections...> add a new connection> choose a connection type> wireguard> create
+
+- interface name: wg0
+- private key: input private key
+
+peers> Add>
+
+- public key: `<public key>`
+- allowed ips: 192.168.53.0/24
+
+<https://www.xmodulo.com/wireguard-vpn-network-manager-gui.html>
+
+## openwrt wireguard
+
+```bash
+opkg update
+opkg install luci-i18n-wireguard-zh-cn
+
+```
+
+### 配置
+
+Network> interface> add new interface>Name: wg0> protocol: wireguard vpn> create interface
+
+- general settings
+  - private key: private key0
+  - ip address: 192.168.53.12
+- peers> add peer
+  - description: description0
+  - 公钥: peer publick0
+  - 允许的IP: 192.168.53.0/24
+  - Route Allowed IPs: yes
+  - endpoint host: xxx.xxx.xxx.xxx
+  - endpoint port: 51900
+  - persistent keep alive: 60
+
 ---
 
 ### crostini
@@ -337,17 +378,3 @@ chromeos从 google play 安装wireguard,连接成功后，vpn全局生效包括c
 <https://wiki.debian.org/Wireguard>
 <https://docs.linuxconsulting.mn.it/notes/setup-wireguard-vpn-on-debian9>
 <https://github.com/wgredlong/WireGuard/blob/master/2.%E7%94%A8%20wg-quick%20%E8%B0%83%E7%94%A8%20wg0.conf%20%E7%AE%A1%E7%90%86%20WireGuard.md>
-
-## network manager + wireguard
-
-在 network manager 图标上点右键> edit connections...> add a new connection> choose a connection type> wireguard> create
-
-- interface name: wg0
-- private key: input private key
-
-peers> Add>
-
-- public key: `<public key>`
-- allowed ips: 192.168.53.0/24
-
-<https://www.xmodulo.com/wireguard-vpn-network-manager-gui.html>
