@@ -12,9 +12,12 @@ tags:
 
 ### install
 
-   apt install iproute2
+```bash
+# ubuntu
+apt install iproute2
+```
 
-### 查看IP地址
+### 查看 IP 地址
 
 ```bash
 # 显示所有网络地址
@@ -25,19 +28,28 @@ ip addr
 ip a
 ```
 
+## 设置网络接口的 IP 地址
+
 ```bash
+# 为网络接口分配 IPv4 地址
+# 使用这些命令配置网络接口的 IPv4 地址。
+sudo ip addr add 10.0.0.1/24 dev eth1
+ip addr add 192.168.53.0/24 dev wg0
+
+```
+
+## 删除网络接口的 IP 地址
+
+```bash
+ip addr del 192.168.53.0/24 dev wg0
 # Delete all IPv4 addresses on interface wlp3s0
 sudo ip -f inet addr del dev wlp3s0
-  
-#为网络接口分配IPv4地址
-#使用这些命令配置网络接口的IPv4地址。
-sudo ip addr add 10.0.0.1/24 dev eth1
 
 # 查端口
 ss -ntlp | grep ",1234,"
 
 sudo ip link set down eth1
-  
+
 sudo ip link set up eth1
 
 #查所有网卡的ip
@@ -46,9 +58,16 @@ ip addr show
 #查看所有网卡
 ip link show
 
-#查看某一个网卡的ip
-  
+#查看某一个网卡的 ip
 ip addr show dev eth1
+```
+
+## set link up or down
+
+```bash
+# Bring a link up or down
+ip link set dev ${interface name} up
+ip link set eth0 up
 
 ```
 
@@ -61,31 +80,25 @@ ip link set enp1s0 promisc on
 vim /usr/lib/systemd/system/promiscuous_mode@.service
 
 ```bash
-    [Unit]
-    Description=Control promiscuous mode for interface %i
-    After=network-online.target
-    Wants=network-online.target
+[Unit]
+Description=Control promiscuous mode for interface %i
+After=network-online.target
+Wants=network-online.target
 
-    [Service]
-    Type=oneshot
-    ExecStart=/sbin/ip link set promisc on dev %i
-    ExecStop=/sbin/ip link set promisc off dev %i
-    RemainAfterExit=yes
+[Service]
+Type=oneshot
+ExecStart=/sbin/ip link set promisc on dev %i
+ExecStop=/sbin/ip link set promisc off dev %i
+RemainAfterExit=yes
 
-    [Install]
-    WantedBy=multi-user.target
+[Install]
+WantedBy=multi-user.target
 ```
 
 ##### systemctl enable
 
 ```bash
-    systemctl enable promiscuous_mode@enp1s0.service
-```
-
-```bash
-ip addr add 192.168.53.0/24 dev wg0
-ip addr del 192.168.53.0/24 dev wg0
-
+systemctl enable promiscuous_mode@enp1s0.service
 ```
 
 ## ip link
@@ -245,10 +258,6 @@ ip link set dev tun0 mtu 1480
 # check arp cache
 ip neigh
 
-# Bring a link up or down
-ip link set dev ${interface name} up
-ip link set eth0 up
-
 ip link set dev ${interface name} down
 
 ip route show
@@ -262,6 +271,9 @@ ip tuntap list
 <https://segmentfault.com/a/1190000000638244>
   
 <https://access.redhat.com/sites/default/files/attachments/rh_ip_command_cheatsheet_1214_jcs_print.pdf>
+
 <https://www.cnblogs.com/LiuYanYGZ/p/12368421.html>
+
 <http://linux-ip.net/html/routing-tables.html>
-><http://linux-ip.net/gl/ip-cref/ip-cref.html>
+
+<http://linux-ip.net/gl/ip-cref/ip-cref.html>

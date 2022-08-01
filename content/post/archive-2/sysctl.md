@@ -429,8 +429,10 @@ echo 'net.ipv4.tcp_wmem= 10240 87380 12582912' >> /etc/sysctl.conf
 ```
 
 quic-go 建议设置的值是 net.ipv4.tcp_rmem=2048kiB
-><https://github.com/lucas-clemente/quic-go/wiki/UDP-Receive-Buffer-Size>
-><https://zhuanlan.zhihu.com/p/89620832>
+
+<https://github.com/lucas-clemente/quic-go/wiki/UDP-Receive-Buffer-Size>
+
+<https://zhuanlan.zhihu.com/p/89620832>
 
 UDP 中 SO_RCVBUF 与内核中 /proc/sys/net/core/rmem_default 对应，SO_SNDBUF 与 /proc/sys/net/core/wmem_default 对应。  
 而 TCP 中 SO_RCVBUF 与内核中 /proc/sys/net/ipv4/tcp_rmem 的第二项 default 对应，SO_SNDBUF 与 /proc/sys/net/ipv4/tcp_wmem 的第二项default对应。  (可能是操作系统实现的差异?)

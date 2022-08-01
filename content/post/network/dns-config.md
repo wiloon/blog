@@ -8,18 +8,19 @@ tags:
   - reprint
 ---
 ## "dns config"
+
 主机记录
 
-www :   
+www :
  将域名解析为[www.example.com](https://link.jianshu.com?t=http://www.example.com),填写www；
 
-@ :   
+@ :
  将域名解析为[example.com](https://link.jianshu.com?t=http://example.com) (不带www) ,填写@或者不填写；
 
-mail :   
+mail :
  将域名解析为mail.example.com,通常用于解析邮箱服务器；
 
-\*:   
+\*:
  泛解析,所有子域名均被解析到统一地址 (除单独设置的子域名解析) ；
 
 #### 解析线路

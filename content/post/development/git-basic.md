@@ -87,7 +87,15 @@ git branch -d -r origin/todo
 #### 分支合并, git merge 命令用于合并指定分支到当前分支
 
 ```bash
+# merge 生次 commit 的历史都合并进来
 git merge branch1 -m "MSG0"
+```
+
+```bash
+# merge, 把多次 commit 的历史合并成一次 commit
+git merge --squash
+git commit -m "comments0"
+
 ```
 
 ### 本地分支重命名(还没有推送到远程)

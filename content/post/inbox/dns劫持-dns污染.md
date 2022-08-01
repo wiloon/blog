@@ -9,7 +9,8 @@ tags:
   - reprint
 ---
 ## DNS劫持 DNS污染
-http://www.williamlong.info/archives/3356.html
+
+<http://www.williamlong.info/archives/3356.html>
 
 我们知道,某些网络运营商为了某些目的,对DNS进行了某些操作,导致网民使用正常的上网设置无法通过域名解析出正确的IP地址。常用的手段有: DNS劫持和DNS污染。
 

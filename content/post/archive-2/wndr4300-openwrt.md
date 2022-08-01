@@ -7,6 +7,7 @@ categories:
   - network
 tags:
   - reprint
+  - openwrt
 ---
 ## 'WNDR4300 openwrt'
 

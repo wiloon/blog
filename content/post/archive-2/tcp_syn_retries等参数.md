@@ -9,7 +9,7 @@ tags:
   - reprint
 ---
 ## tcp_syn_retries等参数
-http://www.chengweiyang.cn/2017/02/18/linux-connect-timeout/
+<http://www.chengweiyang.cn/2017/02/18/linux-connect-timeout/>
 
 tcp_syn_retries
   
@@ -19,7 +19,7 @@ tcp_synack_retries
 sysctl -a | grep tcp_synack_retries
 ```
 
-http://www.cnitblog.com/Scripts/archive/2009/05/20/57350.html
+<http://www.cnitblog.com/Scripts/archive/2009/05/20/57350.html>
 
 tcp_syn_retries等参数详解(转帖)
   
@@ -70,8 +70,6 @@ tcp_orphan_retries : INTEGER
 默认值是7
   
 在近端丢弃TCP连接之前﹐要进行多少次重试。默认值是7个﹐相当于 50秒 - 16分钟﹐视 RTO 而定。如果您的系统是负载很大的web服务器﹐那么也许需要降低该值﹐这类 sockets 可能会耗费大量的资源。另外参的考 tcp_max_orphans 。(事实上做NAT的时候,降低该值也是好处显著的,我本人的网络环境中降低该值为3)
-
-
 
 tcp_max_tw_buckets : INTEGER
   
@@ -133,7 +131,7 @@ tcp_window_scaling : INTEGER
   
 缺省值为1
   
-该 文件表示设置tcp/ip会话的滑动窗口大小是否可变。参数值为布尔值,为1时表示可变,为0时表示不可变。tcp/ip通常使用的窗口最大可达到 65535 字节,对于高速网络,该值可能太小,这时候如果启用了该功能,可以使tcp/ip滑动窗口大小增大数个数量级,从而提高数据传输的能力(RFC 1323)。 (对普通地百M网络而言,关闭会降低开销,所以如果不是高速网络,可以考虑设置为0) 
+该 文件表示设置tcp/ip会话的滑动窗口大小是否可变。参数值为布尔值,为1时表示可变,为0时表示不可变。tcp/ip通常使用的窗口最大可达到 65535 字节,对于高速网络,该值可能太小,这时候如果启用了该功能,可以使tcp/ip滑动窗口大小增大数个数量级,从而提高数据传输的能力(RFC 1323)。 (对普通地百M网络而言,关闭会降低开销,所以如果不是高速网络,可以考虑设置为0)
 
 tcp_timestamps : BOOLEAN
   
