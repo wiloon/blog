@@ -82,3 +82,16 @@ select now() + interval '1 month';
 select now() + interval '1 years'; 
 select NOW(), NOW() - interval '1 hours 4 minutes';
 ```
+
+## 字符串连接
+
+```sql
+string||string
+```
+
+## 转义
+
+```sql
+-- 单引号转义 ''
+UPDATE user SET username = 'Peter''s Name' WHERE id = 1;
+```

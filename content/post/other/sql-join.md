@@ -2,7 +2,7 @@
 title: sql join
 author: "-"
 date: 2012-11-14T07:37:09+00:00
-url: /?p=4674
+url: sql/join
 categories:
   - DataBase
 tags:
@@ -10,11 +10,21 @@ tags:
 ---
 ## sql join
 
+## 多个条件
+
+```sql
+SELECT a.* FROM product a LEFT JOIN product_details b
+ON a.id=b.id AND b.weight!=44 AND b.exist=0
+WHERE b.id IS NULL;
+```
+
 ### join
 
-    inner join(等值连接) 只返回两个表中联结字段相等的行
-    left join(左联接) 返回包括左表中的所有记录和右表中联结字段相等的记录
-    right join(右联接) 返回包括右表中的所有记录和左表中联结字段相等的记录
+```sql
+inner join(等值连接) 只返回两个表中联结字段相等的行
+left join(左联接) 返回包括左表中的所有记录和右表中联结字段相等的记录
+right join(右联接) 返回包括右表中的所有记录和左表中联结字段相等的记录
+```
 
 INNER JOIN 语法:
 
@@ -64,7 +74,7 @@ ON bookinfo.authorname=authorinfo.authorname;
 
 例2:  表A记录如下:
 
-**aID aNum**
+## aID aNum
 
 1 a20050111
 
@@ -78,7 +88,7 @@ ON bookinfo.authorname=authorinfo.authorname;
 
 表B记录如下:
 
-**bID bName**
+## bID bName
 
 1 2006032401
 
