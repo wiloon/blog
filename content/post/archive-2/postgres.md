@@ -19,6 +19,12 @@ podman run --name postgres -e POSTGRES_PASSWORD=password0 -d postgres
 ```bash
 pacman -S postgresql
 psql -h 127.0.0.1 -p 5432 -d database0 -U user0
+
+ \l 或 \list meta-command 列出所有数据库：
+sudo -u postgres psql -c "\l"
+用 \c + 数据库名 来进入数据库：
+ \dt 列出所有数据库表：
+ 
 ```
 
 ## 查主键
