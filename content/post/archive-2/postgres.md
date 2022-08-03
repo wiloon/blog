@@ -20,11 +20,13 @@ podman run --name postgres -e POSTGRES_PASSWORD=password0 -d postgres
 pacman -S postgresql
 psql -h 127.0.0.1 -p 5432 -d database0 -U user0
 
- \l 或 \list meta-command 列出所有数据库：
+\l 或 \list meta-command 列出所有数据库：
 sudo -u postgres psql -c "\l"
 用 \c + 数据库名 来进入数据库：
- \dt 列出所有数据库表：
- 
+\dt 列出所有数据库表：
+
+# 查看表结构
+\d table0
 ```
 
 ## 查主键
@@ -94,4 +96,15 @@ string||string
 ```sql
 -- 单引号转义 ''
 UPDATE user SET username = 'Peter''s Name' WHERE id = 1;
+```
+
+## to_number
+
+```sql
+SELECT to_number('12345', '9999999999999999999')//12345
+SELECT to_number('12345', '99999')//12345
+SELECT to_number(''||12345, '9999')//1234，由于模式是4位，结果忽略最后一位；
+SELECT to_number('    12345', '9999999999999999999')//12345
+SELECT to_number('  ab  ,1,2a3,4b5', '9999999999999999999')//12345，会忽略所有字符串中非数字字符
+
 ```

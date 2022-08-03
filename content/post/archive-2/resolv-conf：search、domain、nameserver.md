@@ -9,11 +9,12 @@ tags:
   - reprint
 ---
 ## 'resolv.conf,search、domain、nameserver'
-http://www.ttlsa.com/linux/resolv-conf-desc/
+
+<http://www.ttlsa.com/linux/resolv-conf-desc/>
   
 resolv.conf是resolver类库使用的配置文件,每当一个程序需要通过域名来访问internet上面的其它主机时,需要利用该类库将域名转换成对应的IP,然后才可进行访问.
 
-resolv.conf文件的配置选项不多,从man文档中看了半天,不理解domain和search使用来干嘛的。这里做个解释,防止以后忘了 (环境: ubuntu12.04) : 
+resolv.conf文件的配置选项不多,从man文档中看了半天,不理解domain和search使用来干嘛的。这里做个解释,防止以后忘了 (环境: ubuntu12.04) :
 
 nameserver x.x.x.x该选项用来制定DNS服务器的,可以配置多个nameserver指定多个DNS。
 
@@ -23,17 +24,17 @@ search google.com baidu.com该选项可以用来指定多个域名,中间用空�
 
 如: 在没有配置该选项时,执行
 
-#ping new
+# ping new
   
 sping: unknown host news
 
-#ping new
+# ping new
   
 sping: unknown host news
   
 配置search google.com baidu.com后,再执行
 
-#ping news
+# ping news
   
 PING news.google.com (74.125.128.101) 56(84) bytes of data.
   
@@ -41,7 +42,7 @@ PING news.google.com (74.125.128.101) 56(84) bytes of data.
   
 64 bytes from hg-in-f101.1e100.net (74.125.128.101): icmp_req=2 ttl=47 time=63.6 ms
 
-#ping news
+# ping news
   
 PING news.google.com (74.125.128.101) 56(84) bytes of data.
   
@@ -57,4 +58,4 @@ PING news.google.com (74.125.128.101) 56(84) bytes of data.
   
 · /etc/nsswitch.conf: 这个档案则是在『决定』先要使用 /etc/hosts 还是 /etc/resolv.conf的设定！
   
-https://www.jianshu.com/p/2c1c081cc521
+<https://www.jianshu.com/p/2c1c081cc521>
