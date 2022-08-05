@@ -10,6 +10,10 @@ tags:
 ---
 ## "bitwarden"
 
+## auto fill
+
+chrome extension> bitwarden> settings> option> autofill> enable auto-fill on page load
+
 ### server
 
 ```bash

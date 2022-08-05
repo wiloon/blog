@@ -588,3 +588,36 @@ for pos, char := range str {
 gofmt -w foo.go
 # -w    write result to (source) file instead of stdout
 ```
+
+## Go 匿名函数
+
+### 函数定义
+
+```go
+func(参数列表)(返回参数列表){
+    函数体
+}
+```
+
+### 在定义时调用匿名函数
+
+```go
+func(data int) {
+    fmt.Println("hello", data)
+}(100)
+```
+
+### 匿名函数赋值给变量
+
+```go
+
+// 将匿名函数体保存到f()中
+f := func(data int) {
+    fmt.Println("hello", data)
+}
+// 使用f()调用
+f(100)
+
+```
+
+<http://c.biancheng.net/view/57.html>

@@ -37,6 +37,9 @@ vim -b test.bin
 # 编辑完成后转换为二进制文件
 :$!xxd -r
 :wq
+
+# force write
+:w!
 ```
 
 ### vim utf8 乱码

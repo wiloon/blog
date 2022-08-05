@@ -117,4 +117,3 @@ rancher> cluster management> create
 
 - name: cluster0
 - Kubernetes Version: 1.23.7
-- 

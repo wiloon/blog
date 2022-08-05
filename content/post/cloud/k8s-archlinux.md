@@ -1,5 +1,5 @@
 ---
-title: archlinux, k8s
+title: k8s
 author: "-"
 date: 2021-09-26 00:09:45
 url: k8s
@@ -9,10 +9,12 @@ tags:
   - reprint
   - k8s
 ---
-## archlinux, k8s
+## k8s
 
 - kubekey <https://github.com/kubesphere/kubekey>
 - Rancher <https://rancher.com/>
+- archlinux install k8s
+- ubuntu install k8s
 
 ## Containerd, CRI-O
 
@@ -396,7 +398,14 @@ ssh-keygen -t ed25519 -C "k8s"
 sudo apt install docker.io
 sudo apt install apt-transport-https curl
 curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add
-sudo apt-add-repository "deb http://apt.kubernetes.io/ kubernetes-jammy main"
+sudo apt-add-repository "deb http://apt.kubernetes.io/ kubernetes-xenial main"
 sudo apt install kubeadm kubelet kubectl kubernetes-cni
-
+# 查看是否启用了 swap, 没有输出就是没启用
+swapon
+# 禁用 swap
+sudo swapoff -a
+# 在文件中禁用 /swapfile
+sudo nano /etc/fstab
+# 初始化 k8s master
+sudo kubeadm init
 ```
