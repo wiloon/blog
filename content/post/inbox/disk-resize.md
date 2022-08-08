@@ -15,8 +15,6 @@ tags:
 
 ## virtualbox ext4 disk resize
 
-
-
 ## PVE archlinux xfs disk resize
 
 1. 虚拟机关机
@@ -257,11 +255,13 @@ tmpfs 246M 0 246M 0% /dev/shm
 
 复制增加如下: 注意是vdb,qcow2
 
+```xml
 <disk type='file' device='disk'>
 
 <driver name='qemu' type='qcow2' cache='none'/><source file='/data/daixuan1_2.qcow2'/><target dev='vdb' bus='virtio'/>
   
 </disk>
+```
   
 开启虚拟机: virsh start daixuan1
   

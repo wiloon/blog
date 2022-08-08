@@ -20,14 +20,16 @@ sysctl命令被用于在内核运行时动态地修改内核的运行参数,可�
   
 CentOS 5 supported the placement of sysctl directives in files under /etc/sysctl.d/ . The code is within /etc/init.d/functions
 
-    sysctl [options] [variable[=value] …]
-    -a: 打印所有内核参数
-    -n: 打印时只打印值,不打印参数名称；
-    -e: 忽略未知关键字错误；
-    -N: 打印时只打印参数名称,不打印值；
-    -w: 设置参数的值
-    -p: 从配置文件"/etc/sysctl.conf"加载内核参数设置
-    -A: 以表格方式打印所有内核参数变量。
+```bash
+sysctl [options] [variable[=value] …]
+-a: 打印所有内核参数
+-n: 打印时只打印值,不打印参数名称；
+-e: 忽略未知关键字错误；
+-N: 打印时只打印参数名称,不打印值；
+-w: 设置参数的值
+-p: 从配置文件"/etc/sysctl.conf"加载内核参数设置
+-A: 以表格方式打印所有内核参数变量。
+```
 
 ### 查看变量
 

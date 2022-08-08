@@ -1,5 +1,5 @@
 ---
-title: df
+title: df command
 author: "-"
 date: 2011-10-16T10:39:32+00:00
 url: df
@@ -8,10 +8,10 @@ categories:
 tags:
   - reprint
 ---
-## df
+## df command
 
 ## 文件系统类型, 磁盘分区类型
-  
+
 ```bash
 df -T
 ```
@@ -20,7 +20,7 @@ df 是来自于coreutils 软件包，系统安装时，就自带的；我们通�
 
 举例:
 
-[root@localhost beinan]# df -lh
+df -lh
 Filesystem            容量  已用 可用 已用% 挂载点
 /dev/hda8              11G  6.0G  4.4G  58% /
 /dev/shm              236M     0  236M   0% /dev/shm
@@ -29,8 +29,6 @@ Filesystem            容量  已用 可用 已用% 挂载点
 我们从中可以看到,系统安装在/dev/hda8 ；还有一个56G的磁盘分区/dev/sda1挂载在 /mnt/sda1中；
 
 其它的参数请参考 man df
-
-## df command
 
 disk free 的缩写;用于显示目前Linux系统上的文件系统的磁盘使用情况统计, df 是用 superblock 的信息统计磁盘占用的.
 
@@ -87,7 +85,9 @@ none 127372 0 127372 0% /dev/shm
 
 //列出各文件系统的i节点使用情况。
   
-# df -ia
+```bash
+df -ia
+```
   
 Filesystem Inodes IUsed IFree IUse% Mounted on
   

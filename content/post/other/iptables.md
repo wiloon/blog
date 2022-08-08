@@ -18,7 +18,7 @@ iptables操作的是2.4以上内核的netfilter。所以需要linux的内核在2
 ### iptables 包含4个表，5个链
 
 其中表是按照对数据包的操作区分的，链是按照不同的Hook点来区分的，表和链实际上是netfilter的两个维度.  
-4个表: filter,nat,mangle,raw，默认表是filter (没有指定表 ( -t ) 的时候就是filter表) 。  
+4个表: filter,nat,mangle,raw，默认表是 filter (没有指定表 ( -t ) 的时候就是filter表) 。  
 表的处理优先级: raw>mangle>nat>filter
 
 #### 4 个表

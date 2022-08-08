@@ -123,7 +123,7 @@ ip route add fd7b:d0bd:7a6e::/64 dev wg0
 ### remove peer
 
 ```bash
-    wg set wg0 peer PEER_A_PUBLIC_KEY remove
+wg set wg0 peer PEER_A_PUBLIC_KEY remove
 ```
 
 ### 配置文件
@@ -135,9 +135,9 @@ ip route add fd7b:d0bd:7a6e::/64 dev wg0
 #### 保存配置到文件
 
 ```bash
-    wg showconf wg0 > /etc/wireguard/wg0.conf
-    wg-quick up wg0
-    wg-quick down wg0
+wg showconf wg0 > /etc/wireguard/wg0.conf
+wg-quick up wg0
+wg-quick down wg0
 ```
 
 ### systemd-networkd
@@ -148,7 +148,11 @@ systemd-resolvconf
 openresolv
 ```
 
-### iptables, 设置iptables规则，客户端连接之后就能Ping通服务端局域网里的其它ip了
+## ipv4 forward
+
+wiloon.com/ip-forward
+
+### iptables, 设置iptables规则，客户端连接之后就能 Ping 通服务端局域网里的其它 ip 了
 
 ```bash
 iptables -A FORWARD -i wg0 -j ACCEPT
@@ -252,7 +256,7 @@ mtu: auto
 使用 android 版本的 wireguard
 chromeos 从 google play 安装wireguard,连接成功后，vpn全局生效包括crostini里的linux也可以使用vpn通道
 
-### windows
+## windows
 
 - 新建空隧道
   - 名称: pingd

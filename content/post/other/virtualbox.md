@@ -51,7 +51,7 @@ VirtualBox 是一款开源 x86 虚拟机软件。Oracle VM VirtualBox 是由Sun 
   
 2010年1月21日，欧盟终于同意Oracle收购Sun，VirtualBox再次改名变成 Oracle VM VirtualBox。VirtualBox 3.2.0支持的操作系统包括: Windows, Mac OS X(Intel), Solaris 10,Linux(例如:Debian, Fedora, Mandriva, OpenSolaris, PCLiunxOS, Red Hat, SUSE Linux, Ubuntu, Xandros, openSUSE)等。Oracle VM VirtualBox 支持的客户端操作系统包括: 从 3.1到Vista的所有版本的Windows、Linux 2.2、2.4和 2.6内核、Solaris x86、OS/2、、OpenBSD、 Netware 、FreeBSD 和 DOS 。
 
-## VirtualBox磁盘镜像文件(VDI, VMDK, VHD, HDD)
+## VirtualBox 磁盘镜像文件(VDI, VMDK, VHD, HDD)
 
 (1)由VirtualBox的虚拟磁盘映像 (VDI) 的文件作为其自己的容器格式为主机硬盘。这是当用户创建一个新的虚拟机与一个新的磁盘将用于的格式。
   
@@ -149,12 +149,14 @@ sudo umount -f /mnt/shared
 
 参考资料
   
-[1] Virtualbox虚拟机Ubuntu共享文件夹设置自动挂载
+Virtualbox虚拟机Ubuntu共享文件夹设置自动挂载
 
 <https://wiki.archlinux.org/title/VirtualBox>
 
-## 扩磁盘
+## virtualbox 磁盘扩容
 
 File> Virtual Media Manager> Properties> Size> Apply
+
+linux 虚拟机如果有图形界面的话, 可以用 gparted 做后续扩容操作
 
 <https://linux.cn/article-12869-1.html>
