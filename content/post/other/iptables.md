@@ -156,6 +156,8 @@ iptables [-t tables] <-A/I/D/R> 规则链名 [规则号] <-i/o 网卡名> -p 协
 iptables -t filter -A INPUT -s 172.16.0.0/16 -p udp --dport 53 -j DROP
 # 当然你如果想拒绝的更彻底: 
 iptables -t filter -R INPUT 1 -s 172.16.0.0/16 -p udp --dport 53 -j REJECT
+
+iptables -A INPUT -s 192.168.44.111 -p tcp --tcp-flags SYN,FIN,RST FIN -j DROP
 ```
 
 ### save iptable rules
@@ -177,8 +179,6 @@ systemctl enable iptables
 if you want iptables to be loaded automatically on boot, you must enable iptables.service
 
 ## command, parameters
-
-#### COMMAND
 
 这些选项指定执行明确的动作: 若指令行下没有其他规定，该行只能指定一个选项.对于长格式的命令和选项名，所用字母长度只要保证iptables能从其他选项中区分出该指令就行了。
   
@@ -233,13 +233,17 @@ if you want iptables to be loaded automatically on boot, you must enable iptable
 
 我们可以用两种办法中的任一种删除规则。首先，因为知道这是INPUT链中唯一的规则，我们用编号删除:
 
+```bash
     iptables -D INPUT 1
+```
 
 删除INPUT链中的编号为1的规则
 
 第二种办法是 -A 命令的映射，不过用-D替换-A。当你的链中规则很复杂，而你不想计算它们的编号的时候这就十分有用了。这样的话，我们可以使用:
 
+```bash
     iptables -D INPUT -s 127.0.0.1 -p icmp -j DROP
+```
 
 -D的语法必须和-A(或者-I或者-R)一样精确。如果链中有多个相同的规则，只会删除第一个。
 
@@ -626,10 +630,3 @@ tcp通信是双向的，访问公网只会经过OUTPUT链和POSTROUTING链， �
 <https://s2.ax1x.com/2020/01/31/11v2WQ.md.png>  
 <https://imgchr.com/i/11v2WQ>  
 <https://s2.ax1x.com/2020/01/31/13pGXd.png>  
-
-## 示例
-
-```bash
-iptables -A INPUT -s 192.168.44.111 -p tcp --tcp-flags SYN,FIN,RST FIN -j DROP
-
-```

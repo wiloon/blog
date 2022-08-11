@@ -119,20 +119,19 @@ rootfs用gz打包后的文件
 
 要让系统启动,需要引导器 (x86是使用grub,好比是路由中的uboot,当然uboot管的内容更多) 、kernel、rootfs三者。
 
-### mirror
-
-sed -i 's_downloads.openwrt.org_mirrors.tuna.tsinghua.edu.cn/openwrt_' /etc/opkg/distfeeds.conf
-
 ### 安装证书
 
 openwrt 里访问 使用let's encrypt 签发的证书站点报错:  
 
-    x509: certificate signed by unknown authority
+x509: certificate signed by unknown authority
 
 安装最新的 ca-certificates 包也解决不了, 可能是因为 ca-certificates 里也没有 let's encrypt 的根证书。  
 浏览器访问站点手动导出证书后放到这个目录下解决。
 
+```bash
     vim vim /etc/ssl/certs/foo.crt
+```
+
 <https://blog.csdn.net/xushx_bigbear/article/details/47746285>
   
 <https://blog.csdn.net/lee244868149/article/details/57076615>
@@ -161,7 +160,9 @@ option 'netmask' '255.255.255.0'
 
 ### mirror
 
-    sed -i 's_downloads.openwrt.org_mirrors.tuna.tsinghua.edu.cn/openwrt_' /etc/opkg/distfeeds.conf
+```bash
+sed -i 's_downloads.openwrt.org_mirrors.tuna.tsinghua.edu.cn/openwrt_' /etc/opkg/distfeeds.conf
+```
 
 ### build
 
@@ -218,11 +219,15 @@ opkg remove xxx
 
 ### 自定义防火墙规则
 
+```bash
     /etc/firewall.user
+```
 
 ### 系统防火墙规则
 
+```bash
     /etc/config/firewall
+```
 
 #### 端口转发
 
@@ -241,17 +246,22 @@ logread
 
 ### 启动脚本位置
 
+```bash
     /etc/rc.d
+```
 
 ### openwrt添加开机运行脚本
 
 openwrt添加开机运行脚本
 进入/etc/init.d/目录创建脚本test
 
+```bash
     vim test
+```
 
 在/etc/init.d/test中按照以下格式编写shell脚本
 
+```bash
     #!/bin/sh /etc/rc.common
     START=99
     STOP=15
@@ -259,16 +269,52 @@ openwrt添加开机运行脚本
     start() {
         ip rule add fwmark 2 table 200
     }
+```
 
 START的值决定这个脚本的启动顺序,这里为99
 start()里执行增加的功能脚步或者写脚本启动自己的程序
 3.给脚本添加可执行权限
 
+```bash
     chmod +x test
+```
 
 #### 创建一个软链接
 
+```bash
     /etc/init.d/test enable
+```
+
+## send email
+
+```bash
+opkg install msmtp
+```
+
+### msmtp config, vim /etc/msmtprc
+
+```bash
+account default
+host smtp.163.com          #163 的 smtp 服务器地址
+from username@163.com      #要从哪个邮箱发出
+auth login                 #这里如果使用on的话会报 "msmtp: cannot use a secure authentication method"错误
+tls off
+user uername@163.com       #邮箱用户名
+password passwd0           #邮箱密码，这里可是明文的，文件权限 600，网易邮箱填写第三方客户端授权码
+logfile /var/log/mmlog
+```
+
+<https://www.cnblogs.com/jjzd/p/6341478.html>
+
+### send email test
+
+```bash
+ln -s /usr/bin/msmtp /usr/sbin/sendmail
+# mail to: wiloon.wy@gmail.com
+echo -e "Subject: Hello!\n\nHello, world!" |sendmail wiloon.wy@gmail.com
+
+```
+
 ---
 
 <https://wiki.openwrt.org/zh-cn/doc/techref/opkg>  

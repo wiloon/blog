@@ -166,11 +166,11 @@ This  file  contains  the  maximum  number of in-memory inodes.  On some (2.4) s
   
 是否接受ICMP转发
 
-# 忽略所有接收到的icmp echo请求的广播
+忽略所有接收到的icmp echo请求的广播
   
-# 0: 不忽略
+0: 不忽略
   
-# 1: 忽略
+1: 忽略
   
 net.ipv4.icmp_echo_ignore_broadcasts
 
@@ -183,7 +183,7 @@ net.ipv4.icmp_echo_ignore_broadcasts
 
 net.ipv4.ip_local_port_range
 
-# 本端断开的socket连接,TCP保持在FIN-WAIT-2状态的时间。对方可能会断开连接或一直不结束连接或不可预料的进程死亡。默认值为 60 秒。过去在2.2版本的内核中是 180 秒。您可以设置该值,但需要注意,如果您的机器为负载很重的web服务器,您可能要冒内存被大量无效数据报填满的风险,FIN-WAIT-2 sockets 的危险性低于 FIN-WAIT-1,因为它们最多只吃 1.5K 的内存,但是它们存在时间更长。
+本端断开的socket连接,TCP保持在FIN-WAIT-2状态的时间。对方可能会断开连接或一直不结束连接或不可预料的进程死亡。默认值为 60 秒。过去在2.2版本的内核中是 180 秒。您可以设置该值,但需要注意,如果您的机器为负载很重的web服务器,您可能要冒内存被大量无效数据报填满的风险,FIN-WAIT-2 sockets 的危险性低于 FIN-WAIT-1,因为它们最多只吃 1.5K 的内存,但是它们存在时间更长。
   
 ## net.ipv4.tcp_fin_timeout
 
@@ -216,7 +216,7 @@ Ping amount
 
 系统在同时所处理的最大 timewait sockets 数目。如果超过此数的话, time-wait socket 会被立即砍除并且显示警告信息。
   
-# Bug-to-bug compatibility with some broken printers.
+Bug-to-bug compatibility with some broken printers.
 
 On retransmit try to send bigger packets to work around bugs in
 
@@ -224,7 +224,7 @@ certain TCP stacks.
   
 net.ipv4.tcp_max_tw_buckets
 
-# 表示本机向外发起TCP SYN连接超时重传的次数,不应该高于255；该值仅仅针对外出的连接,对于进来的连接由tcp_retries1控制。
+表示本机向外发起TCP SYN连接超时重传的次数,不应该高于255；该值仅仅针对外出的连接,对于进来的连接由tcp_retries1控制。
   
 ### net.ipv4.tcp_syn_retries
 
@@ -265,15 +265,15 @@ echo fs.inotify.max_user_watches=524288 | sudo tee /etc/sysctl.d/40-max-user-wat
 ### net.ipv4.tcp_timestamps
 
 ## net.ipv4.tcp_tw_recycle
-  
-    打开快速 TIME-WAIT sockets 回收。能够更快地回收TIME-WAIT socket 。除非得到技术专家的建议或要求,请不要随意修改这个值。
+
+打开快速 TIME-WAIT sockets 回收。能够更快地回收TIME-WAIT socket 。除非得到技术专家的建议或要求,请不要随意修改这个值。
 
 ## /proc/sys/net/ipv4/tcp_tw_reuse
   
 表示是否允许将处于 TIME-WAIT 状态的 socket (TIME-WAIT的端口) 用于新的TCP连接 。
 
-    0: 关闭
-    1: 打开
+0: 关闭
+1: 打开
 
 arp通知链操作
   
@@ -368,29 +368,29 @@ Recall the previously mentioned SYN_RECV queue - your server is waiting for ACK 
 
 ### fs.mount-max
   
-    number of mounts allowed per mount namespace
+number of mounts allowed per mount namespace
 
 ## fs.nfs.idmap_cache_timeout
   
-    设置idmapper缓存项的最大寿命,单位是秒
+设置idmapper缓存项的最大寿命,单位是秒
   
-    <http://blog.wiloon.com/?p=12603>
+<http://blog.wiloon.com/?p=12603>
 
 ## fs.nfs.nfs_callback_tcpport
 
 ## /proc/sys/fs/nr_open
   
-    单个进程可分配的最大文件数
-    archlinux 默认值 1073741816
-    centos 默认值 1048576
+单个进程可分配的最大文件数
+archlinux 默认值 1073741816
+centos 默认值 1048576
 
 ## fs.file_max
   
-    内核可分配的最大文件数
+内核可分配的最大文件数
 
 ## /proc/sys/net/nf_conntrack_max
   
-    当nf_conntrack模块被装置且服务器上连接超过这个设定的值时,系统会主动丢掉新连接包,直到连接小于此设置值才会恢复。
+当nf_conntrack模块被装置且服务器上连接超过这个设定的值时,系统会主动丢掉新连接包,直到连接小于此设置值才会恢复。
 
 ## /proc/net/nf_conntrack
 
@@ -398,7 +398,7 @@ iptalbes会使用nf_conntrack模块跟踪连接，而这个连接跟踪的数量
 
 ## /proc/sys/net/ipv4/tcp_mem
   
-    确定TCP栈应该如何反映内存使用,每个值的单位都是内存页 (通常是4KB) 。第一个值是内存使用的下限；第二个值是内存压力模式开始对缓冲区使用应用压力的上限；第三个值是内存使用的上限。在这个层次上可以将报文丢弃,从而减少对内存的使用。对于较大的BDP可以增大这些值 (注意, 其单位是内存页而不是字节) 。
+确定TCP栈应该如何反映内存使用,每个值的单位都是内存页 (通常是4KB) 。第一个值是内存使用的下限；第二个值是内存压力模式开始对缓冲区使用应用压力的上限；第三个值是内存使用的上限。在这个层次上可以将报文丢弃,从而减少对内存的使用。对于较大的BDP可以增大这些值 (注意, 其单位是内存页而不是字节) 。
 
 ### /proc/sys/net/ipv4/tcp_rmem, net.ipv4.tcp_rmem
 
@@ -407,13 +407,13 @@ iptalbes会使用nf_conntrack模块跟踪连接，而这个连接跟踪的数量
 
 ### /proc/sys/net/ipv4/tcp_wmem
 
-    net.ipv4.tcp_wmem = 4096  16384 3661856
+net.ipv4.tcp_wmem = 4096  16384 3661856
 
 定义 tcp socket 使用的内存。第一个值是为 socket 发送缓冲区分配的最少字节数；第二个值是默认值 (该值会被 wmem_default 覆盖), 缓冲区在系统负载不重的情况下可以增长到这个值；第三个值是发送缓冲区空间的最大字节数 (该值会被 wmem_max 覆盖) 。
 
 ### net.core.rmem_max, /proc/sys/net/core/rmem_max
 
-    net.core.rmem_max=2500000
+net.core.rmem_max=2500000
 
 This buffer holds packets that have been received by the kernel, but not yet read by the application (quic-go in this case). Once this buffer fills up, the kernel will drop any new incoming packet.
 
@@ -444,9 +444,10 @@ rmem_max 参数是整个系统的大小，不是单个socket的大小。
 ><https://www.cnblogs.com/scaugsh/p/10254483.html>
 
 如果指定了tcp_wmem，则net.core.wmem_default被tcp_wmem的覆盖。send Buffer在tcp_wmem的最小值和最大值之间自动调整。如果调用setsockopt()设置了socket选项SO_SNDBUF，将关闭发送端缓冲的自动调节机制，tcp_wmem将被忽略，SO_SNDBUF 的最大值由net.core.wmem_max限制。
-><https://zhuanlan.zhihu.com/p/89620832>
 
-><https://stackoverflow.com/questions/31546835/tcp-receiving-window-size-higher-than-net-core-rmem-max>
+<https://zhuanlan.zhihu.com/p/89620832>
+
+<https://stackoverflow.com/questions/31546835/tcp-receiving-window-size-higher-than-net-core-rmem-max>
 
 ### net.core.rmem_default
 
@@ -488,11 +489,13 @@ bridge-nf使得netfilter可以对Linux网桥上的IPv4/ARP/IPv6包过滤。比�
 ### net.bridge.bridge-nf-filter-vlan-tagged
 
 是否在iptables/arptables中过滤打了vlan标签的包
-当然，也可以通过/sys/devices/virtual/net/<bridge-name>/bridge/nf_call_iptables来设置，但要注意内核是取两者中大的生效。
+当然，也可以通过`/sys/devices/virtual/net/<bridge-name>/bridge/nf_call_iptables`来设置，但要注意内核是取两者中大的生效。
 
 有时，可能只希望部分网桥禁止bridge-nf，而其他网桥都开启 (比如CNI网络插件中一般要求bridge-nf-call-iptables选项开启，而有时又希望禁止某个网桥的bridge-nf），这时可以改用iptables的方法：
 
+```bash
 iptables -t raw -I PREROUTING -i <bridge-name> -j NOTRACK
+```
 
 ### vm.swappiness
 
@@ -552,9 +555,9 @@ number of simultaneous system users, you might want to raise the limit.
 
 ### file-nr
 
-    cat /proc/sys/fs/file-nr
-    2112                            0                                   2100000
-    全局已经分配的文件描述符(fd)数     已分配未使用文件描述符(fd)的数目      内核最大能分配的文件描述符(fd)数
+cat /proc/sys/fs/file-nr
+2112                            0                                   2100000
+全局已经分配的文件描述符(fd)数     已分配未使用文件描述符(fd)的数目      内核最大能分配的文件描述符(fd)数
 
 ### inode-nr, /proc/sys/fs/inode-nr
 
@@ -566,11 +569,11 @@ This file contains the first two values from inode-state.
 
 ### /proc/sys/fs/inode-state
 
-    This file contains seven  numbers:  nr_inodes,  nr_free_inodes,  preshrink  and  four  dummy  values.
-    nr_inodes is the number of inodes the system has allocated.  This can be slightly more than inode-max
-    because Linux allocates them one page full at a time.  nr_free_inodes represents the number  of  free
-    inodes.  preshrink is non-zero when the nr_inodes > inode-max and the system needs to prune the inode
-    list instead of allocating more.
+This file contains seven  numbers:  nr_inodes,  nr_free_inodes,  preshrink  and  four  dummy  values.
+nr_inodes is the number of inodes the system has allocated.  This can be slightly more than inode-max
+because Linux allocates them one page full at a time.  nr_free_inodes represents the number  of  free
+inodes.  preshrink is non-zero when the nr_inodes > inode-max and the system needs to prune the inode
+list instead of allocating more.
 
 ><https://sysctl-explorer.net/>
 ><https://www.infoq.cn/article/sFjkj1C5bz2kOXSxYbHO?utm_source=rss&utm_medium=article>

@@ -318,6 +318,46 @@ Network> interface> add new interface>Name: wg0> protocol: wireguard vpn> create
   - endpoint port: 51900
   - persistent keep alive: 60
 
+### openwrt 定时检查连接, 重启 wireguard
+
+wireguard 只会在连接初始化的时候解析一次, 如果 ddns, 在 ip 更新 之后, wireguard 不会重连, 以下脚本定时检测连接, 有问题就重启 wireguard.
+
+```bash
+#!/bin/sh
+#modified from https://openwrt.org/docs/guide-user/base-system/cron
+#modified to use logger for global logging instead of scriptlogfile & added infinite reboot protection for reboot
+# Prepare vars
+DATE=$(date +%Y-%m-%d" "%H:%M:%S)
+#logFile="/persistlogs/syslog"
+
+# Ping and reboot if needed
+
+#YOUR WIREGUARD PEER
+CHECKHOSTNAME="192.168.53.1"
+
+notification_email="wiloon.wy@gmail.com"
+VPNINTERFACE="wg0"
+
+
+ping -c3 $CHECKHOSTNAME
+
+if [ $? -eq 0 ]; then
+    echo "ok"
+    logger $(echo "${DATE} - $0: OK - $VPNINTERFACE UP AND RUNNING")
+
+else
+    echo "RESTART wgvpn0 Interface"
+    logger $(echo "${DATE} - $0: NO VPN CONNECTION RESTART $VPNINTERFACE INTERFACE...")
+    # Note: To avoid infinite reboot loop, wait 70 seconds and touch a file in /etc
+    ifdown $VPNINTERFACE
+    ifup $VPNINTERFACE
+        echo Subject: $0: VPN $VPNINTERFACE has been restarted | sendmail -v "$notification_email"
+fi
+
+```
+
+<https://forum.openwrt.org/t/restart-wireguard-via-cli/51935/10>
+
 ---
 
 <https://www.whosneo.com/wireguard-openwrt-ipv6/>
