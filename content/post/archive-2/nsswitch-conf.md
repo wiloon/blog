@@ -9,7 +9,8 @@ tags:
   - reprint
 ---
 ## nsswitch.conf
-http://lsscto.blog.51cto.com/779396/904078
+
+<http://lsscto.blog.51cto.com/779396/904078>
 
 /etc/nsswitch.conf文件解释
   
@@ -17,9 +18,9 @@ http://lsscto.blog.51cto.com/779396/904078
   
 标签: nsswitch 文件 conf 休闲 职场
   
-原创作品,允许转载,转载时请务必以超链接形式标明文章 原始出处 、作者信息和本声明。否则将追究法律责任。http://songzai.blog.51cto.com/52048/59678
+原创作品,允许转载,转载时请务必以超链接形式标明文章 原始出处 、作者信息和本声明。否则将追究法律责任。<http://songzai.blog.51cto.com/52048/59678>
   
-nsswitch.conf是SUN公司开发的一种扩充 (name services switch) 
+nsswitch.conf是SUN公司开发的一种扩充 (name services switch)
   
 DESCRIPTION
   
@@ -177,4 +178,4 @@ tryagain: 服务临时不可用. 可能是文件被锁住了或者服务器当�
 
 以上是我目前的理解,但感觉还没理解透,还请大家一起来讨论
   
-本文出自 "松仔的技术博客" 博客,请务必保留此出处http://songzai.blog.51cto.com/52048/59678
+本文出自 "松仔的技术博客" 博客,请务必保留此出处<http://songzai.blog.51cto.com/52048/59678>

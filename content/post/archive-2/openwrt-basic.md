@@ -1,7 +1,7 @@
 ---
 title: openwrt basic, opkg basic, ipk
 author: "-"
-date: 2018-07-26T05:04:27+00:00
+date: 2022-08-11 08:27:40
 url: openwrt
 categories:
   - network
@@ -286,6 +286,8 @@ start()里执行增加的功能脚步或者写脚本启动自己的程序
 ```
 
 ## send email
+
+opkg 默认不提供 sendmail, 替代的包是 msmtp
 
 ```bash
 opkg install msmtp
