@@ -13,20 +13,45 @@ tags:
 ## install
 
 ```bash
-podman run --name postgres -e POSTGRES_PASSWORD=password0 -d postgres
+podman run --name postgres \
+-p 5432:5432 \
+-e POSTGRES_PASSWORD=password0 \
+-e PGDATA=/var/lib/postgresql/data/pgdata \
+-v postgres-data:/var/lib/postgresql/data \
+-d postgres:14.5
+
+psql -h 127.0.0.1 -p 5432 -U postgres
+# password: password0
 ```
+
+## commands
 
 ```bash
 pacman -S postgresql
 psql -h 127.0.0.1 -p 5432 -d database0 -U user0
 
-\l 或 \list meta-command 列出所有数据库：
+# create database
+CREATE DATABASE foo;
+
+# create table
+create table table0(field0 json);
+
+# 查看字段类型
+select column_name, data_type from information_schema.columns where table_name='table0';
+
+\l 或 \list meta-command 列出所有数据库
 sudo -u postgres psql -c "\l"
 用 \c + 数据库名 来进入数据库：
 \dt 列出所有数据库表：
 
 # 查看表结构
 \d table0
+```
+
+## psql 直接执行 sql
+
+```sql
+PGPASSWORD=postgres psql -h 127.0.0.1 -p 5432 -d database0 -U user0  --command 'select version();'
 ```
 
 ## 查主键
@@ -63,11 +88,7 @@ AND pg_constraint.contype = 'p';
 
 postgresql序列号（SERIAL）类型包括smallserial（smallint,short）,serial(int)和bigserial(bigint,long long int)，不管是smallserial,serial还是bigserial，其范围都是(1,9223372036854775807)，但是序列号类型其实不是真正的类型，当声明一个字段为序列号类型时其实是创建了一个序列，INSERT时如果没有给该字段赋值会默认获取对应序列的下一个值。
 
-## psql 直接执行 sql
 
-```sql
-PGPASSWORD=postgres psql -h 127.0.0.1 -p 5432 -d database0 -U user0  --command 'select version();'
-```
 
 ## 日期格式化
 

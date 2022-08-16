@@ -107,11 +107,12 @@ git branch -m oldName newName
 ## commands
 
 ```bash
-## commands
-
-```bash
 # 计算对象数和磁盘消耗
 git count-objects -vH
+# 指定目录 1.8.5 以前
+git --git-dir=/Users/jhoffmann/tmp/my-project/.git --work-tree=/Users/jhoffmann/tmp/my-project/ pull
+# 指定目录 >=1.8.5
+git -C /Users/jhoffmann/tmp/my-project/ pull
 ```
 
 ## 连通性测试

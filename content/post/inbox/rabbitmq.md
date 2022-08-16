@@ -1,7 +1,7 @@
 ---
 title: "rabbitmq"
 author: "-"
-date: ""
+date: "2021-08-16 09:10:31"
 url: ""
 categories:
   - "MQ"
@@ -13,9 +13,7 @@ tags:
 ## rabbitmq
 
 ```bash
-podman run -d --hostname host0 --name rabbitmq -p 15672:15672 -p 5672:5672 rabbitmq:3.10.6-management
-
-使用：http://宿主ip:15672 访问，用户名密码使用默认：guest/guest.
+podman run -d --hostname host0 --name rabbitmq -p 15672:15672 -p 5672:5672 rabbitmq:3.10.7-management
 
 rabbitmqctl list_connections
 rabbitmqctl list_queues
@@ -24,3 +22,7 @@ rabbitmqctl list_users
 
 rabbitmqctl cluster_status
 ```
+
+## 管理页面
+
+使用：`http://宿主ip:15672` 访问管理页面，默认用户名密码：guest/guest
