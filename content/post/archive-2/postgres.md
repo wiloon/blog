@@ -46,6 +46,8 @@ sudo -u postgres psql -c "\l"
 
 # 查看表结构
 \d table0
+
+select * length( "abc"::TEXT)
 ```
 
 ## psql 直接执行 sql
