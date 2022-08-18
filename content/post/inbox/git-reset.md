@@ -90,26 +90,32 @@ git reset ** file0
 
 彻底回退到某个版本，本地的源码也会变成为上一个版本的内容
 
+```bash
     git reset -hard file0
 
     git reset -mixed: 此为默认方式，不带任何参数的git reset，这种方式，它回退到某个版本，只保留源码，回退commit和index信息
     git reset -soft:回退到某个版本，只回退了commit的信息，不会恢复到index file一级。如果还要提交，直接commit即可
 
+```
+
 ```bash
     git reset --hard
 ```
 
+```bash
     git reset [-q] [<tree-ish>] [--] <paths>…​
     git reset (--patch | -p) [<tree-ish>] [--] [<paths>…​]
     EXPERIMENTAL: git reset [-q] [--stdin [-z]] [<tree-ish>]
     git reset [--soft | --mixed [-N] | --hard | --merge | --keep] [-q] [<commit>]
 
-回退HEAD到某一个<commit>
-git reset <paths>
-这是 git add <paths> 的反向用法。
+```
 
-git add <paths> 是将修改后的文件添加到暂存区。
-git reset <paths> 则是将暂存区内的文件移出。如果没有指定路径文件，则会将暂存区内修改的文件全部移出。
+回退HEAD到某一个`<commit>`
+git reset `<paths>`
+这是 git add `<paths>` 的反向用法。
+
+git add `<paths>` 是将修改后的文件添加到暂存区。
+git reset `<paths>` 则是将暂存区内的文件移出。如果没有指定路径文件，则会将暂存区内修改的文件全部移出。
 
 假设master分支上的提交记录如下：
 A->B->C->D
@@ -121,9 +127,11 @@ git reset --soft B
 
 ### mixed
 
+```bash
     git reset --mixed B   
     # 二者是一样的  
     git reset B
+```
 
 这个时候可以发现，C,D两次提交做的修改依然存在，但是不在索引区内，，记如果需要重新提交，则需要先调用git add。
 

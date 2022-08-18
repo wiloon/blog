@@ -78,18 +78,25 @@ git revert HEAD
 
 #### 撤销前前一次 commit
 
+```bash
     git revert HEAD^
+```
 
 #### 撤销指定的版本，撤销也会作为一次提交进行保存
 
+```bash
     git revert commit  (比如：fa042ce57ebbe5bb9c8db709f719cec2c58ee7ff）
     git revert
     git revert [--[no-]edit] [-n] [-m parent-number] [-s] [-S[<keyid>]] <commit>…​
     git revert --continue
     git revert --quit
     git revert --abort
+```
 
+```bash
 git revert [--[no-]edit] [-n] [-m parent-number] [-s] [-S[<keyid>]] <commit>…​
+```
+
 --edit or --no-edit 是否弹出commit message窗口
 **-n**是 --no-commit 的缩写
 -m parent-number 存在merge是，指定父系分支号？这个还不怎么懂，暂时略过。

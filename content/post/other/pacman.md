@@ -65,6 +65,10 @@ error: unzip: signature from "Jonas Witschel <diabonas@gmx.de>" is unknown trust
 
 <https://bbs.archlinux.org/viewtopic.php?id=128682>
 
+```bash
+pacman -Sy archlinux-keyring
+```
+
 #### trust all
 
 ```bash
@@ -134,7 +138,7 @@ Include = /etc/pacman.d/mirrorlist
 
 ```bash
 --noconfirm
-Bypass any and all "Are you sure?" messages. It's not a good idea to do this unless you want to run pacman from a script.
+# Bypass any and all "Are you sure?" messages. It's not a good idea to do this unless you want to run pacman from a script.
 ```
 
 ### archlinux key could not be looked up remotely

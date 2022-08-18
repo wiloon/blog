@@ -30,27 +30,22 @@ git branch -m main
 git symbolic-ref --short HEAD  
 ```
 
-#### 查看本地所有分支, 当前分支前面会标一个*号
+### 查看
 
 ```bash
+#### 查看所有的分支
+git branch -a
+# 查看本地所有分支, 当前分支前面会标一个 `*` 号
 git branch
 # check branch detail
 git branch -v
-```
-
 #### 查看远程所有分支
-
-```bash
 git branch -r 
 ```
 
-#### 查看所有的分支
-
-```bash
-git branch -a
-```
-
 #### 新建分支
+
+新建分支其实就是在当前位置打个标签, 也就是说...新分支是以当前分支的commit为基础的.
 
 ```bash
 git branch branch0
@@ -78,16 +73,16 @@ git branch -d branch0
 git branch -D branch0
 ```
 
-#### 删除远程的todo branch
+#### 删除远程的 todo branch
 
 ```bash
 git branch -d -r origin/todo
 ```
 
-#### 分支合并, git merge 命令用于合并指定分支到当前分支
+#### 合并分支, git merge 命令用于合并指定分支到当前分支
 
 ```bash
-# merge 生次 commit 的历史都合并进来
+# merge 默认会把 commit 的历史都合并进来
 git merge branch1 -m "MSG0"
 ```
 
@@ -98,7 +93,7 @@ git commit -m "comments0"
 
 ```
 
-### 本地分支重命名(还没有推送到远程)
+### 本地分支重命名 (还没有推送到远程)
 
 ```bash
 git branch -m oldName newName
@@ -115,7 +110,7 @@ git --git-dir=/Users/jhoffmann/tmp/my-project/.git --work-tree=/Users/jhoffmann/
 git -C /Users/jhoffmann/tmp/my-project/ pull
 ```
 
-## 连通性测试
+## Git 连通性测试
 
 ```bash
 ssh -T git@github.com
@@ -243,7 +238,7 @@ git rm -r xxx/xxx
 ### 将指定的提交 (commit) 应用于其他分支
 
 ```bash
-    git cherry-pick <commitHash>
+git cherry-pick <commitHash>
 ```
 
 <https://www.ruanyifeng.com/blog/2020/04/git-cherry-pick.html>
@@ -251,13 +246,13 @@ git rm -r xxx/xxx
 ### 指定ssh 私钥
 
 ```bash
-    GIT_SSH_COMMAND="ssh -i ~/tmp/id_rsa" git clone git@github.com:wiloon/foo.git
+GIT_SSH_COMMAND="ssh -i ~/tmp/id_rsa" git clone git@github.com:wiloon/foo.git
 ```
 
 ### 打印当前版本
 
 ```bash
-    git rev-parse HEAD
+git rev-parse HEAD
 ```
 
 ### git checkout
@@ -271,7 +266,7 @@ git checkout HEAD . # 将所有代码都 checkout 出來(最后一次 commit 的
 ### checkout 指定版本
 
 ```bash
-    git checkout 788258e49531eb24bfd347a600d69a16f966c495
+git checkout 788258e49531eb24bfd347a600d69a16f966c495
 ```
 
 ### 放弃本地未提交的修改
@@ -294,14 +289,14 @@ git checkout master
 
 ### git config
 
-#### 查看
+#### 查看 config
 
 config 配置有system级别 global (用户级别)  和local (当前仓库) 三个 设置先从system-》global-》local  底层配置会覆盖顶层配置 分别使用--system/global/local 可以定位到配置文件
 
 ```bash
-    git config --list
-    git config --system --list
-    git config --global core.editor vim
+git config --list
+git config --system --list
+git config --global core.editor vim
 ```
 
 查看当前用户 (global) 配置

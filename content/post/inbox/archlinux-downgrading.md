@@ -23,3 +23,5 @@ Server=<https://archive.archlinux.org/repos/2014/03/30/>$repo/os/$arch
 Then update the database and force downgrade:
 
 pacman -Syyuu
+
+<https://www.geniusxiaoshuai.com/exp/93.html>

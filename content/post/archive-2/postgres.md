@@ -82,15 +82,11 @@ INNER JOIN pg_type ON pg_type.oid = pg_attribute.atttypid
 WHERE
     pg_class.relname = 'table_name_0'
 AND pg_constraint.contype = 'p';
-
-
 ```
 
 ## bigserial
 
 postgresql序列号（SERIAL）类型包括smallserial（smallint,short）,serial(int)和bigserial(bigint,long long int)，不管是smallserial,serial还是bigserial，其范围都是(1,9223372036854775807)，但是序列号类型其实不是真正的类型，当声明一个字段为序列号类型时其实是创建了一个序列，INSERT时如果没有给该字段赋值会默认获取对应序列的下一个值。
-
-
 
 ## 日期格式化
 
@@ -130,4 +126,4 @@ SELECT to_number(''||12345, '9999')//1234，由于模式是4位，结果忽略�
 SELECT to_number('    12345', '9999999999999999999')//12345
 SELECT to_number('  ab  ,1,2a3,4b5', '9999999999999999999')//12345，会忽略所有字符串中非数字字符
 
-```
+``
