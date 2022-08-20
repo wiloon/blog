@@ -65,6 +65,12 @@ git switch -c dev
 git checkout -b branch0
 ```
 
+#### 把新建的分支推送到远端
+
+```bash
+git push origin dev
+```
+
 #### 删除分支
 
 ```bash
@@ -79,7 +85,7 @@ git branch -D branch0
 git branch -d -r origin/todo
 ```
 
-#### 合并分支, git merge 命令用于合并指定分支到当前分支
+#### merge 合并分支, git merge 命令用于合并指定分支到当前分支
 
 ```bash
 # merge 默认会把 commit 的历史都合并进来
@@ -90,7 +96,8 @@ git merge branch1 -m "MSG0"
 # merge, 把多次 commit 的历史合并成一次 commit
 git merge --squash
 git commit -m "comments0"
-
+# 解决Git报错:error: You have not concluded your merge (MERGE_HEAD exists).
+git merge --abort
 ```
 
 ### 本地分支重命名 (还没有推送到远程)
@@ -420,6 +427,8 @@ git pull <远程主机名> <远程分支名>:<本地分支名>
 //取回远程主机某个分支的更新，再与本地的指定分支合并。
 
 因此，与git pull相比git fetch相当于是从远程获取最新版本到本地，但不会自动merge。如果需要有选择的合并git fetch是更好的选择。效果相同时git pull将更为快捷。
+
+`git pull` 标准或完整的命令是 `git pull remote_repository_name branch_name`
 
 ```bash
 git pull

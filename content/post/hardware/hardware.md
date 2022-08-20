@@ -16,6 +16,7 @@ tags:
 - SONY WF-1000XM3
 - CanoKey
 - K375S
+- Dell Inspiron N4050
 
 ## ThinkPad X1 Carbon Gen 9
 

@@ -14,7 +14,7 @@ tags:
 ### consumer
 
 ```bash
-bin/kafka-console-consumer.sh --topic topic0 --bootstrap-server localhost:9092
+bin/kafka-console-consumer.sh --topic topic0 --bootstrap-server 127.0.0.1:9092
 bin/kafka-console-consumer.sh --topic topic0 --from-beginning --bootstrap-server localhost:9092
 
 bin/kafka-console-consumer.sh \
@@ -33,6 +33,10 @@ bin/kafka-console-consumer.sh \
 ### producer
 
 ```bash
+bin/kafka-console-producer.sh \
+--broker-list 127.0.0.1:9092 \
+--topic topic0
+
 bin/kafka-console-producer.sh \
 --broker-list kafka.wiloon.com:9092 \
 --topic topic0
@@ -73,10 +77,11 @@ bin/kafka-consumer-groups.sh --bootstrap-server localhost:9092 \
 
 ## topic
 
-### list topic, 查看 kafka topic 列表,使用--list参数
+### list topic, 查看 kafka topic 列表, 使用--list参数
 
 ```bash
 # kafka 3.0
+bin/kafka-topics.sh --list --bootstrap-server 127.0.0.1:9092
 bin/kafka-topics.sh --list --bootstrap-server 192.168.50.169:9092
 
 bin/kafka-topics.sh --list --zookeeper localhost:2181
@@ -184,28 +189,28 @@ zookeeper.connect=localhost:2181
 ### 删除topic
 
 ```bash
-    bin/kafka-topics.sh --topic t0 --delete --zookeeper test-zookeeper-1
+bin/kafka-topics.sh --topic t0 --delete --zookeeper test-zookeeper-1
 
-    #edit bin/kafka-server-start.sh, change memory setting KAFKA_HEAP_OPTS
-    #start kafka server
-    bin/kafka-server-start.sh config/server.properties
+#edit bin/kafka-server-start.sh, change memory setting KAFKA_HEAP_OPTS
+#start kafka server
+bin/kafka-server-start.sh config/server.properties
 
-    #start kafka server as daemon
-    bin/kafka-server-start.sh -daemon config/server.properties
+#start kafka server as daemon
+bin/kafka-server-start.sh -daemon config/server.properties
 
-    bin/kafka-console-producer.sh --broker-list localhost:9092 --topic topic0
-    bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic topic0 --from-beginning --property "parse.key=true" --property "key.separator=:"
+bin/kafka-console-producer.sh --broker-list localhost:9092 --topic topic0
+bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic topic0 --from-beginning --property "parse.key=true" --property "key.separator=:"
 
-    ./bin/kafka-server-start.sh config/server.properties
+./bin/kafka-server-start.sh config/server.properties
 
-    查看不可用分区 ./kafka-topics.sh --topic test --describe --unavailable-partitions --zookeeper
-    bin/kafka-console-producer.sh --broker-list test-kafka-1:9092 --topic t0
-    bin/kafka-console-consumer.sh --bootstrap-server --zookeeper xxx:2181 test-kafka-1:9092 --topic t0 --from-beginning
+查看不可用分区 ./kafka-topics.sh --topic test --describe --unavailable-partitions --zookeeper
+bin/kafka-console-producer.sh --broker-list test-kafka-1:9092 --topic t0
+bin/kafka-console-consumer.sh --bootstrap-server --zookeeper xxx:2181 test-kafka-1:9092 --topic t0 --from-beginning
 
-    bin/kafka-console-consumer.sh --bootstrap-server test-kafka-1:9092 --topic t0 --from-beginning
+bin/kafka-console-consumer.sh --bootstrap-server test-kafka-1:9092 --topic t0 --from-beginning
 
-    # 会只消费 N 条数据,如果配合 --from-beginning,就会消费最早 N 条数据。
-    bin/kafka-console-consumer.sh --bootstrap-server test-kafka-1:9092 --topic t0 --max-messages 10
+# 会只消费 N 条数据,如果配合 --from-beginning,就会消费最早 N 条数据。
+bin/kafka-console-consumer.sh --bootstrap-server test-kafka-1:9092 --topic t0 --max-messages 10
 ```
 
 ### 调整 ReplicationFactor
@@ -246,9 +251,9 @@ podman volume create kafka-config
 
 可以复制 kafka_2.13-3.0.0.tgz 里的 config/kraft/server.properties 文件改造一下.
 
->vim /var/lib/containers/storage/volumes/kafka-config/_data/server.properties
+vim /var/lib/containers/storage/volumes/kafka-config/_data/server.properties
 
-```
+```bash
 process.roles=broker,controller
 node.id=1
 controller.quorum.voters=1@localhost:9093
@@ -274,24 +279,26 @@ log.retention.check.interval.ms=300000
 ```
 
 ```bash
-# 格式化storage
+# 格式化storage, 先格式化 storage 再启动 kafka
 podman run --rm --name kafka \
 -e ALLOW_PLAINTEXT_LISTENER=yes \
 -p 9092:9092 \
--v /data/kafka/server.properties:/bitnami/kafka/config/server.properties \
+-v kafka-config:/bitnami/kafka/config \
 -v kafka-storage:/data/kafka \
-bitnami/kafka:3.0.0 kafka-storage.sh format --config /bitnami/kafka/config/server.properties --cluster-id eVW-QkMeS8CeY1Bcuj4S-g --ignore-formatted
+bitnami/kafka:3.2 kafka-storage.sh format --config /bitnami/kafka/config/server.properties --cluster-id eVW-QkMeS8CeY1Bcuj4S-g --ignore-formatted
 
-# 创建单节点kafka 容器 
+# 创建单节点 kafka 容器 
 podman run -d --name kafka \
 -e ALLOW_PLAINTEXT_LISTENER=yes \
 -p 9092:9092 \
 -v kafka-config:/bitnami/kafka/config \
 -v kafka-storage:/data/kafka \
-bitnami/kafka:3.0.0
+bitnami/kafka:3.2
+
+
 ```
 
-#### install kafka with zookeeper
+### install kafka with zookeeper
 
 [http://blog.wiloon.com/?p=7242](http://blog.wiloon.com/?p=7242)
 
