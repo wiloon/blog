@@ -15,7 +15,11 @@ systemctl list-timers
 systemctl list-timers --all
 ```
 
-## 创建一个服务 /etc/systemd/system/foo.service
+## 创建一个服务
+
+```bash
+vim /etc/systemd/system/foo.service
+```
 
 ```bash
 [Unit]
@@ -30,10 +34,15 @@ WantedBy=multi-user.target
 ## 再创建一个对应的 timer, /etc/systemd/system/foo.timer
 
 ```bash
+vim /etc/systemd/system/foo.timer
+```
+
+```bash
 [Unit]
 Description=foo timer
 
 [Timer]
+# every day 12:00:00
 OnCalendar=*-*-* 12:00:00
 Persistent=true
 Unit=foo.service

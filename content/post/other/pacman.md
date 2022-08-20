@@ -367,11 +367,13 @@ Pacman的配置文件位于/etc/pacman.conf。关于配置文件的进一步信�
   
 常用选项都在[options]段。阅读man手册或者查看缺省的pacman.conf可以获得有关信息和用途。
 
-## 忽略/排除升级软件包
+## 忽略/排除升级软件包, 不升级指定的包
   
 如果由于某种原因，你不希望升级某个软件包，可以加入内容如下:
   
-IgnorePkg = 软件包名
+```bash
+IgnorePkg = linux
+```
   
 多软件包可以用空格隔开，也可是用 glob 模式。如果只打算忽略一次升级，可以使用 -ignore 选项。
 
@@ -420,4 +422,44 @@ sudo pacman -Rdd libdmx libxxf86dga && sudo pacman -Syu
 
 ```bash
 sudo pacman -Sy archlinux-keyring
+```
+
+## 'archlinux  downgrading'
+
+<https://wiki.archlinux.org/index.php/Arch_Linux_Archive>
+
+replacing your /etc/pacman.d/mirrorlist with the following content:
+
+## Arch Linux repository mirrorlist
+
+## Generated on 2042-01-01
+  
+Server=<https://archive.archlinux.org/repos/2014/03/30/>$repo/os/$arch
+  
+Then update the database and force downgrade:
+
+pacman -Syyuu
+
+<https://www.geniusxiaoshuai.com/exp/93.html>
+
+## archlinux 回退软件包到某一天
+
+```bash
+vim /etc/pacman.conf
+
+# content
+[core]
+SigLevel = PackageRequired
+Server = https://archive.archlinux.org/repos/2022/08/13/$repo/os/$arch
+
+[extra]
+SigLevel = PackageRequired
+Server = https://archive.archlinux.org/repos/2022/08/13/$repo/os/$arch
+
+[community]
+SigLevel = PackageRequired
+Server = https://archive.archlinux.org/repos/2022/08/13/$repo/os/$arch
+
+
+pacman -Syyuu
 ```
