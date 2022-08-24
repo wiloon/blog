@@ -1,7 +1,7 @@
 ---
 title: pacman
 author: "-"
-date: 2015-04-25T03:37:27+00:00
+date: 2022-08-22 15:53:48
 url: pacman
 categories:
   - Linux
@@ -107,6 +107,7 @@ sudo downgrade cmake
 vim  /etc/pacman.d/mirrorlist
 
 # /etc/pacman.d/mirrorlist
+Server = http://mirrors.163.com/archlinux/$repo/os/$arch
 Server = http://mirrors.aliyun.com/archlinux/$repo/os/$arch
 Server = http://mirrors.neusoft.edu.cn/archlinux/
 Server = http://mirrors.lug.mtu.edu/archlinux/

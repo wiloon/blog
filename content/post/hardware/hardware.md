@@ -23,6 +23,9 @@ tags:
 - i7-1185G7
 - 16G
 - 512G
+- Intel AX201
+  - Wi-Fi CERTIFIED*Wi-Fi 6 (802.11ax)
+  - Max Speed2.4 Gbps
 
 ## benchmark
 
@@ -277,6 +280,8 @@ WMM、节电、Tx 波束成形、LDPC、STBC、802.11r/k/v
 Hotspot 2.0
 强制门户
 WISPr
+
+<https://support.ruckuswireless.com/products/88-ruckus-r310#sort=relevancy&f:@source=[Documentation]&f:@commonproducts=[R310]>
 
 ## Kindle Voyage
 

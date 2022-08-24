@@ -13,6 +13,7 @@ tags:
 ## iOS/Android
 
 - bitwarden
+- plex, 流媒体服务器
 
 |name       |comments|
 |-|-|

@@ -128,9 +128,22 @@ SELECT to_number('  ab  ,1,2a3,4b5', '9999999999999999999')//12345，会忽略�
 
 ```
 
-## dump
+## 导出
 
 ```bash
-pg_dump -h 127.0.0.1 -p 5432 -t table0 -U postgres foo > foo.dump
+# -h, host 127.0.0.1
+# -p, port 5432
+# -t, table: table0
+# database: database0
+pg_dump -h 127.0.0.1 -p 5432 -t table0 -U postgres database0 > foo.sql
+
+# 导出并压缩
+pg_dump -d db_name | gzip > db.gz
+```
+
+## 导入
+
+```bash
+psql -h 127.0.0.1 -p 5432 -t table0 -U postgres -d database0 -f foo.sql
 
 ```

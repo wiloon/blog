@@ -26,9 +26,6 @@ git clone git@github.com:wiloon/ansible.git
 
 <http://blog.wiloon.com/?p=9881>
 
-### config pacman mirror
-
-<https://blog.wiloon.com/?p=7501>
 pacman -Syu
 
 ### create user and set password
