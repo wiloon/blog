@@ -8,24 +8,29 @@ categories:
 tags:
   - reprint
 ---
-## 证书, x509, keystore, truststore, pem,
+## 证书, x509, keystore, truststore, pem
+
 ### 证书和编码
+
 X.509证书,其核心是根据RFC 5280编码或数字签名的数字文档。
 
 实际上，术语X.509证书通常指的是IETF的PKIX证书和X.509 v3证书标准的CRL 文件，即如RFC 5280 (通常称为PKIX for Public Key Infrastructure (X.509））中规定的。
 
 ### .CRT 扩展名
+
 .CRT = CRT扩展用于证书。 证书可以被编码为二进制DER或ASCII PEM。 CER和CRT扩展几乎是同义词。 最常见的于Unix 或类Unix系统。
 
 ### .cer
+
 .CER扩展名
  CER = .crt的替代形式 (Microsoft Convention）您可以在微软系统环境下将.crt转换为.cer (.both DER编码的.cer，或base64 [PEM]编码的.cer）。
 
-可参考：https://support.comodo.com/index.php?/Knowledgebase/Article/View/361/17/how-do-i-convert-crt-file-into-the-microsoft-cer-format
+可参考：<https://support.comodo.com/index.php?/Knowledgebase/Article/View/361/17/how-do-i-convert-crt-file-into-the-microsoft-cer-format>
 
-.cer文件扩展名也被IE识别为 一个运行MS cryptoAPI命令的命令 (特别是rundll32.exe cryptext.dll，CryptExtOpenCER），该命令显示用于导入和/或查看证书内容的对话框。 
+.cer文件扩展名也被IE识别为 一个运行MS cryptoAPI命令的命令 (特别是rundll32.exe cryptext.dll，CryptExtOpenCER），该命令显示用于导入和/或查看证书内容的对话框。
 
 ### .KEY 扩展名
+
      .KEY = KEY扩展名用于公钥和私钥PKCS＃8。 键可以被编码为二进制DER或ASCII PEM。
 
 ---
@@ -44,7 +49,7 @@ X.509 PEM 编码(Base64)的后缀是:  .PEM .CER .CRT
 编码格式
 同样的X.509证书,可能有不同的编码格式,目前有以下两种编码格式.
 
-### PEM 
+### PEM
 
 .PEM = PEM扩展用于不同类型的X.509v3文件，是以“ - BEGIN ...”前缀的ASCII (Base64）数据。
 
@@ -56,15 +61,19 @@ Privacy Enhanced Mail,打开看文本格式,以"-----BEGIN..."开头, "-----END.
 Apache和*NIX服务器偏向于使用这种编码格式.
 
 #### convert multi line pem to signle line pem
+
     awk 'NF {sub(/\r/, ""); printf "%s\\n",$0;}' cert-name.pem
 
-https://docs.vmware.com/cn/Unified-Access-Gateway/2.9/com.vmware.access-point-29-deploy-config/GUID-870AF51F-AB37-4D6C-B9F5-4BFEB18F11E9.html
+<https://docs.vmware.com/cn/Unified-Access-Gateway/2.9/com.vmware.access-point-29-deploy-config/GUID-870AF51F-AB37-4D6C-B9F5-4BFEB18F11E9.html>
 
 ### .DER 扩展名
+
 .DER = DER扩展用于二进制DER编码证书。
 
 这些文件也可能承载CER或CRT扩展。 正确的说法是“我有一个DER编码的证书”不是“我有一个DER证书”。
-### DER 
+
+### DER
+
 Distinguished Encoding Rules, 打开看是二进制格式,不可读.
 查看DER格式证书的信息:
 
@@ -115,20 +124,21 @@ openssl req -newkey rsa:2048 -new -nodes -x509 -days 3650 -keyout key.pem -out c
 书也行.向权威机构要证书通常是要钱的,但现在也有免费的,仅仅需要一个简单的域名验证即可.有兴趣的话查查"沃通数字证书".
 
 ### convert pem to der
+
     openssl x509 -outform der -in certificate.pem -out certificate.der
 
 ### pem to jks
+
     https://docs.oracle.com/cd/E35976_01/server.740/es_admin/src/tadm_ssl_convert_pem_to_jks.html
 
 ---
-https://www.cnblogs.com/guogangj/p/4118605.html
+<https://www.cnblogs.com/guogangj/p/4118605.html>
 
 作者: 刘长元  
-链接: https://www.zhihu.com/question/29620953/answer/45012411  
+链接: <https://www.zhihu.com/question/29620953/answer/45012411>  
 来源: 知乎  
 著作权归作者所有。商业转载请联系作者获得授权,非商业转载请注明出处。  
-https://www.zhihu.com/question/29620953
-
+<https://www.zhihu.com/question/29620953>
 
 查看证书
  即使PEM编码的证书是ASCII，它们是不可读的。这里有一些命令可以让你以可读的形式输出证书的内容;
@@ -169,12 +179,7 @@ openssl x509 -in cert.crt -inform der -outform pem -out cert.pem
 4)证书提取
 一些证书将以组合形式出现。 一个文件可以包含以下任何一个：证书，私钥，公钥，签名证书，证书颁发机构 (CA）和/或权限链。
 
- 
-
 五、原文链接
-https://support.ssl.com/index.php?/Knowledgebase/Article/View/19/0/der-vs-crt-vs-cer-vs-pem-certificates-and-how-to-convert-them
+<https://support.ssl.com/index.php?/Knowledgebase/Article/View/19/0/der-vs-crt-vs-cer-vs-pem-certificates-and-how-to-convert-them>
 
-
-
->https://blog.csdn.net/xiangguiwang/article/details/76400805
-
+><https://blog.csdn.net/xiangguiwang/article/details/76400805>

@@ -93,26 +93,26 @@ nameserver 223.5.5.5
 nameserver 223.6.6.6
 ```
 
-### DNSMasq支持泛域名,比如在hosts中需要配2000条: 
+### DNSMasq支持泛域名,比如在hosts中需要配2000条
 
-# apple app store
+apple app store
+
 202.175.5.114 a1.phobos.apple.com
 202.175.5.114 a2.phobos.apple.com
 202.175.5.114 a3.phobos.apple.com
-  
-……
-  
+
 202.175.5.114 a2000.phobos.apple.com
   
-而DNSMasq只需要1条: 
+而DNSMasq只需要1条:
 
-#apple app store
-  
+apple app store
+
 address=/.phobos.apple.com/202.175.5.114
 
     dnsmasq --test
 
 ### isc-dhcp-server vs. DNSMASQ
+
 Depends on your prior experience with a particular program I guess.
 Dnsmasq is generally simple to get working, uses little resources, is reliable and well maintained. An extremely valuable piece of software, IMHO.
 In addition, if you start looking for "advanced" features, you'll find out that dnsmasq is quite capable.

@@ -2,13 +2,14 @@
 title: Java tls, JSSE
 author: "-"
 date: 2018-02-11T05:31:05+00:00
-url: /?p=11866
+url: java/tls
 categories:
   - Inbox
 tags:
   - reprint
 ---
 ## Java tls, JSSE
+
 Java JSSE Java Secure Socket Extension
   
 JDK 中的 JSSE (javax.net.ssl) ,提供了对 SSL 和 TLS 的支持
@@ -18,7 +19,7 @@ SSL/TLS 协议 (RFC2246 RFC4346) 处于 TCP/IP 协议与各种应用层协议之
   1. SSL/TLS 记录协议 (SSL/TLS Record Protocol) ,它建立在可靠的传输层协议 (如 TCP) 之上,为上层协议提供数据封装、压缩、加密等基本功能。
   2. SSL/TLS 握手协议 (SSL/TLS Handshake Protocol) ,它建立在 SSL/TLS 记录协议之上,用于在实际的数据传输开始前,通讯双方进行身份认证、协商加密算法、交换加密密钥等初始化协商功能。
 
-从协议使用方式来看,又可以分成两种类型: 
+从协议使用方式来看,又可以分成两种类型:
   
 1. SSL/TLS 单向认证,就是用户到服务器之间只存在单方面的认证,即客户端会认证服务器端身份,而服务器端不会去对客户端身份进行验证。
   
@@ -28,8 +29,17 @@ SSL/TLS 协议 (RFC2246 RFC4346) 处于 TCP/IP 协议与各种应用层协议之
 
 非对称算法 (asymmetric cryptography) : 就是 key 的组成是公钥私钥对  (key-pair) ,公钥传递给对方私钥自己保留。公钥私钥算法是互逆的,一个用来加密,另一个可以解密。常用的算法有 Rivest Shamir Adleman (RSA) 、Diffie-Hellman (DH) 。非对称算法计算量大比较慢,因此仅适用于少量数据加密,如对密钥加密,而不适合大量数据的通讯加密。
 
+## keytool, jks
+
+### 查看 jks 文件内容
+
+```bash
+keytool -list -v -keystore foo.jks
+# 有密码的话,需要输入密码
+```
+
 jks 是 java 的 key store 文件格式. java 提供 keytool 工具操作jks.
-  
+
 keytool 是随 jre 发布的工具. 所以只要你安装了 jre 就有这个工具.
   
 在windows上,是keytool.exe. 在Lunix上,是 keytool
@@ -55,7 +65,7 @@ eytool常用命令
 -alias 产生别名
   
 -keystore 指定密钥库的名称(就像数据库一样的证书库,可以有很多个证书,cacerts这个文件是jre自带的,
-               
+
 你也可以使用其它文件名字,如果没有这个文件名字,它会创建这样一个)
   
 -storepass 指定密钥库的密码
@@ -108,20 +118,19 @@ keytool
   
 -storepass 123456(获取keystore信息的密码)
 
-方便复制版: 
+方便复制版:
   
 keytool -genkey -alias tomcat -keypass 123456 -keyalg RSA -keysize 1024 -validity 3650 -keystore D:/keys/tomcat.keystore -storepass 123456
 
 用keytool创建Keystore和Trustsotre文件
 
-JSSE使用Truststore和Keystore文件来提供客户端和服务器之间的安全数据传输。keytool是一个工具可以用来创建包含公钥和密钥的的keystore文件,并且利用keystore文件来创建只包含公钥的truststore文件。在本文中,我们学习如何通过下面的5步简单的创建truststore和keystore文件: 
+JSSE使用Truststore和Keystore文件来提供客户端和服务器之间的安全数据传输。keytool是一个工具可以用来创建包含公钥和密钥的的keystore文件,并且利用keystore文件来创建只包含公钥的truststore文件。在本文中,我们学习如何通过下面的5步简单的创建truststore和keystore文件:
 
     生成一个含有一个私钥的keystore文件 
     验证新生成的keystor而文件 
     导出凭证文件 
     把认凭证件导入到truststore文件 
     验证新创建的truststore文件 
-    
 
   1. 创建一个客户端 keystore - 含有一个私钥的keystore文件
 
@@ -149,7 +158,7 @@ keytool -genkey -alias sslclient -keysize 2048 -validity 3650 -keyalg RSA -dname
   
     keytool -list -v -keystore keystore.jks 
 
-执行上面的命令后,你会看到key的详细信息: 
+执行上面的命令后,你会看到key的详细信息:
 
   1. 导出公钥证书
   
@@ -157,7 +166,7 @@ keytool -genkey -alias sslclient -keysize 2048 -validity 3650 -keyalg RSA -dname
   
     下面的命令可以导出自签公钥证书
 
-在这一步,你可以导出自我签署凭证或是Verisign或其他的认证机构的商业凭证的。这里只说导出自我签署的凭证: 
+在这一步,你可以导出自我签署凭证或是Verisign或其他的认证机构的商业凭证的。这里只说导出自我签署的凭证:
 
 通过执行下面的命令把自我签署的凭证保存到 "selfsignedcert.cer"文件
   
@@ -171,34 +180,30 @@ keytool -import -alias sslclient -keystore sslservertrust -file sslclient.cer
   
 truststore和keystore的性质是一样的,都是存放key的一个仓库,区别在于,truststore里存放的是只包含公钥的数字证书,代表了可以信任的证书,而keystore是包含私钥的。
 
-https://www.jianshu.com/p/981431a2b6ea
-   
-https://www.ibm.com/developerworks/cn/java/j-lo-ssltls/
-  
-https://www.ibm.com/developerworks/cn/java/j-lo-socketkeytool/index.html
-  
-https://waylau.com/essential-netty-in-action/CORE%20FUNCTIONS/Securing%20Netty%20applications%20with%20SSLTLS.html
-  
-https://www.jianshu.com/p/981431a2b6ea
+<https://www.jianshu.com/p/981431a2b6ea>
 
-
+<https://www.ibm.com/developerworks/cn/java/j-lo-ssltls/>
   
+<https://www.ibm.com/developerworks/cn/java/j-lo-socketkeytool/index.html>
+  
+<https://waylau.com/essential-netty-in-action/CORE%20FUNCTIONS/Securing%20Netty%20applications%20with%20SSLTLS.html>
+  
+<https://www.jianshu.com/p/981431a2b6ea>
+
     使用java keytool 查看,添加,删除 jks 文件
   
-
-
-https://blog.byneil.com/%e4%bd%bf%e7%94%a8java-keytool-%e6%9f%a5%e7%9c%8b%e6%b7%bb%e5%8a%a0%e5%88%a0%e9%99%a4-jks-%e6%96%87%e4%bb%b6/embed/#?secret=701X4GNJmy
+<https://blog.byneil.com/%e4%bd%bf%e7%94%a8java-keytool-%e6%9f%a5%e7%9c%8b%e6%b7%bb%e5%8a%a0%e5%88%a0%e9%99%a4-jks-%e6%96%87%e4%bb%b6/embed/#?secret=701X4GNJmy>
   
-http://www.cnblogs.com/benio/archive/2010/09/15/1826990.html
+<http://www.cnblogs.com/benio/archive/2010/09/15/1826990.html>
   
-http://yushan.iteye.com/blog/434955
+<http://yushan.iteye.com/blog/434955>
   
-http://lukejin.iteye.com/blog/605634
+<http://lukejin.iteye.com/blog/605634>
   
-http://www.cnblogs.com/gsls200808/p/4500246.html
+<http://www.cnblogs.com/gsls200808/p/4500246.html>
   
-http://www.cnblogs.com/gaoxing/p/4805311.html
+<http://www.cnblogs.com/gaoxing/p/4805311.html>
   
-http://www.cnblogs.com/orientsun/archive/2012/07/26/2609444.html
+<http://www.cnblogs.com/orientsun/archive/2012/07/26/2609444.html>
   
-https://docs.oracle.com/javase/8/docs/api/javax/net/ssl/SSLContext.html
+<https://docs.oracle.com/javase/8/docs/api/javax/net/ssl/SSLContext.html>

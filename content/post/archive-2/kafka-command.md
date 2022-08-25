@@ -28,6 +28,7 @@ bin/kafka-console-consumer.sh \
 --bootstrap-server kafka.wiloon.com:9092 \
 --topic topic0 \
 --from-beginning
+
 ```
 
 ### producer
@@ -85,9 +86,32 @@ bin/kafka-topics.sh --list --bootstrap-server 127.0.0.1:9092
 bin/kafka-topics.sh --list --bootstrap-server 192.168.50.169:9092
 
 bin/kafka-topics.sh --list --zookeeper localhost:2181
+
+~/apps/kafka_2.13-3.2.1/bin/kafka-topics.sh --list --bootstrap-server 127.0.0.1:9093 --command-config ~/projects/project0/kafka.config
+
+# kafka.config
+security.protocol=SSL
+ssl.truststore.location=/path/to/client.truststore.jks
+ssl.truststore.password=password0
+ssl.keystore.location=/path/to/client.keystore.jks
+ssl.keystore.password=password0
+# 是否校验服务端主机名, 默认检验主机名, 值是: https, 赋空值禁用主机名校验
+ssl.endpoint.identification.algorithm=
 ```
 
-### 查看topic 详细信息, 如: 分区数, replication
+#### 可用的配置项
+
+<https://kafka.apache.org/090/documentation.html>
+
+ssl.endpoint.identification.algorithm 默认值问题
+
+<https://docs.confluent.io/platform/current/kafka/authentication_ssl.html>
+
+生成证书 keystore trust store...
+
+<https://www.cnblogs.com/huxi2b/p/7427815.html>
+
+### 查看 topic 详细信息, 如: 分区数, replication
 
 ```bash
 # kafka 3.0.0
@@ -405,3 +429,9 @@ podman run -d --name cmak\
 
 ><https://kafka.apache.org/30/javadoc/org/apache/kafka/clients/producer/KafkaProducer.html>
 ><https://kafka.apache.org/30/javadoc/org/apache/kafka/clients/consumer/KafkaConsumer.html>
+
+## kafka SSL
+
+<https://www.cnblogs.com/huxi2b/p/7427815.html>
+
+<https://www.cnblogs.com/huxi2b/p/7427815.html>
