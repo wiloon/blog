@@ -386,7 +386,7 @@ advertised.host.name: 是注册到zookeeper,client要访问的broker地址。 (�
 
 简单的检查broker是否可以被client访问到的办法,就是在zookeeper中看broker信息,上面显示的hostname是否是client可以访问到的地址。
 
-在zkCli中执行get /brokers/<id>
+在zkCli中执行get `/brokers/<id>`
 
 ### Kafka 访问协议说明
 

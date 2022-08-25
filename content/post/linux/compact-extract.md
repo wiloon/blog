@@ -1,12 +1,13 @@
 ---
 title: compact/extract 压缩/解压
 author: "-"
-date: 2011-11-04T05:13:18.000+00:00
-url: "compact"
+date: 2022-08-25 12:29:27
+url: "compact-extract"
 categories:
-  - Linux
+  - Command
 tags:
-  - command
+  - Linux
+  - Command
 
 ---
 ## compact/extract 压缩/解压
@@ -174,16 +175,16 @@ tar xvf /backup/bitwarden-data.tar -C /tmp --strip 1
 tar -rf all.tar *.gif
 ```
 
-#### tar参数
+### tar 参数
 
-```a
+```bash
 -c, --create : 创建新的压缩文件
+-z : 用 gzip 压缩
 -x : 从压缩的文件中提取文件
--t : 查看 tarfile 里面的文件, 特别注意，在参数的下达中， c/x/t 仅能存在一个！不可同时存在因为不可能同时压缩与解压缩。 
--z : 是否同时具有 gzip 的属性？亦即是否需要用 gzip 压缩？
--j : 是否同时具有 bzip2 的属性？亦即是否需要用 bzip2 压缩？
 -v : 压缩的过程中显示文件！这个常用，在后台执行时不建议用!
--f, --file=ARCHIVE : 指定文件或设备,如果不加这个参数 tar 默认会去找环境变量里配置的 TAPE, 注意，在 f 之后要立即接文件名,不要再加其它参数, 例如使用『 tar -zcvfP tfile sfile』就是错误的写法，要写成 『 tar -zcvPf tfile sfile』才对
+-f, --file=ARCHIVE : 指定文件或设备, 如果不加这个参数 tar 默认会去找环境变量里配置的 TAPE, 注意，在 f 之后要立即接文件名, 不要再加其它参数, 例如使用『tar -zcvfP tfile sfile』就是错误的写法，要写成 『tar -zcvPf tfile sfile』才对
+-t : 查看 tarfile 里面的文件, 特别注意，在参数的下达中， c/x/t 仅能存在一个！不可同时存在因为不可能同时压缩与解压缩。 
+-j : 是否同时具有 bzip2 的属性？亦即是否需要用 bzip2 压缩？
 -p : 使用原文件的原来属性 (属性不会依据使用者而变)  
 -P : 可以使用绝对路径来压缩！ 
 -N : 比后面接的日期(yyyy/mm/dd)还要新的才会被打包进新建的文件中！ 
@@ -208,38 +209,44 @@ tar -rf all.tar *.gif
 -version 显示版本信息
 ```
 
-### .tar.gz 和 .tgz
+## .tar.gz 和 .tgz
 
-这种格式是我使用得最多的压缩格式。它在压缩时不会占用太多CPU的，而且可以得到一个非常理想的压缩率。  
-默认tar打包和系统默认的压缩工具是单线程的，pigz是gzip的多线程实现,默认用当前逻辑cpu个数来并发压缩，无法检测个数的话，则并发8个线程
+.tgz 和 .tar.gz 是同一个东西, .tgz 可以认为是 .tar.gz 是简写, 在远古时代比如 DOS 系统, 文件扩展名只能是三个字符, 所以有了 .tgz, 后来限制解除之后就能支持 .tar.gz 这种后缀了, 后者能更清晰的表达打包格式和压缩方式.
 
-#### 解压到指定目录
+<https://stackoverflow.com/questions/11534918/are-tar-gz-and-tgz-the-same-thing>
+
+这种格式是我使用得最多的压缩格式。它在压缩时不会占用太多CPU的，而且可以得到一个非常理想的压缩率  
+默认 tar 打包和系统默认的压缩工具是单线程的，pigz 是 gzip 的多线程实现, 默认用当前逻辑 cpu 个数来并发压缩，无法检测个数的话，则并发8个线程  
+
+### 压缩
 
 ```bash
-tar -zxvf /path/to/foo.tar.gz -C /path/to/target/dir/
+tar -czvf all.tar.gz *.jpg
+# 设置压缩级别
+GZIP=-9 tar cvzf file.tar.gz /path/to/directory
 ```
 
-#### 压缩到指定目录
+### 压缩到指定目录
 
 ```bash
 tar -zcvf /data/tmp/foo.tar.gz /data/server/source
 ```
 
+### 解压到指定目录
+
 ```bash
-#压缩
-tar -zcvf all.tar.gz *.jpg
+tar -zxvf /path/to/foo.tar.gz -C /path/to/target/dir/
+```
 
-#设置压缩级别
-GZIP=-9 tar cvzf file.tar.gz /path/to/directory
-
-#解压
+```bash
+# 解压
 tar -xf foo.tar.gz
 tar -zxvf all.tar.gz
 
 sudo pacman -S pigz
-#压缩
+# 压缩
 tar --use-compress-program=pigz -cvpf package.tgz ./package
-#解压
+# 解压
 tar --use-compress-program=pigz -xvpf package.tgz -C ./package
 
 #tar –use-compress-program=pigz表示指定pigz来进行打包

@@ -126,11 +126,11 @@ keytool -genkey -alias tomcat -keypass 123456 -keyalg RSA -keysize 1024 -validit
 
 JSSE使用Truststore和Keystore文件来提供客户端和服务器之间的安全数据传输。keytool是一个工具可以用来创建包含公钥和密钥的的keystore文件,并且利用keystore文件来创建只包含公钥的truststore文件。在本文中,我们学习如何通过下面的5步简单的创建truststore和keystore文件:
 
-    生成一个含有一个私钥的keystore文件 
-    验证新生成的keystor而文件 
-    导出凭证文件 
-    把认凭证件导入到truststore文件 
-    验证新创建的truststore文件 
+生成一个含有一个私钥的keystore文件
+验证新生成的keystor而文件
+导出凭证文件
+把认凭证件导入到truststore文件
+验证新创建的truststore文件
 
   1. 创建一个客户端 keystore - 含有一个私钥的keystore文件
 
@@ -156,15 +156,17 @@ keytool -genkey -alias sslclient -keysize 2048 -validity 3650 -keyalg RSA -dname
 
   1. 验证新生成的keystor而文件
   
+```bash
     keytool -list -v -keystore keystore.jks 
+```
 
 执行上面的命令后,你会看到key的详细信息:
 
-  1. 导出公钥证书
+1. 导出公钥证书
   
-    将key以数字证书的形式从keystore中导出,数字证书 (包括公钥和发布者的数字签名) 
+将key以数字证书的形式从keystore中导出,数字证书 (包括公钥和发布者的数字签名)
   
-    下面的命令可以导出自签公钥证书
+下面的命令可以导出自签公钥证书
 
 在这一步,你可以导出自我签署凭证或是Verisign或其他的认证机构的商业凭证的。这里只说导出自我签署的凭证:
 
@@ -190,7 +192,7 @@ truststore和keystore的性质是一样的,都是存放key的一个仓库,区别
   
 <https://www.jianshu.com/p/981431a2b6ea>
 
-    使用java keytool 查看,添加,删除 jks 文件
+使用java keytool 查看,添加,删除 jks 文件
   
 <https://blog.byneil.com/%e4%bd%bf%e7%94%a8java-keytool-%e6%9f%a5%e7%9c%8b%e6%b7%bb%e5%8a%a0%e5%88%a0%e9%99%a4-jks-%e6%96%87%e4%bb%b6/embed/#?secret=701X4GNJmy>
   

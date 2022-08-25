@@ -1,5 +1,5 @@
 ---
-title: 文件权限
+title: Linux 文件权限
 author: "-"
 date: 2015-02-06T03:25:31+00:00
 url: /?p=7325
@@ -9,20 +9,22 @@ tags:
   - Linux
 
 ---
-## 文件权限
-
 ## Linux 文件权限
+
+拥有者 owner, 群组 group, 其它组 other
 
 ### 模式 数字
 
-    rwx 7
-    rw- 6
-    r-x 5
-    r-- 4
-    -wx 3
-    -w- 2
-    -x- 1
-    --- 0
+```bash
+rwx 7
+rw- 6
+r-x 5
+r-- 4
+-wx 3
+-w- 2
+-x- 1
+--- 0
+```
 
 <http://zhangfeikr.blog.51cto.com/1999170/396541>
 
@@ -84,13 +86,13 @@ $ ls -l /bin/bash
   
 可能不记得您当前有效的用户标识。要查看用户标识，输入 whoami:
   
-# whoami
+whoami
   
 root
   
-# su drobbins
+su drobbins
   
-$ whoami
+whoami
   
 drobbins
   
@@ -114,13 +116,13 @@ daemon : daemon bin adm
   
 为了改变文件或其它文件系统对象的所有者或组，分别使用 chown 或 chgrp。这两个命令都要一个用户名或组名作参数，后面跟上一个或多个文件名。
   
-# chown root /etc/passwd
+chown root /etc/passwd
   
-# chgrp wheel /etc/passwd
+chgrp wheel /etc/passwd
   
 您还可以用 chown 命令的另一种形式同时设置所有者和组:
   
-# chown root.wheel /etc/passwd
+chown root.wheel /etc/passwd
   
 除非您是超级用户，否则您不可以使用 chown，然而任何人都可以使用 chgrp 来将文件的组所有权改为他们所属的组。
   
@@ -130,7 +132,7 @@ chown 和 chgrp 都有一个 -R 选项，该选项可以用来告诉它们递归
   
 和组改变应用到整个目录树中。例如:
   
-# chown -R drobbins /home/drobbins
+chown -R drobbins /home/drobbins
   
 介绍 chmod
   
@@ -326,13 +328,13 @@ ls -l 清单中 x 位相同的空间。如果还设置了 x 位，则相应的�
 
 设置和除去 suid 与 sgid 位相当简单。这里，我们设置 suid 位:
 
-# chmod u+s /usr/bin/myapp
+chmod u+s /usr/bin/myapp
 
 此处，我们从一个目录除去 sgid 位。我们将看到 sgid 位怎样影响下面几屏中
   
 的目录:
   
-# chmod g-s /home/drobbins
+chmod g-s /home/drobbins
 
 权限和目
   
@@ -356,11 +358,11 @@ ls -l 清单中 x 位相同的空间。如果还设置了 x 位，则相应的�
   
 很管用。只需要这样做:
 
-# mkdir /home/groupspace
+mkdir /home/groupspace
 
-# chgrp mygroup /home/groupspace
+chgrp mygroup /home/groupspace
 
-# chmod g+s /home/groupspace
+chmod g+s /home/groupspace
 
 现在，mygroup 组中的所有用户都可以在 /home/groupspace 内创建文件或目录，同样，他
 
@@ -418,6 +420,6 @@ off off off 0
 
 这里有一个怎样用 4 位数字模式来设置一个目录的权限的示例，该目录将由一个工作组使用:
 
-# chmod 1775 /home/groupfiles
+chmod 1775 /home/groupfiles
 
 请想一想 1755 数字模式权限设置的含义。
