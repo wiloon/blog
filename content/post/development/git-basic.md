@@ -92,10 +92,17 @@ git branch -d -r origin/todo
 git merge branch1 -m "MSG0"
 ```
 
+## git merge --squash
+
 ```bash
 # merge, 把多次 commit 的历史合并成一次 commit
-git merge --squash
+# 把 branch1 的提交 合并 到 branch0
+# 切换到 branch0 然后执行以下命令
+git merge --squash branch1
 git commit -m "comments0"
+```
+
+```bash
 # 解决Git报错:error: You have not concluded your merge (MERGE_HEAD exists).
 git merge --abort
 ```
@@ -503,6 +510,9 @@ git push origin :refs/tags/v1.0.0
 git clone <版本库的网址> <本地目录名>
 
 ```bash
+
+git clone https://user0:password0@git.foo.com/path/to/project.git
+
 git log
 git reflog
 git log --pretty=oneline

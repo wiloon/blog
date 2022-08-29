@@ -153,7 +153,7 @@ curl "http://toutiao.sogoucdn.com/ykvideo/20181130/0575139af28f38c336912739acf33
 ```bash
 curl http://foo.wiloon.com -v --retry 0 --connect-timeout 1
 
-# dns, 不依赖/etc/hosts
+# dns, 不依赖 /etc/hosts
 curl --resolve 'test.com:9443:127.0.0.1' https://test.com:9443/hello
 
 # -x 代理服务器

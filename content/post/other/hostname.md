@@ -13,14 +13,12 @@ tags:
 ### hostnamectl, 查看主机信息, 查看主机名, 查看机器名, 查 hostname
 
 ```bash
+# 查看
 hostnamectl
+hostnamectl status
 
 # 设置主机名
-sudo hostnamectl set-hostname rhel7
-
-hostnamectl
-  
-hostnamectl status
+sudo hostnamectl set-hostname host0
   
 hostnamectl -static
   

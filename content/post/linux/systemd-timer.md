@@ -11,6 +11,7 @@ tags:
 ## systemd timer
 
 ```bash
+# 查看 timer
 systemctl list-timers
 systemctl list-timers --all
 ```

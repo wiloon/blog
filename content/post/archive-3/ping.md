@@ -10,6 +10,12 @@ tags:
 ---
 ## ping, fping
 
+## archlinux install fping
+
+```bash
+pacman -S fping
+```
+
 ## windows 长 ping
 
 ```bat

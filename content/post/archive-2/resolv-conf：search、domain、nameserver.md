@@ -59,3 +59,14 @@ PING news.google.com (74.125.128.101) 56(84) bytes of data.
 · /etc/nsswitch.conf: 这个档案则是在『决定』先要使用 /etc/hosts 还是 /etc/resolv.conf的设定！
   
 <https://www.jianshu.com/p/2c1c081cc521>
+
+## /etc/hosts
+
+```bash
+IPAddress     Hostname          Alias
+127.0.0.1     localhost         deep.openna.com
+208.164.186.1 deep.openna.com   deep
+208.164.186.2 mail.openna.com   mail
+208.164.186.3 web.openna.com    web
+
+```

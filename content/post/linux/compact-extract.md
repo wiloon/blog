@@ -73,6 +73,9 @@ zip ~/all.zip *.jpg
 
 # 压缩的是个文件夹, -r 表示调用递归压缩
 zip -r temp.zip temp
+
+zip -P password0 foo.zip foo.txt       
+
 ```
 
 ### zip 分卷压缩
@@ -179,7 +182,7 @@ tar -rf all.tar *.gif
 
 ```bash
 -c, --create : 创建新的压缩文件
--z : 用 gzip 压缩
+-z : 用 gzip 压缩或解压
 -x : 从压缩的文件中提取文件
 -v : 压缩的过程中显示文件！这个常用，在后台执行时不建议用!
 -f, --file=ARCHIVE : 指定文件或设备, 如果不加这个参数 tar 默认会去找环境变量里配置的 TAPE, 注意，在 f 之后要立即接文件名, 不要再加其它参数, 例如使用『tar -zcvfP tfile sfile』就是错误的写法，要写成 『tar -zcvPf tfile sfile』才对
@@ -222,6 +225,10 @@ tar -rf all.tar *.gif
 
 ```bash
 tar -czvf all.tar.gz *.jpg
+
+# 排除掉文件
+tar -czvf tomcat.tar.gz --exclude=tomcat/logs tomcat
+
 # 设置压缩级别
 GZIP=-9 tar cvzf file.tar.gz /path/to/directory
 ```
@@ -232,16 +239,25 @@ GZIP=-9 tar cvzf file.tar.gz /path/to/directory
 tar -zcvf /data/tmp/foo.tar.gz /data/server/source
 ```
 
+### 解压
+
+```bash
+tar -xf foo.tar.gz
+# 解压 tar.gz 文件时, 不使用 z 参数, 好像是 tar 会检测文件类型 自动 用 gzip 解压...
+tar xvf all.tar.gz
+tar zxvf all.tar.gz
+tar -zxvf all.tar.gz
+```
+
 ### 解压到指定目录
 
 ```bash
+tar zxvf /path/to/foo.tar.gz -C /path/to/target/dir/
 tar -zxvf /path/to/foo.tar.gz -C /path/to/target/dir/
 ```
 
 ```bash
-# 解压
-tar -xf foo.tar.gz
-tar -zxvf all.tar.gz
+
 
 sudo pacman -S pigz
 # 压缩
