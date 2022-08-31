@@ -143,6 +143,22 @@ export EDITOR=vim
 
 ### commit
 
+#### 修改已经push了的commit信息
+
+```bash
+如题，本条仅适用于修改已经push过了的最近一次的commit注释信息，确保本地文件的最新的。
+
+step1：使用【git commit --amend】命令，会进入到vim编辑器。
+
+step2：输入【i】，即进入编辑模式，此时编辑提交信息。
+
+step3：编辑好之后，按键【Esc】，输入【:wq】，即保存和退出。
+
+step4：输入【git push -f】强制提交。
+
+操作完之后，再看提交记录，即可看到修改的注释信息。
+```
+
 #### 修改最近一次的 commit message
 
 ```bash

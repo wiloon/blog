@@ -46,15 +46,30 @@ keytool 是随 jre 发布的工具. 所以只要你安装了 jre 就有这个工
 
 jks 类似于 pfx(p12) 文件, 有密码加密, 可以保存多个key 或者证书等等. key 或者 证书被称为一个 entry, 每个entry有个别名(alias). 操作时需要制定别名.
 
-KeyStore是服务器的密钥存储库,存服务器的公钥私钥证书
+## keystore 和 truststore
 
-TrustStore是服务器的信任密钥存储库,存CA公钥,但有一部分人存的是客户端证书集合
+KeyStore 和 TrustStore是JSSE中使用的两种文件。这两种文件都使用java的keytool来管理，他们的不同主要在于用途和相应用途决定的内容的不同。
+
+这两种文件在一个SSL认证场景中，KeyStore用于服务器认证服务端，而TrustStore用于客户端认证服务器。
+KeyStore
+内容 一个KeyStore文件可以包含私钥(private key)和关联的证书(certificate)或者一个证书链。证书链由客户端证书和一个或者多个CA证书。
+
+KeyStore类型 KeyStore 文件有以下类型，一般可以通过文件扩展名部分来提示相应KeyStore文件的类型:
+
+JCEKS JKS DKS PKCS11 PKCS12 Windows-MY BKS 以上KeyStore的类型并不要求在文件名上体现，但是使用者要明确所使用的KeyStore的格式。
+
+keystore和truststore从其文件格式来看其实是一个东西，只是为了方便管理将其分开
+keystore中一般保存的是我们的私钥，用来加解密或者为别人做签名
+
+KeyStore 是服务器的密钥存储库, 存服务器的公钥私钥证书
+
+TrustStore 是服务器的信任密钥存储库, 存CA公钥, 但有一部分人存的是客户端证书集合
   
-keystore和truststore其本质都是keystore。只不过二者盛放的密钥所有者不同而已,对于keystore一般存储自己的私钥和公钥,而truststore则用来存储自己信任的对象的公钥。
+keystore 和 truststore 其本质都是keystore。只不过二者放的密钥所有者不同而已,对于keystore一般存储自己的私钥和公钥,而truststore则用来存储自己信任的对象的公钥。
 
 下面是几个常见的错误
 
-1.KeyStore和TrustStore做成同一个JKS文件或PKCS12文件。通过导入客户端证书来实现验证客户端证书。实际生产中并不能这么做,客户端有成千上万个,你不可能都去导吧。
+1.KeyStore和TrustStore做成同一个JKS文件或 PKCS12文件。通过导入客户端证书来实现验证客户端证书。实际生产中并不能这么做,客户端有成千上万个,你不可能都去导吧。
 
 2.openssl生成CA、server、client证书,用同样的方法转成PKCS12文件,KeyStore指定server.p12,TrustStore指定CA.p12、浏览器证书个人存储区存client.p12,受信任的根证书颁发机构存CA.p12,总体思路是对的,但是CA这里这里绝对不能将私钥也导入到PKCS12中,一个正常的CA要是把CA私钥泄露了那不就惨了。
 

@@ -15,6 +15,10 @@ tags:
 
 ```bash
 bin/kafka-console-consumer.sh --topic topic0 --bootstrap-server 127.0.0.1:9092
+# 指定 group
+bin/kafka-console-consumer.sh --topic topic0 --bootstrap-server 127.0.0.1:9092 --group group0
+# ssl
+bin/kafka-console-consumer.sh --topic topic0 --bootstrap-server 127.0.0.1:9092 --consumer.config config.json
 bin/kafka-console-consumer.sh --topic topic0 --from-beginning --bootstrap-server localhost:9092
 
 bin/kafka-console-consumer.sh \
@@ -75,6 +79,17 @@ bin/kafka-consumer-groups.sh --bootstrap-server localhost:9092 \
 --group my-group
 --state
 ```
+
+## offset
+
+CURRENT-OFFSET = LOG-END-OFFSET 说明当前消费组已经全部消费了;
+
+- CURRENT-OFFSET：该分区当前消费到的offset
+- LOG-END-OFFSET(LEO)：日志最后的偏移量, 该分区当前latest offset, 记录底层日志 (log) 中的下一条消息的 offset。, 对 producer 来说，就是即将插入下一条消息的 offset。
+- LAG：消费滞后区间，为 `LOG-END-OFFSET - CURRENT-OFFSET`，具体大小需要看应用消费速度和生产者速度，一般过大则可能出现消费跟不上，需要引起注意
+- CONSUMER-ID：server端给该分区分配的consumer编号
+- HOST：消费者所在主机
+- CLIENT-ID：消费者id，一般由应用指定
 
 ## topic
 
@@ -435,3 +450,19 @@ podman run -d --name cmak\
 <https://www.cnblogs.com/huxi2b/p/7427815.html>
 
 <https://www.cnblogs.com/huxi2b/p/7427815.html>
+
+## 生成 kafka 服务端, 客户端证书, jks
+
+ssl_cafile (str): ca, optional filename of ca file to use in certificate veriication. default: none.
+ssl_certfile (str): client certificate, optional filename of file in pem format containing the client certificate, as well as any ca certificates needed to
+            establish the certificate's authenticity. default: none.
+ssl_keyfile (str): client private key, optional filename containing the client private key. default: none.
+
+```bash
+# 生成ca证书
+openssl req -new -x509 -keyout ~/tmp/ca-key -out ~/tmp/ca-cert -days 3650 -passout pass:123456 -subj "/C=cn/ST=beijing/L=beijing/O=aspire/OU=aspire/CN=cn0"
+# 导入ca证书到 server.truststore.jks
+keytool -keystore ~/tmp/server.truststore.jks -alias CARoot -import -file ~/tmp/ca-cert -storepass 123456
+```
+
+<https://www.cnblogs.com/tortoise512/articles/16347191.html>
