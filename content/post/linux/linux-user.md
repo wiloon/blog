@@ -106,12 +106,11 @@ groupadd -r group0
 groupadd -g 2000 dba
 
 # delete group
-groupdel  GROUPNAME
-#gpasswd命令是Linux下工作组文件/etc/group和/etc/gshadow管理工具。
-gpasswd
+groupdel  group0
+# gpasswd 命令是 Linux 下 组文件 /etc/group 和 /etc/gshadow 的管理工具。
 
-# 把用户加入docker组
-gpasswd -a ${USER} docker
+# 把用户加入组, 把用户 user0 加入 group0 组
+gpasswd -a user0 group0
 
 # 把用户移出docker组
 gpasswd -d ${USER} docker
@@ -596,7 +595,7 @@ linuxsir : linuxsir root beinan
 
 1. 通过修改用户 (User) 和用户组 (Group) 配置文件的办法来添加；
 
-由于我们已经在前面说过，可以通过修改配置文件的办法来管理用户，所以此主题应该包括此内容；当然通过用户及用户组管理工具 (比如 adduser、userdel、usermod 、userinfo、groupadd 、groupdel 、groupmod等) 也是可以的，通过管理工具对用户的管理我们将要在专门一篇文章中介绍；
+由于我们已经在前面说过，可以通过修改配置文件的办法来管理用户，所以此主题应该包括此内容；当然通过用户及用户组管理工具 (比如 adduser、userdel、usermod 、userinfo、groupadd 、groupdel 、groupmod等) 也是可以的
 
 通过修改用户 (User) 和用户组 (Group) 配置文件的方法管理用户之用户的添加流程；
 
