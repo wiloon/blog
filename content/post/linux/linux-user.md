@@ -91,6 +91,38 @@ sudo usermod -aG docker $USER
 
 ## linux 用户 组
 
+```bash
+
+# 查看所有的组, /etc/group 的内容包括用户组 (Group) 
+cat /etc/group
+
+# 创建  组
+groupadd group0
+
+#  create a system account
+groupadd -r group0
+
+# Create a group named "test", groupadd [-g GID] GROUP
+groupadd -g 2000 dba
+
+# delete group
+groupdel  GROUPNAME
+#gpasswd命令是Linux下工作组文件/etc/group和/etc/gshadow管理工具。
+gpasswd
+
+# 把用户加入docker组
+gpasswd -a ${USER} docker
+
+# 把用户移出docker组
+gpasswd -d ${USER} docker
+# -a: 添加用户到组；
+# -d: 从组删除用户；
+# -A: 指定管理员；
+# -M: 指定组成员和-A的用途差不多；
+# -r: 删除密码；
+# -R: 限制用户登入组，只有组中的成员才可以用newgrp加入该组。
+```
+
 groups
 
 /etc/group文件包含所有组
@@ -148,30 +180,6 @@ usermod -U newuser1
 -u `<uid>` 修改用户ID。
   
 -U 解除密码锁定。
-
-```bash
-
-# 查看所有的组, /etc/group 的内容包括用户组 (Group) 
-cat /etc/group
-
-# Create a group named "test", groupadd [-g GID] GROUP
-groupadd -g 2000 dba
-
-#gpasswd命令是Linux下工作组文件/etc/group和/etc/gshadow管理工具。
-gpasswd
-
-# 把用户加入docker组
-gpasswd -a ${USER} docker
-
-# 把用户移出docker组
-gpasswd -d ${USER} docker
-# -a: 添加用户到组；
-# -d: 从组删除用户；
-# -A: 指定管理员；
-# -M: 指定组成员和-A的用途差不多；
-# -r: 删除密码；
-# -R: 限制用户登入组，只有组中的成员才可以用newgrp加入该组。
-```
 
 在Linux下创建用户和删除用户，必须在root用户下，如果你当前不是用根用户登录，你可以打开终端，输入"su root"命令，再输入根口令，就可以进入root用户模式下。
 
