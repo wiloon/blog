@@ -361,7 +361,7 @@ go mod init github.com/you/hello
 ## Go 交叉编译, go cross compile
 
 ```bash
-GOOS=windows GOARCH=amd64 go build foo.go 
+GOOS=windows GOARCH=amd64 go build foo.go
 ```
 
 ## 条件编译

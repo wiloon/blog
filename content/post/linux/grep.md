@@ -18,6 +18,13 @@ grep: Global Regular Expression Print
 grep [OPTION...] PATTERNS [FILE...]
 ```
 
+## 或
+
+```bash
+grep -E '123|abc' filename  // 找出文件（filename）中包含123或者包含abc的行
+egrep '123|abc' filename    // 用egrep同样可以实现
+```
+
 ### 判断指定文件中是否包含指定的字符串
 
 ```bash
@@ -71,21 +78,23 @@ grep -r 'linux' *
 
 #### grep
 
-    传统的 grep 程序, 在没有参数的情况下, 只输出符合 RE 字符串之句子. 常见参数如下:
+传统的 grep 程序, 在没有参数的情况下, 只输出符合 RE 字符串之句子. 常见参数如下:
   
-    -v: 逆反模示, 只输出"不含" RE 字符串之句子.
-    -r: 递归模式, 可同时处理所有层级子目录里的文件.
-    -q: 静默模式, 不输出任何结果(stderr 除外. 常用以获取 return value, 符合为 true, 否则为false .)
-    -w: 整词比对, 类似 <word> .
-    -n: 同时输出行号.
-    -c: 只输出符合比对的行数.
-    -l: 只输出符合比对的文件名称.
-    -o: 只输出符合 RE 的字符串. (gnu 新版独有, 不见得所有版本都支持.)
-    -E: 切换为 egrep . 
+```bash
+-v: 逆反模示, 只输出"不含" RE 字符串之句子.
+-r: 递归模式, 可同时处理所有层级子目录里的文件.
+-q: 静默模式, 不输出任何结果(stderr 除外. 常用以获取 return value, 符合为 true, 否则为false .)
+-w: 整词比对, 类似 <word> .
+-n: 同时输出行号.
+-c: 只输出符合比对的行数.
+-l: 只输出符合比对的文件名称.
+-o: 只输出符合 RE 的字符串. (gnu 新版独有, 不见得所有版本都支持.)
+-E: 切换为 egrep . 
+```
 
 #### egrep
   
-    为 grep 的扩充版本, 改良了许多传统 grep 不能或不便的操作. 比方说:
+为 grep 的扩充版本, 改良了许多传统 grep 不能或不便的操作. 比方说:
 
 - grep 之下不支持 ? 与 + 这两种 modifier, 但 egrep 则可.
 - grep 不支持 a|b 或 (abc|xyz) 这类"或一"比对, 但 egrep 则可.
@@ -200,6 +209,7 @@ grep [options]
   
 [options]主要参数:
 
+```bash
 －c: 只输出匹配行的计数。
 
 －v: 显示不包含匹配文本的所有行。
@@ -224,13 +234,14 @@ $: 匹配正则表达式的结束行。
   
 >: 到匹配正则表达式的行结束。
   
-[ ]: 单个字符，如[A]即A符合要求.
+[]: 单个字符，如[A]即A符合要求.
   
 [ – ]: 范围，如[A-Z]，即A、B、C一直到Z都符合要求 。
   
 。: 所有的单个字符。
   
 - : 有字符，长度可以为0。
+```
 
 4.grep命令使用简单实例
   
@@ -278,7 +289,7 @@ $ grep magic /usr/src/Linux/Documentation/* | less
   
 这样，您就可以更方便地阅读。
 
-有一点要注意，您必需提供一个文件过滤方式(搜索全部文件的话用 *)。如果您忘了，'grep'会一直等着，直到该程序被中断。如果您遇到了这样的情况，按 <CTRL c> ，然后再试。
+有一点要注意，您必需提供一个文件过滤方式(搜索全部文件的话用 *)。如果您忘了，'grep'会一直等着，直到该程序被中断。如果您遇到了这样的情况，按 `<CTRL c>` ，然后再试。
 
 下面还有一些有意思的命令行参数:
   
@@ -318,8 +329,9 @@ grep '\<man>' 只匹配'man'，而不是'Batman'或'manic'等其他的字符串�
 
 Grep 命令 用法大全
 
-1. 参数:
+参数:
   
+```bash
 -I : 忽略大小写
   
 -c : 打印匹配的行数
@@ -329,9 +341,11 @@ Grep 命令 用法大全
 -v : 查找不包含匹配项的行
   
 -n: 打印包含匹配项的行和行标
+```
 
-2. RE (正则表达式)
+RE (正则表达式)
   
+```bash
 \ 忽略正则表达式中特殊字符的原有含义
   
 ^ 匹配正则表达式的开始行
@@ -349,14 +363,15 @@ $ 匹配正则表达式的结束行
 . 所有的单个字符
   
 - 所有字符，长度可以为0
+```
 
-3. 举例
+1. 举例
 
-# ps -ef | grep in.telnetd
+ps -ef | grep in.telnetd
 
 root 19955 181 0 13:43:53 ? 0:00 in.telnetd
 
-# more size.txt size文件的内容
+more size.txt size文件的内容
 
 b124230
   
@@ -390,7 +405,7 @@ B103303
   
 BADc2345
 
-# more size.txt | grep '[a-b]' 范围 ；如[A-Z]即A，B，C一直到Z都符合要求
+more size.txt | grep '[a-b]' 范围 ；如[A-Z]即A，B，C一直到Z都符合要求
 
 b124230
   
@@ -408,7 +423,7 @@ a013386
   
 b044525
 
-# more size.txt | grep '[a-b]'*
+more size.txt | grep '[a-b]'*
 
 b124230
   
@@ -442,7 +457,7 @@ B103303
   
 BADc2345
 
-# more size.txt | grep 'b' 单个字符；如[A] 即A符合要求
+more size.txt | grep 'b' 单个字符；如[A] 即A符合要求
 
 b124230
   
@@ -452,7 +467,7 @@ b103303
   
 b044525
 
-# more size.txt | grep '[bB]'
+more size.txt | grep '[bB]'
 
 b124230
   
@@ -468,7 +483,7 @@ B103303
   
 BADc2345
 
-# grep 'root' /etc/group
+grep 'root' /etc/group
 
 root::0:root
   
@@ -490,27 +505,27 @@ nuucp::9:root,nuucp
   
 daemon::12:root,daemon
 
-# grep '^root' /etc/group 匹配正则表达式的开始行
+grep '^root' /etc/group 匹配正则表达式的开始行
 
 root::0:root
 
-# grep 'uucp' /etc/group
+grep 'uucp' /etc/group
 
 uucp::5:root,uucp
   
 nuucp::9:root,nuucp
 
-# grep '\<uucp' /etc/group
+grep '\<uucp' /etc/group
 
 uucp::5:root,uucp
 
-# grep 'root$' /etc/group 匹配正则表达式的结束行
+grep 'root$' /etc/group 匹配正则表达式的结束行
 
 root::0:root
   
 mail::6:root
 
-# more size.txt | grep -i 'b1..*3' -i : 忽略大小写
+more size.txt | grep -i 'b1..*3' -i : 忽略大小写
 
 b124230
   
@@ -518,7 +533,7 @@ b103303
   
 B103303
 
-# more size.txt | grep -iv 'b1..*3' -v : 查找不包含匹配项的行
+more size.txt | grep -iv 'b1..*3' -v : 查找不包含匹配项的行
 
 b034325
   
@@ -546,7 +561,7 @@ M45678
   
 BADc2345
 
-# more size.txt | grep -in 'b1..*3'
+more size.txt | grep -in 'b1..*3'
 
 1:b124230
   
@@ -554,47 +569,34 @@ BADc2345
   
 15:B103303
 
-# grep '$' /etc/init.d/nfs.server | wc -l
+grep '$' /etc/init.d/nfs.server | wc -l
 
 128
 
-# grep '\$' /etc/init.d/nfs.server | wc –l 忽略正则表达式中特殊字符的原有含义
+grep '\$' /etc/init.d/nfs.server | wc –l 忽略正则表达式中特殊字符的原有含义
 
 15
 
-# grep '\$' /etc/init.d/nfs.server
+grep '\$' /etc/init.d/nfs.server
 
 case "$1" in
 
 > /tmp/sharetab.$$
-
 > [ "x$fstype" != xnfs ] &&
-
 > echo "$path\t$res\t$fstype\t$opts\t$desc"
-
 > > /tmp/sharetab.$$
-
 > > /usr/bin/touch -r /etc/dfs/sharetab /tmp/sharetab.$$
-
 > > /usr/bin/mv -f /tmp/sharetab.$$ /etc/dfs/sharetab
-
 > > if [ -f /etc/dfs/dfstab ] && /usr/bin/egrep -v '^[ ]*(#|$)'
-
 > > if [ $startnfsd -eq 0 -a -f /etc/rmmount.conf ] &&
-
 > > if [ $startnfsd -ne 0 ]; then
-
 > > elif [ ! -n "$_INIT_RUN_LEVEL" ]; then
-
 > > while [ $wtime -gt 0 ]; do
-
 > > wtime=`expr $wtime – 1`
-
 > > if [ $wtime -eq 0 ]; then
-
 > > echo "Usage: $0 { start | stop }"
 
-# more size.txt
+more size.txt
 
 the test file
   
@@ -602,27 +604,27 @@ their are files
   
 The end
 
-# grep 'the' size.txt
+grep 'the' size.txt
 
 the test file
   
 their are files
 
-# grep '\<the' size.txt
+grep '\<the' size.txt
 
 the test file
   
 their are files
 
-# grep 'the>' size.txt
+grep 'the>' size.txt
 
 the test file
 
-# grep '\<the>' size.txt
+grep '\<the>' size.txt
 
 the test file
 
-# grep '\<[Tt]he>' size.txt
+grep '\<[Tt]he>' size.txt
 
 the test file
 
@@ -724,9 +726,12 @@ grep -E '219|216' data.doc
 
 (1)使用
   
+```bash
 grep '5[[:upper:]][[:upper:]]' data.doc #查询以5开头以两个大写字母结尾的行
 
-    Grep命令选项
+```
+
+Grep命令选项
  -?
  同时显示匹配行上下的？行，如: grep -2 pattern filename同时显示匹配行的上下2行。
  -b，–byte-offset
@@ -756,7 +761,7 @@ grep '5[[:upper:]][[:upper:]]' data.doc #查询以5开头以两个大写字母�
  -V，–version
  显示软件版本信息。
   
-      grep简介
+grep简介
 
 grep  (global search regular expression(RE) and print out the line,全面搜索正则表达式并把行打印出来) 是一种强大的文本搜索工具，它能使用正则表达式搜索文本，并把匹配的行打印出来。Unix的grep家族包括grep、egrep和fgrep。egrep和fgrep的命令只跟grep有很小不同。egrep是grep的扩展，支持更多的re元字符， fgrep就是fixed grep或fast grep，它们把所有的字母都看作单词，也就是说，正则表达式中的元字符表示回其自身的字面意义，不再特殊。Linux使用GNU版本的grep。它功能更强，可以通过-G、-E、-F命令行选项来使用egrep和fgrep的功能。
 
@@ -764,7 +769,7 @@ grep的工作方式是这样的，它在一个或多个文件中搜索字符串�
 
 grep可用于shell脚本，因为grep通过返回一个状态值来说明搜索的状态，如果模板搜索成功，则返回0，如果搜索不成功，则返回1，如果搜索的文件不存在，则返回2。我们利用这些返回值就可进行一些自动化的文本处理工作。
 
-    grep正则表达式元字符集 (基本集) 
+grep正则表达式元字符集 (基本集)
  ^
  锚定行的开始 如: '^grep'匹配所有以grep开头的行。
  $
@@ -794,10 +799,10 @@ grep可用于shell脚本，因为grep通过返回一个状态值来说明搜索�
  b
  单词锁定符，如: 'bgrepb'只匹配grep。
   
-    用于egrep和 grep -E的元字符扩展集
+用于egrep和 grep -E的元字符扩展集
 
-+
- 匹配一个或多个先前的字符。如: '[a-z]+able'，匹配一个或多个小写字母后跟able的串，如loveable,enable,disable等。
+- `+`
+匹配一个或多个先前的字符。如: '[a-z]+able'，匹配一个或多个小写字母后跟able的串，如loveable,enable,disable等。
  ?
  匹配零个或多个先前的字符。如: 'gr?p'匹配gr后跟一个或没有字符，然后是p的行。
  a|b|c
@@ -833,7 +838,6 @@ grep可用于shell脚本，因为grep通过返回一个状态值来说明搜索�
  [:xdigit:]
  十六进制数字 (0-9，a-f，A-F)
 
-      实例
  要用好grep这个工具，其实就是要写好正则表达式，所以这里不对grep的所有功能进行实例讲解，只列几个例子，讲解一个正则表达式的写法。
  $ ls -l | grep '^a'
  通过管道过滤ls -l输出的内容，只显示以a开头的行。
