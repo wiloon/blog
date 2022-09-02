@@ -1509,3 +1509,9 @@ var=\`ls -lR|grep "^d"|wc -l\`
 <https://blog.csdn.net/baidu_35757025/article/details/64440047>
 
 <https://wangdoc.com/bash/quotation.html>
+
+## echo $$, $BASHPID
+
+$$是当前bash进程的pid 等同于 $BASHPID
+
+<https://www.zhihu.com/question/50517601>
