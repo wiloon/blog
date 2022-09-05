@@ -47,19 +47,25 @@ ssh 192.168.10.184
 cat /root/id_rsa.pub >> /root/.ssh/authorized_keys
 # ok,you will login 192.168.10.184 without input password.
 
+#  retrieve the SHA256 fingerprint
+ssh-keygen -lf /path/to/ssh/key
 ```
 
 ## 推送公钥到服务器
 
+```bash
    ssh-copy-id -i ~/.ssh/id_rsa.pub root@10.1.0.2
+```
 
 ### print SHA256 fingerprint
 
+```bash
     ssh-keygen -lf /path/to/ssh/key
+```
 
-###
-
+```bash
     ssh-keygen -A
+```
 
 public key file: authorized_keys
 
@@ -71,7 +77,9 @@ Your public key has been saved in /root/.ssh/id_rsa.pub
 
 ### WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED
 
+```bash
     ssh-keygen -f "/home/wiloon/.ssh/known_hosts" -R "192.168.1.2"
+```
 
 ### multiple ssh private keys
 
@@ -79,31 +87,22 @@ by **Karanbir Singh**
 
 <http://www.karan.org/blog/index.php/2009/08/25/multiple-ssh-private-keys>
   
-      In quite a few situations its preferred to have ssh keys dedicated for a service or a specific role. Eg. a key to use for home / fun stuff and another one to use for Work things, and another one for Version Control access etc. Creating the keys is simple, just use
-    
-    
-    
-      ssh-keygen -t rsa -f ~/.ssh/id_rsa.work -C "Key for Word stuff"
-    
-    
-    
-      Use different file names for each key. Lets assume that there are 2 keys, ~/.ssh/id_rsa.work and ~/.ssh/id_rsa.misc . The simple way of making sure each of the keys works all the time is to now create config file for ssh:
-    
-    
-    
-      
-        touch ~/.ssh/config
+In quite a few situations its preferred to have ssh keys dedicated for a service or a specific role. Eg. a key to use for home / fun stuff and another one to use for Work things, and another one for Version Control access etc. Creating the keys is simple, just use
+
+ssh-keygen -t rsa -f ~/.ssh/id_rsa.work -C "Key for Word stuff"
+
+Use different file names for each key. Lets assume that there are 2 keys, ~/.ssh/id_rsa.work and ~/.ssh/id_rsa.misc . The simple way of making sure each of the keys works all the time is to now create config file for ssh:
+
+touch ~/.ssh/config
  chmod 600 ~/.ssh/config
  echo "IdentityFile ~/.ssh/id_rsa.work" >> ~/.ssh/config
  echo "IdentityFile ~/.ssh/id_rsa.misc" >> ~/.ssh/config
 
-      This would make sure that both the keys are always used whenever ssh makes a connection. However, ssh config lets you get down to a much finer level of control on keys and other per-connection setups. And I recommend, if you are able to, to use a key selection based on the Hostname. My ~/.ssh/config looks like this :
-    
-    
-    
-      Host *.home.lan
-  IdentityFile ~/.ssh/id_dsa.home
-  User kbsingh
+This would make sure that both the keys are always used whenever ssh makes a connection. However, ssh config lets you get down to a much finer level of control on keys and other per-connection setups. And I recommend, if you are able to, to use a key selection based on the Hostname. My ~/.ssh/config looks like this :
+
+Host *.home.lan
+IdentityFile ~/.ssh/id_dsa.home
+User kbsingh
 
 Host *.vpn
   IdentityFile ~/.ssh/id_rsa.work
@@ -115,7 +114,7 @@ Host *.d0.karan.org
   User admin
   Port 21871
 
-      Ofcourse, if I am connecting to a remote host that does not match any of these selections, ssh will default back to checking for and using the 'usual' key, ~/.ssh/id_dsa or ~/.ssh/id_rsa
+Ofcourse, if I am connecting to a remote host that does not match any of these selections, ssh will default back to checking for and using the 'usual' key, ~/.ssh/id_dsa or ~/.ssh/id_rsa
   
 作者：Martain
 链接：<https://www.jianshu.com/p/75bf863c4ab6>

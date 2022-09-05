@@ -24,17 +24,17 @@ search google.com baidu.com该选项可以用来指定多个域名,中间用空�
 
 如: 在没有配置该选项时,执行
 
-# ping new
+ping new
   
 sping: unknown host news
 
-# ping new
+ping new
   
 sping: unknown host news
   
 配置search google.com baidu.com后,再执行
 
-# ping news
+ping news
   
 PING news.google.com (74.125.128.101) 56(84) bytes of data.
   
@@ -42,7 +42,7 @@ PING news.google.com (74.125.128.101) 56(84) bytes of data.
   
 64 bytes from hg-in-f101.1e100.net (74.125.128.101): icmp_req=2 ttl=47 time=63.6 ms
 
-# ping news
+ping news
   
 PING news.google.com (74.125.128.101) 56(84) bytes of data.
   
