@@ -33,13 +33,13 @@ ssh -L 2000:192.168.50.11:5432 192.168.50.10 -l root
 ## 指定私钥
 
 ```bash
-    ssh -i /path/to/id_rsa
+ssh -i /path/to/id_rsa
 ```
   
 ### 测试
 
 ```bash
-    ssh -T git@github.com
+ssh -T git@github.com
 ```
 
 ### ssh 强制使用密码登录, force ssh client to use only password auth
@@ -49,17 +49,15 @@ ssh -o PreferredAuthentications=password -o PubkeyAuthentication=no 192.168.2.x 
 ```
 
 ```bash
-  
 #debian
-  
 sudo apt-get install openssh-server
 
 #archlinux
-  
 sudo pacman -S openssh
 sudo /etc/init.d/ssh start|stop|restart
 ssh IP
 ssh IP -p 1234 -l root
+
 # ssh version 
 ssh -V
 ```

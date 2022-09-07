@@ -46,25 +46,26 @@ scp /root/.ssh/id_rsa.pub root@192.168.10.184:/root
 ssh 192.168.10.184
 cat /root/id_rsa.pub >> /root/.ssh/authorized_keys
 # ok,you will login 192.168.10.184 without input password.
-
-#  retrieve the SHA256 fingerprint
-ssh-keygen -lf /path/to/ssh/key
 ```
 
 ## 推送公钥到服务器
 
 ```bash
-   ssh-copy-id -i ~/.ssh/id_rsa.pub root@10.1.0.2
+ssh-copy-id -i ~/.ssh/id_rsa.pub root@10.1.0.2
 ```
 
 ### print SHA256 fingerprint
 
 ```bash
-    ssh-keygen -lf /path/to/ssh/key
+# retrieve the SHA256 fingerprint
+ssh-keygen -lf /path/to/ssh/key
+
+# GitHub (MD5) fingerprint format
+ssh-keygen -E md5 -lf <fileName>
 ```
 
 ```bash
-    ssh-keygen -A
+ssh-keygen -A
 ```
 
 public key file: authorized_keys
@@ -78,7 +79,7 @@ Your public key has been saved in /root/.ssh/id_rsa.pub
 ### WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED
 
 ```bash
-    ssh-keygen -f "/home/wiloon/.ssh/known_hosts" -R "192.168.1.2"
+ssh-keygen -f "/home/wiloon/.ssh/known_hosts" -R "192.168.1.2"
 ```
 
 ### multiple ssh private keys
@@ -115,7 +116,7 @@ Host *.d0.karan.org
   Port 21871
 
 Ofcourse, if I am connecting to a remote host that does not match any of these selections, ssh will default back to checking for and using the 'usual' key, ~/.ssh/id_dsa or ~/.ssh/id_rsa
-  
+
 作者：Martain
 链接：<https://www.jianshu.com/p/75bf863c4ab6>
 来源：简书

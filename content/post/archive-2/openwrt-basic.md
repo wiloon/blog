@@ -12,9 +12,17 @@ tags:
 ---
 ## openwrt basic, opkg basic, ipk
 
+## commands
+
+```bash
+# 更新所有软件，包括 OpenWRT 内核、固件等
+opkg list-upgradable | cut -f 1 -d ' ' | xargs opkg upgrade
+
+```
+
 ### wan dns
 
-在wan口设置里的“高级设置”选项里去掉"使用端局通告的DNS服务器"的勾选就可以使用自定义的DNS服务器
+在 wan 口设置里的“高级设置”选项里去掉"使用端局通告的DNS服务器"的勾选就可以使用自定义的DNS服务器
 
 ### ssh port
 

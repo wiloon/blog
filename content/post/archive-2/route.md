@@ -343,12 +343,12 @@ ip rule list
 再查看当前策略,确定已经生效:
 
 ```r
-    ip rule list
+ip rule list
 
-    0:         from all lookup local
-    32765:     from all fwmark 0x1 lookup 300
-    32766:     from all lookup main
-    32767:     from all lookup default
+0:         from all lookup local
+32765:     from all fwmark 0x1 lookup 300
+32766:     from all lookup main
+32767:     from all lookup default
 ```
 
 通过这种方法,可以使用IPTABLES根据匹配规则设置mark, 再由路由模块根据mark值进行路由决策,从而实现复杂的策略路由。
@@ -368,22 +368,22 @@ fwmark
 以上示例只是一个概念而已,如果真要完整体现出这个示例的所有功能,还需要注意许多细节,稍后将使用详细的示例讲解这部分内容,在此只要首先了解fwmark与Netfilter结合使用的概念即可。
 
 ```r
-    iptables -t mangle -A FORWARD -i eth3 -p tcp --dport 80 -j MARK --set-mark 1  
-    iptables -t mangle -A FORWARD -i eth3 -p tcp --dport 25 -j MARK --set-mark 2  
-    iptables -t mangle -A FORWARD -i eth3 -p tcp --dport 110 -j MARK --set-mark 2  
-    iptables -t mangle -A FORWARD -i eth3 -j MARK --set-mark 3  
-    ip rule add fwmark 1 table 1  
-    ip rule add fwmark 2 table 2  
-    ip rule add fwmark 3 table 3
+iptables -t mangle -A FORWARD -i eth3 -p tcp --dport 80 -j MARK --set-mark 1  
+iptables -t mangle -A FORWARD -i eth3 -p tcp --dport 25 -j MARK --set-mark 2  
+iptables -t mangle -A FORWARD -i eth3 -p tcp --dport 110 -j MARK --set-mark 2  
+iptables -t mangle -A FORWARD -i eth3 -j MARK --set-mark 3  
+ip rule add fwmark 1 table 1  
+ip rule add fwmark 2 table 2  
+ip rule add fwmark 3 table 3
 ```
 
 ### ip rule
 
 ```bash
-    # 使用iptables给相应的数据打上标记
-    iptables -A PREROUTING -t mangle -i eth0 -s 192.168.0.1 -192.168.0.100 -j MARK --set-mark 3
-    # fwmark 3是标记,table 3 是路由表3 上边。 意思就是凡事标记了 3 的数据使用table3 路由表
-    ip rule add fwmark 3  table 3
+# 使用iptables给相应的数据打上标记
+iptables -A PREROUTING -t mangle -i eth0 -s 192.168.0.1 -192.168.0.100 -j MARK --set-mark 3
+# fwmark 3是标记,table 3 是路由表3 上边。 意思就是凡事标记了 3 的数据使用table3 路由表
+ip rule add fwmark 3  table 3
 ```
 
 ### 默认规则
