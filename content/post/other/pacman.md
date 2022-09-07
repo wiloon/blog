@@ -464,3 +464,40 @@ Server = https://archive.archlinux.org/repos/2022/08/13/$repo/os/$arch
 
 pacman -Syyuu
 ```
+
+## 一个切换 mirror 的脚本
+
+```bash
+#!/bin/bash
+
+printf "1. China\n2. Japan\nSelect mirror (leave blank for China):"
+
+read -r locationId
+
+if [ "" == "$locationId" ];then
+  locationId="1"
+fi
+
+if [ "1" == "$locationId" ];then
+  echo "Chinese mirror"
+
+  sudo bash -c 'cat > /etc/pacman.d/mirrorlist << EOF
+Server = http://mirrors.163.com/archlinux/\$repo/os/\$arch
+Server = https://mirrors.aliyun.com/archlinux/\$repo/os/\$arch
+Server = http://mirrors.neusoft.edu.cn/archlinux/
+Server = http://mirrors.lug.mtu.edu/archlinux/
+Server = http://mirrors.kernel.org/archlinux/\$repo/os/\$arch
+EOF'
+
+else
+
+  sudo bash -c 'cat > /etc/pacman.d/mirrorlist << EOF
+Server = http://mirrors.cat.net/archlinux/\$repo/os/\$arch
+Server = https://mirrors.cat.net/archlinux/\$repo/os/\$arch
+Server = http://ftp.tsukuba.wide.ad.jp/Linux/archlinux/\$repo/os/\$arch
+Server = http://ftp.jaist.ac.jp/pub/Linux/ArchLinux/\$repo/os/\$arch
+Server = https://ftp.jaist.ac.jp/pub/Linux/ArchLinux/\$repo/os/\$arch
+EOF'
+
+fi
+```

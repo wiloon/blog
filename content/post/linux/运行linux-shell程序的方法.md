@@ -10,7 +10,9 @@ tags:
 
 ---
 ## 执行 Shell 脚本, fork, exec, source, shell 执行
- cx 
+
+ cx
+
 ```bash
 ./xxx.sh
 sh xxx.sh
@@ -22,7 +24,7 @@ sh xxx.sh
 
 ### sh Shell 程序文件名
 
-这种方法的命令格式为: 
+这种方法的命令格式为:
 
     sh <foo.sh>
 
@@ -50,13 +52,13 @@ source (source /directory/script.sh)
 使用 source 执行命令时, 脚本文件可以没有执行权限, source 命令是 bash 的内置命令，不需要 (也没有) 绝对路径.  
 source 命令也称为"点命令"，也就是一个点符号 ". "。 source 命令通常用于重新执行刚修改的初始化文件，使之立即生效，而不必注销并重新登录。
   
-  
 用法: 注意点后面有空格
+
 ```bash
 source filename 或 . filename
 ```
-source命令除了上述的用途之外，还有一个另外一个用途。在对编译系统核心时常常需要输入一长串的命令，如: 
-  
+
+source命令除了上述的用途之外，还有一个另外一个用途。在对编译系统核心时常常需要输入一长串的命令，如:
   
 ```bash
 make mrproper
@@ -66,8 +68,7 @@ make clean
 make bzImage
 ```
 
-如果把这些命令做成一个文件，让它自动顺序执行，对于需要多次反复编译系统核心的用户来说会很方便，而用source命令就可以做到这一点，它的作用就是把一个文件的内容当成shell来执行，先在linux的源代码目录下 (如/usr/src/linux-2.4.20) 建立一个文件，如make_command，在其中输入一下内容: 
-  
+如果把这些命令做成一个文件，让它自动顺序执行，对于需要多次反复编译系统核心的用户来说会很方便，而用source命令就可以做到这一点，它的作用就是把一个文件的内容当成shell来执行，先在linux的源代码目录下 (如/usr/src/linux-2.4.20) 建立一个文件，如make_command，在其中输入一下内容:
   
 ```bash
 make mrproper &&
@@ -83,26 +84,25 @@ vi /etc/lilo.conf &&
 lilo -v
 ```
   
-  文件建立好之后，每次编译核心的时候，只需要在/usr/src/linux-2.4.20下输入: 
-  
+  文件建立好之后，每次编译核心的时候，只需要在/usr/src/linux-2.4.20下输入:
   
     source make_command
   
-  
 即可，如果你用的不是lilo来引导系统，可以把最后两行去掉，配置自己的引导程序来引导内核。
-  
   
 顺便补充一点，&&命令表示顺序执行由它连接的命令，但是只有它之前的命令成功执行完成了之后才可以继续执行它后面的命令。
 
 ### 点斜杠(./)
+
 点斜杠执行脚本是启动了另一个Shell去执行脚本 (另一个进程），所以点斜杠执行脚本时，设置的环境变量会随着进程的退出而结束，其中的环境变量设置对当前Shell不起作用。
 
 ### 点空格点斜杠(. ./)
+
 点空格点斜杠执行脚本，是相当于source ./执行脚本，source是执行脚本当中的命令，也就是说在当前进程中执行命令，所以其中的环境变量的设置会对当前Shell其作用。
 
-
 ### 三种shell脚本调用方法 (fork, exec, source)
-原文: http://mindream.wang.blog.163.com/blog/static/2325122220084624318692/
+
+原文: <http://mindream.wang.blog.163.com/blog/static/2325122220084624318692/>
 
 fork(/path/to/script.sh)
 fork是最普通的, 就是直接在脚本里面用 /directory/script.sh 来调用script.sh这个脚本。
@@ -114,11 +114,9 @@ sub-shell执行完毕后返回parent-shell。sub-shell从parent-shell继承环�
 exec (exec /path/to/script.sh)
 exec与fork不同，不需要新开一个sub-shell来执行被调用的脚本。被调用的脚本与父脚本在同一个shell内执行。但是使用exec调用一个新脚本以后, 父脚本中exec行之后的内容就不会再执行了。这是exec和source的区别。
 
-
-
 可以通过下面这两个脚本来体会三种调用方式的不同:
 
-#!/bin/bash
+# !/bin/bash
 A=B
 echo "PID for 1.sh before exec/source/fork:$$"
 export A
@@ -137,12 +135,11 @@ esac
 echo "PID for 1.sh after exec/source/fork:$$"
 echo "1.sh: $A is $A"
 
-#!/bin/bash
+# !/bin/bash
 echo "PID for 2.sh: $$"
 echo "2.sh get $A=$A from 1.sh"
 A=C
 export A
 echo "2.sh: $A is $A"
 
-
->https://blog.csdn.net/zdh9378/article/details/39586783
+><https://blog.csdn.net/zdh9378/article/details/39586783>

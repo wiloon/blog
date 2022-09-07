@@ -1,5 +1,5 @@
 ---
-title: shell basic, shell script
+title: shell basic, shell script, shell脚本
 author: "-"
 date: 2019-05-06T04:27:52+00:00
 url: shell
@@ -43,9 +43,9 @@ fi
 
 ```
 
-## read, 读取标准输入， 接收标准输入
+## read, 读取标准输入，接收标准输入
 
-read命令接收标准输入（键盘）的输入，或者其他文件描述符的输入。在得到输入之后，read命令把输入数据放入一个标准变量中。下面是read命令的基本形式:
+read 命令接收标准输入（键盘）的输入，或者其他文件描述符的输入。在得到输入之后，read命令把输入数据放入一个标准变量中。下面是read命令的基本形式:
 
 ```bash
 # !/bin/bash                                 # 指定shell类型
@@ -871,8 +871,19 @@ ${var:-newstring}
 ### if
 
 ```bash
+# if then 写在同一行, 条件表达式后面要加分号
 if [ -f ~/.bashrc ]; then
     . ~/.bashrc
+else
+    echo "bar"
+fi
+
+# then 跟 if 不在同一行
+if [ -f ~/.bashrc ]
+then
+    . ~/.bashrc
+else
+    echo "bar"
 fi
 ```
 
