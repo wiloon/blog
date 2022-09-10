@@ -488,3 +488,11 @@ kubectl get nodes
 ```
 
 <https://www.linuxtechi.com/install-kubernetes-on-ubuntu-22-04/>
+
+## deployment
+
+deployment 是资源控制管理器，比如动态扩缩容，滚动更新，回滚等等操作，在k8s里面有多种资源控制器，比如rs、rc、ds、job等，rc已经被rs替代，然而deployment的功能又包含rs，所以我这里用dep。
+
+## service
+
+service 服务代理，代理谁？pod，通过label标签匹配，为什么需要它？如果没有它的话，pod暴露的是一个个ip，如果中间一个pod挂了，dep为了满足我们的期望值，会重新创建一个pod，这时候出问题了，刚好service就是为了解决这个问题而诞生的，它通过标签匹配到集群里面对应的标签pod，监听它们的状态，然后把pod信息同步到service里面，提供外部服务。service代理模式分三种iptables、ipvs等。

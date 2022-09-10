@@ -53,6 +53,8 @@ sys: 程序在 Kernel space 执行的时间
     cp -f
 ```
 
+## 启动时间
+
 ```bash
 # 查看系统启动时间和运行时间
 uptime

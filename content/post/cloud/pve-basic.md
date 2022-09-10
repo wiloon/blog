@@ -1,7 +1,7 @@
 ---
-title: "pve basic"
+title: "pve"
 author: "-"
-date: ""
+date: "2022-09-10 15:39:49"
 url: "pve"
 categories:
   - Linux
@@ -10,7 +10,7 @@ tags:
   - VM
   - remix
 ---
-## "pve basic"
+## "pve"
 
 ### 创建安装盘 U盘
 
@@ -159,27 +159,26 @@ bridge ports: 支持同时添加多个网口，用空格分隔
 使用WinSCP等软件上传vma备份文件至另一台pve
 使用恢复功能恢复虚拟机
 
-## 备份虚拟机
+## 备份恢复虚拟机
 
 登录 pve 选择要备份的虚拟机
 磁盘需要勾选备份选项: tick the box, Hardware> Hard Disk> Edit> Advanced> Backup
 从 Hardware 菜单切换到 Backup 点击子菜单中的备份按钮
-点击立即备份按钮(Backup)
+点击立即备份按钮(Backup now)
 设置备份到的存储 (local的备份路径为: /var/lib/vz/dump)
 设置模式(Mode): 停止(Stop)
 设置压缩: 无
 等待备份完毕
 
 ```bash
-scp root@192.168.50.5:/var/lib/vz/dump/vzdump-qemu-106-2022_06_26-13_40_31.vma . 
-
+# 页面打印的日志里能找到 文件路径 INFO: creating vzdump archive '/var/lib/vz/dump/vzdump-qemu-105-2022_09_10-15_19_12.vma.zst'
+scp root@192.168.50.5:/var/lib/vz/dump/vzdump-qemu-105-2022_09_10-15_19_12.vma.zst .
 ```
 
-#### 恢复
+### 恢复
 
 ```bash
-scp vzdump-qemu-106-2022_06_26-13_40_31.vma   root@192.168.50.7:/var/lib/vz/dump/
-
+scp vzdump-qemu-105-2022_09_10-15_19_12.vma.zst root@192.168.50.7:/var/lib/vz/dump/
 ```
 
 等待上传完毕
@@ -228,9 +227,9 @@ scp vzdump-qemu-106-2022_06_26-13_40_31.vma   root@192.168.50.7:/var/lib/vz/dump
 
 <https://www.10bests.com/install-openwrt-lede-on-pve/>
 
-## 关闭屏幕
+## 关闭屏幕, 熄屏
 
-setterm -blank 5 //5分钟后关闭屏幕，5 可以改成别的整数
+setterm -blank 1 // 5分钟后关闭屏幕，5 可以改成别的整数
 GRUB_CMDLINE_LINUX="consoleblank=300" //每次开机后无操作都是5分钟关闭屏幕300的单位是秒
 
 <https://www.xltyu.com/3276.html>

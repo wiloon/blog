@@ -66,7 +66,7 @@ ps -efl
 # 
 ps -aux 
 
-#进程启动时间  
+# 进程启动时间  
 ps -p <PID> -o lstart  
 ps -ef  
 ps f 用ASCII字符显示树状结构，表达程序间的相互关系。
