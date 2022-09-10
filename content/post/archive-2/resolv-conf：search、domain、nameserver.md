@@ -1,14 +1,14 @@
 ---
-title: 'resolv.conf,search、domain、nameserver'
+title: 'resolv.conf, search, domain, nameserver'
 author: "-"
 date: 2018-09-25T09:53:24+00:00
-url: /?p=12701
+url: resolv
 categories:
-  - Inbox
+  - Network
 tags:
   - reprint
 ---
-## 'resolv.conf,search、domain、nameserver'
+## 'resolv.conf, search, domain, nameserver'
 
 <http://www.ttlsa.com/linux/resolv-conf-desc/>
   
@@ -32,7 +32,7 @@ ping new
   
 sping: unknown host news
   
-配置search google.com baidu.com后,再执行
+配置 search google.com baidu.com后,再执行
 
 ping news
   

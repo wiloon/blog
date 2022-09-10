@@ -11,7 +11,9 @@ tags:
 
 ## Ubuntu 22.04 LTS (Jammy Jellyfish)
 
-### mirror
+### ubuntu mirror
+
+#### aliyun
 
 ```bash
 deb http://mirrors.aliyun.com/ubuntu/ jammy main restricted universe multiverse
@@ -30,9 +32,28 @@ deb http://mirrors.aliyun.com/ubuntu/ jammy-backports main restricted universe m
 deb-src http://mirrors.aliyun.com/ubuntu/ jammy-backports main restricted universe multiverse
 ```
 
+#### 163
+
+```bash
+deb http://mirrors.163.com/ubuntu/ jammy main restricted universe multiverse
+deb-src http://mirrors.163.com/ubuntu/ jammy main restricted universe multiverse
+
+deb http://mirrors.163.com/ubuntu/ jammy-security main restricted universe multiverse
+deb-src http://mirrors.163.com/ubuntu/ jammy-security main restricted universe multiverse
+
+deb http://mirrors.163.com/ubuntu/ jammy-updates main restricted universe multiverse
+deb-src http://mirrors.163.com/ubuntu/ jammy-updates main restricted universe multiverse
+
+deb http://mirrors.163.com/ubuntu/ jammy-proposed main restricted universe multiverse
+deb-src http://mirrors.163.com/ubuntu/ jammy-proposed main restricted universe multiverse
+
+deb http://mirrors.163.com/ubuntu/ jammy-backports main restricted universe multiverse
+deb-src http://mirrors.163.com/ubuntu/ jammy-backports main restricted universe multiverse
+```
+
 ```bash
     vim /etc/apt/sources.list
-    %s/archive.ubuntu.com/mirrors.aliyun.com/g
+    %s/archive.ubuntu.com/mirrors.163.com/g
 ```
 
 ### WSL

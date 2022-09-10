@@ -100,7 +100,7 @@ reboot
 # 安装完以上的包 ip forward, nf-call会自动设置好。
 sysctl -a |grep vm.swappiness && sysctl -a |grep ip_forward && sysctl -a |grep bridge-nf-call
 
-# 把虚拟机的网关设置成有梯子的网关，kubelet需要梯子
+# 把虚拟机的网关设置成有梯子的网关，kubelet 需要梯子
 
 # 配置内网dns
 192.168.50.110 k8s0
@@ -361,20 +361,25 @@ kubectl delete pod kube-flannel-ds-trxtz  -n kube-system
 kubectl logs -f --since 5m istiod-9cbc77d98-kk98q -n istio-system
 ```
 
-><https://www.lixueduan.com/post/kubernetes/01-install/>
-><https://wiki.archlinux.org/title/Kubernetes>
-><https://kubernetes.io/zh/docs/home/>
-><https://kubernetes.io/zh/docs/setup/production-environment/tools/kubeadm/create-cluster-kubeadm/>
+<https://www.lixueduan.com/post/kubernetes/01-install/>
 
-><https://www.qikqiak.com/post/containerd-usage/>
-><https://landscape.cncf.io/card-mode?category=container-runtime&grouping=category>
-><https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/kubelet-integration/>
+<https://wiki.archlinux.org/title/Kubernetes>
 
-><https://juejin.cn/post/6894457482635116551>
+<https://kubernetes.io/zh/docs/home/>
+
+<https://kubernetes.io/zh/docs/setup/production-environment/tools/kubeadm/create-cluster-kubeadm/>
+
+<https://www.qikqiak.com/post/containerd-usage/>
+
+<https://landscape.cncf.io/card-mode?category=container-runtime&grouping=category>
+
+<https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/kubelet-integration/>
+
+<https://juejin.cn/post/6894457482635116551>
 
 ### pod cidr not assgned
 
-><https://github.com/flannel-io/flannel/issues/728>
+<https://github.com/flannel-io/flannel/issues/728>
 
 ### kubectl run
 
@@ -392,20 +397,94 @@ curl -v http://10.85.0.3
 
 ```bash
 sudo apt update
+sudo apt upgrade
 
-ssh-keygen -t ed25519 -C "k8s"
-
-sudo apt install docker.io
-sudo apt install apt-transport-https curl
-curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add
-sudo apt-add-repository "deb http://apt.kubernetes.io/ kubernetes-xenial main"
-sudo apt install kubeadm kubelet kubectl kubernetes-cni
 # 查看是否启用了 swap, 没有输出就是没启用
 swapon
 # 禁用 swap
 sudo swapoff -a
 # 在文件中禁用 /swapfile
 sudo nano /etc/fstab
-# 初始化 k8s master
-sudo kubeadm init
+
+# https://docs.docker.com/engine/install/ubuntu/
+sudo apt-get install \
+    ca-certificates \
+    curl \
+    gnupg \
+    lsb-release
+
+sudo tee /etc/modules-load.d/containerd.conf <<EOF
+overlay
+br_netfilter
+EOF
+
+sudo modprobe overlay
+sudo modprobe br_netfilter
+
+sudo tee /etc/sysctl.d/kubernetes.conf <<EOF
+net.bridge.bridge-nf-call-ip6tables = 1
+net.bridge.bridge-nf-call-iptables = 1
+net.ipv4.ip_forward = 1
+EOF 
+
+sudo sysctl --system
+
+sudo apt install -y curl gnupg2 software-properties-common apt-transport-https ca-certificates
+sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmour -o /etc/apt/trusted.gpg.d/docker.gpg
+sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+sudo apt update
+sudo apt install -y containerd.io
+
+containerd config default | sudo tee /etc/containerd/config.toml >/dev/null 2>&1
+sudo sed -i 's/SystemdCgroup \= false/SystemdCgroup \= true/g' /etc/containerd/config.toml
+
+sudo systemctl restart containerd
+sudo systemctl enable containerd
+curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -
+
+sudo apt-add-repository "deb http://apt.kubernetes.io/ kubernetes-xenial main"
+sudo apt update
+sudo apt install -y kubelet kubeadm kubectl
+sudo apt-mark hold kubelet kubeadm kubectl
+sudo kubeadm init --control-plane-endpoint=k8s0
+
+mkdir -p $HOME/.kube
+sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
+sudo chown $(id -u):$(id -g) $HOME/.kube/config
+
+kubectl cluster-info
+kubectl get nodes
+
+## install kubeadm on other vm and join
+kubeadm join k8s0:6443 --token 7iikfr.7b2s9q28iuhmtpvq \
+        --discovery-token-ca-cert-hash sha256:97d5fe071438d0cc279078e76cf768e898ff61b75069d574eb3bef36e81723db
+kubectl get nodes
+
+curl https://projectcalico.docs.tigera.io/manifests/calico.yaml -O
+kubectl apply -f calico.yaml
+
+kubectl get pods -n kube-system
+kubectl get nodes
+
+
+## Test Kubernetes Installation
+kubectl create deployment nginx-app --image=nginx --replicas=1
+kubectl get deployment nginx-app
+
+kubectl expose deployment nginx-app --type=NodePort --port=80
+
+kubectl get svc nginx-app
+kubectl describe svc nginx-app
+
+---
+# check status
+kubectl get pods --all-namespaces
+kubectl get pods --all-namespaces -o wide
+kubectl describe pod -n <NAMESPACE> <NAME>
+kubectl logs --namespace <NAMESPACE> <NAME>
+kubectl cluster-info
+kubectl get nodes
+
 ```
+
+<https://www.linuxtechi.com/install-kubernetes-on-ubuntu-22-04/>

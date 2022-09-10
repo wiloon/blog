@@ -80,7 +80,6 @@ sysctl tcp_syn_retrie
 sysctl -w net.ipv4.tcp_synack_retries=5
 # 从配置文件加载内核参数设置
 sysctl -p /etc/sysctl.conf
-sysctl --system
 ```
 
 sysctl -w xxx_tcp_syn_retrie =0 时 不会生效。保持原值
