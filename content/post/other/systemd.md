@@ -113,15 +113,17 @@ Environment="ANOTHER_SECRET=JP8YLOc2bsNlrGuD6LVTq7L36obpjzxd"
 ### timedatectl
 
 ```bash
-    # 查看当前时区设置
-    $ timedatectl
+# 查看当前时区设置
+$ timedatectl
 
-    # 显示所有可用的时区
-    $ timedatectl list-timezones                                                                                  
-    # 设置当前时区
-    $ sudo timedatectl set-timezone America/New_York
-    $ sudo timedatectl set-time YYYY-MM-DD
-    $ sudo timedatectl set-time HH:MM:SS
+# 显示所有可用的时区
+$ timedatectl list-timezones                                                                                  
+# 设置当前时区
+$ sudo timedatectl set-timezone America/New_York
+$ sudo timedatectl set-time YYYY-MM-DD
+$ sudo timedatectl set-time HH:MM:SS
+## timedatectl ntp
+timedatectl set-ntp true
 ```
 
 ### loginctl

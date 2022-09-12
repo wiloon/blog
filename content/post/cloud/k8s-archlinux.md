@@ -484,7 +484,12 @@ kubectl describe pod -n <NAMESPACE> <NAME>
 kubectl logs --namespace <NAMESPACE> <NAME>
 kubectl cluster-info
 kubectl get nodes
+kubectl get po -n default
 
+
+## 卸载服务
+
+kubectl delete -f deploy/deployment.yaml
 ```
 
 <https://www.linuxtechi.com/install-kubernetes-on-ubuntu-22-04/>
@@ -496,3 +501,131 @@ deployment 是资源控制管理器，比如动态扩缩容，滚动更新，回
 ## service
 
 service 服务代理，代理谁？pod，通过label标签匹配，为什么需要它？如果没有它的话，pod暴露的是一个个ip，如果中间一个pod挂了，dep为了满足我们的期望值，会重新创建一个pod，这时候出问题了，刚好service就是为了解决这个问题而诞生的，它通过标签匹配到集群里面对应的标签pod，监听它们的状态，然后把pod信息同步到service里面，提供外部服务。service代理模式分三种iptables、ipvs等。
+
+## 部署服务到 k8s
+
+### golang 服务
+
+- 编译并推送到 docker registery
+- 创建 deployment.yml
+
+```yml
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: rssx-api
+  namespace: default # 声明工作空间，默认为default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      name: rssx-api
+  template:
+    metadata:
+      labels:
+        name: rssx-api
+    spec:
+      containers:
+        - name: rssx-api-container
+          image: registry.wiloon.com/rssx-api:v0.0.1 # 镜像地址
+          imagePullPolicy: Always # 每次都从仓库拉取镜像, 即使版本号一样也拉取
+          ports:
+            - containerPort: 8080 # containerPort 是声明容器内部的端口
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: rssx-api-service
+  namespace: default  # 声明工作空间，默认为default
+spec:
+  type: NodePort
+  ports:
+    - name: http
+      port: 18081 # Service暴露在cluster-ip上的端口，通过<cluster-ip>:port访问服务,通过此端口集群内的服务可以相互访问
+      targetPort: 8080 # Pod的外部访问端口，port和nodePort的数据通过这个端口进入到Pod内部，Pod里面的containers的端口映射到这个端口，提供服务
+      nodePort: 31081 # Node节点的端口，<nodeIP>:nodePort 是提供给集群外部客户访问service的入口
+  selector:
+    name: rssx-api
+
+```
+
+- 应用
+
+```bash
+kubectl create -f /tmp/deployment.yaml
+```
+
+- 卸载
+
+```bash
+kubectl delete -f /tmp/deployment.yaml
+```
+
+### vue 前端
+
+- 编译并推送到 docker registery
+- 创建 deployment.yml
+
+```yml
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: rssx-ui
+  namespace: default # 声明工作空间，默认为 default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      name: rssx-ui
+  template:
+    metadata:
+      labels:
+        name: rssx-ui
+    spec:
+      containers:
+        - name: rssx-ui-container
+          image: registry.wiloon.com/rssx-ui:v0.0.1
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 80 # containerPort 是声明容器内部的port
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: rssx-ui-service
+  namespace: default  # 声明工作空间，默认为default
+spec:
+  type: NodePort
+  ports:
+    - name: http
+      port: 18082 # Service暴露在cluster-ip上的端口，通过<cluster-ip>:port访问服务,通过此端口集群内的服务可以相互访问
+      targetPort: 80 # Pod的外部访问端口，port和nodePort的数据通过这个端口进入到Pod内部，Pod里面的containers的端口映射到这个端口，提供服务
+      nodePort: 31082 # Node节点的端口，<nodeIP>:nodePort 是提供给集群外部客户访问service的入口
+  selector:
+    name: rssx-ui
+
+
+```
+
+- 应用
+
+```bash
+kubectl create -f /tmp/k8s-rssx-ui-deployment.yaml
+```
+
+- 卸载
+
+```bash
+kubectl delete -f /tmp/k8s-rssx-ui-deployment.yaml
+```
+
+<https://jasonkayzk.github.io/2021/10/31/%E4%BD%BF%E7%94%A8K8S%E9%83%A8%E7%BD%B2%E6%9C%80%E7%AE%80%E5%8D%95%E7%9A%84Go%E5%BA%94%E7%94%A8/>
+
+## PV
+
+<https://www.cnblogs.com/along21/p/10342788.html>
+

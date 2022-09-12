@@ -121,3 +121,19 @@ sudo hddtemp /dev/sda
 <https://man.linuxde.net/strings>  
 
 <https://blog.csdn.net/yangshangwei/article/details/52563123>
+
+## mpstat
+
+mpstat是Multiprocessor Statistics的缩写，是实时系统监控工具。其报告与CPU的一些统计信息，这些信息存放在/proc/stat文件中。在多CPUs系统里，其不但能查看所有CPU的平均状况信息，而且能够查看特定CPU的信息。mpstat最大的特点是：可以查看多核心cpu中每个计算核心的统计数据；而类似工具vmstat只能查看系统整体cpu情况。
+
+mpstat [-P {|ALL}] [internal [count]]
+参数 解释
+-P {|ALL} 表示监控哪个CPU， cpu在[0,cpu个数-1]中取值
+internal 相邻的两次采样的间隔时间、
+count 采样的次数，count只能和delay一起使用
+当没有参数时，mpstat则显示系统启动以后所有信息的平均值。有interval时，第一行的信息自系统启动以来的平均信息。从第二行开始，输出为前一个interval时间段的平均信息。
+
+```bash
+mpstat -P ALL 1
+
+```

@@ -12,6 +12,10 @@ tags:
 
 NTP，是 Net Time Protocol的缩写，意即网络时间协议。
 
+## systemd-timesyncd
+
+systemd-timesyncd 是一个用于跨网络同步系统时钟的守护服务。它实现了一个 SNTP 客户端。与NTP的复杂实现相比，这个服务简单的多，它只专注于从远程服务器查询然后同步到本地时钟。
+
 ## chrony install
 
 ```bash
@@ -193,3 +197,10 @@ A cron job example:
 ## How to use ntpdate behind a proxy
 
 <https://superuser.com/questions/307158/how-to-use-ntpdate-behind-a-proxy>
+
+## archlinux ntp
+
+```bash
+timedatectl status
+# System clock synchronized: yes
+```

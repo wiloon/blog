@@ -23,6 +23,7 @@ iostat [参数] [时间] [次数]
 sudo pacman -S sysstat
 sudo yum install sysstat
 
+iostat -sxz 1
 iostat 1
 iostat -x 1
 ```
@@ -37,7 +38,7 @@ iostat -x 1
 -m 以 M 为单位显示
 -N 显示磁盘阵列(LVM) 信息
 -n 显示NFS 使用情况
--p[磁盘] 显示磁盘和分区的情况
+-p [磁盘] 显示磁盘和分区的情况
 -t 显示终端和CPU的信息
 -V 显示版本信息
 ```

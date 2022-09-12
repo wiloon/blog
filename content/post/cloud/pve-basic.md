@@ -75,15 +75,15 @@ deb http://security.debian.org bullseye-security main contrib
 deb http://download.proxmox.com/debian/pve bullseye pve-no-subscription
 ```
 
-### 访问管理页面
+## 管理页面
 
 <https://192.168.50.xxx:8006>
 
-### create vm
+## create vm
 
-#### 上传iso
+### 上传iso
 
-把 ISO 上传到Proxmox 宿主机的存储里
+把 ISO 上传到 Proxmox 宿主机的存储里
 Datacenter> nuc8> local(nuc8) >ISO Images >-->Upload
 
 ### 创建虚拟机
@@ -96,12 +96,12 @@ create vm >
 
     next
 
-    OS>use cd/dvd disc image file > iso image
+    OS> use cd/dvd disc image file > iso image
 
     next
 
-    Hard Disk>Disk size
-    Hard Disk>Backup
+    Hard Disk> Disk size
+    Hard Disk> Backup
 
 create vm > system > qemu agent: select
 ```

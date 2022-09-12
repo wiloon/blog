@@ -24,11 +24,15 @@ curl -O http://mirrors.163.com/archlinux/iso/2022.02.01/archlinux-2022.02.01-x86
 - 用 ventoy U盘引导系统
 - 启动 sshd
 
-    systemctl start sshd
+```bash
+systemctl start sshd
+```
 
 - 设置 root 密码
 
-    passwd
+```bash
+passwd
+```
 
 - 登录, 然后进行后续操作
 

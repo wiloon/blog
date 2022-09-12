@@ -1,21 +1,29 @@
 ---
-title: 'linux 监控工具  sar'
+title: sar command
 author: "-"
 date: 2017-05-30T15:22:25+00:00
-url: /?p=10400
+url: sar
 categories:
   - Inbox
 tags:
   - reprint
 ---
-## 'linux 监控工具  sar'
+## sar command
+
+```bash
+sar -n DEV 1
+sar -n TCP,ETCP 1
+```
+
 Cannot open /var/log/sa/sa22: No such file or directory
   
-22是指当天的日期
+22 是指当天的日期
 
 这个是由于没有创建那sa22这个文件,这可以通过参数-o让其生成
 
-#sar -o 2 3
+```bash
+sar -o 2 3
+```
 
 在对应的/var/log/sa/目录下就有对应的日志文件了
   
@@ -31,7 +39,7 @@ sar是System Activity Reporter (系统活动情况报告) 的缩写。sar工具�
 
 sar是查看操作系统报告指标的各种工具中,最为普遍和方便的；它有两种用法；
 
-追溯过去的统计数据 (默认) 
+追溯过去的统计数据 (默认)
   
 周期性的查看当前数据
   
@@ -71,7 +79,7 @@ sar -q: 查看平均负载
 
 指定-q后,就能查看运行队列中的进程数、系统上的进程大小、平均负载等；与其它命令相比,它能查看各项指标随时间变化的情况；
 
-runq-sz: 运行队列的长度 (等待运行的进程数) 
+runq-sz: 运行队列的长度 (等待运行的进程数)
   
 plist-sz: 进程列表中进程 (processes) 和线程 (threads) 的数量
   
@@ -91,7 +99,7 @@ sar是System Activity Reporter (系统活动情况报告) 的缩写。sar工具�
 
 sar是查看操作系统报告指标的各种工具中,最为普遍和方便的；它有两种用法；
 
-追溯过去的统计数据 (默认) 
+追溯过去的统计数据 (默认)
   
 周期性的查看当前数据
   
@@ -131,7 +139,7 @@ sar -q: 查看平均负载
 
 指定-q后,就能查看运行队列中的进程数、系统上的进程大小、平均负载等；与其它命令相比,它能查看各项指标随时间变化的情况；
 
-runq-sz: 运行队列的长度 (等待运行的进程数) 
+runq-sz: 运行队列的长度 (等待运行的进程数)
   
 plist-sz: 进程列表中进程 (processes) 和线程 (threads) 的数量
   
@@ -227,6 +235,6 @@ pswpout/s: 每秒系统换出的交换页面 (swap page) 数量
   
 -y 报告TTY设备活动状况
   
-http://linuxtools-rst.readthedocs.io/zh_CN/latest/tool/sar.html
+<http://linuxtools-rst.readthedocs.io/zh_CN/latest/tool/sar.html>
   
-http://frankch.blog.51cto.com/10836181/1744092
+<http://frankch.blog.51cto.com/10836181/1744092>
