@@ -93,7 +93,9 @@ grep -r 'linux' *
 ```
 
 #### egrep
-  
+
+egrep: warning: egrep is obsolescent; using grep -E
+
 为 grep 的扩充版本, 改良了许多传统 grep 不能或不便的操作. 比方说:
 
 - grep 之下不支持 ? 与 + 这两种 modifier, 但 egrep 则可.
