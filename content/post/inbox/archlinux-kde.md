@@ -45,7 +45,7 @@ sddm
 
 ### 锁屏界面的日期时间格式
 
- <https://chubuntu.com/questions/28565/how-to-display-kde-lock-screen-time-in-24-hour-format.html>
+<https://chubuntu.com/questions/28565/how-to-display-kde-lock-screen-time-in-24-hour-format.html>
 
  ```bash
 vim  /usr/share/plasma/look-and-feel/org.kde.breeze.desktop/contents/components/Clock.qml

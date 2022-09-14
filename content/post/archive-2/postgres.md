@@ -153,3 +153,8 @@ pg_dump -d db_name | gzip > db.gz
 psql -h 127.0.0.1 -p 5432 -t table0 -U postgres -d database0 -f foo.sql
 
 ```
+
+```sql
+CREATE SEQUENCE shipments_ship_id_seq MINVALUE 0;
+
+```
