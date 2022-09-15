@@ -18,7 +18,7 @@ man bash
 man zsh
 ```
 
-## 自动输入密码/Y
+## 自动输入密码/Y, auto input y
 
 ```bash
 echo "y" | sudo podman image prune
