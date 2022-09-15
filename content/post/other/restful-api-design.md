@@ -37,7 +37,7 @@ tags:
 
 - GET (SELECT）：取出资源 (一项或多项）。
 - POST (CREATE）：新建一个资源。
-- PUT (UPDATE）：更新资源 (客户端提供改变后的完整资源）, Replace (Create or Update) 如果存在就替换, 没有就新增.
+- PUT (UPDATE）：更新资源 (客户端提供改变后的完整资源）, Replace (Create or Update) 如果存在就替换, 没有就新增. 在HTTP中，PUT被定义为幂等(idempotent)的方法，POST 则不是，这是一个很重要的区别
 - PATCH (UPDATE）：更新资源 (客户端提供改变的属性）。
 - DELETE (DELETE）：删除资源。
 
