@@ -23,26 +23,26 @@ sudo apt install nfs-common
 <https://blog.wiloon.com/ntp>
 
 ```bash
-mkdir -p /data/nfs/tmp /mnt/nfs/tmp
-mount --bind /mnt/nfs/tmp /data/nfs/tmp
+mkdir -p /data/nfs /mnt/nfs
+mount --bind /mnt/nfs /data/nfs
 
 vim /etc/fstab
-/mnt/nfs/tmp /data/nfs/tmp  none   bind   0   0
+/mnt/nfs /data/nfs  none   bind   0   0
 
-# NFS服务的主配置文件
+# NFS 服务的主配置文件
 # 格式：[共享的目录]   [主机名或IP(参数,参数)]
 vim /etc/exports
-/data/nfs       192.168.100.0/24(rw,async,crossmnt,fsid=0)
-/data/nfs/tmp   192.168.100.0/24(rw,sync)
+/data/nfs       *(rw,async,no_root_squash)
 
-# 使export 生效
-exportfs -rav
+# reload nfs config
+exportfs -arv
 
 # 查看 export dir
 exportfs -v
 
 sudo systemctl restart nfs-server
 sudo systemctl enable nfs-server
+showmount -e 127.0.0.1
 ```
 
 ## client
@@ -131,25 +131,28 @@ nfsclient.test.com 指定域名的主机
 *                       所有主机
 
 第三列：共享参数
-下面是一些NFS共享的常用参数：
- ro                    只读访问
- rw                   读写访问
- sync                所有数据在请求时写入共享
- async              NFS在写入数据前可以相应请求
- secure             NFS通过1024以下的安全TCP/IP端口发送
- insecure          NFS通过1024以上的端口发送
- wdelay            如果多个用户要写入NFS目录，则归组写入（默认）
- no_wdelay      如果多个用户要写入NFS目录，则立即写入，当使用async时，无需此设置。
- Hide                在NFS共享目录中不共享其子目录
- no_hide           共享NFS目录的子目录
- subtree_check            如果共享/usr/bin之类的子目录时，强制NFS检查父目录的权限（默认）
- no_subtree_check         和上面相对，不检查父目录权限
- all_squash               共享文件的UID和GID映射匿名用户anonymous，适合公用目录。
- no_all_squash         保留共享文件的UID和GID（默认）
- root_squash             root用户的所有请求映射成如anonymous用户一样的权限（默认）
- no_root_squas         root用户具有根目录的完全管理访问权限
- anonuid=xxx            指定NFS服务器/etc/passwd文件中匿名用户的UID
------------------------------------
+
+## NFS共享的常用参数
+
+```r
+ro                   只读访问
+rw                   读写访问
+sync                 同步写数据
+async                异步写入数据
+secure               NFS通过1024以下的安全TCP/IP端口发送
+insecure             NFS通过1024以上的端口发送
+wdelay               如果多个用户要写入NFS目录，则归组写入（默认）
+no_wdelay            如果多个用户要写入NFS目录，则立即写入，当使用async时，无需此设置。
+Hide                 在NFS共享目录中不共享其子目录
+no_hide              共享NFS目录的子目录
+subtree_check        如果共享/usr/bin之类的子目录时，强制NFS检查父目录的权限（默认）
+no_subtree_check     和上面相对，不检查父目录权限
+all_squash           共享文件的UID和GID映射匿名用户anonymous，适合公用目录。
+no_all_squash        保留共享文件的UID和GID（默认）
+root_squash          root用户的所有请求映射成如anonymous用户一样的权限（默认）
+no_root_squas        root 用户具有根目录的完全管理访问权限
+anonuid=xxx          指定NFS服务器/etc/passwd文件中匿名用户的UID
+```
 
 ©著作权归作者所有：来自51CTO博客作者一口Linux的原创作品，请联系作者获取转载授权，否则将追究法律责任
 NFS主配置文件exports参数详解
