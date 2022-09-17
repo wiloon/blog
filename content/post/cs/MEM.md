@@ -628,4 +628,4 @@ Garbage collection (computer science) - Wikipedia
 
 ## 低电压版
 
-普通的DDR3内存条额定工作电压是1.5V，而DDR3L的电压市面上有两种标注版本，一种是 1.35V，另一种是1.28V。不过近年又出现一种DDR3U的内存，Ultra Low Voltage DDR3，意思是超低电压DDR3内存，其工作电压可以低至1.25V，但市场占有率不太高。
+普通的 DDR3 内存条额定工作电压是 1.5V，而 DDR3L 的电压市面上有两种标注版本，一种是 1.35V，另一种是1.28V。不过近年又出现一种DDR3U的内存，Ultra Low Voltage DDR3，意思是超低电压DDR3内存，其工作电压可以低至1.25V，但市场占有率不太高。

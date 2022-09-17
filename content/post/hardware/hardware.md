@@ -11,12 +11,16 @@ tags:
 ---
 ## Hardware
 
-- ThinkPad X1 Carbon Gen 9
+- R86S
+- QNAP TS453Bmini
+- Dell Inspiron N4050
 - Intel J4105 软路由
+- Dell Wyse 5070
 - SONY WF-1000XM3
 - CanoKey
 - K375S
-- Dell Inspiron N4050
+
+- ThinkPad X1 Carbon Gen 9
 
 ## ThinkPad X1 Carbon Gen 9
 

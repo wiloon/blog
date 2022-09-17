@@ -35,14 +35,13 @@ xfs_growfs /dev/sda2
 
 ### kvm 虚拟磁盘扩容
 
-磁盘扩容分为 raw和qcow2两种扩容方式,命令相同,区别是后缀名
+磁盘扩容分为 raw和 qcow2 两种扩容方式, 命令相同, 区别是后缀名
 
 ```bash
 # 查看磁盘信息
 qemu-img info /data/daixuan1.qcow2
 # 加5G
 qemu-img resize /data/daixuan1.qcow2 +5G
-
 ```
 
 ### windows 虚拟机需要用分区工具再调整一下
@@ -257,9 +256,7 @@ tmpfs 246M 0 246M 0% /dev/shm
 
 ```xml
 <disk type='file' device='disk'>
-
-<driver name='qemu' type='qcow2' cache='none'/><source file='/data/daixuan1_2.qcow2'/><target dev='vdb' bus='virtio'/>
-  
+  <driver name='qemu' type='qcow2' cache='none'/><source file='/data/daixuan1_2.qcow2'/><target dev='vdb' bus='virtio'/>
 </disk>
 ```
   

@@ -452,19 +452,19 @@ redis.conf中AOF持久化配置如下
 
 appendonly no
 
-# append文件的名字
+append文件的名字
 
 appendfilename "appendonly.aof"
 
-# 每隔一秒将缓存区内容写入文件 默认开启的写入方式
+每隔一秒将缓存区内容写入文件 默认开启的写入方式
 
 appendfsync everysec
 
-# 当AOF文件大小的增长率大于该配置项时自动开启重写 (这里指超过原大小的100%)
+当AOF文件大小的增长率大于该配置项时自动开启重写 (这里指超过原大小的100%)
 
 auto-aof-rewrite-percentage 100
 
-# 当AOF文件大小大于该配置项时自动开启重写
+当AOF文件大小大于该配置项时自动开启重写
 
 auto-aof-rewrite-min-size 64mb
 AOF持久化的实现包括3个步骤:

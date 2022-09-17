@@ -47,7 +47,7 @@ tags:
 |PingTools Network Utilities  ||
 |炼妖壶  |流氓软件管理|
 |半导小蕊||
-|Live Transcribe & Sound Notifications|语音转文字|
+|Live Transcribe & Sound Notifications/实时转写和声音通知|语音转文字|
 |RssX||
 |DevCheck|手机硬件检测工具|
 |Quizlet|英语学习工具|

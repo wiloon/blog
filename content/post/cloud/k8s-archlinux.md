@@ -629,3 +629,54 @@ kubectl delete -f /tmp/k8s-rssx-ui-deployment.yaml
 
 <https://www.cnblogs.com/along21/p/10342788.html>
 
+create nfs server <wiloon.com/nfs>
+
+### pv.yaml
+
+```yaml
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+    name: pv0
+spec:
+    capacity:
+      storage: 2Gi
+    accessModes:
+      - ReadWriteMany
+    persistentVolumeReclaimPolicy: Recycle
+    storageClassName: "pv0"
+    nfs:
+      path: "/data/nfs"
+      server: 192.168.50.50
+```
+
+```bash
+kubectl create -f pv.yaml
+```
+
+### pvc.yaml
+
+```yaml
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: pv0
+  namespace: default
+spec:
+  accessModes:
+    - ReadWriteMany
+  resources:
+    requests:
+      storage: 2Gi
+  storageClassName: pv0
+```
+
+```bash
+kubectl create -f pvc.yaml
+```
+
+### 查看 pv, pvc
+
+```bash
+kubectl get pv,pvc -n default
+```

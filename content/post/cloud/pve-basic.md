@@ -34,7 +34,9 @@ vi /etc/apt/sources.list.d/pve-enterprise.list
 #deb https://enterprise.proxmox.com/debian/pve buster pve-enterprise
 ```
 
-### 更新源
+## 更新源
+
+### pve 6.x
 
 vi /etc/apt/sources.list
 
@@ -54,7 +56,7 @@ deb https://mirrors.aliyun.com/debian-security buster/updates main contrib non-f
 deb https://mirrors.ustc.edu.cn/proxmox/debian/pve buster pve-no-subscription
 ```
 
-## pve 7.2
+### pve 7.2
 
 ```bash
 deb http://mirrors.aliyun.com/debian/ bullseye main non-free contrib

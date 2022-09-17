@@ -1,7 +1,7 @@
 ---
 title: compact/extract 压缩/解压
 author: "-"
-date: 2022-08-25 12:29:27
+date: 2022-09-16 12:17:27
 url: "compact-extract"
 categories:
   - Command
@@ -28,17 +28,6 @@ unrar x foo.rar
 rar e FileName.rar
 # 解压
 rar a FileName.rar
-```
-
-## .gz
-
-```bash
-# 压缩
-gzip FileName
-# 解压1
-gunzip FileName.gz
-# 解压2
-gzip -d FileName.gz
 ```
 
 ### 解压并指定输出目录
@@ -122,22 +111,28 @@ zstd -d foo.zst
 
 ```
 
+zstd 不能压缩目录, -r 参数会把目录里的文件压缩成单独的文件
+
+### .tar.zst
+
+tar 从 1.30.90 之后开始支持 zstd
+
 ```bash
-# zstd 不能压缩目录, -r参数会把目录里的文件压缩成单独的文件
-
-# tar从1.30.90 之后开始支持zstd
-
 # 压缩
 tar -I zstd -cvf foo.tar.zst foo
 
 # 解压
 tar -I zstd -xvf foo.tar.zst
+```
 
-# 压缩, 不加参数，默认为压缩
+### .zst
+
+```bash
+# -z 压缩, 不加参数，默认为压缩
 zstd foo.txt
 zstd -z foo.txt
 
-# 解压
+# -d 解压
 zstd -d foo.txt.zst
 unzstd foo.txt.zst
 
@@ -146,16 +141,13 @@ zstd -6 foo.txt
 
 # 线程数, 线程数为0时会检测cpu核心数
 zstd -T0 foo.txt
-
-# -z 压缩
-# -d 解压
 # --rm 压缩后删除原文件
 ```
 
 ## .tar
 
-Tar是在Linux中使用得非常广泛的文档打包格式。它的好处就是它只消耗非常少的CPU以及时间去打包文件，他仅仅只是一个打包工具，并不负责压缩。  
-**(注: tar只是打包，没有压缩功能！)**
+tar 命令可以把多个文件打包成一个文件, 还可以向 tar 包里添加文件或提取某一个文件.  tar 最初被用来在磁带上创建归档文件.  
+Tar 是在 Linux 中使用得非常广泛的文档打包格式。它的好处就是它只消耗非常少的 CPU 以及时间去打包文件，tar 仅仅只是一个打包工具，没有压缩的功能。  
 
 ```bash
 # 打包: -c是表示产生新的包，-f指定包的文件名。
@@ -191,7 +183,7 @@ tar -rf all.tar *.gif
 -c, --create : 创建新的压缩文件
 -z : 用 gzip 压缩或解压
 -x : 从压缩的文件中提取文件
--v : 压缩的过程中显示文件！这个常用，在后台执行时不建议用!
+-v : 打包过程中打印文件名
 -f, --file=ARCHIVE : 指定文件或设备, 如果不加这个参数 tar 默认会去找环境变量里配置的 TAPE, 注意，在 f 之后要立即接文件名, 不要再加其它参数, 例如使用『tar -zcvfP tfile sfile』就是错误的写法，要写成 『tar -zcvPf tfile sfile』才对
 -t : 查看 tarfile 里面的文件, 特别注意，在参数的下达中， c/x/t 仅能存在一个！不可同时存在因为不可能同时压缩与解压缩。 
 -j : 是否同时具有 bzip2 的属性？亦即是否需要用 bzip2 压缩？
@@ -203,8 +195,8 @@ tar -rf all.tar *.gif
 -A 新增压缩文件到已存在的压缩
 -B 设置区块大小
 -d 记录文件的差别
--r 添加文件到已经压缩的文件
--u 添加改变了和现有的文件到已经存在的压缩文件
+-r 添加文件到已经创建好的 tar 包里追加文件
+-u 更新文件。就是说，用新增的文件取代原备份文件，如果在备份文件中找不到要更新的文件，则把它追加到备份文件的最后。
 -Z 支持compress解压文件
 -l 文件系统边界设置
 -k 保留原有文件不覆盖
@@ -285,6 +277,17 @@ tar --use-compress-program=pigz -xvpf package.tgz -C ./package
 \-x, --extract, --get #从存档展开文件
 ```
 
+## .gz
+
+```bash
+# 压缩
+gzip FileName
+# 解压1
+gunzip FileName.gz
+# 解压2
+gzip -d FileName.gz
+```
+
 ### .tar.bz2
 
 这种压缩格式是我们提到的所有方式中压缩率最好的。当然，这也就意味着，它比前面的方式要占用更多的CPU与时间。
@@ -308,31 +311,9 @@ tar -xf all.tar
 unrar x /media/data/homes-backup.rar homes-backup/
 ```
 
-一.tar命令
-
-tar可以为文件和目录创建档案。利用tar，用户可以为某一特定文件创建档案 (备份文件) ，也可以在档案中改变文件，或者向档案中加入新的文件。tar 最初被用来在磁带上创建档案，现在，用户可以在任何设备上创建档案，如软盘。利用tar命令，可以把一大堆的文件和目录全部打包成一个文件，这对于备份文 件或将几个文件组合成为一个文件以便于网络传输是非常有用的。Linux上的tar是GNU版本的。
-
-语法: tar [主选项+辅选项] 文件或者目录
-
-使用该命令时，主选项是必须要有的，它告诉tar要做什么事情，辅选项是辅助使用的，可以选用。
-
-主选项:
-
-c 创建新的档案文件。如果用户想备份一个目录或是一些文件，就要选择这个选项。
-
-r 把要存档的文件追加到档案文件的未尾。例如用户已经作好备份文件，又发现还有一个目录或是一些文件忘记备份了，这时可以使用该选项，将忘记的目录或文件追加到备份文件中。
+---
 
 t 列出档案文件的内容，查看已经备份了哪些文件。
-
-u 更新文件。就是说，用新增的文件取代原备份文件，如果在备份文件中找不到要更新的文件，则把它追加到备份文件的最后。
-
-x 从档案文件中释放文件。
-
-辅助选项:
-
-b 该选项是为磁带机设定的。其后跟一数字，用来说明区块的大小，系统预设值为20 (20*512 bytes) 。
-
-f 使用档案文件或设备，这个选项通常是必选的。
 
 k 保存已经存在的文件。例如我们把某个文件还原，在还原的过程中，遇到相同的文件，不会进行覆盖。
 
@@ -340,11 +321,7 @@ m 在还原文件时，把所有文件的修改时间设定为现在。
 
 M 创建多卷的档案文件，以便在几个磁盘中存放。
 
-v 详细报告tar处理的文件信息。如无此选项，tar不报告文件信息。
-
 w 每一步都要求确认。
-
-z 用gzip来压缩/解压缩文件，加上该选项后可以将档案文件进行压缩，但还原时也一定要使用该选项进行解压缩。
 
 ### Linux下的压缩文件剖析
 
@@ -369,18 +346,6 @@ tar -xf all.tar
 这条命令是解出all.tar包中所有文件，-x是解包的意思
 
 以上就是tar的最基本的用法。为了方便用户在打包解包的同时可以压缩或解压文件，tar提供了一种特殊的功能。这就是tar可以在打包或解包的同时调用其它的压缩程序，比如调用gzip、bzip2等。
-
-### tar调用 gzip
-
-gzip是GNU组织开发的一个压缩程序，.gz结尾的文件就是gzip压缩的结果。与gzip相对的解压程序是gunzip。tar中使用-z这个参数来调用gzip。下面来举例说明一下:
-
-tar -czf all.tar.gz *.jpg
-
-这条命令是将所有.jpg的文件打成一个tar包，并且将其用gzip压缩，生成一个gzip压缩过的包，包名为all.tar.gz
-
-tar -xzf all.tar.gz
-
-这条命令是将上面产生的包解开。
 
 ### tar调用bzip2
 
@@ -463,14 +428,6 @@ unrar e all.rar
 到此为至，我们已经介绍过linux下的tar、gzip、gunzip、bzip2、bunzip2、compress、uncompress、 zip、unzip、rar、unrar等程式，你应该已经能够使用它们对.tar、.gz、.tar.gz、.tgz、.bz2、.tar.bz2、. Z、.tar.Z、.zip、.rar这10种压缩文件进行解压了，以后应该不需要为下载了一个软件而不知道如何在Linux下解开而烦恼了。而且以上方 法对于Unix也基本有效。
 
 本文介绍了linux下的压缩程式tar、gzip、gunzip、bzip2、bunzip2、 compress、uncompress、zip、unzip、rar、unrar等程式，以及如何使用它们对.tar、.gz、.tar.gz、. tgz、.bz2、.tar.bz2、.Z、.tar.Z、.zip、.rar这10种压缩文件进行操作。
-
-.gz
-
-解压1: gunzip FileName.gz
-
-解压2: gzip -d FileName.gz
-
-压缩: gzip FileName
 
 .bz2
 
