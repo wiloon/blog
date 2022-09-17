@@ -1,14 +1,14 @@
 ---
-title: 数字签名、数字证书与PKI系统
+title: 数字签名、数字证书与 PKI 系统
 author: "-"
 date: 2019-01-06T09:52:59+00:00
-url: /?p=13334
+url: pki
 categories:
   - Inbox
 tags:
   - reprint
 ---
-## 数字签名、数字证书与PKI系统
+## 数字签名、数字证书与 PKI 系统
 
 <https://www.jianshu.com/p/ffe8c203a471>
 

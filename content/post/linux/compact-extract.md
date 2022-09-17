@@ -113,7 +113,14 @@ find . -maxdepth 1 -mtime -4 -type f  -name "*.zip"|xargs -t -n1 unzip
 unzip /path/to/source.zip -d /path/to/target/path
 ```
 
-## Zstandard, zstd
+## Zstandard, zstd, .zst
+
+### 解压
+
+```bash
+zstd -d foo.zst
+
+```
 
 ```bash
 # zstd 不能压缩目录, -r参数会把目录里的文件压缩成单独的文件

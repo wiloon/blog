@@ -1,8 +1,8 @@
 ---
-title: 证书, x509, keystore, truststore, pem, 
+title: 证书, x509, keystore, truststore, pem
 author: "-"
 date: 2018-02-22T07:21:37+00:00
-url: /?p=11902
+url: cert
 categories:
   - inbox
 tags:
@@ -12,13 +12,24 @@ tags:
 
 ### 证书和编码
 
-X.509证书,其核心是根据RFC 5280编码或数字签名的数字文档。
+## x509
 
-实际上，术语X.509证书通常指的是IETF的PKIX证书和X.509 v3证书标准的CRL 文件，即如RFC 5280 (通常称为PKIX for Public Key Infrastructure (X.509））中规定的。
+X.509 证书, 其核心是根据 RFC5280 编码或数字签名的数字文档. 实际上，术语 X.509 证书通常指的是 IETF 的 PKIX 证书和 X.509 v3 证书标准的 CRL 文件，即如 RFC 5280 (通常称为 PKIX for Public Key Infrastructure (X.509））中规定的。
+
+X.509 是一种常见通用的证书标准, 主要定义了证书中应该包含哪些内容. 其详情可以参考 RFC5280, TLS/SSL 使用的就是这种证书标准.  
+X.509 是常见通用的证书格式。所有的证书都符合为 Public Key Infrastructure (PKI) 制定的 ITU-T X509 国际标准.  
+
+X.509 DER 编码 (ASCII) 的后缀是:  .DER .CER .CRT  
+X.509 PEM 编码 (Base64) 的后缀是: .PEM .CER .CRT  
+.cer/.crt是用于存放证书,它是2进制形式存放的,不含私钥。  
+.pem跟crt/cer的区别是它以 Ascii来表示。  
+
+编码格式
+同样的 X.509 证书, 可能有不同的编码格式, 目前有以下两种编码格式.
 
 ### .CRT 扩展名
 
-.CRT = CRT扩展用于证书。 证书可以被编码为二进制DER或ASCII PEM。 CER和CRT扩展几乎是同义词。 最常见的于Unix 或类Unix系统。
+.CRT = CRT 扩展用于证书。 证书可以被编码为二进制 DER 或 ASCII PEM。 CER 和 CRT 扩展几乎是同义词。 最常见的于 Unix 或类 Unix系统。
 
 ### .cer
 
@@ -35,21 +46,9 @@ X.509证书,其核心是根据RFC 5280编码或数字签名的数字文档。
 
 ---
 
-PEM是由RFC1421至1424定义的一种数据格式。其实前面的.cert和.key文件都是PEM格式的,只不过在有些系统中 (比如Windows) 会根据扩展名不同而做不同的事。所以当你看到.pem文件时,它里面的内容可能是certificate也可能是key,也可能两个都有,要看具体情况。可以通过openssl查看。  
-
-X.509 - 是一种常见通用的证书标准,主要定义了证书中应该包含哪些内容.其详情可以参考RFC5280,SSL使用的就是这种证书标准.  
-X.509是常见通用的证书格式。所有的证书都符合为Public Key Infrastructure (PKI) 制定的 ITU-T X509 国际标准。  
-证书标准
-
-X.509 DER 编码(ASCII)的后缀是:  .DER .CER .CRT  
-X.509 PEM 编码(Base64)的后缀是:  .PEM .CER .CRT  
-.cer/.crt是用于存放证书,它是2进制形式存放的,不含私钥。  
-.pem跟crt/cer的区别是它以Ascii来表示。  
-
-编码格式
-同样的X.509证书,可能有不同的编码格式,目前有以下两种编码格式.
-
 ### PEM
+
+PEM 是由 RFC1421 至 1424 定义的一种数据格式。其实前面的 .cert和.key文件都是PEM格式的,只不过在有些系统中 (比如Windows) 会根据扩展名不同而做不同的事。所以当你看到.pem文件时,它里面的内容可能是certificate也可能是key,也可能两个都有,要看具体情况。可以通过openssl查看。  
 
 .PEM = PEM扩展用于不同类型的X.509v3文件，是以“ - BEGIN ...”前缀的ASCII (Base64）数据。
 

@@ -442,8 +442,9 @@ podman run -d --name cmak\
 
 ### kafka producer, consumer api doc
 
-><https://kafka.apache.org/30/javadoc/org/apache/kafka/clients/producer/KafkaProducer.html>
-><https://kafka.apache.org/30/javadoc/org/apache/kafka/clients/consumer/KafkaConsumer.html>
+<https://kafka.apache.org/30/javadoc/org/apache/kafka/clients/producer/KafkaProducer.html>
+
+<https://kafka.apache.org/30/javadoc/org/apache/kafka/clients/consumer/KafkaConsumer.html>
 
 ## kafka SSL
 

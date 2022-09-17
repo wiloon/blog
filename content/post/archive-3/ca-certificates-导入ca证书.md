@@ -26,6 +26,28 @@ cp foo.crt /usr/share/ca-certificates/
 sudo dpkg-reconfigure ca-certificates
 ```
 
+## archlinux ca-certificates update, 导入证书
+
+<https://www.archlinux.org/news/ca-certificates-update/>
+
+```bash
+# xxx.crt should export from sub ca
+sudo cp xxx.crt /etc/ssl/certs/
+sudo cp xxx.crt /etc/ca-certificates/trust-source/anchors/
+sudo trust extract-compat
+
+```
+
+## archlinux add root ca
+
+将 /usr/local/share/ca-certificates/_.crt 移动到 /etc/ca-certificates/trust-source/anchors/ 下
+  
+对 /etc/ssl/certs/_.pem 进行上述操作, 并将它们重命名为 *.crt
+  
+运行 trust extract-compat
+
+---
+
 英文版出处: <http://majic.rs/blog/system-wide-installation-of-certificates>
   
 <https://blog.csdn.net/ziyouwayj/article/details/36371747>
@@ -40,7 +62,7 @@ Although not all applications under GNU/Linux distributions respect this, the ap
 
 虽然不是所有的GNU/ Linux发行版都遵循这一点，但通常linux发行版都从/ etc / ssl下/ certs目录中读取证书。系统自带的证书通常是通过ca-certificates软件包安装的。为了安装自定义的CA证书，并妥善整合到系统中，让大多数应用程序能够找到它，您需要执行以下几个步骤:
 
-  1. Make sure you have installed the ca-certificates package.
+1. Make sure you have installed the ca-certificates package.
 
 1.确认您的linux系统已经安装了ca-certificates软件包
 

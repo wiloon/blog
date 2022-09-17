@@ -137,3 +137,7 @@ count 采样的次数，count只能和delay一起使用
 mpstat -P ALL 1
 
 ```
+
+## last
+
+列出目前与过去登入系统的用户相关信息
