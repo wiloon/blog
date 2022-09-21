@@ -69,6 +69,12 @@ bin/kafka-consumer-groups.sh \
 --describe \
 --group my-group
 
+bin/kafka-consumer-groups.sh \
+--bootstrap-server kafka.wiloon.com:9092 \
+--describe \
+--group my-group \
+--command-config /path/to/kafka.conf
+
 bin/kafka-consumer-groups.sh --bootstrap-server localhost:9092 \
 --describe \
 --group my-group
@@ -132,10 +138,11 @@ ssl.endpoint.identification.algorithm 默认值问题
 # kafka 3.0.0
 bin/kafka-topics.sh --describe --topic topic0 --bootstrap-server 192.168.50.169:9092
 
-    bin/kafka-topics.sh \
-    --zookeeper zookeeper.wiloon.com:2181 \
-    --topic topic0 \
-    --describe
+# kafka old version
+bin/kafka-topics.sh \
+--zookeeper zookeeper.wiloon.com:2181 \
+--topic topic0 \
+--describe
 ```
 
 replication-factor: 副本数, partitions: 分区数

@@ -35,7 +35,8 @@ CRI-O完整实现CRI接口功能，并且严格兼容OCI标准，CRI-O比Contain
 提供CRI要求的资源隔离功能
 
 CRI-O通过命令行调用默认运行时runC，所以runC二进制文件必须部署在目录/usr/bin/runc。CRI-O和Containerd调用runtime的方式不同，前者是通过Linux命令调用，后者是通过gRPC服务调用，所以只要符合OCI规范的runtime，都能直接接入CRI-O提供运行时服务，而除runC外的其他运行时要接入Containerd，只能走shim v2接口，因此我们看到像kata-runtime这样的运行时项目就是通过shim v2接口来适配Containerd的。
-><http://dockone.io/article/8891>
+
+<http://dockone.io/article/8891>
 
 ```bash
 # check crio state and version 
@@ -55,7 +56,8 @@ kubeadm可以在多种设备上运行，可以是Linux笔记本电脑，虚拟�
 kubeadm是一种简单的方式让新用户开始尝试Kubernetes，也可能是第一次让现有用户轻松测试他们的应用程序并缝合到一起的方式，也可以作为其他生态系统中的构建块，或者具有更大范围的安装工具。
 
 可以在支持安装deb或rpm软件包的操作系统上非常轻松地安装kubeadm。SIG集群生命周期SIG Cluster Lifecycle kubeadm的SIG相关维护者提供了预编译的这些软件包，也可以在其他操作系统上使用。
-><https://github.com/kubernetes/kubeadm>
+
+<https://github.com/kubernetes/kubeadm>
 
 ## kubelet
 
@@ -340,13 +342,15 @@ kubeadm reset
 kubectl get svc -n kube-system
 # 节点的状态
 kubectl get nodes -o wide
+kubectl get pod
+kubectl exec -it <id> bash
 # 所有 Pod 信息
 kubectl get pods --all-namespaces -o wide
  
 kubectl get pods --all-namespaces
 kubectl get pods -A
 kubectl get pods -n kube-system  -o wide
-kubectl describe pods kube-flannel-ds-amd64-vcmx9 -n kube-system
+kubectl describe pods pod0 -n namespace0
 # 重启 pod
 kubectl replace --force -f  kube-flannel.yml
 kubectl logs <pod_name>
@@ -411,7 +415,10 @@ sudo apt-get install \
     ca-certificates \
     curl \
     gnupg \
-    lsb-release
+    lsb-release \
+    nfs-common
+
+# nfs-common, 解决 挂载 pvc 报错的问题
 
 sudo tee /etc/modules-load.d/containerd.conf <<EOF
 overlay
@@ -485,7 +492,8 @@ kubectl logs --namespace <NAMESPACE> <NAME>
 kubectl cluster-info
 kubectl get nodes
 kubectl get po -n default
-
+kubectl delete deployment deployment0
+kubectl delete svc svc0
 
 ## 卸载服务
 
@@ -652,6 +660,7 @@ spec:
 
 ```bash
 kubectl create -f pv.yaml
+kubectl get pv pv0
 ```
 
 ### pvc.yaml
@@ -673,10 +682,130 @@ spec:
 
 ```bash
 kubectl create -f pvc.yaml
+kubectl get pvc task-pv-claim
 ```
 
 ### 查看 pv, pvc
 
 ```bash
 kubectl get pv,pvc -n default
+```
+
+## redis
+
+### configmap, redis-config.yaml
+
+```yaml
+kind: ConfigMap
+apiVersion: v1
+metadata:
+  name: redis-config
+  namespace: default
+  labels:
+    app: redis
+data:
+  redis.conf: |-
+    dir /data
+    port 6379
+    bind 0.0.0.0
+    appendonly yes
+    protected-mode no
+    pidfile /data/redis.pid
+```
+
+```bash
+kubectl get configmap
+kubectl get configmap -n namespace0
+kubectl edit configmap configmap0
+kubectl delete configmap configmap0
+kubectl apply -f redis-config.yaml
+```
+
+### redis-deployment.yaml
+
+```yaml
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: redis
+  labels:
+    app: redis
+spec:
+  type: ClusterIP
+  ports:
+    - name: redis
+      port: 6379
+  selector:
+    app: redis
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: redis
+  namespace: default
+  labels:
+    app: redis
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: redis
+  template:
+    metadata:
+      labels:
+        app: redis
+    spec:
+      containers:
+        - name: redis
+          image: redis:5.0.8
+          command:
+            - "sh"
+            - "-c"
+            - "redis-server /usr/local/etc/redis/redis.conf"
+          ports:
+            - containerPort: 6379
+          resources:
+            limits:
+              cpu: 1000m
+              memory: 1024Mi
+            requests:
+              cpu: 1000m
+              memory: 1024Mi
+          livenessProbe:
+            tcpSocket:
+              port: 6379
+            initialDelaySeconds: 300
+            timeoutSeconds: 1
+            periodSeconds: 10
+            successThreshold: 1
+            failureThreshold: 3
+          readinessProbe:
+            tcpSocket:
+              port: 6379
+            initialDelaySeconds: 5
+            timeoutSeconds: 1
+            periodSeconds: 10
+            successThreshold: 1
+            failureThreshold: 3
+          volumeMounts:
+            - name: data
+              mountPath: /data
+            - name: config
+              mountPath: /usr/local/etc/redis/redis.conf
+              subPath: redis.conf
+      volumes:
+        - name: data
+          persistentVolumeClaim:
+            claimName: pv0
+        - name: config
+          configMap:
+            name: redis-config
+        - name: sys
+          hostPath:
+            path: /sys
+```
+
+```bash
+kubectl apply -f redis-deployment.yaml
 ```

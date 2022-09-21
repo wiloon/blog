@@ -423,8 +423,14 @@ git fetch 更新远程仓库的方式如下:
 
 git fetch origin master: tmp
 //在本地新建一个temp分支，并将远程origin仓库的master分支代码下载到本地temp分支
+
+## git diff
+
 git diff tmp
-//来比较本地代码与刚刚从远程下载下来的代码的区别
+
+git diff，不加任何参数，默认比较的是工作区和暂存区之间的文件差异
+
+// 来比较本地代码与刚刚从远程下载下来的代码的区别
 git merge tmp
 //合并temp分支到本地的master分支
 git branch -d temp

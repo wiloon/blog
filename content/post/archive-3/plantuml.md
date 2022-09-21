@@ -187,8 +187,8 @@ Alice ->> Bob: async msg
 
 ```bash
 podman run -d \
---name plantuml-server \
--p 30001:8080 plantuml/plantuml-server:jetty-v1.2022.4
+--name plantuml \
+-p 30001:8080 plantuml/plantuml-server:jetty-v1.2022.7
 ```
 
 ### 定义组件的相对位置
