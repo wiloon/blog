@@ -158,3 +158,20 @@ psql -h 127.0.0.1 -p 5432 -t table0 -U postgres -d database0 -f foo.sql
 CREATE SEQUENCE shipments_ship_id_seq MINVALUE 0;
 
 ```
+
+## PostgreSQL 如何删除外键限制
+
+首先找出数据库表的外键名称：
+
+\d [tablename]
+....
+"table_name_id_fkey" FOREIGN KEY (id) REFERENCES other_table(id) ....
+1
+2
+3
+然后使用下面的命令删除外键：
+
+ALTER TABLE [tablename] DROP CONSTRAINT table_name_id_fkey;
+————————————————
+版权声明：本文为CSDN博主「亮子介」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
+原文链接：https://blog.csdn.net/henryhu712/article/details/104092141

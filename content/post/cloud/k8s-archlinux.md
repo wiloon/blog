@@ -363,6 +363,10 @@ kubeadm token list
 kubectl delete pod kube-flannel-ds-trxtz  -n kube-system
 
 kubectl logs -f --since 5m istiod-9cbc77d98-kk98q -n istio-system
+
+## 强制删除
+kubectl delete pod xxx -n xxx --force --grace-period=0
+
 ```
 
 <https://www.lixueduan.com/post/kubernetes/01-install/>
