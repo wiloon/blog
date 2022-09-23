@@ -11,18 +11,14 @@ tags:
 
 ---
 ## 'Java 异常处理'
-## Java 异常处理
 
 异常捕捉的确是对性能有影响的,那是因为一旦异常被抛出,函数也就跟着 return 了。而程序在执行时需要处理 函数栈 的上下文,这会导致性能变得很慢,尤其是线程栈比较深的时候。但从另一方面来说,异常的抛出基本上表明程序的错误。程序在绝大多数情况下,应该是在没有异常的情况下运行的, 所以,有异常的情况应该是少数的情况,不会影响正常处理的性能问题。
 
 对于我们并不期望会发生的事,我们可以使用异常捕捉；对于我们觉得可能会发生的事,使用返回码。
 
-https://time.geekbang.org/column/article/675
-
-
+<https://time.geekbang.org/column/article/675>
 
 你觉得自己是一个Java专家吗？是否肯定自己  已经全面掌握了Java的异常处理机制？在下面这段代码中,你能够迅速找出异常处理的六个问题吗？
-
 
 1 OutputStreamWriter out = ...
   
@@ -74,7 +70,7 @@ https://time.geekbang.org/column/article/675
 
 丢弃异常的情形非常普遍。打开JDK的ThreadDeath类的文档,可以看到下面这段说明: "特别地,虽然出现ThreadDeath是一种'正常的情形',但ThreadDeath类是Error而不是Exception的子类,因为许多应用会捕获所有的Exception然后丢弃它不再理睬。"这段话的意思是,虽然ThreadDeath代表的是一种普通的问题,但鉴于许多应用会试图捕获所有异常然后不予以适当的处理,所以JDK把ThreadDeath定义成了Error的子类,因为Error类代表的是一般的应用不应该去捕获的严重问题。可见,丢弃异常这一坏习惯是如此常见,它甚至已经影响到了Java本身的设计。
 
-那么,应该怎样改正呢？主要有四个选择: 
+那么,应该怎样改正呢？主要有四个选择:
 
 1. 处理异常。针对该异常采取一些行动,例如修正问题、提醒某个人或进行其他一些处理,要根据具体的情形确定应该采取的动作。再次说明,调用printStackTrace算不上已经"处理好了异常"。
 
@@ -147,7 +143,6 @@ printStackTrace的堆栈跟踪功能显示出程序运行到当前类的执行�
 改写后的代码
 
 根据上面的讨论,下面给出改写后的代码。也许有人会说它稍微有点?嗦,但是它有了比较完备的异常处理机制。
-
 
 OutputStreamWriter out = ...
   
@@ -449,7 +444,7 @@ java.lang.UnsupportedOperationException
 
 异常
   
-javax.servlet.jsp.JspException: Cannot retrieve mapping for action /Login  (/Login是你的action名字) 
+javax.servlet.jsp.JspException: Cannot retrieve mapping for action /Login  (/Login是你的action名字)
 
 可能原因
   
@@ -537,7 +532,7 @@ java.lang.NullPointerException at org.apache.struts.util.RequestUtils.forwardURL
 
 可能原因
   
-在struts-config.xml中的forward元素缺少path属性。例如应该是如下形式: 
+在struts-config.xml中的forward元素缺少path属性。例如应该是如下形式:
   
 <forward name="userhome" path="/user/userhome.jsp"/>
   
@@ -624,16 +619,12 @@ ServletException: BeanUtils.populate
 <html:hidden property="test" value="<bean:write name="t" property="p"/>"/>
   
 这样的情况...
-  
------------------------------------------
-  
+
 错误: Exception in thread "main" org.hibernate.exception.SQLGrammarException: Could not execute JDBC batch update原因与解决:       因为Hibernate Tools (或者Eclipse本身的Database Explorer) 生成\*.hbn.xml工具中包含有catalog="\**\*" (\*表示数据库名称) 这样的属性,将该属性删除就可以了
-  
------------------------------------------
-  
+
 错误: org.hibernate.ObjectDeletedException: deleted object would be re-saved by cascade (remove deleted object from associations)
   
-原因与解决: 
+原因与解决:
   
 方法1 删除Set方的cascade
   
@@ -641,20 +632,16 @@ ServletException: BeanUtils.populate
   
 方法3 在many-to-one方增加cascade 但值不能是none
   
-最后一招: 
+最后一招:
   
 检查一下hashCode equals是否使用了id作为唯一标示的选项了；我用uuid.hex时是没有问题的；但是用了native,就不行了,怎么办？删除啊！
-  
-------------------------------------------
-  
+
 问题: 今天用Tomcat 5.5.12,发现原来很好用的系统不能用了,反复测试发现页面中不能包含 taglib,否则会出现以下提示: HTTP Status 500 -type Exception reportMessage description The server encountered an internal error () that prevented it from fulfilling this request.exceptionorg.apache.jasper.JasperException: /index.jsp(1,1) Unable to read TLD "META-INF/tlds/struts-bean.tld" from JAR file"file:\*****/WEB-INF/lib/struts.jar":原因: 更新了工程用的lib文件夹下的jar,发布时也发布了servlet.jar和jsp-api.jar。解决: 把jsp-api.jar删除就解决这个问题了。------------------------------------------
   
 错误:  java.lang.NullPointerException
   
 原因:  发现 dao 实例、 manage 实例等需要注入的东西没有被注入 (俗称空指针异常) 解决: 这个时候,你应该查看日志文件；默认是应用服务器的 log 文件,比如 Tomcat 就是 [Tomcat 安装目录 ]/logs ；你会发现提示你: 可能是: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sf' defined in ServletContextresource [/WEB-INF/applicationContext.xml]: Initialization of bean failed; nested exception isorg.hibernate.HibernateException: could not configure from URL: file:src/hibernate.cfg.xmlorg.hibernate.HibernateException: could not configure from URL: file:src/hibernate.cfg.xml……………………….Caused by: java.io.FileNotFoundException: srchibernate.cfg.xml可能是: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sessionFactory' defined inServletContext resource [/WEB-INF/applicationContext.xml]: Initialization of bean failed; nested exception isorg.hibernate.MappingException: Resource: com/mcc/coupon/model/UserRole.hbm.xml not foundorg.hibernate.MappingException: Resource: com/mcc/coupon/model/UserRole.hbm.xml not found然后你就知道原因是因为配置文件的解析出了错误,这个通过 Web 页面是看不出来的。更多的是持久化影射文件出的错误；导致了没有被解析；当然你需要的功能就无法使用了。
-  
-------------------------------------------
-  
+
 错误: StandardWrapperValve[action]: Servlet.service() for servlet action threw exception
   
 javax.servlet.jsp.JspException: Cannot retrieve mapping for action /settlementTypeManage
@@ -662,10 +649,8 @@ javax.servlet.jsp.JspException: Cannot retrieve mapping for action /settlementTy
 或者:       type Status report      message Servlet action is not available      description The requested resource (Servlet action is not available) is not available.
   
 原因:  同 上
-  
-------------------------------------------
-  
-错误StandardWrapperValve[jsp]: Servlet.service() for servlet jsp threw exceptionjava.lang.ClassNotFoundException: org.apache.struts.taglib.bean.CookieTei界面错误具体描述: 
+
+错误StandardWrapperValve[jsp]: Servlet.service() for servlet jsp threw exceptionjava.lang.ClassNotFoundException: org.apache.struts.taglib.bean.CookieTei界面错误具体描述:
   
 org.apache.jasper.JasperException: Failed to load or instantiate TagExtraInfo class: org.apache.struts.taglib.bean.CookieTei
   
