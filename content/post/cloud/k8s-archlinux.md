@@ -813,3 +813,15 @@ spec:
 ```bash
 kubectl apply -f redis-deployment.yaml
 ```
+
+## evicted
+
+eviction，即驱赶的意思，意思是当节点出现异常时，kubernetes将有相应的机制驱赶该节点上的Pod。
+多见于资源不足时导致的驱赶。
+
+删除旧 evicted 的遗留
+
+```bash
+kubectl get pods | grep Evicted | awk '{print $1}' | xargs kubectl delete pod
+
+```

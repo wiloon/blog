@@ -139,9 +139,11 @@ SELECT to_number('  ab  ,1,2a3,4b5', '9999999999999999999')//12345，会忽略�
 ```bash
 # -h, host 127.0.0.1
 # -p, port 5432
-# -t, table: table0
+# -t, table: table0, 不加 -t 参数时会导出所有表结构
+# -s, 不导出数据
 # database: database0
 pg_dump -h 127.0.0.1 -p 5432 -t table0 -U postgres database0 > foo.sql
+pg_dump -h 127.0.0.1 -p 5432 -s -t table0 -U postgres database0 > foo.sql
 
 # 导出并压缩
 pg_dump -d db_name | gzip > db.gz
@@ -151,7 +153,6 @@ pg_dump -d db_name | gzip > db.gz
 
 ```bash
 psql -h 127.0.0.1 -p 5432 -t table0 -U postgres -d database0 -f foo.sql
-
 ```
 
 ```sql
@@ -163,15 +164,30 @@ CREATE SEQUENCE shipments_ship_id_seq MINVALUE 0;
 
 首先找出数据库表的外键名称：
 
+```sql
 \d [tablename]
-....
 "table_name_id_fkey" FOREIGN KEY (id) REFERENCES other_table(id) ....
-1
-2
-3
-然后使用下面的命令删除外键：
+-- 然后使用下面的命令删除外键：
 
 ALTER TABLE [tablename] DROP CONSTRAINT table_name_id_fkey;
-————————————————
+```
+
 版权声明：本文为CSDN博主「亮子介」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
-原文链接：https://blog.csdn.net/henryhu712/article/details/104092141
+原文链接：<https://blog.csdn.net/henryhu712/article/details/104092141>
+
+## 查看外键
+
+查看表结构的时候能看到外键 \d table0
+
+```sql
+SELECT
+     tc.constraint_name, tc.table_name, kcu.column_name, 
+     ccu.table_name AS foreign_table_name,
+     ccu.column_name AS foreign_column_name,
+     tc.is_deferrable,tc.initially_deferred
+FROM
+     information_schema.table_constraints AS tc 
+     JOIN information_schema.key_column_usage AS kcu ON tc.constraint_name = kcu.constraint_name
+     JOIN information_schema.constraint_column_usage AS ccu ON ccu.constraint_name = tc.constraint_name
+WHERE constraint_type = 'FOREIGN KEY' AND tc.table_name = 'table0';
+```
