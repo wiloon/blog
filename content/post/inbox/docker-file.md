@@ -195,7 +195,8 @@ env 是容器构建好之后的环境变量, 不能在 Dockerfile 中当参数�
 
 拿一个具体的例子
 
-# Dockerfile
+### Dockerfile
+
 FROM redis:3.2-alpine
 
 LABEL maintainer="GPF <5173180@qq.com>"
