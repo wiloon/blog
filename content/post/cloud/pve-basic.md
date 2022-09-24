@@ -134,7 +134,7 @@ Qemu 代理即 qemu-guest-agent，是一个运行在虚拟机里面的程序 qem
 ### 改ip
 
 ```bash
-     vi /etc/network/interfaces
+vi /etc/network/interfaces
 ```
 
 ### 显卡直通
