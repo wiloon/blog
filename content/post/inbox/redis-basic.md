@@ -13,6 +13,7 @@ tags:
 ### commands
 
 ```bash
+redis-cli -h 127.0.0.1 -p 6379
 # OBJECT ENCODING 命令可以查看一个数据库键的值对象的编码
 OBJECT ENCODING key0
 

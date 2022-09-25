@@ -555,9 +555,9 @@ spec:
   type: NodePort
   ports:
     - name: http
-      port: 18081 # Service暴露在cluster-ip上的端口，通过<cluster-ip>:port访问服务,通过此端口集群内的服务可以相互访问
+      port: 18081      # Service暴露在cluster-ip上的端口，通过<cluster-ip>:port访问服务,通过此端口集群内的服务可以相互访问
       targetPort: 8080 # Pod的外部访问端口，port和nodePort的数据通过这个端口进入到Pod内部，Pod里面的containers的端口映射到这个端口，提供服务
-      nodePort: 31081 # Node节点的端口，<nodeIP>:nodePort 是提供给集群外部客户访问service的入口
+      nodePort: 31081  # Node节点的端口，<nodeIP>:nodePort 是提供给集群外部客户访问service的入口
   selector:
     name: rssx-api
 
@@ -823,5 +823,54 @@ eviction，即驱赶的意思，意思是当节点出现异常时，kubernetes�
 
 ```bash
 kubectl get pods | grep Evicted | awk '{print $1}' | xargs kubectl delete pod
+
+```
+
+## mysql
+
+```yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: mysql
+spec:
+  ports:
+  - port: 3306
+  selector:
+    app: mysql
+  clusterIP: None
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mysql
+spec:
+  selector:
+    matchLabels:
+      app: mysql
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: mysql
+    spec:
+      containers:
+      - image: mysql:5.6
+        name: mysql
+        env:
+          # 在实际中使用 secret
+        - name: MYSQL_ROOT_PASSWORD
+          value: password
+        ports:
+        - containerPort: 3306
+          name: mysql
+        volumeMounts:
+        - name: mysql-persistent-storage
+          mountPath: /var/lib/mysql
+      volumes:
+      - name: mysql-persistent-storage
+        persistentVolumeClaim:
+          claimName: mysql-pv-claim
 
 ```
