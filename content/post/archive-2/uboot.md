@@ -9,6 +9,7 @@ tags:
   - reprint
 ---
 ## Uboot
+
 <https://www.jianshu.com/p/42106ed7cbde>
 
 我们知道,bootloader是系统上电后最初加载运行的代码。它提供了处理器上电复位后最开始需要执行的初始化代码。 在PC机上引导程序一般由BIOS开始执行,然后读取硬盘中位于MBR(Main Boot Record,主引导记录)中的Bootloader(例如LILO或GRUB),并进一步引导操作系统的启动。

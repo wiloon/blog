@@ -183,14 +183,23 @@ bin/kafka-topics.sh --create --partitions 3 --replication-factor 3 --topic topic
 
 ### 调整分区数
 
-注意该命令分区数partitions只能增加,不能减少, --partitions 5: 调整之后的分区数, topic可以动态增加分区数。
+kafka topic 可以动态增加分区数。  
+注意该命令分区数 partitions 只能增加, 不能减少, --partitions 5: 调整之后的分区数.
 
 ```bash
-    bin/kafka-topics.sh \
-    --zookeeper ip0:2181 \
-    --alter \
-    --topic topic0 \
-    --partitions 5
+# kafka >3.0
+bin/kafka-topics.sh \
+--bootstrap-server 127.0.0.1:9092 \
+--alter \
+--topic topic0 \
+--partitions 3
+
+# kafka <3.0
+bin/kafka-topics.sh \
+--zookeeper ip0:2181 \
+--alter \
+--topic topic0 \
+--partitions 5
 ```
 
 ### 重置offset

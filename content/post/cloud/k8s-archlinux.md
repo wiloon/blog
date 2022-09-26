@@ -488,6 +488,7 @@ kubectl get svc nginx-app
 kubectl describe svc nginx-app
 
 ---
+
 # check status
 kubectl get pods --all-namespaces
 kubectl get pods --all-namespaces -o wide
