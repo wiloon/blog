@@ -13,6 +13,7 @@ tags:
 ### commands
 
 ```bash
+redis-cli -h 127.0.0.1 -p 6379
 # OBJECT ENCODING 命令可以查看一个数据库键的值对象的编码
 OBJECT ENCODING key0
 
@@ -406,3 +407,137 @@ select 10
 <https://mp.weixin.qq.com/s/aOiadiWG2nNaZowmoDQPMQ>
 
 <https://blog.csdn.net/AlbertFly/article/details/80169717>
+
+## k8s redis
+
+### redis-config.yaml
+
+```yaml
+kind: ConfigMap
+apiVersion: v1
+metadata:
+  name: redis-config
+  namespace: default
+  labels:
+    app: redis
+data:
+  redis.conf: |-
+    dir /data
+    port 6379
+    bind 0.0.0.0
+    appendonly yes
+    protected-mode no
+    pidfile /data/redis.pid
+
+```
+
+```bash
+kubectl apply -f redis-config.yaml
+```
+
+### redis-deployment.yml
+
+```yaml
+## Service
+apiVersion: v1
+kind: Service
+metadata:
+  name: redis
+  namespace: default
+  labels:
+    app: redis
+spec:
+  type: NodePort
+  ports:
+  - name: redis
+    port: 6379
+    nodePort: 30379
+    targetPort: 6379
+  selector:
+    app: redis
+---
+## Deployment
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: redis
+  namespace: default
+  labels:
+    app: redis
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: redis
+  template:
+    metadata:
+      labels:
+        app: redis
+    spec:
+      initContainers:
+        - name: system-init 
+          image: busybox:1.32
+          imagePullPolicy: IfNotPresent
+          command: 
+            - "sh"
+            - "-c"
+            - "echo 2000 > /proc/sys/net/core/somaxconn && echo never > /sys/kernel/mm/transparent_hugepage/enabled"
+          securityContext:
+            privileged: true
+            runAsUser: 0
+          volumeMounts:
+            - name: sys
+              mountPath: /sys
+      containers:
+        - name: redis
+          image: redis:5.0.8
+          command: 
+            - "sh"
+            - "-c"
+            - "redis-server /usr/local/etc/redis/redis.conf"
+          ports:
+            - containerPort: 6379
+          resources:
+          limits:
+              cpu: 1000m
+              memory: 300Mi
+          requests:
+              cpu: 1000m
+              memory: 200Mi
+          livenessProbe:
+          tcpSocket:
+              port: 6379
+          initialDelaySeconds: 300
+          timeoutSeconds: 1
+          periodSeconds: 10
+          successThreshold: 1
+          failureThreshold: 3
+          readinessProbe:
+          tcpSocket:
+              port: 6379
+          initialDelaySeconds: 5
+          timeoutSeconds: 1
+          periodSeconds: 10
+          successThreshold: 1
+          failureThreshold: 3
+          volumeMounts:
+          - name: data
+          mountPath: /data
+          - name: config
+          mountPath:  /usr/local/etc/redis/redis.conf
+          subPath: redis.conf
+      volumes:
+        - name: data
+            persistentVolumeClaim:
+            claimName: pvc0
+        - name: config      
+            configMap:
+            name: redis-config
+        - name: sys
+            hostPath: 
+            path: /sys
+```
+
+```bash
+kubectl create -f redis-deployment.yml
+```

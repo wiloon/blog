@@ -10,6 +10,14 @@ tags:
 ---
 ## ping, fping
 
+## install
+
+```bash
+# ubuntu
+apt install iputils-ping
+
+```
+
 ## archlinux install fping
 
 ```bash
@@ -25,7 +33,7 @@ ping 192.168.1.100 -t
 ### 指定网络设备
 
 ```bash
-    ping -c 1 -I veth0 192.168.3.102
+ping -c 1 -I veth0 192.168.3.102
 ```
 
 ### 同时显示统计信息

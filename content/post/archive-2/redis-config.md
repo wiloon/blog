@@ -296,3 +296,6 @@ hz 的默认值是 10,可以通过提高这个值来使得 CPU 在空闲的时�
 <https://juejin.cn/post/6858901608361787400>
 
 <http://cs-cjl.com/2019/04_11_redis_configuration_5>
+
+masterauth passwd123  指定密码passwd123
+requirepass passwd123 指定密码passwd123
