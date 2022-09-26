@@ -500,9 +500,8 @@ kubectl get po -n default
 kubectl delete deployment deployment0
 kubectl delete svc svc0
 
-## 卸载服务
-
-kubectl delete -f deploy/deployment.yaml
+## 卸载服务, delete service and deployment
+kubectl delete -f deployment.yaml
 ```
 
 <https://www.linuxtechi.com/install-kubernetes-on-ubuntu-22-04/>
@@ -737,10 +736,12 @@ metadata:
   labels:
     app: redis
 spec:
-  type: ClusterIP
+  type: NodePort
   ports:
     - name: redis
-      port: 6379
+      port: 16379      # Service 暴露在 cluster-ip 上的端口，通过 <cluster-ip>:port 访问服务,通过此端口集群内的服务可以相互访问
+      targetPort: 6379 # Pod 的外部访问端口，port 和 nodePort 的数据通过这个端口进入到Pod内部，Pod 里面的 containers 的端口映射到这个端口，提供服务
+      nodePort: 32379  # Node 节点的端口，<nodeIP>:nodePort 是提供给集群外部客户访问 service 的入口
   selector:
     app: redis
 ---
