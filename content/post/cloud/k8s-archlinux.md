@@ -739,9 +739,9 @@ spec:
   type: NodePort
   ports:
     - name: redis
-      port: 16379      # Service 暴露在 cluster-ip 上的端口，通过 <cluster-ip>:port 访问服务,通过此端口集群内的服务可以相互访问
-      targetPort: 6379 # Pod 的外部访问端口，port 和 nodePort 的数据通过这个端口进入到Pod内部，Pod 里面的 containers 的端口映射到这个端口，提供服务
-      nodePort: 32379  # Node 节点的端口，<nodeIP>:nodePort 是提供给集群外部客户访问 service 的入口
+      port: 16379
+      targetPort: 6379
+      nodePort: 32379
   selector:
     app: redis
 ---
@@ -835,12 +835,17 @@ apiVersion: v1
 kind: Service
 metadata:
   name: mysql
+  labels:
+    app: mysql
 spec:
+  type: NodePort
   ports:
-  - port: 3306
+    - name: mysql
+      port: 13306
+      targetPort: 3306
+      nodePort: 32306
   selector:
     app: mysql
-  clusterIP: None
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -861,9 +866,8 @@ spec:
       - image: mysql:5.6
         name: mysql
         env:
-          # 在实际中使用 secret
         - name: MYSQL_ROOT_PASSWORD
-          value: password
+          value: password0
         ports:
         - containerPort: 3306
           name: mysql
@@ -874,5 +878,4 @@ spec:
       - name: mysql-persistent-storage
         persistentVolumeClaim:
           claimName: mysql-pv-claim
-
 ```
