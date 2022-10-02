@@ -33,48 +33,51 @@ git symbolic-ref --short HEAD
 ### 查看
 
 ```bash
-#### 查看所有的分支
+## 查看所有的分支, 本地 + 远程
 git branch -a
-# 查看本地所有分支, 当前分支前面会标一个 `*` 号
+# 查看本地分支, 当前分支前面会标一个 `*` 号
 git branch
+## 查看远程所有分支
+git branch -r 
 # check branch detail
 git branch -v
-#### 查看远程所有分支
-git branch -r 
 ```
 
-#### 新建分支
+### 新建分支
 
-新建分支其实就是在当前位置打个标签, 也就是说...新分支是以当前分支的commit为基础的.
+新建分支其实就是在当前位置打个标签, 也就是说... 新分支是以当前分支的 commit 为基础的.
 
 ```bash
 git branch branch0
 ```
 
-#### 切换到分支
+### 切换到分支
 
 ```bash
 git switch branch0
 git checkout branch0
 ```
 
-#### 新建并切换到分支
+### 新建并切换到分支
 
 ```bash
 git switch -c dev
 git checkout -b branch0
 ```
 
-#### 把新建的分支推送到远端
+### 把新建的分支推送到远端
 
 ```bash
 git push origin dev
 ```
 
-#### 删除分支
+### 删除分支
 
 ```bash
+# 删除本地分支
 git branch -d branch0
+# 删除远程分支
+git push origin --delete branch0
 # 强制删除分支，删除没 merge 的分支
 git branch -D branch0
 ```
@@ -397,17 +400,15 @@ git rm -f
 
 ## git fetch
 
-git fetch 命令用来拉取其它仓库的数据(objects and refs).
-默认情况下，git fetch取回**所有**分支 (branch) 的更新。如果只想取回特定分支的更新，可以指定分支名。  
+git fetch 命令用来拉取其它仓库的数据 (objects and refs).  
+默认情况下，git fetch 取回**所有**分支 (branch) 的更新。如果只想取回特定分支的更新，可以指定分支名。  
 
 ```bash
-    git fetch <远程主机名> <分支名>
-```
-
-比如，取回 origin 主机的 master 分支。
-
-```bash
-    git fetch origin master
+git fetch <远程主机名> <分支名>
+# 比如，取回 origin 主机的 master 分支。
+git fetch origin master
+# -p, 分支在远程删掉之后, 执行 git fetch -p, 更新一下本地的分支列表, 本地就看不到已经删除的分支了
+git fetch -p
 ```
 
 ### git fetch 与 git pull
