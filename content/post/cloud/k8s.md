@@ -8,6 +8,7 @@ categories:
 tags:
   - reprint
   - k8s
+  - remix
 ---
 ## k8s
 
@@ -412,7 +413,7 @@ swapon
 # 禁用 swap
 sudo swapoff -a
 # 在文件中禁用 /swapfile
-sudo nano /etc/fstab
+sudo vim /etc/fstab
 
 # https://docs.docker.com/engine/install/ubuntu/
 sudo apt-get install \
@@ -429,16 +430,16 @@ overlay
 br_netfilter
 EOF
 
-sudo modprobe overlay
-sudo modprobe br_netfilter
+modprobe overlay
+modprobe br_netfilter
 
-sudo tee /etc/sysctl.d/kubernetes.conf <<EOF
+tee /etc/sysctl.d/kubernetes.conf <<EOF
 net.bridge.bridge-nf-call-ip6tables = 1
 net.bridge.bridge-nf-call-iptables = 1
 net.ipv4.ip_forward = 1
-EOF 
+EOF
 
-sudo sysctl --system
+sysctl --system
 
 sudo apt install -y curl gnupg2 software-properties-common apt-transport-https ca-certificates
 sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmour -o /etc/apt/trusted.gpg.d/docker.gpg
@@ -457,6 +458,8 @@ sudo apt-add-repository "deb http://apt.kubernetes.io/ kubernetes-xenial main"
 sudo apt update
 sudo apt install -y kubelet kubeadm kubectl
 sudo apt-mark hold kubelet kubeadm kubectl
+
+# init control plane for k8s0
 sudo kubeadm init --control-plane-endpoint=k8s0
 
 mkdir -p $HOME/.kube
