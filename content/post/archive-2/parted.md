@@ -10,6 +10,12 @@ tags:
 ---
 ## parted
 
+## instll parted
+
+```bash
+apt install parted
+```
+
 ```bash
 # 查看磁盘信息
 lsblk

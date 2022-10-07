@@ -98,6 +98,8 @@ ip route del 192.168.0.0/24 via 172.16.15.253 dev eth0
 ```bash
 ip route add DESTINATION       [via NEXT_HOP]      [src SOURCE_ADDRESS]    [dev DEVICE]
 
+ip route add default           via 192.168.50.1    src 192.168.50.8      dev enp0s31f6
+ip route add default           via 192.168.50.1    src 192.168.50.8      dev enp0s31f6
 ip route add default           via 192.168.50.4    src 192.168.50.169      dev ens18
 ip route add 192.168.54.0/24   via 192.168.50.11   src 192.168.50.8        dev enp0s31f6
 ip route add 192.168.0.0/24     via 172.16.15.253                           dev eth0
@@ -314,7 +316,7 @@ MARK是一个32位整数值, MARK目标可以使用3种方法来设置mark值:
 比如,将从网络接口tun0进入的、目标端口为5222的TCP数据包设置mark值为1:
 
 ```bash
-    iptables -t mangle -A PREROUTING -j MARK --set-mark 1 -i tun0 -p tcp --dport 5222
+iptables -t mangle -A PREROUTING -j MARK --set-mark 1 -i tun0 -p tcp --dport 5222
 ```
 
 设置的mark值可用来设定策略路由。

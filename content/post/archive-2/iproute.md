@@ -128,7 +128,7 @@ title: iproute2 > 路由表, routing table
 
 对所有来源端口是8080的数据输出包进行标记处理,设置标记2
 
-$: iptables -t mangle -A OUTPUT -p tcp -sport 8080 -j MARK -set-mark 2
+iptables -t mangle -A OUTPUT -p tcp -sport 8080 -j MARK -set-mark 2
   
 4.1.2 对标记的数据包进行自定义路由
   

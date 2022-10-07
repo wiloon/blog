@@ -337,6 +337,7 @@ curl http://demo.localdev.me:8080/
 ### commands
 
 ```bash
+systemctl status kubelet
 #重置
 kubeadm reset
 # 检查k8s dns svc 启动是否正常
@@ -459,7 +460,9 @@ sudo apt update
 sudo apt install -y kubelet kubeadm kubectl
 sudo apt-mark hold kubelet kubeadm kubectl
 
-# init control plane for k8s0
+# init control plane for k8sx, or join ...
+
+# init control plane
 sudo kubeadm init --control-plane-endpoint=k8s0
 
 mkdir -p $HOME/.kube
@@ -472,6 +475,8 @@ kubectl get nodes
 ## install kubeadm on other vm and join
 kubeadm join k8s0:6443 --token 7iikfr.7b2s9q28iuhmtpvq \
         --discovery-token-ca-cert-hash sha256:97d5fe071438d0cc279078e76cf768e898ff61b75069d574eb3bef36e81723db
+
+kubectl cluster-info
 kubectl get nodes
 
 curl https://projectcalico.docs.tigera.io/manifests/calico.yaml -O

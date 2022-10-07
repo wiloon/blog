@@ -1,14 +1,18 @@
 ---
-title: 环境变量
+title: linux 环境变量
 author: "-"
 date: 2011-07-18T04:58:48+00:00
-url: /?p=360
+url: env
 categories:
   - Linux
 tags:
   - reprint
 ---
-## 环境变量
+## linux 环境变量
+
+加export表示为全局变量，不止对当前shell有效，对子进程也有效，否则则为局部变量，只对当前shell有效，子进程无效。
+
+## linux 用户的环境变量
 
 #####################################################
 

@@ -8,7 +8,7 @@ categories:
 tags:
   - reprint
 ---
-## 'test for a specific port from Linux,  shell>telnet  >netcat > Socat'
+## 'test for a specific port from Linux,  shell>telnet> netcat> socat'
 
 ### 使用 Telnet验证端口的连通性
 

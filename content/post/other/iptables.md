@@ -1,5 +1,5 @@
 ---
-title: iptables
+title: iptables basic
 author: "-"
 date: 2013-11-10T06:49:31+00:00
 url: iptables
@@ -9,7 +9,7 @@ tags:
   - Linux
 
 ---
-## iptables
+## iptables basic
 
 iptables 是 Linux 内核集成的 IP 信息包过滤系统。该系统用于在 Linux 系统上控制 IP 数据包过滤和防火墙配置
   
@@ -106,6 +106,7 @@ iptables -t nat -vnL PREROUTING --line-number
 
 ```bash
 # 按 line number 删除
+iptables -t filter -D INPUT 1
 iptables -t nat -D PREROUTING 1
 iptables -t nat -D OUTPUT 1
 
@@ -117,12 +118,17 @@ sudo iptables -t nat -D POSTROUTING -p icmp -j LOG
 iptables -F 
 ```
 
+## iptables 新建规则
+
 ```bash
+iptables -t filter -I ufw-user-input 1 -s 0.0.0.0/0 -p tcp --dport 80 -j ACCEPT
+iptables -t filter -I ufw-user-input 1 -s 0.0.0.0/0 -p tcp --dport 443 -j ACCEPT
+
 #  iptables [-t tables] [-L] [-nv]
 
 # 插入一条， 插入位置 10
-iptables -t nat -I  VY 10  -p tcp -m set --match-set vlist dst -j REDIRECT --to-ports 1081
-iptables -t mangle -I POSTROUTING 1  -p tcp    ! --sport 22 -j LOG --log-prefix 'ipt-log-m-p1: '
+iptables -t nat -I  VY 10 -p tcp -m set --match-set vlist dst -j REDIRECT --to-ports 1081
+iptables -t mangle -I POSTROUTING 1  -p tcp ! --sport 22 -j LOG --log-prefix 'ipt-log-m-p1: '
 --dport num 匹配目标端口号
 --sport num 匹配来源端口号
 
@@ -234,7 +240,7 @@ if you want iptables to be loaded automatically on boot, you must enable iptable
 我们可以用两种办法中的任一种删除规则。首先，因为知道这是INPUT链中唯一的规则，我们用编号删除:
 
 ```bash
-    iptables -D INPUT 1
+iptables -D INPUT 1
 ```
 
 删除INPUT链中的编号为1的规则
@@ -289,7 +295,6 @@ OPTIONS
 以下参数构成规则详述，如用于add, delete, replace, ppend 和 check命令。
   
 * -p -protocal [!]protocol
-  
 规则或者包检查 (待检查包) 的协议。指定协议可以是tcp、udp、icmp中的一个或者全部，也可以是数值，代表这些协议中的某一个。当然也可以使用在/etc/protocols中定义的协议名。在协议名前加上"!"表示相反的规则。数字0相当于所有all。Protocol all会匹配所有协议，而且这是缺省时的选项。在和check命令结合时，all可以不被使用。
   
 * -s -source [!] address[/mask]

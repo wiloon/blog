@@ -11,41 +11,19 @@ tags:
 ---
 ## "letsencrypt, certbot, certbot-auto, acme.sh"
 
-### certbot, certbot-auto, acme.sh
+## certbot, certbot-auto, acme.sh
 
 certbot: recommended by the offical website.
 certbot-auto: no longer supported.
 acme.sh: 第三方实现的 acme 协议.
 
-## certbot aliyun plugin
+## install certbot
 
-<https://github.com/tengattack/certbot-dns-aliyun>
-
-<https://eff-certbot.readthedocs.io/en/stable/using.html#setting-up-automated-renewal>
+### archlinux
 
 ```bash
-pacman -S python-pip
-
-pip install certbot-dns-aliyun
-# certbot will be installed automaticaly
-
-vim credentials.ini
-
-dns_aliyun_access_key = 12345678
-dns_aliyun_access_key_secret = 1234567890abcdef1234567890abcdef
-
-certbot certonly -a dns-aliyun \
-    --certbot-dns-aliyun:dns-aliyun-credentials /root/credentials.ini \
-    -d wiloon.com \
-    -d "*.wiloon.com"
-
-ls /etc/letsencrypt/live/wiloon.com/
-# add to crontab
-0 0,12 * * * certbot renew
-
+pacman -S certbot
 ```
-
-### install certbot
 
 #### centos
 
@@ -77,9 +55,11 @@ snap install certbot-dns-google
 
 ### certonly
 
-    certbot certonly   --dns-google   --dns-google-credentials /root/cellular-deck-280204-6455aa19691d.json -d wiloon.com -d *.wiloon.com
+```bash
+certbot certonly   --dns-google   --dns-google-credentials /root/cellular-deck-280204-6455aa19691d.json -d wiloon.com -d *.wiloon.com
+```
 
-### Couldn't download <https://raw.githubusercontent.com/certbot/certbot/v0.39.0/letsencrypt-auto-source/letsencrypt-auto>. <urlopen error [Errno 110] Connection timed out>
+Couldn't download <https://raw.githubusercontent.com/certbot/certbot/v0.39.0/letsencrypt-auto-source/letsencrypt-auto>. `<urlopen error [Errno 110] Connection timed out>`
 
 如果希望将其锁定到特定版本并且不接收自动更新，只需在命令后加 --no-self-upgrade 即可。即:
 certbot-auto renew --no-self-upgrade
@@ -91,17 +71,21 @@ certbot-auto renew --no-self-upgrade
 
 ### 安装 certbot
 
+```bash
         sudo apt install certbot
+```
 
 alternatives --set python /usr/bin/python3
 
-### ubuntu
+### ubuntu snap
 
-        $ sudo apt update
-        $ sudo apt install snapd
-        sudo snap install core; sudo snap refresh core
-        sudo apt-get remove certbo
-        sudo snap install --classic certbot
+```bash
+$ sudo apt update
+$ sudo apt install snapd
+sudo snap install core; sudo snap refresh core
+sudo apt-get remove certbo
+sudo snap install --classic certbot
+```
 
 ### google dns
 
@@ -171,3 +155,32 @@ acme.sh 实现了 acme 协议, 可以从 letsencrypt 生成免费的证书.
 ---
 <https://wsgzao.github.io/post/certbot/>
 <https://certbot-dns-google.readthedocs.io/en/stable/>
+
+
+## certbot aliyun plugin
+
+<https://github.com/tengattack/certbot-dns-aliyun>
+
+<https://eff-certbot.readthedocs.io/en/stable/using.html#setting-up-automated-renewal>
+
+```bash
+pacman -S python-pip
+
+pip install certbot-dns-aliyun
+# certbot will be installed automaticaly
+
+vim credentials.ini
+
+dns_aliyun_access_key = 12345678
+dns_aliyun_access_key_secret = 1234567890abcdef1234567890abcdef
+
+certbot certonly -a dns-aliyun \
+    --certbot-dns-aliyun:dns-aliyun-credentials /root/credentials.ini \
+    -d wiloon.com \
+    -d "*.wiloon.com"
+
+ls /etc/letsencrypt/live/wiloon.com/
+# add to crontab
+0 0,12 * * * certbot renew
+
+```
