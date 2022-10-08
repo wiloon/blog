@@ -81,11 +81,11 @@ ps -eo pid,ppid,command
 -e, -A  显示所有进程, 默认情况下，ps 不会显示很多进程信息，只是列出与当前终端会话相关的进程, -e 参数会显示系统所有进程
 -j     作业格式
 -l     长格式 (有F, wchan, C, PRI, NI 等字段) 
-a      显示现行终端机下的所有程序，包括其他用户的程序。  
+a      显示当前终端下的所有进程信息，包括其他用户的进程
 e      列出程序时，显示每个程序所使用的环境变量。  
 f      用 ASCII 字符显示树状结构，表达程序间的相互关系。  
-u      以用户为主的格式来显示程序状况。  
-x      显示所有程序，不以终端机来区分. 
+u      使用以用户为主的格式输出进程信息。 
+x      显示当前用户在所有终端下的进程。
 -L     Show threads, possibly with LWP and NLWP columns
 -T     显示线程 (Show threads, possibly with SPID column) “SID”栏表示线程ID，而“CMD”栏则显示了线程名称。
 -o, o, --format <format>     用户自定义格式,输出指定的字段
