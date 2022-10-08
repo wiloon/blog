@@ -50,6 +50,7 @@ sudo /etc/init.d/ssh resar
 
 ```bash
 ssh -o HostKeyAlgorithms=+ssh-rsa -o PubkeyAcceptedKeyTypes=+ssh-rsa  root@192.168.50.1 -p 22
+ssh -o HostKeyAlgorithms=+ssh-rsa -o PubkeyAcceptedKeyTypes=+ssh-rsa  root@192.168.50.4 -p 22
 ```
 
 为什么会有这个错误
