@@ -18,9 +18,19 @@ tags:
 - archlinux install k8s
 - ubuntu install k8s
 
-### commands
+## commands
 
 ```bash
+kubectl get pods --all-namespaces
+kubectl get svc
+kubectl describe svc svc0
+kubectl logs <pod_name>
+
+## 卸载服务, delete service and deployment
+kubectl delete -f deployment.yaml
+
+kubectl get configmap
+
 systemctl status kubelet
 #重置
 kubeadm reset
@@ -32,14 +42,13 @@ kubectl get pod
 kubectl exec -it <id> bash
 # 所有 Pod 信息
 kubectl get pods --all-namespaces -o wide
- 
-kubectl get pods --all-namespaces
+
 kubectl get pods -A
 kubectl get pods -n kube-system  -o wide
-kubectl describe pods -n namespace0 pod0 
+kubectl describe pods -n namespace0 pod0
+
 # 重启 pod
 kubectl replace --force -f  kube-flannel.yml
-kubectl logs <pod_name>
 kubectl delete node k8s-test-2.novalocal
 
 crictl ps
@@ -67,8 +76,7 @@ kubectl get po -n default
 kubectl delete deployment deployment0
 kubectl delete svc svc0
 
-## 卸载服务, delete service and deployment
-kubectl delete -f deployment.yaml
+
 ```
 
 ## Containerd, CRI-O
@@ -583,7 +591,6 @@ spec:
       nodePort: 31081  # Node节点的端口，<nodeIP>:nodePort 是提供给集群外部客户访问service的入口
   selector:
     name: rssx-api
-
 ```
 
 - 应用
@@ -733,7 +740,7 @@ metadata:
   labels:
     app: redis
 data:
-  redis.conf: |-
+  redis-config: |
     dir /data
     port 6379
     bind 0.0.0.0
@@ -824,8 +831,7 @@ spec:
             - name: data
               mountPath: /data
             - name: config
-              mountPath: /usr/local/etc/redis/redis.conf
-              subPath: redis.conf
+              mountPath: /usr/local/etc/redis
       volumes:
         - name: data
           persistentVolumeClaim:
@@ -833,13 +839,16 @@ spec:
         - name: config
           configMap:
             name: redis-config
+            items:
+            - key: redis-config
+              path: redis.conf
         - name: sys
           hostPath:
             path: /sys
 ```
 
 ```bash
-kubectl apply -f redis-deployment.yaml
+kubectl create -f redis-deployment.yaml
 ```
 
 ## evicted
@@ -905,3 +914,18 @@ spec:
         persistentVolumeClaim:
           claimName: mysql-pv-claim
 ```
+
+## kubectl create, apply
+
+kubectl create：
+
+（1）kubectl create命令，是先删除所有现有的东西，重新根据yaml文件生成新的。所以要求yaml文件中的配置必须是完整的
+
+（2）kubectl create命令，用同一个yaml 文件执行替换replace命令，将会不成功，fail掉。
+
+kubectl apply：
+
+  kubectl apply命令，根据配置文件里面列出来的内容，升级现有的。所以yaml文件的内容可以只写需要升级的属性
+————————————————
+版权声明：本文为CSDN博主「daiqinge」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
+原文链接：<https://blog.csdn.net/daiqinge/article/details/103249260>

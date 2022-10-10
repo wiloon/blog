@@ -752,7 +752,7 @@ git reflog expire --expire=now --all
 
 ## TortoiseGit, ssh key
 
-把 key 转成 ppk格式 加进 Pageant 里.
+把 key 转成 ppk 格式 加到 Pageant 里.
 
 <https://www.jianshu.com/p/1bbf5e25c912>
 

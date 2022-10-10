@@ -1,7 +1,7 @@
 ---
 title: podman basic
 author: "-"
-date: 2020-01-19T15:30:35+00:00
+date: 2022-10-10 11:26:14
 url: container
 tags:
   - podman
@@ -67,6 +67,7 @@ podman info --debug
 podman ps
 # 按名字过滤
 podman ps -f  name=zookeeper
+# 显示指定的列
 podman ps -a --format "{{.ID}} {{.Names}}"
 podman ps -a
 podman inspect -l

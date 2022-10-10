@@ -8,7 +8,7 @@ categories:
 tags:
   - reprint
 ---
-## 用shell脚本生成文本文件, shell 创建文件
+## 用 shell 脚本生成文本文件, shell 创建文件
 
 ## sudo
 
