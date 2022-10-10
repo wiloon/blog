@@ -12,10 +12,64 @@ tags:
 ---
 ## k8s
 
+- commands
 - kubekey <https://github.com/kubesphere/kubekey>
 - Rancher <https://rancher.com/>
 - archlinux install k8s
 - ubuntu install k8s
+
+### commands
+
+```bash
+systemctl status kubelet
+#重置
+kubeadm reset
+# 检查k8s dns svc 启动是否正常
+kubectl get svc -n kube-system
+# 节点的状态
+kubectl get nodes -o wide
+kubectl get pod
+kubectl exec -it <id> bash
+# 所有 Pod 信息
+kubectl get pods --all-namespaces -o wide
+ 
+kubectl get pods --all-namespaces
+kubectl get pods -A
+kubectl get pods -n kube-system  -o wide
+kubectl describe pods -n namespace0 pod0 
+# 重启 pod
+kubectl replace --force -f  kube-flannel.yml
+kubectl logs <pod_name>
+kubectl delete node k8s-test-2.novalocal
+
+crictl ps
+
+kubeadm token list
+#删除节点
+kubectl delete pod kube-flannel-ds-trxtz  -n kube-system
+
+kubectl logs -f --since 5m istiod-9cbc77d98-kk98q -n istio-system
+
+## 强制删除
+kubectl delete pod pod0 -n xxx --force --grace-period=0
+
+kubectl get svc nginx-app
+kubectl describe svc nginx-app
+
+# check status
+kubectl get pods --all-namespaces
+kubectl get pods --all-namespaces -o wide
+kubectl describe pod -n <NAMESPACE> <NAME>
+kubectl logs --namespace <NAMESPACE> <NAME>
+kubectl cluster-info
+kubectl get nodes
+kubectl get po -n default
+kubectl delete deployment deployment0
+kubectl delete svc svc0
+
+## 卸载服务, delete service and deployment
+kubectl delete -f deployment.yaml
+```
 
 ## Containerd, CRI-O
 
@@ -334,43 +388,6 @@ kubectl port-forward --namespace=ingress-nginx service/ingress-nginx-controller 
 curl http://demo.localdev.me:8080/
 ```
 
-### commands
-
-```bash
-systemctl status kubelet
-#重置
-kubeadm reset
-# 检查k8s dns svc 启动是否正常
-kubectl get svc -n kube-system
-# 节点的状态
-kubectl get nodes -o wide
-kubectl get pod
-kubectl exec -it <id> bash
-# 所有 Pod 信息
-kubectl get pods --all-namespaces -o wide
- 
-kubectl get pods --all-namespaces
-kubectl get pods -A
-kubectl get pods -n kube-system  -o wide
-kubectl describe pods pod0 -n namespace0
-# 重启 pod
-kubectl replace --force -f  kube-flannel.yml
-kubectl logs <pod_name>
-kubectl delete node k8s-test-2.novalocal
-
-crictl ps
-
-kubeadm token list
-#删除节点
-kubectl delete pod kube-flannel-ds-trxtz  -n kube-system
-
-kubectl logs -f --since 5m istiod-9cbc77d98-kk98q -n istio-system
-
-## 强制删除
-kubectl delete pod xxx -n xxx --force --grace-period=0
-
-```
-
 <https://www.lixueduan.com/post/kubernetes/01-install/>
 
 <https://wiki.archlinux.org/title/Kubernetes>
@@ -494,8 +511,6 @@ kubectl expose deployment nginx-app --type=NodePort --port=80
 
 kubectl get svc nginx-app
 kubectl describe svc nginx-app
-
----
 
 # check status
 kubectl get pods --all-namespaces
@@ -681,7 +696,7 @@ kubectl get pv pv0
 kind: PersistentVolumeClaim
 apiVersion: v1
 metadata:
-  name: pv0
+  name: pvc0
   namespace: default
 spec:
   accessModes:
@@ -694,7 +709,7 @@ spec:
 
 ```bash
 kubectl create -f pvc.yaml
-kubectl get pvc task-pv-claim
+kubectl get pvc pvc0
 ```
 
 ### 查看 pv, pvc
@@ -705,7 +720,9 @@ kubectl get pv,pvc -n default
 
 ## redis
 
-### configmap, redis-config.yaml
+### redis-config.yaml
+
+config map
 
 ```yaml
 kind: ConfigMap
@@ -726,11 +743,12 @@ data:
 ```
 
 ```bash
+kubectl apply -f redis-config.yaml
 kubectl get configmap
 kubectl get configmap -n namespace0
 kubectl edit configmap configmap0
 kubectl delete configmap configmap0
-kubectl apply -f redis-config.yaml
+
 ```
 
 ### redis-deployment.yaml
@@ -811,7 +829,7 @@ spec:
       volumes:
         - name: data
           persistentVolumeClaim:
-            claimName: pv0
+            claimName: pvc0
         - name: config
           configMap:
             name: redis-config

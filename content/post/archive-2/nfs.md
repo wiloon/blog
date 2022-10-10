@@ -27,7 +27,7 @@ mkdir -p /data/nfs /mnt/nfs
 mount --bind /mnt/nfs /data/nfs
 
 vim /etc/fstab
-/mnt/nfs /data/nfs  none   bind   0   0
+/mnt/nfs /data/nfs none bind 0 0
 
 # NFS 服务的主配置文件
 # 格式：[共享的目录]   [主机名或IP(参数,参数)]
