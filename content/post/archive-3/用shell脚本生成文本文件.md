@@ -44,7 +44,7 @@ EOF
   
 Shell中双引号之间的内容会被进行变量展开和命令执行，如果想原样保留文本字符串，应该使用单引号 (这种单双引号的区分在别的语言里也有，如PHP、Perl之类的脚本语言) 。
 
-例如: 
+例如:
 
 echo "Your working directory can be read from the variable $PWD." >> readme.txt
   
@@ -56,15 +56,15 @@ Your working directory can be read from the variable $PWD.
   
 END_TEXT
   
-产生的readme.txt内容都是类似这样的: 
+产生的readme.txt内容都是类似这样的:
 
 Your working directory can be read from the variable /Users/shengbin/Desktop.
   
-但实际希望的内容是: 
+但实际希望的内容是:
 
 Your working directory can be read from the variable $PWD.
   
-所以正确的脚本应该这么写: 
+所以正确的脚本应该这么写:
 
 echo 'Your working directory can be read from the variable $PWD.' >> readme.txt
   
@@ -78,4 +78,4 @@ END_TEXT
   
 没错，把起始标识符用单引号包起来，就会使其中的文本被认为是在单引号之间。
 
-https://blog.shengbin.me/posts/create-text-file-in-shell-scripts
+<https://blog.shengbin.me/posts/create-text-file-in-shell-scripts>

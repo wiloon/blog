@@ -1,7 +1,7 @@
 ---
 title: kafka basic, command
 author: "-"
-date: 2018-05-07T08:44:53.000+00:00
+date: 2022-10-11 22:02:39
 url: "kafka"
 categories:
   - Kafka
@@ -96,6 +96,17 @@ CURRENT-OFFSET = LOG-END-OFFSET 说明当前消费组已经全部消费了;
 - CONSUMER-ID：server端给该分区分配的consumer编号
 - HOST：消费者所在主机
 - CLIENT-ID：消费者id，一般由应用指定
+
+### 命令行手动调整offset
+
+```bash
+bin/kafka-consumer-groups.sh --bootstrap-server localhost:9092 --group test-group --reset-offsets --topic topic0 --to-offset 500000
+bin/kafka-consumer-groups.sh --bootstrap-server localhost:9092 --group test-group --reset-offsets --topic topic0 --to-offset 500000 --execute
+
+# 
+bin/kafka-consumer-groups.sh --bootstrap-server localhost:9092 --group test-group --reset-offsets --topic topic0 --shift-by 1
+
+```
 
 ## topic
 

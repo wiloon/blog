@@ -12,6 +12,8 @@ tags:
 ---
 ## lsof
 
+lsof means ‘List Open Files’
+
 List all open files on the system or open files for specified PID
 
 ## install
@@ -63,7 +65,7 @@ lsof /path/to/file/foo.txt
 ### 使用-i显示所有连接
 
 ```bash
-    lsof -i
+lsof -i
 ```
 
 ### 使用-i 6 仅获取IPv6流量

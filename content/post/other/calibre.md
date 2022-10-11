@@ -1,5 +1,5 @@
 ---
-title: calibre, 电子书管理
+title: calibre, 电子书管理, calibre-web
 author: "-"
 date: 2015-05-03T07:51:04+00:00
 url: calibre
@@ -10,6 +10,54 @@ tags:
 
 ---
 ## calibre, 电子书管理
+
+## calibre-web k8s
+
+```yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: calibre-web
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      name: calibre-web
+  template:
+    metadata:
+      labels:
+        name: calibre-web
+    spec:
+      containers:
+        - name: calibre-web-container
+          image: lscr.io/linuxserver/calibre-web:0.6.19
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8083
+          volumeMounts:
+          - name: calibre-data
+            mountPath: /config
+            subPath: calibre-data
+          - name: calibre-data
+            mountPath: /config
+            subPath: calibre-data
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: calibre-web-service
+  namespace: default
+spec:
+  type: NodePort
+  ports:
+    - name: http
+      port: 18083
+      targetPort: 8083
+      nodePort: 31083
+  selector:
+    name: calibre-web
+```
 
 ## web
 
