@@ -21,6 +21,9 @@ tags:
 ## commands
 
 ```bash
+kubectl scale --replicas=0 deployment/calibre-web
+kubectl get pv,pvc
+kubectl get pod -A -o wide
 kubectl get pods --all-namespaces
 kubectl get svc
 kubectl describe svc svc0

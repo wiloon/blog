@@ -1,7 +1,7 @@
 ---
 title: calibre, 电子书管理, calibre-web
 author: "-"
-date: 2015-05-03T07:51:04+00:00
+date: 2022-10-12 22:56:41
 url: calibre
 categories:
   - Inbox
@@ -12,6 +12,8 @@ tags:
 ## calibre, 电子书管理
 
 ## calibre-web k8s
+
+calibre-dp.yaml
 
 ```yaml
 apiVersion: apps/v1
@@ -31,17 +33,29 @@ spec:
     spec:
       containers:
         - name: calibre-web-container
-          image: lscr.io/linuxserver/calibre-web:0.6.19
+          image: lscr.io/linuxserver/calibre-web:0.6.18
           imagePullPolicy: IfNotPresent
+          env:
+          - name: PUID
+            value: "1000"
+          - name: PGID
+            value: "1000"
+          - name: TZ
+            value: "Asia/China"
+          - name: DOCKER_MODS
+            value: "linuxserver/calibre-web:calibre"
+          - name: OAUTHLIB_RELAX_TOKEN_SCOPE
+            value: "1"
           ports:
             - containerPort: 8083
           volumeMounts:
           - name: calibre-data
             mountPath: /config
             subPath: calibre-data
-          - name: calibre-data
-            mountPath: /config
-            subPath: calibre-data
+      volumes:
+      - name: calibre-data
+        persistentVolumeClaim:
+          claimName: pvc0
 ---
 apiVersion: v1
 kind: Service
