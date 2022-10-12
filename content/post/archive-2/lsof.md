@@ -1,7 +1,7 @@
 ---
 title: lsof
 author: "-"
-date: 2017-02-20T00:53:45+00:00
+date: 2022-10-12 13:40:33
 url: lsof
 categories:
   - Linux
@@ -38,6 +38,31 @@ yum install lsof -y
 -h 显示帮助信息
 -v 显示版本信息
 ```
+
+## 查看tcp连接的建立时间
+
+```bash
+# 查看 tcp 连接
+ss -nt|grep 50.32
+# ESTAB 0      0               192.168.50.228:58048           192.168.50.32:2380
+
+# 端口 :58048
+lsof -i:58048
+```
+
+>COMMAND PID USER   FD   TYPE  DEVICE SIZE/OFF NODE NAME
+>etcd    975 root   79u  IPv4 8267566      0t0  TCP k8s0:58048->k8s2:2380 (ESTABLISHED)
+
+```bash
+# PID: 975, FD: 79
+ls -l /proc/975/fd/79
+```
+
+>lrwx------ 1 root root 64 Oct  8 10:40 /proc/975/fd/79 -> 'socket:[8267566]'
+
+TCP 连接的创建时间: Oct  8 10:40
+
+<https://blog.csdn.net/stpeace/article/details/104651624>
 
 ## lsof 输出的字段
 
