@@ -12,6 +12,10 @@ tags:
 
 iotop命令是专门显示硬盘IO的命令,界面风格类似top命令。这个命令只有在kernelv2.6.20及以后的版本中才有。
 
+## 只显示io的进程pid
+
+iotop -oP
+
 ### install
 
 ```bash
