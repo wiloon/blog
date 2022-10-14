@@ -20,9 +20,9 @@ curl -i -XPOST http://localhost:8086/query --data-urlencode "db=mydb" --data-url
 curl -i -XPOST "http://192.168.97.1:8086/write?db=monitor" --data-binary 'measurement_0,location=us-midwest temperature=82 1594349970000000000'
 ```
 
-###
-
-    curl -x http://127.0.0.1:8899/ -i -XPOST "http://192.168.97.1:8086/write?db=monitor" --data-binary 'measurement_0,location=us-midwest temperature=86 1594349970000000000'
+```bash
+curl -x http://127.0.0.1:8899/ -i -XPOST "http://192.168.97.1:8086/write?db=monitor" --data-binary 'measurement_0,location=us-midwest temperature=86 1594349970000000000'
+```
 
 ### database management
 
@@ -106,51 +106,50 @@ emacs /etc/influxdb/influxdb.conf
 
 ### /etc/influxdb/influxdb.conf
 
-    #reporting-disabled = false
+```bash
+#reporting-disabled = false
+[meta]
 
-    [meta]
-      
-    dir = "/var/lib/influxdb/meta"
-      
-    #retention-autocreate = true
+dir = "/var/lib/influxdb/influxdb/meta"
 
-    [data]
-      
-    dir = "/var/lib/influxdb/data"
-    wal-dir = "/var/lib/influxdb/wal"
-    wal-fsync-delay = "100ms"
+#retention-autocreate = true
+[data]
 
-    # index-version = "inmem"
+dir = "/var/lib/influxdb/influxdb/data"
+wal-dir = "/var/lib/influxdb/influxdb/wal"
+wal-fsync-delay = "100ms"
 
-    index-version = "tsi1"
+# index-version = "inmem"
 
-    trace-logging-enabled = false
-      
-    query-log-enabled = true
-      
-    cache-max-memory-size = "512m"
-      
-    cache-snapshot-memory-size = "32m"
+index-version = "tsi1"
 
-    # 超过10分钟没有写入, 把cache写到新的TSM文件
+trace-logging-enabled = false
+    
+query-log-enabled = true
+    
+cache-max-memory-size = "512m"
+    
+cache-snapshot-memory-size = "32m"
 
-    cache-snapshot-write-cold-duration = "10m"
+# 超过10分钟没有写入, 把cache写到新的TSM文件
 
-    [coordinator]
-      
-    #慢查询
-      
-    log-queries-after = "10s"
+cache-snapshot-write-cold-duration = "10m"
 
-    [retention]
+[coordinator]
 
-    #edit file /etc/default/influxdb
-      
-    STDERR=/data/logs/influxdb/influxdb.log
+#慢查询
+log-queries-after = "10s"
 
-    #edit logrotate config, modify log path
-      
-    /etc/logrotate.d/influxdb
+[retention]
+
+#edit file /etc/default/influxdb
+    
+STDERR=/data/logs/influxdb/influxdb.log
+
+#edit logrotate config, modify log path
+    
+/etc/logrotate.d/influxdb
+```
 
 ```bash
 # chown
@@ -164,8 +163,6 @@ sudo influxd
 
 #connect via cli, rfc3339: 日期格式YYYY-MM-DDTHH:MM:SS.nnnnnnnnnZ
 influx -precision rfc3339
-
-
 ```
 
 ### docker
@@ -192,7 +189,7 @@ podman run -d \
 -v influxdb-config:/etc/influxdb:ro \
 -v influxdb-storage:/var/lib/influxdb \
 -v /etc/localtime:/etc/localtime:ro \
-influxdb:1.8.6-alpine
+influxdb:1.8.10-alpine
 
 # in pod
 podman run -d \
@@ -202,22 +199,25 @@ podman run -d \
 -v influxdb-storage:/var/lib/influxdb \
 -v /etc/localtime:/etc/localtime:ro \
 influxdb
-
 ```
 
 ### chronograf
 
-    podman run -d \
-    --name chronograf \
-    --pod monitor \
-    -v chronograf:/var/lib/chronograf \
-    -v /etc/localtime:/etc/localtime:ro \
-    chronograf --influxdb-url=http://monitor:8086
+```bash
+podman run -d \
+--name chronograf \
+--pod monitor \
+-v chronograf:/var/lib/chronograf \
+-v /etc/localtime:/etc/localtime:ro \
+chronograf --influxdb-url=http://monitor:8086
+```
 
 #### run influx
 
-    sudo podman exec -it influxdb influx
-    sudo podman run -it --rm influxdb influx -host influxdb.wiloon.com
+```bash
+sudo podman exec -it influxdb influx
+sudo podman run -it --rm influxdb influx -host influxdb.wiloon.com
+```
 
 ### retention policies
 
@@ -263,15 +263,17 @@ select average_response_ms from ping where time > now()-1s and url='192.168.53.8
 select "database",id,retentionPolicy,seriesCreate,writeReq from "shard" WHERE time>now()-20s AND "database"='database0' AND retentionPolicy='default' AND writeReq>0
 
 select * from "database0"."rentention-policies-0"."measurement0"
+sELECT mean(m1) * 10 FROM metric0."default".m0 WHERE time >= now() - 10m  AND host='host0'  GROUP BY time(10s), host
 
 ```
 
 #### influx
 
+```bash
     influx -execute 'select * from "database0"."retention_policies_0"."measurement0" order by time desc limit 1'
+```
 
 ```bash
-
 # show tag keys
 SHOW TAG KEYS [ON <database_name>] [FROM_clause] [WHERE <tag_key> <operator> ['<tag_value>' | <regular_expression>]] [LIMIT_clause] [OFFSET_clause]
 
@@ -298,14 +300,6 @@ ERR: error parsing query: found /, expected regex at line 1, char 56
 
 # =~和后面的正则表达式之间要有空格T_T
 select f0,f1  from s0 where t0=~ /xxx.*/ 
-
-```
-
-### select
-
-```bash
-sELECT mean(m1) * 10 FROM metric0."default".m0 WHERE time >= now() - 10m  AND host='host0'  GROUP BY time(10s), host
-
 ```
 
 ## 协议, 整数, 浮点数

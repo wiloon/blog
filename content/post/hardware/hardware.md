@@ -11,11 +11,11 @@ tags:
 ---
 ## Hardware
 
-- R86S
 - QNAP TS453Bmini
+- Dell Wyse 5070
+- R86S
 - Dell Inspiron N4050
 - Intel J4105 软路由
-- Dell Wyse 5070
 - SONY WF-1000XM3
 - CanoKey
 - K375S

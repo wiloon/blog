@@ -12,10 +12,77 @@ tags:
 ---
 ## k8s
 
+- commands
 - kubekey <https://github.com/kubesphere/kubekey>
 - Rancher <https://rancher.com/>
 - archlinux install k8s
 - ubuntu install k8s
+
+## commands
+
+```bash
+kubectl scale --replicas=0 deployment/calibre-web
+kubectl get pv,pvc
+kubectl get pod -A -o wide
+kubectl get pods --all-namespaces
+kubectl get svc
+kubectl describe svc svc0
+kubectl logs <pod_name>
+
+## 卸载服务, delete service and deployment
+kubectl delete -f deployment.yaml
+
+kubectl get configmap
+# 查看 k8s 版本
+kubectl version --output=yaml
+
+systemctl status kubelet
+# 重置
+kubeadm reset
+# 检查k8s dns svc 启动是否正常
+kubectl get svc -n kube-system
+# 节点的状态
+kubectl get nodes -o wide
+kubectl get pod
+kubectl exec -it <id> bash
+# 所有 Pod 信息
+kubectl get pods --all-namespaces -o wide
+
+kubectl get pods -A
+kubectl get pods -n kube-system  -o wide
+kubectl describe pods -n namespace0 pod0
+
+# 重启 pod
+kubectl replace --force -f  kube-flannel.yml
+kubectl delete node k8s-test-2.novalocal
+
+crictl ps
+
+kubeadm token list
+#删除节点
+kubectl delete pod kube-flannel-ds-trxtz  -n kube-system
+
+kubectl logs -f --since 5m istiod-9cbc77d98-kk98q -n istio-system
+
+## 强制删除
+kubectl delete pod pod0 -n xxx --force --grace-period=0
+
+kubectl get svc nginx-app
+kubectl describe svc nginx-app
+
+# check status
+kubectl get pods --all-namespaces
+kubectl get pods --all-namespaces -o wide
+kubectl describe pod -n <NAMESPACE> <NAME>
+kubectl logs --namespace <NAMESPACE> <NAME>
+kubectl cluster-info
+kubectl get nodes
+kubectl get po -n default
+kubectl delete deployment deployment0
+kubectl delete svc svc0
+
+kubectl create namespace influxdb
+```
 
 ## Containerd, CRI-O
 
@@ -334,43 +401,6 @@ kubectl port-forward --namespace=ingress-nginx service/ingress-nginx-controller 
 curl http://demo.localdev.me:8080/
 ```
 
-### commands
-
-```bash
-systemctl status kubelet
-#重置
-kubeadm reset
-# 检查k8s dns svc 启动是否正常
-kubectl get svc -n kube-system
-# 节点的状态
-kubectl get nodes -o wide
-kubectl get pod
-kubectl exec -it <id> bash
-# 所有 Pod 信息
-kubectl get pods --all-namespaces -o wide
- 
-kubectl get pods --all-namespaces
-kubectl get pods -A
-kubectl get pods -n kube-system  -o wide
-kubectl describe pods pod0 -n namespace0
-# 重启 pod
-kubectl replace --force -f  kube-flannel.yml
-kubectl logs <pod_name>
-kubectl delete node k8s-test-2.novalocal
-
-crictl ps
-
-kubeadm token list
-#删除节点
-kubectl delete pod kube-flannel-ds-trxtz  -n kube-system
-
-kubectl logs -f --since 5m istiod-9cbc77d98-kk98q -n istio-system
-
-## 强制删除
-kubectl delete pod xxx -n xxx --force --grace-period=0
-
-```
-
 <https://www.lixueduan.com/post/kubernetes/01-install/>
 
 <https://wiki.archlinux.org/title/Kubernetes>
@@ -460,7 +490,23 @@ sudo apt update
 sudo apt install -y kubelet kubeadm kubectl
 sudo apt-mark hold kubelet kubeadm kubectl
 
+# 编辑 /etc/hosts 加入新 host
+# 复制 证书到新的 control plane
+
+scp -rp /etc/kubernetes/pki/ca.* k8s2:/etc/kubernetes/pki
+scp -rp /etc/kubernetes/pki/sa.* k8s2:/etc/kubernetes/pki
+scp -rp /etc/kubernetes/pki/front-proxy-ca.* k8s2:/etc/kubernetes/pki
+scp -rp /etc/kubernetes/pki/etcd/ca.* k8s2:/etc/kubernetes/pki/etcd
+scp -rp /etc/kubernetes/admin.conf k8s2:/etc/kubernetes
+
+# https://blog.csdn.net/weixin_43815140/article/details/108648756
+
 # init control plane for k8sx, or join ...
+
+# 在 control plan 上查看 token 是否可用 
+kubeadm token list
+# 如果没有输出就重新生成 token
+kubeadm token create --print-join-command # 默认有效期24小时,若想久一些可以结合--ttl参数,设为0则用不过期
 
 # init control plane
 sudo kubeadm init --control-plane-endpoint=k8s0
@@ -473,8 +519,16 @@ kubectl cluster-info
 kubectl get nodes
 
 ## install kubeadm on other vm and join
+# join as control plane
+ubeadm join k8s0:6443 --token 7iikfr.7b2s9q28iuhmtpvq \
+        --discovery-token-ca-cert-hash sha256:97d5fe071438d0cc279078e76cf768e898ff61b75069d574eb3bef36e81723db \
+        --control-plane
+
+# join as worker
 kubeadm join k8s0:6443 --token 7iikfr.7b2s9q28iuhmtpvq \
         --discovery-token-ca-cert-hash sha256:97d5fe071438d0cc279078e76cf768e898ff61b75069d574eb3bef36e81723db
+
+## ---
 
 kubectl cluster-info
 kubectl get nodes
@@ -494,8 +548,6 @@ kubectl expose deployment nginx-app --type=NodePort --port=80
 
 kubectl get svc nginx-app
 kubectl describe svc nginx-app
-
----
 
 # check status
 kubectl get pods --all-namespaces
@@ -568,7 +620,6 @@ spec:
       nodePort: 31081  # Node节点的端口，<nodeIP>:nodePort 是提供给集群外部客户访问service的入口
   selector:
     name: rssx-api
-
 ```
 
 - 应用
@@ -622,13 +673,11 @@ spec:
   type: NodePort
   ports:
     - name: http
-      port: 18082 # Service暴露在cluster-ip上的端口，通过<cluster-ip>:port访问服务,通过此端口集群内的服务可以相互访问
+      port: 18082 # Service 暴露在 cluster-ip 上的端口，通过 <cluster-ip>:port 访问服务,通过此端口集群内的服务可以相互访问
       targetPort: 80 # Pod的外部访问端口，port和nodePort的数据通过这个端口进入到Pod内部，Pod里面的containers的端口映射到这个端口，提供服务
       nodePort: 31082 # Node节点的端口，<nodeIP>:nodePort 是提供给集群外部客户访问service的入口
   selector:
     name: rssx-ui
-
-
 ```
 
 - 应用
@@ -681,7 +730,7 @@ kubectl get pv pv0
 kind: PersistentVolumeClaim
 apiVersion: v1
 metadata:
-  name: pv0
+  name: pvc0
   namespace: default
 spec:
   accessModes:
@@ -694,7 +743,7 @@ spec:
 
 ```bash
 kubectl create -f pvc.yaml
-kubectl get pvc task-pv-claim
+kubectl get pvc pvc0
 ```
 
 ### 查看 pv, pvc
@@ -705,7 +754,9 @@ kubectl get pv,pvc -n default
 
 ## redis
 
-### configmap, redis-config.yaml
+### redis-config.yaml
+
+config map
 
 ```yaml
 kind: ConfigMap
@@ -716,7 +767,7 @@ metadata:
   labels:
     app: redis
 data:
-  redis.conf: |-
+  redis-config: |
     dir /data
     port 6379
     bind 0.0.0.0
@@ -726,11 +777,12 @@ data:
 ```
 
 ```bash
+kubectl apply -f redis-config.yaml
 kubectl get configmap
 kubectl get configmap -n namespace0
 kubectl edit configmap configmap0
 kubectl delete configmap configmap0
-kubectl apply -f redis-config.yaml
+
 ```
 
 ### redis-deployment.yaml
@@ -806,22 +858,24 @@ spec:
             - name: data
               mountPath: /data
             - name: config
-              mountPath: /usr/local/etc/redis/redis.conf
-              subPath: redis.conf
+              mountPath: /usr/local/etc/redis
       volumes:
         - name: data
           persistentVolumeClaim:
-            claimName: pv0
+            claimName: pvc0
         - name: config
           configMap:
             name: redis-config
+            items:
+            - key: redis-config
+              path: redis.conf
         - name: sys
           hostPath:
             path: /sys
 ```
 
 ```bash
-kubectl apply -f redis-deployment.yaml
+kubectl create -f redis-deployment.yaml
 ```
 
 ## evicted
@@ -843,8 +897,6 @@ apiVersion: v1
 kind: Service
 metadata:
   name: mysql
-  labels:
-    app: mysql
 spec:
   type: NodePort
   ports:
@@ -874,6 +926,7 @@ spec:
       - image: mysql:5.6
         name: mysql
         env:
+          # 在实际中使用 secret
         - name: MYSQL_ROOT_PASSWORD
           value: password0
         ports:
@@ -885,5 +938,182 @@ spec:
       volumes:
       - name: mysql-persistent-storage
         persistentVolumeClaim:
-          claimName: mysql-pv-claim
+          claimName: pvc0
+```
+
+## 访问 mysql
+
+```bash
+kubectl run -it --rm --image=mysql:5.6 --restart=Never mysql-client -- mysql -h mysql -ppassword0
+```
+
+<https://kubernetes.io/zh-cn/docs/tasks/run-application/run-single-instance-stateful-application/>
+
+## kubectl create, apply
+
+kubectl create：
+
+（1）kubectl create命令，是先删除所有现有的东西，重新根据yaml文件生成新的。所以要求yaml文件中的配置必须是完整的
+
+（2）kubectl create命令，用同一个yaml 文件执行替换replace命令，将会不成功，fail掉。
+
+kubectl apply：
+
+  kubectl apply命令，根据配置文件里面列出来的内容，升级现有的。所以yaml文件的内容可以只写需要升级的属性
+————————————————
+版权声明：本文为CSDN博主「daiqinge」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
+原文链接：<https://blog.csdn.net/daiqinge/article/details/103249260>
+
+## influxdb
+
+```bash
+kubectl create configmap influxdb-config --from-file influxdb.conf
+kubectl get cm influxdb-config
+#查看CM内容，内容省略
+kubectl get cm influxdb-config -oyaml
+```
+
+<https://www.cnblogs.com/zhangsi-lzq/p/14457707.html>
+
+## influxdb-dp.yaml
+
+```yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: influxdb-svc
+  namespace: default
+spec:
+  type: NodePort
+  ports:
+    - port: 18086
+      targetPort: 8086
+      nodePort: 32086
+      name: influxdb
+  selector:
+    app: influxdb
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: influxdb-dp
+  namespace: default
+  labels:
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: influxdb
+  template:
+    metadata:
+      labels:
+        app: influxdb
+    spec:
+      containers:
+      - name: influxdb
+        image: influxdb:1.8.10-alpine
+        imagePullPolicy: IfNotPresent
+        ports:
+        - name: influxdb
+          containerPort: 8086
+          protocol: TCP
+        volumeMounts:
+        - name: influxdb-data
+          mountPath: /var/lib/influxdb
+          subPath: influxdb
+        - name: influxdb-config
+          mountPath: /etc/influxdb
+      volumes:
+      - name: influxdb-data
+        persistentVolumeClaim:
+          claimName: pvc0
+      - name: influxdb-config
+        configMap:
+          name: influxdb-config
+```
+
+## grafana-dp.yaml
+
+```yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: grafana
+  labels:
+    k8s-app: grafana
+spec:
+  type: NodePort
+  ports:
+  - name: http
+    port: 3000
+    targetPort: 3000
+    nodePort: 30300
+  selector:
+    k8s-app: grafana
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: grafana
+  labels:
+    k8s-app: grafana
+spec:
+  selector:
+    matchLabels:
+      k8s-app: grafana
+  template:
+    metadata:
+      labels:
+        k8s-app: grafana
+    spec:
+      initContainers:             ## 初始化容器，用于修改挂载的存储的文件夹归属组与归属用户
+      - name: init-file
+        image: busybox:1.28
+        imagePullPolicy: IfNotPresent
+        securityContext:
+          runAsUser: 0
+        command: ['chown', '-R', "472:0", "/var/lib/grafana"]
+        volumeMounts:
+        - name: data
+          mountPath: /var/lib/grafana
+          subPath: grafana
+      containers:                
+      - name: grafana             ## Grafana 容器
+        image: grafana/grafana:8.2.6
+        ports:
+        - name: http
+          containerPort: 3000
+        env:                      ## 配置环境变量，设置 Grafana 的默认管理员用户名/密码
+        - name: GF_SECURITY_ADMIN_USER
+          value: "admin"
+        - name: GF_SECURITY_ADMIN_PASSWORD
+          value: "password0"
+        readinessProbe:           ## 就绪探针
+          failureThreshold: 10
+          httpGet:
+            path: /api/health
+            port: 3000
+            scheme: HTTP
+          initialDelaySeconds: 10
+          periodSeconds: 10
+          successThreshold: 1
+          timeoutSeconds: 30
+        livenessProbe:            ## 存活探针
+          failureThreshold: 10
+          httpGet:
+            path: /api/health
+            port: 3000
+            scheme: HTTP
+          initialDelaySeconds: 10
+          periodSeconds: 10
+          successThreshold: 1
+          timeoutSeconds: 1
+        volumeMounts:            ## 容器挂载配置
+        - name: data
+          mountPath: /var/lib/grafana
+          subPath: grafana
+      volumes:                   ## 共享存储挂载配置
+      - name: data
+        persistentVolumeClaim:
+          claimName: pvc0     ## 指定使用的 PVC
 ```

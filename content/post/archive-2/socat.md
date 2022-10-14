@@ -14,7 +14,7 @@ tags:
 ## http server, 加载本地 .html 文件
 
 ```bash
-echo "foo">foo.html
+echo "foo">foo.html 
 socat -v -v TCP-LISTEN:8000,crlf,reuseaddr,fork SYSTEM:"echo HTTP/1.0 200; echo Content-Type\: text/plain; echo; cat foo.html"
 ```
 
