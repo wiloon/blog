@@ -26,7 +26,9 @@ sh xxx.sh
 
 这种方法的命令格式为:
 
-    sh <foo.sh>
+```bash
+sh <foo.sh>
+```
 
 这实际上是调用一个新的bash命令解释程序，而把Shell程序文件名作为参数传递给它。新启动的Shell将去读指定的文件，可执行文件中列出的命令，当所有的命令都执行完后结束。该方法的优点是可以利用Shell调试功能。
 
@@ -83,13 +85,15 @@ cp System.map /boot &&
 vi /etc/lilo.conf &&
 lilo -v
 ```
-  
-  文件建立好之后，每次编译核心的时候，只需要在/usr/src/linux-2.4.20下输入:
-  
-    source make_command
-  
+
+文件建立好之后，每次编译核心的时候，只需要在/usr/src/linux-2.4.20下输入:
+
+```bash
+source make_command
+```
+
 即可，如果你用的不是lilo来引导系统，可以把最后两行去掉，配置自己的引导程序来引导内核。
-  
+
 顺便补充一点，&&命令表示顺序执行由它连接的命令，但是只有它之前的命令成功执行完成了之后才可以继续执行它后面的命令。
 
 ### 点斜杠(./)
@@ -116,6 +120,7 @@ exec与fork不同，不需要新开一个sub-shell来执行被调用的脚本。
 
 可以通过下面这两个脚本来体会三种调用方式的不同:
 
+```bash
 # !/bin/bash
 A=B
 echo "PID for 1.sh before exec/source/fork:$$"
@@ -134,12 +139,15 @@ case in
 esac
 echo "PID for 1.sh after exec/source/fork:$$"
 echo "1.sh: $A is $A"
+```
 
+```bash
 # !/bin/bash
 echo "PID for 2.sh: $$"
 echo "2.sh get $A=$A from 1.sh"
 A=C
 export A
 echo "2.sh: $A is $A"
+```
 
 ><https://blog.csdn.net/zdh9378/article/details/39586783>
