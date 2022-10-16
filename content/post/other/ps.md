@@ -65,7 +65,8 @@ ps -ef
 ps -efl
 # 
 ps -aux 
-
+ps -elf
+pstree -aup
 # 进程启动时间  
 ps -p <PID> -o lstart  
 ps -ef  
