@@ -21,6 +21,7 @@ tags:
 ## commands
 
 ```bash
+# scale, 扩缩容
 kubectl scale --replicas=0 deployment/calibre-web
 kubectl get pv,pvc
 kubectl get pod -A -o wide
@@ -1151,11 +1152,13 @@ spec:
         app: joplin
     spec:
       containers:
-      - image: joplin/server:2.9.5-beta
+      - image: joplin/server:latest
         name: joplin
         env:
         - name: APP_BASE_URL
           value: https://joplin.wiloon.com
+        - name: APP_PORT
+          value: 22300
         ports:
         - containerPort: 22300
           name: joplin

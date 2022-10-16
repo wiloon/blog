@@ -86,7 +86,7 @@ APP_PORT=22300
 <https://hub.docker.com/r/joplin/server>
 
 ```bash
-podman run -d --name joplin --env-file /data/joplin/joplin.env -v joplin-data:/home/joplin -p 22300:22300 joplin/server:2.9.5-beta
+podman run -d --name joplin --env-file /data/joplin/joplin.env -v joplin-data:/home/joplin -p 22300:22300 joplin/server:2.7.4-beta
 ```
 
 ### nginx config
