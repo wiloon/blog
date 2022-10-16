@@ -34,7 +34,7 @@ Linux上线程位于libpthread共享库中，因此在编译时要加上-lpthrea
 ### 进程与线程的联系与区别
 
 1. 线程是在进程内部运行的执行分支
-2. 线程是为了资源共享 (共享地址空间) ，进程是为了资源独占 (私有地址空间) 
+2. 线程是为了资源共享 (共享地址空间) ，进程是为了资源独占 (私有地址空间)
 3. Linux下没有真正的线程，它是利用轻量级进程来代替实现的
 4. 进程是分配资源 (资源管理) 的最小单元；而线程是调度资源 (程序执行) 的最小单元
 5. 线程与线程之间是独立的
@@ -114,7 +114,7 @@ Running
   
 The thread is in running state if the thread scheduler has selected it.
   
-running状态中的线程最为复杂，可能会进入runnable、waiting、timed_waiting、blocked、dead状态: 
+running状态中的线程最为复杂，可能会进入runnable、waiting、timed_waiting、blocked、dead状态:
   
 如果CPU调度给了别的线程，或者执行了Thread.yield()方法，则进入runnable状态，但是也有可能立刻又进入running状态
   
@@ -206,7 +206,7 @@ obj.notify()
   
 obj.notifyAll()
 
-关于这3个方法，有一个关键问题是: 
+关于这3个方法，有一个关键问题是:
 
 必须从同步环境内调用wait()、notify()、notifyAll()方法。只有拥有该对象的锁的线程，才能调用该对象上的wait()、notify()、notifyAll()方法
 
@@ -224,28 +224,30 @@ Parking
   
 Disables the current thread for thread scheduling purposes unless the permit is available.
 
-1，线程状态为"waiting for monitor entry": 
+1，线程状态为"waiting for monitor entry":
   
 意味着它 在等待进入一个临界区 ，所以它在"Entry Set"队列中等待。
   
-此时线程状态一般都是 Blocked: 
+此时线程状态一般都是 Blocked:
   
 java.lang.Thread.State: BLOCKED (on object monitor)
 
 ### waiting on condition
+
 说明它在等待另一个条件的发生，来把自己唤醒，或者干脆它是调用了 sleep(N)。  
-此时线程状态大致为以下几种:   
+此时线程状态大致为以下几种:
 java.lang.Thread.State: WAITING (parking): 一直等那个条件发生；
 java.lang.Thread.State: TIMED_WAITING (parking或sleeping): 定时的，那个条件不到来，也将定时唤醒自己。
-如果大量线程在"waiting on condition":   
+如果大量线程在"waiting on condition":
 可能是它们又跑去获取第三方资源，尤其是第三方网络资源，迟迟获取不到Response，导致大量线程进入等待状态。  
 所以如果你发现有大量的线程都处在 Wait on condition，从线程堆栈看，正等待网络读写，这可能是一个网络瓶颈的征兆，因为网络阻塞导致线程无法执行。  
 
 ### waiting for monitor entry
+
 可能是一个全局锁阻塞住了大量线程。  
 如果短时间内打印的 thread dump 文件反映，随着时间流逝，waiting for monitor entry 的线程越来越多，没有减少的趋势，可能意味着某些线程在临界区里呆的时间太长了，以至于越来越多新线程迟迟无法进入临界区。  
 
-线程状态为"in Object.wait()": 
+线程状态为"in Object.wait()":
   
 说明它获得了监视器之后，又调用了 java.lang.Object.wait() 方法。
   
@@ -253,7 +255,7 @@ java.lang.Thread.State: TIMED_WAITING (parking或sleeping): 定时的，那个�
   
 当线程获得了 Monitor，如果发现线程继续运行的条件没有满足，它则调用对象 (一般就是被 synchronized 的对象) 的 wait() 方法，放弃了 Monitor，进入 "Wait Set"队列。
   
-此时线程状态大致为以下几种: 
+此时线程状态大致为以下几种:
   
     java.lang.Thread.State: TIMED_WAITING (on object monitor)； 
     java.lang.Thread.State: WAITING (on object monitor)；
@@ -261,12 +263,13 @@ java.lang.Thread.State: TIMED_WAITING (parking或sleeping): 定时的，那个�
 一般都是RMI相关线程 (RMI RenewClean、 GC Daemon、RMI Reaper) ，GC线程 (Finalizer) ，引用对象垃圾回收线程 (Reference Handler) 等系统线程处于这种状态。
 
 ### Java Monitor
-示范一: 
+
+示范一:
   
-下面这个线程在等待这个锁 0x00000000fe7e3b50，等待进入临界区: 
+下面这个线程在等待这个锁 0x00000000fe7e3b50，等待进入临界区:
   
 "RMI TCP Connection(64896)-172.16.52.118" daemon prio=10 tid=0x00000000405a6000 nid=0x68fe waiting for monitor entry [0x00007f2be65a3000]
-     
+
 java.lang.Thread.State: BLOCKED (on object monitor)
   
 at com.xyz.goods.service.impl.GoodsServiceImpl.findChanellGoodsCountWithCache(GoodsServiceImpl.java:1734)
@@ -275,10 +278,10 @@ at com.xyz.goods.service.impl.GoodsServiceImpl.findChanellGoodsCountWithCache(Go
 
 那么谁持有这个锁呢？
   
-是另一个先调用了 findChanellGoodsCountWithCache 函数的线程: 
+是另一个先调用了 findChanellGoodsCountWithCache 函数的线程:
   
 "RMI TCP Connection(64878)-172.16.52.117" daemon prio=10 tid=0x0000000040822000 nid=0x6841 runnable [0x00007f2be76b3000]
-     
+
 java.lang.Thread.State: RUNNABLE
   
 at java.net.SocketInputStream.socketRead0(Native Method)
@@ -329,12 +332,12 @@ at com.xyz.goods.service.impl.GoodsServiceImpl.findChanellGoodsCountWithCache(Go
   
 - locked <0x00000000fe7e3b50> (a java.lang.String)
   
-示范二: 
+示范二:
   
-等待另一个条件发生来将自己唤醒: 
+等待另一个条件发生来将自己唤醒:
   
 "RMI TCP Connection(idle)" daemon prio=10 tid=0x00007fd50834e800 nid=0x56b2 waiting on condition [0x00007fd4f1a59000]
-     
+
 java.lang.Thread.State: TIMED_WAITING (parking)
   
 at sun.misc.Unsafe.park(Native Method)
@@ -359,10 +362,10 @@ at java.lang.Thread.run(Thread.java:662)
   
 2) "waiting on condition"需要与堆栈中的"parking to wait for <0x00000000acd84de8> (a java.util.concurrent.SynchronousQueue$TransferStack)" 结合来看。首先，本线程肯定是在等待某个条件的发生，来把自己唤醒。其次，SynchronousQueue 并不是一个队列，只是线程之间移交信息的机制，当我们把一个元素放入到 SynchronousQueue 中时必须有另一个线程正在等待接受移交的任务，因此这就是本线程在等待的条件。
 
-示范三: 
+示范三:
   
 "RMI RenewClean-[172.16.50.182:4888]" daemon prio=10 tid=0x0000000040d2c800 nid=0x97e in Object.wait() [0x00007f9ccafd0000]
-     
+
 java.lang.Thread.State: TIMED_WAITING (on object monitor)
   
 at java.lang.Object.wait(Native Method)
@@ -377,13 +380,13 @@ at sun.rmi.transport.DGCClient$EndpointEntry$RenewCleanThread.run(DGCClient.java
   
 at java.lang.Thread.run(Thread.java:662)
 
-参考资源: 
+参考资源:
   
 1) CUBRID，2012，How to Analyze Java Thread Dumps；
   
 2) 郑昀，2013，三个实例演示Java THread Dump日志分析；
 
-程序中必须同时满足以下四个条件才会引发死锁: 
+程序中必须同时满足以下四个条件才会引发死锁:
 
 1). 互斥 (Mutual exclusion) : 线程所使用的资源中至少有一个是不能共享的，它在同一时刻只能由一个线程使用。
   
@@ -395,9 +398,9 @@ at java.lang.Thread.run(Thread.java:662)
 
 避免死锁，1. 按顺序锁定资源 2. 可中断的，有时间限制的等待 3. 死锁检测
 
-http://www.iteye.com/topic/1119957
+<http://www.iteye.com/topic/1119957>
   
-https://stackoverflow.com/questions/27406200/visual-vm-thread-states/27406503
+<https://stackoverflow.com/questions/27406200/visual-vm-thread-states/27406503>
 
 Linux系统日志–syslog
 
@@ -433,11 +436,11 @@ Thread.java 类中的 start() 方法通知"线程规划器"此线程已经准备
   
 信号量(Semaphore)，有时被称为信号灯，是在多线程环境下使用的一种设施，是可以用来保证两个或多个关键代码段不被并发调用。在进入一个关键代码段之前，线程必须获取一个信号量；一旦该关键代码段完成了，那么该线程必须释放信号量。其它想进入该关键代码段的线程必须等待直到第一个线程释放信号量。为了完成这个过程，需要创建一个信号量VI，然后将Acquire Semaphore VI以及Release Semaphore VI分别放置在每个关键代码段的首末端。确认这些信号量VI引用的是初始创建的信号量。
 
-CAS操作 (Compare-and-Swap) 
+CAS操作 (Compare-and-Swap)
   
 CAS操作 (compare and swap) CAS有3个操作数，内存值V，旧的预期值A，要修改的新值B。当且仅当预期值A和内存值V相同时，将内存值V修改为B，否则返回V。这是一种乐观锁的思路，它相信在它修改之前，没有其它线程去修改它；而Synchronized是一种悲观锁，它认为在它修改之前，一定会有其它线程去修改它，悲观锁效率很低。
 
-重排序: 
+重排序:
   
 编译器和处理器"为了提高性能，而在程序执行时会对程序进行的重排序。它的出现是为了提高程序的并发度，从而提高性能！但是对于多线程程序，重排序可能会导致程序执行的结果不是我们需要的结果！重排序分为"编译器"和"处理器"两个方面，而"处理器"重排序又包括"指令级重排序"和"内存的重排序"。
 
@@ -449,7 +452,7 @@ JAVA中线程安全相关关键字及类
   
 主要包括: synchronized，Volitile，ThreadLocal，Lock，Condition
 
-volatile: 
+volatile:
   
 1) 保证了新值能立即存储到主内存，每次使用前立即从主内存中刷新。
   
@@ -469,7 +472,7 @@ Java中synchronized和final也能保证可见性
 
 synchronized释放由JVM自己管理。
 
-存在的问题: 
+存在的问题:
 
 1) 无法中断一个正在等待获得锁的线程
 
@@ -481,7 +484,7 @@ final
   
 被final修饰的字段在构造器中一旦被初始化完成，并且构造器没有把this引用传递进去，那么在其他线程中就能看见final字段的值，无需同步就可以被其他线程正确访问。
   
-对于final域，编译器和处理器要遵守两个重排序规则: 
+对于final域，编译器和处理器要遵守两个重排序规则:
   
 在构造函数内对一个final域的写入，与随后把这个被构造对象的引用赋值给一个引用变量，这两个操作之间不能重排序。
   
@@ -489,7 +492,7 @@ final
   
 写final域的重排序规则
 
-写final域的重排序规则禁止把final域的写重排序到构造函数之外。这个规则的实现包含下面2个方面: 
+写final域的重排序规则禁止把final域的写重排序到构造函数之外。这个规则的实现包含下面2个方面:
 
 JMM禁止编译器把final域的写重排序到构造函数之外。
   
@@ -505,7 +508,7 @@ Lock是有JAVA编写而成的，在java这个层面是无关JVM实现的。包�
   
 Condition将Object监视器方法 (wait，notify,notifyall) 分解成截然不同的对象，以便通过这些对象与任意Lock实现组合使用，为每个对象提供多个等待set(wait-set),，其中Lock替代了synchronized方法和语句的使用，condition替代了Object监视器方法的使用。Condition实例实质上被你绑定到一个锁上。要为特定Lock实例获得Condition实例，请使用其newCondition () 方法。
 
-ReentrantLock相比于synchronized的优势: 
+ReentrantLock相比于synchronized的优势:
   
 等待可中断: 在持有锁的线程长时间不释放锁的时候,等待的线程可以选择放弃等待.
   
@@ -513,30 +516,25 @@ ReentrantLock相比于synchronized的优势:
   
 锁绑定多个条件: 通过多次newCondition可以获得多个Condition对象,可以简单的实现比较复杂的线程同步的功能.通过await(),signal();
 
-
-
 并发的三个特性
 
 原子性
 
     原子性是指不可再分的最小操作指令，即单条机器指令，原子性操作任意时刻只能有一个线程，因此是线程安全的。 
-    
 
 Java内存模型中通过read、load、assign、use、store和write这6个操作保证变量的原子性操作。
 
     long和double这两个64位长度的数据类型java虚拟机并没有强制规定他们的read、load、store和write操作的原子性，即所谓的非原子性协定，但是目前的各种商业java虚拟机都把long和double数据类型的4中非原子性协定操作实现为原子性。所以java中基本数据类型的访问读写是原子性操作。 
     
     对于大范围的原子性保证需要通过lock和unlock操作以及synchronized同步块来保证。 
-    
 
 可见性
 
     可见性是指当一个线程修改了共享变量的值，其他线程可以立即得知这个修改。 
-    
 
 Java内存模型是通过在变量修改后将新值同步回主内存，在变量读取前从主内存刷新变量值来实现可见性的。
 
-Java中通过volatile、final和synchronized这三个关键字保证可见性: 
+Java中通过volatile、final和synchronized这三个关键字保证可见性:
   
 volatile: 通过刷新变量值确保可见性。
   
@@ -549,7 +547,6 @@ final: 被final修饰的字段在构造器中一旦被初始化完成，并且�
     线程的有序性是指: 在线程内部，所有的操作都是有序执行的，而在线程之间，因为工作内存和主内存同步的延迟，操作是乱序执行的。 
     
     Java通过volatile和synchronized关键字确保线程之间操作的有序性。 
-    
 
 volatile禁止指令重排序优化实现有序性。
   
@@ -562,44 +559,40 @@ Java线程在JDK1.2之前，是基于名为"绿色线程"的用户线程实现�
 因此，在目前的JDK版本中，操作系统支持怎样的线程模型，在很大程度上就决定了Java虚拟机的线程是怎样映射的，这点在不同的平台上没有办法达成一致，虚拟机规范中也未限定Java线程需要使用哪种线程模型来实现。
 
 ### java线程调度
+
 线程调度有两种方式
   
-协同式: 线程的执行时间由线程本身来控制，线程任务执行完成之后主动通知系统切换到另一个线程去执行。 (不推荐) 
-      
+协同式: 线程的执行时间由线程本身来控制，线程任务执行完成之后主动通知系统切换到另一个线程去执行。 (不推荐)
+
 优点: 实现简单，线程切换操作对线程本身是可知的，不存在线程同步问题。
-      
+
 缺点: 线程执行时间不可控制，如果线程长时间执行不让出CPU执行时间可能导致系统崩溃。
 
 抢占式: 每个线程的执行时间有操作系统来分配，操作系统给每个线程分配执行的时间片，抢到时间片的线程执行，时间片用完之后重新抢占执行时间，线程的切换不由线程本身来决定 (Java使用的线程调度方式就是抢占式调度) 。
-      
+
 优点: 线程执行时间可控制，不会因为一个线程阻塞问题导致系统崩溃。
 
 java中的线程安全等级
 
-不可变: 
+不可变:
 
     可以是基本类型的final；可以是final对象，但对象的行为不会对其状态产生任何影响，比如String的subString就是new一个String对象各种Number类型如BigInteger和BigDecimal等大数据类型都是不可变的，但是同为Number子类型的AtomicInteger和AtomicLong则并非不可变。原因与它里面状态对象是unsafe对象有关，所做的操作都是CAS操作，可以保证原子性。 
-    
 
-绝对线程安全: 
+绝对线程安全:
 
     不管运行时环境如何，调用者都不需要任何额外的同步措施。 
-    
 
-相对线程安全: 
+相对线程安全:
 
     这是我们通常意义上的线程安全。需要保证对象单独的操作是线程安全的。比如Vector，HashTable，synchronizedCollection包装集合等。 
-    
 
-线程兼容: 
+线程兼容:
 
     对象本身不是线程安全的，但可以通过同步手段实现。一般我们说的不是线程安全的，绝大多数是指这个。比如ArrayList，HashMap等。 
-    
 
-线程对立: 
+线程对立:
 
     不管调用端是否采用了同步的措施，都无法在并发中使用的代码。 
-    
 
 线程安全的实现方式
 
@@ -617,29 +610,28 @@ java的线程是映射到操作系统的原生线程之上的，不管阻塞还�
   
 互斥和同步最主要的问题就是阻塞和唤醒所带来的性能问题，所以这通常叫阻塞同步(悲观的并发策略)。随着硬件指令集的发展，我们有另外的选择: 基于冲突检测的乐观并发策略，通俗讲就是先操作，如果没有其他线程争用共享的数据，操作就成功，如果有，则进行其他的补偿(最常见就是不断的重试)，这种乐观的并发策略许多实现都不需要把线程挂起，这种同步操作被称为非阻塞同步。
 
-这类的指令有: 
-      
+这类的指令有:
+
 1)测试并设置(test-and-set)
-      
+
 2)获取并增加
-      
+
 3)交换
-      
+
 4)比较并交换(CAS)
-      
+
 5)加载链接/条件储存(Load-Linked/Store-Conditional LL/SC)
 
     后面两条是现代处理器新增的处理器指令，在JDK1.5之后，java中才可以使用CAS操作，就是传说中的sun.misc.Unsafe类里面的compareAndSwapInt()和compareAndSwapLong()等几个方法的包装提供，虚拟机对这些方法做了特殊的处理，及时编译出来的结果就是一条平台相关的处理器CAS指令，没有方法调用的过程，可以认为是无条件的内联进去。 
     
     原来需要对i++进行同步，但现在有了这种CAS操作来保证原子性，比如用AtomicInteger。 但是CAS存在一个ABA的问题。可以通过AtomicStampedReference来解决 (鸡肋) 。 
-    
 
 无同步
-      
-有一些代码天生就是线程安全的，不需要同步。其中有如下两类: 
-      
+
+有一些代码天生就是线程安全的，不需要同步。其中有如下两类:
+
 可重入代码 (Reentrant Code) : 纯代码，具有不依赖存储在堆上的数据和公用的系统资源，用到的状态量都由参数中传入，不调用非可重入的方法等特征，它的返回结果是可以预测的。
-      
+
 线程本地存储 (Thread Local Storage) : 把共享数据的可见范围限制在同一个线程之内，这样就无须同步也能保证线程之间不出现数据争用问题。可以通过java.lang.ThreadLocal类来实现线程本地存储的功能。
 
 java中的锁机制
@@ -647,12 +639,10 @@ java中的锁机制
 悲观锁
 
     假定会发生并发冲突，屏蔽一切可能违反数据完整性的操作。悲观锁假定其他线程企图访问或者改变你正在访问、更改的对象的概率是很高的，因此在悲观锁的环境中，在你开始改变此对象之前就将该对象锁住，并且直到你提交了所作的更改之后才释放锁。 
-    
 
 乐观锁
 
     假设不会发生并发冲突。轻易不加锁。 
-    
 
 自旋锁与自适应自旋
 
@@ -661,46 +651,40 @@ java中的锁机制
     自旋锁默认的自旋次数值是10次，可以使用参数-XX:PreBlockSpin更改。 
     
     自适应自旋意味着自旋的时间不再固定，而是由前一次在同一个锁上的自旋时间及锁的拥有者的状态来决定。 
-    
 
-锁清除: 
+锁清除:
 
     虚拟机即时编译器在运行时，对一些代码上要求同步，但是被检测到不可能存在共享数据竞争的锁进行消除。锁消除的主要判定依据来源于逃逸分析的数据支持。 
-    
 
-锁粗化: 
+锁粗化:
 
     如果虚拟机探测到有一系列连续操作都对同一个对象反复加锁和解锁，将会把加锁同步的范围扩展 (粗化) 到整个操作序列的外部。 
-    
 
 锁升级
 
     Java SE1.6为了减少获得锁和释放锁所带来的性能消耗，引入了"偏向锁"和"轻量级锁"，所以在Java SE1.6里锁一共有四种状态，无锁状态，偏向锁状态，轻量级锁状态和重量级锁状态，它会随着竞争情况逐渐升级。锁可以升级但不能降级，意味着偏向锁升级成轻量级锁后不能降级成偏向锁。这种锁升级却不能降级的策略，目的是为了提高获得锁和释放锁的效率。 
-    
 
 ### 偏向锁
-Hotspot的作者经过以往的研究发现大多数情况下锁不仅不存在多线程竞争，而且总是由同一线程多次获得，为了让线程获得锁的代价更低而引入了偏向锁。当一个线程访问同步块并获取锁时，会在对象头和栈帧中的锁记录里存储锁偏向的线程ID，以后该线程在进入和退出同步块时不需要花费CAS操作来加锁和解锁，而只需简单的测试一下对象头的Mark Word里是否存储着指向当前线程的偏向锁，如果测试成功，表示线程已经获得了锁，如果测试失败，则需要再测试下Mark Word中偏向锁的标识是否设置成1 (表示当前是偏向锁) ，如果没有设置，则使用CAS竞争锁，如果设置了，则尝试使用CAS将对象头的偏向锁指向当前线程。 
-    
-偏向锁的撤销: 偏向锁使用了一种等到竞争出现才释放锁的机制，所以当其他线程尝试竞争偏向锁时，持有偏向锁的线程才会释放锁。偏向锁的撤销，需要等待全局安全点 (在这个时间点上没有字节码正在执行) ，它会首先暂停拥有偏向锁的线程，然后检查持有偏向锁的线程是否活着，如果线程不处于活动状态，则将对象头设置成无锁状态，如果线程仍然活着，拥有偏向锁的栈会被执行，遍历偏向对象的锁记录，栈中的锁记录和对象头的Mark Word要么重新偏向于其他线程，要么恢复到无锁或者标记对象不适合作为偏向锁，最后唤醒暂停的线程。下图中的线程1演示了偏向锁初始化的流程，线程2演示了偏向锁撤销的流程。 
-    
+
+Hotspot的作者经过以往的研究发现大多数情况下锁不仅不存在多线程竞争，而且总是由同一线程多次获得，为了让线程获得锁的代价更低而引入了偏向锁。当一个线程访问同步块并获取锁时，会在对象头和栈帧中的锁记录里存储锁偏向的线程ID，以后该线程在进入和退出同步块时不需要花费CAS操作来加锁和解锁，而只需简单的测试一下对象头的Mark Word里是否存储着指向当前线程的偏向锁，如果测试成功，表示线程已经获得了锁，如果测试失败，则需要再测试下Mark Word中偏向锁的标识是否设置成1 (表示当前是偏向锁) ，如果没有设置，则使用CAS竞争锁，如果设置了，则尝试使用CAS将对象头的偏向锁指向当前线程。
+
+偏向锁的撤销: 偏向锁使用了一种等到竞争出现才释放锁的机制，所以当其他线程尝试竞争偏向锁时，持有偏向锁的线程才会释放锁。偏向锁的撤销，需要等待全局安全点 (在这个时间点上没有字节码正在执行) ，它会首先暂停拥有偏向锁的线程，然后检查持有偏向锁的线程是否活着，如果线程不处于活动状态，则将对象头设置成无锁状态，如果线程仍然活着，拥有偏向锁的栈会被执行，遍历偏向对象的锁记录，栈中的锁记录和对象头的Mark Word要么重新偏向于其他线程，要么恢复到无锁或者标记对象不适合作为偏向锁，最后唤醒暂停的线程。下图中的线程1演示了偏向锁初始化的流程，线程2演示了偏向锁撤销的流程。
 
 关闭偏向锁: 偏向锁在Java 6和Java 7里是默认启用的，但是它在应用程序启动几秒钟之后才激活，如有必要可以使用JVM参数来关闭延迟-XX: BiasedLockingStartupDelay = 0。如果你确定自己应用程序里所有的锁通常情况下处于竞争状态，可以通过JVM参数关闭偏向锁-XX:-UseBiasedLocking=false，那么默认会进入轻量级锁状态。
 
-轻量级锁: 
+轻量级锁:
 
     轻量级锁加锁: 线程在执行同步块之前，JVM会先在当前线程的栈桢中创建用于存储锁记录的空间，并将对象头中的Mark Word复制到锁记录中，官方称为Displaced Mark Word。然后线程尝试使用CAS将对象头中的Mark Word替换为指向锁记录的指针。如果成功，当前线程获得锁，如果失败，表示其他线程竞争锁，当前线程便尝试使用自旋来获取锁。 
     
     轻量级锁解锁: 轻量级解锁时，会使用原子的CAS操作来将Displaced Mark Word替换回到对象头，如果成功，则表示没有竞争发生。如果失败，表示当前锁存在竞争，锁就会膨胀成重量级锁。下图是两个线程同时争夺锁，导致锁膨胀的流程图。 
-    
 
 因为自旋会消耗CPU，为了避免无用的自旋 (比如获得锁的线程被阻塞住了) ，一旦锁升级成重量级锁，就不会再恢复到轻量级锁状态。当锁处于这个状态下，其他线程试图获取锁时，都会被阻塞住，当持有锁的线程释放锁之后会唤醒这些线程，被唤醒的线程就会进行新一轮的夺锁之争。
   
-重量级锁: 
+重量级锁:
 
     重量锁在JVM中又叫对象监视器 (Monitor) ，它至少包含一个竞争锁的队列，和一个信号阻塞队列 (wait队列) ，前者负责做互斥，后一个用于做线程同步。 
-    
 
-Java内存模型定义了八种操作: 
+Java内存模型定义了八种操作:
   
 lock (锁定) : 作用于主内存的变量，它把一个变量标识为一个线程独占的状态；
   
@@ -718,23 +702,20 @@ store (存储) : 作用于工作内存的变量，它把工作内存中的一个
   
 write (写入) : 作用于主内存的变量，它把store操作从工作内存中得到的变量的值写入主内存的变量中。
 
-https://www.infoq.cn/article/Jtv2XL3a0HvRE2xwrNFs
+<https://www.infoq.cn/article/Jtv2XL3a0HvRE2xwrNFs>
   
-http://smallbug-vip.iteye.com/blog/2275743
+<http://smallbug-vip.iteye.com/blog/2275743>
   
-https://www.idaima.com/article/8968
+<https://www.idaima.com/article/8968>
   
-http://www.infoq.com/cn/articles/java-memory-model-6
+<http://www.infoq.com/cn/articles/java-memory-model-6>
 
-https://www.javatang.com/archives/2017/10/25/36441958.html
+<https://www.javatang.com/archives/2017/10/25/36441958.html>
 
 ————————————————
 版权声明: 本文为CSDN博主「mm_hh」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
-原文链接: https://blog.csdn.net/mm_hh/article/details/72587207
+原文链接: <https://blog.csdn.net/mm_hh/article/details/72587207>
 
+<https://blog.csdn.net/nalanmingdian/article/details/77748326>
 
-https://blog.csdn.net/nalanmingdian/article/details/77748326
-
-
-https://www.huaweicloud.com/articles/c0553b1cde014350e91620af1ce89f68.html
-
+<https://www.huaweicloud.com/articles/c0553b1cde014350e91620af1ce89f68.html>

@@ -18,12 +18,12 @@ tags:
 
 JWT 的全称是 Json Web Token,是一种基于 JSON 的、用于在网络上声明某种主张的令牌 (token) 规范。
 
-JWT 由三部分组成: head、payload、signature,各部分通过 ‘ . ’ 连接
+JWT 由三部分组成: head、payload、signature, 各部分通过  `.`  连接
 xxxx . yyyy . zzzz
 
 #### HEAD
 
-头部是一个 JSON 对象,包含了一些元数据, 存储描述数据类型 (JWT) 和签名算法 (HSA256、RSA256) ,通过 Base64UrlEncode 编码后生成 head 。
+头部是一个 JSON 对象,包含了一些元数据, 存储描述数据类型 (JWT) 和签名算法 (HS256(HMAC-SHA256) 、RS256(RSA-SHA256) 还有 ES256(ECDSA-SHA256)) ,通过 Base64UrlEncode 编码后生成 head 。
 
 ```json
 {
@@ -33,11 +33,11 @@ xxxx . yyyy . zzzz
 ```
 
 type: 必需。token 类型,JWT表示是 JSON Web Token.  
-alg: 必需。token 所使用的签名算法,可用的值在这里有规定。  
+alg: 必需。token 所使用的签名算法, 可用的值在这里有规定。  
 
 #### PAYLOAD
 
-负载存放一些传输的有效声明,可以使用官方提供的声明,也可以自定义声明。同样通过 Base64UrlEncode 编码后生成 payload。
+负载存放一些传输的有效声明,可以使用官方提供的声明, 也可以自定义声明。同样通过 Base64UrlEncode 编码后生成 payload。
 
 声明可以分为三种类型:
 
@@ -57,11 +57,13 @@ JSON Web Token 的结构
 
 可以简化为下面这样的结构:
 
-    base64url_encode(Header) + '.' + base64url_encode(Claims) + '.' + base64url_encode(Signature)
+```bash
+base64url_encode(Header) + '.' + base64url_encode(Claims) + '.' + base64url_encode(Signature)
+```
 
 Claims (Payload)
 
-Claims 部分包含了一些跟这个 token 有关的重要信息。 JWT 标准规定了一些字段,下面节选一些字段:
+Claims 部分包含了一些跟这个 token 有关的重要信息。 JWT 标准规定了一些字段, 下面节选一些字段:
 
 - iss: The issuer of the token,token 签发人
 - sub: The subject of the token,token 主题
@@ -73,7 +75,7 @@ Claims 部分包含了一些跟这个 token 有关的重要信息。 JWT 标准�
 
 #### 其它 claim name, IANA JSON Web Token Registry中定义的关键字
 
-    https://www.iana.org/assignments/jwt/jwt.xhtml
+<https://www.iana.org/assignments/jwt/jwt.xhtml>
 
 #### Public claims
 
@@ -90,8 +92,6 @@ Claims 部分包含了一些跟这个 token 有关的重要信息。 JWT 标准�
 signature 可以选择对称加密算法或者非对称加密算法,常用的就是 HS256、RS256。
 对称加密:  加密方和解密方利用同一个秘钥对数据进行加密和解密。
 非对称加密:  加密方用私钥加密,并把公钥告诉解密方用于解密。
-
----
 
 <https://www.jianshu.com/p/15572dfa4ccd>
 
@@ -110,6 +110,7 @@ JWT (其实还有SAML) 最适合的应用场景就是"开票",或者"签字"。
 在以上的两个例子中,"请假申请单"和"用车申请单"就是JWT中的payload,领导签字就是base64后的数字签名,领导是issuer,"HR部门的韩梅梅"和"司机老王"即为JWT的audience,audience需要验证领导签名是否合法,验证合法后根据payload中请求的资源给予相应的权限,同时将JWT收回。
 
 ### aud
+
 <https://stackoverflow.com/questions/28418360/jwt-json-web-token-audience-aud-versus-client-id-whats-the-difference>
 
 As it turns out, my suspicions were right. The audience aud claim in a JWT is meant to refer to the Resource Servers that should accept the token.
@@ -125,8 +126,6 @@ The client_id in OAuth refers to the client application that will be requesting 
 The Client app (e.g. your iOS app) will request a JWT from your Authentication Server. In doing so, it passes it's client_id and client_secret along with any user credentials that may be required. The Authorization Server validates the client using the client_id and client_secret and returns a JWT.
 
 The JWT will contain an aud claim that specifies which Resource Servers the JWT is valid for. If the aud contains www.myfunwebapp.com, but the client app tries to use the JWT on www.supersecretwebapp.com, then access will be denied because that Resource Server will see that the JWT was not meant for it.
-
----
 
 <http://blog.leapoahead.com/2015/09/06/understanding-jwt/>  
 

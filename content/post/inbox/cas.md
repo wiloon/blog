@@ -20,12 +20,12 @@ java.util.concurrent 包中借助CAS实现了区别于 synchronouse 同步锁的
 
 ### CAS应用
 
-CAS: 全称Compare and swap,字面意思:”比较并交换“,一个 CAS 涉及到以下操作: 
+CAS: 全称Compare and swap,字面意思:”比较并交换“,一个 CAS 涉及到以下操作:
 
 我们假设内存中的原数据V,旧的预期值A,需要修改的新值B。
 
-1. 比较 A 与 V 是否相等。 (比较) 
-2. 如果比较相等,将 B 写入 V。 (交换) 
+1. 比较 A 与 V 是否相等。 (比较)
+2. 如果比较相等,将 B 写入 V。 (交换)
 3. 返回操作是否成功。
 
 CAS 有3个操作数,内存值 V, 旧的预期值 A, 要修改的新值 B. 当且仅当预期值 A 和内存值 V 相同时,将内存值 V 修改为 B, 否则什么都不做。
@@ -72,11 +72,13 @@ return unsafe.compareAndSwapInt(this, valueOffset, expect, update);
 整体的过程就是这样子的,利用CPU的CAS指令,同时借助JNI来完成Java的非阻塞算法。其它原子操作都是利用类似的特性完成的。
 
 其中
+
 ```java
 unsafe.compareAndSwapInt(this, valueOffset, expect, update);
 ```
 
 类似:
+
 ```java
 if (this == expect) {
   this = update
@@ -89,20 +91,22 @@ if (this == expect) {
 那么问题就来了,成功过程中需要2个步骤: 比较this == expect,替换this = update,compareAndSwapInt如何这两个步骤的原子性呢？ 参考CAS的原理。
 
 ### CAS原理
+
 CAS通过调用JNI的代码实现的。JNI: Java Native Interface 为 JAVA 本地调用, 允许 java 调用其他语言。  
 而compareAndSwapInt就是借助C来调用CPU底层指令实现的。
   
 下面从分析比较常用的CPU (intel x86) 来解释CAS的实现原理。
-   
-下面是sun.misc.Unsafe类的compareAndSwapInt()方法的源代码: 
+
+下面是sun.misc.Unsafe类的compareAndSwapInt()方法的源代码:
 
 public final native boolean compareAndSwapInt(Object o, long offset,int expected,int x);
 
-可以看到这是个本地方法调用。这个本地方法在 openjdk 中依次调用的 c++ 代码为: 
+可以看到这是个本地方法调用。这个本地方法在 openjdk 中依次调用的 c++ 代码为:
 unsafe.cpp,atomic.cpp和atomicwindowsx86.inline.hpp。
-这个本地方法的最终实现在openjdk的如下位置: 
+这个本地方法的最终实现在openjdk的如下位置:
 openjdk-7-fcs-src-b147-27jun2011\openjdk\hotspot\src\oscpu\windowsx86\vm\ atomicwindowsx86.inline.hpp
- (对应于windows操作系统,X86处理器) 。下面是对应于intel x86处理器的源代码的片段: 
+ (对应于windows操作系统,X86处理器) 。下面是对应于intel x86处理器的源代码的片段:
+
 ```c
 // Adding a lock prefix to an instruction on MP machine
 // VC++ doesn't like the lock prefix to be on a single line
@@ -136,7 +140,8 @@ cmpxchg dword ptr [edx], ecx
 
 如上面源代码所示,程序会根据当前处理器的类型来决定是否为 cmpxchg 指令添加 lock 前缀。如果程序是在多处理器上运行,就为cmpxchg指令加上lock前缀 (lock cmpxchg) 。反之,如果程序是在单处理器上运行,就省略lock前缀 (单处理器自身会维护单处理器内的顺序一致性,不需要lock前缀提供的内存屏障效果) 。
 
-### intel的手册对lock前缀的说明如下: 
+### intel的手册对lock前缀的说明如下
+
 确保对内存的读-改-写操作原子执行。在Pentium及Pentium之前的处理器中,带有lock前缀的指令在执行期间会锁住总线,使得其他处理器暂时无法通过总线访问内存。很显然,这会带来昂贵的开销。
 从Pentium 4,Intel Xeon及P6处理器开始,intel在原有总线锁的基础上做了一个很有意义的优化: 如果要访问的内存区域 (area of memory) 在lock前缀指令执行期间已经在处理器内部的缓存中被锁定 (即包含该内存区域的缓存行当前处于独占或以修改状态, 并且该内存区域被完全包含在单个缓存行 (cache line) 中,那么处理器将直接执行该指令。由于在指令执行期间该缓存行会一直被锁定,其它处理器无法读/写该指令要访问的内存区域,因此能保证指令执行的原子性。这个操作过程叫做缓存锁定 (cache locking) ,缓存锁定将大大降低lock前缀指令的执行开销,但是当多处理器之间的竞争程度很高或者指令访问的内存地址未对齐时,仍然会锁住总线。
   
@@ -144,8 +149,9 @@ cmpxchg dword ptr [edx], ecx
   
 把写缓冲区中的所有数据刷新到内存中。
   
-### 备注知识: 
-关于CPU的锁有如下3种: 
+### 备注知识
+
+关于CPU的锁有如下3种:
 
 1. 处理器自动保证基本内存操作的原子性
 首先处理器会自动保证基本的内存操作的原子性。处理器保证从系统内存当中读取或者写入一个字节是原子的,意思是当一个处理器读取一个字节时,其他处理器不能访问这个字节的内存地址。奔腾6和最新的处理器能自动保证单处理器对同一个缓存行里进行16/32/64位的操作是原子的,但是复杂的内存操作处理器不能自动保证其原子性,比如跨总线宽度, 跨多个缓存行, 跨页表的访问. 但是处理器提供总线锁定和缓存锁定两个机制来保证复杂内存操作的原子性.
@@ -166,31 +172,34 @@ cmpxchg dword ptr [edx], ecx
   
 以上两个机制我们可以通过Inter处理器提供了很多LOCK前缀的指令来实现。比如位测试和修改指令BTS,BTR,BTC,交换指令XADD,CMPXCHG和其他一些操作数和逻辑指令,比如ADD (加) ,OR (或) 等,被这些指令操作的内存区域就会加锁,导致其他处理器不能同时访问它。
 
-### CAS 的应用场景: 
+### CAS 的应用场景
+
 CAS 的使用能够避免线程的阻塞。
 多数情况下我们使用的是 while true 直到成功为止。
 
 ### CAS缺点
+
 CAS虽然很高效的解决原子操作,但是CAS仍然存在三大问题。ABA问题,循环时间长开销大和只能保证一个共享变量的原子操作
   
 1. ABA问题。因为CAS需要在操作值的时候检查下值有没有发生变化,如果没有发生变化则更新,但是如果一个值原来是A,变成了B,又变成了A,那么使用CAS进行检查时会发现它的值没有发生变化,但是实际上却变化了。ABA问题的解决思路就是使用版本号。在变量前面追加上版本号,每次变量更新的时候把版本号加一,那么A－B－A 就会变成1A-2B－3A。
   
 从Java1.5开始JDK的 atomic 包里提供了一个类 AtomicStampedReference 来解决ABA问题。这个类的compareAndSet方法作用是首先检查当前引用是否等于预期引用,并且当前标志是否等于预期标志,如果全部相等,则以原子方式将该引用和该标志的值设置为给定的更新值。
   
-关于ABA问题参考文档: http://blog.hesey.net/2011/09/resolve-aba-by-atomicstampedreference.html
+关于ABA问题参考文档: <http://blog.hesey.net/2011/09/resolve-aba-by-atomicstampedreference.html>
   
 2. 循环时间长开销大。自旋CAS如果长时间不成功,会给CPU带来非常大的执行开销。如果JVM能支持处理器提供的 pause 指令那么效率会有一定的提升,pause 指令有两个作用,第一它可以延迟流水线执行指令 (de-pipeline) , 使CPU不会消耗过多的执行资源,延迟的时间取决于具体实现的版本,在一些处理器上延迟时间是零。第二它可以避免在退出循环的时候因内存顺序冲突 (memory order violation) 而引起CPU流水线被清空 (CPU pipeline flush) ,从而提高CPU的执行效率。
 3. 只能保证一个共享变量的原子操作。当对一个共享变量执行操作时,我们可以使用循环CAS的方式来保证原子操作,但是对多个共享变量操作时,循环CAS就无法保证操作的原子性,这个时候就可以用锁,或者有一个取巧的办法,就是把多个共享变量合并成一个共享变量来操作。比如有两个共享变量i＝2,j=a,合并一下ij=2a,然后用CAS来操作ij。从Java1.5开始JDK提供了AtomicReference类来保证引用对象之间的原子性,你可以把多个变量放在一个对象里来进行CAS操作。
 
 ### concurrent包的实现
-由于java的CAS同时具有 volatile 读和 volatile 写的内存语义,因此 Java线程之间的通信现在有了下面四种方式: 
+
+由于java的CAS同时具有 volatile 读和 volatile 写的内存语义,因此 Java线程之间的通信现在有了下面四种方式:
   
 - A线程写 volatile 变量,随后B线程读这个volatile变量。
 - A线程写volatile变量,随后B线程用CAS更新这个volatile变量。
 - A线程用CAS更新一个volatile变量,随后B线程用CAS更新这个volatile变量。
 - A线程用CAS更新一个volatile变量,随后B线程读这个volatile变量。
   
-Java的CAS会使用现代处理器上提供的高效机器级别原子指令,这些原子指令以原子方式对内存执行读-改-写操作,这是在多处理器中实现同步的关键 (从本质上来说,能够支持原子性读-改-写指令的计算机器,是顺序计算图灵机的异步等价机器,因此任何现代的多处理器都会去支持某种能对内存执行原子性读-改-写操作的原子指令) 。同时,volatile变量的读/写和CAS可以实现线程之间的通信。把这些特性整合在一起,就形成了整个concurrent包得以实现的基石。如果我们仔细分析concurrent包的源代码实现,会发现一个通用化的实现模式: 
+Java的CAS会使用现代处理器上提供的高效机器级别原子指令,这些原子指令以原子方式对内存执行读-改-写操作,这是在多处理器中实现同步的关键 (从本质上来说,能够支持原子性读-改-写指令的计算机器,是顺序计算图灵机的异步等价机器,因此任何现代的多处理器都会去支持某种能对内存执行原子性读-改-写操作的原子指令) 。同时,volatile变量的读/写和CAS可以实现线程之间的通信。把这些特性整合在一起,就形成了整个concurrent包得以实现的基石。如果我们仔细分析concurrent包的源代码实现,会发现一个通用化的实现模式:
   
 首先,声明共享变量为 volatile；
   
@@ -200,24 +209,24 @@ Java的CAS会使用现代处理器上提供的高效机器级别原子指令,这
   
 AQS,非阻塞数据结构和原子变量类 (java.util.concurrent.atomic包中的类) ,这些concurrent包中的基础类都是使用这种模式来实现的,而concurrent包中的高层类又是依赖于这些基础类来实现的。
 
-### 非阻塞算法  (nonblocking algorithms) 
+### 非阻塞算法  (nonblocking algorithms)
+
 一个线程的失败或者挂起不应该影响其他线程的失败或挂起的算法。
 
 ---
 
-http://my.oschina.net/lifany/blog/133513
+<http://my.oschina.net/lifany/blog/133513>
   
-http://zl198751.iteye.com/blog/1848575
+<http://zl198751.iteye.com/blog/1848575>
   
-http://www.blogjava.net/xylz/archive/2010/07/04/325206.html
+<http://www.blogjava.net/xylz/archive/2010/07/04/325206.html>
   
 <http://blog.hesey.net/2011/09/resolve-aba-by-atomicstampedreference.html>
   
-http://www.searchsoa.com.cn/showcontent_69238.htm
+<http://www.searchsoa.com.cn/showcontent_69238.htm>
   
 <http://ifeve.com/atomic-operation/>
   
-http://www.infoq.com/cn/articles/java-memory-model-5
+<http://www.infoq.com/cn/articles/java-memory-model-5>
 
-https://www.xilidou.com/2018/02/01/java-cas/
-
+<https://www.xilidou.com/2018/02/01/java-cas/>
