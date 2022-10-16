@@ -1117,3 +1117,54 @@ spec:
         persistentVolumeClaim:
           claimName: pvc0     ## 指定使用的 PVC
 ```
+
+## joplin-dp.yaml
+
+```yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: joplin
+spec:
+  type: NodePort
+  ports:
+    - name: joplin
+      port: 12230
+      targetPort: 22300
+      nodePort: 32230
+  selector:
+    app: joplin
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: joplin
+spec:
+  selector:
+    matchLabels:
+      app: joplin
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: joplin
+    spec:
+      containers:
+      - image: joplin/server:2.9.5-beta
+        name: joplin
+        env:
+        - name: APP_BASE_URL
+          value: https://joplin.wiloon.com
+        ports:
+        - containerPort: 22300
+          name: joplin
+        volumeMounts:
+        - name: volumne0
+          mountPath: /home/joplin
+          subPath: joplin
+      volumes:
+      - name: volumne0
+        persistentVolumeClaim:
+          claimName: pvc0
+```
