@@ -7,13 +7,15 @@ categories:
   - Inbox
 tags:
   - reprint
+  - placeholder
 ---
 ## hue
-http://www.cnblogs.com/smartloli/p/4527168.html
+
+<http://www.cnblogs.com/smartloli/p/4527168.html>
   
 Hue是一个开源的Apache Hadoop UI系统,由Cloudera Desktop演化而来,最后Cloudera公司将其贡献给Apache基金会的Hadoop社区,它是基于Python Web框架Django实现的。通过使用Hue我们可以在浏览器端的Web控制台上与Hadoop集群进行交互来分析处理数据,例如操作HDFS上的数据,运行MapReduce Job,执行Hive的SQL语句,浏览HBase数据库等等。
 
-Hue在数据库方面,默认使用的是SQLite数据库来管理自身的数据,包括用户认证和授权,另外,可以自定义为MySQL数据库、Postgresql数据库、以及Oracle数据库。其自身的功能包含有: 
+Hue在数据库方面,默认使用的是SQLite数据库来管理自身的数据,包括用户认证和授权,另外,可以自定义为MySQL数据库、Postgresql数据库、以及Oracle数据库。其自身的功能包含有:
 
 对HDFS的访问,通过浏览器来查阅HDFS的数据。
   
@@ -33,6 +35,6 @@ Oozie调度器,可以通过DashBoard来提交和监控Workflow、Coordinator以�
   
 支持对Metastore的浏览,可以访问Hive的元数据以及对应的HCatalog。
   
-另外,还有对Job的支持,Sqoop,ZooKeeper以及DB (MySQL,SQLite,Oracle等) 的支持。
+另外, 还有对Job的支持, Sqoop, ZooKeeper 以及 DB (MySQL,SQLite,Oracle等) 的支持。
   
 下面就通过集成部署,来预览相关功能。

@@ -10,7 +10,7 @@ tags:
 ---
 ## Curator
 
-http://macrochen.iteye.com/blog/1366136
+<http://macrochen.iteye.com/blog/1366136>
 
 Curator是Netflix开源的一套ZooKeeper客户端框架. Netflix在使用ZooKeeper的过程中发现ZooKeeper自带的客户端太底层, 应用方在使用的时候需要自己处理很多事情, 于是在它的基础上包装了一下, 提供了一套更好用的客户端框架. Netflix在用ZooKeeper的过程中遇到的问题, 我们也遇到了, 所以开始研究一下, 首先从他在github上的源码, wiki文档以及Netflix的技术blog入手.
 
@@ -54,7 +54,7 @@ Curator声称的一些亮点:
   
 提供了一个TracerDriver接口, 通过实现addTrace()和addCount()接口来集成用户自己的跟踪框架
 
-和Curator相比, 另一个ZooKeeper客户端——zkClient(https://github.com/sgroschupf/zkclient)的不足之处:
+和Curator相比, 另一个ZooKeeper客户端——zkClient(<https://github.com/sgroschupf/zkclient>)的不足之处:
   
 文档几乎没有
   
@@ -76,12 +76,12 @@ Curator声称的一些亮点:
 
 Curator几个组成部分
 
-  * Client: 是ZooKeeper客户端的一个替代品, 提供了一些底层处理和相关的工具方法.
-  * Framework: 用来简化ZooKeeper高级功能的使用, 并增加了一些新的功能, 比如管理到ZooKeeper集群的连接, 重试处理
-  * Recipes: 实现了通用ZooKeeper的recipe, 该组件建立在Framework的基础之上
-  * Utilities:各种ZooKeeper的工具类
-  * Errors: 异常处理, 连接, 恢复等.
-  * Extensions: recipe扩展
+- Client: 是ZooKeeper客户端的一个替代品, 提供了一些底层处理和相关的工具方法.
+- Framework: 用来简化ZooKeeper高级功能的使用, 并增加了一些新的功能, 比如管理到ZooKeeper集群的连接, 重试处理
+- Recipes: 实现了通用ZooKeeper的recipe, 该组件建立在Framework的基础之上
+- Utilities:各种ZooKeeper的工具类
+- Errors: 异常处理, 连接, 恢复等.
+- Extensions: recipe扩展
 
 Client
   
@@ -97,9 +97,6 @@ Retry Loop(循环重试)
   
 一种典型的用法:
 
-
-  
-    
       Java代码 
       
       <embed src="http://macrochen.iteye.com/javascripts/syntaxhighlighter/clipboard_new.swf" type="application/x-shockwave-flash" width="14" height="15">
@@ -158,16 +155,11 @@ Retry Loop(循环重试)
     
     
       }
-    
-  
 
 如果在操作过程中失败, 且这种失败是可重试的, 而且在允许的次数内, Curator将保证操作的最终完成.
 
 另一种使用Callable接口的重试做法:
 
-
-  
-    
       Java代码 
       
       <embed src="http://macrochen.iteye.com/javascripts/syntaxhighlighter/clipboard_new.swf" type="application/x-shockwave-flash" width="14" height="15">
@@ -203,8 +195,6 @@ Retry Loop(循环重试)
     
     
       });
-    
-  
 
 重试策略
   
@@ -216,10 +206,10 @@ public boolean allowRetry(int retryCount, long elapsedTimeMs);
 
 Curator内部实现的几种重试策略:
 
-  * ExponentialBackoffRetry:重试指定的次数, 且每一次重试之间停顿的时间逐渐增加.
-  * RetryNTimes:指定最大重试次数的重试策略
-  * RetryOneTime:仅重试一次
-  * RetryUntilElapsed:一直重试直到达到规定的时间
+- ExponentialBackoffRetry:重试指定的次数, 且每一次重试之间停顿的时间逐渐增加.
+- RetryNTimes:指定最大重试次数的重试策略
+- RetryOneTime:仅重试一次
+- RetryUntilElapsed:一直重试直到达到规定的时间
 
 Framework
   
@@ -232,42 +222,29 @@ Framework
 CuratorFrameworkFactory类提供了两个方法, 一个工厂方法newClient, 一个构建方法build. 使用工厂方法newClient可以创建一个默认的实例, 而build构建方法可以对实例进行定制. 当CuratorFramework实例构建完成, 紧接着调用start()方法, 在应用结束的时候, 需要调用close()方法.  CuratorFramework是线程安全的. 在一个应用中可以共享同一个zk集群的CuratorFramework.
 
 CuratorFramework API采用了连贯风格的接口(Fluent Interface). 所有的操作一律返回构建器, 当所有元素加在一起之后, 整个方法看起来就像一个完整的句子. 比如下面的操作:
+  
+```java
+client.create().forPath("/head", new byte[]);
 
 
-  
-    
-      Java代码 
-      
-      <embed src="http://macrochen.iteye.com/javascripts/syntaxhighlighter/clipboard_new.swf" type="application/x-shockwave-flash" width="14" height="15">
-      </embed> 
-      
-      <img class="star" src="http://macrochen.iteye.com/images/icon_star.png" alt="收藏代码" />
-  
-  
-  
-    
-      client.create().forPath("/head", new byte[]);
-    
-    
-      client.delete().inBackground().forPath("/head");
-    
-    
-      client.create().withMode(CreateMode.EPHEMERAL_SEQUENTIAL).forPath("/head/child", new byte[]);
-    
-    
-      client.getData().watched().inBackground().forPath("/test");
-    
-  
+client.delete().inBackground().forPath("/head");
+
+
+client.create().withMode(CreateMode.EPHEMERAL_SEQUENTIAL).forPath("/head/child", new byte[]);
+
+
+client.getData().watched().inBackground().forPath("/test");
+```
 
 方法说明:
 
-  * create(): 发起一个create操作. 可以组合其他方法 (比如mode 或background) 最后以forPath()方法结尾
-  * delete(): 发起一个删除操作. 可以组合其他方法(version 或background) 最后以forPath()方法结尾
-  * checkExists(): 发起一个检查ZNode 是否存在的操作. 可以组合其他方法(watch 或background) 最后以forPath()方法结尾
-  * getData(): 发起一个获取ZNode数据的操作. 可以组合其他方法(watch, background 或get stat) 最后以forPath()方法结尾
-  * setData(): 发起一个设置ZNode数据的操作. 可以组合其他方法(version 或background) 最后以forPath()方法结尾
-  * getChildren(): 发起一个获取ZNode子节点的操作. 可以组合其他方法(watch, background 或get stat) 最后以forPath()方法结尾
-  * inTransaction(): 发起一个ZooKeeper事务. 可以组合create, setData, check, 和/或delete 为一个操作, 然后commit() 提交
+- create(): 发起一个create操作. 可以组合其他方法 (比如mode 或background) 最后以forPath()方法结尾
+- delete(): 发起一个删除操作. 可以组合其他方法(version 或background) 最后以forPath()方法结尾
+- checkExists(): 发起一个检查ZNode 是否存在的操作. 可以组合其他方法(watch 或background) 最后以forPath()方法结尾
+- getData(): 发起一个获取ZNode数据的操作. 可以组合其他方法(watch, background 或get stat) 最后以forPath()方法结尾
+- setData(): 发起一个设置ZNode数据的操作. 可以组合其他方法(version 或background) 最后以forPath()方法结尾
+- getChildren(): 发起一个获取ZNode子节点的操作. 可以组合其他方法(watch, background 或get stat) 最后以forPath()方法结尾
+- inTransaction(): 发起一个ZooKeeper事务. 可以组合create, setData, check, 和/或delete 为一个操作, 然后commit() 提交
 
 .
 
@@ -281,9 +258,6 @@ UnhandledErrorListener接口用来对异常进行处理.
 
 CuratorEvent(在以前版本为ClientEvent)是对各种操作触发相关事件对象(POJO)的一个完整封装, 而事件对象的内容跟事件类型相关, 下面是对应关系:
 
-
-  
-    
       CREATE
     
     
@@ -349,17 +323,11 @@ CuratorEvent(在以前版本为ClientEvent)是对各种操作触发相关事件�
     
     
       getWatchedEvent()
-    
-  
-
 
 名称空间(Namespace)
   
 因为一个zk集群会被多个应用共享, 为了避免各个应用的zk patch冲突, Curator Framework内部会给每一个Curator Framework实例分配一个namespace(可选). 这样你在create ZNode的时候都会自动加上这个namespace作为这个node path的root. 使用代码如下:
 
-
-  
-    
       Java代码 
       
       <embed src="http://macrochen.iteye.com/javascripts/syntaxhighlighter/clipboard_new.swf" type="application/x-shockwave-flash" width="14" height="15">
@@ -380,8 +348,6 @@ CuratorEvent(在以前版本为ClientEvent)是对各种操作触发相关事件�
     
     
       // node was actually written to: "/MyApp/test"
-    
-  
 
 Recipe
 
@@ -445,18 +411,15 @@ ZKPaths工具类
   
 提供了和ZNode相关的path处理工具方法:
 
-  * getNodeFromPath: 根据给定path获取node name. i.e. "/one/two/three" -> "three"
-  *     mkdirs: 根据给定路径递归创建所有node
-  *     getSortedChildren: 根据给定路径, 返回一个按序列号排序的子节点列表
-  *     makePath: 根据给定的path和子节点名, 创建一个完整path
+- getNodeFromPath: 根据给定path获取node name. i.e. "/one/two/three" -> "three"
+- mkdirs: 根据给定路径递归创建所有node
+- getSortedChildren: 根据给定路径, 返回一个按序列号排序的子节点列表
+- makePath: 根据给定的path和子节点名, 创建一个完整path
 
 EnsurePath工具类
 
 直接看例子, 具体的说就是调用多次, 只会执行一次创建节点操作.
 
-
-  
-    
       Java代码 
       
       <embed src="http://macrochen.iteye.com/javascripts/syntaxhighlighter/clipboard_new.swf" type="application/x-shockwave-flash" width="14" height="15">
@@ -489,8 +452,6 @@ EnsurePath工具类
     
     
       zk.create(nodePath, ...);
-    
-  
 
 Notification事件处理
   
@@ -498,22 +459,21 @@ Curator对ZooKeeper的事件Watcher进行了封装处理, 然后实现了一套�
   
 当连接出现异常, 将通过ConnectionStateListener接口进行监听, 并进行相应的处理, 这些状态变化包括:
 
-  * 暂停(SUSPENDED): 当连接丢失, 将暂停所有操作, 直到连接重新建立, 如果在规定时间内无法建立连接, 将触发LOST通知
-  * 重连(RECONNECTED): 连接丢失, 执行重连时, 将触发该通知
-  * 丢失(LOST): 连接超时时, 将触发该通知
+- 暂停(SUSPENDED): 当连接丢失, 将暂停所有操作, 直到连接重新建立, 如果在规定时间内无法建立连接, 将触发LOST通知
+- 重连(RECONNECTED): 连接丢失, 执行重连时, 将触发该通知
+- 丢失(LOST): 连接超时时, 将触发该通知
 
 从com.netflix.curator.framework.imps.CuratorFrameworkImpl.validateConnection(CuratorEvent)方法中我们可以知道, Curator分别将ZooKeeper的Disconnected, Expired, SyncConnected三种状态转换成上面三种状态.
 
 参考
 
-  * https://github.com/Netflix/curator
-  * https://github.com/sgroschupf/zkclient
-  * http://en.wikipedia.org/wiki/Fluent_interface
-  * http://huidian.iteye.com/blog/426664 fluent interface中文版
-  * http://techblog.netflix.com/2011/11/introducing-curator-netflix-zookeeper.html
-  * http://www.ibm.com/developerworks/cn/opensource/os-cn-zookeeper/ 分布式服务框架 Zookeeper - 管理分布式环境中的数据
-  * Netflix Curator 使用
+- <https://github.com/Netflix/curator>
+- <https://github.com/sgroschupf/zkclient>
+- <http://en.wikipedia.org/wiki/Fluent_interface>
+- <http://huidian.iteye.com/blog/426664> fluent interface中文版
+- <http://techblog.netflix.com/2011/11/introducing-curator-netflix-zookeeper.html>
+- <http://www.ibm.com/developerworks/cn/opensource/os-cn-zookeeper/> 分布式服务框架 Zookeeper - 管理分布式环境中的数据
+- Netflix Curator 使用
 
 ### zookeeper curator watcher/listener
-http://blog.csdn.net/collonn/article/details/43969045
-
+<http://blog.csdn.net/collonn/article/details/43969045>
