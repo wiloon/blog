@@ -1,7 +1,7 @@
 ---
 title: ssh basic, ssh command
 author: "-"
-date: 2011-09-25T09:54:40+00:00
+date: 2022-10-20 22:38:04
 url: ssh
 categories:
   - Linux
@@ -11,6 +11,7 @@ tags:
 ## ssh basic
 
 - 端口转发
+- 不登陆执行命令
 
 ## 端口转发
 
@@ -23,6 +24,12 @@ ssh -L 2000:192.168.50.11:5432 192.168.50.10 -l root
 ```
 
 <https://wangdoc.com/ssh/port-forwarding.html>
+
+## 不登陆执行命令
+
+```bash
+ssh root@192.168.50.31 "whoami"
+```
 
 ## 参数
 
