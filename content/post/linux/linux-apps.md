@@ -26,7 +26,7 @@ git jdk8-openjdk openjdk8-src kotlin docker
 sudo pacman -S powerdevil kmix kscreen ark
 ```
 
-## archlinux pacman
+磁盘## archlinux pacman
 
 | name                  | comments                                                                                |
 | :-------------------- | :-------------------------------------------------------------------------------------- |

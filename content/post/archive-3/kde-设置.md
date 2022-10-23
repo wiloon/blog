@@ -50,3 +50,7 @@ task manager widget 会在任务栏上显示 window title
 ## kde show week number
 
 在任务栏的时钟控件上点击右键> Config Digital Clock> Digital Clock Settings> Calendar> Show week numbers
+
+## 桌面缩放
+
+系统设置 -> 辅助功能 -> 桌面缩放(启用缩放关闭)

@@ -21,8 +21,10 @@ d, e := time.ParseDuration("1000ms")
 
 ### array > slice
 
+```go
     arr := [3]int{1,2,3}
     sli := arr[:]
+```
 
 ### hex > int, big.Int
 

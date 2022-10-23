@@ -33,7 +33,7 @@ curl -X GET "localhost:9200/_cluster/allocation/explain?pretty" -H 'Content-Type
 
 unassigned_shards: 没有被分配到节点的分片
   
-unassigned_shards 在elasticsearch 重启后会逐渐减少,如果最终unassigned_shards不为0,则需要手动处理。
+unassigned_shards 在elasticsearch 重启后会逐渐减少, 9如果最终unassigned_shards不为0,则需要手动处理。
 
 ```bash
 # 找出未分配到结点的分片

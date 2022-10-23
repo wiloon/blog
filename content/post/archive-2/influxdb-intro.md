@@ -64,7 +64,7 @@ whisper支持RRD,可以很方便的定义retention,以及定义storage scheme,�
 ### opentsdb
 
 Opentsdb是一个基于Hbase的时间序列数据库 (新版也支持Cassandra）。
-其基于Hbase的分布式列存储特性实现了数据高可用，高性能写的特性。受限于Hbase，存储空间较大，压缩不足。依赖整套HBase, ZooKeeper
+其基于Hbase的分布式列存储特性实现了数据高可用，高性能写的特性。受限于Hbase，存储空间较大，压缩不足。依赖整套 HBase, ZooKeeper
 采用无模式的tagset数据结构(sys.cpu.user 1436333416 23 host=web01 user=10001)
 结构简单，多value查询不友好
 HTTP-DSL查询
@@ -72,7 +72,7 @@ opentsdb是一个比较重的时间序列解决方案,为什么说他重呢？�
 
 可以看到opentsdb所依赖的存储是Hbase集群。TSD在其中担任的责任是IO部分,TSD其实就是一个后台的daemon,一般我会会用一组TSD达成一个TSD的集群 (其实不能算是集群) ,没有master/slave之分,也没有共享状态,然后在之前用LB设备来做负载均衡,官方比较推荐的是用varnish。
 
-当让后端的存储也可以用其他的例如hadoop,但是官方还是建议用Hbase,因为opentsdb就是Hbase社区孵化出来的产品。那么问题来了,Hbase的运维将是一个艰巨的任务,这个依赖于zookeeper搭建的集群的坑还是很多的,我看了一下官方文档就有上千页。这里面的优化维护需要有专业的Hbase专家才能完成。
+当让后端的存储也可以用其他的例如hadoop,但是官方还是建议用Hbase,因为opentsdb就是Hbase社区孵化出来的产品。那么问题来了,Hbase的运维将是一个艰巨的任务,这个依赖于 zookeeper 搭建的集群的坑还是很多的,我看了一下官方文档就有上千页。这里面的优化维护需要有专业的Hbase专家才能完成。
 
 另外opentsdb做不到graphite那样自动做downsample,也就是做不到RRD那样地去存储数据,需要在外面自己做一层手动干这活,再把聚合后的数据写入Hbase,唉,还真是一个费时费力的活。
 

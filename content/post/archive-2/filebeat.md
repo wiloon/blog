@@ -2,7 +2,7 @@
 title: filebeat
 author: "-"
 date: 2018-01-19T06:45:49+00:00
-url: /?p=11760
+url: filebeat
 categories:
   - Inbox
 tags:
@@ -24,7 +24,6 @@ output.elasticsearch:
 
 ```bash
 sudo rpm --import https://packages.elastic.co/GPG-KEY-elasticsearch
-
 ```
 
 Create a file with a .repo extension (for example, elastic.repo) in your /etc/yum.repos.d/ directory and add the following lines:

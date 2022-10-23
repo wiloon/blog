@@ -159,3 +159,33 @@ TOAD具有功能强大的模式浏览器，可以快速访问数据字典、浏�
 ## update-alternatives
 
 update-alternatives是 dpkg 的实用工具，用来维护系统命令的符号链接，以决定系统默认使用什么命令。在Debian系统中，我们可能会同时安装有很多功能类似的程序和可选配置，如Web浏览器程序(firefox，konqueror)、窗口管理器(wmaker、metacity)和鼠标的不同主题等。这样，用户在使用系统时就可进行选择，以满足自已的需求。但对于普通用户来说，在这些程序间进行选择配置会较困难。update-alternatives工具就是为了解决这个问题，帮助用户能方便地选择自已喜欢程序和配置系统功能。
+
+## hue
+
+<http://www.cnblogs.com/smartloli/p/4527168.html>
+  
+Hue是一个开源的Apache Hadoop UI系统,由Cloudera Desktop演化而来,最后Cloudera公司将其贡献给Apache基金会的Hadoop社区,它是基于Python Web框架Django实现的。通过使用Hue我们可以在浏览器端的Web控制台上与Hadoop集群进行交互来分析处理数据,例如操作HDFS上的数据,运行MapReduce Job,执行Hive的SQL语句,浏览HBase数据库等等。
+
+Hue在数据库方面,默认使用的是SQLite数据库来管理自身的数据,包括用户认证和授权,另外,可以自定义为MySQL数据库、Postgresql数据库、以及Oracle数据库。其自身的功能包含有:
+
+对HDFS的访问,通过浏览器来查阅HDFS的数据。
+  
+Hive编辑器: 可以编写HQL和运行HQL脚本,以及查看运行结果等相关Hive功能。
+  
+提供Solr搜索应用,并对应相应的可视化数据视图以及DashBoard。
+  
+提供Impala的应用进行数据交互查询。
+  
+最新的版本集成了Spark编辑器和DashBoard
+  
+支持Pig编辑器,并能够运行编写的脚本任务。
+  
+Oozie调度器,可以通过DashBoard来提交和监控Workflow、Coordinator以及Bundle。
+  
+支持HBase对数据的查询修改以及可视化。
+  
+支持对Metastore的浏览,可以访问Hive的元数据以及对应的HCatalog。
+  
+另外, 还有对Job的支持, Sqoop, ZooKeeper 以及 DB (MySQL,SQLite,Oracle等) 的支持。
+  
+下面就通过集成部署,来预览相关功能。

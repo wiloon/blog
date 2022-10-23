@@ -21,8 +21,11 @@ tags:
 ## commands
 
 ```bash
+# source file: /tmp/foo, dest file: /tmp/bar
+kubectl cp namespace0/pod0:/tmp/foo /tmp/bar
+
 # scale, 扩缩容
-kubectl scale --replicas=0 deployment/calibre-web
+kubectl scale --replicas=0 deployment/deployment0
 kubectl get pv,pvc
 kubectl get pod -A -o wide
 kubectl get pods --all-namespaces

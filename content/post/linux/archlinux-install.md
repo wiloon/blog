@@ -164,7 +164,7 @@ systemctl start sshd
 
 # 查看当前的引导模式，uefi or bios
 ls /sys/firmware/efi/efivars
- # 如果提示文件不存在， 那么当前系统就不是efi引用的， 可能 是bios或CSM
+# 如果提示文件不存在， 那么当前系统就不是efi引用的， 可能 是bios或CSM
 ```
 
 ### config pacman mirror
