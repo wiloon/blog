@@ -1,17 +1,33 @@
 ---
-title: http GET POST 长度
+title: http basic
 author: "-"
 date: 2015-10-13T11:05:48+00:00
-url: /?p=8402
+url: http
 categories:
   - Inbox
 tags:
   - reprint
+  - remix
 ---
-## http GET POST 长度
-http://blog.csdn.net/blueling51/article/details/6935901
+## http
 
-1.    Get方法长度限制
+HTTP用什么请求和参数在哪里一点关系没有
+HTTP协议对参数长度也没限制，大多数和服务器容器的配置有关
+HTTP用什么方法都不安全，除非用HTTPS
+
+## url 参数
+
+在URL里放参数最简单，就是问号+键值对，它存在于HTTP的Header中第一行
+
+```bash
+POST /psas/bug/image/confirm?key0=value0&key1=value1&key2=value2 HTTP/1.1
+```
+
+## http GET POST 长度
+
+<http://blog.csdn.net/blueling51/article/details/6935901>
+
+1. Get方法长度限制
 
 Http Get方法提交的数据大小长度并没有限制,HTTP协议规范没有对URL长度进行限制。这个限制是特定的浏览器及服务器对它的限制。
 
@@ -53,7 +69,7 @@ Microsoft Internet Information Server(IIS)
 
 因此如果使用的 GET 方法,最大长度等于URL最大长度减去实际路径中的字符数。
 
-2.    POST方法长度限制
+2. POST方法长度限制
 
 理论上讲,POST是没有大小限制的。HTTP协议规范也没有进行大小限制,起限制作用的是服务器的处理程序的处理能力。
 
@@ -86,8 +102,6 @@ maxThreads="150"
 maxPostSize="0"
 
 URIEncoding="GBK"
-
-
 
 </Connector>
 

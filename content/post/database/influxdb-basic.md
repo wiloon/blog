@@ -10,7 +10,7 @@ tags:
 ---
 ## influxdb basic
 
-### http api
+### influxdb http api
 
 ```bash
 # http api

@@ -108,13 +108,17 @@ are a colon separated username and password.
 
 参数很多,一般我们用 -c 和 -n 参数就可以了。例如:
 
-# ab -c 5000 -n 600 <http://127.0.0.1/index.php>
+```bash
+ab -c 5000 -n 600 http://127.0.0.1/index.php
+```
 
 ApacheBench用法详解:
 
 在Linux系统,一般安装好Apache后可以直接执行；
 
-# ab -n 4000 -c 1000 <http://www.ha97.com/>
+```bash
+ab -n 4000 -c 1000 http://www.ha97.com/
+```
 
 如果是Win系统下,打开cmd命令行窗口,cd到apache安装目录的bin目录下；
 

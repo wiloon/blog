@@ -9,6 +9,7 @@ tags:
   - reprint
 ---
 ## java http file download upload
-http://blog.csdn.net/pgmsoul/article/details/7181793
 
-http://blog.csdn.net/xiaojianpitt/article/details/6856536
+<http://blog.csdn.net/pgmsoul/article/details/7181793>
+
+<http://blog.csdn.net/xiaojianpitt/article/details/6856536>
