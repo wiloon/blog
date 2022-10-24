@@ -1,6 +1,6 @@
 ---
 author: "w10n"
-date: "2020-10-18 22:17:53" 
+date: 2022-10-23 17:57:14
 title: Books
 categories:
   - w10n
@@ -11,7 +11,7 @@ tags:
 
 读书  
 
-平时看到有人推荐好书就忍不住想屯几本，但是到了读书的时候大都是看了几页几十页就被各种事情打断了...,很少有一本书能读完的，从2021年开始想多读些书，从第一页读到最后一页的那种。然后就有了这里的列表。
+平时看到有人推荐好书就忍不住想屯几本，但是到了读书的时候大都是看了几页几十页就被各种事情打断了..., 很少有一本书能读完的，从2021年开始计划着多花些时间读书，从第一页读到最后一页的那种。然后就有了这里的列表。
 
 ## 2022
 
@@ -20,9 +20,6 @@ tags:
   - 原作名: Just for Fun: The Story of an Accidental Revolutionary
   - Author/作者: Linus Torvalds / David Diamond
   - 译者: 陈少芸
-
-- Python Crash Course: A Hands-On, Project-Based Introduction to Programming, 2nd Edition
-  - Author: Eric Matthes
 
 ## 2021
 
