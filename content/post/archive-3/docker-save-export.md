@@ -1,5 +1,5 @@
 ---
-title: docker save与docker export的区别, docker 镜像 导出
+title: docker save 与 docker export 的区别, docker 镜像 导出
 author: "-"
 date: 2020-04-13T05:24:16+00:00
 url: docker/save
@@ -17,6 +17,8 @@ tags:
 docker save f1905dce9659 > kafka.tar
 # 另外一种save语法
 docker save -o images.tar postgres:9.6
+docker load -i foo.tar
+# 从 tar 包加载镜像而不是 stdin
 docker load < kafka.tar
 # docker load 之后repository和tag都是none,重新打一下tag
 docker tag f1905dce9659 wurstmeister/kafka:latest
