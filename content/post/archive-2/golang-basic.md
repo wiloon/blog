@@ -621,3 +621,22 @@ f(100)
 ```
 
 <http://c.biancheng.net/view/57.html>
+
+## go, url encode, query escape
+
+func QueryEscape(s string) string
+
+```go
+package main
+
+import (
+    "fmt"
+    "net/url"
+)
+
+func main() {
+    s := "this will be esc@ped!"
+    fmt.Println("http://example.com/say?message="+url.QueryEscape(s))
+}
+
+```
