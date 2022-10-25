@@ -320,9 +320,9 @@ depth用于指定克隆深度，为1即表示只克隆最近一次commit.
 
 git checkout master
 
-### git config
+## git config
 
-#### 查看 config
+### 查看 config
 
 config 配置有system级别 global (用户级别)  和local (当前仓库) 三个 设置先从system-》global-》local  底层配置会覆盖顶层配置 分别使用--system/global/local 可以定位到配置文件
 
@@ -335,16 +335,16 @@ git config --global core.editor vim
 查看当前用户 (global) 配置
 
 ```bash
-    git config --global  --list
+git config --global  --list
 ```
 
 查看当前仓库配置信息
 
 ```bash
-    git config --local  --list
+git config --local  --list
 ```
 
-#### 设置
+### 设置
 
 ```bash
 #设置电子邮件地址
@@ -360,6 +360,13 @@ git config --local user.email "email@example.com"
 #确认在 Git 中正确设置了电子邮件地址
 git config --global user.email
 git config --local  user.email
+```
+
+### edit: set, delete
+
+```bash
+git config --edit
+git config --global --edit
 ```
 
 ## git log
