@@ -341,7 +341,7 @@ git config --global core.editor vim
 查看当前仓库配置信息
 
 ```bash
-    git config --local  --list
+git config --local  --list
 ```
 
 #### 设置
