@@ -136,3 +136,7 @@ File> settings> Build,Execution,Deployment>Build Tools> maven> importing> vm opt
 2.2平台设置-> Sourcepath >选择源路径->加号图标->从JDK安装路径中选择src.zip 。
 
 <https://blog.csdn.net/cyan20115/article/details/106549340>
+
+## file header
+
+setting>file and code templates>includes>file header

@@ -9,6 +9,7 @@ tags:
   - reprint
 ---
 ## idea install
+
 ### default plugins
 
 build tool

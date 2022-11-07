@@ -191,3 +191,11 @@ FROM
      JOIN information_schema.constraint_column_usage AS ccu ON ccu.constraint_name = tc.constraint_name
 WHERE constraint_type = 'FOREIGN KEY' AND tc.table_name = 'table0';
 ```
+
+## 数据类型
+
+```r
+名字                        别名             描述
+character varying [ (n) ]  varchar [ (n) ]  可变长字符串
+character [ (n) ]          char [ (n) ]     定长字符串
+```

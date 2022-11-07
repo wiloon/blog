@@ -21,6 +21,8 @@ tags:
 ## commands
 
 ```bash
+kubectl get ep -n namespace0
+kubectl set image deployment/kong kong=kong1.0 -n namespace0
 # source file: /tmp/foo, dest file: /tmp/bar
 kubectl cp namespace0/pod0:/tmp/foo /tmp/bar
 
