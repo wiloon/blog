@@ -192,10 +192,12 @@ FROM
 WHERE constraint_type = 'FOREIGN KEY' AND tc.table_name = 'table0';
 ```
 
-## 数据类型
+## postgresql 数据类型
 
-```r
+```sql
 名字                        别名             描述
 character varying [ (n) ]  varchar [ (n) ]  可变长字符串
 character [ (n) ]          char [ (n) ]     定长字符串
+timestamp                                   SQL标准要求仅仅将timestamp类型等于timestamp without time zone 类型
+timestamp with time zone   timestampz       PostgreSQL遵守这个行为。timestamptz 作为 timestamp with time zone 的缩写被接受；这是PostgreSQL 的一个扩展。
 ```

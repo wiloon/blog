@@ -1480,10 +1480,10 @@ esac
 ```bash
 # 定义函数 fun0
 fun0(){
-    echo "run fun0 "
+    echo "run fun0: " + $1
 }
 # 调用函数 fun0
-fun0
+fun0 "foo"
 
 ```
 

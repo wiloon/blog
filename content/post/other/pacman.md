@@ -37,7 +37,7 @@ pacman -h
 
 # -Q 的 help
 pacman -Q -h
-
+pacman -Q                # 列出已经安装的软件包
 pacman -Q  boost-libs    #Display version
 pacman -Ql boost-libs    #Display file list provided by local package
 
@@ -54,9 +54,29 @@ pacman -Qkk filesystem
 pacman -U /var/cache/pacman/pkg/gvim-8.2.4106-1-x86_64.pkg.tar.zst
 ```
 
-## 降级软件包
+## downgrade 降级软件包
 
 去 archive 时手动下载 <https://archive.archlinux.org/packages/>, 然后 pacman -U 安装
+
+### archlinux downgrade, 回退软件包到某一天
+
+```bash
+vim /etc/pacman.d/mirrorlist
+
+# content
+SigLevel = PackageRequired
+Server = https://archive.archlinux.org/repos/2022/11/04/$repo/os/$arch
+
+pacman -Syyuu
+```
+
+### 忽略/排除升级软件包, 不升级指定的包
+  
+如果由于某种原因，你不希望升级某个软件包，可以加入内容如下:
+  
+```bash
+IgnorePkg = linux
+```
 
 ### (invalid or corrupted package (PGP signature)), signature from xxx is unknown trust
 
@@ -80,7 +100,7 @@ SigLevel = Optional TrustAll
 #### refresh keys
 
 ```bash
-# 查看key的状态, 提示是expired
+# 查看key的状态, 提示是 expired
 pacman-key --list-sigs Witschel
 
 # 更新 keys
@@ -202,9 +222,7 @@ pacman -S abc #从本地数据库中得到abc的信息，下载安装abc包
 pacman -Sf abc #强制安装包abc
   
 pacman -Si abc #从数据库中搜索包abc的信息
-  
-pacman -Q # 列出已经安装的软件包
-  
+
 pacman -Qe # 列出已经安装的软件包， 只列出不被其它包依赖的
 pacman -Qet # 列出已经安装的软件包， 只列出不被其它包依赖的,不包含可选依赖。
   
@@ -367,14 +385,6 @@ Pacman的配置文件位于/etc/pacman.conf。关于配置文件的进一步信�
 常用选项
   
 常用选项都在[options]段。阅读man手册或者查看缺省的pacman.conf可以获得有关信息和用途。
-
-## 忽略/排除升级软件包, 不升级指定的包
-  
-如果由于某种原因，你不希望升级某个软件包，可以加入内容如下:
-  
-```bash
-IgnorePkg = linux
-```
   
 多软件包可以用空格隔开，也可是用 glob 模式。如果只打算忽略一次升级，可以使用 -ignore 选项。
 
@@ -442,28 +452,6 @@ Then update the database and force downgrade:
 pacman -Syyuu
 
 <https://www.geniusxiaoshuai.com/exp/93.html>
-
-## archlinux 回退软件包到某一天
-
-```bash
-vim /etc/pacman.conf
-
-# content
-[core]
-SigLevel = PackageRequired
-Server = https://archive.archlinux.org/repos/2022/08/13/$repo/os/$arch
-
-[extra]
-SigLevel = PackageRequired
-Server = https://archive.archlinux.org/repos/2022/08/13/$repo/os/$arch
-
-[community]
-SigLevel = PackageRequired
-Server = https://archive.archlinux.org/repos/2022/08/13/$repo/os/$arch
-
-
-pacman -Syyuu
-```
 
 ## 一个切换 mirror 的脚本
 
