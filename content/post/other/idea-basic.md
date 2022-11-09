@@ -1,14 +1,15 @@
 ---
-title: idea basic
+title: jetbrain, idea, basic
 author: "-"
-date: 2013-01-14T07:37:05+00:00
+date: 2022-11-09 15:22:54
 url: idea
 categories:
-  - Inbox
+  - IDE
 tags:
   - reprint
+  - remix
 ---
-## idea basic
+## jetbrain, idea, basic
 
 生成.ipr文件: mvn idea:project
 生成.iws文件: mvn idea:workspace
@@ -34,12 +35,10 @@ git push origin main
 git fetch origin master
 ```
 
-### keys
+### jetbrain keys, 快捷键
 
-|||
-|-|-|
-|列编辑|Alt+Shift+Insert,ctrl+alt+i |
-|Expand All|Ctrl+Shift+= |
+- 列编辑,      Alt+Shift+Insert,Alt+Shift+i
+- Expand All, Ctrl+Shift+=
 
 CTRL+SHIFT+N 查找文件
   
@@ -48,8 +47,6 @@ duplicate line and block
 ctl+alt+Y sychronize
   
 ctl+alt+S setting
-
----
 
 ### 解决 Intellij IDEA Cannot Resolve Symbol ‘XXX’ 问题
 
