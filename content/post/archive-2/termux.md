@@ -59,7 +59,7 @@ apt edit-sources
   
 源列表的一般格式为:
 
-# The main termux repository
+The main termux repository
 
 deb [arch=all,你的平台架构] <http://termux.net> stable main
   
@@ -69,9 +69,9 @@ deb [arch=all,你的平台架构] <http://termux.net> stable main
 
 ## 国内用户建议使用的源列表内容
 
-# The main termux repository
+The main termux repository
 
-# deb [arch=all,你的平台架构] <http://termux.net> stable main
+deb [arch=all,你的平台架构] <http://termux.net> stable main
 
 deb [arch=all,你的平台架构] <http://mirrors.tuna.tsinghua.edu.cn/termux> stable main
   

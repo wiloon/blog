@@ -199,5 +199,15 @@ WHERE constraint_type = 'FOREIGN KEY' AND tc.table_name = 'table0';
 character varying [ (n) ]  varchar [ (n) ]  可变长字符串
 character [ (n) ]          char [ (n) ]     定长字符串
 timestamp                                   SQL标准要求仅仅将timestamp类型等于timestamp without time zone 类型
-timestamp with time zone   timestampz       PostgreSQL遵守这个行为。timestamptz 作为 timestamp with time zone 的缩写被接受；这是PostgreSQL 的一个扩展。
+timestamp with time zone   TIMESTAMPTZ       PostgreSQL遵守这个行为。timestamptz 作为 timestamp with time zone 的缩写被接受；这是PostgreSQL 的一个扩展。
+```
+
+## 时区
+
+```sql
+show timezone;
+select * from pg_timezone_names where abbrev='+04';
+set time zone "Asia/Dubai";
+
+select now();
 ```
