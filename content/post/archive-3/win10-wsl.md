@@ -270,11 +270,11 @@ vim .zshrc
 ### 设置默认的用户
 
 ```bash
-    powershell
-    cd C:\Users\用户名\AppData\Local\Microsoft\WindowsApps
-    dir
-    # 有一个是以ubuntu开头的exe文件
-    ubuntu2004.exe config --default-user user0
+powershell
+cd C:\Users\用户名\AppData\Local\Microsoft\WindowsApps
+dir
+# 有一个是以ubuntu开头的exe文件
+ubuntu2004.exe config --default-user user0
 ```
 
 ### wsl字体,乱码

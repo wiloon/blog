@@ -10,15 +10,17 @@ tags:
 ---
 ## linux user, group, 用户 用户组
 
+## 用户
+
+### 查看用户
+
 cat /etc/passwd
 
 wyue:x:513:513::/home/wyue:/bin/bash  
-看第三个参数: 500以上的，就是后面建的用户了。其它则为系统的用户。
-
-### 用户
+看第三个参数: 500 以上的，就是后来建的用户了。其它则为系统的用户。
 
 ```bash
-# create user, 创建 /home/user0, 默认 bash
+# create user, 创建目录 /home/user0, 默认 bash
 sudo useradd -m user0
 
 sudo useradd -m -s /bin/bash user0
@@ -32,8 +34,8 @@ sudo useradd user0
 ```
 
 ```bash
+# -m: create home folder, 不加 -m 参数，默认不创建 home
 # -M - Don't create a home directory
-# -m: create home folder, 不加-m 参数，默认不创建home
 # -s: specify shell for user, 默认是 /bin/bash
 # -s /bin/false - Don't assign a shell (or more accurately, make the shell /bin/false, so the user cannot be logged into)
 # -r: create system account
