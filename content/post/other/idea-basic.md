@@ -37,8 +37,8 @@ git fetch origin master
 
 ### jetbrain keys, 快捷键
 
-- 列编辑,      Alt+Shift+Insert,Alt+Shift+i
-- Expand All, Ctrl+Shift+=
+- 列编辑/column selection mode,  Alt+Shift+Insert,Alt+Shift+i
+- Expand All,                   Ctrl+Shift+=
 
 CTRL+SHIFT+N 查找文件
   
@@ -128,9 +128,8 @@ File> settings> Build,Execution,Deployment>Build Tools> maven> importing> vm opt
 
 ## JDK源代码附加到IntelliJ IDEA
 
-2.1文件->项目结构
-
-2.2平台设置-> Sourcepath >选择源路径->加号图标->从JDK安装路径中选择src.zip 。
+2.1 文件->项目结构
+2.2 平台设置-> Sourcepath >选择源路径->加号图标->从JDK安装路径中选择src.zip
 
 <https://blog.csdn.net/cyan20115/article/details/106549340>
 
