@@ -85,7 +85,7 @@ ClientAliveInterval 30
 ClientAliveCountMax 3
 ```
 
-#### Session Multiplexing
+### Session Multiplexing
 
 <https://blog.wiloon.com/?p=16030>
 

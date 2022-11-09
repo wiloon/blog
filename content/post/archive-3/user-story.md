@@ -10,6 +10,7 @@ tags:
   - Scrum
 ---
 ## 用户故事, user story
+
 故事story是粗略的勾勒的需求，它是信！号！卡！，指向真正的需求或者叫故事详情，怎么说都好。
   
 而需求就是需求。
@@ -20,8 +21,20 @@ tags:
 
 作者: 马菲菲
   
-链接: https://www.zhihu.com/question/26996772/answer/35078718
+链接: <https://www.zhihu.com/question/26996772/answer/35078718>
   
 来源: 知乎
   
 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
+
+## 用户故事
+
+<https://www.tapd.cn/forum/view/43571>
+  
+<https://www.cnblogs.com/jetlian/p/3946359.html>
+  
+<http://www.scrumcn.com/agile/scrum/4823.html>
+  
+<http://www.scrumcn.com/agile/scrum/20026.html>
+  
+<https://blog.csdn.net/GitChat/article/details/78410016>
