@@ -1,7 +1,7 @@
 ---
 title: postgres
 author: "-"
-date: 2017-12-31T06:25:26+00:00
+date: 2022-11-08 15:04:37
 url: postgres
 categories:
   - database
@@ -190,4 +190,24 @@ FROM
      JOIN information_schema.key_column_usage AS kcu ON tc.constraint_name = kcu.constraint_name
      JOIN information_schema.constraint_column_usage AS ccu ON ccu.constraint_name = tc.constraint_name
 WHERE constraint_type = 'FOREIGN KEY' AND tc.table_name = 'table0';
+```
+
+## postgresql 数据类型
+
+```sql
+名字                        别名             描述
+character varying [ (n) ]  varchar [ (n) ]  可变长字符串
+character [ (n) ]          char [ (n) ]     定长字符串
+timestamp                                   SQL标准要求仅仅将timestamp类型等于timestamp without time zone 类型
+timestamp with time zone   TIMESTAMPTZ       PostgreSQL遵守这个行为。timestamptz 作为 timestamp with time zone 的缩写被接受；这是PostgreSQL 的一个扩展。
+```
+
+## 时区
+
+```sql
+show timezone;
+select * from pg_timezone_names where abbrev='+04';
+set time zone "Asia/Dubai";
+
+select now();
 ```
