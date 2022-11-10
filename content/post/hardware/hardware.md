@@ -21,6 +21,8 @@ tags:
 - K375S
 - ThinkPad X1 Carbon Gen 9
 - ROCK 5B
+- Mitsubishi Outlander
+- MacBook Air
 
 ## ROCK 5B
 
@@ -373,4 +375,11 @@ Intel HD Graphics 4400 (shared memory)
 ## K375S改
 
 F1 默认走 罗技优联, F2 和 F3 可以连接另外两个蓝牙设备. 蓝牙配对: 长按 Fn + 2 或 Fn + 3, 对应的数字键下方的 LED 灯快速闪烁时, 键盘就是进入配对模式了, 另外一端, 比如 iphone 会弹出 提示, 需要在键盘上输入一串数字然后按回车. 配对成功.
-B  B
+
+## mitsubishi outlander
+
+<https://club.autohome.com.cn/bbs/thread/6542c267b66988e9/72454344-1.html>
+
+## MacBook Air
+
+- M2

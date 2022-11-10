@@ -9,6 +9,7 @@ tags:
   - reprint
 ---
 ## Termux
+
 <https://www.jianshu.com/p/5c8678cef499>
 
 神器Termux的使用日常
@@ -30,7 +31,6 @@ adb shell env # 查看Android的环境变量
 Termux is an Android terminal emulator and Linux environment app that works directly with no rooting or setup required. A minimal base system is installed automatically - additional packages are available using the APT package manager.
 
 > > Homepage
-
 > > Termux on Google Play
 
 Termux
@@ -59,7 +59,7 @@ apt edit-sources
   
 源列表的一般格式为:
 
-# The main termux repository
+The main termux repository
 
 deb [arch=all,你的平台架构] <http://termux.net> stable main
   
@@ -69,9 +69,9 @@ deb [arch=all,你的平台架构] <http://termux.net> stable main
 
 ## 国内用户建议使用的源列表内容
 
-# The main termux repository
+The main termux repository
 
-# deb [arch=all,你的平台架构] <http://termux.net> stable main
+deb [arch=all,你的平台架构] <http://termux.net> stable main
 
 deb [arch=all,你的平台架构] <http://mirrors.tuna.tsinghua.edu.cn/termux> stable main
   
@@ -137,11 +137,11 @@ SSH通过Termux登录Android设备
   
 Openssh包含SSHD服务,因此Android设备上,通过Termux安装openssh后可以开启ssh服务,ssh服务的配置文件默认在$PREFIX/etc/ssh/sshd_config 中。值得注意的是Termux终端中sshd服务不支持密码认证,也就是说用户想要通过ssh连接上Android设备,只能通过密钥认证方式先将设备公钥放置在Android设备的sshd服务的授权登录列表中,然后通过私钥校验的方式登录。具体来说:
 
-# 将设备公钥添加都授权登录列表中
+将设备公钥添加都授权登录列表中
 
 cat id_rsa.pub >> $HOME/.ssh/authorized_keys
 
-# 开启ssh服务
+开启ssh服务
 
 sshd
   

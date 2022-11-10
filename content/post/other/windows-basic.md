@@ -225,3 +225,16 @@ powercfg.exe /hibernate on
 <https://github.com/microsoft/terminal>
 
 Windows Terminal> Settings> Actions 可以设置快捷键,解决 vim  ctrl-v 的问题
+
+## 查看本机域名以及登录账户使用的命令
+
+```bash
+whoami
+```
+
+## rmdir
+
+```bash
+# 删除非空目录
+rmdir /s /q folder0
+```

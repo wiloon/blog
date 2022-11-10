@@ -303,14 +303,16 @@ pickle.load(file)
 
 - PyPA：指 Python Packaging Authority，一个维护 Python 打包相关项目的小组，相关项目具体见 <https://github.com/pypa>。
 - pip：Python 包安装器。
-- virtualenv：Python 虚拟环境管理工具。
-- venv：Python 标准库内置的虚拟环境管理工具，Python 3.3 加入，Python 3.5 开始作为管理虚拟环境的推荐工具，用法类似 virtualenv。如果你使用 Python 3，推荐使用 venv 来替代 virtualenv。
+- virtualenv: Python 虚拟环境管理工具。
+- venv: Python 标准库内置的虚拟环境管理工具，Python 3.3 加入，Python 3.5 开始作为管理虚拟环境的推荐工具，用法类似 virtualenv。如果你使用 Python 3，推荐使用 venv 来替代 virtualenv。
 
 ```bash
 # 创建运行环境
-python -m venv env0
-# 激活环境
+python -m venv -p 3.6 /path/to/env0
+# 激活环境 - linux
 source env0/bin/activate
+# win
+env0/script/activate.bat
 # 退出环境
 deactivate
  
@@ -329,6 +331,9 @@ Virtaulenvwrapper 是 virtualenv 的扩展包，用于更方便管理虚拟环�
 # on macOS / Linux
 pip install --user virtualenvwrapper
 
+# win
+pip install virtualenvwrapper-win
+
 echo "source virtualenvwrapper.sh" >> ~/.zshrc
 source ~/.zshrc
 
@@ -345,7 +350,7 @@ deactivate
 rmvirtualenv venv
 ```
 
-### Pycharm
+### Jetbrain Pycharm
 
 settings> Project Interpreters
 
@@ -561,13 +566,7 @@ exp1 if contion else exp2
 key0 = value0 if exp0 else value1
 ```
 
-## string format
 
-```python
-txt = "For only {price:.2f} dollars!"
-print(txt.format(price = 49))
-
-```
 
 ## 函数
 
@@ -747,16 +746,7 @@ list2 = [1, 2, 3, 4, 5 ]
 list3 = ["a", "b", "c", "d"]
 ```
 
-## string replace, 字符串 替换
 
-```py
-txt = "I like bananas"
-
-x = txt.replace("bananas", "apples")
-
-print(x)
-
-```
 
 ## enum
 
@@ -782,4 +772,45 @@ Color(1).name
 
 ```py
 "secret" in title_cased_file_content
+```
+
+## list > string join
+
+```py
+ str=[]  #有的题目要输出字符串，但是有时候list更好操作，于是可以最后list转string提交
+ for i in range(0,a):
+     str.append('M')              
+ str1=''.join(str) 
+
+```
+
+## string replace, 字符串 替换
+
+```py
+txt = "I like bananas"
+
+x = txt.replace("bananas", "apples")
+
+print(x)
+
+```
+
+## string format
+
+```python
+txt = "For only {price:.2f} dollars!"
+print(txt.format(price = 49))
+
+```
+
+## string trim
+
+```py
+>>>a=" gho stwwl "
+>>>a.lstrip()
+'gho stwwl '
+>>>a.rstrip()
+' gho stwwl'
+>>>a.strip()
+'gho stwwl'
 ```
