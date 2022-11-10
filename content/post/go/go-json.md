@@ -55,7 +55,7 @@ func main() {
 
 本文介绍如何使用Go语言自带的库把对象转换为JSON格式，并在channel中进行传输后，并把JSON格式的信息转换回对象。
 
-1. Go语言的JSON 库
+1. Go 语言的 JSON 库
   
 Go语言自带的JSON转换库为 encoding/json
   

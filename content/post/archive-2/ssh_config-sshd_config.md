@@ -120,11 +120,16 @@ BatchMode no
 CheckHostIP yes
   
 "CheckHostIP"设置ssh是否查看连接到服务器的主机的IP地址以防止DNS欺骗。建议设置为"yes"。
-  
-StrictHostKeyChecking no
-  
-"StrictHostKeyChecking"如果设为"yes",ssh将不会自动把计算机的密匙加入"$HOME/.ssh/known_hosts"文件,且一旦计算机的密匙发生了变化,就拒绝连接。
-  
+
+## StrictHostKeyChecking
+
+- no: 最不安全的级别, 如果连接 server 的 key 在本地不存在，那么就自动添加到 known_hosts
+- yes: ssh将不会自动把计算机的密匙加入"$HOME/.ssh/known_hosts"文件, 且一旦计算机的密匙发生了变化, 就拒绝连接。
+
+```bash
+ssh -o StrictHostKeyChecking=no wiloon@192.168.50.30
+```
+
 IdentityFile ~/.ssh/identity
   
 "IdentityFile"设置读取用户的RSA安全验证标识。

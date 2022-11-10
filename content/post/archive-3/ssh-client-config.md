@@ -56,7 +56,7 @@ Host 192.168.*
 
 用 SSH 过程连接电脑时，经常遇到长时间不操作而被服务器踢出的情况，常见的提示如:
 
-    Write failed: Broken pipe
+Write failed: Broken pipe
 
 这是因为如果有一段时间在SSH连接上无数据传输，连接就会断开。解决此问题有两种方法。[1]
 
@@ -85,7 +85,7 @@ ClientAliveInterval 30
 ClientAliveCountMax 3
 ```
 
-#### Session Multiplexing
+### Session Multiplexing
 
 <https://blog.wiloon.com/?p=16030>
 
