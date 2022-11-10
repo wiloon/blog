@@ -17,3 +17,12 @@ tags:
 ## 重启 ipad
 
 音量加 音量减 长按电源键直到重启
+
+## brew
+
+https://brew.sh/
+
+```bash
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+```
