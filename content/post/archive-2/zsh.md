@@ -16,7 +16,7 @@ tags:
 ## 查看 zsh 版本
 
 ```bash
-    zsh --version
+zsh --version
 ```
 
 ### 不能自动补全
@@ -43,14 +43,15 @@ plugins=(git zsh-autosuggestions)
 sudo pacman -S git zsh
 
 #install oh-my-zsh, will set default shell to zsh
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 ```
 
 ## switch to zsh
 
 ```bash
-    chsh -l
-    chsh -s /bin/zsh
+## 查看当前 shell
+chsh -l
+chsh -s /bin/zsh
 ```
 
 oh-my-zsh 是一个著名的,社区驱动的框架,它拥有很多有用的函数,helpers,插件,主题,可以用来简化复杂的 Zsh 配置。
@@ -59,11 +60,11 @@ config zsh history size
 
 edit .zshrc and add following lines
   
-# set history size
+## set history size
   
 export HISTSIZE=10000
   
-# save history after logout
+## save history after logout
   
 export SAVEHIST=10000
 

@@ -11,6 +11,23 @@ tags:
 
 ## shell basic, shell script
 
+## 查看安装的 shell
+
+```bash
+# macos
+cat /etc/shells
+# linux
+chsh -l
+```
+
+## 查看当前使用的 shell
+
+<https://blog.csdn.net/qq_32590631/article/details/93640599>
+
+```bash
+echo $0
+```
+
 ## doc for bash
 
 ```bash
