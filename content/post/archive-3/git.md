@@ -16,7 +16,7 @@ tags:
 [Working Directory\n工作区] as work
 [Staging Area\nIndex\n暂存区] as stage
 work --> stage: add
-[Repository\nLocal Repository\n本地仓库] as repo
+[Repository\nLocal Repository\n本地仓库\nHistory\n历史记录区] as repo
 stage --> repo: commit
 [Remote\n远程仓库] as remote
 repo --> remote: push
@@ -24,6 +24,8 @@ work <-- remote: pull
 remote --> repo: fetch/clone
 repo --> work: checkout
 repo --> work: merge
+repo --> stage: reset --soft
+repo --> work: reset --mixed
 @enduml
 ```
 
@@ -44,7 +46,7 @@ Git本地库中的索引Index就是一个二进制文件，默认存储在.git/i
 
 在工作区中有个隐藏目录.git，这就是 Git 本地仓库的数据库。工作区中的项目文件实际上就是从这里签出 (checkout）而得到的，修改后的内容最终提交后记录到本地仓库中。
 Tips：不要手动修改 .git 目录的内容  
-当执行git commit命令后，会将暂存区内容提交到仓库之中。在工作区下面有.git的目录，这个目录下的内容不属于工作区，里面便是仓库的数据信息，暂存区相关内容也在其中。这里也可以使用merge或rebase将远程仓库副本合并到本地仓库。
+当执行git commit命令后，会将暂存区内容提交到仓库之中。在工作区下面有.git的目录，这个目录下的内容不属于工作区，里面便是仓库的数据信息，暂存区相关内容也在其中。这里也可以使用 merge 或 rebase 将远程仓库副本合并到本地仓库。
 
 ### 远程仓库 (remote repository)
 
@@ -90,22 +92,11 @@ FETCH_HEAD： 是一个版本链接，记录在本地的一个文件中，指向
 
 ### git pull 的运行过程
 
-git pull 首先，基于本地的FETCH_HEAD记录，比对本地的FETCH_HEAD记录与远程仓库的版本号，然后git fetch 获得当前指向的远程分支的后续版本的数据，然后再利用git merge将其与本地的当前分支合并。
+git pull 首先，基于本地的 FETCH_HEAD 记录，比对本地的 FETCH_HEAD 记录与远程仓库的版本号，然后 git fetch 获得当前指向的远程分支的后续版本的数据，然后再利用 git merge 将其与本地的当前分支合并。
 
 ### git fetch, git pull
 
-git fetch是将远程主机的最新内容拉到本地，用户在检查了以后决定是否合并到工作本机分支中。而git pull 则是将远程主机的最新内容拉下来后直接合并，即：git pull = git fetch + git merge，这样可能会产生冲突，需要手动解决。
-
-### rebase 做了什么
-
-#### 场景：分支合并
-
-从 master 分支切出一个 dev 分支 (feature1)，进行开发
-再执行 git rebase master
-首先，git 会把 feature1 分支里面的每个 commit 取消掉；
-其次，把上面的操作临时保存成 patch 文件，存在 .git/rebase 目录下；
-然后，把 feature1 分支更新到最新的 master 分支；
-最后，把上面保存的 patch 文件应用到 feature1 分支上；
+git fetch是将远程主机的最新内容拉到本地，用户在检查了以后决定是否合并到工作本机分支中。而 git pull 则是将远程主机的最新内容拉下来后直接合并，即：git pull = git fetch + git merge，这样可能会产生冲突，需要手动解决。
 
 ### 分支，branch
 
@@ -120,9 +111,7 @@ HEAD就是当前活跃分支的游标, HEAD可以指向分支中的任意一个�
 你可以认为 HEAD(大写)是"current branch"(当下的分支)。当你用git checkout切换分支的时候，HEAD 修订版本重新指向新的分支。有的时候HEAD会指向一个没有分支名字的修订版本，这种情况叫”detached HEAD“
 head(小写)是commit对象的引用，每个head都有一个名字 (分支名字或者标签名字等等），但是默认情况下，每个叫master的repository都会有一个head, 一个repository可以包含任意数量的head。在任何时候，只要这个head被选择成为”current head“，那么这个head就成了HEAD,总是大写
 
----
-
-><https://git-scm.com/book/zh>
+<https://git-scm.com/book/zh>
 
 <https://blog.csdn.net/taiyangdao/article/details/52761572>
 
@@ -135,19 +124,19 @@ head(小写)是commit对象的引用，每个head都有一个名字 (分支名�
 来源：知乎
 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
 
-><https://zhuanlan.zhihu.com/p/59591617>
+<https://zhuanlan.zhihu.com/p/59591617>
 
 作者：打我你肥十斤
 链接：<https://juejin.cn/post/6844903921794859021>
 来源：稀土掘金
 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
 
-><https://segmentfault.com/a/1190000039320926>
-><http://jartto.wang/2018/12/11/git-rebase/>
+<https://segmentfault.com/a/1190000039320926>
+<http://jartto.wang/2018/12/11/git-rebase/>
 
 作者：zuopf769
 链接：<https://juejin.cn/post/6844903493078089736>
 来源：稀土掘金
 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
 
-><https://www.zsythink.net/archives/3412>
+<https://www.zsythink.net/archives/3412>

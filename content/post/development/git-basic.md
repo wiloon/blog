@@ -98,7 +98,7 @@ git merge branch1 -m "MSG0"
 ## git merge --squash
 
 ```bash
-# merge, 把多次 commit 的历史合并成一次 commit
+# git merge --squash, 把多次 commit 的历史合并成一次 commit
 # 把 branch1 的提交 合并 到 branch0
 # 切换到 branch0 然后执行以下命令
 git merge --squash branch1
@@ -182,7 +182,7 @@ git rebase -i HEAD~2
 # git log你可以发现，git的最后一次提交已经变成你选的那个了
 # 把pick 修改成edit然后保存退出，然后会看到提示 git commit --amend
 git commit --amend
-# 修改注释之后，保存退出，然后git rebase --continue
+# 修改注释之后，保存退出，然后 git rebase --continue
 git rebase --continue
 # 把本地仓库的代码推送到远程
 git push origin master
@@ -195,7 +195,7 @@ git push --force origin master
 #### 查看所有被 Git 忽略的文件, Git 1.6+
 
 ```bash
-    git ls-files --others -i --exclude-standard
+git ls-files --others -i --exclude-standard
 ```
 
 #### Git 1.4, 1.5
@@ -384,6 +384,12 @@ git log --reverse
 echo "# project name" >> README.md
 ```
 
+git reflog 可以查看所有分支的所有操作记录 (包括 (包括 commit 和 reset 的操作），包括已经被删除的commit记录，git log 则不能察看已经删除了的 commit 记录。
+
+```bash
+git reflog
+```
+
 ### 更改最多的文件
 
 git log --pretty=format: --name-only | sort | uniq -c | sort -rg | head -10
@@ -544,8 +550,6 @@ git clone <版本库的网址> <本地目录名>
 
 git clone https://user0:password0@git.foo.com/path/to/project.git
 
-git log
-git reflog
 git log --pretty=oneline
 
 git-ls-files  # - Show information about files in the index and the working tree

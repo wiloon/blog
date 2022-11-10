@@ -30,10 +30,10 @@ git svn fetch -r 1342:HEAD
 这个操作可以通过"git-svn rebase"完成。注意这里用的是rebase,而不是update。update命令对于通过git-svn检出的svn repostory的git版本库是不可用的。
 
 ```bash
-    git svn rebase
+git svn rebase
 
-    git commit -a -m ""
-    git svn dcommit
+git commit -a -m ""
+git svn dcommit
 ```
 
 ### Password for 'user0': Can't locate Term/ReadKey.pm
