@@ -21,6 +21,12 @@ curl -O https://bootstrap.pypa.io/get-pip.py
 sudo python get-pip.py
 ```
 
+### 安装指定版本的包
+
+```bash
+pip install sasl==0.2.1
+```
+
 ## commands
 
 ```bash
@@ -301,14 +307,24 @@ pickle.load(file)
 
 ## python 虚拟环境
 
+- archlinux> pyenv
 - PyPA：指 Python Packaging Authority，一个维护 Python 打包相关项目的小组，相关项目具体见 <https://github.com/pypa>。
 - pip：Python 包安装器。
 - virtualenv: Python 虚拟环境管理工具。
 - venv: Python 标准库内置的虚拟环境管理工具，Python 3.3 加入，Python 3.5 开始作为管理虚拟环境的推荐工具，用法类似 virtualenv。如果你使用 Python 3，推荐使用 venv 来替代 virtualenv。
 
+## pyenv
+
+```bash
+pyenv install -l
+pyenv install 3.6.15
+pyenv versions
+pyenv global 3.6.15
+```
+
 ```bash
 # 创建运行环境
-python -m venv -p 3.6 /path/to/env0
+python -m venv /path/to/env0
 # 激活环境 - linux
 source env0/bin/activate
 # win
@@ -454,6 +470,7 @@ To delete a key regardless of whether it is in the dictionary, use the two-argum
 my_dict.pop('key', None)
 
 obj to dict <https://blog.csdn.net/weixin_42359464/article/details/80882549>
+
 ## isinstance()
 
 isinstance() 函数来判断一个对象是否是一个已知的类型，类似 type()。
@@ -565,8 +582,6 @@ rstrip：用来去除结尾字符、空白符(包括\n、\r、\t、’ '，即�
 exp1 if contion else exp2
 key0 = value0 if exp0 else value1
 ```
-
-
 
 ## 函数
 
@@ -746,8 +761,6 @@ list2 = [1, 2, 3, 4, 5 ]
 list3 = ["a", "b", "c", "d"]
 ```
 
-
-
 ## enum
 
 ```py
@@ -814,3 +827,25 @@ print(txt.format(price = 49))
 >>>a.strip()
 'gho stwwl'
 ```
+
+## windows python
+
+<https://www.python.org/ftp/python/3.6.8/python-3.6.8-amd64.exe>
+
+### 默认安装路径
+
+C:\Users\user0\AppData\Local\Programs\Python
+
+### uwsgi
+
+windows 下不需要 uwsgi, 生产环境 linux 环境才需要, windows依赖里可以不安装 uwsgi
+
+## setup.py
+
+- build_ext: build C/C++ extensions (compile/link to build directory)，给python编译一个c、c++的拓展
+- –inplace: ignore build-lib and put compiled extensions into the source directory alongside your pure Python modules，忽略build-lib，将编译后的扩展放到源目录中，与纯Python模块放在一起
+
+-----------------------------------
+©著作权归作者所有：来自51CTO博客作者怡宝2号的原创作品，请联系作者获取转载授权，否则将追究法律责任
+【python】——setup.py build_ext --inplace命令解析
+<https://blog.51cto.com/u_15357586/3788424>
