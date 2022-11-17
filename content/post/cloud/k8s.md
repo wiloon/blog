@@ -21,9 +21,16 @@ tags:
 ## commands
 
 ```bash
+kubectl -o wide get pod
+kubectl describe svc svc0
+kubectl logs pod0
+
+kubectl describe pods pod0
+kubectl describe pods -n namespace0 pod0
+# ENDPOINTS
 kubectl get ep -n namespace0
 kubectl set image deployment/kong kong=kong1.0 -n namespace0
-# source file: /tmp/foo, dest file: /tmp/bar
+# cp, source file: /tmp/foo, dest file: /tmp/bar
 kubectl cp namespace0/pod0:/tmp/foo /tmp/bar
 
 # scale, 扩缩容
@@ -32,8 +39,8 @@ kubectl get pv,pvc
 kubectl get pod -A -o wide
 kubectl get pods --all-namespaces
 kubectl get svc
-kubectl describe svc svc0
-kubectl logs <pod_name>
+
+
 
 ## 卸载服务, delete service and deployment
 kubectl delete -f deployment.yaml
@@ -56,7 +63,7 @@ kubectl get pods --all-namespaces -o wide
 
 kubectl get pods -A
 kubectl get pods -n kube-system  -o wide
-kubectl describe pods -n namespace0 pod0
+
 
 # 重启 pod
 kubectl replace --force -f  kube-flannel.yml

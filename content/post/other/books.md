@@ -42,6 +42,13 @@ tags:
   - 原作名: Seven Concurrency Models in Seven Weeks - When Threads Unravel
   - 作者: Paul Butcher
   - 译者: 黄炎
+- 弗兰肯斯坦
+  - 原作名: Frankenstein; or, The Modern Prometheus
+  - 又名: 《科学怪人：另一个普罗米修斯》
+  - 又名:《科学怪人》
+  - 又名:《弗兰肯斯坦》
+  - Author/作者: 英国女作家 玛丽·雪莱
+  - 译者: 孙法理
 
 ## Template
 
