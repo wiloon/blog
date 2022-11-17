@@ -292,5 +292,9 @@ default volumn path /var/lib/docker/volumes/
 ><https://cizixs.com/2017/08/04/docker-resources-limit/>
 
 ## docker 日志
-https://kevinguo.me/2017/07/06/Docker-configuring-logging-drivers/
 
+<https://kevinguo.me/2017/07/06/Docker-configuring-logging-drivers/>
+
+## docker 跨平台镜像
+
+<https://cloud.tencent.com/developer/article/1543689>

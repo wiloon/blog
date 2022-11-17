@@ -849,3 +849,22 @@ windows 下不需要 uwsgi, 生产环境 linux 环境才需要, windows依赖里
 ©著作权归作者所有：来自51CTO博客作者怡宝2号的原创作品，请联系作者获取转载授权，否则将追究法律责任
 【python】——setup.py build_ext --inplace命令解析
 <https://blog.51cto.com/u_15357586/3788424>
+
+## faulthandler
+
+segmentation fault (core dumped)  python  
+Python Segmentation fault错误定位办法  
+
+```py
+import faulthandler
+from core.foo import bar
+
+faulthandler.enable()
+if __name__ == '__main__':
+    bar()
+
+```
+
+```bash
+python -X faulthandler main.py
+```
