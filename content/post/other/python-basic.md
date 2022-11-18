@@ -14,7 +14,7 @@ Python 3 >=3.4 这些版本的 Python 会一并安装 pip
 
 ## pip
 
-手动重新安装 pip
+### 手动重新安装 pip
 
 ```bash
 curl -O https://bootstrap.pypa.io/get-pip.py
@@ -25,6 +25,12 @@ sudo python get-pip.py
 
 ```bash
 pip install sasl==0.2.1
+```
+
+### python输出现有环境依赖包目录
+
+```bash
+pip freeze >requirements.txt
 ```
 
 ## commands
