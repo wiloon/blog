@@ -1540,6 +1540,12 @@ var=\`ls -lR|grep "^d"|wc -l\`
 
 ## echo $$, $BASHPID
 
-$$是当前bash进程的pid 等同于 $BASHPID
+`$$`是当前bash进程的pid 等同于 `$BASHPID`
 
 <https://www.zhihu.com/question/50517601>
+
+## *, **
+
+`*` 只匹配当前目录的文件和目录, `**` 匹配所有当前目录和子目录的文件和目录
+
+<https://stackoverflow.com/questions/28176590/what-does-the-double-asterisk-wildcard-mean>
