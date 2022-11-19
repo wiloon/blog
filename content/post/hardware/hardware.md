@@ -23,6 +23,7 @@ tags:
 - ROCK 5B
 - Mitsubishi Outlander
 - MacBook Air
+- U2723QX
 
 ## ROCK 5B
 
@@ -383,3 +384,10 @@ F1 默认走 罗技优联, F2 和 F3 可以连接另外两个蓝牙设备. 蓝�
 ## MacBook Air
 
 - M2
+
+## U2723QX
+
+<https://dl.dell.com/content/manual12186838-dell-u2723qx-monitor-%E7%94%A8%E6%88%B7%E6%8C%87%E5%8D%97.pdf?language=zh-cn>
+
+- 3840 x 2160（16:9）
+- MST

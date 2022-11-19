@@ -26,11 +26,11 @@ git jdk8-openjdk openjdk8-src kotlin docker
 sudo pacman -S powerdevil kmix kscreen ark
 ```
 
-磁盘## archlinux pacman
+## archlinux pacman
 
 | name                  | comments                                                                                |
 | :-------------------- | :-------------------------------------------------------------------------------------- |
-| thunderbird           |邮件客户端|
+| thunderbird           | 邮件客户端|
 | obsidian              | 知识管理 |
 | flameshot             | 截图工具 screenshot                                                                     |
 | netdata               | 系统资源监控                                                                            |
