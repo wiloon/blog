@@ -127,3 +127,9 @@ ATK-Bridge.
 ## openjdk archive
 
 <https://jdk.java.net/archive>
+
+## macos openjdk
+
+```bash
+brew install openjdk
+```

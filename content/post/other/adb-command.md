@@ -27,6 +27,8 @@ adb shell
 
 # adb push <本地路径> <远程路径>
 adb push <本地路径> <远程路径>
+#列出手机装的所有app 的包名
+adb shell pm list packages
 ```
 
 查看设备 –查看当前连接的设备, 连接到计算机的android设备或者模拟器将会列出显示

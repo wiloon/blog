@@ -18,30 +18,23 @@ brew install --cask android-platform-tools
 
 <http://blog.sina.com.cn/s/blog_51335a000101j59n.html>
 
-启动adb服务, 该服务用来为模拟器或通过USB数据线连接的真机服务, 需要以root权限启动, 否则adb devices会提示no permissions.
+启动adb服务, 该服务用来为模拟器或通过 USB 数据线连接的真机服务, 需要以 root 权限启动, 否则 adb devices 会提示 no permissions.
 
 ```bash
-  
 adb kill-server
-  
 adb start-server
-  
 ```
 
 列出已连接的android设备
 
 ```bash
-  
 adb devices
-  
 ```
 
-安装apk
+## 安装apk
 
 ```bash
-  
 adb install xxx/xxx.apk
-  
 ```
 
 ```bash
