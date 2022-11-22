@@ -14,16 +14,18 @@ tags:
 
 ## 公有云环境
 
->https://github.com/session-replay-tools/tcpcopy/issues/336
+<https://github.com/session-replay-tools/tcpcopy/issues/336>
 
 云环境下，安全策略可能会干扰测试的进行
 采用如下步骤可以规避麻烦：
+
 1. 测试机器和 intercept 部署到一台机器
 2. tcpcopy端 -c 参数采用 tcpcopy 所在的线上机器ip地址
 3. 在线上机器设置iptables黑洞来过滤掉测试服务器的响应包 `iptables -I INPUT -p tcp --sport 测试服务的端口 -j DROP -s` 测试服务所在机器的ip地址
 4. 千万要注意在测试服务器不要设置路由了，否则会受到干扰
 
 ### 环境
+
 - 测试用的 tcp 服务 tcp-echo-server
 - 线上服务器, online source server, xxx.xxx.20.50
   - 2000 端口提供服务 (tcp-echo-server)
@@ -43,7 +45,7 @@ ls /usr/local/tcpcopy
 
 ```
 
-### 辅助服务器 (intercept) 安装 
+### 辅助服务器 (intercept) 安装
 
 ```bash
 
@@ -120,9 +122,13 @@ sudo iptables -I INPUT -p tcp --sport 3000 -j DROP -s 192.168.50.102
 
 1. 测试用的 tcp 服务 tcp-echo-server 监听 2000 端口
 2. 线上服务器, online source server, 192.168.50.101
-  - 2000 端口提供服务 (tcp-echo-server)
+
+- 2000 端口提供服务 (tcp-echo-server)
+
 3. 测试服务器,目标服务器, target server, 192.168.50.102
-  - 2000 端口提供服务 (tcp-echo-server)
+
+- 2000 端口提供服务 (tcp-echo-server)
+
 4. 辅助服务器, assistant server, 192.168.50.103
 
 ### 线上服务器安装 tcpcopy
@@ -136,7 +142,7 @@ make install
 ls /usr/local/tcpcopy
 ```
 
-### 辅助服务器 (intercept) 安装 
+### 辅助服务器 (intercept) 安装
 
 ```bash
 git clone https://github.com/session-replay-tools/intercept.git
@@ -203,7 +209,6 @@ ip route add 192.168.60.0/24 via 192.168.50.103 src 192.168.50.102 dev ens18
 
 ```
 
-
 ### tcpcopy 拷贝一次流量访问的步骤如下
 
 1. 一个客户端请求到达线上机器
@@ -216,27 +221,33 @@ ip route add 192.168.60.0/24 via 192.168.50.103 src 192.168.50.102 dev ens18
 
 <https://www.cnblogs.com/gnivor/p/12845145.html>  
 <https://github.com/session-replay-tools/tcpcopy>  
-https://blog.csdn.net/wangbin579/article/details/8949315
+<https://blog.csdn.net/wangbin579/article/details/8949315>
 
 ### tcpcopoy
->https://github.com/session-replay-tools/tcpcopy
-### goreplay
->https://github.com/buger/goreplay
-### tcpcopy 架构漫谈
->https://blog.csdn.net/wangbin579/article/details/8949315
->https://segmentfault.com/a/1190000039285429
->https://github.com/buger/goreplay
-### 流量复制方案对比：Tcpcopy vs Goreplay
->https://segmentfault.com/a/1190000039285429
 
+><https://github.com/session-replay-tools/tcpcopy>
+
+### goreplay
+
+><https://github.com/buger/goreplay>
+
+### tcpcopy 架构漫谈
+
+><https://blog.csdn.net/wangbin579/article/details/8949315>
+><https://segmentfault.com/a/1190000039285429>
+><https://github.com/buger/goreplay>
+
+### 流量复制方案对比：Tcpcopy vs Goreplay
+
+><https://segmentfault.com/a/1190000039285429>
 
 ## 其它工具
 
 几款流量复制工具：
 
-gor: https://github.com/buger/goreplay
-tcpreplay: https://github.com/appneta/tcpreplay
-tcpcopy: https://github.com/session-replay-tools/tcpcopy
+gor: <https://github.com/buger/goreplay>
+tcpreplay: <https://github.com/appneta/tcpreplay>
+tcpcopy: <https://github.com/session-replay-tools/tcpcopy>
 Nginx模块ngx_http_mirror_module，在Nginx 1.13.4中开始引入，使用前请检查nginx版本
 
 ### goreplay
@@ -246,11 +257,11 @@ Goreplay 只能复制http流量 goreplay的pro版支持tcp，每年980刀
 ### tcpreplay
 
 c 语言实现
-https://github.com/appneta/tcpreplay
+<https://github.com/appneta/tcpreplay>
 
 ### tcpcopy
 
 c 语言实现
-https://github.com/session-replay-tools/tcpcopy
+<https://github.com/session-replay-tools/tcpcopy>
 
->https://winway.github.io/2017/10/17/tcpcopy-introduce/
+><https://winway.github.io/2017/10/17/tcpcopy-introduce/>
