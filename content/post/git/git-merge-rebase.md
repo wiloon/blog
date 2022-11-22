@@ -54,9 +54,9 @@ c3<-down-c5
 
 ```bash
 git merge b0
-  
+
 git status
-  
+
 git mergetool
   
 #"The merge tool bc is not available as" 'bcompare'
@@ -84,8 +84,19 @@ git merge master feature
 
 ## git rebase
 
+<http://jartto.wang/2018/12/11/git-rebase/>
+
 ```bash
-git rebase <basebranch> <topicbranch>
+# checkout branch0
+git check branch0
+# 保存 branch0的修改,保存成 patch 文件, 把branch0更新到main最新的修改, 把 patch 文件应用到   分支上
+git rebase main
+# 另外一种写法, 不需要 checkout branch0 直接执行
+# git rebase <basebranch> <topicbranch>
+git rebase main branch0
+
+git checkout master
+git merge branch0
 
 ```
 
