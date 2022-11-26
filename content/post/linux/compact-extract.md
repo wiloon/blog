@@ -62,9 +62,10 @@ zip ~/all.zip *.jpg
 
 # 压缩的是个文件夹, -r 表示调用递归压缩
 zip -r temp.zip temp
-
+# 密码
 zip -P password0 foo.zip foo.txt       
-
+# 指定压缩某几个文件
+zip foo.zip foo.txt bar.txt
 ```
 
 ### zip 分卷压缩

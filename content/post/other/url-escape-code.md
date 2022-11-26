@@ -33,6 +33,7 @@ tags:
 : 冒号                              %3A
 , 逗号                              %2C
 {                                   %7B
+}                                   %7D
 ```
 
 <http://www.wetools.com/url-escape-code>
