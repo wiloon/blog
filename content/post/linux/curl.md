@@ -28,6 +28,9 @@ tags:
 --retry, 重试次数
 # 如果使用了-F参数，curl会以multipart/form-data的方式发送POST请求。-F以key=value的形式指定要上传的参数，如果是文件，则需要使用key=@file的形式。
 -k or --insecure flag to skip certificate validation.
+-L,--location:如果服务器报告请求的页面已移动到其他位置（用location:header和3xx 响应代码），此选项将使curl在新位置上重新执行请求。
+-X, --request <method>   Specify request method to use
+
 ```
 
 ## 断点续传
