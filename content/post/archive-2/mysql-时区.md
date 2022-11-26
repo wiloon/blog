@@ -9,6 +9,7 @@ tags:
   - reprint
 ---
 ## MySQL 时区
+
 default-time-zone = '+8:00'
 
-http://blog.csdn.net/mchdba/article/details/9763521
+<http://blog.csdn.net/mchdba/article/details/9763521>

@@ -14,6 +14,7 @@ tags:
 
 - bitwarden
 - plex, 流媒体服务器
+- macrodroid, 设备自动化, 监控电池电量发http请求.
 
 |name       |comments|
 |-|-|
