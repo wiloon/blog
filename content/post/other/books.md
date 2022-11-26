@@ -1,6 +1,6 @@
 ---
 author: "w10n"
-date: 2022-10-23 17:57:14
+date: 2022-11-26 21:50:50
 title: Books
 categories:
   - w10n
@@ -15,9 +15,8 @@ tags:
 
 ## 2022
 
-- 只是为了好玩
-  - 副标题: Linux 之父林纳斯自传
-  - 原作名: Just for Fun: The Story of an Accidental Revolutionary
+- Just for Fun: The Story of an Accidental Revolutionary
+  - 译作名: 只是为了好玩 - Linux 之父林纳斯自传
   - Author/作者: Linus Torvalds / David Diamond
   - 译者: 陈少芸
 
