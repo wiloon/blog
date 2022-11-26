@@ -157,7 +157,12 @@ class Student1(object):
     # 相当于构造函数
     def __init__(self, name, score):
         self.name = name
+        # public 可见 外部可以访问 无 _
         self.score = score
+        # protect 不可见 外部可以访问 _(单下划线)
+        self._foo = "value0"
+        # private 不可见 不可访问 __ (双下划线)
+        self.__bar = "value1"
 
     def print_score(self):
         print('%s: %s' % (self.name, self.score))

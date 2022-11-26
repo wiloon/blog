@@ -211,3 +211,10 @@ set time zone "Asia/Dubai";
 
 select now();
 ```
+
+## substring
+
+```sql
+substring(string [from <str_pos>] [for <ext_char>])
+-- str_pos 
+```
