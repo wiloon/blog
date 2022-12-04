@@ -7,7 +7,8 @@ categories:
   - network
 tags:
   - Linux
-
+  - reprint
+  - remix
 ---
 ## iptables basic
 
@@ -69,7 +70,7 @@ iptables -t filter -L FORWARD
 
 ### nf_conntrack
 
-iptalbes会使用 nf_conntrack 模块跟踪连接，而这个连接跟踪的数量是有最大值的，当跟踪的连接超过这个最大值，就会导致连接失败。 通过命令查看
+iptalbes 会使用 nf_conntrack 模块跟踪连接，而这个连接跟踪的数量是有最大值的，当跟踪的连接超过这个最大值，就会导致连接失败。 通过命令查看
 
 ```bash
 # 当前值
