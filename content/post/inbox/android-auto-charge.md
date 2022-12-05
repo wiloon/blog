@@ -37,11 +37,13 @@ curl --form-string "text=hello" "http://chanify.wiloon.com/v1/sender/<token>"
 curl "http://chanify.wiloon.com/v1/sender/<token>/msg0"
 ```
 
-## 礼信通4芯数据传输USB定时开关遥控制器延长线智能WIFI电源数据
+## 礼信通4芯数据传输 USB 定时开关遥控制器延长线智能 WIFI 电源数据
 
 <https://item.taobao.com/item.htm?spm=a1z09.2.0.0.3b462e8dwgAuy1&id=675291964059&_u=m2lc6g03a41>
 
-按公众号里的说明 添加 iOS 快捷指指令之后能看到 开关的 http 请求 地址 `http://saygift.qlkkj.net/oder?Qd=<key>&sw=1&od=op`, od=op: 开, od=cs: 关
+### 查看控制指令 URL
+
+用微信扫二维码, 操作开关之后, 点击页面上的绿色图标, URL会被复制到剪贴板, 格式是这样的  `http://saygift.qlkkj.net/oder?Qd=<key>&sw=1&od=op`, od=op: 开, od=cs: 关
 
 用 curl 测试一下
 

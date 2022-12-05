@@ -39,6 +39,10 @@ apt update
 apt install wireguard
 ```
 
+## macos
+
+在 appstore 安装 wireguard
+
 ### 生成密钥 peer A & peer B
 
 ```bash
@@ -152,7 +156,7 @@ openresolv
 
 wiloon.com/ip-forward
 
-### iptables, 设置iptables规则，客户端连接之后就能 Ping 通服务端局域网里的其它 ip 了
+### iptables, 设置 iptables 规则，客户端连接之后就能 Ping 通服务端局域网里的其它 ip 了
 
 ```bash
 iptables -A FORWARD -i wg0 -j ACCEPT
