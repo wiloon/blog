@@ -45,12 +45,12 @@ snap install certbot-dns-google
 #### ubuntu
 
 ```bash
-    # for ubuntu snap is pre-installed
-    sudo apt-get remove certbot
-    sudo snap install --classic certbot
-    sudo ln -s /snap/bin/certbot /usr/bin/certbot
-    snap set certbot trust-plugin-with-root=ok
-    snap install certbot-dns-google
+# for ubuntu snap is pre-installed
+sudo apt-get remove certbot
+sudo snap install --classic certbot
+sudo ln -s /snap/bin/certbot /usr/bin/certbot
+snap set certbot trust-plugin-with-root=ok
+snap install certbot-dns-google
 ```
 
 ### certonly
@@ -68,14 +68,6 @@ certbot-auto renew --no-self-upgrade
 
 因为 Google Chrome 和运营商劫持干扰访问者体验的努力推动了大型网站加速应用全站 HTTPS，而 Let’s Encrypt 这个项目通过自动化把配置和维护 HTTPS 变得更加简单，Let’s Encrypt 设计了一个 ACME 协议目前版本是 v2，并在 2018 年支持通配符证书 Wildcard Certificate Support is Live。  
 官网主推的客户端是Certbot，任何人都可以基于 ACME 协议实现一个客户端，比如大名鼎鼎的acme.sh。
-
-### 安装 certbot
-
-```bash
-        sudo apt install certbot
-```
-
-alternatives --set python /usr/bin/python3
 
 ### ubuntu snap
 
