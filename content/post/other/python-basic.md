@@ -74,7 +74,7 @@ source my_env/bin/activate
 ### archlinux
 
 ```bash
-    pacman -S python
+pacman -S python
 ```
   
 ### boolean variable

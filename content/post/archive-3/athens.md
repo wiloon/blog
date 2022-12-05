@@ -1,16 +1,17 @@
 ---
 title: athens
 author: "-"
-date: 2020-04-13T15:23:54+00:00
-url: /?p=15941
+date: 2022-11-29 16:53:10
+url: athens
 categories:
-  - Inbox
+  - Golang
 tags:
   - reprint
+  - remix
 ---
 ## athens
 
-Athens: Go Packages 服务器, 私服。
+Athens: Go Packages 服务器, 私服, go package 私有仓库, 其它可选方案 Nexus.
 
 ```bash
 docker volume create --name athens-data

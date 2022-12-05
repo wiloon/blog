@@ -110,7 +110,7 @@ bin/kafka-consumer-groups.sh --bootstrap-server localhost:9092 --group test-grou
 
 ## topic
 
-### list topic, 查看 kafka topic 列表, 使用--list参数
+### list topic, 查看 kafka topic 列表, 使用 --list 参数
 
 ```bash
 # kafka 3.0
