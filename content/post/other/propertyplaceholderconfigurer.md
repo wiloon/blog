@@ -8,7 +8,7 @@ categories:
 tags:
   - reprint
 ---
-# PropertyPlaceholderConfigurer
+PropertyPlaceholderConfigurer
 <http://callan.iteye.com/blog/161540>
 
 关于PropertyPlaceholderConfigurer与PropertyOverrideConfigurer

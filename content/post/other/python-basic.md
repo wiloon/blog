@@ -879,3 +879,15 @@ if __name__ == '__main__':
 ```bash
 python -X faulthandler main.py
 ```
+
+## loop
+
+### while
+
+```python
+i = 1
+while i < 6:
+  print(i)
+  i += 1
+
+```
