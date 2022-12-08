@@ -9,6 +9,7 @@ tags:
   - reprint
 ---
 ## linux 命令行下使用socks 代理
+
 二、将 Socks5 代理转化为 http 代理
   
 socks5 代理转换成 http 代理需要借助第三方软件完成,这里使用 privoxy,Ubuntu 下使用如下命令安装 privoxy
@@ -61,9 +62,9 @@ vim /usr/local/bin/proxy
 
 脚本内容如下
 
-#!/bin/bash
+# !/bin/bash
   
-http_proxy=http://127.0.0.1:8118 https_proxy=http://127.0.0.1:8118 $*
+http_proxy=<http://127.0.0.1:8118> https_proxy=<http://127.0.0.1:8118> $*
 
 赋予可执行权限
 

@@ -11,16 +11,36 @@ tags:
 ---
 ## Hardware
 
-- ThinkPad X1 Carbon Gen 9
+- QNAP TS453Bmini
+- Dell Wyse 5070
+- R86S
+- Dell Inspiron N4050
 - Intel J4105 软路由
 - SONY WF-1000XM3
 - CanoKey
+- K375S
+- ThinkPad X1 Carbon Gen 9
+- ROCK 5B
+- Mitsubishi Outlander
+- MacBook Air
+- U2723QX
+
+## ROCK 5B
+
+<https://wiki.radxa.com/Rock5>
+
+CPU: 4核Cortex-A76和4核Cortex-A55的典型大小核架构，大核主频2.4GHz，小核主频1.8GHz
+GPU: RK3588集成ARM Mali-G610，至少支持2路4K UI
+NPU: RK3588集成了瑞芯微第四代具有完全自主知识产权的人工智能运算引擎，在MAC运算单元的利用率及带宽的消耗上提升了30％。6TOPs的NPU算力
 
 ## ThinkPad X1 Carbon Gen 9
 
 - i7-1185G7
 - 16G
 - 512G
+- Intel AX201
+  - Wi-Fi CERTIFIED*Wi-Fi 6 (802.11ax)
+  - Max Speed2.4 Gbps
 
 ## benchmark
 
@@ -208,22 +228,6 @@ wifi: Intel Corporation Wireless 7260 (rev 5b)
     2.4G QCA9984
     有线网络 QCA8337
 
-## Dell Latitude 3450, work
-
-<https://www.dell.com/support/manuals/zh-cn/latitude-3450-laptop/lat_14_3450_om-v1/specifications?guid=guid-42d27b81-8d57-4219-9b9b-0c51cfa756b5&lang=en-us>
-<https://www.dell.com/support/home/zh-cn/product-support/product/latitude-3450-laptop/drivers>
-Network adapter    10/100/1000 Mbps Ethernet LAN on Motherboard (LOM)
-
-### Wireless
-
-Dell Wireless 1707 802.11b/g/n (2.4GHz)
-Wi-Fi 802.11 b/g/n and 802.11a/b/g/n/ac
-Bluetooth 4.0
-
-### 显卡
-
-Intel HD Graphics 4400 (shared memory)
-
 ## WNDR4300 v1
 
     WNDR4300  
@@ -292,6 +296,8 @@ Hotspot 2.0
 强制门户
 WISPr
 
+<https://support.ruckuswireless.com/products/88-ruckus-r310#sort=relevancy&f:@source=[Documentation]&f:@commonproducts=[R310]>
+
 ## Kindle Voyage
 
 闪存: 东芝4GB (用户可用内存约3GB)
@@ -347,6 +353,41 @@ NDEF
 
 注3：macOS系统使用需要升级到 Monterey 或以上
 
-## Dell Latitude E7470
+## Dell Latitude E7470, xing's work pc
 
 - Screen Resolution 1920x1080
+
+## Dell Latitude 3450, work, deprecated
+
+<https://www.dell.com/support/manuals/zh-cn/latitude-3450-laptop/lat_14_3450_om-v1/specifications?guid=guid-42d27b81-8d57-4219-9b9b-0c51cfa756b5&lang=en-us>
+<https://www.dell.com/support/home/zh-cn/product-support/product/latitude-3450-laptop/drivers>
+Network adapter    10/100/1000 Mbps Ethernet LAN on Motherboard (LOM)
+
+### Wireless
+
+Dell Wireless 1707 802.11b/g/n (2.4GHz)
+Wi-Fi 802.11 b/g/n and 802.11a/b/g/n/ac
+Bluetooth 4.0
+
+### 显卡
+
+Intel HD Graphics 4400 (shared memory)
+
+## K375S改
+
+F1 默认走 罗技优联, F2 和 F3 可以连接另外两个蓝牙设备. 蓝牙配对: 长按 Fn + 2 或 Fn + 3, 对应的数字键下方的 LED 灯快速闪烁时, 键盘就是进入配对模式了, 另外一端, 比如 iphone 会弹出 提示, 需要在键盘上输入一串数字然后按回车. 配对成功.
+
+## mitsubishi outlander
+
+<https://club.autohome.com.cn/bbs/thread/6542c267b66988e9/72454344-1.html>
+
+## MacBook Air
+
+- M2
+
+## U2723QX
+
+<https://dl.dell.com/content/manual12186838-dell-u2723qx-monitor-%E7%94%A8%E6%88%B7%E6%8C%87%E5%8D%97.pdf?language=zh-cn>
+
+- 3840 x 2160（16:9）
+- MST

@@ -128,3 +128,8 @@ CanoKey由清华大学的一些老师/学生（同时也是开源社区的大佬
 同时，用户可以体验虚拟硬件密钥，进行构建/购买前的测试与游玩！同时也欢迎用户参与核心代码库的贡献，您的贡献可能出现在下一版的发售中！
 
 ## fido2
+
+## yubikey win 10 login
+
+<https://www.yubico.com/products/computer-login-tools/>
+<https://zh.101-help.com/236052d633-configure-use-yubikey-secure-loginzai-windows-10-local-account/>

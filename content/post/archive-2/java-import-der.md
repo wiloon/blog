@@ -9,6 +9,7 @@ tags:
   - reprint
 ---
 ## java import cert
+
 ```bash
 keytool -importcert -keystore /path/to/jre/lib/security/cacerts -storepass changeit -noprompt -file /path/to/ca.der -alias "digicertglobalrootca"
 # storepass 默认值changeit

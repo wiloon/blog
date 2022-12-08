@@ -9,7 +9,9 @@ tags:
   - reprint
 ---
 ## java 各种数据类型转换
+
 ### String > Double
+
 ```java
 String str="122.202";
 double dnum = Double.parseDouble(str);
@@ -29,6 +31,7 @@ Set<T> mySet = new HashSet<>(Arrays.asList(someArray));
 ```
 
 ### array > set, java 9+
+
 ```java
 Set<T> mySet = Set.of(someArray);
 ```
@@ -94,6 +97,7 @@ instant.atZone(zoneId).toLocalDateTime();
 ```
 
 ### value & 0xFF
+
 It sets result to the (unsigned) value resulting from putting the 8 bits of value in the lowest 8 bits of result.
 
 The reason something like this is necessary is that byte is a signed type in Java. If you just wrote:
@@ -110,7 +114,7 @@ The & is applied to yield the desired value for result.
 
 ### LocalDateTime > mills
 
-```java 
+```java
    public static long localDateTimeToMills(LocalDateTime localDateTime) {
         ZonedDateTime zdt = localDateTime.atZone(ZoneId.systemDefault());
         return zdt.toInstant().toEpochMilli();
@@ -118,15 +122,20 @@ The & is applied to yield the desired value for result.
 ```
 
 ### LocalDateTime > Instant
+
 ```java
     LocalDate date = LocalDate.now();
     Instant instant = date.atStartOfDay(ZoneId.systemDefault()).toInstant();
 ```
+
 ### string > LocalDateTime
+
 ```java
 LocalDateTime.parse("2022-01-05 15:16", DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm"))
 ```
+
 ### string > Instant
+
 ```java
     LocalDateTime.parse(                   // Parse as an indeterminate `LocalDate`, devoid of time zone or offset-from-UTC. NOT a moment, NOT a point on the timeline.
         "04:30 PM, Sat 5/12/2018" ,        // This input uses a poor choice of format. Whenever possible, use standard ISO 8601 formats when exchanging date-time values as text. Conveniently, the java.time classes use the standard formats by default when parsing/generating strings.
@@ -139,6 +148,7 @@ LocalDateTime.parse("2022-01-05 15:16", DateTimeFormatter.ofPattern("yyyy-MM-dd 
 ```
 
 ### LocalDateTime > String
+
 ```java
 // Get current date time
 LocalDateTime currentDateTime = LocalDateTime.now();
@@ -154,8 +164,8 @@ System.out.println("Formatted LocalDateTime : " + formattedDateTime);
 //Formatted LocalDateTime : 2018-07-14T17:45:55.9483536
 ```
 
-
 ### array > list
+
 ```java
 List list = Arrays.asList(strArray);
 
@@ -176,11 +186,12 @@ ArrayList<String> list = new ArrayList<String>(Arrays.asList(strArray)) ;
             }
 
 ```
+
 ### list > array
+
 ```java
 ArrayList.toArray
 ```
-
 
 #### Collections.addAll()方法(最高效)
 
@@ -193,6 +204,7 @@ private void testArrayCastToListEfficient(){
     }
 
 ### Instant > Date
+
 ```java
 Instant foo = Instant.now()
 Date.from(foo)
@@ -200,6 +212,6 @@ Date.from(foo)
 
 ---
 
-https://blog.csdn.net/x541211190/article/details/79597236
-https://howtodoinjava.com/java/date-time/format-localdatetime-to-string/
->https://javadeveloperzone.com/java-basic/java-convert-int-to-byte-array/
+<https://blog.csdn.net/x541211190/article/details/79597236>
+<https://howtodoinjava.com/java/date-time/format-localdatetime-to-string/>
+><https://javadeveloperzone.com/java-basic/java-convert-int-to-byte-array/>

@@ -9,8 +9,8 @@ tags:
   - reprint
 ---
 ## Linux 服务器性能 命令
-https://www.oschina.net/news/77545/check-linux-server-performance-in-one-minutes
 
+<https://www.oschina.net/news/77545/check-linux-server-performance-in-one-minutes>
 
 通过执行以下命令,可以在1分钟内对系统资源使用情况有个大致的了解。
 
@@ -19,7 +19,7 @@ uptime
 dmesg | tail
   
 vmstat 1
-  
+
 mpstat -P ALL 1
   
 pidstat 1
@@ -94,7 +94,7 @@ r  b swpd   free   buff  cache   si   so    bi    bo   in   cs us sy id wa st
   
 ^C
   
-vmstat(8) 命令,每行会输出一些系统核心指标,这些指标可以让我们更详细的了解系统状态。后面跟的参数1,表示每秒输出一次统计信息,表头提示了每一列的含义,这几介绍一些和性能调优相关的列: 
+vmstat(8) 命令,每行会输出一些系统核心指标,这些指标可以让我们更详细的了解系统状态。后面跟的参数1,表示每秒输出一次统计信息,表头提示了每一列的含义,这几介绍一些和性能调优相关的列:
 
 r: 等待在CPU资源的进程数。这个数据比平均负载更加能够体现CPU负载情况,数据中不包含等待IO的进程。如果这个数值大于机器CPU核数,那么机器的CPU资源已经饱和。
   
@@ -198,7 +198,7 @@ dm-2        0.00     0.00    0.09    0.07     1.35     0.36    22.50     0.00   
   
 ^C
   
-iostat命令主要用于查看机器磁盘IO情况。该命令输出的列,主要含义是: 
+iostat命令主要用于查看机器磁盘IO情况。该命令输出的列,主要含义是:
 
 r/s, w/s, rkB/s, wkB/s: 分别表示每秒读写次数和每秒读写数据量 (千字节) 。读写量过大,可能会引起性能问题。
   
@@ -284,7 +284,7 @@ Linux 3.13.0-49-generic (titanclusters-xxxxx)  07/14/2015    _x86_64_    (32 CPU
   
 ^C
   
-sar命令在这里用于查看TCP连接状态,其中包括: 
+sar命令在这里用于查看TCP连接状态,其中包括:
 
 active/s: 每秒本地发起的TCP连接数,既通过connect调用创建的TCP连接；
   
@@ -340,6 +340,6 @@ top命令包含了前面好几个命令的检查的内容。比如系统负载�
 
 排查Linux服务器性能问题还有很多工具,上面介绍的一些命令,可以帮助我们快速的定位问题。例如前面的示例输出,多个证据证明有JAVA进程占用了大量CPU资源,之后的性能调优就可以针对应用程序进行。
 
-原文链接:  http://techblog.netflix.com/2015/11/linux-performance-analysis-in-60s.html
+原文链接:  <http://techblog.netflix.com/2015/11/linux-performance-analysis-in-60s.html>
   
 本文译者: 金灵杰

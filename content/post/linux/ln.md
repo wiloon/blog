@@ -82,7 +82,7 @@ cat: f3: No such file or directory
 
 3.总结
   
-依此您可以做一些相关的测试，可以得到以下全部结论: 
+依此您可以做一些相关的测试，可以得到以下全部结论:
   
 1).删除符号连接f3,对f1,f2无影响；
   
@@ -148,7 +148,7 @@ ln source dist 是产生一个连结(dist)到 source，至于使用硬连结或�
   
 ln yy xx
 
-http://www.cnblogs.com/itech/archive/2009/04/10/1433052.html
+<http://www.cnblogs.com/itech/archive/2009/04/10/1433052.html>
 
 ## unlink
 
@@ -173,7 +173,10 @@ If the name referred to a socket, fifo or device the name for it is removed but 
 rm 命令
 rm 命令也是删除文件。为了查看rm 与 unlink 的区别，用 strace 跟踪执行 rm 命令时使用的系统调用：
 
-# strace rm data.txt 2>&1 | grep 'data.txt' 
+```bash
+strace rm data.txt 2>&1 | grep 'data.txt'
+```
+
 execve("/bin/rm", ["rm", "data.txt"], [/* 13 vars */]) = 0
 lstat("data.txt", {st_mode=S_IFREG|0644, st_size=10, ...}) = 0
 stat("data.txt", {st_mode=S_IFREG|0644, st_size=10, ...}) = 0
@@ -181,7 +184,10 @@ access("data.txt", W_OK)                = 0
 unlink("data.txt")                      = 0
 跟踪 unlink 命令的结果：
 
-# strace unlink data.txt 2>&1 | grep 'data.txt'
+```bash
+strace unlink data.txt 2>&1 | grep 'data.txt'
+```
+
 execve("/bin/unlink", ["unlink", "data.txt"], [/* 13 vars */]) = 0
 unlink("data.txt")
 可以看出，在linux 中，rm 命令比 unlink 命令多了一些权限的检查，之后也是调用了 unlink() 系统调用。在文件允许删除的情况下，rm 命令和 unlink 命令其实是没有区别的。
@@ -189,7 +195,10 @@ unlink("data.txt")
 rename 命令
 rename 命令通常用于重命名文件，由于本文研究的是文件的移动和删除，因而只需关注 rename 最简单的使用方法：
 
-# strace rename data.txt  dest_file data.txt 2>&1 | egrep  'data.txt|dest_file'
+```bash
+strace rename data.txt  dest_file data.txt 2>&1 | egrep  'data.txt|dest_file'
+```
+
 execve("/usr/bin/rename", ["rename", "data.txt", "dest_file", "data.txt"], [/* 13 vars */]) = 0
 rename("data.txt", "dest_file")         = 0
 可以看出，rename 就是对 rename() 系统调用的封装。
@@ -200,13 +209,15 @@ rename("data.txt", "dest_file")         = 0
 删除了旧文件后新建一个同名文件
 通过执行下面的命令可以区分出 rename() 执行的 “覆盖” 到底是哪一种情况：
 
-
 可见，在目标文件 dest_file 已经存在的情况下，执行 rename 后，dest_file 的 i 节点号发生了变化，因而rename() 系统调用的作用类似于上述第二种情形：即删除文件后再新建一个同名文件。
 
 mv 命令
 mv 命令通常用于重命名文件。当目标文件不存在时，跟踪其执行过程：
 
-# strace mv data.txt  dest_file 2>&1 | egrep  'data.txt|dest_file'
+```bash
+strace mv data.txt  dest_file 2>&1 | egrep  'data.txt|dest_file'
+```
+
 execve("/bin/mv", ["mv", "data.txt", "dest_file"], [/* 13 vars */]) = 0
 stat("dest_file", 0x7ffe1b4aab50)       = -1 ENOENT (No such file or directory)
 lstat("data.txt", {st_mode=S_IFREG|0644, st_size=726, ...}) = 0
@@ -214,7 +225,10 @@ lstat("dest_file", 0x7ffe1b4aa900)      = -1 ENOENT (No such file or directory)
 rename("data.txt", "dest_file")         = 0
 当目标文件存在时：
 
-# strace mv src_data data.txt 2>&1 | egrep 'src_data|data.txt'
+```bash
+strace mv src_data data.txt 2>&1 | egrep 'src_data|data.txt'
+```
+
 execve("/bin/mv", ["mv", "src_data", "data.txt"], [/* 13 vars */]) = 0
 stat("data.txt", {st_mode=S_IFREG|0644, st_size=726, ...}) = 0
 lstat("src_data", {st_mode=S_IFREG|0644, st_size=726, ...}) = 0
@@ -227,7 +241,10 @@ rename("src_data", "data.txt")          = 0
 cp 命令
 对于cp 命令，当目标文件不存在时：
 
-# strace cp data.txt dest_data 2>&1 | egrep 'data.txt|dest_data'
+```bash
+strace cp data.txt dest_data 2>&1 | egrep 'data.txt|dest_data'
+```
+
 execve("/bin/cp", ["cp", "data.txt", "dest_data"], [/* 13 vars */]) = 0
 stat("dest_data", 0x7fff135827f0)       = -1 ENOENT (No such file or directory)
 stat("data.txt", {st_mode=S_IFREG|0644, st_size=726, ...}) = 0
@@ -236,7 +253,6 @@ open("data.txt", O_RDONLY)              = 3
 open("dest_data", O_WRONLY|O_CREAT, 0100644) = 4
 当目标文件存在时：
 
-
 可见，如果目标文件存在，在执行cp 命令之后，文件的 inode 号并没有改变，并且可以看出，cp 使用了 open 及O_TRUNC 参数打开了目标文件。因而当目标文件已经存在时，cp 命令实际是清空了目标文件内容，之后把新的内容写入目标文件。
 
 结语
@@ -244,4 +260,4 @@ open("dest_data", O_WRONLY|O_CREAT, 0100644) = 4
 
 本篇的主要目的是让读者了解 linux 下文件系统的组织方式及常用的操作文件命令的工作原理。有了本篇的知识后，我们就可以深入的研究 ”覆盖或删除正在被使用的文件“ 时操作系统的的行为了，也就能理解在用 cp 命令更新可执行文件时出现 ”Text file busy“ 的原因了。具体的内容，将会在下篇中说明。
 
->https://zhuanlan.zhihu.com/p/25600743
+><https://zhuanlan.zhihu.com/p/25600743>

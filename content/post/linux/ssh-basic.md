@@ -1,7 +1,7 @@
 ---
-title: ssh basic
+title: ssh basic, ssh command
 author: "-"
-date: 2011-09-25T09:54:40+00:00
+date: 2022-10-20 22:38:04
 url: ssh
 categories:
   - Linux
@@ -10,16 +10,43 @@ tags:
 ---
 ## ssh basic
 
+- 端口转发
+- ssh 不登陆直接执行命令
+
+## 端口转发
+
+```bash
+ssh -L 2000:192.168.50.11:5432 192.168.50.10 -l root
+# 2000 本地端口
+# 192.168.50.11 目标主机
+# 5432 目标端口
+# 192.168.50.10 跳板机
+```
+
+<https://wangdoc.com/ssh/port-forwarding.html>
+
+## ssh 不登陆直接执行命令
+
+```bash
+ssh root@192.168.50.31 "whoami"
+```
+
+## 参数
+
+- -f：后台执行ssh指令
+- -N：不执行远程指令
+- -L listen-port:host:port 指派本地的 port 到达端机器地址上的 port, 建立本地SSH隧道(本地客户端建立监听端口), 将本地机(客户机)的某个端口转发到远端指定机器的指定端口.
+
 ## 指定私钥
 
 ```bash
-    ssh -i /path/to/id_rsa
+ssh -i /path/to/id_rsa
 ```
   
 ### 测试
 
 ```bash
-    ssh -T git@github.com
+ssh -T git@github.com
 ```
 
 ### ssh 强制使用密码登录, force ssh client to use only password auth
@@ -29,17 +56,15 @@ ssh -o PreferredAuthentications=password -o PubkeyAuthentication=no 192.168.2.x 
 ```
 
 ```bash
-  
 #debian
-  
 sudo apt-get install openssh-server
 
 #archlinux
-  
 sudo pacman -S openssh
 sudo /etc/init.d/ssh start|stop|restart
 ssh IP
 ssh IP -p 1234 -l root
+
 # ssh version 
 ssh -V
 ```
@@ -50,11 +75,14 @@ ssh -V
 sudo apt install openssh-server
 sudo systemctl start sshd
 ```
+
 ### -A option enables forwarding of the authentication agent connection
 
 There is a shortcut to archive this, if we don't want to create a config file, we have another option, using -A flag with the ssh command.
 
-    ssh -A user@myhost.com 
+```bash
+ssh -A user@myhost.com 
+```
 
 ## ssh, block ip, blacklist
 

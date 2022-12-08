@@ -29,7 +29,7 @@ scp /usr/share/terminfo/r/rxvt-unicode-256color user@remotehost:.terminfo/r/
 ```
 
 配置文件在$HOME/.Xresources这个文件中。
-   
+
 ! 起始的行是注释
   
 !!$HOME/.Xresources

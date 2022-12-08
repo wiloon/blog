@@ -9,11 +9,16 @@ tags:
   - reprint
 ---
 ## golang http
+
 ### get
+
+```go
     resp, err := http.Get("http://example.com/")
-    
+```
+
 ### http post
 
+```go
         func httpPostForm() {
         // params:=url.Values{}
         // params.Set("hello","fdsfs")  //这两种都可以
@@ -27,10 +32,11 @@ tags:
             fmt.Println(string(body))
         
         }
-
+```
 
 ### proxy
-https://www.flysnow.org/2016/12/24/golang-http-proxy.html
+
+<https://www.flysnow.org/2016/12/24/golang-http-proxy.html>
 
 ```go
 package main
@@ -111,7 +117,4 @@ func handleClientRequest(client net.Conn) {
 
 ```
 
-
----
-
-https://segmentfault.com/a/1190000013262746
+<https://segmentfault.com/a/1190000013262746>

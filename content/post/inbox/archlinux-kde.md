@@ -45,9 +45,9 @@ sddm
 
 ### 锁屏界面的日期时间格式
 
- <https://chubuntu.com/questions/28565/how-to-display-kde-lock-screen-time-in-24-hour-format.html>
+<https://chubuntu.com/questions/28565/how-to-display-kde-lock-screen-time-in-24-hour-format.html>
 
- ```bash
+```bash
 vim  /usr/share/plasma/look-and-feel/org.kde.breeze.desktop/contents/components/Clock.qml
 找到这一行: 
 
@@ -64,7 +64,7 @@ text: Qt.formatDate(timeSource.data["Local"]["DateTime"], "yyyy-MM-dd");
 保存更改。
 
 按Ctrl + Alt + L锁定屏幕并立即查看更改。
- ```
+```
 
 ### kde 配置
 

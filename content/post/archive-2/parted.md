@@ -10,6 +10,12 @@ tags:
 ---
 ## parted
 
+## instll parted
+
+```bash
+apt install parted
+```
+
 ```bash
 # 查看磁盘信息
 lsblk
@@ -26,7 +32,7 @@ sudo parted -a optimal /dev/sdx
 (parted) p
 # set disk label
 (parted) mklabel gpt
-#or mklabel msdos
+# or mklabel msdos
 
 # 设置 单位为 s, MiB, GiB, MB,GB
 unit mib
@@ -78,23 +84,9 @@ align-check optimal 1
 # 查看磁盘信息
 lsblk
 
-# format partition, 格式化分区,把x替换成实际分区
-# if mkfs.msdos command not found, pacman -S dosfstools
-# 格式化efi分区
-sudo mkfs.msdos -F 32 /dev/sdx1
-#mkfs.vfat /dev/sdx1
-
-sudo mkfs.ntfs /dev/sddx
-# mkfs.ntfs command not found, sudo pacman -S ntfsprogs
-
 # mkswap
 sudo mkswap /dev/sdx2
 swapon /dev/sdx2
-
-# 格式化
-sudo mkfs.ext4 /dev/sdx3
-sudo mkfs -t ext4 /dev/vdb1
-sudo mkfs.btrfs -L data0 /dev/sdx3
 
 # 查看磁盘分区UUID, 没有root权限时, blkid没有输出, 要加sudo.
 # sudo blkid
@@ -168,3 +160,37 @@ mkfs.ntfs -f /dev/sdb1
 ————————————————
 版权声明：本文为CSDN博主「Litedg」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
 原文链接：<https://blog.csdn.net/Litedg/article/details/111504305>
+
+## parted 交互式创建分区, ntfs
+
+```bash
+(parted) mkpart
+Partition name?  []? windata
+File system type?  [ext2]? ntfs
+Start? 51%
+End? 100%
+quit
+```
+
+## 格式化分区
+
+```bash
+# format partition, 格式化分区, 把 x 替换成实际分区
+# if mkfs.msdos command not found, pacman -S dosfstools
+# 格式化efi分区
+sudo mkfs.msdos -F 32 /dev/sdx1
+#mkfs.vfat /dev/sdx1
+
+# ntfs
+sudo mkfs.ntfs -f /dev/sddx
+# mkfs.ntfs command not found, sudo pacman -S ntfsprogs
+# -f, --fast                      Perform a quick format
+# -Q, --quick                     Perform a quick format
+
+# ext4
+sudo mkfs.ext4 /dev/sdx3
+sudo mkfs -t ext4 /dev/vdb1
+
+# btrfs
+sudo mkfs.btrfs -L data0 /dev/sdx3
+```

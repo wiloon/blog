@@ -1,7 +1,7 @@
 ---
 title: wireguard
 author: "-"
-date: 2020-03-15T16:20:26+00:00
+date: 2022-07-31 13:54:01
 url: wireguard
 categories:
   - network
@@ -9,8 +9,11 @@ tags:
   - reprint
   - remix
   - VPN
+  - Wireguard
 ---
 ## wireguard
+
+wireguard default port: 51820
 
 ## install
 
@@ -36,73 +39,79 @@ apt update
 apt install wireguard
 ```
 
+## macos
+
+在 appstore 安装 wireguard
+
 ### 生成密钥 peer A & peer B
 
 ```bash
-# 生成私钥
-wg genkey > peer_A.key
-chmod 600 peer_A.key
-# 生成公钥
-wg pubkey < peer_A.key > peer_A.pub
-
 # 同时生成私钥公钥
-wg genkey | tee peer_A.key | wg pubkey > peer_A.pub
+wg genkey | tee private.key | wg pubkey > public.key
+
+# 单独生成私钥
+wg genkey > private.key
+chmod 600 private.key
+# 单独生成公钥
+wg pubkey < private.key > public.key
 
 ### optional, pre-shared key
 wg genpsk > peer_A-peer_B.psk
 ```
 
-### 参数
+#### Peer A setup, server
+
+##### 参数 allowed-ips
 
 ```bash
-# 设置可以被路由到对端的ip/段
+# 设置可以被路由到对端的 ip/段
 allowed-ips
 
 # 路由所有流量到对端
 allowed-ips 0.0.0.0/0
 
-# 路由指定ip/段到对端
+# 路由指定 ip/段 到对端
 allowed-ips 192.168.53.1/32
 
-# 路由多个ip/段到对端 
+# 路由多个 ip/段 到对端 
 allowed-ips 192.168.53.1/32,192.168.50.0/24
 
 # endpoint
-对端的ip和端口
+对端的 ip 和端口
 ```
-
-#### Peer A setup
 
 ```bash
 sudo ip link add dev wg0 type wireguard
 sudo ip addr add 192.168.53.1/24 dev wg0
-sudo wg set wg0 private-key ./peer_A.key
+# 使用本端私钥
+sudo wg set wg0 private-key ./private.key
 sudo wg set wg0 listen-port 51900
 
-# peer A 做为服务端使用时，peer_B 的ip 和端口一般是动态的，所以peer A 不配置 endpoint  
+# 做为服务端使用时，对端的 ip 和端口一般是动态的，所以不需要配置 endpoint, PEER_B_PUBLIC_KEY = 对端公钥字符串
 sudo wg set wg0 peer <PEER_B_PUBLIC_KEY> persistent-keepalive 25 allowed-ips 192.168.53.2/32
-# peer b 有确定的端口和IP时， peer A 可以配置endpoint
+# 做为客户端时, 对端有确定的 IP 和端口时， 要配置对端的 endpoint
 sudo wg set wg0 peer <PEER_B_PUBLIC_KEY> persistent-keepalive 25 allowed-ips 192.168.53.2/32  endpoint 192.168.50.115:9000
 
-### set interface up
+# set interface up
 ip link set wg0 up
 ```
 
-### peer B
+### peer B, client
 
 ```bash
 sudo ip link add dev wg0 type wireguard
-# ip要改一下...
+# ip 要改一下 ...
 sudo ip addr add 192.168.53.2/24 dev wg0
-sudo wg set wg0 private-key ./privatekey
+sudo wg set wg0 private-key ./private.key
 
 # 配置监听端口，监听 peer A 发起的连接请求，仅作为客户端使用时，可以不配置监听, 忽略此步骤
-sudo wg set wg0 listen-port 9000 allowed-ips 0.0.0.0/0 peer_B 
+sudo wg set wg0 listen-port 9000 allowed-ips 0.0.0.0/0 peer_B
 
-# 所有的ip包都 会被 发往 peer_A
-# endpoint 对端的地址,ip或域名
+# allowed-ips 0.0.0.0/0 所有的 ip 包都 会被 发往 peer_A
+# endpoint 对端的地址, ip 或域名
 # PEER_A_PUBLIC_KEY 对端公钥
 sudo wg set wg0 peer PEER_A_PUBLIC_KEY persistent-keepalive 25 allowed-ips 0.0.0.0/0 endpoint 192.168.50.215:9000
+# set interface up
 sudo ip link set wg0 up
 ```
 
@@ -118,60 +127,64 @@ ip route add fd7b:d0bd:7a6e::/64 dev wg0
 ### remove peer
 
 ```bash
-    wg set wg0 peer PEER_A_PUBLIC_KEY remove
+wg set wg0 peer PEER_A_PUBLIC_KEY remove
 ```
 
 ### 配置文件
 
 ```bash
-    /etc/wireguard/wg0.conf
+/etc/wireguard/wg0.conf
 ```
 
 #### 保存配置到文件
 
 ```bash
-    wg showconf wg0 > /etc/wireguard/wg0.conf
-    wg-quick up wg0
-    wg-quick down wg0
+wg showconf wg0 > /etc/wireguard/wg0.conf
+wg-quick up wg0
+wg-quick down wg0
 ```
 
 ### systemd-networkd
 
 ```bash
-    systemd-networkd-wait-online.service
-    systemd-resolvconf  
-    openresolv
+systemd-networkd-wait-online.service
+systemd-resolvconf  
+openresolv
 ```
 
-### iptables, 设置iptables规则，客户端连接之后就能Ping通服务端局域网里的其它ip了
+## ipv4 forward
+
+wiloon.com/ip-forward
+
+### iptables, 设置 iptables 规则，客户端连接之后就能 Ping 通服务端局域网里的其它 ip 了
 
 ```bash
-    iptables -A FORWARD -i wg0 -j ACCEPT
-    iptables -t nat -A POSTROUTING -o <eth0> -j MASQUERADE
-    iptables -t nat -A POSTROUTING -o wlp1s0 -j MASQUERADE
+iptables -A FORWARD -i wg0 -j ACCEPT
+iptables -t nat -A POSTROUTING -o <eth0> -j MASQUERADE
+iptables -t nat -A POSTROUTING -o wlp1s0 -j MASQUERADE
 ```
 
-### systemd-networkd, 用 systemd-networkd 配置 wireguard,开机自动加载 wireguard 配置
+### systemd-networkd, 用 systemd-networkd 配置 wireguard, 开机自动加载 wireguard 配置
 
 #### vim /etc/systemd/network/99-wg0.netdev
 
 ```bash
-    [NetDev]
-    Name = wg0
-    Kind = wireguard
-    Description = wireguard
+[NetDev]
+Name = wg0
+Kind = wireguard
+Description = wireguard
 
-    [WireGuard]
-    ListenPort = 51900
-    PrivateKey = private-key-0
+[WireGuard]
+ListenPort = 51900
+PrivateKey = private-key-0
 
-    [WireGuardPeer]
-    PublicKey = public-key-0
-    AllowedIPs = 192.168.xx.xx/32 
+[WireGuardPeer]
+PublicKey = public-key-0
+AllowedIPs = 192.168.xx.xx/32 
 
-    [WireGuardPeer]
-    PublicKey = public-key-1
-    AllowedIPs = 192.168.xx.xx/32 
+[WireGuardPeer]
+PublicKey = public-key-1
+AllowedIPs = 192.168.xx.xx/32 
 ```
 
 #### vim /etc/systemd/network/99-wg0.network
@@ -186,6 +199,12 @@ Address = 192.168.53.1/32
 [Route]
 Gateway = 192.168.53.1
 Destination = 192.168.53.0/24
+```
+
+#### restart to enable
+
+```bash
+systemctl restart systemd-networkd
 ```
 
 ### config router, add port forward config
@@ -219,7 +238,7 @@ mtu: auto
 ### iOS client
 
 1. Create from scratch
-2. Name/名称: <foo>
+2. Name/名称: `<foo>`
 3. Generate keypair/生成密钥对
 4. 发送公钥到服务端
 5. 配置 foo.netdev
@@ -241,7 +260,7 @@ mtu: auto
 使用 android 版本的 wireguard
 chromeos 从 google play 安装wireguard,连接成功后，vpn全局生效包括crostini里的linux也可以使用vpn通道
 
-### win 11
+## windows
 
 - 新建空隧道
   - 名称: pingd
@@ -249,18 +268,103 @@ chromeos 从 google play 安装wireguard,连接成功后，vpn全局生效包括
 
 ```bash
 [Interface]
+# 自动生成的私钥
 PrivateKey = privateKey0
 Address = 192.168.53.8/32
+# DNS 可选字段, 配置之后 DNS 请求会发到这个地址
 DNS = 192.168.50.1
 
 [Peer]
+# publicKey0: 服务端公钥, 对端公钥
 PublicKey = publicKey0
 AllowedIPs = 192.168.50.0/24, 192.168.53.0/24
-Endpoint = foo.bar.com:51900
 # endpoint 配置了域名的时候, wireguard 建立连接时会先把域名解析成ip,再建连接,断网重连的时候直接用上一次的ip重连, 用DDNS的情况, ip变了之后会导致重连失败.
+Endpoint = foo.bar.com:51900
+# keep alive
+PersistentKeepalive = 25
 ```
 
+## network manager + wireguard
+
+在 network manager 图标上点右键> edit connections...> add a new connection> choose a connection type> wireguard> create
+
+- interface name: wg0
+- private key: input private key
+
+peers> Add>
+
+- public key: `<public key>`
+- allowed ips: 192.168.53.0/24
+
+<https://www.xmodulo.com/wireguard-vpn-network-manager-gui.html>
+
+## openwrt wireguard
+
+```bash
+opkg update
+opkg install luci-i18n-wireguard-zh-cn
+
+```
+
+### 配置
+
+Network> interface> add new interface>Name: wg0> protocol: wireguard vpn> create interface
+
+- general settings
+  - private key: generate key
+  - ip address: 192.168.53.12
+- peers> add peer
+  - description: description0
+  - 公钥: peer publick0
+  - 允许的IP: 192.168.53.0/24
+  - Route Allowed IPs: yes
+  - endpoint host: xxx.xxx.xxx.xxx
+  - endpoint port: 51900
+  - persistent keep alive: 60
+
+### openwrt 定时检查连接, 重启 wireguard
+
+wireguard 只会在连接初始化的时候解析一次, 如果 ddns, 在 ip 更新 之后, wireguard 不会重连, 以下脚本定时检测连接, 有问题就重启 wireguard.
+
+```bash
+#!/bin/sh
+#modified from https://openwrt.org/docs/guide-user/base-system/cron
+#modified to use logger for global logging instead of scriptlogfile & added infinite reboot protection for reboot
+# Prepare vars
+DATE=$(date +%Y-%m-%d" "%H:%M:%S)
+#logFile="/persistlogs/syslog"
+
+# Ping and reboot if needed
+
+#YOUR WIREGUARD PEER
+CHECKHOSTNAME="192.168.53.1"
+
+notification_email="wiloon.wy@gmail.com"
+VPNINTERFACE="wg0"
+
+
+ping -c3 $CHECKHOSTNAME
+
+if [ $? -eq 0 ]; then
+    echo "ok"
+    logger $(echo "${DATE} - $0: OK - $VPNINTERFACE UP AND RUNNING")
+
+else
+    echo "RESTART wgvpn0 Interface"
+    logger $(echo "${DATE} - $0: NO VPN CONNECTION RESTART $VPNINTERFACE INTERFACE...")
+    # Note: To avoid infinite reboot loop, wait 70 seconds and touch a file in /etc
+    ifdown $VPNINTERFACE
+    ifup $VPNINTERFACE
+        echo Subject: $0: VPN $VPNINTERFACE has been restarted | sendmail -v "$notification_email"
+fi
+
+```
+
+<https://forum.openwrt.org/t/restart-wireguard-via-cli/51935/10>
+
 ---
+
+<https://www.whosneo.com/wireguard-openwrt-ipv6/>
 
 ### crostini
 
@@ -269,6 +373,7 @@ Endpoint = foo.bar.com:51900
 
 ### ~~tunsafe  安装~~
 
+```bash
     /etc/wireguard/wg0.conf
 
     git clone https://github.com/TunSafe/TunSafe.git
@@ -278,9 +383,11 @@ Endpoint = foo.bar.com:51900
     sudo make install
     sudo tunsafe start  TunSafe.conf
     sudo tunsafe start -d TunSafe.conf
+```
 
 #### ~~tunsafe 配置文件(废弃)~~
 
+```bash
     [Interface]
     PrivateKey = <private_key>
     DNS = 192.168.50.1
@@ -299,13 +406,18 @@ Endpoint = foo.bar.com:51900
     AllowedIPs = 0.0.0.0/0
     Endpoint = <server_ip0:server_port0>
     PersistentKeepalive = 25
+```
 
 ### chromeos>crostini
 
 chromeos从 google play 安装wireguard,连接成功后，vpn全局生效包括crostini里的linux也可以使用vpn通道
+
 又ccighervkevururvkfggtlhrvtuclinuntecvikn
+
 ~~crostini 不支持wireguard 类型的网络设备， 不能直接使用wireguard, 需要安装tunsafe~~
-~~<https://tunsafe.com/user-guide/linux>~~  
+
+~~<https://tunsafe.com/user-guide/linux>~~
+
 ---
 
 <https://www.wireguard.com/install/>

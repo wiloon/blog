@@ -2,9 +2,9 @@
 title: golang, function types, 函数类型
 author: "-"
 date: '2019-07-26T02:27:23+00:00'
-url: /?p=14721
+url: go/function/types
 categories:
-  - inbox
+  - Go
 tags:
   - reprint
 ---

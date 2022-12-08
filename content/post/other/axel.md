@@ -9,6 +9,7 @@ tags:
   - reprint
 ---
 ## axel
+
 Axel 通过打开多个 HTTP/FTP 连接来将一个文件进行分段下载，从而达到加速下载的目的。对于下载大文件，该工具将特别有用。
 
 ```bash
@@ -28,4 +29,4 @@ axel -s 102400 https://download.jetbrains.8686c.com/idea/ideaIU-2017.1.2.tar.gz
 
 下载目录会有一个.st文件, 会自动断点续传
 
-http://linuxtoy.org/archives/axel.html
+<http://linuxtoy.org/archives/axel.html>

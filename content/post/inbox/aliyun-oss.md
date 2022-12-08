@@ -14,7 +14,7 @@ tags:
 
 ### download ossutil
 
-><https://help.aliyun.com/document_detail/120075.html>
+<https://help.aliyun.com/document_detail/120075.html>
 
 ```bash
 # 生成配置文件, stsToken可以置空

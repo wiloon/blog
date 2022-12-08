@@ -10,7 +10,8 @@ tags:
 
 ---
 ## doGet doPost
-Serlvet接口只定义了一个服务方法就是service，而HttpServlet类实现了该方法并且要求调用下列的方法之一: 
+
+Serlvet接口只定义了一个服务方法就是service，而HttpServlet类实现了该方法并且要求调用下列的方法之一:
   
 doGet: 处理GET请求
   
@@ -54,7 +55,7 @@ service() 方法是 Servlet 的核心。每当一个客户请求一个HttpServle
 
 当一个客户通过HTML 表单发出一个HTTP GET请求或直接请求一个URL时，doGet()方法被调用。与GET请求相关的参数添加到URL的后面，并与这个请求一起发送。当不会修改服务器端的数据时，应该使用doGet()方法。
 
-Servlet的响应可以是下列几种类型: 
+Servlet的响应可以是下列几种类型:
 
 一个输出流，浏览器根据它的内容类型(如text/HTML)进行解释。
 

@@ -301,7 +301,9 @@ cert client.crt改为: #cert client.crt
 key client.key改为: #key client.key
 tls-auth ta.key 1改为: #tls-auth ta.key 1
 
-    在最后面添加以下内容: 
+在最后面添加以下内容
+
+```r
     <ca>
     ca.crt 文件内容
     </ca>
@@ -315,14 +317,15 @@ tls-auth ta.key 1改为: #tls-auth ta.key 1
     <tls-auth>
     ta.key 文件内容
     </tls-auth>
+```
 
 ### server端配置转发
 
-    url: ip-forward
-    
-    iptables -t nat -A POSTROUTING -o wlp1s0 -j MASQUERADE
+```bash
+url: ip-forward
 
----
+iptables -t nat -A POSTROUTING -o wlp1s0 -j MASQUERADE
+```
 
 ><https://wiki.archlinux.org/title/Easy-RSA>  
 <https://wiki.archlinux.org/index.php/OpenVPN>  

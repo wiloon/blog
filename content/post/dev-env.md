@@ -17,11 +17,12 @@ tags:
 - git
 - TortoiseGit
 - VirtualBox
-- bitwarden
+- Bitwarden
 - Chrome
 - Firefox
 - Python
 - Go
+- Flameshot, Linux/Win
 
 ```puml
 @startuml
@@ -248,7 +249,7 @@ pattern--strategy_pattern
 
 ### palette
 
-```
+```r
 #90CAF9   Point
 #FF8A80   Index
 #C5E1A5   Done

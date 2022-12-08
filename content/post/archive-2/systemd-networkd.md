@@ -34,17 +34,17 @@ networkd内置了dhcp client。如果需要更新resolv.conf,则需要启动 sys
 ### .network 配置
 
 ```bash
-    [Match]
-    Name= 设备名 (比如Br0, enp4s0, 也可以用通配符, 比如 en*)
-    Host= 匹配的 hostname
-    Virtualization= 一个布尔值, 检测你的系统是否运行在一个虚拟化环境中. 也就是说, Virtualization=no 只会在宿主机上满足, 而 Virtualization=yes 会应用到任何虚拟机或 container.
+[Match]
+Name= 设备名 (比如Br0, enp4s0, 也可以用通配符, 比如 en*)
+Host= 匹配的 hostname
+Virtualization= 一个布尔值, 检测你的系统是否运行在一个虚拟化环境中. 也就是说, Virtualization=no 只会在宿主机上满足, 而 Virtualization=yes 会应用到任何虚拟机或 container.
 
-    [Network]
-    DHCP= 一个布尔值. 设为 true 的时候, 会启用 systemd-networkd 自带的基础 DHCPv4 支持.
-    DNS= DNS 服务器地址.
-    Bridge= 如果要将这个连接加入网桥, 在这里写入目标网桥的名字
-    Address= 静态的 IPv4 或者 IPv6 地址, 以及相应的用/<数字>方式表示的掩码(如 192.168.1.90/24).
-    Gateway= 网关地址.
+[Network]
+DHCP= 一个布尔值. 设为 true 的时候, 会启用 systemd-networkd 自带的基础 DHCPv4 支持.
+DNS= DNS 服务器地址.
+Bridge= 如果要将这个连接加入网桥, 在这里写入目标网桥的名字
+Address= 静态的 IPv4 或者 IPv6 地址, 以及相应的用/<数字>方式表示的掩码(如 192.168.1.90/24).
+Gateway= 网关地址.
 ```
 
 如果需要指定多个 DNS, Address 或者 Gateway, 你可以多次指定相应的键值对. (也就是说, 多写几行 DNS=xxx, DNS=yyy…)
@@ -82,10 +82,10 @@ sudo systemctl start wpa_supplicant@wlp2s0
 for eth0, vim  /etc/systemd/network/eth.network
 
 ```bash
-    [Match]
-    Name=en*
-    [Network]
-    DHCP=yes
+[Match]
+Name=en*
+[Network]
+DHCP=yes
 ```
 
 ### 配置静态 IP, 网关

@@ -30,13 +30,11 @@ Default Server: name.cao.com.cn
 
 Address: 192.168.1.9
 
-
-
 在符号">"后面输入要查询的IP地址域名，并回车即可。如果要退出该命令，输入"exit"，并回车即可。
 
 (2)使用nslookup命令测试named
 
-输入下面命令: 
+输入下面命令:
 
 nslookup
 
@@ -50,7 +48,7 @@ nslookup
 
 ◆检查反向DNS解析，在nslookup提示符下输入某个IP地址，如192.22.33.20，nslookup应能回答该IP地址所对应的主机名。
 
-◆检查MX邮件地址记录在nslookup提示符下输入: 
+◆检查MX邮件地址记录在nslookup提示符下输入:
 
 set q=mx
 
@@ -64,7 +62,7 @@ set q=mx
 
 2.在一张网卡上绑定多个IP地址
 
-在Linux下，可以使用ifconfig方便地绑定多个IP地址到一张网卡。例如，eth0接口的原有IP地址为192.168.0 .254，可以执行下面命令: 
+在Linux下，可以使用ifconfig方便地绑定多个IP地址到一张网卡。例如，eth0接口的原有IP地址为192.168.0 .254，可以执行下面命令:
 
 ifconfig eth0:0 192.168.0.253 netmask 255.255.255.0
 
@@ -74,15 +72,15 @@ ifconfig eth0:1 192.168.0.252 netmask 255.255.255.0
 
 3.修改网卡MAC地址
 
-首先必须关闭网卡设备，命令如下: 
+首先必须关闭网卡设备，命令如下:
 
 /sbin/ifconfig eth0 down
 
-修改MAC地址，命令如下: 
+修改MAC地址，命令如下:
 
 /sbin/ifconfig eth0 hw ether 00:AA:BB:CC:DD:EE
 
-重新启用网卡: 
+重新启用网卡:
 
 /sbin/ifconfig eht0 up
 
@@ -100,7 +98,7 @@ IPv4
 
 # modprobe IPv6
 
-#ifconfig
+# ifconfig
 
 eth0 Link encap:Ethernet HWaddr 52:54:AB:34:5B:09
 
@@ -122,13 +120,13 @@ Interrupt:5 Base address:0xec00
 
 (2)使用ping命令检测网卡的IPv6地址是否有效
 
-#ping6 -I eth0 -c 2 fe80::200:e8ff:fea0:2586
+# ping6 -I eth0 -c 2 fe80::200:e8ff:fea0:2586
 
 和IPv4不一样，使用ping6命令时必须指定一个网卡界面，否则系统不知道将数据包发送到哪个网络设备。I表示Interface、eth0是第一个网卡，-c表示回路，2表示ping6操作两次。
 
 (3)使用ip命令在IPv6下为eth0增加一个IP地址
 
-#ip -6 addr add 3ffe:ffff:0:f101::1/64 dev eth0
+# ip -6 addr add 3ffe:ffff:0:f101::1/64 dev eth0
 
 使用ifconfig命令，查看网卡是否出现第二个IPv6地址。
 

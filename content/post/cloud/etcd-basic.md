@@ -8,9 +8,10 @@ categories:
 tags:
   - inbox
 ---
-##  "etcd basic"
+## "etcd basic"
 
 ### 单节点的etcd
+
     podman run -d \
     -p 2379:2379 \
     -v etcd-data:/etcd-data \
@@ -23,6 +24,7 @@ tags:
     --name etcd bitnami/etcd:latest
 
 ### set, get
+
     etcdctl ls
     etcdctl set /testdir/testkey "foo"
     etcdctl get /testdir/testkey
@@ -31,7 +33,5 @@ tags:
     etcdctl mk /testdir/testkey "Hello world"
     etcdctl mkdir testdir2
 
-https://etcd.io/docs/v3.4.0/op-guide/container/
-https://github.com/etcd-io/etcd/blob/master/Documentation/op-guide/container.md
-
-
+<https://etcd.io/docs/v3.4.0/op-guide/container/>
+<https://github.com/etcd-io/etcd/blob/master/Documentation/op-guide/container.md>

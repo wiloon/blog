@@ -27,11 +27,12 @@ Alt+Shift+鼠标左键拖动, 选中拖动的区域内容
 
 <https://blog.csdn.net/u011127019/article/details/74039598>
 
-### remote ssh, A> ssh> B
+### vscode remote ssh, A> ssh> B
 
 1. A 安装插件 "Remote - SSH"
 2. 在 B 主机上配置ssh 公钥
-3. A, 点击 vscode左下角,选择 remote-ssh: connect to host
+3. 私钥放在 `C:\Users\user0\.ssh` 里
+4. A, 点击 vscode左下角,选择 remote-ssh: connect to host
 
 ### 字体
 
@@ -53,7 +54,11 @@ Consolas,'Courier New','微软雅黑',monospace
 
 还可以 Consolas, 'Courier New', monospace,DengXian 和 Consolas, 'Courier New', "微软雅黑", monospace 这样。
 
-## vscode plugin
+## vscode plugin, 扩展
+
+### JSON Tools
+
+JSON 格式化工具, 快捷键 `ctl+alt+m`
 
 ### Filter Line
 
@@ -74,18 +79,9 @@ markdown 语法检查
 ### Markdown All in One
 
 ```r
-    ctrl+shift+i - 表格格式化
-    ctrl+b: 粗体
-    命令: Format Document: 格式化表格
-```
-
-## vscode 扩展 离线安装
-
-- 下载 .vsix 文件
-- 安装
-
-```r
-    code --install-extension jsynowiec.vscode-insertdatestring-2.3.1.vsix
+ctrl+shift+i - 表格格式化
+ctrl+b: 粗体
+命令: Format Document: 格式化表格
 ```
 
 ### 配置同步, Plugin Name: Settings Sync
@@ -112,6 +108,15 @@ File> Preferences> Extensions> PlantUML config> Server: <http://plantuml.wiloon.
 ### hexdump
 
 hex viewer
+
+## vscode 扩展 离线安装
+
+- 下载 .vsix 文件
+- 安装
+
+```r
+code --install-extension jsynowiec.vscode-insertdatestring-2.3.1.vsix
+```
 
 ### 显示空格
 

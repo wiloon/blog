@@ -9,11 +9,13 @@ tags:
   - reprint
 ---
 ## deb
+
 ## 安装deb文件
+
 dpkg -i filename.deb
 
-
 ## deb卸载
+
 打开新立得软件包管理器
 
 sudo synaptic
@@ -23,7 +25,6 @@ sudo synaptic
 选择要删的包,右击,选择［标记以便删除］
 
 The difference between "Mark for Removal" and "Mark for Complete Removal" in Synaptic Package Manager:
-
 
 **Mark for removal** removes the package, but not the configuration files associated with the package. It is equivalent to
 

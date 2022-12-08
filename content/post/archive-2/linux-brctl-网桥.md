@@ -43,7 +43,7 @@ nft list ruleset > /etc/nftables.conf
 
 ```
 
-[http://wiki.nftables.org/wiki-nftables/index.php/Performing_Network_Address_Translation_(NAT)][1]
+<http://wiki.nftables.org/wiki-nftables/index.php/Performing_Network_Address_Translation_(NAT>)
 
 ```bash
 sudo brctl addbr br0
@@ -171,19 +171,15 @@ ALinux网桥的实现分析与使用
 四、三者之间的区别
   
 1. 位于参考模型的层数不同
-  
 在开放系统互联参考模型当中,网桥和交换机都是位于参考模型的第二层-数据链路层,而路由器则位于更高一层-网络层。
   
 2. 基于的路径判断条件不同
-  
 由于位于OSI参考模型的层数不同,所以使交换机、网关这两种设备判断路径的条件也不相同,网桥和交换机是根据端口的MAC地址来判断数据包转发,而路由器则使用IP地址来进行判断。
   
 3. 控制广播的能力不同
-  
 网桥和交换机 (三层交换机或支持VLAN功能的除外) 这两种设备是无法控制网络的广播,如果有广播数据包,就会向所有的端口转发,所以在大的网络环境当中,必须得要有路由器来控制网络广播。
   
 4. 智能化程度不同
-  
 在判断数据的时候,网桥只能判断是否在同一个物理网段,交换机则可以判断数据包是属于那个端口,但是这两种设备都没有选择最优路径的能力,而路由器基于IP地址判断路径,所以会根据IP地址信息来判断到达目的地的最优路径。
 
 五、三者的不同应用场景及未来发展
@@ -200,23 +196,22 @@ ALinux网桥的实现分析与使用
 
 前一节中提到,网桥在同一个逻辑网段转发数据包。针对上面的拓扑,这个逻辑网段就是192.168.1.0/24 网段。我们为这个逻辑网段一个名称,br0 。首先需要配置这样一个逻辑网段。
 
-# brctl addbr br0 ( 建立一个逻辑网段,名称为br0)
-
-# brctl delbr br0
+```bash
+brctl addbr br0 ( 建立一个逻辑网段,名称为br0)
+brctl delbr br0
+```
 
 实际上,我们可以把逻辑网段192.168.1.0/24 看作使一个VLAN ,而br0 则是这个VLAN 的名称。
 
 建立一个逻辑网段之后,我们还需要为这个网段分配特定的端口。在Linux 中,一个端口实际上就是一个物理网卡。而每个物理网卡的名称则分别为eth0 ,eth1 ,eth2 ,eth3 。我们需要把每个网卡一一和br0 这个网段联系起来,作为br0 中的一个端口。
 
-# brctl addif br0 eth0       (让eth0 成为br0 的一个端口)
-
-# brctl addif br0 eth1                ( 让eth1 成为br0 的一个端口)
-
-# brctl addif br0 eth0                ( 让eth2 成为br0 的一个端口)
-
-# brctl addif br0 eth3                ( 让eth3 成为br0 的一个端口)
-
-# brctl delif br0 eth0
+````bash
+brctl addif br0 eth0       (让eth0 成为br0 的一个端口)
+brctl addif br0 eth1                ( 让eth1 成为br0 的一个端口)
+brctl addif br0 eth0                ( 让eth2 成为br0 的一个端口)
+brctl addif br0 eth3                ( 让eth3 成为br0 的一个端口)
+brctl delif br0 eth0
+```
 
 网桥的每个物理网卡作为一个端口,运行于混杂模式,而且是在链路层工作,所以就不需要IP了。
 
@@ -265,5 +260,3 @@ ALinux网桥的实现分析与使用
 <http://blog.csdn.net/x_nazgul/article/details/20233237>
 
 <https://www.ibm.com/developerworks/community/blogs/5144904d-5d75-45ed-9d2b-cf1754ee936a/entry/%25e6%2589%258b%25e5%258a%25a8%25e5%2588%259b%25e5%25bb%25banat%25e7%25bd%2591%25e7%25bb%259c?lang=en>
-
- [1]: http://wiki.nftables.org/wiki-nftables/index.php/Performing_Network_Address_Translation_(NAT)

@@ -9,11 +9,12 @@ tags:
   - reprint
 ---
 ## LLMNR
+
 <https://www.jianshu.com/p/bfcc437a738e>
 
 什么是LLMNR
   
-在DNS 服务器不可用时,DNS 客户端计算机可以使用本地链路多播名称解析 (LLMNR—Link-Local Multicast Name Resolution) (也称为多播 DNS 或 mDNS) 来解析本地网段上的名称。例如,如果路由器出现故障,从网络上的所有 DNS 服务器切断了子网,则支持 LLMNR 的子网上的客户端可以继续在对等基础上解析名称,直到网络连接还原为止。
+在DNS 服务器不可用时, DNS 客户端计算机可以使用本地链路多播名称解析 (LLMNR—Link-Local Multicast Name Resolution) (也称为多播 DNS 或 mDNS) 来解析本地网段上的名称。例如, 如果路由器出现故障, 从网络上的所有 DNS 服务器切断了子网, 则支持 LLMNR 的子网上的客户端可以继续在对等基础上解析名称, 直到网络连接还原为止。
 
 LLMNR (本地链路组播名称解析) 在DNS服务器不可用时,DNS 客户端计算机可以使用本地链路组播名称解析,通过UDP发送到组播地址224.0.0.252:5355,来解析本地网段上的名称,使用的也是普通DNS的数据包格式。类似的另一种协议是mDNS (组播DNS) ,通过UDP协议发送到组播地址224.0.0.251:5353,用于家庭局域网等小型网络。
 

@@ -136,13 +136,14 @@ producer所使用的压缩器,目前支持gzip, snappy和lz4。压缩是在用�
 
 #### retries
 
-重试机制,对于瞬时失败的消息发送,开启重试后KafkaProducer会尝试再次发送消息。对于有强烈无消息丢失需求的用户来说,开启重试机制是必选项。
+重试机制, 对于瞬时失败的消息发送, 开启重试后 KafkaProducer 会尝试再次发送消息。对于有强烈无消息丢失需求的用户来说, 开启重试机制是必选项。
   
 ### max.in.flight.requests.per.connection
 
 关乎消息乱序的一个配置参数。它指定了Sender线程在单个Socket连接上能够发送未应答PRODUCE请求的最大请求数。适当增加此值通常会增大吞吐量,从而整体上提升producer的性能。不过笔者始终觉得其效果不如调节batch.size来得明显,所以请谨慎使用。另外如果开启了重试机制,配置该参数大于1可能造成消息发送的乱序(先发送A,然后发送B,但B却先行被broker接收)
 
 ### kafka server config
+
 <https://stackoverflow.com/questions/53039752/kafka-how-to-calculate-the-value-of-log-retention-byte>
 
 ### max.request.size

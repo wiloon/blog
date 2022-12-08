@@ -26,6 +26,20 @@ cp foo.crt /usr/share/ca-certificates/
 sudo dpkg-reconfigure ca-certificates
 ```
 
+## archlinux ca-certificates update, 导入证书
+
+<https://www.archlinux.org/news/ca-certificates-update/>
+
+```bash
+# .pem rename to .crt
+# xxx.crt should export from sub ca
+sudo cp xxx.crt /etc/ca-certificates/trust-source/anchors/
+sudo trust extract-compat
+
+```
+
+---
+
 英文版出处: <http://majic.rs/blog/system-wide-installation-of-certificates>
   
 <https://blog.csdn.net/ziyouwayj/article/details/36371747>
@@ -40,7 +54,7 @@ Although not all applications under GNU/Linux distributions respect this, the ap
 
 虽然不是所有的GNU/ Linux发行版都遵循这一点，但通常linux发行版都从/ etc / ssl下/ certs目录中读取证书。系统自带的证书通常是通过ca-certificates软件包安装的。为了安装自定义的CA证书，并妥善整合到系统中，让大多数应用程序能够找到它，您需要执行以下几个步骤:
 
-  1. Make sure you have installed the ca-certificates package.
+1. Make sure you have installed the ca-certificates package.
 
 1.确认您的linux系统已经安装了ca-certificates软件包
 
@@ -62,15 +76,15 @@ Fedora系统可以采用如下命令安装:
 
 $ yum install ca-certificates
 
-    Make sure you have certificates in PEM format, with the .crt extension. For the purpose of this example the certificate file will be named Example Root.ca
+Make sure you have certificates in PEM format, with the .crt extension. For the purpose of this example the certificate file will be named Example Root.ca
   
 2.确认您要安装的证书文件是PEM格式，后缀名是.crt。例如Root.ca
 
-    Create a subdirectory within the /usr/share/ca-certificates/ directory. For the purpose of this example the directory will be named example.com. Place the certificate authority certificate into this subdirectory.
+Create a subdirectory within the /usr/share/ca-certificates/ directory. For the purpose of this example the directory will be named example.com. Place the certificate authority certificate into this subdirectory.
   
 3.建议在 /usr/share/ca-certificates/ 目录下创建单独的目录来保存您的CA证书文件。例如/usr/share/ca-certificates/example.com/Example Root.ca
 
-    Append a new line listing the relative path (to the /usr/share/ca-certificates/ directory) to the certificate you just copied to the file /etc/ca-certificates.conf. For the purpose of this example the line will be: 
+Append a new line listing the relative path (to the /usr/share/ca-certificates/ directory) to the certificate you just copied to the file /etc/ca-certificates.conf. For the purpose of this example the line will be:
   
 4.在 /etc/ca-certificates.conf 文件中添加一行: 您的证书文件去除 /usr/share/ca-certificates/ 目录后的相对路径。例如针对上面的例子，就只需要添加
   

@@ -73,7 +73,7 @@ sudo ansible 192.168.1.11 -m file -a 'path=/home/roy/xxx/ state=absent'
 
 ```
 
-### hibernate
+### hibernate, 临时的 inventory file
 
 ```bash
 ansible -i '192.168.97.1,' all  -m shell -a 'sudo systemctl hibernate'  -u user0
@@ -81,7 +81,9 @@ ansible -i '192.168.97.1,' all  -m shell -a 'sudo systemctl hibernate'  -u user0
 
 ### verbos
 
+```bash
     ansible -vvvv
+```
 
 ### debug
 

@@ -9,6 +9,7 @@ tags:
   - reprint
 ---
 ## angular 8, ngx-echarts, echart
+
 ```bash
 # 新建 angular项目后， 在项目目录下执行
 yarn add echarts
@@ -26,7 +27,6 @@ import { NgxEchartsModule } from 'ngx-echarts';
   ],
 })
 export class AppModule { }
-```
 
 ### angular.json
 
@@ -129,13 +129,14 @@ export class AppComponent {
 
 ```xml
 </div>
-``` 
+```
 
 ### app.component.css
 
 .chart {
     height: 400px;
 }
+
 ```
 
 https://xieziyu.github.io/ngx-echarts/#/home

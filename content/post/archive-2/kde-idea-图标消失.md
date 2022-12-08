@@ -2,7 +2,7 @@
 title: kde idea 图标消失
 author: "-"
 date: 2019-02-20T05:39:48+00:00
-url: /?p=13648
+url: kde/icon
 categories:
   - Desktop
 tags:

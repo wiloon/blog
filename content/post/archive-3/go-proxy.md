@@ -1,5 +1,5 @@
 ---
-title: go module proxy, goproxy, goproxy.io, goproxy.cn, athens
+title: go module proxy, goproxy, athens
 author: "-"
 date: 2019-06-20T06:16:22+00:00
 url: go/proxy
@@ -8,12 +8,23 @@ categories:
 tags:
   - reprint
 ---
-## go module proxy, goproxy, goproxy.io, goproxy.cn, athens
+## go module proxy, goproxy, athens
+
+GO 版本大于 1.13，可以直接使用 go env -w 命令设置 GOPROXY
 
 ```bash
-export GOPROXY=https://proxy.golang.com.cn,direct
-export GOPROXY=https://goproxy.io,direct
+go env -w GOPROXY=https://goproxy.io,direct
 
+# 清除 go env
+go env -w GOPROXY=
+```
+
+```bash
+# 阿里云 
+export GOPROXY=https://mirrors.aliyun.com/goproxy/
+# goproxy.io
+export GOPROXY=https://goproxy.io,direct
+# goproxy.cn
 export GOPROXY=https://goproxy.cn
 ```
 

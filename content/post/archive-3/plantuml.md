@@ -151,7 +151,7 @@ Class101 <|.. Class102
 更改定义的顺序 (订单 重要......有时候)
 添加空白节点，背景/边框颜色设置为透明
 
-### 部署图
+## 部署图
 
 ```puml
 @startuml
@@ -187,8 +187,8 @@ Alice ->> Bob: async msg
 
 ```bash
 podman run -d \
---name plantuml-server \
--p 30001:8080 plantuml/plantuml-server:jetty-v1.2022.4
+--name plantuml \
+-p 30001:8080 plantuml/plantuml-server:jetty-v1.2022.7
 ```
 
 ### 定义组件的相对位置
@@ -212,4 +212,25 @@ component JMM {
 @enduml
 ```
 
-><https://github.com/plantuml/plantuml-server>
+<https://github.com/plantuml/plantuml-server>
+
+## dot executable /opt/local/bin/dot File does not exist
+
+```bash
+pacman -S graphviz
+```
+
+## 状态图
+
+```plantuml
+@startuml
+[*] --> State1
+State1 --> [*]
+State1 : this is a string
+State1 : this is another string
+
+State1 -> State2
+State2 --> [*]
+@enduml
+
+```

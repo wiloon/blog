@@ -9,17 +9,13 @@ tags:
   - reprint
 ---
 ## maven dependency version range
-http://maven.apache.org/components/enforcer/enforcer-rules/versionRanges.html
 
-## 
+<http://maven.apache.org/components/enforcer/enforcer-rules/versionRanges.html>
 
 ## Version Range Specification
 
 The [RequireMavenVersion][1] and [RequireJavaVersion][2] rules use the [standard Maven version range syntax][3]{.externalLink} with one minor change for ease of use (denoted with *):
 
-
-  
-    
       Range
     
     
@@ -125,10 +121,7 @@ The [RequireMavenVersion][1] and [RequireJavaVersion][2] rules use the [standard
     
     
       x != 1.1
-    
-  
 
-
- [1]: http://maven.apache.org/components/enforcer/enforcer-rules/requireMavenVersion.html
- [2]: http://maven.apache.org/components/enforcer/enforcer-rules/requireJavaVersion.html
- [3]: http://docs.codehaus.org/display/MAVEN/Dependency+Mediation+and+Conflict+Resolution#DependencyMediationandConflictResolution-DependencyVersionRanges
+<http://maven.apache.org/components/enforcer/enforcer-rules/requireMavenVersion.html>  
+<http://maven.apache.org/components/enforcer/enforcer-rules/requireJavaVersion.html>  
+<http://docs.codehaus.org/display/MAVEN/Dependency+Mediation+and+Conflict+Resolution#DependencyMediationandConflictResolution-DependencyVersionRanges>  

@@ -40,3 +40,7 @@ tags:
 How to prevent the huge CPU usage of gnome-keyring-daemon when starting Google Chrome
   
 <https://www.andreafortuna.org/technology/linux/how-to-prevent-the-huge-cpu-usage-of-gnome-keyring-daemon-when-starting-google-chrome/embed/#?secret=NSkQcrRM22>
+
+## chrome 修改默认用户目录, todo merge
+
+-user-data-dir=D:\UserData\chrome
