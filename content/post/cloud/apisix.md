@@ -13,6 +13,7 @@ tags:
 ### 启动etcd
 
 ### apisix
+
     podman run -d \
     --name apisix \
     -v apisix-logs:/usr/local/apisix/logs \
@@ -24,20 +25,26 @@ tags:
     apache/apisix
 
 ### allow admin
- allow_admin:                  # http://nginx.org/en/docs/http/ngx_http_access_module.html#allow
+
+ allow_admin:                  # <http://nginx.org/en/docs/http/ngx_http_access_module.html#allow>
         - 192.168.50.116/24              # If we don't set any IP list, then any IP access is allowed by default.
+
 #### 修改etcd 地址
+
         etcd:
         host: 
             - "http://192.168.50.101:2379"
 
 ### test
+
     curl "http://192.168.50.101:9080/apisix/admin/services/" -H 'X-API-KEY: edd1c9f034335f136f87ad84b625c8f1'
 
 ### build apisix-dashboard
+
     buildah bud -f Dockerfile -t apisix-dashboard:1.5 .
 
 ### run apisix dashboard
+
         podman run -d \
         --name apisix-dashboard \
         -p 80:80 \
@@ -45,8 +52,8 @@ tags:
         -v /etc/localtime:/etc/localtime:ro \
         nginx
 
-    
-###  设置 Upstream
+### 设置 Upstream
+
 创建 id 为 50 的上游信息
 
     curl "http://192.168.50.101:9080/apisix/admin/upstreams/50" -H 'X-API-KEY: edd1c9f034335f136f87ad84b625c8f1' -X PUT -d '
@@ -58,6 +65,7 @@ tags:
 }'
 
 ### config host and upstrem
+
 curl "http://192.168.50.101:9080/apisix/admin/routes/5" -H 'X-API-KEY: edd1c9f034335f136f87ad84b625c8f1' -X PUT -d '
 {
     "uri": "/*",
@@ -68,6 +76,7 @@ curl "http://192.168.50.101:9080/apisix/admin/routes/5" -H 'X-API-KEY: edd1c9f03
 }'
 
 ### config tls cert
+
 convert multi line pem to single line pem with following command
 
     awk 'NF {sub(/\r/, ""); printf "%s\\n",$0;}' cert-name.pem
@@ -87,4 +96,5 @@ convert multi line pem to single line pem with following command
     }'
 
 ### get route config
+
     curl "http://127.0.0.1:9080/apisix/admin/upstreams/53" -H 'X-API-KEY: 'edd1c9f034335f136f87ad84b625c8f1 -X GET

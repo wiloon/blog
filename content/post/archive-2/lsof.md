@@ -1,7 +1,7 @@
 ---
 title: lsof
 author: "-"
-date: 2017-02-20T00:53:45+00:00
+date: 2022-10-12 13:40:33
 url: lsof
 categories:
   - Linux
@@ -12,6 +12,8 @@ tags:
 ---
 ## lsof
 
+lsof means ‘List Open Files’
+
 List all open files on the system or open files for specified PID
 
 ## install
@@ -19,6 +21,48 @@ List all open files on the system or open files for specified PID
 ```bash
 yum install lsof -y
 ```
+
+### 命令参数
+
+```p
+-p <进程ID> 列出指定进程ID所打开的文件
+-a 列出打开文件存在的进程
+-c <进程名> 列出指定进程所打开的文件
+-g 列出GID号进程详情
+-d <文件号> 列出占用该文件号的进程
++d <目录> 列出目录下被打开的文件
++D <目录> 递归列出目录下被打开的文件
+-n <目录> 列出使用NFS的文件
+-i <条件> 列出符合条件的进程。4、6、协议、:端口、 @ip . 
+-u 列出UID号进程详情
+-h 显示帮助信息
+-v 显示版本信息
+```
+
+## 查看tcp连接的建立时间
+
+```bash
+# 查看 tcp 连接
+ss -nt|grep 50.32
+# ESTAB 0      0               192.168.50.228:58048           192.168.50.32:2380
+
+# 端口 :58048
+lsof -i:58048
+```
+
+>COMMAND PID USER   FD   TYPE  DEVICE SIZE/OFF NODE NAME
+>etcd    975 root   79u  IPv4 8267566      0t0  TCP k8s0:58048->k8s2:2380 (ESTABLISHED)
+
+```bash
+# PID: 975, FD: 79
+ls -l /proc/975/fd/79
+```
+
+>lrwx------ 1 root root 64 Oct  8 10:40 /proc/975/fd/79 -> 'socket:[8267566]'
+
+TCP 连接的创建时间: Oct  8 10:40
+
+<https://blog.csdn.net/stpeace/article/details/104651624>
 
 ## lsof 输出的字段
 
@@ -31,6 +75,9 @@ COMMAND     PID   TID TASKCMD               USER   FD      TYPE             DEVI
 ```bash
 #PID: 1098
 sudo lsof -p 1098
+
+## 查看进程打开了哪些端口
+# 以上命令返回的数据里 有 TCP 字样的就是 socket, 能看到端口号
 ```
 
 ## 查看文件被哪些进程使用
@@ -43,7 +90,7 @@ lsof /path/to/file/foo.txt
 ### 使用-i显示所有连接
 
 ```bash
-    lsof -i
+lsof -i
 ```
 
 ### 使用-i 6 仅获取IPv6流量
@@ -80,43 +127,24 @@ lsoflist open files. 是一个列出当前系统打开文件的工具。在linux
 ### 命令格式
 
 ```bash
-    lsof [参数][文件]
+lsof [参数][文件]
 ```
 
 ### 命令功能
 
-用于查看你进程开打的文件,打开文件的进程,进程打开的端口(TCP、UDP)。找回/恢复删除的文件。是十分方便的系统监视工具,因为 lsof 需要访问核心内存和各种文件,所以需要root用户执行。
+用于查看你进程开打的文件, 打开文件的进程, 进程打开的端口(TCP、UDP)。找回/恢复删除的文件。是十分方便的系统监视工具,因为 lsof 需要访问核心内存和各种文件,所以需要root用户执行。
 
 ### lsof打开的文件类型
 
-```p
-    1.普通文件
-    2.目录
-    3.网络文件系统的文件
-    4.字符或设备文件
-    5.(函数)共享库
-    6.管道,命名管道
-    7.符号链接
-    8.网络文件例如: NFS file、网络socket,unix域名socket. 
-    9.还有其它类型的文件,等等
-```
-
-### 命令参数
-
-```p
-    -p <进程ID> 列出指定进程ID所打开的文件
-    -a 列出打开文件存在的进程
-    -c <进程名> 列出指定进程所打开的文件
-    -g 列出GID号进程详情
-    -d <文件号> 列出占用该文件号的进程
-    +d <目录> 列出目录下被打开的文件
-    +D <目录> 递归列出目录下被打开的文件
-    -n <目录> 列出使用NFS的文件
-    -i <条件> 列出符合条件的进程。4、6、协议、:端口、 @ip . 
-    -u 列出UID号进程详情
-    -h 显示帮助信息
-    -v 显示版本信息
-```
+1. 普通文件
+2. 目录
+3. 网络文件系统的文件
+4. 字符或设备文件
+5. (函数)共享库
+6. 管道,命名管道
+7. 符号链接
+8. 网络文件例如: NFS file、网络socket,unix域名socket.
+9. 还有其它类型的文件,等等
 
 ### 输出的列
 

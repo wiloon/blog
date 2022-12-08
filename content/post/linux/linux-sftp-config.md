@@ -9,11 +9,12 @@ tags:
   - reprint
 ---
 ## sftp config
+
 cd /root/ssh
   
 emacs sshd_config
   
-#remove the comments for RSAAuthentication, PubkeyAuthentication
+remove the comments for RSAAuthentication, PubkeyAuthentication
   
 RSAAuthentication yes
   

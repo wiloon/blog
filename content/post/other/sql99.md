@@ -2,7 +2,7 @@
 title: SQL99
 author: "-"
 date: 2012-07-01T08:41:57+00:00
-url: /?p=3709
+url: sql99
 categories:
   - DataBase
 tags:
@@ -10,25 +10,12 @@ tags:
 ---
 ## SQL99
 
-  来自ITwiki，开放的信息技术大百科  http://wiki.ccw.com.cn/SQL99
+来自ITwiki，开放的信息技术大百科  <http://wiki.ccw.com.cn/SQL99>
 
+SQL99是数据库的一个ANSI/ISO标准。这个标准的前身是SQL92 ANSI/ISO标准，而SQL92之前还有一个SQL89 ANSI/ISO标准。它定义了一种语言 (SQL) 以及数据库的行为 (事务、隔离级别等) 。你知道许多商业数据库至少在某种程度上是符合SQL99的吗？不过，这对于查询和应用的可移植性没有多大的意义，这一点你也清楚吗？
 
-  
-    
-    
-    
-    
-    
-    
-    
-      SQL99是数据库的一个ANSI/ISO标准。这个标准的前身是SQL92 ANSI/ISO标准，而SQL92之前还有一个SQL89 ANSI/ISO标准。它定义了一种语言 (SQL) 以及数据库的行为 (事务、隔离级别等) 。你知道许多商业数据库至少在某种程度上是符合SQL99的吗？不过，这对于查询和应用的可移植性没有多大的意义，这一点你也清楚吗？
-    
-    
-    
-      SQL92标准有4个层次: 
-    
-    
-    
+SQL92标准有4个层次:
+
       q 入门级 (Entry level) 。这是大多数开发商符合的级别。这一级只是对前一个标准SQL89稍做修改。所有数据库开发商都不会有更高的级别，实际上，美国国家标准和技术协会NIST (National Institute of Standards and Technology，这是一家专门检验SQL合规性的机构) 除了验证入门级外，甚至不做其他的验证。Oracle 7.0于1993年通过了NIST的SQL92入门级合规性验证，那时我也是小组中的一个成员。如果一个数据库符合入门级，它的特性集则是Oracle 7.0的一个功能子集。
     
     

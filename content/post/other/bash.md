@@ -13,7 +13,7 @@ tags:
 
 ### bash -c
 
-用法:bash -c "cmd string"
+用法: `bash -c "cmd string"`
 通常使用shell去运行脚本，两种方法 bash xxx.sh，另外一种就是bash -c "cmd string"
 对于bash xxx.sh, 首先bash 会在当前目录去寻找xxx.sh，如果找到，就直接运行，找不到则按照环境变量$PATH的指定路径，按顺序去找，如果找到，则执行，找不到则报错。
 shell脚本的参数$0就是要执行的shell脚本xxx.sh， $1就是后面紧跟xxx.sh的参数，$2 $3依次类推
@@ -21,9 +21,9 @@ shell脚本的参数$0就是要执行的shell脚本xxx.sh， $1就是后面紧�
 而对于bash -c "cmd string"
 首先我们看看官方的说明解释
 
--c        If the -c option is present, then commands are read from the first non-option argument command_string.  If there are arguments after the command_string, they are
-           assigned to the positional parameters, starting with $0.
-大致意思就是，如果用-c 那么bash 会从第一个非选项参数后面的字符串中读取命令，如果字符串有多个空格，第一个空格前面的字符串是要执行的命令，也就是$0, 后面的是参数，即$1, $2....
+-c If the -c option is present, then commands are read from the first non-option argument command_string.  If there are arguments after the command_string, they are assigned to the positional parameters, starting with $0.
+
+大致意思就是，如果用 -c 那么bash 会从第一个非选项参数后面的字符串中读取命令，如果字符串有多个空格，第一个空格前面的字符串是要执行的命令，也就是$0, 后面的是参数，即$1, $2....
 我们看个例子
 首先有个atest shell脚本,里面的内容为
 
@@ -52,7 +52,7 @@ $BASH_ARGC 参数数组的长度
 
 shopt 也可以控制 set 的选项
 
-><https://www.cnblogs.com/ziyunfei/p/4913758.html>
+<https://www.cnblogs.com/ziyunfei/p/4913758.html>
 
 作者：llicety
 链接：<https://www.jianshu.com/p/198d819d24d1>

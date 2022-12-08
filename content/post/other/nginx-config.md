@@ -1048,4 +1048,21 @@ proxy_upstream_fail_timeout (fail_timeout)
 
 Sizes can be specified in bytes, kilobytes (suffixes k and K) or megabytes (suffixes m and M), for example, “1024”, “8k”, “1m”.
 
-><http://nginx.org/en/docs/syntax.html>
+<http://nginx.org/en/docs/syntax.html>
+
+## Nginx 配置实现下载文件
+
+```conf
+http {
+  ...
+  server: {
+    # 配置下载
+        location /download {
+            root D:\\download;
+            autoindex on;
+            autoindex_exact_size off;
+        }
+  }
+  ...
+}
+```

@@ -11,6 +11,7 @@ tags:
 ## golang JSON
 
 ### time.Time 序列化
+
 <https://www.cnblogs.com/chenqionghe/p/13409556.html>
 
 ```go
@@ -28,6 +29,7 @@ json.Unmarshal()
 ```
 
 ### struct json tag
+
 <https://colobu.com/2017/06/21/json-tricks-in-Go/>
 
 ```go
@@ -53,7 +55,7 @@ func main() {
 
 本文介绍如何使用Go语言自带的库把对象转换为JSON格式，并在channel中进行传输后，并把JSON格式的信息转换回对象。
 
-1. Go语言的JSON 库
+1. Go 语言的 JSON 库
   
 Go语言自带的JSON转换库为 encoding/json
   
@@ -144,9 +146,7 @@ true,
 9.99,
   
 }
-  
-复制代码
-  
+
 现在我们需要把这个类的一个对象转换为JSON格式，并且传输给远方的朋友，那么我们就可以这么做:
 
 b, err := json.Marshal(st)

@@ -196,8 +196,8 @@ User root
 #### vim /etc/ssh/ssh_config
 
 ```bash
-    Host *
-            ForwardAgent yes
+Host *
+    ForwardAgent yes
 ```
 
 修改配置文件之后记得重启 sshd

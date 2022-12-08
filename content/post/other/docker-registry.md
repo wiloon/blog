@@ -1,12 +1,13 @@
 ---
 title: docker registry
 author: "-"
-date: 2021-03-05 20:05:34
+date: 2022-10-10 11:54:09
 url: docker/registry
 categories:
   - container
 tags:
   - reprint
+  - remix
 ---
 ## docker registry
 
@@ -15,9 +16,8 @@ tags:
 ```bash
 mkdir -p /data/docker-registry/
 
-vim  /data/docker-registry/config.yml
-
-# content
+# sample, https://docs.docker.com/registry/configuration/
+cat > /data/docker-registry/config.yml << EOF
 version: 0.1
 log:
   fields:
@@ -37,8 +37,7 @@ health:
     enabled: true
     interval: 10s
     threshold: 3
-# EOF
-# sample, https://docs.docker.com/registry/configuration/
+EOF
 
 podman run -d \
 -v /data/docker-registry/config.yml:/etc/docker/registry/config.yml \
@@ -94,6 +93,15 @@ server {
       proxy_read_timeout                  900;
     }
 }
+
+```
+
+## 查看仓库镜像
+
+```bash
+curl https://registry.wiloon.com/v2/_catalog
+# 查询镜像tag(版本)
+curl  https://registry.wiloon.com/v2/rssx-api/tags/list
 
 ```
 

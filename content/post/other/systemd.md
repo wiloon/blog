@@ -110,38 +110,20 @@ Environment="ANOTHER_SECRET=JP8YLOc2bsNlrGuD6LVTq7L36obpjzxd"
     sudo systemd-analyze plot > /home/wiloon/tmp/boot3.svg
 ```
 
-### hostnamectl, 查看主机信息, 查看主机名, 查看机器名, 查 hostname
-
-```bash
-hostnamectl
-# 设置主机名
-sudo hostnamectl set-hostname rhel7
-
-hostnamectl
-  
-hostnamectl status
-  
-hostnamectl -static
-  
-hostnamectl -transient
-  
-hostnamectl -pretty
-  
-sudo hostnamectl set-hostname new-host-name
-```
-
 ### timedatectl
 
 ```bash
-    # 查看当前时区设置
-    $ timedatectl
+# 查看当前时区设置
+$ timedatectl
 
-    # 显示所有可用的时区
-    $ timedatectl list-timezones                                                                                  
-    # 设置当前时区
-    $ sudo timedatectl set-timezone America/New_York
-    $ sudo timedatectl set-time YYYY-MM-DD
-    $ sudo timedatectl set-time HH:MM:SS
+# 显示所有可用的时区
+$ timedatectl list-timezones                                                                                  
+# 设置当前时区
+$ sudo timedatectl set-timezone America/New_York
+$ sudo timedatectl set-time YYYY-MM-DD
+$ sudo timedatectl set-time HH:MM:SS
+## timedatectl ntp
+timedatectl set-ntp true
 ```
 
 ### loginctl
@@ -181,6 +163,10 @@ systemctl list-timers --all
 ```
 
 ```bash
+
+# 查看是否启用
+systemctl is-enabled service0
+
 # to see which units have failed.
 systemctl --failed
 
@@ -207,9 +193,6 @@ $ systemctl list-unit-files --type service
 
 # 查看所有 Timer 单元
 $ systemctl list-unit-files --type timer
-
-# 查看是否启用
-systemctl is-enabled SERVICE
 
 显示所有已启动的服务
 systemctl list-units --type=service

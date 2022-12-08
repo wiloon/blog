@@ -16,16 +16,21 @@ tags:
 我们可以在 http 文件中直接定义变量，使用 @ 符号开头，以 {{variable name}} 的格式来使用
 
 ### foo.http
-```
+
+```http
 @foo
 
 GET http://localhost:8000/api/v1/public/echo?msg=1345asdf HTTP/1.1
 
 GET http://localhost:8000/api/v1/public/echo?msg={{foo}} HTTP/1.1
+// comments
 ```
 
 ### http 请求
-```
+
+```http
 ### get
 https://foo.com/bar/?foo=bar&bar=foo
 ```
+
+<https://github.com/Huachao/vscode-restclient>

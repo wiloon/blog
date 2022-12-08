@@ -56,3 +56,23 @@ pacman -S filelight
 ```
 
 >https://bynss.com/linux/471439.html
+
+## 'clean arch  linux'
+
+```bash
+  
+sudo pacman -R $(pacman -Qtdq)
+
+pacman -Scc
+  
+rm -rf ~/.cache
+  
+sudo pacman -S rmlint # remove duplicate file
+  
+sudo pacman -S ncdu
+  
+sudo pacman -S filelight
+  
+```
+
+<https://www.youtube.com/watch?v=3OoMvyHYWDY>

@@ -362,16 +362,12 @@ Servlet规范中定义了web.xml文件，它是Web应用的配置文件，Web.xm
     
     
     
-      3.2 定义定制的URL
+3.2 定义定制的URL
     
-    
-    
-      大多数服务器具有一个缺省的serlvet URL: 
+大多数服务器具有一个缺省的serlvet URL: 
  http://host/webAppPrefix/servlet/packageName.ServletName。虽然在开发中使用这个URL很方便，但是我们常常会希望另一个URL用于部署。例如，可能会需要一个出现在Web应用顶层的URL (如，http://host/webAppPrefix/Anyname) ，并且在此URL中没有servlet项。位于顶层的URL简化了相对URL的使用。此外，对许多开发人员来说，顶层URL看上去比更长更麻烦的缺省URL更简短。
-    
-    
-    
-      事实上，有时需要使用定制的URL。比如，你可能想关闭缺省URL映射，以便更好地强制实施安全限制或防止用户意外地访问无初始化参数的servlet。如果你禁止了缺省的URL，那么你怎样访问servlet呢？这时只有使用定制的URL了。       为了分配一个定制的URL，可使用servlet-mapping元素及其servlet-name和url-pattern子元素。Servlet-name元素提供了一个任意名称，可利用此名称引用相应的servlet；url-pattern描述了相对于Web应用的根目录的URL。url-pattern元素的值必须以斜杠 (/) 起始。下面给出一个简单的web.xml摘录，它允许使用URL http://host/webAppPrefix/UrlTest而不是http://host/webAppPrefix/servlet/Test或
+
+事实上，有时需要使用定制的 URL。比如，你可能想关闭缺省 URL 映射，以便更好地强制实施安全限制或防止用户意外地访问无初始化参数的 servlet。如果你禁止了缺省的URL，那么你怎样访问servlet呢？这时只有使用定制的URL了。       为了分配一个定制的URL，可使用servlet-mapping元素及其servlet-name和url-pattern子元素。Servlet-name元素提供了一个任意名称，可利用此名称引用相应的servlet；url-pattern描述了相对于Web应用的根目录的URL。url-pattern元素的值必须以斜杠 (/) 起始。下面给出一个简单的web.xml摘录，它允许使用URL http://host/webAppPrefix/UrlTest而不是http://host/webAppPrefix/servlet/Test或
  http://host/webAppPrefix/servlet/moreservlets.TestServlet。请注意，仍然需要XML头、DOCTYPE声明以及web-app封闭元素。此外，可回忆一下，XML元素出现地次序不是随意的。特别是，需要把所有servlet元素放在所有servlet-mapping元素之前。<servlet>
  <servlet-name>Test</servlet-name>
  <servlet-class>moreservlets.TestServlet</servlet-class>

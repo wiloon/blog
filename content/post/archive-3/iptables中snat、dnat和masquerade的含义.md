@@ -9,6 +9,7 @@ tags:
   - reprint
 ---
 ## IPtables中SNAT、DNAT和MASQUERADE的含义
+
 IPtables中可以灵活的做各种网络地址转换 (NAT) ，网络地址转换主要有两种: SNAT和DNAT。
 
 SNAT是source networkaddress translation的缩写，即源地址目标转换。比如，多个PC机使用ADSL路由器共享上网，每个PC机都配置了内网IP，PC机访问外部网络的时候，路由器将数据包的报头中的源地址替换成路由器的ip，当外部网络的服务器比如网站web服务器接到访问请求的时候，他的日志记录下来的是路由器的ip地址，而不是pc机的内网ip，这是因为，这个服务器收到的数据包的报头里边的"源地址"，已经被替换了，所以叫做SNAT，基于源地址的地址转换。
@@ -17,7 +18,7 @@ DNAT是destination networkaddress translation的缩写，即目标网络地址�
 
 MASQUERADE，地址伪装，算是snat中的一种特例，可以实现自动化的snat。
 
-在iptables中有着和SNAT相近的效果，但也有一些区别，但使用SNAT的时候，出口ip的地址范围可以是一个，也可以是多个，例如: 
+在iptables中有着和SNAT相近的效果，但也有一些区别，但使用SNAT的时候，出口ip的地址范围可以是一个，也可以是多个，例如:
 
 如下命令表示把所有10.8.0.0网段的数据包SNAT成192.168.5.3的ip然后发出去，
 
@@ -31,7 +32,7 @@ iptables-t nat -A POSTROUTING -s 10.8.0.0/255.255.255.0 -o eth0 -j SNAT -to-sour
 
 MASQUERADE就是针对这种场景而设计的，他的作用是，从服务器的网卡上，自动获取当前ip地址来做NAT。
 
-比如下边的命令: 
+比如下边的命令:
 
 iptables-t nat -A POSTROUTING -s 10.8.0.0/255.255.255.0 -o eth0 -j MASQUERADE
 
@@ -41,4 +42,4 @@ iptables-t nat -A POSTROUTING -s 10.8.0.0/255.255.255.0 -o eth0 -j MASQUERADE
   
 版权声明: 本文为CSDN博主「siaisjack」的原创文章，遵循 CC 4.0 BY-SA 版权协议，转载请附上原文出处链接及本声明。
   
-原文链接: https://blog.csdn.net/jk110333/java/article/details/8229828
+原文链接: <https://blog.csdn.net/jk110333/java/article/details/8229828>

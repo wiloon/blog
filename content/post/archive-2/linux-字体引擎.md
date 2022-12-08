@@ -9,6 +9,7 @@ tags:
   - reprint
 ---
 ## 'linux  字体引擎'
+
 linux下主要使用xtt freetype xfs xft这四种字体引擎,以下是这四种字体引擎的区别,
   
 xtt, freetype, xfs, xft等的区别
@@ -39,8 +40,7 @@ xfs: 设置文件是X11/fs/config
 
 X字库设置必读: Juliusz Chroboczek的Fonts in XFree86
   
-http://www.xfree86.org/~dawes/4.3.0/fonts.html
-
+<http://www.xfree86.org/~dawes/4.3.0/fonts.html>
 
 理论知识
   
@@ -58,7 +58,7 @@ freetype、xtt和xfs可在X下用xlsfonts列出当前可用的X核心字体,xft�
 
 配置
   
-freetype 和xtt的配置很简单,只要在/etc/X11/XF86Config-4(XFree86)或/etc/X11/xorg.conf(xorg)文件中加入FontPath 您的字体目录然后加载相应的引擎模块即可,注意的一点是freetype和xtt都是用freetype1来渲染字体不能同时使用的,只能加载其中一个模块。添加新字体时只需要在你新加的字体目录中创建fonts.dir和fonts.scale文件即可,创建方法可使用mkfontdir和 mkfontscale或者ttmkfdir,据说mkfontdir和mkfontscale创建的fonts.dir和fonts.scale有问题,但我使用时好象没遇到过问题,如果不行的话就用ttmkfdir创建fonts.scale然后再复制一个fonts.scale为 fonts.dir,具体操作可以看看man pages,进入你新建的字体目录下执行mkfontdir和mkfontscale或者执行ttmkfdir && cp fonts.scale fonts.dir即可。 (注: 如果你不知道将FontPath和LoadModule加在什么地方的话就别用X了哈) 
+freetype 和xtt的配置很简单,只要在/etc/X11/XF86Config-4(XFree86)或/etc/X11/xorg.conf(xorg)文件中加入FontPath 您的字体目录然后加载相应的引擎模块即可,注意的一点是freetype和xtt都是用freetype1来渲染字体不能同时使用的,只能加载其中一个模块。添加新字体时只需要在你新加的字体目录中创建fonts.dir和fonts.scale文件即可,创建方法可使用mkfontdir和 mkfontscale或者ttmkfdir,据说mkfontdir和mkfontscale创建的fonts.dir和fonts.scale有问题,但我使用时好象没遇到过问题,如果不行的话就用ttmkfdir创建fonts.scale然后再复制一个fonts.scale为 fonts.dir,具体操作可以看看man pages,进入你新建的字体目录下执行mkfontdir和mkfontscale或者执行ttmkfdir && cp fonts.scale fonts.dir即可。 (注: 如果你不知道将FontPath和LoadModule加在什么地方的话就别用X了哈)
   
 xfs 的配置大同小异,xfs的配置文件为/etc/X11/fs/config。如果需要添加字体也需要创建fonts.dir和fonts.scale,创建方法同上,注意这儿字体目录不是添加在/etc/X11/XF86Config-4或/etc/X11/xorg.conf,而是将字体目录添加到 /etc/X11/fs/config中的catalogue那一行中,然后重启xfs服务/etc/init.d/xfs restart,不过你要注意在你的/etc/X11/XF86Config-4或/etc/X11/xorg.conf中是否加过了FontPath "Unix/:7100",如果没有的话自己手动加上吧。
   
@@ -76,6 +76,6 @@ xft的配置稍微麻烦一些,配置文件为/etc/fonts/fonts.conf,有点累了
   
 如果你要在fvwm中使用xft的话不用修改XF86Config- 4或xorg.conf,直接这样设置fvwm的菜单样式MenuStyle \* Font "xft:Tahoma:Medium:Size=12:encoding=iso8859-1",如果要显示中文则这样设置MenuStyle \* Font "StringEncoding=gbk-0:xft:SimSun:Medium:Size=12:encoding=iso10646-1",使用 xft实现刚才的功能 (中英文使用不同的字体显示) 我一直没找到方法,如果你知道的话一定记得告诉我,在此谢过了。
 
-http://blog.csdn.net/wesleyluo/article/details/7470362
+<http://blog.csdn.net/wesleyluo/article/details/7470362>
 
-http://i.linuxtoy.org/docs/guide/ch19s07.html
+<http://i.linuxtoy.org/docs/guide/ch19s07.html>

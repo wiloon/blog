@@ -10,6 +10,8 @@ tags:
 ---
 ## ext4 的"打洞"功能 (punch hole) , 稀疏文件
 
+Linux 中有一种文件叫做 sparse file，它可以延迟分配磁盘空间，类似于我们用的虚拟机，在创建虚拟机的时候，可以分配20G的磁盘空间，但是你创建完后，去查看宿主机磁盘占用，确实际没有占用那么多。
+
 ### 稀疏文件 (Sparse File)
 
 Sparse files are common in Linux/Unix and are also supported by Windows (e.g. NTFS) and macOSes (e.g. HFS+). Sparse files uses storage efficiently when the files have a lot of holes (contiguous ranges of bytes having the value of zero) by storing only metadata for the holes instead of using real disk blocks. They are especially in case like allocating VM images.
@@ -19,13 +21,17 @@ Sparse files are common in Linux/Unix and are also supported by Windows (e.g. NT
 
 #### 创建稀疏文件
 
-    dd of=foo.bin bs=1k seek=5120 count=0
+```bash
+dd of=foo.bin bs=1k seek=5120 count=0
+```
 
 #### 查看
 
-    du --block-size=1 sparse-file
-    ls -l sparse-file
-    ls -slh sparse-file
+```bash
+du --block-size=1 sparse-file
+ls -l sparse-file
+ls -slh sparse-file
+```
 
 了解系数文件最直观的例子是，创建一个文件，然后用lseek定位到较大的偏移量，在这个偏移量实际写一些内容，这时实际占用的磁盘空间很小，但文件的长度却比较大。比如
 
@@ -352,3 +358,12 @@ od -c file 查看文件存储的内容
 在btrfs跟ext4之间做的结果同上面是一致的,但是在不同文件系统之间cp,因为不同文件系统分配的最小单元不同,所以du结果会不同.
   
 在nfs的客户端下,在nfs目录下去cp,新文件仍然是空洞文件!!!但是cp会逐个的去比较文件的内容,所以,受网络状况搞得影响,过程有时候会很慢.
+
+## 查看文件是否是 sparse file
+
+```bash
+find foo.bar -type f -printf "%S\t%p\n"
+
+```
+
+如上，通过 find 命令，find 命令通过 %S 输出的结果中，最左边一列显示的值是（BLOCK-SIZE*st_blocks/st_size），sparse file 的大小通常是小于 1.0 的。

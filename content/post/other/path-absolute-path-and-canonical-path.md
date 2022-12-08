@@ -9,7 +9,8 @@ tags:
   - reprint
 ---
 ## path, absolute path, and canonical path
-http://www.avajava.com/tutorials/lessons/whats-the-difference-between-a-files-path-absolute-path-and-canonical-path.html
+
+<http://www.avajava.com/tutorials/lessons/whats-the-difference-between-a-files-path-absolute-path-and-canonical-path.html>
   
 -
   
@@ -38,49 +39,49 @@ public class FilePaths {
 public static void main(String[] args) throws IOException {
 
 String[] fileArray = {
-                  
+
 "C:\projects\workspace\testing\f1\f2\f3\file5.txt",
-                  
+
 "folder/file3.txt",
-                  
+
 "../testing/file1.txt",
-                  
+
 "../testing",
-                  
+
 "f1/f2"
-          
+
 };
 
 for (String f : fileArray) {
-              
+
 displayInfo(f);
-          
+
 }
 
 }
 
 public static void displayInfo(String f) throws IOException {
-          
+
 File file = new File(f);
-          
+
 System.out.println("========================================");
-          
+
 System.out.println(" name:" + file.getName());
-          
+
 System.out.println(" is directory:" + file.isDirectory());
-          
+
 System.out.println(" exists:" + file.exists());
-          
+
 System.out.println(" path:" + file.getPath());
-          
+
 System.out.println(" absolute file:" + file.getAbsoluteFile());
-          
+
 System.out.println(" absolute path:" + file.getAbsolutePath());
-          
+
 System.out.println("canonical file:" + file.getCanonicalFile());
-          
+
 System.out.println("canonical path:" + file.getCanonicalPath());
-      
+
 }
 
 }
@@ -88,17 +89,17 @@ System.out.println("canonical path:" + file.getCanonicalPath());
 Executing FilePaths results in the following output:
 
 ========================================
-            
+
 name:file5.txt
-    
+
 is directory:false
-          
+
 exists:true
-            
+
 path:C:projectsworkspacetestingf1f2f3file5.txt
-   
+
 absolute file:C:projectsworkspacetestingf1f2f3file5.txt
-   
+
 absolute path:C:projectsworkspacetestingf1f2f3file5.txt
   
 canonical file:C:projectsworkspacetestingf1f2f3file5.txt
@@ -106,17 +107,17 @@ canonical file:C:projectsworkspacetestingf1f2f3file5.txt
 canonical path:C:projectsworkspacetestingf1f2f3file5.txt
   
 ========================================
-            
+
 name:file3.txt
-    
+
 is directory:false
-          
+
 exists:true
-            
+
 path:folderfile3.txt
-   
+
 absolute file:C:projectsworkspacetestingfolderfile3.txt
-   
+
 absolute path:C:projectsworkspacetestingfolderfile3.txt
   
 canonical file:C:projectsworkspacetestingfolderfile3.txt
@@ -124,17 +125,17 @@ canonical file:C:projectsworkspacetestingfolderfile3.txt
 canonical path:C:projectsworkspacetestingfolderfile3.txt
   
 ========================================
-            
+
 name:file1.txt
-    
+
 is directory:false
-          
+
 exists:true
-            
+
 path:..testingfile1.txt
-   
+
 absolute file:C:projectsworkspacetesting..testingfile1.txt
-   
+
 absolute path:C:projectsworkspacetesting..testingfile1.txt
   
 canonical file:C:projectsworkspacetestingfile1.txt
@@ -142,17 +143,17 @@ canonical file:C:projectsworkspacetestingfile1.txt
 canonical path:C:projectsworkspacetestingfile1.txt
   
 ========================================
-            
+
 name:testing
-    
+
 is directory:true
-          
+
 exists:true
-            
+
 path:..testing
-   
+
 absolute file:C:projectsworkspacetesting..testing
-   
+
 absolute path:C:projectsworkspacetesting..testing
   
 canonical file:C:projectsworkspacetesting
@@ -160,17 +161,17 @@ canonical file:C:projectsworkspacetesting
 canonical path:C:projectsworkspacetesting
   
 ========================================
-            
+
 name:f2
-    
+
 is directory:true
-          
+
 exists:true
-            
+
 path:f1f2
-   
+
 absolute file:C:projectsworkspacetestingf1f2
-   
+
 absolute path:C:projectsworkspacetestingf1f2
   
 canonical file:C:projectsworkspacetestingf1f2
@@ -190,17 +191,17 @@ On Windows systems, the getCanonicalPath() method will also uppercase the drive 
 we would see the following result:
 
 ========================================
-            
+
 name:file5.txt
-    
+
 is directory:false
-          
+
 exists:true
-            
+
 path:c:projectsworkspacetestingf1f2f3file5.txt
-   
+
 absolute file:c:projectsworkspacetestingf1f2f3file5.txt
-   
+
 absolute path:c:projectsworkspacetestingf1f2f3file5.txt
   
 canonical file:C:projectsworkspacetestingf1f2f3file5.txt

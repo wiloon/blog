@@ -9,9 +9,10 @@ tags:
   - reprint
 ---
 ## linux typeset
-https://blog.csdn.net/blackmanren/article/details/9281201
 
-typeset用于设置变量属性,如大小写,宽度,左右对齐等都可以用typeset来控制, 当用typeset改变一个变量的属性时,这种改变是永久的,下面以ksh为例,演示typeset的几种典型用法
+<https://blog.csdn.net/blackmanren/article/details/9281201>
+
+typeset用于设置变量属性, 如大小写,宽度,左右对齐等都可以用typeset来控制, 当用typeset改变一个变量的属性时,这种改变是永久的,下面以ksh为例,演示typeset的几种典型用法
 
 2:typeset的-u选项可以将一个变量的字符变成大写
   
@@ -29,7 +30,7 @@ ABC
   
 abc
 
-4:typeset的-L选项把变量变成一个左对齐的4个字符串,有些像字符串截取
+typeset的-L选项把变量变成一个左对齐的4个字符串,有些像字符串截取
   
 /home/lee#typeset -L4 var=abcdefg
   

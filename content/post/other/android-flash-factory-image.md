@@ -16,7 +16,7 @@ tags:
   
 <https://developers.google.com/android/images>
 
-><https://developer.android.com/about/versions/12/download>
+<https://developer.android.com/about/versions/12/download>
 
 ```bash
 wget https://dl.google.com/dl/android/aosp/angler-opr6.170623.013-factory-a63b2f21.zip

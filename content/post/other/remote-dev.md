@@ -10,9 +10,15 @@ tags:
 ---
 ## remote dev
 
+## virtualbox
+
+windows 宿主机, archlinux 虚拟机, virtualbox 安装增强包, 使用 seamless mode
+
 ## vscode remote ssh
 
-## virtualbox
+## jetbrain remote development
+
+beta 版本 不稳定.
 
 ## vm@server, xforward
 
@@ -22,10 +28,6 @@ tags:
 - 无线网带宽问题，延迟
 
 编辑器内部纵向滚动屏幕带宽占用峰值2300KB/s
-
-## jetbrain remote development
-
-beta 版本 不稳定.
 
 ## vm@server, rdp
 

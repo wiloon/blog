@@ -8,6 +8,7 @@ tags:
   - reprint
 ---
 ## "OKR"
+
 ## OKR (Objectives and Key Results)
 
 [https://www.infoq.cn/profile/1218094/publish](https://www.infoq.cn/profile/1218094/publish "https://www.infoq.cn/profile/1218094/publish")
@@ -26,13 +27,13 @@ tags:
 
 * 灰犀牛: 灰犀牛体型笨重、反应迟缓，你能看见它在远处，却毫不在意，一旦它向你狂奔而来，定会让你猝不及防，直接被扑倒在地。它并不神秘，却更危险。灰犀牛意味这经常被提示却没有得到充分重视的大概率风险事件。
 
-日常的学习和工作中，我们经常会看到: 
+日常的学习和工作中，我们经常会看到:
 
 * 想要的太多，从而使得精力和资源比较分散
 * 分不清楚优先级 / 价值，总是被低优先级 / 价值的事情干扰
 * 被紧急的事情占用了太多时间，重要的事情没时间做
 
-《管理 3.0》 (Jurgen Appelo) 中"激励员工"是其六大支柱之一，Jurgen 把内在动力总结为 10 个因素，我们称为"冠军蛙"CHAMP-FROGS: 
+《管理 3.0》 (Jurgen Appelo) 中"激励员工"是其六大支柱之一，Jurgen 把内在动力总结为 10 个因素，我们称为"冠军蛙"CHAMP-FROGS:
 
 * Curiosity (好奇) : 思考的需要
 * Honor (荣誉) : 受团队尊重的需要

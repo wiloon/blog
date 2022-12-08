@@ -11,6 +11,10 @@ tags:
 ---
 ## windows apps, win apps
 
+- anydeak 远程桌面
+- todesk 远程桌面
+- taskmgr, 任务管理器, C:\Windows\System32\Taskmgr.exe
+
 ### choco
 
 ```bash

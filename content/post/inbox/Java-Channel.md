@@ -9,6 +9,7 @@ tags:
   - inbox
 ---
 ## "Java NIO Channel, buffer"
+
 Channel
 Channel Characteristics
 Java NIO Channel Classes
@@ -38,7 +39,7 @@ channel就可以看作是IO设备和内核区域的一个桥梁，凡是与IO设
 先从IO设备，网卡或者磁盘将内容读取到内核中，对应于NIO就是从网卡或磁盘利用channel将数据读到buffer中
 然后就是内核中的数据复制到进程缓冲区，对应于就是从buffer中读取数据
 
-写入的过程则是: 
+写入的过程则是:
 先从进程将数据写到内核中，对应于就是进程将数据写入到buffer中，
 然后内核中的数据再写入到网卡或者磁盘中，对应于就是，buffer中的数据利用channel传输到IO设备中。
 
@@ -68,7 +69,7 @@ Buffer 是一个对象， 它包含一些要写入或者刚读出的数据。 �
 
 缓冲区类型
 最常用的缓冲区类型是 ByteBuffer。一个 ByteBuffer 可以在其底层字节数组上进行 get/set 操作(即字节的获取和设置)。
-ByteBuffer 不是 NIO 中唯一的缓冲区类型。事实上，对于每一种基本 Java 类型都有一种缓冲区类型: 
+ByteBuffer 不是 NIO 中唯一的缓冲区类型。事实上，对于每一种基本 Java 类型都有一种缓冲区类型:
 
 ByteBuffer
 CharBuffer
@@ -101,51 +102,50 @@ Capacity
 limit 决不能大于 capacity。
 
 image.png
-实例: 
-我们首先观察一个新创建的缓冲区。出于本例子的需要，我们假设这个缓冲区的 总容量 为8个字节。 Buffer 的状态如下所示: 
+实例:
+我们首先观察一个新创建的缓冲区。出于本例子的需要，我们假设这个缓冲区的 总容量 为8个字节。 Buffer 的状态如下所示:
 
 image.png
 
 回想一下 ，limit 决不能大于 capacity，此例中这两个值都被设置为 8。我们通过将它们指向数组的尾部之后(如果有第8个槽，则是第8个槽所在的位置)来说明这点。
 
 image.png
-position 设置为0。如果我们读一些数据到缓冲区中，那么下一个读取的数据就进入 slot 0 。如果我们从缓冲区写一些数据，从缓冲区读取的下一个字节就来自 slot 0 。 position 设置如下所示: 
+position 设置为0。如果我们读一些数据到缓冲区中，那么下一个读取的数据就进入 slot 0 。如果我们从缓冲区写一些数据，从缓冲区读取的下一个字节就来自 slot 0 。 position 设置如下所示:
 
 image.png
 由于 capacity 不会改变，所以我们在下面的讨论中可以忽略它。
 第一次读取
-现在我们可以开始在新创建的缓冲区上进行读/写操作。首先从输入通道中读一些数据到缓冲区中。第一次读取得到三个字节。它们被放到数组中从 position 开始的位置，这时 position 被设置为 0。读完之后，position 就增加到 3，如下所示: 
+现在我们可以开始在新创建的缓冲区上进行读/写操作。首先从输入通道中读一些数据到缓冲区中。第一次读取得到三个字节。它们被放到数组中从 position 开始的位置，这时 position 被设置为 0。读完之后，position 就增加到 3，如下所示:
 
 image.png
 limit 没有改变。
 第二次读取
-在第二次读取时，我们从输入通道读取另外两个字节到缓冲区中。这两个字节储存在由 position 所指定的位置上， position 因而增加 2: 
+在第二次读取时，我们从输入通道读取另外两个字节到缓冲区中。这两个字节储存在由 position 所指定的位置上， position 因而增加 2:
 
 image.png
 limit 没有改变。
 flip
-现在我们要将数据写到输出通道中。在这之前，我们必须调用 flip() 方法。这个方法做两件非常重要的事: 
+现在我们要将数据写到输出通道中。在这之前，我们必须调用 flip() 方法。这个方法做两件非常重要的事:
 它将 limit 设置为当前 position。
 它将 position 设置为 0。
-前一小节中的图显示了在 flip 之前缓冲区的情况。下面是在 flip 之后的缓冲区: 
+前一小节中的图显示了在 flip 之前缓冲区的情况。下面是在 flip 之后的缓冲区:
 
 image.png
 我们现在可以将数据从缓冲区写入通道了。 position 被设置为 0，这意味着我们得到的下一个字节是第一个字节。 limit 已被设置为原来的 position，这意味着它包括以前读到的所有字节，并且一个字节也不多。
 第一次写入
-在第一次写入时，我们从缓冲区中取四个字节并将它们写入输出通道。这使得 position 增加到 4，而 limit 不变，如下所示: 
+在第一次写入时，我们从缓冲区中取四个字节并将它们写入输出通道。这使得 position 增加到 4，而 limit 不变，如下所示:
 
 image.png
 第二次写入
 我们只剩下一个字节可写了。 limit在我们调用 flip() 时被设置为 5，并且 position
-不能超过 limit。所以最后一次写入操作从缓冲区取出一个字节并将它写入输出通道。这使得 position增加到 5，并保持 limit 不变，如下所示: 
-
+不能超过 limit。所以最后一次写入操作从缓冲区取出一个字节并将它写入输出通道。这使得 position增加到 5，并保持 limit 不变，如下所示:
 
 Position advanced to 5, limit unchanged
 clear
-最后一步是调用缓冲区的 clear() 方法。这个方法重设缓冲区以便接收更多的字节。 Clear 做两种非常重要的事情: 
+最后一步是调用缓冲区的 clear() 方法。这个方法重设缓冲区以便接收更多的字节。 Clear 做两种非常重要的事情:
 它将 limit 设置为与 capacity 相同。
 它设置 position 为 0。
-下图显示了在调用 clear() 后缓冲区的状态: 
+下图显示了在调用 clear() 后缓冲区的状态:
 
 image.png
 缓冲区现在可以接收新的数据了。
@@ -220,11 +220,11 @@ public class BufferExample {
 }
 
 参考
-http://javapapers.com/java/java-nio-buffer/
-http://www.importnew.com/19816.html
-https://www.ibm.com/developerworks/cn/education/java/j-nio/j-nio.html
+<http://javapapers.com/java/java-nio-buffer/>
+<http://www.importnew.com/19816.html>
+<https://www.ibm.com/developerworks/cn/education/java/j-nio/j-nio.html>
 
 作者: 六尺帐篷
-链接: https://www.jianshu.com/p/e20f54672865
+链接: <https://www.jianshu.com/p/e20f54672865>
 来源: 简书
 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。

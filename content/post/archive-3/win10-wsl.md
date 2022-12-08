@@ -51,11 +51,13 @@ download the linux kernel update package
 
 升级wsl到最新版本
 
+```bash
     wsl --update
+```
 
 #### 安装 intel 显示驱动
 
-    https://downloadcenter.intel.com/download/30579/Intel-Graphics-Windows-DCH-Drivers
+<https://downloadcenter.intel.com/download/30579/Intel-Graphics-Windows-DCH-Drivers>
 
 ### ssh-agent, keepassxc
 
@@ -91,21 +93,29 @@ ssh-add -L
 
 ### wsl 卸载
 
+```bash
     wsl --unregister Ubuntu
+```
 
 ---
 
 ### 步骤 1 - 启用适用于 Linux 的 Windows 子系统
 
+```bash
     dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart
+```
 
 ### 检查windows的版本
 
+```bash
     winver
+```
 
 ### 步骤 3 - 启用虚拟机功能
 
+```bash
     dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart
+```
 
 ### 从windows应用商店安装ubuntu20.4
 
@@ -113,11 +123,15 @@ ssh-add -L
 
 ### 步骤 5 - 将 WSL 2 设置为默认版本
 
+```bash
     wsl --set-default-version 2
+```
 
 ### 把前面安装的wsl转换成wsl2
 
+```bash
     wsl --set-version Ubuntu-20.04 2
+```
 
 ### 步骤 6 - 安装所选的 Linux 分发
 
@@ -127,7 +141,9 @@ ssh-add -L
 
 <https://developer.aliyun.com/mirror/ubuntu?spm=a2c6h.13651102.0.0.3e221b111bQgY0>
 
+```bash
     vim /etc/apt/source.list
+```
 
 ## 用以下内容覆盖/etc/apt/source.list
 
@@ -150,14 +166,19 @@ deb-src http://mirrors.aliyun.com/ubuntu/ focal-backports main restricted univer
 
 ### 更新系统
 
+```bash
     sudo apt update
     sudo apt upgrade
+```
 
 ### 安装各种依赖包
 
 <https://www.jianshu.com/p/572c86b55a68>
 
+```bash
     sudo apt install golang git python make maven openjdk-8-jdk ttf-wqy-microhei ttf-wqy-zenhei xfonts-wqy
+
+```
 
 ### 安装nodejs
 
@@ -167,26 +188,37 @@ deb-src http://mirrors.aliyun.com/ubuntu/ focal-backports main restricted univer
 
 ### config npm mirror
 
+```bash
     npm install -g mirror-config-china --registry=http://registry.npm.taobao.org
+
+```
 
 ### maven 配置
 
+```bash
     mkdir ~/.m2
     vim ~/.m2/settingxxxx
+```
 
 ### golang proxy
 
+```bash
     vim .bashrc
     export GO111MODULE=on
     export GOPROXY=https://goproxy.cn
+```
 
 ### 检查包的版本
 
+```bash
     node -v && npm -v && go version
+```
 
 ### maven sprint boot run
 
+```bash
       mvn spring-boot:run
+```
 
 ### 固定ip
 
@@ -195,16 +227,21 @@ deb-src http://mirrors.aliyun.com/ubuntu/ focal-backports main restricted univer
 vim .bashrc
 vim .zshrc
 
+```bash
     export DISPLAY=$(awk '/nameserver / {print $2; exit}' /etc/resolv.conf 2>/dev/null):0
+```
 
 ### windows firewall
 
+```bash
     advanced rule add rule: tcp port 0
+```
 
 #### windows脚本设置网卡Ip
 
 <https://blog.csdn.net/manbu_cy/article/details/108476859>
 
+```bash
     @echo off
     setlocal enabledelayedexpansion
 
@@ -228,31 +265,36 @@ vim .zshrc
         )
         
     pause
+```
 
 ### 设置默认的用户
 
-    powershell
-    cd C:\Users\用户名\AppData\Local\Microsoft\WindowsApps
-    dir
-    # 有一个是以ubuntu开头的exe文件
-    ubuntu2004.exe config --default-user user0
+```bash
+powershell
+cd C:\Users\用户名\AppData\Local\Microsoft\WindowsApps
+dir
+# 有一个是以ubuntu开头的exe文件
+ubuntu2004.exe config --default-user user0
+```
 
 ### wsl字体,乱码
 
-><https://zhuanlan.zhihu.com/p/68336685>
+<https://zhuanlan.zhihu.com/p/68336685>
 
+```bash
     git clone https://github.com/powerline/fonts.git --depth=1 # windows 下需先安装 git
     用 powershell 执行 install.ps1
+```
 
 #### 修改 wsl 字体
 
-    左上角图标-->属性-->字体-->Noto Mono for powerline
+左上角图标-->属性-->字体-->Noto Mono for powerline
 
 ### VcXsrv 安装
 
 从SourceForge上面下载最新版本的 VcXsrv  
 
-    https://sourceforge.net/projects/vcxsrv/files/vcxsrv/
+<https://sourceforge.net/projects/vcxsrv/files/vcxsrv/>
 
 #### 启动开始菜单中的XLaunch
 
@@ -271,6 +313,7 @@ vim .zshrc
 
 ### wsl2 内安装 xfce4
 
+```bash
     sudo apt install -y xfce4
     # nameserver后面的地址就是Windows系统虚拟网卡的地址,记一下,同时需要取消下面两行内容的注释,禁用自动重新生成配置文件,否则重启后这个地址会变
     [network]
@@ -284,10 +327,13 @@ vim .zshrc
     export DISPLAY=$(awk '/nameserver / {print $2; exit}' /etc/resolv.conf 2>/dev/null):0
     # 启动xfce4
     startxfce4
+```
 
 ### resolv.conf
 
+```bash
     sudo vim /etc/resolv.conf
+```
 
 #### windows 防火墙配置
 
@@ -295,18 +341,18 @@ vim .zshrc
 
 ### 快捷键
 
+```bash
         Alt + Enter 全屏
         Alt + F2 新建窗口
         Alt + F3 搜索文本
         Ctrl + [Shift] + Tab 切换窗口
         Ctrl + = + - 0 缩放
         Ctrl + Click 打开光标处的文件、目录名或者网址
+```
 
 ### wsl2 Install the Linux kernel update package
 
 <https://docs.microsoft.com/en-us/windows/wsl/wsl2-kernel>
-
-### command
 
 ```bash
 # 列出当前已经安装且随时可用的发行版

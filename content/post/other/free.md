@@ -1,5 +1,5 @@
 ---
-title: free
+title: free command
 author: "-"
 date: 2015-02-10T03:13:28+00:00
 url: free
@@ -8,10 +8,11 @@ categories:
 tags:
   - reprint
 ---
-## free
+## free command
 
 ```bash
 free -h
+free -m
 ```
 
 ```bash
@@ -33,4 +34,3 @@ used2：也就是第一行中的used – buffers - cached也是实际使用的�
 free2 = buffers1 + cached1 + free1 // free2为第二行，buffers1等为第一行
 free2：未被使用的buffers与cache和未被分配的内存之和，这就是系统当前实际可用内存。
 - Swap：表示硬盘上交换分区的使用情况。
-- 

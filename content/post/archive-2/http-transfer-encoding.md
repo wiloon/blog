@@ -9,6 +9,7 @@ tags:
   - reprint
 ---
 ## 'HTTP   Transfer-Encoding'
+
 本文作为我的博客「HTTP 相关」专题新的一篇,主要讨论 HTTP 协议中的 Transfer-Encoding。这个专题我会根据自己的理解,以尽量通俗的讲述,结合代码示例和实际场景来说明问题,欢迎大家关注和留言交流。
 
 Transfer-Encoding,是一个 HTTP 头部字段,字面意思是「传输编码」。实际上,HTTP 协议中还有另外一个头部与编码有关: Content-Encoding (内容编码) 。Content-Encoding 通常用于对实体内容进行压缩编码,目的是优化传输,例如用 gzip 压缩文本文件,能大幅减小体积。内容编码通常是选择性的,例如 jpg / png 这类文件一般不开启,因为图片格式已经是高度压缩过的,再压一遍没什么效果不说还浪费 CPU。
@@ -21,7 +22,7 @@ Persistent Connection
 
 HTTP/1.0 的持久连接机制是后来才引入的,通过 Connection: keep-alive 这个头部来实现,服务端和客户端都可以使用它告诉对方在发送完数据之后不需要断开 TCP 连接,以备后用。HTTP/1.1 则规定所有连接都必须是持久的,除非显式地在头部加上 Connection: close。所以实际上,HTTP/1.1 中 Connection 这个头部字段已经没有 keep-alive 这个取值了,但由于历史原因,很多 Web Server 和浏览器,还是保留着给 HTTP/1.1 长连接发送 Connection: keep-alive 的习惯。
 
-浏览器重用已经打开的空闲持久连接,可以避开缓慢的三次握手,还可以避免遇上 TCP 慢启动的拥塞适应阶段,听起来十分美妙。为了深入研究持久连接的特性,我决定用 Node 写一个最简单的 Web Server 用于测试,Node 提供了 http 模块用于快速创建 HTTP Web Server,但我需要更多的控制,所以用 net 模块创建了一个 TCP Server: 
+浏览器重用已经打开的空闲持久连接,可以避开缓慢的三次握手,还可以避免遇上 TCP 慢启动的拥塞适应阶段,听起来十分美妙。为了深入研究持久连接的特性,我决定用 Node 写一个最简单的 Web Server 用于测试,Node 提供了 http 模块用于快速创建 HTTP Web Server,但我需要更多的控制,所以用 net 模块创建了一个 TCP Server:
 
 JSrequire('net').createServer(function(sock) {
   
@@ -45,7 +46,7 @@ sock.destroy();
 
 Content-Length
   
-要解决上面这个问题,最容易想到的办法就是计算实体长度,并通过头部告诉对方。这就要用到 Content-Length 了,改造一下上面的例子: 
+要解决上面这个问题,最容易想到的办法就是计算实体长度,并通过头部告诉对方。这就要用到 Content-Length 了,改造一下上面的例子:
 
 JSrequire('net').createServer(function(sock) {
   
@@ -73,7 +74,7 @@ Transfer-Encoding: chunked
   
 本文主角终于再次出现了,Transfer-Encoding 正是用来解决上面这个问题的。历史上 Transfer-Encoding 可以有多种取值,为此还引入了一个名为 TE 的头部用来协商采用何种传输编码。但是最新的 HTTP 规范里,只定义了一种传输编码: 分块编码 (chunked) 。
 
-分块编码相当简单,在头部加入 Transfer-Encoding: chunked 之后,就代表这个报文采用了分块编码。这时,报文中的实体需要改为用一系列分块来传输。每个分块包含十六进制的长度值和数据,长度值独占一行,长度不包括它结尾的 CRLF (\r\n) ,也不包括分块数据结尾的 CRLF。最后一个分块长度值必须为 0,对应的分块数据没有内容,表示实体结束。按照这个格式改造下之前的代码: 
+分块编码相当简单,在头部加入 Transfer-Encoding: chunked 之后,就代表这个报文采用了分块编码。这时,报文中的实体需要改为用一系列分块来传输。每个分块包含十六进制的长度值和数据,长度值独占一行,长度不包括它结尾的 CRLF (\r\n) ,也不包括分块数据结尾的 CRLF。最后一个分块长度值必须为 0,对应的分块数据没有内容,表示实体结束。按照这个格式改造下之前的代码:
 
 JSrequire('net').createServer(function(sock) {
   
@@ -103,7 +104,7 @@ sock.write('\r\n');
 
 上面这个例子中,我在响应头中表明接下来的实体会采用分块编码,然后输出了 11 字节的分块,接着又输出了 5 字节的分块,最后用一个 0 长度的分块表明数据已经传完了。用浏览器访问这个服务,可以得到正确结果。可以看到,通过这种简单的分块策略,很好的解决了前面提出的问题。
 
-前面说过 Content-Encoding 和 Transfer-Encoding 二者经常会结合来用,其实就是针对 Transfer-Encoding 的分块再进行 Content-Encoding。下面是我用 telnet 请求测试页面得到的响应,就对分块内容进行了 gzip 编码: 
+前面说过 Content-Encoding 和 Transfer-Encoding 二者经常会结合来用,其实就是针对 Transfer-Encoding 的分块再进行 Content-Encoding。下面是我用 telnet 请求测试页面得到的响应,就对分块内容进行了 gzip 编码:
 
 BASH> telnet 106.187.88.156 80
 
@@ -131,9 +132,8 @@ Content-Encoding: gzip
   
 �H���W(�/�I�J
 
-
 用 HTTP 抓包神器 Fiddler 也可以看到类似结果,有兴趣的同学可以自己试一下。
 
-本文链接: https://imququ.com/post/transfer-encoding-header-in-http.html,参与评论 »
+本文链接: <https://imququ.com/post/transfer-encoding-header-in-http.html>,参与评论 »
 
 -EOF-

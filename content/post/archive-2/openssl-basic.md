@@ -13,22 +13,19 @@ tags:
 ## 查看私钥长度
 
 ```bash
-    openssl rsa -in id_rsa.pem -text -noout
-
+openssl rsa -in id_rsa.pem -text -noout
 ```
 
 ### get cert
 
 ```bash
-    openssl s_client -connect  site.com:636 </dev/null 2>/dev/null  | openssl x509 -outform PEM > site.pem
-
+openssl s_client -connect  site.com:636 </dev/null 2>/dev/null  | openssl x509 -outform PEM > site.pem
 ```
 
 ### import cert into ca certs
 
 ```bash
-    sudo keytool -importcert -noprompt -alias site-`date "+%Y%m%d%H%M%S"` -file ./site.pem -keystore /usr/java/latest/lib/security/cacerts -storepass changeit
-
+sudo keytool -importcert -noprompt -alias site-`date "+%Y%m%d%H%M%S"` -file ./site.pem -keystore /usr/java/latest/lib/security/cacerts -storepass changeit
 ```
 
 ### 查看证书信息 pem
@@ -41,30 +38,29 @@ openssl x509 -noout -text -in foo.pem
 ### 查看 .der .crt 证书
 
 ```bash
-    openssl x509 -inform der -text -noout -in foo.crt 
+openssl x509 -inform der -text -noout -in foo.crt 
 ```
 
 ### pem格式转DER格式
 
 ```bash
 openssl x509 -outform der -in charles.pem -out charles.crt
-
 ```
 
 ### 查看https证书
 
 ```bash
-    openssl s_client -showcerts -connect www.baidu.com:443
-    # 证书链是倒序的, 从上面数第一个是叶子节点, 跟浏览器里看到的证书顺序相反.
+openssl s_client -showcerts -connect www.baidu.com:443
+# 证书链是倒序的, 从上面数第一个是叶子节点, 跟浏览器里看到的证书顺序相反.
 ```
 
 ### 查看pem证书内容
 
 ```bash
-    openssl x509 -in certificate.pem -text -noout
+openssl x509 -in certificate.pem -text -noout
 
 # openssl 解密
-    openssl pkeyutl -inkey xxx-pri.pem -decrypt -pkeyopt rsa_padding_mode:oaep -pkeyopt rsa_oaep_md:sha256 -in foo.bin -out result.dec
+openssl pkeyutl -inkey xxx-pri.pem -decrypt -pkeyopt rsa_padding_mode:oaep -pkeyopt rsa_oaep_md:sha256 -in foo.bin -out result.dec
 
 # 查看公钥内容
 openssl rsa -inform PEM -in xxx-pub.pem -pubin -text

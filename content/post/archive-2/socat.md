@@ -14,7 +14,7 @@ tags:
 ## http server, 加载本地 .html 文件
 
 ```bash
-echo "foo">foo.html
+echo "foo">foo.html 
 socat -v -v TCP-LISTEN:8000,crlf,reuseaddr,fork SYSTEM:"echo HTTP/1.0 200; echo Content-Type\: text/plain; echo; cat foo.html"
 ```
 
@@ -34,7 +34,7 @@ socat UDP-RECV:48772 STDOUT
 socat - UDP:localhost:48772
 ```
 
-## tcp 代理
+## socat tcp 代理
 
 ```bash
 socat TCP-LISTEN:3389,fork TCP:192.168.55.2:3389
@@ -49,19 +49,20 @@ socat TCP-LISTEN:3389,fork TCP:192.168.55.2:3389
 ### 建立连接并发送数据
 
 ```bash
-    echo "hahaha" | socat - tcp:192.168.1.18:80
+echo "hahaha" | socat - tcp:192.168.1.18:80
 ```
 
 #### IPv6
 
 ```bash
-    socat - tcp:[fd00::123]:12345 
+socat - tcp:[fd00::123]:12345 
 ```
 
 ### http echo server
 
 ```bash
 # 直接返回 pong
+socat -v TCP-LISTEN:80,crlf,reuseaddr,fork SYSTEM:"echo HTTP/1.0 200; echo Content-Type\: text/plain; echo; echo pong"
 socat -v TCP-LISTEN:8000,crlf,reuseaddr,fork SYSTEM:"echo HTTP/1.0 200; echo Content-Type\: text/plain; echo; echo pong"
 # header: Access-Control-Allow-Origin
 socat -v TCP-LISTEN:8000,crlf,reuseaddr,fork SYSTEM:"echo HTTP/1.0 200; echo Content-Type\: text/plain; echo Access-Control-Allow-Origin\:*;echo; echo pong"
@@ -109,9 +110,12 @@ Socat 的主要特点就是在两个数据流之间建立通道，且支持众�
 ### 安装
 
 ```bash
-    pacman -S socat
-    yum install -y socat
-    apt-get install socat
+pacman -S socat
+yum install -y socat
+apt-get install socat
+
+# macos
+https://macappstore.org/socat/
 ```
 
 ### 基本语法

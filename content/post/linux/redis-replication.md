@@ -15,8 +15,8 @@ beanlam
 发布于 2015-04-20
 本专栏与Redis相关的文章
 
-Redis Sentinel机制与用法 (一) 
-Redis Sentinel机制与用法 (二) 
+Redis Sentinel机制与用法 (一)
+Redis Sentinel机制与用法 (二)
 Jedis的JedisSentinelPool源代码分析
 Jedis的Sharded源代码分析
 Redis 主从 Replication 的配置
@@ -25,7 +25,7 @@ JedisCommand接口说明
 
 本文参考翻译自《Redis Replication documentation》
 概述
-Redis的replication机制允许slave从master那里通过网络传输拷贝到完整的数据备份。具有以下特点: 
+Redis的replication机制允许slave从master那里通过网络传输拷贝到完整的数据备份。具有以下特点:
 
 异步复制。从2.8版本开始，slave能不时地从master那里获取到数据。
 允许单个master配置多个slave
@@ -37,7 +37,7 @@ slave在replication期间也是非阻塞的，也可以接受来自客户端的�
 Master持久化功能关闭时Replication的安全性
 当有需要使用到replication机制时，一般都会强烈建议把master的持久化开关打开。即使为了避免持久化带来的延迟影响，不把持久化开关打开，那么也应该把master配置为不会自动启动的。
 
-为了更好地理解当一个不进行持久化的master如果允许自动启动所带来的危险性。可以看看下面这种失败情形: 
+为了更好地理解当一个不进行持久化的master如果允许自动启动所带来的危险性。可以看看下面这种失败情形:
 
 假设我们有一个redis节点A，设置为master，并且关闭持久化功能，另外两个节点B和C是它的slave，并从A复制数据。
 如果A节点崩溃了导致所有的数据都丢失了，它会有重启系统来重启进程。但是由于持久化功能被关闭了，所以即使它重启了，它的数据集是空的。
@@ -69,7 +69,7 @@ master会在其内存中创建一个复制流的等待队列，master和它所�
 
 不过这个功能目前处于实验阶段，还未正式发布。
 相关配置
-与replication相关的配置比较简单，只需要把下面一行加到slave的配置文件中: 
+与replication相关的配置比较简单，只需要把下面一行加到slave的配置文件中:
 
 slaveof 192.168.1.1 6379
 你只需要把ip地址和端口号改一下。当然，你也可以通过客户端发送SLAVEOF命令给slave。
@@ -87,10 +87,10 @@ slaveof 192.168.1.1 6379
 
 Setting a slave to authenticate to a master
 
-如果master通过requirepass配置项设置了密码，slave每次同步操作都需要验证密码，可以通过在slave的配置文件中添加以下配置项: 
+如果master通过 requirepass 配置项设置了密码，slave每次同步操作都需要验证密码，可以通过在slave的配置文件中添加以下配置项:
 
 masterauth <password>
-也可以通过客户端在运行时发送以下命令: 
+也可以通过客户端在运行时发送以下命令:
 
 config set masterauth <password>
 至少N个slave才允许向master写数据
@@ -98,7 +98,7 @@ config set masterauth <password>
 
 然而，由于redis是异步复制的，所以它并不能保证slave会受到一个写请求，所以总有一个数据丢失的时间窗口存在。
 
-这个机制的工作原理如下所示: 
+这个机制的工作原理如下所示:
 
 slave每秒发送ping心跳给master，询问当前复制了多少数据。
 master会记录下它上次收到某个slave的ping心跳是什么时候。
@@ -109,7 +109,7 @@ master会记录下它上次收到某个slave的ping心跳是什么时候。
 
 如果N和M的条件都无法达到，那么master会回复一个错误信息。写请求也不会被处理。
 
-有两个配置项用来配置上文中提到的N和M: 
+有两个配置项用来配置上文中提到的N和M:
 
     min-slaves-to-write <number of slaves>
     min-slaves-max-lag <number of seconds>
@@ -117,8 +117,8 @@ master会记录下它上次收到某个slave的ping心跳是什么时候。
 
 ---
 
-https://segmentfault.com/a/1190000002692598  
+<https://segmentfault.com/a/1190000002692598>  
 
-https://segmentfault.com/a/1190000002680804
+<https://segmentfault.com/a/1190000002680804>
 
-https://www.cnblogs.com/kevingrace/p/9004460.html
+<https://www.cnblogs.com/kevingrace/p/9004460.html>

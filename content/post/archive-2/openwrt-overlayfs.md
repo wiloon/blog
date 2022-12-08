@@ -9,6 +9,7 @@ tags:
   - reprint
 ---
 ## R7800, Build custom Netgear R7800 firmware for a larger flash size/root space
+
 ```bash
   
 sudo apt-get install subversion g++ zlib1g-dev build-essential git python rsync man-db
@@ -79,13 +80,13 @@ tftp -v -m binary 192.168.1.1 -c put lede-17.01.4-ipq806x-R7800-squashfs-factory
 
 ```
 
-https://forum.lede-project.org/t/netgear-r7800-only-19mb-flash-available/1115
+<https://forum.lede-project.org/t/netgear-r7800-only-19mb-flash-available/1115>
   
-https://forum.lede-project.org/t/tutorial-build-custom-netgear-r7800-firmware-for-a-larger-flash-size-root-space/5989
+<https://forum.lede-project.org/t/tutorial-build-custom-netgear-r7800-firmware-for-a-larger-flash-size-root-space/5989>
   
-https://kb.netgear.com/22688/How-to-upload-firmware-to-a-NETGEAR-router-using-TFTP
+<https://kb.netgear.com/22688/How-to-upload-firmware-to-a-NETGEAR-router-using-TFTP>
 
-http://www.right.com.cn/forum/thread-144853-1-1.html
+<http://www.right.com.cn/forum/thread-144853-1-1.html>
 
 ```bash
   

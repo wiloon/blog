@@ -9,6 +9,7 @@ tags:
   - reprint
 ---
 ## Execute bash script from URL
+
 ```bash
   
 bash <(curl -s http://mywebsite.com/myscript.txt)
@@ -21,4 +22,4 @@ Directly run bash scripts in Github Gists locally in Terminal.
 
 Get the raw version of it and copy the link. Now we are going to curl that link to get the content in the file and then pass that content to bash.
   
-https://stackoverflow.com/questions/5735666/execute-bash-script-from-url
+<https://stackoverflow.com/questions/5735666/execute-bash-script-from-url>

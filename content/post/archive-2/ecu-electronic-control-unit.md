@@ -9,9 +9,10 @@ tags:
   - reprint
 ---
 ## ECU odx
+
 ECU, Electronic Control Unit
 
-开放式数据交换格式 (ODX) 
+开放式数据交换格式 (ODX)
 
 ODX是一个由自动化及测量系统标准化组织(ASAM)咨询实体制定的国际标准,2006年底该标准以ISO标准(ISO 22901-1)形式发布最终版本。它由诊断容器层(诊断层结构)；Flash 数据(Flash)；车辆接口拓扑(车辆信息)；通讯参数(参数描述)以及ECU功能组(ECU组描述) 等5部分组成。该标准支持汽车OEM厂商和供应商使用不同的测试工具。
 
@@ -21,4 +22,4 @@ Marco表示,对于整车厂以及ECU供应商来说,用ODX标准取代专有的�
 
 这样,我们就不难看出,通过使用ODX标准,车辆制造商和ECU供应商之间建立起了一个更加轻松简单的数据交换流程: 不但减少了数据同步的花费,而且因为有了ODX使诊断测试进入了一个更加宽广的领域,即能够从单个ECU的角度宽展到整个系统的角度进行诊断测试。这样就提高了产品的可靠性,提高了客户的满意度。
 
-http://archive.eet-china.com/www.eet-china.com/ART_8800509901_480401_NT_0bab8f92.HTM
+<http://archive.eet-china.com/www.eet-china.com/ART_8800509901_480401_NT_0bab8f92.HTM>

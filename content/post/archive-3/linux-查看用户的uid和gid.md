@@ -9,14 +9,13 @@ tags:
   - reprint
 ---
 ## 'linux  查看用户的UID和GID'
+
 方法一: 使用 id 命令
 
 使用 id 命令可以很轻松的通过用户名查看UID、GID，下面来讲解一下这个命令的用法。
 
 命令格式
 
- 
-  
 id [选项]... [用户名]
   
 命令选项
@@ -41,8 +40,6 @@ id [选项]... [用户名]
   
 使用案例
 
- 
-  
 heihaier@heihaier-desktop:~$ id root
   
 uid=0(root) gid=0(root) groups=0(root)
@@ -50,8 +47,6 @@ uid=0(root) gid=0(root) groups=0(root)
 方法二: 查看 /etc/password 文件
   
 /etc/password 文件格式
-  
- 
   
 root:x:0:0:root:/root:/bin/bash
 
@@ -73,10 +68,8 @@ root 用户ID信息: 用户备注信息。
   
 使用案例
   
- 
-  
 heihaier@heihaier-desktop:~$ sudo cat /etc/passwd | grep root
   
 root:x:0:0:root:/root:/bin/bash
 
-https://blog.csdn.net/sinat_31500569/article/details/69943903
+<https://blog.csdn.net/sinat_31500569/article/details/69943903>

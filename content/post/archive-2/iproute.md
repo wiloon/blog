@@ -2,9 +2,9 @@
 title: iproute2 basic
 author: "-"
 date: 2018-03-25T01:20:23+00:00
-url: /?p=12054
+url: iproute2
 categories:
-  - inbox
+  - Network
 tags:
   - reprint
 ---
@@ -12,9 +12,12 @@ tags:
 
 ### install
 
-   apt install iproute2
+```bash
+# ubuntu
+apt install iproute2
+```
 
-### 查看IP地址
+### 查看 IP 地址
 
 ```bash
 # 显示所有网络地址
@@ -25,19 +28,28 @@ ip addr
 ip a
 ```
 
+## 设置网络接口的 IP 地址
+
 ```bash
+# 为网络接口分配 IPv4 地址
+# 使用这些命令配置网络接口的 IPv4 地址。
+sudo ip addr add 10.0.0.1/24 dev eth1
+ip addr add 192.168.53.0/24 dev wg0
+
+```
+
+## 删除网络接口的 IP 地址
+
+```bash
+ip addr del 192.168.53.0/24 dev wg0
 # Delete all IPv4 addresses on interface wlp3s0
 sudo ip -f inet addr del dev wlp3s0
-  
-#为网络接口分配IPv4地址
-#使用这些命令配置网络接口的IPv4地址。
-sudo ip addr add 10.0.0.1/24 dev eth1
 
 # 查端口
 ss -ntlp | grep ",1234,"
 
 sudo ip link set down eth1
-  
+
 sudo ip link set up eth1
 
 #查所有网卡的ip
@@ -46,9 +58,16 @@ ip addr show
 #查看所有网卡
 ip link show
 
-#查看某一个网卡的ip
-  
+#查看某一个网卡的 ip
 ip addr show dev eth1
+```
+
+## set link up or down
+
+```bash
+# Bring a link up or down
+ip link set dev ${interface name} up
+ip link set eth0 up
 
 ```
 
@@ -61,30 +80,32 @@ ip link set enp1s0 promisc on
 vim /usr/lib/systemd/system/promiscuous_mode@.service
 
 ```bash
-    [Unit]
-    Description=Control promiscuous mode for interface %i
-    After=network-online.target
-    Wants=network-online.target
+[Unit]
+Description=Control promiscuous mode for interface %i
+After=network-online.target
+Wants=network-online.target
 
-    [Service]
-    Type=oneshot
-    ExecStart=/sbin/ip link set promisc on dev %i
-    ExecStop=/sbin/ip link set promisc off dev %i
-    RemainAfterExit=yes
+[Service]
+Type=oneshot
+ExecStart=/sbin/ip link set promisc on dev %i
+ExecStop=/sbin/ip link set promisc off dev %i
+RemainAfterExit=yes
 
-    [Install]
-    WantedBy=multi-user.target
+[Install]
+WantedBy=multi-user.target
 ```
 
 ##### systemctl enable
 
 ```bash
-    systemctl enable promiscuous_mode@enp1s0.service
+systemctl enable promiscuous_mode@enp1s0.service
 ```
 
+## ip link
+
 ```bash
-ip addr add 192.168.53.0/24 dev wg0
-ip addr del 192.168.53.0/24 dev wg0
+# add dev
+ip link add dev wg0 type wireguard
 # delete dev
 ip link delete dev wg0
 ```
@@ -107,13 +128,13 @@ title: iproute2 > 路由表, routing table
 
 对所有来源端口是8080的数据输出包进行标记处理,设置标记2
 
-$: iptables -t mangle -A OUTPUT -p tcp -sport 8080 -j MARK -set-mark 2
+iptables -t mangle -A OUTPUT -p tcp -sport 8080 -j MARK -set-mark 2
   
 4.1.2 对标记的数据包进行自定义路由
   
 既然数据包已经有了标记,既可以具体按标记设置路由规则了。同上的例子,我们首先增加一条路由规则。
 
-# 标记2的数据包按照2号路由规则表路由
+标记2的数据包按照2号路由规则表路由
 
 $: ip rule add priority 10000 fwmark 2 table 2
 
@@ -123,7 +144,7 @@ iproute基本介绍
   
 iproute是用于linux下网络配置工具,该工具包包含以下组件
 
-# rpm -ql iproute | grep bin
+rpm -ql iproute | grep bin
 
 /sbin/cbq #流量控制
   
@@ -151,7 +172,7 @@ iproute的中心是ip这个命令,类似arp、ifconfig、route命令虽然这些
 
 ip基本使用方法
 
-# ip -help
+ip -help
 
 Usage: ip [ OPTIONS ] OBJECT { COMMAND | help }
 
@@ -187,13 +208,13 @@ mroute 多播路由缓存管理
   
 tunnel 通道管理
 
-# ip -V #打印iproute信息
+ip -V #打印iproute信息
 
 ip utility, iproute2-ss091226
   
 显示链路信息
 
-# ip link
+ip link
 
 1: lo: <LOOPBACK,UP,LOWER_UP> mtu 16436 qdisc noqueue state UNKNOWN
 
@@ -203,7 +224,7 @@ link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
 
 link/ether 00:0c:29:3b:9c:6f brd ff:ff:ff:ff:ff:ff
 
-# ip link show dev eth0
+ip link show dev eth0
 
 2: eth0: <BROADCAST,MULTICAST> mtu 1500 qdisc pfifo_fast state DOWN qlen 1000
 
@@ -211,7 +232,7 @@ link/ether 00:0c:29:3b:9c:6f brd ff:ff:ff:ff:ff:ff
   
 显示IP地址
 
-# ip addr
+ip addr
 
 1: lo: <LOOPBACK,UP,LOWER_UP> mtu 16436 qdisc noqueue state UNKNOWN
 
@@ -237,10 +258,6 @@ ip link set dev tun0 mtu 1480
 # check arp cache
 ip neigh
 
-# Bring a link up or down
-ip link set dev ${interface name} up
-ip link set eth0 up
-
 ip link set dev ${interface name} down
 
 ip route show
@@ -254,6 +271,9 @@ ip tuntap list
 <https://segmentfault.com/a/1190000000638244>
   
 <https://access.redhat.com/sites/default/files/attachments/rh_ip_command_cheatsheet_1214_jcs_print.pdf>
+
 <https://www.cnblogs.com/LiuYanYGZ/p/12368421.html>
+
 <http://linux-ip.net/html/routing-tables.html>
-><http://linux-ip.net/gl/ip-cref/ip-cref.html>
+
+<http://linux-ip.net/gl/ip-cref/ip-cref.html>

@@ -14,14 +14,9 @@ tags:
 
 <https://isofiles.bd581e55.workers.dev/>
 
-## win10 开机启动
+## win10 应用开机启动, 启动项
 
-```r
-win + r
-shell:startup
-将该应用的快捷方式从文件位置复制并粘贴到“启动”文件夹中。
-
-```
+打开运行 `win + r`, 输入 `shell:startup`, 将该应用的快捷方式从文件位置复制并粘贴到 “启动” 文件夹中。
 
 ### msdn i tell u
 
@@ -40,16 +35,22 @@ shell:startup
 
 ### 查看windows的版本
 
-    winver
+```bash
+winver
+```
 
 ### bat脚本控制网卡启用禁用
 
-    netsh interface set interface "eth0" disabled
-    netsh interface set interface "eth0" enabled
+```bash
+netsh interface set interface "eth0" disabled
+netsh interface set interface "eth0" enabled
+```
 
 ### Windows 命令行 (批处理文件) 延迟 (sleep) 方法, 使用ping 的定时功能，精度1秒
 
-    ping -n 3 127.0.0.1>nul
+```bash
+ping -n 3 127.0.0.1>nul
+```
 
 说明: 3为ping包发送次数，可作为延迟秒数进行使用，需要延迟几秒就设置几。
 >nul避免屏幕输出，将输出输入到空设备，因为不需要结果，仅用到其定时功能。
@@ -60,19 +61,23 @@ netstat -an|find "61616"
 
 ### windows 服务
 
+```bash
     # 不带参数的 net start 显示正在运行服务的列表
     net start
     # 启动服务
     net start wuauserv
     # 停止服务
     net stop wuauserv
+```
 
 ### 删除目录
 
+```bash
     rmdir  
     rmdir /s/q foo
     # /s 是代表删除所有子目录跟其中的档案。 
     # /q 是不要它在删除档案或目录时，不再问我 Yes or No 的动作。 
+```
 
 ### netstat， windows 查端口
 
@@ -91,11 +96,15 @@ netstat -ano|findstr 8080
 
 ### windows  剪贴板进程
 
+```bash
     rdpclip.exe
+```
 
 ### hosts
 
-    C:\windows\System32\Drivers\Etc\hosts
+```bash
+C:\windows\System32\Drivers\Etc\hosts
+```
 
 ### LTSC
 
@@ -113,18 +122,24 @@ Windows Server vNext Long-Term Servicing Channel (LTSC)
 
 #### 系统级
 
+```bash
     C:\ProgramData\Microsoft\Windows\Start Menu\Programs\StartUp
+```
 
 #### 用户级
 
+```bash
     Win+R
     输入: shell:startup
     系统自动打开以下目录
     C:\Users\user0\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup
+```
 
 ### windows凭据
 
+```bash
     控制面板\用户帐户\凭据管理器 > windows凭据
+```
 
 ### 域用户
 
@@ -146,15 +161,19 @@ windows设置>控制面板>更改账户类型>添加>
 
 ### 解除防ping
 
-    https://blog.csdn.net/wudinaniya/article/details/80956158
+<https://blog.csdn.net/wudinaniya/article/details/80956158>
 
 ### netstat
 
+```bash
     netstat -ano -p UDP | find "0.0.0.0:53"
+```
 
 ### tasklist
 
+```bash
     tasklist | findstr <pid>
+```
 
 <https://blog.csdn.net/hongweigg/article/details/41517025>
 
@@ -178,7 +197,7 @@ windows设置>控制面板>更改账户类型>添加>
 #### pagefile.sys
 
 - win 10 虚拟内存
-搜索高级系统设置> 高级> 性能> 设置> 性能选项> 高级> 
+搜索高级系统设置> 高级> 性能> 设置> 性能选项> 高级>
 - win 11 虚拟内存
 搜索 性能选项> 高级> 虚拟内存> 更改> 重启
 
@@ -196,3 +215,26 @@ powercfg.exe /hibernate on
 ## win10 安全模式
 
 开始-电源按钮，按住Shift同时点击“重启”，然后Win10会自动进入高级启动菜单，再点击疑难解答-高级选项-启动设置-重启。
+
+## windows 命令行设置 IP
+
+<https://www.ithome.com/0/143/741.htm>
+
+## Windows Terminal
+
+<https://github.com/microsoft/terminal>
+
+Windows Terminal> Settings> Actions 可以设置快捷键,解决 vim  ctrl-v 的问题
+
+## 查看本机域名以及登录账户使用的命令
+
+```bash
+whoami
+```
+
+## rmdir
+
+```bash
+# 删除非空目录
+rmdir /s /q folder0
+```

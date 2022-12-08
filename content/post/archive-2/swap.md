@@ -10,7 +10,7 @@ tags:
 ---
 ## swap
 
-### 查看swap使用情况, 没有输出的话就是没有启用 swap
+### 查看 swap 使用情况, 没有输出的话就是没有启用 swap
 
 ```bash
 swapon

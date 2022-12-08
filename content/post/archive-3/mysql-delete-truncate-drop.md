@@ -9,17 +9,19 @@ tags:
   - reprint
 ---
 ## MySQL DELETE TRUNCATE drop
-相同点: 
+
+相同点:
 
 1.truncate和不带where子句的delete、以及drop都会删除表内的数据。
 
 2.drop、truncate都是DDL语句(数据定义语言),执行后会自动提交。
 
-不同点: 
+不同点:
 
   1. truncate 和 delete 只删除数据不删除表的结构(定义)
   
     drop 语句将删除表的结构被依赖的约束(constrain)、触发器(trigger)、索引(index)；依赖于该表的存储过程/函数将保留,但是变为 invalid 状态。 
+
   2. delete 语句是数据库操作语言(dml)，这个操作会放到 rollback segement 中，事务提交之后才生效；如果有相应的 trigger，执行的时候将被触发。
   
     truncate、drop 是数据库定义语言(ddl)，操作立即生效，原数据不放到 rollback segment 中，不能回滚，操作不触发 trigger。
@@ -52,6 +54,6 @@ truncate 语句缺省情况下见空间释放到 minextents个 extent，除非�
 
 10. TRUNCATE TABLE 不能用于参与了索引视图的表。
   
-https://www.cnblogs.com/8765h/archive/2011/11/25/2374167.html
+<https://www.cnblogs.com/8765h/archive/2011/11/25/2374167.html>
 
-https://stackoverflow.com/questions/139630/whats-the-difference-between-truncate-and-delete-in-sql
+<https://stackoverflow.com/questions/139630/whats-the-difference-between-truncate-and-delete-in-sql>

@@ -9,6 +9,7 @@ tags:
   - reprint
 ---
 ## REST是什么？
+
 概述
   
 REST是英文Representational State Transfer的缩写，中文翻译: 表述性状态转移。
@@ -19,7 +20,7 @@ REST本身只是为分布式超媒体系统设计的一种架构风格，而不�
 
 基于Web的架构，实际上就是各种规范的集合，这些规范共同组成了Web架构。比如Http协议，比如客户端服务器模式，这些都是规范。每当我们在原有规范的基础上增加新的规范，  就会形成新的架构。而REST正是这样一种架构，他结合了一系列的规范，而形成了一种新的基于Web的架构风格。
   
-传统的Web应用大都是B/S架构，它包括了如下一些规范: 
+传统的Web应用大都是B/S架构，它包括了如下一些规范:
 
 1. 客户－服务器
 
@@ -53,7 +54,7 @@ REST允许对客户端功能进行扩展。比如，通过下载并执行applet�
 
 REST的设计准则
   
-REST架构是针对Web应用而设计的，其目的是为了降低开发的复杂性，提高系统的可伸缩性。REST提出了如下设计准则: 
+REST架构是针对Web应用而设计的，其目的是为了降低开发的复杂性，提高系统的可伸缩性。REST提出了如下设计准则:
 
 1. 网络上的所有事物都被抽象为资源 (resource) ；
   
@@ -93,7 +94,7 @@ REST架构让人们真正理解我们的网络协议HTTP本来面貌，对资源
 
 **REST的设计准则**
 
-REST架构是针对Web应用而设计的，其目的是为了降低开发的复杂性，提高系统的可伸缩性。REST提出了如下设计准则: 
+REST架构是针对Web应用而设计的，其目的是为了降低开发的复杂性，提高系统的可伸缩性。REST提出了如下设计准则:
 
 网络上的所有事物都被抽象为资源 (resource) ；
 
@@ -105,14 +106,12 @@ REST架构是针对Web应用而设计的，其目的是为了降低开发的复�
 
 所有的操作都是无状态的 (stateless) 。
 
-**使用REST架构**
+使用REST架构
 
 对于开发人员来说，关心的是如何使用REST架构，这里我们来简单谈谈这个问题。REST不仅仅是一种崭新的架构，它带来的更是一种全新的Web开发过程中的思维方式: 通过URL来设计系统结构。REST是一套简单的设计原则、一种架构风格 (或模式) ，不是一种具体的标准或架构。REST有很多成功的使用案例，著名的Delicious和Flickr都提供基于REST风格的API使用，客户端调用也极其方便，下面是我用ASP写的一个很简单的REST举例，从中可以看出REST是多么的简单易用。
 
-客户端代码: 
+客户端代码:
 
-
-  
 Private Function httpGet(url, method, data)
  Dim xmlhttp
  Set xmlhttp = Server.CreateObject("MSXML2.ServerXMLHTTP")
@@ -124,7 +123,6 @@ Private Function httpGet(url, method, data)
  Set xmlhttp = Nothing
  End Function
   
-  
     Private Function httpPost(url, method, data)
  Dim xmlhttp
  Set xmlhttp = Server.CreateObject("MSXML2.ServerXMLHTTP")
@@ -135,7 +133,6 @@ Private Function httpGet(url, method, data)
  If (xmlhttp.Status = 200) Then httpPost = xmlhttp.responseText
  Set xmlhttp = Nothing
  End Function
-  
   
     Private Function httpPut(url, method, data)
  Dim xmlhttp
@@ -153,7 +150,6 @@ Private Function httpGet(url, method, data)
  Set xmlhttp = Nothing
  End Function
   
-  
     Private Function httpDelete(url, method, data)
  Dim xmlhttp
  Set xmlhttp = Server.CreateObject("MSXML2.ServerXMLHTTP")
@@ -170,15 +166,12 @@ Private Function httpGet(url, method, data)
  Set xmlhttp = Nothing
  End Function
   
-  
     response.write httpPost("http://localhost/rest/service.asp", "POST", "do=POST")
  response.write httpGet("http://localhost/rest/service.asp", "GET", "do=GET")
  response.write httpPut("http://localhost/rest/service.asp", "PUT", "do=PUT")
  response.write httpDelete("http://localhost/rest/service.asp", "DELETE", "do=DELETE")
   
-
-服务端代码: 
-
+服务端代码:
 
   Response.Write Request.ServerVariables("REQUEST_METHOD")
  If (Request.ServerVariables("REQUEST_METHOD")="GET") Then

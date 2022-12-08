@@ -2,7 +2,7 @@
 title: UUID
 author: "-"
 date: 2016-02-29T04:51:08+00:00
-url: /?p=8753
+url: uuid
 categories:
   - Inbox
 tags:
@@ -10,21 +10,23 @@ tags:
 ---
 ## UUID
 
+36位 UUID: a5f225b0-192a-4191-aedd-46e3f18ccbf5
+
 UUID是什么?
 
-UUID(Universally Unique Identifier)全局唯一标识符,是指在一台机器上生成的数字,它保证对在同一时空中的所有机器都是唯一的。按照开放软件基金会(OSF)制定的标准计算,用到了以太网卡地址、纳秒级时间、芯片ID码和许多可能的数字。由以下几部分的组合: 当前日期和时间(UUID的第一个部分与时间有关,如果你在生成一个UUID之后,过几秒又生成一个UUID,则第一个部分不同,其余相同),时钟序列,全局唯一的IEEE机器识别号 (如果有网卡,从网卡获得,没有网卡以其他方式获得) ,UUID的唯一缺陷在于生成的结果串会比较长。
+UUID (Universally Unique Identifier) 全局唯一标识符, 是指在一台机器上生成的数字, 它保证对在同一时空中的所有机器都是唯一的。按照开放软件基金会(OSF)制定的标准计算,用到了以太网卡地址、纳秒级时间、芯片ID码和许多可能的数字。由以下几部分的组合: 当前日期和时间(UUID的第一个部分与时间有关,如果你在生成一个UUID之后,过几秒又生成一个UUID,则第一个部分不同,其余相同),时钟序列,全局唯一的IEEE机器识别号 (如果有网卡, 从网卡获得, 没有网卡以其他方式获得), UUID的唯一缺陷在于生成的结果串会比较长。
 
 A universally unique identifier (UUID) is an identifier standard used in software construction, standardized by the Open Software Foundation (OSF) as part of the Distributed Computing Environment (DCE). The intent of UUIDs is to enable distributed systems to uniquely identify information without significant central coordination. In this context the word unique should be taken to mean "practically unique" rather than "guaranteed unique". Since the identifiers have a finite size it is possible for two differing items to share the same identifier. The identifier size and generation process need to be selected so as to make this sufficiently improbable in practice. Anyone can create a UUID and use it to identify something with reasonable confidence that the same identifier will never be unintentionally created by anyone to identify something else. Information labeled with UUIDs can therefore be later combined into a single database without needing to resolve name conflicts.
 
 A UUID is 128 bits long, and can guarantee uniqueness across space and time.  UUIDs were originally used in the Apollo Network Computing System and later in the Open Software Foundation's (OSF) Distributed Computing Environment (DCE), and then in Microsoft Windows platforms.
 
-上面说的到在grub中写到的UUID的的好处是什么呢？
+上面说的到在 grub 中写到的 UUID 的的好处是什么呢？
 
-这样做和使用/dev/sda5这种直接引用分区的方法的一个优点就是,当硬盘中增加了新的分区,或者分区的顺序改变后,仍然能够保证系统加载分区到正确的加载点。
+这样做和使用 /dev/sda5 这种直接引用分区的方法的一个优点就是,当硬盘中增加了新的分区,或者分区的顺序改变后,仍然能够保证系统加载分区到正确的加载点。
 
-这对于swap分区尤为重要,如果硬盘分区顺序改变,而fstab对swap分区编号做响应的调整,是不是会把其他分区给作为swap哪？结果是很可怕的,这个分区上的数据恐怕就要不保了。通过在/dev/disk/uuid,这里的uuid列表实际上是一些symbol link文件,系统可以保证针对每一个分区生成一个唯一的编码,增加了系统的稳定性。
+这对于 swap 分区尤为重要, 如果硬盘分区顺序改变, 而 fstab 对 swap 分区编号做响应的调整, 是不是会把其他分区给作为 swap 哪？结果是很可怕的, 这个分区上的数据恐怕就要不保了。通过在 /dev/disk/uuid, 这里的uuid 列表实际上是一些symbol link文件,系统可以保证针对每一个分区生成一个唯一的编码,增加了系统的稳定性。
   
-UUID具有以下涵义:
+UUID 具有以下涵义:
 
 经由一定的算法机器生成
   
@@ -46,11 +48,11 @@ UUID是16字节128位长的数字,通常以36字节的字符串表示,示例如�
   
 GUID (Globally Unique Identifier) 是UUID的别名；但在实际应用中,GUID通常是指微软实现的UUID。
 
-UUID的版本
+UUID 的版本
 
 UUID具有多个版本,每个版本的算法不同,应用范围也不同。
   
-首先是一个特例－－Nil UUID－－通常我们不会用到它,它是由全为0的数字组成,如下:
+首先是一个特例－－Nil UUID－－通常我们不会用到它,它是由全为0的数字组成, 如下:
   
 00000000-0000-0000-0000-000000000000
 
@@ -106,11 +108,11 @@ linux   /boot/vmlinuz-2.6.31-14-generic root=UUID=c74288db-c35e-4d7e-a1e8-82d6e8
 
 获取设备的UUID的方法 (Linux系统中) :
 
-1) # blkid /dev/sda1 (不是root用户需要sudo)
+blkid /dev/sda1 (不是root用户需要sudo)
   
 /dev/sda1: LABEL="/axs3" UUID="298d198d-aa60-48af-a9f4-638f8f274afa" SEC_TYPE="ext2" TYPE="ext3"
 
-2) # tune2fs -l /dev/sda1 |grep 'UUID'
+tune2fs -l /dev/sda1 |grep 'UUID'
   
 298d198d-aa60-48af-a9f4-638f8f274afa
 
@@ -118,9 +120,9 @@ linux   /boot/vmlinuz-2.6.31-14-generic root=UUID=c74288db-c35e-4d7e-a1e8-82d6e8
   
 298d198d-aa60-48af-a9f4-638f8f274afa
 
-4) #scsi_id -p 0x80/0x83 -s /block/sda1    应该只对SCSI设备有效。
+scsi_id -p 0x80/0x83 -s /block/sda1    应该只对SCSI设备有效。
 
-5) # dumpe2fs /dev/sda1 |grep 'UUID'
+dumpe2fs /dev/sda1 |grep 'UUID'
   
 dumpe2fs 1.39 (29-May-2006)
   

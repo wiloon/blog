@@ -9,6 +9,7 @@ tags:
   - reprint
 ---
 ## Java ClassLoader
+
 不同的JVM的实现不同，本文所描述的内容均只限于Hotspot Jvm.
 
 本文将会从JDK默认的提供的ClassLoader，双亲委托模型，如何自定义ClassLoader以及Java中打破双亲委托机制的场景四个方面入手去讨论和总结一下。
@@ -17,11 +18,9 @@ JDK默认ClassLoader
   
 JDK 默认提供了如下几种ClassLoader
 
-
 Bootstrp loader
   
 Bootstrp加载器是用C++语言写的，用来加载核心类库，如 java.lang.* 等.它是在Java虚拟机启动后初始化的，它主要负责加载%JAVA_HOME%/jre/lib,-Xbootclasspath参数指定的路径以及%JAVA_HOME%/jre/classes中的类。
-
 
 ExtClassLoader
   
@@ -31,11 +30,11 @@ AppClassLoader
   
 Bootstrp loader加载完ExtClassLoader后，就会加载AppClassLoader,并且将AppClassLoader的父加载器指定为 ExtClassLoader。AppClassLoader也是用Java写成的，它的实现类是 sun.misc.Launcher$AppClassLoader，另外我们知道ClassLoader中有个getSystemClassLoader方法,此方法返回的正是AppclassLoader.AppClassLoader主要负责加载classpath所指定的位置的类或者是jar文档，它也是Java程序默认的类加载器。
   
-综上所述，它们之间的关系可以通过下图形象的描述: 
+综上所述，它们之间的关系可以通过下图形象的描述:
 
 双亲委托模型
   
-Java中ClassLoader的加载采用了双亲委托机制，采用双亲委托机制加载类的时候采用如下的几个步骤: 
+Java中ClassLoader的加载采用了双亲委托机制，采用双亲委托机制加载类的时候采用如下的几个步骤:
 
 当前ClassLoader首先从自己已经加载的类中查询是否此类已经加载，如果已经加载则直接返回原来已经加载的类。
 
@@ -49,7 +48,7 @@ Java中ClassLoader的加载采用了双亲委托机制，采用双亲委托机�
 
 如何自定义ClassLoader
   
-Java除了上面所说的默认提供的classloader以外，它还容许应用程序可以自定义classloader，那么要想自定义classloader我们需要通过继承java.lang.ClassLoader来实现,接下来我们就来看看再自定义Classloader的时候，我们需要注意的几个重要的方法: 
+Java除了上面所说的默认提供的classloader以外，它还容许应用程序可以自定义classloader，那么要想自定义classloader我们需要通过继承java.lang.ClassLoader来实现,接下来我们就来看看再自定义Classloader的时候，我们需要注意的几个重要的方法:
 
 1.loadClass 方法
   
@@ -117,7 +116,7 @@ return c;
 
 2.findClass
   
-我们查看java.lang.ClassLoader的源代码，我们发现findClass的实现如下: 
+我们查看java.lang.ClassLoader的源代码，我们发现findClass的实现如下:
 
 protected Class<?> findClass(String name) throws ClassNotFoundException
   
@@ -127,13 +126,13 @@ throw new ClassNotFoundException(name);
   
 }
   
-我们可以看出此方法默认的实现是直接抛出异常，其实这个方法就是留给我们应用程序来override的。那么具体的实现就看你的实现逻辑了，你可以从磁盘读取，也可以从网络上获取class文件的字节流，获取class二进制了以后就可以交给defineClass来实现进一步的加载。defineClass我们再下面再来描述。 ok，通过上面的分析，我们可以得出如下结论: 
+我们可以看出此方法默认的实现是直接抛出异常，其实这个方法就是留给我们应用程序来override的。那么具体的实现就看你的实现逻辑了，你可以从磁盘读取，也可以从网络上获取class文件的字节流，获取class二进制了以后就可以交给defineClass来实现进一步的加载。defineClass我们再下面再来描述。 ok，通过上面的分析，我们可以得出如下结论:
 
 我们在写自己的ClassLoader的时候，如果想遵循双亲委托机制，则只需要override findClass.
   
 3.defineClass
   
-我们首先还是来看看defineClass的源码: 
+我们首先还是来看看defineClass的源码:
 
 defineClass
 
@@ -149,7 +148,7 @@ return defineClass(name, b, off, len, null);
   
 从上面的代码我们看出此方法被定义为了final，这也就意味着此方法不能被Override，其实这也是jvm留给我们的唯一的入口，通过这个唯 一的入口，jvm保证了类文件必须符合Java虚拟机规范规定的类的定义。此方法最后会调用native的方法来实现真正的类的加载工作。
 
-Ok,通过上面的描述，我们来思考下面一个问题: 
+Ok,通过上面的描述，我们来思考下面一个问题:
   
 假如我们自己写了一个java.lang.String的类，我们是否可以替换调JDK本身的类？
 
@@ -163,7 +162,7 @@ Java中有一个SPI(Service Provider Interface)标准,使用了SPI的库，比�
   
 另外为了实现更灵活的类加载器OSGI以及一些Java app server也打破了双亲委托机制。
 
-http://www.javaworld.com/javaworld/jw-10-1996/jw-10-indepth.html?page=1
+<http://www.javaworld.com/javaworld/jw-10-1996/jw-10-indepth.html?page=1>
 
 The class loader concept, one of the cornerstones of the Java virtual machine, describes the behavior of converting a named class into the bits responsible for implementing that class. Because class loaders exist, the Java run time does not need to know anything about files and file systems when running Java programs.
 
@@ -173,19 +172,7 @@ Classes are introduced into the Java environment when they are referenced by nam
 
 At its simplest, a class loader creates a flat name space of class bodies that are referenced by a string name. The method definition is:
 
-  
-    
-      
-        
-          
-            
               Class r = loadClass(String className, boolean resolveIt);
-            
-          
-        
-      
-    
-  
 
 The variable className contains a string that is understood by the class loader and is used to uniquely identify a class implementation. The variable resolveIt is a flag to tell the class loader that classes referenced by this class name should be resolved (that is, any referenced class should be loaded as well).
 
@@ -227,12 +214,6 @@ Return the class to the caller.
 
 Some Java code that implements this flow is taken from the file SimpleClassLoader and appears as follows with descriptions about what it does interspersed with the code.
 
-  
-    
-      
-        
-          
-            
               public synchronized Class loadClass(String className, boolean resolveIt)
             
             
@@ -274,21 +255,9 @@ Some Java code that implements this flow is taken from the file SimpleClassLoade
             
             
                }
-            
-          
-        
-      
-    
-  
 
 The code above is the first section of the loadClass method. As you can see, it takes a class name and searches a local hash table that our class loader is maintaining of classes it has already returned. It is important to keep this hash table around since you must return the same class object reference for the same class name every time you are asked for it. Otherwise the system will believe there are two different classes with the same name and will throw a ClassCastException whenever you assign an object reference between them. It's also important to keep a cache because the loadClass() method is called recursively when a class is being resolved, and you will need to return the cached result rather than chase it down for another copy.
 
-  
-    
-      
-        
-          
-            
               /* Check with the primordial class loader */
             
             
@@ -318,21 +287,9 @@ The code above is the first section of the loadClass method. As you can see, it 
             
             
                }
-            
-          
-        
-      
-    
-  
 
 As you can see in the code above, the next step is to check if the primordial class loader can resolve this class name. This check is essential to both the sanity and security of the system. For example, if you return your own instance of java.lang.Object to the caller, then this object will share no common superclass with any other object! The security of the system can be compromised if your class loader returned its own value of java.lang.SecurityManager, which did not have the same checks as the real one did.
 
-  
-    
-      
-        
-          
-            
               /* Try to load it from our repository */
             
             
@@ -350,16 +307,10 @@ As you can see in the code above, the next step is to check if the primordial cl
             
             
                }
-            
-          
-        
-      
-    
-  
 
 After the initial checks, we come to the code above which is where the simple class loader gets an opportunity to load an implementation of this class. As you can see from the source code, the SimpleClassLoader has a method getClassImplFromDataBase() which in our simple example merely prefixes the directory "store" to the class name and appends the extension ".impl". I chose this technique in the example so that there would be no question of the primordial class loader finding our class. Note that the sun.applet.AppletClassLoader prefixes the codebase URL from the HTML page where an applet lives to the name and then does an HTTP get request to fetch the bytecodes.
 
-http://www.blogjava.net/realsmy/archive/2007/04/03/108053.html
+<http://www.blogjava.net/realsmy/archive/2007/04/03/108053.html>
 
 JAVA中的一切都是以类的形式存在的 (除少数底层的东西，那些我就不清楚是怎么回事了) 。我们运行的接口是一个类，运行中所涉及到的对象也都是类对象。下面，我们来研究下，我所理解的类的加载机制。
 
@@ -369,29 +320,17 @@ JAVA中的一切都是以类的形式存在的 (除少数底层的东西，那�
 
 Bootstrap Loader是由C++撰写的，它主要负责搜索JRE所在目录的classes或lib目录下的.jar文件 (例如rt.jar) 是否需要被加载 (实际上是由系统参数sun.boot.class.path来指定) ；ExtClassLoader主要负责搜索JRE所在目录的lib/ext 目录下的classes或.jar中是否需要被加载 (实际上是由系统参数java.ext.dirs指定) ；AppClassLoader则是搜索 Classpath中是否有指定的classes需要被载入 (由系统参数java.class.path指定) 。
 
-简单的说，Bootstrap Loader、ExtClassLoader这两个类加载器，主要是加载系统类库里的类。我们自己编辑的类一般都是由AppClassLoader来加载。当我们遇到如下代码的时候: 
+简单的说，Bootstrap Loader、ExtClassLoader这两个类加载器，主要是加载系统类库里的类。我们自己编辑的类一般都是由AppClassLoader来加载。当我们遇到如下代码的时候:
 
-  
-    
-      
-        
-          
-            
               Student stu = new Student();
             
             
             
               //实例化一个Student类的对象stu
-            
-          
-        
-      
-    
-  
 
 AppClassLoader首先会到classpath下去寻找Student.class文件。 (找不到则会抛出ClassNotFoundException异常) 找到之后便会把Student这个类以二进制的形式存储到内存中。这个过程也就是对Student类加载的过程。然后用我们加载到内存中的Student类去实例化一个Student对象stu。
 
-以上就是所谓的隐式的类的加载过程。但是有些时候需要我们自定义一个类的加载器，这个时候就需要我们模仿这个过程，显示的加载我们自己所需要的类。比如，我们自定义一个类的加载器MyClassLoader，那我们利用我们自定义的这个加载器，显示的去加载一个类的过程也是这样的: 
+以上就是所谓的隐式的类的加载过程。但是有些时候需要我们自定义一个类的加载器，这个时候就需要我们模仿这个过程，显示的加载我们自己所需要的类。比如，我们自定义一个类的加载器MyClassLoader，那我们利用我们自定义的这个加载器，显示的去加载一个类的过程也是这样的:
 
 1.寻找类文件。
   
@@ -403,14 +342,8 @@ AppClassLoader首先会到classpath下去寻找Student.class文件。 (找不到
   
 3.创建类对象。
   
-我接触的时候还不大理解，其实这里是应用我们自己加载到内存中的类，去实例化一个对象。以下代码可以参考: 
+我接触的时候还不大理解，其实这里是应用我们自己加载到内存中的类，去实例化一个对象。以下代码可以参考:
 
-  
-    
-      
-        
-          
-            
               import java.net.MalformedURLException;
             
             
@@ -471,15 +404,8 @@ AppClassLoader首先会到classpath下去寻找Student.class文件。 (找不到
             
             
                }
-            
-          
-        
-      
-    
-  
 
-https://my.oschina.net/aminqiao/blog/262601
-
+<https://my.oschina.net/aminqiao/blog/262601>
 
 ```java
 

@@ -9,11 +9,11 @@ tags:
   - reprint
 ---
 ## HTTP basic
-### get/post
-1．HTTP请求格式: 
 
-  
-  
+### get/post
+
+1．HTTP请求格式:
+
     在HTTP请求中，第一行必须是一个请求行 (request line) ，用来说明请求类型、要访问的资源以及使用的HTTP版本。紧接着是一个首部 (header) 小节，用来说明服务器要使用的附加信息。在首部之后是一个空行，再此之后可以添加任意的其他数据[称之为主体 (body) ]。
   
   
@@ -27,8 +27,6 @@ tags:
  HTTP-GET以使用MIME类型application/x-www-form-urlencoded的urlencoded文本的格式传递参数。Urlencoding是一种字符编码，保证被传送的参数由遵循规范的文本组成，例如一个空格的编码是"%20"。附加参数还能被认为是一个查询字符串。
  与HTTP-GET类似，HTTP-POST参数也是被URL编码的。然而，变量名/变量值不作为URL的一部分被传送，而是放在实际的HTTP请求消息内部被传送。
   
-  
-    
       get是从服务器上获取数据，post是向服务器传送数据。
     
     
@@ -64,30 +62,27 @@ tags:
  <!-分别通过get和post方式提交表单->
  <FORM ACTION="getpost.asp" METHOD="get">
  <INPUT TYPE="text" NAME="Text" VALUE="
- 
- http://wxf0701.cnblogs.com/
+
+ <http://wxf0701.cnblogs.com/>
  />
  <INPUT TYPE="submit" VALUE="Get方式"></INPUT>
  </FORM>
- 
 
  <FORM ACTION="getpost.asp" METHOD="post">
  <INPUT TYPE="text" NAME="Text" VALUE="http://wxf0701.cnblogs.com/>
  <INPUT TYPE="submit" VALUE="Post方式"></INPUT>
  </FORM>
- 
-  
-  
+
     <% If Request.QueryString("Text") <> "" Then %>
  通过get方式传递的字符串是:  "<%= Request.QueryString("Text") %>"
 
  <% End If %>
   
-  
     <% If Request.Form("Text") <> "" Then %>
  通过Post方式传递的字符串是:  "<%= Request.Form("Text") %>"
 
  <% End If %>
+
  ```
   
   
@@ -130,3 +125,5 @@ HttpServletResponse提供了快捷的redirect()方法实现302重定向。
 ---
 
 https://www.liaoxuefeng.com/wiki/1252599548343744/1328761739935778
+
+<https://alanli7991.github.io/2016/10/26/HTTP%E8%AF%B7%E6%B1%82GETPOST%E4%B8%8E%E5%8F%82%E6%95%B0%E5%B0%8F%E7%BB%93/>

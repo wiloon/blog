@@ -9,7 +9,8 @@ tags:
   - reprint
 ---
 ## 控制台,终端,tty,shell
-https://blog.csdn.net/on_1y/article/details/20203963
+
+<https://blog.csdn.net/on_1y/article/details/20203963>
 
 使用linux已经有一段时间,却一直弄不明白这几个概念之间的区别。虽然一直在用,但是很多概念都感觉模糊不清,这样不上不下的状态实在令人不爽。下面就澄清一下这些概念。
 
@@ -55,12 +56,12 @@ csh csh全称为 C Shell,由 Bill Joy在70年代晚期完成,那时候他还是�
 
 bash bash是由 Brian Fox为GNU项目开发的自由软件,作为Bourne shell的替代品,于1989年发布。是Linux和Mac OS X的默认shell。bash的命令语法是Bourne shell命令语法的超集,从ksh和csh借鉴了一些思想。
 
-## 好了,就写到这里,上面的内容是我参考维基百科后写下的,不保证完全正确, 下面还提供了一些资料,如果有兴趣可以阅读一下。
+## 好了,就写到这里,上面的内容是我参考维基百科后写下的,不保证完全正确, 下面还提供了一些资料,如果有兴趣可以阅读一下
 
 作者: on_1y
   
 来源: CSDN
   
-原文: https://blog.csdn.net/on_1y/article/details/20203963
+原文: <https://blog.csdn.net/on_1y/article/details/20203963>
   
 版权声明: 本文为博主原创文章,转载请附上博文链接！

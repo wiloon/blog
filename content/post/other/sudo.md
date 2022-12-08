@@ -13,7 +13,7 @@ tags:
 ## sudo 提供密码
 
 ```bash
-    echo 'password' | sudo -S command
+echo 'password' | sudo -S command
 ```
 
 ```bash
@@ -48,7 +48,7 @@ joe ALL=(ALL) NOPASSWD: ALL
 %admin ALL=(ALL) NOPASSWD: ALL
 ```
 
-><https://www.cnblogs.com/itech/archive/2009/08/07/1541017.html>
+<https://www.cnblogs.com/itech/archive/2009/08/07/1541017.html>
 
 <https://askubuntu.com/questions/70534/what-are-the-differences-between-su-sudo-s-sudo-i-sudo-su>
 
@@ -67,7 +67,9 @@ sudo(substitute user do) 使得系统管理员可以授权特定用户或用户�
 
 环境变量继承
   
-# sudo visudo
+```bash
+sudo visudo
+```
 
 或者
   

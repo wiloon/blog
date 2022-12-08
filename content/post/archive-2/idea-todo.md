@@ -1,14 +1,22 @@
 ---
-title: idea
+title: Asahi Linux
 author: "-"
 date: 2016-09-08T08:39:28+00:00
-url: /?p=9197
+url: asahilinux
 categories:
-  - Inbox
+  - Linux
 tags:
   - reprint
 ---
-## idea
-file header
+## Asahi Linux
 
-setting>file and code templates>includes>file header
+```bash
+curl https://alx.sh | sh
+
+# choose an existing partition to resize
+1: APFS [Macintosh HD]
+
+# Enter the new size for your existing partition:
+400GB
+
+```

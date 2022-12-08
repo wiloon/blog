@@ -9,40 +9,26 @@ tags:
   - reprint
 ---
 ## MySQL Innodb 锁
+
 InnoDB 发音为"in-no-db"
   
     行锁
-  
 
-
-  
     行锁的分类
-  
-  
+
     行锁从mode上分为X、S,type上进一步细分为以下类型: 
-  
-  
-    
+
       LOCK_GAP: GAP锁,锁两个记录之间的GAP,防止记录插入；
-    
-    
+
       LOCK_ORDINARY: 官方文档中称为 "Next-Key Lock" ,锁一条记录及其之前的间隙,这是RR级别用的最多的锁,从名字也能看出来；
-    
-    
+
       LOCK_REC_NOT_GAP: 只锁记录；
-    
-    
+
       LOCK_INSERT_INTENSION: 插入意向GAP锁,插入记录时使用,是LOCK_GAP的一种特例。
-    
-  
-  
+
     RC级别只有记录锁,没有 Next-Key Lock 和 GAP锁,因此存在幻读现象。
-  
-  
+
     行锁是加在记录上的锁,InnoDB中的记录是以B+树索引的方式组织在一起的,InnoDB的行锁实际是 index record lock,即对B+索引叶子节点的锁。索引可能有多个,因此操作一行数据时,有可能会加多个行锁在不同的B+树上。
-  
-  
-  
 
 在计算机科学中,锁是在执行多线程时用于强行限制资源访问的同步机制,即用于在并发控制中保证对互斥要求的满足。
 
@@ -60,7 +46,7 @@ InnoDB 发音为"in-no-db"
 
 ## 表级锁
 
-表级锁是MySQL中锁定粒度最大的一种锁,表示对当前操作的整张表加锁,它实现简单,资源消耗较少,被大部分MySQL引擎支持。最常使用的MYISAM与INNODB都支持表级锁定。表级锁定分为**`表共享读锁` ([共享锁][2]) **与**`表独占写锁` ([排他锁][2]) **。
+表级锁是MySQL中锁定粒度最大的一种锁,表示对当前操作的整张表加锁,它实现简单,资源消耗较少,被大部分MySQL引擎支持。最常使用的MYISAM与INNODB都支持表级锁定。表级锁定分为**`表共享读锁` ([共享锁][2])**与**`表独占写锁` ([排他锁][2])**。
 
 ### 特点
 
@@ -96,10 +82,10 @@ InnoDB行锁是通过给索引上的索引项加锁来实现的,这一点MySQL�
 
 在实际应用中,要特别注意InnoDB行锁的这一特性,不然的话,可能导致大量的锁冲突,从而影响并发性能。
 
-  * 在不通过索引条件查询的时候,InnoDB 确实使用的是表锁,而不是行锁。
-  * 由于 MySQL 的行锁是针对索引加的锁,不是针对记录加的锁,所以虽然是访问不同行 的记录,但是如果是使用相同的索引键,是会出现锁冲突的。应用设计的时候要注意这一点。
-  * 当表有多个索引的时候,不同的事务可以使用不同的索引锁定不同的行,另外,不论 是使用主键索引、唯一索引或普通索引,InnoDB 都会使用行锁来对数据加锁。
-  * 即便在条件中使用了索引字段,但是否使用索引来检索数据是由 MySQL 通过判断不同 执行计划的代价来决定的,如果 MySQL 认为全表扫 效率更高,比如对一些很小的表,它 就不会使用索引,这种情况下 InnoDB 将使用表锁,而不是行锁。因此,在分析锁冲突时, 别忘了检查 SQL 的执行计划,以确认是否真正使用了索引。
+* 在不通过索引条件查询的时候,InnoDB 确实使用的是表锁,而不是行锁。
+* 由于 MySQL 的行锁是针对索引加的锁,不是针对记录加的锁,所以虽然是访问不同行 的记录,但是如果是使用相同的索引键,是会出现锁冲突的。应用设计的时候要注意这一点。
+* 当表有多个索引的时候,不同的事务可以使用不同的索引锁定不同的行,另外,不论 是使用主键索引、唯一索引或普通索引,InnoDB 都会使用行锁来对数据加锁。
+* 即便在条件中使用了索引字段,但是否使用索引来检索数据是由 MySQL 通过判断不同 执行计划的代价来决定的,如果 MySQL 认为全表扫 效率更高,比如对一些很小的表,它 就不会使用索引,这种情况下 InnoDB 将使用表锁,而不是行锁。因此,在分析锁冲突时, 别忘了检查 SQL 的执行计划,以确认是否真正使用了索引。
 
 * * *
 
@@ -127,17 +113,8 @@ InnoDB锁
 
 ### 获取InonoD行锁争用情况
 
-  可以通过检查InnoDB_row_lock状态变量来分析系统上的行锁的争夺情况: 
+  可以通过检查InnoDB_row_lock状态变量来分析系统上的行锁的争夺情况:
 
-  
-    
-      
-        
-          
-            
-              
-                
-                  
                     1
                   
                   
@@ -238,36 +215,23 @@ InnoDB锁
   
         如果发现争用比较严重,如Innodb_row_lock_waits和Innodb_row_lock_time_avg的值比较高,还可以通过设置InnoDB Monitors来进一步观察发生锁冲突的表、数据行等,并分析锁争用的原因。
   
-  
-  
-  
-
 ### InnoDB的行锁模式及加锁方法
 
   InnoDB实现了以下两种类型的行锁。
 
-
-  
-    
       共享锁 (s) : 允许一个事务去读一行,阻止其他事务获得相同数据集的排他锁。
     
     
       排他锁 (Ｘ) : 允许获取排他锁的事务更新数据,阻止其他事务取得相同的数据集共享读锁和排他写锁。
-    
-  
-
 
   另外,为了允许行锁和表锁共存,实现多粒度锁机制,InnoDB还有两种内部使用的意向锁 (Intention Locks) ,这两种意向锁都是表锁。
 
-
   意向共享锁 (IS) : 事务打算给数据行共享锁,事务在给一个数据行加共享锁前必须先取得该表的IS锁。
-
 
   意向排他锁 (IX) : 事务打算给数据行加排他锁,事务在给一个数据行加排他锁前必须先取得该表的IX锁。
 
 #### **InnoDB行锁模式兼容性列表**
 
-  
     <colgroup> <col width="161" /> <col width="120" /> <col width="115" /> <col width="101" /> <col width="90" /></colgroup> 
       
         当前锁模式/是否兼容/请求锁模式
@@ -384,15 +348,11 @@ InnoDB锁
 
       意向锁是InnoDB自动加的,不需用户干预。对于UPDATE、DELETE和INSERT语句,InnoDB会自动给涉及及数据集加排他锁 (Ｘ) ；对于普通SELECT语句,InnoDB会自动给涉及数据集加排他锁 (Ｘ) ；对于普通SELECT语句,InnoDB不会任何锁；事务可以通过以下语句显示给记录集加共享锁或排锁。
 
-
   共享锁 (Ｓ) : SELECT * FROM table_name WHERE ... LOCK IN SHARE MODE
-
 
   排他锁 (X) : SELECT * FROM table_name WHERE ... FOR UPDATE
 
-
       用SELECT .. IN SHARE MODE获得共享锁,主要用在需要数据依存关系时确认某行记录是否存在,并确保没有人对这个记录进行UPDATE或者DELETE操作。但是如果当前事务也需要对该记录进行更新操作,则很有可能造成死锁,对于锁定行记录后需要进行更新操作的应用,应该使用SELECT ... FOR UPDATE方式获取排他锁。
-
 
 ### InnoDB行锁实现方式
 
@@ -401,8 +361,7 @@ InnoDB锁
 
       在实际应用中,要特别注意InnoDB行锁的这一特性,不然的话,可能导致大量的锁冲突,从而影响并发性能。
 
-
-### 间隙锁 (Next-Key锁) 
+### 间隙锁 (Next-Key锁)
 
       当我们用范围条件而不是相等条件检索数据,并请求共享或排他锁时,InnoDB会给符合条件的已有数据的索引项加锁；对于键值在条件范围内但并不存在的记录,叫做"间隙(GAP)",InnoDB也会对这个"间隙"加锁,这种锁机制不是所谓的间隙锁 (Next-Key锁) 。
 
@@ -423,7 +382,6 @@ InnoDB锁
 
 
       很显然,在使用范围条件检索并锁定记录时,InnoDB这种加锁机制会阻塞符合条件范围内键值的并发插入,这往往会造成严重的锁等待。因此,在实际开发中,尤其是并发插入比较多的应用,我们要尽量优化业务逻辑,尽量使用相等条件来访问更新数据,避免使用范围条件。
-
 
 ### 什么时候使用表锁
 
@@ -501,13 +459,6 @@ InnoDB锁
               
               
                 UNLOCK TABLES;
-              
-            
-          
-        
-      
-  
-
 
 ### 关于死锁
 
@@ -539,14 +490,13 @@ InnoDB锁
 
       如果出现死锁,可以用SHOW INNODB STATUS命令来确定最后一个死锁产生的原因和改进措施。
 
-
-http://www.cnblogs.com/sliverdang/p/3163455.html
+<http://www.cnblogs.com/sliverdang/p/3163455.html>
 
 Innodb具备的锁种类
 
-1. 表锁 (MySQL提供的,跟存储引擎无关) 
+1. 表锁 (MySQL提供的,跟存储引擎无关)
 
-2. 行锁 (Innodb存储引擎实现) 
+2. 行锁 (Innodb存储引擎实现)
 
 二 Innodb内部实现的锁种类
 
@@ -560,14 +510,13 @@ Innodb具备的锁种类
 
 例如:  create table t1(id int, v1 int,v2 int, primary key(id), key \`idx_v1\` (\`v1\`)) engine=innodb;
 
-数据行有以下几行: 
+数据行有以下几行:
 
 id
   
 v1
   
 v2
-  
   
 间隙锁一般是针对非唯一索引而言的
 
@@ -589,12 +538,11 @@ v2
 
 假如更新v1=5的数据行,那么此时会在索引记录idx_v1加上间隙锁,会把5之前的区间锁定,锁定的区间是(4,5)和(5,7),也就是区间(4,7),同时找到v1=5的数据行的主键,在该记录上加上记录锁,锁定该行记录。
 
-
 3. 后码锁
 
 记录锁和间隙锁的结合,对于innodb中,更新非唯一索引记录时,会加上后码锁。如果更新记录为空,就不能加记录锁,此时只剩下间隙锁。多条更新语句可能导致不同事务中锁定的索引区间重复,导致插入失败。
 
-例子 (事务隔离等级为可重复读,主要看一下后码锁是记录锁和间隙锁的结合) 
+例子 (事务隔离等级为可重复读,主要看一下后码锁是记录锁和间隙锁的结合)
 
 transaction 1
   
@@ -632,15 +580,15 @@ rollback;
 
 执行更新类语句,像SELECT ... FOR UPDATE, UPDATE,DELETE语句
 
-1.  如果更新条件没有索引,例如执行"SELECT * FROM t1 where v2=2 for update",那么此时更新操作会使用表锁。多条更新SQL语句在不同的事务中同时执行,先取得表锁的事务会将其他事务挂起,直到当前事务提交或回滚。
+1. 如果更新条件没有索引,例如执行"SELECT * FROM t1 where v2=2 for update",那么此时更新操作会使用表锁。多条更新SQL语句在不同的事务中同时执行,先取得表锁的事务会将其他事务挂起,直到当前事务提交或回滚。
 
-使用表锁的原因: 
+使用表锁的原因:
 
 由于更新的数据没有索引,MySQL只能做扫表操作,扫表的时候,要阻止其他任何的更新操作,所以会上升为表锁。
 
 2. 如果更新条件为索引字段,但并非唯一索引 (包括主键) ,例如执行"SELECT * FROM t1 where v1=1 for update",那么此时更新会使用后码锁。
 
-使用后码锁的原因: 
+使用后码锁的原因:
 
 a)首先要保证在符合条件的记录上加上排他的记录锁,会锁定当前非唯一索引和这些满足条件的记录对应的主键索引；b)还要保证更新的索引记录区间不能插入新数据。
 
@@ -657,7 +605,6 @@ Innodb支持聚簇索引,但是聚簇索引只能是主键索引,并且每张表
 四 间隙锁演示
 
 说明: 加后码锁的时候,并未锁住间隙两端的记录,那么两端的记录是可以更新的,但是如果更新记录时会影响到间隙锁,那需要被挂起,等待间隙锁被释放。
-
 
 transaction 3
   
@@ -709,7 +656,7 @@ INSERT INTO t1 set id=8, v1=7,v2=2;(此操作OK,可以执行)
 
 当往封边区间两端插入值的时候,需要看要插入的值的主键是否在封锁区间对应的主键的范围。
 
-具体解释: 
+具体解释:
 
 id
   
@@ -733,23 +680,23 @@ innodb_locks ## 当前出现的锁
   
 innodb_lock_waits ## 锁等待的对应关系
 
-http://blog.sina.com.cn/s/blog_53e68b3b0101bjxi.html
+<http://blog.sina.com.cn/s/blog_53e68b3b0101bjxi.html>
 
-http://www.cnblogs.com/chenqionghe/p/4845693.html
+<http://www.cnblogs.com/chenqionghe/p/4845693.html>
 
-http://novoland.github.io/%E6%95%B0%E6%8D%AE%E5%BA%93/2015/08/17/InnoDB%20%E9%94%81.html
+<http://novoland.github.io/%E6%95%B0%E6%8D%AE%E5%BA%93/2015/08/17/InnoDB%20%E9%94%81.html>
 
-#http://MySQLlover.com/?p=416
+#<http://MySQLlover.com/?p=416>
 
-http://MySQL.taobao.org/monthly/2016/01/01/
+<http://MySQL.taobao.org/monthly/2016/01/01/>
 
-http://MySQL.taobao.org/monthly/
+<http://MySQL.taobao.org/monthly/>
 
-http://xiaobaoqiu.github.io/blog/2015/06/03/MySQL-innodbsi-suo/
+<http://xiaobaoqiu.github.io/blog/2015/06/03/MySQL-innodbsi-suo/>
 
-https://liuzhengyang.github.io/2016/09/25/MySQLinnodb/
+<https://liuzhengyang.github.io/2016/09/25/MySQLinnodb/>
 
-http://www.wiloon.com/wp-admin/post.php?post=8558&action=edit
+<http://www.wiloon.com/wp-admin/post.php?post=8558&action=edit>
 
  [1]: http://www.hollischuang.com/archives/909
  [2]: http://www.hollischuang.com/archives/923

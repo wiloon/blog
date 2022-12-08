@@ -9,18 +9,15 @@ tags:
   - reprint
 ---
 ## sysstat
+
 system performance tools for Linux
 
 The sysstat package contains the following system performance tools:
-  
+
 - sar: collects and reports system activity information;
-  
 - iostat: reports CPU utilization and disk I/O statistics;
-  
 - mpstat: reports global and per-processor statistics;
-  
 - pidstat: reports statistics for Linux tasks (processes);
-  
 - sadf: displays data collected by sar in various formats.
 
 The statistics reported by sar deal with I/O transfer rates,

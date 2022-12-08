@@ -1,8 +1,8 @@
 ---
-title: "pve basic"
+title: "pve"
 author: "-"
-date: ""
-url: ""
+date: "2022-09-10 15:39:49"
+url: "pve"
 categories:
   - Linux
 tags:
@@ -10,7 +10,7 @@ tags:
   - VM
   - remix
 ---
-## "pve basic"
+## "pve"
 
 ### 创建安装盘 U盘
 
@@ -34,7 +34,9 @@ vi /etc/apt/sources.list.d/pve-enterprise.list
 #deb https://enterprise.proxmox.com/debian/pve buster pve-enterprise
 ```
 
-### 更新源
+## 更新源
+
+### pve 6.x
 
 vi /etc/apt/sources.list
 
@@ -54,7 +56,7 @@ deb https://mirrors.aliyun.com/debian-security buster/updates main contrib non-f
 deb https://mirrors.ustc.edu.cn/proxmox/debian/pve buster pve-no-subscription
 ```
 
-## pve 7.2
+### pve 7.2
 
 ```bash
 deb http://mirrors.aliyun.com/debian/ bullseye main non-free contrib
@@ -75,35 +77,35 @@ deb http://security.debian.org bullseye-security main contrib
 deb http://download.proxmox.com/debian/pve bullseye pve-no-subscription
 ```
 
-### 访问管理页面
+## 管理页面
 
 <https://192.168.50.xxx:8006>
 
-### create vm
+## create vm
 
-#### 上传iso
+### 上传iso
 
-把ISO上传到Proxmox宿主机的存储里
+把 ISO 上传到 Proxmox 宿主机的存储里
 Datacenter> nuc8> local(nuc8) >ISO Images >-->Upload
 
 ### 创建虚拟机
 
 ```bash
-    create vm > 
-        general > name: foo
-        general > advanced
-            advanced > start at boot
+create vm > 
+    general > name: foo
+    general > advanced
+        advanced > start at boot
 
-        next
+    next
 
-        OS>use cd/dvd disc image file > iso image
+    OS> use cd/dvd disc image file > iso image
 
-        next
+    next
 
-        Hard Disk>Disk size
-        Hard Disk>Backup
+    Hard Disk> Disk size
+    Hard Disk> Backup
 
-    create vm > system > qemu agent: select
+create vm > system > qemu agent: select
 ```
 
 ### create vm from template
@@ -132,7 +134,7 @@ Qemu 代理即 qemu-guest-agent，是一个运行在虚拟机里面的程序 qem
 ### 改ip
 
 ```bash
-     vi /etc/network/interfaces
+vi /etc/network/interfaces
 ```
 
 ### 显卡直通
@@ -159,39 +161,31 @@ bridge ports: 支持同时添加多个网口，用空格分隔
 使用WinSCP等软件上传vma备份文件至另一台pve
 使用恢复功能恢复虚拟机
 
-#### 备份虚拟机
+## 备份恢复虚拟机
 
-登录pve 选择要备份的虚拟机
-tick the box, Hardware> Hard Disk> Edit> Advanced> Backup
-点击子菜单中的备份按钮
-点击立即备份按钮
+登录 pve 选择要备份的虚拟机
+磁盘需要勾选备份选项: tick the box, Hardware> Hard Disk> Edit> Advanced> Backup
+从 Hardware 菜单切换到 Backup 点击子菜单中的备份按钮
+点击立即备份按钮(Backup now)
 设置备份到的存储 (local的备份路径为: /var/lib/vz/dump)
-设置模式: 停止(Stop)
+设置模式(Mode): 停止(Stop)
 设置压缩: 无
 等待备份完毕
 
-三、使用WinSCP下载备份
-WinSCP可以使用SFTP连接pve节点
-WinSCP下载地址: WinSCP官网
+```bash
+# 页面打印的日志里能找到 文件路径 INFO: creating vzdump archive '/var/lib/vz/dump/vzdump-qemu-105-2022_09_10-15_19_12.vma.zst'
+scp root@192.168.50.5:/var/lib/vz/dump/vzdump-qemu-105-2022_09_10-15_19_12.vma.zst .
+```
 
-登录pve01节点
+### 恢复
 
-切换远程目录至备份目录 (local存储的备份目录为: /var/lib/vz/dump) 找到虚拟机备份文件右键点击下载
-
-使用二进制方式下载vma备份文件至本机目录
-
-等待下载完成
-
-四、上传备份
-使用WinSCP登录pve02节点
-本地目录切换至刚下载备份的目录
-右键点击vma备份文件选择上传
-
-输入上传路径/var/lib/vz/dump/. (local存储的备份目录为: /var/lib/vz/dump) 并使用二进制方式上传
+```bash
+scp vzdump-qemu-105-2022_09_10-15_19_12.vma.zst root@192.168.50.7:/var/lib/vz/dump/
+```
 
 等待上传完毕
 
-五、恢复虚拟机
+恢复虚拟机
 登录pve02节点
 切换至相应的上传存储 (local)
 点击子菜单中的内容菜单
@@ -234,3 +228,10 @@ WinSCP下载地址: WinSCP官网
 <https://wangxingcs.com/2020/0307/1424/>
 
 <https://www.10bests.com/install-openwrt-lede-on-pve/>
+
+## 关闭屏幕, 熄屏
+
+setterm -blank 1 // 5分钟后关闭屏幕，5 可以改成别的整数
+GRUB_CMDLINE_LINUX="consoleblank=300" //每次开机后无操作都是5分钟关闭屏幕300的单位是秒
+
+<https://www.xltyu.com/3276.html>
