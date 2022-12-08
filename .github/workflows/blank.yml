@@ -34,6 +34,6 @@ jobs:
           ARGS: "-avz --delete"
           SOURCE: "public/"
           REMOTE_HOST: "67.216.209.168"
-          REMOTE_PORT: 38785
+          REMOTE_PORT: 10000
           REMOTE_USER: "blog"
           TARGET: "/home/blog/public/"

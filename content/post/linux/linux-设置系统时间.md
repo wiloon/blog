@@ -37,11 +37,11 @@ timedatectl list-timezones
 timedatectl set-timezone Asia/Shanghai 
 ```
 
-# timedatectl set-local-rtc 1 # 将硬件时钟调整为与本地时钟一致, 0 为设置为 UTC 时间
+timedatectl set-local-rtc 1 # 将硬件时钟调整为与本地时钟一致, 0 为设置为 UTC 时间
 
 其实不考虑各个发行版的差异化, 从更底层出发的话, 修改时间时区比想象中要简单:
 
-# cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
+cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 
 Linux时钟分为系统时钟 (System Clock) 和硬件 (Real Time Clock，简称RTC) 时钟。系统时钟是指当前Linux Kernel中的时钟，而硬件时钟则是主板上由电池供电的时钟，这个硬件时钟可以在BIOS中进行设置。当Linux启动时，硬件时钟会去读取系统时钟的设置，然后系统时钟就会独立于硬件运作。
 
@@ -51,7 +51,7 @@ Linux中的所有命令 (包括函数) 都是采用的系统时钟设置。在Li
 
 查看系统时间
 
-# date
+date
 
 设置系统时间
   
@@ -63,21 +63,21 @@ sudo date -set "08/31/2012 10:19"
   
 ```
   
-2. hwclock/clock
+1. hwclock/clock
 
 查看硬件时间
 
-# hwclock -show
+hwclock -show
 
 或者# clock -show
 
 设置硬件时间
 
-# hwclock -set -date="07/07/06 10:19"  (月/日/年 时:分:秒)
+hwclock -set -date="07/07/06 10:19"  (月/日/年 时:分:秒)
 
 或者# clock -set -date="07/07/06 10:19"  (月/日/年 时:分:秒)
 
-3. 硬件时间和系统时间的同步
+1. 硬件时间和系统时间的同步
 
 按照前面的说法，重新启动系统，硬件时间会读取系统时间，实现同步，但是在不重新启动的时候，需要用hwclock或clock命令实现同步。
 
@@ -85,9 +85,9 @@ sudo date -set "08/31/2012 10:19"
 
 系统时钟和硬件时钟同步: # hwclock -systohc或者# clock -systohc
 
-4. 时区的设置
+时区的设置
 
-# tzselect
+tzselect
 
 Please identify a location so that time zone rules can be set correctly.Please select a continent or ocean. 1) Africa 2) Americas 3) Antarctica 4) Arctic Ocean 5) Asia 6) Atlantic Ocean 7) Australia 8) Europe 9) Indian Ocean10) Pacific Ocean11) none - I want to specify the time zone using the Posix TZ format.#? 输入5，亚洲
 
@@ -103,11 +103,11 @@ Therefore TZ="Asia/Shanghai" will be used.Local time is now: Fri Jul 7 10:32:18 
 
 如果不用tzselect命令，可以修改文件变更时区。
 
-# vi /etc/sysconfig/clock ZONE=Asia/Shanghai (查/usr/share/zoneinfo下面的文件)  UTC=false ARC=false
+vi /etc/sysconfig/clock ZONE=Asia/Shanghai (查/usr/share/zoneinfo下面的文件)  UTC=false ARC=false
 
-# rm /etc/localtime
+rm /etc/localtime
 
-# ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
+ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 
 重新启动即可。
 

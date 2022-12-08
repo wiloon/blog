@@ -1,12 +1,13 @@
 ---
 title: kde config
 author: "-"
-date: 2019-04-07T03:31:52+00:00
+date: 2022-10-02 12:35:50
 url: kde/config
 categories:
   - Desktop
 tags:
   - reprint
+  - remix
 ---
 ## kde config
 
@@ -38,8 +39,6 @@ balooctl status  #查看baloo的状态
 
 <https://community.kde.org/Baloo/Configuration>
 
----
-
 ## 任务栏
 
 用 task manager widget 替换 icon only task manager widget
@@ -47,3 +46,11 @@ balooctl status  #查看baloo的状态
 icon only task manager widget 任务栏只显示图标，同一个应用打开了多个窗口时不能区分不同的窗口。
 
 task manager widget 会在任务栏上显示 window title
+
+## kde show week number
+
+在任务栏的时钟控件上点击右键> Config Digital Clock> Digital Clock Settings> Calendar> Show week numbers
+
+## 桌面缩放
+
+系统设置 -> 辅助功能 -> 桌面缩放(启用缩放关闭)

@@ -10,6 +10,7 @@ tags:
   - reprint
 ---
 ## debian 网络配置
+
 /etc/network/interfaces
 
 ```bash
@@ -28,11 +29,11 @@ wpa-psk "xxxx"
   
 话说Debian系的网卡配置跟Redhat系很不一样，Redhat是放在/etc/sysconfig/network-scripts目录下 面的一大堆文件里面，要修改？你一个一个文件来过吧。Debian系的则是存在/etc/network/interfaces文件里面，无论有多少块网 卡，统统扔在这个文件里。下面就来看一下这个文件的内容。
 
-首先，一个基本的配置大概是下面这个样子: 
+首先，一个基本的配置大概是下面这个样子:
 
 1 auto lo
  2 iface lo inet loopback
- 3 
+ 3
  4 # The primary network interface
  5 auto eth0
  6 iface eth0 inet static
@@ -52,7 +53,7 @@ wpa-psk "xxxx"
 
 第7行-第11行分别设置eth0接口的ip、网络号、掩码、广播地址和网关。
 
-再来看一个更复杂点的: 
+再来看一个更复杂点的:
 
 12 auto eth0
  13 iface eth0 inet static
@@ -73,7 +74,7 @@ wpa-psk "xxxx"
 
 至于配置路由的写法，仔细看，它就是route命令嘛。
 
-继续，下面是一个物理网卡上多个接口的配置方法: 
+继续，下面是一个物理网卡上多个接口的配置方法:
 
 23 auto eth0 eth0:1
  24 iface eth0 inet static
@@ -97,7 +98,7 @@ wpa-psk "xxxx"
 
 第36行会在激活eth0之前检查/etc/network/local-network-ok文件是否存在，如果不存在，则不会激活eth0。
 
-再更进一步的例子: 
+再更进一步的例子:
 
 37 auto eth0 eth1
  38 iface eth0 inet static
@@ -111,7 +112,7 @@ wpa-psk "xxxx"
 
 第41行和第44行中，check-mac-address.sh放在/usr/share/doc/ifupdown/examples/目录 中，使用的时候需要给它加上可执行权限。这两行命令会检测两块网卡的MAC地址是否为11:22:33:44:55:66和 AA:BB:CC:DD:EE:FF，如果正确，则启用网卡。如果MAC地址错误，就不会启用这两块网卡。
 
-第42行和第45行是假定在这两块网卡上分别执行的命令，你可以把它们替换成你想要的任何玩意 : ) 
+第42行和第45行是假定在这两块网卡上分别执行的命令，你可以把它们替换成你想要的任何玩意 : )
 
 手册上说，这种方法主要是用来检测两块网卡的MAC地址交换 (If their MAC addresses get swapped) ，其实就是两块网卡名互换了，这种情况在debian系统上再常见不过了，主要是因为内核识别网卡的顺序发生了变化。这个问题可以用下面 的这种方法来避免。
 
@@ -131,7 +132,7 @@ wpa-psk "xxxx"
 
 这段配置首先配置了两个逻辑接口 (这个名词的定义请参见debian参考手册) lan和internet，然后根据网卡的MAC地址，将逻辑接口映射 (mapped) 到物理接口上去。
 
-再来看下面这段配置: 
+再来看下面这段配置:
 
 > 57 auto eth0  58 iface eth0 inet manual  59       up ifconfig $IFACE 0.0.0.0 up  60       up /usr/local/bin/myconfigscript  61       down ifconfig $IFACE down
 
@@ -148,7 +149,7 @@ wpa-psk "xxxx"
 
 ### wlan
 
-# The wireless network interface  (配置无线网络接口) 
+# The wireless network interface  (配置无线网络接口)
 
 # 开机自动激活wlan0接口
 

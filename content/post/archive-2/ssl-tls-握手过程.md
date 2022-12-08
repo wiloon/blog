@@ -87,7 +87,7 @@ Application Data
 ### RTT
 
 Round Trip Time, 也就是一个数据包从发出去到回来的时间。  
-><https://coolshell.cn/articles/11609.html#TCP%E7%9A%84RTT%E7%AE%97%E6%B3%95>
+<https://coolshell.cn/articles/11609.html#TCP%E7%9A%84RTT%E7%AE%97%E6%B3%95>
 
 TCP的RTT算法
 从前面的TCP重传机制我们知道Timeout的设置对于重传非常重要。

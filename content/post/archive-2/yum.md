@@ -57,7 +57,7 @@ rpm -qa|grep jdk
 yum install httpd
 yum -y install httpd
 
-#local install
+## yum 安装 本地 rpm 包, local install
 sudo yum localinstall influxdb-1.2.4.x86_64.rpm
 
 #yum mirror
@@ -80,18 +80,22 @@ rpm -e --nodeps foo
 
 ### Delta RPMs disabled because /usr/bin/applydeltarpm not installed
 
+```bash
     # 查看哪个包提供 applydeltarpm
     yum provides '*/applydeltarpm'  
     # 安装 deltarpm
     yum install deltarpm -y
+```
 
 ### 清除metadata
 
+```bash
     run yum --enablerepo=updates clean metadata
+```
 
 ### yum 安装报错“rpmdb: BDB0113”
 
-```
+```r
 error: rpmdb: BDB0113 Thread/process ****/************* failed: BDB1507 Thread died in Berkeley DB library
 error: db5 error(-30973) from dbenv->failchk: BDB0087 DB_RUNRECOVERY: Fatal error, run database recovery
 error: cannot open Packages index using db5 -  (-30973)

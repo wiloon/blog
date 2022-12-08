@@ -124,14 +124,11 @@ kafka会定期的关闭空闲Socket连接。默认是9分钟。如果不在乎�
 
 #### auto.offset.reset
 
-该属性指定了消费者在读取一个没有偏移量或者偏移量无效 (消费者长时间失效当前的偏移量已经过时并且被删除了）的分区的情况下，应该作何处理，默认值是latest，也就是从最新记录读取数据 (消费者启动之后生成的记录），另一个值是earliest，意思是在偏移量无效的情况下，消费者从起始位置开始读取数据。
+该属性指定了消费者在读取一个没有偏移量 (客户端没提交过 offset) 或者偏移量无效 (消费者长时间失效当前的偏移量已经过时并且被删除了）的分区的情况下，应该作何处理，默认值是 latest，也就是从最新记录读取数据 (生产者启动之后生成的最新记录），另一个值是 earliest，意思是在偏移量无效的情况下，消费者从起始位置开始读取数据。
 
-- earliest
-    当各分区下有已提交的offset时，从提交的offset开始消费；无提交的offset时，从头开始消费
-- latest
-    当各分区下有已提交的offset时，从提交的offset开始消费；无提交的offset时，消费新产生的该分区下的数据
-- none
-    topic各分区都存在已提交的offset时，从offset后开始消费；只要有一个分区不存在已提交的offset，则抛出异常
+- earliest, 当各分区下有已提交的offset时，从提交的offset开始消费；无提交的offset时，从头开始消费
+- latest, 当各分区下有已提交的offset时，从提交的offset开始消费；无提交的offset时，消费新产生的该分区下的数据
+- none, topic各分区都存在已提交的offset时，从offset后开始消费；只要有一个分区不存在已提交的offset，则抛出异常
 
 ### heartbeat.interval.ms <=  心跳间隔
 
@@ -206,7 +203,7 @@ Kafka默认是定期帮你自动提交位移的(enable.auto.commit = true)，你
 
 3.2 位移提交
 
-老版本的位移是提交到zookeeper中的，图就不画了，总之目录结构是: /consumers/<group.id>/offsets/<topic>/<partitionId>，但是zookeeper其实并不适合进行大批量的读写操作，尤其是写操作。因此kafka提供了另一种解决方案: 增加__consumeroffsets topic，将offset信息写入这个topic，摆脱对zookeeper的依赖(指保存offset这件事情)。__consumer_offsets中的消息保存了每个consumer group某一时刻提交的offset信息。依然以上图中的consumer group为例，格式大概如下:
+老版本的位移是提交到zookeeper中的，图就不画了，总之目录结构是: `/consumers/<group.id>/offsets/<topic>/<partitionId>`，但是zookeeper其实并不适合进行大批量的读写操作，尤其是写操作。因此kafka提供了另一种解决方案: 增加__consumeroffsets topic，将offset信息写入这个topic，摆脱对zookeeper的依赖(指保存offset这件事情)。__consumer_offsets中的消息保存了每个consumer group某一时刻提交的offset信息。依然以上图中的consumer group为例，格式大概如下:
 
 __consumers_offsets topic配置了compact策略，使得它总是能够保存最新的位移信息，既控制了该topic总体的日志容量，也能实现保存最新offset的目的。compact的具体原理请参见: Log Compaction
 

@@ -9,12 +9,9 @@ tags:
   - reprint
 ---
 ## let's encrypt, nginx, debian
+
 sudo apt-get install certbot python-certbot-nginx -t stretch-backports
 sudo certbot --nginx
 
-```
-
----
-
-https://certbot.eff.org/lets-encrypt/debianstretch-nginx
-https://www.jianshu.com/p/c5c9d071e395
+<https://certbot.eff.org/lets-encrypt/debianstretch-nginx>
+<https://www.jianshu.com/p/c5c9d071e395>

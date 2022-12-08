@@ -10,6 +10,10 @@ tags:
 ---
 ## "bitwarden"
 
+## auto fill
+
+chrome extension> bitwarden> settings> option> autofill> enable auto-fill on page load
+
 ### server
 
 ```bash
@@ -26,6 +30,8 @@ pacman -S bitwarden
 ```
 
 ## bitwarden ssh key, bw-key
+
+download bw-key from <https://github.com/haipengno1/bw-key/releases>
 
 ```bash
 bw-key.exe -h https://bitwarden.wiloon.com -n wiloon.wy@gmail.com

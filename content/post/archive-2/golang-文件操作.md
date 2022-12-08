@@ -11,6 +11,7 @@ tags:
 ## golang file,文件操作
 
 ## 文件大小
+
 ```go
 func main() {
     fi,err:=os.Stat("water")
@@ -113,8 +114,10 @@ func isExist(fileName string) bool {
 
 ### 判断是文件还是目录
 
+```bash
     f, _ := os.Stat("a.txt")
     f.IsDir()
+```
 
 ### move file
 
@@ -310,6 +313,6 @@ return nil
 }
 ```
 
-https://learnku.com/articles/23559/two-schemes-for-reading-golang-super-large-files
-https://blog.csdn.net/xielingyun/article/details/50324423  
-https://blog.csdn.net/robertkun/article/details/78776585  
+<https://learnku.com/articles/23559/two-schemes-for-reading-golang-super-large-files>
+<https://blog.csdn.net/xielingyun/article/details/50324423>  
+<https://blog.csdn.net/robertkun/article/details/78776585>  

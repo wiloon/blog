@@ -10,10 +10,20 @@ tags:
 ---
 ## archlinux init
 
+- openssh
+- ssh key
+- neovim
+- ln -s ... vi... vim to nvim
+- sudo nopassword for wiloon
+- python for ansible
+- pacman -Syu
+- yay for telegraf
+- 
+
 ### before ansible script
 
 ```bash
-   pacman -Syu && pacman -S git ansible
+pacman -Syu && pacman -S git ansible
 ```
 
 ### clone ansible script
@@ -26,9 +36,6 @@ git clone git@github.com:wiloon/ansible.git
 
 <http://blog.wiloon.com/?p=9881>
 
-### config pacman mirror
-
-<https://blog.wiloon.com/?p=7501>
 pacman -Syu
 
 ### create user and set password
@@ -36,17 +43,13 @@ pacman -Syu
 yay 不能在root下执行, 需要新建个用户
 <http://blog.wiloon.com/?p=911>
 
+ln -s /usr/bin/vim /usr/bin/vi
+visudo
+
 /etc/sudoer.d/wiloon.conf
 
 ```bash
 wiloon ALL=(ALL) NOPASSWD: ALL
-```
-
-ln -s /usr/bin/vim /usr/bin/vi
-visudo
-
-```bash
-    wiloon ALL=(ALL) NOPASSWD: ALL
 ```
 
 ### install and enable sshd

@@ -1,7 +1,7 @@
 ---
 title: pacman
 author: "-"
-date: 2015-04-25T03:37:27+00:00
+date: 2022-08-22 15:53:48
 url: pacman
 categories:
   - Linux
@@ -37,11 +37,11 @@ pacman -h
 
 # -Q 的 help
 pacman -Q -h
-
+pacman -Q                # 列出已经安装的软件包
 pacman -Q  boost-libs    #Display version
 pacman -Ql boost-libs    #Display file list provided by local package
 
-# 查看文件属于哪个包, Check if the file is owned by any package, 查看命令由哪个包提供.
+# 查看文件/命令属于哪个包, Check if the file is owned by any package, 查看命令由哪个包提供.
 pacman -Qo /etc/profile
 
 # 检查包对应的文件有没有缺失, #Check the local package database
@@ -54,9 +54,29 @@ pacman -Qkk filesystem
 pacman -U /var/cache/pacman/pkg/gvim-8.2.4106-1-x86_64.pkg.tar.zst
 ```
 
-## 降级软件包
+## downgrade 降级软件包
 
 去 archive 时手动下载 <https://archive.archlinux.org/packages/>, 然后 pacman -U 安装
+
+### archlinux downgrade, 回退软件包到某一天
+
+```bash
+vim /etc/pacman.d/mirrorlist
+
+# content
+SigLevel = PackageRequired
+Server = https://archive.archlinux.org/repos/2022/11/04/$repo/os/$arch
+
+pacman -Syyuu
+```
+
+### 忽略/排除升级软件包, 不升级指定的包
+  
+如果由于某种原因，你不希望升级某个软件包，可以加入内容如下:
+  
+```bash
+IgnorePkg = linux
+```
 
 ### (invalid or corrupted package (PGP signature)), signature from xxx is unknown trust
 
@@ -64,6 +84,10 @@ error: unzip: signature from "Jonas Witschel <diabonas@gmx.de>" is unknown trust
 :: File /var/cache/pacman/pkg/unzip-6.0-16-x86_64.pkg.tar.zst is corrupted (invalid or corrupted package (PGP signature)).
 
 <https://bbs.archlinux.org/viewtopic.php?id=128682>
+
+```bash
+pacman -Sy archlinux-keyring
+```
 
 #### trust all
 
@@ -76,7 +100,7 @@ SigLevel = Optional TrustAll
 #### refresh keys
 
 ```bash
-# 查看key的状态, 提示是expired
+# 查看key的状态, 提示是 expired
 pacman-key --list-sigs Witschel
 
 # 更新 keys
@@ -103,6 +127,7 @@ sudo downgrade cmake
 vim  /etc/pacman.d/mirrorlist
 
 # /etc/pacman.d/mirrorlist
+Server = http://mirrors.163.com/archlinux/$repo/os/$arch
 Server = http://mirrors.aliyun.com/archlinux/$repo/os/$arch
 Server = http://mirrors.neusoft.edu.cn/archlinux/
 Server = http://mirrors.lug.mtu.edu/archlinux/
@@ -134,7 +159,7 @@ Include = /etc/pacman.d/mirrorlist
 
 ```bash
 --noconfirm
-Bypass any and all "Are you sure?" messages. It's not a good idea to do this unless you want to run pacman from a script.
+# Bypass any and all "Are you sure?" messages. It's not a good idea to do this unless you want to run pacman from a script.
 ```
 
 ### archlinux key could not be looked up remotely
@@ -197,9 +222,7 @@ pacman -S abc #从本地数据库中得到abc的信息，下载安装abc包
 pacman -Sf abc #强制安装包abc
   
 pacman -Si abc #从数据库中搜索包abc的信息
-  
-pacman -Q # 列出已经安装的软件包
-  
+
 pacman -Qe # 列出已经安装的软件包， 只列出不被其它包依赖的
 pacman -Qet # 列出已经安装的软件包， 只列出不被其它包依赖的,不包含可选依赖。
   
@@ -362,12 +385,6 @@ Pacman的配置文件位于/etc/pacman.conf。关于配置文件的进一步信�
 常用选项
   
 常用选项都在[options]段。阅读man手册或者查看缺省的pacman.conf可以获得有关信息和用途。
-
-## 忽略/排除升级软件包
-  
-如果由于某种原因，你不希望升级某个软件包，可以加入内容如下:
-  
-IgnorePkg = 软件包名
   
 多软件包可以用空格隔开，也可是用 glob 模式。如果只打算忽略一次升级，可以使用 -ignore 选项。
 
@@ -416,4 +433,59 @@ sudo pacman -Rdd libdmx libxxf86dga && sudo pacman -Syu
 
 ```bash
 sudo pacman -Sy archlinux-keyring
+```
+
+## 'archlinux  downgrading'
+
+<https://wiki.archlinux.org/index.php/Arch_Linux_Archive>
+
+replacing your /etc/pacman.d/mirrorlist with the following content:
+
+## Arch Linux repository mirrorlist
+
+## Generated on 2042-01-01
+  
+Server=<https://archive.archlinux.org/repos/2014/03/30/>$repo/os/$arch
+  
+Then update the database and force downgrade:
+
+pacman -Syyuu
+
+<https://www.geniusxiaoshuai.com/exp/93.html>
+
+## 一个切换 mirror 的脚本
+
+```bash
+#!/bin/bash
+
+printf "1. China\n2. Japan\nSelect mirror (leave blank for China):"
+
+read -r locationId
+
+if [ "" == "$locationId" ];then
+  locationId="1"
+fi
+
+if [ "1" == "$locationId" ];then
+  echo "Chinese mirror"
+
+  sudo bash -c 'cat > /etc/pacman.d/mirrorlist << EOF
+Server = http://mirrors.163.com/archlinux/\$repo/os/\$arch
+Server = https://mirrors.aliyun.com/archlinux/\$repo/os/\$arch
+Server = http://mirrors.neusoft.edu.cn/archlinux/
+Server = http://mirrors.lug.mtu.edu/archlinux/
+Server = http://mirrors.kernel.org/archlinux/\$repo/os/\$arch
+EOF'
+
+else
+
+  sudo bash -c 'cat > /etc/pacman.d/mirrorlist << EOF
+Server = http://mirrors.cat.net/archlinux/\$repo/os/\$arch
+Server = https://mirrors.cat.net/archlinux/\$repo/os/\$arch
+Server = http://ftp.tsukuba.wide.ad.jp/Linux/archlinux/\$repo/os/\$arch
+Server = http://ftp.jaist.ac.jp/pub/Linux/ArchLinux/\$repo/os/\$arch
+Server = https://ftp.jaist.ac.jp/pub/Linux/ArchLinux/\$repo/os/\$arch
+EOF'
+
+fi
 ```

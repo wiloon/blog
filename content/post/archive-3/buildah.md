@@ -4,11 +4,12 @@ author: "-"
 date: 2020-01-20T10:07:09+00:00
 url: /?p=15406
 categories:
-  - Inbox
+  - Container
 tags:
   - reprint
 ---
 ## buildah
+
 ```bash
 sudo pacman -S fuse-overlayfs
 sudo pacman -S buildah
@@ -17,6 +18,7 @@ sudo pacman -S buildah
 # list all the images
 buildah images
 
+# build
 ### buildah bud -f Dockerfile -t <tag0> .
 buildah bud -f Dockerfile -t fedora-httpd .
 buildah push registry.wiloon.com/pingd-proxy:v0.0.1

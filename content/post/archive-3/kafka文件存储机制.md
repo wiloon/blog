@@ -275,8 +275,6 @@ spark createDirectStream保存kafka offset
 
 4.3 Redis[推荐]
   
-复制代码
-  
 import os
   
 import sys
@@ -446,8 +444,6 @@ if **name** =="**main**":
 test = KafkaStreamTest()
 
 test.start()
-  
-复制代码
 
 5.总结
   

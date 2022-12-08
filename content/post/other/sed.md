@@ -8,33 +8,39 @@ categories:
 tags:
   - reprint
 ---
-## sed 
+## sed
+
 发音： [sed]  
 
 sed全名叫 stream editor，流编辑器，sed 可以按照脚本的指令来处理文本文件。 简化对文件的反复操作、编写转换程序等
 这里的脚本指的是sed脚本，如: 4anewline, 's/hello/world/' ...
 
 ### 语法
+
 ```bash
 sed SCRIPT INPUTFILE
 sed [-hnV][-e<script>][-f<script文件>][文本文件]
 ```
 
 ### 选项与参数
-    -i : 直接修改读取的文件内容，而不是输出到终端。不加 -i 参数的话默认输出到 STDOUT
-    -f : 直接将 sed 的动作写在一个文件内， -f filename 则可以运行 filename 内的 sed 动作；
-    -r : sed 的动作支持的是延伸型正规表示法的语法。(默认是基础正规表示法语法)
-    -n : 使用安静(silent)模式。在一般 sed 的用法中，所有来自 STDIN 的数据一般都会被列出到终端上。但如果加上 -n 参数后，则只有经过sed 特殊处理的那一行(或者动作)才会被列出来。
-    -e script, --expression=script: -e 参数不常用，因为sed 默认把第一个非选项的字符串作为脚本, -e 参数用来显示的指定脚本位置， -e 和 -f 可以同时出现，也可以多次出现, 使用了-e之后，其它非选项字符串都 被认为是输入。
-    
+
+```bash
+-i : 直接修改读取的文件内容，而不是输出到终端。不加 -i 参数的话默认输出到 STDOUT
+-f : 直接将 sed 的动作写在一个文件内， -f filename 则可以运行 filename 内的 sed 动作；
+-r : sed 的动作支持的是延伸型正规表示法的语法。(默认是基础正规表示法语法)
+-n : 使用安静(silent)模式。在一般 sed 的用法中，所有来自 STDIN 的数据一般都会被列出到终端上。但如果加上 -n 参数后，则只有经过sed 特殊处理的那一行(或者动作)才会被列出来。
+-e script, --expression=script: -e 参数不常用，因为sed 默认把第一个非选项的字符串作为脚本, -e 参数用来显示的指定脚本位置， -e 和 -f 可以同时出现，也可以多次出现, 使用了-e之后，其它非选项字符串都 被认为是输入。
+```
 
 ### 删除包含指定字符的行
+
 ```bash
 # 删除包含指定字符的行
 sed -i '/localhost/d' /etc/hosts
 ```
 
 ### 截取文本段
+
 <https://blog.wiloon.com/?p=13845>
 
 ```bash
@@ -71,7 +77,7 @@ sed '$a\eof' test.txt
   
 n1, n2 : 不见得会存在，一般代表『选择进行动作的行数』，举例来说，如果我的动作是需要在 10 到 20 行之间进行的，则『 10,20[动作行为] 』
 
-function: 
+function:
   
 a : 新增， a 的后面可以接字串，而这些字串会在新的一行出现(目前的下一行)～
   
@@ -102,9 +108,9 @@ sed 实用工具按顺序逐行将文件读入到内存中。然后，它执行�
 
 nl /etc/passwd | sed '2,5d'
 
-http://www.cnblogs.com/ggjucheng/archive/2013/01/13/2856901.html
+<http://www.cnblogs.com/ggjucheng/archive/2013/01/13/2856901.html>
   
-http://wiki.jikexueyuan.com/project/shell-learning/sed-search-and-replace.html
+<http://wiki.jikexueyuan.com/project/shell-learning/sed-search-and-replace.html>
 
 ```bash
 cat *.csv >out
@@ -114,20 +120,20 @@ cat bar|sort >s
 
 ```
 
-http://www.gnu.org/software/sed/manual/sed.html
+<http://www.gnu.org/software/sed/manual/sed.html>
 
-
-  
 ### sed 简明教程
->https://coolshell.cn/articles/9104.html/embed#?secret=6JIFuxVo3p
-  
-https://www.gnu.org/software/sed/manual/sed.html
-### linux下在某行的前一行或后一行添加内容
->http://www.361way.com/sed-process-lines/2263.html/embed#?secret=0mIvKAwlT1
-  
-https://www.cnblogs.com/muahao/p/6290813.html
 
+><https://coolshell.cn/articles/9104.html/embed#?secret=6JIFuxVo3p>
   
+<https://www.gnu.org/software/sed/manual/sed.html>
+
+### linux下在某行的前一行或后一行添加内容
+
+><http://www.361way.com/sed-process-lines/2263.html/embed#?secret=0mIvKAwlT1>
+  
+<https://www.cnblogs.com/muahao/p/6290813.html>
+
 a: 新增，例如: nl /etc/passwd | sed '2a Hello World'，在/etc/passwd第2行下面新增一行，写入"Hello World"。
   
 i: 插入，例如: nl /etc/passwd | sed '2i Hello World'，在/etc/passwd第2行上面新增一行，写入"Hello World"
@@ -140,5 +146,4 @@ p: 打印，例如: nl -n /etc/passwd | sed '2,5p'，仅显示2到5行，注意�
   
 s: 搜索，例如: nl /etc/passwd | sed '1,20s/old/new/g'，将第1~20行中出现的所有字符串old替换为new。
 
-
->https://www.gnu.org/software/sed/manual/sed.html
+><https://www.gnu.org/software/sed/manual/sed.html>

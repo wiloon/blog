@@ -41,6 +41,7 @@ tags:
  Host: www.sina.com.cn:80
  If-Modified-Since:Thu, 4 Feb 2010 20:39:13 GMT
  Connection: Close
+
  ```
   
   
@@ -58,11 +59,9 @@ tags:
  Connection: close
  ```
   
+如果服务器网页已经更新就会发送把客户端的请求当作一个普通的Get请求发送相应报文
   
-    如果服务器网页已经更新就会发送把客户端的请求当作一个普通的Get请求发送相应报文
-  
-  
-    ```java
+```java
  HTTP/1.0 200 OK
  Date: Thu, 04 Feb 2010 12:49:46 GMT
  Server: Apache
@@ -79,5 +78,4 @@ tags:
  X-Cache: HIT from sy32-27.sina.com.cn
  Connection: close
  /*.......网页内容....... */
- ```
-  
+ ```  

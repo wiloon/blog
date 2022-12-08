@@ -36,7 +36,7 @@ gyp 是为 Chromium 项目创建的项目生成工具，可以从平台无关的
 
 ## 更新包, 升级软件包
 
-### 手动跟新
+### 手动更新
 
 修改 package.json 中依赖包版本，执行 npm install --force
 
@@ -178,6 +178,7 @@ npm list
 npm ls
 
 # 查看某一个包的依赖树
+npm ls package0
 npm install -g npm-remote-ls
 npm-remote-ls foo
 

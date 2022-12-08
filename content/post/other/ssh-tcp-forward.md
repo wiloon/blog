@@ -32,7 +32,7 @@ ssh端口转发功能默认是打开的。控制它的开关叫做 AllowTcpForwa
 怎样设置端口转发？
 设置端口转发之前要注意 iptables 设置，确保相应的端口未被屏蔽，如果嫌麻烦的话也可以临时禁用 iptables：
 
-# service iptables stop
+service iptables stop
 
 定向转发和动态转发的设置方法是不一样的，以下分别介绍。
 

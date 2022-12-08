@@ -9,6 +9,7 @@ tags:
   - reprint
 ---
 ## Gentoo emerge命令
+
 Gentoo的包管理工具称为portage。emerge是这个portage的字符界面管理工具,图形界面工具还有portato,porthole,kuroo,himerge等。
 
 ebuild
@@ -153,6 +154,6 @@ emerge -update -upgradeonly world
   
 emerge -pv opera
 
-参考文档: http://www.gentoo.org/doc/zh_cn/index.xml
+参考文档: <http://www.gentoo.org/doc/zh_cn/index.xml>
   
-永久链接 : http://www.ha97.com/3192.html
+永久链接 : <http://www.ha97.com/3192.html>

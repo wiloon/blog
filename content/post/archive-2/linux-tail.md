@@ -1,14 +1,23 @@
 ---
-title: linux tail
+title: tail
 author: "-"
 date: 2016-08-14T15:41:25+00:00
-url: /?p=9182
+url: tail
 categories:
-  - inbox
+  - Linux
 tags:
   - reprint
+  - Command
 ---
-## linux tail
+## tail
+
+## 同时监控多个日志文件
+
+```bash
+tail -f foo.log bar.log
+tail -f *.log
+```
+
 Linux监测日志tail命令详细使用
 如果在Linux下调试程序的朋友应该都知道tail命令,它确实是调试程序监测日志文件的能手。打开Linux输入以下命令看看命令的使用帮助
 
@@ -23,7 +32,7 @@ Linux监测日志tail命令详细使用
                         第K 字节输出
   -f, --follow[={name|descriptor}]
                 即时输出文件变化后追加的数据。
-                        -f, --follow 等于--follow=descriptor 
+                        -f, --follow 等于--follow=descriptor
   -F            即--follow=name --retry
   -n, --lines=K            output the last K lines, instead of the last 10;
                            or use -n +K to output lines starting with the Kth
@@ -46,7 +55,7 @@ Linux监测日志tail命令详细使用
       --version         显示版本信息并退出
 
 如果字节数或行数K 的第一个字符是"+",输出从文件开始第K 个项目,否则输出文件
-最后K 个项目。K 可以使用一下几种单位之一: 
+最后K 个项目。K 可以使用一下几种单位之一:
 b 512,kB 1000,K 1024,MB 1000*1000,M 1024*1024,
 GB 1000*1000*1000,G 1024*1024*1024,以及T,P,E,Z,Y。
 
@@ -60,7 +69,8 @@ GNU 软件一般性帮助: <http://www.gnu.org/gethelp/>
 请向<http://translationproject.org/team/zh_CN.html> 报告tail 的翻译错误
 要获取完整文档,请运行: info coreutils 'tail invocation'
 
-
 ---
 
-https://www.qttc.net/311-linux-tail.html
+<https://www.qttc.net/311-linux-tail.html>
+
+<https://blog.csdn.net/weixin_41585557/article/details/82724381>

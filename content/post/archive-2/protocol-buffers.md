@@ -11,18 +11,21 @@ tags:
 ## protocol buffers, protobuf
 
 ### install protoc
+
     # archlinux 可以从仓库直接安装
     pacman -S protobuf
     # 其它发行版, 比如ubuntu 可以下载二进制包 解压即可.
     https://github.com/protocolbuffers/protobuf/releases/download/v3.6.1/protoc-3.6.1-linux-x86_64.zip
     # set protoc to PATH
     protoc -help
-    
+
 #### windows
+
     download protoc 
     https://developers.google.com/protocol-buffers/docs/downloads
 
 ### define message formates in a .proto file
+
 ```
     syntax = "proto3";
     package package0;
@@ -44,7 +47,6 @@ tags:
     }
 ```
 
-
 ### generate java/golang code
 
 ```bash
@@ -53,6 +55,7 @@ export DST_DIR=$SRC_DIR
 ```
 
 #### golang
+
 ```bash
 # 安装 protoc-gen-go
 # install protocol buffers plugin
@@ -74,8 +77,11 @@ protoc --proto_path=$SRC_DIR --go_out=$DST_DIR  --go_opt=paths=source_relative $
 ```
 
 #### java
+
 Java 工程建议使用下面的 protobuf-maven-plugin 方式
+
 ##### protoc java
+
 ```bash
 # Java, generate java code
 protoc -I=$SRC_DIR --java_out=$DST_DIR $SRC_DIR/proto0.proto
@@ -92,20 +98,19 @@ rotobuf是google提供的一个开源序列化框架,类似于XML,JSON这样的�
 protobuf在google中是一个比较核心的基础库,作为分布式运算涉及到大量的不同业务消息的传递,如何高效简洁的表示、操作这些业务消息在google这样的大规模应用中是至关重要的。而protobuf这样的库正好是在效率、数据大小、易用性之间取得了很好的平衡。
 
 更多信息可参考官方文档
-    
-http://blog.csdn.net/ciml/article/details/5753367
-    
-java protobuf
-    
-https://blog.csdn.net/u014801432/article/details/82558380
 
+<http://blog.csdn.net/ciml/article/details/5753367>
+
+java protobuf
+
+<https://blog.csdn.net/u014801432/article/details/82558380>
 
 ### maven + protobuf， protobuf-maven-plugin
-https://gist.github.com/cqc3073/7766447823ac29a70ddeaf403df1f5f6
-
+<https://gist.github.com/cqc3073/7766447823ac29a70ddeaf403df1f5f6>
 
 - 在 src/main/proto 下定义 proto 文件
 - 在 pom.xml 中配置
+
 ```xml
 <properties>
     <protobuf.version>3.17.0</protobuf.version>
@@ -150,5 +155,6 @@ https://gist.github.com/cqc3073/7766447823ac29a70ddeaf403df1f5f6
     </plugins>
 </build>
 ```
+
 运行 `mvn compile`, 就可以在 target/generated-sources 下看到生成的源码了  
 reload maven 工程, idea会自动 识别生成的java代码, maven>reload project  

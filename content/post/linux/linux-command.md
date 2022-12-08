@@ -36,36 +36,51 @@ echo "YWJj" |base64 -d|xxd
 
 ### Display the user and group ids of your current user
 
+```bash
     id
+```
 
 ### Display who is online
 
+```bash
     w
+```
 
 ### Show who is logged into the system
 
+```bash
     who
+```
 
 ### Show this month's calendar
 
+```bash
     cal
+```
 
 ### printf
 
+```bash
     export LC_NUMERIC="en_US.UTF-8"
     printf "%'f\n" 1234567.777
+```
 
 > 1,234,567.777000
 
 #### 语言环境会影响千分位符的显示
 
+```bash
     export LC_NUMERIC=C
     printf "%'f\n" 1234567.777
+```
+
 > 1234567.777000
 
 #### 不保留小数
 
+```bash
     printf("%3.0f",floatNum)
+```
 
 说明: %3.0f表明待打印的浮点数 (floatNum) 至少占3个字符宽，且不带小数点和小数部分，整数部分至少占3个位宽；
 
@@ -80,9 +95,11 @@ file 命令用于分析文件的类型。
 
 在对一个文件进行分析之前，我们可以首先使用 file 命令来分析它们的类型。当然除此之外，我们还可以看到一些其它信息。
 
+```bash
     file /bin/pwd
-    
-    /bin/pwd: ELF 64-bit LSB executable, x86-64, version 1 (SYSV), dynamically linked (uses shared libs), for GNU/Linux 2.6.32, BuildID[sha1]=0d264bacf2adc568f0e21cbcc9576df434c44380, stripped
+```
+
+>/bin/pwd: ELF 64-bit LSB executable, x86-64, version 1 (SYSV), dynamically linked (uses shared libs), for GNU/Linux 2.6.32, BuildID[sha1]=0d264bacf2adc568f0e21cbcc9576df434c44380, stripped
 
 ### ltrace
 
@@ -92,7 +109,9 @@ ltrace的功能是能够跟踪进程的库函数调用。
 
 ltrace 命令就是用来做这个事的。在下面的例子里，我们可以看到程序调用的函数，以及传递进去的参数，同时你也可以看到函数调用的输出。
 
+```bash
     ltrace /bin/pwd
+```
 
 ### strace
 
@@ -102,7 +121,9 @@ strace 命令可以用于追踪程序运行过程中的系统调用及信号。
 
 例如，如果我们想在屏幕上打印某些字符，可以使用 printf 或 puts 函数，而这两个都是 libc 的库函数，在更底层，他们都是调用 write 这个系统调用。
 
+```bash
     strace -f /bin/pwd
+```
 
 ### hexdump
 
@@ -134,8 +155,10 @@ objdump是用查看目标文件或者可执行的目标文件的构成的GCC工�
 
 objdump 命令可以读取可执行文件，然后将汇编指令打印出来。所以如果你想看懂 objdump 的结果，你就需要有一些汇编基础才可以。
 
+```bash
     objdump -d /bin/pwd | head
     objdump -dS hello.o
+```
 
 ### gdb
 
@@ -145,16 +168,22 @@ gdb 大家或多或少都有听说过。我们在使用一些 IDE 写代码的�
 
 对于 gdb 的用法，可以写很多，本文就暂且不深入了。下面先演示一小段 gdb 最基础的功能。
 
-$ gdb -q ./hello
+```bash
+gdb -q ./hello
+```
 
 ### 查看pci设备
 
+```bash
     lspci -k
+```
 
 ### 磁盘清理
 
+```bash
     sudo pacman -Scc
     sudo yay -Scc
+```
 
 scrot
 
@@ -165,14 +194,17 @@ pacman -S scrot
 scrot -s rectangle.png
 <https://wiki.archlinux.org/index.php/Taking_a_screenshot_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87>)
 
-
 ### delete folder
 
+```bash
     rm -rf \***
+```
 
 ### cp
 
+```bash
     cp -r 按递归方式保留原目录结构复制文件
+```
 
 ```bash
 # 替换字符串
@@ -186,7 +218,6 @@ sudo mount -t ntfs-3g /dev/sdc10 mnt1
 ls -lt
 ls -lrt
 chown [-R] 账号名称: 用户组名称 文件或目录
-egrep
 
 yum install lrzsz
 
@@ -211,7 +242,7 @@ remove directories and their contents recursively
   
 ignore nonexistent files, never prompt
   
-# ps
+ps
   
 ps -ef
   
@@ -227,11 +258,15 @@ md5sum : compute and check MD5 message digest
 
 ### 统计某文件夹下文件的个数
 
+```bash
     ls -l |grep "^-"|wc -l
+```
 
 ### 统计某文件夹下目录的个数
 
+```bash
     ls -l |grep "^ｄ"|wc -l
+```
 
 ### 统计文件夹下文件的个数，包括子文件夹里的
 
