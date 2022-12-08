@@ -8,15 +8,18 @@ categories:
 tags:
   - reprint
 ---
-## 'test for a specific port from Linux,  shell>telnet  >netcat > Socat'
+## 'test for a specific port from Linux,  shell>telnet> netcat> socat'
 
 ### 使用 Telnet验证端口的连通性
 
 打开命令行模式。具体方法,请参考打开命令或 Shell 提示符 (2076587) (Opening a command or shell prompt (1003892))。
   
-在命令行窗口键入: 
+在命令行窗口键入:
 
-telnet server port
+```bash
+# telnet server port
+telnet 192.168.50.1 22
+```
 
 其中 server 是服务器的主机名或IP地址,port 是您想要连接的端口号。
 
@@ -24,7 +27,7 @@ telnet server port
   
 注: 要离开 Telnet 应用程序,请键入 Ctrl + ],然后键入 quit。
 
-https://kb.vmware.com/s/article/2020963
+<https://kb.vmware.com/s/article/2020963>
 
 ### socat
 
@@ -59,11 +62,11 @@ nc -lvu 0.0.0.0  124
 nc -vuz host 124
 ```
 
-http://www.oschina.net/news/48357/socat-1-7-2-3
+<http://www.oschina.net/news/48357/socat-1-7-2-3>
 
 socat是一個netcat(nc)的替代產品,可以稱得上nc++。socat的特點就是在兩個流之間建立一個雙向的 通道。socat的地址類型很 多,有ip, tcp, udp, ipv6, pipe,exec,system,open,proxy,openssl,等等
 
-http://blog.csdn.net/zhu_xun/article/details/16885333
+<http://blog.csdn.net/zhu_xun/article/details/16885333>
 
 Telnet有"标准输入文件结束符(standard input EOF)"问题,
   
@@ -81,7 +84,7 @@ Telnet有"标准输入文件结束符(standard input EOF)"问题,
   
 它的功能。
 
-NetCat的一些主要功能: 
+NetCat的一些主要功能:
 
 *支持连出和连入(outbound and inbound connection),TCP和UDP,任意源和目的端口
   
@@ -105,20 +108,12 @@ NetCat的一些主要功能:
   
 *对Telnet应答,可选
 
-
+Use Netcat - not Telnet - to test network connectivity
   
-    Use Netcat - not Telnet - to test network connectivity
+<http://www.terminalinflection.com/use-netcat-not-telnet-to-test-network-connectivity/embed/#?secret=xAPNTA4aj2>
+
+Stop using telnet and start using netcat
   
-
-
-http://www.terminalinflection.com/use-netcat-not-telnet-to-test-network-connectivity/embed/#?secret=xAPNTA4aj2
-
-
+<https://scottlinux.com/2013/12/19/stop-using-telnet-and-start-using-netcat/embed/#?secret=mR1NgJH6y2>
   
-    Stop using telnet and start using netcat
-  
-
-
-https://scottlinux.com/2013/12/19/stop-using-telnet-and-start-using-netcat/embed/#?secret=mR1NgJH6y2
-  
-https://stackoverflow.com/questions/47844060/how-to-test-a-remote-port-is-reachable-with-socat
+<https://stackoverflow.com/questions/47844060/how-to-test-a-remote-port-is-reachable-with-socat>

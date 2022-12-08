@@ -2,14 +2,15 @@
 title: apr、apr-util, apr-iconv
 author: "-"
 date: 2019-05-30T01:51:38+00:00
-url: /?p=14422
+url: apr
 categories:
   - Inbox
 tags:
   - reprint
 ---
 ## apr、apr-util, apr-iconv
-https://my.oschina.net/shawnplaying/blog/1518144
+
+<https://my.oschina.net/shawnplaying/blog/1518144>
 
 安装Apache的时候，为什么要安装apr和apr-util呢
 

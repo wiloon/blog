@@ -1,7 +1,7 @@
 ---
 title: podman basic
 author: "-"
-date: 2020-01-19T15:30:35+00:00
+date: 2022-10-10 11:26:14
 url: container
 tags:
   - podman
@@ -16,7 +16,7 @@ categories:
 
 <https://podman.io/getting-started/installation>
 
-### archlinux
+### archlinux install podman
 
 ```bash
 pacman -S netavark aardvark-dns podman
@@ -31,7 +31,7 @@ In addition to the existing CNI Out of the stack ,Podman Now it also supports ba
 
 <https://github.com/containers/netavark>
 
-### ubuntu
+### ubuntu install podman
 
 ```bash
 . /etc/os-release
@@ -43,7 +43,7 @@ sudo apt-get -y upgrade
 sudo apt-get -y install podman
 ```
 
-### centos
+### centos install podman
 
 ```bash
 dnf install podman
@@ -55,6 +55,7 @@ dnf install podman
 
 ```bash
 podman run --rm hello-world
+# 能打印 Hello from Docker! 就是成功了
 ```
 
 ### podman command
@@ -66,6 +67,7 @@ podman info --debug
 podman ps
 # 按名字过滤
 podman ps -f  name=zookeeper
+# 显示指定的列
 podman ps -a --format "{{.ID}} {{.Names}}"
 podman ps -a
 podman inspect -l
@@ -452,4 +454,15 @@ podman run \
 -p 1234:80 \
 -v /etc/localtime:/etc/localtime:ro \
 project0:0.0.1
+```
+
+## podman-compose
+
+```bash
+sudo pacman -S podman-compose
+
+podman-compose --help
+podman-compose up --help
+podman-compose up
+
 ```

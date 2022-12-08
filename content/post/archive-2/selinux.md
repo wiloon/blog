@@ -779,7 +779,7 @@ SELinux fcontext type Context
 
 范例二: 利用 semanage 配置 /srv/samba 目录的默认安全性本文为 public_content_t
   
-[root@www ~]# mkdir /srv/samba
+mkdir /srv/samba
   
 [root@www ~]# ll -Zd /srv/samba
   

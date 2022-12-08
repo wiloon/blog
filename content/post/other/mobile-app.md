@@ -12,6 +12,10 @@ tags:
 
 ## iOS/Android
 
+- bitwarden
+- plex, 流媒体服务器
+- macrodroid, 设备自动化, 监控电池电量发http请求.
+
 |name       |comments|
 |-|-|
 | 古诗文网    ||
@@ -21,14 +25,14 @@ tags:
 
 |name|comments|
 |-|-|
-|Strongbox  |keepassxc的ios实现|
-|英语轻松读||
+|英语轻松读      ||
 |surge|网络调试工具|
 |wireguard|vpn|
 |Chanify|消息推送工具|
 |默沙东诊疗手册||
 |Sun Surveyor Lite| 查看太阳轨迹|
 |Star Walk 2 ||
+|Strongbox  |keepassxc的ios实现, deprecated, > bitwarden|
 
 ### android app, apk list
 
@@ -36,7 +40,7 @@ tags:
 |-|-|
 |macrodroid                 |设备自动化|
 |英语轻松读                   |英语学习|
-|ebuoy                      |英语学习|
+|ebuoy                      |english buoy 英语学习|
 |酷安                       |应用商店|
 |internet speed meter lite  |网速监控|
 |随手记                       ||
@@ -44,7 +48,7 @@ tags:
 |PingTools Network Utilities  ||
 |炼妖壶  |流氓软件管理|
 |半导小蕊||
-|Live Transcribe & Sound Notifications|语音转文字|
+|Live Transcribe & Sound Notifications/实时转写和声音通知|语音转文字|
 |RssX||
 |DevCheck|手机硬件检测工具|
 |Quizlet|英语学习工具|
@@ -55,6 +59,8 @@ tags:
 ### android/chromeos apps
 
 #### android apps
+
+- Live Transcribe & Notification
 
 | Name                      | Comments                              |
 | ------------------------- | ------------------------------------- |
@@ -85,6 +91,8 @@ Cellular-Z
 nextcloud
 
 #### chromeos extention
+
+- Proxy SwitchyOmega
 
 | Name                                | Comments |
 | ----------------------------------- | -------- |

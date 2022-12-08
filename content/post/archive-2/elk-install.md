@@ -9,9 +9,10 @@ tags:
   - reprint
 ---
 ## elk install
+
 download elasticsearch
   
-https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-6.3.1.rpm
+<https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-6.3.1.rpm>
   
 install jdk8
   
@@ -37,7 +38,7 @@ systemctl restart elasticsearch
 
 install ingest geoip plugin
   
-download from https://artifacts.elastic.co/downloads/elasticsearch-plugins/ingest-geoip/ingest-geoip-6.3.1.zip
+download from <https://artifacts.elastic.co/downloads/elasticsearch-plugins/ingest-geoip/ingest-geoip-6.3.1.zip>
 
 download kibana
   
@@ -51,6 +52,6 @@ elasticsearch.url: "http://elasticsearch-ip:9200"
   
 systemctl restart kibana
 
-check if kibana works http://kibana-ip:5601
+check if kibana works <http://kibana-ip:5601>
 
 download and install filebeat

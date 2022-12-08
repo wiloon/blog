@@ -16,11 +16,11 @@ tags:
 journalctl -u file-server
 ```
 
-Arch Linux 启用 systemd 后, 很多服务都被替换掉了, 当然syslog 也不例外, 被 Systemd Journal 所替代。
+Arch Linux 启用 systemd 后, 很多服务都被替换掉了, 当然 syslog 也不例外, 被 Systemd Journal 所替代。
 
 systemd 拥有强大的处理与系统日志记录功能。在使用其它工具时,日志往往被分散在整套系统当中,由不同的守护进程及进程负责处理,这意味着我们很难跨越多种应用程序对其内容进行解读。
 
-相比之下,systemd尝试提供一套集中化管理方案,从而统一打理全部内核及用户级进程的日志信息。这套系统能够收集并管理日志内容,而这也就是我们所熟知的journal。
+相比之下, systemd 尝试提供一套集中化管理方案, 从而统一处理全部内核及用户级进程的日志信息。这套系统能够收集并管理日志内容,而这也就是我们所熟知的 journal。
 
 Journal的实现归功于journald守护进程,其负责处理由内核、initrd以及服务等产生的信息
 
@@ -33,14 +33,14 @@ SystemMaxUse=1024M
 ### journald unit log, max size of journal log
 
 ```bash
-    sudo journalctl -b -u systemd-journald
+sudo journalctl -b -u systemd-journald
 ```
 
 ### customiz journal size
 
 ```bash
-    /etc/systemd/journald.conf
-    SystemMaxUse=50M
+/etc/systemd/journald.conf
+SystemMaxUse=50M
 ```
 
 ```bash
@@ -49,7 +49,7 @@ journalctl -b
 
 sudo journalctl /usr/lib/systemd/systemd -b
 
-# 查看系统上全部来自Nginx单元的日志
+# 查看系统上全部来自 Nginx 单元的日志
 journalctl -u nginx.service
 journalctl -u nginx.service --since today
 journalctl -u nginx.service --since "2018-06-11 12:00:00"

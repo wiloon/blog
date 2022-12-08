@@ -10,7 +10,8 @@ tags:
 
 ---
 ## RDP Session Disconnected
-## To resolve:
+
+## To resolve
 
   1. Right click on "My Computer" and select "Properties".
   2. Click on "Remote settings".

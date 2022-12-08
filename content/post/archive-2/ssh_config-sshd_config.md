@@ -18,13 +18,13 @@ tags:
 vim ~/.ssh/authorized_keys
 ```
 
-## sshd config, /etc/sshsshd_config
+## sshd config, /etc/ssh/sshd_config
 
 ### PermitRootLogin
 
 是否允许 root 登录。默认值是"prohibit-password", 其它可用值如下:
 
-- prohibit-password, 新版本的 sshd 的默认值: 禁止root用户使用密码和基于键盘交互的认证。
+- prohibit-password, 新版本的 sshd 的默认值: 禁止 root 用户使用密码和基于键盘交互的认证。
 - without-password 废弃的值，新版本的 sshd 使用了更符合直觉的名字 prohibit-password。
 - forced-commands-only 表示只有在指定了 command 选项的情况下才允许使用公钥认证登录。同时其它认证方法全部被禁止。这个值常用于做远程备份之类的事情。
 - yes 允许root用户以任何认证方式登录 (貌似也就两种认证方式: 用户名密码认证,公钥认证)
@@ -120,11 +120,16 @@ BatchMode no
 CheckHostIP yes
   
 "CheckHostIP"设置ssh是否查看连接到服务器的主机的IP地址以防止DNS欺骗。建议设置为"yes"。
-  
-StrictHostKeyChecking no
-  
-"StrictHostKeyChecking"如果设为"yes",ssh将不会自动把计算机的密匙加入"$HOME/.ssh/known_hosts"文件,且一旦计算机的密匙发生了变化,就拒绝连接。
-  
+
+## StrictHostKeyChecking
+
+- no: 最不安全的级别, 如果连接 server 的 key 在本地不存在，那么就自动添加到 known_hosts
+- yes: ssh将不会自动把计算机的密匙加入"$HOME/.ssh/known_hosts"文件, 且一旦计算机的密匙发生了变化, 就拒绝连接。
+
+```bash
+ssh -o StrictHostKeyChecking=no wiloon@192.168.50.30
+```
+
 IdentityFile ~/.ssh/identity
   
 "IdentityFile"设置读取用户的RSA安全验证标识。

@@ -9,15 +9,15 @@ tags:
   - reprint
 ---
 ## Python Hello World
+
 ### install python3 pip3
+
     sudo dnf install python3
 
-http://blog.csdn.net/pjeby/article/details/1212592
+<http://blog.csdn.net/pjeby/article/details/1212592>
 
-  
     简介
  我们将看一下如何用Python编写运行一个传统的"Hello World"程序。通过它，你将学会如何编写、保存和运行Python程序。
-  
   
     有两种使用Python运行你的程序的方式——使用交互式的带提示符的解释器或使用源文件。我们将学习这两种方法。
   
@@ -43,14 +43,12 @@ http://blog.csdn.net/pjeby/article/details/1212592
  hello world
  >>>
   
-  
     注意，Python会在下一行立即给出你输出！你刚才键入的是一句Python 语句 。我们使用print (不要惊讶) 来打印你提供给它的值。这里，我们提供的是文本Hello World，它被迅速地打印在屏幕上。
   
   
     如何退出Python提示符: 如果你使用的是Linux/BSD shell，那么按Ctrl-d退出提示符。如果是在Windows命令行中，则按Ctrl-z再按Enter。
  挑选一个编辑器
           在我们开始讲述以源文件方式编写Python程序之前，我们需要一个编辑器来写源文件。挑选一个编辑器确实是极其重要的。你挑选一个编辑器就如同你挑选一辆你将购买的轿车一样。一个好的编辑器会帮助你方便地编写Python程序，使你地编程旅程更加舒适，帮助你更加快捷安全地到达目的地 (实现目标) 。
-  
   
     对于编辑器的基本要求之一是语法加亮功能，利用这一功能，你的Python程序的不同部分被标以不同的颜色，这样你可以更好 看清楚 你的程序，使它的运行显得形象化。
   
@@ -64,7 +62,6 @@ http://blog.csdn.net/pjeby/article/details/1212592
     使用源文件
  现在让我们重新开始编程。当你学习一种新的编程语言的时候，你编写运行的第一个程序通常都是"Hello World"程序，这已经成为一种传统了。在你运行"Hello World"程序的时候，它所做的事只是说声: "Hello World"。正如提出"Hello World"程序的Simon Cozens所说: "它是编程之神的传统咒语，可以帮助你更好的学习语言。"
   
-  
     启动你选择的编辑器，输入下面这段程序，然后把它保存为helloworld.py。
   
   
@@ -72,15 +69,15 @@ http://blog.csdn.net/pjeby/article/details/1212592
   
   
     #!/usr/bin/python
- # Filename : helloworld.py
+
+Filename : helloworld.py
+
  print 'Hello World'
  为了运行这个程序，请打开shell (Linux终端或者DOS提示符) ，然后键入命令python helloworld.py。如果你使用IDLE，请使用菜单Edit->Run Script或者使用键盘快捷方式Ctrl-F5。输出如下所示。
-  
   
     输出
  $ python helloworld.py
  Hello World
-  
   
     如果你得到的输出与上面所示的一样，那么恭喜！——你已经成功地运行了你的第一个Python程序。
   
@@ -104,11 +101,9 @@ http://blog.csdn.net/pjeby/article/details/1212592
     可执行的Python程序
  这部分内容只对Linux/Unix用户适用，不过Windows用户可能也对程序的第一行比较好奇。首先我们需要通过chmod命令，给程序可执行的许可，然后 运行 程序。
   
-  
-    $ chmod a+x helloworld.py
+    chmod a+x helloworld.py
  $ ./helloworld.py
  Hello World
-  
   
     chmod命令用来 改变 文件的 模式 ，给系统中所有用户这个源文件的执行许可。然后我们可以直接通过指定源文件的位置来执行程序。我们使用./来指示程序位于当前目录。
   
@@ -125,7 +120,6 @@ http://blog.csdn.net/pjeby/article/details/1212592
  $ helloworld
  Hello World
   
-  
     我们能够用echo命令来显示PATH变量，用$给变量名加前缀以向shell表示我们需要这个变量的值。我们看到/home/swaroop/bin是PATH变量中的目录之一。swaroop是我的系统中使用的用户名。通常，在你的系统中也会有一个相似的目录。你也可以把你选择的目录添加到PATH变量中去——这可以通过运行PATH=$PATH:/home/swaroop/mydir完成，其中"/home/swaroop/mydir"是我想要添加到PATH变量中的目录。
   
   
@@ -137,7 +131,6 @@ http://blog.csdn.net/pjeby/article/details/1212592
   
     获取帮助
  如果你需要某个Python函数或语句的快速信息帮助，那么你可以使用内建的help功能。尤其在你使用带提示符的命令行的时候，它十分有用。比如，运行help(str)——这会显示str类的帮助。str类用于保存你的程序使用的各种文本 (字符串) 。类将在后面面向对象编程的章节详细解释。
-  
   
     注释:按q退出帮助。
   
@@ -154,11 +147,8 @@ http://blog.csdn.net/pjeby/article/details/1212592
  Type "help", "copyright", "credits" or "license" for more information.
  >>> help('print')
   
-  
     你应该注意到我特意在"print"上使用了引号，那样Python就可以理解我是希望获取关于"print"的帮助而不是想要它打印东西。
   
   
     注意，我使用的位置是在Fedora Core 3 Linux中的位置——它可能在不同的发行版和版本中有所不同。
-  
-  
   

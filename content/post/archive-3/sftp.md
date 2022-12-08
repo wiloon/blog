@@ -9,7 +9,8 @@ tags:
   - reprint
 ---
 ## sftp
-https://linuxize.com/post/how-to-use-linux-sftp-command-to-transfer-files/
+
+<https://linuxize.com/post/how-to-use-linux-sftp-command-to-transfer-files/>
 
 ```bash
 sftp remote_username@server_ip_or_hostname

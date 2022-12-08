@@ -314,7 +314,6 @@ ExecutorService es = Executors.newSingleThreadExecutor();
         Future<Integer> future =es.submit(calTask); 
 ```
 
-
 ### 竞争条件 Race condition
 
 什么是竞争条件以及竞争条件为什么会产生漏洞  
@@ -525,6 +524,7 @@ locl condition
  <https://jisonami.github.io/2016/09/04/JavaThread1/>
 
 ### 多线程的代价及上下文切换
+
 <http://www.wiloon.com/?p=9968>
 
 <http://www.wiloon.com/?p=9968&embed=true#?secret=Y65uz4t1vN>

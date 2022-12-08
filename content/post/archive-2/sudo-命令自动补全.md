@@ -11,9 +11,7 @@ tags:
 ## sudo 命令自动补全
 
 ```bash
-  
 sudo pacman -S bash-completion
   
 echo "source /usr/share/bash-completion/bash_completion" >>/home/$USER/.bashrc
-  
 ```

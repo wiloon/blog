@@ -9,7 +9,8 @@ tags:
   - reprint
 ---
 ## mount --bind
-https://xionchen.github.io/2016/08/25/linux-bind-mount/
+
+<https://xionchen.github.io/2016/08/25/linux-bind-mount/>
 
 The bind mounts
   
@@ -17,7 +18,7 @@ bind 是 mount 中比较特殊的用法之一，这里对一些例子进行分�
 
 bind 的意思是，把其他地方的子树再进行挂载，也就是说可以把文件系统中的某一个部分进行挂载。这个特性是从linux2.4.0开始的。
   
-或者更简介的说,就是挂载一个已有的文件夹
+或者更简单的说,就是挂载一个已有的文件夹
 
 常见使用场景
   
@@ -25,11 +26,11 @@ bind 的意思是，把其他地方的子树再进行挂载，也就是说可以
   
 但是又不希望 chroot 对这个目录进行更改, 我们该怎么做呢?
 
-首先,我们可以使用 mount --bind 将/dev目录挂载到chroot的目录下:
+首先, 我们可以使用 mount --bind 将 /dev 目录挂载到 chroot 的目录下:
 
 mount --bind /dev $chrootdir/dev
   
-这样,我们从chroot的目录和自己本身的文件系统的目录就都可以访问/dev目录.
+这样, 我们从chroot的目录和自己本身的文件系统的目录就都可以访问/dev目录.
 
 不过有时我们不希望挂载的目录是可以修改的.
   
@@ -57,7 +58,7 @@ mount -rbind olddir newdir
 
 –bind可以支持一些选项
   
-例如: 挂载一个目录。并且让他是只读的: 
+例如: 挂载一个目录。并且让他是只读的:
 
 mount --bind olddir newdir
   

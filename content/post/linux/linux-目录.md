@@ -41,7 +41,7 @@ user1
 
 user2
 
-bin - 系统启动时需要的执行文件 (二进制) 
+bin - 系统启动时需要的执行文件 (二进制)
 
 sbin - 可执行程序的目录，但大多存放涉及系统管理的命令。只有root权限才能执行
 
@@ -65,7 +65,7 @@ proc - 虚拟，存在linux内核镜像；保存所有内核参数以及系统�
 
 存放C/C++头文件的目录
 
-bin - 
+bin -
 
 sbin - 系统管理员命令，与用户相关，例如，大部分服务器程序
 
@@ -137,14 +137,12 @@ lost+found - 在文件系统修复时恢复的文件
 
 ## /usr/bin
 
-
-/bin下存放一些普通的基本命令, /bin下的命令管理员和一般的用户都可以使用。 
+/bin下存放一些普通的基本命令, /bin下的命令管理员和一般的用户都可以使用。
 几乎所有用户所用命令，另外存在与/bin，/usr/local/bin  
 可执行二进制文件的目录，如常用的命令 ls、tar、mv、cat 等。
 
 /usr/bin 是你在后期安装的一些软件的运行脚本。主要放置一些应用软体工具的必备执行档例如c++、g++、gcc、chdrv、diff、dig、du、eject、elm、free、gnome*、 gzip、htpasswd、kfm、ktop、last、less、locale、m4、make、man、mcopy、ncftp、 newaliases、nslookup passwd、quota、smb*、wget等。
-    
-    
+
 /boot: 放置linux系统启动时用到的一些文件。/boot/vmlinuz为linux的内核文件，以及/boot/gurb。建议单独分区，分区大小100M即可
 
 /dev: 存放linux系统下的设备文件，访问该目录下某个文件，相当于访问某个设备，常用的是挂载光驱mount /dev/cdrom /mnt。
@@ -176,7 +174,7 @@ In Arch Linux the /sbin is a symlink to /usr/bin
 /usr/sbin   放置一些用户安装的系统管理的必备程式例如:dhcpd、httpd、imap、in.*d、inetd、lpd、named、netconfig、nmbd、samba、sendmail、squid、swap、tcpd、tcpdump等。
     如果新装的系统，运行一些很正常的诸如: shutdown，fdisk的命令时，悍然提示: bash:command not found。那么
     首先就要考虑root 的$PATH里是否已经包含了这些环境变量。
-    可以查看PATH，如果是: PATH=$PATH:$HOME/bin则需要添加成如下: 
+    可以查看PATH，如果是: PATH=$PATH:$HOME/bin则需要添加成如下:
     PATH=$PATH:$HOME/bin:/sbin:/usr/bin:/usr/sbin
   
 /tmp: 一般用户或正在执行的程序临时存放文件的目录,任何人都可以访问,重要数据不可放置在此目录下
@@ -196,7 +194,7 @@ usr并不是 user用户的缩写，而是 User System Resources 的缩写
 
 放置系统执行过程中经常变化的文件，如随时更改的日志文件/var/log，/var/log/message: 所有的登录文件存放目录，/var/spool/mail: 邮件存放的目录，/var/run:程序或服务启动后，其PID存放在该目录下。建议单独分区，设置较大的磁盘空间
 
-其实转这个帖子就像探究一个问题，就是我们自行开发的软件应该放在哪个目录比较合适: 
+其实转这个帖子就像探究一个问题，就是我们自行开发的软件应该放在哪个目录比较合适:
 
 1. /home 目录下 理由是我们在安装linux系统时给这个目录单独分区，空间大，所以放在这个目录下；
 
@@ -211,19 +209,15 @@ db      /var/lib/foo/foo.db
 
 <https://blog.csdn.net/kkdelta/article/details/7708250>
 
-
-
 而/usr/bin,/usr/sbin与/sbin /bin目录的区别在于:
 
 /bin,/sbin目录是在系统启动后挂载到根文件系统中的，所以/sbin,/bin目录必须和根文件系统在同一分区；
 
 /usr/bin,usr/sbin可以和根文件系统不在一个分区。
-    
+
 /usr/sbin存放的一些非必须的系统命令；/usr/bin存放一些用户命令，如led(控制LED灯的)。
-    
-转下一位网友的解读，个人认为诠释得很到位: 
-    
+
+转下一位网友的解读，个人认为诠释得很到位:
+
     /bin 是系统的一些指令。bin为binary的简写主要放置一些系统的必备执行档例如:cat、cp、chmod df、dmesg、gzip、kill、ls、mkdir、more、mount、rm、su、tar等。
     /sbin一般是指超级用户指令。主要放置一些系统管理的必备程式例如:cfdisk、dhcpcd、dump、e2fsck、fdisk、halt、ifconfig、ifup、 ifdown、init、insmod、lilo、lsmod、mke2fs、modprobe、quotacheck、reboot、rmmod、 runlevel、shutdown等。
-
-

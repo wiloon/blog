@@ -10,6 +10,28 @@ tags:
   - reprint
 ---
 ## HTTP protocol， HTTP response status codes, 状态码/响应代码
+
+## http header
+
+RFC 2616 规范也说明了处理 HTTP Header 应该是大小写不敏感的。
+
+>Each header field consists
+   of a name followed by a colon (":") and the field value. Field names
+   are case-insensitive.
+
+### golang gin
+
+默认会把 header name 转成首字母大写
+
+### Envoy
+
+默认会将 Header 转换为小写
+
+Envoy 只支持两种规则：
+
+全小写 (默认使用的规则)
+首字母大写 (默认没有启用)
+
 User-Agent 标识用户代理
   
 Referer 告诉服务器用户从哪里来
@@ -34,11 +56,11 @@ HTTP使用TCP而不是UDP的原因在于 (打开) 一个网页必须传送很多
 
 HTTP是超文本传输协议，是客户端浏览器或其他程序与Web服务器之间的应用层通信协议。在Internet上的Web服务器上存放的都是超文本信息，客户机需要通过HTTP协议传输所要访问的超文本信息。HTTP包含命令和传输信息，不仅可用于Web访问，也可以用于其他因特网/内联网应用系统之间的通信，从而实现各类应用资源超媒体访问的集成。
 
-当我们想浏览一个网站的时候，只要在浏览器的地址栏里输入网站的地址就可以了，例如www.wiloon.com,但是在浏览器的地址栏里面出现的却是: http://www.wiloon.com,你知道为什么会多出一个"http"吗？
+当我们想浏览一个网站的时候，只要在浏览器的地址栏里输入网站的地址就可以了，例如www.wiloon.com,但是在浏览器的地址栏里面出现的却是: <http://www.wiloon.com>,你知道为什么会多出一个"http"吗？
 
-我们在浏览器的地址栏里输入的网站地址叫做URL (Uniform Resource Locator，统一资源定位符)。就像每家每户都有一个门牌地址一样，每个网页也都有一个Internet地址。当你在浏览器的地址框中输入一个URL或是单击一个超级链接时，URL就确定了要浏览的地址。浏览器通过超文本传输协议(HTTP)，将Web服务器上站点的网页代码提取出来，并翻译成网页。因此，在我们认识HTTP之前，有必要先弄清楚URL的组成,例如: http://www.\***\***.com/china/index.htm。它的含义如下: 
+我们在浏览器的地址栏里输入的网站地址叫做URL (Uniform Resource Locator，统一资源定位符)。就像每家每户都有一个门牌地址一样，每个网页也都有一个Internet地址。当你在浏览器的地址框中输入一个URL或是单击一个超级链接时，URL就确定了要浏览的地址。浏览器通过超文本传输协议(HTTP)，将Web服务器上站点的网页代码提取出来，并翻译成网页。因此，在我们认识HTTP之前，有必要先弄清楚URL的组成,例如: http://www.\***\***.com/china/index.htm。它的含义如下:
 
-  1. http://: 代表超文本转移协议，通知\****.com服务器显示Web页，通常不用输入; 
+  1. http://: 代表超文本转移协议，通知\****.com服务器显示Web页，通常不用输入;
   2. www: 代表一个Web (万维网) 服务器；
 
   3. \****.com/: 这是装有网页的服务器的域名，或站点服务器的名称；
@@ -61,7 +83,7 @@ HTTP (HyperText Transport Protocol) 是超文本传输协议的缩写，它用�
   
 既然我们明白了URL的构成，那么HTTP是怎么工作呢？我们接下来就要讨论这个问题。
 
-一次HTTP操作称为一个事务，其工作过程可分为四步: 
+一次HTTP操作称为一个事务，其工作过程可分为四步:
 
 首先客户机与服务器需要建立连接。只要单击某个超级链接，HTTP的工作就开始了。
 
@@ -95,13 +117,13 @@ HTTP协议是基于请求/响应范式的。一个客户机与服务器建立连
 
 协议结构
   
-HTTP报文由从客户机到服务器的请求和从服务器到客户机的响应构成。请求报文格式如下: 
+HTTP报文由从客户机到服务器的请求和从服务器到客户机的响应构成。请求报文格式如下:
 
 请求行 － 通用信息头 － 请求头 － 实体头 － 报文主体
 
 请求行以方法字段开始，后面分别是 URL 字段和 HTTP 协议版本字段，并以 CRLF 结尾。SP 是分隔符。除了在最后的 CRLF 序列中 CF 和 LF 是必需的之外，其他都可以不要。有关通用信息头，请求头和实体头方面的具体内容可以参照相关文件。
 
-应答报文格式如下: 
+应答报文格式如下:
 
 状态行 － 通用信息头 － 响应头 － 实体头 － 报文主体
 
@@ -117,7 +139,7 @@ Content-Type实体头用于向接收方指示实体的介质类型，指定HEAD�
 
 2.Content-Range实体头
   
-Content-Range实体头用于指定整个实体中的一部分的插入位置，他也指示了整个实体的长度。在服务器向客户返回一个部分响应，它必须描述响应覆盖的范围和整个实体长度。一般格式: 
+Content-Range实体头用于指定整个实体中的一部分的插入位置，他也指示了整个实体的长度。在服务器向客户返回一个部分响应，它必须描述响应覆盖的范围和整个实体长度。一般格式:
 
 Content-Range:bytes-unitSPfirst-byte-pos-last-byte-pos/entity-legth
 
@@ -131,11 +153,11 @@ Last-modified实体头指定服务器上保存内容的最后修订时间。
 
 通用头域
   
-通用头域包含请求和响应消息都支持的头域，通用头域包含Cache-Control、Connection、Date、Pragma、Transfer-Encoding、Upgrade、Via。对通用头域的扩展要求通讯双方都支持此扩展，如果存在不支持的通用头域，一般将会作为实体头域处理。下面简单介绍几个在UPnP消息中使用的通用头域: 
+通用头域包含请求和响应消息都支持的头域，通用头域包含Cache-Control、Connection、Date、Pragma、Transfer-Encoding、Upgrade、Via。对通用头域的扩展要求通讯双方都支持此扩展，如果存在不支持的通用头域，一般将会作为实体头域处理。下面简单介绍几个在UPnP消息中使用的通用头域:
 
 1.Cache-Control头域
   
-Cache-Control指定请求和响应遵循的缓存机制。在请求消息或响应消息中设置Cache-Control并不会修改另一个消息处理过程中的缓存处理过程。请求时的缓存指令包括no-cache、no-store、max-age、max-stale、min-fresh、only-if-cached，响应消息中的指令包括public、private、no-cache、no-store、no-transform、must-revalidate、proxy-revalidate、max-age。各个消息中的指令含义如下: 
+Cache-Control指定请求和响应遵循的缓存机制。在请求消息或响应消息中设置Cache-Control并不会修改另一个消息处理过程中的缓存处理过程。请求时的缓存指令包括no-cache、no-store、max-age、max-stale、min-fresh、only-if-cached，响应消息中的指令包括public、private、no-cache、no-store、no-transform、must-revalidate、proxy-revalidate、max-age。各个消息中的指令含义如下:
 
 Public指示响应可被任何缓存区缓存。
   
@@ -167,13 +189,13 @@ Pragma头域用来包含实现特定的指令，最常用的是Pragma:no-cache�
 
 请求消息
   
-请求消息的第一行为下面的格式: 
+请求消息的第一行为下面的格式:
 
 MethodSPRequest-URISPHTTP-VersionCRLFMethod表示对于Request-URI完成的方法，这个字段是大小写敏感的，包括OPTIONS、GET、HEAD、POST、PUT、DELETE、TRACE。方法GET和HEAD应该被所有的通用WEB服务器支持，其他所有方法的实现是可选的。GET方法取回由Request-URI标识的信息。HEAD方法也是取回由Request-URI标识的信息，只是可以在响应时，不返回消息体。POST方法可以请求服务器接收包含在请求中的实体信息，可以用于提交表单，向新闻组、BBS、邮件群组和数据库发送消息。
 
 SP表示空格。Request-URI遵循URI格式，在此字段为星号 (*) 时，说明请求并不用于某个特定的资源地址，而是用于服务器本身。HTTP-Version表示支持的HTTP版本，例如为HTTP/1.1。CRLF表示换行回车符。请求头域允许客户端向服务器传递关于请求或者关于客户机的附加信息。请求头域可能包含下列字段Accept、Accept-Charset、Accept-Encoding、Accept-Language、Authorization、From、Host、If-Modified-Since、If-Match、If-None-Match、If-Range、If-Range、If-Unmodified-Since、Max-Forwards、Proxy-Authorization、Range、Referer、User-Agent。对请求头域的扩展要求通讯双方都支持，如果存在不支持的请求头域，一般将会作为实体头域处理。
 
-典型的请求消息: 
+典型的请求消息:
   
 Host: download.\***\****.de
   
@@ -221,11 +243,11 @@ User-Agent头域的内容包含发出请求的用户信息。
 
 响应消息
   
-响应消息的第一行为下面的格式: 
+响应消息的第一行为下面的格式:
   
 HTTP-VersionSPStatus-CodeSPReason-PhraseCRLF
   
-HTTP-Version表示支持的HTTP版本，例如为HTTP/1.1。Status-Code是一个三个数字的结果代码。Reason-Phrase给Status-Code提供一个简单的文本描述。Status-Code主要用于机器自动识别，Reason-Phrase主要用于帮助用户理解。Status-Code的第一个数字定义响应的类别，后两个数字没有分类的作用。第一个数字可能取5个不同的值: 
+HTTP-Version表示支持的HTTP版本，例如为HTTP/1.1。Status-Code是一个三个数字的结果代码。Reason-Phrase给Status-Code提供一个简单的文本描述。Status-Code主要用于机器自动识别，Reason-Phrase主要用于帮助用户理解。Status-Code的第一个数字定义响应的类别，后两个数字没有分类的作用。第一个数字可能取5个不同的值:
 
 1xx:信息响应类，表示接收到请求并且继续处理
   
@@ -239,7 +261,7 @@ HTTP-Version表示支持的HTTP版本，例如为HTTP/1.1。Status-Code是一个
 
 响应头域允许服务器传递不能放在状态行的附加信息，这些域主要描述服务器的信息和Request-URI进一步的信息。响应头域包含Age、Location、Proxy-Authenticate、Public、Retry-After、Server、Vary、Warning、WWW-Authenticate。对响应头域的扩展要求通讯双方都支持，如果存在不支持的响应头域，一般将会作为实体头域处理。
 
-典型的响应消息: 
+典型的响应消息:
 
 HTTP/1.0200OK
   
@@ -271,7 +293,7 @@ Server响应头包含处理请求的原始服务器的软件信息。此域能�
   
 1xx:信息
   
-消息:  描述: 
+消息:  描述:
   
 100 Continue 服务器仅接收到部分请求，但是一旦服务器并没有拒绝该请求，客户端应该继续发送其余的请求。
   
@@ -279,9 +301,9 @@ Server响应头包含处理请求的原始服务器的软件信息。此域能�
   
 2xx:成功
   
-消息:  描述: 
+消息:  描述:
   
-200 OK 请求成功 (其后是对GET和POST请求的应答文档。) 
+200 OK 请求成功 (其后是对GET和POST请求的应答文档。)
   
 201 Created 请求被创建完成，同时新的资源被创建。
   
@@ -297,16 +319,15 @@ Server响应头包含处理请求的原始服务器的软件信息。此域能�
   
 3xx:重定向
   
-消息:  描述: 
+消息:  描述:
   
 300 Multiple Choices 多重选择。链接列表。用户可以选择某链接到达目的地。最多允许五个地址。
   
 - 301 Moved Permanently， 301 redirect: 301 代表永久性转移(Permanently Moved)。
-- 302，redirect: 302 代表暂时性转移(Temporarily Moved )。 
+- 302，redirect: 302 代表暂时性转移(Temporarily Moved )。
   
 303 See Other 所请求的页面可在别的url下被找到。
   
-
 305 Use Proxy 客户请求的文档应该通过Location头所指明的代理服务器提取。
   
 306 Unused 此代码被用于前一版本。目前已不再使用，但是代码依然被保留。
@@ -315,7 +336,7 @@ Server响应头包含处理请求的原始服务器的软件信息。此域能�
   
 4xx:客户端错误
   
-消息:  描述: 
+消息:  描述:
   
 400 Bad Request 服务器未能理解请求。
   
@@ -417,7 +438,7 @@ Server响应头包含处理请求的原始服务器的软件信息。此域能�
   
 5xx:服务器错误
   
-消息:  描述: 
+消息:  描述:
   
 500 Internal Server Error 请求未完成。服务器遇到不可预知的情况。
   
@@ -465,7 +486,7 @@ HTTP/1.1
   
 当前版本。持久连接被默认采用，并能很好地配合代理服务器工作。还支持以管道方式同时发送多个请求，以便降低线路负载，提高传输速度。
 
-HTTP/1.1相较于 HTTP/1.0 协议的区别主要体现在: 
+HTTP/1.1相较于 HTTP/1.0 协议的区别主要体现在:
 
 1 缓存处理
   
@@ -479,13 +500,14 @@ HTTP/1.1相较于 HTTP/1.0 协议的区别主要体现在:
   
 6 安全性及完整性
 
-其他: 
+其他:
 
 HTTP翻译为超文本传输协议是错误的，应该翻译为超文本转移协议，HTTP本身不是为了传输而设计。
 
  [1]: Win95;I;Nav
 
- ## http
+## http
+
 HTTP协议 (RFC2616）采用了请求/响应模型。客户端向服务器发送一个请求，请求头包含请求的方法、URI、协议版本、以及包含请求修饰符、客户信息和内容的类似于MIME的消息结构。服务器以一个状态行作为响应，相应的内容包括消息协议的版本，成功或者错误编码加上包含服务器信息、实体元信息以 及可能的实体内容。
 
 通常HTTP消息由一个起始行，一个或者多个头域，一个只是头域结束的空行和可选的消息体组成。
@@ -514,18 +536,21 @@ Accept:text/xml；
 Content-Type:text/html
 即代表希望接受的数据类型是xml格式，本次请求发送的数据的数据格式是html。
 
-
-
 ### Connection
+
 Connection 头 (header)  决定当前的事务完成后,是否会关闭网络连接。如果该值是 "keep-alive", 网络连接就是持久的,不会关闭,使得对同一个服务器的请求可以继续在该连接上完成。
+
 ### Content-Length
+
 消息主体的大小
 
 ### Content-Transfer-Encoding
+
 从它的命名就可以看出,这个 head 域是用来描述内容在传输过程中的编码格式。不同于 Content-Type, 这个域不是必须的。不过,仅仅定义一种Content-Transfer-Encoding 也是不可以的。在有效地传输巨大的二进制数据和便于阅读的编码数据之间要有一个折中。所以,至少要有两种编码格式: 易读的, 和稠密的 (高压缩率的) 。Content-Transfer-Encoding 就是为这个目的设计的。Content-Transfer-Encoding 支持以下数据格式: BASE64, QUOTED-PRINTABLE, 8BIT, 7BIT, BINARY, X-TOKEN。这些值是大小写不敏感的。7BIT是默认值,当不设置 Content-Transfer-Encoding 的时候,默认就是7BIT。7BIT 的含义是所有的数据以 ASC-II 格式的格式编码, 8BIT则可能包含非ASCII字符。BINARY 可能不止包含非ASCII字符, 还可能不是一个短行 (超过1000字符) 。
 
 ### http header refer
-http://baike.baidu.com/link?url=OfDRRcbOxy7ZiemI_UxhgunI1ZvvTZ3MDix3JGK-6bdZxHScOUykrcWDqGkbNy7KOr4tz5t8oWtymFMDbA2fr_
+
+<http://baike.baidu.com/link?url=OfDRRcbOxy7ZiemI_UxhgunI1ZvvTZ3MDix3JGK-6bdZxHScOUykrcWDqGkbNy7KOr4tz5t8oWtymFMDbA2fr_>
 
 简而言之,HTTP Referer是header的一部分,当浏览器向web服务器发送请求的时候,一般会带上Referer,告诉服务器我是从哪个页面链接过来的,服务器籍此可以获得一些信息用于处理。比如从我主页上链接到一个朋友那里,他的服务器就能够从HTTP Referer中统计出每天有多少用户点击我主页上的链接访问他的网站。
   
@@ -533,15 +558,11 @@ Referer的正确英语拼法是referrer。由于早期HTTP规范的拼写错误,
   
 Request.ServerVariables("HTTP_REFERER")的用法(防外连接)
 
-
 ---
 
 版权声明: 本文为CSDN博主「hunter800421」的原创文章,遵循CC 4.0 BY-SA版权协议,转载请附上原文出处链接及本声明。
-原文链接: https://blog.csdn.net/foolish0421/article/details/73302336
+原文链接: <https://blog.csdn.net/foolish0421/article/details/73302336>
 
+<https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Headers/Connection>
 
-
-https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Headers/Connection
-
->https://segmentfault.com/a/1190000013056786
-
+<https://segmentfault.com/a/1190000013056786>

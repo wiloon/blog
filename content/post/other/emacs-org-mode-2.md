@@ -9,6 +9,7 @@ tags:
   - reprint
 ---
 ## emacs org mode
+
 Emacs 22 以后的版本已经集成了 org-mode，打开 .org 扩展的文件会自动进入 org 模式。
 
 增减一个TODO项目的优先级 S-Up/Down
@@ -47,7 +48,7 @@ C-c *为当前分支加入内容
 
 3.1 关于TODO ITEM的基本知识和操作
 
-设置TODO项目所有标题只要以TODO开头，就会变成TODO 项目。例如: 
+设置TODO项目所有标题只要以TODO开头，就会变成TODO 项目。例如:
   
 \*** TODO 付手机费
   
@@ -69,8 +70,8 @@ C-c / t (org-show-todo-tree) will redisplay the current document as a sparse tre
 
 to archive all done item c-c c-x c-s
 
-http://www.cnblogs.com/holbrook/archive/2012/04/12/2444992.html
+<http://www.cnblogs.com/holbrook/archive/2012/04/12/2444992.html>
   
-http://i.linuxtoy.org/docs/guide/ch32s02.html
+<http://i.linuxtoy.org/docs/guide/ch32s02.html>
   
-http://emacser.com/org-mode.htm
+<http://emacser.com/org-mode.htm>

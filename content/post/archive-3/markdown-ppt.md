@@ -9,6 +9,7 @@ tags:
   - reprint
 ---
 ## 'markdown > PPT'
-https://github.com/ksky521/nodeppt
+
+<https://github.com/ksky521/nodeppt>
   
-https://github.com/hakimel/reveal.js/
+<https://github.com/hakimel/reveal.js/>

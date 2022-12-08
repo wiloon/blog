@@ -10,8 +10,6 @@ tags:
   - remix
 
 ---
-## curl
-
 ## curl, [kɜrl]
 
 ## options
@@ -29,6 +27,10 @@ tags:
 -d, --data DATA HTTP POST data, 如果使用-d命令，curl会以application/x-www-url-encoded格式上传参数。
 --retry, 重试次数
 # 如果使用了-F参数，curl会以multipart/form-data的方式发送POST请求。-F以key=value的形式指定要上传的参数，如果是文件，则需要使用key=@file的形式。
+-k or --insecure flag to skip certificate validation.
+-L,--location:如果服务器报告请求的页面已移动到其他位置（用location:header和3xx 响应代码），此选项将使curl在新位置上重新执行请求。
+-X, --request <method>   Specify request method to use
+
 ```
 
 ## 断点续传
@@ -38,9 +40,9 @@ tags:
 curl -C - "http://foo.bar"
 ```
 
-### cookie
+## cookie
 
-#### cookie, 发送请求时附带 cookie, cookie 值从登录请求返回的 `Set-Cookie:` 里取
+### cookie, 发送请求时附带 cookie, cookie 值从登录请求返回的 `Set-Cookie:` 里取
 
 ```bash
 curl -v -d "name=admin&password=admin" -b cookie.txt "http://localhost:8080/user/login"
@@ -83,10 +85,15 @@ curl -L xxx
 ```bash
 curl -d "user=admin&passwd=12345678" http://127.0.0.1:8080/login
 # 把请求参数放到文件里, foo 是一个包含请求数据的文件
-curl -i -XPOST 'http://localhost:8186/write?db=db0' --data-binary @foo  
+curl -i -XPOST 'http://localhost:8186/write?db=db0' --data-binary @foo
+
+curl -X POST https://reqbin.com/echo/post/json -H "Content-Type: application/json" -d '{"productId": 123456, "quantity": 100}'  
+
+curl -X POST --cookie "session=61122afb-8aae-4125-b6fa-da6919e6fb67" -H "Content-Type: application/json"  "http://localhost/api/foo/" --data-binary '{"productId": 123456, "quantity": 100}'   | jq .
+
 ```
 
-### with header
+## header
 
 ```bash
 curl -H "Content-Type: application/json"  \
@@ -150,7 +157,7 @@ curl "http://toutiao.sogoucdn.com/ykvideo/20181130/0575139af28f38c336912739acf33
 ```bash
 curl http://foo.wiloon.com -v --retry 0 --connect-timeout 1
 
-# dns, 不依赖/etc/hosts
+# dns, 不依赖 /etc/hosts
 curl --resolve 'test.com:9443:127.0.0.1' https://test.com:9443/hello
 
 # -x 代理服务器

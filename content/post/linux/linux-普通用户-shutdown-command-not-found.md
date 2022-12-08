@@ -9,6 +9,7 @@ tags:
   - reprint
 ---
 ## 'linux  shutdown'
+
 shutdown是最安全的关机和重启命令，平时使用时推荐使用shutdown命令关机和重启。
   
 shutdown
@@ -25,11 +26,11 @@ shutdown
   
 -r 重启计算器 (和reboot) 命令一样
   
--k 模拟关机 (只向用户发出警告信息，但不关机) 
+-k 模拟关机 (只向用户发出警告信息，但不关机)
   
--h 关闭计算机并关闭电源 (常用) 
+-h 关闭计算机并关闭电源 (常用)
   
--n 不调用init进程关闭计算机 (不推荐) 
+-n 不调用init进程关闭计算机 (不推荐)
   
 -c 取消正在执行的关机命令
   
@@ -53,9 +54,9 @@ shutdown
   
 警告信息 可以是任意文本，信息，需要引号括起来才能使用。
   
-例子: 
+例子:
 
-(1)、通过shutdown命令重启计算机 (加now则是立即重启) 
+(1)、通过shutdown命令重启计算机 (加now则是立即重启)
 
 shutdown -r now
 
@@ -69,9 +70,9 @@ shutdown1.jpg
 
 若需要取消关机、重启操作，在SSH中可按Ctrl+C快捷键取消正在执行的命令。当然若重新登陆了SSH或其它情况，可通过一下代码取消 (定时) 关机。
   
-http://www.kwx.gd/LinuxBase/Linux-shutdown.html
+<http://www.kwx.gd/LinuxBase/Linux-shutdown.html>
 
-http://blog.csdn.net/aloie/article/details/3141336
+<http://blog.csdn.net/aloie/article/details/3141336>
 
 有点linux基础知识的，或者是系统的学习过计算机知识的人，没用过也能猜到，关机命令十有八九可能是shutdown。没错，实际上shutdown确实是liunx的关机命令，再配合各种选项，实现不同的关机效果。
   
@@ -81,7 +82,7 @@ http://blog.csdn.net/aloie/article/details/3141336
 
 结果还是 command not found。百思不得其解。
   
-知道昨天，我才找到了解决方法: 普通用户确实没有关机的权限，因此要关机，必须得到管理员的授权，su是必须的，但是，向我之前那样是不可以的，必须指定su的用户，即: 
+知道昨天，我才找到了解决方法: 普通用户确实没有关机的权限，因此要关机，必须得到管理员的授权，su是必须的，但是，向我之前那样是不可以的，必须指定su的用户，即:
   
 su – root(－前后各有一个空格)
   

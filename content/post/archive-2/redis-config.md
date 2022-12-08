@@ -17,6 +17,7 @@ bind 0.0.0.0
 # bind 参数是为了禁止外网访问redis,如果启用了,则只能够通过lookback ip (127.0.0.1) 访问Redis
 
 protected-mode no
+# protected mode 是 Redis的安全特性, 开启之后 redis 不会响应 loopback interfaces 以外的请求.
 port 6379
 #tcp-backlog, 此参数确定了TCP连接中已完成队列(完成三次握手之后)的长度, 当然此值必须不大于Linux系统定义的/proc/sys/net/core/somaxconn值,默认是511,而Linux的默认参数值是128。当系统并发量大并且客户端速度缓慢的时候,可以将这二个参数一起参考设定,了解了下tcp的三次握手进行中的一些queue的知识. 参考下图我们可以看到在server接收到syn的时候会进入到一个syn queue队列, 当server端最终收到ack时转换到accept queue队列. 上面终端显示在listen状态下的连接, 其 Send-Q 就是这个 accept queue 队列的最大值. 只有 server 端执行了 accept 后才会从这个队列中移除这个连接. 这个值的大小是受 somaxconn 影响的, 因为是取的它们两者的最小值, 所以如果要调大的话必需修改内核的 somaxconn 值.建议修改为 2048
 tcp-backlog 511
@@ -164,9 +165,10 @@ repl-disable-tcp-nodelay no
 #当master不可用,Sentinel会根据slave的优先级选举一个master。最低的优先级的slave,当选master。而配置成0,永远不会被选举。
 slave-priority 100
 
-# 是否开启AOF持久化
+# 是否开启 AOF
 appendonly no
 appendfilename "foo.aof"
+
 # appendfsync
 # always    将 aof_buf 缓冲区中的所有内容写入并同步到 AOF 文件。
 # everysec    将 aof_buf 缓冲区中的所有内容写入到 AOF 文件, 如果上次同步 AOF 文件的时间距离现在超过一秒钟, 那么再次对 AOF 文件进行同步, 并且这个同步操作是由一个线程专门负责执行的。
@@ -296,3 +298,6 @@ hz 的默认值是 10,可以通过提高这个值来使得 CPU 在空闲的时�
 <https://juejin.cn/post/6858901608361787400>
 
 <http://cs-cjl.com/2019/04_11_redis_configuration_5>
+
+masterauth passwd123  指定密码passwd123
+requirepass passwd123 指定密码passwd123

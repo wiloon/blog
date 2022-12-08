@@ -4,21 +4,130 @@ author: "-"
 date: 2022-01-29 10:33:11
 url: git/basic
 categories:
-  - Git
+    - Git
 tags:
     - remix
 ---
 ## Git basic commands, git 常用命令
 
+## 分支, branch
+
+最新版本的 Git 提供了新的 `git switch` 命令来切换分支, `git switch`，比 `git checkout` 要更容易理解。
+
+### 设置默认的分支名
+
 ```bash
+# 设置默认分支名，不设置的话，默认是 master
+git config --global init.defaultBranch <name>
+git config --global init.defaultBranch main
+# The just-created branch can be renamed via this command
+git branch -m main
+```
+
+### 打印当前分支名
+
+```bash
+git symbolic-ref --short HEAD  
+```
+
+### 查看
+
+```bash
+## 查看所有的分支, 本地 + 远程
+git branch -a
+# 查看本地分支, 当前分支前面会标一个 `*` 号
+git branch
+## 查看远程所有分支
+git branch -r 
+# check branch detail
+git branch -v
+```
+
+### 新建分支
+
+新建分支其实就是在当前位置打个标签, 也就是说... 新分支是以当前分支的 commit 为基础的.
+
+```bash
+git branch branch0
+```
+
+### 切换到分支
+
+```bash
+git switch branch0
+git checkout branch0
+```
+
+### 新建并切换到分支
+
+```bash
+git switch -c dev
+git checkout -b branch0
+```
+
+### 把新建的分支推送到远端
+
+```bash
+git push origin dev
+```
+
+### 删除分支
+
+```bash
+# 删除本地分支
+git branch -d branch0
+# 删除远程分支
+git push origin --delete branch0
+# 强制删除分支，删除没 merge 的分支
+git branch -D branch0
+```
+
+#### 删除远程的 todo branch
+
+```bash
+git branch -d -r origin/todo
+```
+
+#### merge 合并分支, git merge 命令用于合并指定分支到当前分支
+
+```bash
+# merge 默认会把 commit 的历史都合并进来
+git merge branch1 -m "MSG0"
+```
+
+## git merge --squash
+
+```bash
+# git merge --squash, 把多次 commit 的历史合并成一次 commit
+# 把 branch1 的提交 合并 到 branch0
+# 切换到 branch0 然后执行以下命令
+git merge --squash branch1
+git commit -m "comments0"
+```
+
+```bash
+# 解决Git报错:error: You have not concluded your merge (MERGE_HEAD exists).
+git merge --abort
+```
+
+### 本地分支重命名 (还没有推送到远程)
+
+```bash
+git branch -m oldName newName
+```
+
 ## commands
 
 ```bash
 # 计算对象数和磁盘消耗
 git count-objects -vH
+# 指定目录 1.8.5 以前
+git --git-dir=/Users/jhoffmann/tmp/my-project/.git --work-tree=/Users/jhoffmann/tmp/my-project/ pull
+# 指定目录 >=1.8.5
+git -C /Users/jhoffmann/tmp/my-project/ pull
 ```
 
-## 连通性测试
+## Git 连通性测试
 
 ```bash
 ssh -T git@github.com
@@ -36,6 +145,22 @@ export EDITOR=vim
 ```
 
 ### commit
+
+#### 修改已经push了的commit信息
+
+```bash
+如题，本条仅适用于修改已经push过了的最近一次的commit注释信息，确保本地文件的最新的。
+
+step1：使用【git commit --amend】命令，会进入到vim编辑器。
+
+step2：输入【i】，即进入编辑模式，此时编辑提交信息。
+
+step3：编辑好之后，按键【Esc】，输入【:wq】，即保存和退出。
+
+step4：输入【git push -f】强制提交。
+
+操作完之后，再看提交记录，即可看到修改的注释信息。
+```
 
 #### 修改最近一次的 commit message
 
@@ -57,7 +182,7 @@ git rebase -i HEAD~2
 # git log你可以发现，git的最后一次提交已经变成你选的那个了
 # 把pick 修改成edit然后保存退出，然后会看到提示 git commit --amend
 git commit --amend
-# 修改注释之后，保存退出，然后git rebase --continue
+# 修改注释之后，保存退出，然后 git rebase --continue
 git rebase --continue
 # 把本地仓库的代码推送到远程
 git push origin master
@@ -70,7 +195,7 @@ git push --force origin master
 #### 查看所有被 Git 忽略的文件, Git 1.6+
 
 ```bash
-    git ls-files --others -i --exclude-standard
+git ls-files --others -i --exclude-standard
 ```
 
 #### Git 1.4, 1.5
@@ -113,7 +238,7 @@ git clean -nfd
 
 ## git remote
 
-### 查看远程仓库地址
+### 查看远程仓库地址 url
 
 ```bash
 git remote -v
@@ -146,7 +271,7 @@ git rm -r xxx/xxx
 ### 将指定的提交 (commit) 应用于其他分支
 
 ```bash
-    git cherry-pick <commitHash>
+git cherry-pick <commitHash>
 ```
 
 <https://www.ruanyifeng.com/blog/2020/04/git-cherry-pick.html>
@@ -154,13 +279,13 @@ git rm -r xxx/xxx
 ### 指定ssh 私钥
 
 ```bash
-    GIT_SSH_COMMAND="ssh -i ~/tmp/id_rsa" git clone git@github.com:wiloon/foo.git
+GIT_SSH_COMMAND="ssh -i ~/tmp/id_rsa" git clone git@github.com:wiloon/foo.git
 ```
 
 ### 打印当前版本
 
 ```bash
-    git rev-parse HEAD
+git rev-parse HEAD
 ```
 
 ### git checkout
@@ -174,7 +299,7 @@ git checkout HEAD . # 将所有代码都 checkout 出來(最后一次 commit 的
 ### checkout 指定版本
 
 ```bash
-    git checkout 788258e49531eb24bfd347a600d69a16f966c495
+git checkout 788258e49531eb24bfd347a600d69a16f966c495
 ```
 
 ### 放弃本地未提交的修改
@@ -195,31 +320,31 @@ depth用于指定克隆深度，为1即表示只克隆最近一次commit.
 
 git checkout master
 
-### git config
+## git config
 
-#### 查看
+### 查看 config
 
 config 配置有system级别 global (用户级别)  和local (当前仓库) 三个 设置先从system-》global-》local  底层配置会覆盖顶层配置 分别使用--system/global/local 可以定位到配置文件
 
 ```bash
-    git config --list
-    git config --system --list
-    git config --global core.editor vim
+git config --list
+git config --system --list
+git config --global core.editor vim
 ```
 
 查看当前用户 (global) 配置
 
 ```bash
-    git config --global  --list
+git config --global  --list
 ```
 
 查看当前仓库配置信息
 
 ```bash
-    git config --local  --list
+git config --local  --list
 ```
 
-#### 设置
+### 设置
 
 ```bash
 #设置电子邮件地址
@@ -228,12 +353,20 @@ git config --global user.name "name0"
 git config --global user.email "email@example.com"
 
 # local
-git config --local user.email "email@example.com"
 git config --local user.name "name0"
+git config --local user.email "email@example.com"
+
 
 #确认在 Git 中正确设置了电子邮件地址
 git config --global user.email
 git config --local  user.email
+```
+
+### edit: set, delete
+
+```bash
+git config --edit
+git config --global --edit
 ```
 
 ## git log
@@ -249,6 +382,12 @@ git log --reverse
 git log --reverse
 
 echo "# project name" >> README.md
+```
+
+git reflog 可以查看所有分支的所有操作记录 (包括 (包括 commit 和 reset 的操作），包括已经被删除的commit记录，git log 则不能察看已经删除了的 commit 记录。
+
+```bash
+git reflog
 ```
 
 ### 更改最多的文件
@@ -274,17 +413,15 @@ git rm -f
 
 ## git fetch
 
-git fetch 命令用来拉取其它仓库的数据(objects and refs).
-默认情况下，git fetch取回**所有**分支 (branch) 的更新。如果只想取回特定分支的更新，可以指定分支名。  
+git fetch 命令用来拉取其它仓库的数据 (objects and refs).  
+默认情况下，git fetch 取回**所有**分支 (branch) 的更新。如果只想取回特定分支的更新，可以指定分支名。  
 
 ```bash
-    git fetch <远程主机名> <分支名>
-```
-
-比如，取回 origin 主机的 master 分支。
-
-```bash
-    git fetch origin master
+git fetch <远程主机名> <分支名>
+# 比如，取回 origin 主机的 master 分支。
+git fetch origin master
+# -p, 分支在远程删掉之后, 执行 git fetch -p, 更新一下本地的分支列表, 本地就看不到已经删除的分支了
+git fetch -p
 ```
 
 ### git fetch 与 git pull
@@ -300,8 +437,14 @@ git fetch 更新远程仓库的方式如下:
 
 git fetch origin master: tmp
 //在本地新建一个temp分支，并将远程origin仓库的master分支代码下载到本地temp分支
+
+## git diff
+
 git diff tmp
-//来比较本地代码与刚刚从远程下载下来的代码的区别
+
+git diff，不加任何参数，默认比较的是工作区和暂存区之间的文件差异
+
+// 来比较本地代码与刚刚从远程下载下来的代码的区别
 git merge tmp
 //合并temp分支到本地的master分支
 git branch -d temp
@@ -328,6 +471,8 @@ git pull <远程主机名> <远程分支名>:<本地分支名>
 
 因此，与git pull相比git fetch相当于是从远程获取最新版本到本地，但不会自动merge。如果需要有选择的合并git fetch是更好的选择。效果相同时git pull将更为快捷。
 
+`git pull` 标准或完整的命令是 `git pull remote_repository_name branch_name`
+
 ```bash
 git pull
 # verbos
@@ -345,20 +490,21 @@ git fetch --all 告诉 Git 同步所有的远端仓库。
 git checkout -b branch_name tag_name
 ```
 
-## tag
+## git tag
 
 轻量标签 (lightweight）与附注标签 (annotated）。
 
 ### 附注标签 (annotated）
 
-附注标签是存储在 Git 数据库中的一个完整对象, 它们是可以被校验的，其中包含打标签者的名字、电子邮件地址、日期时间， 此外还有一个标签信息，并且可以使用 GNU Privacy Guard  (GPG）签名并验证。通常会建议创建附注标签，这样你可以拥有以上所有信息。
+附注标签是存储在 Git 数据库中的一个完整对象, 它们是可以被校验的，其中包含打标签者的名字、电子邮件地址、日期时间，此外还有一个标签信息，并且可以使用 GNU Privacy Guard  (GPG）签名并验证。通常会建议创建附注标签，这样你可以拥有以上所有信息。
 
 在运行 tag 命令时指定 -a 选项, 创建附注标签
 
 ```bash
-git tag -a v1.4 -m "my version 1.4"
+git tag -a v1.4 -m "message0"
 # 对历史提交打标签
 git tag -a v1.2 9fceb02
+git push --tag
 ```
 
 ### 轻量标签 (lightweight）
@@ -396,99 +542,14 @@ git push origin :refs/tags/v1.0.0
 
 <https://git-scm.com/book/zh/v2/Git-%E5%9F%BA%E7%A1%80-%E6%89%93%E6%A0%87%E7%AD%BE>
 
-## 分支, branch
-
-最新版本的 Git 提供了新的git switch 命令来切换分支, 使用新的 git switch 命令，比 git checkout 要更容易理解。
-
-### 设置默认的分支名
-
-```bash
-# 设置默认分支名，不设置的话，默认是 master
-git config --global init.defaultBranch <name>
-git config --global init.defaultBranch main
-# The just-created branch can be renamed via this command
-git branch -m main
-```
-
-### 打印当前分支名
-
-```bash
-git symbolic-ref --short HEAD  
-```
-
-#### 查看本地所有分支, 当前分支前面会标一个*号
-
-```bash
-git branch
-# check branch detail
-git branch -v
-```
-
-#### 查看远程所有分支
-
-```bash
-git branch -r 
-```
-
-#### 查看所有的分支
-
-```bash
-git branch -a
-```
-
-#### 新建分支
-
-```bash
-git branch branch0
-```
-
-#### 切换到分支
-
-```bash
-git switch branch0
-git checkout branch0
-```
-
-#### 新建并切换到分支
-
-```bash
-git switch -c dev
-git checkout -b branch0
-```
-
-#### 删除分支
-
-```bash
-git branch -d branch0
-# 强制删除分支，删除没 merge 的分支
-git branch -D branch0
-```
-
-#### 删除远程的todo branch
-
-```bash
-git branch -d -r origin/todo
-```
-
-#### 分支合并, git merge 命令用于合并指定分支到当前分支
-
-```bash
-git merge branch1 -m "MSG0"
-```
-
-### 本地分支重命名(还没有推送到远程)
-
-```bash
-git branch -m oldName newName
-```
-
 ### git clone
 
 git clone <版本库的网址> <本地目录名>
 
 ```bash
-git log
-git reflog
+
+git clone https://user0:password0@git.foo.com/path/to/project.git
+
 git log --pretty=oneline
 
 git-ls-files  # - Show information about files in the index and the working tree
@@ -703,4 +764,31 @@ git reflog expire --expire=now --all
 
 ## TortoiseGit, ssh key
 
+把 key 转成 ppk 格式 加到 Pageant 里.
+
 <https://www.jianshu.com/p/1bbf5e25c912>
+
+## git 没提交的代码迁移到新分支
+
+```bash
+// 先将本地修改进行暂存
+> git stash
+ 
+// 暂存完毕后执行 git status 会显示不出本地的修改
+// 再拉取当前分支
+> git pull 
+ 
+// 新建并切换到开发分支，如dev-2021-11
+> git checkout -b dev-2021-11
+ 
+// 将暂存的本地修改取出
+> git stash apply
+ 
+// 这时执行 git status 可以看到本地修改又显示出来了
+// 正常提交即可
+> git add .
+> git commit -am "local code"
+> git push origin dev-2021-11
+```
+
+<https://www.cnblogs.com/toutou/p/git_stash.html>

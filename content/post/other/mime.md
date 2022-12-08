@@ -9,9 +9,10 @@ tags:
   - reprint
 ---
 ## MIME
+
 媒体类型, **用途互联网邮件扩展**
 
- (**MIME**，**Multipurpose Internet Mail Extensions**) 
+ (**MIME**，**Multipurpose Internet Mail Extensions**)
 
 是一个互联网标准, 它扩展了电子邮件标准，使其能够支持非ASCII字符、二进制格式附件等多种格式的邮件消息。HTTP协议中也使用了MIME的框架。MIME是通过标准化电子邮件报文的头部的附加域 (fields) 而实现的；这些头部的附加域，描述新的报文类型的内容和组织形式。
 
@@ -29,26 +30,26 @@ type有下面的形式。
 
 subtype用于指定type的详细形式。
 
-* text/plain (纯文本) 
-* text/html (HTML文档) 
-* application/xhtml+xml (XHTML文档) 
-* image/gif (GIF图像) 
+* text/plain (纯文本)
+* text/html (HTML文档)
+* application/xhtml+xml (XHTML文档)
+* image/gif (GIF图像)
 * image/jpeg (JPEG图像) 【PHP中为: image/pjpeg】
 * image/png (PNG图像) 【PHP中为: image/x-png】
-* video/mpeg (MPEG动画) 
-* application/octet-stream (任意的二进制数据) 
-* application/pdf (PDF文档) 
-* application/msword (Microsoft Word文件) 
-* message/rfc822 (RFC 822形式) 
-* multipart/alternative (HTML邮件的HTML形式和纯文本形式，相同内容使用不同形式表示) 
-* application/x-www-form-urlencoded (使用HTTP的POST方法提交的表单) 
-* multipart/form-data (同上，但主要用于表单提交时伴随文件上传的场合) 
+* video/mpeg (MPEG动画)
+* application/octet-stream (任意的二进制数据)
+* application/pdf (PDF文档)
+* application/msword (Microsoft Word文件)
+* message/rfc822 (RFC 822形式)
+* multipart/alternative (HTML邮件的HTML形式和纯文本形式，相同内容使用不同形式表示)
+* application/x-www-form-urlencoded (使用HTTP的POST方法提交的表单)
+* multipart/form-data (同上，但主要用于表单提交时伴随文件上传的场合)
 
 parameter可以用来指定附加的信息，更多情况下是用于指定text/plain和text/htm等的文字编码方式的charset参数。MIME根据type制定了默认的subtype，当客户端不能确定消息的subtype的情况下，消息被看作默认的subtype进行处理。Text默认是text/plain，Application默认是application/octet-stream而Multipart默认情况下被看作multipart/mixed。
 
 ### 内容传输编码
 
-内容传输编码 (Content-Transfer-Encoding) ，这个区域使指定ASCII以外的字符编码方式成为可能。形式如下: 
+内容传输编码 (Content-Transfer-Encoding) ，这个区域使指定ASCII以外的字符编码方式成为可能。形式如下:
 
 Content-Transfer-Encoding: [mechanism]
 
@@ -96,7 +97,7 @@ Hello World.
 
 4. MIME对传统电子邮件的扩展，表现在它在信件头部分添加了几条语句，主要有三条。
 
-第一条是: 
+第一条是:
 
 MIME-Version: 1.0
 
@@ -104,7 +105,7 @@ MIME-Version: 1.0
 
 有了这条语句，收信端就知道这封信使用了MIME规范。
 
-5. 第二条语句是: 
+5. 第二条语句是:
 
 Content-Type: text/plain; charset="ISO-8859-1"
 
@@ -112,7 +113,7 @@ Content-Type: text/plain; charset="ISO-8859-1"
 
 Content-Type 表明信息类型，缺省值为" text/plain"。它包含了主要类型 (primary type) 和次要类型 (subtype) 两个部分，两者之间用"/"分割。主要类型有9种，分别是application、audio、example、image、message、model、multipart、text、video。
 
-每一种主要类型下面又有许多种次要类型，常见的有: 
+每一种主要类型下面又有许多种次要类型，常见的有:
 
 text/plain: 纯文本，文件扩展名.txt
 text/html: HTML文本，文件扩展名.htm和.html
@@ -131,7 +132,7 @@ application/zip: PK-ZIP格式的压缩文件，文件扩展名.zip
 
 6.
 
-前面已经说过，电子邮件的传统格式不支持非ASCII编码和二进制数据。因此MIME规定了第三条语句: 
+前面已经说过，电子邮件的传统格式不支持非ASCII编码和二进制数据。因此MIME规定了第三条语句:
 
 Content-transfer-encoding: base64
 
@@ -139,7 +140,7 @@ Content-transfer-encoding: base64
 
 7.
 
-下面是一封我收到的邮件的源码: 
+下面是一封我收到的邮件的源码:
 
 Date: Wed, 18 Jun 2008 18:07:51 +0800 (CST)
 From: xxx <xxx@163.com>
@@ -169,7 +170,7 @@ Content-Transfer-Encoding: quoted-printable
 &amp;nbsp;
 ......
 
-可以看到这封信的MIME语句是: 
+可以看到这封信的MIME语句是:
 
 MIME-Version: 1.0
 Content-Type: multipart/alternative;
@@ -180,7 +181,7 @@ boundary="----=_Part_287491_22998031.1213783671982"
 "boundary="----=_Part_287491_22998031.1213783671982"
 "表明不同信件内容的分割线是"----=_Part_287491_22998031.1213783671982"，它通常是一个很长的随机字符串。
 
-信件内容部分又有两个子信件头: 
+信件内容部分又有两个子信件头:
 
 Content-Type: text/plain; charset=gbk
 Content-Transfer-Encoding: base64
@@ -200,7 +201,6 @@ Content-Transfer-Encoding: quoted-printable
 
 3. MIME邮件面面观
 
-
 ---
 
-http://www.ruanyifeng.com/blog/2008/06/mime.html
+<http://www.ruanyifeng.com/blog/2008/06/mime.html>

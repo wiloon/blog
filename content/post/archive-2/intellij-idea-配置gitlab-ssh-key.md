@@ -1,5 +1,5 @@
 ---
-title: intellij idea 配置gitlab ssh key
+title: intellij idea 配置git ssh key
 author: "-"
 date: 2019-02-27T15:48:53+00:00
 url: /?p=13731
@@ -8,7 +8,9 @@ categories:
 tags:
   - reprint
 ---
-## intellij idea 配置gitlab ssh key
+## intellij idea 配置git ssh key
+
+把私钥放入目录 `C:\Users\user0\.ssh`, 私钥不需要转换成 ppk 格式.
 
 <https://blog.csdn.net/u010348570/article/details/81204371>
 

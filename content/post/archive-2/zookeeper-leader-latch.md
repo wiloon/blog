@@ -8,12 +8,11 @@ categories:
 tags:
   - reprint
 ---
-## zookeeper leader latch
-# zookeeper leader latch, leader election
+## zookeeper leader latch, leader election
 
-https://curator.apache.org/zk-compatibility.html
+<https://curator.apache.org/zk-compatibility.html>
   
-curator-framework 4.x 同时支持zookeeper 3.4.x, 3.5.x
+curator-framework 4.x 同时支持 zookeeper 3.4.x, 3.5.x
   
 curator4 默认依赖zookeeper 3.5
   
@@ -31,13 +30,13 @@ curator4 默认依赖zookeeper 3.5
         </exclusion>
     </exclusions>
 </dependency>
-``` 
+```
 
 leader latch/leader election
   
-在分布式计算中, leader election是很重要的一个功能, 这个选举过程是这样子的: 指派一个进程作为组织者,将任务分发给各节点。 在任务开始前, 哪个节点都不知道谁是leader或者coordinator. 当选举算法开始执行后,每个节点最终会得到一个唯一的节点作为任务leader.
+在分布式计算中, leader election 是很重要的一个功能, 这个选举过程是这样子的: 指派一个进程作为组织者, 将任务分发给各节点。 在任务开始前, 哪个节点都不知道谁是 leader 或者 coordinator. 当选举算法开始执行后, 每个节点最终会得到一个唯一的节点作为任务 leader.
   
-除此之外, 选举还经常会发生在leader意外宕机的情况下,新的leader要被选举出来。
+除此之外, 选举还经常会发生在 leader 意外宕机的情况下, 新的 leader 要被选举出来。
 
 Curator 有两种选举recipe, 你可以根据你的需求选择合适的。
 
@@ -51,7 +50,7 @@ public LeaderLatch(CuratorFramework client, String latchPath, String id)
 
 public boolean hasLeadership()
   
-类似JDK的CountDownLatch, LeaderLatch在请求成为leadership时有block方法: 
+类似JDK的CountDownLatch, LeaderLatch在请求成为leadership时有block方法:
   
 public void await()
   
@@ -69,7 +68,7 @@ public boolean await(long timeout,TimeUnit unit)throws InterruptedException
 
 异常处理
   
-LeaderLatch实例可以增加ConnectionStateListener来监听网络连接问题。 当 SUSPENDED 或 LOST 时, leader不再认为自己还是leader.当LOST 连接重连后 RECONNECTED,LeaderLatch会删除先前的ZNode然后重新创建一个.
+LeaderLatch 实例可以增加ConnectionStateListener来监听网络连接问题。 当 SUSPENDED 或 LOST 时, leader不再认为自己还是leader.当LOST 连接重连后 RECONNECTED, LeaderLatch会删除先前的ZNode然后重新创建一个.
   
 LeaderLatch用户必须考虑导致leadershi丢失的连接问题。 强烈推荐你使用ConnectionStateListener。
 
@@ -85,7 +84,7 @@ LeaderLatch用户必须考虑导致leadershi丢失的连接问题。 强烈推�
                 </exclusion>
             </exclusions>
         </dependency>
-``` 
+```
 
 ```javaRetryPolicy retryPolicy = new ExponentialBackoffRetry(1000, 3)
 CuratorFramework client = CuratorFrameworkFactory.newClient(zookeeperConnectionString, retryPolicy);
@@ -96,23 +95,19 @@ client.start();
         leaderLatch.start();
 ```
 
-http://colobu.com/2014/12/12/zookeeper-recipes-by-example-1/
+<http://colobu.com/2014/12/12/zookeeper-recipes-by-example-1/>
 
-
+跟着实例学习ZooKeeper的用法:  Leader选举
   
-    跟着实例学习ZooKeeper的用法:  Leader选举
-  
-
-
-http://ifeve.com/zookeeper-leader/embed/#?secret=mwCqdwnDV0
-
+<http://ifeve.com/zookeeper-leader/embed/#?secret=mwCqdwnDV0>
 
 ### Leader Election
+
 zookeeper 通过 Zab (Zookeeper Atomic Broadcast)  协议保持集群间的数据一致性。
 Zab 协议包括两个阶段: Leader Election 和 Atomic Broadcast 。
 
 Leader Election
-此阶段集群内会选举出一个 leader,余下机器则会成为 follower。leader 会通过 broadcast 通知所有 follower ,当大部分机 (> 1/2) 器完成了与 leader 的状态同步后,Leader Election 阶段结束。
+此阶段集群内会选举出一个 leader, 余下机器则会成为 follower。leader 会通过 broadcast 通知所有 follower ,当大部分机 (> 1/2) 器完成了与 leader 的状态同步后,Leader Election 阶段结束。
 
 当 leader 失去大多数 follower 时,集群会再次进入 Leader Election 阶段并选举出新的 leader ,使集群回到正确的状态。
 
@@ -120,7 +115,6 @@ Atomic Broadcast
 此阶段 leader 会通过 broadcast 与 follower 通讯,保证 leader 与 follower 具有相同的系统状态。
 
 作者: jaren
-链接: https://www.jianshu.com/p/30bcaf55f451
+链接: <https://www.jianshu.com/p/30bcaf55f451>
 来源: 简书
 著作权归作者所有。商业转载请联系作者获得授权,非商业转载请注明出处。
-

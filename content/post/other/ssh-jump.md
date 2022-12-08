@@ -48,11 +48,14 @@ ssh 中 host 别名可以在 ~/.ssh/config 文件中进行设置。如按照如�
 6
 7
 8
+
 ### First jumphost. Directly reachable
+
 Host vps1
   HostName vps1.example.org
 
 ### Host to jump to via jumphost1.example.org
+
 Host contabo
   HostName contabo.example.org
   ProxyJump contabo
@@ -79,10 +82,10 @@ Host vps1
     User ec2-user
 
 Host contabo
-    HostName contabo.example.org    
+    HostName contabo.example.org
     IdentityFile ~/.ssh/contabovps
     Port 22
-    User admin    
+    User admin
     ProxyCommand ssh -q -W %h:%p vps1
 其中关键的配置是 ProxyCommand，其中-q表示代理命令工作在静默模式下，而 -W 则表示 stdio 转发。
 
@@ -97,5 +100,4 @@ ssh contabo
 Host *
     ServerAliveInterval 10
 
-
->https://www.codewoody.com/posts/11038/
+><https://www.codewoody.com/posts/11038/>

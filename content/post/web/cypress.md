@@ -8,15 +8,24 @@ tags:
   - reprint
 ---
 ## "cypress"
+
+```bash
+npm install cypress --save-dev
+npx cypress open
+
+```
 ### install cypress for project
+
     npm install --save-dev cypress
     # 执行cypress install, 把cypress安装到 ~/.cache/Cypress
     node_modules/cypress/bin/cypress install
 
 ### install MySQL
+
     npm install MySQL  --save-dev
 
-### 配置MySQL连接信息, 修改 cypress.json 成这样.
+### 配置MySQL连接信息, 修改 cypress.json 成这样
+
 ```json
 {
   "pluginsFile": "tests/e2e/plugins/index.js",
@@ -32,6 +41,7 @@ tags:
 ```
 
 ### 配置 tests/e2e/plugins/index.js
+
     const MySQL = require('MySQL')
     function queryTestDb (query, config) {
       const connection = MySQL.createConnection(config.env.db)
@@ -72,31 +82,48 @@ tags:
     }
 
 ### command
+
 #### timeout
+
     cy.visit('/', { timeout: 3000 })
+
 #### type
+
     cy.get('[data-cy=user-name]').type('user0')
+
 #### click
+
     cy.get('[data-cy=login]').click()
+
 #### contains
+
     cy.get('[data-cy=list]').find('tbody>tr').first().contains('td', 'id0')
+
 #### clear
+
     cy.get('[data-cy=plate]').clear()
 
 #### 页面元素数量, 3个 text0 文字
+
     cy.contains('span', 'text0').should('have.length', 3)
 
 #### 比较文本
+
     cy.get('[data-cy=foo]').should('have.text',"0")
     cy.get('[data-cy=foo]').should('not.have.text',"0")
+
 ### sql
+
     cy.task('queryDb', 'DELETE FROM `table0`').then(res => { cy.log(res) })
+
 #### count
+
     cy.task('queryDb', 'SELECT COUNT(*) AS count FROM table0 WHERE field0=\'value0\'').then(res => {
       expect(res[0].count).to.equal(1)
     })
 
 ### 配置 NODE_ENV
+
 ```javascript
   "scripts": {
     "serve": "vue-cli-service serve",

@@ -11,7 +11,7 @@ tags:
 ---
 ## iostat
 
-通过iostat方便查看CPU、网卡、tty设备、磁盘、CD-ROM 等等设备的活动情况, 负载信息。
+通过 iostat 方便查看 CPU、网卡、tty 设备、磁盘、CD-ROM 等等设备的活动情况, 负载信息。
 
 ### 命令格式
 
@@ -23,6 +23,7 @@ iostat [参数] [时间] [次数]
 sudo pacman -S sysstat
 sudo yum install sysstat
 
+iostat -sxz 1
 iostat 1
 iostat -x 1
 ```
@@ -37,7 +38,7 @@ iostat -x 1
 -m 以 M 为单位显示
 -N 显示磁盘阵列(LVM) 信息
 -n 显示NFS 使用情况
--p[磁盘] 显示磁盘和分区的情况
+-p [磁盘] 显示磁盘和分区的情况
 -t 显示终端和CPU的信息
 -V 显示版本信息
 ```
@@ -60,7 +61,7 @@ svctm:          平均每次设备I/O操作的服务时间 (毫秒)。即 delta(
 %util:          一秒中有百分之多少的时间用于 I/O 操作, 或者说一秒中有多少时间 I/O 队列是非空的。即 delta(use)/s/1000 (因为use的单位为毫秒)
 ```
 
-Linux系统中的 iostat是I/O statistics (输入/输出统计) 的缩写,iostat工具将对系统的磁盘操作活动进行监视。它的特点是汇报磁盘活动统计情况,同时也会汇报出CPU使用情况。同vmstat一样,iostat也有一个弱点,就是它不能对某个进程进行深入分析,仅对系统的整体情况进行分析。iostat属于sysstat软件包。可以用yum install sysstat 直接安装。
+Linux 系统中的 iostat 是I/O statistics (输入/输出统计) 的缩写,iostat工具将对系统的磁盘操作活动进行监视。它的特点是汇报磁盘活动统计情况,同时也会汇报出CPU使用情况。同vmstat一样,iostat也有一个弱点,就是它不能对某个进程进行深入分析,仅对系统的整体情况进行分析。iostat属于sysstat软件包。可以用yum install sysstat 直接安装。
 
 4．使用实例:
 

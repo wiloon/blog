@@ -9,9 +9,10 @@ tags:
   - reprint
 ---
 ## Web服务 压力测试工具,goreplay gor, http_load、webbench、apabhe ab、siege
+
 ### goreplay, Gor
 
-https://github.com/buger/goreplay
+<https://github.com/buger/goreplay>
 
 一、http_load
   
@@ -19,15 +20,15 @@ https://github.com/buger/goreplay
   
 http_load以并行复用的方式运行,用以测试web服务器的吞吐量与负载。但是它不同于大多数压力测试工具,它可以以一个单一的进程运行,一般不会把客户机搞死。还可以测试HTTPS类的网站请求。
 
-下载地址: http://soft.vpser.net/test/http_load/http_load-12mar2006.tar.gz
+下载地址: <http://soft.vpser.net/test/http_load/http_load-12mar2006.tar.gz>
 
 安装
   
-#tar zxvf http_load-12mar2006.tar.gz
-  
-#cd http_load-12mar2006
-  
-#make && make install
+tar zxvf http_load-12mar2006.tar.gz
+
+cd http_load-12mar2006
+
+make && make install
 
 <!--more-->
 
@@ -45,41 +46,25 @@ http_load以并行复用的方式运行,用以测试web服务器的吞吐量与�
   
 -seconds简写-s : 含义是总计的访问时间
   
-准备URL文件: urllist.txt,文件格式是每行一个URL,URL最好超过50－100个测试效果比较好.文件格式如下: 
+准备URL文件: urllist.txt,文件格式是每行一个URL,URL最好超过50－100个测试效果比较好.文件格式如下:
 
-
-  
     VPS服务器的选择
   
+<https://www.vpser.net/other/choose-vps.html/embed#?secret=iAUiVVmnMv>
 
-
-https://www.vpser.net/other/choose-vps.html/embed#?secret=iAUiVVmnMv
-
-
-  
     HyperVM使用教程/手册
   
+<https://www.vpser.net/vps-cp/hypervm-tutorial.html/embed#?secret=cLrZu8rncf>
 
-
-https://www.vpser.net/vps-cp/hypervm-tutorial.html/embed#?secret=cLrZu8rncf
-
-
-  
     DiaVPS 4月最新优惠
   
+<https://www.vpser.net/coupons/diavps-april-coupons.html/embed#?secret=aK3vT9Oj6d>
 
-
-https://www.vpser.net/coupons/diavps-april-coupons.html/embed#?secret=aK3vT9Oj6d
-
-
-  
     VPS主机上备份网站和数据库
   
-
-
-https://www.vpser.net/security/vps-backup-web-MySQL.html/embed#?secret=GisBcCy5FH
+<https://www.vpser.net/security/vps-backup-web-MySQL.html/embed#?secret=GisBcCy5FH>
   
-例如: 
+例如:
   
 http_load -p 30 -s 60  urllist.txt
   
@@ -93,7 +78,7 @@ fetches/sec, 28945.5 bytes/secmsecs/connect: 28.8932 mean, 44.243 max, 24.488 mi
   
 -response: 63.5362 mean, 81.624 max, 57.803 minHTTP response codes: code 200 — 49
 
-结果分析: 
+结果分析:
   
 1．49 fetches, 2 max parallel, 289884 bytes, in 10.0148 seconds
   
@@ -113,7 +98,7 @@ fetches/sec, 28945.5 bytes/secmsecs/connect: 28.8932 mean, 44.243 max, 24.488 mi
 
 要注意是否系统遇到了瓶颈。
   
-特殊说明: 
+特殊说明:
   
 测试结果中主要的指标是 fetches/sec、msecs/connect 这个选项,即服务器每秒能够响应的查询次数,用这个指标来衡量性能。似乎比 apache的ab准确率要高一些,也更有说服力一些。
   
@@ -125,27 +110,27 @@ Qpt-每秒响应用户数和response time,每连接响应用户时间。
 
 webbench是Linux下的一个网站压力测试工具,最多可以模拟3万个并发连接去测试网站的负载能力。下载地址可以到google搜,我这里给出一个
   
-下载地址: http://soft.vpser.net/test/webbench/webbench-1.5.tar.gz
+下载地址: <http://soft.vpser.net/test/webbench/webbench-1.5.tar.gz>
   
 这个程序更小,解压后不到50K,呵呵
 
 安装
   
-#tar zxvf webbench-1.5.tar.gz
+# tar zxvf webbench-1.5.tar.gz
   
-#cd webbench-1.5
+# cd webbench-1.5
   
-#make && make install
+# make && make install
   
 会在当前目录生成webbench可执行文件,直接可以使用了
 
-用法: 
+用法:
   
 webbench -c 并发数 -t 运行测试时间 URL
   
-如: 
+如:
   
-webbench -c 5000 -t 120 http://www.163.com
+webbench -c 5000 -t 120 <http://www.163.com>
 
 三、ab
 
@@ -255,19 +240,19 @@ table 这里 >.
   
 对请求使用代理服务器。
   
--y 
+-y
 
 -attributes
   
-设置 
+设置
 
 属性的字符串.
   
 -z -attributes
   
-设置 
+设置
 
-属性的字符串. 
+属性的字符串.
 
 缺陷
   
@@ -275,21 +260,19 @@ table 这里 >.
 
 它没有完整地实现HTTP/1.x; 仅接受某些'预想'的响应格式。 strstr(3)的频繁使用可能会带来性能问题,即, 你可能是在测试ab而不是服务器的性能。
 
- 
-
 参数很多,一般我们用 -c 和 -n 参数就可以了. 例如:
 
-./ab -c 1000 -n 1000 http://127.0.0.1/index.php
+./ab -c 1000 -n 1000 <http://127.0.0.1/index.php>
 
 这个表示同时处理1000个请求并运行1000次index.php文件.
   
-#/usr/local/xiaobai/apache2054/bin/ab -c 1000 -n 1000 http://127.0.0.1/index.html.zh-cn.gb2312
+# /usr/local/xiaobai/apache2054/bin/ab -c 1000 -n 1000 <http://127.0.0.1/index.html.zh-cn.gb2312>
   
 This is ApacheBench, Version 2.0.41-dev <$Revision: 1.121.2.12 $> apache-2.0
   
-Copyright (c) 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
+Copyright (c) 1996 Adam Twiss, Zeus Technology Ltd, <http://www.zeustech.net/>
   
-Copyright (c) 1998-2002 The Apache Software Foundation, http://www.apache.org/
+Copyright (c) 1998-2002 The Apache Software Foundation, <http://www.apache.org/>
 
 Benchmarking 127.0.0.1 (be patient)
   
@@ -417,23 +400,23 @@ Percentage of the requests served within a certain time (ms)
   
 一款开源的压力测试工具,可以根据配置对一个WEB站点进行多用户的并发访问,记录每个用户所有请求过程的相应时间,并在一定数量的并发访问下重复进行。
   
-官方: http://www.joedog.org/
+官方: <http://www.joedog.org/>
   
-Siege下载: http://soft.vpser.net/test/siege/siege-2.67.tar.gz
+Siege下载: <http://soft.vpser.net/test/siege/siege-2.67.tar.gz>
   
-解压: 
+解压:
 
 # tar -zxf siege-2.67.tar.gz
 
-进入解压目录: 
+进入解压目录:
 
 # cd siege-2.67/
 
-安装: 
+安装:
   
-#./configure ; make
+# ./configure ; make
   
-#make install
+# make install
 
 使用
   
@@ -443,11 +426,11 @@ siege -c 200 -r 10 -f example.url
 
 example.url内容:
 
-http://www.licess.cn
+<http://www.licess.cn>
   
-http://www.vpser.net
+<http://www.vpser.net>
   
-http://soft.vpser.net
+<http://soft.vpser.net>
 
 结果说明
   
@@ -477,14 +460,10 @@ Longest transaction: 29.04 //每次传输所花最长时间
   
 Shortest transaction: 0.00 //每次传输所花最短时间
 
-
-  
     十个免费的Web压力测试工具
   
-
-
-https://coolshell.cn/articles/2589.html/embed#?secret=No65LHIzR5
+<https://coolshell.cn/articles/2589.html/embed#?secret=No65LHIzR5>
   
-http://www.cnblogs.com/shipengzhi/archive/2012/10/09/2716766.html
+<http://www.cnblogs.com/shipengzhi/archive/2012/10/09/2716766.html>
   
-https://studygolang.com/articles/3576
+<https://studygolang.com/articles/3576>

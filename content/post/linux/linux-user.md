@@ -10,15 +10,17 @@ tags:
 ---
 ## linux user, group, 用户 用户组
 
+## 用户
+
+### 查看用户
+
 cat /etc/passwd
 
 wyue:x:513:513::/home/wyue:/bin/bash  
-看第三个参数: 500以上的，就是后面建的用户了。其它则为系统的用户。
-
-### 用户
+看第三个参数: 500 以上的，就是后来建的用户了。其它则为系统的用户。
 
 ```bash
-# create user, 创建 /home/user0, 默认 bash
+# create user, 创建目录 /home/user0, 默认 bash
 sudo useradd -m user0
 
 sudo useradd -m -s /bin/bash user0
@@ -32,8 +34,8 @@ sudo useradd user0
 ```
 
 ```bash
+# -m: create home folder, 不加 -m 参数，默认不创建 home
 # -M - Don't create a home directory
-# -m: create home folder, 不加-m 参数，默认不创建home
 # -s: specify shell for user, 默认是 /bin/bash
 # -s /bin/false - Don't assign a shell (or more accurately, make the shell /bin/false, so the user cannot be logged into)
 # -r: create system account
@@ -62,9 +64,23 @@ sudo passwd user0
 
 su -
 
-### group
+## group, 用户组
 
 /etc/group 的内容包括用户组 (Group)
+
+```bash
+# 查看当前用户所属的组
+groups
+id user0
+# 查看用户所属的组
+groups user0
+
+# 把 user0 加入 group0
+usermod -a -G group0 user0
+
+# 把 用户的组 切换到 group0, 用户会被从现有的 group 里删除!
+usermod -G group0
+```
 
 ## usermod
 
@@ -77,9 +93,40 @@ sudo usermod -aG docker $USER
 
 ## linux 用户 组
 
+```bash
+
+# 查看所有的组, /etc/group 的内容包括用户组 (Group) 
+cat /etc/group
+
+# 创建  组
+groupadd group0
+
+#  create a system account
+groupadd -r group0
+
+# Create a group named "test", groupadd [-g GID] GROUP
+groupadd -g 2000 dba
+
+# delete group
+groupdel  group0
+# gpasswd 命令是 Linux 下 组文件 /etc/group 和 /etc/gshadow 的管理工具。
+
+# 把用户加入组, 把用户 user0 加入 group0 组
+gpasswd -a user0 group0
+
+# 把用户移出docker组
+gpasswd -d ${USER} docker
+# -a: 添加用户到组；
+# -d: 从组删除用户；
+# -A: 指定管理员；
+# -M: 指定组成员和-A的用途差不多；
+# -r: 删除密码；
+# -R: 限制用户登入组，只有组中的成员才可以用newgrp加入该组。
+```
+
 groups
 
-**/etc/group文件包含所有组**
+/etc/group文件包含所有组
 
 禁止用户登录
   
@@ -89,29 +136,29 @@ usermod -s /sbin/nologin user0
   
 1. 将 newuser2 添加到组 staff 中
 
-# usermod -G staff newuser2
+usermod -G staff newuser2
 
-2. 修改 newuser 的用户名为 newuser1
+1. 修改 newuser 的用户名为 newuser1
 
-# usermod -l newuser1 newuser
+usermod -l newuser1 newuser
 
-3. 锁定账号 newuser1
+1. 锁定账号 newuser1
 
-# usermod -L newuser1
+usermod -L newuser1
 
-4. 解除对 newuser1 的锁定
+1. 解除对 newuser1 的锁定
 
-# usermod -U newuser1
+usermod -U newuser1
 
 功能说明: 修改用户帐号。
 
-语法: usermod [-LU][-c <备注>][-d <登入目录>][-e <有效期限>][-f <缓冲天数>][-g <群组>][-G <群组>][-l <帐号名称>][-s <shell>][-u <uid>][用户帐号]
+语法: `usermod [-LU][-c <备注>][-d <登入目录>][-e <有效期限>][-f <缓冲天数>][-g <群组>][-G <群组>][-l <帐号名称>][-s <shell>][-u <uid>][用户帐号]`
 
 补充说明: usermod可用来修改用户帐号的各项设定。
 
-#### 参数
+### 参数
 
-    -a, append
+-a, append
   
 -c<备注> 修改用户帐号的备注文字。
   
@@ -129,51 +176,21 @@ usermod -s /sbin/nologin user0
   
 -L 锁定用户密码,使密码无效。
   
--s<shell> 修改用户登入后所使用的shell。
+-s `<shell>` 修改用户登入后所使用的shell。
   
--u<uid> 修改用户ID。
+-u `<uid>` 修改用户ID。
   
 -U 解除密码锁定。
 
-```
-# 查看所有的组, /etc/group 的内容包括用户组 (Group) 
-cat /etc/group
-
-# Create a group named "test", groupadd [-g GID] GROUP
-groupadd -g 2000 dba
-
-# 查看当前用户所属的组
-groups
-# 查看用户所属的组
-groups user0
-
-#gpasswd命令是Linux下工作组文件/etc/group和/etc/gshadow管理工具。
-gpasswd
-
-# 把用户加入docker组
-gpasswd -a ${USER} docker
-
-# 把用户移出docker组
-gpasswd -d ${USER} docker
-# -a: 添加用户到组；
-# -d: 从组删除用户；
-# -A: 指定管理员；
-# -M: 指定组成员和-A的用途差不多；
-# -r: 删除密码；
-# -R: 限制用户登入组，只有组中的成员才可以用newgrp加入该组。
-```
-
 在Linux下创建用户和删除用户，必须在root用户下，如果你当前不是用根用户登录，你可以打开终端，输入"su root"命令，再输入根口令，就可以进入root用户模式下。
 
-# 查看用户是否过期
+查看用户是否过期
 
 chage -l user0
 
-```
-
 (su为switch user，即切换用户的简写)
 
-格式: su -l USERNAME (-l为login，即登陆的简写) 
+格式: su -l USERNAME (-l为login，即登陆的简写)
 
 -l可以将l省略掉，所以此命令常写为su - USERNAME
 
@@ -183,21 +200,19 @@ chage -l user0
 
 su - 与su
 
-通过su切换用户还可以直接使用命令su USERNAME，与su - USERNAME的不同之处如下: 
+通过su切换用户还可以直接使用命令su USERNAME，与su - USERNAME的不同之处如下:
 
 su - USERNAME切换用户后，同时切换到新用户的工作环境中
 
 su USERNAME切换用户后，不改变原用户的工作目录，及其他环境变量目录
 
-2. 删除用户 (userdel命令) 
+1. 删除用户 (userdel命令)
   
 语法: userdel [-r] [要删除的用户的名称]
   
 例如: [root@localhost ~]userdel -r aillo
 
 /usr/sbin/useradd
-
- 
 
 用户 (User) 和用户组 (Group) 的配置文件，是系统管理员最应该了解和掌握的系统基础文件之一，从另一方面来说，了解这些文件也是系统安全管理的重要组成部份；做为一个合格的系统管理员应该对用户和用户组配置文件透彻了解才行；
 
@@ -217,7 +232,7 @@ su USERNAME切换用户后，不改变原用户的工作目录，及其他环境
 
 /etc/passwd 是系统识别用户的一个文件，做个不恰当的比喻，/etc/passwd 是一个花名册，系统所有的用户都在这里有登录记载；当我们以beinan 这个账号登录时，系统首先会查阅 /etc/passwd 文件，看是否有beinan 这个账号，然后确定beinan的UID，通过UID 来确认用户和身份，如果存在则读取/etc/shadow 影子文件中所对应的beinan的密码；如果密码核实无误则登录系统，读取用户的配置文件；
 
-1) /etc/passwd 的内容理解: 
+1) /etc/passwd 的内容理解:
 
 在/etc/passwd 中，每一行都表示的是一个用户的信息；一行有7个段位；每个段位用:号分割，比如下面是我的系统中的/etc/passwd 的两行；
 
@@ -243,7 +258,7 @@ linuxsir:x:501:502::/home/linuxsir:/bin/bash
   
 第七字段: 用户所用SHELL 的类型，beinan和linuxsir 都用的是 bash ；所以设置为/bin/bash ；
 
-2) 关于UID 的理解: 
+关于UID 的理解:
 
 UID 是用户的ID 值，在系统中每个用户的UID的值是唯一的，更确切的说每个用户都要对应一个唯一的UID ，系统管理员应该确保这一规则。系统用户的UID的值从0开始，是一个正整数，至于最大值可以在/etc/login.defs 可以查到，一般Linux发行版约定为60000； 在Linux 中，root的UID是0，拥有系统最高权限；
 
@@ -257,23 +272,23 @@ UID是唯一性，只是要求管理员所做的，其实我们修改/etc/passwd
 
 在Fedora 系统会把前499 个UID和GID 预留出来，我们添加新用户时的UID 从500开始的，GID也是从500开始，至于其它系统，有的系统可能会把前999UID和GID预留出来；以各个系统中/etc/login.defs 中的 UID_MIN 的最小值为准； Fedora 系统 login.defs的UID_MIN是500，而UID_MAX 值为60000，也就是说我们通过adduser默认添加的用户的UID的值是500到60000之间；而Slackware 通过adduser不指定UID来添加用户，默认UID 是从1000开始；
 
-2. 关于/etc/shadow ；
+1. 关于/etc/shadow ；
 
-1) /etc/shadow 概说；
+2. /etc/shadow 概说；
 
-/etc/shadow文件是/etc/passwd 的影子文件，这个文件并不由/etc/passwd 而产生的，这两个文件是应该是对应互补的；shadow内容包括用户及被加密的密码以及其它/etc/passwd 不能包括的信息，比如用户的有效期限等；这个文件只有root权限可以读取和操作，权限如下: 
+/etc/shadow文件是/etc/passwd 的影子文件，这个文件并不由/etc/passwd 而产生的，这两个文件是应该是对应互补的；shadow内容包括用户及被加密的密码以及其它/etc/passwd 不能包括的信息，比如用户的有效期限等；这个文件只有root权限可以读取和操作，权限如下:
 
 -r——– 1 root root 1.5K 10月 16 09:49 /etc/shadow
   
 /etc/shadow 的权限不能随便改为其它用户可读，这样做是危险的。如果您发现这个文件的权限变成了其它用户组或用户可读了，要进行检查，以防系统安全问题的发生；
 
-如果我们以普通用户查看这个文件时，应该什么也查看不到，提示是权限不够: 
+如果我们以普通用户查看这个文件时，应该什么也查看不到，提示是权限不够:
 
 [beinan@localhost ~]$ more /etc/shadow
   
 /etc/shadow: 权限不够
 
-2) /etc/shadow 的内容分析；
+/etc/shadow 的内容分析；
 
 /etc/shadow 文件的内容包括9个段位，每个段位之间用:号分割；我们以如下的例子说明；
 
@@ -301,7 +316,7 @@ linuxsir:$IPDvUhXPR6J/VtPXvLyXxhLWPrnt/:13072:0:99999:7::13108:
 
 如果更为详细的，请用 man shadow来查看帮助，您会得到更为详尽的资料；
 
-我们再根据实例分析: 
+我们再根据实例分析:
 
 beinan:$VE.Mq2Xfc9Qi7EQ9JP8GKF8gH7PB1:13072:0:99999:7:::
   
@@ -330,18 +345,17 @@ linuxsir:$IPDvUhXPR6J/VtPXvLyXxhLWPrnt/:13072:0:99999:7::13108:
 具有某种共同特征的用户集合起来就是用户组 (Group) 。用户组 (Group) 配置文件主要有 /etc/group和/etc/gshadow，其中/etc/gshadow是/etc/group的加密信息文件；在本标题下，您还能了解到什么是GID ；
 
 1. /etc/group 解说；
-
 /etc/group 文件是用户组的配置文件，内容包括用户和用户组，并且能显示出用户是归属哪个用户组或哪几个用户组，因为一个用户可以归属一个或多个不同的用户组；同一用 户组的用户之间具有相似的特征。比如我们把某一用户加入到root用户组，那么这个用户就可以浏览root用户家目录的文件，如果root用户把某个文件 的读写执行权限开放，root用户组的所有用户都可以修改此文件，如果是可执行的文件 (比如脚本) ，root用户组的用户也是可以执行的；
 
 用户组的特性在系统管理中为系统管理员提供了极大的方便，但安全性也是值得关注的，如某个用户下有对系统管理有最重要的内容，最好让用户拥有独立的用户组，或者是把用户下的文件的权限设置为完全私有；另外root用户组一般不要轻易把普通用户加入进去，
 
-2. /etc/group 内容具体分析
+/etc/group 内容具体分析
 
-/etc/group 的内容包括用户组 (Group) 、用户组口令、GID及该用户组所包含的用户 (User) ，每个用户组一条记录；格式如下: 
+/etc/group 的内容包括用户组 (Group) 、用户组口令、GID及该用户组所包含的用户 (User) ，每个用户组一条记录；格式如下:
 
 group_name:passwd:GID:user_list
   
-在/etc/group 中的每条记录分四个字段: 
+在/etc/group 中的每条记录分四个字段:
 
 第一字段: 用户组名称；
   
@@ -351,7 +365,7 @@ group_name:passwd:GID:user_list
   
 第四字段: 用户列表，每个用户之间用,号分割；本字段可以为空；如果字段为空表示用户组为GID的用户名；
 
-我们举个例子: 
+我们举个例子:
 
 root:x:0:root,linuxsir 注: 用户组root，x是密码段，表示没有设置密码，GID是0,root用户组下包括root、linuxsir以及GID为0的其它用户 (可以通过/etc/passwd查看) ；；
   
@@ -361,7 +375,7 @@ linuxsir:x:502:linuxsir 注: 用户组linuxsir，x是密码段，表示没有设
   
 helloer:x:503: 注: 用户组helloer，x是密码段，表示没有设置密码，GID是503,helloer用户组下包括GID为503的用户，可以通过/etc/passwd查看；
   
-而/etc/passwd 对应的相关的记录为: 
+而/etc/passwd 对应的相关的记录为:
 
 root:x:0:0:root:/root:/bin/bash
   
@@ -373,13 +387,13 @@ helloer:x:502:503::/home/helloer:/bin/bash
   
 由此可以看出helloer用户组包括 helloer用户；所以我们查看一个用户组所拥有的用户，可以通过对比/etc/passwd和/etc/group来得到；
 
-2. 关于GID ；
+1. 关于GID ；
 
 GID和UID类似，是一个正整数或0，GID从0开始，GID为0的组让系统付予给root用户组；系统会预留一些较靠前的GID给系统虚拟用户  (也被称为伪装用户) 之用；每个系统预留的GID都有所不同，比如Fedora 预留了500个，我们添加新用户组时，用户组是从500开始的；而Slackware 是把前100个GID预留，新添加的用户组是从100开始；查看系统添加用户组默认的GID范围应该查看 /etc/login.defs 中的 GID_MIN 和GID_MAX 值；
 
 我们可以对照/etc/passwd和/etc/group 两个文件；我们会发现有默认用户组之说；我们在 /etc/passwd 中的每条用户记录会发现用户默认的GID ；在/etc/group中，我们也会发现每个用户组下有多少个用户；在创建目录和文件时，会使用默认的用户组；我们还是举个例子；
 
-比如我把linuxsir 加为root用户组，在/etc/passwd 和/etc/group 中的记录相关记录为: 
+比如我把linuxsir 加为root用户组，在/etc/passwd 和/etc/group 中的记录相关记录为:
   
 linuxsir用户在 /etc/passwd 中的记录；我们在这条记录中看到，linuxsir用户默认的GID为502；而502的GID 在/etc/group中查到是linuxsir用户组；
 
@@ -407,7 +421,7 @@ drwxrwxr-x 2 linuxsir linuxsir 4.0K 10月 17 11:42 testdir
 
 但值得注意的是，判断用户的访问权限时，默认的GID 并不是最重要的，只要一个目录让同组用户可以访问的权限，那么同组用户就可以拥有该目录的访问权，在这时用户的默认GID 并不是最重要的；
 
-3. /etc/gshadow 解说；
+/etc/gshadow 解说；
 
 /etc/gshadow是/etc/group的加密资讯文件，比如用户组 (Group) 管理密码就是存放在这个文件。/etc/gshadow 和/etc/group是互补的两个文件；对于大型服务器，针对很多用户和组，定制一些关系结构比较复杂的权限模型，设置用户组密码是极有必要的。比如我 们不想让一些非用户组成员永久拥有用户组的权限和特性，这时我们可以通过密码验证的方式来让某些用户临时拥有一些用户组特性，这时就要用到用户组密码；
 
@@ -421,7 +435,7 @@ groupname:password:admin,admin,…:member,member,…
   
 第四字段: 组成员，如果有多个成员，用,号分割；
 
-举例: 
+举例:
 
 beinan:!::linuxsir
   
@@ -443,15 +457,15 @@ root@localhost ~]# gpasswd linuxsir
   
 正在修改 linuxsir 组的密码
   
-新密码: 
+新密码:
   
-请重新输入新密码: 
+请重新输入新密码:
   
-用户组之间的切换，应该用 newgrp ，这个有点象用户之间切换的su ；我先举个例子: 
+用户组之间的切换，应该用 newgrp ，这个有点象用户之间切换的su ；我先举个例子:
   
 [beinan@localhost ~]$ newgrp linuxsir
   
-密码: 
+密码:
   
 [beinan@localhost ~]$ mkdir lingroup
   
@@ -473,7 +487,7 @@ drwxrwxr-x 2 beinan beinan 4096 10月 18 15:56 beinangrouptest
 
 1. 用户和用户组查询的方法；
 
-1) 通过查看用户 (User) 和用户组的配置文件的办法来查看用户信息
+通过查看用户 (User) 和用户组的配置文件的办法来查看用户信息
 
 我们已经用户 (User) 和用户组 (Group) 的配置文件已经有个基本的了解，通过查看用户 (User) 和用户组的配置文件，我们就能做到对系统用户的了解，当然您也可以通过id 或finger 等工具来进行用户的查询等任务。
 
@@ -487,7 +501,7 @@ drwxrwxr-x 2 beinan beinan 4096 10月 18 15:56 beinangrouptest
   
 [root@localhost ~]# less /etc/passwd
 
-2) 通过id和finger 工具来获取用户信息；
+1) 通过id和finger 工具来获取用户信息；
   
 除了直接查看用户 (User) 和用户组 (Group) 配置文件的办法除外，我们还有id和finger工具可用，我们一样通过命令行的操作，来完成 对用户的查询；id和finger，是两个各有测重的工具，id工具更测重用户、用户所归属的用户组、UID 和GID 的查看；而finger 测重用户资讯的查询，比如用户名 (登录名) 、电话、家目录、登录SHELL类型、真实姓名、空闲时间等等；
 
@@ -495,7 +509,7 @@ id 命令用法；
 
 id 选项 用户名
   
-比如: 我想查询beinan和linuxsir 用户的UID、GID 以及归属用户组的情况: 
+比如: 我想查询beinan和linuxsir 用户的UID、GID 以及归属用户组的情况:
   
 [root@localhost ~]# id beinan
   
@@ -545,7 +559,7 @@ linuxsir linuxsir open tty1 22 Oct 18 13:39 linuxsir o +1-389-866-771
 
 [root@localhost ~]# finger beinan linuxsir
   
-Login: beinan 注: 用户名 (也是登录名)  Name: beinan sun  (用户名全称) 
+Login: beinan 注: 用户名 (也是登录名)  Name: beinan sun  (用户名全称)
   
 Directory: /home/beinan 注: 家目录 Shell: /bin/bash 注: 所用SHELL类型
   
@@ -569,7 +583,7 @@ No mail.
   
 No Plan.
 
-3) 用户组查询的办法；
+用户组查询的办法；
 
 我们可以通过用户来查询所归属的组，用groups 来查询；比如我查询beinan和linuxsir 所归属的组，我们可以用groups 来查询；
 
@@ -581,9 +595,9 @@ linuxsir : linuxsir root beinan
   
 注: 这是通过groups 同时查看了用户beinan和linuxsir所归属的组；
 
-2. 通过修改用户 (User) 和用户组 (Group) 配置文件的办法来添加；
+1. 通过修改用户 (User) 和用户组 (Group) 配置文件的办法来添加；
 
-由于我们已经在前面说过，可以通过修改配置文件的办法来管理用户，所以此主题应该包括此内容；当然通过用户及用户组管理工具 (比如 adduser、userdel、usermod 、userinfo、groupadd 、groupdel 、groupmod等) 也是可以的，通过管理工具对用户的管理我们将要在专门一篇文章中介绍；
+由于我们已经在前面说过，可以通过修改配置文件的办法来管理用户，所以此主题应该包括此内容；当然通过用户及用户组管理工具 (比如 adduser、userdel、usermod 、userinfo、groupadd 、groupdel 、groupmod等) 也是可以的
 
 通过修改用户 (User) 和用户组 (Group) 配置文件的方法管理用户之用户的添加流程；
 
@@ -603,7 +617,7 @@ lanhaitun:x:508:508::/home/lanhaitun:/bin/bash
   
 [root@localhost beinan]# pwconv
 
-2) 修改/etc/group
+修改/etc/group
 
 首先，我们得查看是否有lanhaitun用户组，以及GID 508 是否被其它用户组占用；
   
@@ -619,7 +633,7 @@ lanhaitun:x:508:
   
 [root@localhost beinan]# grpconv
 
-3) 创建用户的家目录，并把用户启动文件也复制过去；
+1) 创建用户的家目录，并把用户启动文件也复制过去；
 
 创建用户的家目录，我们要以/etc/passwd 中添加的新用户的记录为准，我们在/etc/passwd 中添加新用户lanhaitun ，她的家目录是处于/home/lanhaitun ；另外我们还需要把/etc/skel 目录下的.*隐藏文件复制过去；
 
@@ -627,7 +641,7 @@ lanhaitun:x:508:
   
 [root@localhost ~]# ls -la /home/lanhaitun/
 
-4) 改变新增用户家目录的属主和权限；
+改变新增用户家目录的属主和权限；
 
 我们发现新增用户的家目录的属主目前是root ，并且家目录下的隐藏文件也是root权限；
 
@@ -669,11 +683,11 @@ ls: /home/lanhaitun/: 权限不够
   
 如此看来，lanhaitun用户的家目录是安全的
 
-5) 设置新增用户的密码；
+1) 设置新增用户的密码；
 
 以上各步骤都就序了，我们得为新增用户设置密码了；要通过passwd 命令来生成；这个没有办法通过修改文件解决；
 
-passwd 的用法: 
+passwd 的用法:
 
 passwd 用户
   
@@ -687,7 +701,7 @@ Retype new UNIX password: 再输入一次
   
 passwd: all authentication tokens updated successfully. 注: 设置密码成功
 
-6) 测试添增用户是否成功；
+测试添增用户是否成功；
 
 您可以用新增用户登录测试，也可以通过su 来切换用户测试；
 
@@ -713,7 +727,7 @@ drwxrwxr-x 2 lanhaitun lanhaitun 4.0K 10月 18 15:16 testdir
   
 通过上面一系列动作，我们会发现所创建的lanhaitun用户已经成功；
 
-2. 通过修改用户 (User) 和用户组 (Group) 配置文件的办法来修改用户或用户组；
+1. 通过修改用户 (User) 和用户组 (Group) 配置文件的办法来修改用户或用户组；
 
 我们可以修改/etc/passwd 和/etc/group 来达到修改用户和用户所归属的组，这个过程和添加新用户时差不多；比如我想修改lanhaitun的用户名全称、公司以及电话等信息；我们可以修改/etc/passwd 实现；
 
@@ -745,7 +759,7 @@ No mail.
   
 No Plan.
 
-2) 修改用户所归属的组，可以通过/etc/group 修改实现；
+修改用户所归属的组，可以通过/etc/group 修改实现；
 
 当然修改用户和用户组，不仅能通过修改配置文件来实现，还能过过 usermod 及chfn来实现；我将在以后的文档中写一写，也比较简单；您可以通过man来查看用法；在这里我们先讲一讲如何通过修改配置文件来达到目的；
 
@@ -765,7 +779,7 @@ root:x:0:root,lanhaitun
   
 uid=508(lanhaitun) gid=508(lanhaitun) groups=508(lanhaitun),0(root)
 
-3) 删除用户及用户组的办法；
+1) 删除用户及用户组的办法；
   
 这个比较简单，我们可以通过删除/etc/passwd 和/etc/group 相应的用户和用户组记录就能达到目的，也能过过userdel 和groupdel 来实现对用户及用户组的删除；
 
@@ -783,7 +797,7 @@ uid=508(lanhaitun) gid=508(lanhaitun) groups=508(lanhaitun),0(root)
   
 sinkingship @ 2007-02-01 18:31
 
-昨天在网上找了找资料，在ubuntu上用debootstrap装了个debian，小结一下过程: 
+昨天在网上找了找资料，在ubuntu上用debootstrap装了个debian，小结一下过程:
   
  (1) 装好debootstrap:
   
@@ -791,41 +805,39 @@ apt-get install debootstrap
   
  (2) 将要用来装debian的硬盘分区格式化好，挂载到任意目录，如/mnt/debinst/
   
-如果想将来的debian系统不只是一个根分区/，而是把根目录下的一些目录从别的分区挂载过来，例如我们经常把/usr/local从别的分区挂过来，这一步就要挂好，例如，下面的命令就是交/usr/local从别的分区挂过来: 
+如果想将来的debian系统不只是一个根分区/，而是把根目录下的一些目录从别的分区挂载过来，例如我们经常把/usr/local从别的分区挂过来，这一步就要挂好，例如，下面的命令就是交/usr/local从别的分区挂过来:
   
 mkdir /mnt/debinst/usr/local -p
   
 mount /dev/hdXX /mnt/debinst/usr/local
   
- (3) 用debootstrap在如/mnt/debinst/目录上建立一个基本系统，如: 
+ (3) 用debootstrap在如/mnt/debinst/目录上建立一个基本系统，如:
   
-debootstrap sarge /mnt/debinst/ http://http.us.debian.org/debia
+debootstrap sarge /mnt/debinst/ <http://http.us.debian.org/debia>
   
 debootstrap会从网上下载一些文件，使/mnt/debist/成为一个chroot子环境，即一个基本系统。这里说明一点，源的选择很重要，如果源corrupted，安装很可能失败，例如，第一次安时我选了cn99，结果失败了。
 
-这时，/mnt/debinst/已经是个基本系统了，还差一些配置、软件安装和一个可引导的内核。下面就来完成这些工作: 
+这时，/mnt/debinst/已经是个基本系统了，还差一些配置、软件安装和一个可引导的内核。下面就来完成这些工作:
   
- (4) 基本系统可能会缺一些设备文件，例如我安装的时候就缺少了一些块文件，如hdX，这可以从主系统中拷贝，如: 
+ (4) 基本系统可能会缺一些设备文件，例如我安装的时候就缺少了一些块文件，如hdX，这可以从主系统中拷贝，如:
   
 cp /dev/hda* /mnt/debinst/dev/ -ap
   
- (5) chroot到基本系统中: 
+ (5) chroot到基本系统中:
   
 chroot /mnt/debinst
   
  (6) 配置/etc/fstab，/etc/hostname，/etc/resolv.conf，/etc/network/interfaces，并把文件系统挂载上来。
   
-如果挂载出错，很有可能是因为缺少设备文件，可按 (4) 解决。各配置文件的样本可以在debian.org找到，我摘抄部分如下: 
+如果挂载出错，很有可能是因为缺少设备文件，可按 (4) 解决。各配置文件的样本可以在debian.org找到，我摘抄部分如下:
   
 —————————————————————————————————————————————————-
   
 /etc/fstab:
 
-# /etc/fstab: static file system information.
+/etc/fstab: static file system information
 
-#
-
-# file system mount point type options dump pass
+file system mount point type options dump pass
 
 /dev/XXX / ext3 defaults 0 1
   
@@ -869,47 +881,41 @@ nameserver 192.168.9.100
 
 ######################################################################
 
-# /etc/network/interfaces — configuration file for ifup(8), ifdown(8)
+/etc/network/interfaces — configuration file for ifup(8), ifdown(8)
 
-# See the interfaces(5) manpage for information on what options are
+See the interfaces(5) manpage for information on what options are
 
-# available.
+available
 
 ######################################################################
 
-# We always want the loopback interface.
-
-#
+We always want the loopback interface
   
 auto lo
   
 iface lo inet loopback
 
-# To use dhcp:
+To use dhcp
 
-#
+auto eth0
 
-# auto eth0
+iface eth0 inet dhcp
 
-# iface eth0 inet dhcp
+An example static IP setup: (broadcast and gateway are optional)
 
-# An example static IP setup: (broadcast and gateway are optional)
+auto eth0
 
-#
+iface eth0 inet static
 
-# auto eth0
+address 192.168.0.42
 
-# iface eth0 inet static
+network 192.168.0.0
 
-# address 192.168.0.42
+netmask 255.255.255.0
 
-# network 192.168.0.0
+broadcast 192.168.0.255
 
-# netmask 255.255.255.0
-
-# broadcast 192.168.0.255
-
-# gateway 192.168.0.1
+gateway 192.168.0.1
 
 将上面的样本适当修改使其适合自己的情况就可以了。
 
@@ -927,10 +933,10 @@ apt-get install grub
 
 /sbin/nologin
   
-http://yingxiong.iteye.com/blog/642872
+<http://yingxiong.iteye.com/blog/642872>
 
-http://hi.baidu.com/nfubuntu/blog/item/f910a26489e612f1f63654c3.html
+<http://hi.baidu.com/nfubuntu/blog/item/f910a26489e612f1f63654c3.html>
 
-http://zebralinux.blog.51cto.com/8627088/1369301c
+<http://zebralinux.blog.51cto.com/8627088/1369301c>
   
-http://cn.linux.vbird.org/linux_basic/0410accountmanager.php
+<http://cn.linux.vbird.org/linux_basic/0410accountmanager.php>

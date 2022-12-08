@@ -18,9 +18,9 @@ tags:
 
 ### install yarn
 
-    http://blog.wiloon.com/?p=11228
+<http://blog.wiloon.com/?p=11228>
 
-# install angular cli
+install angular cli
 
 yarn global add @angular/cli
 yarn add angular-in-memory-web-api --dev
@@ -30,21 +30,21 @@ add yarn global bin to $PATH
 
 ### angular command
 
-# 创建工作区
+创建工作区
 
 ng new project0
 
-# 创建组件
+创建组件
 
 ng generate component heroes
 
-# 创建组件 简写
+创建组件 简写
 
 ng g c heroes
 
 ng generate component hero -it
 
-# 创建service
+创建service
 
 ng generate service hero
 
@@ -54,9 +54,9 @@ ng build --prod --build-optimizer
 
 ng generate module app-routing --flat --module=app
 
-# --flat 把这个文件放进了 src/app 中,而不是单独的目录中
+--flat 把这个文件放进了 src/app 中,而不是单独的目录中
 
-# --module=app 告诉 CLI 把它注册到 AppModule 的 imports 数组中
+--module=app 告诉 CLI 把它注册到 AppModule 的 imports 数组中
 
 <https://github.com/aralroca/helloworld-angular-with-golang>
 

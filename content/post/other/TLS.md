@@ -145,3 +145,7 @@ SNI通过让客户端发送虚拟域的名称作为TLS协商的ClientHello消息
 ————————————————
 版权声明：本文为CSDN博主「程序猿编码」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
 原文链接：<https://blog.csdn.net/chen1415886044/article/details/116330304>
+
+## No subject alternative names present
+
+<https://medium.com/@sajithekanayaka/solved-java-security-cert-certificateexception-no-subject-alternative-names-present-eec1669faf0d>

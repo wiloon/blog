@@ -12,6 +12,55 @@ tags:
 ---
 ## find
 
+- -a, and
+- -o, or
+
+## -prune
+
+prune的功能就是当遇到某个文件夹的时候，跳过这个文件夹，不进去继续查找。
+
+```bash
+.
+├── folder1
+├── folder2
+│   ├── sub1
+│   │   └── file1
+│   └── sub2
+│       └── file2
+└── folder3
+    └── file3
+
+find . -path ./folder3 -prune -o -type f -print
+
+# find 后面的第一个英文点号.表示当前根路径，-path ./folder3表示匹配路径为./folder3的文件夹，-prune表示把前面命令所匹配到的路径排除，不再进入该路径下面继续查找，-o表示或，-type f表示查找文件，-print表示打印查找结果到命令行终端。 有几个需要注意的点：
+            
+# -path后面需要跟绝对路径或者是相对路径，不能只有文件夹名称
+            
+find . -path folder3 -prune -o -type f -print  
+./folder2/sub1/file1
+./folder2/sub2/file2
+./folder3/file3
+
+# 这样是错误的。把-path改成-name就对了。
+# find . -name folder3 -prune -o -type f -print
+./folder2/sub1/file1
+./folder2/sub2/file2
+            
+# -o 一开始让我感到很疑惑。它的意思是OR，那就是既匹配了前面的./folder3，又匹配了后面的-type f，可为什么打印出来的没有./folder3呢？原来是因为-print只对离自己最近的一个匹配条件起作用，在这个例子里也就是只打印-o后面的匹配条件所匹配的文件，对-o前面的-path folder3 -prune所匹配的东西不起作用
+
+# -path ./folder3 -prune 的值是 false
+
+find ./path0/ -path './path0/sub0' -o -path './path0/sub1' -o -path './path0/sub2' -a -prune -o   \( -name '*.py'  ! -name '__init__.py'  ! -name 'foo.py'  ! -name 'bar.py'  \)  -type f -print -exec rm -rf {}  \;
+
+# 在 path0 里查找文件, 排除掉 ./path0/sub0, ./path0/sub1, ./path0/sub2, 匹配 *.py, 但是排除掉 __init__.py, foo.py, bar.py, 删除匹配的文件
+
+```
+
+作者：武斌
+链接：<https://juejin.cn/post/6844904166305841160>
+来源：稀土掘金
+著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
+
 ### 将 dir0 目录下修改时间一天以内的文件复制到 dir1 下
 
 ```bash
@@ -178,3 +227,13 @@ find . -amin -1
 - -cnewer 指状态最近发生变化的文件
 
 <https://www.modb.pro/db/27010>
+
+## -path
+
+<https://unix.stackexchange.com/questions/200344/further-questions-about-path-for-find?noredirect=1#comment337661_200344>
+
+<https://man7.org/linux/man-pages/man1/find.1.html>
+
+```bash
+find . -path "*/src/*"
+```

@@ -109,9 +109,9 @@ autopurge.purgeInterval 这个参数指定了清理频率，单位是小时，�
 
 autopurge.snapRetainCount 这个参数和上面的参数搭配使用，这个参数指定了需要保留的文件数目。默认是保留3个。
 
-http://www.importnew.com/23237.html
+<http://www.importnew.com/23237.html>
   
-http://blog.51cto.com/nileader/932156
+<http://blog.51cto.com/nileader/932156>
 
 ```bash
 export ZOOKEEPER_HOME=~/sw/zookeeper-x.y.z
@@ -144,22 +144,22 @@ ZooKeeper是一套高吞吐量的系统，为了提高系统的读取速度，Zo
 
 所以从上面分析可以看出，如果ZNode的过大，那么读写某一个ZNode将造成不确定的延时;同时ZNode过大，将过快地耗尽ZooKeeper服务器的内存。这也是为什么ZooKeeper不适合存储大量的数据的原因。
 
-https://holynull.gitbooks.io/zookeeper/content/
+<https://holynull.gitbooks.io/zookeeper/content/>
   
-http://www.cnblogs.com/linjiqin/archive/2013/03/16/2962597.html
+<http://www.cnblogs.com/linjiqin/archive/2013/03/16/2962597.html>
   
-https://www.ibm.com/developerworks/cn/opensource/os-cn-zookeeper/
+<https://www.ibm.com/developerworks/cn/opensource/os-cn-zookeeper/>
   
 <http://www.wiloon.com/?p=8594>
   
-https://my.oschina.net/xianggao/blog/531613
->https://www.jianshu.com/p/30bcaf55f451
+<https://my.oschina.net/xianggao/blog/531613>
+><https://www.jianshu.com/p/30bcaf55f451>
 
 ## zookeeper client zkCli.sh
 
 ```bash
-#zkCli.sh
-#连接zookeeper
+# zkCli.sh
+# 连接 zookeeper
 bin/zkCli.sh -server localhost:2181
 
 #键入help查看所有支持的命令
@@ -168,22 +168,22 @@ help
 #查看根节点列表
 ls /
 
-#创建节点
+# 创建节点
 create /k0 v0
 
-#创建Ephemeral节点
+# 创建Ephemeral节点
 create -e /test
 
-#创建sequential节点
+# 创建sequential节点
 create -s /test
 
-#设置节点数据
+# 设置节点数据
 set /test "111111"
 
-#查看节点数据
+# 查看节点数据
 get /test 
 
-#删除节点
+# 删除节点
 delete /test
 ```
 
@@ -191,17 +191,17 @@ zookeeper提供了很多方便的功能,方便我们查看服务器的状态,增
   
 还提供了一系列四字命令,方便我们跟服务器进行各种交互,来确认服务器当前的工作情况 (这也是服务器监控告警的基础) 。
   
-本文所讲的zkCli.sh和zkServer.sh均位于以下目录中: 
+本文所讲的zkCli.sh和zkServer.sh均位于以下目录中:
   
 /usr/local/zookeeper-server1
   
-目录分布情况请参考我的另一篇文章: 
+目录分布情况请参考我的另一篇文章:
   
-zookeeper集群搭建 - http://www.cnblogs.com/linuxbug/p/4840137.html
+zookeeper集群搭建 - <http://www.cnblogs.com/linuxbug/p/4840137.html>
   
 zkServer.sh
   
-提供的主要功能如下: 
+提供的主要功能如下:
 
 1. 查看服务器状态
 
@@ -279,8 +279,6 @@ Clients:
 
 /0:0:0:0:0:0:0:1:53913[1][2]
 
- 
-
 Latency min/avg/max: 0/3/9
 
 Received: 13
@@ -297,8 +295,6 @@ Mode: leader
 
 Node count: 4
 
- 
-
 测试是否启动了该Server,若回复imok表示已经启动
 
 [root@rocket zookeeper-server1]# echo ruok|nc 127.0.0.1 2181
@@ -313,9 +309,8 @@ Imok
 
 /0:0:0:0:0:0:0:1:53913[1][3]
 
-http://izualzhy.cn/c/cpp/2016/09/24/zkcli-introduction
+<http://izualzhy.cn/c/cpp/2016/09/24/zkcli-introduction>
 
  [1]: queued=0,recved=1,sent=0
  [2]: queued=0,recved=4,sent=4
  [3]: queued=0,recved=88,sent=88,sid=0x14ffe63e9ce0001,lop=PING,est=1443098949817,to=30000,lcxid=0x2,lzxid=0x30000000a,lresp=1443099814079,llat=0,minlat=0,avglat=0,maxlat=3
-

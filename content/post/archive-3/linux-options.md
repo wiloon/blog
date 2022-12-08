@@ -9,13 +9,14 @@ tags:
   - reprint
 ---
 ## Linux 命令选项, 参数，括号, 可选, 必选
->https://blog.csdn.net/raoqin/article/details/8875089
 
-  1. []: 内的内容意思是: 可写可不写
-  
-    例如: /home下就一个list 文件，使用ls -help中的 Usage: ls [OPTION]... [FILE]...
-  2. {}: 那就必须要在{}内给出的选择里选一个。
-  3. <>: 表示必选
+<https://blog.csdn.net/raoqin/article/details/8875089>
+
+1. []: 内的内容意思是: 可写可不写
+  例如: /home下就一个list 文件，使用ls -help中的 Usage: ls [OPTION]... [FILE]...
+
+2. {}: 那就必须要在{}内给出的选择里选一个。
+3. <>: 表示必选
 
 在数据库中
   
@@ -45,7 +46,7 @@ Transact-SQL 引用中的语法关系图使用下列规则。
 
 ## 命令行语法字符
   
-在命令行语法中，某些字符与格式有着特殊的意义与含义。 本文档中的命令行语法使用以下字符格式: 
+在命令行语法中，某些字符与格式有着特殊的意义与含义。 本文档中的命令行语法使用以下字符格式:
 
 ### 方括号 []
   
@@ -59,7 +60,7 @@ Transact-SQL 引用中的语法关系图使用下列规则。
 
 示例: -f <file name>、-printer <printer name>、-repeat <months> <days> <hours> <minutes>、date access <mm/dd/yyyy>
 
-### 省略号 CA ARCserve Backup...
+### 省略号 CA ARCserve Backup
   
 由三个句点 ( ... ) 组成的省略号含义是"等等"，表示前述元素 (参数、值或信息) 可以在命令行中多次重复。
 
@@ -75,6 +76,6 @@ Transact-SQL 引用中的语法关系图使用下列规则。
   
 斜体文本表示您必须通过相应的值提供的信息。 它是一个要用值来替换的选项或参数。
 
-示例: -sessionpassword session password、-f <file name>、-printer <printer name> 
+示例: -sessionpassword session password、-f <file name>、-printer <printer name>
 
 注意: 命令行语法 (包括在 UNIX 和 Linux 平台中使用的用户名、密码和文件名) 是区分大小写的。 例如，commandline、CommandLine 和 COMMANDLINE 是不一样的。

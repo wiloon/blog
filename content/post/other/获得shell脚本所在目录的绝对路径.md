@@ -9,9 +9,10 @@ tags:
   - reprint
 ---
 ## 获得Shell脚本所在目录的绝对路径
+
 <http://www.zeali.net/entry/497>
 
-要得到正在执行的程序/脚本自身所存放的绝对路径，在 PHP 里面可以用 dirname(realpath(__FILE__)) ； C# 则有 System.Windows.Forms.Application.StartupPath ； java 似乎没有什么比较直接的方法，只能[利用 CodeSource 来间接获取][1] 。而在 linux shell 脚本里面如果想得到当前脚本文件存放的绝对路径，也没有太现成的命令可以调用，不过可以通过下面的语句来获取: 
+要得到正在执行的程序/脚本自身所存放的绝对路径，在 PHP 里面可以用 dirname(realpath(__FILE__)) ； C# 则有 System.Windows.Forms.Application.StartupPath ； java 似乎没有什么比较直接的方法，只能[利用 CodeSource 来间接获取][1] 。而在 linux shell 脚本里面如果想得到当前脚本文件存放的绝对路径，也没有太现成的命令可以调用，不过可以通过下面的语句来获取:
 
 baseDirForScriptSelf=$(cd "$(dirname "$0")"; pwd)
  echo "full path to currently executed script is : ${baseDirForScriptSelf}"

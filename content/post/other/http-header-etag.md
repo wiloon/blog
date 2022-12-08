@@ -9,14 +9,14 @@ tags:
   - reprint
 ---
 ## HTTP Header ETag
+
 HTTP Header中的ETag
   
 分类:  java web2013-09-02 20:14 1375人阅读 评论(0) 收藏 举报
 
-目录(?)[+]
+目录[?](+)
 
-原文参考百度百科: http://baike.baidu.com/view/3039264.htm
-
+原文参考百度百科: <http://baike.baidu.com/view/3039264.htm>
 
 概念
   
@@ -28,7 +28,7 @@ HTTP协议规格说明定义ETag为"被请求变量的实体值"。另一种说�
   
 聪明的服务器开发者会把ETags和GET请求的"If-None-Match"头一起使用,这样可利用客户端 (例如浏览器) 的缓存。因为服务器首先产生ETag,服务器可在稍后使用它来判断页面是否已经被修改。本质上,客户端通过将该记号传回服务器要求服务器验证其 (客户端) 缓存。
   
-其过程如下: 
+其过程如下:
   
 客户端请求一个页面 (A) 。 服务器返回页面A,并在给A加上一个ETag。 客户端展现该页面,并将页面连同ETag一起缓存。 客户再次请求页面A,并将上次请求时服务器返回的ETag一起传递给服务器。 服务器检查该ETag,并判断出该页面自上次客户端请求之后还未被修改,直接返回响应304 (未修改——Not Modified) 和一个空的响应体。
   
@@ -48,7 +48,7 @@ HTTP协议规格说明定义ETag为"被请求变量的实体值"。另一种说�
   
 请求流程
   
-Etag由服务器端生成,客户端通过If-Match或者说If-None-Match这个条件判断请求来验证资源是否修改。常见的是使用If-None-Match.请求一个文件的流程可能如下: 
+Etag由服务器端生成,客户端通过If-Match或者说If-None-Match这个条件判断请求来验证资源是否修改。常见的是使用If-None-Match.请求一个文件的流程可能如下:
   
 ====第一次请求===
   
@@ -80,19 +80,19 @@ Etag 主要为了解决 Last-Modified 无法解决的一些问题。
 
 Apache
   
-Apache[2]首先判断是不是弱Etag,这个留在下面讲。如果不是,进入第二种情况: 
+Apache[2]首先判断是不是弱Etag,这个留在下面讲。如果不是,进入第二种情况:
   
-强Etag根据配置文件中的配置来设置Etag值,默认的Apache的FileEtag设置为: 
+强Etag根据配置文件中的配置来设置Etag值,默认的Apache的FileEtag设置为:
   
 FileEtag INode Mtime Size
   
-也就是根据这三个属性来生成Etag值,他们之间通过一些算法来实现,并输出成hex的格式,相邻属性之间用-分隔,比如: 
+也就是根据这三个属性来生成Etag值,他们之间通过一些算法来实现,并输出成hex的格式,相邻属性之间用-分隔,比如:
   
 Etag"2e681a-6-5d044840"
   
 这里面的三个段,分别代表了INode,MTime,Size根据算法算出的值的Hex格式,(如果在这里看到了非Hex里面的字符(也就是0-f),那你可能看见神了:))
   
-当然,可以改变Apache的FileEtag设置,比如设置成FileEtagSize,那么得到的Etag可能为: 
+当然,可以改变Apache的FileEtag设置,比如设置成FileEtagSize,那么得到的Etag可能为:
   
 Etag"6"
   

@@ -10,9 +10,10 @@ tags:
   - reprint
 ---
 ## FTP的主动模式和被动模式
+
 <http://space.itpub.net/14075938/viewspace-495630>
 
-**FTP**两种工作**模式**: **主动****模式** (Active **FTP**) 和被动**模式** (Passive **FTP**) 
+**FTP**两种工作**模式**: **主动****模式**(Active**FTP**) 和被动**模式**(Passive**FTP**)
 
 在主动模式下，FTP客户端随机开启一个大于1024的端口N向服务器的21号端口发起连接，然后开放N+1号端口进行监听，并向服务器发出PORT N+1命令。服务器接收到命令后，会用其本地的FTP数据端口 (通常是20) 来连接客户端指定的端口N+1，进行数据传输。
   
@@ -56,7 +57,7 @@ xp(Client)--[eth0]linux (Firewall) [eth1] ---linux (ftpserve
 
 ip:172.16.0.0/24 172.16.0.0/16 192.168.0.0/24 192.168.0.10/24
 
-三、ftp配置: 
+三、ftp配置:
 
 # vi /etc/vsftpd/vsftpd.conf
 
@@ -68,9 +69,9 @@ pasv_max_port=4000
 
 四、防火墙配置
 
-#!/bin/bash
+# !/bin/bash
   
-#ip.sh
+# ip.sh
 
 echo "1" >/proc/sys/net/ipv4/ip_forward
 
@@ -110,8 +111,8 @@ iptables -t filter -A FORWARD -p icmp -icmp-type 8 -j ACCEPT
   
 iptables -t filter -A FORWARD -p icmp -icmp-type 0 -j ACCEPT
 
-五、验证: 
+五、验证:
 
-# 在xp下用ftp命令连接，都是采用主动模式连接，可以采用图形界面的软件，默认一般为被动模式。
+# 在xp下用ftp命令连接，都是采用主动模式连接，可以采用图形界面的软件，默认一般为被动模式
 
 # netstat -an|grep 172

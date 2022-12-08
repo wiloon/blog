@@ -9,6 +9,7 @@ tags:
   - reprint
 ---
 ## Openssl 生成自签名证书
+
 ```bash
 # 生成私钥
 openssl genrsa -out server.key 2048
@@ -22,14 +23,12 @@ openssl req -text -noout -in server.csr
 openssl x509 -req -in server.csr -out server.crt -signkey server.key -days 3650
 
 # 这样就生成了有效期为: 10年的自签名证书 server.crt.
-
-
 openssl x509 -req -days 3650 -in server.csr -signkey server.key -out server.crt -extensions v3_req -extfile openssl.cnf
 
 ```
 
-https://ningyu1.github.io/site/post/51-ssl-cert/
+<https://ningyu1.github.io/site/post/51-ssl-cert/>
   
-http://liaoph.com/openssl-san/
+<http://liaoph.com/openssl-san/>
   
-https://codeday.me/bug/20170831/60851.html
+<https://codeday.me/bug/20170831/60851.html>

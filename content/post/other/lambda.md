@@ -10,8 +10,6 @@ tags:
 ---
 ## Lambda 表达式
 
-# Lambda
-
 "Lambda 表达式"是一个匿名函数,它可以包含表达式和语句,并且可用于创建委托或表达式目录树类型。 所有 Lambda 表达式都使用 Lambda 运算符 =>,该运算符读为"goes to"。该 Lambda 运算符的左边是输入参数 (如果有) ,右边包含表达式或语句块。Lambda 表达式 x => x * x 读作"x goes to x times x"。
 
 ### 函数式接口functional interface, @FunctionalInterface

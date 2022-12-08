@@ -47,7 +47,7 @@ libc.so.6 => /lib64/libc.so.6 (0x0000003995800000)
   
 第三列: 库加载的开始地址
   
-通过上面的信息，我们可以得到以下几个信息: 
+通过上面的信息，我们可以得到以下几个信息:
 
 通过对比第一列和第二列，我们可以分析程序需要依赖的库和系统实际提供的，是否相匹配
   
@@ -59,4 +59,4 @@ libc.so.6 => /lib64/libc.so.6 (0x0000003995800000)
 
 原理:  ldd不是个可执行程式，而只是个shell脚本； ldd显示可执行模块的dependency的工作原理，其实质是通过ld-linux.so (elf动态库的装载器) 来实现的。ld-linux.so模块会先于executable模块程式工作，并获得控制权，因此当上述的那些环境变量被设置时，ld-linux.so选择了显示可执行模块的dependency。
 
-https://linuxtools-rst.readthedocs.io/zh_CN/latest/tool/ldd.html
+<https://linuxtools-rst.readthedocs.io/zh_CN/latest/tool/ldd.html>

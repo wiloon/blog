@@ -10,6 +10,7 @@ tags:
 
 ---
 ## golang flag 获取命令行参数
+
 ```java
 flag.String("port", ":8080", "http listen port")
 ```
@@ -20,7 +21,7 @@ flag.Parse()
 
 解析函数将会在碰到第一个非flag命令行参数时停止,非flag命令行参数是指不满足命令行语法的参数,如命令行参数为cmd -flag=true abc则第一个非flag命令行参数为"abc"
 
-使用flag来操作命令行参数,支持的格式如下: 
+使用flag来操作命令行参数,支持的格式如下:
 
 ```bash-id=1
 --id=1
@@ -53,7 +54,7 @@ fmt.Println("name:", name)
 
 还是非常方便的。
 
-执行一下: 
+执行一下:
 
 $ go run flag.go -id=2 -name="golang"
   
@@ -65,7 +66,7 @@ port: :8080
   
 name: golang
 
-使用-h参数可以查看使用帮助: 
+使用-h参数可以查看使用帮助:
 
 $ go run flag.go -h
   
@@ -77,6 +78,6 @@ $ go run flag.go -h
   
 -port=":8080″: http listen port
 
-http://www.01happy.com/golang-command-line-arguments/
+<http://www.01happy.com/golang-command-line-arguments/>
   
-http://faberliu.github.io/2014/11/12/Golang-flag%E5%8C%85%E4%BD%BF%E7%94%A8%E8%AF%A6%E8%A7%A3-%E4%B8%80/
+<http://faberliu.github.io/2014/11/12/Golang-flag%E5%8C%85%E4%BD%BF%E7%94%A8%E8%AF%A6%E8%A7%A3-%E4%B8%80/>

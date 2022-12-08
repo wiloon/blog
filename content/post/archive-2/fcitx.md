@@ -1,7 +1,7 @@
 ---
 title: fcitx
 author: "-"
-date: 2017-01-12T04:50:30.000+00:00
+date: 2022-07-09 20:57:51
 url: fcitx
 categories:
   - Desktop
@@ -23,7 +23,7 @@ vim ~/.config/fcitx/config
 ### 在线造词
 
 (词组最长为10个汉字)
-在中文输入方式下按CTRL+8,则利用将刚刚输入的内容造词,默认为最近输入法两个字,可以用左右方向键的增加或减少词组中的字数,回车确认。
+在中文输入方式下按 CTRL+8, 则利用将刚刚输入的内容造词, 默认为最近输入法两个字, 可以用左右方向键的增加或减少词组中的字数, 回车确认。
 输入法提供了两种在线造词方法(词组最长为 10 个汉字):
 
 1. 在中文输入方式下按 CTRL_8,则利用将刚刚输入的内容造词,默认为最近输
@@ -35,6 +35,9 @@ vim ~/.config/fcitx/config
    如果想删除词库中的词,先让该词显示中输入条上,按 CTRL_7,并按提示操作即可;
    或是当程序提示有该词组时,按 CTRL_DEL 删除。
 
+## 快捷键
+
+```bash
 ## 切换 全角半角符号, 逗号, 句号
 
 ctrl + .
@@ -46,6 +49,7 @@ ctrl+6
 ### 删除词
 
 ctrl+7
+```
 
 ### 五笔词库位置
 
@@ -81,16 +85,16 @@ fcitx 安装之后自己会设置开机启动, 这里临时手动启动一下看
 ### 解决 emacs 中文输入问题
 
 ```bash
-        sudo rm /usr/bin/emacs.raw
-        sudo mv /usr/bin/emacs /usr/bin/emacs.raw
+sudo rm /usr/bin/emacs.raw
+sudo mv /usr/bin/emacs /usr/bin/emacs.raw
 
-        #since emacs is unavailabe now
-        sudo vi /usr/bin/emacs
+#since emacs is unavailabe now
+sudo vi /usr/bin/emacs
 
-        #new /usr/bin/emacs file content
-        #! /bin/bash
-        export LC_CTYPE=zh_CN.utf-8;
-        /usr/bin/emacs.raw "$@"
+#new /usr/bin/emacs file content
+#! /bin/bash
+export LC_CTYPE=zh_CN.utf-8;
+/usr/bin/emacs.raw "$@"
 ```
 
 ### .zshrc
@@ -139,7 +143,7 @@ ctrl-7
 
 <https://bbs.archlinuxcn.org/viewtopic.php?id=2052>
 
-><https://zhuanlan.zhihu.com/p/51957263>
+<https://zhuanlan.zhihu.com/p/51957263>
 
 <http://forum.ubuntu.org.cn/viewtopic.php?f=68&t=395616>
 

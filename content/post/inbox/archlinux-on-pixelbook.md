@@ -123,7 +123,7 @@ sommelier -X --x-display=1 --scale=2 bash -c 'echo Xft.dpi: 192 | xrdb -merge; f
   
 <https://wiki.archlinux.org/index.php/Installation_guide>
 
-    archlinux install
+## archlinux install
   
 <http://blog.wiloon.com/?p=7821>
   

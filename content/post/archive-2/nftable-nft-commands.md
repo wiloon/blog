@@ -13,6 +13,7 @@ tags:
 ### 安装 nftables
 
 #### archlinux
+
 ```bash
 sudo pacman -S nftables
 sudo systemctl start nftables
@@ -20,13 +21,14 @@ sudo systemctl enable nftables
 ```
 
 #### centos 8
+
 ```bash
 systemctl disable --now firewalld
 
 ```
 
-
 ### 查
+
 ```bash
 nft list ruleset # 列出所有规则
 nft list tables  # 列出所有表
@@ -41,7 +43,9 @@ nft -a list table filter
 ```
 
 ### 增
-#### 增加表, Adding tables: 
+
+#### 增加表, Adding tables
+
 ```bash
 nft add table [<family>] <name>
 nft add table ip foo
@@ -49,13 +53,15 @@ nft add table ip foo
 
 family 参数是可选的,如果不指定 family,默认是 IPv4
 
-#### 增加链,add chain: 
+#### 增加链,add chain
+
 ```bash
 nft add chain [<family>]  <chain-name> { type <type> hook <hook> priority <value> \; [policy <policy>] }
 nft add chain filter input { type filter hook input priority 0 \; } # 要和hook (钩子) 相关连
 ```
 
-#### 增加规则, add rule:
+#### 增加规则, add rule
+
 ```bash
 nft add rule  <chain-name> ip daddr 8.8.8.8 counter
 nft add rule filter input tcp dport 22 accept
@@ -64,6 +70,7 @@ nft insert rule nat post ip protocol icmp icmp type echo-request accept
 ```
 
 ### 删
+
 ```bash
 #清空整个规则集
 nft flush ruleset
@@ -77,6 +84,7 @@ nft delete rule table0 chain0 handle 4
 ```
 
 ### 改
+
 更改链名用rename  
 更改规则用replace  
 -n  
@@ -84,6 +92,7 @@ nft delete rule table0 chain0 handle 4
 -a 加 -a 用于显示 handles  
 
 ### 保存规则到文件
+
 nftables.service 启动时自动加载 /etc/nftables.conf
 
 ```bash

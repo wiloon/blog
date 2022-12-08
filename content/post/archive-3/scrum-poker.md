@@ -1,20 +1,22 @@
 ---
 title: scrum poker
 author: "-"
-date: 2019-05-09T16:13:17+00:00
-url: /?p=14309
+date: 2022-11-17 12:51:17
+url: scrum/poker
 categories:
-  - Inbox
+  - Scrum
 tags:
   - reprint
+  - remix
 ---
 ## scrum poker
-android,iOS: Scrum Poker Cards (Agile)
 
+## Scrum Poker Cards (Agile)
 
-  
-    Home
-  
+Android, iOS
 
+<https://artarmin.com/embed/#?secret=jkb2vbmib7>
 
-https://artarmin.com/embed/#?secret=jkb2vbmib7
+## scrum poker online
+
+<https://www.scrumpoker-online.org/en/room/04930078>
