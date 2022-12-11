@@ -9,6 +9,5 @@ tags:
 ---
 ## macos apps
 
-| name                  | comments                                                     |
-| :-------------------- | :----------------------------------------------------------- |
-| Sketch                |  矢量绘图  |
+- Tunnelblick, openvpn gui client
+- Sketch, 矢量绘图
