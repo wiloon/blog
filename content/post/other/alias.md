@@ -1,5 +1,5 @@
 ---
-title: alias 别名
+title: alias command, 别名
 author: "-"
 date: 2013-07-27T11:23:52+00:00
 url: alias
@@ -8,13 +8,13 @@ categories:
 tags:
   - reprint
 ---
-## alias 别名
+## alias command, 别名
 
 ### 查看所有的alias
 
 ```bash
-    alias
-    alias -p
+alias
+alias -p
 ```
 
 ### 显示已定义的别名 (假设当前环境存在以下别名)
