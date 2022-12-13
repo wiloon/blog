@@ -11,6 +11,7 @@ tags:
 ## linux apps
 
 - ncdu, 磁盘空间占用分析/清理
+- bitwarden, password management
 
 ## application list
 
