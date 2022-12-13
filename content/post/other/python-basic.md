@@ -891,3 +891,21 @@ while i < 6:
   i += 1
 
 ```
+
+## string to int
+
+```py
+int("10")
+```
+
+## int to string
+
+```py
+str(10)
+```
+
+## sleep
+
+```py
+time.sleep(10)
+```
