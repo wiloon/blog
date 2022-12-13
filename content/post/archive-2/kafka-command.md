@@ -97,7 +97,7 @@ CURRENT-OFFSET = LOG-END-OFFSET 说明当前消费组已经全部消费了;
 - HOST：消费者所在主机
 - CLIENT-ID：消费者id，一般由应用指定
 
-### 命令行手动调整offset
+### 命令行手动调整 offset
 
 ```bash
 bin/kafka-consumer-groups.sh --bootstrap-server localhost:9092 --group test-group --reset-offsets --topic topic0 --to-offset 500000
@@ -232,7 +232,7 @@ bin/kafka-consumer-groups.sh --bootstrap-server localhost:9092 \
 --to-datetime 2017-08-04T14:30:00.000
 ```
 
-### 查看kafka版本, kafka version
+### 查看 kafka 版本, kafka version
 
 ```bash
 # kafka 客户端的版本
