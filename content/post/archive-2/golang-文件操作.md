@@ -80,6 +80,7 @@ func writeTxtFile(dir, fileName, content string) {
     }
 }
 
+// read txt file
 func readTxtFile(dir, fileName string) string {
     path := dir + string(os.PathSeparator) + fileName
     dat, err := ioutil.ReadFile(path)
