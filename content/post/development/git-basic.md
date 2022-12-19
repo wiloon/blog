@@ -7,6 +7,7 @@ categories:
     - Git
 tags:
     - remix
+    - reprint
 ---
 ## Git basic commands, git 常用命令
 
@@ -48,7 +49,12 @@ git branch -v
 新建分支其实就是在当前位置打个标签, 也就是说... 新分支是以当前分支的 commit 为基础的.
 
 ```bash
+# 从当前分支创建新分支, 新 branch 名字: branch0
 git branch branch0
+# 从 branch0 分支 创建 branch1 分支
+git branch1 branch0
+# 从 branch0 分支 创建 branch1 分支并切换到 branch1 分支 
+git checkout -b branch1 branch0
 ```
 
 ### 切换到分支
@@ -88,14 +94,16 @@ git branch -D branch0
 git branch -d -r origin/todo
 ```
 
-#### merge 合并分支, git merge 命令用于合并指定分支到当前分支
+## merge 合并分支, git merge 命令用于合并指定分支到当前分支
 
 ```bash
 # merge 默认会把 commit 的历史都合并进来
-git merge branch1 -m "MSG0"
+# 把 branch0 合并到当前分支
+git merge branch0
+git merge branch0 -m "MSG0"
 ```
 
-## git merge --squash
+### git merge --squash
 
 ```bash
 # git merge --squash, 把多次 commit 的历史合并成一次 commit
@@ -288,7 +296,7 @@ GIT_SSH_COMMAND="ssh -i ~/tmp/id_rsa" git clone git@github.com:wiloon/foo.git
 git rev-parse HEAD
 ```
 
-### git checkout
+### git checkout 检出
 
 git checkout: Git的checkout有两个作用，其一是在不同的branch之间进行切换，例如'git checkout new_branch'就会切换到new_branch的分支上去；另一个功能是还原代码的作用，例如'git checkout app/model/user.rb'就会将user.rb文件从上一个已提交的版本中更新回来，未提交的内容全部会回滚
 
@@ -792,3 +800,11 @@ git reflog expire --expire=now --all
 ```
 
 <https://www.cnblogs.com/toutou/p/git_stash.html>
+
+## There is no tracking information for the current branch
+
+是因为本地分支和远程分支没有建立联系 (使用git branch -vv 可以查看本地分支和远程分支的关联关系) .根据命令行提示只需要执行以下命令即可
+
+git branch --set-upstream-to=origin/远程分支的名字(我的是master) 本地分支的名字(我的是master)
+
+<https://segmentfault.com/a/1190000009128253>
