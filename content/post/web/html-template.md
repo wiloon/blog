@@ -10,6 +10,7 @@ tags:
 
 ---
 ## HTML template, 模板
+
 ```html
 <!DOCTYPE html>
 <html>
