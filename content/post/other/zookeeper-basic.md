@@ -10,7 +10,7 @@ tags:
 ---
 ## zookeeper
 
->[16/11/21 03:20:30:030 CST] main-SendThread(192.168.50.100:2181)  WARN zookeeper.ClientCnxn: Session 0x0 for server 192.168.50.100/<unresolved>:2181, unexpected error, closing socket connection and attempting reconnect
+[16/11/21 03:20:30:030 CST] main-SendThread(192.168.50.100:2181)  WARN zookeeper.ClientCnxn: Session 0x0 for server 192.168.50.100/<unresolved>:2181, unexpected error, closing socket connection and attempting reconnect
 
 检查zookeeper包版本和连接的服务端版本，有可能是版本不一致
 <https://blog.csdn.net/richie696/article/details/112910751>
@@ -153,7 +153,7 @@ ZooKeeper是一套高吞吐量的系统，为了提高系统的读取速度，Zo
 <http://www.wiloon.com/?p=8594>
   
 <https://my.oschina.net/xianggao/blog/531613>
-><https://www.jianshu.com/p/30bcaf55f451>
+<https://www.jianshu.com/p/30bcaf55f451>
 
 ## zookeeper client zkCli.sh
 
@@ -185,6 +185,13 @@ get /test
 
 # 删除节点
 delete /test
+
+# 已经废弃的命令, 建议使用 deleteall
+rmr
+
+# 删除节点，有子节点一并删除
+deleteall /path/foo
+
 ```
 
 zookeeper提供了很多方便的功能,方便我们查看服务器的状态,增加,修改,删除数据 (入口是zkServer.sh和zkCli.sh) 。
