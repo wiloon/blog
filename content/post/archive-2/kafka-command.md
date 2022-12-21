@@ -252,11 +252,35 @@ listeners=PLAINTEXT://:9092
 
 zookeeper.connect=localhost:2181
 
-### 删除topic
+## kafka 删除 topic
+
+- 停掉 topic 对应的 producer 和 consumer 或者设置 auto.create.topics.enable = false
+- server.properties 设置 delete.topic.enable=true, 1.0.0 版本以后的 kafka 默认是 true, <https://issues.apache.org/jira/browse/KAFKA-5384>
+- 删除 topic
 
 ```bash
-bin/kafka-topics.sh --topic t0 --delete --zookeeper test-zookeeper-1
+bin/kafka-topics.sh --bootstrap-server localhost:9092 --delete --topic topic0
+./bin/kafka-topics --delete --zookeeper 【zookeeper server:port】 --topic 【topic name】
+```
 
+- 删除kafka存储目录
+
+上一步删除 topic之后 kafka 会把对应的 topic 的存储目录改名成 foo-delete, 然后删掉, kafka 2.5 是这样的, 不需要手动删除.
+
+（server.properties文件log.dirs配置，默认为"/data/kafka-logs"）相关topic的数据目录
+
+- 删除 zookeeper 里的数据
+
+kafka 2.5 会自动删除 zk 里的 topic数据, 不需要手动操作.
+
+```bash
+./zkCli.sh
+
+ls /brokers/topics/
+deleteall /brokers/topics/topic0
+```
+
+```bash
 #edit bin/kafka-server-start.sh, change memory setting KAFKA_HEAP_OPTS
 #start kafka server
 bin/kafka-server-start.sh config/server.properties
@@ -269,7 +293,7 @@ bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic topic0 -
 
 ./bin/kafka-server-start.sh config/server.properties
 
-查看不可用分区 ./kafka-topics.sh --topic test --describe --unavailable-partitions --zookeeper
+# 查看不可用分区 ./kafka-topics.sh --topic test --describe --unavailable-partitions --zookeeper
 bin/kafka-console-producer.sh --broker-list test-kafka-1:9092 --topic t0
 bin/kafka-console-consumer.sh --bootstrap-server --zookeeper xxx:2181 test-kafka-1:9092 --topic t0 --from-beginning
 
@@ -353,15 +377,13 @@ podman run --rm --name kafka \
 -v kafka-storage:/data/kafka \
 bitnami/kafka:3.2 kafka-storage.sh format --config /bitnami/kafka/config/server.properties --cluster-id eVW-QkMeS8CeY1Bcuj4S-g --ignore-formatted
 
-# 创建单节点 kafka 容器 
+# 创建单节点 kafka 容器
 podman run -d --name kafka \
 -e ALLOW_PLAINTEXT_LISTENER=yes \
 -p 9092:9092 \
 -v kafka-config:/bitnami/kafka/config \
 -v kafka-storage:/data/kafka \
 bitnami/kafka:3.2
-
-
 ```
 
 ### install kafka with zookeeper
