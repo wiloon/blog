@@ -55,6 +55,8 @@ git branch branch0
 git branch1 branch0
 # 从 branch0 分支 创建 branch1 分支并切换到 branch1 分支 
 git checkout -b branch1 branch0
+# 从 tag v1.2.3 创建分支 branch1
+git checkout -b branch1 v1.2.3
 ```
 
 ### 切换到分支
