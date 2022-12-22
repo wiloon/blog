@@ -616,6 +616,10 @@ def printme( str ):
 
 ## kafka
 
+- PyKafka and
+- confluent-kafka
+- kafka-python:
+
 python kafka ssl
 
 <https://dev.to/adityakanekar/connecting-to-kafka-cluster-using-ssl-with-python-k2e>
