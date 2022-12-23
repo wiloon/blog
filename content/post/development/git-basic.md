@@ -15,6 +15,11 @@ tags:
 
 最新版本的 Git 提供了新的 `git switch` 命令来切换分支, `git switch`，比 `git checkout` 要更容易理解。
 
+```bash
+# 分支改名
+git branch -m branch0 branch1
+```
+
 ### 设置默认的分支名
 
 ```bash
