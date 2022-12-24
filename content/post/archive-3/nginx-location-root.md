@@ -254,7 +254,7 @@ location ^~ /foo/ {
 
 如果一个请求的 URI 是 /t/a.html 时，web服务器将会返回服务器上的 /www/root/html/foo/a.html 的文件。
 
-## alias
+## nginx alias
   
 语法: alias path  
 配置段: location  

@@ -74,7 +74,7 @@ source my_env/bin/activate
 ### archlinux
 
 ```bash
-    pacman -S python
+pacman -S python
 ```
   
 ### boolean variable
@@ -616,6 +616,10 @@ def printme( str ):
 
 ## kafka
 
+- PyKafka and
+- confluent-kafka
+- kafka-python:
+
 python kafka ssl
 
 <https://dev.to/adityakanekar/connecting-to-kafka-cluster-using-ssl-with-python-k2e>
@@ -878,4 +882,34 @@ if __name__ == '__main__':
 
 ```bash
 python -X faulthandler main.py
+```
+
+## loop
+
+### while
+
+```python
+i = 1
+while i < 6:
+  print(i)
+  i += 1
+
+```
+
+## string to int
+
+```py
+int("10")
+```
+
+## int to string
+
+```py
+str(10)
+```
+
+## sleep
+
+```py
+time.sleep(10)
 ```

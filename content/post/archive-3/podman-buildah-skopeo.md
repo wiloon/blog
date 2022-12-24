@@ -20,7 +20,7 @@ Podman专注于维护和修改OCI镜像的所有命令和功能，例如拉动�
 
 ### Buildah
 
-Buildah是套件中的Build工具，用来构建OCI镜像。虽然Podman也可以用户构建Docker镜像，但是构建速度超慢，并且默认情况下使用vfs存储驱动程序会消耗大量磁盘空间。 而buildah bud (使用Dockerfile构建) 非常快，并使用覆盖存储驱动程序，可以节约大量的空间。
+Buildah 是套件中的 Build 工具，用来构建OCI镜像。虽然 Podman 也可以用户构建 Docker 镜像，但是构建速度超慢，并且默认情况下使用 vfs 存储驱动程序会消耗大量磁盘空间。 而 buildah bud (使用Dockerfile构建) 非常快，并使用覆盖存储驱动程序，可以节约大量的空间。
 
 Buildah (<https://buildah.io>) 。Buildah 是 Red Hat 开发的一款工具，可以很好地与 Podman 配合使用。如果你已经安装了 Podman，可能会注意到 podman build 子命令，它实际上是经过包装的 Buildah。
 
