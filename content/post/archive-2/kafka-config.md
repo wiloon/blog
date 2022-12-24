@@ -103,9 +103,9 @@ as max.block.ms before raising an exception.
 
 ### max.block.ms
 
-buffer.memory 写满之后x毫秒抛异常 TimeoutException
+buffer.memory 写满之后 x 毫秒抛异常 TimeoutException
 
-配置控制了KafkaProducer.send () 和KafkaProducer.partitionsFor () 的阻塞时间,这些方法可以由于缓冲区已满或元数据不可用而被阻塞,用户提供的序列化器或分区器中的阻塞将不计入此超时时间 。
+配置控制了 KafkaProducer.send() 和 KafkaProducer.partitionsFor() 的阻塞时间, 这些方法可以由于缓冲区已满或元数据不可用而被阻塞, 用户提供的序列化器或分区器中的阻塞将不计入此超时时间 。
 
 The buffer.memory controls the total amount of memory available to the producer for buffering. If records are sent faster than they can be transmitted to the server then this buffer space will be exhausted. When the buffer space is exhausted additional send calls will block. The threshold for time to block is determined by max.block.ms after which it throws a TimeoutException.
 
@@ -113,7 +113,7 @@ buffer.memory设置决定了Producer缓存区整个可用的内存。如果记�
 
 默认值:  33554432 (32MB)
 
-二、max.block.ms 参数
+max.block.ms 参数
 The configuration controls how long KafkaProducer.send() and KafkaProducer.partitionsFor() will block.These methods can be blocked either because the buffer is full or metadata unavailable.
 
 Blocking in the user-supplied serializers or partitioner will not be counted against this timeout.
@@ -171,13 +171,13 @@ Kafka 允许的最大 record batch size,什么是 record batch size ？简单来
 ### request.timeout.ms
 
 默认值:  30秒  
-这个参数容易和上面的max.block.ms 参数相混淆,这里也一同说明一下。
+这个参数容易和上面的 max.block.ms 参数相混淆, 这里也一同说明一下。
 
-生产者producer发送消息后等待响应的最大时间,如果在配置时间内没有得到响应,生产者会重试。
+生产者 producer 发送消息后等待响应的最大时间, 如果在配置时间内没有得到响应, 生产者会重试。
 
 Step 1:  序列化+计算目标分区
   
-这是KafkaProducer#send逻辑的第一步,即为待发送消息进行序列化并计算目标分区
+这是 KafkaProducer#send 逻辑的第一步,即为待发送消息进行序列化并计算目标分区
 
 Step 2: 追加写入消息缓冲区(accumulator)
   
@@ -193,9 +193,9 @@ thunks: 保存消息回调逻辑的集合
   
 这一步的目的就是将待发送的消息写入消息缓冲池中
 
-        //当所有 broker 全部挂掉的时候,此时 send 的方法会 block 住60秒(max.block.ms参数控制),但并不抛出异常,因此failover策略失效。
-        //block 在 KafkaProducer.doSend() 中的 long waitedOnMetadataMs = waitOnMetadata(record.topic(), this.maxBlockTimeMs);
-        //如果项目启动并且取得 waitOnMetaData 之后全部broker再挂掉的话,不会block应用
+//当所有 broker 全部挂掉的时候,此时 send 的方法会 block 住60秒(max.block.ms参数控制),但并不抛出异常,因此failover策略失效。
+//block 在 KafkaProducer.doSend() 中的 long waitedOnMetadataMs = waitOnMetadata(record.topic(), this.maxBlockTimeMs);
+//如果项目启动并且取得 waitOnMetaData 之后全部broker再挂掉的话,不会block应用
 
 ---
 

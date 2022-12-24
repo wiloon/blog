@@ -24,4 +24,4 @@ tags:
 
 因此可以简单认为任务队列就是消息队列在异步任务场景下的深度化定制开发。
 
-转载于:https://my.oschina.net/u/3834410/blog/3101841
+转载于:<https://my.oschina.net/u/3834410/blog/3101841>

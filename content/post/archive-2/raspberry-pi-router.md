@@ -9,7 +9,8 @@ tags:
   - reprint
 ---
 ## raspberry pi router
-http://www.embeddedlinux.org.cn/emb-linux/entry-level/201703/18-6294.html
+
+<http://www.embeddedlinux.org.cn/emb-linux/entry-level/201703/18-6294.html>
 
 ```bash
 sudo -i
@@ -39,7 +40,8 @@ systemctl start systemd-networkd
 systemctl enable systemd-networkd
 ```
 
-###  vim /etc/hostapd/hostapd.conf
+### vim /etc/hostapd/hostapd.conf
+
 ```bash
 interface=wlan0
 ssid=ssid0
@@ -58,6 +60,7 @@ rsn_pairwise=CCMP
 ```
 
 ### vim /etc/default/hostapd
+
 ```bash
 DAEMON_CONF="/etc/hostapd/hostapd.conf"
 ```
@@ -65,6 +68,7 @@ DAEMON_CONF="/etc/hostapd/hostapd.conf"
 systemctl restart hostapd
 
 ### vim /etc/dnsmasq.conf
+
 ```bash
 sudo mv /etc/dnsmasq.conf /etc/dnsmasq.conf.bak
 interface=wlan0                                     # dhcp,dns 服务监听的网络接口地址
@@ -95,12 +99,12 @@ vim /etc/rc.local
 iptables-restore < /etc/iptables.ipv4.nat
 ```
 
-https://www.raspberrypi.org/documentation/configuration/wireless/access-point.md
-https://blog.csdn.net/u012313335/article/details/73992102
-https://gist.github.com/snakevil/7d7af1d8ca2c739e3fedc5b15eb8e4aa
+<https://www.raspberrypi.org/documentation/configuration/wireless/access-point.md>
+<https://blog.csdn.net/u012313335/article/details/73992102>
+<https://gist.github.com/snakevil/7d7af1d8ca2c739e3fedc5b15eb8e4aa>
   
 bridge
   
-http://www.instructables.com/id/Use-Raspberry-Pi-3-As-Router/
-https://wireless.wiki.kernel.org/en/users/Drivers/ath10k/configuration
-https://www.raspberrypi.org/forums/viewtopic.php?t=80299
+<http://www.instructables.com/id/Use-Raspberry-Pi-3-As-Router/>
+<https://wireless.wiki.kernel.org/en/users/Drivers/ath10k/configuration>
+<https://www.raspberrypi.org/forums/viewtopic.php?t=80299>
