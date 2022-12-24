@@ -9,8 +9,9 @@ tags:
   - reprint
 ---
 ## podman in crostini
+
 ERRO[0000] 'overlay' is not supported over btrfs at "/var/lib/containers/storage/overlay"
   
-https://bugs.chromium.org/p/chromium/issues/detail?id=938877&q=overlayfs&can=2
+<https://bugs.chromium.org/p/chromium/issues/detail?id=938877&q=overlayfs&can=2>
   
-https://bugs.chromium.org/p/chromium/issues/detail?id=878034
+<https://bugs.chromium.org/p/chromium/issues/detail?id=878034>

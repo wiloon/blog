@@ -9,8 +9,9 @@ tags:
   - reprint
 ---
 ## 用cat命令和EOF标识生成文件
-http://www.linuxfly.org/post/146/
-     
+
+<http://www.linuxfly.org/post/146/>
+
 在某些场合,可能我们需要在脚本中生成一个临时文件,然后把该文件作为最终文件放入目录中。 (可参考ntop.spec文件) 这样有几个好处,其中之一就是临时文件不是唯一的,可以通过变量赋值,也可根据不同的判断生成不同的最终文件等等。
   
 一、cat和EOF
@@ -23,7 +24,7 @@ EOF是"end of file",表示文本结束符。
   
 二、使用
   
-看例子是最快的熟悉方法: 
+看例子是最快的熟悉方法:
 
 ```bash
 cat <<EOF >/etc/profile.d/goroot.sh
@@ -33,15 +34,15 @@ export PATH=\$PATH:$GOROOT/bin:$GOPATH/bin
 EOF
 ```
 
-结果: 
+结果:
   
 引用
 
 # cat test.sh
 
-#!/bin/bash
+# !/bin/bash
   
-#you Shell script writes here.
+# you Shell script writes here
 
 可以看到,test.sh的内容就是cat生成的内容。
   
@@ -60,12 +61,12 @@ EOF
 # cat << HHH > iii.txt
 
 > sdlkfjksl
-    
+
 > sdkjflk
-    
+
 > asdlfj
-    
-> HHH 
+
+> HHH
 
 这里的"HHH"就代替了"EOF"的功能。结果是相同的。
   
@@ -95,7 +96,7 @@ kljlk
   
 Ctrl-D
 
-结果: 
+结果:
   
 引用
 
