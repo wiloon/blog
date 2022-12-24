@@ -51,6 +51,7 @@ sudo apt install certbot
 # 如果以前安装过, 先卸载掉再安装 snap 版本
 sudo apt-get remove certbot
 sudo apt update
+# for ubuntu snap is pre-installed
 sudo apt install snapd
 sudo snap install core; sudo snap refresh core
 sudo snap install --classic certbot

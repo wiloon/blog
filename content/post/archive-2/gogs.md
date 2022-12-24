@@ -10,7 +10,7 @@ tags:
 ---
 ## golang git server, gogs, gitea
 
-gitea 的文档 只提到了docker compose的部署方式, 想改成podman 还需要折腾一下, gogs的文档 更清晰一些方便使用podman
+gitea 的文档 只提到了docker compose的部署方式, 想改成podman 还需要折腾一下, gogs 的文档 更清晰一些方便使用podman
 
 ```bash
 podman run --rm --name=gogs -p 10022:22 -p 10880:3000 -v gogs-data:/data gogs/gogs:latest
