@@ -100,17 +100,18 @@ ip route add DESTINATION       [via NEXT_HOP]      [src SOURCE_ADDRESS]    [dev 
 
 ip route add default           via 192.168.50.1    src 192.168.50.8      dev enp0s31f6
 ip route add default           via 192.168.50.1    src 192.168.50.8      dev enp0s31f6
-ip route add default           via 192.168.50.4    src 192.168.50.169      dev ens18
-ip route add 192.168.54.0/24   via 192.168.50.11   src 192.168.50.8        dev enp0s31f6
+ip route add default           via 192.168.50.4    src 192.168.50.169    dev ens18
+ip route add 192.168.54.0/24   via 192.168.50.11   src 192.168.50.8      dev enp0s31f6
 # src xxx 可以省略
-ip route add 192.168.0.0/24     via 172.16.15.253                           dev eth0
+ip route add 192.168.0.0/24    via 172.16.15.253                         dev eth0
+ip route add 192.168.5.4       via 10.60.200.1                           dev utun3
 ```
 
 - DESTINATION
 目标主机, 目标网络/掩码
 
 - via NEXT_HOP
-网关, 下一跳的 IP,  下一跳的路由器或主机的 IP
+网关, 下一跳的 IP,  下一跳的路由器或主机的 IP, 比如局域网里 下一跳一般是路由器 192.168.50.1, openvpn 的话是服务端地址
 
 - src SOURCE_ADDRESS
 当一个主机有多个网卡或者配置了多个 IP 的时候, 对于它产生的网络包, 可以在路由选择时设置源 IP 地址。  
