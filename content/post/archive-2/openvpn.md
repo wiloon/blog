@@ -56,15 +56,19 @@ apt-get install openvpn
 
 #### create keys
 
+```bash
     pacman -S easy-rsa
+```
 
 #### use Elliptic curve instead of RSA
 
+```bash
     # append line to /etc/easy-rsa/vars
     set_var EASYRSA_ALGO ec
     set_var EASYRSA_CURVE secp521r1
     set_var EASYRSA_DIGEST "sha512"
     set_var EASYRSA_NS_SUPPORT "yes"
+```
 
 #### easy-rsa
 
@@ -278,6 +282,10 @@ tls-auth ta.key 1
 cipher AES-256-GCM
 
 redirect-gateway def1 #使客户端中所有流量经过VPN
+
+compress lz4-v2
+push "compress lz4-v2"：openvpn 2.4版本的vpn才能设置此选项。表示服务端启用lz4的压缩功能，传输数据给客户端时会压缩数据包，Push后在客户端也配置启用lz4的压缩功能，向服务端发数据时也会压缩。如果是2.4版本以下的老版本，则使用用comp-lzo指令
+comp-lzo：启用lzo数据压缩格式。此指令用于低于2.4版本的老版本。且如果服务端配置了该指令，客户端也必须要配置
 ```
 
 ### start server
