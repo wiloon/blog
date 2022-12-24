@@ -82,7 +82,7 @@ tcpdump -i eth1 <protocol name>
 tcpdump -nn icmp
 ```
 
-### 保存到文件, 然后用  Wireshark 分析
+## 保存到文件, 然后用  Wireshark 分析
 
 ```bash
 tcpdump -i eth1 src port 25 -w foo.cap
@@ -473,17 +473,12 @@ CWR | ECE | URG | ACK | PSH | RST | SYN | FIN
   
 3) 发起方收到接收方回应后再发送带有ACK标志的数据包进行回应
 
-## 0 15 31
-
-## | source port | destination port |
-
-## | sequence number |
-
-## | acknowledgment number |
-
-## | HL | rsvd |C|E|U|A|P|R|S|F| window size |
-
-## | TCP checksum | urgent pointer |
+0 15 31
+| source port | destination port |
+| sequence number |
+| acknowledgment number |
+| HL | rsvd |C|E|U|A|P|R|S|F| window size |
+| TCP checksum | urgent pointer |
 
 一个TCP头部,在不包含选项数据的情况下通常占用20个字节(nt | rt:options 理解为选项数据,需回译). 第一行包含0到3编号的字节,
   
