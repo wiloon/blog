@@ -24,6 +24,7 @@ tags:
 - Mitsubishi Outlander
 - MacBook Air
 - U2723QX
+- Nuphy Air75
 
 ## ROCK 5B
 
@@ -391,3 +392,7 @@ F1 默认走 罗技优联, F2 和 F3 可以连接另外两个蓝牙设备. 蓝�
 
 - 3840 x 2160（16:9）
 - MST
+
+## Nuphy Air75
+
+<https://www.bilibili.com/read/cv15856202>

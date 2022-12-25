@@ -26,3 +26,11 @@ https://brew.sh/
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
 ```
+
+## route
+
+```bash
+route -n add -net 192.168.5.4 -netmask 255.255.255.0 10.60.200.1
+```
+
+https://www.jianshu.com/p/da975a32a915
