@@ -4,16 +4,20 @@ author: "-"
 date: 2016-05-31T05:02:22+00:00
 url: rsync
 categories:
-  - Inbox
+  - Linux
 tags:
   - reprint
 ---
 ## rsync
 
+## archlinux install rsync
+
 ```bash
-  
+pacman -S rsync
+```
+
+```bash
 rsync -azP source dest
-  
 ```
 
 -z选项,压缩传输的文件:

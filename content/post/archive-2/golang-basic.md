@@ -1,7 +1,7 @@
 ---
 title: go basic, golang basic
 author: "-"
-date: 2016-07-01T08:06:08+00:00
+date: 2022-12-11 12:07:50
 url: go
 categories:
   - Go
@@ -360,16 +360,32 @@ go mod init github.com/you/hello
 
 ## Go 交叉编译, go cross compile
 
+设置 GOOS 和 GOARCH 两个环境变量生成所需平台的 Go 程序
+
+常用的一些 值
+
+### GOOS
+
+- darwin
+- windows
+- linux
+
+### GOARCH
+
+- amd64
+- arm64
+
 ```bash
+# to windows, amd64
 GOOS=windows GOARCH=amd64 go build foo.go
 ```
 
-## 条件编译
+## conditional compilation, 条件编译
 
 windows 环境编译时忽略标注 `//go:build linux` 的文件
 
 ```go
-//go:build linux
+//go:build darwin || linux
 
 ```
 
