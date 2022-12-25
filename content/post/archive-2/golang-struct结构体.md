@@ -27,7 +27,7 @@ type Student struct {
 person := struct { 
     Name string
     Age  int
-}{Name: "匿名", Age: 1}
+}{Name: "name0", Age: 1}
 
 jsonBytes, _ := json.Marshal(person)
 fmt.Println("person:", string(jsonBytes))

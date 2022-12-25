@@ -39,17 +39,17 @@ bin/kafka-console-consumer.sh \
 
 ```bash
 bin/kafka-console-producer.sh \
---broker-list 127.0.0.1:9092 \
+--bootstrap-server 127.0.0.1:9092 \
 --topic topic0
 
 bin/kafka-console-producer.sh \
---broker-list kafka.wiloon.com:9092 \
+--bootstrap-server kafka.wiloon.com:9092 \
 --topic topic0
 
 bin/kafka-console-producer.sh \
---broker-list kafka.wiloon.com:9092 \
+--bootstrap-server kafka.wiloon.com:9092 \
 --topic topic0
---property "parse.key=true" --property "key.separator=:"
+--property "parse.key=true" --property "key.separator=@"
 ```
 
 ### kafka package
@@ -62,12 +62,6 @@ bin/kafka-console-producer.sh \
 # list all group
 bin/kafka-consumer-groups.sh \
 --bootstrap-server kafka.wiloon.com:9092 --list
-
-# list group detail, offset
-bin/kafka-consumer-groups.sh \
---bootstrap-server kafka.wiloon.com:9092 \
---describe \
---group my-group
 
 bin/kafka-consumer-groups.sh \
 --bootstrap-server kafka.wiloon.com:9092 \
@@ -84,6 +78,16 @@ bin/kafka-consumer-groups.sh --bootstrap-server localhost:9092 \
 --describe \
 --group my-group
 --state
+```
+
+### group detail, offset
+
+```bash
+# list group detail, offset
+bin/kafka-consumer-groups.sh \
+--bootstrap-server 127.0.0.1:9092 \
+--describe \
+--group group0
 ```
 
 ## offset
@@ -175,19 +179,19 @@ bin/kafka-topics.sh --create --partitions 3 --replication-factor 3 --topic topic
 --config retention.ms=1296000000 \
 --config retention.bytes=10737418240
     
-    # kafka
-    bin/kafka-topics.sh --create \
-    --zookeeper test-zookeeper-1,test-zookeeper-2 \
-    --replication-factor 3 \
-    --partitions 5 \
-    --topic topic0
+# kafka
+bin/kafka-topics.sh --create \
+--zookeeper test-zookeeper-1,test-zookeeper-2 \
+--replication-factor 3 \
+--partitions 5 \
+--topic topic0
 
-    # kafka
-    bin/kafka-topics.sh --create \
-    --zookeeper zookeeper.wiloon.com:2181 \
-    --replication-factor 1 \
-    --partitions 1 \
-    --topic topic0
+# kafka
+bin/kafka-topics.sh --create \
+--zookeeper zookeeper.wiloon.com:2181 \
+--replication-factor 1 \
+--partitions 1 \
+--topic topic0
 ```
 
 <https://cloud.tencent.com/developer/article/1436988>

@@ -15,6 +15,7 @@ tags:
 hostapd是一个_IEEE 802.11的AP和IEEE 802.1X/WPA/WPA2/EAP/RADIUS验证器_.此页面用于怎么在linux系统下使用它.其他操作系统请参考hostapd主页
 
 就Linux而言,老版本只能使用以下3个包
+
 - HostAP
 - madwifi
 - prism54
@@ -29,7 +30,7 @@ The mac80211 子系统将所有的master模式已经移到用户空间.通过hos
 
 在编译和安装你的拷贝之前尝试发行版本是很明智的.这将让你以后的干礼轻松,如果你的版本大于0.6.8或更新,你通过简单配置hostapd-minimal.conf文件来进行测试:
 
-#change wlan0 to your wireless device
+change wlan0 to your wireless device
 interface=wlan0
 driver=nl80211
 ssid=test
