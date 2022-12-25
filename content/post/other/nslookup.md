@@ -2,7 +2,7 @@
 title: nslookup
 author: "-"
 date: 2013-05-12T03:22:59+00:00
-url: /?p=5451
+url: nslookup
 categories:
   - Linux
 tags:
@@ -10,7 +10,9 @@ tags:
 ---
 ## nslookup
 
-    Nslookup foo.wiloon.com DNS_Server
+```bash
+Nslookup foo.wiloon.com DNS_Server
+```
 
 1.作用
 
@@ -96,9 +98,9 @@ IPv4
 
 使用命令检测，其中inet6 addr: fe80::5054:abff:fe34:5b09/64，就是eth0网卡的IPv6地址。
 
-# modprobe IPv6
+modprobe IPv6
 
-# ifconfig
+ifconfig
 
 eth0 Link encap:Ethernet HWaddr 52:54:AB:34:5B:09
 
@@ -120,13 +122,13 @@ Interrupt:5 Base address:0xec00
 
 (2)使用ping命令检测网卡的IPv6地址是否有效
 
-# ping6 -I eth0 -c 2 fe80::200:e8ff:fea0:2586
+ping6 -I eth0 -c 2 fe80::200:e8ff:fea0:2586
 
 和IPv4不一样，使用ping6命令时必须指定一个网卡界面，否则系统不知道将数据包发送到哪个网络设备。I表示Interface、eth0是第一个网卡，-c表示回路，2表示ping6操作两次。
 
 (3)使用ip命令在IPv6下为eth0增加一个IP地址
 
-# ip -6 addr add 3ffe:ffff:0:f101::1/64 dev eth0
+ip -6 addr add 3ffe:ffff:0:f101::1/64 dev eth0
 
 使用ifconfig命令，查看网卡是否出现第二个IPv6地址。
 
