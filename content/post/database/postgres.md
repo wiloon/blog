@@ -218,3 +218,9 @@ select now();
 substring(string [from <str_pos>] [for <ext_char>])
 -- str_pos 
 ```
+
+## table owner
+
+```sql
+select * from pg_tables where tablename = 'my_tbl';
+```
