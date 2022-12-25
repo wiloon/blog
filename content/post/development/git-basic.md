@@ -47,6 +47,8 @@ git branch
 git branch -r 
 # check branch detail
 git branch -v
+# git查看本地分支关联（跟踪）的远程分支之间的对应关系，本地分支对应哪个远程分支
+git branch -vv
 ```
 
 ### 新建分支

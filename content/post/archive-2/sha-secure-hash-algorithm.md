@@ -10,9 +10,9 @@ tags:
 ---
 ## SHA, Secure Hash Algorithm
 
-安全散列算法 (英语: Secure Hash Algorithm,缩写为SHA) 
+安全散列算法 (英语: Secure Hash Algorithm,缩写为SHA)
   
-安全散列算法SHA (Secure Hash Algorithm) 是美国国家安全局  (NSA)  设计,美国国家标准与技术研究院 (NIST)  发布的一系列密码散列函数,包括 SHA-1、SHA-224、SHA-256、SHA-384 和 SHA-512 等变体。主要适用于数字签名标准 (DigitalSignature Standard DSS) 里面定义的数字签名算法 (Digital Signature Algorithm DSA) 
+安全散列算法SHA (Secure Hash Algorithm) 是美国国家安全局  (NSA)  设计,美国国家标准与技术研究院 (NIST)  发布的一系列密码散列函数,包括 SHA-1、SHA-224、SHA-256、SHA-384 和 SHA-512 等变体。主要适用于数字签名标准 (DigitalSignature Standard DSS) 里面定义的数字签名算法 (Digital Signature Algorithm DSA)
 
 Hash 是什么,它的作用
   
@@ -24,4 +24,4 @@ Hash 是什么,它的作用
 
 这种标志有何意义呢？之前文件下载过程就是一个很好的例子,事实上,现在大部分的网络部署和版本控制工具都在使用散列算法来保证文件可靠性。而另一方面,我们在进行文件系统同步、备份等工具时,使用散列算法来标志文件唯一性能帮助我们减少系统开销,这一点在很多云存储服务器中都有应用。
 
-https://blog.csdn.net/asdzheng/article/details/70226007
+<https://blog.csdn.net/asdzheng/article/details/70226007>
