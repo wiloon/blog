@@ -15,7 +15,6 @@ tags:
 
 ## PVE ext4
 
-
 ## virtualbox ext4 disk resize
 
 ## PVE archlinux xfs disk resize
