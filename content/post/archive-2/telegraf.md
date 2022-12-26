@@ -48,7 +48,7 @@ apt-get update && apt-get install telegraf
   hostname = "foo"
   omit_hostname = false
 [[outputs.influxdb]]
-  urls = ["http://influxdb.wiloon.com:8086"]
+  urls = ["http://influxdb.wiloon.com:32086"]
 # 注意修改 database
   database = "monitor"
 
