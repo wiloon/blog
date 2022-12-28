@@ -15,6 +15,10 @@ tags:
 sudo pacman -S fuse-overlayfs
 sudo pacman -S buildah
 
+# login
+buildah login container.wiloon.com
+buildah login --tls-verify=false container.wiloon.com
+
 # buildah needs to run as root!!!
 # list all the images
 buildah images
