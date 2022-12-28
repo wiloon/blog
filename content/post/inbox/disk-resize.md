@@ -13,6 +13,8 @@ tags:
 ---
 ## 磁盘扩容
 
+## PVE ext4
+
 ## virtualbox ext4 disk resize
 
 ## PVE archlinux xfs disk resize
