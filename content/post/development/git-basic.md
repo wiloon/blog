@@ -527,6 +527,7 @@ git checkout -b branch_name tag_name
 git tag -a v1.4 -m "message0"
 # 对历史提交打标签
 git tag -a v1.2 9fceb02
+git push origin v1.5
 git push --tag
 ```
 
