@@ -11,6 +11,12 @@ tags:
 ---
 ## Git basic commands, git 常用命令
 
+## origin
+
+<https://www.zhihu.com/question/27712995>
+
+origin 是远程仓库的默认别名, 查看配置了几个远程仓库和别名 `git remote -v`
+
 ## 分支, branch
 
 最新版本的 Git 提供了新的 `git switch` 命令来切换分支, `git switch`，比 `git checkout` 要更容易理解。
@@ -242,7 +248,7 @@ git clean -f
 # 连 untracked 的目录也一起删掉
 git clean -fd
  
-# 连 gitignore 的untrack 文件/目录也一起删掉 （慎用，一般这个是用来删掉编译出来的 .o之类的文件用的）
+# 连 gitignore 的 untrack 文件/目录也一起删掉 （慎用，一般这个是用来删掉编译出来的 .o之类的文件用的）
 git clean -xfd
  
 # 在用上述 git clean 前，墙裂建议加上 -n 参数来先看看会删掉哪些文件，防止重要文件被误删
@@ -550,10 +556,11 @@ git tag v1.0.0
 git push origin <tagname>
 git push origin v1.0.0
 
-# delete tag
+# delete tag, 删除 tag
 git tag -d v1.0.0
 
 # delete remote tag
+git push --delete origin tagname
 git push origin :refs/tags/v1.0.0
 ```
 
