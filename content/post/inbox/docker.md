@@ -211,7 +211,8 @@ docker exec -it --user=root foo bash
 #查看存储层变化
 docker diff webserver
 
-#将容器保存为镜像
+# 将容器保存为镜像
+sudo docker commit webserver nginx:v2
 sudo docker commit \
     --author "wiloon" \
     --message "modify index" \
