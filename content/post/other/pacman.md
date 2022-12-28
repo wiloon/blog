@@ -155,7 +155,7 @@ Include = /etc/pacman.d/mirrorlist
 #Server=https://archive.archlinux.org/repos/2018/06/17/$repo/os/$arch
 ```
 
-### --noconfirm
+### --noconfirm, yes
 
 ```bash
 --noconfirm
