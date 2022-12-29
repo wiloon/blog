@@ -104,11 +104,15 @@ CURRENT-OFFSET = LOG-END-OFFSET 说明当前消费组已经全部消费了;
 ### 命令行手动调整 offset
 
 ```bash
+# 不加 --execute 只是打印出位移调整方案，不具体执行
 bin/kafka-consumer-groups.sh --bootstrap-server localhost:9092 --group test-group --reset-offsets --topic topic0 --to-offset 500000
+# 加 --execute 参数：执行位移调整
 bin/kafka-consumer-groups.sh --bootstrap-server localhost:9092 --group test-group --reset-offsets --topic topic0 --to-offset 500000 --execute
 
-# 
+# shift by
 bin/kafka-consumer-groups.sh --bootstrap-server localhost:9092 --group test-group --reset-offsets --topic topic0 --shift-by 1
+
+bin/kafka-consumer-groups.sh --bootstrap-server localhost:9092 --group test-group --reset-offsets --topic topic0 --to-current --execute
 
 ```
 
