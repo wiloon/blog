@@ -441,6 +441,7 @@ ip rule 命令:
   
 Usage: ip rule [ list | add | del ] SELECTOR ACTION  (add 添加；del 删除； llist 列表)
   
+```bash
 SELECTOR := [ from PREFIX 数据包源地址] [ to PREFIX 数据包目的地址] [ tos TOS 服务类型][ dev STRING 物理接口] [ pref NUMBER ] [fwmark MARK iptables 标签]
   
 ACTION := [ table TABLE_ID 指定所使用的路由表] [ nat ADDRESS 网络地址转换][ prohibit 丢弃该表| reject 拒绝该包| unreachable 丢弃该包]
@@ -449,6 +450,8 @@ ACTION := [ table TABLE_ID 指定所使用的路由表] [ nat ADDRESS 网络地�
   
 TABLE_ID := [ local | main | default | new | NUMBER ]
   
+```
+
 例子:
 
 ip rule add from 192.203.80/24 table inr.ruhep prio 220 通过路由表 inr.ruhep 路由来自源地址为192.203.80/24的数据包
@@ -1040,3 +1043,11 @@ ip route flush cache #刷新路由表
 <https://zhuanlan.zhihu.com/p/43279912>
 <https://www.jianshu.com/p/efed363da831>
 <https://www.jianshu.com/p/76d7ed2d77b9>
+
+## maxos 路由, route
+
+```bash
+sudo route -n add -net 192.168.5.4 -netmask 255.255.255.0 10.60.200.1
+```
+
+<https://www.jianshu.com/p/da975a32a915>
