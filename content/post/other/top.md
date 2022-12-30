@@ -7,6 +7,7 @@ categories:
   - Linux
 tags:
   - reprint
+  - remix
   - command
 ---
 ## top command
@@ -20,7 +21,7 @@ top 界面分为两个部份，上面部份显示关于系统整体性能，下�
 - 01:47:56 :  系统当前时间
 - up 1:26 :  系统开机到现在经过了多少时间
 - 2 users:  当前2用户在线
-- load average:0.00,0.00,0.00:  系统1分钟、5分钟、15分钟的CPU负载信息
+- load average: 0.00,0.00,0.00:  系统1分钟、5分钟、15分钟的 CPU 负载信息
 
 - Tasks:
   - 38 total: 当前有38个任务/进程
@@ -68,7 +69,7 @@ printf "%x\n" tid
 
 [u] 按用户排序。
 
-[o][O] 改变显示项目的顺序。
+`[o][O]` 改变显示项目的顺序。
 
 [Ctrl+L] 擦除并且重写屏幕。
 
