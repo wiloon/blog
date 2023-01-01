@@ -66,7 +66,6 @@ the在元音前读[ði],在辅音前读[ðə]，而元辅音的判断不是第�
 
 ### 表示过去某个时间发生的动作或情况
 
-
 I bought some fruits yesterday.  
 我昨天买了一些水果。
 
@@ -120,7 +119,7 @@ Does 表示时间； eat 表示状态；这就是“时态”。
 
 谓语动词 = 时间助动词 + 状态主动词
 
-### 情态动词 shall，can，should
+### 情态动词
 
 什么是“情态动词”，情态动词就是表示“主观 / 客观意愿”的。
 
@@ -138,7 +137,7 @@ Does 表示时间； eat 表示状态；这就是“时态”。
 
 如上所述，情态动词只是表示出你会、能、应该、可以、必须，但是你会、能、应该、可以、必须什么呢？ 这时后面还得接上一个真正的“动词”，我们称为“主动词”。
 
-我会(will/would) 做(do)；
+我会(will/would) 做(do)；-
 
 我能(can/could) 做(do)；
 
@@ -156,10 +155,38 @@ Does 表示时间； eat 表示状态；这就是“时态”。
 
 ## 状语
 
-## 不定冠词a/an
+## 不定冠词 a/an
 
 冠词是一个虚词,它置于名词之前,限定名词的意义。
 a用于辅音发音开头的词前，而不是辅音字母前面
 an 用于元音发音开头的词前，而不是元音字母前
 
 ## 虚词
+
+## 陈述句
+
+陈述句（statement）是一个告诉你某事的句子。陈述不需要回答
+
+## 疑问句
+
+疑问句（question）是一个询问你某事的句子。而疑问句需要回答。
+
+疑问句的基本结构：助动词+主语+主动词。
+
+Do you like China?
+Will you go to Beijing?
+Why did you leave early?
+When will you return?
+
+### 一般疑问句（General Questions）
+
+可以用简单的“是”或“否”回答的常见问题在逻辑上称为“是”或“否”问题，也就是一般疑问句（General Questions）。在口语中，当提出一般疑问句时，在句末用适当的升调。
+
+#### 一般疑问句的构成
+
+助动词（be, do或have）+主语+主要动词/情态动词+主语+主要动词来构成一般疑问句。一般来说，这类问题与整个句子有关，而不是与句子的某个单独部分有关。例如：
+
+Be	Is he studying at the moment?	Were you studying together?
+Do	Does it look good to you?	Did you go to the beach?
+Have	Have you finished yet?	Had they visited Spain before?
+Modal	Could you open the door?	Should I switch the light on?
