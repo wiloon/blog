@@ -5,7 +5,7 @@ date: 2021-09-26 00:09:45
 url: k8s
 categories:
   - K8S
-tags:                         n 
+tags:
   - reprint
   - k8s
   - remix
