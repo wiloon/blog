@@ -1,15 +1,16 @@
 ---
 author: "-"
 date: "2021-04-22 16:45:29" 
-title: "snap"
+title: snap
 categories:
   - inbox
 tags:
   - reprint
 ---
-## "snap"
+## snap
 
 ## archlinux
+
 ```bash
 yay -S snapd
 sudo systemctl enable --now snapd.socket
