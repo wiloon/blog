@@ -98,10 +98,10 @@ sudo usermod -aG docker $USER
 # 查看所有的组, /etc/group 的内容包括用户组 (Group) 
 cat /etc/group
 
-# 创建  组
+# 创建组
 groupadd group0
 
-#  create a system account
+# create a system account
 groupadd -r group0
 
 # Create a group named "test", groupadd [-g GID] GROUP
