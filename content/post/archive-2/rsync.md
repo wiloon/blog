@@ -10,10 +10,11 @@ tags:
 ---
 ## rsync
 
-## archlinux install rsync
+## install rsync
 
 ```bash
 pacman -S rsync
+sudo apt install rsync
 ```
 
 ```bash
@@ -84,5 +85,5 @@ $ rsync -azP source dest
   
 Share the post "使用rsync命令同步本地目录和远程主机目录"
 
-    使用rsync命令同步本地目录和远程主机目录
+使用rsync命令同步本地目录和远程主机目录
   
