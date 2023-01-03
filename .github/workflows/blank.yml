@@ -33,7 +33,7 @@ jobs:
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY_BWG }}
           ARGS: "-avz --delete"
           SOURCE: "public/"
-          REMOTE_HOST: "67.216.209.168"
+          REMOTE_HOST: "66.112.212.90"
           REMOTE_PORT: 10000
           REMOTE_USER: "blog"
           TARGET: "/home/blog/public/"
