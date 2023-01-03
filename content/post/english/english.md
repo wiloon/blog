@@ -184,9 +184,15 @@ When will you return?
 
 #### 一般疑问句的构成
 
-助动词（be, do或have）+主语+主要动词/情态动词+主语+主要动词来构成一般疑问句。一般来说，这类问题与整个句子有关，而不是与句子的某个单独部分有关。例如：
+助动词（ be, do 或 have ）+ 主语 + 主要动词/情态动词 + 主语 + 主要动词来构成一般疑问句。一般来说，这类问题与整个句子有关，而不是与句子的某个单独部分有关。例如：
 
-Be	Is he studying at the moment?	Were you studying together?
+Be, Is he studying at the moment? Were you studying together?
 Do	Does it look good to you?	Did you go to the beach?
 Have	Have you finished yet?	Had they visited Spain before?
 Modal	Could you open the door?	Should I switch the light on?
+
+## 量词
+
+infinity(无穷大)> countless(数不清)> a huge number of(巨多)> a great number of(大量)> many/a lot of(很多)> some(一些)> a few(一点)> few(一点点)> a/one(一个)>no(没有)
+
+## 宾语, 状语、补语、伴随语, 表语, 定语从句
