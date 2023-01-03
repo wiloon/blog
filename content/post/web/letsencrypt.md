@@ -63,6 +63,12 @@ snap install certbot-dns-google
 ### certonly
 
 ```bash
+# certonly: do not install
+# -m: provide email
+# --agree-tos: tos yes
+# --eff-email: share email yes
+# --keep-until-expiring: keep cert yes
+certbot certonly --standalone -m wiloon.wy@gmail.com --agree-tos --eff-email --keep-until-expiring -d wangyue.dev
 certbot certonly --standalone -d wangyue.dev
 certbot certonly   --dns-google   --dns-google-credentials /root/cellular-deck-280204-6455aa19691d.json -d wiloon.com -d *.wiloon.com
 ```
