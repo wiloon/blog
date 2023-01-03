@@ -18,7 +18,7 @@ install jdk8
   
 yum localinstall elasticsearch-6.3.1.rpm
 
-# start elasticsearch, it will generate default config file
+start elasticsearch, it will generate default config file
 
 systemctl start elasticsearch
 
