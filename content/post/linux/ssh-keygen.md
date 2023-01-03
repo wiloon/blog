@@ -102,6 +102,7 @@ touch ~/.ssh/config
 
 This would make sure that both the keys are always used whenever ssh makes a connection. However, ssh config lets you get down to a much finer level of control on keys and other per-connection setups. And I recommend, if you are able to, to use a key selection based on the Hostname. My ~/.ssh/config looks like this :
 
+```bash
 Host *.home.lan
 IdentityFile ~/.ssh/id_dsa.home
 User kbsingh
@@ -115,6 +116,7 @@ Host *.d0.karan.org
   IdentityFile ~/.ssh/id_rsa.d0
   User admin
   Port 21871
+```
 
 Ofcourse, if I am connecting to a remote host that does not match any of these selections, ssh will default back to checking for and using the 'usual' key, ~/.ssh/id_dsa or ~/.ssh/id_rsa
 
