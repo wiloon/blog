@@ -1,7 +1,7 @@
 ---
 title: ssh-keygen
 author: "-"
-date: 2011-11-24T04:41:17+00:00
+date: 2011-11-24T04:41:17
 url: ssh-keygen
 categories:
   - Security
