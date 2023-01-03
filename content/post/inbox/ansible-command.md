@@ -12,6 +12,12 @@ tags:
 ---
 ## ansible basic command
 
+## commands
+
+```bash
+ansible-galaxy collection install community.general
+```
+
 ## install
 
 ### Installing Ansible on Ubuntu

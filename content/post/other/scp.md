@@ -15,7 +15,7 @@ scp 可以在两个 linux 主机间复制文件；
 
 ## ash: /usr/libexec/sftp-server: not found
 
-This is a consequence of your client machine using a very recent OpenSSH release (9.0 - check https://www.openssh.com/txt/release-9.0 62 for more info), which changes the scp program to use the SFTP protocol under the hood, which vanilla OpenWrt/dropbear installations do not support. To work around the problem on the client side, use the new -O (that is an uppercase letter "o") switch when invoking scp, which will cause it to fall back to the legacy behavior.
+This is a consequence of your client machine using a very recent OpenSSH release (9.0 - check <https://www.openssh.com/txt/release-9.0> 62 for more info), which changes the scp program to use the SFTP protocol under the hood, which vanilla OpenWrt/dropbear installations do not support. To work around the problem on the client side, use the new -O (that is an uppercase letter "o") switch when invoking scp, which will cause it to fall back to the legacy behavior.
 
 <https://forum.openwrt.org/t/ash-usr-libexec-sftp-server-not-found-when-using-scp/125772/2>
 

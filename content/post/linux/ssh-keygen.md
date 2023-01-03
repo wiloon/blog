@@ -7,19 +7,20 @@ categories:
   - Security
 tags:
   - reprint
+  - remix
 
 ---
 ## ssh-keygen
 
 ssh-keygen 是用于为 SSH 创建新的身份验证密钥对的工具。此类密钥对用于自动登录，单点登录和验证主机。目前广泛的用在 linux 服务验证、git 身份验证上。
 
-执行ssh-keygen可以生成一个密钥对 ,这个密钥对称为公钥文件和私钥 文件 ,例如：
+执行 ssh-keygen 可以生成一个密钥对, 这个密钥对称为公钥文件和私钥文件 ,例如：
 
-使用 rsa算法： id_rsa(密钥),id_rsa.pub(公钥)
-使用 dsa算法：id_dsa(密钥),id_dsa.pub(公钥)
+使用 rsa 算法： id_rsa(密钥), id_rsa.pub(公钥)
+使用 dsa 算法：id_dsa(密钥), id_dsa.pub(公钥)
 
 -t 选择加密算法
-ssh-keygen目前支持三种加密算法:rsa,dsa,ecdsa, 默认使用的是rsa，ssh-keygen程序是交互式的，
+ssh-keygen目前支持三种加密算法: rsa, dsa, ecdsa, 默认使用的是 rsa，ssh-keygen 程序是交互式的
 
 在 ~/.ssh 目录下生成私钥 id_rsa 和公钥 id_rsa.pub 文件
 

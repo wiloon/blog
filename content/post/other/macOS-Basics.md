@@ -14,6 +14,13 @@ tags:
 
 - 截屏: Command + Shift + 3
 - 显示隐藏文件: Command + Shift + .
+- 将光标移动到行首：control + a
+- 将光标移动到行尾：control + e
+- 清除屏幕：control + l
+- 搜索以前使用命令：control + r
+- 清除当前行：control + u
+- 清除至当前行尾：control + k
+- 单词为单位移动：option + 方向键
 
 ## .DS_Store
 
