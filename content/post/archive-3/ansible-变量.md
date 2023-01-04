@@ -9,4 +9,5 @@ tags:
   - reprint
 ---
 ## ansible 变量
+
 ram_size: "{{ (ansible_memtotal_mb * 0.8)|int }}"
