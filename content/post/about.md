@@ -54,10 +54,10 @@ tags:
 - Github Action
 - Hugo
 - Even theme
-- Bandwagon VPS
 - Nginx
-- Google Domains
-- Google Cloud DNS
+- Bandwagon VPS
+- Cloudflare
+- GoDaddy
 
 ## 关于我
 
