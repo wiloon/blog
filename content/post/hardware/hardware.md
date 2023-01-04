@@ -96,7 +96,12 @@ Realtek®以太网LAN 10 Mb/100 Mb/1 Gb铜缆RJ45,LAN唤醒
 
 ## Sharp TV
 
-3840*2160
+- AQUOS
+- 4K: 3840*2160
+- 3D
+- dts 2.0+Digital Out
+- DOLBY Digital plus
+- HDMI
 
 ## 斐讯N1
 

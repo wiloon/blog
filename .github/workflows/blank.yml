@@ -33,7 +33,7 @@ jobs:
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY_BWG }}
           ARGS: "-avz --delete"
           SOURCE: "public/"
-          REMOTE_HOST: "67.216.209.168"
+          REMOTE_HOST: "wangyue.dev"
           REMOTE_PORT: 10000
           REMOTE_USER: "blog"
-          TARGET: "/home/blog/public/"
+          TARGET: "/var/www/blog/"

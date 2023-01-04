@@ -1,25 +1,26 @@
 ---
 title: ssh-keygen
 author: "-"
-date: 2011-11-24T04:41:17+00:00
+date: 2011-11-24T04:41:17
 url: ssh-keygen
 categories:
   - Security
 tags:
   - reprint
+  - remix
 
 ---
 ## ssh-keygen
 
 ssh-keygen 是用于为 SSH 创建新的身份验证密钥对的工具。此类密钥对用于自动登录，单点登录和验证主机。目前广泛的用在 linux 服务验证、git 身份验证上。
 
-执行ssh-keygen可以生成一个密钥对 ,这个密钥对称为公钥文件和私钥 文件 ,例如：
+执行 ssh-keygen 可以生成一个密钥对, 这个密钥对称为公钥文件和私钥文件 ,例如：
 
-使用 rsa算法： id_rsa(密钥),id_rsa.pub(公钥)
-使用 dsa算法：id_dsa(密钥),id_dsa.pub(公钥)
+使用 rsa 算法： id_rsa(密钥), id_rsa.pub(公钥)
+使用 dsa 算法：id_dsa(密钥), id_dsa.pub(公钥)
 
 -t 选择加密算法
-ssh-keygen目前支持三种加密算法:rsa,dsa,ecdsa, 默认使用的是rsa，ssh-keygen程序是交互式的，
+ssh-keygen目前支持三种加密算法: rsa, dsa, ecdsa, 默认使用的是 rsa，ssh-keygen 程序是交互式的
 
 在 ~/.ssh 目录下生成私钥 id_rsa 和公钥 id_rsa.pub 文件
 
@@ -27,7 +28,7 @@ ssh-keygen目前支持三种加密算法:rsa,dsa,ecdsa, 默认使用的是rsa，
 # 优先使用 ed25519
 ssh-keygen -t ed25519 -C "foo"
 ssh-keygen -t ed25519 -f foo -C "bar"
-# -t ed25519,  使用加密算法 ed25519
+# -t ed25519,  使用加密算法 ed25519, 可选值: ed25519, rsa 
 # -f foo, 生成的密钥文件名, 不指定文件名的话, ed25519 算法默认的文件名是 id_ed25519 
 # -C "bar" 在公钥文件中添加注释，即为这个公钥“起个别名”（不是 id，可以更改）。
 
@@ -101,6 +102,7 @@ touch ~/.ssh/config
 
 This would make sure that both the keys are always used whenever ssh makes a connection. However, ssh config lets you get down to a much finer level of control on keys and other per-connection setups. And I recommend, if you are able to, to use a key selection based on the Hostname. My ~/.ssh/config looks like this :
 
+```bash
 Host *.home.lan
 IdentityFile ~/.ssh/id_dsa.home
 User kbsingh
@@ -114,6 +116,7 @@ Host *.d0.karan.org
   IdentityFile ~/.ssh/id_rsa.d0
   User admin
   Port 21871
+```
 
 Ofcourse, if I am connecting to a remote host that does not match any of these selections, ssh will default back to checking for and using the 'usual' key, ~/.ssh/id_dsa or ~/.ssh/id_rsa
 
