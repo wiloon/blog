@@ -2,7 +2,7 @@
 title: "git reset"
 author: "-"
 date: "2022-08-17 11:35:15"
-url: ""
+url: "git/reset"
 categories:
   - "Git"
 tags:
@@ -10,6 +10,12 @@ tags:
   - "remix"
 ---
 ## git reset
+
+```bash
+# reset 最近一次 commit
+git reset --hard HEAD^
+git reset --soft HEAD^
+```
 
 进行了错误的提交，但是还没有push到远程分支，想要撤销最近的几次提交(commit)，可以使用 git reset –-soft/hard 命令。
 
@@ -50,11 +56,6 @@ soft （修改版本库，保留暂存区，保留工作区）
 
 因为当前分支的版本低于远程分支的版本，所以要想覆盖掉它，必须使用force
 git push origin 分支 --force ok，大功告成
-
-```bash
-# reset 最近一次 commit
-git reset --soft HEAD^
-```
 
 ### --mixed
 
