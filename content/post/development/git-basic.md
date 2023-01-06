@@ -109,6 +109,61 @@ git branch -D branch0
 git branch -d -r origin/todo
 ```
 
+## git tag
+
+轻量标签 (lightweight）与附注标签 (annotated）。
+
+### 附注标签 (annotated）
+
+附注标签是存储在 Git 数据库中的一个完整对象, 它们是可以被校验的，其中包含打标签者的名字、电子邮件地址、日期时间，此外还有一个标签信息，并且可以使用 GNU Privacy Guard  (GPG）签名并验证。通常会建议创建附注标签，这样你可以拥有以上所有信息。
+
+在运行 tag 命令时指定 -a 选项, 创建附注标签
+
+```bash
+git tag -a v1.4 -m "message0"
+# 对历史提交打标签
+git tag -a v1.2 9fceb02
+git push origin v1.5
+git push --tag
+```
+
+### 轻量标签 (lightweight）
+
+```bash
+# list local tags
+git tag
+git tag -l "v1.8.5*"
+
+# list remote tags
+git ls-remote --tags origin
+
+# 显示提交信息
+git show v0.0.1
+
+# 查看 tag 在哪个分支上
+git branch --contains tags/<tag>
+
+# 查看commit内容
+git show commit_id
+
+# checkout tag
+git checkout tag_name
+
+# add a tag
+git tag v1.0.0
+
+# 共享标签, 提交标签, commit tag
+git push origin <tagname>
+git push origin v1.0.0
+
+# delete tag, 删除 tag
+git tag -d v1.0.0
+
+# delete remote tag
+git push --delete origin tag0
+git push origin :refs/tags/v1.0.0
+```
+
 ## merge 合并分支, git merge 命令用于合并指定分支到当前分支
 
 ```bash
@@ -511,58 +566,6 @@ git fetch --all 告诉 Git 同步所有的远端仓库。
 
 # git分析指定的tag标签创建分支的命令
 git checkout -b branch_name tag_name
-```
-
-## git tag
-
-轻量标签 (lightweight）与附注标签 (annotated）。
-
-### 附注标签 (annotated）
-
-附注标签是存储在 Git 数据库中的一个完整对象, 它们是可以被校验的，其中包含打标签者的名字、电子邮件地址、日期时间，此外还有一个标签信息，并且可以使用 GNU Privacy Guard  (GPG）签名并验证。通常会建议创建附注标签，这样你可以拥有以上所有信息。
-
-在运行 tag 命令时指定 -a 选项, 创建附注标签
-
-```bash
-git tag -a v1.4 -m "message0"
-# 对历史提交打标签
-git tag -a v1.2 9fceb02
-git push origin v1.5
-git push --tag
-```
-
-### 轻量标签 (lightweight）
-
-```bash
-# list local tags
-git tag
-git tag -l "v1.8.5*"
-
-# list remote tags
-git ls-remote --tags origin
-
-# 显示提交信息
-git show v0.0.1
-
-# 查看commit内容
-git show commit_id
-
-# checkout tag
-git checkout tag_name
-
-# add a tag
-git tag v1.0.0
-
-# 共享标签, 提交标签, commit tag
-git push origin <tagname>
-git push origin v1.0.0
-
-# delete tag, 删除 tag
-git tag -d v1.0.0
-
-# delete remote tag
-git push --delete origin tagname
-git push origin :refs/tags/v1.0.0
 ```
 
 <https://git-scm.com/book/zh/v2/Git-%E5%9F%BA%E7%A1%80-%E6%89%93%E6%A0%87%E7%AD%BE>
