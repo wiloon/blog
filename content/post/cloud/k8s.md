@@ -21,6 +21,9 @@ tags:
 ## commands
 
 ```bash
+kubectl cluster-info
+kubectl get nodes
+
 kubectl -o wide get pod
 kubectl describe svc svc0
 kubectl logs pod0
@@ -170,7 +173,7 @@ sudo install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl
 kubectl version --client
 ```
 
-### archlinux 安装  k8s
+## archlinux 安装  k8s
 
 ```bash
 pacman -Syu
@@ -506,13 +509,18 @@ sudo apt install -y kubelet kubeadm kubectl
 sudo apt-mark hold kubelet kubeadm kubectl
 
 # 编辑 /etc/hosts 加入新 host
-# 复制 证书到新的 control plane
+# 如果新 control plan 加入集群时报错, 从 k8s0 复制证书到新的 control plane
 
-scp -rp /etc/kubernetes/pki/ca.* k8s2:/etc/kubernetes/pki
-scp -rp /etc/kubernetes/pki/sa.* k8s2:/etc/kubernetes/pki
-scp -rp /etc/kubernetes/pki/front-proxy-ca.* k8s2:/etc/kubernetes/pki
-scp -rp /etc/kubernetes/pki/etcd/ca.* k8s2:/etc/kubernetes/pki/etcd
-scp -rp /etc/kubernetes/admin.conf k8s2:/etc/kubernetes
+# k8s4
+mkdir -p /etc/kubernetes/pki
+mkdir -p /etc/kubernetes/pki/etcd
+
+# k8s0
+scp -rp /etc/kubernetes/pki/ca.* k8s4:/etc/kubernetes/pki
+scp -rp /etc/kubernetes/pki/sa.* k8s4:/etc/kubernetes/pki
+scp -rp /etc/kubernetes/pki/front-proxy-ca.* k8s4:/etc/kubernetes/pki
+scp -rp /etc/kubernetes/pki/etcd/ca.* k8s4:/etc/kubernetes/pki/etcd
+scp -rp /etc/kubernetes/admin.conf k8s4:/etc/kubernetes
 
 # https://blog.csdn.net/weixin_43815140/article/details/108648756
 
@@ -521,9 +529,9 @@ scp -rp /etc/kubernetes/admin.conf k8s2:/etc/kubernetes
 # 在 control plan 上查看 token 是否可用 
 kubeadm token list
 # 如果没有输出就重新生成 token
-kubeadm token create --print-join-command # 默认有效期24小时,若想久一些可以结合--ttl参数,设为0则用不过期
+kubeadm token create --print-join-command # 默认有效期24小时, 若想久一些可以结合 --ttl 参数, 设为 0 则用不过期
 
-# init control plane
+# init control plane, 集群中的第一个  control plane 初始化的时候执行这个命令, 其它的 control plan不需要执行 init, 直接执行 join
 sudo kubeadm init --control-plane-endpoint=k8s0
 
 mkdir -p $HOME/.kube
@@ -535,8 +543,7 @@ kubectl get nodes
 
 ## install kubeadm on other vm and join
 # join as control plane
-ubeadm join k8s0:6443 --token 7iikfr.7b2s9q28iuhmtpvq \
-        --discovery-token-ca-cert-hash sha256:97d5fe071438d0cc279078e76cf768e898ff61b75069d574eb3bef36e81723db \
+kubeadm join k8s0:6443 --token zkcu9u.44nifv9e83dvjayl --discovery-token-ca-cert-hash sha256:590186d23e11cba435d19ca1f1954d09cb6bc396ae80adafa4b4bad3a17c6ad4 \
         --control-plane
 
 # join as worker
@@ -1184,4 +1191,13 @@ spec:
       - name: volumne0
         persistentVolumeClaim:
           claimName: pvc0
+```
+
+## Containerd CLI (ctr)
+
+```bash
+ctr image pull registry.k8s.io/pause:3.9
+ctr -n k8s.io images  ls|grep api 
+ctr image export kube-apiserver.v1.25.2.tar registry.k8s.io/kube-apiserver:v1.25.2
+ctr -n k8s.io  image import kube-apiserver.v1.25.2.tar
 ```

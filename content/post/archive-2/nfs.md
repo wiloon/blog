@@ -1,17 +1,18 @@
 ---
 title: nfs
 author: "-"
-date: 2018-12-16T08:36:59+00:00
+date: 2023-01-08 12:09:25
 url: nfs
 categories:
   - Linux
 tags:
   - reprint
+  - remix
 ---
 ## nfs
 
 ```bash
-# nfs-utils 包含客户端和服务端实现
+# archlinux nfs-utils 包含客户端和服务端实现
 sudo pacman -S nfs-utils
 
 # ubuntu, nfs client
