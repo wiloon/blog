@@ -8,17 +8,18 @@ categories:
 tags:
   - reprint
 ---
-## ntp, chrony
+## systemd-timesyncd, ntp, chrony
 
-NTP，是 Net Time Protocol的缩写，意即网络时间协议。
+NTP，是 Net Time Protocol 的缩写，意即网络时间协议。
 
 ## systemd-timesyncd
 
-archinstall 默认使用 systemd-timesyncd
+archinstall 默认使用 systemd-timesyncd 作时钟同步
 
 systemd-timesyncd 是一个用于跨网络同步系统时钟的守护服务。它实现了一个 SNTP 客户端。与NTP的复杂实现相比，这个服务简单的多，它只专注于从远程服务器查询然后同步到本地时钟。
 
 ```bash
+# archlinux 的时钟同步是默认启用的.
 timedatectl status
 # System clock synchronized: yes
 ```

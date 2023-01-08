@@ -63,7 +63,6 @@ sudo docker push registry.wiloon.com/myfirstimage
 sudo docker image rm hello-world
 sudo docker pull  registry.wiloon.com/myfirstimage
 sudo docker image ls
-
 ```
 
 ### nginx config
@@ -93,7 +92,6 @@ server {
       proxy_read_timeout                  900;
     }
 }
-
 ```
 
 ## 查看仓库镜像
