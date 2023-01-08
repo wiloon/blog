@@ -886,6 +886,15 @@ python -X faulthandler main.py
 
 ## loop
 
+### for
+
+```py
+for i in range(1, 10):
+    s = "718"
+    h = int(hashlib.sha1(s.encode("utf-8")).hexdigest(), 16)
+    print(h % 10)
+```
+
 ### while
 
 ```python
