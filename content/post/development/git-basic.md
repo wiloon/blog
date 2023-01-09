@@ -61,6 +61,13 @@ git branch -vv
 
 新建分支其实就是在当前位置打个标签, 也就是说... 新分支是以当前分支的 commit 为基础的.
 
+### 新建并切换到分支
+
+```bash
+git switch -c dev
+git checkout -b branch0
+```
+
 ```bash
 # 从当前分支创建新分支, 新 branch 名字: branch0
 git branch branch0
@@ -79,17 +86,10 @@ git switch branch0
 git checkout branch0
 ```
 
-### 新建并切换到分支
-
-```bash
-git switch -c dev
-git checkout -b branch0
-```
-
 ### 把新建的分支推送到远端
 
 ```bash
-git push origin dev
+git push origin branch0
 ```
 
 ### 删除分支
