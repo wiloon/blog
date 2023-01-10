@@ -16,8 +16,8 @@ tags:
 ## 2022
 
 - Just for Fun: The Story of an Accidental Revolutionary
-  - 译作名: 只是为了好玩 - Linux 之父林纳斯自传
   - Author/作者: Linus Torvalds / David Diamond
+  - 译作名: 只是为了好玩 - Linux 之父林纳斯自传
   - 译者: 陈少芸
 
 ## 2021
@@ -37,6 +37,10 @@ tags:
 
 ## 想读
 
+- Asking The Right Questions:A Guide to Critical Thinking 10th
+  - 译作名: 学会提问
+  - Author/作者: M. Neil Browne, Stuart M. Keeley
+  - 译者: 吴礼敬
 - 七周七并发模型
   - 原作名: Seven Concurrency Models in Seven Weeks - When Threads Unravel
   - 作者: Paul Butcher
@@ -52,6 +56,6 @@ tags:
 ## Template
 
 - 书名
-  - 原作名:
   - Author/作者:
+  - 译作名:
   - 译者:
