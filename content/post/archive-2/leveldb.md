@@ -9,6 +9,7 @@ tags:
   - reprint
 ---
 ## Leveldb
+
 数据写入的整个流程为：
 
 数据首先会被写入 memtable 和 WAL
@@ -27,21 +28,21 @@ Leveldb是一个google实现的非常高效的kv数据库,目前的版本1.2能�
 
 LevelDB 是单进程的服务,性能非常之高,在一台4个Q6600的CPU机器上,每秒钟写数据超过40w,而随机读的性能每秒钟超过10w。
 
-http://www.oschina.net/p/leveldb
+<http://www.oschina.net/p/leveldb>
 
-http://www.cnblogs.com/haippy/archive/2011/12/04/2276064.html
+<http://www.cnblogs.com/haippy/archive/2011/12/04/2276064.html>
 
 LevelDb日知录之一: LevelDb 101
   
 说起LevelDb也许您不清楚,但是如果作为IT工程师,不知道下面两位大神级别的工程师,那您的领导估计会Hold不住了: Jeff Dean和Sanjay Ghemawat。这两位是Google公司重量级的工程师,为数甚少的Google Fellow之二。
 
-Jeff Dean其人: http://research.google.com/people/jeff/index.html,Google大规模分布式平台Bigtable和MapReduce主要设计和实现者。
+Jeff Dean其人: <http://research.google.com/people/jeff/index.html,Google大规模分布式平台Bigtable和MapReduce>主要设计和实现者。
 
-Sanjay Ghemawat其人: http://research.google.com/people/sanjay/index.html,Google大规模分布式平台GFS,Bigtable和MapReduce主要设计和实现工程师。
+Sanjay Ghemawat其人: <http://research.google.com/people/sanjay/index.html,Google大规模分布式平台GFS,Bigtable和MapReduce>主要设计和实现工程师。
 
 LevelDb就是这两位大神级别的工程师发起的开源项目,简而言之,LevelDb是能够处理十亿级别规模Key-Value型数据持久性存储的C++ 程序库。正像上面介绍的,这二位是Bigtable的设计和实现者,如果了解Bigtable的话,应该知道在这个影响深远的分布式存储系统中有两个核心的部分: Master Server和Tablet Server。其中Master Server做一些管理数据的存储以及分布式调度工作,实际的分布式数据存储以及读写操作是由Tablet Server完成的,而LevelDb则可以理解为一个简化版的Tablet Server。
 
-LevelDb有如下一些特点: 
+LevelDb有如下一些特点:
 
 首先,LevelDb是一个持久化存储的KV系统,和Redis这种内存型的KV系统不同,LevelDb不会像Redis一样狂吃内存,而是将大部分数据存储到磁盘上。
 
@@ -61,7 +62,7 @@ LevelDb本质上是一套存储系统以及在这套存储系统上提供的一�
 
 本节所讲的整体架构主要从静态角度来描述,之后接下来的几节内容会详述静态结构涉及到的文件或者内存数据结构,LevelDb日知录后半部分主要介绍动态视角下的LevelDb,就是说整个系统是怎么运转起来的。
 
-LevelDb作为存储系统,数据记录的存储介质包括内存以及磁盘文件,如果像上面说的,当LevelDb运行了一段时间,此时我们给LevelDb进行透视拍照,那么您会看到如下一番景象: 
+LevelDb作为存储系统,数据记录的存储介质包括内存以及磁盘文件,如果像上面说的,当LevelDb运行了一段时间,此时我们给LevelDb进行透视拍照,那么您会看到如下一番景象:
   
 图1.1: LevelDb结构
 
@@ -75,7 +76,7 @@ Log文件在系统中的作用主要是用于系统崩溃恢复而不丢失数�
 
 SSTable中的文件是Key有序的,就是说在文件中小key记录排在大Key记录之前,各个Level的SSTable都是如此,但是这里需要注意的一点是: Level 0的SSTable文件 (后缀为.sst) 和其它Level的文件相比有特殊性: 这个层级内的.sst文件,两个文件可能存在key重叠,比如有两个level 0的sst文件,文件A和文件B,文件A的key范围是: {bar, car},文件B的Key范围是{blue,samecity},那么很可能两个文件都存在key="blood"的记录。对于其它Level的SSTable文件来说,则不会出现同一层级内.sst文件的key重叠现象,就是说Level L中任意两个.sst文件,那么可以保证它们的key值是不会重叠的。这点需要特别注意,后面您会看到很多操作的差异都是由于这个原因造成的。
 
-SSTable中的某个文件属于特定层级,而且其存储的记录是key有序的,那么必然有文件中的最小key和最大key,这是非常重要的信息,LevelDb应该记下这些信息。Manifest就是干这个的,它记载了SSTable各个文件的管理信息,比如属于哪个Level,文件名称叫啥,最小key和最大key各自是多少。下图是Manifest所存储内容的示意: 
+SSTable中的某个文件属于特定层级,而且其存储的记录是key有序的,那么必然有文件中的最小key和最大key,这是非常重要的信息,LevelDb应该记下这些信息。Manifest就是干这个的,它记载了SSTable各个文件的管理信息,比如属于哪个Level,文件名称叫啥,最小key和最大key各自是多少。下图是Manifest所存储内容的示意:
   
 图2.1: Manifest存储示意图
 
@@ -94,14 +95,12 @@ LevelDb日知录之三: log文件
 图3.1 log文件布局
 
     在应用的视野里是看不到这些Block的,应用看到的是一系列的Key:Value对,在LevelDb内部,会将一个Key:Value对看做一条记录的数据,另外在这个数据前增加一个记录头,用来记载一些管理信息,以方便内部处理,图3.2显示了一个记录在LevelDb内部是如何表示的。
-    
 
 图3.2 记录结构
 
 记录头包含三个字段,ChechSum是对"类型"和"数据"字段的校验码,为了避免处理不完整或者是被破坏的数据,当LevelDb读取记录数据时候会对数据进行校验,如果发现和存储的CheckSum相同,说明数据完整无破坏,可以继续后续流程。"记录长度"记载了数据的大小,"数据"则是上面讲的Key:Value数值对,"类型"字段则指出了每条记录的逻辑结构和log文件物理分块结构之间的关系,具体而言,主要有以下四种类型: FULL/FIRST/MIDDLE/LAST。
 
     如果记录类型是FULL,代表了当前记录内容完整地存储在一个物理Block里,没有被不同的物理Block切割开；如果记录被相邻的物理Block切割开,则类型会是其他三种类型中的一种。我们以图3.1所示的例子来具体说明。
-    
 
 假设目前存在三条记录,Record A,Record B和Record C,其中Record A大小为10K,Record B 大小为80K,Record C大小为12K,那么其在log文件中的逻辑布局会如图3.1所示。Record A是图中蓝色区域所示,因为大小为10K<32K,能够放在一个物理Block中,所以其类型为FULL；Record B 大小为80K,而Block 1因为放入了Record A,所以还剩下22K,不足以放下Record B,所以在Block 1的剩余部分放入Record B的开头一部分,类型标识为FIRST,代表了是一个记录的起始部分；Record B还有58K没有存储,这些只能依次放在后续的物理Block里面,因为Block 2大小只有32K,仍然放不下Record B的剩余部分,所以Block 2全部用来放Record B,且标识类型为MIDDLE,意思是这是Record B中间一段数据；Record B剩下的部分可以完全放在Block 3中,类型标识为LAST,代表了这是Record B的末尾数据；图中黄色的Record C因为大小为12K,Block 3剩下的空间足以全部放下它,所以其类型标识为FULL。
 
@@ -175,7 +174,6 @@ LevelDb日知录之六 写入与删除记录
     从上面的介绍过程中也可以看出: log文件内是key无序的,而Memtable中是key有序的。那么如果是删除一条KV记录呢？对于levelDb来说,并不存在立即删除的操作,而是与插入操作相同的,区别是,插入操作插入的是Key:Value 值,而删除操作插入的是"Key:删除标记",并不真正去删除记录,而是后台Compaction的时候才去做真正的删除操作。
     
     levelDb的写入操作就是如此简单。真正的麻烦在后面将要介绍的读取操作中。
-    
 
 LevelDb日知录之七: 读取记录
   
@@ -273,10 +271,10 @@ leveldb的这种版本的控制,让我想到了双buffer切换,双buffer切换�
 
 leveldb的 version 管理和双 buffer 切换类似,但是如果原 version 被某个 iterator 引用,那么这个version会一直保持,直到没有被任何一个iterator引用,此时就可以删除这个version。
 
-注: 博文参考了郎格科技博客: http://www.samecity.com/blog/Index.asp?SortID=12
-
+注: 博文参考了郎格科技博客: <http://www.samecity.com/blog/Index.asp?SortID=12>
 
 ### maven
+
 ```xml
 <dependency>
     <groupId>org.fusesource.leveldbjni</groupId>
@@ -291,12 +289,18 @@ leveldb的 version 管理和双 buffer 切换类似,但是如果原 version 被�
 ```
 
 ### 庖丁解LevelDB之数据存储
->https://catkang.github.io/2017/01/17/leveldb-data.html
+
+><https://catkang.github.io/2017/01/17/leveldb-data.html>
+
 ### leveldb
-https://github.com/google/leveldb
+<https://github.com/google/leveldb>
+
 ### leveldbjni
-https://github.com/fusesource/leveldbjni
+<https://github.com/fusesource/leveldbjni>
+
 ### pure java leveldb
-https://github.com/dain/leveldb
+<https://github.com/dain/leveldb>
+
 ### WiscKey: Separating Keys from Values in SSD-Conscious Storage
->https://www.scienjus.com/wisckey/
+
+><https://www.scienjus.com/wisckey/>
