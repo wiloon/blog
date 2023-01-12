@@ -10,6 +10,11 @@ tags:
 ---
 ## macOS Basic
 
+```bash
+brew install maven
+
+```
+
 ## 快捷键
 
 - 截屏: Command + Shift + 3
