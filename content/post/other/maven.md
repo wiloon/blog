@@ -10,6 +10,11 @@ tags:
 ---
 ## mvn, maven basic
 
+```bash
+# 打印当前在使用的 settings
+mvn help:effective-settings
+```
+
 ### download
 
 <https://maven.apache.org/download.cgi>
