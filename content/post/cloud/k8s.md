@@ -1173,7 +1173,7 @@ spec:
         app: joplin
     spec:
       containers:
-      - image: joplin/server:latest
+      - image: joplin/server:2.10.5-beta
         name: joplin
         env:
         - name: APP_BASE_URL
