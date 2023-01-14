@@ -151,7 +151,7 @@ mirror相当于一个拦截器，它会拦截maven对remote repository的相关�
     </mirror>
 ```
 
-### setting.xml
+### settings.xml
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -173,8 +173,7 @@ mirror相当于一个拦截器，它会拦截maven对remote repository的相关�
   <profiles>
         <profile>
             <id>default</id>
-            
-                true</activeByDefault>
+                <activeByDefault>true</activeByDefault>
             </activation>
             <repositories>
                 <repository>
@@ -195,3 +194,15 @@ mirror相当于一个拦截器，它会拦截maven对remote repository的相关�
 ```
 
 <http://www.cnblogs.com/chenying99/archive/2012/06/23/2559218.html>
+
+## maven mirror aliyun
+
+```xml
+<mirror>
+    <id>aliyunmaven</id>
+    <mirrorOf>*</mirrorOf>
+    <name>阿里云公共仓库</name>
+    <url>https://maven.aliyun.com/repository/public</url>
+</mirror>
+
+```

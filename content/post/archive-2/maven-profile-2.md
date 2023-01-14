@@ -10,7 +10,8 @@ tags:
 
 ---
 ## maven profile
-http://haohaoxuexi.iteye.com/blog/1900568
+
+<http://haohaoxuexi.iteye.com/blog/1900568>
 
 4       profile介绍
   
@@ -34,11 +35,11 @@ profile中能够定义的配置信息跟profile所处的位置是相关的。以
 
 4.3.1  profile定义在settings.xml中
   
-当profile定义在settings.xml中时意味着该profile是全局的,它会对所有项目或者某一用户的所有项目都产生作用。因为它是全局的,所以在settings.xml中只能定义一些相对而言范围宽泛一点的配置信息,比如远程仓库等。而一些比较细致一点的需要根据项目的不同来定义的就需要定义在项目的pom.xml中。具体而言,能够定义在settings.xml中的信息有<repositories>、<pluginRepositories>和<properties>。定义在<properties>里面的键值对可以在pom.xml中使用。
+当profile定义在settings.xml中时意味着该profile是全局的,它会对所有项目或者某一用户的所有项目都产生作用。因为它是全局的,所以在settings.xml中只能定义一些相对而言范围宽泛一点的配置信息,比如远程仓库等。而一些比较细致一点的需要根据项目的不同来定义的就需要定义在项目的pom.xml中。具体而言,能够定义在settings.xml中的信息有 <repositories>、<pluginRepositories>和<properties>。定义在<properties>里面的键值对可以在pom.xml中使用。
 
 4.3.2  profile定义在pom.xml中
   
-定义在pom.xml中的profile可以定义更多的信息。主要有以下这些: 
+定义在pom.xml中的profile可以定义更多的信息。主要有以下这些:
 
 l  <repositories>
 
@@ -54,7 +55,7 @@ l  <dependencyManagement>
 
 l  <distributionManagement>
 
-l  还有build元素下面的子元素,主要包括: 
+l  还有build元素下面的子元素,主要包括:
 
 <defaultGoal>
 
@@ -66,7 +67,7 @@ l  还有build元素下面的子元素,主要包括:
 
 4.4     profile的激活方式
   
-Maven给我们提供了多种不同的profile激活方式。比如我们可以使用-P参数显示的激活一个profile,也可以根据环境条件的设置让它自动激活等。下面将对它们一一进行介绍: 
+Maven给我们提供了多种不同的profile激活方式。比如我们可以使用-P参数显示的激活一个profile,也可以根据环境条件的设置让它自动激活等。下面将对它们一一进行介绍:
 
 4.4.1  使用activeByDefault设置激活
   
@@ -85,8 +86,6 @@ Xml代码
 <hello>world</hello>
   
 </properties>
-  
-
   
 true</activeByDefault>
   
@@ -144,11 +143,9 @@ Xml代码
   
 </profiles>
   
-这里的profile可以是定义在settings.xml中的,也可以是定义在pom.xml中的。这个时候如果我们需要指定profileTest1为激活状态,那么我们就可以在settings.xml中定义activeProfiles,具体定义如下: 
+这里的profile可以是定义在settings.xml中的,也可以是定义在pom.xml中的。这个时候如果我们需要指定profileTest1为激活状态,那么我们就可以在settings.xml中定义activeProfiles,具体定义如下:
 
 Xml代码
-  
-
   
 profileTest1</activeProfile>
   
@@ -157,8 +154,6 @@ profileTest1</activeProfile>
 考虑这样一种情况,我们在activeProfiles下同时定义了多个需要激活的profile。这里还拿上面的profile定义来举例,我们定义了同时激活profileTest1和profileTest2。
 
 Xml代码
-  
-
   
 profileTest1</activeProfile>
   
@@ -202,13 +197,13 @@ Xml代码
   
 <profiles>
   
-那么当我们在进行Maven操作时就可以使用-P参数显示的指定当前激活的是哪一个profile了。比如我们需要在对项目进行打包的时候使用id为profileTest1的profile,我们就可以这样做: 
+那么当我们在进行Maven操作时就可以使用-P参数显示的指定当前激活的是哪一个profile了。比如我们需要在对项目进行打包的时候使用id为profileTest1的profile,我们就可以这样做:
 
 Cmd代码
   
 mvn package –P profileTest1
   
-当我们使用activeByDefault或settings.xml中定义了处于激活的profile,但是当我们在进行某些操作的时候又不想它处于激活状态,这个时候我们可以这样做: 
+当我们使用activeByDefault或settings.xml中定义了处于激活的profile,但是当我们在进行某些操作的时候又不想它处于激活状态,这个时候我们可以这样做:
 
 Cmd代码
   
@@ -264,8 +259,6 @@ Xml代码
   
 <id>profileTest1</id>
   
-
-  
 <os>
   
 <name>Windows XP</name>
@@ -295,8 +288,6 @@ Xml代码
 <profile>
   
 <id>profileTest1</id>
-  
-
   
 <property>
   
@@ -328,8 +319,6 @@ Xml代码
   
 <id>profileTest1</id>
   
-
-  
 <property>
   
 <name>hello</name>
@@ -351,8 +340,6 @@ Xml代码
 <profile>
   
 <id>profileTest1</id>
-  
-
   
 <file>
   
@@ -376,8 +363,6 @@ Xml代码
   
 <id>profileTest1</id>
   
-
-  
 <file>
   
 <missing>target</missing>
@@ -396,7 +381,7 @@ Xml代码
   
 我们可以同时定义多个profile,那么在建立项目的过程中,到底激活的是哪一个profile呢？Maven为我们提供了一个指令可以查看当前处于激活状态的profile都有哪些,这个指定就是mvn help:active-profiles。
 
-现在假设我们的settings.xml文件中有如下profile的定义: 
+现在假设我们的settings.xml文件中有如下profile的定义:
 
 Xml代码
   
@@ -405,8 +390,6 @@ Xml代码
 <profile>
   
 <id>profileTest1</id>
-  
-
   
 <file>
   
@@ -420,10 +403,8 @@ Xml代码
   
 </profiles>
 
-
-  
 profileTest1</activeProfile>
   
 </activeProfiles>
   
-这个时候我们可以看到,我们已经定义了profileTest1始终为激活状态,这个时候我们使用mvn help:active-profiles查看处于激活状态的profile时,就会打印出如下内容: 
+这个时候我们可以看到,我们已经定义了profileTest1始终为激活状态,这个时候我们使用mvn help:active-profiles查看处于激活状态的profile时,就会打印出如下内容:
