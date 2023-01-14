@@ -9,10 +9,10 @@ tags:
   - reprint
 ---
 ## gradle maven plugin
-https://docs.gradle.org/current/userguide/publishing_maven.html#header
+
+<https://docs.gradle.org/current/userguide/publishing_maven.html#header>
 
 gradle v5.3.1
-
 
 group = "com.wiloon.group0"
 version = "0.0.1-SNAPSHOT"

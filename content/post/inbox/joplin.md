@@ -13,7 +13,7 @@ tags:
 ### archlinux
 
 ```bash
-    yay -S joplin-desktop
+yay -S joplin-desktop
 ```
 
 ### direct install
@@ -21,19 +21,19 @@ tags:
 download Joplin.AppImage
 
 ```bash
-    curl -O https://github.com/laurent22/joplin/releases/download/v2.7.15/Joplin-2.7.15.AppImage
+curl -O https://github.com/laurent22/joplin/releases/download/v2.7.15/Joplin-2.7.15.AppImage
 ```
 
 installation script
 
 ```bash
-    wget -O - https://raw.githubusercontent.com/laurent22/joplin/dev/Joplin_install_and_update.sh | bash
+wget -O - https://raw.githubusercontent.com/laurent22/joplin/dev/Joplin_install_and_update.sh | bash
 ```
 
 default install path
 
 ```bash
-    ~/.joplin/Joplin.AppImage
+~/.joplin/Joplin.AppImage
 ```
 
 run
