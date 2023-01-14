@@ -27,7 +27,7 @@ sudo python get-pip.py
 pip install sasl==0.2.1
 ```
 
-### python输出现有环境依赖包目录
+### python 输出现有环境依赖包目录
 
 ```bash
 pip freeze >requirements.txt
