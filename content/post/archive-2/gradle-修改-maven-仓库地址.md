@@ -9,6 +9,7 @@ tags:
   - reprint
 ---
 ## Gradle 修改 Maven 仓库地址
+
 ### gradle kotlin
 
 repositories {
@@ -17,6 +18,7 @@ repositories {
         setUrl("<MAVEN REPO URL>")
     }
 }
+
 ```
 
 http://www.yrom.net/blog/2015/02/07/change-gradle-maven-repo-url/

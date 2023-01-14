@@ -15,7 +15,7 @@ tags:
 #### ubuntu
 
 ```bash
-    sudo apt-get install -y git-svn
+sudo apt-get install -y git-svn
 ```
 
 ```bash
