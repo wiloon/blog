@@ -10,9 +10,15 @@ tags:
 ---
 ## linux apps
 
+## pacman
+
 - ncdu, 磁盘空间占用分析/清理
 - bitwarden, password management
 - btop, 另外一个 top 实现, 颜值还不错
+
+## AUR
+
+- joplin-desktop
 
 ## application list
 
@@ -42,8 +48,8 @@ sudo pacman -S powerdevil kmix kscreen ark
 | keepassxc             |                                                                                         |
 | sqlectron-gui         |                                                                                         |
 | hyper                 |                                                                                         |
-| code                  | visual studio code, vscode                                                                      |
-| rsibreak              | 番茄钟                                                                                  |
+| code                  | visual studio code, vscode                                                              |
+| rsibreak              | 番茄钟                                                                                   |
 | libreoffice-fresh     |                                                                                         |
 | ark                   | kde dolphin extract zip,gz                                                              |
 | wine                  | 需要开启 Multilib 仓库                                                                    |
@@ -113,7 +119,7 @@ sudo pacman -S powerdevil kmix kscreen ark
 | adobe-source-code-pro-fonts     | adobe 的编程字体  |
 | tmux                            |                   |
 
-## AUR
+## AUR table
 
 | name                                  | comments                                                                 |
 | :------------------------------------ | :-------------------------------------------------------------           |
