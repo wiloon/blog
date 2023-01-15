@@ -388,6 +388,7 @@ F1 默认走 罗技优联, F2 和 F3 可以连接另外两个蓝牙设备. 蓝�
 <https://club.autohome.com.cn/bbs/thread/6542c267b66988e9/72454344-1.html>
 
 - 整备质量(kg) 1506
+- 油箱(L): 63
 
 ## MacBook Air
 
