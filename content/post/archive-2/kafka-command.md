@@ -58,6 +58,16 @@ bin/kafka-console-producer.sh \
 
 ### group
 
+### group detail, offset
+
+```bash
+# list group detail, offset
+bin/kafka-consumer-groups.sh \
+--bootstrap-server 127.0.0.1:9092 \
+--describe \
+--group group0
+```
+
 ```bash
 # list all group
 bin/kafka-consumer-groups.sh \
@@ -78,16 +88,6 @@ bin/kafka-consumer-groups.sh --bootstrap-server localhost:9092 \
 --describe \
 --group my-group
 --state
-```
-
-### group detail, offset
-
-```bash
-# list group detail, offset
-bin/kafka-consumer-groups.sh \
---bootstrap-server 127.0.0.1:9092 \
---describe \
---group group0
 ```
 
 ## offset
@@ -200,13 +200,14 @@ bin/kafka-topics.sh --create \
 
 <https://cloud.tencent.com/developer/article/1436988>
 
-### 调整分区数
+### 调整分区数, add partition
 
 kafka topic 可以动态增加分区数。  
 注意该命令分区数 partitions 只能增加, 不能减少, --partitions 5: 调整之后的分区数.
 
 ```bash
 # kafka >3.0
+# 如果重复执行这个命令而且分区数相同, 会提示 topic already has x partitions.
 bin/kafka-topics.sh \
 --bootstrap-server 127.0.0.1:9092 \
 --alter \
