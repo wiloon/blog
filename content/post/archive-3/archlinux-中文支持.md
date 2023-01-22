@@ -9,6 +9,7 @@ tags:
   - reprint
 ---
 ## archlinux 中文支持
+
 ```bash
 vim /etc/locale.gen
 en_US.UTF-8 UTF-8

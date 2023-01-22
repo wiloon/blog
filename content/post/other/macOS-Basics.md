@@ -12,7 +12,7 @@ tags:
 
 ```bash
 brew install maven
-
+diskutil list
 ```
 
 ## 快捷键
