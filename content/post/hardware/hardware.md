@@ -30,9 +30,10 @@ tags:
 
 <https://wiki.radxa.com/Rock5>
 
-CPU: 4核Cortex-A76和4核Cortex-A55的典型大小核架构，大核主频2.4GHz，小核主频1.8GHz
-GPU: RK3588集成ARM Mali-G610，至少支持2路4K UI
-NPU: RK3588集成了瑞芯微第四代具有完全自主知识产权的人工智能运算引擎，在MAC运算单元的利用率及带宽的消耗上提升了30％。6TOPs的NPU算力
+- CPU: 4核Cortex-A76和4核Cortex-A55的典型大小核架构，大核主频2.4GHz，小核主频1.8GHz
+- GPU: RK3588集成ARM Mali-G610，至少支持2路4K UI
+- NPU: RK3588集成了瑞芯微第四代具有完全自主知识产权的人工智能运算引擎，在MAC运算单元的利用率及带宽的消耗上提升了30％。6TOPs的NPU算力
+- mac: 66:45:78:69:ad:5c
 
 ## ThinkPad X1 Carbon Gen 9
 

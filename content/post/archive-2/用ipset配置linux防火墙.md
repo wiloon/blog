@@ -9,6 +9,7 @@ tags:
   - reprint
 ---
 ## ipset
+
 ```bash
 # install ipset
 pacman -S ipset
@@ -35,6 +36,7 @@ ipset restore -! < /etc/ipset.up.rules             # 根据输入内容恢复集
 ```
 
 ### 启动时创建ipset
+
 ```bash
 vim /etc/systemd/system/ipset-persistent.service
 
@@ -62,9 +64,9 @@ WantedBy=multi-user.target
 RequiredBy=netfilter-persistent.service
 RequiredBy=ufw.service
 ```
-https://confluence.jaytaala.com/pages/viewpage.action?pageId=11763750#UsingipsettoblockIPaddresses-firewall-Settingipsettobepersistent(notloselistsonreboot)
+<https://confluence.jaytaala.com/pages/viewpage.action?pageId=11763750#UsingipsettoblockIPaddresses-firewall-Settingipsettobepersistent(notloselistsonreboot)>
 
-https://fixatom.com/block-ip-with-ipset/
+<https://fixatom.com/block-ip-with-ipset/>
   
 -N, 创建 集合名称 类型 类型具体选项
   
@@ -84,7 +86,7 @@ ipset比传统的iptables拥有显著的性能提升和扩展特性,比如将单
 
 在许多的linux发布中ipset是一个简单的安装包,大家可以通过自己的linux发行版提供的包管理工具进行安装。
 
-需要理解的重点时,同iptables一样,ipset是由用户空间的工具和内核空间的模块两部分组成,所以你需要将这两部分都准备好。你也需要"ipset-aware"这个iptables 模块,这个模块用来增加 rules that match against sets。 (……) 
+需要理解的重点时,同iptables一样,ipset是由用户空间的工具和内核空间的模块两部分组成,所以你需要将这两部分都准备好。你也需要"ipset-aware"这个iptables 模块,这个模块用来增加 rules that match against sets。 (……)
 
 首先我们使用自己的linux发行版的包管理工具对ipset进行搜索。在ubuntu上安装需要安装ipset 和 xtables-addons-source 包,然后,运行module-assistant auto-install xtables-addons,等待大约30秒后ipset就可以使用了。
 
@@ -116,7 +118,7 @@ ipset是iptables的match扩展。如果要使用它,需要使用ipset命令行�
   
 一个集合是一个方便有效快速查询的地址列表。
   
-下面有两个常见的iptables命令,这两个命令阻止从1.1.1.1和2.2.2.2进入主机的数据包: 
+下面有两个常见的iptables命令,这两个命令阻止从1.1.1.1和2.2.2.2进入主机的数据包:
   
 iptables -A INPUT -s 1.1.1.1 -j DROP
   
@@ -124,7 +126,7 @@ iptables -A INPUT -s 2.2.2.2 -j DROP
   
 match 部分语法 -s 1.1.1.1 表示"匹配源地址是1.1.1.1的数据包"。
   
-下面的ipset/iptables命令同样可以达到上面的目的: 
+下面的ipset/iptables命令同样可以达到上面的目的:
   
 ipset -N myset iphash
   
@@ -156,7 +158,7 @@ Advantages of ipset
   
 除了性能优势,一些情况下ipset允许更直接的配置方法。
   
-如果你想定义一个防火墙环境,该环境不会处理来自1.1.1.1和2.2.2.2的包,并且处理过程包含在mychain中,注意下面的方法是无效的: 
+如果你想定义一个防火墙环境,该环境不会处理来自1.1.1.1和2.2.2.2的包,并且处理过程包含在mychain中,注意下面的方法是无效的:
   
 iptables -A INPUT -s ! 1.1.1.1 -g mychain
   
@@ -186,7 +188,7 @@ Outbound NAT (SNAT 或 IP 伪装)允许私有局域网内的主机访问internet
 
 NAT自动跟踪活动的连接,所以它能将返回的包发送给正确的内网主机 (通过将数据包的目的地址修改为内部主机地址) 。
 
-下面是一个简单的outbound NAT规则,10.0.0.0/24是内部局域网: 
+下面是一个简单的outbound NAT规则,10.0.0.0/24是内部局域网:
 
 iptables -t nat -A POSTROUTING \
   
@@ -208,7 +210,7 @@ iptables -t nat -A POSTROUTING \
 
 通过匹配物理接口来设计的防火墙规则可以使用在一些人为限制方面,并且依赖网络拓扑。
 
-后来发现,ipset还有另一个应用。假设有一个本地LAN (10.0.0.0/24)需要连接到internet,除此之外还有三个本地网络(10.30.30.0/24, 10.40.40.0/24, 192.168.4.0/23 和 172.22.0.0/22),执行下面的命令: 
+后来发现,ipset还有另一个应用。假设有一个本地LAN (10.0.0.0/24)需要连接到internet,除此之外还有三个本地网络(10.30.30.0/24, 10.40.40.0/24, 192.168.4.0/23 和 172.22.0.0/22),执行下面的命令:
   
 ipset -N routed_nets nethash
   
@@ -234,7 +236,7 @@ Limiting Certain PCs to Have Access Only to Certain Public Hosts
 
 假设老板较关心员工上班时间上网问题,请你限制员工的PC只能访问指定的几个网站,但是不想所有的内部PC都受到限制。
 
-限制3台PC (10.0.0.5, 10.0.0.6 and 10.0.0.7)只能访问worksite1.com,worksite2.com 和 worksite3.com。执行下面的命令: 
+限制3台PC (10.0.0.5, 10.0.0.6 and 10.0.0.7)只能访问worksite1.com,worksite2.com 和 worksite3.com。执行下面的命令:
   
 ipset -N limited_hosts iphash
   
@@ -322,7 +324,7 @@ Automatically Ban Hosts That Attempt to Access Invalid Services
 
 ipset为iptables提供了目标扩展功能,它提供了一种向集合动态添加和删除目标的机制。不必手动使用ipset命令添加目标,而是在运行时通过iptables自动添加。
 
-比如,如果远程主机尝试连接端口25,但是你并没有运行SMTP服务,我们怀疑对方不怀好意,所以我们在对方还没有干什么坏事前就组织他的其他尝试,使用下面的规则: 
+比如,如果远程主机尝试连接端口25,但是你并没有运行SMTP服务,我们怀疑对方不怀好意,所以我们在对方还没有干什么坏事前就组织他的其他尝试,使用下面的规则:
 
 ipset -N banned_hosts iphash
   
@@ -338,7 +340,7 @@ iptables -A INPUT \
   
 -j DROP
 
-如果从端口25接收到数据包,假设来源地址是1.1.1.1,那么该地址马上就被添加到banned_hosts集合,和下面的例子等效: 
+如果从端口25接收到数据包,假设来源地址是1.1.1.1,那么该地址马上就被添加到banned_hosts集合,和下面的例子等效:
 
 ipset -A banned_hosts 1.1.1.1
 
@@ -348,7 +350,7 @@ ipset -A banned_hosts 1.1.1.1
   
 Clearing the Running Config
 
-如果你想清除ipset和iptables的配置,将防火墙reset,运行下面的命令: 
+如果你想清除ipset和iptables的配置,将防火墙reset,运行下面的命令:
 
 iptables -P INPUT ACCEPT
   
@@ -380,16 +382,16 @@ ipset为netfilter/iptables在增加了很多有用的特性和功能,正如本�
   
 Resources
 
-Netfilter/iptables Project Home Page: http://www.netfilter.org
+Netfilter/iptables Project Home Page: <http://www.netfilter.org>
 
-ipset Home Page: http://ipset.netfilter.org
+ipset Home Page: <http://ipset.netfilter.org>
 
-原文地址: http://www.linuxjournal.com/content/advanced-firewall-configurations-ipset?page=0,0
+原文地址: <http://www.linuxjournal.com/content/advanced-firewall-configurations-ipset?page=0>,0
   
-http://blog.chinaunix.net/uid-21706718-id-3561951.html
+<http://blog.chinaunix.net/uid-21706718-id-3561951.html>
   
-http://blog.sina.com.cn/s/blog_6bdc95ab0100m58b.html
+<http://blog.sina.com.cn/s/blog_6bdc95ab0100m58b.html>
   
-https://fixatom.com/block-ip-with-ipset/
+<https://fixatom.com/block-ip-with-ipset/>
   
-http://ipset.netfilter.org/ipset.man.html
+<http://ipset.netfilter.org/ipset.man.html>

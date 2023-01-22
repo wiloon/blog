@@ -226,9 +226,12 @@ lsblk
 ls -l /dev/disk/by-uuid/
 ```
 
-查看挂载的USB设备
+## 查看挂载的USB设备
 
+```bash
+pacman -S usbutils
 lsusb
+```
 
 rmdir : delete folder
   
