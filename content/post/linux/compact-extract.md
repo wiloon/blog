@@ -295,12 +295,11 @@ gzip -d FileName.gz
 
 bzip2 -d foo.tar.bz2
 
-### .xz
+## .xz
 
 解压: xz -d foo.xz
 
 ```bash
-
 #.tar.xz
 $xz -d ***.tar.xz
 $tar -xvf  ***.tar
