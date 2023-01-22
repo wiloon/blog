@@ -43,7 +43,7 @@ Iperf3 是一个网络性能测试工具。Iperf可以测试最大TCP和UDP带�
 
 在ubuntu 上使用下列命令安装:
 
-# apt-get install iperf3
+apt-get install iperf3
 
 windows端安装:
 下载解压安装包,进入dos切换到iperf3解压目录,执行iperf3即可运行.
@@ -62,7 +62,6 @@ saneri@saneri-VirtualBox:~$ iperf3 -s
 C:\Users\iperf3>iperf3.exe -c 192.168.1.43
 
 从打印的内容看,缺省参数下,Client将连接Server端的5201端口,持续向Server端发送数据,并统计出每秒传输的字节数、带宽、出现报文重传的次数、拥塞窗口 (Congestion Window) 大小,整个测试将持续10秒钟；最后将汇总10秒的平均数据,并给出发送和接收端的统计
----------------------
 
 接下来分析一下Server的测试输出结果:
 
