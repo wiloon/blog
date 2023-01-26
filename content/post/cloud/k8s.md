@@ -1268,8 +1268,13 @@ kubectl delete -f athens.yaml
 ## Containerd CLI (ctr)
 
 ```bash
+ctr c ls
 ctr image pull registry.k8s.io/pause:3.6
+ctr image pull docker.io/library/ubuntu:22.04
 ctr -n k8s.io images  ls|grep api 
 ctr image export kube-apiserver.v1.25.2.tar registry.k8s.io/kube-apiserver:v1.25.2
 ctr -n k8s.io  image import kube-apiserver.v1.25.2.tar
+
 ```
+
+<https://www.51cto.com/article/717474.html>

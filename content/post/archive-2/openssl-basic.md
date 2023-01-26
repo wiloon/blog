@@ -41,20 +41,20 @@ openssl x509 -noout -text -in foo.pem
 openssl x509 -inform der -text -noout -in foo.crt 
 ```
 
-### pem格式转DER格式
+### pem 格式转 DER 格式
 
 ```bash
 openssl x509 -outform der -in charles.pem -out charles.crt
 ```
 
-### 查看https证书
+### 查看 https 证书
 
 ```bash
 openssl s_client -showcerts -connect www.baidu.com:443
 # 证书链是倒序的, 从上面数第一个是叶子节点, 跟浏览器里看到的证书顺序相反.
 ```
 
-### 查看pem证书内容
+### 查看 pem 证书内容
 
 ```bash
 openssl x509 -in certificate.pem -text -noout
