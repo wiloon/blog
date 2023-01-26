@@ -12,13 +12,13 @@ tags:
 
 ### go build
 
-    CGO_ENABLED=0 GOOS=linux go build -v -a -o name0 main.go
+CGO_ENABLED=0 GOOS=linux go build -v -a -o name0 main.go
 
 ## cgo
 
 CGO 提供了 golang 和 C 语言相互调用的机制。某些第三方库可能只有 C/C++ 的实现，完全用纯 golang 的实现可能工程浩大，这时候 CGO 就派上用场了。可以通 CGO 在 golang 在调用 C 的接口，C++ 的接口可以用 C 包装一下提供给 golang 调用。被调用的 C 代码可以直接以源代码形式提供或者打包静态库或动态库在编译时链接。推荐使用静态库的方式，这样方便代码隔离，编译的二进制也没有动态库依赖方便发布也符合 golang 的哲学。
 
-CGO_ENABLED=0 的情况下，Go采用纯静态编译；
+CGO_ENABLED=0 的情况下，Go 采用纯静态编译；
 
 ### CGO_ENABLED=1
 
@@ -40,4 +40,4 @@ cgo，允许你在Go代码中调用C代码
 
 ### go cpp
 
-><https://github.com/arrieta/golang-cpp-basic-example/tree/master>
+<https://github.com/arrieta/golang-cpp-basic-example/tree/master>
