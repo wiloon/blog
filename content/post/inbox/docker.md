@@ -173,8 +173,8 @@ docker run [OPTIONS] IMAGE [COMMAND] [ARG...]
 
 ```bash
 docker run -it --rm ubuntu bash
-# -i, --interactive=false   打开STDIN,用于控制台交互
-# -t, --tty=false           分配tty设备,该可以支持终端登录,默认为false
+# -i, --interactive=false   打开 STDIN, 用于控制台交互
+# -t, --tty=false           分配 tty 设备, 该可以支持终端登录, 默认为 false
 # -t -a stdout              Outputs the container logs on the standard output
 # -P, --publish-all=false   Docker自动分配一个未被使用的端口
 # -v, --volume=[]           Bind mount a volume(挂载目录 -v /root:/opt/temp), 跟mount一样，path 里如果有文件的话，挂载之后是看不到的。

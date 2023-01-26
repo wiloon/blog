@@ -76,8 +76,8 @@ https://colobu.com/2020/12/27/go-with-os-exec/
 ### commands
 
 ```bash
-    go get -u xorm.io/xorm
-    go run -race cmd.go // 竞态检测
+go get -u xorm.io/xorm
+go run -race cmd.go // 竞态检测
 ```
 
 ### install
@@ -333,13 +333,13 @@ sum := sha256.Sum256([]byte("hello world\n"))
 强行对所有涉及到的代码包 (包含标准库中的代码包) 进行重新构建, 即使它们已经是最新的了。
 # -installsuffix
 为了使当前的输出目录与默认的编译输出目录分离,可以使用这个标记。此标记的值会作为结果文件的父目录名称的后缀。其实,如果使用了-race标记,这个标记会被自动追加且其值会为race。如果我们同时使用了-race标记和-installsuffix,那么在-installsuffix标记的值的后面会再被追加_race,并以此来作为实际使用的后缀。
-#### -x
+# -x
 打印详细信息
-#### -n
+# -n
 查看具体操作,不执行
-#### -i
+# -i
 安装归档文件
-#### -v
+# -v
 查看编译的代码包名称
 # -o
 指定输出文件 路径/文件名 `go build -o /tmp/foo foo.go`
