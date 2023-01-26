@@ -636,7 +636,7 @@ spec:
           image: registry.wiloon.com/rssx-api:v0.0.1 # 镜像地址
           imagePullPolicy: Always # 每次都从仓库拉取镜像, 即使版本号一样也拉取
           ports:
-            - containerPort: 8080 # containerPort 是声明容器内部的端口
+            - containerPort: 8080 # containerPort 容器内部服务监听的端口, 比如 mysql 的 3306, redis 的 6379
 
 ---
 apiVersion: v1
@@ -648,9 +648,9 @@ spec:
   type: NodePort
   ports:
     - name: http
-      port: 18081      # Service暴露在cluster-ip上的端口，通过<cluster-ip>:port访问服务,通过此端口集群内的服务可以相互访问
-      targetPort: 8080 # Pod的外部访问端口，port和nodePort的数据通过这个端口进入到Pod内部，Pod里面的containers的端口映射到这个端口，提供服务
-      nodePort: 31081  # Node节点的端口，<nodeIP>:nodePort 是提供给集群外部客户访问service的入口
+      port: 18081      # Service 暴露在 cluster-ip 上的端口，通过 <cluster-ip>:port 访问服务, 通过此端口集群内的服务可以相互访问
+      targetPort: 8080 # Pod 的外部访问端口，port和 nodePort 的数据通过这个端口进入到 Pod 内部，Pod 里面的 containers 的端口映射到这个端口，提供服务
+      nodePort: 31081  # Node 节点的端口，<nodeIP>:nodePort 是提供给集群外部客户端访问 service 的入口
   selector:
     name: rssx-api
 ```
@@ -1202,6 +1202,67 @@ spec:
       - name: volumne0
         persistentVolumeClaim:
           claimName: pvc0
+```
+
+## athens.yaml
+
+```yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: athens-proxy
+spec:
+  type: NodePort
+  ports:
+    - name: joplin
+      port: 12231
+      targetPort: 3000
+      nodePort: 32231
+  selector:
+    app: athens-proxy
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: athens-proxy
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: athens-proxy
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: athens-proxy
+    spec:
+      containers:
+      - image: gomods/athens:v0.11.0
+        name: athens-proxy
+        env:
+        - name: ATHENS_DISK_STORAGE_ROOT
+          value: /var/lib/athens
+        - name: ATHENS_STORAGE_TYPE
+          value: disk
+        - name: ATHENS_DOWNLOAD_MODE
+          value: file:/var/lib/athens/download-mode
+        ports:
+        - containerPort: 3000
+          name: athens-proxy
+        volumeMounts:
+        - name: volumne0
+          mountPath: /var/lib/athens
+          subPath: athens
+      volumes:
+      - name: volumne0
+        persistentVolumeClaim:
+          claimName: pvc0
+```
+
+```bash
+kubectl create -f athens.yaml
+kubectl delete -f athens.yaml
 ```
 
 ## Containerd CLI (ctr)
