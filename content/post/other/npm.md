@@ -139,7 +139,6 @@ npm update webpack
 npm uninstall grunt-cli
   
 # 卸载0.1.9版本的grunt-cli
-
 npm uninstall grunt-cli@"0.1.9"
 ```
 
@@ -152,9 +151,9 @@ npm uninstall lodash
 npm uninstall --save lodash
 
 npm uninstall vue-cli -g 
- ```
+```
 
-#### 安装但不写入package.json
+#### 安装但不写入 package.json
 
 ```bash
     npm install xxx
@@ -163,11 +162,11 @@ npm uninstall vue-cli -g
 #### 安装并写入 package.json的"dependencies"中
 
 ```bash
-    npm install xxx –S
-    # 简写
-    npm i @vue/composition-api -S
-    # 指定版本
-    npm install jquery@3.0.0 --save
+npm install xxx –S
+# 简写
+npm i @vue/composition-api -S
+# 指定版本
+npm install jquery@3.0.0 --save
 ```
 
 ### 打印依赖树
@@ -189,34 +188,34 @@ npx npm-why async
 ### 查看包版本
 
 ```bash
-    npm info vue
-    npm view vue version
-    # 查看所有版本
-    npm view vue versions
+npm info vue
+npm view vue version
+# 查看所有版本
+npm view vue versions
 ```
 
 ### 安装并写入package.json的"devDependencies"中
 
 ```bash
-    npm install xxx –D
+npm install xxx –D
 ```
 
 ### 全局安装
 
 ```bash
-    npm install xxx -g
+npm install xxx -g
 ```
 
 ### 安装指定版本
 
 ```bash
-    npm install xxx@1.2.0
+npm install xxx@1.2.0
 ```
 
 ### report
 
 ```bash
-    npm run build --report
+npm run build --report
 ```
 
 --save和--save-dev区别
@@ -226,7 +225,7 @@ nodejs的出现，可以算是前端里程碑式的一个事件，它让前端�
 
 随着一系列基于nodejs的应用/工具的出现，工作中与nodejs打交道的机会越来越多。无论在node应用的开发，还是使用中，包管理都扮演着一个很重要的作用。NPM (node package manager) ，作为node的包管理工具，极大地便利了我们的开发工作，很有必要了解一下。
 
-### NPM是什么
+### NPM 是什么
 
 NPM (node package manager) ，通常称为node包管理器。顾名思义，它的主要功能就是管理node包，包括: 安装、卸载、更新、查看、搜索、发布等。
 

@@ -21,12 +21,28 @@ tags:
 ## commands
 
 ```bash
+# kubectl exec
+kubectl exec -it pod0 -- sh
+
+# logs
+kubectl logs pod0
+kubectl logs -f --since 5m istiod-9cbc77d98-kk98q -n istio-system
+kubectl logs --namespace <NAMESPACE> <NAME>
+
+# scale, 扩缩容
+kubectl scale --replicas=0 deployment/deployment0
+# 删除 pod
+kubectl delete pod kube-flannel-ds-trxtz  -n kube-system
+## 强制删除
+kubectl delete pod pod0 --force --grace-period=0
+kubectl delete pod pod0 -n namespace0 --force --grace-period=0
+
+kubectl get pods calico-node-tcwtg  -n kube-system -o  yaml | grep image:| cut -c 4-|sort|uniq
 kubectl cluster-info
 kubectl get nodes
 
 kubectl -o wide get pod
 kubectl describe svc svc0
-kubectl logs pod0
 
 kubectl describe pods pod0
 kubectl describe pods -n namespace0 pod0
@@ -36,14 +52,10 @@ kubectl set image deployment/kong kong=kong1.0 -n namespace0
 # cp, source file: /tmp/foo, dest file: /tmp/bar
 kubectl cp namespace0/pod0:/tmp/foo /tmp/bar
 
-# scale, 扩缩容
-kubectl scale --replicas=0 deployment/deployment0
 kubectl get pv,pvc
 kubectl get pod -A -o wide
 kubectl get pods --all-namespaces
 kubectl get svc
-
-
 
 ## 卸载服务, delete service and deployment
 kubectl delete -f deployment.yaml
@@ -60,7 +72,6 @@ kubectl get svc -n kube-system
 # 节点的状态
 kubectl get nodes -o wide
 kubectl get pod
-kubectl exec -it <id> bash
 # 所有 Pod 信息
 kubectl get pods --all-namespaces -o wide
 
@@ -75,13 +86,8 @@ kubectl delete node k8s-test-2.novalocal
 crictl ps
 
 kubeadm token list
-#删除节点
-kubectl delete pod kube-flannel-ds-trxtz  -n kube-system
 
-kubectl logs -f --since 5m istiod-9cbc77d98-kk98q -n istio-system
 
-## 强制删除
-kubectl delete pod pod0 -n xxx --force --grace-period=0
 
 kubectl get svc nginx-app
 kubectl describe svc nginx-app
@@ -90,7 +96,7 @@ kubectl describe svc nginx-app
 kubectl get pods --all-namespaces
 kubectl get pods --all-namespaces -o wide
 kubectl describe pod -n <NAMESPACE> <NAME>
-kubectl logs --namespace <NAMESPACE> <NAME>
+
 kubectl cluster-info
 kubectl get nodes
 kubectl get po -n default
@@ -490,7 +496,10 @@ sysctl --system
 
 sudo apt install -y curl gnupg2 software-properties-common apt-transport-https ca-certificates
 sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmour -o /etc/apt/trusted.gpg.d/docker.gpg
+# repo amd64
 sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+# repo arm64
+sudo add-apt-repository "deb [arch=arm64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
 sudo apt update
 sudo apt install -y containerd.io
 
@@ -529,9 +538,11 @@ scp -rp /etc/kubernetes/admin.conf k8s4:/etc/kubernetes
 # 在 control plan 上查看 token 是否可用 
 kubeadm token list
 # 如果没有输出就重新生成 token
-kubeadm token create --print-join-command # 默认有效期24小时, 若想久一些可以结合 --ttl 参数, 设为 0 则用不过期
+# 默认有效期24小时, 若想久一些可以结合 --ttl 参数, 设为 0 则用不过期
+# 把生成的 kubeadm join 命令复制到新的节点执行
+kubeadm token create --print-join-command 
 
-# init control plane, 集群中的第一个  control plane 初始化的时候执行这个命令, 其它的 control plan不需要执行 init, 直接执行 join
+# init control plane, 集群中的第一个  control plane 初始化的时候执行这个命令, 其它的 control plan 不需要执行 init, 直接执行 join
 sudo kubeadm init --control-plane-endpoint=k8s0
 
 mkdir -p $HOME/.kube
@@ -542,9 +553,9 @@ kubectl cluster-info
 kubectl get nodes
 
 ## install kubeadm on other vm and join
+# control plane 和 worker 的 join 命令前半段没有区别,  control plane 的 join 命令后面多了  --control-plane, kubeadm token create --print-join-command  命令生成的 kubeadm joint 命令可以直接用于 worker 的 join
 # join as control plane
-kubeadm join k8s0:6443 --token zkcu9u.44nifv9e83dvjayl --discovery-token-ca-cert-hash sha256:590186d23e11cba435d19ca1f1954d09cb6bc396ae80adafa4b4bad3a17c6ad4 \
-        --control-plane
+kubeadm join k8s0:6443 --token zkcu9u.44nifv9e83dvjayl --discovery-token-ca-cert-hash sha256:590186d23e11cba435d19ca1f1954d09cb6bc396ae80adafa4b4bad3a17c6ad4 --control-plane
 
 # join as worker
 kubeadm join k8s0:6443 --token 7iikfr.7b2s9q28iuhmtpvq \
@@ -1196,7 +1207,7 @@ spec:
 ## Containerd CLI (ctr)
 
 ```bash
-ctr image pull registry.k8s.io/pause:3.9
+ctr image pull registry.k8s.io/pause:3.6
 ctr -n k8s.io images  ls|grep api 
 ctr image export kube-apiserver.v1.25.2.tar registry.k8s.io/kube-apiserver:v1.25.2
 ctr -n k8s.io  image import kube-apiserver.v1.25.2.tar

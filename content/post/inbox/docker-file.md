@@ -25,6 +25,7 @@ COPY --from=build /workdir/${APP_NAME} /data/${APP_NAME}
 COPY config.toml config.toml
 COPY config.toml /data/config.toml
 ENV APPLICATION_NAME ${APP_NAME}
+RUN ["chmod", "+x", "/usr/src/app/docker-entrypoint.sh"]
 CMD "/data/${APPLICATION_NAME}"
 
 ```
