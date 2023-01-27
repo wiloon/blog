@@ -1,5 +1,5 @@
 ---
-title: nfs
+title: nfs0
 author: "-"
 date: 2023-01-08 12:09:25
 url: nfs
@@ -159,3 +159,5 @@ anonuid=xxx          指定NFS服务器/etc/passwd文件中匿名用�
 ©著作权归作者所有：来自51CTO博客作者一口Linux的原创作品，请联系作者获取转载授权，否则将追究法律责任
 NFS主配置文件exports参数详解
 <https://blog.51cto.com/u_15169172/2794884>
+
+[[samba]]
