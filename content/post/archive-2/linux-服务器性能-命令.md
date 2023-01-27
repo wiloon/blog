@@ -60,8 +60,6 @@ $ dmesg | tail
   
 [1880957.563150] perl invoked oom-killer: gfp_mask=0x280da, order=0, oom_score_adj=0
   
-[...]
-  
 [1880957.563400] Out of memory: Kill process 18694 (perl) score 246 or sacrifice child
   
 [1880957.563408] Killed process 18694 (perl) total-vm:1972392kB, anon-rss:1953348kB, file-rss:0kB
@@ -128,8 +126,6 @@ Linux 3.13.0-49-generic (titanclusters-xxxxx)  07/14/2015  _x86_64_ (32 CPU)
   
 07:38:50 PM    3  96.97   0.00   0.00    0.00   0.00   0.00    0.00    0.00    0.00   3.03
   
-[...]
-  
 该命令可以显示每个CPU的占用情况,如果有一个CPU占用率特别高,那么有可能是一个单线程应用程序引起的。
 
 pidstat 1
@@ -193,8 +189,6 @@ dm-0        0.00     0.00    0.69    2.32    10.47    31.69    28.01     0.01   
 dm-1        0.00     0.00    0.00    0.94     0.01     3.78     8.00     0.33  345.84    0.04  346.81   0.01   0.00
   
 dm-2        0.00     0.00    0.09    0.07     1.35     0.36    22.50     0.00    2.55    0.23    5.62   1.78   0.03
-  
-[...]
   
 ^C
   
