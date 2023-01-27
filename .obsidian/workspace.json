@@ -4,19 +4,15 @@
     "type": "split",
     "children": [
       {
-        "id": "3a98277167714ce8",
+        "id": "1383a848dc6ec587",
         "type": "tabs",
         "children": [
           {
-            "id": "c1d43dd5139e5e41",
+            "id": "7674db09dd9bcc1a",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "content/post/other/kvm虚拟机vnc开启音频rdp.md",
-                "mode": "source",
-                "source": false
-              }
+              "type": "empty",
+              "state": {}
             }
           }
         ]
@@ -77,7 +73,6 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "content/post/other/kvm虚拟机vnc开启音频rdp.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -104,8 +99,10 @@
       "markdown-importer:Open format converter": false
     }
   },
-  "active": "c1d43dd5139e5e41",
+  "active": "7674db09dd9bcc1a",
   "lastOpenFiles": [
+    "content/post/other/com4j-comexception-80040154-cocreateinstance-failed-class-not-registered.md",
+    "content/post/other/kvm虚拟机vnc开启音频rdp.md",
     "content/post/other/macOS-Basics.md",
     "content/post/archive-3/shell.md",
     "content/post/linux/grep.md",
@@ -113,8 +110,6 @@
     "和.md",
     "content/post/other/eclipse打开当前文件所在文件夹的两种方法.md",
     "content/post/other/alias.md",
-    "content/post/english/english.md",
-    "content/post/archive-2/english.md",
-    "content/post/archive-1/CanoKey.md"
+    "content/post/english/english.md"
   ]
 }
