@@ -343,8 +343,12 @@ git remote rm repo0
 
 ### 删除文件
 
+```bash
 git rm /xxx/xxx/xxx.xxx  
 git rm -r xxx/xxx
+git rm
+git rm -f
+```
 
 ### 将指定的提交 (commit) 应用于其他分支
 
@@ -483,11 +487,6 @@ git add README.md
 git commit -m "first commit"
 git remote add origin git@github.com:wiloon/go-angular-x.git
 git push -u origin master
-
-```bash
-git rm
-git rm -f
-```
 
 ## git fetch
 
