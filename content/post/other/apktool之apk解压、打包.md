@@ -42,7 +42,7 @@ Copyright 2010 Ryszard Wi?niewski <brut.alll@gmail.com>
   
 Apache License 2.0 (http://www.apache.org/licenses/LICENSE-2.0)
 
-Usage: apktool [-q|-quiet OR -v|-verbose] COMMAND [...]
+Usage: `apktool [-q|-quiet OR -v|-verbose] COMMAND [...]`
 
 COMMANDs are:
 

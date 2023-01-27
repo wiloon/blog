@@ -141,7 +141,9 @@ b := [2]string{"Penn", "Teller"}
 
 当然,也可以让编译器统计数组字面值中元素的数目:
   
+```go
 b := [...]string{"Penn", "Teller"}
+```
   
 这两种写法, b 都是对应 [2]string 类型。
 
