@@ -785,7 +785,7 @@ mkdir /srv/samba
   
 drwxr-xr-x root root root:object_r:var_t /srv/samba
 
-# 如上所示,默认的情况应该是 var_t 这个咚咚的！
+如上所示,默认的情况应该是 var_t 这个咚咚的！
 
 [root@www ~]# semanage fcontext -l | grep '/srv'
   

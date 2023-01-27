@@ -345,9 +345,7 @@ git remote rm repo0
 
 ```bash
 git rm /xxx/xxx/xxx.xxx  
-git rm -r xxx/xxx
-git rm
-git rm -f
+git rm -rf xxx/xxx
 ```
 
 ### 将指定的提交 (commit) 应用于其他分支

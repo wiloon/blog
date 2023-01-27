@@ -8,6 +8,7 @@ categories:
 tags:
   - reprint
   - remix
+  - storage
 ---
 ## nfs
 
