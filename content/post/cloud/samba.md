@@ -64,3 +64,5 @@ mount -t cifs //SERVER/sharename /mnt/mountpoint -o username=username,password=p
 ```
 
 <https://linuxize.com/post/how-to-install-and-configure-samba-on-centos-7/>
+
+[[nfs]]
