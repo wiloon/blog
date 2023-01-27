@@ -21,6 +21,14 @@ tags:
 ## commands
 
 ```bash
+kubectl label node 192.168.0.212 gpu=true
+kubectl get node -L gpu
+kubectl get node -L kubernetes.io/arch
+# 查询所有节点标签信息
+kubectl get node -o wide --show-labels
+# delete lable
+kubectl label node minikube disktype-
+kubectl describe node node0
 # kubectl exec
 kubectl exec -it pod0 -- sh
 
@@ -972,6 +980,15 @@ spec:
       - name: mysql-persistent-storage
         persistentVolumeClaim:
           claimName: pvc0
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+            - matchExpressions:
+              - key: kubernetes.io/arch
+                operator: In
+                values:
+                - amd64
 ```
 
 ## 访问 mysql
@@ -1056,6 +1073,15 @@ spec:
           subPath: influxdb
         - name: influxdb-config
           mountPath: /etc/influxdb
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+            - matchExpressions:
+              - key: kubernetes.io/arch
+                operator: In
+                values:
+                - amd64
       volumes:
       - name: influxdb-data
         persistentVolumeClaim:
@@ -1190,7 +1216,7 @@ spec:
         - name: APP_BASE_URL
           value: https://joplin.wiloon.com
         - name: APP_PORT
-          value: 22300
+          value: "22300"
         ports:
         - containerPort: 22300
           name: joplin
@@ -1198,6 +1224,15 @@ spec:
         - name: volumne0
           mountPath: /home/joplin
           subPath: joplin
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+            - matchExpressions:
+              - key: kubernetes.io/arch
+                operator: In
+                values:
+                - amd64
       volumes:
       - name: volumne0
         persistentVolumeClaim:
