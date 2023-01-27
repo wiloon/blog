@@ -1313,3 +1313,7 @@ ctr -n k8s.io  image import kube-apiserver.v1.25.2.tar
 ```
 
 <https://www.51cto.com/article/717474.html>
+
+## 亲和, 反亲和, affinity, nonaffinity
+
+<https://www.cnblogs.com/zhanglianghhh/p/13922945.html>
