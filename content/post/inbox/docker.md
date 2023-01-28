@@ -81,11 +81,14 @@ docker rmi 192.168.0.1/you/tom:1.0.8
 ## archlinux install docker
 
 ```bash
-docker ps -s
-```
-
-```bash
 sudo pacman -S docker
+systemctl start docker.service
+
+docker run -it --rm archlinux bash -c "echo hello world"
+
+pacman -S docker-compose
+
+docker ps -s
 
 # docker
 docker run \
