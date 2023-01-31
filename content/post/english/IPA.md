@@ -15,7 +15,7 @@ tags:
 
 ### [æ]
 
-sat, half, laugh
+s**a**t, h**a**lf, l**a**ugh
 
 ### [ɑ]
 
