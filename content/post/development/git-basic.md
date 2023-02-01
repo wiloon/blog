@@ -294,7 +294,7 @@ git clean -Xn
 
 ##### 清除文件或文件夹， -f 选项强制删除，-d 删除目录 (小心）
 
-git删除未跟踪文件
+git 删除未跟踪文件
 
 ```bash
 # 删除 untracked files

@@ -36,6 +36,8 @@ CREATE DATABASE foo;
 # create table
 create table table0(field0 json);
 
+# delete table
+DROP TABLE table0;
 # 查看字段类型
 select column_name, data_type from information_schema.columns where table_name='table0';
 
