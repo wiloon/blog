@@ -686,7 +686,7 @@ innodb_lock_waits ## 锁等待的对应关系
 
 <http://novoland.github.io/%E6%95%B0%E6%8D%AE%E5%BA%93/2015/08/17/InnoDB%20%E9%94%81.html>
 
-#<http://MySQLlover.com/?p=416>
+<http://MySQLlover.com/?p=416>
 
 <http://MySQL.taobao.org/monthly/2016/01/01/>
 

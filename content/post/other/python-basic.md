@@ -327,7 +327,7 @@ pickle.load(file)
 ## pyenv
 
 ```bash
-pyenv install -l
+dfesxc install -l
 pyenv install 3.6.15
 pyenv versions
 pyenv global 3.6.15
