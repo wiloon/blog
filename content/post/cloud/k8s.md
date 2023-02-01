@@ -21,12 +21,36 @@ tags:
 ## commands
 
 ```bash
+kubectl label node 192.168.0.212 gpu=true
+kubectl get node -L gpu
+kubectl get node -L kubernetes.io/arch
+# 查询所有节点标签信息
+kubectl get node -o wide --show-labels
+# delete lable
+kubectl label node minikube disktype-
+kubectl describe node node0
+# kubectl exec
+kubectl exec -it pod0 -- sh
+
+# logs
+kubectl logs pod0
+kubectl logs -f --since 5m istiod-9cbc77d98-kk98q -n istio-system
+kubectl logs --namespace <NAMESPACE> <NAME>
+
+# scale, 扩缩容
+kubectl scale --replicas=0 deployment/deployment0
+# 删除 pod
+kubectl delete pod kube-flannel-ds-trxtz  -n kube-system
+## 强制删除
+kubectl delete pod pod0 --force --grace-period=0
+kubectl delete pod pod0 -n namespace0 --force --grace-period=0
+
+kubectl get pods calico-node-tcwtg  -n kube-system -o  yaml | grep image:| cut -c 4-|sort|uniq
 kubectl cluster-info
 kubectl get nodes
 
 kubectl -o wide get pod
 kubectl describe svc svc0
-kubectl logs pod0
 
 kubectl describe pods pod0
 kubectl describe pods -n namespace0 pod0
@@ -36,14 +60,10 @@ kubectl set image deployment/kong kong=kong1.0 -n namespace0
 # cp, source file: /tmp/foo, dest file: /tmp/bar
 kubectl cp namespace0/pod0:/tmp/foo /tmp/bar
 
-# scale, 扩缩容
-kubectl scale --replicas=0 deployment/deployment0
 kubectl get pv,pvc
 kubectl get pod -A -o wide
 kubectl get pods --all-namespaces
 kubectl get svc
-
-
 
 ## 卸载服务, delete service and deployment
 kubectl delete -f deployment.yaml
@@ -60,7 +80,6 @@ kubectl get svc -n kube-system
 # 节点的状态
 kubectl get nodes -o wide
 kubectl get pod
-kubectl exec -it <id> bash
 # 所有 Pod 信息
 kubectl get pods --all-namespaces -o wide
 
@@ -75,13 +94,8 @@ kubectl delete node k8s-test-2.novalocal
 crictl ps
 
 kubeadm token list
-#删除节点
-kubectl delete pod kube-flannel-ds-trxtz  -n kube-system
 
-kubectl logs -f --since 5m istiod-9cbc77d98-kk98q -n istio-system
 
-## 强制删除
-kubectl delete pod pod0 -n xxx --force --grace-period=0
 
 kubectl get svc nginx-app
 kubectl describe svc nginx-app
@@ -90,7 +104,7 @@ kubectl describe svc nginx-app
 kubectl get pods --all-namespaces
 kubectl get pods --all-namespaces -o wide
 kubectl describe pod -n <NAMESPACE> <NAME>
-kubectl logs --namespace <NAMESPACE> <NAME>
+
 kubectl cluster-info
 kubectl get nodes
 kubectl get po -n default
@@ -490,7 +504,10 @@ sysctl --system
 
 sudo apt install -y curl gnupg2 software-properties-common apt-transport-https ca-certificates
 sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmour -o /etc/apt/trusted.gpg.d/docker.gpg
+# repo amd64
 sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+# repo arm64
+sudo add-apt-repository "deb [arch=arm64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
 sudo apt update
 sudo apt install -y containerd.io
 
@@ -529,9 +546,11 @@ scp -rp /etc/kubernetes/admin.conf k8s4:/etc/kubernetes
 # 在 control plan 上查看 token 是否可用 
 kubeadm token list
 # 如果没有输出就重新生成 token
-kubeadm token create --print-join-command # 默认有效期24小时, 若想久一些可以结合 --ttl 参数, 设为 0 则用不过期
+# 默认有效期24小时, 若想久一些可以结合 --ttl 参数, 设为 0 则用不过期
+# 把生成的 kubeadm join 命令复制到新的节点执行
+kubeadm token create --print-join-command 
 
-# init control plane, 集群中的第一个  control plane 初始化的时候执行这个命令, 其它的 control plan不需要执行 init, 直接执行 join
+# init control plane, 集群中的第一个  control plane 初始化的时候执行这个命令, 其它的 control plan 不需要执行 init, 直接执行 join
 sudo kubeadm init --control-plane-endpoint=k8s0
 
 mkdir -p $HOME/.kube
@@ -542,9 +561,9 @@ kubectl cluster-info
 kubectl get nodes
 
 ## install kubeadm on other vm and join
+# control plane 和 worker 的 join 命令前半段没有区别,  control plane 的 join 命令后面多了  --control-plane, kubeadm token create --print-join-command  命令生成的 kubeadm joint 命令可以直接用于 worker 的 join
 # join as control plane
-kubeadm join k8s0:6443 --token zkcu9u.44nifv9e83dvjayl --discovery-token-ca-cert-hash sha256:590186d23e11cba435d19ca1f1954d09cb6bc396ae80adafa4b4bad3a17c6ad4 \
-        --control-plane
+kubeadm join k8s0:6443 --token zkcu9u.44nifv9e83dvjayl --discovery-token-ca-cert-hash sha256:590186d23e11cba435d19ca1f1954d09cb6bc396ae80adafa4b4bad3a17c6ad4 --control-plane
 
 # join as worker
 kubeadm join k8s0:6443 --token 7iikfr.7b2s9q28iuhmtpvq \
@@ -625,7 +644,7 @@ spec:
           image: registry.wiloon.com/rssx-api:v0.0.1 # 镜像地址
           imagePullPolicy: Always # 每次都从仓库拉取镜像, 即使版本号一样也拉取
           ports:
-            - containerPort: 8080 # containerPort 是声明容器内部的端口
+            - containerPort: 8080 # containerPort 容器内部服务监听的端口, 比如 mysql 的 3306, redis 的 6379
 
 ---
 apiVersion: v1
@@ -637,9 +656,9 @@ spec:
   type: NodePort
   ports:
     - name: http
-      port: 18081      # Service暴露在cluster-ip上的端口，通过<cluster-ip>:port访问服务,通过此端口集群内的服务可以相互访问
-      targetPort: 8080 # Pod的外部访问端口，port和nodePort的数据通过这个端口进入到Pod内部，Pod里面的containers的端口映射到这个端口，提供服务
-      nodePort: 31081  # Node节点的端口，<nodeIP>:nodePort 是提供给集群外部客户访问service的入口
+      port: 18081      # Service 暴露在 cluster-ip 上的端口，通过 <cluster-ip>:port 访问服务, 通过此端口集群内的服务可以相互访问
+      targetPort: 8080 # Pod 的外部访问端口，port和 nodePort 的数据通过这个端口进入到 Pod 内部，Pod 里面的 containers 的端口映射到这个端口，提供服务
+      nodePort: 31081  # Node 节点的端口，<nodeIP>:nodePort 是提供给集群外部客户端访问 service 的入口
   selector:
     name: rssx-api
 ```
@@ -961,6 +980,15 @@ spec:
       - name: mysql-persistent-storage
         persistentVolumeClaim:
           claimName: pvc0
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+            - matchExpressions:
+              - key: kubernetes.io/arch
+                operator: In
+                values:
+                - amd64
 ```
 
 ## 访问 mysql
@@ -1045,6 +1073,15 @@ spec:
           subPath: influxdb
         - name: influxdb-config
           mountPath: /etc/influxdb
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+            - matchExpressions:
+              - key: kubernetes.io/arch
+                operator: In
+                values:
+                - amd64
       volumes:
       - name: influxdb-data
         persistentVolumeClaim:
@@ -1179,7 +1216,7 @@ spec:
         - name: APP_BASE_URL
           value: https://joplin.wiloon.com
         - name: APP_PORT
-          value: 22300
+          value: "22300"
         ports:
         - containerPort: 22300
           name: joplin
@@ -1187,17 +1224,96 @@ spec:
         - name: volumne0
           mountPath: /home/joplin
           subPath: joplin
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+            - matchExpressions:
+              - key: kubernetes.io/arch
+                operator: In
+                values:
+                - amd64
       volumes:
       - name: volumne0
         persistentVolumeClaim:
           claimName: pvc0
 ```
 
+## athens.yaml
+
+```yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: athens-proxy
+spec:
+  type: NodePort
+  ports:
+    - name: joplin
+      port: 12231
+      targetPort: 3000
+      nodePort: 32231
+  selector:
+    app: athens-proxy
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: athens-proxy
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: athens-proxy
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: athens-proxy
+    spec:
+      containers:
+      - image: gomods/athens:v0.11.0
+        name: athens-proxy
+        env:
+        - name: ATHENS_DISK_STORAGE_ROOT
+          value: /var/lib/athens
+        - name: ATHENS_STORAGE_TYPE
+          value: disk
+        - name: ATHENS_DOWNLOAD_MODE
+          value: file:/var/lib/athens/download-mode
+        ports:
+        - containerPort: 3000
+          name: athens-proxy
+        volumeMounts:
+        - name: volumne0
+          mountPath: /var/lib/athens
+          subPath: athens
+      volumes:
+      - name: volumne0
+        persistentVolumeClaim:
+          claimName: pvc0
+```
+
+```bash
+kubectl create -f athens.yaml
+kubectl delete -f athens.yaml
+```
+
 ## Containerd CLI (ctr)
 
 ```bash
-ctr image pull registry.k8s.io/pause:3.9
+ctr c ls
+ctr image pull registry.k8s.io/pause:3.6
+ctr image pull docker.io/library/ubuntu:22.04
 ctr -n k8s.io images  ls|grep api 
 ctr image export kube-apiserver.v1.25.2.tar registry.k8s.io/kube-apiserver:v1.25.2
 ctr -n k8s.io  image import kube-apiserver.v1.25.2.tar
+
 ```
+
+<https://www.51cto.com/article/717474.html>
+
+## 亲和, 反亲和, affinity, nonaffinity
+
+<https://www.cnblogs.com/zhanglianghhh/p/13922945.html>

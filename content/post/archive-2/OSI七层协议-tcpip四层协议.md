@@ -11,7 +11,7 @@ tags:
 
 ## OSI 七层协议, TCP/IP 四层协议, osi 7层, tcp/ip 4层
 
-## OSI七层协议和TCP/IP四层协议之比较
+## OSI 七层协议和TCP/IP四层协议之比较
 
 ### TCP/IP四层协议
 
@@ -20,7 +20,7 @@ tags:
 3. 传输层: TCP(网络端口),UDP,UGP, QUIC, SCTP (流控制传输协议)
 4. 应用层: Telnet,FTP,SMTP,SNMP
 
-### OSI七层协议
+### OSI 七层协议
 
 1. 物理层  Physical Layer: EIA/TIA-232, EIA/TIA-499, V.35, V.24, RJ45, Ethernet, 802.3, 8025, FDDI, NRZI, NRZ, B8ZS
 2. 数据链路层 Data Link Layer : Frame Relay, HDLC, PPP, IEEE 802.3/802.2, FDDI, ATM, IEEE 8025/802.2
