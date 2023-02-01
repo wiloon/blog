@@ -33,16 +33,15 @@ X.509 PEM 编码 (Base64) 的后缀是: .PEM .CER .CRT
 
 ### .cer
 
-.CER扩展名
- CER = .crt的替代形式 (Microsoft Convention）您可以在微软系统环境下将.crt转换为.cer (.both DER编码的.cer，或base64 [PEM]编码的.cer）。
+CER = .crt 的替代形式 (Microsoft Convention）您可以在微软系统环境下将 .crt 转换为 .cer (.both DER 编码的.cer，或base64 [PEM]编码的.cer）。
 
 可参考：<https://support.comodo.com/index.php?/Knowledgebase/Article/View/361/17/how-do-i-convert-crt-file-into-the-microsoft-cer-format>
 
-.cer文件扩展名也被IE识别为 一个运行MS cryptoAPI命令的命令 (特别是rundll32.exe cryptext.dll，CryptExtOpenCER），该命令显示用于导入和/或查看证书内容的对话框。
+.cer 文件扩展名也被 IE 识别为 一个运行 MS cryptoAPI 命令的命令 (特别是rundll32.exe cryptext.dll，CryptExtOpenCER），该命令显示用于导入和/或查看证书内容的对话框。
 
 ### .KEY 扩展名
 
-     .KEY = KEY扩展名用于公钥和私钥PKCS＃8。 键可以被编码为二进制DER或ASCII PEM。
+.KEY = KEY扩展名用于公钥和私钥PKCS＃8。 键可以被编码为二进制DER或ASCII PEM。
 
 ---
 

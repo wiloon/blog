@@ -12,25 +12,35 @@ tags:
 
 ### commands
 
-    yarn serve
+```bash
+yarn serve
+# 打印 缓存 目录/路径
+yarn cache dir
+```
 
-### Yarn是什么？
+### Yarn 是什么？
 
 "Yarn是由Facebook、Google、Exponent 和 Tilde 联合推出了一个新的 JS 包管理工具 ,正如官方文档中写的,Yarn 是为了弥补 npm 的一些缺陷而出现的。
 
 ### build
 
-   yarn build
-   yarn build --report // 会在dist目录下生成一个report.html
+```bash
+yarn build
+yarn build --report // 会在dist目录下生成一个report.html
+```
 
 ### npm, yarn  命令对照
+
 <https://classic.yarnpkg.com/zh-Hans/docs/migrating-from-npm/>
 
 ### npm命令简写
+
 <https://www.jianshu.com/p/455f74669ce9>
 
-    npm install本身有一个别名,即npm i
-    -S --save,缩写为-S,表示安装的包将写入package.json里面的dependencies。
+```bash
+npm install本身有一个别名,即npm i
+-S --save,缩写为-S,表示安装的包将写入package.json里面的dependencies。
+```
 
 ```bash
 npm install
@@ -48,11 +58,15 @@ yarn global add http-server
 
 ### 打印依赖树
 
-    yarn list
+```bash
+yarn list
+```
 
 ### 更新某个包的版本
 
-    yarn upgrade vuetify@v2.3.23
+```bash
+yarn upgrade vuetify@v2.3.23
+```
 
 ### yarn 国内加速,修改镜像源
 
@@ -60,13 +74,17 @@ yarn global add http-server
 
 yarn config get registry
 
-# 临时修改
+临时修改
 
-yarn save 软件名 --registry <https://registry.npm.taobao.org/>
+```bash
+yarn save 软件名 --registry https://registry.npm.taobao.org/
+```
 
-# 全局修改
+全局修改
 
-yarn config set registry <https://registry.npm.taobao.org/>
+```bash
+yarn config set registry https://registry.npm.taobao.org/
+```
 
 yarn add @angular-devkit/build-angular --dev
 
@@ -84,11 +102,12 @@ sudo pacman -S yarn
 
 ### 查看版本
 
-    yarn --version
+```bash
+yarn --version
 
 yarn global add @angular/cli
 
-# add yarn global bin to path
+add yarn global bin to path
 
 vim .bashrc
 export PATH=/home/wiloonwy/.yarn/bin:$PATH
@@ -100,22 +119,23 @@ yarn global bin # 输出 Yarn 已安装的可执行文件的符号链接位置
 yarn config get registry
 yarn config set registry 'https://registry.npm.taobao.org'
 
-```
+
 
 yarn config get registry
 
-# -> https://registry.yarnpkg.com
+-> https://registry.yarnpkg.com
 
 可以改成 taobao 的源: 
 
 yarn config set registry "https://registry.npm.taobao.org"
 
-# -> yarn config v0.15.0
+-> yarn config v0.15.0
 
-# -> success Set "registry" to "https://registry.npm.taobao.org".
+-> success Set "registry" to "https://registry.npm.taobao.org".
 
-# -> Done in 0.04s.
+-> Done in 0.04s.
 ```
+
 <https://my.oschina.net/jiangxinxin/blog/775326>
 
 yarn vs npm

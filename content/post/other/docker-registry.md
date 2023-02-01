@@ -105,6 +105,11 @@ curl  https://registry.wiloon.com/v2/rssx-api/tags/list
 
 ## 删除镜像与空间回收
 
+```bash
+podman inspect rssx-api|grep sha256
+curl -I -X DELETE https://registry.wiloon.com/v2/rssx-api/manifests/sha256:5b367dbc03f141bb5246b0dff6d5fc9c83d8b8d363d0962f3b7d344340e458f6
+```
+
 <https://zhuanlan.zhihu.com/p/33324217>
 
 <https://docs.docker.com/registry/>

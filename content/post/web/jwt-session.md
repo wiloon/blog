@@ -11,9 +11,9 @@ tags:
 
 >github.com/golang-jwt/jwt
 
-背景知识: 
+背景知识:
 
-### Authentication和Authorization的区别: 
+### Authentication和Authorization的区别
 
 Authentication: 用户认证，指的是验证用户的身份，例如你希望以小A的身份登录，那么应用程序需要通过用户名和密码确认你真的是小A。
 
@@ -62,10 +62,13 @@ Session token (又称 Session cookie) : 标准的、可被签名的 Session ID�
 ![](https://user-gold-cdn.xitu.io/2017/12/27/160984b7052cf619?imageView2/0/w/1280/h/960/format/webp/ignore-error/1)
 
 ##### 优势
+
 相比JWT，最大的优势就在于可以主动清除session了
 session保存在服务器端，相对较为安全
 结合cookie使用，较为灵活，兼容性较好
+
 ##### 弊端
+
 cookie + session在跨域场景表现并不好
 如果是分布式部署，需要做多机共享session机制，实现方法可将session存储到数据库中或者redis中
 基于 cookie 的机制很容易被 CSRF
@@ -85,12 +88,12 @@ cookie + session在跨域场景表现并不好
 
 JSON Web Token (JWT) 是一种开放标准 (RFC 7519) ，它定义了一种紧凑且独立的方式，可以将各方之间的信息作为JSON对象进行安全传输。该信息可以验证和信任，因为是经过数字签名的。
 
-JWT基本上由.分隔的三部分组成，分别是头部，有效载荷和签名。 一个简单的JWT的例子，如下所示: 
+JWT基本上由.分隔的三部分组成，分别是头部，有效载荷和签名。 一个简单的JWT的例子，如下所示:
 
      eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiemhhbmdzYW4ifQ.ec7IVPU-ePtbdkb85IRnK4t4nUVvF2bBf8fGhJmEwSs
     复制代码
 
-如果你细致得去看的话会发现其实这是一个分为 3 段的字符串，段与段之间用 点号 隔开，在 JWT 的概念中，每一段的名称分别为: 
+如果你细致得去看的话会发现其实这是一个分为 3 段的字符串，段与段之间用 点号 隔开，在 JWT 的概念中，每一段的名称分别为:
 
     Header.Payload.Signature
     复制代码
@@ -98,12 +101,13 @@ JWT基本上由.分隔的三部分组成，分别是头部，有效载荷和签�
 在字符串中每一段都是被 base64url 编码后的 JSON，其中 Payload 段可能被加密。
 
 ##### Header
+
 JWT 的 Header 通常包含两个字段，分别是: typ(type) 和 alg(algorithm)。
 
 * typ: token的类型，这里固定为 JWT
 * alg: 使用的 hash 算法，例如: HMAC SHA256 或者 RSA
 
-一个简单的例子: 
+一个简单的例子:
 
         {
           "alg": "HS256",
@@ -111,7 +115,7 @@ JWT 的 Header 通常包含两个字段，分别是: typ(type) 和 alg(algorithm
         }
     复制代码
 
-我们对他进行编码后是: 
+我们对他进行编码后是:
 
         >>> base64.b64encode(json.dumps({"alg":"HS256","typ":"JWT"}))
         'eyJhbGciOiAiSFMyNTYiLCAidHlwIjogIkpXVCJ9'
@@ -123,25 +127,25 @@ JWT 中的 Payload 其实就是真实存储我们需要传递的信息的部分�
 
 但是，这部分和 Header 部分不一样的地方在于这个地方可以加密，而不是简单得直接进行 BASE64 编码。但是这里我为了解释方便就直接使用 BASE64 编码，需要注意的是，这里的 BASE64 编码稍微有点不一样，切确得说应该是 Base64UrlEncoder，和 Base64 编码的区别在于会忽略最后的 padding (=号) ，然后 '-' 会被替换成'_'。
 
-举个例子，例如我们的 Payload 是: 
+举个例子，例如我们的 Payload 是:
 
      {"user_id":"zhangsan"}
     复制代码
 
-那么直接 Base64 的话应该是: 
+那么直接 Base64 的话应该是:
 
         >>> base64.urlsafe_b64encode('{"user_id":"zhangsan"}')
         'eyJ1c2VyX2lkIjoiemhhbmdzYW4ifQ=='
     复制代码
 
-然后去掉 = 号，最后应该是: 
+然后去掉 = 号，最后应该是:
 
       'eyJ1c2VyX2lkIjoiemhhbmdzYW4ifQ'
     复制代码
 
 ##### Signature
 
-Signature 部分其实就是对我们前面的 Header 和 Payload 部分进行签名，保证 Token 在传输的过程中没有被篡改或者损坏，签名的算法也很简单，但是，为了加密，所以除了 Header 和 Payload 之外，还多了一个密钥字段，完整算法为: 
+Signature 部分其实就是对我们前面的 Header 和 Payload 部分进行签名，保证 Token 在传输的过程中没有被篡改或者损坏，签名的算法也很简单，但是，为了加密，所以除了 Header 和 Payload 之外，还多了一个密钥字段，完整算法为:
 
         Signature = HMACSHA256(
             base64UrlEncode(header) + "." +
@@ -155,7 +159,7 @@ Signature 部分其实就是对我们前面的 Header 和 Payload 部分进行�
         base64UrlEncode(payload) =》 eyJ1c2VyX2lkIjoiemhhbmdzYW4ifQ
     复制代码
 
-secret 就设为: "secret", 那最后出来的签名应该是: 
+secret 就设为: "secret", 那最后出来的签名应该是:
 
         >>> import hmac
         >>> import hashlib
@@ -171,7 +175,7 @@ secret 就设为: "secret", 那最后出来的签名应该是:
         {'user_id': 'zhangsan'}
     复制代码
 
-的 token 就是: 
+的 token 就是:
 
     eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiemhhbmdzYW4ifQ.ec7IVPU-ePtbdkb85IRnK4t4nUVvF2bBf8fGhJmEwSs
     复制代码
@@ -195,6 +199,7 @@ secret 就设为: "secret", 那最后出来的签名应该是:
 ### JWTs vs. Sessions
 
 ##### 可扩展性
+
 随着应用程序的扩大和用户数量的增加，你必将开始水平或垂直扩展。session数据通过文件或数据库存储在服务器的内存中。在水平扩展方案中，你必须开始复制服务器数据，你必须创建一个独立的中央session存储系统，以便所有应用程序服务器都可以访问。否则，由于session存储的缺陷，你将无法扩展应用程序。解决这个挑战的另一种方法是使用 sticky session。你还可以将session存储在磁盘上，使你的应用程序在云环境中轻松扩展。这类解决方法在现代大型应用中并没有真正发挥作用。建立和维护这种分布式系统涉及到深层次的技术知识，并随之产生更高的财务成本。在这种情况下，使用JWT是无缝的;由于基于token的身份验证是无状态的，所以不需要在session中存储用户信息。我们的应用程序可以轻松扩展，因为我们可以使用token从不同的服务器访问资源，而不用担心用户是否真的登录到某台服务器上。你也可以节省成本，因为你不需要专门的服务器来存储session。为什么？因为没有session！
 
 注意: 如果你正在构建一个小型应用程序，这个程序完全不需要在多台服务器上扩展，并且不需要RESTful API的，那么session机制是很棒的。 如果你使用专用服务器运行像Redis那样的工具来存储session，那么session也可能会为你完美地运作！
@@ -219,9 +224,9 @@ RESTful API的原则之一是它应该是无状态的，这意味着当发出请
 
 ##### 性能
 
-对此的批判性分析是非常必要的。当从客户端向服务器发出请求时，如果大量数据在JWT内进行编码，则每个HTTP请求都会产生大量的开销。然而，在会话中，只有少量的开销，因为SESSION ID实际上非常小。看下面这个例子: 
+对此的批判性分析是非常必要的。当从客户端向服务器发出请求时，如果大量数据在JWT内进行编码，则每个HTTP请求都会产生大量的开销。然而，在会话中，只有少量的开销，因为SESSION ID实际上非常小。看下面这个例子:
 
-JWT有5个claim: 
+JWT有5个claim:
 
     {
     
@@ -260,14 +265,14 @@ JWT通过将数据保留在客户端的方式以空间换时间。你应用程�
 
 ### node中使用JWT
 
-我这个项目中使用的是JWT，使用方法如下: 
+我这个项目中使用的是JWT，使用方法如下:
 
-首先安装JWT库: 
+首先安装JWT库:
 
     npm install jsonwebtoken
     复制代码
 
-然后创建签名数据，生成token: 
+然后创建签名数据，生成token:
 
     let jwt = require('jsonwebtoken');
     
@@ -275,18 +280,18 @@ JWT通过将数据保留在客户端的方式以空间换时间。你应用程�
     console.log(token);
     复制代码
 
-运行程序可以看到打印出来的内容类似这样: 
+运行程序可以看到打印出来的内容类似这样:
 
     eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoi5byg5LiJIiwiaWF0IjoxNDYyODgxNDM3fQ.uVWC2h0_r1F4FZ3qDLkGN5KoFYbyZrFpRJMONZrJJog
     复制代码
 
-之后，对token字符串，可以这样解码: 
+之后，对token字符串，可以这样解码:
 
     let decoded=jwt.decode(token);
     console.log(decoded);
     复制代码
 
-将打印出: 
+将打印出:
 
     { name: '张三', iat: 1462881437 }
     复制代码
@@ -297,7 +302,7 @@ JWT通过将数据保留在客户端的方式以空间换时间。你应用程�
 
 我们需要的是验证claims的内容是否被篡改。
 
-此时我们需要使用verify方法: 
+此时我们需要使用verify方法:
 
     let decoded = jwt.verify(token, 'shhhhh');
     console.log(decoded);
@@ -305,12 +310,12 @@ JWT通过将数据保留在客户端的方式以空间换时间。你应用程�
 
 虽然打印出的内容和decode方法是一样的。但是是经过校验的。
 
-我们可以改变校验用的密钥，比如改为shzzzz，使之和加密时的密钥不一致。那么解码就会出现报错: 
+我们可以改变校验用的密钥，比如改为shzzzz，使之和加密时的密钥不一致。那么解码就会出现报错:
 
     JsonWebTokenError: invalid signature
     复制代码
 
-我们也可以偷偷修改token的claims或者header部分，会得到这样的报错: 
+我们也可以偷偷修改token的claims或者header部分，会得到这样的报错:
 
     JsonWebTokenError: invalid token
     复制代码
@@ -318,26 +323,25 @@ JWT通过将数据保留在客户端的方式以空间换时间。你应用程�
 最后，根据自己的需求，决定是否需要将生成的token存入数据库或者redis，但建议不要存储用户密码等敏感信息。
 
 ### token刷新
-https://zhuanlan.zhihu.com/p/52300092
-https://hasura.io/blog/best-practices-of-using-jwt-with-graphql/#silent_refresh
-https://usthe.com/2018/04/%E7%AD%BE%E5%8F%91%E7%9A%84%E7%94%A8%E6%88%B7%E8%AE%A4%E8%AF%81token%E8%B6%85%E6%97%B6%E5%88%B7%E6%96%B0%E7%AD%96%E7%95%A5/
-https://auth0.com/blog/refresh-tokens-what-are-they-and-when-to-use-them/
-
+<https://zhuanlan.zhihu.com/p/52300092>
+<https://hasura.io/blog/best-practices-of-using-jwt-with-graphql/#silent_refresh>
+<https://usthe.com/2018/04/%E7%AD%BE%E5%8F%91%E7%9A%84%E7%94%A8%E6%88%B7%E8%AE%A4%E8%AF%81token%E8%B6%85%E6%97%B6%E5%88%B7%E6%96%B0%E7%AD%96%E7%95%A5/>
+<https://auth0.com/blog/refresh-tokens-what-are-they-and-when-to-use-them/>
 
 所以... JWT 适合做什么？
 在本文之初，我就提到 JWT 虽然不适合作为 Session 机制，但在其它方面的确有它的用武之地。该主张依旧成立，JWT 特别有效的使用例子通常是作为一次性的授权令牌。
 
-引用 JSON Web Token specification: 
+引用 JSON Web Token specification:
 
-JSON Web Token (JWT) is a compact, URL-safe means of representing claims to be transferred between two parties. [...] enabling the claims to be digitally signed or integrity protected with a Message Authentication Code (MAC) and/or encrypted.
+JSON Web Token (JWT) is a compact, URL-safe means of representing claims to be transferred between two parties.  enabling the claims to be digitally signed or integrity protected with a Message Authentication Code (MAC) and/or encrypted.
 
-在此上下文中，「Claim」可能是一条「命令」，一次性的认证，或是基本上能够用以下句子描述的任何情况: 
+在此上下文中，「Claim」可能是一条「命令」，一次性的认证，或是基本上能够用以下句子描述的任何情况:
 
 你好，服务器 B，服务器 A 告诉我我可以 <...Claim...>，这是我的证据: < ... 密钥... >。
 
 举个例子，你有个文件服务，用户必须认证后才能下载文件，但文件本身存储在一台完全分离且无状态的「下载服务器」内。在这种情况下，你可能想要「应用服务器 (服务器 A) 」颁发一次性的「下载 Tokens」，用户能够使用它去「下载服务器 (服务器 B) 」获取需要的文件。
 
-以这种方式使用 JWT，具备几个明确的特性: 
+以这种方式使用 JWT，具备几个明确的特性:
 
 Tokens 生命期较短。它们只需在几分钟内可用，让客户端能够开始下载。
 Tokens 仅单次使用。应用服务器应当在每次下载时颁发新的 Token。所以任何 Token 只用于一次请求就会被抛弃，不存在任何持久化的状态。
@@ -346,4 +350,4 @@ Tokens 仅单次使用。应用服务器应当在每次下载时颁发新的 Tok
 
 ---
 
-https://learnku.com/articles/22616
+<https://learnku.com/articles/22616>

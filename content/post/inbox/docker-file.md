@@ -25,6 +25,7 @@ COPY --from=build /workdir/${APP_NAME} /data/${APP_NAME}
 COPY config.toml config.toml
 COPY config.toml /data/config.toml
 ENV APPLICATION_NAME ${APP_NAME}
+RUN ["chmod", "+x", "/usr/src/app/docker-entrypoint.sh"]
 CMD "/data/${APPLICATION_NAME}"
 
 ```
@@ -57,7 +58,7 @@ CMD ["./xxx"]
 
 ENV 设置环境变量
   
-格式有两种: 
+格式有两种:
 
 ENV <key> <value>
   
@@ -66,7 +67,7 @@ ENV <key1>=<value1> <key2>=<value2>...
 这个指令很简单,就是设置环境变量而已,无论是后面的其它指令,如 RUN,还是运行时的应用,都可以直接使用这里定义的环境变量。
 
 ENV VERSION=1.0 DEBUG=on \
-      
+
 NAME="Happy Feet"
 
 FROM 指定基础镜像
@@ -75,7 +76,7 @@ RUN 执行命令
   
 ENV 设置环境变量
   
-格式有两种: 
+格式有两种:
   
 ENV <key> <value>
   
@@ -86,13 +87,14 @@ ENV <key1>=<value1> <key2>=<value2>...
 COPY 目标路径不存时会自动创建
 
 ### COPY
+
 Same as 'ADD' but without the tar and remote url handling.
   
 COPY的语法与功能与ADD相同,只是不支持上面讲到的<src>是远程URL、自动解压这两个特性,但是Best Practices for Writing Dockerfiles建议尽量使用COPY,并使用RUN与COPY的组合来代替ADD,这是因为虽然COPY只支持本地文件拷贝到container,但它的处理比ADD更加透明,建议只在复制tar文件时使用ADD,如ADD trusty-core-amd64.tar.gz /。
 
 ### WORKDIR
 
-WORKDIR指令用于设置Dockerfile中的RUN、CMD和ENTRYPOINT指令执行命令的工作目录(默认为/目录),该指令在Dockerfile文件中可以出现多次,如果使用相对路径则为相对于WORKDIR上一次的值,例如WORKDIR /a,WORKDIR b,RUN pwd最终输出的当前目录是/a/b。 (RUN cd /a/b,RUN pwd是得不到/a/b的) 
+WORKDIR指令用于设置Dockerfile中的RUN、CMD和ENTRYPOINT指令执行命令的工作目录(默认为/目录),该指令在Dockerfile文件中可以出现多次,如果使用相对路径则为相对于WORKDIR上一次的值,例如WORKDIR /a,WORKDIR b,RUN pwd最终输出的当前目录是/a/b。 (RUN cd /a/b,RUN pwd是得不到/a/b的)
 
 ### create file
 
@@ -104,7 +106,7 @@ into a dockerfile\n'\
 ```
 
 <http://blog.wiloon.com/?p=11796>
-http://dockone.io/article/8196
+<http://dockone.io/article/8196>
 
 ## Dockerfile RUN，CMD，ENTRYPOINT命令区别
 
@@ -179,10 +181,9 @@ ENTRYPOINT 中的参数始终会被使用，而 CMD 的额外参数可以在容�
 如果想为容器设置默认的启动命令，可使用 CMD 指令。用户可在 docker run 命令行中替换此默认命令。
 
 作者：伊凡的一天
-链接：https://www.jianshu.com/p/f0a0f6a43907
+链接：<https://www.jianshu.com/p/f0a0f6a43907>
 来源：简书
 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
-
 
 ### arg 和 env
 
@@ -223,12 +224,13 @@ CMD ["sh", "-c", "exec redis-server --requirepass \"$REDIS_PASSWORD\""]
 这一句服务的, 这句就是在启动 redis 的时候设置密码, 因为当执行 CMD 的时候,说明容器已经构建成功运行了起来,此时 CMD是在容器中执行容器中的命令, 因此 CMD 中的变量是用的环境变量而不是在 Dockerfile 中的变量,因此需要把 ARG 中的值在构建的时候赋值给 ENV
 
 另一个使用 ARG 的例子
- 
+
 FROM nginx:1.13.1-alpine
 
 LABEL maintainer="GPF <5173180@qq.com>"
 
-#https://yeasy.gitbooks.io/docker_practice/content/image/build.html
+<https://yeasy.gitbooks.io/docker_practice/content/image/build.html>
+
 RUN mkdir -p /etc/nginx/cert \
     && mkdir -p /etc/nginx/conf.d \
     && mkdir -p /etc/nginx/sites
@@ -238,7 +240,6 @@ COPY ./conf.d/ /etc/nginx/conf.d/
 COPY ./cert/ /etc/nginx/cert/
 
 COPY ./sites /etc/nginx/sites/
-
 
 ARG PHP_UPSTREAM_CONTAINER=php-fpm
 ARG PHP_UPSTREAM_PORT=9000
@@ -250,7 +251,6 @@ WORKDIR /usr/share/nginx/html
 
 这里就只是用了ARG
 
- 
 ARG PHP_UPSTREAM_CONTAINER=php-fpm
 ARG PHP_UPSTREAM_PORT=9000
 RUN echo "upstream php-upstream { server ${PHP_UPSTREAM_CONTAINER}:${PHP_UPSTREAM_PORT}; }" > /etc/nginx/conf.d/upstream.conf
@@ -270,3 +270,7 @@ do
   sleep 10
 done
 ```
+
+## copy vs. add
+
+<https://www.cnblogs.com/sparkdev/p/9573248.html>
