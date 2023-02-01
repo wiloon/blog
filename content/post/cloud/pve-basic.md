@@ -128,7 +128,6 @@ Qemu 代理即 qemu-guest-agent，是一个运行在虚拟机里面的程序 qem
 在Proxmox VE中，qemu代理主要用于两件事:
 
 1. 正确关闭虚拟机，而不是依赖ACPI命令或Windows策略
-
 2. 在进行备份时冻结来宾文件系统 (在Windows上，使用卷tem影复制服务VSS) 。
 
 ### 改ip
