@@ -22,6 +22,6 @@ tags:
 
 - .ovf
 - .mf
-- .iso 
+- .iso
 - .vmdk 虚拟机磁盘, Virtual Machine Disk
 - .nvram 虚拟机 BIOS 或 EFI 配置

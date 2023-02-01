@@ -702,6 +702,7 @@ grep -E '219|216' data.doc
   
 可以使用国际模式匹配的类名:
   
+```r
 [[:upper:]] [A-Z]
   
 [[:lower:]] [a-z]
@@ -713,6 +714,7 @@ grep -E '219|216' data.doc
 [[:space:]] 空格或tab
   
 [[:alpha:]] [a-zA-Z]
+```
 
 (1)使用
   
@@ -802,6 +804,7 @@ grep正则表达式元字符集 (基本集)
 
 ### POSIX字符类
 
+```bash
  为了在不同国家的字符编码中保持一至，POSIX(The Portable Operating System Interface)增加了特殊的字符类，如[:alnum:]是A-Za-z0-9的另一个写法。要把它们放到[]号内才能成为正则表达式，如[A- Za-z0-9]或[[:alnum:]]。在Linux下的grep除fgrep外，都支持POSIX的字符类。
  [:alnum:]
  文字数字字符
@@ -825,6 +828,7 @@ grep正则表达式元字符集 (基本集)
  大写字符
  [:xdigit:]
  十六进制数字 (0-9，a-f，A-F)
+```
 
  要用好grep这个工具，其实就是要写好正则表达式，所以这里不对grep的所有功能进行实例讲解，只列几个例子，讲解一个正则表达式的写法。
  $ ls -l | grep '^a'

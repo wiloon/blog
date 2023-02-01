@@ -1,13 +1,13 @@
 ---
 author: "-"
 date: "2020-10-09 14:34:24" 
-title: "ubuntu basic"
+title: ubuntu basic
 categories:
   - inbox
 tags:
   - reprint
 ---
-## "ubuntu basic"
+## ubuntu basic
 
 ## Ubuntu 22.04 LTS (Jammy Jellyfish)
 
@@ -143,6 +143,15 @@ Ubuntu 不会立即提供该新版本的软件。需要一个步骤来检查此�
 
 ## 网络
 
+## netplan
+
+```bash
+# manually install netplan.io
+sudo apt-get update
+sudo apt-get -y install netplan.io
+
+```
+
 ### 动态IP
 
 ```bash
@@ -155,7 +164,7 @@ network:
   version: 2
 ```
 
-## 静态 IP
+## 静态 IP, /etc/netplan/00-installer-config.yaml
 
 ```bash
 network:
