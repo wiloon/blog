@@ -11,136 +11,70 @@ tags:
 ---
 ## DB 事务
 
-  
-    事务(Transaction):
-  
-  
-    是并发控制的单元，是用户定义的一个操作序列。这些操作要么都做，要么都不做，是一个不可分割的工作单位。通过事务，sql server 能将逻辑相关的一组操作绑定在一起，以便服务器 保持数据的完整性。事务通常是以begin transaction开始，以commit或rollback结束。Commint表示提交，即提交事务的所有操作。具体地说就是将事务中所有对数据的更新写回到磁盘上的物理数据库中去，事务正常结束。Rollback表示回滚，即在事务运行的过程中发生了某种故障，事务不能继续进行，系统将事务中对数据库的所有已完成的操作全部撤消，滚回到事务开始的状态。
-  
-  
-  
-  
-    1、事务的特性  (ACID): 
-  
-  
-    原一隔持
-  
-  
-    1) 原子性 (Atomic) : 即事务是不可分割的最小工作单元，事务内的操作，要么全部执行，要么全部不执行。
-  
-  
-    2) 一致性 (Consistency) : 事务在完成时，必须是所有的数据都保持一致状态。
-  
-  
-    在事务执行前数据库的数据处于正确的状态，而事务执行完成后数据库的数据还是处于正确的状态，即数据完整性约束没有被破坏；如银行转帐，A转帐给B，必须保证A的钱一定转给B，一定不会出现A的钱转了但B没收到，否则数据库的数据就处于不一致 (不正确) 的状态。
-  
-  
-    3) 隔离性 (Isolation) : 一个事务的执行不能被其他事务所影响。
-  
-  
-    并发事务执行之间无影响，在一个事务内部的操作对其他事务是不产生影响，这需要事务隔离级别来指定隔离性；
-  
-  
-    事务必须是互相隔离的，防止并发读写同一个数据的情况发生 。
-  
-  
-    4) 持久性 (Durable) : 一个事务一旦提交，事物的操作便永久性的保存在DB中。即使此时再执行回滚操作也不能撤消所做的更改。
-  
-  
-  
-  
-    事务类型
-  
-  
-    数据库事务类型有本地事务和分布式事务: 
-  
-  
-    
-      本地事务: 就是普通事务，能保证单台数据库上的操作的ACID，被限定在一台数据库上；
-    
-    
-      分布式事务: 涉及两个或多个数据库源的事务，即跨越多台同类或异类数据库的事务 (由每台数据库的本地事务组成的) ，分布式事务旨在保证这些本地事务的所有操作的ACID，使事务可以跨越多台数据库；
-    
-  
-  
-    Java事务类型有JDBC事务和JTA事务: 
-  
-  
-    
-      JDBC事务: 就是数据库事务类型中的本地事务，通过Connection对象的控制来管理事务；
-    
-    
-      JTA事务: JTA指Java事务API(Java Transaction API)，是Java EE数据库事务规范， JTA只提供了事务管理接口，由应用程序服务器厂商 (如WebSphere Application Server) 提供实现，JTA事务比JDBC更强大，支持分布式事务。
-    
-  
-  
-    Java EE事务类型有本地事务和全局事务: 
-  
-  
-    
-      本地事务: 使用JDBC编程实现事务；
-    
-    
-      全局事务: 由应用程序服务器提供，使用JTA事务；
-    
-  
-  
-    按是否通过编程实现事务有声明式事务和编程式事务；
-  
-  
-    
-      声明式事务:  通过注解或XML配置文件指定事务信息；
-    
-    
-      编程式事务: 通过编写代码实现事务。
-    
-  
-  
-  
+事务(Transaction):
 
+是并发控制的单元，是用户定义的一个操作序列。这些操作要么都做，要么都不做，是一个不可分割的工作单位。通过事务，sql server 能将逻辑相关的一组操作绑定在一起，以便服务器 保持数据的完整性。事务通常是以begin transaction开始，以commit或rollback结束。Commint表示提交，即提交事务的所有操作。具体地说就是将事务中所有对数据的更新写回到磁盘上的物理数据库中去，事务正常结束。Rollback表示回滚，即在事务运行的过程中发生了某种故障，事务不能继续进行，系统将事务中对数据库的所有已完成的操作全部撤消，滚回到事务开始的状态。
 
-  
-    
-      
-    
-    
-    
-      隐式事务: 当连接以隐式事务模式进行操作时，sql server数据库引擎实例将在提交或回滚当前事务后自动启动新事务。无须描述事物的开始，只需提交或回滚每个事务。但每个事务仍以commit或rollback显式结束。连接将隐性事务模式设置为打开之后，当数据库引擎实例首次执行下列任何语句时，都会自动启动一个隐式事务: alter table，insert，create，open ，delete，revoke ，drop，select， fetch ，truncate table，grant，update在发出commit或rollback语句之前，该事务将一直保持有效。在第一个事务被提交或回滚之后，下次当连接执行以上任何语句时，数据库引擎实例都将自动启动一个新事务。该实例将不断地生成隐性事务链，直到隐性事务模式关闭为止。
-    
-    
-    
-      
-    
-    
-    
-       Java事务的类型
-    
-    
-    
-      Java事务的类型有三种: JDBC事务、JTA (Java Transaction API) 事务、容器事务。
-    
-    
-    
-      1、JDBC事务
-    
-    
-    
-      JDBC 事务是用 Connection 对象控制的。JDBC Connection 接口 ( java.sql.Connection ) 提供了两种事务模式: 自动提交和手工提交。 java.sql.Connection 提供了以下控制事务的方法: 
-    
-    
-    
+1、事务的特性  (ACID):
+
+原一隔持
+
+1) 原子性 (Atomic) : 即事务是不可分割的最小工作单元，事务内的操作，要么全部执行，要么全部不执行。
+
+2) 一致性 (Consistency) : 事务在完成时，必须是所有的数据都保持一致状态。
+
+在事务执行前数据库的数据处于正确的状态，而事务执行完成后数据库的数据还是处于正确的状态，即数据完整性约束没有被破坏；如银行转帐，A转帐给B，必须保证A的钱一定转给B，一定不会出现A的钱转了但B没收到，否则数据库的数据就处于不一致 (不正确) 的状态。
+
+3) 隔离性 (Isolation) : 一个事务的执行不能被其他事务所影响。
+
+并发事务执行之间无影响，在一个事务内部的操作对其他事务是不产生影响，这需要事务隔离级别来指定隔离性；
+
+事务必须是互相隔离的，防止并发读写同一个数据的情况发生 。
+
+4) 持久性 (Durable) : 一个事务一旦提交，事物的操作便永久性的保存在DB中。即使此时再执行回滚操作也不能撤消所做的更改。
+
+事务类型
+
+数据库事务类型有本地事务和分布式事务:
+
+本地事务: 就是普通事务，能保证单台数据库上的操作的ACID，被限定在一台数据库上；
+
+分布式事务: 涉及两个或多个数据库源的事务，即跨越多台同类或异类数据库的事务 (由每台数据库的本地事务组成的) ，分布式事务旨在保证这些本地事务的所有操作的ACID，使事务可以跨越多台数据库；
+
+Java事务类型有JDBC事务和JTA事务:
+
+JDBC事务: 就是数据库事务类型中的本地事务，通过Connection对象的控制来管理事务；
+
+JTA事务: JTA指Java事务API(Java Transaction API)，是Java EE数据库事务规范， JTA只提供了事务管理接口，由应用程序服务器厂商 (如WebSphere Application Server) 提供实现，JTA事务比JDBC更强大，支持分布式事务。
+
+Java EE事务类型有本地事务和全局事务:
+
+本地事务: 使用JDBC编程实现事务；
+
+全局事务: 由应用程序服务器提供，使用JTA事务；
+
+按是否通过编程实现事务有声明式事务和编程式事务；
+
+声明式事务:  通过注解或XML配置文件指定事务信息；
+
+编程式事务: 通过编写代码实现事务。
+
+隐式事务: 当连接以隐式事务模式进行操作时，sql server数据库引擎实例将在提交或回滚当前事务后自动启动新事务。无须描述事物的开始，只需提交或回滚每个事务。但每个事务仍以commit或rollback显式结束。连接将隐性事务模式设置为打开之后，当数据库引擎实例首次执行下列任何语句时，都会自动启动一个隐式事务: alter table，insert，create，open ，delete，revoke ，drop，select， fetch ，truncate table，grant，update在发出commit或rollback语句之前，该事务将一直保持有效。在第一个事务被提交或回滚之后，下次当连接执行以上任何语句时，数据库引擎实例都将自动启动一个新事务。该实例将不断地生成隐性事务链，直到隐性事务模式关闭为止。
+
+Java事务的类型
+
+Java事务的类型有三种: JDBC事务、JTA (Java Transaction API) 事务、容器事务。
+
+1、JDBC事务
+
+JDBC 事务是用 Connection 对象控制的。JDBC Connection 接口 ( java.sql.Connection ) 提供了两种事务模式: 自动提交和手工提交。 java.sql.Connection 提供了以下控制事务的方法:
+
       public void setAutoCommit(boolean)
  public boolean getAutoCommit()
  public void commit()
  public void rollback()
  使用 JDBC 事务界定时，您可以将多个 SQL 语句结合到一个事务中。JDBC 事务的一个缺点是事务的范围局限于一个数据库连接。一个 JDBC 事务不能跨越多个数据库。
-    
-    
-    
-      
-    
-    
-    
+
       2、JTA (Java Transaction API) 事务
     
     
@@ -366,16 +300,7 @@ tags:
           
                     可以通过下面的方法确定当前事务的级别: 
  int level = conn.getTransactionIsolation();
-          
-        
-      
-    
-    
-    
-      
-    
-    
-    
+
       3.保存点(SavePoint)
     
     
@@ -418,7 +343,6 @@ tags:
     
       http://www.cjsdn.net/doc/jdk50/java/sql/ResultSet.html (插入、更新、删除RS和数据库中的行) 
   
-
 MySQL 事务
 
 ACID:Atomic、Consistent、Isolated、Durable
@@ -427,7 +351,7 @@ ACID:Atomic、Consistent、Isolated、Durable
 
 1，MySQL的事务支持
   
-MySQL的事务支持不是绑定在MySQL服务器本身，而是与存储引擎相关: 
+MySQL的事务支持不是绑定在MySQL服务器本身，而是与存储引擎相关:
   
 Java代码 收藏代码
   
@@ -437,11 +361,11 @@ InnoDB: 支持ACID事务、行级锁、并发
   
 Berkeley DB: 支持事务
   
-隔离级别: 
+隔离级别:
   
 隔离级别决定了一个session中的事务可能对另一个session的影响、并发session对数据库的操作、一个session中所见数据的一致性
   
-ANSI标准定义了4个隔离级别，MySQL的InnoDB都支持: 
+ANSI标准定义了4个隔离级别，MySQL的InnoDB都支持:
   
 Java代码 收藏代码
   
@@ -453,7 +377,7 @@ REPEATABLE READ: 在一个事务开始后，其他session对数据库的修改�
   
 SERIALIZABLE: 最高级别的隔离，只允许事务串行执行。为了达到此目的，数据库会锁住每行已经读取的记录，其他session不能修改数据直到前一事务结束，事务commit或取消时才释放锁。
   
-可以使用如下语句设置MySQL的session隔离级别: 
+可以使用如下语句设置MySQL的session隔离级别:
   
 Java代码 收藏代码
   
@@ -461,7 +385,7 @@ SET TRANSACTION ISOLATION LEVEL {READ UNCOMMITTED | READ COMMITTED | REPEATABLE 
   
 MySQL默认的隔离级别是REPEATABLE READ，在设置隔离级别为READ UNCOMMITTED或SERIALIZABLE时要小心，READ UNCOMMITTED会导致数据完整性的严重问题，而SERIALIZABLE会导致性能问题并增加死锁的机率
 
-事务管理语句: 
+事务管理语句:
   
 Java代码 收藏代码
   
@@ -485,7 +409,7 @@ MySQL默认的行为是在每条SQL语句执行后执行一个COMMIT语句，从
   
 在复杂的应用场景下这种方式就不能满足需求了。
   
-为了打开事务，允许在COMMIT和ROLLBACK之前多条语句被执行，我们需要做以下两步: 
+为了打开事务，允许在COMMIT和ROLLBACK之前多条语句被执行，我们需要做以下两步:
   
 1, 设置MySQL的autocommit属性为0，默认为1
   
@@ -493,7 +417,7 @@ MySQL默认的行为是在每条SQL语句执行后执行一个COMMIT语句，从
 
 如果已经打开一个事务，则SET autocommit=0不会起作用，因为START TRANSACTION会隐式的提交session中所有当前的更改，结束已有的事务，并打开一个新的事务。
 
-使用SET AUTOCOMMIT语句的存储过程例子: 
+使用SET AUTOCOMMIT语句的存储过程例子:
   
 Java代码 收藏代码
   
@@ -513,7 +437,7 @@ COMMIT;
   
 END;
 
-使用START TRANSACITON打开事务的例子: 
+使用START TRANSACITON打开事务的例子:
   
 Java代码 收藏代码
   
@@ -533,7 +457,7 @@ COMMIT;
   
 END;
   
-通常COMMIT或ROLLBACK语句执行时才完成一个事务，但是有些DDL语句等会隐式触发COMMIT，所以应该在事务中尽可能少用或注意一下: 
+通常COMMIT或ROLLBACK语句执行时才完成一个事务，但是有些DDL语句等会隐式触发COMMIT，所以应该在事务中尽可能少用或注意一下:
   
 Java代码 收藏代码
   
@@ -583,7 +507,7 @@ START TRANSACTION
   
 使用savepoint回滚难免有些性能消耗，一般可以用IF改写
   
-savepoint的良好使用的场景之一是"嵌套事务"，你可能希望程序执行一个小的事务，但是不希望回滚外面更大的事务: 
+savepoint的良好使用的场景之一是"嵌套事务"，你可能希望程序执行一个小的事务，但是不希望回滚外面更大的事务:
   
 Java代码 收藏代码
   
@@ -659,13 +583,13 @@ FOR UPDATE会锁住该SELECT语句返回的行，其他SELECT和DML语句必须�
   
 LOCK IN SHARE MODE同FOR UPDATE，但是允许其他session的SELECT语句执行并允许获取SHARE MODE锁
 
-死锁: 
+死锁:
   
 死锁发生于两个事务相互等待彼此释放锁的情景
   
 当MySQL/InnoDB检查到死锁时，它会强制一个事务rollback并触发一条错误消息
   
-对InnoDB而言，所选择的rollback的事务是完成工作最少的事务 (所修改的行最少) 
+对InnoDB而言，所选择的rollback的事务是完成工作最少的事务 (所修改的行最少)
   
 Java代码 收藏代码
   
@@ -731,7 +655,7 @@ END;
   
 如果你在一个事务中混合使用InnoDB和非InnoDB表，则MySQL不能检测到死锁，此时会抛出"lock wait timeuot"1205错误
 
-乐观所和悲观锁策略: 
+乐观所和悲观锁策略:
   
 悲观锁: 在读取数据时锁住那几行，其他对这几行的更新需要等到悲观锁结束时才能继续
   
@@ -739,7 +663,7 @@ END;
   
 一般在悲观锁的等待时间过长而不能接受时我们才会选择乐观锁
   
-悲观锁的例子: 
+悲观锁的例子:
   
 Java代码 收藏代码
   
@@ -797,7 +721,7 @@ END IF;
   
 END;
 
-乐观锁的例子: 
+乐观锁的例子:
   
 Java代码 收藏代码
   
@@ -913,5 +837,4 @@ Java代码 收藏代码
   
 7，锁的行越少越好，锁的时间越短越好
 
-
-http://www.infoq.com/cn/articles/Isolation-Levels?utm_campaign=infoq_content&utm_source=infoq&utm_medium=feed&utm_term=global
+<http://www.infoq.com/cn/articles/Isolation-Levels?utm_campaign=infoq_content&utm_source=infoq&utm_medium=feed&utm_term=global>

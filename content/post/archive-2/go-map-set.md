@@ -64,10 +64,10 @@ delete(m2, "a")
 #### 初始化 + 赋值一体化
 
 ```go
-    m3 := map[string]string{
-        "a": "aa",
-        "b": "bb",
-    }
+m3 := map[string]string{
+    "a": "aa",
+    "b": "bb",
+}
 ```
 
 #### 查找键值是否存在
@@ -80,7 +80,7 @@ if v, ok := m1["a"]; ok {
 }
 ```
 
-#### 遍历map
+#### 遍历 map
 
 ```go
 for k, v := range m1 {
