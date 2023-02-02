@@ -2,7 +2,7 @@
 title: spring 事务 
 author: "-"
 date: 2012-02-02T05:10:12+00:00
-url: /?p=2227
+url: sprint/transaction
 categories:
   - Inbox
 tags:
@@ -11,10 +11,6 @@ tags:
 ## spring 事务
 
 ## @Transactional
-
-==========================
-使用 @Transactional 注解
-==========================
 
 使用 @Transactional 的要点有:
 
