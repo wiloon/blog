@@ -492,6 +492,13 @@ python staticmethod 返回函数的静态方法。
 
 该方法不强制要求传递参数，如下声明一个静态方法：
 
+```py
+class C(object):
+    @staticmethod
+    def f(arg1, arg2, ...):
+        pass
+```
+
 ## reduce()
 
 reduce() 函数会对参数序列中元素进行累积。
@@ -921,4 +928,14 @@ str(10)
 
 ```py
 time.sleep(10)
+```
+
+## hashset
+
+```py
+>>> l = set()
+>>> l.add(1)
+>>> l.add(2)
+
+', '.join(set_3)
 ```
