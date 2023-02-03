@@ -7,12 +7,26 @@ categories:
   - Python
 tags:
   - reprint
+  - remix
 ---
 ## python basic
 
-Python 3 >=3.4 这些版本的 Python 会一并安装 pip
+Python 3 >= 3.4 这些版本的 Python 会一并安装 pip
 
 ## pip
+
+```bash
+# install redis
+pip install redis
+# 查看某个包是否已经安装
+pip show --files package0
+# 查看过期的包
+pip list --outdated
+# pip 升级某个包
+pip install --upgrade package0
+# 卸载
+pip uninstall package0
+```
 
 ### 手动重新安装 pip
 
@@ -936,6 +950,7 @@ time.sleep(10)
 >>> l = set()
 >>> l.add(1)
 >>> l.add(2)
+l.remove(1)
 
 ', '.join(set_3)
 ```

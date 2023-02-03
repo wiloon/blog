@@ -1,28 +1,45 @@
 ---
-title: Select For update
+title: select for update
 author: "-"
 date: 2016-10-14T10:21:55+00:00
 url: select/for/update
-  - Inbox
+  - database
 tags:
   - reprint
   - remix
 ---
-## Select For update
+## select for update
 
-<http://blog.itpub.net/17203031/viewspace-694383/>
-  
+- 行级锁
+- 排他锁
+
+## 行级锁
+
+行级锁不影响对数据的查询，它们只阻塞对同一行的写入和锁定。
+
+## 排他锁
+
+## for update
+
+select for update 会导致由 select 语句查询的行被锁定 (行级锁, 排他锁), 会阻塞其它线程对这行数据加排他锁或共享锁.
+
+## for update nowait
+
+使用 nowait 子句的作用就是避免进行等待, 当发现请求加锁资源被锁定未释放的时候, 直接报错返回。
+
+* * *
+
 Select … for update 语句是我们经常使用手工加锁语句。通常情况下, select 语句是不会对数据加锁, 妨碍影响其他的 DML 和 DDL 操作。同时, 在多版本一致读机制的支持下, select 语句也不会被其他类型语句所阻碍。
 
 借助 for update 子句, 我们可以在应用程序的层面手工实现数据加锁保护操作。本篇我们就来介绍一下这个子句的用法和功能。
 
-下面是采自 Oracle 官方文档《SQL Language Reference》中关于for update子句的说明: (请双击点开图片查看)
+下面是采自 Oracle 官方文档《SQL Language Reference》中关于for update子句的说明:
 
-从for update子句的语法状态图中,我们可以看出该子句分为两个部分: 加锁范围子句和加锁行为子句。下面我们分别针对两个方面的进行介绍。
+从 for updat e子句的语法状态图中, 我们可以看出该子句分为两个部分: 加锁范围子句和加锁行为子句。下面我们分别针对两个方面的进行介绍。
 
 加锁范围子句
 
-在select…for update之后,可以使用of子句选择对select的特定数据表进行加锁操作。默认情况下,不使用of子句表示在select所有的数据表中加锁。
+在 select…for update 之后,可以使用 of 子句选择对 select 的特定数据表进行加锁操作。默认情况下,不使用of子句表示在select所有的数据表中加锁。
 
 //采用默认格式for update
 
@@ -273,3 +290,5 @@ EMPNO ENAME      JOB         MGR HIREDATE          SAL      COMM DEPTNO
 For update是Oracle提供的手工提高锁级别和范围的特例语句。Oracle的锁机制是目前各类型数据库锁机制中比较优秀的。所以,Oracle认为一般不需要用户和应用直接进行锁的控制和提升。甚至认为死锁这类锁相关问题的出现场景,大都与手工提升锁有关。所以,Oracle并不推荐使用for update作为日常开发使用。而且,在平时开发和运维中,使用了for update却忘记提交,会引起很多锁表故障。
 
 那么,什么时候需要使用for update？就是那些需要业务层面数据独占时,可以考虑使用for update。场景上,比如火车票订票,在屏幕上显示邮票,而真正进行出票时,需要重新确定一下这个数据没有被其他客户端修改。所以,在这个确认过程中,可以使用for update。这是统一的解决方案方案问题,需要前期有所准备。
+
+<http://blog.itpub.net/17203031/viewspace-694383/>

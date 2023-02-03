@@ -12,7 +12,7 @@ tags:
 ## Mac OS X 中设置 VPN 静态路由, macos route
 
 ```bash
-sudo route -n add -net 192.168.5.4 -netmask 255.255.255.0 10.60.200.1
+sudo route -n add -net 192.168.5.4 -netmask 255.255.255.0 xxx.xxx.200.1
 ```
 
 <https://blog.hackroad.com/apple/mac-os/7011.html>

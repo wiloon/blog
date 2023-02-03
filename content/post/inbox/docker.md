@@ -105,7 +105,6 @@ redis
 ```bash
 docker network ls
 docker network inspect 网络ID
-
 ```
 
 ### volume
@@ -120,7 +119,7 @@ docker rm -v instance0
 docker volume prune
 ```
 
-容器创建后不能再新增volume, 可以先commit到镜像, 再创建新的容器。
+容器创建后不能再新增 volume, 可以先commit到镜像, 再创建新的容器。
 
 ### 时区问题
 
