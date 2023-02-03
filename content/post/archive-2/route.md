@@ -87,7 +87,7 @@ ip route get 172.18.0.10
 
 ```bash
 ip r del default
-ip r del 10.61.90.0/24
+ip r del xxx.xxx.90.0/24
 ip route del 192.168.0.0/24 via 172.16.15.253 dev eth0
 ```
 
@@ -104,7 +104,7 @@ ip route add default           via 192.168.50.4    src 192.168.50.169    dev ens
 ip route add 192.168.54.0/24   via 192.168.50.11   src 192.168.50.8      dev enp0s31f6
 # src xxx 可以省略
 ip route add 192.168.0.0/24    via 172.16.15.253                         dev eth0
-ip route add 192.168.5.4       via 10.60.200.1                           dev utun3
+ip route add 192.168.5.4       via xxx.xxx.200.1                           dev utun3
 ```
 
 - DESTINATION
@@ -1047,7 +1047,7 @@ ip route flush cache #刷新路由表
 ## maxos 路由, route
 
 ```bash
-sudo route -n add -net 192.168.5.4 -netmask 255.255.255.0 10.60.200.1
+sudo route -n add -net 192.168.5.4 -netmask 255.255.255.0 xxx.xxx.200.1
 ```
 
 <https://www.jianshu.com/p/da975a32a915>

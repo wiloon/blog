@@ -9,12 +9,15 @@ tags:
   - reprint
 ---
 ## 敏捷 Agile
+
 ### 敏捷宣言
 
-    个体和互动 高于 流程和工具
-    工作的软件 高于 详尽的文档
-    客户合作 高于 合同谈判
-    响应变化 高于 遵循计划
+```r
+个体和互动 高于 流程和工具
+工作的软件 高于 详尽的文档
+客户合作   高于 合同谈判
+响应变化   高于 遵循计划
+```
 
 也就是说，尽管右项有其价值，
   
@@ -63,11 +66,17 @@ tags:
 
 敏捷的核心可以归纳成四个字: "渐进增强"。
 
-https://blog.csdn.net/hanyongan300/article/details/79678030
-  
-https://blog.csdn.net/superkunkun/article/details/52940329
-  
-https://www.infoq.cn/article/k4TB7hZU4uM_8lhXEY9h?utm_source=rss&utm_medium=article
->http://www.scrummanifesto.org/
->https://www.scrum.org/resources/what-is-scrum
->https://www.atlassian.com/agile/scrum
+<https://blog.csdn.net/hanyongan300/article/details/79678030>  
+<https://blog.csdn.net/superkunkun/article/details/52940329>  
+<https://www.infoq.cn/article/k4TB7hZU4uM_8lhXEY9h?utm_source=rss&utm_medium=article>  
+<http://www.scrummanifesto.org/>  
+<https://www.scrum.org/resources/what-is-scrum>  
+<https://www.atlassian.com/agile/scrum>  
+
+## '敏捷  框架'
+
+* Scrum
+* LeSS: 大规模 Scrum，以 Scrum 为基础。LeSS 分两个模式，LeSS 模式宣称适合 8 人团队、最多 8 个团队共 64 个人的情况，LeSS HUGE 模式则号称可适应数千人规模的产品研发；在敏捷方法方面，LeSS 以 Scrum 为核心，工程实践维度，有实践指导材料；
+* SAFe: 大规模敏捷框架，完整的 SAFe 框架可以分为四个层级，团队级适合 5~9 人团队、项目群级适合 5~12 个团队 (约 50~125 人) 、大型解决方案级适合数百人规模、组合级适合 500~1000 人规模；敏捷方法论方面，介绍了 Scrum、XP、Kanban 方法，主张团队自主选择，工程实践方面有所提及，但没有特别详细的介绍；
+
+<https://www.infoq.cn/article/6dc4LQmRpdfGlt1jb5YJ?utm_source=rss&utm_medium=article>
