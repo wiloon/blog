@@ -335,6 +335,12 @@ bin/kafka-storage.sh format --config config/kraft/server.properties --cluster-id
 bin/kafka-server-start.sh config/kraft/server.properties
 ```
 
+#### kafka docker
+
+```bash
+docker volume create kafka-config
+```
+
 #### kraft podmann
 
 <https://github.com/bitnami/bitnami-docker-kafka/issues/159>
@@ -343,7 +349,16 @@ bin/kafka-server-start.sh config/kraft/server.properties
 ##### create volume
 
 ```bash
-podman volume create kafka-config
+docker volume create kafka-config
+docker info | grep "Docker Root Dir"
+vim /var/lib/docker/volumes/kafka-config/_data/server.properties
+# 格式化storage, 先格式化 storage 再启动 kafka
+docker run --rm --name kafka \
+-e ALLOW_PLAINTEXT_LISTENER=yes \
+-p 9092:9092 \
+-v kafka-config:/bitnami/kafka/config \
+-v kafka-storage:/data/kafka \
+bitnami/kafka:3.3.2 kafka-storage.sh format --config /bitnami/kafka/config/server.properties --cluster-id eVW-QkMeS8CeY1Bcuj4S-g --ignore-formatted
 ```
 
 ##### server.properies
