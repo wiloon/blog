@@ -15,7 +15,7 @@ tags:
 
 ### [æ]
 
-s**a**t, h**a**lf, l**a**ugh
+h**a**lf, s**a**t, l**a**ugh
 
 ### [ɑ]
 

@@ -571,11 +571,9 @@ END;
   
 缺点是后面的事务必须等前面的事务完成才能开始执行，吞吐量随着等待锁释放的时间增长而递减。
   
-MySQL/InnoDB通过行级锁来最小化锁竞争。这样修改同一table里其他行的数据没有限制，而且读数据可以始终没有等待。
+MySQL/InnoDB通过行级锁来最小化锁竞争。这样修改同一 table 里其他行的数据没有限制，而且读数据可以始终没有等待。
   
-可以在SELECT语句里使用FOR UPDATE或LOCK IN SHARE MODE语句来加上行级锁
-  
-Java代码 收藏代码
+可以在 SELECT 语句里使用 `FOR UPDATE` 或 `LOCK IN SHARE MODE` 语句来加上行级锁
   
 SELECT select_statement options [FOR UPDATE|LOCK IN SHARE MODE]
 

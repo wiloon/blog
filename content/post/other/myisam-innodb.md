@@ -10,7 +10,9 @@ tags:
 
 ---
 ## MySQL 存储引擎
+
 ## 什么是存储引擎？
+
 关系数据库表是用于存储和组织信息的数据结构，可以将表理解为由行和列组成的表格，类似于Excel的电子表格的形式。有的表简单，有的表复杂，有的表根本不用来存储任何长期的数据，有的表读取时非常快，但是插入数据时去很差；而我们在实际开发过程中，就可能需要各种各样的表，不同的表，就意味着存储不同类型的数据，数据的处理上也会存在着差异，那么。对于MySQL来说，它提供了很多种类型的存储引擎，我们可以根据对数据处理的需求，选择不同的存储引擎，从而最大限度的利用MySQL强大的功能。这篇博文将总结和分析各个引擎的特点，以及适用场合，并不会纠结于更深层次的东西。我的学习方法是先学会用，懂得怎么用，再去知道到底是如何能用的。下面就对MySQL支持的存储引擎进行简单的介绍。
 
 ### MyISAM
@@ -19,26 +21,26 @@ MyISAM 发音为 "my-z[ei]m";
 
 在MySQL客户端中，使用以下命令可以查看MySQL支持的引擎:show engines;
 
-MyISAM表是独立于操作系统的，这说明可以轻松地将其从Windows服务器移植到Linux服务器；每当我们建立一个MyISAM引擎的表时，就会在本地磁盘上建立三个文件，文件名就是表明。例如，我建立了一个MyISAM引擎的tb_Demo表，那么就会生成以下三个文件: 
+MyISAM表是独立于操作系统的，这说明可以轻松地将其从Windows服务器移植到Linux服务器；每当我们建立一个MyISAM引擎的表时，就会在本地磁盘上建立三个文件，文件名就是表明。例如，我建立了一个MyISAM引擎的tb_Demo表，那么就会生成以下三个文件:
 
-  * tb_demo.frm，存储表定义；
-  * tb_demo.MYD，存储数据；
-  * tb_demo.MYI，存储索引。
+* tb_demo.frm，存储表定义；
+* tb_demo.MYD，存储数据；
+* tb_demo.MYI，存储索引。
 
-MyISAM表无法处理事务，这就意味着有事务处理需求的表，不能使用MyISAM存储引擎。MyISAM存储引擎特别适合在以下几种情况下使用: 
+MyISAM表无法处理事务，这就意味着有事务处理需求的表，不能使用MyISAM存储引擎。MyISAM存储引擎特别适合在以下几种情况下使用:
 
-  * 选择密集型的表。MyISAM存储引擎在筛选大量数据时非常迅速，这是它最突出的优点。
-  * 插入密集型的表。MyISAM的并发插入特性允许同时选择和插入数据。例如: MyISAM存储引擎很适合管理邮件或Web服务器日志数据。
+* 选择密集型的表。MyISAM存储引擎在筛选大量数据时非常迅速，这是它最突出的优点。
+* 插入密集型的表。MyISAM的并发插入特性允许同时选择和插入数据。例如: MyISAM存储引擎很适合管理邮件或Web服务器日志数据。
 
 ### InnoDB
 
-InnoDB是一个健壮的事务型存储引擎，这种存储引擎已经被很多互联网公司使用，为用户操作非常大的数据存储提供了一个强大的解决方案。我的电脑上安装的MySQL 5.6.13版，InnoDB就是作为默认的存储引擎。InnoDB还引入了行级锁定和外键约束，在以下场合下，使用InnoDB是最理想的选择: 
+InnoDB是一个健壮的事务型存储引擎，这种存储引擎已经被很多互联网公司使用，为用户操作非常大的数据存储提供了一个强大的解决方案。我的电脑上安装的MySQL 5.6.13版，InnoDB就是作为默认的存储引擎。InnoDB还引入了行级锁定和外键约束，在以下场合下，使用InnoDB是最理想的选择:
 
-  * 更新密集的表。InnoDB存储引擎特别适合处理多重并发的更新请求。
-  * 事务。InnoDB存储引擎是支持事务的标准MySQL存储引擎。
-  * 自动灾难恢复。与其它存储引擎不同，InnoDB表能够自动从灾难中恢复。
-  * 外键约束。MySQL支持外键的存储引擎只有InnoDB。
-  * 支持自动增加列AUTO_INCREMENT属性。
+* 更新密集的表。InnoDB存储引擎特别适合处理多重并发的更新请求。
+* 事务。InnoDB存储引擎是支持事务的标准MySQL存储引擎。
+* 自动灾难恢复。与其它存储引擎不同，InnoDB表能够自动从灾难中恢复。
+* 外键约束。MySQL支持外键的存储引擎只有InnoDB。
+* 支持自动增加列AUTO_INCREMENT属性。
 
 一般来说，如果需要事务支持，并且有较高的并发读取频率，InnoDB是不错的选择。
 
@@ -46,15 +48,15 @@ InnoDB是一个健壮的事务型存储引擎，这种存储引擎已经被很�
 
 使用MySQL Memory存储引擎的出发点是速度。为得到最快的响应时间，采用的逻辑存储介质是系统内存。虽然在内存中存储表数据确实会提供很高的性能，但当MySQLd守护进程崩溃时，所有的Memory数据都会丢失。获得速度的同时也带来了一些缺陷。它要求存储在Memory数据表里的数据使用的是长度不变的格式，这意味着不能使用BLOB和TEXT这样的长度可变的数据类型，VARCHAR是一种长度可变的类型，但因为它在MySQL内部当做长度固定不变的CHAR类型，所以可以使用。
 
-一般在以下几种情况下使用Memory存储引擎: 
+一般在以下几种情况下使用Memory存储引擎:
 
-  * 目标数据较小，而且被非常频繁地访问。在内存中存放数据，所以会造成内存的使用，可以通过参数max_heap_table_size控制Memory表的大小，设置此参数，就可以限制Memory表的最大大小。
-  * 如果数据是临时的，而且要求必须立即可用，那么就可以存放在内存表中。
-  * 存储在Memory表中的数据如果突然丢失，不会对应用服务产生实质的负面影响。
+* 目标数据较小，而且被非常频繁地访问。在内存中存放数据，所以会造成内存的使用，可以通过参数max_heap_table_size控制Memory表的大小，设置此参数，就可以限制Memory表的最大大小。
+* 如果数据是临时的，而且要求必须立即可用，那么就可以存放在内存表中。
+* 存储在Memory表中的数据如果突然丢失，不会对应用服务产生实质的负面影响。
 
 Memory同时支持散列索引和B树索引。B树索引的优于散列索引的是，可以使用部分查询和通配查询，也可以使用<、>和>=等操作符方便数据挖掘。散列索引进行"相等比较"非常快，但是对"范围比较"的速度就慢多了，因此散列索引值适合使用在=和<>的操作符中，不适合在<或>操作符中，也同样不适合用在order by子句中。
 
-可以在表创建时利用USING子句指定要使用的版本。例如: 
+可以在表创建时利用USING子句指定要使用的版本。例如:
 
 create table users
   
@@ -146,7 +148,7 @@ Archive是归档的意思，在归档之后很多的高级功能就不再支持�
 
 页级锁定使用Berkeley DB引擎，并且根据上载的信息页(8KB)锁定数据。当在数据库的很多地方进行更新的时候，这种锁定不会出现什么问题。但是，由于增加几行信息就要锁定数据结构的最后8KB，当需要增加大量的行，也别是大量的小型数据，就会带来问题。
 
-行级锁定提供了最佳的并行访问功能，一个表中只有一行数据被锁定。这就意味着很多应用程序能够更新同一个表中的不同行的数据，而不会引起锁定的问题。只有InnoDB存储引擎支持行级锁定。
+行级锁定提供了最佳的并行访问功能，一个表中只有一行数据被锁定。这就意味着很多应用程序能够更新同一个表中的不同行的数据，而不会引起锁定的问题。只有 InnoDB 存储引擎支持行级锁定。
 
 #### 建立索引
 
@@ -180,8 +182,6 @@ Archive是归档的意思，在归档之后很多的高级功能就不再支持�
 
 下面我们重点介绍几种常用的存储引擎并对比各个存储引擎之间的区别和推荐使用方式。
 
-
-  
     <th>
       特点
     </th>
@@ -538,39 +538,32 @@ Archive是归档的意思，在归档之后很多的高级功能就不再支持�
     
     
       支持
-    
-    
-    
-    
-  
 
+**最常使用的2种存储引擎:**
 
-**最常使用的2种存储引擎: **
-
-  * Myisam是MySQL的默认存储引擎。当create创建新表时，未指定新表的存储引擎时，默认使用Myisam。每个MyISAM在磁盘上存储成三个文件。文件名都和表名相同，扩展名分别是.frm (存储表定义) 、.MYD (MYData，存储数据)、.MYI (MYIndex，存储索引)。数据文件和索引文件可以放置在不同的目录，平均分布io，获得更快的速度。
-  * InnoDB存储引擎提供了具有提交、回滚和崩溃恢复能力的事务安全。但是对比Myisam的存储引擎，InnoDB写的处理效率差一些并且会占用更多的磁盘空间以保留数据和索引。
+* Myisam是MySQL的默认存储引擎。当create创建新表时，未指定新表的存储引擎时，默认使用Myisam。每个MyISAM在磁盘上存储成三个文件。文件名都和表名相同，扩展名分别是.frm (存储表定义) 、.MYD (MYData，存储数据)、.MYI (MYIndex，存储索引)。数据文件和索引文件可以放置在不同的目录，平均分布io，获得更快的速度。
+* InnoDB存储引擎提供了具有提交、回滚和崩溃恢复能力的事务安全。但是对比Myisam的存储引擎，InnoDB写的处理效率差一些并且会占用更多的磁盘空间以保留数据和索引。
 
 ## 如何选择合适的存储引擎
 
 选择标准: 根据应用特点选择合适的存储引擎，对于复杂的应用系统可以根据实际情况选择多种存储引擎进行组合。
 
-下面是常用存储引擎的适用环境: 
+下面是常用存储引擎的适用环境:
 
   1. MyISAM: 默认的MySQL插件式存储引擎，它是在Web、数据仓储和其他应用环境下最常使用的存储引擎之一
   2. InnoDB: 用于事务处理应用程序，具有众多特性，包括ACID事务支持。
   3. Memory: 将所有数据保存在RAM中，在需要快速查找引用和其他类似数据的环境下，可提供极快的访问。
   4. Merge: 允许MySQL DBA或开发人员将一系列等同的MyISAM表以逻辑方式组合在一起，并作为1个对象引用它们。对于诸如数据仓储等VLDB环境十分适合。
-  5. 
-
+  5.
 
 建表的时候会选择数据库引擎，常用的有MyISAM和InnoDB，到底选哪个呢？
 
-**参考文献: **
+**参考文献:**
 
-  * http://drizzlewalk.blog.51cto.com/2203401/443266
-  * http://www.rackspace.com/knowledge_center/article/MySQL-engines-myisam-vs-innodb
-  * http://stackoverflow.com/questions/20148/myisam-versus-innodb
-  * http://www.pureweber.com/article/myisam-vs-innodb/
+* <http://drizzlewalk.blog.51cto.com/2203401/443266>
+* <http://www.rackspace.com/knowledge_center/article/MySQL-engines-myisam-vs-innodb>
+* <http://stackoverflow.com/questions/20148/myisam-versus-innodb>
+* <http://www.pureweber.com/article/myisam-vs-innodb/>
 
 **什么是MyISAM?**
 
@@ -584,10 +577,8 @@ InnoDB是MySQL的另一个存储引擎，正成为目前MySQL AB所发行新版�
 
 Oracle公司与2005年10月收购了Innobase。Innobase采用双认证授权。它使用GNU发行，也允许其它想将InnoDB结合到商业软件的团体获得授权。
 
-## MyISAM vs Innodb 快速比较表:
+## MyISAM vs Innodb 快速比较表
 
-
-  
     <th>
       MyISAM
     </th>
@@ -664,15 +655,14 @@ Oracle公司与2005年10月收购了Innobase。Innobase采用双认证授权。�
     
     
       Row level locking
-ACID – Atomicity, Consistency, Isolation, Durability (read more on it here: http://en.wikipedia.org/wiki/ACID
+ACID – Atomicity, Consistency, Isolation, Durability (read more on it here: <http://en.wikipedia.org/wiki/ACID>
 
-在StackOverflow上的小总结: 
- 
+在StackOverflow上的小总结:
+
 InnoDB的设计目标是处理大容量数据库系统，它的CPU利用率是其它基于磁盘的关系数据库引擎所不能比的。
 
+<http://boweihe.me/?p=1500>
 
-http://boweihe.me/?p=1500
+<http://c.biancheng.net/cpp/html/1465.html>
 
-http://c.biancheng.net/cpp/html/1465.html
-
-http://noalgo.info/1053.html
+<http://noalgo.info/1053.html>
