@@ -623,44 +623,43 @@ service 服务代理，代理谁？pod，通过label标签匹配，为什么需�
 - 创建 deployment.yml
 
 ```yml
----
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: rssx-api
-  namespace: default # 声明工作空间，默认为default
-spec:
-  replicas: 1
-  selector:
-    matchLabels:
-      name: rssx-api
-  template:
-    metadata:
-      labels:
-        name: rssx-api
-    spec:
-      containers:
-        - name: rssx-api-container
-          image: registry.wiloon.com/rssx-api:v0.0.1 # 镜像地址
-          imagePullPolicy: Always # 每次都从仓库拉取镜像, 即使版本号一样也拉取
-          ports:
-            - containerPort: 8080 # containerPort 容器内部服务监听的端口, 比如 mysql 的 3306, redis 的 6379
-
----
 apiVersion: v1
-kind: Service
+kind: Service  # 配置资源类型: service
 metadata:
-  name: rssx-api-service
-  namespace: default  # 声明工作空间，默认为default
+  name: rssx-api-service  # service 的名字是 rssx-api-service
+  namespace: default  # 声明工作空间，默认为 default
 spec:
   type: NodePort
-  ports:
+  ports: # 将 service 18081 端口映射到 pod 的 8080 端口，使用 TCP 协议
     - name: http
       port: 18081      # Service 暴露在 cluster-ip 上的端口，通过 <cluster-ip>:port 访问服务, 通过此端口集群内的服务可以相互访问
-      targetPort: 8080 # Pod 的外部访问端口，port和 nodePort 的数据通过这个端口进入到 Pod 内部，Pod 里面的 containers 的端口映射到这个端口，提供服务
-      nodePort: 31081  # Node 节点的端口，<nodeIP>:nodePort 是提供给集群外部客户端访问 service 的入口
+      targetPort: 8080 # Pod 的外部访问端口，port 和 nodePort 的数据通过这个端口进入到 Pod 内部，Pod 里面的 containers 的端口映射到这个端口，提供服务, 比如 rssx-api 的 8080
+      nodePort: 31081  # Node 节点的端口，<nodeIP>: nodePort 是提供给集群外部客户端访问 service 的入口
+      protocol: TCP
   selector:
-    name: rssx-api
+    name: rssx-api # 配置哪些 label 的 pod 作为 service 的后端
+---
+apiVersion: apps/v1 # 指定api版本，此值必须在 kubectl api-versions 中
+kind: Deployment # 指定创建资源的角色/类型
+metadata:  # 资源的元数据/属性
+  name: rssx-api  # 资源的名字，在同一个 namespace 中必须唯一
+  namespace: default # 声明工作空间，默认为 default
+spec:
+  replicas: 1 # 副本数量
+  selector:   # 定义标签选择器
+    matchLabels:
+      name: rssx-api
+  template:   # Pod 的定义
+    metadata:
+      labels:  # Pod 的 label
+        name: rssx-api
+    spec:  # 指定该资源的内容
+      containers:
+        - name: rssx-api-container   # 容器的名字  
+          image: registry.wiloon.com/rssx-api:v0.0.1 # 容器的镜像地址 
+          imagePullPolicy: Always # 每次都从仓库拉取镜像, 即使版本号一样也拉取
+          ports:
+            - containerPort: 8080 # 容器对外的端口 # containerPort 容器内部服务监听的端口, 比如 mysql 的 3306, redis 的 6379
 ```
 
 - 应用
@@ -686,7 +685,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: rssx-ui
-  namespace: default # 声明工作空间，默认为 default
+  namespace: default
 spec:
   replicas: 1
   selector:
@@ -702,21 +701,21 @@ spec:
           image: registry.wiloon.com/rssx-ui:v0.0.1
           imagePullPolicy: Always
           ports:
-            - containerPort: 80 # containerPort 是声明容器内部的port
+            - containerPort: 80
 
 ---
 apiVersion: v1
 kind: Service
 metadata:
   name: rssx-ui-service
-  namespace: default  # 声明工作空间，默认为default
+  namespace: default
 spec:
   type: NodePort
   ports:
     - name: http
-      port: 18082 # Service 暴露在 cluster-ip 上的端口，通过 <cluster-ip>:port 访问服务,通过此端口集群内的服务可以相互访问
-      targetPort: 80 # Pod的外部访问端口，port和nodePort的数据通过这个端口进入到Pod内部，Pod里面的containers的端口映射到这个端口，提供服务
-      nodePort: 31082 # Node节点的端口，<nodeIP>:nodePort 是提供给集群外部客户访问service的入口
+      port: 18082
+      targetPort: 80
+      nodePort: 31082
   selector:
     name: rssx-ui
 ```
@@ -1300,6 +1299,73 @@ kubectl create -f athens.yaml
 kubectl delete -f athens.yaml
 ```
 
+## kafka.yaml
+
+```yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: kafka
+  namespace: default
+spec:
+  type: NodePort
+  ports:
+    - name: kafka
+      port: 19092
+      targetPort: 9092
+      nodePort: 9092
+      protocol: TCP
+  selector:
+    app: kafka
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kafka
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: kafka
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: kafka
+    spec:
+      containers:
+      - image: bitnami/kafka:3.2
+        name: kafka
+        env:
+        - name: ALLOW_PLAINTEXT_LISTENER
+          value: "yes"
+        ports:
+        - containerPort: 9200
+          name: kafka
+        volumeMounts:
+        - name: volumne0
+          mountPath: /data/kafka
+          subPath: kafka
+        - name: volumne0
+          mountPath: /bitnami/kafka/config
+          subPath: kafka-config
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+            - matchExpressions:
+              - key: kubernetes.io/arch
+                operator: In
+                values:
+                - amd64
+      volumes:
+      - name: volumne0
+        persistentVolumeClaim:
+          claimName: pvc0
+```
+
 ## Containerd CLI (ctr)
 
 ```bash
@@ -1309,7 +1375,6 @@ ctr image pull docker.io/library/ubuntu:22.04
 ctr -n k8s.io images  ls|grep api 
 ctr image export kube-apiserver.v1.25.2.tar registry.k8s.io/kube-apiserver:v1.25.2
 ctr -n k8s.io  image import kube-apiserver.v1.25.2.tar
-
 ```
 
 <https://www.51cto.com/article/717474.html>
