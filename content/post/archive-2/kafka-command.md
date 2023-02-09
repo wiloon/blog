@@ -349,6 +349,7 @@ docker volume create kafka-config
 
 ```bash
 docker volume create kafka-config
+# 查看 volume 目录
 docker info | grep "Docker Root Dir"
 vim /var/lib/docker/volumes/kafka-config/_data/server.properties
 # 格式化storage, 先格式化 storage 再启动 kafka
@@ -510,7 +511,7 @@ podman run -d --name cmak\
 <https://my.oschina.net/u/218540/blog/223501>  
 <https://www.cnblogs.com/AcAc-t/p/kafka_topic_consumer_group_command.html>  
 <https://blog.csdn.net/lzufeng/article/details/81743521>  
-><https://www.jianshu.com/p/26495e334613>
+<https://www.jianshu.com/p/26495e334613>  
 
 ### kafka producer, consumer api doc
 
