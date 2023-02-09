@@ -32,7 +32,6 @@ bin/kafka-console-consumer.sh \
 --bootstrap-server kafka.wiloon.com:9092 \
 --topic topic0 \
 --from-beginning
-
 ```
 
 ### producer

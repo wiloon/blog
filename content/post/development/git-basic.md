@@ -294,22 +294,24 @@ git clean -Xn
 
 ##### 清除文件或文件夹， -f 选项强制删除，-d 删除目录 (小心）
 
-git 删除未跟踪文件
+git 删除未跟踪文件,  
 
 ```bash
+# 在使用 git clean 前，强烈建议加上 -n 参数先看看会删掉哪些文件，防止重要文件被误删
+git clean -nxfd
+git clean -nf
+git clean -nfd
+
 # 删除 untracked files
 git clean -f
  
 # 连 untracked 的目录也一起删掉
 git clean -fd
  
-# 连 gitignore 的 untrack 文件/目录也一起删掉 （慎用，一般这个是用来删掉编译出来的 .o之类的文件用的）
+# 连 gitignore 的 untrack 文件/目录也一起删掉 （慎用，一般这个是用来删掉编译出来的 .o 之类的文件用的）
 git clean -xfd
  
-# 在用上述 git clean 前，墙裂建议加上 -n 参数来先看看会删掉哪些文件，防止重要文件被误删
-git clean -nxfd
-git clean -nf
-git clean -nfd
+
 ```
 
 <https://ruby-china.org/topics/17951>
@@ -387,7 +389,7 @@ git checkout 788258e49531eb24bfd347a600d69a16f966c495
 To discard all local changes, you do not use revert. revert is for reverting commits. Instead, do:
 
 ```bash
-git checkout . #本地所有修改的。没有的提交的，都返回到原来的状态
+git checkout . # 本地所有修改的。没有的提交的，都返回到原来的状态
 ```
 
 <https://blog.csdn.net/leedaning/article/details/51304690>
@@ -773,11 +775,11 @@ git pull --allow-unrelated-histories
 ```bash
 git filter-branch --force --index-filter 'git rm --cached --ignore-unmatch /content/post/archive-2/cross-compile.md' --prune-empty --tag-name-filter cat -- --all
 
-# 本地记录覆盖到Github,(所有branch以及所有tags)
+# 本地记录覆盖到 Github, (所有branch以及所有tags)
 git push origin --force --all
 git push origin --force --tags
 
-# 确保没有什么问题之后,强制解除对本地存储库中的所有对象的引用和垃圾收集
+# 确保没有什么问题之后, 强制解除对本地存储库中的所有对象的引用和垃圾收集
 git for-each-ref --format='delete %(refname)' refs/original | git update-ref --stdin
 git reflog expire --expire=now --all
 
