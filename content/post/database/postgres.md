@@ -268,7 +268,7 @@ ORDER BY runtime desc;
 ```
 
 ```sql
---查看PostgreSQL正在执行的SQL  
+--查看 PostgreSQL 正在执行的SQL  
 SELECT procpid,
        start,
        now() - start AS lap,
@@ -288,7 +288,7 @@ ORDER BY lap DESC;
 ```
 
 ```bash
---查找是否有waiting  
+# 查找是否有 waiting  
 ps -ef|grep postgres | grep wait  
 ```
 
@@ -308,4 +308,19 @@ WHERE nspname NOT IN ('pg_catalog', 'information_schema')
 ORDER BY pg_total_relation_size(C.oid) DESC
 LIMIT 20;
 
+```
+
+## 空闲连接
+
+```sql
+-- 最大连接数
+show max_connections;
+-- 当前连接
+select * from pg_stat_activity;
+select datname from pg_stat_activity group by datname;
+select state from pg_stat_activity group by state;
+select * from pg_stat_activity where datname='database0' limit 1;
+select pid, query_start,query from pg_stat_activity where datname='database0' and state='idle';
+-- 释放空闲连接
+SELECT pg_terminate_backend(pid) FROM pg_stat_activity WHERE state='idle';
 ```
