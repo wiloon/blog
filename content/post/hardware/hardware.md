@@ -95,7 +95,7 @@ Realtek®以太网LAN 10 Mb/100 Mb/1 Gb铜缆RJ45,LAN唤醒
 
 <https://support.google.com/pixelphone/answer/9449293?hl=zh-Hans>
 
-## Sharp TV
+## Sharp TV, 夏普电视, 50U1A
 
 - AQUOS
 - 4K: 3840*2160

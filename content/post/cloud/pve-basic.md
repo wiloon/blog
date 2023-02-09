@@ -230,7 +230,11 @@ scp vzdump-qemu-105-2022_09_10-15_19_12.vma.zst root@192.168.50.7:/var/lib/vz/du
 
 ## 关闭屏幕, 熄屏
 
-setterm -blank 1 // 5分钟后关闭屏幕，5 可以改成别的整数
-GRUB_CMDLINE_LINUX="consoleblank=300" //每次开机后无操作都是5分钟关闭屏幕300的单位是秒
+```bash
+setterm --blank 1 # 1分钟后关闭屏幕，1 可以改成别的整数
+# setterm 不能通过 ssh  执行, ssh 执行 setterm 会报错 setterm: terminal xterm-256color does not support --blank
+# 只能连物理键盘执行
+GRUB_CMDLINE_LINUX="consoleblank=300" # 每次开机后无操作都是5分钟关闭屏幕300的单位是秒
+```
 
 <https://www.xltyu.com/3276.html>
