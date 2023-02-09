@@ -74,9 +74,9 @@ server {
 }
 ```
 
-#### curl
+#### 下载
 
-```f
+```bash
 curl "http://my_ip_address:8088/download/images/fei_ji.jpg" > test.jpg
 ```
 
