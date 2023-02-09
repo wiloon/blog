@@ -9,4 +9,5 @@ tags:
   - reprint
 ---
 ## 回文，palindrome
-回文，英文palindrome，指一个顺着读和反过来读都一样的字符串，比如madam
+
+回文，英文palindrome，指一个顺着读和反过来读都一样的字符串，比如 madam

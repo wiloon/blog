@@ -9,6 +9,8 @@ tags:
 ---
 ## macos apps
 
+- CleanMyMac X
+
 ## brew
 
 brew 是 Mac 下的一个包管理工具，作用类似于 centos 下的 yum。
