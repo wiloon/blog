@@ -20,7 +20,7 @@ tags:
 -o, --output <file>, write  output to <file> instead of stdout.
 --connect-timeout <seconds>
 -G/--get 以get的方式来发送数据
--i, --include 输出时包括protocol头信息, 显示response header
+-i, --include 输出时包括 protocol 头信息, 显示 response header
 -v, verbos
 -N, Disables the buffering of the output stream
 -H, --header LINE Custom header to pass to server (H)

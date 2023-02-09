@@ -17,6 +17,10 @@ tags:
 
 h**a**lf, s**a**t, l**a**ugh
 
+### [ʌ]
+
+c**u**t, s**o**n, fl**oo**d
+
 ### [ɑ]
 
 l**o**ck, wh**a**t, h**a**rd
@@ -28,10 +32,6 @@ dog, law, talk
 ### [ʊ]
 
 b**oo**k/bʊk, p**u**t, l**oo**k, wolf
-
-### [ʌ]
-
-cut, son, flood
 
 ### [aʊ]
 
