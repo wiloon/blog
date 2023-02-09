@@ -244,6 +244,8 @@ from 模块名 import 语句：
 
 ### 字典 dict
 
+dict 是线程安全的
+
 ```python
 scores = {'语文': 89, '数学': 92, '英语': 93}
 print(scores)
@@ -260,6 +262,13 @@ d = {'name':Tom, 'age':10, 'Tel':110}
 print ‘name’ in d.keys()
 print 'name' in d
 #两个的结果都是返回True
+del test_dict['Zhihu']
+```
+
+```py
+for kv in a.items():
+    print(kv)
+
 ```
 
 <http://c.biancheng.net/view/2212.html>
