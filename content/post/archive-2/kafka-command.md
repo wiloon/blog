@@ -164,7 +164,7 @@ bin/kafka-topics.sh \
 ```
 
 replication-factor: 副本数, partitions: 分区数
-topic名中有. 或 _会提示:  WARNING: Due to limitations in metric names, topics with a period ('.') or underscore ('_') could collide. To avoid issues it is best to use either, but not both.
+topic 名中有`.` 或 `_` 会提示:  WARNING: Due to limitations in metric names, topics with a period ('.') or underscore ('_') could collide. To avoid issues it is best to use either, but not both.
 
 ### create topic
 
@@ -249,16 +249,6 @@ bin/kafka-topics.sh --version
 # 到kafka/libs 目录下查看kafka包的文件名, where 2.13 is Scala version and 3.1.0 is Kafka version.
 kafka_2.13-3.1.0.jar
 ```
-
-### config kafka server
-
-edit config/server.properties
-
-broker.id=0
-
-listeners=PLAINTEXT://:9092
-
-zookeeper.connect=localhost:2181
 
 ## kafka 删除 topic
 
@@ -349,6 +339,7 @@ docker volume create kafka-config
 
 ```bash
 docker volume create kafka-config
+# 查看 volume 目录
 docker info | grep "Docker Root Dir"
 vim /var/lib/docker/volumes/kafka-config/_data/server.properties
 # 格式化storage, 先格式化 storage 再启动 kafka
@@ -360,14 +351,22 @@ docker run --rm --name kafka \
 bitnami/kafka:3.3.2 kafka-storage.sh format --config /bitnami/kafka/config/server.properties --cluster-id eVW-QkMeS8CeY1Bcuj4S-g --ignore-formatted
 ```
 
-##### server.properies
+##### kafka server.properties
 
 可以复制 kafka_2.13-3.0.0.tgz 里的 config/kraft/server.properties 文件改造一下.
 
 vim /var/lib/containers/storage/volumes/kafka-config/_data/server.properties
 
-```bash
+listeners=PLAINTEXT://:9092
+
+zookeeper.connect=localhost:2181
+
+```conf
+# broker 的唯一 id, 默认 1
+# broker.id=1
+# 标识该节点所承担的角色，在 KRaft 模式下需要设置这个值
 process.roles=broker,controller
+# 节点的ID，和节点所承担的角色相关联
 node.id=1
 controller.quorum.voters=1@localhost:9093
 listeners=PLAINTEXT://:9092,CONTROLLER://:9093
@@ -510,7 +509,7 @@ podman run -d --name cmak\
 <https://my.oschina.net/u/218540/blog/223501>  
 <https://www.cnblogs.com/AcAc-t/p/kafka_topic_consumer_group_command.html>  
 <https://blog.csdn.net/lzufeng/article/details/81743521>  
-><https://www.jianshu.com/p/26495e334613>
+<https://www.jianshu.com/p/26495e334613>  
 
 ### kafka producer, consumer api doc
 
