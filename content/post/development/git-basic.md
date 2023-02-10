@@ -222,9 +222,9 @@ git config --global core.editor vim
 export EDITOR=vim
 ```
 
-### commit
+### commit message
 
-#### 修改已经push了的commit信息
+#### 修改已经 push 了的 commit 信息
 
 ```bash
 如题，本条仅适用于修改已经push过了的最近一次的commit注释信息，确保本地文件的最新的。
@@ -255,7 +255,7 @@ In Git, the text of the commit message is part of the commit. Changing the commi
 ### 修改最近的第 n 次 commit message
 
 ```bash
-# 数字代表显示倒数第几次, #-i, --interactive
+# 数字代表显示倒数第几次, # -i, --interactive
 git rebase -i HEAD~2
 # git log你可以发现，git的最后一次提交已经变成你选的那个了
 # 把pick 修改成edit然后保存退出，然后会看到提示 git commit --amend
