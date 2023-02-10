@@ -207,3 +207,93 @@ thunks: 保存消息回调逻辑的集合
 <http://www.cnblogs.com/huxi2b/p/6637425.html>
   
 <http://apache.mirrors.tds.net/kafka/0.10.2.1/javadoc/org/apache/kafka/clients/producer/KafkaProducer.html>
+
+## kafka server config, server.properties
+
+```conf
+# broker 的唯一 id, 默认 1
+# broker.id=1
+# 标识该节点所承担的角色，在 KRaft 模式下需要设置这个值
+process.roles=broker,controller
+# 节点的ID，和节点所承担的角色相关联
+node.id=1
+controller.quorum.voters=1@localhost:9092
+listeners=PLAINTEXT://:9092,CONTROLLER://:9093
+inter.broker.listener.name=PLAINTEXT
+advertised.listeners=PLAINTEXT://192.168.50.169:9092
+controller.listener.names=CONTROLLER
+listener.security.protocol.map=CONTROLLER:PLAINTEXT,PLAINTEXT:PLAINTEXT,SSL:SSL,SASL_PLAINTEXT:SASL_PLAINTEXT,SASL_SSL:SASL_SSL
+num.network.threads=3
+num.io.threads=8
+socket.send.buffer.bytes=102400
+socket.receive.buffer.bytes=102400
+socket.request.max.bytes=104857600
+log.dirs=/data/kafka
+num.partitions=1
+num.recovery.threads.per.data.dir=1
+offsets.topic.replication.factor=1
+transaction.state.log.replication.factor=1
+transaction.state.log.min.isr=1
+log.retention.hours=168
+log.segment.bytes=1073741824
+log.retention.check.interval.ms=300000
+```
+
+### Process.Roles
+
+每个Kafka服务器现在都有一个新的配置项，叫做Process.Roles, 这个参数可以有以下值:
+
+如果Process.Roles = Broker, 服务器在KRaft模式中充当 Broker。
+如果Process.Roles = Controller, 服务器在KRaft模式下充当 Controller。
+如果Process.Roles = Broker,Controller，服务器在KRaft模式中同时充当 Broker 和Controller。
+如果process.roles 没有设置。那么集群就假定是运行在ZooKeeper模式下。
+如前所述，目前不能在不重新格式化目录的情况下在ZooKeeper模式和KRaft模式之间来回转换。 同时充当Broker和Controller的节点称为“组合”节点。
+
+对于简单的场景，组合节点更容易运行和部署，可以避免多进程运行时，JVM带来的相关的固定内存开销。 关键的缺点是，控制器将较少地与系统的其余部分隔离。 例如，如果代理上的活动导致内存不足，则服务器的控制器部分不会与该OOM条件隔离。
+
+### Quorum Voters
+
+系统中的所有节点都必须设置 controller.quorum.voters 配置。这个配置标识有哪些节点是 Quorum 的投票者节点。所有想成为控制器的节点都需要包含在这个配置里面。这类似于在使用ZooKeeper时，使用ZooKeeper.connect配置时必须包含所有的ZooKeeper服务器。
+
+然而，与ZooKeeper配置不同的是，controller.quorum.voters 配置需要包含每个节点的id。格式为: id1@host1:port1,id2@host2:port2。
+
+因此，如果你有10个Broker和 3个控制器，分别命名为Controller1、Controller2、Controller3，你可能在Controller1上有以下配置:
+
+```conf
+process.roles = controller
+node.id = 1
+listeners=CONTROLLER://controller1.example.com:9093
+controller.quorum.voters=1@controller1.example.com:9093,2@controller2.example.com:9093,3@controller3.example.com:9093
+```
+
+每个Broker和每个Controller 都必须设置 controller.quorum.voters。需要注意的是，controller.quorum.voters 配置中提供的节点ID必须与提供给服务器的节点ID匹配。
+
+比如在Controller1上，node.Id必须设置为1，以此类推。注意，控制器id不强制要求你从0或1开始。然而，分配节点ID的最简单和最不容易混淆的方法是给每个服务器一个数字ID，然后从0开始。
+————————————————
+版权声明：本文为CSDN博主「腾讯云中间件」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
+原文链接：https://blog.csdn.net/qq_36668144/article/details/118607023
+
+Kafka 集群选举的流程
+在 Kafka 3.0 源码笔记(1)-Kafka 服务端的网络通信架构 中笔者提到在 KRaft 模式下 Kafka 集群的元数据已经交由 Controller 集群自治，则在分布式环境下必然要涉及到集群节点的交互，包括集群选主、集群元数据同步等。其中 Kafka 集群选举涉及的状态流转如下图所示，关键的请求交互如下：
+
+Vote
+由 Candidate 候选者节点发送，请求其他节点为自己投票
+BeginQuorumEpoch
+由 Leader 节点发送，告知其他节点当前的 Leader 信息
+EndQuorumEpoch
+当前 Leader 退位时发送，触发重新选举
+Fetch
+由 Follower 发送，用于复制 Leader 日志，另外通过 Fetch 请求 Follower 也可以完成对 Leader 的探活
+从集群元数据的维护角度来看，Kafka 集群中的每个节点都是以下 3 种身份之一：
+
+Leader
+整个 Kafka 集群的主节点，由具有 controller 角色并在controller.quorum.voters 配置的列表中的节点担任，负责维护元数据的读写
+Follower(Voter)
+有投票权的从节点，由具有 controller 角色并在controller.quorum.voters 配置的列表中的节点担任，从 Leader 节点处同步集群元数据，并负责处理部分来自 Follower(Observer) 的集群元数据读请求
+Follower(Observer)
+没有投票权的从节点，从 Leader/Follower(Voter) 处同步元数据，包含以下两类节点：
+只具有 broker 角色的节点，需注意 broker 角色功能模块将通过监听集群元数据变化来进行对应创建分区等动作，负责消息数据的读写
+具有 controller 角色但不在 controller.quorum.voters 列表中的节点
+————————————————
+版权声明：本文为CSDN博主「谈谈1974」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
+原文链接：https://blog.csdn.net/weixin_45505313/article/details/122642581
