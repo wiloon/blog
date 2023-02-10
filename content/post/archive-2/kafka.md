@@ -134,7 +134,7 @@ Producer在发布消息到某个Partition时,先通过ZooKeeper找到该Partitio
 
 Consumer读消息也是从Leader读取,只有被commit过的消息 (offset低于HW的消息) 才会暴露给Consumer。
 
-### kafka生产环境规划
+### kafka 生产环境规划
 
 <https://juejin.cn/post/6844903713916583944>
 <https://juejin.cn/post/6844903700616445960>
