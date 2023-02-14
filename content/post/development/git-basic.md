@@ -227,7 +227,7 @@ export EDITOR=vim
 #### 修改已经 push 了的 commit 信息
 
 ```bash
-如题，本条仅适用于修改已经push过了的最近一次的commit注释信息，确保本地文件的最新的。
+本条仅适用于修改已经 push 过了的最近一次的 commit 注释信息，确保本地文件的最新的。
 
 step1：使用【git commit --amend】命令，会进入到vim编辑器。
 
