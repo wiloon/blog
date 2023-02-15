@@ -2,25 +2,32 @@
 title: Git Stash
 author: "-"
 date: 2014-08-09T01:13:47+00:00
-url: /?p=6915
+url: git/stash
 categories:
-  - Inbox
+  - Git
 tags:
   - Git
+  - reprint
+  - remix
 
 ---
 ## Git Stash
+
+比如当前分支是 branch0, 新建了一个文件, 之后发现分支不对, 应该是在 branch1 上添加, 这时就可以用 git stash 暂存当前修改, 切换到 branch1 再 git stash pop.
+
 ```bash
   
 git stash
-  
+# 如果有新添加的文件，那么就需要添加 -a 参数
+git stash save -a "msg0"
 git stash list
   
 git stash pop
-  
 ```
 
-https://blog.csdn.net/daguanjia11/article/details/73810577
+git stash pop 开启某个修改暂存后，会在 stash list 里面将最近一次的修改暂存记录删除掉，而 git stash apply stash@{0} 则不会。
+
+<https://blog.csdn.net/daguanjia11/article/details/73810577>
 
 Git Stash用法
   
@@ -36,7 +43,7 @@ git stash list: 显示Git栈内的所有备份，可以利用这个列表来决�
   
 git stash clear: 清空Git栈。此时使用gitg等图形化工具会发现，原来stash的哪些节点都消失了。
   
-关于Git Stash的详细解释，适用场合，这里做一个说明: 
+关于Git Stash的详细解释，适用场合，这里做一个说明:
 
 使用git的时候，我们往往使用branch解决任务切换问题，例如，我们往往会建一个自己的分支去修改和调试代码, 如果别人或者自己发现原有的分支上有个不得不修改的bug，我们往往会把完成一半的代码 commit提交到本地仓库，然后切换分支去修改bug，改好之后再切换回来。这样的话往往log上会有大量不必要的记录。其实如果我们不想提交完成一半或者不完善的代码，但是却不得不去修改一个紧急Bug，那么使用'git stash'就可以将你当前未提交到本地 (和服务器) 的代码推入到Git的栈中，这时候你的工作区间和上一次提交的内容是完全一样的，所以你可以放心的修 Bug，等到修完Bug，提交到服务器上后，再使用'git stash apply'将以前一半的工作应用回来。也许有的人会说，那我可不可以多次将未提交的代码压入到栈中？答案是可以的。当你多次使用'git stash'命令后，你的栈里将充满了未提交的代码，这时候你会对将哪个版本应用回来有些困惑，'git stash list'命令可以将当前的Git栈信息打印出来，你只需要将找到对应的版本号，例如使用'git stash apply stash@{1}'就可以将你指定版本号为stash@{1}的工作取出来，当你将所有的栈都应用回来的时候，可以使用'git stash clear'来将栈清空。
   

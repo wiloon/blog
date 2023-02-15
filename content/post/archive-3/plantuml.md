@@ -73,7 +73,7 @@ end note
 @enduml
 ```
 
-### vs code 渲染uml的快捷键
+### vs code 渲染 uml 的快捷键
 
 ```bash
 alt+d
