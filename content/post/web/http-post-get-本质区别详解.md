@@ -168,7 +168,7 @@ URL全称是资源描述符，我们可以这样认 为: 一个URL地址，它�
  Content-Type: text/xml; charset=utf-8
  Content-Length: length
   
-    <?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
  <objPlaceOrderResponse xmlns="https://api.efxnow.com/webservices2.3">
  <Success>boolean</Success>
  <ErrorDescription>string</ErrorDescription>
@@ -178,16 +178,14 @@ URL全称是资源描述符，我们可以这样认 为: 一个URL地址，它�
  <CustomerDealRef>string</CustomerDealRef>
  </objPlaceOrderResponse>
   
-    HTTP POST
+HTTP POST
   
+发送
   
-    发送
-  
-  
-    POST /DEMOWebServices2.8/Service.asmx/CancelOrder HTTP/1.1
- Host: api.efxnow.com
- Content-Type: application/x-www-form-urlencoded
- Content-Length: length
+POST /DEMOWebServices2.8/Service.asmx/CancelOrder HTTP/1.1
+Host: api.efxnow.com
+Content-Type: application/x-www-form-urlencoded
+Content-Length: length
   
     UserID=string&PWD=string&OrderConfirmation=string
   

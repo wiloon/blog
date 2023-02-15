@@ -173,16 +173,16 @@ Private Function httpGet(url, method, data)
   
 服务端代码:
 
-  Response.Write Request.ServerVariables("REQUEST_METHOD")
- If (Request.ServerVariables("REQUEST_METHOD")="GET") Then
- Response.Write "DO GET" + Request("do")
- ElseIf (Request.ServerVariables("REQUEST_METHOD")="POST") Then
- Response.Write "DO POST" + Request("do")
- ElseIf (Request.ServerVariables("REQUEST_METHOD")="PUT") Then
- Response.Write "DO PUT" + Request("do")
- ElseIf (Request.ServerVariables("REQUEST_METHOD")="DELETE") Then
- Response.Write "DO DELETE" + Request("do")
- End if
+Response.Write Request.ServerVariables("REQUEST_METHOD")
+If (Request.ServerVariables("REQUEST_METHOD")="GET") Then
+Response.Write "DO GET" + Request("do")
+ElseIf (Request.ServerVariables("REQUEST_METHOD")="POST") Then
+Response.Write "DO POST" + Request("do")
+ElseIf (Request.ServerVariables("REQUEST_METHOD")="PUT") Then
+Response.Write "DO PUT" + Request("do")
+ElseIf (Request.ServerVariables("REQUEST_METHOD")="DELETE") Then
+Response.Write "DO DELETE" + Request("do")
+End if
 
 需要注意的是，IIS服务器默认是不支持ASP文件的PUT和DELETE操作，默认会返回"403 - Forbidden"错误，因此需要修改IIS的设置，修改方法是: 管理根据－IIS信息服务器－网站－属性－主目录－应用程序配置－配置－映射，选择ASP － 编辑 － 修改为全部动作。
 

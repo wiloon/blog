@@ -324,3 +324,7 @@ select pid, query_start,query from pg_stat_activity where datname='database0' an
 -- 释放空闲连接
 SELECT pg_terminate_backend(pid) FROM pg_stat_activity WHERE state='idle';
 ```
+
+## GUI
+
+- pgAdmin

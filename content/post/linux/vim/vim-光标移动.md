@@ -1,5 +1,5 @@
 ---
-title: "Vim光标移动"
+title: Vim光标移动
 author: "-"
 date: "2021-07-22 15:36:26"
 url: "vim/cursor"
@@ -8,7 +8,7 @@ categories:
 tags:
   - VIM
 ---
-## "Vim光标移动"
+## Vim光标移动
 
 搜索结果之间跳转
 文件之间移动

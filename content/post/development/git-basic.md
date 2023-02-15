@@ -21,35 +21,14 @@ origin 是远程仓库的默认别名, 查看配置了几个远程仓库和别�
 
 最新版本的 Git 提供了新的 `git switch` 命令来切换分支, `git switch`，比 `git checkout` 要更容易理解。
 
-```bash
-# 分支改名
-git branch -m branch0 branch1
-```
-
-### 设置默认的分支名
+### 查看分支
 
 ```bash
-# 设置默认分支名，不设置的话，默认是 master
-git config --global init.defaultBranch <name>
-git config --global init.defaultBranch main
-# The just-created branch can be renamed via this command
-git branch -m main
-```
-
-### 打印当前分支名
-
-```bash
-git symbolic-ref --short HEAD  
-```
-
-### 查看
-
-```bash
-## 查看所有的分支, 本地 + 远程
-git branch -a
 # 查看本地分支, 当前分支前面会标一个 `*` 号
 git branch
-## 查看远程所有分支
+# 查看所有的分支, 本地 + 远程
+git branch -a
+# 查看远程所有分支
 git branch -r 
 # check branch detail
 git branch -v
@@ -61,18 +40,15 @@ git branch -vv
 
 新建分支其实就是在当前位置打个标签, 也就是说... 新分支是以当前分支的 commit 为基础的.
 
-### 新建并切换到分支
-
 ```bash
+# 新建并切换到分支
+# -c, --create
 git switch -c dev
 git checkout -b branch0
-```
-
-```bash
 # 从当前分支创建新分支, 新 branch 名字: branch0
 git branch branch0
 # 从 branch0 分支 创建 branch1 分支
-git branch1 branch0
+git branch branch1 branch0
 # 从 branch0 分支 创建 branch1 分支并切换到 branch1 分支 
 git checkout -b branch1 branch0
 # 从 tag v1.2.3 创建分支 branch1
@@ -109,6 +85,27 @@ git branch -D branch0
 git branch -d -r origin/todo
 ```
 
+```bash
+# 分支改名
+git branch -m branch0 branch1
+```
+
+### 设置默认的分支名
+
+```bash
+# 设置默认分支名，不设置的话，默认是 master
+git config --global init.defaultBranch <name>
+git config --global init.defaultBranch main
+# The just-created branch can be renamed via this command
+git branch -m main
+```
+
+### 打印当前分支名
+
+```bash
+git symbolic-ref --short HEAD  
+```
+
 ## git tag
 
 轻量标签 (lightweight）与附注标签 (annotated）。
@@ -143,7 +140,7 @@ git show v0.0.1
 # 查看 tag 在哪个分支上
 git branch --contains tags/<tag>
 
-# 查看commit内容
+# 查看 commit 内容
 git show commit_id
 
 # checkout tag
@@ -171,6 +168,8 @@ git push origin :refs/tags/v1.0.0
 # 把 branch0 合并到当前分支
 git merge branch0
 git merge branch0 -m "MSG0"
+# 禁用 Fast forward
+git merge --no-ff -m "merge with no-ff" dev
 ```
 
 ### git merge --squash
@@ -257,7 +256,7 @@ In Git, the text of the commit message is part of the commit. Changing the commi
 ```bash
 # 数字代表显示倒数第几次, # -i, --interactive
 git rebase -i HEAD~2
-# git log你可以发现，git的最后一次提交已经变成你选的那个了
+# git log 你可以发现，git 的最后一次提交已经变成你选的那个了
 # 把pick 修改成edit然后保存退出，然后会看到提示 git commit --amend
 git commit --amend
 # 修改注释之后，保存退出，然后 git rebase --continue
@@ -396,9 +395,9 @@ git checkout . # 本地所有修改的。没有的提交的，都返回到原来
 
 ### 指定克隆深度
 
-在git clone时加上--depth=1
+在 git clone 时加上--depth=1
 
-depth用于指定克隆深度，为1即表示只克隆最近一次commit.
+depth 用于指定克隆深度，为1即表示只克隆最近一次 commit.
 
 git checkout master
 
@@ -462,11 +461,13 @@ git log --reverse
 
 # git log 倒序, 仓库创建时间
 git log --reverse
+git log --graph --pretty=oneline --abbrev-commit
+git log --all --pretty=oneline --abbrev-commit --graph
 
 echo "# project name" >> README.md
 ```
 
-git reflog 可以查看所有分支的所有操作记录 (包括 (包括 commit 和 reset 的操作），包括已经被删除的commit记录，git log 则不能察看已经删除了的 commit 记录。
+git reflog 可以查看所有分支的所有操作记录 (包括 (包括 commit 和 reset 的操作），包括已经被删除的 commit 记录，git log 则不能察看已经删除了的 commit 记录。
 
 ```bash
 git reflog
@@ -506,7 +507,7 @@ git fetch -p
 git fetch 和 git pull 都可以将远端仓库更新至本地那么他们之间有何区别?想要弄清楚这个问题有有几个概念不得不提。
 
 FETCH_HEAD: 是一个版本链接，记录在本地的一个文件中，指向着目前已经从远程仓库取下来的分支的末端版本。
-commit-id: 在每次本地工作完成后，都会做一个git commit 操作来保存当前工作到本地的repo， 此时会产生一个commit-id，这是一个能唯一标识一个版本的序列号。 在使用 git push 后，这个序列号还会同步到远程仓库。
+commit-id: 在每次本地工作完成后，都会做一个git commit 操作来保存当前工作到本地的repo， 此时会产生一个 commit-id，这是一个能唯一标识一个版本的序列号。 在使用 git push 后，这个序列号还会同步到远程仓库。
 
 有了以上的概念再来说说 git fetch
 git fetch: 这将更新 git remote 中所有的远程仓库所包含分支的最新 commit-id, 将其记录到.git/FETCH_HEAD 文件中
@@ -556,6 +557,13 @@ git pull
 git pull -v
 git pull origin master
 git pull origin branch0
+git pull --rebase # rebase the current branch on top of the upstream branch after fetching.
+git pull --merge
+git config --global pull.rebase true # merge
+git config pull.rebase false  # merge
+git config pull.rebase true   # rebase
+git config pull.ff only       # fast-forward only
+git pull --ff-only
 ```
 
 ```bash
@@ -607,9 +615,11 @@ git push origin master
 
 # 如果配置了多个远程仓库，则可以使用 -u 选项指定一个默认仓库，以后再执行 git push 就可以不显示的指定仓库了.
 git push -u origin master
+
 # -f 强制覆盖到仓库，这会导致仓库中某些记录丢失。
 git push -f
-
+# fatal: The current branch production has no upstream branch.
+git push --set-upstream origin production
 ```
 
 ```bash
@@ -620,7 +630,7 @@ git clone -b v1.30.0 https://github.com/foo/bar
 
 git clean -fd
 
-#rebase
+# rebase
 git rebase
 
 git stash
@@ -827,3 +837,37 @@ git reflog expire --expire=now --all
 git branch --set-upstream-to=origin/远程分支的名字(我的是master) 本地分支的名字(我的是master)
 
 <https://segmentfault.com/a/1190000009128253>
+
+## Your branch and 'origin/branch0' have diverged
+
+```r
+On branch branch0
+Your branch and 'origin/branch0' have diverged,
+and have 4 and 2 different commits each, respectively.
+  (use "git pull" to merge the remote branch into yours)
+
+nothing to commit, working tree clean
+```
+
+<https://segmentfault.com/q/1010000015716120>
+
+假设，远程上的 commit 是 A -> B
+你在 A 电脑上 commit 和 push 之后，远程变成了 A -> B -> C -> D
+现在，B 电脑上还是 A -> B。然后你 commit 了，那么 B 电脑上就是 A -> B -> E。
+
+所以，你需要的是把 B 电脑上的历史线变成 A -> B -> C -> D -> E
+这时，你需要在 B 电脑上：
+
+git pull --rebase origin dev
+这个命令等同于：
+
+git fetch origin
+git rebase origin/dev
+执行之后，B 电脑上的历史线就会变成 A -> B -> C -> D -> E，然后你就可以 push 了
+
+多说一句，之所以显示上面的“错误”，是因为 A -> B -> C -> D 和 A -> B -> E 有一个共同的祖先 B，你在本地多了一个 commit E，远程多了两个 commits C 和 D。这个时候如果你要在 A -> B -> E 的 branch 上 push，git 猜不出到底想保留 C 和 D，还是只要 E，还是都要，就会出现上面的提示。
+
+## git status -s
+
+- M = 修改过的
+- U 更新但未合并

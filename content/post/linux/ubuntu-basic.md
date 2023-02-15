@@ -92,7 +92,7 @@ sudo apt install keepassxc
 sudo apt-get install language-pack-zh-hans
 # 设置语言
 vim /etc/environment
-## 中文语言环境, 设置后 vim 进程编辑状态屏幕下方会显示中文"插入"的那种
+## 中文语言环境, 设置后 vim 进入编辑状态屏幕下方会显示中文"插入"的那种
 LANG="zh_CN.UTF-8"
 LANGUAGE="zh_CN:zh:en_US:en"
 ## 英文环境 
