@@ -1,5 +1,5 @@
 ---
-title: vim宏录制
+title: vim 宏录制
 author: "-"
 date: ""
 url: ""
@@ -8,7 +8,7 @@ categories:
 tags:
   - VIM
 ---
-## vim宏录制
+## vim 宏录制
 
 在编辑某个文件的时候,可能会出现需要对某种特定的操作进行许多次的情况,以编辑下面的文件为例:
 
