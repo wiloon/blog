@@ -925,13 +925,13 @@ default via 10.2.255.254 dev eth2
 ```bash
 ip route del 192.168.0.0/24 dev eth1
 ip route add 192.168.0.0/24 dev eth1
-ip route del via 10.2.255.254 //删除默认路由
-ip route add via 10.2.255.254 //增加默认路由
-ip route add 192.168.1.0/24 via 192.168.0.1 //增加静态路由,192.168.0.1为下一跳地址
-ip route del 192.168.1.0/24 via 192.168.0.1 //删除静态路由
+ip route del via 10.2.255.254 # 删除默认路由
+ip route add via 10.2.255.254 # 增加默认路由
+ip route add 192.168.1.0/24 via 192.168.0.1 # 增加静态路由, 192.168.0.1 为下一跳地址
+ip route del 192.168.1.0/24 via 192.168.0.1 # 删除静态路由
 ```
 
-显示arp信息ip neigh [可以取代arp -n],删除则是ip neigh del IP地址 dev 设备名
+显示 arp 信息 ip neigh [可以取代arp -n], 删除则是 ip neigh del IP 地址 dev 设备名
 
 路由策略数据库
   

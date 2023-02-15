@@ -1,5 +1,5 @@
 ---
-title: /dev/zero和/dev/null
+title: /dev/zero 和 /dev/null
 author: "-"
 date: 2012-06-08T05:41:02+00:00
 url: /?p=3453
@@ -8,7 +8,7 @@ categories:
 tags:
   - reprint
 ---
-## /dev/zero和/dev/null
+## /dev/zero 和 /dev/null
 
 ### /dev/null
 
