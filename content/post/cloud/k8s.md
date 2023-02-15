@@ -21,6 +21,7 @@ tags:
 ## commands
 
 ```bash
+kubectl get pods -n kube-system
 kubectl label node 192.168.0.212 gpu=true
 kubectl get node -L gpu
 kubectl get node -L kubernetes.io/arch
