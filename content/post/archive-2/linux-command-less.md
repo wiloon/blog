@@ -1,14 +1,15 @@
 ---
-title: less
+title: less command
 author: "-"
 date: 2017-07-28T01:32:48+00:00
-url: /?p=10943
+url: less
 categories:
-  - Inbox
+  - Command
 tags:
   - reprint
+  - remix
 ---
-## less
+## less command
 
 ### make Vim behave like "tail -f"?
 

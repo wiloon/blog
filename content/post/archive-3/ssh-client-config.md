@@ -113,7 +113,7 @@ ps auxwww | grep sshd:
   
 ps ax | grep sshd
 
-### sshd, vim /etc/ssh/sshd_config
+> vim /etc/ssh/sshd_config
 
 maxstartup
   

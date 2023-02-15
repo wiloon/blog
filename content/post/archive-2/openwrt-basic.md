@@ -301,7 +301,11 @@ opkg 默认不提供 sendmail, 替代的包是 msmtp
 opkg install msmtp
 ```
 
-### msmtp config, vim /etc/msmtprc
+### msmtp config, /etc/msmtprc
+
+```bash
+vim /etc/msmtprc
+```
 
 ```bash
 account default

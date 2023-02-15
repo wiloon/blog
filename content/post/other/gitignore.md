@@ -2,7 +2,7 @@
 title: gitignore
 author: "-"
 date: 2012-02-25T13:43:36+00:00
-url: /?p=2410
+url: gitignore
 categories:
   - VCS
 tags:
@@ -10,9 +10,10 @@ tags:
 
 ---
 ## gitignore
+
 ### 忽略子目录下所有某后缀的文件
 
-```
+```r
 **/*.iml
 ```
 
@@ -26,17 +27,13 @@ git中可以使用.gitignore文件来忽略这些文件。
   
 文件中每一行表示需要忽略的文件的正则表达式。
   
-$cat .gitignore
-  
-#ignore .metadata
-  
+>cat .gitignore
+
+```bash
 .metadata
-  
-.gitignore
-  
-#ignore obj and lib file
-  
+# ignore obj and lib file
 *.[oa]
+```
 
 当前的目录情况
   
@@ -62,7 +59,7 @@ $git status
 
 # On branch master
 
-# Untracked files:
+# Untracked files
 
 # (use "git add ..." to include in what will be committed)
 
