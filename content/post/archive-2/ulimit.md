@@ -98,7 +98,9 @@ cat /proc/PID/limits
 
 一条记录包含 4 列,分别是范围 domain (即生效的范围, 可以是用户名、group 名或 * 代表所有非 root 用户) ；t 类型 type: 即 soft、hard, 或者-代表同时设置 soft 和 hard；项目 item, 即 ulimit 中的资源控制项目,名字枚举可以参考文件中的注释；最后就是 value。比如将所有非 root 用户的 nofile 设置为 100000
 
-#### 编辑 vim /etc/security/limits.conf 在最后加入
+> vim /etc/security/limits.conf
+
+在最后加入
 
 /etc/security/limits.d/ 中可以配置, 系统是先加载limits.conf然后按照英文字母顺序加载limits.d目录下的配置文件,后加载配置覆盖之前的配置。
 

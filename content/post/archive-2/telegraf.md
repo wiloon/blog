@@ -31,7 +31,7 @@ sudo apt-get update && sudo apt-get install telegraf
 
 <https://portal.influxdata.com/downloads/>
 
-### 配置文件 vim /etc/telegraf/telegraf.conf
+> vim /etc/telegraf/telegraf.conf
 
 ```bash
 [global_tags]

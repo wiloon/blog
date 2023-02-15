@@ -24,7 +24,7 @@ virsh net-list --all
 virsh net-start default
 ```
 
-## vim /etc/libvirt/qemu.conf
+> vim /etc/libvirt/qemu.conf
 
 ```bash
 user = "root"

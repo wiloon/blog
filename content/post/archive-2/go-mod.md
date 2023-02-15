@@ -13,18 +13,17 @@ tags:
 ```bash
 export GO111MODULE=on
 
-go mod init project0    #初始化
-go mod tidy             #拉取缺少的模块, 移除不用的模块。
-go mod download         #下载依赖包
-go mod graph            #打印模块依赖图
-go mod vendor           #将依赖复制到 vendor 下
-go mod verify           #校验依赖
-go mod why              #解释为什么需要依赖
-go list -m -json all    #依赖详情
+go mod init project0    # 初始化
+go mod tidy             # 拉取缺少的模块, 移除不用的模块。
+go mod download         # 下载依赖包
+go mod graph            # 打印模块依赖图
+go mod vendor           # 将依赖复制到 vendor 下
+go mod verify           # 校验依赖
+go mod why              # 打印为什么需要依赖
+go list -m -json all    # 依赖详情
 go mod edit -go=1.15
 
 # 添加新模块
-go get
 go get <package>[@<version>]
 ```
 
@@ -43,13 +42,13 @@ go mod tidy 也可以；
 
 ## go mod replace
 
-不过因为某些未知原因,并不是所有的包都能直接用go get获取到,这时我们就需要使用go modules的replace功能了。 (当然大部分问题挂个梯子就能解决,但是我们也可以有其它选项)
+不过因为某些未知原因,并不是所有的包都能直接用 go get 获取到, 这时我们就需要使用 go modules 的 replace 功能了。 (当然大部分问题挂个梯子就能解决,但是我们也可以有其它选项)
   
-使用replace替换package
+使用 replace 替换 package
 
-replace顾名思义,就是用新的package去替换另一个package,他们可以是不同的package,也可以是同一个package的不同版本。看一下基本的语法:
+replace 顾名思义,就是用新的 package 去替换另一个 package, 他们可以是不同的 package, 也可以是同一个 package 的不同版本。看一下基本的语法:
   
-go mod replace 必须带版本号, 不带版本号的replace只能用于replace到本地目录
+go mod replace 必须带版本号, 不带版本号的 replace 只能用于 replace 到本地目录
 
 ## replace 到本地的包
 
@@ -93,11 +92,11 @@ replace应该在引入新的依赖后立即执行,以免go tools自动更新mod�
   
 package后面的version不可省略。 (edit所有操作都需要版本tag)
   
-version不能是master或者latest,这两者go get可用,但是go mod edit不可识别,会报错。 (不知道是不是bug,虽然文档里表示可以这么用,希望go1.12能做点完善措施)
+version不能是master或者latest,这两者 go get 可用, 但是 go mod edit 不可识别,会报错。 (不知道是不是bug,虽然文档里表示可以这么用,希望go1.12能做点完善措施)
   
 基于以上原因,我们替换一个package的步骤应该是这样的:
 
-首先go get new-package (如果你知道package的版本tag,那么这一步其实可以省略,如果想使用最新的版本而不想确认版本号,则需要这一步)
+首先 go get new-package (如果你知道package的版本tag,那么这一步其实可以省略,如果想使用最新的版本而不想确认版本号,则需要这一步)
   
 然后查看go.mod,手动复制new-package的版本号 (如果你知道版本号,则跳过,这一步十分得不人性化,也许以后会改进)
   

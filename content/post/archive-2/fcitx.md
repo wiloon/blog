@@ -65,7 +65,11 @@ sudo pacman -S fcitx  kcm-fcitx fcitx-configtool fcitx-im fcitx-table-extra
 # fcitx-configtool: gtk3 config tool, optional
 ```
 
-### vim .zshrc
+### .zshrc
+
+```bash
+vim .zshrc
+```
 
 ```bash
 export GTK_IM_MODULE=fcitx
