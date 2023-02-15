@@ -20,16 +20,11 @@ tags:
 dd bs=1M conv=fdatasync if=./proxmox-ve_*.iso of=/dev/XYZ
 ```
 
-### 安装vim
-
-```bash
-apt update && apt install vim
-```
-
 ### 去除 Proxmox 企业源
 
 ```bash
-vi /etc/apt/sources.list.d/pve-enterprise.list
+apt update && apt install vim
+vim /etc/apt/sources.list.d/pve-enterprise.list
 
 #deb https://enterprise.proxmox.com/debian/pve buster pve-enterprise
 ```
