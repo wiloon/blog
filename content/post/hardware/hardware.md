@@ -104,7 +104,7 @@ Realtek®以太网LAN 10 Mb/100 Mb/1 Gb铜缆RJ45,LAN唤醒
 - DOLBY Digital plus
 - HDMI
 
-## 斐讯N1
+## 斐讯 N1
 
 CPU: Amlogic S905, ARM Cortex-A53 四核 up to 2.0GHz
 GPU: ARM Mali™-450, 5core
@@ -401,6 +401,7 @@ F1 默认走 罗技优联, F2 和 F3 可以连接另外两个蓝牙设备. 蓝�
 
 - 3840 x 2160（16:9）
 - MST
+- 27 英寸
 
 ## Nuphy Air75
 
