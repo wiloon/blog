@@ -200,3 +200,11 @@ curl -v -i -N -H "Connection: Upgrade" -H "Upgrade: websocket" -H "Host: 127.0.0
 <http://blog.51cto.com/xoyabc/1950743>
   
 <https://blog.csdn.net/dreamer2020/article/details/52050001>
+
+## libcurl error codes
+
+- CURLE_COULDNT_RESOLVE_HOST (6) Could not resolve host. The given remote host was not resolved. 无法解析主机
+- CURLE_COULDNT_CONNECT (7) Failed to connect() to host or proxy. 无法连接到主机或代理
+- CURLE_RECV_ERROR (56), Failure with receiving network data. 户端向服务器发送POST请求，服务器未响应，6 次TCP重传无响应后，【libcurl】判定HTTP数据接收失败。 <https://blog.csdn.net/wjb123sw99/article/details/103946046>
+
+<https://curl.se/libcurl/c/libcurl-errors.html>
