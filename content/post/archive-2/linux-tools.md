@@ -1,15 +1,22 @@
 ---
-title: linux tool
+title: linux tools
 author: "-"
 date: 2018-10-09T03:10:52+00:00
-url: /?p=12772
+url: linux/tools
 categories:
-  - Inbox
+  - Linux
 tags:
   - reprint
 ---
-## linux tool
-https://linuxtools-rst.readthedocs.io/zh_CN/latest/tool/ldd.html
+## linux tools
+
+## Linux Performance Observability Tools
+
+[![pSbsuQJ.png](https://s1.ax1x.com/2023/02/17/pSbsuQJ.png)](https://imgse.com/i/pSbsuQJ)
+
+<https://hub.docker.com/r/nicolaka/netshoot>
+
+<https://linuxtools-rst.readthedocs.io/zh_CN/latest/tool/ldd.html>
 
 ldd
   
