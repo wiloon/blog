@@ -9,8 +9,9 @@ tags:
   - reprint
 ---
 ## redis pub sub
+
 PubSub 的缺点
-尽管 Redis 实现了 PubSub 模式来达到了 多播消息队列 的目的,但在实际的消息队列的领域,几乎 找不到特别合适的场景,因为它的缺点十分明显: 
+尽管 Redis 实现了 PubSub 模式来达到了 多播消息队列 的目的,但在实际的消息队列的领域,几乎 找不到特别合适的场景,因为它的缺点十分明显:
 
 - 没有 Ack 机制,也不保证数据的连续:  PubSub 的生产者传递过来一个消息,Redis 会直接找到相应的消费者传递过去。如果没有一个消费者,那么消息会被直接丢弃。如果开始有三个消费者,其中一个突然挂掉了,过了一会儿等它再重连时,那么重连期间的消息对于这个消费者来说就彻底丢失了。
 - 不持久化消息:  如果 Redis 停机重启,PubSub 的消息是不会持久化的,毕竟 Redis 宕机就相当于一个消费者都没有,所有的消息都会被直接丢弃。
@@ -22,12 +23,11 @@ SUBSCRIBE channel0
 publish channel0 message0
 ```
 
-http://redisbook.readthedocs.io/en/latest/feature/pubsub.html
+<http://redisbook.readthedocs.io/en/latest/feature/pubsub.html>
 
 在消费者下线的情况下,生产的消息会丢失,得使用专业的消息队列如RocketMQ等。
 
-
-http://blog.csdn.net/lihao21/article/details/48370687
+<http://blog.csdn.net/lihao21/article/details/48370687>
 
 Redis为我们提供了publish/subscribe(发布/订阅)功能。我们可以对某个channel(频道)进行subscribe(订阅),当有人在这个channel上publish(发布)消息时,redis就会通知我们,这样我们可以收到别人发布的消息。
   
@@ -133,7 +133,7 @@ jedis.close();
   
 在上面的代码中,我们从JedisPool获取一个Jedis实例,并使用这个Jedis实例进行subscribe的操作。
   
-Jedis的subscribe的声明如下: 
+Jedis的subscribe的声明如下:
 
 public void subscribe(final JedisPubSub jedisPubSub, final String… channels)
   
@@ -267,8 +267,6 @@ receive redis published message, channel mychannel, message hello
   
 参考资料
   
-https://github.com/xetorthio/jedis/wiki/AdvancedUsage
+<https://github.com/xetorthio/jedis/wiki/AdvancedUsage>
   
-http://basrikahveci.com/a-simple-jedis-publish-subscribe-example/
-
-
+<http://basrikahveci.com/a-simple-jedis-publish-subscribe-example/>

@@ -313,3 +313,6 @@ Cluster Manager Commands:
 ```
 
 <https://redis.io/docs/manual/scaling/>
+
+## k8s, redis-cluster
+
