@@ -9,6 +9,7 @@ tags:
   - reprint
 ---
 ## redis windows
+
 启动redis 服务
 
 ```bash
@@ -19,16 +20,14 @@ redis-server.exe  redis.windows.conf
 
 ```
 
-https://github.com/MSOpenTech/redis/releases
-
+<https://github.com/MSOpenTech/redis/releases>
 
 修改配置文件
 
 redis.windows.conf ,搜索 maxheap , 然后直接指定好内容即可.
 
-
-# maxheap <bytes>
+```bash
+maxheap <bytes>
+```
 
 maxheap 1024000000
-
-
