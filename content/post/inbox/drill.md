@@ -1,5 +1,5 @@
 ---
-title: dns tool, dig/drill, dnsutils to ldns dig -> dirll
+title: drill, dns tool, dig/drill, dnsutils to ldns dig -> dirll
 author: "-"
 date: 2016-07-12T05:16:26+00:00
 url: /?p=9125
@@ -8,7 +8,11 @@ categories:
 tags:
   - reprint
 ---
-## dns tool, dig/drill, dnsutils to ldns dig -> dirll
+## drill, dns tool, dig/drill, dnsutils to ldns dig -> dirll
+
+drill if you can, dig if you have to, nslookup if you must
+
+<https://imdjh.github.io/toolchain/2015/10/07/drill-if-you-can-dig-if-you-have-to.html>
 
 ```bash
 # install dig
@@ -24,8 +28,10 @@ sudo apt install ldnsutils
 #alpine
 apk add drill
 
+# DNS 解析跟踪
 dig +trace wiloon.com
 dirll -T wiloon.com
+drill -TD wiloon.com
 
 drill wiloon.com @192.168.50.1
 drill wangyue.dev NS
@@ -45,6 +51,6 @@ Please update your packages to depend on ldns instead (already in [core]).
 
 While dnsutils provided three similar DNS query tools (dig, host, nslookup), ldns provides drill, a near-drop-in replacement for dig (which can therefore easily replace host and nslookup too). To update, you must replace all calls to dig/host/nslookup in your packages to calls to drill. Simple calls such as `dig archlinux.org` can simply be rewritten as `drill archlinux.org`; see `drill -h` for more details and please contact me if you cannot figure out how to migrate.
 
-    《dig挖出DNS的秘密》-linux命令五分钟系列之三十四
+《dig挖出DNS的秘密》-linux命令五分钟系列之三十四
   
 <http://roclinux.cn/?p=2449&embed=true#?secret=9AchPRSDEE>

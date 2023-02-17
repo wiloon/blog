@@ -322,13 +322,13 @@ docker run --rm \
 ### podman pod
 
 ```bash
-    podman pod --help
-    podman pod create --help
-    podman pod ps
-    podman pod rm pod0
+podman pod --help
+podman pod create --help
+podman pod ps
+podman pod rm pod0
 
-    podman pod create -n pod_0 -p 8086:8086 -p 3000:3000 -p 8888:8888
-    # 使用pod, 端口映射要配置到pod上，pod内的容器不配端口
+podman pod create -n pod_0 -p 8086:8086 -p 3000:3000 -p 8888:8888
+# 使用pod, 端口映射要配置到pod上，pod内的容器不配端口
 ```
 
 #### 创建容器并加入pod

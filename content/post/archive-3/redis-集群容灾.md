@@ -10,9 +10,6 @@ tags:
 ---
 ## redis 集群容灾
 
-  
     Redis Sentinel 容灾演练
   
-
-
-http://www.dczou.com/viemall/870.html/embed#?secret=Kngfb4CYbn
+<http://www.dczou.com/viemall/870.html/embed#?secret=Kngfb4CYbn>
