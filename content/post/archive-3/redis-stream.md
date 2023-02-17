@@ -9,10 +9,10 @@ tags:
   - reprint
 ---
 ## redis stream
+
 stream是一个看起来比pubsub可靠多的消息队列。pubsub不靠谱？ 很不靠谱，网络一断或buffer一大就会主动清理数据。stream的设计参考了kafka的消费组模型，redis作者antirez也专门写了篇短文描述了这个过程。
 
-说起新鲜的redis streams，其实Antirez在几年前开了一个新项目叫做disque, 也是用来做消息队列的，奈何没怎么有人关注。我作为antirez的粉丝，肯定是用过了，还tmd改过disque python的库。现在redis5的stream里有一些disque的影子。 更多streams的信息 https://redis.io/topics/streams-intro
-    
+说起新鲜的redis streams，其实Antirez在几年前开了一个新项目叫做disque, 也是用来做消息队列的，奈何没怎么有人关注。我作为antirez的粉丝，肯定是用过了，还tmd改过disque python的库。现在redis5的stream里有一些disque的影子。 更多streams的信息 <https://redis.io/topics/streams-intro>
 
 Redis5.0最近被作者突然放出来了，增加了很多新的特色功能。而Redis5.0最大的新特性就是多出了一个数据结构Stream，它是一个新的强大的支持多播的可持久化的消息队列，作者坦言Redis Stream狠狠地借鉴了Kafka的设计。
 
