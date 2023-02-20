@@ -356,3 +356,14 @@ func main() {
 <https://blog.csdn.net/lwldcr/article/details/78722330>
 <https://blog.csdn.net/pingD/article/details/76588648>
 <https://www.reddit.com/r/golang/comments/4xn341/converting_byte_to_int32/>
+
+## int 和 int64 互转
+
+```go
+var n int = 97
+m := int64(n) // safe
+
+var m int64 = 2 << 32
+n := int(m)    // truncated on machines with 32-bit ints
+fmt.Println(n) // either 0 or 4,294,967,296
+```
