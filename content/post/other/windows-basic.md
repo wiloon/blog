@@ -10,6 +10,14 @@ tags:
 ---
 ## windows basic, win basic
 
+## cmd
+
+```bash
+copy C:\Users\desktop\foo.txt D:\backup\ /y
+# cmd-连续执行多条命令
+copy C:\Users\desktop\foo.txt D:\backup\ && D:\backup\foo.exe
+```
+
 ## ISO
 
 <https://isofiles.bd581e55.workers.dev/>
@@ -39,7 +47,7 @@ tags:
 winver
 ```
 
-### bat脚本控制网卡启用禁用
+### bat 脚本控制网卡启用禁用
 
 ```bash
 netsh interface set interface "eth0" disabled

@@ -40,8 +40,8 @@ echo ${PATH}
 ### unset
 
 ```bash
-    -f 仅删除函数
-    -v 仅删除变量
+-f 仅删除函数
+-v 仅删除变量
 ```
 
 unset 变量名称 或 unset -v 变量名称
@@ -70,7 +70,7 @@ export 变量名称="xxxx"
 
 declare -x 变量名称
 
-6. bash的内置变量
+## bash的内置变量
 
 除了环境变量和用户自定义的变量之外,bash shell中还会用到很多的内置变量,下面介绍一些常用的内置变量。
 
