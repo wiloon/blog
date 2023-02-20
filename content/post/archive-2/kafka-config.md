@@ -2,7 +2,7 @@
 title: kafka config, server, producer
 author: "-"
 date: 2017-05-04T09:27:25+00:00
-url: /?p=10207
+url: kafka/config
 categories:
   - Kafka
 tags:
@@ -241,6 +241,8 @@ log.retention.check.interval.ms=300000
 
 ### Process.Roles
 
+标识该节点所承担的角色，在KRaft模式下需要设置这个值
+
 每个Kafka服务器现在都有一个新的配置项，叫做Process.Roles, 这个参数可以有以下值:
 
 如果Process.Roles = Broker, 服务器在KRaft模式中充当 Broker。
@@ -261,8 +263,10 @@ log.retention.check.interval.ms=300000
 
 ```conf
 process.roles = controller
+# 节点的ID，和节点所承担的角色相关联
 node.id = 1
 listeners=CONTROLLER://controller1.example.com:9093
+# controller quorum 连接的集群地址字符串
 controller.quorum.voters=1@controller1.example.com:9093,2@controller2.example.com:9093,3@controller3.example.com:9093
 ```
 

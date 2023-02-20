@@ -345,6 +345,10 @@ sum := sha256.Sum256([]byte("hello world\n"))
 指定输出文件 路径/文件名 `go build -o /tmp/foo foo.go`
 # glibc 静态编译
 CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -ldflags '-s -w --extldflags "-static -fpic"' -o "$binPath" "$name.go"
+# -ldflags="-s -w" -s: 忽略符号表和调试信息。-w: 忽略 DWARF 调试信息，使用该选项后将无法使用gdb进行调试。
+# remove the symbol and debug info with go build -ldflags "-s -w".
+go build -ldflags="-s -w" main.go 
+
 ```
 
 ```bash
@@ -656,3 +660,28 @@ func main() {
 }
 
 ```
+
+## upx
+
+upx 是一个常用的压缩动态库和可执行文件的工具，通常可减少 50-70% 的体积。
+
+upx 压缩后的程序和压缩前的程序一样，无需解压仍然能够正常地运行，这种压缩方法称之为带壳压缩，压缩包含两个部分：
+
+在程序开头或其他合适的地方插入解压代码；
+将程序的其他部分压缩。
+执行时，也包含两个部分：
+
+首先执行的是程序开头的插入的解压代码，将原来的程序在内存中解压出来；
+再执行解压后的程序。
+也就是说，upx 在程序执行时，会有额外的解压动作，不过这个耗时几乎可以忽略。
+
+如果对编译后的体积没什么要求的情况下，可以不使用 upx 来压缩。一般在服务器端独立运行的后台服务，无需压缩体积。
+
+<https://github.com/upx/upx>
+
+```bash
+# 压缩率，1-9，1 代表最低压缩率，9 代表最高压缩率。
+upx -9 foo.exe
+```
+
+go build 不加参数编译出的 .exe 大小: 10,688,000B, 加编译参数 -ldflags="-s -w" 之后 7,797,760B, upx -9 之后 2,755,072B.
