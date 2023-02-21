@@ -18,8 +18,7 @@ podman run -d \
 -v /etc/localtime:/etc/localtime:ro \
 nats
 
-
-https://zhuanlan.zhihu.com/p/40871363
+<https://zhuanlan.zhihu.com/p/40871363>
 
 nats是一个开源的，云原生的消息系统。Apcera，百度，西门子，VMware，HTC和爱立信等公司都有在使用。
 
@@ -44,7 +43,7 @@ NATS 设计目标
 NATS 使用场景
 nats是一个简单且强大的消息系统，为支持现代云原生架构设计。由于可伸缩性的复杂性，nats旨在容易使用和实现，且能提供多种质量的服务。
 
-一些适用nats的场景有: 
+一些适用nats的场景有:
 
 高吞吐量的消息分散 —— 少数的生产者需要将数据发送给很多的消费者。
 寻址和发现 —— 将数据发送给特定的应用实例，设备或者用户，也可用于发现并连接到基础架构中的实例，设备或用户。
@@ -53,16 +52,14 @@ nats是一个简单且强大的消息系统，为支持现代云原生架构设�
 N路可扩展性 —— 通信基础架构能够充分利用go的高效并发/调度机制，以增强水平和垂直的扩展性。
 位置透明 —— 程序在各个地理位置上分布者大量实例，且你无法了解到程序之间的端点配置详情，及他们所生产或消费的数据。
 容错
-使用nats-streaming的附加场景有: 
+使用nats-streaming的附加场景有:
 
 从特定时间或顺序消费
 持久性
 有保证的消息投递
 
-
-
 ---
 
-https://docs.nats.io/  
-https://github.com/nats-io/nats-server  
-https://gcoolinfo.medium.com/comparing-nats-nats-streaming-and-nats-jetstream-ec2d9f426dc8  
+<https://docs.nats.io/>  
+<https://github.com/nats-io/nats-server>  
+<https://gcoolinfo.medium.com/comparing-nats-nats-streaming-and-nats-jetstream-ec2d9f426dc8>  

@@ -644,7 +644,7 @@ def printme( str ):
    return
 ```
 
-## kafka
+## kafka-python
 
 - PyKafka and
 - confluent-kafka

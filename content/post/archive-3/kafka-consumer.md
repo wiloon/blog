@@ -54,8 +54,6 @@ properties.put("key.deserializer", "org.apache.kafka.common.serialization.String
 properties.put("value.deserializer", "org.apache.kafka.common.serialization.ByteArrayDeserializer");
 ```
 
-### kafka consumer
-
 Consumer Group 主要用于实现高伸缩性，高容错性的 Consumer 机制。因此，消息的接收是基于 Consumer Group 的。组内多个 Consumer 实例可以同时读取 Kafka 消息，同一时刻一条消息只能被一个消费者消费，而且一旦某一个 consumer "挂了"， Consumer Group 会立即将已经崩溃的 Consumer 负责的分区转交给其他 Consumer 来负责。从而保证 Consumer Group 能够正常工作。
 
 ### 位移保存
@@ -205,37 +203,34 @@ __consumers_offsets topic配置了compact策略，使得它总是能够保存最
 
 至于每个group保存到__consumers_offsets的哪个分区，如何查看的问题请参见这篇文章: Kafka 如何读取offset topic内容 (\__consumer_offsets)
 
-4 Rebalance
+## Rebalance
 
-4.1 什么是rebalance？
+rebalance 本质上是一种协议，规定了一个 consumer group 下的所有 consumer 如何达成一致来分配订阅 topic 的每个分区。比如某个 group 下有 20 个 consumer，它订阅了一个具有 100 个分区的 topic。正常情况下，Kafka 平均会为每个 consumer 分配 5 个分区。这个分配的过程就叫 rebalance。
 
-rebalance本质上是一种协议，规定了一个consumer group下的所有consumer如何达成一致来分配订阅topic的每个分区。比如某个group下有20个consumer，它订阅了一个具有100个分区的topic。正常情况下，Kafka平均会为每个consumer分配5个分区。这个分配的过程就叫rebalance。
+### 什么时候 rebalance？
 
-4.2 什么时候rebalance？
+这也是经常被提及的一个问题。rebalance 的触发条件有三种:
 
-这也是经常被提及的一个问题。rebalance的触发条件有三种:
+组成员发生变更 (新 consumer 加入组、已有 consumer 主动离开组或已有 consumer 崩溃了——这两者的区别后面会谈到)
+订阅主题数发生变更——这当然是可能的，如果你使用了正则表达式的方式进行订阅，那么新建匹配正则表达式的 topic 就会触发 rebalance
 
-组成员发生变更(新consumer加入组、已有consumer主动离开组或已有consumer崩溃了——这两者的区别后面会谈到)
-  
-订阅主题数发生变更——这当然是可能的，如果你使用了正则表达式的方式进行订阅，那么新建匹配正则表达式的topic就会触发rebalance
-  
 订阅主题的分区数发生变更
   
-4.3 如何进行组内分区分配？
+### 如何进行组内分区分配？
 
-之前提到了group下的所有consumer都会协调在一起共同参与分配，这是如何完成的？Kafka新版本consumer默认提供了两种分配策略: range和round-robin。当然Kafka采用了可插拔式的分配策略，你可以创建自己的分配器以实现不同的分配策略。实际上，由于目前range和round-robin两种分配器都有一些弊端，Kafka社区已经提出第三种分配器来实现更加公平的分配策略，只是目前还在开发中。我们这里只需要知道consumer group默认已经帮我们把订阅topic的分区分配工作做好了就行了。
+之前提到了 group 下的所有 consumer 都会协调在一起共同参与分配，这是如何完成的？Kafka 新版本 consumer 默认提供了两种分配策略: range 和 round-robin。当然 Kafka 采用了可插拔式的分配策略，你可以创建自己的分配器以实现不同的分配策略。实际上，由于目前 range 和 round-robin 两种分配器都有一些弊端，Kafka 社区已经提出第三种分配器来实现更加公平的分配策略，只是目前还在开发中。我们这里只需要知道 consumer group 默认已经帮我们把订阅 topic 的分区分配工作做好了就行了。
 
 简单举个例子，假设目前某个consumer group下有两个consumer:  A和B，当第三个成员加入时，kafka会触发rebalance并根据默认的分配策略重新为A、B和C分配分区，如下图所示:
 
-4.4 谁来执行rebalance和consumer group管理？
+4.4 谁来执行 rebalance 和 consumer group 管理？
 
-Kafka提供了一个角色: coordinator来执行对于consumer group的管理。坦率说kafka对于coordinator的设计与修改是一个很长的故事。最新版本的coordinator也与最初的设计有了很大的不同。这里我只想提及两次比较大的改变。
+Kafka 提供了一个角色: coordinator 来执行对于 consumer group 的管理。坦率说 kafka 对于 coordinator 的设计与修改是一个很长的故事。最新版本的 coordinator 也与最初的设计有了很大的不同。这里我只想提及两次比较大的改变。
 
-首先是0.8版本的coordinator，那时候的coordinator是依赖zookeeper来实现对于consumer group的管理的。Coordinator监听zookeeper的/consumers/<group>/ids的子节点变化以及/brokers/topics/<topic>数据变化来判断是否需要进行rebalance。group下的每个consumer都自己决定要消费哪些分区，并把自己的决定抢先在zookeeper中的/consumers/<group>/owners/<topic>/<partition>下注册。很明显，这种方案要依赖于zookeeper的帮助，而且每个consumer是单独做决定的，没有那种"大家属于一个组，要协商做事情"的精神。
+首先是0.8版本的 coordinator，那时候的coordinator是依赖zookeeper来实现对于consumer group的管理的。Coordinator监听zookeeper的/consumers/<group>/ids的子节点变化以及/brokers/topics/<topic>数据变化来判断是否需要进行rebalance。group下的每个consumer都自己决定要消费哪些分区，并把自己的决定抢先在zookeeper中的/consumers/<group>/owners/<topic>/<partition>下注册。很明显，这种方案要依赖于zookeeper的帮助，而且每个consumer是单独做决定的，没有那种"大家属于一个组，要协商做事情"的精神。
 
 基于这些潜在的弊端，0.9版本的kafka改进了coordinator的设计，提出了group coordinator——每个consumer group都会被分配一个这样的coordinator用于组管理和位移管理。这个group coordinator比原来承担了更多的责任，比如组成员管理、位移提交保护机制等。当新版本consumer group的第一个consumer启动的时候，它会去和kafka server确定谁是它们组的coordinator。之后该group内的所有成员都会和该coordinator进行协调通信。显而易见，这种coordinator设计不再需要zookeeper了，性能上可以得到很大的提升。后面的所有部分我们都将讨论最新版本的coordinator设计。
 
-4.5 如何确定coordinator？
+4.5 如何确定 coordinator？
 
 上面简单讨论了新版coordinator的设计，那么consumer group如何确定自己的coordinator是谁呢？ 简单来说分为两步:
 
@@ -269,7 +264,7 @@ Coordinator在rebalance的时候主要用到了前面4种请求。
 
 consumer如何向coordinator证明自己还活着？ 通过定时向coordinator发送Heartbeat请求。如果超过了设定的超时时间，那么coordinator就认为这个consumer已经挂了。一旦coordinator认为某个consumer挂了，那么它就会开启新一轮rebalance，并且在当前其他consumer的心跳response中添加"REBALANCE_IN_PROGRESS"，告诉其他consumer: 不好意思各位，你们重新申请加入组吧！
 
-4.9 Rebalance过程
+4.9 Rebalance 过程
 
 终于说到consumer group执行rebalance的具体流程了。很多用户估计对consumer内部的工作机制也很感兴趣。下面就跟大家一起讨论一下。当然我必须要明确表示，rebalance的前提是coordinator已经确定了。
 
