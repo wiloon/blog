@@ -59,6 +59,11 @@ sudo -u postgres psql -c "\l"
 # 查看表结构
 \d table0
 
+# Turn off printing of column names and result row count footers, etc. This is equivalent to \t or \pset tuples_only.
+\t tuples only on/off, tuples only on 的时候 select 语句的输出不带 header
+
+\h
+\?
 select * length( "abc"::TEXT)
 ```
 
@@ -328,3 +333,5 @@ SELECT pg_terminate_backend(pid) FROM pg_stat_activity WHERE state='idle';
 ## GUI
 
 - pgAdmin
+
+<https://www.postgresql.org/docs/current/app-psql.html>

@@ -11,6 +11,11 @@ tags:
 ---
 ## kafka basic, command
 
+kafka_2.13-3.4.0.tgz
+
+scala 版本 2.13
+kafka 版本 3.4.0
+
 ### consumer
 
 ```bash
@@ -112,7 +117,6 @@ bin/kafka-consumer-groups.sh --bootstrap-server localhost:9092 --group test-grou
 bin/kafka-consumer-groups.sh --bootstrap-server localhost:9092 --group test-group --reset-offsets --topic topic0 --shift-by 1
 
 bin/kafka-consumer-groups.sh --bootstrap-server localhost:9092 --group test-group --reset-offsets --topic topic0 --to-current --execute
-
 ```
 
 ## topic
@@ -279,8 +283,8 @@ deleteall /brokers/topics/topic0
 ```
 
 ```bash
-#edit bin/kafka-server-start.sh, change memory setting KAFKA_HEAP_OPTS
-#start kafka server
+# edit bin/kafka-server-start.sh, change memory setting KAFKA_HEAP_OPTS
+# start kafka server
 bin/kafka-server-start.sh config/server.properties
 
 #start kafka server as daemon
@@ -313,21 +317,35 @@ cat increase-replication-factor.json
     bin/kafka-reassign-partitions.sh --zookeeper localhost:2182 --reassignment-json-file increase-replication-factor.json --execute
 ```
 
-### install
+## install
 
 download <http://kafka.apache.org/downloads.html>
 
-#### kraft
+### kraft
 
 ```bash
 bin/kafka-storage.sh format --config config/kraft/server.properties --cluster-id $(./bin/kafka-storage.sh random-uuid)
 bin/kafka-server-start.sh config/kraft/server.properties
 ```
 
-#### kafka docker
+### kafka docker
 
 ```bash
+# create volume
 docker volume create kafka-config
+docker volume create kafka-storage
+# 查看 volume 目录
+docker info | grep "Docker Root Dir"
+# server.properties 见下文
+vim /var/lib/docker/volumes/kafka-config/_data/server.properties
+chmod 777 -R /var/lib/docker/volumes/kafka-config
+chmod 777 -R /var/lib/docker/volumes/kafka-storage
+# 格式化storage, 先格式化 storage 再启动 kafka
+docker run --rm --name kafka \
+-e ALLOW_PLAINTEXT_LISTENER=yes \
+-v kafka-config:/bitnami/kafka/config \
+-v kafka-storage:/data/kafka \
+bitnami/kafka:3.4.0 kafka-storage.sh format --config /bitnami/kafka/config/server.properties --cluster-id eVW-QkMeS8CeY1Bcuj4S-g --ignore-formatted
 ```
 
 #### kraft podmann
@@ -335,9 +353,8 @@ docker volume create kafka-config
 <https://github.com/bitnami/bitnami-docker-kafka/issues/159>
 <https://github.com/bitnami/bitnami-docker-kafka/blob/master/README.md>
 
-##### create volume
-
 ```bash
+# create volume
 docker volume create kafka-config
 # 查看 volume 目录
 docker info | grep "Docker Root Dir"
@@ -349,6 +366,15 @@ docker run --rm --name kafka \
 -v kafka-config:/bitnami/kafka/config \
 -v kafka-storage:/data/kafka \
 bitnami/kafka:3.3.2 kafka-storage.sh format --config /bitnami/kafka/config/server.properties --cluster-id eVW-QkMeS8CeY1Bcuj4S-g --ignore-formatted
+
+
+docker run -d --name kafka \
+-e ALLOW_PLAINTEXT_LISTENER=yes \
+-p 9092:9092 \
+-v kafka-config:/bitnami/kafka/config \
+-v kafka-storage:/data/kafka \
+bitnami/kafka:3.4.0
+
 ```
 
 ##### kafka server.properties
@@ -397,7 +423,7 @@ podman run --rm --name kafka \
 -p 9092:9092 \
 -v kafka-config:/bitnami/kafka/config \
 -v kafka-storage:/data/kafka \
-bitnami/kafka:3.2 kafka-storage.sh format --config /bitnami/kafka/config/server.properties --cluster-id eVW-QkMeS8CeY1Bcuj4S-g --ignore-formatted
+bitnami/kafka:3.4.0 kafka-storage.sh format --config /bitnami/kafka/config/server.properties --cluster-id eVW-QkMeS8CeY1Bcuj4S-g --ignore-formatted
 
 # 创建单节点 kafka 容器
 podman run -d --name kafka \
@@ -405,7 +431,7 @@ podman run -d --name kafka \
 -p 9092:9092 \
 -v kafka-config:/bitnami/kafka/config \
 -v kafka-storage:/data/kafka \
-bitnami/kafka:3.2
+bitnami/kafka:3.4.0
 ```
 
 ### install kafka with zookeeper

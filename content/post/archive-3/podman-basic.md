@@ -2,12 +2,13 @@
 title: podman basic
 author: "-"
 date: 2022-10-10 11:26:14
-url: container
+url: podman
+categories:
+  - container
 tags:
   - podman
   - remix
-categories:
-  - container
+
 ---
 
 ## podman basic
@@ -88,7 +89,7 @@ podman image ls -f dangling=true
 podman image prune
 ```
 
-### 虚悬镜像(dangling image)
+### 虚悬镜像 (dangling image)
 
 为什么会有 `<none>` 这样命名的镜像？这些镜像 docker 称为 虚悬镜像，当镜像被新的镜像覆盖时候，老版本镜像名称会变成 `<none>`。
 
@@ -106,7 +107,7 @@ podman run --rm hello-world env
 podman stats
 ```
 
-### 配置driver
+### 配置 driver
 
 ```bash
 vim /etc/containers/storage.conf
@@ -440,9 +441,13 @@ podman ps -a -f "status=exited"
 
 <https://docs.podman.io/en/latest/markdown/podman-ps.1.html>
 
-## 导出镜像
+## 导出镜像, podman save
+
+podman save will save parent layers of the image(s)
 
 ```bash
+# 如果执行 podman save 时磁盘上已经存在 kafka.tar 会提示: docker-archive doesn't support modifying existing images
+sudo podman save --format=docker-archive -o kafka.tar 5701259bb69a bitnami/kafka:3.4.0
 podman save be96e19ac6ef >pingd-proxy.tar
 ```
 
