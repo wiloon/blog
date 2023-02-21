@@ -471,6 +471,7 @@ git reflog 可以查看所有分支的所有操作记录 (包括 (包括 commit 
 
 ```bash
 git reflog
+git reflog show
 ```
 
 ### 更改最多的文件

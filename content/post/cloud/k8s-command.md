@@ -1305,7 +1305,7 @@ kubectl create -f athens.yaml
 kubectl delete -f athens.yaml
 ```
 
-## kafka.yaml
+## k8s kafka.yaml
 
 ```yaml
 apiVersion: v1
