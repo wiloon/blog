@@ -319,6 +319,8 @@ cat increase-replication-factor.json
 
 ## install
 
+安装一个只有单 broker 节点的集群（也被称为伪集群）
+
 download <http://kafka.apache.org/downloads.html>
 
 ### kraft

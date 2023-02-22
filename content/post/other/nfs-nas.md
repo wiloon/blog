@@ -130,3 +130,7 @@ Synology Hybrid RAID (SHR) 是 Synology 的自动 RAID 管理系统,经专门设
 
 <https://blog.csdn.net/holandstone/article/details/7964160>  
 <https://zhuanlan.zhihu.com/p/108636766>
+
+## JBOD
+
+全称是 Just Bunch Of Disks，翻译过来就是一堆普通磁盘的意思。

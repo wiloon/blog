@@ -6,26 +6,44 @@ url: page-cache
 categories:
   - os
 tags:
-  - file
+  - memory
 
 ---
 ## 页缓存, Page Cache
 
 可以通过命令 getconf PAGE_SIZE 来获取页的大小：
 
-    sudo getconf PAGE_SIZE
+```bash
+sudo getconf PAGE_SIZE
+```
 
 两个逻辑单位：
 
-页，内存操作的基本单位
-磁盘块，磁盘操作的基本单位
-
+- 页，内存操作的基本单位
+- 磁盘块，磁盘操作的基本单位
 
 我们知道文件一般存放在硬盘 (机械硬盘或固态硬盘）中，CPU 并不能直接访问硬盘中的数据，而是需要先将硬盘中的数据读入到内存中，然后才能被 CPU 访问。
 
 由于读写硬盘的速度比读写内存要慢很多 (DDR4 内存读写速度是机械硬盘 500 倍，是固态硬盘的 200 倍），所以为了避免每次读写文件时，都需要对硬盘进行读写操作，Linux 内核使用 页缓存 (Page Cache） 机制来对文件中的数据进行缓存。
 
 本文使用的 Linux 内核版本为：Linux-2.6.23
+
+### DDR4 内存带宽
+
+```r
+DDR4 2133：17 GB/s
+DDR4 2400：19.2 GB/s
+DDR4 2666：21.3 GB/s
+DDR4 3200：25.6 GB/s
+```
+
+### 机械硬盘带宽
+
+5400转笔记本硬盘平均读写速度大致在60-90MB这个区间
+7200转台式机硬盘大致在130-190MB区间，10000转的西数黑盘也在这个区间内
+10000转和15000转台式机硬盘数据不详
+
+<https://zhuanlan.zhihu.com/p/443104177>
 
 ## 什么是页缓存
 
@@ -66,7 +84,7 @@ Buffer(Buffer Cache) 以块形式缓冲了块设备的操作，定时或手动�
 
 Cache(Page Cache) 以页面形式缓存了文件系统的文件，给需要使用的程序读取，它是为了给读操作提供缓冲，避免频繁读硬盘，提高读取效率。
 
->https://lday.me/2019/09/09/0023_linux_page_cache_and_buffer_cache/
->https://cloud.tencent.com/developer/article/1848933
->https://qinglinmao8315.github.io/linux/2018/03/14/linux-page-cache.html
->https://zhuanlan.zhihu.com/p/35277219
+><https://lday.me/2019/09/09/0023_linux_page_cache_and_buffer_cache/>
+><https://cloud.tencent.com/developer/article/1848933>
+><https://qinglinmao8315.github.io/linux/2018/03/14/linux-page-cache.html>
+><https://zhuanlan.zhihu.com/p/35277219>

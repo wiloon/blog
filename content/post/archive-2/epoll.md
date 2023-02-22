@@ -49,14 +49,16 @@ epoll 通过使用红黑树(RB-tree)搜索被监视的文件描述符(file descr
 2. 将数据从内核拷贝到进程中 (Copying the data from the kernel to the process)
 
 正式因为这两个阶段,linux系统产生了下面五种网络模式的方案。
-  
-- 阻塞 I/O (blocking IO)
-- 非阻塞 I/O (nonblocking IO)
-- I/O 多路复用 ( IO multiplexing)
-- 异步 I/O (asynchronous IO)
-- 信号驱动 I/O ( signal driven IO)
 
-注: 由于signal driven IO在实际中并不常用,所以我这只提及剩下的四种IO Model。
+1. 阻塞 I/O (blocking IO)
+2. 非阻塞 I/O (nonblocking IO)
+3. I/O 多路复用 ( IO multiplexing)
+4. 信号驱动 I/O ( signal driven IO)
+5. 异步 I/O (asynchronous IO)
+
+每一种 I/O 模型都有典型的使用场景，比如 Socket 的阻塞模式和非阻塞模式就对应于前两种模型, Linux中的 select 函数就属于 I/O 多路复用模型, 第 5 种模型 (异步 I/O) 其实很少有 UNIX 和类 UNIX 系统支持, Windows的 IOCP（I/O Completion Port，简称 IOCP）属于此模型 (异步 I/O)。至于大名鼎鼎的 Linux epoll模型，则可以看作兼具第3种和第4种模型的特性。 通常情况下我们会认为epoll比 select模型高级. 毕竟 epoll取消了轮询机制，取而代之的是回调机制（callback）。 -- 《Apache Kafka实战》 — 胡夕
+
+注: 由于 signal driven IO 在实际中并不常用, 所以我这只提及剩下的四种 IO Model。
 
 ### 阻塞 I/O (blocking IO)  BIO,Blocking I/O
 
@@ -68,8 +70,7 @@ epoll 通过使用红黑树(RB-tree)搜索被监视的文件描述符(file descr
 
 ### 非阻塞 I/O, Non-blocking I/O, NIO
 
-linux下,可以通过设置socket使其变为non-blocking。
-  
+linux下,可以通过设置socket使其变为non-blocking。  
 当用户进程发出read操作时,如果kernel中的数据还没有准备好,那么它并不会block用户进程,而是立刻返回一个error。从用户进程角度讲 ,它发起一个read操作后,并不需要等待,而是马上就得到了一个结果。用户进程判断结果是一个error时,它就知道数据还没有准备好,于是它可以再次发送read操作。一旦kernel中的数据准备好了,并且又再次收到了用户进程的system call,那么它马上就将数据拷贝到了用户内存,然后返回。
 
 所以,nonblocking IO的特点是用户进程需要不断的主动询问kernel数据好了没有。
@@ -210,12 +211,13 @@ ET模式: 当epoll_wait检测到描述符事件发生并将此事件通知应用
 LT(level triggered)是缺省的工作方式,并且同时支持block和no-block socket.在这种做法中,内核告诉你一个文件描述符是否就绪了,然后你可以对这个就绪的fd进行IO操作。如果你不作任何操作,内核还是会继续通知你的。
 
 2. ET模式
-ET(edge-triggered)是高速工作方式,只支持no-block socket。在这种模式下,当描述符从未就绪变为就绪时,内核通过epoll告诉你。然后它会假设你知道文件描述符已经就绪,并且不会再为那个文件描述符发送更多的就绪通知,直到你做了某些操作导致那个文件描述符不再为就绪状态了(比如,你在发送,接收或者接收请求,或者发送接收的数据少于一定量时导致了一个EWOULDBLOCK 错误) 。但是请注意,如果一直不对这个fd作IO操作(从而导致它再次变成未就绪),内核不会发送更多的通知(only once)
-
+ET(edge-triggered)是高速工作方式,只支持no-block socket。在这种模式下,当描述符从未就绪变为就绪时,内核通过epoll告诉你。然后它会假设你知道文件描述符已经就绪,并且不会再为那个文件描述符发送更多的就绪通知,直到你做了某些操作导致那个文件描述符不再为就绪状态了(比如,你在发送,接收或者接收请求,或者发送接收的数据少于一定量时导致了一个EWOULDBLOCK 错误) 。但是请注意,如果一直不对这个fd作IO操作(从而导致它再次变成未就绪),内核不会发送更多的通知(only once)  
 ET模式在很大程度上减少了epoll事件被重复触发的次数,因此效率要比LT模式高。epoll工作在ET模式的时候,必须使用非阻塞 socket ,以避免由于一个文件句柄的阻塞读/阻塞写操作把处理多个文件描述符的任务饿死。
 
-3. 总结
+## 总结
+
 假如有这样一个例子:
+
 1. 我们已经把一个用来从管道中读取数据的文件句柄(RFD)添加到epoll描述符
 2. 这个时候从管道的另一端被写入了2KB的数据
 3. 调用epoll_wait(2),并且它会返回RFD,说明它已经准备好读取操作
@@ -264,6 +266,8 @@ Linux环境下开发经常会碰到很多错误(设置errno),其中EAGAIN是其�
 
 三 代码演示
 下面是一段不完整的代码且格式不对,意在表述上面的过程,去掉了一些模板代码。
+
+```c
 
 # define IPADDRESS   "127.0.0.1"
 # define PORT        8787
@@ -381,6 +385,7 @@ static void modify_event(int epollfd,int fd,int state){
     ev.data.fd = fd;
     epoll_ctl(epollfd,EPOLL_CTL_MOD,fd,&ev);
 }
+```
 
 //注: 另外一端我就省了
 四 epoll总结
