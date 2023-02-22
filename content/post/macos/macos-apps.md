@@ -6,10 +6,12 @@ categories:
   - macOS
 tags:
   - reprint
+  - remix
 ---
 ## macos apps
 
 - CleanMyMac X
+- Bob, 词典
 
 ## brew
 

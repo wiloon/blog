@@ -273,7 +273,7 @@ worker_connections 65535;
   
 }
 
-# 设定http服务器
+设定http服务器
   
 http
   
@@ -283,15 +283,19 @@ include mime.types; #文件扩展名与文件类型映射表
   
 default_type application/octet-stream; #默认文件类型
   
-# charset utf-8; #默认编码
+charset utf-8; #默认编码
   
 server_names_hash_bucket_size 128; #服务器名字的hash表大小
   
 client_header_buffer_size 32k; #上传文件大小限制
   
 large_client_header_buffers 4 64k; #设定请求缓
-  
-client_max_body_size 8m; #设定请求缓
+
+## client_max_body_size, 413 Request Entity Too Large
+
+Syntax: client_max_body_size size;
+Default: client_max_body_size 1m;
+Context: http, server, location
 
 autoindex on; #开启目录列表访问，合适下载服务器，默认关闭。
 
@@ -302,7 +306,7 @@ TCP_NODELAY 也是一个 socket 选项，启用后会禁用 Nagle 算法，尽�
 
 可以看到 TCP_NOPUSH 是要等数据包累积到一定大小才发送，TCP_NODELAY 是要尽快发送，二者相互矛盾。实际上，它们确实可以一起用，最终的效果是先填满包，再尽快发送。
 
-# FastCGI相关参数是为了改善网站的性能: 减少资源占用，提高访问速度。下面参数看字面意思都能理解
+FastCGI相关参数是为了改善网站的性能: 减少资源占用，提高访问速度。下面参数看字面意思都能理解
   
 fastcgi_connect_timeout 300;
   
@@ -318,7 +322,7 @@ fastcgi_busy_buffers_size 128k;
   
 fastcgi_temp_file_write_size 128k;
 
-# gzip模块设置
+gzip模块设置
   
 gzip on; #开启gzip压缩输出
   
