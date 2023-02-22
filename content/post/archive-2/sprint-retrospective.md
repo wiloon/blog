@@ -10,19 +10,20 @@ tags:
   - Scrum
 ---
 ## 迭代回顾, Sprint Retrospective
+
 Scrum - Sprint Retrospective
 
 在Scrum中,每个Sprint结束的时候会有两个会议 (Sprint Review/Demo和Sprint Retrospective回顾) 。
   
 这两个会议是对过去的一个Sprint的一个总结,其中Review/Demo是检查过去一个Sprint的产出 (What) ,主要是PO根据先前的计划来检查Team在过去一个Sprint的工作成果,包括一些Demo,以及未完成部分的总结和分析；而Retrospective则是回顾过去一个Sprint整个Team的运作模式,有什么好的和不好的实践,怎样在未来的Sprint做的更好,强调How。
 
-Sprint Retrospective (回顾) 
+Sprint Retrospective (回顾)
   
 Sprint Retrospective会议主要是整个Team讨论过去的一个Sprint的运作,如何改进使Team更良好的运作。讨论的内容可以是任何有关Team建设的问题,包括工作流程、团队实践、团队内部/外部沟通、团队气氛以及相关工具的使用等等。
 
 Scrum并不是一种方法,而是给软件开发流程提供了一种框架,在整个框架下,不同的项目、团队需要根据具体条件,适时调整实践方法。而Retrospective会议正是一个Scrum团队自我调整的机会。
 
-会议的参加者包括整个Scrum团队、Scrum Master和Product Owner。会议由Scrum Master主持,一般以下边两个问题开始: 
+会议的参加者包括整个Scrum团队、Scrum Master和Product Owner。会议由Scrum Master主持,一般以下边两个问题开始:
 
   1. 过去的一个Sprint里,我们有哪些好的方面？
   2. 过去一个Sprint存在哪些问题？
@@ -39,6 +40,6 @@ Scrum并不是一种方法,而是给软件开发流程提供了一种框架,在�
   
 囚犯 (P) 是极不愿意来参加这个会议的,他们要么就是厌恶会议,要么就是忙得没时间参加会议,总之他们是被迫来的,他们期望着会议能马上结束就好,没有心思参与到会议的讨论中来。
 
-http://blog.csdn.net/ljinddlj/article/details/5328404
+<http://blog.csdn.net/ljinddlj/article/details/5328404>
   
-https://www.jianshu.com/p/95a59fe7844c
+<https://www.jianshu.com/p/95a59fe7844c>

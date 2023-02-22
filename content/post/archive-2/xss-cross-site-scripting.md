@@ -9,7 +9,9 @@ tags:
   - reprint
 ---
 ## XSS, Cross Site Scripting, CSRF, Cross-site request forgery, CORS
+
 ## XSS, Cross Site Scripting(CSS), CSRF, Cross-site request forgery， 跨站脚本攻击, CORS
+
 XSS 攻击又称CSS,全称Cross Site Script   (跨站脚本攻击）,缩写为XSS。恶意攻击者往Web页面里插入恶意javaScript代码,当用户浏览该页之时,嵌入其中Web里面的javaScript代码会被执行,从而达到恶意攻击用户的目的。
 
 什么是 XSS
@@ -37,13 +39,13 @@ XSS 的本质是：恶意代码未经过滤，与网站正常的代码混在一�
 
 该网页有一个发表评论的功能,该评论会写入后台数据库,并且访问主页的时候,会从数据库中加载出所有的评论。
 
-XSS:  通过客户端脚本语言 (最常见如: JavaScript) 
+XSS:  通过客户端脚本语言 (最常见如: JavaScript)
 
 在一个论坛发帖中发布一段恶意的JavaScript代码就是脚本注入,如果这个代码内容有请求外部服务器,那么就叫做XSS！
 
 ### CSRF，Cross-site request forgery， 跨站请求伪造
 
-又称 XSRF, 冒充用户发起请求 (在用户不知情的情况下) ,完成一些违背用户意愿的请求 (如恶意发帖, 删帖, 改密码, 发邮件等). 
+又称 XSRF, 冒充用户发起请求 (在用户不知情的情况下) ,完成一些违背用户意愿的请求 (如恶意发帖, 删帖, 改密码, 发邮件等).
 XSS 更偏向于方法论, CSRF 更偏向于一种形式, 只要是伪造用户发起的请求, 都可成为 CSRF 攻击。
 
 通常来说 CSRF 是由XSS实现的, 所以 CSRF 时常也被称为 XSRF [用XSS的方式实现伪造请求]  (但实现的方式绝不止一种, 还可以直接通过命令行模式 (命令行敲命令来发起请求) 直接伪造请求 [只要通过合法验证即可]) 。
@@ -51,36 +53,36 @@ XSS 更偏向于方法论, CSRF 更偏向于一种形式, 只要是伪造用户�
 XSS 更偏向于代码实现 (即写一段拥有跨站请求功能的 JavaScript 脚本注入到一条帖子里, 然后有用户访问了这个帖子, 这就算是中了 XSS 攻击了), CSRF 更偏向于一个攻击结果, 只要发起了冒牌请求那么就算是 CSRF 了。
 
 ### CORS， Cross-Origin Resource Sharing, 跨源资源共享, 跨域资源共享
+
 由于现实使用中，很多需要跨域访问，所以 W3C 标准就提出了 CORS。
 
 跨域资源共享(CORS) 是一种机制，它使用额外的 HTTP 头来告诉浏览器 让运行在一个 origin (domain) 上的Web应用被准许访问来自不同源服务器上的指定的资源。当一个资源从与该资源本身所在的服务器不同的域、协议或端口请求一个资源时，资源会发起一个跨域 HTTP 请求。
 
-具体查看官方文档：https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Access_control_CORS
-https://tech.meituan.com/2018/09/27/fe-security.html
+具体查看官方文档：<https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Access_control_CORS>
+<https://tech.meituan.com/2018/09/27/fe-security.html>
 简单里的理解，就是 CORS 提供了一种设置你的页面可以访问指定的域名下的资源 (API）的方法。当然这些域名是你受信任的。从而避免了 CRSF 攻击。CORS 就像是一个过滤器。
 
 注意：很多开发者在碰到跨域问题提时，通过搜索得到的答案就是直接设置 Oragin: * 这样的结果就是你的网页信任任何域名，虽然达到了跨域访问的目的，但是同时失去了 CORS 的意义，因为你设置了这个过滤器不过滤任何域
 
->https://www.ruanyifeng.com/blog/2016/04/cors.html
->https://tech.meituan.com/2018/09/27/fe-security.html
-https://github.com/OWASP?page=5
+<https://www.ruanyifeng.com/blog/2016/04/cors.html>  
+<https://tech.meituan.com/2018/09/27/fe-security.html>  
+<https://github.com/OWASP?page=5>  
 
-https://github.com/owasp/java-html-sanitizer
+<https://github.com/owasp/java-html-sanitizer>
 
-https://www.owasp.org/index.php/Category:OWASP_AntiSamy_Project
+<https://www.owasp.org/index.php/Category:OWASP_AntiSamy_Project>
 
-https://mvnrepository.com/artifact/org.owasp.antisamy/antisamy
+<https://mvnrepository.com/artifact/org.owasp.antisamy/antisamy>
 
-https://github.com/GDSSecurity/AntiXSS-for-Java
+<https://github.com/GDSSecurity/AntiXSS-for-Java>
 
-https://segmentfault.com/a/1190000007059639
+<https://segmentfault.com/a/1190000007059639>
 
-https://www.freebuf.com/sectool/134015.html
+<https://www.freebuf.com/sectool/134015.html>
 
-https://blog.csdn.net/ru_li/article/details/51334082
+<https://blog.csdn.net/ru_li/article/details/51334082>
 
-https://blog.csdn.net/zer0_o/article/details/28399533
-
+<https://blog.csdn.net/zer0_o/article/details/28399533>
 
 ```html
 <!DOCTYPE html>
@@ -139,7 +141,6 @@ body0
 
 ```
 
-###
 #### Access-Control-Allow-Origin
 
 该字段是必须的。它的值要么是请求时Origin字段的值，要么是一个*，表示接受任意域名的请求。
@@ -155,10 +156,8 @@ body0
 3.2 withCredentials 属性
 上面说到，CORS请求默认不发送Cookie和HTTP认证信息。如果要把Cookie发到服务器，一方面要服务器同意，指定Access-Control-Allow-Credentials字段。
 
-
 Access-Control-Allow-Credentials: true
 另一方面，开发者必须在AJAX请求中打开withCredentials属性。
-
 
 var xhr = new XMLHttpRequest();
 xhr.withCredentials = true;
@@ -166,9 +165,7 @@ xhr.withCredentials = true;
 
 但是，如果省略withCredentials设置，有的浏览器还是会一起发送Cookie。这时，可以显式关闭withCredentials。
 
-
 xhr.withCredentials = false;
 需要注意的是，如果要发送Cookie，Access-Control-Allow-Origin就不能设为星号，必须指定明确的、与请求网页一致的域名。同时，Cookie依然遵循同源政策，只有用服务器域名设置的Cookie才会上传，其他域名的Cookie并不会上传，且 (跨源）原网页代码中的document.cookie也无法读取服务器域名下的Cookie。
 
-
->https://www.ruanyifeng.com/blog/2016/04/cors.html
+><https://www.ruanyifeng.com/blog/2016/04/cors.html>

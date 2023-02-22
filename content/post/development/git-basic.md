@@ -6,8 +6,8 @@ url: git/basic
 categories:
     - Git
 tags:
-    - remix
     - reprint
+    - remix
 ---
 ## Git basic commands, git 常用命令
 
@@ -44,6 +44,7 @@ git branch -vv
 # 新建并切换到分支
 # -c, --create
 git switch -c dev
+
 git checkout -b branch0
 # 从当前分支创建新分支, 新 branch 名字: branch0
 git branch branch0
