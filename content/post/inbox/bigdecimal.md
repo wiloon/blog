@@ -9,6 +9,7 @@ tags:
   - reprint
 ---
 ## BigDecimal
+
 Java在java.math包中提供的API类BigDecimal,用来对超过16位有效位的数进行精确的运算。双精度浮点型变量double可以处理16位有效数。在实际应用中,需要对更大或者更小的数进行运算和处理。float和double只能用来做科学计算或者是工程计算,在商业计算中要用java.math.BigDecimal。BigDecimal所创建的是对象,我们不能使用传统的+、-、*、/等算术运算符直接对其对象进行数学运算,而必须调用其相对应的方法。方法中的参数也必须是BigDecimal的对象。构造器是类的特殊方法,专门用来创建对象,特别是带有参数的对象。
 
 二、构造器描述
@@ -69,7 +70,7 @@ System.out.println("利息:\t" + currency.format(interest));
   
 }
 
-运行结果如下: 
+运行结果如下:
 
 贷款金额: ￥15,000.48
   
@@ -79,7 +80,7 @@ System.out.println("利息:\t" + currency.format(interest));
   
 五、BigDecimal比较
   
-BigDecimal是通过使用compareTo(BigDecimal)来比较的,具体比较情况如下: 
+BigDecimal是通过使用compareTo(BigDecimal)来比较的,具体比较情况如下:
   
 public static void main(String[] args) {
   
@@ -121,6 +122,6 @@ if(r==-1) //小于
   
 if(big_decimal.equals(BigDecimal.Zero)) //是否等于0
 
-https://zhidao.baidu.com/question/296052164.html
+<https://zhidao.baidu.com/question/296052164.html>
   
-http://www.cnblogs.com/linjiqin/p/3413894.html
+<http://www.cnblogs.com/linjiqin/p/3413894.html>
