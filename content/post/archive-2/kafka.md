@@ -29,6 +29,29 @@ kafka 高吞吐量
 
 伸缩性表示向分布式系统中增加额外的计算资源（比如CPU、内存、存储或带宽）时吞吐量提升的能力。
 
+## partition
+
+Kafka的partition是不可修改的有序消息序列，也可以说是有序的消息日志。
+
+## replica
+
+副本（replica）
+
+follower replica 是不能提供服务给客户端的，也就是说不负责响应客户端发来的消息写入和消息消费请求。它只是被动地向领导者副本（leader replica）获取数据
+
+ISR的全称是in-sync replica，翻译过来就是与leader replica保持同步的replica集合
+
+正常情况下，partition的所有replica（含leader replica）都应该与leader replica保持同步，即所有 replica都在 ISR中。因为各种各样的原因，一小部分 replica开始落后于 leader replica的进度。当滞后到一定程度时，Kafka会将这些 replica“踢”出 ISR。相反地，当这些 replica重新“追上”了 leader的进度时，那么 Kafka会将它们加回到 ISR中。这一切都是自动维护的，不需要用户进行人工干预，因而在保证了消息交付语义的同时还简化了用户的操作成本。
+
+摘自：《Apache Kafka实战》 — 胡夕
+在豆瓣阅读书店查看：https://read.douban.com/ebook/59895902/
+本作品由电子工业出版社授权豆瓣阅读中国大陆范围内电子版制作与发行。
+© 版权所有，侵权必究。
+
+Event Sourcing实际上是领域驱动设计（Domain-Driven Design，DDD）的名词，它使用事件序列来表示状态变更，这种思想和 Kafka 的设计特性不谋而合。
+
+数据倾斜（skewed）
+
 ---
 
 分布式消息队列是是大型分布式系统不可缺少的中间件,主要解决应用耦合、异步消息、流量削锋等问题。实现高性能、高可用、可伸缩和最终一致性架构。
