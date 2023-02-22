@@ -9,27 +9,28 @@ tags:
   - reprint
 ---
 ## debian自动加载磁盘分区
+
 Linux下面有个加载分区的配置文件，/etc/fstab
   
-里面的分区标识是使用分区的UUID来分别的，在ubuntu下面可以使用命令: 
+里面的分区标识是使用分区的UUID来分别的，在ubuntu下面可以使用命令:
   
 sudo blkid
   
 来查看具体各个分区的UUID
   
-然后在/etc/fstab文件中加上自己的加载分区的相应命令: 
+然后在/etc/fstab文件中加上自己的加载分区的相应命令:
   
 UUID=e06ae965-4a0f-4448-8281-9b2bac150c07 /home/bing/android ext4 default 0 3
   
 由于此处是挂载到/home目录的，不知道能不能成功加载，
   
-上面的那个命令会出现下面的问题: 
+上面的那个命令会出现下面的问题:
   
 Error mounting: mount exited with exit code 1: helper failed with:
   
 mount: only root can mount /dev/sda8 on /home/bing/android
   
-网上查了一下，所以把上面的命令改为: 
+网上查了一下，所以把上面的命令改为:
   
 UUID=e06ae965-4a0f-4448-8281-9b2bac150c07 /home/bing/android ext4 auto,user,rw 0 3
   

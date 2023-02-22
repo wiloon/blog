@@ -45,7 +45,7 @@ ps -e -o 'pid,comm,args,pcpu,rsz,vsz,stime,user,uid' | grep oracle | sort -nrk5
     cat /proc/PID/smaps
 ```
 
-### free>total 跟物理内存不一致
+### free> total 跟物理内存不一致
 
 系统启动时会初始化相关设备，该过程会占用内存，内核启动时，也会占用一部分的内存。
 

@@ -154,11 +154,6 @@ Producer在发布消息到某个Partition时,先通过ZooKeeper找到该Partitio
 
 Consumer读消息也是从Leader读取,只有被commit过的消息 (offset低于HW的消息) 才会暴露给Consumer。
 
-### kafka 生产环境规划
-
-<https://juejin.cn/post/6844903713916583944>
-<https://juejin.cn/post/6844903700616445960>
-
 ### kraft
 
 <https://developer.confluent.io/learn/kraft/>
@@ -172,3 +167,15 @@ Consumer读消息也是从Leader读取,只有被commit过的消息 (offset低于
 <http://www.infoq.com/cn/articles/kafka-analysis-part-2>
   
 <http://www.jasongj.com/2015/01/02/Kafka%E6%B7%B1%E5%BA%A6%E8%A7%A3%E6%9E%90/>
+
+
+### kafka 生产环境规划
+
+Kafka 这种应用必然需要大量地通过网络与磁盘进行数据传输，而大部分这样的操作都是通过 Java 的FileChannel.transferTo方法实现的。在Linux平台上该方法底层会调用sendfile系统调用，即采用了Linux提供的零拷贝（Zero Copy）技术。
+
+对于预算有限且追求高性价比的公司而言，机械硬盘完全可以胜任Kafka存储的任务。 kafka 是顺序写磁盘的, ssd 避免了机械盘的寻道时间, 对于 kafka 来说不是特别重要.
+
+<https://juejin.cn/post/6844903713916583944>
+<https://juejin.cn/post/6844903700616445960>
+
+kafka 实战 - 胡夕

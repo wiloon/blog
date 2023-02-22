@@ -159,7 +159,7 @@ no label, UUID=653bbeb5-4abb-4295-b110-5847e073140d
   
 这里没有分区的lable,只有一个UUID。
 
-### 使用磁盘添加swap
+### 使用磁盘添加 swap
   
 这个后面添加
 

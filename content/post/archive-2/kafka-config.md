@@ -26,9 +26,11 @@ batching机制——"分批发送"机制。每个批次(batch)中包含了若干
   
 更加合理的默认分区策略: 对于无key消息而言,Scala版本分区策略是一段时间内(默认是10分钟)将消息发往固定的目标分区,这容易造成消息分布的不均匀,而新版本的producer采用轮询的方式均匀地将消息分发到不同的分区
   
-底层统一使用基于Selector的网络客户端实现,结合Java提供的Future实现完整地提供了更加健壮和优雅的生命周期管理。
+底层统一使用基于 Selector 的网络客户端实现, 结合 Java 提供的 Future 实现完整地提供了更加健壮和优雅的生命周期管理。
 
-其实,新版本producer的设计优势还有很多,诸如监控指标更加完善等这样的就不一一细说了。总之,新版本producer更加地健壮,性能更好~
+其实,新版本 producer 的设计优势还有很多, 诸如监控指标更加完善等这样的就不一一细说了。总之, 新版本producer更加地健壮,性能更好~
+
+Kafka新版本clients在设计底层网络库时采用了Java的Selector机制，而后者在 Linux上的实现机制就是 epoll；但是在 Windows平台上，Java NIO的 Selector 底层是使用 select模型而非IOCP 实现的，只有 Java NIO2才是使用 IOCP 实现的。因此在这一点上，在 Linux 上部署Kafka要比在Windows上部署能够得到更高效的I/O处理性能。
 
 ```java
 properties props = new Properties();
@@ -275,7 +277,7 @@ controller.quorum.voters=1@controller1.example.com:9093,2@controller2.example.co
 比如在Controller1上，node.Id必须设置为1，以此类推。注意，控制器id不强制要求你从0或1开始。然而，分配节点ID的最简单和最不容易混淆的方法是给每个服务器一个数字ID，然后从0开始。
 ————————————————
 版权声明：本文为CSDN博主「腾讯云中间件」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
-原文链接：https://blog.csdn.net/qq_36668144/article/details/118607023
+原文链接：<https://blog.csdn.net/qq_36668144/article/details/118607023>
 
 Kafka 集群选举的流程
 在 Kafka 3.0 源码笔记(1)-Kafka 服务端的网络通信架构 中笔者提到在 KRaft 模式下 Kafka 集群的元数据已经交由 Controller 集群自治，则在分布式环境下必然要涉及到集群节点的交互，包括集群选主、集群元数据同步等。其中 Kafka 集群选举涉及的状态流转如下图所示，关键的请求交互如下：
@@ -300,4 +302,4 @@ Follower(Observer)
 具有 controller 角色但不在 controller.quorum.voters 列表中的节点
 ————————————————
 版权声明：本文为CSDN博主「谈谈1974」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
-原文链接：https://blog.csdn.net/weixin_45505313/article/details/122642581
+原文链接：<https://blog.csdn.net/weixin_45505313/article/details/122642581>
