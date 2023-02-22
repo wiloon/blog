@@ -8,7 +8,7 @@ categories:
 tags:
   - reprint
 ---
-## Linux磁盘分区UUID, blkid
+## Linux 磁盘分区 UUID, blkid
 
 <http://tiger2020.blog.51cto.com/723949/1535774>
 

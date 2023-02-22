@@ -2,14 +2,16 @@
 title: IO, 输入输出
 author: "-"
 date: 2018-07-04T06:39:14+00:00
-url: /?p=12393
+url: io
 categories:
-  - Inbox
+  - OS
 tags:
   - reprint
+  - remix
 ---
 ## IO, 输入输出
-https://my.oschina.net/u/1859679/blog/1839169
+
+<https://my.oschina.net/u/1859679/blog/1839169>
 
 同步阻塞IO
 
@@ -19,8 +21,8 @@ https://my.oschina.net/u/1859679/blog/1839169
   
 针对某种IO模型,我们如何分类,可以基于POSIX对同步/异步的定义来判别:
 
-  * A synchronous I/O operation causes the requesting process to be blocked until that I/O operation completes; 
-  * An asynchronous I/O operation does not cause the requesting process to be blocked;
+* A synchronous I/O operation causes the requesting process to be blocked until that I/O operation completes;
+* An asynchronous I/O operation does not cause the requesting process to be blocked;
   
     那么从上我们可以看出:
 
@@ -32,7 +34,7 @@ https://my.oschina.net/u/1859679/blog/1839169
 
 Unix 5种I/O模型
   
-在《UNIX网络编程: 卷一》的第六章书中列出了五种IO模型: 
+在《UNIX网络编程: 卷一》的第六章书中列出了五种IO模型:
 
 阻塞式I/O；
 
