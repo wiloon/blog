@@ -80,7 +80,7 @@ Modify: 文件内容最后修改时间
 来源：简书
 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
 
-说明: Access访问时间(存取时间)。Modify修改时间。Change状态改动时间。可以stat *查看这个目录所有文件的状态。
+说明: Access 访问时间(存取时间（access time）)。Modify修改时间。Change状态改动时间。可以stat *查看这个目录所有文件的状态。
   
 ctime=change time
   

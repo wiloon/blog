@@ -30,6 +30,7 @@ export class AppModule { }
 
 ### angular.json
 
+```json
 {
     ...
     projects
@@ -45,6 +46,7 @@ export class AppModule { }
 
 ### app.component.ts
 
+```java
 import {Component} from '@angular/core';
 
 @Component({
@@ -133,12 +135,13 @@ export class AppComponent {
 
 ### app.component.css
 
+```css
 .chart {
     height: 400px;
 }
 
 ```
 
-https://xieziyu.github.io/ngx-echarts/#/home
+<https://xieziyu.github.io/ngx-echarts/#/home>
   
-https://blog.csdn.net/qq_36822018/article/details/81504823
+<https://blog.csdn.net/qq_36822018/article/details/81504823>

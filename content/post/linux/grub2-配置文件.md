@@ -91,7 +91,6 @@ menuentry "arch iso" {
 
     grub2-mkconfig -o /boot/grub2/grub.cfg
 
-
 ### Linux GRUB磁盘分区表示法
 
     第一个主分区    /dev/sda1    hd(0,0)
