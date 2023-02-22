@@ -343,7 +343,7 @@ git push -u origin master
 git remote rm repo0
 ```
 
-### 删除文件
+### 删除文件, git delete file
 
 ```bash
 git rm /xxx/xxx/xxx.xxx  
@@ -592,7 +592,6 @@ git log --pretty=oneline
 git-ls-files  # - Show information about files in the index and the working tree
 
 # list deleted files
-
 git ls-files -d
 
 # 恢复已删除的文件
@@ -639,10 +638,6 @@ git stash
 
 $ git push origin test:master // 提交本地test分支作为远程的master分支 //好像只写这一句，远程的github就会自动创建一个test分支
 $ git push origin test:test // 提交本地test分支作为远程的test分支
-
-# 删除远程分支: 
-git push --delete origin devel
-To git@github.com:zrong/quick-cocos2d-x.git - [deleted] devel
 
 git status -s
 git add .
