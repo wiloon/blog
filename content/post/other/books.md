@@ -13,6 +13,11 @@ tags:
 
 平时看到有人推荐好书就忍不住想屯几本，但是到了读书的时候大都是看了几页几十页就被各种事情打断了..., 很少有一本书能读完的，从2021年开始计划着多花些时间读书，从第一页读到最后一页的那种。然后就有了这里的列表。
 
+## 2023
+
+- Apache Kafka实战
+  - Author/作者: 胡夕
+
 ## 2022
 
 - Just for Fun: The Story of an Accidental Revolutionary

@@ -96,7 +96,6 @@ public class VarHandleX {
 }
 ```
 
-
 获取Varhandle方式汇总
 MethodHandles.privateLookupIn(class, MethodHandles.lookup())获取访问私有变量的Lookup
 MethodHandles.lookup() 获取访问protected、public的Lookup
@@ -114,13 +113,20 @@ VarHandle来使用plain、opaque、release/acquire和volatile四种共享内存�
 在指定的内存排序效果下设置变量的值，包含的方法有set、setVolatile、 setRelease, setOpaque 。
 
 ### setRelease
+
 Sets the value of a variable to the newValue, and ensures that prior loads and stores are not reordered after this access
-给变量赋新值, 并且保证在此之前的load 和 store命令不会重排序到到setRelease 之后。 
+给变量赋新值, 并且保证在此之前的load 和 store命令不会重排序到到setRelease 之后。
+
 ### getAcquire
+
 返回一个变量 的值，并且保证随后的load 和 store 不会被重排序到此命令之前
+
 ### setOpaque
+
 opaque 确保程序执行顺序，但不保证其它线程的可见顺序
+
 ### compareAndSet
+
 ### weakCompareAndSet
 
 原子更新模式(atomic update access modes)
@@ -133,7 +139,7 @@ opaque 确保程序执行顺序，但不保证其它线程的可见顺序
 按位原子更新访问模式，例如，在指定的内存排序效果下，以原子方式获取和按位OR变量的值。 包含的方法有getAndBitwiseOr、getAndBitwiseOrAcquire、getAndBitwiseOrRelease、 getAndBitwiseAnd、getAndBitwiseAndAcquire、getAndBitwiseAndRelease、getAndBitwiseXor、getAndBitwiseXorAcquire ， getAndBitwiseXorRelease 。
 
 内存屏障
-VarHandle 除了支持各种访问模式下访问变量之外，还提供了一套内存屏障方法，目的是为了给内存排序提供更细粒度的控制。主要如下几个方法: 
+VarHandle 除了支持各种访问模式下访问变量之外，还提供了一套内存屏障方法，目的是为了给内存排序提供更细粒度的控制。主要如下几个方法:
 
 public static void fullFence() {
     UNSAFE.fullFence();
@@ -153,9 +159,9 @@ public static void storeStoreFence() {
 小结
 在 java9 之后，对一些变量的并发操作时，可以考虑用 java.lang.invoke.VarHandle 来处理，而不是通过 Unsafe 类来处理，毕竟 Unsafe 不太适合直接使用。
 
-
 ### weakCompareAndSet
-jdk 8 的官方文档的java.util.concurrent.atomic上找到这么二段话: 
+
+jdk 8 的官方文档的java.util.concurrent.atomic上找到这么二段话:
 
 The atomic classes also support method weakCompareAndSet, which has limited applicability. On some platforms, the weak version may be more efficient than compareAndSet in the normal case, but differs in that any given invocation of the weakCompareAndSet method may return false spuriously (that is, for no apparent reason). A false return means only that the operation may be retried if desired, relying on the guarantee that repeated invocation when the variable holds expectedValue and no other thread is also attempting to set the variable will eventually succeed. (Such spurious failures may for example be due to memory contention effects that are unrelated to whether the expected and current values are equal.) Additionally weakCompareAndSet does not provide ordering guarantees that are usually needed for synchronization control. However, the method may be useful for updating counters and statistics when such updates are unrelated to the other happens-before orderings of a program. When a thread sees an update to an atomic variable caused by a weakCompareAndSet, it does not necessarily see updates to any other variables that occurred before the weakCompareAndSet. This may be acceptable when, for example, updating performance statistics, but rarely otherwise.
 
@@ -167,7 +173,6 @@ weakCompareAndSet实现了一个变量原子的读操作和有条件的原子写
 
 这二段话是什么意思了，也就是说weakCompareAndSet底层不会创建任何happen-before的保证，也就是不会对volatile字段操作的前后加入内存屏障。因此就无法保证多线程操作下对除了weakCompareAndSet操作的目标变量( 该目标变量一定是一个volatile变量 )之其他的变量读取和写入数据的正确性。
 
-
 普通变量、opaque、release/acquire、volatile之间的区别
 
 普通变量是不确保内存可见的，opaque、release/acquire、volatile是可以保证内存可见的
@@ -175,14 +180,12 @@ opaque 确保程序执行顺序，但不保证其它线程的可见顺序
 release/acquire 保证程序执行顺序，setRelease 确保前面的load和store不会被重排序到后面，但不确保后面的load和store重排序到前面；getAcquire 确保后面的load和store不会被重排序到前面，但不确保前面的load和store被重排序。
 volatile确保程序执行顺序，能保证变量之间的不被重排序。
 
-
 作者: tomas家的小拨浪鼓
-链接: https://www.jianshu.com/p/55a66113bc54
+链接: <https://www.jianshu.com/p/55a66113bc54>
 来源: 简书
 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
 
-
->https://zhuanlan.zhihu.com/p/144741342
->https://zhuanlan.zhihu.com/p/145654924
->https://mingshan.fun/2018/10/05/use-variablehandles-to-replace-unsafe/
->https://www.jianshu.com/p/e231042a52dd
+><https://zhuanlan.zhihu.com/p/144741342>
+><https://zhuanlan.zhihu.com/p/145654924>
+><https://mingshan.fun/2018/10/05/use-variablehandles-to-replace-unsafe/>
+><https://www.jianshu.com/p/e231042a52dd>
