@@ -9,9 +9,10 @@ tags:
   - reprint
 ---
 ## NoClassDefFoundError, ClassNotFoundException
-http://wxl24life.iteye.com/blog/1919359
 
-java.lang.NoClassDefFoundError 和 java.lang.ClassNotFoundException 都是 Java 语言定义的标准异常。从异常类的名称看似乎都跟类的定义找不到有关,但是还是有些差异。我们先来看一下 java 规范中对这两个异常的说明: 
+<http://wxl24life.iteye.com/blog/1919359>
+
+java.lang.NoClassDefFoundError 和 java.lang.ClassNotFoundException 都是 Java 语言定义的标准异常。从异常类的名称看似乎都跟类的定义找不到有关,但是还是有些差异。我们先来看一下 java 规范中对这两个异常的说明:
 
 java.lang.NoClassDefFoundError:
 
@@ -35,7 +36,7 @@ but no definition for the class with the specified name could be found.
   
 从规范说明看, java.lang.ClassNotFoundException 异常抛出的根本原因是类文件找不到。
 
-另外,从两个异常的定义看,java.lang.NoClassDefFoundError 是一种 unchecked exception (也称 runtime exception) ,而 java.lang.ClassNotFoundException 是一种 checked exception。 (区分不了这两类异常？看这里 checked exception vs unchecked exception) 
+另外,从两个异常的定义看,java.lang.NoClassDefFoundError 是一种 unchecked exception (也称 runtime exception) ,而 java.lang.ClassNotFoundException 是一种 checked exception。 (区分不了这两类异常？看这里 checked exception vs unchecked exception)
 
 ———-
 
@@ -49,7 +50,7 @@ but no definition for the class with the specified name could be found.
 
 前两天我也碰到了一个类似场景导致的 java.lang.NoClassDefFoundError:  Could not initialize class xxx 异常,下面详细记录一下。
 
-我定义了一个类,为了使用 log4j 打印日志,调用 org.slf4j.LoggerFactory 创建了一个 Logger,并作为类的 static 属性,除此之外无其他的成员属性,代码如下: 
+我定义了一个类,为了使用 log4j 打印日志,调用 org.slf4j.LoggerFactory 创建了一个 Logger,并作为类的 static 属性,除此之外无其他的成员属性,代码如下:
 
 Java代码
   
@@ -61,7 +62,7 @@ private static Logger logger = LoggerFactory.getLogger(Foo.class);
   
 }
   
-在另一个类里创建 Foo 实例: 
+在另一个类里创建 Foo 实例:
 
 Java代码
   
