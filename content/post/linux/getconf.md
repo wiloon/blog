@@ -8,34 +8,28 @@ categories:
 tags:
   - reprint
 ---
-## getconf
 ## getconf, 查看系统变量
+
 我们时常需要查询系统相关的信息，比如页面大小，整数大小之类，如果编写程序去计算会比较繁琐，这里有一个很有用的命令，可以用来获取系统相关信息。它就是getconf。
 
 getconf 用途将系统配置变量值写入标准输出,比如：
 
-  getconf PAGE_SIZE 查看系统内存分页大小
+getconf PAGE_SIZE 查看系统内存分页大小
 
-  getconf LONG_BIT 看linux是32位还是64位最简单的方法
+getconf LONG_BIT 看linux是32位还是64位最简单的方法
 
-  getconf -a 查看全部系统变量
+getconf -a 查看全部系统变量
 
- 
-
-$ getconf PAGE_SIZE
-
-4096
-
-$ getconf INT_MAX
+getconf INT_MAX
 
 2147483647
 
-$ getconf LONG_BIT
+getconf LONG_BIT
 
 64
 
- 
 可以取得的相关信息如下(参考相关资料，在又在版本上会有些不同）：
+
 _CS_PATH    Value for the PATH environment variable used to find commands.
 ARG_MAX    Maximum length, in bytes, of the arguments for one of the exec subroutines, including environment data.
 BC_BASE_MAX    Maximum value allowed for the obase variable with the bc command.
@@ -83,4 +77,4 @@ ULONG_MAX    Maximum value of a type unsigned long int.
 USHRT_MAX    Maximum value of a type unsigned short int.
 WORD_BIT    Number of bits in a word or type int
 
->https://www.cnblogs.com/wjoyxt/p/4815782.html
+<https://www.cnblogs.com/wjoyxt/p/4815782.html>
