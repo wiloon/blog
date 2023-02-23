@@ -255,6 +255,12 @@ zookeeper.connect=localhost:2181
 ### 删除topic
 
 ```bash
+# normal kafka
+/opt/kafka/kafka_2.12-2.5.0/bin/kafka-topics.sh --bootstrap-server 127.0.0.1:9092 --delete --topic topic0
+# tls kafka
+/opt/kafka/kafka_2.12-2.5.0/bin/kafka-topics.sh --bootstrap-server 127.0.0.1:9093 --delete --topic topic0  --command-config /root/tmp/kafka.conf
+
+# old version
 bin/kafka-topics.sh --topic t0 --delete --zookeeper test-zookeeper-1
 
 #edit bin/kafka-server-start.sh, change memory setting KAFKA_HEAP_OPTS
