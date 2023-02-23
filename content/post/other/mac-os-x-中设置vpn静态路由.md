@@ -2,14 +2,18 @@
 title: Mac OS X 中设置VPN静态路由
 author: "-"
 date: 2014-12-25T10:54:44+00:00
-url: /?p=7131
+url: macos/route
 categories:
   - Inbox
 tags:
   - OS X
 
 ---
-## Mac OS X 中设置VPN静态路由
+## Mac OS X 中设置 VPN 静态路由, macos route
+
+```bash
+sudo route -n add -net 192.168.5.4 -netmask 255.255.255.0 xxx.xxx.200.1
+```
 
 <https://blog.hackroad.com/apple/mac-os/7011.html>
 

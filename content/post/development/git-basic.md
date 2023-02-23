@@ -6,41 +6,34 @@ url: git/basic
 categories:
     - Git
 tags:
+    - reprint
     - remix
 ---
 ## Git basic commands, git 常用命令
+
+## origin
+
+<https://www.zhihu.com/question/27712995>
+
+origin 是远程仓库的默认别名, 查看配置了几个远程仓库和别名 `git remote -v`
 
 ## 分支, branch
 
 最新版本的 Git 提供了新的 `git switch` 命令来切换分支, `git switch`，比 `git checkout` 要更容易理解。
 
-### 设置默认的分支名
+### 查看分支
 
 ```bash
-# 设置默认分支名，不设置的话，默认是 master
-git config --global init.defaultBranch <name>
-git config --global init.defaultBranch main
-# The just-created branch can be renamed via this command
-git branch -m main
-```
-
-### 打印当前分支名
-
-```bash
-git symbolic-ref --short HEAD  
-```
-
-### 查看
-
-```bash
-## 查看所有的分支, 本地 + 远程
-git branch -a
 # 查看本地分支, 当前分支前面会标一个 `*` 号
 git branch
-## 查看远程所有分支
+# 查看所有的分支, 本地 + 远程
+git branch -a
+# 查看远程所有分支
 git branch -r 
 # check branch detail
 git branch -v
+# git查看本地分支关联（跟踪）的远程分支之间的对应关系，本地分支对应哪个远程分支
+git branch -vv
 ```
 
 ### 新建分支
@@ -48,7 +41,19 @@ git branch -v
 新建分支其实就是在当前位置打个标签, 也就是说... 新分支是以当前分支的 commit 为基础的.
 
 ```bash
+# 新建并切换到分支
+# -c, --create
+git switch -c dev
+
+git checkout -b branch0
+# 从当前分支创建新分支, 新 branch 名字: branch0
 git branch branch0
+# 从 branch0 分支 创建 branch1 分支
+git branch branch1 branch0
+# 从 branch0 分支 创建 branch1 分支并切换到 branch1 分支 
+git checkout -b branch1 branch0
+# 从 tag v1.2.3 创建分支 branch1
+git checkout -b branch1 v1.2.3
 ```
 
 ### 切换到分支
@@ -58,17 +63,10 @@ git switch branch0
 git checkout branch0
 ```
 
-### 新建并切换到分支
-
-```bash
-git switch -c dev
-git checkout -b branch0
-```
-
 ### 把新建的分支推送到远端
 
 ```bash
-git push origin dev
+git push origin branch0
 ```
 
 ### 删除分支
@@ -88,14 +86,94 @@ git branch -D branch0
 git branch -d -r origin/todo
 ```
 
-#### merge 合并分支, git merge 命令用于合并指定分支到当前分支
+```bash
+# 分支改名
+git branch -m branch0 branch1
+```
+
+### 设置默认的分支名
+
+```bash
+# 设置默认分支名，不设置的话，默认是 master
+git config --global init.defaultBranch <name>
+git config --global init.defaultBranch main
+# The just-created branch can be renamed via this command
+git branch -m main
+```
+
+### 打印当前分支名
+
+```bash
+git symbolic-ref --short HEAD  
+```
+
+## git tag
+
+轻量标签 (lightweight）与附注标签 (annotated）。
+
+### 附注标签 (annotated）
+
+附注标签是存储在 Git 数据库中的一个完整对象, 它们是可以被校验的，其中包含打标签者的名字、电子邮件地址、日期时间，此外还有一个标签信息，并且可以使用 GNU Privacy Guard  (GPG）签名并验证。通常会建议创建附注标签，这样你可以拥有以上所有信息。
+
+在运行 tag 命令时指定 -a 选项, 创建附注标签
+
+```bash
+git tag -a v1.4 -m "message0"
+# 对历史提交打标签
+git tag -a v1.2 9fceb02
+git push origin v1.5
+git push --tag
+```
+
+### 轻量标签 (lightweight）
+
+```bash
+# list local tags
+git tag
+git tag -l "v1.8.5*"
+
+# list remote tags
+git ls-remote --tags origin
+
+# 显示提交信息
+git show v0.0.1
+
+# 查看 tag 在哪个分支上
+git branch --contains tags/<tag>
+
+# 查看 commit 内容
+git show commit_id
+
+# checkout tag
+git checkout tag_name
+
+# add a tag
+git tag v1.0.0
+
+# 共享标签, 提交标签, commit tag
+git push origin <tagname>
+git push origin v1.0.0
+
+# delete tag, 删除 tag
+git tag -d v1.0.0
+
+# delete remote tag
+git push --delete origin tag0
+git push origin :refs/tags/v1.0.0
+```
+
+## merge 合并分支, git merge 命令用于合并指定分支到当前分支
 
 ```bash
 # merge 默认会把 commit 的历史都合并进来
-git merge branch1 -m "MSG0"
+# 把 branch0 合并到当前分支
+git merge branch0
+git merge branch0 -m "MSG0"
+# 禁用 Fast forward
+git merge --no-ff -m "merge with no-ff" dev
 ```
 
-## git merge --squash
+### git merge --squash
 
 ```bash
 # git merge --squash, 把多次 commit 的历史合并成一次 commit
@@ -144,12 +222,12 @@ git config --global core.editor vim
 export EDITOR=vim
 ```
 
-### commit
+### commit message
 
-#### 修改已经push了的commit信息
+#### 修改已经 push 了的 commit 信息
 
 ```bash
-如题，本条仅适用于修改已经push过了的最近一次的commit注释信息，确保本地文件的最新的。
+本条仅适用于修改已经 push 过了的最近一次的 commit 注释信息，确保本地文件的最新的。
 
 step1：使用【git commit --amend】命令，会进入到vim编辑器。
 
@@ -177,9 +255,9 @@ In Git, the text of the commit message is part of the commit. Changing the commi
 ### 修改最近的第 n 次 commit message
 
 ```bash
-# 数字代表显示倒数第几次, #-i, --interactive
+# 数字代表显示倒数第几次, # -i, --interactive
 git rebase -i HEAD~2
-# git log你可以发现，git的最后一次提交已经变成你选的那个了
+# git log 你可以发现，git 的最后一次提交已经变成你选的那个了
 # 把pick 修改成edit然后保存退出，然后会看到提示 git commit --amend
 git commit --amend
 # 修改注释之后，保存退出，然后 git rebase --continue
@@ -216,22 +294,24 @@ git clean -Xn
 
 ##### 清除文件或文件夹， -f 选项强制删除，-d 删除目录 (小心）
 
-git删除未跟踪文件
+git 删除未跟踪文件,  
 
 ```bash
+# 在使用 git clean 前，强烈建议加上 -n 参数先看看会删掉哪些文件，防止重要文件被误删
+git clean -nxfd
+git clean -nf
+git clean -nfd
+
 # 删除 untracked files
 git clean -f
  
 # 连 untracked 的目录也一起删掉
 git clean -fd
  
-# 连 gitignore 的untrack 文件/目录也一起删掉 （慎用，一般这个是用来删掉编译出来的 .o之类的文件用的）
+# 连 gitignore 的 untrack 文件/目录也一起删掉 （慎用，一般这个是用来删掉编译出来的 .o 之类的文件用的）
 git clean -xfd
  
-# 在用上述 git clean 前，墙裂建议加上 -n 参数来先看看会删掉哪些文件，防止重要文件被误删
-git clean -nxfd
-git clean -nf
-git clean -nfd
+
 ```
 
 <https://ruby-china.org/topics/17951>
@@ -263,10 +343,12 @@ git push -u origin master
 git remote rm repo0
 ```
 
-### 删除文件
+### 删除文件, git delete file
 
+```bash
 git rm /xxx/xxx/xxx.xxx  
-git rm -r xxx/xxx
+git rm -rf xxx/xxx
+```
 
 ### 将指定的提交 (commit) 应用于其他分支
 
@@ -288,7 +370,7 @@ GIT_SSH_COMMAND="ssh -i ~/tmp/id_rsa" git clone git@github.com:wiloon/foo.git
 git rev-parse HEAD
 ```
 
-### git checkout
+### git checkout 检出
 
 git checkout: Git的checkout有两个作用，其一是在不同的branch之间进行切换，例如'git checkout new_branch'就会切换到new_branch的分支上去；另一个功能是还原代码的作用，例如'git checkout app/model/user.rb'就会将user.rb文件从上一个已提交的版本中更新回来，未提交的内容全部会回滚
 
@@ -307,16 +389,16 @@ git checkout 788258e49531eb24bfd347a600d69a16f966c495
 To discard all local changes, you do not use revert. revert is for reverting commits. Instead, do:
 
 ```bash
-git checkout . #本地所有修改的。没有的提交的，都返回到原来的状态
+git checkout . # 本地所有修改的。没有的提交的，都返回到原来的状态
 ```
 
 <https://blog.csdn.net/leedaning/article/details/51304690>
 
 ### 指定克隆深度
 
-在git clone时加上--depth=1
+在 git clone 时加上--depth=1
 
-depth用于指定克隆深度，为1即表示只克隆最近一次commit.
+depth 用于指定克隆深度，为1即表示只克隆最近一次 commit.
 
 git checkout master
 
@@ -380,14 +462,17 @@ git log --reverse
 
 # git log 倒序, 仓库创建时间
 git log --reverse
+git log --graph --pretty=oneline --abbrev-commit
+git log --all --pretty=oneline --abbrev-commit --graph
 
 echo "# project name" >> README.md
 ```
 
-git reflog 可以查看所有分支的所有操作记录 (包括 (包括 commit 和 reset 的操作），包括已经被删除的commit记录，git log 则不能察看已经删除了的 commit 记录。
+git reflog 可以查看所有分支的所有操作记录 (包括 (包括 commit 和 reset 的操作），包括已经被删除的 commit 记录，git log 则不能察看已经删除了的 commit 记录。
 
 ```bash
 git reflog
+git reflog show
 ```
 
 ### 更改最多的文件
@@ -405,11 +490,6 @@ git add README.md
 git commit -m "first commit"
 git remote add origin git@github.com:wiloon/go-angular-x.git
 git push -u origin master
-
-```bash
-git rm
-git rm -f
-```
 
 ## git fetch
 
@@ -429,7 +509,7 @@ git fetch -p
 git fetch 和 git pull 都可以将远端仓库更新至本地那么他们之间有何区别?想要弄清楚这个问题有有几个概念不得不提。
 
 FETCH_HEAD: 是一个版本链接，记录在本地的一个文件中，指向着目前已经从远程仓库取下来的分支的末端版本。
-commit-id: 在每次本地工作完成后，都会做一个git commit 操作来保存当前工作到本地的repo， 此时会产生一个commit-id，这是一个能唯一标识一个版本的序列号。 在使用 git push 后，这个序列号还会同步到远程仓库。
+commit-id: 在每次本地工作完成后，都会做一个git commit 操作来保存当前工作到本地的repo， 此时会产生一个 commit-id，这是一个能唯一标识一个版本的序列号。 在使用 git push 后，这个序列号还会同步到远程仓库。
 
 有了以上的概念再来说说 git fetch
 git fetch: 这将更新 git remote 中所有的远程仓库所包含分支的最新 commit-id, 将其记录到.git/FETCH_HEAD 文件中
@@ -479,6 +559,13 @@ git pull
 git pull -v
 git pull origin master
 git pull origin branch0
+git pull --rebase # rebase the current branch on top of the upstream branch after fetching.
+git pull --merge
+git config --global pull.rebase true # merge
+git config pull.rebase false  # merge
+git config pull.rebase true   # rebase
+git config pull.ff only       # fast-forward only
+git pull --ff-only
 ```
 
 ```bash
@@ -488,56 +575,6 @@ git fetch --all 告诉 Git 同步所有的远端仓库。
 
 # git分析指定的tag标签创建分支的命令
 git checkout -b branch_name tag_name
-```
-
-## git tag
-
-轻量标签 (lightweight）与附注标签 (annotated）。
-
-### 附注标签 (annotated）
-
-附注标签是存储在 Git 数据库中的一个完整对象, 它们是可以被校验的，其中包含打标签者的名字、电子邮件地址、日期时间，此外还有一个标签信息，并且可以使用 GNU Privacy Guard  (GPG）签名并验证。通常会建议创建附注标签，这样你可以拥有以上所有信息。
-
-在运行 tag 命令时指定 -a 选项, 创建附注标签
-
-```bash
-git tag -a v1.4 -m "message0"
-# 对历史提交打标签
-git tag -a v1.2 9fceb02
-git push --tag
-```
-
-### 轻量标签 (lightweight）
-
-```bash
-# list local tags
-git tag
-git tag -l "v1.8.5*"
-
-# list remote tags
-git ls-remote --tags origin
-
-# 显示提交信息
-git show v0.0.1
-
-# 查看commit内容
-git show commit_id
-
-# checkout tag
-git checkout tag_name
-
-# add a tag
-git tag v1.0.0
-
-# 共享标签, 提交标签, commit tag
-git push origin <tagname>
-git push origin v1.0.0
-
-# delete tag
-git tag -d v1.0.0
-
-# delete remote tag
-git push origin :refs/tags/v1.0.0
 ```
 
 <https://git-scm.com/book/zh/v2/Git-%E5%9F%BA%E7%A1%80-%E6%89%93%E6%A0%87%E7%AD%BE>
@@ -555,7 +592,6 @@ git log --pretty=oneline
 git-ls-files  # - Show information about files in the index and the working tree
 
 # list deleted files
-
 git ls-files -d
 
 # 恢复已删除的文件
@@ -580,9 +616,11 @@ git push origin master
 
 # 如果配置了多个远程仓库，则可以使用 -u 选项指定一个默认仓库，以后再执行 git push 就可以不显示的指定仓库了.
 git push -u origin master
+
 # -f 强制覆盖到仓库，这会导致仓库中某些记录丢失。
 git push -f
-
+# fatal: The current branch production has no upstream branch.
+git push --set-upstream origin production
 ```
 
 ```bash
@@ -593,17 +631,13 @@ git clone -b v1.30.0 https://github.com/foo/bar
 
 git clean -fd
 
-#rebase
+# rebase
 git rebase
 
 git stash
 
 $ git push origin test:master // 提交本地test分支作为远程的master分支 //好像只写这一句，远程的github就会自动创建一个test分支
 $ git push origin test:test // 提交本地test分支作为远程的test分支
-
-# 删除远程分支: 
-git push --delete origin devel
-To git@github.com:zrong/quick-cocos2d-x.git - [deleted] devel
 
 git status -s
 git add .
@@ -718,7 +752,7 @@ git push -u origin main
 
 ## 删除大文件
 
-><https://harttle.land/2016/03/22/purge-large-files-in-gitrepo.html>
+<https://harttle.land/2016/03/22/purge-large-files-in-gitrepo.html>
 
 ## 按修改次数排序
 
@@ -748,11 +782,11 @@ git pull --allow-unrelated-histories
 ```bash
 git filter-branch --force --index-filter 'git rm --cached --ignore-unmatch /content/post/archive-2/cross-compile.md' --prune-empty --tag-name-filter cat -- --all
 
-# 本地记录覆盖到Github,(所有branch以及所有tags)
+# 本地记录覆盖到 Github, (所有branch以及所有tags)
 git push origin --force --all
 git push origin --force --tags
 
-# 确保没有什么问题之后,强制解除对本地存储库中的所有对象的引用和垃圾收集
+# 确保没有什么问题之后, 强制解除对本地存储库中的所有对象的引用和垃圾收集
 git for-each-ref --format='delete %(refname)' refs/original | git update-ref --stdin
 git reflog expire --expire=now --all
 
@@ -792,3 +826,45 @@ git reflog expire --expire=now --all
 ```
 
 <https://www.cnblogs.com/toutou/p/git_stash.html>
+
+## There is no tracking information for the current branch
+
+是因为本地分支和远程分支没有建立联系 (使用git branch -vv 可以查看本地分支和远程分支的关联关系) .根据命令行提示只需要执行以下命令即可
+
+git branch --set-upstream-to=origin/远程分支的名字(我的是master) 本地分支的名字(我的是master)
+
+<https://segmentfault.com/a/1190000009128253>
+
+## Your branch and 'origin/branch0' have diverged
+
+```r
+On branch branch0
+Your branch and 'origin/branch0' have diverged,
+and have 4 and 2 different commits each, respectively.
+  (use "git pull" to merge the remote branch into yours)
+
+nothing to commit, working tree clean
+```
+
+<https://segmentfault.com/q/1010000015716120>
+
+假设，远程上的 commit 是 A -> B
+你在 A 电脑上 commit 和 push 之后，远程变成了 A -> B -> C -> D
+现在，B 电脑上还是 A -> B。然后你 commit 了，那么 B 电脑上就是 A -> B -> E。
+
+所以，你需要的是把 B 电脑上的历史线变成 A -> B -> C -> D -> E
+这时，你需要在 B 电脑上：
+
+git pull --rebase origin dev
+这个命令等同于：
+
+git fetch origin
+git rebase origin/dev
+执行之后，B 电脑上的历史线就会变成 A -> B -> C -> D -> E，然后你就可以 push 了
+
+多说一句，之所以显示上面的“错误”，是因为 A -> B -> C -> D 和 A -> B -> E 有一个共同的祖先 B，你在本地多了一个 commit E，远程多了两个 commits C 和 D。这个时候如果你要在 A -> B -> E 的 branch 上 push，git 猜不出到底想保留 C 和 D，还是只要 E，还是都要，就会出现上面的提示。
+
+## git status -s
+
+- M = 修改过的
+- U 更新但未合并

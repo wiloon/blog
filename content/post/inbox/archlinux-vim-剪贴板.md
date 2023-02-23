@@ -2,7 +2,7 @@
 title: archlinux vim 剪贴板
 author: "-"
 date: 2018-12-16T02:09:20+00:00
-url: /?p=13100
+url: archlinux/vim
 categories:
   - Editor
 tags:

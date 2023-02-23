@@ -9,8 +9,8 @@ tags:
   - reprint
 ---
 ## 'MySQL 共享锁  排他锁'
-http://www.hollischuang.com/archives/923
 
+<http://www.hollischuang.com/archives/923>
 
 共享锁(Share Lock)
   
@@ -24,7 +24,7 @@ SELECT ... LOCK IN SHARE MODE;
 
 在查询语句后面增加LOCK IN SHARE MODE,MySQL会对查询结果中的每行都加共享锁,当没有其他线程对查询结果集中的任何一行使用排他锁时,可以成功申请共享锁,否则会被阻塞。其他线程也可以读取使用了共享锁的表,而且这些线程读取的是同一个版本的数据。
 
-排他锁 (eXclusive Lock) 
+排他锁 (eXclusive Lock)
   
 排他锁又称写锁,如果事务T对数据A加上排他锁后,则其他事务不能再对A加任任何类型的封锁。获准排他锁的事务既能读数据,又能修改数据。
 
@@ -36,7 +36,7 @@ SELECT ... FOR UPDATE;
 
 意向锁
   
-意向锁是表级锁,其设计目的主要是为了在一个事务中揭示下一行将要被请求锁的类型。InnoDB中的两个表锁: 
+意向锁是表级锁,其设计目的主要是为了在一个事务中揭示下一行将要被请求锁的类型。InnoDB中的两个表锁:
 
 意向共享锁 (IS) : 表示事务准备给数据行加入共享锁,也就是说一个数据行加共享锁前必须先取得该表的IS锁
 

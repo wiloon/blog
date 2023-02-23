@@ -20,15 +20,15 @@ alias -p
 ### 显示已定义的别名 (假设当前环境存在以下别名)
 
 ```bash
-    alias ls
-    alias ls grep
+alias ls
+alias ls grep
 ```
 
-### 在命令行直接输入后缀为 html 的文件名,会在 vim 中打开 (zsh)
+### 在命令行直接输入后缀为 html 的文件名, 会在 vim 中打开 (zsh)
 
 ```bash
-    alias -s html=vim
-    alias -s gz='tar -xzvf'
+alias -s html=vim
+alias -s gz='tar -xzvf'
 ```
 
 ```bash

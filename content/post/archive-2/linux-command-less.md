@@ -1,14 +1,15 @@
 ---
-title: less
+title: less command
 author: "-"
 date: 2017-07-28T01:32:48+00:00
-url: /?p=10943
+url: less
 categories:
-  - Inbox
+  - Command
 tags:
   - reprint
+  - remix
 ---
-## less
+## less command
 
 ### make Vim behave like "tail -f"?
 
@@ -16,21 +17,21 @@ tags:
 less +F
 ```
 
-https://unix.stackexchange.com/questions/82058/how-do-i-make-vim-behave-like-tail-f
+<https://unix.stackexchange.com/questions/82058/how-do-i-make-vim-behave-like-tail-f>
   
-http://www.cnblogs.com/peida/archive/2012/11/05/2754477.html
+<http://www.cnblogs.com/peida/archive/2012/11/05/2754477.html>
 
 less 工具也是对文件或其它输出进行分页显示的工具,应该说是linux正统查看文件内容的工具,功能极其强大。less 的用法比起 more 更加的有弹性。在 more 的时候,我们并没有办法向前面翻, 只能往后面看,但若使用了 less 时,就可以使用 [pageup] [pagedown] 等按键的功能来往前往后翻看文件,更容易用来查看一个文件的内容！除此之外,在 less 里头可以拥有更多的搜索功能,不止可以向下搜,也可以向上搜。
   
-1．命令格式: 
+1．命令格式:
   
 less [参数] 文件
   
-2．命令功能: 
+2．命令功能:
   
 less 与 more 类似,但使用 less 可以随意浏览文件,而 more 仅能向前移动,却不能向后移动,而且 less 在查看之前不会加载整个文件。
   
-3．命令参数: 
+3．命令参数:
   
 -b <缓冲区大小> 设置缓冲区的大小
   
@@ -60,9 +61,9 @@ less 与 more 类似,但使用 less 可以随意浏览文件,而 more 仅能向�
   
 ?字符串: 向上搜索"字符串"的功能
   
-n: 重复前一个搜索 (与 / 或 ? 有关) 
+n: 重复前一个搜索 (与 / 或 ? 有关)
   
-N: 反向重复前一个搜索 (与 / 或 ? 有关) 
+N: 反向重复前一个搜索 (与 / 或 ? 有关)
   
 b 向后翻一页
   
@@ -84,122 +85,121 @@ y 向前滚动一行
   
 [pageup]:  向上翻动一页
   
-4．使用实例: 
+4．使用实例:
   
 实例1: 查看文件
   
-命令: 
+命令:
   
 less log2013.log
-         
-输出: 
+
+输出:
 
 实例2: ps查看进程信息并通过less分页显示
   
-命令: 
-   
+命令:
+
 ps -ef |less
-         
-输出: 
+
+输出:
 
 实例3: 查看命令历史使用记录并通过less分页显示
   
-命令: 
-   
+命令:
+
 history | less
   
-输出: 
-              
+输出:
+
 [root@localhost test]# history | less
-      
+
 22 scp -r tomcat6.0.32 root@192.168.120.203:/opt/soft
-      
+
 23 cd ..
-      
+
 24 scp -r web root@192.168.120.203:/opt/
-      
+
 25 cd soft
-      
+
 26 ls
-      
+
 27 scp -r jdk1.6.0_16/ root@192.168.120.203:/opt/soft
-      
+
 28 clear
-      
+
 29 vim /etc/profile
-      
+
 30 vim /etc/profile
-      
+
 31 cd tomcat6.0.32/bin/
-      
+
 32 ls
-      
+
 33 ./shutdown.sh
-      
+
 34 ./startup.sh
-      
+
 35 vim startup.sh
-      
+
 36 ls
-      
+
 37 echo $JAVA_HOME
-      
+
 38 java
-      
+
 39 ls
-      
+
 40 ls
-      
+
 41 clear
-      
+
 42 cd /opt
-      
+
 43 ls
-      
+
 44 cp apache-tomcat-6.0.32.tar.gz soft/
-      
+
 45 ls
-      
+
 46 rm -f apache-tomcat-6.0.32.tar.gz
-      
+
 47 ls
-      
+
 48 cd soft
-      
+
 49 ls
-      
+
 50 tar -vzf apache-tomcat-6.0.32.tar.gz
-      
+
 51 tar -vzfx apache-tomcat-6.0.32.tar.gz
-      
+
 52 tar -zxvf apache-tomcat-6.0.32.tar.gz
-      
+
 53 ls
-      
+
 54 cd apache-tomcat-6.0.32
-      
+
 55 ls
-      
+
 56 cd ..
-      
+
 57 mv apache-tomcat-6.0.32 tomcat6.0.32
-      
+
 58 ls
-      
+
 59 cd tomcat6.0.32/
-      
+
 60 ls
   
 实例5: 浏览多个文件
   
-命令: 
+命令:
   
 Less log2013.log log2014.log
   
-输出: 
+输出:
 
     说明: 
-    
 
 输入 : n后,切换到 log2014.log
   
@@ -241,7 +241,7 @@ h - 显示 less 的帮助文档
 
 5.标记导航
   
-当使用 less 查看大文件时,可以在任何一个位置作标记,可以通过命令导航到标有特定标记的文本位置: 
+当使用 less 查看大文件时,可以在任何一个位置作标记,可以通过命令导航到标有特定标记的文本位置:
   
 ma - 使用 a 标记文本的当前位置
   

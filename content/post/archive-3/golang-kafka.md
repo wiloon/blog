@@ -11,7 +11,5 @@ tags:
 ---
 ## golang kafka
 
-
-
 <https://github.com/Shopify/sarama>
 <https://github.com/bsm/sarama-cluster>

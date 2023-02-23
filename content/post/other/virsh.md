@@ -24,7 +24,7 @@ virsh net-list --all
 virsh net-start default
 ```
 
-## vim /etc/libvirt/qemu.conf
+> vim /etc/libvirt/qemu.conf
 
 ```bash
 user = "root"
@@ -126,13 +126,13 @@ virsh create <虚拟机xml文件>                 # 从xml文件中创建domain�
 
 
 
-virsh snapshot-create-as <虚拟机名称> --name <快照名称>   # 从命令行创建快照
-virsh snapshot-create <虚拟机名称>                       # 从xml文件创建快照
-virsh snapshot-list <虚拟机名称>                         # 查看虚拟机快照列表
-virsh snapshot-parent <虚拟机名称> --current             # 查看当前快照的上一级快照
-virsh snapshot-edit <虚拟机名称> --snapshotname <快照名>    # 编辑快照
-virsh snapshot-revert <虚拟机名称> --snapshotname <快照名>  # 恢复快照
-virsh snapshot-delete <虚拟机名称> --snapshotname <快照名>  # 删除快照
+virsh snapshot-create-as <虚拟机名称> --name <快照名称>      # 从命令行创建快照
+virsh snapshot-create <虚拟机名称>                          # 从xml文件创建快照
+virsh snapshot-list <虚拟机名称>                            # 查看虚拟机快照列表
+virsh snapshot-parent <虚拟机名称> --current                # 查看当前快照的上一级快照
+virsh snapshot-edit <虚拟机名称> --snapshotname <快照名>     # 编辑快照
+virsh snapshot-revert <虚拟机名称> --snapshotname <快照名>   # 恢复快照
+virsh snapshot-delete <虚拟机名称> --snapshotname <快照名>   # 删除快照
 
 virsh setvcpus <虚拟机名称> 4 --maximum --config # 设置最大vcpu数（只能用--config，下次运行生效）
 virsh setvcpus <虚拟机名称> 4 --config           # 下次启动使用vcpu数

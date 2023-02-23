@@ -9,15 +9,16 @@ tags:
   - reprint
 ---
 ## gradle 多项目
+
 1. 创建项目
   
-首先创建项目,名称为 test: 
+首先创建项目,名称为 test:
 
 mkdir test && cd test
   
 gradle init
 
-这时候的项目结构如下: 
+这时候的项目结构如下:
 
 ➜ test tree
   
@@ -41,8 +42,7 @@ gradle init
 
 2 directories, 6 files
 
-然后,创建多个模块,这里以 core 和 web 模块为例,先创建两个目录: 
-
+然后,创建多个模块,这里以 core 和 web 模块为例,先创建两个目录:
 
 ```bash
 
@@ -54,14 +54,13 @@ cd web && gradle init -type java-library
 
 ```
 
-
 2. 修改配置
   
-接下来修改根目录下的 settings.gradle 文件,引入子模块: 
+接下来修改根目录下的 settings.gradle 文件,引入子模块:
 
 include 'core','web'
 
-修改根目录下的 build.gradle: 
+修改根目录下的 build.gradle:
   
 // 所有子项目的通用配置
   
@@ -183,7 +182,7 @@ configurations.compile.each { File file -> println file.name }
   
 }
 
-接下来可以修改 core/build.gradle 来定义 core 模块的依赖: 
+接下来可以修改 core/build.gradle 来定义 core 模块的依赖:
 
 // jar包的名字
   
@@ -191,7 +190,7 @@ archivesBaseName = 'core'
 
 // 还可以定义其他配置,这里直接继承父模块中的配置
 
-web 模块需要依赖 core 模块,故定义 web/build.gradle 如下: 
+web 模块需要依赖 core 模块,故定义 web/build.gradle 如下:
 
 apply plugin:"war"
 
@@ -263,21 +262,21 @@ println();
 
 3. 编译项目
   
-查看所有 jar: 
+查看所有 jar:
 
 $ gradle listJars
 
-查看各个模块的依赖: 
+查看各个模块的依赖:
 
 $ gradle :core:dependencies
   
 $ gradle :web:dependencies
 
-编译所有模块: 
+编译所有模块:
 
 $ gradle build
 
-对比一下,这时候的目录如下: 
+对比一下,这时候的目录如下:
 
 ➜ test tree
   
@@ -359,7 +358,7 @@ $ gradle build
 
 23 directories, 14 files
 
-这样,core和web模块都是gradle项目了,你也可以单独编译某一个模块,例如,编译core模块: 
+这样,core和web模块都是gradle项目了,你也可以单独编译某一个模块,例如,编译core模块:
 
 $ cd core
   
@@ -409,7 +408,7 @@ gradle dependencies > depend.log
 
 3. 忽略掉 .gradle 目录
   
-修改 .gitignore 忽略该目录: 
+修改 .gitignore 忽略该目录:
 
 *.sw?
   
@@ -449,7 +448,7 @@ README.html
   
 在顶级目录增加一个 libs 文件夹,这个文件夹里面的 jar 是对所有项目都起作用的。
 
-如果是某个项目自用的,则可以在该项目的 source 下面创建个 libs,具体实现是在顶级目录下的 build.gradle 中: 
+如果是某个项目自用的,则可以在该项目的 source 下面创建个 libs,具体实现是在顶级目录下的 build.gradle 中:
 
 ext.jarTree = fileTree(dir: 'libs', include: '**/*.jar')
   
@@ -495,6 +494,6 @@ Gradle 多项目管理示例
   
 构建工具之 - Gradle一般使用常见问答
 
-http://blog.javachen.com/2015/01/07/build-multi-module-project-with-gradle.html
+<http://blog.javachen.com/2015/01/07/build-multi-module-project-with-gradle.html>
 
-http://www.blogjava.net/wldandan/archive/2012/07/12/382792.html
+<http://www.blogjava.net/wldandan/archive/2012/07/12/382792.html>

@@ -7,12 +7,26 @@ categories:
   - Python
 tags:
   - reprint
+  - remix
 ---
 ## python basic
 
-Python 3 >=3.4 这些版本的 Python 会一并安装 pip
+Python 3 >= 3.4 这些版本的 Python 会一并安装 pip
 
 ## pip
+
+```bash
+# install redis
+pip install redis
+# 查看某个包是否已经安装
+pip show --files package0
+# 查看过期的包
+pip list --outdated
+# pip 升级某个包
+pip install --upgrade package0
+# 卸载
+pip uninstall package0
+```
 
 ### 手动重新安装 pip
 
@@ -27,7 +41,7 @@ sudo python get-pip.py
 pip install sasl==0.2.1
 ```
 
-### python输出现有环境依赖包目录
+### python 输出现有环境依赖包目录
 
 ```bash
 pip freeze >requirements.txt
@@ -230,6 +244,8 @@ from 模块名 import 语句：
 
 ### 字典 dict
 
+dict 是线程安全的
+
 ```python
 scores = {'语文': 89, '数学': 92, '英语': 93}
 print(scores)
@@ -246,6 +262,13 @@ d = {'name':Tom, 'age':10, 'Tel':110}
 print ‘name’ in d.keys()
 print 'name' in d
 #两个的结果都是返回True
+del test_dict['Zhihu']
+```
+
+```py
+for kv in a.items():
+    print(kv)
+
 ```
 
 <http://c.biancheng.net/view/2212.html>
@@ -327,7 +350,7 @@ pickle.load(file)
 ## pyenv
 
 ```bash
-pyenv install -l
+dfesxc install -l
 pyenv install 3.6.15
 pyenv versions
 pyenv global 3.6.15
@@ -492,6 +515,13 @@ python staticmethod 返回函数的静态方法。
 
 该方法不强制要求传递参数，如下声明一个静态方法：
 
+```py
+class C(object):
+    @staticmethod
+    def f(arg1, arg2, ...):
+        pass
+```
+
 ## reduce()
 
 reduce() 函数会对参数序列中元素进行累积。
@@ -614,7 +644,11 @@ def printme( str ):
    return
 ```
 
-## kafka
+## kafka-python
+
+- PyKafka and
+- confluent-kafka
+- kafka-python:
 
 python kafka ssl
 
@@ -882,6 +916,15 @@ python -X faulthandler main.py
 
 ## loop
 
+### for
+
+```py
+for i in range(1, 10):
+    s = "718"
+    h = int(hashlib.sha1(s.encode("utf-8")).hexdigest(), 16)
+    print(h % 10)
+```
+
 ### while
 
 ```python
@@ -890,4 +933,33 @@ while i < 6:
   print(i)
   i += 1
 
+```
+
+## string to int
+
+```py
+int("10")
+```
+
+## int to string
+
+```py
+str(10)
+```
+
+## sleep
+
+```py
+time.sleep(10)
+```
+
+## hashset
+
+```py
+>>> l = set()
+>>> l.add(1)
+>>> l.add(2)
+l.remove(1)
+
+', '.join(set_3)
 ```

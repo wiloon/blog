@@ -18,3 +18,13 @@ flatpak run md.obsidian.Obsidian
 ```
 
 <https://decoge.medium.com/how-to-install-obsidian-on-a-chromebook-53e379217adf>
+
+## install plugin: remotely save
+
+settings> community plugins> turn on community plugins> browse
+
+search remotely save and install and enable
+
+config s3 storage:
+
+- endpoint

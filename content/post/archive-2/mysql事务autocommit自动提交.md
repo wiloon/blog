@@ -9,7 +9,8 @@ tags:
   - reprint
 ---
 ## MySQL事务autocommit自动提交
-http://www.qttc.net/201208175.html
+
+<http://www.qttc.net/201208175.html>
 
 MySQL默认操作模式就是autocommit自动提交模式。这就表示除非显式地开始一个事务,否则每个查询都被当做一个单独的事务自动执行。我们可以通过设置autocommit的值改变是否是自动提交autocommit模式。
 
@@ -35,9 +36,9 @@ MySQL> set autocommit = 0;
   
 值0和OFF都是一样的,当然,1也就表示ON。通过以上设置autocommit=0,则用户将一直处于某个事务中,直到执行一条commit提交或rollback语句才会结束当前事务重新开始一个新的事务。
 
-举个例子: 
+举个例子:
 
-张三给李四转账500元。那么在数据库中应该是以下操作: 
+张三给李四转账500元。那么在数据库中应该是以下操作:
 
 1,先查询张三的账户余额是否足够
 

@@ -11,26 +11,6 @@ tags:
 ---
 ## sqlite command
 
-```bash
-# 安装
-sudo pacman -S sqlite
-# 创建数据库
-sqlite3 /data/rssx/rssx.db
-#建表
-CREATE TABLE if not exists users (  id char(36) PRIMARY KEY NOT NULL,  name varchar(50) DEFAULT NULL,  create_time timestamp DEFAULT NULL);
-# help 
-.help
-# show tables
-.tables
-# insert
-
-# alter table, rename
-alter table feed
-    rename to feeds;
-
-
-```
-
 在列模式下，每条记录在一个单独的行中以数据列对齐的方式显示。列如:
 
 sqlite> .mode column

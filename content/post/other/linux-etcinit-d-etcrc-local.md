@@ -10,9 +10,9 @@ tags:
 
 ---
 ## Linux /etc/init.d /etc/rc.local
-http://blog.csdn.net/acs713/article/details/7322082
+<http://blog.csdn.net/acs713/article/details/7322082>
 
-本文英语版本来自: http://www.ghacks.net/2009/04/04/get-to-know-linux-the-etcinitd-directory/
+本文英语版本来自: <http://www.ghacks.net/2009/04/04/get-to-know-linux-the-etcinitd-directory/>
 
 以下内容是作者自己的翻译版本，如需转载到CSDN外其他网站，请注明本文链接。
 
@@ -24,11 +24,11 @@ http://blog.csdn.net/acs713/article/details/7322082
 
 如果你在使用Fedora系统，你可以找到这个目录: /etc/rc.d/init.d。实际上无论init.d放在什么地方，它都发挥着相同的作用。
 
-为了能够使用init.d目录下的脚本，你需要有root权限或sudo权限。每个脚本都将被作为一个命令运行，该命令的结构大致如下所示: 
+为了能够使用init.d目录下的脚本，你需要有root权限或sudo权限。每个脚本都将被作为一个命令运行，该命令的结构大致如下所示:
 
 /etc/init.d/command 选项
 
-comand是实际运行的命令，选项可以有如下几种: 
+comand是实际运行的命令，选项可以有如下几种:
 
 start
   
@@ -40,17 +40,15 @@ restart
   
 force-reload
   
-大多数的情况下，你会使用start,stop,restart选项。例如，如果你想关闭网络，你可以使用如下形式的命令: 
-
+大多数的情况下，你会使用start,stop,restart选项。例如，如果你想关闭网络，你可以使用如下形式的命令:
 
 /etc/init.d/networking stop
 
-又比如，你改变了网络设置，并且需要重启网络。你可以使用如下命令: 
+又比如，你改变了网络设置，并且需要重启网络。你可以使用如下命令:
 
 /etc/init.d/networking restart
 
-init.d目录下常用初始化脚本有: 
-
+init.d目录下常用初始化脚本有:
 
 networking
   
@@ -70,12 +68,11 @@ MySQL
 
 二、关于/etc/rc.local
 
-rc.local也是我经常使用的一个脚本。该脚本是在系统初始化级别脚本运行之后再执行的，因此可以安全地在里面添加你想在系统启动之后执行的脚本。常见的情况是你可以再里面添加nfs挂载/mount脚本。此外，你也可以在里面添加一些调试用的脚本命令。例如，我就碰到过这种情况: samba服务总是无法正常运行，而检查发现，samba是在系统启动过程中就该启动执行的，也就是说，samba守护程序配置保证了这种功能本应该正确执行。碰到这种类似情况，一般我也懒得花大量时间去查为什么，我只需要简单的在/etc/rc.local脚本里加上这么一行: 
+rc.local也是我经常使用的一个脚本。该脚本是在系统初始化级别脚本运行之后再执行的，因此可以安全地在里面添加你想在系统启动之后执行的脚本。常见的情况是你可以再里面添加nfs挂载/mount脚本。此外，你也可以在里面添加一些调试用的脚本命令。例如，我就碰到过这种情况: samba服务总是无法正常运行，而检查发现，samba是在系统启动过程中就该启动执行的，也就是说，samba守护程序配置保证了这种功能本应该正确执行。碰到这种类似情况，一般我也懒得花大量时间去查为什么，我只需要简单的在/etc/rc.local脚本里加上这么一行:
 
 /etc/init.d/samba start
 
 这样就成功的解决了samba服务异常的问题。
-
 
 三、总结
 

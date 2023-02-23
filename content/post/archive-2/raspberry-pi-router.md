@@ -40,7 +40,9 @@ systemctl start systemd-networkd
 systemctl enable systemd-networkd
 ```
 
-### vim /etc/hostapd/hostapd.conf
+### /etc/hostapd/hostapd.conf
+
+>vim /etc/hostapd/hostapd.conf
 
 ```bash
 interface=wlan0
@@ -59,7 +61,7 @@ wpa_pairwise=TKIP
 rsn_pairwise=CCMP
 ```
 
-### vim /etc/default/hostapd
+> vim /etc/default/hostapd
 
 ```bash
 DAEMON_CONF="/etc/hostapd/hostapd.conf"
@@ -67,7 +69,7 @@ DAEMON_CONF="/etc/hostapd/hostapd.conf"
 
 systemctl restart hostapd
 
-### vim /etc/dnsmasq.conf
+> vim /etc/dnsmasq.conf
 
 ```bash
 sudo mv /etc/dnsmasq.conf /etc/dnsmasq.conf.bak

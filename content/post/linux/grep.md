@@ -56,7 +56,7 @@ grep -r 'linux' *
 
 ### 参数
 
-- -i: 忽略大小写
+- -i, –ignore-case: 忽略大小写
 - -A, –after-context=NUM print NUM lines of trailing context
 - -B <显示行数> -before-context=<显示行数> #除了显示符合样式的那一行之外，并显示该行之前的内容。
 - -C 显示 file 文件里匹配 foo 字串那行以及上下5行
@@ -148,8 +148,6 @@ egrep 命令会显示包含该匹配行的文件，如果您指定了多于一�
 -f StringFile 指定包含字符串的文件。
 
 -h 当处理多个文件时排除文件名。
-
--i 当进行比较时忽略字符的大小写。
 
 -l 列出包含匹配行的文件名 (一次) 。文件名之间用换行符加以分隔。如果搜索标准输入，会返回一个 "(StandardInput)" 路径名。
 
@@ -295,8 +293,6 @@ $ grep magic /usr/src/Linux/Documentation/* | less
 
 下面还有一些有意思的命令行参数:
   
-grep -i pattern files : 不区分大小写地搜索。默认情况区分大小写，
-  
 grep -l pattern files : 只列出匹配的文件名，
   
 grep -L pattern files : 列出不匹配的文件名，
@@ -334,8 +330,6 @@ Grep 命令 用法大全
 参数:
   
 ```bash
--I : 忽略大小写
-  
 -c : 打印匹配的行数
   
 -l : 从多个文件中查找包含匹配项
@@ -654,8 +648,6 @@ grep pattern [file…]
   
 -c 只输出匹配行的计数
   
--i 不区分大小写 (用于单字符)
-  
 -n 显示匹配的行号
   
 -v 不显示不包含匹配文本的所以有行
@@ -688,10 +680,6 @@ grep -vn "48" data.doc #输出所有不包含48的行
   
 grep -vn "48" data.doc #输出所有不包含48的行
 
-(5)大小写敏感
-  
-grep -i "ab" data.doc #输出所有含有ab或Ab的字符串的行
-
 4, 正则表达式的应用
 
 (1)正则表达式的应用 (注意: 最好把正则表达式用单引号括起来)
@@ -714,6 +702,7 @@ grep -E '219|216' data.doc
   
 可以使用国际模式匹配的类名:
   
+```r
 [[:upper:]] [A-Z]
   
 [[:lower:]] [a-z]
@@ -725,6 +714,7 @@ grep -E '219|216' data.doc
 [[:space:]] 空格或tab
   
 [[:alpha:]] [a-zA-Z]
+```
 
 (1)使用
   
@@ -744,8 +734,6 @@ Grep命令选项
  从文件中提取模板。空文件中包含0个模板，所以什么都不匹配。
  -h，–no-filename
  当搜索多个文件时，不显示匹配文件名前缀。
- -i，–ignore-case
- 忽略大小写差别。
  -q，–quiet
  取消显示，只返回退出状态。0则表示找到了匹配的行。
  -l，–files-with-matches
@@ -816,6 +804,7 @@ grep正则表达式元字符集 (基本集)
 
 ### POSIX字符类
 
+```bash
  为了在不同国家的字符编码中保持一至，POSIX(The Portable Operating System Interface)增加了特殊的字符类，如[:alnum:]是A-Za-z0-9的另一个写法。要把它们放到[]号内才能成为正则表达式，如[A- Za-z0-9]或[[:alnum:]]。在Linux下的grep除fgrep外，都支持POSIX的字符类。
  [:alnum:]
  文字数字字符
@@ -839,6 +828,7 @@ grep正则表达式元字符集 (基本集)
  大写字符
  [:xdigit:]
  十六进制数字 (0-9，a-f，A-F)
+```
 
  要用好grep这个工具，其实就是要写好正则表达式，所以这里不对grep的所有功能进行实例讲解，只列几个例子，讲解一个正则表达式的写法。
  $ ls -l | grep '^a'
@@ -861,8 +851,6 @@ grep正则表达式元字符集 (基本集)
 -a: 在二进制文件中,以文本文件的方式搜索数据；
 
 -c: 计算找到"搜索字符串"的次数；
-
--i: 忽略大小写；
 
 -n: 输出行号；
 

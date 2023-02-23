@@ -10,6 +10,8 @@ tags:
 ---
 ## RESTful API 设计
 
+URI中不应包含结尾的正斜杠（/）。
+
 ## 域名
 
 应该尽量将API部署在专用域名之下。 <https://api.example.com>

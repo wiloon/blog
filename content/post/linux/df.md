@@ -34,6 +34,8 @@ disk free 的缩写;用于显示目前Linux系统上的文件系统的磁盘使�
 
 ```bash
 df -h
+# 查看 inode 使用情况
+df -hi
 df -t ext4 -h
 # 查看文件系统类型
 df -T -h

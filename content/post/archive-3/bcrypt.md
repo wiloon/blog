@@ -9,13 +9,13 @@ tags:
   - reprint
 ---
 ## Bcrypt
-https://www.jianshu.com/p/2b131bfc2f10
+<https://www.jianshu.com/p/2b131bfc2f10>
   
 Bcrypt 是单向Hash加密算法，类似 Pbkdf2 算法 不可反向破解生成明文。 每次输出的hashPass 都不一样，
   
 ## Bcrypt是怎么加密的？
   
-Bcrypt有四个变量: 
+Bcrypt有四个变量:
 
 saltRounds: 正数，代表hash杂凑次数，数值越高越安全，默认10次。
   
@@ -31,19 +31,19 @@ myHash: 经过明文密码password和盐salt进行hash，个人的理解是默�
 
 作者: martin6699
   
-链接: https://www.jianshu.com/p/2b131bfc2f10
+链接: <https://www.jianshu.com/p/2b131bfc2f10>
   
 来源: 简书
   
 简书著作权归作者所有，任何形式的转载都请联系作者获得授权并注明出处。
 
->https://www.ujcms.com/knowledge/509.html
->http://www.mindrot.org/projects/jBCrypt/
->https://www.cnblogs.com/jpfss/p/11024716.html
->http://www.mindrot.org/projects/jBCrypt/
-
+><https://www.ujcms.com/knowledge/509.html>
+><http://www.mindrot.org/projects/jBCrypt/>
+><https://www.cnblogs.com/jpfss/p/11024716.html>
+><http://www.mindrot.org/projects/jBCrypt/>
 
 ### 在 Java 中使用 Bcrypt, BCryptPasswordEncoder
+
 如果引入了 Spring Security, BCryptPasswordEncoder 提供了相关的方法。
 
 ```java
@@ -60,6 +60,7 @@ public class BCryptPasswordEncoderTest {
     }
 }
 ```
+
 可以看到，每次输出的hashPass 都不一样，
 但是最终的f都为 true,即匹配成功。
 
@@ -81,6 +82,7 @@ saltb = decode_base64(real_salt, BCRYPT_SALT_LEN);
 B = new BCrypt();
 hashed = B.crypt_raw(passwordb, saltb, rounds);
 ```
+
 假定一次hashPass为：$2a$10$AxafsyVqK51p.s9WAEYWYeIY9TKEoG83LTEOSB3KUkoLtGsBKhCwe
 
 随机盐即为 AxafsyVqK51p.s9WAEYWYe
@@ -91,5 +93,5 @@ hashed = B.crypt_raw(passwordb, saltb, rounds);
 
 即，加密的hashPass中，前部分已经包含了盐信息。
 
->https://zhuanlan.zhihu.com/p/92845975
->https://www.cnblogs.com/jpfss/p/11023906.html
+><https://zhuanlan.zhihu.com/p/92845975>
+><https://www.cnblogs.com/jpfss/p/11023906.html>

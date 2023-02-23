@@ -193,7 +193,7 @@ ForwardAgent yes
 User root
 ```
 
-#### vim /etc/ssh/ssh_config
+> vim /etc/ssh/ssh_config
 
 ```bash
 Host *

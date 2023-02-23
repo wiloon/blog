@@ -11,6 +11,49 @@ tags:
 ---
 ## kafka
 
+kafka 大量使用页缓存, 经过良好调优的 kafka 集群, 磁盘读操作很少, 因为大部分消息读取操作会直接命中缓存
+
+kafka 高吞吐量
+
+- 大量使用操作系统页缓存，内存操作速度快且命中率高。
+- Kafka不直接参与物理I/O操作，而是交由最擅长此事的操作系统来完成。
+- 采用追加写入方式，摒弃了缓慢的磁盘随机读/写操作。
+- 使用以sendfile为代表的零拷贝技术加强网络间的数据传输效率。
+
+摘自：《Apache Kafka实战》 — 胡夕
+在豆瓣阅读书店查看：<https://read.douban.com/ebook/59895902/>
+本作品由电子工业出版社授权豆瓣阅读中国大陆范围内电子版制作与发行。
+© 版权所有，侵权必究。
+
+## 伸缩性，scalability
+
+伸缩性表示向分布式系统中增加额外的计算资源（比如CPU、内存、存储或带宽）时吞吐量提升的能力。
+
+## partition
+
+Kafka的partition是不可修改的有序消息序列，也可以说是有序的消息日志。
+
+## replica
+
+副本（replica）
+
+follower replica 是不能提供服务给客户端的，也就是说不负责响应客户端发来的消息写入和消息消费请求。它只是被动地向领导者副本（leader replica）获取数据
+
+ISR的全称是in-sync replica，翻译过来就是与leader replica保持同步的replica集合
+
+正常情况下，partition的所有replica（含leader replica）都应该与leader replica保持同步，即所有 replica都在 ISR中。因为各种各样的原因，一小部分 replica开始落后于 leader replica的进度。当滞后到一定程度时，Kafka会将这些 replica“踢”出 ISR。相反地，当这些 replica重新“追上”了 leader的进度时，那么 Kafka会将它们加回到 ISR中。这一切都是自动维护的，不需要用户进行人工干预，因而在保证了消息交付语义的同时还简化了用户的操作成本。
+
+摘自：《Apache Kafka实战》 — 胡夕
+在豆瓣阅读书店查看：https://read.douban.com/ebook/59895902/
+本作品由电子工业出版社授权豆瓣阅读中国大陆范围内电子版制作与发行。
+© 版权所有，侵权必究。
+
+Event Sourcing实际上是领域驱动设计（Domain-Driven Design，DDD）的名词，它使用事件序列来表示状态变更，这种思想和 Kafka 的设计特性不谋而合。
+
+数据倾斜（skewed）
+
+---
+
 分布式消息队列是是大型分布式系统不可缺少的中间件,主要解决应用耦合、异步消息、流量削锋等问题。实现高性能、高可用、可伸缩和最终一致性架构。
 
 为何使用消息系统
@@ -134,11 +177,6 @@ Producer在发布消息到某个Partition时,先通过ZooKeeper找到该Partitio
 
 Consumer读消息也是从Leader读取,只有被commit过的消息 (offset低于HW的消息) 才会暴露给Consumer。
 
-### kafka生产环境规划
-
-<https://juejin.cn/post/6844903713916583944>
-<https://juejin.cn/post/6844903700616445960>
-
 ### kraft
 
 <https://developer.confluent.io/learn/kraft/>
@@ -152,3 +190,15 @@ Consumer读消息也是从Leader读取,只有被commit过的消息 (offset低于
 <http://www.infoq.com/cn/articles/kafka-analysis-part-2>
   
 <http://www.jasongj.com/2015/01/02/Kafka%E6%B7%B1%E5%BA%A6%E8%A7%A3%E6%9E%90/>
+
+
+### kafka 生产环境规划
+
+Kafka 这种应用必然需要大量地通过网络与磁盘进行数据传输，而大部分这样的操作都是通过 Java 的FileChannel.transferTo方法实现的。在Linux平台上该方法底层会调用sendfile系统调用，即采用了Linux提供的零拷贝（Zero Copy）技术。
+
+对于预算有限且追求高性价比的公司而言，机械硬盘完全可以胜任Kafka存储的任务。 kafka 是顺序写磁盘的, ssd 避免了机械盘的寻道时间, 对于 kafka 来说不是特别重要.
+
+<https://juejin.cn/post/6844903713916583944>
+<https://juejin.cn/post/6844903700616445960>
+
+kafka 实战 - 胡夕

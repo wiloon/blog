@@ -23,11 +23,9 @@ REST本身只是为分布式超媒体系统设计的一种架构风格，而不�
 传统的Web应用大都是B/S架构，它包括了如下一些规范:
 
 1. 客户－服务器
-
 这种规范的提出，改善了用户接口跨多个平台的可移植性，并且通过简化服务器组件，改善了系统的可伸缩性。最为关键的是通过分离用户接口和数据存储这两个关注点，使得不同用户终端享受相同数据成为了可能。
 
 2. 无状态性
-
 无状态性是在客户－服务器约束的基础上添加的又一层规范。他要求通信必须在本质上是无状态的，即从客户到服务器的每个request都必须包含理解该 request所必须的所有信息。这个规范改善了系统的可见性 (无状态性使得客户端和服务器端不必保存对方的详细信息，服务器只需要处理当前 request，而不必了解所有的request历史) ，可靠性 (无状态性减少了服务器从局部错误中恢复的任务量) ，可伸缩性 (无状态性使得服务器端可以很容易的释放资源，因为服务器端不必在多个request中保存状态) 。同时，这种规范的缺点也是显而易见得，由于不能将状态数据保存在服务器上的共享上下文中，因此增加了在一系列request中发送重复数据的开销,严重的降低了效率。
 
 3.缓存
@@ -173,16 +171,16 @@ Private Function httpGet(url, method, data)
   
 服务端代码:
 
-  Response.Write Request.ServerVariables("REQUEST_METHOD")
- If (Request.ServerVariables("REQUEST_METHOD")="GET") Then
- Response.Write "DO GET" + Request("do")
- ElseIf (Request.ServerVariables("REQUEST_METHOD")="POST") Then
- Response.Write "DO POST" + Request("do")
- ElseIf (Request.ServerVariables("REQUEST_METHOD")="PUT") Then
- Response.Write "DO PUT" + Request("do")
- ElseIf (Request.ServerVariables("REQUEST_METHOD")="DELETE") Then
- Response.Write "DO DELETE" + Request("do")
- End if
+Response.Write Request.ServerVariables("REQUEST_METHOD")
+If (Request.ServerVariables("REQUEST_METHOD")="GET") Then
+Response.Write "DO GET" + Request("do")
+ElseIf (Request.ServerVariables("REQUEST_METHOD")="POST") Then
+Response.Write "DO POST" + Request("do")
+ElseIf (Request.ServerVariables("REQUEST_METHOD")="PUT") Then
+Response.Write "DO PUT" + Request("do")
+ElseIf (Request.ServerVariables("REQUEST_METHOD")="DELETE") Then
+Response.Write "DO DELETE" + Request("do")
+End if
 
 需要注意的是，IIS服务器默认是不支持ASP文件的PUT和DELETE操作，默认会返回"403 - Forbidden"错误，因此需要修改IIS的设置，修改方法是: 管理根据－IIS信息服务器－网站－属性－主目录－应用程序配置－配置－映射，选择ASP － 编辑 － 修改为全部动作。
 

@@ -214,3 +214,13 @@ Oozie调度器,可以通过DashBoard来提交和监控Workflow、Coordinator以�
 　　按主芯片需要而集成了电源管理，充电控制，开关机控制电路。包括自适应的USB-Compatible的PWM充电器，多路直流直流转换器，多路线性稳压器(LDO)，Charge Pump，RTC电路，马达驱动电路，LCD背光灯驱动电路，键盘背光灯驱动电路，键盘控制器，电压/电流/温度等多路12-BitADC，以及多路可配置的GPIO。此外还整合了过/欠压(OVP/UVP)、过温(OTP)、过流(OCP)等保护电路。
 
 PMU作为消费电子(手机、MP4、GPS、PDA等)特定主芯片配套的电源管理集成单元，能提供主芯片所需要的、所有的、多档次而各不相同电压的电源，同电压的能源供给不同的手机工作单元，像处理器、射频器件、相机模块等，使这些单元能够正常工作。
+
+## DWARF
+
+DWARF 是一种广泛使用的标准调试信息格式，最初DWARF的设计初衷是配合ELF格式使用，不过DWARF与具体的文件格式是没有依赖关系的。DWARF这个词是中世纪幻想小说中的用语，也没有什么官方含义，后来才提出 “Debugging With Attributed Record Formats” 这个术语来作为DWARF的另一种定义。
+
+DWARF使用DIE（Debugging Information Entry）来描述变量、数据类型、代码等，DIE中包含了标签（Tag）和一系列属性（Attributes）。
+
+DWARF还定义了一些关键的数据结构，如行号表（Line Number Table)、调用栈信息（Call Frame Information）等，有了这些关键数据结构之后，开发者就可以在源码级别动态添加断点、显示完整的调用栈信息、查看调用栈中指定栈帧的信息。
+
+<https://www.hitzhangjie.pro/debugger101.io/8-dwarf/>

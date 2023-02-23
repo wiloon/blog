@@ -81,11 +81,14 @@ docker rmi 192.168.0.1/you/tom:1.0.8
 ## archlinux install docker
 
 ```bash
-docker ps -s
-```
-
-```bash
 sudo pacman -S docker
+systemctl start docker.service
+
+docker run -it --rm archlinux bash -c "echo hello world"
+
+pacman -S docker-compose
+
+docker ps -s
 
 # docker
 docker run \
@@ -102,7 +105,6 @@ redis
 ```bash
 docker network ls
 docker network inspect 网络ID
-
 ```
 
 ### volume
@@ -117,7 +119,7 @@ docker rm -v instance0
 docker volume prune
 ```
 
-容器创建后不能再新增volume, 可以先commit到镜像, 再创建新的容器。
+容器创建后不能再新增 volume, 可以先commit到镜像, 再创建新的容器。
 
 ### 时区问题
 
@@ -173,8 +175,8 @@ docker run [OPTIONS] IMAGE [COMMAND] [ARG...]
 
 ```bash
 docker run -it --rm ubuntu bash
-# -i, --interactive=false   打开STDIN,用于控制台交互
-# -t, --tty=false           分配tty设备,该可以支持终端登录,默认为false
+# -i, --interactive=false   打开 STDIN, 用于控制台交互
+# -t, --tty=false           分配 tty 设备, 该可以支持终端登录, 默认为 false
 # -t -a stdout              Outputs the container logs on the standard output
 # -P, --publish-all=false   Docker自动分配一个未被使用的端口
 # -v, --volume=[]           Bind mount a volume(挂载目录 -v /root:/opt/temp), 跟mount一样，path 里如果有文件的话，挂载之后是看不到的。
@@ -211,7 +213,8 @@ docker exec -it --user=root foo bash
 #查看存储层变化
 docker diff webserver
 
-#将容器保存为镜像
+# 将容器保存为镜像
+sudo docker commit webserver nginx:v2
 sudo docker commit \
     --author "wiloon" \
     --message "modify index" \

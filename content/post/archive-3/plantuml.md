@@ -73,7 +73,7 @@ end note
 @enduml
 ```
 
-### vs code 渲染uml的快捷键
+### vs code 渲染 uml 的快捷键
 
 ```bash
 alt+d
@@ -188,7 +188,7 @@ Alice ->> Bob: async msg
 ```bash
 podman run -d \
 --name plantuml \
--p 30001:8080 plantuml/plantuml-server:jetty-v1.2022.7
+-p 30001:8080 plantuml/plantuml-server:jetty-v1.2022.14
 ```
 
 ### 定义组件的相对位置

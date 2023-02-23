@@ -44,22 +44,16 @@ tags:
 
 比赛规格:
 
-• 13组小队 (MIT，BU，UMASS，NE…)
-
-• 一个组一个VM (ubuntu 10.10 + 最新apache+MySQL+wordpress) 分别运行在同一个虚拟机服务器上但是不同IP和Domain。
-
-• 每个组一个SWITCH BOX 和 名为 ctfuser 的用户权限(ssh) 和三个密码 (ssh+wordpress+评分页密码)
-
-• WordPress 每随机一段时间会要求安装一个plugin。
-
-• 每天可以有一个snapshot和三次全盘恢复机会。
+- 13组小队 (MIT，BU，UMASS，NE…)
+- 一个组一个VM (ubuntu 10.10 + 最新apache+MySQL+wordpress) 分别运行在同一个虚拟机服务器上但是不同IP和Domain。
+- 每个组一个SWITCH BOX 和 名为 ctfuser 的用户权限(ssh) 和三个密码 (ssh+wordpress+评分页密码)
+- WordPress 每随机一段时间会要求安装一个plugin。
+- 每天可以有一个snapshot和三次全盘恢复机会。
 
 任务目标:
 
 1. 获取其他组的flag (128位String) 这个flag 散落在VM的各个角落 (文件或数据库里)
-
 2. 保护自己的wordpress 和 plugins 都能正常运行，保护自己的flag 没有被更改过
-
 3. flag 每10分钟改变一次， 有可能会改变位置 (裁判是root 权限)
 
 除了ddos 和 spoofing 其余手段的均可

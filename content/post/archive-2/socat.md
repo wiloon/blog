@@ -11,20 +11,11 @@ tags:
 ---
 ## socat
 
-## http server, 加载本地 .html 文件
-
-```bash
-echo "foo">foo.html 
-socat -v -v TCP-LISTEN:8000,crlf,reuseaddr,fork SYSTEM:"echo HTTP/1.0 200; echo Content-Type\: text/plain; echo; cat foo.html"
-```
-
-<https://stackoverflow.com/questions/29739901/socat-fake-http-server-use-a-file-as-server-response>
-
 ## socat 测试 端口连通性, test a remote port is reachable with socat
 
 ```bash
 # test tcp port
-socat - TCP4:192.168.1.15:22,connect-timeout=2
+socat - tcp4:192.168.1.15:22,connect-timeout=3
 
 # test udp port
 #set up a server listening on UDP port 48772
@@ -33,6 +24,15 @@ socat UDP-RECV:48772 STDOUT
 # test udp port
 socat - UDP:localhost:48772
 ```
+
+## http server, 加载本地 .html 文件
+
+```bash
+echo "foo">foo.html 
+socat -v -v TCP-LISTEN:8000,crlf,reuseaddr,fork SYSTEM:"echo HTTP/1.0 200; echo Content-Type\: text/plain; echo; cat foo.html"
+```
+
+<https://stackoverflow.com/questions/29739901/socat-fake-http-server-use-a-file-as-server-response>
 
 ## socat tcp 代理
 
