@@ -84,10 +84,6 @@ ctrl+b: 粗体
 命令: Format Document: 格式化表格
 ```
 
-### 配置同步, Plugin Name: Settings Sync
-
-- 同步配置：shift + alt + u, Sync: update/upload setting
-
 ### Markdown Preview Github Styling
 
 ### REST Client
@@ -99,7 +95,9 @@ vscode 发http请求
 
 插入当前日期时间
 
-#### vscode > PlantUML
+#### vscode > PlantUML - Simple Viewer
+
+能点击图上的文字反查代码
 
 config plant uml rander server
 File> Preferences> Extensions> PlantUML config> Rander: server

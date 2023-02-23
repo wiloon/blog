@@ -10,6 +10,10 @@ tags:
 ---
 ## HTTP status, HTTP code
 
+- 300 Multiple Choices 多重选择。链接列表。用户可以选择某链接到达目的地。最多允许五个地址。
+- 301 Moved Permanently， 301 redirect: 301 代表永久性转移(Permanently Moved)。
+- 302，redirect: 302 代表暂时性转移(Temporarily Moved )。
+
 301 (永久移动) Permanently Moved
 
 请求的网页已永久移动到新位置。服务器返回此响应 (对 GET 或 HEAD 请求的响应) 时，会自动将请求者转到新位置。您应使用此代码告诉 Googlebot 某个网页或网站已永久移动到新位置。
@@ -72,7 +76,7 @@ The request could not be understood by the server due to malformed syntax. The c
   
 请记录试图访问的完整地址，并与 Web服务器的管理员联系以确认您是否具有访问所请求资源的权限
 
-HTTP 错误 403  (已禁止)
+## HTTP 错误 403  (已禁止)
 
 服务器拒绝请求。如果您看到 Googlebot 在尝试抓取您网站上的有效网页时收到此状态代码 (可以在 Google 网站站长工具的**运行状况**下的**抓取错误**页面上看到此代码) ，这可能是您的服务器或主机拒绝 Googlebot 的访问。
 

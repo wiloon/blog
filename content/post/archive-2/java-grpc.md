@@ -10,6 +10,7 @@ tags:
   - rpc
 ---
 ## java grpc
+
 ### maven依赖
 
 ```xml
@@ -40,13 +41,14 @@ create proto file in src/main/proto/foo.proto
 option java_package = "com.wiloon.foo";
 
 ### maven
+
     执行 mvn compile, 就可以在target/generated-sources 下看到生成的源码了
 
 gradle build
 find generated source in
 build/generated/source/proto/main/grpc/com/wiloon/foo/foo.java
 
-https://grpc.io/docs/quickstart/java.html
+<https://grpc.io/docs/quickstart/java.html>
 
-https://github.com/google/protobuf-gradle-plugin
-https://www.jianshu.com/p/59ac036b0d7b
+<https://github.com/google/protobuf-gradle-plugin>
+<https://www.jianshu.com/p/59ac036b0d7b>

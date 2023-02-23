@@ -10,7 +10,7 @@ tags:
 ---
 ## nginx 部署静态页面
 
-```
+```r
 server{
     listen 80;
     server_name localhost;

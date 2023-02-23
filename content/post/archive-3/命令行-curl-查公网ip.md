@@ -34,8 +34,10 @@ wget http://members.3322.org/dyndns/getip
 
 <http://blog.csdn.net/teddy17/article/details/12618035>
 
-    curl http://myip.ipip.net/
-    curl cip.cc
-    curl ifconfig.me
-    curl myip.ipip.net
-    curl http://members.3322.org/dyndns/getip
+```bash
+curl http://myip.ipip.net/
+curl cip.cc
+curl ifconfig.me
+curl myip.ipip.net
+curl http://members.3322.org/dyndns/getip
+```

@@ -2,7 +2,7 @@
 title: nslookup
 author: "-"
 date: 2013-05-12T03:22:59+00:00
-url: /?p=5451
+url: nslookup
 categories:
   - Linux
 tags:
@@ -10,11 +10,26 @@ tags:
 ---
 ## nslookup
 
-    Nslookup foo.wiloon.com DNS_Server
+nslookup: name server lookup
 
-1.作用
+nslookup命令用于查询DNS记录，查看域名解析是否正常
 
-nslookup命令的功能是查询一台机器的IP地址和其对应的域名。使用权限所有用户。它通常需要一台域名服务器来提供域名服务。如果用户已经设置好域名服务器，就可以用这个命令查看不同主机的IP地址对应的域名。
+nslookup 有两种模式: 交互 & 非交互，进入交互模式在命令行界面直接输入nslookup按回车，非交互模式则是后面跟上查询的域名或者IP地址按回车。一般来说，非交互模式适用于简单的单次查询，若需要多次查询，则交互模式更加适合，从根服务器进行迭代查询。
+
+RR (Resource Records)————资源记录（RR）是包含了下列字段的4元组：
+(Name, Value, Type, TTL)
+
+主机记录（A记录）：RFC 1035 定义，A记录是用于名称解析的重要记录，提供标准的主机名到IP的地址映射。
+别名记录（CNAME记录）：RFC 1035 定义，向查询的主机提供主机名对应的规范主机名。
+域名服务器记录（NS记录）：用来指定该域名由哪个DNS服务器来进行解析。您注册域名时，总有默认的DNS服务器，每个注册的域名都是由一个DNS域名服务器来进行解析的，DNS服务器NS记录地址一般以以下的形式出现：ns1.domain.com、ns2.domain.com等。简单的说，NS记录返回域中主机IP地址的权威DNS服务器的主机名。
+邮件交换记录（MX记录）：返回别名为Name对应的邮件服务器的规范主机名。
+
+<https://www.cnblogs.com/even160941/p/14292059.html>
+
+```bash
+# nslookup –option1 –option2 host-to-find dns-server
+nslookup redis.wiloon.com 192.168.50.1
+```
 
 2.格式
 
@@ -96,9 +111,9 @@ IPv4
 
 使用命令检测，其中inet6 addr: fe80::5054:abff:fe34:5b09/64，就是eth0网卡的IPv6地址。
 
-# modprobe IPv6
+modprobe IPv6
 
-# ifconfig
+ifconfig
 
 eth0 Link encap:Ethernet HWaddr 52:54:AB:34:5B:09
 
@@ -120,13 +135,13 @@ Interrupt:5 Base address:0xec00
 
 (2)使用ping命令检测网卡的IPv6地址是否有效
 
-# ping6 -I eth0 -c 2 fe80::200:e8ff:fea0:2586
+ping6 -I eth0 -c 2 fe80::200:e8ff:fea0:2586
 
 和IPv4不一样，使用ping6命令时必须指定一个网卡界面，否则系统不知道将数据包发送到哪个网络设备。I表示Interface、eth0是第一个网卡，-c表示回路，2表示ping6操作两次。
 
 (3)使用ip命令在IPv6下为eth0增加一个IP地址
 
-# ip -6 addr add 3ffe:ffff:0:f101::1/64 dev eth0
+ip -6 addr add 3ffe:ffff:0:f101::1/64 dev eth0
 
 使用ifconfig命令，查看网卡是否出现第二个IPv6地址。
 

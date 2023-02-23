@@ -24,14 +24,16 @@ tags:
 - Mitsubishi Outlander
 - MacBook Air
 - U2723QX
+- Nuphy Air75
 
 ## ROCK 5B
 
 <https://wiki.radxa.com/Rock5>
 
-CPU: 4核Cortex-A76和4核Cortex-A55的典型大小核架构，大核主频2.4GHz，小核主频1.8GHz
-GPU: RK3588集成ARM Mali-G610，至少支持2路4K UI
-NPU: RK3588集成了瑞芯微第四代具有完全自主知识产权的人工智能运算引擎，在MAC运算单元的利用率及带宽的消耗上提升了30％。6TOPs的NPU算力
+- CPU: 4核Cortex-A76和4核Cortex-A55的典型大小核架构，大核主频2.4GHz，小核主频1.8GHz
+- GPU: RK3588集成ARM Mali-G610，至少支持2路4K UI
+- NPU: RK3588集成了瑞芯微第四代具有完全自主知识产权的人工智能运算引擎，在MAC运算单元的利用率及带宽的消耗上提升了30％。6TOPs的NPU算力
+- mac: 66:45:78:69:ad:5c
 
 ## ThinkPad X1 Carbon Gen 9
 
@@ -93,11 +95,16 @@ Realtek®以太网LAN 10 Mb/100 Mb/1 Gb铜缆RJ45,LAN唤醒
 
 <https://support.google.com/pixelphone/answer/9449293?hl=zh-Hans>
 
-## Sharp TV
+## Sharp TV, 夏普电视, 50U1A
 
-3840*2160
+- AQUOS
+- 4K: 3840*2160
+- 3D
+- dts 2.0+Digital Out
+- DOLBY Digital plus
+- HDMI
 
-## 斐讯N1
+## 斐讯 N1
 
 CPU: Amlogic S905, ARM Cortex-A53 四核 up to 2.0GHz
 GPU: ARM Mali™-450, 5core
@@ -381,6 +388,9 @@ F1 默认走 罗技优联, F2 和 F3 可以连接另外两个蓝牙设备. 蓝�
 
 <https://club.autohome.com.cn/bbs/thread/6542c267b66988e9/72454344-1.html>
 
+- 整备质量(kg) 1506
+- 油箱(L): 63
+
 ## MacBook Air
 
 - M2
@@ -391,3 +401,8 @@ F1 默认走 罗技优联, F2 和 F3 可以连接另外两个蓝牙设备. 蓝�
 
 - 3840 x 2160（16:9）
 - MST
+- 27 英寸
+
+## Nuphy Air75
+
+<https://www.bilibili.com/read/cv15856202>

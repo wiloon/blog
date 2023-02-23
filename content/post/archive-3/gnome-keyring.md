@@ -16,7 +16,7 @@ tags:
 sudo pacman -S gnome-keyring  libsecret
 ```
 
-### vim .bashrc
+> vim .bashrc
 
 ```bash
 eval $(/usr/bin/gnome-keyring-daemon --start --components=gpg,pkcs11,secrets,ssh)

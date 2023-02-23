@@ -847,11 +847,11 @@ futex(0x7fdee81c0c04, FUTEX_WAIT_PRIVATE, 541, NULL) = ?
 exited with 130
 这信息就很丰富了,看输出write(1, "1614501167372 thread 2 prepare p"..., 36) = 36可以知道这是线程2的系统调用,具体来解释一下
 
-# 打印了输出
+打印了输出
 
 write(1, "1614501167372 thread 2 prepare p"..., 36) = 36
 
-# 打印一个换行符,所以System.out.println其实调用了两次系统调用
+打印一个换行符,所以System.out.println其实调用了两次系统调用
 
 write(1, "\n", 1)                       = 1
 

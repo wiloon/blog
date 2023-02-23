@@ -44,7 +44,7 @@ public class Test {
        return buffer;  
    }  
 
-   //根据byte数组,生成文件 
+   //根据byte数组,生成文件
    public static void getFile(byte[] bfile, String filePath,String fileName) {  
        BufferedOutputStream bos = null;  
        FileOutputStream fos = null;  

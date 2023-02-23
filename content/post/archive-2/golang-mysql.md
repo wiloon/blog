@@ -9,20 +9,23 @@ tags:
   - reprint
 ---
 ## golang MySQL
-http://www.cnblogs.com/hupengcool/p/4143238.html
+
+<http://www.cnblogs.com/hupengcool/p/4143238.html>
 
 Golang操作数据库
 
 基本概念
 
-    Open() – creates a DB
-    Close() - closes the DB
-    Query() - 查询
-    QueryRow() -查询行
-    Exec() -执行操作,update,insert,delete
-    Row - A row is not a hash map, but an abstraction of a cursor
-    Next()
-    Scan()
+```go
+Open() – creates a DB
+Close() - closes the DB
+Query() - 查询
+QueryRow() -查询行
+Exec() -执行操作,update,insert,delete
+Row - A row is not a hash map, but an abstraction of a cursor
+Next()
+Scan()
+```
 
 注意: DB并不是指的一个connection
 
@@ -44,7 +47,7 @@ _ "github.com/go-sql-driver/MySQL"
 
 db, err := sql.Open("MySQL", "user:password@tcp(ip:port)/database")
   
-写一个完整的: 
+写一个完整的:
 
 import (
   
@@ -264,7 +267,7 @@ values := make([]sql.RawBytes, len(columns))
   
 // references into such a slice
   
-// See http://code.google.com/p/go-wiki/wiki/InterfaceSlice for details
+// See <http://code.google.com/p/go-wiki/wiki/InterfaceSlice> for details
   
 scanArgs := make([]interface{}, len(values))
   
@@ -326,11 +329,13 @@ panic(err.Error()) // proper error handling instead of panic in your app
   
 ### 事务
   
-使用db.Begin()来开启一个事务, 通过Commit()和Rollback()方法来关闭。
+使用 db.Begin() 来开启一个事务, 通过 Commit() 和 Rollback() 方法来关闭。
 
-    tx := db.Begin()
-    tx.Rollback()
-    tx.Commit()
+```go
+tx := db.Begin()
+tx.Rollback()
+tx.Commit()
+```
   
 Exec, Query, QueryRow and Prepare 方法已经全部可以在tx上面使用。使用方法和在*sql.DB是一样的,事务必须以Commit()或者Rollback()结束
 
@@ -361,57 +366,56 @@ warming up
 对于其他语言,查询数据的时候需要创建一个连接,对于go而言则是需要创建一个数据库抽象对象。连接将会在查询需要的时候,由连接池创建并维护。使用sql.Open函数创建数据库对象。它的第一个参数是数据库驱动名,第二个参数是一个连接字串 (符合DSN风格,可以是一个tcp连接,一个unix socket等) 。
 
 import (
-      
+
 "database/sql"
-      
+
 "log"
-      
+
 _ "github.com/go-sql-driver/MySQL"
   
 )
 
 func main() {
-      
+
 db, err := sql.Open("MySQL", "root:@tcp(127.0.0.1:3306)/test?parseTime=true")
-      
+
 if err != nil{
-          
+
 log.Fatal(err)
-      
+
 }
-      
+
 defer db.Close()
   
 }
   
 创建了数据库对象之后,在函数退出的时候,需要释放连接,即调用sql.Close方法。例子使用了defer语句设置释放连接。
 
-接下来进行一些基本的数据库操作,首先我们使用Exec方法执行一条sql,创建一个数据表: 
+接下来进行一些基本的数据库操作,首先我们使用Exec方法执行一条sql,创建一个数据表:
 
 func main() {
-      
+
 db, err := sql.Open("MySQL", "root:@tcp(127.0.0.1:3306)/test?parseTime=true")
-      
+
 if err != nil{
-          
+
 log.Fatal(err)
-      
+
 }
-      
+
 defer db.Close()
 
     _, err = db.Exec("CREATE TABLE IF NOT EXISTS test.hello(world varchar(50))")
     if err != nil{
         log.Fatalln(err)
     }
-    
 
 }
   
 此时可以看见,数据库生成了一个新的表。接下来再插入一些数据。
 
 func main() {
-      
+
 db, err := sql.Open("MySQL", "root:@tcp(127.0.0.1:3306)/test?parseTime=true")
 
     ...
@@ -425,16 +429,15 @@ db, err := sql.Open("MySQL", "root:@tcp(127.0.0.1:3306)/test?parseTime=true")
         log.Fatalln(err)
     }
     log.Printf("inserted %d rows", rowCount)
-    
 
 }
   
 同样使用Exec方法即可插入数据,返回的结果集对象是是一个sql.Result类型,它有一个LastInsertId方法,返回插入数据后的id。当然此例的数据表并没有id字段,就返回一个0.
 
-插入了一些数据,接下来再简单的查询一下数据: 
+插入了一些数据,接下来再简单的查询一下数据:
 
 func main() {
-      
+
 db, err := sql.Open("MySQL", "root:@tcp(127.0.0.1:3306)/test?parseTime=true")
 
     ... 
@@ -453,7 +456,6 @@ db, err := sql.Open("MySQL", "root:@tcp(127.0.0.1:3306)/test?parseTime=true")
         log.Printf("found row containing %q", s)
     }
     rows.Close()
-    
 
 }
   
@@ -475,7 +477,7 @@ sql.DB表示是数据库抽象,因此你有几个数据库就需要为每一个�
 
 连接池的工作原来却相当简单。当你的函数(例如Exec,Query)调用需要访问底层数据库的时候,函数首先会向连接池请求一个连接。如果连接池有空闲的连接,则返回给函数。否则连接池将会创建一个新的连接给函数。一旦连接给了函数,连接则归属于函数。函数执行完毕后,要不把连接所属权归还给连接池,要么传递给下一个需要连接的 (Rows) 对象,最后使用完连接的对象也会把连接释放回到连接池。
 
-请求一个连接的函数有好几种,执行完毕处理连接的方式稍有差别,大致如下: 
+请求一个连接的函数有好几种,执行完毕处理连接的方式稍有差别,大致如下:
 
 db.Ping() 调用完毕后会马上把连接返回给连接池。
   
@@ -487,12 +489,12 @@ db.QueryRow()调用完毕后会将连接传递给sql.Row类型,当.Scan()方法�
   
 db.Begin() 调用完毕后将连接传递给sql.Tx类型对象,当.Commit()或.Rollback()方法调用后释放连接。
   
-因为每一个连接都是惰性创建的,如何验证sql.Open调用之后,sql.DB对象可用呢？通常使用db.Ping()方法初始化: 
+因为每一个连接都是惰性创建的,如何验证sql.Open调用之后,sql.DB对象可用呢？通常使用db.Ping()方法初始化:
 
 db, err := sql.Open("driverName", "dataSourceName")
   
 if err != nil{
-      
+
 log.Fatalln(err)
   
 }
@@ -502,7 +504,7 @@ defer db.Close()
 err = db.Ping()
   
 if err != nil{
-     
+
 log.Fatalln(err)
   
 }
@@ -517,13 +519,13 @@ log.Fatalln(err)
 
 无论哪一个版本的go都不会提供很多控制连接池的接口。知道1.2版本以后才有一些简单的配置。可是1.2版本的连接池有一个bug,请升级更高的版本。
 
-配置连接池有两个的方法: 
+配置连接池有两个的方法:
 
 db.SetMaxOpenConns(n int) 设置打开数据库的最大连接数。包含正在使用的连接和连接池的连接。如果你的函数调用需要申请一个连接,并且连接池已经没有了连接或者连接数达到了最大连接数。此时的函数调用将会被block,直到有可用的连接才会返回。设置这个值可以避免并发太高导致连接MySQL出现too many connections的错误。该函数的默认设置是0,表示无限制。
   
 db.SetMaxIdleConns(n int) 设置连接池中的保持连接的最大连接数。默认也是0,表示连接池不会保持释放会连接池中的连接的连接状态: 即当连接释放回到连接池的时候,连接将会被关闭。这会导致连接再连接池中频繁的关闭和创建。
   
-对于连接池的使用依赖于你是如何配置连接池,如果使用不当会导致下面问题: 
+对于连接池的使用依赖于你是如何配置连接池,如果使用不当会导致下面问题:
 
 大量的连接空闲,导致额外的工作和延迟。
   
@@ -539,15 +541,15 @@ db.SetMaxIdleConns(n int) 设置连接池中的保持连接的最大连接数。
 
 作者: 人世间
   
-链接: http://www.jianshu.com/p/340eb943be2e
+链接: <http://www.jianshu.com/p/340eb943be2e>
   
 來源: 简书
   
 著作权归作者所有。商业转载请联系作者获得授权,非商业转载请注明出处。
 
-https://stackoverflow.com/questions/17845619/how-to-call-the-scan-variadic-function-in-golang-using-reflection
+<https://stackoverflow.com/questions/17845619/how-to-call-the-scan-variadic-function-in-golang-using-reflection>
 
-https://golangtc.com/t/521abe66320b523a3500000e
+<https://golangtc.com/t/521abe66320b523a3500000e>
   
-http://www.jianshu.com/p/340eb943be2e
-https://www.jianshu.com/p/bc8120bec94e
+<http://www.jianshu.com/p/340eb943be2e>
+<https://www.jianshu.com/p/bc8120bec94e>

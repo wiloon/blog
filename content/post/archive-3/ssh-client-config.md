@@ -15,9 +15,14 @@ host host0
     hostname 192.168.1.10
     port 22
     user root
+    # for openwrt ssh-rsa
+    HostkeyAlgorithms +ssh-rsa
+    PubkeyAcceptedKeyTypes +ssh-rsa
 ```
 
 <https://daemon369.github.io/ssh/2015/03/21/using-ssh-config-file>
+
+<https://blog.csdn.net/XXY2083123843/article/details/128370472>
 
 ```bash
 vim ~/.ssh/config
@@ -108,7 +113,7 @@ ps auxwww | grep sshd:
   
 ps ax | grep sshd
 
-### sshd, vim /etc/ssh/sshd_config
+> vim /etc/ssh/sshd_config
 
 maxstartup
   

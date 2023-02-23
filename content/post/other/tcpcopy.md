@@ -29,7 +29,7 @@ tags:
 - 测试用的 tcp 服务 tcp-echo-server
 - 线上服务器, online source server, xxx.xxx.20.50
   - 2000 端口提供服务 (tcp-echo-server)
-- 测试服务器,目标服务器, target server, xxx.xxx.20.45， 192.168.50.102
+- 测试服务器, 目标服务器, target server, xxx.xxx.20.45， 192.168.50.102
   - 3000 端口提供服务 (tcp-echo-server), 不能跟 online server 用同一个端口
 - 辅助服务器, assistant server,  xxx.xxx.20.45, intercept 跟测试服务部署到同一个机器, 不使用单独的服务器
 
@@ -85,7 +85,7 @@ ls /usr/local/intercept
 
 ### 线上服务器，192.168.50.101
 
-线上服务器捕获包 (2000 端口), 并修改目的及源地址, 并把包发送给目标服务器, 然后等待辅助服务器发送响应包
+线上服务器捕获包 (2000 端口), 并修改目的及源地址, 把包发送给目标服务器, 然后等待辅助服务器发送响应包
 
 源地址使用 线上服务器 IP
 
@@ -103,7 +103,7 @@ ls /usr/local/intercept
 # -d, daemon
 
 # 新建 iptables 规则, 抛掉测试服务器的回包
-iptables -I INPUT -p tcp --sport 7100 -j DROP -s 10.61.20.50
+iptables -I INPUT -p tcp --sport 3000 -j DROP -s xxx.xxx.20.45
 
 /usr/local/tcpcopy/sbin/tcpcopy -x 2000-192.168.50.102:3000 -s 192.168.50.102 -c 192.168.50.101
 sudo iptables -I INPUT -p tcp --sport 3000 -j DROP -s 192.168.50.102
@@ -111,8 +111,6 @@ sudo iptables -I INPUT -p tcp --sport 3000 -j DROP -s 192.168.50.102
 #./tcpcopy -x 2000-192.168.50.101:2000 -s 192.168.50.102 -c 192.168.60.x -d  #全流量复制 
 #./tcpcopy -x 2000-192.168.50.101:2000 -s 192.168.50.102 -c 192.168.60.x -r 20 -d #复制20%的流量 
 #./tcpcopy -x 2000-192.168.50.101:2000 -s 192.168.50.102 -c 192.168.60.x -n 2 -d #复制2倍流量
-
-
 
 ```
 
@@ -125,7 +123,7 @@ sudo iptables -I INPUT -p tcp --sport 3000 -j DROP -s 192.168.50.102
 
 - 2000 端口提供服务 (tcp-echo-server)
 
-3. 测试服务器,目标服务器, target server, 192.168.50.102
+3. 测试服务器, 目标服务器, target server, 192.168.50.102
 
 - 2000 端口提供服务 (tcp-echo-server)
 
@@ -264,4 +262,4 @@ c 语言实现
 c 语言实现
 <https://github.com/session-replay-tools/tcpcopy>
 
-><https://winway.github.io/2017/10/17/tcpcopy-introduce/>
+<https://winway.github.io/2017/10/17/tcpcopy-introduce/>

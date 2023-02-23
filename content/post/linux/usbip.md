@@ -9,7 +9,8 @@ tags:
 ---
 ## "usbip"
 
-### 下载usbip-win
+### 下载 usbip-win
+
 <https://github.com/cezanne/usbip-win/releases>
 
 ### 解压到一个目录
@@ -38,7 +39,7 @@ bcdedit.exe /set TESTSIGNING ON
 
 ### WSL2客户端, 编译内核
 
-# 安装工具包
+安装工具包
 
    sudo apt install build-essential flex bison libssl-dev libelf-dev
 

@@ -1,5 +1,5 @@
 ---
-title: ssh basic, ssh command
+title: ssh basic, ssh command, openssh
 author: "-"
 date: 2022-10-20 22:38:04
 url: ssh
@@ -8,10 +8,11 @@ categories:
 tags:
   - reprint
 ---
-## ssh basic
+## ssh basic, openssh
 
 - 端口转发
 - ssh 不登陆直接执行命令
+- openssh 9.0 sftp-server
 
 ## 端口转发
 
@@ -136,4 +137,19 @@ SSH登录主要分为两个阶段：
 
 8）服务器使用相同的会话共享密钥和他生成的随机数计算出MD5哈希值，并与客户端返回的MD5哈希值进行比较。如果两个值相等，证明客户端拥有对应私钥，则通过验证。
 
-><https://zhuanlan.zhihu.com/p/139285610>
+<https://zhuanlan.zhihu.com/p/139285610>
+
+## openssh 9.0 sftp-server
+
+Since OpenSSH 9.0 the scp utility uses the SFTP protocol by default. The -O option must be used to use the legacy SCP protocol.
+
+A normal scp will result in standard OpenWrt:
+
+ash: /usr/libexec/sftp-server: not found
+scp: Connection closed
+
+A workaround is to add the -O option.
+
+```bash
+scp -O foo.txt root@192.168.50.4:~
+```

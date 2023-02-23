@@ -9,6 +9,7 @@ tags:
   - reprint
 ---
 ## jetty-maven-plugin, jetty maven plugin
+
 ### maven plugin
 
 ```xml
@@ -31,7 +32,7 @@ tags:
         </httpConnector>
     </configuration>
 </plugin>
-``` 
+```
 
 ### webdefault.xml
 
@@ -57,10 +58,10 @@ mvnDebug jetty:run
 
 mvnDebug -suspend默认为n,
 
->https://www.eclipse.org/jetty/documentation/jetty-11/programming-guide/index.html#jetty-maven-plugin
+><https://www.eclipse.org/jetty/documentation/jetty-11/programming-guide/index.html#jetty-maven-plugin>
 
-http://www.blogjava.net/fancydeepin/archive/2015/06/23/maven-jetty-plugin.html
+<http://www.blogjava.net/fancydeepin/archive/2015/06/23/maven-jetty-plugin.html>
   
-https://my.oschina.net/jackieyeah/blog/524556
+<https://my.oschina.net/jackieyeah/blog/524556>
   
-https://stackoverflow.com/questions/7875002/setting-debug-configuration-for-mavenjettyeclipse
+<https://stackoverflow.com/questions/7875002/setting-debug-configuration-for-mavenjettyeclipse>
