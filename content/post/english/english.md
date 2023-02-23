@@ -4,43 +4,38 @@ author: "-"
 date: 2016-05-15T07:28:02+00:00
 url: english
 categories:
-  - Inbox
+  - english
 tags:
   - reprint
   - remix
 ---
 ## 英语 English
 
-## 元音字母, 辅音字母
+## 动名词
 
-5个元音字母和21个辅音字母组成。
+动名词（英语：gerund，缩写：GER）, 最常作为名词的功能，但并非只作为名词。 可以使用副词修饰,后面也可以跟着直接受词（direct object）。
 
-5个元音字母分别为：a[ei]、e[i:]、i[ ai]、o[eu]、u[ju:];
+动名词是动词的非限定形式，既具有动词的特性，又具有一些名词的特征。它由动词的词干加后缀-ing构成。
 
-## 元音, 辅音
+## 现在分词
 
-48个英语音标表：20个元音+28个辅音
+## 音标
 
-一、单元音12个
+>wiloon.com/ipa
 
-短元音： [i] [ə] [ɒ] [u] [Λ] [æ] [e]
-长元音： [i:] [ə:] [ɔ:] [u:] [ɑ:]
+last time 是上一次的意思
+very last time 是最终的意思
+very表示特别强调.加重语气
 
-二、双元音8个
+A learning experience is what you get when you don't get what you want.
 
-[ai] [ei] [ɔi] [au] [əu] [iə] [eə] [uə]
+### 单周,双周
 
-三、清浊成对的辅音10对
+Single week Dual weeks
 
-清辅音：[p] [t] [k] [f] [θ] [s] [tr] [ts] [∫] [t∫]
+PTO 是 Paid Time Off 的意思，中文意思是：带薪休假。
 
-浊辅音：[b] [d] [g] [v] [ð] [z] [dr] [dz] [ʒ] [dʒ]
-
-四、其他辅音8个
-
-[h] [m ] [n] [ŋ] [l] [r] [w] [j]
-
-the在元音前读[ði],在辅音前读[ðə]，而元辅音的判断不是第一个单词，而是第一个音素，或说发音。
+manage to do:
 
 - 时态, wiloon.com/tense [[Tense#英语时态， Tense]]
 - 第三人称单数, wiloon.com/third-person-singular [[third-person-singular#第三人称单数 third person singular]]
