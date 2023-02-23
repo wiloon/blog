@@ -2,17 +2,22 @@
 title: buildah
 author: "-"
 date: 2020-01-20T10:07:09+00:00
-url: /?p=15406
+url: buildah
 categories:
   - Container
 tags:
   - reprint
+  - remix
 ---
 ## buildah
 
 ```bash
 sudo pacman -S fuse-overlayfs
 sudo pacman -S buildah
+
+# login
+buildah login container.wiloon.com
+buildah login --tls-verify=false container.wiloon.com
 
 # buildah needs to run as root!!!
 # list all the images

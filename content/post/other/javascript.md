@@ -13,15 +13,20 @@ tags:
 
 ### 长数字格式化
 
-    (10000).toLocaleString('en-US');
-    // 输出 10,000
+```js
+(10000).toLocaleString('en-US');
+// 输出 10,000
+```
 
 ### 打印对象类型
 
+```js
     foo.getClass()
+```
 
 ### window.event.keyCode ascii
 
+```js
     //check if ESC pressed
 
     if (window.event.keyCode == 27) {
@@ -29,12 +34,15 @@ tags:
     }
     //check if enter pressed
     keyCode == 13
+```
 
 ## 日期
 
 ### ms > date string
 
+```js
     new Date(1636183170962).toLocaleString('en-US')
+```
 
 ### 日期时间函数
 
@@ -79,15 +87,20 @@ console.log("东8区现在是: " + targetDate);
 
 ### 取字符串长度
 
+```js
     var pig ="ttttt"
     alert(pig.length) ;
+```
 
 ### substring
 
+```js
     stringObject.substring(start,stop)
+```
 
 ### 正则
 
+```js
     const imageDescription = 'https://www.wiloon.com/?key0=value0';
     const regexp = /.*?key0=(.*)$/;
     const match = imageDescription.match(regexp);
@@ -103,27 +116,34 @@ console.log("东8区现在是: " + targetDate);
         return true;  
         }  
     } 
+```
 
 ### 异常处理
 
+```js
     try {
             bomb();
         } catch (e) {
             // Handle all the error things
         }
+```
 
 ## 字符串
 
 ### 字符串长度
 
+```js
     var str="字符串字节长度为" ;
     alert(str.length);
+```
 
 ### JS字符串拼接/连接
 
+```js
     var s1 = "abc";
     var s2 = s1.concat("d" , "e" , "f");  //调用concat()连接字符串
     console.log(s2);  //返回字符串"abcdef"
+```
 
 ### indexOf
 
@@ -180,7 +200,7 @@ have @ signs in them.");
 
 示用户＂＠你输入的电子邮件地址无效，电子邮件的地址必须包含字符@。＂
 
-```
+```js
 
 replace()
 
@@ -198,12 +218,15 @@ replace() 方法用于在字符串中用一些字符替换另一些字符，或�
 
 #### 现代浏览器web api
 
+```js
     let params = (new URL(document.location)).searchParams; 
     let code = params.get("code")
     let state = params.get("state")
+```
 
 #### 采用正则表达式获取地址栏参数 (代码简洁，重点正则)
 
+```js
     function getQueryString(name) {
         let reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
         let r = window.location.search.substr(1).match(reg);
@@ -212,6 +235,7 @@ replace() 方法用于在字符串中用一些字符替换另一些字符，或�
         };
         return null;
     }
+```
 
 split拆分法 (代码较复杂，较易理解)
 
@@ -242,16 +266,21 @@ function getQueryVariable(variable){
 
 ### 如何检查JavaScript中的字符串是否包含子字符串
 
- (ES6) includes
+```js
+// (ES6) includes
 
     var string ="foo",
         substring ="oo";
     string.includes(substring);
+```
 
 ### JS对url进行编码和解码
+
 <https://segmentfault.com/a/1190000013236956>
 
+```js
     escape(str0)
+```
 
 ### String.length
 
@@ -263,7 +292,6 @@ var empty = "";
 ```js
       let stateObj = { foo: "bar" };
       window.history.pushState(stateObj, '', 'foo');
-      // 
 ```
 
 console.log("Mozilla is " + x.length + " code units long");

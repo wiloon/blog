@@ -13,6 +13,8 @@ tags:
 ---
 ## 磁盘扩容
 
+## PVE ext4
+
 ## virtualbox ext4 disk resize
 
 ## PVE archlinux xfs disk resize
@@ -268,7 +270,7 @@ tmpfs 246M 0 246M 0% /dev/shm
   
 格式化: mkfs.ext4 /dev/vdb
 
-挂载: vim /etc/fstab,添加一行: /dev/vdb /mnt ext4 defaults 0 0
+挂载: vim /etc/fstab, 添加一行: /dev/vdb /mnt ext4 defaults 0 0
 
 mount -a 然后mnt就可以使用了
 

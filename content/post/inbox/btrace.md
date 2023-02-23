@@ -13,7 +13,7 @@ tags:
 
 ### 下载最新的版本
 
-https://github.com/btraceio/btrace/releases
+<https://github.com/btraceio/btrace/releases>
 
 ### 打印慢调用
 
@@ -48,7 +48,9 @@ jcmd -l
 # 执行btrace, ctrl-c 退出
 /bin/btrace <PID> MethodDuration_redis.java
 ```
+
 ### Btrace
+
 BTrace 是检查和解决线上的问题的杀器，BTrace 可以通过编写脚本的方式，获取程序执行过程中的一切信息，并且，注意了，不用重启服务，是的，不用重启服务。写好脚本，直接用命令执行即可，不用动原程序的代码。
 
 原理
@@ -57,7 +59,7 @@ BTrace 是检查和解决线上的问题的杀器，BTrace 可以通过编写脚
 
 BTrace是sun公司推出的一款Java 动态、安全追踪 (监控) 工具,可以在不用重启的情况下监控系统运行情况,方便的获取程序运行时的数据信息,如方法参数、返回值、全局变量和堆栈信息等,并且做到最少的侵入,占用最少的系统资源。
 
-由于Btrace会把脚本逻辑直接侵入到运行的代码中,所以在使用上做很多限制: 
+由于Btrace会把脚本逻辑直接侵入到运行的代码中,所以在使用上做很多限制:
   
 1. 不能创建对象
   
@@ -115,11 +117,11 @@ public class BtraceCase {
 }
 ```
 
-执行add方法时,对传入参数、返回值以及执行耗时进行分析,btrace脚本: 
+执行add方法时,对传入参数、返回值以及执行耗时进行分析,btrace脚本:
 
 通过jps命令获取pid为8454
   
-执行btrace 8454 Debug.java实现对运行代码的监控,输出结果如下: 
+执行btrace 8454 Debug.java实现对运行代码的监控,输出结果如下:
 
 可以发现,Btrace可以获取每次执行add方法时的数据,当然Btrace能做的远远不止这些,比如获取当前jvm堆使用情况、当前线程的执行栈等等。
 
@@ -129,7 +131,7 @@ public class BtraceCase {
   
 Btrace使用@OnMethod注解定义需要分析的方法入口
 
-在@OnMethod注解中,需要指定class、method以及location等,class表明需要监控的类,method表明需要监控的方法,指定方式如下: 
+在@OnMethod注解中,需要指定class、method以及location等,class表明需要监控的类,method表明需要监控的方法,指定方式如下:
   
 1. 使用全限定名: clazz="com.metty.rpc.common.BtraceCase", method="add"
   
@@ -179,25 +181,25 @@ Btrace的@OnTimer注解可以实现定时执行脚本中的一个方法
   
 Btrace能做的事情太多,但使用之前切记检查脚本的可行性,一旦Btrace脚本侵入到系统中,只有通过重启才能恢复。
 
-https://github.com/btraceio/btrace
+<https://github.com/btraceio/btrace>
   
-http://www.rowkey.me/blog/2016/09/20/btrace/
+<http://www.rowkey.me/blog/2016/09/20/btrace/>
   
-http://calvin1978.blogcn.com/articles/btrace1.html
+<http://calvin1978.blogcn.com/articles/btrace1.html>
   
-https://legacy.gitbook.com/book/json-liu/btrace/details
+<https://legacy.gitbook.com/book/json-liu/btrace/details>
   
-http://codepub.cn/2017/09/22/btrace-uses-tutorials/
+<http://codepub.cn/2017/09/22/btrace-uses-tutorials/>
   
-https://github.com/oldmanpushcart/greys-anatomy
+<https://github.com/oldmanpushcart/greys-anatomy>
   
-http://codepub.cn/2017/09/22/btrace-uses-tutorials/
+<http://codepub.cn/2017/09/22/btrace-uses-tutorials/>
   
-http://www.brendangregg.com/offcpuanalysis.html
+<http://www.brendangregg.com/offcpuanalysis.html>
   
-http://www.cnblogs.com/fengzheng/p/7416942.html
+<http://www.cnblogs.com/fengzheng/p/7416942.html>
   
-http://openresty.org/posts/dynamic-tracing/
+<http://openresty.org/posts/dynamic-tracing/>
   
-https://www.jianshu.com/p/dbb3a8b5c92f
->https://www.cnblogs.com/fengzheng/p/7416942.html
+<https://www.jianshu.com/p/dbb3a8b5c92f>
+><https://www.cnblogs.com/fengzheng/p/7416942.html>

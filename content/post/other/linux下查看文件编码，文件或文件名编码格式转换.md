@@ -34,7 +34,7 @@ enconv -L zh_CN -x UTF-8 filename
 
 在Linux中查看文件编码可以通过以下几种方式:
 
-**2. enca (如果你的系统中没有安装这个命令，可以用sudo yum install -y enca 安装 )查看文件编码**
+1. enca (如果你的系统中没有安装这个命令，可以用sudo yum install -y enca 安装 )查看文件编码
 
 $ enca filename
 

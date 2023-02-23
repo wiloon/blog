@@ -1,7 +1,7 @@
 ---
 title: go basic, golang basic
 author: "-"
-date: 2016-07-01T08:06:08+00:00
+date: 2022-12-11 12:07:50
 url: go
 categories:
   - Go
@@ -76,8 +76,8 @@ https://colobu.com/2020/12/27/go-with-os-exec/
 ### commands
 
 ```bash
-    go get -u xorm.io/xorm
-    go run -race cmd.go // 竞态检测
+go get -u xorm.io/xorm
+go run -race cmd.go // 竞态检测
 ```
 
 ### install
@@ -333,18 +333,22 @@ sum := sha256.Sum256([]byte("hello world\n"))
 强行对所有涉及到的代码包 (包含标准库中的代码包) 进行重新构建, 即使它们已经是最新的了。
 # -installsuffix
 为了使当前的输出目录与默认的编译输出目录分离,可以使用这个标记。此标记的值会作为结果文件的父目录名称的后缀。其实,如果使用了-race标记,这个标记会被自动追加且其值会为race。如果我们同时使用了-race标记和-installsuffix,那么在-installsuffix标记的值的后面会再被追加_race,并以此来作为实际使用的后缀。
-#### -x
+# -x
 打印详细信息
-#### -n
+# -n
 查看具体操作,不执行
-#### -i
+# -i
 安装归档文件
-#### -v
+# -v
 查看编译的代码包名称
 # -o
 指定输出文件 路径/文件名 `go build -o /tmp/foo foo.go`
 # glibc 静态编译
 CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -ldflags '-s -w --extldflags "-static -fpic"' -o "$binPath" "$name.go"
+# -ldflags="-s -w" -s: 忽略符号表和调试信息。-w: 忽略 DWARF 调试信息，使用该选项后将无法使用gdb进行调试。
+# remove the symbol and debug info with go build -ldflags "-s -w".
+go build -ldflags="-s -w" main.go 
+
 ```
 
 ```bash
@@ -360,16 +364,32 @@ go mod init github.com/you/hello
 
 ## Go 交叉编译, go cross compile
 
+设置 GOOS 和 GOARCH 两个环境变量生成所需平台的 Go 程序
+
+常用的一些 值
+
+### GOOS
+
+- darwin
+- windows
+- linux
+
+### GOARCH
+
+- amd64
+- arm64
+
 ```bash
+# to windows, amd64
 GOOS=windows GOARCH=amd64 go build foo.go
 ```
 
-## 条件编译
+## conditional compilation, 条件编译
 
 windows 环境编译时忽略标注 `//go:build linux` 的文件
 
 ```go
-//go:build linux
+//go:build darwin || linux
 
 ```
 
@@ -640,3 +660,28 @@ func main() {
 }
 
 ```
+
+## upx
+
+upx 是一个常用的压缩动态库和可执行文件的工具，通常可减少 50-70% 的体积。
+
+upx 压缩后的程序和压缩前的程序一样，无需解压仍然能够正常地运行，这种压缩方法称之为带壳压缩，压缩包含两个部分：
+
+在程序开头或其他合适的地方插入解压代码；
+将程序的其他部分压缩。
+执行时，也包含两个部分：
+
+首先执行的是程序开头的插入的解压代码，将原来的程序在内存中解压出来；
+再执行解压后的程序。
+也就是说，upx 在程序执行时，会有额外的解压动作，不过这个耗时几乎可以忽略。
+
+如果对编译后的体积没什么要求的情况下，可以不使用 upx 来压缩。一般在服务器端独立运行的后台服务，无需压缩体积。
+
+<https://github.com/upx/upx>
+
+```bash
+# 压缩率，1-9，1 代表最低压缩率，9 代表最高压缩率。
+upx -9 foo.exe
+```
+
+go build 不加参数编译出的 .exe 大小: 10,688,000B, 加编译参数 -ldflags="-s -w" 之后 7,797,760B, upx -9 之后 2,755,072B.

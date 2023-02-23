@@ -12,13 +12,13 @@ tags:
 ## md5, sha256
 
 ```bash
-#linux
+# linux
 md5sum [OPTION]... [FILE]...
 md5sum foo.tar
 sha256sum foo.tar
 sha1sum foo.tar
 
-#windows
+# windows
 certutil -hashfile foo.tar MD5
 certutil -hashfile foo.tar SHA1
 certutil -hashfile foo.tar SHA256
@@ -36,11 +36,13 @@ MD5算法常常被用来验证网络文件传输的完整性，防止文件被�
   
 选项:
 
-    -b 或 -binary :把输入文件作为二进制文件看待。
-    -t 或 -text :把输入的文件作为文本文件看待 (默认) 。
-    -c 或 -check :用来从文件中读取md5信息检查文件的一致性。(不细说了参见info)
-    -status :这个选项和check一起使用,在check的时候，不输出，而是根据返回值表示检查结果。
-    -w 或 -warn :在check的时候，检查输入的md5信息又没有非法的行，如果有则输出相应信息。
+```r
+-b 或 -binary :把输入文件作为二进制文件看待。
+-t 或 -text :把输入的文件作为文本文件看待 (默认) 。
+-c 或 -check :用来从文件中读取md5信息检查文件的一致性。(不细说了参见info)
+-status :这个选项和check一起使用,在check的时候，不输出，而是根据返回值表示检查结果。
+-w 或 -warn :在check的时候，检查输入的md5信息又没有非法的行，如果有则输出相应信息。
+```
 
 [举例]
   

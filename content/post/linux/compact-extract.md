@@ -218,7 +218,7 @@ tar -rf all.tar *.gif
 
 <https://stackoverflow.com/questions/11534918/are-tar-gz-and-tgz-the-same-thing>
 
-这种格式是我使用得最多的压缩格式。它在压缩时不会占用太多CPU的，而且可以得到一个非常理想的压缩率  
+这种格式是我使用得最多的压缩格式。它在压缩时不会占用太多 CPU 的，而且可以得到一个非常理想的压缩率  
 默认 tar 打包和系统默认的压缩工具是单线程的，pigz 是 gzip 的多线程实现, 默认用当前逻辑 cpu 个数来并发压缩，无法检测个数的话，则并发8个线程  
 
 ### 压缩
@@ -239,7 +239,7 @@ GZIP=-9 tar cvzf file.tar.gz /path/to/directory
 tar -zcvf /data/tmp/foo.tar.gz /data/server/source
 ```
 
-### 解压
+### tar.gz 解压
 
 ```bash
 tar -xf foo.tar.gz
@@ -295,12 +295,11 @@ gzip -d FileName.gz
 
 bzip2 -d foo.tar.bz2
 
-### .xz
+## .xz
 
 解压: xz -d foo.xz
 
 ```bash
-
 #.tar.xz
 $xz -d ***.tar.xz
 $tar -xvf  ***.tar

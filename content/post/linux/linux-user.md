@@ -43,7 +43,7 @@ sudo useradd user0
 # -r - Make a system user
 # -g <群组>: 指定用户所属的群组；
 # -G <群组>: 指定用户所属的附加群组
-# -c <备注>：加上备注文字。备注文字会保存在passwd的备注栏位中；
+# -c <备注>：加上备注文字。备注文字会保存在 passwd 的备注栏位中；
 ```
 
 ### 删除用户
@@ -98,10 +98,10 @@ sudo usermod -aG docker $USER
 # 查看所有的组, /etc/group 的内容包括用户组 (Group) 
 cat /etc/group
 
-# 创建  组
+# 创建组
 groupadd group0
 
-#  create a system account
+# create a system account
 groupadd -r group0
 
 # Create a group named "test", groupadd [-g GID] GROUP

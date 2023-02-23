@@ -10,7 +10,7 @@ tags:
 ---
 ## btrfs
 
-### 禁用COW
+### 禁用 COW
 
 ```bash
 chattr +C /path/to/dir/

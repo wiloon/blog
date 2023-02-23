@@ -14,10 +14,6 @@ tags:
   
 说明
 
-CGO_ENABLED
-
-指明 cgo 工具是否可用的标识
-
 GOARCH
   
 程序构建环境的目标计算架构

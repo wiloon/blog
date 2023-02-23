@@ -10,17 +10,20 @@ tags:
   - remix
 
 ---
-## curl, [kɜrl]
+## curl
+
+curl [kɜrl]
 
 ## options
 
 ```bash
 -s, --silent, 不显示下载进度
 -C, --continue-at, 断点续传
--o, --output <file>, write  output to <file> instead of stdout.
---connect-timeout <seconds>
+-o, --output <file>, write  output to <file> instead of stdout
+--connect-timeout <fractional seconds>, 建连接超时, 比如 tcp 三次握手
+-m, --max-time <fractional seconds>, 传输超时, 比如 http请求发送之后长时间没有响应, tcp 的 ack收到了, 但是长时间没收到 http response.
 -G/--get 以get的方式来发送数据
--i, --include 输出时包括protocol头信息, 显示response header
+-i, --include 输出时包括 protocol 头信息, 显示 response header
 -v, verbos
 -N, Disables the buffering of the output stream
 -H, --header LINE Custom header to pass to server (H)
@@ -200,3 +203,14 @@ curl -v -i -N -H "Connection: Upgrade" -H "Upgrade: websocket" -H "Host: 127.0.0
 <http://blog.51cto.com/xoyabc/1950743>
   
 <https://blog.csdn.net/dreamer2020/article/details/52050001>
+
+## libcurl error codes
+
+- CURLE_COULDNT_RESOLVE_HOST (6) Could not resolve host. The given remote host was not resolved. 无法解析主机
+- CURLE_COULDNT_CONNECT (7) Failed to connect() to host or proxy. 无法连接到主机或代理, 在服务器端, 目标端口没有监听.
+- CURLE_OPERATION_TIMEDOUT (28) Operation timeout. The specified time-out period was reached according to the conditions. 建立连接时 tcp SYN 没有响应超过 n秒, 服务器响应时间超过 `-m, --max-time`
+- CURLE_RECV_ERROR (56), Failure with receiving network data. 户端向服务器发送POST请求，服务器未响应，6 次TCP重传无响应后，【libcurl】判定HTTP数据接收失败。 <https://blog.csdn.net/wjb123sw99/article/details/103946046>
+
+<https://curl.se/libcurl/c/libcurl-errors.html>
+
+<https://curl.se>

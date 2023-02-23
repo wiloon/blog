@@ -7,6 +7,7 @@ categories:
   - inbox
 tags:
   - reprint
+  - remix
 ---
 ## golang list
 

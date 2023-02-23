@@ -10,6 +10,13 @@ tags:
 ---
 ## postgres
 
+## version
+
+- local: 14.5
+- dev: 11.2
+- test: 11.2
+- prod: 11.14
+
 ## install
 
 ```bash
@@ -27,6 +34,9 @@ psql -h 127.0.0.1 -p 5432 -U postgres
 ## commands
 
 ```bash
+# 查看版本
+select version();
+
 pacman -S postgresql
 psql -h 127.0.0.1 -p 5432 -d database0 -U user0
 
@@ -36,6 +46,8 @@ CREATE DATABASE foo;
 # create table
 create table table0(field0 json);
 
+# delete table
+DROP TABLE table0;
 # 查看字段类型
 select column_name, data_type from information_schema.columns where table_name='table0';
 
@@ -47,6 +59,11 @@ sudo -u postgres psql -c "\l"
 # 查看表结构
 \d table0
 
+# Turn off printing of column names and result row count footers, etc. This is equivalent to \t or \pset tuples_only.
+\t tuples only on/off, tuples only on 的时候 select 语句的输出不带 header
+
+\h
+\?
 select * length( "abc"::TEXT)
 ```
 
@@ -218,3 +235,103 @@ select now();
 substring(string [from <str_pos>] [for <ext_char>])
 -- str_pos 
 ```
+
+## table owner
+
+```sql
+select * from pg_tables where tablename = 'my_tbl';
+```
+
+## lock
+
+```sql
+-- 查看锁
+SELECT locker.pid,
+       pc.relname,
+       locker.mode,
+       locker_act.application_name,
+       least(query_start, xact_start)                        start_time,
+       locker_act.state,
+       CASE
+           WHEN granted = 'f' THEN
+               'wait_lock'
+           WHEN granted = 't' THEN
+               'get_lock'
+           END                                               lock_satus,
+       current_timestamp - least(query_start, xact_start) AS runtime,
+       locker_act.query
+FROM pg_locks locker,
+     pg_stat_activity locker_act,
+     pg_class pc
+WHERE locker.pid = locker_act.pid
+  AND NOT locker.pid = pg_backend_pid()
+  AND application_name <> 'pg_statsinfod'
+  AND locker.relation = pc.oid
+  AND pc.reltype <> 0 --and pc.relname='t'
+ORDER BY runtime desc;
+
+```
+
+```sql
+--查看 PostgreSQL 正在执行的SQL  
+SELECT procpid,
+       start,
+       now() - start AS lap,
+       current_query
+FROM (SELECT backendid,
+             pg_stat_get_backend_pid(S.backendid)            AS procpid,
+             pg_stat_get_backend_activity_start(S.backendid) AS start,
+             pg_stat_get_backend_activity(S.backendid)       AS current_query
+      FROM (SELECT pg_stat_get_backend_idset() AS backendid) AS S) AS S,
+     pg_stat_activity pa
+WHERE current_query <> '<IDLE>'
+  and procpid <> pg_backend_pid()
+  and pa.pid = s.procpid
+  and pa.state <> 'idle'
+ORDER BY lap DESC;
+
+```
+
+```bash
+# 查找是否有 waiting  
+ps -ef|grep postgres | grep wait  
+```
+
+```sql
+--查看当前库表和索引的的大小并排序显示前20条  
+SELECT nspname,
+       relname,
+       relkind                                       as "type",
+       pg_size_pretty(pg_table_size(C.oid))          AS size,
+       pg_size_pretty(pg_indexes_size(C.oid))        AS idxsize,
+       pg_size_pretty(pg_total_relation_size(C.oid)) as "total"
+FROM pg_class C
+         LEFT JOIN pg_namespace N ON (N.oid = C.relnamespace)
+WHERE nspname NOT IN ('pg_catalog', 'information_schema')
+  AND nspname !~ '^pg_toast'
+  AND relkind IN ('r', 'i')
+ORDER BY pg_total_relation_size(C.oid) DESC
+LIMIT 20;
+
+```
+
+## 空闲连接
+
+```sql
+-- 最大连接数
+show max_connections;
+-- 当前连接
+select * from pg_stat_activity;
+select datname from pg_stat_activity group by datname;
+select state from pg_stat_activity group by state;
+select * from pg_stat_activity where datname='database0' limit 1;
+select pid, query_start,query from pg_stat_activity where datname='database0' and state='idle';
+-- 释放空闲连接
+SELECT pg_terminate_backend(pid) FROM pg_stat_activity WHERE state='idle';
+```
+
+## GUI
+
+- pgAdmin
+
+<https://www.postgresql.org/docs/current/app-psql.html>

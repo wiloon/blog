@@ -20,6 +20,15 @@ v14.18.1
 
 v18.2.0
 
+## nodejs downgrade
+
+```bash
+npm install -g n
+n 17.9.1
+# close and reopen new terminal
+node -v
+```
+
 ### js nodejs npm 的关系
 
 - 前端Javascript与Nodejs的异同
@@ -56,12 +65,15 @@ npm 本来是 Node.js 的包管理工具,但随着 JS 这几年的蓬勃发展,�
 
 #### archlinux
 
-  pacman -S nodejs
+```bash
+pacman -S nodejs
+```
 
 #### debian/ubuntu
 
 <https://github.com/nodesource/distributions/blob/master/README.md#debinstall>  
 
+```bash
     curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash -
     sudo apt-get install -y nodejs
     sudo apt-get install gcc g++ make
@@ -69,14 +81,19 @@ npm 本来是 Node.js 的包管理工具,但随着 JS 这几年的蓬勃发展,�
     curl -sL https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
     echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
     sudo apt-get update && sudo apt-get install yarn
+```
 
 #### windows
 
+```bash
     choco install nodejs-lts
+```
 
 ### list version
 
-  node -v
+```bash
+node -v
+```
 
 作者: 合肥懒皮
 链接: <https://www.jianshu.com/p/857ef827fbd4>

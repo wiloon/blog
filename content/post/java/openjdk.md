@@ -17,6 +17,7 @@ tags:
 ## archlinux openjdk
 
 ```bash
+# openjdk
 sudo pacman -S jdk-openjdk
 sudo pacman -S openjdk-src
 # jdk8

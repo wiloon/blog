@@ -12,8 +12,9 @@ tags:
 
 ---
 ## Raspberry Pi配置为无线路由器
+
 [http://www.cnblogs.com/DaochenShi/p/3152981.html](http://www.cnblogs.com/DaochenShi/p/3152981.html)
-    
+
       因为自己有个RPi，但是之前用的8188CUS芯片的无线网卡不支持，虽然当时买的时候是为了让笔记本连双WiFi的，因此只挑了个最便宜的。后来发现没法在RPi上面做AP，于是就又重新买了个。国内也有树梅派的论坛讨论过哪些无线网卡的支持，发现Ralink的芯片可以，因此就再花了34块钱买了个腾达的W331M，使用最新的Raspbian内核来进行操作 (非最新的话可能需要自己编译驱动) 。
     
     
@@ -82,7 +83,6 @@ tags:
 ...
 Bus 001 Device 007: ID 148f:5370 Ralink Technology, Corp. RT5370 Wireless Adapter
 
-    
       呼……一大波前提说完了，下面要干正事了！
     
     
@@ -129,7 +129,6 @@ opt subnet 255.255.255.0
 opt router 192.168.42.1 # The Pi's IP address on wlan0 which we will set up shortly.
 opt lease 864000 # 10 day DHCP lease time in seconds
 
-          
             <img alt="复制代码" src="http://common.cnblogs.com/images/copycode.gif" />
           
         
@@ -152,7 +151,6 @@ opt lease 864000 # 10 day DHCP lease time in seconds
 address 192.168.42.1
 netmask 255.255.255.0
 
-        
           如果原来有"iface wlan0 inet dhcp"之类的那么就删除，"wpa-roam /etc/wpa_supplicant/wpa_supplicant.conf"什么的也删除。
         
         
@@ -195,11 +193,10 @@ netmask 255.255.255.0
 
 network={
 ssid="Daochen_AP"
-#psk="DaochenShi"
+# psk="DaochenShi"
 psk=0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef
 }
 
-              
                 <img alt="复制代码" src="http://common.cnblogs.com/images/copycode.gif" />
               
             
@@ -225,7 +222,6 @@ channel=6
 auth_algs=1
 wmm_enabled=0
 
-              
                 <img alt="复制代码" src="http://common.cnblogs.com/images/copycode.gif" />
               
             
@@ -260,7 +256,6 @@ wmm_enabled=0
 sudo iptables -A FORWARD -i eth0 -o wlan0 -m state --state RELATED,ESTABLISHED -j ACCEPT
 sudo iptables -A FORWARD -i wlan0 -o eth0 -j ACCEPT
 
-                
                   为了以后重启之后可以自动加载，因此运行命令来保存为一个文件: 
                 
                 
@@ -285,7 +280,6 @@ sudo iptables -A FORWARD -i wlan0 -o eth0 -j ACCEPT
 
 sudo service udhcpd start
 
-                    
                       如果你想开机启动的话，那么就这么做: 
                     
                     
@@ -294,10 +288,6 @@ sudo service udhcpd start
 
 sudo update-rc.d udhcpd enable
 
-                    
-                        
-                      
-                      
                         当然，最开始用8188CUS的时候参考的是 http://sirlagz.net/2012/08/09/how-to-use-the-raspberry-pi-as-a-wireless-access-pointrouter-part-1/
                       
                       
@@ -326,7 +316,6 @@ Error occurred at line: 17
 Try \`ip6tables-restore -h' or 'ip6tables-restore --help' for more information.
 Failed to bring up wlan0.
 
-                      
                         因为我也设置了ip6tables，而wlan0目前没有设置ipv6，所以就出错了，解决方法也很简单，把错的那一行删了就可以了。如果你也觉得udhcpd启动不了，可以使用
                       
                       
@@ -352,4 +341,3 @@ Failed to bring up wlan0.
                       
                       
                         http://azug.minpet.unibas.ch/~lukas/bricol/olinuxino-imx233/index.html
-                       

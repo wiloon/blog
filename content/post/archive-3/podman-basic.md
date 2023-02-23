@@ -2,12 +2,13 @@
 title: podman basic
 author: "-"
 date: 2022-10-10 11:26:14
-url: container
+url: podman
+categories:
+  - container
 tags:
   - podman
   - remix
-categories:
-  - container
+
 ---
 
 ## podman basic
@@ -34,6 +35,9 @@ In addition to the existing CNI Out of the stack ,Podman Now it also supports ba
 ### ubuntu install podman
 
 ```bash
+sudo apt-get -y update
+sudo apt-get -y install podman
+# ------
 . /etc/os-release
 echo "deb https://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable/xUbuntu_${VERSION_ID}/ /" | sudo tee /etc/apt/sources.list.d/devel:kubic:libcontainers:stable.list
 curl -L https://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable/xUbuntu_${VERSION_ID}/Release.key | sudo apt-key add -
@@ -85,7 +89,7 @@ podman image ls -f dangling=true
 podman image prune
 ```
 
-### 虚悬镜像(dangling image)
+### 虚悬镜像 (dangling image)
 
 为什么会有 `<none>` 这样命名的镜像？这些镜像 docker 称为 虚悬镜像，当镜像被新的镜像覆盖时候，老版本镜像名称会变成 `<none>`。
 
@@ -103,7 +107,7 @@ podman run --rm hello-world env
 podman stats
 ```
 
-### 配置driver
+### 配置 driver
 
 ```bash
 vim /etc/containers/storage.conf
@@ -319,13 +323,13 @@ docker run --rm \
 ### podman pod
 
 ```bash
-    podman pod --help
-    podman pod create --help
-    podman pod ps
-    podman pod rm pod0
+podman pod --help
+podman pod create --help
+podman pod ps
+podman pod rm pod0
 
-    podman pod create -n pod_0 -p 8086:8086 -p 3000:3000 -p 8888:8888
-    # 使用pod, 端口映射要配置到pod上，pod内的容器不配端口
+podman pod create -n pod_0 -p 8086:8086 -p 3000:3000 -p 8888:8888
+# 使用pod, 端口映射要配置到pod上，pod内的容器不配端口
 ```
 
 #### 创建容器并加入pod
@@ -437,9 +441,13 @@ podman ps -a -f "status=exited"
 
 <https://docs.podman.io/en/latest/markdown/podman-ps.1.html>
 
-## 导出镜像
+## 导出镜像, podman save
+
+podman save will save parent layers of the image(s)
 
 ```bash
+# 如果执行 podman save 时磁盘上已经存在 kafka.tar 会提示: docker-archive doesn't support modifying existing images
+sudo podman save --format=docker-archive -o kafka.tar 5701259bb69a bitnami/kafka:3.4.0
 podman save be96e19ac6ef >pingd-proxy.tar
 ```
 

@@ -132,3 +132,28 @@ svn log -v
 <http://riaoo.com/subpages/svn_cmd_reference.html>
   
 <https://www.cnblogs.com/zhenjing/archive/2012/12/22/svn_usage.html>
+
+## svn: E000022: Can't convert string from 'UTF-8' to native encoding
+
+```bash
+export LC_CTYPE=en_US.UTF-8
+```
+
+## centos 7 upgrade svn
+
+```bash
+vim /etc/yum.repos.d/wandisco-svn.repo
+
+# content
+[WandiscoSVN]
+name=Wandisco SVN Repo
+baseurl=http://opensource.wandisco.com/centos/$releasever/svn-1.14/RPMS/$basearch/
+enabled=1
+gpgcheck=0
+# content
+
+yum remove subversion
+yum clean all
+yum install subversion -y
+
+```

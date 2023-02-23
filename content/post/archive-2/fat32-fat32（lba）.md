@@ -10,7 +10,7 @@ tags:
 ---
 ## fat32, fat32 (LBA)
 
-http://www.tsingpost.com/articles/201403/480.html
+<http://www.tsingpost.com/articles/201403/480.html>
 
 ### fat32和fat32 (LBA) 的区别
   

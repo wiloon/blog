@@ -9,10 +9,11 @@ tags:
   - reprint
 ---
 ## golang base64
-http://www.01happy.com/golang-base64-encode-decode/
+
+<http://www.01happy.com/golang-base64-encode-decode/>
 
 golang中base64编码和解码
-   
+
 Golang 3年前 (2016-08-05) 1011浏览 0评论
   
 golang中base64的编码和解码可以用内置库encoding/base64
@@ -20,18 +21,18 @@ golang中base64的编码和解码可以用内置库encoding/base64
 package main
 
 import (
-      
+
 "encoding/base64"
-      
+
 "fmt"
-      
+
 "log"
   
 )
 
 func main() {
-      
-input := []byte("hello golang base64 快乐编程http://www.01happy.com +~")
+
+input := []byte("hello golang base64 快乐编程<http://www.01happy.com> +~")
 
     // 演示base64编码
     encodeString := base64.StdEncoding.EncodeToString(input)
@@ -55,18 +56,17 @@ input := []byte("hello golang base64 快乐编程http://www.01happy.com +~")
         log.Fatalln(err)
     }
     fmt.Println(string(uDec))
-    
 
 }
   
-运行输出: 
+运行输出:
 
 go run encode.go
   
 aGVsbG8gZ29sYW5nIGJhc2U2NCDlv6vkuZDnvJbnqItodHRwOi8vd3d3LjAxaGFwcHkuY29tICt+
   
-hello golang base64 快乐编程http://www.01happy.com +~
+hello golang base64 快乐编程<http://www.01happy.com> +~
 
 aGVsbG8gZ29sYW5nIGJhc2U2NCDlv6vkuZDnvJbnqItodHRwOi8vd3d3LjAxaGFwcHkuY29tICt-
   
-hello golang base64 快乐编程http://www.01happy.com +~
+hello golang base64 快乐编程<http://www.01happy.com> +~

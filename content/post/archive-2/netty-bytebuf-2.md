@@ -9,6 +9,7 @@ tags:
   - reprint
 ---
 ## netty ByteBuf
+
 Netty ByteBuf 优势
 Netty 提供了ByteBuf，来替代Java NIO的 ByteBuffer，操作内存缓冲区。
 与Java NIO的 ByteBuffer 相比，ByteBuf的优势如下：
@@ -30,11 +31,10 @@ Pooling (池化，这点减少了内存复制和GC，提升效率)
 引用计数
 ————————————————
 版权声明：本文为CSDN博主「架构师-尼恩」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
-原文链接：https://blog.csdn.net/crazymakercircle/article/details/84198042
+原文链接：<https://blog.csdn.net/crazymakercircle/article/details/84198042>
 
->https://caorong.github.io/2017/01/16/head-first-netty-3/
-  
->https://segmentfault.com/a/1190000007560884
+><https://caorong.github.io/2017/01/16/head-first-netty-3/>  
+><https://segmentfault.com/a/1190000007560884>  
 
 根据 Wiki 对 Zero-copy 的定义:
 
@@ -182,24 +182,23 @@ Netty 中使用 FileRegion 实现文件传输的零拷贝, 不过在底层 FileR
 首先我们从最基础的 Java IO 开始吧. 假设我们希望实现一个文件拷贝的功能, 那么使用传统的方式, 我们有如下实现:
 
 public static void copyFile(String srcFile, String destFile) throws Exception {
-      
+
 byte[] temp = new byte[1024];
-      
+
 FileInputStream in = new FileInputStream(srcFile);
-      
+
 FileOutputStream out = new FileOutputStream(destFile);
-      
+
 int length;
-      
+
 while ((length = in.read(temp)) != -1) {
-          
+
 out.write(temp, 0, length);
-      
+
 }
 
     in.close();
     out.close();
-    
 
 }
   
@@ -208,9 +207,9 @@ out.write(temp, 0, length);
 下面我们来看一下使用 Java NIO 的 FileChannel 是如何实现零拷贝的:
 
 public static void copyFileWithFileChannel(String srcFileName, String destFileName) throws Exception {
-      
+
 RandomAccessFile srcFile = new RandomAccessFile(srcFileName, "r");
-      
+
 FileChannel srcFileChannel = srcFile.getChannel();
 
     RandomAccessFile destFile = new RandomAccessFile(destFileName, "rw");
@@ -220,7 +219,6 @@ FileChannel srcFileChannel = srcFile.getChannel();
     long count = srcFileChannel.size();
     
     srcFileChannel.transferTo(position, count, destFileChannel);
-    
 
 }
   
@@ -231,33 +229,33 @@ FileChannel srcFileChannel = srcFile.getChannel();
 @Override
   
 public void channelRead0(ChannelHandlerContext ctx, String msg) throws Exception {
-      
+
 RandomAccessFile raf = null;
-      
+
 long length = -1;
-      
+
 try {
-          
+
 // 1. 通过 RandomAccessFile 打开一个文件.
-          
+
 raf = new RandomAccessFile(msg, "r");
-          
+
 length = raf.length();
-      
+
 } catch (Exception e) {
-          
+
 ctx.writeAndFlush("ERR: " + e.getClass().getSimpleName() + ": " + e.getMessage() + '\n');
-          
+
 return;
-      
+
 } finally {
-          
+
 if (length < 0 && raf != null) {
-              
+
 raf.close();
-          
+
 }
-      
+
 }
 
     ctx.write("OK: " + raf.length() + '\n');
@@ -271,7 +269,6 @@ raf.close();
         ctx.write(new ChunkedFile(raf));
     }
     ctx.writeAndFlush("\n");
-    
 
 }
   
@@ -289,4 +286,4 @@ Email: yongshun1228@gmail .com
   
 本文标题为: 对于 Netty ByteBuf 的零拷贝(Zero Copy) 的理解
   
-本文链接为: https://segmentfault.com/a/1190000007560884
+本文链接为: <https://segmentfault.com/a/1190000007560884>

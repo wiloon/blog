@@ -9,8 +9,10 @@ tags:
   - reprint
 ---
 ## golang gin
+
 ### 重定向
-https://www.cnblogs.com/zisefeizhu/p/12739223.html
+
+<https://www.cnblogs.com/zisefeizhu/p/12739223.html>
 
     package main
 
