@@ -9,6 +9,7 @@ tags:
   - reprint
 ---
 ## Java Base64
+
 ```java
 // encode
 byte[] in;

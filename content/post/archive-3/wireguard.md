@@ -166,7 +166,7 @@ iptables -t nat -A POSTROUTING -o wlp1s0 -j MASQUERADE
 
 ### systemd-networkd, 用 systemd-networkd 配置 wireguard, 开机自动加载 wireguard 配置
 
-#### vim /etc/systemd/network/99-wg0.netdev
+> vim /etc/systemd/network/99-wg0.netdev
 
 ```bash
 [NetDev]
@@ -187,7 +187,7 @@ PublicKey = public-key-1
 AllowedIPs = 192.168.xx.xx/32 
 ```
 
-#### vim /etc/systemd/network/99-wg0.network
+> vim /etc/systemd/network/99-wg0.network
 
 ```bash
 [Match]

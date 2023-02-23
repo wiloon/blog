@@ -24,7 +24,11 @@ tags:
 
 ### 配置文件内容
 
-### vim /etc/logrotate.d/ansiblelog
+### /etc/logrotate.d/ansiblelog
+
+```bash
+vim /etc/logrotate.d/ansiblelog
+```
 
 ```bash
 /var/log/ansible.log {

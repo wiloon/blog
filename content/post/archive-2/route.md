@@ -87,7 +87,7 @@ ip route get 172.18.0.10
 
 ```bash
 ip r del default
-ip r del 10.61.90.0/24
+ip r del xxx.xxx.90.0/24
 ip route del 192.168.0.0/24 via 172.16.15.253 dev eth0
 ```
 
@@ -100,17 +100,18 @@ ip route add DESTINATION       [via NEXT_HOP]      [src SOURCE_ADDRESS]    [dev 
 
 ip route add default           via 192.168.50.1    src 192.168.50.8      dev enp0s31f6
 ip route add default           via 192.168.50.1    src 192.168.50.8      dev enp0s31f6
-ip route add default           via 192.168.50.4    src 192.168.50.169      dev ens18
-ip route add 192.168.54.0/24   via 192.168.50.11   src 192.168.50.8        dev enp0s31f6
+ip route add default           via 192.168.50.4    src 192.168.50.169    dev ens18
+ip route add 192.168.54.0/24   via 192.168.50.11   src 192.168.50.8      dev enp0s31f6
 # src xxx 可以省略
-ip route add 192.168.0.0/24     via 172.16.15.253                           dev eth0
+ip route add 192.168.0.0/24    via 172.16.15.253                         dev eth0
+ip route add 192.168.5.4       via xxx.xxx.200.1                           dev utun3
 ```
 
 - DESTINATION
 目标主机, 目标网络/掩码
 
 - via NEXT_HOP
-网关, 下一跳的 IP,  下一跳的路由器或主机的 IP
+网关, 下一跳的 IP,  下一跳的路由器或主机的 IP, 比如局域网里 下一跳一般是路由器 192.168.50.1, openvpn 的话是服务端地址
 
 - src SOURCE_ADDRESS
 当一个主机有多个网卡或者配置了多个 IP 的时候, 对于它产生的网络包, 可以在路由选择时设置源 IP 地址。  
@@ -440,6 +441,7 @@ ip rule 命令:
   
 Usage: ip rule [ list | add | del ] SELECTOR ACTION  (add 添加；del 删除； llist 列表)
   
+```bash
 SELECTOR := [ from PREFIX 数据包源地址] [ to PREFIX 数据包目的地址] [ tos TOS 服务类型][ dev STRING 物理接口] [ pref NUMBER ] [fwmark MARK iptables 标签]
   
 ACTION := [ table TABLE_ID 指定所使用的路由表] [ nat ADDRESS 网络地址转换][ prohibit 丢弃该表| reject 拒绝该包| unreachable 丢弃该包]
@@ -448,6 +450,8 @@ ACTION := [ table TABLE_ID 指定所使用的路由表] [ nat ADDRESS 网络地�
   
 TABLE_ID := [ local | main | default | new | NUMBER ]
   
+```
+
 例子:
 
 ip rule add from 192.203.80/24 table inr.ruhep prio 220 通过路由表 inr.ruhep 路由来自源地址为192.203.80/24的数据包
@@ -921,13 +925,13 @@ default via 10.2.255.254 dev eth2
 ```bash
 ip route del 192.168.0.0/24 dev eth1
 ip route add 192.168.0.0/24 dev eth1
-ip route del via 10.2.255.254 //删除默认路由
-ip route add via 10.2.255.254 //增加默认路由
-ip route add 192.168.1.0/24 via 192.168.0.1 //增加静态路由,192.168.0.1为下一跳地址
-ip route del 192.168.1.0/24 via 192.168.0.1 //删除静态路由
+ip route del via 10.2.255.254 # 删除默认路由
+ip route add via 10.2.255.254 # 增加默认路由
+ip route add 192.168.1.0/24 via 192.168.0.1 # 增加静态路由, 192.168.0.1 为下一跳地址
+ip route del 192.168.1.0/24 via 192.168.0.1 # 删除静态路由
 ```
 
-显示arp信息ip neigh [可以取代arp -n],删除则是ip neigh del IP地址 dev 设备名
+显示 arp 信息 ip neigh [可以取代arp -n], 删除则是 ip neigh del IP 地址 dev 设备名
 
 路由策略数据库
   
@@ -1039,3 +1043,11 @@ ip route flush cache #刷新路由表
 <https://zhuanlan.zhihu.com/p/43279912>
 <https://www.jianshu.com/p/efed363da831>
 <https://www.jianshu.com/p/76d7ed2d77b9>
+
+## maxos 路由, route
+
+```bash
+sudo route -n add -net 192.168.5.4 -netmask 255.255.255.0 xxx.xxx.200.1
+```
+
+<https://www.jianshu.com/p/da975a32a915>

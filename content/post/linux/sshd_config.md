@@ -26,9 +26,9 @@ journalctl -u sshd -f
 AddressFamily
 指定 sshd(8) 应当使用哪种地址族。取值范围是: "any"(默认)、"inet"(仅IPv4)、"inet6"(仅IPv6)。
   
-# ListenAddress 0.0.0.0
+ListenAddress 0.0.0.0
   
-# ListenAddress用来设置sshd服务器绑定的IP地址
+ListenAddress用来设置sshd服务器绑定的IP地址
   
 Protocol
 

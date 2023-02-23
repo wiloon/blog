@@ -11,6 +11,11 @@ tags:
 ---
 ## kafka basic, command
 
+kafka_2.13-3.4.0.tgz
+
+scala 版本 2.13
+kafka 版本 3.4.0
+
 ### consumer
 
 ```bash
@@ -32,24 +37,23 @@ bin/kafka-console-consumer.sh \
 --bootstrap-server kafka.wiloon.com:9092 \
 --topic topic0 \
 --from-beginning
-
 ```
 
 ### producer
 
 ```bash
 bin/kafka-console-producer.sh \
---broker-list 127.0.0.1:9092 \
+--bootstrap-server 127.0.0.1:9092 \
 --topic topic0
 
 bin/kafka-console-producer.sh \
---broker-list kafka.wiloon.com:9092 \
+--bootstrap-server kafka.wiloon.com:9092 \
 --topic topic0
 
 bin/kafka-console-producer.sh \
---broker-list kafka.wiloon.com:9092 \
+--bootstrap-server kafka.wiloon.com:9092 \
 --topic topic0
---property "parse.key=true" --property "key.separator=:"
+--property "parse.key=true" --property "key.separator=@"
 ```
 
 ### kafka package
@@ -58,16 +62,20 @@ bin/kafka-console-producer.sh \
 
 ### group
 
+### group detail, offset
+
+```bash
+# list group detail, offset
+bin/kafka-consumer-groups.sh \
+--bootstrap-server 127.0.0.1:9092 \
+--describe \
+--group group0
+```
+
 ```bash
 # list all group
 bin/kafka-consumer-groups.sh \
 --bootstrap-server kafka.wiloon.com:9092 --list
-
-# list group detail, offset
-bin/kafka-consumer-groups.sh \
---bootstrap-server kafka.wiloon.com:9092 \
---describe \
---group my-group
 
 bin/kafka-consumer-groups.sh \
 --bootstrap-server kafka.wiloon.com:9092 \
@@ -97,15 +105,18 @@ CURRENT-OFFSET = LOG-END-OFFSET 说明当前消费组已经全部消费了;
 - HOST：消费者所在主机
 - CLIENT-ID：消费者id，一般由应用指定
 
-### 命令行手动调整offset
+### 命令行手动调整 offset
 
 ```bash
+# 不加 --execute 只是打印出位移调整方案，不具体执行
 bin/kafka-consumer-groups.sh --bootstrap-server localhost:9092 --group test-group --reset-offsets --topic topic0 --to-offset 500000
+# 加 --execute 参数：执行位移调整
 bin/kafka-consumer-groups.sh --bootstrap-server localhost:9092 --group test-group --reset-offsets --topic topic0 --to-offset 500000 --execute
 
-# 
+# shift by
 bin/kafka-consumer-groups.sh --bootstrap-server localhost:9092 --group test-group --reset-offsets --topic topic0 --shift-by 1
 
+bin/kafka-consumer-groups.sh --bootstrap-server localhost:9092 --group test-group --reset-offsets --topic topic0 --to-current --execute
 ```
 
 ## topic
@@ -157,7 +168,7 @@ bin/kafka-topics.sh \
 ```
 
 replication-factor: 副本数, partitions: 分区数
-topic名中有. 或 _会提示:  WARNING: Due to limitations in metric names, topics with a period ('.') or underscore ('_') could collide. To avoid issues it is best to use either, but not both.
+topic 名中有`.` 或 `_` 会提示:  WARNING: Due to limitations in metric names, topics with a period ('.') or underscore ('_') could collide. To avoid issues it is best to use either, but not both.
 
 ### create topic
 
@@ -175,30 +186,31 @@ bin/kafka-topics.sh --create --partitions 3 --replication-factor 3 --topic topic
 --config retention.ms=1296000000 \
 --config retention.bytes=10737418240
     
-    # kafka
-    bin/kafka-topics.sh --create \
-    --zookeeper test-zookeeper-1,test-zookeeper-2 \
-    --replication-factor 3 \
-    --partitions 5 \
-    --topic topic0
+# kafka
+bin/kafka-topics.sh --create \
+--zookeeper test-zookeeper-1,test-zookeeper-2 \
+--replication-factor 3 \
+--partitions 5 \
+--topic topic0
 
-    # kafka
-    bin/kafka-topics.sh --create \
-    --zookeeper zookeeper.wiloon.com:2181 \
-    --replication-factor 1 \
-    --partitions 1 \
-    --topic topic0
+# kafka
+bin/kafka-topics.sh --create \
+--zookeeper zookeeper.wiloon.com:2181 \
+--replication-factor 1 \
+--partitions 1 \
+--topic topic0
 ```
 
 <https://cloud.tencent.com/developer/article/1436988>
 
-### 调整分区数
+### 调整分区数, add partition
 
 kafka topic 可以动态增加分区数。  
 注意该命令分区数 partitions 只能增加, 不能减少, --partitions 5: 调整之后的分区数.
 
 ```bash
 # kafka >3.0
+# 如果重复执行这个命令而且分区数相同, 会提示 topic already has x partitions.
 bin/kafka-topics.sh \
 --bootstrap-server 127.0.0.1:9092 \
 --alter \
@@ -232,7 +244,7 @@ bin/kafka-consumer-groups.sh --bootstrap-server localhost:9092 \
 --to-datetime 2017-08-04T14:30:00.000
 ```
 
-### 查看kafka版本, kafka version
+### 查看 kafka 版本, kafka version
 
 ```bash
 # kafka 客户端的版本
@@ -242,29 +254,42 @@ bin/kafka-topics.sh --version
 kafka_2.13-3.1.0.jar
 ```
 
-### config kafka server
+## kafka 删除 topic
 
-edit config/server.properties
-
-broker.id=0
-
-listeners=PLAINTEXT://:9092
-
-zookeeper.connect=localhost:2181
-
-### 删除topic
+- 停掉 topic 对应的 producer 和 consumer 或者设置 auto.create.topics.enable = false
+- server.properties 设置 delete.topic.enable=true, 1.0.0 版本以后的 kafka 默认是 true, <https://issues.apache.org/jira/browse/KAFKA-5384>
+- 删除 topic
 
 ```bash
 # normal kafka
-/opt/kafka/kafka_2.12-2.5.0/bin/kafka-topics.sh --bootstrap-server 127.0.0.1:9092 --delete --topic topic0
+bin/kafka-topics.sh --bootstrap-server localhost:9092 --delete --topic topic0
 # tls kafka
-/opt/kafka/kafka_2.12-2.5.0/bin/kafka-topics.sh --bootstrap-server 127.0.0.1:9093 --delete --topic topic0  --command-config /root/tmp/kafka.conf
+bin/kafka-topics.sh --bootstrap-server 127.0.0.1:9093 --delete --topic topic0  --command-config /root/tmp/kafka.conf
 
 # old version
 bin/kafka-topics.sh --topic t0 --delete --zookeeper test-zookeeper-1
+```
 
-#edit bin/kafka-server-start.sh, change memory setting KAFKA_HEAP_OPTS
-#start kafka server
+- 删除kafka存储目录
+
+上一步删除 topic之后 kafka 会把对应的 topic 的存储目录改名成 foo-delete, 然后删掉, kafka 2.5 是这样的, 不需要手动删除.
+
+（server.properties文件log.dirs配置，默认为"/data/kafka-logs"）相关topic的数据目录
+
+- 删除 zookeeper 里的数据
+
+kafka 2.5 会自动删除 zk 里的 topic数据, 不需要手动操作.
+
+```bash
+./zkCli.sh
+
+ls /brokers/topics/
+deleteall /brokers/topics/topic0
+```
+
+```bash
+# edit bin/kafka-server-start.sh, change memory setting KAFKA_HEAP_OPTS
+# start kafka server
 bin/kafka-server-start.sh config/server.properties
 
 #start kafka server as daemon
@@ -275,7 +300,7 @@ bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic topic0 -
 
 ./bin/kafka-server-start.sh config/server.properties
 
-查看不可用分区 ./kafka-topics.sh --topic test --describe --unavailable-partitions --zookeeper
+# 查看不可用分区 ./kafka-topics.sh --topic test --describe --unavailable-partitions --zookeeper
 bin/kafka-console-producer.sh --broker-list test-kafka-1:9092 --topic t0
 bin/kafka-console-consumer.sh --bootstrap-server --zookeeper xxx:2181 test-kafka-1:9092 --topic t0 --from-beginning
 
@@ -297,15 +322,37 @@ cat increase-replication-factor.json
     bin/kafka-reassign-partitions.sh --zookeeper localhost:2182 --reassignment-json-file increase-replication-factor.json --execute
 ```
 
-### install
+## install
+
+安装一个只有单 broker 节点的集群（也被称为伪集群）
 
 download <http://kafka.apache.org/downloads.html>
 
-#### kraft
+### kraft
 
 ```bash
 bin/kafka-storage.sh format --config config/kraft/server.properties --cluster-id $(./bin/kafka-storage.sh random-uuid)
 bin/kafka-server-start.sh config/kraft/server.properties
+```
+
+### kafka docker
+
+```bash
+# create volume
+docker volume create kafka-config
+docker volume create kafka-storage
+# 查看 volume 目录
+docker info | grep "Docker Root Dir"
+# server.properties 见下文
+vim /var/lib/docker/volumes/kafka-config/_data/server.properties
+chmod 777 -R /var/lib/docker/volumes/kafka-config
+chmod 777 -R /var/lib/docker/volumes/kafka-storage
+# 格式化storage, 先格式化 storage 再启动 kafka
+docker run --rm --name kafka \
+-e ALLOW_PLAINTEXT_LISTENER=yes \
+-v kafka-config:/bitnami/kafka/config \
+-v kafka-storage:/data/kafka \
+bitnami/kafka:3.4.0 kafka-storage.sh format --config /bitnami/kafka/config/server.properties --cluster-id eVW-QkMeS8CeY1Bcuj4S-g --ignore-formatted
 ```
 
 #### kraft podmann
@@ -313,20 +360,46 @@ bin/kafka-server-start.sh config/kraft/server.properties
 <https://github.com/bitnami/bitnami-docker-kafka/issues/159>
 <https://github.com/bitnami/bitnami-docker-kafka/blob/master/README.md>
 
-##### create volume
-
 ```bash
-podman volume create kafka-config
+# create volume
+docker volume create kafka-config
+# 查看 volume 目录
+docker info | grep "Docker Root Dir"
+vim /var/lib/docker/volumes/kafka-config/_data/server.properties
+# 格式化storage, 先格式化 storage 再启动 kafka
+docker run --rm --name kafka \
+-e ALLOW_PLAINTEXT_LISTENER=yes \
+-p 9092:9092 \
+-v kafka-config:/bitnami/kafka/config \
+-v kafka-storage:/data/kafka \
+bitnami/kafka:3.3.2 kafka-storage.sh format --config /bitnami/kafka/config/server.properties --cluster-id eVW-QkMeS8CeY1Bcuj4S-g --ignore-formatted
+
+
+docker run -d --name kafka \
+-e ALLOW_PLAINTEXT_LISTENER=yes \
+-p 9092:9092 \
+-v kafka-config:/bitnami/kafka/config \
+-v kafka-storage:/data/kafka \
+bitnami/kafka:3.4.0
+
 ```
 
-##### server.properies
+##### kafka server.properties
 
 可以复制 kafka_2.13-3.0.0.tgz 里的 config/kraft/server.properties 文件改造一下.
 
 vim /var/lib/containers/storage/volumes/kafka-config/_data/server.properties
 
-```bash
+listeners=PLAINTEXT://:9092
+
+zookeeper.connect=localhost:2181
+
+```conf
+# broker 的唯一 id, 默认 1
+# broker.id=1
+# 标识该节点所承担的角色，在 KRaft 模式下需要设置这个值
 process.roles=broker,controller
+# 节点的ID，和节点所承担的角色相关联
 node.id=1
 controller.quorum.voters=1@localhost:9093
 listeners=PLAINTEXT://:9092,CONTROLLER://:9093
@@ -357,17 +430,15 @@ podman run --rm --name kafka \
 -p 9092:9092 \
 -v kafka-config:/bitnami/kafka/config \
 -v kafka-storage:/data/kafka \
-bitnami/kafka:3.2 kafka-storage.sh format --config /bitnami/kafka/config/server.properties --cluster-id eVW-QkMeS8CeY1Bcuj4S-g --ignore-formatted
+bitnami/kafka:3.4.0 kafka-storage.sh format --config /bitnami/kafka/config/server.properties --cluster-id eVW-QkMeS8CeY1Bcuj4S-g --ignore-formatted
 
-# 创建单节点 kafka 容器 
+# 创建单节点 kafka 容器
 podman run -d --name kafka \
 -e ALLOW_PLAINTEXT_LISTENER=yes \
 -p 9092:9092 \
 -v kafka-config:/bitnami/kafka/config \
 -v kafka-storage:/data/kafka \
-bitnami/kafka:3.2
-
-
+bitnami/kafka:3.4.0
 ```
 
 ### install kafka with zookeeper
@@ -471,7 +542,7 @@ podman run -d --name cmak\
 <https://my.oschina.net/u/218540/blog/223501>  
 <https://www.cnblogs.com/AcAc-t/p/kafka_topic_consumer_group_command.html>  
 <https://blog.csdn.net/lzufeng/article/details/81743521>  
-><https://www.jianshu.com/p/26495e334613>
+<https://www.jianshu.com/p/26495e334613>  
 
 ### kafka producer, consumer api doc
 

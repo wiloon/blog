@@ -19,6 +19,9 @@ List all open files on the system or open files for specified PID
 ## install
 
 ```bash
+# ubuntu
+apt-get install -y lsof
+# centos
 yum install lsof -y
 ```
 

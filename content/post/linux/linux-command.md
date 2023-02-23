@@ -20,7 +20,7 @@ $ echo -n "A" | xxd -b | awk '{print $2}'
 01000001
 ```
 
-><https://unix.stackexchange.com/questions/98948/ascii-to-binary-and-binary-to-ascii-conversion-tools>
+<https://unix.stackexchange.com/questions/98948/ascii-to-binary-and-binary-to-ascii-conversion-tools>
 
 ### base64 > hex
 
@@ -31,19 +31,19 @@ echo "YWJj" |base64 -d|xxd
 ### Display the last users who have logged onto the system
 
 ```bash
-    last
+last
 ```
 
 ### Display the user and group ids of your current user
 
 ```bash
-    id
+id
 ```
 
 ### Display who is online
 
 ```bash
-    w
+w
 ```
 
 ### Show who is logged into the system
@@ -226,9 +226,12 @@ lsblk
 ls -l /dev/disk/by-uuid/
 ```
 
-查看挂载的USB设备
+## 查看挂载的USB设备
 
+```bash
+pacman -S usbutils
 lsusb
+```
 
 rmdir : delete folder
   

@@ -19,6 +19,8 @@ tags:
 dd if=/dev/zero of=foo.bin bs=1G count=5
 # 100M 的文件
 dd if=/dev/zero of=foo.bin bs=1M count=100
+# 100KB
+dd if=/dev/zero of=foo.bin bs=1K count=100
 # 6个字节的
 dd if=/dev/zero of=./foo.bin bs=6 count=1
 ```

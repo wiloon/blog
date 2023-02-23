@@ -1,20 +1,21 @@
 ---
 title: Git
 author: "-"
-date: 2019-07-26T08:07:52+00:00
+date: 2023-02-14 21:10:42
 url: git
 categories:
   - git
 tags:
   - reprint
+  - remix
 ---
 ## Git
 
 ```puml
 @startuml
 !theme plain
-[Working Directory\n工作区] as work
-[Staging Area\nIndex\n暂存区] as stage
+[Working tree\n工作区] as work
+[Staging Area\nIndex\nStaged\n暂存区] as stage
 work --> stage: add
 [Repository\nLocal Repository\n本地仓库\nHistory\n历史记录区] as repo
 stage --> repo: commit
@@ -29,7 +30,9 @@ repo --> work: reset --mixed
 @enduml
 ```
 
-### 工作区 (Working Directory)
+### 工作区 (working tree)
+
+working tree, 2.9.1 之前被称作 Working Directory <https://stackoverflow.com/questions/39128500/working-tree-vs-working-directory>
 
 也称工作目录、工作副本  
 我们日常开发操作是在工作区中进行的。  

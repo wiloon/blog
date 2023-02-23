@@ -12,21 +12,23 @@ tags:
 
 ### install protoc
 
-    # archlinux 可以从仓库直接安装
-    pacman -S protobuf
-    # 其它发行版, 比如ubuntu 可以下载二进制包 解压即可.
-    https://github.com/protocolbuffers/protobuf/releases/download/v3.6.1/protoc-3.6.1-linux-x86_64.zip
-    # set protoc to PATH
-    protoc -help
+```bash
+# archlinux 可以从仓库直接安装
+pacman -S protobuf
+# 其它发行版, 比如ubuntu 可以下载二进制包 解压即可.
+https://github.com/protocolbuffers/protobuf/releases/download/v3.6.1/protoc-3.6.1-linux-x86_64.zip
+# set protoc to PATH
+protoc -help
+```
 
 #### windows
 
-    download protoc 
-    https://developers.google.com/protocol-buffers/docs/downloads
+download protoc  
+<https://developers.google.com/protocol-buffers/docs/downloads>
 
 ### define message formates in a .proto file
 
-```
+```bash
     syntax = "proto3";
     package package0;
     option java_package = "com.wiloon.test.protobuf.package0";
@@ -106,6 +108,7 @@ java protobuf
 <https://blog.csdn.net/u014801432/article/details/82558380>
 
 ### maven + protobuf， protobuf-maven-plugin
+
 <https://gist.github.com/cqc3073/7766447823ac29a70ddeaf403df1f5f6>
 
 - 在 src/main/proto 下定义 proto 文件

@@ -82,7 +82,7 @@ tcpdump -i eth1 <protocol name>
 tcpdump -nn icmp
 ```
 
-### 保存到文件, 然后用  Wireshark 分析
+## 保存到文件, 然后用  Wireshark 分析
 
 ```bash
 tcpdump -i eth1 src port 25 -w foo.cap
@@ -117,48 +117,48 @@ pacman -S tcpdump
 ### 选项
 
 ```o
-    -A: 以 ASCII 码方式显示每一个数据包(不会显示数据包中链路层头部信息). 在抓取包含网页数据的数据包时, 可方便查看数据
-    -i any: 监听所有网络接口
-    -i eth0: 监听指定的网络接口 (eth0) 
-    -D: 列出所有可用的网络接口
-    -n: 不解析主机名
-    -nn: 不解析主机名和端口名
-    -q: 输出较少的信息
-    -t: 更便于阅读的时间戳输出
-    -tttt: 最便于阅读的时间戳输出
-    -X: 以 HEX 和 ASCII 模式输出数据包的内容
-    -XX: 与 -X 选项相同,同时还输出 ethernet 头
-    -v, -vv, -vvv: 输出更多数据包的信息
-    -c: count 接受到 count 个数据包后退出, 限制读取的数据包数量.
-    -s: 定义 snaplength (size) ,-s0 表示获取全部
-    -S: 输出绝对序列号
-    -e: 获取 ethernet 头信息
-    -E: 通过提供 key 来解密 IPSEC 流量
-    -D 打印系统中所有tcpdump可以在其上进行抓包的网络接口. 每一个接口会打印出数字编号, 相应的接口名字, 以及可能的一个网络接口描述. 其中网络接口名字和数字编号可以用在tcpdump 的-i flag 选项(nt: 把名字或数字代替flag), 来指定要在其上抓包的网络接口.
-    -X 显示数据包的内容
-    -i interface : 指定监听哪个网络设备, 如不指定,监听number最小的
-    -t Don't print a timestamp on each dump line.
-    -tt Print the timestamp, as seconds since January 1, 1970, 00:00:00, UTC, and fractions of a second since that time, on each dump line.
-    -ttt Print a delta (micro-second resolution) between current and previous line on each dump line.
-    -tttt Print a timestamp, as hours, minutes, seconds, and fractions of a second since midnight, preceded by the date, on each dump line.
-    -ttttt Print a delta (micro-second resolution) between current and first line on each dump line.
-    -A 以ASCII码方式显示每一个数据包(不会显示数据包中链路层头部信息). 在抓取包含网页数据的数据包时, 可方便查看数据(nt: 即Handy for capturing web pages).
-    -x: 打印每个包的头部数据, 同时会以16进制打印出每个包的数据(但不包括连接层的头部)
-    -xx: 打印每个包的头部数据, 同时会以16进制打印出每个包的数据, 其中包括数据链路层的头部
-    -X: 打印每个包的头部数据, 同时会以16进制和 ASCII 码形式打印出每个包的数据(但不包括连接层的头部)
-    -XX: 打印每个包的头部数据, 同时会以16进制和 ASCII 码形式打印出每个包的数据, 其中包括数据链路层的头部
+-A: 以 ASCII 码方式显示每一个数据包(不会显示数据包中链路层头部信息). 在抓取包含网页数据的数据包时, 可方便查看数据
+-i any: 监听所有网络接口
+-i eth0: 监听指定的网络接口 (eth0) 
+-D: 列出所有可用的网络接口
+-n: 不解析主机名
+-nn: 不解析主机名和端口名
+-q: 输出较少的信息
+-t: 更便于阅读的时间戳输出
+-tttt: 最便于阅读的时间戳输出
+-X: 以 HEX 和 ASCII 模式输出数据包的内容
+-XX: 与 -X 选项相同,同时还输出 ethernet 头
+-v, -vv, -vvv: 输出更多数据包的信息
+-c: count 接受到 count 个数据包后退出, 限制读取的数据包数量.
+-s: 定义 snaplength (size) ,-s0 表示获取全部
+-S: 输出绝对序列号
+-e: 获取 ethernet 头信息
+-E: 通过提供 key 来解密 IPSEC 流量
+-D 打印系统中所有tcpdump可以在其上进行抓包的网络接口. 每一个接口会打印出数字编号, 相应的接口名字, 以及可能的一个网络接口描述. 其中网络接口名字和数字编号可以用在tcpdump 的-i flag 选项(nt: 把名字或数字代替flag), 来指定要在其上抓包的网络接口.
+-X 显示数据包的内容
+-i interface : 指定监听哪个网络设备, 如不指定,监听number最小的
+-t Don't print a timestamp on each dump line.
+-tt Print the timestamp, as seconds since January 1, 1970, 00:00:00, UTC, and fractions of a second since that time, on each dump line.
+-ttt Print a delta (micro-second resolution) between current and previous line on each dump line.
+-tttt Print a timestamp, as hours, minutes, seconds, and fractions of a second since midnight, preceded by the date, on each dump line.
+-ttttt Print a delta (micro-second resolution) between current and first line on each dump line.
+-A 以ASCII码方式显示每一个数据包(不会显示数据包中链路层头部信息). 在抓取包含网页数据的数据包时, 可方便查看数据(nt: 即Handy for capturing web pages).
+-x: 打印每个包的头部数据, 同时会以16进制打印出每个包的数据(但不包括连接层的头部)
+-xx: 打印每个包的头部数据, 同时会以16进制打印出每个包的数据, 其中包括数据链路层的头部
+-X: 打印每个包的头部数据, 同时会以16进制和 ASCII 码形式打印出每个包的数据(但不包括连接层的头部)
+-XX: 打印每个包的头部数据, 同时会以16进制和 ASCII 码形式打印出每个包的数据, 其中包括数据链路层的头部
 ```
 
 ### flags
 
-flags 是TCP包中的标志信息,一个包中有可以设置多个标志位
+flags 是 TCP 包中的标志信息, 一个包中有可以设置多个标志位
 
 | TCP        | Flag    | tcpdump Flag Meaning                                      |
 | ------     | ------- | ----------------------------------------------------      |
 | SYN        | S       | Syn packet, a session establishment request. 发起连接标志  |
 | ACK        | A       | Ack packet, acknowledge sender's data.                    |
 | FIN        | F       | Finish flag, indication of termination. 关闭连接标志       |
-| RESET      | R       | Reset, indication of immediate abort of conn. 异常关闭连接 |
+| RESET/RST  | R       | Reset, indication of immediate abort of conn. 异常关闭连接 |
 | PUSH/PSH   | P       | Push, immediate push of data from sender. 传送数据标志     |
 | URGENT     | U       | Urgent, takes precedence over other data.                 |
 | NONE       | A dot . | Placeholder, usually used for ACK.                        |
@@ -473,17 +473,12 @@ CWR | ECE | URG | ACK | PSH | RST | SYN | FIN
   
 3) 发起方收到接收方回应后再发送带有ACK标志的数据包进行回应
 
-## 0 15 31
-
-## | source port | destination port |
-
-## | sequence number |
-
-## | acknowledgment number |
-
-## | HL | rsvd |C|E|U|A|P|R|S|F| window size |
-
-## | TCP checksum | urgent pointer |
+0 15 31
+| source port | destination port |
+| sequence number |
+| acknowledgment number |
+| HL | rsvd |C|E|U|A|P|R|S|F| window size |
+| TCP checksum | urgent pointer |
 
 一个TCP头部,在不包含选项数据的情况下通常占用20个字节(nt | rt:options 理解为选项数据,需回译). 第一行包含0到3编号的字节,
   

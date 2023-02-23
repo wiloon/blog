@@ -42,19 +42,20 @@ YubiKey还可以作为标准的 OpenPGP Smart Card 使用, 用来存储 PGP 私�
 以上提到的三个功能是可以同时使用的,相互之间并不冲突。
 
 <https://wiki.archlinux.org/index.php/yubikey#Introduction>
-  
+
 <https://www.bookstack.cn/read/yubikey-handbook-chinese/ssh-authenticating-ssh-with-piv-and-pkcs11-client-troubleshooting.md>
-  
+
 <https://blog.dwx.io/yubikey4/>
-  
+
 <https://www.bookstack.cn/read/yubikey-handbook-chinese/piv-use-cases.md>
 
 <https://bigeagle.me/2012/05/yubikey/>
-  
+
 <https://bigeagle.me/2016/02/yubikey-4/>
-  
+
 <https://blog.blahgeek.com/yubikey-intro/>
-><https://bitbili.net/yubikey_5_nfc_functions.html>
+
+<https://bitbili.net/yubikey_5_nfc_functions.html>
 
 ### piv ssh key
 

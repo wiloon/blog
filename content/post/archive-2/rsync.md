@@ -4,16 +4,21 @@ author: "-"
 date: 2016-05-31T05:02:22+00:00
 url: rsync
 categories:
-  - Inbox
+  - Linux
 tags:
   - reprint
 ---
 ## rsync
 
+## install rsync
+
 ```bash
-  
+pacman -S rsync
+sudo apt install rsync
+```
+
+```bash
 rsync -azP source dest
-  
 ```
 
 -z选项,压缩传输的文件:
@@ -80,5 +85,5 @@ $ rsync -azP source dest
   
 Share the post "使用rsync命令同步本地目录和远程主机目录"
 
-    使用rsync命令同步本地目录和远程主机目录
+使用rsync命令同步本地目录和远程主机目录
   

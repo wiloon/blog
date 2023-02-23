@@ -2,7 +2,7 @@
 title: golang JSON
 author: "-"
 date: 2012-04-25T08:50:44+00:00
-url: /?p=3031
+url: go/json
 categories:
   - inbox
 tags:
@@ -311,7 +311,9 @@ encoded data :
   
 [123 34 78 97 109 101 34 58 34 88 105 97 111 32 77 105 110 103 34 44 34 65 103 101 34 58 49 54 44 34 71 117 97 107 101 34 58 116 114 117 101 44 34 67 108 97 115 115 101 115 34 58 91 34 77 97 116 104 34 44 34 69 110 103 108 105 115 104 34 44 34 67 104 105 110 101 115 101 34 93 44 34 80 114 105 99 101 34 58 57 46 57 57 125]
 
-## {"Name":"Xiao Ming","Age":16,"Guake":true,"Classes":["Math","English","Chinese"],"Price":9.99}
+```json
+{"Name":"Xiao Ming","Age":16,"Guake":true,"Classes":["Math","English","Chinese"],"Price":9.99}
+```
 
 show Student :
 

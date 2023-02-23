@@ -12,6 +12,12 @@ tags:
 ---
 ## ansible basic command
 
+## commands
+
+```bash
+ansible-galaxy collection install community.general
+```
+
 ## install
 
 ### Installing Ansible on Ubuntu
@@ -21,6 +27,12 @@ sudo apt update
 sudo apt install software-properties-common
 sudo add-apt-repository --yes --update ppa:ansible/ansible
 sudo apt install ansible
+```
+
+### macos
+
+```bash
+brew install ansible
 ```
 
 ## commands
@@ -45,6 +57,21 @@ interpreter_python = auto_legacy_silent
 # gather 超时时间
 gather_timeout=30
 
+```
+
+## inventory
+
+默认的 Inventory 路径 `/etc/ansible/hosts`
+
+### /etc/ansible/hosts
+
+```bash
+[dev]
+192.168.50.31
+
+# 指定端口
+[bwg]
+66.112.212.1:10000
 ```
 
 ## 复制文件, copy 模块
@@ -76,7 +103,7 @@ sudo ansible 192.168.1.11 -m file -a 'path=/home/roy/xxx/ state=absent'
 ### hibernate, 临时的 inventory file
 
 ```bash
-ansible -i '192.168.97.1,' all  -m shell -a 'sudo systemctl hibernate'  -u user0
+ansible -i '192.168.50.31,' all  -m shell -a 'sudo systemctl hibernate'  -u user0
 ```
 
 ### verbos
@@ -104,7 +131,12 @@ ansible 'group0:!192.168.1.1' -m ping
 ansible-playbook playbook.yml --start-at-task="install packages"
 ansible-playbook playbook.yml --step
 
+# 临时的 inventory file, 如果只有一个 ip, inventory host 列表结尾要要逗号.
 ansible -i '192.168.1.1,' -m ping all
+# 多个 ip
+ansible -i '192.168.50.11,192.168.50.130' all -m ping
+# 指定 ssh 端口
+ansible -i '192.168.1.1:10000,' -m ping all
 
 export ANSIBLE_ASK_SUDO_PASS=true
 --extra-vars "ansible_sudo_pass=xxx"

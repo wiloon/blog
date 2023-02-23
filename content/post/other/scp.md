@@ -1,21 +1,27 @@
 ---
 title: scp
 author: "-"
-date: 2011-07-19T04:32:18+00:00
+date: 2023-01-08 12:33:41
 url: scp
 categories:
   - Linux
 tags:
   - Shell
-
+  - reprint
+  - remix
 ---
 ## scp
 
 scp 可以在两个 linux 主机间复制文件；
 
+```bash
+# 复制目录 -r
+scp -r local_folder remote_username@remote_ip:remote_folder
+```
+
 ## ash: /usr/libexec/sftp-server: not found
 
-This is a consequence of your client machine using a very recent OpenSSH release (9.0 - check https://www.openssh.com/txt/release-9.0 62 for more info), which changes the scp program to use the SFTP protocol under the hood, which vanilla OpenWrt/dropbear installations do not support. To work around the problem on the client side, use the new -O (that is an uppercase letter "o") switch when invoking scp, which will cause it to fall back to the legacy behavior.
+This is a consequence of your client machine using a very recent OpenSSH release (9.0 - check <https://www.openssh.com/txt/release-9.0> 62 for more info), which changes the scp program to use the SFTP protocol under the hood, which vanilla OpenWrt/dropbear installations do not support. To work around the problem on the client side, use the new -O (that is an uppercase letter "o") switch when invoking scp, which will cause it to fall back to the legacy behavior.
 
 <https://forum.openwrt.org/t/ash-usr-libexec-sftp-server-not-found-when-using-scp/125772/2>
 
@@ -75,40 +81,3 @@ scp /home/space/music/1.mp3 root@www.cumt.edu.cn:/home/root/others/music/001.mp3
 scp /home/space/music/1.mp3 www.cumt.edu.cn:/home/root/others/music
 
 scp /home/space/music/1.mp3 www.cumt.edu.cn:/home/root/others/music/001.mp3
-
-* 复制目录:  
-* 命令格式:
-
-scp -r local_folder remote_username@remote_ip:remote_folder
-
-或者
-
-scp -r local_folder remote_ip:remote_folder
-
-第1个指定了用户名，命令执行后需要再输入密码；
-
-第2个没有指定用户名，命令执行后需要输入用户名和密码；
-
-* 例子:
-
-scp -r /home/space/music/ root@www.cumt.edu.cn:/home/root/others/
-
-scp -r /home/space/music/ www.cumt.edu.cn:/home/root/others/
-
-上面 命令 将 本地 music 目录 复制 到 远程 others 目录下，即复制后有 远程 有 ../others/music/ 目录
-
-===============================================================================
-
-从 远程 复制到 本地，只要将 从 本地 复制到 远程 的命令 的 后2个参数 调换顺序 即可；
-
-例如:
-
-scp root@www.cumt.edu.cn:/home/root/others/music /home/space/music/1.mp3
-
-scp -r www.cumt.edu.cn:/home/root/others/ /home/space/music/
-
-最简单的应用如下 :
-
-scp 本地用户名 @IP 地址 : 文件名 1 远程用户名 @IP 地址 : 文件名 2
-
-[ 本地用户名 @IP 地址 :] 可以不输入 , 可能需要输入远程用户名所对应的密码 .
