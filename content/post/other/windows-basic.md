@@ -41,7 +41,7 @@ copy C:\Users\desktop\foo.txt D:\backup\ && D:\backup\foo.exe
 
 <https://uupdump.net/>
 
-### 查看windows的版本
+### 查看 windows 的版本
 
 ```bash
 winver
@@ -60,8 +60,8 @@ netsh interface set interface "eth0" enabled
 ping -n 3 127.0.0.1>nul
 ```
 
-说明: 3为ping包发送次数，可作为延迟秒数进行使用，需要延迟几秒就设置几。
->nul避免屏幕输出，将输出输入到空设备，因为不需要结果，仅用到其定时功能。
+说明: 3为ping包发送次数，可作为延迟秒数进行使用，需要延迟几秒就设置几。  
+nul避免屏幕输出，将输出输入到空设备，因为不需要结果，仅用到其定时功能。  
 
 ### 查看开放端口
 
