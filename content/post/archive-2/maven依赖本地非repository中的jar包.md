@@ -8,7 +8,7 @@ categories:
 tags:
   - reprint
 ---
-## maven依赖本地非repository中的jar包
+## maven 依赖本地非 repository 中的 jar 包
 
 maven依赖本地非repository中的jar包
   
