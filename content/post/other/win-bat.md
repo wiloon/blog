@@ -2,11 +2,12 @@
 title: windows bat basic
 author: "-"
 date: 2013-04-17T12:40:36+00:00
-url: /?p=5406
+url: bat
 categories:
-  - inbox
+  - windows
 tags:
   - reprint
+  - remix
 ---
 ## windows bat basic
 
@@ -78,39 +79,48 @@ rem是一条命令, 在运行的时候相当于把 rem 本身及其后面的内�
 经验告诉我们,在复合语句中使用":"经常会出问题。那么究竟什么时候会出现问题？
 
 ### sleep
-在批次檔(*.bat)中內建並沒有 SLEEP 命令,當你在執行批次任務時若需要暫停執行幾秒鐘,就需要一些小技巧來實現了,以下分享幾個我之前用過的技巧: 
 
-**1. 利用 PING 指令幫忙停 5 秒**
+在批次檔(*.bat)中內建並沒有 SLEEP 命令,當你在執行批次任務時若需要暫停執行幾秒鐘,就需要一些小技巧來實現了,以下分享幾個我之前用過的技巧:
+
+- 利用 PING 指令帮忙停 5 秒
 
 每壹台電腦都有 PING 執行檔,這個最好用啦!
 
-  @ping 127.0.0.1 -n 5 -w 1000 > nul
+```bat
+@ping 127.0.0.1 -n 5 -w 1000 > nul
+```
 
-**2. 利用 CHOICE 指令**
+- 利用 CHOICE 指令
 
-CHOICE 命令在 Windows XP 中找不到,但在 Windows Server 2003 或 Vista 都有內建。
+CHOICE 命令在 Windows XP 中找不到, 但在 Windows Server 2003 或 Vista 都有內建。
 
-  @CHOICE /C YN /N /T 5 /D y > nul
+```bat
+@CHOICE /C YN /N /T 5 /D y > nul
+```
 
-
-**3. 安裝 **Windows Server 2003 Resource Kit Tools** 即可獲得 sleep.exe 工具**
+- 安裝Windows Server 2003 Resource Kit Tools即可獲得 sleep.exe 工具
 
 預設安裝路徑在 **C:Program FilesWindows Resource KitsTools** 目錄下會有個 sleep.exe 執行檔
 
-  sleep 5
+```bat
+sleep 5
+```
 
-**4. 利用 TIMEOUT 指令**
+- 利用 TIMEOUT 指令
 
-TIMEOUT 命令在 Windows Server 2003 或 Vista 之後都有內建。
+TIMEOUT 命令在 Windows Server 2003 或 Vista 之后都有內建。
 
-  timeout /t 5
-http://blog.miniasp.com/post/2009/06/24/Sleep-command-in-Batch.aspx
+```bat
+timeout /t 1
+```
+
+<http://blog.miniasp.com/post/2009/06/24/Sleep-command-in-Batch.aspx>
 
 ### setlocal enabledelayedexpansion: 设置本地为延迟扩展
+
 setlocal enabledelayedexpansion: 设置本地为延迟扩展
 
 在cmd执行命令前会对脚本进行预处理,其中有一个过程是变量识别过程,在这个过程中,如果有两个%括起来的如%value%类似这样的变量,就会对其进行识别,并且查找这个变量对应的值,再而将值替换掉这个变量,这个替换值的过程,就叫做变量扩展,然后再执行命令。
-
 
 为了更好的说明问题,先引入一个例子。
 例1:
@@ -123,8 +133,7 @@ pause
 结果: 4
 解说: 为什么是4而不是5呢？在echo之前明明已经把变量a的值改成5了？让我们先了解一下批处理运行命令的机制: 批处理读取命令时是按行读取的 (另外例如for命令等,其后用一对圆括号闭合的所有语句也当作一行) ,在处理之前要完成必要的预处理工作,这其中就包括对该行命令中的变量赋值。我们现在分析一下例1,批处理在运行到这句"set a=5&echo %a%"之前,先把这一句整句读取并做了预处理——对变量a赋了值,那么%a%当然就是4了！ (没有为什么,批处理就是这样做的。) 而为了能够感知环境变量的动态变化,批处理设计了变量延迟。简单来说,在读取了一条完整的语句之后,不立即对该行的变量赋值,而会在某个单条语句执行之前再进行赋值,也就是说"延迟"了对变量的赋值。那么如何开启变量延迟呢？变量延迟又需要注意什么呢？
 
-
-举个例子说明一下: 
+举个例子说明一下:
 例2:
 复制代码 代码如下:
 @echo off
