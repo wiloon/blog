@@ -261,8 +261,13 @@ kafka_2.13-3.1.0.jar
 - 删除 topic
 
 ```bash
+# normal kafka
 bin/kafka-topics.sh --bootstrap-server localhost:9092 --delete --topic topic0
-./bin/kafka-topics --delete --zookeeper 【zookeeper server:port】 --topic 【topic name】
+# tls kafka
+bin/kafka-topics.sh --bootstrap-server 127.0.0.1:9093 --delete --topic topic0  --command-config /root/tmp/kafka.conf
+
+# old version
+bin/kafka-topics.sh --topic t0 --delete --zookeeper test-zookeeper-1
 ```
 
 - 删除kafka存储目录
