@@ -25,7 +25,7 @@ git svn init https://url.to.svn.repo
 git svn fetch -r 1342:HEAD
 ```
 
-### 从中心服务器的svn repository获取最新更新
+### 从中心服务器的 svn repository 获取最新更新
 
 这个操作可以通过"git-svn rebase"完成。注意这里用的是rebase,而不是update。update命令对于通过git-svn检出的svn repostory的git版本库是不可用的。
 
