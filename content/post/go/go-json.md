@@ -4,7 +4,7 @@ author: "-"
 date: 2012-04-25T08:50:44+00:00
 url: go/json
 categories:
-  - inbox
+  - Go
 tags:
   - reprint
 ---

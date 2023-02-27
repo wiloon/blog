@@ -9,7 +9,8 @@ tags:
   - reprint
 ---
 ## Foo 是什么意思
-http://www.cnblogs.com/felicity/archive/2010/11/30/1892100.html
+
+<http://www.cnblogs.com/felicity/archive/2010/11/30/1892100.html>
   
 不管是java，C++，还是PHP，每次都能看到 foo = bar 的例子，这两个单词很恶心，foo查不到字典，bar的解释又让人跟编程联系不上，更弄不清楚这个神秘的foo是个什么关系。
   
@@ -23,11 +24,11 @@ http://www.cnblogs.com/felicity/archive/2010/11/30/1892100.html
   
 为了这个可恶的foo，居然还动用RFC给foo下了一个明确的词源追踪，无聊的童鞋可以看RFC3092解解闷。
   
-中文RFC3092地址http://www.computersci.net/articles/rfc/RFC3092.txt
+中文RFC3092地址<http://www.computersci.net/articles/rfc/RFC3092.txt>
   
 --------------------------------
   
-下面是网上搜刮来的各种解释: 
+下面是网上搜刮来的各种解释:
   
 Foo: 本意指程序员用来代表数据、功能或命令的变量。O'Reilly媒体认为FOO是Friends of O'Reilly的缩写，并把他们在2003年举办的年会命名为"2003 FOO"。现在则更多地指声势浩大的某行业大会。
   
@@ -77,7 +78,7 @@ Holman的漫画描写了一台两轮消防车名叫Foomobile。 该系列漫画�
   
 二战后该术语在美国军队仍存留下来。在1944-45 年，术语'foo fighters'[FF] 被雷达操作员用来描述一种神秘的或伪造的轨迹。那后来被称为UFO ( 在1995年通过一个叫Better grunge-rock bands[BFF] 的词老的术语又重新露面) 。据信它和漫画Smokey Stover 有关[PERS]。
   
-战争中美国和英国军队经常交换俚语。Period sources报告说二战中'FOO' 变成了半传奇式的主题，英国军队的涂鸦或多或少等于美国的Kilroy [WORDS]。 英国军队走到哪里，都会涂上"FOO was here"或者类似的话。几本俚语字典断言FOO 来自前线巡查官，但这 (像同时代的"FUBAR") 也许 是backronym[JARGON]。 40年后，Paul Dickson的优秀著作"Words"[WORDS]追踪"Foo"到了一个不明的英国海军杂志，引用如下: 
+战争中美国和英国军队经常交换俚语。Period sources报告说二战中'FOO' 变成了半传奇式的主题，英国军队的涂鸦或多或少等于美国的Kilroy [WORDS]。 英国军队走到哪里，都会涂上"FOO was here"或者类似的话。几本俚语字典断言FOO 来自前线巡查官，但这 (像同时代的"FUBAR") 也许 是backronym[JARGON]。 40年后，Paul Dickson的优秀著作"Words"[WORDS]追踪"Foo"到了一个不明的英国海军杂志，引用如下:
   
 "Mr. Foo is a mysterious Second World War product, gifted with bitter omniscience and sarcasm."
   
@@ -87,7 +88,7 @@ Holman的漫画描写了一台两轮消防车名叫Foomobile。 该系列漫画�
   
 传了下来，Crumb '全集'的学生确定它参考的是较早的Smokey Stover 漫 画。Crumb的作品可能也受到1951-52年出版的的短命加拿大滑稽杂志"Foo"的影响[JARGON]。
   
-一个old-time成员报告说在1959年TMRC (MIT 的技术模型铁路俱乐部) 编译的"TMRC语言字典" 中有Foo 的词条。当前在线版本中的"Foo" 是唯一标记为红色的词，有如下内容[TMRC]: 
+一个old-time成员报告说在1959年TMRC (MIT 的技术模型铁路俱乐部) 编译的"TMRC语言字典" 中有Foo 的词条。当前在线版本中的"Foo" 是唯一标记为红色的词，有如下内容[TMRC]:
   
 Foo: The sacred syllable (FOO MANI PADME HUM); to be spoken only when under obligation to commune with the Deity. Our first obligation is to keep the Foo Counters turning.
   
@@ -117,9 +118,7 @@ The etymology of hackish \`foo ' is obscure. When used in connection with \`bar 
   
 FUBAR.)
 
-However, the use of the word \`foo ' itself has more complicated antecedents, including a long history in comic
-  
-strips and cartoons. The old "Smokey Stover " comic strips by Bill Holman often included the word \`FOO ', in
+However, the use of the word \`foo ' itself has more complicated antecedents, including a long history in comic strips and cartoons. The old "Smokey Stover " comic strips by Bill Holman often included the word \`FOO ', in
   
 particular on license plates of cars; allegedly, \`FOO ' and \`BAR ' also occurred in Walt Kelly 's "Pogo " strips. In the
   
@@ -151,7 +150,7 @@ operators used it for the kind of mysterious or spurious trace that would later 
   
 resurfaced in popular American usage in 1995 via the name of one of the better grunge-rock bands).
 
-Earlier versions of this entry suggested the possibility that hacker usage actually sprang from "FOO, Lampoons and Parody ", the title of a comic book first issued in September 1958, a joint project of Charles and Robert   
+Earlier versions of this entry suggested the possibility that hacker usage actually sprang from "FOO, Lampoons and Parody ", the title of a comic book first issued in September 1958, a joint project of Charles and Robert
 Crumb. Though Robert Crumb (then in his mid-teens) later became one of the most important and influential
   
 artists in underground comics, this venture was hardly a success; indeed, the brothers later burned most of the
@@ -167,7 +166,7 @@ An old-time member reports that in the 1959 "Dictionary of the TMRC Language ", 
 an entry that went something like this:
 
 FOO: The first syllable of the sacred chant phrase "FOO MANE PADME HUM. " Our first obligation
-            
+
 is to keep the foo counters turning.
 
 For more about the legendary foo counters, see TMRC. Almost the entire staff of what later became the MIT AI

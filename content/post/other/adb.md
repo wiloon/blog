@@ -706,8 +706,8 @@ adb shell
       
         连接模拟器/设施执行Shell命令，执行完毕后退出远程Shell端l
 
-
 ## archlinux, adb
+
 ```bash
 pacman -S android-tools
 ```
