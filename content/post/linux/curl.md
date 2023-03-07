@@ -26,7 +26,7 @@ curl [kɜrl]
 -v, verbos
 -N, Disables the buffering of the output stream
 -H, --header LINE Custom header to pass to server (H)
--d, --data DATA HTTP POST data, 如果使用-d命令，curl会以application/x-www-url-encoded格式上传参数。
+-d, --data # DATA HTTP POST data, 如果使用 -d 命令，curl 会以 application/x-www-url-encoded 格式上传参数。 从文件中读取数据 -d @/path/to/foo.json
 --retry, 重试次数
 # 如果使用了 -F 参数，curl 会以 multipart/form-data 的方式发送 POST 请求。-F 以 key=value 的形式指定要上传的参数，如果是文件，则需要使用 key=@file 的形式。
 -k, --insecure flag to skip certificate validation.
@@ -206,3 +206,5 @@ curl -v -i -N -H "Connection: Upgrade" -H "Upgrade: websocket" -H "Host: 127.0.0
 <https://curl.se/libcurl/c/libcurl-errors.html>
 
 <https://curl.se>
+
+<https://curl.se/docs/manpage.html>
