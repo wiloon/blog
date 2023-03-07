@@ -9,6 +9,7 @@ tags:
   - inbox
 ---
 ## jvm
+
 JVM是Java Virtual Machine (Java虚拟机）的缩写
 
 常用jvm
@@ -21,41 +22,35 @@ JVM是Java Virtual Machine (Java虚拟机）的缩写
 IBM 开源了它开发的 J9 Java 虚拟机 (JVM)，并将其贡献给了 Eclipse 基金会，重命名为 Eclipse OpenJ9。J9 是一个高性能可伸缩的 Java 虚拟机，是许多 IBM 企业级软件产品的核心，OpenJ9 可作为 Hotspot 的替代者用于 OpenJDK
 
 Java虚拟机四大组成部分
+
 - 执行引擎(解释器和即时编译器)
 - 类加载器
 - 运行时数据区
 - 垃圾回收器
 
 ### 执行引擎 Execution Engine
+
 Java虚拟机的执行引擎主要是用来执行Java字节码。JVM的执行引擎执行字节码通过两种解释器执行的：字节码解释器与模板解释器，运行过程中，可能会触发即时编译 (JIT），涉及到几种即时编译器，下面分别进行介绍。
 执行引擎是Java虛拟机核心的组成部分之一。
 
-
 虚拟机是一个相对于“物理机”的概念，这两种机器都有代码执行能力，其区别是物理机的执行引擎是直接建立在处理器、缓存、指令集和操作系统层面上的，而虚拟机的执行引擎则是由软件自行实现的，因此可以不受物理条件制约地定制指令集与执行引擎的结构体系，能够执行那些不被硬件直接支持的指令集格式。
-
 
 JVM的主要任务是负责装载字节码到其内部，但字节码并不能够直接运行在操作系统之上，因为字节码指令并非等价于本地机器指令，它内部包含的仅仅只是一些能够被JVM所识别的字节码指令、符号表，以及其他辅助信息。
 
-
 如果想要让一个Java程序运行起来，执行引擎(Execution Engine)的任务就是将字节码指令解释/编译为对应平台上的本地机器指令才可以。简单来说，JVM中的执行引擎充当了将高级语言翻译为机器语言的译者。
- 
 
 ### 解释器分类
-在Java的发展历史里，一共有两套解释执行器，即古老的字节码解释器、现在普遍使用的模板解释器。
 
+在Java的发展历史里，一共有两套解释执行器，即古老的字节码解释器、现在普遍使用的模板解释器。
 
 字节码解释器：在执行时通过纯软件代码模拟字节码的执行，效率非常低下。
 
-
 模板解释器：将每一条字节码和一个模板函数相关联，模板函数中直接产生这条字节码执行时的本地机器代码，从而很大程度上提高了解释器的性能。
-
 
 在HotSpot VM中，解释器主要由Interpreter模块和Code模块构成。
 
 Interpreter模块:实现了解释器的核心功能
 Code模块:用于管理HotSpotVM在运行时生成的本地机器指令
-
-
 
 JIT编译器(Just In Time Compiler)
 就是虚拟机将源代码直接编译成和本地机器平台相关的汇编语言,通过汇编生成机器代码。
@@ -72,20 +67,23 @@ Hotspot JIT编译器生成的是汇编代码，保存在方法区的JIT缓存区
 当虚拟机启动的时候，解释器可以首先发挥作用，而不必等待即时编译器全部编译完成再执行，这样可以省去许多不必要的编译时间。并且随着程序运行时间的推移，即时编译器逐渐发挥作用，根据热点探测功能，将有价值的字节码编译为汇编语言，以换取更高的程序执行效率。
 
 作者：小伙子vae
-链接：https://juejin.cn/post/6995362542386151431
+链接：<https://juejin.cn/post/6995362542386151431>
 来源：稀土掘金
 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
 
 ### HotSpot
 
-https://github.com/openjdk/jdk/tree/master/src/hotspot
+<https://github.com/openjdk/jdk/tree/master/src/hotspot>
 
 ## java, JVM flags, params, 参数, xms xmx xmn xss
+
 ### -Xms, -XX:InitialHeapSize
+
 单位是 Byte，但同时也支持使用速记符号，比如“k”或者“K”代表“kilo”，“m”或者“M”代表“mega”，“g”或者“G”代表“giga”。
 JVM初始分配的堆内存大小，默认物理内存的1/64(<1GB)
 
 ### -Xmx, -XX:MaxHeapSize
+
 最大堆大小,默认物理内存的1/4(<1GB),
 
 ```bash
@@ -111,7 +109,8 @@ java -XX:MaxHeapSize=2g app0
 每次扩展堆的时候最小增长
 
 ### -XX:+PrintCommandLineFlags
-显示出VM初始化完毕后所有跟最初的默认值不同的参数及它们的值。  (JDK5以上支持) 
+
+显示出VM初始化完毕后所有跟最初的默认值不同的参数及它们的值。  (JDK5以上支持)
 
 ```bash
 java -XX:+PrintCommandLineFlags -version
@@ -137,7 +136,7 @@ JIT(just-in-time 即时) 编译器后台的编译线程数
 
 使用 -XX:+PrintCompilation 编译的日志就会打印在console里面，如果需要更详细记录到文件的话，
   
-就加上 -XX:+LogCompilation -XX:LogFile=<path to file>，这两个flag会开启记录xml格式的更详细编译日志。
+就加上 `-XX:+LogCompilation -XX:LogFile=<path to file>`，这两个flag会开启记录xml格式的更详细编译日志。
 
 ### -XX:+UseCompressedClassPointers
 
@@ -158,9 +157,11 @@ Java堆中对象的对象指针被压缩到32bit
 使用堆基地址 (如果在低26G内存空间中，为0) 即，指针的偏移量针对于堆的基地址
 
 ### -XX:+TraceClassLoading    -Xlog:class+load=info
+
 -XX:+TraceClassLoading 显示类的加载信息, jdk 16 里面作废掉了,  用 -Xlog:class+load=info
 
 ### -XX:+HeapDumpOnOutOfMemoryError
+
 JVM在发生内存溢出时自动的生成堆内存快照
 默认情况下，堆内存快照会保存在JVM的启动目录下名为java_pid<pid>.hprof 的文件里 (在这里<pid>就是JVM进程的进程号) 。也可以通过设置-XX:HeapDumpPath=<path>来改变默认的堆内存快照生成路径，<path>可以是相对或者绝对路径。
 
@@ -192,17 +193,18 @@ jdk7---
   
 指定最大的堆外内存大小
 
-JVM启动参数共分为三类: 
-          
+JVM启动参数共分为三类:
+
 其一是标准参数 (-) ，所有的JVM实现都必须实现这些参数的功能，而且向后兼容；
-          
+
 其二是非标准参数 (-X) ，指的是JVM底层的一些配置参数，这些参数在一般开发中默认即可，不需要任何配置。但是在生产环境中，并不保证所有jvm实现都满足，所以为了提高性能，往往需要调整这些参数，以求系统达到最佳性能。
-                                             
+
 另外这些参数不保证向后兼容，也即是说"如有变更，恕不在后续版本的JDK通知" (这是官网上的原话) ；
-          
+
 其三是非Stable参数 (-XX) ，这类参数在jvm中是不稳定的，不适合日常使用的，后续也是可能会在没有通知的情况下就直接取消了，需要慎重使用。
 
 ### -Xss, -XX:ThreadStackSize, java 线程栈
+
 -Xss 是在HotSpot之前就在使用的配置(很多其它的java虚拟机都支持), -XX:ThreadStackSize 是 HotSpot 特有的配置.
 Xss越大，每个线程的大小就越大，占用的内存越多，能容纳的线程就越少; Xss越小，则递归的深度越小，容易出现栈溢出 java.lang.StackOverflowError。减少局部变量的声明，可以节省栈帧大小，增加调用深度。不显式设置-Xss或-XX:ThreadStackSize时，在Linux x64上ThreadStackSize的默认值就是 1024KB
 
@@ -211,18 +213,17 @@ Xss越大，每个线程的大小就越大，占用的内存越多，能容纳�
 ---
 
 作者: RednaxelaFX
-链接: https://www.zhihu.com/question/27844575/answer/38370294
+链接: <https://www.zhihu.com/question/27844575/answer/38370294>
 来源: 知乎
 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
 
-http://mail.openjdk.java.net/pipermail/hotspot-dev/2011-June/004272.html
+<http://mail.openjdk.java.net/pipermail/hotspot-dev/2011-June/004272.html>
 
-http://mail.openjdk.java.net/pipermail/hotspot-dev/2011-July/004288.html
-
+<http://mail.openjdk.java.net/pipermail/hotspot-dev/2011-July/004288.html>
 
 jvm的线程栈申请的内存空间属于堆外内存，是向操作系统申请的，也不是JVM直接内存
 
-https://blog.csdn.net/x763795151/article/details/90417816
+<https://blog.csdn.net/x763795151/article/details/90417816>
 
 ---
 
@@ -282,7 +283,7 @@ XX:+UseParNewGC: 使用ParNew + Serial Old 收集器组合
   
 JVM 中最大堆大小有三方面限制: 相关操作系统的数据模型 (32-bt还是64-bit) 限制；系统的可用虚拟内存限制；系统的可用物理内存限制。32位系统下，一般限制在1.5G~2G；64为操作系统对内存无限制。我在Windows Server 2003 系统，3.5G物理内存，JDK5.0下测试，最大可设置为1478m。
   
-典型设置: 
+典型设置:
   
 java -Xms3550m -Xmx3550m -Xmn2g -Xss128k
   
@@ -312,7 +313,7 @@ JVM给了三种选择: 串行收集器、并行收集器、并发收集器，但
   
 如上文所述，并行收集器主要以到达一定的吞吐量为目标，适用于科学技术和后台处理等。
   
-典型配置: 
+典型配置:
   
 java -Xmx3800m -Xms3800m -Xmn2g -Xss128k -XX:+UseParallelGC -XX:ParallelGCThreads=20
   
@@ -334,7 +335,7 @@ java -Xmx3550m -Xms3550m -Xmn2g -Xss128k -XX:+UseParallelGC -XX:MaxGCPauseMillis
   
 如上文所述，并发收集器主要是保证系统的响应时间，减少垃圾收集时的停顿时间。适用于应用服务器、电信领域等。
   
-典型配置: 
+典型配置:
   
 java -Xmx3550m -Xms3550m -Xmn2g -Xss128k -XX:ParallelGCThreads=20 -XX:+UseConcMarkSweepGC -
   
@@ -350,7 +351,7 @@ java -Xmx3550m -Xms3550m -Xmn2g -Xss128k -XX:+UseConcMarkSweepGC -XX:CMSFullGCsB
   
 辅助信息
   
-JVM提供了大量命令行参数，打印信息，供调试使用。主要有以下一些: 
+JVM提供了大量命令行参数，打印信息，供调试使用。主要有以下一些:
   
 -XX:+PrintGC
   
@@ -374,7 +375,7 @@ JVM提供了大量命令行参数，打印信息，供调试使用。主要有�
   
 -XX:PrintHeapAtGC:打印GC前后的详细堆栈信息
   
-输出形式: 
+输出形式:
   
 34.702: [GC {Heap before gc invocations=7:
   
@@ -426,8 +427,6 @@ rw space 12288K, 46% used [0x2b3d0000, 0x2b972060, 0x2b972200, 0x2bfd0000)
   
 -Xloggc:filename:与上面几个配合使用，把相关日志信息记录到文件以便分析。
   
-
-
 ### GC
 
 -XX:+HeapDumpOnOutOfMemoryError, -XX:HeapDumpPath
@@ -466,13 +465,13 @@ JVM 在发生内存溢出时自动的生成堆内存快照。有了这个参数�
 
 JVM gc参数设置与分析
   
-原文: 
+原文:
 
-http://hi.baidu.com/i1see1you/item/295c1dc81f91ab55bdef69e5
+<http://hi.baidu.com/i1see1you/item/295c1dc81f91ab55bdef69e5>
   
-gc日志分析工具: http://qa.blog.163.com/blog/static/19014700220128199421589/
+gc日志分析工具: <http://qa.blog.163.com/blog/static/19014700220128199421589/>
   
-Java GC 日志图解: http://www.chinasb.org/archives/2012/09/4921.shtml
+Java GC 日志图解: <http://www.chinasb.org/archives/2012/09/4921.shtml>
   
 概述
   
@@ -480,7 +479,7 @@ java的最大好处是自动垃圾回收，这样就无需我们手动的释放�
 
 回收方式的选择
   
-jvm有client和server两种模式，这两种模式的gc默认方式是不同的: 
+jvm有client和server两种模式，这两种模式的gc默认方式是不同的:
 
 client模式下，新生代选择的是串行gc，旧生代选择的是串行gc
 
@@ -492,7 +491,7 @@ CMS gc
   
 CMS，全称Concurrent Low Pause Collector，是jdk1.4后期版本开始引入的新gc算法，在jdk5和jdk6中得到了进一步改进，它的主要适合场景是对响应时间的重要性需求大于对吞吐量的要求，能够承受垃圾回收线程和应用线程共享处理器资源，并且应用中存在比较多的长生命周期的对象的应用。CMS是用于对tenured generation的回收，也就是年老代的回收，目标是尽量减少应用的暂停时间，减少full gc发生的几率，利用和应用程序线程并发的垃圾回收线程来标记清除年老代。在我们的应用中，因为有缓存的存在，并且对于响应时间也有比较高的要求，因此希望能尝试使用CMS来替代默认的server型JVM使用的并行收集器，以便获得更短的垃圾回收的暂停时间，提高程序的响应性。
 
-CMS并非没有暂停，而是用两次短暂停来替代串行标记整理算法的长暂停，它的收集周期是这样: 
+CMS并非没有暂停，而是用两次短暂停来替代串行标记整理算法的长暂停，它的收集周期是这样:
 
 初始标记(CMS-initial-mark) -> 并发标记(CMS-concurrent-mark) -> 重新标记(CMS-remark) -> 并发清除(CMS-concurrent-sweep) ->并发重设状态等待下次CMS的触发(CMS-concurrent-reset)。
 
@@ -504,7 +503,7 @@ full gc
   
 full gc是对新生代，旧生代，以及持久代的统一回收，由于是对整个空间的回收，因此比较慢，系统中应当尽量减少full gc的次数。
 
-如下几种情况下会发生full gc: 
+如下几种情况下会发生full gc:
 
 旧生代空间不足
   
@@ -540,7 +539,7 @@ Opentsdb打开Gc参数
 
 # tsdb.local
 
-# http://opentsdb.net/docs/build/html/user_guide/cli/index.html
+# <http://opentsdb.net/docs/build/html/user_guide/cli/index.html>
 
 GCARGS="-XX:+PrintGCDetails -XX:+PrintGCTimeStamps -XX:+PrintGCDateStamps\
   
@@ -552,11 +551,11 @@ GCARGS=
   
 fi
 
-# The Sun JDK caches all name resolution results forever, which is stupid.
+# The Sun JDK caches all name resolution results forever, which is stupid
 
 # This forces you to restart your application if any of the backends change
 
-# IP. Instead tell it to cache names for only 10 minutes at most.
+# IP. Instead tell it to cache names for only 10 minutes at most
 
 FIX_DNS='-Dsun.net.inetaddr.ttl=600'
   
@@ -592,7 +591,7 @@ JVMARGS="$JVMARGS $GCARGS $FIX_DNS"
 
 示例
   
-下面对如下的参数进行分析: 
+下面对如下的参数进行分析:
 
 JAVA_OPTS="-server -Xms2000m -Xmx2000m -Xmn800m -XX:PermSize=64m -XX:MaxPermSize=256m -XX:SurvivorRatio=4
 
@@ -666,15 +665,15 @@ Set thread stack size.
 
 默认CMS是在tenured generation沾满68%的时候开始进行CMS收集，如果你的年老代增长不是那么快，并且希望降低CMS次数的话，可以适当调高此值: -XX:CMSInitiatingOccupancyFraction=80
 
-遇到两种fail引起full gc: Prommotion failed和Concurrent mode failed时: 
+遇到两种fail引起full gc: Prommotion failed和Concurrent mode failed时:
   
-Prommotion failed的日志输出大概是这样: 
+Prommotion failed的日志输出大概是这样:
 
 [ParNew (promotion failed): 320138K->320138K(353920K), 0.2365970 secs]42576.951: [CMS: 1139969K->1120688K( 166784K), 9.2214860 secs] 1458785K->1120688K(2520704K), 9.4584090 secs]
 
 这个问题的产生是由于救助空间不够，从而向年老代转移对象，年老代没有足够的空间来容纳这些对象，导致一次full gc的产生。解决这个问题的办法有两种完全相反的倾向: 增大救助空间、增大年老代或者去掉救助空间。
 
-Concurrent mode failed的日志大概是这样的: 
+Concurrent mode failed的日志大概是这样的:
 
 (concurrent mode failure): 1228795K->1228598K(1228800K), 7.6748280 secs] 1911483K->1681165K(1911488K), [CMS Perm : 225407K->225394K(262144K)], 7.6751800 secs]
 
@@ -698,7 +697,7 @@ ParNew: 表示对年轻代进行的GC，使用ParNew收集器
   
 0.0527229 secs: 整个JVM此次垃圾造成用户线程的暂停时间。
   
-更全一点的参数说明: 
+更全一点的参数说明:
   
 [GC [<collector>: <starting occupancy1> -> <ending occupancy1>, <pause time1> secs] <starting occupancy3> -> <ending occupancy3>, <pause time3> secs]<collector> GC收集器的名称
   
@@ -708,11 +707,11 @@ ParNew: 表示对年轻代进行的GC，使用ParNew收集器
   
 <starting occupancy3> JVM Heap 在GC前占用的内存
   
-<ending occupancy3> JVM Heap 在GC后占用的内存 <pause time3> GC过程中jvm暂停处理的总时间 
+<ending occupancy3> JVM Heap 在GC后占用的内存 <pause time3> GC过程中jvm暂停处理的总时间
 
 GCHisto
   
-http://java.net/projects/gchisto
+<http://java.net/projects/gchisto>
 
 直接点击gchisto.jar就可以运行，点add载入gc.log
 
@@ -726,11 +725,11 @@ YoungGC,FullGC不同消耗时间上次数的分布图，勾选可以显示youngG
 
 GCLogViewer
   
-http://code.google.com/p/gclogviewer/
+<http://code.google.com/p/gclogviewer/>
 
 gclogviewer是一个支持jdk 6的gc log可视化工具。
 
-GCLogViewer支持: 
+GCLogViewer支持:
 
 支持根据gc log生成GC的趋势图；
   
@@ -742,21 +741,21 @@ Tools里还能比较不同gc日志:
 
 HPjmeter
   
-获取地址 https://h20392.www2.hpe.com/portal/swdepot/displayProductInfo.do?productNumber=HPJMETER
+获取地址 <https://h20392.www2.hpe.com/portal/swdepot/displayProductInfo.do?productNumber=HPJMETER>
   
-参考文档 http://www.javaperformancetuning.com/tools/hpjtune/index.shtml
+参考文档 <http://www.javaperformancetuning.com/tools/hpjtune/index.shtml>
   
 工具很强大，但只能打开由以下参数生成的GC log， -verbose:gc -Xloggc:gc.log,添加其他参数生成的gc.log无法打开。
 
 GCViewer
   
-http://www.tagtraum.com/gcviewer.html
+<http://www.tagtraum.com/gcviewer.html>
   
 这个工具用的挺多的，但只能在JDK1.5以下的版本中运行，1.6以后没有对应。
 
 garbagecat
   
-http://code.google.com/a/eclipselabs.org/p/garbagecat/wiki/Documentation
+<http://code.google.com/a/eclipselabs.org/p/garbagecat/wiki/Documentation>
 
 其它监控方法
   
@@ -794,29 +793,28 @@ GC日志
   
 <http://www.wiloon.com/?p=5584>
   
-http://sunbean.blog.51cto.com/972509/768034
+<http://sunbean.blog.51cto.com/972509/768034>
   
-http://xstarcd.github.io/wiki/Java/JVM_GC.html
+<http://xstarcd.github.io/wiki/Java/JVM_GC.html>
   
-http://wiki.jikexueyuan.com/project/jvm-parameter/memory-tuning.html
+<http://wiki.jikexueyuan.com/project/jvm-parameter/memory-tuning.html>
   
-https://docs.oracle.com/javase/8/docs/technotes/tools/unix/java.html
+<https://docs.oracle.com/javase/8/docs/technotes/tools/unix/java.html>
   
-http://blog.csdn.net/phj88/article/details/8011830
+<http://blog.csdn.net/phj88/article/details/8011830>
   
-http://unixboy.iteye.com/blog/174173
+<http://unixboy.iteye.com/blog/174173>
   
-https://www.zhihu.com/question/27844575
+<https://www.zhihu.com/question/27844575>
   
-http://www.cnblogs.com/redcreen/archive/2011/05/04/2037057.html
+<http://www.cnblogs.com/redcreen/archive/2011/05/04/2037057.html>
   
-http://www.oracle.com/technetwork/java/javase/tech/vmoptions-jsp-140102.html
+<http://www.oracle.com/technetwork/java/javase/tech/vmoptions-jsp-140102.html>
   
-http://xmlandmore.blogspot.com/2014/08/jdk-8-usecompressedclasspointers-vs.html
+<http://xmlandmore.blogspot.com/2014/08/jdk-8-usecompressedclasspointers-vs.html>
   
-https://www.cnblogs.com/mingforyou/archive/2012/03/03/2378143.html
+<https://www.cnblogs.com/mingforyou/archive/2012/03/03/2378143.html>
   
-https://www.cnblogs.com/zhulin-jun/p/6516292.html
+<https://www.cnblogs.com/zhulin-jun/p/6516292.html>
 
-https://docs.oracle.com/en/java/javase/16/migrate/removed-tools-and-components.html#GUID-BBCF36FE-C892-4769-95CB-AB3FFC3A3B13
-
+<https://docs.oracle.com/en/java/javase/16/migrate/removed-tools-and-components.html#GUID-BBCF36FE-C892-4769-95CB-AB3FFC3A3B13>

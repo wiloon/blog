@@ -10,13 +10,16 @@ tags:
 
 ---
 ## detached entity passed to persist
+
 病理特征: Caused by: org.hibernate.PersistentObjectException: detached entity passed to persist: com.xxx.Xxx
 
 简单地说，发生此异常即是一个游离的对象要被持久化(save)时，其ID既要ORM框架为它生成ID值，而此实体的ID却已然有值。对于新手容易出现此异常，但一些有经验的程序员有时也会碰到此问题，笔者就有一次，故与网友们"分享这次遭遇"。
 
-让ORM为即将要持久的实体生成ID值(ORM的主键策略)，是典型的做法，例如有自增长(即便是DBMS来做)、UUID，Hibernate框架则更多。因此，不能手工为此实体赋上ID值。笔者设计主要实体时，通常用UUID作主键，很显然它是字符型的。但是，有时会发现form表单为其赋一个长度为0的字符串，看html代码: 
+让ORM为即将要持久的实体生成ID值(ORM的主键策略)，是典型的做法，例如有自增长(即便是DBMS来做)、UUID，Hibernate框架则更多。因此，不能手工为此实体赋上ID值。笔者设计主要实体时，通常用UUID作主键，很显然它是字符型的。但是，有时会发现form表单为其赋一个长度为0的字符串，看html代码:
 
+```xml
 <input name="id" type="text" id="id" value=""/>
+```
 
 注意 value=""
 
@@ -24,4 +27,4 @@ tags:
 
 有时在一对一、一对多保存时，关联方也会存在这种情况，所以关键检查ID字段就可以了
 
-http://howsun.blog.sohu.com/129035715.html
+<http://howsun.blog.sohu.com/129035715.html>
