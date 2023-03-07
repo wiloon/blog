@@ -2,15 +2,17 @@
 title: Scrum
 author: "-"
 date: 2019-04-21T16:09:12+00:00
-url: /?p=14208
+url: scrum
 categories:
-  - Inbox
+  - Scrum
 tags:
   - reprint
 ---
 ## Scrum
+
 ### scrum guide
-https://www.scrumguides.org/scrum-guide.html
+
+<https://www.scrumguides.org/scrum-guide.html>
 
 Scrum是一种敏捷软件开发的方法学，用于迭代式增量软件开发过程。
   
@@ -22,11 +24,11 @@ Scrum是一个遵循敏捷宣言价值观，基于12条敏捷原则的敏捷过�
   
 Scrum是一个框架，它定义了高层次的管理流程，如下图所示。它并不涉及具体开发方法或者人员的有效沟通技巧等。这些没有涉及的领域需要和其他理论和技能互为补充，以确保项目的成功。
   
-https://desert3.iteye.com/blog/1693360
+<https://desert3.iteye.com/blog/1693360>
 
 Scrum是一种敏捷软件开发的方法学，用于迭代式增量软件开发过程。Scrum在英语是橄榄球运动中列阵争球的意思。
   
-https://zh.wikipedia.org/wiki/Scrum
+<https://zh.wikipedia.org/wiki/Scrum>
 
 处理复杂的事情，要用框架
   
@@ -36,7 +38,7 @@ https://zh.wikipedia.org/wiki/Scrum
 
 Scrum是什么？
   
-Scrum是基于敏捷思想的开发框架，用于迭代式增量软件开发过程。 它基于经验型流程控制理论，所以Scrum框架的坚信: 
+Scrum是基于敏捷思想的开发框架，用于迭代式增量软件开发过程。 它基于经验型流程控制理论，所以Scrum框架的坚信:
 
 知识源于经验
   
@@ -46,13 +48,13 @@ Scrum是基于敏捷思想的开发框架，用于迭代式增量软件开发过
   
 采用迭代增量式的方法来优化可预测性和管理风险
   
-https://www.jianshu.com/p/fff49687ebf2
+<https://www.jianshu.com/p/fff49687ebf2>
 
 Scrum概述
   
 按照Scrum官方联盟的定义，Scrum是一个完成复杂项目的敏捷框架。最初是用以指导软件开发，目前已经延伸到更多复杂和创新的工作领域中。
 
-Scrum为软件开发提供了一个迭代增量的过程框架: 
+Scrum为软件开发提供了一个迭代增量的过程框架:
 
 在Scrum中，整个开发周期包括若干个小的迭代周期，这样的小迭代周期称为Sprint，每个Sprint的建议长度2到 4周。
   
@@ -120,16 +122,14 @@ Sprint Retrospective (冲刺回顾会) : Sprint结束后回顾团队在流程、
 
 Fundamentally, the main "goal" of Software development is NOT to be « SAFE », it is to INNOVATE and CREATE. You do not create by not taking risks… it is quite the opposite:
   
-从根本上讲，软件开发的主要"目标"不是"安全"，而是创新和创造。您不能通过不冒险来创造……这恰恰相反: 
+从根本上讲，软件开发的主要"目标"不是"安全"，而是创新和创造。您不能通过不冒险来创造……这恰恰相反:
   
 Continuous Learning: Fail Fast but don't Fail twice for the same reason! » - Small incremental changes which mitigate risks and create safe conditions to implement rapid changes.
   
 «持续学习: 快速失败，但不要犯同样的错误！» - 较小的增量更改，这些更改可以降低风险并为实施快速变更创造安全的条件。
 
-https://www.tianmaying.com/qa/8
+<https://www.tianmaying.com/qa/8>
 
-
-  
     Scrum入门之三三五五
   
 
@@ -140,8 +140,8 @@ https://www.tianmaying.com/qa/8
   
     Scrum入门之三三五五
   
+<https://bobjiang.com/ama-us-airforce-devsecops>
 
+## Scrum VS. Agile
 
-
-  
-https://bobjiang.com/ama-us-airforce-devsecops
+<https://ca.indeed.com/career-advice/career-development/agile-vs-scrum?aceid=&gclid=Cj0KCQiA6LyfBhC3ARIsAG4gkF_3t2bKuVOxZjfyHAbsTyTVPbobqtEWhojF89GBYCCuJ1MQrTPRxcMaAp6TEALw_wcB&gclsrc=aw.ds>
