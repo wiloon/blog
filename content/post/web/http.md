@@ -2,7 +2,7 @@
 title: HTTP protocol， HTTP response status codes, 状态码/响应代码
 author: "-"
 date: 2011-10-16T09:47:27+00:00
-url: /?p=1075
+url: http
 categories:
   - Development
   - Web
@@ -13,11 +13,9 @@ tags:
 
 ## http header
 
-RFC 2616 规范也说明了处理 HTTP Header 应该是大小写不敏感的。
+RFC 2616 规范说明了处理 HTTP Header 应该是大小写不敏感的。
 
->Each header field consists
-   of a name followed by a colon (":") and the field value. Field names
-   are case-insensitive.
+>Each header field consists of a name followed by a colon (":") and the field value. Field names are case-insensitive.
 
 ### golang gin
 
