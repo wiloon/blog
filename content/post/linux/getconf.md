@@ -10,7 +10,7 @@ tags:
 ---
 ## getconf, 查看系统变量
 
-我们时常需要查询系统相关的信息，比如页面大小，整数大小之类，如果编写程序去计算会比较繁琐，这里有一个很有用的命令，可以用来获取系统相关信息。它就是getconf。
+我们时常需要查询系统相关的信息，比如页面大小，整数大小之类，如果编写程序去计算会比较繁琐，这里有一个很有用的命令，可以用来获取系统相关信息。它就是 getconf。
 
 getconf 用途将系统配置变量值写入标准输出,比如：
 
@@ -30,12 +30,13 @@ getconf LONG_BIT
 
 可以取得的相关信息如下(参考相关资料，在又在版本上会有些不同）：
 
-_CS_PATH    Value for the PATH environment variable used to find commands.
-ARG_MAX    Maximum length, in bytes, of the arguments for one of the exec subroutines, including environment data.
-BC_BASE_MAX    Maximum value allowed for the obase variable with the bc command.
-BC_DIM_MAX    Maximum number of elements permitted in an array by the bc command.
-BC_SCALE_MAX    Maximum value allowed for the scale variable with the bc command.
-BC_STRING_MAX    Maximum length of a string constant accepted by the bc command.
+```raw
+_CS_PATH              Value for the PATH environment variable used to find commands.
+ARG_MAX               Maximum length, in bytes, of the arguments for one of the exec subroutines, including environment data. ARG_MAX 值 不能改, 要修改只能重新编译内核
+BC_BASE_MAX           Maximum value allowed for the obase variable with the bc command.
+BC_DIM_MAX            Maximum number of elements permitted in an array by the bc command.
+BC_SCALE_MAX          Maximum value allowed for the scale variable with the bc command.
+BC_STRING_MAX         Maximum length of a string constant accepted by the bc command.
 CHARCLASS_NAME_MAX    Maximum number of bytes in a character class name.
 CHAR_BIT    Number of bits in a type character.
 CHAR_MAX    Maximum value of a type character.
@@ -76,5 +77,6 @@ UINT_MAX    Maximum value of a type unsigned int.
 ULONG_MAX    Maximum value of a type unsigned long int.
 USHRT_MAX    Maximum value of a type unsigned short int.
 WORD_BIT    Number of bits in a word or type int
+```
 
 <https://www.cnblogs.com/wjoyxt/p/4815782.html>
