@@ -20,7 +20,7 @@ ls -lR content/post |grep '\.md'|wc -w
 
 ```
 
-### 用grep -c 来统计匹配的行数
+### 用 grep -c 来统计匹配的行数
   
 grep -c 的作用类似grep | wc -l,不同的是,如果是查找多个文件,grep -c会统计每个文件匹配的行数,每行一个文件的列出来,而 wc -l 则列出总的统计数字。
   

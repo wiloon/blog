@@ -15,7 +15,8 @@ tags:
 echo 'hello' | tr '[:lower:]' '[:upper:]'
 # 转小写
 echo 'HELLO' | tr '[:upper:]' '[:lower:]'
-
+# 删除文本中的换行符
+tr -d '\n' < input.txt > output.txt
 ```
 
 什么是 tr 命令？ tr, translate 的简写
@@ -128,7 +129,7 @@ tr中特定控制字符的不同表达方式
 
 【注意】这里，凡是在file文件中出现的'S','n','a','i','l'字符都会被删除！而不是紧紧删除出现的"Snail"字符串。
 
-5. 删除文件file中出现的换行'\n'、制表'\t'字符
+## 删除文件file中出现的换行'\n'、制表'\t'字符
 
 # cat file | tr -d "\n\t" > new_file
 
