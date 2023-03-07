@@ -9,6 +9,7 @@ tags:
   - reprint
 ---
 ## 偏向锁(Biased Locking)
+
 Java偏向锁(Biased Locking) 是Java6引入的一项多线程优化。它通过消除资源无竞争情况下的同步原语,进一步提高了程序的运行性能。
 
 轻量级锁也是一种多线程优化,它与偏向锁的区别在于,轻量级锁是通过CAS来避免进入开销较大的互斥操作,而偏向锁是在无竞争场景下完全消除同步,连CAS也不执行 (CAS本身仍旧是一种操作系统同步原语,始终要在JVM与OS之间来回,有一定的开销) 。
@@ -39,8 +40,6 @@ Java偏向锁(Biased Locking) 是Java6引入的一项多线程优化。它通过
 
 所以在你非常熟悉自己的代码前提下,大可禁用偏向锁 -XX:-UseBiasedLocking 。
 
----
-
-http://blog.csdn.net/hsuxu/article/details/9472381
+<http://blog.csdn.net/hsuxu/article/details/9472381>
   
-http://www.cnblogs.com/paddix/p/5405678.html
+<http://www.cnblogs.com/paddix/p/5405678.html>

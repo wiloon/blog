@@ -20,16 +20,12 @@ tags:
 
 AbstractChannel
 
-  static final ClosedChannelException CLOSED_CHANNEL_EXCEPTION = new ClosedChannelException();
+static final ClosedChannelException CLOSED_CHANNEL_EXCEPTION = new ClosedChannelException();
 
-...
-
-    static {
-        CLOSED_CHANNEL_EXCEPTION.setStackTrace(EmptyArrays.EMPTY_STACK_TRACE);
-        NOT_YET_CONNECTED_EXCEPTION.setStackTrace(EmptyArrays.EMPTY_STACK_TRACE);
-    }
-
-...
+static {
+    CLOSED_CHANNEL_EXCEPTION.setStackTrace(EmptyArrays.EMPTY_STACK_TRACE);
+    NOT_YET_CONNECTED_EXCEPTION.setStackTrace(EmptyArrays.EMPTY_STACK_TRACE);
+}
 
 @Override
         public void write(Object msg, ChannelPromise promise) {
