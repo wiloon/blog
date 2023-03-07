@@ -509,6 +509,14 @@ obj to dict <https://blog.csdn.net/weixin_42359464/article/details/80882549>
 
 isinstance() 函数来判断一个对象是否是一个已知的类型，类似 type()。
 
+## type()
+
+打印变量类型
+
+```py
+logger.info(f"type of xxx: {type(foo)}")
+```
+
 ## staticmethod
 
 python staticmethod 返回函数的静态方法。

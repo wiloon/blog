@@ -17,7 +17,7 @@ Base64是一种基于 64 个可打印字符来表示二进制数据的表示方�
 
 Base64常用于在通常处理文本数据的场合，表示、传输、存储一些二进制数据。包括 MIME 的 email, email via MIME, 在XML中存储复杂数据.
 
-### linux 命令行 base64 解码
+### linux 命令行 base64 编码/解码, base64 encode/decode
 
 ```bash
 # encode
