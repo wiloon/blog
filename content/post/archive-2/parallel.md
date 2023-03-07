@@ -18,7 +18,7 @@ tags:
 
 借用卡通人物Cartman的话，“如何我能使用这些内核”?
 
-要想让Linux命令使用所有的CPU内核，我们需要用到GNU Parallel命令，它让我们所有的CPU内核在单机内做神奇的map-reduce操作，当然，这还要借助很少用到的–pipes 参数(也叫做–spreadstdin)。这样，你的负载就会平均分配到各CPU上，真的。
+要想让Linux命令使用所有的CPU内核，我们需要用到GNU Parallel 命令，它让我们所有的CPU内核在单机内做神奇的map-reduce操作，当然，这还要借助很少用到的–pipes 参数(也叫做–spreadstdin)。这样，你的负载就会平均分配到各CPU上，真的。
 
 BZIP2
 
