@@ -20,10 +20,11 @@ kafka 版本 3.4.0
 
 ```bash
 bin/kafka-console-consumer.sh --topic topic0 --bootstrap-server 127.0.0.1:9092
-# 指定 group
+# 指定 consumer group
 bin/kafka-console-consumer.sh --topic topic0 --bootstrap-server 127.0.0.1:9092 --group group0
 # ssl
 bin/kafka-console-consumer.sh --topic topic0 --bootstrap-server 127.0.0.1:9092 --consumer.config config.json
+# auto_offset_reset="earliest"
 bin/kafka-console-consumer.sh --topic topic0 --from-beginning --bootstrap-server localhost:9092
 
 bin/kafka-console-consumer.sh \
@@ -366,7 +367,7 @@ docker volume create kafka-config
 # 查看 volume 目录
 docker info | grep "Docker Root Dir"
 vim /var/lib/docker/volumes/kafka-config/_data/server.properties
-# 格式化storage, 先格式化 storage 再启动 kafka
+# 格式化storage, 先格式化 storage 再启动 kafka-config
 docker run --rm --name kafka \
 -e ALLOW_PLAINTEXT_LISTENER=yes \
 -p 9092:9092 \

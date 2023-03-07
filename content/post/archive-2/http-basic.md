@@ -2,7 +2,7 @@
 title: http basic
 author: "-"
 date: 2015-10-13T11:05:48+00:00
-url: http
+url: http/basic
 categories:
   - Inbox
 tags:
