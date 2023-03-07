@@ -971,3 +971,24 @@ l.remove(1)
 
 ', '.join(set_3)
 ```
+
+## Milliseconds
+
+```py
+import time
+obj = time.gmtime(0)
+epoch = time.asctime(obj)
+print("The epoch is:",epoch)
+curr_time = round(time.time()*1000)
+print("milliseconds since epoch:",curr_time)
+```
+
+## file
+
+```py
+>>> f = open('/Users/michael/test.txt', 'w')
+>>> f.write('Hello, world!')
+>>> f.close()
+
+os.remove(path) 
+```
