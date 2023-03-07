@@ -9,21 +9,22 @@ tags:
   - reprint
 ---
 ## linux more
-http://www.cnblogs.com/peida/archive/2012/11/02/2750588.html
+
+<http://www.cnblogs.com/peida/archive/2012/11/02/2750588.html>
 
 每天一个linux命令(12): more命令
 
 more命令，功能类似 cat ，cat命令是整个文件的内容从上到下显示在屏幕上。 more会以一页一页的显示方便使用者逐页阅读，而最基本的指令就是按空白键 (space) 就往下一页显示，按 b 键就会往回 (back) 一页显示，而且还有搜寻字串的功能 。more命令从前向后读取文件，因此在启动时就加载整个文件。
 
-1．命令格式: 
+1．命令格式:
 
 more [-dlfpcsu ] [-num ] [+/ pattern] [+ linenum] [file ... ]
 
-2．命令功能: 
+2．命令功能:
 
 more命令和cat的功能一样都是查看文件里的内容，但有所不同的是more可以按页来查看文件的内容，还支持直接跳转行等功能。
 
-3．命令参数: 
+3．命令参数:
 
 +n      从笫n行开始显示
 
@@ -43,7 +44,7 @@ more命令和cat的功能一样都是查看文件里的内容，但有所不同�
 
 -u       把文件内容中的下画线去掉
 
-4．常用操作命令: 
+4．常用操作命令:
 
 Enter    向下n行，需要定义。默认为1行
 
@@ -63,15 +64,15 @@ V      调用vi编辑器
 
 q       退出more
 
-5．命令实例: 
+5．命令实例:
 
 实例1: 显示文件中从第3行起的内容
 
-命令: 
+命令:
 
 more +3 log2012.log
 
-输出: 
+输出:
 
 [root@localhost test]# cat log2012.log
 
@@ -87,7 +88,6 @@ more +3 log2012.log
 
 2012-04-day3
 
-
 ======[root@localhost test]# more +3 log2012.log
 
 2012-03
@@ -98,17 +98,15 @@ more +3 log2012.log
 
 2012-04-day3
 
-
 ======[root@localhost test]#
-
 
 实例2: 从文件中查找第一个出现"day3"字符串的行，并从该处前两行开始显示输出
 
-命令: 
+命令:
 
 more +/day3 log2012.log
 
-输出: 
+输出:
 
 [root@localhost test]# more +/day3 log2012.log
 
@@ -124,17 +122,15 @@ more +/day3 log2012.log
 
 2012-05-day1
 
-
 ======[root@localhost test]#
-
 
 实例3: 设定每屏显示行数
 
-命令: 
+命令:
 
 more -5 log2012.log
 
-输出: 
+输出:
 
 [root@localhost test]# more -5 log2012.log
 
@@ -148,17 +144,17 @@ more -5 log2012.log
 
 2012-04-day2
 
-说明: 
+说明:
 
 如下图所示，最下面显示了该屏展示的内容占文件总行数的比例，按 Ctrl+F 或者 空格键 将会显示下一屏5条内容，百分比也会跟着变化。
 
 实例4: 列一个目录下的文件，由于内容太多，我们应该学会用more来分页显示。这得和管道 | 结合起来
 
-命令: 
+命令:
 
 ls -l  | more -5
 
-输出: 
+输出:
 
 [root@localhost test]#  ls -l  | more -5
 
@@ -182,7 +178,13 @@ drwxrwxrwx 2 root root 4096 10-28 14:47 test3
 
 drwxrwxrwx 2 root root 4096 10-28 14:47 test4
 
-
-说明: 
+说明:
 
 每页显示5个文件信息，按 Ctrl+F 或者 空格键 将会显示下5条文件信息。
+
+## -- More --
+
+- space: nextpage
+- q: quit
+
+<https://man7.org/linux/man-pages/man1/more.1.html#COMMANDS>

@@ -2,7 +2,7 @@
 title: HTTP status, HTTP code
 author: "-"
 date: 2012-06-24T07:53:32+00:00
-url: /?p=3648
+url: http/status
 categories:
   - Web
 tags:
@@ -206,7 +206,11 @@ Request-URL太长，服务器拒绝服务此请求。仅在下列条件下才有
   
 如果问题依然存在，请与 Web 服务器的管理员联系。
 
-HTTP 错误 500
+## 417 Expectation Failed
+
+HTTP 协议中的 417 Expectation Failed 状态码表示客户端错误，意味着服务器无法满足 Expect 请求消息头中的期望条件。
+
+## 500
   
 500 服务器的内部错误
   
