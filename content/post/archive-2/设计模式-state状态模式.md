@@ -9,6 +9,7 @@ tags:
   - reprint
 ---
 ## 设计模式 – State/状态模式
+
 State模式的定义: 不同的状态,不同的行为;或者说,每个状态有着相应的行为.
 
 何时使用?
@@ -99,7 +100,6 @@ sample2.operate();
 
 在上例中,我们有两个动作push推和pull拉,这两个开关动作,改变了Context颜色,至此,我们就需要使用State模式优化它.
 
-
 另外注意:但就上例,state的变化,只是简单的颜色赋值,这个具体行为是很简单的,State适合巨大的具体行为,因此在,就本例,实际使用中也不一定非要使用State模式,这会增加子类的数目,简单的变复杂.
 
 例如: 银行帐户, 经常会在Open 状态和Close状态间转换.
@@ -140,7 +140,6 @@ public abstract Color getColor();
 
 父类中的方法要对应state manager中的开关行为,在state manager中 本例就是Context中,有两个开关动作push推和pull拉.那么在状态父类中就要有具体处理这两个动作:handlepush() handlepull(); 同时还需要一个获取push或pull结果的方法getcolor()
 
-
 下面是具体子类的实现:
 
 ```java
@@ -180,7 +179,6 @@ return (Color.blue);
 ```
 
 同样 其他状态的子类实现如blue一样.
-
 
 第二步: 要重新改写State manager 也就是本例的Context:
 
@@ -240,22 +238,21 @@ sample2.operate();
 
 至此,我们也就实现了State的refactorying过程.
 
-
 以上只是相当简单的一个实例,在实际应用中,handlepush或handelpull的处理是复杂的.
 
-状态模式优点: 
+状态模式优点:
   
  (1)  封装转换过程,也就是转换规则
   
  (2)  枚举可能的状态,因此,需要事先确定状态种类。
   
-状态模式可以允许客户端改变状态的转换行为,而状态机则是能够自动改变状态,状态机是一个比较独立的而且复杂的机制,具体可参考一个状态机开源项目: http://sourceforge.net/projects/smframework/
+状态模式可以允许客户端改变状态的转换行为,而状态机则是能够自动改变状态,状态机是一个比较独立的而且复杂的机制,具体可参考一个状态机开源项目: <http://sourceforge.net/projects/smframework/>
 
 状态模式在工作流或游戏等各种系统中有大量使用,甚至是这些系统的核心功能设计,例如政府OA中,一个批文的状态有多种: 未办；正在办理；正在批示；正在审核；已经完成等各种状态,使用状态机可以封装这个状态的变化规则,从而达到扩充状态时,不必涉及到状态的使用者。
 
 在网络游戏中,一个游戏活动存在开始；开玩；正在玩；输赢等各种状态,使用状态模式就可以实现游戏状态的总控,而游戏状态决定了游戏的各个方面,使用状态模式可以对整个游戏架构功能实现起到决定的主导作用。
 
-状态模式实质: 
+状态模式实质:
   
 使用状态模式前,客户端外界需要介入改变状态,而状态改变的实现是琐碎或复杂的。
 
@@ -269,10 +266,8 @@ sample2.operate();
 
 状态从一个方面说明了流程,流程是随时间而改变,状态是截取流程某个时间片。
 
-
-http://www.jdon.com/designpatterns/designpattern_State.htm
+<http://www.jdon.com/designpatterns/designpattern_State.htm>
 
 设计模式之State
   
-板桥里人 http://www.jdon.com 2002/4/6/
-
+板桥里人 <http://www.jdon.com> 2002/4/6/

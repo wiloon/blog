@@ -75,6 +75,7 @@ slice 是一个不定长的, 总是指向底层的数组 array 的数据结构�
 // []int{} 空切片指的是底层数组没有存储元素
 // var nums []int nil切片指的是底层数组是指向nil，没有申请内存空间的，在append的时候申请
 var al []int          // 创建slice, 并初始化
+foo := []int{} // 一个空的切片
 sl := make([]int,10)  // 创建有10个元素的 slice
 sl := []int{1,2,3}      //创建有初始化元素的slice
 
@@ -117,17 +118,23 @@ func SliceClear2(s *[]interface{}) {
 
 ### 0 ~ index
 
+```go
     dir1 := path[:sepIndex]
+```
   
 ### index ~ end
 
+```go
     dir1 := path[:sepIndex]
+```
 
 ### Full Slice Expression, 后续的 append() 操作将会导致重新分配内存
 
 <https://coolshell.cn/articles/21128.html>
 
+```go
     dir1 := path[:sepIndex:sepIndex]
+```
 
 ### :分割操作符
 

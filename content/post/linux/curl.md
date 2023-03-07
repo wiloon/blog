@@ -4,11 +4,10 @@ author: "-"
 date: 2022-04-18 22:48:04
 url: curl
 categories:
-  - Linux
-  - Web
+  - Commands
 tags:
+  - reprint
   - remix
-
 ---
 ## curl
 
@@ -21,19 +20,18 @@ curl [kɜrl]
 -C, --continue-at, 断点续传
 -o, --output <file>, write  output to <file> instead of stdout
 --connect-timeout <fractional seconds>, 建连接超时, 比如 tcp 三次握手
--m, --max-time <fractional seconds>, 传输超时, 比如 http请求发送之后长时间没有响应, tcp 的 ack收到了, 但是长时间没收到 http response.
--G/--get 以get的方式来发送数据
+-m, --max-time <fractional seconds>, 传输超时, 比如 http 请求发送之后长时间没有响应, tcp 的 ack 收到了, 但是长时间没收到 http response.
+-G/--get 以 get 的方式来发送数据
 -i, --include 输出时包括 protocol 头信息, 显示 response header
 -v, verbos
 -N, Disables the buffering of the output stream
 -H, --header LINE Custom header to pass to server (H)
 -d, --data DATA HTTP POST data, 如果使用-d命令，curl会以application/x-www-url-encoded格式上传参数。
 --retry, 重试次数
-# 如果使用了-F参数，curl会以multipart/form-data的方式发送POST请求。-F以key=value的形式指定要上传的参数，如果是文件，则需要使用key=@file的形式。
--k or --insecure flag to skip certificate validation.
--L,--location:如果服务器报告请求的页面已移动到其他位置（用location:header和3xx 响应代码），此选项将使curl在新位置上重新执行请求。
+# 如果使用了 -F 参数，curl 会以 multipart/form-data 的方式发送 POST 请求。-F 以 key=value 的形式指定要上传的参数，如果是文件，则需要使用 key=@file 的形式。
+-k, --insecure flag to skip certificate validation.
+-L, --location: 追踪重定向, 如果服务器报告请求的页面已移动到其他位置（用 location: header 和 3xx 响应代码），此选项将使 curl 在新位置上重新执行请求。
 -X, --request <method>   Specify request method to use
-
 ```
 
 ## 断点续传
@@ -72,12 +70,6 @@ curl -v -d "name=admin&password=admin" -b cookie.txt -c cookie.txt "http://local
 ```
 
 <https://stackoverflow.com/questions/30760213/save-cookies-between-two-curl-requests/37127263>
-
-### 追踪重定向 -L
-
-```bash
-curl -L xxx
-```
 
 ## POST
 
