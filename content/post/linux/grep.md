@@ -69,6 +69,7 @@ grep -r 'linux' *
 - -w pattern files : 只匹配整个单词，而不是字符串的一部分(如匹配'magic'，而不是'magical')
 - -q, --quiet, --silent, 不显示任何东西到 stdout
 - -P, --perl-regexp 使用 PCREs
+- -n, --line-number 打印行号
 
 ### grep正则
 
