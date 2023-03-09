@@ -335,3 +335,7 @@ SELECT pg_terminate_backend(pid) FROM pg_stat_activity WHERE state='idle';
 - pgAdmin
 
 <https://www.postgresql.org/docs/current/app-psql.html>
+
+## sql 历史
+
+<https://www.cnblogs.com/qianxunman/p/12149586.html>
