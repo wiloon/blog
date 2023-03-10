@@ -21,8 +21,8 @@ grep [OPTION...] PATTERNS [FILE...]
 ## 或
 
 ```bash
-grep -E '123|abc' filename  // 找出文件（filename）中包含123或者包含abc的行
-egrep '123|abc' filename    // 用egrep同样可以实现
+grep -E '123|abc' filename  // 找出文件（filename）中包含 123 或者包含 abc 的行
+egrep '123|abc' filename    // 用 egrep 同样可以实现
 ```
 
 ### 判断指定文件中是否包含指定的字符串
