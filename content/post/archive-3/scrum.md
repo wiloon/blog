@@ -130,15 +130,7 @@ Continuous Learning: Fail Fast but don't Fail twice for the same reason! » - Sm
 
 <https://www.tianmaying.com/qa/8>
 
-    Scrum入门之三三五五
-  
-
-
-
-
-
-  
-    Scrum入门之三三五五
+Scrum入门之三三五五
   
 <https://bobjiang.com/ama-us-airforce-devsecops>
 
