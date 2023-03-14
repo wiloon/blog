@@ -71,7 +71,7 @@ grep -r 'linux' *
 - -P, --perl-regexp 使用 PCREs
 - -n, --line-number 打印行号
 
-### grep正则
+### grep 正则
 
 <https://blog.csdn.net/yufenghyc/article/details/51078107>
 
