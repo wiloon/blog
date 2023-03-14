@@ -32,7 +32,7 @@ set ignorecase
   
 set smartcase
 
-## 正则表达式
+## vim 正则表达式
 
 Vim查找支持正则表达式,例如/vim$匹配行尾的"vim"。 需要查找特殊字符需要转义,例如/vim\$匹配"vim$"。
 
