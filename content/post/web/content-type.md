@@ -10,7 +10,7 @@ tags:
 ---
 ## content-type
 
-Content-Type 实体头部用于指示资源的MIME类型 media type 。
+Content-Type 实体头部用于指示资源的 MIME 类型 media type
 Content-Type (内容类型），一般是指网页中存在的 Content-Type，用于定义网络文件的类型和网页的编码，决定浏览器将以什么形式、什么编码读取这个文件
 
 Content-Type 标头告诉客户端实际返回的内容的内容类型。

@@ -339,3 +339,14 @@ SELECT pg_terminate_backend(pid) FROM pg_stat_activity WHERE state='idle';
 ## sql 历史
 
 <https://www.cnblogs.com/qianxunman/p/12149586.html>
+
+## 导出 csv
+
+```sql
+copy (select * from table0) to '/tmp/foo.csv' with csv header;
+psql --dbname=my_db_name --host=db_host_ip --username=my_username -c "COPY (select id as COL_ID, name as COL_NAME from my_tab order by id) TO STDOUT with csv header" > D:/client_exp_dir/file_name.csv
+```
+
+————————————————
+版权声明：本文为CSDN博主「df0128」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
+原文链接：https://blog.csdn.net/df0128/article/details/89673596
