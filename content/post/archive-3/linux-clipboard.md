@@ -10,6 +10,7 @@ tags:
   - reprint
 ---
 ## linux 剪贴板
+
 在 X 系统里面，从一个窗口复制一段文字到另一个窗口，有两套机制，分别是 Selections 和 cut buffers。
 
 常用的 copy & paste 是利用的 cut buffers 机制;另外用鼠标选中一段文字，然后在另一个窗口按鼠标中键实现复制，利用的是 selections 机制。selection 又可以分为 master 和 slave selection。
@@ -24,13 +25,13 @@ tags:
 
 xclip -i /etc/passwd
 
-https://www.x.org/releases/X11R7.7/doc/xorg-docs/icccm/icccm.html
+<https://www.x.org/releases/X11R7.7/doc/xorg-docs/icccm/icccm.html>
 
-http://blog.acgtyrant.com/Linux-%E5%89%AA%E8%B4%B4%E6%9D%BF%E3%83%BB%E7%BB%88%E9%98%B6.html
+<http://blog.acgtyrant.com/Linux-%E5%89%AA%E8%B4%B4%E6%9D%BF%E3%83%BB%E7%BB%88%E9%98%B6.html>
 我用 Linux 好多年，依然没真正理清 Linux 下剪贴板的用法，因为很多程序的复制粘贴行为都不一样，何况Ｘ还有两种剪贴板，再加上我经常跨机编辑，即 termite+ssh+tmux+neovim，这么多程序叠加在一起，就一直不知道到底怎么复制粘贴好。这不，今天我要在远程主机 yy 上通过 NeoVim 选中里面的内容，复制到另一个远程主机 103 的 NeoVim 上，乱按快捷键一通也没解决。于是终于彻底下定决心搞清 Linux 以及众多程序的剪贴板原理，在此整理并归档研究结论。
 
 原理
-https://wiki.archlinux.org/index.php/Clipboard
+<https://wiki.archlinux.org/index.php/Clipboard>
 
 X Window 中的剪贴板
 
@@ -58,7 +59,7 @@ X Window 中的剪贴板
 xclip 默认复制进 primary，坑。
 
 御用虚拟终端・Termite
-https://wiki.archlinux.org/index.php/Termite
+<https://wiki.archlinux.org/index.php/Termite>
 
 Termite 像 Vim，有两种模式: Insert 和 Selection。
 
@@ -86,7 +87,7 @@ Tmux 也有两种模式。一是常规模式，即用户在 pane 里的行为和
 
 Tmux 原本进入 copy-mode 的默认 key binding 为 prefix+[，太蠢，为保持与 Vim Binding 一致，可以直接修改:  bind-key Escape copy-mode # enter copy mode (prefix Escape)，模仿在 Vim 从 Insert 模式退出，进入 Normal 模式的行为。
 
-再继续改造 key bindings: 
+再继续改造 key bindings:
 
 bind-key -T copy-mode-vi 'v' send-keys -X begin-selection
 bind-key -T copy-mode-vi 'V' send-keys -X select-line
@@ -94,9 +95,10 @@ bind-key -T copy-mode-vi 'r' send-keys -X rectangle-toggle
 bind-key -T copy-mode-vi 'y' send-keys -X copy-pipe-and-cancel "xclip -in -selection clipboard"
 需要注意的是 Tmux copy mode 不支持 Vim Visual 模式 ctrl+v 那样的 block selection，但是可以通过 r 改变 v 的 selection 行为，即从跨行 selection 和 block selection 之间转换。y 则是粘贴进 clipboard 了。
 
-更进一步地像 Vim 那样能滚动浏览 pane 的历史: 
+更进一步地像 Vim 那样能滚动浏览 pane 的历史:
 
 # scroll like vim
+
 bind-key -T copy-mode-vi f send-keys page-down
 bind-key -T copy-mode-vi b send-keys page-up
 bind-key -T copy-mode-vi d send-keys halfpage-down
@@ -106,16 +108,17 @@ bind-key -T copy-mode-vi u send-keys halfpage-up
 御用文本编辑器・NeoVim
 Vim 要有开启 clipboard 编译选项，才支持剪贴板 (大概) 。据说 Arch Linux 的 vim 就没开启！只能改装 gvim 包了。
 
-好在 NeoVim 支持，但需要额外的依赖，help clipboard 指出: 
+好在 NeoVim 支持，但需要额外的依赖，help clipboard 指出:
 
 The presence of a working clipboard tool implicitly enables the '+' and '*'
 registers. Nvim looks for these clipboard tools, in order of priority:
+
 - |g:clipboard|
 - pbcopy/pbpaste (macOS)
 - xsel (if $DISPLAY is set)
 - xclip (if $DISPLAY is set)
-- lemonade (for SSH) https://github.com/pocke/lemonade
-- doitclient (for SSH) http://www.chiark.greenend.org.uk/~sgtatham/doit/
+- lemonade (for SSH) <https://github.com/pocke/lemonade>
+- doitclient (for SSH) <http://www.chiark.greenend.org.uk/~sgtatham/doit/>
 - win32yank (Windows)
 - tmux (if $TMUX is set)
 显然装 xclip 就行了。
@@ -131,9 +134,8 @@ Vim 默认 VISUAL 选中内容不会复制进 primary，这样正好，毕竟 Vi
 
 Written with StackEdit.
 
-
 ## xclip
-https://linuxtoy.org/archives/xclip.html
+<https://linuxtoy.org/archives/xclip.html>
 
 在 X 系统里面,从一个窗口复制一段文字到另一个窗口,有两套机制,分别是 Selections 和 cut
   
