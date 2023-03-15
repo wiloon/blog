@@ -9,14 +9,16 @@ tags:
   - reprint
 ---
 ## chrome command
+
 ```bash
 # linux 启动浏览器并打开 URL
 google-chrome-beta gmail.com
 google-chrome-beta http://localhost:8080
 ```
->https://stackoverflow.com/questions/28162697/how-can-i-open-google-chrome-from-the-terminal-with-the-url-localhost3000
 
-Chrome 有很多的特性在界面菜单中是没有体现的,你可以通过 chrome:// 命令来访问。本文介绍 12 个非常有用的 chrome:// 命令: 
+<https://stackoverflow.com/questions/28162697/how-can-i-open-google-chrome-from-the-terminal-with-the-url-localhost3000>
+
+Chrome 有很多的特性在界面菜单中是没有体现的,你可以通过 chrome:// 命令来访问。本文介绍 12 个非常有用的 chrome:// 命令:
 
   1. chrome://flags
 
@@ -70,7 +72,7 @@ Chrome 有很多的特性在界面菜单中是没有体现的,你可以通过 ch
 
 最后,如果你想查看 chrome 所有的命令,可使用 chrome://about/
 
-另外,请注意,上面提及的所有命令也可使用 about:xxx 命令,将会自动重定向到 chrome://,例如: 
+另外,请注意,上面提及的所有命令也可使用 about:xxx 命令,将会自动重定向到 chrome://,例如:
 
 about:dns
   
