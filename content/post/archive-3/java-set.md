@@ -9,9 +9,10 @@ tags:
   - reprint
 ---
 ## Java Set
+
 版权声明: 本文为博主原创文章，遵循 CC 4.0 by-sa 版权协议，转载请附上原文出处链接和本声明。
   
-本文链接: https://blog.csdn.net/qq_33642117/article/details/52040345
+本文链接: <https://blog.csdn.net/qq_33642117/article/details/52040345>
   
 一，Set
   
@@ -28,53 +29,53 @@ Set:注重独一无二的性质,该体系集合可以知道某物是否已近存
 该集合中没有特有的方法，直接继承自Collection。
 
 -| Itreable 接口 实现该接口可以使用增强for循环
-                  
+
 -| Collection 描述所有集合共性的接口
-                      
+
 -| List接口 可以有重复元素的集合
-                              
+
 -| ArrayList
-                              
+
 -| LinkedList
-                      
+
 -| Set接口 不可以有重复元素的集合
 
 案例: set集合添加元素并使用迭代器迭代元素。
 
 public class Demo4 {
-      
+
 public static void main(String[] args) {
-          
+
 //Set 集合存和取的顺序不一致。
-          
+
 Set hs = new HashSet();
-          
+
 hs.add("世界军事");
-          
+
 hs.add("兵器知识");
-          
+
 hs.add("舰船知识");
-          
+
 hs.add("汉和防务");
-          
+
 System.out.println(hs);
-          
+
 // [舰船知识, 世界军事, 兵器知识, 汉和防务]
-          
+
 Iterator it = hs.iterator();
-          
+
 while (it.hasNext()) {
-              
+
 System.out.println(it.next());
-          
+
 }
-      
+
 }
   
 }
-   
+
 ————————————————
   
 版权声明: 本文为CSDN博主「飘走的我」的原创文章，遵循CC 4.0 by-sa版权协议，转载请附上原文出处链接及本声明。
   
-原文链接: https://blog.csdn.net/qq_33642117/article/details/52040345
+原文链接: <https://blog.csdn.net/qq_33642117/article/details/52040345>

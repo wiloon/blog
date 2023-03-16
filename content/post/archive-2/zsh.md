@@ -112,10 +112,12 @@ You should go through the configuration files of random Github users to get a be
 
 ### .zshenv, .zprofile
 
-><https://unix.stackexchange.com/questions/71253/what-should-shouldnt-go-in-zshenv-zshrc-zlogin-zprofile-zlogout>
+<https://unix.stackexchange.com/questions/71253/what-should-shouldnt-go-in-zshenv-zshrc-zlogin-zprofile-zlogout>
 
 <https://github.com/robbyrussell/oh-my-zsh>
   
-<https://wiki.archlinux.org/index.php/Zsh_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)#.E5.AE.89.E8.A3.85>[
+<https://wiki.archlinux.org/index.php/Zsh_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)#.E5.AE.89.E8.A3.85>
+
 <http://blog.xsudo.com/2019/04/12/1445/>  
+
 <https://zhuanlan.zhihu.com/p/19556676>  
