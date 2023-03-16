@@ -1,5 +1,5 @@
 ---
-title: linux 环境变量, export
+title: linux 环境变量, export, set, env, source, exec
 author: "-"
 date: 2011-07-18T04:58:48+00:00
 url: env
@@ -8,9 +8,17 @@ categories:
 tags:
   - reprint
 ---
-## linux 环境变量, export
+## linux 环境变量, export, set, env, source, exec
 
 定义变量时加 export 表示为全局变量，不止对当前 shell 有效，对子进程也有效，不加 export 则为局部变量，只对当前 shell 有效，子进程无效。
+
+- set 设置了当前 shell 进程的本地变量，本地变量只在当前 shell 的进程内有效，不会被子进程继承和传递。
+- env 仅为将要执行的子进程设置环境变量。
+- export 将一个 shell 本地变量提升为当前 shell 进程的环境变量，从而被子进程自动继承，但是 export 的变量无法改变父进程的环境变量。
+- source 运行脚本的时候，不会启用一个新的 shell 进程，而是在当前shell进程环境中运行脚本。
+- exec 运行脚本或命令的时候，不会启用一个新的 shell 进程，并且 exec 后续的脚本内容不会得到执行，即当前shell进程结束了。
+
+<https://segmentfault.com/a/1190000013356532>
 
 ## .bashrc 文件
   
@@ -127,3 +135,11 @@ csh下
 设置: setenv 变量名 变量值
 
 删除: unsetenv 变量名
+
+<https://segmentfault.com/a/1190000013356532>
+
+## env command
+
+env命令 用于显示系统中已存在的环境变量，以及在定义的环境中执行指令。该命令只使用"-"作为参数选项时，隐藏了选项"-i"的功能。若没有设置任何选项和参数时，则直接显示当前的环境变量。
+
+如果使用env命令在新环境中执行指令时，会因为没有定义环境变量"PATH"而提示错误信息"such file or directory"。此时，用户可以重新定义一个新的"PATH"或者使用绝对路径。
