@@ -175,14 +175,14 @@ del key1 key2
     unlink key [key ...]
 ```
 
-### 判断key是否存在
+### 判断 key 是否存在
 
 exists key_name
 
-### 查看key的类型
+### 查看 key 的类型
 
 ```bash
-    type key0
+type key0
 ```
 
 ### 删除 key

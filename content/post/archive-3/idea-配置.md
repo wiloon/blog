@@ -9,17 +9,19 @@ tags:
   - reprint
 ---
 ## idea config, 配置
+
 ### intellij idea 设置显示空格
 
 View>Active Editor>show whitespaces
 
 ### 在IDEA里输入中文，fcitx
+
     vim /sbin/idea
     export XMODIFIERS="@im=fcitx"
     export GTK_IM_MODULE="fcitx"
     export QT_IM_MODULE="fcitx"
 
-https://blog.csdn.net/shiyibodec/article/details/73549501
+<https://blog.csdn.net/shiyibodec/article/details/73549501>
 
 ### java compiler
 
@@ -27,7 +29,7 @@ File > Settings > Build, Execution, Deployment > Compiler > Java Compiler
 
 Change Target bytecode version to 1.8 of the module that you are working for.
 
-https://yangbingdong.com/2017/note-of-learning-idea-under-ubuntu/
+<https://yangbingdong.com/2017/note-of-learning-idea-under-ubuntu/>
 
 ### font
 
@@ -62,7 +64,7 @@ environment variable : system env
 
 ### hidpi --
 
-https://intellij-support.jetbrains.com/hc/en-us/articles/360007994999-HiDPI-configuration
+<https://intellij-support.jetbrains.com/hc/en-us/articles/360007994999-HiDPI-configuration>
 
 Settings > Appearance and Behavior > Appearance > Use custom font
 
@@ -70,6 +72,6 @@ Settings > Appearance and Behavior > Appearance > Use custom font
 
 设置字号 Settings > Editor>Font
 
-https://intellij-support.jetbrains.com/hc/en-us/community/posts/206295629-Attaching-jdk-src-to-Intellij
+<https://intellij-support.jetbrains.com/hc/en-us/community/posts/206295629-Attaching-jdk-src-to-Intellij>
 
-https://www.jianshu.com/p/e20eb9645ce9
+<https://www.jianshu.com/p/e20eb9645ce9>
