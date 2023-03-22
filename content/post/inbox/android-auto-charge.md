@@ -66,3 +66,7 @@ android 机 安装 MacroDroid, 配置规则电池电量低于 30%
 ## scrcpy, 显示并控制通过 USB (或 TCP/IP) 连接的安卓设备
 
 <https://github.com/Genymobile/scrcpy/blob/master/README.zh-Hans.md>
+
+## iPhone 自动充电
+
+<https://www.leavesongs.com/THINK/iOS-with-chuangmiplug-smart-plug2.html>

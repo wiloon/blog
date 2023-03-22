@@ -1,5 +1,5 @@
 ---
-title: "redis basic"
+title: redis basic
 author: "-"
 date: "2021-05-07 14:38:02"
 url: "redis"
@@ -8,17 +8,16 @@ categories:
 tags:
   - inbox
 ---
-## "redis basic"
+## redis basic
 
 ### commands
 
 ```bash
 redis-cli -h 127.0.0.1 -p 6379
+# -a 使用认证密码登录
+redis-cli -h 127.0.0.1 -p 6379 -a password0
 # OBJECT ENCODING 命令可以查看一个数据库键的值对象的编码
 OBJECT ENCODING key0
-
-## -a 使用认证密码登录
-redis-cli -h 127.0.0.1 -p 6379 -a 'thisizmy!PASS'
 
 # 分析 redis key 大小
 debug object key0
@@ -139,7 +138,7 @@ podman run \
 --name redis \
 -p 6379:6379 \
 -v /etc/localtime:/etc/localtime:ro \
-redis:6.2.4
+redis:7.0.9
 
 # client
 podman run -it --rm redis redis-cli -h redis.wiloon.com
@@ -162,7 +161,7 @@ redis-server --version
 ### list all keys
 
 ```bash
-    keys *
+keys *
 ```
 
 ### delete key
