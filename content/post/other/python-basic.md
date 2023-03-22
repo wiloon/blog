@@ -254,18 +254,18 @@ print(empty_dict)
 scores = {'语文': 89, '数学': 92, '英语': 93}
 print(scores)
 
-# 使用元组作为 dict 的key
+# 使用元组作为 dict 的 key
 dict2 = {(20, 30):'good', 30:'bad'}
 print(dict2)
 
-#生成一个字典
+# 生成一个字典
 d = {'name':Tom, 'age':10, 'Tel':110}
 
-#打印返回值，其中d.keys()是列出字典所有的key
+# 打印返回值，其中 d.keys() 是列出字典所有的key
 print ‘name’ in d.keys()
 print 'name' in d
 
-#两个的结果都是返回True
+# 两个的结果都是返回True
 del test_dict['Zhihu']
 ```
 
