@@ -18,10 +18,28 @@ celery是一个基于分布式消息传输的异步任务队列，它专注于�
 
 ```bash
 # install rabbitmq
+https://wangyue.dev/rabbitmq
 
 # install celery
 pip install celery
 
+# 添加用户跟密码, rabbitmqctl add_user test test123
+rabbitmqctl add_user user0 password0
+# 添加虚拟主机 rabbitmqctl add_vhost test_vhost
+rabbitmqctl add_vhost vhost0
+# 为用户添加标签, rabbitmqctl set_user_tags test test_tag
+rabbitmqctl set_user_tags user0 tag0
+# 设置用户权限, rabbitmqctl set_permissions -p test_vhost test ".*" ".*" ".*"
+rabbitmqctl set_permissions -p vhost0 user0 ".*" ".*" ".*"
+
 # run celery server
 celery -A tasks worker --loglevel=INFO
 ```
+
+————————————————
+版权声明：本文为CSDN博主「吴秋霖」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
+原文链接：https://blog.csdn.net/qiulin_wu/article/details/106119757
+
+ django-admin startproject HelloWorld
+
+ 

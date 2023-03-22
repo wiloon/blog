@@ -350,3 +350,24 @@ psql --dbname=my_db_name --host=db_host_ip --username=my_username -c "COPY (sele
 ————————————————
 版权声明：本文为CSDN博主「df0128」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
 原文链接：https://blog.csdn.net/df0128/article/details/89673596
+
+
+## log
+
+#log_directory = 'pg_log' to log_directory = 'pg_log'
+
+#log_filename = 'postgresql-%Y-%m-%d_%H%M%S.log' to log_filename = 'postgresql-%Y-%m-%d_%H%M%S.log'
+
+#log_statement = 'none' to log_statement = 'all'
+
+#logging_collector = off to logging_collector = on
+
+Optional: SELECT set_config('log_statement', 'all', true);
+
+sudo /etc/init.d/postgresql restart or sudo service postgresql restart
+
+Fire query in postgresql select 2+2
+
+Find current log in /var/lib/pgsql/9.2/data/pg_log/
+
+The log files tend to grow a lot over a time, and might kill your machine. For your safety, write a bash script that'll delete logs and restart postgresql server.

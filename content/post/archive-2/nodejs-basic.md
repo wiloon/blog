@@ -83,7 +83,7 @@ pacman -S nodejs
     sudo apt-get update && sudo apt-get install yarn
 ```
 
-#### windows
+- windows
 
 ```bash
     choco install nodejs-lts
