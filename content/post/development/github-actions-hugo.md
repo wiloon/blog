@@ -11,6 +11,8 @@ tags:
 ## "hugo, envoy, github actions"
 
 ### install
+
+```bash
     sudo pacman -S hugo
 
     hugo new site quickstart
@@ -29,35 +31,44 @@ tags:
     cp themes/even/exampleSite/config.toml   config.toml 
     hugo new post/my-first-post.md
     hugo server -D
+```
 
 ### hugo pages, nginx server simple
+
+```bash
     podman run -d \
     --name hugo   \
     -p 30080:80 \
     -v /home/blog/public:/usr/share/nginx/html   \
     -v /etc/localtime:/etc/localtime   \
     nginx:alpine
+```
 
 ### hugo pages, nginx server
-    
+
+```bash
     podman run -d \
     --name hugo   \
     --ip=10.88.0.10   \
     -v /home/blog/public:/usr/share/nginx/html   \
     -v /etc/localtime:/etc/localtime   \
     nginx:alpine
+```
 
 ### hugo-envoy
 
+```bash
     podman run -d \
     --name hugo-envoy   \
     -v /opt/hugo/service-envoy.yaml:/etc/envoy/envoy.yaml   \
     -v /etc/localtime:/etc/localtime   \
     --net=container:hugo \
     envoyproxy/envoy-alpine:v1.14.1
+```
 
 ### front-envoy
 
+```bash
     podman run -d \
     --name front-envoy \
     --add-host=hugo:10.88.0.10 \
@@ -66,6 +77,7 @@ tags:
     -v /root/.acme.sh/yangcs.net:/root/.acme.sh/yangcs.net \
     --net host \
     envoyproxy/envoy-alpine:v1.14.1
+```
 
 [https://blog.humblepg.com/post/2020/02/log-hugo-github-actions.html](https://blog.humblepg.com/post/2020/02/log-hugo-github-actions.html "https://blog.humblepg.com/post/2020/02/log-hugo-github-actions.html")
 
@@ -73,7 +85,9 @@ tags:
 
 生成密钥
 
+```bash
     ssh-keygen -t rsa -b 4096 -C "$(git config user.email)" -f gh-pages -N ""
+```
 
 得到 `gh-pages` 和 `gh-pages.pub` 两个文件
 

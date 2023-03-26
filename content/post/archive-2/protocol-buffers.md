@@ -21,7 +21,7 @@ https://github.com/protocolbuffers/protobuf/releases/download/v3.6.1/protoc-3.6.
 protoc -help
 ```
 
-#### windows
+- windows
 
 download protoc  
 <https://developers.google.com/protocol-buffers/docs/downloads>

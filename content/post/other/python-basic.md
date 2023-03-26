@@ -247,21 +247,25 @@ from 模块名 import 语句：
 dict 是线程安全的
 
 ```python
-scores = {'语文': 89, '数学': 92, '英语': 93}
-print(scores)
-# 空的花括号代表空的dict
+# 空的花括号代表空的 dict
 empty_dict = {}
 print(empty_dict)
-# 使用元组作为dict的key
+
+scores = {'语文': 89, '数学': 92, '英语': 93}
+print(scores)
+
+# 使用元组作为 dict 的 key
 dict2 = {(20, 30):'good', 30:'bad'}
 print(dict2)
 
-#生成一个字典
+# 生成一个字典
 d = {'name':Tom, 'age':10, 'Tel':110}
-#打印返回值，其中d.keys()是列出字典所有的key
+
+# 打印返回值，其中 d.keys() 是列出字典所有的key
 print ‘name’ in d.keys()
 print 'name' in d
-#两个的结果都是返回True
+
+# 两个的结果都是返回True
 del test_dict['Zhihu']
 ```
 
@@ -791,7 +795,7 @@ print(path)
 os.environ.get()
 ```
 
-## Python正则
+## Python 正则
 
 Python正则表达式前的 r 表示原生字符串（rawstring），该字符串声明了引号中的内容表示该内容的原始含义，避免了多次转义造成的反斜杠困扰。
 
