@@ -380,8 +380,10 @@ go mod init github.com/you/hello
 - arm64
 
 ```bash
-# to windows, amd64
+# windows, amd64
 GOOS=windows GOARCH=amd64 go build foo.go
+# linux
+GOOS=linux GOARCH=amd64 go build foo.go
 ```
 
 ## conditional compilation, 条件编译
