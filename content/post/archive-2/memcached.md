@@ -23,7 +23,9 @@ memcached -m 16
 
 ### connect
 
+```bash
     telnet HOST PORT
+```
 
 ### set
 
