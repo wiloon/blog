@@ -7,6 +7,7 @@ categories:
   - Linux
 tags:
   - reprint
+  - remix
 ---
 ## 文本处理命令， text command
 
@@ -70,7 +71,7 @@ FS: 分隔符,默认为空格键；
 
 例如: cat /etc/passwd | awk 'BEGIN {FS=":"} $S3<10 {print $1 "\t" $3}',打印passwd文件第三栏小于10的行的第1、3栏。
   
-### sort
+### sort command
 
 命令说明: 将文本文件的内容按行排序。
   
@@ -78,6 +79,7 @@ FS: 分隔符,默认为空格键；
   
 #### 参数  
 
+```r
     -f: 忽略大小写；
     -b: 忽略最前面的空格；
     -g, --general-numeric-sort  compare according to general numerical value, 按照常规数值排序
@@ -87,6 +89,7 @@ FS: 分隔符,默认为空格键；
     -r: 反向排序
     -t: 分隔符,默认为tab键；
     -k: 按指定字段排序；例如:  cat /etc/passwd | sort -t ':' -k 3,对文件/etc/passwd以第三栏排序。
+```
 
 对第一列排序
 sort -n test
@@ -105,13 +108,13 @@ sort -n -t "," -k 2 test
 版权声明：本文为CSDN博主「sunjiangangok」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
 原文链接：<https://blog.csdn.net/sunjiangangok/article/details/69943756>
 
-### uniq
+## uniq command
 
 命令说明: 如果排序完成了, 将重复的行仅显示一次. 注意, 若文件未排序,该命令失效。
   
 格式: uniq [-ic]
   
-#### uniq 参数
+### uniq 参数
   
 - -i: 忽略大小写；
 - -c: 统计每行重复的次数；

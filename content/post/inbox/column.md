@@ -1,5 +1,5 @@
 ---
-title: column
+title: column command
 author: "-"
 date: 2018-03-25T02:09:57+00:00
 url: /?p=12056
@@ -8,23 +8,20 @@ categories:
 tags:
   - reprint
 ---
-## column
+## column command
 
 ```bash
-  
 ip route list |column -t
-  
 ```
 
--c 字符数 指定显示的列宽
-  
--s" 分隔符 " 使用-t选项时,指定分隔符 (允许指定多个分隔符)
-  
--t 判断输入行的列数来创建一个表。分隔符是使用在-s中指定的字符。如果没有指定分隔符,默认是空格
-  
--x 更改排列顺序 (左→右) 。默认的顺序为 (上→下)
+- -c 字符数 指定显示的列宽
+- -s 分隔符 使用 -t 选项时, 指定分隔符 (允许指定多个分隔符)
+- -t 判断输入行的列数来创建一个表。分隔符是使用在 -s 中指定的字符。如果没有指定分隔符, 默认是空格
+- -x 更改排列顺序 (左→右) 。默认的顺序为 (上→下)
 
-# df -h |column -t
+```bash
+df -h |column -t
+```
 
 Filesystem Size Used Avail Use% Mounted on
   

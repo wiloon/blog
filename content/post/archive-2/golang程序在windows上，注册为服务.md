@@ -9,7 +9,8 @@ tags:
   - reprint
 ---
 ## golang程序在windows上,注册为服务
-https://blog.csdn.net/yang8023tao/article/details/53332984
+
+<https://blog.csdn.net/yang8023tao/article/details/53332984>
 
 ```go
   
@@ -122,11 +123,11 @@ logger.Error(err)
 ```
 
 注册服务步骤
-      
+
 1. 运行demo/main.go 得到demo.exe文件
-      
+
 2. 打开cmd 切换到Demo项目目录
-      
+
 3. 运行输入 demo.exe install 注册服务成功
-      
+
 4. 注册服务成功
