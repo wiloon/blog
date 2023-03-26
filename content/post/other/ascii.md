@@ -21,6 +21,9 @@ tags:
 |90|5A|Z|
 |97|61|a|
 |112|7A|z|
+|124|7C|\||
+
+---
 
 ASCII字符集，最基本的包含了128个字符。其中前32个，0-31，即0×00-0x1F，都是不可见字符。这些字符，就叫做控制字符。
 
@@ -38,8 +41,6 @@ ASCII字符集，最基本的包含了128个字符。其中前32个，0-31，即
   
 <http://en.wikipedia.org/wiki/ASCII>
 
-
+ASCII字符集中的功能/控制字符 Function/Control Code/Character in ASCII
   
-ASCII字符集中的功能/控制字符 Function/Control Code/Character in ASCII 
-  
->http://book.51cto.com/art/201202/318141.htm
+><http://book.51cto.com/art/201202/318141.htm>

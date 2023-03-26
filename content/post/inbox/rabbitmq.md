@@ -2,7 +2,7 @@
 title: "rabbitmq"
 author: "-"
 date: "2021-08-16 09:10:31"
-url: ""
+url: "rabbitmq"
 categories:
   - "MQ"
 tags:
@@ -13,7 +13,7 @@ tags:
 ## rabbitmq
 
 ```bash
-podman run -d --hostname host0 --name rabbitmq -p 15672:15672 -p 5672:5672 rabbitmq:3.10.7-management
+podman run -d --hostname host0 --name rabbitmq -p 15672:15672 -p 5672:5672 rabbitmq:3.11.10-management
 
 rabbitmqctl list_connections
 rabbitmqctl list_queues
