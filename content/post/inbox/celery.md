@@ -38,8 +38,6 @@ celery -A tasks worker --loglevel=INFO
 
 ————————————————
 版权声明：本文为CSDN博主「吴秋霖」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
-原文链接：https://blog.csdn.net/qiulin_wu/article/details/106119757
+原文链接：<https://blog.csdn.net/qiulin_wu/article/details/106119757>
 
  django-admin startproject HelloWorld
-
- 
