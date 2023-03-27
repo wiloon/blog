@@ -53,7 +53,8 @@ sudo apt-get remove certbot
 sudo apt update
 # for ubuntu snap is pre-installed
 sudo apt install snapd
-sudo snap install core; sudo snap refresh core
+sudo snap install core 
+sudo snap refresh core
 sudo snap install --classic certbot
 sudo ln -s /snap/bin/certbot /usr/bin/certbot
 snap set certbot trust-plugin-with-root=ok
@@ -70,7 +71,7 @@ snap install certbot-dns-google
 # --keep-until-expiring: keep cert yes
 certbot certonly --standalone -m wiloon.wy@gmail.com --agree-tos --eff-email --keep-until-expiring -d wangyue.dev
 certbot certonly --standalone -d wangyue.dev
-certbot certonly   --dns-google   --dns-google-credentials /root/cellular-deck-280204-6455aa19691d.json -d wiloon.com -d *.wiloon.com
+certbot certonly  --dns-google   --dns-google-credentials /root/cellular-deck-280204-6455aa19691d.json -d wiloon.com -d *.wiloon.com
 ```
 
 Couldn't download <https://raw.githubusercontent.com/certbot/certbot/v0.39.0/letsencrypt-auto-source/letsencrypt-auto>. `<urlopen error [Errno 110] Connection timed out>`
