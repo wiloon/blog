@@ -138,7 +138,7 @@ git ls-remote --tags origin
 # 显示提交信息
 git show v0.0.1
 
-# 查看 tag 在哪个分支上
+# 查看 tag 在哪个分支上, 只能查看本地 tag
 git branch --contains tags/<tag>
 
 # 查看 commit 内容
@@ -160,6 +160,11 @@ git tag -d v1.0.0
 # delete remote tag
 git push --delete origin tag0
 git push origin :refs/tags/v1.0.0
+```
+
+```bash
+git rev-parse tags/v1.0.0
+git branch --contains commit0
 ```
 
 ## merge 合并分支, git merge 命令用于合并指定分支到当前分支
@@ -429,7 +434,7 @@ git config --local  --list
 ### 设置
 
 ```bash
-#设置电子邮件地址
+# 设置电子邮件地址
 # global
 git config --global user.name "name0"
 git config --global user.email "email@example.com"
@@ -439,7 +444,7 @@ git config --local user.name "name0"
 git config --local user.email "email@example.com"
 
 
-#确认在 Git 中正确设置了电子邮件地址
+# 确认在 Git 中正确设置了电子邮件地址
 git config --global user.email
 git config --local  user.email
 ```

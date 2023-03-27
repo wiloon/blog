@@ -13,6 +13,7 @@ tags:
 - 300 Multiple Choices 多重选择。链接列表。用户可以选择某链接到达目的地。最多允许五个地址。
 - 301 Moved Permanently， 301 redirect: 301 代表永久性转移(Permanently Moved)。
 - 302，redirect: 302 代表暂时性转移(Temporarily Moved )。
+- 504 Gateway Timeout
 
 301 (永久移动) Permanently Moved
 
