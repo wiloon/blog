@@ -10,11 +10,12 @@ tags:
 
 ---
 ## applicationContext.xml 配置文件位置
-存放位置: 
+
+存放位置:
   
 1: src下面
   
-需要在web.xml中定义如下: 
+需要在web.xml中定义如下:
   
 <context-param>
   
@@ -26,7 +27,7 @@ tags:
 
 2: WEB-INF下面
   
-需要在web.xml中定义如下: 
+需要在web.xml中定义如下:
   
 <context-param>
   
@@ -38,7 +39,7 @@ tags:
 
 web.xml 通过contextConfigLocation配置spring 的方式
   
-SSI框架配置文件路径问题: 
+SSI框架配置文件路径问题:
 
 struts2的 1个+N个  路径: src+src(可配置)      名称:  struts.xml  + N
   
@@ -52,7 +53,7 @@ spring的 配置文件在启动时，加载的是web-info目录下的application
   
 运行时使用的是web-info/classes目录下的applicationContext.xml。
 
-配置web.xml使这2个路径一致: 
+配置web.xml使这2个路径一致:
 
 <context-param>
   
@@ -96,7 +97,7 @@ contextConfigLocation 参数定义了要装入的 Spring 配置文件。
   
 还有最好把所有Spring配置文件都放在一个统一的目录下，如果项目大了还可以在该目录下分模块建目录。这样程序看起来不会很乱。
   
-在web.xml中的配置如下: 
+在web.xml中的配置如下:
   
 Xml代码
   
@@ -112,7 +113,7 @@ Xml代码
   
 "**/applicationContext-\*.xml"表示任意目录下的以"applicationContext-"开头的XML文件。
   
-你自己可以根据需要修改。最好把所有Spring配置文件都放在一个统一的目录下，如: 
+你自己可以根据需要修改。最好把所有Spring配置文件都放在一个统一的目录下，如:
 
 <!- Spring 的配置 ->
   
