@@ -15,47 +15,61 @@ Redis hash 是一个 string类型的field和value的映射表.一个key可对应
 
 hash操作命令如下:
 
-### 删除key
+### 删除 key
 
+```bash
     del key
+```
 
 ### hset
 
-向名称为key的hash中添加元素
+向名称为 key 的 hash 中添加元素
 
+```bash
     hset key field value
+```
 
 ### hget
 
-    hget(key, field) 返回名称为key的hash中field对应的value hsetnx HSETNX key field value 将哈希表key中的域field的值设置为value,当且仅当域field不存在。若域field已经存在,该操作无效。如果key不存在,一个新哈希表被创建并执行h#setnx命令。
+hget(key, field) 返回名称为key的hash中field对应的value hsetnx HSETNX key field value 将哈希表key中的域field的值设置为value,当且仅当域field不存在。若域field已经存在,该操作无效。如果key不存在,一个新哈希表被创建并执行h#setnx命令。
 
 ### hmget
 
+```bash
     hmget(key, field1, …,field N)
+```
 
 返回名称为key的hash中field i对应的value
 
 ### hmset
 
+```bash
     hmset(key, field1, value1,…,field N, value N)
+```
 
 向名称为key的hash中添加元素field i<—>value i
 
 ### hincrby
 
+```bash
     hincrby(key, field, integer)
+```
   
 将名称为key的hash中field的value增加integer
 
 ### hexists
 
+```bash
     hexists(key, field)
+```
   
 名称为key的hash中是否存在键为field的域
 
 ### hdel, 删除字段
 
-    hdel(key, field)
+```bash
+hdel key0, field0
+```
   
 删除名称为key的hash中键为field的域
 
@@ -81,9 +95,11 @@ hvals(key)
 
 返回名称为key的hash中所有键对应的value
 
-hgetall
+## hgetall
 
-hgetall(key)
+```bash
+hgetall key0
+```
 
 返回名称为key的hash中所有的键 (field) 及其对应的value
 
@@ -100,7 +116,6 @@ hashtable (哈希表)
 来源: 掘金
 著作权归作者所有。商业转载请联系作者获得授权,非商业转载请注明出处。
 
----
+<http://blog.csdn.net/shamohua/article/details/7001501>
 
-<http://blog.csdn.net/shamohua/article/details/7001501>  
 <http://blog.csdn.net/enson16855/article/details/13298841>  
