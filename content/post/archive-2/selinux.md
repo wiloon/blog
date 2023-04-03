@@ -14,6 +14,7 @@ tags:
 ## selinux
 
 ## 临时关闭selinux
+
 ```bash
 # 查询selinux 状态
 sestatus
@@ -27,9 +28,9 @@ vim /etc/selinux/config
 
 把 `#SELINUX=enforcing` 改成 `SELINUX=disabled`
 
->https://www.ibm.com/developerworks/cn/linux/l-secure-linux-ru/index.html
->http://okeeper.leanote.com/post/CentOS7%E4%B8%AD%E5%85%B3%E9%97%ADselinux 
->https://my.oschina.net/oaoa/blog/185833
+><https://www.ibm.com/developerworks/cn/linux/l-secure-linux-ru/index.html>
+><http://okeeper.leanote.com/post/CentOS7%E4%B8%AD%E5%85%B3%E9%97%ADselinux>
+><https://my.oschina.net/oaoa/blog/185833>
 
 ---
 
@@ -47,9 +48,9 @@ SELinux 是由美国国家安全局 (NSA) 开发的,当初开发这玩意儿的�
 
 现在我们知道所有的系统资源都是透过程序来进行存取的,那么 /var/www/html/ 如果配置为 777 , 代表所有程序均可对该目录存取,万一你真的有启动 WWW 服务器软件,那么该软件所触发的程序将可以写入该目录, 而该程序却是对整个 Internet 提供服务的！只要有心人接触到这支程序,而且该程序刚好又有提供使用者进行写入的功能, 那么外部的人很可能就会对你的系统写入些莫名其妙的东西！那可真是不得了！一个小小的 777 问题可是大大的！
 
-为了控管这方面的权限与程序的问题,所以美国国家安全局就著手处理操作系统这方面的控管。 由於 Linux 是自由软件,程序码都是公开的,因此她们便使用 Linux 来作为研究的目标, 最后更将研究的结果整合到 Linux 核心里面去,那就是 SELinux 啦！所以说, SELinux 是整合到核心的一个模块喔！ 更多的 SELinux 相关说明可以参考: 
+为了控管这方面的权限与程序的问题,所以美国国家安全局就著手处理操作系统这方面的控管。 由於 Linux 是自由软件,程序码都是公开的,因此她们便使用 Linux 来作为研究的目标, 最后更将研究的结果整合到 Linux 核心里面去,那就是 SELinux 啦！所以说, SELinux 是整合到核心的一个模块喔！ 更多的 SELinux 相关说明可以参考:
 
-http://www.nsa.gov/research/selinux/
+<http://www.nsa.gov/research/selinux/>
   
 这也就是说: 其实 SELinux 是在进行程序、文件等细部权限配置依据的一个核心模块！ 由於启动网络服务的也是程序,因此刚好也能够控制网络服务能否存取系统资源的一道关卡！ 所以,在讲到 SELinux 对系统的存取控制之前,我们得先来回顾一下之前谈到的系统文件权限与使用者之间的关系。 因为先谈完这个你才会知道为何需要 SELinux 的啦！
 
@@ -57,7 +58,7 @@ http://www.nsa.gov/research/selinux/
   
 我们第十四章的内容,知道系统的帐号主要分为系统管理员 (root) 与一般用户,而这两种身份能否使用系统上面的文件资源则与 rwx 的权限配置有关。 不过你要注意的是,各种权限配置对 root 是无效的。因此,当某个程序想要对文件进行存取时, 系统就会根据该程序的拥有者/群组,并比对文件的权限,若通过权限检查,就可以存取该文件了。
 
-这种存取文件系统的方式被称为『自主式存取控制 (Discretionary Access Control, DAC)』,基本上,就是依据程序的拥有者与文件资源的 rwx 权限来决定有无存取的能力。 不过这种 DAC 的存取控制有几个困扰,那就是: 
+这种存取文件系统的方式被称为『自主式存取控制 (Discretionary Access Control, DAC)』,基本上,就是依据程序的拥有者与文件资源的 rwx 权限来决定有无存取的能力。 不过这种 DAC 的存取控制有几个困扰,那就是:
 
 root 具有最高的权限: 如果不小心某支程序被有心人士取得, 且该程序属於 root 的权限,那么这支程序就可以在系统上进行任何资源的存取！真是要命！
 
@@ -77,17 +78,17 @@ root 具有最高的权限: 如果不小心某支程序被有心人士取得, �
   
 再次的重复说明一下,SELinux 是透过 MAC 的方式来控管程序,他控制的主体是程序, 而目标则是该程序能否读取的『文件资源』！所以先来说明一下这些咚咚的相关性啦！(注4)
 
-主体 (Subject): 
+主体 (Subject):
   
 SELinux 主要想要管理的就是程序,因此你可以将『主体』跟本章谈到的 process 划上等号；
 
-目标 (Object): 
+目标 (Object):
   
 主体程序能否存取的『目标资源』一般就是文件系统。因此这个目标项目可以等文件系统划上等号；
 
-政策 (Policy): 
+政策 (Policy):
   
-由於程序与文件数量庞大,因此 SELinux 会依据某些服务来制订基本的存取安全性政策。这些政策内还会有详细的守则 (rule) 来指定不同的服务开放某些资源的存取与否。在目前的 CentOS 5.x 里面仅有提供两个主要的政策,分别是: 
+由於程序与文件数量庞大,因此 SELinux 会依据某些服务来制订基本的存取安全性政策。这些政策内还会有详细的守则 (rule) 来指定不同的服务开放某些资源的存取与否。在目前的 CentOS 5.x 里面仅有提供两个主要的政策,分别是:
 
 targeted: 针对网络服务限制较多,针对本机限制较少,是默认的政策；
   
@@ -95,7 +96,7 @@ strict: 完整的 SELinux 限制,限制方面较为严格。
 
 建议使用默认的 targeted 政策即可。
 
-安全性本文 (security context): 
+安全性本文 (security context):
   
 我们刚刚谈到了主体、目标与政策面,但是主体能不能存取目标除了政策指定之外,主体与目标的安全性本文必须一致才能够顺利存取。 这个安全性本文 (security context) 有点类似文件系统的 rwx 啦！安全性本文的内容与配置是非常重要的！ 如果配置错误,你的某些服务(主体程序)就无法存取文件系统(目标资源),当然就会一直出现『权限不符』的错误信息了！
   
@@ -121,19 +122,19 @@ drwxr-xr-x root root root:object_r:user_home_t Desktop
   
 -rw-r-r- root root root:object_r:user_home_t install.log.syslog
 
-# 上述特殊字体的部分,就是安全性本文的内容！
+# 上述特殊字体的部分,就是安全性本文的内容
 
-如上所示,安全性本文主要用冒号分为三个栏位,这三个栏位的意义为: 
+如上所示,安全性本文主要用冒号分为三个栏位,这三个栏位的意义为:
 
 Identify:role:type
   
 身份识别:角色:类型
   
-这三个栏位的意义仔细的说明一下吧: 
+这三个栏位的意义仔细的说明一下吧:
 
-身份识别 (Identify): 
+身份识别 (Identify):
 
-相当於帐号方面的身份识别！主要的身份识别则有底下三种常见的类型: 
+相当於帐号方面的身份识别！主要的身份识别则有底下三种常见的类型:
 
 root: 表示 root 的帐号身份,如同上面的表格显示的是 root 家目录下的数据啊！
   
@@ -143,9 +144,9 @@ user_u: 代表的是一般使用者帐号相关的身份。
 
 你会发现身份识别中,除了 root 之外,其他的识别后面都会加上『 _u 』的字样呢！ 这个身份识别重点再让我们了解该数据为何种身份所有哩～ 而系统上面大部分的数据都会是 system_u 或 root 啦！至於如果是在 /home 底下的数据,那么大部分应该就会是 user_u 罗！
 
-角色 (Role): 
+角色 (Role):
 
-透过角色栏位,我们可以知道这个数据是属於程序、文件资源还是代表使用者。一般的角色有: 
+透过角色栏位,我们可以知道这个数据是属於程序、文件资源还是代表使用者。一般的角色有:
 
 object_r: 代表的是文件或目录等文件资源,这应该是最常见的罗；
   
@@ -155,7 +156,7 @@ system_r: 代表的就是程序啦！不过,一般使用者也会被指定成为
 
 类型 (Type) : (最重要！)
 
-在默认的 targeted 政策中, Identify 与 Role 栏位基本上是不重要的！重要的在於这个类型 (type) 栏位！ 基本上,一个主体程序能不能读取到这个文件资源,与类型栏位有关！而类型栏位在文件与程序的定义不太相同,分别是: 
+在默认的 targeted 政策中, Identify 与 Role 栏位基本上是不重要的！重要的在於这个类型 (type) 栏位！ 基本上,一个主体程序能不能读取到这个文件资源,与类型栏位有关！而类型栏位在文件与程序的定义不太相同,分别是:
 
 type: 在文件资源 (Object) 上面称为类型 (Type)；
   
@@ -165,7 +166,7 @@ domain 需要与 type 搭配,则该程序才能够顺利的读取文件资源啦
 
 程序与文件 SELinux type 栏位的相关性
   
-那么这三个栏位如何利用呢？首先我们来瞧瞧主体程序在这三个栏位的意义为何！透过身份识别与角色栏位的定义, 我们可以约略知道某个程序所代表的意义喔！基本上,这些对应数据在 targeted 政策下的对应如下: 
+那么这三个栏位如何利用呢？首先我们来瞧瞧主体程序在这三个栏位的意义为何！透过身份识别与角色栏位的定义, 我们可以约略知道某个程序所代表的意义喔！基本上,这些对应数据在 targeted 政策下的对应如下:
 
 身份识别 角色 该对应在 targeted 的意义
   
@@ -175,7 +176,7 @@ system_u system_r 由於为系统帐号,因此是非交谈式的系统运行程�
   
 user_u system_r 一般可登陆使用者的程序罗！
   
-但就如上所述,其实最重要的栏位是类型栏位,主体与目标之间是否具有可以读写的权限,与程序的 domain 及文件的 type 有关！这两者的关系我们可以使用达成 WWW 服务器功能的 httpd 这支程序与 /var/www/html 这个网页放置的目录来说明。 首先,看看这两个咚咚的安全性本文内容先: 
+但就如上所述,其实最重要的栏位是类型栏位,主体与目标之间是否具有可以读写的权限,与程序的 domain 及文件的 type 有关！这两者的关系我们可以使用达成 WWW 服务器功能的 httpd 这支程序与 /var/www/html 这个网页放置的目录来说明。 首先,看看这两个咚咚的安全性本文内容先:
 
 [root@www ~]# ll -Zd /usr/sbin/httpd /var/www/html
   
@@ -183,9 +184,9 @@ user_u system_r 一般可登陆使用者的程序罗！
   
 drwxr-xr-x root root system_u:object_r:httpd_sys_content_t /var/www/html
 
-# 两者的角色栏位都是 object_r ,代表都是文件！而 httpd 属於 httpd_exec_t 类型,
+# 两者的角色栏位都是 object_r ,代表都是文件！而 httpd 属於 httpd_exec_t 类型
 
-# /var/www/html 则属於 httpd_sys_content_t 这个类型！
+# /var/www/html 则属於 httpd_sys_content_t 这个类型
 
 httpd 属於 httpd_exec_t 这个可以运行的类型,而 /var/www/html 则属於 httpd_sys_content_t 这个可以让 httpd 领域 (domain) 读取的类型。文字看起来不太容易了解吧！我们使用图示来说明这两者的关系！
 
@@ -193,7 +194,7 @@ httpd 属於 httpd_exec_t 这个可以运行的类型,而 /var/www/html 则属�
   
 图 5.2.2、主体程序取得的 domain 与目标文件资源的 type 相互关系
   
-上图的意义我们可以这样看的: 
+上图的意义我们可以这样看的:
 
 首先,我们触发一个可运行的目标文件,那就是具有 httpd_exec_t 这个类型的 /usr/sbin/httpd 文件；
   
@@ -207,7 +208,7 @@ httpd 属於 httpd_exec_t 这个可以运行的类型,而 /var/www/html 则属�
 
 小标题的图示SELinux 的启动、关闭与观察
   
-并非所有的 Linux distributions 都支持 SELinux 的,所以你必须要先观察一下你的系统版本为何！ 鸟哥这里介绍的 CentOS 5.x 本身就有支持 SELinux 啦！所以你不需要自行编译 SELinux 到你的 Linux 核心中！ 目前 SELinux 支持三种模式,分别如下: 
+并非所有的 Linux distributions 都支持 SELinux 的,所以你必须要先观察一下你的系统版本为何！ 鸟哥这里介绍的 CentOS 5.x 本身就有支持 SELinux 啦！所以你不需要自行编译 SELinux 到你的 Linux 核心中！ 目前 SELinux 支持三种模式,分别如下:
 
 enforcing: 强制模式,代表 SELinux 运行中,且已经正确的开始限制 domain/type 了；
   
@@ -221,11 +222,11 @@ disabled: 关闭,SELinux 并没有实际运行。
   
 Enforcing <==诺！就显示出目前的模式为 Enforcing 罗！
   
-另外,我们又如何知道 SELinux 的政策 (Policy) 为何呢？这时可以使用 sestatus 来观察: 
+另外,我们又如何知道 SELinux 的政策 (Policy) 为何呢？这时可以使用 sestatus 来观察:
 
 [root@www ~]# sestatus [-vb]
   
-选项与参数: 
+选项与参数:
   
 -v : 检查列於 /etc/sestatus.conf 内的文件与程序的安全性本文内容；
   
@@ -247,7 +248,7 @@ Policy version: 21
   
 Policy from config file: targeted <==目前的政策为何？
   
-如上所示,目前是启动的,而且是 Enforcing 模式,而由配置档查询得知亦为 Enforcing 模式。 此外,目前的默认政策为 targeted 这一个。你应该要有疑问的是, SELinux 的配置档是哪个文件啊？ 其实就是 /etc/selinux/config 这个文件喔！我们来看看内容: 
+如上所示,目前是启动的,而且是 Enforcing 模式,而由配置档查询得知亦为 Enforcing 模式。 此外,目前的默认政策为 targeted 这一个。你应该要有疑问的是, SELinux 的配置档是哪个文件啊？ 其实就是 /etc/selinux/config 这个文件喔！我们来看看内容:
 
 [root@www ~]# vi /etc/selinux/config
   
@@ -272,24 +273,24 @@ splashimage=(hd0,0)/grub/splash.xpm.gz
 hiddenmenu
   
 title CentOS (2.6.18-92.el5)
-          
+
 root (hd0,0)
-          
+
 kernel /vmlinuz-2.6.18-92.el5 ro root=LABEL=/1 rhgb quiet selinux=0
-          
+
 initrd /initrd-2.6.18-92.el5.img
 
-# 如果要启动 SELinux ,则不可以出现 selinux=0 的字样在 kernel 后面！
+# 如果要启动 SELinux ,则不可以出现 selinux=0 的字样在 kernel 后面
 
 请注意到上面特殊字体的那一行,确认 kernel 后面不可以接『 selinux=0 』这个项目！因为 selinux=0 指定给核心时, 则核心会自动的忽略 /etc/selinux/config 的配置值,而直接略过 SELinux 的加载,所以你的 SELinux 模式就会变成 disabled 啦！因为我们要启动,所以这里得要确认不存在 selinux=0 才行！切记切记！ 如果一切配置妥当,接下来就是 reboot 重新启动吧！
 
 不过你要注意的是,如果从 disable 转到启动 SELinux 的模式时, 由於系统必须要针对文件写入安全性本文的资讯,因此启动过程会花费不少时间在等待重新写入 SELinux 安全性本文 (有时也称为 SELinux Label) ,而且在写完之后还得要再次的重新启动一次喔！你必须要等待粉长一段时间！ 等到下次启动成功后,再使用 getenforce 或 sestatus 来观察看看有否成功的启动到 Enforcing 的模式罗！
 
-如果你已经在 Enforcing 的模式,但是可能由於一些配置的问题导致 SELinux 让某些服务无法正常的运行, 此时你可以将 Enforcing 的模式改为宽容 (permissive) 的模式,让 SELinux 只会警告无法顺利连线的信息, 而不是直接抵挡主体程序的读取权限。让 SELinux 模式在 enforcing 与 permissive 之间切换的方法为: 
+如果你已经在 Enforcing 的模式,但是可能由於一些配置的问题导致 SELinux 让某些服务无法正常的运行, 此时你可以将 Enforcing 的模式改为宽容 (permissive) 的模式,让 SELinux 只会警告无法顺利连线的信息, 而不是直接抵挡主体程序的读取权限。让 SELinux 模式在 enforcing 与 permissive 之间切换的方法为:
 
 [root@www ~]# setenforce [0|1]
   
-选项与参数: 
+选项与参数:
   
 0 : 转成 permissive 宽容模式；
   
@@ -317,9 +318,9 @@ Enforcing
 
 网络服务的启动与观察
   
-首先,让我们启动 httpd 这支服务吧！要记得的是,一般服务启动的脚本会在 /etc/init.d/ 底下, 所以我们可以这样启动与观察: 
+首先,让我们启动 httpd 这支服务吧！要记得的是,一般服务启动的脚本会在 /etc/init.d/ 底下, 所以我们可以这样启动与观察:
 
-# 1. 先启动这个网络服务吧！
+# 1. 先启动这个网络服务吧
   
 [root@www ~]# /etc/init.d/httpd start
   
@@ -328,7 +329,7 @@ Enforcing
 # 2. 观察有无此程序,并且观察此程序的 SELinux 安全性本文数据
 
 [root@www ~]# pstree | grep httpd
-       
+
 |-httpd-8*[httpd] <==httpd 会产生很多子程序来负责网络服务喔！
 
     ps aux -Z |grep http
@@ -341,17 +342,17 @@ root:system_r:httpd_t apache 24093 0.0 0.6 22896 4752 ? S 16:06 0:00 /usr/sbin/h
   
 ....(后面省略)....
   
-ps -Z 这个『 -Z 』的选项可以让我们查阅程序的安全性本文！其他相关的程序说明请自行查阅本章上面各节的内容。 我们可以发现这整个程序的 domain 是 httpd_t 这个咚咚喔！再来我们来处理一下首页的数据先。 由於首页是放置到 /var/www/html,且档名应该要是『 index.html 』,因此我们可以这样简单的制作首页: 
+ps -Z 这个『 -Z 』的选项可以让我们查阅程序的安全性本文！其他相关的程序说明请自行查阅本章上面各节的内容。 我们可以发现这整个程序的 domain 是 httpd_t 这个咚咚喔！再来我们来处理一下首页的数据先。 由於首页是放置到 /var/www/html,且档名应该要是『 index.html 』,因此我们可以这样简单的制作首页:
 
 [root@www ~]# echo "This is my first web page." > /var/www/html/index.html
   
-接下来,如果你在浏览器上面输入『 http://127.0.0.1 』应该会看到如下的画面才对！
+接下来,如果你在浏览器上面输入『 <http://127.0.0.1> 』应该会看到如下的画面才对！
 
 httpd 顺利运行时,能够看到的首页画面
   
 图 5.4.1、httpd 顺利运行时,能够看到的首页画面
   
-此时你的浏览器会透过 httpd 这个程序拥有的 httpd_t 这个 domain 去读取 /var/www/html/index.html 这个文件的！ 先来看看这个文件的权限与 SELinux 的安全性本文数据: 
+此时你的浏览器会透过 httpd 这个程序拥有的 httpd_t 这个 domain 去读取 /var/www/html/index.html 这个文件的！ 先来看看这个文件的权限与 SELinux 的安全性本文数据:
 
 [root@www ~]# ll -Z /var/www/html/index.html
   
@@ -361,21 +362,21 @@ httpd 顺利运行时,能够看到的首页画面
 
 错误的 SELinux 安全性本文
   
-让我们来了解一下什么是错误的安全性本文配置好了！现在,我们将重要的网页数据在 root 的家目录底下制作！ 配置如下: 
+让我们来了解一下什么是错误的安全性本文配置好了！现在,我们将重要的网页数据在 root 的家目录底下制作！ 配置如下:
 
-# 1. 先在 root 的家目录建置所需的首页: 
+# 1. 先在 root 的家目录建置所需的首页
 
 [root@www ~]# echo "My 2nd web page..." > index.html
 
-# 2. 将首页 index.html 『搬移』到 /var/www/html 目录去: 
+# 2. 将首页 index.html 『搬移』到 /var/www/html 目录去
 
 [root@www ~]# rm /var/www/html/index.html
   
 [root@www ~]# mv index.html /var/www/html
 
-# 这个测试的重点在 mv 这个命令的处理上！务必使用 mv 喔！
+# 这个测试的重点在 mv 这个命令的处理上！务必使用 mv 喔
 
-等到上述的动作都做完后,如果在浏览器输入 http://127.0.0.1/index.html ,你应该会想到画面会出现我们想要的『 My 2nd web page...』才对,但是结果却变成: 
+等到上述的动作都做完后,如果在浏览器输入 <http://127.0.0.1/index.html> ,你应该会想到画面会出现我们想要的『 My 2nd web page...』才对,但是结果却变成:
 
 错误的安全性本文所造成的困扰
   
@@ -391,13 +392,13 @@ httpd 顺利运行时,能够看到的首页画面
 
 重设 SELinux 安全性本文
   
-既然安全性本文是错的,那么就将他改回来即可嘛！怎么修改呢？可以透过两个命令喔！首先我们使用 chcon 来处理: 
+既然安全性本文是错的,那么就将他改回来即可嘛！怎么修改呢？可以透过两个命令喔！首先我们使用 chcon 来处理:
 
 [root@www ~]# chcon [-R] [-t type] [-u user] [-r role] 文件
   
 [root@www ~]# chcon [-R] -reference=范例档 文件
   
-选项与参数: 
+选项与参数:
   
 -R : 连同该目录下的次目录也同时修改；
   
@@ -417,7 +418,7 @@ httpd 顺利运行时,能够看到的首页画面
   
 -rw-r-r- root root root:object_r:httpd_sys_content_t /var/www/html/index.html
 
-# 瞧！这样就改回来啦！
+# 瞧！这样就改回来啦
 
 范例二: 以 /etc/passwd 为依据,将 index.html 修改成该类型
   
@@ -431,15 +432,15 @@ httpd 顺利运行时,能够看到的首页画面
   
 -rw-r-r- root root root:object_r:etc_t /var/www/html/index.html
 
-# 看看！是否与上面的 /etc/passwd 相同了！不过,这又是错误的安全性本文！
+# 看看！是否与上面的 /etc/passwd 相同了！不过,这又是错误的安全性本文
 
-# 先不要急著修改！我们来进行底下的另外一个命令处置看看！
+# 先不要急著修改！我们来进行底下的另外一个命令处置看看
 
-chcon 是透过直接指定的方式来处理安全性本文的类型数据。那我们知道其实系统默认的目录都有特殊的 SELinux 安全性本文, 举例来说, /var/www/html 原本就是 httpd 可以读取的目录嘛！既然如此,那有没有可以使用默认的安全性本文来还原的方式？ 有的,那就是 restorecon 这玩意儿: 
+chcon 是透过直接指定的方式来处理安全性本文的类型数据。那我们知道其实系统默认的目录都有特殊的 SELinux 安全性本文, 举例来说, /var/www/html 原本就是 httpd 可以读取的目录嘛！既然如此,那有没有可以使用默认的安全性本文来还原的方式？ 有的,那就是 restorecon 这玩意儿:
 
 [root@www ~]# restorecon [-Rv] 文件或目录
   
-选项与参数: 
+选项与参数:
   
 -R : 连同次目录一起修改；
   
@@ -463,19 +464,19 @@ system_u:object_r:httpd_sys_content_t:s0
 
 setroubleshoot -> 错误信息写入 /var/log/messages
   
-几乎所有 SELinux 相关的程序都会以 se 为开头,这个服务也是以 se 为开头！而 troubleshoot 大家都知道是错误克服, 因此这个 setroubleshoot 自然就得要启动他啦！这个服务会将关於 SELinux 的错误信息与克服方法记录到 /var/log/messages 里头,所以你一定得要启动这个服务才好。那如何在启动的时候就启动 setroubleshoot 呢？这样处理先: 
+几乎所有 SELinux 相关的程序都会以 se 为开头,这个服务也是以 se 为开头！而 troubleshoot 大家都知道是错误克服, 因此这个 setroubleshoot 自然就得要启动他啦！这个服务会将关於 SELinux 的错误信息与克服方法记录到 /var/log/messages 里头,所以你一定得要启动这个服务才好。那如何在启动的时候就启动 setroubleshoot 呢？这样处理先:
 
 [root@www ~]# chkconfig -list setroubleshoot
   
 setroubleshoot 0:off 1:off 2:off 3:on 4:on 5:on 6:off
 
-# 我们的 Linux 运行模式是在 3 或 5 号,因此这两个要 on 即可。
+# 我们的 Linux 运行模式是在 3 或 5 号,因此这两个要 on 即可
 
 [root@www ~]# chkconfig setroubleshoot on
 
-# 关於 chkconfig 我们会在后面章节介绍, -list 是列出目前的运行等级是否有启动,
+# 关於 chkconfig 我们会在后面章节介绍, -list 是列出目前的运行等级是否有启动
 
-# 如果加上 on ,则是在启动时启动,若为 off 则启动时不启动。
+# 如果加上 on ,则是在启动时启动,若为 off 则启动时不启动
 
 这支服务默认几乎都会启动啦！除非你看到 3:off 或 5:off 时,才需要以『 chkconfig setroubleshoot on 』 去配置一下。那么如果有发生错误时,信息像什么呢？我们刚刚不是以浏览器浏览 index.html 并导致错误吗？ 那就将该错误捉来瞧瞧！
 
@@ -487,7 +488,7 @@ potentially mislabeled files (/var/www/html/index.html). For complete SELinux
   
 messages. run sealert -l 6c028f77-ddb6-4515-91f4-4e3e719994d4
   
-上面的错误信息可是同一行喔！大纲说的是『SElinux 被用来避免 httpd 读取到错误的安全性本文, 想要查阅完整的数据,请运行 sealert -l 6c02...』没错！你注意到了！重点就是 sealert -l 啦！ 上面提供的资讯并不完整,想要更完整的说明得要靠 sealert 配合侦测到的错误代码来处理。 实际处理后会像这样: 
+上面的错误信息可是同一行喔！大纲说的是『SElinux 被用来避免 httpd 读取到错误的安全性本文, 想要查阅完整的数据,请运行 sealert -l 6c02...』没错！你注意到了！重点就是 sealert -l 啦！ 上面提供的资讯并不完整,想要更完整的说明得要靠 sealert 配合侦测到的错误代码来处理。 实际处理后会像这样:
 
 [root@www ~]# sealert -l 6c028f77-ddb6-4515-91f4-4e3e719994d4
   
@@ -525,7 +526,7 @@ directory using restorecon -R -v '/var/www/html'.
 
 auditd -> 详细数据写入 /var/log/audit/audit.log
   
-audit 是稽核的意思,这个 auditd 会将 SELinux 发生的错误资讯写入 /var/log/audit/audit.log 中！ 与上个服务相同的,你最好在启动时就配置这服务为启动的模式,因此可以照样造句: 
+audit 是稽核的意思,这个 auditd 会将 SELinux 发生的错误资讯写入 /var/log/audit/audit.log 中！ 与上个服务相同的,你最好在启动时就配置这服务为启动的模式,因此可以照样造句:
 
 [root@www ~]# chkconfig -list auditd
   
@@ -533,28 +534,28 @@ auditd 0:off 1:off 2:on 3:on 4:on 5:on 6:off
 
 [root@www ~]# chkconfig auditd on
 
-# 若 3:off 及 5:off 时,才需要进行！
+若 3:off 及 5:off 时,才需要进行
 
-与 setroubleshoot 不同的是, auditd 会将许多的 SELinux 资讯都记录下来,不只是错误信息而已, 因此登录档 /var/log/audit/audit.log 非常的庞大！要直接到这文件里面去搜寻数据是挺累人的～ 还好,SELinux 有提供一个 audit2why 的命令来让我们查询错误信息的回报呢！那么这个命令如何使用呢？ 可以这样用的: 
+与 setroubleshoot 不同的是, auditd 会将许多的 SELinux 资讯都记录下来,不只是错误信息而已, 因此登录档 /var/log/audit/audit.log 非常的庞大！要直接到这文件里面去搜寻数据是挺累人的～ 还好,SELinux 有提供一个 audit2why 的命令来让我们查询错误信息的回报呢！那么这个命令如何使用呢？ 可以这样用的:
 
 [root@www ~]# audit2why < /var/log/audit/audit.log
 
-# 意思是,将登录档的内容读进来分析,并输出分析的结果！结果有点像这样: 
+意思是,将登录档的内容读进来分析,并输出分析的结果！结果有点像这样
 
 type=AVC msg=audit(1237799959.349:355): avc: denied { getattr } for pid=24094
   
 comm="httpd" path="/var/www/html/index.html" dev=hda2 ino=654685 scontext=root:s
   
 ystem_r:httpd_t:s0 tcontext=root:object_r:user_home_t:s0 tclass=file
-      
+
 Was caused by:
-         
+
 Missing or disabled TE allow rule.
-         
+
 Allow rules may exist but be disabled by boolean settings; check boolean
   
 settings.
-         
+
 You can see the necessary allow rules by running audit2allow with this
   
 audit message as input.
@@ -571,7 +572,7 @@ CentOS 5.x 默认使使用 targeted 政策,那么这个政策提供多少相关�
 
 [root@www ~]# seinfo [-Atrub]
   
-选项与参数: 
+选项与参数:
   
 -A : 列出 SELinux 的状态、守则布林值、身份识别、角色、类别等所有资讯
   
@@ -592,48 +593,48 @@ Statistics for policy file: /etc/selinux/targeted/policy/policy.21
 Policy Version & Type: v.21 (binary, MLS) <==列出政策所在档与版本
 
 Classes: 61 Permissions: 220
-     
+
 Types: 1521 Attributes: 155
-     
+
 Users: 3 Roles: 6
-     
+
 Booleans: 213 Cond. Expr.: 190
-     
+
 Sensitivities: 1 Categories: 1024
-     
+
 Allow: 86561 Neverallow: 0
-     
+
 Auditallow: 34 Dontaudit: 5460
-     
+
 Role allow: 5 Role trans: 0
   
 ..
 
-# 从上面我们可以看到这个政策是 targeted ,此政策的安全性本文类别有 1521 个；
+# 从上面我们可以看到这个政策是 targeted ,此政策的安全性本文类别有 1521 个
 
-# 而针对网络服务的守则 (Booleans) 共制订了 213 条守则！
+# 而针对网络服务的守则 (Booleans) 共制订了 213 条守则
 
 范例二: 列出与 httpd 有关的守则 (booleans) 有哪些？
   
 [root@www ~]# seinfo -b | grep httpd
   
 Rule loading disabled
-     
+
 allow_httpd_mod_auth_pam
-     
+
 allow_httpd_bugzilla_script_anon_write
-     
+
 httpd_enable_ftp_server
   
 ..
 
-# 你可以看到,有非常多的与 httpd 有关的守则订定呢！
+# 你可以看到,有非常多的与 httpd 有关的守则订定呢
 
 从上面我们可以看到与 httpd 有关的布林值,同样的,如果你想要找到有 httpd 字样的安全性本文类别时, 就可以使用『 seinfo -t | grep httpd 』来查询了！如果查询到相关的类别或者是布林值后,想要知道详细的守则时, 就得要使用 sesearch 这个命令了！
 
 [root@www ~]# sesearch [-a] [-s 主体类别] [-t 目标类别] [-b 布林值]
   
-选项与参数: 
+选项与参数:
   
 -a : 列出该类别或布林值的所有相关资讯
   
@@ -646,16 +647,16 @@ httpd_enable_ftp_server
 [root@www ~]# sesearch -a -t httpd_sys_content_t
   
 Found 74 av rules:
-     
+
 allow readahead_t httpd_sys_content_t : file { ioctl read getattr lock };
-     
+
 allow readahead_t httpd_sys_content_t : dir { ioctl read getattr lock search };
   
 ..
 
 # 『 allow 主体程序安全性本文类别 目标文件安全性本文类别 』
 
-# 如上,说明这个类别可以被那个主题程序的类别所读取,以及目标文件资源的格式。
+# 如上,说明这个类别可以被那个主题程序的类别所读取,以及目标文件资源的格式
 
 范例二: 找出主体程序为 httpd_t 且目标文件类别为 httpd 相关的所有资讯
   
@@ -664,31 +665,31 @@ allow readahead_t httpd_sys_content_t : dir { ioctl read getattr lock search };
 Found 163 av rules:
   
 ....(中间省略)....
-     
+
 allow httpd_t httpd_sys_content_t : file { ioctl read getattr lock };
-     
+
 allow httpd_t httpd_sys_content_t : dir { ioctl read getattr lock search };
-     
+
 allow httpd_t httpd_sys_content_t : lnk_file { ioctl read getattr lock };
   
 ....(后面省略)....
 
 # 从上面的数据就可以看出当程序为 httpd_t 这个类别,是可以读取
 
-# httpd_sys_content_t 的！
+# httpd_sys_content_t 的
 
-你可以很轻易的查询到某个主体程序 (subject) 可以读取的目标文件资源 (Object) , 从我们上面的练习,我们也可以很轻松的就知道,为何 httpd_t 可以读取 httpd_sys_content_t 罗！ 那如果是布林值呢？里面又规范了什么？让我们来看看先: 
+你可以很轻易的查询到某个主体程序 (subject) 可以读取的目标文件资源 (Object) , 从我们上面的练习,我们也可以很轻松的就知道,为何 httpd_t 可以读取 httpd_sys_content_t 罗！ 那如果是布林值呢？里面又规范了什么？让我们来看看先:
 
 范例三: 我知道有个布林值为 httpd_enable_homedirs ,请问该布林值规范多少守则？
   
 [root@www ~]# sesearch -b httpd_enable_homedirs -a
   
 Found 21 av rules:
-     
+
 allow httpd_t user_home_dir_t : dir { getattr search };
-     
+
 allow httpd_t cifs_t : file { ioctl read getattr lock };
-     
+
 allow httpd_t cifs_t : dir { ioctl read getattr lock search };
   
 ....(后面省略)....
@@ -699,11 +700,11 @@ allow httpd_t cifs_t : dir { ioctl read getattr lock search };
 
 布林值的查询与修改
   
-上面我们透过 sesearch 知道了,其实 Subject 与 Object 能否有存取的权限,是与布林值有关的, 那么系统有多少布林值可以透过 seinfo -b 来查询,但,每个布林值是启动的还是关闭的呢？这就来查询看看吧: 
+上面我们透过 sesearch 知道了,其实 Subject 与 Object 能否有存取的权限,是与布林值有关的, 那么系统有多少布林值可以透过 seinfo -b 来查询,但,每个布林值是启动的还是关闭的呢？这就来查询看看吧:
 
 [root@www ~]# getsebool [-a] [布林值条款]
   
-选项与参数: 
+选项与参数:
   
 -a : 列出目前系统上面的所有布林值条款配置为开启或关闭值
 
@@ -721,13 +722,13 @@ allow_daemons_dump_core -> on
   
 ..
 
-# 您瞧！这就告诉你目前的布林值状态罗！
+# 您瞧！这就告诉你目前的布林值状态罗
 
 那么如果查询到某个布林值,并且以 sesearch 知道该布林值的用途后,想要关闭或启动他,又该如何处置？
 
 [root@www ~]# setsebool [-P] 布林值=[0|1]
   
-选项与参数: 
+选项与参数:
   
 -P : 直接将配置值写入配置档,该配置数据未来会生效的！
 
@@ -753,7 +754,7 @@ httpd_enable_homedirs -> off
   
 [root@www ~]# semanage fcontext -{a|d|m} [-frst] file_spec
   
-选项与参数: 
+选项与参数:
   
 fcontext : 主要用在安全性本文方面的用途, -l 为查询的意思；
   
@@ -825,8 +826,8 @@ drwxr-xr-x root root root:object_r:var_t /srv/samba
   
 drwxr-xr-x root root system_u:object_r:public_content_t /srv/samba/
 
-# 有默认值,以后用 restorecon 来修改比较简单！
+# 有默认值,以后用 restorecon 来修改比较简单
 
 semanage 的功能很多,不过鸟哥主要用到的仅有 fcontext 这个项目的动作而已。如上所示, 你可以使用 semanage 来查询所有的目录默认值,也能够使用他来添加默认值的配置！如果您学会这些基础的工具, 那么 SELinux 对你来说,也不是什么太难的咚咚罗！
 
-http://cn.linux.vbird.org/linux_basic/0440processcontrol_5.php
+<http://cn.linux.vbird.org/linux_basic/0440processcontrol_5.php>
