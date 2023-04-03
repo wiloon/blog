@@ -39,7 +39,7 @@ git checkout -b <new-branch-name>
   
 此时用 status 指令查看,工作目录是干净的。
 
-> git status
+>git status
   
 HEAD detached at origin/master
   

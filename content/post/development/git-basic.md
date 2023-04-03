@@ -67,6 +67,8 @@ git checkout branch0
 
 ```bash
 git push origin branch0
+# fatal: The current branch production_dev has no upstream branch
+git push --set-upstream origin production_dev
 ```
 
 ### 删除分支
@@ -109,9 +111,9 @@ git symbolic-ref --short HEAD
 
 ## git tag
 
-轻量标签 (lightweight）与附注标签 (annotated）。
+轻量标签 lightweight 与附注标签 annotated
 
-### 附注标签 (annotated）
+### 附注标签 annotated
 
 附注标签是存储在 Git 数据库中的一个完整对象, 它们是可以被校验的，其中包含打标签者的名字、电子邮件地址、日期时间，此外还有一个标签信息，并且可以使用 GNU Privacy Guard  (GPG）签名并验证。通常会建议创建附注标签，这样你可以拥有以上所有信息。
 
@@ -125,7 +127,7 @@ git push origin v1.5
 git push --tag
 ```
 
-### 轻量标签 (lightweight）
+### 轻量标签 lightweight
 
 ```bash
 # list local tags
@@ -138,7 +140,7 @@ git ls-remote --tags origin
 # 显示提交信息
 git show v0.0.1
 
-# 查看 tag 在哪个分支上, 只能查看本地 tag
+# 查看 tag 在哪个分支上, 只能查看已经拉到本地的 tag, 如果 tag 的确是存在的, 但是用以下命令查不到, 先切换分支, 然后 git pull, 再执行以下命令就能看到了
 git branch --contains tags/<tag>
 
 # 查看 commit 内容
@@ -167,7 +169,9 @@ git rev-parse tags/v1.0.0
 git branch --contains commit0
 ```
 
-## merge 合并分支, git merge 命令用于合并指定分支到当前分支
+## merge 合并
+
+git merge 命令用于合并指定分支到当前分支
 
 ```bash
 # merge 默认会把 commit 的历史都合并进来
@@ -641,8 +645,8 @@ git rebase
 
 git stash
 
-$ git push origin test:master // 提交本地test分支作为远程的master分支 //好像只写这一句，远程的github就会自动创建一个test分支
-$ git push origin test:test // 提交本地test分支作为远程的test分支
+git push origin test:master // 提交本地test分支作为远程的master分支 //好像只写这一句，远程的github就会自动创建一个test分支
+git push origin test:test // 提交本地test分支作为远程的test分支
 
 git status -s
 git add .
@@ -656,43 +660,63 @@ git clone git@DomainName:ET.git
 git commit -m "xxx"
 git push origin master
 
-恢复一个文件"hello.rb",
-$ git checkout -- hello.rb
+# 恢复一个文件"hello.rb",
+git checkout -- hello.rb
 git log master..origin/master
 ```
 
 git am –show-current-patch
 
-### core.autocrlf
+## core.autocrlf
 
 core.autocrlf配置
 假如你正在Windows上写程序，又或者你正在和其他人合作，他们在Windows上编程，而你却在其他系统上，在这些情况下，你可能会遇到行尾结束符问题。这是因为Windows使用回车和换行两个字符来结束一行，而Mac和Linux只使用换行一个字符。虽然这是小问题，但它会极大地扰乱跨平台协作。
 
 Git可以在你提交时自动地把行结束符CRLF转换成LF，而在签出代码时把LF转换成CRLF。用core.autocrlf来打开此项功能，如果是在Windows系统上，把它设置成true，这样当签出代码时，LF会被转换成CRLF:
-$ git config --global core.autocrlf true
+
+```bash
+git config --global core.autocrlf true
+```
+
 Linux或Mac系统使用LF作为行结束符，因此你不想 Git 在签出文件时进行自动的转换；当一个以CRLF为行结束符的文件不小心被引入时你肯定想进行修正，把core.autocrlf设置成input来告诉 Git 在提交时把CRLF转换成LF，签出时不转换:
-$ git config --global core.autocrlf input
+
+```bash
+git config --global core.autocrlf input
+```
+
 这样会在Windows系统上的签出文件中保留CRLF，会在Mac和Linux系统上，包括仓库中保留LF。
 
 如果你是Windows程序员，且正在开发仅运行在Windows上的项目，可以设置false取消此功能，把回车符记录在库中:
 
-$ git config --global core.autocrlf false
+```bash
+git config --global core.autocrlf false
+```
 
-### submodule
+## submodule
 
 当你在一个Git 项目上工作时，你需要在其中使用另外一个Git 项目。也许它是一个第三方开发的Git 库或者是你独立开发和并在多个父项目中使用的。这个情况下一个常见的问题产生了: 你想将两个项目单独处理但是又需要在其中一个中使用另外一个。
 
-在Git 中你可以用子模块submodule来管理这些项目，submodule允许你将一个Git 仓库当作另外一个Git 仓库的子目录。这允许你克隆另外一个仓库到你的项目中并且保持你的提交相对独立。
+在 Git 中你可以用子模块 submodule 来管理这些项目，submodule 允许你将一个 Git 仓库当作另外一个 Git 仓库的子目录。这允许你克隆另外一个仓库到你的项目中并且保持你的提交相对独立。
 
-添加子模块
-此文中统一将远程项目<https://github.com/maonx/vimwiki-assets.git克隆到本地assets>文件夹。
+```bash
+# 为已有的 git 仓库增加子模块
+git submodule add https://github.com/maonx/vimwiki-assets.git assets
 
-$ git submodule add <https://github.com/maonx/vimwiki-assets.git> assets
+# 已经配置子模块的仓库, 主项目和子模块一起克隆
+git clone -b branch0 git@github.com:foo/bar.git --recursive
+# 查看子模块
+git submodule
+# 更新项目内子模块到最新版本
+git submodule update
+# 更新子模块为远程项目的最新版本
+git submodule update --remote
+
+```
 
 ### [0x7FFA0BF6E0A4] ANOMALY: use of REX.w is meaningless (default operand size is 64)
 
-导致这个问题的原因之一，是因为电脑安装了浪潮的 IP-GUARD 监控软件。
-卸载电脑原先的Git，安装32位Git。
+导致这个问题的原因之一，是因为电脑安装了浪潮的 IP-GUARD 监控软件  
+卸载电脑原先的 Git，安装 3 2位 Git  
 或者卸载监控软件
 
 ### git restore
@@ -701,7 +725,6 @@ $ git submodule add <https://github.com/maonx/vimwiki-assets.git> assets
 
 ```bash
 git restore
-
 ```
 
 #### 将暂存区的文件从暂存区撤出，但不会更改文件
@@ -710,7 +733,7 @@ git restore
 git restore --staged /path/to/file
 ```
 
-><https://blog.csdn.net/u013493841/article/details/104451987>
+<https://blog.csdn.net/u013493841/article/details/104451987>
 
 ### 关闭ssl校验
 
@@ -718,8 +741,9 @@ git restore --staged /path/to/file
 git config –global http.sslVerify false
 ```
 
-><https://git-scm.com/docs>
-><https://git-scm.com/book/zh/v2>
+<https://git-scm.com/docs>
+
+<https://git-scm.com/book/zh/v2>
 
 <http://zensheno.blog.51cto.com/2712776/490748>  
 <http://blog.csdn.net/ithomer/article/details/7529841>  
@@ -874,3 +898,7 @@ git rebase origin/dev
 - M = 修改过的
 - U 更新但未合并
 - ？：未被git进行管理，可以使用git add file1把file1添加进git能被git所进行管理
+- MM
+
+第一列M（绿色M）：代表版本库(working tree)和中间状态(staging)有差异。就是工作树版本库和提交到暂存区中文件的差异，意思就是这篇文章中执行 git diff --cached 时出现的差异。最后一次commit提交到工作版本库中的文件和add到暂存区中的文件差别。  
+第二列M（红色M）：代表工作区(working tree)和当前文件状态的差异。就是工作树版本库和本地开发文件的差异，意思就是这篇文章中执行git diff head 时出现的差异。最后一次commit提交到工作树版本库中文件和本地开发文件的差别。
