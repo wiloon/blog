@@ -9,6 +9,7 @@ categories:
   - inbox
 ---
 ## network namespace
+
 network namespace 是实现网络虚拟化的重要功能,它能创建多个隔离的网络空间,它们有独自的网络栈信息。不管是虚拟机还是容器,运行的时候仿佛自己就在独立的网络中。这篇文章介绍 network namespace 的基本概念和用法,network namespace 是 linux 内核提供的功能,这篇文章借助 ip 命令来完成各种操作。ip 命令来自于 iproute2 安装包,一般系统会默认安装,如果没有的话,请读者自行安装。
 
 NOTE: ip 命令因为需要修改系统的网络配置,默认需要 sudo 权限。这篇文章使用 root 用户执行,请不要在生产环境或者重要的系统中用 root 直接执行,以防产生错误。
@@ -27,9 +28,9 @@ ip netns 命令创建的 network namespace 会出现在 /var/run/netns/ 目录�
 
 ip netns exec 后面跟着 namespace 的名字,比如这里的 net1,然后是要执行的命令,只要是合法的 shell 命令都能运行,比如上面的 ip addr 或者 bash。
 
-每个 namespace 在创建的时候会自动创建一个 lo 的 interface,它的作用和 linux 系统中默认看到的 lo 一样,都是为了实现 loopback 通信。如果希望 lo 能工作,不要忘记启用它: 
+每个 namespace 在创建的时候会自动创建一个 lo 的 interface,它的作用和 linux 系统中默认看到的 lo 一样,都是为了实现 loopback 通信。如果希望 lo 能工作,不要忘记启用它:
 
 [root@localhost ~]# ip netns exec net1 ip link set lo up
 默认情况下,network namespace 是不能和主机网络,或者其他 network namespace 通信的。
 
-https://cizixs.com/2017/02/10/network-virtualization-network-namespace/
+<https://cizixs.com/2017/02/10/network-virtualization-network-namespace/>

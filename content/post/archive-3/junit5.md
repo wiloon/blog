@@ -9,7 +9,9 @@ tags:
   - reprint
 ---
 ## junit
+
 ### junit5
+
 JUnit5的第一个可用性版本是在2017年9月10日发布的。
 
 JUnit5架构
@@ -18,20 +20,21 @@ JUnit5架构
 
 JUnit 5 = JUnit Platform + JUnit Jupiter + JUnit Vintage
 
-  1. JUnit Platform
+1. JUnit Platform
   
     启动Junit测试、IDE、构建工具或插件都需要包含和扩展Platform API，它定义了TestEngine在平台运行的新测试框架的API。
   
-    它还提供了一个控制台启动器，可以从命令行启动Platform，为Gradle和Maven插件提供支持。 
-  2. JUnit Jupiter
+    它还提供了一个控制台启动器，可以从命令行启动Platform，为Gradle和Maven插件提供支持。
+
+2. JUnit Jupiter
   
     它用于编写测试代码的新的编程和扩展模型。它具有所有新的Junit注释和TestEngine实现来运行这些注释编写的测试。
 
-  3. JUnit Vintage
+3. JUnit Vintage
   
     它主要的目的是支持在JUnit5的测试代码中运行JUnit3和4方式写的测试，它能够向前兼容之前的测试代码。
   
-    https://tonydeng.github.io/2017/10/09/junit-5-tutorial-introduction/
+    <https://tonydeng.github.io/2017/10/09/junit-5-tutorial-introduction/>
 
 ### 安装
 
@@ -55,7 +58,7 @@ JUnit 5 = JUnit Platform + JUnit Jupiter + JUnit Vintage
     <version>${junit.platform.version}</version>
     <scope>test</scope>
 </dependency>
-``` 
+```
 
 ```java
 import org.junit.jupiter.api.Test;
@@ -91,4 +94,4 @@ Annotations 描述
   
 @TestFactory 标记一种方法是动态测试的测试工场
 
-https://sjyuan.club/junit5/user-guide-cn/#11-junit-5-%E6%98%AF%E4%BB%80%E4%B9%88
+<https://sjyuan.club/junit5/user-guide-cn/#11-junit-5-%E6%98%AF%E4%BB%80%E4%B9%88>
