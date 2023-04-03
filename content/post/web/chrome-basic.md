@@ -43,7 +43,9 @@ How to prevent the huge CPU usage of gnome-keyring-daemon when starting Google C
 
 ## chrome 参数 修改默认用户目录, todo merge
 
--user-data-dir=D:\UserData\chrome
+```bash
+chrome.exe --user-data-dir=D:\UserData\chrome --no-default-browser-check
+```
 
 ## extensions
 
