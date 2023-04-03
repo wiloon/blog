@@ -13,16 +13,24 @@ tags:
 ## Ubuntu 查看软件包是否安装
 
 ```bash
-dpkg -s <package-name>
+# 显示包含此软件包的所有位置
+dpkg -S softwarename
+
+
 # -s status, 查看软件包状态
+dpkg -s <package-name>
 
-dpkg-query -l <package-name> # 可以加通配符*
+# 可以加通配符*
+dpkg-query -l <package-name> 
 
-# 列出软件包的位置
+# 列出软件包的位置, 安装路径
 dpkg -L <package-name>
 
 # 列出哪些软件包被安装
 dpkg --get-selections | grep <package-name>*
+
+# 查看版本
+dpkg -l softwarename
 ```
 
 ## debian install deb package

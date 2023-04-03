@@ -9,15 +9,16 @@ tags:
   - reprint
 ---
 ## openstack
-https://www.cnblogs.com/wangle1001986/p/5320752.html
+
+<https://www.cnblogs.com/wangle1001986/p/5320752.html>
   
-https://www.zhihu.com/question/54447067
+<https://www.zhihu.com/question/54447067>
 
 openstack是云管理平台,其本身并不提供虚拟化功能,真正的虚拟化能力是由底层的hypervisor (如KVM、Qemu、Xen等) 提供。所谓管理平台,就是为了方便使用而已。打一个不恰当的比方,订单管理平台之类的产品,其实就是整合了一系列的sql调用而已。类似的,如果没有openstack,一样可以通过virsh、virt-manager来实现创建虚拟机的操作,只不过敲命令行的方式需要一定的学习成本,对于普通用户不是很友好。
 
 作者: Zongrong Zheng
   
-链接: https://www.zhihu.com/question/54447067/answer/292892408
+链接: <https://www.zhihu.com/question/54447067/answer/292892408>
   
 来源: 知乎
   
@@ -25,13 +26,13 @@ openstack是云管理平台,其本身并不提供虚拟化功能,真正的虚拟
 
 OpenStack与KVM的区别与联系
   
-转: https://www.aliyun.com/zixun/content/2_6_280418.html
+转: <https://www.aliyun.com/zixun/content/2_6_280418.html>
 
 OpenStack与KVM都是目前IT界比较热门的两个词汇。它们都是开源的,都与Linux有着千丝万缕的关系。但这两者还是有很大的差别呢。
 
 OpenStack: 开源管理项目
 
-OpenStack是一个旨在为公共及私有云的建设与管理提供软件的开源项目。它不是一个软件,而是由几个主要的组件组合起来完成一些具体的工作。OpenStack由以下五个相对独立的组件构成: 
+OpenStack是一个旨在为公共及私有云的建设与管理提供软件的开源项目。它不是一个软件,而是由几个主要的组件组合起来完成一些具体的工作。OpenStack由以下五个相对独立的组件构成:
 
 lOpenStack Compute(Nova)是一套控制器,用于虚拟机计算或使用群组启动虚拟机实例；
 
