@@ -191,3 +191,8 @@ Modal	Could you open the door?	Should I switch the light on?
 infinity(无穷大)> countless(数不清)> a huge number of(巨多)> a great number of(大量)> many/a lot of(很多)> some(一些)> a few(一点)> few(一点点)> a/one(一个)>no(没有)
 
 ## 宾语, 状语、补语、伴随语, 表语, 定语从句
+
+## Name
+
+Last Name = Family Name = 姓  
+First Name = Given Name = 名
