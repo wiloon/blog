@@ -464,6 +464,9 @@ git config --global --edit
 
 ```bash
 git log
+# 显示最近的 3 个 commit
+git log -n 3
+
 git log file0
 git log -3 file0
 git log --oneline
@@ -705,13 +708,16 @@ git config --global core.autocrlf false
 在 Git 中你可以用子模块 submodule 来管理这些项目，submodule 允许你将一个 Git 仓库当作另外一个 Git 仓库的子目录。这允许你克隆另外一个仓库到你的项目中并且保持你的提交相对独立。
 
 ```bash
-# 为已有的 git 仓库增加子模块
+# 为已有的 git 仓库增加子模块, 命令执行完成，会在当前工程根路径下生成一个名为“.gitmodules”的文件
 git submodule add https://github.com/maonx/vimwiki-assets.git assets
 
 # 已经配置子模块的仓库, 主项目和子模块一起克隆
 git clone -b branch0 git@github.com:foo/bar.git --recursive
-# 查看子模块
+
+# 查看子模块, 如果 git submodule 返回的 hash 前面有一个减号, 代表子模块还没有检出
 git submodule
+# 比如只克隆了主仓库, submodule所在的目录肯定是空的, 要用这个命令初始化一下 submodule, 然后再执行 git submodule update, submodule 目录就克隆下来了.
+git submodule init
 # 更新项目内子模块到最新版本
 git submodule update
 # 更新子模块为远程项目的最新版本
@@ -731,7 +737,7 @@ rm .git/module/* 删除模块下的子模块目录，每个子模块对应一个
 
 ————————————————
 版权声明：本文为CSDN博主「guotianqing」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
-原文链接：https://blog.csdn.net/guotianqing/article/details/82391665
+原文链接：<https://blog.csdn.net/guotianqing/article/details/82391665>
 
 ### [0x7FFA0BF6E0A4] ANOMALY: use of REX.w is meaningless (default operand size is 64)
 
@@ -920,5 +926,5 @@ git rebase origin/dev
 - ？：未被git进行管理，可以使用git add file1把file1添加进git能被git所进行管理
 - MM
 
-第一列M（绿色M）：代表版本库(working tree)和中间状态(staging)有差异。就是工作树版本库和提交到暂存区中文件的差异，意思就是这篇文章中执行 git diff --cached 时出现的差异。最后一次commit提交到工作版本库中的文件和add到暂存区中的文件差别。  
-第二列M（红色M）：代表工作区(working tree)和当前文件状态的差异。就是工作树版本库和本地开发文件的差异，意思就是这篇文章中执行git diff head 时出现的差异。最后一次commit提交到工作树版本库中文件和本地开发文件的差别。
+第一列 M（绿色M）：代表版本库(working tree)和中间状态(staging)有差异。就是工作树版本库和提交到暂存区中文件的差异，意思就是这篇文章中执行 git diff --cached 时出现的差异。最后一次commit提交到工作版本库中的文件和add到暂存区中的文件差别。  
+第二列 M（红色M）：代表工作区(working tree)和当前文件状态的差异。就是工作树版本库和本地开发文件的差异，意思就是这篇文章中执行git diff head 时出现的差异。最后一次commit提交到工作树版本库中文件和本地开发文件的差别。
