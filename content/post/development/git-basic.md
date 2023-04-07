@@ -113,6 +113,11 @@ git symbolic-ref --short HEAD
 
 轻量标签 lightweight 与附注标签 annotated
 
+```bash
+git tag -a v1.0.0 -m "message0"
+git push origin v1.0.0
+```
+
 ### 附注标签 annotated
 
 附注标签是存储在 Git 数据库中的一个完整对象, 它们是可以被校验的，其中包含打标签者的名字、电子邮件地址、日期时间，此外还有一个标签信息，并且可以使用 GNU Privacy Guard  (GPG）签名并验证。通常会建议创建附注标签，这样你可以拥有以上所有信息。
@@ -120,11 +125,14 @@ git symbolic-ref --short HEAD
 在运行 tag 命令时指定 -a 选项, 创建附注标签
 
 ```bash
-git tag -a v1.4 -m "message0"
+git tag -a v1.0.0 -m "message0"
 # 对历史提交打标签
 git tag -a v1.2 9fceb02
 git push origin v1.5
 git push --tag
+# 对某一个 commit 打 tag
+# Tag the commit
+git tag -a v1.0.0 <commit0> -m "msg0"
 ```
 
 ### 轻量标签 lightweight
@@ -152,7 +160,7 @@ git checkout tag_name
 # add a tag
 git tag v1.0.0
 
-# 共享标签, 提交标签, commit tag
+# 共享标签, 提交标签, commit tag, Specify the tag in the git push command
 git push origin <tagname>
 git push origin v1.0.0
 
