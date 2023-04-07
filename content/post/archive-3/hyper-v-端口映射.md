@@ -9,7 +9,8 @@ tags:
   - reprint
 ---
 ## hyper -v 端口映射
-https://www.cnblogs.com/cnxkey/articles/7815434.html
+
+<https://www.cnblogs.com/cnxkey/articles/7815434.html>
 
 hyper -v 如何实现端口映射
   
@@ -27,7 +28,7 @@ netsh interface portproxy show v4tov4|find "192.168.1.1"
   
 netsh interface portproxy add v4tov4 listenport=外网端口 listenaddress=主IP connectaddress=私网IP connectport=私网IP端口
   
-例如: 
+例如:
   
 netsh interface portproxy add v4tov4 listenport=8888 listenaddress=118.123.13.180 connectaddress=192.168.1.10 connectport=2222
   
@@ -35,7 +36,7 @@ netsh interface portproxy add v4tov4 listenport=8888 listenaddress=118.123.13.18
   
 netsh interface portproxy delete v4tov4 listenaddress=主IP listenport=外网端口
   
-例如: 
+例如:
   
 netsh interface portproxy delete v4tov4 listenaddress=118.123.13.180 listenport=8888
 
