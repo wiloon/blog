@@ -137,3 +137,11 @@ File> settings> Build,Execution,Deployment>Build Tools> maven> importing> vm opt
 ## file header
 
 setting>file and code templates>includes>file header
+
+## 状态栏显示内存占用
+
+>view> appearance> status ba widgets> memory indicator
+
+修改内存设置
+
+>help> edit custom vm options
