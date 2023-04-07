@@ -529,9 +529,15 @@ git fetch origin master: tmp
 
 ## git diff
 
-git diff tmp
+```bash
+git diff 不加参数即默认比较工作区与暂存区
+git diff --cached [<path>...]比较暂存区与最新本地版本库（本地库中最近一次commit的内容）
+git diff HEAD [<path>...]比较工作区与最新本地版本库。如果HEAD指向的是master分支，那么HEAD还可以换成master
+git diff commit-id [<path>...]比较工作区与指定commit-id的差异　　　　　　
+git diff --cached [<commit-id>] [<path>...]比较暂存区与指定commit-id的差异
+git diff [<commit-id>] [<commit-id>]比较两个commit-id之间的差异
 
-git diff，不加任何参数，默认比较的是工作区和暂存区之间的文件差异
+```
 
 // 来比较本地代码与刚刚从远程下载下来的代码的区别
 git merge tmp
@@ -712,6 +718,20 @@ git submodule update
 git submodule update --remote
 
 ```
+
+### 删除子模块
+
+```bash
+rm -rf 子模块目录 删除子模块目录及源码
+vi .gitmodules 删除项目目录下.gitmodules文件中子模块相关条目
+vi .git/config 删除配置项中子模块相关条目
+rm .git/module/* 删除模块下的子模块目录，每个子模块对应一个目录，注意只删除对应的子模块目录即可
+
+```
+
+————————————————
+版权声明：本文为CSDN博主「guotianqing」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
+原文链接：https://blog.csdn.net/guotianqing/article/details/82391665
 
 ### [0x7FFA0BF6E0A4] ANOMALY: use of REX.w is meaningless (default operand size is 64)
 
