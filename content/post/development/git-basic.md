@@ -612,7 +612,8 @@ git clone <版本库的网址> <本地目录名>
 ```bash
 
 git clone https://user0:password0@git.foo.com/path/to/project.git
-
+# clone 某个仓库和某个分支
+git clone [git-url] -b [branch-name]
 git log --pretty=oneline
 
 git-ls-files  # - Show information about files in the index and the working tree
