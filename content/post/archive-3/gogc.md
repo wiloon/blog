@@ -73,15 +73,15 @@ var debug struct {
   
 GOGC是Go运行时支持的最老的环境变量之一。它甚至比GOROOT还老
   
-GOGC 用于控制GC的处发频率， 其值默认为100
+GOGC 用于控制GC的触发频率， 其值默认为100
   
-意为直到自上次垃圾回收后heap size已经增长了100%时GC才触发运行。即是GOGC=100意味着live heap size 每增长一倍，GC触发运行一次。
+意为直到自上次垃圾回收后 heap size 已经增长了 100 %时 GC 才触发运行。即是 GOGC=100意味着live heap size 每增长一倍，GC 触发运行一次。
   
-如设定GOGC=200, 则live heap size 自上次垃圾回收后，增长2倍时，GC触发运行， 总之，其值越大则GC触发运行频率越低， 反之则越高，
+如设定 GOGC=200, 则 live heap size 自上次垃圾回收后，增长2倍时，GC 触发运行， 总之，其值越大则GC触发运行频率越低， 反之则越高，
   
-如果GOGC=off 则关闭GC.
+如果 GOGC=off 则关闭GC.
   
-虽然go 1.5引入了低延迟的GC, 但是GOGC对GC运行频率的影响不变， 仍然是其值大于100,则越大GC运行频率越高，
+虽然 go 1.5引入了低延迟的GC, 但是GOGC对GC运行频率的影响不变， 仍然是其值大于100,则越大GC运行频率越高，
   
 反之则越低。
 
