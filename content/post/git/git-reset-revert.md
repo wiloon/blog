@@ -18,6 +18,9 @@ git reset --hard HEAD~1
 
 # reset 最近两次 commit
 git reset --hard HEAD~2
+# reset 到某一个 commit, 退到/进到 指定commit_id
+git reset --hard commit_id
+
 git reset --soft HEAD^
 ```
 
@@ -102,8 +105,8 @@ git reset ** file0
 ```bash
 git reset -hard file0
 
-git reset -mixed: 此为默认方式，不带任何参数的git reset，这种方式，它回退到某个版本，只保留源码，回退commit和index信息
-git reset -soft:回退到某个版本，只回退了commit的信息，不会恢复到index file一级。如果还要提交，直接commit即可
+git reset -mixed: 此为默认方式，不带任何参数的 git reset，这种方式，它回退到某个版本，只保留源码，回退commit 和 index 信息
+git reset -soft: 回退到某个版本，只回退了 commit 的信息，不会恢复到 index file 一级。如果还要提交，直接commit 即可
 
 ```
 
