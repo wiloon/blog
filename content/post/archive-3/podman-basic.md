@@ -1,16 +1,14 @@
 ---
 title: podman basic
 author: "-"
-date: 2022-10-10 11:26:14
+date: 2023-04-06 12:25:16
 url: podman
 categories:
   - container
 tags:
   - podman
   - remix
-
 ---
-
 ## podman basic
 
 ## install
@@ -101,7 +99,7 @@ podman image prune
 podman run --rm hello-world env
 ```
 
-### 查看 cpu 内存占用
+### podman 查看 cpu 内存占用
 
 ```bash
 podman stats
@@ -207,14 +205,16 @@ podman run \
 image0_name
 ```
 
-## systemd
+## podman systemd
 
 generate systemd script
 
 ```bash
 export service_name=foo
 podman generate systemd $service_name > /usr/lib/systemd/system/$service_name.service
+# enable service
 systemctl enable $service_name
+# enable and start service
 systemctl --now enable $service_name
 ```
 
