@@ -175,6 +175,7 @@ docker run [OPTIONS] IMAGE [COMMAND] [ARG...]
 
 ```bash
 docker run -it --rm ubuntu bash
+docker run -d id0 sleep 7200
 # -i, --interactive=false   打开 STDIN, 用于控制台交互
 # -t, --tty=false           分配 tty 设备, 该可以支持终端登录, 默认为 false
 # -t -a stdout              Outputs the container logs on the standard output
