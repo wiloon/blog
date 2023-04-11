@@ -16,6 +16,8 @@ tags:
 redis-cli -h 127.0.0.1 -p 6379
 # -a 使用认证密码登录
 redis-cli -h 127.0.0.1 -p 6379 -a password0
+# -n 指定 db
+redis-cli -h 127.0.0.1 -p 6379 -a password0 -n 10
 # OBJECT ENCODING 命令可以查看一个数据库键的值对象的编码
 OBJECT ENCODING key0
 
@@ -184,10 +186,10 @@ exists key_name
 type key0
 ```
 
-### 删除 key
+### redis 删除 key
 
 ```bash
-    DEL key [key ...]
+DEL key [key ...]
 ```
 
 ### 设置过期时间
@@ -540,3 +542,8 @@ spec:
 ```bash
 kubectl create -f redis-deployment.yml
 ```
+
+
+## Redis从文件中批量插入数据
+
+https://blog.csdn.net/chwshuang/article/details/52915685
