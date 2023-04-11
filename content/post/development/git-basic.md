@@ -113,6 +113,11 @@ git symbolic-ref --short HEAD
 
 轻量标签 lightweight 与附注标签 annotated
 
+```bash
+git tag -a v1.0.0 -m "message0"
+git push origin v1.0.0
+```
+
 ### 附注标签 annotated
 
 附注标签是存储在 Git 数据库中的一个完整对象, 它们是可以被校验的，其中包含打标签者的名字、电子邮件地址、日期时间，此外还有一个标签信息，并且可以使用 GNU Privacy Guard  (GPG）签名并验证。通常会建议创建附注标签，这样你可以拥有以上所有信息。
@@ -120,11 +125,14 @@ git symbolic-ref --short HEAD
 在运行 tag 命令时指定 -a 选项, 创建附注标签
 
 ```bash
-git tag -a v1.4 -m "message0"
+git tag -a v1.0.0 -m "message0"
 # 对历史提交打标签
 git tag -a v1.2 9fceb02
 git push origin v1.5
 git push --tag
+# 对某一个 commit 打 tag
+# Tag the commit
+git tag -a v1.0.0 <commit0> -m "msg0"
 ```
 
 ### 轻量标签 lightweight
@@ -152,7 +160,7 @@ git checkout tag_name
 # add a tag
 git tag v1.0.0
 
-# 共享标签, 提交标签, commit tag
+# 共享标签, 提交标签, commit tag, Specify the tag in the git push command
 git push origin <tagname>
 git push origin v1.0.0
 
@@ -464,6 +472,9 @@ git config --global --edit
 
 ```bash
 git log
+# 显示最近的 3 个 commit
+git log -n 3
+
 git log file0
 git log -3 file0
 git log --oneline
@@ -529,9 +540,15 @@ git fetch origin master: tmp
 
 ## git diff
 
-git diff tmp
+```bash
+git diff 不加参数即默认比较工作区与暂存区
+git diff --cached [<path>...]比较暂存区与最新本地版本库（本地库中最近一次commit的内容）
+git diff HEAD [<path>...]比较工作区与最新本地版本库。如果HEAD指向的是master分支，那么HEAD还可以换成master
+git diff commit-id [<path>...]比较工作区与指定commit-id的差异　　　　　　
+git diff --cached [<commit-id>] [<path>...]比较暂存区与指定commit-id的差异
+git diff [<commit-id>] [<commit-id>]比较两个commit-id之间的差异
 
-git diff，不加任何参数，默认比较的是工作区和暂存区之间的文件差异
+```
 
 // 来比较本地代码与刚刚从远程下载下来的代码的区别
 git merge tmp
@@ -595,7 +612,8 @@ git clone <版本库的网址> <本地目录名>
 ```bash
 
 git clone https://user0:password0@git.foo.com/path/to/project.git
-
+# clone 某个仓库和某个分支
+git clone [git-url] -b [branch-name]
 git log --pretty=oneline
 
 git-ls-files  # - Show information about files in the index and the working tree
@@ -699,19 +717,36 @@ git config --global core.autocrlf false
 在 Git 中你可以用子模块 submodule 来管理这些项目，submodule 允许你将一个 Git 仓库当作另外一个 Git 仓库的子目录。这允许你克隆另外一个仓库到你的项目中并且保持你的提交相对独立。
 
 ```bash
-# 为已有的 git 仓库增加子模块
+# 为已有的 git 仓库增加子模块, 命令执行完成，会在当前工程根路径下生成一个名为“.gitmodules”的文件
 git submodule add https://github.com/maonx/vimwiki-assets.git assets
 
 # 已经配置子模块的仓库, 主项目和子模块一起克隆
 git clone -b branch0 git@github.com:foo/bar.git --recursive
-# 查看子模块
+
+# 查看子模块, 如果 git submodule 返回的 hash 前面有一个减号, 代表子模块还没有检出
 git submodule
+# 比如只克隆了主仓库, submodule所在的目录肯定是空的, 要用这个命令初始化一下 submodule, 然后再执行 git submodule update, submodule 目录就克隆下来了.
+git submodule init
 # 更新项目内子模块到最新版本
 git submodule update
 # 更新子模块为远程项目的最新版本
 git submodule update --remote
 
 ```
+
+### 删除子模块
+
+```bash
+rm -rf 子模块目录 删除子模块目录及源码
+vi .gitmodules 删除项目目录下.gitmodules文件中子模块相关条目
+vi .git/config 删除配置项中子模块相关条目
+rm .git/module/* 删除模块下的子模块目录，每个子模块对应一个目录，注意只删除对应的子模块目录即可
+
+```
+
+————————————————
+版权声明：本文为CSDN博主「guotianqing」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
+原文链接：<https://blog.csdn.net/guotianqing/article/details/82391665>
 
 ### [0x7FFA0BF6E0A4] ANOMALY: use of REX.w is meaningless (default operand size is 64)
 
@@ -900,5 +935,5 @@ git rebase origin/dev
 - ？：未被git进行管理，可以使用git add file1把file1添加进git能被git所进行管理
 - MM
 
-第一列M（绿色M）：代表版本库(working tree)和中间状态(staging)有差异。就是工作树版本库和提交到暂存区中文件的差异，意思就是这篇文章中执行 git diff --cached 时出现的差异。最后一次commit提交到工作版本库中的文件和add到暂存区中的文件差别。  
-第二列M（红色M）：代表工作区(working tree)和当前文件状态的差异。就是工作树版本库和本地开发文件的差异，意思就是这篇文章中执行git diff head 时出现的差异。最后一次commit提交到工作树版本库中文件和本地开发文件的差别。
+第一列 M（绿色M）：代表版本库(working tree)和中间状态(staging)有差异。就是工作树版本库和提交到暂存区中文件的差异，意思就是这篇文章中执行 git diff --cached 时出现的差异。最后一次commit提交到工作版本库中的文件和add到暂存区中的文件差别。  
+第二列 M（红色M）：代表工作区(working tree)和当前文件状态的差异。就是工作树版本库和本地开发文件的差异，意思就是这篇文章中执行git diff head 时出现的差异。最后一次commit提交到工作树版本库中文件和本地开发文件的差别。
