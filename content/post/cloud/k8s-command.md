@@ -122,15 +122,15 @@ kubectl explain pod
 
 ## Containerd, CRI-O
 
-Containerd 项目是从早期的Docker源码中提炼出来的，它使用CRI插件来向kubelet提供CRI接口服务。
+Containerd 项目是从早期的 Docker 源码中提炼出来的，它使用 CRI 插件来向 kubelet 提供 CRI 接口服务。
 
-CRI插件是一个独立的项目，在Containerd编译时，如果go build命令没有显示设置参数-tags=no_cri，那么CRI插件将自动编译集成到Containerd的二进制文件中，然后在配置文件/etc/containerd/config.toml中声明启用CRI插件，就可以在Containerd中启动CRI shim服务了。
+CRI 插件是一个独立的项目，在 Containerd 编译时，如果 go build 命令没有显示设置参数 -tags=no_cri，那么 CRI 插件将自动编译集成到 Containerd 的二进制文件中，然后在配置文件 /etc/containerd/config.toml 中声明启用 CRI 插件，就可以在 Containerd 中启动 CRI shim 服务了。
 
 Containerd能支持多运行时，目前它内置了runc运行时，其他运行时如果要接入Containerd，则需要实现Containerd shim v2 gRPC接口，这样Containerd就可以通过shim v2调用其他运行时。他们的调用关系如下：Containerd --> shim v2 --> runtimes
 
 ## CRI-O
 
-CRI-O完整实现CRI接口功能，并且严格兼容OCI标准，CRI-O比Containerd更专注，它只服务于Kubernetes (而Containerd除支持Kubernetes CRI，还可用于Docker Swarm），从官网上我们可以了解到CRI-O项目的功能边界：
+CRI-O 完整实现CRI接口功能，并且严格兼容 OCI 标准，CRI-O 比 Containerd 更专注，它只服务于 Kubernetes (而Containerd除支持Kubernetes CRI，还可用于Docker Swarm），从官网上我们可以了解到CRI-O项目的功能边界：
 支持多种image格式
 支持多种image下载方式
 容器镜像管理
@@ -508,12 +508,14 @@ EOF
 
 sysctl --system
 
-sudo apt install -y curl gnupg2 software-properties-common apt-transport-https ca-certificates
+sudo apt install -y gnupg2 software-properties-common apt-transport-https ca-certificates
 sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmour -o /etc/apt/trusted.gpg.d/docker.gpg
-# repo amd64
+
+# if amd64
 sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
-# repo arm64
+# if arm64
 sudo add-apt-repository "deb [arch=arm64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+
 sudo apt update
 sudo apt install -y containerd.io
 
