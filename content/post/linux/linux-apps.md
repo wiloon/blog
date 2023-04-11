@@ -15,6 +15,7 @@ tags:
 - ncdu, 磁盘空间占用分析/清理
 - bitwarden, password management
 - btop, 另外一个 top 实现, 颜值还不错
+- screenfetch, 打印发行版的 logo  
 
 ## AUR
 
@@ -44,7 +45,6 @@ sudo pacman -S powerdevil kmix kscreen ark
 | netdata               | 系统资源监控                                                                            |
 | qalculate-gtk         | 全宇宙最好用的计算器                                                                    |
 | neofetch              | 系统信息显示命令行脚本, Neofetch 和 ScreenFetch 或者 Linux_Logo 很像，但是它可以高度定制          |
-| screenfetch           | 打印发行版的 logo                                                                            |
 | keepassxc             |                                                                                         |
 | sqlectron-gui         |                                                                                         |
 | hyper                 |                                                                                         |
