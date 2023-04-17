@@ -19,7 +19,7 @@ tags:
 
 其实这个问题解决起来很简单，网上也是很多教程，为了文章完整性，我这里也做一个尽量完备的展示，介绍如何配置Vue-cli 3.x来实现跨域 。
 
-### vue.config.js中devServer.proxy的配置解析
+### vue.config.js中devServer.proxy 的配置解析
 
 Vue-cli3.x比Vue-cli2.x构建的项目要简化很多，根目录下只有`./src`和`./public`文件夹，所以网上很多教程说`config`目录下的`vue.config.js`是说的vue-cli 2.x版本。那么对于Vue-cli 3.x版本，构建也很简单，直接在根目录里建一个`vue.config.js`配置文件就可以了，我们直接看`devServer.proxy`里的代码:
 
@@ -126,3 +126,9 @@ axios.post('.', Data)
      .catch(error => {console.log(error)});
 
 ><https://xudany.github.io/axios/2020/07/14/%E5%85%B3%E4%BA%8E-axios-302-%E9%87%8D%E5%AE%9A%E5%90%91%E7%9A%84%E9%97%AE%E9%A2%98/>
+
+## 临时端口
+
+```bash
+npm run serve -- --port 8081
+```
