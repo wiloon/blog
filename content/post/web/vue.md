@@ -10,6 +10,17 @@ tags:
 ---
 ## "vue basic"
 
+## vue3
+
+```bash
+npm init vue@latest
+
+```
+
+## JSX
+
+JSX的全称是 Javascript and XML，React发明了JSX，它是一种可以在JS中编写XML的语言。
+
 ### 安装vue
 
 ```bash

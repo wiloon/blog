@@ -47,7 +47,7 @@ Ctrl + y        粘贴最后一次被删除的单词
 
 ## .DS_Store
 
-.DS_Store [英文全称 **Desktop Services Store**](1) 是一种由苹果公司的Mac OS X操作系统所创造的隐藏文件,目的在于存贮文件夹的自定义属性,例如文件们的图标位置或者是背景色的选择。
+.DS_Store [英文全称 **Desktop Services Store**](1) 是一种由苹果公司的 Mac OS X 操作系统所创造的隐藏文件, 目的在于存贮文件夹的自定义属性,例如文件们的图标位置或者是背景色的选择。
 
 ## 重启 ipad
 
@@ -61,4 +61,12 @@ Ctrl + y        粘贴最后一次被删除的单词
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 brew install ansible
 brew list ansible
+# 更新自己
+brew update
+# 查看所有需要更新的包
+brew outdated
+# 更新所有包
+brew upgrade
+# 更新某一个包
+brew upgrade package0
 ```
