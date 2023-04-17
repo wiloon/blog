@@ -129,17 +129,17 @@ timedatectl set-ntp true
 ### loginctl
 
 ```bash
-    # 列出当前session
-    $ loginctl list-sessions
+# 列出当前session
+loginctl list-sessions
 
-    # 列出当前登录用户
-    $ loginctl list-users
+# 列出当前登录用户
+loginctl list-users
 
-    # 列出显示指定用户的信息
-    $ loginctl show-user ruanyf
+# 列出显示指定用户的信息
+loginctl show-user wiloon
 
-    ## 查看 session 类型, x or wayland
-    loginctl show-session <SESSION_ID> -p Type
+## 查看 session 类型, x or wayland
+loginctl show-session <SESSION_ID> -p Type
 ```
 
 ### cat
