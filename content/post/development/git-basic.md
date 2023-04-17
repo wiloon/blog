@@ -114,6 +114,7 @@ git symbolic-ref --short HEAD
 轻量标签 lightweight 与附注标签 annotated
 
 ```bash
+# -m <msg>, --message=<msg>
 git tag -a v1.0.0 -m "message0"
 git push origin v1.0.0
 ```
