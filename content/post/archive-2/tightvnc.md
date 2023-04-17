@@ -2,15 +2,16 @@
 title: tightvnc, tigervnc
 author: "-"
 date: 2015-12-25T12:34:28+00:00
-url: /?p=8604
+url: vnc
 categories:
-  - Inbox
+  - Linux
 tags:
   - reprint
+  - remix
 ---
 ## tightvnc, tigervnc
 
-### tighervnc nightly build
+## tighervnc nightly build
 
 <https://github.com/TigerVNC/tigervnc/releases>  
 <http://tigervnc.bphinz.com/nightly/>
@@ -20,7 +21,7 @@ tags:
 ```bash
 pacman -S tigervnc
 # vncserver
-#dell desktop
+# dell desktop
   
 vncserver -geometry 1350x670 -dpi 96 -depth 32 :1
 vncserver -geometry 1364x768 -dpi 96 -depth 32 :1
