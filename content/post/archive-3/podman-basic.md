@@ -19,6 +19,7 @@ tags:
 
 ```bash
 pacman -S netavark aardvark-dns podman
+pacman -S cni-plugins podman
 # 正常情况，安装 podman 之后不需要重启系统, 但是如果有异常，比如 CNI 之类 的问题，可以考虑重启一下...
 ```
 
