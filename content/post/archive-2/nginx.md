@@ -27,14 +27,14 @@ nginx -s signal
 # docker
 docker run -d \
 --name nginx \
+--restart=always \
 -p 80:80 \
 -p 443:443 \
 -v nginx-config:/etc/nginx \
--v certbot-conf:/etc/letsencrypt \
 -v nginx-www:/var/www \
+-v cert:/etc/letsencrypt \
 -v /etc/localtime:/etc/localtime:ro \
---restart=always \
-nginx
+nginx:1.23.4
 
 # podman
 podman run -d \
@@ -45,7 +45,7 @@ podman run -d \
 -v nginx-www:/var/www \
 -v cert:/etc/letsencrypt \
 -v /etc/localtime:/etc/localtime:ro \
-nginx
+nginx:1.23.4
 
 # nginx config text
 docker run --name nginx-config-test --rm -t -a stdout -v nginx-conf:/etc/nginx:ro nginx nginx -c /etc/nginx/nginx.conf -t

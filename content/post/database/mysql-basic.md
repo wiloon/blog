@@ -43,9 +43,9 @@ mysqldump -h 192.168.50.100 -uroot -p --databases rssx --tables user --where=use
 ### jdbc url
 
 ```r
-    jdbc:MySQL://localhost:3306/tmp
-    # driver
-    com.MySQL.jdbc.Driver
+jdbc:MySQL://localhost:3306/tmp
+# driver
+com.MySQL.jdbc.Driver
 ```
 
 ### MySQL heidisql 变量
@@ -133,6 +133,25 @@ SELECT @@SESSION.sql_mode;
 ### podmn
 
 ```bash
+# marial db
+docker run -d \
+--name mariadb \
+--restart=always \
+-p 3306:3306 \
+-v /etc/localtime:/etc/localtime:ro \
+-v marial-config:/etc/mysql/conf.d \
+-v marial-data:/var/lib/mysql \
+-e MARIADB_ROOT_PASSWORD=password0 \
+mariadb:10.11.2 \
+--character-set-server=utf8mb4 \
+--collation-server=utf8mb4_unicode_ci
+
+# client, -p 和密码之间不能有空格 --- 不懂是为什么 -_-!
+docker run -it --rm mariadb:10.11.2 mysql -h 127.0.0.1 -u root -ppassword0 -D database0
+
+# 执行 sql 文件
+docker run -i --rm mariadb:10.11.2 mysql -h 10.0.0.42 -u root -ppassword0 newbee_mall  < newbee_mall_db_v2_schema.sql 
+
 # mysql
 podman run -d \
 --name mysql \
@@ -145,7 +164,7 @@ mysql:5.7.37-debian \
 --character-set-server=utf8mb4 \
 --collation-server=utf8mb4_unicode_ci
 
-#marial db
+# marial db
 podman run -d \
 --name mariadb \
 -p 3306:3306 \
@@ -153,13 +172,13 @@ podman run -d \
 -v MySQL-config:/etc/MySQL/conf.d \
 -v MySQL-data:/var/lib/MySQL \
 -e MySQL_ROOT_PASSWORD=password0 \
-mariadb:latest \
+mariadb:10.11.2 \
 --character-set-server=utf8mb4 \
 --collation-server=utf8mb4_unicode_ci
 
-    # docker client
-    podman run -it \
-    --rm mariadb MySQL -h 127.0.0.1 -u root -p password0
+# docker client
+podman run -it \
+--rm mariadb MySQL -h 127.0.0.1 -u root -p password0
 ```
 
 ### MySQL client, conn
