@@ -12,6 +12,10 @@ tags:
 ---
 ## find
 
+```bash
+find / -name *task*.log
+```
+
 - -a, and
 - -o, or
 
