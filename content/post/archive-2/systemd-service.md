@@ -14,25 +14,7 @@ tags:
 
 ## systemd start script, 启动脚本
 
-### java
-
-```bash
-[Unit]
-Description=上传多媒体文件服务
-After=network.target syslog.target
-[Service]
-PrivateTmp=true
-Restart=always
-Type=simple
-WorkingDirectory=/home/exc-led/uploader
-ExecStart=/usr/java/jre1.8.0_201-amd64/bin/java -jar boot-uploader-0.0.1.jar
-ExecStop=/usr/bin/kill -15  $MAINPID
-[Install]
-WantedBy=multi-user.target
-
-```
-
-<https://xie.infoq.cn/article/2de71d4489a44ae58b6cef4d0>
+e.g. Golang binary
 
 ```bash
 vim /etc/systemd/system/foo.service
@@ -50,12 +32,31 @@ LimitNOFILE=100000
 
 [Install]
 WantedBy=multi-user.target
+```
+
+- WorkingDirectory, 工作目录，程序启动时的当前目录。如果使用到 workingdirectory，需要先创建该目录
+- ExecStart, 服务启动时要执行的命令
+- Restart, 服务在什么情况下会被重启，no, on-success, on-failure, on-abnormal, on-watchdog, on-abort, or always， 默认值: no
+
+### java
+
+```bash
+[Unit]
+Description=description0
+After=network.target syslog.target
+[Service]
+PrivateTmp=true
+Restart=always
+Type=simple
+WorkingDirectory=/home/exc-led/uploader
+ExecStart=/usr/java/jre1.8.0_201-amd64/bin/java -jar boot-uploader-0.0.1.jar
+ExecStop=/usr/bin/kill -15  $MAINPID
+[Install]
+WantedBy=multi-user.target
 
 ```
 
-- WorkingDirectory, 工作目录，程序启动时的当前目录。如果使用到workingdirectory，需要事先保证该目录的创建
-- ExecStart, 服务启动时要执行的命令
-- Restart, 服务在什么情况下会被重启，no, on-success, on-failure, on-abnormal, on-watchdog, on-abort, or always， 默认值: no
+<https://xie.infoq.cn/article/2de71d4489a44ae58b6cef4d0>
 
 ### ExecStart 命令行参数
 

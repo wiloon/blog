@@ -17,6 +17,7 @@ tags:
 -Q 查询 pacman 数据库
 -o <file> 查看某个文件属于哪个包
 --needed 已经是最新版本的包，不会再重新安装
+-R 删除软件包
 ```
 
 ### 在仓库里搜索有关 foo 的包
@@ -172,7 +173,7 @@ pacman -Rdd package_name
 
 ```
 
-### unable to lock database
+### pacman unable to lock database
 
 出现这个提示一般有两种情况
 
