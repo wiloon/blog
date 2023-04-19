@@ -475,6 +475,8 @@ git config --global --edit
 git log
 # 显示最近的 3 个 commit
 git log -n 3
+# 查看某一个远程分支的 log
+git log remotes/origin/branch0
 
 git log file0
 git log -3 file0
@@ -938,3 +940,11 @@ git rebase origin/dev
 
 第一列 M（绿色M）：代表版本库(working tree)和中间状态(staging)有差异。就是工作树版本库和提交到暂存区中文件的差异，意思就是这篇文章中执行 git diff --cached 时出现的差异。最后一次commit提交到工作版本库中的文件和add到暂存区中的文件差别。  
 第二列 M（红色M）：代表工作区(working tree)和当前文件状态的差异。就是工作树版本库和本地开发文件的差异，意思就是这篇文章中执行git diff head 时出现的差异。最后一次commit提交到工作树版本库中文件和本地开发文件的差别。
+
+## credential, 保存凭证/密码/token
+
+```bash
+git config --global credential.helper store
+git config credential.helper store
+# token 默认以明文保存在 ~/.git-credentials
+```
