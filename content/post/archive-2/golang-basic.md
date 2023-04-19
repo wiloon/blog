@@ -328,6 +328,8 @@ sum := sha256.Sum256([]byte("hello world\n"))
 
 ### go build
 
+- -o, 指定输出文件 路径/文件名 `go build -o /tmp/foo foo.go`
+
 ```bash
 # -a
 强行对所有涉及到的代码包 (包含标准库中的代码包) 进行重新构建, 即使它们已经是最新的了。

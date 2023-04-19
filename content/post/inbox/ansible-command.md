@@ -16,6 +16,14 @@ tags:
 
 ```bash
 ansible-galaxy collection install community.general
+# localhost
+ansible localhost -m shell -a 'ls'
+```
+
+### hibernate, 临时的 inventory file
+
+```bash
+ansible -i '192.168.50.31,' all  -m shell -a 'sudo systemctl hibernate'  -u user0
 ```
 
 ## install
@@ -33,14 +41,6 @@ sudo apt install ansible
 
 ```bash
 brew install ansible
-```
-
-## commands
-
-```bash
-# localhost
-ansible localhost -m shell -a 'ls'
-
 ```
 
 ## ansible 配置文件
@@ -98,12 +98,6 @@ sudo ansible 192.168.1.11 -m file -a 'path=/home/roy/xxx/ state=directory mode=0
 ```bash
 sudo ansible 192.168.1.11 -m file -a 'path=/home/roy/xxx/ state=absent'
 
-```
-
-### hibernate, 临时的 inventory file
-
-```bash
-ansible -i '192.168.50.31,' all  -m shell -a 'sudo systemctl hibernate'  -u user0
 ```
 
 ### verbos

@@ -12,7 +12,7 @@ tags:
 <https://www.cnblogs.com/machao/p/5788425.html>
 
 前言
-HTTP Method的历史:
+HTTP Method 的历史:
 
 HTTP 0.9 这个版本只有GET方法
 HTTP 1.0 这个版本有GET HEAD POST这三个方法
@@ -22,7 +22,7 @@ HTTP 1.1 这个版本是当前版本，包含GET HEAD POST OPTIONS PUT DELETE TR
 方法定义 (Method Definitions)
 HTTP/1.1常用方法的定义如下。虽然方法可以被展开，但新加的方法不能认为能分享与扩展的客户端和服务器同样的语义。
 
-Hst请求头域 (见13.23节) 必须能在所有的HTTP/1.1请求里出现。
+Hst 请求头域 (见13.23节) 必须能在所有的HTTP/1.1请求里出现。
 
 9.1 安全和等幂 (Idempotent) 方法
 9.1.1 安全方法 (Safe Methods)
@@ -39,11 +39,11 @@ Hst请求头域 (见13.23节) 必须能在所有的HTTP/1.1请求里出现。
 
 ### OPTIONS (选项)
 
-OPTIONS方法表明请求想得到请求/响应链上关于此请求里的URI (Request-URI) 指定资源的通信选项信息。此方法允许客户端去判定请求资源的选项和/或需求，或者服务器的能力，而不需要利用一个资源动作 (译注: 使用POST，PUT，DELETE方法) 或一个资源获取 (译注: 用GET方法) 方法。
+OPTIONS 方法表明请求想得到请求/响应链上关于此请求里的 URI (Request-URI) 指定资源的通信选项信息。此方法允许客户端去判定请求资源的选项和/或需求，或者服务器的能力，而不需要利用一个资源动作 (译注: 使用 POST，PUT，DELETE 方法) 或一个资源获取 (译注: 用 GET 方法) 方法。
 
 这种方法的响应是不能缓存的.。
 
-如果OPTIONS请求消息里包括一个实体主体 (当请求消息里出现Content-Length或者Transfer-Encoding头域时) ，那么媒体类型必须通过Content-Type头域指明。虽然此规范没有定义如何使用此实体主体，将来的HTTP扩展可能会利用OPTIONS请求的消息主体去得到服务器得更多信息。一个服务器如果不支持OPTION请求的消息主体，它会遗弃此请求消息主体。
+如果 OPTIONS 请求消息里包括一个实体主体 (当请求消息里出现Content-Length或者Transfer-Encoding头域时) ，那么媒体类型必须通过Content-Type头域指明。虽然此规范没有定义如何使用此实体主体，将来的HTTP扩展可能会利用OPTIONS请求的消息主体去得到服务器得更多信息。一个服务器如果不支持OPTION请求的消息主体，它会遗弃此请求消息主体。
 
 如果请求URI是一个星号 ('') ,，OPTIONS请求将会应用于服务器的所有资源而不是特定资源。因为服务器的通信选项通常依赖于资源，所以""请求只能在"ping"或者"no-op"方法时才有用；它干不了任何事情除了允许客户端测试服务器的能力。例如: 它能被用来测试代理是否遵循HTTP/1.1。
 

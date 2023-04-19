@@ -212,15 +212,17 @@ the $[ syntax was an early syntax that was deprecated in favor of $((, since the
 
 <https://unix.stackexchange.com/questions/209833/what-does-a-dollar-sign-followed-by-a-square-bracket-mean-in-bash>
 
-#### { Single Curly Braces }
+```r
+{ Single Curly Braces }
+<( Angle Parentheses )
+<<Double Angle Heredocs
+```
 
-#### <( Angle Parentheses )
+<https://zhuanlan.zhihu.com/p/75145247>
 
-#### <<Double Angle Heredocs
+<https://www.runoob.com/w3cnote/linux-shell-brackets-features.html>
 
-><https://zhuanlan.zhihu.com/p/75145247>
-><https://www.runoob.com/w3cnote/linux-shell-brackets-features.html>
-><https://dev.to/rpalo/bash-brackets-quick-reference-4eh6>
+<https://dev.to/rpalo/bash-brackets-quick-reference-4eh6>
 
 ## 循环, shell loop
 

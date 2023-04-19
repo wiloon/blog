@@ -151,24 +151,44 @@ tar 命令可以把多个文件打包成一个文件, 还可以向 tar 包里添
 Tar 是在 Linux 中使用得非常广泛的文档打包格式。它的好处就是它只消耗非常少的 CPU 以及时间去打包文件，tar 仅仅只是一个打包工具，没有压缩的功能。  
 
 ```bash
-# 打包: -c是表示产生新的包，-f指定包的文件名。
+# 打包: -c 是表示产生新的包，-f 指定包的文件名。
 tar cvf FileName.tar DirName
 
 # 解包:
 tar xvf FileName.tar
 
-# 将目录 logs 打包压缩并分割成多个1M的文件
+# 将目录 logs 打包压缩并分割成多个 1M 的文件
 tar cjf - logs/ |split -b 1m - logs.tar.bz2.
 
 # 合并文件
 cat logs.tar.bz2.a* | tar xj
 
 # 指定操作目录
-tar -zcf ${package_path} -C ${war_path} .
+tar -zcf foo.tar.gz -C ${war_path} .
 
 # “tar xxx.tar --strip 1”，--strip 1 的意思是表明把解压文件的内容里的所有最上层目录去掉。
 tar xvf /backup/bitwarden-data.tar -C /tmp --strip 1
 ```
+
+### BSD tar VS GNU tar
+
+Mac 打包的 tar.gz 在 archlinux 解压时报错
+>tar: Ignoring unknown extended header keyword 'LIBARCHIVE.xattr.com.apple.provenance'
+
+Mac is built based on BSD by default. So, we can use a bunch of command on Linux without installing. But, if you use Mac with CentOS in parallel, you will get trouble which caused by the difference between Mac and CentOS environments.
+
+```bash
+# 在 Mac OS 上安装 GNU tar
+brew install gnu-tar
+# 查看 GNU tar  版本
+gtar --version
+# 用 GNU tar 打包+压缩
+gtar czvf example.tar.gz example
+```
+
+<https://superuser.com/questions/318809/linux-os-x-tar-incompatibility-tarballs-created-on-os-x-give-errors-when-unt>
+
+<https://medium.com/@fullsour/installing-gnu-tar-on-mac-827a494b1c1>
 
 ### 向已有的 tar 包里增加文件
 
@@ -206,7 +226,7 @@ tar -rf all.tar *.gif
 
 可选参数如下: 
 -b 设置区块数目
--C 切换到指定目录
+-C 切换到指定目录, 比如解压到某一个目录
 -f 指定压缩文件
 -help 显示帮助信息
 -version 显示版本信息
@@ -243,7 +263,7 @@ tar -zcvf /data/tmp/foo.tar.gz /data/server/source
 
 ```bash
 tar -xf foo.tar.gz
-# 解压 tar.gz 文件时, 不使用 z 参数, 好像是 tar 会检测文件类型 自动 用 gzip 解压...
+# 解压 tar.gz 文件时, 不使用 z 参数, 貌似 tar 会检测文件类型 自动 用 gzip 解压...
 tar xvf all.tar.gz
 tar zxvf all.tar.gz
 tar -zxvf all.tar.gz
