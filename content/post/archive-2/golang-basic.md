@@ -689,3 +689,35 @@ upx -9 foo.exe
 ```
 
 go build 不加参数编译出的 .exe 大小: 10,688,000B, 加编译参数 -ldflags="-s -w" 之后 7,797,760B, upx -9 之后 2,755,072B.
+
+## if
+
+if 可以包含一个初始化语句（如：给一个变量赋值）。这种写法具有固定的格式（在初始化语句后方必须加上分号）
+
+```go
+if initialization; condition {
+    // do something
+}
+```
+
+例如:
+
+```go
+val := 10
+if val > max {
+    // do something
+}
+```
+
+你也可以这样写:
+
+```go
+if val := 10; val > max {
+    // do something
+}
+```
+
+————————————————
+原文作者：Go 技术论坛文档：《Go 入门指南（）》
+转自链接：<https://learnku.com/docs/the-way-to-go/if-else-structure/3592>
+版权声明：翻译文档著作权归译者和 LearnKu 社区所有。转载请保留原文链接
