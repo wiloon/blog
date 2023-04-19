@@ -138,10 +138,12 @@ File> settings> Build,Execution,Deployment>Build Tools> maven> importing> vm opt
 
 setting>file and code templates>includes>file header
 
-## 状态栏显示内存占用
+## jetbrain 状态栏显示内存占用, jetbrain, mem
 
 >view> appearance> status ba widgets> memory indicator
 
 修改内存设置
 
 >help> edit custom vm options
+
+-Xmx1500m
