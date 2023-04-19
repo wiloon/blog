@@ -41,3 +41,17 @@ celery -A tasks worker --loglevel=INFO
 原文链接：<https://blog.csdn.net/qiulin_wu/article/details/106119757>
 
  django-admin startproject HelloWorld
+
+## pycharm celery
+
+start rabbitmq
+
+python manage.py runserver 0.0.0.0:8000
+
+celery -A app0 worker -c 1 --workdir=/path/to/celery_app/root/
+
+<https://stackoverflow.com/questions/29312809/how-do-i-enable-remote-celery-debugging-in-pycharm>
+
+script path: /home/wiloon/.virtualenvs/env36/bin/celery
+parameters: worker -A app0 -c 1 --workdir=/path/to/celery_app/root/
+working directory is celery path: /home/wiloon/.virtualenvs/env36/bin/
