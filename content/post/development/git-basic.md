@@ -26,13 +26,13 @@ origin 是远程仓库的默认别名, 查看配置了几个远程仓库和别�
 ```bash
 # 查看本地分支, 当前分支前面会标一个 `*` 号
 git branch
+# 查看远程分支
+git branch -r 
 # 查看所有的分支, 本地 + 远程
 git branch -a
-# 查看远程所有分支
-git branch -r 
 # check branch detail
 git branch -v
-# git查看本地分支关联（跟踪）的远程分支之间的对应关系，本地分支对应哪个远程分支
+# git 查看本地分支关联（跟踪）的远程分支之间的对应关系，本地分支对应哪个远程分支
 git branch -vv
 ```
 
@@ -114,6 +114,7 @@ git symbolic-ref --short HEAD
 轻量标签 lightweight 与附注标签 annotated
 
 ```bash
+# -m <msg>, --message=<msg>
 git tag -a v1.0.0 -m "message0"
 git push origin v1.0.0
 ```
@@ -937,3 +938,35 @@ git rebase origin/dev
 
 第一列 M（绿色M）：代表版本库(working tree)和中间状态(staging)有差异。就是工作树版本库和提交到暂存区中文件的差异，意思就是这篇文章中执行 git diff --cached 时出现的差异。最后一次commit提交到工作版本库中的文件和add到暂存区中的文件差别。  
 第二列 M（红色M）：代表工作区(working tree)和当前文件状态的差异。就是工作树版本库和本地开发文件的差异，意思就是这篇文章中执行git diff head 时出现的差异。最后一次commit提交到工作树版本库中文件和本地开发文件的差别。
+
+## if
+
+if 可以包含一个初始化语句（如：给一个变量赋值）。这种写法具有固定的格式（在初始化语句后方必须加上分号）
+
+```go
+if initialization; condition {
+    // do something
+}
+```
+
+例如:
+
+```go
+val := 10
+if val > max {
+    // do something
+}
+```
+
+你也可以这样写:
+
+```go
+if val := 10; val > max {
+    // do something
+}
+```
+
+————————————————
+原文作者：Go 技术论坛文档：《Go 入门指南（）》
+转自链接：<https://learnku.com/docs/the-way-to-go/if-else-structure/3592>
+版权声明：翻译文档著作权归译者和 LearnKu 社区所有。转载请保留原文链接
