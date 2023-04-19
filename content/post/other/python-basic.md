@@ -996,3 +996,11 @@ print("milliseconds since epoch:",curr_time)
 
 os.remove(path) 
 ```
+
+## 字符串
+
+### 字符串包含
+
+```py
+"llo" in "hello, python"
+```
