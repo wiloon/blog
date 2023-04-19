@@ -938,35 +938,3 @@ git rebase origin/dev
 
 第一列 M（绿色M）：代表版本库(working tree)和中间状态(staging)有差异。就是工作树版本库和提交到暂存区中文件的差异，意思就是这篇文章中执行 git diff --cached 时出现的差异。最后一次commit提交到工作版本库中的文件和add到暂存区中的文件差别。  
 第二列 M（红色M）：代表工作区(working tree)和当前文件状态的差异。就是工作树版本库和本地开发文件的差异，意思就是这篇文章中执行git diff head 时出现的差异。最后一次commit提交到工作树版本库中文件和本地开发文件的差别。
-
-## if
-
-if 可以包含一个初始化语句（如：给一个变量赋值）。这种写法具有固定的格式（在初始化语句后方必须加上分号）
-
-```go
-if initialization; condition {
-    // do something
-}
-```
-
-例如:
-
-```go
-val := 10
-if val > max {
-    // do something
-}
-```
-
-你也可以这样写:
-
-```go
-if val := 10; val > max {
-    // do something
-}
-```
-
-————————————————
-原文作者：Go 技术论坛文档：《Go 入门指南（）》
-转自链接：<https://learnku.com/docs/the-way-to-go/if-else-structure/3592>
-版权声明：翻译文档著作权归译者和 LearnKu 社区所有。转载请保留原文链接
