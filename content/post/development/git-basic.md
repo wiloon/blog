@@ -475,6 +475,8 @@ git config --global --edit
 git log
 # 显示最近的 3 个 commit
 git log -n 3
+# 查看某一个分支的 log
+git log branch0
 # 查看某一个远程分支的 log
 git log remotes/origin/branch0
 
@@ -491,7 +493,7 @@ git log --all --pretty=oneline --abbrev-commit --graph
 echo "# project name" >> README.md
 ```
 
-git reflog 可以查看所有分支的所有操作记录 (包括 (包括 commit 和 reset 的操作），包括已经被删除的 commit 记录，git log 则不能察看已经删除了的 commit 记录。
+git reflog 可以查看所有分支的所有操作记录 (包括 commit 和 reset 的操作），包括已经被删除的 commit 记录，git log 则不能察看已经删除了的 commit 记录。
 
 ```bash
 git reflog
@@ -572,15 +574,15 @@ git branch -d temp
 
 命令的作用是，取回远程主机某个分支的更新，再与本地的指定分支合并。
 
-git pull: 首先，基于本地的FETCH_HEAD记录，比对本地的FETCH_HEAD记录与远程仓库的版本号，然后git fetch 获得当前指向的远程分支的后续版本的数据，然后再利用git merge 将其与本地的当前分支合并。所以可以认为git pull是git fetch和git merge两个步骤的结合。
-git pull的用法如下:
+git pull: 首先，基于本地的 FETCH_HEAD 记录，比对本地的 FETCH_HEAD 记录与远程仓库的版本号，然后 git fetch 获得当前指向的远程分支的后续版本的数据，然后再利用 git merge 将其与本地的当前分支合并。所以可以认为 git pull 是 git fetch 和 git merge 两个步骤的结合。
+
+git pull 的用法如下:
 
 git pull <远程主机名> <远程分支名>:<本地分支名>
-//取回远程主机某个分支的更新，再与本地的指定分支合并。
 
-因此，与git pull相比git fetch相当于是从远程获取最新版本到本地，但不会自动merge。如果需要有选择的合并git fetch是更好的选择。效果相同时git pull将更为快捷。
+因此，与 git pull 相比 git fetch 相当于是从远程获取最新版本到本地，但不会自动 merge。如果需要有选择的合并 git fetch 是更好的选择。效果相同时 git pull 将更为快捷。
 
-`git pull` 标准或完整的命令是 `git pull remote_repository_name branch_name`
+标准或完整的命令是 `git pull remote_repository_name branch_name`
 
 ```bash
 git pull
@@ -948,3 +950,19 @@ git config --global credential.helper store
 git config credential.helper store
 # token 默认以明文保存在 ~/.git-credentials
 ```
+
+## git cherry
+
+- git-cherry - Find commits yet to be applied to upstream
+- 查看哪些 commit 还没有 push 到远程分支
+
+```bash
+git cherry
+git cherry -v
+# 比较本地的asa分支和远程master的差别
+git cherry -v origin/master asa
+# 比较本地asa分支和本地master分支之间的差别
+git cherry -v master asa
+```
+
+<https://www.cnblogs.com/rainbow-tan/p/15314711.html>
