@@ -90,6 +90,8 @@ git merge master feature
 - rebase 是「在另一个 base 之上重新应用提交」
 - rebase 通常用于重写提交历史。
 - 保持提交历史的整洁
+- 跟 merge 一样, rebase 也会遇到冲突
+- 不要公共分支上执行 rebase, 比如: 不建议在以下示例中的 main 分支上执行 git rebase branch_xx
 
 <http://jartto.wang/2018/12/11/git-rebase/>  
 <https://waynerv.com/posts/git-rebase-intro/>  
@@ -98,6 +100,9 @@ git merge master feature
 
 ```bash
 # commands
+git rebase branch0
+git rebase remotes/origin/branch0
+
 git rebase --edit-todo
 git rebase --continue
 git rebase --abort
@@ -106,11 +111,11 @@ git rebase --abort
 1. 假设我们有一个 main 分支, 最近一次提交是 A
 2. 我们从 main 分支创建了 branch_feature0 分支进行新功能的开发, A 就是 branch_feature0 的基础 (base).
 3. branch_feature0 新增了两个提交 D, E, 时间 T0, T1.
-4. main 分支新增了两个提交 B, C, 时间 T2, T3.
+4. main 分支新增了两个提交 B, C, 时间 T2, T3, 并且 已经在 main分支 git pull working tree.
 5. 切换到 branch_feature0 分支
-6. 执行 git rebase main, 把 branch_feature0 分支的 base 变成 main
+6. 在 branch_feature0 分支上执行 git rebase main, 把 branch_feature0 分支的 base 变成 main
 7. 执行 rebase 之后, 在 branch_feature0 执行 git log, 时间戳顺序是错的: B> C> D> E
-8. git push 会提示 Updates were rejected because the tip of your current branch is behind its remote counterpart. Integrate the remote changes (e.g.'git pull ...') before pushing again.
+8. git push origin branch_feature0:branch_feature0 会提示 Updates were rejected because the tip of your current branch is behind its remote counterpart. Integrate the remote changes (e.g.'git pull ...') before pushing again.
 9. git push -f, push 的时候一定要加 --fource, 否则服务器不会接受 rebase 的 分支.
 10. git switch main
 11. git merge branch_feature0, 执行一次 Fast forward merge
