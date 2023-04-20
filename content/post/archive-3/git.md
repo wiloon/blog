@@ -34,22 +34,24 @@ repo --> work: reset --mixed
 
 working tree, 2.9.1 之前被称作 Working Directory <https://stackoverflow.com/questions/39128500/working-tree-vs-working-directory>
 
-也称工作目录、工作副本  
+也称工作区, 工作目录、工作副本  
 我们日常开发操作是在工作区中进行的。  
 工作区的内容会包含提交到暂存区和版本库(当前提交点)的内容，同时也包含自己的修改内容。
 
-### 暂存区 (stage, Staging Area, Index )
+### 暂存区 (stage, Staging Area, Index)
+
+暂存区也在 .git 目录里
 
 也称缓存区  
 逻辑上处于工作区和本地仓库之间，主要作用是标记修改内容，暂存区里的内容默认将在下一次提交时记录到本地仓库中。  
 Git本地库中的索引Index就是一个二进制文件，默认存储在.git/index路径下。  
 修改提交版本库前的一个过渡阶段。查看GIT自带帮助手册的时候，通常以index来表示暂存区。在工作目录下有一个.git的目录，里面有个index文件，存储着关于暂存区的内容。git add命令将工作区内容添加到暂存区。
 
-### 本地仓库 (Repository, local repository)，  (.git）
+### 本地仓库 Repository, local repository，.git目录
 
-在工作区中有个隐藏目录.git，这就是 Git 本地仓库的数据库。工作区中的项目文件实际上就是从这里签出 (checkout）而得到的，修改后的内容最终提交后记录到本地仓库中。
+在工作区中有个隐藏目录 .git，这就是 Git 本地仓库的数据库。工作区中的项目文件实际上就是从这里签出 checkout 而得到的，修改后的内容最终提交后记录到本地仓库中。
 Tips：不要手动修改 .git 目录的内容  
-当执行git commit命令后，会将暂存区内容提交到仓库之中。在工作区下面有.git的目录，这个目录下的内容不属于工作区，里面便是仓库的数据信息，暂存区相关内容也在其中。这里也可以使用 merge 或 rebase 将远程仓库副本合并到本地仓库。
+当执行 git commit 命令后，会将暂存区内容提交到仓库之中。在工作区下面有 .git 的目录，这个目录下的内容不属于工作区，里面便是仓库的数据信息，暂存区相关内容也在其中。这里也可以使用 merge 或 rebase 将远程仓库副本合并到本地仓库。
 
 ### 远程仓库 (remote repository)
 
