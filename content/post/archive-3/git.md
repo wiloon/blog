@@ -15,7 +15,7 @@ tags:
 @startuml
 !theme plain
 [Working tree\n工作区] as work
-[Staging Area\nIndex\nStaged\n暂存区] as stage
+[Index, 索引\nStaging Area\nStaged,暂存区] as stage
 work --> stage: add
 [Repository\nLocal Repository\n本地仓库\nHistory\n历史记录区] as repo
 stage --> repo: commit
@@ -74,7 +74,7 @@ git 是一个分布式的结构，这意味着本地和远程是一个相对的�
 
 ### git branch
 
-git天生就是为了多版本分支管理而创造的，因此分支一说，不得不提， 分支就相当于是为了单独记录软件的某一个发布版本而存在的，既然git是分布式的，便有了本地分支和远程分支一说，git branch 可以查看本地分支， git branch -r  可以用来查看远程分支。 本地分支和远程分支在git push 的时候可以随意指定，交错对应，只要不出现版本冲突即可。
+git 天生就是为了多版本分支管理而创造的，因此分支一说，不得不提， 分支就相当于是为了单独记录软件的某一个发布版本而存在的，既然git是分布式的，便有了本地分支和远程分支一说，git branch 可以查看本地分支， git branch -r  可以用来查看远程分支。 本地分支和远程分支在git push 的时候可以随意指定，交错对应，只要不出现版本冲突即可。
 
 ### git merge
 

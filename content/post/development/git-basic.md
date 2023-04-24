@@ -38,13 +38,19 @@ git branch -vv
 
 ### 新建分支
 
+```bash
+# 新建并切换到分支
+git switch -c branch0
+# 把新分支推到远程仓库并设置本地分支和远程分支的关联
+git push --set-upstream origin branch0
+```
+
 新建分支其实就是在当前位置打个标签, 也就是说... 新分支是以当前分支的 commit 为基础的.
 
 ```bash
 # 新建并切换到分支
 # -c, --create
-git switch -c dev
-
+git switch -c branch0
 git checkout -b branch0
 # 从当前分支创建新分支, 新 branch 名字: branch0
 git branch branch0
@@ -69,6 +75,8 @@ git checkout branch0
 git push origin branch0
 # fatal: The current branch production_dev has no upstream branch
 git push --set-upstream origin production_dev
+# 设置本地分支和远程分支的关联, 新建分支的时候 git 不会自动 设置本地分支 和远程分支的关联,需要手动设置,或者像上面的命令一样加参数, 在把分支推送到远程仓库的时候设置关联
+git branch --set-upstream-to=origin/<remote_branch> <local_branch>
 ```
 
 ### 删除分支
@@ -390,17 +398,7 @@ git rev-parse HEAD
 
 ### git checkout 检出
 
-git checkout: Git 的 checkout 有两个作用，其一是在不同的 branch 之间进行切换，例如 'git checkout new_branch' 就会切换到 new_branch 的分支上去；另一个功能是还原代码的作用，例如 'git checkout app/model/user.rb' 就会将 user.rb 文件从上一个已提交的版本中更新回来，未提交的内容全部会回滚
-
-git checkout -f     // 提取当前 branch 的所有文件．
-
-git checkout HEAD . # 将所有代码都 checkout 出來(最后一次 commit 的版本), 注意, 若有修改的代码都会被还原到上一版. (git checkout -f 亦可)
-
-### checkout 指定版本
-
-```bash
-git checkout 788258e49531eb24bfd347a600d69a16f966c495
-```
+git checkout: Git 的 checkout 有两个作用，其一是在不同的 branch 之间进行切换，例如 'git checkout branch0' 就会切换到 branch0 的分支上去；另一个功能是还原代码的作用，例如 'git checkout path/to/foo.py' 就会将 foo.py 文件从上一个已提交的版本中更新回来，未提交的内容全部会回滚/丢失.
 
 ### 放弃本地未提交的修改
 
@@ -408,6 +406,16 @@ To discard all local changes, you do not use revert. revert is for reverting com
 
 ```bash
 git checkout . # 本地所有修改的。没有的提交的，都返回到原来的状态
+```
+
+git checkout -f 提取当前 branch 的所有文件.
+
+git checkout HEAD . # 将所有代码都 checkout 出來(最后一次 commit 的版本), 注意, 若有修改的代码都会被还原到上一版. (git checkout -f 亦可)
+
+### checkout 指定版本
+
+```bash
+git checkout 788258e49531eb24bfd347a600d69a16f966c495
 ```
 
 <https://blog.csdn.net/leedaning/article/details/51304690>
@@ -572,6 +580,7 @@ git branch -d temp
 
 ## git pull
 
+git pull命令用于从另一个存储库或本地分支获取并集成(整合)。git pull命令的作用是：取回远程主机某个分支的更新，再与本地的指定分支合并  
 命令的作用是，取回远程主机某个分支的更新，再与本地的指定分支合并。
 
 git pull: 首先，基于本地的 FETCH_HEAD 记录，比对本地的 FETCH_HEAD 记录与远程仓库的版本号，然后 git fetch 获得当前指向的远程分支的后续版本的数据，然后再利用 git merge 将其与本地的当前分支合并。所以可以认为 git pull 是 git fetch 和 git merge 两个步骤的结合。
@@ -585,6 +594,7 @@ git pull <远程主机名> <远程分支名>:<本地分支名>
 标准或完整的命令是 `git pull remote_repository_name branch_name`
 
 ```bash
+git branch --set-upstream-to=origin/<remote_branch> <local_branch>
 git pull
 # verbos
 git pull -v
@@ -721,6 +731,8 @@ git config --global core.autocrlf false
 
 在 Git 中你可以用子模块 submodule 来管理这些项目，submodule 允许你将一个 Git 仓库当作另外一个 Git 仓库的子目录。这允许你克隆另外一个仓库到你的项目中并且保持你的提交相对独立。
 
+- 主仓库切换分支之后,子仓库并不会跟着一起切换, 得在主仓库上执行一次 git submodule update
+
 ```bash
 # 为已有的 git 仓库增加子模块, 命令执行完成，会在当前工程根路径下生成一个名为“.gitmodules”的文件
 git submodule add https://github.com/maonx/vimwiki-assets.git assets
@@ -728,7 +740,7 @@ git submodule add https://github.com/maonx/vimwiki-assets.git assets
 # 已经配置子模块的仓库, 主项目和子模块一起克隆
 git clone -b branch0 git@github.com:foo/bar.git --recursive
 
-# 查看子模块, 如果 git submodule 返回的 hash 前面有一个减号, 代表子模块还没有检出
+# 查看子模块, 如果 git submodule 返回的 hash 前面有一个减号, 代表子模块还没有检出, 加号代表现有的子 submodule 的 commit id比上一次主仓库提交的 submodule commit point 更新, 这时在主仓库里对submodule所在的目录做 git add folder0 之后 git submodule 命令返回的数据不再有加号.
 git submodule
 # 比如只克隆了主仓库, submodule所在的目录肯定是空的, 要用这个命令初始化一下 submodule, 然后再执行 git submodule update, submodule 目录就克隆下来了.
 git submodule init
@@ -935,9 +947,20 @@ git rebase origin/dev
 
 ## git status -s
 
+```bash
+XY PATH
+XY ORIG_PATH -> PATH
+```
+
+- `XY`是一个双字母的状态代码。
+- `X`显示索引的状态，`Y`显示工作树的状态。
+- 当一个路径没有被追踪时，`X`和`Y`总是相同的，因为它们是 未知的索引。
+- `??` 用于未跟踪的路径。除非使用了 `--ignored`
+
+- ' ' = 空格表示未修改的
 - M = 修改过的
-- U 更新但未合并
-- ？：未被git进行管理，可以使用git add file1把file1添加进git能被git所进行管理
+- U = 更新但未合并
+- ？= 未被追踪的, 未被 git 进行管理，可以使用 git add file0 把 file0 添加进 git, 使其能被 git 进行管理
 - MM
 
 第一列 M（绿色M）：代表版本库(working tree)和中间状态(staging)有差异。就是工作树版本库和提交到暂存区中文件的差异，意思就是这篇文章中执行 git diff --cached 时出现的差异。最后一次commit提交到工作版本库中的文件和add到暂存区中的文件差别。  
