@@ -9,14 +9,12 @@ tags:
   - reprint
 ---
 ## JNDI
+
 ## JNDI (Java Naming and Directory Interface，Java命名和目录接口)
 
 是一组在Java应用中访问命名和目录服务的API。命名服务将名称和对象联系起来，使得我们可以用名称访问对象。目录服务是一种命名服务，在这种服务里，对象不但有名称，还有属性。
 
-
-  英文全称是:Java Naming and Directory InterfaceS 
-  
-  
+  英文全称是:Java Naming and Directory InterfaceS
   
     术语解释: 一组帮助做多个命名和目录服务接口的API。
   
@@ -348,9 +346,8 @@ tags:
   
     }
   
-
-
 ## JNDI 是什么
+
 <http://blog.csdn.net/zhaosg198312/article/details/3979435>
 
 JNDI是 Java 命名与目录接口 (Java Naming and Directory Interface) ，在JavaEE规范中是重要的规范之一，不少专家认为，没有透彻理解JNDI的意义和作用，就没有真正掌握JavaEE特别是EJB的知识。
@@ -359,11 +356,11 @@ JNDI是 Java 命名与目录接口 (Java Naming and Directory Interface) ，在J
 
 要了解JNDI的作用，我们可以从"如果不用JNDI我们怎样做？用了JNDI后我们又将怎样做？"这个问题来探讨。
 
-没有JNDI的做法: 
+没有JNDI的做法:
   
 程序员开发时，知道要开发访问MySQL数据库的应用，于是将一个对 MySQL JDBC 驱动程序类的引用进行了编码，并通过使用适当的 JDBC URL 连接到数据库。
   
-就像以下代码这样: 
+就像以下代码这样:
 
 ```java
   
@@ -407,7 +404,7 @@ conn.close();
 
 这是传统的做法，也是以前非Java程序员 (如Delphi、VB等) 常见的做法。这种做法一般在小规模的开发过程中不会产生问题，只要程序员熟悉Java语言、了解JDBC技术和MySQL，可以很快开发出相应的应用程序。
 
-没有JNDI的做法存在的问题: 
+没有JNDI的做法存在的问题:
   
 1. 数据库服务器名称MyDBServer 、用户名和口令都可能需要改变，由此引发JDBC URL需要修改；
   
@@ -417,23 +414,23 @@ conn.close();
   
 4. ......
 
-解决办法: 
+解决办法:
   
 程序员应该不需要关心"具体的数据库后台是什么？JDBC驱动程序是什么？JDBC URL格式是什么？访问数据库的用户名和口令是什么？"等等这些问题，程序员编写的程序应该没有对 JDBC 驱动程序的引用，没有服务器名称，没有用户名称或口令 —— 甚至没有数据库池或连接管理。而是把这些问题交给J2EE容器来配置和管理，程序员只需要对这些配置和管理进行引用即可。
 
 由此，就有了JNDI。
 
-用了JNDI之后的做法: 
+用了JNDI之后的做法:
   
 首先，在在JavaEE容器中配置JNDI参数，定义一个数据源，也就是JDBC引用参数，给这个数据源设置一个名称；然后，在程序中，通过数据源名称引用数据源从而访问后台数据库。
   
-具体操作如下 (以JBoss为例) : 
+具体操作如下 (以JBoss为例) :
   
 1. 配置数据源
   
 在JBoss的 D:/jboss420GA/docs/examples/jca 文件夹下面，有很多不同数据库引用的数据源定义模板。将其中的 MySQL-ds.xml 文件Copy到你使用的服务器下，如 D:/jboss420GA/server/default/deploy。
   
-修改 MySQL-ds.xml 文件的内容，使之能通过JDBC正确访问你的MySQL数据库，如下: 
+修改 MySQL-ds.xml 文件的内容，使之能通过JDBC正确访问你的MySQL数据库，如下:
   
 <!--?xml version="1.0" encoding="UTF-8"?-->
 
@@ -471,7 +468,7 @@ conn.close();
 
 这里，定义了一个名为MySQLDS的数据源，其参数包括JDBC的URL，驱动类名，用户名及密码等。
 
-2. 在程序中引用数据源: 
+2. 在程序中引用数据源:
 
 ```java
   
@@ -523,7 +520,7 @@ conn.close();
   
 由此可见，JNDI避免了程序与数据库之间的紧耦合，使应用更加易于配置、易于部署。
   
-JNDI的扩展: 
+JNDI的扩展:
   
 JNDI在满足了数据源配置的要求的基础上，还进一步扩充了作用: 所有与系统外部的资源的引用，都可以通过JNDI定义和引用。
   
@@ -534,4 +531,3 @@ EJB 的 JNDI 引用非常类似于JDBC 资源的引用。在服务趋于转换�
 J2EE 规范要求所有 J2EE 容器都要提供 JNDI 规范的实现。JNDI 在J2EE中的角色就是"交换机" —— J2EE 组件在运行时间接地查找其他组件、资源或服务的通用机制。在多数情况下，提供 NDI供应者的容器可以充当有限的数据存储，这样管理员就可以设置应用程序的执行属性，并让其他应用程序引用这些属性 (Java 管理扩展 (Java Management Extensions，JMX) 也可以用作这个目的) 。JNDI 在 J2EE 应用程序中的主要角色就是提供间接层，这样组件就可以发现所需要的资源，而不用了解这些间接性。
   
 在 J2EE 中，JNDI 是把 J2EE 应用程序合在一起的粘合剂，JNDI 提供的间接寻址允许跨企业交付可伸缩的、功能强大且很灵活的应用程序。这是 J2EE 的承诺，而且经过一些计划和预先考虑，这个承诺是完全可以实现的。
-
