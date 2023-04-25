@@ -37,6 +37,7 @@ curl [kɜrl]
 -E, --cert, 客户端证书
 --key, 客户端私钥
 --pass, 客户端私钥的密码
+--trace-ascii /tmp/foo.txt, 把交互的数据打印到日志里, https 协议也能把明文打在日志里
 ```
 
 ## -w
@@ -265,4 +266,13 @@ curl -v -i -N -H "Connection: Upgrade" -H "Upgrade: websocket" -H "Host: 127.0.0
 ```bash
 curl --cert client.crt --key client.key --pass password0 "https://test.wiloon.com/foo"
 curl --cacert server.crt --cert client.crt --key client.key --pass password0 "https://test.wiloon.com/foo"
+```
+
+## --trace-ascii
+
+```bash
+# - 打印到 std
+curl --trace-ascii - https://www.wiloon.com
+# 打印到文件
+curl --trace-ascii /tmp/foo.txt https://www.wiloon.com
 ```
