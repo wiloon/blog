@@ -109,17 +109,18 @@ openssl rsa -in [file1.key] -out [file2.key]
 
 ### 生成TLS证书
 
-```bash服务器端的证书生成
-生成服务器端的私钥
+```bash
+#服务器端的证书生成
+#生成服务器端的私钥
 openssl genrsa -out certs/server.key 2048
-生成服务器端证书
+#生成服务器端证书
 openssl req -new -x509 -key certs/server.key -out certs/server.pem -days 3650
 openssl req -new -nodes -x509 -out certs/server.pem -keyout certs/server.key -days 3650 -subj "/C=CN/ST=LN/L=DL/O=pingd/OU=O0/CN=www.wiloon.com/emailAddress=wiloon.wy@gmail.com"
 
-客户端的证书生成
-生成客户端的私钥
+#客户端的证书生成
+#生成客户端的私钥
 openssl genrsa -out certs/client.key 2048
-生成客户端的证书
+#生成客户端的证书
 openssl req -new -x509 -key client.key -out client.pem -days 3650
 openssl req -new -nodes -x509 -out certs/client.pem -keyout certs/client.key -days 3650 -subj "/C=CN/ST=LN/L=DL/O=pingd/OU=O0/CN=www.wiloon.com/emailAddress=wiloon.wy@gmail.com"
 ```
@@ -177,3 +178,9 @@ some secret
 <https://my.oschina.net/u/1382972/blog/325442>
 
 <https://www.openssl.org/>
+
+## 获取服务端 CA 证书
+
+```bash
+openssl s_client -showcerts -servername wiloon.com -connect wiloon.com:443
+```
