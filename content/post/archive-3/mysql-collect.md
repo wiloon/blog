@@ -9,9 +9,10 @@ tags:
   - reprint
 ---
 ## MySQL collect
+
 COLLATE是用来做什么的？
   
-使用phpmyadmin的开发可能会非常眼熟，因为其中的中文表头已经给出了答案: 
+使用phpmyadmin的开发可能会非常眼熟，因为其中的中文表头已经给出了答案:
   
 phpmyadmin截图
   
@@ -23,16 +24,16 @@ COLLATE通常是和数据编码 (CHARSET) 相关的，一般来说每种CHARSET�
   
 这里顺便讲个题外话，MySQL中有utf8和utf8mb4两种编码，在MySQL中请大家忘记**utf8**，永远使用**utf8mb4**。这是MySQL的一个遗留问题，MySQL中的utf8最多只能支持3bytes长度的字符编码，对于一些需要占据4bytes的文字，MySQL的utf8就不支持了，要使用utf8mb4才行。
   
-很多COLLATE都带有_ci字样，这是Case Insensitive的缩写，即大小写无关，也就是说"A"和"a"在排序和比较的时候是一视同仁的。selection * from table1 where field1="a"同样可以把field1为"A"的值选出来。与此同时，对于那些_cs后缀的COLLATE，则是Case Sensitive，即大小写敏感的。
+很多COLLATE都带有_ci字样，这是 Case Insensitive 的缩写，即大小写无关，也就是说"A"和"a"在排序和比较的时候是一视同仁的。selection * from table1 where field1="a"同样可以把field1为"A"的值选出来。与此同时，对于那些_cs后缀的COLLATE，则是Case Sensitive，即大小写敏感的。
   
 在MySQL中使用show collation指令可以查看到MySQL所支持的所有COLLATE
 
 作者: 腾讯云加社区
   
-链接: https://juejin.im/post/5bfe5cc36fb9a04a082161c2
+链接: <https://juejin.im/post/5bfe5cc36fb9a04a082161c2>
   
 来源: 掘金
   
 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
   
-https://juejin.im/post/5bfe5cc36fb9a04a082161c2
+<https://juejin.im/post/5bfe5cc36fb9a04a082161c2>
