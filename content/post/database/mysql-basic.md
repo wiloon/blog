@@ -20,6 +20,9 @@ sudo pacman -S mariadb
 mariadb-install-db --user=mysql --basedir=/usr --datadir=/var/lib/mysql
 systemctl start mysql
 
+# 表, 增加字段
+ALTER TABLE table_name ADD field_name field_type;
+alter table tbl_user add email varchar(255) NOT NULL;
 ```
 
 ### 查看表结构
@@ -353,11 +356,7 @@ drop table dbname table_name ;
   
 drop table table_name ;
   
-表, 增加字段
 
-ALTER TABLE table_name ADD field_name field_type;
-  
-alter table tbl_user add email varchar(2255);
   
 把字段 id 设成自增: auto_increment.
 
