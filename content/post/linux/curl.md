@@ -33,6 +33,10 @@ curl [kɜrl]
 -L, --location: 追踪重定向, 如果服务器报告请求的页面已移动到其他位置（用 location: header 和 3xx 响应代码），此选项将使 curl 在新位置上重新执行请求。
 -X, --request <method>   Specify request method to use
 -w, 完成请求传输后，使 curl 在 stdout 上显示自定义信息
+--cacert, curl 用来验证对端的 CA 证书
+-E, --cert, 客户端证书
+--key, 客户端私钥
+--pass, 客户端私钥的密码
 ```
 
 ## -w
@@ -255,3 +259,10 @@ curl -v -i -N -H "Connection: Upgrade" -H "Upgrade: websocket" -H "Host: 127.0.0
 <https://curl.se>
 
 <https://curl.se/docs/manpage.html>
+
+## 双向验证
+
+```bash
+curl --cert client.crt --key client.key --pass password0 "https://test.wiloon.com/foo"
+curl --cacert server.crt --cert client.crt --key client.key --pass password0 "https://test.wiloon.com/foo"
+```
