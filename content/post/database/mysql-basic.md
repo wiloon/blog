@@ -355,9 +355,7 @@ create_datetime datetime
 drop table dbname table_name ;
   
 drop table table_name ;
-  
 
-  
 把字段 id 设成自增: auto_increment.
 
 自增字段必须设成主键.
