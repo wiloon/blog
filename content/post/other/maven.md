@@ -66,7 +66,7 @@ mvn clean -Ptrip-app,daily package -Dmy.filter.value=1 -Dttidapk.ttids=21xx00
 
 ```bash
 # common project
-# mvn archetype:generate 会自动创建项目目录 mvntest
+# mvn archetype:generate 会自动创建项目目录 project0
 mvn archetype:generate -DgroupId=com.wiloon.demo -DartifactId=project0 \
 -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
 
