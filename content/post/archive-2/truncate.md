@@ -30,47 +30,47 @@ truncate 可被用来将一个文件缩小或者扩展到某个给定的大小�
 
 如果一个文件的大小比参数指定的大, 那么**超出**的部分就会被丢弃。 如果一个文件比参数指定的小, 那么文件会被扩充, 并且被扩充的部分 (空洞) 在被读取的时候是字节0。
 
-truncate函数使用前不需要使用open函数打开文件
+truncate 函数使用前不需要使用 open 函数打开文件
 
 ## 命令格式
 
 ```c
-    truncate 选项 文件列表
+truncate 选项 文件列表
 ```
 
 命令详解: 对于长选项来说必须的参数, 对于短选项来说也是必须的。
 
 ```o
-    -c, --no-create
-        不创建任何文件
+-c, --no-create
+    不创建任何文件
 
-    -o, --io-blocks
-        把参数指定的大小视为 I/O 块,而不是视为字节
+-o, --io-blocks
+    把参数指定的大小视为 I/O 块,而不是视为字节
 
-    -r, --reference=FILE
-        使用文件 FILE 的大小作为参考大小
+-r, --reference=FILE
+    使用文件 FILE 的大小作为参考大小
 
-    -s, --size=SIZE
-        使用 SIZE 指定文件的大小
+-s, --size=SIZE
+    使用 SIZE 指定文件的大小
 
-    --help display this help and exit
-        显示这个帮助信息
+--help display this help and exit
+    显示这个帮助信息
 
-    --version
-        输出版本信息,然后退出
+--version
+    输出版本信息,然后退出
 
-    SIZE 参数可以是 (或者是一个整数后面跟着任意的) 下面的选项: KB 1000, K 1024,
-        MB 1000*1000, M 1024*1024, and so on for G, T, P, E, Z, Y.
+SIZE 参数可以是 (或者是一个整数后面跟着任意的) 下面的选项: KB 1000, K 1024,
+    MB 1000*1000, M 1024*1024, and so on for G, T, P, E, Z, Y.
 
-    SIZE 之前也可以加上下面的特性: 
-        '+' 增加 SIZE,
-        '-' 减少 SIZE,
-        '<'最大为 SIZE,
-        '>'最小为 SIZE,
-        '/'以SIZE为除数,向下取整,
-        '%'以SIZE为除数,向上取整。
+SIZE 之前也可以加上下面的特性: 
+    '+' 增加 SIZE,
+    '-' 减少 SIZE,
+    '<'最大为 SIZE,
+    '>'最小为 SIZE,
+    '/'以SIZE为除数,向下取整,
+    '%'以SIZE为除数,向上取整。
 
-    注意: -r 和 -s 选项是互斥的。
+注意: -r 和 -s 选项是互斥的。
 ```
 
 ## 示例
@@ -138,11 +138,13 @@ Empty Large File Using Null Redirect in Linux
 
 下面我们将使用 : 符号,它是 shell 的一个内置命令,等同于 true 命令,它可被用来作为一个 no-op (即不进行任何操作) 。
 
-另一种清空文件的方法是将 : 或者 true 内置命令的输出重定向到文件中,具体如下: 
+另一种清空文件的方法是将 : 或者 true 内置命令的输出重定向到文件中,具体如下:
 
-    : > access.log
-    # 或
-    true > access.log
+```bash
+: > access.log
+# 或
+true > access.log
+```
 
 Empty Large File Using Linux Commands
 
@@ -158,7 +160,9 @@ Empty Large File Using Linux Commands
 
 另外,你可以通过使用 cat 命令 显示 /dev/null 的内容然后重定向输出到某个文件,以此来达到清空该文件的目的。
 
-    cat /dev/null > access.log
+```bash
+cat /dev/null > access.log
+```
 
 Empty File Using cat Command
 
@@ -166,27 +170,35 @@ Empty File Using cat Command
 
 ## cp
 
-下面,我们将使用 cp 命令 复制 /dev/null 的内容到某个文件来达到清空该文件的目的,具体如下所示: 
+下面,我们将使用 cp 命令 复制 /dev/null 的内容到某个文件来达到清空该文件的目的,具体如下所示:
 
+```bash
     cp /dev/null access.log
+```
 
 ## dd
 
 而下面的命令中, if 代表输入文件,of 代表输出文件。
 
+```bash
     dd if=/dev/null of=access.log
+```
 
 ## echo
 
 使用 echo 命令清空文件
   
-在这里,你可以使用 echo 命令 将空字符串的内容重定向到文件中,具体如下: 
+在这里,你可以使用 echo 命令 将空字符串的内容重定向到文件中,具体如下:
 
+```bash
     echo "" > access.log
+```
 
 或者
 
+```bash
     echo > access.log
+```
 
 注意: 你应该记住空字符串并不等同于 null 。字符串表明它是一个具体的事物,只不过它的内容可能是空的,但 null 则意味着某个事物并不存在。
 
@@ -194,7 +206,9 @@ Empty File Using cat Command
 
 要将 null 做为输出输入到文件中,你应该使用 -n 选项,这个选项将告诉 echo 不再像上面的那个命令那样输出结尾的那个新行。
 
+```bash
     echo -n "" > access.log
+```
 
 <https://www.fengbohello.top/archives/linux-truncate>
 <https://linux.cn/article-8024-1.html#3_5958>
