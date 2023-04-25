@@ -1,5 +1,5 @@
 ---
-title: 'ca-certificates 导入CA证书'
+title: ca-certificates 导入CA证书
 author: "-"
 date: 2020-02-13T13:18:54+00:00
 url: ca
@@ -8,23 +8,7 @@ categories:
 tags:
   - reprint
 ---
-## 'ca-certificates 导入CA证书'
-
-- centos
-
-```bash
-yum install -y ca-certificates
-update-ca-trust force-enable
-cp /tmp/$1.der /etc/pki/ca-trust/source/anchors/
-update-ca-trust extract
-```
-
-### ubuntu import CA
-
-```bash
-cp foo.crt /usr/share/ca-certificates/
-sudo dpkg-reconfigure ca-certificates
-```
+## ca-certificates 导入CA证书
 
 ## archlinux ca-certificates update, 导入证书
 
@@ -35,7 +19,22 @@ sudo dpkg-reconfigure ca-certificates
 # xxx.crt should export from sub ca
 sudo cp xxx.crt /etc/ca-certificates/trust-source/anchors/
 sudo trust extract-compat
+```
 
+## centos
+
+```bash
+yum install -y ca-certificates
+update-ca-trust force-enable
+cp /tmp/$1.der /etc/pki/ca-trust/source/anchors/
+update-ca-trust extract
+```
+
+## ubuntu import CA
+
+```bash
+cp foo.crt /usr/share/ca-certificates/
+sudo dpkg-reconfigure ca-certificates
 ```
 
 ---

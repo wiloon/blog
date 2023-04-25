@@ -29,7 +29,7 @@ X.509 PEM 编码 (Base64) 的后缀是: .PEM .CER .CRT
 
 ### .CRT 扩展名
 
-.CRT = CRT 扩展用于证书。 证书可以被编码为二进制 DER 或 ASCII PEM。 CER 和 CRT 扩展几乎是同义词。 最常见的于 Unix 或类 Unix系统。
+.CRT = CRT 扩展用于证书。 证书可以被编码为二进制 DER 或 ASCII PEM。 CER 和 CRT 扩展几乎是同义词。 最常见的于 Unix 或类 Unix 系统。
 
 ### .cer
 
@@ -41,7 +41,7 @@ CER = .crt 的替代形式 (Microsoft Convention）您可以在微软系统环�
 
 ### .KEY 扩展名
 
-.KEY = KEY扩展名用于公钥和私钥PKCS＃8。 键可以被编码为二进制DER或ASCII PEM。
+.KEY = KEY 扩展名用于公钥和私钥 PKCS＃8。 键可以被编码为二进制DER或ASCII PEM。
 
 ---
 
