@@ -77,7 +77,9 @@ AdoptOpenJDK 是一个由OpenJDK构建，并以免费软件的形式提供社区
 
 #### jdk 8
 
-<https://mirrors.tuna.tsinghua.edu.cn/AdoptOpenJDK/8/jdk/x64/linux/OpenJDK8U-jdk_x64_linux_hotspot_8u312b07.tar.gz>
+<https://mirrors.tuna.tsinghua.edu.cn/Adoptium/8/jdk/x64/windows/>
+
+<https://mirrors.tuna.tsinghua.edu.cn/Adoptium/8/jdk/x64/linux>
 
 open a terminal.
   
@@ -99,7 +101,17 @@ sudo update-alternatives -install /usr/bin/javac javac /***/jdk1.6.0_25/bin/java
 
 udo update-alternatives -config java
 
----
+## Eclipse Temurin, Adoptium
+
+Eclipse Temurin
+
+Eclipse Temurin 项目是最初 AdoptOpenJDK 任务的延续。Eclipse Temurin 是 Eclipse 基金会中的 Adoptium 项目所构建的二进制文件。Adoptium 还支持和推广由 Adoptium 工作组成员组织提供的版本，Adoptium 工作组成员组织战略成员包括阿里云、Azul、华为、Karakun、微软和 Red Hat。
+
+Eclipse Temurin 是开源许可的运行时二进制文件，与其 AdoptOpenJDK 前身不同，是经过 Java SE TCK 测试并兼容在整个 Java 生态系统中通用。
+
+Eclipse Adaptium 还提供了工件，包括作为代码的开源基础设施、全面的持续集成构建和测试场，以及大量的质量保证测试。
+
+Azul 和 IBM 为 Eclipse Temurin 二进制文件提供商业支持。
 
 <https://wiki.archlinux.org/index.php/java>  
 <https://archlinux.org/packages/extra/x86_64/jdk8-openjdk/>  
