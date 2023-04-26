@@ -14,59 +14,35 @@ tags:
 
 是一组在Java应用中访问命名和目录服务的API。命名服务将名称和对象联系起来，使得我们可以用名称访问对象。目录服务是一种命名服务，在这种服务里，对象不但有名称，还有属性。
 
-  英文全称是:Java Naming and Directory InterfaceS
+英文全称是:Java Naming and Directory InterfaceS
+
+术语解释: 一组帮助做多个命名和目录服务接口的API。
+
+JNDI(Java Naming and Directory Interface)是SUN公司提供的一种标准的Java命名系统接口，JNDI提供统一的客户端API，通过不同的访问提供者接口JNDI SPI的实现，由管理者将JNDI API映射为特定的命名服务和目录系统，使得Java应用程序可以和这些命名服务和目录服务之间进行交互。集群JNDI实现了高可靠性JNDI[8]，通过服务器的集群，保证了JNDI的负载平衡和错误恢复。在全局共享的方式下，集群中的一个应用服务器保证本地JNDI树的独立性，并拥有全局的JNDI树。每个应用服务器在把部署的服务对象绑定到自己本地的JNDI树的同时，还绑定到一个共享的全局JNDI树，实现全局JNDI和自身JNDI的联系。
+
+JNDI(Java Naming and Directory Interface)是一个应用程序设计的API，为开发人员提供了查找和访问各种命名和目录服务的通用、统一的接口，类似JDBC都是构建在抽象层上。
   
-    术语解释: 一组帮助做多个命名和目录服务接口的API。
+JNDI可访问的现有的目录及服务有:
   
-    JNDI(Java Naming and Directory Interface)是SUN公司提供的一种标准的Java命名系统接口，JNDI提供统一的客户端API，通过不同的访问提供者接口JNDI SPI的实现，由管理者将JNDI API映射为特定的命名服务和目录系统，使得Java应用程序可以和这些命名服务和目录服务之间进行交互。集群JNDI实现了高可靠性JNDI[8]，通过服务器的集群，保证了JNDI的负载平衡和错误恢复。在全局共享的方式下，集群中的一个应用服务器保证本地JNDI树的独立性，并拥有全局的JNDI树。每个应用服务器在把部署的服务对象绑定到自己本地的JNDI树的同时，还绑定到一个共享的全局JNDI树，实现全局JNDI和自身JNDI的联系。
+DNS、XNam 、Novell目录服务、LDAP(Lightweight Directory Access Protocol 轻型目录访问协议)、 CORBA对象服务、文件系统、Windows XP/2000/NT/Me/9x的注册表、RMI、DSML v1&v2、NIS。
   
+JNDI优点
   
+包含了大量的命名和目录服务，使用通用接口来访问不同种类的服务；
   
-    JNDI(Java Naming and Directory Interface)是一个应用程序设计的API，为开发人员提供了查找和访问各种命名和目录服务的通用、统一的接口，类似JDBC都是构建在抽象层上。
+可以同时连接到多个命名或目录服务上；
   
+建立起逻辑关联，允许把名称同Java对象或资源关联起来，而不必知道对象或资源的物理ID。
   
+JNDI程序包:
   
-    JNDI可访问的现有的目录及服务有: 
+javax.naming: 命名操作；
   
+javax.naming.directory: 目录操作；
   
+javax.naming.event: 在命名目录服务器中请求事件通知；
   
-    DNS、XNam 、Novell目录服务、LDAP(Lightweight Directory Access Protocol 轻型目录访问协议)、 CORBA对象服务、文件系统、Windows XP/2000/NT/Me/9x的注册表、RMI、DSML v1&v2、NIS。
-  
-  
-     JNDI优点
-  
-  
-    包含了大量的命名和目录服务，使用通用接口来访问不同种类的服务；
-  
-  
-  
-    可以同时连接到多个命名或目录服务上；
-  
-  
-  
-    建立起逻辑关联，允许把名称同Java对象或资源关联起来，而不必知道对象或资源的物理ID。
-  
-  
-  
-    JNDI程序包: 
-  
-  
-  
-    javax.naming: 命名操作；
-  
-  
-  
-    javax.naming.directory: 目录操作；
-  
-  
-  
-    javax.naming.event: 在命名目录服务器中请求事件通知；
-  
-  
-  
-    javax.naming.ldap: 提供LDAP支持；
-  
-  
+javax.naming.ldap: 提供LDAP支持；
   
     javax.naming.spi: 允许动态插入不同实现。
   
