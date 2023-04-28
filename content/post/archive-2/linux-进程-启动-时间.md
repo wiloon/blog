@@ -1,5 +1,5 @@
 ---
-title: 'linux 进程  启动  时间'
+title: linux 进程启动时间
 author: "-"
 date: 2017-10-15T04:55:47+00:00
 url: /?p=11273
@@ -8,7 +8,7 @@ categories:
 tags:
   - reprint
 ---
-## 'linux 进程  启动  时间'
+## linux 进程启动时间
 
 ```bash
 ps -p PID -o lstart

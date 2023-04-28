@@ -37,7 +37,7 @@ curl [kɜrl]
 -E, --cert, 客户端证书
 --key, 客户端私钥
 --pass, 客户端私钥的密码
---trace-ascii /tmp/foo.txt, 把交互的数据打印到日志里, https 协议也能把明文打在日志里
+--trace-ascii /tmp/curl.log, 把交互的数据打印到日志里, https 协议也能把明文打在日志里
 ```
 
 ## -w
