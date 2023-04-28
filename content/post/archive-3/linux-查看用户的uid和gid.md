@@ -8,7 +8,7 @@ categories:
 tags:
   - reprint
 ---
-## 'linux  查看用户的UID和GID'
+## linux 查看用户的 UID 和 GID
 
 方法一: 使用 id 命令
 
