@@ -16,9 +16,9 @@ kafka 大量使用页缓存, 经过良好调优的 kafka 集群, 磁盘读操作
 kafka 高吞吐量
 
 - 大量使用操作系统页缓存，内存操作速度快且命中率高。
-- Kafka不直接参与物理I/O操作，而是交由最擅长此事的操作系统来完成。
+- Kafka 不直接参与物理I/O操作，而是交由最擅长此事的操作系统来完成。
 - 采用追加写入方式，摒弃了缓慢的磁盘随机读/写操作。
-- 使用以sendfile为代表的零拷贝技术加强网络间的数据传输效率。
+- 使用以 sendfile为代表的零拷贝技术加强网络间的数据传输效率。
 
 摘自：《Apache Kafka实战》 — 胡夕
 在豆瓣阅读书店查看：<https://read.douban.com/ebook/59895902/>
@@ -44,7 +44,7 @@ ISR的全称是in-sync replica，翻译过来就是与leader replica保持同步
 正常情况下，partition的所有replica（含leader replica）都应该与leader replica保持同步，即所有 replica都在 ISR中。因为各种各样的原因，一小部分 replica开始落后于 leader replica的进度。当滞后到一定程度时，Kafka会将这些 replica“踢”出 ISR。相反地，当这些 replica重新“追上”了 leader的进度时，那么 Kafka会将它们加回到 ISR中。这一切都是自动维护的，不需要用户进行人工干预，因而在保证了消息交付语义的同时还简化了用户的操作成本。
 
 摘自：《Apache Kafka实战》 — 胡夕
-在豆瓣阅读书店查看：https://read.douban.com/ebook/59895902/
+在豆瓣阅读书店查看：<https://read.douban.com/ebook/59895902/>
 本作品由电子工业出版社授权豆瓣阅读中国大陆范围内电子版制作与发行。
 © 版权所有，侵权必究。
 
@@ -190,7 +190,6 @@ Consumer读消息也是从Leader读取,只有被commit过的消息 (offset低于
 <http://www.infoq.com/cn/articles/kafka-analysis-part-2>
   
 <http://www.jasongj.com/2015/01/02/Kafka%E6%B7%B1%E5%BA%A6%E8%A7%A3%E6%9E%90/>
-
 
 ### kafka 生产环境规划
 

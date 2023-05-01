@@ -15,13 +15,13 @@ WSL: windows subsystem for Linux
 ### command
 
 ```bash
-    wsl --shutdown
-    wsl --list --verbose
-    wsl -l -v
-    # 查看wsl状态
-    wsl --status
+wsl --shutdown
+wsl --list --verbose
+wsl -l -v
+# 查看wsl状态
+wsl --status
 
-    # reboot, 先 shutdown 再打开就行了...
+# reboot, 先 shutdown 再打开就行了...
 ```
 
 ### 微软的官方安装文档
@@ -94,7 +94,7 @@ ssh-add -L
 ### wsl 卸载
 
 ```bash
-    wsl --unregister Ubuntu
+wsl --unregister Ubuntu
 ```
 
 ---
