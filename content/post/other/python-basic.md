@@ -44,7 +44,7 @@ pip install sasl==0.2.1
 ### python 输出现有环境依赖包目录
 
 ```bash
-pip freeze >requirements.txt
+pip freeze > requirements.txt
 ```
 
 ## commands
@@ -497,9 +497,9 @@ obj to json <https://blog.csdn.net/mr_hui_/article/details/82941199>
 
 dict() 函数用于创建一个字典
 
-python字典初始化比较常用的两种方式：dict() 和 {}
+python 字典初始化比较常用的两种方式：dict() 和 {}
 
-性能方面，{}性能更好。
+性能方面，{} 性能更好。
 
 Python 字典(Dictionary) update() 函数把字典 dict2 的键/值对更新到 dict 里。
 

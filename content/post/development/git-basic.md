@@ -531,6 +531,8 @@ git fetch 命令用来拉取其它仓库的数据 (objects and refs).
 
 ```bash
 git fetch <远程主机名> <分支名>
+# 取回所有分支的更新
+git fetch
 # 比如，取回 origin 主机的 master 分支。
 git fetch origin master
 # -p, 分支在远程删掉之后, 执行 git fetch -p, 更新一下本地的分支列表, 本地就看不到已经删除的分支了
@@ -966,7 +968,7 @@ XY ORIG_PATH -> PATH
 第一列 M（绿色M）：代表版本库(working tree)和中间状态(staging)有差异。就是工作树版本库和提交到暂存区中文件的差异，意思就是这篇文章中执行 git diff --cached 时出现的差异。最后一次commit提交到工作版本库中的文件和add到暂存区中的文件差别。  
 第二列 M（红色M）：代表工作区(working tree)和当前文件状态的差异。就是工作树版本库和本地开发文件的差异，意思就是这篇文章中执行git diff head 时出现的差异。最后一次commit提交到工作树版本库中文件和本地开发文件的差别。
 
-## credential, 保存凭证/密码/token
+## git credential, 保存凭证/密码/token
 
 ```bash
 git config --global credential.helper store

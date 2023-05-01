@@ -103,16 +103,6 @@ ClientAliveCountMax 3
 ssh -o 'ProxyCommand nc -p 2345 %h %p' $MY_SERVER
 ```
 
-### 查看ssh上已经连接的用户、session
-
-who or w. who -a
-  
-netstat -tnpa | grep 'ESTABLISHED.*sshd'
-  
-ps auxwww | grep sshd:
-  
-ps ax | grep sshd
-
 > vim /etc/ssh/sshd_config
 
 maxstartup

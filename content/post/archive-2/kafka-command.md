@@ -99,8 +99,8 @@ bin/kafka-consumer-groups.sh --bootstrap-server localhost:9092 \
 
 CURRENT-OFFSET = LOG-END-OFFSET 说明当前消费组已经全部消费了;
 
-- CURRENT-OFFSET：该分区当前消费到的offset
-- LOG-END-OFFSET(LEO)：日志最后的偏移量, 该分区当前latest offset, 记录底层日志 (log) 中的下一条消息的 offset。, 对 producer 来说，就是即将插入下一条消息的 offset。
+- CURRENT-OFFSET：该分区当前消费到的 offset
+- LOG-END-OFFSET(LEO)：日志最后的偏移量, 该分区当前latest offset, 记录底层日志 (log) 中的下一条消息的 offset, 对 producer 来说，就是即将插入下一条消息的 offset。
 - LAG：消费滞后区间，为 `LOG-END-OFFSET - CURRENT-OFFSET`，具体大小需要看应用消费速度和生产者速度，一般过大则可能出现消费跟不上，需要引起注意
 - CONSUMER-ID：server端给该分区分配的consumer编号
 - HOST：消费者所在主机
