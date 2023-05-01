@@ -37,7 +37,7 @@ curl [kɜrl]
 -E, --cert, 客户端证书
 --key, 客户端私钥
 --pass, 客户端私钥的密码
---trace-ascii /tmp/foo.txt, 把交互的数据打印到日志里, https 协议也能把明文打在日志里
+--trace-ascii /tmp/curl.log, 把交互的数据打印到日志里, https 协议也能把明文打在日志里
 ```
 
 ## -w
@@ -131,7 +131,7 @@ curl -v -d "name=admin&password=admin" -b cookie.txt -c cookie.txt "http://local
 
 ```bash
 curl -d "user=admin&passwd=12345678" http://127.0.0.1:8080/login
-# 把请求参数放到文件里, foo 是一个包含请求数据的文件
+# 把请求参数放到文件里, foo 是一个包含请求数据的文件, --data-binary 参数可以从磁盘读 post body, --data-raw 不行.
 curl -i -XPOST 'http://localhost:8186/write?db=db0' --data-binary @foo
 
 curl -X POST https://reqbin.com/echo/post/json -H "Content-Type: application/json" -d '{"productId": 123456, "quantity": 100}'  
