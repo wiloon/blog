@@ -99,6 +99,7 @@ func Date(year, month, day int) time.Time {
 time.Now().Format("2006-01-02T15:04:05Z07:00")
 time.Now().Format("2006-01-02-15-04-05")
 time.Now().Format("2006-01-02 15:04:05")
+time.Now().Format("2006-1-2 15:4:5")
 ```
 
 ```go
