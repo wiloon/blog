@@ -9,6 +9,7 @@ tags:
   - reprint
 ---
 ## MySQL中日期函数和日期的加减运算
+
 ### 字符串转为日期格式
 
 ```sql
@@ -312,7 +313,7 @@ DATE_FORMAT(date,format)
   
 %W 星期名字(Sunday……Saturday)
   
-%D 有英语前缀的月份的日期(1st, 2nd, 3rd, 等等。) 
+%D 有英语前缀的月份的日期(1st, 2nd, 3rd, 等等。)
   
 %Y 年, 数字, 4 位
   
@@ -354,7 +355,7 @@ DATE_FORMAT(date,format)
   
 %p AM或PM
   
-%w 一个星期中的天数(0=Sunday ……6=Saturday ) 
+%w 一个星期中的天数(0=Sunday ……6=Saturday )
   
 %U 星期(0……52), 这里星期天是星期的第一天
   
@@ -502,6 +503,6 @@ TIME_TO_SEC(time)
   
 返回time参数,转换成秒。
 
-http://blog.sina.com.cn/s/blog_9d0b00a401014a0m.html
+<http://blog.sina.com.cn/s/blog_9d0b00a401014a0m.html>
   
-https://blog.csdn.net/weixin_39800144/article/details/80195355
+<https://blog.csdn.net/weixin_39800144/article/details/80195355>

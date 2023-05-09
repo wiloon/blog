@@ -10,10 +10,19 @@ tags:
 ---
 ## sed command
 
-发音： [sed]
+## commands
 
-sed全名叫 stream editor，流编辑器，sed 可以按照脚本的指令来处理文本文件。 简化对文件的反复操作、编写转换程序等
-这里的脚本指的是sed脚本，如: 4anewline, 's/hello/world/' ...
+```bash
+# 把 foo 替换成 bar
+sed -i 's/foo/bar/' file0
+# macos
+sed -i '' 's/foo/bar/' file0
+```
+
+发音：[sed]
+
+sed 全名叫 stream editor，流编辑器，sed 可以按照脚本的指令来处理文本文件。 简化对文件的反复操作、编写转换程序等
+这里的脚本指的是 sed 脚本，如: 4anewline, 's/hello/world/' ...
 
 ### 语法
 
@@ -60,11 +69,11 @@ sed -i '/foo/a\bar' foo.txt
 sed -i '/foo/i\bar' foo.txt
 sed -i '/foo/a\bar' foo.txt
 
-# 用sed编辑某一目录下的所有文件
+# 用 sed 编辑某一目录下的所有文件
 sed -i '/foo/i\bar' `grep foo -rl /path`
 
 # 替换行
-# 找出包含xxx的行，并将其中的aaa替换为fff
+# 找出包含 xxx 的行，并将其中的 aaa 替换为 fff
 sed -i '/xxx/s/aaa/fff/g' file
 
 sed  -i 's/properties/property/g'  build.xml
@@ -146,7 +155,7 @@ s: 搜索，例如: nl /etc/passwd | sed '1,20s/old/new/g'，将第1~20行中出
 
 <https://www.gnu.org/software/sed/manual/sed.html>
 
-## linux sed命令，替换换行符“\n
+## linux sed 命令，替换换行符“\n
 
 ```bash
 sed ":a;N;s/\n//g;ta" a.txt
