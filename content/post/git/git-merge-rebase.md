@@ -271,7 +271,7 @@ git rebase -i commit0
 其中-i的意思是--interactive，即弹出交互式的界面让用户编辑完成合并操作，[startpoint] [endpoint]则指定了一个编辑区间，如果不指定[endpoint]，则该区间的终点默认是当前分支HEAD所指向的commit(注：该区间指定的是一个**前开后闭**的区间)。
 
 作者：zuopf769
-链接：https://juejin.cn/post/6844903600976576519
+链接：<https://juejin.cn/post/6844903600976576519>
 来源：稀土掘金
 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
 
@@ -289,3 +289,26 @@ git rebase -i commit0
 任何的提交引用，都可以被视作有效的 rebase 基底对象，包括一个提交 ID、分支名称、标签名称或 HEAD~1 这样的相对引用。
 
 自然地，假如我们对当前分支的某次历史提交执行 rebase，其结果就是会将这次提交之后的所有提交重新应用在当前分支，在交互模式下，即允许我们对这些提交进行更改。
+
+## 合并commit
+
+1. git rebase -i commit_x
+2. 或者 git rebase -i HEAD~3
+3. 第一行 pick
+4. 其它后面的行 squash
+5. :x 保存退出
+6. 修改 commit message
+7. git push -f
+
+pick：保留该commit（缩写:p）
+reword：保留该commit，但我需要修改该commit的注释（缩写:r）
+edit：保留该commit, 但我要停下来修改该提交(不仅仅修改注释)（缩写:e）
+squash：将该commit和前一个commit合并（缩写:s）
+fixup：将该commit和前一个commit合并，但我不要保留该提交的注释信息（缩写:f）
+exec：执行shell命令（缩写:x）
+drop：我要丢弃该commit（缩写:d）
+
+作者：zuopf769
+链接：<https://juejin.cn/post/6844903600976576519>
+来源：稀土掘金
+著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
