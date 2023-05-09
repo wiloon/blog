@@ -67,7 +67,7 @@ docker image ls -a
 # 显示虚悬镜像(dangling image)
 docker image ls -f dangling=true
 docker image ls --digests
-# 删除 image 文件
+# 删除 image
 docker image rm [image id]
 
 # 删除未使用的映像
@@ -176,6 +176,8 @@ docker run [OPTIONS] IMAGE [COMMAND] [ARG...]
 ```bash
 docker run -it --rm ubuntu bash
 docker run -d id0 sleep 6000
+
+# sleep 6000, 6000 秒(100分钟/1小时40分)之后 关闭
 # -i, --interactive=false   打开 STDIN, 用于控制台交互
 # -t, --tty=false           分配 tty 设备, 该可以支持终端登录, 默认为 false
 # -t -a stdout              Outputs the container logs on the standard output
@@ -193,7 +195,7 @@ docker run -d id0 sleep 6000
 # --link 用来链接2个容器,使得源容器 (被链接的容器) 和接收容器 (主动去链接的容器) 之间可以互相通信,并且接收容器可以获取源容器的一些数据,如源容器的环境变量。--link <name or id>:alias 其中,name和id是源容器的name和id,alias是源容器在link下的别名。 建议使用 docker network 而不是 --link
 # --cpus=2
 # --cpuset-cpus="0" --cpu-shares=512
-# sleep 6000, 6000 秒(100分钟/1小时40分)之后 关闭
+
 
 docker run \
 -d \
