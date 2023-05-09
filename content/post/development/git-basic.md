@@ -1005,6 +1005,8 @@ git cherry -v master asa
 
 ## git cherry pick
 
+把某一个或几个 commit 应用到当前分支.
+
 ```bash
 # 切换到 main 分支
 # 比如 commit_id_0 commit_id_1 是 feature0 分支的 commit, 执行 cherry-pick 把它们应用到 main 分支
