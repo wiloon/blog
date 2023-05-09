@@ -19,7 +19,7 @@ npm init vue@latest
 
 ## JSX
 
-JSX的全称是 Javascript and XML，React发明了JSX，它是一种可以在JS中编写XML的语言。
+JSX 的全称是 Javascript and XML，React 发明了 JSX，它是一种可以在 JS 中编写 XML 的语言。
 
 ### 安装vue
 
@@ -164,7 +164,8 @@ webpack 或 Browserify 等构建工具
 
 Pug，Babel (with ES2015 modules)，和 Stylus。
 
-### Docker 部署 vue 项目
+## Docker 部署 vue 项目
+
 <https://juejin.im/post/5cce4b1cf265da0373719819>
 
     server {
