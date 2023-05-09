@@ -86,10 +86,17 @@ git merge master feature
 
 ## git rebase
 
+1. branch_feature0 分支和 dev 分支 git pull
+2. git switch branch_feature0
+3. git rebase dev
+4. 处理冲突
+5. git push -f
+6. git switch dev
+7. git merge --squash branch_feature0
+
 - git rebase 命令的文档描述是 Reapply commits on top of another base tip
 - rebase 是「在另一个 base 之上重新应用提交」
-- rebase 通常用于重写提交历史。
-- 保持提交历史的整洁
+- rebase 通常用于重写提交历史。可以保持提交历史的整洁
 - 跟 merge 一样, rebase 也会遇到冲突
 - 不要公共分支上执行 rebase, 比如: 不建议在以下示例中的 main 分支上执行 git rebase branch_xx
 

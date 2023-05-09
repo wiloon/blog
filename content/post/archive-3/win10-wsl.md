@@ -77,7 +77,7 @@ download the linux kernel update package
 sudo apt install socat
 ```
 
-> vim .zshrc
+>vim .zshrc
 
 ```bash
 export SSH_AUTH_SOCK=$HOME/.ssh/agent.sock
