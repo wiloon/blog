@@ -480,6 +480,7 @@ git config --global --edit
 ## git log
 
 ```bash
+# 按s向下翻log
 git log
 # 显示最近的 3 个 commit
 git log -n 3
@@ -490,6 +491,7 @@ git log remotes/origin/branch0
 
 git log file0
 git log -3 file0
+# 以一行展现
 git log --oneline
 git log --reverse
 

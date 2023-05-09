@@ -70,7 +70,7 @@ lout, down, bough
 
 ### [oʊ]
 
-boat, rope, toe
+b**oa**t, rope, toe
 
 ### [aɪ]
 
