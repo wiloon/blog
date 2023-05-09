@@ -10,8 +10,10 @@ tags:
 
 ---
 ## MySQL 数据类型
-### datetime, timestamp 
-两者都是时间类型字段，格式都一致。两者主要有以下几点区别: 
+
+### datetime, timestamp
+
+两者都是时间类型字段，格式都一致。两者主要有以下几点区别:
 
 最主要的区别-受时区影响不同。timestamp会跟随设置的时区变化而变化，而datetime保存的是绝对值不会变化。
 详细可以阅读这篇博客的演示: MySQL: Datetime Versus Timestamp Data Types
@@ -25,35 +27,38 @@ tags:
 索引速度不同。timestamp更轻量，索引相对datetime更快。
 
 ### 数值类型
+
 MySQL 的数值数据类型可以大致划分为两个类别，一个是整数，另一个是浮点数或小数。许多不同的子类型对这些类别中的每一个都是可用的，每个子类型支持不同大小的数据，并且 MySQL 允许我们指定数值字段中的值是否有正负之分或者用零填补。
 
 各种数值类型以及它们的允许范围和占用的内存空间。
 
 ### TINYINT
-  * 大小: 1 字节
-  * 范围 (有符号) : -128 ~ 127
-  * 范围 (无符号) : 0 ~ 255
-  * 用途: 小整数值
+
+* 大小: 1 字节
+* 范围 (有符号) : -128 ~ 127
+* 范围 (无符号) : 0 ~ 255
+* 用途: 小整数值
 
 ### SMALLINT
 
-  * 大小: 2 字节
-  * 范围 (有符号) : -32,768 ~ 32,767
-  * 范围 (无符号) : 0 ~ 65,535
-  * 用途: 大整数值
+* 大小: 2 字节
+* 范围 (有符号) : -32,768 ~ 32,767
+* 范围 (无符号) : 0 ~ 65,535
+* 用途: 大整数值
 
 ### MEDIUMINT
 
-  * 大小: 3 字节
-  * 范围 (有符号) : -8,388,608，8,388,607
-  * 范围 (无符号) : 0，16,777,215
-  * 用途: 大整数值
+* 大小: 3 字节
+* 范围 (有符号) : -8,388,608，8,388,607
+* 范围 (无符号) : 0，16,777,215
+* 用途: 大整数值
 
-### INT或INTEGER
-  * 大小: 4 字节
-  * 范围 (有符号) : -2 147 483 648，2 147 483 647
-  * 范围 (无符号) : 0，4 294 967 295
-  * 用途: 大整数值
+### INT 或 INTEGER
+
+* 大小: 4 字节
+* 范围 (有符号) : -2 147 483 648，2 147 483 647
+* 范围 (无符号) : 0，4 294 967 295
+* 用途: 大整数值
 
 | 类型          | - 大小 | 范围 (有符号)  | 范围 (无符号)     | 用途   |
 | -- | ----- | ---- | ----- | --- |
@@ -62,6 +67,7 @@ MySQL 的数值数据类型可以大致划分为两个类别，一个是整数�
 | DOUBLE      | 8 字节       | (1.797 693 134 862 315 7 E+308，2.225 073 858 507 201 4 E-308)，0，(2.225 073 858 507 201 4 E-308，1.797 693 134 862 315 7 E+308) | 0，(2.225 073 858 507 201 4 E-308，1.797 693 134 862 315 7 E+308) | 双精度浮点数值                              |
 
 ### DECIMAL
+
 对DECIMAL(M,D) ，如果M>D，为M+2否则为D+2 依赖于M和D的值 依赖于M和D的值小数值
   
 DECIMAL(4, 1) -9.9 到 99.9 -999.9 到 9999.9
@@ -74,8 +80,8 @@ DECIMAL(6,2) -99.99 到 999.99 -9999.99 到 99999.99
   
 DECIMAL(6,3) -9.999 到 99.999 -999.999 到 9999.999
 
-
 ### tinyInt1isBit
+
 1. tinyInt(1) 只用来代表Boolean含义的字段，且0代表False，1代表True。如果要存储多个数值，则定义为tinyInt(N), N>1。例如 tinyInt(2)。
 
 2. JDBC的URL增加 tinyInt1isBit=false参数，注意参数名区分大小写，否则不生效:
@@ -83,15 +89,18 @@ DECIMAL(6,3) -9.999 到 99.999 -999.999 到 9999.999
 jdbc:MySQL://localhost:3306/test?tinyInt1isBit=false
 
 ### varchar
+
 在MySQL内部属于从blob发展出来的一个结构，在早期版本中  
 innobase中，也是768字节以后进行overfolw存储。
 
 ### TEXT
+
 是要要进overflow存储。 也是对于text字段，不会和行数据存在一  
  起。但原则上不会全部overflow ,会有768字节和原始的行存储在一块，多  
 于768的行会存在和行相同的Page或是其它Page上。
 
 ### LONGTEXT
+
 LONGTEXT
   
 0-4 294 967 295字节
@@ -100,13 +109,12 @@ LONGTEXT
 
 对于Innodb-plugin后： 对于变长字段处理都是20Byte后进行overflow存储 (在新的row_format下：dynimic compress）
 
-
 从最大值上讲：
 
-- 在 Innobase 中, 变长字段，是尽可能的存储到一个 Page 里，这样，如果使用到这些大的变长字段，会造成一个Page里能容纳的行数很少，在查询时，虽然没查询这些大的字段，但也会加载到 innodb buffer pool中，等于浪费的内存。
+* 在 Innobase 中, 变长字段，是尽可能的存储到一个 Page 里，这样，如果使用到这些大的变长字段，会造成一个Page里能容纳的行数很少，在查询时，虽然没查询这些大的字段，但也会加载到 innodb buffer pool中，等于浪费的内存。
      (buffer pool 的缓存是按 page 为单位） (不在一个page了会增加随机的IO）
-     
-- 在innodb-plugin中为了减少这种大的变长字段对内存的浪费，引入了大于20个字节的，都进行 overflow 存储，而且希望不要存到相同的page中，为了增加一个page里能存储更多的行，提高buffer pool的利用率。 这也要求我们，如果不是特别需要就不要读取那些变长的字段。 
+
+* 在innodb-plugin中为了减少这种大的变长字段对内存的浪费，引入了大于20个字节的，都进行 overflow 存储，而且希望不要存到相同的page中，为了增加一个page里能存储更多的行，提高buffer pool的利用率。 这也要求我们，如果不是特别需要就不要读取那些变长的字段。
 
 　　那问题来了？ 为什么varchar(255+)存储上和text很相似了，但为什么还要有varchar, mediumtext, text这些类型？
  (从存储上来讲大于255的varchar可以说是转换成了text.这也是为什么varchar大于65535了会转成mediumtext)
@@ -158,22 +166,20 @@ page的一半） ,overflow不会存到别的page中。基于上面的特性可�
  |  |
  |  +--Field_null
  |  +--Field_enum
- |     +--Field_set 
+ |     +--Field_set
 参考：
 
-http://yoshinorimatsunobu.blogspot.com/2010/11/handling-long-
+<http://yoshinorimatsunobu.blogspot.com/2010/11/handling-long->
 textsblobs-in-innodb-1-to.html
-　　http://nicj.net/mysql-text-vs-varchar-performance/
-　　http://www.pythian.com/blog/text-vs-varchar/
+　　<http://nicj.net/mysql-text-vs-varchar-performance/>
+　　<http://www.pythian.com/blog/text-vs-varchar/>
 
 作者：HaleyLiu
-链接：https://www.jianshu.com/p/fbde22109a7b
+链接：<https://www.jianshu.com/p/fbde22109a7b>
 来源：简书
 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
 
-
->https://www.jianshu.com/p/fbde22109a7b
-
+><https://www.jianshu.com/p/fbde22109a7b>
 
 INT 类型
   
@@ -265,8 +271,6 @@ LOGNGBLOB
   
 二进制形式的极大文本数据
   
-
-  
 CHAR 和 VARCHAR 类型
   
 CHAR 类型用于定长字符串，并且必须在圆括号内用一个大小修饰符来定义。这个大小修饰符的范围从 0-255。比指定长度大的值将被截短，而比指定长度小的值将会用空格作填补。
@@ -332,7 +336,7 @@ DATETIME
 YYYY-MM-DD HH:MM:SS
   
 混合日期和时间值
- 
+
 复合类型
   
 MySQL 还支持两种复合数据类型 ENUM 和 SET，它们扩展了 SQL 规范。虽然这些类型在技术上是字符串类型，但是可以被视为不同的数据类型。一个 ENUM 类型只允许从一个集合中取得一个值；而 SET 类型允许从一个集合中取得任意多个值。
@@ -367,16 +371,12 @@ varchar(256)
 
 VARCHAR 类型可以根据实际内容动态改变存储值的长度，所以在不能确定字段需要多少字符时使用 VARCHAR 类型可以大大地节约磁盘空间、提高存储效率。
 
-
 ————————————————
 版权声明: 本文为CSDN博主「inrgihc」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
-原文链接: https://blog.csdn.net/inrgihc/article/details/118713282
-
-
+原文链接: <https://blog.csdn.net/inrgihc/article/details/118713282>
 
 作者: 金星show
   
-链接: https://www.jianshu.com/p/51aeaeeb15cf
+链接: <https://www.jianshu.com/p/51aeaeeb15cf>
   
 来源: 简书
-
