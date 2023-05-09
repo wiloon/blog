@@ -518,11 +518,13 @@ format ，可以定制记录的显示格式。 --pretty=format:"%h - %an, %ar : 
 
 ### 初始化 Git 仓库
 
+```bash
 git init
 git add README.md
 git commit -m "first commit"
 git remote add origin git@github.com:wiloon/go-angular-x.git
 git push -u origin master
+```
 
 ## git fetch
 
@@ -742,16 +744,20 @@ git submodule add https://github.com/maonx/vimwiki-assets.git assets
 # 已经配置子模块的仓库, 主项目和子模块一起克隆
 git clone -b branch0 git@github.com:foo/bar.git --recursive
 
-# 查看子模块, 如果 git submodule 返回的 hash 前面有一个减号, 代表子模块还没有检出, 加号代表现有的子 submodule 的 commit id比上一次主仓库提交的 submodule commit point 更新, 这时在主仓库里对submodule所在的目录做 git add folder0 之后 git submodule 命令返回的数据不再有加号.
+# 查看子模块, 如果 git submodule 返回的 hash 前面有一个减号, 代表子模块还没有检出, 加号代表 submodule 距离上一次跟主仓库关联的 commit id 有新的 commit, 这时在主仓库里对 submodule 所在的目录做 git add folder0 之后 git submodule 命令返回的数据不再有加号.
+# git submodule 返回的 commit id 是当前 submodule 目录当前的 commit id
+# commit id 前面 的加号代表远程仓库关联的submodule 有更新, 执行 git submodule update 之后 , submodule 的版本会更新到与远程主仓库关联的submodule commit id 一致.
 git submodule
 # 比如只克隆了主仓库, submodule所在的目录肯定是空的, 要用这个命令初始化一下 submodule, 然后再执行 git submodule update, submodule 目录就克隆下来了.
 git submodule init
-# 更新项目内子模块到最新版本
+# 把submodule 更新到跟远程主仓库关联的 commit id 一致, git status 应该是clear的
 git submodule update
-# 更新子模块为远程项目的最新版本
+# 把 submodule 更新到子仓库最新的 commit id, 这个 commit 有可能跟之前关联的 commit id 不一样, 一般会比之前 关联的 commit id 更新, git status 会看到 submodule 有变更需要提交, 需要更新 关联的 commit id.
 git submodule update --remote
 
 ```
+
+使用 submodule, 主仓库 git pull 之后, submodule 不会自动更新, 还要检查一下 submodule 的版本, 可能需要执行git submodule update 更新 一下.
 
 ### 删除子模块
 
@@ -819,6 +825,7 @@ git config –global http.sslVerify false
 
 ### create a new repository on the command line
 
+```bash
 echo "# jetbrain-eap-installer" >> README.md
 git init
 git add README.md
@@ -827,11 +834,15 @@ git branch -M main
 git remote add origin git@github.com:wiloon/jetbrain-eap-installer.git
 git push -u origin main
 
+```
+
 ### push an existing repository from the command line
 
+```bash
 git remote add origin git@github.com:wiloon/jetbrain-eap-installer.git
 git branch -M main
 git push -u origin main
+```
 
 ## 删除大文件
 
@@ -848,7 +859,7 @@ git log --pretty=format: --name-only | sort | uniq -c | sort -rg | head -20
 两个分支是两个不同的版本，具有不同的提交历史
 
 ```bash
-#允许不相关历史提，强制合并：
+# 允许不相关历史提交，强制合并：
 git pull --allow-unrelated-histories
 
 ```
@@ -991,3 +1002,13 @@ git cherry -v master asa
 ```
 
 <https://www.cnblogs.com/rainbow-tan/p/15314711.html>
+
+## git cherry pick
+
+```bash
+# 切换到 main 分支
+# 比如 commit_id_0 commit_id_1 是 feature0 分支的 commit, 执行 cherry-pick 把它们应用到 main 分支
+git cherry-pick commit_id_0 commit_id_1
+# 执行过 cherry-pick 之后这两个 commit 默认是提交到了 local repo, 需要 再执行一次  git push
+
+```

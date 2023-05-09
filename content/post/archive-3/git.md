@@ -62,19 +62,19 @@ Tips：不要手动修改 .git 目录的内容
 团队协作往往需要指定远端仓库 (一般是一个，也可以有多个），团队成员通过跟远端仓库交互来实现团队协作。  
 存在于本地的远程仓库缓存。如需更新，可通过git fetch/pull命令获取远程仓库内容。使用fech获取时，并未合并到本地仓库，此时可使用git merge实现远程仓库副本与本地仓库的合并。git pull 根据配置的不同，可为git fetch + git merge 或 git fetch + git rebase。
 
-### 理解 git fetch, git pull
+## 理解 git fetch, git pull
 
-要讲清楚 git fetch，git pull, 必须要附加讲清楚git remote，git merge 、远程repo， branch 、 commit-id 以及 FETCH_HEAD。
+要讲清楚 git fetch, git pull, 必须要附加讲清楚 git remote，git merge, 远程 repo, branch, commit-id 以及 FETCH_HEAD
 
 ### git remote
 
 git 是一个分布式的结构，这意味着本地和远程是一个相对的名称。
 
-本地的 repo 仓库要与远程的 repo配合完成版本对应必须要有 git remote 子命令，通过 git remote add 来添加当前本地仓库的远程 repo， 有了这个动作本地的 repo就知道了当遇到 git push 的时候应该往哪里提交代码。
+本地的 repo 仓库要与远程的 repo 配合完成版本对应必须要有 git remote 子命令，通过 git remote add 来添加当前本地仓库的远程 repo, 有了这个动作本地的 repo 就知道了当遇到 git push 的时候应该往哪里提交代码。
 
 ### git branch
 
-git 天生就是为了多版本分支管理而创造的，因此分支一说，不得不提， 分支就相当于是为了单独记录软件的某一个发布版本而存在的，既然git是分布式的，便有了本地分支和远程分支一说，git branch 可以查看本地分支， git branch -r  可以用来查看远程分支。 本地分支和远程分支在git push 的时候可以随意指定，交错对应，只要不出现版本冲突即可。
+git 天生就是为了多版本分支管理而创造的, 因此分支一说, 不得不提, 分支就相当于是为了单独记录软件的某一个发布版本而存在的，既然 git 是分布式的，便有了本地分支和远程分支一说，git branch 可以查看本地分支， git branch -r 可以用来查看远程分支。 本地分支和远程分支在 git push 的时候可以**随意指定**，交错对应，只要不出现版本冲突即可。
 
 ### git merge
 
@@ -82,16 +82,16 @@ git 的分布式结构也非常适合多人合作开发不同的功能模块，�
 
 ### git push 和 commit-id
 
-在每次本地工作完成后，都会做一个 git commit 操作来保存当前工作到本地的 repo， 此时会产生一个 commit-id，这是一个能唯一标识一个版本的序列号。 在使用 git push 后，这个序列号还会同步到远程repo。
+在每次本地工作完成后，都会做一个 git commit 操作来保存当前工作到本地的 repo， 此时会产生一个 commit-id，这是一个能唯一标识一个版本的序列号。 在使用 git push 后，这个序列号还会同步到远程 repo。
 
-在理解了以上git要素之后，分析git fetch 和 git pull 就不再困难了。
+在理解了以上 git 要素之后，分析 git fetch 和 git pull 就不再困难了。
 
 ### git fetch 有四种基本用法
 
-- git fetch 更新 git remote 中所有的远程repo 所包含分支的最新 commit-id, 将其记录到 .git/FETCH_HEAD 文件中
-- git fetch remote_repo 这将更新名称为remote_repo 的远程 repo 上的所有branch的最新commit-id，将其记录。
-- git fetch remote_repo remote_branch_name 这将这将更新名称为remote_repo 的远程repo上的分支： remote_branch_name
-- git fetch remote_repo remote_branch_name:local_branch_name 更新名称为remote_repo 的远程repo上的分支： remote_branch_name ，并在本地创建local_branch_name 本地分支保存远端分支的所有数据。
+- git fetch 更新 git remote 中所有的远程 repo 所包含分支的最新 commit-id, 将其记录到 .git/FETCH_HEAD 文件中
+- git fetch remote_repo 这将更新名称为 remote_repo 的远程 repo 上的所有 branch 的最新 commit-id，将其记录。
+- git fetch remote_repo remote_branch_name 这将这将更新名称为 remote_repo 的远程 repo 上的分支: remote_branch_name
+- git fetch remote_repo remote_branch_name:local_branch_name 更新名称为 remote_repo 的远程 repo 上的分支: remote_branch_name, 并在本地创建 local_branch_name 本地分支保存远端分支的所有数据。
 
 FETCH_HEAD： 是一个版本链接，记录在本地的一个文件中，指向着目前已经从远程仓库取下来的分支的末端版本。
 
@@ -101,7 +101,7 @@ git pull 首先，基于本地的 FETCH_HEAD 记录，比对本地的 FETCH_HEAD
 
 ### git fetch, git pull
 
-git fetch是将远程主机的最新内容拉到本地，用户在检查了以后决定是否合并到工作本机分支中。而 git pull 则是将远程主机的最新内容拉下来后直接合并，即：git pull = git fetch + git merge，这样可能会产生冲突，需要手动解决。
+git fetch 是将远程主机的最新内容拉到本地，用户在检查了以后决定是否合并到工作本机分支中。而 git pull 则是将远程主机的最新内容拉下来后直接合并，即：git pull = git fetch + git merge，这样可能会产生冲突，需要手动解决。
 
 ### 分支，branch
 
@@ -111,7 +111,7 @@ git 中的分支，其实本质上仅仅是个指向 commit 对象的可变指�
 
 HEAD就是当前活跃分支的游标, HEAD可以指向分支中的任意一个节点，HEAD在Git内部用于追踪当前位置。
 
-### HEAD和head
+### HEAD 和 head
 
 你可以认为 HEAD(大写)是"current branch"(当下的分支)。当你用git checkout切换分支的时候，HEAD 修订版本重新指向新的分支。有的时候HEAD会指向一个没有分支名字的修订版本，这种情况叫”detached HEAD“
 head(小写)是commit对象的引用，每个head都有一个名字 (分支名字或者标签名字等等），但是默认情况下，每个叫master的repository都会有一个head, 一个repository可以包含任意数量的head。在任何时候，只要这个head被选择成为”current head“，那么这个head就成了HEAD,总是大写
