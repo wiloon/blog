@@ -34,6 +34,8 @@ psql -h 127.0.0.1 -p 5432 -U postgres
 ## commands
 
 ```bash
+# 查看配置文件路径
+psql -c "show config_file"
 # 查看版本
 select version();
 
