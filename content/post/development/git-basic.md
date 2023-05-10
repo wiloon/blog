@@ -119,7 +119,7 @@ git symbolic-ref --short HEAD
 
 ## git tag
 
-轻量标签 lightweight 与附注标签 annotated
+轻量标签 lightweight tag 与附注标签 annotated tag
 
 ```bash
 # -m <msg>, --message=<msg>
@@ -127,7 +127,7 @@ git tag -a v1.0.0 -m "message0"
 git push origin v1.0.0
 ```
 
-### 附注标签 annotated
+### 附注标签 annotated tag
 
 附注标签是存储在 Git 数据库中的一个完整对象, 它们是可以被校验的，其中包含打标签者的名字、电子邮件地址、日期时间，此外还有一个标签信息，并且可以使用 GNU Privacy Guard  (GPG）签名并验证。通常会建议创建附注标签，这样你可以拥有以上所有信息。
 

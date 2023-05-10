@@ -45,12 +45,16 @@ vim -b test.bin
 :w!
 ```
 
-### vim utf8 乱码
-
-#### 查看文件编码
-
 ```bash
+### vim utf8 乱码
+#### 查看文件编码
 :set fileencoding
+# 显示行号
+:set number
+# 不自动换行
+:set nowrap
+# 自动换行
+:set wrap
 ```
 
 如果你只是想查看其它编码格式的文件或者想解决用 Vim 查看文件乱码的问题，那么你可以在 ~/.vimrc 文件中添加以下内容:
