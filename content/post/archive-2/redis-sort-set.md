@@ -136,10 +136,10 @@ O(log(N)+M)
 
 ### ZRANGEBYSCORE, 返回有序集合中指定分数区间的成员列表 - 正序, O(log(N)+M)
 
-    ZRANGEBYSCORE key min max [WITHSCORES] [LIMIT offset count]
-    返回有序集key中,所有score值介于min和max之间(包括等于min或max)的成员。有序集成员按score值递增(从小到大)次序排列。
+ZRANGEBYSCORE key min max [WITHSCORES] [LIMIT offset count]
+返回有序集key中,所有score值介于min和max之间(包括等于min或max)的成员。有序集成员按score值递增(从小到大)次序排列。
 
-    时间复杂度中的N表示Sorted-Set中成员的数量,M则表示返回的成员数量。
+时间复杂度中的N表示Sorted-Set中成员的数量,M则表示返回的成员数量。
 
 该命令将返回分数在min和max之间的所有成员,即满足表达式min <= score <= max的成员,其中返回的成员是按照其分数从低到高的顺序返回,如果成员具有相同的分数,则按成员的字典顺序返回。可选参数LIMIT用于限制返回成员的数量范围。可选参数offset表示从符合条件的第offset个成员开始返回,同时返回count个成员。
 
