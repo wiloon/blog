@@ -9,25 +9,26 @@ tags:
   - reprint
 ---
 ## ingress
-XM (Exotic Matter，外来能量) 
+
+XM (Exotic Matter，外来能量)
   
-AP (Access Points，权限点数) 
+AP (Access Points，权限点数)
   
 Portals
   
 直译为传送门或者据点，俗称Po
   
-处于一个Portal的40米范围内才可以与之交互 (你周围那个圈就是40米半径的圆) 
+处于一个Portal的40米范围内才可以与之交互 (你周围那个圈就是40米半径的圆)
   
 Hack (中译名为"入侵") Portal是主要的物资获取方式
 
-### Links/ Fields (连接/区域或场) 
+### Links/ Fields (连接/区域或场)
 
 收集Keys才能建立Link
   
-持有一个Portal的Key才能从别的Portal向其发起Link (连接)  (成功建立Link会消耗掉对应的Portal Key) 
+持有一个Portal的Key才能从别的Portal向其发起Link (连接)  (成功建立Link会消耗掉对应的Portal Key)
   
-在几个Portals之间建立 Link构成三角形就是建成Control Field (控制区/场) 
+在几个Portals之间建立 Link构成三角形就是建成Control Field (控制区/场)
   
 三角形，三角形，三角形。重要的事情说三遍，重点就是连成三角形
 
@@ -35,9 +36,9 @@ Hack (中译名为"入侵") Portal是主要的物资获取方式
 
 在中立Portal上面部署 (Deploy) 谐振器 (Resonators) 以占据
   
-在友方阵营占据Portal的空槽上部署 (Deploy) 谐振器 (Resonators) 
+在友方阵营占据Portal的空槽上部署 (Deploy) 谐振器 (Resonators)
   
-建立大量的短距离Link和小的Control Field (控制区/场) 
+建立大量的短距离Link和小的Control Field (控制区/场)
   
 给己方占据的Portal充能
   
@@ -71,7 +72,7 @@ Key的掉率是独立与其他物品的。社区研究表明，普通hack的掉�
 
 Agent如果在库存中有某个key，将不会再次hack到相同的key。学习如何绕过这个限制是新手训练的重要部分。
 
-获取多个相同的key有以下方法: 
+获取多个相同的key有以下方法:
 
 将key丢弃在地上。
   
@@ -97,7 +98,7 @@ Media和Portal Key两个物品无法在库存中看到具体的3D模型。
 
 假定以下说明都是从Portal A link到Portal B。
   
-建立link必须满足以下条件: 
+建立link必须满足以下条件:
   
 - A与B都属于你的阵营。
   
