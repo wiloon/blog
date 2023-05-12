@@ -17,7 +17,7 @@ tags:
 docker save f1905dce9659 > kafka.tar
 # 另外一种save语法
 docker save -o images.tar postgres:9.6
-# 从 tar 包加载镜像而不是 stdin, --input , -i : 指定导入的文件，代替 STDIN。
+# 从 tar 包加载镜像而不是 stdin, --input, -i: 指定导入的文件，代替 STDIN。
 docker load -i foo.tar
 
 docker load < kafka.tar
