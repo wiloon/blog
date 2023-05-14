@@ -165,8 +165,10 @@ cat logs.tar.bz2.a* | tar xj
 
 # 指定操作目录
 tar -zcf foo.tar.gz -C ${war_path} .
+# 解压的时候用 -C, 比如当前目录是 /root, 执行以下命令, 会把 文件 /path/to/foo.tar.gz 解压到 /tmp
+tar zxvf /path/to/foo.tar.gz -C /tmp
 
-# “tar xxx.tar --strip 1”，--strip 1 的意思是表明把解压文件的内容里的所有最上层目录去掉。
+# tar xxx.tar --strip 1，--strip 1 的意思是表明把解压文件的内容里的所有最上层目录去掉。
 tar xvf /backup/bitwarden-data.tar -C /tmp --strip 1
 ```
 

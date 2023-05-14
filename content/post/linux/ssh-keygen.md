@@ -32,6 +32,10 @@ ssh-keygen -t ed25519 -f foo -C "bar"
 # -f foo, 生成的密钥文件名, 不指定文件名的话, ed25519 算法默认的文件名是 id_ed25519 
 # -C "bar" 在公钥文件中添加注释，即为这个公钥“起个别名”（不是 id，可以更改）。
 
+# 从私钥生成公钥
+#-y      This option will read a private OpenSSH format file and print an OpenSSH public key to stdout.
+ssh-keygen -f id_ed25519 -y > id_ed25519.pub
+
 ssh-keygen -t rsa
 ssh-keygen -t rsa -b 4096
 ssh-keygen -t ecdsa -b 521
