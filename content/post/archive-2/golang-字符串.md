@@ -19,9 +19,7 @@ import (
 )
 
 func main() {
-
     myString := "www.topgoer.com"
-
     // Option 1: (Recommended)
     if strings.HasPrefix(myString, "www") {
         fmt.Println("Hello to you too")
@@ -103,13 +101,13 @@ s = fmt.Sprintf("%s[%s]", s, v)
 
 ### 格式化 补0
 
-```bash
+```go
 func main() {
     log.Println(fmt.Sprintf("%013d", 1))
 }
 ```
 
-# substring
+substring
   
 str := "hello world"
   
@@ -119,13 +117,13 @@ fmt.Print(str[0:5])
 
 hello
 
-# split
+split
   
 strings.Split
 
 <http://www.cnblogs.com/modprobe/p/4302681.html>
 
-    【已解决】go语言中的字符串的比较: 相等
+go语言中的字符串的比较: 相等
   
 <https://www.crifan.com/go_language_string_compare_equal/embed/#?secret=u61L06fdZP>
   
