@@ -118,6 +118,9 @@ bin/kafka-consumer-groups.sh --bootstrap-server localhost:9092 --group test-grou
 bin/kafka-consumer-groups.sh --bootstrap-server localhost:9092 --group test-group --reset-offsets --topic topic0 --shift-by 1
 
 bin/kafka-consumer-groups.sh --bootstrap-server localhost:9092 --group test-group --reset-offsets --topic topic0 --to-current --execute
+bin/kafka-consumer-groups.sh --bootstrap-server localhost:9092 --group test-group --reset-offsets --all-topics --to-earliest --execute
+bin/kafka-consumer-groups.sh --bootstrap-server localhost:9092 --group test-group --reset-offsets --all-topics --to-latest --execute
+
 ```
 
 ## topic
