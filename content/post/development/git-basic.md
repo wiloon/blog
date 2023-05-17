@@ -11,6 +11,10 @@ tags:
 ---
 ## Git basic commands, git 常用命令
 
+## options
+
+- -C, 指定目录
+
 ## origin
 
 <https://www.zhihu.com/question/27712995>
@@ -34,6 +38,10 @@ git branch -a
 git branch -v
 # git 查看本地分支关联（跟踪）的远程分支之间的对应关系，本地分支对应哪个远程分支
 git branch -vv
+# 获取当前的分支名称
+git rev-parse --abbrev-ref HEAD
+# 获取当前的分支名称, Git 2.22 及更高版本
+git branch --show-current
 ```
 
 ### 新建分支
@@ -122,6 +130,9 @@ git symbolic-ref --short HEAD
 轻量标签 lightweight tag 与附注标签 annotated tag
 
 ```bash
+# 打印当前分支最新的 tag
+git describe --tags --abbrev=0
+
 # -m <msg>, --message=<msg>
 git tag -a v1.0.0 -m "message0"
 git push origin v1.0.0
