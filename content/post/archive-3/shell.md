@@ -1,5 +1,5 @@
 ---
-title: shell basic, shell script, shell脚本
+title: shell basic, shell script, shell 脚本
 author: "-"
 date: 2019-05-06T04:27:52+00:00
 url: shell
@@ -7,9 +7,22 @@ categories:
   - shell
 tags:
   - reprint
+  - remix
 ---
 
 ## shell basic, shell script
+
+## 逻辑与，逻辑或表达式
+
+```bash
+#与&&: 
+if [ $str=a -a $str=b ] 
+if [ $str=a ] && [  $str=b ]
+
+#或||: 
+if [ $str=a -o $str=b ] 
+if [ $str=a ] || [  $str=b ]
+```
 
 ## 查看安装的 shell
 
@@ -68,7 +81,7 @@ read 命令接收标准输入（键盘）的输入，或者其他文件描述符
 # !/bin/bash                                 # 指定shell类型
 
 echo -n "Enter your name:"                   # 参数 -n 的作用是不换行，echo 默认换行
-read  name                                   # 把键盘输入保存到变量 name
+read -r name                                 # 把键盘输入保存到变量 name
 echo "hello $name,welcome to my program"     # 显示输入信息
 exit 0                                       # 返回一个零退出状态，退出shell程序
 ```
@@ -158,7 +171,7 @@ $*        传递给脚本或函数的所有参数。
 $@        传递给脚本或函数的所有参数。被双引号(" ")包含时，与 $* 稍有不同，下面将会讲到。
 $?        上一个命令的退出状态，或函数的返回值。
 $$        Shell本身的进程ID(PID, Process ID)。对于 Shell 脚本，就是这些脚本所在的进程ID。
-$!      上一个后台进程的进程号 (PID)
+$!        上一个后台进程的进程号 (PID)
 ```
 
 ### $(), $( Dollar Single Parentheses )
@@ -656,7 +669,7 @@ ps |  grep $$  |  awk '{print $4}'
   
 也就是通过命令行和计算机交互的shell。 Windows NT 系统下有 cmd.exe (命令提示字符) 和近年来微软大力推广的 Windows PowerShell。 Linux下有bash / sh / ksh / csh/zsh等 一般情况下，习惯把命令行shell (CLI shell) 直接称做shell，以后，如果没有特别说明，shell就是指 CLI shell，后文也是主要讲Linux下的 CLI shell。
 
-### 查看系统里有几种shell
+## 查看系统里有几种 shell
 
 ```bash
 cat /etc/shells
@@ -680,30 +693,15 @@ C shell 使用的是"类C"语法,csh是具有C语言风格的一种shell，tcsh�
   
 最早，bash交互体验很好，csh作为非交互式使用很爽，ksh就吸取了2者的优点。
 
-## zsh
+### zsh
   
-zsh 本身是不兼容bash的，但是他可以使用仿真模式 (emulation mode) 来模拟 bash等，基本可以实现兼容。 zsh拥有很强大的提示和插件功能，推荐在终端的交互式使用中使用zsh，再安利一个插件Oh My Zsh 其实我个人的理解是，在终端中使用 shell，基本上只是调用各种命令，比如: curl cat ls等等，基本不会使用到 zsh的编程，所以终端中使用zsh是可以的。但是在写shell脚本的时候，需要考虑兼容性， 最主流的还是 bash shell，所以，后文我们介绍的shell脚本也是bash shell的。
-
-执行并获取返回结果，有点类似 JavaScript 的eval函数。
+zsh 本身是不兼容 bash 的，但是他可以使用仿真模式 (emulation mode) 来模拟 bash 等，基本可以实现兼容。 zsh 拥有很强大的提示和插件功能，推荐在终端的交互式使用中使用 zsh，再安利一个插件 Oh My Zsh 其实我个人的理解是，在终端中使用 shell，基本上只是调用各种命令，比如: curl cat ls 等等，基本不会使用到 zsh 的编程，所以终端中使用 zsh 是可以的。但是在写 shell 脚本的时候，需要考虑兼容性， 最主流的还是 bash shell，所以，后文我们介绍的 shell 脚本也是 bash shell 的。
+执行并获取返回结果，有点类似 JavaScript 的 eval 函数。
 
 ```bash
 # !/bin/bash
-  
-dt=`date` #反引号内的字符串会当作shell执行 ，并且返回结果。
-  
+dt=`date` #反引号内的字符串会当作 shell 执行 ，并且返回结果。
 echo "dt=${dt}"
-```
-
-## 逻辑与，或表达式
-
-```bash
-#与&&: 
-if [ $str=a -a $str=b ] 
-if [ $str=a ] && [  $str=b ]
-
-#或||: 
-if [ $str=a -o $str=b ] 
-if [ $str=a ] || [  $str=b ]
 ```
 
 ### 字符串长度
@@ -942,31 +940,20 @@ if :; then echo "always true"; fi
 
 ```bash
 # ! /bin/sh
-
 echo "Is it morning? Please answer yes or no."
-  
-read YES_OR_NO
-  
+read -r YES_OR_NO
 if [ "$YES_OR_NO" = "yes" ]; then
-
-echo "Good morning!"
-  
+  echo "Good morning!"
 elif [ "$YES_OR_NO" = "no" ]; then
-
-echo "Good afternoon!"
-  
+  echo "Good afternoon!"
 else
-
-echo "Sorry, $YES_OR_NO not recognized. Enter yes or no."
-
-exit 1
-  
+  echo "Sorry, $YES_OR_NO not recognized. Enter yes or no."
+  exit 1
 fi
-  
 exit 0
 ```
-  
-上例中的read命令的作用是等待用户输入一行字符串，将该字符串存到一个Shell变量中。
+
+上例中的 read 命令的作用是等待用户输入一行字符串，将该字符串存到一个 Shell 变量中。
 
 此外，Shell还提供了&&和||语法，和C语言类似，具有Short-circuit特性，很多Shell脚本喜欢写成这样:
 
@@ -1055,13 +1042,13 @@ num1 -ge num2 大于或等于 [ 3 -ge $mynum ]
 位操作符
 
 ```bash
-        > > > = 表示位左右移一位操作
-            
-        > > > & &= | |= 表示按位与、位或操作
-            
-        > > > ~ ! 表示非操作
-            
-        > > > ^ ^= 表示异或操作 
+> > > = 表示位左右移一位操作
+
+> > > & &= | |= 表示按位与、位或操作
+
+> > > ~ ! 表示非操作
+
+> > > ^ ^= 表示异或操作 
 ```
 
 关系运算符
