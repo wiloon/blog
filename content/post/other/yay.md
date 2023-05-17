@@ -47,10 +47,14 @@ yay -Ss <package-name>
 # 安装: 
 yay -S <package-name>
 
+# 查看 yay 安装的软件包列表
+yay -Q
+
 # 查询软件包安装的文件列表
+yay -Ql
 yay -Ql <package-name>
 ```
 
-><https://mirrors.tuna.tsinghua.edu.cn/help/AUR/>
-<http://bashell.nodemedia.cn/archives/install-yaourt.html>
-><https://linux.cn/article-9925-1.html>
+<https://mirrors.tuna.tsinghua.edu.cn/help/AUR/>  
+<http://bashell.nodemedia.cn/archives/install-yaourt.html>  
+<https://linux.cn/article-9925-1.html>  
