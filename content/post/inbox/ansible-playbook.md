@@ -19,6 +19,9 @@ tags:
     http_port: 80
     max_clients: 200
   tasks:                      #开始定义task
+    - name: debug0
+      debug:
+        msg: "vps init, dist: {{ ansible_distribution }}"
     - name: Empty remote directory
       synchronize:
         src: "{{source_path}}/empty/"
