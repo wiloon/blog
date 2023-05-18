@@ -1,12 +1,13 @@
 ---
 title: pacman
 author: "-"
-date: 2022-08-22 15:53:48
+date: 2023-05-18 10:00:38
 url: pacman
 categories:
   - Linux
 tags:
   - Arch Linux
+  - reprint
   - remix
 ---
 ## pacman
@@ -14,10 +15,20 @@ tags:
 ## 参数, options
 
 ```bash
--Q 查询 pacman 数据库
+-Sy #仅同步源
+-Q 查询 pacman 数据库, 比如查询某一个已经安装的包的版本 pacman -Q openssl
+-Ql boost-libs #Display file list provided by local package
 -o <file> 查看某个文件属于哪个包
 --needed 已经是最新版本的包，不会再重新安装
 -R 删除软件包
+-b 指定 database 路径, 默认 /var/lib/pacman
+-r 指定安装软件包的 root 路径, 默认 /
+```
+
+## 把 openssl 包安装到指定的目录
+
+```bash
+pacman -Sy openssl -b /var/lib/pacman -r 2022-11-04
 ```
 
 ### 在仓库里搜索有关 foo 的包
@@ -68,6 +79,8 @@ vim /etc/pacman.d/mirrorlist
 SigLevel = PackageRequired
 Server = https://archive.archlinux.org/repos/2022/11/04/$repo/os/$arch
 
+# pacman -Syu 是回不到早期版本的, 要用 pacman -Syyuu
+# Then update the database and force downgrade
 pacman -Syyuu
 ```
 
@@ -88,6 +101,19 @@ error: unzip: signature from "Jonas Witschel <diabonas@gmx.de>" is unknown trust
 
 ```bash
 pacman -Sy archlinux-keyring
+```
+
+#### Disabling signature checking
+
+pacman.conf 是 global 的配置, 子仓库的配置优先级更高, 注意检查pacman.conf 和 mirrorlist 的其它 SigLeve 配置
+
+```bash
+vim /etc/pacman.conf
+# content
+[options]
+SigLevel = Never
+#LocalFileSigLevel = Optional
+#RemoteFileSigLevel = Required
 ```
 
 #### trust all
@@ -119,7 +145,7 @@ pacman-key --populate archlinux
 ```bash
 yay -S downgrade
 sudo downgrade cmake
-#输入要降级到的版本前面的数字并回车。
+# 输入要降级到的版本前面的数字并回车。
 ```
 
 ### pacman mirror list
@@ -236,12 +262,8 @@ pacman -Ql abc # 列出abc软件包的所有文件
 pacman -Qo /path/to/abc # 列出abc文件所属的软件包
   
 pacman -Syu #同步源，并更新系统
-  
-pacman -Sy #仅同步源
-  
+
 pacman -Su #更新系统
-  
-pacman -R abc #删除abc包
   
 pacman -Rd abc #强制删除被依赖的包
   
@@ -283,18 +305,14 @@ pacman -S package_name1 package_name2
   
 有时候在不同的软件仓库中，一个软件包有多个版本 (比如extra和testing) 。你可以选择一个来安装:
 
-编辑/etc/pacman.d/mirrorlist，重新选择一个源。再pacman -Suy更新系统，或pacman -Syy更新软件库。
+编辑/etc/pacman.d/mirrorlist，重新选择一个源。再pacman -Suy 更新系统，或pacman -Syy 更新软件库。
 
 pacman -S extra/package_name
   
 pacman -S testing/package_name
   
 删除软件包
-  
-删除单个软件包，保留其全部已经安装的依赖关系
 
-pacman -R package_name
-  
 删除指定软件包，及其所有没有被其他已安装软件包使用的依赖关系:
 
 pacman -Rs package_name
@@ -397,19 +415,14 @@ IgnoreGroup = gnome
   
 附注:
   
-ArchLinux的版本库里面包括:
+ArchLinux 的版本库里面包括:
   
-core-核心软件包
-  
-extra-其他常用软件
-  
-community-社区软件包，譬如MySQL等。
-  
-testing-正在测试阶段，还没有正式加入源的软件包。通常软件版本比较新，但是不是非常稳定
-  
-release-已经发布的软件包
-  
-unstable-非正式的软件包，可能包括以前版本的软件或者测试软件
+- core, 核心软件包
+- extra, 其他常用软件
+- community, 社区软件包，譬如MySQL等.
+- testing, 正在测试阶段，还没有正式加入源的软件包。通常软件版本比较新，但是不是非常稳定
+- release, 已经发布的软件包
+- unstable, 非正式的软件包，可能包括以前版本的软件或者测试软件
 
 因为Pacman的软件都是从源里面更新，因此在/etc/pacman.d里面配置这些软件源的地址。
   
@@ -435,24 +448,6 @@ sudo pacman -Rdd libdmx libxxf86dga && sudo pacman -Syu
 ```bash
 sudo pacman -Sy archlinux-keyring
 ```
-
-## 'archlinux  downgrading'
-
-<https://wiki.archlinux.org/index.php/Arch_Linux_Archive>
-
-replacing your /etc/pacman.d/mirrorlist with the following content:
-
-## Arch Linux repository mirrorlist
-
-## Generated on 2042-01-01
-  
-Server=<https://archive.archlinux.org/repos/2014/03/30/>$repo/os/$arch
-  
-Then update the database and force downgrade:
-
-pacman -Syyuu
-
-<https://www.geniusxiaoshuai.com/exp/93.html>
 
 ## 一个切换 mirror 的脚本
 
