@@ -122,7 +122,9 @@ sharedFolderName /path/to/mntPtOnGuestMachine vboxsf uid=user,gid=group,rw,dmode
 
 ## virtualbox 磁盘扩容
 
-File> Virtual Media Manager> Properties> Size> Apply
+1. 虚拟机关机
+2. 打开 Oracle VM VirtualBox Manager
+3. 点击菜单栏 File> Tools> Virtual Media Manager> Properties> Size> Apply
 
 linux 虚拟机如果有图形界面的话, 可以用 gparted 做后续扩容操作
 
