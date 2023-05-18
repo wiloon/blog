@@ -50,6 +50,8 @@ pip freeze > requirements.txt
 ## commands
 
 ```bash
+# install specific version
+yay -S python36
 pacman -S python-pip
 # 打印包版本
 pip list
@@ -345,31 +347,24 @@ pickle.load(file)
 
 ## python 虚拟环境
 
+- venv: Python 标准库内置的虚拟环境管理工具，Python 3.3 加入，Python 3.5 开始作为管理虚拟环境的推荐工具，用法类似 virtualenv。如果你使用 Python 3，推荐使用 venv 来替代 virtualenv
 - archlinux> pyenv
 - PyPA：指 Python Packaging Authority，一个维护 Python 打包相关项目的小组，相关项目具体见 <https://github.com/pypa>。
 - pip：Python 包安装器。
-- virtualenv: Python 虚拟环境管理工具。
-- venv: Python 标准库内置的虚拟环境管理工具，Python 3.3 加入，Python 3.5 开始作为管理虚拟环境的推荐工具，用法类似 virtualenv。如果你使用 Python 3，推荐使用 venv 来替代 virtualenv。
+- virtualenv: Python 虚拟环境管理工具
 
-## pyenv
-
-```bash
-dfesxc install -l
-pyenv install 3.6.15
-pyenv versions
-pyenv global 3.6.15
-```
+### venv
 
 ```bash
-# 创建运行环境
-python -m venv /path/to/env0
+yay -S python36
+# 创建指定版本的运行环境
+/usr/bin/python3.6 -m venv apps/venv-36
 # 激活环境 - linux
-source env0/bin/activate
+source apps/venv-36/bin/activate
 # win
 env0/script/activate.bat
 # 退出环境
 deactivate
- 
 ```
 
 ### 删除环境
@@ -436,12 +431,11 @@ ImportError: libcrypt.so.1: cannot open shared object file: No such file or dire
 
 ```bash
 sudo pacman -S libxcrypt-compat
-
 ```
 
 ## Python -m
 
-通过python -m执行一个包内脚本会首先将执行package1的__init__.py文件，并且__package__变量被赋上相应的值；而 python xxx.py方式不会执行__init__.py并且__package__变量为None
+通过python -m 执行一个包内脚本会首先将执行package1的__init__.py文件，并且__package__变量被赋上相应的值；而 python xxx.py方式不会执行__init__.py并且__package__变量为None
 两种执行方法的sys.path不同（注意每个path输出中的第一条），Python中的sys.path是Python用来搜索包和模块的路径。通过python -m执行一个脚本时会将当前路径加入到系统路径中,而使用python xxx.py执行脚本则会将脚本所在文件夹加入到系统路径中（如果取消inner.py中的注释会报找不到模块的错误）。
 
 <https://a7744hsc.github.io/python/2018/05/03/Run-python-script.html>
