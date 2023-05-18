@@ -1,28 +1,32 @@
 ---
-title: 测磁盘读写速度
+title: 磁盘性能测试
 author: "-"
-date: 2018-10-30T02:17:44+00:00
-url: /?p=12837
+date: 2023-05-18 09:26:55
+url: disk/performance
 categories:
-  - Inbox
+  - Hardware
 tags:
   - reprint
+  - remix
 ---
-## 测磁盘读写速度
+## 磁盘性能测试
 
 <https://blog.csdn.net/zqtsx/article/details/25487185>
 
-linux下测试磁盘的读写IO速度(IO物理测速)
+linux 下测试磁盘的读写 IO 速度 (IO物理测速)
 
-一: 使用hdparm命令
-  
-这是一个是用来获取ATA/IDE硬盘的参数的命令,是由早期Linux IDE驱动的开发和维护人员 Mark Lord开发编写的( hdparm has been written by Mark Lord [m&#108;&#111;&#114;&#x64;&#x40;&#x70;&#x6f;b&#111;&#120;&#46;&#x63;&#x6f;&#x6d;][1], the primary developer and maintainer of the (E)IDE driver for Linux, with suggestions from many netfolk).该命令应该也是仅用于Linux系统,对于UNIX系统,ATA/IDE硬盘用的可能比较少,一般大型的系统都是使用磁盘阵列的.
+## hdparm
 
-使用方法很简单
+这是一个是用来获取 ATA/IDE 硬盘的参数的命令, 是由早期 Linux IDE 驱动的开发和维护人员 Mark Lord 开发编写的 (hdparm has been written by Mark Lord, the primary developer and maintainer of the (E)IDE driver for Linux, with suggestions from many netfolk). 该命令应该也是仅用于 Linux 系统, 对于 UNIX 系统, ATA/IDE 硬盘用的可能比较少, 一般大型的系统都是使用磁盘阵列的.
 
 ```bash
 hdparm -Tt /dev/sda
 ```
+
+### options
+
+- -t 评估硬盘的读取效率。
+- -T 评估硬盘快取的读取效率。
 
 /dev/sda:
   
@@ -30,25 +34,24 @@ Timing cached reads: 6676 MB in 2.00 seconds = 3340.18 MB/sec
   
 Timing buffered disk reads: 218 MB in 3.11 seconds = 70.11 MB/sec
 
-可以看到,2秒钟读取了6676MB的缓存,约合3340.18 MB/sec;
+可以看到, 2秒钟读取了6676MB的缓存, 约合 3340.18 MB/sec;
   
-在3.11秒中读取了218MB磁盘(物理读),读取速度约合70.11 MB/sec
+在 3.11 秒中读取了 218MB 磁盘(物理读), 读取速度约合 70.11 MB/sec
 
-二: 使用dd命令
+## dd
 
-这不是一个专业的测试工具,不过如果对于测试结果的要求不是很苛刻的话,平时可以使用来对磁盘的读写速度作一个简单的评估.
+这不是一个专业的测试工具, 不过如果对于测试结果的要求不是很苛刻的话, 平时可以使用来对磁盘的读写速度作一个简单的评估.
   
-另外由于这是一个免费软件,基本上×NIX系统上都有安装,对于Oracle裸设备的复制迁移,dd工具一般都是首选.
+另外由于这是一个免费软件, 基本上 ×NIX 系统上都有安装, 对于 Oracle 裸设备的复制迁移, dd 一般都是首选.
 
 首先了解两个特殊设备
 
-/dev/null 伪设备,回收站.写该文件不会产生IO
-  
-/dev/zero 伪设备,会产生空字符流,对它不会产生IO
+- /dev/null 伪设备, 回收站. 写该文件不会产生 IO
+- /dev/zero 伪设备, 会产生空字符流, 对它不会产生 IO
 
 测试方法:
 
-a.测试磁盘的IO写速度
+### 测试磁盘的 IO 写速度
 
 time dd if=/dev/zero of=test.dbf bs=8k count=300000 如果要测试实际速度 还要在末尾加上 oflag=direct测到的才是真实的IO速度
 
@@ -108,7 +111,7 @@ du -sm test.dbf
 
 相比两种方法:
   
-前者是linux上专业的测试IDE/ATA磁盘的工具,但是使用范围有局限性;(此试验仅仅使用了测试磁盘IO的参数,对于其他参数及解释参考man手册)
+前者是 linux 上专业的测试 IDE/ATA 磁盘的工具, 但是使用范围有局限性; (此试验仅仅使用了测试磁盘 IO 的参数,对于其他参数及解释参考 man 手册)
   
 后者可以通用,但不够专业,也没有考虑到缓存和物理读的区分,测试的数据也是仅作参考,不能算是权威.
 
