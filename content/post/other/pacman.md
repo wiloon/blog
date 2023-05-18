@@ -16,6 +16,8 @@ tags:
 
 ```bash
 -Sy #仅同步源
+-Syy # 两个 y 代表强制更新 database 文件, 即使文件看起来是最新的, 回退到旧版本的时候会用到
+-Syyuu # 阶级软件包的时候用.
 -Q 查询 pacman 数据库, 比如查询某一个已经安装的包的版本 pacman -Q openssl
 -Ql boost-libs #Display file list provided by local package
 -o <file> 查看某个文件属于哪个包
