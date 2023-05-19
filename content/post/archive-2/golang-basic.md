@@ -47,7 +47,7 @@ go build hello-world.go
 ./hello-world
 ```
 
-## 升级包版本
+## 升级依赖包版本
 
 ```bash
 go get -u github.com/gin-gonic/gin

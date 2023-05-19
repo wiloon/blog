@@ -105,7 +105,7 @@ wsl --unregister Ubuntu
     dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart
 ```
 
-### 检查windows的版本
+### 检查 windows 的版本
 
 ```bash
     winver
