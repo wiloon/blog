@@ -207,8 +207,15 @@ git merge 命令用于合并指定分支到当前分支
 git merge branch0
 git merge branch0 -m "MSG0"
 # 禁用 Fast forward
-git merge --no-ff -m "merge with no-ff" dev
+git merge branch0 -m "merge with no-ff" --no-ff
 ```
+
+### fast forward
+
+- fast forward 模式，快速合并，看不出做过合并。 不会显示 feature，只保留单条分支记录
+- --no-ff, no fast-forward 模式，普通合并，可以保存之前的分支历史。能够更好的查看 merge历史，以及branch 状态。会生成一个新的commit-id
+
+默认情况下，Git执行 快进式合并, fast-forward merge，会直接将 Master 分支指向 Develop 分支。使用 --no-ff 参数后，会执行正常合并，在Master 分支上生成一个新节点。为了保证版本演进的清晰，我们希望采用这种做法。关于合并的更多解释，请参考 Benjamin Sandofsky 的《Understanding the Git Workflow》。
 
 ### git merge --squash
 
@@ -1027,3 +1034,15 @@ git cherry-pick commit_id_0 commit_id_1
 # 执行过 cherry-pick 之后这两个 commit 默认是提交到了 local repo, 需要 再执行一次  git push
 
 ```
+
+## git rerere
+
+Reuse recorded resolution
+
+```bash
+git rerere [clear | forget <pathspec>…​ | diff | status | remaining | gc]
+```
+
+## .gitattributes
+
+<https://zhuanlan.zhihu.com/p/108266134>
