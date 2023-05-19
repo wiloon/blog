@@ -119,7 +119,7 @@ dpkg -L openjdk-8-source
 whereis openjdk-8-source
 ```
 
-### 查询版本
+### apt 查看软件包版本
 
 ```bash
 apt show openjdk-8-source

@@ -1,5 +1,5 @@
 ---
-title: Maven 版本管理
+title: Maven
 author: "-"
 date: 2015-08-14T04:31:06+00:00
 url: /?p=8117
@@ -9,12 +9,10 @@ tags:
   - Maven
 
 ---
-## Maven 版本管理
+## Maven
 
-   http://juvenshun.iteye.com/blog/376422
+   <http://juvenshun.iteye.com/blog/376422>
 
-
-  
     什么是版本管理
   
   
@@ -37,8 +35,7 @@ tags:
   
   
     svn import -m 'project initialization' https://192.168.1.100:8443/svn/myapp/trunk
-  (注意,这么做你会将目录下所有文件导入到svn库中,但是这其中某些目录和文件是不应该被导入的,如/target目录,以及eclipse相关的项目文件) 
-  
+  (注意,这么做你会将目录下所有文件导入到svn库中,但是这其中某些目录和文件是不应该被导入的,如/target目录,以及eclipse相关的项目文件)
   
     目前,我们将项目的版本设置为1.0-SNAPSHOT。
   
@@ -111,10 +108,7 @@ tags:
  <developerConnection>scm:svn:https://192.168.1.100:8443/svn/myapp/trunk/</developerConnection>
  </scm>
  ```
-        
-      
-  
-  
+
     需要注意的是,很多windows使用的tortoiseSVN客户端,而没有svn命令行客户端,这会导致Maven所有svn相关的工作失败,因此,你首先确保svn -version能够运行。
   
   
@@ -137,9 +131,7 @@ tags:
  <plugin>
   <groupId>org.apache.maven.plugins</groupId>
    <artifactId>maven-release-plugin</artifactId>
-        
-        
-        
+
             <version>2.0-beta-7</version>
         
         
@@ -157,6 +149,7 @@ tags:
         
         
           </plugin>
+
  ```
         
       
