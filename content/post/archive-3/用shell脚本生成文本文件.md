@@ -1,5 +1,5 @@
 ---
-title: 用shell脚本生成文本文件, shell 创建文件 
+title: 用 shell 脚本生成文本文件, shell 创建文件 
 author: "-"
 date: 2020-01-01T16:26:14+00:00
 url: shell/file/create
