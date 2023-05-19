@@ -11,8 +11,6 @@ tags:
 ---
 ## Java诊断工具 - btrace
 
-### 下载最新的版本
-
 <https://github.com/btraceio/btrace/releases>
 
 ### 打印慢调用

@@ -14,31 +14,39 @@ tags:
 
 一、class文件内容概述
 
-class文件是由8bits的字节流组成，全部字节构成了15个有意义的项目。这些项目之间没有任何无意义的字节，因此class文件非常紧凑。占据多字节空间的项目按照高位在前的顺序存放。下面我们详细讨论这些项目: 
+class文件是由8bits的字节流组成，全部字节构成了15个有意义的项目。这些项目之间没有任何无意义的字节，因此class文件非常紧凑。占据多字节空间的项目按照高位在前的顺序存放。下面我们详细讨论这些项目:
 
 ### magic (魔数)
+
 每个class文件的前4个字节称为魔数，值为 0xCAFEBABE。作用在于轻松的辨别class文件与非class文件。
 
-### minor_version、major_version(次、主版本号) 
+### minor_version、major_version(次、主版本号)
+
 各占2个字节。随着Java技术的发展，class文件的格式会发生变化。版本号的作用在于使得虚拟机能够认识当前加载class的文件格式。从而准确的提取class文件信息。
 
 ### constant_pool_count 、constance_pool  (常量池)
+
 从这里开始的字节组成了常量池 。 存储了诸如符号常量、final常量值、基本数据类型的字面值等内容。JVM会将每一个常量构成一个常量表，每个常量表都有自己的入口地址。而实际上在JVM会将这些常量表存储在方法区中一块连续的内存空间中，因此class文件会根据常量表在常量池中的位置对其进行索引。比如常量池中的第一个常量表的索引值就是1，第二个就是2。有的时候常量表A需要常量表B的内容，则在常量表A中会存储常量表B的索引值x。而 constant_pool_count 就记录了有多少个常量表，或者所有多少个索引值。实际上，常量池中没有索引值为0的常量表，但这缺失的索引值也被记录在constant_pool_count中，因此 constant_pool_count等于常量表的数量加1。关于常量池的具体内容，我们会在下面详细讲述，并用一个例子来显示整个class文件的内容。
 
 ### access_flags(访问标志)
+
 占用2个字节。用来表明该class文件中定义的是类还是接口，访问修饰符是public还是缺省。类或接口是否是抽象的。类是否是final的。
 
-### this_class 
+### this_class
+
 占用2个字节。 它是一个对常量池的索引。指向的是常量池中存储类名符号引用的CONSTANT_Class_info常量表(见下面常量池具体结构)。比如this_class=0x0001。则表示指向常量池中的第一个常量表。通常这个表是指向当前class文件所定义的类名。
 
 ### super_class
+
 占用2个字节 与this_class类似，指向存放当前class文件所定义类的超类名字的索引的CONSTANT_Class_info常量表。
 
 ### inteface_count、interfaces interface_count
+
 是class文件所定义的类直接实现的接口或父类实现的接口的数量。占2个字节。intefaces包含了对每个接口的 CONSTANT_Class_info常量表的索引。
 
 ### fields_count、fields fields_count
-表明了类中字段的数量 。fields是不同长度的field_info表的序列。这些field_info表中并不包含超类或父接口继承而来的字段。field_info表展示了一个字段的信息，包括字段的名字，描述符和修饰符。如果该字段是final的，那么还会展示其常量值。注意，这些信息有些存放在field_info里面，有些则存放在field_info所指向的常量池中。下面我们阐述一下这个field_info表的格式: 
+
+表明了类中字段的数量 。fields是不同长度的field_info表的序列。这些field_info表中并不包含超类或父接口继承而来的字段。field_info表展示了一个字段的信息，包括字段的名字，描述符和修饰符。如果该字段是final的，那么还会展示其常量值。注意，这些信息有些存放在field_info里面，有些则存放在field_info所指向的常量池中。下面我们阐述一下这个field_info表的格式:
 
 access_flags(2byte 访问修饰符)
 
@@ -52,8 +60,9 @@ attribute (属性)
 
 其中attribute是由多个attribute_info组成。而JVM规范定义了字段的三种属性: ConstanceValue、Deprecated和Synthetic。
 
-### method_count、methods 
-与字段类似，method_count表明类中方法的数量和每个方法的常量表的索引。methods表明了不同长度的method_info表的序列。该表格式如下: 
+### method_count、methods
+
+与字段类似，method_count表明类中方法的数量和每个方法的常量表的索引。methods表明了不同长度的method_info表的序列。该表格式如下:
 
 access_flags(2byte 访问修饰符)
 
@@ -83,7 +92,7 @@ public void setItemS (String para ){…}
 
 而这些在JVM解释执行程序的时候是非常重要的。那么编译器将源程序编译成class文件后，会用一部分字节分类存储这些永恒不变的红色东西。而这些字节我们就成为常量池。事实上，只有JVM加载class后，在方法区中为它们开辟了空间才更像一个"池"。
 
-正如上面所示，一个程序中有很多永恒的红色东西。每一个都是常量池中的一个常量表(常量项)。而这些常量表之间又有不同，class文件共有11种常量表，如下所示: 
+正如上面所示，一个程序中有很多永恒的红色东西。每一个都是常量池中的一个常量表(常量项)。而这些常量表之间又有不同，class文件共有11种常量表，如下所示:
 
 常量表类型 标志值(占1 byte) 描述
   
@@ -146,41 +155,41 @@ package hr.test;
 //ClassTest类
   
 public class ClassTest {
-      
+
 private int itemI=0; //itemI类字段
-      
+
 private static String itemS="我们"; //itemS类字段
-      
+
 private final float PI=3.1415926F; //PI类字段
-      
+
 //构造器方法
-      
+
 public ClassTest(){
-      
+
 }
-      
+
 //getItemI方法
-      
+
 public int getItemI(){
-          
+
 return this.itemI;
-      
+
 }
-      
+
 //getItemS方法
-      
+
 public static String getItemS(){
-          
+
 return itemS;
-      
+
 }
-      
+
 //main主方法
-      
+
 public static void main(String[] args) {
-          
+
 ClassTest ct=new ClassTest();
-      
+
 }
   
 }
@@ -225,11 +234,11 @@ TestClass.class 字节码分析(字节顺序从上到下，从左到右。每个
 
 (15) 1 0 4 67 111 100 101 — Code
   
-(16) 8 0 17 — String字符串字面值 (0 17表示索引1 7) 
+(16) 8 0 17 — String字符串字面值 (0 17表示索引1 7)
   
 (17) 1 0 6 230 136 145 228 187 172 — "我们"
   
-(18) 9 0 1 0 19 — 指向 第2个 字段的引用(0 1指向索引1，0 19指向索引19) 
+(18) 9 0 1 0 19 — 指向 第2个 字段的引用(0 1指向索引1，0 19指向索引19)
   
 (19) 12 0 7 0 8 –指向 第2个 字段的名字和描述符的索引，
   
@@ -285,42 +294,41 @@ TestClass.class 字节码分析(字节顺序从上到下，从左到右。每个
        0 0 —- inteface_count接口的数量
     
        0 3   —  field_count字段的数量
-    
 
 // 字段 itemI
-         
+
 0 2 —- private 修饰符
-         
+
 0 5 —- 字段名在常量池中的索引，字段itemI
-         
+
 0 6 —- 字段的描述符(所属类型)在常量池中的索引
-         
+
 0 0 — 字段的属性信息表(attribute_info)的数量
   
 // 字段 itemS
-         
+
 0 10 —- private static 修饰符
-         
+
 0 7 —字段名在常量池中的索引，字段itemS
-         
+
 0 8 —字段的描述符(所属类型)在常量池中的索引
-         
+
 0 0 — 字段的属性信息表(attribute_info)的数量
   
 // 字段 PI
-         
+
 0 18 — private final 修饰符
-         
+
 0 9 —字段名在常量池中的索引，//字段PI
-         
+
 0 10 —字段的描述符(所属类型)在常量池中的索引
-         
+
 0 1 — 字段的属性信息表(attribute_info)的数量
-         
+
 0 11 — 属性名在常量池中的索引。即ConstantValue
-         
+
 0 0 0 2 — 属性所占的字节长度
-         
+
 0 12 — 属性值在常量池中的索引。即常量字面值
 
        0 5  — Method_count方法的数量
@@ -365,11 +373,10 @@ TestClass.class 字节码分析(字节顺序从上到下，从左到右。每个
        0 15  —  属性名在常量池中的索引。即Code
        0 0 0  65 —  属性所占的字节长度36
        0 2 0 2 0 0 0 9 187 0 1 89 183 0 37 76 177 0 0 0 2 0 20 0 0 0 10 0 2 0 0 0 20 0 8 0 21 0 21 0 0 0 22 0 2 0 0 0 9 0 38 0 39 0 0 0 8 0 1 0 40 0 30 0 1 0 1 0 41 0 0 0 2 0 42
-    
 
-我们分析上面的字节码例子，不难看出: 
+我们分析上面的字节码例子，不难看出:
 
-蓝色背景的常量池字节码区域: 
+蓝色背景的常量池字节码区域:
 
 (1) 所有的字面值都是存放在常量池中的。 特别注意的是"我们"这个字符串常量也是在常量池中的。如果一个程序出现多个"我们"，那么常量池中也只会有一个。另外，也正是因为"我们"存放在常量池中，使得一些字符串的==比较变的需要琢磨了。
 
@@ -377,11 +384,11 @@ TestClass.class 字节码分析(字节顺序从上到下，从左到右。每个
 
 (3)常量池中有一个隐含参数this的符号常量。即使程序中不存在this，JVM也会悄悄的设置一个这样的对象。
 
-绿色背景的类字段字节码区域: 
+绿色背景的类字段字节码区域:
 
 (1)字段PI是浮点型常量，在编译期的字节码中就已经指定好了PI的字面值存储在常量池中的某个索引内 。这一点也证实了Java中的常量在编译期就已经得到了值，在运行过程中是无法改变的。
 
-橙色背景的类方法字节码区域: 
+橙色背景的类方法字节码区域:
 
 (1)主方法main是作为ClassTest的类方法存在的，在字节码中main和其他的类方法并没有什么区别。 实际上，我们也确实可以通过ClassTest.main(..)来调用ClassTest中的main方法。
 

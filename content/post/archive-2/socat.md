@@ -91,7 +91,7 @@ host: www.wiloon.com \r\n
 \r\n
 ```
 
-### 向zookeeper 发送 stat 查询zookeeper版本
+### 向 zookeeper 发送 stat 查询zookeeper版本
 
 ```bash
 echo stat | socat - TCP:192.168.1.xxx:2181

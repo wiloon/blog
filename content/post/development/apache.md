@@ -9,16 +9,21 @@ tags:
   - reprint
 ---
 ## apache basic
+
 ### apache path
+
     /etc/apache2/apache2.conf
 
     /etc/apache2/httpd.conf
 
     /var/log/apache2
+
 ### linux  apache 版本
+
 linux 自动安装的 apache: sudo apachectl -v
 
 ### 启动/重启/停止apache服务器
+
     Task: Start Apache 2 Server /启动apache服务
       
     # /etc/init.d/apache2 start

@@ -115,7 +115,7 @@ curl -v --cookie cookie.txt "http://localhost:8080/get"
 curl -v -b cookie.txt "http://localhost:8080/get"
 ```
 
-#### 完整版本
+#### 完整命令
 
 ```bash
 curl -v -d "name=admin&password=admin" -b cookie.txt -c cookie.txt "http://localhost:8080/user/login" && curl -v -b cookie.txt "http://localhost:8080/get"
