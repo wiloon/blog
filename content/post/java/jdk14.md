@@ -10,7 +10,8 @@ tags:
 ---
 ## "jdk14"
 
-### instanceof模式匹配
+### instanceof 模式匹配
+
 JDK 14的新特性:instanceof模式匹配
 
 JDK14在2020年的3月正式发布了。可惜的是正式特性只包含了最新的Switch表达式，而Records,patterns,text blocks仍然是预览特性。

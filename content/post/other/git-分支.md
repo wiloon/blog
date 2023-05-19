@@ -45,27 +45,25 @@ Git创建Develop分支的命令:
   
 >git checkout master
 
-## 对Develop分支进行合并
+## 对 Develop 分支进行合并
   
-> git merge -no-ff develop
+```bash
+git merge develop
+```
 
-这里稍微解释一下，上一条命令的-no-ff参数是什么意思。默认情况下，Git执行"快进式合并" (fast-forward merge) ，会直接将Master分支指向Develop分支。使用-no-ff参数后，会执行正常合并，在Master分支上生成一个新节点。为了保证版本演进的清晰，我们希望采用这种做法。关于合并的更多解释，请参考Benjamin Sandofsky的《Understanding the Git Workflow》。
-
-**三、临时性分支**
+## 临时分支
 
 前面讲到版本库的两条主要分支: Master和Develop。前者用于正式发布，后者用于日常开发。其实，常设分支只需要这两条就够了，不需要其他了。
 
 但是，除了常设分支以外，还有一些临时性分支，用于应对一些特定目的的版本开发。临时性分支主要有三种:
 
 > * 功能 (feature) 分支
-
 > * 预发布 (release) 分支
-
 > * 修补bug (fixbug) 分支
 
 这三种分支都属于临时性需要，使用完以后，应该删除，使得代码库的常设分支始终只有Master和Develop。
 
-**四、 功能分支**
+## 功能分支
 
 接下来，一个个来看这三种"临时性分支"。
 
@@ -80,13 +78,13 @@ Git创建Develop分支的命令:
 开发完成后，将功能分支合并到develop分支:
 
 > git checkout develop
-> git merge -no-ff feature-x
+> git merge feature-x
 
 删除feature分支:
 
 > git branch -d feature-x
 
-**五、预发布分支**
+## 预发布分支
 
 第二种是预发布分支，它是指发布正式版本之前 (即合并到Master分支之前) ，我们可能需要有一个预发布的版本进行测试。
 
@@ -99,24 +97,20 @@ Git创建Develop分支的命令:
 确认没有问题后，合并到master分支:
 
 > git checkout master
-
-> git merge -no-ff release-1.2
-
-> # 对合并生成的新节点，做一个标签
-  
+> git merge release-1.2
+> 对合并生成的新节点，做一个标签
 > git tag -a 1.2
 
 再合并到develop分支:
 
 > git checkout develop
-
-> git merge -no-ff release-1.2
+> git merge release-1.2
 
 最后，删除预发布分支:
 
 > git branch -d release-1.2
 
-**六、修补bug分支**
+## 修补bug分支
 
 最后一种是修补bug分支。软件正式发布以后，难免会出现bug。这时就需要创建一个分支，进行bug修补。
 
@@ -129,14 +123,14 @@ Git创建Develop分支的命令:
 修补结束后，合并到master分支:
 
 > git checkout master
-> git merge -no-ff fixbug-0.1
+> git merge fixbug-0.1
 > git tag -a 0.1.1
 
 再合并到develop分支:
 
 > git checkout develop
-> git merge -no-ff fixbug-0.1
+> git merge fixbug-0.1
 
-最后，删除"修补bug分支":
+最后，删除"修补bug分支"
 
 > git branch -d fixbug-0.1

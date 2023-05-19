@@ -23,7 +23,7 @@ JSTL 1.0 which is designed for JSP 1.2 has the class `ELException` included in J
 
 When you run JSTL 1.1 on a JSP 1.2 container, it'll complain that `ELException` is missing because it's not available by JSP 1.2.
 
-jstl 1.2: <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+jstl 1.2: <%@ taglib prefix="c" uri="<http://java.sun.com/jsp/jstl/core"%>>
 
     <%@ taglib uri="http://java.sun.com/jstl/core" prefix="c" %>
 
