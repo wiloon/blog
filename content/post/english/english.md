@@ -13,6 +13,8 @@ tags:
 
 ## 介词 Preposition
 
+介词 Preposition 简写prep.
+
 ## 英语句子
 
 - 陈述句
