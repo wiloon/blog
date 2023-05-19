@@ -125,8 +125,6 @@ code --install-extension jsynowiec.vscode-insertdatestring-2.3.1.vsix
 
 有新版本时, vscode左下角会有提示,点击更新 windows里安装的vscode, vscode打开 wsl里的目录时,会自动更新wsl里安装的vscode.
 
----
-
 <https://code.visualstudio.com/docs/remote/ssh-tutorial>  
 <https://www.justhx.com/partly-technical/optiumise-chinese-characters-in-vscode>  
 <https://blog.csdn.net/bmzk123/article/details/86501706>  
