@@ -15,11 +15,11 @@ tags:
 - ncdu, 磁盘空间占用分析/清理
 - bitwarden, password management
 - btop, 另外一个 top 实现, 颜值还不错
-- screenfetch, 打印发行版的 logo  
+- screenfetch, 打印发行版的 logo
 
 ## AUR
 
-- joplin-desktop
+- google-chrome
 
 ## application list
 
