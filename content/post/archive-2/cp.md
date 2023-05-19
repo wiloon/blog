@@ -14,5 +14,4 @@ tags:
 # 把 dir0 下面的文件和子目录复制到 dir1
 # -R, -r, --recursive          copy directories recursively
 cp -r /path/to/dir0/* /path/to/dir1
-
 ```
