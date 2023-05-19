@@ -13,7 +13,7 @@ tags:
 
 ## options
 
-- -C, 指定目录
+- -C, 指定目录, `.git` 所在的目录
 
 ## origin
 
@@ -165,7 +165,7 @@ git tag -l "v1.8.5*"
 # list remote tags
 git ls-remote --tags origin
 
-# 显示提交信息
+# 显示 tag 的 commit 信息
 git show v0.0.1
 
 # 查看 tag 在哪个分支上, 只能查看已经拉到本地的 tag, 如果 tag 的确是存在的, 但是用以下命令查不到, 先切换分支, 然后 git pull, 再执行以下命令就能看到了
@@ -1032,7 +1032,6 @@ git cherry -v master asa
 # 比如 commit_id_0 commit_id_1 是 feature0 分支的 commit, 执行 cherry-pick 把它们应用到 main 分支
 git cherry-pick commit_id_0 commit_id_1
 # 执行过 cherry-pick 之后这两个 commit 默认是提交到了 local repo, 需要 再执行一次  git push
-
 ```
 
 ## git rerere
