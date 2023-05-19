@@ -1,5 +1,5 @@
 ---
-title: 回车, 换行符
+title: 回车, 换行符, CRLF, LF
 author: "-"
 date: 2012-09-27T05:15:21+00:00
 url: crlf
@@ -10,15 +10,13 @@ tags:
 ---
 ## 回车, 换行符
 
-换行, line feed, LF, newline, \n
-回车, carriage return, CR, return, \r
+- 换行, line feed, LF, newline, \n
+- 回车, carriage return, CR, return, \r
+- CRLF, Carriage return & line feed
 
-CRLF (Carriage return & line feed)
-
-unix: 换行, \n
-windows: 换行(回车+换行), \r\n, Unix/Mac 下打开会显示成`^M`
-
----
+- unix: 换行, \n
+- windows: 换行(回车+换行), \r\n, Unix/Mac 下打开会显示成 `^M`
+- macos: Line Feed, LF
 
 <https://blog.csdn.net/wjcquking/article/details/6634504>
 
