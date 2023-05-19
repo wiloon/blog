@@ -1,5 +1,5 @@
 ---
-title: 用cat命令和EOF标识生成文件
+title: 用 cat 命令和 EOF 标识生成文件
 author: "-"
 date: 2017-11-13T08:47:49+00:00
 url: /?p=11416
@@ -8,19 +8,19 @@ categories:
 tags:
   - reprint
 ---
-## 用cat命令和EOF标识生成文件
+## 用 cat 命令和 EOF 标识生成文件
 
 <http://www.linuxfly.org/post/146/>
 
 在某些场合,可能我们需要在脚本中生成一个临时文件,然后把该文件作为最终文件放入目录中。 (可参考ntop.spec文件) 这样有几个好处,其中之一就是临时文件不是唯一的,可以通过变量赋值,也可根据不同的判断生成不同的最终文件等等。
   
-一、cat和EOF
+一、cat 和 EOF
   
-cat命令是linux下的一个文本输出命令,通常是用于观看某个文件的内容的；
+cat 命令是 linux 下的一个文本输出命令, 通常是用于观看某个文件的内容的；
   
-EOF是"end of file",表示文本结束符。
+EOF 是 "end of file", 表示文本结束符。
   
-结合这两个标识,即可避免使用多行echo命令的方式,并实现多行输出的结果。
+结合这两个标识, 即可避免使用多行echo命令的方式, 并实现多行输出的结果。
   
 二、使用
   
@@ -38,11 +38,11 @@ EOF
   
 引用
 
-# cat test.sh
+cat test.sh
 
-# !/bin/bash
+!/bin/bash
   
-# you Shell script writes here
+you Shell script writes here
 
 可以看到,test.sh的内容就是cat生成的内容。
   
@@ -50,11 +50,11 @@ EOF
   
 1. 追加文件
 
-# cat << EOF >> test.sh
+cat << EOF >> test.sh
 
 2. 换一种写法
 
-# cat > test.sh << EOF
+cat > test.sh << EOF
 
 3. EOF只是标识,不是固定的
 

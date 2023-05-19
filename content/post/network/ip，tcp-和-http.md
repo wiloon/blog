@@ -10,6 +10,7 @@ tags:
 
 ---
 ## IP,TCP 和 HTTP
+
 172.16.128.0/24 经常看到这类IP地址"/24"表示什么意思？
 
 子网掩码, 代表多少个1
@@ -18,12 +19,11 @@ tags:
   
 192.168.1.1/24     就表示ip是192.168.1.1, 子网掩码是255.255.255.0
 
-http://objccn.io/issue-10-6/
+<http://objccn.io/issue-10-6/>
 
+当 app 和服务器进行通信的时候,大多数情况下,都是采用 HTTP 协议。HTTP 最初是为 web 浏览器而定制的,如果在浏览器里输入 <http://www.objc.io> ,浏览器会通过 HTTP 协议和 <www.objc.io> 所对应的服务器进行通信。
 
-当 app 和服务器进行通信的时候,大多数情况下,都是采用 HTTP 协议。HTTP 最初是为 web 浏览器而定制的,如果在浏览器里输入 http://www.objc.io ,浏览器会通过 HTTP 协议和 www.objc.io 所对应的服务器进行通信。
-
-HTTP是运行在应用层上的应用协议,而不同的层级上都有相应的协议在运行。层级的堆栈关系一般可以这么描述: 
+HTTP是运行在应用层上的应用协议,而不同的层级上都有相应的协议在运行。层级的堆栈关系一般可以这么描述:
 
 Application Layer - e.g. HTTP
   
@@ -71,7 +71,7 @@ payload 中的内容即是要传输的真正信息,而 header 承载的是与传
 
 IPv4 Header
   
-IPv4的 header 信息内容如下: 
+IPv4的 header 信息内容如下:
 
 IPv4 Header Format
   
@@ -99,7 +99,7 @@ header 信息中最关键的是源和目标 IP 地址。除此之外,版本信�
 
 IPv6 Header
   
-IPv6 的地址长度为 128 位。IPv6 的 header 信息内容如下: 
+IPv6 的地址长度为 128 位。IPv6 的 header 信息内容如下:
 
 Offsets Octet 0 1 2 3
   
@@ -175,7 +175,7 @@ TCP 连接全过程的状态变化是很复杂的 (参考 TCP 状态图) 。但�
   
 TCP 连接都是建立在两个主机之间的。所以,每个连接建立过程中都存在两个角色: 一端 (例如 web 服务器) 监听连接,另一端 (例如应用) 主动连接正在监听的一端 (web 服务器) 。服务器端的这种监听行为被称为 passive open (被动打开) 。客户端主动连接服务器的行为被称为 active open (主动打开) 。
 
-TCP 会通过三次握手来完成连接建立,具体过程是这样的: 
+TCP 会通过三次握手来完成连接建立,具体过程是这样的:
 
 客户端首先向服务端发送一个 SYN 包和一个随机序列号 A
   
@@ -187,13 +187,13 @@ SYN 是 synchronize sequence numbers (同步序列号) 的缩写。两端在传�
 
 ACK 是 acknowledgment (确认)的缩写。当某一端接到了报文包后,通过回传已报文序列号来确认接收到报文这件事。
 
-运行如下语句: 
+运行如下语句:
 
-curl -4 http://www.apple.com/contact/
+curl -4 <http://www.apple.com/contact/>
 
-这是通过 curl 命令与 www.apple.com 的 80 端口创建一个 TCP 连接。
+这是通过 curl 命令与 <www.apple.com> 的 80 端口创建一个 TCP 连接。
 
-www.apple.com 所在服务器 23.63.125.15 (注意,整个 IP 不是固定的) 会监听 80 端口。我们自己的 IP 地址是 10.0.1.6,启用的临时端口 52181 (这个端口是从可用端口中随机选择的) 。利用 tcpdump(1) 输出的三次握手过程是这样的: 
+<www.apple.com> 所在服务器 23.63.125.15 (注意,整个 IP 不是固定的) 会监听 80 端口。我们自己的 IP 地址是 10.0.1.6,启用的临时端口 52181 (这个端口是从可用端口中随机选择的) 。利用 tcpdump(1) 输出的三次握手过程是这样的:
 
 % sudo tcpdump -c 3 -i en3 -nS host 23.63.125.15
   
@@ -215,11 +215,11 @@ Flags 表示 TCP 报文段 header 信息中的一些缩写标识: S 代表 SYN,.
 
 其他选项
   
-当然,在连接建立过程中还会配置一些其他的信息。比如第一行中客户端发送的内容: 
+当然,在连接建立过程中还会配置一些其他的信息。比如第一行中客户端发送的内容:
 
 [mss 1460,nop,wscale 4,nop,nop,TS val 743929763 ecr 0,sackOK,eol]
 
-还有第二行服务端发送的: 
+还有第二行服务端发送的:
 
 [mss 1460,sackOK,TS val 1433256622 ecr 743929763,nop,wscale 1]
 
@@ -233,7 +233,7 @@ mss 选项声明了最大报文长度 (Maximum Segment Size),表示接收端希�
   
 一旦建立了连接,双方就可以互发数据了。发送端所发出的每个报文段都有一个序列号,这个序列号与当下已传送的字节总数有关。接收端会针对已接收的数据包向源端发送确认报文,确认信息同样是由报文 header 所携带的 ACK。
 
-假设现在传送的信息是除最后一个报文 5 字节外,其他都是 10 字节。具体是这样的: 
+假设现在传送的信息是除最后一个报文 5 字节外,其他都是 10 字节。具体是这样的:
 
 host A sends segment with seq 10
   
@@ -261,7 +261,7 @@ TCP 将流量控制和其他一系列复杂机制结合起来进行拥塞控制�
 
 基于这种一直在相互协调中的连接关系,TCP 连接往往会是短暂而低效的。在建立连接的初期,TCP 协议算法还不能完全了解当前网络状况。而在连接将要结束的时候,反馈给发送方的信息又可能不充分,这样就很难对连接状况做出实时的合理的评估。
 
-之前展示了客户端和服务端之间交换的三段报文。再看看关于连接的其他信息: 
+之前展示了客户端和服务端之间交换的三段报文。再看看关于连接的其他信息:
 
 18:31:29.150955 IP 10.0.1.6.52181 > 23.63.125.15.80: Flags [P.], seq 1721092980:1721093065, ack 673593778, win 8235, options [nop,nop,TS val 743929773 ecr 1433256622], length 85
   
@@ -271,7 +271,7 @@ TCP 将流量控制和其他一系列复杂机制结合起来进行拥塞控制�
 
 服务端 23.63.125.15 只是对接收客户端的数据进行确认回复,没有向客户端发送数据,所以 length 为 0。由于当前连接是采用选择性确认 (Selective acknowledgments),所以序列号和确认号是之间的字节长度是从 1721092980 到 1721093065,也就是 85 bytes。接收方发送的 ACK 确认号是 1721093065,这代表目前已接收的数据确认累计到 1721093065 字节了。至于说为什么数字会如此之大,这要说到初次握手时发出的随机数,数字的范围和那个初始数字是相关的。
 
-这种模式会一直持续到全部数据传送完成: 
+这种模式会一直持续到全部数据传送完成:
 
 18:31:29.189335 IP 23.63.125.15.80 > 10.0.1.6.52181: Flags [.], seq 673593778:673595226, ack 1721093065, win 7240, options [nop,nop,TS val 1433256660 ecr 743929773], length 1448
   
@@ -311,7 +311,7 @@ TCP 将流量控制和其他一系列复杂机制结合起来进行拥塞控制�
 
 终止连接
   
-最终连接会终止 (或结束) 。连接的每一端都会发送 FIN 标识给另一端来声明结束传输,接着另一端会对收到 FIN 进行确认。当连接两端均发送完各自 FIN 和做出相应的确认后,连接将会彻底关闭: 
+最终连接会终止 (或结束) 。连接的每一端都会发送 FIN 标识给另一端来声明结束传输,接着另一端会对收到 FIN 进行确认。当连接两端均发送完各自 FIN 和做出相应的确认后,连接将会彻底关闭:
 
 18:31:29.199029 IP 10.0.1.6.52181 > 23.63.125.15.80: Flags [F.], seq 1721093065, ack 673608401, win 8192, options [nop,nop,TS val 743929819 ecr 1433256660], length 0
   
@@ -327,17 +327,17 @@ HTTP — 超文本传输协议 (Hypertext Transfer Protocol)
 
 请求与响应
   
-HTTP 采用简单的请求和响应机制。在 Safari 输入 http://www.apple.com 时,会向 www.appple.com 所在的服务器发送一个 HTTP 请求。服务器会对请求做出一个响应,将请求结果信息返回给 Safari。
+HTTP 采用简单的请求和响应机制。在 Safari 输入 <http://www.apple.com> 时,会向 <www.appple.com> 所在的服务器发送一个 HTTP 请求。服务器会对请求做出一个响应,将请求结果信息返回给 Safari。
 
 每一个请求都有一个对应的响应信息。请求和响应遵从同样的格式。第一行是请求行或者响应状态行。接下来是 header 信息,header 信息之后会有一个空行。空行之后是 body 请求信息体。
 
 一个简单请求
   
-当 Safari 加载 HTML 页面 http://www.objc.io/about.html 的时候,先是发送 HTTP 请求到 www.objc.io,请求的内容是: 
+当 Safari 加载 HTML 页面 <http://www.objc.io/about.html> 的时候,先是发送 HTTP 请求到 <www.objc.io,请求的内容是>:
 
 GET /about.html HTTP/1.1
   
-Host: www.objc.io
+Host: <www.objc.io>
   
 Accept-Encoding: gzip, deflate
   
@@ -351,7 +351,7 @@ If-Modified-Since: Mon, 10 Feb 2014 18:08:48 GMT
   
 User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.74.9 (KHTML, like Gecko) Version/7.0.2 Safari/537.74.9
   
-Referer: http://www.objc.io/
+Referer: <http://www.objc.io/>
   
 DNT: 1
   
@@ -363,7 +363,7 @@ Accept-Language: en-us
 
 接下来 10 行是 HTTP header 信息。跟着是一行空行。例子中的请求没有 body 信息。
 
-header 的作用是向服务器传递一些额外的辅助信息,它的内容比较宽泛。维基百科中有常用 HTTP header 关键字信息的清单。例子中的 header 信息 Host: www.objc.io 表示告诉服务器,本次请求的服务器名称是什么。这样可以让同一个服务器处理针对多个域名的请求。
+header 的作用是向服务器传递一些额外的辅助信息,它的内容比较宽泛。维基百科中有常用 HTTP header 关键字信息的清单。例子中的 header 信息 Host: <www.objc.io> 表示告诉服务器,本次请求的服务器名称是什么。这样可以让同一个服务器处理针对多个域名的请求。
 
 下面是一些常见的header信息:
 
@@ -387,7 +387,7 @@ User-Agent 是告知服务器当前发送请求的客户端类型。
 
 一个简单响应
   
-作为上面请求的响应,服务器的返回是: 
+作为上面请求的响应,服务器的返回是:
 
 HTTP/1.1 304 Not Modified
   
@@ -417,17 +417,17 @@ HTTP 定义了一系列状态码,它们各有用途。本例中的 304 表示所
 
 关闭缓存
   
-用 curl 发送一个请求: 
+用 curl 发送一个请求:
 
-% curl http://www.apple.com/hotnews/ > /dev/null
+% curl <http://www.apple.com/hotnews/> > /dev/null
 
-curl 没有使用本地缓存。整个请求会是这样的: 
+curl 没有使用本地缓存。整个请求会是这样的:
 
 GET /hotnews/ HTTP/1.1
   
 User-Agent: curl/7.30.0
   
-Host: www.apple.com
+Host: <www.apple.com>
   
 Accept: */*
 
@@ -435,7 +435,7 @@ Accept: */*
 
 此处 curl 头信息中声明的 Accept: */* 表示可以接收任何媒体类型。
 
-来自 www.apple.com 的响应: 
+来自 <www.apple.com> 的响应:
 
 HTTP/1.1 200 OK
   
@@ -517,7 +517,7 @@ HTTPS 的情况更夸张,由于 HTTPS 是基于 TLS 的 HTTP,而 HTTP 又基于 
 
 长连接和管线化
   
-HTTP 有两种策略来解决这些问题。最简单的是 HTTP 持久连接 (persistent connection),也被称为长连接 (keep-alive)。具体就是,每当 HTTP 完成一组请求－响应处理后,还会继续复用相同的 TCP 连接。而 HTTPS 会复用同样的 TLS 连接: 
+HTTP 有两种策略来解决这些问题。最简单的是 HTTP 持久连接 (persistent connection),也被称为长连接 (keep-alive)。具体就是,每当 HTTP 完成一组请求－响应处理后,还会继续复用相同的 TCP 连接。而 HTTPS 会复用同样的 TLS 连接:
 
 open connection
   
@@ -537,7 +537,7 @@ close connection
 
 第二步就利用了 HTTP 管线 (pipelining) 处理,即允许客户端利用同样的连接并行发送多个请求,也就是说无需等待上一个请求的响应完成可以发下一个请求。这表示能同时处理请求和响应,请求处理的顺序采用先进先出原则,响应结果会按照请求发出的顺序依次返还给客户端。
 
-稍微简化一下,看起来会是这样: 
+稍微简化一下,看起来会是这样:
 
 open connection
   
@@ -583,7 +583,7 @@ RFC 2616 指明,在与同一个服务器通讯的时候,如果启用了 HTTP 管
 
 缓存
   
-看看第一个例子中发送的这段 header 信息: 
+看看第一个例子中发送的这段 header 信息:
 
 If-None-Match: "a54907f38b306fe3ae4f32c003ddd507"
 
@@ -597,6 +597,6 @@ If-None-Match: "a54907f38b306fe3ae4f32c003ddd507"
   
 利用 NSURLSession 发 HTTP 请求是非常简单便捷的。但是请求背后有很多技术点做支撑。只有知晓和理解其中的细节和内涵才能更好的去优化 HTTP 请求。用户期望的是我们的 app 时时刻刻都是好用的。只有深刻理解 IP,TCP 和 HTTP 的工作原理才能更好的去满足用户的期望。
 
-https://bhsc881114.github.io/2015/06/23/HTTP%E8%AF%B7%E6%B1%82%E7%9A%84TCP%E7%93%B6%E9%A2%88%E5%88%86%E6%9E%90/
+<https://bhsc881114.github.io/2015/06/23/HTTP%E8%AF%B7%E6%B1%82%E7%9A%84TCP%E7%93%B6%E9%A2%88%E5%88%86%E6%9E%90/>
 
- [1]: http://itbbs.pconline.com.cn/network/16608720.html# "172.16.128.0/24 经常看到这类IP地址"/24"表示什么意思？"
+ [1]: <http://itbbs.pconline.com.cn/network/16608720.html#> "172.16.128.0/24 经常看到这类IP地址"/24"表示什么意思？"

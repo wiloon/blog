@@ -160,7 +160,7 @@ git reset --merge B
 和 --merge 有一些类似。使用成功的前提是：在 D 后有本地修改的文件在 C、D 两次提交中没有修改过，即 C、D 两次提交中没有它的修改记录。
 假设我们在D后修改了 a.txt 文件，而且 C、D 两次提交中我们都没有修改 a.txt 文件，这样我们调用 git reset --keep B 可以成功，并且a.txt文件中的修改依然会保留。
 
-## git checkout, rebase, revert, reset, 回退, 撤消
+## git checkout, revert, reset, 回退, 撤消
 
 ## 撤销本地修改
 
@@ -257,8 +257,6 @@ git revert -n C D
 方法3
 git revert -n C..D  //git revert C..D
 类似方法1，revert从C到D之间的提交，假设中间还有很多提交时可以用这种
-
----
 
 作者：顾小浪
 链接：<https://www.jianshu.com/p/7e513b302d47>

@@ -1,17 +1,19 @@
 ---
 title: git merge, git rebase
 author: "-"
-date: 2018-08-03T02:49:34+00:00
-url: git/merge/rebase
+date: 2023-05-19 11:10:01
+url: git/merge-rebase
 categories:
   - Git
 tags:
   - reprint
   - remix
 ---
-## git merge, git rebase
-
 ## git merge
+
+- git merge
+- git rebase
+  - interactive rebase
 
 - Join two or more development histories together
 
@@ -42,11 +44,10 @@ note left: master
 c0 <-down- c1
 c1 <-down- c2
 c2 <-down- c3
-c2<-down-c4
-c4<-down-c5
-c3<-down-c5
+c2 <-down- c4
+c4 <-down- c5
+c3 <-down- c5
 @enduml
-
 ```
 
 特点：自动创建一个新的 commit
@@ -202,7 +203,7 @@ rebase 特点：会合并之前的 commit 历史
 
 ### rebase 做了什么
 
-### 场景：分支合并
+- 场景：分支合并
 
 从 master 分支切出一个 dev 分支 (feature1)，进行开发再执行 git rebase master
 
@@ -259,10 +260,12 @@ drop 命令表示你要丢弃这个 commit 以及它的修改。同样可以删�
 当你因为某些 bug 需要回溯提交历史时，更容易定位到 bug 是从哪一个提交引入。尤其是当你需要通过 git bisect 从几十上百个提交中排查 bug，或者有一些体量较大的功能分支需要频繁的从远程的主分支拉取更新时。
 使用 rebase 来将远程的变更整合到本地仓库是一种更好的选择。用 merge 拉取远程变更的结果是，每次你想获取项目的最新进展时，都会有一个多余的 merge 提交。而使用 rebase 的结果更符合我们的本意：我想在其他人的已完成工作的基础上进行我的更改。
 
-## rebase 交互模式
+### rebase -i, 交互模式
+
+interactive rebase
 
 ```bash
-# 其中-i的意思是--interactive
+# 其中 -i 的意思是 --interactive
 rebase -i
 git rebase -i  [startpoint]  [endpoint]
 git rebase -i commit0
