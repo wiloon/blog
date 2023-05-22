@@ -12,13 +12,17 @@ tags:
 
 <https://my.oschina.net/njzjf/blog/317331>
 
+## /
+
+根目录，一般根目录下只存放目录，不要存放文件，/etc、/bin、/dev、/lib、/sbin 应该和根目录放置在一个分区中
+
 ## /bin
 
 In Arch Linux the /bin is a symlink to /usr/bin
 
 ### /mnt
 
-这个目录一般是用于存放挂载储存设备的挂载目录的，比如有cdrom 等目录。可以参看 /etc/fstab 的定义。有时我们可以把让系统开机自动挂载文件系统，把挂载点放在这里也是可以的。主要看/etc/fstab中怎么定义了；比如光驱可以挂载到/mnt/cdrom 。
+这个目录一般是用于存放挂载储存设备的挂载目录的，比如有 cdrom 等目录。可以参看 /etc/fstab 的定义。有时我们可以把让系统开机自动挂载文件系统，把挂载点放在这里也是可以的。主要看/etc/fstab中怎么定义了；比如光驱可以挂载到/mnt/cdrom 。
 
 ### /opt
 
@@ -58,12 +62,12 @@ proc - 虚拟，存在linux内核镜像；保存所有内核参数以及系统�
 
 本地安装软件保存位置
 
-用户级的程序目录，可以理解为C:/Progrem Files/。用户自己编译的软件默认会安装到这个目录下。
-这里主要存放那些手动安装的软件，即不是通过“新立得”或apt-get安装的软件。它和/usr目录具有相类似的目录结构。让软件包管理器来管理/usr目录，而把自定义的脚本(scripts)放到/usr/local目录下面。
+用户级的程序目录，可以理解为 C:/Progrem Files/。用户自己编译的软件默认会安装到这个目录下。
+这里主要存放那些手动安装的软件，即不是通过 apt-get 安装的软件。它和 /usr 目录具有相类似的目录结构。让软件包管理器来管理 /usr 目录，而把自定义的脚本 (scripts) 放到 /usr/local 目录下面。
 
 #### /usr/include
 
-存放C/C++头文件的目录
+存放 C/C++ 头文件的目录
 
 bin -
 
@@ -101,7 +105,7 @@ dev - 设备文件目录
 
 etc - 配置文件
 
-skel - home目录建立，该目录初始化
+skel - home 目录建立，该目录初始化
 
 sysconfig - 网络，时间，键盘等配置目录
 
@@ -131,9 +135,6 @@ tmp - 临时文件目录，系统启动后的临时文件存放在/var/tmp
 
 lost+found - 在文件系统修复时恢复的文件
 
-## /
-
-根目录，一般根目录下只存放目录，不要存放文件，/etc、/bin、/dev、/lib、/sbin 应该和根目录放置在一个分区中
 
 ## /usr/bin
 
@@ -183,10 +184,10 @@ In Arch Linux the /sbin is a symlink to /usr/bin
 
 ## /usr
 
-系统级的目录，可以理解为C:/Windows/。
+系统级的目录，可以理解为 C:/Windows/
 
-在早期的 Unix 实现中, usr目录用于存放用户相关的数据相当于现在的 /home 目录, /usr 目录现在用于存放用户空间的程序和数据
-usr并不是 user用户的缩写，而是 User System Resources 的缩写
+在早期的 Unix 实现中, usr 目录用于存放用户相关的数据相当于现在的 /home 目录, /usr 目录现在用于存放用户空间的程序和数据
+usr 并不是 user 用户的缩写，而是 User System Resources 的缩写
 
 存放应用程序，/usr/bin 存放应用程序，/usr/share 存放共享数据，/usr/lib 存放不能直接运行的，却是许多程序运行所必需的一些函数库文件。/usr/local:存放软件升级包。/usr/share/doc:系统说明文件存放目录。/usr/share/man: 程序说明文件存放目录，使用 man ls时会查询/usr/share/man/man1/ls.1.gz的内容建议单独分区，设置较大的磁盘空间
 
