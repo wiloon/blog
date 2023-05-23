@@ -10,21 +10,91 @@ tags:
 ---
 ## plantuml, puml
 
-### 安装 graphviz
+- 时序图, Sequence Diagram
+- Use Case Diagram
+- 类图, Class Diagram
+- Object Diagram
+- 活动图, Activity Diagram
+- 组件图, Component Diagram
+- 部署图, Deployment Diagram
+- 状态图, State Diagram
+- Timing Diagram
 
-```bash
-sudo apt-get install -y graphviz
+## UML 图
+
+### 时序图, Sequence Diagram
+
+```puml
+@startuml
+Alice -> Bob: Authentication Request
+Bob --> Alice: Authentication Response
+
+Alice -> Bob: Another authentication Request
+Alice <-- Bob: Another authentication Response
+Alice ->> Bob: async msg
+@enduml
 ```
 
-<https://graphviz.org/download/>
+### 类图, Class Diagram
 
-VS-Code扩展
+```puml
+@startuml
+skinparam classFontColor red
 
-使用PlantUML
+class Foo
+note left: parent
 
-vim foo.md
+class Bar
+Bar : String field0
+Bar : String method0()
 
-### component, 组件图
+Foo<|--Bar
+note left: child
+
+abstract class Abstract0
+Foo--|>Abstract0
+
+interface Interface0
+
+' 注意, 接口名和冒号之间必须用空格分隔
+Interface0 : void method0()
+@enduml
+```
+
+```puml
+@startuml
+
+skinparam class {
+    BackgroundColor Lightblue
+    ArrowColor #0ACF97
+    BorderColor #d5d5d5
+}
+
+skinparam stereotypeCBackgroundColor YellowGreen
+
+Class101 <|.. Class102
+@enduml
+```
+
+### 活动图, Activity Diagram
+
+```puml
+@startuml
+!theme plain
+
+start
+
+if (foo?) then (yes)
+  :process0;
+else (no)
+  :process1;
+endif
+
+stop
+@enduml
+```
+
+### 组件图, Component Diagram
 
 - 别名后面可以标注颜色
 - 修改线和箭头的颜色
@@ -73,85 +143,7 @@ end note
 @enduml
 ```
 
-### vs code 渲染 uml 的快捷键
-
-```bash
-alt+d
-```
-
-<https://www.jianshu.com/p/ed0e979657f4>
-
-theme: plain,sandstone,sketchy-outline
-
-### 活动图
-
-```puml
-@startuml
-!theme plain
-
-start
-
-if (foo?) then (yes)
-  :process0;
-else (no)
-  :process1;
-endif
-
-stop
-@enduml
-```
-
-### 类图
-
-```puml
-@startuml
-skinparam classFontColor red
-
-class Foo
-note left: parent
-
-class Bar
-Bar : String field0
-Bar : String method0()
-
-Foo<|--Bar
-note left: child
-
-abstract class Abstract0
-Foo--|>Abstract0
-
-interface Interface0
-
-' 注意, 接口名和冒号之间必须用空格分隔
-Interface0 : void method0()
-@enduml
-```
-
-```puml
-@startuml
-
-skinparam class {
-    BackgroundColor Lightblue
-    ArrowColor #0ACF97
-    BorderColor #d5d5d5
-}
-
-skinparam stereotypeCBackgroundColor YellowGreen
-
-Class101 <|.. Class102
-@enduml
-```
-
-### 线路径
-
-添加隐藏行a -[hidden]- b
-延长线a --- b的长度 (更多破折号，更长的线)
-指定行的首选方向 (a -left- b)
-交换关联结束 (a -- b→b -- a)
-更改定义的顺序 (订单 重要......有时候)
-添加空白节点，背景/边框颜色设置为透明
-
-## 部署图
+### 部署图, Deployment Diagram
 
 ```puml
 @startuml
@@ -170,18 +162,63 @@ queue 5
 @enduml
 ```
 
-### 时序图, Sequence Diagram
+## 状态图, State Diagram
 
-```puml
+```plantuml
 @startuml
-Alice -> Bob: Authentication Request
-Bob --> Alice: Authentication Response
+[*] --> State1
+State1 --> [*]
+State1 : this is a string
+State1 : this is another string
 
-Alice -> Bob: Another authentication Request
-Alice <-- Bob: Another authentication Response
-Alice ->> Bob: async msg
+State1 -> State2
+State2 --> [*]
 @enduml
+
 ```
+
+### 安装 graphviz
+
+```bash
+sudo apt-get install -y graphviz
+```
+
+<https://graphviz.org/download/>
+
+VS-Code扩展
+
+使用PlantUML
+
+vim foo.md
+
+
+
+### vs code 渲染 uml 的快捷键
+
+ctrl + p> PlantUML: Preview Current Diagram
+
+```bash
+ctrl + alt + d
+```
+
+<https://www.jianshu.com/p/ed0e979657f4>
+
+theme: plain,sandstone,sketchy-outline
+
+
+
+
+
+### 线路径
+
+添加隐藏行a -[hidden]- b
+延长线a --- b的长度 (更多破折号，更长的线)
+指定行的首选方向 (a -left- b)
+交换关联结束 (a -- b→b -- a)
+更改定义的顺序 (订单 重要......有时候)
+添加空白节点，背景/边框颜色设置为透明
+
+
 
 ### plantuml server
 
@@ -220,20 +257,7 @@ component JMM {
 pacman -S graphviz
 ```
 
-## 状态图
 
-```plantuml
-@startuml
-[*] --> State1
-State1 --> [*]
-State1 : this is a string
-State1 : this is another string
-
-State1 -> State2
-State2 --> [*]
-@enduml
-
-```
 
 ## 思维导图 mind map
 

@@ -160,7 +160,7 @@ for line in lines:
 
 <https://zhuanlan.zhihu.com/p/34378860>
 
-## class
+## 类, class
 
 ```python
 # Student 继承 object 类
