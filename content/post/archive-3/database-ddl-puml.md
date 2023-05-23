@@ -1,5 +1,5 @@
 ---
-title: 'database DDL > puml'
+title: database DDL > puml
 author: "-"
 date: 2019-04-29T08:14:42+00:00
 url: /?p=14270
@@ -8,8 +8,9 @@ categories:
 tags:
   - reprint
 ---
-## 'database DDL > puml'
-https://github.com/wangyuheng/ddl2plantuml
+## database DDL > puml
+
+<https://github.com/wangyuheng/ddl2plantuml>
 
 ```bash
 java -jar ~/apps/ddl2plantuml.jar foo.sql er.puml
