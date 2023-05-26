@@ -9,8 +9,10 @@ tags:
   - reprint
 ---
 ## spring security
+
 ### spring-security-jwt-guide
-https://github.com/Snailclimb/spring-security-jwt-guide
+
+<https://github.com/Snailclimb/spring-security-jwt-guide>
 
 spring-boot-starter-data-redis
 基础依赖，其他依赖根据使用不同的缓存技术选择加入，默认情况下使用 ConcurrentMapCache不需要引用任何依赖
@@ -23,21 +25,21 @@ Thymeleaf 是新一代的模板引擎，在 Spring4.0 中推荐使用 Thymeleaf 
 
 add maven dependancy
 
-
 HttpSessionSecurityContextRepository.loadContext
 
 ### spring security session serialize json redis
-https://github.com/spring-projects/spring-session/issues/933
-https://github.com/spring-projects/spring-session/blob/2.3.1.RELEASE/spring-session-samples/spring-session-sample-boot-redis-json/src/main/java/sample/config/SessionConfig.java
+
+<https://github.com/spring-projects/spring-session/issues/933>
+<https://github.com/spring-projects/spring-session/blob/2.3.1.RELEASE/spring-session-samples/spring-session-sample-boot-redis-json/src/main/java/sample/config/SessionConfig.java>
 ---
 
-https://my.oschina.net/u/3669799/blog/4282404
-https://blog.csdn.net/wamr_o/article/details/99634226
-https://github.com/Ceruleans/ssdemo
-https://my.oschina.net/u/4257408/blog/3662569
-
+<https://my.oschina.net/u/3669799/blog/4282404>
+<https://blog.csdn.net/wamr_o/article/details/99634226>
+<https://github.com/Ceruleans/ssdemo>
+<https://my.oschina.net/u/4257408/blog/3662569>
 
 ---
+
 ```xml
 
 <dependency>
@@ -72,7 +74,6 @@ spring-web</artifactId>
 
 ```
 
-
 add dispatcher servlet in web.xml
 
 ```xml
@@ -105,8 +106,7 @@ add dispatcher servlet in web.xml
 
 ```
 
-
 ---
 
-http://www.cnblogs.com/Beyond-bit/p/SpringMVC_And_SpringSecurity.html
->https://mp.weixin.qq.com/s/z6GeR5O-vBzY3SHehmccVA
+<http://www.cnblogs.com/Beyond-bit/p/SpringMVC_And_SpringSecurity.html>
+><https://mp.weixin.qq.com/s/z6GeR5O-vBzY3SHehmccVA>

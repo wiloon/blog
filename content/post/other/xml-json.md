@@ -10,20 +10,11 @@ tags:
 ---
 ## 'XML & JSON'
 
-  
-  
+目前，在web开发领域，主要的数据交换格式有XML和JSON，对于XML相信每一个web developer都不会感到陌生；相比之下，JSON可能对于一些新步入开发领域的新手会感到有些陌生，也可能你之前已经听说过，但对于XML和 JSON的不同之处可能会不怎么了解。对于在 Ajax开发中，是选择XML还是JSON，一直存在着争议，个人还是比较倾向于JSON的，虽然JSON才处于起步阶段，但我相信JSON最终会取代XML成为Ajax的首选，到时Ajax可能要更名为Ajaj(Asynchronous JavaScript and JSON)了；
 
-
-  目前，在web开发领域，主要的数据交换格式有XML和JSON，对于XML相信每一个web developer都不会感到陌生；相比之下，JSON可能对于一些新步入开发领域的新手会感到有些陌生，也可能你之前已经听说过，但对于XML和 JSON的不同之处可能会不怎么了解。对于在 Ajax开发中，是选择XML还是JSON，一直存在着争议，个人还是比较倾向于JSON的，虽然JSON才处于起步阶段，但我相信JSON最终会取代XML成为Ajax的首选，到时Ajax可能要更名为Ajaj(Asynchronous JavaScript and JSON)了；
-
+1.数据交换格式比较之关于XML和JSON:
   
-    1.数据交换格式比较之关于XML和JSON: 
-  
-  
-    XML: extensible markup language,一种类似于HTML的语言，他没有预先定义的标签，使用DTD(document type definition)文档类型定义来组织数据；格式统一，跨平台和语言，早已成为业界公认的标准。具体的可以问Google或百度。相比之JSON这种轻量级的数据交换格式，XML可以称为重量级的了。
-  
-  
-  
+XML: extensible markup language,一种类似于HTML的语言，他没有预先定义的标签，使用DTD(document type definition)文档类型定义来组织数据；格式统一，跨平台和语言，早已成为业界公认的标准。具体的可以问Google或百度。相比之JSON这种轻量级的数据交换格式，XML可以称为重量级的了。
   
     JSON : JavaScript Object Notation 是一种轻量级的数据交换格式。易于人阅读和编写。同时也易于机器解析和生成。它基于JavaScript Programming Language , Standard ECMA-262 3rd Edition - December 1999 的一个子集。 JSON采用完全独立于语言的文本格式，但是也使用了类似于C语言家族的习惯 (包括C, C++, C#, Java, JavaScript, Perl, Python等) 。这些特性使JSON成为理想的数据交换语言。
   
