@@ -14,15 +14,20 @@ npm install cypress --save-dev
 npx cypress open
 
 ```
+
 ### install cypress for project
 
-    npm install --save-dev cypress
-    # 执行cypress install, 把cypress安装到 ~/.cache/Cypress
-    node_modules/cypress/bin/cypress install
+```bash
+npm install --save-dev cypress
+# 执行cypress install, 把cypress安装到 ~/.cache/Cypress
+node_modules/cypress/bin/cypress install
+```
 
 ### install MySQL
 
+```bash
     npm install MySQL  --save-dev
+```
 
 ### 配置MySQL连接信息, 修改 cypress.json 成这样
 
@@ -42,6 +47,7 @@ npx cypress open
 
 ### 配置 tests/e2e/plugins/index.js
 
+```javascript
     const MySQL = require('MySQL')
     function queryTestDb (query, config) {
       const connection = MySQL.createConnection(config.env.db)
@@ -80,6 +86,8 @@ npx cypress open
         supportFile: 'tests/e2e/support/index.js'
       })
     }
+
+```
 
 ### command
 

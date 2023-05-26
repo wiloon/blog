@@ -19,11 +19,13 @@ String text = JSON.toJSONString(obj);
 
 ### fastjson 对象转换时重命名字段名
 
-    @JSONField(name="total_count")
-    private int totalCount;
+```java
+@JSONField(name="total_count")
+private int totalCount;
 
-    @JSONField(name="incomplete_results")
-    private boolean incompleteResults = false;
+@JSONField(name="incomplete_results")
+private boolean incompleteResults = false;
+```
 
 Map<String, Object> userMap =
 

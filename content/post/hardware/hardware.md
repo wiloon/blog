@@ -405,4 +405,5 @@ F1 默认走 罗技优联, F2 和 F3 可以连接另外两个蓝牙设备. 蓝�
 
 ## Nuphy Air75
 
+<https://manuals.plus/m/8a8a9a09a73b3ab58950a93ef12ecc7710b179a5c83205b802ce6f5884de21e9_optim.pdf>  
 <https://www.bilibili.com/read/cv15856202>
