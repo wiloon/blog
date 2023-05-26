@@ -224,11 +224,3 @@ DWARF使用DIE（Debugging Information Entry）来描述变量、数据类型、
 DWARF还定义了一些关键的数据结构，如行号表（Line Number Table)、调用栈信息（Call Frame Information）等，有了这些关键数据结构之后，开发者就可以在源码级别动态添加断点、显示完整的调用栈信息、查看调用栈中指定栈帧的信息。
 
 <https://www.hitzhangjie.pro/debugger101.io/8-dwarf/>
-
-## 降序 desc
-
-一系列数据从高到低或从大到小排列
-
-## 升序 asc
-
-从低到高
