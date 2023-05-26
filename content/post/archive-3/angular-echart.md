@@ -31,7 +31,6 @@ export class AppModule { }
 ### angular.json
 
 ```json
-{
     ...
     projects
     //...

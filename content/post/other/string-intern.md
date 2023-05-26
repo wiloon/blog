@@ -505,7 +505,7 @@ oop filename = StringTable::intern(source, CHECK_0);
   
 这三段代码是获取类名、方法名、和文件名。因为类名、方法名、文件名都是存储在字符串常量池中的，所以每次获取它们都是通过String#intern方法。但没有考虑到的是默认的 StringPool 的长度是1009且不可变的。因此一旦常量池中的字符串达到的一定的规模后，性能会急剧下降。
 
-#### 3,fastjson 不当使用 String#intern
+#### fastjson 不当使用 String#intern
 
 导致这个 intern 变慢的原因是因为 fastjson 对String#intern方法的使用不当造成的。跟踪 fastjson 中的实现代码发现，
 
