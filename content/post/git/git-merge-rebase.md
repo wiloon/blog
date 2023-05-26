@@ -87,14 +87,16 @@ git merge master feature
 
 ## git rebase
 
-1. branch_feature0 分支和 dev 分支 git pull
+1. branch_feature0 分支和 dev 分支分别 git pull
 2. git switch branch_feature0
 3. git rebase dev
-4. 处理冲突
+4. 如果有冲突的话, 就处理冲突
 5. git push -f
-6. github PR or merge
-7. git switch dev
-8. git merge --squash branch_feature0
+6. 如果需要 merge, 执行后续操作.
+7. 用 github PR 做 merge, 或者用 命令行 merge
+8. 用命令行 merge
+9. git switch dev
+10. git merge --squash branch_feature0
 
 - git rebase 命令的文档描述是 Reapply commits on top of another base tip
 - rebase 是「在另一个 base 之上重新应用提交」
