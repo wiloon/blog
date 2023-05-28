@@ -157,7 +157,7 @@ sudo pacman -S powerdevil kmix kscreen ark
 | feishu                                | 飞书                                                           |
 |libiconv |编码转换|
 |hardinfo-git|HardInfo是一个Linux系统信息查看软件。它可以显示有关的硬件，软件，并进行简单的性能基准测试。|
-| vscodium-bin|vscode 社区版|
+|vscodium-bin|vscode 社区版|
 |gtk-recordmydesktop|录屏|
 
 ## KDE

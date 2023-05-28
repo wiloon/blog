@@ -11,6 +11,72 @@ tags:
 ---
 ## 文本处理命令， text command
 
+## sort command
+
+排序规则受 LC_COLLATE 影响  
+LC_COLLATE=C 适用于 ASCII 编码, 按ASCII 排序  
+LC_COLLATE=C.UTF-8 适用于包含中文或者其它非 ascii 字符的情况, 对于英文或符号也是按ASCII排序  
+LC_COLLATE=en_US.UTF-8 这种情况 sort 在排序时会忽略大小写, 不是严格的按 ASCII 排序  
+LC_COLLATE=C 或 LC_COLLATE=C.UTF-8 的情况, 如果想忽略大小写, 可以加参数 -f, --ignore-case  
+
+On Linux, when LC_COLLATE="en_US.UTF-8" the LC_COLLATE definiton is non-standard. The default behavior of sort is to ignore-case and lowercase has precedence over uppercase.
+
+```bash
+echo -e "c\nb\nB\na" | LC_COLLATE=C sort
+# 以 ',' 作为分隔符, 用第一列排序
+sort -t ',' -k 1 foo.csv
+# 以 ',' 作为分隔符, 用第二列排序
+sort -t ',' -k 2 foo.csv
+```
+
+命令说明:  
+将文本文件的内容按行排序。  
+sort将文件/文本的每一行作为一个单位，相互比较，比较原则是从首字符向后，依次按 ASCII 码值进行比较，最后将他们按升序输出  
+  
+格式: sort [-fbMnrtuk] [file or stdin]
+  
+### 参数  
+
+```r
+-d: 排序时，处理英文字母、数字及空格字符外，忽略其他的字符;
+-i: 排序时，除了040至176之间的ASCII字符外，忽略其他的字符; 
+-f: 忽略大小写；
+-b: 忽略最前面的空格；
+-g, --general-numeric-sort  compare according to general numerical value, 按照常规数值排序
+-u: 即 uniq, 重复行仅出现一次；
+-M: 以月份的名字来排序；
+-n: 使用纯数字来排序；
+-r: 反向排序
+-t: 分隔符, 默认为 tab 键；
+-k: 按指定字段排序；例如:  cat /etc/passwd | sort -t ':' -k 3, 对文件/etc/passwd以第三栏排序。
+-o<输出文件>：将排序后的结果存入制定的文件;
+```
+
+对第一列排序
+sort -n test
+对第二列进行排序
+sort -n -k 2 test
+如果将test文件的内容改为：
+8723,23423
+321324,213432
+23,234
+123,231
+234,1234
+654,345234
+如果要对第二列按照大小排序
+sort -n -t "," -k 2 test
+————————————————
+版权声明：本文为CSDN博主「sunjiangangok」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
+原文链接：<https://blog.csdn.net/sunjiangangok/article/details/69943756>
+
+## 升序
+
+升序 asc, 从低到高, 从小到大
+
+## 降序
+
+降序 desc, 一系列数据从高到低或从大到小排列
+
 1. 正则表达式 (regular expression)
   
 元字符 (如下图) 是正则表达式中含有的字符,在正则表达式中可以在字符串中使用元字符以匹配字符串的各种可能的情况。
@@ -39,7 +105,7 @@ tags:
   
 - find
 
-3. cut命令
+## cut命令
   
 命令说明: 按行处理,将一行消息的某段切出来。
   
@@ -53,7 +119,7 @@ echo $PATH | cut -d ':' -f 3-5,取出环境变量PATH中的第3个到第5个路�
   
 export | cut -c 12-, 将export中的每行的前面11个字符删除留,保留从第12个字符开始的所有字符。
   
-4. awk工具
+## awk工具
   
 命令说明:  将一行消息分成数个段来处理,适合处理小型的数据。
   
@@ -70,43 +136,6 @@ NR: 当前行的行号；
 FS: 分隔符,默认为空格键；
 
 例如: cat /etc/passwd | awk 'BEGIN {FS=":"} $S3<10 {print $1 "\t" $3}',打印passwd文件第三栏小于10的行的第1、3栏。
-  
-### sort command
-
-命令说明: 将文本文件的内容按行排序。
-  
-格式: sort [-fbMnrtuk] [file or stdin]
-  
-#### 参数  
-
-```r
-    -f: 忽略大小写；
-    -b: 忽略最前面的空格；
-    -g, --general-numeric-sort  compare according to general numerical value, 按照常规数值排序
-    -u: 即uniq,重复行仅出现一次；
-    -M: 以月份的名字来排序；
-    -n: 使用纯数字来排序；
-    -r: 反向排序
-    -t: 分隔符,默认为tab键；
-    -k: 按指定字段排序；例如:  cat /etc/passwd | sort -t ':' -k 3,对文件/etc/passwd以第三栏排序。
-```
-
-对第一列排序
-sort -n test
-对第二列进行排序
-sort -n -k 2 test
-如果将test文件的内容改为：
-8723,23423
-321324,213432
-23,234
-123,231
-234,1234
-654,345234
-如果要对第二列按照大小排序
-sort -n -t "," -k 2 test
-————————————————
-版权声明：本文为CSDN博主「sunjiangangok」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
-原文链接：<https://blog.csdn.net/sunjiangangok/article/details/69943756>
 
 ## uniq command
 
@@ -173,7 +202,7 @@ wc -L filename
   
 例如: ls -al /home | tee ~/myfile | more,将ls命令的数据存一份到myfile中,同时屏幕也有输出数据。
   
-10. tr命令
+## tr命令
   
 命令说明: 单个字符的处理工具,可以用于删除字符、替换字符等基本功能。更复杂的字符串处理工具通常使用sed。
   
@@ -187,7 +216,7 @@ wc -L filename
   
 cat file | tr [a-z] [A-Z],将file中的小写字符全部改为大写。
   
-11. col命令
+## col命令
   
 命令说明: 格式化显示列。
   
@@ -199,7 +228,7 @@ cat file | tr [a-z] [A-Z],将file中的小写字符全部改为大写。
   
 例如: cat -A /etc/man.config | col -x | cat -A,使用cat -A,tab键会以^I显示,经过col -x处理,tab替换为空格。
   
-12. expand命令
+## expand命令
   
 命令说明: 将tab键转换成空格键。
   

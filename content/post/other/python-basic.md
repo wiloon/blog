@@ -11,42 +11,6 @@ tags:
 ---
 ## python basic
 
-Python 3 >= 3.4 这些版本的 Python 会一并安装 pip
-
-## pip
-
-```bash
-# install redis
-pip install redis
-# 查看某个包是否已经安装
-pip show --files package0
-# 查看过期的包
-pip list --outdated
-# pip 升级某个包
-pip install --upgrade package0
-# 卸载
-pip uninstall package0
-```
-
-### 手动重新安装 pip
-
-```bash
-curl -O https://bootstrap.pypa.io/get-pip.py
-sudo python get-pip.py
-```
-
-### 安装指定版本的包
-
-```bash
-pip install sasl==0.2.1
-```
-
-### python 输出现有环境依赖包目录
-
-```bash
-pip freeze > requirements.txt
-```
-
 ## commands
 
 ```bash
@@ -160,9 +124,12 @@ for line in lines:
 
 <https://zhuanlan.zhihu.com/p/34378860>
 
-## class
+## 类, class
 
 ```python
+class Class0:
+    pass
+    
 # Student 继承 object 类
 class Student(object):
     pass
@@ -236,12 +203,6 @@ from 模块名 import 语句：
 
 <https://zhuanlan.zhihu.com/p/57309137>
 
-## Python模块
-
-## pip install 命令用于安装包
-
-- -U, --upgrade 更新所有指定的包到最新的可用版本。 依赖项的处理取决于所使用的升级策略
-
 ## 数据类型
 
 ### 字典 dict
@@ -254,6 +215,8 @@ empty_dict = {}
 print(empty_dict)
 
 scores = {'语文': 89, '数学': 92, '英语': 93}
+# 打印所有的 key
+print(scores.keys())
 print(scores)
 
 # 使用元组作为 dict 的 key
@@ -264,10 +227,10 @@ print(dict2)
 d = {'name':Tom, 'age':10, 'Tel':110}
 
 # 打印返回值，其中 d.keys() 是列出字典所有的key
-print ‘name’ in d.keys()
+print 'name' in d.keys()
 print 'name' in d
 
-# 两个的结果都是返回True
+# 两个的结果都是返回 True
 del test_dict['Zhihu']
 ```
 
@@ -997,4 +960,44 @@ os.remove(path)
 
 ```py
 "llo" in "hello, python"
+```
+
+## pip
+
+Python 3 >= 3.4 这些版本的 Python 会一并安装 pip
+
+pip install 命令用于安装包
+
+- -U, --upgrade 更新所有指定的包到最新的可用版本。 依赖项的处理取决于所使用的升级策略
+
+```bash
+# install redis
+pip install redis
+# 查看某个包是否已经安装
+pip show --files package0
+# 查看过期的包
+pip list --outdated
+# pip 升级某个包
+pip install --upgrade package0
+# 卸载
+pip uninstall package0
+```
+
+### 手动重新安装 pip
+
+```bash
+curl -O https://bootstrap.pypa.io/get-pip.py
+sudo python get-pip.py
+```
+
+### 安装指定版本的包
+
+```bash
+pip install sasl==0.2.1
+```
+
+### 输出现有环境依赖包目录
+
+```bash
+pip freeze > requirements.txt
 ```

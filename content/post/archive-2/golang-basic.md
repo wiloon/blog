@@ -7,8 +7,11 @@ categories:
   - Go
 tags:
   - reprint
+  - remix
 ---
 ## go basic, golang basic
+
+The Go Programming Language, Go 语言虽然是静态编译型语言, 但是它却拥有脚本化的语法, 支持多种编程范式(函数式和面向对象)。
 
 Go 是 Google 开发的一种静态强类型、编译型、并发型, 并具有垃圾回收功能的编程语言。 罗伯特·格瑞史莫, 罗勃·派克及肯·汤普逊于 2007年9月开始设计 Go, 稍后 Ian Lance Taylor, Russ Cox 加入项目。 Go 是基于 Inferno 操作系统所开发的。
 Go 语言是静态类型的编程语言
@@ -19,17 +22,8 @@ Go 语言是静态类型的编程语言
 
 ## version
 
-### latest
-
-1.18.1
-
-### current
-
-1.17.7
-
-## The Go Programming Language
-
-Go 语言虽然是静态编译型语言,但是它却拥有脚本化的语法,支持多种编程范式(函数式和面向对象)。
+- latest: 1.20.4
+- current: 1.17.7
 
 ### hello world
 
@@ -50,8 +44,13 @@ go build hello-world.go
 ## 升级依赖包版本
 
 ```bash
-go get -u github.com/gin-gonic/gin
-go get -u github.com/gin-gonic/gin@v1.7.7
+go list -m all|grep redis
+# go list 返回: github.com/redis/go-redis/v9 v9.0.2
+
+# 升级 go-redis 版本
+go get -u github.com/redis/go-redis/v9
+# 升级 go-redis 到 9.0.4
+go get -u github.com/redis/go-redis/v9@v9.0.4
 ```
 
 <http://studygolang.com/articles/1941>
@@ -721,3 +720,7 @@ if val := 10; val > max {
 原文作者：Go 技术论坛文档：《Go 入门指南（）》
 转自链接：<https://learnku.com/docs/the-way-to-go/if-else-structure/3592>
 版权声明：翻译文档著作权归译者和 LearnKu 社区所有。转载请保留原文链接
+
+## golang, redis
+
+<https://github.com/redis/go-redis>
