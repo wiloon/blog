@@ -10,14 +10,17 @@ tags:
 ---
 ## aliyun ecs, 阿里云安装 archlinux
 
+aliyun  vm  安装 非 EFI 的镜像
+
 ```bash
 cd /tmp
-curl -O http://mirrors.163.com/archlinux/iso/2022.02.01/archlinux-bootstrap-2022.02.01-x86_64.tar.gz
+curl -O http://mirrors.163.com/archlinux/iso/2023.05.03/archlinux-bootstrap-2023.05.03-x86_64.tar.gz
 
 # singapore
-curl -O curl -O https://mirror.aktkn.sg/archlinux/iso/2022.05.01/archlinux-bootstrap-2022.05.01-x86_64.tar.gz
+curl -O http://mirrors.163.com/archlinux/iso/2023.05.03/archlinux-bootstrap-2023.05.03-x86_64.tar.gz
 
-tar zxvf archlinux-bootstrap-2022.02.01-x86_64.tar.gz
+tar zxvf archlinux-bootstrap-2023.05.03-x86_64.tar.gz
+# 要用 mount --bind 把 RootFS 解包的目录自己与自己链接起来，不然 pacman 会装不了软件
 sudo mount --bind /tmp/root.x86_64 /tmp/root.x86_64
 /tmp/root.x86_64/bin/arch-chroot /tmp/root.x86_64/
 
@@ -106,7 +109,12 @@ timedatectl set-ntp true
  `++:.                           `-/+/
  .`                                 `/
 ```
->https://limelight.moe/t/topic/6007
->https://www.scarletdrop.cn/archives/14
 
+<https://limelight.moe/t/topic/6007>  
+<https://www.scarletdrop.cn/archives/14>
 
+## grub, iso
+
+```bash
+curl -O http://mirrors.163.com/archlinux/iso/2023.05.03/archlinux-2023.05.03-x86_64.iso
+```
