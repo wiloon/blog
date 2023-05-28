@@ -1,5 +1,5 @@
 ---
-title: json 对象
+title: JavaScript json 对象
 author: "-"
 date: 2015-05-10T07:27:59+00:00
 url: /?p=7637
@@ -9,7 +9,7 @@ tags:
   - JSON
 
 ---
-## json 对象
+## JavaScript json 对象
 
 <http://www.cnblogs.com/tomxu/archive/2012/01/11/2311956.html>
 
@@ -25,7 +25,7 @@ tags:
 
 英文原文: <http://benalman.com/news/2010/03/theres-no-such-thing-as-a-json/>
   
-我想给大家澄清一下一个非常普遍的误解，我认为很多JavaScript开发人员都错误地把JavaScript对象字面量 (Object Literals) 称为JSON对象 (JSON Objects) ，因为他的语法和JSON规范里描述的一样，但是该规范里也明确地说了JSON只是一个数据交换语言，只有我们将之用在string上下文的时候它才叫JSON。
+我想给大家澄清一下一个非常普遍的误解，我认为很多JavaScript开发人员都错误地把 JavaScript 对象字面量 (Object Literals) 称为JSON对象 (JSON Objects) ，因为他的语法和JSON规范里描述的一样，但是该规范里也明确地说了JSON只是一个数据交换语言，只有我们将之用在string上下文的时候它才叫JSON。
 
 序列化与反序列化
   

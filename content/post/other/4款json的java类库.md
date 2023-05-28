@@ -10,18 +10,17 @@ categories:
   - inbox
 ---
 ## 4款json的java类库, FastJson
-JSON(JavaScript Object Notation) 是一种轻量级的数据交换格式。 易于人阅读和编写。同时也易于机器解析和生成。 它基于JavaScript Programming Language, Standard ECMA-262 3rd Edition - December 1999的一个子集。 JSON采用完全独立于语言的文本格式，这些特性使JSON成为理想的数据交换语言。
 
+JSON(JavaScript Object Notation) 是一种轻量级的数据交换格式。 易于人阅读和编写。同时也易于机器解析和生成。 它基于JavaScript Programming Language, Standard ECMA-262 3rd Edition - December 1999的一个子集。 JSON采用完全独立于语言的文本格式，这些特性使JSON成为理想的数据交换语言。
 
 下面介绍四款处理json的java类库: Json-lib、Gson、Jackson、Fastjson
 
-
 ### FastJson
 
-Fastjson是一个Java语言编写的JSON处理器,由阿里巴巴公司开发。网址: https://github.com/alibaba/fastjson
+Fastjson是一个Java语言编写的JSON处理器,由阿里巴巴公司开发。网址: <https://github.com/alibaba/fastjson>
 
+maven依赖配置:
 
-maven依赖配置: 
 ```xml
 <dependency>
     <groupId>com.alibaba</groupId>
@@ -30,8 +29,8 @@ maven依赖配置:
 </dependency>
 
 ```
-示例: 
 
+示例:
 
 复制代码
 
@@ -52,14 +51,11 @@ VO vo = JSON.parseObject("...", VO.class);```
   
 ```
 
-
 ### Json-lib
 
-JSON-lib is a java library for transforming beans, maps, collections, java arrays and XML to JSON and back again to beans and DynaBeans. 官网: http://json-lib.sourceforge.net/
+JSON-lib is a java library for transforming beans, maps, collections, java arrays and XML to JSON and back again to beans and DynaBeans. 官网: <http://json-lib.sourceforge.net/>
 
-
-maven依赖配置: 
-
+maven依赖配置:
 
 复制代码
 
@@ -77,8 +73,7 @@ maven依赖配置:
 
 复制代码
 
-示例: 
-
+示例:
 
 复制代码
 
@@ -99,7 +94,6 @@ JSONObject jsonObject=JSONObject.fromObject(obj);
 return jsonObject.toString();
 
 }
-
 
 /**
 
@@ -127,12 +121,9 @@ return (T)JSONObject.toBean(JSONObject.fromObject(jsonStr), objClass);
 
 Gson is a Java library that can be used to convert Java Objects into their JSON representation. It can also be used to convert a JSON string to an equivalent Java object. Gson can work with arbitrary Java objects including pre-existing objects that you do not have source-code of.
 
+官网: <https://code.google.com/p/google-gson/>
 
-官网: https://code.google.com/p/google-gson/
-
-
-maven依赖: 
-
+maven依赖:
 
 <dependency>
 
@@ -144,8 +135,7 @@ maven依赖:
 
 </dependency>
 
-示例: 
-
+示例:
 
 复制代码
 
@@ -157,7 +147,6 @@ return gson.toJson(obj);
 
 }
 
-
 public static <T> T json2Bean(String jsonStr,Class<T> objClass){
 
 Gson gson = new GsonBuilder().create();
@@ -165,7 +154,6 @@ Gson gson = new GsonBuilder().create();
 return gson.fromJson(jsonStr, objClass);
 
 }
-
 
 /**
 
@@ -195,11 +183,9 @@ return prettyJsonString;
 
 ### Jackson
 
-Jackson is a high-performance JSON processor (parser, generator)。官网: http://jackson.codehaus.org/Home
+Jackson is a high-performance JSON processor (parser, generator)。官网: <http://jackson.codehaus.org/Home>
 
-
-maven依赖: 
-
+maven依赖:
 
 <dependency>
 
@@ -211,8 +197,7 @@ maven依赖:
 
 </dependency>
 
-示例: 
-
+示例:
 
 复制代码
 
@@ -232,7 +217,6 @@ return sw.toString();
 
 }
 
-
 public static <T> T json2Bean(String jsonStr, Class<T> objClass)
 
 throws JsonParseException, JsonMappingException, IOException {
@@ -247,11 +231,9 @@ return mapper.readValue(jsonStr, objClass);
 
 五、性能测试
 
-1. Java对象序列化为Json字符串: 
+1. Java对象序列化为Json字符串:
 
-
-执行100 0000次转换，各个类库的耗时如下:  (以秒为单位) 
-
+执行100 0000次转换，各个类库的耗时如下:  (以秒为单位)
 
 Gson 48.891s
 
@@ -263,9 +245,7 @@ FastJson 21.706
 
 2. Json字符串 反序列化为Java对象
 
-
-执行100 0000次转换，各个类库的耗时如下:  (以秒为单位) 
-
+执行100 0000次转换，各个类库的耗时如下:  (以秒为单位)
 
 Gson 39.280s
 
@@ -275,23 +255,17 @@ Jackson 26.427s
 
 FastJson 40.556
 
-3. 总结: 
-
+3. 总结:
 
 Java Bean序列化为Json，性能: Jackson > FastJson > Gson > Json-lib。这4中类库的序列化结构都正确。
 
-
 Json字符串反序列化为Java Bean时，性能: Jackson > Gson > FastJson >Json-lib。并且Jackson、Gson、FastJson可以很好的支持复杂的嵌套结构定义的类，而Json-lib对于复制的反序列化会出错。
-
 
 Jackson、FastJson、Gson类库各有优点，各有自己的专长，都具有很高的可用性。
 
-
 4. 测试用例
 
-
 1) Java Bean
-
 
 复制代码
 
@@ -311,9 +285,7 @@ private Map<String, String> clothes;
 
 private List<Person> friends;
 
-
 //getter setter 方法。略
-
 
 @Override
 
@@ -321,9 +293,9 @@ public String toString() {
 
 String str= "Person [name=" + name + ", fullName=" + fullName + ", age="
 
-+ age + ", birthday=" + birthday + ", hobbies=" + hobbies
+* age + ", birthday=" + birthday + ", hobbies=" + hobbies
 
-+ ", clothes=" + clothes + "]\n";
+* ", clothes=" + clothes + "]\n";
 
 if(friends!=null){
 
@@ -341,9 +313,7 @@ return str;
 
 }
 
-
 }
-
 
 class FullName {
 
@@ -353,7 +323,6 @@ private String middleName;
 
 private String lastName;
 
-
 //构造方法、getter setter 方法，略
 
 @Override
@@ -362,25 +331,21 @@ public String toString() {
 
 return "[firstName=" + firstName + ", middleName="
 
-+ middleName + ", lastName=" + lastName + "]";
+* middleName + ", lastName=" + lastName + "]";
 
 }
-
 
 }
 
 复制代码
 
-2) Json-lib、Gson、Jackson、FastJson类库: 
-
+2) Json-lib、Gson、Jackson、FastJson类库:
 
 复制代码
 
 import net.sf.json.JSONObject;
 
-
 public class JsonObjectUtil {
-
 
 public static String bean2Json(Object obj){
 
@@ -390,7 +355,6 @@ return jsonObject.toString();
 
 }
 
-
 @SuppressWarnings("unchecked")
 
 public static <T> T json2Bean(String jsonStr,Class<T> objClass){
@@ -399,9 +363,7 @@ return (T)JSONObject.toBean(JSONObject.fromObject(jsonStr), objClass);
 
 }
 
-
 }
-
 
 复制代码
 
@@ -415,11 +377,9 @@ import com.google.gson.JsonElement;
 
 import com.google.gson.JsonParser;
 
-
 public class GsonUtil {
 
 private static Gson gson = new GsonBuilder().create();
-
 
 public static String bean2Json(Object obj){
 
@@ -427,13 +387,11 @@ return gson.toJson(obj);
 
 }
 
-
 public static <T> T json2Bean(String jsonStr,Class<T> objClass){
 
 return gson.fromJson(jsonStr, objClass);
 
 }
-
 
 public static String jsonFormatter(String uglyJsonStr){
 
@@ -459,7 +417,6 @@ import java.io.IOException;
 
 import java.io.StringWriter;
 
-
 import org.codehaus.jackson.JsonFactory;
 
 import org.codehaus.jackson.JsonGenerator;
@@ -470,11 +427,9 @@ import org.codehaus.jackson.map.JsonMappingException;
 
 import org.codehaus.jackson.map.ObjectMapper;
 
-
 public class JacksonUtil {
 
 private static ObjectMapper mapper = new ObjectMapper();
-
 
 public static String bean2Json(Object obj) throws IOException {
 
@@ -489,7 +444,6 @@ gen.close();
 return sw.toString();
 
 }
-
 
 public static <T> T json2Bean(String jsonStr, Class<T> objClass)
 
@@ -513,7 +467,6 @@ return JSON.toJSONString(obj);
 
 }
 
-
 public static <T> T json2Bean(String jsonStr,Class<T> objClass){
 
 return JSON.parseObject(jsonStr, objClass);
@@ -524,15 +477,13 @@ return JSON.parseObject(jsonStr, objClass);
 
 复制代码
 
-3) Java对象序列化为Json字符串 测试类: 
-
+3) Java对象序列化为Json字符串 测试类:
 
 复制代码
 
 public class TestBean2Json {
 
 private Person p;
-
 
 private Person createAPerson(String name,List<Person> friends) {
 
@@ -570,7 +521,6 @@ return newPerson;
 
 }
 
-
 @Before
 
 public void init(){
@@ -587,13 +537,11 @@ p=createAPerson("邵同学",friends);
 
 }
 
-
 // @Test
 
 public void testGsonBean2Json(){
 
 System.out.println(GsonUtil.bean2Json(p));
-
 
 for (int i = 0; i < 1000000; i++) {
 
@@ -609,7 +557,6 @@ public void testJsonObjectBean2Json(){
 
 System.out.println(JsonlibUtil.bean2Json(p));
 
-
 for (int i = 0; i < 1000000; i++) {
 
 JsonlibUtil.bean2Json(p);
@@ -624,7 +571,6 @@ public void testJacksonBean2Json() throws Exception{
 
 System.out.println(JacksonUtil.bean2Json(p));
 
-
 for (int i = 0; i < 1000000; i++) {
 
 JacksonUtil.bean2Json(p);
@@ -633,13 +579,11 @@ JacksonUtil.bean2Json(p);
 
 }
 
-
 @Test
 
 public void testFastJsonBean2Json() throws Exception{
 
 System.out.println(FastJsonUtil.bean2Json(p));
-
 
 for (int i = 0; i < 1000000; i++) {
 
@@ -649,22 +593,17 @@ FastJsonUtil.bean2Json(p);
 
 }
 
-
 }
 
 复制代码
 
-
-
-4) Json字符串 反序列化为Java对象 测试类: 
-
+4) Json字符串 反序列化为Java对象 测试类:
 
 复制代码
 
 public class TestJson2Bean {
 
 private String jsonStr;
-
 
 @Before
 
@@ -682,7 +621,6 @@ Person pp=GsonUtil.json2Bean(jsonStr, Person.class);
 
 System.out.println(pp);
 
-
 for (int i = 0; i < 1000000; i++) {
 
 GsonUtil.json2Bean(jsonStr, Person.class);
@@ -698,7 +636,6 @@ public void testJsonlibJson2Bean() throws Exception{
 Person pp=JsonlibUtil.json2Bean(jsonStr, Person.class);
 
 System.out.println(pp);
-
 
 for (int i = 0; i < 1000000; i++) {
 
@@ -716,7 +653,6 @@ Person pp=JacksonUtil.json2Bean(jsonStr, Person.class);
 
 System.out.println(pp);
 
-
 for (int i = 0; i < 1000000; i++) {
 
 JacksonUtil.json2Bean(jsonStr, Person.class);
@@ -725,7 +661,6 @@ JacksonUtil.json2Bean(jsonStr, Person.class);
 
 }
 
-
 @Test
 
 public void testFastJsonJson2Bean() throws Exception{
@@ -733,7 +668,6 @@ public void testFastJsonJson2Bean() throws Exception{
 Person pp=FastJsonUtil.json2Bean(jsonStr, Person.class);
 
 System.out.println(pp);
-
 
 for (int i = 0; i < 1000000; i++) {
 
@@ -747,7 +681,6 @@ FastJsonUtil.json2Bean(jsonStr, Person.class);
 
 复制代码
 
-参考: http://www.json.org/json-zh.html
+参考: <http://www.json.org/json-zh.html>
 
-
-http://www.oschina.net/code/snippet_1156226_26432
+<http://www.oschina.net/code/snippet_1156226_26432>

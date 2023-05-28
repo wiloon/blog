@@ -345,24 +345,23 @@ SELECT pg_terminate_backend(pid) FROM pg_stat_activity WHERE state='idle';
 ## 导出 csv
 
 ```sql
-copy (select * from table0) to '/tmp/foo.csv' with csv header;
-psql --dbname=my_db_name --host=db_host_ip --username=my_username -c "COPY (select id as COL_ID, name as COL_NAME from my_tab order by id) TO STDOUT with csv header" > D:/client_exp_dir/file_name.csv
+copy (select now()) to '/tmp/foo.csv' with csv header;
+psql --dbname=database0 --host=127.0.0.1 --username=user0 -c "COPY (select now();) TO STDOUT with csv header" > /tmp/foo.csv
 ```
 
 ————————————————
 版权声明：本文为CSDN博主「df0128」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
-原文链接：https://blog.csdn.net/df0128/article/details/89673596
-
+原文链接：<https://blog.csdn.net/df0128/article/details/89673596>
 
 ## log
 
-#log_directory = 'pg_log' to log_directory = 'pg_log'
+# log_directory = 'pg_log' to log_directory = 'pg_log'
 
-#log_filename = 'postgresql-%Y-%m-%d_%H%M%S.log' to log_filename = 'postgresql-%Y-%m-%d_%H%M%S.log'
+# log_filename = 'postgresql-%Y-%m-%d_%H%M%S.log' to log_filename = 'postgresql-%Y-%m-%d_%H%M%S.log'
 
-#log_statement = 'none' to log_statement = 'all'
+# log_statement = 'none' to log_statement = 'all'
 
-#logging_collector = off to logging_collector = on
+# logging_collector = off to logging_collector = on
 
 Optional: SELECT set_config('log_statement', 'all', true);
 
@@ -373,3 +372,12 @@ Fire query in postgresql select 2+2
 Find current log in /var/lib/pgsql/9.2/data/pg_log/
 
 The log files tend to grow a lot over a time, and might kill your machine. For your safety, write a bash script that'll delete logs and restart postgresql server.
+
+## PostgreSQL中统计指定字符或者单词或者字符串在一个长字符串中出现总次数，PostgreSQL统计字符串中某字符出现次数
+
+<https://blog.csdn.net/sunny_day_day/article/details/109183521>
+
+```sql
+select array_length(regexp_split_to_array(config,'"id":'),1)-1 from xxx;
+
+```

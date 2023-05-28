@@ -8,7 +8,7 @@ categories:
 tags:
   - reprint
 ---
-## 回车, 换行符
+## 回车, 换行符, CRLF, LF
 
 - 换行, line feed, LF, newline, \n
 - 回车, carriage return, CR, return, \r

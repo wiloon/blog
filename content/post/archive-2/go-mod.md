@@ -20,7 +20,9 @@ go mod graph            # 打印模块依赖图
 go mod vendor           # 将依赖复制到 vendor 下
 go mod verify           # 校验依赖
 go mod why              # 打印为什么需要依赖
-go list -m -json all    # 依赖详情
+go list all             # 打印所有的 package
+go list -m all          # 打印所有的 module, The -m flag causes list to list modules instead of packages
+go list -m -json all    # 依赖详情, json 格式
 go mod edit -go=1.15
 
 # 添加新模块
