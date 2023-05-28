@@ -50,6 +50,6 @@ hugo server
 google-chrome-stable http://localhost:1313/
 ```
 
-
 ### hugo, plantuml
->https://mogeko.me/posts/zh-cn/083/
+
+<https://mogeko.me/posts/zh-cn/083/>

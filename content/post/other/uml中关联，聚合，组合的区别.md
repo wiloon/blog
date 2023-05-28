@@ -9,20 +9,20 @@ tags:
   - UML
 
 ---
-## UML中关联，聚合，组合的区别
+## UML 中关联，聚合，组合的区别
   
 ### 类间关系
+
 在类图中，除了需要描述单独的类的名称、属性和操作外，我们还需要描述类之间的联系，因为没有类是单独存在的，它们通常需要和别的类协作，创造比单独工作更大的语义。在UML类图中，关系用类框之间的连线来表示，连线上和连线端头处的不同修饰符表示不同的关系。类之间的关系有继承 (泛化) 、关联、聚合和组合。
 
 继承: 指的是一个类 (称为子类) 继承另外的一个类 (称为基类) 的功能，并增加它自己的新功能的能力，继承是类与类之间最常见的关系。类图中继承的表示方法是从子类拉出一条闭合的、单键头 (或三角形) 的实线指向基类。例如，图3.2给出了MFC中CObject类和菜单类CMenu的继承关系。
   
-类的继承在C++中呈现为: 
+类的继承在C++中呈现为:
 
 class B { }
 class A : public B{ }
 
 关联: 指的是模型元素之间的一种语义联系，是类之间的一种很弱的联系。关联可以有方向，可以是单向关联，也可以是双向关联。可以给关联加上关联名来描述关联的作用。关联两端的类也可以以某种角色参与关联，角色可以具有多重性，表示可以有多少个对象参与关联。可以通过关联类进一步描述关联的属性、操作以及其他信息。关联类通过一条虚线与关联连接。对于关联可以加上一些约束，以加强关联的含义。
-  
   
     关联在C++中呈现为: 
   
@@ -93,13 +93,14 @@ class A : public B{ }
     你和你的朋友之间是assoc
   
 ### UML中依赖 (Dependency) 和关联 (Association) 之间的区别
+
 0. 一般情况下，使用关联 (association) 来表示像类中的字段等。这个关系是始终存在的，因此你可以随时针对关联项进行访问调用，例如可以始终从 Customer 对象获取 Order 对象。但事实上它并不需要是一个字段，如果从更偏向于接口建模的角度来看，它只是表示 Customer 中存在了一个可以返回 Order 的方法。
 
-此处引用《UML Distilled》一书中的定义: 
+此处引用《UML Distilled》一书中的定义:
 
 a dependency exists between two elements if changes to the definition of one element (the supplier) may cause changes to the other (the client)
 
-两个元素之间存在依赖关系，是指如果改变其中一个元素 (supplier) 的定义可能会导致另一个元素的变化 (client) 
+两个元素之间存在依赖关系，是指如果改变其中一个元素 (supplier) 的定义可能会导致另一个元素的变化 (client)
 
 这是一个模糊和普通的关系定义，这就是为什么对 UML 有许多不同形式的依赖 (dependency) 定义。而在代码术语中，诸如命名一个参数类型和创建一个临时变量对象等也暗示着依赖关系。
 
@@ -111,10 +112,7 @@ a dependency exists between two elements if changes to the definition of one ele
 
 这种混淆的原因之一就是在 UML 1.0 中使用了瞬态链接 (transient links) ，这似乎是由于 UML 1.0 的元模型的定义问题，通过使用关联关系形式来体现它们自身的依赖，例如参数。我一直不喜欢这种表示方式，因为我觉得一个永久的关系和一个仅在当前方法中存在的上下文关系之间存在着重要的区别。因此我会以依赖的形式来表示而非关联。在 UML 2.0 中这个问题不会再出现，因为元模型中采用了不同的形式来表示方法上下文的关系，所以上述的表示形式在 UML 2.0 中不在有效。
 
- 
-
 翻译自 Martin Fowler 文章 《Dependency And Association》。
-
 
 1. Dependency Relationship
 
@@ -174,5 +172,5 @@ Perhaps you can read from my tone that I'm pretty disillusioned with UML. Too ba
 
 8. 关联是一种结构关系，表现为一个对象能够获得另一个对象的实例引用并调用它的服务 (即使用它）；依赖是一种使用关系，表现为一个对象仅仅是调用了另一个对象的服务。
 
-https://www.cnblogs.com/gaochundong/p/uml_difference_between_dependency_and_association.html
->https://leetschau.github.io/umlzhong-guan-lian-associationhe-yi-lai-dependencyde-qu-bie.html
+<https://www.cnblogs.com/gaochundong/p/uml_difference_between_dependency_and_association.html>
+><https://leetschau.github.io/umlzhong-guan-lian-associationhe-yi-lai-dependencyde-qu-bie.html>
