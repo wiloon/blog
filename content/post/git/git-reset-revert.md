@@ -240,7 +240,7 @@ git revert [--[no-]edit] [-n] [-m parent-number] [-s] [-S[<keyid>]] <commit>…�
 ```
 
 --edit or --no-edit 是否弹出 commit message 窗口
-**-n**是 --no-commit 的缩写
+**-n** 是 --no-commit 的缩写
 -m parent-number 存在 merge 是，指定父系分支号？这个还不怎么懂，暂时略过。
 
 假设 master 分支上的提交记录如下：
