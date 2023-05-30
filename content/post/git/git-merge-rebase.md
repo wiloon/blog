@@ -87,28 +87,36 @@ git merge master feature
 
 ## git rebase
 
-1. branch_feature0 分支和 dev 分支分别 git pull
-2. git switch branch_feature0
-3. git rebase dev
-4. 如果有冲突的话, 就处理冲突
-5. git push -f
-6. 如果需要 merge, 执行后续操作.
-7. 用 github PR 做 merge, 或者用 命令行 merge
-8. 用命令行 merge
-9. git switch dev
-10. git merge --squash branch_feature0
-
 - git rebase 命令的文档描述是 Reapply commits on top of another base tip
+- rebase 有人把它翻译成 "变基"
 - rebase 是「在另一个 base 之上重新应用提交」
 - rebase 通常用于重写提交历史。可以保持提交历史的整洁
 - 跟 merge 一样, rebase 也会遇到冲突
 - 不要公共分支上执行 rebase, 比如: 不建议在以下示例中的 main 分支上执行 git rebase branch_xx
 - 不要通过rebase对任何已经提交到公共仓库中的commit进行修改（你自己一个人玩的分支除外）
+- 可以用来合并 commit 历史, 得到更简洁的项目历史, 没有 merge commit
+- 缺点：如果合并出现代码问题不容易定位，因为 re-write 了 history  
 
-<http://jartto.wang/2018/12/11/git-rebase/>  
-<https://waynerv.com/posts/git-rebase-intro/>  
-<https://www.theserverside.com/blog/Coffee-Talk-Java-News-Stories-and-Opinions/How-to-Git-rebase-a-branch-to-master-example>  
-<https://blog.csdn.net/weixin_42310154/article/details/119004977>  
+### feature 分支合并到 dev 分支
+
+#### 先在 feature 分支上做一次 rebase
+
+1. branch_feature0 分支和 dev 分支分别 git pull
+   1. git pull origin branch_feature0:branch_feature0
+   2. git pull origin dev:dev
+2. git switch branch_feature0
+3. git rebase dev
+4. 如果有冲突的话, 就处理冲突
+5. git push -f
+
+#### 整理 feature 分支的 commit 历史
+
+#### 再把 feature 分支合并到 dev 分支
+
+1. 用 github PR 做 merge, 或者用 命令行 merge
+2. 用命令行 merge
+3. git switch dev
+4. git merge --squash branch_feature0
 
 ```bash
 # commands
@@ -197,12 +205,6 @@ c3<-down- c4a
 @enduml
 ```
 
-rebase 有人把它翻译成 "变基"
-
-rebase 特点：会合并之前的 commit 历史  
-优点：得到更简洁的项目历史，去掉了 merge commit  
-缺点：如果合并出现代码问题不容易定位，因为 re-write 了 history  
-
 ### rebase 做了什么
 
 - 场景：分支合并
@@ -238,7 +240,7 @@ drop 命令表示你要丢弃这个 commit 以及它的修改。同样可以删�
 
 #### squash 和 fixup
 
-这两个命令都是用来将几个 commit 合并为一个的。其中, fixup 命令，rebase 的时候将会直接忽略掉它的commit message，而 squash 命令，则会在 git rebase --continue 之后打开一个文件，该文件中将会出现所有设置为 squash 的 commit，这时删除掉多余的 commit message，留下 (或者修改）一行作为合并之后的 commit 的 commit message。
+这两个命令都是用来将几个 commit 合并为一个的。其中, fixup 命令，rebase 的时候将会直接忽略掉它的 commit message，而 squash 命令，则会在 git rebase --continue 之后打开一个文件，该文件中将会出现所有设置为 squash 的 commit，这时删除掉多余的 commit message，留下 (或者修改）一行作为合并之后的 commit 的 commit message。
 
 到此为止，讲这个文件保存并退出，输入 git status 查看需要进行什么操作 (比如需要解决冲突），之后执行 git rebase --continue 即可。
 
@@ -264,16 +266,35 @@ drop 命令表示你要丢弃这个 commit 以及它的修改。同样可以删�
 
 ### rebase -i, 交互模式
 
-interactive rebase
+-i, --interactive, 交互模式, interactive rebase
 
 ```bash
-# 其中 -i 的意思是 --interactive
 rebase -i
 git rebase -i  [startpoint]  [endpoint]
 git rebase -i commit0
 ```
 
-其中-i的意思是--interactive，即弹出交互式的界面让用户编辑完成合并操作，[startpoint] [endpoint]则指定了一个编辑区间，如果不指定[endpoint]，则该区间的终点默认是当前分支HEAD所指向的commit(注：该区间指定的是一个**前开后闭**的区间)。
+#### 交互模式会用到的一些命令
+
+- pick：保留该 commit（缩写:p）
+- reword：保留该 commit，但我需要修改该 commit 的注释（缩写:r）
+- edit：保留该 commit, 但我要停下来修改该提交(不仅仅修改注释)（缩写:e）
+- squash：将该 commit 和前一个 commit 合并（缩写:s）
+- fixup：将该 commit 和前一个 commit 合并，但我不要保留该提交的注释信息（缩写:f）
+- exec：执行 shell 命令（缩写:x）
+- drop：我要丢弃该 commit（缩写:d）
+
+#### git rebase 交互模式, 合并 commit
+
+1. git rebase -i commit_x, 或者 git rebase -i HEAD~3
+2. 第一行 pick
+3. 其它后面的行 squash
+4. :x 保存退出
+5. 然后会提示修改 commit message
+6. 修改好之后 `:x` 保存退出
+7. git push -f
+
+交互模式, 即弹出交互式的界面让用户编辑完成合并操作，[startpoint] [endpoint] 指定了一个编辑区间，如果不指定 [endpoint]，该区间的终点默认是当前分支HEAD 所指向的 commit (注：该区间指定的是一个**前开后闭**的区间)。
 
 作者：zuopf769
 链接：<https://juejin.cn/post/6844903600976576519>
@@ -295,25 +316,12 @@ git rebase -i commit0
 
 自然地，假如我们对当前分支的某次历史提交执行 rebase，其结果就是会将这次提交之后的所有提交重新应用在当前分支，在交互模式下，即允许我们对这些提交进行更改。
 
-## 合并commit
-
-1. git rebase -i commit_x
-2. 或者 git rebase -i HEAD~3
-3. 第一行 pick
-4. 其它后面的行 squash
-5. :x 保存退出
-6. 修改 commit message
-7. git push -f
-
-pick：保留该commit（缩写:p）
-reword：保留该commit，但我需要修改该commit的注释（缩写:r）
-edit：保留该commit, 但我要停下来修改该提交(不仅仅修改注释)（缩写:e）
-squash：将该commit和前一个commit合并（缩写:s）
-fixup：将该commit和前一个commit合并，但我不要保留该提交的注释信息（缩写:f）
-exec：执行shell命令（缩写:x）
-drop：我要丢弃该commit（缩写:d）
-
 作者：zuopf769
 链接：<https://juejin.cn/post/6844903600976576519>
 来源：稀土掘金
 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
+
+<http://jartto.wang/2018/12/11/git-rebase/>  
+<https://waynerv.com/posts/git-rebase-intro/>  
+<https://www.theserverside.com/blog/Coffee-Talk-Java-News-Stories-and-Opinions/How-to-Git-rebase-a-branch-to-master-example>  
+<https://blog.csdn.net/weixin_42310154/article/details/119004977>  

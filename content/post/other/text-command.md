@@ -238,7 +238,7 @@ cat file | tr [a-z] [A-Z],将file中的小写字符全部改为大写。
   
 -t n: 后面可以接一个数字n,一个tab键替换为n个空格键,默认值为8。
 
-13. join命令
+## join
   
 命令说明: 处理两个文件中有相同数据的行,将它们加在一起。
   
@@ -254,7 +254,7 @@ cat file | tr [a-z] [A-Z],将file中的小写字符全部改为大写。
   
 -2 n: 指定file2用来比较的字段n,默认值为1；
 
-14. paste命令
+## paste
   
 命令说明: 比较两个文件的数据关联性,直接将"两行贴在一起",中间以tab键隔开。
   
@@ -264,7 +264,7 @@ cat file | tr [a-z] [A-Z],将file中的小写字符全部改为大写。
   
 -d: 后面接分隔符,默认为tab键。
   
-15. diff命令
+## diff
   
 命令说明: 以"行"为单位进行文件比较,一般用在ASCII纯文本文件。
   
@@ -278,7 +278,7 @@ cat file | tr [a-z] [A-Z],将file中的小写字符全部改为大写。
   
 -i: 忽略大小写；
 
-16. cmp命令
+## cmp
   
 命令说明: 以"位"为单位进行文件比较,可以比较二进制文件。
   
@@ -288,7 +288,7 @@ cat file | tr [a-z] [A-Z],将file中的小写字符全部改为大写。
   
 -s: 将所有不同点的位都列出来,默认仅输出第一个发现的不同点；
   
-17. patch命令
+## patch
   
 命令说明: diff old new > patch_file命令可以找出new文件与old文件不同的地方,然后用patch命令给old文件打上补丁,即与new文件相同了。
   
@@ -296,7 +296,7 @@ cat file | tr [a-z] [A-Z],将file中的小写字符全部改为大写。
   
 参数: -pN表示取消N层目录。
 
-18. split命令
+## split
   
 命令说明: 将一个大文件拆分为几个小文件。
   
@@ -312,7 +312,7 @@ cat file | tr [a-z] [A-Z],将file中的小写字符全部改为大写。
   
 split -l 10 bigfile smallfile,将文件bigfile中的每10行拆分成一个小文件。
   
-19. xargs命令
+## xargs
 
 ### head
 
@@ -322,4 +322,4 @@ head 命令可用于查看文件的开头部分的内容,有一个常用的参�
     -c<数目> 显示的字节数。
     -n<行数> 显示的行数。
 
-> <http://blog.csdn.net/forgotaboutgirl/article/details/6801525#t16>
+<http://blog.csdn.net/forgotaboutgirl/article/details/6801525#t16>

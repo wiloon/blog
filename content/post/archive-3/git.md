@@ -111,10 +111,14 @@ git 中的分支，其实本质上仅仅是个指向 commit 对象的可变指�
 
 HEAD 就是当前活跃分支的游标, HEAD 可以指向分支中的任意一个节点，HEAD 在 Git 内部用于追踪当前位置。
 
+```bash
+cat .git/HEAD
+```
+
 ### HEAD 和 head
 
-你可以认为 HEAD(大写)是"current branch"(当下的分支)。当你用git checkout切换分支的时候，HEAD 修订版本重新指向新的分支。有的时候HEAD会指向一个没有分支名字的修订版本，这种情况叫”detached HEAD“
-head(小写)是commit对象的引用，每个head都有一个名字 (分支名字或者标签名字等等），但是默认情况下，每个叫master的repository都会有一个head, 一个repository可以包含任意数量的head。在任何时候，只要这个head被选择成为”current head“，那么这个head就成了HEAD,总是大写
+你可以认为 HEAD(大写) 是"current branch"(当下的分支)。当你用 git checkout 切换分支的时候，HEAD revision 重新指向新的分支。有的时候 HEAD 会指向一个没有分支名字的修订版本，这种情况叫 `detached HEAD`
+head(小写) 是 commit 对象的引用，每个 head 都有一个名字 (分支名字或者标签名字等等），但是默认情况下，每个叫master 的 repository 都会有一个 head, 一个 repository 可以包含任意数量的 head。在任何时候，只要这个 head 被选择成为 `current head`，那么这个 head 就成了 HEAD, 总是大写
 
 <https://git-scm.com/book/zh>
 
