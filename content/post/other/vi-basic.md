@@ -49,7 +49,7 @@ vim -b test.bin
 ### vim utf8 乱码
 #### 查看文件编码
 :set fileencoding
-# 显示行号
+# 临时显示行号
 :set number
 # 不自动换行
 :set nowrap
@@ -789,9 +789,18 @@ vim默认使用magic设置，这个设置也可以在正则表达式中通过 /m
 
 关于正则表达式的详细信息，请参见参考文献。
 
-### config
+### .vimrc
 
-><https://www.ruanyifeng.com/blog/2018/09/vimrc.html>
+vim 配置文件路径 `~/.vimrc`, 没有的话就创建一个, vim 启动的时候会读这个文件
+
+```bash
+# vimrc里面, 双引号开始的行代表注释
+"comments
+"默认显示行号
+set number
+```
+
+<https://www.ruanyifeng.com/blog/2018/09/vimrc.html>
 
 <http://www.cnblogs.com/88999660/articles/1581524.html>
 
