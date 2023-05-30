@@ -120,10 +120,6 @@ for line in lines:
     os.system(command)
 ```
 
-## python 书
-
-<https://zhuanlan.zhihu.com/p/34378860>
-
 ## 类, class
 
 ```python
@@ -1001,3 +997,7 @@ pip install sasl==0.2.1
 ```bash
 pip freeze > requirements.txt
 ```
+
+## python 书
+
+<https://zhuanlan.zhihu.com/p/34378860>

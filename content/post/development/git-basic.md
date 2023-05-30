@@ -222,7 +222,7 @@ git merge branch0 -m "merge with no-ff" --no-ff
 ```bash
 # git merge --squash, 把多次 commit 的历史合并成一次 commit
 # 把 branch1 的提交 合并 到 branch0
-# 切换到 branch0 然后执行以下命令
+git switch branch0
 git merge --squash branch1
 git commit -m "comments0"
 ```
@@ -618,6 +618,7 @@ git pull <远程主机名> <远程分支名>:<本地分支名>
 标准或完整的命令是 `git pull remote_repository_name branch_name`
 
 ```bash
+git pull origin <远程分支名>:<本地分支名>
 git branch --set-upstream-to=origin/<remote_branch> <local_branch>
 git pull
 # verbos
@@ -985,8 +986,8 @@ XY PATH
 XY ORIG_PATH -> PATH
 ```
 
-- `XY`是一个双字母的状态代码。
-- `X`显示索引的状态，`Y`显示工作树的状态。
+- `XY` 是一个双字母的状态代码。
+- `X` 显示索引(index)的状态，`Y`显示工作树(working tree)的状态。
 - 当一个路径没有被追踪时，`X`和`Y`总是相同的，因为它们是 未知的索引。
 - `??` 用于未跟踪的路径。除非使用了 `--ignored`
 
@@ -1027,9 +1028,10 @@ git cherry -v master asa
 
 把某一个或几个 commit 应用到当前分支.
 
+比如 commit_id_0 commit_id_1 是 feature0 分支的 commit, 执行 cherry-pick 把它们应用到 main 分支
+
 ```bash
 # 切换到 main 分支
-# 比如 commit_id_0 commit_id_1 是 feature0 分支的 commit, 执行 cherry-pick 把它们应用到 main 分支
 git cherry-pick commit_id_0 commit_id_1
 # 执行过 cherry-pick 之后这两个 commit 默认是提交到了 local repo, 需要 再执行一次  git push
 ```
