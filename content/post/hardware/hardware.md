@@ -407,3 +407,9 @@ F1 默认走 罗技优联, F2 和 F3 可以连接另外两个蓝牙设备. 蓝�
 
 <https://manuals.plus/m/8a8a9a09a73b3ab58950a93ef12ecc7710b179a5c83205b802ce6f5884de21e9_optim.pdf>  
 <https://www.bilibili.com/read/cv15856202>
+
+## 华为手机
+
+### 取消悬浮导航
+
+系统和更新> 系统导航方式> 悬浮导航
