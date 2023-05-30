@@ -1,5 +1,5 @@
 ---
-title: "bitwarden"
+title: bitwarden
 author: "-"
 date: "2022-06-06 22:00:54"
 url: "bitwarden"
@@ -8,7 +8,7 @@ categories:
 tags:
   - Security
 ---
-## "bitwarden"
+## bitwarden
 
 ## auto fill
 
@@ -47,3 +47,64 @@ bw-key.exe -h https://bitwarden.wiloon.com -n wiloon.wy@gmail.com
 <https://github.com/dani-garcia/bitwarden_rs>
 
 <https://github.com/bitwarden/desktop>
+
+## k8s bitwarden
+
+```yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: bitwarden
+  namespace: default
+spec:
+  type: NodePort
+  ports:
+    - name: bitwarden
+      port: 19080
+      targetPort: 80
+      nodePort: 9080
+      protocol: TCP
+  selector:
+    app: bitwarden
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: bitwarden
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: bitwarden
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: bitwarden
+    spec:
+      containers:
+      - image: vaultwarden/server:1.28.1-alpine
+        name: bitwarden
+        ports:
+        - containerPort: 80
+          name: bitwarden
+        volumeMounts:
+        - name: volumne0
+          mountPath: /data/
+          subPath: bitwarden
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+            - matchExpressions:
+              - key: kubernetes.io/arch
+                operator: In
+                values:
+                - amd64
+      volumes:
+      - name: volumne0
+        persistentVolumeClaim:
+          claimName: pvc0
+```
