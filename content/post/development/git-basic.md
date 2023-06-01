@@ -81,8 +81,8 @@ git checkout branch0
 
 ```bash
 git push origin branch0
-# fatal: The current branch production_dev has no upstream branch
-git push --set-upstream origin production_dev
+# fatal: The current branch branch0 has no upstream branch
+git push --set-upstream origin branch0
 # 设置本地分支和远程分支的关联, 新建分支的时候 git 不会自动 设置本地分支 和远程分支的关联,需要手动设置,或者像上面的命令一样加参数, 在把分支推送到远程仓库的时候设置关联
 git branch --set-upstream-to=origin/<remote_branch> <local_branch>
 ```
@@ -295,22 +295,6 @@ Rewriting the most recent commit message
 You can change the most recent commit message using the git commit --amend command.
 
 In Git, the text of the commit message is part of the commit. Changing the commit message will change the commit ID--i.e., the SHA1 checksum that names the commit. Effectively, you are creating a new commit that replaces the old one.
-
-### 修改最近的第 n 次 commit message
-
-```bash
-# 数字代表显示倒数第几次, # -i, --interactive
-git rebase -i HEAD~2
-# git log 你可以发现，git 的最后一次提交已经变成你选的那个了
-# 把pick 修改成edit然后保存退出，然后会看到提示 git commit --amend
-git commit --amend
-# 修改注释之后，保存退出，然后 git rebase --continue
-git rebase --continue
-# 把本地仓库的代码推送到远程
-git push origin master
-# 修改了已经push的注释，得用强制push, force push对其它人有影响慎用.
-git push --force origin master
-```
 
 ### git 清除所有被 Ignore 的文件
 
@@ -671,13 +655,13 @@ git ls-files -d | xargs git checkout --
 ```bash
 # push 
 git push <远程仓库名> <本地分支名>:<远程分支名>
-# 提交本地test分支作为远程的 master 分支
+# 提交本地 test 分支作为远程的 master 分支
 git push origin test:master
- 
-# 如果本地分支名与远程分支名相同，则可以省略冒号：
-git push <远程仓库名> <本地分支名>
+
+git push <远程仓库名>:<本地分支名>
 # 将本地的 master 分支推送到 origin 主机的 master 分支。
 git push origin master:master
+# 如果本地分支名与远程分支名相同，则可以省略冒号：
 # 省略冒号简写成这样
 git push origin master
 
@@ -1016,9 +1000,9 @@ git config credential.helper store
 ```bash
 git cherry
 git cherry -v
-# 比较本地的asa分支和远程master的差别
+# 比较本地的 asa 分支和远程 master 的差别
 git cherry -v origin/master asa
-# 比较本地asa分支和本地master分支之间的差别
+# 比较本地 asa 分支和本地 master 分支之间的差别
 git cherry -v master asa
 ```
 

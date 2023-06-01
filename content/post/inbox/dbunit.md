@@ -9,13 +9,14 @@ tags:
   - reprint
 ---
 ## DbUnit
-http://yangzb.iteye.com/blog/947292
+
+<http://yangzb.iteye.com/blog/947292>
   
 博客分类: QC
   
 单元测试XML数据结构OraclePostgreSQL
   
-相信做过单元测试的人都会对JUnit 非常的熟悉了,今天要介绍的DbUnit(http://dbunit.sourceforge.net/ ) 则是专门针对数据库测试的对JUnit 的一个扩展,它可以将测试对象数据库置于一个测试轮回之间的状态。鉴于目前国内介绍DbUnit 的系统教程比较少见,本文将分从理论和实例两个方面带你领略DbUnit 的精彩世界。
+相信做过单元测试的人都会对JUnit 非常的熟悉了,今天要介绍的DbUnit(<http://dbunit.sourceforge.net/> ) 则是专门针对数据库测试的对JUnit 的一个扩展,它可以将测试对象数据库置于一个测试轮回之间的状态。鉴于目前国内介绍DbUnit 的系统教程比较少见,本文将分从理论和实例两个方面带你领略DbUnit 的精彩世界。
 
 DbUnit 设计理念
   
@@ -31,7 +32,7 @@ DbUnit 测试基本概念和流程
   
 可以将数据库模式的全部内容表示为单个IDataSet 实例。这些表本身由Itable 实例来表示。
   
-IDataSet 的实现有很多,每一个都对应一个不同的数据源或加载机制。最常用的几种 IDataSet 实现为: 
+IDataSet 的实现有很多,每一个都对应一个不同的数据源或加载机制。最常用的几种 IDataSet 实现为:
   
 FlatXmlDataSet : 数据的简单平面文件 XML 表示
   
@@ -41,7 +42,7 @@ DatabaseDataSet : 数据库表本身内容的一种表示
   
 XlsDataSet : 数据的excel 表示
 
-一般而言,使用DbUnit 进行单元测试的流程如下: 
+一般而言,使用DbUnit 进行单元测试的流程如下:
   
 1 根据业务,做好测试用的准备数据和预想结果数据,通常准备成xml 格式文件。
   
@@ -59,7 +60,7 @@ DbUnit 开发实例
 
 实例准备
   
-比如有一个学生表[student] ,结构如下: 
+比如有一个学生表[student] ,结构如下:
   
 ---------------------------
   
@@ -73,7 +74,7 @@ birthday date 出生日期
 
 ---------------------------
   
-准备数据如下: 
+准备数据如下:
 
 ---------------------------
   
@@ -85,7 +86,7 @@ id name sex birthday
   
 ---------------------------
   
-测试对象类为StudentOpe.java ,里边有2 个方法: 
+测试对象类为StudentOpe.java ,里边有2 个方法:
   
 findStudent(String id) : 根据主键id 找记录
   
@@ -101,7 +102,7 @@ id name sex birthday
 
 ---------------------------
   
-那么在执行该方法后,数据库的student 表里的数据是这样的: 
+那么在执行该方法后,数据库的student 表里的数据是这样的:
 
 ---------------------------
   
@@ -297,7 +298,7 @@ if(connection!=null) connection.close();
 
 * 如果在整体比较表的时候,有个别字段不需要比较,可以用DefaultColumnFilter.excludedColumnsTable() 方法,
   
-将指定字段给排除在比较范围之外。比如上例中不需要比较birthday 这个字段的话,那么可以如下代码所示进行处理: 
+将指定字段给排除在比较范围之外。比如上例中不需要比较birthday 这个字段的话,那么可以如下代码所示进行处理:
 
 ---------------------------
   
@@ -345,7 +346,6 @@ if(connection!=null) connection.close();
 
 }
 
-
 曾经一直把Dbunit当做是测试数据库的东西(其实本来也就是),最近在研究Appfuse是 时候发现Dbunit对数据库的数据进行load和export非常方便,尤其是在自动填充数据库,或者导出数据的时候(两个可以反向进行了),或者是 WebTest测试的时候,尤为重要了,简单的几句话,就能完成数据的装载,导出,或者是查询了,下面有个例子可以说明这情况.不过注意的一点就是,配置 路径了.在Eclipse中在设置Ant的ClassPath时候就要把Dbunit和数据库的驱动程序Jar包加进去,然后别的都通过下面的例子就OK 了
 
 <project name="SimpleTest" basedir="." default="load">
@@ -384,8 +384,6 @@ userid="${dbUser}" password="${dbPassword}">
   
 <query name="QueryExhibtion" sql="SELECT Exhibition_Id FROM Ex_exhibition " />
   
-
-  
 </export>
   
 </dbunit>
@@ -396,4 +394,4 @@ userid="${dbUser}" password="${dbPassword}">
   
 要先执行export,这样就会自动生成一个数据导出文件,如果有的话就会覆盖,然后在用load方法就可以让数据库加载刚才生成的那些数据了,具体的加 载方式要设置dbunit中的operation属性了,有UPDATE, INSERT, DELETE, DELETE_ALL, REFRESH, CLEAN_INSERT, MSSQL_INSERT, MSSQL_REFRESH, MSSQL_CLEAN_INSERT等参数了
   
-这样的话项目在持续集成的时候就方便多了,关于数据库的东西都是有Dbunit自动生成了,也算是Xp方法的一个数据库的实践把.注dbunit的地址是:http://www.dbunit.org/,上面的例子是在DBunit2.1中测试通过.
+这样的话项目在持续集成的时候就方便多了,关于数据库的东西都是有Dbunit自动生成了,也算是Xp方法的一个数据库的实践把.注dbunit的地址是:<http://www.dbunit.org/,上面的例子是在DBunit2.1中测试通过>.

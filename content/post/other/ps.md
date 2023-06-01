@@ -11,7 +11,7 @@ tags:
 ---
 ## ps command
 
-Linux中的 ps 命令是 Process Status 的缩写
+Linux 中的 ps 命令是 Process Status 的缩写
 
 ### 输出指定的字段
 
@@ -63,12 +63,12 @@ l 多进程的 (使用 CLONE_THREAD, 类似 NPTL pthreads)
 # ps -ef 默认按 PID排序, 最近启动的进程会列在末尾.
 ps -ef
 ps -efl
-# 
+
 ps -aux 
 ps -elf
 pstree -aup
 # 进程启动时间  
-ps -p <PID> -o lstart  
+ps -p <PID> -o lstart
 ps -ef  
 ps f 用ASCII字符显示树状结构，表达程序间的相互关系。
 ps -Lf <PID> 查看对应进程下的线程
@@ -89,7 +89,9 @@ u      使用以用户为主的格式输出进程信息。
 x      显示当前用户在所有终端下的进程。
 -L     Show threads, possibly with LWP and NLWP columns
 -T     显示线程 (Show threads, possibly with SPID column) “SID”栏表示线程ID，而“CMD”栏则显示了线程名称。
+-p      指定进程 id
 -o, o, --format <format>     用户自定义格式,输出指定的字段
+
 ```
 
 #### 输出格式控制
@@ -213,4 +215,20 @@ System V 风格和 BSD 风格, ps aux 最初用到 Unix Style 中( BSD的格式)
 apt install procps
 # redhat, centos
 yum install procps-ng
+```
+
+## linux 进程启动时间
+
+```bash
+ps -p PID -o lstart
+```
+
+<http://www.linuxidc.com/Linux/2012-12/76143.htm>
+
+在Linux下,如果需要查看进程的启动时间, 常用 ps aux 命令,但是 ps aux 命令的缺陷在于只能显示时间到年、日期、或者时间, 无法具体到年月日时分秒。如果需要查看某个进程的具体启动时间, 使用 ps -p PID -o lstart, 其中,PID为某个进程的进程ID号。
+
+如下所示, 显示系统中所有httpd进程的具体启动时间。
+
+```bash
+for pid in $(pgrep httpd); do echo -n "${pid} " ; ps -p ${pid} -o lstart | grep -v "START" ; done
 ```

@@ -325,3 +325,19 @@ git rebase -i commit0
 <https://waynerv.com/posts/git-rebase-intro/>  
 <https://www.theserverside.com/blog/Coffee-Talk-Java-News-Stories-and-Opinions/How-to-Git-rebase-a-branch-to-master-example>  
 <https://blog.csdn.net/weixin_42310154/article/details/119004977>  
+
+### 修改最近的第 n 次 commit message
+
+```bash
+# 数字代表显示倒数第几次, # -i, --interactive
+git rebase -i HEAD~2
+# git log 你可以发现，git 的最后一次提交已经变成你选的那个了
+# 把pick 修改成edit然后保存退出，然后会看到提示 git commit --amend
+git commit --amend
+# 修改注释之后，保存退出，然后 git rebase --continue
+git rebase --continue
+# 把本地仓库的代码推送到远程
+git push origin master
+# 修改了已经push的注释，得用强制push, force push对其它人有影响慎用.
+git push --force origin master
+```
