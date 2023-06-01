@@ -9,8 +9,9 @@ tags:
   - reprint
 ---
 ## WAL
+
 什么是 WAL
-WAL(Write Ahead Log)预写日志，是数据库系统中常见的一种手段，用于保证数据操作的原子性和持久性。
+WAL (Write Ahead Log) 预写日志，是数据库系统中常见的一种手段，用于保证数据操作的原子性和持久性。
 
 在计算机科学中，「预写式日志」 (Write-ahead logging，缩写 WAL）是关系数据库系统中用于提供原子性和持久性 (ACID 属性中的两个）的一系列技术。在使用 WAL 的系统中，所有的修改在提交之前都要先写入 log 文件中。
 
@@ -69,4 +70,4 @@ WAL 机制使得 etcd 具备了以下两个功能：
 hbase
 hbase 实现 WAL 的方法将 HLog，hbase 的 RegionServer 会将数据保存在内存中 (MemStore），直到满足一定条件，将其 flush 到磁盘上。这样可以避免创建很多小文件。内存存储是不稳定的，HBase 也是使用 WAL 来解决这个问题：每次更新操作都会写日志，并且写日志和更新操作在一个事务中。
 
->https://zhuanlan.zhihu.com/p/137512843
+><https://zhuanlan.zhihu.com/p/137512843>

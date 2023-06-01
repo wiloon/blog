@@ -14,23 +14,23 @@ tags:
 ## commands
 
 ```bash
-# install specific version
+#install specific version
 yay -S python36
 pacman -S python-pip
-# 打印包版本
+#打印包版本
 pip list
 pip install "setuptools<58.0.0"
 pip install -r requirements.txt
 pip freeze #查看当前安装库版本
-#创建 requirements.txt 文件，其中包含了当前环境中所有包及 各自的版本的简单列表
+#创建 requirements.txt 文件，其中包含了当前环境中所有包及各自的版本的简单列表
 #保持部署相同，一键安装所有包
 pip install -r requirements.txt
 pip freeze > requirements.txt
 pip uninstall kafka
-lsvirtualenv    #列举所有的环境
-cdvirtualenv    #导航到当前激活的虚拟环境的目录中，相当于pushd 目录
-cdsitepackages   # 和上面的类似，直接进入到 site-packages 目录
-lssitepackages     #显示 site-packages 目录中的内容
+lsvirtualenv        #列举所有的环境
+cdvirtualenv        #导航到当前激活的虚拟环境的目录中，相当于 pushd 目录
+cdsitepackages      #和上面的类似，直接进入到 site-packages 目录
+lssitepackages      #显示 site-packages 目录中的内容
 ```
 
 ## 查看 python 的版本, python version
@@ -582,9 +582,15 @@ strip： 用来去除头尾字符、空白符(包括\n、\r、\t、’ '，即�
 lstrip：用来去除开头字符、空白符(包括\n、\r、\t、’ '，即：换行、回车、制表符、空格)
 rstrip：用来去除结尾字符、空白符(包括\n、\r、\t、’ '，即：换行、回车、制表符、空格)
 
-## Python三目运算符
+## Python 三目运算符
 
 ```py
+
+if contion:
+    exp1
+else
+    exp2
+
 exp1 if contion else exp2
 key0 = value0 if exp0 else value1
 ```
