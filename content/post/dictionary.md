@@ -166,7 +166,7 @@ update-alternatives是 dpkg 的实用工具，用来维护系统命令的符号�
   
 Hue是一个开源的Apache Hadoop UI系统,由Cloudera Desktop演化而来,最后Cloudera公司将其贡献给Apache基金会的Hadoop社区,它是基于Python Web框架Django实现的。通过使用Hue我们可以在浏览器端的Web控制台上与Hadoop集群进行交互来分析处理数据,例如操作HDFS上的数据,运行MapReduce Job,执行Hive的SQL语句,浏览HBase数据库等等。
 
-Hue在数据库方面,默认使用的是SQLite数据库来管理自身的数据,包括用户认证和授权,另外,可以自定义为MySQL数据库、Postgresql数据库、以及Oracle数据库。其自身的功能包含有:
+Hue 在数据库方面, 默认使用的是 SQLite 数据库来管理自身的数据, 包括用户认证和授权, 另外, 可以自定义为 MySQL、Postgresql、Oracle。其自身的功能包含有:
 
 对HDFS的访问,通过浏览器来查阅HDFS的数据。
   
@@ -192,7 +192,7 @@ Oozie调度器,可以通过DashBoard来提交和监控Workflow、Coordinator以�
 
 ## PMU
 
-本文引用地址：http://www.eepw.com.cn/article/273622.htm
+本文引用地址：<http://www.eepw.com.cn/article/273622.htm>
 
 1.PMU是什么–简介
 　　PMU是power management unit的缩写，中文名称为电源管理单元，是一种高度集成的、针对便携式应用的电源管理方案，即将传统分立的若干类电源管理器件整合在单个的封装之内，这样可实现更高的电源转换效率和更低功耗。PMU智能电源管理已经是大势所趋，“主控+PMU”的模式越来越受到产业上下游的青睐，包括TI、Philips Semiconductor、National Semiconductor国际巨头都推出了相应的产品。

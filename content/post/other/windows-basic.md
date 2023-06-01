@@ -13,7 +13,12 @@ tags:
 ## cmd
 
 ```bash
+## 删除 目录
+remove-item dir0  -recurse -force
 copy C:\Users\desktop\foo.txt D:\backup\ /y
+# force overwrite
+copy /b/v/y C:\Users\desktop\foo.txt D:\backup\
+
 # cmd-连续执行多条命令
 copy C:\Users\desktop\foo.txt D:\backup\ && D:\backup\foo.exe
 ```
