@@ -191,8 +191,6 @@ VS-Code扩展
 
 vim foo.md
 
-
-
 ### vs code 渲染 uml 的快捷键
 
 ctrl + p> PlantUML: Preview Current Diagram
@@ -205,10 +203,6 @@ ctrl + alt + d
 
 theme: plain,sandstone,sketchy-outline
 
-
-
-
-
 ### 线路径
 
 添加隐藏行a -[hidden]- b
@@ -217,8 +211,6 @@ theme: plain,sandstone,sketchy-outline
 交换关联结束 (a -- b→b -- a)
 更改定义的顺序 (订单 重要......有时候)
 添加空白节点，背景/边框颜色设置为透明
-
-
 
 ### plantuml server
 

@@ -68,6 +68,7 @@ sudo -u postgres psql -c "\l"
 \h
 \?
 select * length( "abc"::TEXT)
+insert into test select generate_series(1,10000), random()*10;
 ```
 
 ## psql 直接执行 sql
@@ -272,7 +273,6 @@ WHERE locker.pid = locker_act.pid
   AND locker.relation = pc.oid
   AND pc.reltype <> 0 --and pc.relname='t'
 ORDER BY runtime desc;
-
 ```
 
 ```sql
@@ -292,7 +292,6 @@ WHERE current_query <> '<IDLE>'
   and pa.pid = s.procpid
   and pa.state <> 'idle'
 ORDER BY lap DESC;
-
 ```
 
 ```bash
@@ -315,7 +314,6 @@ WHERE nspname NOT IN ('pg_catalog', 'information_schema')
   AND relkind IN ('r', 'i')
 ORDER BY pg_total_relation_size(C.oid) DESC
 LIMIT 20;
-
 ```
 
 ## 空闲连接
@@ -356,13 +354,13 @@ psql --dbname=database0 --host=127.0.0.1 --username=user0 -c "COPY (select now()
 
 ## log
 
-# log_directory = 'pg_log' to log_directory = 'pg_log'
+log_directory = 'pg_log' to log_directory = 'pg_log'
 
-# log_filename = 'postgresql-%Y-%m-%d_%H%M%S.log' to log_filename = 'postgresql-%Y-%m-%d_%H%M%S.log'
+log_filename = 'postgresql-%Y-%m-%d_%H%M%S.log' to log_filename = 'postgresql-%Y-%m-%d_%H%M%S.log'
 
-# log_statement = 'none' to log_statement = 'all'
+log_statement = 'none' to log_statement = 'all'
 
-# logging_collector = off to logging_collector = on
+logging_collector = off to logging_collector = on
 
 Optional: SELECT set_config('log_statement', 'all', true);
 
@@ -401,3 +399,13 @@ SELECT pg_is_in_recovery();
 ```
 
 <https://blog.csdn.net/m15217321304/article/details/88845353>
+
+## filter
+
+```sql
+create table test(id int, c1 int);  
+insert into test select generate_series(1,10000), random()*10;
+select * from test limit 10;
+select c1,count(*)  from test group by c1;
+select c1,count(*), count(*) filter (where id<1000) from test group by c1;
+```
