@@ -192,7 +192,7 @@ Oozie调度器,可以通过DashBoard来提交和监控Workflow、Coordinator以�
 
 ## PMU
 
-本文引用地址：http://www.eepw.com.cn/article/273622.htm
+本文引用地址：<http://www.eepw.com.cn/article/273622.htm>
 
 1.PMU是什么–简介
 　　PMU是power management unit的缩写，中文名称为电源管理单元，是一种高度集成的、针对便携式应用的电源管理方案，即将传统分立的若干类电源管理器件整合在单个的封装之内，这样可实现更高的电源转换效率和更低功耗。PMU智能电源管理已经是大势所趋，“主控+PMU”的模式越来越受到产业上下游的青睐，包括TI、Philips Semiconductor、National Semiconductor国际巨头都推出了相应的产品。
