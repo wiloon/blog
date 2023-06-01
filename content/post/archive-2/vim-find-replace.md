@@ -1,5 +1,5 @@
 ---
-title: Vim  查找, 替换
+title: Vim 查找, 替换
 author: "-"
 date: 2018-12-19T08:49:53+00:00
 url: vim/find/replace
@@ -9,7 +9,7 @@ tags:
   - reprint
   - VIM
 ---
-## Vim  查找, 替换
+## Vim 查找, 替换
 
 ## 查找
 
@@ -133,13 +133,13 @@ c 表示需要确认, 例如全局查找 "foo" 替换为 "bar" 并且需要确�
 :%s/foo/bar/gc
 ```
   
-回车后 Vim 会将光标移动到每一次"foo"出现的位置,并提示
+回车后 Vim 会将光标移动到每一次"foo"出现的位置, 并提示
 
 ```r
-    replace with bar (y/n/a/q/l/^E/^Y)?
+replace with bar (y/n/a/q/l/^E/^Y)?
 ```
   
-按下y表示替换,n表示不替换,a表示替换所有,q表示退出查找模式, l表示替换当前位置并退出。^E与^Y是光标移动快捷键,参考:  Vim中如何快速进行光标移动。
+按下y表示替换, n表示不替换, a表示替换所有, q表示退出查找模式, l表示替换当前位置并退出。^E与^Y是光标移动快捷键,参考:  Vim中如何快速进行光标移动。
 
 高亮设置
   
@@ -179,15 +179,17 @@ autocmd cursorhold * set nohlsearch
   
 " 当输入查找命令时,再启用高亮
   
+```bash
 noremap n :set hlsearch<cr>n
   
 noremap N :set hlsearch<cr>N
-  
+
 noremap / :set hlsearch<cr>/
   
 noremap ? :set hlsearch<cr>?
   
 noremap \* \*:set hlsearch<cr>
+```
   
 将上述配置粘贴到~/.vimrc,重新打开vim即可生效。
 
@@ -195,6 +197,7 @@ noremap \* \*:set hlsearch<cr>
   
 如果延时禁用搜索高亮仍然不够舒服,可以设置快捷键来一键禁用/开启搜索高亮:
 
+```bash
 noremap n :set hlsearch<cr>n
   
 noremap N :set hlsearch<cr>N
@@ -206,6 +209,7 @@ noremap ? :set hlsearch<cr>?
 noremap \* \*:set hlsearch<cr>
 
 nnoremap <c-h> :call DisableHighlight()<cr>
+```
   
 function! DisableHighlight()
 
@@ -223,7 +227,7 @@ Vim Wikia - 查找与替换: <http://vim.wikia.com/wiki/Search_and_replace>
   
 用 Vim 打造 IDE 环境: <https://harttle.land/2015/11/04/vim-ide.html>
   
-本文采用 知识共享署名 4.0 国际许可协议 (CC-BY 4.0) 进行许可。转载请注明来源:  <https://harttle.land/2016/08/08/vim-search-in-file.html> 欢迎对文中引用进行考证,欢迎指出任何不准确和模糊之处。可以在下面评论区评论,也可以邮件至 harttle@harttle.com。
+本文采用 知识共享署名 4.0 国际许可协议 (CC-BY 4.0) 进行许可。转载请注明来源:  <https://harttle.land/2016/08/08/vim-search-in-file.html> 欢迎对文中引用进行考证,欢迎指出任何不准确和模糊之处。可以在下面评论区评论,也可以邮件至 <harttle@harttle.com>。
 
 ---
 

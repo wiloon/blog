@@ -43,9 +43,10 @@ pacman -S postgresql
 psql -h 127.0.0.1 -p 5432 -d database0 -U user0
 
 # create database
-CREATE DATABASE foo;
+create database database0;
 
 # create table
+create table test(id int, c1 int);
 create table table0(field0 json);
 
 # delete table
@@ -67,6 +68,7 @@ sudo -u postgres psql -c "\l"
 \h
 \?
 select * length( "abc"::TEXT)
+insert into test select generate_series(1,10000), random()*10;
 ```
 
 ## psql 直接执行 sql
@@ -271,7 +273,6 @@ WHERE locker.pid = locker_act.pid
   AND locker.relation = pc.oid
   AND pc.reltype <> 0 --and pc.relname='t'
 ORDER BY runtime desc;
-
 ```
 
 ```sql
@@ -291,7 +292,6 @@ WHERE current_query <> '<IDLE>'
   and pa.pid = s.procpid
   and pa.state <> 'idle'
 ORDER BY lap DESC;
-
 ```
 
 ```bash
@@ -314,7 +314,6 @@ WHERE nspname NOT IN ('pg_catalog', 'information_schema')
   AND relkind IN ('r', 'i')
 ORDER BY pg_total_relation_size(C.oid) DESC
 LIMIT 20;
-
 ```
 
 ## 空闲连接
@@ -355,13 +354,13 @@ psql --dbname=database0 --host=127.0.0.1 --username=user0 -c "COPY (select now()
 
 ## log
 
-# log_directory = 'pg_log' to log_directory = 'pg_log'
+log_directory = 'pg_log' to log_directory = 'pg_log'
 
-# log_filename = 'postgresql-%Y-%m-%d_%H%M%S.log' to log_filename = 'postgresql-%Y-%m-%d_%H%M%S.log'
+log_filename = 'postgresql-%Y-%m-%d_%H%M%S.log' to log_filename = 'postgresql-%Y-%m-%d_%H%M%S.log'
 
-# log_statement = 'none' to log_statement = 'all'
+log_statement = 'none' to log_statement = 'all'
 
-# logging_collector = off to logging_collector = on
+logging_collector = off to logging_collector = on
 
 Optional: SELECT set_config('log_statement', 'all', true);
 
@@ -379,5 +378,34 @@ The log files tend to grow a lot over a time, and might kill your machine. For y
 
 ```sql
 select array_length(regexp_split_to_array(config,'"id":'),1)-1 from xxx;
+```
 
+## postgres 判断主备角色
+
+```bash
+### 操作系统上查看WAL发送进程或WAL接收进程
+ps -ef | grep "wal" | grep -v "grep"
+# 主库会有 postgres: walwriter, postgres: walsender 进程
+# 从库只有 postgres: walreceiver 进程
+
+# 通过pg_controldata命令查看数据库控制信息，内容包含WAL日志信息、checkpoint、数据块等信息，通过Databasecluster state信息可判断是主库还是备库
+pg_controldata | grep cluster
+
+```
+
+```sql
+SELECT pg_is_in_recovery();
+-- 如果返回t说明是备库，返回f说明是主库
+```
+
+<https://blog.csdn.net/m15217321304/article/details/88845353>
+
+## filter
+
+```sql
+create table test(id int, c1 int);  
+insert into test select generate_series(1,10000), random()*10;
+select * from test limit 10;
+select c1,count(*)  from test group by c1;
+select c1,count(*), count(*) filter (where id<1000) from test group by c1;
 ```
