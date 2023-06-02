@@ -9,19 +9,20 @@ tags:
   - reprint
 ---
 ## golang 枚举, enum
+
 ### 枚举
 
-go语言并没有提供enum的定义,我们可以使用const来模拟枚举类型。
+go 语言并没有提供 enum 的定义,我们可以使用 const 来模拟枚举类型。
 
 ```go
-    type PolicyType int32
+type PolicyType int32
 
-    const (
-        Policy_MIN      PolicyType = 0
-        Policy_MAX      PolicyType = 1
-        Policy_MID      PolicyType = 2
-        Policy_AVG      PolicyType = 3
-    )
+const (
+    Policy_MIN      PolicyType = 0
+    Policy_MAX      PolicyType = 1
+    Policy_MID      PolicyType = 2
+    Policy_AVG      PolicyType = 3
+)
 ```
 
 ```go

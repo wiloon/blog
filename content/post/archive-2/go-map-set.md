@@ -9,9 +9,7 @@ tags:
   - reprint
   - Map
 ---
-## golang map set
-
-### map
+## go map
 
 - map 是由 key-value 对组成的；key 只会出现一次。
 - Map 是一种无序的键值对的集合
@@ -49,7 +47,7 @@ map_variable := make(map[key_data_type]value_data_type)
 
 ```
 
-#### 直接创建
+### 直接创建
 
 ```go
 m2 := make(map[string]string)
@@ -98,10 +96,10 @@ for k, v := range m1 {
 
 gods > treemap
 
-### set
+## go set
 
-golang没有内置Set类型  
-这个gods项目 实现了各种数据类型,其中就有set
+golang 没有内置 Set 类型  
+这个 gods 项目 现了各种数据类型, 其中就有set
   
 <https://github.com/emirpasic/gods#hashset>
 
