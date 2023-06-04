@@ -20,6 +20,7 @@ tags:
 ```
 
 ### 无符号右移
+
 <https://blog.wiloon.com/?p=15522>
 
 ### & 操作符
@@ -40,7 +41,8 @@ func main() {
 ```
 
 ### | 操作符, OR
-| 操作符对整数部分执行OR操作。回顾一下OR操作符的属性: 
+
+| 操作符对整数部分执行OR操作。回顾一下OR操作符的属性:
 给定数值 a, b
 当 a = 1 或者 b = 1
 OR(a,b) = 1
@@ -56,7 +58,8 @@ OR(a,b) = 1
 // prints 11000100
 ```
 
-当我们使用位掩码的手段为给定的整数值设置任意位时，使用OR是非常有用的，例如: 
+当我们使用位掩码的手段为给定的整数值设置任意位时，使用OR是非常有用的，例如:
+
 ```go
  func main() {
     var a uint8 = 0
@@ -66,4 +69,5 @@ OR(a,b) = 1
 }
 // prints 11000111
 ```
-https://lihaoquan.me/2018/1/1/bit-operator.html
+
+<https://lihaoquan.me/2018/1/1/bit-operator.html>
