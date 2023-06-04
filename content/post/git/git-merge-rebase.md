@@ -87,6 +87,10 @@ git merge master feature
 
 ## git rebase
 
+- feature 分支开发过程中把 dev 分支的 commit 更新到 feature 分支
+- feature 分支跟 dev 分支合并前
+- 整理 feature 分支的 commit 历史
+
 - git rebase 命令的文档描述是 Reapply commits on top of another base tip
 - rebase 有人把它翻译成 "变基"
 - rebase 是「在另一个 base 之上重新应用提交」
@@ -117,6 +121,21 @@ git merge master feature
 2. 用命令行 merge
 3. git switch dev
 4. git merge --squash branch_feature0
+
+## rebase 过程中有可能 遇到 冲突
+
+提示信息如下
+
+```bash
+Auto-merging path/to/file/foo.bar
+CONFLICT (content): Merge conflict in path/to/file/foo.bar
+error: could not apply 9f79272... msg0
+hint: Resolve all conflicts manually, mark them as resolved with
+hint: "git add/rm <conflicted_files>", then run "git rebase --continue".
+hint: You can instead skip this commit: run "git rebase --skip".
+hint: To abort and get back to the state before "git rebase", run "git rebase --abort".
+Could not apply 9f79272... msg0
+```
 
 ```bash
 # commands
