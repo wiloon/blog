@@ -15,13 +15,24 @@ tags:
 <https://github.com/chanify/chanify-ios/blob/main/README-zh_CN.md>
 
 ```bash
+# sample
 podman run -it \
 -v /my/data:/root/.chanify \
 wizjin/chanify:latest \
 serve --name=<node name> --endpoint=http://<address>:<port>
 
+# podman
 podman run -it \
 -d --name chanify \
+-p 30080:80 \
+-v chanify-data:/root/.chanify \
+wizjin/chanify:latest \
+serve --name=chanify0 --endpoint=https://chanify.wiloon.com
+
+# docker
+docker run -it -d \
+--name chanify \
+--restart=always \
 -p 30080:80 \
 -v chanify-data:/root/.chanify \
 wizjin/chanify:latest \

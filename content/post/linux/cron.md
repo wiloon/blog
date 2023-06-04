@@ -83,7 +83,7 @@ crontab -r # 删除没个用户的 cron 服务
 cron will then examine the modification time on all crontabs and reload those which have changed. Thus cron need not be restarted whenever a crontab file is modified
 ```
 
-### 在线crontab 表达式执行时间计算
+### 在线 crontab 表达式执行时间计算
 
 <https://www.matools.com/crontab>
 
@@ -130,7 +130,7 @@ run-parts
 ### 每个小时去执行一遍/etc/cron.hourly内的脚本
 
 ```bash
-    01 * * * * root run-parts /etc/cron.hourly
+01 * * * * root run-parts /etc/cron.hourly
 ```
   
 02 4 ** * root run-parts /etc/cron.daily // 每天去执行一遍/etc/cron.daily内的脚本
@@ -138,7 +138,7 @@ run-parts
 每星期去执行一遍/etc/cron.weekly内的脚本
 
 ```bash
-    22 4 * * 0 root run-parts /etc/cron.weekly
+22 4 * * 0 root run-parts /etc/cron.weekly
 ```
   
 42 4 1 ** root run-parts /etc/cron.monthly //每个月去执行一遍/etc/cron.monthly内的脚本

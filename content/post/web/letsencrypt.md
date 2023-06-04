@@ -20,6 +20,44 @@ acme.sh: 第三方实现的 acme 协议.
 
 ## install certbot
 
+### ubuntu
+
+```bash
+# 不推荐用这种方式安装, 版本太旧
+sudo apt install certbot
+# 如果以前安装过, 先卸载掉再安装 snap 版本
+sudo apt-get remove certbot
+sudo apt update
+# for ubuntu snap is pre-installed
+sudo apt install snapd
+sudo snap install core 
+sudo snap refresh core
+sudo snap install --classic certbot
+sudo ln -s /snap/bin/certbot /usr/bin/certbot
+snap set certbot trust-plugin-with-root=ok
+# 如果在使用 google dns, 需要安装这个包
+snap install certbot-dns-google
+```
+
+#### certonly
+
+```bash
+# certonly: do not install, 不安装到 nginx, 因为 nginx 在 docker 里, 所以这里用 certonly
+# -m: provide email
+# --agree-tos: tos yes
+# --eff-email: share email yes
+# --keep-until-expiring: keep cert yes
+certbot certonly --standalone -m wiloon.wy@gmail.com --agree-tos --eff-email --keep-until-expiring -d wiloon.com -d bitwarden.wiloon.com
+certbot certonly --standalone -m wiloon.wy@gmail.com --agree-tos --eff-email --keep-until-expiring -d wangyue.dev
+# list all certificates issued by certbot
+certbot certificates
+# select and delete certificates
+certbot delete
+
+# for google dns
+certbot certonly  --dns-google   --dns-google-credentials /root/cellular-deck-280204-6455aa19691d.json -d wiloon.com -d *.wiloon.com
+```
+
 ### archlinux
 
 ```bash
@@ -41,39 +79,6 @@ snap install --classic certbot
 ln -s /snap/bin/certbot /usr/bin/certbot
 snap set certbot trust-plugin-with-root=ok
 snap install certbot-dns-google
-```
-
-#### ubuntu
-
-```bash
-# 不推荐用这种方式安装, 版本太旧
-sudo apt install certbot
-# 如果以前安装过, 先卸载掉再安装 snap 版本
-sudo apt-get remove certbot
-sudo apt update
-# for ubuntu snap is pre-installed
-sudo apt install snapd
-sudo snap install core 
-sudo snap refresh core
-sudo snap install --classic certbot
-sudo ln -s /snap/bin/certbot /usr/bin/certbot
-snap set certbot trust-plugin-with-root=ok
-snap install certbot-dns-google
-```
-
-### certonly
-
-```bash
-# certonly: do not install
-# -m: provide email
-# --agree-tos: tos yes
-# --eff-email: share email yes
-# --keep-until-expiring: keep cert yes
-certbot certonly --standalone -m wiloon.wy@gmail.com --agree-tos --eff-email --keep-until-expiring -d wiloon.com
-
-certbot certonly --standalone -m wiloon.wy@gmail.com --agree-tos --eff-email --keep-until-expiring -d wangyue.dev
-certbot certonly --standalone -d wangyue.dev
-certbot certonly  --dns-google   --dns-google-credentials /root/cellular-deck-280204-6455aa19691d.json -d wiloon.com -d *.wiloon.com
 ```
 
 Couldn't download <https://raw.githubusercontent.com/certbot/certbot/v0.39.0/letsencrypt-auto-source/letsencrypt-auto>. `<urlopen error [Errno 110] Connection timed out>`
