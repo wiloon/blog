@@ -1,5 +1,5 @@
 ---
-title: systemd timer
+title: systemd timer, 定时任务
 author: "-"
 date: 2022-07-09 21:27:03
 url: systemd/timer
@@ -8,7 +8,7 @@ categories:
 tags:
   - reprint
 ---
-## systemd timer
+## systemd timer, 定时任务
 
 ```bash
 # 查看 timer
