@@ -16,6 +16,7 @@ tags:
 - bitwarden, password management
 - btop, 另外一个 top 实现, 颜值还不错
 - screenfetch, 打印发行版的 logo
+- mousepad, 易于使用的快速的文本编辑器
 
 ## AUR
 
