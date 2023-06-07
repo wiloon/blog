@@ -9,6 +9,7 @@ tags:
   - reprint
 ---
 ## 用dd实现linux硬盘备份
+
 一个去年的老本,500G硬盘,空间各种捉急,准备迁移到公司的台式机上,却发现Linux上迁移环境没有Windows下那么方便,只能复制整块硬盘了。
 
 从公司拿了一块1T的硬盘,插入移动硬盘盒 (淘宝上搞的一个移动硬盘盒,40元) ,加电识别,格式化,开始硬盘复制。
@@ -36,11 +37,11 @@ dd if=/dev/sda of=~/disk1.img
   
 dd if=/dev/sda of=~/disk1.img
   
-之后,disk1.img就是备份好的磁盘映像文件,你可以复制或转移到其他介质也可以压缩一下: 
+之后,disk1.img就是备份好的磁盘映像文件,你可以复制或转移到其他介质也可以压缩一下:
   
 gzip disk1.img #generates disk1.img.gz
   
-或者在创建磁盘映像文件的同时就执行压缩: 
+或者在创建磁盘映像文件的同时就执行压缩:
   
 dd if=/dev/sda | gzip > disk.img.gz
   
@@ -56,14 +57,12 @@ dd if=/dev/sda1 of=~/part1.img
   
 将把第一块磁盘的第一个分区备份到名为part1.img的文件中。
   
-也可以进行分区复制: 
+也可以进行分区复制:
   
 dd if=/dev/hda1 of=/dev/hda3
   
 将把分区一原样复制到分区3.
 
-
-  
     从镜像文件恢复磁盘或分区
  很简单,把上面命令中,of和if指向的文件名互换一下即可实现恢复。例如
  dd if=disk1.img of=/dev/sda
@@ -71,6 +70,4 @@ dd if=/dev/hda1 of=/dev/hda3
  dd if=part1.img of=/dev/hda2
  把保存在part1.img中的映像恢复到第一块硬盘的第二个分区
   
-
-
 最后,需要注意一点是,无论备份还是恢复,都需要保证 of 指向的文件或磁盘空间要大于 if 指向的内容,因为是按字节复制 如果没有足够的空间去存储内容,备份自然会失败。
