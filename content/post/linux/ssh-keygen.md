@@ -33,7 +33,7 @@ ssh-keygen -t ed25519 -f foo -C "bar"
 # -C "bar" 在公钥文件中添加注释，即为这个公钥“起个别名”（不是 id，可以更改）。
 
 # 从私钥生成公钥
-#-y      This option will read a private OpenSSH format file and print an OpenSSH public key to stdout.
+# -y This option will read a private OpenSSH format file and print an OpenSSH public key to stdout.
 ssh-keygen -f id_ed25519 -y > id_ed25519.pub
 
 ssh-keygen -t rsa

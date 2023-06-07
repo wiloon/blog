@@ -532,11 +532,43 @@ git push -u origin master
 
 ## git fetch
 
+git fetch是更新(update)在本地电脑上的远程跟踪分支（如origin/master分支，注意远程跟踪分支是保存在本地，一般在.git\refs\remotes\origin目录下），并更新(update) .git/FETCH_HEAD文件。并不会和本地分支merge，即不会更新本地分支。
+
 git fetch 命令用来拉取其它仓库的数据 (objects and refs).  
-默认情况下，git fetch 取回**所有**分支 (branch) 的更新。如果只想取回特定分支的更新，可以指定分支名。  
+默认情况下，git fetch 取回**所有**分支 (branch) 的更新。如果只想取回特定分支的更新，可以指定分支名。
+
+更新(update) .git/FETCH_HEAD文件
+
+- git fetch 从远程仓库取数据更新到本地仓库, jetbrain git plugin 里的 git 分支后面会出现蓝色箭头, 代表识别到了远程仓库有新的 commit
+- working tree/local branch 不会被更新
+- jetbrain 里分支 commit 历史不会更新
+
+## git fetch 更新其它分支
+
+当前分支不是 dev 分支, 并且 dev 分支在本地没有修改的时候 更新 dev 分支
 
 ```bash
+git fetch origin dev:dev
+```
+
+该命令必须严格同时满足以下两个条件：
+
+1. 本地当前分支不能是 dev。
+2. 本地 dev 分支和 origin/dev 不能分叉, 就是说可以 fast-forward merge
+
+则该命令执行后，可以实现 本地 dev 和远程 dev 分支进行 fast-forward merge，更新了本地 dev 分支。
+只要这两个条件其中一个不满足，则执行该命令会报错！
+————————————————
+版权声明：本文为CSDN博主「啊大1号」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
+原文链接：<https://blog.csdn.net/a3192048/article/details/100069772>
+
+```bash
+# git fetch <远程主机名> <分支名>
+git fetch
+
 git fetch <远程主机名> <分支名>
+# 取回对应分支的更新, -u or --update-head-ok
+git fetch -u origin dev:dev
 # 取回所有分支的更新
 git fetch
 # 比如，取回 origin 主机的 master 分支。
@@ -588,20 +620,22 @@ git branch -d temp
 
 ## git pull
 
-git pull命令用于从另一个存储库或本地分支获取并集成(整合)。git pull命令的作用是：取回远程主机某个分支的更新，再与本地的指定分支合并  
-命令的作用是，取回远程主机某个分支的更新，再与本地的指定分支合并。
+git pull 命令用于从另一个存储库或本地分支获取并集成(整合)。git pull 命令的作用是：取回远程主机某个分支的更新，再与本地的指定分支合并
 
 git pull: 首先，基于本地的 FETCH_HEAD 记录，比对本地的 FETCH_HEAD 记录与远程仓库的版本号，然后 git fetch 获得当前指向的远程分支的后续版本的数据，然后再利用 git merge 将其与本地的当前分支合并。所以可以认为 git pull 是 git fetch 和 git merge 两个步骤的结合。
 
 git pull 的用法如下:
 
+```bash
 git pull <远程主机名> <远程分支名>:<本地分支名>
+```
 
 因此，与 git pull 相比 git fetch 相当于是从远程获取最新版本到本地，但不会自动 merge。如果需要有选择的合并 git fetch 是更好的选择。效果相同时 git pull 将更为快捷。
 
 标准或完整的命令是 `git pull remote_repository_name branch_name`
 
 ```bash
+# 除了做了git fetch origin master:mymaster的工作外，还会将远程分支merge进本地当前分支。
 git pull origin <远程分支名>:<本地分支名>
 git branch --set-upstream-to=origin/<remote_branch> <local_branch>
 git pull

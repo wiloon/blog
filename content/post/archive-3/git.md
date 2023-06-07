@@ -13,7 +13,6 @@ tags:
 
 ```puml
 @startuml
-!theme plain
 [Working tree\n工作区] as work
 [Index, 索引\nStaging Area\nStaged,暂存区] as stage
 work --> stage: add
@@ -23,9 +22,10 @@ stage --> repo: commit
 repo --> remote: push
 work <-- remote: pull
 remote --> repo: fetch/clone
-repo --> work: checkout
+stage --> work: checkout
 repo --> work: merge
 repo --> stage: reset --soft
+repo --> stage: rebase
 repo --> work: reset --mixed
 @enduml
 ```
@@ -60,7 +60,7 @@ Tips：不要手动修改 .git 目录的内容
 ### 远端仓库， 远程仓库副本
 
 团队协作往往需要指定远端仓库 (一般是一个，也可以有多个），团队成员通过跟远端仓库交互来实现团队协作。  
-存在于本地的远程仓库缓存。如需更新，可通过git fetch/pull命令获取远程仓库内容。使用fech获取时，并未合并到本地仓库，此时可使用git merge实现远程仓库副本与本地仓库的合并。git pull 根据配置的不同，可为git fetch + git merge 或 git fetch + git rebase。
+存在于本地的远程仓库缓存。如需更新，可通过 git fetch/pull 命令获取远程仓库内容。使用fech获取时，并未合并到本地仓库，此时可使用git merge实现远程仓库副本与本地仓库的合并。git pull 根据配置的不同，可为 git fetch + git merge 或 git fetch + git rebase。
 
 ## 理解 git fetch, git pull
 
@@ -101,7 +101,7 @@ git pull 首先，基于本地的 FETCH_HEAD 记录，比对本地的 FETCH_HEAD
 
 ### git fetch, git pull
 
-git fetch 是将远程主机的最新内容拉到本地，用户在检查了以后决定是否合并到工作本机分支中。而 git pull 则是将远程主机的最新内容拉下来后直接合并，即：git pull = git fetch + git merge，这样可能会产生冲突，需要手动解决。
+git fetch 是将远程主机的最新内容拉到本地，用户在检查了以后决定是否合并到工作本机分支中。而 git pull 则是将远程主机的最新内容拉下来后直接合并，即：git pull = git fetch && git merge, 这样可能会产生冲突，需要手动解决。
 
 ### 分支，branch
 

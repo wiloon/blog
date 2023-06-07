@@ -40,7 +40,7 @@ python -V
 python --version
 ```
 
-### ubuntu
+### ubuntu install python
 
 sudo apt install python3
 sudo apt install -y python3-venv
@@ -51,12 +51,23 @@ source my_env/bin/activate
 
 <https://www.digitalocean.com/community/tutorials/ubuntu-18-04-python-3-zh>
 
-### archlinux
+### archlinux install python
 
 ```bash
 pacman -S python
 ```
-  
+
+## windows install python
+
+```bash
+# 安装 python 11, 默认路径  C:\Users\ywang6\AppData\Local\Programs\Python\Python311
+winget install Python.Python.3.11
+# --location 目前不好用 winget 版本 v1.4.11071,  --verbose  在安装 python 的时候并没有输出更多日志
+winget install Python.Python.3.11 --location "C:\workspace\apps\python11" --verbose
+winget install -e -i --id=Python.Python.3.11
+winget uninstall Python.Python.3.11
+```
+
 ### boolean variable
 
 直接定义a=True/False就行，示例代码：
@@ -237,6 +248,20 @@ for kv in a.items():
 ```
 
 <http://c.biancheng.net/view/2212.html>
+
+dict() 函数用于创建一个字典
+
+python 字典初始化比较常用的两种方式：dict() 和 {}
+
+性能方面，{} 性能更好。
+
+Python 字典(Dictionary) update() 函数把字典 dict2 的键/值对更新到 dict 里。
+
+To delete a key regardless of whether it is in the dictionary, use the two-argument form of dict.pop():
+
+my_dict.pop('key', None)
+
+obj to dict <https://blog.csdn.net/weixin_42359464/article/details/80882549>
 
 ## 异常处理
 
@@ -445,22 +470,6 @@ json.loads()：解析一个有效的JSON字符串并将其转换为Python字典
 json.load()：从一个文件读取JSON类型的数据，然后转转换成Python字典
 
 obj to json <https://blog.csdn.net/mr_hui_/article/details/82941199>
-
-## dict() 字典
-
-dict() 函数用于创建一个字典
-
-python 字典初始化比较常用的两种方式：dict() 和 {}
-
-性能方面，{} 性能更好。
-
-Python 字典(Dictionary) update() 函数把字典 dict2 的键/值对更新到 dict 里。
-
-To delete a key regardless of whether it is in the dictionary, use the two-argument form of dict.pop():
-
-my_dict.pop('key', None)
-
-obj to dict <https://blog.csdn.net/weixin_42359464/article/details/80882549>
 
 ## isinstance()
 
