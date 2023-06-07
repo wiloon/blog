@@ -10,6 +10,14 @@ tags:
 ---
 ## golang JSON
 
+## go json string 格式化
+
+```bash
+var str bytes.Buffer
+_ = json.Indent(&str, []byte(data), "", "    ")
+fmt.Println("formated: ", str.String())
+```
+
 ### time.Time 序列化
 
 <https://www.cnblogs.com/chenqionghe/p/13409556.html>
@@ -25,6 +33,8 @@ json.Marshal(struct {
 
 ```go
 json.Marshal()
+// 序列化 + 格式化
+resp2, _ := json.MarshalIndent(s, "", "    ")
 json.Unmarshal()
 ```
 
@@ -53,7 +63,7 @@ func main() {
 
 <http://www.cnblogs.com/fengbohello/p/4665883.html>
 
-本文介绍如何使用Go语言自带的库把对象转换为JSON格式，并在channel中进行传输后，并把JSON格式的信息转换回对象。
+本文介绍如何使用 Go 语言自带的库把对象转换为JSON格式，并在channel中进行传输后，并把JSON格式的信息转换回对象。
 
 1. Go 语言的 JSON 库
   

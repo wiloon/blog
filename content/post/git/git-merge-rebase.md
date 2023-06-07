@@ -56,6 +56,8 @@ c3 <-down- c5
 缺点：因为每次 merge 会自动产生一个 merge commit，所以在使用一些 git 的 GUI tools，特别是commit比较频繁时，看到分支很杂乱。
 
 ```bash
+# git merge 不加参数的时候合并 local branch 和 local repo 对应的 branch
+git merge
 git merge b0
 
 git status
