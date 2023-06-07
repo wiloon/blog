@@ -9,6 +9,7 @@ tags:
   - reprint
 ---
 ## linux lost+found 目录
+
 /lost found
 
 这个目录一般情况下是空的，当系统非法关机或格式化分区后，这里就存放了一些文件。
@@ -27,7 +28,7 @@ fsck的命令的几个使用方法
 
 说明 :  检查与修复 Linux 档案系统，可以同时检查一个或多个 Linux 档案系统
 
-参数 : 
+参数 :
 
 filesys :  device 名称(eg./dev/sda1)，mount 点 (eg. / 或 /usr)
 
