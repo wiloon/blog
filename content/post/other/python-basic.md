@@ -40,7 +40,7 @@ python -V
 python --version
 ```
 
-### ubuntu
+### ubuntu install python
 
 sudo apt install python3
 sudo apt install -y python3-venv
@@ -51,12 +51,23 @@ source my_env/bin/activate
 
 <https://www.digitalocean.com/community/tutorials/ubuntu-18-04-python-3-zh>
 
-### archlinux
+### archlinux install python
 
 ```bash
 pacman -S python
 ```
-  
+
+## windows install python
+
+```bash
+# 安装 python 11, 默认路径  C:\Users\ywang6\AppData\Local\Programs\Python\Python311
+winget install Python.Python.3.11
+# --location 目前不好用 winget 版本 v1.4.11071,  --verbose  在安装 python 的时候并没有输出更多日志
+winget install Python.Python.3.11 --location "C:\workspace\apps\python11" --verbose
+winget install -e -i --id=Python.Python.3.11
+winget uninstall Python.Python.3.11
+```
+
 ### boolean variable
 
 直接定义a=True/False就行，示例代码：
