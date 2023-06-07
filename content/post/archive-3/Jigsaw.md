@@ -99,8 +99,6 @@ java.desktop.jmod
   
 这些.jmod文件每一个都是一个模块，模块名就是文件名。例如: 模块java.base对应的文件就是java.base.jmod。模块之间的依赖关系已经被写入到模块内的module-info.class文件了。所有的模块都直接或间接地依赖java.base模块，只有java.base模块不依赖任何模块，它可以被看作是"根模块"，好比所有的类都是从Object直接或间接继承而来。
 
-
-
 ---
 
 <https://www.liaoxuefeng.com/wiki/1252599548343744/1281795926523938>
@@ -403,7 +401,7 @@ java --module-path mods -m com.wiloon.java9x/com.wiloon.java9x.Java9Tester
 
 ## 'jigsaw  hello world'
 
-git@github.com:wiloon/java9x.git
+<git@github.com>:wiloon/java9x.git
 
 <http://blog.oneapm.com/apm-tech/724.html>
 

@@ -7,6 +7,7 @@ categories:
   - Linux
 tags:
   - reprint
+  - remix
 ---
 ## linux 目录
 
@@ -32,18 +33,13 @@ In Arch Linux the /bin is a symlink to /usr/bin
 
 /proc 操作系统运行时，进程 (正在运行中的程序) 信息及内核信息 (比如cpu、硬盘分区、内存信息等) 存放在这里。/proc目录伪装的文件系统proc的挂载目录，proc并不是真正的文件系统，它的定义可以参见 /etc/fstab 。
 
-/
+## /root
 
-root - 启动Linux时使用的一些核心文件。如操作系统内核、引导程序Grub等。
+启动Linux时使用的一些核心文件。如操作系统内核、引导程序Grub等。
 
-home - 存储普通用户的个人文件
+## /home
 
-ftp - 用户所有服务
-
-httpd
-user1
-
-user2
+存储普通用户的个人文件
 
 bin - 系统启动时需要的执行文件 (二进制)
 
@@ -52,40 +48,6 @@ sbin - 可执行程序的目录，但大多存放涉及系统管理的命令。�
 proc - 虚拟，存在linux内核镜像；保存所有内核参数以及系统配置信息
 
 1 - 进程编号
-
-#### /usr/lib
-
-程序和核心模块的公共库  
-理解为C:/Windows/System32。
-
-#### /usr/local
-
-本地安装软件保存位置
-
-用户级的程序目录，可以理解为 C:/Progrem Files/。用户自己编译的软件默认会安装到这个目录下。
-这里主要存放那些手动安装的软件，即不是通过 apt-get 安装的软件。它和 /usr 目录具有相类似的目录结构。让软件包管理器来管理 /usr 目录，而把自定义的脚本 (scripts) 放到 /usr/local 目录下面。
-
-#### /usr/include
-
-存放 C/C++ 头文件的目录
-
-bin -
-
-sbin - 系统管理员命令，与用户相关，例如，大部分服务器程序
-
-man - 手工生成的目录
-
-info - 信息文档
-
-doc - 不同包文档信息
-
-tmp
-
-X11R6 - 该目录用于保存运行X-Window所需的所有文件。该目录中还包含用于运行GUI要的配置文件和二进制文件。
-
-X386- 功能同X11R6，X11 发行版5 的系统文件
-
-boot - 引导加载器所需文件，系统所需图片保存于此
 
 ## /lib
 
@@ -135,35 +97,6 @@ tmp - 临时文件目录，系统启动后的临时文件存放在/var/tmp
 
 lost+found - 在文件系统修复时恢复的文件
 
-
-## /usr/bin
-
-/bin下存放一些普通的基本命令, /bin下的命令管理员和一般的用户都可以使用。
-几乎所有用户所用命令，另外存在与/bin，/usr/local/bin  
-可执行二进制文件的目录，如常用的命令 ls、tar、mv、cat 等。
-
-/usr/bin 是你在后期安装的一些软件的运行脚本。主要放置一些应用软体工具的必备执行档例如c++、g++、gcc、chdrv、diff、dig、du、eject、elm、free、gnome*、 gzip、htpasswd、kfm、ktop、last、less、locale、m4、make、man、mcopy、ncftp、 newaliases、nslookup passwd、quota、smb*、wget等。
-
-/boot: 放置linux系统启动时用到的一些文件。/boot/vmlinuz为linux的内核文件，以及/boot/gurb。建议单独分区，分区大小100M即可
-
-/dev: 存放linux系统下的设备文件，访问该目录下某个文件，相当于访问某个设备，常用的是挂载光驱mount /dev/cdrom /mnt。
-
-/etc: 系统配置文件存放的目录，不建议在此目录下存放可执行文件，重要的配置文件有/etc/inittab、/etc/fstab、/etc/init.d、/etc/X11、/etc/sysconfig、/etc/xinetd.d修改配置文件之前记得备份。
-
-注: /etc/X11存放与x windows有关的设置。
-
-/home: 系统默认的用户家目录，新增用户账号时，用户的家目录都存放在此目录下，~表示当前用户的家目录，~test表示用户test的家目录。建议单独分区，并设置较大的磁盘空间，方便用户存放数据
-
-/lib:/usr/lib:/usr/local/lib: 系统使用的函数库的目录，程序在执行过程中，需要调用一些额外的参数时需要函数库的协助，比较重要的目录为/lib/modules。
-
-/lost+fount: 系统异常产生错误时，会将一些遗失的片段放置于此目录下，通常这个目录会自动出现在装置目录下。如加载硬盘于/disk 中，此目录下就会自动产生目录/disk/lost+found
-
-/mnt:/media: 光盘默认挂载点，通常光盘挂载于/mnt/cdrom下，也不一定，可以选择任意位置进行挂载。
-
-/proc: 此目录的数据都在内存中，如系统核心，外部设备，网络状态，由于数据都存放于内存中，所以不占用磁盘空间，比较重要的目录有/proc/cpuinfo、/proc/interrupts、/proc/dma、/proc/ioports、/proc/net/*等
-
-/root: 系统管理员root的家目录，系统第一个启动的分区为/，所以最好将/root和/放置在一个分区下。
-
 ## /sbin:/usr/sbin:/usr/local/sbin
 
 In Arch Linux the /sbin is a symlink to /usr/bin
@@ -190,6 +123,72 @@ In Arch Linux the /sbin is a symlink to /usr/bin
 usr 并不是 user 用户的缩写，而是 User System Resources 的缩写
 
 存放应用程序，/usr/bin 存放应用程序，/usr/share 存放共享数据，/usr/lib 存放不能直接运行的，却是许多程序运行所必需的一些函数库文件。/usr/local:存放软件升级包。/usr/share/doc:系统说明文件存放目录。/usr/share/man: 程序说明文件存放目录，使用 man ls时会查询/usr/share/man/man1/ls.1.gz的内容建议单独分区，设置较大的磁盘空间
+
+## /usr/bin
+
+系统启动时需要的执行文件 (二进制)  
+/bin 下存放一些普通的基本命令, /bin 下的命令管理员和一般的用户都可以使用。
+几乎所有用户所用命令，另外存在与 /bin，/usr/local/bin  
+可执行二进制文件的目录，如常用的命令 ls、tar、mv、cat 等。
+
+/usr/bin 是你在后期安装的一些软件的运行脚本。主要放置一些应用软体工具的必备执行档例如c++、g++、gcc、chdrv、diff、dig、du、eject、elm、free、gnome*、 gzip、htpasswd、kfm、ktop、last、less、locale、m4、make、man、mcopy、ncftp、 newaliases、nslookup passwd、quota、smb*、wget等。
+
+/boot: 放置linux系统启动时用到的一些文件。/boot/vmlinuz为linux的内核文件，以及/boot/gurb。建议单独分区，分区大小100M即可
+
+/dev: 存放linux系统下的设备文件，访问该目录下某个文件，相当于访问某个设备，常用的是挂载光驱mount /dev/cdrom /mnt。
+
+/etc: 系统配置文件存放的目录，不建议在此目录下存放可执行文件，重要的配置文件有/etc/inittab、/etc/fstab、/etc/init.d、/etc/X11、/etc/sysconfig、/etc/xinetd.d修改配置文件之前记得备份。
+
+注: /etc/X11存放与x windows有关的设置。
+
+/home: 系统默认的用户家目录，新增用户账号时，用户的家目录都存放在此目录下，~表示当前用户的家目录，~test表示用户test的家目录。建议单独分区，并设置较大的磁盘空间，方便用户存放数据
+
+/lib:/usr/lib:/usr/local/lib: 系统使用的函数库的目录，程序在执行过程中，需要调用一些额外的参数时需要函数库的协助，比较重要的目录为/lib/modules。
+
+/lost+fount: 系统异常产生错误时，会将一些遗失的片段放置于此目录下，通常这个目录会自动出现在装置目录下。如加载硬盘于/disk 中，此目录下就会自动产生目录/disk/lost+found
+
+/mnt:/media: 光盘默认挂载点，通常光盘挂载于/mnt/cdrom下，也不一定，可以选择任意位置进行挂载。
+
+/proc: 此目录的数据都在内存中，如系统核心，外部设备，网络状态，由于数据都存放于内存中，所以不占用磁盘空间，比较重要的目录有/proc/cpuinfo、/proc/interrupts、/proc/dma、/proc/ioports、/proc/net/*等
+
+/root: 系统管理员root的家目录，系统第一个启动的分区为/，所以最好将/root和/放置在一个分区下。
+
+## /usr/lib
+
+程序和核心模块的公共库  
+理解为 C:/Windows/System32。
+
+## /usr/local
+
+- /usr/local/bin 二进制文件
+- /usr/local/etc 配置文件
+
+本地安装软件保存位置
+
+用户级的程序目录，可以理解为 C:/Progrem Files/。用户自己编译的软件默认会安装到这个目录下。
+这里主要存放那些手动安装的软件，即不是通过 apt-get 安装的软件。它和 /usr 目录具有相类似的目录结构。让软件包管理器来管理 /usr 目录，而把自定义的脚本 (scripts) 放到 /usr/local 目录下面。
+
+## /usr/include
+
+存放 C/C++ 头文件的目录
+
+bin -
+
+sbin - 系统管理员命令，与用户相关，例如，大部分服务器程序
+
+man - 手工生成的目录
+
+info - 信息文档
+
+doc - 不同包文档信息
+
+tmp
+
+X11R6 - 该目录用于保存运行X-Window所需的所有文件。该目录中还包含用于运行GUI要的配置文件和二进制文件。
+
+X386- 功能同X11R6，X11 发行版5 的系统文件
+
+boot - 引导加载器所需文件，系统所需图片保存于此
 
 ## /var
 
