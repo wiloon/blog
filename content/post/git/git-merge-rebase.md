@@ -56,6 +56,8 @@ c3 <-down- c5
 缺点：因为每次 merge 会自动产生一个 merge commit，所以在使用一些 git 的 GUI tools，特别是commit比较频繁时，看到分支很杂乱。
 
 ```bash
+# git merge 不加参数的时候合并 local branch 和 local repo 对应的 branch
+git merge
 git merge b0
 
 git status
@@ -105,15 +107,22 @@ git merge master feature
 
 #### 先在 feature 分支上做一次 rebase
 
-1. branch_feature0 分支和 dev 分支分别 git pull
-   1. git pull origin branch_feature0:branch_feature0
-   2. git pull origin dev:dev
-2. git switch branch_feature0
+1. git switch branch_feature0
+2. branch_feature0 分支和 dev 分支都更新一下.
+   1. git pull
+   2. git fetch origin dev:dev
 3. git rebase dev
 4. 如果有冲突的话, 就处理冲突
 5. git push -f
+6. 如果以上命令是在 shell 操作的, 回到 jetbrain 里之后要操作一次 reload from dick
 
 #### 整理 feature 分支的 commit 历史
+
+或许...整理历史可以跟上一步一起做, 改天测试一下.
+
+```bash
+git rebase -i xxx
+```
 
 #### 再把 feature 分支合并到 dev 分支
 
