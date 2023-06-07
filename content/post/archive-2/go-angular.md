@@ -60,7 +60,7 @@ ng generate module app-routing --flat --module=app
 
 <https://github.com/aralroca/helloworld-angular-with-golang>
 
-### 修改angular编译输出目录
+### 修改 angular 编译输出目录
 
 ```bash
 vim angular.json

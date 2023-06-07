@@ -16,6 +16,7 @@ tags:
 - 列编辑/column selection mode,  Alt+Shift+Insert,Alt+Shift+i
 - Expand All,                   Ctrl+Shift+=
 - Ctrl + g, goto line
+- ctrl + shift + k, git push
 
 CTRL+SHIFT+N 查找文件
   

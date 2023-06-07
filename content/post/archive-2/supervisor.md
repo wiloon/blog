@@ -118,7 +118,7 @@ program 配置
   
 files = /etc/supervisor/_.conf
   
-假设有个用 Python 和 Flask 框架编写的用户中心系统,取名 usercenter,用 gunicorn (<http://gunicorn.org/>) 做 web 服务器。项目代码位于 /home/leon/projects/usercenter,gunicorn 配置文件为 gunicorn.py,WSGI callable 是 wsgi.py 里的 app 属性。所以直接在命令行启动的方式可能是这样的:
+假设有个用 Python 和 Flask 框架编写的用户中心系统, 取名 usercenter,用 gunicorn (<http://gunicorn.org/>) 做 web 服务器。项目代码位于 /home/leon/projects/usercenter, gunicorn 配置文件为 gunicorn.py, WSGI callable 是 wsgi.py 里的 app 属性。所以直接在命令行启动的方式可能是这样的:
   
 cd /home/leon/projects/usercenter
   

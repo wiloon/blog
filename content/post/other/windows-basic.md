@@ -251,3 +251,13 @@ whoami
 # 删除非空目录
 rmdir /s /q folder0
 ```
+
+## winget
+
+windows 的包管理工具
+
+```bash
+winget -v
+winget search python
+winget install Python.Python.3.11
+```

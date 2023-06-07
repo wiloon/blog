@@ -116,8 +116,8 @@ func isExist(fileName string) bool {
 ### 判断是文件还是目录
 
 ```bash
-    f, _ := os.Stat("a.txt")
-    f.IsDir()
+f, _ := os.Stat("a.txt")
+f.IsDir()
 ```
 
 ### move file
@@ -139,9 +139,8 @@ func main() {
 os.Stat(parentDir)
 ```
 
-### 创建目录
-
 ```go
+// 创建目录
 os.Mkdir(parentDir, os.ModePerm)
 ```
 
