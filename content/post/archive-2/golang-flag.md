@@ -19,11 +19,12 @@ flag.String("port", ":8080", "http listen port")
 
 flag.Parse()
 
-解析函数将会在碰到第一个非flag命令行参数时停止,非flag命令行参数是指不满足命令行语法的参数,如命令行参数为cmd -flag=true abc则第一个非flag命令行参数为"abc"
+解析函数将会在碰到第一个非 flag 命令行参数时停止,非flag命令行参数是指不满足命令行语法的参数,如命令行参数为cmd -flag=true abc 则第一个非 flag 命令行参数为 "abc"
 
 使用flag来操作命令行参数,支持的格式如下:
 
-```bash-id=1
+```bash
+-id=1
 --id=1
 -id 1
 --id 1
@@ -37,18 +38,18 @@ import (
 )
 
 func main() {
-ok := flag.Bool("ok", false, "is ok")
-id := flag.Int("id", 0, "id")
-port := flag.String("port", ":8080", "http listen port")
-var name string
-flag.StringVar(&name, "name", "123", "name")
+    ok := flag.Bool("ok", false, "is ok")
+    id := flag.Int("id", 0, "id")
+    port := flag.String("port", ":8080", "http listen port")
+    var name string
+    flag.StringVar(&name, "name", "123", "name")
 
-flag.Parse()
+    flag.Parse()
 
-fmt.Println("ok:", *ok)
-fmt.Println("id:", *id)
-fmt.Println("port:", *port)
-fmt.Println("name:", name)
+    fmt.Println("ok:", *ok)
+    fmt.Println("id:", *id)
+    fmt.Println("port:", *port)
+    fmt.Println("name:", name)
 }
 ```
 
