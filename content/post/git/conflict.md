@@ -1,5 +1,5 @@
 ---
-title: git 冲突解决
+title: git 冲突解决, conflict, <<< === >>>
 author: "-"
 date: 2012-04-22T01:37:04+00:00
 url: git/conflict
@@ -8,14 +8,16 @@ categories:
 tags:
   - reprint
 ---
-## git 冲突解决
+## git 冲突解决, conflict, <<< === >>>
 
 ### 远程文件覆盖本地文件
 
 git pull 出现冲突后丢弃本地冲突文件修改，采用远程文件覆盖本地文件
 
-    git checkout
-    git checkout test/src/main/resources/spring-shiro.xml  
+```bash
+git checkout
+git checkout test/src/main/resources/spring-shiro.xml  
+```
 
 ### 方法二
 
@@ -34,7 +36,9 @@ Please commit your changes or stash them before you merge.
 
 2.git add pom.xml
 
-  git commit -m '冲突解决'
+```bash
+git commit -m '冲突解决'
+```
 
  提交本地的pom.xml文件，不进行推送远程
 
@@ -51,16 +55,21 @@ Automatic merge failed; fix conflicts and then commit the result.
 
 你会在文件中发现 `<<<<<<< HEAD`, `=======`, `>>>>>>> ae9a0f6b7e42fda2ce9b14a21a7a03cfc5344d61`
 
-这种标记, `<<<<<<< HEAD` 和 `=======` 中间的是你自己的代码, `=======`  和 `>>>>>>>` 中间的是其他人修改的代码
+- `<<<<<<< HEAD` 和 `=======` 中间的是你自己的代码
+- `=======`  和 `>>>>>>>` 中间的是其他人修改的代码
 
 自己确定保留哪一部分代码，最后删除 `<<<<<<< HEAD, =======, >>>>>>>` 这种标志
 
-    git add pom.xml
-    git commit -m '冲突解决结束'
+```bash
+git add pom.xml
+git commit -m '冲突解决结束'
+```
 
 再次将本地的pom.xml文件提交
 
-    git push
+```bash
+git push
+```
 
 将解决冲突后的文件推送到远程
 

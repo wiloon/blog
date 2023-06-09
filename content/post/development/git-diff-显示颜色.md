@@ -28,6 +28,7 @@ git diff ffd98b291e0caa6c33575c1ef465eae661ce40c9:filename b8e7b00c02b95b320f14b
 
 ~/.gitconfig 中加三行
 
+```bash
 [color]
 status = auto
 branch = auto
