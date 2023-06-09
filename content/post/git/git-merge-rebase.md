@@ -65,17 +65,11 @@ git status
 git mergetool
   
 #"The merge tool bc is not available as" 'bcompare'
-  
 git config -global merge.tool vimdiff
-
 :diffg RE " get from REMOTE
-  
 :diffg BA " get from BASE
-  
 :diffg LO " get from LOCAL
-  
 :wqa
-  
 ```
 
 ### 把 master merge 到 feature 上
@@ -89,10 +83,6 @@ git merge master feature
 
 ## git rebase
 
-- feature 分支开发过程中把 dev 分支的 commit 更新到 feature 分支
-- feature 分支跟 dev 分支合并前
-- 整理 feature 分支的 commit 历史
-
 - git rebase 命令的文档描述是 Reapply commits on top of another base tip
 - rebase 有人把它翻译成 "变基"
 - rebase 是「在另一个 base 之上重新应用提交」
@@ -102,6 +92,13 @@ git merge master feature
 - 不要通过rebase对任何已经提交到公共仓库中的commit进行修改（你自己一个人玩的分支除外）
 - 可以用来合并 commit 历史, 得到更简洁的项目历史, 没有 merge commit
 - 缺点：如果合并出现代码问题不容易定位，因为 re-write 了 history  
+
+### 使用场景
+
+- 把 dev 分支的 commit 更新到 feature 分支
+  - feature 分支开发过程中把
+  - feature 分支跟 dev 分支合并前
+- 整理 feature 分支的 commit 历史
 
 ### feature 分支合并到 dev 分支
 
@@ -113,16 +110,21 @@ git merge master feature
    2. git fetch origin dev:dev
 3. git rebase dev
 4. 如果有冲突的话, 就处理冲突
+   1. 处理冲突
+   2. git rebase --continue/--skip/--abort
 5. git push -f
-6. 如果以上命令是在 shell 操作的, 回到 jetbrain 里之后要操作一次 reload from dick
+6. 如果以上命令是在 shell 里操作的, 回到 jetbrain 之后要操作一次 reload from dick
 
-#### 整理 feature 分支的 commit 历史
+#### git rebase 交互模式 整理 feature 分支的 commit 历史
 
-或许...整理历史可以跟上一步一起做, 改天测试一下.
-
-```bash
-git rebase -i xxx
-```
+1. git rebase -i commit_id_x, 或者 git rebase -i HEAD~3
+2. 第一行 保留 pick
+3. 其它后面的行用 squash
+4. :x 保存退出
+5. 然后会提示修改 commit message
+6. 修改好之后 `:x` 保存退出
+7. git push -f
+8. 如果以上命令是在 shell 里操作的, 回到 jetbrain 之后要操作一次 reload from dick
 
 #### 再把 feature 分支合并到 dev 分支
 
@@ -312,22 +314,7 @@ git rebase -i commit0
 - exec：执行 shell 命令（缩写:x）
 - drop：我要丢弃该 commit（缩写:d）
 
-#### git rebase 交互模式, 合并 commit
-
-1. git rebase -i commit_x, 或者 git rebase -i HEAD~3
-2. 第一行 pick
-3. 其它后面的行 squash
-4. :x 保存退出
-5. 然后会提示修改 commit message
-6. 修改好之后 `:x` 保存退出
-7. git push -f
-
 交互模式, 即弹出交互式的界面让用户编辑完成合并操作，[startpoint] [endpoint] 指定了一个编辑区间，如果不指定 [endpoint]，该区间的终点默认是当前分支HEAD 所指向的 commit (注：该区间指定的是一个**前开后闭**的区间)。
-
-作者：zuopf769
-链接：<https://juejin.cn/post/6844903600976576519>
-来源：稀土掘金
-著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
 
 两种模式的区别
 我们前面提到， rebase 是「在另一个基端之上重新应用提交」，而在重新应用的过程中，这些提交会被重新创建，自然也可以进行修改。在 rebase 的标准模式下，当前工作分支的提交会被直接应用到传入分支的顶端；而在交互模式下，则允许我们在重新应用之前通过编辑器以及特定的命令规则对这些提交进行合并、重新排序及删除等重写操作。
@@ -359,6 +346,7 @@ git rebase -i commit0
 ```bash
 # 数字代表显示倒数第几次, # -i, --interactive
 git rebase -i HEAD~2
+git rebase -i commit_id_x
 # git log 你可以发现，git 的最后一次提交已经变成你选的那个了
 # 把pick 修改成edit然后保存退出，然后会看到提示 git commit --amend
 git commit --amend
@@ -369,3 +357,9 @@ git push origin master
 # 修改了已经push的注释，得用强制push, force push对其它人有影响慎用.
 git push --force origin master
 ```
+
+
+作者：zuopf769
+链接：<https://juejin.cn/post/6844903600976576519>
+来源：稀土掘金
+著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
