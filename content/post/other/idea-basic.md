@@ -17,6 +17,7 @@ tags:
 - Expand All,                   Ctrl+Shift+=
 - Ctrl + g, goto line
 - ctrl + shift + k, git push
+- ctrl + alt + y, reload all from disk
 
 CTRL+SHIFT+N 查找文件
   
