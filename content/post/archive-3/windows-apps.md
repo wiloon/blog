@@ -11,6 +11,8 @@ tags:
 ---
 ## windows apps, win apps
 
+- WizTree, 硬盘占用分析
+- MiniTool Partition Wizard, 磁盘分区工具
 - anydeak 远程桌面
 - todesk 远程桌面
 - taskmgr, 任务管理器, C:\Windows\System32\Taskmgr.exe
@@ -51,7 +53,6 @@ choco upgrade keepassxc
 
 | Name             | Comments |
 | ---------------- | -------- |
-| MiniTool Partition Wizard |磁盘分区工具|
 | MobaXterm                 |ssh client|
 | Open Hardware Monitor     | 监控,温度,内存 |
 | WizTree | 硬盘占用分析 |
