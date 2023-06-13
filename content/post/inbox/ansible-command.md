@@ -18,6 +18,8 @@ tags:
 ansible-galaxy collection install community.general
 # localhost
 ansible localhost -m shell -a 'ls'
+# 指定私钥 --key-file
+ansible -i 'wiloon.com,' all -m shell -a 'systemctl stop enx-api' -u root --key-file ~/.ssh/id_ed25519_w10n
 ```
 
 ### hibernate, 临时的 inventory file
