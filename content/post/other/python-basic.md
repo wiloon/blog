@@ -810,6 +810,11 @@ Color(1).name
 
 ```py
 "secret" in title_cased_file_content
+
+# 字符串 大写, upper
+stringVar = "welcome to sparkbyexamples"
+print(stringVar.upper())
+
 ```
 
 ## list > string join
