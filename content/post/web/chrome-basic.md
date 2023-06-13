@@ -9,6 +9,11 @@ tags:
 ---
 ## "chrome basic"
 
+```bash
+# dns lookup
+chrome://net-internals/#dns
+```
+
 ### 不使用页面缓存进行刷新
 
     Shift+F5

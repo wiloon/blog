@@ -49,7 +49,15 @@ XSS 更偏向于方法论, CSRF 更偏向于一种形式, 只要是伪造用户�
 
 XSS 更偏向于代码实现 (即写一段拥有跨站请求功能的 JavaScript 脚本注入到一条帖子里, 然后有用户访问了这个帖子, 这就算是中了 XSS 攻击了), CSRF 更偏向于一个攻击结果, 只要发起了冒牌请求那么就算是 CSRF 了。
 
-### CORS， Cross-Origin Resource Sharing, 跨源资源共享, 跨域资源共享
+### CORS, Cross-Origin Resource Sharing, 跨源资源共享, 跨域资源共享
+
+CORS需要浏览器和服务器同时支持。目前，所有浏览器都支持该功能，IE浏览器不能低于IE10。
+
+整个CORS通信过程，都是浏览器自动完成，不需要用户参与。对于开发者来说，CORS通信与同源的AJAX通信没有差别，代码完全一样。浏览器一旦发现AJAX请求跨源，就会自动添加一些附加的头信息，有时还会多出一次附加的请求，但用户不会有感觉。
+
+因此，实现CORS通信的关键是服务器。只要服务器实现了CORS接口，就可以跨源通信。
+
+<https://www.ruanyifeng.com/blog/2016/04/cors.html>
 
 由于现实使用中，很多需要跨域访问，所以 W3C 标准就提出了 CORS。
 
@@ -140,7 +148,7 @@ body0
 
 #### Access-Control-Allow-Origin
 
-该字段是必须的。它的值要么是请求时Origin字段的值，要么是一个*，表示接受任意域名的请求。
+该字段是必须的。它的值要么是请求时 Origin 字段的值，要么是一个 *，表示接受任意域名的请求。
 
 #### Access-Control-Allow-Credentials
 

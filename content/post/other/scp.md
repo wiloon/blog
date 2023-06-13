@@ -30,7 +30,7 @@ scp -O /path/to/foo root@192.168.50.4:~
 
 ```
 
-## 在 a 主机上执行命令,把文件 从 b 主机复制到 c 主机
+## 在 a 主机上执行命令, 把文件 从 b 主机复制到 c 主机
 
 ```bash
 scp root@10.1.0.2:/testdir/ssh/test root@10.1.0.3:/testdir/ssh/
@@ -39,20 +39,22 @@ scp root@10.1.0.2:/testdir/ssh/test root@10.1.0.3:/testdir/ssh/
 ```bash
 # 命令格式: 
 scp [可选参数] file_source file_target
+
+# -i 指定私钥
 scp -i identity_file
-scp -i mykey.pem somefile.txt root@ec2-184-73-72-150.compute-1.amazonaws.com:/home/user/xxx
-# -i 指定证书
+scp -i id_ed25519 somefile.txt root@ec2-184-73-72-150.compute-1.amazonaws.com:/home/user/xxx
 ```
 
 ### 参数
 
 ```r
 -P 指定端口, 注意是大写的 P, 小写的 -p 已经被 rcp 使用
--v 和大多数 linux 命令中的 -v 意思一样 , 用来显示进度 . 可以用来查看连接 , 认证 , 或是配置错误
+-v 和大多数 linux 命令中的 -v 意思一样 , 用来显示进度. 可以用来查看连接, 认证, 或是配置错误
 -C 使能压缩选项
 -4 强行使用 IPV4 地址 .
 -6 强行使用 IPV6 地址 .
 -r  Recursively copy entire directories.
+-i 指定 ssh 私钥
 ```
 
 ## 从 本地 复制到 远程

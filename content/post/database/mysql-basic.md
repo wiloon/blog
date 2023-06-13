@@ -39,9 +39,7 @@ mysqldump -h 192.168.50.100 -uroot -p --databases rssx --tables user --where=use
 
 ## mysql GUI client for Linux
 
-```bash
-    IDEA
-```
+Jetbrain.Datagrip
 
 ### jdbc url
 

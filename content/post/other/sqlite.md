@@ -18,7 +18,10 @@ tags:
 # 安装
 sudo pacman -S sqlite
 
-# 列出 数据库文件和名字
+# 启动 sqlite
+sqlite3
+
+# 列出数据库文件和名字
 .databases
 
 # query schema
