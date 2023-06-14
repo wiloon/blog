@@ -13,6 +13,7 @@ tags:
 - CleanMyMac X
 - Bob, 词典
 - Monosnap, 截图
+- Stats, https://github.com/exelban/stats, 监控
 
 ## brew
 
