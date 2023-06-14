@@ -182,6 +182,11 @@ usermod -U newuser1
   
 -U 解除密码锁定。
 
+## su command
+
+su 命令来自英文单词 switch user 的缩写，其功能是用于切换用户身份。管理员切换至任意用户身份而无须密码验证，而普通用户切换至任意用户身份均需密码验证。另外添加单个减号（-）参数为完全的身份变更，不保留任何之前用户的环境变量信息。
+原文链接：<https://www.linuxcool.com/su>
+
 在Linux下创建用户和删除用户，必须在root用户下，如果你当前不是用根用户登录，你可以打开终端，输入"su root"命令，再输入根口令，就可以进入root用户模式下。
 
 查看用户是否过期
@@ -198,13 +203,13 @@ chage -l user0
 
 实例1: 普通用户user1知道root账户登录密码，要求用户user1在不注销登录的前提下查看/etc/shadow文件。
 
-su - 与su
+### su - 与 su
 
-通过su切换用户还可以直接使用命令su USERNAME，与su - USERNAME的不同之处如下:
+通过 su 切换用户还可以直接使用命令 su USERNAME，与 su - USERNAME 的不同之处如下:
 
-su - USERNAME切换用户后，同时切换到新用户的工作环境中
+su - USERNAME 切换用户后，同时切换到新用户的工作环境中
 
-su USERNAME切换用户后，不改变原用户的工作目录，及其他环境变量目录
+su USERNAME 切换用户后，不改变原用户的工作目录，及其他环境变量目录
 
 1. 删除用户 (userdel命令)
   

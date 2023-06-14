@@ -21,6 +21,7 @@ tags:
 ## AUR
 
 - google-chrome
+- redisinsight: redis GUI
 
 ## application list
 

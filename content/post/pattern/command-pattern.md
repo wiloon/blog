@@ -10,7 +10,7 @@ tags:
 ---
 ## 命令模式, Command pattern
 
-# 命令模式, Command pattern , 行动(Action)模式或者交易(Transaction)模式
+命令模式, Command pattern , 行动(Action)模式或者交易(Transaction)模式
 
 定义
 命令模式属于对象的行为模式。命令模式又称为行动(Action)模式或者交易(Transaction)模式。
