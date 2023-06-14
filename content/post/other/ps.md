@@ -208,7 +208,7 @@ Linux下显示系统进程的命令 ps，最常用的有ps -ef 和ps aux。这�
 System V 风格和 BSD 风格, ps aux 最初用到 Unix Style 中( BSD的格式)，而  ps -ef 被用在 System V Style 中，两者输出略有不同。现在的大部分Linux系统都是可以同时使用这两种方式的。
 <https://www.cnblogs.com/5201351/p/4206461.html>
 
-## install
+## install ps
 
 ```bash
 # ububtu

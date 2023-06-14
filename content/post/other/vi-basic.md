@@ -13,6 +13,8 @@ tags:
 
 ## vi/vim basic, command
 
+基本上 vi/vim 共分为三种模式，分别是命令模式（Command mode），输入模式（Insert mode）和底线命令模式（Last line mode）
+
 ## 基本插入
 
 ```r
@@ -224,6 +226,18 @@ visual模式
 | d^      | 删除至行首                                        |
 | d$      | 从光标处删除到行尾                                |
 | dd      | 删除整行                                          |
+
+```bash
+# 删除以#号开头的行：
+:g/^#/d
+:%s/^#.*\n
+
+# 删除空白行
+:g/^$/d
+:g/^\s*$/d               “删除由空格组成的行”
+:g/^[\s|\t]*$/d          “删除由空格或tab键开头到结尾的行”
+:g/^[ |\t]*$/d          “删除由空格或tab键开头到结尾的行”
+```
 
 ## 光标移动
 
@@ -806,3 +820,5 @@ set number
 
 <http://www.cnblogs.com/taizi1985/archive/2007/08/13/853190.html>
 <https://www.cnblogs.com/luosongchao/p/3193153.html>
+
+<https://zhuanlan.zhihu.com/p/51440836>

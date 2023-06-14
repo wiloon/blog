@@ -1,23 +1,101 @@
 ---
-title: redis config
+title: redis config redis 配置
 author: "-"
 date: 2019-02-22T11:26:25+00:00
 url: redis/config
 categories:
-  - inbox
+  - Redis
 tags:
   - reprint
+  - remix
 ---
-## redis config
+## redis config redis 配置
+
+## sample, 单机 redis server 配置
+
+```conf
+bind 0.0.0.0
+protected-mode yes
+port 6379
+tcp-backlog 511
+timeout 0
+tcp-keepalive 300
+daemonize no
+pidfile /var/run/redis_6379.pid
+loglevel notice
+logfile ""
+databases 16
+always-show-logo no
+set-proc-title yes
+proc-title-template "{title} {listen-addr} {server-mode}"
+stop-writes-on-bgsave-error yes
+rdbcompression yes
+rdbchecksum yes
+dbfilename dump.rdb
+rdb-del-sync-files no
+dir /var/lib/redis/
+replica-serve-stale-data yes
+replica-read-only yes
+repl-diskless-sync yes
+repl-diskless-sync-delay 5
+repl-diskless-sync-max-replicas 0
+repl-diskless-load disabled
+repl-disable-tcp-nodelay no
+replica-priority 100
+acllog-max-len 128
+lazyfree-lazy-eviction no
+lazyfree-lazy-expire no
+lazyfree-lazy-server-del no
+replica-lazy-flush no
+lazyfree-lazy-user-del no
+lazyfree-lazy-user-flush no
+oom-score-adj no
+oom-score-adj-values 0 200 800
+disable-thp yes
+appendonly no
+appendfilename "appendonly.aof"
+appenddirname "appendonlydir"
+appendfsync everysec
+no-appendfsync-on-rewrite no
+auto-aof-rewrite-percentage 100
+auto-aof-rewrite-min-size 64mb
+aof-load-truncated yes
+aof-use-rdb-preamble yes
+aof-timestamp-enabled no
+slowlog-log-slower-than 10000
+slowlog-max-len 128
+latency-monitor-threshold 0
+notify-keyspace-events ""
+hash-max-listpack-entries 512
+hash-max-listpack-value 64
+list-max-listpack-size -2
+list-compress-depth 0
+set-max-intset-entries 512
+zset-max-listpack-entries 128
+zset-max-listpack-value 64
+hll-sparse-max-bytes 3000
+stream-node-max-bytes 4096
+stream-node-max-entries 100
+activerehashing yes
+client-output-buffer-limit normal 0 0 0
+client-output-buffer-limit replica 256mb 64mb 60
+client-output-buffer-limit pubsub 32mb 8mb 60
+hz 10
+dynamic-hz yes
+aof-rewrite-incremental-fsync yes
+rdb-save-incremental-fsync yes
+jemalloc-bg-thread yes
+```
 
 <https://raw.githubusercontent.com/redis/redis/6.0/redis.conf>
 
 ```bash
-bind 0.0.0.0
 # bind 参数是为了禁止外网访问redis,如果启用了,则只能够通过lookback ip (127.0.0.1) 访问Redis
+bind 0.0.0.0
+bind 127.0.0.1 -::1
 
 protected-mode no
-# protected mode 是 Redis的安全特性, 开启之后 redis 不会响应 loopback interfaces 以外的请求.
+# protected mode 是 Redis 的安全特性, 开启之后 redis 不会响应 loopback interfaces 以外的请求.
 port 6379
 #tcp-backlog, 此参数确定了TCP连接中已完成队列(完成三次握手之后)的长度, 当然此值必须不大于Linux系统定义的/proc/sys/net/core/somaxconn值,默认是511,而Linux的默认参数值是128。当系统并发量大并且客户端速度缓慢的时候,可以将这二个参数一起参考设定,了解了下tcp的三次握手进行中的一些queue的知识. 参考下图我们可以看到在server接收到syn的时候会进入到一个syn queue队列, 当server端最终收到ack时转换到accept queue队列. 上面终端显示在listen状态下的连接, 其 Send-Q 就是这个 accept queue 队列的最大值. 只有 server 端执行了 accept 后才会从这个队列中移除这个连接. 这个值的大小是受 somaxconn 影响的, 因为是取的它们两者的最小值, 所以如果要调大的话必需修改内核的 somaxconn 值.建议修改为 2048
 tcp-backlog 511
@@ -99,7 +177,7 @@ save 900 1
 save 300 10  
 save 60 10000 
 
-# 配置redis 数据文件的目录, 配置了dir之后, node.conf, rdb, aof文件都 会保存到这个目录 下.
+# 配置 redis 数据文件的目录, 配置了 dir 之后, node.conf, rdb, aof 文件都会保存到这个目录下.
 dir /var/lib/redis
 
 # 缺省情况下,如果 RDB 快照被启用 (至少有一个存储点) 时,若后台保存快照失败,Redis 将拒绝接受写入。
@@ -301,3 +379,5 @@ hz 的默认值是 10,可以通过提高这个值来使得 CPU 在空闲的时�
 
 masterauth passwd123  指定密码passwd123
 requirepass passwd123 指定密码passwd123
+
+<https://redis.io/docs/management/config-file/>
