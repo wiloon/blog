@@ -12,11 +12,11 @@ tags:
 ---
 ## lsof
 
-lsof means ‘List Open Files’
+lsof means 'List Open Files'
 
 List all open files on the system or open files for specified PID
 
-## install
+## install lsof
 
 ```bash
 # ubuntu
@@ -135,9 +135,9 @@ lsof [参数][文件]
 
 ### 命令功能
 
-用于查看你进程开打的文件, 打开文件的进程, 进程打开的端口(TCP、UDP)。找回/恢复删除的文件。是十分方便的系统监视工具,因为 lsof 需要访问核心内存和各种文件,所以需要root用户执行。
+用于查看你进程开打的文件, 打开文件的进程, 进程打开的端口(TCP、UDP)。找回/恢复删除的文件。是十分方便的系统监视工具,因为 lsof 需要访问核心内存和各种文件, 所以需要用 root 用户执行。
 
-### lsof打开的文件类型
+### lsof 打开的文件类型
 
 1. 普通文件
 2. 目录

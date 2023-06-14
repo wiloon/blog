@@ -211,6 +211,7 @@ image0_name
 generate systemd script
 
 ```bash
+# 容器名跟服务名一致
 export service_name=foo
 podman generate systemd $service_name > /usr/lib/systemd/system/$service_name.service
 # enable service

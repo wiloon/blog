@@ -134,17 +134,6 @@ rpm -ivh redis-2.8.20-3.el6.art.x86_64.rpm
 ### podman, 单机 redis
 
 ```bash
-# default config
-podman run \
--d \
---name redis \
--p 6379:6379 \
--v /etc/localtime:/etc/localtime:ro \
-redis:7.0.9
-
-# client
-podman run -it --rm redis redis-cli -h redis.wiloon.com
-
 # customized config file and data volume
 podman run \
 -d \
@@ -152,8 +141,19 @@ podman run \
 -p 6379:6379 \
 -v /etc/localtime:/etc/localtime:ro \
 -v redis-conf:/etc/redis \
--v redis-data:/data/redis \
-redis:6.2.6 redis-server /etc/redis/redis.conf
+-v redis-data:/var/lib/redis \
+redis:7.0.11 redis-server /etc/redis/redis.conf
+
+# default config
+podman run \
+-d \
+--name redis \
+-p 6379:6379 \
+-v /etc/localtime:/etc/localtime:ro \
+redis:7.0.11
+
+# client
+podman run -it --rm redis redis-cli -h redis.wiloon.com
 ```
 
 ```bash
