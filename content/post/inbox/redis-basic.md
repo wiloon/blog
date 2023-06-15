@@ -98,7 +98,7 @@ https://redis.io/
 https://github.com/redis/redis
 ```
 
-## install
+## install redis
 
 ### centos
 
@@ -122,7 +122,7 @@ download redis rpm from <https://pkgs.org/download/redis>
 
 <https://rpms.remirepo.net/enterprise/7/remi/x86_64/redis-7.0.0-1.el7.remi.x86_64.rpm>
 
-下载Redis的依赖包: libjemalloc
+下载 Redis 的依赖包: libjemalloc
 
 下载地址: <https://pkgs.org/centos-6/atomic-x86_64/jemalloc-3.6.0-1.el6.art.x86_64.rpm.html>
 
@@ -156,7 +156,15 @@ redis:7.0.11
 podman run -it --rm redis redis-cli -h redis.wiloon.com
 ```
 
+### archlinux redis service
+
 ```bash
+pacman -S redis
+systemctl start redis
+```
+
+```bash
+# list redis server version
 redis-server --version
 ```
 
@@ -543,7 +551,6 @@ spec:
 kubectl create -f redis-deployment.yml
 ```
 
+## Redis 从文件中批量插入数据
 
-## Redis从文件中批量插入数据
-
-https://blog.csdn.net/chwshuang/article/details/52915685
+<https://blog.csdn.net/chwshuang/article/details/52915685>
