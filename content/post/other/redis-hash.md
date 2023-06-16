@@ -11,7 +11,7 @@ tags:
 ---
 ## redis hash
 
-Redis hash 是一个 string类型的field和value的映射表.一个key可对应多个field,一个field对应一个value。将一个对象存储为hash类型,较于每个字段都存储成string类型更能节省内存。新建一个hash对象时开始是用zipmap(又称为small hash)来存储的。这个zipmap其实并不是hash table,但是zipmap相比正常的hash实现可以节省不少hash本身需要的一些元数据存储开销。尽管zipmap的添加,删除,查找都是O(n),但是由于一般对象的field数量都不太多。所以使用zipmap也是很快的,也就是说添加删除平均还是O(1)。如果field或者value的大小超出一定限制后,Redis会在内部自动将zipmap替换成正常的hash实现。
+Redis hash 是一个 string 类型的 field和 value的映射表.一个 key可对应多个 field, 一个 field对应一个 value。将一个对象存储为 hash类型,较于每个字段都存储成string类型更能节省内存。新建一个 hash对象时开始是用 zipmap(又称为small hash)来存储的。这个 zipmap其实并不是 hash table,但是zipmap 相比正常的 hash实现可以节省不少 hash本身需要的一些元数据存储开销。尽管 zipmap的添加, 删除,查找都是O(n),但是由于一般对象的field数量都不太多。所以使用zipmap也是很快的,也就是说添加删除平均还是O(1)。如果field或者value的大小超出一定限制后,Redis会在内部自动将zipmap替换成正常的hash实现。
 
 hash操作命令如下:
 

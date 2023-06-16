@@ -96,35 +96,40 @@ git merge master feature
 ### 使用场景
 
 - 把 dev 分支的 commit 更新到 feature 分支
-  - feature 分支开发过程中把
+  - feature 分支开发过程中
   - feature 分支跟 dev 分支合并前
 - 整理 feature 分支的 commit 历史
 
+#### git rebase 交互模式 整理 feature 分支的 commit 历史
+
+1. git switch feature0
+2. git pull
+3. git rebase -i commit_id_x, 或者 git rebase -i HEAD~3
+4. 第一行 保留 pick
+5. 其它后面的行用 squash
+6. `:x` 保存退出
+7. 然后会提示修改 commit message
+8. 修改好之后 `:x` 保存退出
+9. `git push -f`
+10. 如果以上命令是在 shell 里操作的, 回到 jetbrain 之后要操作一次 reload from dick
+
 ### feature 分支合并到 dev 分支
+
+合并之前可以先整理 feature 分支的 commit 历史
 
 #### 先在 feature 分支上做一次 rebase
 
 1. git switch branch_feature0
-2. branch_feature0 分支和 dev 分支都更新一下.
+2. branch_feature0 分支和 dev 分支都做一次 git pull
    1. git pull
    2. git fetch origin dev:dev
 3. git rebase dev
 4. 如果有冲突的话, 就处理冲突
-   1. 处理冲突
-   2. git rebase --continue/--skip/--abort
+   1. 有冲突的时候大概会显示成这样 `CONFLICT (content): Merge conflict in foo.txt`
+   2. 处理冲突
+   3. git rebase --continue/--skip/--abort
 5. git push -f
 6. 如果以上命令是在 shell 里操作的, 回到 jetbrain 之后要操作一次 reload from dick
-
-#### git rebase 交互模式 整理 feature 分支的 commit 历史
-
-1. git rebase -i commit_id_x, 或者 git rebase -i HEAD~3
-2. 第一行 保留 pick
-3. 其它后面的行用 squash
-4. :x 保存退出
-5. 然后会提示修改 commit message
-6. 修改好之后 `:x` 保存退出
-7. git push -f
-8. 如果以上命令是在 shell 里操作的, 回到 jetbrain 之后要操作一次 reload from dick
 
 #### 再把 feature 分支合并到 dev 分支
 
@@ -357,7 +362,6 @@ git push origin master
 # 修改了已经push的注释，得用强制push, force push对其它人有影响慎用.
 git push --force origin master
 ```
-
 
 作者：zuopf769
 链接：<https://juejin.cn/post/6844903600976576519>
