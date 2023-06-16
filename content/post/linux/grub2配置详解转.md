@@ -350,13 +350,13 @@ mount 你的根分区 /mnt
   
 mount 你的/boot 分区 /mnt/boot #如果有的话
   
-# 挂载你其他的分区，如果有的话
+挂载你其他的分区，如果有的话
   
-# 重建grub到sda的mbr
+重建grub到sda的mbr
   
 grub-install -root-directory=/mnt /dev/sda
 
-2. 由于root分区uuid改变造成的不能正常启动，只能进入grub rescue模式的修复
+1. 由于root分区uuid改变造成的不能正常启动，只能进入grub rescue模式的修复
 
 代码:
   
@@ -408,13 +408,13 @@ mount 你的根分区 /mnt
   
 mount 你的/boot 分区 /mnt/boot #如果有的话
   
-# 挂载你其他的分区，如果有的话
+挂载你其他的分区，如果有的话
 
-# 重建grub到sda的mbr
+重建grub到sda的mbr
   
 grub-install -root-directory=/mnt /dev/sda
 
-# 重建grub.cfg
+重建grub.cfg
   
 mount -bind /proc /mnt/proc
   
