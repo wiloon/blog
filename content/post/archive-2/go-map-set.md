@@ -59,7 +59,7 @@ m2["b"] = "bb"
 delete(m2, "a")
 ```
 
-#### 初始化 + 赋值一体化
+#### 初始化 + 赋值
 
 ```go
 m3 := map[string]string{
