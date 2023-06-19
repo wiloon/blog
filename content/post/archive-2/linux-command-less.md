@@ -199,7 +199,7 @@ Less log2013.log log2014.log
   
 输出:
 
-    说明: 
+说明:
 
 输入 : n后,切换到 log2014.log
   
