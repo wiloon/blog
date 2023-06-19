@@ -413,3 +413,13 @@ F1 默认走 罗技优联, F2 和 F3 可以连接另外两个蓝牙设备. 蓝�
 ### 取消悬浮导航
 
 系统和更新> 系统导航方式> 悬浮导航
+
+## thinkpad x1 carbon gen9
+
+windows 11 进入 bios
+
+startup> settings> windows update> advanced options> recovery> advance startup> restart now> throubleshoot> advanced options> uefi firemare> restart
+
+### disable built-in battery
+
+power> disable built-in battery

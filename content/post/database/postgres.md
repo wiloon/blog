@@ -352,7 +352,7 @@ psql --dbname=database0 --host=127.0.0.1 --username=user0 -c "COPY (select now()
 版权声明：本文为CSDN博主「df0128」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
 原文链接：<https://blog.csdn.net/df0128/article/details/89673596>
 
-## log
+## log, 日志
 
 log_directory = 'pg_log' to log_directory = 'pg_log'
 
