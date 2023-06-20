@@ -10,6 +10,7 @@ tags:
 
 ---
 ## 观察者模式, Observer pattern
+
 定义对象间的一种一对多的依赖关系，当一个对象的状态发生改变时，所有依赖于它的对象都得到通知并被自动更新。
 
 观察者模式 (Observer）又称发布-订阅模式 (Publish-Subscribe：Pub/Sub）。它是一种通知机制，让发送通知的一方 (被观察方）和接收通知的一方 (观察者）能彼此分离，互不影响。
@@ -23,6 +24,7 @@ tags:
 实现观察者模式的时候要注意，观察者和被观察对象之间的互动关系不能体现成类之间的直接调用，否则就将使观察者和被观察对象之间紧密的耦合起来，从根本上违反面向对象的设计的原则。无论是观察者"观察"观察对象，还是被观察者将自己的改变"通知"观察者，都不应该直接调用。
   
 实现观察者模式有很多形式，比较直观的一种是使用一种"注册——通知——撤销注册"的形式。
+
 ```puml
 @startuml
 class Publisher
@@ -59,23 +61,26 @@ EventListener<|-- LogOpenListener
 LogOpenListener<.. Demo
 @enduml
 ```
+
 ### 发布者, Publisher, 被观察对象, Subject
+
 发布者  (Publisher） 会向其他对象发送值得关注的事件。 事件会在发布者自身状态改变或执行特定行为后发生。 发布者中包含一个允许新订阅者加入和当前订阅者离开列表的订阅构架。
 
 当新事件发生时， 发送者会遍历订阅列表并调用每个订阅者对象的通知方法。 该方法是在订阅者接口中声明的。
 
 ### 订阅者, Subscriber, 观察者, Observer
+
 订阅者  (Subscriber） 接口声明了通知接口。 在绝大多数情况下， 该接口仅包含一个 update更新方法。 该方法可以拥有多个参数， 使发布者能在更新时传递事件的详细信息。
 
  (Observer) 将自己注册到被观察对象 (Subject) 中，被观察对象将观察者存放在一个容器 (Container) 里。
 
 ### 具体订阅者  (Concrete Subscribers）
+
 具体订阅者  (Concrete Subscribers） 可以执行一些操作来回应发布者的通知。 所有具体订阅者类都实现了同样的接口， 因此发布者不需要与具体类相耦合。
 
 订阅者通常需要一些上下文信息来正确地处理更新。 因此， 发布者通常会将一些上下文数据作为通知方法的参数进行传递。 发布者也可将自身作为参数进行传递， 使订阅者直接获取所需的数据。
 
 客户端  (Client） 会分别创建发布者和订阅者对象， 然后为订阅者注册发布者更新。
-
 
 ---
 
@@ -121,6 +126,7 @@ class Watched
 @enduml
 
 ```  
+
 ### 抽象主题角色类
 
 ```java
@@ -193,7 +199,7 @@ public class ConcreteWatcher implements AbstractWatcher {
 }
 ```
 
-5.客户端调用: 
+5.客户端调用:
 
 ```java
 public class ClientTest {
@@ -231,7 +237,7 @@ public class ClientTest {
 }
 ```
 
-执行结果为: 
+执行结果为:
   
 第1次...
   
@@ -255,7 +261,8 @@ B:对于java的观察者模式框架
   
 在xml解析中的SAX也采用了观察者模式来实现
   
-### Java也提供了对观察者模式的内置支持, Observer和Observable在Java 9标记为废弃。
+### Java也提供了对观察者模式的内置支持, Observer和Observable在Java 9标记为废弃
+
 内置观察者模式主要有2个类，一个是类Observable,一个是接口类Observer
 
 Observable类是被观察者，子类只要继承它即可。而且添加观察者等方法已经都实现了.
@@ -270,9 +277,9 @@ Observer是观察者，只有一个接口方法public void update(Observable arg
 
 一个被观测的对象必须服从下面的两个简单规则。第一，如果它被改变了，它必须调用setChanged( )方法。第二，当它准备通知观测程序它的改变时，它必须调用notifyObservers( )方法。这导致了在观测对象中对update( )方法的调用。注意——当对象在调用notifyObservers( )方法之前，没有调用setChanged( )方法，就不会有什么动作发生。在update( )被调用之前，被观测对象必须调用setChanged( )和notifyObservers( )两种方法
 
-例如: 
+例如:
   
-被观察者: 
+被观察者:
 
 ```java
 import java.util.Observable;
@@ -304,7 +311,7 @@ public class Watcher implements Observer {
 }
 ```
 
-第二个观察者: 
+第二个观察者:
 
 ```java
 import java.util.Observable;
@@ -320,6 +327,7 @@ public class Watcher2 implements Observer {
 ```
 
 ### 客户端调用
+
 ```java
 public class Client {
     public static void main(String[] args) {
@@ -336,11 +344,12 @@ public class Client {
 }
 ```
 
-输出结果为: 
+输出结果为:
   
 done
 
-### Observer类和Observable类在Java 9标记为废弃。
+### Observer类和Observable类在Java 9标记为废弃
+
 废弃原因
 Observer和Observable有几个原因：
 
@@ -367,6 +376,7 @@ Observable没有实现Serializable接口，它的内部成员变量都是私有�
 可以使用java.beans 里的 PropertyChangeEvent 和 PropertyChangeListener 来代替目前Observer和Observable的功能。
 
 示例
+
 ```java
 public class Demo {  
   
@@ -415,7 +425,7 @@ public class Main {
 }
 ```
 
-http://ttitfly.iteye.com/blog/152512
->https://majing.io/posts/10000001281162
->https://refactoringguru.cn/design-patterns/observer
->https://refactoringguru.cn/design-patterns/observer/java/example
+<http://ttitfly.iteye.com/blog/152512>
+><https://majing.io/posts/10000001281162>
+><https://refactoringguru.cn/design-patterns/observer>
+><https://refactoringguru.cn/design-patterns/observer/java/example>

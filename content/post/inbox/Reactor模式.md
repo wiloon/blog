@@ -104,7 +104,7 @@ Reactor 模式与 Observer 模式在某些方面极为相似: 当一个主体发
 
 最最原始的网络编程思路就是服务器用一个while循环，不断监听端口是否有新的 socket 连接，如果有，那么就调用一个处理函数处理，类似:
 
-```
+```js
 while(true){
 socket = accept();
 handle(socket)

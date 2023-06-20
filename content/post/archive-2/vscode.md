@@ -88,7 +88,7 @@ ctrl+b: 粗体
 
 ### REST Client
 
-vscode 发http请求
+vscode 发 http 请求
 同一个文档 中不同的请求用 "###" 分隔
 
 ### Insert Date String
