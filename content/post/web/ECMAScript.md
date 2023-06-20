@@ -1,13 +1,23 @@
 ---
+title: ECMAScript, javascript basic
 author: "-"
 date: "2020-12-03 11:18:50" 
-title: "ECMAScript, javascript basic"
 categories:
   - inbox
 tags:
   - reprint
 ---
-## "ECMAScript, javascript basic"
+## ECMAScript, javascript basic
+
+## 数组
+
+JavaScript 数组是可调整大小的，并且可以包含不同的数据类型。
+
+```js
+const fruits = [];
+fruits.push("banana", "apple", "peach");
+console.log(fruits.length); // 3
+```
 
 <https://es6.ruanyifeng.com/>
 
