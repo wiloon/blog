@@ -289,7 +289,9 @@ step4：输入【git push -f】强制提交。
 #### 修改最近一次的 commit message
 
 ```bash
+# 执行后会提示输入 new commit message
 git commit --amend
+# 直接提供 new commit message
 git commit --amend -m "New commit message."
 ```
 
