@@ -71,6 +71,22 @@ select * length( "abc"::TEXT)
 insert into test select generate_series(1,10000), random()*10;
 ```
 
+## sql
+
+```sql
+alter table ipsec_request
+    rename to ipsec_requests;
+```
+
+## create table
+
+```sql
+create table table0(
+  field0 json,
+  create_time             timestamp with time zone default now(),
+  );
+```
+
 ## psql 直接执行 sql
 
 ```sql
@@ -176,10 +192,18 @@ pg_dump -d db_name | gzip > db.gz
 psql -h 127.0.0.1 -p 5432 -t table0 -U postgres -d database0 -f foo.sql
 ```
 
-```sql
-CREATE SEQUENCE shipments_ship_id_seq MINVALUE 0;
+## sequence
 
+```sql
+CREATE SEQUENCE seq_0 START 1;
+CREATE SEQUENCE seq_0 INCREMENT 1 MINVALUE 1 START 1 CACHE 1;  
 ```
+
+- INCREMENT, 步长
+- max/MINVALUE, 最大/小值
+- START, 初始值
+- CACHE, 缓存, 某个客户端调用 nextval() 之后, 服务端为其预分配的 seq 值的缓存, 如果客户端挂掉或重启缓存里的数据都会被丢弃.
+- cycle, 循环产生
 
 ## PostgreSQL 如何删除外键限制
 
@@ -215,10 +239,14 @@ WHERE constraint_type = 'FOREIGN KEY' AND tc.table_name = 'table0';
 
 ## postgresql 数据类型
 
+- smallint, 2 字节, 小范围整数, -32768 到 +32767
+- timestamp [ (p) ] [ without time zone ]
+- timestamp [ (p) ] with time zone
+
 ```sql
 名字                        别名             描述
-character varying [ (n) ]  varchar [ (n) ]  可变长字符串
-character [ (n) ]          char [ (n) ]     定长字符串
+character varying [(n)]  varchar [ (n) ]  可变长字符串
+character [(n)]          char [ (n) ]     定长字符串
 timestamp                                   SQL标准要求仅仅将timestamp类型等于timestamp without time zone 类型
 timestamp with time zone   TIMESTAMPTZ       PostgreSQL遵守这个行为。timestamptz 作为 timestamp with time zone 的缩写被接受；这是PostgreSQL 的一个扩展。
 ```
@@ -409,3 +437,11 @@ select * from test limit 10;
 select c1,count(*)  from test group by c1;
 select c1,count(*), count(*) filter (where id<1000) from test group by c1;
 ```
+
+<https://blog.csdn.net/wuyujin1997/article/details/125904177>
+
+## regclass
+
+regclass是oid的别名，postgresql自动的为每一个系统表都建立了一个OId，其中有一个系统表叫做：pg_class，这个表里记录了数据表、索引(仍然需要参阅pg_index)、序列、视图、复合类型和一些特殊关系类型的元数据
+
+<https://blog.csdn.net/shiyibodec/article/details/52447755>
