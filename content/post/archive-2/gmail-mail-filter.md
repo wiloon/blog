@@ -9,4 +9,5 @@ tags:
   - reprint
 ---
 ## gmail mail filter
-to:(xxx@xxx.com) after:2015/04/01 before:2016/01/01
+
+to:(<xxx@xxx.com>) after:2015/04/01 before:2016/01/01
