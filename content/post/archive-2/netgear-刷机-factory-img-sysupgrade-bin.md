@@ -7,6 +7,7 @@ categories:
   - Router
 tags:
   - reprint
+  - remix
   - openwrt
 ---
 ## 'netgear  刷机, factory.img, sysupgrade.bin, openwrt'
@@ -17,10 +18,10 @@ xxx-factory.img
 - 路由器断电, 用牙签或其他工具, 捅路由器的 reset 口
 - 开启设备电源开关, 观察电源灯 (此时保持按住 reset/ Restore Factory Settings 按钮不要松手), 直到电源灯由橙色闪烁状态变到绿色闪烁状态(wndr4300) (说明设备已经进入到了TFTP修复模式)
   - R7800: 电源灯从橙色闪烁变成白色闪烁。
-- 在win下面使用DOS命令, `tftp -i 192.168.1.1 put image0.img`
-- 在mac下面, 同样也是使用 tftp 命令。
+- 在 win 下面使用命令, `tftp -i 192.168.1.1 put image0.img`
+- 在 mac 下面, 同样也是使用 tftp 命令。
   - 自己的 ip 改成192.168.1.10, 网关即路由 ip 192.168.1.1
-  - 把 下好的 img 固件放到用户文件夹下
+  - 把下好的 img 固件放到用户文件夹下
   - 打开终端, 输入 (binary的作用是改为二进制模式)>tftp> connect 192.168.1.1>binary>put 文件名.img完了之后路由器会闪灯后自动重启。
 
 ### linux
