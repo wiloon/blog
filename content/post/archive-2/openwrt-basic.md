@@ -47,7 +47,7 @@ nameserver 127.0.0.1
 
 $ cat /etc/dnsmasq.conf
 
-#### 手动指定上游dns vi /etc/dnsmasq.conf
+#### 手动指定上游 dns vi /etc/dnsmasq.conf
 
 ```bash
 server=223.5.5.5
@@ -81,6 +81,10 @@ crontab -l
 ### x86, firmware download
 
 <https://downloads.openwrt.org/releases/19.07.6/targets/x86/>
+
+#### targets
+
+- wndr4300, <https://downloads.openwrt.org/releases/22.03.5/targets/ath79/nand/openwrt-22.03.5-ath79-nand-netgear_wndr4300-squashfs-factory.img>
 
 #### 64 (推荐使用)
 
@@ -137,7 +141,7 @@ x509: certificate signed by unknown authority
 浏览器访问站点手动导出证书后放到这个目录下解决。
 
 ```bash
-    vim vim /etc/ssl/certs/foo.crt
+vim /etc/ssl/certs/foo.crt
 ```
 
 <https://blog.csdn.net/xushx_bigbear/article/details/47746285>
@@ -149,21 +153,13 @@ x509: certificate signed by unknown authority
 <https://www.cnblogs.com/double-win/p/3841017.html>
 
 ```bash
-  
 vim /etc/config/network
-
-config 'interface' 'lan' #LAN口,用于路由器子网设置
-          
-option 'ifname' 'eth0'
-          
-option 'type' 'bridge'
-          
+config 'interface' 'lan' #LAN口,用于路由器子网设置   
+option 'ifname' 'eth0'  
+option 'type' 'bridge' 
 option 'proto' 'static'
-          
 option 'ipaddr' '192.168.99.1'
-          
 option 'netmask' '255.255.255.0'
-
 ```
 
 ### mirror
@@ -175,19 +171,19 @@ sed -i 's_downloads.openwrt.org_mirrors.tuna.tsinghua.edu.cn/openwrt_' /etc/opkg
 ### build
 
 clone <https://github.com/openwrt/openwrt.git>
-  
+
 apt-get install make
-  
+
 binutils
-  
+
 gcc
-  
+
 g++
 
 ### odhcpd
 
 odhcpd 是openwrt 默认的dhcp服务
-  
+
 配置文件: /etc/config/dhcp
 
 ### init script
