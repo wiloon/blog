@@ -16,6 +16,16 @@ lsof means 'List Open Files'
 
 List all open files on the system or open files for specified PID
 
+## 查看一个进程打开了哪些文件
+
+```bash
+#PID: 1098
+sudo lsof -p 1098
+
+## 查看进程打开了哪些端口
+# 以上命令返回的数据里 有 TCP 字样的就是 socket, 能看到端口号
+```
+
 ## install lsof
 
 ```bash
@@ -42,7 +52,7 @@ yum install lsof -y
 -v 显示版本信息
 ```
 
-## 查看tcp连接的建立时间
+## 查看 tcp 连接的建立时间
 
 ```bash
 # 查看 tcp 连接
@@ -71,16 +81,6 @@ TCP 连接的创建时间: Oct  8 10:40
 
 ```bash
 COMMAND     PID   TID TASKCMD               USER   FD      TYPE             DEVICE  SIZE/OFF       NODE NAME
-```
-
-## 查看一个进程打开了哪些文件
-
-```bash
-#PID: 1098
-sudo lsof -p 1098
-
-## 查看进程打开了哪些端口
-# 以上命令返回的数据里 有 TCP 字样的就是 socket, 能看到端口号
 ```
 
 ## 查看文件被哪些进程使用
