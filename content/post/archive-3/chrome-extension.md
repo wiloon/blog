@@ -13,3 +13,7 @@ tags:
 chrome://extensions
 
 puzzle button: chrome extension 图标后面的拼图按钮
+
+## crxjs, react
+
+https://crxjs.dev/vite-plugin
