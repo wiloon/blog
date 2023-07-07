@@ -13,7 +13,8 @@ tags:
 
 ## options
 
-- -C, 指定目录, `.git` 所在的目录
+- -C, 大写 `C` 指定目录, `.git` 所在的目录
+- --version, 查看 git 版本
 
 ## origin
 
@@ -128,6 +129,11 @@ git symbolic-ref --short HEAD
 ```
 
 ## git tag
+
+### git tag options
+
+- -a, --annotate        annotated tag, needs a message
+- -m, --message
 
 轻量标签 lightweight tag 与附注标签 annotated tag
 
@@ -289,7 +295,9 @@ step4：输入【git push -f】强制提交。
 #### 修改最近一次的 commit message
 
 ```bash
+# 执行后会提示输入 new commit message
 git commit --amend
+# 直接提供 new commit message
 git commit --amend -m "New commit message."
 ```
 
