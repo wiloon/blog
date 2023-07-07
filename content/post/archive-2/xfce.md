@@ -19,10 +19,18 @@ Change Window grouping to Never
 ## xfce 快捷键
 
 ```bash
-
 ctrl+F1    #切换工作区
-
 ```
+
+列出已经配置的快捷键
+
+```bash
+xfconf-query -c xfce4-keyboard-shortcuts -l -v|grep thunar
+```
+
+修改
+
+Applications> Settings> keyboard> application shortcuts
 
 ## passwordless login, xfce 免密码登录
 

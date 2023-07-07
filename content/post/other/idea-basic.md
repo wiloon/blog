@@ -18,6 +18,7 @@ tags:
 - Ctrl + g, goto line
 - ctrl + shift + k, git push
 - ctrl + alt + y, reload from disk
+- ctrl + alt + f, find in files
 
 CTRL+SHIFT+N 查找文件
   

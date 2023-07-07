@@ -38,6 +38,15 @@ tags:
 ## ThinkPad X1 Carbon Gen 9
 
 - i7-1185G7
+  - 4 核 8 线程
+  - TDP 28W
+  - 12MB 三级缓存
+  - BGA 1449, Willow Cove-U 架构
+  - 默认运行频率为 3 GHz
+  - 根据工作负载可提升至 4.8 GHz
+  - 10 纳米工艺
+  - IOMMU 虚拟化（PCI 直通）
+- Iris Xe Graphics G7 96EU 集成显卡
 - 16G
 - 512G
 - Intel AX201

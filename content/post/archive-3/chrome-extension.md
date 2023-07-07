@@ -33,3 +33,7 @@ https://developer.chrome.com/docs/extensions/mv3/
 - The service worker, service worker 监听 chrome 的各种事件, 可以调用 Chrome api, 但是不能直接操作页面内容
 - Content scripts: content script 可以直接在页面中执行 js 代码, 可以直接操作 DOM, 还可以跟 service worker 通信
 - The popup and other pages
+
+## crxjs, react
+
+https://crxjs.dev/vite-plugin

@@ -114,7 +114,7 @@ handle(socket)
 这种方法的最大问题是无法并发，效率太低，如果当前的请求没有处理完，那么后面的请求只能被阻塞，服务器的吞吐量太低。
 之后，想到了使用多线程，也就是很经典的connection per thread，每一个连接用一个线程处理，类似:
 
-```
+```js
 while(true){
 socket = accept();
 new thread(socket);
