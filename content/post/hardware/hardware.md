@@ -249,7 +249,9 @@ wifi: Intel Corporation Wireless 7260 (rev 5b)
     WNDR4300  
     Flash容量: 128 MiB NAND  
     RAM: 128 MiB  
-    mips, not mipsle  
+    mips, not mipsle
+
+WAN 口和 LAN 口紧挨着的是 V1 版本 ar9344 可折腾
 
 ## Raspberry Pi 3 Model B+
 
