@@ -56,6 +56,8 @@ Consolas,'Courier New','微软雅黑',monospace
 
 ## vscode plugin, 扩展
 
+- Markdown PDF, markdown 转 pdf
+
 ### JSON Tools
 
 JSON 格式化工具, 快捷键 `ctl+alt+m`
