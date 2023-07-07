@@ -73,3 +73,10 @@ func checkErr(err error) {
 
 
 ```
+
+## 导出, export, dump, 导入, import, read
+
+```bash
+sqlite3 db/boardsprofile.db ".dump" > /var/ftp/profile.sql
+sqlite3 test.db ".read /var/ftp/profile.sql"  
+```

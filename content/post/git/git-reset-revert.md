@@ -247,7 +247,7 @@ git revert [--[no-]edit] [-n] [-m parent-number] [-s] [-S[<keyid>]] <commit>…�
 A->B->C->D
 目前HEAD指向 commit D, 我们要将代码 rever t到 B 提交时的状态
 
-方法1
+方法 1
 git revert C D
 会生成2个新的commit分别覆盖C、D的提交
 方法2
