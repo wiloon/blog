@@ -261,3 +261,11 @@ winget -v
 winget search python
 winget install Python.Python.3.11
 ```
+
+## 性能
+
+control panel> advanced system settings> advanced> settings> custom
+
+### power mode
+
+system> power & battery> power mode> best performance

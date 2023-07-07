@@ -318,8 +318,6 @@ Price : 9.99
 Classes : Math English Chinese
   
 encoded data :
-  
-[123 34 78 97 109 101 34 58 34 88 105 97 111 32 77 105 110 103 34 44 34 65 103 101 34 58 49 54 44 34 71 117 97 107 101 34 58 116 114 117 101 44 34 67 108 97 115 115 101 115 34 58 91 34 77 97 116 104 34 44 34 69 110 103 108 105 115 104 34 44 34 67 104 105 110 101 115 101 34 93 44 34 80 114 105 99 101 34 58 57 46 57 57 125]
 
 ```json
 {"Name":"Xiao Ming","Age":16,"Guake":true,"Classes":["Math","English","Chinese"],"Price":9.99}
@@ -352,3 +350,7 @@ Price : 9.99
 Classes : Math English Chinese
 
 <http://colobu.com/2017/06/21/json-tricks-in-Go/#%E4%B8%B4%E6%97%B6%E6%94%B9%E5%90%8Dstruct%E7%9A%84%E5%AD%97%E6%AE%B5>
+
+## Golang 从 Json 串中快速取出需要的字段
+
+<https://github.com/thedevsaddam/gojsonq>

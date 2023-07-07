@@ -13,9 +13,9 @@ tags:
 
 <http://www.cnblogs.com/wang-123/archive/2012/01/05/2312676.html>
 
--sql中的group by 用法解析:
-  
-- Group By语句从英文的字面意义上理解就是"根据(by)一定的规则进行分组(Group)"。
+sql中的group by 用法
+
+- Group By 语句从英文的字面意义上理解就是"根据(by)一定的规则进行分组(Group)"。
   
 -它的作用是通过一定的规则将一个数据集划分成若干个小的区域，然后针对若干个小区域进行数据处理。
   
@@ -133,6 +133,6 @@ select COUNT(*)as '>20岁人数',classid  from Table1 where sex='男' group by c
   
 -having 子句中的每一个元素也必须出现在select列表中。有些数据库例外，如oracle.
   
--having子句和where子句都可以用来设定限制条件以使查询结果满足一定的条件限制。
+-having 子句和where子句都可以用来设定限制条件以使查询结果满足一定的条件限制。
   
--having子句限制的是组，而不是行。where子句中不能使用聚集函数，而having子句中可以。
+-having 子句限制的是组，而不是行。where 子句中不能使用聚集函数，而having子句中可以。

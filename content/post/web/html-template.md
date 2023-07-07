@@ -40,6 +40,11 @@ tags:
 </html>
 ```
 
+```bash
+# 在浏览器里直接访问这个文件
+file:///home/wiloon/tmp/foo.htm
+```
+
 HTML (Document Structures)
 
 头部信息(head)里包含关于所在网页的信息。头部信息(head)里的内容,主要是被浏览器所用,不会显示在网页的正文内容里。 另外,搜索引擎如google,yahoo,baidu等也会查找你网页中的head信息链接(link)用链接(link)可以建立和外部文件的链接。常用的是对CSS外部样式表(external style sheet)的链接。

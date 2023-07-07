@@ -10,44 +10,32 @@ tags:
 
 ---
 ## Jackson
-Jackson 框架，轻易转换JSON
 
+Jackson 框架，轻易转换JSON
 
 Jackson可以轻松的将Java对象转换成json对象和xml文档，同样也可以将json、xml转换成Java对象。
 
-
-前面有介绍过json-lib这个框架，在线博文: http://www.cnblogs.com/hoojo/archive/2011/04/21/2023805.html
-
+前面有介绍过json-lib这个框架，在线博文: <http://www.cnblogs.com/hoojo/archive/2011/04/21/2023805.html>
 
 相比json-lib框架，Jackson所依赖的jar包较少，简单易用并且性能也要相对高些。而且Jackson社区相对比较活跃，更新速度也比较快。
 
-
 一、准备工作
 
+1. 下载依赖库jar包
 
-1.  下载依赖库jar包
-
-
-Jackson的jar all下载地址: http://jackson.codehaus.org/1.7.6/jackson-all-1.7.6.jar
-
+Jackson的jar all下载地址: <http://jackson.codehaus.org/1.7.6/jackson-all-1.7.6.jar>
 
 然后在工程中导入这个jar包即可开始工作
 
-
-官方示例: http://wiki.fasterxml.com/JacksonInFiveMinutes
-
+官方示例: <http://wiki.fasterxml.com/JacksonInFiveMinutes>
 
 因为下面的程序是用junit测试用例运行的，所以还得添加junit的jar包。版本是junit-4.2.8
 
-
 如果你需要转换xml，那么还需要stax2-api.jar
 
-
-2.  测试类基本代码如下
-
+2. 测试类基本代码如下
 
 package com.hoo.test;
-
 
 import java.io.IOException;
 
@@ -91,7 +79,6 @@ import org.junit.Test;
 
 import com.hoo.entity.AccountBean;
 
-
 /**
 
 * function:Jackson 将java对象转换成JSON字符串，也可以将JSON字符串转换成java对象
@@ -110,9 +97,9 @@ import com.hoo.entity.AccountBean;
 
 * @project Spring3
 
-* @blog http://blog.csdn.net/IBM_hoojo
+* @blog <http://blog.csdn.net/IBM_hoojo>
 
-* @email hoojo_@126.com
+* @email <hoojo_@126.com>
 
 * @version 1.0
 
@@ -128,7 +115,6 @@ private ObjectMapper objectMapper = null;
 
 private AccountBean bean = null;
 
-
 @Before
 
 public void init() {
@@ -137,12 +123,11 @@ bean = new AccountBean();
 
 bean.setAddress("china-Guangzhou");
 
-bean.setEmail("hoojo_@126.com");
+bean.setEmail("<hoojo_@126.com>");
 
 bean.setId(1);
 
 bean.setName("hoojo");
-
 
 objectMapper = new ObjectMapper();
 
@@ -157,7 +142,6 @@ e.printStackTrace();
 }
 
 }
-
 
 @After
 
@@ -195,11 +179,9 @@ e.printStackTrace();
 
 }
 
-3.  所需要的JavaEntity
-
+3. 所需要的JavaEntity
 
 package com.hoo.entity;
-
 
 public class AccountBean {
 
@@ -213,9 +195,7 @@ private String address;
 
 private Birthday birthday;
 
-
 //getter、setter
-
 
 @Override
 
@@ -229,14 +209,11 @@ return this.name + "#" + this.id + "#" + this.address + "#" + this.birthday + "#
 
 Birthday
 
-
 package com.hoo.entity;
-
 
 public class Birthday {
 
 private String birthday;
-
 
 public Birthday(String birthday) {
 
@@ -246,12 +223,9 @@ this.birthday = birthday;
 
 }
 
-
 //getter、setter
 
-
 public Birthday() {}
-
 
 @Override
 
@@ -265,9 +239,7 @@ return this.birthday;
 
 二、Java对象转换成JSON
 
-
-1.  JavaBean(Entity/Model)转换成JSON
-
+1. JavaBean(Entity/Model)转换成JSON
 
 /**
 
@@ -283,7 +255,6 @@ return this.birthday;
 
 public void writeEntityJSON() {
 
-
 try {
 
 System.out.println("jsonGenerator");
@@ -293,7 +264,6 @@ System.out.println("jsonGenerator");
 jsonGenerator.writeObject(bean);
 
 System.out.println();
-
 
 System.out.println("ObjectMapper");
 
@@ -309,25 +279,21 @@ e.printStackTrace();
 
 }
 
-运行后结果如下: 
-
+运行后结果如下:
 
 jsonGenerator
 
-{"address":"china-Guangzhou","name":"hoojo","id":1,"birthday":null,"email":"hoojo_@126.com"}
+{"address":"china-Guangzhou","name":"hoojo","id":1,"birthday":null,"email":"<hoojo_@126.com>"}
 
 ObjectMapper
 
-{"address":"china-Guangzhou","name":"hoojo","id":1,"birthday":null,"email":"hoojo_@126.com"}
+{"address":"china-Guangzhou","name":"hoojo","id":1,"birthday":null,"email":"<hoojo_@126.com>"}
 
 上面分别利用JsonGenerator的writeObject方法和ObjectMapper的writeValue方法完成对Java对象的转换，二者传递的参数及构造的方式不同；JsonGenerator的创建依赖于ObjectMapper对象。也就是说如果你要使用JsonGenerator来转换JSON，那么你必须创建一个ObjectMapper。但是你用ObjectMapper来转换JSON，则不需要JSONGenerator。
 
-
 objectMapper的writeValue方法可以将一个Java对象转换成JSON。这个方法的参数一，需要提供一个输出流，转换后可以通过这个流来输出转换后的内容。或是提供一个File，将转换后的内容写入到File中。当然，这个参数也可以接收一个JSONGenerator，然后通过JSONGenerator来输出转换后的信息。第二个参数是将要被转换的Java对象。如果用三个参数的方法，那么是一个Config。这个config可以提供一些转换时的规则，过指定的Java对象的某些属性进行过滤或转换等。
 
-
-2.  将Map集合转换成Json字符串
-
+2. 将Map集合转换成Json字符串
 
 /**
 
@@ -355,17 +321,15 @@ bean = new AccountBean();
 
 bean.setAddress("china-Beijin");
 
-bean.setEmail("hoojo@qq.com");
+bean.setEmail("<hoojo@qq.com>");
 
 map.put("account2", bean);
-
 
 System.out.println("jsonGenerator");
 
 jsonGenerator.writeObject(map);
 
 System.out.println("");
-
 
 System.out.println("objectMapper");
 
@@ -379,23 +343,21 @@ e.printStackTrace();
 
 }
 
-转换后结果如下: 
-
+转换后结果如下:
 
 jsonGenerator
 
-{"account2":{"address":"china-Beijin","name":null,"id":0,"birthday":null,"email":"hoojo@qq.com"},"name":"hoojo",
+{"account2":{"address":"china-Beijin","name":null,"id":0,"birthday":null,"email":"<hoojo@qq.com>"},"name":"hoojo",
 
-"account":{"address":"china-Guangzhou","name":"hoojo","id":1,"birthday":null,"email":"hoojo_@126.com"}}
+"account":{"address":"china-Guangzhou","name":"hoojo","id":1,"birthday":null,"email":"<hoojo_@126.com>"}}
 
 objectMapper
 
-{"account2":{"address":"china-Beijin","name":null,"id":0,"birthday":null,"email":"hoojo@qq.com"},"name":"hoojo",
+{"account2":{"address":"china-Beijin","name":null,"id":0,"birthday":null,"email":"<hoojo@qq.com>"},"name":"hoojo",
 
-"account":{"address":"china-Guangzhou","name":"hoojo","id":1,"birthday":null,"email":"hoojo_@126.com"}}
+"account":{"address":"china-Guangzhou","name":"hoojo","id":1,"birthday":null,"email":"<hoojo_@126.com>"}}
 
-3.  将List集合转换成json
-
+3. 将List集合转换成json
 
 /**
 
@@ -417,7 +379,6 @@ List list = new ArrayList();
 
 list.add(bean);
 
-
 bean = new AccountBean();
 
 bean.setId(2);
@@ -429,7 +390,6 @@ bean.setEmail("email2");
 bean.setName("haha2");
 
 list.add(bean);
-
 
 System.out.println("jsonGenerator");
 
@@ -459,8 +419,7 @@ e.printStackTrace();
 
 }
 
-结果如下: 
-
+结果如下:
 
 jsonGenerator
 
@@ -480,9 +439,7 @@ ObjectMapper
 
 外面就是多了个[]中括号；同样Array也可以转换，转换的JSON和上面的结果是一样的，这里就不再转换了。~.~
 
-
 4. 下面来看看jackson提供的一些类型，用这些类型完成json转换；如果你使用这些类型转换JSON的话，那么你即使没有JavaBean(Entity)也可以完成复杂的Java类型的JSON转换。下面用到这些类型构建一个复杂的Java对象，并完成JSON转换。
-
 
 @Test
 
@@ -532,7 +489,6 @@ jsonGenerator.writeTree(JsonNodeFactory.instance.POJONode(str));
 
 System.out.println();
 
-
 //Object
 
 jsonGenerator.writeStartObject();//{
@@ -547,7 +503,6 @@ jsonGenerator.writeNumberField("age", 22);//age:22
 
 jsonGenerator.writeEndObject();//}
 
-
 jsonGenerator.writeArrayFieldStart("infos");//infos:[
 
 jsonGenerator.writeNumber(22);//22
@@ -555,7 +510,6 @@ jsonGenerator.writeNumber(22);//22
 jsonGenerator.writeString("this is array");//this is array
 
 jsonGenerator.writeEndArray();//]
-
 
 jsonGenerator.writeEndObject();//}
 
@@ -579,7 +533,6 @@ jsonGenerator.writeObjectField("infos", arr);//infos:[array]
 
 jsonGenerator.writeEndObject();//}
 
-
 } catch (Exception e) {
 
 e.printStackTrace();
@@ -588,8 +541,7 @@ e.printStackTrace();
 
 }
 
-运行后，结果如下: 
-
+运行后，结果如下:
 
 jsonGenerator
 
@@ -601,12 +553,9 @@ jsonGenerator
 
 怎么样？构造的json字符串和输出的结果是一致的吧。关键看懂用JSONGenerator提供的方法，完成一个Object的构建。
 
-
 三、JSON转换成Java对象
 
-
-1.  将json字符串转换成JavaBean对象
-
+1. 将json字符串转换成JavaBean对象
 
 @Test
 
@@ -638,15 +587,13 @@ e.printStackTrace();
 
 }
 
-很简单，用到了ObjectMapper这个对象的readValue这个方法，这个方法需要提供2个参数。第一个参数就是解析的JSON字符串，第二个参数是即将将这个JSON解析吃什么Java对象，Java对象的类型。当然，还有其他相同签名方法，如果你有兴趣可以一一尝试使用方法，当然使用的方法和当前使用的方法大同小异。运行后，结果如下: 
-
+很简单，用到了ObjectMapper这个对象的readValue这个方法，这个方法需要提供2个参数。第一个参数就是解析的JSON字符串，第二个参数是即将将这个JSON解析吃什么Java对象，Java对象的类型。当然，还有其他相同签名方法，如果你有兴趣可以一一尝试使用方法，当然使用的方法和当前使用的方法大同小异。运行后，结果如下:
 
 haha
 
 haha#1#address#null#email
 
-2.  将json字符串转换成List<Map>集合
-
+2. 将json字符串转换成List<Map>集合
 
 /**
 
@@ -704,8 +651,7 @@ e.printStackTrace();
 
 }
 
-尝试过将上面的JSON转换成List，然后List中存放AccountBean，但结果失败了。但是支持Map集合。因为你转成List.class，但是不知道List存放何种类型。只好默然Map类型。因为所有的对象都可以转换成Map结合，运行后结果如下: 
-
+尝试过将上面的JSON转换成List，然后List中存放AccountBean，但结果失败了。但是支持Map集合。因为你转成List.class，但是不知道List存放何种类型。只好默然Map类型。因为所有的对象都可以转换成Map结合，运行后结果如下:
 
 2
 
@@ -725,8 +671,7 @@ id:1
 
 email:email
 
-3.  Json字符串转换成Array数组，由于上面的泛型转换不能识别到集合中的对象类型。所有这里用对象数组，可以解决这个问题。只不过它不再是集合，而是一个数组。当然这个不重要，你可以用Arrays.asList将其转换成List即可。
-
+3. Json字符串转换成Array数组，由于上面的泛型转换不能识别到集合中的对象类型。所有这里用对象数组，可以解决这个问题。只不过它不再是集合，而是一个数组。当然这个不重要，你可以用Arrays.asList将其转换成List即可。
 
 /**
 
@@ -758,7 +703,6 @@ System.out.println(arr[i]);
 
 }
 
-
 } catch (JsonParseException e) {
 
 e.printStackTrace();
@@ -775,8 +719,7 @@ e.printStackTrace();
 
 }
 
-运行后的结果: 
-
+运行后的结果:
 
 2
 
@@ -784,8 +727,7 @@ haha2#2#address2#null#email2
 
 haha#1#address#null#email
 
-4.  Json字符串转换成Map集合
-
+4. Json字符串转换成Map集合
 
 /**
 
@@ -839,8 +781,7 @@ e.printStackTrace();
 
 }
 
-运行后结果如下: 
-
+运行后结果如下:
 
 3
 
@@ -852,9 +793,7 @@ B:{address=address, name=haha, id=1, email=email}
 
 四、Jackson对XML的支持
 
-
 Jackson也可以完成java对象到xml的转换，转换后的结果要比json-lib更直观，不过它依赖于stax2-api.jar这个jar包。
-
 
 /**
 
@@ -878,7 +817,6 @@ System.out.println("XmlMapper");
 
 XmlMapper xml = new XmlMapper();
 
-
 try {
 
 //javaBean转换成xml
@@ -900,7 +838,6 @@ list.add(bean);
 list.add(bean);
 
 System.out.println(xml.writeValueAsString(list));
-
 
 //Map转换xml文档
 
@@ -928,8 +865,7 @@ e.printStackTrace();
 
 }
 
-运行上面的方法，结果如下: 
-
+运行上面的方法，结果如下:
 
 XmlMapper
 
@@ -945,12 +881,10 @@ china-Guangzhou</address><name>hoojo</name><id>1</id><birthday/><email>hoojo_@12
 
 看结果，根节点都是unknown 这个问题还没有解决，由于根节点没有转换出来，所有导致解析xml到Java对象，也无法完成。
 
-
 ## Jackson
+
 Jackson可以轻松的将Java对象转换成json对象和xml文档,同样也可以将json、xml转换成Java对象。
 
-
-  
     前面有介绍过json-lib这个框架,在线博文: http://www.cnblogs.com/hoojo/archive/2011/04/21/2023805.html
   
   
@@ -1007,17 +941,18 @@ import org.junit.Test;
 import com.hoo.entity.AccountBean;
 
 /**
- * function:Jackson 将java对象转换成JSON字符串,也可以将JSON字符串转换成java对象
- * jar-lib-version: jackson-all-1.6.2
- * jettison-1.0.1
- * @author hoojo
- * @createDate 2010-11-23 下午04:54:53
- * @file JacksonTest.java
- * @package com.hoo.test
- * @project Spring3
- * @blog http://blog.csdn.net/IBM_hoojo
- * @email hoojo_@126.com
- * @version 1.0
+
+* function:Jackson 将java对象转换成JSON字符串,也可以将JSON字符串转换成java对象
+* jar-lib-version: jackson-all-1.6.2
+* jettison-1.0.1
+* @author hoojo
+* @createDate 2010-11-23 下午04:54:53
+* @file JacksonTest.java
+* @package com.hoo.test
+* @project Spring3
+* @blog <http://blog.csdn.net/IBM_hoojo>
+* @email <hoojo_@126.com>
+* @version 1.0
  */
 @SuppressWarnings("unchecked")
 public class JacksonTest {
@@ -1029,7 +964,7 @@ public class JacksonTest {
     public void init() {
         bean = new AccountBean();
         bean.setAddress("china-Guangzhou");
-        bean.setEmail("hoojo_@126.com");
+        bean.setEmail("<hoojo_@126.com>");
         bean.setId(1);
         bean.setName("hoojo");
 
@@ -1060,11 +995,8 @@ public class JacksonTest {
     }
 }
   
-  
     3、 所需要的JavaEntity
   
-  
-    
       package com.hoo.entity;
 
 public class AccountBean {
@@ -1081,7 +1013,6 @@ public class AccountBean {
         return this.name + "#" + this.id + "#" + this.address + "#" + this.birthday + "#" + this.email;
     }
 }
-  
   
     Birthday
   
@@ -1107,7 +1038,6 @@ public class Birthday {
     }
 }
   
-  
     二、Java对象转换成JSON
   
   
@@ -1116,9 +1046,10 @@ public class Birthday {
   
     
       /**
- * function:将java对象转换成json字符串
- * @author hoojo
- * @createDate 2010-11-23 下午06:01:10
+
+* function:将java对象转换成json字符串
+* @author hoojo
+* @createDate 2010-11-23 下午06:01:10
  */
 @Test
 public void writeEntityJSON() {
@@ -1126,7 +1057,7 @@ public void writeEntityJSON() {
     try {
         System.out.println("jsonGenerator");
         //writeObject可以转换java对象,eg:JavaBean/Map/List/Array等
-        jsonGenerator.writeObject(bean);    
+        jsonGenerator.writeObject(bean);
         System.out.println();
 
         System.out.println("ObjectMapper");
@@ -1137,31 +1068,23 @@ public void writeEntityJSON() {
     }
 }
   
+    运行后结果如下:
   
-    运行后结果如下: 
-  
-  
-    
       jsonGenerator
-{"address":"china-Guangzhou","name":"hoojo","id":1,"birthday":null,"email":"hoojo_@126.com"}
+{"address":"china-Guangzhou","name":"hoojo","id":1,"birthday":null,"email":"<hoojo_@126.com>"}
 ObjectMapper
-{"address":"china-Guangzhou","name":"hoojo","id":1,"birthday":null,"email":"hoojo_@126.com"}
-  
+{"address":"china-Guangzhou","name":"hoojo","id":1,"birthday":null,"email":"<hoojo_@126.com>"}
   
     上面分别利用JsonGenerator的writeObject方法和ObjectMapper的writeValue方法完成对Java对象的转换,二者传递的参数及构造的方式不同；JsonGenerator的创建依赖于ObjectMapper对象。也就是说如果你要使用JsonGenerator来转换JSON,那么你必须创建一个ObjectMapper。但是你用ObjectMapper来转换JSON,则不需要JSONGenerator。
   
-  
     objectMapper的writeValue方法可以将一个Java对象转换成JSON。这个方法的参数一,需要提供一个输出流,转换后可以通过这个流来输出转换后的内容。或是提供一个File,将转换后的内容写入到File中。当然,这个参数也可以接收一个JSONGenerator,然后通过JSONGenerator来输出转换后的信息。第二个参数是将要被转换的Java对象。如果用三个参数的方法,那么是一个Config。这个config可以提供一些转换时的规则,过指定的Java对象的某些属性进行过滤或转换等。
-  
   
     2、 将Map集合转换成Json字符串
   
-  
-    
       /**
- * function:将map转换成json字符串
- * @author hoojo
- * @createDate 2010-11-23 下午06:05:26
+* function:将map转换成json字符串
+* @author hoojo
+* @createDate 2010-11-23 下午06:05:26
  */
 @Test
 public void writeMapJSON() {
@@ -1171,7 +1094,7 @@ public void writeMapJSON() {
         map.put("account", bean);
         bean = new AccountBean();
         bean.setAddress("china-Beijin");
-        bean.setEmail("hoojo@qq.com");
+        bean.setEmail("<hoojo@qq.com>");
         map.put("account2", bean);
 
         System.out.println("jsonGenerator");
@@ -1185,27 +1108,21 @@ public void writeMapJSON() {
     }
 }
   
+    转换后结果如下:
   
-    转换后结果如下: 
-  
-  
-    
       jsonGenerator
-{"account2":{"address":"china-Beijin","name":null,"id":0,"birthday":null,"email":"hoojo@qq.com"},"name":"hoojo",
-"account":{"address":"china-Guangzhou","name":"hoojo","id":1,"birthday":null,"email":"hoojo_@126.com"}}
+{"account2":{"address":"china-Beijin","name":null,"id":0,"birthday":null,"email":"<hoojo@qq.com>"},"name":"hoojo",
+"account":{"address":"china-Guangzhou","name":"hoojo","id":1,"birthday":null,"email":"<hoojo_@126.com>"}}
 objectMapper
-{"account2":{"address":"china-Beijin","name":null,"id":0,"birthday":null,"email":"hoojo@qq.com"},"name":"hoojo",
-"account":{"address":"china-Guangzhou","name":"hoojo","id":1,"birthday":null,"email":"hoojo_@126.com"}}
-  
+{"account2":{"address":"china-Beijin","name":null,"id":0,"birthday":null,"email":"<hoojo@qq.com>"},"name":"hoojo",
+"account":{"address":"china-Guangzhou","name":"hoojo","id":1,"birthday":null,"email":"<hoojo_@126.com>"}}
   
     3、 将List集合转换成json
   
-  
-    
       /**
- * function:将list集合转换成json字符串
- * @author hoojo
- * @createDate 2010-11-23 下午06:05:59
+* function:将list集合转换成json字符串
+* @author hoojo
+* @createDate 2010-11-23 下午06:05:59
  */
 @Test
 public void writeListJSON() {
@@ -1235,11 +1152,8 @@ public void writeListJSON() {
     }
 }
   
+    结果如下:
   
-    结果如下: 
-  
-  
-    
       jsonGenerator
 [{"address":"china-Guangzhou","name":"hoojo","id":1,"birthday":null,"email":"hoojo_@126.com"},
 {"address":"address2","name":"haha2","id":2,"birthday":null,"email":"email2"}]
@@ -1249,14 +1163,10 @@ ObjectMapper
 2###[{"address":"china-Guangzhou","name":"hoojo","id":1,"birthday":null,"email":"hoojo_@126.com"},
 {"address":"address2","name":"haha2","id":2,"birthday":null,"email":"email2"}]
   
-  
     外面就是多了个[]中括号；同样Array也可以转换,转换的JSON和上面的结果是一样的,这里就不再转换了。~.~
-  
   
     4、下面来看看jackson提供的一些类型,用这些类型完成json转换；如果你使用这些类型转换JSON的话,那么你即使没有JavaBean(Entity)也可以完成复杂的Java类型的JSON转换。下面用到这些类型构建一个复杂的Java对象,并完成JSON转换。
   
-  
-    
       @Test
 public void writeOthersJSON() {
     try {
@@ -1313,27 +1223,19 @@ public void writeOthersJSON() {
     }
 }
   
+    运行后,结果如下:
   
-    运行后,结果如下: 
-  
-  
-    
       jsonGenerator
 "aGVsbG8gd29ybGQgamFja3NvbiE=" true null 2.2c world jac  worl "hello world jackson!" "hello world jackson!"
- {"user":{"name":"jackson","sex":true,"age":22},"infos":[22,"this is array"]} 
+ {"user":{"name":"jackson","sex":true,"age":22},"infos":[22,"this is array"]}
 {"user":{"address":"address","name":"haha","id":1,"birthday":null,"email":"email"},"infos":["a","b","c"]}
-  
   
     怎么样？构造的json字符串和输出的结果是一致的吧。关键看懂用JSONGenerator提供的方法,完成一个Object的构建。
   
-  
     三、JSON转换成Java对象
-  
   
     1、 将json字符串转换成JavaBean对象
   
-  
-    
       @Test
 public void readJson2Entity() {
     String json = "{\"address\":\"address\",\"name\":\"haha\",\"id\":1,\"email\":\"email\"}";
@@ -1350,23 +1252,17 @@ public void readJson2Entity() {
     }
 }
   
+    很简单,用到了ObjectMapper这个对象的readValue这个方法,这个方法需要提供2个参数。第一个参数就是解析的JSON字符串,第二个参数是即将将这个JSON解析吃什么Java对象,Java对象的类型。当然,还有其他相同签名方法,如果你有兴趣可以一一尝试使用方法,当然使用的方法和当前使用的方法大同小异。运行后,结果如下:
   
-    很简单,用到了ObjectMapper这个对象的readValue这个方法,这个方法需要提供2个参数。第一个参数就是解析的JSON字符串,第二个参数是即将将这个JSON解析吃什么Java对象,Java对象的类型。当然,还有其他相同签名方法,如果你有兴趣可以一一尝试使用方法,当然使用的方法和当前使用的方法大同小异。运行后,结果如下: 
-  
-  
-    
       haha
 haha#1#address#null#email
   
-  
     2、 将json字符串转换成List<Map>集合
   
-  
-    
       /**
- * function:json字符串转换成list<map>
- * @author hoojo
- * @createDate 2010-11-23 下午06:12:01
+* function:json字符串转换成list<map>
+* @author hoojo
+* @createDate 2010-11-23 下午06:12:01
  */
 @Test
 public void readJson2List() {
@@ -1392,11 +1288,8 @@ public void readJson2List() {
     }
 }
   
+    尝试过将上面的JSON转换成List,然后List中存放AccountBean,但结果失败了。但是支持Map集合。因为你转成List.class,但是不知道List存放何种类型。只好默然Map类型。因为所有的对象都可以转换成Map结合,运行后结果如下:
   
-    尝试过将上面的JSON转换成List,然后List中存放AccountBean,但结果失败了。但是支持Map集合。因为你转成List.class,但是不知道List存放何种类型。只好默然Map类型。因为所有的对象都可以转换成Map结合,运行后结果如下: 
-  
-  
-    
       2
 address:address2
 name:haha2
@@ -1407,15 +1300,12 @@ name:haha
 id:1
 email:email
   
-  
     3、 Json字符串转换成Array数组,由于上面的泛型转换不能识别到集合中的对象类型。所有这里用对象数组,可以解决这个问题。只不过它不再是集合,而是一个数组。当然这个不重要,你可以用Arrays.asList将其转换成List即可。
   
-  
-    
       /**
- * function:json字符串转换成Array
- * @author hoojo
- * @createDate 2010-11-23 下午06:14:01
+* function:json字符串转换成Array
+* @author hoojo
+* @createDate 2010-11-23 下午06:14:01
  */
 @Test
 public void readJson2Array() {
@@ -1437,24 +1327,18 @@ public void readJson2Array() {
     }
 }
   
+    运行后的结果:
   
-    运行后的结果: 
-  
-  
-    
       2
 haha2#2#address2#null#email2
 haha#1#address#null#email
   
-  
     4、 Json字符串转换成Map集合
   
-  
-    
       /**
- * function:json字符串转换Map集合
- * @author hoojo
- * @createDate Nov 27, 2010 3:00:06 PM
+* function:json字符串转换Map集合
+* @author hoojo
+* @createDate Nov 27, 2010 3:00:06 PM
  */
 @Test
 public void readJson2Map() {
@@ -1478,29 +1362,22 @@ public void readJson2Map() {
     }
 }
   
+    运行后结果如下:
   
-    运行后结果如下: 
-  
-  
-    
       3
 success:true
 A:{address=address2, name=haha2, id=2, email=email2}
 B:{address=address, name=haha, id=1, email=email}
   
-  
     四、Jackson对XML的支持
-  
   
     Jackson也可以完成java对象到xml的转换,转换后的结果要比json-lib更直观,不过它依赖于stax2-api.jar这个jar包。
   
-  
-    
       /**
- * function:java对象转换成xml文档
- * 需要额外的jar包 stax2-api.jar
- * @author hoojo
- * @createDate 2010-11-23 下午06:11:21
+* function:java对象转换成xml文档
+* 需要额外的jar包 stax2-api.jar
+* @author hoojo
+* @createDate 2010-11-23 下午06:11:21
  */
 @Test
 public void writeObject2Xml() {
@@ -1534,11 +1411,8 @@ public void writeObject2Xml() {
     }
 }
   
+    运行上面的方法,结果如下:
   
-    运行上面的方法,结果如下: 
-  
-  
-    
       XmlMapper
 <unknown>china-Guangzhou</address><name>hoojo</name><id>1</id><birthday/><email>hoojo_@126.com</email></unknown>
 <unknown><unknown>china-Guangzhou</address><name>hoojo</name><id>1</id><birthday/><email>hoojo_@126.com</email></unknown>
@@ -1546,18 +1420,10 @@ public void writeObject2Xml() {
 <unknown>china-Guangzhou</address><name>hoojo</name><id>1</id><birthday/><email>hoojo_@126.com</email>
 china-Guangzhou</address><name>hoojo</name><id>1</id><birthday/><email>hoojo_@126.com</email></unknown>
   
-  
     看结果,根节点都是unknown 这个问题还没有解决,由于根节点没有转换出来,所有导致解析xml到Java对象,也无法完成。
   
-
-
-  
-    
-      
         作者: hoojo
- 出处: http://www.cnblogs.com/hoojo/archive/2011/04/22/2024628.html
- blog: http://blog.csdn.net/IBM_hoojo
+
+ 出处: <http://www.cnblogs.com/hoojo/archive/2011/04/22/2024628.html>
+ blog: <http://blog.csdn.net/IBM_hoojo>
  本文版权归作者和博客园共有,欢迎转载,但未经作者同意必须保留此段声明,且在文章页面明显位置给出原文连接,否则保留追究法律责任的权利。
-      
-    
-  
