@@ -166,6 +166,10 @@ class Student1(object):
             return 'B'
         else:
             return 'C'
+
+student = Student1()
+# object to dict
+vars(student)
 ```
 
 ## import
@@ -948,6 +952,20 @@ time.sleep(10)
 l.remove(1)
 
 ', '.join(set_3)
+
+>>> x = set('spam')  
+>>> y = set(['h','a','m'])  
+>>> x, y  
+(set(['a', 'p', 's', 'm']), set(['a', 'h', 'm']))    
+  
+>>> x & y # 交集  
+set(['a', 'm'])  
+  
+>>> x | y # 并集  
+set(['a', 'p', 's', 'h', 'm'])  
+  
+>>> x - y # 差集  
+set(['p', 's']) 
 ```
 
 ## Milliseconds
@@ -1022,3 +1040,7 @@ pip freeze > requirements.txt
 ## python 书
 
 <https://zhuanlan.zhihu.com/p/34378860>
+
+## @classmethod
+
+<https://zhuanlan.zhihu.com/p/35643573>
