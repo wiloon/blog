@@ -822,3 +822,18 @@ set number
 <https://www.cnblogs.com/luosongchao/p/3193153.html>
 
 <https://zhuanlan.zhihu.com/p/51440836>
+
+## global 命令
+
+```bash
+# 格式
+:[range]g/{pattern}/[command]
+```
+
+如果没有指定[range]，则针对文件中的所有行执行命令。  
+如果没有指定[command]，则执行:print命令来显示行内容。  
+
+```bash
+# 删除空行
+:g/^$/d.
+```

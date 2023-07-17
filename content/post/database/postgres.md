@@ -242,6 +242,7 @@ WHERE constraint_type = 'FOREIGN KEY' AND tc.table_name = 'table0';
 - smallint, 2 字节, 小范围整数, -32768 到 +32767
 - timestamp [ (p) ] [ without time zone ]
 - timestamp [ (p) ] with time zone
+- BOOLEAN
 
 ```sql
 名字                        别名             描述
