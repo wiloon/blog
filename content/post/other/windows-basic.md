@@ -260,6 +260,7 @@ windows 的包管理工具
 winget -v
 winget search python
 winget install Python.Python.3.11
+winget install Python.Python.3.6
 ```
 
 ## 性能

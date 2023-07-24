@@ -1044,3 +1044,7 @@ pip freeze > requirements.txt
 ## @classmethod
 
 <https://zhuanlan.zhihu.com/p/35643573>
+
+## Microsoft Visual C++ 14.0 or greater is required
+
+<https://support.microsoft.com/en-us/topic/the-latest-supported-visual-c-downloads-2647da03-1eea-4433-9aff-95f26a218cc0>
