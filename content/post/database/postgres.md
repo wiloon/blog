@@ -135,6 +135,8 @@ postgresql序列号（SERIAL）类型包括smallserial（smallint,short）,seria
 
 ```sql
 SELECT to_char(NOW(), 'YYYY-MM-DD HH24:MI:SS')
+-- 时区
+to_char(NOW() AT TIME ZONE 'Asia/Dubai','YYYY-MM-DD HH24:MI:SS')
 
 ```
 
