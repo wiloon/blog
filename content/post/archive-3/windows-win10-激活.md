@@ -9,6 +9,7 @@ tags:
   - reprint
 ---
 ## windows win10 激活查询
+
 ### 查询windows 激活状态
 
 ```bash

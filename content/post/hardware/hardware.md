@@ -397,10 +397,16 @@ F1 默认走 罗技优联, F2 和 F3 可以连接另外两个蓝牙设备. 蓝�
 
 ## mitsubishi outlander
 
-<https://club.autohome.com.cn/bbs/thread/6542c267b66988e9/72454344-1.html>
+<https://www.dongchedi.com/auto/params-carIds-24747>
 
 - 整备质量(kg) 1506
 - 油箱(L): 63
+- 发动机型号 4J11
+- 发动机 2.0L 166马力 L4
+- 最大功率(kW) 122(166Ps)
+- 最大扭矩(N·m) 201
+- 长x宽x高(mm) 4705x1810x1710
+- 轴距(mm) 2670
 
 ## MacBook Air
 
