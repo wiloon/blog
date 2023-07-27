@@ -10,6 +10,9 @@ tags:
 ---
 ## chrome extension
 
+- content script, 只能访问 dom, 不能访问页面 js 变量和函数
+- Injected Script, 被插入到页面里的 js 代码
+
 chrome://extensions
 
 puzzle button: chrome extension 图标后面的拼图按钮
@@ -18,14 +21,14 @@ puzzle button: chrome extension 图标后面的拼图按钮
 
 ## chrome extension doc
 
-https://developer.chrome.com/docs/extensions/mv3/
+<https://developer.chrome.com/docs/extensions/mv3/>
 
-- javascript web api: https://developer.mozilla.org/en-US/docs/Web/API
-- chrome api: https://developer.mozilla.org/en-US/docs/Web/API
-- html: https://web.dev/learn/html/
-- css: https://web.dev/learn/css/
-- javascript: https://developer.mozilla.org/en-US/docs/Learn/JavaScript
-- chrome extension development overview: https://developer.chrome.com/docs/extensions/mv3/devguide/
+- javascript web api: <https://developer.mozilla.org/en-US/docs/Web/API>
+- chrome api: <https://developer.mozilla.org/en-US/docs/Web/API>
+- html: <https://web.dev/learn/html/>
+- css: <https://web.dev/learn/css/>
+- javascript: <https://developer.mozilla.org/en-US/docs/Learn/JavaScript>
+- chrome extension development overview: <https://developer.chrome.com/docs/extensions/mv3/devguide/>
 
 ## chrome extension 的构成
 
@@ -36,4 +39,6 @@ https://developer.chrome.com/docs/extensions/mv3/
 
 ## crxjs, react
 
-https://crxjs.dev/vite-plugin
+<https://crxjs.dev/vite-plugin>
+
+<https://www.freecodecamp.org/news/chrome-extension-message-passing-essentials/>
