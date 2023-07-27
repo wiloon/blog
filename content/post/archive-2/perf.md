@@ -9,6 +9,7 @@ tags:
   - reprint
 ---
 ## Perf
+
 从2.6.31内核开始,linux内核自带了一个性能分析工具perf,能够进行函数级与指令级的热点查找。
   
 Perf 是用来进行软件性能分析的工具。
@@ -19,12 +20,8 @@ Perf 是用来进行软件性能分析的工具。
 
 从2.6.31内核开始,linux内核自带了一个性能分析工具perf,能够进行函数级与指令级的热点查找。
 
- 
-
 perf
   
- 
-
 Performance analysis tools for Linux.
 
 Performance counters for Linux are a new kernel-based subsystem that provide a framework for all things
@@ -33,23 +30,17 @@ performance analysis. It covers hardware level (CPU/PMU, Performance Monitoring 
 
 software features (software counters, tracepoints) as well.
 
- 
-
 Perf是内置于Linux内核源码树中的性能剖析(profiling)工具。
 
 它基于事件采样原理,以性能事件为基础,支持针对处理器相关性能指标与操作系统相关性能指标的性能剖析。
 
 常用于性能瓶颈的查找与热点代码的定位。
 
- 
-
 CPU周期(cpu-cycles)是默认的性能事件,所谓的CPU周期是指CPU所能识别的最小时间单元,通常为亿分之几秒,
 
 是CPU执行最简单的指令时所需要的时间,例如读取寄存器中的内容,也叫做clock tick。
 
- 
-
-Perf是一个包含22种子工具的工具集,以下是最常用的5种: 
+Perf是一个包含22种子工具的工具集,以下是最常用的5种:
 
 perf-list
 
@@ -61,21 +52,13 @@ perf-record
 
 perf-report
 
- 
-
 perf-list
   
- 
-
 Perf-list用来查看perf所支持的性能事件,有软件的也有硬件的。
-
- 
 
 List all symbolic event types.
 
 perf list [hw | sw | cache | tracepoint | event_glob]
-
- 
 
 (1) 性能事件的分布
 
@@ -87,15 +70,11 @@ cache: Hardware cache event,26个
 
 tracepoint: Tracepoint event,775个
 
- 
-
 sw实际上是内核的计数器,与硬件无关。
 
 hw和cache是CPU架构相关的,依赖于具体硬件。
 
 tracepoint是基于内核的ftrace,主线2.6.3x以上的内核版本才支持。
-
- 
 
 (2) 指定性能事件(以它的属性)
 
@@ -109,19 +88,15 @@ tracepoint是基于内核的ftrace,主线2.6.3x以上的内核版本才支持。
 
 -e <event> : H // host counting (not in KVM guests)
 
- 
-
 (3) 使用例子
 
-显示内核和模块中,消耗最多CPU周期的函数: 
+显示内核和模块中,消耗最多CPU周期的函数:
 
 # perf top -e cycles:k
 
-显示分配高速缓存最多的函数: 
+显示分配高速缓存最多的函数:
 
 # perf top -e kmem:kmem_cache_alloc
-
- 
 
 ### perf-top
 
@@ -142,21 +117,21 @@ perf top主要用于实时分析各个函数在某个性能事件上的热度,�
 # perf top
 
 Samples: 1M of event 'cycles', Event count (approx.): 73891391490
-       
+
 5.44% perf [.] 0x0000000000023256
-       
+
 4.86% [kernel] [k] _spin_lock
-       
+
 2.43% [kernel] [k] _spin_lock_bh
-       
+
 2.29% [kernel] [k] _spin_lock_irqsave
-       
+
 1.77% [kernel] [k] __d_lookup
-       
+
 1.55% libc-2.12.so [.] __strcmp_sse42
-       
+
 1.43% nginx [.] ngx_vslprintf
-       
+
 1.37% [kernel] [k] tcp_poll
   
 第一列: 符号引发的性能事件的比例,默认指占用的cpu周期比例。
@@ -166,8 +141,6 @@ Samples: 1M of event 'cycles', Event count (approx.): 73891391490
 第三列: DSO的类型。[.]表示此符号属于用户态的ELF文件,包括可执行文件与动态链接库)。[k]表述此符号属于内核或模块。
 
 第四列: 符号名。有些符号不能解析为函数名,只能用地址表示。
-
- 
 
 (2) 常用交互命令
 
@@ -180,8 +153,6 @@ a: annotate current symbol,注解当前符号。能够给出汇编语言的注�
 d: 过滤掉所有不属于此DSO的符号。非常方便查看同一类别的符号。
 
 P: 将当前信息保存到perf.hist.N中。
-
- 
 
 (3) 常用命令行参数
 
@@ -203,8 +174,6 @@ perf top -G [fractal],路径概率为相对值,加起来为100%,调用顺序为�
 
 perf top -G graph,路径概率为绝对值,加起来为该函数的热度。
 
- 
-
 (4) 使用例子
 
 # perf top // 默认配置
@@ -221,23 +190,15 @@ perf top -G graph,路径概率为绝对值,加起来为该函数的热度。
 
 # perf top -symbols kfree // 仅显示指定的符号
 
- 
-
 perf-stat
   
- 
-
 用于分析指定程序的性能概况。
-
- 
 
 Run a command and gather performance counter statistics.
 
 perf stat [-e <EVENT> | -event=EVENT] [-a] <command>
 
 perf stat [-e <EVENT> | -event=EVENT] [-a] - <command> [<options>]
-
- 
 
 (1) 输出格式
 
@@ -258,9 +219,6 @@ Performance counter stats for 'ls':
             10,809 branch-misses             #    5.13% of all branches        
     
        0.000945883 seconds time elapsed
-    
-
- 
 
 输出包括ls的执行时间,以及10个性能事件的统计。
 
@@ -290,8 +248,6 @@ instructions: 执行了多少条指令。IPC为平均每个cpu cycle执行了多
 
 branches: 遇到的分支指令数。branch-misses是预测错误的分支指令数。
 
- 
-
 (2) 常用参数
 
 -p: stat events on existing process id (comma separated list). 仅分析目标进程及其创建的线程。
@@ -314,49 +270,39 @@ branches: 遇到的分支指令数。branch-misses是预测错误的分支指令
 
 -post <cmd>: 执行目标程序后再执行的程序。
 
- 
-
 (3) 使用例子
 
-执行10次程序,给出标准偏差与期望的比值: 
+执行10次程序,给出标准偏差与期望的比值:
 
 # perf stat -r 10 ls > /dev/null
 
-显示更详细的信息: 
+显示更详细的信息:
 
 # perf stat -v ls > /dev/null
 
-只显示任务执行时间,不显示性能计数器: 
+只显示任务执行时间,不显示性能计数器:
 
 # perf stat -n ls > /dev/null
 
-单独给出每个CPU上的信息: 
+单独给出每个CPU上的信息:
 
 # perf stat -a -A ls > /dev/null
 
-ls命令执行了多少次系统调用: 
+ls命令执行了多少次系统调用:
 
-# perf stat -e syscalls:sys_enter ls 
-
- 
+# perf stat -e syscalls:sys_enter ls
 
 perf-record
   
- 
-
 收集采样信息,并将其记录在数据文件中。
 
 随后可以通过其它工具(perf-report)对数据文件进行分析,结果类似于perf-top的。
-
- 
 
 Run a command and record its profile into perf.data.
 
 This command runs a command and gathers a performance counter profile from it, into perf.data,
 
 without displaying anything. This file can then be inspected later on, using perf report.
-
- 
 
 (1) 常用参数
 
@@ -376,71 +322,49 @@ without displaying anything. This file can then be inspected later on, using per
 
 -C: Collect samples only on the list of CPUs provided.
 
- 
-
 (2) 使用例子
 
-记录nginx进程的性能数据: 
+记录nginx进程的性能数据:
 
 # perf record -p `pgrep -d ',' nginx`
 
-记录执行ls时的性能数据: 
+记录执行ls时的性能数据:
 
 # perf record ls -g
 
-记录执行ls时的系统调用,可以知道哪些系统调用最频繁: 
+记录执行ls时的系统调用,可以知道哪些系统调用最频繁:
 
 # perf record -e syscalls:sys_enter ls
 
- 
-
 perf-report
   
- 
-
 读取perf record创建的数据文件,并给出热点分析结果。
-
- 
 
 Read perf.data (created by perf record) and display the profile.
 
 This command displays the performance counter profile information recorded via perf record.
 
- 
-
 (1) 常用参数
 
 -i: Input file name. (default: perf.data)
-
- 
 
 (2) 使用例子
 
 # perf report -i perf.data.2
 
- 
-
 More
   
- 
-
 除了以上5个常用工具外,还有一些适用于较特殊场景的工具, 比如内核锁、slab分配器、调度器,
 
 也支持自定义探测点。
 
- 
-
 perf-lock
   
- 
-
 内核锁的性能分析。
 
 Analyze lock events.
 
 perf lock {record | report | script | info}
-
- 
 
 需要编译选项的支持: CONFIG_LOCKDEP、CONFIG_LOCK_STAT。
 
@@ -448,15 +372,11 @@ CONFIG_LOCKDEP defines acquired and release events.
 
 CONFIG_LOCK_STAT defines contended and acquired lock events.
 
- 
-
 (1) 常用选项
 
 -i <file>: 输入文件
 
 -k <value>: sorting key,默认为acquired,还可以按contended、wait_total、wait_max和wait_min来排序。
-
- 
 
 (2) 使用例子
 
@@ -464,27 +384,22 @@ CONFIG_LOCK_STAT defines contended and acquired lock events.
 
 # perf lock report // 报告
 
- 
-
 (3) 输出格式
 
                 Name   acquired  contended total wait (ns)   max wait (ns)   min wait (ns) 
-    
 
 &mm->page_table_... 382 0 0 0 0
-   
+
 &mm->page_table_... 72 0 0 0 0
-             
+
 &fs->lock 64 0 0 0 0
-           
+
 dcache_lock 62 0 0 0 0
-         
+
 vfsmount_lock 43 0 0 0 0
-   
+
 &newf->file_lock... 41 0 0 0 0
   
- 
-
 Name: 内核锁的名字。
 
 aquired: 该锁被直接获得的次数,因为没有其它内核路径占用该锁,此时不用等待。
@@ -497,7 +412,7 @@ max wait: 为了获得该锁,最大的等待时间。
 
 min wait: 为了获得该锁,最小的等待时间。
 
-最后还有一个Summary: 
+最后还有一个Summary:
 
 === output for debug===
 
@@ -506,28 +421,22 @@ bad: 10, total: 246
 bad rate: 4.065041 %
   
 histogram of events caused bad sequence
-      
+
 acquire: 0
-     
+
 acquired: 0
-    
+
 contended: 0
-      
+
 release: 10
   
- 
-
 perf-kmem
   
- 
-
 slab分配器的性能分析。
 
 Tool to trace/measure kernel memory(slab) properties.
 
 perf kmem {record | stat} [<options>]
-
- 
 
 (1) 常用选项
 
@@ -541,15 +450,11 @@ perf kmem {record | stat} [<options>]
 
 -s <key[,key2...]>: sort the output (default: frag,hit,bytes)
 
- 
-
 (2) 使用例子
 
 # perf kmem record ls // 记录
 
 # perf kmem stat -caller -alloc -l 20 // 报告
-
- 
 
 (3) 输出格式
 
@@ -558,13 +463,13 @@ perf kmem {record | stat} [<options>]
 ## Callsite | Total_alloc/Per | Total_req/Per | Hit | Ping-pong | Frag
 
 perf_event_mmap+ec | 311296/8192 | 155952/4104 | 38 | 0 | 49.902%
-   
+
 proc_reg_open+41 | 64/64 | 40/40 | 1 | 0 | 37.500%
-   
+
 __kmalloc_node+4d | 1024/1024 | 664/664 | 1 | 0 | 35.156%
-   
+
 ext3_readdir+5bd | 64/64 | 48/48 | 1 | 0 | 25.000%
-   
+
 load_elf_binary+8ec | 512/512 | 392/392 | 1 | 0 | 23.438%
 
 Callsite: 内核代码中调用kmalloc和kfree的地方。
@@ -581,7 +486,7 @@ Frag: 碎片所占的百分比,碎片 = 分配的内存 - 请求的内存,这部
 
 有使用-alloc选项,还会看到Alloc Ptr,即所分配内存的地址。
 
-最后还有一个Summary: 
+最后还有一个Summary:
 
 # SUMMARY
 
@@ -595,27 +500,19 @@ Internal fragmentation: 35.003669%
   
 Cross CPU allocations: 2/509
   
- 
-
 probe-sched
   
- 
-
 调度模块分析。
 
 trace/measure scheduler properties (latencies)
 
 perf sched {record | latency | map | replay | script}
 
- 
-
-(1) 使用例子 
+(1) 使用例子
 
 # perf sched record sleep 10 // perf sched record <command>
 
 # perf report latency -sort max
-
- 
 
 (2) 输出格式
 
@@ -626,13 +523,13 @@ Task | Runtime ms | Switches | Average delay ms | Maximum delay ms | Maximum del
 * * *
 
 events/10:61 | 0.655 ms | 10 | avg: 0.045 ms | max: 0.161 ms | max at: 9804.958730 s
-    
+
 sleep:11156 | 2.263 ms | 4 | avg: 0.052 ms | max: 0.118 ms | max at: 9804.865552 s
-    
+
 edac-poller:1125 | 0.598 ms | 10 | avg: 0.042 ms | max: 0.113 ms | max at: 9804.958698 s
-    
+
 events/2:53 | 0.676 ms | 10 | avg: 0.037 ms | max: 0.102 ms | max at: 9814.751605 s
-    
+
 perf:11155 | 2.109 ms | 1 | avg: 0.068 ms | max: 0.068 ms | max at: 9814.867918 s
 
 TASK: 进程名和pid。
@@ -647,17 +544,11 @@ Maximum delay: 最大的调度延迟。
 
 Maximum delay at: 最大调度延迟发生的时刻。
 
- 
-
 perf-probe
   
- 
-
 可以自定义探测点。
 
 Define new dynamic tracepoints.
-
- 
 
 使用例子
 
@@ -667,34 +558,28 @@ Define new dynamic tracepoints.
 
 前面有行号的可以探测,没有行号的就不行了。
 
- 
-
 (2) Add a probe on schedule() function 12th line.
 
 # perf probe -a schedule:12
 
 在schedule函数的12处增加一个探测点。
 
- 
-
 Reference
   
- 
-
 [1]. Linux的系统级性能剖析工具系列,by 承刚
 
-[2]. http://www.ibm.com/developerworks/cn/linux/l-cn-perf1/
+[2]. <http://www.ibm.com/developerworks/cn/linux/l-cn-perf1/>
 
-[3]. http://www.ibm.com/developerworks/cn/linux/l-cn-perf2/
+[3]. <http://www.ibm.com/developerworks/cn/linux/l-cn-perf2/>
 
-[4]. https://perf.wiki.kernel.org/index.php/Tutorial
+[4]. <https://perf.wiki.kernel.org/index.php/Tutorial>
   
 ————————————————
   
 版权声明: 本文为CSDN博主「zhangskd」的原创文章,遵循 CC 4.0 BY-SA 版权协议,转载请附上原文出处链接及本声明。
   
-原文链接: https://blog.csdn.net/zhangskd/article/details/37902159
+原文链接: <https://blog.csdn.net/zhangskd/article/details/37902159>
 
-https://www.ibm.com/developerworks/cn/linux/l-cn-perf1/index.html
+<https://www.ibm.com/developerworks/cn/linux/l-cn-perf1/index.html>
   
-https://blog.csdn.net/zhangskd/article/details/37902159
+<https://blog.csdn.net/zhangskd/article/details/37902159>
