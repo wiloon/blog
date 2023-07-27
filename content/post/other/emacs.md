@@ -126,7 +126,7 @@ xsl, rng or xhtml, add
         (cons '("\.\(xml\|xsl\|rng\|xhtml\)\'" . nxml-mode)
           auto-mode-alist))
 
-## 'emacs  删除空行'
+## 删除空行
 
 flush-lines命令
 

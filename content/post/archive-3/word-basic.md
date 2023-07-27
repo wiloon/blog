@@ -9,6 +9,7 @@ tags:
   - reprint
 ---
 ## word basic
+
 英文破折号、连接号、连字符、负号的区别
 
 #### Hyphen (-)
@@ -43,7 +44,7 @@ MS Word 中 Minus sign 后面跟数字, 在换行时不会被拆开显示。
 
 ### 在线查询 unicode
 
-https://www.online-toolz.com/tools/text-unicode-entities-convertor.php
+<https://www.online-toolz.com/tools/text-unicode-entities-convertor.php>
   
 输入 %u2212
 
@@ -57,7 +58,7 @@ https://www.online-toolz.com/tools/text-unicode-entities-convertor.php
   
 版权声明: 本文为CSDN博主「沸腾人生」的原创文章，遵循 CC 4.0 BY-SA 版权协议，转载请附上原文出处链接及本声明。
   
-原文链接: https://blog.csdn.net/lhp1331/article/details/7898618
+原文链接: <https://blog.csdn.net/lhp1331/article/details/7898618>
 
 ### word 中输入负号
 
