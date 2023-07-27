@@ -18,18 +18,18 @@ URI中不应包含结尾的正斜杠（/）。
 
 如果确定API很简单，不会有进一步扩展，可以考虑放在主域名下。 <https://example.org/api/>
 
-## 版本 (Versioning）
+## 版本 Versioning
 
 应该将API的版本号放入URL。
 
 <https://api.example.com/v1/>
 另一种做法是，将版本号放在HTTP头信息中，但不如放入URL方便和直观。Github采用这种做法。
 
-## 路径 (Endpoint）
+## 路径 Endpoint
 
-路径又称"终点" (endpoint），表示API的具体网址。
+路径又称"终点" endpoint，表示API的具体网址。
 
-在RESTful架构中，每个网址代表一种资源 (resource），所以网址中不能有动词，只能有名词，而且所用的名词往往与数据库的表格名对应。一般来说，数据库中的表都是同种记录的"集合" (collection），所以API 中的名词也应该使用复数。
+在RESTful架构中，每个网址代表一种资源 resource，所以网址中不能有动词，只能有名词，而且所用的名词往往与数据库的表格名对应。一般来说，数据库中的表都是同种记录的"集合" collection，所以API 中的名词也应该使用复数。
 
 ### HTTP动词
 
