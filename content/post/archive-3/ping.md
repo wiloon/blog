@@ -1,5 +1,5 @@
 ---
-title: ping, fping
+title: ping command, fping
 author: "-"
 date: 2020-04-13T10:43:01+00:00
 url: ping
@@ -8,7 +8,7 @@ categories:
 tags:
   - reprint
 ---
-## ping, fping
+## ping command, fping
 
 ## install
 
@@ -153,3 +153,10 @@ WIN2K/NT 128
 WINDOWS 系列 32
   
 UNIX 系列 255
+
+## windows ping
+
+```bash
+# -t, 一直 ping 直到 ctrl + c
+ping 127.0.0.1 -t
+```
