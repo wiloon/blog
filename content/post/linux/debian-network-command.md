@@ -9,7 +9,8 @@ tags:
   - reprint
 ---
 ## debian network command
-#restart
+
+# restart
 
 sudo /etc/init.d/networking restart
 
@@ -17,7 +18,7 @@ sudo /etc/init.d/networking restart
 
 sudo dhclient eth0
 
-#wlan
+# wlan
 
 iwlist wlan0 scan
 
