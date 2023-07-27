@@ -17,6 +17,12 @@ echo 'hello' | tr '[:lower:]' '[:upper:]'
 echo 'HELLO' | tr '[:upper:]' '[:lower:]'
 # 删除文本中的换行符
 tr -d '\n' < input.txt > output.txt
+
+# 删除空行
+cat file | tr -s "\n" > new_file
+tr -s "[\012]" < plan.txt
+tr -s ["\n"] < plan.txt
+
 ```
 
 什么是 tr 命令？ tr, translate 的简写
@@ -139,9 +145,7 @@ tr中特定控制字符的不同表达方式
 
 # cat file | tr -s [a-zA-Z] > new_file
 
-7. 删除空行
 
-# cat file | tr -s "\n" > new_file
 
 8. 删除Windows文件"造成"的'^M'字符
 
@@ -221,9 +225,7 @@ tr中特定控制字符的不同表达方式
   
 tr -s "[a-z]"<oops.txt >result.txt
   
- (2) 删除空行
-  
-tr -s "[\012]" < plan.txt 或 tr -s ["\n"] < plan.txt
+
   
  (3) 有时需要删除文件中的^M，并代之以换行
   

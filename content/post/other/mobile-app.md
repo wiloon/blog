@@ -35,6 +35,12 @@ tags:
 |Star Walk 2 ||
 |Strongbox  |keepassxc的ios实现, deprecated, > bitwarden|
 
+### iOS app 美区
+
+- wireguard
+- telegram
+- 
+
 ### android app, apk list
 
 |name|comments|

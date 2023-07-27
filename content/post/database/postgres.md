@@ -135,6 +135,8 @@ postgresql序列号（SERIAL）类型包括smallserial（smallint,short）,seria
 
 ```sql
 SELECT to_char(NOW(), 'YYYY-MM-DD HH24:MI:SS')
+-- 时区
+to_char(NOW() AT TIME ZONE 'Asia/Dubai','YYYY-MM-DD HH24:MI:SS')
 
 ```
 
@@ -242,6 +244,7 @@ WHERE constraint_type = 'FOREIGN KEY' AND tc.table_name = 'table0';
 - smallint, 2 字节, 小范围整数, -32768 到 +32767
 - timestamp [ (p) ] [ without time zone ]
 - timestamp [ (p) ] with time zone
+- BOOLEAN
 
 ```sql
 名字                        别名             描述
@@ -445,3 +448,20 @@ select c1,count(*), count(*) filter (where id<1000) from test group by c1;
 regclass是oid的别名，postgresql自动的为每一个系统表都建立了一个OId，其中有一个系统表叫做：pg_class，这个表里记录了数据表、索引(仍然需要参阅pg_index)、序列、视图、复合类型和一些特殊关系类型的元数据
 
 <https://blog.csdn.net/shiyibodec/article/details/52447755>
+
+## postgresql中如何Kill掉正在执行的SQL语句
+
+--查询任务进展
+select query_id,query from pg_stat_activity where state='active';
+ 
+--kill有两种方式
+--第一种是：
+SELECT pg_cancel_backend(PID);
+这种方式只能kill select查询，对update、delete 及DML不生效)
+ 
+--第二种是：
+SELECT pg_terminate_backend(PID);
+这种可以kill掉各种操作(select、update、delete、drop等)操作
+————————————————
+版权声明：本文为CSDN博主「SunWuKong_Hadoop」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
+原文链接：https://blog.csdn.net/SunWuKong_Hadoop/article/details/89448075
