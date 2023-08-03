@@ -31,6 +31,7 @@ curl [kɜrl]
 # 如果使用了 -F 参数，curl 会以 multipart/form-data 的方式发送 POST 请求。-F 以 key=value 的形式指定要上传的参数，如果是文件，则需要使用 key=@file 的形式。
 -k, --insecure flag to skip certificate validation.
 -L, --location: 追踪重定向, 如果服务器报告请求的页面已移动到其他位置（用 location: header 和 3xx 响应代码），此选项将使 curl 在新位置上重新执行请求。
+-x, 参数指定 HTTP 请求的代理
 -X, --request <method>   Specify request method to use, -X POST, -X PUT
 -w, 完成请求传输后，使 curl 在 stdout 上显示自定义信息
 --cacert, curl 用来验证对端的 CA 证书
@@ -132,6 +133,7 @@ curl -v -d "name=admin&password=admin" -b cookie.txt -c cookie.txt "http://local
 
 ```bash
 curl -d "user=admin&passwd=12345678" http://127.0.0.1:8080/login
+
 # 把请求参数放到文件里, foo 是一个包含请求数据的文件, --data-binary 参数可以从磁盘读 post body, --data-raw 不行.
 curl -i -XPOST 'http://localhost:8186/write?db=db0' --data-binary @foo
 
