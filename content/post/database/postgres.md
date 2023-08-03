@@ -74,8 +74,11 @@ insert into test select generate_series(1,10000), random()*10;
 ## sql
 
 ```sql
-alter table ipsec_request
-    rename to ipsec_requests;
+alter table foo
+    rename to bar;
+
+alter table foo
+    add time0 timestamptz;
 ```
 
 ## create table
@@ -244,6 +247,7 @@ WHERE constraint_type = 'FOREIGN KEY' AND tc.table_name = 'table0';
 - smallint, 2 字节, 小范围整数, -32768 到 +32767
 - timestamp [ (p) ] [ without time zone ]
 - timestamp [ (p) ] with time zone
+- timestampz
 - BOOLEAN
 
 ```sql

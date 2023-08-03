@@ -1064,7 +1064,7 @@ tcpdump的简单选项介绍
 
 -E spi@ipaddr algo:secret,...
 
-可通过spi@ipaddr algo:secret 来解密IPsec ESP包(nt | rt:IPsec Encapsulating Security Payload,IPsec 封装安全负载, IPsec可理解为, 一整套对ip数据包的加密协议, ESP 为整个IP 数据包或其中上层协议部分被加密后的数据,前者的工作模式称为隧道模式; 后者的工作模式称为传输模式 . 工作原理, 另需补充).
+可通过spi@ipaddr algo:secret 来解密 IPsec ESP 包(nt | rt:IPsec Encapsulating Security Payload,IPsec 封装安全负载, IPsec可理解为, 一整套对ip数据包的加密协议, ESP 为整个IP 数据包或其中上层协议部分被加密后的数据,前者的工作模式称为隧道模式; 后者的工作模式称为传输模式 . 工作原理, 另需补充).
 
 需要注意的是, 在终端启动tcpdump 时, 可以为IPv4 ESP packets 设置密钥(secret) .
 

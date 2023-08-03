@@ -34,7 +34,7 @@ OpenVPN提供了多种身份验证方式,
   
 OpenVPN所有的通信都基于一个单一的IP端口,默认且推荐使用UDP协议通讯,同时TCP也被支持。OpenVPN连接能通过大多数的代理服务器,并且能够在NAT的环境中很好地工作。服务端具有向客户端"推送"某些网络配置信息的功能,这些信息包括: IP地址、路由设置等。OpenVPN提供了两种虚拟网络接口: 通用Tun/Tap驱动,通过它们,可以建立三层IP隧道,或者虚拟二层以太网,后者可以传送任何类型的二层以太网络数据。传送的数据可通过LZO算法压缩。IANA (Internet Assigned Numbers Authority) 指定给OpenVPN的官方端口为1194。OpenVPN 2.0以后版本每个进程可以同时管理数个并发的隧道。[1]
   
-OpenVPN使用通用网络协议 (TCP与UDP) 的特点使它成为IPsec等协议的理想替代,尤其是在ISP (Internet service provider) 过滤某些特定VPN协议的情况下。[1]
+OpenVPN使用通用网络协议 (TCP与UDP) 的特点使它成为 IPsec 等协议的理想替代,尤其是在ISP (Internet service provider) 过滤某些特定VPN协议的情况下。[1]
   
 在选择协议时候,需要注意2个加密隧道之间的网络状况,如有高延迟或者丢包较多的情况下,请选择TCP协议作为底层协议,UDP协议由于存在无连接和重传机制,导致要隧道上层的协议进行重传,效率非常低下。[1]
 
