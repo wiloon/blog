@@ -1,24 +1,22 @@
 ---
-title: Js中的history.back()在FireFox和Chrome
+title: FireFox
 author: "-"
 date: 2013-07-15T11:11:59+00:00
-url: /?p=5665
+url: fireFox
 categories:
-  - JavaScript
+  - Inbox
 tags:
   - reprint
 ---
-## Js中的history.back()在FireFox和Chrome
-JavaScript中后退的写法: history.back()或者history.go(-1)。
+## Firefox
 
-这种写法在IE上即可实现我们想要的效果，但是在FireFox和Chrome就会变得很悲催了。
+## Firefox socks proxy
 
-FireFox: 
+firefox beta 和 firefox nightly build 可以在地址栏输入 `about:config` 查找 proxy 关键字, 设置 socks5 proxy
 
-只需要改成如下方式:  **返回**
+需要设置三个key
 
-**        **Chrome: 
-
-Chrome比FireFox更难搞:  **返回**
-
-本人分析: 对于Chrome来说，首先执行window.history.back()，执行完成之后再接着执行href="#"，所以无法返回。加上 return false之后将不再执行href="#"，便能正常返回。
+- network.proxy.socks: 192.168.9.1
+- network.proxy.socks_port: 1080
+- network.proxy.type: 1
+- network.proxy.socks_remote_dns: true
