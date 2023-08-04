@@ -2,13 +2,13 @@
 title: '命令行, curl  查公网ip'
 author: "-"
 date: 2019-05-07T03:18:01+00:00
-url: /?p=14300
+url: curl/ip
 categories:
   - Inbox
 tags:
   - reprint
 ---
-## '命令行, curl  查公网ip'
+## '命令行, curl  查公网 ip'
 
 ```bash
 curl whatismyip.akamai.com
