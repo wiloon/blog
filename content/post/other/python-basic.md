@@ -946,6 +946,8 @@ time.sleep(10)
 ## hashset
 
 ```py
+myset = {"apple", "banana", "cherry"}
+
 >>> l = set()
 >>> l.add(1)
 >>> l.add(2)

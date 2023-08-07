@@ -10,7 +10,7 @@ tags:
   - JSP
 
 ---
-## JSP中的PageEncoding和ContentType
+## JSP中的PageEncoding和ContentType placeholder
 JSP页面中的PageEncoding和ContentType两种属性的区别是什么呢？我们先来看一下: 
 
 **PageEncoding: **是JSP文件本身的编码

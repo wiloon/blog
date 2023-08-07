@@ -8,7 +8,7 @@ categories:
 tags:
   - reprint
 ---
-## Features of jsp2.1
+## Features of jsp2.1 placeholder
 <http://www.roseindia.net/jsp/FeaturesOfJsp2.1.shtml>
 
 The main purpose of Java Platform, Enterprise Edition (Java EE) 5 is to ease development. Now the Jsp2.1 includes theJava Standard Tag Library(JSTL) and JavaServerFaces technology.
