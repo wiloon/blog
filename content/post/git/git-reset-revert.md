@@ -18,7 +18,7 @@ git reset --hard HEAD~1
 
 # reset 最近两次 commit
 git reset --hard HEAD~2
-# reset 到某一个 commit, 退到/进到 指定commit_id
+# reset 到某一个 commit, 退到/进到 指定 commit_id
 git reset --hard commit_id
 
 git reset --soft HEAD^
@@ -191,6 +191,16 @@ git log --oneline --graph -4 --decorate
 ```
 
 ### git revert
+
+```bash
+# revert 多个连续的 commit
+# 会生成 n 个 commit
+git revert commit_m^..commit_n
+# -n 不自动 commit, 手动 commit 之后只有一个 commit
+git revert -n commit_m^..commit_n
+git commit -m 'revert ...'
+git push
+```
 
 git revert 也是撤销命令，区别在于 reset 是指向原地或者向前移动指针，git revert 是创建一个 commit 来回滚当前的 commit，指针向后移动。
 
