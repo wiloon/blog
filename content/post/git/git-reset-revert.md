@@ -198,6 +198,13 @@ git log --oneline --graph -4 --decorate
 git revert commit_m^..commit_n
 # -n 不自动 commit, 手动 commit 之后只有一个 commit
 git revert -n commit_m^..commit_n
+# commit_m^ means "the first parent commit of commit_m": that allows to include commit_m in the revert.
+# https://stackoverflow.com/questions/4991594/revert-a-range-of-commits-in-git
+# `^..` 代表两侧都是闭区间
+# https://stackoverflow.com/questions/1955985/what-does-the-caret-character-mean-in-git/1956054#1956054
+# 另外一种写法 `..`, 前开后闭区间
+git revert --no-commit commit_m..commit_n
+
 git commit -m 'revert ...'
 git push
 ```
