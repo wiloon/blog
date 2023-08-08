@@ -32,7 +32,7 @@ tags:
 - `#` 井号 crosshatch/sharp/hash mark
 - % 百分号 percent sign/mod
 - & and/和/兼 and/ampersand
-- ^ 折音号 circumflex/caret
+- ^ 折音号 caret/circumflex
 - ~ 波浪号 tilde
 - {}  (左/右) 花括号/大括号 (left/right|open/close) braces
 - []  (左/右) 方括号/中括号 (left/right|open/close) brackets
