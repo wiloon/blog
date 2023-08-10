@@ -22,7 +22,7 @@ curl [kɜrl]
 --connect-timeout <fractional seconds>, 建连接超时, 比如 tcp 三次握手
 -m, --max-time <fractional seconds>, 传输超时, 比如 http 请求发送之后长时间没有响应, tcp 的 ack 收到了, 但是长时间没收到 http response.
 -G/--get 以 get 的方式来发送数据
--i, --include 输出时包括 protocol 头信息, 显示 response header
+-i, --include 输出时包括 protocol 头信息, 显示 response header, 例如: HTTP/1.0 200, Content-Type: text/plain
 -v, verbos
 -N, Disables the buffering of the output stream
 -H, --header LINE Custom header to pass to server (H)
