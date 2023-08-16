@@ -383,7 +383,7 @@ go mod init github.com/you/hello
 ```bash
 # windows, amd64
 GOOS=windows GOARCH=amd64 go build foo.go
-# linux
+# 目标系统 linux
 GOOS=linux GOARCH=amd64 go build foo.go
 ```
 
