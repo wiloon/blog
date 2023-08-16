@@ -8,7 +8,7 @@ categories:
 tags:
   - reprint
 ---
-## jsp内置对象
+## jsp内置对象 placeholder
 
   定义: 可以不加声明就在JSP页面脚本 (Java程序片和Java表达式) 中使用的成员变量
 
