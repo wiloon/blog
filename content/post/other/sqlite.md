@@ -27,12 +27,16 @@ sqlite3
 # query schema
 .table
 
+# 查看表结构
+.schema table0
+
 # 创建数据库
 sqlite3 /data/rssx/rssx.db
 # 建表
 CREATE TABLE if not exists users (  id char(36) PRIMARY KEY NOT NULL,  name varchar(50) DEFAULT NULL,  create_time timestamp DEFAULT NULL);
 # help 
 .help
+
 # show tables
 .tables
 # insert

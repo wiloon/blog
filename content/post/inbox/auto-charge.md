@@ -80,4 +80,20 @@ android 机 安装 MacroDroid, 配置规则电池电量低于 30%
 
 ## iPhone 自动充电
 
+```bash
+sudo pacman -S python-setuptools
+sudo pacman -S python-packaging
+sudo pacman -S python-ordered-set
+python-more-itertools
+python-jaraco.functools
+python-jaraco.text
+python-jaraco.context
+python-six
+python-jinja
+python-markupsafe
+python-cryptography
+openssl
+yay -S python-miio
+```
+
 <https://www.leavesongs.com/THINK/iOS-with-chuangmiplug-smart-plug2.html>
