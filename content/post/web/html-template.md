@@ -32,10 +32,13 @@ tags:
             console.log('window.onload')
         }
     </script>
+    <!--css-->
+    <link rel="stylesheet" type="text/css" href="foo.css">
 </head>
 <body>
     body0
     <button type="button" onclick="func0()">button0</button>
+    <div style="background: red"></div>
 </body>
 </html>
 ```

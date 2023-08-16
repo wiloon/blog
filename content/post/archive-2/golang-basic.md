@@ -702,6 +702,8 @@ if val := 10; val > max {
 
 ## upx 压缩
 
+upx 是一种加壳的操作, 可能会被杀毒软件识别成病毒
+
 ```bash
 # archlinux
 pacman -Sy upx

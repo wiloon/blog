@@ -9,7 +9,7 @@ tags:
   - Servlet
 
 ---
-## 'Servlet,  JSP'
+## 'Servlet,  JSP', placeholder
 
 首先sun提出的是Servlet体系，这个体系使得使用JAVA的程序员也能开发基于B/S架构的WEB应用程序，使用Servlet类将HTTP请求和响应封装在标准JAVA类中来实现各种WEB应用方案。这一步也是sun的J2EE架构中的最关键的一步。
   

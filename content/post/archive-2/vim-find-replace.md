@@ -9,7 +9,7 @@ tags:
   - reprint
   - VIM
 ---
-## Vim 查找, 替换
+## Vim 查找
 
 ## 查找
 
@@ -81,7 +81,7 @@ The N key searches backward...
 
 对于Vim的正则表达式搜索，一个通用的原则是：如果想按正则表达式查找，就用模式开关 \v，如果想按原义查找文本，就用原义开关 \V。
 
-## 替换
+## vim 替换
 
 :s (substitute) 命令用来查找和替换字符串。语法如下
 

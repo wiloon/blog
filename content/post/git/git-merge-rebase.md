@@ -83,6 +83,10 @@ git merge master feature
 
 ## git rebase
 
+### options
+
+- -i, --interactive     let the user edit the list of commits to rebase, 交互模式
+
 - git rebase 命令的文档描述是 Reapply commits on top of another base tip
 - rebase 有人把它翻译成 "变基"
 - rebase 是「在另一个 base 之上重新应用提交」
@@ -125,8 +129,8 @@ git merge master feature
    2. git fetch origin dev:dev
 3. git rebase dev
 4. 如果有冲突的话, 就处理冲突
-   1. 有冲突的时候大概会显示成这样 `CONFLICT (content): Merge conflict in foo.txt`
-   2. 处理冲突
+   1. 有冲突的时候大概会显示成这样 `CONFLICT (content): Merge conflict in path/to/foo.txt`
+   2. 处理冲突 `vim path/to/foo.txt`, `git add path/to/foo.txt`
    3. git rebase --continue/--skip/--abort
 5. git push -f
 6. 如果以上命令是在 shell 里操作的, 回到 jetbrain 之后要操作一次 reload from dick
@@ -299,9 +303,7 @@ drop 命令表示你要丢弃这个 commit 以及它的修改。同样可以删�
 当你因为某些 bug 需要回溯提交历史时，更容易定位到 bug 是从哪一个提交引入。尤其是当你需要通过 git bisect 从几十上百个提交中排查 bug，或者有一些体量较大的功能分支需要频繁的从远程的主分支拉取更新时。
 使用 rebase 来将远程的变更整合到本地仓库是一种更好的选择。用 merge 拉取远程变更的结果是，每次你想获取项目的最新进展时，都会有一个多余的 merge 提交。而使用 rebase 的结果更符合我们的本意：我想在其他人的已完成工作的基础上进行我的更改。
 
-### rebase -i, 交互模式
-
--i, --interactive, 交互模式, interactive rebase
+### rebase 交互模式
 
 ```bash
 rebase -i

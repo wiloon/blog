@@ -2,13 +2,14 @@
 title: newifi 3
 author: "-"
 date: 2019-01-03T13:01:18+00:00
-url: /?p=13307
+url: newifi
 categories:
   - Inbox
 tags:
   - reprint
 ---
 ## newifi 3
+
 newifi 3
   
 处理器 MT7621A, mipsle

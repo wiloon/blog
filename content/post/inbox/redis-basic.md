@@ -310,7 +310,7 @@ flushdb
 ### FLUSHALL [ASYNC]
 
 (Redis 4.0.0 or greater)  
-删除 所有DB 中的 所有数据, 默认是同步操作，选项 ASYNC 表示异步，即清空操作在一个新的线程中进行，不会阻塞主线程。
+删除 所有 DB 中的 所有数据, 默认是同步操作，选项 ASYNC 表示异步，即清空操作在一个新的线程中进行，不会阻塞主线程。
 
 Redis is now able to delete keys in the background in a different thread without blocking the server. An ASYNC option was added to FLUSHALL and FLUSHDB in order to let the entire dataset or a single database to be freed asynchronously.
 

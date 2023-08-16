@@ -10,9 +10,10 @@ tags:
 
 ---
 ## LESS CSS
-## 一种 动态 样式 语言.
 
-### LESS 将 CSS 赋予了动态语言的特性，如 变量， 继承，运算， 函数. LESS 既可以在 客户端 上运行 (支持IE 6+, Webkit, Firefox)，也可以借助Node.js或者Rhino在服务端运行。
+## 一种 动态 样式 语言
+
+### LESS 将 CSS 赋予了动态语言的特性，如 变量， 继承，运算， 函数. LESS 既可以在 客户端 上运行 (支持IE 6+, Webkit, Firefox)，也可以借助Node.js或者Rhino在服务端运行
 
 CSS (层叠样式表) 是一门历史悠久的标记性语言，同 HTML 一道，被广泛应用于万维网 (World Wide Web) 中。HTML 主要负责文档结构的定义，CSS 负责文档表现形式或样式的定义。
 
