@@ -18,7 +18,6 @@ tags:
 - python for ansible
 - pacman -Syu
 - yay for telegraf
-- 
 
 ### before ansible script
 
