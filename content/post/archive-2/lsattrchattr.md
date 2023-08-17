@@ -41,13 +41,9 @@ rm: cannot remove 'dummy_data': Operation not permitted
 chattr -ai /etc/passed
 ```
 
-
+(总结) Linux的chattr与lsattr命令详解
   
-     (总结) Linux的chattr与lsattr命令详解
-  
-
-
-http://www.ha97.com/5172.html/embed#?secret=D3gPzD1nWk
+<http://www.ha97.com/5172.html/embed#?secret=D3gPzD1nWk>
 
 PS: 有时候你发现用root权限都不能修改某个文件,大部分原因是曾经用chattr命令锁定该文件了。chattr命令的作用很大,其中一些功能是由Linux内核版本来支持的,不过现在生产绝大部分跑的linux系统都是2.6以上内核了。通过chattr命令修改属性能够提高系统的安全性,但是它并不适合所有的目录。chattr命令不能保护/、/dev、/tmp、/var目录。lsattr命令是显示chattr命令设置的文件属性。
 
@@ -59,8 +55,8 @@ chattr命令的用法: chattr [ -RVf ] [ -v version ] [ mode ] files…
   
 属性。
 
-  * : 在原有参数设定基础上,追加参数。
-  * : 在原有参数设定基础上,移除参数。
+* : 在原有参数设定基础上,追加参数。
+* : 在原有参数设定基础上,移除参数。
   
     = : 更新为指定参数设定。
   
@@ -84,30 +80,32 @@ chattr命令的用法: chattr [ -RVf ] [ -v version ] [ mode ] files…
   
     各参数选项中常用到的是a和i。a选项强制只可添加不可删除,多用于日志系统的安全设定。而i是更为严格的安全设定,只有superuser (root) 或具有CAP_LINUX_IMMUTABLE处理能力 (标识) 的进程能够施加该选项。
 
-应用举例: 
+应用举例:
 
-1. 用chattr命令防止系统中某个关键文件被修改: 
+1. 用chattr命令防止系统中某个关键文件被修改:
 
-# chattr +i /etc/resolv.conf
+```bash
+chattr +i /etc/resolv.conf
+```
 
 然后用mv /etc/resolv.conf等命令操作于该文件,都是得到Operation not permitted 的结果。vim编辑该文件时会提示W10: Warning: Changing a readonly file错误。要想修改此文件就要把i属性去掉:  chattr -i /etc/resolv.conf
 
-# lsattr /etc/resolv.conf
+```bash
+lsattr /etc/resolv.conf
+```
 
 会显示如下属性
   
 --i--- /etc/resolv.conf
 
-2. 让某个文件只能往里面追加数据,但不能删除,适用于各种日志文件: 
+让某个文件只能往里面追加数据,但不能删除,适用于各种日志文件:
 
-# chattr +a /var/log/messages
+```bash
+chattr +a /var/log/messages
+```
 
-https://linux.cn/article-5590-1.html
+<https://linux.cn/article-5590-1.html>
 
+(总结) Linux的chattr与lsattr命令详解
 
-  
-     (总结) Linux的chattr与lsattr命令详解
-  
-
-
-http://www.ha97.com/5172.html/embed#?secret=D3gPzD1nWk
+<http://www.ha97.com/5172.html/embed#?secret=D3gPzD1nWk>

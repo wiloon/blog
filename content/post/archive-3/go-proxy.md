@@ -16,7 +16,7 @@ GO 版本大于 1.13，可以直接使用 go env -w 命令设置 GOPROXY
 go env -w GOPROXY=https://goproxy.io,direct
 
 # 清除 go env
-go env -w GOPROXY=
+go env -u GOPROXY
 ```
 
 ```bash

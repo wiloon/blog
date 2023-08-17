@@ -9,7 +9,6 @@ tags:
   - reprint
 ---
 ## archlinux, tensorFlow, golang
-* * *
 
 build tensorflow
 

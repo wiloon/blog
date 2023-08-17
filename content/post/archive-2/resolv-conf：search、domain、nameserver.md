@@ -1,5 +1,5 @@
 ---
-title: 'resolv.conf, search, domain, nameserver'
+title: 'resolv.conf, search, domain, nameserver, DNS'
 author: "-"
 date: 2018-09-25T09:53:24+00:00
 url: resolv
@@ -8,19 +8,19 @@ categories:
 tags:
   - reprint
 ---
-## 'resolv.conf, search, domain, nameserver'
+## 'resolv.conf, search, domain, nameserver, DNS'
 
 <http://www.ttlsa.com/linux/resolv-conf-desc/>
   
-resolv.conf是resolver类库使用的配置文件,每当一个程序需要通过域名来访问internet上面的其它主机时,需要利用该类库将域名转换成对应的IP,然后才可进行访问.
+resolv.conf 是 resolver 类库使用的配置文件, 每当一个程序需要通过域名来访问 internet 上面的其它主机时, 需要利用该类库将域名转换成对应的IP, 然后才可进行访问.
 
-resolv.conf文件的配置选项不多,从man文档中看了半天,不理解domain和search使用来干嘛的。这里做个解释,防止以后忘了 (环境: ubuntu12.04) :
+resolv.conf 文件的配置选项不多, 从 man 文档中看了半天,不理解 domain 和 search 使用来干嘛的。这里做个解释, 防止以后忘了 (环境: ubuntu12.04) :
 
-nameserver x.x.x.x该选项用来制定DNS服务器的,可以配置多个nameserver指定多个DNS。
+nameserver x.x.x.x 该选项用来制定 DNS 服务器的, 可以配置多个 nameserver 指定多个 DNS。
 
-domain mydomain.com这个用来指定本地的域名,在没有设置search的情况下,search默认为domain的值。这个值可以随便配,目前在我看来,domain除了当search的默认值外,没有其它用途。也就说一旦配置search,那domain就没用了。
+domain mydomain.com 这个用来指定本地的域名, 在没有设置 search 的情况下, search 默认为 domain 的值。这个值可以随便配, 目前在我看来, domain 除了当 search 的默认值外, 没有其它用途。也就说一旦配置 search, 那 domain 就没用了。
 
-search google.com baidu.com该选项可以用来指定多个域名,中间用空格或tab键隔开。它是干嘛的呢？
+search google.com baidu.com 该选项可以用来指定多个域名,中间用空格或tab键隔开。它是干嘛的呢？
 
 如: 在没有配置该选项时,执行
 
@@ -54,9 +54,9 @@ PING news.google.com (74.125.128.101) 56(84) bytes of data.
 
 由于news不能被DNS解析,所以去尝试news.google.com,被正常解析。如果没有被解析还会去尝试news.baidu.com。
 
-· /etc/resolv.conf : 这个就是设定你 Client 端连上 DNS 主机的 IP 设定文件；
+/etc/resolv.conf : 这个就是设定你 Client 端连上 DNS 主机的 IP 设定文件；
   
-· /etc/nsswitch.conf: 这个档案则是在『决定』先要使用 /etc/hosts 还是 /etc/resolv.conf的设定！
+/etc/nsswitch.conf: 这个档案则是在『决定』先要使用 /etc/hosts 还是 /etc/resolv.conf的设定！
   
 <https://www.jianshu.com/p/2c1c081cc521>
 
