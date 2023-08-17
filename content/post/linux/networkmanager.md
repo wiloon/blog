@@ -86,3 +86,5 @@ dns=systemd-resolved
 ```
 
 使用 systemd-resolved, networkmanager 会把 /etc/resolv.conf 设置成 127.0.0.1:53, 当然 systemd-resolved  要配置成 DNSStubListener=yes 开启本地的 53 端口, 这样 dns 请求就交给 systemd-resolved 处理了.
+
+<https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/configuring_and_managing_networking/configuring-the-order-of-dns-servers_configuring-and-managing-networking>
