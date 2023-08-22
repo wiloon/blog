@@ -23,10 +23,10 @@ CGO_ENABLED=0 的情况下，Go 采用纯静态编译；
 ### CGO_ENABLED=1
 
 go build 编译时会添加一些动态库链接 如 glibc
-cgo，允许你在Go代码中调用C代码
+cgo，允许你在 Go 代码中调用C代码
 我们以os/user为例，在 CGO_ENABLED=1，即 cgo 开启的情况下，os/user 包中的 lookupUserxxx 系列函数采用了 c 版本的实现，我们看到在 $GOROOT/src/os/user/lookup_unix.go 中的 build tag 中包含了 build cgo。这样一来，在 CGO_ENABLED=1，该文件将被编译，该文件中的c版本实现的lookupUser将被使用
 
-如果CGO_ENABLED=1，但依然要强制静态编译，需传递-linkmode=external给cmd/link。
+如果 CGO_ENABLED=1，但依然要强制静态编译，需传递 -linkmode=external 给 cmd/link
 
 <https://johng.cn/cgo-enabled-affect-go-static-compile/>
 
