@@ -82,9 +82,7 @@ net.nf_conntrack_max = 2000500
 
 ### iptables 图
 
-[![11HP74.md.png][1]][2]{.wp-editor-md-post-content-link}
-  
-<https://zh.wikipedia.org/wiki/Iptables#/media/File:Netfilter-packet-flow.svg>
+![1](https://zh.wikipedia.org/wiki/Iptables#/media/File:Netfilter-packet-flow.svg)
 
 [![11bp8I.md.png][3]][4]{.wp-editor-md-post-content-link}
   
@@ -174,7 +172,7 @@ iptables -A INPUT -s 192.168.44.111 -p tcp --tcp-flags SYN,FIN,RST FIN -j DROP
 iptables-save > /etc/iptables/iptables.rules
 ```
 
-### load iptables on boot
+### load iptables on boot, 启动时加载规则
 
 ```bash
 iptables-save -f /etc/iptables/iptables.rules
