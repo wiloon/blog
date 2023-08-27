@@ -170,9 +170,10 @@ openresolv
 ### iptables, 设置 iptables 规则，客户端连接之后就能 Ping 通服务端局域网里的其它 ip 了
 
 ```bash
-iptables -A FORWARD -i wg0 -j ACCEPT
-iptables -t nat -A POSTROUTING -o <eth0> -j MASQUERADE
-iptables -t nat -A POSTROUTING -o wlp1s0 -j MASQUERADE
+iptables -t filter -A FORWARD -i wg0 -j ACCEPT
+iptables -t nat    -A POSTROUTING -o <eth0> -j MASQUERADE
+iptables -t nat    -A POSTROUTING -o ens18 -j MASQUERADE
+iptables -t nat    -A POSTROUTING -o wlp1s0 -j MASQUERADE
 ```
 
 ### systemd-networkd, 用 systemd-networkd 配置 wireguard, 开机自动加载 wireguard 配置
@@ -189,12 +190,17 @@ Description = wireguard
 
 [WireGuard]
 ListenPort = 51900
+# 本端私钥
 PrivateKey = private-key-0
 
+# 对端 A
 [WireGuardPeer]
+# 对端 A 公钥
 PublicKey = public-key-0
+# 对端 A IP
 AllowedIPs = 192.168.xx.xx/32 
 
+# 对端 B
 [WireGuardPeer]
 PublicKey = public-key-1
 AllowedIPs = 192.168.xx.xx/32 
@@ -285,6 +291,7 @@ chromeos 从 google play 安装wireguard,连接成功后，vpn全局生效包括
 [Interface]
 # 自动生成的私钥
 PrivateKey = privateKey0
+# 本端地址, 跟对端配置填成一样的
 Address = 192.168.53.8/32
 # DNS 可选字段, 配置之后 DNS 请求会发到这个地址
 DNS = 192.168.50.1
@@ -401,24 +408,24 @@ fi
 #### ~~tunsafe 配置文件(废弃)~~
 
 ```bash
-    [Interface]
-    PrivateKey = <private_key>
-    DNS = 192.168.50.1
-    BlockDNS = true
+[Interface]
+PrivateKey = <private_key>
+DNS = 192.168.50.1
+BlockDNS = true
 
-    # 设置虚拟网卡的内网地址 (可选子网掩码) 
-    Address = 192.168.53.3/24
-    ;/l.4r5t3677777777
-    [Peer]
-    PublicKey = <public_key>
+# 设置虚拟网卡的内网地址 (可选子网掩码) 
+Address = 192.168.53.3/24
+;/l.4r5t3677777777
+[Peer]
+PublicKey = <public_key>
 
-    # 目标地址是192.168.53.1 的会通过vpn发送到服务端
-    AllowedIPs = 192.168.53.1/24
+# 目标地址是192.168.53.1 的会通过vpn发送到服务端
+AllowedIPs = 192.168.53.1/24
 
-    # 所有ip包都 会发往 vpn服务端
-    AllowedIPs = 0.0.0.0/0
-    Endpoint = <server_ip0:server_port0>
-    PersistentKeepalive = 25
+# 所有ip包都 会发往 vpn服务端
+AllowedIPs = 0.0.0.0/0
+Endpoint = <server_ip0:server_port0>
+PersistentKeepalive = 25
 ```
 
 ### chromeos>crostini
