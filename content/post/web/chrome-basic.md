@@ -16,21 +16,21 @@ chrome://net-internals/#dns
 
 ### 不使用页面缓存进行刷新
 
-    Shift+F5
+Shift+F5
 
 ### 清除dns缓存
 
-    chrome://net-internals/#dns
+chrome://net-internals/#dns
 
 ### chrome://flags
 
 ### chrome 导出 netlogs
 
-    chrome://net-export/
+chrome://net-export/
 
 ### 分析 netlogs
 
-    https://netlog-viewer.appspot.com/
+https://netlog-viewer.appspot.com/
 
 ## Chrome 清除某个特定网站下的缓存
 
@@ -40,7 +40,7 @@ chrome://net-internals/#dns
 
 ## huge CPU usage of gnome-keyring-daemon when starting Google Chrome
 
-    google-chrome --password-store:basic
+google-chrome --password-store:basic
 
 How to prevent the huge CPU usage of gnome-keyring-daemon when starting Google Chrome
   

@@ -1,5 +1,5 @@
 ---
-title: resolv.conf, systemd-resolved
+title: resolv.conf, systemd-resolved, DNS
 author: "-"
 date: 2022-08-03 09:52:54
 url: systemd-resolved
@@ -8,11 +8,12 @@ categories:
 tags:
   - reprint
 ---
-## resolv.conf, systemd-resolved
+## resolv.conf, systemd-resolved, DNS
 
 ```bash
 # check systemd-resolved status
 resolvectl status
+resolvectl restart
 
 # disable dns on 53 port
 vim /etc/systemd/resolved.conf
@@ -39,9 +40,9 @@ resolvectl query google.com
 ```bash
 vim /etc/systemd/resolved.conf
 [Resolve]
-# DNS: 上游的 dns 服务器, 可以配置多条 用空格分隔
+# DNS: 上游的 dns 服务器, 可以配置多条, 用空格分隔
 DNS=192.168.50.1
-# FallbackDNS: 一个空格分隔的 IPv4 与 IPv6 地址列表。用作系统的替补DNS服务器。此选项所设置的DNS服务器仅在实在找不到可用DNS的情况下才会被使用。
+# FallbackDNS: 一个空格分隔的 IPv4 与 IPv6 地址列表。用作系统的替补 DNS 服务器。此选项所设置的 DNS 服务器仅在实在找不到可用 DNS 的情况下才会被使用。
 FallbackDNS=223.5.5.5 223.6.6.6 114.114.114.114
 #Domains=
 #LLMNR=yes

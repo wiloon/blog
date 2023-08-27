@@ -407,7 +407,7 @@ Find current log in /var/lib/pgsql/9.2/data/pg_log/
 
 The log files tend to grow a lot over a time, and might kill your machine. For your safety, write a bash script that'll delete logs and restart postgresql server.
 
-## PostgreSQL中统计指定字符或者单词或者字符串在一个长字符串中出现总次数，PostgreSQL统计字符串中某字符出现次数
+## PostgreSQL 中统计指定字符或者单词或者字符串在一个长字符串中出现总次数，PostgreSQL 统计字符串中某字符出现次数
 
 <https://blog.csdn.net/sunny_day_day/article/details/109183521>
 
@@ -423,17 +423,20 @@ ps -ef | grep "wal" | grep -v "grep"
 # 主库会有 postgres: walwriter, postgres: walsender 进程
 # 从库只有 postgres: walreceiver 进程
 
-# 通过pg_controldata命令查看数据库控制信息，内容包含WAL日志信息、checkpoint、数据块等信息，通过Databasecluster state信息可判断是主库还是备库
+# 通过 pg_controldata 命令查看数据库控制信息，内容包含 WAL 日志信息、checkpoint、数据块等信息，通过 Databasecluster state 信息可判断是主库还是备库
 pg_controldata | grep cluster
-
 ```
 
 ```sql
+-- psql 连接到 DB 之后, 可以这样判断
 SELECT pg_is_in_recovery();
--- 如果返回t说明是备库，返回f说明是主库
+-- You can use pg_is_in_recovery() which returns True if recovery is still in progress(so the server is running in standby mode). Check the System Administration Functions for further informations.
+-- 如果返回 t 说明是备库，返回 f 说明是主库
 ```
 
 <https://blog.csdn.net/m15217321304/article/details/88845353>
+
+<https://www.postgresql.org/docs/15/functions-admin.html>
 
 ## filter
 
@@ -457,15 +460,15 @@ regclass是oid的别名，postgresql自动的为每一个系统表都建立了�
 
 --查询任务进展
 select query_id,query from pg_stat_activity where state='active';
- 
+
 --kill有两种方式
 --第一种是：
 SELECT pg_cancel_backend(PID);
 这种方式只能kill select查询，对update、delete 及DML不生效)
- 
+
 --第二种是：
 SELECT pg_terminate_backend(PID);
 这种可以kill掉各种操作(select、update、delete、drop等)操作
 ————————————————
 版权声明：本文为CSDN博主「SunWuKong_Hadoop」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
-原文链接：https://blog.csdn.net/SunWuKong_Hadoop/article/details/89448075
+原文链接：<https://blog.csdn.net/SunWuKong_Hadoop/article/details/89448075>

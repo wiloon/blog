@@ -241,9 +241,9 @@ snapshot : 与 targetunit 相似,快照本身不做什么,唯一的目的就是�
 
 路径:
 
-    /etc/systemd/system/*     ――――  供系统管理员和用户使用
-    /run/systemd/system/*     ――――  运行时配置文件
-    /usr/lib/systemd/system/*   ――――  安装程序使用 (如RPM包安装) 
+- /etc/systemd/system/*     ――――  供系统管理员和用户使用
+- /run/systemd/system/*     ――――  运行时配置文件
+- /usr/lib/systemd/system/*   ――――  安装程序使用 (如RPM包安装)
 
 - After    本服务在哪些服务启动之后启动，仅定义启动顺序，不定义服务依赖关系，即使要求先启动的服务启动失败，本服务也依然会启动
 - ConditionPathExists, AssertPathExists    要求给定的绝对路径文件已经存在，否则不做任何事(condition)或进入failed状态(assert)，可在路径前使用!表示条件取反，即不存在时才启动服务。
@@ -272,7 +272,7 @@ BusName=org.freedesktop.NetworkManager
 
 ExecStart=/usr/sbin/NetworkManager -no-daemon
 
-# NM doesn't want systemd to kill its children for it
+NM doesn't want systemd to kill its children for it
 
 KillMode=process
 
@@ -313,9 +313,10 @@ notify,idle类型比较少见,不介绍。
 
 - ExecStart: 服务启动时执行的命令,通常此命令就是服务的主体。
 
-        ------如果你服务的类型不是 oneshot,那么它只可以接受一个命令,参数不限。
-    
-       ------多个命令用分号隔开,多行用 \ 跨行。
+------如果你服务的类型不是 oneshot,那么它只可以接受一个命令,参数不限。
+
+------多个命令用分号隔开,多行用 \ 跨行。
+
 - ExecStartPre, ExecStartPost: ExecStart执行前后所调用的命令。
 - ExecStop: 定义停止服务时所执行的命令,定义服务退出前所做的处理。如果没有指定,使用systemctl stop xxx命令时,服务将立即被终结而不做处理。如果未设置此选项，那么当此服务被停止时， 该服务的所有进程都将会根据 KillSignal= 的设置被立即全部杀死。
 - Restart: 定义服务何种情况下重启 (启动失败,启动超时,进程被终结) 。可选选项: no, on-success, on-failure,on-watchdog, on-abort
@@ -404,13 +405,16 @@ Step2: 将上述的文件拷贝到RHEL 7系统中/usr/lib/systemd/system/*目录
 
 Step3: 编写unit文件中ExecStart=/bin/bash /root/test.sh所定义的test.sh文件,将其放在定义的目录当中,此文件是服务的执行主体。文件内容如下:
 
+```bash
 # !/bin/bash
-
 date >> /tmp/date
+```
 
 Step4: 将my-demo.service注册到系统当中执行命令:
 
-# systemctl enable my-demo.service
+```bash
+systemctl enable my-demo.service
+```
 
 输出: ln -s'/usr/lib/systemd/system/my-demo.service' '/etc/systemd/system/multi-user.target.wants/my-demo.service'
 
@@ -422,7 +426,7 @@ Step4: 将my-demo.service注册到系统当中执行命令:
   
 <https://blog.csdn.net/fu_wayne/article/details/38018825>
 
-    systemctl开机启动zookeeper
+systemctl开机启动zookeeper
   
 <https://www.pocketdigi.com/20180131/1593.html/embed#?secret=rpemgAP8dW>
 ><https://www.junmajinlong.com/linux/systemd/service_2/>
