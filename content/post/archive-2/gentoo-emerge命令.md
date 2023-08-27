@@ -116,7 +116,7 @@ emerge -ep opera
   
 emerge -emptytree -pretend opera
 
-(不用pretend会重新编译这所有依赖的包,glibc因为安全关系没有列出)
+(不用pretend会重新编译这所有依赖的包, glibc 因为安全关系没有列出)
 
 不使用依赖关系安装软件
 

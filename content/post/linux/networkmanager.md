@@ -11,7 +11,9 @@ tags:
 
 ```bash
 sudo pacman -S networkmanager
+sudo systemctl status NetworkManager.service
 sudo systemctl start NetworkManager.service
+sudo systemctl restart NetworkManager.service
 sudo pacman -S nm-connection-editor
 sudo pacman -S network-manager-applet
 
@@ -29,7 +31,7 @@ vim /usr/share/polkit-1/actions/org.freedesktop.NetworkManager.policy
 
 Open /usr/share/polkit-1/actions/org.freedesktop.NetworkManager.policy with root/sudo privileges and search for the following line:
 
-<message> System policy prevents modification of network settings for all users</message>
+System policy prevents modification of network settings for all users
 A few lines below that should be this:
 
 auth_admin_keep</allow_active>
@@ -62,9 +64,27 @@ Like auth_admin but the authorization is kept for a brief period (e.g. five minu
 
 ### 配置文件
 
-    /etc/NetworkManager/system-connections
+```bash
+/etc/NetworkManager/NetworkManager.conf
+/etc/NetworkManager/system-connections
+```
 
 ### network manager + openvpn 多个默认路由的问题
 
 IPv4 Settings->Routes and checking "Use this connection only for resources on its network".
 <https://www.debuntu.org/how-to-network-manager-openvpn-overwrites-default-route/>
+
+### DNS
+
+```bash
+vim /etc/NetworkManager/NetworkManager.conf
+
+# add following lines
+[main]
+dns=systemd-resolved
+
+```
+
+使用 systemd-resolved, networkmanager 会把 /etc/resolv.conf 设置成 127.0.0.1:53, 当然 systemd-resolved  要配置成 DNSStubListener=yes 开启本地的 53 端口, 这样 dns 请求就交给 systemd-resolved 处理了.
+
+<https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/configuring_and_managing_networking/configuring-the-order-of-dns-servers_configuring-and-managing-networking>

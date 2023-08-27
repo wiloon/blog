@@ -18,7 +18,6 @@ tags:
 - python for ansible
 - pacman -Syu
 - yay for telegraf
-- 
 
 ### before ansible script
 
@@ -129,7 +128,19 @@ yay -S google-chrome
 
 pacman -S file-roller
   
-xfce4 date time plugin format #%b %d%n%V %a%n%R
+xfce4 date time plugin format
+
+Date Format: Custom Format
+
+```r
+%b %d%n%V %a%n%R
+```
+
+Time Format: Custom Format
+
+```r
+%a %R
+```
 
 <http://goodies.xfce.org/projects/panel-plugins/xfce4-datetime-plugin>
 
