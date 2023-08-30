@@ -1,13 +1,13 @@
 ---
 author: "-"
 date: "2021-03-16 16:47:40" 
-title: "cypress"
+title: cypress
 categories:
   - inbox
 tags:
   - reprint
 ---
-## "cypress"
+## cypress
 
 ```bash
 npm install cypress --save-dev
