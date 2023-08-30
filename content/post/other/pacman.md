@@ -25,6 +25,7 @@ tags:
 -R 删除软件包
 -b 指定 database 路径, 默认 /var/lib/pacman
 -r 指定安装软件包的 root 路径, 默认 /
+-Rdd 要删除软件包，但是不删除依赖这个软件包的其他程序, pacman -Rdd package_name
 ```
 
 ## 把 openssl 包安装到指定的目录
@@ -37,12 +38,6 @@ pacman -Sy openssl -b /var/lib/pacman -r 2022-11-04
 
 ```bash
 pacman -Ss foo
-```
-
-### error: signature from xxx is invalid
-
-```bash
-pacman -Sy archlinux-keyring
 ```
 
 ```bash
@@ -94,18 +89,25 @@ pacman -Syyuu
 IgnorePkg = linux
 ```
 
-### (invalid or corrupted package (PGP signature)), signature from xxx is unknown trust
+## archlinux-keyring
+
+pacman-key gpg 数据库有关。这个数据库包含所有必要的PGP公钥。
 
 error: unzip: signature from "Jonas Witschel <diabonas@gmx.de>" is unknown trust
 :: File /var/cache/pacman/pkg/unzip-6.0-16-x86_64.pkg.tar.zst is corrupted (invalid or corrupted package (PGP signature)).
 
 <https://bbs.archlinux.org/viewtopic.php?id=128682>
 
+- (invalid or corrupted package (PGP signature)), signature from xxx is unknown trust
+- error: signature from xxx is invalid
+- archlinux key could not be looked up remotely
+- error: oniguruma: signature from is marginal trust
+
 ```bash
-pacman -Sy archlinux-keyring
+sudo pacman -S archlinux-keyring && sudo pacman -Syu
 ```
 
-#### Disabling signature checking
+### Disabling signature checking
 
 pacman.conf 是 global 的配置, 子仓库的配置优先级更高, 注意检查pacman.conf 和 mirrorlist 的其它 SigLeve 配置
 
@@ -189,16 +191,6 @@ Include = /etc/pacman.d/mirrorlist
 ```bash
 --noconfirm
 # Bypass any and all "Are you sure?" messages. It's not a good idea to do this unless you want to run pacman from a script.
-```
-
-### archlinux key could not be looked up remotely
-
-```bash
-sudo pacman -S archlinux-keyring && sudo pacman -Syu
-
-# 要删除软件包，但是不删除依赖这个软件包的其他程序: 
-pacman -Rdd package_name
-
 ```
 
 ### pacman unable to lock database
@@ -443,12 +435,6 @@ installing xorgproto (2019.2-2) breaks dependency 'xf86dgaproto' required by lib
 
 ```bash
 sudo pacman -Rdd libdmx libxxf86dga && sudo pacman -Syu
-```
-
-## error: oniguruma: signature from is marginal trust
-
-```bash
-sudo pacman -Sy archlinux-keyring
 ```
 
 ## 一个切换 mirror 的脚本
