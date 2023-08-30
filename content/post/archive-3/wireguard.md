@@ -21,9 +21,18 @@ wireguard default port: 51820
 
 archlinux 新版本的内核已经集成了 wireguard，不需要单独安装.
 
+### load kernel module at boot
+
+```bash
+vim /etc/modules-load.d/wireguard.conf
+
+# load wireguard module at boot
+wireguard
+```
+
 ```bash
 pacman -Syu
-# 安装 wireguard 管理工具
+# 安装 wireguard 管理工具, wireguard 集成进内核了, 但是管理工具还是要手动安装的
 pacman -S wireguard-tools
 
 lsmod | grep wireguard
@@ -88,7 +97,8 @@ sudo ip addr add 192.168.53.1/24 dev wg0
 sudo wg set wg0 private-key ./private.key
 sudo wg set wg0 listen-port 51900
 
-# 做为服务端使用时，对端的 ip 和端口一般是动态的，所以不需要配置 endpoint, PEER_B_PUBLIC_KEY = 对端公钥字符串
+# 做为服务端使用时，对端的 ip 和端口一般是动态的，所以不需要配置 endpoint
+# PEER_B_PUBLIC_KEY = 对端公钥字符串
 sudo wg set wg0 peer <PEER_B_PUBLIC_KEY> persistent-keepalive 25 allowed-ips 192.168.53.2/32
 # 做为客户端时, 对端有确定的 IP 和端口时， 要配置对端的 endpoint
 sudo wg set wg0 peer <PEER_B_PUBLIC_KEY> persistent-keepalive 25 allowed-ips 192.168.53.2/32  endpoint 192.168.50.115:9000
@@ -155,19 +165,22 @@ openresolv
 
 ## ipv4 forward
 
-wiloon.com/ip-forward
+>wiloon.com/ip-forward
 
 ### iptables, 设置 iptables 规则，客户端连接之后就能 Ping 通服务端局域网里的其它 ip 了
 
 ```bash
-iptables -A FORWARD -i wg0 -j ACCEPT
-iptables -t nat -A POSTROUTING -o <eth0> -j MASQUERADE
-iptables -t nat -A POSTROUTING -o wlp1s0 -j MASQUERADE
+iptables -t filter -A FORWARD -i wg0 -j ACCEPT
+iptables -t nat    -A POSTROUTING -o <eth0> -j MASQUERADE
+iptables -t nat    -A POSTROUTING -o ens18 -j MASQUERADE
+iptables -t nat    -A POSTROUTING -o wlp1s0 -j MASQUERADE
 ```
 
 ### systemd-networkd, 用 systemd-networkd 配置 wireguard, 开机自动加载 wireguard 配置
 
-> vim /etc/systemd/network/99-wg0.netdev
+```bash
+vim /etc/systemd/network/99-wg0.netdev
+```
 
 ```bash
 [NetDev]
@@ -177,18 +190,25 @@ Description = wireguard
 
 [WireGuard]
 ListenPort = 51900
+# 本端私钥
 PrivateKey = private-key-0
 
+# 对端 A
 [WireGuardPeer]
+# 对端 A 公钥
 PublicKey = public-key-0
+# 对端 A IP
 AllowedIPs = 192.168.xx.xx/32 
 
+# 对端 B
 [WireGuardPeer]
 PublicKey = public-key-1
 AllowedIPs = 192.168.xx.xx/32 
 ```
 
-> vim /etc/systemd/network/99-wg0.network
+```bash
+vim /etc/systemd/network/99-wg0.network
+```
 
 ```bash
 [Match]
@@ -271,6 +291,7 @@ chromeos 从 google play 安装wireguard,连接成功后，vpn全局生效包括
 [Interface]
 # 自动生成的私钥
 PrivateKey = privateKey0
+# 本端地址, 跟对端配置填成一样的
 Address = 192.168.53.8/32
 # DNS 可选字段, 配置之后 DNS 请求会发到这个地址
 DNS = 192.168.50.1
@@ -387,24 +408,24 @@ fi
 #### ~~tunsafe 配置文件(废弃)~~
 
 ```bash
-    [Interface]
-    PrivateKey = <private_key>
-    DNS = 192.168.50.1
-    BlockDNS = true
+[Interface]
+PrivateKey = <private_key>
+DNS = 192.168.50.1
+BlockDNS = true
 
-    # 设置虚拟网卡的内网地址 (可选子网掩码) 
-    Address = 192.168.53.3/24
-    ;/l.4r5t3677777777
-    [Peer]
-    PublicKey = <public_key>
+# 设置虚拟网卡的内网地址 (可选子网掩码) 
+Address = 192.168.53.3/24
+;/l.4r5t3677777777
+[Peer]
+PublicKey = <public_key>
 
-    # 目标地址是192.168.53.1 的会通过vpn发送到服务端
-    AllowedIPs = 192.168.53.1/24
+# 目标地址是192.168.53.1 的会通过vpn发送到服务端
+AllowedIPs = 192.168.53.1/24
 
-    # 所有ip包都 会发往 vpn服务端
-    AllowedIPs = 0.0.0.0/0
-    Endpoint = <server_ip0:server_port0>
-    PersistentKeepalive = 25
+# 所有ip包都 会发往 vpn服务端
+AllowedIPs = 0.0.0.0/0
+Endpoint = <server_ip0:server_port0>
+PersistentKeepalive = 25
 ```
 
 ### chromeos>crostini

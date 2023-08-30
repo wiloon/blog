@@ -10,7 +10,7 @@ tags:
 ---
 ## modprobe, lsmod
 
-modprobe 可载入指定的个别模块，或是载入一组相依的模块。modprobe 会根据depmod 所产生的相依关系，决定要载入哪些模块。若在载入过程中发生错误，在modprobe 会卸载整组的模块
+modprobe 可载入指定的个别模块，或是载入一组相依的模块。modprobe 会根据 depmod 所产生的相依关系，决定要载入哪些模块。若在载入过程中发生错误，在 modprobe 会卸载整组的模块
 
 <https://blog.csdn.net/future_fighter/article/details/3862795>
 
@@ -28,21 +28,20 @@ modinfo module_name
 systool -v -m module_name
 
 modprobe --show-depends
+```
 
 手动加载卸载
 控制内核模块载入/移除的命令是kmod 软件包提供的, 要手动装入模块的话，执行:
 
-    modprobe module_name
+modprobe module_name
 
-如果要移除一个模块: 
+如果要移除一个模块:
 
-    modprobe -r module_name
+modprobe -r module_name
 
 或者:
 
-    rmmod module_name
-
-```
+rmmod module_name
 
 ### modinfo 查看内核模块的信息，包括开发人员信息，依赖信息
 
