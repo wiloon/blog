@@ -11,22 +11,23 @@ tags:
 ## linux 内存盘 tmpfs
 
 ```bash
-  
+# archlinux tmp dir resize
+sudo mount -o remount,size=10G,noatime /tmp
 mount tmpfs /tmp -t tmpfs -o size=1024m
   
 ```
 
-把内存当硬盘,提速你的linux系统
+把内存当硬盘, 提速你的 linux 系统
 
-场景: 电脑内存太大用不了那么多,空着浪费,所以利用起来。内存读写速度高用来缓存或者编译,甚至存临时文件最好不过了～～
+场景: 电脑内存太大用不了那么多, 空着浪费, 所以利用起来。内存读写速度高用来缓存或者编译, 甚至存临时文件最好不过了～～
 
-Windows下有一种叫法叫做内存盘,Linux自然也有,看了Linux中ramdisk,tmpfs,ramfs比较与说明这篇文章后,决定使用tmpfs文件系统。
+Windows 下有一种叫法叫做内存盘, Linux 自然也有, 看了 Linux 中 ramdisk, tmpfs, ramfs 比较与说明这篇文章后, 决定使用 tmpfs 文件系统。
 
-关于tmpfs和VM
+关于 tmpfs和VM
   
-linux的内存 (VM) ,包括ram和swap两部分。
+linux 的内存 (VM) ,包括 ram和 swap两部分。
 
-ram就是你的物理内存,swap就是在装系统的时候划分的swap分区(在win下叫做页面文件,默认位于C:\pagefiles.sys)。
+ram 就是你的物理内存, swap 就是在装系统的时候划分的swap分区(在win下叫做页面文件,默认位于C:\pagefiles.sys)。
   
 VM也是程序所能使用的最大内存上限,tmpfs本质上也是VM,tmpfs划出VM的部分页面作为一个文件系统.
   
@@ -56,7 +57,7 @@ tmpfs的先天优势变成了他的先天劣势:
   
 tmpfs的用途
   
-程序运行产生的临时文件,我觉得tmpfs天生就是为tmp目录设计的。
+程序运行产生的临时文件, 我觉得tmpfs天生就是为tmp目录设计的。
   
 编译时的缓存目录,用内存来做真是再好不过。
   
