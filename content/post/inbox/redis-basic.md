@@ -24,6 +24,9 @@ OBJECT ENCODING key0
 # 分析 redis key 大小
 debug object key0
 # Value at:0x7f6bffc22a00 refcount:1 encoding:raw serializedlength:7164 lru:12841785 lru_seconds_idle:95
+
+# 查看各个库的 key 数量
+info keyspace
 ```
 
 #### 延迟时间
@@ -208,12 +211,6 @@ EXPIRE key0 10
 
 ```bash
     TTL key
-```
-
-### 查看各个库的key数量
-
-```bash
-    info keyspace
 ```
 
 以秒为单位，返回给定 key 的剩余生存时间(TTL, time to live)。

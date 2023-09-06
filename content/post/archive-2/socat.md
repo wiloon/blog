@@ -15,6 +15,7 @@ tags:
 
 ```bash
 # test tcp port
+socat /dev/null TCP:192.168.1.15:22
 socat - tcp4:192.168.1.15:22,connect-timeout=3
 
 # test udp port
