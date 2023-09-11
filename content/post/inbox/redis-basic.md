@@ -241,7 +241,7 @@ redis-cli -h 127.0.0.1 -p 6379 hget key0 field0
 client list
 client kill ip:port
 
-#查特定pattern的key 数量
+# 查特定pattern的key 数量
 redis-cli keys *xxx* |grep "" -c
 
 批量删除Redis下特定pattern的keys
@@ -259,7 +259,7 @@ redis-server.exe
 redis.windows.conf 
 redis-cli.exe
 
-#当前数据库中key的数量 
+# 当前数据库中 key 的数量
 DBSIZE
 
 #清空当前数据库 
