@@ -117,7 +117,7 @@ lines = f.readlines()
 print(len(lines))
 // for 循环
 for line in lines:
-// 去空格
+# 去空格
     line = line.strip()
     command = "ansible '" + line + "' -m shell -a 'systemctl start filebeat'"
     print(command)
