@@ -46,12 +46,25 @@ celery -A tasks worker --loglevel=INFO
 
 start rabbitmq
 
-python manage.py runserver 0.0.0.0:8000
+run api
 
+```bash
+python manage.py runserver 0.0.0.0:8000
+```
+
+run celery
+
+```bash
 celery -A app0 worker -c 1 --workdir=/path/to/celery_app/root/
+```
+
+### pycharm debug
+
+add new python script
+
+script: /home/wiloon/apps/venv-36/bin/celery
+script parameters: worker -A app0 -c 1 --workdir=/path/to/celery_app/root/
+working directory is celery path: /home/wiloon/apps/venv-36/bin/
+environment variables: import appropriate variables
 
 <https://stackoverflow.com/questions/29312809/how-do-i-enable-remote-celery-debugging-in-pycharm>
-
-script path: /home/wiloon/.virtualenvs/env36/bin/celery
-parameters: worker -A app0 -c 1 --workdir=/path/to/celery_app/root/
-working directory is celery path: /home/wiloon/.virtualenvs/env36/bin/
