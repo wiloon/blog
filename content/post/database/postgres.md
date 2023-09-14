@@ -210,7 +210,7 @@ CREATE SEQUENCE seq_0 INCREMENT 1 MINVALUE 1 START 1 CACHE 1;
 - CACHE, 缓存, 某个客户端调用 nextval() 之后, 服务端为其预分配的 seq 值的缓存, 如果客户端挂掉或重启缓存里的数据都会被丢弃.
 - cycle, 循环产生
 
-## PostgreSQL 如何删除外键限制
+## 删除外键限制
 
 首先找出数据库表的外键名称：
 
@@ -249,6 +249,8 @@ WHERE constraint_type = 'FOREIGN KEY' AND tc.table_name = 'table0';
 - timestamp [ (p) ] with time zone
 - timestampz
 - BOOLEAN
+- json
+- jsonb
 
 ```sql
 名字                        别名             描述
@@ -415,10 +417,10 @@ The log files tend to grow a lot over a time, and might kill your machine. For y
 select array_length(regexp_split_to_array(config,'"id":'),1)-1 from xxx;
 ```
 
-## postgres 判断主备角色
+## postgres 判断主备/主从角色
 
 ```bash
-### 操作系统上查看WAL发送进程或WAL接收进程
+### 操作系统上查看 WAL 发送进程或 WAL 接收进程
 ps -ef | grep "wal" | grep -v "grep"
 # 主库会有 postgres: walwriter, postgres: walsender 进程
 # 从库只有 postgres: walreceiver 进程
@@ -431,7 +433,7 @@ pg_controldata | grep cluster
 -- psql 连接到 DB 之后, 可以这样判断
 SELECT pg_is_in_recovery();
 -- You can use pg_is_in_recovery() which returns True if recovery is still in progress(so the server is running in standby mode). Check the System Administration Functions for further informations.
--- 如果返回 t 说明是备库，返回 f 说明是主库
+-- 如果返回 t 说明是备库，返回 f 是主库
 ```
 
 <https://blog.csdn.net/m15217321304/article/details/88845353>

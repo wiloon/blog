@@ -24,6 +24,9 @@ OBJECT ENCODING key0
 # 分析 redis key 大小
 debug object key0
 # Value at:0x7f6bffc22a00 refcount:1 encoding:raw serializedlength:7164 lru:12841785 lru_seconds_idle:95
+
+# 查看各个库的 key 数量
+info keyspace
 ```
 
 #### 延迟时间
@@ -210,12 +213,6 @@ EXPIRE key0 10
     TTL key
 ```
 
-### 查看各个库的key数量
-
-```bash
-    info keyspace
-```
-
 以秒为单位，返回给定 key 的剩余生存时间(TTL, time to live)。
 
 可用版本: >= 1.0.0
@@ -244,7 +241,7 @@ redis-cli -h 127.0.0.1 -p 6379 hget key0 field0
 client list
 client kill ip:port
 
-#查特定pattern的key 数量
+# 查特定pattern的key 数量
 redis-cli keys *xxx* |grep "" -c
 
 批量删除Redis下特定pattern的keys
@@ -262,7 +259,7 @@ redis-server.exe
 redis.windows.conf 
 redis-cli.exe
 
-#当前数据库中key的数量 
+# 当前数据库中 key 的数量
 DBSIZE
 
 #清空当前数据库 
