@@ -26,5 +26,5 @@ site: 在特定域中进行搜索
 ### 文件类型
 
 ```r
-    filetype: PDF
+filetype: PDF
 ```

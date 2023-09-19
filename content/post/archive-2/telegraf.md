@@ -197,7 +197,6 @@ podman run --name telegraf -d \
     --net=host \
     --restart=always \
     telegraf
-
 ```
 
 运行在容器里的 telegraf 监控宿主机资源
