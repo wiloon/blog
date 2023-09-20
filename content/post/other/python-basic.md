@@ -251,6 +251,17 @@ for kv in a.items():
 
 ```
 
+#### check if key is exist
+
+```python
+dict_1 = {"a": 1, "b":2, "c":3}
+if "a" in dict_1:
+    print("Exists")
+else:
+    print("Does not exist")
+
+```
+
 <http://c.biancheng.net/view/2212.html>
 
 dict() 函数用于创建一个字典
@@ -940,7 +951,8 @@ str(10)
 ## sleep
 
 ```py
-time.sleep(10)
+foo_second=10
+time.sleep(foo_second)
 ```
 
 ## hashset
