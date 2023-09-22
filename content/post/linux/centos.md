@@ -149,7 +149,7 @@ priority=N  (N为1到99的正整数,数值越小越优先)
   
 其他第三的软件源为: priority=N  (推荐N>10)
 
-# vi CentOS-Base.repo
+vi CentOS-Base.repo
 
 [base]
 
@@ -157,7 +157,7 @@ name=CentOS-$releasever - Base
 
 mirrorlist=<http://mirrorlist.centos.org/?release>=$releasever&arch=$basearch&repo=os
 
-# baseurl=<http://mirror.centos.org/centos/>$releasever/os/$basearch/
+aseurl=<http://mirror.centos.org/centos/>$releasever/os/$basearch/
 
 gpgcheck=1
 
@@ -165,13 +165,13 @@ gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-6
 
 priority=1
 
-# released updates
+released updates
 
 ……
 
-# wget <http://download.fedora.redhat.com/pub/epel/6/x86_64/epel-release-6-5.noarch.rpm>
+wget <http://download.fedora.redhat.com/pub/epel/6/x86_64/epel-release-6-5.noarch.rpm>
 
-# wget <http://rpms.famillecollet.com/enterprise/remi-release-6.rpm>
+wget <http://rpms.famillecollet.com/enterprise/remi-release-6.rpm>
 
 [root@orcl1 yum.repos.d]# ls
 
