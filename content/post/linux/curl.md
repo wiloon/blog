@@ -198,7 +198,7 @@ curl -G -v "http://localhost:30001/data" --data-urlencode "msg=hello world" --da
 
 <https://unix.stackexchange.com/questions/86729/any-way-to-encode-the-url-in-curl-command>
 
-### 格式化返回的json数据
+### 格式化返回的 json 数据
 
 ```bash
 curl http://foo.com/bar | jq .
