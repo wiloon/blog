@@ -25,6 +25,7 @@ tags:
 - MacBook Air
 - U2723QX
 - Nuphy Air75
+- Apple Watch Series 8
 
 ## ROCK 5B
 
@@ -52,6 +53,7 @@ tags:
 - Intel AX201
   - Wi-Fi CERTIFIED*Wi-Fi 6 (802.11ax)
   - Max Speed2.4 Gbps
+- 14.0 吋 1920*1200 IPS 400nit
 
 ## benchmark
 
@@ -443,3 +445,8 @@ startup> settings> windows update> advanced options> recovery> advance startup> 
 ### disable built-in battery
 
 power> disable built-in battery
+
+## Apple Watch Series 8
+
+- 32G
+- 41mm

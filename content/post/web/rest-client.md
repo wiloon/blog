@@ -27,11 +27,17 @@ GET http://localhost:8000/api/v1/public/echo?msg={{foo}} HTTP/1.1
 // comments
 ```
 
-### http 请求
+### http 请求 with header
 
 ```http
 ### get
 https://foo.com/bar/?foo=bar&bar=foo
+Accept: */*
+Accept-Encoding: gzip, deflate, br
+Accept-Language: en-US,en;q=0.9,ja;q=0.8,zh-CN;q=0.7,zh;q=0.6
+Connection: keep-alive
+Host: wiloon.com
+User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36
 ```
 
 <https://github.com/Huachao/vscode-restclient>
