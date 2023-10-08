@@ -274,9 +274,24 @@ git config --global core.editor vim
 export EDITOR=vim
 ```
 
+## commit
+
+```bash
+# 本次 commit 使用指定的 auther 信息
+git commit -m "message0" --author="auther0 <auther0@foo.com>"
+```
+
 ### commit message
 
 #### 修改已经 push 了的 commit 信息
+
+```bash
+git rebase -i commit_id_0  
+# 把对应的 commit 的 action 改成 e  
+git commit --amend --author="auth0 <auth0@foo.com>"
+git rebase --continue
+git push -f
+```
 
 ```bash
 本条仅适用于修改已经 push 过了的最近一次的 commit 注释信息，确保本地文件的最新的。
