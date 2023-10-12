@@ -11,6 +11,13 @@ tags:
 ---
 ## Go unit test, 单体测试
 
+执行某一个测试文档
+
+```bash
+go test foo_test.go
+go test -v foo_test.go
+```
+
 Go 语言推荐测试文件和源代码文件放在一块，测试文件以 _test.go 结尾。比如，当前 package 有 calc.go 一个文件，我们想测试 calc.go 中的 Add 和 Mul 函数，那么应该新建 calc_test.go 作为测试文件。
 
 ### calc_test.go

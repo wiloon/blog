@@ -174,6 +174,12 @@ vars(student)
 
 ## import
 
+```py
+import sys
+```
+
+导入 sys 模块后，我们就有了变量 sys 指向该模块，利用 sys 这个变量，就可以访问 sys 模块的所有功能。
+
 ```python
 # import module_name
 # import 搜索路径 sys.path, 运行文件所在的目录
@@ -196,7 +202,7 @@ import sys; print(sys.path)
 
 from 模块名 import 语句：
 
- from 模块名 import 子模块 或 函数 或 类 或 变量：使用函数调用
+from 模块名 import 子模块 或 函数 或 类 或 变量：使用函数调用
 
 导入的不是整个模块，而是 import 后面的函数或变量
 
@@ -693,7 +699,7 @@ if __name__ == '__main__':
 ['www', 'doiido', 'com', 'cn']
 ```
 
-## python字符串str和字节数组相互转化
+## python 字符串 str 和字节数组相互转化
 
 ```python
 b = b"Hello, world!"  # bytes object  
@@ -1062,3 +1068,14 @@ pip freeze > requirements.txt
 ## Microsoft Visual C++ 14.0 or greater is required
 
 <https://support.microsoft.com/en-us/topic/the-latest-supported-visual-c-downloads-2647da03-1eea-4433-9aff-95f26a218cc0>
+
+## module package
+
+在Python中，一个.py文件就称之为一个模块（Module）。为了避免模块名冲突，Python又引入了按目录来组织模块的方法，称为包（Package）。每一个包目录下面都会有一个__init__.py的文件，这个文件是必须存在的，否则，Python就把这个目录当成普通目录，而不是一个包。__init__.py可以是空文件，也可以有Python代码，因为__init__.py本身就是一个模块，而它的模块名就是mycompany。类似的，可以有多级目录，组成多级层次的包结构。
+
+## code
+
+```py
+# int to string
+int("7")
+```
