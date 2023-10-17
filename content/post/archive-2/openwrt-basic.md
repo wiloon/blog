@@ -254,39 +254,39 @@ logread
     /etc/rc.d
 ```
 
-### openwrt添加开机运行脚本
+### openwrt 添加开机运行脚本, start script
 
-openwrt添加开机运行脚本
-进入/etc/init.d/目录创建脚本test
-
-```bash
-    vim test
-```
-
-在/etc/init.d/test中按照以下格式编写shell脚本
+openwrt 添加开机运行脚本
+进入 /etc/init.d/ 目录创建脚本 test
 
 ```bash
-    #!/bin/sh /etc/rc.common
-    START=99
-    STOP=15
-
-    start() {
-        ip rule add fwmark 2 table 200
-    }
+vim test
 ```
 
-START的值决定这个脚本的启动顺序,这里为99
-start()里执行增加的功能脚步或者写脚本启动自己的程序
+在 /etc/init.d/test 中按照以下格式编写 shell 脚本
+
+```bash
+#!/bin/sh /etc/rc.common
+START=99
+STOP=15
+
+start() {
+    ip rule add fwmark 2 table 200
+}
+```
+
+START 的值决定这个脚本的启动顺序, 这里为 99
+start() 里执行增加的功能脚步或者写脚本启动自己的程序
 3.给脚本添加可执行权限
 
 ```bash
-    chmod +x test
+chmod +x test
 ```
 
 #### 创建一个软链接
 
 ```bash
-    /etc/init.d/test enable
+/etc/init.d/test enable
 ```
 
 ## send email

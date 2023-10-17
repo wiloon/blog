@@ -22,7 +22,7 @@ Go 语言是静态类型的编程语言
 
 ## version
 
-- latest: 1.20.4
+- latest: 1.21.3
 - current: 1.17.7
 
 ### hello world
