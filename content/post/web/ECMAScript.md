@@ -9,6 +9,29 @@ tags:
 ---
 ## ECMAScript, javascript basic, js basic
 
+## 模板字面量, 多行字符串
+
+```js
+let learnCoding = `How to start learning web development?
+- Learn HTML
+- Learn CSS
+- Learn JavaScript
+Use freeCodeCamp to learn all the above and much, much more !
+`
+
+console.log(learnCoding);
+
+
+// 输出
+
+// How to start learning web development?
+// - Learn HTML
+// - Learn CSS
+// - Learn JavaScript
+// Use freeCodeCamp to learn all the above and much, much more !
+
+```
+
 ## 数组
 
 JavaScript 数组是可调整大小的，并且可以包含不同的数据类型。
