@@ -9,7 +9,8 @@ tags:
   - reprint
 ---
 ## idea 插入当前日期,insert current datetime
-### 安装 idea 插件:
+
+### 安装 idea 插件
 
 进入配置页面: File>setting>Plugins
   
@@ -17,7 +18,7 @@ tags:
   
 安装插件并重启idea
 
-### 设置 快捷键
+设置 快捷键
 
 setting>keymap>plugin>...date...generator
 
