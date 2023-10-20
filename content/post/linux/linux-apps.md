@@ -17,6 +17,7 @@ tags:
 - btop, 另外一个 top 实现, 颜值还不错
 - screenfetch, 打印发行版的 logo
 - mousepad, 易于使用的快速的文本编辑器
+- obsidian, 知识管理
 
 ## AUR
 
@@ -42,7 +43,6 @@ sudo pacman -S powerdevil kmix kscreen ark
 | name                  | comments                                                                                |
 | :-------------------- | :-------------------------------------------------------------------------------------- |
 | thunderbird           | 邮件客户端|
-| obsidian              | 知识管理 |
 | flameshot             | 截图工具 screenshot                                                                     |
 | netdata               | 系统资源监控                                                                            |
 | qalculate-gtk         | 全宇宙最好用的计算器                                                                    |
