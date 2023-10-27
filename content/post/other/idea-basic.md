@@ -62,11 +62,11 @@ git fetch origin master
 
 linux
 
-修改idea.vmoptions或idea64.vmoptions
+修改 idea.vmoptions 或 idea64.vmoptions
 
 windows
 
-修改IntelliJ IDEA 7.0/bin下idea.exe.vmoptions
+修改 IntelliJ IDEA 7.0/bin 下 idea.exe.vmoptions
 
  -server
  -Xverify:none
@@ -143,7 +143,7 @@ setting>file and code templates>includes>file header
 
 ## jetbrain 状态栏显示内存占用, jetbrain, mem
 
->view> appearance> status ba widgets> memory indicator
+>view> appearance> status bar widgets> memory indicator
 
 修改内存设置
 
