@@ -14,16 +14,16 @@ tags:
 ## commands
 
 ```bash
-#install specific version
+# install specific version
 yay -S python36
 pacman -S python-pip
-#打印包版本
+# 打印包版本
 pip list
 pip install "setuptools<58.0.0"
 pip install -r requirements.txt
 pip freeze #查看当前安装库版本
-#创建 requirements.txt 文件，其中包含了当前环境中所有包及各自的版本的简单列表
-#保持部署相同，一键安装所有包
+# 创建 requirements.txt 文件，其中包含了当前环境中所有包及各自的版本的简单列表
+# 保持部署相同，一键安装所有包
 pip install -r requirements.txt
 pip freeze > requirements.txt
 pip uninstall kafka
