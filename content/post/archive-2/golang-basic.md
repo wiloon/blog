@@ -114,7 +114,7 @@ export GOBIN=/path/to/go/bin
 
 ### internal package
 
-Go语言 1.4 版本增加了 Internal packages 特征用于控制包的导入, 即internal package只能被特定的包导入。
+Go 语言 1.4 版本增加了 Internal packages 特征用于控制包的导入, 即internal package只能被特定的包导入。
 内部包的规范约定: 导出路径包含internal关键字的包, 只允许internal的父级目录及父级目录的子包导入, 其它包无法导入。
 
 ### 变量
