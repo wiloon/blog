@@ -20,6 +20,8 @@ tags:
 curl -O http://mirrors.163.com/archlinux/iso/2022.02.01/archlinux-2022.02.01-x86_64.iso
 ```
 
+## ventory@usb-stick
+
 - copy to ventoy usb partition
 - 用 ventoy U盘引导系统
 - 启动 sshd
@@ -33,21 +35,21 @@ passwd
 systemctl start sshd
 ```
 
-- 登录, 然后进行后续操作
+- 用其它主机 ssh 登录, 然后进行后续操作
 
 ## archinstall
 
 <https://github.com/archlinux/archinstall>
 
 ```bash
-pacman -Sy
-pacman -S archinstall
+pacman -Sy archinstall
+
 # 执行 archinstall, 开始安装
 archinstall
 
 # Select one of the above keyboard languages (by number or full name): us
 # Select one of the above regions to download packages from (by number or full name): China
-# Select one or more harddrives to use and configure (leave blank to skip this step): 1 
+# Select one or more harddrives to use and configure (leave blank to skip this step): 1
 # Select what you wish to do with the selected block devices: 0
 # Select which filesystem your main partition should use (by number or name): 2
 # Enter disk encryption password (leave blank for no encryption):

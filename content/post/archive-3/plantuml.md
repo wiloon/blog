@@ -249,8 +249,6 @@ component JMM {
 pacman -S graphviz
 ```
 
-
-
 ## 思维导图 mind map
 
 ```plantuml
