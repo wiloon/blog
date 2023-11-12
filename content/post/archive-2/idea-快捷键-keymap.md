@@ -10,6 +10,8 @@ tags:
 ---
 ## idea 快捷键, keymap
 
+- alt + shift + up, move line up
+
 | Key    | Command      |
 | ------ | ------------ |
 | ctrl+g | line/column  |

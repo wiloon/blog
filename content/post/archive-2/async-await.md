@@ -12,20 +12,27 @@ tags:
 
 async/await 是以更舒适的方式使用 promise 的一种特殊语法，同时它也非常易于理解和使用。
 
+```js
 async function
+```
+
 让我们以 async 这个关键字开始。它可以被放置在一个函数前面，如下所示：
 
+```js
 async function f() {
   return 1;
 }
+```
 
-在函数前面的 “async” 这个单词表达了一个简单的事情：即这个函数总是返回一个 promise。其他值将自动被包装在一个 resolved 的 promise 中。
+在函数前面的 async 这个单词表达了一个简单的事情：即这个函数总是返回一个 promise。其他值将自动被包装在一个 resolved 的 promise 中。
 
 例如，下面这个函数返回一个结果为 1 的 resolved promise，让我们测试一下：
 
+```js
 async function f() {
   return 1;
 }
+```
 
 f().then(alert); // 1
 ……我们也可以显式地返回一个 promise，结果是一样的：

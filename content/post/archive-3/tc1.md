@@ -113,7 +113,9 @@ homeassistant/home-assistant
 
 ### 米家 + iphone
 
-    podman run -d --name=ha -p 5353:5353/udp -p 8123:8123 -p 51827:51827 -v ha-conf:/config -v /etc/localtime:/etc/localtime:ro homeassistant/home-assistant
+```bash
+podman run -d --name=ha -p 5353:5353/udp -p 8123:8123 -p 51827:51827 -v ha-conf:/config -v /etc/localtime:/etc/localtime:ro homeassistant/home-assistant
+```
 
     5353/udp是homekit用的
     就是苹果那套
