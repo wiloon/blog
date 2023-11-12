@@ -26,6 +26,7 @@ tags:
 - U2723QX
 - Nuphy Air75
 - DELL U2723QX
+- Apple Watch Series 8
 
 ## ROCK 5B
 
@@ -54,6 +55,7 @@ tags:
   - Wi-Fi CERTIFIED*Wi-Fi 6 (802.11ax)
   - Max Speed2.4 Gbps
 - 屏幕 14.0吋 1920*1200 IPS 400nit 低蓝光
+- 14.0 吋 1920*1200 IPS 400nit
 
 ## benchmark
 
@@ -451,3 +453,8 @@ power> disable built-in battery
 
 - IPS
 - 4k
+
+## Apple Watch Series 8
+
+- 32G
+- 41mm

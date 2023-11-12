@@ -10,11 +10,13 @@ tags:
 ---
 ## CPU steal time
 
+Steal Time(st)，用来衡量被虚拟机监视器(Hypervisor)偷去给其它虚拟机使用的 CPU 时间所占的比例。
+
 <https://blog.csdn.net/jessysong/article/details/73571878>
 
-Netflix 很关注CPU的Steal Time。他们的策略是: 如果是当前虚拟机的Steal Time 超过了你们设置的 阈值，他们会关闭这台虚拟机并且在另外一台物理机上面重启。
+Netflix 很关注 CPU 的 Steal Time。他们的策略是: 如果是当前虚拟机的 Steal Time 超过了你们设置的阈值，他们会关闭这台虚拟机并且在另外一台物理机上面重启。
 
-如果你想要部署虚拟环境 (例如: Amazon EC2) ， steal time就是你想要关注的性能指标之一。 如果这个指标的数值很高，那么说明机器状态非常糟糕。什么是steal time？什么会引发高steal time？多少才是警戒值 (你需要做什么) ？
+如果你想要部署虚拟环境 (例如: Amazon EC2) ， steal time 就是你想要关注的性能指标之一。 如果这个指标的数值很高，那么说明机器状态非常糟糕。什么是 steal time？什么会引发高 steal time？多少才是警戒值 (你需要做什么) ？
 
 CPU Steal Time 的定义
   

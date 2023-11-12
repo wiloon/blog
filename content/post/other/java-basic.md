@@ -448,7 +448,6 @@ wiloon.com/red–black-tree
 ### Java Core Sprout
 
 ><https://github.com/crossoverJie/JCSprout>
-
 ><http://zangweiren.blog.51cto.com/412366/94392>
 ><http://www.cnblogs.com/chenssy/p/3372798.html>
 ><http://blog.csdn.net/ericbaner/article/details/3857268>

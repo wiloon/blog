@@ -40,8 +40,6 @@ for _, v := range nodes {
 \P{Unicode类名}     匹配"Unicode类"外的一个字符,"Unicode类"见后面的说明
 ```
 
-* * *
-
 复合:
 
 ```r

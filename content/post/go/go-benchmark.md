@@ -27,35 +27,38 @@ tags:
 go test 
 
 # 只运行 benchmark
+
 go test -bench=. -run=none
 go test -bench . -run none
 
 # 运行 test 和 benchmark
 go test -bench .
 
+# -bench 参数支持传入一个正则表达式，匹配到的用例才会得到执行，例如，只运行以 Fib 结尾的 benchmark 用例
+go test -bench=Fib$ .
+go test -bench='Fib$' .
+
 ```
 
 <https://geektutu.com/post/hpg-benchmark.html>
 
-    BenchmarkReader-8         409231              2549 ns/op
+>BenchmarkReader-8         409231              2549 ns/op
 
 用例执行了 409231 次，每次花费约 2549 ns。总耗时约 1s, benchmark 的默认时间是 1s
 
-### 用正则过滤用例
+BenchmarkFib-8 中的 -8 即 GOMAXPROCS, 默认等于 CPU 核数. 可以通过 -cpu 参数改变 GOMAXPROCS，-cpu 支持传入一个列表作为参数
 
-    go test -bench='Sort$' .
-
-### CPU 核数
-
-BenchmarkFib-8 中的 -8 即 GOMAXPROCS，默认等于 CPU 核数。可以通过 -cpu 参数改变 GOMAXPROCS，-cpu 支持传入一个列表作为参数
-
-     go test -run=none -bench=. -cpu=2,4
+```bash
+go test -run=none -bench=. -cpu=2,4
+```
 
 ### 提升准确度
 
 benchmark 的默认时间是 1s，那么我们可以使用 -benchtime 指定为 5s
 
-    go test -run=none -bench=. -cpu=1 -benchtime=5s
+```bash
+go test -run=none -bench=. -cpu=1 -benchtime=5s
+```
 
 实际执行的时间是 8s，比 benchtime 的 5s 要长，测试用例编译、执行、销毁等是需要时间的。
 
@@ -63,24 +66,30 @@ benchmark 的默认时间是 1s，那么我们可以使用 -benchtime 指定为 
 
 -benchtime 的值除了是时间外，还可以是具体的次数。例如，执行 30 次可以用 -benchtime=30x
 
-    go test -run=none -bench=. -cpu=1 -benchtime=30x
+```bash
+go test -run=none -bench=. -cpu=1 -benchtime=30x
+```
 
 ### 轮数
 
 -count 参数可以用来设置 benchmark 的轮数。例如，进行 3 轮 benchmark。
 
-    go test -run=none -bench=. -cpu=1 -count=3
+```bash
+go test -run=none -bench=. -cpu=1 -count=3
+```
 
 ### 内存
 
 使用 -benchmem 参数看到内存分配的情况
 
-    go test -run=none -bench=. -cpu=1 -benchmem
+```bash
+go test -run=none -bench=. -cpu=1 -benchmem
+```
 
 ### ResetTimer, StopTimer & StartTimer
 
 benchmark 和普通的单元测试用例一样，都位于 _test.go 文件中。
-函数名以 Benchmark 开头，参数是 b *testing.B。和普通的单元测试用例很像，单元测试函数名以 Test 开头，参数是 t *testing.T。
+函数名以 Benchmark 开头，参数是 b *testing.B。和普通的单元测试用例很像，单元测试函数名以 Test 开头，参数是 `t *testing.T`。
 
 benchmark 是如何工作的
 benchmark 用例的参数 b *testing.B，有个属性 b.N 表示这个用例需要运行的次数。b.N 对于每个用例都是不一样的。
@@ -94,15 +103,6 @@ BenchmarkFib-8 中的 -8 即 GOMAXPROCS，默认等于 CPU 核数。可以通过
 在这个例子中，改变 CPU 的核数对结果几乎没有影响，因为这个 Fib 的调用是串行的。
 
 202 和 5980669 ns/op 表示用例执行了 202 次，每次花费约 0.006s。总耗时比 1s 略多。
-
-提升准确度
-对于性能测试来说，提升测试准确度的一个重要手段就是增加测试的次数。我们可以使用 -benchtime 和 -count 两个参数达到这个目的。
-
-benchmark 的默认时间是 1s，那么我们可以使用 -benchtime 指定为 5s
-
-将 -benchtime 设置为 5s，用例执行次数也变成了原来的 5倍，每次函数调用时间仍为 0.6s，几乎没有变化。
-
--benchtime 的值除了是时间外，还可以是具体的次数。例如，执行 30 次可以用 -benchtime=30x：
 
 ><https://geektutu.com/post/hpg-benchmark.html>
 ><https://www.cnblogs.com/jiujuan/p/14604609.html>
