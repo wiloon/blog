@@ -20,7 +20,7 @@ tags:
 
 ### 各种类型的文件
 
-- .ovf
+- .ovf    OVF 模板，该模板将虚拟机或虚拟设备的状态捕获到一个自包含的包中，并且磁盘文件以压缩格式存储。
 - .mf
 - .iso
 - .vmdk 虚拟机磁盘, Virtual Machine Disk

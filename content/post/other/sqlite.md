@@ -32,6 +32,7 @@ sqlite3
 
 # 创建数据库
 sqlite3 /data/rssx/rssx.db
+
 # 建表
 CREATE TABLE if not exists users (  id char(36) PRIMARY KEY NOT NULL,  name varchar(50) DEFAULT NULL,  create_time timestamp DEFAULT NULL);
 # help 
@@ -39,6 +40,7 @@ CREATE TABLE if not exists users (  id char(36) PRIMARY KEY NOT NULL,  name varc
 
 # show tables
 .tables
+
 # insert
 
 # alter table, rename
