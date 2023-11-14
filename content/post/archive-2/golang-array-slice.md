@@ -94,7 +94,7 @@ s := arr[startIndex:]
 s := arr[:] 
 ```
 
-### 清空slice
+### 清空 slice
 
 ```go
 
