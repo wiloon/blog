@@ -182,8 +182,8 @@ git branch --contains tags/<tag>
 # 查看 commit 内容
 git show commit_id
 
-# checkout tag
-git checkout tag_name
+# checkout tag, tag name=v1.2.3
+git checkout v1.2.3
 
 # add a tag
 git tag v1.0.0
@@ -249,6 +249,8 @@ git branch -m oldName newName
 ## commands
 
 ```bash
+# 获取所有的 tag
+git fetch --tags
 # 计算对象数和磁盘消耗
 git count-objects -vH
 # 指定目录 1.8.5 以前
@@ -559,7 +561,7 @@ git push -u origin master
 
 git fetch是更新(update)在本地电脑上的远程跟踪分支（如origin/master分支，注意远程跟踪分支是保存在本地，一般在.git\refs\remotes\origin目录下），并更新(update) .git/FETCH_HEAD文件。并不会和本地分支merge，即不会更新本地分支。
 
-git fetch 命令用来拉取其它仓库的数据 (objects and refs).  
+git fetch 命令用来拉取远程仓库的数据 (objects and refs).  
 默认情况下，git fetch 取回**所有**分支 (branch) 的更新。如果只想取回特定分支的更新，可以指定分支名。
 
 更新(update) .git/FETCH_HEAD文件
