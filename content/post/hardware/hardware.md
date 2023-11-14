@@ -25,6 +25,7 @@ tags:
 - MacBook Air
 - U2723QX
 - Nuphy Air75
+- DELL U2723QX
 - Apple Watch Series 8
 
 ## ROCK 5B
@@ -53,6 +54,7 @@ tags:
 - Intel AX201
   - Wi-Fi CERTIFIED*Wi-Fi 6 (802.11ax)
   - Max Speed2.4 Gbps
+- 屏幕 14.0吋 1920*1200 IPS 400nit 低蓝光
 - 14.0 吋 1920*1200 IPS 400nit
 
 ## benchmark
@@ -416,6 +418,7 @@ F1 默认走 罗技优联, F2 和 F3 可以连接另外两个蓝牙设备. 蓝�
 ## MacBook Air
 
 - M2
+- 2560 x 1664 (224 ppi)
 
 ## U2723QX
 
@@ -445,6 +448,11 @@ startup> settings> windows update> advanced options> recovery> advance startup> 
 ### disable built-in battery
 
 power> disable built-in battery
+
+## DELL U2723QX
+
+- IPS
+- 4k
 
 ## Apple Watch Series 8
 
