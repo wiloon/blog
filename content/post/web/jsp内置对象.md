@@ -1,5 +1,5 @@
 ---
-title: jsp内置对象
+title: postgresql json jsonb
 author: "-"
 date: 2012-09-22T06:56:02+00:00
 url: /?p=4173
@@ -8,512 +8,394 @@ categories:
 tags:
   - reprint
 ---
-## jsp内置对象 placeholder
+## jpostgresql json jsonb
 
-  定义: 可以不加声明就在JSP页面脚本 (Java程序片和Java表达式) 中使用的成员变量
+postgresql----JSON类型和函数
+postgresql支持两种json数据类型：json和jsonb，而两者唯一的区别在于效率,json是对输入的完整拷贝，使用时再去解析，所以它会保留输入的空格，重复键以及顺序等。而jsonb是解析输入后保存的二进制，它在解析时会删除不必要的空格和重复的键，顺序和输入可能也不相同。使用时不用再次解析。两者对重复键的处理都是保留最后一个键值对。效率的差别：json类型存储快，使用慢，jsonb类型存储稍慢，使用较快。
 
+注意：键值对的键必须使用双引号
 
-  JSP共有以下9种基本内置组件 (可与ASP的6种内部组件相对应) :  
-  
-  
-  
-    1.request对象
-  
-  
-  
-    客户端的请求信息被封装在request对象中，通过它才能了解到客户的需求，然后做出响应。它是HttpServletRequest类的实例。
-  
-  
-  
-    序号 方 法 说 明
-  
-  
-  
-    1 object getAttribute(String name) 返回指定属性的属性值
-  
-  
-  
-    2 Enumeration getAttributeNames() 返回所有可用属性名的枚举
-  
-  
-  
-    3 String getCharacterEncoding() 返回字符编码方式
-  
-  
-  
-    4 int getContentLength() 返回请求体的长度 (以字节数) 
-  
-  
-  
-    5 String getContentType() 得到请求体的MIME类型
-  
-  
-  
-    6 ServletInputStream getInputStream() 得到请求体中一行的二进制流
-  
-  
-  
-    7 String getParameter(String name) 返回name指定参数的参数值
-  
-  
-  
-    8 Enumeration getParameterNames() 返回可用参数名的枚举
-  
-  
-  
-    9 String[] getParameterValues(String name) 返回包含参数name的所有值的数组
-  
-  
-  
-    10 String getProtocol() 返回请求用的协议类型及版本号
-  
-  
-  
-    11 String getScheme() 返回请求用的计划名,如:http.https及ftp等
-  
-  
-  
-    12 String getServerName() 返回接受请求的服务器主机名
-  
-  
-  
-    13 int getServerPort() 返回服务器接受此请求所用的端口号
-  
-  
-  
-    14 BufferedReader getReader() 返回解码过了的请求体
-  
-  
-  
-    15 String getRemoteAddr() 返回发送此请求的客户端IP地址
-  
-  
-  
-    16 String getRemoteHost() 返回发送此请求的客户端主机名
-  
-  
-  
-    17 void setAttribute(String key,Object obj) 设置属性的属性值
-  
-  
-  
-    18 String getRealPath(String path) 返回一虚拟路径的真实路径
-  
-  
-  
-    2.response对象
-  
-  
-  
-    response对象包含了响应客户请求的有关信息，但在JSP中很少直接用到它。它是HttpServletResponse类的实例。
-  
-  
-  
-    序号 方 法 说 明
-  
-  
-  
-    1 String getCharacterEncoding() 返回响应用的是何种字符编码
-  
-  
-  
-    2 ServletOutputStream getOutputStream() 返回响应的一个二进制输出流
-  
-  
-  
-    3 PrintWriter getWriter() 返回可以向客户端输出字符的一个对象
-  
-  
-  
-    4 void setContentLength(int len) 设置响应头长度
-  
-  
-  
-    5 void setContentType(String type) 设置响应的MIME类型
-  
-  
-  
-    6 sendRedirect(java.lang.String location) 重新定向客户端的请求
-  
-  
-  
-    3.session对象
-  
-  
-  
-    session对象指的是客户端与服务器的一次会话，从客户端连到服务器的一个WebApplication开始，直到客户端与服务器断开连接为止。它是HttpSession类的实例。
-  
-  
-  
-    序号 方 法 说 明
-  
-  
-  
-    1 long getCreationTime() 返回SESSION创建时间
-  
-  
-  
-    2 public String getId() 返回SESSION创建时JSP引擎为它设的惟一ID号
-  
-  
-  
-    3 long getLastAccessedTime() 返回此SESSION里客户端最近一次请求时间
-  
-  
-  
-    4 int getMaxInactiveInterval() 返回两次请求间隔多长时间此SESSION被取消(ms)
-  
-  
-  
-    5 String[] getValueNames() 返回一个包含此SESSION中所有可用属性的数组
-  
-  
-  
-    6 void invalidate() 取消SESSION，使SESSION不可用
-  
-  
-  
-    7 boolean isNew() 返回服务器创建的一个SESSION,客户端是否已经加入
-  
-  
-  
-    8 void removeValue(String name) 删除SESSION中指定的属性
-  
-  
-  
-    9 void setMaxInactiveInterval() 设置两次请求间隔多长时间此SESSION被取消(ms)
-  
-  
-  
-    4.out对象
-  
-  
-  
-    out对象是JspWriter类的实例,是向客户端输出内容常用的对象
-  
-  
-  
-    序号 方 法 说 明
-  
-  
-  
-    1 void clear() 清除缓冲区的内容
-  
-  
-  
-    2 void clearBuffer() 清除缓冲区的当前内容
-  
-  
-  
-    3 void flush() 清空流
-  
-  
-  
-    4 int getBufferSize() 返回缓冲区以字节数的大小，如不设缓冲区则为0
-  
-  
-  
-    5 int getRemaining() 返回缓冲区还剩余多少可用
-  
-  
-  
-    6 boolean isAutoFlush() 返回缓冲区满时，是自动清空还是抛出异常
-  
-  
-  
-    7 void close() 关闭输出流
-  
-  
-  
-    5.page对象
-  
-  
-  
-    page对象就是指向当前JSP页面本身，有点象类中的this指针，它是java.lang.Object类的实例
-  
-  
-  
-    序号 方 法 说 明
-  
-  
-  
-    1 class getClass 返回此Object的类
-  
-  
-  
-    2 int hashCode() 返回此Object的hash码
-  
-  
-  
-    3 boolean equals(Object obj) 判断此Object是否与指定的Object对象相等
-  
-  
-  
-    4 void copy(Object obj) 把此Object拷贝到指定的Object对象中
-  
-  
-  
-    5 Object clone() 克隆此Object对象
-  
-  
-  
-    6 String toString() 把此Object对象转换成String类的对象
-  
-  
-  
-    7 void notify() 唤醒一个等待的线程
-  
-  
-  
-    8 void notifyAll() 唤醒所有等待的线程
-  
-  
-  
-    9 void wait(int timeout) 使一个线程处于等待直到timeout结束或被唤醒
-  
-  
-  
-    10 void wait() 使一个线程处于等待直到被唤醒
-  
-  
-  
-    11 void enterMonitor() 对Object加锁
-  
-  
-  
-    12 void exitMonitor() 对Object开锁
-  
-  
-  
-    6.application对象 
-  
-  
-  
-  
-  
-    application对象实现了用户间数据的共享，可存放全局变量。它开始于服务器的启动，直到服务器的关闭，在此期间，此对象将一直存在；这样在用户的前后连接或不同用户之间的连接中，可以对此对象的同一属性进行操作；在任何地方对此对象属性的操作，都将影响到其他用户对此的访问。服务器的启动和关闭决定了application对象的生命。它是ServletContext类的实例。
-  
-  
-  
-    序号 方 法 说 明
-  
-  
-  
-    1 Object getAttribute(String name) 返回给定名的属性值
-  
-  
-  
-    2 Enumeration getAttributeNames() 返回所有可用属性名的枚举
-  
-  
-  
-    3 void setAttribute(String name,Object obj) 设定属性的属性值
-  
-  
-  
-    4 void removeAttribute(String name) 删除一属性及其属性值
-  
-  
-  
-    5 String getServerInfo() 返回JSP(SERVLET)引擎名及版本号
-  
-  
-  
-    6 String getRealPath(String path) 返回一虚拟路径的真实路径
-  
-  
-  
-    7 ServletContext getContext(String uripath) 返回指定WebApplication的application对象
-  
-  
-  
-    8 int getMajorVersion() 返回服务器支持的Servlet API的最大版本号
-  
-  
-  
-    9 int getMinorVersion() 返回服务器支持的Servlet API的最大版本号
-  
-  
-  
-    10 String getMimeType(String file) 返回指定文件的MIME类型
-  
-  
-  
-    11 URL getResource(String path) 返回指定资源(文件及目录)的URL路径
-  
-  
-  
-    12 InputStream getResourceAsStream(String path) 返回指定资源的输入流
-  
-  
-  
-    13 RequestDispatcher getRequestDispatcher(String uripath) 返回指定资源的RequestDispatcher对象
-  
-  
-  
-    14 Servlet getServlet(String name) 返回指定名的Servlet
-  
-  
-  
-    15 Enumeration getServlets() 返回所有Servlet的枚举
-  
-  
-  
-    16 Enumeration getServletNames() 返回所有Servlet名的枚举
-  
-  
-  
-    17 void log(String msg) 把指定消息写入Servlet的日志文件
-  
-  
-  
-    18 void log(Exception exception,String msg) 把指定异常的栈轨迹及错误消息写入Servlet的日志文件
-  
-  
-  
-    19 void log(String msg,Throwable throwable) 把栈轨迹及给出的Throwable异常的说明信息 写入Servlet的日志文件
-  
-  
-  
-    7.exception对象
-  
-  
-  
-    exception对象是一个例外对象，当一个页面在运行过程中发生了例外，就产生这个对象。如果一个JSP页面要应用此对象，就必须把isErrorPage设为true，否则无法编译。他实际上是java.lang.Throwable的对象
-  
-  
-  
-    序号 方 法 说 明
-  
-  
-  
-    1 String getMessage() 返回描述异常的消息
-  
-  
-  
-    2 String toString() 返回关于异常的简短描述消息
-  
-  
-  
-    3 void printStackTrace() 显示异常及其栈轨迹
-  
-  
-  
-    4 Throwable FillInStackTrace() 重写异常的执行栈轨迹
-  
-  
-  
-    8.pageContext对象
-  
-  
-  
-    pageContext对象提供了对JSP页面内所有的对象及名字空间的访问，也就是说他可以访问到本页所在的SESSION，也可以取本页面所在的application的某一属性值，他相当于页面中所有功能的集大成者，它的本类名也叫pageContext。
-  
-  
-  
-    序号 方 法 说 明
-  
-  
-  
-    1 JspWriter getOut() 返回当前客户端响应被使用的JspWriter流(out)
-  
-  
-  
-    2 HttpSession getSession() 返回当前页中的HttpSession对象(session)
-  
-  
-  
-    3 Object getPage() 返回当前页的Object对象(page)
-  
-  
-  
-    4 ServletRequest getRequest() 返回当前页的ServletRequest对象(request)
-  
-  
-  
-    5 ServletResponse getResponse() 返回当前页的ServletResponse对象(response)
-  
-  
-  
-    6 Exception getException() 返回当前页的Exception对象(exception)
-  
-  
-  
-    7 ServletConfig getServletConfig() 返回当前页的ServletConfig对象(config)
-  
-  
-  
-    8 ServletContext getServletContext() 返回当前页的ServletContext对象(application)
-  
-  
-  
-    9 void setAttribute(String name,Object attribute) 设置属性及属性值
-  
-  
-  
-    10 void setAttribute(String name,Object obj,int scope) 在指定范围内设置属性及属性值
-  
-  
-  
-    11 public Object getAttribute(String name) 取属性的值
-  
-  
-  
-    12 Object getAttribute(String name,int scope) 在指定范围内取属性的值
-  
-  
-  
-    13 public Object findAttribute(String name) 寻找一属性,返回起属性值或NULL
-  
-  
-  
-    14 void removeAttribute(String name) 删除某属性
-  
-  
-  
-    15 void removeAttribute(String name,int scope) 在指定范围删除某属性
-  
-  
-  
-    16 int getAttributeScope(String name) 返回某属性的作用范围
-  
-  
-  
-    17 Enumeration getAttributeNamesInScope(int scope) 返回指定范围内可用的属性名枚举
-  
-  
-  
-    18 void release() 释放pageContext所占用的资源
-  
-  
-  
-    19 void forward(String relativeUrlPath) 使当前页面重导到另一页面
-  
-  
-  
-    20 void include(String relativeUrlPath) 在当前位置包含另一文件
-  
-  
-  
-    9.config对象
-  
-  
-  
-    config对象是在一个Servlet初始化时，JSP引擎向它传递信息用的，此信息包括Servlet初始化时所要用到的参数 (通过属性名和属性值构成) 以及服务器的有关信息 (通过传递一个ServletContext对象) 
-  
-  
-  
-    序号 方 法 说 明
-  
-  
-  
-    1 ServletContext getServletContext() 返回含有服务器相关信息的ServletContext对象
-  
-  
-  
-    2 String getInitParameter(String name) 返回初始化参数的值
-  
-  
-  
-    3 Enumeration getInitParameterNames() 返回Servlet初始化所需所有参数的枚举
-  
+从PostgreSQL 9.3开始，json就成了postgres里的一种数据类型，也就是和varchar、int一样，我们表里的一个字段的类型可以为json了。
+
+与此同时，postgres还提供了jsonb格式，jsonb格式是json的二进制形式，二者的区别在于json写入快，读取慢，jsonb写入慢，读取快，但在操作上，二者是没有区别的。下面以jsonb为例。
+
+创建表
+假设我们要存储的json数据是这样的：
+
+{
+"id": ID
+"name":"名字",
+"age":年龄
+}
+建表语句如下：
+
+ 
+create table if not exists name_age (
+
+info jsonb
+
+)
+
+好了，这样就创建了一张表，里面只有一个 info 字段，下面开始进行CRUD操作。
+
+插入数据
+插入数据可以直接以json格式插入：
+
+insert into name_age values('{"id":1,"name":"小明", "age":18}')
+在json里插入新的key值gender，如下：
+
+SELECT info||'{"gender":"男"}'::jsonb from name_age where (info->>'id')::int4 = 1
+查询数据
+Postgres里的查询需要用到查询符。比如说，我们要查询id为1的数据，语句如下：
+
+select info from name_age where info @> '{"id":1}'::jsonb
+用到了 @> 这个查询符，表明info当前这条记录里的顶层json中有没有id为1的key-value对；有的话则满足条件。
+
+再来一个复杂一点的查询的，查询 age>16 的记录，并且只显示 name ，语句如下：
+
+select info->'name' from name_age where (info->>'age')::int4 > 16
+关于详细运算符使用，请参考官方文档： 9.15. JSON Functions and Operators
+
+修改数据
+下面，将 age 从 18 改为 22 ，SQL语句：
+
+SELECT info ||'{"age":22}'::jsonb from name_age where (info->>'id')::int4 = 1
+上述用法仅适用于9.5以上，9.5以下需要整个记录更新，不可以单独修改某个值。
+
+除了操作符以外，还可以使用函数操作： jsonb_set() ，函数签名如下：
+
+jsonb_set(target jsonb, path text[], new_value jsonb[, create_missing boolean])
+详细使用可参考 9.15. JSON Functions and Operators
+
+删除数据
+删除age这个key，SQL如下：
+
+SELECT info-'age' from name_age where (info->>'id')::int4 = 1
+直接用操作符 - 即可。
+
+总结
+PostgreSQL 9.5以上的版本中有了很多方便的操作符，使得操作json变得非常方便了。
+
+ 
+
+json和jsonb的操作符
+
+操作符	右操作数类型	描述	示例	结果
+->	int	获取JSON数组元素（索引从0开始）	select '[{"a":"foo"},{"b":"bar"},{"c":"baz"}]'::json->2;	{"c":"baz"}
+->	text	通过键获取值	select '{"a": {"b":"foo"}}'::json->'a';	{"b":"foo"}
+->>	int	
+获取JSON数组元素为 text
+
+select '[1,2,3]'::json->>2;	3
+->>	text	通过键获取值为text	select '{"a":1,"b":2}'::json->>'b';	2
+#>	text[]	
+在指定的路径获取JSON对象
+
+select '{"a": {"b":{"c": "foo"}}}'::json#>'{a,b}';	{"c": "foo"}
+#>>	text[]	
+在指定的路径获取JSON对象为 text
+
+select '{"a":[1,2,3],"b":[4,5,6]}'::json#>>'{a,2}';	3
+ 
+
+jsonb额外操作符
+
+操作符	右操作数类型	描述	示例	结果
+@>	jsonb	左侧json最上层的值是否包含右边json对象	
+select '{"a":{"b":2}}'::jsonb @> '{"b":2}'::jsonb;
+
+select '{"a":1, "b":2}'::jsonb @> '{"b":2}'::jsonb;
+
+f
+
+t
+
+<@	jsonb	左侧json对象是否包含于右侧json最上层的值内	select '{"b":2}'::jsonb <@ '{"a":1, "b":2}'::jsonb;	t
+?	text	text是否作为左侧Json对象最上层的键	select '{"a":1, "b":2}'::jsonb ? 'b';	t
+?|	text[]	text[]中的任一元素是否作为左侧Json对象最上层的键	select '{"a":1, "b":2, "c":3}'::jsonb ?| array['b', 'c'];	t
+?&	text[]	text[]中的所有元素是否作为左侧Json对象最上层的键	select '["a", "b"]'::jsonb ?& array['a', 'b'];	t
+||	jsonb	连接两个json对象，组成一个新的json对象	select '["a", "b"]'::jsonb || '["c", "d"]'::jsonb;	["a", "b", "c", "d"]
+-	text	删除左侧json对象中键为text的键值对	select '{"a": "b"}'::jsonb - 'a';	{}
+-	integer	
+删除数组指定索引处的元素，如果索引值为负数，则从右边计算索引值。
+
+如果最上层容器内不是数组，则抛出错误。
+
+select '["a", "b"]'::jsonb - 1;	["a"]
+#-	text[]	
+删除指定路径下的域或元素（如果是json数组，且整数值是负的，
+
+则索引值从右边算起）
+
+select '["a", {"b":1}]'::jsonb #- '{1,b}';	["a", {}]
+ 
+
+json创建函数
+
+函数	描述	示例	结果
+to_json(anyelement)
+
+to_jsonb(anyelement)
+
+返回json或jsonb类型的值。数组和复合被转换（递归）成数组和对象。另外除数字、
+
+布尔、NULL值（直接使用NULL抛出错误）外，其他标量必须有类型转换。（此处请参考原文）
+
+select to_json('3'::int);	3
+array_to_json(anyarray
+
+[, pretty_bool])
+
+以JSON数组返回该数组。PostgreSQL多维数组变成JSON数组中的数组。
+如果pretty_bool 为真，则在维度1元素之间添加换行。
+
+select array_to_json('{{1,5},{99,100}}'::int[],true);	
+[[1,5], +
+[99,100]]
+
+row_to_json(record [, pretty_bool])	以JSON对象返回行。如果pretty_bool 为真，则在级别1元素之间添加换行。	select row_to_json(row(1,'foo'),true);	
+{"f1":1, +
+"f2":"foo"}
+
+json_build_array(VARIADIC "any")
+
+jsonb_build_array(VARIADIC "any")
+
+建立一个由可变参数列表组成的不同类型的JSON数组	select json_build_array(1,2,'3',4,5);	[1, 2, "3", 4, 5]
+json_build_object(VARIADIC "any")
+
+jsonb_build_object(VARIADIC "any")
+
+建立一个由可变参数列表组成的JSON对象。参数列表参数交替转换为键和值。	select json_build_object('foo',1,'bar',2);	{"foo" : 1, "bar" : 2}
+json_object(text[])
+
+jsonb_object(text[])
+
+根据text[]数组建立一个json对象，如果是一维数组，则必须有偶数个
+
+元素，元素交替组成键和值。如果是二维数组，则每个元素必须有2个元素，可以组成键值对。
+
+select json_object('{a, 1, b, "def", c, 3.5}');
+
+select json_object('{{a, 1},{b, "def"},{c, 3.5}}');
+
+ {"a" : "1", "b" : "def", "c" : "3.5"}
+json_object(keys text[], values text[])
+
+jsonb_object(keys text[], values text[])
+
+分别从两组text[]中获取键和值，与一维数组类似。	select json_object('{a, b}', '{1,2}');	{"a" : "1", "b" : "2"}
+ 
+
+json处理函数
+
+函数	返回类型	描述	示例	结果
+json_array_length(json)
+
+jsonb_array_length(jsonb)
+
+int	 返回Json数组最外层元素个数	 select json_array_length('[1,2,3,{"f1":1,"f2":[5,6]},4]');	 5
+json_each(json)
+
+jsonb_each(jsonb)
+
+setof key text, value json
+
+setof key text, value jsonb
+
+ 将最外层Json对象转换为键值对集合	 select json_each('{"a":"foo", "b":"bar"}');	 
+(a,"""foo""")
+(b,"""bar""")
+
+json_each_text(json)
+
+jsonb_each_text(jsonb)
+
+setof key text, value text	 将最外层Json对象转换为键值对集合，且value为text类型	 select json_each_text('{"a":"foo", "b":"bar"}');	 
+(a,foo)
+(b,bar)
+
+json_extract_path(from_json json,
+
+VARIADIC path_elems text[])
+
+ 
+
+jsonb_extract_path(from_json jsonb,
+
+VARIADIC path_elems text[])
+
+json
+
+jsonb
+
+ 返回path_elems指向的value，同操作符#>	 select json_extract_path('{"f2":{"f3":1},"f4":{"f5":99,"f6":"foo"}}','f4');	 {"f5":99,"f6":"foo"}
+json_extract_path_text(from_json json,
+
+VARIADIC path_elems text[])
+
+ 
+
+jsonb_extract_path_text(from_json jsonb,
+
+VARIADIC path_elems text[])
+
+text	  返回path_elems指向的value，并转为text类型，同操作符#>>	 select json_extract_path_text('{"f2":{"f3":1},"f4":{"f5":99,"f6":"foo"}}','f4', 'f6');	 foo
+json_object_keys(json)
+
+jsonb_object_keys(jsonb)
+
+setof text	 返回json对象最外层的key	 select json_object_keys('{"f1":"abc","f2":{"f3":"a", "f4":"b"}}');	 
+f1
+f2
+
+json_populate_record(base anyelement,
+
+from_json json)
+
+ 
+
+jsonb_populate_record(base anyelement,
+
+from_json jsonb)
+
+anyelement	 将json对象的value以base定义的行类型返回，如果行类型字段比json对象键值少，则多出的键值将被抛弃；如果行类型字段多，则多出的字段自动填充NULL。	
+ 表tbl_test定义：
+
+ 
+
+Table "public.tbl_test"
+Column | Type | Modifiers 
+--------+-----------------------+-----------
+a | bigint | 
+b | character varying(32) |
+
+c | character varying(32) |
+
+ 
+
+select * from json_populate_record(null::tbl_test, '{"a":1,"b":2}');
+
+ 
+
+ 
+a |  b |  c
+---+---+------
+1 | 2  | NULL
+
+json_populate_recordset(base anyelement,
+
+from_json json)
+
+ 
+
+jsonb_populate_recordset(base anyelement,
+
+from_json jsonb)
+
+setof anyelement	 将json对象最外层数组以base定义的行类型返回	
+表定义同上
+
+ select * from json_populate_recordset(null::tbl_test, '[{"a":1,"b":2},{"a":3,"b":4}]');
+
+ 
+a | b |  c 
+---+---+------
+1 | 2 | NULL
+3 | 4 | NULL
+
+json_array_elements(json)
+
+jsonb_array_elements(jsonb)
+
+setof json
+
+setof jsonb
+
+ 将json数组转换成json对象value的集合	 select json_array_elements('[1,true, [2,false]]');	 
+1
+true
+[2,false]
+
+json_array_elements_text(json)
+
+jsonb_array_elements_text(jsonb)
+
+setof text	 将json数组转换成text的value集合	 select json_array_elements_text('["foo", "bar"]');	 
+foo
+bar
+
+json_typeof(json)
+
+jsonb_typeof(jsonb)
+
+text	
+ 返回json最外层value的数据类型，可能的类型有
+
+ object, array, string, number, boolean, 和null.
+
+ select json_typeof('-123.4')	 number
+json_to_record(json)
+
+jsonb_to_record(jsonb)
+
+record	 根据json对象创建一个record类型记录，所有的函数都返回record类型，所以必须使用as明确定义record的结构。	 select * from json_to_record('{"a":1,"b":[1,2,3],"c":"bar"}') as x(a int, b text, d text);	 
+a |    b    |   d 
+---+---------+------
+1 | [1,2,3] | NULL
+
+json_to_recordset(json)
+
+jsonb_to_recordset(jsonb)
+
+setof record	 根据json数组创建一个record类型记录，所有的函数都返回record类型，所以必须使用as明确定义record的结构。	 select * from json_to_recordset('[{"a":1,"b":"foo"},{"a":"2","c":"bar"}]') as x(a int, b text);	 
+a | b 
+---+------
+1 | foo
+2 | NULL
+
+json_strip_nulls(from_json json)
+
+jsonb_strip_nulls(from_json jsonb)
+
+json
+
+jsonb
+
+ 返回json对象中所有非null的数据，其他的null保留。	 
+select json_strip_nulls('[{"f1":1,"f2":null},2,null,3]');
+
+  [{"f1":1},2,null,3]
+ jsonb_set(target jsonb, path text[],new_value jsonb[,create_missing boolean])
+
+ jsonb	 如果create_missing为true，则将在target的path处追加新的jsonb；如果为false，则替换path处的value。	
+ select jsonb_set('[{"f1":1,"f2":null},2,null,3]', '{0,f1}','[2,3,4]', false);
+
+ 
+
+select jsonb_set('[{"f1":1,"f2":null},2]', '{0,f3}','[2,3,4]');
+
+ [{"f1": [2, 3, 4], "f2": null}, 2, null, 3]
+
+ 
+
+[{"f1": 1, "f2": null, "f3": [2, 3, 4]}, 2]
+
+ jsonb_insert(target jsonb, path text[],
+
+new_value jsonb, [insert_after boolean])
+
+ jsonb	如果insert_after是true，则在target的path后面插入新的value，否则在path之前插入。	
+ select jsonb_insert('{"a": [0,1,2]}', '{a, 1}', '"new_value"');
+
+ 
+
+select jsonb_insert('{"a": [0,1,2]}', '{a, 1}', '"new_value"', true);
+
+ {"a": [0, "new_value", 1, 2]}
+
+ 
+
+{"a": [0, 1, "new_value", 2]}
+
+ jsonb_pretty(from_json jsonb)	 text	 以缩进的格式更容易阅读的方式返回json对象	 select jsonb_pretty('[{"f1":1,"f2":null},2,null,3]');
