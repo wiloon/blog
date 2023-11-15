@@ -11,6 +11,15 @@ tags:
 ## go mod
 
 ```bash
+go mod edit [editing flags] [go.mod]
+```
+
+### commands
+
+```bash
+# upgrade go version to 1.21.4
+go mod edit -go 1.21.4
+
 export GO111MODULE=on
 
 go mod init project0    # 初始化

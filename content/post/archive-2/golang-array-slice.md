@@ -61,7 +61,7 @@ for i, value := range arrayOrSlice {
 }
 ```
 
-## 切片/slice
+## 切片/Slices
 
 slice 切片类型是一个引用类型, 是一个动态的指向数组切片的指针。
 slice 是一个不定长的, 总是指向底层的数组 array 的数据结构。
@@ -110,19 +110,20 @@ func SliceClear(s *[]interface{}) {
  *   无
  */
 func SliceClear2(s *[]interface{}) {
-*s = (*s)[0:0]
+    *s = (*s)[0:0]
+}
 ```
 
 ### 0 ~ index
 
 ```go
-    dir1 := path[:sepIndex]
+dir1 := path[:sepIndex]
 ```
   
 ### index ~ end
 
 ```go
-    dir1 := path[:sepIndex]
+dir1 := path[:sepIndex]
 ```
 
 ### Full Slice Expression, 后续的 append() 操作将会导致重新分配内存
@@ -130,7 +131,7 @@ func SliceClear2(s *[]interface{}) {
 <https://coolshell.cn/articles/21128.html>
 
 ```go
-    dir1 := path[:sepIndex:sepIndex]
+dir1 := path[:sepIndex:sepIndex]
 ```
 
 ### :分割操作符
