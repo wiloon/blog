@@ -35,7 +35,7 @@ dpkg -l softwarename
 
 ## debian install deb package
 
-deb包
+deb 包
   
 deb包是debian，ubuntu等LINUX发行版的软件安装包，是类似于rpm的软件包，而非debian,ubuntu系统不推荐使用deb软件包，因为要解决软件包依赖问题，安装也比较麻烦。
   

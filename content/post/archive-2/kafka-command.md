@@ -57,7 +57,7 @@ bin/kafka-console-producer.sh \
 --property "parse.key=true" --property "key.separator=@"
 ```
 
-### kafka package
+### kafka download
 
 <https://mirrors.bfsu.edu.cn/apache/kafka/2.6.0/kafka_2.13-2.6.0.tgz>
 

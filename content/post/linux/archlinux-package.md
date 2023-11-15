@@ -53,3 +53,7 @@ Akonadi 框架为应用程序提供中心数据库来统一保存、索引和获
 ## btrfs-progs
 
 Userspace utilities to manage btrfs filesystems
+
+## gst-plugins-base
+
+This is GStreamer, a framework for streaming media.
