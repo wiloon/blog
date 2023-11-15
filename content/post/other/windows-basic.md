@@ -4,9 +4,10 @@ author: "-"
 date: 2011-10-14T05:20:22+00:00
 url: windows
 categories:
-  - inbox
+  - windows
 tags:
   - reprint
+  - remix
 ---
 ## windows basic, win basic
 
@@ -270,3 +271,26 @@ control panel> advanced system settings> advanced> settings> custom
 ### power mode
 
 system> power & battery> power mode> best performance
+
+## 设置环境变量, system env
+
+在任务栏的 Search, 搜索: Edit the system environment variables  
+    或者点击 windows> settings> 搜索 Edit the system environment variables  
+    点击窗口最下方的按钮 "Environment Variables"  
+
+## mklink
+
+<https://blog.csdn.net/guyue35/article/details/49761347>
+
+```bash
+MKLINK [[/D] | [/H] | [/J]] Link Target
+```
+
+```bash
+# 创建软链接
+# /d 创建目录符号链接。默认为文件符号链接。
+# Link(符号链接): C:\Users\ywang6\workspace 
+# Target(已存在的目录, 源文件或目录): C:\workspace
+# mklink 跟 linux 的 ln 命令参数相反
+mklink /d C:\Users\ywang6\workspace C:\workspace
+```

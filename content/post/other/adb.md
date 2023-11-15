@@ -204,7 +204,7 @@ adb shell
 
   $ adb  shell
 
-# sqlite3 /data/data/com.example.google.rss.rssexample/databases/rssitems.db
+>sqlite3 /data/data/com.example.google.rss.rssexample/databases/rssitems.db
 
   SQLite version 3.3.12
 

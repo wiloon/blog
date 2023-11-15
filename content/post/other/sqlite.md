@@ -108,3 +108,11 @@ INSERT INTO users VALUES ('c31f5e0e-0e0c-4731-97dc-9c6675a0068c','admin','admin@
 <https://blog.csdn.net/jinking01/article/details/115725022>
 
 <https://www.sqlite.org/cli.html>
+
+## 在 windows 环境使用 sqlite
+
+- install
+
+<https://www.sqlite.org/download.html>
+
+需要下载两个包: sqlite-dll-win-x64-3440000.zip, sqlite-tools-win-x64-3440000.zip, 解压之后把所有文件都放到同一个目录, 比如: C:\workspace\apps, 把这个目录加到环境变量 PATH.
