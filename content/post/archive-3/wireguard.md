@@ -239,7 +239,7 @@ systemctl restart systemd-networkd
 点右下角的加号新建 连接  
 输入连接名
 点击私钥后面的刷新按钮 新建一对密钥
-把公钥发给对端, 在服务端执行wg set... 配置服务端
+把公钥发给对端, 在服务端执行 wg set... 配置服务端
 
 #### 客户端
 
@@ -247,6 +247,7 @@ systemctl restart systemd-networkd
 端口/port: random
 DNS servers: 192.168.50.1
 listen port: random
+dns: 192.168.50.1
 mtu: auto
 
 ##### 添加节点/add peer
