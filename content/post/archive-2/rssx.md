@@ -67,7 +67,9 @@ value: newsId
 
 ### redis
 
-### sqlite
+### sql
+
+db: sqlite3
 
 ```sql
 CREATE TABLE if not exists users (  id char(36) PRIMARY KEY NOT NULL,  name varchar(50) DEFAULT NULL,  create_time timestamp DEFAULT NULL);

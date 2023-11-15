@@ -1,5 +1,5 @@
 ---
-title: 'ln link 软连接和硬连接'
+title: ln link 软连接和硬连接
 author: "-"
 date: 2011-07-13T13:44:30+00:00
 url: link
@@ -8,12 +8,16 @@ categories:
 tags:
   - reprint
 ---
-## 'ln  软连接和硬连接'
+## ln command, 软连接和硬连接
 
 ```bash
-#原文件: foo
-#symbolic link : bar
-#软连接
+ln [参数][源文件或目录][目标文件或目录]
+```
+
+```bash
+# 创建软连接
+# 原文件: foo
+# symbolic link : bar
 ln -s foo bar
 
 #硬连接

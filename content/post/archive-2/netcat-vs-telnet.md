@@ -1,5 +1,5 @@
 ---
-title: 'test for a specific port from Linux,  shell>telnet  >netcat > Socat'
+title: test for a specific port from Linux,  shell>telnet  >netcat > Socat
 author: "-"
 date: 2017-12-16T06:59:25+00:00
 url: /?p=11601
@@ -8,7 +8,7 @@ categories:
 tags:
   - reprint
 ---
-## 'test for a specific port from Linux,  shell>telnet> netcat> socat'
+## test for a specific port from Linux,  shell>telnet> netcat> socat
 
 ### 使用 Telnet验证端口的连通性
 
