@@ -49,7 +49,7 @@ vim local.yml
     apt: name=htop
 ```
 
-### 提交到github
+### 提交到 github
 
 ```bash
 git add local.yml

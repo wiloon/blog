@@ -138,7 +138,7 @@ git add file
 
 git am -resolved
   
-在解决完冲突以后， 比如用git add来让git知道你已经解决完冲突了。
+在解决完冲突以后， 比如用 git add 来让 git 知道你已经解决完冲突了。
 
 如果你发现这个冲突是无法解决的， 要撤销整个am的东西。 可以运行git am –abort，
   
