@@ -11,6 +11,30 @@ tags:
 ---
 ## Git basic commands, git 常用命令
 
+## commands
+
+```bash
+# 显示工作树状态, (已经修改但是没 git add, 或者 没有 git commit)
+# 显示索引文件和当前HEAD提交有差异的路径，工作树和索引文件有差异的路径，以及工作树中不被Git追踪的路径（也不被gitignore[5]忽略）。前者是你通过运行 "git commit "会提交的东西；第二和第三者是你在运行 "git commit "之前通过运行 "git add "可以提交的东西。
+
+git status -s
+
+# 查看本地仓库的当前分支和远程分支的差异(已经 commit 但是还没 push), 只显示 commit id 和 comments
+git cherry -v
+
+# 查看本地仓库的当前分支和远程分支的差异(已经 commit 但是还没 push), 展示方式类似 git log
+git log master ^origin/master
+
+# 获取所有的 tag
+git fetch --tags
+# 计算对象数和磁盘消耗
+git count-objects -vH
+# 指定目录 1.8.5 以前
+git --git-dir=/Users/jhoffmann/tmp/my-project/.git --work-tree=/Users/jhoffmann/tmp/my-project/ pull
+# 指定目录 >=1.8.5
+git -C /Users/jhoffmann/tmp/my-project/ pull
+```
+
 ## options
 
 - -C, 大写 `C` 指定目录, `.git` 所在的目录
@@ -246,19 +270,6 @@ git merge --abort
 git branch -m oldName newName
 ```
 
-## commands
-
-```bash
-# 获取所有的 tag
-git fetch --tags
-# 计算对象数和磁盘消耗
-git count-objects -vH
-# 指定目录 1.8.5 以前
-git --git-dir=/Users/jhoffmann/tmp/my-project/.git --work-tree=/Users/jhoffmann/tmp/my-project/ pull
-# 指定目录 >=1.8.5
-git -C /Users/jhoffmann/tmp/my-project/ pull
-```
-
 ## Git 连通性测试
 
 ```bash
@@ -267,7 +278,7 @@ ssh -T git@github.com
 
 ### git add
 
-git add 命令可将该文件添加到 `暂存区`
+git add, 用工作树的内容更新 `索引文件`
 
 ### config git editor
 
@@ -716,13 +727,16 @@ git ls-files -d | xargs git checkout --
 ```bash
 # push 
 git push <远程仓库名> <本地分支名>:<远程分支名>
+
 # 提交本地 test 分支作为远程的 master 分支
 git push origin test:master
 
 git push <远程仓库名>:<本地分支名>
-# 将本地的 master 分支推送到 origin 主机的 master 分支。
+
+# 将本地的 master 分支推送到 origin 主机的 master 分支
 git push origin master:master
-# 如果本地分支名与远程分支名相同，则可以省略冒号：
+
+# 如果本地分支名与远程分支名相同，则可以省略冒号
 # 省略冒号简写成这样
 git push origin master
 
@@ -731,6 +745,7 @@ git push -u origin master
 
 # -f 强制覆盖到仓库，这会导致仓库中某些记录丢失。
 git push -f
+
 # fatal: The current branch production has no upstream branch.
 git push --set-upstream origin production
 ```
@@ -1024,7 +1039,11 @@ git rebase origin/dev
 
 多说一句，之所以显示上面的“错误”，是因为 A -> B -> C -> D 和 A -> B -> E 有一个共同的祖先 B，你在本地多了一个 commit E，远程多了两个 commits C 和 D。这个时候如果你要在 A -> B -> E 的 branch 上 push，git 猜不出到底想保留 C 和 D，还是只要 E，还是都要，就会出现上面的提示。
 
-## git status -s
+## git status
+
+```bash
+git status -s
+```
 
 ```bash
 XY PATH
@@ -1032,7 +1051,8 @@ XY ORIG_PATH -> PATH
 ```
 
 - `XY` 是一个双字母的状态代码。
-- `X` 显示索引(index)的状态，`Y`显示工作树(working tree)的状态。
+  - `X` 显示索引文件 (index) 的状态，`Y` 显示工作树 (working tree) 的状态。
+    - 比如 " M" 表示工作树有修改但是没有执行 `git add`, 没有更新到索引.
 - 当一个路径没有被追踪时，`X`和`Y`总是相同的，因为它们是 未知的索引。
 - `??` 用于未跟踪的路径。除非使用了 `--ignored`
 
