@@ -19,6 +19,7 @@ tags:
 - ctrl + shift + k, git push
 - ctrl + alt + y, reload from disk
 - ctrl + alt + f, find in files
+- ctrl + n, Down
 
 CTRL+SHIFT+N 查找文件
   

@@ -89,9 +89,15 @@ china mainland download
 #### ubuntu
 
 ```bash
-    sudo add-apt-repository ppa:longsleep/golang-backports
-    sudo apt update
-    sudo apt install golang-go
+sudo add-apt-repository ppa:longsleep/golang-backports
+sudo apt update
+sudo apt install golang-go
+```
+
+#### windows
+
+```bash
+winget install GoLang.Go
 ```
 
 ### 环境变量
@@ -733,3 +739,19 @@ upx -9 foo.exe
 ```
 
 go build 不加参数编译出的 .exe 大小: 10,688,000B, 加编译参数 -ldflags="-s -w" 之后 7,797,760B, upx -9 之后 2,755,072B.
+
+## log
+
+```go
+import (
+ "log"
+ "testing"
+)
+
+func Test0(t *testing.T) {
+ foo := "params0"
+ log.Println("test:", foo)
+}
+// 2023/11/15 14:14:23 test: params0
+// Spaces are always added between operands and a newline is appended.
+```

@@ -18,7 +18,7 @@ fmt包实现了格式化的I/O函数,这点类似C语言中的printf和scanf,但
   
 占位符:
 
-### 通用占位符
+### The format/fmt 'verbs', 占位符
 
 - %v  值的默认格式。当打印结构体时,"加号"标记 (%+v) 会添加字段名
 - %#v 相应值的 Go 语法表示, 打印结构体名, 类 json 格式
@@ -32,7 +32,7 @@ fmt包实现了格式化的I/O函数,这点类似C语言中的printf和scanf,但
 - %p    address of 0th element in base 16 notation, with leading 0x
 - %t    the word true or false, (bool)
 
-><https://pkg.go.dev/fmt>
+<https://pkg.go.dev/fmt>
 
 用法如下:
 

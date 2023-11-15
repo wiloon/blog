@@ -253,9 +253,32 @@ whoami
 rmdir /s /q folder0
 ```
 
-## winget
+## winget, windows 的包管理工具
 
-windows 的包管理工具
+### winget search
+
+```bash
+winget search golang
+```
+
+winget search 输出
+
+```bash
+Name                    Id                          Version  Match       Source
+-------------------------------------------------------------------------------
+Go Programming Language GoLang.Go                   1.21.4   Tag: golang winget
+```
+
+### winget install
+
+Need to run with administrator privileges
+
+```bash
+# Id: GoLang.Go
+winget install GoLang.Go
+```
+
+### commands
 
 ```bash
 winget -v
