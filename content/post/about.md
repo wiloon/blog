@@ -27,7 +27,7 @@ tags:
   - 没有明显的知识共享协议的文章会逐渐转移到私有仓库 Obsidian + AWS S3
   - 转载内容的 Author 会标记为"-"
 - 会不定期删除本人使用频率低的内容, 比如早期接触过的ASP.net, Wordpress, PHP...
-- 本站点对应的 Github 仓库:[https://github.com/wiloon/wiloon.com](https://github.com/wiloon/wiloon.com)
+- 本站点对应的 GitHub 仓库:[https://github.com/wiloon/wiloon.com](https://github.com/wiloon/wiloon.com)
 - 转载内容有侵权可以随时联系我删除
 
 ### 整理过的
@@ -50,8 +50,8 @@ tags:
 ### Blog 实现
 
 - Markdown
-- Github
-- Github Action
+- GitHub
+- GitHub Action
 - Hugo
 - Even theme
 - Nginx
@@ -69,7 +69,7 @@ tags:
 - 工作之后有三年时间被派到上海出差，期间接触到了当地的 Linux 用户组, 也因为自己的二手IBM笔记本跑 Windows 太吃力所以转投了 Linux, 在各种发行版之间折腾了很长时间, 最后选择了Arch Linux.
 - 写过 Java, C#, Android, iOS, Go; 目前工作主力: Java, Go
 - 日常系统 Arch Linux + KDE
-- Goolge 粉，用过Google的各种好用的和不好用的产品: Nexus5, Nexus6P, Nexus7, Moto 360, Pixel1/2/3, Pixelbook
+- Google 粉，用过Google的各种好用的和不好用的产品: Nexus5, Nexus6P, Nexus7, Moto 360, Pixel1/2/3, Pixelbook
 
 ### 技术栈
 
