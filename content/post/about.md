@@ -17,7 +17,7 @@ tags:
 - 基本上是我接触过的知识的一个集合
 - 大部分内容是转载的 70%+
   - 一般第一次接触的知识会找质量比较好的或者能解决问题的文章收集进来
-  - 有一部分原因是防止源站消失 (比如...已经消失的一个站点 <https://my.oschina.net/goberl/blog/85816>)，还有方便查找，省掉重新 Google 的过程。
+  - 有一部分原因是防止源站消失 (比如...已经消失的一个站点[https://my.oschina.net/goberl/blog/85816](https://my.oschina.net/goberl/blog/85816))，还有方便查找，省掉重新 Google 的过程。
   - 有仔细读过的会修正 typo
   - 日常遇到问题会逐渐整理，也会补充其它引用来源
   - 有明显整理痕迹的都是仔细读过的，比如有段落标题，有代码语法高亮。
@@ -27,7 +27,7 @@ tags:
   - 没有明显的知识共享协议的文章会逐渐转移到私有仓库 Obsidian + AWS S3
   - 转载内容的 Author 会标记为"-"
 - 会不定期删除本人使用频率低的内容, 比如早期接触过的ASP.net, Wordpress, PHP...
-- 本站点对应的 Github 仓库: <https://github.com/wiloon/wiloon.com>
+- 本站点对应的 Github 仓库:[https://github.com/wiloon/wiloon.com](https://github.com/wiloon/wiloon.com)
 - 转载内容有侵权可以随时联系我删除
 
 ### 整理过的
@@ -95,8 +95,8 @@ tags:
 ### 联系方式
 
 - email: d2lsb29uLnd5QGdtYWlsLmNvbQ==
-- GitHub: <https://github.com/wiloon>
-- Stackoverflow: <https://stackoverflow.com/users/1431884/w1100n>
+- GitHub:[https://github.com/wiloon](https://github.com/wiloon)
+- Stackoverflow:[https://stackoverflow.com/users/1431884/w1100n](https://stackoverflow.com/users/1431884/w1100n)
 
 ### 共享协议
 
