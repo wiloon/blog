@@ -15,7 +15,9 @@ tags:
 Nginx 的ngx_stream_proxy_module和ngx_http_proxy_module两个模块中，都有 proxy_pass 指令。其主要功能是为后端做代理，协议转发，请求转发等。
 
 二、 用法和区别
+
 1. 官网介绍
+
 ngx_stream_proxy_module 的 proxy_pass
 
 语法：proxy_pass address;
@@ -28,14 +30,16 @@ ngx_http_proxy_module 的 proxy_pass
 默认值：—
 场景：location 段，location中的if段，limit_except段
 说明：设置后端代理服务器的地址和协议，还可以附加可选的URI映射。协议可以是 http 或者 https。地址可以是域名或者IP，可以附加指定端口，也可以是UNIX的socket路径，路径要放在unix: 和 : 之间
-2. 区别
+
+1. 区别
+
 从上面的各自说明可以看出两个 proxy_pass 指令都是做后端的代理配置。
 
 除了应用场景的段不同之外，ngx_stream_proxy_module 的 proxy_pass 只能转发域名或IP加端口的请求，即端口转发。
 
 ngx_http_proxy_module 的 proxy_pass 除了包含前者的功能外，还可以实现协议转发，如 http 和 https 与 UNIX socket 三者的相互转发，另外还有很实用的URI转发
 
-3. 用法示例
+1. 用法示例
 3.1 ngx_stream_proxy_module 的 proxy_pass
 server {
     listen 8000;
@@ -139,8 +143,8 @@ server {
     }
 
     # 情形F
-    # 访问 http://www.test.com/namea/ddd
-    # 后端的request_uri为: /test?namea=ddd
+访问 http://www.test.com/namea/ddd
+后端的request_uri为: /test?namea=ddd
     location /namea/ {
         rewrite    /namea/([^/]+) /test?namea=$1 break;
         proxy_pass http://127.0.0.1:8801;

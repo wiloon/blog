@@ -10,6 +10,8 @@ tags:
 ---
 ## telnet, nc, socat
 
+arclinux install telnet
+
 ```bash
 pacman -S inetutils
 ```
