@@ -10,6 +10,8 @@ tags:
 ---
 ## Markdown 语法
 
+JetBrain Writerside implements the CommonMark Spec: [https://spec.commonmark.org/0.30/]()
+
 ## 字体
 
 ### 加粗
