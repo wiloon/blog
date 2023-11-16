@@ -26,7 +26,7 @@ wsl --status
 
 ### 微软的官方安装文档
 
-<https://docs.microsoft.com/zh-cn/windows/wsl/install>
+[https://docs.microsoft.com/zh-cn/windows/wsl/install](https://docs.microsoft.com/zh-cn/windows/wsl/install)
 
 ### 开启 windows 功能
 
@@ -43,11 +43,11 @@ wsl --install -d Ubuntu-20.04
 
 download the linux kernel update package
 
-<https://aka.ms/wsl2kernel>
+[https://aka.ms/wsl2kernel](https://aka.ms/wsl2kernel)
 
 ### wslg
 
-<https://github.com/microsoft/wslg>
+[https://github.com/microsoft/wslg](https://github.com/microsoft/wslg)
 
 升级wsl到最新版本
 
@@ -57,11 +57,11 @@ download the linux kernel update package
 
 #### 安装 intel 显示驱动
 
-<https://downloadcenter.intel.com/download/30579/Intel-Graphics-Windows-DCH-Drivers>
+[https://downloadcenter.intel.com/download/30579/Intel-Graphics-Windows-DCH-Drivers](https://downloadcenter.intel.com/download/30579/Intel-Graphics-Windows-DCH-Drivers)
 
 ### ssh-agent, keepassxc
 
-<https://code.mendhak.com/wsl2-keepassxc-ssh/>
+[https://code.mendhak.com/wsl2-keepassxc-ssh/](https://code.mendhak.com/wsl2-keepassxc-ssh/)
 
 ### 启用 openssh authentication agent
 
@@ -69,7 +69,7 @@ download the linux kernel update package
 
 ## 下载 npiperelay
 
-<https://github.com/jstarks/npiperelay/releases/download/v0.1.0/npiperelay_windows_amd64.zip>
+[https://github.com/jstarks/npiperelay/releases/download/v0.1.0/npiperelay_windows_amd64.zip](https://github.com/jstarks/npiperelay/releases/download/v0.1.0/npiperelay_windows_amd64.zip)
 
 ### 安装 socat
 
@@ -139,7 +139,7 @@ wsl --unregister Ubuntu
 
 ### 配置ubuntu 镜像源, aliyun mirror
 
-<https://developer.aliyun.com/mirror/ubuntu?spm=a2c6h.13651102.0.0.3e221b111bQgY0>
+[https://developer.aliyun.com/mirror/ubuntu?spm=a2c6h.13651102.0.0.3e221b111bQgY0](https://developer.aliyun.com/mirror/ubuntu?spm=a2c6h.13651102.0.0.3e221b111bQgY0)
 
 ```bash
     vim /etc/apt/source.list
@@ -173,7 +173,7 @@ deb-src http://mirrors.aliyun.com/ubuntu/ focal-backports main restricted univer
 
 ### 安装各种依赖包
 
-<https://www.jianshu.com/p/572c86b55a68>
+[https://www.jianshu.com/p/572c86b55a68](https://www.jianshu.com/p/572c86b55a68)
 
 ```bash
     sudo apt install golang git python make maven openjdk-8-jdk ttf-wqy-microhei ttf-wqy-zenhei xfonts-wqy
@@ -182,8 +182,8 @@ deb-src http://mirrors.aliyun.com/ubuntu/ focal-backports main restricted univer
 
 ### 安装nodejs
 
-<https://github.com/nodesource/distributions/blob/master/README.md>
-    curl -sL <https://deb.nodesource.com/setup_14.x> | sudo -E bash -
+[https://github.com/nodesource/distributions/blob/master/README.md](https://github.com/nodesource/distributions/blob/master/README.md)
+    curl -sL [https://deb.nodesource.com/setup_14.x](https://deb.nodesource.com/setup_14.x) | sudo -E bash -
     sudo apt-get install -y nodejs
 
 ### config npm mirror
@@ -239,7 +239,7 @@ vim .zshrc
 
 #### windows脚本设置网卡Ip
 
-<https://blog.csdn.net/manbu_cy/article/details/108476859>
+[https://blog.csdn.net/manbu_cy/article/details/108476859](https://blog.csdn.net/manbu_cy/article/details/108476859)
 
 ```bash
     @echo off
@@ -279,7 +279,7 @@ ubuntu2004.exe config --default-user user0
 
 ### wsl字体,乱码
 
-<https://zhuanlan.zhihu.com/p/68336685>
+[https://zhuanlan.zhihu.com/p/68336685](https://zhuanlan.zhihu.com/p/68336685)
 
 ```bash
     git clone https://github.com/powerline/fonts.git --depth=1 # windows 下需先安装 git
@@ -294,7 +294,7 @@ ubuntu2004.exe config --default-user user0
 
 从SourceForge上面下载最新版本的 VcXsrv  
 
-<https://sourceforge.net/projects/vcxsrv/files/vcxsrv/>
+[https://sourceforge.net/projects/vcxsrv/files/vcxsrv/](https://sourceforge.net/projects/vcxsrv/files/vcxsrv/)
 
 #### 启动开始菜单中的XLaunch
 
@@ -352,7 +352,7 @@ ubuntu2004.exe config --default-user user0
 
 ### wsl2 Install the Linux kernel update package
 
-<https://docs.microsoft.com/en-us/windows/wsl/wsl2-kernel>
+[https://docs.microsoft.com/en-us/windows/wsl/wsl2-kernel](https://docs.microsoft.com/en-us/windows/wsl/wsl2-kernel)
 
 ```bash
 # 列出当前已经安装且随时可用的发行版
@@ -390,11 +390,11 @@ Run powershell.exe as Administrator
 
 ### wsl2 graphical
 
-<https://zhuanlan.zhihu.com/p/150555651>
+[https://zhuanlan.zhihu.com/p/150555651](https://zhuanlan.zhihu.com/p/150555651)
 
 ### wsl2的ip每次都 会变的问题, 在windows里可以直接访问 localhost:xxxx, wsl2会把所有端口映射到windows 的 localhost
 
-<https://github.com/microsoft/WSL/issues/4210>  
+[https://github.com/microsoft/WSL/issues/4210](https://github.com/microsoft/WSL/issues/4210)  
 With the latest update, you can access remote ports(WSL2) as local on Windows Host
 
 ### .wslconfig
@@ -418,7 +418,7 @@ With the latest update, you can access remote ports(WSL2) as local on Windows Ho
 
 ### auto start service
 
-<https://github.com/shayne/wsl2-hacks/blob/master/README.md>
+[https://github.com/shayne/wsl2-hacks/blob/master/README.md](https://github.com/shayne/wsl2-hacks/blob/master/README.md)
 
 ### Windows Terminal 中 WSL2 默认打开路径(startingDirectory)
 
@@ -467,16 +467,16 @@ guid 需要替换为自己配置文件中的相应值。
 
 [https://wiki.ubuntu.com/WSL?_ga=2.253396937.1563783499.1590728512-1733404080.1590728512#Running_Graphical_Applications](https://wiki.ubuntu.com/WSL?_ga=2.253396937.1563783499.1590728512-1733404080.1590728512#Running_Graphical_Applications "https://wiki.ubuntu.com/WSL?_ga=2.253396937.1563783499.1590728512-1733404080.1590728512#Running_Graphical_Applications")
 
-<https://c1oudust.me/blog/Windows10%E4%B8%8B%E4%BD%BF%E7%94%A8Linux%E7%9A%84%E5%8F%A6%E4%B8%80%E7%A7%8D%E6%96%B9%E5%BC%8F%20%E2%80%94%E2%80%94%20WSL%E4%B8%8E%E5%85%B6%E6%A1%8C%E9%9D%A2%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%8520180509/>
+[https://c1oudust.me/blog/Windows10%E4%B8%8B%E4%BD%BF%E7%94%A8Linux%E7%9A%84%E5%8F%A6%E4%B8%80%E7%A7%8D%E6%96%B9%E5%BC%8F%20%E2%80%94%E2%80%94%20WSL%E4%B8%8E%E5%85%B6%E6%A1%8C%E9%9D%A2%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%8520180509/](https://c1oudust.me/blog/Windows10%E4%B8%8B%E4%BD%BF%E7%94%A8Linux%E7%9A%84%E5%8F%A6%E4%B8%80%E7%A7%8D%E6%96%B9%E5%BC%8F%20%E2%80%94%E2%80%94%20WSL%E4%B8%8E%E5%85%B6%E6%A1%8C%E9%9D%A2%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%8520180509/)
 
-<http://www.yuan-ji.me/%E5%A6%82%E4%BD%95%E5%9C%A8Windows-Subsystem-for-Linux-(WSL)-%E4%B8%8A%E8%BF%90%E8%A1%8CLinux-GUI-%E8%BD%AF%E4%BB%B6/>
+[http://www.yuan-ji.me/%E5%A6%82%E4%BD%95%E5%9C%A8Windows-Subsystem-for-Linux-(WSL)-%E4%B8%8A%E8%BF%90%E8%A1%8CLinux-GUI-%E8%BD%AF%E4%BB%B6/](http://www.yuan-ji.me/%E5%A6%82%E4%BD%95%E5%9C%A8Windows-Subsystem-for-Linux-(WSL)-%E4%B8%8A%E8%BF%90%E8%A1%8CLinux-GUI-%E8%BD%AF%E4%BB%B6/)
 
-<https://www.reddit.com/r/bashonubuntuonwindows/comments/9lpc0o/ubuntu_1804_dbus_fix_instructions_with/>
+[https://www.reddit.com/r/bashonubuntuonwindows/comments/9lpc0o/ubuntu_1804_dbus_fix_instructions_with/](https://www.reddit.com/r/bashonubuntuonwindows/comments/9lpc0o/ubuntu_1804_dbus_fix_instructions_with/)
 
-<https://github.com/QMonkey/wsl-tutorial>
+[https://github.com/QMonkey/wsl-tutorial](https://github.com/QMonkey/wsl-tutorial)
 
-<https://github.com/yuk7/ArchWSL>
+[https://github.com/yuk7/ArchWSL](https://github.com/yuk7/ArchWSL)
 
-<https://zhuanlan.zhihu.com/p/34884285>
+[https://zhuanlan.zhihu.com/p/34884285](https://zhuanlan.zhihu.com/p/34884285)
 
-><https://docs.microsoft.com/zh-cn/windows/wsl/basic-commands>
+>[https://docs.microsoft.com/zh-cn/windows/wsl/basic-commands](https://docs.microsoft.com/zh-cn/windows/wsl/basic-commands)

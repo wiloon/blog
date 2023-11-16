@@ -141,8 +141,8 @@ wa 等待IO CPU时间。
 
 ---
 
-<http://www.cnblogs.com/ggjucheng/archive/2012/01/05/2312625.html>  
-<http://man.linuxde.net/vmstat>  
-<http://linuxperf.com/?p=32>  
-<http://linuxperf.com/?p=32&embed=true#?secret=w2eizeWWHO>  
-<http://netcome.iteye.com/blog/754548>
+[http://www.cnblogs.com/ggjucheng/archive/2012/01/05/2312625.html](http://www.cnblogs.com/ggjucheng/archive/2012/01/05/2312625.html)  
+[http://man.linuxde.net/vmstat](http://man.linuxde.net/vmstat)  
+[http://linuxperf.com/?p=32](http://linuxperf.com/?p=32)  
+[http://linuxperf.com/?p=32&embed=true#?secret=w2eizeWWHO](http://linuxperf.com/?p=32&embed=true#?secret=w2eizeWWHO)  
+[http://netcome.iteye.com/blog/754548](http://netcome.iteye.com/blog/754548)

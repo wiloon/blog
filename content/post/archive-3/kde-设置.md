@@ -23,7 +23,7 @@ System Settings>shortcuts
 
 ## 多显示器 任务栏
 
-<https://superuser.com/questions/905591/kde-taskbar-task-manager-only-on-vga-screen-not-dvi-screen/906725>
+[https://superuser.com/questions/905591/kde-taskbar-task-manager-only-on-vga-screen-not-dvi-screen/906725](https://superuser.com/questions/905591/kde-taskbar-task-manager-only-on-vga-screen-not-dvi-screen/906725)
   
 Right-click on the panel -> Panel Settings then drag the Screen Edge bar to the bottom of the screen to move the panel. Then right click on the panel -> Add Widgets -> Double-click on Task Manager. Then right-click somewhere near the middle of the panel -> Task Manager Settings -> Only show tasks from the current screen
 
@@ -37,7 +37,7 @@ balooctl status  #查看baloo的状态
 
 编辑 ~/.config/baloofilerc
 
-<https://community.kde.org/Baloo/Configuration>
+[https://community.kde.org/Baloo/Configuration](https://community.kde.org/Baloo/Configuration)
 
 ## 任务栏
 

@@ -75,4 +75,4 @@ Scrum Master 是 Scrum 团队中一个重要的角色，他是团队的一份子
 
 作者: 周巍，ThoughtWorks 高级咨询师，16年的工作经验，具备 CSPO，CSM，CSP 等资格认证。擅长精益 (LEAN) 与敏捷等辅导，关注管理方式的变革，帮助组织与团队持续提升响应力与交付价值。曾经服务过的客户包括华为，中国银行，汇丰银行，招商银行，中国电信这样的大型企业，也包括像 AHA 社会创业学院这样的创业孵化器。
 
-<https://blog.teambition.com/blog/agile-tool/scrum-one-scrum-master/>
+[https://blog.teambition.com/blog/agile-tool/scrum-one-scrum-master/](https://blog.teambition.com/blog/agile-tool/scrum-one-scrum-master/)

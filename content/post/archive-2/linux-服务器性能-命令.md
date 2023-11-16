@@ -10,7 +10,7 @@ tags:
 ---
 ## Linux 服务器性能 命令
 
-<https://www.oschina.net/news/77545/check-linux-server-performance-in-one-minutes>
+[https://www.oschina.net/news/77545/check-linux-server-performance-in-one-minutes](https://www.oschina.net/news/77545/check-linux-server-performance-in-one-minutes)
 
 通过执行以下命令,可以在1分钟内对系统资源使用情况有个大致的了解。
 
@@ -314,6 +314,6 @@ top命令包含了前面好几个命令的检查的内容。比如系统负载�
 
 排查Linux服务器性能问题还有很多工具,上面介绍的一些命令,可以帮助我们快速的定位问题。例如前面的示例输出,多个证据证明有JAVA进程占用了大量CPU资源,之后的性能调优就可以针对应用程序进行。
 
-原文链接:  <http://techblog.netflix.com/2015/11/linux-performance-analysis-in-60s.html>
+原文链接:  [http://techblog.netflix.com/2015/11/linux-performance-analysis-in-60s.html](http://techblog.netflix.com/2015/11/linux-performance-analysis-in-60s.html)
   
 本文译者: 金灵杰

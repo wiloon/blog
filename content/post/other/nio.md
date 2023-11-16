@@ -115,15 +115,15 @@ Selector内部原理实际是在做一个对所注册的  channel 的轮询访�
 
 ---
 
-<http://ifeve.com/file-channel/>  
-<https://tech.meituan.com/2016/11/04/nio.html>  
+[http://ifeve.com/file-channel/](http://ifeve.com/file-channel/)  
+[https://tech.meituan.com/2016/11/04/nio.html](https://tech.meituan.com/2016/11/04/nio.html)  
 
 作者: 卢毅luis
-链接: <https://www.zhihu.com/question/19732473/answer/20851256>
+链接: [https://www.zhihu.com/question/19732473/answer/20851256](https://www.zhihu.com/question/19732473/answer/20851256)
 来源: 知乎
 著作权归作者所有。商业转载请联系作者获得授权,非商业转载请注明出处。
 
-<https://www.zhihu.com/question/19732473/answer/14413599>  
-<https://www.zhihu.com/question/19732473/answer/241673170>  
+[https://www.zhihu.com/question/19732473/answer/14413599](https://www.zhihu.com/question/19732473/answer/14413599)  
+[https://www.zhihu.com/question/19732473/answer/241673170](https://www.zhihu.com/question/19732473/answer/241673170)  
 
-<http://www.jdon.com/concurrent/nio%D4%AD%C0%ED%D3%A6%D3%C3.htm>
+[http://www.jdon.com/concurrent/nio%D4%AD%C0%ED%D3%A6%D3%C3.htm](http://www.jdon.com/concurrent/nio%D4%AD%C0%ED%D3%A6%D3%C3.htm)

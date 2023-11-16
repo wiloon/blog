@@ -54,6 +54,6 @@ truncate 语句缺省情况下见空间释放到 minextents个 extent，除非�
 
 10. TRUNCATE TABLE 不能用于参与了索引视图的表。
   
-<https://www.cnblogs.com/8765h/archive/2011/11/25/2374167.html>
+[https://www.cnblogs.com/8765h/archive/2011/11/25/2374167.html](https://www.cnblogs.com/8765h/archive/2011/11/25/2374167.html)
 
-<https://stackoverflow.com/questions/139630/whats-the-difference-between-truncate-and-delete-in-sql>
+[https://stackoverflow.com/questions/139630/whats-the-difference-between-truncate-and-delete-in-sql](https://stackoverflow.com/questions/139630/whats-the-difference-between-truncate-and-delete-in-sql)

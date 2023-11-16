@@ -77,4 +77,4 @@ Ehcache更乱，首先它的内存存储中只有惰性检查，没有主动检�
 
 然后磁盘存储那有一条8小时左右跑一次的线程，每次遍历所有元素.....见DiskStorageFactory里的DiskExpiryTask。 一圈看下来，Ehcache的实现最弱。
   
-文章持续修改，转载时请保留原链接:  <http://calvin1978.blogcn.com/articles/lru.html>
+文章持续修改，转载时请保留原链接:  [http://calvin1978.blogcn.com/articles/lru.html](http://calvin1978.blogcn.com/articles/lru.html)

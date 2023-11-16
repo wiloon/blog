@@ -29,7 +29,7 @@ sudo apt-get update && sudo apt-get install telegraf
 
 ### binary
 
-<https://portal.influxdata.com/downloads/>
+[https://portal.influxdata.com/downloads/](https://portal.influxdata.com/downloads/)
 
 > vim /etc/telegraf/telegraf.conf
 
@@ -73,11 +73,11 @@ sudo apt-get update && sudo apt-get install telegraf
 
 #### inputs.linux_sysctl_fs
 
-><https://www.kernel.org/doc/Documentation/sysctl/fs.txt>
+>[https://www.kernel.org/doc/Documentation/sysctl/fs.txt](https://www.kernel.org/doc/Documentation/sysctl/fs.txt)
 
 ### hsperfdata
 
-<https://github.com/njwhite/telegraf/tree/master/plugins/inputs/hsperfdata>
+[https://github.com/njwhite/telegraf/tree/master/plugins/inputs/hsperfdata](https://github.com/njwhite/telegraf/tree/master/plugins/inputs/hsperfdata)
 
 ### windows
 
@@ -93,7 +93,7 @@ sudo apt-get update && sudo apt-get install telegraf
 
 #### install as windows serivce, choco 安装的 telegraf 默认会安装成 service
 
-<https://docs.influxdata.com/telegraf/v1.14/administration/windows_service/>
+[https://docs.influxdata.com/telegraf/v1.14/administration/windows_service/](https://docs.influxdata.com/telegraf/v1.14/administration/windows_service/)
 
 ```bash
     C:\"Program Files"\Telegraf\telegraf.exe --service install
@@ -117,7 +117,7 @@ vim  /etc/telegraf/telegraf.conf
 
 ### ping plugin
 
-<https://github.com/influxdata/telegraf/blob/release-1.10/plugins/inputs/ping/README.md>
+[https://github.com/influxdata/telegraf/blob/release-1.10/plugins/inputs/ping/README.md](https://github.com/influxdata/telegraf/blob/release-1.10/plugins/inputs/ping/README.md)
 
 ```bash
 [[inputs.ping]]
@@ -153,8 +153,8 @@ vim  /etc/telegraf/telegraf.conf
 
 #### telegraf, 下载 static 版本
 
-<https://github.com/influxdata/telegraf/releases/tag/v1.19.0>  
-<https://dl.influxdata.com/telegraf/releases/telegraf-1.19.0_static_linux_amd64.tar.gz>
+[https://github.com/influxdata/telegraf/releases/tag/v1.19.0](https://github.com/influxdata/telegraf/releases/tag/v1.19.0)  
+[https://dl.influxdata.com/telegraf/releases/telegraf-1.19.0_static_linux_amd64.tar.gz](https://dl.influxdata.com/telegraf/releases/telegraf-1.19.0_static_linux_amd64.tar.gz)
 
 mv telegraf-1.19.0/usr/bin/telegraf /usr/bin/
 mv telegraf-1.19.0/usr/lib/telegraf /usr/lib
@@ -200,11 +200,11 @@ podman run --name telegraf -d \
 ```
 
 运行在容器里的 telegraf 监控宿主机资源
-<https://www.jacobtomlinson.co.uk/monitoring/2016/06/23/running-telegraf-inside-a-container/>
+[https://www.jacobtomlinson.co.uk/monitoring/2016/06/23/running-telegraf-inside-a-container/](https://www.jacobtomlinson.co.uk/monitoring/2016/06/23/running-telegraf-inside-a-container/)
 
 ### wireguard, telegraf
 
-<https://github.com/influxdata/telegraf/blob/master/plugins/inputs/wireguard/README.md>
+[https://github.com/influxdata/telegraf/blob/master/plugins/inputs/wireguard/README.md](https://github.com/influxdata/telegraf/blob/master/plugins/inputs/wireguard/README.md)
 
 ### exec, 执行 shell 脚本
 
@@ -242,4 +242,4 @@ echo 'blog,domain=wiloon post_count='''$post_count'''i,word_count='''$word_count
 
 telegraf 默认用 tellegraf 用户启动, 所以... 记得给脚本加执行权限.
 
-<https://github.com/influxdata/telegraf/blob/release-1.21/plugins/inputs/exec/README.md>
+[https://github.com/influxdata/telegraf/blob/release-1.21/plugins/inputs/exec/README.md](https://github.com/influxdata/telegraf/blob/release-1.21/plugins/inputs/exec/README.md)

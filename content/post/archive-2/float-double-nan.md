@@ -10,9 +10,9 @@ tags:
 ---
 ## float double NaN
 
-<http://zranye.iteye.com/blog/1344880>
+[http://zranye.iteye.com/blog/1344880](http://zranye.iteye.com/blog/1344880)
 
-<http://blog.csdn.net/naruto_ahu/article/details/8805808>
+[http://blog.csdn.net/naruto_ahu/article/details/8805808](http://blog.csdn.net/naruto_ahu/article/details/8805808)
 
 (注意,double中的NaN类似)
 

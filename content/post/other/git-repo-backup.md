@@ -33,6 +33,6 @@ $ git tag -f lastbundle HEAD
 
 $ git bundle create newbundle HEAD ^lastbundle
 
-<http://www-cs-students.stanford.edu/~blynn/gitmagic/intl/zh_cn/ch06.html>
+[http://www-cs-students.stanford.edu/~blynn/gitmagic/intl/zh_cn/ch06.html](http://www-cs-students.stanford.edu/~blynn/gitmagic/intl/zh_cn/ch06.html)
 
-<http://stackoverflow.com/questions/2129214/backup-a-local-git-repository>
+[http://stackoverflow.com/questions/2129214/backup-a-local-git-repository](http://stackoverflow.com/questions/2129214/backup-a-local-git-repository)

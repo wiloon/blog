@@ -10,7 +10,7 @@ tags:
 ---
 ## linux more
 
-<http://www.cnblogs.com/peida/archive/2012/11/02/2750588.html>
+[http://www.cnblogs.com/peida/archive/2012/11/02/2750588.html](http://www.cnblogs.com/peida/archive/2012/11/02/2750588.html)
 
 每天一个linux命令(12): more命令
 
@@ -187,4 +187,4 @@ drwxrwxrwx 2 root root 4096 10-28 14:47 test4
 - space: nextpage
 - q: quit
 
-<https://man7.org/linux/man-pages/man1/more.1.html#COMMANDS>
+[https://man7.org/linux/man-pages/man1/more.1.html#COMMANDS](https://man7.org/linux/man-pages/man1/more.1.html#COMMANDS)

@@ -49,6 +49,6 @@ rdesktop -r sound:local:alsa host.domain.com
 yong
  Fri, 17 Jun 2011 07:31:25 +0000
 
-<http://coolex.info/blog/121.html>
+[http://coolex.info/blog/121.html](http://coolex.info/blog/121.html)
 
-<http://www.gearhack.com/Forums/DisplayComments.php?file=Computer/Linux/Getting_Sound_Through_rdesktop>
+[http://www.gearhack.com/Forums/DisplayComments.php?file=Computer/Linux/Getting_Sound_Through_rdesktop](http://www.gearhack.com/Forums/DisplayComments.php?file=Computer/Linux/Getting_Sound_Through_rdesktop)

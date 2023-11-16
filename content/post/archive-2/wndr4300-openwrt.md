@@ -11,7 +11,7 @@ tags:
 ---
 ## 'WNDR4300 openwrt'
 
-<https://wiki.openwrt.org/zh-cn/toh/netgear/wndr4300>
+[https://wiki.openwrt.org/zh-cn/toh/netgear/wndr4300](https://wiki.openwrt.org/zh-cn/toh/netgear/wndr4300)
   
 WNDR4300
   
@@ -24,8 +24,8 @@ mips, not mipsle
 go build ... GOMIPS=softfloat
 
 WNDR4300有两种固件,一种为 ...ubi-factory.img 格式,一种为 ...squashfs-sysupgrade.tar 格式。 其中 img 格式只能用 tftp 的方法刷入。而 tar 只能通过已刷了Openwrt的WEB端进行刷入。
-<https://downloads.openwrt.org/releases/19.07.3/targets/ar71xx/nand/openwrt-19.07.3-ar71xx-nand-wndr4300-ubi-factory.img>
-<https://downloads.openwrt.org/releases/17.01.4/targets/ar71xx/nand/lede-17.01.4-ar71xx-nand-wndr4300-squashfs-sysupgrade.tar>
+[https://downloads.openwrt.org/releases/19.07.3/targets/ar71xx/nand/openwrt-19.07.3-ar71xx-nand-wndr4300-ubi-factory.img](https://downloads.openwrt.org/releases/19.07.3/targets/ar71xx/nand/openwrt-19.07.3-ar71xx-nand-wndr4300-ubi-factory.img)
+[https://downloads.openwrt.org/releases/17.01.4/targets/ar71xx/nand/lede-17.01.4-ar71xx-nand-wndr4300-squashfs-sysupgrade.tar](https://downloads.openwrt.org/releases/17.01.4/targets/ar71xx/nand/lede-17.01.4-ar71xx-nand-wndr4300-squashfs-sysupgrade.tar)
 
 ```bash
 opkg update
@@ -34,11 +34,11 @@ opkg list_installed
 ```
 
 下载img文件
-<http://downloads.openwrt.org/chaos_calmer/15.05/ar71xx/nand/openwrt-15.05-ar71xx-nand-wndr4300-ubi-factory.img>
+[http://downloads.openwrt.org/chaos_calmer/15.05/ar71xx/nand/openwrt-15.05-ar71xx-nand-wndr4300-ubi-factory.img](http://downloads.openwrt.org/chaos_calmer/15.05/ar71xx/nand/openwrt-15.05-ar71xx-nand-wndr4300-ubi-factory.img)
 
 进路由器界面,找到『固件升级』,然后上传这个包点确定。路由器就会自动刷成 openwrt 固件,等待它重启后再连路由器就大功告成了。
   
-下载升级包: <http://downloads.openwrt.org/chaos_calmer/15.05/ar71xx/nand/openwrt-15.05-ar71xx-nand-wndr4300-squashfs-sysupgrade.tar>稍后在 openwrt 系统里给升级。
+下载升级包: [http://downloads.openwrt.org/chaos_calmer/15.05/ar71xx/nand/openwrt-15.05-ar71xx-nand-wndr4300-squashfs-sysupgrade.tar](http://downloads.openwrt.org/chaos_calmer/15.05/ar71xx/nand/openwrt-15.05-ar71xx-nand-wndr4300-squashfs-sysupgrade.tar)稍后在 openwrt 系统里给升级。
   
 基础设置
   
@@ -50,18 +50,18 @@ opkg list_installed
   
 ---
 
-<https://wiki.openwrt.org/zh-cn/toh/netgear/wndr4300>
+[https://wiki.openwrt.org/zh-cn/toh/netgear/wndr4300](https://wiki.openwrt.org/zh-cn/toh/netgear/wndr4300)
   
-<http://dlmao.com/wndr4300-%E6%8A%98%E8%85%BE-openwrt-%E8%AE%B0.html>
+[http://dlmao.com/wndr4300-%E6%8A%98%E8%85%BE-openwrt-%E8%AE%B0.html](http://dlmao.com/wndr4300-%E6%8A%98%E8%85%BE-openwrt-%E8%AE%B0.html)
   
-<http://dlmao.com/wndr4300-zhe-teng-openwrt-ji-zhong-ji-xiu-zheng-ban.html>
+[http://dlmao.com/wndr4300-zhe-teng-openwrt-ji-zhong-ji-xiu-zheng-ban.html](http://dlmao.com/wndr4300-zhe-teng-openwrt-ji-zhong-ji-xiu-zheng-ban.html)
   
-<https://bigeagle.me/2016/02/ipset-policy-routing/>
+[https://bigeagle.me/2016/02/ipset-policy-routing/](https://bigeagle.me/2016/02/ipset-policy-routing/)
 
-<https://php-rmcr7.rhcloud.com/openwrt-fq/>
+[https://php-rmcr7.rhcloud.com/openwrt-fq/](https://php-rmcr7.rhcloud.com/openwrt-fq/)
 
-<https://php-rmcr7.rhcloud.com/openwrt-fq/embed/#?secret=xcThHfkyLS>  
-<https://cokebar.info/archives/948>  
+[https://php-rmcr7.rhcloud.com/openwrt-fq/embed/#?secret=xcThHfkyLS](https://php-rmcr7.rhcloud.com/openwrt-fq/embed/#?secret=xcThHfkyLS)  
+[https://cokebar.info/archives/948](https://cokebar.info/archives/948)  
 
-<https://cokebar.info/archives/948/embed#?secret=k8dinHiD9m>
-<https://forum.archive.openwrt.org/viewtopic.php?id=16599>
+[https://cokebar.info/archives/948/embed#?secret=k8dinHiD9m](https://cokebar.info/archives/948/embed#?secret=k8dinHiD9m)
+[https://forum.archive.openwrt.org/viewtopic.php?id=16599](https://forum.archive.openwrt.org/viewtopic.php?id=16599)

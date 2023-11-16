@@ -57,5 +57,5 @@ CRC32检错能力极强，开销小，易于用编码器及检测电路实现。
 
     fmt.Printf("check sum:%X \n",checksum) 
 
-<https://blog.csdn.net/liyuanbhu/article/details/7882789>
-><https://www.eet-china.com/mp/a22317.html>
+[https://blog.csdn.net/liyuanbhu/article/details/7882789](https://blog.csdn.net/liyuanbhu/article/details/7882789)
+>[https://www.eet-china.com/mp/a22317.html](https://www.eet-china.com/mp/a22317.html)

@@ -58,7 +58,7 @@ WantedBy=multi-user.target
 systemctl --now enable foo.timer
 ```
 
-<http://www.ruanyifeng.com/blog/2018/03/systemd-timer.html>
+[http://www.ruanyifeng.com/blog/2018/03/systemd-timer.html](http://www.ruanyifeng.com/blog/2018/03/systemd-timer.html)
 
 ## the basic format of Oncalnedar event
 
@@ -77,7 +77,7 @@ It is divided into 3 parts -
 
 [[cron#cron crond crontab linux 定时任务 cronie]]
 
-<https://silentlad.com/systemd-timers-oncalendar-(cron)-format-explained>
+[https://silentlad.com/systemd-timers-oncalendar-(cron)-format-explained](https://silentlad.com/systemd-timers-oncalendar-(cron)-format-explained)
 
 - Every day at 2am `*-*-* 02:00:00`
 

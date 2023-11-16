@@ -11,7 +11,7 @@ tags:
 ---
 ## XHTML HTML5
 
-<http://www.wkeke.cn/archives/xhtml2-html5/>
+[http://www.wkeke.cn/archives/xhtml2-html5/](http://www.wkeke.cn/archives/xhtml2-html5/)
 
 下面这些迹象都一一表明: XHTML2夭亡，而HTML5则是集万千宠爱于一身，还未出现，早已博得满堂喝彩。W3C 日前宣布将从2009年底起终止同 XHTML 2 工作组的合约，并以此暗示曾经一度野心勃勃的 XHTML 2 的正式死亡。Web 设计界是否该因此而恐慌？毕竟 XHTML 1.x 是所有对 Web 标准验证有着某种情节的人的首选，然而事实并非如此，XHTML 2.0 偃旗息鼓已有时日，W3C 只是明确了它的死亡日期，并将主要精力倾注到他们的新宠儿，HTML 5 身上。
 

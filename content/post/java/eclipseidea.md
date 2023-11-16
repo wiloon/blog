@@ -12,7 +12,7 @@ tags:
 ## 'eclipse>IDEA'
 outline - structure, Ctrl+F12
 
-本文转自: <http://gagi.iteye.com/blog/633778>
+本文转自: [http://gagi.iteye.com/blog/633778](http://gagi.iteye.com/blog/633778)
 
 
 1. 比如输入eclipse下面的main，sysout等，在idea里面同样可以实现，如下: 

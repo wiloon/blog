@@ -11,7 +11,7 @@ tags:
 ---
 ## JPA JPQL
 
-<http://flowercat.iteye.com/blog/667773>
+[http://flowercat.iteye.com/blog/667773](http://flowercat.iteye.com/blog/667773)
 
 max result
 entityManager.createQuery(SQL_QUERY).setParameter(arg0,arg1).setMaxResults(10).getResultList();```

@@ -23,7 +23,7 @@ JSTL 1.0 which is designed for JSP 1.2 has the class `ELException` included in J
 
 When you run JSTL 1.1 on a JSP 1.2 container, it'll complain that `ELException` is missing because it's not available by JSP 1.2.
 
-jstl 1.2: <%@ taglib prefix="c" uri="<http://java.sun.com/jsp/jstl/core"%>>
+jstl 1.2: <%@ taglib prefix="c" uri="[http://java.sun.com/jsp/jstl/core"%>](http://java.sun.com/jsp/jstl/core"%>)
 
     <%@ taglib uri="http://java.sun.com/jstl/core" prefix="c" %>
 
@@ -33,10 +33,10 @@ This URI is from the old and EOL'ed JSTL 1.0 library. Since JSTL 1.1, you need a
 
 Further, the JAR files which you attempted to drop in `/WEB-INF/lib` are wrong. The `javax.servlet.jsp.jstl-api-1.2.1-javadoc.jar` is contains only the JSTL javadocs and the `javaee.jar` contains the entire Java EE API which may be desastreus because Tomcat ships with parts of it already (JSP/Servlet) which may [conflict][1].
 
-<http://stackoverflow.com/questions/4199596/java-lang-noclassdeffounderror-javax-servlet-jsp-el-elexception>
+[http://stackoverflow.com/questions/4199596/java-lang-noclassdeffounderror-javax-servlet-jsp-el-elexception](http://stackoverflow.com/questions/4199596/java-lang-noclassdeffounderror-javax-servlet-jsp-el-elexception)
 
-<http://blog.csdn.net/for_china2012/article/details/9307471>
+[http://blog.csdn.net/for_china2012/article/details/9307471](http://blog.csdn.net/for_china2012/article/details/9307471)
 
-<http://stackoverflow.com/questions/9976281/the-absolute-uri-http-java-sun-com-jstl-core-cannot-be-resolved-in-either-web>
+[http://stackoverflow.com/questions/9976281/the-absolute-uri-http-java-sun-com-jstl-core-cannot-be-resolved-in-either-web](http://stackoverflow.com/questions/9976281/the-absolute-uri-http-java-sun-com-jstl-core-cannot-be-resolved-in-either-web)
 
  [1]: http://stackoverflow.com/questions/4076601/how-do-i-import-the-javax-servlet-api-in-my-eclipse-project/4076706#4076706

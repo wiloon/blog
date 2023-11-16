@@ -78,7 +78,7 @@ ansible 192.168.x.x -m lineinfile -a "path=/etc/ssh/sshd_config line='xxx' state
 ansible 192.168.x.x -m lineinfile -a 'path="/etc/filebeat/filebeat.yml" regexp="10\.xx\.0\.xx" line="  hosts: [\"xx.xx.0.xx:6379\"]"'
 ```
 
-<http://www.jianshu.com/p/f400f600b17c>
+[http://www.jianshu.com/p/f400f600b17c](http://www.jianshu.com/p/f400f600b17c)
 
 这篇总结一下Inventory,变量,目标匹配,及/usr/bin/ansible 命令行常用的模块
 
@@ -670,4 +670,4 @@ lixc@ansible:~$ ansible salt-master -m setup >/dev/null
   
 lixc@ansible:~$
 
-原创作品,允许转载,转载时请务必以超链接形式标明文章 原始出处 、作者信息和本声明。否则将追究法律责任。<http://lixcto.blog.51cto.com/4834175/1431659>
+原创作品,允许转载,转载时请务必以超链接形式标明文章 原始出处 、作者信息和本声明。否则将追究法律责任。[http://lixcto.blog.51cto.com/4834175/1431659](http://lixcto.blog.51cto.com/4834175/1431659)

@@ -45,29 +45,29 @@ unix操作系统中有两种创建新进程的几种，分别是fork和exec。
 
 参考:
 
-<https://unix.stackexchange.com/questions/58145/how-does-copy-on-write-in-fork-handle-multiple-fork>
+[https://unix.stackexchange.com/questions/58145/how-does-copy-on-write-in-fork-handle-multiple-fork](https://unix.stackexchange.com/questions/58145/how-does-copy-on-write-in-fork-handle-multiple-fork)
 
-<https://stackoverflow.com/questions/628938/what-is-copy-on-write>
+[https://stackoverflow.com/questions/628938/what-is-copy-on-write](https://stackoverflow.com/questions/628938/what-is-copy-on-write)
 
-<https://wikipedia.hk.wjbk.site/wiki/>寫入時複製
+[https://wikipedia.hk.wjbk.site/wiki/](https://wikipedia.hk.wjbk.site/wiki/)寫入時複製
 
-<http://ifeve.com/java-copy-on-write/>
+[http://ifeve.com/java-copy-on-write/](http://ifeve.com/java-copy-on-write/)
 
-<https://hackerboss.com/i-have-seen-the-future-and-it-is-copy-on-write/>
+[https://hackerboss.com/i-have-seen-the-future-and-it-is-copy-on-write/](https://hackerboss.com/i-have-seen-the-future-and-it-is-copy-on-write/)
 
-<https://hackerboss.com/copy-on-write-101-part-1-what-is-it/>
+[https://hackerboss.com/copy-on-write-101-part-1-what-is-it/](https://hackerboss.com/copy-on-write-101-part-1-what-is-it/)
 
 深入Linux内核架构.pdf
 ————————————————
 版权声明: 本文为CSDN博主「A_Beaver」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
-原文链接: <https://blog.csdn.net/doctor_who2004/article/details/103551335>
+原文链接: [https://blog.csdn.net/doctor_who2004/article/details/103551335](https://blog.csdn.net/doctor_who2004/article/details/103551335)
 
 vfork(): 这个做法更加火爆，内核连子进程的虚拟地址空间结构也不创建了，直接共享了父进程的虚拟空间，当然了，这种做法就顺水推舟的共享了父进程的物理空间
 
 ---
 
-<https://blog.csdn.net/doctor_who2004/article/details/103551335>  
-<https://www.cnblogs.com/biyeymyhjob/archive/2012/07/20/2601655.html>  
+[https://blog.csdn.net/doctor_who2004/article/details/103551335](https://blog.csdn.net/doctor_who2004/article/details/103551335)  
+[https://www.cnblogs.com/biyeymyhjob/archive/2012/07/20/2601655.html](https://www.cnblogs.com/biyeymyhjob/archive/2012/07/20/2601655.html)  
 
 ## "copy on write"
 
@@ -250,7 +250,7 @@ Java中的COW
 
 ---
 
-<https://juejin.cn/post/6844903702373859335>
+[https://juejin.cn/post/6844903702373859335](https://juejin.cn/post/6844903702373859335)
 
 ## "CPU 执行程序"
 
@@ -269,7 +269,7 @@ CPU 看了那么多，我们都知道 CPU 通常分为 32 位和 64 位，你知
 
 图灵机长什么样子呢？你从下图可以看到图灵机的实际样子:
 
-图来源自: <http://www.kristergustafsson.me/turing-machine/>
+图来源自: [http://www.kristergustafsson.me/turing-machine/](http://www.kristergustafsson.me/turing-machine/)
 
 图灵机的基本组成如下:
 
@@ -494,4 +494,4 @@ CPU 的硬件参数都会有 GHz 这个参数，比如一个 1 GHz 的 CPU，指
 
 ---
 
-<https://cloud.tencent.com/developer/article/1729507>
+[https://cloud.tencent.com/developer/article/1729507](https://cloud.tencent.com/developer/article/1729507)

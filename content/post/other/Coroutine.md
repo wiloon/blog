@@ -30,6 +30,6 @@ tags:
 
 生成器，也叫作“半协程”[8]，是协程的子集。
 
-<https://www.liaoxuefeng.com/wiki/1016959663602400/1017968846697824>
+[https://www.liaoxuefeng.com/wiki/1016959663602400/1017968846697824](https://www.liaoxuefeng.com/wiki/1016959663602400/1017968846697824)
 
-<https://zh.wikipedia.org/wiki/%E5%8D%8F%E7%A8%8B>
+[https://zh.wikipedia.org/wiki/%E5%8D%8F%E7%A8%8B](https://zh.wikipedia.org/wiki/%E5%8D%8F%E7%A8%8B)

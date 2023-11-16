@@ -186,7 +186,7 @@ highlight MatchParen cterm=underline ctermbg=NONE ctermfg=NONE
   
 上述配置指定 Search 结果的前景色 (foreground) 为黑色,背景色 (background) 为灰色； 渐进搜索的前景色为黑色,背景色为黄色；光标处的字符加下划线。
 
-更多的CTERM颜色可以查阅: <http://vim.wikia.com/wiki/Xterm256_color_names_for_console_Vim>
+更多的CTERM颜色可以查阅: [http://vim.wikia.com/wiki/Xterm256_color_names_for_console_Vim](http://vim.wikia.com/wiki/Xterm256_color_names_for_console_Vim)
 
 禁用/启用高亮
   
@@ -252,14 +252,14 @@ endfunc
 
 参考阅读
   
-XTERM 256色: <http://vim.wikia.com/wiki/Xterm256_color_names_for_console_Vim>
+XTERM 256色: [http://vim.wikia.com/wiki/Xterm256_color_names_for_console_Vim](http://vim.wikia.com/wiki/Xterm256_color_names_for_console_Vim)
   
-Vim Wikia - 查找与替换: <http://vim.wikia.com/wiki/Search_and_replace>
+Vim Wikia - 查找与替换: [http://vim.wikia.com/wiki/Search_and_replace](http://vim.wikia.com/wiki/Search_and_replace)
   
-用 Vim 打造 IDE 环境: <https://harttle.land/2015/11/04/vim-ide.html>
+用 Vim 打造 IDE 环境: [https://harttle.land/2015/11/04/vim-ide.html](https://harttle.land/2015/11/04/vim-ide.html)
   
-本文采用 知识共享署名 4.0 国际许可协议 (CC-BY 4.0) 进行许可。转载请注明来源:  <https://harttle.land/2016/08/08/vim-search-in-file.html> 欢迎对文中引用进行考证,欢迎指出任何不准确和模糊之处。可以在下面评论区评论,也可以邮件至 <harttle@harttle.com>。
+本文采用 知识共享署名 4.0 国际许可协议 (CC-BY 4.0) 进行许可。转载请注明来源:  <https://harttle.land/2016/08/08/vim-search-in-file.html> 欢迎对文中引用进行考证,欢迎指出任何不准确和模糊之处。可以在下面评论区评论,也可以邮件至 [harttle@harttle.com](harttle@harttle.com)。
 
-<https://harttle.land/2016/08/08/vim-search-in-file.html>
+[https://harttle.land/2016/08/08/vim-search-in-file.html](https://harttle.land/2016/08/08/vim-search-in-file.html)
 
-<https://zhuanlan.zhihu.com/p/55330855>
+[https://zhuanlan.zhihu.com/p/55330855](https://zhuanlan.zhihu.com/p/55330855)

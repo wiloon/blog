@@ -10,7 +10,7 @@ tags:
   - reprint
 ---
 ## STP
-<http://hghhghwh.blog.163.com/blog/static/1338973120118413725683/>
+[http://hghhghwh.blog.163.com/blog/static/1338973120118413725683/](http://hghhghwh.blog.163.com/blog/static/1338973120118413725683/)
 
 STP (Spanning Tree Protocol) 是生成树协议的英文缩写。
 

@@ -22,7 +22,7 @@ tags:
 计算机领域:引申为描述复杂计算机系统、中间件 (middleware) 和业务的自动化的安排、协调和管理。
 有趣的是 “Orchestration” 的标准翻译应该为“编配”，而“编排”则是另外一个单词 “Choreography”，为了方便大家理解， 符合平时的习惯，我们还是使用编排 (Orchestration) 来描述下面的问题。至于“编配 (Orchestration)” 和 “编排(Choreography)” 之争，这里有一篇文章，有兴趣可以看一下 。
 
-<https://cloud.tencent.com/developer/article/1683430>
+[https://cloud.tencent.com/developer/article/1683430](https://cloud.tencent.com/developer/article/1683430)
 
 Kubernetes 容器编排技术
 当我们在说容器编排的时候，我们在说什么？

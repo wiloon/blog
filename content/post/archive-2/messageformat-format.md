@@ -10,7 +10,7 @@ tags:
 ---
 ## MessageFormat.format
 
-<http://www.cnblogs.com/xiandedanteng/p/3321993.html>
+[http://www.cnblogs.com/xiandedanteng/p/3321993.html](http://www.cnblogs.com/xiandedanteng/p/3321993.html)
 
 Java里从来少不了字符串拼接的活,Java程序员也肯定用到过StringBuffer,StringBuilder,以及被编译器优化掉的+=。但这些都和下文要谈的无关。
 

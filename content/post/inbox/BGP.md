@@ -10,7 +10,7 @@ tags:
 ---
 ## BGP 链路
 
-<http://blog.sina.com.cn/s/blog_5128081e01008kbc.html>
+[http://blog.sina.com.cn/s/blog_5128081e01008kbc.html](http://blog.sina.com.cn/s/blog_5128081e01008kbc.html)
 
 BGP双链路动态接入技术介绍
   

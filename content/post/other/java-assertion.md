@@ -9,7 +9,7 @@ tags:
   - reprint
 ---
 ## Java assertion
-as<http://www.ibm.com/developerworks/cn/java/l-javaassertion/index.html>
+as[http://www.ibm.com/developerworks/cn/java/l-javaassertion/index.html](http://www.ibm.com/developerworks/cn/java/l-javaassertion/index.html)
 
 sertion的语法和语义
 
@@ -497,9 +497,9 @@ class Derived
             
             参考资料
             
-              1. JSR 41 A Simple Assertion Facility <http://jcp.org/jsr/detail/41.jsp>
-              2. Wm. Paul Rogers, J2SE 1.4 premieres Java's assertion capabilities <http://www.javaworld.com/javaworld/jw-11-2001/jw-1109-assert.html?>
-              3. J2SE 1.4 Documents, Programming With Assertions <http://java.sun.com/j2se/1.4/docs/guide/lang/assert.html>
+              1. JSR 41 A Simple Assertion Facility [http://jcp.org/jsr/detail/41.jsp](http://jcp.org/jsr/detail/41.jsp)
+              2. Wm. Paul Rogers, J2SE 1.4 premieres Java's assertion capabilities [http://www.javaworld.com/javaworld/jw-11-2001/jw-1109-assert.html?](http://www.javaworld.com/javaworld/jw-11-2001/jw-1109-assert.html?)
+              3. J2SE 1.4 Documents, Programming With Assertions [http://java.sun.com/j2se/1.4/docs/guide/lang/assert.html](http://java.sun.com/j2se/1.4/docs/guide/lang/assert.html)
               4. John Zukowski, Mastering Java 2, J2SE 1.4
             
             作者简介

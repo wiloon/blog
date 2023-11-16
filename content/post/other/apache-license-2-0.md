@@ -18,6 +18,6 @@ Apache 协议允许使用了本协议开源的代码不必开源。
   
 用一句话概括 Apache License 就是，你可以用这代码，但是如果开源你必须保留我写的声明；你可以改我的代码，但是如果开源你必须写清楚你改了哪些；你可以加新的协议要求，但不能与我所公布的协议要求产生冲突；你用这代码干什么我不管，但是你不能让我承担任何责任。 kymjs.com/qiniu
 
-<https://www.kymjs.com/manager/2015/11/21/01/>
+[https://www.kymjs.com/manager/2015/11/21/01/](https://www.kymjs.com/manager/2015/11/21/01/)
   
-<http://db.apache.org/derby/docs/dev/getstart/>
+[http://db.apache.org/derby/docs/dev/getstart/](http://db.apache.org/derby/docs/dev/getstart/)

@@ -10,7 +10,7 @@ tags:
 ---
 ## "speed test cli, 测速"
 
-<https://www.speedtest.net/zh-Hans/apps/cli>
+[https://www.speedtest.net/zh-Hans/apps/cli](https://www.speedtest.net/zh-Hans/apps/cli)
 
 ### archlinux
 
@@ -19,4 +19,4 @@ pacman -Sy speedtest-cli
 speedtest-cli --server=43752  --bytes
 ```
 
-<https://github.com/sivel/speedtest-cli>
+[https://github.com/sivel/speedtest-cli](https://github.com/sivel/speedtest-cli)

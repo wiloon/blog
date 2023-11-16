@@ -10,7 +10,7 @@ tags:
 
 ---
 ## MemCache
-<http://blog.csdn.net/hjm4702192/article/details/7894080>
+[http://blog.csdn.net/hjm4702192/article/details/7894080](http://blog.csdn.net/hjm4702192/article/details/7894080)
 
 Memcach什么是Memcache
   
@@ -30,7 +30,7 @@ Memcached是高性能的,分布式的内存对象缓存系统,用于在动态应
   
 上网baidu了很多东西,几乎都差不多,而且基于java的说的很少,所有只有在研究了各个其他语言类的应用后再来尝试在java上进行简单的操作应用。先从memcached上进行说明,memcached的最新版是采用c语言进行开发和设计的,据说旧版的是采用perl语言开发的,而且它是一个应用软件来的,是作为缓存服务器的服务器端运行在服务器上的,需要使用特定的语言编写客户端与其进行通信来进行数据的缓存和获取。通常我们是把memcached安装运行在web服务器上,然后通过对需要的数据进行缓存,据我目前所知,所有数据的缓存设置和存取操作,以及数据的更新后替换操作全部需要程序来进行,而不是自动进行的 (自动不知道能不能成功,呵呵) 。下面从一个实际的例子来应用memcached。
 
-如何要下载的话,到<http://danga.com/memcached/下载memcached。>
+如何要下载的话,到[http://danga.com/memcached/下载memcached。](http://danga.com/memcached/下载memcached。)
   
 Ubuntu下安装Memcached
   
@@ -78,7 +78,7 @@ lrwxrwxrwx   1 root    root          21 2009-07-19 08:45 libevent.so -> libevent
   
 5
 
-wget <http://www.monkey.org/~provos/libevent-2.0.13-stable.tar.gz>
+wget [http://www.monkey.org/~provos/libevent-2.0.13-stable.tar.gz](http://www.monkey.org/~provos/libevent-2.0.13-stable.tar.gz)
   
 tar xzvf libevent-2.0.13-stable.tar.gz
   
@@ -268,15 +268,15 @@ mc.flushAll();
 
 该程序用来在Linux或Windows服务器上建立和管理缓存。
 
-其项目网址为: <http://danga.com/memcached/>。
+其项目网址为: [http://danga.com/memcached/](http://danga.com/memcached/)。
 
 2) Magent
 
-Magent是一款开源的Memcached代理服务器软件,使用它可以搭建高可用性的集群应用的Memcached服务,其项目网址为: <http://code.google.com/p/memagent/>。
+Magent是一款开源的Memcached代理服务器软件,使用它可以搭建高可用性的集群应用的Memcached服务,其项目网址为: [http://code.google.com/p/memagent/](http://code.google.com/p/memagent/)。
 
 3) Memcached客户端程序
 
-至于Memcached的客户端程序,一般推荐用memcached client for java,为什么推荐用这种客户端,后面会讲到具体的原因,其项目的网址为: <http://github.com/gwhalin/Memcached-Java-Client/>。
+至于Memcached的客户端程序,一般推荐用memcached client for java,为什么推荐用这种客户端,后面会讲到具体的原因,其项目的网址为: [http://github.com/gwhalin/Memcached-Java-Client/](http://github.com/gwhalin/Memcached-Java-Client/)。
 
 4) 其它程序
   
@@ -284,15 +284,15 @@ i.              Libevent
 
 在Linux环境下应用Memcache时,Memcache用到了libevent这个库,用于Socket的处理,所以还需要安装libevent。libevent的最新版本是libevent-1.4.13。 (如果你的系统已经安装了libevent,可以不用安装) 。
 
-官网: <http://www.monkey.org/~provos/libevent/>
+官网: [http://www.monkey.org/~provos/libevent/](http://www.monkey.org/~provos/libevent/)
 
-下载: <http://www.monkey.org/~provos/libevent-1.4.13-stable.tar.gz>
+下载: [http://www.monkey.org/~provos/libevent-1.4.13-stable.tar.gz](http://www.monkey.org/~provos/libevent-1.4.13-stable.tar.gz)
 
 ii.              Windows下的安装程序
 
 Memcache也可以安装在Windows服务器下,安装程序: memcached-1.2.1-win32.zip
 
-可以从这里下载: <http://jehiah.cz/projects/memcached-win32/>。
+可以从这里下载: [http://jehiah.cz/projects/memcached-win32/](http://jehiah.cz/projects/memcached-win32/)。
 
 四、            原理与部署
   
@@ -756,7 +756,7 @@ System.out.println(String.format("get( %d ): %s", i, result));
   
 2) spymemcached
   
-spymemcached当前版本是2.5版本,官方网址是: <http://code.google.com/p/spymemcached/。可以从地址>: <http://spymemcached.googlecode.com/files/memcached-2.5.jar下载最新版本来使用>。
+spymemcached当前版本是2.5版本,官方网址是: <http://code.google.com/p/spymemcached/。可以从地址>: [http://spymemcached.googlecode.com/files/memcached-2.5.jar下载最新版本来使用](http://spymemcached.googlecode.com/files/memcached-2.5.jar下载最新版本来使用)。
 
 示例代码如下:
 
@@ -826,7 +826,7 @@ ex.printStackTrace();
   
 3) xmemcached
   
-Xmemcached的官方网址是: <http://code.google.com/p/xmemcached/>,可以从其官网上下载最新版本的1.2.4来使用。地址是: <http://xmemcached.googlecode.com/files/xmemcached-1.2.4-src.tar.gz>。
+Xmemcached的官方网址是: <http://code.google.com/p/xmemcached/>,可以从其官网上下载最新版本的1.2.4来使用。地址是: [http://xmemcached.googlecode.com/files/xmemcached-1.2.4-src.tar.gz](http://xmemcached.googlecode.com/files/xmemcached-1.2.4-src.tar.gz)。
 
 示例代码如下:
 
@@ -1100,13 +1100,13 @@ view plain   copy
   
 2. 下载并解压memcached-1.4.5
 
-memcached官方网站是: <http://memcached.org/>
+memcached官方网站是: [http://memcached.org/](http://memcached.org/)
 
 view plain   copy
   
 # cd /root
   
-# wget <http://memcached.googlecode.com/files/memcached-1.4.5.tar.gz>
+# wget [http://memcached.googlecode.com/files/memcached-1.4.5.tar.gz](http://memcached.googlecode.com/files/memcached-1.4.5.tar.gz)
   
 # tar -xvzf  memcached-1.4.5.tar.gz
   

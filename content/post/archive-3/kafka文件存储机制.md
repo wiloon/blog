@@ -253,11 +253,11 @@ latest: automatically reset the offset to the latest offset
 
 其他详细内容请参看
 
-<https://github.com/dpkp/kafka-python>
+[https://github.com/dpkp/kafka-python](https://github.com/dpkp/kafka-python)
 
-<https://kafka-python.readthedocs.io/en/master/apidoc/KafkaConsumer.html>
+[https://kafka-python.readthedocs.io/en/master/apidoc/KafkaConsumer.html](https://kafka-python.readthedocs.io/en/master/apidoc/KafkaConsumer.html)
 
-<https://stackoverflow.com/questions/35432326/how-to-get-latest-offset-for-a-partition-for-a-kafka-topic>
+[https://stackoverflow.com/questions/35432326/how-to-get-latest-offset-for-a-partition-for-a-kafka-topic](https://stackoverflow.com/questions/35432326/how-to-get-latest-offset-for-a-partition-for-a-kafka-topic)
 
 Kafka 如何读取offset topic内容 (__consumer_offsets)
   
@@ -465,6 +465,6 @@ Kafka把topic中一个parition大文件分成多个小文件段，通过多个�
   
 3.Kafka Offset Storage
 
-<https://www.cnblogs.com/ITtangtang/p/8027217.html>
+[https://www.cnblogs.com/ITtangtang/p/8027217.html](https://www.cnblogs.com/ITtangtang/p/8027217.html)
   
-<https://tech.meituan.com/2015/01/13/kafka-fs-design-theory.html>
+[https://tech.meituan.com/2015/01/13/kafka-fs-design-theory.html](https://tech.meituan.com/2015/01/13/kafka-fs-design-theory.html)

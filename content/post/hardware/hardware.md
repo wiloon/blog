@@ -30,7 +30,7 @@ tags:
 
 ## ROCK 5B
 
-<https://wiki.radxa.com/Rock5>
+[https://wiki.radxa.com/Rock5](https://wiki.radxa.com/Rock5)
 
 - CPU: 4核Cortex-A76和4核Cortex-A55的典型大小核架构，大核主频2.4GHz，小核主频1.8GHz
 - GPU: RK3588集成ARM Mali-G610，至少支持2路4K UI
@@ -59,7 +59,7 @@ tags:
 
 ## benchmark
 
-<https://www.passmark.com/>
+[https://www.passmark.com/](https://www.passmark.com/)
 
 ## Intel J4105 软路由
 
@@ -76,8 +76,8 @@ tags:
 - 128G EMMC
 - NVME
 
-<https://item.taobao.com/item.htm?spm=a1z09.2.0.0.39d42e8dLydghg&id=672470434606&_u=c2lc6g0c441>
-<https://docs.r86s.net/#/README>
+[https://item.taobao.com/item.htm?spm=a1z09.2.0.0.39d42e8dLydghg&id=672470434606&_u=c2lc6g0c441](https://item.taobao.com/item.htm?spm=a1z09.2.0.0.39d42e8dLydghg&id=672470434606&_u=c2lc6g0c441)
+[https://docs.r86s.net/#/README](https://docs.r86s.net/#/README)
 
 ## Dell Wyse 5070
 
@@ -106,7 +106,7 @@ Realtek®以太网LAN 10 Mb/100 Mb/1 Gb铜缆RJ45,LAN唤醒
 
 ### eSIM
 
-<https://support.google.com/pixelphone/answer/9449293?hl=zh-Hans>
+[https://support.google.com/pixelphone/answer/9449293?hl=zh-Hans](https://support.google.com/pixelphone/answer/9449293?hl=zh-Hans)
 
 ## Sharp TV, 夏普电视, 50U1A
 
@@ -199,7 +199,7 @@ wifi: Intel Corporation Wireless 7260 (rev 5b)
 
 ## nuc8i5beh
 
-<https://www.intel.com/content/www/us/en/products/boards-kits/nuc/kits/nuc8i5beh.html>
+[https://www.intel.com/content/www/us/en/products/boards-kits/nuc/kits/nuc8i5beh.html](https://www.intel.com/content/www/us/en/products/boards-kits/nuc/kits/nuc8i5beh.html)
 
 - i5-8259U
 - Intel® Iris® Plus Graphics 655
@@ -318,7 +318,7 @@ Hotspot 2.0
 强制门户
 WISPr
 
-<https://support.ruckuswireless.com/products/88-ruckus-r310#sort=relevancy&f:@source=[Documentation]&f:@commonproducts=[R310]>
+[https://support.ruckuswireless.com/products/88-ruckus-r310#sort=relevancy&f:@source=[Documentation]&f:@commonproducts=[R310]](https://support.ruckuswireless.com/products/88-ruckus-r310#sort=relevancy&f:@source=[Documentation]&f:@commonproducts=[R310])
 
 ## Kindle Voyage
 
@@ -331,7 +331,7 @@ WISPr
 
 ## GD41
 
-<https://post.smzdm.com/p/avwqm59m/>
+[https://post.smzdm.com/p/avwqm59m/](https://post.smzdm.com/p/avwqm59m/)
 
 ## Dell Inspiron N4050
 
@@ -340,7 +340,7 @@ WISPr
 
 ## SONY WF-1000XM3
 
-说明书: <https://helpguide.sony.net/mdr/wf1000xm3/v1/zh-cn/index.html>
+说明书: [https://helpguide.sony.net/mdr/wf1000xm3/v1/zh-cn/index.html](https://helpguide.sony.net/mdr/wf1000xm3/v1/zh-cn/index.html)
 
 ## CanoKey
 
@@ -367,7 +367,7 @@ NIST P-256 / P-384
 HOTP/TOTP
 NDEF
 
-文档：<https://docs.canokeys.org>
+文档：[https://docs.canokeys.org](https://docs.canokeys.org)
 
 注1：NFC 功能可能无法在部分较老的 NFC 手机上使用。
 
@@ -381,8 +381,8 @@ NDEF
 
 ## Dell Latitude 3450, work, deprecated
 
-<https://www.dell.com/support/manuals/zh-cn/latitude-3450-laptop/lat_14_3450_om-v1/specifications?guid=guid-42d27b81-8d57-4219-9b9b-0c51cfa756b5&lang=en-us>
-<https://www.dell.com/support/home/zh-cn/product-support/product/latitude-3450-laptop/drivers>
+[https://www.dell.com/support/manuals/zh-cn/latitude-3450-laptop/lat_14_3450_om-v1/specifications?guid=guid-42d27b81-8d57-4219-9b9b-0c51cfa756b5&lang=en-us](https://www.dell.com/support/manuals/zh-cn/latitude-3450-laptop/lat_14_3450_om-v1/specifications?guid=guid-42d27b81-8d57-4219-9b9b-0c51cfa756b5&lang=en-us)
+[https://www.dell.com/support/home/zh-cn/product-support/product/latitude-3450-laptop/drivers](https://www.dell.com/support/home/zh-cn/product-support/product/latitude-3450-laptop/drivers)
 Network adapter    10/100/1000 Mbps Ethernet LAN on Motherboard (LOM)
 
 ### Wireless
@@ -401,7 +401,7 @@ F1 默认走 罗技优联, F2 和 F3 可以连接另外两个蓝牙设备. 蓝�
 
 ## mitsubishi outlander
 
-<https://www.dongchedi.com/auto/params-carIds-24747>
+[https://www.dongchedi.com/auto/params-carIds-24747](https://www.dongchedi.com/auto/params-carIds-24747)
 
 - 整备质量(kg) 1506
 - 油箱(L): 63
@@ -422,7 +422,7 @@ F1 默认走 罗技优联, F2 和 F3 可以连接另外两个蓝牙设备. 蓝�
 
 ## U2723QX
 
-<https://dl.dell.com/content/manual12186838-dell-u2723qx-monitor-%E7%94%A8%E6%88%B7%E6%8C%87%E5%8D%97.pdf?language=zh-cn>
+[https://dl.dell.com/content/manual12186838-dell-u2723qx-monitor-%E7%94%A8%E6%88%B7%E6%8C%87%E5%8D%97.pdf?language=zh-cn](https://dl.dell.com/content/manual12186838-dell-u2723qx-monitor-%E7%94%A8%E6%88%B7%E6%8C%87%E5%8D%97.pdf?language=zh-cn)
 
 - 3840 x 2160（16:9）
 - MST
@@ -430,8 +430,8 @@ F1 默认走 罗技优联, F2 和 F3 可以连接另外两个蓝牙设备. 蓝�
 
 ## Nuphy Air75
 
-<https://manuals.plus/m/8a8a9a09a73b3ab58950a93ef12ecc7710b179a5c83205b802ce6f5884de21e9_optim.pdf>  
-<https://www.bilibili.com/read/cv15856202>
+[https://manuals.plus/m/8a8a9a09a73b3ab58950a93ef12ecc7710b179a5c83205b802ce6f5884de21e9_optim.pdf](https://manuals.plus/m/8a8a9a09a73b3ab58950a93ef12ecc7710b179a5c83205b802ce6f5884de21e9_optim.pdf)  
+[https://www.bilibili.com/read/cv15856202](https://www.bilibili.com/read/cv15856202)
 
 ## 华为手机
 

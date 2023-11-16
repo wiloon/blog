@@ -44,7 +44,7 @@ org.apache.logging.log4j:log4j-jcl: commons-logging 桥接到 log4j2
 
 #### jcl-over-slf4j
 commons-logging/jcl > slf4j
-<https://blog.wiloon.com/?p=8549>
+[https://blog.wiloon.com/?p=8549](https://blog.wiloon.com/?p=8549)
 
 jcl-over-slf4j 原本是通过 JCL 输出日志的，会被 jcl-over-slf4j 桥接到slf4j输出
 

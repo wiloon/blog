@@ -28,7 +28,7 @@ Administration>Security>Anonymous Access 勾选 Allow anonymous users to access 
   
 Administration>Security>Realms: 把Docker bearer token realm 加入 Active
 
-<https://www.iszy.cc/posts/14/>
+[https://www.iszy.cc/posts/14/](https://www.iszy.cc/posts/14/)
 
 ## client config
 

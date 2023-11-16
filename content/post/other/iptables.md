@@ -86,7 +86,7 @@ net.nf_conntrack_max = 2000500
 
 [![11bp8I.md.png][3]][4]{.wp-editor-md-post-content-link}
   
-<https://www.zsythink.net/wp-content/uploads/2017/02/021217_0051_6.png>
+[https://www.zsythink.net/wp-content/uploads/2017/02/021217_0051_6.png](https://www.zsythink.net/wp-content/uploads/2017/02/021217_0051_6.png)
 
 [![11v2WQ.md.png][5]][6]{.wp-editor-md-post-content-link}
   
@@ -605,7 +605,7 @@ SNAT
 
 DNAT: DNAT之后数据包会走到nat 表 fowarad链
   
-<http://www.zsythink.net/archives/tag/iptables/>
+[http://www.zsythink.net/archives/tag/iptables/](http://www.zsythink.net/archives/tag/iptables/)
 
 ### ctstate
 
@@ -621,16 +621,16 @@ tcp通信是双向的，访问公网只会经过OUTPUT链和POSTROUTING链， �
 
 ---
 
-<http://baike.baidu.com/view/504557.htm>  
-<https://wsgzao.github.io/post/iptables/>  
-<http://blog.chinaunix.net/uid-26495963-id-3279216.html>  
-<https://www.linuxidc.com/Linux/2012-08/67505.htm>  
-<https://www.frozentux.net/iptables-tutorial/cn/iptables-tutorial-cn-1.1.19.html>  
-<http://xstarcd.github.io/wiki/Linux/iptables_forward_internetshare.html>  
-<https://s2.ax1x.com/2020/01/31/11HP74.md.png>  
-<https://imgchr.com/i/11HP74>  
-<https://s2.ax1x.com/2020/01/31/11bp8I.md.png>  
-<https://imgchr.com/i/11bp8I>  
-<https://s2.ax1x.com/2020/01/31/11v2WQ.md.png>  
-<https://imgchr.com/i/11v2WQ>  
-<https://s2.ax1x.com/2020/01/31/13pGXd.png>  
+[http://baike.baidu.com/view/504557.htm](http://baike.baidu.com/view/504557.htm)  
+[https://wsgzao.github.io/post/iptables/](https://wsgzao.github.io/post/iptables/)  
+[http://blog.chinaunix.net/uid-26495963-id-3279216.html](http://blog.chinaunix.net/uid-26495963-id-3279216.html)  
+[https://www.linuxidc.com/Linux/2012-08/67505.htm](https://www.linuxidc.com/Linux/2012-08/67505.htm)  
+[https://www.frozentux.net/iptables-tutorial/cn/iptables-tutorial-cn-1.1.19.html](https://www.frozentux.net/iptables-tutorial/cn/iptables-tutorial-cn-1.1.19.html)  
+[http://xstarcd.github.io/wiki/Linux/iptables_forward_internetshare.html](http://xstarcd.github.io/wiki/Linux/iptables_forward_internetshare.html)  
+[https://s2.ax1x.com/2020/01/31/11HP74.md.png](https://s2.ax1x.com/2020/01/31/11HP74.md.png)  
+[https://imgchr.com/i/11HP74](https://imgchr.com/i/11HP74)  
+[https://s2.ax1x.com/2020/01/31/11bp8I.md.png](https://s2.ax1x.com/2020/01/31/11bp8I.md.png)  
+[https://imgchr.com/i/11bp8I](https://imgchr.com/i/11bp8I)  
+[https://s2.ax1x.com/2020/01/31/11v2WQ.md.png](https://s2.ax1x.com/2020/01/31/11v2WQ.md.png)  
+[https://imgchr.com/i/11v2WQ](https://imgchr.com/i/11v2WQ)  
+[https://s2.ax1x.com/2020/01/31/13pGXd.png](https://s2.ax1x.com/2020/01/31/13pGXd.png)  

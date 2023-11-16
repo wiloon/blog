@@ -22,12 +22,12 @@ OpenType 是 Microsoft 与 Adobe 共同制定的标准, 在此之前有两大字
 
 至于 Adobe, Microsoft, Type 1, TrueType, PostScript 以及 Apple 的历史和恩恩怨怨可以参考这些... (不过读起来比较乱...)
   
-<http://zh.wikipedia.org/w/index.php?...&variant=zh-cn>
+[http://zh.wikipedia.org/w/index.php?...&variant=zh-cn](http://zh.wikipedia.org/w/index.php?...&variant=zh-cn)
   
-<http://zh.wikipedia.org/w/index.php?...&variant=zh-cn>
+[http://zh.wikipedia.org/w/index.php?...&variant=zh-cn](http://zh.wikipedia.org/w/index.php?...&variant=zh-cn)
   
-<http://zh.wikipedia.org/w/index.php?...&variant=zh-cn>
+[http://zh.wikipedia.org/w/index.php?...&variant=zh-cn](http://zh.wikipedia.org/w/index.php?...&variant=zh-cn)
 
 So, O 图标的 TTF 和 T 图标的 TTF 还是有较大区别的, 虽然扩展名相同, 矢量曲线以及一些基本属性都相同, 但文件头及部分结构并不同. 支持 T 图标的 TTF 的软件/系统不一定也支持 O 图标的 TTF, 不过可以转换嘛.
 
-<http://hi.baidu.com/stonegirl/item/07db7299112ce0895914612c>
+[http://hi.baidu.com/stonegirl/item/07db7299112ce0895914612c](http://hi.baidu.com/stonegirl/item/07db7299112ce0895914612c)

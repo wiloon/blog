@@ -138,7 +138,7 @@ iptables -t mangle -A OUTPUT -p tcp -sport 8080 -j MARK -set-mark 2
 
 $: ip rule add priority 10000 fwmark 2 table 2
 
-<https://segmentfault.com/a/1190000000638244>
+[https://segmentfault.com/a/1190000000638244](https://segmentfault.com/a/1190000000638244)
 
 iproute基本介绍
   
@@ -266,14 +266,14 @@ ip tuntap list
 
 ---
 
-<https://baturin.org/docs/iproute2/>
+[https://baturin.org/docs/iproute2/](https://baturin.org/docs/iproute2/)
   
-<https://segmentfault.com/a/1190000000638244>
+[https://segmentfault.com/a/1190000000638244](https://segmentfault.com/a/1190000000638244)
   
-<https://access.redhat.com/sites/default/files/attachments/rh_ip_command_cheatsheet_1214_jcs_print.pdf>
+[https://access.redhat.com/sites/default/files/attachments/rh_ip_command_cheatsheet_1214_jcs_print.pdf](https://access.redhat.com/sites/default/files/attachments/rh_ip_command_cheatsheet_1214_jcs_print.pdf)
 
-<https://www.cnblogs.com/LiuYanYGZ/p/12368421.html>
+[https://www.cnblogs.com/LiuYanYGZ/p/12368421.html](https://www.cnblogs.com/LiuYanYGZ/p/12368421.html)
 
-<http://linux-ip.net/html/routing-tables.html>
+[http://linux-ip.net/html/routing-tables.html](http://linux-ip.net/html/routing-tables.html)
 
-<http://linux-ip.net/gl/ip-cref/ip-cref.html>
+[http://linux-ip.net/gl/ip-cref/ip-cref.html](http://linux-ip.net/gl/ip-cref/ip-cref.html)

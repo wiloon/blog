@@ -50,8 +50,8 @@ ZONE_HIGH_MEM (896MB以上）： 没有永久映射到内核的地址空间。
 
 阅读更多：
 
-<http://www.quora.com/Linux-coreel/Why-is-there-ZONE_HIGHMEM-in-the-x86-32-Linux-kernel-but-not-in-the-x86-64-kernel>
-<http://www.quora.com/Linux-coreel/What-is-the-difference-between-high-memory-and-normal-memory>
+[http://www.quora.com/Linux-coreel/Why-is-there-ZONE_HIGHMEM-in-the-x86-32-Linux-kernel-but-not-in-the-x86-64-kernel](http://www.quora.com/Linux-coreel/Why-is-there-ZONE_HIGHMEM-in-the-x86-32-Linux-kernel-but-not-in-the-x86-64-kernel)
+[http://www.quora.com/Linux-coreel/What-is-the-difference-between-high-memory-and-normal-memory](http://www.quora.com/Linux-coreel/What-is-the-difference-between-high-memory-and-normal-memory)
 Linux 3/1虚拟地址分割
 
-<https://zhuanlan.zhihu.com/p/26923061>
+[https://zhuanlan.zhihu.com/p/26923061](https://zhuanlan.zhihu.com/p/26923061)

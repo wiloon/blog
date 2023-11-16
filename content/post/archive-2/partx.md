@@ -10,7 +10,7 @@ tags:
 ---
 ## partx
 
-<http://gulingzi.blog.51cto.com/2208376/1561403>
+[http://gulingzi.blog.51cto.com/2208376/1561403](http://gulingzi.blog.51cto.com/2208376/1561403)
 
 /proc/partitions 记录了系统中所有硬盘及其上面的分区,包括已挂载和未挂载的。
   

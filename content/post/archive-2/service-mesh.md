@@ -56,9 +56,9 @@ Sidecar 将请求发送给该实例，同时记录响应类型和延迟数据。
 如果请求的截止时间已过，sidecar 主动标记该请求为失败，而不是再次尝试添加负载。
 SIdecar 以 metric 和分布式追踪的形式捕获上述行为的各个方面，这些追踪信息将发送到集中 metric 系统。
 
-<https://jimmysong.io/blog/what-is-a-service-mesh/>  
-<https://buoyant.io/what-is-a-service-mesh/>  
-<https://philcalcado.com/2017/08/03/pattern_service_mesh.html>
+[https://jimmysong.io/blog/what-is-a-service-mesh/](https://jimmysong.io/blog/what-is-a-service-mesh/)  
+[https://buoyant.io/what-is-a-service-mesh/](https://buoyant.io/what-is-a-service-mesh/)  
+[https://philcalcado.com/2017/08/03/pattern_service_mesh.html](https://philcalcado.com/2017/08/03/pattern_service_mesh.html)
 
 ## Istio, Service Mesh
 
@@ -80,24 +80,24 @@ Istio是由Google/IBM/Lyft共同开发的新一代Service Mesh开源项目
 
 [http://www.infoq.com/cn/articles/istio-future-service-mesh?utm_campaign=infoq_content&utm_source=infoq&utm_medium=feed&utm_term=global][1]
   
-<https://servicemesh.gitbooks.io/awesome-servicemesh/mesh/2017/service-mesh-next-generation-of-microservice/>
+[https://servicemesh.gitbooks.io/awesome-servicemesh/mesh/2017/service-mesh-next-generation-of-microservice/](https://servicemesh.gitbooks.io/awesome-servicemesh/mesh/2017/service-mesh-next-generation-of-microservice/)
 
  [1]: http://www.infoq.com/cn/articles/istio-future-service-mesh?utm_campaign=infoq_content&utm_source=infoq&utm_medium=feed&utm_term=global
 
-<https://cloudnative.to/sig-istio/big-talk/overview.html>
-><https://jimmysong.io/blog/envoy-sidecar-injection-in-istio-service-mesh-deep-dive/>
+[https://cloudnative.to/sig-istio/big-talk/overview.html](https://cloudnative.to/sig-istio/big-talk/overview.html)
+>[https://jimmysong.io/blog/envoy-sidecar-injection-in-istio-service-mesh-deep-dive/](https://jimmysong.io/blog/envoy-sidecar-injection-in-istio-service-mesh-deep-dive/)
 
 ### service mesh 2021
 
-><https://jimmysong.io/blog/service-mesh-2021/>
+>[https://jimmysong.io/blog/service-mesh-2021/](https://jimmysong.io/blog/service-mesh-2021/)
 
 ### dapr
 
-><https://www.zhihu.com/question/351298264>
+>[https://www.zhihu.com/question/351298264](https://www.zhihu.com/question/351298264)
 
 ### ebpf
 
-><https://cloudnative.to/blog/ebpf-solve-service-mesh-sidecar/>
+>[https://cloudnative.to/blog/ebpf-solve-service-mesh-sidecar/](https://cloudnative.to/blog/ebpf-solve-service-mesh-sidecar/)
 
 ### k8s, istio, Cilium, dapr
 

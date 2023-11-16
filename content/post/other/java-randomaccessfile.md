@@ -371,10 +371,10 @@ raf.close();
   
 }
 
-><http://www.ibm.com/developerworks/cn/java/l-javaio/>
+>[http://www.ibm.com/developerworks/cn/java/l-javaio/](http://www.ibm.com/developerworks/cn/java/l-javaio/)
   
-<http://blog.csdn.net/napolunyishi/article/details/18214929>
+[http://blog.csdn.net/napolunyishi/article/details/18214929](http://blog.csdn.net/napolunyishi/article/details/18214929)
   
-<http://blog.csdn.net/akon_vm/article/details/7429245>
+[http://blog.csdn.net/akon_vm/article/details/7429245](http://blog.csdn.net/akon_vm/article/details/7429245)
   
-<http://blog.csdn.net/kabini/article/details/4286737>
+[http://blog.csdn.net/kabini/article/details/4286737](http://blog.csdn.net/kabini/article/details/4286737)

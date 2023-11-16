@@ -16,7 +16,7 @@ tags:
 
 备注: 在JDK7之前的 HotSpot虚拟机中, 纳入字符串常量池的字符串被存储在永久代中, 因此导致了一系列的性能问题和内存溢出错误。
 
-><http://www.cnblogs.com/moonandstar08/p/5001914.html>
+>[http://www.cnblogs.com/moonandstar08/p/5001914.html](http://www.cnblogs.com/moonandstar08/p/5001914.html)
 
 这项改动是很有必要的, 因为对永久代进行调优是很困难的。 永久代中的元数据可能会随着每一次 Full GC发生而进行移动。并且为永久代设置空间大小也是很难确定的, 因为这其中有很多影响因素,比如类的总数,常量池的大小和方法数量等。
 
@@ -51,8 +51,8 @@ JDK 8 的 HotSpot JVM 现在使用的是本地内存来表示类的元数据,这
 
 减少碎片的策略
 
-<http://www.infoq.com/cn/articles/Java-PERMGEN-Removed>
+[http://www.infoq.com/cn/articles/Java-PERMGEN-Removed](http://www.infoq.com/cn/articles/Java-PERMGEN-Removed)
   
-<http://www.jianshu.com/p/7b88aa16c2f6>
+[http://www.jianshu.com/p/7b88aa16c2f6](http://www.jianshu.com/p/7b88aa16c2f6)
   
-<http://www.cnblogs.com/paddix/p/5309550.html>
+[http://www.cnblogs.com/paddix/p/5309550.html](http://www.cnblogs.com/paddix/p/5309550.html)

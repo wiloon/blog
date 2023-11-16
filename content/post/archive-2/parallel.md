@@ -10,7 +10,7 @@ tags:
 ---
 ## parallel command
 
-<https://gist.github.com/spidersea/8110433>
+[https://gist.github.com/spidersea/8110433](https://gist.github.com/spidersea/8110433)
 
 如何利用多核CPU来加速你的Linux命令 — awk, sed, bzip2, grep, wc等
 

@@ -9,7 +9,7 @@ tags:
 ---
 ## xterm
 
-<http://www.hasdiffer.com/xterm-vs-terminal.html>
+[http://www.hasdiffer.com/xterm-vs-terminal.html](http://www.hasdiffer.com/xterm-vs-terminal.html)
 
 xterm 和终端都是运行 X Windows 系统的基于 UNIX 的系统通用的终端仿真器。终端仿真器基本上是一种终端应用程序，它允许用户访问最初开发的程序以与某些其他类型的终端进行通信。它只是复制了经典计算机终端的功能。终端仿真器通常由系统管理员使用，因为某些内置的命令行程序无法自行运行，因此使用第三方终端仿真器与系统进行通信。命令行通常是在Linux系统上运行的最佳方法，因为大多数任务在控制台上运行效果最佳。
 Windows的内置终端仿真器是"命令提示符"，而Mac OS X使用"终端"作为其终端仿真应用程序，该应用程序位于/ Application/Utilities。终端机是Linux用户最重要的应用程序之一，它为用户提供了对Shell的访问。终端是Linux真正威力的源泉。但是，Linux提供了每个GUI版本专有的许多终端仿真器。运行X Windows系统的Linux系统使用" xterm"作为它们的默认终端仿真器程序。尽管xterm似乎有点经典，但它仍然是X Windows System的默认终端，它仅基于文本原理。
@@ -30,4 +30,4 @@ xterm和Terminal的区别
                               本文标题: Xterm和终端的区别
                               本文链接: http://www.hasdiffer.com/xterm-vs-terminal.html
 
-//更多关于【Xterm和终端的区别】请查看: <http://www.hasdiffer.com/xterm-vs-terminal.html>
+//更多关于【Xterm和终端的区别】请查看: [http://www.hasdiffer.com/xterm-vs-terminal.html](http://www.hasdiffer.com/xterm-vs-terminal.html)

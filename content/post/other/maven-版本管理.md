@@ -11,7 +11,7 @@ tags:
 ---
 ## Maven
 
-   <http://juvenshun.iteye.com/blog/376422>
+   [http://juvenshun.iteye.com/blog/376422](http://juvenshun.iteye.com/blog/376422)
 
     什么是版本管理
   

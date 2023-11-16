@@ -10,7 +10,7 @@ tags:
 
 ---
 ## tomcat 8005
-<http://www.wellho.net/mouth/837_Tomcat-Shutdown-port.html>
+[http://www.wellho.net/mouth/837_Tomcat-Shutdown-port.html](http://www.wellho.net/mouth/837_Tomcat-Shutdown-port.html)
 
   On a new installation of Tomcat (default config files), you'll notice that your server.xml file is set up with a shutdown port of 8005, and shutdown="SHUTDOWN". What does this mean? 
   

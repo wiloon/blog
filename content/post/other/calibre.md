@@ -108,4 +108,4 @@ podman run -d \
 
 ## mail server setup
 
-<https://github.com/janeczku/calibre-web/wiki/Setup-Mailserver>
+[https://github.com/janeczku/calibre-web/wiki/Setup-Mailserver](https://github.com/janeczku/calibre-web/wiki/Setup-Mailserver)

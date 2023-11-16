@@ -9,7 +9,7 @@ tags:
   - reprint
 ---
 ## 技术大牛谈HTML 5设计原理
-<http://developer.51cto.com/art/201103/247880.htm>
+[http://developer.51cto.com/art/201103/247880.htm](http://developer.51cto.com/art/201103/247880.htm)
   
     2011-03-08 10:15 李松峰 李松峰博客
   

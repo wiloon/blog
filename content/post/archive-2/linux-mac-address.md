@@ -42,6 +42,6 @@ NamePolicy=kernel database onboard slot path
 
 windows 的无线网卡不支持直接修改 mac 地址，虽然可以通过修改注册表实现修改但是mac地址第二位只能修改为 2, 6, A, E 其中的一个， 改成其它值都不会生效。
 
-<https://wiki.archlinux.org/index.php/MAC_address_spoofing>
-<https://wiki.archlinux.org/index.php/MAC_address_spoofing_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87>)  
-<http://blog.lujun9972.win/blog/2018/06/01/linux%E5%A6%82%E4%BD%95%E6%9B%B4%E6%94%B9%E7%BD%91%E5%8D%A1mac%E5%9C%B0%E5%9D%80/index.html>  
+[https://wiki.archlinux.org/index.php/MAC_address_spoofing](https://wiki.archlinux.org/index.php/MAC_address_spoofing)
+[https://wiki.archlinux.org/index.php/MAC_address_spoofing_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87](https://wiki.archlinux.org/index.php/MAC_address_spoofing_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87))  
+[http://blog.lujun9972.win/blog/2018/06/01/linux%E5%A6%82%E4%BD%95%E6%9B%B4%E6%94%B9%E7%BD%91%E5%8D%A1mac%E5%9C%B0%E5%9D%80/index.html](http://blog.lujun9972.win/blog/2018/06/01/linux%E5%A6%82%E4%BD%95%E6%9B%B4%E6%94%B9%E7%BD%91%E5%8D%A1mac%E5%9C%B0%E5%9D%80/index.html)  

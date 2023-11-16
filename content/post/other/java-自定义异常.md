@@ -151,6 +151,6 @@ System.out.println(e);
 
 注意在这个代码中,如果ageString是非法整数字符串,如"25ab",系统将首先抛出NumberFormatException,而不会执行throw NegativeAgeException("Please enter a positive age")。所以应该在catch中加入对NumberFormatException的处理,如以上代码所示。
 
-本文出自 "海外咖啡豆 - 高永强的.." 博客,请务必保留此出处<http://yqgao.blog.51cto.com/773490/174767>
+本文出自 "海外咖啡豆 - 高永强的.." 博客,请务必保留此出处[http://yqgao.blog.51cto.com/773490/174767](http://yqgao.blog.51cto.com/773490/174767)
 
-<http://yqgao.blog.51cto.com/773490/174767>
+[http://yqgao.blog.51cto.com/773490/174767](http://yqgao.blog.51cto.com/773490/174767)

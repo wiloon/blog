@@ -11,8 +11,8 @@ tags:
 ---
 ## Use Story Points, task hours
 
-[<http://www.scrumalliance.org/articles/439-story-points-versus-task-hours>][1]
+[[http://www.scrumalliance.org/articles/439-story-points-versus-task-hours](http://www.scrumalliance.org/articles/439-story-points-versus-task-hours)][1]
 
-<http://www.mountaingoatsoftware.com/blog/why-i-dont-use-story-points-for-sprint-planning>
+[http://www.mountaingoatsoftware.com/blog/why-i-dont-use-story-points-for-sprint-planning](http://www.mountaingoatsoftware.com/blog/why-i-dont-use-story-points-for-sprint-planning)
 
  [1]: http://www.mountaingoatsoftware.com/blog/why-i-dont-use-story-points-for-sprint-planning

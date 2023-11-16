@@ -11,7 +11,7 @@ tags:
 ---
 ## RPC, Message Queue, MQ
 
-<http://oldratlee.com/post/2013-02-01/synchronous-rpc-vs-asynchronous-message>
+[http://oldratlee.com/post/2013-02-01/synchronous-rpc-vs-asynchronous-message](http://oldratlee.com/post/2013-02-01/synchronous-rpc-vs-asynchronous-message)
 
 RPC 和 MQ 的区别
 

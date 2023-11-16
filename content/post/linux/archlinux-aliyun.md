@@ -110,8 +110,8 @@ timedatectl set-ntp true
  .`                                 `/
 ```
 
-<https://limelight.moe/t/topic/6007>  
-<https://www.scarletdrop.cn/archives/14>
+[https://limelight.moe/t/topic/6007](https://limelight.moe/t/topic/6007)  
+[https://www.scarletdrop.cn/archives/14](https://www.scarletdrop.cn/archives/14)
 
 ## grub, iso
 

@@ -161,4 +161,4 @@ DBCC CHECKIDENT (表名,  RESEED, 0)
 
 而DBCC CHECKIDENT (表名, RESEED, 0)可以用于即使有外键的情况下。
 
-<http://bingdian2001.blog.hexun.com/33157398_d.html>
+[http://bingdian2001.blog.hexun.com/33157398_d.html](http://bingdian2001.blog.hexun.com/33157398_d.html)

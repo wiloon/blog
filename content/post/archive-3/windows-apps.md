@@ -26,8 +26,8 @@ choco install keepassxc
 choco upgrade keepassxc
 ```
 
-<https://blog.wiloon.com/?p=8340>  
-<https://chocolatey.org/packages>  
+[https://blog.wiloon.com/?p=8340](https://blog.wiloon.com/?p=8340)  
+[https://chocolatey.org/packages](https://chocolatey.org/packages)  
 
 ### chocolatey packages
 
@@ -47,7 +47,7 @@ choco upgrade keepassxc
 
 ### 录屏
 
-<https://www.v1tx.com/post/best-screen-recorder/>
+[https://www.v1tx.com/post/best-screen-recorder/](https://www.v1tx.com/post/best-screen-recorder/)
 
 - apps
 
@@ -72,7 +72,7 @@ choco upgrade keepassxc
 | Windows Terminal |                    |
 | wsl2             |                    |
 |x410              | x server           |
-|T-Clock           | 可以显示周数的任务栏时钟, 格式模板: "mm-dd HH:nn \nW Wi ddd", <https://github.com/White-Tiger/T-Clock/wiki> |
+|T-Clock           | 可以显示周数的任务栏时钟, 格式模板: "mm-dd HH:nn \nW Wi ddd", [https://github.com/White-Tiger/T-Clock/wiki](https://github.com/White-Tiger/T-Clock/wiki) |
 |VcXsrc            | x server           |
 |PowerToys||
 |截图工具|搜索 截图工具|

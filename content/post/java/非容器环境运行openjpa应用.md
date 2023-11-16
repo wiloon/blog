@@ -9,7 +9,7 @@ tags:
   - reprint
 ---
 ## 非容器环境运行OpenJPA应用
-参考来源: <http://lxy19791111.iteye.com/blog/184113>
+参考来源: [http://lxy19791111.iteye.com/blog/184113](http://lxy19791111.iteye.com/blog/184113)
 
 2.Animal.java
 

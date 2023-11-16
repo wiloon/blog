@@ -67,13 +67,13 @@ Hotspot JIT编译器生成的是汇编代码，保存在方法区的JIT缓存区
 当虚拟机启动的时候，解释器可以首先发挥作用，而不必等待即时编译器全部编译完成再执行，这样可以省去许多不必要的编译时间。并且随着程序运行时间的推移，即时编译器逐渐发挥作用，根据热点探测功能，将有价值的字节码编译为汇编语言，以换取更高的程序执行效率。
 
 作者：小伙子vae
-链接：<https://juejin.cn/post/6995362542386151431>
+链接：[https://juejin.cn/post/6995362542386151431](https://juejin.cn/post/6995362542386151431)
 来源：稀土掘金
 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
 
 ### HotSpot
 
-<https://github.com/openjdk/jdk/tree/master/src/hotspot>
+[https://github.com/openjdk/jdk/tree/master/src/hotspot](https://github.com/openjdk/jdk/tree/master/src/hotspot)
 
 ## java, JVM flags, params, 参数, xms xmx xmn xss
 
@@ -213,17 +213,17 @@ Xss越大，每个线程的大小就越大，占用的内存越多，能容纳�
 ---
 
 作者: RednaxelaFX
-链接: <https://www.zhihu.com/question/27844575/answer/38370294>
+链接: [https://www.zhihu.com/question/27844575/answer/38370294](https://www.zhihu.com/question/27844575/answer/38370294)
 来源: 知乎
 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
 
-<http://mail.openjdk.java.net/pipermail/hotspot-dev/2011-June/004272.html>
+[http://mail.openjdk.java.net/pipermail/hotspot-dev/2011-June/004272.html](http://mail.openjdk.java.net/pipermail/hotspot-dev/2011-June/004272.html)
 
-<http://mail.openjdk.java.net/pipermail/hotspot-dev/2011-July/004288.html>
+[http://mail.openjdk.java.net/pipermail/hotspot-dev/2011-July/004288.html](http://mail.openjdk.java.net/pipermail/hotspot-dev/2011-July/004288.html)
 
 jvm的线程栈申请的内存空间属于堆外内存，是向操作系统申请的，也不是JVM直接内存
 
-<https://blog.csdn.net/x763795151/article/details/90417816>
+[https://blog.csdn.net/x763795151/article/details/90417816](https://blog.csdn.net/x763795151/article/details/90417816)
 
 ---
 
@@ -467,11 +467,11 @@ JVM gc参数设置与分析
   
 原文:
 
-<http://hi.baidu.com/i1see1you/item/295c1dc81f91ab55bdef69e5>
+[http://hi.baidu.com/i1see1you/item/295c1dc81f91ab55bdef69e5](http://hi.baidu.com/i1see1you/item/295c1dc81f91ab55bdef69e5)
   
-gc日志分析工具: <http://qa.blog.163.com/blog/static/19014700220128199421589/>
+gc日志分析工具: [http://qa.blog.163.com/blog/static/19014700220128199421589/](http://qa.blog.163.com/blog/static/19014700220128199421589/)
   
-Java GC 日志图解: <http://www.chinasb.org/archives/2012/09/4921.shtml>
+Java GC 日志图解: [http://www.chinasb.org/archives/2012/09/4921.shtml](http://www.chinasb.org/archives/2012/09/4921.shtml)
   
 概述
   
@@ -539,7 +539,7 @@ Opentsdb打开Gc参数
 
 # tsdb.local
 
-# <http://opentsdb.net/docs/build/html/user_guide/cli/index.html>
+# [http://opentsdb.net/docs/build/html/user_guide/cli/index.html](http://opentsdb.net/docs/build/html/user_guide/cli/index.html)
 
 GCARGS="-XX:+PrintGCDetails -XX:+PrintGCTimeStamps -XX:+PrintGCDateStamps\
   
@@ -711,7 +711,7 @@ ParNew: 表示对年轻代进行的GC，使用ParNew收集器
 
 GCHisto
   
-<http://java.net/projects/gchisto>
+[http://java.net/projects/gchisto](http://java.net/projects/gchisto)
 
 直接点击gchisto.jar就可以运行，点add载入gc.log
 
@@ -725,7 +725,7 @@ YoungGC,FullGC不同消耗时间上次数的分布图，勾选可以显示youngG
 
 GCLogViewer
   
-<http://code.google.com/p/gclogviewer/>
+[http://code.google.com/p/gclogviewer/](http://code.google.com/p/gclogviewer/)
 
 gclogviewer是一个支持jdk 6的gc log可视化工具。
 
@@ -741,21 +741,21 @@ Tools里还能比较不同gc日志:
 
 HPjmeter
   
-获取地址 <https://h20392.www2.hpe.com/portal/swdepot/displayProductInfo.do?productNumber=HPJMETER>
+获取地址 [https://h20392.www2.hpe.com/portal/swdepot/displayProductInfo.do?productNumber=HPJMETER](https://h20392.www2.hpe.com/portal/swdepot/displayProductInfo.do?productNumber=HPJMETER)
   
-参考文档 <http://www.javaperformancetuning.com/tools/hpjtune/index.shtml>
+参考文档 [http://www.javaperformancetuning.com/tools/hpjtune/index.shtml](http://www.javaperformancetuning.com/tools/hpjtune/index.shtml)
   
 工具很强大，但只能打开由以下参数生成的GC log， -verbose:gc -Xloggc:gc.log,添加其他参数生成的gc.log无法打开。
 
 GCViewer
   
-<http://www.tagtraum.com/gcviewer.html>
+[http://www.tagtraum.com/gcviewer.html](http://www.tagtraum.com/gcviewer.html)
   
 这个工具用的挺多的，但只能在JDK1.5以下的版本中运行，1.6以后没有对应。
 
 garbagecat
   
-<http://code.google.com/a/eclipselabs.org/p/garbagecat/wiki/Documentation>
+[http://code.google.com/a/eclipselabs.org/p/garbagecat/wiki/Documentation](http://code.google.com/a/eclipselabs.org/p/garbagecat/wiki/Documentation)
 
 其它监控方法
   
@@ -791,30 +791,30 @@ JVM 一个有趣的，但往往被忽视的内存区域是 "代码缓存"，它�
 
 GC日志
   
-<http://www.wiloon.com/?p=5584>
+[http://www.wiloon.com/?p=5584](http://www.wiloon.com/?p=5584)
   
-<http://sunbean.blog.51cto.com/972509/768034>
+[http://sunbean.blog.51cto.com/972509/768034](http://sunbean.blog.51cto.com/972509/768034)
   
-<http://xstarcd.github.io/wiki/Java/JVM_GC.html>
+[http://xstarcd.github.io/wiki/Java/JVM_GC.html](http://xstarcd.github.io/wiki/Java/JVM_GC.html)
   
-<http://wiki.jikexueyuan.com/project/jvm-parameter/memory-tuning.html>
+[http://wiki.jikexueyuan.com/project/jvm-parameter/memory-tuning.html](http://wiki.jikexueyuan.com/project/jvm-parameter/memory-tuning.html)
   
-<https://docs.oracle.com/javase/8/docs/technotes/tools/unix/java.html>
+[https://docs.oracle.com/javase/8/docs/technotes/tools/unix/java.html](https://docs.oracle.com/javase/8/docs/technotes/tools/unix/java.html)
   
-<http://blog.csdn.net/phj88/article/details/8011830>
+[http://blog.csdn.net/phj88/article/details/8011830](http://blog.csdn.net/phj88/article/details/8011830)
   
-<http://unixboy.iteye.com/blog/174173>
+[http://unixboy.iteye.com/blog/174173](http://unixboy.iteye.com/blog/174173)
   
-<https://www.zhihu.com/question/27844575>
+[https://www.zhihu.com/question/27844575](https://www.zhihu.com/question/27844575)
   
-<http://www.cnblogs.com/redcreen/archive/2011/05/04/2037057.html>
+[http://www.cnblogs.com/redcreen/archive/2011/05/04/2037057.html](http://www.cnblogs.com/redcreen/archive/2011/05/04/2037057.html)
   
-<http://www.oracle.com/technetwork/java/javase/tech/vmoptions-jsp-140102.html>
+[http://www.oracle.com/technetwork/java/javase/tech/vmoptions-jsp-140102.html](http://www.oracle.com/technetwork/java/javase/tech/vmoptions-jsp-140102.html)
   
-<http://xmlandmore.blogspot.com/2014/08/jdk-8-usecompressedclasspointers-vs.html>
+[http://xmlandmore.blogspot.com/2014/08/jdk-8-usecompressedclasspointers-vs.html](http://xmlandmore.blogspot.com/2014/08/jdk-8-usecompressedclasspointers-vs.html)
   
-<https://www.cnblogs.com/mingforyou/archive/2012/03/03/2378143.html>
+[https://www.cnblogs.com/mingforyou/archive/2012/03/03/2378143.html](https://www.cnblogs.com/mingforyou/archive/2012/03/03/2378143.html)
   
-<https://www.cnblogs.com/zhulin-jun/p/6516292.html>
+[https://www.cnblogs.com/zhulin-jun/p/6516292.html](https://www.cnblogs.com/zhulin-jun/p/6516292.html)
 
-<https://docs.oracle.com/en/java/javase/16/migrate/removed-tools-and-components.html#GUID-BBCF36FE-C892-4769-95CB-AB3FFC3A3B13>
+[https://docs.oracle.com/en/java/javase/16/migrate/removed-tools-and-components.html#GUID-BBCF36FE-C892-4769-95CB-AB3FFC3A3B13](https://docs.oracle.com/en/java/javase/16/migrate/removed-tools-and-components.html#GUID-BBCF36FE-C892-4769-95CB-AB3FFC3A3B13)

@@ -21,7 +21,7 @@ tags:
 
 如果让内核定期对设备进行轮询，以便处理设备请求，那会做很多无用功，因为外设的处理速度一般慢于CPU，而CPU不能一直等待外部事件。所以能让设备在需要内核时主动通知内核，会是一个聪明的方式，这便是中断。
 
-<https://blog.csdn.net/oathevil/article/details/6007655>
+[https://blog.csdn.net/oathevil/article/details/6007655](https://blog.csdn.net/oathevil/article/details/6007655)
 
 ### 中断分类
 
@@ -276,11 +276,11 @@ c.在新的栈中保存ss和esp以前的值，这些值定义了与旧特权级�
 
 参考资料
 
-1 "保护模式下的8259A芯片编程及中断处理探究" 潇寒 哈工大纯C论坛 <http://purec.binghua.com/Article/ShowArticle.asp?ArticleID=91>
+1 "保护模式下的8259A芯片编程及中断处理探究" 潇寒 哈工大纯C论坛 [http://purec.binghua.com/Article/ShowArticle.asp?ArticleID=91](http://purec.binghua.com/Article/ShowArticle.asp?ArticleID=91)
 
 2 "80x86 IBM PC及兼容计算机 (卷I和卷II) : 汇编语言、设计与接口技术" Muhammad Ali Mazidi等著 张波等译 清华大学出版社
 
-3 "编写操作系统之键盘交互的实现" 潇寒 哈工大纯C论坛 <http://purec.binghua.com/Article/ShowArticle.asp?ArticleID=104>
+3 "编写操作系统之键盘交互的实现" 潇寒 哈工大纯C论坛 [http://purec.binghua.com/Article/ShowArticle.asp?ArticleID=104](http://purec.binghua.com/Article/ShowArticle.asp?ArticleID=104)
 
 ### 中断处理程序
 
@@ -580,9 +580,9 @@ CPU是根据中断号获取中断向量值，即对应中断服务程序的入�
 
 ---
 
-<https://blog.csdn.net/jwy2014/article/details/89221142>  
-<https://www.cnblogs.com/wuchanming/p/4756756.html>  
-<https://blog.csdn.net/loafertb/article/details/8849603>
-<https://www.geek-share.com/detail/2577873746.html>  
-<https://blog.csdn.net/qq_37232329/article/details/85331513>  
-<https://blog.csdn.net/yxc135/article/details/8734452>  
+[https://blog.csdn.net/jwy2014/article/details/89221142](https://blog.csdn.net/jwy2014/article/details/89221142)  
+[https://www.cnblogs.com/wuchanming/p/4756756.html](https://www.cnblogs.com/wuchanming/p/4756756.html)  
+[https://blog.csdn.net/loafertb/article/details/8849603](https://blog.csdn.net/loafertb/article/details/8849603)
+[https://www.geek-share.com/detail/2577873746.html](https://www.geek-share.com/detail/2577873746.html)  
+[https://blog.csdn.net/qq_37232329/article/details/85331513](https://blog.csdn.net/qq_37232329/article/details/85331513)  
+[https://blog.csdn.net/yxc135/article/details/8734452](https://blog.csdn.net/yxc135/article/details/8734452)  

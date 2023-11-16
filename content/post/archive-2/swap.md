@@ -62,8 +62,8 @@ swap分区的优先级 (priority）有啥用？
 
 另外，编程时使用mlock()也可以将指定的内存标记为不会换出，具体帮助可以参考man 2 mlock。
 
-<https://www.cnblogs.com/276815076/p/5564085.html>
-<http://coolnull.com/3699.html>
+[https://www.cnblogs.com/276815076/p/5564085.html](https://www.cnblogs.com/276815076/p/5564085.html)
+[http://coolnull.com/3699.html](http://coolnull.com/3699.html)
 
 ### SWAP
 
@@ -179,4 +179,4 @@ Do We Really Still Need Swap Space?
   
 Knowledge Base:Is swap space really necessary
 
-<https://blog.csdn.net/tianlesoftware/article/details/8741873>
+[https://blog.csdn.net/tianlesoftware/article/details/8741873](https://blog.csdn.net/tianlesoftware/article/details/8741873)

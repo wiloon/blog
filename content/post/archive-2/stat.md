@@ -76,7 +76,7 @@ Modify: 文件内容最后修改时间
 -Change: 文件属性最后修改时间
 
 作者：BlackChen
-链接：<https://www.jianshu.com/p/d7acd00945cd>
+链接：[https://www.jianshu.com/p/d7acd00945cd](https://www.jianshu.com/p/d7acd00945cd)
 来源：简书
 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
 
@@ -122,7 +122,7 @@ ext4、xfs、btrfs 都支持创建时间
   
 内核已经通过 4.11 版本引入的 statx 系统调用支持获取创建时间了。
   
-><http://blog.sina.com.cn/s/blog_605f5b4f01015k56.html>
-><https://man.linuxde.net/stat>
-><https://man.linuxde.net/stat/embed#?secret=0aBZM4XyiK>
-><https://blog.lilydjwg.me/2018/7/11/get-file-birth-time-in-linux.213101.html>
+>[http://blog.sina.com.cn/s/blog_605f5b4f01015k56.html](http://blog.sina.com.cn/s/blog_605f5b4f01015k56.html)
+>[https://man.linuxde.net/stat](https://man.linuxde.net/stat)
+>[https://man.linuxde.net/stat/embed#?secret=0aBZM4XyiK](https://man.linuxde.net/stat/embed#?secret=0aBZM4XyiK)
+>[https://blog.lilydjwg.me/2018/7/11/get-file-birth-time-in-linux.213101.html](https://blog.lilydjwg.me/2018/7/11/get-file-birth-time-in-linux.213101.html)

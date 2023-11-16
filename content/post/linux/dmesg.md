@@ -27,4 +27,4 @@ dmesg用于检测和控制内核环缓冲。程序用来帮助用户了解系统
 dmesg |grep scsi -A 3
 ```
 
-<https://www.jianshu.com/p/4a029091b705>
+[https://www.jianshu.com/p/4a029091b705](https://www.jianshu.com/p/4a029091b705)

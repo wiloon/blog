@@ -11,7 +11,7 @@ tags:
 ## linux下制作dos启动U盘
 下载镜像文件win98usb.tar
 
-<http://ubuntuforums.org/showthread.php?p=5459421#post5459421>
+[http://ubuntuforums.org/showthread.php?p=5459421#post5459421](http://ubuntuforums.org/showthread.php?p=5459421#post5459421)
 
 查看U盘挂载点
 

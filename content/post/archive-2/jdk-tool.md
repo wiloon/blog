@@ -18,7 +18,7 @@ Java 命令行(Java Command),用于向正在运行的JVM发送诊断命令请求
 
 Java任务控制工具(Java Mission Control),主要用于HotSpot JVM的生产时间监测、分析、诊断。
   
-<https://blog.wiloon.com/?p=9724>
+[https://blog.wiloon.com/?p=9724](https://blog.wiloon.com/?p=9724)
 
 ### java
 
@@ -49,7 +49,7 @@ wiloon.com/jstack
 
 JVM统计监测工具(JVM Statistics Monitoring Tool),主要用于监测并显示JVM的性能统计信息。
   
-<https://blog.wiloon.com/?p=411>
+[https://blog.wiloon.com/?p=411](https://blog.wiloon.com/?p=411)
 
 ### jstatd
 
@@ -246,4 +246,4 @@ Kerberos密钥表管理工具,允许用户管理存储于本地密钥表中的�
 
 这是微软提供的对象包装程序,用于对象安装包。
 
-<http://0opslab.com/2016/01/20/JDK%E5%91%BD%E4%BB%A4/>
+[http://0opslab.com/2016/01/20/JDK%E5%91%BD%E4%BB%A4/](http://0opslab.com/2016/01/20/JDK%E5%91%BD%E4%BB%A4/)

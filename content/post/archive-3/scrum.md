@@ -12,7 +12,7 @@ tags:
 
 ### scrum guide
 
-<https://www.scrumguides.org/scrum-guide.html>
+[https://www.scrumguides.org/scrum-guide.html](https://www.scrumguides.org/scrum-guide.html)
 
 Scrum是一种敏捷软件开发的方法学，用于迭代式增量软件开发过程。
   
@@ -24,11 +24,11 @@ Scrum是一个遵循敏捷宣言价值观，基于12条敏捷原则的敏捷过�
   
 Scrum是一个框架，它定义了高层次的管理流程，如下图所示。它并不涉及具体开发方法或者人员的有效沟通技巧等。这些没有涉及的领域需要和其他理论和技能互为补充，以确保项目的成功。
   
-<https://desert3.iteye.com/blog/1693360>
+[https://desert3.iteye.com/blog/1693360](https://desert3.iteye.com/blog/1693360)
 
 Scrum是一种敏捷软件开发的方法学，用于迭代式增量软件开发过程。Scrum在英语是橄榄球运动中列阵争球的意思。
   
-<https://zh.wikipedia.org/wiki/Scrum>
+[https://zh.wikipedia.org/wiki/Scrum](https://zh.wikipedia.org/wiki/Scrum)
 
 处理复杂的事情，要用框架
   
@@ -48,7 +48,7 @@ Scrum是基于敏捷思想的开发框架，用于迭代式增量软件开发过
   
 采用迭代增量式的方法来优化可预测性和管理风险
   
-<https://www.jianshu.com/p/fff49687ebf2>
+[https://www.jianshu.com/p/fff49687ebf2](https://www.jianshu.com/p/fff49687ebf2)
 
 Scrum概述
   
@@ -128,15 +128,15 @@ Continuous Learning: Fail Fast but don't Fail twice for the same reason! » - Sm
   
 «持续学习: 快速失败，但不要犯同样的错误！» - 较小的增量更改，这些更改可以降低风险并为实施快速变更创造安全的条件。
 
-<https://www.tianmaying.com/qa/8>
+[https://www.tianmaying.com/qa/8](https://www.tianmaying.com/qa/8)
 
 Scrum入门之三三五五
   
-<https://bobjiang.com/ama-us-airforce-devsecops>
+[https://bobjiang.com/ama-us-airforce-devsecops](https://bobjiang.com/ama-us-airforce-devsecops)
 
 ## Scrum VS. Agile
 
-<https://ca.indeed.com/career-advice/career-development/agile-vs-scrum?aceid=&gclid=Cj0KCQiA6LyfBhC3ARIsAG4gkF_3t2bKuVOxZjfyHAbsTyTVPbobqtEWhojF89GBYCCuJ1MQrTPRxcMaAp6TEALw_wcB&gclsrc=aw.ds>
+[https://ca.indeed.com/career-advice/career-development/agile-vs-scrum?aceid=&gclid=Cj0KCQiA6LyfBhC3ARIsAG4gkF_3t2bKuVOxZjfyHAbsTyTVPbobqtEWhojF89GBYCCuJ1MQrTPRxcMaAp6TEALw_wcB&gclsrc=aw.ds](https://ca.indeed.com/career-advice/career-development/agile-vs-scrum?aceid=&gclid=Cj0KCQiA6LyfBhC3ARIsAG4gkF_3t2bKuVOxZjfyHAbsTyTVPbobqtEWhojF89GBYCCuJ1MQrTPRxcMaAp6TEALw_wcB&gclsrc=aw.ds)
 
 ## 迭代, Sprint, Iteration
 

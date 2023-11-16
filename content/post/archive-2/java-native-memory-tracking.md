@@ -44,14 +44,14 @@ scale 指定内存单位,默认为KB
   
 ```
 
-<http://www.voidcn.com/blog/jicahoo/article/p-5727258.html>
+[http://www.voidcn.com/blog/jicahoo/article/p-5727258.html](http://www.voidcn.com/blog/jicahoo/article/p-5727258.html)
   
-<http://blog.csdn.net/jicahoo/article/details/50933469>
+[http://blog.csdn.net/jicahoo/article/details/50933469](http://blog.csdn.net/jicahoo/article/details/50933469)
   
-<https://docs.oracle.com/javase/8/docs/technotes/guides/troubleshoot/tooldescr007.html>
+[https://docs.oracle.com/javase/8/docs/technotes/guides/troubleshoot/tooldescr007.html](https://docs.oracle.com/javase/8/docs/technotes/guides/troubleshoot/tooldescr007.html)
   
-<http://www.jianshu.com/p/7fce29433171>
+[http://www.jianshu.com/p/7fce29433171](http://www.jianshu.com/p/7fce29433171)
   
-<https://docs.oracle.com/javase/8/docs/technotes/guides/troubleshoot/tooldescr022.html#BABHIFJC>
+[https://docs.oracle.com/javase/8/docs/technotes/guides/troubleshoot/tooldescr022.html#BABHIFJC](https://docs.oracle.com/javase/8/docs/technotes/guides/troubleshoot/tooldescr022.html#BABHIFJC)
   
-<http://docs.oracle.com/javase/8/docs/technotes/guides/troubleshoot/tooldescr.html>
+[http://docs.oracle.com/javase/8/docs/technotes/guides/troubleshoot/tooldescr.html](http://docs.oracle.com/javase/8/docs/technotes/guides/troubleshoot/tooldescr.html)

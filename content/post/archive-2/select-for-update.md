@@ -291,4 +291,4 @@ For update是Oracle提供的手工提高锁级别和范围的特例语句。Orac
 
 那么,什么时候需要使用for update？就是那些需要业务层面数据独占时,可以考虑使用for update。场景上,比如火车票订票,在屏幕上显示邮票,而真正进行出票时,需要重新确定一下这个数据没有被其他客户端修改。所以,在这个确认过程中,可以使用for update。这是统一的解决方案方案问题,需要前期有所准备。
 
-<http://blog.itpub.net/17203031/viewspace-694383/>
+[http://blog.itpub.net/17203031/viewspace-694383/](http://blog.itpub.net/17203031/viewspace-694383/)

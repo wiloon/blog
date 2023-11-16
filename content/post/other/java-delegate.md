@@ -231,6 +231,6 @@ SparetimeWorker send Rocket fail !
 
 android 中很多这样的用法，关于接口的好处还有很多，后续慢慢研究，记住一句话: 面向对象面向接口编程。
 
-<http://blog.csdn.net/androidbluetooth/article/details/6937468>
+[http://blog.csdn.net/androidbluetooth/article/details/6937468](http://blog.csdn.net/androidbluetooth/article/details/6937468)
 
-<http://hbohuan.blog.163.com/blog/static/208489820077132225530/>
+[http://hbohuan.blog.163.com/blog/static/208489820077132225530/](http://hbohuan.blog.163.com/blog/static/208489820077132225530/)

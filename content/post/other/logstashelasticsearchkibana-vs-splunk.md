@@ -10,7 +10,7 @@ tags:
 ---
 ## logstash+ElasticSearch+Kibana VS Splunk
 
-<http://blog.csdn.net/firefoxbug/article/details/8018377>
+[http://blog.csdn.net/firefoxbug/article/details/8018377](http://blog.csdn.net/firefoxbug/article/details/8018377)
 
 最近帮磊哥移植一套开源的日志管理软件，替代Splunk． Splunk是一个功能强大的日志管理工具，它不仅可以用多种方式来添加日志，生产图形化报表，最厉害的是它的搜索功能 - 被称为"Google for IT"。Splunk有免费和收费版，最主要的差别在于每天的索引容量大小 (索引是搜索功能的基础) ，免费版每天最大为500M。在使用免费版时，如果在30天之内，有7天的索引数据量超过500M，那么就不可以再搜索了．
   

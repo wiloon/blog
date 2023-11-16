@@ -127,4 +127,4 @@ mvn eclipse:eclipse
   
 新建一个 M2_REPO 的变量,变量值指向你系统的Maven2的数据仓库位置(例如我自己的路径为: C:\maven-repo\swang\ebox)。如果要在eclipse中使用m2eclipse,需要执行命令mvn eclipse:m2eclipse, 这样就不需要设置M2_REPO类库变量了。
 
-<http://josh-persistence.iteye.com/blog/1930785>
+[http://josh-persistence.iteye.com/blog/1930785](http://josh-persistence.iteye.com/blog/1930785)

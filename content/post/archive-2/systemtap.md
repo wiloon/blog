@@ -10,7 +10,7 @@ tags:
 ---
 ## systemtap
 
-<http://www.cnblogs.com/hazir/p/systemtap_introduction.html>
+[http://www.cnblogs.com/hazir/p/systemtap_introduction.html](http://www.cnblogs.com/hazir/p/systemtap_introduction.html)
 
 内核探测工具systemtap简介
   
@@ -50,13 +50,13 @@ CONFIG_RELAY
 
 获取systemtap源码
   
-从此地址 <https://sourceware.org/systemtap/ftp/releases下载已经发布的systemtap>的源代码,截至目前 (2013.9.17) 最新版本为systemtap-2.3。下载完之后解压。 当然你还可以使用 git 去克隆最新的版本 (2.4) ,命令如下:
+从此地址 [https://sourceware.org/systemtap/ftp/releases下载已经发布的systemtap](https://sourceware.org/systemtap/ftp/releases下载已经发布的systemtap)的源代码,截至目前 (2013.9.17) 最新版本为systemtap-2.3。下载完之后解压。 当然你还可以使用 git 去克隆最新的版本 (2.4) ,命令如下:
 
 git clone git://sources.redhat.com/git/systemtap.git
   
 编译安装systemtap
   
-如果你下载的是最新版本的systemtap,那么你需要新版的 elfutils,可以从<https://fedorahosted.org/releases/e/l/elfutils/> 下载elfutils-0.156 版本。下载之后解压缩到适合的目录 (我放在~/Document/ 下) ,不需要安装,只要配置systemtap时指定其位置即可。 进入之前解压systemtap的目录,使用下面命令进行配置:
+如果你下载的是最新版本的systemtap,那么你需要新版的 elfutils,可以从[https://fedorahosted.org/releases/e/l/elfutils/](https://fedorahosted.org/releases/e/l/elfutils/) 下载elfutils-0.156 版本。下载之后解压缩到适合的目录 (我放在~/Document/ 下) ,不需要安装,只要配置systemtap时指定其位置即可。 进入之前解压systemtap的目录,使用下面命令进行配置:
 
 ./configure -with-elfutils=~/Document/elfutils-0.156
   
@@ -64,9 +64,9 @@ git clone git://sources.redhat.com/git/systemtap.git
 
 方法二
 
-由于发行版的内核默认无内核调试信息,所以我们还需要一个调试内核镜像,在<http://ddebs.ubuntu.com/pool/main/l/linux/> 找到你的内核版本相对应的内核调试镜像 (版本号包括后面的发布次数、硬件体系等都必须一致) ,如针对我上面的内核版本,就可以用如下命令下载安装内核调试镜像:
+由于发行版的内核默认无内核调试信息,所以我们还需要一个调试内核镜像,在[http://ddebs.ubuntu.com/pool/main/l/linux/](http://ddebs.ubuntu.com/pool/main/l/linux/) 找到你的内核版本相对应的内核调试镜像 (版本号包括后面的发布次数、硬件体系等都必须一致) ,如针对我上面的内核版本,就可以用如下命令下载安装内核调试镜像:
 
-$ wget <http://ddebs.ubuntu.com/pool/main/l/linux/linux-image-debug-3.8.0-30-generic_dbgsym_3.8.0-30.43_i386.ddeb>
+$ wget [http://ddebs.ubuntu.com/pool/main/l/linux/linux-image-debug-3.8.0-30-generic_dbgsym_3.8.0-30.43_i386.ddeb](http://ddebs.ubuntu.com/pool/main/l/linux/linux-image-debug-3.8.0-30-generic_dbgsym_3.8.0-30.43_i386.ddeb)
   
 $ sudo dpkg -i linux-image-debug-3.8.0-30-generic_dbgsym_3.8.0-30.43_i386.ddeb
   
@@ -154,6 +154,6 @@ Systemtap 工作原理是通过将脚本语句翻译成C语句,编译成内核�
 
 更多参考
   
-systemtap 官网给出了自学教程及相关论文,选择看这个已经足够了: <https://sourceware.org/systemtap/documentation.html>
+systemtap 官网给出了自学教程及相关论文,选择看这个已经足够了: [https://sourceware.org/systemtap/documentation.html](https://sourceware.org/systemtap/documentation.html)
   
-IBM 编写的systemtap 指南也是很不错的:  <http://www.redbooks.ibm.com/abstracts/redp4469.html>
+IBM 编写的systemtap 指南也是很不错的:  [http://www.redbooks.ibm.com/abstracts/redp4469.html](http://www.redbooks.ibm.com/abstracts/redp4469.html)

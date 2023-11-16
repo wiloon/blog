@@ -11,7 +11,7 @@ tags:
 ---
 ## 磁盘性能测试
 
-<https://blog.csdn.net/zqtsx/article/details/25487185>
+[https://blog.csdn.net/zqtsx/article/details/25487185](https://blog.csdn.net/zqtsx/article/details/25487185)
 
 linux 下测试磁盘的读写 IO 速度 (IO物理测速)
 

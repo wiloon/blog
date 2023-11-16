@@ -525,24 +525,24 @@ show create table pk_tab2;
 download and install connector/J , the JDBC driver for MySQL.  
 MySQL-connector-java-5.1.15-bin.jar
 
-<http://blog.sina.com.cn/s/blog_5dc960cd0100ea2h.html>
+[http://blog.sina.com.cn/s/blog_5dc960cd0100ea2h.html](http://blog.sina.com.cn/s/blog_5dc960cd0100ea2h.html)
 
-<http://database.51cto.com/art/201011/234549.htm>
+[http://database.51cto.com/art/201011/234549.htm](http://database.51cto.com/art/201011/234549.htm)
 
-<http://blog.csdn.net/myxx520/article/details/5130249>
+[http://blog.csdn.net/myxx520/article/details/5130249](http://blog.csdn.net/myxx520/article/details/5130249)
 
-<http://yh1022.iteye.com/blog/288693>
+[http://yh1022.iteye.com/blog/288693](http://yh1022.iteye.com/blog/288693)
 
-<http://blog.sina.com.cn/s/blog_5dc960cd0100ea2h.html>
+[http://blog.sina.com.cn/s/blog_5dc960cd0100ea2h.html](http://blog.sina.com.cn/s/blog_5dc960cd0100ea2h.html)
 
-<http://blog.csdn.net/flying_hawk/article/details/3498476>
+[http://blog.csdn.net/flying_hawk/article/details/3498476](http://blog.csdn.net/flying_hawk/article/details/3498476)
 
-<http://blog.sina.com.cn/s/blog_4d73c2c20100h8gp.html>
+[http://blog.sina.com.cn/s/blog_4d73c2c20100h8gp.html](http://blog.sina.com.cn/s/blog_4d73c2c20100h8gp.html)
 
-<http://bbs.csdn.net/topics/350006598>
+[http://bbs.csdn.net/topics/350006598](http://bbs.csdn.net/topics/350006598)
 
-<http://blog.chinaunix.net/uid-20382003-id-3022768.html>
-><https://blog.csdn.net/weixin_40482816/article/details/87074689>
+[http://blog.chinaunix.net/uid-20382003-id-3022768.html](http://blog.chinaunix.net/uid-20382003-id-3022768.html)
+>[https://blog.csdn.net/weixin_40482816/article/details/87074689](https://blog.csdn.net/weixin_40482816/article/details/87074689)
 
 ## MySQL 查看版本,version
 
@@ -590,7 +590,7 @@ MySQL Ver 14.7 Distrib 4.1.10a, for redhat-linux-gnu (i686)
 
 ## MySQL删除指定数据库中的表
 
-<http://phpcode8.com/lamp/MySQL-lamp/MySQL-empty-tables.html>
+[http://phpcode8.com/lamp/MySQL-lamp/MySQL-empty-tables.html](http://phpcode8.com/lamp/MySQL-lamp/MySQL-empty-tables.html)
 
 SELECT concat('DROP TABLE IF EXISTS ', table_name, ';')
 

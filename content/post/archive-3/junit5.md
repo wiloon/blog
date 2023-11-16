@@ -34,7 +34,7 @@ JUnit 5 = JUnit Platform + JUnit Jupiter + JUnit Vintage
   
     它主要的目的是支持在JUnit5的测试代码中运行JUnit3和4方式写的测试，它能够向前兼容之前的测试代码。
   
-    <https://tonydeng.github.io/2017/10/09/junit-5-tutorial-introduction/>
+    [https://tonydeng.github.io/2017/10/09/junit-5-tutorial-introduction/](https://tonydeng.github.io/2017/10/09/junit-5-tutorial-introduction/)
 
 ### 安装
 
@@ -94,4 +94,4 @@ Annotations 描述
   
 @TestFactory 标记一种方法是动态测试的测试工场
 
-<https://sjyuan.club/junit5/user-guide-cn/#11-junit-5-%E6%98%AF%E4%BB%80%E4%B9%88>
+[https://sjyuan.club/junit5/user-guide-cn/#11-junit-5-%E6%98%AF%E4%BB%80%E4%B9%88](https://sjyuan.club/junit5/user-guide-cn/#11-junit-5-%E6%98%AF%E4%BB%80%E4%B9%88)

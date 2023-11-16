@@ -10,7 +10,7 @@ tags:
 ---
 ## Android程序的反破解技术
 
-<http://blog.csdn.net/viviwen123/article/details/9117589>
+[http://blog.csdn.net/viviwen123/article/details/9117589](http://blog.csdn.net/viviwen123/article/details/9117589)
 
 逆向Android软件的步骤: 首先是对其进行反编译，然后阅读反汇编代码，如果有必要还会对其进行动态调试，找到突破口后注入或直接修改反汇编代码，最后重新编译软件进行测试。整个过程可分为反编译、静态分析、动态调试、重编译等4个环节。反破解技术也是从这四个方面进行的。
 

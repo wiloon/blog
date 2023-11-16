@@ -63,15 +63,15 @@ $ sudo -s
 
 树莓派Raspberry Pi上手报告 , 中文,Chrome浏览器
 
-<http://www.leiphone.com/raspberry-pi-hands-on.html>
+[http://www.leiphone.com/raspberry-pi-hands-on.html](http://www.leiphone.com/raspberry-pi-hands-on.html)
 
 迷你Linux机器Raspberry Pi详解和关于其的用途 (一)  : 配置,图片,烧SD卡,Python编程
 
-<http://blog.sina.com.cn/s/blog_a16ed9d601017q72.html>
+[http://blog.sina.com.cn/s/blog_a16ed9d601017q72.html](http://blog.sina.com.cn/s/blog_a16ed9d601017q72.html)
 
 Raspberry Pi 初步体验: 配置,图片,连接
 
-<http://archboy.org/2012/12/11/raspberry-pi-first-review/>
+[http://archboy.org/2012/12/11/raspberry-pi-first-review/](http://archboy.org/2012/12/11/raspberry-pi-first-review/)
 
 Raspberry Pi快速上手教程  : 配置,图片,
 

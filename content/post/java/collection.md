@@ -196,13 +196,13 @@ CopyOnWriteArrayList 是一个有趣的例子，它规避了只读操作 (如get
 
 由 LinkedHashMap 实现
 
-<https://twiceyuan.com/2016/06/09/ArrayList-is-not-thread-safe/>  
-<http://ifeve.com/why-is-there-not-concurrent-arraylist-in-java-util-concurrent-package/>  
-<http://ifeve.com/why-is-there-not-concurrent-arraylist-in-java-util-concurrent-package/embed/#?secret=zLAPktQzUL>  
+[https://twiceyuan.com/2016/06/09/ArrayList-is-not-thread-safe/](https://twiceyuan.com/2016/06/09/ArrayList-is-not-thread-safe/)  
+[http://ifeve.com/why-is-there-not-concurrent-arraylist-in-java-util-concurrent-package/](http://ifeve.com/why-is-there-not-concurrent-arraylist-in-java-util-concurrent-package/)  
+[http://ifeve.com/why-is-there-not-concurrent-arraylist-in-java-util-concurrent-package/embed/#?secret=zLAPktQzUL](http://ifeve.com/why-is-there-not-concurrent-arraylist-in-java-util-concurrent-package/embed/#?secret=zLAPktQzUL)  
 
-<http://blog.csdn.net/mandymai/article/details/3966667/>
+[http://blog.csdn.net/mandymai/article/details/3966667/](http://blog.csdn.net/mandymai/article/details/3966667/)
 
-<http://blog.csdn.net/smallboy_5/article/details/2119123>
+[http://blog.csdn.net/smallboy_5/article/details/2119123](http://blog.csdn.net/smallboy_5/article/details/2119123)
 
 ### ArrayList vs LinkedList
 
@@ -216,7 +216,7 @@ CopyOnWriteArrayList 是一个有趣的例子，它规避了只读操作 (如get
 当插入的数据量很小时，两者区别不太大，当插入的数据量大时，大约在容量的1/10之前，LinkedList会优于ArrayList，在其后就劣与ArrayList，且越靠近后面越差。
 
 版权声明：本文为CSDN博主「武哥聊编程」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
-原文链接：<https://blog.csdn.net/eson_15/article/details/51145788>
+原文链接：[https://blog.csdn.net/eson_15/article/details/51145788](https://blog.csdn.net/eson_15/article/details/51145788)
 
 ## HashSet
 
@@ -294,7 +294,7 @@ Serializable<|.. CopyOnWriteArrayList
 @enduml
 ```
 
-<https://segmentfault.com/a/1190000039264628>
+[https://segmentfault.com/a/1190000039264628](https://segmentfault.com/a/1190000039264628)
 
 作者：你听___
 链接：https://juejin.cn/post/6844903602427805704

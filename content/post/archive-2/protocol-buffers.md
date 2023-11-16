@@ -24,7 +24,7 @@ protoc -help
 - windows
 
 download protoc  
-<https://developers.google.com/protocol-buffers/docs/downloads>
+[https://developers.google.com/protocol-buffers/docs/downloads](https://developers.google.com/protocol-buffers/docs/downloads)
 
 ### define message formates in a .proto file
 
@@ -101,15 +101,15 @@ protobuf在google中是一个比较核心的基础库,作为分布式运算涉�
 
 更多信息可参考官方文档
 
-<http://blog.csdn.net/ciml/article/details/5753367>
+[http://blog.csdn.net/ciml/article/details/5753367](http://blog.csdn.net/ciml/article/details/5753367)
 
 java protobuf
 
-<https://blog.csdn.net/u014801432/article/details/82558380>
+[https://blog.csdn.net/u014801432/article/details/82558380](https://blog.csdn.net/u014801432/article/details/82558380)
 
 ### maven + protobuf， protobuf-maven-plugin
 
-<https://gist.github.com/cqc3073/7766447823ac29a70ddeaf403df1f5f6>
+[https://gist.github.com/cqc3073/7766447823ac29a70ddeaf403df1f5f6](https://gist.github.com/cqc3073/7766447823ac29a70ddeaf403df1f5f6)
 
 - 在 src/main/proto 下定义 proto 文件
 - 在 pom.xml 中配置

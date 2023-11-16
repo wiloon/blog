@@ -13,8 +13,8 @@ tags:
 
 ## tighervnc nightly build
 
-<https://github.com/TigerVNC/tigervnc/releases>  
-<http://tigervnc.bphinz.com/nightly/>
+[https://github.com/TigerVNC/tigervnc/releases](https://github.com/TigerVNC/tigervnc/releases)  
+[http://tigervnc.bphinz.com/nightly/](http://tigervnc.bphinz.com/nightly/)
 
 ### archlinux
 
@@ -44,7 +44,7 @@ exit full screen ctrl+alt+shift+F
 
 vncviewer: disable allow jpeg
 
-<https://unix.stackexchange.com/questions/67096/xterm-warning-tried-to-connect-to-session-manager>
+[https://unix.stackexchange.com/questions/67096/xterm-warning-tried-to-connect-to-session-manager](https://unix.stackexchange.com/questions/67096/xterm-warning-tried-to-connect-to-session-manager)
 
 - centos
 

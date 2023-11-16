@@ -92,7 +92,7 @@ IDE:  CodeWarrior集成环境
 仿真器:  ARMulator
 硬件调试单元:  Multi-ICE/wiggler
 支持调试协议:  RDI
-目前，可以从官网<https://developer.arm.com/products/software-development-tools/legacy-tools>下载。
+目前，可以从官网[https://developer.arm.com/products/software-development-tools/legacy-tools](https://developer.arm.com/products/software-development-tools/legacy-tools)下载。
 
 #### The RealView Development Suite (RVDS)
 
@@ -107,7 +107,7 @@ IDE:  ARM Workbench IDE (Eclipse 3.3 IDE 的集成开发环境) / CodeWarrior可
 仿真器:  REALVIEW ISS
 硬件调试单元:  Realview ICE(RVI)/ Multi-ICE (3.1版本后不支持Multi-ICE)
 支持调试协议:  RDDI/RDI (3.1版本后不支持RDI)
-目前，4.0版本的可以从官网<https://developer.arm.com/products/software-development-tools/legacy-tools下载。4.1版本在ARM>官网找不到！
+目前，4.0版本的可以从官网[https://developer.arm.com/products/software-development-tools/legacy-tools下载。4.1版本在ARM](https://developer.arm.com/products/software-development-tools/legacy-tools下载。4.1版本在ARM)官网找不到！
 
 插曲
 2005年Keil被ARM公司收购。Keil在被收购之前，曾经使用gcc编译器和自己开发的编译器，被收购之后便放弃了自己的编译器和gcc，转而用的是ARM的编译器。不过限制了对高端内核如arm11和a8的支持。收购keil后，keil针对Cortex m3/m0的工具最初叫 RealView mdk。ARM自己的工具叫realview development studio(rvds)。自此，分为两大分支:
@@ -139,11 +139,11 @@ IDE:  定制的 Eclipse IDE
 仿真器:  DS-5支持ULINK2、ULINKpro和DSTREAM仿真器
 Streamline:  性能分析器
 模拟器:  RTSM ，支持Cortex-A8 固定虚拟平台 (FVP) 、多核 Cortex-A9 实时模拟器、ARMv8 固定虚拟平台 (FVP)
-该工具可以在ARM的官网的<https://developer.arm.com/products/software-development-tools>直接免费下载，且不需要登陆！
+该工具可以在ARM的官网的[https://developer.arm.com/products/software-development-tools](https://developer.arm.com/products/software-development-tools)直接免费下载，且不需要登陆！
 
 ARM编译套件
 ARM公司除了提供了以上各种IDE外，从4.x开始，其也提供了可独立下载使用 (命令行工具) 的编译套件！交旧版本的没有独立提供，但是可以很方便的进行提取从而独立使用！
-其中，最新版的独立编译套件可以从<https://developer.arm.com/products/software-development-tools/compilers/arm-compiler/downloads下载，旧点版本的可以通过以下地址下载https://developer.arm.com/products/software-development-tools/compilers/legacy-compiler-releases>。再旧的就只能自己搞了。
+其中，最新版的独立编译套件可以从[https://developer.arm.com/products/software-development-tools/compilers/arm-compiler/downloads下载，旧点版本的可以通过以下地址下载https://developer.arm.com/products/software-development-tools/compilers/legacy-compiler-releases](https://developer.arm.com/products/software-development-tools/compilers/arm-compiler/downloads下载，旧点版本的可以通过以下地址下载https://developer.arm.com/products/software-development-tools/compilers/legacy-compiler-releases)。再旧的就只能自己搞了。
 
 ### segger embedded studio for arm v5.1.0b
 
@@ -172,12 +172,12 @@ IPEX天线是一种作为射频电路和天线的接口，被广泛应用于无�
 当然也有弊端: 成本叫高，组装起来比较麻烦。
 
 版权声明: 进步始于交流，收获源于分享！转载请保留原文出处，谢谢！
-<https://blog.csdn.net/ZCShouCSDN/article/details/81836601>  
+[https://blog.csdn.net/ZCShouCSDN/article/details/81836601](https://blog.csdn.net/ZCShouCSDN/article/details/81836601)  
 
 ### linux jlink
 
-<https://boseji.com/posts/segger-jlink-in-manjaro-linux/>
+[https://boseji.com/posts/segger-jlink-in-manjaro-linux/](https://boseji.com/posts/segger-jlink-in-manjaro-linux/)
 
 ### micro python
 
-<https://gitee.com/WeAct-TC/MiniF4-STM32F4x1>
+[https://gitee.com/WeAct-TC/MiniF4-STM32F4x1](https://gitee.com/WeAct-TC/MiniF4-STM32F4x1)

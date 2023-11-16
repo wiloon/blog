@@ -14,6 +14,6 @@ tags:
 
 注意,这里所说的数据依赖性仅针对单个处理器中执行的指令序列和单个线程中执行的操作,不同处理器之间和不同线程之间的数据依赖性不被编译器和处理器考虑。
 
-<http://www.infoq.com/cn/articles/java-memory-model-2>
+[http://www.infoq.com/cn/articles/java-memory-model-2](http://www.infoq.com/cn/articles/java-memory-model-2)
 
-<http://tech.meituan.com/java-memory-reordering.html>
+[http://tech.meituan.com/java-memory-reordering.html](http://tech.meituan.com/java-memory-reordering.html)

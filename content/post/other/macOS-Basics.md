@@ -55,7 +55,7 @@ Ctrl + y        粘贴最后一次被删除的单词
 
 ## brew
 
-<https://brew.sh/>
+[https://brew.sh/](https://brew.sh/)
 
 ```bash
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"

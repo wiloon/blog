@@ -10,7 +10,7 @@ tags:
 ---
 ## 'Invalid HTTP server response [411] – Length Required'
 
-<http://www.coderanch.com/t/625696/Web-Services/java/Invalid-HTTP-server-response-Length>
+[http://www.coderanch.com/t/625696/Web-Services/java/Invalid-HTTP-server-response-Length](http://www.coderanch.com/t/625696/Web-Services/java/Invalid-HTTP-server-response-Length)
 
 As William asked, please share how you are setting content length in SOAP header.
   

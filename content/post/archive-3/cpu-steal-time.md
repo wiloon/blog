@@ -12,7 +12,7 @@ tags:
 
 Steal Time(st)，用来衡量被虚拟机监视器(Hypervisor)偷去给其它虚拟机使用的 CPU 时间所占的比例。
 
-<https://blog.csdn.net/jessysong/article/details/73571878>
+[https://blog.csdn.net/jessysong/article/details/73571878](https://blog.csdn.net/jessysong/article/details/73571878)
 
 Netflix 很关注 CPU 的 Steal Time。他们的策略是: 如果是当前虚拟机的 Steal Time 超过了你们设置的阈值，他们会关闭这台虚拟机并且在另外一台物理机上面重启。
 

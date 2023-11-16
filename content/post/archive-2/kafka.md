@@ -21,7 +21,7 @@ kafka 高吞吐量
 - 使用以 sendfile为代表的零拷贝技术加强网络间的数据传输效率。
 
 摘自：《Apache Kafka实战》 — 胡夕
-在豆瓣阅读书店查看：<https://read.douban.com/ebook/59895902/>
+在豆瓣阅读书店查看：[https://read.douban.com/ebook/59895902/](https://read.douban.com/ebook/59895902/)
 本作品由电子工业出版社授权豆瓣阅读中国大陆范围内电子版制作与发行。
 © 版权所有，侵权必究。
 
@@ -44,7 +44,7 @@ ISR的全称是in-sync replica，翻译过来就是与leader replica保持同步
 正常情况下，partition的所有replica（含leader replica）都应该与leader replica保持同步，即所有 replica都在 ISR中。因为各种各样的原因，一小部分 replica开始落后于 leader replica的进度。当滞后到一定程度时，Kafka会将这些 replica“踢”出 ISR。相反地，当这些 replica重新“追上”了 leader的进度时，那么 Kafka会将它们加回到 ISR中。这一切都是自动维护的，不需要用户进行人工干预，因而在保证了消息交付语义的同时还简化了用户的操作成本。
 
 摘自：《Apache Kafka实战》 — 胡夕
-在豆瓣阅读书店查看：<https://read.douban.com/ebook/59895902/>
+在豆瓣阅读书店查看：[https://read.douban.com/ebook/59895902/](https://read.douban.com/ebook/59895902/)
 本作品由电子工业出版社授权豆瓣阅读中国大陆范围内电子版制作与发行。
 © 版权所有，侵权必究。
 
@@ -179,17 +179,17 @@ Consumer读消息也是从Leader读取,只有被commit过的消息 (offset低于
 
 ### kraft
 
-<https://developer.confluent.io/learn/kraft/>
-<https://cwiki.apache.org/confluence/display/KAFKA/KIP-500%3A+Replace+ZooKeeper+with+a+Self-Managed+Metadata+Quorum>
-<https://issues.apache.org/jira/browse/KAFKA-9119>
+[https://developer.confluent.io/learn/kraft/](https://developer.confluent.io/learn/kraft/)
+[https://cwiki.apache.org/confluence/display/KAFKA/KIP-500%3A+Replace+ZooKeeper+with+a+Self-Managed+Metadata+Quorum](https://cwiki.apache.org/confluence/display/KAFKA/KIP-500%3A+Replace+ZooKeeper+with+a+Self-Managed+Metadata+Quorum)
+[https://issues.apache.org/jira/browse/KAFKA-9119](https://issues.apache.org/jira/browse/KAFKA-9119)
 
-<http://kafka.apache.org>
+[http://kafka.apache.org](http://kafka.apache.org)
   
-<http://www.infoq.com/cn/articles/kafka-analysis-part-1>
+[http://www.infoq.com/cn/articles/kafka-analysis-part-1](http://www.infoq.com/cn/articles/kafka-analysis-part-1)
   
-<http://www.infoq.com/cn/articles/kafka-analysis-part-2>
+[http://www.infoq.com/cn/articles/kafka-analysis-part-2](http://www.infoq.com/cn/articles/kafka-analysis-part-2)
   
-<http://www.jasongj.com/2015/01/02/Kafka%E6%B7%B1%E5%BA%A6%E8%A7%A3%E6%9E%90/>
+[http://www.jasongj.com/2015/01/02/Kafka%E6%B7%B1%E5%BA%A6%E8%A7%A3%E6%9E%90/](http://www.jasongj.com/2015/01/02/Kafka%E6%B7%B1%E5%BA%A6%E8%A7%A3%E6%9E%90/)
 
 ### kafka 生产环境规划
 
@@ -197,7 +197,7 @@ Kafka 这种应用必然需要大量地通过网络与磁盘进行数据传输�
 
 对于预算有限且追求高性价比的公司而言，机械硬盘完全可以胜任Kafka存储的任务。 kafka 是顺序写磁盘的, ssd 避免了机械盘的寻道时间, 对于 kafka 来说不是特别重要.
 
-<https://juejin.cn/post/6844903713916583944>
-<https://juejin.cn/post/6844903700616445960>
+[https://juejin.cn/post/6844903713916583944](https://juejin.cn/post/6844903713916583944)
+[https://juejin.cn/post/6844903700616445960](https://juejin.cn/post/6844903700616445960)
 
 kafka 实战 - 胡夕

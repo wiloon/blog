@@ -34,5 +34,5 @@ Fail-Safe的含义为“失效安全”，即使在故障的情况下也不会�
 
 ————————————————
 版权声明: 本文为CSDN博主「青鱼入云」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
-原文链接: <https://blog.csdn.net/u011305680/article/details/79730646>
-><https://blog.csdn.net/u013699827/article/details/73251649>
+原文链接: [https://blog.csdn.net/u011305680/article/details/79730646](https://blog.csdn.net/u011305680/article/details/79730646)
+>[https://blog.csdn.net/u013699827/article/details/73251649](https://blog.csdn.net/u013699827/article/details/73251649)

@@ -10,7 +10,7 @@ tags:
   - reprint
 ---
 ## 使用 arpalert 来做被动式arp防火墙
-<http://forum.ubuntu.org.cn/viewtopic.php?f=116&t=110347&sid=ae4c75fe6a8b5aa1672e8a05bc6f7d85>
+[http://forum.ubuntu.org.cn/viewtopic.php?f=116&t=110347&sid=ae4c75fe6a8b5aa1672e8a05bc6f7d85](http://forum.ubuntu.org.cn/viewtopic.php?f=116&t=110347&sid=ae4c75fe6a8b5aa1672e8a05bc6f7d85)
 
 我说的被动式是指在探测到欺骗时做出防护动作
 

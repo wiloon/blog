@@ -11,7 +11,7 @@ tags:
 ---
 ## Visio Forward Engineer Addin 正向工程
 
-<http://www.it165.net/pro/html/201303/5237.html>
+[http://www.it165.net/pro/html/201303/5237.html](http://www.it165.net/pro/html/201303/5237.html)
 
 您跟笔者有一样的困扰吗？设计数据库时利用 Visio 画数据库模型图，画好之后得重新以土法炼钢的方式，透过 SSMS 或 SSDT 等工具，把数据库模型中的数据表以及字段的定义，一个一个的重新输入一次，若数据库中的数据表数量不多时，这也许花不了多少时间，但如果是遇上庞大的系统，数据表数量多得吓人时，传统方式恐怕是旷日废时。透过安装 Visio Forward Engineer Addin 让您可以将在 Visio 2010  画好的数据库模型图直接产生相关的 T-SQL 指令码，详细作法请见下一节。
 

@@ -69,6 +69,6 @@ sudo ansible-pull -U https://github.com/wiloon/ansible.git
 ansible-playbook  ansible/local.yml --extra-vars "user_name=wiloonwy"
 ```
 
-<https://linux.cn/article-10434-1.html>
+[https://linux.cn/article-10434-1.html](https://linux.cn/article-10434-1.html)
 
  [1]: https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html#latest-releases-via-apt-debian

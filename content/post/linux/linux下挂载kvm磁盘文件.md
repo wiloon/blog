@@ -18,7 +18,7 @@ sudo mount -o loop,offset=32256 -t ntfs winxp.img   /mnt
 
 ```
 
-<http://stackoverflow.com/questions/8171179/kvm-virtual-machine-running-windows-xp-how-to-get-files-from-guest-to-host>
+[http://stackoverflow.com/questions/8171179/kvm-virtual-machine-running-windows-xp-how-to-get-files-from-guest-to-host](http://stackoverflow.com/questions/8171179/kvm-virtual-machine-running-windows-xp-how-to-get-files-from-guest-to-host)
 
 winxp.img and loop1 is not a single partition (which can be mounted), it is image of full hard disk with own partition table.
 

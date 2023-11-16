@@ -55,6 +55,6 @@ deb包是debian，ubuntu等LINUX发行版的软件安装包，是类似于rpm的
   
 版权声明: 本文为CSDN博主「wangmg0118」的原创文章，遵循 CC 4.0 BY-SA 版权协议，转载请附上原文出处链接及本声明。
   
-原文链接: <https://blog.csdn.net/wangmg0118/article/details/72026739>
+原文链接: [https://blog.csdn.net/wangmg0118/article/details/72026739](https://blog.csdn.net/wangmg0118/article/details/72026739)
 
-<https://blog.csdn.net/HelloJinYe/article/details/109112976>
+[https://blog.csdn.net/HelloJinYe/article/details/109112976](https://blog.csdn.net/HelloJinYe/article/details/109112976)

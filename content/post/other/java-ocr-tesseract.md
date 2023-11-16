@@ -9,4 +9,4 @@ tags:
   - reprint
 ---
 ## java ocr tesseract
-<http://ykf.iteye.com/blog/212431>
+[http://ykf.iteye.com/blog/212431](http://ykf.iteye.com/blog/212431)

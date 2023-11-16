@@ -9,7 +9,7 @@ tags:
 ---
 ## "workqueue"
 
-转自: <http://bgutech.blog.163.com/blog/static/18261124320116181119889/>
+转自: [http://bgutech.blog.163.com/blog/static/18261124320116181119889/](http://bgutech.blog.163.com/blog/static/18261124320116181119889/)
 
 什么是workqueue
 

@@ -64,7 +64,7 @@ sonar可以通过PMD,CheckStyle,Findbugs等等代码规则检测工具检测出�
   
 检测耦合
 
-关于Spaghetti Design: <http://docs.codehaus.org/display/SONAR/Spaghetti+Design>
+关于Spaghetti Design: [http://docs.codehaus.org/display/SONAR/Spaghetti+Design](http://docs.codehaus.org/display/SONAR/Spaghetti+Design)
 
 通过sonar可以有效检测以上在程序开发过程中的七大问题
   
@@ -76,11 +76,11 @@ SonarQube安装
   
 2.已安装有MySQL数据库
 
-软件下载地址: <http://www.sonarqube.org/downloads/>
+软件下载地址: [http://www.sonarqube.org/downloads/](http://www.sonarqube.org/downloads/)
   
 下载SonarQube与SonarQube Runner
   
-中文补丁包下载: <http://docs.codehaus.org/display/SONAR/Chinese+Pack>
+中文补丁包下载: [http://docs.codehaus.org/display/SONAR/Chinese+Pack](http://docs.codehaus.org/display/SONAR/Chinese+Pack)
 
 1.数据库配置
 
@@ -132,7 +132,7 @@ No information about specific project should appear here
   
 -- Default SonarQube server
   
-sonar.host.url=<http://localhost:9000>
+sonar.host.url=[http://localhost:9000](http://localhost:9000)
   
 -- PostgreSQL
   
@@ -282,32 +282,32 @@ sonar-runner
 
 不同参数的意思:
   
-<http://docs.codehaus.org/display/SONAR/Analysis+Parameters>
+[http://docs.codehaus.org/display/SONAR/Analysis+Parameters](http://docs.codehaus.org/display/SONAR/Analysis+Parameters)
   
 不同项目的源码分析示例下载:
   
-<https://github.com/SonarSource/sonar-examples/zipball/master>
+[https://github.com/SonarSource/sonar-examples/zipball/master](https://github.com/SonarSource/sonar-examples/zipball/master)
   
 与IDE关联
 
 最后，当然了，得与IDE相关联，才能更方便地实时查看
 
-以Eclipse为例，请见: <http://docs.sonarqube.org/display/SONAR/SonarQube+in+Eclipse>
+以Eclipse为例，请见: [http://docs.sonarqube.org/display/SONAR/SonarQube+in+Eclipse](http://docs.sonarqube.org/display/SONAR/SonarQube+in+Eclipse)
 
 附:
 
-sonarQube官网地址: <http://www.sonarqube.org/>
+sonarQube官网地址: [http://www.sonarqube.org/](http://www.sonarqube.org/)
   
-sonarQube官方文档地址: <http://docs.codehaus.org/display/SONAR/Documentation>
+sonarQube官方文档地址: [http://docs.codehaus.org/display/SONAR/Documentation](http://docs.codehaus.org/display/SONAR/Documentation)
   
-sonarQube示例地址: <http://nemo.sonarqube.org/>
+sonarQube示例地址: [http://nemo.sonarqube.org/](http://nemo.sonarqube.org/)
   
-网上另两篇相关的文章: <http://www.cnblogs.com/gao241/p/3190701.html>
+网上另两篇相关的文章: [http://www.cnblogs.com/gao241/p/3190701.html](http://www.cnblogs.com/gao241/p/3190701.html)
   
-<http://www.myexception.cn/open-source/1307345.html>
+[http://www.myexception.cn/open-source/1307345.html](http://www.myexception.cn/open-source/1307345.html)
 
-<http://blog.csdn.net/hunterno4/article/details/11687269>
+[http://blog.csdn.net/hunterno4/article/details/11687269](http://blog.csdn.net/hunterno4/article/details/11687269)
 
-<http://zh.wikipedia.org/wiki/SonarQube>
+[http://zh.wikipedia.org/wiki/SonarQube](http://zh.wikipedia.org/wiki/SonarQube)
 
-<http://docs.sonarqube.org/display/SCAN/Analyzing+with+SonarQube+Scanner+for+Maven>
+[http://docs.sonarqube.org/display/SCAN/Analyzing+with+SonarQube+Scanner+for+Maven](http://docs.sonarqube.org/display/SCAN/Analyzing+with+SonarQube+Scanner+for+Maven)

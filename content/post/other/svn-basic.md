@@ -121,17 +121,17 @@ cd repos
   
 svn log -v
 
-<https://www.kancloud.cn/i281151/svn/197097>
+[https://www.kancloud.cn/i281151/svn/197097](https://www.kancloud.cn/i281151/svn/197097)
   
-<http://my.oschina.net/shelllife/blog/142257>
+[http://my.oschina.net/shelllife/blog/142257](http://my.oschina.net/shelllife/blog/142257)
   
-<http://svnbook.red-bean.com/en/1.7/svn.ref.svn.c.revert.html>
+[http://svnbook.red-bean.com/en/1.7/svn.ref.svn.c.revert.html](http://svnbook.red-bean.com/en/1.7/svn.ref.svn.c.revert.html)
   
-<http://riaoo.com/subpages/svn_cmd_reference.html#commit>
+[http://riaoo.com/subpages/svn_cmd_reference.html#commit](http://riaoo.com/subpages/svn_cmd_reference.html#commit)
   
-<http://riaoo.com/subpages/svn_cmd_reference.html>
+[http://riaoo.com/subpages/svn_cmd_reference.html](http://riaoo.com/subpages/svn_cmd_reference.html)
   
-<https://www.cnblogs.com/zhenjing/archive/2012/12/22/svn_usage.html>
+[https://www.cnblogs.com/zhenjing/archive/2012/12/22/svn_usage.html](https://www.cnblogs.com/zhenjing/archive/2012/12/22/svn_usage.html)
 
 ## svn: E000022: Can't convert string from 'UTF-8' to native encoding
 

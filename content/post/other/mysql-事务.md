@@ -835,4 +835,4 @@ Java代码 收藏代码
   
 7，锁的行越少越好，锁的时间越短越好
 
-<http://www.infoq.com/cn/articles/Isolation-Levels?utm_campaign=infoq_content&utm_source=infoq&utm_medium=feed&utm_term=global>
+[http://www.infoq.com/cn/articles/Isolation-Levels?utm_campaign=infoq_content&utm_source=infoq&utm_medium=feed&utm_term=global](http://www.infoq.com/cn/articles/Isolation-Levels?utm_campaign=infoq_content&utm_source=infoq&utm_medium=feed&utm_term=global)

@@ -15,7 +15,7 @@ tags:
 
 标签: TCP segment of a reaPDUreassembled PDU
 
-<http://blog.csdn.net/dog250/article/details/51809566>
+[http://blog.csdn.net/dog250/article/details/51809566](http://blog.csdn.net/dog250/article/details/51809566)
 
 版权声明: 本文为博主原创,无版权,未经博主允许可以随意转载,无需注明出处,随意修改或保持可作为原创！
 
@@ -23,7 +23,7 @@ tags:
 
 事实上,这个跟TSO没有关系！跟MSS有一定的关系但不是全部因果关系,在阐述"TCP segment of a reassembled PDU"之前,先把TSO理清再说。当有人问题"这个包会不会被TSO分段"这类问题时,只要看该TCP数据包的长度,拿它跟MTU比较,如果数据长度更长,则就是TSO。
 
-那么,"TCP segment of a reassembled PDU"究竟是什么呢？答案是,这要向上看,这个跟应用层有关,而与底层关系不大！我用Wireshark的抓包例子来解释这个问题。首先看一个抓包,我们以网络测试工具baidu为例,抓取一个访问其服务器<https://14.215.177.38/的一个HTTPS>连接的包:
+那么,"TCP segment of a reassembled PDU"究竟是什么呢？答案是,这要向上看,这个跟应用层有关,而与底层关系不大！我用Wireshark的抓包例子来解释这个问题。首先看一个抓包,我们以网络测试工具baidu为例,抓取一个访问其服务器[https://14.215.177.38/的一个HTTPS](https://14.215.177.38/的一个HTTPS)连接的包:
 
 网上很多人在解释这个"TCP segment of a reassembled PDU"的时候(基本都是转载),都说什么"ACK了同一笔数据就会是reassembled PDU","同一个GET请求的response"云云...但是很显然,上述我抓包的截图中,402到405号包都有ACK了同一个序列号,但是为什么只有一个"TCP segment of a reassembled PDU"呢？？在没有标识reassembled PDU的数据包中,另外标识了TLSv1.2的协议原语。此时,我来做一个动作,按下"Ctrl-Shift-E"组合键,事实上就是点击"分析"菜单,进入"已启用的协议"界面:
 
@@ -38,7 +38,7 @@ tags:
 本质上来讲,reassembled PDU要向上看,而不是去考虑什么底层的MTU,TSO什么的。Wireshark根据它能识别的应用层协议,告诉你哪些数据是属于一个应用层消息的。就这么简单。
 
 作者: 守望者_1065
-链接: <https://www.jianshu.com/p/d4d1d76c3956>
+链接: [https://www.jianshu.com/p/d4d1d76c3956](https://www.jianshu.com/p/d4d1d76c3956)
 来源: 简书
 著作权归作者所有。商业转载请联系作者获得授权,非商业转载请注明出处。
 
@@ -70,7 +70,7 @@ LLC子层提供三种服务:
 LLC子层维护一张以DSAP为索引的函数列表,每接收到一个数据包,以DSAP为索引调用相应的函数,该函数把数据包挂到相应接收队列。
 
 作者: 赛亚人之神
-链接: <https://www.jianshu.com/p/7af3c034929e>
+链接: [https://www.jianshu.com/p/7af3c034929e](https://www.jianshu.com/p/7af3c034929e)
 来源: 简书
 著作权归作者所有。商业转载请联系作者获得授权,非商业转载请注明出处。
 
@@ -93,4 +93,4 @@ LLC子层维护一张以DSAP为索引的函数列表,每接收到一个数据包
 [Reassembly error, protocol TCP: New fragment overlaps old data (retransmission?)] 说明有部分的tcp段出现了重传。
 
 ### 网络抓包、分析、重放
-<https://my.oschina.net/u/4258573/blog/3327617>
+[https://my.oschina.net/u/4258573/blog/3327617](https://my.oschina.net/u/4258573/blog/3327617)

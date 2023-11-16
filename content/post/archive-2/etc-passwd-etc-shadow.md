@@ -10,7 +10,7 @@ tags:
 ---
 ## /etc/passwd, /etc/shadow
 
-<https://blog.csdn.net/u012501054/article/details/71522278>
+[https://blog.csdn.net/u012501054/article/details/71522278](https://blog.csdn.net/u012501054/article/details/71522278)
 
 Linux系统中,所有用户 (包括系统管理员) 的账号和密码都可以在/etc/passwd和/etc/shadow这两个文件中找到, (用户和密码就放在文件中,不怕被其他人看的或者修改吗？/etc/passwd只有系统管理员才可以修改的,其他用户可以查看,/etc/shadow其他用户看不了)
 
@@ -88,4 +88,4 @@ letuknowit:$1$cPf/cIvr$sCws95uSip2ljTK052DDB.:15400:5:60:7:2:15490:
   
 8. 无论如何,到了2012年5月29日,该账号都将失效
 
-<http://cn.linux.vbird.org/linux_basic/0410accountmanager_1.php>
+[http://cn.linux.vbird.org/linux_basic/0410accountmanager_1.php](http://cn.linux.vbird.org/linux_basic/0410accountmanager_1.php)

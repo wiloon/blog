@@ -10,13 +10,13 @@ tags:
 ---
 ## kernel config 3.2.8
 
-<http://0123.blog.163.com/blog/static/4788312011112214258169/>
+[http://0123.blog.163.com/blog/static/4788312011112214258169/](http://0123.blog.163.com/blog/static/4788312011112214258169/)
 
-<http://www.cnblogs.com/unicode/archive/2010/05/19/1739675.html>
+[http://www.cnblogs.com/unicode/archive/2010/05/19/1739675.html](http://www.cnblogs.com/unicode/archive/2010/05/19/1739675.html)
 
-<http://blog.csdn.net/unsigned_/article/details/6123426>
+[http://blog.csdn.net/unsigned_/article/details/6123426](http://blog.csdn.net/unsigned_/article/details/6123426)
 
-<http://blog.csdn.net/woshixingaaa/article/details/5982246>
+[http://blog.csdn.net/woshixingaaa/article/details/5982246](http://blog.csdn.net/woshixingaaa/article/details/5982246)
 
 1,仔细了解你电脑的硬件型号，越清楚越好切记切记。
   

@@ -146,4 +146,4 @@ http://www.avajava.com/tutorials/lessons/how-do-i-create-an-eclipse-user-library
 
 http://www.avajava.com/tutorials/lessons/how-do-i-update-my-classpath-with-an-eclipse-user-library-via-the-maven-eclipse-plugin.html
 
-<http://www.avajava.com/tutorials/lessons/how-do-i-debug-my-web-project-in-tomcat-from-eclipse.html?page=1>
+[http://www.avajava.com/tutorials/lessons/how-do-i-debug-my-web-project-in-tomcat-from-eclipse.html?page=1](http://www.avajava.com/tutorials/lessons/how-do-i-debug-my-web-project-in-tomcat-from-eclipse.html?page=1)

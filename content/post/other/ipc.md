@@ -232,7 +232,7 @@ Socket通信基本流程
 4. 信号量与互斥锁
 5. 信号量
 
-**<http://www.cnblogs.com/wangkangluo1/archive/2012/05/14/2498786.html>**
+**[http://www.cnblogs.com/wangkangluo1/archive/2012/05/14/2498786.html](http://www.cnblogs.com/wangkangluo1/archive/2012/05/14/2498786.html)**
 
 **Socket**
   
@@ -451,7 +451,7 @@ $man 3 _function_name_
   
     一种类型的 socket 可能可以使用多于一种的协议来实现， socket 的协议(protocol)属性用于指定一种特定的协议。
 
-<http://www.ericbess.com/ericblog/2008/03/03/wp-codebox/#examples>
+[http://www.ericbess.com/ericblog/2008/03/03/wp-codebox/#examples](http://www.ericbess.com/ericblog/2008/03/03/wp-codebox/#examples)
 
 总结:
 
@@ -694,7 +694,7 @@ Unix IPC(进程间通信 (IPC,Inter-Process Communication) )包括: 管道(pipe)
 In computing, a named pipe (also known as a FIFO for its behavior)
 
 A FIFO special file (a named pipe) is similar to a pipe
-><https://man7.org/linux/man-pages/man7/fifo.7.html>
+>[https://man7.org/linux/man-pages/man7/fifo.7.html](https://man7.org/linux/man-pages/man7/fifo.7.html)
 
 命名管道: 允许无亲缘关系的进程间传输数据。  
 由于基于fork机制,所以管道只能用于父进程和子进程之间,或者拥有相同祖先的两个子进程之间 (有亲缘关系的进程之间)。为了解决这一问题,Linux提供了FIFO方式连接进程。FIFO又叫做命名管道(named PIPE)。
@@ -713,7 +713,7 @@ FIFO (First in, First out)为一种特殊的文件类型,它在文件系统中�
 1. 从FIFO中读取数据:  约定: 如果一个进程为了从FIFO中读取数据而阻塞打开了FIFO,那么称该进程内的读操作为设置了阻塞标志的读操作
 2. 从FIFO中写入数据:  约定: 如果一个进程为了向FIFO中写入数据而阻塞打开FIFO,那么称该进程内的写操作为设置了阻塞标志的写操作。
 
-详见: <http://blog.csdn.net/MONKEY_D_MENG/article/details/5570468>
+详见: [http://blog.csdn.net/MONKEY_D_MENG/article/details/5570468](http://blog.csdn.net/MONKEY_D_MENG/article/details/5570468)
 
 #### 信号种类
 
@@ -735,7 +735,7 @@ SIGSTOP,它是作业控制机制的一部分,将挂起作业的执行。
   
 当前进程在内核中进入睡眠以后刚被唤醒的时候,由于检测到信号的存在而提前返回到用户空间。
   
-函数原型等详见: <http://www.cnblogs.com/biyeymyhjob/archive/2012/08/04/2622265.html>
+函数原型等详见: [http://www.cnblogs.com/biyeymyhjob/archive/2012/08/04/2622265.html](http://www.cnblogs.com/biyeymyhjob/archive/2012/08/04/2622265.html)
 
 #### 信号本质
 
@@ -771,14 +771,14 @@ SIGCLD信号的作用是唤醒一个睡眠在可被中断优先级上的进程�
 
 ### 参考资料
 
-作者：Vamei 出处：<http://www.cnblogs.com/vamei> 欢迎转载，也请保留这段声明。谢谢！
-<http://www.cnblogs.com/vamei/archive/2012/10/10/2715398.html>  
+作者：Vamei 出处：[http://www.cnblogs.com/vamei](http://www.cnblogs.com/vamei) 欢迎转载，也请保留这段声明。谢谢！
+[http://www.cnblogs.com/vamei/archive/2012/10/10/2715398.html](http://www.cnblogs.com/vamei/archive/2012/10/10/2715398.html)  
 
-<http://bbs.chinaunix.net/thread-1947211-1-1.html>  
-<https://blog.dusing.top/posts/3097150806.html>  
-<https://blog.dusing.top/posts/3097150806.html>  
-><https://www.cnblogs.com/biyeymyhjob/archive/2012/11/03/2751593.html>
+[http://bbs.chinaunix.net/thread-1947211-1-1.html](http://bbs.chinaunix.net/thread-1947211-1-1.html)  
+[https://blog.dusing.top/posts/3097150806.html](https://blog.dusing.top/posts/3097150806.html)  
+[https://blog.dusing.top/posts/3097150806.html](https://blog.dusing.top/posts/3097150806.html)  
+>[https://www.cnblogs.com/biyeymyhjob/archive/2012/11/03/2751593.html](https://www.cnblogs.com/biyeymyhjob/archive/2012/11/03/2751593.html)
 
 ---
 
-<https://www.jianshu.com/p/c1015f5ffa74>
+[https://www.jianshu.com/p/c1015f5ffa74](https://www.jianshu.com/p/c1015f5ffa74)

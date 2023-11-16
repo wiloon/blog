@@ -152,6 +152,6 @@ CRAM-MD5即是一种Keyed-MD5验证方式，CRAM是“Challenge-Response Authent
 
 ---
 
-<http://vaqeteart.javaeye.com/blog/837914>
+[http://vaqeteart.javaeye.com/blog/837914](http://vaqeteart.javaeye.com/blog/837914)
 
-<https://zhuanlan.zhihu.com/p/26995802>
+[https://zhuanlan.zhihu.com/p/26995802](https://zhuanlan.zhihu.com/p/26995802)

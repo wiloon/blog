@@ -21,11 +21,11 @@ pidstat
 stress
 ```
 
-* stress <https://www.hi-linux.com/posts/59095.html>
+* stress [https://www.hi-linux.com/posts/59095.html](https://www.hi-linux.com/posts/59095.html)
   
-    <https://www.infoq.cn/article/5jjIdOPx12RWWvGX_H9J?utm_source=rss&utm_medium=article>
+    [https://www.infoq.cn/article/5jjIdOPx12RWWvGX_H9J?utm_source=rss&utm_medium=article](https://www.infoq.cn/article/5jjIdOPx12RWWvGX_H9J?utm_source=rss&utm_medium=article)
   
-    <http://9leg.com/java/2016/08/09/cpu-consumption-analysis.html>
+    [http://9leg.com/java/2016/08/09/cpu-consumption-analysis.html](http://9leg.com/java/2016/08/09/cpu-consumption-analysis.html)
 
 通常性能瓶颈的表现是资源消耗过多、外部处理系统的性能不足，或者资源消耗不多，但程序的响应速度却达不到要求。
 
@@ -67,5 +67,5 @@ cpu-top
 
 进程和线程的上下文切换都涉及进出系统内核和寄存器的保存和还原，这是它们的最大开销。但与进程的上下文切换相比，线程还是要轻量一些， 最大的区别是线程上下文切换时虚拟内存地址保持不变，所以像TLB等CPU缓存不会失效。但要注意的是另一份提问 What is the overhead of a context-switch?的中提到了: Intel和AMD在2008年引入的技术可能会使TLB不失效。
 
-><http://itindex.net/detail/54482-netty-%E5%BC%80%E5%8F%91-%E4%B8%AD%E9%97%B4%E4%BB%B6>
-><http://www.infoq.com/cn/articles/netty-high-performance>
+>[http://itindex.net/detail/54482-netty-%E5%BC%80%E5%8F%91-%E4%B8%AD%E9%97%B4%E4%BB%B6](http://itindex.net/detail/54482-netty-%E5%BC%80%E5%8F%91-%E4%B8%AD%E9%97%B4%E4%BB%B6)
+>[http://www.infoq.com/cn/articles/netty-high-performance](http://www.infoq.com/cn/articles/netty-high-performance)

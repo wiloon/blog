@@ -10,7 +10,7 @@ tags:
 ---
 ## bios boot partition
 
-<https://wiki.gentoo.org/wiki/Handbook:AMD64/Installation/Disks/zh-cn>
+[https://wiki.gentoo.org/wiki/Handbook:AMD64/Installation/Disks/zh-cn](https://wiki.gentoo.org/wiki/Handbook:AMD64/Installation/Disks/zh-cn)
 
 ```bash
   
@@ -24,7 +24,7 @@ tags:
   
 ```
 
-<https://www.cnblogs.com/f-ck-need-u/p/7084627.html>
+[https://www.cnblogs.com/f-ck-need-u/p/7084627.html](https://www.cnblogs.com/f-ck-need-u/p/7084627.html)
   
 BIOS boot partition是一个分区,gnu grub[译注1]用它来引导基于legacy bios但启动设备上却包含GPT格式分区表时的操作系统。这种结构有时候被称为BIOS/GPT启动[译注2]。
 
@@ -44,4 +44,4 @@ bios boot分区的大小非常小,可以小到只有31kB(由于第一个扇区�
 
 [译注2]: 也就是bios MBR和gpt混用的模式。
 
-转载请注明出处: <http://www.cnblogs.com/f-ck-need-u/p/7084627.html>
+转载请注明出处: [http://www.cnblogs.com/f-ck-need-u/p/7084627.html](http://www.cnblogs.com/f-ck-need-u/p/7084627.html)

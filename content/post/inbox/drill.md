@@ -12,7 +12,7 @@ tags:
 
 drill if you can, dig if you have to, nslookup if you must
 
-<https://imdjh.github.io/toolchain/2015/10/07/drill-if-you-can-dig-if-you-have-to.html>
+[https://imdjh.github.io/toolchain/2015/10/07/drill-if-you-can-dig-if-you-have-to.html](https://imdjh.github.io/toolchain/2015/10/07/drill-if-you-can-dig-if-you-have-to.html)
 
 ```bash
 # install dig
@@ -41,9 +41,9 @@ dig,其实是一个缩写,即Domain Information Groper。
 
 dig @8.8.8.8 www.baidu.com A //命令格式为dig @dnsserver name querytype
 
-<https://www.archlinux.org/todo/dnsutils-to-ldns-migration/>
+[https://www.archlinux.org/todo/dnsutils-to-ldns-migration/](https://www.archlinux.org/todo/dnsutils-to-ldns-migration/)
 
-<http://imdjh.github.io/toolchain/2015/10/07/drill-if-you-can-dig-if-you-have-to.html>
+[http://imdjh.github.io/toolchain/2015/10/07/drill-if-you-can-dig-if-you-have-to.html](http://imdjh.github.io/toolchain/2015/10/07/drill-if-you-can-dig-if-you-have-to.html)
 
 We are removing dnsutils from [core]. (It cannot be built independently from bind anymore, and the whole thing is becoming a mess anyhow.)
 
@@ -53,4 +53,4 @@ While dnsutils provided three similar DNS query tools (dig, host, nslookup), ldn
 
 《dig挖出DNS的秘密》-linux命令五分钟系列之三十四
   
-<http://roclinux.cn/?p=2449&embed=true#?secret=9AchPRSDEE>
+[http://roclinux.cn/?p=2449&embed=true#?secret=9AchPRSDEE](http://roclinux.cn/?p=2449&embed=true#?secret=9AchPRSDEE)

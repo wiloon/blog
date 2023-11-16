@@ -10,7 +10,7 @@ tags:
 ---
 ## netty http文件服务器
 
-<http://krisjin.github.io/2015/02/14/netty-file-server/>
+[http://krisjin.github.io/2015/02/14/netty-file-server/](http://krisjin.github.io/2015/02/14/netty-file-server/)
 
 Http介绍
   
@@ -58,7 +58,7 @@ ch.pipeline().addLast("fileServerHandler", new HttpFileServerHandler(url));
   
 ChannelFuture cf =boot.bind("127.0.0.1",port).sync();
   
-System.out.println("Http文件目录服务器启动: <http://127.0.0.1>:"+port+url);
+System.out.println("Http文件目录服务器启动: [http://127.0.0.1](http://127.0.0.1):"+port+url);
   
 cf.channel().closeFuture().sync();
 

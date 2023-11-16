@@ -10,7 +10,7 @@ tags:
 ---
 ## Netty 下载文件
 
-<http://www.open-open.com/lib/view/open1409642102932.html>
+[http://www.open-open.com/lib/view/open1409642102932.html](http://www.open-open.com/lib/view/open1409642102932.html)
 
 本实例主要参考的是官网的examples: 点击这里使用场景: 客户端向Netty请求一个文件,Netty服务端下载指定位置文件到客户端。
 
@@ -702,6 +702,6 @@ response.headers().set(CONTENT_TYPE, mimeTypesMap.getContentType(file.getPath())
   
 第三步: 启动Netty服务,在浏览器中输入
   
-<http://127.0.0.1:8080/>
+[http://127.0.0.1:8080/](http://127.0.0.1:8080/)
   
 如图所示: 即可在浏览器中看到工程目录下所有文件,点击即可下载

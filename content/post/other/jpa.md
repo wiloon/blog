@@ -83,7 +83,7 @@ JPA 中能够支持面向对象的高级特性，如类之间的继承、多态�
 
 ## JPA的merge和persist
 
-原创作品，允许转载，转载时请务必以超链接形式标明文章 原始出处 、作者信息和本声明。否则将追究法律责任。<http://pz0513.blog.51cto.com/443986/113098>
+原创作品，允许转载，转载时请务必以超链接形式标明文章 原始出处 、作者信息和本声明。否则将追究法律责任。[http://pz0513.blog.51cto.com/443986/113098](http://pz0513.blog.51cto.com/443986/113098)
   
 原来merge()也有persist()的作用！
   
@@ -109,4 +109,4 @@ Caused by: com.MySQL.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationExce
   
 而merge就不会抛出什么对象重复的异常的了。。
   
-本文出自 "辽源大火的奋斗历程" 博客，请务必保留此出处<http://pz0513.blog.51cto.com/443986/113098>
+本文出自 "辽源大火的奋斗历程" 博客，请务必保留此出处[http://pz0513.blog.51cto.com/443986/113098](http://pz0513.blog.51cto.com/443986/113098)

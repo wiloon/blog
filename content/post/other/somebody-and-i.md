@@ -18,4 +18,4 @@ It is not uncommon to hear people say "Me and someone are ...", but this is wron
 
 All that said, "I and someone" or "Someone and I" sounds strange to me, and I suspect most English speakers, because it is an unusual use of the word "someone". When "someone" is used in a list with identifiers of other people, we usually say "someone else". Like, "Bob and someone else are interested ..." rather than "Bob and someone are interested ..." (I have no idea why this is so; it's just the convention.) "Someone" without "else" is normally only used when it's the only person: "Someone is interesteed ..."
 
-<http://english.stackexchange.com/questions/59618/i-and-someone-me-and-someone-or-i-and-someone-we>
+[http://english.stackexchange.com/questions/59618/i-and-someone-me-and-someone-or-i-and-someone-we](http://english.stackexchange.com/questions/59618/i-and-someone-me-and-someone-or-i-and-someone-we)

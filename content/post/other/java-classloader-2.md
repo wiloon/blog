@@ -162,7 +162,7 @@ Java中有一个SPI(Service Provider Interface)标准,使用了SPI的库，比�
   
 另外为了实现更灵活的类加载器OSGI以及一些Java app server也打破了双亲委托机制。
 
-<http://www.javaworld.com/javaworld/jw-10-1996/jw-10-indepth.html?page=1>
+[http://www.javaworld.com/javaworld/jw-10-1996/jw-10-indepth.html?page=1](http://www.javaworld.com/javaworld/jw-10-1996/jw-10-indepth.html?page=1)
 
 The class loader concept, one of the cornerstones of the Java virtual machine, describes the behavior of converting a named class into the bits responsible for implementing that class. Because class loaders exist, the Java run time does not need to know anything about files and file systems when running Java programs.
 
@@ -310,7 +310,7 @@ As you can see in the code above, the next step is to check if the primordial cl
 
 After the initial checks, we come to the code above which is where the simple class loader gets an opportunity to load an implementation of this class. As you can see from the source code, the SimpleClassLoader has a method getClassImplFromDataBase() which in our simple example merely prefixes the directory "store" to the class name and appends the extension ".impl". I chose this technique in the example so that there would be no question of the primordial class loader finding our class. Note that the sun.applet.AppletClassLoader prefixes the codebase URL from the HTML page where an applet lives to the name and then does an HTTP get request to fetch the bytecodes.
 
-<http://www.blogjava.net/realsmy/archive/2007/04/03/108053.html>
+[http://www.blogjava.net/realsmy/archive/2007/04/03/108053.html](http://www.blogjava.net/realsmy/archive/2007/04/03/108053.html)
 
 JAVA中的一切都是以类的形式存在的 (除少数底层的东西，那些我就不清楚是怎么回事了) 。我们运行的接口是一个类，运行中所涉及到的对象也都是类对象。下面，我们来研究下，我所理解的类的加载机制。
 
@@ -405,7 +405,7 @@ AppClassLoader首先会到classpath下去寻找Student.class文件。 (找不到
             
                }
 
-<https://my.oschina.net/aminqiao/blog/262601>
+[https://my.oschina.net/aminqiao/blog/262601](https://my.oschina.net/aminqiao/blog/262601)
 
 ```java
 

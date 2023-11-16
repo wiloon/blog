@@ -189,9 +189,9 @@ ObjectMonitor() {
 
 多个线程访问一段同步去代码，多个线程会被存放在EntryList集合中，并处堵塞状态的线程都会在该表中，当某个线程获取了到对象的monitor时候，管程是依靠底层操作系统的Mutex lock来实现互斥，当申请成功，就持有mutex锁。如果有线程调用wait()方法 就会释放持有的mutex锁，并且该线程会进入WaitSet集合中，等到下一次呗唤醒，如果线程顺利执行完方法，也会释放mutex锁
 
-<http://www.linuxidc.com/Linux/2014-09/106539.htm>
+[http://www.linuxidc.com/Linux/2014-09/106539.htm](http://www.linuxidc.com/Linux/2014-09/106539.htm)
   
-<http://www.lilihongblog.com/Blog/monitors+java+synchronization+mechanism>
+[http://www.lilihongblog.com/Blog/monitors+java+synchronization+mechanism](http://www.lilihongblog.com/Blog/monitors+java+synchronization+mechanism)
   
-<http://blog.5ibc.net/p/77567.html>
-><https://jinlipool.com/2019/10/15/monitors/>
+[http://blog.5ibc.net/p/77567.html](http://blog.5ibc.net/p/77567.html)
+>[https://jinlipool.com/2019/10/15/monitors/](https://jinlipool.com/2019/10/15/monitors/)

@@ -106,7 +106,7 @@ jackson-mapper-asl-1.9.2.jar
   
 **遇到的问题:**
 
-用上面的controller,访问: <http://localhost:8080/demo/type.htm,报406>错如下:
+用上面的controller,访问: [http://localhost:8080/demo/type.htm,报406](http://localhost:8080/demo/type.htm,报406)错如下:
   
 **Failed to load resource: the server responded with a status of 406 (Not Acceptable) :  The resource identified by this request is only capable of generating responses with characteristics not acceptable according to the request "accept" headers ()**
 
@@ -116,12 +116,12 @@ jackson-mapper-asl-1.9.2.jar
 
 2. 3.2.4 也遇到这个问题。修改ajax 请求的后缀为json 或者其他就可以了。他还是会优先根据url请求的后缀决定请求类型。所以你看到的一直是[text language="/html"][/text]
 
-**所以,将访问路径从<http://localhost:8080/demo/type.htm改为http://localhost:8080/demo/type.json>即可。
+**所以,将访问路径从[http://localhost:8080/demo/type.htm改为http://localhost:8080/demo/type.json](http://localhost:8080/demo/type.htm改为http://localhost:8080/demo/type.json)即可。
   
  (如果你只拦截htm开头的链接,可以在web.xml里新增一个url-pattern为*.json的servlet即可。) **
 
 --------------
   
-参考: <http://digdata.me/archives/96/>
+参考: [http://digdata.me/archives/96/](http://digdata.me/archives/96/)
 
-<http://angelbill3.iteye.com/blog/1985075>
+[http://angelbill3.iteye.com/blog/1985075](http://angelbill3.iteye.com/blog/1985075)

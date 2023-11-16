@@ -270,4 +270,4 @@ ASF要集成REST就现在来看有两种比较合适的方法。
 有了需求去做才不会陷入为了技术而技术,毕竟技术是由商业价值驱动的,同样社会上充斥着各种技术的鼓吹,如果稍不留神就会陷入跟风的潮流中。
 
 
-<http://stevenjohn.iteye.com/blog/1442776>
+[http://stevenjohn.iteye.com/blog/1442776](http://stevenjohn.iteye.com/blog/1442776)

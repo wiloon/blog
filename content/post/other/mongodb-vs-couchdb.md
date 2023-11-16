@@ -12,7 +12,7 @@ tags:
 ---
 ## MongoDB vs CouchDB
 
-<http://database.51cto.com/art/201103/249990.htm>
+[http://database.51cto.com/art/201103/249990.htm](http://database.51cto.com/art/201103/249990.htm)
 
 本文见于MongoDB官方网站,MongoDB与CouchDB很相似,他们都是文档型存储,数据存储格式都是JSON型的,都使用Javascript进行操作,都支持Map/Reduce。但是其实二者有着很多本质的区别,本文透过现象追寻本质,让你更好的理解MongoDB与CouchDB。
 

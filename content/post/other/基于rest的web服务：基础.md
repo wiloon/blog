@@ -158,7 +158,7 @@ REST Web服务URI的直观性应该达到很容易猜测的程度。将URI看作
 
 实现这种级别的可用性的方法之一是定义目录结构式的URI。此类URI具有层次结构，其根为单个路径，从根开始分支的是公开服务的主要方面的子路径。根据此定义，URI并不只是斜杠分隔的字符串，而是具有在节点上连接在一起的下级和上级分支的树。例如，在一个收集从Java到报纸的各种主题的讨论线程服务中，您可能定义类似如下的结构化URI集合:
 
-<http://www.myservice.org/discussion/topics/{topic>}
+[http://www.myservice.org/discussion/topics/{topic](http://www.myservice.org/discussion/topics/{topic)}
 
 根/discussion之下有一个/topics节点。该节点之下有一系列主题名称，例如闲谈、技术等等，每个主题名称指向某个讨论线程。在此结构中，只需在/topics/后面输入某个内容即可容易地收集讨论线程。
 
@@ -166,11 +166,11 @@ REST Web服务URI的直观性应该达到很容易猜测的程度。将URI看作
 
 此示例非常直观，因为它基于规则:
 
-<http://www.myservice.org/discussion/2008/12/10/{topic>}
+[http://www.myservice.org/discussion/2008/12/10/{topic](http://www.myservice.org/discussion/2008/12/10/{topic)}
 
 第一个路径片段是四个数字的年份，第二个路径片断是两个数字的日期，第三个片段是两个数字的月份。这样解释它可能有点愚蠢，但这就是我们追求的简单级别。人类和计算机能够容易地生成类似如此的结构化URI，因为这些URI基于规则。在语法的空隙中填入路径部分就大功告成了，因为存在用于组合URI的明确模式:
 
-<http://www.myservice.org/discussion/{year}/{day}/{month}/{topic>}
+[http://www.myservice.org/discussion/{year}/{day}/{month}/{topic](http://www.myservice.org/discussion/{year}/{day}/{month}/{topic)}
 
 在考虑基于REST的Web服务的URI结构时，需要指出的一些附加指导原则包括:
 

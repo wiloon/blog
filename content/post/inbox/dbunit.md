@@ -10,13 +10,13 @@ tags:
 ---
 ## DbUnit
 
-<http://yangzb.iteye.com/blog/947292>
+[http://yangzb.iteye.com/blog/947292](http://yangzb.iteye.com/blog/947292)
   
 博客分类: QC
   
 单元测试XML数据结构OraclePostgreSQL
   
-相信做过单元测试的人都会对JUnit 非常的熟悉了,今天要介绍的DbUnit(<http://dbunit.sourceforge.net/> ) 则是专门针对数据库测试的对JUnit 的一个扩展,它可以将测试对象数据库置于一个测试轮回之间的状态。鉴于目前国内介绍DbUnit 的系统教程比较少见,本文将分从理论和实例两个方面带你领略DbUnit 的精彩世界。
+相信做过单元测试的人都会对JUnit 非常的熟悉了,今天要介绍的DbUnit([http://dbunit.sourceforge.net/](http://dbunit.sourceforge.net/) ) 则是专门针对数据库测试的对JUnit 的一个扩展,它可以将测试对象数据库置于一个测试轮回之间的状态。鉴于目前国内介绍DbUnit 的系统教程比较少见,本文将分从理论和实例两个方面带你领略DbUnit 的精彩世界。
 
 DbUnit 设计理念
   
@@ -394,4 +394,4 @@ userid="${dbUser}" password="${dbPassword}">
   
 要先执行export,这样就会自动生成一个数据导出文件,如果有的话就会覆盖,然后在用load方法就可以让数据库加载刚才生成的那些数据了,具体的加 载方式要设置dbunit中的operation属性了,有UPDATE, INSERT, DELETE, DELETE_ALL, REFRESH, CLEAN_INSERT, MSSQL_INSERT, MSSQL_REFRESH, MSSQL_CLEAN_INSERT等参数了
   
-这样的话项目在持续集成的时候就方便多了,关于数据库的东西都是有Dbunit自动生成了,也算是Xp方法的一个数据库的实践把.注dbunit的地址是:<http://www.dbunit.org/,上面的例子是在DBunit2.1中测试通过>.
+这样的话项目在持续集成的时候就方便多了,关于数据库的东西都是有Dbunit自动生成了,也算是Xp方法的一个数据库的实践把.注dbunit的地址是:[http://www.dbunit.org/,上面的例子是在DBunit2.1中测试通过](http://www.dbunit.org/,上面的例子是在DBunit2.1中测试通过).

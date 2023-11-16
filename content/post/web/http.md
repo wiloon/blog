@@ -54,7 +54,7 @@ HTTP使用TCP而不是UDP的原因在于 (打开) 一个网页必须传送很多
 
 HTTP是超文本传输协议，是客户端浏览器或其他程序与Web服务器之间的应用层通信协议。在Internet上的Web服务器上存放的都是超文本信息，客户机需要通过HTTP协议传输所要访问的超文本信息。HTTP包含命令和传输信息，不仅可用于Web访问，也可以用于其他因特网/内联网应用系统之间的通信，从而实现各类应用资源超媒体访问的集成。
 
-当我们想浏览一个网站的时候，只要在浏览器的地址栏里输入网站的地址就可以了，例如www.wiloon.com,但是在浏览器的地址栏里面出现的却是: <http://www.wiloon.com>,你知道为什么会多出一个"http"吗？
+当我们想浏览一个网站的时候，只要在浏览器的地址栏里输入网站的地址就可以了，例如www.wiloon.com,但是在浏览器的地址栏里面出现的却是: [http://www.wiloon.com](http://www.wiloon.com),你知道为什么会多出一个"http"吗？
 
 我们在浏览器的地址栏里输入的网站地址叫做URL (Uniform Resource Locator，统一资源定位符)。就像每家每户都有一个门牌地址一样，每个网页也都有一个Internet地址。当你在浏览器的地址框中输入一个URL或是单击一个超级链接时，URL就确定了要浏览的地址。浏览器通过超文本传输协议(HTTP)，将Web服务器上站点的网页代码提取出来，并翻译成网页。因此，在我们认识HTTP之前，有必要先弄清楚URL的组成,例如: http://www.\***\***.com/china/index.htm。它的含义如下:
 
@@ -395,7 +395,7 @@ Connection 头 (header)  决定当前的事务完成后,是否会关闭网络连
 
 ### http header refer
 
-<http://baike.baidu.com/link?url=OfDRRcbOxy7ZiemI_UxhgunI1ZvvTZ3MDix3JGK-6bdZxHScOUykrcWDqGkbNy7KOr4tz5t8oWtymFMDbA2fr_>
+[http://baike.baidu.com/link?url=OfDRRcbOxy7ZiemI_UxhgunI1ZvvTZ3MDix3JGK-6bdZxHScOUykrcWDqGkbNy7KOr4tz5t8oWtymFMDbA2fr_](http://baike.baidu.com/link?url=OfDRRcbOxy7ZiemI_UxhgunI1ZvvTZ3MDix3JGK-6bdZxHScOUykrcWDqGkbNy7KOr4tz5t8oWtymFMDbA2fr_)
 
 简而言之,HTTP Referer是header的一部分,当浏览器向web服务器发送请求的时候,一般会带上Referer,告诉服务器我是从哪个页面链接过来的,服务器籍此可以获得一些信息用于处理。比如从我主页上链接到一个朋友那里,他的服务器就能够从HTTP Referer中统计出每天有多少用户点击我主页上的链接访问他的网站。
   
@@ -406,8 +406,8 @@ Request.ServerVariables("HTTP_REFERER")的用法(防外连接)
 ---
 
 版权声明: 本文为CSDN博主「hunter800421」的原创文章,遵循CC 4.0 BY-SA版权协议,转载请附上原文出处链接及本声明。
-原文链接: <https://blog.csdn.net/foolish0421/article/details/73302336>
+原文链接: [https://blog.csdn.net/foolish0421/article/details/73302336](https://blog.csdn.net/foolish0421/article/details/73302336)
 
-<https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Headers/Connection>
+[https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Headers/Connection](https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Headers/Connection)
 
-<https://segmentfault.com/a/1190000013056786>
+[https://segmentfault.com/a/1190000013056786](https://segmentfault.com/a/1190000013056786)

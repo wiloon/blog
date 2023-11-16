@@ -220,13 +220,13 @@ remove:若队列为空，抛出NoSuchElementException异常。
 
 take:若队列为空，发生阻塞，等待有元素。
 
-<http://www.myexception.cn/database/1697409.html>
+[http://www.myexception.cn/database/1697409.html](http://www.myexception.cn/database/1697409.html)
   
-<http://www.cnblogs.com/Gordon-YangYiBao/archive/2012/08/07/2626410.html>
+[http://www.cnblogs.com/Gordon-YangYiBao/archive/2012/08/07/2626410.html](http://www.cnblogs.com/Gordon-YangYiBao/archive/2012/08/07/2626410.html)
 
 ## LinkedBlockingDeque
 
-<http://www.cnblogs.com/linjiqin/p/3214725.html>
+[http://www.cnblogs.com/linjiqin/p/3214725.html](http://www.cnblogs.com/linjiqin/p/3214725.html)
   
 对于阻塞栈，与阻塞队列相似。不同点在于栈是"后入先出"的结构，每次操作的是栈顶，而队列是"先进先出"的结构，每次操作的是队列头。
 

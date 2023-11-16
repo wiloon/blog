@@ -31,4 +31,4 @@ uClibc 和Glibc 并不相同,两者有许多不同之处,而且以下不同有�
 14. uClibc的运行时库librt当前缺少aio接口、全部的时钟接口和共享内存接口(仅仅实现定时器接口和消息队列接口)
 
 版权声明: 本文为CSDN博主「zengwh」的原创文章,遵循CC 4.0 BY-SA版权协议,转载请附上原文出处链接及本声明。
-原文链接: <https://blog.csdn.net/zengwh/article/details/1482418>
+原文链接: [https://blog.csdn.net/zengwh/article/details/1482418](https://blog.csdn.net/zengwh/article/details/1482418)

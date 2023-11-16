@@ -105,7 +105,7 @@ IA-64 TLB架构
 IA-64架构使用了一种有趣的方法来提升虚拟地址到物理地址的转换效率。与普通的TLB不同，还有另外3个硬件结构，两个region寄存器，一个protection key寄存器，用来提升LTB的效率。第三个是虚拟哈希表遍历(virtual hash page table walker VHPT walker)，用来减少TLB未命中的损失。
 图4.29描述了IA-64 CPU怎么将虚拟地址转换到物理地址。先从图的右上角开始。这里有一个虚拟地址，分成三个字段: 虚拟域号 vrn(virtual region number)，虚拟页号vpn(virtual page number)和页偏移量字段。
 通常，页偏移量不会参与到转换中，而是直接复制偏移量字到物理地址，如图中右下角所示。相反，3bit的域号(region number) vrn首先放到域(region)寄存器中，图中左上角。域寄存器通过vrn检索出来，将region ID的值发送给TLB。在TLB中，region ID与虚拟页号vpn关联起来组成region ID/vpn 键值，用来搜索TLB。如果某条记录与搜索的键值匹配，记录中剩下的字段提供一些必要信息来完成这个地址转换。具体的就是pfn字段提供页帧号(page frame number)与虚拟页号关联。这个字段也可以复制到物理地址中对应的字段。内存属性字段ma指示这个内存访问是否可以缓存。如果可以，物理地址中的uc字段(bit 63)被清零；否则，设置为1。最后两个字段，+rights(正权值)和键值，用来检测内存访问的权限。字段提供了一系列权值(positive rights)用来控制在什么权限级别(用户层或内核层)下可以做什么访问(读、写或执行)。键值(key)字段放到保护键值寄存器(protection key registers)中。这里，与寄存器匹配的键值对读取出来，它的 –rights(负权值)字段提供了禁止权限(negative rights)来完成权限检测。具体点说就是-rights指定的任何访问都是禁止的，即使+rights字段是允许的。如果没有寄存器与键值对匹配，会发出一个键值未命中错误(KEY MISS FAULT)。操作系统可以解释这个错误并且决定是否安装这个未命中的键值，或者采取一些其它的动作(比如终止进程)。从这个角度来讲，CPU已经拿到了物理地址，并且还有内存访问权限的信息，因此转换完成。
-[外链图片转存失败(img-7sZiQLEa-1569163834307)(<https://img-blog.csdn.net/20170810144910372?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvaG53eWxsbW0=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast>)]
+[外链图片转存失败(img-7sZiQLEa-1569163834307)([https://img-blog.csdn.net/20170810144910372?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvaG53eWxsbW0=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast](https://img-blog.csdn.net/20170810144910372?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvaG53eWxsbW0=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast))]
 
 图4.29 IA-64 虚拟地址转换硬件
 
@@ -202,19 +202,19 @@ IA-64架构定义域ID 24位宽，不过这取决于CPU模式，最少可以支�
 IA-64版本的destroy_context()什么都不用做。get_mmu_context()不会分配内存，所以这里也不需要释放。类似的，可用域ID范围仅仅在现存范围用光的时候才重新计算，因此这里不需要刷新TLB中旧的转换信息。
 
 原文地址:
-<http://www.informit.com/articles/article.aspx?p=29961&seqNum=4>
+[http://www.informit.com/articles/article.aspx?p=29961&seqNum=4](http://www.informit.com/articles/article.aspx?p=29961&seqNum=4)
 
-本文博客地址: <http://www.cnblogs.com/toulanboy/>#
+本文博客地址: [http://www.cnblogs.com/toulanboy/](http://www.cnblogs.com/toulanboy/)#
 作者: toulanboy
 
-出处: <https://www.cnblogs.com/toulanboy/p/7745880.html>
+出处: [https://www.cnblogs.com/toulanboy/p/7745880.html](https://www.cnblogs.com/toulanboy/p/7745880.html)
 
 版权: 本作品采用「署名-非商业性使用-相同方式共享 4.0 国际」许可协议进行许可。
 
 希望对你有用，么么哒~
 
-<https://www.cnblogs.com/toulanboy/p/7745880.html>
+[https://www.cnblogs.com/toulanboy/p/7745880.html](https://www.cnblogs.com/toulanboy/p/7745880.html)
 
-<https://blog.csdn.net/hnwyllmm/article/details/77051135>
+[https://blog.csdn.net/hnwyllmm/article/details/77051135](https://blog.csdn.net/hnwyllmm/article/details/77051135)
 
-<https://zhuanlan.zhihu.com/p/108425561>
+[https://zhuanlan.zhihu.com/p/108425561](https://zhuanlan.zhihu.com/p/108425561)

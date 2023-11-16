@@ -10,7 +10,7 @@ tags:
 ---
 ## OSGi
 
-<http://zhidao.baidu.com/question/4918483>
+[http://zhidao.baidu.com/question/4918483](http://zhidao.baidu.com/question/4918483)
 
 第一章 引言
   

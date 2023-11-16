@@ -25,7 +25,7 @@ POST /psas/bug/image/confirm?key0=value0&key1=value1&key2=value2 HTTP/1.1
 
 ## http GET POST 长度
 
-<http://blog.csdn.net/blueling51/article/details/6935901>
+[http://blog.csdn.net/blueling51/article/details/6935901](http://blog.csdn.net/blueling51/article/details/6935901)
 
 1. Get方法长度限制
 
@@ -114,6 +114,6 @@ URIEncoding="GBK"
 响应超时，当我们连接到服务器时，一般比如url参数（url?key=value）会直接提交到服务器，比如body类型的参数（Form、JsonBody、key=value&key1=value1等）我们会通过连接中的stream再手动写出去，当服务器接受到请求数据后开始【处理数据->响应】，这个【处理数据->响应】阶段就可能会发生响应超时，比如服务器去执行数据库操作，在5S内还没有对stream做出反馈，那么客户端就认为超时（少部分人对下载有误解，下载则不一样，因为一直有输出数据，也就是对stream做了反馈），主动断开和服务器的连接。
 
 作者：严振杰
-链接：<https://www.zhihu.com/question/21609463/answer/160100810>
+链接：[https://www.zhihu.com/question/21609463/answer/160100810](https://www.zhihu.com/question/21609463/answer/160100810)
 来源：知乎
 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。

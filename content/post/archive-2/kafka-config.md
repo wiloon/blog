@@ -101,7 +101,7 @@ limit is hit, the producer will block on additional sends for as long
 as max.block.ms before raising an exception.
 ————————————————
 版权声明: 本文为CSDN博主「鸭梨山大哎」的原创文章,遵循CC 4.0 BY-SA版权协议,转载请附上原文出处链接及本声明。
-原文链接: <https://blog.csdn.net/u010711495/article/details/113250402>
+原文链接: [https://blog.csdn.net/u010711495/article/details/113250402](https://blog.csdn.net/u010711495/article/details/113250402)
 
 ### max.block.ms
 
@@ -146,7 +146,7 @@ producer 所使用的压缩器, 目前支持 gzip, snappy 和 lz4。压缩是在
 
 ### kafka server config
 
-<https://stackoverflow.com/questions/53039752/kafka-how-to-calculate-the-value-of-log-retention-byte>
+[https://stackoverflow.com/questions/53039752/kafka-how-to-calculate-the-value-of-log-retention-byte](https://stackoverflow.com/questions/53039752/kafka-how-to-calculate-the-value-of-log-retention-byte)
 
 ### max.request.size
 
@@ -201,14 +201,14 @@ thunks: 保存消息回调逻辑的集合
 
 ---
 
-<https://zhuanlan.zhihu.com/p/142139663>
-<http://www.cnblogs.com/huxi2b/p/6364613.html>
+[https://zhuanlan.zhihu.com/p/142139663](https://zhuanlan.zhihu.com/p/142139663)
+[http://www.cnblogs.com/huxi2b/p/6364613.html](http://www.cnblogs.com/huxi2b/p/6364613.html)
   
-<http://blog.csdn.net/itleochen/article/details/18352797>
+[http://blog.csdn.net/itleochen/article/details/18352797](http://blog.csdn.net/itleochen/article/details/18352797)
   
-<http://www.cnblogs.com/huxi2b/p/6637425.html>
+[http://www.cnblogs.com/huxi2b/p/6637425.html](http://www.cnblogs.com/huxi2b/p/6637425.html)
   
-<http://apache.mirrors.tds.net/kafka/0.10.2.1/javadoc/org/apache/kafka/clients/producer/KafkaProducer.html>
+[http://apache.mirrors.tds.net/kafka/0.10.2.1/javadoc/org/apache/kafka/clients/producer/KafkaProducer.html](http://apache.mirrors.tds.net/kafka/0.10.2.1/javadoc/org/apache/kafka/clients/producer/KafkaProducer.html)
 
 ## kafka server config, server.properties
 
@@ -277,7 +277,7 @@ controller.quorum.voters=1@controller1.example.com:9093,2@controller2.example.co
 比如在Controller1上，node.Id必须设置为1，以此类推。注意，控制器id不强制要求你从0或1开始。然而，分配节点ID的最简单和最不容易混淆的方法是给每个服务器一个数字ID，然后从0开始。
 ————————————————
 版权声明：本文为CSDN博主「腾讯云中间件」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
-原文链接：<https://blog.csdn.net/qq_36668144/article/details/118607023>
+原文链接：[https://blog.csdn.net/qq_36668144/article/details/118607023](https://blog.csdn.net/qq_36668144/article/details/118607023)
 
 Kafka 集群选举的流程
 在 Kafka 3.0 源码笔记(1)-Kafka 服务端的网络通信架构 中笔者提到在 KRaft 模式下 Kafka 集群的元数据已经交由 Controller 集群自治，则在分布式环境下必然要涉及到集群节点的交互，包括集群选主、集群元数据同步等。其中 Kafka 集群选举涉及的状态流转如下图所示，关键的请求交互如下：
@@ -302,4 +302,4 @@ Follower(Observer)
 具有 controller 角色但不在 controller.quorum.voters 列表中的节点
 ————————————————
 版权声明：本文为CSDN博主「谈谈1974」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
-原文链接：<https://blog.csdn.net/weixin_45505313/article/details/122642581>
+原文链接：[https://blog.csdn.net/weixin_45505313/article/details/122642581](https://blog.csdn.net/weixin_45505313/article/details/122642581)

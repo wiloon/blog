@@ -237,10 +237,10 @@ HTTP 错误 502
   
 如果问题依然存在，请与 Web服务器的管理员联系。
 
-转载: <http://www.xiazaichina.com/bbs/viewthread.php?tid=1502>
+转载: [http://www.xiazaichina.com/bbs/viewthread.php?tid=1502](http://www.xiazaichina.com/bbs/viewthread.php?tid=1502)
   
-<http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html>
+[http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html](http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html)
   
-<http://tool.oschina.net/commons?type=5>
+[http://tool.oschina.net/commons?type=5](http://tool.oschina.net/commons?type=5)
   
-<https://blog.csdn.net/huwei2003/article/details/70139062>
+[https://blog.csdn.net/huwei2003/article/details/70139062](https://blog.csdn.net/huwei2003/article/details/70139062)

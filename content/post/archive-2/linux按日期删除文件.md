@@ -35,6 +35,6 @@ find /文件路径 -name "*.log" -mtime +2 -exec rm {} \;
 
 ---
 
-<https://blog.csdn.net/liujianfei526/article/details/52433039>  
+[https://blog.csdn.net/liujianfei526/article/details/52433039](https://blog.csdn.net/liujianfei526/article/details/52433039)  
 
-<https://www.linuxidc.com/Linux/2013-06/85613.htm>  
+[https://www.linuxidc.com/Linux/2013-06/85613.htm](https://www.linuxidc.com/Linux/2013-06/85613.htm)  

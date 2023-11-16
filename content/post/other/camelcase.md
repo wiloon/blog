@@ -27,5 +27,5 @@ camelCase：驼峰命名法，第一个单词首字母小写，后面的每个�
 
 kebab-case：短横线隔开命名法，每个单词首字母小写。
 
-><https://www.huoxiaoqiang.com/experience/jingyan/3618.html>
-<http://www.cnblogs.com/lm002003/archive/2011/08/13/2137606.html>
+>[https://www.huoxiaoqiang.com/experience/jingyan/3618.html](https://www.huoxiaoqiang.com/experience/jingyan/3618.html)
+[http://www.cnblogs.com/lm002003/archive/2011/08/13/2137606.html](http://www.cnblogs.com/lm002003/archive/2011/08/13/2137606.html)

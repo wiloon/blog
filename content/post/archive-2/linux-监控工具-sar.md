@@ -235,6 +235,6 @@ pswpout/s: 每秒系统换出的交换页面 (swap page) 数量
   
 -y 报告TTY设备活动状况
   
-<http://linuxtools-rst.readthedocs.io/zh_CN/latest/tool/sar.html>
+[http://linuxtools-rst.readthedocs.io/zh_CN/latest/tool/sar.html](http://linuxtools-rst.readthedocs.io/zh_CN/latest/tool/sar.html)
   
-<http://frankch.blog.51cto.com/10836181/1744092>
+[http://frankch.blog.51cto.com/10836181/1744092](http://frankch.blog.51cto.com/10836181/1744092)

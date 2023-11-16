@@ -10,9 +10,9 @@ tags:
 ---
 ## Remote IP Valve, X-Forwarded-For等http头字段
 
-<http://www.10tiao.com/html/308/201702/2650076434/1.html>
+[http://www.10tiao.com/html/308/201702/2650076434/1.html](http://www.10tiao.com/html/308/201702/2650076434/1.html)
   
-<http://tomcat.apache.org/tomcat-8.0-doc/api/org/apache/catalina/valves/RemoteIpValve.html>
+[http://tomcat.apache.org/tomcat-8.0-doc/api/org/apache/catalina/valves/RemoteIpValve.html](http://tomcat.apache.org/tomcat-8.0-doc/api/org/apache/catalina/valves/RemoteIpValve.html)
 
 X-Forwarded-For等http头字段与Tomcat的 Remote IP Valve (Valve源码分析之六)
   

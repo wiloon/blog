@@ -67,7 +67,7 @@ func main() {
 }
 ```
 
-<https://my.oschina.net/u/943306/blog/127981>
+[https://my.oschina.net/u/943306/blog/127981](https://my.oschina.net/u/943306/blog/127981)
 
 ### bytes.Buffer, io.Writer
 
@@ -81,4 +81,4 @@ func main() {
 }
 ```
 
-><https://www.kancloud.cn/digest/batu-go/153538>
+>[https://www.kancloud.cn/digest/batu-go/153538](https://www.kancloud.cn/digest/batu-go/153538)

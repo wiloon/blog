@@ -109,7 +109,7 @@ sentinel着眼于高可用，Cluster提高并发量。
 3.集群: 为了解决单机Redis容量有限的问题，将数据按一定的规则分配到多台机器，内存/QPS不受限于单机，可受益于分布式集群高扩展性。
 
 原文出处: 出自公众号: Java杂记
-原文链接: <https://mp.weixin.qq.com/s/Q2gh>
+原文链接: [https://mp.weixin.qq.com/s/Q2gh](https://mp.weixin.qq.com/s/Q2gh)
 
 ### Redis Sentinel 与 Redis Cluster
 
@@ -347,6 +347,6 @@ memcached只是用了惰性删除，而redis同时使用了惰性删除与定期
 有遇到其他坑欢迎补充。。。。。。。
 ————————————————
 版权声明: 本文为CSDN博主「回_憶」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
-原文链接: <https://blog.csdn.net/angjunqiang/article/details/81190562>
+原文链接: [https://blog.csdn.net/angjunqiang/article/details/81190562](https://blog.csdn.net/angjunqiang/article/details/81190562)
 
-<https://zhuanlan.zhihu.com/p/160933527>
+[https://zhuanlan.zhihu.com/p/160933527](https://zhuanlan.zhihu.com/p/160933527)

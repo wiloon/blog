@@ -82,7 +82,7 @@ ddkP
 
 #### debian install nvim
 
-<https://vra.github.io/2019/03/13/ubuntu-install-neovim/>
+[https://vra.github.io/2019/03/13/ubuntu-install-neovim/](https://vra.github.io/2019/03/13/ubuntu-install-neovim/)
 
 ```bash
 sudo apt-get install software-properties-common
@@ -814,14 +814,14 @@ vim 配置文件路径 `~/.vimrc`, 没有的话就创建一个, vim 启动的时
 set number
 ```
 
-<https://www.ruanyifeng.com/blog/2018/09/vimrc.html>
+[https://www.ruanyifeng.com/blog/2018/09/vimrc.html](https://www.ruanyifeng.com/blog/2018/09/vimrc.html)
 
-<http://www.cnblogs.com/88999660/articles/1581524.html>
+[http://www.cnblogs.com/88999660/articles/1581524.html](http://www.cnblogs.com/88999660/articles/1581524.html)
 
-<http://www.cnblogs.com/taizi1985/archive/2007/08/13/853190.html>
-<https://www.cnblogs.com/luosongchao/p/3193153.html>
+[http://www.cnblogs.com/taizi1985/archive/2007/08/13/853190.html](http://www.cnblogs.com/taizi1985/archive/2007/08/13/853190.html)
+[https://www.cnblogs.com/luosongchao/p/3193153.html](https://www.cnblogs.com/luosongchao/p/3193153.html)
 
-<https://zhuanlan.zhihu.com/p/51440836>
+[https://zhuanlan.zhihu.com/p/51440836](https://zhuanlan.zhihu.com/p/51440836)
 
 ## global 命令
 

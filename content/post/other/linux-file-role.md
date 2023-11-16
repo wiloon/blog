@@ -26,7 +26,7 @@ r-- 4
 --- 0
 ```
 
-<http://zhangfeikr.blog.51cto.com/1999170/396541>
+[http://zhangfeikr.blog.51cto.com/1999170/396541](http://zhangfeikr.blog.51cto.com/1999170/396541)
 
 一个用户、一个组
   

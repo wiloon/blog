@@ -10,7 +10,7 @@ tags:
 ---
 ## 'Netty 中 IOException,Connection reset by peer 与 java.nio.channels.ClosedChannelException,null'
 
-<http://www.cnblogs.com/zemliu/p/3864131.html>
+[http://www.cnblogs.com/zemliu/p/3864131.html](http://www.cnblogs.com/zemliu/p/3864131.html)
 
 最近发现系统中出现了很多 IOException: Connection reset by peer 与 ClosedChannelException: null
 
@@ -34,7 +34,7 @@ static {
                 // If the outboundBuffer is null we know the channel was closed and so
                 // need to fail the future right away. If it is not null the handling of the rest
                 // will be done in flush0()
-                // See <https://github.com/netty/netty/issues/2362>
+                // See [https://github.com/netty/netty/issues/2362](https://github.com/netty/netty/issues/2362)
                 safeSetFailure(promise, CLOSED_CHANNEL_EXCEPTION);
                 // release message now to prevent resource-leak
                 ReferenceCountUtil.release(msg);

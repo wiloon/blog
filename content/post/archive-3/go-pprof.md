@@ -25,23 +25,23 @@ go func() {
 
 ```
 
-<http://localhost:8080/debug/pprof/>
+[http://localhost:8080/debug/pprof/](http://localhost:8080/debug/pprof/)
 
 ### cpu
 
-go tool pprof <http://localhost:8080/debug/pprof/profile?seconds=60>
+go tool pprof [http://localhost:8080/debug/pprof/profile?seconds=60](http://localhost:8080/debug/pprof/profile?seconds=60)
 
 ### mem
 
-go tool pprof <http://localhost:6060/debug/pprof/heap>
+go tool pprof [http://localhost:6060/debug/pprof/heap](http://localhost:6060/debug/pprof/heap)
 
 ### block
 
-go tool pprof <http://localhost:8080/debug/pprof/block>
+go tool pprof [http://localhost:8080/debug/pprof/block](http://localhost:8080/debug/pprof/block)
 
 ### mutex
 
-go tool pprof <http://localhost:6060/debug/pprof/mutex>
+go tool pprof [http://localhost:6060/debug/pprof/mutex](http://localhost:6060/debug/pprof/mutex)
 
 ## runtime/pprof
 
@@ -138,11 +138,11 @@ go tool pprof -http=:9999 /tmp/profile215959616/mem.pprof
 
 锁性能分析(mutex profiling) 与阻塞分析类似，但专注于因为锁竞争导致的等待或延时。
 
-<https://colobu.com/2016/12/21/how-to-dump-goroutine-stack-traces/>
+[https://colobu.com/2016/12/21/how-to-dump-goroutine-stack-traces/](https://colobu.com/2016/12/21/how-to-dump-goroutine-stack-traces/)
   
-<https://golang.org/pkg/net/http/pprof/>
+[https://golang.org/pkg/net/http/pprof/](https://golang.org/pkg/net/http/pprof/)
   
-<https://segmentfault.com/a/1190000016412013>
+[https://segmentfault.com/a/1190000016412013](https://segmentfault.com/a/1190000016412013)
 
 ```go
 import _ "net/http/pprof"
@@ -170,7 +170,7 @@ go tool pprof http://localhost:6060/debug/pprof/heap
     http://localhost:8080/debug/pprof/
     默认512kb进行 一次采样
 
-<https://lrita.github.io/2017/05/26/golang-memory-pprof/#golang-pprof>
+[https://lrita.github.io/2017/05/26/golang-memory-pprof/#golang-pprof](https://lrita.github.io/2017/05/26/golang-memory-pprof/#golang-pprof)
 
 ### runtime.MemStats
 
@@ -183,7 +183,7 @@ HeapSys: 从操作系统为堆申请到的字节数。
 HeapIdle: 堆的闲置区间,包括已经归还给操作系统的物理字节数 (HeapReleased)
 HeapReleased: 已经归还给操作系统的物理字节数,是HeapIdle的子集。
 
-><https://blog.haohtml.com/archives/21685>
-><https://blog.csdn.net/pengpengzhou/article/details/106901368>
-><https://geektutu.com/post/hpg-pprof.html>
-><https://github.com/google/pprof/tree/master/doc>
+>[https://blog.haohtml.com/archives/21685](https://blog.haohtml.com/archives/21685)
+>[https://blog.csdn.net/pengpengzhou/article/details/106901368](https://blog.csdn.net/pengpengzhou/article/details/106901368)
+>[https://geektutu.com/post/hpg-pprof.html](https://geektutu.com/post/hpg-pprof.html)
+>[https://github.com/google/pprof/tree/master/doc](https://github.com/google/pprof/tree/master/doc)

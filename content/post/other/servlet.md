@@ -409,7 +409,7 @@ Java Servlet 与 CGI(Common Gateway Interface 公共网关接口) 的比较:与�
       
         undefined
 
-    <http://www.admin10000.com/document/208.html>
+    [http://www.admin10000.com/document/208.html](http://www.admin10000.com/document/208.html)
   
-    <http://quqtalk.iteye.com/blog/819451>
+    [http://quqtalk.iteye.com/blog/819451](http://quqtalk.iteye.com/blog/819451)
   

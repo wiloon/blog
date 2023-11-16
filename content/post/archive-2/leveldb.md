@@ -28,17 +28,17 @@ Leveldb是一个google实现的非常高效的kv数据库,目前的版本1.2能�
 
 LevelDB 是单进程的服务,性能非常之高,在一台4个Q6600的CPU机器上,每秒钟写数据超过40w,而随机读的性能每秒钟超过10w。
 
-<http://www.oschina.net/p/leveldb>
+[http://www.oschina.net/p/leveldb](http://www.oschina.net/p/leveldb)
 
-<http://www.cnblogs.com/haippy/archive/2011/12/04/2276064.html>
+[http://www.cnblogs.com/haippy/archive/2011/12/04/2276064.html](http://www.cnblogs.com/haippy/archive/2011/12/04/2276064.html)
 
 LevelDb日知录之一: LevelDb 101
   
 说起LevelDb也许您不清楚,但是如果作为IT工程师,不知道下面两位大神级别的工程师,那您的领导估计会Hold不住了: Jeff Dean和Sanjay Ghemawat。这两位是Google公司重量级的工程师,为数甚少的Google Fellow之二。
 
-Jeff Dean其人: <http://research.google.com/people/jeff/index.html,Google大规模分布式平台Bigtable和MapReduce>主要设计和实现者。
+Jeff Dean其人: [http://research.google.com/people/jeff/index.html,Google大规模分布式平台Bigtable和MapReduce](http://research.google.com/people/jeff/index.html,Google大规模分布式平台Bigtable和MapReduce)主要设计和实现者。
 
-Sanjay Ghemawat其人: <http://research.google.com/people/sanjay/index.html,Google大规模分布式平台GFS,Bigtable和MapReduce>主要设计和实现工程师。
+Sanjay Ghemawat其人: [http://research.google.com/people/sanjay/index.html,Google大规模分布式平台GFS,Bigtable和MapReduce](http://research.google.com/people/sanjay/index.html,Google大规模分布式平台GFS,Bigtable和MapReduce)主要设计和实现工程师。
 
 LevelDb就是这两位大神级别的工程师发起的开源项目,简而言之,LevelDb是能够处理十亿级别规模Key-Value型数据持久性存储的C++ 程序库。正像上面介绍的,这二位是Bigtable的设计和实现者,如果了解Bigtable的话,应该知道在这个影响深远的分布式存储系统中有两个核心的部分: Master Server和Tablet Server。其中Master Server做一些管理数据的存储以及分布式调度工作,实际的分布式数据存储以及读写操作是由Tablet Server完成的,而LevelDb则可以理解为一个简化版的Tablet Server。
 
@@ -271,7 +271,7 @@ leveldb的这种版本的控制,让我想到了双buffer切换,双buffer切换�
 
 leveldb的 version 管理和双 buffer 切换类似,但是如果原 version 被某个 iterator 引用,那么这个version会一直保持,直到没有被任何一个iterator引用,此时就可以删除这个version。
 
-注: 博文参考了郎格科技博客: <http://www.samecity.com/blog/Index.asp?SortID=12>
+注: 博文参考了郎格科技博客: [http://www.samecity.com/blog/Index.asp?SortID=12](http://www.samecity.com/blog/Index.asp?SortID=12)
 
 ### maven
 
@@ -290,17 +290,17 @@ leveldb的 version 管理和双 buffer 切换类似,但是如果原 version 被�
 
 ### 庖丁解LevelDB之数据存储
 
-><https://catkang.github.io/2017/01/17/leveldb-data.html>
+>[https://catkang.github.io/2017/01/17/leveldb-data.html](https://catkang.github.io/2017/01/17/leveldb-data.html)
 
 ### leveldb
-<https://github.com/google/leveldb>
+[https://github.com/google/leveldb](https://github.com/google/leveldb)
 
 ### leveldbjni
-<https://github.com/fusesource/leveldbjni>
+[https://github.com/fusesource/leveldbjni](https://github.com/fusesource/leveldbjni)
 
 ### pure java leveldb
-<https://github.com/dain/leveldb>
+[https://github.com/dain/leveldb](https://github.com/dain/leveldb)
 
 ### WiscKey: Separating Keys from Values in SSD-Conscious Storage
 
-><https://www.scienjus.com/wisckey/>
+>[https://www.scienjus.com/wisckey/](https://www.scienjus.com/wisckey/)

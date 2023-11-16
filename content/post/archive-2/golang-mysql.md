@@ -10,7 +10,7 @@ tags:
 ---
 ## golang MySQL
 
-<http://www.cnblogs.com/hupengcool/p/4143238.html>
+[http://www.cnblogs.com/hupengcool/p/4143238.html](http://www.cnblogs.com/hupengcool/p/4143238.html)
 
 Golang操作数据库
 
@@ -267,7 +267,7 @@ values := make([]sql.RawBytes, len(columns))
   
 // references into such a slice
   
-// See <http://code.google.com/p/go-wiki/wiki/InterfaceSlice> for details
+// See [http://code.google.com/p/go-wiki/wiki/InterfaceSlice](http://code.google.com/p/go-wiki/wiki/InterfaceSlice) for details
   
 scanArgs := make([]interface{}, len(values))
   
@@ -541,15 +541,15 @@ db.SetMaxIdleConns(n int) 设置连接池中的保持连接的最大连接数。
 
 作者: 人世间
   
-链接: <http://www.jianshu.com/p/340eb943be2e>
+链接: [http://www.jianshu.com/p/340eb943be2e](http://www.jianshu.com/p/340eb943be2e)
   
 來源: 简书
   
 著作权归作者所有。商业转载请联系作者获得授权,非商业转载请注明出处。
 
-<https://stackoverflow.com/questions/17845619/how-to-call-the-scan-variadic-function-in-golang-using-reflection>
+[https://stackoverflow.com/questions/17845619/how-to-call-the-scan-variadic-function-in-golang-using-reflection](https://stackoverflow.com/questions/17845619/how-to-call-the-scan-variadic-function-in-golang-using-reflection)
 
-<https://golangtc.com/t/521abe66320b523a3500000e>
+[https://golangtc.com/t/521abe66320b523a3500000e](https://golangtc.com/t/521abe66320b523a3500000e)
   
-<http://www.jianshu.com/p/340eb943be2e>
-<https://www.jianshu.com/p/bc8120bec94e>
+[http://www.jianshu.com/p/340eb943be2e](http://www.jianshu.com/p/340eb943be2e)
+[https://www.jianshu.com/p/bc8120bec94e](https://www.jianshu.com/p/bc8120bec94e)

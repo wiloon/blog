@@ -12,7 +12,7 @@ tags:
 
 不要在for循环直接用defer
   
-<https://studygolang.com/articles/12061>
+[https://studygolang.com/articles/12061](https://studygolang.com/articles/12061)
 
 panic
   
@@ -197,8 +197,8 @@ return
   
 goroutine 的控制结构中,有一张表记录defer,调用runtime.deferproc时会将需要defer的表达式记录在表中,而在调用runtime.deferreturn的时候,则会依次从defer表中出栈并执行。
 
-<https://ieevee.com/tech/2017/11/23/go-panic.html>
+[https://ieevee.com/tech/2017/11/23/go-panic.html](https://ieevee.com/tech/2017/11/23/go-panic.html)
   
-<https://tiancaiamao.gitbooks.io/go-internals/content/zh/03.4.html>
+[https://tiancaiamao.gitbooks.io/go-internals/content/zh/03.4.html](https://tiancaiamao.gitbooks.io/go-internals/content/zh/03.4.html)
   
-<https://blog.csdn.net/fengfengdiandia/article/details/80058805>
+[https://blog.csdn.net/fengfengdiandia/article/details/80058805](https://blog.csdn.net/fengfengdiandia/article/details/80058805)

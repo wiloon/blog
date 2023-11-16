@@ -11,6 +11,6 @@ tags:
 ---
 ## sqlite 数据库字典
 
-<http://blog.itpub.net/133735/viewspace-757028/>
+[http://blog.itpub.net/133735/viewspace-757028/](http://blog.itpub.net/133735/viewspace-757028/)
 
-<http://www.th7.cn/Article/sj/ms/201001/374550.html>
+[http://www.th7.cn/Article/sj/ms/201001/374550.html](http://www.th7.cn/Article/sj/ms/201001/374550.html)

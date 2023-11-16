@@ -74,13 +74,13 @@ ACK/FIN包即终结包,由于连接还没有关闭, FIN包总是打上ACK标记�
 
 注意: 由于SYN包是用来初始化连接的, 它不可能和FIN或RST标记一起出现,这也是一个恶意攻击。当网络中出现一下包组合时,表明网络已经遭受到攻击了,如: SYN/FIN,SYN/FIN/PSH, SYN/FIN/RST, SYN/FIN/RST/PSH。
 
-<http://blog.csdn.net/crystal0011/article/details/8954674>
+[http://blog.csdn.net/crystal0011/article/details/8954674](http://blog.csdn.net/crystal0011/article/details/8954674)
 
-<http://www.voidcn.com/blog/chenyujin1314520/article/p-5999167.html>
+[http://www.voidcn.com/blog/chenyujin1314520/article/p-5999167.html](http://www.voidcn.com/blog/chenyujin1314520/article/p-5999167.html)
 
-<https://github.com/chemdemo/chemdemo.github.io/blob/master/issues/tcp_notes.md>
+[https://github.com/chemdemo/chemdemo.github.io/blob/master/issues/tcp_notes.md](https://github.com/chemdemo/chemdemo.github.io/blob/master/issues/tcp_notes.md)
   
-><https://xie.infoq.cn/article/84998c291eb69b50fad90a132?utm_source=rss&utm_medium=article>
+>[https://xie.infoq.cn/article/84998c291eb69b50fad90a132?utm_source=rss&utm_medium=article](https://xie.infoq.cn/article/84998c291eb69b50fad90a132?utm_source=rss&utm_medium=article)
 
 ## 四次挥手
 
@@ -120,5 +120,5 @@ hnote over server : CLOSE
 连接在FINWAIT-2超时后并不会进入TIMEWAIT状态，也不会发送reset，而是直接消失。
 TIMEWAIT 持续 时间 60s
 
-><https://blog.csdn.net/dog250/article/details/81256550>
-><https://datatracker.ietf.org/doc/html/rfc793>
+>[https://blog.csdn.net/dog250/article/details/81256550](https://blog.csdn.net/dog250/article/details/81256550)
+>[https://datatracker.ietf.org/doc/html/rfc793](https://datatracker.ietf.org/doc/html/rfc793)

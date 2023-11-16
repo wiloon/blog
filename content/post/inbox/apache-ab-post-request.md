@@ -126,7 +126,7 @@ ab -n 4000 -c 1000 http://www.ha97.com/
 
 使用ab发送post请求
 
-ab -n 100000 -c 149  -H keywords:dt -p  /root/file/param.conf  -T 'application/x-www-form-urlencoded'  <http://cc-tt.chinacloudapp.cn/restaurant>
+ab -n 100000 -c 149  -H keywords:dt -p  /root/file/param.conf  -T 'application/x-www-form-urlencoded'  [http://cc-tt.chinacloudapp.cn/restaurant](http://cc-tt.chinacloudapp.cn/restaurant)
 
 解释: -p:包含post请求的参数文件。文件内容类似: sk=1babb55a0b4b4dd2a&apitype=restaurant&p=tJoLaT4mon
 
@@ -138,8 +138,8 @@ c:并发客户端数
 
 H:自定义消息头
 
-<http://nanchengru.com/2015/01/apache-ab%E5%8F%91%E9%80%81post%E8%AF%B7%E6%B1%82%E4%BB%A5%E5%8F%8A%E5%8F%82%E6%95%B0%E8%A7%A3%E9%87%8A/?replytocom=9>
+[http://nanchengru.com/2015/01/apache-ab%E5%8F%91%E9%80%81post%E8%AF%B7%E6%B1%82%E4%BB%A5%E5%8F%8A%E5%8F%82%E6%95%B0%E8%A7%A3%E9%87%8A/?replytocom=9](http://nanchengru.com/2015/01/apache-ab%E5%8F%91%E9%80%81post%E8%AF%B7%E6%B1%82%E4%BB%A5%E5%8F%8A%E5%8F%82%E6%95%B0%E8%A7%A3%E9%87%8A/?replytocom=9)
 
      (总结) Web性能压力测试工具之ApacheBench (ab) 详解
   
-<http://www.ha97.com/4617.html/embed#?secret=uK0hS4Tawl>
+[http://www.ha97.com/4617.html/embed#?secret=uK0hS4Tawl](http://www.ha97.com/4617.html/embed#?secret=uK0hS4Tawl)

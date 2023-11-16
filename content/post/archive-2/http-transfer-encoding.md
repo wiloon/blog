@@ -134,6 +134,6 @@ Content-Encoding: gzip
 
 用 HTTP 抓包神器 Fiddler 也可以看到类似结果,有兴趣的同学可以自己试一下。
 
-本文链接: <https://imququ.com/post/transfer-encoding-header-in-http.html>,参与评论 »
+本文链接: [https://imququ.com/post/transfer-encoding-header-in-http.html](https://imququ.com/post/transfer-encoding-header-in-http.html),参与评论 »
 
 -EOF-

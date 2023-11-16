@@ -62,7 +62,7 @@ or disable password stores at the subversion config file \~/.subversion/config
 
 password-stores =
 
-<https://bbs.archlinux.org/viewtopic.php?id=239198>
+[https://bbs.archlinux.org/viewtopic.php?id=239198](https://bbs.archlinux.org/viewtopic.php?id=239198)
 
 ```bash
 # init
@@ -173,7 +173,7 @@ git push
 
 git svn clone 相当于运行了两条命令git svn init和 git svn fetch.
 
-$ git svn clone <http://svnserver/project/trunk>
+$ git svn clone [http://svnserver/project/trunk](http://svnserver/project/trunk)
 
 创建一个本地分支
 
@@ -230,17 +230,17 @@ git rebase --skip 引起冲突的commits会被丢弃,对于本文应用的例子
 $ git rebase --continue 就可以线性的连接本地分支与远程分支,无误之后就回退出,回到主分支上。
 注意: 一般情况下,修改后检查没问题,使用rebase continue来合并冲突。
 
-<https://git-scm.com/book/zh/v1/Git-%E4%B8%8E%E5%85%B6%E4%BB%96%E7%B3%BB%E7%BB%9F-Git-%E4%B8%8E-Subversion>
+[https://git-scm.com/book/zh/v1/Git-%E4%B8%8E%E5%85%B6%E4%BB%96%E7%B3%BB%E7%BB%9F-Git-%E4%B8%8E-Subversion](https://git-scm.com/book/zh/v1/Git-%E4%B8%8E%E5%85%B6%E4%BB%96%E7%B3%BB%E7%BB%9F-Git-%E4%B8%8E-Subversion)
 
-<https://git-scm.com/docs/git-svn>
+[https://git-scm.com/docs/git-svn](https://git-scm.com/docs/git-svn)
 
-<http://hufeng825.github.io/2013/09/03/git9/>
+[http://hufeng825.github.io/2013/09/03/git9/](http://hufeng825.github.io/2013/09/03/git9/)
 
-<https://git-scm.com/book/zh/v1/Git-%E4%B8%8E%E5%85%B6%E4%BB%96%E7%B3%BB%E7%BB%9F-Git-%E4%B8%8E-Subversion>
+[https://git-scm.com/book/zh/v1/Git-%E4%B8%8E%E5%85%B6%E4%BB%96%E7%B3%BB%E7%BB%9F-Git-%E4%B8%8E-Subversion](https://git-scm.com/book/zh/v1/Git-%E4%B8%8E%E5%85%B6%E4%BB%96%E7%B3%BB%E7%BB%9F-Git-%E4%B8%8E-Subversion)
 
-<https://hanckmann.com/2012/12/28/blog.html>
+[https://hanckmann.com/2012/12/28/blog.html](https://hanckmann.com/2012/12/28/blog.html)
 
-<https://bugs.archlinux.org/task/43303>
+[https://bugs.archlinux.org/task/43303](https://bugs.archlinux.org/task/43303)
 
 [https://tonybai.com/2011/01/20/try-git-svn/](https://tonybai.com/2011/01/20/try-git-svn/ "https://tonybai.com/2011/01/20/try-git-svn/")  
-<https://www.cnblogs.com/chenjunjie12321/p/6876220.html>  
+[https://www.cnblogs.com/chenjunjie12321/p/6876220.html](https://www.cnblogs.com/chenjunjie12321/p/6876220.html)  

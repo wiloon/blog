@@ -35,4 +35,4 @@ $ cp /etc/skel/.xinitrc ~
 
 ---
 
-<https://blog.csdn.net/vic_qxz/article/details/79073558>
+[https://blog.csdn.net/vic_qxz/article/details/79073558](https://blog.csdn.net/vic_qxz/article/details/79073558)

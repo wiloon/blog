@@ -156,11 +156,11 @@ diff命令能比较单个文件或者目录内容。如果指定比较的是文�
 
 -suppress-common-lines 在使用-y参数时,仅显示不同之处。
   
-<http://www.ruanyifeng.com/blog/2012/08/how_to_read_diff.html>
+[http://www.ruanyifeng.com/blog/2012/08/how_to_read_diff.html](http://www.ruanyifeng.com/blog/2012/08/how_to_read_diff.html)
   
-<https://superuser.com/questions/644680/how-can-i-make-diff-x-ignore-specific-paths-and-not-file-names>
+[https://superuser.com/questions/644680/how-can-i-make-diff-x-ignore-specific-paths-and-not-file-names](https://superuser.com/questions/644680/how-can-i-make-diff-x-ignore-specific-paths-and-not-file-names)
   
-<https://www.cnblogs.com/peida/archive/2012/12/12/2814048.html>
+[https://www.cnblogs.com/peida/archive/2012/12/12/2814048.html](https://www.cnblogs.com/peida/archive/2012/12/12/2814048.html)
 
 ## 上下文格式的 diff
 
@@ -291,4 +291,4 @@ index 6f8a38c..449b072 100644
 版权声明：自由转载-非商用-非衍生-保持署名（创意共享3.0许可证）
 发表日期： 2012年8月29日
 作者： 阮一峰
-<https://www.ruanyifeng.com/blog/2012/08/how_to_read_diff.html>
+[https://www.ruanyifeng.com/blog/2012/08/how_to_read_diff.html](https://www.ruanyifeng.com/blog/2012/08/how_to_read_diff.html)

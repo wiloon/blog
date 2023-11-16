@@ -149,9 +149,9 @@ manage to do:
 |将来|一般将来时|将来时行时|将来完成时|将来完成进行时|
 |过去将来|一般过去将来时|过去将来进行时|过去将来完成时|过去将来完成进行时|
 
-<https://zhuanlan.zhihu.com/p/61394682>
+[https://zhuanlan.zhihu.com/p/61394682](https://zhuanlan.zhihu.com/p/61394682)
 
-<https://zhuanlan.zhihu.com/p/41209715>
+[https://zhuanlan.zhihu.com/p/41209715](https://zhuanlan.zhihu.com/p/41209715)
 
 ## 一般过去时 (did; was/were)
 
@@ -246,7 +246,7 @@ Does 表示时间； eat 表示状态；这就是“时态”。
 
 时间助动词最主要的功能是表达“时间”的内涵、其次是“情态”内涵、“辅助状态”内涵。
 
-<https://zhuanlan.zhihu.com/p/41209715>
+[https://zhuanlan.zhihu.com/p/41209715](https://zhuanlan.zhihu.com/p/41209715)
 
 ## 状语
 
@@ -383,7 +383,7 @@ be 用于动词不定式或者放在情态动词，助动词后，如：to be ha
 
 状态型的谓语除了系动词外，还有一个重要的内容——表语。其实，状态型的谓语比动作型的谓语还要重要，所以，为了学好状态型的谓语，我们马上开始学习表语的内容。
 
-<https://zhuanlan.zhihu.com/p/22485164>
+[https://zhuanlan.zhihu.com/p/22485164](https://zhuanlan.zhihu.com/p/22485164)
 
 ## be 动词
 
@@ -589,7 +589,7 @@ I am books in my room.（×）
 
 由于系动词后可以跟名词或形容词，所以表语可以是名词或形容词。
 
-<https://www.zhihu.com/tardis/zm/art/27457921?source_id=1003>
+[https://www.zhihu.com/tardis/zm/art/27457921?source_id=1003](https://www.zhihu.com/tardis/zm/art/27457921?source_id=1003)
 
 ## 后置现象(postponement)
 

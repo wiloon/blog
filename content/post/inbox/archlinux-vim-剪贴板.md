@@ -20,7 +20,7 @@ sudo pacman -S gvim
 "+p
 ```
 
-<https://blog.csdn.net/dadoneo/article/details/6003415>
+[https://blog.csdn.net/dadoneo/article/details/6003415](https://blog.csdn.net/dadoneo/article/details/6003415)
 
 用vim这么久 了,始终也不知道怎么在vim中使用系统粘贴板,通常要在网上复制一段代码都是先gedit打开文件,中键粘贴后关闭,然后再用vim打开编辑,真的不爽；上次论坛上有人问到了怎么在vim中使用系统粘贴板,印象里回复很多,有好几页的回复却没有解决问题,今天实在受不了了又在网上找办法,竟意外地找到 了,贴出来分享一下。
 

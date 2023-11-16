@@ -36,12 +36,12 @@ sudo pacman -S virtualbox-guest-utils
 sudo systemctl --now enable vboxservice.service
 ```
 
-<https://wiki.archlinux.org/index.php/VirtualBox>
-<https://bbs.archlinux.org/viewtopic.php?id=118986>
+[https://wiki.archlinux.org/index.php/VirtualBox](https://wiki.archlinux.org/index.php/VirtualBox)
+[https://bbs.archlinux.org/viewtopic.php?id=118986](https://bbs.archlinux.org/viewtopic.php?id=118986)
 
 ---
 
-<https://www.virtualbox.org/wiki/Downloads>
+[https://www.virtualbox.org/wiki/Downloads](https://www.virtualbox.org/wiki/Downloads)
 
 VirtualBox 是一款开源 x86 虚拟机软件。Oracle VM VirtualBox 是由Sun Microsystems公司出品的软件，原由德国innotek公司开发，2008年Sun收购了Innotek，而Sun于2010年被Oracle收购，2010年1月21日改名成 Oracle VM VirtualBox。2007 年1月InnoTek 以 GNU General Public License (GPL) 释出 VirtualBox，并提供二进位版本及开放源码版本的代码。VirtualBox 可在 Linux 和 Windows 主机中运行，并支持在其中安装 Windows (NT 4.0、2000、XP、Server 2003、Vista)、DOS/Windows 3.x、Linux (2.4 和 2.6)、OpenBSD 等系列的客户操作系统。
 
@@ -67,7 +67,7 @@ VirtualBox提供了VBoxManager.exe用来转换格式。
 
 ## virtualbox STATUS_OBJECT_NAME_NOT_FOUND
 
-<https://forums.virtualbox.org/viewtopic.php?t=66442>
+[https://forums.virtualbox.org/viewtopic.php?t=66442](https://forums.virtualbox.org/viewtopic.php?t=66442)
 
 Went to the C:\Program Files\Oracle\VirtualBox\drivers\vboxdrv directory, right clicked on VBoxDrv.inf and selected Install. I then went back to my console and typed 'sc start vboxdrv' and got this:
 
@@ -93,7 +93,7 @@ FLAGS :
 
 ## virtualbox mount shard folder
 
-<https://wiki.archlinux.org/index.php/VirtualBox#Shared_Folders_as_Arch_Linux_Guest>
+[https://wiki.archlinux.org/index.php/VirtualBox#Shared_Folders_as_Arch_Linux_Guest](https://wiki.archlinux.org/index.php/VirtualBox#Shared_Folders_as_Arch_Linux_Guest)
 
 ```bash
   
@@ -118,7 +118,7 @@ sharedFolderName /path/to/mntPtOnGuestMachine vboxsf uid=user,gid=group,rw,dmode
 - auto-mount: 虚拟机启动之后自动挂载
 - mount point: 虚拟机里的挂载目录
 
-<http://blkstone.github.io/2016/08/05/virtualbox-shared-folder/>
+[http://blkstone.github.io/2016/08/05/virtualbox-shared-folder/](http://blkstone.github.io/2016/08/05/virtualbox-shared-folder/)
 
 ## virtualbox 磁盘扩容
 
@@ -128,6 +128,6 @@ sharedFolderName /path/to/mntPtOnGuestMachine vboxsf uid=user,gid=group,rw,dmode
 
 linux 虚拟机如果有图形界面的话, 可以用 gparted 做后续扩容操作
 
-<https://linux.cn/article-12869-1.html>
+[https://linux.cn/article-12869-1.html](https://linux.cn/article-12869-1.html)
 
-<https://wiki.archlinux.org/title/VirtualBox>
+[https://wiki.archlinux.org/title/VirtualBox](https://wiki.archlinux.org/title/VirtualBox)

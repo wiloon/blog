@@ -17,7 +17,7 @@ JSON(JavaScript Object Notation) 是一种轻量级的数据交换格式。 易�
 
 ### FastJson
 
-Fastjson是一个Java语言编写的JSON处理器,由阿里巴巴公司开发。网址: <https://github.com/alibaba/fastjson>
+Fastjson是一个Java语言编写的JSON处理器,由阿里巴巴公司开发。网址: [https://github.com/alibaba/fastjson](https://github.com/alibaba/fastjson)
 
 maven依赖配置:
 
@@ -53,7 +53,7 @@ VO vo = JSON.parseObject("...", VO.class);```
 
 ### Json-lib
 
-JSON-lib is a java library for transforming beans, maps, collections, java arrays and XML to JSON and back again to beans and DynaBeans. 官网: <http://json-lib.sourceforge.net/>
+JSON-lib is a java library for transforming beans, maps, collections, java arrays and XML to JSON and back again to beans and DynaBeans. 官网: [http://json-lib.sourceforge.net/](http://json-lib.sourceforge.net/)
 
 maven依赖配置:
 
@@ -121,7 +121,7 @@ return (T)JSONObject.toBean(JSONObject.fromObject(jsonStr), objClass);
 
 Gson is a Java library that can be used to convert Java Objects into their JSON representation. It can also be used to convert a JSON string to an equivalent Java object. Gson can work with arbitrary Java objects including pre-existing objects that you do not have source-code of.
 
-官网: <https://code.google.com/p/google-gson/>
+官网: [https://code.google.com/p/google-gson/](https://code.google.com/p/google-gson/)
 
 maven依赖:
 
@@ -183,7 +183,7 @@ return prettyJsonString;
 
 ### Jackson
 
-Jackson is a high-performance JSON processor (parser, generator)。官网: <http://jackson.codehaus.org/Home>
+Jackson is a high-performance JSON processor (parser, generator)。官网: [http://jackson.codehaus.org/Home](http://jackson.codehaus.org/Home)
 
 maven依赖:
 
@@ -681,6 +681,6 @@ FastJsonUtil.json2Bean(jsonStr, Person.class);
 
 复制代码
 
-参考: <http://www.json.org/json-zh.html>
+参考: [http://www.json.org/json-zh.html](http://www.json.org/json-zh.html)
 
-<http://www.oschina.net/code/snippet_1156226_26432>
+[http://www.oschina.net/code/snippet_1156226_26432](http://www.oschina.net/code/snippet_1156226_26432)

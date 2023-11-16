@@ -10,7 +10,7 @@ tags:
 ---
 ## extundelete linux 数据恢复
 
-<http://blog.51cto.com/ixdba/1566856>
+[http://blog.51cto.com/ixdba/1566856](http://blog.51cto.com/ixdba/1566856)
 
 Linux下高效数据恢复软件extundelete应用实战 推荐
   
@@ -44,7 +44,7 @@ Linux下高效数据恢复软件extundelete应用实战 推荐
 
 四、 安装extundelete
 
-extundelete的官方网站是<http://extundelete.sourceforge.net/> ,其目前的稳定版本是extundelete-0.2.4。,在安装extundelete之前需要安装e2fsprogs和e2fsprogs-libs两个依赖包。
+extundelete的官方网站是[http://extundelete.sourceforge.net/](http://extundelete.sourceforge.net/) ,其目前的稳定版本是extundelete-0.2.4。,在安装extundelete之前需要安装e2fsprogs和e2fsprogs-libs两个依赖包。
 
 e2fsprogs和e2fsprogs-libs安装非常简单,这里不做介绍。下面是extundelete的编译安装过程:
 

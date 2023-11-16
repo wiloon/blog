@@ -64,13 +64,13 @@ GB 1000*1000*1000,G 1024*1024*1024,以及T,P,E,Z,Y。
 tail 定期追踪打开给定名称的文件,以确认它是否被删除或被其它某些程序重新创建过。
 
 请向bug-coreutils@gnu.org 报告tail 的错误
-GNU coreutils 项目主页: <http://www.gnu.org/software/coreutils/>
-GNU 软件一般性帮助: <http://www.gnu.org/gethelp/>
-请向<http://translationproject.org/team/zh_CN.html> 报告tail 的翻译错误
+GNU coreutils 项目主页: [http://www.gnu.org/software/coreutils/](http://www.gnu.org/software/coreutils/)
+GNU 软件一般性帮助: [http://www.gnu.org/gethelp/](http://www.gnu.org/gethelp/)
+请向[http://translationproject.org/team/zh_CN.html](http://translationproject.org/team/zh_CN.html) 报告tail 的翻译错误
 要获取完整文档,请运行: info coreutils 'tail invocation'
 
 ---
 
-<https://www.qttc.net/311-linux-tail.html>
+[https://www.qttc.net/311-linux-tail.html](https://www.qttc.net/311-linux-tail.html)
 
-<https://blog.csdn.net/weixin_41585557/article/details/82724381>
+[https://blog.csdn.net/weixin_41585557/article/details/82724381](https://blog.csdn.net/weixin_41585557/article/details/82724381)

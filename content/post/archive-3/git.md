@@ -32,7 +32,7 @@ repo --> work: reset --mixed
 
 ### 工作区 (working tree)
 
-working tree, 2.9.1 之前被称作 Working Directory <https://stackoverflow.com/questions/39128500/working-tree-vs-working-directory>
+working tree, 2.9.1 之前被称作 Working Directory [https://stackoverflow.com/questions/39128500/working-tree-vs-working-directory](https://stackoverflow.com/questions/39128500/working-tree-vs-working-directory)
 
 也称工作区, 工作目录、工作副本  
 我们日常开发操作是在工作区中进行的。  
@@ -120,32 +120,32 @@ cat .git/HEAD
 你可以认为 HEAD(大写) 是"current branch"(当下的分支)。当你用 git checkout 切换分支的时候，HEAD revision 重新指向新的分支。有的时候 HEAD 会指向一个没有分支名字的修订版本，这种情况叫 `detached HEAD`
 head(小写) 是 commit 对象的引用，每个 head 都有一个名字 (分支名字或者标签名字等等），但是默认情况下，每个叫master 的 repository 都会有一个 head, 一个 repository 可以包含任意数量的 head。在任何时候，只要这个 head 被选择成为 `current head`，那么这个 head 就成了 HEAD, 总是大写
 
-<https://git-scm.com/book/zh>
+[https://git-scm.com/book/zh](https://git-scm.com/book/zh)
 
-<https://blog.csdn.net/taiyangdao/article/details/52761572>
+[https://blog.csdn.net/taiyangdao/article/details/52761572](https://blog.csdn.net/taiyangdao/article/details/52761572)
 
 作者： fandyst
-出处： <http://www.cnblogs.com/todototry/>
+出处： [http://www.cnblogs.com/todototry/](http://www.cnblogs.com/todototry/)
 本文版权归作者和博客园共有,欢迎转载,但未经作者同意必须保留此段声明,且在文章页面明显位置给出原文连接。
 
 作者：波罗学
-链接：<https://www.zhihu.com/question/38305012/answer/625881308>
+链接：[https://www.zhihu.com/question/38305012/answer/625881308](https://www.zhihu.com/question/38305012/answer/625881308)
 来源：知乎
 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
 
-<https://zhuanlan.zhihu.com/p/59591617>
+[https://zhuanlan.zhihu.com/p/59591617](https://zhuanlan.zhihu.com/p/59591617)
 
 作者：打我你肥十斤
-链接：<https://juejin.cn/post/6844903921794859021>
+链接：[https://juejin.cn/post/6844903921794859021](https://juejin.cn/post/6844903921794859021)
 来源：稀土掘金
 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
 
-<https://segmentfault.com/a/1190000039320926>
-<http://jartto.wang/2018/12/11/git-rebase/>
+[https://segmentfault.com/a/1190000039320926](https://segmentfault.com/a/1190000039320926)
+[http://jartto.wang/2018/12/11/git-rebase/](http://jartto.wang/2018/12/11/git-rebase/)
 
 作者：zuopf769
-链接：<https://juejin.cn/post/6844903493078089736>
+链接：[https://juejin.cn/post/6844903493078089736](https://juejin.cn/post/6844903493078089736)
 来源：稀土掘金
 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
 
-<https://www.zsythink.net/archives/3412>
+[https://www.zsythink.net/archives/3412](https://www.zsythink.net/archives/3412)

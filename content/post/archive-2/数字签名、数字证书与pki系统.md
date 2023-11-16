@@ -10,7 +10,7 @@ tags:
 ---
 ## 数字签名、数字证书与 PKI 系统
 
-<https://www.jianshu.com/p/ffe8c203a471>
+[https://www.jianshu.com/p/ffe8c203a471](https://www.jianshu.com/p/ffe8c203a471)
 
 摘要算法
   
@@ -32,7 +32,7 @@ Tips: 摘要算法不能算作加密算法,加密算法需要使用秘钥加解�
   
 数字证书如何确保列出的用户就是公钥的拥有者呢？关键点是 CA 的数字签名,CA会用自己的私钥将证书内容的摘要进行加密。因为 CA 的公钥是公开的,任何人都可以用公钥解密出 CA 的数字签名的摘要,再用同样的摘要算法提取出证书的摘要和解密 CA 数字签名后的摘要比对,一致则说明这个证书没有被篡改过,可以信任。
 
-<http://blog.wiloon.com/?p=3655>
+[http://blog.wiloon.com/?p=3655](http://blog.wiloon.com/?p=3655)
   
 PKI
   

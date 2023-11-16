@@ -20,4 +20,4 @@ ASM 是一个 Java 字节码操控框架。它能被用来动态生成类或者�
 
 动态生成 Java 类与 AOP 密切相关的。AOP 的初衷在于软件设计世界中存在这么一类代码，零散而又耦合: 零散是由于一些公有的功能 (诸如著名的 log 例子) 分散在所有模块之中；同时改变 log 功能又会影响到所有的模块。出现这样的缺陷，很大程度上是由于传统的 面向对象编程注重以继承关系为代表的"纵向"关系，而对于拥有相同功能或者说方面  (Aspect) 的模块之间的"横向"关系不能很好地表达。例如，目前有一个既有的银行管理系统，包括 Bank、Customer、Account、Invoice 等对象，现在要加入一个安全检查模块， 对已有类的所有操作之前都必须进行一次安全检查。
 
-<http://www.ibm.com/developerworks/cn/java/j-lo-asm30/>
+[http://www.ibm.com/developerworks/cn/java/j-lo-asm30/](http://www.ibm.com/developerworks/cn/java/j-lo-asm30/)

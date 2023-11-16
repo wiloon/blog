@@ -47,8 +47,8 @@ ls -lR|grep ^-|awk '{print $9}'|sort|uniq -d
 
 以上影响排序的选项如果结合 -r 选项一起使用，则按相反顺序排列
 
-<https://www.iteye.com/blog/wxl24life-2041310>
+[https://www.iteye.com/blog/wxl24life-2041310](https://www.iteye.com/blog/wxl24life-2041310)
 
 ## 通配符和正则表达式
 
-<https://www.cnblogs.com/lixuwu/p/7816335.html>
+[https://www.cnblogs.com/lixuwu/p/7816335.html](https://www.cnblogs.com/lixuwu/p/7816335.html)

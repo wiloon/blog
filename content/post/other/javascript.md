@@ -64,7 +64,7 @@ var ms=a.getMilliseconds()+ "- ";
   
 var mssss= getTime();
 
-<http://www.w3school.com.cn/js/jsref_obj_date.asp>
+[http://www.w3school.com.cn/js/jsref_obj_date.asp](http://www.w3school.com.cn/js/jsref_obj_date.asp)
 
 ### 日期计算
 
@@ -276,7 +276,7 @@ function getQueryVariable(variable){
 
 ### JS对url进行编码和解码
 
-<https://segmentfault.com/a/1190000013236956>
+[https://segmentfault.com/a/1190000013236956](https://segmentfault.com/a/1190000013236956)
 
 ```js
     escape(str0)
@@ -329,10 +329,10 @@ onmouseover: 当鼠标移动到某对象范围的上方时触发此事件
 ---
 
 作者: 大小伍
-链接: <https://www.jianshu.com/p/708c915fb905>
+链接: [https://www.jianshu.com/p/708c915fb905](https://www.jianshu.com/p/708c915fb905)
 来源: 简书
 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
 
 ————————————————
 版权声明: 本文为CSDN博主「请叫我大师兄__」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
-原文链接: <https://blog.csdn.net/qq_27093465/article/details/50731087>
+原文链接: [https://blog.csdn.net/qq_27093465/article/details/50731087](https://blog.csdn.net/qq_27093465/article/details/50731087)

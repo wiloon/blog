@@ -18,9 +18,9 @@ flutter doctor
 
 ```
 
-<https://flutter.dev/docs/get-started/install/linux>  
+[https://flutter.dev/docs/get-started/install/linux](https://flutter.dev/docs/get-started/install/linux)  
 
-<https://storage.googleapis.com/flutter_infra/releases/stable/linux/flutter_linux_2.0.5-stable.tar.xz>  
+[https://storage.googleapis.com/flutter_infra/releases/stable/linux/flutter_linux_2.0.5-stable.tar.xz](https://storage.googleapis.com/flutter_infra/releases/stable/linux/flutter_linux_2.0.5-stable.tar.xz)  
 
 ### export
 

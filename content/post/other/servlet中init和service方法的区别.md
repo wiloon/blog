@@ -89,4 +89,4 @@ com.neusoft.ehr.common.Log4jInit
 
 log4j-init-file /WEB-INF/classes/property/log4j.properties
 
-<http://hi.baidu.com/abo123456789/blog/item/f9d0721179fb9af0c2ce7936.html>
+[http://hi.baidu.com/abo123456789/blog/item/f9d0721179fb9af0c2ce7936.html](http://hi.baidu.com/abo123456789/blog/item/f9d0721179fb9af0c2ce7936.html)

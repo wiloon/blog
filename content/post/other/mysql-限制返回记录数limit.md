@@ -34,5 +34,5 @@ SELECT* FROM table LIMIT 5;     //检索前 5 个记录行
 
 ---
 
-<http://www.phpweblog.net/peiyinjin/archive/2008/04/15/3199.html>
+[http://www.phpweblog.net/peiyinjin/archive/2008/04/15/3199.html](http://www.phpweblog.net/peiyinjin/archive/2008/04/15/3199.html)
   

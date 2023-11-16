@@ -11,7 +11,7 @@ tags:
 ---
 ## PriorityQueue
 
-<http://java-er.com/blog/java-priority-queue/>
+[http://java-er.com/blog/java-priority-queue/](http://java-er.com/blog/java-priority-queue/)
 
 PriorityQueue 是个基于优先级堆的极大优先级队列。
 
@@ -171,4 +171,4 @@ PriorityQueue对元素采用的是堆排序，头是按指定排序方式的最�
   
 实例1的结果也正好与此相符
 
-<http://blog.csdn.net/hiphopmattshi/article/details/7334487>
+[http://blog.csdn.net/hiphopmattshi/article/details/7334487](http://blog.csdn.net/hiphopmattshi/article/details/7334487)

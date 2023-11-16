@@ -196,25 +196,25 @@ www.cnblogs.com
 可递归锁与非递归锁-hfm_honey-ChinaUnix博客
 ​
 blog.chinaunix.net
-<https://blog.csdn.net/qq_15437629/article/details/79116590>
+[https://blog.csdn.net/qq_15437629/article/details/79116590](https://blog.csdn.net/qq_15437629/article/details/79116590)
 ​
 blog.csdn.net
 
 ### 自旋锁  
-<http://www.wiloon.com/?p=10215>  
-<http://www.wiloon.com/?p=10215&embed=true#?secret=FazEXCjmAy>  
+[http://www.wiloon.com/?p=10215](http://www.wiloon.com/?p=10215)  
+[http://www.wiloon.com/?p=10215&embed=true#?secret=FazEXCjmAy](http://www.wiloon.com/?p=10215&embed=true#?secret=FazEXCjmAy)  
 
 ### 排队自旋锁
-<http://www.wiloon.com/?p=5496>  
-<http://www.wiloon.com/?p=5496&embed=true#?secret=dvWR0yOf3D>  
+[http://www.wiloon.com/?p=5496](http://www.wiloon.com/?p=5496)  
+[http://www.wiloon.com/?p=5496&embed=true#?secret=dvWR0yOf3D](http://www.wiloon.com/?p=5496&embed=true#?secret=dvWR0yOf3D)  
 
 ### MCS锁
-<http://wiloon.com/mcs>  
-<http://www.wiloon.com/?p=5493&embed=true#?secret=nvFCYYcuyH>  
+[http://wiloon.com/mcs](http://wiloon.com/mcs)  
+[http://www.wiloon.com/?p=5493&embed=true#?secret=nvFCYYcuyH](http://www.wiloon.com/?p=5493&embed=true#?secret=nvFCYYcuyH)  
 
 ### CLH锁
-<https://wiloon.com/clh>  
-<http://www.wiloon.com/?p=10307&embed=true#?secret=qftAW3eZtB>  
+[https://wiloon.com/clh](https://wiloon.com/clh)  
+[http://www.wiloon.com/?p=10307&embed=true#?secret=qftAW3eZtB](http://www.wiloon.com/?p=10307&embed=true#?secret=qftAW3eZtB)  
 
 ### mcs clh 差异
 
@@ -226,7 +226,7 @@ CLH锁释放时只需要改变自己的属性,MCS锁释放则需要改变后继�
 
 ---
 
-<https://coderbee.net/index.php/concurrent/20131115/577>  
-<https://zhuanlan.zhihu.com/p/88241719>  
-<https://coderbee.net/index.php/concurrent/20131115/577/embed#?secret=S6ykvE6LpW>  
-<https://www.zhihu.com/question/53303879>  
+[https://coderbee.net/index.php/concurrent/20131115/577](https://coderbee.net/index.php/concurrent/20131115/577)  
+[https://zhuanlan.zhihu.com/p/88241719](https://zhuanlan.zhihu.com/p/88241719)  
+[https://coderbee.net/index.php/concurrent/20131115/577/embed#?secret=S6ykvE6LpW](https://coderbee.net/index.php/concurrent/20131115/577/embed#?secret=S6ykvE6LpW)  
+[https://www.zhihu.com/question/53303879](https://www.zhihu.com/question/53303879)  

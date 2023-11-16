@@ -12,7 +12,7 @@ tags:
 ---
 ## Red-Black Tree, 红黑树, R-B Tree
 
-<https://github.com/julycoding/The-Art-Of-Programming-By-July/blob/master/ebook/zh/03.01.md>
+[https://github.com/julycoding/The-Art-Of-Programming-By-July/blob/master/ebook/zh/03.01.md](https://github.com/julycoding/The-Art-Of-Programming-By-July/blob/master/ebook/zh/03.01.md)
 
 二叉查找树
   
@@ -62,13 +62,13 @@ Answer 1:
 
 3. map的实现只是折衷了两者在search、insert以及delete下的效率。总体来说，RB-tree的统计性能是高于AVL的。
 作者: Acjx
-链接: <http://www.zhihu.com/question/20545708/answer/58717264>
+链接: [http://www.zhihu.com/question/20545708/answer/58717264](http://www.zhihu.com/question/20545708/answer/58717264)
 
 Answer 2  这个总结比较好:
 红黑树的 查询性能略微逊色于AVL树，因为他比avl树会稍微不平衡最多一层，也就是说红黑树的查询性能只比相同内容的avl树最多多一次比较，但是，红黑树在插入和删除上完爆avl树， avl树每次插入删除会进行大量的平衡度计算，而红黑树为了维持红黑性质所做的红黑变换和旋转的开销，相较于avl树为了维持平衡的 开销要小得多
 
 作者: 陈智超
-链接: <http://www.zhihu.com/question/43744788/answer/98258881>
+链接: [http://www.zhihu.com/question/43744788/answer/98258881](http://www.zhihu.com/question/43744788/answer/98258881)
 
 Answer 3 :
 功能、性能、空间开销的折中结果。
@@ -78,11 +78,11 @@ AVL更平衡，结构上更加直观，时间效能针对读取而言更高；�
 红黑树，读取略逊于AVL，维护强于AVL，空间开销与AVL类似，内容极多时略优于AVL，维护优于AVL。
 基本上主要的几种平衡树看来，红黑树有着良好的稳定性和完整的功能，性能表现也很不错，综合实力强，在诸如STL的场景中需要稳定表现。
 作者: Coldwings
-链接: <http://www.zhihu.com/question/20545708/answer/44370878>
+链接: [http://www.zhihu.com/question/20545708/answer/44370878](http://www.zhihu.com/question/20545708/answer/44370878)
 
 所以简单说，如果你的应用中，搜索的次数远远大于插入和删除，那么选择AVL，如果搜索，插入删除次数几乎差不多，应该选择RB。
 
-下面的文章来源: <http://blog.csdn.net/klarclm/article/details/7780319>
+下面的文章来源: [http://blog.csdn.net/klarclm/article/details/7780319](http://blog.csdn.net/klarclm/article/details/7780319)
 
 1 好处 及 用途
 
@@ -114,7 +114,7 @@ AVL树的定义:
 从1这点来看红黑树是牺牲了严格的高度平衡的优越条件为 代价红黑树能够以O(log2 n)的时间复杂度进行搜索、插入、删除操作。此外，由于它的设计，任何不平衡都会在三次旋转之内解决。当然，还有一些更好的，但实现起来更复杂的数据结构 能够做到一步旋转之内达到平衡，但红黑树能够给我们一个比较“便宜”的解决方案。红黑树的算法时间复杂度和AVL相同，但统计性能比AVL树更高.
 
 版权声明: 本文为CSDN博主「mmshixing」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
-原文链接: <https://blog.csdn.net/mmshixing/article/details/51692892>
+原文链接: [https://blog.csdn.net/mmshixing/article/details/51692892](https://blog.csdn.net/mmshixing/article/details/51692892)
 
 可以完全放到内存中时，红黑树的时间复杂度比B树低。
 
@@ -122,4 +122,4 @@ AVL树的定义:
 
 反之，数据量较大，外存中占主要部分时，B树因其读磁盘次数少，而具有更快的速度。
 
-><https://www.jianshu.com/p/e3506cee4010>
+>[https://www.jianshu.com/p/e3506cee4010](https://www.jianshu.com/p/e3506cee4010)

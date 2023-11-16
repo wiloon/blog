@@ -34,9 +34,9 @@ tags:
   
 除了iptables,NFTables还将替代ip6tables、arptables和ebtables。Linux内核的第一代包过滤机制是ipfwadm (1.2.1内核,1995年) ,之后是ipchains (1999年) ,iptables、Nftables是第四代。
 
-<http://luxiaok.blog.51cto.com/2177896/1312846>
+[http://luxiaok.blog.51cto.com/2177896/1312846](http://luxiaok.blog.51cto.com/2177896/1312846)
 
-<http://segmentfault.com/a/1190000000410970>
+[http://segmentfault.com/a/1190000000410970](http://segmentfault.com/a/1190000000410970)
 
 Linux 3.13 带来了很多特性。nftables也是第一次正式发布。nftables是一个致力于替换现有的{ip,ip6,arp,eb}tables框架 (也就是大家熟知的iptables) 的项目。然而,Linux3.13中的nftables版本还是不完整的,还缺少一些重要的特性。这些特性会在后续的Linux版本中发布。大多数场景下nftables已经可以使用,但是完整的支持 (即,nftables优先级高于iptables) 应该在Linux 3.15。
 

@@ -12,9 +12,9 @@ tags:
 ---
 ## 将应用部署到Tomcat根目录的方法
 
-<http://rongjih.blog.163.com/blog/static/335744612011426103345778/>
+[http://rongjih.blog.163.com/blog/static/335744612011426103345778/](http://rongjih.blog.163.com/blog/static/335744612011426103345778/)
 
-将应用部署到Tomcat根目录的目的是可以通过"<http://[ip>]:[port]"直接访问应用,而不是使用"<http://[ip>]:[port]/[appName]"上下文路径进行访问。
+将应用部署到Tomcat根目录的目的是可以通过"<http://[ip>]:[port]"直接访问应用,而不是使用"[http://[ip](http://[ip)]:[port]/[appName]"上下文路径进行访问。
 
   方法一:  (最简单直接的方法)
 

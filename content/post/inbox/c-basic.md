@@ -186,11 +186,11 @@ TIME 包含当前时间的字符串
 编译一般分为四步：预处理 (Preprocess）、编译 (Compile）、汇编 (Assembly）和链接 (Link）。
 ,
 
-<https://wangdoc.com/clang/>  
-<https://github.com/wangdoc/clang-tutorial>  
-<http://world77.blog.51cto.com/414605/328263>
-<https://www.cnblogs.com/clover-toeic/p/3851102.html>  
-<http://c.biancheng.net/view/443.html>  
-<https://blog.csdn.net/chosen0ne/article/details/7210946>  
-<https://ubuntuqa.com/article/1513.html>  
-<http://c.biancheng.net/cpp/html/345.html>  
+[https://wangdoc.com/clang/](https://wangdoc.com/clang/)  
+[https://github.com/wangdoc/clang-tutorial](https://github.com/wangdoc/clang-tutorial)  
+[http://world77.blog.51cto.com/414605/328263](http://world77.blog.51cto.com/414605/328263)
+[https://www.cnblogs.com/clover-toeic/p/3851102.html](https://www.cnblogs.com/clover-toeic/p/3851102.html)  
+[http://c.biancheng.net/view/443.html](http://c.biancheng.net/view/443.html)  
+[https://blog.csdn.net/chosen0ne/article/details/7210946](https://blog.csdn.net/chosen0ne/article/details/7210946)  
+[https://ubuntuqa.com/article/1513.html](https://ubuntuqa.com/article/1513.html)  
+[http://c.biancheng.net/cpp/html/345.html](http://c.biancheng.net/cpp/html/345.html)  

@@ -67,7 +67,7 @@ pacman -U /var/cache/pacman/pkg/gvim-8.2.4106-1-x86_64.pkg.tar.zst
 
 ## downgrade 降级软件包
 
-去 archive 时手动下载 <https://archive.archlinux.org/packages/>, 然后 pacman -U 安装
+去 archive 时手动下载 [https://archive.archlinux.org/packages/](https://archive.archlinux.org/packages/), 然后 pacman -U 安装
 
 ### archlinux downgrade, 回退软件包到某一天
 
@@ -98,7 +98,7 @@ pacman-key gpg 数据库有关。这个数据库包含所有必要的PGP公钥�
 error: unzip: signature from "Jonas Witschel <diabonas@gmx.de>" is unknown trust
 :: File /var/cache/pacman/pkg/unzip-6.0-16-x86_64.pkg.tar.zst is corrupted (invalid or corrupted package (PGP signature)).
 
-<https://bbs.archlinux.org/viewtopic.php?id=128682>
+[https://bbs.archlinux.org/viewtopic.php?id=128682](https://bbs.archlinux.org/viewtopic.php?id=128682)
 
 - (invalid or corrupted package (PGP signature)), signature from xxx is unknown trust
 - error: signature from xxx is invalid
@@ -367,7 +367,7 @@ pacman -U /path/to/package/package_name-version.pkg.tar.gz
   
 安装一个'远程'包 (不从源里) :
   
-pacman -U <http://url/package_name-version.pkg.tar.gz>
+pacman -U [http://url/package_name-version.pkg.tar.gz](http://url/package_name-version.pkg.tar.gz)
   
 清理当前未被安装软件包的缓存(/var/cache/pacman/pkg):
   
@@ -424,9 +424,9 @@ ArchLinux 的版本库里面包括:
   
 在/etc/pacman.d目录里面分别有上面几种软件类型对应的文件名，可以自己手工配置这些软件源的地址。
 
-<http://jsome.net/blog/2010/01/18/tips-for-pacman>
+[http://jsome.net/blog/2010/01/18/tips-for-pacman](http://jsome.net/blog/2010/01/18/tips-for-pacman)
   
-<http://blog.chinaunix.net/uid-20728322-id-2454942.html>
+[http://blog.chinaunix.net/uid-20728322-id-2454942.html](http://blog.chinaunix.net/uid-20728322-id-2454942.html)
 
 ### pacman, installing foo breaks dependency 'bar' required by xxx
 

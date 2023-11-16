@@ -144,4 +144,4 @@ Commands: Change the state of a system but do not return a value.
 
     关于接口设计,还有 Fluent Interface,这种有趣的接口设计风格
   
-<https://www.raychase.net/263/embed#?secret=yAm220vjxR>
+[https://www.raychase.net/263/embed#?secret=yAm220vjxR](https://www.raychase.net/263/embed#?secret=yAm220vjxR)

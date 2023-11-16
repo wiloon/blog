@@ -16,7 +16,7 @@ HTTP Header中的ETag
 
 目录[?](+)
 
-原文参考百度百科: <http://baike.baidu.com/view/3039264.htm>
+原文参考百度百科: [http://baike.baidu.com/view/3039264.htm](http://baike.baidu.com/view/3039264.htm)
 
 概念
   

@@ -75,7 +75,7 @@ ls -l /proc/975/fd/79
 
 TCP 连接的创建时间: Oct  8 10:40
 
-<https://blog.csdn.net/stpeace/article/details/104651624>
+[https://blog.csdn.net/stpeace/article/details/104651624](https://blog.csdn.net/stpeace/article/details/104651624)
 
 ## lsof 输出的字段
 
@@ -461,5 +461,5 @@ lsof -i 4 -a -p 1234
 
 lsof -i @peida.linux:20,21,22,25,53,80 -r 3
 
-<http://www.cnblogs.com/peida/archive/2013/02/26/2932972.html>  
-<https://commandnotfound.cn/linux/1/194/lsof-%E5%91%BD%E4%BB%A4>  
+[http://www.cnblogs.com/peida/archive/2013/02/26/2932972.html](http://www.cnblogs.com/peida/archive/2013/02/26/2932972.html)  
+[https://commandnotfound.cn/linux/1/194/lsof-%E5%91%BD%E4%BB%A4](https://commandnotfound.cn/linux/1/194/lsof-%E5%91%BD%E4%BB%A4)  

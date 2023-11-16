@@ -217,20 +217,20 @@ constants,常量
 - 部分统计信息是估算的,并非精确值
 - EXPALIN只能解释SELECT操作,其他操作要重写为SELECT后查看执行计划。
 
-<https://www.cnblogs.com/xiaoboluo768/p/5400990.html>
+[https://www.cnblogs.com/xiaoboluo768/p/5400990.html](https://www.cnblogs.com/xiaoboluo768/p/5400990.html)
   
-<http://dev.MySQL.com/doc/refman/5.5/en/explain-output.html>
+[http://dev.MySQL.com/doc/refman/5.5/en/explain-output.html](http://dev.MySQL.com/doc/refman/5.5/en/explain-output.html)
   
-<http://www.cnitblog.com/aliyiyi08/archive/2008/09/09/48878.html>
+[http://www.cnitblog.com/aliyiyi08/archive/2008/09/09/48878.html](http://www.cnitblog.com/aliyiyi08/archive/2008/09/09/48878.html)
   
-<http://www.cnblogs.com/goMySQL/p/3720123.html>
+[http://www.cnblogs.com/goMySQL/p/3720123.html](http://www.cnblogs.com/goMySQL/p/3720123.html)
   
-<http://www.cnblogs.com/xuanzhi201111>
+[http://www.cnblogs.com/xuanzhi201111](http://www.cnblogs.com/xuanzhi201111)
   
-<https://dev.MySQL.com/doc/refman/5.7/en/explain-output.html>
+[https://dev.MySQL.com/doc/refman/5.7/en/explain-output.html](https://dev.MySQL.com/doc/refman/5.7/en/explain-output.html)
   
-<http://www.cnblogs.com/xuanzhi201111/p/4175635.html>
+[http://www.cnblogs.com/xuanzhi201111/p/4175635.html](http://www.cnblogs.com/xuanzhi201111/p/4175635.html)
   
-<https://dev.MySQL.com/doc/refman/5.5/en/explain-output.html>
+[https://dev.MySQL.com/doc/refman/5.5/en/explain-output.html](https://dev.MySQL.com/doc/refman/5.5/en/explain-output.html)
   
-<https://tech.meituan.com/MySQL-index.html>
+[https://tech.meituan.com/MySQL-index.html](https://tech.meituan.com/MySQL-index.html)

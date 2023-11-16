@@ -10,9 +10,9 @@ tags:
 
 ---
 ## Linux /etc/init.d /etc/rc.local
-<http://blog.csdn.net/acs713/article/details/7322082>
+[http://blog.csdn.net/acs713/article/details/7322082](http://blog.csdn.net/acs713/article/details/7322082)
 
-本文英语版本来自: <http://www.ghacks.net/2009/04/04/get-to-know-linux-the-etcinitd-directory/>
+本文英语版本来自: [http://www.ghacks.net/2009/04/04/get-to-know-linux-the-etcinitd-directory/](http://www.ghacks.net/2009/04/04/get-to-know-linux-the-etcinitd-directory/)
 
 以下内容是作者自己的翻译版本，如需转载到CSDN外其他网站，请注明本文链接。
 

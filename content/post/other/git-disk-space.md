@@ -18,7 +18,7 @@ git pull时会由于引用对象过多会报错,导致本地代码无法更新;
 在切换分支的时候经常会出现cpu占满,内存占满的情况导致电脑死机;
 
 作者：江霖丶
-链接：<https://juejin.cn/post/7024922528514572302>
+链接：[https://juejin.cn/post/7024922528514572302](https://juejin.cn/post/7024922528514572302)
 来源：稀土掘金
 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
 
@@ -50,7 +50,7 @@ done
 
 #
 
-# @see <http://stubbisms.wordpress.com/2009/07/10/git-script-to-show-largest-pack-objects-and-trim-your-waist-line/>
+# @see [http://stubbisms.wordpress.com/2009/07/10/git-script-to-show-largest-pack-objects-and-trim-your-waist-line/](http://stubbisms.wordpress.com/2009/07/10/git-script-to-show-largest-pack-objects-and-trim-your-waist-line/)
 
 # @author Antony Stubbs
 
@@ -104,9 +104,9 @@ $ git push origin --force --tags
 操作前一定做好备份，告知所有成员，优化完成后需要重新clone代码.
 
 文中的脚本和命令参考了下面的文章:
-<http://stevelorek.com/how-to-shrink-a-git-repository.html>
+[http://stevelorek.com/how-to-shrink-a-git-repository.html](http://stevelorek.com/how-to-shrink-a-git-repository.html)
 
 作者：真徐小白
-链接：<https://www.jianshu.com/p/28a6d82b2085>
+链接：[https://www.jianshu.com/p/28a6d82b2085](https://www.jianshu.com/p/28a6d82b2085)
 来源：简书
 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。

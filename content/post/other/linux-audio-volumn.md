@@ -34,11 +34,11 @@ alsamixer
 amixer -c 0 sset 'Master',0 100%,100% unmute
 ```
 
-<http://blog.csdn.net/weed_hz/article/details/9226055>
+[http://blog.csdn.net/weed_hz/article/details/9226055](http://blog.csdn.net/weed_hz/article/details/9226055)
 
 ### ALSA
 
-<https://segmentfault.com/a/1190000002918394>
+[https://segmentfault.com/a/1190000002918394](https://segmentfault.com/a/1190000002918394)
 
 高级 Linux 声音体系 (Advanced Linux Sound Architecture，ALSA）是Linux中提供声音设备驱动的内核组件，用来代替原来的开放声音系统 (Open Sound System，OSSv3）。除了声音设备驱动，ALSA还包含一个用户空间的函数库，以方便开发者通过高级API使用驱动功能，而不必直接与内核驱动交互。
 Arch 默认的内核已经通过一套模块提供了 ALSA，不必特别安装。

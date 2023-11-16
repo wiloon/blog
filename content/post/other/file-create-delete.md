@@ -15,7 +15,7 @@ tags:
 
 ## 文件存储和删除的过程
 
-<https://blog.csdn.net/MyySophia/article/details/107696414>
+[https://blog.csdn.net/MyySophia/article/details/107696414](https://blog.csdn.net/MyySophia/article/details/107696414)
 
 ## 创建文件 /tmp/a.txt
 
@@ -33,4 +33,4 @@ tags:
 
 考虑一种情况，当一个文件被删除时，但此时还有进程在使用这个文件，这时是怎样的情况呢？外界是看不到也找不到这个文件的，所以删除的过程已经进行到了第 3 步。但进程还在使用这个文件的数据，也能找到这个文件的数据，是因为进程在加载这个文件的时候就已经获取到了该文件占用哪些 data block，虽然删除了文件，但 bmap 中这些 data block 还没有标记为未使用。
 
-<https://zhuanlan.zhihu.com/p/110943226>
+[https://zhuanlan.zhihu.com/p/110943226](https://zhuanlan.zhihu.com/p/110943226)

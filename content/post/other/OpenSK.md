@@ -20,4 +20,4 @@ Google 完全开源了其安全密钥项目 OpenSK，该实现支持 FIDO U2F �
 nRF52840 MDK USB Dongle（裸板或外壳版都行，可自行在淘宝选购）
 最新版 Google Chome 浏览器（38+）或 Firefox 浏览器
 
-<https://zhuanlan.zhihu.com/p/109631580>
+[https://zhuanlan.zhihu.com/p/109631580](https://zhuanlan.zhihu.com/p/109631580)

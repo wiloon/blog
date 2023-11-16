@@ -15,7 +15,7 @@ tags:
 对于磁盘来说一个完整的IO操作是这样进行的：当控制器对磁盘发出一个IO操作命令的时候，磁盘的驱动臂(Actuator Arm)带读写磁头(Head)离开着陆区(Landing Zone，位于内圈没有数据的区域)，移动到要操作的初始数据块所在的磁道(Track)的正上方，这个过程被称为寻址(Seeking)，对应消耗的时间被称为寻址时间(Seek Time);但是找到对应磁道还不能马上读取数据，这时候磁头要等到磁盘盘片(Platter)旋转到初始数据块所在的扇区(Sector)落在读写磁头正上方的之后才能开始读取数据，在这个等待盘片旋转到可操作扇区的过程中消耗的时间称为旋转延时(Rotational Delay);接下来就随着盘片的旋转，磁头不断的读/写相应的数据块，直到完成这次IO所需要操作的全部数据，这个过程称为数据传送(Data Transfer)，对应的时间称为传送时间(Transfer Time)。完成这三个步骤之后一次IO操作也就完成了。
 ————————————————
 版权声明：本文为CSDN博主「人工智」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
-原文链接：<https://blog.csdn.net/qq_35789269/article/details/117536357>
+原文链接：[https://blog.csdn.net/qq_35789269/article/details/117536357](https://blog.csdn.net/qq_35789269/article/details/117536357)
 
 ## HDD机械磁盘的性能标准
 
@@ -41,11 +41,11 @@ IOPS = 1000 ms/ (寻道时间 + 旋转延迟)。可以忽略数据传输时间�
 -----------------------------------
 ©著作权归作者所有：来自51CTO博客作者Darren_Wen的原创作品，请联系作者获取转载授权，否则将追究法律责任
 HDD机械磁盘的性能标准
-<https://blog.51cto.com/wendashuai/2852767>
+[https://blog.51cto.com/wendashuai/2852767](https://blog.51cto.com/wendashuai/2852767)
 
 ### 磁道 (Track)
 
-<https://blog.csdn.net/badbad_boy/article/details/4313645>
+[https://blog.csdn.net/badbad_boy/article/details/4313645](https://blog.csdn.net/badbad_boy/article/details/4313645)
 
 以前见到的很多磁道的示意图都是这样的: 注意标线的位置,"指向一条线",我当时的理解好像是这条线就是磁道。还有的解释是说磁道就是一个"同心圆"的集合
 
@@ -105,6 +105,6 @@ IOPS (Input/Output Per Second) 即每秒的输入输出量 (或读写次数) ,�
 由于扇区的空间比较小且数目众多，在寻址时比较困难，所以操作系统就将多个的扇区组合在一起，形成一个更大的单位，再对这个单位进行整体的操作。这个单位，在Windows下，FAT，FAT32和NTFS 文件系统中叫做簇（cluster）；在Linux下如Ext4等文件系统中叫做块（block）。每个簇或者块可以包括2、4、8、16、32、64…2的n次方个扇区。
 ————————————————
 版权声明：本文为CSDN博主「晚安丶」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
-原文链接：<https://blog.csdn.net/william_munch/article/details/84347788>
+原文链接：[https://blog.csdn.net/william_munch/article/details/84347788](https://blog.csdn.net/william_munch/article/details/84347788)
 
-<https://www.cnblogs.com/liwei0526vip/p/4998614.html>
+[https://www.cnblogs.com/liwei0526vip/p/4998614.html](https://www.cnblogs.com/liwei0526vip/p/4998614.html)

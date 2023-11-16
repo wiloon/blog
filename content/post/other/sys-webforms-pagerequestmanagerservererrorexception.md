@@ -51,7 +51,7 @@ Sys.WebForms.PageRequestManagerServerErrorException: An unknown error occurred w
 
 在web.config中的<system.web>下增加如下节点,即可解决
   
-<httpRuntime maxRequestLength="8192" />
+[httpRuntime maxRequestLength="8192" /](httpRuntime maxRequestLength="8192" /)
   
 ys.WebForms.PageRequestManagerServerErrorException: An unknown error occurred while processing the request on the server. The status code returned from the server was : 12019
   
@@ -61,11 +61,11 @@ The requested operation cannot be carried out because the
   
 handle supplied is not in the correct state.
 
-Please refer to this: <http://support.microsoft.com/kb/193625>
+Please refer to this: [http://support.microsoft.com/kb/193625](http://support.microsoft.com/kb/193625)
   
 这里有这个问题的论坛
   
-<http://forums.asp.net/p/1126173/2746307.aspx> <http://forums.asp.net/t/1123365.aspx>
+<http://forums.asp.net/p/1126173/2746307.aspx> [http://forums.asp.net/t/1123365.aspx](http://forums.asp.net/t/1123365.aspx)
   
 三、
   

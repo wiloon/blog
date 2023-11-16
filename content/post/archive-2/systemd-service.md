@@ -56,7 +56,7 @@ WantedBy=multi-user.target
 
 ```
 
-<https://xie.infoq.cn/article/2de71d4489a44ae58b6cef4d0>
+[https://xie.infoq.cn/article/2de71d4489a44ae58b6cef4d0](https://xie.infoq.cn/article/2de71d4489a44ae58b6cef4d0)
 
 ### ExecStart 命令行参数
 
@@ -92,7 +92,7 @@ After=pulseaudio.service
 
 >注 脚本里的命令也必须是写绝对路径！！！！！！！！！！！！！！！
 
-<http://lxiaogao.lofter.com/post/1cc6a101_62292d3>
+[http://lxiaogao.lofter.com/post/1cc6a101_62292d3](http://lxiaogao.lofter.com/post/1cc6a101_62292d3)
 
 ### 执行shell脚本
 
@@ -250,7 +250,7 @@ snapshot : 与 targetunit 相似,快照本身不做什么,唯一的目的就是�
 - ConditionPathIsDirectory, AssertPathIsDirectory    如上，路径存在且是目录时启动。
 
 作者: 骏马金龙
-链接: <https://www.junmajinlong.com/linux/systemd/service_1/>
+链接: [https://www.junmajinlong.com/linux/systemd/service_1/](https://www.junmajinlong.com/linux/systemd/service_1/)
 来源: 骏马金龙
 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
 
@@ -422,14 +422,14 @@ systemctl enable my-demo.service
 
 至此服务已经创建完成。重新启动系统,会发现/tmp/date文件已经生成,服务在开机时启动成功。当然本例当中的test.sh文件可以换成任意的可执行文件作为服务的主体,这样就可以实现各种各样的功能。
 
-<http://www.jinbuguo.com/systemd/systemd.service.html>
+[http://www.jinbuguo.com/systemd/systemd.service.html](http://www.jinbuguo.com/systemd/systemd.service.html)
   
-<https://blog.csdn.net/fu_wayne/article/details/38018825>
+[https://blog.csdn.net/fu_wayne/article/details/38018825](https://blog.csdn.net/fu_wayne/article/details/38018825)
 
 systemctl开机启动zookeeper
   
-<https://www.pocketdigi.com/20180131/1593.html/embed#?secret=rpemgAP8dW>
-><https://www.junmajinlong.com/linux/systemd/service_2/>
+[https://www.pocketdigi.com/20180131/1593.html/embed#?secret=rpemgAP8dW](https://www.pocketdigi.com/20180131/1593.html/embed#?secret=rpemgAP8dW)
+>[https://www.junmajinlong.com/linux/systemd/service_2/](https://www.junmajinlong.com/linux/systemd/service_2/)
 
 ```bash
 #!/bin/sh

@@ -87,10 +87,10 @@ WeakHashMap类，这个类和哈希表HashMap几乎一样，但就是在键 key�
 
 ---
 
-<http://blog.csdn.net/matthewei6/article/details/12839327>
+[http://blog.csdn.net/matthewei6/article/details/12839327](http://blog.csdn.net/matthewei6/article/details/12839327)
 
-<http://speed847.iteye.com/blog/374006>
+[http://speed847.iteye.com/blog/374006](http://speed847.iteye.com/blog/374006)
 
-<http://droidyue.com/blog/2014/10/12/understanding-weakreference-in-java/>
+[http://droidyue.com/blog/2014/10/12/understanding-weakreference-in-java/](http://droidyue.com/blog/2014/10/12/understanding-weakreference-in-java/)
   
-<http://blog.csdn.net/mxbhxx/article/details/9111711>
+[http://blog.csdn.net/mxbhxx/article/details/9111711](http://blog.csdn.net/mxbhxx/article/details/9111711)

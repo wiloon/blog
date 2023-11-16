@@ -36,7 +36,7 @@ Linux进程类别
 
 内核中没有进程的概念  
 不存在的概念, 内核空间的进程共享内核空间的内存, 没有独立的地址空间, 不能算是进程, 所以没有内核进程这个概念.
-<https://www.coder.work/article/6802420>
+[https://www.coder.work/article/6802420](https://www.coder.work/article/6802420)
 
 内核中没有进程的概念，所以你的问题没有意义。 Linux 内核可以并且确实创建了完全在内核上下文中运行的线程，但是所有这些线程都运行在相同的地址空间中。尽管相关线程通常具有相关名称，但没有按 PID 对类似线程进行分组。
 
@@ -395,7 +395,7 @@ if (clone_flags & CLONE_VM) {
 mem = mmap (NULL, size, prot,
             MAP_PRIVATE | MAP_ANONYMOUS | MAP_STACK, -1, 0);
 由于线程的 mm->start_stack 栈地址和所属进程相同，所以线程栈的起始地址并没有存放在 task_struct 中，应该是使用 pthread_attr_t 中的 stackaddr 来初始化 task_struct->thread->sp (sp 指向 struct pt_regs 对象，该结构体用于保存用户进程或者线程的寄存器现场）。这些都不重要，重要的是，线程栈不能动态增长，一旦用尽就没了，这是和生成进程的 fork 不同的地方。由于线程栈是从进程的地址空间中 map 出来的一块内存区域，原则上是线程私有的。但是同一个进程的所有线程生成的时候浅拷贝生成者的 task_struct 的很多字段，其中包括所有的 vma，如果愿意，其它线程也还是可以访问到的，于是一定要注意
-><https://zhuanlan.zhihu.com/p/188577062>
+>[https://zhuanlan.zhihu.com/p/188577062](https://zhuanlan.zhihu.com/p/188577062)
 
 ### 用户线程
 
@@ -571,7 +571,7 @@ PTHREAD_SCOPE_SYSTEM和PTHREAD_SCOPE_PROCESS，前者表示与系统中所有线
 用户级线程的程序实体是运行在用户态下的程序，而内核支持线程的程序实体则是可以运行在任何状态下的程序。
 ————————————————
 版权声明: 本文为CSDN博主「CHENG Jian」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
-原文链接: <https://blog.csdn.net/gatieme/article/details/51892437>
+原文链接: [https://blog.csdn.net/gatieme/article/details/51892437](https://blog.csdn.net/gatieme/article/details/51892437)
 
 ---
 
@@ -676,7 +676,7 @@ Linux使用task_struct来描述进程和线程
 
 #### Linux进程地址空间 && 进程内存布局
 
-<https://blog.csdn.net/yusiguyuan/article/details/45155035>  
+[https://blog.csdn.net/yusiguyuan/article/details/45155035](https://blog.csdn.net/yusiguyuan/article/details/45155035)  
 
 程序段(文本段)(Text): 程序代码在内存中的映射，存放函数体的二进制代码。
 
@@ -825,11 +825,11 @@ C语言程序实例分析如下所示:
 
 参考资料:
 
-<http://blog.csdn.net/f22jay/article/details/7925531>
+[http://blog.csdn.net/f22jay/article/details/7925531](http://blog.csdn.net/f22jay/article/details/7925531)
 
-<http://blog.csdn.net/zhangskd/article/details/6956638>
+[http://blog.csdn.net/zhangskd/article/details/6956638](http://blog.csdn.net/zhangskd/article/details/6956638)
 
-<http://blog.chinaunix.net/uid-26838492-id-3162146.html>
+[http://blog.chinaunix.net/uid-26838492-id-3162146.html](http://blog.chinaunix.net/uid-26838492-id-3162146.html)
 
 ### 进程上下文与中断上下文
 
@@ -1107,40 +1107,40 @@ Linux虚拟地址空间布局
 
 ---
 
-<http://www.cnblogs.com/hustcat/articles/1505618.html>  
-<http://mprc.pku.edu.cn/~zhengyansong/blog/?p=199>  
-<http://blog.chinaunix.net/uid-26980210-id-3235544.html>
-<https://coolshell.cn/articles/10249.html>  
-<https://www.zhihu.com/question/27844575/answer/38370294>  
-<http://laoar.net/blogs/250/>
-<http://blog.csdn.net/daniel_ice/article/details/8146003>  
-<http://blog.csdn.net/yjzl1911/article/details/5629537>
-<http://www.pandademo.com/2015/10/linux-process-and-thread-stack-size/>  
-<http://www.pandademo.com/2015/10/linux-process-and-thread-stack-size/embed/#?secret=iaqm21dSlH>  
-<https://www.zhihu.com/question/27844575>  
-<https://coolshell.cn/articles/4626.html>  
-<https://cloud.tencent.com/developer/article/1339562>
-<https://blog.csdn.net/gatieme/article/details/51481863>
-<https://blog.csdn.net/gatieme/article/details/51892437>
-<https://blog.csdn.net/yusiguyuan/article/details/45155035>  
-<https://www.cnblogs.com/Anker/p/3269106.html>  
-<https://blog.csdn.net/gatieme/article/details/51482122>  
+[http://www.cnblogs.com/hustcat/articles/1505618.html](http://www.cnblogs.com/hustcat/articles/1505618.html)  
+[http://mprc.pku.edu.cn/~zhengyansong/blog/?p=199](http://mprc.pku.edu.cn/~zhengyansong/blog/?p=199)  
+[http://blog.chinaunix.net/uid-26980210-id-3235544.html](http://blog.chinaunix.net/uid-26980210-id-3235544.html)
+[https://coolshell.cn/articles/10249.html](https://coolshell.cn/articles/10249.html)  
+[https://www.zhihu.com/question/27844575/answer/38370294](https://www.zhihu.com/question/27844575/answer/38370294)  
+[http://laoar.net/blogs/250/](http://laoar.net/blogs/250/)
+[http://blog.csdn.net/daniel_ice/article/details/8146003](http://blog.csdn.net/daniel_ice/article/details/8146003)  
+[http://blog.csdn.net/yjzl1911/article/details/5629537](http://blog.csdn.net/yjzl1911/article/details/5629537)
+[http://www.pandademo.com/2015/10/linux-process-and-thread-stack-size/](http://www.pandademo.com/2015/10/linux-process-and-thread-stack-size/)  
+[http://www.pandademo.com/2015/10/linux-process-and-thread-stack-size/embed/#?secret=iaqm21dSlH](http://www.pandademo.com/2015/10/linux-process-and-thread-stack-size/embed/#?secret=iaqm21dSlH)  
+[https://www.zhihu.com/question/27844575](https://www.zhihu.com/question/27844575)  
+[https://coolshell.cn/articles/4626.html](https://coolshell.cn/articles/4626.html)  
+[https://cloud.tencent.com/developer/article/1339562](https://cloud.tencent.com/developer/article/1339562)
+[https://blog.csdn.net/gatieme/article/details/51481863](https://blog.csdn.net/gatieme/article/details/51481863)
+[https://blog.csdn.net/gatieme/article/details/51892437](https://blog.csdn.net/gatieme/article/details/51892437)
+[https://blog.csdn.net/yusiguyuan/article/details/45155035](https://blog.csdn.net/yusiguyuan/article/details/45155035)  
+[https://www.cnblogs.com/Anker/p/3269106.html](https://www.cnblogs.com/Anker/p/3269106.html)  
+[https://blog.csdn.net/gatieme/article/details/51482122](https://blog.csdn.net/gatieme/article/details/51482122)  
 
 ————————————————
 版权声明: 本文为CSDN博主「mm_hh」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
-原文链接: <https://blog.csdn.net/mm_hh/article/details/72587207>
+原文链接: [https://blog.csdn.net/mm_hh/article/details/72587207](https://blog.csdn.net/mm_hh/article/details/72587207)
 
-<http://abcdxyzk.github.io/blog/2018/01/10/kernel-task-thread/>
+[http://abcdxyzk.github.io/blog/2018/01/10/kernel-task-thread/](http://abcdxyzk.github.io/blog/2018/01/10/kernel-task-thread/)
 
 ————————————————
 版权声明: 本文为CSDN博主「相望@于江湖」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
-原文链接: <https://blog.csdn.net/weixin_39035140/article/details/84848874>
+原文链接: [https://blog.csdn.net/weixin_39035140/article/details/84848874](https://blog.csdn.net/weixin_39035140/article/details/84848874)
 
-><https://codeantenna.com/a/YUG3w6OpFY>
+>[https://codeantenna.com/a/YUG3w6OpFY](https://codeantenna.com/a/YUG3w6OpFY)
 
 作者: in nek
   
-链接: <https://www.zhihu.com/question/40147261/answer/84963238>
+链接: [https://www.zhihu.com/question/40147261/answer/84963238](https://www.zhihu.com/question/40147261/answer/84963238)
   
 来源: 知乎
   
@@ -1148,12 +1148,12 @@ Linux虚拟地址空间布局
 
 进程的创建涉及到系统调用,内存管理,文件管理等系统的主要方面
 
-<https://zhidao.baidu.com/question/73715555.html>
-><https://zhuanlan.zhihu.com/p/66794639>
+[https://zhidao.baidu.com/question/73715555.html](https://zhidao.baidu.com/question/73715555.html)
+>[https://zhuanlan.zhihu.com/p/66794639](https://zhuanlan.zhihu.com/p/66794639)
 
 数据段、代码段、堆栈段、BSS段的区别
-<https://blog.51cto.com/u_13471359/2149020>
-><https://codeantenna.com/a/jklYqrbfnw>
+[https://blog.51cto.com/u_13471359/2149020](https://blog.51cto.com/u_13471359/2149020)
+>[https://codeantenna.com/a/jklYqrbfnw](https://codeantenna.com/a/jklYqrbfnw)
 
 ## 线程的用途
 
@@ -1168,4 +1168,4 @@ Linux虚拟地址空间布局
 
 第 3 条是关键的一条：如果你的电脑硬件本身不支持多任务同时运行，此时操作系统就会伪造出多任务同时执行的假象。现在我们可以这样理解理解并发(concurrency) 与 并行(parallelism) 的，并发就是感觉上多任务在同时运行，而真正的并行则是多任务真的在同时运行。
 
-<https://www.xiaobotalk.com/2020/05/gentle-multithread-01/>
+[https://www.xiaobotalk.com/2020/05/gentle-multithread-01/](https://www.xiaobotalk.com/2020/05/gentle-multithread-01/)

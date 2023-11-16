@@ -87,7 +87,7 @@ set 命令的 -e 参数，linux 自带的说明如下：
 也就是说，在"set -e"之后出现的代码，一旦出现了返回值非零，整个脚本就会立即退出。
 
 版权声明：本文为CSDN博主「滴水成川」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
-原文链接：<https://blog.csdn.net/xiaofei125145/article/details/39345331>
+原文链接：[https://blog.csdn.net/xiaofei125145/article/details/39345331](https://blog.csdn.net/xiaofei125145/article/details/39345331)
 
 ```bash
 # !/usr/bin/env bash
@@ -172,4 +172,4 @@ a
 script.sh:行4: foo: 未找到命令
 可以看到，echo bar没有执行。
 
-<http://www.ruanyifeng.com/blog/2017/11/bash-set.html>
+[http://www.ruanyifeng.com/blog/2017/11/bash-set.html](http://www.ruanyifeng.com/blog/2017/11/bash-set.html)

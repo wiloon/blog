@@ -30,8 +30,8 @@ sudo ./Ventoy2Disk.sh -i /dev/sdx
 # 复制各种 iso 到 /dev/sdb1
 ```
 
-<https://www.ventoy.net/>
+[https://www.ventoy.net/](https://www.ventoy.net/)
 
 ## winPE iso
 
-<https://www.ventoy.net/en/distro_iso/winpe.html>
+[https://www.ventoy.net/en/distro_iso/winpe.html](https://www.ventoy.net/en/distro_iso/winpe.html)

@@ -41,8 +41,8 @@ chmod 1777 /mnt/gentoo/tmp
 #Downloading the stage tarball
 ```
 
-<https://bbs.archlinux.org/viewtopic.php?id=164461>
+[https://bbs.archlinux.org/viewtopic.php?id=164461](https://bbs.archlinux.org/viewtopic.php?id=164461)
   
-<https://wiki.archlinux.org/index.php/Network_bridge_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87>)
+[https://wiki.archlinux.org/index.php/Network_bridge_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87](https://wiki.archlinux.org/index.php/Network_bridge_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87))
   
-<https://www.ibm.com/developerworks/community/blogs/5144904d-5d75-45ed-9d2b-cf1754ee936a/entry/%25e6%2589%258b%25e5%258a%25a8%25e5%2588%259b%25e5%25bb%25banat%25e7%25bd%2591%25e7%25bb%259c?lang=en>
+[https://www.ibm.com/developerworks/community/blogs/5144904d-5d75-45ed-9d2b-cf1754ee936a/entry/%25e6%2589%258b%25e5%258a%25a8%25e5%2588%259b%25e5%25bb%25banat%25e7%25bd%2591%25e7%25bb%259c?lang=en](https://www.ibm.com/developerworks/community/blogs/5144904d-5d75-45ed-9d2b-cf1754ee936a/entry/%25e6%2589%258b%25e5%258a%25a8%25e5%2588%259b%25e5%25bb%25banat%25e7%25bd%2591%25e7%25bb%259c?lang=en)

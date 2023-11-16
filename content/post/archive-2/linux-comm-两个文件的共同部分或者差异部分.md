@@ -214,13 +214,13 @@ awk '{print $0}' file1 file2 |sort|uniq -u
 
 4 Linux Shell删除两个文件相同部分
 
-因为在面试中遇到一个这样的问题,当时模模糊糊的,没有很确定的回答出来,后来上网查了一下结果,这里总结一下。首先描述一下这个问题: 比如两个文件file1和file2,删除两个文件中共同的部分,留下两个文件中独自有的部分。在网上找到一篇解决的答案,地址在这里<http://hi.baidu.com/robertoyuan/blog/item/559483c4946ed5a78226acac.html>。这里提到三种方法,但是没有给具体的解释。
+因为在面试中遇到一个这样的问题,当时模模糊糊的,没有很确定的回答出来,后来上网查了一下结果,这里总结一下。首先描述一下这个问题: 比如两个文件file1和file2,删除两个文件中共同的部分,留下两个文件中独自有的部分。在网上找到一篇解决的答案,地址在这里[http://hi.baidu.com/robertoyuan/blog/item/559483c4946ed5a78226acac.html](http://hi.baidu.com/robertoyuan/blog/item/559483c4946ed5a78226acac.html)。这里提到三种方法,但是没有给具体的解释。
 
 方法一: 使用grep
   
 grep -v -f file1 file2 && grep -v -f file2 file1
   
-grep命令的详细使用方法,可以参考man,这里有一个简单实用的介绍: <http://linux.ccidnet.com/art/3067/20070313/1035613_1.html。在方法一中,用到了两个参数。参数-v,表示invert> match,即反向匹配,输出没有匹配上的项。参数-f,表示从文件中读取匹配模板(pattern)。方法一中的前一部分,在文件file1中匹配模板,来反向匹配文件file2中的内容,即输出文件file2中,在file1中没有的内容。后面的一部分同理可得,输出文件file1中,在file2中没有的内容。
+grep命令的详细使用方法,可以参考man,这里有一个简单实用的介绍: [http://linux.ccidnet.com/art/3067/20070313/1035613_1.html。在方法一中,用到了两个参数。参数-v,表示invert](http://linux.ccidnet.com/art/3067/20070313/1035613_1.html。在方法一中,用到了两个参数。参数-v,表示invert) match,即反向匹配,输出没有匹配上的项。参数-f,表示从文件中读取匹配模板(pattern)。方法一中的前一部分,在文件file1中匹配模板,来反向匹配文件file2中的内容,即输出文件file2中,在file1中没有的内容。后面的一部分同理可得,输出文件file1中,在file2中没有的内容。
 
 方法二: 实用comm
   

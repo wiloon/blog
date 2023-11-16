@@ -145,10 +145,10 @@ CPU执行内核代码和执行用户程序代码没什么区别；
 以上几点区别，仅是我目前能够想到的。但是管中窥豹，可见一斑。进入内核以后，要做的事情的确是很多很多。
 
 >版权声明: 本文为cchao985771161原创文章，遵循 CC 4.0 BY-SA 版权协议，转载请附上原文出处链接和本声明。
->本文链接: <https://blog.csdn.net/cchao985771161/article/details/105767444>
+>本文链接: [https://blog.csdn.net/cchao985771161/article/details/105767444](https://blog.csdn.net/cchao985771161/article/details/105767444)
 
 ### LINUX SYSTEM CALL TABLE FOR X86 64
-<http://blog.rchapman.org/posts/Linux_System_Call_Table_for_x86_64/>
+[http://blog.rchapman.org/posts/Linux_System_Call_Table_for_x86_64/](http://blog.rchapman.org/posts/Linux_System_Call_Table_for_x86_64/)
 
 ### Linux Systemcall Int0x80方式、Sysenter/Sysexit Difference Comparation
 
@@ -533,13 +533,13 @@ sysenter和sysexit都是CPU原生支持的指令集
 
 Relevant Link:
 
-<http://www.ibm.com/developerworks/cn/linux/kernel/l-k26ncpu/>
+[http://www.ibm.com/developerworks/cn/linux/kernel/l-k26ncpu/](http://www.ibm.com/developerworks/cn/linux/kernel/l-k26ncpu/)
 
 3. 通过INT 0x80中断方式进入系统调用
 
 通过80中断(软中断)进入系统调用的方式是Linux 2.6之前的做法，关于这块的内容请参阅另一篇文章
 
-<http://www.cnblogs.com/LittleHann/p/3871630.html>
+[http://www.cnblogs.com/LittleHann/p/3871630.html](http://www.cnblogs.com/LittleHann/p/3871630.html)
 
 4. 通过sysenter指令方式直接进入系统调用
 
@@ -596,9 +596,9 @@ Relevant Link:
 6．继续执行 Ring3 的代码
 Relevant Link:
 
-<http://www.ibm.com/developerworks/cn/linux/kernel/l-k26ncpu/>
-<http://chenyufei.info/blog/2007-05-12/post-070512-221011-78/>
-<http://articles.manugarg.com/systemcallinlinux2_6.html>
+[http://www.ibm.com/developerworks/cn/linux/kernel/l-k26ncpu/](http://www.ibm.com/developerworks/cn/linux/kernel/l-k26ncpu/)
+[http://chenyufei.info/blog/2007-05-12/post-070512-221011-78/](http://chenyufei.info/blog/2007-05-12/post-070512-221011-78/)
+[http://articles.manugarg.com/systemcallinlinux2_6.html](http://articles.manugarg.com/systemcallinlinux2_6.html)
 
 5. sysenter/sysexit编程示例
 
@@ -628,7 +628,7 @@ Linux中系统调用的实现会根据不同的架构而有所变化，而且即
 
 关于BSD sys_socketcall的相关知识，请参阅另一篇文章
 
-<http://www.cnblogs.com/LittleHann/p/3875451.html>
+[http://www.cnblogs.com/LittleHann/p/3875451.html](http://www.cnblogs.com/LittleHann/p/3875451.html)
 //搜索: 2. connect() API原理
 0x2: 直接内核态子函数调用实现系统调用
 
@@ -637,33 +637,33 @@ Linux中系统调用的实现会根据不同的架构而有所变化，而且即
 
 Relevant Link:
 
-<http://www.ibm.com/developerworks/cn/linux/l-system-calls/>
-<http://blog.chinaunix.net/uid-29643701-id-4240657.html>
+[http://www.ibm.com/developerworks/cn/linux/l-system-calls/](http://www.ibm.com/developerworks/cn/linux/l-system-calls/)
+[http://blog.chinaunix.net/uid-29643701-id-4240657.html](http://blog.chinaunix.net/uid-29643701-id-4240657.html)
 
 ---
 
 ### 从"read"看系统调用的耗时
-<https://codeleading.com/article/19673469609/>
+[https://codeleading.com/article/19673469609/](https://codeleading.com/article/19673469609/)
 
 ### 一次系统调用开销到底有多大
-<https://cloud.tencent.com/developer/article/1760744>
+[https://cloud.tencent.com/developer/article/1760744](https://cloud.tencent.com/developer/article/1760744)
 
 ### Linux Systemcall Int0x80方式、Sysenter/Sysexit Difference Comparation
-<https://www.cnblogs.com/littlehann/p/4111692.html>
+[https://www.cnblogs.com/littlehann/p/4111692.html](https://www.cnblogs.com/littlehann/p/4111692.html)
 
-<https://www.cnblogs.com/jiading/p/12606978.html>
-<https://blog.csdn.net/gatieme/article/details/50779184>
-<https://blog.csdn.net/gatieme/article/details/50646461>
+[https://www.cnblogs.com/jiading/p/12606978.html](https://www.cnblogs.com/jiading/p/12606978.html)
+[https://blog.csdn.net/gatieme/article/details/50779184](https://blog.csdn.net/gatieme/article/details/50779184)
+[https://blog.csdn.net/gatieme/article/details/50646461](https://blog.csdn.net/gatieme/article/details/50646461)
 
-<https://zhuanlan.zhihu.com/p/52845869>
+[https://zhuanlan.zhihu.com/p/52845869](https://zhuanlan.zhihu.com/p/52845869)
 
 版权声明: 本文为cchao985771161原创文章，遵循 CC 4.0 BY-SA 版权协议，转载请附上原文出处链接和本声明。
-本文链接: <https://blog.csdn.net/cchao985771161/article/details/105767444>
+本文链接: [https://blog.csdn.net/cchao985771161/article/details/105767444](https://blog.csdn.net/cchao985771161/article/details/105767444)
 
 版权声明: 本文为CSDN博主「CHENG Jian」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
-原文链接: <https://blog.csdn.net/gatieme/article/details/50779184>
+原文链接: [https://blog.csdn.net/gatieme/article/details/50779184](https://blog.csdn.net/gatieme/article/details/50779184)
 
-<https://cloud.tencent.com/developer/article/1760744>  
+[https://cloud.tencent.com/developer/article/1760744](https://cloud.tencent.com/developer/article/1760744)  
 
 ## getrlimit(), setrlimit()
 
@@ -707,4 +707,4 @@ EFAULT：rlim指针指向的空间不可访问
 EINVAL：参数无效
 EPERM：增加资源限制值时，权能不允许
 
-><https://www.cnblogs.com/niocai/archive/2012/04/01/2428128.html>
+>[https://www.cnblogs.com/niocai/archive/2012/04/01/2428128.html](https://www.cnblogs.com/niocai/archive/2012/04/01/2428128.html)

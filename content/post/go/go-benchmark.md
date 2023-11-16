@@ -40,7 +40,7 @@ go test -bench='Fib$' .
 
 ```
 
-<https://geektutu.com/post/hpg-benchmark.html>
+[https://geektutu.com/post/hpg-benchmark.html](https://geektutu.com/post/hpg-benchmark.html)
 
 >BenchmarkReader-8         409231              2549 ns/op
 
@@ -104,5 +104,5 @@ BenchmarkFib-8 中的 -8 即 GOMAXPROCS，默认等于 CPU 核数。可以通过
 
 202 和 5980669 ns/op 表示用例执行了 202 次，每次花费约 0.006s。总耗时比 1s 略多。
 
-><https://geektutu.com/post/hpg-benchmark.html>
-><https://www.cnblogs.com/jiujuan/p/14604609.html>
+>[https://geektutu.com/post/hpg-benchmark.html](https://geektutu.com/post/hpg-benchmark.html)
+>[https://www.cnblogs.com/jiujuan/p/14604609.html](https://www.cnblogs.com/jiujuan/p/14604609.html)

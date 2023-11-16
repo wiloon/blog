@@ -32,7 +32,7 @@ fmt包实现了格式化的I/O函数,这点类似C语言中的printf和scanf,但
 - %p    address of 0th element in base 16 notation, with leading 0x
 - %t    the word true or false, (bool)
 
-<https://pkg.go.dev/fmt>
+[https://pkg.go.dev/fmt](https://pkg.go.dev/fmt)
 
 用法如下:
 
@@ -635,10 +635,10 @@ fmt.Printf("%#v\n", us)
 
 参考:
   
-Golang学习-fmt包: <http://www.cnblogs.com/golove/p/3286303.html>
+Golang学习-fmt包: [http://www.cnblogs.com/golove/p/3286303.html](http://www.cnblogs.com/golove/p/3286303.html)
 
-go语言官网: <http://golang.org/pkg/fmt/>
+go语言官网: [http://golang.org/pkg/fmt/](http://golang.org/pkg/fmt/)
 
-<http://blog.csdn.net/chenbaoke/article/details/39932845>
+[http://blog.csdn.net/chenbaoke/article/details/39932845](http://blog.csdn.net/chenbaoke/article/details/39932845)
 
-<http://www.cnblogs.com/golove/p/3286303.html>
+[http://www.cnblogs.com/golove/p/3286303.html](http://www.cnblogs.com/golove/p/3286303.html)

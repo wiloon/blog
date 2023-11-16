@@ -71,6 +71,6 @@ end
   
 虚拟机规范允许具体的虚拟机实现增加一些规范里没有描述的信息到栈帧中，例如与高度相关的信息，这部分信息完全取决于具体的虚拟机实现。在实际开发中，一般会把动态连接，方法返回地址与其它附加信息全部归为一类，称为栈帧信息。
 
-<http://blog.csdn.net/xtayfjpk/article/details/41924283>
+[http://blog.csdn.net/xtayfjpk/article/details/41924283](http://blog.csdn.net/xtayfjpk/article/details/41924283)
   
-<http://wangwengcn.iteye.com/blog/1622195>
+[http://wangwengcn.iteye.com/blog/1622195](http://wangwengcn.iteye.com/blog/1622195)

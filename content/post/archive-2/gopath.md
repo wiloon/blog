@@ -80,6 +80,6 @@ func BenchmarkXXX( b *testing.B) {
 
 名称以 Benchmark 为名称前缀的函数,只能接受 *testing.B 的参数,这种测试函数是性能测试函数。
 
-<https://www.jianshu.com/p/35a4ec1b3067>
+[https://www.jianshu.com/p/35a4ec1b3067](https://www.jianshu.com/p/35a4ec1b3067)
   
-<https://github.com/astaxie/build-web-application-with-golang/blob/master/zh/01.2.md>
+[https://github.com/astaxie/build-web-application-with-golang/blob/master/zh/01.2.md](https://github.com/astaxie/build-web-application-with-golang/blob/master/zh/01.2.md)

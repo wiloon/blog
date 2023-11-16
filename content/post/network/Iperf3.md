@@ -35,7 +35,7 @@ tags:
 
 Iperf3 是一个网络性能测试工具。Iperf可以测试最大TCP和UDP带宽性能,具有多种参数和UDP特性,可以根据需要调整,可以报告带宽、延迟抖动和数据包丢失.对于每个测试,它都会报告带宽,丢包和其他参数,可在Windows、Mac OS X、Linux、FreeBSD等各种平台使用,是一个简单又实用的小工具。
 
-软件下载地址:  <https://iperf.fr/iperf-download.php>
+软件下载地址:  [https://iperf.fr/iperf-download.php](https://iperf.fr/iperf-download.php)
 
 安装iperf3
 
@@ -105,6 +105,6 @@ windows图形界面版本的为jperf:
 
 ---
 
-<https://wenku.baidu.com/view/521c7017ed630b1c58eeb537.html>
-参考文档: <https://blog.csdn.net/jinguangliu/article/details/82468482>
-<https://man.linuxde.net/iperf>
+[https://wenku.baidu.com/view/521c7017ed630b1c58eeb537.html](https://wenku.baidu.com/view/521c7017ed630b1c58eeb537.html)
+参考文档: [https://blog.csdn.net/jinguangliu/article/details/82468482](https://blog.csdn.net/jinguangliu/article/details/82468482)
+[https://man.linuxde.net/iperf](https://man.linuxde.net/iperf)

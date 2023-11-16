@@ -19,5 +19,5 @@ cat out | python -c "import sys; print sys.stdin.read().replace('.\n','.')"
 
 ---
 
-<http://slash4.net/blog/python/sed-replace-newline-or-python-awk-tr-perl-xargs.html>
-<http://slash4.net/blog/python/sed-replace-newline-or-python-awk-tr-perl-xargs.html/embed#?secret=fepFl2MtVM>
+[http://slash4.net/blog/python/sed-replace-newline-or-python-awk-tr-perl-xargs.html](http://slash4.net/blog/python/sed-replace-newline-or-python-awk-tr-perl-xargs.html)
+[http://slash4.net/blog/python/sed-replace-newline-or-python-awk-tr-perl-xargs.html/embed#?secret=fepFl2MtVM](http://slash4.net/blog/python/sed-replace-newline-or-python-awk-tr-perl-xargs.html/embed#?secret=fepFl2MtVM)
