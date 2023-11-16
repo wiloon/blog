@@ -133,10 +133,14 @@ echo "$SSH_AUTH_SOCK"
 ### 查看 缓存的密钥
 
 ```bash
-#查看本地SSH agent 缓存的密钥
+# 查看本地SSH agent 缓存的密钥对应的公钥
 ssh-add -L
+
 # 查看缓存的私钥 sha256 值
 ssh-add -l
+
+# 删除全部 key
+ssh-add -D
 ```
 
 ## kill ssh-agent
@@ -161,7 +165,7 @@ ssh-add -l
 ssh-agent 是用于管理 SSH private keys 的, 长时间持续运行的守护进程 (daemon) . 唯一目的就是对解密的私钥进行高速缓存.
 ssh-add 提示并将用户的使用的私钥添加到由 ssh-agent 维护的列表中. 此后, 当使用公钥连接到远程 SSH 或 SCP 主机时, 不再提示相关信息.
 
-><http://xstarcd.github.io/wiki/shell/fork_exec_source.html>
+<http://xstarcd.github.io/wiki/shell/fork_exec_source.html>
 
 ## ssh-agent
 
@@ -264,7 +268,7 @@ Mac特有的一个问题,要注意
   
 On Mac OS X, ssh-agent will "forget" this key, once it gets restarted during reboots. But you can import your SSH keys into Keychain using this command:
 
-XiaoleideMacBook-Pro:ssh professor$ ssh-add -L
+ssh-add -L
   
 好了,问题解决。
 
@@ -318,14 +322,6 @@ XiaoleideMacBook-Pro:ssh professor$ ssh-add -L
 # run in powershell
 # 查看 ssh-agent
 Get-Service ssh-agent
-```
-
-## ssh-add
-
-```bash
-ssh-add -l
-ssh-add -L
-ssh-add -D # 删除全部 key
 ```
 
 <https://corvo.myseu.cn/2020/10/16/2020-10-16-OpenSSH%E7%B3%BB%E5%88%97(%E6%89%A9%E5%B1%95%E4%B8%89)-%E5%85%B3%E4%BA%8Eforward%20agent%E7%9A%84%E4%BD%BF%E7%94%A8%E4%BB%A5%E5%8F%8A%E8%B0%83%E8%AF%95/>
