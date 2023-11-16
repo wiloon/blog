@@ -12,9 +12,9 @@ tags:
 
 <https://blog.csdn.net/blackmanren/article/details/9281201>
 
-typeset用于设置变量属性, 如大小写,宽度,左右对齐等都可以用typeset来控制, 当用typeset改变一个变量的属性时,这种改变是永久的,下面以ksh为例,演示typeset的几种典型用法
+typeset 用于设置变量属性, 如大小写,宽度,左右对齐等都可以用typeset来控制, 当用typeset改变一个变量的属性时,这种改变是永久的,下面以ksh为例,演示typeset的几种典型用法
 
-2:typeset的-u选项可以将一个变量的字符变成大写
+typeset的-u选项可以将一个变量的字符变成大写
   
 /home/lee#typeset -u var=abc
   
@@ -38,7 +38,7 @@ typeset的-L选项把变量变成一个左对齐的4个字符串,有些像字符
   
 abcd
 
-5:typeset的-R选项把变量变成一个右对齐的4个字符串
+typeset的-R选项把变量变成一个右对齐的4个字符串
   
 /home/lee#typeset -R4 var=abcdefg
   
@@ -46,9 +46,9 @@ abcd
   
 defg
 
-6:typeset的-Z选项把串变成一个空填充,占15个字符位的串,冒号用来保护空白符
+typeset的-Z选项把串变成一个空填充,占15个字符位的串,冒号用来保护空白符
   
-/home/lee#typeset -Z15 var="abc ddd"
+typeset -Z15 var="abc ddd"
   
 /home/lee#echo "$var"
   

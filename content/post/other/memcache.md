@@ -346,7 +346,7 @@ magent -u root -n 51200 -l 127.0.0.1 -p 11000 -s 127.0.0.1:11212 -b 127.0.0.1:11
 
 2. 数据读写测试
 
-[root@odb ~]# telnet 127.0.0.1 10000
+telnet 127.0.0.1 10000
 
 Trying 127.0.0.1…
 
@@ -364,7 +364,7 @@ quit
 
 Connection closed by foreign host.
 
-[root@odb ~]# telnet 127.0.0.1 11211
+telnet 127.0.0.1 11211
 
 Trying 127.0.0.1…
 
@@ -384,7 +384,7 @@ quit
 
 Connection closed by foreign host.
 
-[root@odb ~]# telnet 127.0.0.1 11212
+telnet 127.0.0.1 11212
 
 Trying 127.0.0.1…
 
@@ -406,19 +406,19 @@ Connection closed by foreign host.
 
 3. 高可靠性测试
 
-[root@odb ~]# ps aux |grep -v grep |grep memcached
+ps aux |grep -v grep |grep memcached
 
 root     23455  0.0  0.0  5012 1796 ?        Ss   09:22   0:00 memcached -m 1 -u root -d -l 127.0.0.1 -p 11212
 
 root     24950  0.0  0.0  4120 1800 ?        Ss   10:58   0:00 memcached -m 1 -u root -d -l 127.0.0.1 -p 11211
 
-[root@odb ~]# ps aux |grep -v grep |grep 'magent -u'
+ps aux |grep -v grep |grep 'magent -u'
 
 root     25919  0.0  0.0  2176  484 ?        Ss   12:00   0:00 magent -u root -n 51200 -l 127.0.0.1 -p 10000 -s 127.0.0.1:11211 -b 127.0.0.1:11212
 
 root     25925  0.0  0.0  3004  484 ?        Ss   12:00   0:00 magent -u root -n 51200 -l 127.0.0.1 -p 11000 -s 127.0.0.1:11212 -b 127.0.0.1:11211
 
-[root@odb ~]# telnet 127.0.0.1 10000
+telnet 127.0.0.1 10000
 
 Trying 127.0.0.1…
 
@@ -436,7 +436,7 @@ quit
 
 Connection closed by foreign host.
 
-[root@odb ~]# telnet 127.0.0.1 11000
+telnet 127.0.0.1 11000
 
 Trying 127.0.0.1…
 
@@ -482,7 +482,7 @@ quit                             <—退出11000端口
 
 Connection closed by foreign host.
 
-[root@odb ~]# telnet 127.0.0.1 10000
+telnet 127.0.0.1 10000
 
 Trying 127.0.0.1…
 
@@ -518,7 +518,7 @@ quit
 
 Connection closed by foreign host.
 
-[root@odb ~]# telnet 127.0.0.1 11000
+telnet 127.0.0.1 11000
 
 Trying 127.0.0.1…
 
@@ -546,9 +546,9 @@ Connection closed by foreign host.
   
 1) Down掉11211端口的memcached
 
-[root@odb ~]# kill -9 24950
+kill -9 24950
 
-[root@odb ~]# telnet 127.0.0.1 10000
+telnet 127.0.0.1 10000
 
 Trying 127.0.0.1…
 
@@ -568,7 +568,7 @@ quit
 
 Connection closed by foreign host.
 
-[root@odb ~]# telnet 127.0.0.1 11000
+telnet 127.0.0.1 11000
 
 Trying 127.0.0.1…
 
@@ -592,9 +592,9 @@ Connection closed by foreign host.
   
 1) Down掉11000端口的magent
 
-[root@odb ~]# kill -9 25925
+kill -9 25925
 
-[root@odb ~]# telnet 127.0.0.1 10000
+telnet 127.0.0.1 10000
 
 Trying 127.0.0.1…
 
@@ -616,9 +616,9 @@ Connection closed by foreign host.
 
 2) 重启11000端口的magent
 
-[root@lh-web-test memcached-1.4.5]# magent -u root -n 51200 -l 127.0.0.1 -p 11000 -s 127.0.0.1:11212 -b 127.0.0.1:11211
+magent -u root -n 51200 -l 127.0.0.1 -p 11000 -s 127.0.0.1:11212 -b 127.0.0.1:11211
 
-[root@lh-web-test memcached-1.4.5]# telnet 127.0.0.1 11000
+telnet 127.0.0.1 11000
 
 Trying 127.0.0.1...
 

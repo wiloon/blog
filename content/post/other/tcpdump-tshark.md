@@ -69,7 +69,7 @@ Tcpdump是网络协议分析的基本工具。tshark是大名鼎鼎的开源网�
 
 # tcpdump src host 192.168.0.1 and dst port not telnet
   
-    ip icmp arp rarp 和 tcp、udp、icmp这些选项等都要放到第一个参数的位置，用来过滤数据报的类型。例如: 
+ip icmp arp rarp 和 tcp、udp、icmp这些选项等都要放到第一个参数的位置，用来过滤数据报的类型。例如
 
 # tcpdump ip src…… //只过滤数据-链路层上的IP报头
 

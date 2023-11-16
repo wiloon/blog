@@ -8,26 +8,40 @@ categories:
 tags:
   - reprint
 ---
-## test for a specific port from Linux,  shell>telnet> netcat> socat
+## test for a specific port from Linux,  shell> telnet> netcat> socat
 
 ### 使用 Telnet验证端口的连通性
 
 打开命令行模式。具体方法,请参考打开命令或 Shell 提示符 (2076587) (Opening a command or shell prompt (1003892))。
-  
-在命令行窗口键入:
+
+在命令行窗口键入
 
 ```bash
-# telnet server port
-telnet 192.168.50.1 22
+telnet 192.168.50.1 1025
+```
+
+#### 端口已打开
+
+```Bash
+Connected to localhost.
+Escape character is '^]'.
+220 archx1 Mailpit ESMTP Service ready
+```
+
+#### 端口未打开
+
+```Bash
+Trying 192.168.50.1...
+telnet: Unable to connect to remote host: Connection refused
 ```
 
 其中 server 是服务器的主机名或IP地址,port 是您想要连接的端口号。
 
 按回车。
   
-注: 要离开 Telnet 应用程序,请键入 Ctrl + ],然后键入 quit。
+注: 要离开 Telnet 应用程序,请键入 Ctrl + ], 然后键入 quit。
 
-<https://kb.vmware.com/s/article/2020963>
+[https://kb.vmware.com/s/article/2020963]()
 
 ### socat
 
@@ -62,11 +76,11 @@ nc -lvu 0.0.0.0  124
 nc -vuz host 124
 ```
 
-<http://www.oschina.net/news/48357/socat-1-7-2-3>
+[http://www.oschina.net/news/48357/socat-1-7-2-3]()
 
 socat是一個netcat(nc)的替代產品,可以稱得上nc++。socat的特點就是在兩個流之間建立一個雙向的 通道。socat的地址類型很 多,有ip, tcp, udp, ipv6, pipe,exec,system,open,proxy,openssl,等等
 
-<http://blog.csdn.net/zhu_xun/article/details/16885333>
+[http://blog.csdn.net/zhu_xun/article/details/16885333]()
 
 Telnet有"标准输入文件结束符(standard input EOF)"问题,
   
