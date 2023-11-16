@@ -10,7 +10,7 @@ tags:
 ---
 ## Ansible setup模块
 
-<https://www.ipcpu.com/2016/01/ansible-setup-when/>
+[https://www.ipcpu.com/2016/01/ansible-setup-when/](https://www.ipcpu.com/2016/01/ansible-setup-when/)
 
 Ansible入门setup模块和条件判断
 
@@ -194,6 +194,6 @@ OUTPUT OMITTED.
 
 参考资料
   
-<http://sapser.github.io/ansible/2014/07/21/ansible-conditionals/>
+[http://sapser.github.io/ansible/2014/07/21/ansible-conditionals/](http://sapser.github.io/ansible/2014/07/21/ansible-conditionals/)
 
 转载请注明: IPCPU-网络之路 » Ansible入门setup模块和条件判断

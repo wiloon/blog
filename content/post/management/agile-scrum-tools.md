@@ -14,7 +14,7 @@ tags:
 
 ### wekan
 
-<https://github.com/wekan/wekan>
+[https://github.com/wekan/wekan](https://github.com/wekan/wekan)
 
 ```bash
 podman run -d --name wekan-db -p 27017:27017 mongo:4.4
@@ -157,6 +157,6 @@ ProjectCards 维持项目管理的索引卡片，精确的具体内容，一个�
 
 它作为全团队分享项目状态的一个工作空间来运作，里面提供三种层次的看板图——特性看板 (发布—特性) 、故事看板 (故事—迭代) 和任务看板 (工作日—任务) 。特性看板用停车场图来归纳，故事和任务看板用延烧图来归纳。
 
-<http://agilescout.com/best-agile-scrum-tools/>
+[http://agilescout.com/best-agile-scrum-tools/](http://agilescout.com/best-agile-scrum-tools/)
 
 [1]: http://scrumxp.blogspot.com/2008/09/excelscrum.html

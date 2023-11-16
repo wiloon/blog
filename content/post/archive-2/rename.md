@@ -50,6 +50,6 @@ rename 's/\d{4}-\d{2}-\d{2}-//' *.md
 find . -name '*.md' -exec rename 's/\d{4}-\d{2}-\d{2}-//' {} \;
 ```
 
-<http://www.cnblogs.com/longdouhzt/archive/2012/04/30/2477282.html>
+[http://www.cnblogs.com/longdouhzt/archive/2012/04/30/2477282.html](http://www.cnblogs.com/longdouhzt/archive/2012/04/30/2477282.html)
   
-<http://blog.51cto.com/jiemian/1846951>
+[http://blog.51cto.com/jiemian/1846951](http://blog.51cto.com/jiemian/1846951)

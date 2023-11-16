@@ -53,7 +53,7 @@ mkdir /etc/dnsmasq.d
 echo 'conf-dir=/etc/dnsmasq.d' >> /etc/dnsmasq.conf
 ```
 
-<http://debugo.com/dnsmasq/>
+[http://debugo.com/dnsmasq/](http://debugo.com/dnsmasq/)
 
 dhcp服务
 其中一些关键的配置如下,配置文件/etc/dnsmasq.conf 中的注释已经给出了非常详细的解释。
@@ -125,16 +125,16 @@ Dnsmasq is generally simple to get working, uses little resources, is reliable a
 In addition, if you start looking for "advanced" features, you'll find out that dnsmasq is quite capable.
 (like the dns-dhcp update, where dhcp clients get automatically resolvable via DNS. Dnsmasq gives it to you, when doing the same with ISC dhcpd + bind9 is something you'll remember...)
 
-<https://www.raspberrypi.org/forums/viewtopic.php?t=182032>
+[https://www.raspberrypi.org/forums/viewtopic.php?t=182032](https://www.raspberrypi.org/forums/viewtopic.php?t=182032)
 
 ---
 
-<https://www.hi-linux.com/posts/30947.html>
+[https://www.hi-linux.com/posts/30947.html](https://www.hi-linux.com/posts/30947.html)
 
-<http://wppurking.github.io/2012/10/01/li-yong-dnsmasq-da-jian-zi-ji-de-dns-fu-wu-qi.html>
+[http://wppurking.github.io/2012/10/01/li-yong-dnsmasq-da-jian-zi-ji-de-dns-fu-wu-qi.html](http://wppurking.github.io/2012/10/01/li-yong-dnsmasq-da-jian-zi-ji-de-dns-fu-wu-qi.html)
   
-<http://www.thekelleys.org.uk/dnsmasq/docs/dnsmasq-man.html>
+[http://www.thekelleys.org.uk/dnsmasq/docs/dnsmasq-man.html](http://www.thekelleys.org.uk/dnsmasq/docs/dnsmasq-man.html)
 
-<https://www.hi-linux.com/posts/30947.html#%E9%85%8D%E7%BD%AE%E4%B8%8A%E6%B8%B8%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%9C%B0%E5%9D%80>
+[https://www.hi-linux.com/posts/30947.html#%E9%85%8D%E7%BD%AE%E4%B8%8A%E6%B8%B8%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%9C%B0%E5%9D%80](https://www.hi-linux.com/posts/30947.html#%E9%85%8D%E7%BD%AE%E4%B8%8A%E6%B8%B8%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%9C%B0%E5%9D%80)
   
-<http://www.thekelleys.org.uk/dnsmasq/docs/dnsmasq-man.html>
+[http://www.thekelleys.org.uk/dnsmasq/docs/dnsmasq-man.html](http://www.thekelleys.org.uk/dnsmasq/docs/dnsmasq-man.html)

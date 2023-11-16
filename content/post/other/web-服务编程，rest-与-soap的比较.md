@@ -364,7 +364,7 @@ HTTP 这些标准方法在原则上保证你的分布式系统具有这些特性
 
 一般代理服务器的实现根据 (URI, HTTP Method) 两元组来决定 HTTP 请求的安全合法性。
 
-当发现类似于 (<http://localhost:8182/v1/users/{username},DELETE>) 这样的请求时,予以拒绝。
+当发现类似于 ([http://localhost:8182/v1/users/{username},DELETE](http://localhost:8182/v1/users/{username},DELETE)) 这样的请求时,予以拒绝。
 
 对于 SOAP,如果我们想借助于既有的代理服务器进行安全控制,会比较尴尬,如下图:
   

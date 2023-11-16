@@ -10,7 +10,7 @@ tags:
 ---
 ## zookeeper leader latch, leader election
 
-<https://curator.apache.org/zk-compatibility.html>
+[https://curator.apache.org/zk-compatibility.html](https://curator.apache.org/zk-compatibility.html)
   
 curator-framework 4.x 同时支持 zookeeper 3.4.x, 3.5.x
   
@@ -95,11 +95,11 @@ client.start();
         leaderLatch.start();
 ```
 
-<http://colobu.com/2014/12/12/zookeeper-recipes-by-example-1/>
+[http://colobu.com/2014/12/12/zookeeper-recipes-by-example-1/](http://colobu.com/2014/12/12/zookeeper-recipes-by-example-1/)
 
 跟着实例学习ZooKeeper的用法:  Leader选举
   
-<http://ifeve.com/zookeeper-leader/embed/#?secret=mwCqdwnDV0>
+[http://ifeve.com/zookeeper-leader/embed/#?secret=mwCqdwnDV0](http://ifeve.com/zookeeper-leader/embed/#?secret=mwCqdwnDV0)
 
 ### Leader Election
 
@@ -115,6 +115,6 @@ Atomic Broadcast
 此阶段 leader 会通过 broadcast 与 follower 通讯,保证 leader 与 follower 具有相同的系统状态。
 
 作者: jaren
-链接: <https://www.jianshu.com/p/30bcaf55f451>
+链接: [https://www.jianshu.com/p/30bcaf55f451](https://www.jianshu.com/p/30bcaf55f451)
 来源: 简书
 著作权归作者所有。商业转载请联系作者获得授权,非商业转载请注明出处。

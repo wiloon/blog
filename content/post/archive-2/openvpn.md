@@ -335,8 +335,8 @@ url: ip-forward
 iptables -t nat -A POSTROUTING -o wlp1s0 -j MASQUERADE
 ```
 
-><https://wiki.archlinux.org/title/Easy-RSA>  
-<https://wiki.archlinux.org/index.php/OpenVPN>  
-<https://baike.baidu.com/item/OpenVPN/10718662?fr=aladdin>  
+>[https://wiki.archlinux.org/title/Easy-RSA](https://wiki.archlinux.org/title/Easy-RSA)  
+[https://wiki.archlinux.org/index.php/OpenVPN](https://wiki.archlinux.org/index.php/OpenVPN)  
+[https://baike.baidu.com/item/OpenVPN/10718662?fr=aladdin](https://baike.baidu.com/item/OpenVPN/10718662?fr=aladdin)  
 
-<https://www.xiaobo.li/notes/archives/1151>
+[https://www.xiaobo.li/notes/archives/1151](https://www.xiaobo.li/notes/archives/1151)

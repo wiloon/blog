@@ -410,8 +410,8 @@ public class Demo8 {
 
 ```
 
-><https://juejin.cn/post/6844903655510917128>
-><http://www.cnblogs.com/chenjunbiao/archive/2011/01/26/1944417.html>
-><http://baike.baidu.com/view/648413.htm?fr=aladdin>
-><https://zhuanlan.zhihu.com/p/357864072>
-><https://juejin.cn/post/6844903969836236808>
+>[https://juejin.cn/post/6844903655510917128](https://juejin.cn/post/6844903655510917128)
+>[http://www.cnblogs.com/chenjunbiao/archive/2011/01/26/1944417.html](http://www.cnblogs.com/chenjunbiao/archive/2011/01/26/1944417.html)
+>[http://baike.baidu.com/view/648413.htm?fr=aladdin](http://baike.baidu.com/view/648413.htm?fr=aladdin)
+>[https://zhuanlan.zhihu.com/p/357864072](https://zhuanlan.zhihu.com/p/357864072)
+>[https://juejin.cn/post/6844903969836236808](https://juejin.cn/post/6844903969836236808)

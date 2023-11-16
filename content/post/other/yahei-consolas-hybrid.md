@@ -10,7 +10,7 @@ tags:
 ---
 ## Yahei Consolas Hybrid
 
-<https://github.com/crvdgc/Consolas-with-Yahei>
+[https://github.com/crvdgc/Consolas-with-Yahei](https://github.com/crvdgc/Consolas-with-Yahei)
 
 Yahei Consolas Hybrid 是一种合成字体,是由微软雅黑的中文字体和 Consolas 的英文字体合成的,Consolas 字体是微软专为程序员开发的一种字体,但没有中文支持,所以 Yahei Consolas Hybrid 这种字体特别适合中英文的编程开发,代码编写
 
@@ -18,13 +18,13 @@ Yahei Consolas Hybrid 是一种合成字体,是由微软雅黑的中文字体和
 git clone https://gitee.com/a42/YaHei-Consolas-Hybrid-1.12.git && sh YaHei-Consolas-Hybrid-1.12/setup.sh && cd - && rm -rf YaHei-Consolas-Hybrid-1.12
 ```
 
-<https://gitee.com/a42/YaHei-Consolas-Hybrid-1.12>
+[https://gitee.com/a42/YaHei-Consolas-Hybrid-1.12](https://gitee.com/a42/YaHei-Consolas-Hybrid-1.12)
   
-<https://github.com/yakumioto/YaHei-Consolas-Hybrid-1.12>
+[https://github.com/yakumioto/YaHei-Consolas-Hybrid-1.12](https://github.com/yakumioto/YaHei-Consolas-Hybrid-1.12)
   
-<http://blog.alphatr.com/yahei-consolas.html>
+[http://blog.alphatr.com/yahei-consolas.html](http://blog.alphatr.com/yahei-consolas.html)
   
-<https://blog.alphatr.com/yahei-consolas.html>
+[https://blog.alphatr.com/yahei-consolas.html](https://blog.alphatr.com/yahei-consolas.html)
 
 Yahei Consolas Hybrid 是一种合成字体,是由微软雅黑的中文字体和 Consolas 的英文字体合成的,Consolas 字体是微软专为程序员开发的一种字体,但没有中文支持,所以 Yahei Consolas Hybrid 这种字体特别适合中英文的编程开发,代码编写
 

@@ -17,7 +17,7 @@ cut -d ',' -f 3
 cut -c-24
 ```
 
-<http://www.cnblogs.com/dong008259/archive/2011/12/09/2282679.html>
+[http://www.cnblogs.com/dong008259/archive/2011/12/09/2282679.html](http://www.cnblogs.com/dong008259/archive/2011/12/09/2282679.html)
 
 cut是一个选取命令,就是将一段数据经过分析,取出我们想要的。一般来说,选取信息通常是针对"行"来进行分析的,并不是整篇信息分析的。
 

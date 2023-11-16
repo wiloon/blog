@@ -959,7 +959,7 @@ http://www.programfan.com/article/1836.html
 
 http://zhangjunhd.blog.51cto.com/113473/20629
 
-<http://m.oschina.net/blog/12483>
+[http://m.oschina.net/blog/12483](http://m.oschina.net/blog/12483)
 
 _ http://blog.csdn.net/lip009/archive/2006/10/17/1337730.aspx       _
 

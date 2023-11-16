@@ -27,7 +27,7 @@ git stash pop
 
 git stash pop 开启某个修改暂存后，会在 stash list 里面将最近一次的修改暂存记录删除掉，而 git stash apply stash@{0} 则不会。
 
-<https://blog.csdn.net/daguanjia11/article/details/73810577>
+[https://blog.csdn.net/daguanjia11/article/details/73810577](https://blog.csdn.net/daguanjia11/article/details/73810577)
 
 Git Stash用法
   

@@ -228,7 +228,7 @@ Filename                                Type            Size    Used    Priority
 为什么我的系统有两个交换分区？因为我用移动U盘做的实验，主要是为写教程之用；sda6是我在U盘上建的swap分区；
 如果让swap开机就加载，应该改 /etc/fstab文件，加类似如下一行；
 
-<http://www.linuxso.com/command/mkfs.html>
+[http://www.linuxso.com/command/mkfs.html](http://www.linuxso.com/command/mkfs.html)
 mke2fs命令
 
 mke2fs命令是专门用于管理ext系列文件系统的一个专门的工具。其还有像mkfs.ext2，mkfs.ext3，mkfs.ext4等衍生的命令，它们的用法mke2fs类似，在系统man下它们的帮助手册会直接跳转mke2fs命令的帮助手册。
@@ -250,7 +250,7 @@ mke2fs [options] [device]
 -m: 设置为文件系统预留的块的百分比；
 作者: 小尛酒窝
 
-链接: <https://www.jianshu.com/p/bf939474d69b>
+链接: [https://www.jianshu.com/p/bf939474d69b](https://www.jianshu.com/p/bf939474d69b)
 
 来源: 简书
 

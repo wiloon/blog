@@ -26,7 +26,7 @@ sudo pacman -S nethogs
 nethogs -d 5
 
 ```
-<https://linux.cn/article-2808-1.html>
+[https://linux.cn/article-2808-1.html](https://linux.cn/article-2808-1.html)
 
 NetHogs 是一个开源的命令行工具 (类似于Linux的top命令), 用来按进程或程序实时统计网络带宽使用率.
 
@@ -418,7 +418,7 @@ $ sudo yum install collectl
 
 ntop和darkstat是面向Linux系统的其中两个基本的基于Web的网络监控工具。除此之外还有企业级监控工具,比如nagios,它们提供了一批功能特性,不仅仅可以监控服务器,还能监控整个基础设施。
 
-原文链接: <http://www.binarytides.com/linux-commands-monitor-network/>
+原文链接: [http://www.binarytides.com/linux-commands-monitor-network/](http://www.binarytides.com/linux-commands-monitor-network/)
 
 【编辑推荐】
 
@@ -438,7 +438,7 @@ ntop和darkstat是面向Linux系统的其中两个基本的基于Web的网络监
 
 iftop是类似于top的实时流量监控工具。
   
-官方网站: <http://www.ex-parrot.com/~pdw/iftop/>
+官方网站: [http://www.ex-parrot.com/~pdw/iftop/](http://www.ex-parrot.com/~pdw/iftop/)
   
 二、iftop有什么用？
   
@@ -560,7 +560,7 @@ rates: 分别表示过去 2s 10s 40s 的平均流量
 
 Linux流量监控工具 - iftop (最全面的iftop教程)
   
-><https://www.vpser.net/manage/iftop.html/embed#?secret=MdTvcxHN5f>
+>[https://www.vpser.net/manage/iftop.html/embed#?secret=MdTvcxHN5f](https://www.vpser.net/manage/iftop.html/embed#?secret=MdTvcxHN5f)
 
 ## slurm 实时网络流量监控
 

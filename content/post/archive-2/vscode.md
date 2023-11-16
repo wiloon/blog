@@ -15,17 +15,17 @@ tags:
 
 #### install from repo
 
-<https://linuxize.com/post/how-to-install-visual-studio-code-on-debian-9/>
+[https://linuxize.com/post/how-to-install-visual-studio-code-on-debian-9/](https://linuxize.com/post/how-to-install-visual-studio-code-on-debian-9/)
 
 #### download deb
 
-<https://code.visualstudio.com/>#
+[https://code.visualstudio.com/](https://code.visualstudio.com/)#
 
 ## vscode 列编辑
 
 Alt+Shift+鼠标左键拖动, 选中拖动的区域内容
 
-<https://blog.csdn.net/u011127019/article/details/74039598>
+[https://blog.csdn.net/u011127019/article/details/74039598](https://blog.csdn.net/u011127019/article/details/74039598)
 
 ### vscode remote ssh, A> ssh> B
 
@@ -103,7 +103,7 @@ vscode 发 http 请求
 
 config plant uml rander server
 File> Preferences> Extensions> PlantUML config> Rander: server
-File> Preferences> Extensions> PlantUML config> Server: <http://plantuml.wiloon.com>
+File> Preferences> Extensions> PlantUML config> Server: [http://plantuml.wiloon.com](http://plantuml.wiloon.com)
 
 ### hexdump
 
@@ -127,9 +127,9 @@ code --install-extension jsynowiec.vscode-insertdatestring-2.3.1.vsix
 
 有新版本时, vscode左下角会有提示,点击更新 windows里安装的vscode, vscode打开 wsl里的目录时,会自动更新wsl里安装的vscode.
 
-<https://code.visualstudio.com/docs/remote/ssh-tutorial>  
-<https://www.justhx.com/partly-technical/optiumise-chinese-characters-in-vscode>  
-<https://blog.csdn.net/bmzk123/article/details/86501706>  
+[https://code.visualstudio.com/docs/remote/ssh-tutorial](https://code.visualstudio.com/docs/remote/ssh-tutorial)  
+[https://www.justhx.com/partly-technical/optiumise-chinese-characters-in-vscode](https://www.justhx.com/partly-technical/optiumise-chinese-characters-in-vscode)  
+[https://blog.csdn.net/bmzk123/article/details/86501706](https://blog.csdn.net/bmzk123/article/details/86501706)  
 
 ## 修改语言
 

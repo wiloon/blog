@@ -70,4 +70,4 @@ WAL 机制使得 etcd 具备了以下两个功能：
 hbase
 hbase 实现 WAL 的方法将 HLog，hbase 的 RegionServer 会将数据保存在内存中 (MemStore），直到满足一定条件，将其 flush 到磁盘上。这样可以避免创建很多小文件。内存存储是不稳定的，HBase 也是使用 WAL 来解决这个问题：每次更新操作都会写日志，并且写日志和更新操作在一个事务中。
 
-><https://zhuanlan.zhihu.com/p/137512843>
+>[https://zhuanlan.zhihu.com/p/137512843](https://zhuanlan.zhihu.com/p/137512843)

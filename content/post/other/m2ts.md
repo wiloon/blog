@@ -10,7 +10,7 @@ tags:
 ---
 ## m2ts
 
-<http://baike.baidu.com/view/1951897.htm>
+[http://baike.baidu.com/view/1951897.htm](http://baike.baidu.com/view/1951897.htm)
 
 .m2ts 是一种视频文件格式 (container) 可支持多任务的影音流。 m2ts架构于MPEG transport stream 以及著名的 BDAV MPEG-2 transport stream. 这种文件格式多支持于高清的 Blu-ray Disc 与 AVCHD。DV拍摄的视频文件在DV硬盘里的AVCHD目录内显示是MTS文件，这是一种采用MPGE-4AVC/H.264格式编码的高清视频文件，通过附带的PMB转换到电脑硬盘后变为M2TS。这种优化压缩的视频格式拍摄出来的视频质量明显优于MPEG2压缩的HD高清格式第一种 把M2TS转换成HD AVI的方案，适合打算用DV拍摄电影的朋友，经常对拍摄的高清文件进行反复对比剪辑和添加各种特效的回放和使用。
   

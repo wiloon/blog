@@ -121,6 +121,6 @@ time命令缺省输出的时间格式同 TIMEFORMAT=$'/nreal/t%3lR/nuser/t%3lU/n
 
 参考文献:
 
-[1] bash-2.05b源程序, <http://ftp.gnu.org/gnu/bash/bash-2.05b.tar.gz> , 2002.07
+[1] bash-2.05b源程序, [http://ftp.gnu.org/gnu/bash/bash-2.05b.tar.gz](http://ftp.gnu.org/gnu/bash/bash-2.05b.tar.gz) , 2002.07
 
 [2] Linux man pages

@@ -18,24 +18,24 @@ JadClipse是Jad的Eclipse插件
 
 jad是一款使用非常广泛地Java反编译工具，上面这款Jadclipse就是基于jad的反编译插件，JAD 文件包含 MIDlet 套件的标题信息，例如开发应用程序的公司、应用程序名称和大小。
 
-官方网站: <http://varaneckas.com/jad/>
+官方网站: [http://varaneckas.com/jad/](http://varaneckas.com/jad/)
 
 ### JD-GUI
 
 JD-GUI 是一个用 C++ 开发的 Java 反编译工具，由 Pavel Kouznetsov开发，支持Windows、Linux和苹果Mac Os三个平台。而且提供了Eclipse平台下的插件JD-Eclipse。JD-GUI不需要安装，直接点击运行，可以反编译jar,class文件。
 
-官方网站: <http://jd.benow.ca/>
+官方网站: [http://jd.benow.ca/](http://jd.benow.ca/)
 
 ### jdec
-<http://jdec.sourceforge.net/>
+[http://jdec.sourceforge.net/](http://jdec.sourceforge.net/)
 
 ### uuDeJava
-<http://www.uuware.com/uudejava_cn.htm>
+[http://www.uuware.com/uudejava_cn.htm](http://www.uuware.com/uudejava_cn.htm)
 
 ### Minjava
 
 ### Java Decompiler
-<http://jd.benow.ca/>
+[http://jd.benow.ca/](http://jd.benow.ca/)
 
 工具使用jad(还有joda,jd等工具)
 
@@ -201,4 +201,4 @@ while(iterrisk.hasNext()){
 
 }
 
-本文永久地址<http://blog.sina.com.cn/s/blog_4a2100f801014iwy.html>
+本文永久地址[http://blog.sina.com.cn/s/blog_4a2100f801014iwy.html](http://blog.sina.com.cn/s/blog_4a2100f801014iwy.html)

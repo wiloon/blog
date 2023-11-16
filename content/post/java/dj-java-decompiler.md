@@ -15,9 +15,9 @@ Java Decompiler
 
 "Java Decompiler", 由 Pavel Kouznetsov开发，目前最新版本为0.2.5. 它由 C++开发，并且官方可以下载windows、linux和苹果Mac Os三个平台的可执行程序。
 
-<http://jd.benow.ca/>
+[http://jd.benow.ca/](http://jd.benow.ca/)
 
-<http://www.oschina.net/p/java+decompiler>
+[http://www.oschina.net/p/java+decompiler](http://www.oschina.net/p/java+decompiler)
 
 DJ Java Decompiler(不免费)
 
@@ -35,4 +35,4 @@ DJ Java Decompiler 在 Windows 95、Windows 98、Windows 2000、Windows XP、Win
 
 2. 可以直接保存整个jar 档里的所有原文件。
 
-**官方地址:  <http://dj.navexpress.com/>**
+**官方地址:  [http://dj.navexpress.com/](http://dj.navexpress.com/)**

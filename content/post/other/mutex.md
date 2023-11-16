@@ -25,7 +25,7 @@ CPU如果提供一些用来构建锁的 atomic 指令, 譬如 x86 的 CMPXCHG (�
 mutex在linux内核中由 futex 系统调用支撑，如果没有竞争不需要陷入内核；内核的主要是 futex_wait/wake 函数配合上层完成业务逻辑；
 
 一个 spin lock 就是让没有抢到锁的线程不断在 while 里面循环进行 compare-and-swap, 燃烧CPU, 浪费青春, 直到前面的线程放手 (对应的内存被赋值0) 。这个过程不需要操作系统的介入,这是运行程序和硬件之间的故事。如果需要长时间的等待,这样反复CAS轮询就比较浪费资源,这个时候程序可以向操作系统申请被挂起,然后持锁的线程解锁了以后再通知它。这样CPU就可以用来做别的事情,而不是反复轮询。
-但是OS切换线程也需要一些开销,所以是否选择被挂起,取决于大概是否需要等很长时间,如果需要,则适合挂起切换为别的线程。线程向操作系统请求被**挂起**是通过一个系统调用,在linux上的实现就是 **futex**, 宏观来讲, OS需要一些全局的数据结构来记录一个被挂起线程和对应的锁的映射关系,这样一个数据结构天然是全局的,因为多个OS线程可能同时操作它。所以,实现高效的锁本身也需要锁。有没有一环套一环的感觉？futex的巧妙之处就在于,它知道访问这个全局数据结构不会太耗时,于是futex里面的锁就是spin lock。linux上pthread mutex 的实现就是用的 futex 。更多精彩内存参考talk: <https://www.infoq.com/presentations/go-locks/>
+但是OS切换线程也需要一些开销,所以是否选择被挂起,取决于大概是否需要等很长时间,如果需要,则适合挂起切换为别的线程。线程向操作系统请求被**挂起**是通过一个系统调用,在linux上的实现就是 **futex**, 宏观来讲, OS需要一些全局的数据结构来记录一个被挂起线程和对应的锁的映射关系,这样一个数据结构天然是全局的,因为多个OS线程可能同时操作它。所以,实现高效的锁本身也需要锁。有没有一环套一环的感觉？futex的巧妙之处就在于,它知道访问这个全局数据结构不会太耗时,于是futex里面的锁就是spin lock。linux上pthread mutex 的实现就是用的 futex 。更多精彩内存参考talk: [https://www.infoq.com/presentations/go-locks/](https://www.infoq.com/presentations/go-locks/)
 
 ### 用户态的锁
 
@@ -35,7 +35,7 @@ mutex在linux内核中由 futex 系统调用支撑，如果没有竞争不需要
 
 前面都是最底层的锁,用这些底层锁还可以构建更上层的锁。Condition variable,semaphore,RW lock之类的以后再写。
 
-<https://casatwy.com/pthreadde-ge-chong-tong-bu-ji-zhi.html>
+[https://casatwy.com/pthreadde-ge-chong-tong-bu-ji-zhi.html](https://casatwy.com/pthreadde-ge-chong-tong-bu-ji-zhi.html)
 
 MUTual-EXclude Lock,互斥锁。 它是理解最容易,使用最广泛的一种同步机制。顾名思义,被这个锁保护的临界区就只允许一个线程进入,其它线程如果没有获得锁权限,那就只能在外面等着。
 
@@ -64,7 +64,7 @@ if (dst == %ax) {
     ZF = 0;
 }
 
-Linux 内核代码中使用宏来封装cmpxchg指令操作,相关源码在这里 <https://elixir.bootlin.com/linux/latest/source/tools/arch/x86/include/asm/cmpxchg.h#L86>
+Linux 内核代码中使用宏来封装cmpxchg指令操作,相关源码在这里 [https://elixir.bootlin.com/linux/latest/source/tools/arch/x86/include/asm/cmpxchg.h#L86](https://elixir.bootlin.com/linux/latest/source/tools/arch/x86/include/asm/cmpxchg.h#L86)
 
 在上述例子中，eax就是old，ebx就是ptr指向的内容，ecx就是new。
 cmpxchg %ecx, %ebx；如果EAX与EBX相等，则ECX送EBX且ZF置1；否则EBX送EAX，且ZF清0
@@ -116,8 +116,8 @@ FI;
 
 ### c mutex
 
-><https://blog.csdn.net/google19890102/article/details/62047798>
-><https://www.cnblogs.com/zengkefu/p/5683957.html>
+>[https://blog.csdn.net/google19890102/article/details/62047798](https://blog.csdn.net/google19890102/article/details/62047798)
+>[https://www.cnblogs.com/zengkefu/p/5683957.html](https://www.cnblogs.com/zengkefu/p/5683957.html)
 
 首先我们看一下互斥锁。所谓的互斥就是线程之间互相排斥，获得资源的线程排斥其它没有获得资源的线程。Linux使用互斥锁来实现这种机制。
 既然叫锁，就有加锁和解锁的概念。当线程获得了加锁的资格，那么它将独享这个锁，其它线程一旦试图去碰触这个锁就立即被系统“拍晕”。当加锁的线程解开并放弃了这个锁之后，那些被“拍晕”的线程会被系统唤醒，然后继续去争抢这个锁。至于谁能抢到，只有天知道。但是总有一个能抢到。于是其它来凑热闹的线程又被系统给“拍晕”了……如此反复。感觉线程的“头”很痛: )
@@ -134,17 +134,17 @@ phtread_mutex_trylock()比较特别，用它试图加锁的线程永远都不会
 
 ---
 
-<https://www.zhihu.com/question/332113890>
-<https://www.infoq.com/presentations/go-locks/>
-<https://en.wikipedia.org/wiki/Mutual_exclusion>
-<https://en.wikipedia.org/wiki/Peterson>'s_algorithm
-<https://www.zhihu.com/question/53303879>
+[https://www.zhihu.com/question/332113890](https://www.zhihu.com/question/332113890)
+[https://www.infoq.com/presentations/go-locks/](https://www.infoq.com/presentations/go-locks/)
+[https://en.wikipedia.org/wiki/Mutual_exclusion](https://en.wikipedia.org/wiki/Mutual_exclusion)
+[https://en.wikipedia.org/wiki/Peterson](https://en.wikipedia.org/wiki/Peterson)'s_algorithm
+[https://www.zhihu.com/question/53303879](https://www.zhihu.com/question/53303879)
 
 作者: 陈清扬
-链接: <https://www.zhihu.com/question/332113890/answer/1052024052>
+链接: [https://www.zhihu.com/question/332113890/answer/1052024052](https://www.zhihu.com/question/332113890/answer/1052024052)
 来源: 知乎
 著作权归作者所有。商业转载请联系作者获得授权,非商业转载请注明出处。
 
-<https://coderatwork.cn/posts/linux-cmpxchg/>
+[https://coderatwork.cn/posts/linux-cmpxchg/](https://coderatwork.cn/posts/linux-cmpxchg/)
 
-<https://juejin.cn/post/6905287769006800903>
+[https://juejin.cn/post/6905287769006800903](https://juejin.cn/post/6905287769006800903)

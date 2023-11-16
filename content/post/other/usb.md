@@ -35,8 +35,8 @@ USB接口有四根线，中间触点短的两根用于数据传输，外侧另�
   
 黑色 (gnd) : 地线, G
 
-<http://wenwen.soso.com/z/q348665257.htm>  
-<http://markjohann.hubpages.com/hub/Four-Wires-of-the-USB-for-pinout-and-USB-connectors#>  
+[http://wenwen.soso.com/z/q348665257.htm](http://wenwen.soso.com/z/q348665257.htm)  
+[http://markjohann.hubpages.com/hub/Four-Wires-of-the-USB-for-pinout-and-USB-connectors#](http://markjohann.hubpages.com/hub/Four-Wires-of-the-USB-for-pinout-and-USB-connectors#)  
 [http://pinoutsguide.com/SerialPortsCables/usb_cable_pinout.shtml][1]  
-<http://blacxspy.com/memperbaiki-kabel-mouse-yang-putus/>  
-<http://pinoutsguide.com/SerialPortsCables/usb_cable_pinout.shtml>  
+[http://blacxspy.com/memperbaiki-kabel-mouse-yang-putus/](http://blacxspy.com/memperbaiki-kabel-mouse-yang-putus/)  
+[http://pinoutsguide.com/SerialPortsCables/usb_cable_pinout.shtml](http://pinoutsguide.com/SerialPortsCables/usb_cable_pinout.shtml)  

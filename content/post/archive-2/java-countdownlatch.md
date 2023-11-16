@@ -26,7 +26,7 @@ Java的concurrent包里面的CountDownLatch其实可以把它看作一个计数�
   
 CountDownLatch的一个非常典型的应用场景是: 有一个任务想要往下执行,但必须要等到其他的任务执行完毕后才可以继续往下执行。假如我们这个想要继续往下执行的任务调用一个CountDownLatch对象的await()方法,其他的任务执行完自己的任务后调用同一个CountDownLatch对象上的countDown()方法,这个调用await()方法的任务将一直阻塞等待,直到这个CountDownLatch对象的计数值减到0为止。
   
-<http://www.wiloon.com/?p=7869>
+[http://www.wiloon.com/?p=7869](http://www.wiloon.com/?p=7869)
 
 ## CyclicBarrier
   
@@ -44,10 +44,10 @@ CyclicBarrier类似于CountDownLatch也是个计数器, 不同的是CyclicBarrie
   
 一种可重用的同步屏障, 功能上类似于 CyclicBarrier 和 CountDownLatch, 但使用上更为灵活. 非常适用于在多线程环境下同步协调分阶段计算任务 (Fork/Join框架中的子任务之间需同步时, 优先使用 Phaser)
   
-<http://www.wiloon.com/?p=11214>
+[http://www.wiloon.com/?p=11214](http://www.wiloon.com/?p=11214)
 
 Exchanger 允许两个线程在某个汇合点交换对象, 在某些管道设计时比较有用. Exchanger提供了一个同步点, 在这个同步点, 一对线程可以交换数据. 每个线程通过exchange()方法的入口提供数据给他的伙伴线程, 并接收他的伙伴线程提供的数据并返回. 当两个线程通过Exchanger交换了对象, 这个交换对于两个线程来说都是安全的. Exchanger可以认为是 SynchronousQueue 的双向形式, 在运用到遗传算法和管道设计的应用中比较有用.
 
-<http://zapldy.iteye.com/blog/746458>
+[http://zapldy.iteye.com/blog/746458](http://zapldy.iteye.com/blog/746458)
   
-<http://www.jianshu.com/p/d424d02ed9eb>
+[http://www.jianshu.com/p/d424d02ed9eb](http://www.jianshu.com/p/d424d02ed9eb)

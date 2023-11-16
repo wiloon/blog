@@ -10,9 +10,9 @@ tags:
 ---
 ## redis data type, 数据类型
 
-<https://redis.io/topics/data-types>
+[https://redis.io/topics/data-types](https://redis.io/topics/data-types)
   
-<https://redis.io/topics/data-types-intro>
+[https://redis.io/topics/data-types-intro](https://redis.io/topics/data-types-intro)
 
 * [String - 字符串][1]
 * [List - 列表][2]
@@ -32,8 +32,8 @@ tags:
 
 ### Hyperloglog
 
-<https://segmentfault.com/a/1190000020523110>
+[https://segmentfault.com/a/1190000020523110](https://segmentfault.com/a/1190000020523110)
 
 ### geospatial
 
-<https://blog.csdn.net/zhang197093/article/details/72979038>
+[https://blog.csdn.net/zhang197093/article/details/72979038](https://blog.csdn.net/zhang197093/article/details/72979038)

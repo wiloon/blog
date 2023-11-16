@@ -87,7 +87,7 @@ rdb-save-incremental-fsync yes
 jemalloc-bg-thread yes
 ```
 
-<https://raw.githubusercontent.com/redis/redis/6.0/redis.conf>
+[https://raw.githubusercontent.com/redis/redis/6.0/redis.conf](https://raw.githubusercontent.com/redis/redis/6.0/redis.conf)
 
 ```bash
 # bind 参数是为了禁止外网访问redis,如果启用了,则只能够通过lookback ip (127.0.0.1) 访问Redis
@@ -371,13 +371,13 @@ hz 的默认值是 10,可以通过提高这个值来使得 CPU 在空闲的时�
 
 ---
 
-<https://blog.csdn.net/pengjunlee/article/details/81269596>
+[https://blog.csdn.net/pengjunlee/article/details/81269596](https://blog.csdn.net/pengjunlee/article/details/81269596)
 
-<https://juejin.cn/post/6858901608361787400>
+[https://juejin.cn/post/6858901608361787400](https://juejin.cn/post/6858901608361787400)
 
-<http://cs-cjl.com/2019/04_11_redis_configuration_5>
+[http://cs-cjl.com/2019/04_11_redis_configuration_5](http://cs-cjl.com/2019/04_11_redis_configuration_5)
 
 masterauth passwd123  指定密码passwd123
 requirepass passwd123 指定密码passwd123
 
-<https://redis.io/docs/management/config-file/>
+[https://redis.io/docs/management/config-file/](https://redis.io/docs/management/config-file/)

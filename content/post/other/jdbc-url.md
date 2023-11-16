@@ -14,7 +14,7 @@ tags:
 ### disable tls
 
 JDK8版本过高引起MySQL连接失败：javax.net.ssl.SSLHandshakeException: No appropriate protocol
-><https://juejin.cn/post/6969142310718144520>
+>[https://juejin.cn/post/6969142310718144520](https://juejin.cn/post/6969142310718144520)
 
     jdbc:mysql://127.0.0.1/database0?useunicode=true&characterencoding=utf8&tinyInt1isBit=false&useSSL=false
 
@@ -22,7 +22,7 @@ MySQL
 
 MySQL Connector/J Driver
 
-驱动程序包: <http://mvnrepository.com/artifact/MySQL/MySQL-connector-java>
+驱动程序包: [http://mvnrepository.com/artifact/MySQL/MySQL-connector-java](http://mvnrepository.com/artifact/MySQL/MySQL-connector-java)
 
 驱动程序类名: com.MySQL.jdbc.Driver
 
@@ -45,13 +45,13 @@ MySQL Connector/J Driver 允许在URL中添加额外的连接属性jdbc:MySQL://
 
 常用的有两个，一个是gjt (Giant Java Tree) 组织提供的MySQL驱动，其JDBC Driver名称 (JAVA类名) 为: org.gjt.mm.MySQL.Driver
 
-详情请参见网站: <http://www.gjt.org/>
+详情请参见网站: [http://www.gjt.org/](http://www.gjt.org/)
 
 或在本网站下载MySQL JDBC Driver(mm.jar)
 
 另一个是MySQL官方提供的JDBC Driver，其JAVA类名为: com.MySQL.jdbc.Driver
 
-驱动下载网址: <http://dev.MySQL.com/downloads/，进入其中的MySQL> Connector/J区域下载。
+驱动下载网址: [http://dev.MySQL.com/downloads/，进入其中的MySQL](http://dev.MySQL.com/downloads/，进入其中的MySQL) Connector/J区域下载。
 
 MySQL JDBC URL格式如下:
 
@@ -97,7 +97,7 @@ jdbc:MySQL://localhost:3306/test?user=root&password=&useUnicode=true&characterEn
 
 &autoReconnect=true&failOverReadOnly=false
 
-<http://blog.csdn.net/ring0hx/article/details/6152528>
+[http://blog.csdn.net/ring0hx/article/details/6152528](http://blog.csdn.net/ring0hx/article/details/6152528)
 
 Microsoft SQL Server
 
@@ -221,6 +221,6 @@ Netezza JDBC Driver
 
 JDBC URL: jdbc:netezza://<host>:<port>/<database_name>
 
-<http://www.2cto.com/database/201203/125168.html>
+[http://www.2cto.com/database/201203/125168.html](http://www.2cto.com/database/201203/125168.html)
 
-<https://dev.MySQL.com/doc/connector-j/5.1/en/connector-j-reference-configuration-properties.html>
+[https://dev.MySQL.com/doc/connector-j/5.1/en/connector-j-reference-configuration-properties.html](https://dev.MySQL.com/doc/connector-j/5.1/en/connector-j-reference-configuration-properties.html)

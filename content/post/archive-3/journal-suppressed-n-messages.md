@@ -36,8 +36,8 @@ RateLimitInterval是指定时间间隔, 意思就是说, 在RateLimitInterval这
 
 systemctl restart systemd-journald
 
-<https://docs.lvrui.io/2018/11/22/systemd-journal-Suppressed-N-messages/>
+[https://docs.lvrui.io/2018/11/22/systemd-journal-Suppressed-N-messages/](https://docs.lvrui.io/2018/11/22/systemd-journal-Suppressed-N-messages/)
 
 systemd-journald这个服务重启的时候, 会给所有的进程发送SIGPIPE信号, 而在默认的 systemd 定义中, SIGPIPE 信号属于正常退出的范围. 所以即使 unit 文件配置了Restart on-failure也不会被重启
 
-<https://docs.lvrui.io/2018/11/22/systemd-journald%E7%9A%84SIGPIPE%E4%BF%A1%E5%8F%B7BUG/>
+[https://docs.lvrui.io/2018/11/22/systemd-journald%E7%9A%84SIGPIPE%E4%BF%A1%E5%8F%B7BUG/](https://docs.lvrui.io/2018/11/22/systemd-journald%E7%9A%84SIGPIPE%E4%BF%A1%E5%8F%B7BUG/)

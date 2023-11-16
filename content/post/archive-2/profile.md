@@ -171,10 +171,10 @@ export vblank_mode=0
 
 在接下来的系列中,我们将讨论dotfile管理选项。
 
-译文链接: <http://www.codeceo.com/article/linux-unix-login-script.html>
+译文链接: [http://www.codeceo.com/article/linux-unix-login-script.html](http://www.codeceo.com/article/linux-unix-login-script.html)
   
 英文原文: Understanding *NIX Login Scripts
   
 翻译作者: 码农网 – 韩先生
 
-<https://www.oschina.net/news/78491/linux-unix-login-script>
+[https://www.oschina.net/news/78491/linux-unix-login-script](https://www.oschina.net/news/78491/linux-unix-login-script)

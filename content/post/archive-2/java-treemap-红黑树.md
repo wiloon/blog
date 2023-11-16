@@ -54,9 +54,9 @@ TreeMap的实现是红黑树算法的实现,所以要了解TreeMap就必须对�
 
 左旋 右旋
 
- (图片来自: <http://www.cnblogs.com/yangecnu/p/Introduce-Red-Black-Tree.html>)
+ (图片来自: [http://www.cnblogs.com/yangecnu/p/Introduce-Red-Black-Tree.html](http://www.cnblogs.com/yangecnu/p/Introduce-Red-Black-Tree.html))
 
-本节参考文献: <http://baike.baidu.com/view/133754.htm?fr=aladdin>--百度百科
+本节参考文献: [http://baike.baidu.com/view/133754.htm?fr=aladdin](http://baike.baidu.com/view/133754.htm?fr=aladdin)--百度百科
 
 注: 由于本文主要是讲解Java中TreeMap,所以并没有对红黑树进行非常深入的了解和研究,如果诸位想对其进行更加深入的研究Lz提供几篇较好的博文:
 
@@ -206,7 +206,7 @@ private void rotateRight(Entry<K,V> p) { if (p != null) { //将L设置为P的左
 
  (左旋)   (右旋)
 
- (图片来自: <http://www.cnblogs.com/yangecnu/p/Introduce-Red-Black-Tree.html>)
+ (图片来自: [http://www.cnblogs.com/yangecnu/p/Introduce-Red-Black-Tree.html](http://www.cnblogs.com/yangecnu/p/Introduce-Red-Black-Tree.html))
 
 着色: setColor()
 
@@ -350,17 +350,17 @@ private void fixAfterDeletion(Entry<K,V> x) { // 删除节点需要一直迭代,
 
 参考资料:
 
-1. 红黑树数据结构剖析: <http://www.cnblogs.com/fanzhidongyzby/p/3187912.html>
+1. 红黑树数据结构剖析: [http://www.cnblogs.com/fanzhidongyzby/p/3187912.html](http://www.cnblogs.com/fanzhidongyzby/p/3187912.html)
 
-2. 红黑二叉树详解及理论分析 : <http://blog.csdn.net/kartorz/article/details/8865997>
+2. 红黑二叉树详解及理论分析 : [http://blog.csdn.net/kartorz/article/details/8865997](http://blog.csdn.net/kartorz/article/details/8865997)
 
 3. 教你透彻了解红黑树 : blog.csdn.net/v_july_v/article/details/6105630
 
-4. 经典算法研究系列: 五、红黑树算法的实现与剖析 : <http://blog.csdn.net/v_JULY_v/article/details/6109153>
+4. 经典算法研究系列: 五、红黑树算法的实现与剖析 : [http://blog.csdn.net/v_JULY_v/article/details/6109153](http://blog.csdn.net/v_JULY_v/article/details/6109153)
 
-5. 示例,红黑树插入和删除过程: <http://saturnman.blog.163.com/blog/static/557611201097221570/>
+5. 示例,红黑树插入和删除过程: [http://saturnman.blog.163.com/blog/static/557611201097221570/](http://saturnman.blog.163.com/blog/static/557611201097221570/)
 
-6. 红黑二叉树详解及理论分析 : <http://blog.csdn.net/kartorz/article/details/8865997>
+6. 红黑二叉树详解及理论分析 : [http://blog.csdn.net/kartorz/article/details/8865997](http://blog.csdn.net/kartorz/article/details/8865997)
 
 PS:如果你觉得文章对你有所帮助,别忘了推荐或者分享,因为有你的支持,才是我续写下篇的动力和源泉！
 
@@ -370,12 +370,12 @@ PS:如果你觉得文章对你有所帮助,别忘了推荐或者分享,因为有
 
 作者:  chenssy
   
-出处:  <http://www.cnblogs.com/chenssy/>
+出处:  [http://www.cnblogs.com/chenssy/](http://www.cnblogs.com/chenssy/)
   
 本文版权归作者和博客园共有,欢迎转载,但未经作者同意必须保留此段声明,且在文章页面明显位置给出原文连接,否则保留追究法律责任的权利。
 
-<https://www.jianshu.com/p/2dcff3634326>
+[https://www.jianshu.com/p/2dcff3634326](https://www.jianshu.com/p/2dcff3634326)
 
-<http://www.cnblogs.com/chenssy/p/3746600.html>
+[http://www.cnblogs.com/chenssy/p/3746600.html](http://www.cnblogs.com/chenssy/p/3746600.html)
 
-<https://xieguanglei.github.io/blog/post/red-black-tree.html>
+[https://xieguanglei.github.io/blog/post/red-black-tree.html](https://xieguanglei.github.io/blog/post/red-black-tree.html)

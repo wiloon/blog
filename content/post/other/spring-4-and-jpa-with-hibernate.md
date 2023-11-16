@@ -12,7 +12,7 @@ tags:
 ---
 ## Spring 4 and JPA with Hibernate
 
-<http://www.baeldung.com/2011/12/13/the-persistence-layer-with-spring-3-1-and-jpa/>
+[http://www.baeldung.com/2011/12/13/the-persistence-layer-with-spring-3-1-and-jpa/](http://www.baeldung.com/2011/12/13/the-persistence-layer-with-spring-3-1-and-jpa/)
 
 Table of Contents
   
@@ -140,13 +140,14 @@ xmlns:tx="http://www.springframework.org/schema/tx"
   
 xsi:schemaLocation="
   
-<http://www.springframework.org/schema/beans>
+[http://www.springframework.org/schema/beans](http://www.springframework.org/schema/beans)
   
-<http://www.springframework.org/schema/beans/spring-beans-3.2.xsd>
+[http://www.springframework.org/schema/beans/spring-beans-3.2.xsd](http://www.springframework.org/schema/beans/spring-beans-3.2.xsd)
   
-<http://www.springframework.org/schema/tx>
+[http://www.springframework.org/schema/tx](http://www.springframework.org/schema/tx)
   
-<http://www.springframework.org/schema/tx/spring-tx-3.2.xsd>">
+[http://www.springframework.org/schema/tx/spring-tx-3.2.xsd](http://www.springframework.org/schema/tx/spring-tx-3.2.xsd)">
+[http://www.springframework.org/schema/tx/spring-tx-3.2.xsd>"](http://www.springframework.org/schema/tx/spring-tx-3.2.xsd>")
 
 <bean id="myEmf" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
   

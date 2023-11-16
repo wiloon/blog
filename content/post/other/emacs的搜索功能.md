@@ -41,7 +41,7 @@ Emacs入门指南(3)   [ Date: 2006-03-15 12:04:44 AM | Author: 80x86 | From: Or
 
 Emacs的正则表达式语法十分复杂与强大，请您阅读Emacs手册来对它们进行全面的学习，一定会给您的工作带来巨大的便捷，作为一篇入门教程，这里我就不再作更全面的叙述了。
 
-<http://www.learndiary.com/2006/04/emacs%E4%B8%AD%E5%BC%BA%E5%A4%A7%E7%9A%84%E6%90%9C%E7%B4%A2%E5%8A%9F%E8%83%BD%EF%BC%88%E8%BD%AC%E5%B8%96%EF%BC%89/>
+[http://www.learndiary.com/2006/04/emacs%E4%B8%AD%E5%BC%BA%E5%A4%A7%E7%9A%84%E6%90%9C%E7%B4%A2%E5%8A%9F%E8%83%BD%EF%BC%88%E8%BD%AC%E5%B8%96%EF%BC%89/](http://www.learndiary.com/2006/04/emacs%E4%B8%AD%E5%BC%BA%E5%A4%A7%E7%9A%84%E6%90%9C%E7%B4%A2%E5%8A%9F%E8%83%BD%EF%BC%88%E8%BD%AC%E5%B8%96%EF%BC%89/)
 
 
 ### C – s 后切换到搜索框粘贴

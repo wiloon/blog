@@ -40,7 +40,7 @@ codercom/code-server:3.12.0 --auth none
 ### nginx 配置
 
 location / {
-        proxy_pass <http://wyse5070.wiloon.com:8080>;
+        proxy_pass [http://wyse5070.wiloon.com:8080](http://wyse5070.wiloon.com:8080);
         proxy_set_header Host $host;
         proxy_set_header Upgrade $http_upgrade;
         proxy_set_header Connection upgrade;
@@ -49,9 +49,9 @@ location / {
 
 ---
 
-<https://github.com/cdr/code-server>
-<https://hub.docker.com/r/codercom/code-server>  
+[https://github.com/cdr/code-server](https://github.com/cdr/code-server)
+[https://hub.docker.com/r/codercom/code-server](https://hub.docker.com/r/codercom/code-server)  
 
 ————————————————
 版权声明: 本文为CSDN博主「张驰Terry」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
-原文链接: <https://blog.csdn.net/terrychinaz/article/details/113308263>
+原文链接: [https://blog.csdn.net/terrychinaz/article/details/113308263](https://blog.csdn.net/terrychinaz/article/details/113308263)

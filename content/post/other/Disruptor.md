@@ -10,13 +10,13 @@ tags:
 ---
 ## Disruptor
 
-<http://www.cnblogs.com/killmyday/archive/2012/12/02/2798218.html>
+[http://www.cnblogs.com/killmyday/archive/2012/12/02/2798218.html](http://www.cnblogs.com/killmyday/archive/2012/12/02/2798218.html)
 
-<http://www.cnblogs.com/haiq/p/4112689.html>
+[http://www.cnblogs.com/haiq/p/4112689.html](http://www.cnblogs.com/haiq/p/4112689.html)
 
 票池暂定使用disruptor来做消息队列，把最近对disruptor的调研结果整理一下。大部分文字都是把disruptor和其它网站上看到的资料翻译一下。
 
-原文: <http://www.oraclejavamagazine-digital.com/javamagazine/20120304/?pg=56&pm=1&u1=friend#pg56>
+原文: [http://www.oraclejavamagazine-digital.com/javamagazine/20120304/?pg=56&pm=1&u1=friend#pg56](http://www.oraclejavamagazine-digital.com/javamagazine/20120304/?pg=56&pm=1&u1=friend#pg56)
 
 Disruptor是什么？
 
@@ -100,5 +100,5 @@ Disruptor也支持，但是本文没有说如何支持，放在后面写。
 
 虽然disruptor的原理已经比较熟悉了，但是其API还不是很了解，我写了一个实验性的代码，来完善我的理解 - 不过随着理解的深入，代码会不断更新:
 
-<https://github.com/shiyimin/12306ngpm/blob/8be9178d318618f905aaed45fa6025df09371c31/trunk/tpms/src/test/java/org/ng12306/tpms/DisruptorConceptProofTest.java>
-><https://tech.meituan.com/2016/11/18/disruptor.html>
+[https://github.com/shiyimin/12306ngpm/blob/8be9178d318618f905aaed45fa6025df09371c31/trunk/tpms/src/test/java/org/ng12306/tpms/DisruptorConceptProofTest.java](https://github.com/shiyimin/12306ngpm/blob/8be9178d318618f905aaed45fa6025df09371c31/trunk/tpms/src/test/java/org/ng12306/tpms/DisruptorConceptProofTest.java)
+>[https://tech.meituan.com/2016/11/18/disruptor.html](https://tech.meituan.com/2016/11/18/disruptor.html)

@@ -37,7 +37,7 @@ redis-cli --latency -h 192.168.50.100 -p 6379
 
 ### sort
 
-<https://segmentfault.com/a/1190000002806846>
+[https://segmentfault.com/a/1190000002806846](https://segmentfault.com/a/1190000002806846)
 
 基本使用
 命令格式:  SORT key [BY pattern] [LIMIT offset count] [GET pattern [GET pattern ...]] [ASC|DESC] [ALPHA] [STORE destination]
@@ -121,13 +121,13 @@ sudo apt install redis
 
 ### rpm
 
-download redis rpm from <https://pkgs.org/download/redis>
+download redis rpm from [https://pkgs.org/download/redis](https://pkgs.org/download/redis)
 
-<https://rpms.remirepo.net/enterprise/7/remi/x86_64/redis-7.0.0-1.el7.remi.x86_64.rpm>
+[https://rpms.remirepo.net/enterprise/7/remi/x86_64/redis-7.0.0-1.el7.remi.x86_64.rpm](https://rpms.remirepo.net/enterprise/7/remi/x86_64/redis-7.0.0-1.el7.remi.x86_64.rpm)
 
 下载 Redis 的依赖包: libjemalloc
 
-下载地址: <https://pkgs.org/centos-6/atomic-x86_64/jemalloc-3.6.0-1.el6.art.x86_64.rpm.html>
+下载地址: [https://pkgs.org/centos-6/atomic-x86_64/jemalloc-3.6.0-1.el6.art.x86_64.rpm.html](https://pkgs.org/centos-6/atomic-x86_64/jemalloc-3.6.0-1.el6.art.x86_64.rpm.html)
 
 ```bash
 rpm -ivh jemalloc-3.6.0-1.el6.art.x86_64.rpm
@@ -294,7 +294,7 @@ flushdb
     使用unlink命令时，由于string类型的effort一直返回的是1，z所以string类型不会做异步删除。
 
 作者: willcat
-链接: <https://juejin.cn/post/6844903810792423432>
+链接: [https://juejin.cn/post/6844903810792423432](https://juejin.cn/post/6844903810792423432)
 来源: 掘金
 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
 
@@ -373,11 +373,11 @@ redis-cli -h 127.0.0.1 -p 6379 FLUSHDB
 
 ---
 
-<https://github.com/redis/redis>
+[https://github.com/redis/redis](https://github.com/redis/redis)
 
 ### Redis 响应延时问题排查
 
-<https://xie.infoq.cn/article/1ccbd30d94ab781a4f85ab2fc?utm_source=rss&utm_medium=article>
+[https://xie.infoq.cn/article/1ccbd30d94ab781a4f85ab2fc?utm_source=rss&utm_medium=article](https://xie.infoq.cn/article/1ccbd30d94ab781a4f85ab2fc?utm_source=rss&utm_medium=article)
 
 ### RESP协议
 
@@ -396,7 +396,7 @@ RESP可以序列化不同的数据类型，如整数，字符串，数组。还�
 RESP是二进制安全的，不需要处理从一个进程传输到另一个进程的批量数据，因为它使用前缀长度来传输批量数据。
 注意: RESP 虽然是为 Redis 设计的，但是同样也可以用于其他 C/S 的软件。Redis Cluster使用不同的二进制协议(gossip)，以便在节点之间交换消息。
 
-关于协议的具体描述，官方文档 <https://redis.io/topics/protocol>
+关于协议的具体描述，官方文档 [https://redis.io/topics/protocol](https://redis.io/topics/protocol)
 
 ### pipeline
 
@@ -408,11 +408,11 @@ RESP是二进制安全的，不需要处理从一个进程传输到另一个进�
 select 10
 ```
 
-<https://mp.weixin.qq.com/s/MtvEf_jWWDb6yCXPqvqF0w>
+[https://mp.weixin.qq.com/s/MtvEf_jWWDb6yCXPqvqF0w](https://mp.weixin.qq.com/s/MtvEf_jWWDb6yCXPqvqF0w)
 
-<https://mp.weixin.qq.com/s/aOiadiWG2nNaZowmoDQPMQ>
+[https://mp.weixin.qq.com/s/aOiadiWG2nNaZowmoDQPMQ](https://mp.weixin.qq.com/s/aOiadiWG2nNaZowmoDQPMQ)
 
-<https://blog.csdn.net/AlbertFly/article/details/80169717>
+[https://blog.csdn.net/AlbertFly/article/details/80169717](https://blog.csdn.net/AlbertFly/article/details/80169717)
 
 ## k8s redis
 
@@ -550,4 +550,4 @@ kubectl create -f redis-deployment.yml
 
 ## Redis 从文件中批量插入数据
 
-<https://blog.csdn.net/chwshuang/article/details/52915685>
+[https://blog.csdn.net/chwshuang/article/details/52915685](https://blog.csdn.net/chwshuang/article/details/52915685)

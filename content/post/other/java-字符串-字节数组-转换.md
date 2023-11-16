@@ -38,7 +38,7 @@ tags:
   若a="abcdef",b="abc"输出3；
   若a="abcdef",b="ace"输出-1；
    即参与比较的两个字符串如果首字符相同，则比较下一个字符，直到有不同的为止，返回该不同的字符的asc码差值，如果两个字符串不一样长，可以参与比较的字符又完全一样，则返回两个字符串的长度差值
-参考: <http://blog.sina.com.cn/s/blog_8a7200cd010104nx.html>
+参考: [http://blog.sina.com.cn/s/blog_8a7200cd010104nx.html](http://blog.sina.com.cn/s/blog_8a7200cd010104nx.html)
 
     http://www.blogjava.net/hgc-ghc/archive/2013/03/28/397084.html
 

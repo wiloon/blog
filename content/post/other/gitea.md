@@ -16,4 +16,4 @@ Gitea是一款使用Golang编写的可自运营的代码管理工具。
 
 于是着手查看开源的alternative方案，很快就找到了golang研发的gitea。使用golang研发的软件分发都很容易，体积小，安装使用简单，运行时占用资源少。且gitea的功能很完备，某些自身不具备的功能也能通过第三方来解决，比如CI就可以结合同样是golang研发的drone来实施。
 
-<https://xenojoshua.com/2019/12/gitea-note/>
+[https://xenojoshua.com/2019/12/gitea-note/](https://xenojoshua.com/2019/12/gitea-note/)

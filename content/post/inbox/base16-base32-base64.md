@@ -51,7 +51,7 @@ Base64URL 采用了和 Base64 一样的算法作为主要标准，在以下几�
 
 为解决此问题，可采用一种用于 URL 的改进Base64编码，它不在末尾填充'='号，并将标准 Base64 中的"+"和"/"分别改成了"-"和"_"，这样就免去了在URL编解码和数据库存储时所要作的转换，避免了编码信息长度在此过程中的增加，并统一了数据库、表单等处对象标识符的格式。
 
-<https://base64.guru/standards/base64url>
+[https://base64.guru/standards/base64url](https://base64.guru/standards/base64url)
 
 ### 正则 base64 变种
 
@@ -74,7 +74,7 @@ a:aaa -- 011000 010011 101001 100001 011000 010110 0001xx xxxxxx -- YTphYWE=
 
 a:aaaa -- 011000 010011 101001 100001 011000 010110 000101 1000001 -- YTphYWFh
 
-<https://segmentfault.com/a/1190000004533485>
+[https://segmentfault.com/a/1190000004533485](https://segmentfault.com/a/1190000004533485)
 
 Base64是网络上最常见的用于传输 8Bit 字节代码的编码方式之一，大家可以查看 RFC2045～RFC2049，上面有MIME的详细规范。Base64编码可用于在HTTP环境下传递较长的标识信息。例如，在Java Persistence系统Hibernate中，就采用了Base64来将一个较长的唯一标识符 (一般为128-bit的UUID) 编码为一个字符串，用作HTTP表单和HTTP GET URL 中的参数。在其他应用程序中，也常常需要把二进制数据编码为适合放在URL (包括隐藏表单域) 中的形式。此时，采用Base64编码不仅比较简短，同时也具有不可读性，即所编码的数据不会被人用肉眼所直接看到。
 
@@ -415,10 +415,10 @@ BASE64URL解码的流程:
   
 来源: CSDN
   
-原文: <https://blog.csdn.net/qq_35725321/article/details/52126402>
+原文: [https://blog.csdn.net/qq_35725321/article/details/52126402](https://blog.csdn.net/qq_35725321/article/details/52126402)
   
 版权声明: 本文为博主原创文章,转载请附上博文链接！
 
-<http://www.voidcn.com/article/p-hsyppdrh-bnz.html>
+[http://www.voidcn.com/article/p-hsyppdrh-bnz.html](http://www.voidcn.com/article/p-hsyppdrh-bnz.html)
   
-<https://blog.csdn.net/wangjianno2/article/details/52464208>
+[https://blog.csdn.net/wangjianno2/article/details/52464208](https://blog.csdn.net/wangjianno2/article/details/52464208)

@@ -68,5 +68,5 @@ kafka kip-62
 
 原文：https://www.cnblogs.com/hapjin/p/10926882.html
 
-<https://www.cnblogs.com/hapjin/p/10926882.html>
+[https://www.cnblogs.com/hapjin/p/10926882.html](https://www.cnblogs.com/hapjin/p/10926882.html)
 

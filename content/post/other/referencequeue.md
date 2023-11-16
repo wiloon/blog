@@ -14,11 +14,11 @@ tags:
 使用 SoftReference，WeakReference，PhantomReference 的时候，可以关联一个 ReferenceQueue。那么当垃圾回收器准备回收一个被引用包装的对象时，该引用会被加入到关联的 ReferenceQueue。程序可以通过判断引用队列中是否已经加入引用, 来了解被引用的对象是否被GC回收。
 
 作者: leilifengxingmw
-链接: <https://www.jianshu.com/p/6ae4f53a4752>
+链接: [https://www.jianshu.com/p/6ae4f53a4752](https://www.jianshu.com/p/6ae4f53a4752)
 来源: 简书
 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
 
-<http://www.iflym.com/index.php/java-programe/201407140001.html>
+[http://www.iflym.com/index.php/java-programe/201407140001.html](http://www.iflym.com/index.php/java-programe/201407140001.html)
 
 在java的引用体系中，存在着强引用，软引用，虚引用，幽灵引用，这4种引用类型。在正常的使用过程中，我们定义的类型都是强引用的，这种引用类型在回收中，只有当其它对象没有对这个对象的引用时，才会被GC回收掉。简单来说，对于以下定义:
 
@@ -222,4 +222,4 @@ hashMap.size->1
 
 转载请标明出处:i flym
   
-本文地址:<http://www.iflym.com/index.php/java-programe/201407140001.html>
+本文地址:[http://www.iflym.com/index.php/java-programe/201407140001.html](http://www.iflym.com/index.php/java-programe/201407140001.html)

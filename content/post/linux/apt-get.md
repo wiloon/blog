@@ -142,13 +142,13 @@ rm -rf /var/lib/apt/lists/*
 apt-get update
 ```
 
-<https://stackoverflow.com/questions/27455626/how-to-remove-an-incomplete-package-by-using-apt-get>
+[https://stackoverflow.com/questions/27455626/how-to-remove-an-incomplete-package-by-using-apt-get](https://stackoverflow.com/questions/27455626/how-to-remove-an-incomplete-package-by-using-apt-get)
   
-<https://blog.csdn.net/zc123456zzc/article/details/47153913>
+[https://blog.csdn.net/zc123456zzc/article/details/47153913](https://blog.csdn.net/zc123456zzc/article/details/47153913)
 
 ### debian packages
 
-><https://www.debian.org/distrib/packages>
+>[https://www.debian.org/distrib/packages](https://www.debian.org/distrib/packages)
 
 ## apt, apt-get, aptitude
 Ubuntu(Debian)的aptitude与apt-get的区别和联系

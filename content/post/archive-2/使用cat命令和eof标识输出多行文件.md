@@ -10,7 +10,7 @@ tags:
 ---
 ## 用 cat 命令和 EOF 标识生成文件
 
-<http://www.linuxfly.org/post/146/>
+[http://www.linuxfly.org/post/146/](http://www.linuxfly.org/post/146/)
 
 在某些场合,可能我们需要在脚本中生成一个临时文件,然后把该文件作为最终文件放入目录中。 (可参考ntop.spec文件) 这样有几个好处,其中之一就是临时文件不是唯一的,可以通过变量赋值,也可根据不同的判断生成不同的最终文件等等。
   

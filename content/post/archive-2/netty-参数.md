@@ -55,10 +55,10 @@ The `backlog` argument is the requested maximum number of pending connections on
 
                */
 
-<http://www.cnblogs.com/qq78292959/archive/2013/01/18/2865926.html>
+[http://www.cnblogs.com/qq78292959/archive/2013/01/18/2865926.html](http://www.cnblogs.com/qq78292959/archive/2013/01/18/2865926.html)
 
-<http://elf8848.iteye.com/blog/1961192>
+[http://elf8848.iteye.com/blog/1961192](http://elf8848.iteye.com/blog/1961192)
 
-<http://blog.chinaunix.net/uid-29075379-id-3905006.html>
+[http://blog.chinaunix.net/uid-29075379-id-3905006.html](http://blog.chinaunix.net/uid-29075379-id-3905006.html)
 
-<http://blog.csdn.net/russell_tao/article/details/18711023>
+[http://blog.csdn.net/russell_tao/article/details/18711023](http://blog.csdn.net/russell_tao/article/details/18711023)

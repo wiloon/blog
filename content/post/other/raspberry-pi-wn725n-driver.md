@@ -10,7 +10,7 @@ tags:
 ---
 ## raspberry pi wn725n driver
 
-<http://www.raspberrypi.org/phpBB3/viewtopic.php?t=55779>
+[http://www.raspberrypi.org/phpBB3/viewtopic.php?t=55779](http://www.raspberrypi.org/phpBB3/viewtopic.php?t=55779)
 
 [http://lukin.cn/p/Raspberry_Pi_TP-LINK_WN725N_V2.html][1]
 

@@ -31,7 +31,7 @@ Semaphore/信号量 是一件可以容纳 N 人的房间，如果人不满就可
 
 在 有的系统中 Binary semaphore 与 Mutex 是没有差异的。在有的系统上，主要的差异是mutex一定要由获得锁的进程来释放。而semaphore可以由其它进程释放 (这时的semaphore实际就是个原子的变量，大家可以加或减) ，因此semaphore可以用于进程间同步。Semaphore的同步功能是所有系统都支持的，而Mutex能否由其他进程释放则未定，因此建议mutex只用于保护critical section。而semaphore则用于保护某变量，或者同步。
 
-关于semaphore和mutex的区别，网上有著名的厕所理论 (<http://koti.mbnet.fi/niclasw/MutexSemaphore.html>) :
+关于semaphore和mutex的区别，网上有著名的厕所理论 ([http://koti.mbnet.fi/niclasw/MutexSemaphore.html](http://koti.mbnet.fi/niclasw/MutexSemaphore.html)) :
 
 #### Mutex
 
@@ -277,4 +277,4 @@ semPend(sem_power_btn); // Wait for signal
 
 ---
 
-<https://blog.51cto.com/sddai/3106478>
+[https://blog.51cto.com/sddai/3106478](https://blog.51cto.com/sddai/3106478)

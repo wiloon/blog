@@ -157,9 +157,9 @@ mmap用于内存映射，也就是将一段区域映射到自己的进程地址�
 私有文件映射：常用的比如动态库加载，代码段，数据段等；
 共享文件映射：常用于进程间通信，文件读写等；
 
-><https://www.cnblogs.com/LoyenWang/p/12037658.html>
-<https://www.cnblogs.com/huxiao-tee/p/4660352.html>
-<http://blog.csdn.net/dlutbrucezhang/article/details/9080173>
+>[https://www.cnblogs.com/LoyenWang/p/12037658.html](https://www.cnblogs.com/LoyenWang/p/12037658.html)
+[https://www.cnblogs.com/huxiao-tee/p/4660352.html](https://www.cnblogs.com/huxiao-tee/p/4660352.html)
+[http://blog.csdn.net/dlutbrucezhang/article/details/9080173](http://blog.csdn.net/dlutbrucezhang/article/details/9080173)
   
-<http://mengqiucheng.blog.51cto.com/3917331/739359>
+[http://mengqiucheng.blog.51cto.com/3917331/739359](http://mengqiucheng.blog.51cto.com/3917331/739359)
 >《Unix Network programming》

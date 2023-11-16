@@ -10,7 +10,7 @@ tags:
 ---
 ## 设计模式, Design Pattern, Front Controller Pattern
 
-<http://www.cnblogs.com/TonyYPZhang/p/5516192.html>
+[http://www.cnblogs.com/TonyYPZhang/p/5516192.html](http://www.cnblogs.com/TonyYPZhang/p/5516192.html)
 
 Front Controller Pattern, 即前端控制器模式,用于集中化用户请求,使得所有请求都经过同一个前端控制器处理,处理内容有身份验证、权限验证、记录和追踪请求等,处理后再交由分发器把请求分发到对于的处理者。
 

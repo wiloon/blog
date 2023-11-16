@@ -18,7 +18,7 @@ tags:
 
 inode (发音: eye-node) 译成中文就是索引节点, 它用来存放文件和目录的基本信息, 包含时间、档名、使用者，群组，权限， 一个文件占用一个inode,同时记录此文件的数据所在的 block 号码；
 
-<http://www.ruanyifeng.com/blog/2011/12/inode.html>
+[http://www.ruanyifeng.com/blog/2011/12/inode.html](http://www.ruanyifeng.com/blog/2011/12/inode.html)
 
 inode是什么？
 
@@ -106,7 +106,7 @@ linux的文件名是保存在目录文件上的,
 文档信息
 版权声明: 自由转载-非商用-非衍生-保持署名 (创意共享3.0许可证)
 发表日期:  2011年12月 4日
-<https://www.ruanyifeng.com/blog/2011/12/inode.html>
+[https://www.ruanyifeng.com/blog/2011/12/inode.html](https://www.ruanyifeng.com/blog/2011/12/inode.html)
 
 #### 目录文件
 
@@ -191,16 +191,17 @@ ln -s 源文文件或目录 目标文件或目录
 
 在Linux操作系统中,目录就是目录文件。目录项中存放文件名和一个指向inode的指针。  
 一个目录项主要包括了文件名和inode,索引节点号是指向inode表( system inode table )中对应的索引节点的。  
-<https://unix.stackexchange.com/questions/117325/where-are-filenames-stored-on-a-filesystem>
+[https://unix.stackexchange.com/questions/117325/where-are-filenames-stored-on-a-filesystem](https://unix.stackexchange.com/questions/117325/where-are-filenames-stored-on-a-filesystem)
 
-<https://zhuanlan.zhihu.com/p/143430585>
+[https://zhuanlan.zhihu.com/p/143430585](https://zhuanlan.zhihu.com/p/143430585)
 
-<https://www.h5w3.com/84540.html>
+[https://www.h5w3.com/84540.html](https://www.h5w3.com/84540.html)
 
-<https://www.jianshu.com/p/d60a2b44e78e>
+[https://www.jianshu.com/p/d60a2b44e78e](https://www.jianshu.com/p/d60a2b44e78e)
 
-<https://www.leftpocket.cn/post/linux/cp/>
+[https://www.leftpocket.cn/post/linux/cp/](https://www.leftpocket.cn/post/linux/cp/)
 
 ## inode> 文件权限和类型
 
-<https://man7.org/linux/man-pages/man7/inode.7.html> > The file type and mode
+[https://man7.org/linux/man-pages/man7/inode.7.html](https://man7.org/linux/man-pages/man7/inode.7.html) > The file type and mode
+[https://man7.org/linux/man-pages/man7/inode.7.html> ](https://man7.org/linux/man-pages/man7/inode.7.html> ) The file type and mode

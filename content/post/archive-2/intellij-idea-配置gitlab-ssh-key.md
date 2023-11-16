@@ -12,9 +12,9 @@ tags:
 
 把私钥放入目录 `C:\Users\user0\.ssh`, 私钥不需要转换成 ppk 格式.
 
-<https://blog.csdn.net/u010348570/article/details/81204371>
+[https://blog.csdn.net/u010348570/article/details/81204371](https://blog.csdn.net/u010348570/article/details/81204371)
 
-1 安装git,登录官网<https://www.git-scm.com/download/> ,选择相应系统版本,下载后安装好。
+1 安装git,登录官网[https://www.git-scm.com/download/](https://www.git-scm.com/download/) ,选择相应系统版本,下载后安装好。
 
 公司网慢的可以用第三方的软件管家下载。
 
@@ -34,6 +34,6 @@ tags:
   
 来源: CSDN
   
-原文: <https://blog.csdn.net/u010348570/article/details/81204371>
+原文: [https://blog.csdn.net/u010348570/article/details/81204371](https://blog.csdn.net/u010348570/article/details/81204371)
   
 版权声明: 本文为博主原创文章,转载请附上博文链接！

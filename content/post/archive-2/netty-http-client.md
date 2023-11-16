@@ -10,11 +10,11 @@ tags:
 ---
 ## netty http client
 
-<http://www.cnblogs.com/luxiaoxun/p/3959450.html>
+[http://www.cnblogs.com/luxiaoxun/p/3959450.html](http://www.cnblogs.com/luxiaoxun/p/3959450.html)
 
 基于Netty4的HttpServer和HttpClient的简单实现
 
-Netty的主页: <http://netty.io/index.html>
+Netty的主页: [http://netty.io/index.html](http://netty.io/index.html)
 
 使用的Netty的版本: netty-4.0.23.Final.tar.bz2 ‐ 15-Aug-2014 (Stable, Recommended)
 

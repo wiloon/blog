@@ -108,11 +108,11 @@ tty一词源于Teletypes,或者teletypewriters,原来指的是电传打字机,�
 
 TTY是电传打字机Teletypewriter的缩写, 带显示屏的视频终端出现之前,TTY是最流行的终端设备。
 
-<http://7056824.blog.51cto.com/69854/276610>
+[http://7056824.blog.51cto.com/69854/276610](http://7056824.blog.51cto.com/69854/276610)
 
-<https://www.zhihu.com/question/21711307>
+[https://www.zhihu.com/question/21711307](https://www.zhihu.com/question/21711307)
 
-<http://ytliu.info/blog/2013/09/28/ttyde-na-xie-shi-er/>
+[http://ytliu.info/blog/2013/09/28/ttyde-na-xie-shi-er/](http://ytliu.info/blog/2013/09/28/ttyde-na-xie-shi-er/)
 
 tty是Teletype的缩写(转)
 
@@ -543,6 +543,6 @@ SIGTSTP
 
 ---
 
-<https://segmentfault.com/a/1190000009082089>  
-<http://www.baidu.com/link?url=hpl3pR3uMIRNTSl_O3-AbUiUV75KHpBzfkfCXY5SUChbtFMs3SM3HXaz4DnZgRbvbM1AXf5Rc9LZngLtNlwegq>  
-<https://www.cnblogs.com/sparkdev/p/11460821.html>  
+[https://segmentfault.com/a/1190000009082089](https://segmentfault.com/a/1190000009082089)  
+[http://www.baidu.com/link?url=hpl3pR3uMIRNTSl_O3-AbUiUV75KHpBzfkfCXY5SUChbtFMs3SM3HXaz4DnZgRbvbM1AXf5Rc9LZngLtNlwegq](http://www.baidu.com/link?url=hpl3pR3uMIRNTSl_O3-AbUiUV75KHpBzfkfCXY5SUChbtFMs3SM3HXaz4DnZgRbvbM1AXf5Rc9LZngLtNlwegq)  
+[https://www.cnblogs.com/sparkdev/p/11460821.html](https://www.cnblogs.com/sparkdev/p/11460821.html)  

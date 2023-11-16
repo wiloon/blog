@@ -101,7 +101,7 @@ MicroEdition-Configuration: CLDC-1.0
   
 MIDlet-Name: J2ME_MOBBER Midlet Suite
   
-MIDlet-Info-URL: <http://www.javayou.com/>
+MIDlet-Info-URL: [http://www.javayou.com/](http://www.javayou.com/)
   
 MIDlet-Icon: /icon.png
   
@@ -117,6 +117,6 @@ MIDlet-Description: Communicator
 
 关键在于我们怎么来读取这些信息呢？其实很简单，JDK给我们提供了用于处理这些信息的API，详细的信息请见java.util.jar包中，我们可以通过给JarFile传递一个jar文件的路径，然后调用JarFile的getManifest方法来获取Manifest信息。
 
-<http://docs.oracle.com/javase/1.3/docs/guide/jar/jar.html>
+[http://docs.oracle.com/javase/1.3/docs/guide/jar/jar.html](http://docs.oracle.com/javase/1.3/docs/guide/jar/jar.html)
 
-<http://java.sun.com/developer/Books/javaprogramming/JAR/basics/manifest.html>
+[http://java.sun.com/developer/Books/javaprogramming/JAR/basics/manifest.html](http://java.sun.com/developer/Books/javaprogramming/JAR/basics/manifest.html)

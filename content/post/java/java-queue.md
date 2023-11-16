@@ -18,7 +18,7 @@ tags:
 
 基于数组的阻塞队列
 
-<http://wiloon.com/ArrayBlockingQueue>
+[http://wiloon.com/ArrayBlockingQueue](http://wiloon.com/ArrayBlockingQueue)
 
 ## LinkedBlockingQueue
 
@@ -44,7 +44,7 @@ tags:
 
 一个由链表结构组成的双向阻塞队列。
   
-<https://blog.wiloon.com/?p=8256>
+[https://blog.wiloon.com/?p=8256](https://blog.wiloon.com/?p=8256)
   
 ## ConcurrentLinkedDeque
 
@@ -54,7 +54,7 @@ tags:
 
 ConcurrentLinkedQueue 是一个基于链接节点的无界线程安全队列
   
-<http://blog.wiloon.com/?p=11670>
+[http://blog.wiloon.com/?p=11670](http://blog.wiloon.com/?p=11670)
 
 ## Queue
 
@@ -81,9 +81,9 @@ remove() 和 poll() 方法都是从队列中删除第一个元素。如果队列
 
 element() 和 peek() 用于在队列的头部查询元素。与 remove() 方法类似，在队列为空时， element() 抛出一个异常，而 peek() 返回 null。
 
-<http://blog.csdn.net/u012050154/article/details/60572567>
+[http://blog.csdn.net/u012050154/article/details/60572567](http://blog.csdn.net/u012050154/article/details/60572567)
 
-<http://jiangzhengjun.iteye.com/blog/683593>
+[http://jiangzhengjun.iteye.com/blog/683593](http://jiangzhengjun.iteye.com/blog/683593)
 
 ### uml
 

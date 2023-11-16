@@ -99,23 +99,23 @@ Markdown 是一种轻量级的标记语言，由John Gruber和Aaron Swartz创建
 
 还有两种其他方式我并不推荐使用。CommonMark 和其它几种轻量级标记语言支持在行尾添加反斜杠 (\\) 的方式实现换行，但是并非所有 Markdown 应用程序都支持此种方式，因此从兼容性的角度来看，不推荐使用。并且至少有两种轻量级标记语言支持无须在行尾添加任何内容，只须键入回车键 (return) 即可实现换行。
 
-><https://www.markdown.xyz/basic-syntax/>
+>[https://www.markdown.xyz/basic-syntax/](https://www.markdown.xyz/basic-syntax/)
 
 作者: 高鸿祥
-链接: <https://www.jianshu.com/p/191d1e21f7ed>
+链接: [https://www.jianshu.com/p/191d1e21f7ed](https://www.jianshu.com/p/191d1e21f7ed)
 来源: 简书
 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
 
-<https://xianbai.me/learn-md/article/syntax/paragraphs-and-line-breaks.html>
+[https://xianbai.me/learn-md/article/syntax/paragraphs-and-line-breaks.html](https://xianbai.me/learn-md/article/syntax/paragraphs-and-line-breaks.html)
 
-<https://markdown.com.cn/basic-syntax/line-breaks.html>
+[https://markdown.com.cn/basic-syntax/line-breaks.html](https://markdown.com.cn/basic-syntax/line-breaks.html)
 
 ## markdown test
-<http://wowubuntu.com/markdown/#autolink>
+[http://wowubuntu.com/markdown/#autolink](http://wowubuntu.com/markdown/#autolink)
 
 # Title
 
-<https://en.support.wordpress.com/markdown-quick-reference/>
+[https://en.support.wordpress.com/markdown-quick-reference/](https://en.support.wordpress.com/markdown-quick-reference/)
 
 *Emphasize*
   
@@ -148,4 +148,4 @@ another [link][2].
 
  [1]: http://wiloon.com "title wiloon.com"
 
-<https://www.markdownguide.org/>
+[https://www.markdownguide.org/](https://www.markdownguide.org/)

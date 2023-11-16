@@ -15,7 +15,7 @@ tags:
 
 子网掩码只有一个作用,就是将某个IP地址划分成网络地址和主机地址两部分。
 
-<https://www.zhihu.com/question/21064101>
+[https://www.zhihu.com/question/21064101](https://www.zhihu.com/question/21064101)
 
 ## IP和子网掩码
 

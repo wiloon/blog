@@ -118,8 +118,8 @@ LIKE比较在每个字符的大写值上进行("E"="e")。
   
 MySQL大小写
 
-<http://www.111cn.net/database/MySQL/44937.htm>
+[http://www.111cn.net/database/MySQL/44937.htm](http://www.111cn.net/database/MySQL/44937.htm)
 
-<http://fygh6318.blog.51cto.com/390568/385507>
+[http://fygh6318.blog.51cto.com/390568/385507](http://fygh6318.blog.51cto.com/390568/385507)
 
-<http://blog.chinaunix.net/uid-26602509-id-4104999.html>
+[http://blog.chinaunix.net/uid-26602509-id-4104999.html](http://blog.chinaunix.net/uid-26602509-id-4104999.html)

@@ -181,11 +181,11 @@ release/acquire 保证程序执行顺序，setRelease 确保前面的load和stor
 volatile确保程序执行顺序，能保证变量之间的不被重排序。
 
 作者: tomas家的小拨浪鼓
-链接: <https://www.jianshu.com/p/55a66113bc54>
+链接: [https://www.jianshu.com/p/55a66113bc54](https://www.jianshu.com/p/55a66113bc54)
 来源: 简书
 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
 
-><https://zhuanlan.zhihu.com/p/144741342>
-><https://zhuanlan.zhihu.com/p/145654924>
-><https://mingshan.fun/2018/10/05/use-variablehandles-to-replace-unsafe/>
-><https://www.jianshu.com/p/e231042a52dd>
+>[https://zhuanlan.zhihu.com/p/144741342](https://zhuanlan.zhihu.com/p/144741342)
+>[https://zhuanlan.zhihu.com/p/145654924](https://zhuanlan.zhihu.com/p/145654924)
+>[https://mingshan.fun/2018/10/05/use-variablehandles-to-replace-unsafe/](https://mingshan.fun/2018/10/05/use-variablehandles-to-replace-unsafe/)
+>[https://www.jianshu.com/p/e231042a52dd](https://www.jianshu.com/p/e231042a52dd)

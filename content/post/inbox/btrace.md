@@ -11,7 +11,7 @@ tags:
 ---
 ## Java诊断工具 - btrace
 
-<https://github.com/btraceio/btrace/releases>
+[https://github.com/btraceio/btrace/releases](https://github.com/btraceio/btrace/releases)
 
 ### 打印慢调用
 
@@ -179,25 +179,25 @@ Btrace的@OnTimer注解可以实现定时执行脚本中的一个方法
   
 Btrace能做的事情太多,但使用之前切记检查脚本的可行性,一旦Btrace脚本侵入到系统中,只有通过重启才能恢复。
 
-<https://github.com/btraceio/btrace>
+[https://github.com/btraceio/btrace](https://github.com/btraceio/btrace)
   
-<http://www.rowkey.me/blog/2016/09/20/btrace/>
+[http://www.rowkey.me/blog/2016/09/20/btrace/](http://www.rowkey.me/blog/2016/09/20/btrace/)
   
-<http://calvin1978.blogcn.com/articles/btrace1.html>
+[http://calvin1978.blogcn.com/articles/btrace1.html](http://calvin1978.blogcn.com/articles/btrace1.html)
   
-<https://legacy.gitbook.com/book/json-liu/btrace/details>
+[https://legacy.gitbook.com/book/json-liu/btrace/details](https://legacy.gitbook.com/book/json-liu/btrace/details)
   
-<http://codepub.cn/2017/09/22/btrace-uses-tutorials/>
+[http://codepub.cn/2017/09/22/btrace-uses-tutorials/](http://codepub.cn/2017/09/22/btrace-uses-tutorials/)
   
-<https://github.com/oldmanpushcart/greys-anatomy>
+[https://github.com/oldmanpushcart/greys-anatomy](https://github.com/oldmanpushcart/greys-anatomy)
   
-<http://codepub.cn/2017/09/22/btrace-uses-tutorials/>
+[http://codepub.cn/2017/09/22/btrace-uses-tutorials/](http://codepub.cn/2017/09/22/btrace-uses-tutorials/)
   
-<http://www.brendangregg.com/offcpuanalysis.html>
+[http://www.brendangregg.com/offcpuanalysis.html](http://www.brendangregg.com/offcpuanalysis.html)
   
-<http://www.cnblogs.com/fengzheng/p/7416942.html>
+[http://www.cnblogs.com/fengzheng/p/7416942.html](http://www.cnblogs.com/fengzheng/p/7416942.html)
   
-<http://openresty.org/posts/dynamic-tracing/>
+[http://openresty.org/posts/dynamic-tracing/](http://openresty.org/posts/dynamic-tracing/)
   
-<https://www.jianshu.com/p/dbb3a8b5c92f>
-><https://www.cnblogs.com/fengzheng/p/7416942.html>
+[https://www.jianshu.com/p/dbb3a8b5c92f](https://www.jianshu.com/p/dbb3a8b5c92f)
+>[https://www.cnblogs.com/fengzheng/p/7416942.html](https://www.cnblogs.com/fengzheng/p/7416942.html)

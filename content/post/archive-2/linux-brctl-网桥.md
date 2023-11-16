@@ -12,15 +12,15 @@ tags:
 
 ### nft command
 
-<https://blog.wiloon.com/nft>
+[https://blog.wiloon.com/nft](https://blog.wiloon.com/nft)
 
 #### ip forward
 
-<https://blog.wiloon.com/?p=13701>
+[https://blog.wiloon.com/?p=13701](https://blog.wiloon.com/?p=13701)
 
 ### 配置TAP
 
-<http://blog.wiloon.com/?p=13281>
+[http://blog.wiloon.com/?p=13281](http://blog.wiloon.com/?p=13281)
 
 ```bash
 # nftables nat
@@ -43,7 +43,7 @@ nft list ruleset > /etc/nftables.conf
 
 ```
 
-<http://wiki.nftables.org/wiki-nftables/index.php/Performing_Network_Address_Translation_(NAT>)
+[http://wiki.nftables.org/wiki-nftables/index.php/Performing_Network_Address_Translation_(NAT](http://wiki.nftables.org/wiki-nftables/index.php/Performing_Network_Address_Translation_(NAT))
 
 ```bash
 sudo brctl addbr br0
@@ -64,7 +64,7 @@ sudo iptables -t nat -A POSTROUTING -o wlp3s0 -j MASQUERADE
 
 linux下brctl配置网桥
   
-<http://zhumeng8337797.blog.163.com/blog/static/1007689142011643834429/>
+[http://zhumeng8337797.blog.163.com/blog/static/1007689142011643834429/](http://zhumeng8337797.blog.163.com/blog/static/1007689142011643834429/)
 
 先装好网卡,连上网线,这是废话,不用说了。
   
@@ -126,7 +126,7 @@ brctl delbr ena;
 
 ALinux网桥的实现分析与使用
   
-<http://www.ibm.com/developerworks/cn/linux/kernel/l-netbr/index.html>
+[http://www.ibm.com/developerworks/cn/linux/kernel/l-netbr/index.html](http://www.ibm.com/developerworks/cn/linux/kernel/l-netbr/index.html)
   
 一、什么是桥接
 
@@ -257,6 +257,6 @@ brctl delif br0 eth0
 
  ( 4 )  # brctl delbr br0
 
-<http://blog.csdn.net/x_nazgul/article/details/20233237>
+[http://blog.csdn.net/x_nazgul/article/details/20233237](http://blog.csdn.net/x_nazgul/article/details/20233237)
 
-<https://www.ibm.com/developerworks/community/blogs/5144904d-5d75-45ed-9d2b-cf1754ee936a/entry/%25e6%2589%258b%25e5%258a%25a8%25e5%2588%259b%25e5%25bb%25banat%25e7%25bd%2591%25e7%25bb%259c?lang=en>
+[https://www.ibm.com/developerworks/community/blogs/5144904d-5d75-45ed-9d2b-cf1754ee936a/entry/%25e6%2589%258b%25e5%258a%25a8%25e5%2588%259b%25e5%25bb%25banat%25e7%25bd%2591%25e7%25bb%259c?lang=en](https://www.ibm.com/developerworks/community/blogs/5144904d-5d75-45ed-9d2b-cf1754ee936a/entry/%25e6%2589%258b%25e5%258a%25a8%25e5%2588%259b%25e5%25bb%25banat%25e7%25bd%2591%25e7%25bb%259c?lang=en)

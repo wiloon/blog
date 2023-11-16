@@ -10,11 +10,11 @@ tags:
 ---
 ## VMware ESXi
 
-<http://idc.wanyunshuju.com/li/580.html>
+[http://idc.wanyunshuju.com/li/580.html](http://idc.wanyunshuju.com/li/580.html)
 
 ## free license
 
-<https://kb.vmware.com/s/article/2107518>
+[https://kb.vmware.com/s/article/2107518](https://kb.vmware.com/s/article/2107518)
 
 ## 虚拟机导出
 

@@ -28,9 +28,9 @@ vim /etc/selinux/config
 
 把 `#SELINUX=enforcing` 改成 `SELINUX=disabled`
 
-><https://www.ibm.com/developerworks/cn/linux/l-secure-linux-ru/index.html>
-><http://okeeper.leanote.com/post/CentOS7%E4%B8%AD%E5%85%B3%E9%97%ADselinux>
-><https://my.oschina.net/oaoa/blog/185833>
+>[https://www.ibm.com/developerworks/cn/linux/l-secure-linux-ru/index.html](https://www.ibm.com/developerworks/cn/linux/l-secure-linux-ru/index.html)
+>[http://okeeper.leanote.com/post/CentOS7%E4%B8%AD%E5%85%B3%E9%97%ADselinux](http://okeeper.leanote.com/post/CentOS7%E4%B8%AD%E5%85%B3%E9%97%ADselinux)
+>[https://my.oschina.net/oaoa/blog/185833](https://my.oschina.net/oaoa/blog/185833)
 
 ---
 
@@ -50,7 +50,7 @@ SELinux 是由美国国家安全局 (NSA) 开发的,当初开发这玩意儿的�
 
 为了控管这方面的权限与程序的问题,所以美国国家安全局就著手处理操作系统这方面的控管。 由於 Linux 是自由软件,程序码都是公开的,因此她们便使用 Linux 来作为研究的目标, 最后更将研究的结果整合到 Linux 核心里面去,那就是 SELinux 啦！所以说, SELinux 是整合到核心的一个模块喔！ 更多的 SELinux 相关说明可以参考:
 
-<http://www.nsa.gov/research/selinux/>
+[http://www.nsa.gov/research/selinux/](http://www.nsa.gov/research/selinux/)
   
 这也就是说: 其实 SELinux 是在进行程序、文件等细部权限配置依据的一个核心模块！ 由於启动网络服务的也是程序,因此刚好也能够控制网络服务能否存取系统资源的一道关卡！ 所以,在讲到 SELinux 对系统的存取控制之前,我们得先来回顾一下之前谈到的系统文件权限与使用者之间的关系。 因为先谈完这个你才会知道为何需要 SELinux 的啦！
 
@@ -346,7 +346,7 @@ ps -Z 这个『 -Z 』的选项可以让我们查阅程序的安全性本文！�
 
 [root@www ~]# echo "This is my first web page." > /var/www/html/index.html
   
-接下来,如果你在浏览器上面输入『 <http://127.0.0.1> 』应该会看到如下的画面才对！
+接下来,如果你在浏览器上面输入『 [http://127.0.0.1](http://127.0.0.1) 』应该会看到如下的画面才对！
 
 httpd 顺利运行时,能够看到的首页画面
   
@@ -376,7 +376,7 @@ httpd 顺利运行时,能够看到的首页画面
 
 # 这个测试的重点在 mv 这个命令的处理上！务必使用 mv 喔
 
-等到上述的动作都做完后,如果在浏览器输入 <http://127.0.0.1/index.html> ,你应该会想到画面会出现我们想要的『 My 2nd web page...』才对,但是结果却变成:
+等到上述的动作都做完后,如果在浏览器输入 [http://127.0.0.1/index.html](http://127.0.0.1/index.html) ,你应该会想到画面会出现我们想要的『 My 2nd web page...』才对,但是结果却变成:
 
 错误的安全性本文所造成的困扰
   
@@ -830,4 +830,4 @@ drwxr-xr-x root root system_u:object_r:public_content_t /srv/samba/
 
 semanage 的功能很多,不过鸟哥主要用到的仅有 fcontext 这个项目的动作而已。如上所示, 你可以使用 semanage 来查询所有的目录默认值,也能够使用他来添加默认值的配置！如果您学会这些基础的工具, 那么 SELinux 对你来说,也不是什么太难的咚咚罗！
 
-<http://cn.linux.vbird.org/linux_basic/0440processcontrol_5.php>
+[http://cn.linux.vbird.org/linux_basic/0440processcontrol_5.php](http://cn.linux.vbird.org/linux_basic/0440processcontrol_5.php)

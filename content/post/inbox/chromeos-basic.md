@@ -12,7 +12,7 @@ tags:
 
 ### chrome os 多桌面
 
-<https://support.google.com/chromebook/answer/9594869?hl=en>
+[https://support.google.com/chromebook/answer/9594869?hl=en](https://support.google.com/chromebook/answer/9594869?hl=en)
 
 Drag windows and apps to your preferred desk.
 Or use shortcuts:
@@ -55,7 +55,7 @@ exit
 
 ### openvpn
 
-<https://docs.google.com/document/d/18TU22gueH5OKYHZVJ5nXuqHnk2GN6nDvfu2Hbrb4YLE/pub#h.bta4pj6t7nhs>
+[https://docs.google.com/document/d/18TU22gueH5OKYHZVJ5nXuqHnk2GN6nDvfu2Hbrb4YLE/pub#h.bta4pj6t7nhs](https://docs.google.com/document/d/18TU22gueH5OKYHZVJ5nXuqHnk2GN6nDvfu2Hbrb4YLE/pub#h.bta4pj6t7nhs)
 
 your profile can not be used... ...
 
@@ -80,8 +80,8 @@ Google 在79版本 (2019年12月20号左右) 的更新中又重新启用了Rende
 
 ---
 
-<https://zhuanlan.zhihu.com/p/133243870>
+[https://zhuanlan.zhihu.com/p/133243870](https://zhuanlan.zhihu.com/p/133243870)
 
-<https://www.pcpc.me/tech/terminal-commands-chromebook>
+[https://www.pcpc.me/tech/terminal-commands-chromebook](https://www.pcpc.me/tech/terminal-commands-chromebook)
 
-<https://zh.omatomeloanhikaku.com/how-is-crosh-different-than-the-linux-terminal-on-a-chromebook-935>
+[https://zh.omatomeloanhikaku.com/how-is-crosh-different-than-the-linux-terminal-on-a-chromebook-935](https://zh.omatomeloanhikaku.com/how-is-crosh-different-than-the-linux-terminal-on-a-chromebook-935)

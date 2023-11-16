@@ -10,7 +10,7 @@ tags:
 ---
 ## 进入safepoint时如何让Java线程全部阻塞
 
-<http://blog.csdn.net/iter_zc/article/details/41892567>
+[http://blog.csdn.net/iter_zc/article/details/41892567](http://blog.csdn.net/iter_zc/article/details/41892567)
 
 在这篇聊聊JVM (六) 理解JVM的safepoint 中说了safepoint的基本概念，VM thread在进行GC前，必须要让所有的Java线程阻塞，从而stop the world，开始标记。JVM采用了主动式阻塞的方式，Java线程不是随时都可以进入阻塞，需要运行到特定的点，叫safepoint，在这些点的位置Java线程可以被全部阻塞，整个堆的状态是一个暂时稳定的状态，OopMap指出了这个时刻，寄存器和栈内存的哪些具体的地址是引用，从而可以快速找到GC roots来进行对象的标记操作。
 

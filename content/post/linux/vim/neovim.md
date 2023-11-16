@@ -10,7 +10,7 @@ tags:
 ---
 ## neovim
 
-<http://liaoph.com/modern-vim/>
+[http://liaoph.com/modern-vim/](http://liaoph.com/modern-vim/)
 
 Neovim 与 vim 的恩怨情仇
 2014 年,巴西程序员 Thiago de Arruda Padilha (aka tarruda) 因为多次对 vim 提交 feature patch 遭到拒绝。出于对 vim 低效的开发社区的不满,决定众筹一个新项目 —— neovim,尝试解决 vim 当时的问题:
@@ -36,4 +36,4 @@ neovim 项目的成功也激发了 bram 对 vim 项目开发的激情,促使 vim
 neovim 始终保持先进性,由于社区开发进度更高效,各种新功能仍然还是先在 neovim 中实现,vim 才会有对应实现,并且现在 neovim 还被 google summer of code 支持,为其添加新特性
 neovim 还有一些未被 vim 实现的特性,例如 Remote plugin, virtual text 等..
 
-<https://jdhao.github.io/2020/01/12/vim_nvim_history_development/>
+[https://jdhao.github.io/2020/01/12/vim_nvim_history_development/](https://jdhao.github.io/2020/01/12/vim_nvim_history_development/)

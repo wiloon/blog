@@ -141,6 +141,6 @@ Float:1001011100110001011001111001100
   
 可以考虑采用一些替代方案来实现。如通过 String 结合 BigDecimal 或 者通过使用 long 类型来转换。**
 
-<http://blog.csdn.net/abing37/article/details/5332798>
+[http://blog.csdn.net/abing37/article/details/5332798](http://blog.csdn.net/abing37/article/details/5332798)
 
 http://blog.csdn.net/u014232091/article/details/23792649

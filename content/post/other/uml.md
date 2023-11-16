@@ -27,7 +27,7 @@ categories:
 
 ## 组件图
 
-<https://zhuanlan.zhihu.com/p/78244670>
+[https://zhuanlan.zhihu.com/p/78244670](https://zhuanlan.zhihu.com/p/78244670)
 
 Component diagram shows components, provided and required interfaces, ports, and relationships between them. This type of diagrams is used in Component-Based Development (CBD) to describe systems with Service-Oriented Architecture (SOA).
 Component-based development is based on assumptions that previously constructed components could be reused and that components could be replaced by some other "equivalent" or "conformant" components, if needed.
@@ -78,8 +78,8 @@ foo ->> bar: async invoke
 
 一条线，带有开口箭头    此图形表示异步信号或异步调用，在此过程中，源对象发送消息后立即继续下一步骤。
 
-><https://www.ibm.com/docs/zh/rsas/7.5.0?topic=diagrams-messages-in-uml>
-><http://note.sdo.com/u/1187426958/n/6NHae~jmchewLX00k002BF>
+>[https://www.ibm.com/docs/zh/rsas/7.5.0?topic=diagrams-messages-in-uml](https://www.ibm.com/docs/zh/rsas/7.5.0?topic=diagrams-messages-in-uml)
+>[http://note.sdo.com/u/1187426958/n/6NHae~jmchewLX00k002BF](http://note.sdo.com/u/1187426958/n/6NHae~jmchewLX00k002BF)
 
 标准建模语言UML的重要内容可以由哪五类图 (共9种图形) 来定义，并简要说明这些图所描述的对象。
     标准建模语言UML的重要内容可以由下列五类图(共9种图形)来定义:
@@ -106,7 +106,7 @@ foo ->> bar: async invoke
 
 ### uml spec
 
-<https://www.omg.org/spec/UML/2.5.1/PDF>
+[https://www.omg.org/spec/UML/2.5.1/PDF](https://www.omg.org/spec/UML/2.5.1/PDF)
 
 ## 状态图, State Diagram
 
@@ -139,4 +139,4 @@ UML 活动图记录了单个操作或方法的逻辑，单个用户案例，或�
 活动图是描述系统在执行某一用例时的具体步骤的，它主要表现的是系统的动作，描述的是整个系统的事情。
 
 版权声明：本文为CSDN博主「Bboy-AJ」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
-原文链接：<https://blog.csdn.net/u013201439/article/details/49821467>
+原文链接：[https://blog.csdn.net/u013201439/article/details/49821467](https://blog.csdn.net/u013201439/article/details/49821467)

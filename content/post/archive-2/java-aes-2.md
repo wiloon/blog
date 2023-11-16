@@ -50,9 +50,9 @@ OFB模式 (输出反馈: Output feedback)
   
 OFB是先用块加密器生成密钥流 (Keystream) ,然后再将密钥流与明文流异或得到密文流,解密是先用块加密器生成密钥流,再将密钥流与密文流异或得到明文,由于异或操作的对称性所以加密和解密的流程是完全一样的。
 
-<http://blog.csdn.net/songdeitao/article/details/17267443>
+[http://blog.csdn.net/songdeitao/article/details/17267443](http://blog.csdn.net/songdeitao/article/details/17267443)
   
-<https://blog.csdn.net/qq_28205153/article/details/55798628>
+[https://blog.csdn.net/qq_28205153/article/details/55798628](https://blog.csdn.net/qq_28205153/article/details/55798628)
 
 ```java
   
@@ -112,6 +112,6 @@ return null;
   
 ```
 
-<https://blog.poxiao.me/p/advanced-encryption-standard-and-block-cipher-mode/>
+[https://blog.poxiao.me/p/advanced-encryption-standard-and-block-cipher-mode/](https://blog.poxiao.me/p/advanced-encryption-standard-and-block-cipher-mode/)
   
-<https://github.com/matt-wu/AES>
+[https://github.com/matt-wu/AES](https://github.com/matt-wu/AES)

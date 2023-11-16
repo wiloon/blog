@@ -66,7 +66,7 @@ DOM Level 2 引入几个新模块: DOM视图，事件，样式，遍历和范围
 
 DOM Level 3 引入了以统一的方式载入和保存文档的方法。DOM Core被扩展支持所有的XML1.0的特性
 
-<http://titan.iteye.com/blog/60389>
+[http://titan.iteye.com/blog/60389](http://titan.iteye.com/blog/60389)
 
  [1]: http://titan.iteye.com/upload/picture/pic/2538/c28d3025-2f39-403e-8727-56595aefea3f.gif
 

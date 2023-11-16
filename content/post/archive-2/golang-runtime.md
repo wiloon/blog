@@ -10,7 +10,7 @@ tags:
 ---
 ## Golang runtime
 
-<http://www.jianshu.com/p/e45cea3e1723>
+[http://www.jianshu.com/p/e45cea3e1723](http://www.jianshu.com/p/e45cea3e1723)
 
 runtime 调度器是个非常有用的东西,关于 runtime 包几个方法:
 

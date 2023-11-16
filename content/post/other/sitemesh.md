@@ -11,16 +11,16 @@ tags:
 ---
 ## SIteMesh
 
-转自:<http://javauu.com/thread-27-1-1.html>
+转自:[http://javauu.com/thread-27-1-1.html](http://javauu.com/thread-27-1-1.html)
 
 ## 一、SIteMesh介绍
 
   一、SiteMesh简介
  SiteMesh是由一个基于Web页面布局、装饰以及与现存Web应用整合的框架。它能帮助我们在由大量页面构成的项目中创建一致的页面布局和外观，如一致的导航条，一致的banner，一致的版权，等等。 它不仅仅能处理动态的内容，如jsp，php，asp等产生的内容，它也能处理静态的内容，如htm的内容，使得它的内容也符合你的页面结构的要求。甚至于它能将HTML文件象include那样将该文件作为一个面板的形式嵌入到别的文件中去。所有的这些，都是GOF的Decorator模式的最生动的实现。尽管它是由java语言来实现的，但它能与其他Web应用很好地集成。与传统区别如下图:
 
- SIteMesh官方地址: <http://www.opensymphony.com/sitemesh/index.html>
- SIteMesh官方下载: <http://www.opensymphony.com/sitemesh/download.html>
- SIteMesh 2.3下载: <http://www.javauu.com/downloads/resource/sitemesh-2.3.zip>
+ SIteMesh官方地址: [http://www.opensymphony.com/sitemesh/index.html](http://www.opensymphony.com/sitemesh/index.html)
+ SIteMesh官方下载: [http://www.opensymphony.com/sitemesh/download.html](http://www.opensymphony.com/sitemesh/download.html)
+ SIteMesh 2.3下载: [http://www.javauu.com/downloads/resource/sitemesh-2.3.zip](http://www.javauu.com/downloads/resource/sitemesh-2.3.zip)
   
     二、SiteMesh原理
   

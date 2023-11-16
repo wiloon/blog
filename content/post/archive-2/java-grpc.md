@@ -48,7 +48,7 @@ gradle build
 find generated source in
 build/generated/source/proto/main/grpc/com/wiloon/foo/foo.java
 
-<https://grpc.io/docs/quickstart/java.html>
+[https://grpc.io/docs/quickstart/java.html](https://grpc.io/docs/quickstart/java.html)
 
-<https://github.com/google/protobuf-gradle-plugin>
-<https://www.jianshu.com/p/59ac036b0d7b>
+[https://github.com/google/protobuf-gradle-plugin](https://github.com/google/protobuf-gradle-plugin)
+[https://www.jianshu.com/p/59ac036b0d7b](https://www.jianshu.com/p/59ac036b0d7b)

@@ -119,7 +119,7 @@ $@ -  所有的位置参数,并将其看成一个字符串数组,如"test.sh abc
 $# -  位置参数的个数  
 $$ -  当前bash shell的进程号
 
-<https://www.cnblogs.com/EasonJim/p/7750298.html>
+[https://www.cnblogs.com/EasonJim/p/7750298.html](https://www.cnblogs.com/EasonJim/p/7750298.html)
 
 1. 调整变量的属性
 

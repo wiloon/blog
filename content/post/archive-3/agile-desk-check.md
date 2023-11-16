@@ -16,4 +16,4 @@ tags:
 
 你要专业
   
-<https://insights.thoughtworks.cn/professional/embed/#?secret=CuWoU1KPNH>
+[https://insights.thoughtworks.cn/professional/embed/#?secret=CuWoU1KPNH](https://insights.thoughtworks.cn/professional/embed/#?secret=CuWoU1KPNH)

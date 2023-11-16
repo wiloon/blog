@@ -44,10 +44,10 @@ rm 命令用的是 unlink() 系统调用
 
 ### 删除正在使用的文件——釜底抽薪？
 
-<https://zhuanlan.zhihu.com/p/25650525>
+[https://zhuanlan.zhihu.com/p/25650525](https://zhuanlan.zhihu.com/p/25650525)
 
-<https://zhuanlan.zhihu.com/p/25600743>  
-<http://www.forthxu.com/blog/article/40.html>  
+[https://zhuanlan.zhihu.com/p/25600743](https://zhuanlan.zhihu.com/p/25600743)  
+[http://www.forthxu.com/blog/article/40.html](http://www.forthxu.com/blog/article/40.html)  
 
 ## 移动正在写入的文件, mv command
 
@@ -59,7 +59,7 @@ rm 命令用的是 unlink() 系统调用
 
 当使用mv来rename文件时，如果在同一文件系统，那么，inode和文件的内容都不需要改变，只有文件名与inode之间的对应关系改变了，也就是文件所在的目录的数据block发生了变化。 因此，程序依然能通过原先的数据block读取数据。
 
-<https://zhuanlan.zhihu.com/p/449474246>
+[https://zhuanlan.zhihu.com/p/449474246](https://zhuanlan.zhihu.com/p/449474246)
 
 ## 复制正在写入的文件, cp command
 
@@ -105,4 +105,4 @@ dest.txt: Inode: 34257722
 
 所以你可能会遇到，一个进程在读写文件时，你发现磁盘空间不足，使用rm删除文件，却发现磁盘空间却没有释放的情况。 使用lsof | grep deleted可以查看占用的进程。kill进程之后，文件才能真正的被删除。
 
-<https://github.com/Kevin-fqh/learning-k8s-source-code/blob/master/Linux/(07)cp%E3%80%81mv%E3%80%81rm%E7%9A%84%E5%BA%95%E5%B1%82%E5%AE%9E%E7%8E%B0.md>
+[https://github.com/Kevin-fqh/learning-k8s-source-code/blob/master/Linux/(07)cp%E3%80%81mv%E3%80%81rm%E7%9A%84%E5%BA%95%E5%B1%82%E5%AE%9E%E7%8E%B0.md](https://github.com/Kevin-fqh/learning-k8s-source-code/blob/master/Linux/(07)cp%E3%80%81mv%E3%80%81rm%E7%9A%84%E5%BA%95%E5%B1%82%E5%AE%9E%E7%8E%B0.md)

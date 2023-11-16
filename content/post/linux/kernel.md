@@ -40,4 +40,4 @@ tags:
     linux位数
     我们知道目前的CPU主要分为32位与64位，其中32位又可以分为:i386、i586、i686、而64的CPU则称为x86_64,这是因为不同等级的CPU命令集不相同，因此你的某些软件可能会再你的CPU进行某些优化，所以软件就有了i386、i586、i686与x86_64之分，以目前的CPU市场上来说，大多数都是64位的。
   
-><https://linux-kernel-labs.github.io/refs/heads/master/index.html>
+>[https://linux-kernel-labs.github.io/refs/heads/master/index.html](https://linux-kernel-labs.github.io/refs/heads/master/index.html)

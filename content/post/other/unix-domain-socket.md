@@ -13,9 +13,9 @@ tags:
     ss -nxp
     ss -nxlp
 
-<http://blog.csdn.net/bingqingsuimeng/article/details/8470029>
+[http://blog.csdn.net/bingqingsuimeng/article/details/8470029](http://blog.csdn.net/bingqingsuimeng/article/details/8470029)
 
-<http://blog.chinaunix.net/uid-20511624-id-1659107.html>
+[http://blog.chinaunix.net/uid-20511624-id-1659107.html](http://blog.chinaunix.net/uid-20511624-id-1659107.html)
 
 什么是Socket
   
@@ -656,7 +656,7 @@ UNIX Domain Socket与网络socket编程最明显的不同在于地址格式不�
   
 今天我们介绍如何编写Linux下的TCP程序，关于UDP程序可以参考这里:
 
-<http://blog.csdn.net/htttw/article/details/7519971>
+[http://blog.csdn.net/htttw/article/details/7519971](http://blog.csdn.net/htttw/article/details/7519971)
   
 本文绝大部分是参考《Linux程序设计(第4版)》的第15章 socket
   

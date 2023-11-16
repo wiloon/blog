@@ -24,7 +24,7 @@ tags:
 
 ### 使用 supervisor 管理进程
 
-Supervisor (<http://supervisord.org>) 是一个用 Python 写的进程管理工具,可以很方便的用来启动、重启、关闭进程 (不仅仅是 Python 进程) 。除了对单个进程的控制,还可以同时启动、关闭多个进程,比如很不幸的服务器出问题导致所有应用程序都被杀死,此时可以用 supervisor 同时启动所有应用程序而不是一个一个地敲命令启动。
+Supervisor ([http://supervisord.org](http://supervisord.org)) 是一个用 Python 写的进程管理工具,可以很方便的用来启动、重启、关闭进程 (不仅仅是 Python 进程) 。除了对单个进程的控制,还可以同时启动、关闭多个进程,比如很不幸的服务器出问题导致所有应用程序都被杀死,此时可以用 supervisor 同时启动所有应用程序而不是一个一个地敲命令启动。
   
 安装
   
@@ -92,7 +92,7 @@ supervisor.rpcinterface_factory = supervisor.rpcinterface:make_main_rpcinterface
   
 serverurl=unix:///tmp/supervisor.sock ; 通过 UNIX socket 连接 supervisord,路径与 unix_http_server 部分的 file 一致
   
-;serverurl=<http://127.0.0.1:9001> ; 通过 HTTP 的方式连接 supervisord
+;serverurl=[http://127.0.0.1:9001](http://127.0.0.1:9001) ; 通过 HTTP 的方式连接 supervisord
 
 ; 包含其他的配置文件
   
@@ -118,7 +118,7 @@ program 配置
   
 files = /etc/supervisor/_.conf
   
-假设有个用 Python 和 Flask 框架编写的用户中心系统, 取名 usercenter,用 gunicorn (<http://gunicorn.org/>) 做 web 服务器。项目代码位于 /home/leon/projects/usercenter, gunicorn 配置文件为 gunicorn.py, WSGI callable 是 wsgi.py 里的 app 属性。所以直接在命令行启动的方式可能是这样的:
+假设有个用 Python 和 Flask 框架编写的用户中心系统, 取名 usercenter,用 gunicorn ([http://gunicorn.org/](http://gunicorn.org/)) 做 web 服务器。项目代码位于 /home/leon/projects/usercenter, gunicorn 配置文件为 gunicorn.py, WSGI callable 是 wsgi.py 里的 app 属性。所以直接在命令行启动的方式可能是这样的:
   
 cd /home/leon/projects/usercenter
   
@@ -194,9 +194,9 @@ supervisorctl -c /etc/supervisord.conf
 
 > 经常查看日志文件,包括 supervisord 的日志和各个 pragram 的日志文件,程序 crash 或抛出异常的信息一半会输出到 stderr,可以查看相应的日志文件来查找问题。
 
-> Supervisor 有很丰富的功能,还有其他很多项配置,可以在官方文档获取更多信息: <http://supervisord.org/index.html>
+> Supervisor 有很丰富的功能,还有其他很多项配置,可以在官方文档获取更多信息: [http://supervisord.org/index.html](http://supervisord.org/index.html)
 
-<http://liyangliang.me/posts/2015/06/using-supervisor/>
+[http://liyangliang.me/posts/2015/06/using-supervisor/](http://liyangliang.me/posts/2015/06/using-supervisor/)
 
 ## supervisor
 
@@ -249,7 +249,7 @@ minprocs=200                 ;可以打开的进程数的最小值，默认 200
 
 [supervisorctl]
 serverurl=unix:///tmp/supervisor.sock ;通过UNIX socket连接supervisord，路径与unix_http_server部分的file一致
-;serverurl=<http://127.0.0.1:9001> ; 通过HTTP的方式连接supervisord
+;serverurl=[http://127.0.0.1:9001](http://127.0.0.1:9001) ; 通过HTTP的方式连接supervisord
 
 ; [program:xx]是被管理的进程配置参数，xx是进程的名称
 [program:xx]
@@ -362,14 +362,14 @@ command中指定的进程已经起来，但supervisor还不断重启
 问题描述：在运行supervisord -c /etc/supervisord.conf之前，直接运行过supervisord -c /etc/supervisord.d/xx.conf导致有些进程被多个superviord管理，无法正常关闭进程。
 解决办法：使用ps -fe | grep supervisord查看所有启动过的supervisord服务，kill相关的进程。
 
-更多信息请移步Supervisor官网：<http://supervisord.org>
+更多信息请移步Supervisor官网：[http://supervisord.org](http://supervisord.org)
 参考文章：
 1.进程管理supervisor的简单说明 - jyzhou -博客园
 2.supervisor 使用详解 - 11111 - CSDN博客
 
 作者：风吹我已散博客
-链接：<https://www.jianshu.com/p/0b9054b33db3>
+链接：[https://www.jianshu.com/p/0b9054b33db3](https://www.jianshu.com/p/0b9054b33db3)
 来源：简书
 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
 
-<https://www.huweihuang.com/article/linux/supervisor-usage/>
+[https://www.huweihuang.com/article/linux/supervisor-usage/](https://www.huweihuang.com/article/linux/supervisor-usage/)

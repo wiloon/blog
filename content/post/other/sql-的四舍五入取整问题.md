@@ -10,7 +10,7 @@ tags:
 ---
 ## sql 的四舍五入取整问题
 
-转自: <http://hi.baidu.com/yahuudang/blog/item/4c65ab77f758b01fb151b953.html>
+转自: [http://hi.baidu.com/yahuudang/blog/item/4c65ab77f758b01fb151b953.html](http://hi.baidu.com/yahuudang/blog/item/4c65ab77f758b01fb151b953.html)
 
 经在sql server 2005测试，可以通过
 

@@ -62,8 +62,8 @@ Gossip协议下，没有任何扮演特殊角色的节点 (比如leader等) 。�
 然而，Gossip协议也有不完美的地方，例如，拜占庭问题 (Byzantine) 。即，如果有一个恶意传播消息的节点，Gossip协议的分布式系统就会出问题。
 
 作者: 阿飞的博客
-链接: <https://www.jianshu.com/p/54eab117e6ae>
+链接: [https://www.jianshu.com/p/54eab117e6ae](https://www.jianshu.com/p/54eab117e6ae)
 来源: 简书
 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
 
-<https://cloud.tencent.com/developer/article/1662426>
+[https://cloud.tencent.com/developer/article/1662426](https://cloud.tencent.com/developer/article/1662426)

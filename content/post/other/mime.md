@@ -203,4 +203,4 @@ Content-Transfer-Encoding: quoted-printable
 
 ---
 
-<http://www.ruanyifeng.com/blog/2008/06/mime.html>
+[http://www.ruanyifeng.com/blog/2008/06/mime.html](http://www.ruanyifeng.com/blog/2008/06/mime.html)

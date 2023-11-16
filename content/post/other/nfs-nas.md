@@ -10,7 +10,7 @@ tags:
 ---
 ## NAS, RAID
 
-<http://www.zhihu.com/question/19786074>
+[http://www.zhihu.com/question/19786074](http://www.zhihu.com/question/19786074)
 
 NAS - Network Attached Storage:  是一种存储类型,说白了就是主机通过Ethernet网络访问存储数据的一种类型存储。
 
@@ -40,7 +40,7 @@ NAS指的是在网络中提供文件服务的设备。
 
 RAID, 全称是 Redundant Array of Inexpensive/Independent Disks, 也就是磁盘冗余阵列, 这里的 I 有两种说法, 一种是 Inexpensive, 廉价, 另一种是 Independent, 独立。所谓 RAID 就是将多块磁盘组合在一起, 对外抽象成一个容量大, 读写速度高, 容错性好的大型磁盘。  
 
-<https://post.smzdm.com/p/a83d9q5n/>
+[https://post.smzdm.com/p/a83d9q5n/](https://post.smzdm.com/p/a83d9q5n/)
 
 ### Raid 0
 
@@ -58,7 +58,7 @@ RAID 1 是将一个两块硬盘所构成 RAID 磁盘阵列, 其容量仅等于�
 
 新建的 raid 1 会进入 长时间的 sync 状态, raid 工作在文件系统层, raid 并不知道磁盘上存储了多少数据, 它能看到的只有 blocks, 所以 新建的 raid 1 要 sync 一次来保证每一个 block 都是一致的.
 
-<https://serverfault.com/questions/1106138/when-adding-a-new-disk-to-raid-1-why-does-it-sync-unused-space>
+[https://serverfault.com/questions/1106138/when-adding-a-new-disk-to-raid-1-why-does-it-sync-unused-space](https://serverfault.com/questions/1106138/when-adding-a-new-disk-to-raid-1-why-does-it-sync-unused-space)
 
 ### RAID 5
 
@@ -128,8 +128,8 @@ Synology Hybrid RAID (SHR) 是 Synology 的自动 RAID 管理系统,经专门设
 
 今天来看,iSCSI似乎更具赢家风范,至少从网络角度看是这样,因为它可提供更好的多路径支持,更高程度的端到端安全。不过NFS仍然保有相当的优势,尤其是在阵列端的适当使用,因为它能让阵列拥有对虚拟化堆栈的可视性,可智能化地参与加速、快照和重复删除等存储流程。正是这些阵列端的智能优势,再结合上多路径与安全提升,有可能在NFS 4.1发布时有望实现NFS客户端,最终刺激对NFS需求的长期规模增长。
 
-<https://blog.csdn.net/holandstone/article/details/7964160>  
-<https://zhuanlan.zhihu.com/p/108636766>
+[https://blog.csdn.net/holandstone/article/details/7964160](https://blog.csdn.net/holandstone/article/details/7964160)  
+[https://zhuanlan.zhihu.com/p/108636766](https://zhuanlan.zhihu.com/p/108636766)
 
 ## JBOD
 

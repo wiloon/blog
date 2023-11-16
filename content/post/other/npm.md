@@ -68,7 +68,7 @@ npm info pkg
 
 ### nvm, Node Version Manager
 
-<https://github.com/nvm-sh/nvm>
+[https://github.com/nvm-sh/nvm](https://github.com/nvm-sh/nvm)
 
 ```bash
 yay -S nvm
@@ -104,7 +104,7 @@ npm config set registry https://registry.npmjs.org
 
 ### cnpm
 
-<https://developer.aliyun.com/mirror/NPM>
+[https://developer.aliyun.com/mirror/NPM](https://developer.aliyun.com/mirror/NPM)
 
 ```bash
 npm install -g cnpm --registry=https://registry.npm.taobao.org
@@ -238,8 +238,8 @@ NPM (node package manager) ，通常称为node包管理器。顾名思义，它�
 
 npm的背后，是基于couchdb的一个数据库，详细记录了每个包的信息，包括作者、版本、依赖、授权信息等。它的一个很重要的作用就是: 将开发者从繁琐的包管理工作 (版本、依赖等) 中解放出来，更加专注于功能的开发。
 
-npm官网: <https://npmjs.org/>
-npm官方文档: <https://npmjs.org/doc/README.html>
+npm官网: [https://npmjs.org/](https://npmjs.org/)
+npm官方文档: [https://npmjs.org/doc/README.html](https://npmjs.org/doc/README.html)
 我们需要了解什么
 npm的安装、卸载、升级、配置
   
@@ -359,11 +359,11 @@ npm search grunt-cli
   
 返回结果如下
 
-npm http GET <http://registry.npmjs.org/-/all/since?stale=update_after&startkey=1375519407838npm> http 200 <http://registry.npmjs.org/-/all/since?stale=update_after&startkey=1375519407838NAME> DESCRIPTION AUTHOR DATE KEYWORDSgrunt-cli The grunt command line interface. =cowboy =tkellen 2013-07-27 02:24grunt-cli-dev-exitprocess The grunt command line interface. =dnevnik 2013-03-11 16:19grunt-client-compiler Grunt wrapper for client-compiler. =rubenv 2013-03-26 09:15 gruntplugingrunt-clientside Generate clientside js code from CommonJS modules =jga 2012-11-07 01:20 gruntplugin
+npm http GET <http://registry.npmjs.org/-/all/since?stale=update_after&startkey=1375519407838npm> http 200 [http://registry.npmjs.org/-/all/since?stale=update_after&startkey=1375519407838NAME](http://registry.npmjs.org/-/all/since?stale=update_after&startkey=1375519407838NAME) DESCRIPTION AUTHOR DATE KEYWORDSgrunt-cli The grunt command line interface. =cowboy =tkellen 2013-07-27 02:24grunt-cli-dev-exitprocess The grunt command line interface. =dnevnik 2013-03-11 16:19grunt-client-compiler Grunt wrapper for client-compiler. =rubenv 2013-03-26 09:15 gruntplugingrunt-clientside Generate clientside js code from CommonJS modules =jga 2012-11-07 01:20 gruntplugin
   
 npm发布
 
-这个命令我自己也还没实际用过，不误导大家，语法如下，也可参考官方对于package发布的说明<https://npmjs.org/doc/developers.html>:
+这个命令我自己也还没实际用过，不误导大家，语法如下，也可参考官方对于package发布的说明[https://npmjs.org/doc/developers.html](https://npmjs.org/doc/developers.html):
 
 ```bash
 npm publish <tarball> npm publish <folder>
@@ -375,13 +375,13 @@ npm的配置工作主要是通过npm config命令，主要包含增、删、改�
 
 设置proxy
 
-内网使用npm很头痛的一个问题就是代理，假设我们的代理是 <http://proxy.example.com:8080>，那么命令如下:
+内网使用npm很头痛的一个问题就是代理，假设我们的代理是 [http://proxy.example.com:8080](http://proxy.example.com:8080)，那么命令如下:
 
-npm config set proxy <http://proxy.example.com:8080>
+npm config set proxy [http://proxy.example.com:8080](http://proxy.example.com:8080)
   
 由于npm config set命令比较常用，于是可以如下简写
 
-npm set proxy <http://proxy.example.com:8080>
+npm set proxy [http://proxy.example.com:8080](http://proxy.example.com:8080)
   
 查看proxy
 
@@ -391,7 +391,7 @@ npm config get proxy
   
 输出如下:
 
-<http://proxy.example.com:8080/>
+[http://proxy.example.com:8080/](http://proxy.example.com:8080/)
   
 同样可如下简写:
 
@@ -427,7 +427,7 @@ package.json字段简介
 
 字段相当多，但最重要的的是下面几个
 
-name: package的名字 (由于他会成为url的一部分，所以 non-url-safe 的字母不会通过，也不允许出现"."、"_") ，最好先在<http://registry.npmjs.org/>上搜下你取的名字是否已经存在
+name: package的名字 (由于他会成为url的一部分，所以 non-url-safe 的字母不会通过，也不允许出现"."、"_") ，最好先在[http://registry.npmjs.org/](http://registry.npmjs.org/)上搜下你取的名字是否已经存在
   
 version: package的版本，当package发生变化时，version也应该跟着一起变化，同时，你声明的版本需要通过semver的校验 (semver可自行谷歌)
   
@@ -467,13 +467,13 @@ b、"1.x.x"是什么意思呢，继续自行领悟
 
 Windows平台下的Node.js安装
 
-在过去，Node.js一直不支持在Windows平台下原生编译，需要借助Cygwin或MinGW来模拟POSIX系统，才能编译安装。幸运的是2011年6月微软开始与Joyent合作移植Node.js到Windows平台上 (<http://www.infoq.com/cn/news/2011/06/node-exe> ) ，这次合作的成果最终呈现在0.6.x的稳定版的发布上。这次的版本发布使得Node.js在Windows平台上的性能大幅度提高，使用方面也更容易和轻巧，完全摆脱掉Cygwin或MinGW等实验室式的环境，并且在某些细节方面，表现出比Linux下更高的性能，细节参见<http://www.infoq.com/news/2011/11/Nodejs-Windows>。
+在过去，Node.js一直不支持在Windows平台下原生编译，需要借助Cygwin或MinGW来模拟POSIX系统，才能编译安装。幸运的是2011年6月微软开始与Joyent合作移植Node.js到Windows平台上 (<http://www.infoq.com/cn/news/2011/06/node-exe> ) ，这次合作的成果最终呈现在0.6.x的稳定版的发布上。这次的版本发布使得Node.js在Windows平台上的性能大幅度提高，使用方面也更容易和轻巧，完全摆脱掉Cygwin或MinGW等实验室式的环境，并且在某些细节方面，表现出比Linux下更高的性能，细节参见[http://www.infoq.com/news/2011/11/Nodejs-Windows](http://www.infoq.com/news/2011/11/Nodejs-Windows)。
 
 在Windows (Windows7) 平台下，我将介绍二种安装Node.js的方法，即普通和文艺安装方法。
 
 普通的安装方法
 
-普通安装方法其实就是最简单的方法了，对于大多Windows用户而言，都是不太喜欢折腾的人，你可以从这里 (<http://nodejs.org/dist/v0.6.1/node-v0.6.1.msi> ) 直接下载到Node.js编译好的msi文件。然后双击即可在程序的引导下完成安装。
+普通安装方法其实就是最简单的方法了，对于大多Windows用户而言，都是不太喜欢折腾的人，你可以从这里 ([http://nodejs.org/dist/v0.6.1/node-v0.6.1.msi](http://nodejs.org/dist/v0.6.1/node-v0.6.1.msi) ) 直接下载到Node.js编译好的msi文件。然后双击即可在程序的引导下完成安装。
 
 在命令行中直接运行:
 
@@ -500,7 +500,7 @@ npm install 读取 package.json 创建依赖项列表，并使用 package-lock.j
 npm ci 是根据 package-lock.json 去安装确定的依赖，package.json 只是用来验证是不是有不匹配的版本，假设 package-lock.json 中存在一个确定版本的依赖 A，如果 package.json 中不存在依赖 A 或者依赖 A 版本和 lock 中不兼容，npm ci 就会报错。
 
 作者: 小被子
-链接: <https://juejin.cn/post/6844903903193104398>
+链接: [https://juejin.cn/post/6844903903193104398](https://juejin.cn/post/6844903903193104398)
 来源: 掘金
 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
 
@@ -511,11 +511,11 @@ npx 想要解决的主要问题，就是调用项目内部安装的模块
 
 ---
 
-<http://weibo.com/chyingp>  
-<http://www.zcool.com.cn/u/346408/>  
-<http://www.cnblogs.com/chyingp/p/npm.html>  
-<http://www.infoq.com/cn/articles/nodejs-npm-install-config>  
-<https://github.com/joyent/node/wiki/Installing-Node.js-via-package-manager#arch-linux>
+[http://weibo.com/chyingp](http://weibo.com/chyingp)  
+[http://www.zcool.com.cn/u/346408/](http://www.zcool.com.cn/u/346408/)  
+[http://www.cnblogs.com/chyingp/p/npm.html](http://www.cnblogs.com/chyingp/p/npm.html)  
+[http://www.infoq.com/cn/articles/nodejs-npm-install-config](http://www.infoq.com/cn/articles/nodejs-npm-install-config)  
+[https://github.com/joyent/node/wiki/Installing-Node.js-via-package-manager#arch-linux](https://github.com/joyent/node/wiki/Installing-Node.js-via-package-manager#arch-linux)
 
 ## 版本号规则
 

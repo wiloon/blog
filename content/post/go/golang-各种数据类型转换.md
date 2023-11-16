@@ -164,7 +164,7 @@ int32(i)
 str := strconv.FormatUint(myNumber, 10)
 ```
 
-<https://stackoverflow.com/questions/39442167/convert-int32-to-string-in-golang>
+[https://stackoverflow.com/questions/39442167/convert-int32-to-string-in-golang](https://stackoverflow.com/questions/39442167/convert-int32-to-string-in-golang)
 
 ### int32 > uint16
 
@@ -292,7 +292,7 @@ func FormatFloat(f float64, fmt byte, prec, bitSize int) string
 s32 := strconv.FormatFloat(v, 'E', -1, 32)
 
 作者: 炎灸纹舞
-链接: <https://juejin.cn/post/6844903742618222600>
+链接: [https://juejin.cn/post/6844903742618222600](https://juejin.cn/post/6844903742618222600)
 来源: 掘金
 著作权归作者所有。商业转载请联系作者获得授权,非商业转载请注明出处。
 
@@ -349,13 +349,13 @@ func main() {
     // 100.1234588623046875
 }
 
-<https://stackoverflow.com/questions/34701187/go-byte-to-little-big-endian-signed-integer-or-float>
+[https://stackoverflow.com/questions/34701187/go-byte-to-little-big-endian-signed-integer-or-float](https://stackoverflow.com/questions/34701187/go-byte-to-little-big-endian-signed-integer-or-float)
 
-<http://blog.csdn.net/pkueecser/article/details/50433460>
-<http://www.cnblogs.com/golove/p/3262925.html>
-<https://blog.csdn.net/lwldcr/article/details/78722330>
-<https://blog.csdn.net/pingD/article/details/76588648>
-<https://www.reddit.com/r/golang/comments/4xn341/converting_byte_to_int32/>
+[http://blog.csdn.net/pkueecser/article/details/50433460](http://blog.csdn.net/pkueecser/article/details/50433460)
+[http://www.cnblogs.com/golove/p/3262925.html](http://www.cnblogs.com/golove/p/3262925.html)
+[https://blog.csdn.net/lwldcr/article/details/78722330](https://blog.csdn.net/lwldcr/article/details/78722330)
+[https://blog.csdn.net/pingD/article/details/76588648](https://blog.csdn.net/pingD/article/details/76588648)
+[https://www.reddit.com/r/golang/comments/4xn341/converting_byte_to_int32/](https://www.reddit.com/r/golang/comments/4xn341/converting_byte_to_int32/)
 
 ## int 和 int64 互转
 

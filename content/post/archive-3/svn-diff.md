@@ -10,9 +10,9 @@ tags:
 ---
 ## svn diff
 
-转载于: <http://blog.sina.com.cn/s/blog_4e5668630100ag2u.html>
+转载于: [http://blog.sina.com.cn/s/blog_4e5668630100ag2u.html](http://blog.sina.com.cn/s/blog_4e5668630100ag2u.html)
 
-<http://www.upsdn.net/html/2004-12/65.html>
+[http://www.upsdn.net/html/2004-12/65.html](http://www.upsdn.net/html/2004-12/65.html)
 
 $ svn diff -r 2:3 rules.txt
   

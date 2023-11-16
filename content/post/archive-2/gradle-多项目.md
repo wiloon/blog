@@ -494,6 +494,6 @@ Gradle 多项目管理示例
   
 构建工具之 - Gradle一般使用常见问答
 
-<http://blog.javachen.com/2015/01/07/build-multi-module-project-with-gradle.html>
+[http://blog.javachen.com/2015/01/07/build-multi-module-project-with-gradle.html](http://blog.javachen.com/2015/01/07/build-multi-module-project-with-gradle.html)
 
-<http://www.blogjava.net/wldandan/archive/2012/07/12/382792.html>
+[http://www.blogjava.net/wldandan/archive/2012/07/12/382792.html](http://www.blogjava.net/wldandan/archive/2012/07/12/382792.html)

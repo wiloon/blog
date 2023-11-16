@@ -26,7 +26,7 @@ http://blog.csdn.net/mindfloating/article/details/39474123
 
 https://waylau.com/remote-procedure-calls/
 
-<https://github.com/www1350/javaweb/issues/56>
+[https://github.com/www1350/javaweb/issues/56](https://github.com/www1350/javaweb/issues/56)
 
 RPC (Remote Procedure Call Protocol)
 
@@ -58,7 +58,7 @@ Employee getEmployeeByName(String fullName)
   
 image
   
- (图片来源: <https://www.cs.rutgers.edu/~pxk/417/notes/03-rpc.html>)
+ (图片来源: [https://www.cs.rutgers.edu/~pxk/417/notes/03-rpc.html](https://www.cs.rutgers.edu/~pxk/417/notes/03-rpc.html))
 
 为什么RPC呢？就是无法在一个进程内，甚至一个计算机内通过本地调用的方式完成的需求，比如比如不同的系统间的通讯，甚至不同的组织间的通讯。由于计算能力需要横向扩展，需要在多台机器组成的集群上部署应用，
 
@@ -78,7 +78,7 @@ RPC的协议有很多，比如最早的CORBA，Java RMI，Web Service的RPC风�
 
 作者: 用心阁
   
-链接: <http://www.zhihu.com/question/25536695/answer/36197244>
+链接: [http://www.zhihu.com/question/25536695/answer/36197244](http://www.zhihu.com/question/25536695/answer/36197244)
   
 来源: 知乎
 
@@ -140,7 +140,7 @@ image
   
 ESB 需要某种形式的服务路由目录 (service routing directory) 来路由服务请求。然而，SOA 可能还有单独的业务服务目录 (business service directory) ，其最基本的形式可能是设计时服务目录，用于在组织的整个开发活动中实现服务的重用。Web 服务远景在业务服务目录和服务路由目录的角色中都放置了一个 UDDI 目录，因而使得可以动态发现和调用服务。这样的目录可以视为 ESB 的一部分；然而，在这样的解决方案变得普遍之前，业务服务目录可能与 ESB 是分离的。
 
-<http://www.cnblogs.com/zengxlf/p/3193529.html>
+[http://www.cnblogs.com/zengxlf/p/3193529.html](http://www.cnblogs.com/zengxlf/p/3193529.html)
 
 几者的区别与联系
 
@@ -179,7 +179,7 @@ JMS可以做到异步调用完全隔离了客户端和服务提供者，能够�
 
 JMS是java平台上的消息规范。一般jms消息不是一个xml，而是一个java对象，很明显，jms没考虑异构系统，说白了，JMS就没考虑非java的东西。但是好在现在大多数的jms provider (就是JMS的各种实现产品) 都解决了异构问题。相比WebService的跨平台各有千秋吧。
 
-<http://www.tuicool.com/articles/2qAzqq>
+[http://www.tuicool.com/articles/2qAzqq](http://www.tuicool.com/articles/2qAzqq)
 
 什么是RESTful？
 
@@ -240,7 +240,7 @@ RMI 采用stubs 和 skeletons 来进行远程对象(remote object)的通讯。st
 
 RMI TCP connection  
 to feed a remote JMX client (in your case Java VisualVM) with data from JVM.
-<https://stackoverflow.com/questions/40793580/what-is-rmi-tcp-connection>
+[https://stackoverflow.com/questions/40793580/what-is-rmi-tcp-connection](https://stackoverflow.com/questions/40793580/what-is-rmi-tcp-connection)
 
 ### JMS (Java Messaging Service)
 
@@ -263,4 +263,4 @@ JAX-RPC为基于SOAP(简单对象访问协议)的应用程序的开发提供了�
 
 版权声明: 本文为CSDN博主「皮斯特劳沃」的原创文章，遵循 CC 4.0 BY-SA 版权协议，转载请附上原文出处链接及本声明。
   
-原文链接: <https://blog.csdn.net/pistolove/article/details/64122191>
+原文链接: [https://blog.csdn.net/pistolove/article/details/64122191](https://blog.csdn.net/pistolove/article/details/64122191)

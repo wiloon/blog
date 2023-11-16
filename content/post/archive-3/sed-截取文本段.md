@@ -10,7 +10,7 @@ tags:
 ---
 ## sed 截取文本段
 
-<https://yhz61010.iteye.com/blog/1565984>
+[https://yhz61010.iteye.com/blog/1565984](https://yhz61010.iteye.com/blog/1565984)
 
 假设文件 text.txt 内容如下:
 

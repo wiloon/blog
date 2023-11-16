@@ -9,7 +9,7 @@ tags:
   - reprint
 ---
 ## python调用shell命令
-<http://blog.chinaunix.net/uid-16362696-id-3067891.html>
+[http://blog.chinaunix.net/uid-16362696-id-3067891.html](http://blog.chinaunix.net/uid-16362696-id-3067891.html)
 
 python调用shell命令的方法有许多
 

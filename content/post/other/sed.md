@@ -50,7 +50,7 @@ sed -i '/localhost/d' /etc/hosts
 
 ### 截取文本段
 
-<https://blog.wiloon.com/?p=13845>
+[https://blog.wiloon.com/?p=13845](https://blog.wiloon.com/?p=13845)
 
 ```bash
 # 批量替换目录下所有文件
@@ -117,9 +117,9 @@ sed 实用工具按顺序逐行将文件读入到内存中。然后，它执行�
 
 nl /etc/passwd | sed '2,5d'
 
-<http://www.cnblogs.com/ggjucheng/archive/2013/01/13/2856901.html>
+[http://www.cnblogs.com/ggjucheng/archive/2013/01/13/2856901.html](http://www.cnblogs.com/ggjucheng/archive/2013/01/13/2856901.html)
   
-<http://wiki.jikexueyuan.com/project/shell-learning/sed-search-and-replace.html>
+[http://wiki.jikexueyuan.com/project/shell-learning/sed-search-and-replace.html](http://wiki.jikexueyuan.com/project/shell-learning/sed-search-and-replace.html)
 
 ```bash
 cat *.csv >out
@@ -129,17 +129,17 @@ cat bar|sort >s
 
 ```
 
-<http://www.gnu.org/software/sed/manual/sed.html>
+[http://www.gnu.org/software/sed/manual/sed.html](http://www.gnu.org/software/sed/manual/sed.html)
 
->sed 简明教程 <https://coolshell.cn/articles/9104.html/embed#?secret=6JIFuxVo3p>
+>sed 简明教程 [https://coolshell.cn/articles/9104.html/embed#?secret=6JIFuxVo3p](https://coolshell.cn/articles/9104.html/embed#?secret=6JIFuxVo3p)
   
-<https://www.gnu.org/software/sed/manual/sed.html>
+[https://www.gnu.org/software/sed/manual/sed.html](https://www.gnu.org/software/sed/manual/sed.html)
 
 ### linux下在某行的前一行或后一行添加内容
 
-<http://www.361way.com/sed-process-lines/2263.html/embed#?secret=0mIvKAwlT1>
+[http://www.361way.com/sed-process-lines/2263.html/embed#?secret=0mIvKAwlT1](http://www.361way.com/sed-process-lines/2263.html/embed#?secret=0mIvKAwlT1)
   
-<https://www.cnblogs.com/muahao/p/6290813.html>
+[https://www.cnblogs.com/muahao/p/6290813.html](https://www.cnblogs.com/muahao/p/6290813.html)
 
 a: 新增，例如: nl /etc/passwd | sed '2a Hello World'，在/etc/passwd第2行下面新增一行，写入"Hello World"。
   
@@ -153,7 +153,7 @@ p: 打印，例如: nl -n /etc/passwd | sed '2,5p'，仅显示2到5行，注意�
   
 s: 搜索，例如: nl /etc/passwd | sed '1,20s/old/new/g'，将第1~20行中出现的所有字符串old替换为new。
 
-<https://www.gnu.org/software/sed/manual/sed.html>
+[https://www.gnu.org/software/sed/manual/sed.html](https://www.gnu.org/software/sed/manual/sed.html)
 
 ## linux sed 命令，替换换行符“\n
 
@@ -161,4 +161,4 @@ s: 搜索，例如: nl /etc/passwd | sed '1,20s/old/new/g'，将第1~20行中出
 sed ":a;N;s/\n//g;ta" a.txt
 ```
 
-<https://blog.csdn.net/u011729865/article/details/71773840>
+[https://blog.csdn.net/u011729865/article/details/71773840](https://blog.csdn.net/u011729865/article/details/71773840)

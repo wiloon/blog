@@ -10,7 +10,7 @@ tags:
 ---
 ## '填充模式,PKCS#5/PKCS7'
 
-<https://blog.csdn.net/test1280/article/details/75268255>
+[https://blog.csdn.net/test1280/article/details/75268255](https://blog.csdn.net/test1280/article/details/75268255)
 
 填充模式: PKCS#5/PKCS7
   
@@ -199,14 +199,14 @@ Note that neither PKCS#5 nor PKCS#7 is a standard created to describe a padding 
   
 资料来源:
 
-1.<https://en.wikipedia.org/wiki/Padding_(cryptography>)
+1.[https://en.wikipedia.org/wiki/Padding_(cryptography](https://en.wikipedia.org/wiki/Padding_(cryptography))
 
-2.<https://en.wikipedia.org/wiki/PKCS>
+2.[https://en.wikipedia.org/wiki/PKCS](https://en.wikipedia.org/wiki/PKCS)
 
-3.<https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation>
+3.[https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation](https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation)
 
-4.<https://crypto.stackexchange.com/questions/9043/what-is-the-difference-between-pkcs5-padding-and-pkcs7-padding>
+4.[https://crypto.stackexchange.com/questions/9043/what-is-the-difference-between-pkcs5-padding-and-pkcs7-padding](https://crypto.stackexchange.com/questions/9043/what-is-the-difference-between-pkcs5-padding-and-pkcs7-padding)
 
-5.<http://www.cnblogs.com/ryq2014/p/6379153.html>
+5.[http://www.cnblogs.com/ryq2014/p/6379153.html](http://www.cnblogs.com/ryq2014/p/6379153.html)
 
-6.<http://blog.csdn.net/zsy19881226/article/details/46928177>
+6.[http://blog.csdn.net/zsy19881226/article/details/46928177](http://blog.csdn.net/zsy19881226/article/details/46928177)

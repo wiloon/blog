@@ -25,7 +25,7 @@ JDK：Java Development Kit 的简称，java 开发工具包，提供了 java 的
 
 JDK 其实包含了 JRE，同时还包含了编译 java 源码的编译器 javac，还包含了很多 java 程序调试和分析的工具。简单来说：如果你需要运行 java 程序，只需安装 JRE 就可以了，如果你需要编写 java 程序，需要安装 JDK。
 
-<http://www.wiloon.com/jdk-jre>
+[http://www.wiloon.com/jdk-jre](http://www.wiloon.com/jdk-jre)
 
 ### == vs equals
 
@@ -104,7 +104,7 @@ System.out.println(Math.round(-1.6));
 
 多态性是指允许不同类的对象对同一消息作出响应。多态性包括参数化多态性和包含多态性。多态性语言具有灵活、抽象、行为共享、代码共享的优势，很好的解决了应用程序函数同名问题。
 
-<http://wiloon.com/polymorphism>
+[http://wiloon.com/polymorphism](http://wiloon.com/polymorphism)
 
 ### 抽象
 
@@ -171,7 +171,7 @@ Java 提供两种不同的类型: 引用类型和原始类型 (或内置类型) 
 
     引用类型 基本类型
 
-<http://www.wiloon.com/?p=4120&embed=true#?secret=3QUltjLSBh>
+[http://www.wiloon.com/?p=4120&embed=true#?secret=3QUltjLSBh](http://www.wiloon.com/?p=4120&embed=true#?secret=3QUltjLSBh)
 
 ### 异常
 
@@ -189,11 +189,11 @@ error 表示恢复不是不可能但很困难的情况下的一种严重问题�
 
 HashMap是Hashtable的轻量级实现 (非线程安全的实现) ，他们都完成了Map接口，主要区别在于HashMap允许空 (null) 键值 (key) Hashtable不允许。HashMap由于非线程安全，效率上可能高于Hashtable。 而 HashMap把Hashtable的contains方法去掉了，改成containsvalue和containsKey。因为contains方法容易让人引起误解。 Hashtable继承自Dictionary类，而HashMap是Java1.2引进的Map interface的一个实现。 最大的不同是，Hashtable的方法是Synchronize的，而HashMap不是，在多个线程访问Hashtable时，不需要自己为它的方法实现同步，而HashMap 就必须为之提供外同步。 Hashtable和HashMap采用的hash/rehash算法都大概一样，所以性能不会有很大的差异。
 
-<http://www.wiloon.com/?p=4144&embed=true#?secret=Zea2iEVLs2>
+[http://www.wiloon.com/?p=4144&embed=true#?secret=Zea2iEVLs2](http://www.wiloon.com/?p=4144&embed=true#?secret=Zea2iEVLs2)
 
     HashSet、TreeSet、LinkedHashSet
   
-<http://www.wiloon.com/?p=6726&embed=true#?secret=PuZXM3VEiO>
+[http://www.wiloon.com/?p=6726&embed=true#?secret=PuZXM3VEiO](http://www.wiloon.com/?p=6726&embed=true#?secret=PuZXM3VEiO)
 
 ### Iterator和ListIterator的区别是什么？
 
@@ -235,7 +235,7 @@ finally 是异常处理语句结构的一部分，表示总是执行。
 
 finalize 是Object类的一个方法，在垃圾收集器执行的时候会调用被回收对象的此方法，可以覆盖此方法提供垃圾收集时的其他资源回收，例如关闭文件等。
 
->JVM内存管理-Java垃圾回收调优, <http://www.wiloon.com/?p=4618>
+>JVM内存管理-Java垃圾回收调优, [http://www.wiloon.com/?p=4618](http://www.wiloon.com/?p=4618)
 
 ### 线程的几种可用状态
 
@@ -257,7 +257,7 @@ wait是Object类的方法，对此对象调用wait方法导致本线程放弃对
 
 ### java 线程 yield(), sleep(), wait(), join()
 
-><http://www.wiloon.com/java/thread/sleep>
+>[http://www.wiloon.com/java/thread/sleep](http://www.wiloon.com/java/thread/sleep)
 
 ### **Overload和Override的区别。Overloaded的方法是否可以改变返回值的类型?**
 
@@ -273,22 +273,22 @@ wait是Object类的方法，对此对象调用wait方法导致本线程放弃对
 
 声明方法的存在而不去实现它的类被叫做抽象类 (abstract class) ，它用于要创建一个体现某些基本行为的类，并为该类声明方法，但不能在该类中实现该类的情况。不能创建abstract 类的实例。然而可以创建一个变量，其类型是一个抽象类，并让它指向具体子类的一个实例。不能有抽象构造函数或抽象静态方法。Abstract 类的子类为它们父类中的所有抽象方法提供实现，否则它们也是抽象类为。取而代之，在子类中实现该方法。知道其行为的其它类可以在类中实现这些方法。 接口 (interface) 是抽象类的变体。在接口中，所有方法都是抽象的。多继承性可通过实现这样的接口而获得。接口中的所有方法都是抽象的，没有一个有程序体。接口只可以定义static final成员变量。接口的实现与子类相似，除了该实现类不能从接口定义中继承行为。当类实现特殊接口时，它定义 (即将程序体给予) 所有这种接口的方法。然后，它可以在实现了该接口的类的任何对象上调用接口的方法。由于有抽象类，它允许使用接口名作为引用变量的类型。通常的动态联编将生效。引用可以转换到接口类型或从接口类型转换，instanceof 运算符可以用来决定某对象的类是否实现了接口。
 
-><http://www.wiloon.com/?p=3336&embed=true#?secret=MLUWtzeM61>
+>[http://www.wiloon.com/?p=3336&embed=true#?secret=MLUWtzeM61](http://www.wiloon.com/?p=3336&embed=true#?secret=MLUWtzeM61)
 
 ### heap和stack的区别
 
 栈是一种线性集合，栈按照后进先出的方式进行处理。
-<http://www.wiloon.com/?p=4151>
+[http://www.wiloon.com/?p=4151](http://www.wiloon.com/?p=4151)
 
-<http://www.wiloon.com/?p=4151&embed=true#?secret=20KcOkpGBn>
+[http://www.wiloon.com/?p=4151&embed=true#?secret=20KcOkpGBn](http://www.wiloon.com/?p=4151&embed=true#?secret=20KcOkpGBn)
 
 ### Static Nested Class 和 Inner Class的不同
 
 Static Nested Class是被声明为静态 (static) 的内部类，它可以不依赖于外部类实例被实例化。而通常的内部类需要在外部类实例化后才能实例化。
 
-<http://www.wiloon.com/?p=6474>
+[http://www.wiloon.com/?p=6474](http://www.wiloon.com/?p=6474)
 
- <http://www.wiloon.com/?p=6474&embed=true#?secret=yj3jOD5DN0>
+ [http://www.wiloon.com/?p=6474&embed=true#?secret=yj3jOD5DN0](http://www.wiloon.com/?p=6474&embed=true#?secret=yj3jOD5DN0)
 
 **assert**
 
@@ -300,7 +300,7 @@ GC是垃圾收集的意思 (Gabage Collection) ,内存处理是编程人员容�
 
     JVM内存管理和JVM垃圾回收机制
   
-<http://www.wiloon.com/?p=4620&embed=true#?secret=hz71dhuu22>
+[http://www.wiloon.com/?p=4620&embed=true#?secret=hz71dhuu22](http://www.wiloon.com/?p=4620&embed=true#?secret=hz71dhuu22)
 
 ### 你了解大O符号(big-O notation)么？你能给出不同数据结构的例子么？
 
@@ -443,15 +443,15 @@ wiloon.com/red–black-tree
 
 ### Java 2021
 
-><https://zhuanlan.zhihu.com/p/64147696>
+>[https://zhuanlan.zhihu.com/p/64147696](https://zhuanlan.zhihu.com/p/64147696)
 
 ### Java Core Sprout
 
-><https://github.com/crossoverJie/JCSprout>
-><http://zangweiren.blog.51cto.com/412366/94392>
-><http://www.cnblogs.com/chenssy/p/3372798.html>
-><http://blog.csdn.net/ericbaner/article/details/3857268>
-><http://www.importnew.com/10980.html#oop>
+>[https://github.com/crossoverJie/JCSprout](https://github.com/crossoverJie/JCSprout)
+>[http://zangweiren.blog.51cto.com/412366/94392](http://zangweiren.blog.51cto.com/412366/94392)
+>[http://www.cnblogs.com/chenssy/p/3372798.html](http://www.cnblogs.com/chenssy/p/3372798.html)
+>[http://blog.csdn.net/ericbaner/article/details/3857268](http://blog.csdn.net/ericbaner/article/details/3857268)
+>[http://www.importnew.com/10980.html#oop](http://www.importnew.com/10980.html#oop)
 
 ## Raw use of parameterized class
 
@@ -515,5 +515,5 @@ public class Test1 {
 对于上面的示例，首先看(1)(3)，其中的f()方法从类Father1继承而来，其可见性是包p1及其子类Son1和Son11，而由于调用f()方法的类Test1所在的包也是p1，因此 (1）(3)处编译通过。其次看(2)(4)，其中的clone()方法的可见性是java.lang包及其所有子类，对于语句“son1.clone();”和“son11.clone();”，二者的clone()在类Son1、Son11中是可见的，但对Test1是不可见的，因此 (1）(3)处编译不通过。
 ————————————————
 版权声明：本文为CSDN博主「书呆子Rico」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
-原文链接：<https://blog.csdn.net/justloveyou_/article/details/61672133>
+原文链接：[https://blog.csdn.net/justloveyou_/article/details/61672133](https://blog.csdn.net/justloveyou_/article/details/61672133)
 

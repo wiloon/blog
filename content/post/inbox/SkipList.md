@@ -35,11 +35,11 @@ SkipList还有一个优势就是实现简单，SkipList的实现只花了2个小
 - 在结点17上，level==0索引到19,查找完毕。
 - 如果在level==0这层没有查找到，那么说明不存在key为19的节点，查找失败
 
-<https://zhuanlan.zhihu.com/p/33674267>
+[https://zhuanlan.zhihu.com/p/33674267](https://zhuanlan.zhihu.com/p/33674267)
 
 ### skiplist, 红黑树
 
 skiplist 的复杂度和红黑树一样，而且实现起来更简单。
 在并发环境下红黑树在插入和删除时需要 rebalance，性能不如跳表。
 
-><http://www.cnblogs.com/xuqiang/archive/2011/05/22/2053516.html>
+>[http://www.cnblogs.com/xuqiang/archive/2011/05/22/2053516.html](http://www.cnblogs.com/xuqiang/archive/2011/05/22/2053516.html)

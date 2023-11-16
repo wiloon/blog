@@ -92,7 +92,7 @@ Ext4 作为传统的文件系统确实非常成熟稳定，但是随着存储需
 由于历史磁盘结构原因Ext4 的inode 个数限制(32位数)最多只能有大概40多亿文件。而且Ext4的单个文件大小最大只能支持到16T(4K block size) 的话，这些至少对于目前来说已经是瓶颈了...而XFS使用64位管理空间，文件系统规模可以达到EB级别，可以说未来几年XFS彻底取代Ext4是早晚的事情！另外，我看了一下XFS 目前redhat 至少投入了5个Kernel developer 在上面，因为XFS 是基于B+Ttree 管理元数据，即将支持reflink, dedupe等高级特性(Oracle 开发者已经开发了patch)。综上所述，XFS 取代Ext4 已经成为必然。
 
 作者: wangsl
-链接: <https://www.zhihu.com/question/24413471/answer/38883787>
+链接: [https://www.zhihu.com/question/24413471/answer/38883787](https://www.zhihu.com/question/24413471/answer/38883787)
 来源: 知乎
 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
 
@@ -104,7 +104,7 @@ Ext4受限制于磁盘结构和兼容问题，可扩展性和scalability不如XF
 
 XFS文件系统的卷无法被直接收缩，只能通过“备份->重灌->还原”的方式间接进行容量缩减 (这也是云端主机供应商会告知存储空间只能增加不能缩减的其中一个原因) ，在准备多一组存储卷的情况下，有工具可对XFS卷进行上述操作: xfsdump和xfsrestore。
 
-<http://xiaqunfeng.cc/2017/07/06/XFS-vs-EXT4/>
+[http://xiaqunfeng.cc/2017/07/06/XFS-vs-EXT4/](http://xiaqunfeng.cc/2017/07/06/XFS-vs-EXT4/)
 
 ### XFS vs EXT4
 
@@ -135,4 +135,4 @@ Ext4受限制于磁盘结构和兼容问题，可扩展性和scalability不如XF
 虽然Ext4 目录索引采用了Hash Index Tree, 但是依然限制高度为2。
 由于历史磁盘结构原因Ext4 的inode 个数限制(32位数)最多只能有大概40多亿文件。而且Ext4的单个文件大小最大只能支持到16T(4K block size) ，目前来说已经是瓶颈。XFS使用64位管理空间，文件系统规模可以达到EB级别。
 
-><http://xiaqunfeng.cc/2017/07/06/XFS-vs-EXT4/>
+>[http://xiaqunfeng.cc/2017/07/06/XFS-vs-EXT4/](http://xiaqunfeng.cc/2017/07/06/XFS-vs-EXT4/)

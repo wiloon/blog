@@ -9,7 +9,7 @@ tags:
   - reprint
 ---
 ## java中取小数点后两位
-<http://www.cnblogs.com/sharewind/archive/2007/08/29/873802.html>
+[http://www.cnblogs.com/sharewind/archive/2007/08/29/873802.html](http://www.cnblogs.com/sharewind/archive/2007/08/29/873802.html)
 
 
   

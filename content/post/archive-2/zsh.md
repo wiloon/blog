@@ -25,11 +25,11 @@ zsh --version
 rm ~/.zcompdump*
 ```
 
-<https://unix.stackexchange.com/questions/210930/completions-stopped-working-after-upgrading-zsh/210931#210931>
+[https://unix.stackexchange.com/questions/210930/completions-stopped-working-after-upgrading-zsh/210931#210931](https://unix.stackexchange.com/questions/210930/completions-stopped-working-after-upgrading-zsh/210931#210931)
 
 ### 自动补全提示插件
 
-<https://www.jianshu.com/p/aea390c1c8ef>
+[https://www.jianshu.com/p/aea390c1c8ef](https://www.jianshu.com/p/aea390c1c8ef)
 
 ```bash
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
@@ -112,12 +112,12 @@ You should go through the configuration files of random Github users to get a be
 
 ### .zshenv, .zprofile
 
-<https://unix.stackexchange.com/questions/71253/what-should-shouldnt-go-in-zshenv-zshrc-zlogin-zprofile-zlogout>
+[https://unix.stackexchange.com/questions/71253/what-should-shouldnt-go-in-zshenv-zshrc-zlogin-zprofile-zlogout](https://unix.stackexchange.com/questions/71253/what-should-shouldnt-go-in-zshenv-zshrc-zlogin-zprofile-zlogout)
 
-<https://github.com/robbyrussell/oh-my-zsh>
+[https://github.com/robbyrussell/oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh)
   
-<https://wiki.archlinux.org/index.php/Zsh_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)#.E5.AE.89.E8.A3.85>
+[https://wiki.archlinux.org/index.php/Zsh_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)#.E5.AE.89.E8.A3.85](https://wiki.archlinux.org/index.php/Zsh_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)#.E5.AE.89.E8.A3.85)
 
-<http://blog.xsudo.com/2019/04/12/1445/>  
+[http://blog.xsudo.com/2019/04/12/1445/](http://blog.xsudo.com/2019/04/12/1445/)  
 
-<https://zhuanlan.zhihu.com/p/19556676>  
+[https://zhuanlan.zhihu.com/p/19556676](https://zhuanlan.zhihu.com/p/19556676)  

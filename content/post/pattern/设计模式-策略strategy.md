@@ -12,7 +12,7 @@ tags:
 
 设计模式之Strategy(策略)
   
-板桥里人 <http://www.jdon.com> 2002/03/30
+板桥里人 [http://www.jdon.com](http://www.jdon.com) 2002/03/30
   
 Strategy策略模式是属于设计模式中 对象行为型模式,主要是定义一系列的算法,把这些算法一个个封装成单独的类.
 

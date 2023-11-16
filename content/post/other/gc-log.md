@@ -108,4 +108,4 @@ https://blogs.oracle.com/jonthecollector/its-not-magic
 
 http://blog.csdn.net/renfufei/article/details/49230943
   
-<https://plumbr.eu/blog/garbage-collection/understanding-garbage-collection-logs>
+[https://plumbr.eu/blog/garbage-collection/understanding-garbage-collection-logs](https://plumbr.eu/blog/garbage-collection/understanding-garbage-collection-logs)

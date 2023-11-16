@@ -300,14 +300,14 @@ return new Bmw();
 
 看过了前两个模式，对这个模式各个角色之间的协调情况应该心里有个数了，我就不举具体的例子了。只是一定要注意满足使用抽象工厂模式的条件哦。
 
-<http://www.wiloon.com/?p=4407>
+[http://www.wiloon.com/?p=4407](http://www.wiloon.com/?p=4407)
 
-<http://blog.csdn.net/ai92/article/details/209198>
+[http://blog.csdn.net/ai92/article/details/209198](http://blog.csdn.net/ai92/article/details/209198)
 
     持续改进，抽象工厂也反射
   
-<http://www.wiloon.com/?p=4447&embed=true#?secret=K8dbXXCWWd>
+[http://www.wiloon.com/?p=4447&embed=true#?secret=K8dbXXCWWd](http://www.wiloon.com/?p=4447&embed=true#?secret=K8dbXXCWWd)
 
     抽象工厂模式解析例子
   
-<http://www.wiloon.com/?p=4407&embed=true#?secret=dFCXQ3viP4>
+[http://www.wiloon.com/?p=4407&embed=true#?secret=dFCXQ3viP4](http://www.wiloon.com/?p=4407&embed=true#?secret=dFCXQ3viP4)

@@ -169,17 +169,17 @@ page的一半） ,overflow不会存到别的page中。基于上面的特性可�
  |     +--Field_set
 参考：
 
-<http://yoshinorimatsunobu.blogspot.com/2010/11/handling-long->
+[http://yoshinorimatsunobu.blogspot.com/2010/11/handling-long-](http://yoshinorimatsunobu.blogspot.com/2010/11/handling-long-)
 textsblobs-in-innodb-1-to.html
-　　<http://nicj.net/mysql-text-vs-varchar-performance/>
-　　<http://www.pythian.com/blog/text-vs-varchar/>
+　　[http://nicj.net/mysql-text-vs-varchar-performance/](http://nicj.net/mysql-text-vs-varchar-performance/)
+　　[http://www.pythian.com/blog/text-vs-varchar/](http://www.pythian.com/blog/text-vs-varchar/)
 
 作者：HaleyLiu
-链接：<https://www.jianshu.com/p/fbde22109a7b>
+链接：[https://www.jianshu.com/p/fbde22109a7b](https://www.jianshu.com/p/fbde22109a7b)
 来源：简书
 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
 
-><https://www.jianshu.com/p/fbde22109a7b>
+>[https://www.jianshu.com/p/fbde22109a7b](https://www.jianshu.com/p/fbde22109a7b)
 
 INT 类型
   
@@ -373,10 +373,10 @@ VARCHAR 类型可以根据实际内容动态改变存储值的长度，所以在
 
 ————————————————
 版权声明: 本文为CSDN博主「inrgihc」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
-原文链接: <https://blog.csdn.net/inrgihc/article/details/118713282>
+原文链接: [https://blog.csdn.net/inrgihc/article/details/118713282](https://blog.csdn.net/inrgihc/article/details/118713282)
 
 作者: 金星show
   
-链接: <https://www.jianshu.com/p/51aeaeeb15cf>
+链接: [https://www.jianshu.com/p/51aeaeeb15cf](https://www.jianshu.com/p/51aeaeeb15cf)
   
 来源: 简书

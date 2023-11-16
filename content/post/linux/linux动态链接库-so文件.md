@@ -11,7 +11,7 @@ tags:
 ---
 ## Linux动态链接库.so文件
 
-><http://blog.csdn.net/ithomer/article/details/7346146>
+>[http://blog.csdn.net/ithomer/article/details/7346146](http://blog.csdn.net/ithomer/article/details/7346146)
 
 **1. 介绍
   
@@ -79,7 +79,7 @@ ldconfig 并不设置链接的名字，通常的做法是在安装过程中完�
 
 共享函数库文件必须放在一些特定的目录里，这样通过系统的环境变量设置，应用程序才能正确的使用这些函数库。大部分的源码开发的程序都遵循GNU的一些标准，我们可以看info帮助文件获得相信的说明，info信息的位置是: info:standards#Directory_Variables。GNU标准建议所有的函数库文件都放在/usr/local/lib目录下，而且建议命令可执行程序都放在/usr/local/bin目录下。这都是一些习惯问题，可以改变的。
 
-文件系统层次化标准FHS (Filesystem Hierarchy Standard)  (<http://www.pathname.com/fhs>) 规定了在一个发行包中大部分的函数库文件应该安装到/usr/lib目录下，但是如果某些库是在系统启动的时候要加载的，则放到/lib目录下，而那些不是系统本身一部分的库则放到/usr/local/lib下面。
+文件系统层次化标准FHS (Filesystem Hierarchy Standard)  ([http://www.pathname.com/fhs](http://www.pathname.com/fhs)) 规定了在一个发行包中大部分的函数库文件应该安装到/usr/lib目录下，但是如果某些库是在系统启动的时候要加载的，则放到/lib目录下，而那些不是系统本身一部分的库则放到/usr/local/lib下面。
 
 上面两个路径的不同并没有本质的冲突。GNU提出的标准主要对于开发者开发源码的，而FHS的建议则是针对发行版本的路径的。具体的位置信息可以看/etc/ld.so.conf里面的配置信息。
 
@@ -99,7 +99,7 @@ ldconfig 并不设置链接的名字，通常的做法是在安装过程中完�
 
 各种各样的环境变量控制着一些关键的过程。例如你可以临时为你特定的程序的一次执行指定一个不同的函数库。Linux系统中，通常变量LD_LIBRARY_PATH就是可以用来指定函数库查找路径的，而且这个路径通常是在查找标准的路径之前查找。这个是很有用的，特别是在调试一个新的函数库的时候，或者在特殊的场合使用一个非标准的函数库的时候。环境变量LD_PRELOAD列出了所有共享函数库中需要优先加载的库文件，功能和/etc/ld.so.preload类似。这些都是有/lib/ld-linux.so这个loader来实现的。值得一提的是，LD_LIBRARY_PATH可以在大部分的UNIX-linke系统下正常起作用，但是并非所有的系统下都可以使用，例如HP－UX系统下，就是用SHLIB_PATH这个变量，而在AIX下则使用LIBPATH这个变量。
 
-LD_LIBRARY_PATH在开发和调试过程中经常大量使用，但是不应该被一个普通用户在安装过程中被安装程序修改，大家可以去参考<http://www.visi.com/~barr/ldpath.html,这里有一个文档专门介绍为什么不使用LD_LIBRARY_PATH>这个变量。
+LD_LIBRARY_PATH在开发和调试过程中经常大量使用，但是不应该被一个普通用户在安装过程中被安装程序修改，大家可以去参考[http://www.visi.com/~barr/ldpath.html,这里有一个文档专门介绍为什么不使用LD_LIBRARY_PATH](http://www.visi.com/~barr/ldpath.html,这里有一个文档专门介绍为什么不使用LD_LIBRARY_PATH)这个变量。
 
 事实上还有更多的环境变量影响着程序的调入过程，它们的名字通常就是以LD_或者RTLD_打头。大部分这些环境变量的使用的文档都是不全，通常搞得人头昏眼花的，如果要真正弄清楚它们的用法，最好去读loader的源码 (也就是gcc的一部分) 。
 
@@ -191,7 +191,7 @@ libc.so.6 => /lib/libc.so.6 (0x40020000)
 
 Linux系统下，DL函数库与其他函数库在格式上没有特殊的区别，我们前面提到过，它们创建的时候是标准的object格式。主要的区别就是这些函数库不是在程序链接的时候或者启动的时候加载，而是通过一个API来打开一个函数库，寻找符号表，处理错误和关闭函数库。通常C语言环境下，需要包含这个头文件。
   
-Linux中使用的函数和Solaris中一样，都是dlpoen ()  API。当然不是所有的平台都使用同样的接口，例如HP-UX使用shl_load()机制，而Windows平台用另外的其他的调用接口。如果你的目的是使得你的代码有很强的移植性，你应该使用一些wrapping函数库，这样的wrapping函数库隐藏不同的平台的接口区别。一种方法是使用glibc函数库中的对动态加载模块的支持，它使用一些潜在的动态加载函数库界面使得它们可以夸平台使用。具体可以参考<http://developer.gnome.org/doc/API/glib/glib-dynamic-loading-of-modules.html>. 另外一个方法是使用libltdl，是GNU libtool的一部分，可以进一步参考CORBA相关资料。
+Linux中使用的函数和Solaris中一样，都是dlpoen ()  API。当然不是所有的平台都使用同样的接口，例如HP-UX使用shl_load()机制，而Windows平台用另外的其他的调用接口。如果你的目的是使得你的代码有很强的移植性，你应该使用一些wrapping函数库，这样的wrapping函数库隐藏不同的平台的接口区别。一种方法是使用glibc函数库中的对动态加载模块的支持，它使用一些潜在的动态加载函数库界面使得它们可以夸平台使用。具体可以参考[http://developer.gnome.org/doc/API/glib/glib-dynamic-loading-of-modules.html](http://developer.gnome.org/doc/API/glib/glib-dynamic-loading-of-modules.html). 另外一个方法是使用libltdl，是GNU libtool的一部分，可以进一步参考CORBA相关资料。
 
 4.1. dlopen()
   

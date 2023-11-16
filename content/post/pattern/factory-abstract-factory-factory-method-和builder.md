@@ -160,7 +160,7 @@ public void service() {…}
 
 8.      Business Delegate Pattern
 
-<http://www.iteye.com/topic/17112>
+[http://www.iteye.com/topic/17112](http://www.iteye.com/topic/17112)
 
  [1]: http://www.wiloon.com/wp-content/uploads/2012/10/x1pBG_wmiiVq4fKhMkEoTbjopPcKCE3u0uJjfqcYoYvgBeu5PDT5UndtcNdt48rY80PV_fd8Ce5pLpHavAj520cgRoVa4EmOhjE5VNS7GnBHl126UUuSSCrcM8YMFLVb3mp_UsivKRLJ1HKESriM5FDQA-1.gif
  [2]: http://storage.msn.com/x1pBG_wmiiVq4fKhMkEoTbjopPcKCE3u0uJjfqcYoYvgBee-TnpMzZc_ZqwZC1doT-cIW-U3P8N2-bwjC3VP-_6SlTcY5iXrrcpDcnU4l-WG2ExsjQnc-bZyr1hx0TfiXjK3YQEsA8ZnsrSglQaBWXZQQ

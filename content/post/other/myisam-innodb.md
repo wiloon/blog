@@ -560,10 +560,10 @@ Archive是归档的意思，在归档之后很多的高级功能就不再支持�
 
 **参考文献:**
 
-* <http://drizzlewalk.blog.51cto.com/2203401/443266>
-* <http://www.rackspace.com/knowledge_center/article/MySQL-engines-myisam-vs-innodb>
-* <http://stackoverflow.com/questions/20148/myisam-versus-innodb>
-* <http://www.pureweber.com/article/myisam-vs-innodb/>
+* [http://drizzlewalk.blog.51cto.com/2203401/443266](http://drizzlewalk.blog.51cto.com/2203401/443266)
+* [http://www.rackspace.com/knowledge_center/article/MySQL-engines-myisam-vs-innodb](http://www.rackspace.com/knowledge_center/article/MySQL-engines-myisam-vs-innodb)
+* [http://stackoverflow.com/questions/20148/myisam-versus-innodb](http://stackoverflow.com/questions/20148/myisam-versus-innodb)
+* [http://www.pureweber.com/article/myisam-vs-innodb/](http://www.pureweber.com/article/myisam-vs-innodb/)
 
 **什么是MyISAM?**
 
@@ -655,14 +655,14 @@ Oracle公司与2005年10月收购了Innobase。Innobase采用双认证授权。�
     
     
       Row level locking
-ACID – Atomicity, Consistency, Isolation, Durability (read more on it here: <http://en.wikipedia.org/wiki/ACID>
+ACID – Atomicity, Consistency, Isolation, Durability (read more on it here: [http://en.wikipedia.org/wiki/ACID](http://en.wikipedia.org/wiki/ACID)
 
 在StackOverflow上的小总结:
 
 InnoDB的设计目标是处理大容量数据库系统，它的CPU利用率是其它基于磁盘的关系数据库引擎所不能比的。
 
-<http://boweihe.me/?p=1500>
+[http://boweihe.me/?p=1500](http://boweihe.me/?p=1500)
 
-<http://c.biancheng.net/cpp/html/1465.html>
+[http://c.biancheng.net/cpp/html/1465.html](http://c.biancheng.net/cpp/html/1465.html)
 
-<http://noalgo.info/1053.html>
+[http://noalgo.info/1053.html](http://noalgo.info/1053.html)

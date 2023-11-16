@@ -15,7 +15,7 @@ as a xxx, i would like to xxx so that xxx.
 
 As a "user", I want to "do sth", so that "sth"
 
-"user" - 就是我们抽象出来的persona (Definition refer to wiki <http://en.wikipedia.org/wiki/Persona>)
+"user" - 就是我们抽象出来的persona (Definition refer to wiki [http://en.wikipedia.org/wiki/Persona](http://en.wikipedia.org/wiki/Persona))
 
 "do sth" - 要实现的功能
 

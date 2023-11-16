@@ -20,7 +20,7 @@ $ echo -n "A" | xxd -b | awk '{print $2}'
 01000001
 ```
 
-<https://unix.stackexchange.com/questions/98948/ascii-to-binary-and-binary-to-ascii-conversion-tools>
+[https://unix.stackexchange.com/questions/98948/ascii-to-binary-and-binary-to-ascii-conversion-tools](https://unix.stackexchange.com/questions/98948/ascii-to-binary-and-binary-to-ascii-conversion-tools)
 
 ### base64 > hex
 
@@ -192,7 +192,7 @@ pacman -S scrot
 * 抓取区域:
 
 scrot -s rectangle.png
-<https://wiki.archlinux.org/index.php/Taking_a_screenshot_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87>)
+[https://wiki.archlinux.org/index.php/Taking_a_screenshot_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87](https://wiki.archlinux.org/index.php/Taking_a_screenshot_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87))
 
 ### delete folder
 
@@ -308,7 +308,7 @@ chrt是用来操纵进程的实时属性，所有优先级值在0-99范围内的
 
 ---
 
-<http://blog.chinaunix.net/uid-20355427-id-1700516.html>
+[http://blog.chinaunix.net/uid-20355427-id-1700516.html](http://blog.chinaunix.net/uid-20355427-id-1700516.html)
 
-<http://blog.csdn.net/zhouleiblog/article/details/9325913>  
-<https://www.linuxcool.com/chrt>  
+[http://blog.csdn.net/zhouleiblog/article/details/9325913](http://blog.csdn.net/zhouleiblog/article/details/9325913)  
+[https://www.linuxcool.com/chrt](https://www.linuxcool.com/chrt)  

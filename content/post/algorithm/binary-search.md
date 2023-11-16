@@ -471,19 +471,19 @@ public:
 
 注：本博文为EbowTang原创，后续可能继续更新本文。如果转载，请务必复制本条信息！
 
-原文地址：<http://blog.csdn.net/ebowtang/article/details/50770315>
+原文地址：[http://blog.csdn.net/ebowtang/article/details/50770315](http://blog.csdn.net/ebowtang/article/details/50770315)
 
-原作者博客：<http://blog.csdn.net/ebowtang>
+原作者博客：[http://blog.csdn.net/ebowtang](http://blog.csdn.net/ebowtang)
 
-本博客LeetCode题解索引：<http://blog.csdn.net/ebowtang/article/details/50668895>
+本博客LeetCode题解索引：[http://blog.csdn.net/ebowtang/article/details/50668895](http://blog.csdn.net/ebowtang/article/details/50668895)
 
 参考资源：
 
-【1】前半部分原作者，liubird，博文地址，<http://blog.chinaunix.net/uid-1844931-id-3337784.html>
+【1】前半部分原作者，liubird，博文地址，[http://blog.chinaunix.net/uid-1844931-id-3337784.html](http://blog.chinaunix.net/uid-1844931-id-3337784.html)
 
-【2】循环不变式下的二分法，<http://www.cnblogs.com/wuyuegb2312/archive/2013/05/26/3090369.html>
+【2】循环不变式下的二分法，[http://www.cnblogs.com/wuyuegb2312/archive/2013/05/26/3090369.html](http://www.cnblogs.com/wuyuegb2312/archive/2013/05/26/3090369.html)
 
-【3】LeetCode总结--二分查找篇，<http://blog.csdn.net/linhuanmars/article/details/31354941>
+【3】LeetCode总结--二分查找篇，[http://blog.csdn.net/linhuanmars/article/details/31354941](http://blog.csdn.net/linhuanmars/article/details/31354941)
 ————————————————
 版权声明：本文为CSDN博主「EbowTang」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
-原文链接：<https://blog.csdn.net/EbowTang/article/details/50770315>
+原文链接：[https://blog.csdn.net/EbowTang/article/details/50770315](https://blog.csdn.net/EbowTang/article/details/50770315)

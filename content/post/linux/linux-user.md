@@ -185,7 +185,7 @@ usermod -U newuser1
 ## su command
 
 su 命令来自英文单词 switch user 的缩写，其功能是用于切换用户身份。管理员切换至任意用户身份而无须密码验证，而普通用户切换至任意用户身份均需密码验证。另外添加单个减号（-）参数为完全的身份变更，不保留任何之前用户的环境变量信息。
-原文链接：<https://www.linuxcool.com/su>
+原文链接：[https://www.linuxcool.com/su](https://www.linuxcool.com/su)
 
 在Linux下创建用户和删除用户，必须在root用户下，如果你当前不是用根用户登录，你可以打开终端，输入"su root"命令，再输入根口令，就可以进入root用户模式下。
 
@@ -818,7 +818,7 @@ mount /dev/hdXX /mnt/debinst/usr/local
   
  (3) 用debootstrap在如/mnt/debinst/目录上建立一个基本系统，如:
   
-debootstrap sarge /mnt/debinst/ <http://http.us.debian.org/debia>
+debootstrap sarge /mnt/debinst/ [http://http.us.debian.org/debia](http://http.us.debian.org/debia)
   
 debootstrap会从网上下载一些文件，使/mnt/debist/成为一个chroot子环境，即一个基本系统。这里说明一点，源的选择很重要，如果源corrupted，安装很可能失败，例如，第一次安时我选了cn99，结果失败了。
 
@@ -938,10 +938,10 @@ apt-get install grub
 
 /sbin/nologin
   
-<http://yingxiong.iteye.com/blog/642872>
+[http://yingxiong.iteye.com/blog/642872](http://yingxiong.iteye.com/blog/642872)
 
-<http://hi.baidu.com/nfubuntu/blog/item/f910a26489e612f1f63654c3.html>
+[http://hi.baidu.com/nfubuntu/blog/item/f910a26489e612f1f63654c3.html](http://hi.baidu.com/nfubuntu/blog/item/f910a26489e612f1f63654c3.html)
 
-<http://zebralinux.blog.51cto.com/8627088/1369301c>
+[http://zebralinux.blog.51cto.com/8627088/1369301c](http://zebralinux.blog.51cto.com/8627088/1369301c)
   
-<http://cn.linux.vbird.org/linux_basic/0410accountmanager.php>
+[http://cn.linux.vbird.org/linux_basic/0410accountmanager.php](http://cn.linux.vbird.org/linux_basic/0410accountmanager.php)

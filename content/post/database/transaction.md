@@ -125,6 +125,6 @@ ACID特性 (原子性、一致性、隔离性、持久性)
 
 一个支持事务 (Transaction) 的，必需要具有这四种特性，否则在事务过程 (Transaction processing) 当中无法保证数据的正确性，交易过程极可能达不到交易方的要求。
 
-<https://xiaomi-info.github.io/2020/01/02/distributed-transaction/>  
-<http://c.biancheng.net/view/6495.html>  
-<https://toutiao.io/posts/u97o5l/preview>  
+[https://xiaomi-info.github.io/2020/01/02/distributed-transaction/](https://xiaomi-info.github.io/2020/01/02/distributed-transaction/)  
+[http://c.biancheng.net/view/6495.html](http://c.biancheng.net/view/6495.html)  
+[https://toutiao.io/posts/u97o5l/preview](https://toutiao.io/posts/u97o5l/preview)  

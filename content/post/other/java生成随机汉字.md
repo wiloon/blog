@@ -10,7 +10,7 @@ tags:
 
 ---
 ## JAVA生成随机汉字
-<http://blog.csdn.net/smilememory/article/details/8053599>
+[http://blog.csdn.net/smilememory/article/details/8053599](http://blog.csdn.net/smilememory/article/details/8053599)
 
 首先我们得知道汉字编码的原理。
   

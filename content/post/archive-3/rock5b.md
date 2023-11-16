@@ -20,4 +20,4 @@ sudo rkdeveloptool ld
 
 默认用户名密码 rock/rock
 
-<https://wiki.radxa.com/Rock5/install/usb-install-emmc>
+[https://wiki.radxa.com/Rock5/install/usb-install-emmc](https://wiki.radxa.com/Rock5/install/usb-install-emmc)

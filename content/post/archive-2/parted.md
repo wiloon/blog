@@ -94,9 +94,9 @@ swapon /dev/sdx2
 #genfstab -p -U /mnt > /mnt/etc/fstab
 ```
 
-<https://www.gnu.org/software/parted/manual/html_chapter/parted_2.html>
-<https://www.gnu.org/software/parted/manual/html_node/mklabel.html>
-<https://linux.cn/article-3167-1.html>
+[https://www.gnu.org/software/parted/manual/html_chapter/parted_2.html](https://www.gnu.org/software/parted/manual/html_chapter/parted_2.html)
+[https://www.gnu.org/software/parted/manual/html_node/mklabel.html](https://www.gnu.org/software/parted/manual/html_node/mklabel.html)
+[https://linux.cn/article-3167-1.html](https://linux.cn/article-3167-1.html)
 
 ### parted 分区 NTFS 文件系统
 
@@ -159,7 +159,7 @@ ls /dev/sd*
 mkfs.ntfs -f /dev/sdb1
 ————————————————
 版权声明：本文为CSDN博主「Litedg」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
-原文链接：<https://blog.csdn.net/Litedg/article/details/111504305>
+原文链接：[https://blog.csdn.net/Litedg/article/details/111504305](https://blog.csdn.net/Litedg/article/details/111504305)
 
 ## parted 交互式创建分区, ntfs
 

@@ -14,7 +14,7 @@ tags:
 
     sudo dnf install python3
 
-<http://blog.csdn.net/pjeby/article/details/1212592>
+[http://blog.csdn.net/pjeby/article/details/1212592](http://blog.csdn.net/pjeby/article/details/1212592)
 
     简介
  我们将看一下如何用Python编写运行一个传统的"Hello World"程序。通过它，你将学会如何编写、保存和运行Python程序。

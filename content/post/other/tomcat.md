@@ -18,11 +18,11 @@ sudo pacman -S tomcat8
 
 ```
 
-<http://baike.baidu.com/view/10166.htm>
+[http://baike.baidu.com/view/10166.htm](http://baike.baidu.com/view/10166.htm)
 
 ### tomcat 7
 
-<https://archive.apache.org/dist/tomcat/tomcat-7>
+[https://archive.apache.org/dist/tomcat/tomcat-7](https://archive.apache.org/dist/tomcat/tomcat-7)
 
 Tomcat是Apache 软件基金会 (Apache Software Foundation) 的Jakarta 项目中的一个核心项目，由Apache、Sun 和其他一些公司及个人共同开发而成。由于有了Sun 的参与和支持，最新的Servlet 和JSP 规范总是能在Tomcat 中得到体现，Tomcat 5 支持最新的Servlet 2.4 和JSP 2.0 规范。因为Tomcat 技术先进、性能稳定，而且免费，因而深受Java 爱好者的喜爱并得到了部分软件开发商的认可，成为目前比较流行的Web 应用服务器。
 
@@ -82,7 +82,7 @@ The name "Catalina," according to Craig McClanahan, who designed the original ar
 
 The Avalon framework was eventually abandoned, but the name stuck, and the rest is history.
 
-<http://www.mulesoft.com/tomcat-catalina>
+[http://www.mulesoft.com/tomcat-catalina](http://www.mulesoft.com/tomcat-catalina)
 
 [1]: http://www.mulesoft.com/tomcat-jsp
 [2]: http://www.mulesoft.com/tomcat-start

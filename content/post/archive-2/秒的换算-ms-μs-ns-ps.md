@@ -10,7 +10,7 @@ tags:
 ---
 ## 秒的换算, ms(毫秒), μs(微秒), ns(纳秒), ps(皮秒)
 
-<http://blog.chinaunix.net/uid-28458801-id-4144886.html>
+[http://blog.chinaunix.net/uid-28458801-id-4144886.html](http://blog.chinaunix.net/uid-28458801-id-4144886.html)
 
 ### 皮秒
 

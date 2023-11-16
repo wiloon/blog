@@ -17,13 +17,13 @@ mvn help:effective-settings
 
 ### download
 
-<https://maven.apache.org/download.cgi>
+[https://maven.apache.org/download.cgi](https://maven.apache.org/download.cgi)
 
 ### setting>mirror
 
-<https://developer.aliyun.com/mirror/maven>
+[https://developer.aliyun.com/mirror/maven](https://developer.aliyun.com/mirror/maven)
 
-<https://repo.maven.apache.org/maven2>
+[https://repo.maven.apache.org/maven2](https://repo.maven.apache.org/maven2)
 
 ### Maven 参数
 
@@ -53,7 +53,7 @@ mvn clean -Ptrip-app,daily package -Dmy.filter.value=1 -Dttidapk.ttids=21xx00
 </project>
 ```
 
-<https://blog.csdn.net/Maxiao1204/article/details/90510176>
+[https://blog.csdn.net/Maxiao1204/article/details/90510176](https://blog.csdn.net/Maxiao1204/article/details/90510176)
 
 ### command
 
@@ -285,13 +285,13 @@ src
     </extensions>
 ```
 
-<https://stackoverflow.com/questions/31377964/mvn-archetypegenerate-darchetypecatalog-local-does-not-list-my-archetype>
+[https://stackoverflow.com/questions/31377964/mvn-archetypegenerate-darchetypecatalog-local-does-not-list-my-archetype](https://stackoverflow.com/questions/31377964/mvn-archetypegenerate-darchetypecatalog-local-does-not-list-my-archetype)
 
 3.3 .user
 
 对指定用户的配置。user configuration可以在${user.home}/.m2/settings.xml中指定。注: 该文件不是必须的，当该文件找不到时，maven会使用默认的配置。
 
-关于该文件的具体配置可以参考: <http://maven.apache.org/ref/2.0.4/maven-settings/settings.html>。
+关于该文件的具体配置可以参考: [http://maven.apache.org/ref/2.0.4/maven-settings/settings.html](http://maven.apache.org/ref/2.0.4/maven-settings/settings.html)。
 
 3.4  配置本地Repository
 
@@ -319,7 +319,7 @@ src
     </proxy>
 ```
 
-详见: <http://maven.apache.org/guides/mini/guide-proxies.html>
+详见: [http://maven.apache.org/guides/mini/guide-proxies.html](http://maven.apache.org/guides/mini/guide-proxies.html)
 
 3.5 安全和部署配置
 在一个project中，该项目将要使用哪个Repository，是在`<distributionmanagement></distributionmanagement>`setting.xml中指定的。然而，你却不能将用户名和
@@ -335,7 +335,7 @@ src
 </server>
 ```
 
-<http://liwanchun-xd.iteye.com/blog/144047>
+[http://liwanchun-xd.iteye.com/blog/144047](http://liwanchun-xd.iteye.com/blog/144047)
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -373,13 +373,13 @@ The Clean Plugin only has one goal.
 
 clean:clean attempts to clean a project's working directory of the files that we're generated at build-time. By default, it discovers and deletes the directories configured in project.build.directory, project.build.outputDirectory, project.build.testOutputDirectory, and project.reporting.outputDirectory.
 
-<https://maven.apache.org/plugins/maven-clean-plugin/>
+[https://maven.apache.org/plugins/maven-clean-plugin/](https://maven.apache.org/plugins/maven-clean-plugin/)
 
 ### frontend-maven-plugin
 
 ## maven plugins
 
-<http://www.infoq.com/cn/news/2011/04/xxb-maven-7-plugin>
+[http://www.infoq.com/cn/news/2011/04/xxb-maven-7-plugin](http://www.infoq.com/cn/news/2011/04/xxb-maven-7-plugin)
 
 - maven-compiler-plugin [[maven-compiler-plugin#maven-compiler-plugin]]
 - maven-resources-plugin [[maven-resources-plugin#maven-resources-plugin]]

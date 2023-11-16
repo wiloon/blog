@@ -64,4 +64,4 @@ PaaS的主要作用是将一个开发和运行平台作为服务提供给用户�
 
 在当今云计算环境当中，IaaS是非常主流的，无论是Amazon EC2还是Linode或者Joyent等，都占有一席之地，但是随着Google的App Engine，Salesforce的Force.com还是微软的Windows Azure等PaaS平台的推出，使得PaaS也开始崭露头角。谈到这两者的未来，特别是这两者之间的竞争关系，我个人认为，短期而言，因为IaaS模式在支持的应用和学习难度这两方面的优势，使得IaaS将会在短期之内会成为开发者的首选，但是从长期而言，因为PaaS模式的高整合率所带来经济型使得如果PaaS能解决诸如通用性和支持的应用等方面的挑战，它将会替代IaaS成为开发者的"新宠"。
 
-原文链接: <http://www.leiphone.com/iaas-paas-and-saas.html>      <http://www.svnclub.com/?q=node/137>
+原文链接: <http://www.leiphone.com/iaas-paas-and-saas.html>      [http://www.svnclub.com/?q=node/137](http://www.svnclub.com/?q=node/137)

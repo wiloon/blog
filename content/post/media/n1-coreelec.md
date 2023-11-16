@@ -10,7 +10,7 @@ tags:
 ## "n1 coreelec"
 
 从官网下载最新版本的coreelec, CoreELEC-Amlogic.arm-9.2.4.2-Generic.img.gz
-    <https://coreelec.org/>
+    [https://coreelec.org/](https://coreelec.org/)
 用7z 解压 CoreELEC-Amlogic.arm-9.2.4.2-Generic.img.gz， 得到 CoreELEC-Amlogic.arm-9.2.4.2-Generic.img
 
 用Win32DiskImager.exe将CoreELEC-Amlogic.arm-9.2.4.2-Generic.img写入U盘

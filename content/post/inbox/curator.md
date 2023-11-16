@@ -10,7 +10,7 @@ tags:
 ---
 ## Curator
 
-<http://macrochen.iteye.com/blog/1366136>
+[http://macrochen.iteye.com/blog/1366136](http://macrochen.iteye.com/blog/1366136)
 
 Curator是Netflix开源的一套ZooKeeper客户端框架. Netflix在使用ZooKeeper的过程中发现ZooKeeper自带的客户端太底层, 应用方在使用的时候需要自己处理很多事情, 于是在它的基础上包装了一下, 提供了一套更好用的客户端框架. Netflix在用ZooKeeper的过程中遇到的问题, 我们也遇到了, 所以开始研究一下, 首先从他在github上的源码, wiki文档以及Netflix的技术blog入手.
 
@@ -54,7 +54,7 @@ Curator声称的一些亮点:
   
 提供了一个TracerDriver接口, 通过实现addTrace()和addCount()接口来集成用户自己的跟踪框架
 
-和Curator相比, 另一个ZooKeeper客户端——zkClient(<https://github.com/sgroschupf/zkclient>)的不足之处:
+和Curator相比, 另一个ZooKeeper客户端——zkClient([https://github.com/sgroschupf/zkclient](https://github.com/sgroschupf/zkclient))的不足之处:
   
 文档几乎没有
   
@@ -467,13 +467,13 @@ Curator对ZooKeeper的事件Watcher进行了封装处理, 然后实现了一套�
 
 参考
 
-- <https://github.com/Netflix/curator>
-- <https://github.com/sgroschupf/zkclient>
-- <http://en.wikipedia.org/wiki/Fluent_interface>
-- <http://huidian.iteye.com/blog/426664> fluent interface中文版
-- <http://techblog.netflix.com/2011/11/introducing-curator-netflix-zookeeper.html>
-- <http://www.ibm.com/developerworks/cn/opensource/os-cn-zookeeper/> 分布式服务框架 Zookeeper - 管理分布式环境中的数据
+- [https://github.com/Netflix/curator](https://github.com/Netflix/curator)
+- [https://github.com/sgroschupf/zkclient](https://github.com/sgroschupf/zkclient)
+- [http://en.wikipedia.org/wiki/Fluent_interface](http://en.wikipedia.org/wiki/Fluent_interface)
+- [http://huidian.iteye.com/blog/426664](http://huidian.iteye.com/blog/426664) fluent interface中文版
+- [http://techblog.netflix.com/2011/11/introducing-curator-netflix-zookeeper.html](http://techblog.netflix.com/2011/11/introducing-curator-netflix-zookeeper.html)
+- [http://www.ibm.com/developerworks/cn/opensource/os-cn-zookeeper/](http://www.ibm.com/developerworks/cn/opensource/os-cn-zookeeper/) 分布式服务框架 Zookeeper - 管理分布式环境中的数据
 - Netflix Curator 使用
 
 ### zookeeper curator watcher/listener
-<http://blog.csdn.net/collonn/article/details/43969045>
+[http://blog.csdn.net/collonn/article/details/43969045](http://blog.csdn.net/collonn/article/details/43969045)

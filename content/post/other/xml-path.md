@@ -9,7 +9,7 @@ tags:
   - reprint
 ---
 ## FOR XML PATH
-<http://www.cnblogs.com/doubleliang/archive/2011/07/06/2098775.html>
+[http://www.cnblogs.com/doubleliang/archive/2011/07/06/2098775.html](http://www.cnblogs.com/doubleliang/archive/2011/07/06/2098775.html)
 
 FOR XML PATH 有的人可能知道有的人可能不知道，其实它就是将查询结果集以XML形式展现，有了它我们可以简化我们的查询语句实现一些以前可能需要借助函数活存储过程来完成的工作。那么以一个实例为主.
 
@@ -234,6 +234,6 @@ FOR XML AUTO, TYPE
   
 ```
 
-<http://blogs.msdn.com/sqlprogrammability/articles/576095.aspx>
+[http://blogs.msdn.com/sqlprogrammability/articles/576095.aspx](http://blogs.msdn.com/sqlprogrammability/articles/576095.aspx)
 
-<http://stackoverflow.com/questions/914009/saving-the-for-xml-auto-results-to-variable-in-sql>
+[http://stackoverflow.com/questions/914009/saving-the-for-xml-auto-results-to-variable-in-sql](http://stackoverflow.com/questions/914009/saving-the-for-xml-auto-results-to-variable-in-sql)

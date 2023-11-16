@@ -10,7 +10,7 @@ tags:
 ---
 ## Maven类包冲突终极三大解决技巧 mvn dependency,tree
 
-<http://ian.wang/106.htm>
+[http://ian.wang/106.htm](http://ian.wang/106.htm)
 
 Maven对于新手来说是《步步惊心》,因为它包罗万象,博大精深,因为当你初来乍到时,你就像一个进入森林的陌生访客一样迷茫。
   

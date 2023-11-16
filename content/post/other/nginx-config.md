@@ -104,7 +104,7 @@ Nginx通过服务器端文件的后缀名来判断这个文件属于什么类型
 将Content-Type的值设置为image/png，然后发送给客户端。
 ————————————————
 版权声明：本文为CSDN博主「真理剑客」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
-原文链接：<https://blog.csdn.net/Veritas_C/article/details/83897001>
+原文链接：[https://blog.csdn.net/Veritas_C/article/details/83897001](https://blog.csdn.net/Veritas_C/article/details/83897001)
 
 ## sendfile on
   
@@ -158,7 +158,7 @@ http {
   
 第二个参数 18s 被包含在回复 header 里
 
-curl -I <http://www.example.com>
+curl -I [http://www.example.com](http://www.example.com)
 
 ```bash
 Connection: keep-alive
@@ -190,7 +190,7 @@ server {
 
 ————————————————
 版权声明：本文为CSDN博主「喵学长」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
-原文链接：<https://blog.csdn.net/qq_35448976/article/details/79512766>
+原文链接：[https://blog.csdn.net/qq_35448976/article/details/79512766](https://blog.csdn.net/qq_35448976/article/details/79512766)
 
 ---
 
@@ -245,7 +245,7 @@ proxy_ssl_trusted_certificate指令设置的那个可信CA证书文件是用来�
 
 proxy_bind
 
-<https://pengpengxp.github.io/2017-06-27-%E4%BD%BF%E7%94%A8nginx%E7%9A%84proxy_bind%E9%80%89%E9%A1%B9%E9%85%8D%E7%BD%AE%E9%80%8F%E6%98%8E%E7%9A%84%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86.html>
+[https://pengpengxp.github.io/2017-06-27-%E4%BD%BF%E7%94%A8nginx%E7%9A%84proxy_bind%E9%80%89%E9%A1%B9%E9%85%8D%E7%BD%AE%E9%80%8F%E6%98%8E%E7%9A%84%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86.html](https://pengpengxp.github.io/2017-06-27-%E4%BD%BF%E7%94%A8nginx%E7%9A%84proxy_bind%E9%80%89%E9%A1%B9%E9%85%8D%E7%BD%AE%E9%80%8F%E6%98%8E%E7%9A%84%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86.html)
 
 # 定义Nginx运行的用户和用户组
   
@@ -420,7 +420,7 @@ access_log /var/log/nginx/ha97access.log access;
   
 location / {
   
-proxy_pass <http://127.0.0.1:88>;
+proxy_pass [http://127.0.0.1:88](http://127.0.0.1:88);
   
 proxy_redirect off;
   
@@ -482,7 +482,7 @@ proxy_set_header X-Real-IP $remote_addr;
   
 proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
   
-proxy_pass <http://127.0.0.1:8080>;
+proxy_pass [http://127.0.0.1:8080](http://127.0.0.1:8080);
   
 }
   
@@ -500,50 +500,50 @@ location ~ ._.(js|css)?$
   
 }
 
-更详细的模块参数请参考: <http://wiki.nginx.org/Main>
+更详细的模块参数请参考: [http://wiki.nginx.org/Main](http://wiki.nginx.org/Main)
 
 ## proxy_pass 结尾有无"/"的区别
 
-转载自: <http://www.cnblogs.com/naniannayue/archive/2010/08/07/1794520.html>
+转载自: [http://www.cnblogs.com/naniannayue/archive/2010/08/07/1794520.html](http://www.cnblogs.com/naniannayue/archive/2010/08/07/1794520.html)
 见配置，摘自nginx.conf 里的server 段:
 
 server {
 listen 80;
 server_name abc.163.com ;
 location / {
-proxy_pass <http://ent.163.com/> ;
+proxy_pass [http://ent.163.com/](http://ent.163.com/) ;
 }
 location /star/ {
-proxy_pass <http://ent.163.com> ;
+proxy_pass [http://ent.163.com](http://ent.163.com) ;
 }
 }
 里面有两个location，我先说第一个，/ 。其实这里有两种写法，分别是:
 
 location / {
-proxy_pass <http://ent.163.com/> ;
+proxy_pass [http://ent.163.com/](http://ent.163.com/) ;
 }
 location / {
-proxy_pass <http://ent.163.com> ;
+proxy_pass [http://ent.163.com](http://ent.163.com) ;
 }
 出来的效果都一样的。
 
 第二个location，/star/。同样两种写法都有，都出来的结果，就不一样了。
 
 location /star/ {
-proxy_pass <http://ent.163.com> ;
+proxy_pass [http://ent.163.com](http://ent.163.com) ;
 }
-当访问 <http://abc.163.com/star/> 的时候，nginx 会代理访问到 <http://ent.163.com/star/> ，并返回给我们。
+当访问 <http://abc.163.com/star/> 的时候，nginx 会代理访问到 [http://ent.163.com/star/](http://ent.163.com/star/) ，并返回给我们。
 
 location /star/ {
-proxy_pass <http://ent.163.com/> ;
+proxy_pass [http://ent.163.com/](http://ent.163.com/) ;
 }
-当访问 <http://abc.163.com/star/> 的时候，nginx 会代理访问到 <http://ent.163.com/> ，并返回给我们。
+当访问 <http://abc.163.com/star/> 的时候，nginx 会代理访问到 [http://ent.163.com/](http://ent.163.com/) ，并返回给我们。
 
-这两段配置，分别在于， proxy_pass <http://ent.163.com/> ; 这个"/"，令到出来的结果完全不同。
+这两段配置，分别在于， proxy_pass [http://ent.163.com/](http://ent.163.com/) ; 这个"/"，令到出来的结果完全不同。
 
-前者，相当于告诉nginx，我这个location，是代理访问到<http://ent.163.com> 这个server的，我的location是什么，nginx 就把location 加在proxy_pass 的 server 后面，这里是/star/，所以就相当于 <http://ent.163.com/star/。如果是location> /blog/ ，就是代理访问到 <http://ent.163.com/blog/>。
+前者，相当于告诉nginx，我这个location，是代理访问到<http://ent.163.com> 这个server的，我的location是什么，nginx 就把location 加在proxy_pass 的 server 后面，这里是/star/，所以就相当于 <http://ent.163.com/star/。如果是location> /blog/ ，就是代理访问到 [http://ent.163.com/blog/](http://ent.163.com/blog/)。
 
-后者，相当于告诉nginx，我这个location，是代理访问到<http://ent.163.com/的，http://abc.163.com/star/> == <http://ent.163.com/> ，可以这样理解。改变location，并不能改变返回的内容，返回的内容始终是<http://ent.163.com/> 。 如果是location /blog/ ，那就是 <http://abc.163.com/blog/> == <http://ent.163.com/> 。
+后者，相当于告诉nginx，我这个location，是代理访问到<http://ent.163.com/的，http://abc.163.com/star/> == <http://ent.163.com/> ，可以这样理解。改变location，并不能改变返回的内容，返回的内容始终是<http://ent.163.com/> 。 如果是location /blog/ ，那就是 <http://abc.163.com/blog/> == [http://ent.163.com/](http://ent.163.com/) 。
 
 这样，也可以解释了上面那个location / 的例子，/ 嘛，加在server 的后面，仍然是 / ，所以，两种写法出来的结果是一样的。
 
@@ -551,11 +551,11 @@ PS: 如果是 location ~*^/start/(.*).html 这种正则的location，是不能�
 
 ### location匹配顺序
 
-<https://www.jianshu.com/p/38810b49bc29>
+[https://www.jianshu.com/p/38810b49bc29](https://www.jianshu.com/p/38810b49bc29)
 
     nginx.conf
   
-<https://blog.wiloon.com/?p=5626&embed=true#?secret=1NahDK0zlm>
+[https://blog.wiloon.com/?p=5626&embed=true#?secret=1NahDK0zlm](https://blog.wiloon.com/?p=5626&embed=true#?secret=1NahDK0zlm)
 
 client_max_body_size 20m; 20m为允许最大上传的大小。
 
@@ -1020,25 +1020,25 @@ proxy_upstream_fail_timeout (fail_timeout)
 
 针对这两个常用参数，还可以设置一定的规则，例如单独针对后台，设置读取超时时间。规则可以类似这: /admin/*
 
-具体可参考这个: <http://www.cnblogs.com/discuss/articles/1866851.html>
+具体可参考这个: [http://www.cnblogs.com/discuss/articles/1866851.html](http://www.cnblogs.com/discuss/articles/1866851.html)
 
 五、nginx基本配置与参数说明
   
-<http://my.oschina.net/xsh1208/blog/492374>
+[http://my.oschina.net/xsh1208/blog/492374](http://my.oschina.net/xsh1208/blog/492374)
   
-<https://www.linuxdashen.com/nginx%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%E4%B9%8B%E9%85%8D%E7%BD%AE%E7%BC%93%E5%86%B2%E3%80%81%E8%B6%85%E6%97%B6%E3%80%81%E5%8E%8B%E7%BC%A9%E5%92%8C%E6%97%A5%E5%BF%97>
+[https://www.linuxdashen.com/nginx%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%E4%B9%8B%E9%85%8D%E7%BD%AE%E7%BC%93%E5%86%B2%E3%80%81%E8%B6%85%E6%97%B6%E3%80%81%E5%8E%8B%E7%BC%A9%E5%92%8C%E6%97%A5%E5%BF%97](https://www.linuxdashen.com/nginx%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%E4%B9%8B%E9%85%8D%E7%BD%AE%E7%BC%93%E5%86%B2%E3%80%81%E8%B6%85%E6%97%B6%E3%80%81%E5%8E%8B%E7%BC%A9%E5%92%8C%E6%97%A5%E5%BF%97)
 
-<https://my.oschina.net/xsh1208/blog/199674>
+[https://my.oschina.net/xsh1208/blog/199674](https://my.oschina.net/xsh1208/blog/199674)
   
-<https://blog.51cto.com/liuqunying/1420556>
+[https://blog.51cto.com/liuqunying/1420556](https://blog.51cto.com/liuqunying/1420556)
 
 作者: skyesx
   
-链接: <https://hacpai.com/article/1447946179819>
+链接: [https://hacpai.com/article/1447946179819](https://hacpai.com/article/1447946179819)
   
 来源: 黑客派
   
-协议: CC BY-SA 4.0 <https://creativecommons.org/licenses/by-sa/4.0/>
+协议: CC BY-SA 4.0 [https://creativecommons.org/licenses/by-sa/4.0/](https://creativecommons.org/licenses/by-sa/4.0/)
 
 ### server_tokens off
 
@@ -1052,7 +1052,7 @@ proxy_upstream_fail_timeout (fail_timeout)
 
 Sizes can be specified in bytes, kilobytes (suffixes k and K) or megabytes (suffixes m and M), for example, “1024”, “8k”, “1m”.
 
-<http://nginx.org/en/docs/syntax.html>
+[http://nginx.org/en/docs/syntax.html](http://nginx.org/en/docs/syntax.html)
 
 ## Nginx 配置实现下载文件
 

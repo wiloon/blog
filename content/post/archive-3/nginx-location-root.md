@@ -233,8 +233,8 @@ location ~ /images/abc/ {
     [ configuration H ] 
 }
 
-<https://segmentfault.com/a/1190000022315733>
-<https://blog.csdn.net/u011510825/article/details/50531864>
+[https://segmentfault.com/a/1190000022315733](https://segmentfault.com/a/1190000022315733)
+[https://blog.csdn.net/u011510825/article/details/50531864](https://blog.csdn.net/u011510825/article/details/50531864)
 
 nginx指定文件路径有两种方式 root 和 alias，主要区别在于 nginx 如何解释 location 后面的 uri，这会使两者分别以不同的方式将请求映射到服务器文件上。
 
@@ -289,9 +289,9 @@ nginx 是通过 alias 设置虚拟目录，在 nginx 的配置中，alias 目录
     但是如果location匹配的path目录后面加上"/"，那么访问的url地址中这个path目录必须要加上"/"，访问时它不会自动加上"/"。如果不加上"/"，访问就会失败！
 5）root目录配置中，location匹配的path目录后面带不带"/"，都不会影响访问。
 
-<https://www.cnblogs.com/kevingrace/p/6187482.html>
+[https://www.cnblogs.com/kevingrace/p/6187482.html](https://www.cnblogs.com/kevingrace/p/6187482.html)
 
 作者: 果汁华  
 来源: CSDN  
-原文: <https://blog.csdn.net/u011510825/article/details/50531864>  
+原文: [https://blog.csdn.net/u011510825/article/details/50531864](https://blog.csdn.net/u011510825/article/details/50531864)  
 版权声明: 本文为博主原创文章，转载请附上博文链接！  

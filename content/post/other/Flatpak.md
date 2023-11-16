@@ -18,7 +18,7 @@ Flatpak应用程序主要针对三种桌面环境——FreeDesktop、KDE和GNOME
 
 与Snap类似，Flatpak有一个名为Flathub的在线商店，用户可以在那里找到并下载他们想要的应用程序。Flathub首次发布时，只允许开发者发布免费和开源的应用程序。然而，在更新了他们的条款和条件之后，开发人员现在甚至可以发布专有包。
 
-<https://blog.csdn.net/weixin_39636364/article/details/120424180>
+[https://blog.csdn.net/weixin_39636364/article/details/120424180](https://blog.csdn.net/weixin_39636364/article/details/120424180)
 
 ```bash
 pacan -S flatpak 

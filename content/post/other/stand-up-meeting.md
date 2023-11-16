@@ -23,4 +23,4 @@ tags:
 
 站立,而不是坐着,强化了该会议打算简短且避免浪费时间的想法。站立会议并不是一个解决问题的地方,而是让一个团队意识到现在的状态。如果需要讨论,适当部门可以安排另一个更长的会议。
 
-在Scrum开发中,站立会议的目的是更新团队的状态,而不是管理,这一点必须得强调。在一些Scrum团队中,管理层会参加会议,但是只有团队成员讲话。<https://less.works/less/framework/daily-scrum.html>
+在Scrum开发中,站立会议的目的是更新团队的状态,而不是管理,这一点必须得强调。在一些Scrum团队中,管理层会参加会议,但是只有团队成员讲话。[https://less.works/less/framework/daily-scrum.html](https://less.works/less/framework/daily-scrum.html)

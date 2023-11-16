@@ -10,7 +10,7 @@ tags:
 ---
 ## 'Android  OpenVPN-TAP 模式/策略路由'
 
-<http://blog.csdn.net/dog250/article/details/42046269>
+[http://blog.csdn.net/dog250/article/details/42046269](http://blog.csdn.net/dog250/article/details/42046269)
 
 在Android的OpenVPN Service的FAQ上，关于TAP模式有三问三答，最后回答的建议是: Support TAP via emulation。这也是我自己前几个月实现过的。要问为何Android自己不能提供对TAPmode的支持，似乎不关VPNService作者本人的事，其建议是:
   
@@ -32,7 +32,7 @@ If you really want to see tap-style tunnels supported in OpenVPN Connect, we wou
   
 CONFIG_NET_ETHERNET=y
   
-这一行呢？实际上，tun的TAP mode严重依赖这个内核编译选项。然而对于Android，由于其底层的Linux内核完全根据具体的device定制，你不能保证它一定会支持Ethernet。闲来无事可以看看<http://source.android.com/source/building-kernels.html>这个站点。
+这一行呢？实际上，tun的TAP mode严重依赖这个内核编译选项。然而对于Android，由于其底层的Linux内核完全根据具体的device定制，你不能保证它一定会支持Ethernet。闲来无事可以看看[http://source.android.com/source/building-kernels.html](http://source.android.com/source/building-kernels.html)这个站点。
 
 虽然大多数的Android设备都支持root用户使用TAP mode的tun驱动，但是这说明不了什么问题，你依然无法保证Ethernet的支持是必须的。上述的自环解释圈说明了，Android平台不应该基于root用户可以触摸的完全的组件来构建...
 

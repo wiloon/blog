@@ -9,15 +9,15 @@ tags:
   - reprint
 ---
 ## nftables
-<https://home.regit.org/netfilter-en/nftables-quick-howto/>
+[https://home.regit.org/netfilter-en/nftables-quick-howto/](https://home.regit.org/netfilter-en/nftables-quick-howto/)
   
-<https://blog.csdn.net/dog250/article/details/54170683>
+[https://blog.csdn.net/dog250/article/details/54170683](https://blog.csdn.net/dog250/article/details/54170683)
   
-<http://blog.jobbole.com/59624/>
+[http://blog.jobbole.com/59624/](http://blog.jobbole.com/59624/)
   
-<https://farkasity.gitbooks.io/nftables-howto-zh/content/>
+[https://farkasity.gitbooks.io/nftables-howto-zh/content/](https://farkasity.gitbooks.io/nftables-howto-zh/content/)
   
-<http://wiki.nftables.org/wiki-nftables/index.php/Main_Page>
+[http://wiki.nftables.org/wiki-nftables/index.php/Main_Page](http://wiki.nftables.org/wiki-nftables/index.php/Main_Page)
 
 nftables 作为新一代的防火墙策略框架,是从内核 3.13 版本引入的新的数据包过滤框架,nftables是一个致力于替换现有的{ip,ip6,arp,eb}tables框架 (也就是大家熟知的iptables) 的项目,而且提供了类似tc的带宽限速能力
   

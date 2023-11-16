@@ -104,6 +104,6 @@ intset (整数集合)
 hashtable (哈希表)
 当集合类型 无法满足 intset 的条件时,Redis 会使用 hashtable 作为集合的 内部实现。
 
-<http://redis.io/commands#set>
+[http://redis.io/commands#set](http://redis.io/commands#set)
   
-<http://redis.io/topics/data-types>
+[http://redis.io/topics/data-types](http://redis.io/topics/data-types)

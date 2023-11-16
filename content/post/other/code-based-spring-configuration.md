@@ -42,10 +42,10 @@ public class MyWebAppInitializer implements WebApplicationInitializer {
 
  }
 
-<http://stackoverflow.com/questions/15008126/spring-mvc-3-2-and-servlets-3-0-do-you-still-need-web-xml>
-<http://www.cnblogs.com/coqn/archive/2012/08/15/SpringMvc%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%E9%85%8D%E7%BD%AE.html>
-<http://hitmit1314.iteye.com/blog/1315816>
-<http://www.it165.net/pro/html/201210/3930.html>
-<http://septem.iteye.com/blog/1117445>
-<http://septem.iteye.com/blog/740301>
-<http://septem.iteye.com/blog/753593>
+[http://stackoverflow.com/questions/15008126/spring-mvc-3-2-and-servlets-3-0-do-you-still-need-web-xml](http://stackoverflow.com/questions/15008126/spring-mvc-3-2-and-servlets-3-0-do-you-still-need-web-xml)
+[http://www.cnblogs.com/coqn/archive/2012/08/15/SpringMvc%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%E9%85%8D%E7%BD%AE.html](http://www.cnblogs.com/coqn/archive/2012/08/15/SpringMvc%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%E9%85%8D%E7%BD%AE.html)
+[http://hitmit1314.iteye.com/blog/1315816](http://hitmit1314.iteye.com/blog/1315816)
+[http://www.it165.net/pro/html/201210/3930.html](http://www.it165.net/pro/html/201210/3930.html)
+[http://septem.iteye.com/blog/1117445](http://septem.iteye.com/blog/1117445)
+[http://septem.iteye.com/blog/740301](http://septem.iteye.com/blog/740301)
+[http://septem.iteye.com/blog/753593](http://septem.iteye.com/blog/753593)

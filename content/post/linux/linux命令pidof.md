@@ -11,7 +11,7 @@ tags:
 ## Linux命令pidof
 Linux命令pidof - 找出正在运行程序的进程PID
 
-本文链接: <http://codingstandards.iteye.com/blog/841123>    (转载请注明出处) 
+本文链接: [http://codingstandards.iteye.com/blog/841123](http://codingstandards.iteye.com/blog/841123)    (转载请注明出处) 
 
 ## 用途说明
 

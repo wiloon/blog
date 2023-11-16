@@ -85,7 +85,7 @@ d
   
 exit code 0, process exited normally.
 
-参考:  <http://blog.csdn.net/ghost911_slb/article/details/7831574>
+参考:  [http://blog.csdn.net/ghost911_slb/article/details/7831574](http://blog.csdn.net/ghost911_slb/article/details/7831574)
 
 defer 英文原意:  vi. 推迟；延期；服从   vt. 使推迟；使延期。  
 
@@ -125,7 +125,7 @@ return 0
 
 另外值得一提的是,defer可以多次,这样形成一个defer栈,后defer的语句在函数返回时将先被调用。
 
-参考:  <http://weager.sinaapp.com/?p=31>
+参考:  [http://weager.sinaapp.com/?p=31](http://weager.sinaapp.com/?p=31)
 
 ### panic
 
@@ -149,29 +149,29 @@ Go语言提供了recover内置函数,前面提到,一旦panic,逻辑就会走到
   
 用Go实现类似 try catch 的异常处理有个例子在:
   
-<http://www.douban.com/note/238705941/>
+[http://www.douban.com/note/238705941/](http://www.douban.com/note/238705941/)
   
 结论:
   
 Go对待异常 (准确的说是panic) 的态度就是这样,没有全面否定异常的存在,同时极力不鼓励多用异常。
   
-参考: <http://blog.dccmx.com/2012/01/exception-the-go-way/>
+参考: [http://blog.dccmx.com/2012/01/exception-the-go-way/](http://blog.dccmx.com/2012/01/exception-the-go-way/)
   
-<http://kejibo.com/golang-exceptions-handle-defer-try/>
+[http://kejibo.com/golang-exceptions-handle-defer-try/](http://kejibo.com/golang-exceptions-handle-defer-try/)
   
-<http://bookjovi.iteye.com/blog/1335282>
+[http://bookjovi.iteye.com/blog/1335282](http://bookjovi.iteye.com/blog/1335282)
   
-<https://github.com/astaxie/build-web-application-with-golang/blob/master/02.3.md>
+[https://github.com/astaxie/build-web-application-with-golang/blob/master/02.3.md](https://github.com/astaxie/build-web-application-with-golang/blob/master/02.3.md)
   
-<http://www.cnblogs.com/ghj1976/archive/2013/02/11/2910114.html>
+[http://www.cnblogs.com/ghj1976/archive/2013/02/11/2910114.html](http://www.cnblogs.com/ghj1976/archive/2013/02/11/2910114.html)
   
-<https://blog.csdn.net/whynottrythis/article/details/78824471>
+[https://blog.csdn.net/whynottrythis/article/details/78824471](https://blog.csdn.net/whynottrythis/article/details/78824471)
 
-<http://xiaorui.cc/2016/03/15/%e4%bd%bf%e7%94%a8golang-errors%e5%8c%85%e6%9d%a5%e8%87%aa%e5%ae%9a%e4%b9%89%e9%94%99%e8%af%af%e5%bc%82%e5%b8%b8/>
+[http://xiaorui.cc/2016/03/15/%e4%bd%bf%e7%94%a8golang-errors%e5%8c%85%e6%9d%a5%e8%87%aa%e5%ae%9a%e4%b9%89%e9%94%99%e8%af%af%e5%bc%82%e5%b8%b8/](http://xiaorui.cc/2016/03/15/%e4%bd%bf%e7%94%a8golang-errors%e5%8c%85%e6%9d%a5%e8%87%aa%e5%ae%9a%e4%b9%89%e9%94%99%e8%af%af%e5%bc%82%e5%b8%b8/)
 
-<http://xiaorui.cc/2016/03/15/%e4%bd%bf%e7%94%a8golang-errors%e5%8c%85%e6%9d%a5%e8%87%aa%e5%ae%9a%e4%b9%89%e9%94%99%e8%af%af%e5%bc%82%e5%b8%b8/embed/#?secret=W5Zgh6Plr7>
+[http://xiaorui.cc/2016/03/15/%e4%bd%bf%e7%94%a8golang-errors%e5%8c%85%e6%9d%a5%e8%87%aa%e5%ae%9a%e4%b9%89%e9%94%99%e8%af%af%e5%bc%82%e5%b8%b8/embed/#?secret=W5Zgh6Plr7](http://xiaorui.cc/2016/03/15/%e4%bd%bf%e7%94%a8golang-errors%e5%8c%85%e6%9d%a5%e8%87%aa%e5%ae%9a%e4%b9%89%e9%94%99%e8%af%af%e5%bc%82%e5%b8%b8/embed/#?secret=W5Zgh6Plr7)
 
 作者: _张晓龙_
-链接: <https://www.jianshu.com/p/f30da01eea97>
+链接: [https://www.jianshu.com/p/f30da01eea97](https://www.jianshu.com/p/f30da01eea97)
 来源: 简书
 著作权归作者所有。商业转载请联系作者获得授权,非商业转载请注明出处。

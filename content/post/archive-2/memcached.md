@@ -105,6 +105,6 @@ quit 退出
 
 memcached go
   
-<https://github.com/bradfitz/gomemcache>
+[https://github.com/bradfitz/gomemcache](https://github.com/bradfitz/gomemcache)
   
-<http://blog.51cto.com/151wqooo/1309088>
+[http://blog.51cto.com/151wqooo/1309088](http://blog.51cto.com/151wqooo/1309088)

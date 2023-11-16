@@ -75,7 +75,7 @@ public class OrderItem {
 
 ### DAO, Data Access Object
 
-<https://developer.aliyun.com/article/758292>
+[https://developer.aliyun.com/article/758292](https://developer.aliyun.com/article/758292)
 
 ### 演进式设计
 
@@ -99,7 +99,7 @@ public class OrderItem {
 
 DDD提供了这样的知识手段，让我们知道如何抽象出限界上下文以及如何去分治。
 
-<https://tech.meituan.com/2017/12/22/ddd-in-practice.html>
+[https://tech.meituan.com/2017/12/22/ddd-in-practice.html](https://tech.meituan.com/2017/12/22/ddd-in-practice.html)
 
 我们将架构设计活动精简为以下三个层面：
 
@@ -112,7 +112,7 @@ DDD提供了这样的知识手段，让我们知道如何抽象出限界上下�
 
 DDD的核心诉求就是将业务架构映射到系统架构上，在响应业务变化调整业务架构时，也随之变化系统架构。而微服务追求业务层面的复用，设计出来的系统架构和业务一致；在技术架构上则系统模块之间充分解耦，可以自由地选择合适的技术架构，去中心化地治理技术和数据。
 
-<https://tech.meituan.com/2017/12/22/ddd-in-practice.html>
+[https://tech.meituan.com/2017/12/22/ddd-in-practice.html](https://tech.meituan.com/2017/12/22/ddd-in-practice.html)
 
 战略建模
 战略和战术设计是站在DDD的角度进行划分。战略设计侧重于高层次、宏观上去划分和集成限界上下文，而战术设计则关注更具体使用建模工具来细化上下文。
@@ -141,9 +141,9 @@ DDD的核心诉求就是将业务架构映射到系统架构上，在响应业�
 大泥球 (Big Ball of Mud）：混杂在一起的上下文关系，边界不清晰。
 另谋他路 (SeparateWay）：两个完全没有任何联系的上下文。
 
-<https://developer.aliyun.com/article/2255?spm=a2c6h.12873639.0.0.4f0121d9i6g8vv>
+[https://developer.aliyun.com/article/2255?spm=a2c6h.12873639.0.0.4f0121d9i6g8vv](https://developer.aliyun.com/article/2255?spm=a2c6h.12873639.0.0.4f0121d9i6g8vv)
 
-<https://domain-driven-design.org/zh/ddd-concept-reference.html>
+[https://domain-driven-design.org/zh/ddd-concept-reference.html](https://domain-driven-design.org/zh/ddd-concept-reference.html)
 
 ## 限界上下文
 

@@ -13,7 +13,7 @@ tags:
 
 ### 下载安装包
 
-<http://www.corem.com.cn/index.php/service/tools/secoclient>
+[http://www.corem.com.cn/index.php/service/tools/secoclient](http://www.corem.com.cn/index.php/service/tools/secoclient)
 
 官方只提供了ubuntu版本，用以下方式可以在 archlinux 上使用。
 

@@ -9,7 +9,7 @@ tags:
   - reprint
 ---
 ## git-am
-<https://blog.csdn.net/mliubing2532/article/details/7577905>
+[https://blog.csdn.net/mliubing2532/article/details/7577905](https://blog.csdn.net/mliubing2532/article/details/7577905)
 
 这篇文章主要介绍一下git-am 和 format-patch 的使用。 因为在git使用当中，会有很多时候别人 (供应商或者其他的开发人员) 发过来一系列的patch，这些patch通常的是类似这样的名字:
 
@@ -148,4 +148,4 @@ git am -resolved
   
 版权声明: 本文为CSDN博主「生命不息奋斗不止」的原创文章，遵循 CC 4.0 BY-SA 版权协议，转载请附上原文出处链接及本声明。
   
-原文链接: <https://blog.csdn.net/mliubing2532/article/details/7577905>
+原文链接: [https://blog.csdn.net/mliubing2532/article/details/7577905](https://blog.csdn.net/mliubing2532/article/details/7577905)

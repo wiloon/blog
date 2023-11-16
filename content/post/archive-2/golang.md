@@ -18,7 +18,7 @@ Go 语言是静态类型的编程语言
 
 ## go source code
 
-<https://github.com/golang/go>
+[https://github.com/golang/go](https://github.com/golang/go)
 
 ## version
 
@@ -55,9 +55,9 @@ go get -u github.com/redis/go-redis/v9
 go get -u github.com/redis/go-redis/v9@v9.0.4
 ```
 
-<http://studygolang.com/articles/1941>
+[http://studygolang.com/articles/1941](http://studygolang.com/articles/1941)
   
-<https://gobyexample.com/hello-world>
+[https://gobyexample.com/hello-world](https://gobyexample.com/hello-world)
 
 ### math
 
@@ -84,7 +84,7 @@ go run -race cmd.go // 竞态检测
 ### install
 
 china mainland download
-<https://golang.google.cn/>
+[https://golang.google.cn/](https://golang.google.cn/)
 
 #### ubuntu
 
@@ -331,7 +331,7 @@ sum := sha256.Sum256([]byte("hello world\n"))
 
 ### csv
 
-<https://cloud.tencent.com/developer/article/1059643>
+[https://cloud.tencent.com/developer/article/1059643](https://cloud.tencent.com/developer/article/1059643)
 
 ### go build
 
@@ -417,7 +417,7 @@ go install 将可执行文件安装到与src同级别的bin目录下,bin目录�
   
 go install 将可执行文件依赖的各种package编译后,放在与src同级别的pkg目录下.
 
-<http://tonybai.com/2012/08/17/hello-go/>
+[http://tonybai.com/2012/08/17/hello-go/](http://tonybai.com/2012/08/17/hello-go/)
 
 ```bash
 go install github.com/wiloon/pingd-proxy@v0.0.1
@@ -450,21 +450,21 @@ github.com/dustin/go-humanize
 
 ---
 
-<https://cyent.github.io/golang/datatype/funcvalue_parameter/>
+[https://cyent.github.io/golang/datatype/funcvalue_parameter/](https://cyent.github.io/golang/datatype/funcvalue_parameter/)
 
 ## release notes
 
 ### 1.17
 
-<https://tip.golang.org/doc/go1.17>
+[https://tip.golang.org/doc/go1.17](https://tip.golang.org/doc/go1.17)
 
 ### Go 程序是怎样跑起来的
 
-<https://zhuanlan.zhihu.com/p/71993748>
+[https://zhuanlan.zhihu.com/p/71993748](https://zhuanlan.zhihu.com/p/71993748)
 
 ### go 程序启动过程
 
-<https://juejin.cn/post/6942509882281033764>
+[https://juejin.cn/post/6942509882281033764](https://juejin.cn/post/6942509882281033764)
 
 ## golang install
 
@@ -490,7 +490,7 @@ windows:
   
 GOPATH=C:\workspace\myproject\golang\lib;C:\workspace\myproject\golang\gox
 
-<https://moelove.info/2020/12/19/Go-1.16-%E4%B8%AD%E5%85%B3%E4%BA%8E-go-get-%E5%92%8C-go-install-%E4%BD%A0%E9%9C%80%E8%A6%81%E6%B3%A8%E6%84%8F%E7%9A%84%E5%9C%B0%E6%96%B9/>
+[https://moelove.info/2020/12/19/Go-1.16-%E4%B8%AD%E5%85%B3%E4%BA%8E-go-get-%E5%92%8C-go-install-%E4%BD%A0%E9%9C%80%E8%A6%81%E6%B3%A8%E6%84%8F%E7%9A%84%E5%9C%B0%E6%96%B9/](https://moelove.info/2020/12/19/Go-1.16-%E4%B8%AD%E5%85%B3%E4%BA%8E-go-get-%E5%92%8C-go-install-%E4%BD%A0%E9%9C%80%E8%A6%81%E6%B3%A8%E6%84%8F%E7%9A%84%E5%9C%B0%E6%96%B9/)
 
 ### 查看 golang 文档
 
@@ -534,7 +534,7 @@ func main() {
 }
 该程序打印：30
 
-<https://studygolang.com/articles/14628>
+[https://studygolang.com/articles/14628](https://studygolang.com/articles/14628)
 
 ## 复合字面量
 
@@ -565,9 +565,9 @@ fmt.Println(spirit)
 
 ```
 
-<https://studygolang.com/articles/12913>
+[https://studygolang.com/articles/12913](https://studygolang.com/articles/12913)
 
-<https://livebook.manning.com/concept/go/composite-literal>
+[https://livebook.manning.com/concept/go/composite-literal](https://livebook.manning.com/concept/go/composite-literal)
 
 ### is pointer to interface, not interface
 
@@ -600,7 +600,7 @@ interface
 8        connHandler(client)
 9    }
 
-<http://www.singleye.net/2017/11/go%E8%AF%AD%E8%A8%80%E7%BC%96%E7%A8%8B%E9%99%B7%E9%98%B1/>
+[http://www.singleye.net/2017/11/go%E8%AF%AD%E8%A8%80%E7%BC%96%E7%A8%8B%E9%99%B7%E9%98%B1/](http://www.singleye.net/2017/11/go%E8%AF%AD%E8%A8%80%E7%BC%96%E7%A8%8B%E9%99%B7%E9%98%B1/)
 
 ## range
 
@@ -651,7 +651,7 @@ f(100)
 
 ```
 
-<http://c.biancheng.net/view/57.html>
+[http://c.biancheng.net/view/57.html](http://c.biancheng.net/view/57.html)
 
 ## go, url encode, query escape
 
@@ -701,12 +701,12 @@ if val := 10; val > max {
 
 ————————————————
 原文作者：Go 技术论坛文档：《Go 入门指南（）》
-转自链接：<https://learnku.com/docs/the-way-to-go/if-else-structure/3592>
+转自链接：[https://learnku.com/docs/the-way-to-go/if-else-structure/3592](https://learnku.com/docs/the-way-to-go/if-else-structure/3592)
 版权声明：翻译文档著作权归译者和 LearnKu 社区所有。转载请保留原文链接
 
 ## golang, redis
 
-<https://github.com/redis/go-redis>
+[https://github.com/redis/go-redis](https://github.com/redis/go-redis)
 
 ## upx 压缩
 
@@ -731,7 +731,7 @@ upx 压缩后的程序和压缩前的程序一样，无需解压仍然能够正�
 
 如果对编译后的体积没什么要求的情况下，可以不使用 upx 来压缩。一般在服务器端独立运行的后台服务，无需压缩体积。
 
-<https://github.com/upx/upx>
+[https://github.com/upx/upx](https://github.com/upx/upx)
 
 ```bash
 # 压缩率，1-9，1 代表最低压缩率，9 代表最高压缩率。

@@ -16,7 +16,7 @@ google-chrome-beta gmail.com
 google-chrome-beta http://localhost:8080
 ```
 
-<https://stackoverflow.com/questions/28162697/how-can-i-open-google-chrome-from-the-terminal-with-the-url-localhost3000>
+[https://stackoverflow.com/questions/28162697/how-can-i-open-google-chrome-from-the-terminal-with-the-url-localhost3000](https://stackoverflow.com/questions/28162697/how-can-i-open-google-chrome-from-the-terminal-with-the-url-localhost3000)
 
 Chrome 有很多的特性在界面菜单中是没有体现的,你可以通过 chrome:// 命令来访问。本文介绍 12 个非常有用的 chrome:// 命令:
 

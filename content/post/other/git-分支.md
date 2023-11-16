@@ -11,7 +11,7 @@ tags:
 ---
 ## Git 分支
 
-<http://www.ruanyifeng.com/blog/2012/07/git.html>
+[http://www.ruanyifeng.com/blog/2012/07/git.html](http://www.ruanyifeng.com/blog/2012/07/git.html)
 
 如果你严肃对待编程，就必定会使用"版本管理系统" (Version Control System) 。
 

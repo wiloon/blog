@@ -11,7 +11,7 @@ tags:
 ---
 ## HTTP POST GET 本质区别详解
 
-<https://www.oschina.net/news/77354/http-get-post-differenthttp://blog.csdn.net/gideal_wang/article/details/4316691>
+[https://www.oschina.net/news/77354/http-get-post-differenthttp://blog.csdn.net/gideal_wang/article/details/4316691](https://www.oschina.net/news/77354/http-get-post-differenthttp://blog.csdn.net/gideal_wang/article/details/4316691)
 
 一 原理区别
 

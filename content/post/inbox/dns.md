@@ -22,15 +22,15 @@ DNS是网络分层里的应用层协议,事实上他是为其他应用层协议�
 
 host命令用来做DNS查询。如果命令参数是域名,命令会输出关联的IP；如果命令参数是IP,命令则输出关联的域名。
 
-<http://www.cnblogs.com/kubixuesheng/p/6260195.html>
+[http://www.cnblogs.com/kubixuesheng/p/6260195.html](http://www.cnblogs.com/kubixuesheng/p/6260195.html)
 
     dnsmasq
   
-<http://blog.wiloon.com/?p=8698&embed=true#?secret=4F3Jvk9nTk>
+[http://blog.wiloon.com/?p=8698&embed=true#?secret=4F3Jvk9nTk](http://blog.wiloon.com/?p=8698&embed=true#?secret=4F3Jvk9nTk)
 
 ## dns ttl
 
-<https://jaminzhang.github.io/dns/DNS-TTL-Understanding-and-Config/>
+[https://jaminzhang.github.io/dns/DNS-TTL-Understanding-and-Config/](https://jaminzhang.github.io/dns/DNS-TTL-Understanding-and-Config/)
 
 我们有配置域名时,不同情况下,不同业务下,需要增大或减小 DNS TTL 值。这是为什么呢？ 这需要我们重新理解下 DNS TTL 值的含义。
 

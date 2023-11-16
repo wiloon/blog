@@ -55,7 +55,7 @@ CHAR1-CHAR2     all characters from CHAR1 to CHAR2 in ascending order
 [=CHAR=]        all characters which are equivalent to CHAR
 ```
 
-<https://blog.csdn.net/jeffreyst_zb/article/details/8047065>
+[https://blog.csdn.net/jeffreyst_zb/article/details/8047065](https://blog.csdn.net/jeffreyst_zb/article/details/8047065)
 
 通过使用tr，您可以非常容易地实现 sed 的许多最基本功能。您可以将 tr 看作为 sed的 (极其) 简化的变体: 它可以用一个字符来替换另一个字符，或者可以完全除去一些字符。您也可以用它来除去重复字符。这就是所有 tr所能够做的。
 
@@ -477,4 +477,4 @@ tr -c '[:print:][:cntrl:]' '[?*]' < textfile > newfile
   
 tr -s '[:space:]' '[#*]'
 
-><https://www.cnblogs.com/amosli/p/3488306.html>
+>[https://www.cnblogs.com/amosli/p/3488306.html](https://www.cnblogs.com/amosli/p/3488306.html)

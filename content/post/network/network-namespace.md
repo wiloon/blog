@@ -33,4 +33,4 @@ ip netns exec 后面跟着 namespace 的名字,比如这里的 net1,然后是要
 [root@localhost ~]# ip netns exec net1 ip link set lo up
 默认情况下,network namespace 是不能和主机网络,或者其他 network namespace 通信的。
 
-<https://cizixs.com/2017/02/10/network-virtualization-network-namespace/>
+[https://cizixs.com/2017/02/10/network-virtualization-network-namespace/](https://cizixs.com/2017/02/10/network-virtualization-network-namespace/)

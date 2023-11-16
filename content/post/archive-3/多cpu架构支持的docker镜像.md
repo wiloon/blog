@@ -10,4 +10,4 @@ tags:
 ---
 ## 多CPU 架构支持的Docker镜像
 
-<https://medium.com/@mauridb/docker-multi-architecture-images-365a44c26be6>
+[https://medium.com/@mauridb/docker-multi-architecture-images-365a44c26be6](https://medium.com/@mauridb/docker-multi-architecture-images-365a44c26be6)

@@ -22,7 +22,7 @@ influxdb是最新的一个时间序列数据库,最新一两年才产生,但已�
 
 对于influxdb我不想多说些什么,之后打算开一个专题,专门详细来说一说这个玩意,因为我看国内几乎没有详细的文章来讲influxdb的。
 
-<http://www.opscoder.info/tsdb.html>
+[http://www.opscoder.info/tsdb.html](http://www.opscoder.info/tsdb.html)
 
 对于时间序列的存储,一般会采用专门的时间序列数据库,而不会去使用MySQL或是mongo(但zabbix就是用的MySQL,所以它在IO上面遇到了瓶颈)。现在时间序列的数据库是有很多的,比如graphite、opentsdb以及新生的influxdb。最近也相继研究了一下这三个数据库,现在把研究所得记录下来。
 
@@ -104,5 +104,5 @@ Elasticsearch 是一个分布式的开源搜索和分析引擎，适用于所有
 
 Elasticsearch以ELK stack被人所熟知。许多公司基于ELK搭建日志分析系统和实时搜索系统。之前我们在ELK的基础上开始开发metric监控系统。即想到了使用Elasticsearch来存储时间序列数据库。对Elasticserach的mapping做相应的优化，使其更适合存储时间序列数据模型，收获了不错的效果，完全满足了业务的需求。后期发现Elasticsearch新版本竟然也开始发布Metrics组件和APM组件，并大量的推广其全文检索外，对时间序列的存储能力。真是和我们当时的想法不谋而合。
 
-><https://blog.csdn.net/weixin_33584986/article/details/113386980>
-><https://zhuanlan.zhihu.com/p/111511463>
+>[https://blog.csdn.net/weixin_33584986/article/details/113386980](https://blog.csdn.net/weixin_33584986/article/details/113386980)
+>[https://zhuanlan.zhihu.com/p/111511463](https://zhuanlan.zhihu.com/p/111511463)

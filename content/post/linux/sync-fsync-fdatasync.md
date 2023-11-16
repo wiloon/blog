@@ -102,4 +102,4 @@ fflush()与fsync()的联系:
 
 3.fdatasync和fsync类似，但是这个函数只更新data块里的内容。
 
-参考: <https://blog.csdn.net/letterwuyu/article/details/80927226>
+参考: [https://blog.csdn.net/letterwuyu/article/details/80927226](https://blog.csdn.net/letterwuyu/article/details/80927226)

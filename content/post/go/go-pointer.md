@@ -261,16 +261,16 @@ func main() {
 
 ---
 
-<http://blog.jobbole.com/14386/embed/#?secret=rAI8Jn2kEL>
-<http://my.oschina.net/nalan/blog/77373>
-<http://ilovers.sinaapp.com/drupal/node/33>
-<http://www.cnblogs.com/ghj1976/archive/2013/02/28/2936595.html>
-<https://colobu.com/2017/01/05/-T-or-T-it-s-a-question/>
-><http://c.biancheng.net/view/21.html>
+[http://blog.jobbole.com/14386/embed/#?secret=rAI8Jn2kEL](http://blog.jobbole.com/14386/embed/#?secret=rAI8Jn2kEL)
+[http://my.oschina.net/nalan/blog/77373](http://my.oschina.net/nalan/blog/77373)
+[http://ilovers.sinaapp.com/drupal/node/33](http://ilovers.sinaapp.com/drupal/node/33)
+[http://www.cnblogs.com/ghj1976/archive/2013/02/28/2936595.html](http://www.cnblogs.com/ghj1976/archive/2013/02/28/2936595.html)
+[https://colobu.com/2017/01/05/-T-or-T-it-s-a-question/](https://colobu.com/2017/01/05/-T-or-T-it-s-a-question/)
+>[http://c.biancheng.net/view/21.html](http://c.biancheng.net/view/21.html)
 
 ---
 
-><https://shockerli.net/post/golang-faq-cannot-take-the-address/>
+>[https://shockerli.net/post/golang-faq-cannot-take-the-address/](https://shockerli.net/post/golang-faq-cannot-take-the-address/)
 
 先看代码
  1
@@ -495,9 +495,9 @@ go addressable 详解
 许可协议 CC BY-NC-ND 4.0
  (如需转载，请在评论区留言您的博客地址或公众号名称等，留言后可无需等待确认）
 
-原文链接 <https://shockerli.net/post/golang-faq-cannot-take-the-address/>
+原文链接 [https://shockerli.net/post/golang-faq-cannot-take-the-address/](https://shockerli.net/post/golang-faq-cannot-take-the-address/)
 
-><https://shockerli.net/post/golang-faq-cannot-take-the-address/>
+>[https://shockerli.net/post/golang-faq-cannot-take-the-address/](https://shockerli.net/post/golang-faq-cannot-take-the-address/)
 
 ## uintptr
 
@@ -581,7 +581,7 @@ func main() {
 }
 ```
 
-<https://segmentfault.com/a/1190000039165125>
+[https://segmentfault.com/a/1190000039165125](https://segmentfault.com/a/1190000039165125)
 
 ## unsafe.Pointer
 
@@ -645,4 +645,4 @@ nsafe.Offsetof：返回成员变量 x 在结构体当中的偏移量。更具体
 
 func Offsetof(x ArbitraryType) uintptr
 
-<https://segmentfault.com/a/1190000017389782>
+[https://segmentfault.com/a/1190000017389782](https://segmentfault.com/a/1190000017389782)

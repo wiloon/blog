@@ -67,7 +67,7 @@ public double calculate(GasBill bill) {
 
 所以，使用instanceof在绝大多数情况下并不是推荐的做法，应当好好利用多态。
 
-<http://rodney.cnblogs.com/archive/2005/08/18/instanceof.html>
+[http://rodney.cnblogs.com/archive/2005/08/18/instanceof.html](http://rodney.cnblogs.com/archive/2005/08/18/instanceof.html)
 
 ### instanceof 判断对象类型
 
@@ -139,4 +139,4 @@ Square s=(Square)q; //进行向下转型操作
   
 在本实例中将instanceof操作符与向下转型操作结合使用。在程序中定义了两个子类，即平行四边形类和正方形类，这两个类分别继承四边形类。在主方法中首先创建四边形类对象，然后使用instanceof操作符判断四边形类对象是否为平行四边形类的一个实例，是否为正方形类的一个实例，如果判断结果为true，将进行向下转型操作。
 
-<http://book.51cto.com/art/200810/92220.htm>
+[http://book.51cto.com/art/200810/92220.htm](http://book.51cto.com/art/200810/92220.htm)

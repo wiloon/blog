@@ -29,7 +29,7 @@ Local_umask=022 (FTP上本地的文件权限，默认是077)
 
 connect_from_port_20=YES
 
-启用FTP数据端口的数据连接,<http://www.wiloon.com/?p=3234>
+启用FTP数据端口的数据连接,[http://www.wiloon.com/?p=3234](http://www.wiloon.com/?p=3234)
 
 Xferlog_enable=yes  (激活上传和下传的日志) 
 
@@ -481,4 +481,4 @@ Pasv_enable=yes  ( 服务器端用被动模式)
 
 User_config_dir=/任意指定的路径//任意文件目录 (指定虚拟用户存放配置文件的路径)
 
-ref: <http://doc.linuxpk.com/4233.html> 作者: 龙磊
+ref: [http://doc.linuxpk.com/4233.html](http://doc.linuxpk.com/4233.html) 作者: 龙磊

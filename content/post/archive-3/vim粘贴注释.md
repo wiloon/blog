@@ -41,4 +41,4 @@ set pastetoggle=<F9>
 
 vim粘贴注释-解决方法
   
-<http://www.chenglin.name/linux/blog-linux/595.html/embed#?secret=QDy4MQGTrl>
+[http://www.chenglin.name/linux/blog-linux/595.html/embed#?secret=QDy4MQGTrl](http://www.chenglin.name/linux/blog-linux/595.html/embed#?secret=QDy4MQGTrl)

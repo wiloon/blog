@@ -88,4 +88,4 @@ Qt 包括多达 250 个以上的 C++ 类，还替供基于模板的 collections�
   
 那么对于用户来说，如何在 Qt/GTK 中作出选择呢?一般来说，如果用户使用C++，对库的稳定性，健壮性要求比较高，并且希望跨平台开发的话，那么使用 Qt是较好的选择， 但是值得注意的是，虽然 Qt 的 Free Edition 采用了 GPL 宣言，但是如果你开发 Windows 上的 Qt 软件或者是 Unix 上的商业软件，还是需要向Trolltech 公司支付版权费用的。
   
-本文转自<http://herisee.bokee.com/1929875.html>
+本文转自[http://herisee.bokee.com/1929875.html](http://herisee.bokee.com/1929875.html)

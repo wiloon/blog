@@ -16,7 +16,7 @@ tags:
 chattr +C /path/to/dir/
 ```
 
-<https://typeblog.net/migrate-to-btrfs/>
+[https://typeblog.net/migrate-to-btrfs/](https://typeblog.net/migrate-to-btrfs/)
 
 数据一致性相关的特性
 
@@ -56,8 +56,8 @@ A 是 FS Tree 的根节点，新的 inode 的信息将被插入节点 C 。首�
 
 ## Delay allocation
 
-<https://blog.51cto.com/marvin89/2107489>
+[https://blog.51cto.com/marvin89/2107489](https://blog.51cto.com/marvin89/2107489)
 
-<https://www.ibm.com/developerworks/cn/linux/l-cn-btrfs/index.html>
+[https://www.ibm.com/developerworks/cn/linux/l-cn-btrfs/index.html](https://www.ibm.com/developerworks/cn/linux/l-cn-btrfs/index.html)
 
-<https://hedzr.com/devops/linux/btrfs-file-system-reviews/>
+[https://hedzr.com/devops/linux/btrfs-file-system-reviews/](https://hedzr.com/devops/linux/btrfs-file-system-reviews/)

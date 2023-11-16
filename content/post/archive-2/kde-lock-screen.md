@@ -17,4 +17,4 @@ tags:
 
 ### config
 
-<https://askubuntu.com/questions/783184/how-to-display-kde-lock-screen-time-in-24-hour-format>
+[https://askubuntu.com/questions/783184/how-to-display-kde-lock-screen-time-in-24-hour-format](https://askubuntu.com/questions/783184/how-to-display-kde-lock-screen-time-in-24-hour-format)

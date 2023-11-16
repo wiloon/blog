@@ -188,9 +188,9 @@ gtar --version
 gtar czvf example.tar.gz example
 ```
 
-<https://superuser.com/questions/318809/linux-os-x-tar-incompatibility-tarballs-created-on-os-x-give-errors-when-unt>
+[https://superuser.com/questions/318809/linux-os-x-tar-incompatibility-tarballs-created-on-os-x-give-errors-when-unt](https://superuser.com/questions/318809/linux-os-x-tar-incompatibility-tarballs-created-on-os-x-give-errors-when-unt)
 
-<https://medium.com/@fullsour/installing-gnu-tar-on-mac-827a494b1c1>
+[https://medium.com/@fullsour/installing-gnu-tar-on-mac-827a494b1c1](https://medium.com/@fullsour/installing-gnu-tar-on-mac-827a494b1c1)
 
 ### 向已有的 tar 包里增加文件
 
@@ -238,7 +238,7 @@ tar -rf all.tar *.gif
 
 .tgz 和 .tar.gz 是同一个东西, .tgz 可以认为是 .tar.gz 是简写, 在远古时代比如 DOS 系统, 文件扩展名只能是三个字符, 所以有了 .tgz, 后来限制解除之后就能支持 .tar.gz 这种后缀了, 后者能更清晰的表达打包格式和压缩方式.
 
-<https://stackoverflow.com/questions/11534918/are-tar-gz-and-tgz-the-same-thing>
+[https://stackoverflow.com/questions/11534918/are-tar-gz-and-tgz-the-same-thing](https://stackoverflow.com/questions/11534918/are-tar-gz-and-tgz-the-same-thing)
 
 这种格式是我使用得最多的压缩格式。它在压缩时不会占用太多 CPU 的，而且可以得到一个非常理想的压缩率  
 默认 tar 打包和系统默认的压缩工具是单线程的，pigz 是 gzip 的多线程实现, 默认用当前逻辑 cpu 个数来并发压缩，无法检测个数的话，则并发8个线程  
@@ -501,7 +501,7 @@ unrar e all.rar
 
 压缩: lha -a FileName.lha FileName
 
-lha请到: <http://www.infor.kanazawa-it.ac.jp/…/lhaunix/>下载！
+lha请到: [http://www.infor.kanazawa-it.ac.jp/…/lhaunix/](http://www.infor.kanazawa-it.ac.jp/…/lhaunix/)下载！
 
 解压后请将lha拷贝到/usr/bin目录 (其他由$PATH环境变量指定的目录也可以) :
 
@@ -519,7 +519,7 @@ cp lha /usr/bin/
 
 sEx只是调用相关程序，本身并无压缩、解压功能，请注意！
 
-sEx请到:  <http://sourceforge.net/projects/sex>下载！
+sEx请到:  [http://sourceforge.net/projects/sex](http://sourceforge.net/projects/sex)下载！
 
 解压后请将sEx拷贝到/usr/bin目录 (其他由$PATH环境变量指定的目录也可以) :
 
@@ -527,7 +527,7 @@ sEx请到:  <http://sourceforge.net/projects/sex>下载！
 
 ## 压缩算法, deflate、gzip、bzip2、lzo、snappy
 
-<http://www.infoq.com/cn/news/2017/07/eBay-shopping-i-o?utm_campaign=infoq_content&utm_source=infoq&utm_medium=feed&utm_term=global>
+[http://www.infoq.com/cn/news/2017/07/eBay-shopping-i-o?utm_campaign=infoq_content&utm_source=infoq&utm_medium=feed&utm_term=global](http://www.infoq.com/cn/news/2017/07/eBay-shopping-i-o?utm_campaign=infoq_content&utm_source=infoq&utm_medium=feed&utm_term=global)
 
 常用的压缩算法主要有: deflate、gzip、bzip2、lzo、snappy等。差别如下所示:
 
@@ -545,14 +545,14 @@ Snappy是Google基于LZ77的思路用C++语言编写的快速数据压缩与解�
 
 ---
 
-<https://blog.csdn.net/wuhenyan/article/details/53117642>
+[https://blog.csdn.net/wuhenyan/article/details/53117642](https://blog.csdn.net/wuhenyan/article/details/53117642)
 
-<https://www.howtoing.com/zstd-fast-data-compression-algorithm-used-by-facebook>
+[https://www.howtoing.com/zstd-fast-data-compression-algorithm-used-by-facebook](https://www.howtoing.com/zstd-fast-data-compression-algorithm-used-by-facebook)
 
-<https://blog.csdn.net/lj402159806/article/details/76618174>
+[https://blog.csdn.net/lj402159806/article/details/76618174](https://blog.csdn.net/lj402159806/article/details/76618174)
 
-<http://blog.csdn.net/silvervi/article/details/6325698>
+[http://blog.csdn.net/silvervi/article/details/6325698](http://blog.csdn.net/silvervi/article/details/6325698)
 
-<http://blog.csdn.net/xiaotuni/article/details/2099609>
+[http://blog.csdn.net/xiaotuni/article/details/2099609](http://blog.csdn.net/xiaotuni/article/details/2099609)
 
-<http://xxw8393.blog.163.com/blog/static/37256834201172910058899/>
+[http://xxw8393.blog.163.com/blog/static/37256834201172910058899/](http://xxw8393.blog.163.com/blog/static/37256834201172910058899/)

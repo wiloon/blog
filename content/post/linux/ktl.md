@@ -100,7 +100,7 @@ active_mm 主要用于优化，由于内核线程不与任何特定的用户层�
 
 ### Workqueue 机制
 
-因此在linux-2.6以后, 提供了更加方便的接口kthead_create和kthread_run, 同时将内核线程的创建操作延后, 交给一个工作队列workqueue, 参见<http://lxr.linux.no/linux+v2.6.13/kernel/kthread.c#L21>，
+因此在linux-2.6以后, 提供了更加方便的接口kthead_create和kthread_run, 同时将内核线程的创建操作延后, 交给一个工作队列workqueue, 参见[http://lxr.linux.no/linux+v2.6.13/kernel/kthread.c#L21](http://lxr.linux.no/linux+v2.6.13/kernel/kthread.c#L21)，
 
 Linux中的workqueue机制就是为了简化内核线程的创建。通过kthread_create并不真正创建内核线程, 而是将创建工作create work插入到工作队列helper_wq中, 随后调用 workqueue 的接口就能创建内核线程。并且可以根据当前系统CPU的个数创建线程的数量，使得线程处理的事务能够并行化。workqueue是内核中实现简单而有效的机制，他显然简化了内核daemon的创建，方便了用户的编程.
 
@@ -136,7 +136,7 @@ kthreadd is a daemon thread that runs in kernel space. The reason is that kernel
 
 参见
 
-<http://lxr.free-electrons.com/source/kernel/fork.c?v=2.4.37#L613>
+[http://lxr.free-electrons.com/source/kernel/fork.c?v=2.4.37#L613](http://lxr.free-electrons.com/source/kernel/fork.c?v=2.4.37#L613)
 
 我们可以看到它内部调用了更加底层的 arch_kernel_thread创建了一个线程
 
@@ -144,16 +144,16 @@ arch_kernel_thread
 
 其具体实现请参见
 
-<http://lxr.free-electrons.com/ident?v=2.4.37;i=arch_kernel_thread>
+[http://lxr.free-electrons.com/ident?v=2.4.37;i=arch_kernel_thread](http://lxr.free-electrons.com/ident?v=2.4.37;i=arch_kernel_thread)
 
 但是这种方式创建的线程并不适合运行，因此内核提供了daemonize函数, 其声明在include/linux/sched.h中
 
-//  <http://lxr.free-electrons.com/source/include/linux/sched.h?v=2.4.37#L800>
+//  [http://lxr.free-electrons.com/source/include/linux/sched.h?v=2.4.37#L800](http://lxr.free-electrons.com/source/include/linux/sched.h?v=2.4.37#L800)
 extern void daemonize(void);
 
 定义在kernel/sched.c
 
-<http://lxr.free-electrons.com/source/kernel/sched.c?v=2.4.37#L1326>
+[http://lxr.free-electrons.com/source/kernel/sched.c?v=2.4.37#L1326](http://lxr.free-electrons.com/source/kernel/sched.c?v=2.4.37#L1326)
 
 主要执行如下操作
 
@@ -167,7 +167,7 @@ extern void daemonize(void);
 
 可以参见
 
-<http://lxr.free-electrons.com/ident?v=2.4.37;i=daemonize>
+[http://lxr.free-electrons.com/ident?v=2.4.37;i=daemonize](http://lxr.free-electrons.com/ident?v=2.4.37;i=daemonize)
 
 我们将了这么多kernel_thread, 但是我们并不提倡我们使用它, 因为这个是底层的创建内核线程的操作接口, 使用kernel_thread在内核中执行大量的操作, 虽然创建的代价已经很小了, 但是对于追求性能的linux内核来说还不能忍受
 
@@ -251,7 +251,7 @@ exit_code()
 这种退出机制很温和，一切尽在thread_func()的掌控之中，线程在退出时可以从容地释放资源，而不是莫名其妙地被人"暗杀"。
 ————————————————
 版权声明: 本文为CSDN博主「CHENG Jian」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
-原文链接: <https://blog.csdn.net/gatieme/article/details/51589205>
+原文链接: [https://blog.csdn.net/gatieme/article/details/51589205](https://blog.csdn.net/gatieme/article/details/51589205)
 
 ### idle进程(PID = 0)
 
@@ -268,7 +268,7 @@ kthreadd进程由idle通过kernel_thread创建，并始终运行在内核空间,
 ### ksoftirq/n
 
 处理软中断  
-<http://abcdxyzk.github.io/blog/2015/01/03/kernel-irq-ksoftirqd/>  
+[http://abcdxyzk.github.io/blog/2015/01/03/kernel-irq-ksoftirqd/](http://abcdxyzk.github.io/blog/2015/01/03/kernel-irq-ksoftirqd/)  
 
 softirq实际上也是一种注册回调的机制，ps –elf 可以看到注册的函数由一个守护进程 (ksoftirgd) 专门来处理，而且是每个cpu一个守护进程。
 
@@ -282,7 +282,7 @@ softirq实际上也是一种注册回调的机制，ps –elf 可以看到注册
 
 ————————————————
 版权声明：本文为CSDN博主「lyblyblyblin」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
-原文链接：<https://blog.csdn.net/lyblyblyblin/article/details/79346459>
+原文链接：[https://blog.csdn.net/lyblyblyblin/article/details/79346459](https://blog.csdn.net/lyblyblyblin/article/details/79346459)
 
 kworker意思是’Linux kernel doing work’(系统调用，processing system calls)，它是内核工作线程的’占位符’进程，它实际上执行内核的大部分工作，如中断、计时器、I/O等，CPU中’system’时间大部分由此产生。在系统中，一般会出现多个kworker进程，如kworker/0:1跟第一个cpu核心有关，依次类推。
 
@@ -306,16 +306,16 @@ this thread populates and maintains a device node tree
 ### kauditd
 
 内核线程 kauditd 通过 netlink 机制 (NETLINK_AUDIT) 将审计消息定向发送给用户态的审计后台 auditd的主线程，auditd主线程再通过事件队列将审计消息传给审计后台的写log文件线程，写入log文件。另一方面，审计后台还通过一个与 socket 绑定的管道将审计消息发送给audispd应用程序，可把事件传送给其他应用程序做进一步处理。
-><https://ixyzero.com/blog/archives/3421.html>
+>[https://ixyzero.com/blog/archives/3421.html](https://ixyzero.com/blog/archives/3421.html)
 
 ### khungtaskd
 
 khungtaskd 监控TASK_UNINTERRUPTIBLE状态的进程，如果在120s周期内没有切换，就会打印详细信息。
-><https://www.cnblogs.com/arnoldlu/p/10529621.html>
+>[https://www.cnblogs.com/arnoldlu/p/10529621.html](https://www.cnblogs.com/arnoldlu/p/10529621.html)
 
 ### kcompactd*
 
 页面整理
 
-><https://www.coder.work/article/6802420>
-><https://blog.csdn.net/gatieme/article/details/51566690>
+>[https://www.coder.work/article/6802420](https://www.coder.work/article/6802420)
+>[https://blog.csdn.net/gatieme/article/details/51566690](https://blog.csdn.net/gatieme/article/details/51566690)

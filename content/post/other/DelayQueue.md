@@ -28,7 +28,7 @@ DelayQueue 是什么
 
 　DelayQueue只能添加(offer/put/add)实现了Delayed接口的对象，意思是说我们不能想往DelayQueue里添加什么就添加什么，不能添加int、也不能添加String进去，必须添加我们自己的实现了Delayed接口的类的对象，来代码
 
-<https://www.cnblogs.com/myseries/p/10944211.html>
+[https://www.cnblogs.com/myseries/p/10944211.html](https://www.cnblogs.com/myseries/p/10944211.html)
 
 DelayQueue基本原理
 
@@ -41,4 +41,4 @@ DelayQueue是Leader-Followr模式的变种，消费者线程处于等待状态�
 以下通过队列及消费者线程状态变化大致说明一下DelayQueue的运行过程。
 ————————————————
 版权声明：本文为CSDN博主「五星上炕」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
-原文链接：<https://blog.csdn.net/dkfajsldfsdfsd/article/details/88966814>
+原文链接：[https://blog.csdn.net/dkfajsldfsdfsd/article/details/88966814](https://blog.csdn.net/dkfajsldfsdfsd/article/details/88966814)

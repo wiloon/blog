@@ -44,6 +44,6 @@ secret-tool - 通过命令行访问 GNOME keyring (以及其他任何实现了DB
 
 secret-tool - Store and retrieve passwords
 
-<https://wiki.archlinux.org/index.php/GNOME/Keyring#Installation>  
-<https://bbs.archlinux.org/viewtopic.php?id=191279>  
-<https://wiki.gnome.org/Projects/GnomeKeyring>  
+[https://wiki.archlinux.org/index.php/GNOME/Keyring#Installation](https://wiki.archlinux.org/index.php/GNOME/Keyring#Installation)  
+[https://bbs.archlinux.org/viewtopic.php?id=191279](https://bbs.archlinux.org/viewtopic.php?id=191279)  
+[https://wiki.gnome.org/Projects/GnomeKeyring](https://wiki.gnome.org/Projects/GnomeKeyring)  

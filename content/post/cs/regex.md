@@ -55,7 +55,7 @@ PCRE: Perl-compatible regular expressions
 
 ## linux 测试正则表达式
 
-<https://anjia0532.github.io/2017/06/29/nginx-regex-test-way/>
+[https://anjia0532.github.io/2017/06/29/nginx-regex-test-way/](https://anjia0532.github.io/2017/06/29/nginx-regex-test-way/)
 
 ```bash
 echo 'a.gif' | grep -P '\.(jp?g|gif|bmp|png)'
@@ -287,18 +287,18 @@ un 匹配n，其中n是一个用四个十六进制数字表示的Unicode字符�
 
 ---
 
-<http://deerchao.net/tutorials/regex/regex.htm>  
+[http://deerchao.net/tutorials/regex/regex.htm](http://deerchao.net/tutorials/regex/regex.htm)  
 
-<http://blog.csdn.net/newjerryj/article/details/7621014>  
+[http://blog.csdn.net/newjerryj/article/details/7621014](http://blog.csdn.net/newjerryj/article/details/7621014)  
 
-<http://www.infoq.com/cn/news/2011/04/regular-expressions-4>  
+[http://www.infoq.com/cn/news/2011/04/regular-expressions-4](http://www.infoq.com/cn/news/2011/04/regular-expressions-4)  
   
-<https://my.oschina.net/u/3080373/blog/1550653>  
+[https://my.oschina.net/u/3080373/blog/1550653](https://my.oschina.net/u/3080373/blog/1550653)  
 
-<https://liujiacai.net/blog/2014/12/07/regexp-favors/>  
-<https://www.cnblogs.com/netsa/p/6383094.html>
+[https://liujiacai.net/blog/2014/12/07/regexp-favors/](https://liujiacai.net/blog/2014/12/07/regexp-favors/)  
+[https://www.cnblogs.com/netsa/p/6383094.html](https://www.cnblogs.com/netsa/p/6383094.html)
 
 作者：Mage
-链接：<https://www.jianshu.com/p/1af0493b474d>
+链接：[https://www.jianshu.com/p/1af0493b474d](https://www.jianshu.com/p/1af0493b474d)
 来源：简书
 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。

@@ -79,6 +79,6 @@ $ go run flag.go -h
   
 -port=":8080″: http listen port
 
-<http://www.01happy.com/golang-command-line-arguments/>
+[http://www.01happy.com/golang-command-line-arguments/](http://www.01happy.com/golang-command-line-arguments/)
   
-<http://faberliu.github.io/2014/11/12/Golang-flag%E5%8C%85%E4%BD%BF%E7%94%A8%E8%AF%A6%E8%A7%A3-%E4%B8%80/>
+[http://faberliu.github.io/2014/11/12/Golang-flag%E5%8C%85%E4%BD%BF%E7%94%A8%E8%AF%A6%E8%A7%A3-%E4%B8%80/](http://faberliu.github.io/2014/11/12/Golang-flag%E5%8C%85%E4%BD%BF%E7%94%A8%E8%AF%A6%E8%A7%A3-%E4%B8%80/)

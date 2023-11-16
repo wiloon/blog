@@ -22,7 +22,7 @@ tags:
 a. 产生的背景
 
 (摘自书籍Rechnerarchitektur : Von der digitalen Logik zum Parallelrechner 作者Andrew S. Tanenbaum )早期的计算机内存容量非常小，通常只能存储几千个Wörter 1(即数据单元)，但价格却是十分昂贵。(之后的Beispiele是指一些关于早期计算机的具体例子) 所造成的不便: a. 使用这些容量很小的内存，导致了程序运行的速度很慢，原因是在于存放相对高效的算法需要占用的内存空间相对较大，所以程序员们只能使用执行效率较低的，但是占用内存容量较小的算法。à对于这个问题的传统解决方案是，(物理上，或者说在硬件上)新增加一个(或多个)内存空间(例如，硬盘- Plattenspeicher)。b. 而同时还造成的一个不便之处，是在这种内存容量很小的情况下，程序员需要人为地将程序分解成为多个部分(Overlays),  然后分开来存储进内存中。在执行程序时，就首先执行第1个Overlay, 执行完毕后，继而调用第2个Overlay，以此类推。à进展:尽管这个方法在那个时代已经很广泛地普及化了，但是由于使用Overlay进行管理执行程序的办法需要大量的人力投入，这其中的成本仍是不容小觑的。于是在1961年，一位来自英国曼彻斯特的研究人员提议，不如将程序通过Overlays执行这个方法设计成自动化的模式，这样就无需程序员费劳管理程序的划分与安置的任务。这个新的方法所使用到的一个新的概念即是虚拟内存virtueller Speicher。b.使用虚拟内存的优势:
- (摘自<https://blog.csdn.net/vernice/article/details/41783601>) 1 程序员无需操心如何存储(数据，程序等等的)内容。2 通过分布在同一个物理内存空间的两个不同的区间，虚拟内存里的数据和程序可以彼此共享使用3 它使得应用程序在系统中可以更自如地在物理地址中被执行。虚拟内存的操作过程是怎么样的
+ (摘自[https://blog.csdn.net/vernice/article/details/41783601](https://blog.csdn.net/vernice/article/details/41783601)) 1 程序员无需操心如何存储(数据，程序等等的)内容。2 通过分布在同一个物理内存空间的两个不同的区间，虚拟内存里的数据和程序可以彼此共享使用3 它使得应用程序在系统中可以更自如地在物理地址中被执行。虚拟内存的操作过程是怎么样的
 
  假如说这台机器不适用虚拟内存这个概念，那么程序就会报错，例如"该指定的地址范围在内存中不存在"，继而程序终止执行。而反过来若是这台机器是适用虚拟内存的，那么这个任务会按照如下步骤来执行: 1 寻找位于存储盘上，介于地址8192和12287之间的数据单元。2 将这段原来地址为8192～12287的数据单元加载到内存中。3 而这段数据对应到内存中的地址将被定义为0～4095。4 而程序将继续正常地执行下去。 人们将这项自动划分区间(Overlays)的技术命名为Paging (deuts. Seitenauslagerung)，而这一段段从硬盘中读出来的程序区间即被命名为Page (deuts. Seiten)。
 
@@ -136,7 +136,7 @@ C3寄存器.png
 Paste_Image.png
 
 作者: 放风筝的小小马
-链接: <https://www.jianshu.com/p/abb4b5aeb83b>
+链接: [https://www.jianshu.com/p/abb4b5aeb83b](https://www.jianshu.com/p/abb4b5aeb83b)
 來源: 简书
 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
 
@@ -305,7 +305,7 @@ MMU工作流程:
 
 虚拟地址由页号和页内偏移地址构成。在映射过程中不改变页内偏移 (4k页大小，则偏移有12bit) 。而对于页号，若一个32bit的虚拟地址，其页号占20bit，若总按页为页表的最小粒度。这样形成的单级页表可能过大。而实际情况是，很多时候可以映射到更大的内存块，因此往往会对页号分级，形成多级页表。
 
-图2. linux虚拟地址的三级划分 (图片来源<https://blog.csdn.net/ipmux/article/details/19167605>)
+图2. linux虚拟地址的三级划分 (图片来源[https://blog.csdn.net/ipmux/article/details/19167605](https://blog.csdn.net/ipmux/article/details/19167605))
 简单说每次MMU根据虚拟地址查询页表都是一级级进行，先根据PGD的值查询，如果查到PGD的匹配，但后续PMD和PTE没有，就以2(offset+pte+pmd)=1M为粒度进行映射，后20bits全部是块内偏移，与物理地址相同。
 
 MMU会对地址访问做限定，如内存保护 (禁止访问、可读、可写和可执行等) ，如果是禁止访问，MMU将向CPU发出页错误 (page fault) 的信号。
@@ -341,7 +341,7 @@ MMU会对地址访问做限定，如内存保护 (禁止访问、可读、可写
 
 也称内存栅栏，内存栅障，屏障指令等，是一类同步屏障指令，是CPU或编译器在对内存随机访问的操作中的一个同步点，使得此点之前的所有读写操作都执行后才可以开始执行此点之后的操作。
   
-<https://ieevee.com/assets/2018-01-28-gogc.html>
+[https://ieevee.com/assets/2018-01-28-gogc.html](https://ieevee.com/assets/2018-01-28-gogc.html)
 
 ### 虚拟内存的那点事儿
 
@@ -363,7 +363,7 @@ MMU会对地址访问做限定，如内存保护 (禁止访问、可读、可写
 介绍了虚拟内存的基本概念之后，接下来的内容将会从虚拟内存在硬件中如何运作逐渐过渡到虚拟内存在操作系统 (Linux) 中的实现。
 
 本文作者为SylvanasSun(sylvanas.sun@gmail.com)，首发于SylvanasSun’s Blog。
-原文链接: <https://sylvanassun.github.io/2017/10/29/2017-10-29-virtual_memory/>
+原文链接: [https://sylvanassun.github.io/2017/10/29/2017-10-29-virtual_memory/](https://sylvanassun.github.io/2017/10/29/2017-10-29-virtual_memory/)
  (转载请务必保留本段声明，并且保留超链接。)
 
 CPU寻址
@@ -603,28 +603,28 @@ Garbage collection (computer science) - Wikipedia
 内存就是一个数据货架。内存有一个最小的存储单位，大多数都是一个字节。内存用内存地址 (memory address）来为每个字节的数据顺序编号。因此，内存地址说明了数据在内存中的位置。内存地址从0开始，每次增加1。这种线性增加的存储器地址称为线性地址 (linear address）
 
 作者: VizXu
-链接: <https://www.zhihu.com/question/290504400/answer/485124116>
+链接: [https://www.zhihu.com/question/290504400/answer/485124116](https://www.zhihu.com/question/290504400/answer/485124116)
 来源: 知乎
 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
 
-<https://nieyong.github.io/wiki_cpu/CPU%E4%BD%93%E7%B3%BB%E6%9E%B6%E6%9E%84-MMU.html>
+[https://nieyong.github.io/wiki_cpu/CPU%E4%BD%93%E7%B3%BB%E6%9E%B6%E6%9E%84-MMU.html](https://nieyong.github.io/wiki_cpu/CPU%E4%BD%93%E7%B3%BB%E6%9E%B6%E6%9E%84-MMU.html)
 
 作者: u753b
-链接: <https://www.zhihu.com/question/290504400/answer/633251677>
+链接: [https://www.zhihu.com/question/290504400/answer/633251677](https://www.zhihu.com/question/290504400/answer/633251677)
 来源: 知乎
 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
 
-<https://sylvanassun.github.io/2017/10/29/2017-10-29-virtual_memory/>
+[https://sylvanassun.github.io/2017/10/29/2017-10-29-virtual_memory/](https://sylvanassun.github.io/2017/10/29/2017-10-29-virtual_memory/)
 
-<https://zhuanlan.zhihu.com/p/43526907>
+[https://zhuanlan.zhihu.com/p/43526907](https://zhuanlan.zhihu.com/p/43526907)
 
-<https://www.eet-china.com/mp/a87720.html>
+[https://www.eet-china.com/mp/a87720.html](https://www.eet-china.com/mp/a87720.html)
 
-<https://www.hi-linux.com/posts/42797.html>
+[https://www.hi-linux.com/posts/42797.html](https://www.hi-linux.com/posts/42797.html)
 
 ## 金士顿型号解码器
 
-<https://www.kingston.com.cn/cn/memory/memory-part-number-decoder>
+[https://www.kingston.com.cn/cn/memory/memory-part-number-decoder](https://www.kingston.com.cn/cn/memory/memory-part-number-decoder)
 
 ## 低电压版
 

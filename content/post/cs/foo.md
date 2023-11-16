@@ -10,7 +10,7 @@ tags:
 ---
 ## Foo 是什么意思
 
-<http://www.cnblogs.com/felicity/archive/2010/11/30/1892100.html>
+[http://www.cnblogs.com/felicity/archive/2010/11/30/1892100.html](http://www.cnblogs.com/felicity/archive/2010/11/30/1892100.html)
   
 不管是java，C++，还是PHP，每次都能看到 foo = bar 的例子，这两个单词很恶心，foo查不到字典，bar的解释又让人跟编程联系不上，更弄不清楚这个神秘的foo是个什么关系。
   
@@ -24,7 +24,7 @@ tags:
   
 为了这个可恶的foo，居然还动用RFC给foo下了一个明确的词源追踪，无聊的童鞋可以看RFC3092解解闷。
   
-中文RFC3092地址<http://www.computersci.net/articles/rfc/RFC3092.txt>
+中文RFC3092地址[http://www.computersci.net/articles/rfc/RFC3092.txt](http://www.computersci.net/articles/rfc/RFC3092.txt)
   
 --------------------------------
   

@@ -121,7 +121,7 @@ file table是全局唯一的表，由系统内核维护。这个表记录了所�
 - 文件的偏移量。POSIX API 中的read()/write()/lseek()函数都会修改该值；
 - 打开文件时的状态和权限标记。通过 open() 函数的参数传入；
 - 文件的访问模式 (只读、只写、读+写等) 。通过open()函数的参数传入；
-- 指向其对应的 inode 对象的指针。内核也会维护系统级别的 inode 表 (inode table), 关于inode的细节请参考这篇文章。 <https://www.jianshu.com/p/d60a2b44e78e>
+- 指向其对应的 inode 对象的指针。内核也会维护系统级别的 inode 表 (inode table), 关于inode的细节请参考这篇文章。 [https://www.jianshu.com/p/d60a2b44e78e](https://www.jianshu.com/p/d60a2b44e78e)
 - 文件描述符表、打开文件表、inode表之间的关系可以用书中的下图来表示。注意图中的fd 0、1、2...只是示意下标,不代表三个标准描述符。
 
 [![7n59f0.jpg](https://s4.ax1x.com/2022/01/12/7n59f0.jpg)](https://imgtu.com/i/7n59f0)
@@ -136,7 +136,7 @@ inode table 同样是全局唯一的，它指向了真正的文件地址 (磁盘
 
 ### 文件描述限制
 
-在编写文件操作的或者网络通信的软件时,初学者一般可能会遇到"Too many open files"的问题。这主要是因为文件描述符是系统的一个重要资源,虽然说系统内存有多少就可以打开多少的文件描述符,但是在实际实现过程中内核是会做相应的处理的,一般最大打开文件数会是系统内存的10% (以KB来计算)  (称之为系统级限制) ,查看系统级别的最大打开文件数可以使用sysctl -a | grep fs.file-max 命令查看。与此同时,内核为了不让某一个进程消耗掉所有的文件资源,其也会对单个进程最大打开文件数做默认值处理 (称之为用户级限制) ,默认值一般是1024,使用ulimit -n命令可以查看。在Web服务器中,通过更改系统默认值文件描述符的最大值来优化服务器是最常见的方式之一,具体优化方式请查看 <http://blog.csdn.net/kumu_linux/article/details/7877770>
+在编写文件操作的或者网络通信的软件时,初学者一般可能会遇到"Too many open files"的问题。这主要是因为文件描述符是系统的一个重要资源,虽然说系统内存有多少就可以打开多少的文件描述符,但是在实际实现过程中内核是会做相应的处理的,一般最大打开文件数会是系统内存的10% (以KB来计算)  (称之为系统级限制) ,查看系统级别的最大打开文件数可以使用sysctl -a | grep fs.file-max 命令查看。与此同时,内核为了不让某一个进程消耗掉所有的文件资源,其也会对单个进程最大打开文件数做默认值处理 (称之为用户级限制) ,默认值一般是1024,使用ulimit -n命令可以查看。在Web服务器中,通过更改系统默认值文件描述符的最大值来优化服务器是最常见的方式之一,具体优化方式请查看 [http://blog.csdn.net/kumu_linux/article/details/7877770](http://blog.csdn.net/kumu_linux/article/details/7877770)
 
 ### 文件描述符和打开文件之间的关系
 
@@ -337,7 +337,7 @@ The End
 文件句柄在UNIX里不是个正式概念,所以无论在系统还是C语言API中都不显式存在。
 ————————————————
 版权声明: 本文为CSDN博主「LittleMagics」的原创文章,遵循CC 4.0 BY-SA版权协议,转载请附上原文出处链接及本声明。
-原文链接: <https://blog.csdn.net/nazeniwaresakini/article/details/104220111>
+原文链接: [https://blog.csdn.net/nazeniwaresakini/article/details/104220111](https://blog.csdn.net/nazeniwaresakini/article/details/104220111)
 
 在操作系统层面上,文件操作也有类似于FILE的一个概念,在Linux里,这叫做文件描述符(File Descriptor),而在Windows里,叫做句柄(Handle)(以下在没有歧义的时候统称为句柄)。用户通过某个函数打开文件以获得句柄,此 后用户操纵文件皆通过该句柄进行。
 
@@ -347,7 +347,7 @@ The End
 
 在C语言里,操纵文件的渠道则是FILE结构,不难想象,C语言中的FILE结构必定和fd有一对一的关系,每个FILE结构都会记录自己唯一对应的fd。
   
-句柄 <http://zh.wikipedia.org/wiki/%E5%8F%A5%E6%9F%84>
+句柄 [http://zh.wikipedia.org/wiki/%E5%8F%A5%E6%9F%84](http://zh.wikipedia.org/wiki/%E5%8F%A5%E6%9F%84)
 
 在程序设计 中,句柄是一种特殊的智能指针 。当一个应用程序 要引用其他系统(如数据库、操作系统 )所管理的内存 块或对象 时,就要使用句柄。
 
@@ -364,17 +364,17 @@ write()
 select()
 poll()
 
-<http://www.blogjava.net/shijian/archive/2012/04/06/373463.html>
+[http://www.blogjava.net/shijian/archive/2012/04/06/373463.html](http://www.blogjava.net/shijian/archive/2012/04/06/373463.html)
   
-<http://blog.csdn.net/cywosp/article/details/38965239>
+[http://blog.csdn.net/cywosp/article/details/38965239](http://blog.csdn.net/cywosp/article/details/38965239)
 
 版权声明: 本文为CSDN博主「cywosp」的原创文章,遵循 CC 4.0 BY-SA 版权协议,转载请附上原文出处链接及本声明。
   
-原文链接: <https://blog.csdn.net/cywosp/article/details/38965239>
+原文链接: [https://blog.csdn.net/cywosp/article/details/38965239](https://blog.csdn.net/cywosp/article/details/38965239)
 
 ## 引用来源
 
 Michael Kerrisk所著《The Linux Programming Interface: A Linux and UNIX System Programming Handbook》的第4、5两章。
 
-<http://www.cxyzjd.com/article/nazeniwaresakini/104220111>  
-><https://wiyi.org/linux-file-descriptor.html>
+[http://www.cxyzjd.com/article/nazeniwaresakini/104220111](http://www.cxyzjd.com/article/nazeniwaresakini/104220111)  
+>[https://wiyi.org/linux-file-descriptor.html](https://wiyi.org/linux-file-descriptor.html)

@@ -168,7 +168,7 @@ nextcloud
 - CPU usage monitor
 - newsrob
 - astrid
-- proxy: <http://forum.xda-developers.com/showthread.php?t=766569>
+- proxy: [http://forum.xda-developers.com/showthread.php?t=766569](http://forum.xda-developers.com/showthread.php?t=766569)
 
 ringtone: hangout_ringtone
 

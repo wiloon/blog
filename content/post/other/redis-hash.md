@@ -112,10 +112,10 @@ hashtable (哈希表)
 当 哈希类型 无法满足 ziplist 的条件时,Redis 会使用 hashtable 作为 哈希 的 内部实现,因为此时 ziplist 的 读写效率 会下降,而 hashtable 的读写 时间复杂度 为 O (1) 。
 
 作者: 零壹技术栈
-链接: <https://juejin.cn/post/6844903693075103757>
+链接: [https://juejin.cn/post/6844903693075103757](https://juejin.cn/post/6844903693075103757)
 来源: 掘金
 著作权归作者所有。商业转载请联系作者获得授权,非商业转载请注明出处。
 
-<http://blog.csdn.net/shamohua/article/details/7001501>
+[http://blog.csdn.net/shamohua/article/details/7001501](http://blog.csdn.net/shamohua/article/details/7001501)
 
-<http://blog.csdn.net/enson16855/article/details/13298841>  
+[http://blog.csdn.net/enson16855/article/details/13298841](http://blog.csdn.net/enson16855/article/details/13298841)  

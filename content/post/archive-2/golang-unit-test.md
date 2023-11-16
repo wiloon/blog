@@ -208,13 +208,13 @@ go test -test.bench=".*" -count=5
 
 作者: Carrism
   
-链接: <https://www.jianshu.com/p/41cdfd4a5707>
+链接: [https://www.jianshu.com/p/41cdfd4a5707](https://www.jianshu.com/p/41cdfd4a5707)
   
 来源: 简书
   
 著作权归作者所有。商业转载请联系作者获得授权,非商业转载请注明出处。
 
-<http://www.01happy.com/golang-unit-testing/>
+[http://www.01happy.com/golang-unit-testing/](http://www.01happy.com/golang-unit-testing/)
 
 一般为了保证整个系统的稳定性,通常都需要编写大量的单元测试,诸如像java的junit,php的phpunit等都提供了类似的功能。golang中的testing包提供了这个测试的功能,结合go test工具搞起来就很方便了。
 
@@ -356,6 +356,6 @@ BenchmarkFibonacci20 50000 44367 ns/op
 ok lib 2.677s
 ```
 
-<https://geektutu.com/post/quick-go-test.html>
+[https://geektutu.com/post/quick-go-test.html](https://geektutu.com/post/quick-go-test.html)
 
-<https://hedzr.com/golang/testing/golang-testing-1/>
+[https://hedzr.com/golang/testing/golang-testing-1/](https://hedzr.com/golang/testing/golang-testing-1/)

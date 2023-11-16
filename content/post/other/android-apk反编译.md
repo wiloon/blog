@@ -10,7 +10,7 @@ tags:
 ---
 ## Android APK反编译
 
-<http://blog.csdn.net/ithomer/article/details/6727581>
+[http://blog.csdn.net/ithomer/article/details/6727581](http://blog.csdn.net/ithomer/article/details/6727581)
 
 这段时间在学Android应用开发，在想既然是用Java开发的应该很好反编译从而得到源代码吧，google了一下，确实很简单，以下是我的实践过程。
 

@@ -64,7 +64,7 @@ vim /usr/local/bin/proxy
 
 # !/bin/bash
   
-http_proxy=<http://127.0.0.1:8118> https_proxy=<http://127.0.0.1:8118> $*
+http_proxy=<http://127.0.0.1:8118> https_proxy=[http://127.0.0.1:8118](http://127.0.0.1:8118) $*
 
 赋予可执行权限
 

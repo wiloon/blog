@@ -121,10 +121,10 @@ split
   
 strings.Split
 
-<http://www.cnblogs.com/modprobe/p/4302681.html>
+[http://www.cnblogs.com/modprobe/p/4302681.html](http://www.cnblogs.com/modprobe/p/4302681.html)
 
 go语言中的字符串的比较: 相等
   
-<https://www.crifan.com/go_language_string_compare_equal/embed/#?secret=u61L06fdZP>
+[https://www.crifan.com/go_language_string_compare_equal/embed/#?secret=u61L06fdZP](https://www.crifan.com/go_language_string_compare_equal/embed/#?secret=u61L06fdZP)
   
-<http://blog.csdn.net/oqqyuan1234567890/article/details/59110219>
+[http://blog.csdn.net/oqqyuan1234567890/article/details/59110219](http://blog.csdn.net/oqqyuan1234567890/article/details/59110219)

@@ -12,7 +12,7 @@ tags:
 
 ## word 中更新目录
 
-<http://www.2word.com/word2010/2010Mulu/528.html>
+[http://www.2word.com/word2010/2010Mulu/528.html](http://www.2word.com/word2010/2010Mulu/528.html)
 
 如果文档完成后发现有些地方必须要进行修改，修改后会发现标题章节标题所在页码已经发生了变化，而目录中的页码没有同步更新，这时您可以手动的更新目录。在word2010中更新目录的方法如下: 
 

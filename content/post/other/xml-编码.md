@@ -39,6 +39,6 @@ W3C定义了三条XML解析器如何正确读取XML文件的编码的规则:
 
 至此，终于把xml里的encoding和文件格式的关系弄懂了。虽然这篇记录只有那几百个字内容，但是我们当时在讨论的时候，总时间差不多花了2个小时。
 
-<http://blog.csdn.net/fzy112001/article/details/4183139>
+[http://blog.csdn.net/fzy112001/article/details/4183139](http://blog.csdn.net/fzy112001/article/details/4183139)
 
-<http://www.cnblogs.com/azol/articles/1137035.html>
+[http://www.cnblogs.com/azol/articles/1137035.html](http://www.cnblogs.com/azol/articles/1137035.html)

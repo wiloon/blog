@@ -20,9 +20,9 @@ host host0
     PubkeyAcceptedKeyTypes +ssh-rsa
 ```
 
-<https://daemon369.github.io/ssh/2015/03/21/using-ssh-config-file>
+[https://daemon369.github.io/ssh/2015/03/21/using-ssh-config-file](https://daemon369.github.io/ssh/2015/03/21/using-ssh-config-file)
 
-<https://blog.csdn.net/XXY2083123843/article/details/128370472>
+[https://blog.csdn.net/XXY2083123843/article/details/128370472](https://blog.csdn.net/XXY2083123843/article/details/128370472)
 
 ```bash
 vim ~/.ssh/config
@@ -92,10 +92,10 @@ ClientAliveCountMax 3
 
 ### Session Multiplexing
 
-<https://blog.wiloon.com/?p=16030>
+[https://blog.wiloon.com/?p=16030](https://blog.wiloon.com/?p=16030)
 
 - ssh agent forward
-<https://blog.wiloon.com/?p=16034>
+[https://blog.wiloon.com/?p=16034](https://blog.wiloon.com/?p=16034)
 
 ### 指定源端口
 
@@ -127,7 +127,7 @@ maxsessions
 
 同一地址的最大连接数,也就是同一个IP地址最大可以保持多少个链接
 
-<https://blog.csdn.net/u014686399/java/article/details/84778292>
+[https://blog.csdn.net/u014686399/java/article/details/84778292](https://blog.csdn.net/u014686399/java/article/details/84778292)
 
 SSH 参数配置有3个层次:
 
@@ -241,6 +241,6 @@ PubkeyAuthentication yes
   
 之后重启sshd服务
   
-<https://vra.github.io/2017/07/09/ssh-config/>
+[https://vra.github.io/2017/07/09/ssh-config/](https://vra.github.io/2017/07/09/ssh-config/)
   
-<http://www.lainme.com/doku.php/blog/2011/01/%E4%BD%BF%E7%94%A8ssh_config>
+[http://www.lainme.com/doku.php/blog/2011/01/%E4%BD%BF%E7%94%A8ssh_config](http://www.lainme.com/doku.php/blog/2011/01/%E4%BD%BF%E7%94%A8ssh_config)

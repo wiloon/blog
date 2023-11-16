@@ -11,7 +11,7 @@ tags:
 ---
 ## Iterator, Enumeration
 
-<http://www.cnblogs.com/skywang12345/p/3311275.html>
+[http://www.cnblogs.com/skywang12345/p/3311275.html](http://www.cnblogs.com/skywang12345/p/3311275.html)
 
 Iterator和Enumeration区别
   

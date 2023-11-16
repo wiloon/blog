@@ -11,7 +11,7 @@ tags:
 ---
 ## IO, 输入输出
 
-<https://my.oschina.net/u/1859679/blog/1839169>
+[https://my.oschina.net/u/1859679/blog/1839169](https://my.oschina.net/u/1859679/blog/1839169)
 
 同步阻塞IO
 

@@ -10,7 +10,7 @@ tags:
 ---
 ## jdbi
 
-<http://jdbi.org/>
+[http://jdbi.org/](http://jdbi.org/)
 
 jdbi
   
@@ -64,4 +64,4 @@ void createTable();
   
 声明式的主要是使用注解来实现，在实际的面向对象风格的代码中，我个人觉得声明式的比较简洁，容易阅读和维护。所以下面都按照Declarative Api的方式。
 
-<https://www.jianshu.com/p/1ee34c858cb9>
+[https://www.jianshu.com/p/1ee34c858cb9](https://www.jianshu.com/p/1ee34c858cb9)

@@ -13,7 +13,7 @@ tags:
 
 TCP将数据分解成网络数据包，并在每个数据包中添加少量数据。这些附加数据包括一个序列号，用于检测丢失或到达顺序不正确的数据包，以及一个校验和，可以检测数据包数据内的错误。当其中任何一个问题发生时，TCP使用自动重传请求 (ARQ）告诉发送方重新发送丢失或损坏的数据包。
 
-<https://luoguochun.cn/post/2016-09-23-tcp-fuck/>
+[https://luoguochun.cn/post/2016-09-23-tcp-fuck/](https://luoguochun.cn/post/2016-09-23-tcp-fuck/)
 
 TCP 的连接标识是通过 “源IP + 源Port + 目标IP + 目标Port + 协议号“ 组成的唯一五元组，一旦其中一个参数发生变化，则需要重新创建新的 TCP 连接。
 
@@ -64,7 +64,7 @@ UTO(User Timeout) UTO指的是发送SYN,收到ACK的超时时间,如果在UTO内
 
 对于建链接的3次握手,主要是要初始化Sequence Number 的初始值。通信的双方要互相通知对方自己的初始化的Sequence Number (缩写为ISN: Inital Sequence Number) ——所以叫SYN,全称Synchronize Sequence Numbers。也就上图中的 x 和 y。这个号要作为以后的数据通信的序号,以保证应用层接收到的数据不会因为网络上的传输的问题而乱序 (TCP会用这个序号来拼接数据) 。
 
-<https://imgchr.com/i/Bo6VQx>
+[https://imgchr.com/i/Bo6VQx](https://imgchr.com/i/Bo6VQx)
 
 正常情况下,tcp的建立需要进行3次握手,tcp断开需要进行4次挥手。抓包看下建立连接和断开过程,通过抓取22端口报文,用telnent远程连接22端口测试,测试命令如下:
 
@@ -209,7 +209,7 @@ TCP阻塞控制
 小结
 这里小结只是tcp的很小一部分,没有涉及到tcp的方方面面,也没有涉及到内核调优,编程技巧等方方面面。另外tcp目前还是发展中的协议,随着时间推移,有很多新的功能特性添加进来,这里也没有涉及到。对于tcp的熟悉,必须通过抓包实践才能进行一步了解,停留在读书计理论,永远无法理解。期待以后有更全面的认识！
 
-tcpdump 使用参考:  <https://luoguochun.cn/2015/07/25/tcpdump-usage/> 完。
+tcpdump 使用参考:  [https://luoguochun.cn/2015/07/25/tcpdump-usage/](https://luoguochun.cn/2015/07/25/tcpdump-usage/) 完。
 
 一些参考:  TCP_DEFER_ACCEPT TFO–TCP Fast Open – 由于存在安全隐患而没有广泛使用。
 
@@ -221,11 +221,11 @@ tcpdump 使用参考:  <https://luoguochun.cn/2015/07/25/tcpdump-usage/> 完。
 
 ---
 
-<https://coolshell.cn/articles/11564.html>
-<https://www.cnblogs.com/liwei0526vip/p/14587300.html>
+[https://coolshell.cn/articles/11564.html](https://coolshell.cn/articles/11564.html)
+[https://www.cnblogs.com/liwei0526vip/p/14587300.html](https://www.cnblogs.com/liwei0526vip/p/14587300.html)
 
-<https://xie.infoq.cn/article/760f379a3e3f2694b5e994ffd?utm_source=rss&utm_medium=article>
-><https://developer.aliyun.com/article/720202>
+[https://xie.infoq.cn/article/760f379a3e3f2694b5e994ffd?utm_source=rss&utm_medium=article](https://xie.infoq.cn/article/760f379a3e3f2694b5e994ffd?utm_source=rss&utm_medium=article)
+>[https://developer.aliyun.com/article/720202](https://developer.aliyun.com/article/720202)
 
 RWIN (receivers advertised window size)
 
@@ -239,4 +239,4 @@ TTL与MSL是有关系的但不是简单的相等的关系，MSL要大于等于TT
 
 ————————————————
 版权声明：本文为CSDN博主「xiaofei0859」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
-原文链接：<https://blog.csdn.net/xiaofei0859/article/details/6044694>
+原文链接：[https://blog.csdn.net/xiaofei0859/article/details/6044694](https://blog.csdn.net/xiaofei0859/article/details/6044694)

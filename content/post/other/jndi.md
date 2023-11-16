@@ -324,7 +324,7 @@ javax.naming.ldap: 提供LDAP支持；
   
 ## JNDI 是什么
 
-<http://blog.csdn.net/zhaosg198312/article/details/3979435>
+[http://blog.csdn.net/zhaosg198312/article/details/3979435](http://blog.csdn.net/zhaosg198312/article/details/3979435)
 
 JNDI是 Java 命名与目录接口 (Java Naming and Directory Interface) ，在JavaEE规范中是重要的规范之一，不少专家认为，没有透彻理解JNDI的意义和作用，就没有真正掌握JavaEE特别是EJB的知识。
   

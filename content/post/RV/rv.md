@@ -9,7 +9,7 @@ tags:
 ---
 ## RV basic, 房车, 拖挂房车
 
-<https://campaddict.com/dispersed-camping/>
+[https://campaddict.com/dispersed-camping/](https://campaddict.com/dispersed-camping/)
 
 - Dispersed camping is camping in a national forest OUTSIDE of any improved campground or recreational area.
 - Dry camping is simply camping without being hooked up to any utilities.

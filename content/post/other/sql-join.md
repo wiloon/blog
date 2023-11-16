@@ -229,6 +229,6 @@ select a.id,a.va,b.id,b.va from @ta a,@ta b where a.id=b.id+1
   
 ```
 
-<http://baike.baidu.com/view/4828677.htm>
+[http://baike.baidu.com/view/4828677.htm](http://baike.baidu.com/view/4828677.htm)
 
-<http://www.lao8.org/html/8/2008-7-28/INNERJOIN/>
+[http://www.lao8.org/html/8/2008-7-28/INNERJOIN/](http://www.lao8.org/html/8/2008-7-28/INNERJOIN/)

@@ -127,6 +127,6 @@ div section article ，语义是从无到有，逐渐增强的。div 无任何�
 
 http://gaowhen.com/
 
-<http://www.qianduan.net/html5-differences-in-the-div-section-article.html>
+[http://www.qianduan.net/html5-differences-in-the-div-section-article.html](http://www.qianduan.net/html5-differences-in-the-div-section-article.html)
 
  [1]: http://www.cn-cuckoo.com/2010/10/21/the-design-of-html5-2151.html

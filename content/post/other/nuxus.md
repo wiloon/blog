@@ -15,10 +15,10 @@ Nexus 是Maven仓库管理器，如果你使用Maven，你可以从Maven中央�
 
 ## 下载和安装
 
-你可以从 <http://nexus.sonatype.org/downloads/> 下载最新版本的Nexus，笔者使用的是1.9.2.3版本。
+你可以从 [http://nexus.sonatype.org/downloads/](http://nexus.sonatype.org/downloads/) 下载最新版本的Nexus，笔者使用的是1.9.2.3版本。
 
 Nexus提供了两种安装方式，一种是内嵌Jetty的bundle，只要你有JRE就能直接运行。第二种方式是WAR，你只须简单的将其发布到web容器中即可使用。
 
 WAR方式安装
 
-你需要有一个能运行的web容器，这里以Tomcat为例，加入Tomcat的安装目录位于_D:programapache-tomcat-7.0.21_ ，首先我们将下载的_nexus-webapp-1.9.2.3.war_ 重命名为_nexus.war_ ，然后复制到__D:programapache-tomcat-7.0.21_webappsnexus.war_ ，然后运行**startup.bat**。访问<http://127.0.0.1:8080/nexus> .
+你需要有一个能运行的web容器，这里以Tomcat为例，加入Tomcat的安装目录位于_D:programapache-tomcat-7.0.21_ ，首先我们将下载的_nexus-webapp-1.9.2.3.war_ 重命名为_nexus.war_ ，然后复制到__D:programapache-tomcat-7.0.21_webappsnexus.war_ ，然后运行**startup.bat**。访问[http://127.0.0.1:8080/nexus](http://127.0.0.1:8080/nexus) .

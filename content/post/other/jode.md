@@ -11,7 +11,7 @@ tags:
 ---
 ## Jode
 
-<http://moonights.iteye.com/blog/568886>
+[http://moonights.iteye.com/blog/568886](http://moonights.iteye.com/blog/568886)
 
 1. Jode介绍
 
@@ -19,7 +19,7 @@ tags:
 
 2. Jode Eclipse插件安装
 
-顺序点击Eclipse上的==>help ==> Software Updates ==> Find and Install ==> Search for new features to install, 单击"New Remote Site...", 在Name中输入Jode Decompliter在URL栏输入 <http://www.technoetic.com/eclipse/update> 然后下一步,就可以看到"Jode Decompiler"了,选上并单击Finish就开始自动到相应的官网上去下载安装了。安装好后,可以在Window ==> Preferences... ==> Java ==> Jode Decompiler选项卡。
+顺序点击Eclipse上的==>help ==> Software Updates ==> Find and Install ==> Search for new features to install, 单击"New Remote Site...", 在Name中输入Jode Decompliter在URL栏输入 [http://www.technoetic.com/eclipse/update> 然后下一步,就可以看到"Jode Decompiler"了,选上并单击Finish就开始自动到相应的官网上去下载安装了。安装好后,可以在Window ==> Preferences... ==> Java ==](http://www.technoetic.com/eclipse/update> 然后下一步,就可以看到"Jode Decompiler"了,选上并单击Finish就开始自动到相应的官网上去下载安装了。安装好后,可以在Window ==> Preferences... ==> Java ==) Jode Decompiler选项卡。
 
 安装好了再设置一下文件关联就可以了,Window => Preferences... => General => Editors => File Associations找到"*.class"在"Associated editors"里面可以看到"Jode class file viewer"选中它再单击Default按钮就OK了
 

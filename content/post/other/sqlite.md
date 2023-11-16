@@ -100,19 +100,19 @@ CREATE TABLE IF NOT EXISTS tree_path(
 INSERT INTO users VALUES ('c31f5e0e-0e0c-4731-97dc-9c6675a0068c','admin','admin@admin.com','$2a$10$AR7t1b/kgGS2oiTrlrW2C.JkVAOT3ZviKj.2zvWZIm0lBnsOrTuX2', now())
 ```
 
-<https://www.runoob.com/sqlite/sqlite-create-table.html>
-<http://shows.poorren.com/Document/SQLite/39.Html>
+[https://www.runoob.com/sqlite/sqlite-create-table.html](https://www.runoob.com/sqlite/sqlite-create-table.html)
+[http://shows.poorren.com/Document/SQLite/39.Html](http://shows.poorren.com/Document/SQLite/39.Html)
 
 ### 索引 B 树
 
-<https://blog.csdn.net/jinking01/article/details/115725022>
+[https://blog.csdn.net/jinking01/article/details/115725022](https://blog.csdn.net/jinking01/article/details/115725022)
 
-<https://www.sqlite.org/cli.html>
+[https://www.sqlite.org/cli.html](https://www.sqlite.org/cli.html)
 
 ## 在 windows 环境使用 sqlite
 
 - install
 
-<https://www.sqlite.org/download.html>
+[https://www.sqlite.org/download.html](https://www.sqlite.org/download.html)
 
 需要下载两个包: sqlite-dll-win-x64-3440000.zip, sqlite-tools-win-x64-3440000.zip, 解压之后把所有文件都放到同一个目录, 比如: C:\workspace\apps, 把这个目录加到环境变量 PATH.

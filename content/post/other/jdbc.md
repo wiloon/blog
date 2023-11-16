@@ -536,11 +536,11 @@ ADBA 是 Oracle 主导的 Java 异步数据库访问的标准 API 。它的目�
 
 On Wednesday, September 18, at Oracle CodeOne Oracle announced that Oracle will stop work on ADBA (Asynchronous Database Access)
 
-><https://mail.openjdk.java.net/pipermail/jdbc-spec-discuss/2019-September/000529.html>
+>[https://mail.openjdk.java.net/pipermail/jdbc-spec-discuss/2019-September/000529.html](https://mail.openjdk.java.net/pipermail/jdbc-spec-discuss/2019-September/000529.html)
 
 ### R2DBC
 
 pring 官方在 Spring 5 发布了响应式 Web 框架 Spring WebFlux 之后急需能够满足异步响应的数据库交互 API 。 由于缺乏标准和驱动，Pivotal (Spring 官方） 团队开始研究反应式关系型数据库连接 (Reactive Relational Database Connectivity），并提出了 R2DBC 规范 API 以评估可行性并讨论数据库厂商是否有兴趣支持反应式的异步非阻塞驱动程序。最开始只有 PostgreSQL 、H2、MSSQL 三家，现在 MySQL 也加入了进来。R2DBC 最新版本是0.8.1.RELEASE。除了驱动实现外还提供了 R2DBC 连接池 和 R2DBC 代理。除此之外还支持云原生应用。
 
-><https://segmentfault.com/a/1190000022042952>
-<http://sharryjava.iteye.com/blog/325872>
+>[https://segmentfault.com/a/1190000022042952](https://segmentfault.com/a/1190000022042952)
+[http://sharryjava.iteye.com/blog/325872](http://sharryjava.iteye.com/blog/325872)

@@ -22,7 +22,7 @@ sudo apt install nfs-common
 
 ### nfs 依赖时钟, 需要 ntp 服务
 
-<https://blog.wiloon.com/ntp>
+[https://blog.wiloon.com/ntp](https://blog.wiloon.com/ntp)
 
 ```bash
 mkdir -p /data/nfs /mnt/nfs
@@ -91,13 +91,13 @@ umount z:
 
 ```
 
-<https://wiki.archlinux.org/index.php/NFS#Installation>
+[https://wiki.archlinux.org/index.php/NFS#Installation](https://wiki.archlinux.org/index.php/NFS#Installation)
   
-<https://blogs.msdn.microsoft.com/sfu/2009/03/27/can-i-set-up-user-name-mapping-in-windows-vista/>
+[https://blogs.msdn.microsoft.com/sfu/2009/03/27/can-i-set-up-user-name-mapping-in-windows-vista/](https://blogs.msdn.microsoft.com/sfu/2009/03/27/can-i-set-up-user-name-mapping-in-windows-vista/)
 
 NFS on CentOS 7 & Windows 10 NFS Client Configuration
   
-<https://dovidenko.com/2017/505/nfs-centos-7-windows-10-network-shares.html/embed#?secret=DYEnZkJ5i8>
+[https://dovidenko.com/2017/505/nfs-centos-7-windows-10-network-shares.html/embed#?secret=DYEnZkJ5i8](https://dovidenko.com/2017/505/nfs-centos-7-windows-10-network-shares.html/embed#?secret=DYEnZkJ5i8)
 
 ## 其他选项
 
@@ -110,7 +110,7 @@ NFS on CentOS 7 & Windows 10 NFS Client Configuration
 - subtree_check：所输出目录是一个子目录，则NFS服务器将检查其父目录的权限（默认设置）。
 - no_subtree_check：即使输出目录是一个子目录，NFS服务器也不检查其父目录的权限，这样做可以提高效率。
 
-<https://www.cnblogs.com/nufangrensheng/p/3486839.html>
+[https://www.cnblogs.com/nufangrensheng/p/3486839.html](https://www.cnblogs.com/nufangrensheng/p/3486839.html)
 
 ## NFS服务的主配置文件
 
@@ -158,6 +158,6 @@ anonuid=xxx          指定NFS服务器/etc/passwd文件中匿名用�
 
 ©著作权归作者所有：来自51CTO博客作者一口Linux的原创作品，请联系作者获取转载授权，否则将追究法律责任
 NFS主配置文件exports参数详解
-<https://blog.51cto.com/u_15169172/2794884>
+[https://blog.51cto.com/u_15169172/2794884](https://blog.51cto.com/u_15169172/2794884)
 
 [[samba]]

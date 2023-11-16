@@ -74,7 +74,7 @@ func shellExecFmt(format string, params ...interface{}) string {
 
 ## go 调用 shell
 
-<https://blog.csdn.net/qq_36874881/article/details/78234005>
+[https://blog.csdn.net/qq_36874881/article/details/78234005](https://blog.csdn.net/qq_36874881/article/details/78234005)
 
 阻塞方式(需要执行结果)
   
@@ -232,5 +232,5 @@ func (c *Cmd) StderrPipe() (io.ReadCloser, error)
   
 StderrPipe方法返回一个在命令Start后与命令标准错误输出关联的管道。Wait方法获知命令结束后会关闭这个管道,一般不需要显式的关闭该管道。但是在从管道读取完全部数据之前调用Wait是错误的；同样使用StderrPipe方法时调用Run函数也是错误的。
 
-><https://www.infoq.cn/article/mbzyz8sedtbz5*4mhizo>
-><https://github.com/erning/gorun>
+>[https://www.infoq.cn/article/mbzyz8sedtbz5*4mhizo](https://www.infoq.cn/article/mbzyz8sedtbz5*4mhizo)
+>[https://github.com/erning/gorun](https://github.com/erning/gorun)

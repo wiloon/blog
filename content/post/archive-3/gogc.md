@@ -87,11 +87,11 @@ GOGC 用于控制GC的触发频率， 其值默认为100
 
 每次GC必须完成如下循环，旧的完成了再开启新的。 sweep termination, mark, mark termination, and sweep
 
-<https://studygolang.com/articles/6346>
+[https://studygolang.com/articles/6346](https://studygolang.com/articles/6346)
   
-<https://ieevee.com/assets/2018-01-28-gogc.html>
+[https://ieevee.com/assets/2018-01-28-gogc.html](https://ieevee.com/assets/2018-01-28-gogc.html)
   
-<http://legendtkl.com/2017/04/28/golang-gc/>
+[http://legendtkl.com/2017/04/28/golang-gc/](http://legendtkl.com/2017/04/28/golang-gc/)
 
 ### 并发垃圾收集
 
@@ -105,6 +105,6 @@ STW 的垃圾收集器虽然需要暂停程序，但是它能够有效地控制�
 混合写屏障 #
 在 Go 语言 v1.7 版本之前，运行时会使用 Dijkstra 插入写屏障保证强三色不变性，但是运行时并没有在所有的垃圾收集根对象上开启插入写屏障。因为应用程序可能包含成百上千的 Goroutine，而垃圾收集的根对象一般包括全局变量和栈对象，如果运行时需要在几百个 Goroutine 的栈上都开启写屏障，会带来巨大的额外开销，所以 Go 团队在实现上选择了在标记阶段完成时暂停程序、将所有栈对象标记为灰色并重新扫描，在活跃 Goroutine 非常多的程序中，重新扫描的过程需要占用 10 ~ 100ms 的时间。
 
-><https://draveness.me/golang/docs/part3-runtime/ch07-memory/golang-garbage-collector/#fn:8>
+>[https://draveness.me/golang/docs/part3-runtime/ch07-memory/golang-garbage-collector/#fn:8](https://draveness.me/golang/docs/part3-runtime/ch07-memory/golang-garbage-collector/#fn:8)
 
-><https://github.com/golang/proposal>
+>[https://github.com/golang/proposal](https://github.com/golang/proposal)

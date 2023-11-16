@@ -23,7 +23,7 @@ sudo apt-get install MySQL-server
 
 安装包名称: MySQL-5.6.12-win32.zip
 
-下载地址: <http://dev.MySQL.com/downloads/MySQL/>
+下载地址: [http://dev.MySQL.com/downloads/MySQL/](http://dev.MySQL.com/downloads/MySQL/)
 
 **二、安装MySQL**
 

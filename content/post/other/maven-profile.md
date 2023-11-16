@@ -200,4 +200,4 @@ settings.xml 文件可以在 ~/.m2 目录下，为某个用户的自定义行为
 
 Maven 提供的 profile 功能非常强大和灵活，用得好的话，可以有效的隔离很多特殊的配置，使得整个项目能在不同环境中顺利的构建。但是，强大和灵活带来得问题是相对难掌握，希望本文能对 Maven 使用者有帮助。
 
-<http://juvenshun.iteye.com/blog/208714>
+[http://juvenshun.iteye.com/blog/208714](http://juvenshun.iteye.com/blog/208714)

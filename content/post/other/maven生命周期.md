@@ -12,7 +12,7 @@ tags:
 ## Maven生命周期
 ### Maven 生命周期
 
-Maven生命周期已经在另一篇博客中介绍过了(<http://www.cnblogs.com/haippy/archive/2012/07/04/2576453.html>)，这里引用IBM developerworks 的文章再一次讨论Maven 的生命周期。
+Maven生命周期已经在另一篇博客中介绍过了([http://www.cnblogs.com/haippy/archive/2012/07/04/2576453.html](http://www.cnblogs.com/haippy/archive/2012/07/04/2576453.html))，这里引用IBM developerworks 的文章再一次讨论Maven 的生命周期。
 
 在Maven2中有了明确的生命周期概念，而且都提供与之对应的命令，使得项目构建更加清晰明了。主要的生命周期阶段: 
 

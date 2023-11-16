@@ -9,7 +9,7 @@ tags:
   - reprint
 ---
 ## tcp_syn_retries等参数
-<http://www.chengweiyang.cn/2017/02/18/linux-connect-timeout/>
+[http://www.chengweiyang.cn/2017/02/18/linux-connect-timeout/](http://www.chengweiyang.cn/2017/02/18/linux-connect-timeout/)
 
 tcp_syn_retries
   
@@ -19,7 +19,7 @@ tcp_synack_retries
 sysctl -a | grep tcp_synack_retries
 ```
 
-<http://www.cnitblog.com/Scripts/archive/2009/05/20/57350.html>
+[http://www.cnitblog.com/Scripts/archive/2009/05/20/57350.html](http://www.cnitblog.com/Scripts/archive/2009/05/20/57350.html)
 
 tcp_syn_retries等参数详解(转帖)
   

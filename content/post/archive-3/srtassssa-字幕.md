@@ -40,4 +40,4 @@ ass > ssa > srt
 - Big5是在台湾和香港等地广为使用的计算机汉字编码方案，繁体中文。
 - eng是English的简写，也就是说表示英文。
 
-<https://blog.csdn.net/wuhao91/article/details/50454051>
+[https://blog.csdn.net/wuhao91/article/details/50454051](https://blog.csdn.net/wuhao91/article/details/50454051)

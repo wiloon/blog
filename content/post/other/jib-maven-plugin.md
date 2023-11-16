@@ -12,7 +12,7 @@ tags:
 
 Jib 是一个构建 Docker 或者 OCI 镜像的 Maven 插件
 
-<https://github.com/GoogleContainerTools/jib/tree/master/jib-maven-plugin>
+[https://github.com/GoogleContainerTools/jib/tree/master/jib-maven-plugin](https://github.com/GoogleContainerTools/jib/tree/master/jib-maven-plugin)
 
 ```xml
 <plugin>

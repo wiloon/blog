@@ -10,7 +10,7 @@ tags:
 ---
 ## redis 主从复制
 
-<https://lanjingling.github.io/2015/11/17/redis-mast-slaveof/>
+[https://lanjingling.github.io/2015/11/17/redis-mast-slaveof/](https://lanjingling.github.io/2015/11/17/redis-mast-slaveof/)
 
 Redis中,用户可以使用slaveof命令或者slaveof配置项,让一个服务器去复制另一个服务器。进行复制中的主从服务器双方的数据库将保存相同的数据 (一致性) 。
   

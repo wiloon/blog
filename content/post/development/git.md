@@ -42,7 +42,7 @@ git -C /Users/jhoffmann/tmp/my-project/ pull
 
 ## origin
 
-<https://www.zhihu.com/question/27712995>
+[https://www.zhihu.com/question/27712995](https://www.zhihu.com/question/27712995)
 
 origin 是远程仓库的默认别名, 查看配置了几个远程仓库和别名 `git remote -v`
 
@@ -380,7 +380,7 @@ git clean -xfd
 
 ```
 
-<https://ruby-china.org/topics/17951>
+[https://ruby-china.org/topics/17951](https://ruby-china.org/topics/17951)
 
 ## git remote
 
@@ -422,7 +422,7 @@ git rm -rf xxx/xxx
 git cherry-pick <commitHash>
 ```
 
-<https://www.ruanyifeng.com/blog/2020/04/git-cherry-pick.html>
+[https://www.ruanyifeng.com/blog/2020/04/git-cherry-pick.html](https://www.ruanyifeng.com/blog/2020/04/git-cherry-pick.html)
 
 ### 指定ssh 私钥
 
@@ -458,7 +458,7 @@ git checkout HEAD . # 将所有代码都 checkout 出來(最后一次 commit 的
 git checkout 788258e49531eb24bfd347a600d69a16f966c495
 ```
 
-<https://blog.csdn.net/leedaning/article/details/51304690>
+[https://blog.csdn.net/leedaning/article/details/51304690](https://blog.csdn.net/leedaning/article/details/51304690)
 
 ### 指定克隆深度
 
@@ -598,7 +598,7 @@ git fetch origin dev:dev
 只要这两个条件其中一个不满足，则执行该命令会报错！
 ————————————————
 版权声明：本文为CSDN博主「啊大1号」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
-原文链接：<https://blog.csdn.net/a3192048/article/details/100069772>
+原文链接：[https://blog.csdn.net/a3192048/article/details/100069772](https://blog.csdn.net/a3192048/article/details/100069772)
 
 ```bash
 # git fetch <远程主机名> <分支名>
@@ -699,7 +699,7 @@ git fetch --all 告诉 Git 同步所有的远端仓库。
 git checkout -b branch_name tag_name
 ```
 
-<https://git-scm.com/book/zh/v2/Git-%E5%9F%BA%E7%A1%80-%E6%89%93%E6%A0%87%E7%AD%BE>
+[https://git-scm.com/book/zh/v2/Git-%E5%9F%BA%E7%A1%80-%E6%89%93%E6%A0%87%E7%AD%BE](https://git-scm.com/book/zh/v2/Git-%E5%9F%BA%E7%A1%80-%E6%89%93%E6%A0%87%E7%AD%BE)
 
 ### git clone
 
@@ -852,7 +852,7 @@ rm .git/module/* 删除模块下的子模块目录，每个子模块对应一个
 
 ————————————————
 版权声明：本文为CSDN博主「guotianqing」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
-原文链接：<https://blog.csdn.net/guotianqing/article/details/82391665>
+原文链接：[https://blog.csdn.net/guotianqing/article/details/82391665](https://blog.csdn.net/guotianqing/article/details/82391665)
 
 ### [0x7FFA0BF6E0A4] ANOMALY: use of REX.w is meaningless (default operand size is 64)
 
@@ -874,7 +874,7 @@ git restore
 git restore --staged /path/to/file
 ```
 
-<https://blog.csdn.net/u013493841/article/details/104451987>
+[https://blog.csdn.net/u013493841/article/details/104451987](https://blog.csdn.net/u013493841/article/details/104451987)
 
 ### 关闭ssl校验
 
@@ -882,23 +882,23 @@ git restore --staged /path/to/file
 git config –global http.sslVerify false
 ```
 
-<https://git-scm.com/docs>
+[https://git-scm.com/docs](https://git-scm.com/docs)
 
-<https://git-scm.com/book/zh/v2>
+[https://git-scm.com/book/zh/v2](https://git-scm.com/book/zh/v2)
 
-<http://zensheno.blog.51cto.com/2712776/490748>  
-<http://blog.csdn.net/ithomer/article/details/7529841>  
-<http://www.cnblogs.com/springbarley/archive/2012/11/03/2752984.html>  
-<http://git-scm.com/book/zh/v1/Git-%E5%88%86%E6%94%AF-%E5%88%86%E6%94%AF%E7%9A%84%E6%96%B0%E5%BB%BA%E4%B8%8E%E5%90%88%E5%B9%B6>  
-<http://yijiebuyi.com/blog/eacf4d053fad77affffae397d9af7172.html>  
-<http://www.ruanyifeng.com/blog/2014/06/git_remote.html>  
-<https://www.liaoxuefeng.com/wiki/896043488029600/900003767775424>  
-<https://blog.csdn.net/riddle1981/article/details/74938111>  
-<https://blog.csdn.net/SCHOLAR_II/article/details/72191042>  
-<https://www.jianshu.com/p/38f04aef1c9d>
+[http://zensheno.blog.51cto.com/2712776/490748](http://zensheno.blog.51cto.com/2712776/490748)  
+[http://blog.csdn.net/ithomer/article/details/7529841](http://blog.csdn.net/ithomer/article/details/7529841)  
+[http://www.cnblogs.com/springbarley/archive/2012/11/03/2752984.html](http://www.cnblogs.com/springbarley/archive/2012/11/03/2752984.html)  
+[http://git-scm.com/book/zh/v1/Git-%E5%88%86%E6%94%AF-%E5%88%86%E6%94%AF%E7%9A%84%E6%96%B0%E5%BB%BA%E4%B8%8E%E5%90%88%E5%B9%B6](http://git-scm.com/book/zh/v1/Git-%E5%88%86%E6%94%AF-%E5%88%86%E6%94%AF%E7%9A%84%E6%96%B0%E5%BB%BA%E4%B8%8E%E5%90%88%E5%B9%B6)  
+[http://yijiebuyi.com/blog/eacf4d053fad77affffae397d9af7172.html](http://yijiebuyi.com/blog/eacf4d053fad77affffae397d9af7172.html)  
+[http://www.ruanyifeng.com/blog/2014/06/git_remote.html](http://www.ruanyifeng.com/blog/2014/06/git_remote.html)  
+[https://www.liaoxuefeng.com/wiki/896043488029600/900003767775424](https://www.liaoxuefeng.com/wiki/896043488029600/900003767775424)  
+[https://blog.csdn.net/riddle1981/article/details/74938111](https://blog.csdn.net/riddle1981/article/details/74938111)  
+[https://blog.csdn.net/SCHOLAR_II/article/details/72191042](https://blog.csdn.net/SCHOLAR_II/article/details/72191042)  
+[https://www.jianshu.com/p/38f04aef1c9d](https://www.jianshu.com/p/38f04aef1c9d)
 
-><https://www.jianshu.com/p/9000cd49822c>
-><https://blog.csdn.net/CrazyZhang1990/article/details/42780285>
+>[https://www.jianshu.com/p/9000cd49822c](https://www.jianshu.com/p/9000cd49822c)
+>[https://blog.csdn.net/CrazyZhang1990/article/details/42780285](https://blog.csdn.net/CrazyZhang1990/article/details/42780285)
 
 ### pre-commit
 
@@ -927,7 +927,7 @@ git push -u origin main
 
 ## 删除大文件
 
-<https://harttle.land/2016/03/22/purge-large-files-in-gitrepo.html>
+[https://harttle.land/2016/03/22/purge-large-files-in-gitrepo.html](https://harttle.land/2016/03/22/purge-large-files-in-gitrepo.html)
 
 ## 按修改次数排序
 
@@ -948,7 +948,7 @@ git pull --allow-unrelated-histories
 原因："git merge" used to allow merging two branches that have no common base by default, which led to a brand new history of an existing project created and then get pulled by an unsuspecting maintainer, which allowed an unnecessary parallel history merged into the existing project. The command has been taught not to allow this by default, with an escape hatch "--allow-unrelated-histories" option to be used in a rare event that merges histories of two projects that started their lives independently（stackoverflow）.
 
 作者：勿以浮沙筑高台
-链接：<https://www.jianshu.com/p/536080638cc9>
+链接：[https://www.jianshu.com/p/536080638cc9](https://www.jianshu.com/p/536080638cc9)
 来源：简书
 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
 
@@ -969,13 +969,13 @@ git reflog expire --expire=now --all
 
 ————————————————
 版权声明：本文为CSDN博主「JAVA|Mr.Java」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
-原文链接：<https://blog.csdn.net/q258523454/article/details/83899911>
+原文链接：[https://blog.csdn.net/q258523454/article/details/83899911](https://blog.csdn.net/q258523454/article/details/83899911)
 
 ## TortoiseGit, ssh key
 
 把 key 转成 ppk 格式 加到 Pageant 里.
 
-<https://www.jianshu.com/p/1bbf5e25c912>
+[https://www.jianshu.com/p/1bbf5e25c912](https://www.jianshu.com/p/1bbf5e25c912)
 
 ## git 没提交的代码迁移到新分支
 
@@ -1000,7 +1000,7 @@ git reflog expire --expire=now --all
 > git push origin dev-2021-11
 ```
 
-<https://www.cnblogs.com/toutou/p/git_stash.html>
+[https://www.cnblogs.com/toutou/p/git_stash.html](https://www.cnblogs.com/toutou/p/git_stash.html)
 
 ## There is no tracking information for the current branch
 
@@ -1008,7 +1008,7 @@ git reflog expire --expire=now --all
 
 git branch --set-upstream-to=origin/远程分支的名字(我的是master) 本地分支的名字(我的是master)
 
-<https://segmentfault.com/a/1190000009128253>
+[https://segmentfault.com/a/1190000009128253](https://segmentfault.com/a/1190000009128253)
 
 ## Your branch and 'origin/branch0' have diverged
 
@@ -1021,7 +1021,7 @@ and have 4 and 2 different commits each, respectively.
 nothing to commit, working tree clean
 ```
 
-<https://segmentfault.com/q/1010000015716120>
+[https://segmentfault.com/q/1010000015716120](https://segmentfault.com/q/1010000015716120)
 
 假设，远程上的 commit 是 A -> B
 你在 A 电脑上 commit 和 push 之后，远程变成了 A -> B -> C -> D
@@ -1087,7 +1087,7 @@ git cherry -v origin/master asa
 git cherry -v master asa
 ```
 
-<https://www.cnblogs.com/rainbow-tan/p/15314711.html>
+[https://www.cnblogs.com/rainbow-tan/p/15314711.html](https://www.cnblogs.com/rainbow-tan/p/15314711.html)
 
 ## git cherry pick
 
@@ -1111,7 +1111,7 @@ git rerere [clear | forget <pathspec>…​ | diff | status | remaining | gc]
 
 ## .gitattributes
 
-<https://zhuanlan.zhihu.com/p/108266134>
+[https://zhuanlan.zhihu.com/p/108266134](https://zhuanlan.zhihu.com/p/108266134)
 
 ## 已存在的目录转换为一个 GIT 项目并托管到 GITHUB 仓库
 
@@ -1133,6 +1133,6 @@ git push -u origin master -f
   
 ```
 
-<http://leonshi.com/2016/02/01/add-existing-project-to-github/>
+[http://leonshi.com/2016/02/01/add-existing-project-to-github/](http://leonshi.com/2016/02/01/add-existing-project-to-github/)
   
-<http://blog.csdn.net/shiren1118/article/details/7761203>
+[http://blog.csdn.net/shiren1118/article/details/7761203](http://blog.csdn.net/shiren1118/article/details/7761203)

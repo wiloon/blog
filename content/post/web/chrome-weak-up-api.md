@@ -22,7 +22,7 @@ Note: Like most other powerful web APIs, the Wake Lock API is only available whe
 ## chrome 79+
 
 Chrome Updates Experimental Wake Lock API Support  
-<https://www.infoq.com/news/2019/11/chrome-wakelock-api/#:~:text=The%20Wake%20Lock%20API%20prevents%20some%20aspect%20of,this%20feature%2C%20adding%20promises%20and%20wake%20lock%20types>.
+[https://www.infoq.com/news/2019/11/chrome-wakelock-api/#:~:text=The%20Wake%20Lock%20API%20prevents%20some%20aspect%20of,this%20feature%2C%20adding%20promises%20and%20wake%20lock%20types](https://www.infoq.com/news/2019/11/chrome-wakelock-api/#:~:text=The%20Wake%20Lock%20API%20prevents%20some%20aspect%20of,this%20feature%2C%20adding%20promises%20and%20wake%20lock%20types).
 
 To use the Wake Lock API, developers need to enable the #enable-experimental-web-platform-features flag in chrome://flags.
 
@@ -73,19 +73,19 @@ export default class App extends Vue {
 
 #### demo
 
-<https://wake-lock-demo.glitch.me/>
+[https://wake-lock-demo.glitch.me/](https://wake-lock-demo.glitch.me/)
 
 #### code
 
-<https://glitch.com/edit/#!/wake-lock-demo?path=script.js%3A1%3A0>
+[https://glitch.com/edit/#!/wake-lock-demo?path=script.js%3A1%3A0](https://glitch.com/edit/#!/wake-lock-demo?path=script.js%3A1%3A0)
 
 #### w3c wake lock
 
-<https://www.w3.org/TR/screen-wake-lock/>
-<https://github.com/w3c/screen-wake-lock>
+[https://www.w3.org/TR/screen-wake-lock/](https://www.w3.org/TR/screen-wake-lock/)
+[https://github.com/w3c/screen-wake-lock](https://github.com/w3c/screen-wake-lock)
 
-<https://developers.google.com/web/updates/2018/12/wakelock>
-<https://chromestatus.com/features/4636879949398016>
-<https://wake-lock.glitch.me/screen.html>
-<https://medium.com/dev-channel/experimenting-with-the-wake-lock-api-b6f42e0a089f>
-<https://bugs.chromium.org/p/chromium/issues/detail?id=257511>
+[https://developers.google.com/web/updates/2018/12/wakelock](https://developers.google.com/web/updates/2018/12/wakelock)
+[https://chromestatus.com/features/4636879949398016](https://chromestatus.com/features/4636879949398016)
+[https://wake-lock.glitch.me/screen.html](https://wake-lock.glitch.me/screen.html)
+[https://medium.com/dev-channel/experimenting-with-the-wake-lock-api-b6f42e0a089f](https://medium.com/dev-channel/experimenting-with-the-wake-lock-api-b6f42e0a089f)
+[https://bugs.chromium.org/p/chromium/issues/detail?id=257511](https://bugs.chromium.org/p/chromium/issues/detail?id=257511)

@@ -10,7 +10,7 @@ tags:
 ---
 ## ODX, OTX, UDS
 
-<https://blog.softing.com/blog/automotive-electronics/diagnostics-odx-otx-uds-and-other-market-standards/>
+[https://blog.softing.com/blog/automotive-electronics/diagnostics-odx-otx-uds-and-other-market-standards/](https://blog.softing.com/blog/automotive-electronics/diagnostics-odx-otx-uds-and-other-market-standards/)
 
 Diagnostics – ODX, OTX, UDS and other market standards
   

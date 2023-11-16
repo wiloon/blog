@@ -175,7 +175,7 @@ Maven2也考虑到: 不同类型的项目需要拥有不同的目录结构。如
 
 WebContent (站点根目录)
 
-|-META-INF (META-INF文件夹)<http://www.wiloon.com/?p=6102>
+|-META-INF (META-INF文件夹)[http://www.wiloon.com/?p=6102](http://www.wiloon.com/?p=6102)
 
 | |-MANIFEST.MF (MANIFEST.MF配置清单文件)
 
@@ -209,7 +209,7 @@ WebContent (站点根目录)
 
 1. 切忌: 凡是WEB-INF里面的文件都不能被客户端直接访问(比如隐藏的信息)。WEB-INF目录下的资源对用户来说是不可见的,而对Web服务器来说则没有这样的限制。
 
-例如在WEB-INF下的index.htm,客户端无法与对待其他文件夹内的信息一样,通过<http://yourserver/yourwebapp/WEB-INF/index.htm访问。WEB-INF文件夹是禁止通过URL>访问的。
+例如在WEB-INF下的index.htm,客户端无法与对待其他文件夹内的信息一样,通过[http://yourserver/yourwebapp/WEB-INF/index.htm访问。WEB-INF文件夹是禁止通过URL](http://yourserver/yourwebapp/WEB-INF/index.htm访问。WEB-INF文件夹是禁止通过URL)访问的。
 
 6. 在WEB-INF目录的classes及lib子目录下,都可以存放Java类文件。在运行时,Servlet容器的类加载器先加载classes目录下的类,再加载lib目录下的JAR文件 (Java类库的打包文件) 中的类,jar包是许多class文件的集合。因此,如果两个目录下存在同名的类,classes目录下的类具有优先权。
 
@@ -255,6 +255,6 @@ Tomcat固定的目录结构
 
 Tomcat把由Jsp生成的Servlet放于此目录下
 
-<http://www.cnblogs.com/haippy/archive/2012/07/05/2577233.html>
+[http://www.cnblogs.com/haippy/archive/2012/07/05/2577233.html](http://www.cnblogs.com/haippy/archive/2012/07/05/2577233.html)
 
-<http://blog.csdn.net/ystyaoshengting/article/details/6204886>
+[http://blog.csdn.net/ystyaoshengting/article/details/6204886](http://blog.csdn.net/ystyaoshengting/article/details/6204886)

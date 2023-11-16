@@ -211,16 +211,16 @@ CPU 是一个重要的影响因素,由于是单线程模型,Redis 更喜欢大�
 
 ---
 
-<http://blog.csdn.net/rockstar541/article/details/30245493>
+[http://blog.csdn.net/rockstar541/article/details/30245493](http://blog.csdn.net/rockstar541/article/details/30245493)
   
-<https://www.zhihu.com/question/20698365>
+[https://www.zhihu.com/question/20698365](https://www.zhihu.com/question/20698365)
   
-<https://www.cnblogs.com/zhoujinyi/p/11606935.html>
+[https://www.cnblogs.com/zhoujinyi/p/11606935.html](https://www.cnblogs.com/zhoujinyi/p/11606935.html)
   
-<https://blog.51cto.com/zengestudy/1853801>
-<https://draveness.me/whys-the-design-redis-single-thread/>  
-<http://xiaorui.cc/archives/4123>  
+[https://blog.51cto.com/zengestudy/1853801](https://blog.51cto.com/zengestudy/1853801)
+[https://draveness.me/whys-the-design-redis-single-thread/](https://draveness.me/whys-the-design-redis-single-thread/)  
+[http://xiaorui.cc/archives/4123](http://xiaorui.cc/archives/4123)  
 
-<http://redisbook.com/>
+[http://redisbook.com/](http://redisbook.com/)
 
-<https://segmentfault.com/a/1190000017375843>
+[https://segmentfault.com/a/1190000017375843](https://segmentfault.com/a/1190000017375843)

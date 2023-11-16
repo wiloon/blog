@@ -10,7 +10,7 @@ tags:
 ---
 ## Linux下rz,sz与ssh的配合使用
 
-<http://blog.csdn.net/itegel84/article/details/5793575>
+[http://blog.csdn.net/itegel84/article/details/5793575](http://blog.csdn.net/itegel84/article/details/5793575)
 
 Linux下rz,sz与ssh的配合使用
 

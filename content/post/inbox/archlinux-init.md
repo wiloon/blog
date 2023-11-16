@@ -33,14 +33,14 @@ git clone git@github.com:wiloon/ansible.git
 
 ### config network by systemd-networkd
 
-<http://blog.wiloon.com/?p=9881>
+[http://blog.wiloon.com/?p=9881](http://blog.wiloon.com/?p=9881)
 
 pacman -Syu
 
 ### create user and set password
 
 yay 不能在root下执行, 需要新建个用户
-<http://blog.wiloon.com/?p=911>
+[http://blog.wiloon.com/?p=911](http://blog.wiloon.com/?p=911)
 
 ln -s /usr/bin/vim /usr/bin/vi
 visudo
@@ -61,7 +61,7 @@ connect to new system with user0 via ssh
 
 - ntp, chrony
 
-<http://blog.wiloon.com/ntp>
+[http://blog.wiloon.com/ntp](http://blog.wiloon.com/ntp)
 
 - 监控, telegraf
 
@@ -70,13 +70,13 @@ connect to new system with user0 via ssh
 - zsh, oh-my-zsh
     install and switch to zsh - oh-my-zsh
   
-<http://blog.wiloon.com/zsh>
+[http://blog.wiloon.com/zsh](http://blog.wiloon.com/zsh)
 
 - 安装图形界面 kde 或 xfce4
 
 #### install kde
 
-<http://blog.wiloon.com/kde>
+[http://blog.wiloon.com/kde](http://blog.wiloon.com/kde)
 
 #### xfce4
 
@@ -98,7 +98,7 @@ startxfce4
 
 登录shell后自动启动xfce4
 
-<http://blog.wiloon.com/?p=8940>
+[http://blog.wiloon.com/?p=8940](http://blog.wiloon.com/?p=8940)
 
 ### restart to desktop to continue
 
@@ -113,16 +113,16 @@ sudo pacman -S chromium
 yay -S google-chrome
 
 - yay
-<http://blog.wiloon.com/?p=7953>
+[http://blog.wiloon.com/?p=7953](http://blog.wiloon.com/?p=7953)
 
 ### 输入法
 
 - fcitx
-<http://blog.wiloon.com/?p=9650>
+[http://blog.wiloon.com/?p=9650](http://blog.wiloon.com/?p=9650)
 
 #### 输入法ibus
 
-<http://www.wiloon.com/?p=7507>
+[http://www.wiloon.com/?p=7507](http://www.wiloon.com/?p=7507)
 
 #### for right click extrace package
 
@@ -142,7 +142,7 @@ Time Format: Custom Format
 %a %R
 ```
 
-<http://goodies.xfce.org/projects/panel-plugins/xfce4-datetime-plugin>
+[http://goodies.xfce.org/projects/panel-plugins/xfce4-datetime-plugin](http://goodies.xfce.org/projects/panel-plugins/xfce4-datetime-plugin)
 
 ### sddm
 

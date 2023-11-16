@@ -9,8 +9,8 @@ tags:
 ---
 ### novnc
 
-<https://github.com/novnc/noVNC>
-<https://novnc.com/info.html>
+[https://github.com/novnc/noVNC](https://github.com/novnc/noVNC)
+[https://novnc.com/info.html](https://novnc.com/info.html)
 
     podman run  \
     -e REMOTE_HOST=192.168.50.114 \

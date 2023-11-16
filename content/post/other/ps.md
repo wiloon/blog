@@ -23,7 +23,7 @@ ps -e -o 'pid,comm,args,pcpu,rsz,vsz,stime,user,uid' | grep oracle | sort -nrk5
 
 其中 rsz 为实际内存，上例实现按内存排序，由大到小s
 
-<http://blog.fpliu.com/it/software/procps>
+[http://blog.fpliu.com/it/software/procps](http://blog.fpliu.com/it/software/procps)
 
 ps 命令用来列出系统中当前运行的那些进程。ps 命令列出的是当前那些进程的快照，就是执行ps命令的那个时刻的进程，如果想要动态的显示进程信息, 可以使用 top 命令。
 
@@ -194,19 +194,19 @@ rss        RSS      resident set size, the non-swapped physical memory that a
                     task has used (in kiloBytes). (alias rssize, rsz).
 
 版权声明：本文为CSDN博主「逝鸿」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
-原文链接：<https://blog.csdn.net/qq_21127313/article/details/79877483>
+原文链接：[https://blog.csdn.net/qq_21127313/article/details/79877483](https://blog.csdn.net/qq_21127313/article/details/79877483)
 
-<https://www.cnblogs.com/hunttown/p/5452253.html>
-<http://elinux.org/Runtime_Memory_Measurement>
-<https://www.cnblogs.com/peida/archive/2012/12/19/2824418.html>  
-<https://man7.org/linux/man-pages/man1/ps.1.html>
+[https://www.cnblogs.com/hunttown/p/5452253.html](https://www.cnblogs.com/hunttown/p/5452253.html)
+[http://elinux.org/Runtime_Memory_Measurement](http://elinux.org/Runtime_Memory_Measurement)
+[https://www.cnblogs.com/peida/archive/2012/12/19/2824418.html](https://www.cnblogs.com/peida/archive/2012/12/19/2824418.html)  
+[https://man7.org/linux/man-pages/man1/ps.1.html](https://man7.org/linux/man-pages/man1/ps.1.html)
 
 ### `ps aux` VS. `ps -ef`
 
 Linux下显示系统进程的命令 ps，最常用的有ps -ef 和ps aux。这两个到底有什么区别呢？两者没太大差别，讨论这个问题，要追溯到Unix系统中的两种风格，
 
 System V 风格和 BSD 风格, ps aux 最初用到 Unix Style 中( BSD的格式)，而  ps -ef 被用在 System V Style 中，两者输出略有不同。现在的大部分Linux系统都是可以同时使用这两种方式的。
-<https://www.cnblogs.com/5201351/p/4206461.html>
+[https://www.cnblogs.com/5201351/p/4206461.html](https://www.cnblogs.com/5201351/p/4206461.html)
 
 ## install ps
 
@@ -223,7 +223,7 @@ yum install procps-ng
 ps -p PID -o lstart
 ```
 
-<http://www.linuxidc.com/Linux/2012-12/76143.htm>
+[http://www.linuxidc.com/Linux/2012-12/76143.htm](http://www.linuxidc.com/Linux/2012-12/76143.htm)
 
 在Linux下,如果需要查看进程的启动时间, 常用 ps aux 命令,但是 ps aux 命令的缺陷在于只能显示时间到年、日期、或者时间, 无法具体到年月日时分秒。如果需要查看某个进程的具体启动时间, 使用 ps -p PID -o lstart, 其中,PID为某个进程的进程ID号。
 

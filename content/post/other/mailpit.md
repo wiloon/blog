@@ -43,4 +43,4 @@ mailpit sendmail < foo.txt
 
 ```
 
-在浏览器里查看邮件 <http://localhost:8025>
+在浏览器里查看邮件 [http://localhost:8025](http://localhost:8025)

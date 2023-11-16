@@ -14,4 +14,4 @@ There are two current versions of XML. The first (_XML 1.0_) was initially defin
 
 The second (_XML 1.1_) was initially published on February 4, 2004, the same day as XML 1.0 Third Edition,[31] and is currently in its second edition, as published on August 16, 2006. It contains features (some contentious) that are intended to make XML easier to use in certain cases.[32] The main changes are to enable the use of line-ending characters used on EBCDIC platforms, and the use of scripts and characters absent from Unicode 3.2. XML 1.1 is not very widely implemented and is recommended for use only by those who need its unique features.[33]
 
-<http://en.wikipedia.org/wiki/XML#Versions>
+[http://en.wikipedia.org/wiki/XML#Versions](http://en.wikipedia.org/wiki/XML#Versions)

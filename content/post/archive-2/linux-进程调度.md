@@ -208,7 +208,7 @@ A有着很高的优先级,但是现在却沦落到跟B一起,被优先级并不�
 
 ### scheduler 调度器
 
-<https://www.cnblogs.com/LoyenWang/p/12249106.html>
+[https://www.cnblogs.com/LoyenWang/p/12249106.html](https://www.cnblogs.com/LoyenWang/p/12249106.html)
 
 所谓调度,就是按照某种调度的算法,从进程的就绪队列中选取进程分配CPU,主要是协调对CPU等的资源使用。进程调度的目标是最大限度利用CPU时间。
 内核默认提供了5个调度器,Linux内核使用struct sched_class来对调度器进行抽象:
@@ -292,6 +292,6 @@ schedule()函数,是进程调度的核心函数,大体的流程如上图所示�
 
 ---
 
-<http://blog.jobbole.com/106168/>
-<https://zhuanlan.zhihu.com/p/75879578>  
-<https://blog.csdn.net/ctthuangcheng/article/details/8914309>  
+[http://blog.jobbole.com/106168/](http://blog.jobbole.com/106168/)
+[https://zhuanlan.zhihu.com/p/75879578](https://zhuanlan.zhihu.com/p/75879578)  
+[https://blog.csdn.net/ctthuangcheng/article/details/8914309](https://blog.csdn.net/ctthuangcheng/article/details/8914309)  

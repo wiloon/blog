@@ -33,7 +33,7 @@ Termite是一种基于VTE的最小终端仿真器，它是一个模态应用程�
 最小的设计用户界面。
 keyboard-centric VTE-based terminal
 
-<https://wiki.archlinux.org/index.php/Termite>
+[https://wiki.archlinux.org/index.php/Termite](https://wiki.archlinux.org/index.php/Termite)
 
-<https://github.com/thestinger/termite>
-<https://ywnz.com/linuxml/4305.html>
+[https://github.com/thestinger/termite](https://github.com/thestinger/termite)
+[https://ywnz.com/linuxml/4305.html](https://ywnz.com/linuxml/4305.html)

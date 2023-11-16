@@ -169,4 +169,4 @@ public class AnnoIoCTest {
 
 这时，您将看到标注了 `@PostConstruct` 的 `postConstruct1()` 方法将在 Spring 容器启动时，创建 `Boss` Bean 的时候被触发执行，而标注了 `@PreDestroy` 注释的 `preDestroy1()` 方法将在 Spring 容器关闭前销毁 `Boss`Bean 的时候被触发执行。
 
-<http://blog.sina.com.cn/s/blog_4bc179a80100w7ap.html>
+[http://blog.sina.com.cn/s/blog_4bc179a80100w7ap.html](http://blog.sina.com.cn/s/blog_4bc179a80100w7ap.html)

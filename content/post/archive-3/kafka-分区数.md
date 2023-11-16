@@ -46,4 +46,4 @@ Kafka通过副本(replica)机制来保证高可用。具体做法就是为每个
   
 版权声明: 本文为CSDN博主「AlferWei」的原创文章，遵循 CC 4.0 BY-SA 版权协议，转载请附上原文出处链接及本声明。
   
-原文链接: <https://blog.csdn.net/OiteBody/article/details/80595971>
+原文链接: [https://blog.csdn.net/OiteBody/article/details/80595971](https://blog.csdn.net/OiteBody/article/details/80595971)

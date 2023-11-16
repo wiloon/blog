@@ -9,7 +9,7 @@ tags:
   - reprint
 ---
 ## chroot
-<https://www.ibm.com/developerworks/cn/linux/l-cn-chroot/>
+[https://www.ibm.com/developerworks/cn/linux/l-cn-chroot/](https://www.ibm.com/developerworks/cn/linux/l-cn-chroot/)
 
 什么是 chroot
   
@@ -36,4 +36,4 @@ fi
 
 ```
 
-<https://unix.stackexchange.com/questions/14345/how-do-i-tell-im-running-in-a-chroot>
+[https://unix.stackexchange.com/questions/14345/how-do-i-tell-im-running-in-a-chroot](https://unix.stackexchange.com/questions/14345/how-do-i-tell-im-running-in-a-chroot)

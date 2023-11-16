@@ -22,4 +22,4 @@ tags:
 
 setting>keymap>plugin>...date...generator
 
-<https://plugins.jetbrains.com/plugin/9722-current-date-generator>
+[https://plugins.jetbrains.com/plugin/9722-current-date-generator](https://plugins.jetbrains.com/plugin/9722-current-date-generator)

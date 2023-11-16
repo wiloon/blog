@@ -10,7 +10,7 @@ tags:
 ---
 ## eclipse.ini
 
-<http://www.cnblogs.com/yan5lang/archive/2011/05/24/2055867.html>
+[http://www.cnblogs.com/yan5lang/archive/2011/05/24/2055867.html](http://www.cnblogs.com/yan5lang/archive/2011/05/24/2055867.html)
 
 Eclipse的启动由$ECLIPSE_HOME/eclipse.ini控制，如果$ECLIPSE_HOME 没有被定义，则Eclipse安装目录下的默认eclipse.ini会生效。
 
@@ -256,7 +256,7 @@ D:Javajdk1.6.0_29binjavaw.exe
 
 参考:
 
-<http://sunoblog.net/2010/12/eclipse-problem-failed-to-create-the-java-virtual-machine/>
+[http://sunoblog.net/2010/12/eclipse-problem-failed-to-create-the-java-virtual-machine/](http://sunoblog.net/2010/12/eclipse-problem-failed-to-create-the-java-virtual-machine/)
 
 这两种方式在我这里都是可行的，但并不保证包治百病 😀
 

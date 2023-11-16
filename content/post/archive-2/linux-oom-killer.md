@@ -10,7 +10,7 @@ tags:
 ---
 ## 'Linux oom killer'
 
-<https://blog.csdn.net/GugeMichael/article/details/24017515>
+[https://blog.csdn.net/GugeMichael/article/details/24017515](https://blog.csdn.net/GugeMichael/article/details/24017515)
 
 Linux - 内存控制之oom killer机制及代码分析
   
@@ -20,9 +20,9 @@ Linux - 内存控制之oom killer机制及代码分析
 
 最近,线上一些内存占用比较敏感的应用,在访问峰值的时候,偶尔会被kill掉,导致服务重启。发现是Linux的out-of-memory kiiler的机制触发的。
 
-<http://linux-mm.org/OOM_Killer>
+[http://linux-mm.org/OOM_Killer](http://linux-mm.org/OOM_Killer)
 
-oom kiiler会在内存紧张的时候,会依次kill内存占用较高的进程,发送Sig15(SIGTERM)或Sig9(SIGKILL),取决于内核版本(可见uname -a,>= 2.6.32只会发送sigkill <https://elixir.free-electrons.com/linux/v2.6.18/source/mm/oom_kill.c),。并在/var/log/message中进行记录。里面会记录一些如pid,process> name,cpu mask,trace等信息,通过监控可以发现类似问题。今天特意分析了一下oom killer相关的选择机制,挖了一下代码,感觉该机制简单粗暴,不过效果还是挺明显的,给大家分享出来。
+oom kiiler会在内存紧张的时候,会依次kill内存占用较高的进程,发送Sig15(SIGTERM)或Sig9(SIGKILL),取决于内核版本(可见uname -a,>= 2.6.32只会发送sigkill [https://elixir.free-electrons.com/linux/v2.6.18/source/mm/oom_kill.c),。并在/var/log/message中进行记录。里面会记录一些如pid,process](https://elixir.free-electrons.com/linux/v2.6.18/source/mm/oom_kill.c),。并在/var/log/message中进行记录。里面会记录一些如pid,process) name,cpu mask,trace等信息,通过监控可以发现类似问题。今天特意分析了一下oom killer相关的选择机制,挖了一下代码,感觉该机制简单粗暴,不过效果还是挺明显的,给大家分享出来。
 
 oom killer初探
 

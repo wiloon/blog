@@ -28,7 +28,7 @@ gpgcheck=0
 enabled=1
 ```
 
-<https://www.nginx.com/resources/admin-guide/tcp-load-balancing/>
+[https://www.nginx.com/resources/admin-guide/tcp-load-balancing/](https://www.nginx.com/resources/admin-guide/tcp-load-balancing/)
 
 ```bash
 stream {
@@ -50,10 +50,10 @@ stream {
 
 ```
 
-<https://aotu.io/notes/2016/08/16/nginx-https/index.html>
+[https://aotu.io/notes/2016/08/16/nginx-https/index.html](https://aotu.io/notes/2016/08/16/nginx-https/index.html)
   
-<http://www.ruanyifeng.com/blog/2014/02/ssl_tls.html>
+[http://www.ruanyifeng.com/blog/2014/02/ssl_tls.html](http://www.ruanyifeng.com/blog/2014/02/ssl_tls.html)
   
-<http://seanlook.com/2015/05/28/nginx-ssl/>
+[http://seanlook.com/2015/05/28/nginx-ssl/](http://seanlook.com/2015/05/28/nginx-ssl/)
   
-<https://imququ.com/post/enable-tls-1-3.html>
+[https://imququ.com/post/enable-tls-1-3.html](https://imququ.com/post/enable-tls-1-3.html)

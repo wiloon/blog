@@ -18,7 +18,7 @@ tags:
 
 ### install
 
-download latest version of gradle from <http://www.gradle.org/downloads.html>
+download latest version of gradle from [http://www.gradle.org/downloads.html](http://www.gradle.org/downloads.html)
   
 extract the gradle package
 

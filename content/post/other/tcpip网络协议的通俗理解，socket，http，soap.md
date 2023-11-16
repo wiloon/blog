@@ -11,7 +11,7 @@ tags:
 ---
 ## TCP/IP 网络协议的通俗理解, socket，http，soap
 
-<http://blog.csdn.net/eyeooo/article/details/7438267>
+[http://blog.csdn.net/eyeooo/article/details/7438267](http://blog.csdn.net/eyeooo/article/details/7438267)
 
 前段时间做了一个开发，涉及到网络编程，开发过程比较顺利，但任务完成后始终觉得有一些疑惑。主要是因为对网络协议不太熟悉，对一些概念也没弄清楚。后来我花了一些时间去了解这些网络协议，现在对TCP/IP网络协议有了初步的认识，在这里总结出来，可以梳理一下我对网络协议的理解，加深印象.
 
