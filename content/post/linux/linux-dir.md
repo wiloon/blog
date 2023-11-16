@@ -11,7 +11,7 @@ tags:
 ---
 ## linux 目录
 
-<https://my.oschina.net/njzjf/blog/317331>
+[https://my.oschina.net/njzjf/blog/317331](https://my.oschina.net/njzjf/blog/317331)
 
 ## /
 
@@ -211,7 +211,7 @@ boot - 引导加载器所需文件，系统所需图片保存于此
 db      /var/lib/foo/foo.db
 日志    /var/log/foo/debug.log
 
-<https://blog.csdn.net/kkdelta/article/details/7708250>
+[https://blog.csdn.net/kkdelta/article/details/7708250](https://blog.csdn.net/kkdelta/article/details/7708250)
 
 而/usr/bin,/usr/sbin与/sbin /bin目录的区别在于:
 

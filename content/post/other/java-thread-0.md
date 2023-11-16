@@ -398,9 +398,9 @@ at java.lang.Thread.run(Thread.java:662)
 
 避免死锁，1. 按顺序锁定资源 2. 可中断的，有时间限制的等待 3. 死锁检测
 
-<http://www.iteye.com/topic/1119957>
+[http://www.iteye.com/topic/1119957](http://www.iteye.com/topic/1119957)
   
-<https://stackoverflow.com/questions/27406200/visual-vm-thread-states/27406503>
+[https://stackoverflow.com/questions/27406200/visual-vm-thread-states/27406503](https://stackoverflow.com/questions/27406200/visual-vm-thread-states/27406503)
 
 Linux系统日志–syslog
 
@@ -702,20 +702,20 @@ store (存储) : 作用于工作内存的变量，它把工作内存中的一个
   
 write (写入) : 作用于主内存的变量，它把store操作从工作内存中得到的变量的值写入主内存的变量中。
 
-<https://www.infoq.cn/article/Jtv2XL3a0HvRE2xwrNFs>
+[https://www.infoq.cn/article/Jtv2XL3a0HvRE2xwrNFs](https://www.infoq.cn/article/Jtv2XL3a0HvRE2xwrNFs)
   
-<http://smallbug-vip.iteye.com/blog/2275743>
+[http://smallbug-vip.iteye.com/blog/2275743](http://smallbug-vip.iteye.com/blog/2275743)
   
-<https://www.idaima.com/article/8968>
+[https://www.idaima.com/article/8968](https://www.idaima.com/article/8968)
   
-<http://www.infoq.com/cn/articles/java-memory-model-6>
+[http://www.infoq.com/cn/articles/java-memory-model-6](http://www.infoq.com/cn/articles/java-memory-model-6)
 
-<https://www.javatang.com/archives/2017/10/25/36441958.html>
+[https://www.javatang.com/archives/2017/10/25/36441958.html](https://www.javatang.com/archives/2017/10/25/36441958.html)
 
 ————————————————
 版权声明: 本文为CSDN博主「mm_hh」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
-原文链接: <https://blog.csdn.net/mm_hh/article/details/72587207>
+原文链接: [https://blog.csdn.net/mm_hh/article/details/72587207](https://blog.csdn.net/mm_hh/article/details/72587207)
 
-<https://blog.csdn.net/nalanmingdian/article/details/77748326>
+[https://blog.csdn.net/nalanmingdian/article/details/77748326](https://blog.csdn.net/nalanmingdian/article/details/77748326)
 
-<https://www.huaweicloud.com/articles/c0553b1cde014350e91620af1ce89f68.html>
+[https://www.huaweicloud.com/articles/c0553b1cde014350e91620af1ce89f68.html](https://www.huaweicloud.com/articles/c0553b1cde014350e91620af1ce89f68.html)

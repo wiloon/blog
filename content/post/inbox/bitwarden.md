@@ -32,21 +32,21 @@ pacman -S bitwarden
 
 ## bitwarden ssh key, bw-key
 
-download bw-key from <https://github.com/haipengno1/bw-key/releases>
+download bw-key from [https://github.com/haipengno1/bw-key/releases](https://github.com/haipengno1/bw-key/releases)
 
 ```bash
 bw-key.exe -h https://bitwarden.wiloon.com -n wiloon.wy@gmail.com
 ```
 
-<https://github.com/haipengno1/bw-key>
+[https://github.com/haipengno1/bw-key](https://github.com/haipengno1/bw-key)
 
 ---
 
-<https://hub.docker.com/r/bitwardenrs/server>
+[https://hub.docker.com/r/bitwardenrs/server](https://hub.docker.com/r/bitwardenrs/server)
 
-<https://github.com/dani-garcia/bitwarden_rs>
+[https://github.com/dani-garcia/bitwarden_rs](https://github.com/dani-garcia/bitwarden_rs)
 
-<https://github.com/bitwarden/desktop>
+[https://github.com/bitwarden/desktop](https://github.com/bitwarden/desktop)
 
 ## k8s bitwarden
 

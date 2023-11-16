@@ -25,5 +25,5 @@ trickle -s -u 200 -d 200  git pull
 - -u, 上传速率 KB/s
 - -d, 下载速率 KB/s
 
-<https://github.com/mariusae/trickle>
-<https://wiki.archlinux.org/title/trickle>
+[https://github.com/mariusae/trickle](https://github.com/mariusae/trickle)
+[https://wiki.archlinux.org/title/trickle](https://wiki.archlinux.org/title/trickle)

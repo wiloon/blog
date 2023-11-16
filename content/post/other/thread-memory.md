@@ -28,6 +28,6 @@ Java 虚拟机规范定义了 Java 内存模型来屏蔽掉各种硬件和操作
 
 一个栈帧又分为: 局部变量区、操作数栈和帧数据区。你可以理解 工作内存为局部变量区中的数据。
 
-<https://segmentfault.com/q/1010000004885908>
+[https://segmentfault.com/q/1010000004885908](https://segmentfault.com/q/1010000004885908)
   
-<https://www.oschina.net/question/1779843_2163094>
+[https://www.oschina.net/question/1779843_2163094](https://www.oschina.net/question/1779843_2163094)

@@ -11,7 +11,7 @@ tags:
 ## 在WSL2中安装ArchLinux
 
 >https://zhuanlan.zhihu.com/p/266585727
-<https://github.com/DDoSolitary/LxRunOffline>
+[https://github.com/DDoSolitary/LxRunOffline](https://github.com/DDoSolitary/LxRunOffline)
 
 
 ```bash

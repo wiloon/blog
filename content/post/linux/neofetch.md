@@ -50,4 +50,4 @@ Linux 系统中还需要 feh、nitrogen 或者 gsettings 来提供对墙纸的�
 
 ---
 
-<https://linux.cn/article-8013-1.html>
+[https://linux.cn/article-8013-1.html](https://linux.cn/article-8013-1.html)

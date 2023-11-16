@@ -77,7 +77,7 @@ pidof fcitx | xargs kill
 
 ```
 
-<http://man.linuxde.net/host>
+[http://man.linuxde.net/host](http://man.linuxde.net/host)
 
 重启
   
@@ -116,11 +116,11 @@ sudo hddtemp /dev/sda
 
 ---
 
-<https://blog.csdn.net/q_l_s/article/details/54897684>  
-<https://blog.csdn.net/wangjunjun2008/article/details/19844755>  
-<https://man.linuxde.net/strings>  
+[https://blog.csdn.net/q_l_s/article/details/54897684](https://blog.csdn.net/q_l_s/article/details/54897684)  
+[https://blog.csdn.net/wangjunjun2008/article/details/19844755](https://blog.csdn.net/wangjunjun2008/article/details/19844755)  
+[https://man.linuxde.net/strings](https://man.linuxde.net/strings)  
 
-<https://blog.csdn.net/yangshangwei/article/details/52563123>
+[https://blog.csdn.net/yangshangwei/article/details/52563123](https://blog.csdn.net/yangshangwei/article/details/52563123)
 
 ## mpstat
 

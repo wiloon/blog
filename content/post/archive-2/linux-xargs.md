@@ -49,7 +49,7 @@ ls -al c.js d.js
 -rw-r--r-- 1 root root 0 Dec 18 16:52 d.js
 ```
 
-<http://blog.chinaunix.net/uid-128922-id-289992.html>
+[http://blog.chinaunix.net/uid-128922-id-289992.html](http://blog.chinaunix.net/uid-128922-id-289992.html)
 
 xargs在linux中是个很有用的命令,它经常和其他命令组合起来使用,非常的灵活.
 

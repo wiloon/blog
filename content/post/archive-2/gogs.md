@@ -16,7 +16,7 @@ gitea 的文档 只提到了docker compose的部署方式, 想改成podman 还�
 podman run --rm --name=gogs -p 10022:22 -p 10880:3000 -v gogs-data:/data gogs/gogs:latest
 ```
 
-<http://192.168.50.13:10880>
+[http://192.168.50.13:10880](http://192.168.50.13:10880)
 
 Database Type: sqlite3
 Application Name: pingd
@@ -55,15 +55,15 @@ create user git and su git
 
 install from source
   
-<https://gogs.io/docs/installation/install_from_source>
+[https://gogs.io/docs/installation/install_from_source](https://gogs.io/docs/installation/install_from_source)
 
 MySQL /Mariadb error: max key length is 767 byte
   
-<https://github.com/gogits/gogs/issues/4907>
+[https://github.com/gogits/gogs/issues/4907](https://github.com/gogits/gogs/issues/4907)
   
 gogs patch
   
-<https://github.com/m2nlight/gogs/releases/tag/v0.11.34_patch>
+[https://github.com/m2nlight/gogs/releases/tag/v0.11.34_patch](https://github.com/m2nlight/gogs/releases/tag/v0.11.34_patch)
 
-><https://hub.docker.com/r/gogs/gogs>
-><https://gogs.io/docs>
+>[https://hub.docker.com/r/gogs/gogs](https://hub.docker.com/r/gogs/gogs)
+>[https://gogs.io/docs](https://gogs.io/docs)

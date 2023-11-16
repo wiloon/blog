@@ -1134,6 +1134,6 @@ $go run client1.go
 
 本文demo代码在这里可以找到。
 
-<http://colobu.com/2014/12/02/go-socket-programming-TCP/>
+[http://colobu.com/2014/12/02/go-socket-programming-TCP/](http://colobu.com/2014/12/02/go-socket-programming-TCP/)
   
-<http://tonybai.com/2015/11/17/tcp-programming-in-golang/>
+[http://tonybai.com/2015/11/17/tcp-programming-in-golang/](http://tonybai.com/2015/11/17/tcp-programming-in-golang/)

@@ -10,7 +10,7 @@ tags:
 ---
 ## AbstractQueuedSynchronizer， AQS
 
-<http://blog.zhangjikai.com/2017/04/15/%E3%80%90Java-%E5%B9%B6%E5%8F%91%E3%80%91%E8%AF%A6%E8%A7%A3-AbstractQueuedSynchronizer/>
+[http://blog.zhangjikai.com/2017/04/15/%E3%80%90Java-%E5%B9%B6%E5%8F%91%E3%80%91%E8%AF%A6%E8%A7%A3-AbstractQueuedSynchronizer/](http://blog.zhangjikai.com/2017/04/15/%E3%80%90Java-%E5%B9%B6%E5%8F%91%E3%80%91%E8%AF%A6%E8%A7%A3-AbstractQueuedSynchronizer/)
 
 队列同步器 AbstractQueuedSynchronizer (以下简称 AQS) ，是用来构建锁或者其他同步组件的基础框架。它使用一个 int 成员变量来表示同步状态，通过 CAS 操作对同步状态进行修改，确保状态的改变是安全的。通过内置的 FIFO  (First In First Out) 队列来完成资源获取线程的排队工作。更多关于 Java 多线程的文章可以转到 [这里][1]
 
@@ -934,7 +934,7 @@ return unsafe.compareAndSwapInt(node, waitStatusOffset, expect, update);
   
 AQS 依赖内部的同步队列 (一个 FIFO的双向队列) 来完成同步状态的管理，当前线程获取同步状态失败时，同步器会将当前线程以及等待状态等信息构造成一个节点 (Node) 并将其加入同步队列，同时会阻塞当前线程，当同步状态释放时，会把队列中第一个等待节点线程唤醒 (下图中的 Node1) ，使其再次尝试获取同步状态。同步队列的结构如下所示:
 
-图片来自 <http://www.infoq.com/cn/articles/jdk1.8-abstractqueuedsynchronizer>
+图片来自 [http://www.infoq.com/cn/articles/jdk1.8-abstractqueuedsynchronizer](http://www.infoq.com/cn/articles/jdk1.8-abstractqueuedsynchronizer)
 
 Head 节点本身不保存等待线程的信息，它通过 next 变量指向第一个保存线程等待信息的节点 (Node1) 。当线程被唤醒之后，会删除 Head 节点，而唤醒线程所在的节点会设置为 Head 节点 (Node1 被唤醒之后，Node1会被置为 Head 节点) 。下面我们看下 JDK 中同步队列的实现。
 

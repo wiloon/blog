@@ -11,9 +11,9 @@ tags:
 ---
 ## journey、voyage、trip、tour、travel
 
-<http://www.jxenglish.com/Article/vocabulary/10518.html>
+[http://www.jxenglish.com/Article/vocabulary/10518.html](http://www.jxenglish.com/Article/vocabulary/10518.html)
 
-<http://www.learn-english-today.com/lessons/lesson_contents/grammar/travel-trip-journey.html>
+[http://www.learn-english-today.com/lessons/lesson_contents/grammar/travel-trip-journey.html](http://www.learn-english-today.com/lessons/lesson_contents/grammar/travel-trip-journey.html)
 
 TravelThe word 'travel' is used to talk about going from one place to another.
   

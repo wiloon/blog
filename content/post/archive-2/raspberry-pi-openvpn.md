@@ -9,7 +9,7 @@ tags:
   - reprint
 ---
 ## raspberry pi openvpn
-<https://community.home-assistant.io/t/how-to-install-openvpn-on-raspberry-pi-with-home-assistant/59002>
+[https://community.home-assistant.io/t/how-to-install-openvpn-on-raspberry-pi-with-home-assistant/59002](https://community.home-assistant.io/t/how-to-install-openvpn-on-raspberry-pi-with-home-assistant/59002)
 
 ```bash
 sudo -s  #  **rest of the instructions assume you've already done this
@@ -184,7 +184,7 @@ Consider setting up fail2ban for open VPN (this will ban IPs that try to connect
 
 ```
 
-<https://www.raspberrypi.org/forums/viewtopic.php?t=81657>
+[https://www.raspberrypi.org/forums/viewtopic.php?t=81657](https://www.raspberrypi.org/forums/viewtopic.php?t=81657)
 
 ```bash
 iptables -A INPUT -i tun+ -j ACCEPT

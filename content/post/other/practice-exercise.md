@@ -56,4 +56,4 @@ There should be tougher discipline in schools.
 I don't have enough (self) discipline to save money.
 我总是控制不住自己花钱的欲望。
 
-<https://www.tjxz.cc/10762>
+[https://www.tjxz.cc/10762](https://www.tjxz.cc/10762)

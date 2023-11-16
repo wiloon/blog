@@ -380,17 +380,17 @@ builder.getRoom();
 是用工厂方法模式来创建对象，还是用建造者模式来创建对象，这完全取决于我们在做系统设计时的意图，如果需要详细关注一个产品部件的生产、安装步骤，则选择建造者，否则选择工厂方法模式。
 
 作者: ztzt123
-链接: <https://www.jianshu.com/p/15b001f5b95f>
+链接: [https://www.jianshu.com/p/15b001f5b95f](https://www.jianshu.com/p/15b001f5b95f)
 来源: 简书
 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
 
 ---
 
-<http://blog.csdn.net/surprisesdu/article/details/621046>
+[http://blog.csdn.net/surprisesdu/article/details/621046](http://blog.csdn.net/surprisesdu/article/details/621046)
 
-<http://smartfool.iteye.com/blog/71175>
+[http://smartfool.iteye.com/blog/71175](http://smartfool.iteye.com/blog/71175)
 
 作者: ztzt123
-链接: <https://www.jianshu.com/p/15b001f5b95f>
+链接: [https://www.jianshu.com/p/15b001f5b95f](https://www.jianshu.com/p/15b001f5b95f)
 来源: 简书
 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。

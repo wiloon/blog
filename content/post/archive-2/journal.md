@@ -120,8 +120,8 @@ systemd journal本身未提供日志分发功能。
   
 注: systemd-212引入了 systemd-journal-remote >systemd-journal-remote is a command to receive serialized journal events and store them to the journal.
   
-<https://huataihuang.gitbooks.io/cloud-atlas/os/linux/redhat/system_administration/systemd/systemd_clear_journalctl.html>
+[https://huataihuang.gitbooks.io/cloud-atlas/os/linux/redhat/system_administration/systemd/systemd_clear_journalctl.html](https://huataihuang.gitbooks.io/cloud-atlas/os/linux/redhat/system_administration/systemd/systemd_clear_journalctl.html)
   
-<http://fangpeishi.com/systemd_chapter4.html>
+[http://fangpeishi.com/systemd_chapter4.html](http://fangpeishi.com/systemd_chapter4.html)
   
-<http://blog.csdn.net/zstack_org/article/details/56274966>
+[http://blog.csdn.net/zstack_org/article/details/56274966](http://blog.csdn.net/zstack_org/article/details/56274966)

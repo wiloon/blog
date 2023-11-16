@@ -11,7 +11,7 @@ tags:
 ---
 ## MySQL 日志 log
 
-<https://mariadb.com/kb/en/mariadb/general-query-log/>
+[https://mariadb.com/kb/en/mariadb/general-query-log/](https://mariadb.com/kb/en/mariadb/general-query-log/)
 
 查询日志:
 
@@ -205,7 +205,7 @@ Version: '5.5.33-log' socket: '/tmp/MySQL.sock' port: 3306 Source distribution #
   
 hellodb myclass MySQL-bin.000003 MySQL-bin.index stu18.magedu.com.pid ibdata1 MySQL MySQL-bin.000004 performance_schema ib_logfile0 MySQL-bin.000001 stu18.magedu.com.err test ib_logfile1 MySQL-bin.000002 stu18.magedu.com.err.old
   
-更多信息请查阅官方文档: <http://dev.MySQL.com/doc/refman/5.5/en/error-log.html>
+更多信息请查阅官方文档: [http://dev.MySQL.com/doc/refman/5.5/en/error-log.html](http://dev.MySQL.com/doc/refman/5.5/en/error-log.html)
   
 查询日志:
   
@@ -1031,6 +1031,6 @@ MySQL> PURGEBINARY LOGS BEFORE '13-10-19 10:26:36'; #使用时间来删除二进
   
 Query OK, 0 rowsaffected (0.05 sec)
 
-<http://pangge.blog.51cto.com/6013757/1319304>
+[http://pangge.blog.51cto.com/6013757/1319304](http://pangge.blog.51cto.com/6013757/1319304)
 
-<http://hone033.iteye.com/blog/451100>
+[http://hone033.iteye.com/blog/451100](http://hone033.iteye.com/blog/451100)

@@ -49,7 +49,7 @@ cd python3-env
 python3 -m venv my_env
 source my_env/bin/activate
 
-<https://www.digitalocean.com/community/tutorials/ubuntu-18-04-python-3-zh>
+[https://www.digitalocean.com/community/tutorials/ubuntu-18-04-python-3-zh](https://www.digitalocean.com/community/tutorials/ubuntu-18-04-python-3-zh)
 
 ### archlinux install python
 
@@ -84,9 +84,9 @@ print type(a),type(b)
 
 ## python 遍历目录
 
-<http://www.cnblogs.com/vivilisa/archive/2009/03/01/1400968.html>
+[http://www.cnblogs.com/vivilisa/archive/2009/03/01/1400968.html](http://www.cnblogs.com/vivilisa/archive/2009/03/01/1400968.html)
 
-<http://laocao.blog.51cto.com/480714/525140>
+[http://laocao.blog.51cto.com/480714/525140](http://laocao.blog.51cto.com/480714/525140)
 
 ```python
 # !/usr/bin/python
@@ -196,7 +196,7 @@ import sys; print(sys.path)
 
 相对导入 `from . import m4`
 
-<https://zhuanlan.zhihu.com/p/63143493>
+[https://zhuanlan.zhihu.com/p/63143493](https://zhuanlan.zhihu.com/p/63143493)
 
 内置 dir()函数查看对象的属性
 
@@ -208,17 +208,17 @@ from 模块名 import 子模块 或 函数 或 类 或 变量：使用函数调�
 
 注：在调用导入的模块函数使，不使用模块名.函数名 而是 直接使用函数名进行调用
 
-<https://blog.51cto.com/u_15309669/3154639>
+[https://blog.51cto.com/u_15309669/3154639](https://blog.51cto.com/u_15309669/3154639)
 
 ## 下划线
 
 - 单下划线开头: 单下划线开头的变量或方法只在内部使用。PEP 8中定义了这个约定（PEP 8是最常用的Python代码风格指南。详见PEP 8：“Style Guide for Python Code”。
 
-<https://geek-docs.com/python/python-examples/python-underline-double-underline-and-others.html>
+[https://geek-docs.com/python/python-examples/python-underline-double-underline-and-others.html](https://geek-docs.com/python/python-examples/python-underline-double-underline-and-others.html)
 
 ## __name__
 
-<https://zhuanlan.zhihu.com/p/57309137>
+[https://zhuanlan.zhihu.com/p/57309137](https://zhuanlan.zhihu.com/p/57309137)
 
 ## 数据类型
 
@@ -268,7 +268,7 @@ else:
 
 ```
 
-<http://c.biancheng.net/view/2212.html>
+[http://c.biancheng.net/view/2212.html](http://c.biancheng.net/view/2212.html)
 
 dict() 函数用于创建一个字典
 
@@ -282,7 +282,7 @@ To delete a key regardless of whether it is in the dictionary, use the two-argum
 
 my_dict.pop('key', None)
 
-obj to dict <https://blog.csdn.net/weixin_42359464/article/details/80882549>
+obj to dict [https://blog.csdn.net/weixin_42359464/article/details/80882549](https://blog.csdn.net/weixin_42359464/article/details/80882549)
 
 ## 异常处理
 
@@ -304,13 +304,13 @@ if __name__ == '__main__':
 
 ```
 
-<https://www.jianshu.com/p/a8cb5375171a>
+[https://www.jianshu.com/p/a8cb5375171a](https://www.jianshu.com/p/a8cb5375171a)
 
 ## None
 
 None表示空，但它不等于空字符串、空列表，也不等同于False
 
-<https://zhuanlan.zhihu.com/p/65193194>
+[https://zhuanlan.zhihu.com/p/65193194](https://zhuanlan.zhihu.com/p/65193194)
 
 ## pickle
 
@@ -349,13 +349,13 @@ pickle.load(file)
 空元组（没有元素的元组）：T=（），含1个元素的元组：T=（1，），注意有逗号,多个元素的元组：T=（1,2,3）
 任意无符号的对象，以逗号隔开，默认为元组
 
-<https://zhuanlan.zhihu.com/p/210779471>
+[https://zhuanlan.zhihu.com/p/210779471](https://zhuanlan.zhihu.com/p/210779471)
 
 ## python 虚拟环境
 
 - venv: Python 标准库内置的虚拟环境管理工具，Python 3.3 加入，Python 3.5 开始作为管理虚拟环境的推荐工具，用法类似 virtualenv。如果你使用 Python 3，推荐使用 venv 来替代 virtualenv
 - archlinux> pyenv
-- PyPA：指 Python Packaging Authority，一个维护 Python 打包相关项目的小组，相关项目具体见 <https://github.com/pypa>。
+- PyPA：指 Python Packaging Authority，一个维护 Python 打包相关项目的小组，相关项目具体见 [https://github.com/pypa](https://github.com/pypa)。
 - pip：Python 包安装器。
 - virtualenv: Python 虚拟环境管理工具
 
@@ -411,7 +411,7 @@ settings> Project Interpreters
 
 ## pip install python-ldap failed due to cannot find -lldap_r
 
-<https://github.com/python-ldap/python-ldap/issues/432>
+[https://github.com/python-ldap/python-ldap/issues/432](https://github.com/python-ldap/python-ldap/issues/432)
 
 ```bash
 cat > /usr/lib64/libldap_r.so << EOF
@@ -431,7 +431,7 @@ with:
 self.app_configs = {}
 This will allow Django to continue loading, and reveal the actual error.
 
-<https://stackoverflow.com/questions/27093746/django-stops-working-with-runtimeerror-populate-isnt-reentrant>
+[https://stackoverflow.com/questions/27093746/django-stops-working-with-runtimeerror-populate-isnt-reentrant](https://stackoverflow.com/questions/27093746/django-stops-working-with-runtimeerror-populate-isnt-reentrant)
 
 ImportError: libcrypt.so.1: cannot open shared object file: No such file or directory
 
@@ -444,7 +444,7 @@ sudo pacman -S libxcrypt-compat
 通过python -m 执行一个包内脚本会首先将执行package1的__init__.py文件，并且__package__变量被赋上相应的值；而 python xxx.py方式不会执行__init__.py并且__package__变量为None
 两种执行方法的sys.path不同（注意每个path输出中的第一条），Python中的sys.path是Python用来搜索包和模块的路径。通过python -m执行一个脚本时会将当前路径加入到系统路径中,而使用python xxx.py执行脚本则会将脚本所在文件夹加入到系统路径中（如果取消inner.py中的注释会报找不到模块的错误）。
 
-<https://a7744hsc.github.io/python/2018/05/03/Run-python-script.html>
+[https://a7744hsc.github.io/python/2018/05/03/Run-python-script.html](https://a7744hsc.github.io/python/2018/05/03/Run-python-script.html)
 
 ## Django
 
@@ -459,13 +459,13 @@ python manage.py runserver 0:8000
 python manage.py startapp polls
 ```
 
-<https://www.djangoproject.com/>
+[https://www.djangoproject.com/](https://www.djangoproject.com/)
 
 ## djano path re_path
 
 如果遇上路径和转换器语法都不足以定义的URL模式，那么就需要使用正则表达式，这时候就需要使用re_path()，而非path()。
 
-<https://www.jianshu.com/p/cd5a91222e1e>
+[https://www.jianshu.com/p/cd5a91222e1e](https://www.jianshu.com/p/cd5a91222e1e)
 
 import re re --- 正则表达式操作
 
@@ -476,7 +476,7 @@ python里百分号有2个意思，计算数的时候，它是求余数的意思�
 第一种：数值运算 1 % 3 是指模运算, 取余数(remainder)>>> 7%2
 
 版权声明：本文为CSDN博主「谢仁慈Mercy」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
-原文链接：<https://blog.csdn.net/weixin_42502060/article/details/111985588>
+原文链接：[https://blog.csdn.net/weixin_42502060/article/details/111985588](https://blog.csdn.net/weixin_42502060/article/details/111985588)
 
 ## parse.urlencode() 与 parse.unquote()
 
@@ -491,7 +491,7 @@ json.loads 反序列化, 将已编码的 JSON 字符串解码为 Python 对象
 json.loads()：解析一个有效的JSON字符串并将其转换为Python字典
 json.load()：从一个文件读取JSON类型的数据，然后转转换成Python字典
 
-obj to json <https://blog.csdn.net/mr_hui_/article/details/82941199>
+obj to json [https://blog.csdn.net/mr_hui_/article/details/82941199](https://blog.csdn.net/mr_hui_/article/details/82941199)
 
 ## isinstance()
 
@@ -654,7 +654,7 @@ def printme( str ):
 
 python kafka ssl
 
-<https://dev.to/adityakanekar/connecting-to-kafka-cluster-using-ssl-with-python-k2e>
+[https://dev.to/adityakanekar/connecting-to-kafka-cluster-using-ssl-with-python-k2e](https://dev.to/adityakanekar/connecting-to-kafka-cluster-using-ssl-with-python-k2e)
 
 ```bash
 pip install kafka-python
@@ -721,13 +721,13 @@ print(b.decode())       # 默认 encoding="utf-8"
 
 ## singleten
 
-<https://www.birdpython.com/posts/1/71/>
+[https://www.birdpython.com/posts/1/71/](https://www.birdpython.com/posts/1/71/)
 
-<https://stackoverflow.com/questions/6760685/creating-a-singleton-in-python?page=1&tab=scoredesc#tab-top>
+[https://stackoverflow.com/questions/6760685/creating-a-singleton-in-python?page=1&tab=scoredesc#tab-top](https://stackoverflow.com/questions/6760685/creating-a-singleton-in-python?page=1&tab=scoredesc#tab-top)
 
 ## sqlalchemy
 
-<https://www.jianshu.com/p/cf97d753b117>
+[https://www.jianshu.com/p/cf97d753b117](https://www.jianshu.com/p/cf97d753b117)
 
 - pool_timeout, number of seconds to wait before giving up on getting a connection from the pool
 - pool_recycle, this setting causes the pool to recycle connections after the given number of seconds has passed
@@ -769,13 +769,13 @@ path = os.path.join(os.path.dirname(os.getcwd()), "test_case")
 print(path)
 ```
 
-<https://www.cnblogs.com/juankai/p/11580122.html>
+[https://www.cnblogs.com/juankai/p/11580122.html](https://www.cnblogs.com/juankai/p/11580122.html)
 
 ## ModuleNotFoundError: No module named 'xlwt'
 
-<https://pypi.org/project/xlwt/#files>
+[https://pypi.org/project/xlwt/#files](https://pypi.org/project/xlwt/#files)
 
-<https://files.pythonhosted.org/packages/44/48/def306413b25c3d01753603b1a222a011b8621aed27cd7f89cbc27e6b0f4/xlwt-1.3.0-py2.py3-none-any.whl>
+[https://files.pythonhosted.org/packages/44/48/def306413b25c3d01753603b1a222a011b8621aed27cd7f89cbc27e6b0f4/xlwt-1.3.0-py2.py3-none-any.whl](https://files.pythonhosted.org/packages/44/48/def306413b25c3d01753603b1a222a011b8621aed27cd7f89cbc27e6b0f4/xlwt-1.3.0-py2.py3-none-any.whl)
 
 从 下载好的 .whl 包安装模块 pip install foo.whl
 
@@ -882,7 +882,7 @@ print(txt.format(price = 49))
 
 ## windows python
 
-<https://www.python.org/ftp/python/3.6.8/python-3.6.8-amd64.exe>
+[https://www.python.org/ftp/python/3.6.8/python-3.6.8-amd64.exe](https://www.python.org/ftp/python/3.6.8/python-3.6.8-amd64.exe)
 
 ### 默认安装路径
 
@@ -900,7 +900,7 @@ windows 下不需要 uwsgi, 生产环境 linux 环境才需要, windows依赖里
 -----------------------------------
 ©著作权归作者所有：来自51CTO博客作者怡宝2号的原创作品，请联系作者获取转载授权，否则将追究法律责任
 【python】——setup.py build_ext --inplace命令解析
-<https://blog.51cto.com/u_15357586/3788424>
+[https://blog.51cto.com/u_15357586/3788424](https://blog.51cto.com/u_15357586/3788424)
 
 ## faulthandler
 
@@ -1059,15 +1059,15 @@ pip freeze > requirements.txt
 
 ## python 书
 
-<https://zhuanlan.zhihu.com/p/34378860>
+[https://zhuanlan.zhihu.com/p/34378860](https://zhuanlan.zhihu.com/p/34378860)
 
 ## @classmethod
 
-<https://zhuanlan.zhihu.com/p/35643573>
+[https://zhuanlan.zhihu.com/p/35643573](https://zhuanlan.zhihu.com/p/35643573)
 
 ## Microsoft Visual C++ 14.0 or greater is required
 
-<https://support.microsoft.com/en-us/topic/the-latest-supported-visual-c-downloads-2647da03-1eea-4433-9aff-95f26a218cc0>
+[https://support.microsoft.com/en-us/topic/the-latest-supported-visual-c-downloads-2647da03-1eea-4433-9aff-95f26a218cc0](https://support.microsoft.com/en-us/topic/the-latest-supported-visual-c-downloads-2647da03-1eea-4433-9aff-95f26a218cc0)
 
 ## module package
 

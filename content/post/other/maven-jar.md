@@ -223,12 +223,12 @@ maven-shade-plugin</artifactId>
   
 </executions> </plugin> </plugins> </build>
   
-地址: <http://blog.csdn.net/johnnywww/article/details/7964326>
+地址: [http://blog.csdn.net/johnnywww/article/details/7964326](http://blog.csdn.net/johnnywww/article/details/7964326)
 
 上一篇Eclipse Fat jar 插件地址
   
 下一篇Java 高手之路笔记 (1)
 
-<http://blog.csdn.net/zhangdaiscott/article/details/6911640>
+[http://blog.csdn.net/zhangdaiscott/article/details/6911640](http://blog.csdn.net/zhangdaiscott/article/details/6911640)
 
-<http://blog.csdn.net/johnnywww/article/details/7964326>
+[http://blog.csdn.net/johnnywww/article/details/7964326](http://blog.csdn.net/johnnywww/article/details/7964326)

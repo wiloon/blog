@@ -19,4 +19,4 @@ Dynamic Host Configuration Protocol
 
 IP, netmask, network, broadcast, gateway, DNS IP
 
-<http://cn.linux.vbird.org/linux_server/0340dhcp.php#theory>
+[http://cn.linux.vbird.org/linux_server/0340dhcp.php#theory](http://cn.linux.vbird.org/linux_server/0340dhcp.php#theory)

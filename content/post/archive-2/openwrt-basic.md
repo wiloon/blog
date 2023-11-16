@@ -80,11 +80,11 @@ crontab -l
 
 ### x86, firmware download
 
-<https://downloads.openwrt.org/releases/19.07.6/targets/x86/>
+[https://downloads.openwrt.org/releases/19.07.6/targets/x86/](https://downloads.openwrt.org/releases/19.07.6/targets/x86/)
 
 #### targets
 
-- wndr4300, <https://downloads.openwrt.org/releases/22.03.5/targets/ath79/nand/openwrt-22.03.5-ath79-nand-netgear_wndr4300-squashfs-factory.img>
+- wndr4300, [https://downloads.openwrt.org/releases/22.03.5/targets/ath79/nand/openwrt-22.03.5-ath79-nand-netgear_wndr4300-squashfs-factory.img](https://downloads.openwrt.org/releases/22.03.5/targets/ath79/nand/openwrt-22.03.5-ath79-nand-netgear_wndr4300-squashfs-factory.img)
 
 #### 64 (推荐使用)
 
@@ -144,13 +144,13 @@ x509: certificate signed by unknown authority
 vim /etc/ssl/certs/foo.crt
 ```
 
-<https://blog.csdn.net/xushx_bigbear/article/details/47746285>
+[https://blog.csdn.net/xushx_bigbear/article/details/47746285](https://blog.csdn.net/xushx_bigbear/article/details/47746285)
   
-<https://blog.csdn.net/lee244868149/article/details/57076615>
+[https://blog.csdn.net/lee244868149/article/details/57076615](https://blog.csdn.net/lee244868149/article/details/57076615)
 
 ### openwrt lan 改网段
 
-<https://www.cnblogs.com/double-win/p/3841017.html>
+[https://www.cnblogs.com/double-win/p/3841017.html](https://www.cnblogs.com/double-win/p/3841017.html)
 
 ```bash
 vim /etc/config/network
@@ -170,7 +170,7 @@ sed -i 's_downloads.openwrt.org_mirrors.tuna.tsinghua.edu.cn/openwrt_' /etc/opkg
 
 ### build
 
-clone <https://github.com/openwrt/openwrt.git>
+clone [https://github.com/openwrt/openwrt.git](https://github.com/openwrt/openwrt.git)
 
 apt-get install make
 
@@ -314,7 +314,7 @@ password passwd0           #邮箱密码，这里可是明文的，文件权限 
 logfile /var/log/mmlog
 ```
 
-<https://www.cnblogs.com/jjzd/p/6341478.html>
+[https://www.cnblogs.com/jjzd/p/6341478.html](https://www.cnblogs.com/jjzd/p/6341478.html)
 
 ### send email test
 
@@ -327,14 +327,14 @@ echo -e "Subject: Hello!\n\nHello, world!" |sendmail wiloon.wy@gmail.com
 
 ---
 
-<https://wiki.openwrt.org/zh-cn/doc/techref/opkg>  
-<https://blog.csdn.net/whatday/article/details/78920494>  
-<https://wiki.openwrt.org/doc/techref/odhcpd>  
-<https://openwrt.proxy.ustclug.org/>  
-<https://mirrors.ustc.edu.cn/help/lede.html>  
-<https://openwrt.org/>
-<https://hub.docker.com/u/openwrtorg>
-<https://hub.docker.com/r/openwrtorg/rootfs>
-<https://openwrt.club/93.html>
-<https://openwrt.org/docs/techref/initscripts>
-<https://blog.csdn.net/weixin_42512245/article/details/88602272>
+[https://wiki.openwrt.org/zh-cn/doc/techref/opkg](https://wiki.openwrt.org/zh-cn/doc/techref/opkg)  
+[https://blog.csdn.net/whatday/article/details/78920494](https://blog.csdn.net/whatday/article/details/78920494)  
+[https://wiki.openwrt.org/doc/techref/odhcpd](https://wiki.openwrt.org/doc/techref/odhcpd)  
+[https://openwrt.proxy.ustclug.org/](https://openwrt.proxy.ustclug.org/)  
+[https://mirrors.ustc.edu.cn/help/lede.html](https://mirrors.ustc.edu.cn/help/lede.html)  
+[https://openwrt.org/](https://openwrt.org/)
+[https://hub.docker.com/u/openwrtorg](https://hub.docker.com/u/openwrtorg)
+[https://hub.docker.com/r/openwrtorg/rootfs](https://hub.docker.com/r/openwrtorg/rootfs)
+[https://openwrt.club/93.html](https://openwrt.club/93.html)
+[https://openwrt.org/docs/techref/initscripts](https://openwrt.org/docs/techref/initscripts)
+[https://blog.csdn.net/weixin_42512245/article/details/88602272](https://blog.csdn.net/weixin_42512245/article/details/88602272)

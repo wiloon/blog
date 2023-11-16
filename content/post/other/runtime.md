@@ -11,9 +11,9 @@ tags:
 ---
 ## Runtime
 
-<http://blog.csdn.net/csh624366188/article/details/6684327>
+[http://blog.csdn.net/csh624366188/article/details/6684327](http://blog.csdn.net/csh624366188/article/details/6684327)
 
-<http://lavasoft.blog.51cto.com/62575/15565>
+[http://lavasoft.blog.51cto.com/62575/15565](http://lavasoft.blog.51cto.com/62575/15565)
 
 Runtime.getRuntime()可以取得当前JVM的运行时环境,这也是在Java中唯一一个得到运行时环境的方法。
 

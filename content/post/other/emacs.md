@@ -28,9 +28,9 @@ tags:
 
 ```
 
-<https://www.emacswiki.org/emacs/YamlMode>
+[https://www.emacswiki.org/emacs/YamlMode](https://www.emacswiki.org/emacs/YamlMode)
   
-<https://github.com/yoshiki/yaml-mode>
+[https://github.com/yoshiki/yaml-mode](https://github.com/yoshiki/yaml-mode)
 
 ## emacs git
 
@@ -80,7 +80,7 @@ M-; 注释一行
 
 ## emacs groovy mode
 
-<http://groovy.codehaus.org/Emacs+Groovy+Mode>
+[http://groovy.codehaus.org/Emacs+Groovy+Mode](http://groovy.codehaus.org/Emacs+Groovy+Mode)
 
 ## 'Emacs, How to Define Keyboard Shortcuts'
 
@@ -114,7 +114,7 @@ C-c m d
 
 ## emacs nXML
 
-download nXML from <http://www.thaiopensource.com/nxml-mode/>
+download nXML from [http://www.thaiopensource.com/nxml-mode/](http://www.thaiopensource.com/nxml-mode/)
 
 To get things automatically loaded each time you start Emacs, add
 (load "~/nxml-mode-200YMMDD/rng-auto.el")
@@ -155,7 +155,7 @@ m-x flush-lines
   
 (global-set-key (kbd "C-S-<return>") '(lambda()(interactive)(move-beginning-of-line 1)(newline)(previous-line)))
 
-<http://www.gnu.org/software/emacs/manual/html_node/emacs/Moving-Point.html>
+[http://www.gnu.org/software/emacs/manual/html_node/emacs/Moving-Point.html](http://www.gnu.org/software/emacs/manual/html_node/emacs/Moving-Point.html)
 
 ## emacs在替换字符串的时候输入回车/换行
 

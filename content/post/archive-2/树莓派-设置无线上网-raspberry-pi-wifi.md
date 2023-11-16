@@ -10,7 +10,7 @@ tags:
 ---
 ## '树莓派 设置无线上网  Raspberry Pi  wifi'
 
-<http://www.jianshu.com/p/b42e8d3df449>
+[http://www.jianshu.com/p/b42e8d3df449](http://www.jianshu.com/p/b42e8d3df449)
 
 树莓派 Raspberry Pi 设置无线上网
   
@@ -42,7 +42,7 @@ firmware-realtek - Binary firmware for Realtek wired and wireless network adapte
 
 sudo apt-get install firmware-realtek
   
-如果你的树莓派现在不能上网,那么你可以去镜像站点中下载相关驱动。我推荐阿里云的镜像站点,速度比较快。<http://mirrors.aliyun.com/raspbian/raspbian/pool/non-free/f/firmware-nonfree>
+如果你的树莓派现在不能上网,那么你可以去镜像站点中下载相关驱动。我推荐阿里云的镜像站点,速度比较快。[http://mirrors.aliyun.com/raspbian/raspbian/pool/non-free/f/firmware-nonfree](http://mirrors.aliyun.com/raspbian/raspbian/pool/non-free/f/firmware-nonfree)
 
 下载firmware-realtek_0.43_all.deb,用winscp上传到树莓派的/tmp目录中。输入命令安装:
 

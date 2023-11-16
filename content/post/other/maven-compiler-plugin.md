@@ -46,7 +46,7 @@ maven-compiler-plugin 会从 `<properties>` 里读取 `maven.compiler.release`, 
 
 "maven.compiler.release" as an replacement for source and target
 
-<http://blog.csdn.net/zhaoyongnj2012/article/details/23970451>
+[http://blog.csdn.net/zhaoyongnj2012/article/details/23970451](http://blog.csdn.net/zhaoyongnj2012/article/details/23970451)
 
 在maven的默认配置中, 对于 jdk 的配置是 1.4 版本,那么创建/导入 maven 工程过程中, 工程中未指定 jdk版本。
 

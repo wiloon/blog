@@ -12,7 +12,7 @@ tags:
 
 maven依赖本地非repository中的jar包
   
-<http://www.cnblogs.com/piaolingxue/archive/2011/10/12/2208871.html>
+[http://www.cnblogs.com/piaolingxue/archive/2011/10/12/2208871.html](http://www.cnblogs.com/piaolingxue/archive/2011/10/12/2208871.html)
   
 博客分类:
   

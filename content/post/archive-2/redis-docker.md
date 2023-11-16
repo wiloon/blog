@@ -29,4 +29,4 @@ sudo docker start redis-x
 sudo docker exec -it redis-x redis-cli
 ```
 
-<http://www.runoob.com/docker/docker-install-redis.html>
+[http://www.runoob.com/docker/docker-install-redis.html](http://www.runoob.com/docker/docker-install-redis.html)

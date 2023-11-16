@@ -10,9 +10,9 @@ tags:
 ---
 ## openjdk
 
-<http://openjdk.java.net/projects/jdk/>
+[http://openjdk.java.net/projects/jdk/](http://openjdk.java.net/projects/jdk/)
 
-<https://jdk.java.net>
+[https://jdk.java.net](https://jdk.java.net)
 
 ## archlinux openjdk
 
@@ -65,7 +65,7 @@ sudo update-alternatives --config java
 
 ### download jdk
 
-<https://jdk.java.net/17>
+[https://jdk.java.net/17](https://jdk.java.net/17)
 
 ### AdoptOpenJDK
 
@@ -73,13 +73,13 @@ AdoptOpenJDK 是一个由OpenJDK构建，并以免费软件的形式提供社区
 
 ### AdoptOpenJDK mirror
 
-<https://mirrors.tuna.tsinghua.edu.cn/AdoptOpenJDK/16/jdk/x64/linux>
+[https://mirrors.tuna.tsinghua.edu.cn/AdoptOpenJDK/16/jdk/x64/linux](https://mirrors.tuna.tsinghua.edu.cn/AdoptOpenJDK/16/jdk/x64/linux)
 
 #### jdk 8
 
-<https://mirrors.tuna.tsinghua.edu.cn/Adoptium/8/jdk/x64/windows/>
+[https://mirrors.tuna.tsinghua.edu.cn/Adoptium/8/jdk/x64/windows/](https://mirrors.tuna.tsinghua.edu.cn/Adoptium/8/jdk/x64/windows/)
 
-<https://mirrors.tuna.tsinghua.edu.cn/Adoptium/8/jdk/x64/linux>
+[https://mirrors.tuna.tsinghua.edu.cn/Adoptium/8/jdk/x64/linux](https://mirrors.tuna.tsinghua.edu.cn/Adoptium/8/jdk/x64/linux)
 
 open a terminal.
   
@@ -113,33 +113,33 @@ Eclipse Adaptium 还提供了工件，包括作为代码的开源基础设施、
 
 Azul 和 IBM 为 Eclipse Temurin 二进制文件提供商业支持。
 
-<https://wiki.archlinux.org/index.php/java>  
-<https://archlinux.org/packages/extra/x86_64/jdk8-openjdk/>  
+[https://wiki.archlinux.org/index.php/java](https://wiki.archlinux.org/index.php/java)  
+[https://archlinux.org/packages/extra/x86_64/jdk8-openjdk/](https://archlinux.org/packages/extra/x86_64/jdk8-openjdk/)  
 
 ### redhat build of openjdk
 
-<https://developers.redhat.com/products/openjdk/download?sc_cid=701f2000000RWTnAAO>
+[https://developers.redhat.com/products/openjdk/download?sc_cid=701f2000000RWTnAAO](https://developers.redhat.com/products/openjdk/download?sc_cid=701f2000000RWTnAAO)
 
 ### jvm specs
 
-<https://docs.oracle.com/javase/specs/index.html>
+[https://docs.oracle.com/javase/specs/index.html](https://docs.oracle.com/javase/specs/index.html)
 
 ### jdk source code
 
-<https://github.com/openjdk/jdk>
+[https://github.com/openjdk/jdk](https://github.com/openjdk/jdk)
 
 ### /usr/lib/jvm/java-8-openjdk-amd64/jre/lib/ext/libatk-wrapper.so
 
 Java ATK Wrapper is a implementation of ATK by using JNI technic.
 It converts Java Swing events into ATK events, and sends these events to
 ATK-Bridge.
-<https://developer.gnome.org/accessibility-devel-guide/stable/dev-start-5.html.zh_CN>
+[https://developer.gnome.org/accessibility-devel-guide/stable/dev-start-5.html.zh_CN](https://developer.gnome.org/accessibility-devel-guide/stable/dev-start-5.html.zh_CN)
 
-<https://blog.csdn.net/oschina_40188932/article/details/78833754>
+[https://blog.csdn.net/oschina_40188932/article/details/78833754](https://blog.csdn.net/oschina_40188932/article/details/78833754)
 
 ## openjdk archive
 
-<https://jdk.java.net/archive>
+[https://jdk.java.net/archive](https://jdk.java.net/archive)
 
 ## macos openjdk
 

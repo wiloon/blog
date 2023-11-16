@@ -16,7 +16,7 @@ IP 数据包常通过以太网发送。以太网设备并不识别32位IP地址:
 
 ARP工 作时,送出一个含有所希望的IP地址的以太网广播数据包。目的地主机,或另一个代表该主机的系统,以一个含有IP和以太网地址对的数据包作为应答。发送者将这个地址对高速缓存起来,以节约不必要的ARP通信。
   
-<https://www.ibm.com/developerworks/cn/linux/l-arp/index.html>
+[https://www.ibm.com/developerworks/cn/linux/l-arp/index.html](https://www.ibm.com/developerworks/cn/linux/l-arp/index.html)
 
 ```bash
 pacman -S core/net-tools

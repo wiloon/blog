@@ -503,6 +503,6 @@ TIME_TO_SEC(time)
   
 返回time参数,转换成秒。
 
-<http://blog.sina.com.cn/s/blog_9d0b00a401014a0m.html>
+[http://blog.sina.com.cn/s/blog_9d0b00a401014a0m.html](http://blog.sina.com.cn/s/blog_9d0b00a401014a0m.html)
   
-<https://blog.csdn.net/weixin_39800144/article/details/80195355>
+[https://blog.csdn.net/weixin_39800144/article/details/80195355](https://blog.csdn.net/weixin_39800144/article/details/80195355)

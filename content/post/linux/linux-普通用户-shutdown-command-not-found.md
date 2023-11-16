@@ -70,9 +70,9 @@ shutdown1.jpg
 
 若需要取消关机、重启操作，在SSH中可按Ctrl+C快捷键取消正在执行的命令。当然若重新登陆了SSH或其它情况，可通过一下代码取消 (定时) 关机。
   
-<http://www.kwx.gd/LinuxBase/Linux-shutdown.html>
+[http://www.kwx.gd/LinuxBase/Linux-shutdown.html](http://www.kwx.gd/LinuxBase/Linux-shutdown.html)
 
-<http://blog.csdn.net/aloie/article/details/3141336>
+[http://blog.csdn.net/aloie/article/details/3141336](http://blog.csdn.net/aloie/article/details/3141336)
 
 有点linux基础知识的，或者是系统的学习过计算机知识的人，没用过也能猜到，关机命令十有八九可能是shutdown。没错，实际上shutdown确实是liunx的关机命令，再配合各种选项，实现不同的关机效果。
   

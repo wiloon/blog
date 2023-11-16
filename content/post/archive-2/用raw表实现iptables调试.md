@@ -159,12 +159,12 @@ COMMIT
   
 把这条规则删掉后重启iptables,vm能顺利连接外网,问题解决。
 
-<https://www.howtoing.com/enable-logging-in-iptables-on-linux>
+[https://www.howtoing.com/enable-logging-in-iptables-on-linux](https://www.howtoing.com/enable-logging-in-iptables-on-linux)
 
     iptables debugging
   
-<https://backreference.org/2010/06/11/iptables-debugging/embed/#?secret=GkDsoEKKiO>
+[https://backreference.org/2010/06/11/iptables-debugging/embed/#?secret=GkDsoEKKiO](https://backreference.org/2010/06/11/iptables-debugging/embed/#?secret=GkDsoEKKiO)
   
-<http://blog.51cto.com/flymanhi/1276331>
+[http://blog.51cto.com/flymanhi/1276331](http://blog.51cto.com/flymanhi/1276331)
   
-<http://blog.youlingman.info/debugging-iptables-with-raw-table/>
+[http://blog.youlingman.info/debugging-iptables-with-raw-table/](http://blog.youlingman.info/debugging-iptables-with-raw-table/)

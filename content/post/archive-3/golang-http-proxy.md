@@ -36,7 +36,7 @@ tags:
 
 ### proxy
 
-<https://www.flysnow.org/2016/12/24/golang-http-proxy.html>
+[https://www.flysnow.org/2016/12/24/golang-http-proxy.html](https://www.flysnow.org/2016/12/24/golang-http-proxy.html)
 
 ```go
 package main
@@ -117,4 +117,4 @@ func handleClientRequest(client net.Conn) {
 
 ```
 
-<https://segmentfault.com/a/1190000013262746>
+[https://segmentfault.com/a/1190000013262746](https://segmentfault.com/a/1190000013262746)

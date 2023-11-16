@@ -14,13 +14,13 @@ tags:
 
 安卓线刷升级 flash factory image for android device
   
-<http://blog.wiloon.com/android/factory-image>
+[http://blog.wiloon.com/android/factory-image](http://blog.wiloon.com/android/factory-image)
 
 Enable USB Debugging mode
 
 Download MagiskManager apk 并安装 到手机
 
-<https://github.com/topjohnwu/Magisk>
+[https://github.com/topjohnwu/Magisk](https://github.com/topjohnwu/Magisk)
 
 从第一步线刷升级用的镜像文件 `image-blueline-sp1a.210812.016.c2.zip` 里解压出 boot.img, 传到手机上的 download 目录
   
@@ -39,19 +39,19 @@ fastboot reboot
 
 重启后系统已经root成功了。
 
-<https://blog.csdn.net/Ender_Zhao/article/details/108615512>
+[https://blog.csdn.net/Ender_Zhao/article/details/108615512](https://blog.csdn.net/Ender_Zhao/article/details/108615512)
 
-<https://www.teamandroid.com/2019/03/17/root-android-q-beta-google-pixel-2-pixel/embed/#?secret=dymLQPYWmm>
+[https://www.teamandroid.com/2019/03/17/root-android-q-beta-google-pixel-2-pixel/embed/#?secret=dymLQPYWmm](https://www.teamandroid.com/2019/03/17/root-android-q-beta-google-pixel-2-pixel/embed/#?secret=dymLQPYWmm)
 
 ## android root pixel
 
 Download Magisk Root
   
-<https://github.com/topjohnwu/Magisk>
+[https://github.com/topjohnwu/Magisk](https://github.com/topjohnwu/Magisk)
 
 Download the TWRP Recovery
   
-<https://dl.twrp.me/sailfish/>
+[https://dl.twrp.me/sailfish/](https://dl.twrp.me/sailfish/)
 
 刷入第三方Recovery:TWRP及Root
   
@@ -77,5 +77,5 @@ twrp-3.2.3-1-sailfish.img (临时twrp)
 
 将 twrp-pixel-installer-sailfish-3.2.3-1.zip 和 Magisk-v17.2.zip 拷贝到手机中。
 
-<https://www.itfanr.cc/2018/10/16/google-pixel-unlock-bl-and-root/>
+[https://www.itfanr.cc/2018/10/16/google-pixel-unlock-bl-and-root/](https://www.itfanr.cc/2018/10/16/google-pixel-unlock-bl-and-root/)
 

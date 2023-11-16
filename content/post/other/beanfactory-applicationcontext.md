@@ -11,7 +11,7 @@ tags:
 ---
 ## BeanFactory, ApplicationContext
 
-<http://blog.csdn.net/liaomin416100569/article/details/4924183>
+[http://blog.csdn.net/liaomin416100569/article/details/4924183](http://blog.csdn.net/liaomin416100569/article/details/4924183)
 
 org.springframework.beans.factory.BeanFactory 是Spring IoC容器的实际代表者,
 

@@ -10,7 +10,7 @@ tags:
 ---
 ## NoClassDefFoundError, ClassNotFoundException
 
-<http://wxl24life.iteye.com/blog/1919359>
+[http://wxl24life.iteye.com/blog/1919359](http://wxl24life.iteye.com/blog/1919359)
 
 java.lang.NoClassDefFoundError 和 java.lang.ClassNotFoundException 都是 Java 语言定义的标准异常。从异常类的名称看似乎都跟类的定义找不到有关,但是还是有些差异。我们先来看一下 java 规范中对这两个异常的说明:
 

@@ -22,7 +22,7 @@ repositories {
 
 ```
 
-<http://www.yrom.net/blog/2015/02/07/change-gradle-maven-repo-url/>
+[http://www.yrom.net/blog/2015/02/07/change-gradle-maven-repo-url/](http://www.yrom.net/blog/2015/02/07/change-gradle-maven-repo-url/)
 
 近来迁移了一些项目到Android Studio,采用Gradle构建确实比原来的Ant方便许多。但是编译时下载依赖的网速又着实令人蛋疼不已。
 
@@ -80,4 +80,4 @@ url REPOSITORY_URL
 
 init.gradle文件其实是Gradle的初始化脚本(Initialization Scripts),也是运行时的全局配置。
   
-更详细的介绍请参阅 <http://gradle.org/docs/current/userguide/init_scripts.html>
+更详细的介绍请参阅 [http://gradle.org/docs/current/userguide/init_scripts.html](http://gradle.org/docs/current/userguide/init_scripts.html)

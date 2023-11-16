@@ -13,8 +13,8 @@ tags:
 ## k8s command
 
 - commands
-- kubekey <https://github.com/kubesphere/kubekey>
-- Rancher <https://rancher.com/>
+- kubekey [https://github.com/kubesphere/kubekey](https://github.com/kubesphere/kubekey)
+- Rancher [https://rancher.com/](https://rancher.com/)
 - archlinux install k8s
 - ubuntu install k8s
 
@@ -118,7 +118,7 @@ kubectl explain pod
 
 ### docker cli to kubectl
 
-<https://kubernetes.io/docs/reference/kubectl/docker-cli-to-kubectl/>
+[https://kubernetes.io/docs/reference/kubectl/docker-cli-to-kubectl/](https://kubernetes.io/docs/reference/kubectl/docker-cli-to-kubectl/)
 
 ## Containerd, CRI-O
 
@@ -140,7 +140,7 @@ CRI-O 完整实现CRI接口功能，并且严格兼容 OCI 标准，CRI-O 比 Co
 
 CRI-O通过命令行调用默认运行时runC，所以runC二进制文件必须部署在目录/usr/bin/runc。CRI-O和Containerd调用runtime的方式不同，前者是通过Linux命令调用，后者是通过gRPC服务调用，所以只要符合OCI规范的runtime，都能直接接入CRI-O提供运行时服务，而除runC外的其他运行时要接入Containerd，只能走shim v2接口，因此我们看到像kata-runtime这样的运行时项目就是通过shim v2接口来适配Containerd的。
 
-<http://dockone.io/article/8891>
+[http://dockone.io/article/8891](http://dockone.io/article/8891)
 
 ```bash
 # check crio state and version 
@@ -161,7 +161,7 @@ kubeadm是一种简单的方式让新用户开始尝试Kubernetes，也可能是
 
 可以在支持安装deb或rpm软件包的操作系统上非常轻松地安装kubeadm。SIG集群生命周期SIG Cluster Lifecycle kubeadm的SIG相关维护者提供了预编译的这些软件包，也可以在其他操作系统上使用。
 
-<https://github.com/kubernetes/kubeadm>
+[https://github.com/kubernetes/kubeadm](https://github.com/kubernetes/kubeadm)
 
 ## kubelet
 
@@ -437,25 +437,25 @@ kubectl port-forward --namespace=ingress-nginx service/ingress-nginx-controller 
 curl http://demo.localdev.me:8080/
 ```
 
-<https://www.lixueduan.com/post/kubernetes/01-install/>
+[https://www.lixueduan.com/post/kubernetes/01-install/](https://www.lixueduan.com/post/kubernetes/01-install/)
 
-<https://wiki.archlinux.org/title/Kubernetes>
+[https://wiki.archlinux.org/title/Kubernetes](https://wiki.archlinux.org/title/Kubernetes)
 
-<https://kubernetes.io/zh/docs/home/>
+[https://kubernetes.io/zh/docs/home/](https://kubernetes.io/zh/docs/home/)
 
-<https://kubernetes.io/zh/docs/setup/production-environment/tools/kubeadm/create-cluster-kubeadm/>
+[https://kubernetes.io/zh/docs/setup/production-environment/tools/kubeadm/create-cluster-kubeadm/](https://kubernetes.io/zh/docs/setup/production-environment/tools/kubeadm/create-cluster-kubeadm/)
 
-<https://www.qikqiak.com/post/containerd-usage/>
+[https://www.qikqiak.com/post/containerd-usage/](https://www.qikqiak.com/post/containerd-usage/)
 
-<https://landscape.cncf.io/card-mode?category=container-runtime&grouping=category>
+[https://landscape.cncf.io/card-mode?category=container-runtime&grouping=category](https://landscape.cncf.io/card-mode?category=container-runtime&grouping=category)
 
-<https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/kubelet-integration/>
+[https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/kubelet-integration/](https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/kubelet-integration/)
 
-<https://juejin.cn/post/6894457482635116551>
+[https://juejin.cn/post/6894457482635116551](https://juejin.cn/post/6894457482635116551)
 
 ### pod cidr not assgned
 
-<https://github.com/flannel-io/flannel/issues/728>
+[https://github.com/flannel-io/flannel/issues/728](https://github.com/flannel-io/flannel/issues/728)
 
 ### kubectl run
 
@@ -465,9 +465,9 @@ kubectl run nginx --image=nginx --port=38080
 curl -v http://10.85.0.3
 ```
 
-<https://segmentfault.com/a/1190000020675199>
+[https://segmentfault.com/a/1190000020675199](https://segmentfault.com/a/1190000020675199)
 
-<https://imroc.cc/post/202105/why-enable-bridge-nf-call-iptables/>
+[https://imroc.cc/post/202105/why-enable-bridge-nf-call-iptables/](https://imroc.cc/post/202105/why-enable-bridge-nf-call-iptables/)
 
 ## ubuntu install k8s
 
@@ -613,7 +613,7 @@ kubectl delete svc svc0
 kubectl delete -f deployment.yaml
 ```
 
-<https://www.linuxtechi.com/install-kubernetes-on-ubuntu-22-04/>
+[https://www.linuxtechi.com/install-kubernetes-on-ubuntu-22-04/](https://www.linuxtechi.com/install-kubernetes-on-ubuntu-22-04/)
 
 ## deployment
 
@@ -740,11 +740,11 @@ kubectl create -f /tmp/k8s-rssx-ui-deployment.yaml
 kubectl delete -f /tmp/k8s-rssx-ui-deployment.yaml
 ```
 
-<https://jasonkayzk.github.io/2021/10/31/%E4%BD%BF%E7%94%A8K8S%E9%83%A8%E7%BD%B2%E6%9C%80%E7%AE%80%E5%8D%95%E7%9A%84Go%E5%BA%94%E7%94%A8/>
+[https://jasonkayzk.github.io/2021/10/31/%E4%BD%BF%E7%94%A8K8S%E9%83%A8%E7%BD%B2%E6%9C%80%E7%AE%80%E5%8D%95%E7%9A%84Go%E5%BA%94%E7%94%A8/](https://jasonkayzk.github.io/2021/10/31/%E4%BD%BF%E7%94%A8K8S%E9%83%A8%E7%BD%B2%E6%9C%80%E7%AE%80%E5%8D%95%E7%9A%84Go%E5%BA%94%E7%94%A8/)
 
 ## PV
 
-<https://www.cnblogs.com/along21/p/10342788.html>
+[https://www.cnblogs.com/along21/p/10342788.html](https://www.cnblogs.com/along21/p/10342788.html)
 
 create nfs server <wiloon.com/nfs>
 
@@ -1004,7 +1004,7 @@ spec:
 kubectl run -it --rm --image=mysql:5.6 --restart=Never mysql-client -- mysql -h mysql -ppassword0
 ```
 
-<https://kubernetes.io/zh-cn/docs/tasks/run-application/run-single-instance-stateful-application/>
+[https://kubernetes.io/zh-cn/docs/tasks/run-application/run-single-instance-stateful-application/](https://kubernetes.io/zh-cn/docs/tasks/run-application/run-single-instance-stateful-application/)
 
 ## kubectl create, apply
 
@@ -1019,7 +1019,7 @@ kubectl apply：
   kubectl apply命令，根据配置文件里面列出来的内容，升级现有的。所以yaml文件的内容可以只写需要升级的属性
 ————————————————
 版权声明：本文为CSDN博主「daiqinge」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
-原文链接：<https://blog.csdn.net/daiqinge/article/details/103249260>
+原文链接：[https://blog.csdn.net/daiqinge/article/details/103249260](https://blog.csdn.net/daiqinge/article/details/103249260)
 
 ## influxdb
 
@@ -1030,7 +1030,7 @@ kubectl get cm influxdb-config
 kubectl get cm influxdb-config -oyaml
 ```
 
-<https://www.cnblogs.com/zhangsi-lzq/p/14457707.html>
+[https://www.cnblogs.com/zhangsi-lzq/p/14457707.html](https://www.cnblogs.com/zhangsi-lzq/p/14457707.html)
 
 ## influxdb-dp.yaml
 
@@ -1394,13 +1394,13 @@ ctr image export kube-apiserver.v1.25.2.tar registry.k8s.io/kube-apiserver:v1.25
 ctr -n k8s.io  image import kube-apiserver.v1.25.2.tar
 ```
 
-<https://www.51cto.com/article/717474.html>
+[https://www.51cto.com/article/717474.html](https://www.51cto.com/article/717474.html)
 
 ## 亲和, 反亲和, affinity, nonaffinity
 
-<https://www.cnblogs.com/zhanglianghhh/p/13922945.html>
+[https://www.cnblogs.com/zhanglianghhh/p/13922945.html](https://www.cnblogs.com/zhanglianghhh/p/13922945.html)
 
-<https://kubernetes.io/docs/reference/>
+[https://kubernetes.io/docs/reference/](https://kubernetes.io/docs/reference/)
 
 ## 不通过 yaml 文件运行 pod, 用 drill 查询 DNS
 

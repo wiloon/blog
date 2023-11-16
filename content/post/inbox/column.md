@@ -29,8 +29,8 @@ Filesystem Size Used Avail Use% Mounted on
   
 /dev/vdb1 50G 1.9G 45G 4% /data
 
-<https://blog.csdn.net/bbs11111111/article/details/5975188>
+[https://blog.csdn.net/bbs11111111/article/details/5975188](https://blog.csdn.net/bbs11111111/article/details/5975188)
   
-<http://ask.apelearn.com/question/9933>
+[http://ask.apelearn.com/question/9933](http://ask.apelearn.com/question/9933)
 
-<http://blog.csdn.net/robertsong2004/article/details/38796985>
+[http://blog.csdn.net/robertsong2004/article/details/38796985](http://blog.csdn.net/robertsong2004/article/details/38796985)

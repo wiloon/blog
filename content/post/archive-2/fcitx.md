@@ -141,16 +141,16 @@ ctrl-7
     export XMODIFIERS="@im=fcitx"
 ```
 
-<https://blog.csdn.net/qq_18649781/article/details/87476043>
+[https://blog.csdn.net/qq_18649781/article/details/87476043](https://blog.csdn.net/qq_18649781/article/details/87476043)
 
-<https://blog.hellojukay.cn/2019/08/09/20190810/>
+[https://blog.hellojukay.cn/2019/08/09/20190810/](https://blog.hellojukay.cn/2019/08/09/20190810/)
 
-<https://bbs.archlinuxcn.org/viewtopic.php?id=2052>
+[https://bbs.archlinuxcn.org/viewtopic.php?id=2052](https://bbs.archlinuxcn.org/viewtopic.php?id=2052)
 
-<https://zhuanlan.zhihu.com/p/51957263>
+[https://zhuanlan.zhihu.com/p/51957263](https://zhuanlan.zhihu.com/p/51957263)
 
-<http://forum.ubuntu.org.cn/viewtopic.php?f=68&t=395616>
+[http://forum.ubuntu.org.cn/viewtopic.php?f=68&t=395616](http://forum.ubuntu.org.cn/viewtopic.php?f=68&t=395616)
 
-<https://blog.csdn.net/rznice/article/details/79840261>
+[https://blog.csdn.net/rznice/article/details/79840261](https://blog.csdn.net/rznice/article/details/79840261)
 
-<https://registerboy.pixnet.net/blog/post/12180583>
+[https://registerboy.pixnet.net/blog/post/12180583](https://registerboy.pixnet.net/blog/post/12180583)

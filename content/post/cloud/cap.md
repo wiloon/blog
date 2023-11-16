@@ -94,7 +94,7 @@ BASE 理论本质上是对 CAP 理论的延伸，是对 CAP 中 AP 方案的一�
 
 ---
 
-<https://xiaomi-info.github.io/2020/01/02/distributed-transaction/>
-<https://www.ruanyifeng.com/blog/2018/07/cap.html>
-<https://zh.wikipedia.org/wiki/CAP%E5%AE%9A%E7%90%86>
-<https://my.oschina.net/u/867417/blog/1865971>
+[https://xiaomi-info.github.io/2020/01/02/distributed-transaction/](https://xiaomi-info.github.io/2020/01/02/distributed-transaction/)
+[https://www.ruanyifeng.com/blog/2018/07/cap.html](https://www.ruanyifeng.com/blog/2018/07/cap.html)
+[https://zh.wikipedia.org/wiki/CAP%E5%AE%9A%E7%90%86](https://zh.wikipedia.org/wiki/CAP%E5%AE%9A%E7%90%86)
+[https://my.oschina.net/u/867417/blog/1865971](https://my.oschina.net/u/867417/blog/1865971)

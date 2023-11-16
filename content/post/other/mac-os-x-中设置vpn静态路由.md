@@ -15,7 +15,7 @@ tags:
 sudo route -n add -net 192.168.5.4 -netmask 255.255.255.0 xxx.xxx.200.1
 ```
 
-<https://blog.hackroad.com/apple/mac-os/7011.html>
+[https://blog.hackroad.com/apple/mac-os/7011.html](https://blog.hackroad.com/apple/mac-os/7011.html)
 
 mac osx Lerpard 中, 使用内置的pptp client端拨号成功后,
   

@@ -41,21 +41,21 @@ YubiKey还可以作为标准的 OpenPGP Smart Card 使用, 用来存储 PGP 私�
 
 以上提到的三个功能是可以同时使用的,相互之间并不冲突。
 
-<https://wiki.archlinux.org/index.php/yubikey#Introduction>
+[https://wiki.archlinux.org/index.php/yubikey#Introduction](https://wiki.archlinux.org/index.php/yubikey#Introduction)
 
-<https://www.bookstack.cn/read/yubikey-handbook-chinese/ssh-authenticating-ssh-with-piv-and-pkcs11-client-troubleshooting.md>
+[https://www.bookstack.cn/read/yubikey-handbook-chinese/ssh-authenticating-ssh-with-piv-and-pkcs11-client-troubleshooting.md](https://www.bookstack.cn/read/yubikey-handbook-chinese/ssh-authenticating-ssh-with-piv-and-pkcs11-client-troubleshooting.md)
 
-<https://blog.dwx.io/yubikey4/>
+[https://blog.dwx.io/yubikey4/](https://blog.dwx.io/yubikey4/)
 
-<https://www.bookstack.cn/read/yubikey-handbook-chinese/piv-use-cases.md>
+[https://www.bookstack.cn/read/yubikey-handbook-chinese/piv-use-cases.md](https://www.bookstack.cn/read/yubikey-handbook-chinese/piv-use-cases.md)
 
-<https://bigeagle.me/2012/05/yubikey/>
+[https://bigeagle.me/2012/05/yubikey/](https://bigeagle.me/2012/05/yubikey/)
 
-<https://bigeagle.me/2016/02/yubikey-4/>
+[https://bigeagle.me/2016/02/yubikey-4/](https://bigeagle.me/2016/02/yubikey-4/)
 
-<https://blog.blahgeek.com/yubikey-intro/>
+[https://blog.blahgeek.com/yubikey-intro/](https://blog.blahgeek.com/yubikey-intro/)
 
-<https://bitbili.net/yubikey_5_nfc_functions.html>
+[https://bitbili.net/yubikey_5_nfc_functions.html](https://bitbili.net/yubikey_5_nfc_functions.html)
 
 ### piv ssh key
 
@@ -79,8 +79,8 @@ ssh-add -s /usr/lib/libykcs11.so
 yubico-piv-tool -a status
 ```
 
-><https://ruimarinho.gitbooks.io/yubikey-handbook/content/ssh/authenticating-ssh-with-piv-and-pkcs11-client/>
-><https://mdrights.github.io/os-observe/posts/2020/12/yubikey-ssh-login.html>
+>[https://ruimarinho.gitbooks.io/yubikey-handbook/content/ssh/authenticating-ssh-with-piv-and-pkcs11-client/](https://ruimarinho.gitbooks.io/yubikey-handbook/content/ssh/authenticating-ssh-with-piv-and-pkcs11-client/)
+>[https://mdrights.github.io/os-observe/posts/2020/12/yubikey-ssh-login.html](https://mdrights.github.io/os-observe/posts/2020/12/yubikey-ssh-login.html)
 
 Step 7: So far, so good. The problem comes when you unplug the device and reinsert it. SSH just gives an error "agent refused operation":
 
@@ -93,9 +93,9 @@ This seems like a pretty big oversight, but fortunately it's quite easy to work 
 
 alias yf="ssh-add -e /usr/lib/x86_64-linux-gnu/libykcs11.so; ssh-add -s /usr/lib/x86_64-linux-gnu/libykcs11.so"
 
-><https://incoherency.co.uk/blog/stories/yubikey.html>
+>[https://incoherency.co.uk/blog/stories/yubikey.html](https://incoherency.co.uk/blog/stories/yubikey.html)
 
-<https://ruimarinho.gitbooks.io/yubikey-handbook/content/ssh/authenticating-ssh-with-piv-and-pkcs11-client/>
+[https://ruimarinho.gitbooks.io/yubikey-handbook/content/ssh/authenticating-ssh-with-piv-and-pkcs11-client/](https://ruimarinho.gitbooks.io/yubikey-handbook/content/ssh/authenticating-ssh-with-piv-and-pkcs11-client/)
 
 ## 其它
 
@@ -116,11 +116,11 @@ Solokeys，U2F-zero
 
 ## WebAuthn
 
-<https://webauthn.io/>
+[https://webauthn.io/](https://webauthn.io/)
 
 ## CanoKey
 
-<https://blog.cubercsl.site/post/canokey-unboxing/>
+[https://blog.cubercsl.site/post/canokey-unboxing/](https://blog.cubercsl.site/post/canokey-unboxing/)
 
 CanoKey由清华大学的一些老师/学生（同时也是开源社区的大佬）所写，有软硬件（包括PCB设计）皆开源的stm32版本，也有使用密码学芯片的发售版本（其核心功能一致，只是速度较大差别），可供国内广大用户、企业选用，满足其硬件密钥乃至安全性需求。
 
@@ -132,5 +132,5 @@ CanoKey由清华大学的一些老师/学生（同时也是开源社区的大佬
 
 ## yubikey win 10 login
 
-<https://www.yubico.com/products/computer-login-tools/>
-<https://zh.101-help.com/236052d633-configure-use-yubikey-secure-loginzai-windows-10-local-account/>
+[https://www.yubico.com/products/computer-login-tools/](https://www.yubico.com/products/computer-login-tools/)
+[https://zh.101-help.com/236052d633-configure-use-yubikey-secure-loginzai-windows-10-local-account/](https://zh.101-help.com/236052d633-configure-use-yubikey-secure-loginzai-windows-10-local-account/)

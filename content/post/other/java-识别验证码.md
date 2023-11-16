@@ -22,7 +22,7 @@ tags:
 
 
 ### java 识别验证码
-<http://blog.csdn.net/problc/article/details/5800093>
+[http://blog.csdn.net/problc/article/details/5800093](http://blog.csdn.net/problc/article/details/5800093)
 
 ---
 

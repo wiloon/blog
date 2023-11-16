@@ -24,6 +24,6 @@ First(&obj)
 
 ```
 
-<https://gorm.io/zh_CN/docs/index.html>
+[https://gorm.io/zh_CN/docs/index.html](https://gorm.io/zh_CN/docs/index.html)
 
-<https://cloud.tencent.com/developer/article/1674450>
+[https://cloud.tencent.com/developer/article/1674450](https://cloud.tencent.com/developer/article/1674450)

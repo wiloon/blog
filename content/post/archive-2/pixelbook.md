@@ -13,7 +13,7 @@ tags:
 
 developer mode
 
-<https://www.theverge.com/2017/11/16/16656420/google-pixelbook-chromebook-development-linux-crouton-how-to>
+[https://www.theverge.com/2017/11/16/16656420/google-pixelbook-chromebook-development-linux-crouton-how-to](https://www.theverge.com/2017/11/16/16656420/google-pixelbook-chromebook-development-linux-crouton-how-to)
 
 hold the Esc, Refresh, and power button for a little while and the laptop reboots into Recovery Mode. Once you're there, you hit Ctrl-D to boot into Developer Mode.
 
@@ -23,7 +23,7 @@ hold the Esc, Refresh, and power button for a little while and the laptop reboot
 
 ### crouton
 
-<https://github.com/dnschneid/crouton>
+[https://github.com/dnschneid/crouton](https://github.com/dnschneid/crouton)
 
 ```bash
 sudo crouton -r list
@@ -62,10 +62,10 @@ shell
 sudo -s
 ```
 
-<https://gist.github.com/daemonp/ecead946317b175e3b54731a513efe94>
+[https://gist.github.com/daemonp/ecead946317b175e3b54731a513efe94](https://gist.github.com/daemonp/ecead946317b175e3b54731a513efe94)
 
 ## install ubuntu
 
-<https://askubuntu.com/questions/1468964/how-to-install-ubuntu-on-an-intel-amd-chromebook-google-pixelbook-2017>
+[https://askubuntu.com/questions/1468964/how-to-install-ubuntu-on-an-intel-amd-chromebook-google-pixelbook-2017](https://askubuntu.com/questions/1468964/how-to-install-ubuntu-on-an-intel-amd-chromebook-google-pixelbook-2017)
 
-<https://mrchromebox.tech/#home>
+[https://mrchromebox.tech/#home](https://mrchromebox.tech/#home)

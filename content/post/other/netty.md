@@ -97,7 +97,7 @@ ChannelHandler --> Handler0: channelRead
 @enduml
 ```
 
-<https://netty.io/4.1/api/io/netty/channel/ChannelPipeline.html>
+[https://netty.io/4.1/api/io/netty/channel/ChannelPipeline.html](https://netty.io/4.1/api/io/netty/channel/ChannelPipeline.html)
 
 ### Netty 5.0
 
@@ -113,9 +113,9 @@ Deprecate exceptionCaught in ChannelHandler, only expose it in ChannelInboundHan
 使用ForkJoinPool增加了复杂性，并且没有显示出明显的性能优势。同时保持所有的分支同步是相当多的工作，没有必要。
 
 详情请看github地址：
-<https://github.com/netty/netty/issues/4466>
+[https://github.com/netty/netty/issues/4466](https://github.com/netty/netty/issues/4466)
 
 作者：搬运工来架构
-链接：<https://www.jianshu.com/p/a76b471d0e3f>
+链接：[https://www.jianshu.com/p/a76b471d0e3f](https://www.jianshu.com/p/a76b471d0e3f)
 来源：简书
 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。

@@ -12,11 +12,11 @@ tags:
 
 ### download factory image from
 
-<https://developer.android.com/preview/get>
+[https://developer.android.com/preview/get](https://developer.android.com/preview/get)
   
-<https://developers.google.com/android/images>
+[https://developers.google.com/android/images](https://developers.google.com/android/images)
 
-<https://developer.android.com/about/versions/12/download>
+[https://developer.android.com/about/versions/12/download](https://developer.android.com/about/versions/12/download)
 
 ```bash
 wget https://dl.google.com/dl/android/aosp/angler-opr6.170623.013-factory-a63b2f21.zip
@@ -88,9 +88,9 @@ fastboot format cache
   
 ```
 
-<http://www.inexus.co/thread-386-1-1.html>
+[http://www.inexus.co/thread-386-1-1.html](http://www.inexus.co/thread-386-1-1.html)
 
-<https://blog.nraboy.com/2014/11/manually-update-nexus-device-android-5-0-lollipop/>
+[https://blog.nraboy.com/2014/11/manually-update-nexus-device-android-5-0-lollipop/](https://blog.nraboy.com/2014/11/manually-update-nexus-device-android-5-0-lollipop/)
   
 nexus中文网原创教程，本文以nexus 5为例编写，其他nexus设备原理一样，只需下载不同的系统底包即可，转贴请注明。
 
@@ -172,6 +172,6 @@ List of devices attached
   
 4df798d76f98cf6d device
 
-><https://stackoverflow.com/questions/23081263/adb-android-device-unauthorized>
+>[https://stackoverflow.com/questions/23081263/adb-android-device-unauthorized](https://stackoverflow.com/questions/23081263/adb-android-device-unauthorized)
 
-<http://sspai.com/27429>
+[http://sspai.com/27429](http://sspai.com/27429)

@@ -28,7 +28,7 @@ UUID=E854-F511  /boot   vfat    rw,relatime,fmask=0022,dmask=0022,codepage=437,i
 /dev/sdb1  /data1       ext4   defaults,noatime,discard   0  0
 ```
 
-<https://wiki.archlinux.org/index.php/Fstab_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87>)
+[https://wiki.archlinux.org/index.php/Fstab_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87](https://wiki.archlinux.org/index.php/Fstab_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87))
 
 - `<options>`
 挂载时使用的参数，注意有些 参数是特定文件系统才有的。

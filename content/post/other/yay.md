@@ -55,6 +55,6 @@ yay -Ql
 yay -Ql <package-name>
 ```
 
-<https://mirrors.tuna.tsinghua.edu.cn/help/AUR/>  
-<http://bashell.nodemedia.cn/archives/install-yaourt.html>  
-<https://linux.cn/article-9925-1.html>  
+[https://mirrors.tuna.tsinghua.edu.cn/help/AUR/](https://mirrors.tuna.tsinghua.edu.cn/help/AUR/)  
+[http://bashell.nodemedia.cn/archives/install-yaourt.html](http://bashell.nodemedia.cn/archives/install-yaourt.html)  
+[https://linux.cn/article-9925-1.html](https://linux.cn/article-9925-1.html)  

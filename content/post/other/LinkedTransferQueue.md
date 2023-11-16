@@ -18,7 +18,7 @@ LinkedTransferQueue是在JDK1.7时，J.U.C包新增的一种比较特殊的阻�
 当有消费者线程阻塞等待时，调用transfer方法的生产者线程不会将元素存入队列，而是直接将元素传递给消费者；
 如果调用transfer方法的生产者线程发现没有正在等待的消费者线程，则会将元素入队，然后会阻塞等待，直到有一个消费者线程来获取该元素。
 
-有一篇论文讨论了其算法与性能: 地址: <http://www.cs.rice.edu/~wns1/papers/2006-PPoPP-SQ.pdf>
+有一篇论文讨论了其算法与性能: 地址: [http://www.cs.rice.edu/~wns1/papers/2006-PPoPP-SQ.pdf](http://www.cs.rice.edu/~wns1/papers/2006-PPoPP-SQ.pdf)
 
 LinkedTransferQueue 实现了一个重要的接口 TransferQueue, 该接口含有下面几个重要方法:
   
@@ -100,12 +100,12 @@ PaddedAtomicReference(T r) { super(r); }
   
 PaddedAtomicReference相对于父类AtomicReference只做了一件事情，就将共享变量追加到64字节。我们可以来计算下，一个对象的引用占4个字节，
   
-它追加了15个变量共占60个字节，再加上父类的Value变量，一共64个字节。这么做的原因。请参考<http://www.infoq.com/cn/articles/ftf-java-volatile>
+它追加了15个变量共占60个字节，再加上父类的Value变量，一共64个字节。这么做的原因。请参考[http://www.infoq.com/cn/articles/ftf-java-volatile](http://www.infoq.com/cn/articles/ftf-java-volatile)
   
-<http://rdc.taobao.com/team/jm/archives/1719> 这两文章。做JAVA，如果想成为Doug Lea这样的大师，也要懂体系结构(待续)
+[http://rdc.taobao.com/team/jm/archives/1719](http://rdc.taobao.com/team/jm/archives/1719) 这两文章。做JAVA，如果想成为Doug Lea这样的大师，也要懂体系结构(待续)
 
     Java 7中的TransferQueue
   
-<http://guojuanjun.blog.51cto.com/277646/948298>
+[http://guojuanjun.blog.51cto.com/277646/948298](http://guojuanjun.blog.51cto.com/277646/948298)
 
-<https://segmentfault.com/a/1190000016460411>
+[https://segmentfault.com/a/1190000016460411](https://segmentfault.com/a/1190000016460411)

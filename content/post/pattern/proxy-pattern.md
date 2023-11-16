@@ -104,6 +104,6 @@ APermissionProxy类：只实现A接口的权限检查代理。
 
 Decorator模式让调用者自己创建核心类，然后组合各种功能，而Proxy模式决不能让调用者自己创建再组合，否则就失去了代理的功能。Proxy模式让调用者认为获取到的是核心类接口，但实际上是代理类。
 
-><https://www.jianshu.com/p/5ab7672b935f>
-><https://www.liaoxuefeng.com/wiki/1252599548343744/1281319432618017>
-><https://refactoringguru.cn/design-patterns/proxy>
+>[https://www.jianshu.com/p/5ab7672b935f](https://www.jianshu.com/p/5ab7672b935f)
+>[https://www.liaoxuefeng.com/wiki/1252599548343744/1281319432618017](https://www.liaoxuefeng.com/wiki/1252599548343744/1281319432618017)
+>[https://refactoringguru.cn/design-patterns/proxy](https://refactoringguru.cn/design-patterns/proxy)

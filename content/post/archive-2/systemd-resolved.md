@@ -26,7 +26,7 @@ LLMNR=false
 
 ---
 
-<https://cloud-atlas.readthedocs.io/zh_CN/latest/linux/redhat_linux/systemd/systemd_resolved.html>
+[https://cloud-atlas.readthedocs.io/zh_CN/latest/linux/redhat_linux/systemd/systemd_resolved.html](https://cloud-atlas.readthedocs.io/zh_CN/latest/linux/redhat_linux/systemd/systemd_resolved.html)
 
 ## 测试 域名解析
 
@@ -62,7 +62,7 @@ ln -sf /run/systemd/resolve/stub-resolv.conf /etc/resolv.conf
 
 archlinux
   
-<https://wiki.archlinux.org/index.php/Systemd-resolved>
+[https://wiki.archlinux.org/index.php/Systemd-resolved](https://wiki.archlinux.org/index.php/Systemd-resolved)
 
 ```bash
 vim /etc/systemd/resolved.conf
@@ -81,11 +81,11 @@ resolvectl status
 
 systemd-resolved
   
-<https://blog.wiloon.com/?p=13243>
+[https://blog.wiloon.com/?p=13243](https://blog.wiloon.com/?p=13243)
 
 debian
   
-<https://wiki.debian.org/resolv.conf>
+[https://wiki.debian.org/resolv.conf](https://wiki.debian.org/resolv.conf)
 
 ```bash
 vim /etc/dhcp/dhclient.conf
@@ -107,4 +107,4 @@ sudo systemctl restart systemd-resolved.service
 systemd-resolve --status
 ```
 
-<http://www.jinbuguo.com/systemd/resolved.conf.html>
+[http://www.jinbuguo.com/systemd/resolved.conf.html](http://www.jinbuguo.com/systemd/resolved.conf.html)

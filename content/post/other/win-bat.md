@@ -114,7 +114,7 @@ TIMEOUT 命令在 Windows Server 2003 或 Vista 之后都有內建。
 timeout /t 1
 ```
 
-<http://blog.miniasp.com/post/2009/06/24/Sleep-command-in-Batch.aspx>
+[http://blog.miniasp.com/post/2009/06/24/Sleep-command-in-Batch.aspx](http://blog.miniasp.com/post/2009/06/24/Sleep-command-in-Batch.aspx)
 
 ### setlocal enabledelayedexpansion: 设置本地为延迟扩展
 

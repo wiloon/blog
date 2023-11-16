@@ -117,8 +117,8 @@ master会记录下它上次收到某个slave的ping心跳是什么时候。
 
 ---
 
-<https://segmentfault.com/a/1190000002692598>  
+[https://segmentfault.com/a/1190000002692598](https://segmentfault.com/a/1190000002692598)  
 
-<https://segmentfault.com/a/1190000002680804>
+[https://segmentfault.com/a/1190000002680804](https://segmentfault.com/a/1190000002680804)
 
-<https://www.cnblogs.com/kevingrace/p/9004460.html>
+[https://www.cnblogs.com/kevingrace/p/9004460.html](https://www.cnblogs.com/kevingrace/p/9004460.html)

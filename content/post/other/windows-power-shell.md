@@ -24,7 +24,7 @@ Set-Aliasll dir
 
 ```
 
-<http://marui.blog.51cto.com/1034148/290067/>
+[http://marui.blog.51cto.com/1034148/290067/](http://marui.blog.51cto.com/1034148/290067/)
 
 Windows PowerShell 是一种命令行外壳程序和脚本环境，使命令行用户和脚本编写者可以利用 .NET Framework 的强大功能。它引入了许多非常有用的新概念，从而进一步扩展了您在 Windows 命令提示符和 Windows Script Host 环境中获得的知识和创建的脚本。
 

@@ -425,7 +425,7 @@ public class Main {
 }
 ```
 
-<http://ttitfly.iteye.com/blog/152512>
-><https://majing.io/posts/10000001281162>
-><https://refactoringguru.cn/design-patterns/observer>
-><https://refactoringguru.cn/design-patterns/observer/java/example>
+[http://ttitfly.iteye.com/blog/152512](http://ttitfly.iteye.com/blog/152512)
+>[https://majing.io/posts/10000001281162](https://majing.io/posts/10000001281162)
+>[https://refactoringguru.cn/design-patterns/observer](https://refactoringguru.cn/design-patterns/observer)
+>[https://refactoringguru.cn/design-patterns/observer/java/example](https://refactoringguru.cn/design-patterns/observer/java/example)

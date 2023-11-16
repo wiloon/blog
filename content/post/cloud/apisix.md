@@ -26,7 +26,7 @@ tags:
 
 ### allow admin
 
- allow_admin:                  # <http://nginx.org/en/docs/http/ngx_http_access_module.html#allow>
+ allow_admin:                  # [http://nginx.org/en/docs/http/ngx_http_access_module.html#allow](http://nginx.org/en/docs/http/ngx_http_access_module.html#allow)
         - 192.168.50.116/24              # If we don't set any IP list, then any IP access is allowed by default.
 
 #### 修改etcd 地址

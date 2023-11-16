@@ -12,9 +12,9 @@ tags:
 
 failed to allocate 1024 byte(s) of direct memory (used: xxx, max: xxx)
 
-<https://netty.io/news/2016/06/07/4-0-37-Final.html>
+[https://netty.io/news/2016/06/07/4-0-37-Final.html](https://netty.io/news/2016/06/07/4-0-37-Final.html)
   
-<https://github.com/netty/netty/pull/5314>
+[https://github.com/netty/netty/pull/5314](https://github.com/netty/netty/pull/5314)
 
 System.setProperty("io.netty.maxDirectMemory", "0");
 

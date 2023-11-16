@@ -26,7 +26,7 @@ copy C:\Users\desktop\foo.txt D:\backup\ && D:\backup\foo.exe
 
 ## ISO
 
-<https://isofiles.bd581e55.workers.dev/>
+[https://isofiles.bd581e55.workers.dev/](https://isofiles.bd581e55.workers.dev/)
 
 ## win10 应用开机启动, 启动项
 
@@ -34,18 +34,18 @@ copy C:\Users\desktop\foo.txt D:\backup\ && D:\backup\foo.exe
 
 ### msdn i tell u
 
-<https://www.itellu.com/2021/06/22/win11-v2021-v1/>
+[https://www.itellu.com/2021/06/22/win11-v2021-v1/](https://www.itellu.com/2021/06/22/win11-v2021-v1/)
 
 ### windows iso
 
-打开页面: <https://www.microsoft.com/zh-cn/software-download/windows10>
+打开页面: [https://www.microsoft.com/zh-cn/software-download/windows10](https://www.microsoft.com/zh-cn/software-download/windows10)
 点击 立即下载工具
 运行 MediaCreationTool21H1.exe
 选择 "为另一台电脑创建安装介质"
 
 ### uupdump
 
-<https://uupdump.net/>
+[https://uupdump.net/](https://uupdump.net/)
 
 ### 查看 windows 的版本
 
@@ -106,7 +106,7 @@ netstat -ano|findstr 8080
 -n 以数字形式显示地址和端口号。
 -o 显示与每个连接相关的所属进程 ID。
 
-<https://blog.csdn.net/hsd2012/article/details/50759017>
+[https://blog.csdn.net/hsd2012/article/details/50759017](https://blog.csdn.net/hsd2012/article/details/50759017)
 
 ### windows  剪贴板进程
 
@@ -124,11 +124,11 @@ C:\windows\System32\Drivers\Etc\hosts
 
 Windows Server vNext Long-Term Servicing Channel (LTSC)
 
-<https://technichero.com/download-windows-10-ltsc/>
+[https://technichero.com/download-windows-10-ltsc/](https://technichero.com/download-windows-10-ltsc/)
 
-<https://www.cybermania.ws/software/windows-10-enterprise-ltsc-2021-19044-1288/comment-page-1/>
+[https://www.cybermania.ws/software/windows-10-enterprise-ltsc-2021-19044-1288/comment-page-1/](https://www.cybermania.ws/software/windows-10-enterprise-ltsc-2021-19044-1288/comment-page-1/)
 
-<https://sysin.org/blog/windows-10-ltsc-2021/>
+[https://sysin.org/blog/windows-10-ltsc-2021/](https://sysin.org/blog/windows-10-ltsc-2021/)
 
 ### 启动项
 
@@ -175,7 +175,7 @@ windows设置>控制面板>更改账户类型>添加>
 
 ### 解除防ping
 
-<https://blog.csdn.net/wudinaniya/article/details/80956158>
+[https://blog.csdn.net/wudinaniya/article/details/80956158](https://blog.csdn.net/wudinaniya/article/details/80956158)
 
 ### netstat
 
@@ -189,7 +189,7 @@ windows设置>控制面板>更改账户类型>添加>
     tasklist | findstr <pid>
 ```
 
-<https://blog.csdn.net/hongweigg/article/details/41517025>
+[https://blog.csdn.net/hongweigg/article/details/41517025](https://blog.csdn.net/hongweigg/article/details/41517025)
 
 ### 清理c盘空间, windows清理硬盘空间, windows清理磁盘空间
 
@@ -232,11 +232,11 @@ powercfg.exe /hibernate on
 
 ## windows 命令行设置 IP
 
-<https://www.ithome.com/0/143/741.htm>
+[https://www.ithome.com/0/143/741.htm](https://www.ithome.com/0/143/741.htm)
 
 ## Windows Terminal
 
-<https://github.com/microsoft/terminal>
+[https://github.com/microsoft/terminal](https://github.com/microsoft/terminal)
 
 Windows Terminal> Settings> Actions 可以设置快捷键,解决 vim  ctrl-v 的问题
 
@@ -303,7 +303,7 @@ system> power & battery> power mode> best performance
 
 ## mklink
 
-<https://blog.csdn.net/guyue35/article/details/49761347>
+[https://blog.csdn.net/guyue35/article/details/49761347](https://blog.csdn.net/guyue35/article/details/49761347)
 
 ```bash
 MKLINK [[/D] | [/H] | [/J]] Link Target

@@ -11,15 +11,15 @@ tags:
 ---
 ## tcp proxy
 
-<https://github.com/jpillora/go-tcp-proxy>
+[https://github.com/jpillora/go-tcp-proxy](https://github.com/jpillora/go-tcp-proxy)
 
 ### TCP半开连接与半闭连接
 
-<https://www.cnblogs.com/cangqinglang/p/9558236.html>
+[https://www.cnblogs.com/cangqinglang/p/9558236.html](https://www.cnblogs.com/cangqinglang/p/9558236.html)
 
 ## half-open connection, 半开连接
 
-<https://bbs.huaweicloud.com/blogs/301407>
+[https://bbs.huaweicloud.com/blogs/301407](https://bbs.huaweicloud.com/blogs/301407)
 
 处于 establish 状态的服务端如果收到了客户端的 SYN 报文（注意此时的 SYN 报文其实是乱序的，因为 SYN 报文的初始化序列号其实是一个随机数），会回复一个携带了正确序列号和确认号的 ACK 报文，这个 ACK 被称之为 Challenge ACK。
 

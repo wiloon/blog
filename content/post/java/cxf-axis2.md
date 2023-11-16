@@ -10,7 +10,7 @@ tags:
   - reprint
 ---
 ## CXF Axis2
-<http://apache-cxf.group.iteye.com/group/wiki/1252>
+[http://apache-cxf.group.iteye.com/group/wiki/1252](http://apache-cxf.group.iteye.com/group/wiki/1252)
 
 新一代的 Web Services 框架如 Axis2、CXF 都是由现有的项目中逐渐演化而来的，Axis2 是由大家熟悉的 Axis 1.x 系列演化过来，而 Apache CXF 则是由 Celtix 和 XFire 项目整合而生，并且刚刚发布了 2.0.2 的最新版本，不过仍是 Apache 的一个孵化项目。
 

@@ -183,7 +183,7 @@ State2 --> [*]
 sudo apt-get install -y graphviz
 ```
 
-<https://graphviz.org/download/>
+[https://graphviz.org/download/](https://graphviz.org/download/)
 
 VS-Code扩展
 
@@ -199,7 +199,7 @@ ctrl + p> PlantUML: Preview Current Diagram
 ctrl + alt + d
 ```
 
-<https://www.jianshu.com/p/ed0e979657f4>
+[https://www.jianshu.com/p/ed0e979657f4](https://www.jianshu.com/p/ed0e979657f4)
 
 theme: plain,sandstone,sketchy-outline
 
@@ -241,7 +241,7 @@ component JMM {
 @enduml
 ```
 
-<https://github.com/plantuml/plantuml-server>
+[https://github.com/plantuml/plantuml-server](https://github.com/plantuml/plantuml-server)
 
 ## dot executable /opt/local/bin/dot File does not exist
 

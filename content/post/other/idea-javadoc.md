@@ -10,7 +10,7 @@ tags:
 
 ---
 ## IDEA JavaDoc
-<http://www.intellij.org.cn/bbs/viewtopic.php?t=1817&start=0>
+[http://www.intellij.org.cn/bbs/viewtopic.php?t=1817&start=0](http://www.intellij.org.cn/bbs/viewtopic.php?t=1817&start=0)
 
 在类或者函数前输入 /** 然后回车，就可以生成啦。
 

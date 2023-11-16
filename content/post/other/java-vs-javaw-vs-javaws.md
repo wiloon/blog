@@ -11,7 +11,7 @@ tags:
 ---
 ## java vs javaw vs javaws
 
-<http://javapapers.com/core-java/java-vs-javaw-vs-javaws/>
+[http://javapapers.com/core-java/java-vs-javaw-vs-javaws/](http://javapapers.com/core-java/java-vs-javaw-vs-javaws/)
 
 This article gives an awareness tip. Do you know the difference between java, javaw and javaws tools. All these three are java application launchers.
 We know well about java.exe which we use quite often. Our command line friend, mostly we use it for convenience to execute small java programs. javaw is rare for us. Sometimes we have seen that in running application list in windows task manager. javaws is web start utility.
@@ -81,7 +81,7 @@ JNLP (全称Java Network Launch Protocol）意为Java网络装载协议。JNLP�
 JNLP应用程序能使应用程序像标准的JAVA Applet一样通过WEB浏览器访问，并且在客户机主机上JNLP可以限制为一个安全的“沙箱(sandbox)”.不像Applets，JNLP应用程序不运行的客户的浏览器内部；相反，WEB浏览器只作为应用程序的一个起点或安装工具。
 JAVA桌面应用程序以JNLP 的方式发布，如果版本升级后，不需要再向所有用户发布版本，只需要更新服务器的版本，这就相当于让java应用程序有了web应用的优点。
 
-><https://www.cnblogs.com/bro-ma/p/10684789.html>
+>[https://www.cnblogs.com/bro-ma/p/10684789.html](https://www.cnblogs.com/bro-ma/p/10684789.html)
 
 ### Java Web Start
 
@@ -89,5 +89,5 @@ Java Web Start是帮助客户机端应用程序开发的一个新技术，该技
 Java Web Start是一个软件技术，它包含了applet的可移植性、Servlet和Java Server Pages (JSP）的可维护性以及象XML和HTML这样的标记语言的简易性。它是基于Java的应用程序，允许从标准的Web服务器启动、部署和更新功能完成的Java 2客户机应用程序。
 Java Web Start自身是一个Java应用程序，所以该软件是平台独立的，并且支持Java2平台的任何客户机系统都支持该软件。当客户机应用程序启动时，Java Web Start自动执行更新，在从原来的高速缓存装入应用程序的同时，从Web下载罪行的版本。Java Web Start还提供了一个Java应用程序管理器 (Java Application Manager）实用程序，即提供了多种选项，如清除下载的应用程序的高速缓存、指定多种JRE的使用，设置HTTP代理、还允许最终用户组织他们的Java应用程序。
 Java Web Start站点：
-<http://java.sun.com/javase/technologies/desktop/javawebstart/index.jsp>
-JNPL规范：<http://jcp.org/en/jsr/detail?id=056>
+[http://java.sun.com/javase/technologies/desktop/javawebstart/index.jsp](http://java.sun.com/javase/technologies/desktop/javawebstart/index.jsp)
+JNPL规范：[http://jcp.org/en/jsr/detail?id=056](http://jcp.org/en/jsr/detail?id=056)

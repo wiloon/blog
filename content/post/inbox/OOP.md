@@ -24,5 +24,5 @@ tags:
 　　OO开发范式大致为：划分对象→抽象类→将类组织成为层次化结构(继承和合成) →用类与实例进行设计和实现几个阶段。
 
 
-<https://www.cnblogs.com/bigberg/p/7182741.html>
+[https://www.cnblogs.com/bigberg/p/7182741.html](https://www.cnblogs.com/bigberg/p/7182741.html)
 

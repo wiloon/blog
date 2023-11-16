@@ -10,7 +10,7 @@ tags:
 ---
 ## 控制台,终端,tty,shell
 
-<https://blog.csdn.net/on_1y/article/details/20203963>
+[https://blog.csdn.net/on_1y/article/details/20203963](https://blog.csdn.net/on_1y/article/details/20203963)
 
 使用linux已经有一段时间,却一直弄不明白这几个概念之间的区别。虽然一直在用,但是很多概念都感觉模糊不清,这样不上不下的状态实在令人不爽。下面就澄清一下这些概念。
 
@@ -62,6 +62,6 @@ bash bash是由 Brian Fox为GNU项目开发的自由软件,作为Bourne shell的
   
 来源: CSDN
   
-原文: <https://blog.csdn.net/on_1y/article/details/20203963>
+原文: [https://blog.csdn.net/on_1y/article/details/20203963](https://blog.csdn.net/on_1y/article/details/20203963)
   
 版权声明: 本文为博主原创文章,转载请附上博文链接！

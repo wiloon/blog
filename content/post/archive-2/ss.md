@@ -31,7 +31,7 @@ ss 是 Socket Statistics 的缩写。ss 命令可以用来获取 socket 统计�
 -a, --all 对 TCP 协议来说，既包含监听的端口，也包含建立的连接
 -r, --resolve 把 IP 解释为域名，把端口号解释为协议名称
 
-<https://www.cnblogs.com/sparkdev/p/8421897.html>
+[https://www.cnblogs.com/sparkdev/p/8421897.html](https://www.cnblogs.com/sparkdev/p/8421897.html)
 
 网络状态工具
 
@@ -78,7 +78,7 @@ ss -l
 - listen
 - closing
 
-><http://www.ttlsa.com/linux-command/ss-replace-netstat/>
+>[http://www.ttlsa.com/linux-command/ss-replace-netstat/](http://www.ttlsa.com/linux-command/ss-replace-netstat/)
 
 ## Recv-Q, Send-Q
 
@@ -91,7 +91,7 @@ Recv-Q 表示当前 listen backlog 队列中的连接数目 (等待用户调用 
     // Recv-Q, 等待接收的下一个 tcp 段的序号 - 尚未从内核空间 copy 到用户空间的段最前面的一个序号
     // Send-Q, 已加入发送队列中的 tcp 段的最后一个序号 - 已发送但尚未确认的最早一个序号
 
-><https://github.com/moooofly/MarkSomethingDown/blob/master/Linux/%E5%85%B3%E4%BA%8E%20Recv-Q%20%E5%92%8C%20Send-Q%20%E7%9A%84%E8%AF%B4%E6%98%8E.md>
+>[https://github.com/moooofly/MarkSomethingDown/blob/master/Linux/%E5%85%B3%E4%BA%8E%20Recv-Q%20%E5%92%8C%20Send-Q%20%E7%9A%84%E8%AF%B4%E6%98%8E.md](https://github.com/moooofly/MarkSomethingDown/blob/master/Linux/%E5%85%B3%E4%BA%8E%20Recv-Q%20%E5%92%8C%20Send-Q%20%E7%9A%84%E8%AF%B4%E6%98%8E.md)
 
 ---
 
@@ -462,8 +462,8 @@ QUERY := {all|inet|tcp|udp|raw|unix|packet|netlink}[,QUERY]
 
 FILTER := [ state TCP-STATE ] [ EXPRESSION ]
   
-参考: <http://www.cyberciti.biz/tips/linux-investigate-sockets-network-connections.html>
+参考: [http://www.cyberciti.biz/tips/linux-investigate-sockets-network-connections.html](http://www.cyberciti.biz/tips/linux-investigate-sockets-network-connections.html)
   
-转摘请注明出处: Linux网络状态工具ss命令详解 <http://www.ttlsa.com/html/2070.html>
+转摘请注明出处: Linux网络状态工具ss命令详解 [http://www.ttlsa.com/html/2070.html](http://www.ttlsa.com/html/2070.html)
 
-><https://wangchujiang.com/linux-command/c/ss.html>
+>[https://wangchujiang.com/linux-command/c/ss.html](https://wangchujiang.com/linux-command/c/ss.html)

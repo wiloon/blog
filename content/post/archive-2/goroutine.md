@@ -118,7 +118,7 @@ Goroutine是Golang中轻量级线程的实现,由Go Runtime管理。Golang在语
 
 线程和协程的区别:
 
-一旦创建完线程,你就无法决定他什么时候获得时间片,什么时候让出时间片了,你把它交给了内核。而协程编写者可以有一是可控的切换时机,二是很小的切换代价。从操作系统有没有调度权上看,协程就是因为不需要进行内核态的切换,所以会使用它,会有这么个东西。赖永浩和dccmx 这个定义我觉得相对准确  协程－用户态的轻量级的线程。 (<http://blog.dccmx.com/2011/04/coroutine-concept/>)
+一旦创建完线程,你就无法决定他什么时候获得时间片,什么时候让出时间片了,你把它交给了内核。而协程编写者可以有一是可控的切换时机,二是很小的切换代价。从操作系统有没有调度权上看,协程就是因为不需要进行内核态的切换,所以会使用它,会有这么个东西。赖永浩和dccmx 这个定义我觉得相对准确  协程－用户态的轻量级的线程。 ([http://blog.dccmx.com/2011/04/coroutine-concept/](http://blog.dccmx.com/2011/04/coroutine-concept/))
 
 为什么要用协程:
 
@@ -148,7 +148,7 @@ goroutine的并发问题: goroutine在共享内存中运行,通信网络可能�
 
 并行 并发区别:
 
-并行是指程序的运行状态,要有两个线程正在执行才能算是Parallelism；并发指程序的逻辑结构,Concurrency则只要有两个以上线程还在执行过程中即可。简单地说,Parallelism要在多核或者多处理器情况下才能做到,而Concurrency则不需要。 (<http://stackoverflow.com/questions/1050222/concurrency-vs-parallelism-what-is-the-difference>)
+并行是指程序的运行状态,要有两个线程正在执行才能算是Parallelism；并发指程序的逻辑结构,Concurrency则只要有两个以上线程还在执行过程中即可。简单地说,Parallelism要在多核或者多处理器情况下才能做到,而Concurrency则不需要。 ([http://stackoverflow.com/questions/1050222/concurrency-vs-parallelism-what-is-the-difference](http://stackoverflow.com/questions/1050222/concurrency-vs-parallelism-what-is-the-difference))
 
 goroutine 初始时只给栈分配很小的空间,然后随着使用过程中的需要自动地增长。这就是为什么Go可以开千千万万个goroutine而不会耗尽内存。
 Go 1.4 开始使用的是连续栈,而这之前使用的分段栈。
@@ -188,49 +188,49 @@ Go实现了精确的垃圾回收,运行时知道每一块内存对应的对象�
 
 所谓Continuation就是保存接下来要做的事情的内容(the rest of the computation)。举个简单例子，我在写文档，突然接到电话要外出，这时我存档，存档的数据就是Continuation(继续即将的写作)，然后等会儿回来，调入存档，继续写作。Continuation这个概念就协程来说就是协程保护的现场。而对于函数来说就是保存函数调用现场——Stack Frame值和寄存器，以供以后调用继续从Continuation处执行。换一个角度看，它也可以看作是非结构化Goto语句的函数表达。当我们执行Yield从协程返回的时候，需要保存的就是Continuation了。从理论研究的角度上来说Continuation即是对程序"接下来要做的事情"所进行的一种建模，从而能对之作进一步的分析。Continuation是对未来的完整描述，这对于理论分析而言是有很多方便的地方。实际上任何程序都可以通过CPS(Continuation Passing Style)类型转换为使用Continuation的形式
 
-><https://www.cnblogs.com/riceball/archive/2008/01/19/continuation.html>
-><http://www.blogjava.net/killme2008/archive/2010/03/23/316273.html>
+>[https://www.cnblogs.com/riceball/archive/2008/01/19/continuation.html](https://www.cnblogs.com/riceball/archive/2008/01/19/continuation.html)
+>[http://www.blogjava.net/killme2008/archive/2010/03/23/316273.html](http://www.blogjava.net/killme2008/archive/2010/03/23/316273.html)
 ---
 
-<https://xie.infoq.cn/article/cef6d2931a54f85142d863db7>
+[https://xie.infoq.cn/article/cef6d2931a54f85142d863db7](https://xie.infoq.cn/article/cef6d2931a54f85142d863db7)
 
 《现代操作系统》《分布式系统原理与范型》《深入理解linux内核》《go程序设计语言》
 
-赖勇浩 协程三篇之仅一篇 <http://blog.csdn.net/lanphaday/article/details/5397038>
+赖勇浩 协程三篇之仅一篇 [http://blog.csdn.net/lanphaday/article/details/5397038](http://blog.csdn.net/lanphaday/article/details/5397038)
 
-颜开 <http://qing.blog.sina.com.cn/tj/88ca09aa33002ele.html>
+颜开 [http://qing.blog.sina.com.cn/tj/88ca09aa33002ele.html](http://qing.blog.sina.com.cn/tj/88ca09aa33002ele.html)
 
-go程序设计语言中文 <http://tonybai.com/2012/08/28/the-go-programming-language-tutorial-part3/>   (中文翻译定义中漏了个 并发)
+go程序设计语言中文 [http://tonybai.com/2012/08/28/the-go-programming-language-tutorial-part3/](http://tonybai.com/2012/08/28/the-go-programming-language-tutorial-part3/)   (中文翻译定义中漏了个 并发)
 
-go程序设计语言英文<http://go.googlecode.com/hg-history/release-branch.r60/doc/GoCourseDay3.pdf>
+go程序设计语言英文[http://go.googlecode.com/hg-history/release-branch.r60/doc/GoCourseDay3.pdf](http://go.googlecode.com/hg-history/release-branch.r60/doc/GoCourseDay3.pdf)
 
-go语言初体验 <http://blog.dccmx.com/2011/01/go-taste/>
+go语言初体验 [http://blog.dccmx.com/2011/01/go-taste/](http://blog.dccmx.com/2011/01/go-taste/)
 
-<https://zh.wikipedia.org/wiki/Go>
+[https://zh.wikipedia.org/wiki/Go](https://zh.wikipedia.org/wiki/Go)
 
-<https://zh.wikipedia.org/wiki/>进程
+[https://zh.wikipedia.org/wiki/](https://zh.wikipedia.org/wiki/)进程
 
-<https://zh.wikipedia.org/wiki/>线程
+[https://zh.wikipedia.org/wiki/](https://zh.wikipedia.org/wiki/)线程
 
-<http://stackoverflow.com/questions/1050222/concurrency-vs-parallelism-what-is-the-difference>
+[http://stackoverflow.com/questions/1050222/concurrency-vs-parallelism-what-is-the-difference](http://stackoverflow.com/questions/1050222/concurrency-vs-parallelism-what-is-the-difference)
 
-<http://www.infoq.com/cn/articles/knowledge-behind-goroutine>
+[http://www.infoq.com/cn/articles/knowledge-behind-goroutine](http://www.infoq.com/cn/articles/knowledge-behind-goroutine)
 
-go语言编程书评: <http://book.douban.com/review/5726587/>
+go语言编程书评: [http://book.douban.com/review/5726587/](http://book.douban.com/review/5726587/)
 
 为什么我认为goroutine和channel是把别的平台上类库的功能内置在语言里
   
 本质上协程就是用户空间下的线程。
 
-<http://blog.zhaojie.me/2013/04/why-channel-and-goroutine-in-golang-are-buildin-libraries-for-other-platforms.html>
+[http://blog.zhaojie.me/2013/04/why-channel-and-goroutine-in-golang-are-buildin-libraries-for-other-platforms.html](http://blog.zhaojie.me/2013/04/why-channel-and-goroutine-in-golang-are-buildin-libraries-for-other-platforms.html)
   
-<https://studygolang.com/articles/9611>
+[https://studygolang.com/articles/9611](https://studygolang.com/articles/9611)
   
-<http://www.cnblogs.com/shenguanpu/archive/2013/05/05/3060616.html>
+[http://www.cnblogs.com/shenguanpu/archive/2013/05/05/3060616.html](http://www.cnblogs.com/shenguanpu/archive/2013/05/05/3060616.html)
   
-<https://www.zhihu.com/question/20511233>
-<https://www.zhihu.com/question/21483863>  
-<https://zhuanlan.zhihu.com/p/25513336>  
+[https://www.zhihu.com/question/20511233](https://www.zhihu.com/question/20511233)
+[https://www.zhihu.com/question/21483863](https://www.zhihu.com/question/21483863)  
+[https://zhuanlan.zhihu.com/p/25513336](https://zhuanlan.zhihu.com/p/25513336)  
 
 ### goroutine id
 

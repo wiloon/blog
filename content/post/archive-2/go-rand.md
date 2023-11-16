@@ -10,7 +10,7 @@ tags:
 ---
 ## golang 随机数
 
-<http://www.cnblogs.com/baiyuxiong/p/4545032.html>
+[http://www.cnblogs.com/baiyuxiong/p/4545032.html](http://www.cnblogs.com/baiyuxiong/p/4545032.html)
   
 math/rand 包用于生成随机数。
 

@@ -54,7 +54,7 @@ ctrl-e 屏幕向下滚动一行。
 ctrl-y 屏幕向上滚动一行。
 后面几个 Ctrl 开头的命令是 Unix 命令行的惯例，比如在 man 和 less 里也适用。
 
-<https://harttle.land/2015/11/07/vim-cursor.html>
+[https://harttle.land/2015/11/07/vim-cursor.html](https://harttle.land/2015/11/07/vim-cursor.html)
 
 ---
 

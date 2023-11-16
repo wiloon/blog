@@ -14,9 +14,9 @@ tags:
 
 [![pSbsuQJ.png](https://s1.ax1x.com/2023/02/17/pSbsuQJ.png)](https://imgse.com/i/pSbsuQJ)
 
-<https://hub.docker.com/r/nicolaka/netshoot>
+[https://hub.docker.com/r/nicolaka/netshoot](https://hub.docker.com/r/nicolaka/netshoot)
 
-<https://linuxtools-rst.readthedocs.io/zh_CN/latest/tool/ldd.html>
+[https://linuxtools-rst.readthedocs.io/zh_CN/latest/tool/ldd.html](https://linuxtools-rst.readthedocs.io/zh_CN/latest/tool/ldd.html)
 
 ldd
   

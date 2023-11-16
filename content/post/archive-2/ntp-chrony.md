@@ -97,9 +97,9 @@ delete - 手动移除NTP服务器或对等服务器
 settime - 手动设置守护进程时间
 ```
 
-<http://www.361way.com/rhel7-chrony/4778.html>
-<http://www.361way.com/rhel7-chrony/4778.html/embed#?secret=M7IADqld6f>
-<https://www.zfl9.com/chrony.html>
+[http://www.361way.com/rhel7-chrony/4778.html](http://www.361way.com/rhel7-chrony/4778.html)
+[http://www.361way.com/rhel7-chrony/4778.html/embed#?secret=M7IADqld6f](http://www.361way.com/rhel7-chrony/4778.html/embed#?secret=M7IADqld6f)
+[https://www.zfl9.com/chrony.html](https://www.zfl9.com/chrony.html)
 
 ## chronyc sources结果显示
 
@@ -155,10 +155,10 @@ ntpdate
   
 -u 指定使用无特权的端口发送数据包。 当在一个对特权端口的输入流量进行阻拦的防火墙后是很有益的, 并希望在防火墙之外和主机同步。防火墙是一个系统或者计算机,它控制从外网对专用网的访问。
 
-<https://chrony.tuxfamily.org/documentation.html>
+[https://chrony.tuxfamily.org/documentation.html](https://chrony.tuxfamily.org/documentation.html)
   
-<https://wiki.archlinux.org/index.php/Network_Time_Protocol_daemon>
-<https://www.ntppool.org/en/use.html>
+[https://wiki.archlinux.org/index.php/Network_Time_Protocol_daemon](https://wiki.archlinux.org/index.php/Network_Time_Protocol_daemon)
+[https://www.ntppool.org/en/use.html](https://www.ntppool.org/en/use.html)
 
 ## NTP层级关系词
 
@@ -176,17 +176,17 @@ stratum 1:
 
 这一层对互联网是不可见的，虽然它们是部署在互联网上的。
 
-它们率属于美国海军天文台。 参看 <https://tycho.usno.navy.mil/>
+它们率属于美国海军天文台。 参看 [https://tycho.usno.navy.mil/](https://tycho.usno.navy.mil/)
 
 作者：zhaoxg_cat
-链接：<https://www.jianshu.com/p/8096c0477230>
+链接：[https://www.jianshu.com/p/8096c0477230](https://www.jianshu.com/p/8096c0477230)
 来源：简书
 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
 
 1.4 Stratum
 Stratum 是 NTP 中表示时间服务器层级的术语。基准时钟（refclock，Reference Clock）是 Stratum 0；直接连接到基准时钟的服务器是 Stratum 1；连接到 Stratum N 服务器的客户端是 Stratum N+1。N 的数值越大，距离基准时钟越远，也就越不精准。N 的最大值是 16，表示该设备未同步且不可达。大多数公共时间服务器是 Stratum 1 或 Stratum 2。
 
-<https://zhuanlan.zhihu.com/p/257335659>
+[https://zhuanlan.zhihu.com/p/257335659](https://zhuanlan.zhihu.com/p/257335659)
 
 ## htpdate
 
@@ -203,4 +203,4 @@ A cron job example:
 
 ## How to use ntpdate behind a proxy
 
-<https://superuser.com/questions/307158/how-to-use-ntpdate-behind-a-proxy>
+[https://superuser.com/questions/307158/how-to-use-ntpdate-behind-a-proxy](https://superuser.com/questions/307158/how-to-use-ntpdate-behind-a-proxy)

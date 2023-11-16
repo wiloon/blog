@@ -24,4 +24,4 @@ tags:
 使用盐Salt (现代算法会自动帮你这么做）。
 考虑使用胡椒Pepper来提供额外的防御深度 (尽管单独使用它无法提供额外的安全特性）。
 
-><https://www.ujcms.com/knowledge/509.html>
+>[https://www.ujcms.com/knowledge/509.html](https://www.ujcms.com/knowledge/509.html)

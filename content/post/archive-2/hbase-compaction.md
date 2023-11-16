@@ -116,4 +116,4 @@ HBase实现中有一个专门的线程CompactSplitThead负责接收compact请求
 
 本文重点从减少IO的层面对Compaction进行了介绍,其实Compaction还是HBase删除过期数据的唯一手段。文章下半部分着眼于Compaction的整个流程,细化分阶段分别进行了梳理。通过本文的介绍,一方面希望读者对Compaction的左右有一个清晰的认识,另一方面能够从流程方面了解Compaction的工作原理。然而,Compaction一直是HBase整个架构体系中最重要的一环,对它的改造也从来没有停止过,改造的重点就是上文的核心点－'选择合适的HFile合并',在接下来的一篇文章中会重点分析HBase在此处所作的努力～
 
-<http://hbasefly.com/2016/07/13/hbase-compaction-1/>
+[http://hbasefly.com/2016/07/13/hbase-compaction-1/](http://hbasefly.com/2016/07/13/hbase-compaction-1/)

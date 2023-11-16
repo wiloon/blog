@@ -59,7 +59,7 @@ SHA-2在安全协议 (例如SSL /TLS.
 首先攻击者构造一个基于密码-用户名的一对多的表，当然数据需要从某个已经被入侵的数据库获得，然后猜测一系列哈希值并且从表中查找拥有此密码的用户。通常许多用户可能有着相同的密码，因此这种攻击方式也显得尤为有效。
 
 ## 加盐 Adding Salt
-<http://drops.wooyun.org/papers/1066>
+[http://drops.wooyun.org/papers/1066](http://drops.wooyun.org/papers/1066)
 
 查表和彩虹表的方式之所以有效是因为每一个密码的都是通过同样的方式来进行hash的。如果两个用户使用了同样的密码，那么一定他们的密码hash也一定相同。我们可以通过让每一个hash随机化，同一个密码hash两次，得到的不同的hash来避免这种攻击。
 
@@ -149,21 +149,21 @@ R函数的问题
 
 常见的彩虹表和R函数举例
 
-1) 常见的彩虹表: <http://project-rainbowcrack.com/table.htm>
-2) R函数举例: 假设明文为5位数字，则R函数是取哈希值中前5个数字。参见<https://crypto.stackexchange.com/questions/5900/example-rainbow-table-generation>
+1) 常见的彩虹表: [http://project-rainbowcrack.com/table.htm](http://project-rainbowcrack.com/table.htm)
+2) R函数举例: 假设明文为5位数字，则R函数是取哈希值中前5个数字。参见[https://crypto.stackexchange.com/questions/5900/example-rainbow-table-generation](https://crypto.stackexchange.com/questions/5900/example-rainbow-table-generation)
 
 为什么加盐哈希可以抵御彩虹表
 彩虹表在生成的过程中，针对的是特定的函数H，H如果发生了改变，则已有的彩虹表数据就完全无法使用。
 如果每个用户都用一个不同的盐值，那么每个用户的H函数都不同，则必须要为每个用户都生成一个不同的彩虹表。大大提高了破解难度。
 
 作者: 风再起时ME
-链接: <https://www.jianshu.com/p/732d9d960411>
+链接: [https://www.jianshu.com/p/732d9d960411](https://www.jianshu.com/p/732d9d960411)
 来源: 简书
 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
 
 ---
 
-<https://www.zhihu.com/question/19790488>
-><https://www.tomczhen.com/2016/10/10/hashing-security/>
-><https://www.ssl.com/zh-CN/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/%E4%BB%80%E4%B9%88%E6%98%AF%E5%8A%A0%E5%AF%86%E5%93%88%E5%B8%8C%E5%87%BD%E6%95%B0/>
-><https://www.tomczhen.com/2016/10/10/hashing-security/>
+[https://www.zhihu.com/question/19790488](https://www.zhihu.com/question/19790488)
+>[https://www.tomczhen.com/2016/10/10/hashing-security/](https://www.tomczhen.com/2016/10/10/hashing-security/)
+>[https://www.ssl.com/zh-CN/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/%E4%BB%80%E4%B9%88%E6%98%AF%E5%8A%A0%E5%AF%86%E5%93%88%E5%B8%8C%E5%87%BD%E6%95%B0/](https://www.ssl.com/zh-CN/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/%E4%BB%80%E4%B9%88%E6%98%AF%E5%8A%A0%E5%AF%86%E5%93%88%E5%B8%8C%E5%87%BD%E6%95%B0/)
+>[https://www.tomczhen.com/2016/10/10/hashing-security/](https://www.tomczhen.com/2016/10/10/hashing-security/)

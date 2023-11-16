@@ -59,7 +59,7 @@ POST vs. GET
   
 </UPDATE>
 
-<http://www.yining.org/2010/05/04/http-get-vs-post-and-thoughts/>
+[http://www.yining.org/2010/05/04/http-get-vs-post-and-thoughts/](http://www.yining.org/2010/05/04/http-get-vs-post-and-thoughts/)
 
  [1]: http://twitter.com/yining/status/12993863581
  [2]: http://code.google.com/p/httpfox/

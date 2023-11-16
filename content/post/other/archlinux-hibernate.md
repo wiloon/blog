@@ -64,4 +64,4 @@ systemctl hibernate
 
 hibernate and re start the system.
 
-<https://wiki.archlinux.org/index.php/Power_management/Suspend_and_hibernate>
+[https://wiki.archlinux.org/index.php/Power_management/Suspend_and_hibernate](https://wiki.archlinux.org/index.php/Power_management/Suspend_and_hibernate)

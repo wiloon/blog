@@ -43,7 +43,7 @@ chattr -ai /etc/passed
 
 (总结) Linux的chattr与lsattr命令详解
   
-<http://www.ha97.com/5172.html/embed#?secret=D3gPzD1nWk>
+[http://www.ha97.com/5172.html/embed#?secret=D3gPzD1nWk](http://www.ha97.com/5172.html/embed#?secret=D3gPzD1nWk)
 
 PS: 有时候你发现用root权限都不能修改某个文件,大部分原因是曾经用chattr命令锁定该文件了。chattr命令的作用很大,其中一些功能是由Linux内核版本来支持的,不过现在生产绝大部分跑的linux系统都是2.6以上内核了。通过chattr命令修改属性能够提高系统的安全性,但是它并不适合所有的目录。chattr命令不能保护/、/dev、/tmp、/var目录。lsattr命令是显示chattr命令设置的文件属性。
 
@@ -104,8 +104,8 @@ lsattr /etc/resolv.conf
 chattr +a /var/log/messages
 ```
 
-<https://linux.cn/article-5590-1.html>
+[https://linux.cn/article-5590-1.html](https://linux.cn/article-5590-1.html)
 
 (总结) Linux的chattr与lsattr命令详解
 
-<http://www.ha97.com/5172.html/embed#?secret=D3gPzD1nWk>
+[http://www.ha97.com/5172.html/embed#?secret=D3gPzD1nWk](http://www.ha97.com/5172.html/embed#?secret=D3gPzD1nWk)

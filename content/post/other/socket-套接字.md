@@ -77,7 +77,7 @@ getOutputStream方法连接的另一端将得到输入，同时返回一个Outpu
 
 当客户端调用connect时，触发了连接请求，向服务器发送了SYN J包，这时connect进入阻塞状态；服务器监听到连接请求，即收到SYN J包，调用accept函数接收请求向客户端发送SYN K ，ACK J+1，这时accept进入阻塞状态；客户端收到服务器的SYN K ，ACK J+1之后，这时connect返回，并对SYN K进行确认；服务器收到ACK K+1时，accept返回，至此三次握手完毕，连接建立。
   
-<http://www.cnblogs.com/skynet/archive/2010/12/12/1903949.html>
+[http://www.cnblogs.com/skynet/archive/2010/12/12/1903949.html](http://www.cnblogs.com/skynet/archive/2010/12/12/1903949.html)
 
 ### 四元组
 
@@ -94,7 +94,7 @@ getOutputStream方法连接的另一端将得到输入，同时返回一个Outpu
 协议号:IP是网络层协议，IP头中的协议号用来说明IP报文中承载的是哪种协议,协议号标识上层是什么协议 (一般是传输层协议，比如6 TCP，17 UDP；但也可能是网络层协议，比如1 ICMP；也可能是应用层协议，比如89 OSPF）。
 TCP/UDP是传输层协议，TCP/UDP的端口号用来说明是哪种上层应用，比如TCP 80代表WWW，TCP 23代表Telnet，UDP 69代表TFTP。
 目的主机收到IP包后，根据IP协议号确定送给哪个模块 (TCP/UDP/ICMP...）处理，送给TCP/UDP模块的报文根据端口号确定送给哪个应用程序处理。
-><https://www.coonote.com/tcpip-note/tcp-quadruple-quintuple.html>
+>[https://www.coonote.com/tcpip-note/tcp-quadruple-quintuple.html](https://www.coonote.com/tcpip-note/tcp-quadruple-quintuple.html)
 
 ### SO_REUSEADDR 地址复用
 
@@ -138,18 +138,18 @@ SO_REUSEPORT选项有如下语义：
 
     一个套接字由相关五元组构成，协议、本地地址、本地端口、远程地址、远程端口。SO_REUSEADDR 仅仅表示可以重用本地本地地址、本地端口，整个相关五元组还是唯一确定的。所以，重启后的服务程序有可能收到非期望数据。必须慎重使用 SO_REUSEADDR 选项。【2】
 
-【1】 <http://topic.csdn.net/u/20090103/16/a0414edb-b289-4c72-84da-39e155e8f4be.html>
+【1】 [http://topic.csdn.net/u/20090103/16/a0414edb-b289-4c72-84da-39e155e8f4be.html](http://topic.csdn.net/u/20090103/16/a0414edb-b289-4c72-84da-39e155e8f4be.html)
 
 【2】
 
 以下博客对这个问题进行了对答式的解答：
 
-<http://blog.sina.com.cn/s/blog_53a2ecbf010095db.html>
+[http://blog.sina.com.cn/s/blog_53a2ecbf010095db.html](http://blog.sina.com.cn/s/blog_53a2ecbf010095db.html)
 
-【3】 <http://www.sudu.cn/info/html/edu/20050101/296180.html>
+【3】 [http://www.sudu.cn/info/html/edu/20050101/296180.html](http://www.sudu.cn/info/html/edu/20050101/296180.html)
 
 同一个机器上一个端口PORT1，TCP socket1 绑定PORT1，然后UDP socket2绑定PORT1会成功；
 同一个ip, 同一个端口可以跑不同的协议 tcp, udp
 
-><https://www.cnblogs.com/mydomain/archive/2011/08/23/2150567.html>
-><https://www.jianshu.com/p/711be2f1ec6a>
+>[https://www.cnblogs.com/mydomain/archive/2011/08/23/2150567.html](https://www.cnblogs.com/mydomain/archive/2011/08/23/2150567.html)
+>[https://www.jianshu.com/p/711be2f1ec6a](https://www.jianshu.com/p/711be2f1ec6a)

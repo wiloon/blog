@@ -10,9 +10,9 @@ tags:
 ---
 ## emacs rename file and buffer
 
-<https://stackoverflow.com/questions/384284/how-do-i-rename-an-open-file-in-emacs>
+[https://stackoverflow.com/questions/384284/how-do-i-rename-an-open-file-in-emacs](https://stackoverflow.com/questions/384284/how-do-i-rename-an-open-file-in-emacs)
 
-;; source: <http://steve.yegge.googlepages.com/my-dot-emacs-file>
+;; source: [http://steve.yegge.googlepages.com/my-dot-emacs-file](http://steve.yegge.googlepages.com/my-dot-emacs-file)
   
 (defun rename-file-and-buffer (new-name)
 

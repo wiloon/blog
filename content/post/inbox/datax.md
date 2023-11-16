@@ -10,7 +10,7 @@ tags:
 ---
 ## DataX
 
-<http://www.open-open.com/lib/view/open1325771223625.html>
+[http://www.open-open.com/lib/view/open1325771223625.html](http://www.open-open.com/lib/view/open1325771223625.html)
 
 DataX是什么?
 
@@ -88,4 +88,4 @@ DataX/DbSync/TT已经构成了淘宝数据平台数据提供的三大支柱:
 
 其中DataX每天为淘宝贡献 2.5T数据量,占淘宝数据平台总体数据同步的 23%,占数据库数据同步的 96%。
 
-<http://www.open-open.com/lib/view/open1325771223625.html>
+[http://www.open-open.com/lib/view/open1325771223625.html](http://www.open-open.com/lib/view/open1325771223625.html)

@@ -13,7 +13,7 @@ tags:
 [16/11/21 03:20:30:030 CST] main-SendThread(192.168.50.100:2181)  WARN zookeeper.ClientCnxn: Session 0x0 for server 192.168.50.100/<unresolved>:2181, unexpected error, closing socket connection and attempting reconnect
 
 检查zookeeper包版本和连接的服务端版本，有可能是版本不一致
-<https://blog.csdn.net/richie696/article/details/112910751>
+[https://blog.csdn.net/richie696/article/details/112910751](https://blog.csdn.net/richie696/article/details/112910751)
 
 ### 向 zookeeper 发送 stat 命令 查询 zookeeper版本
 
@@ -109,9 +109,9 @@ autopurge.purgeInterval 这个参数指定了清理频率，单位是小时，�
 
 autopurge.snapRetainCount 这个参数和上面的参数搭配使用，这个参数指定了需要保留的文件数目。默认是保留3个。
 
-<http://www.importnew.com/23237.html>
+[http://www.importnew.com/23237.html](http://www.importnew.com/23237.html)
   
-<http://blog.51cto.com/nileader/932156>
+[http://blog.51cto.com/nileader/932156](http://blog.51cto.com/nileader/932156)
 
 ```bash
 export ZOOKEEPER_HOME=~/sw/zookeeper-x.y.z
@@ -144,16 +144,16 @@ ZooKeeper是一套高吞吐量的系统，为了提高系统的读取速度，Zo
 
 所以从上面分析可以看出，如果ZNode的过大，那么读写某一个ZNode将造成不确定的延时;同时ZNode过大，将过快地耗尽ZooKeeper服务器的内存。这也是为什么ZooKeeper不适合存储大量的数据的原因。
 
-<https://holynull.gitbooks.io/zookeeper/content/>
+[https://holynull.gitbooks.io/zookeeper/content/](https://holynull.gitbooks.io/zookeeper/content/)
   
-<http://www.cnblogs.com/linjiqin/archive/2013/03/16/2962597.html>
+[http://www.cnblogs.com/linjiqin/archive/2013/03/16/2962597.html](http://www.cnblogs.com/linjiqin/archive/2013/03/16/2962597.html)
   
-<https://www.ibm.com/developerworks/cn/opensource/os-cn-zookeeper/>
+[https://www.ibm.com/developerworks/cn/opensource/os-cn-zookeeper/](https://www.ibm.com/developerworks/cn/opensource/os-cn-zookeeper/)
   
-<http://www.wiloon.com/?p=8594>
+[http://www.wiloon.com/?p=8594](http://www.wiloon.com/?p=8594)
   
-<https://my.oschina.net/xianggao/blog/531613>
-<https://www.jianshu.com/p/30bcaf55f451>
+[https://my.oschina.net/xianggao/blog/531613](https://my.oschina.net/xianggao/blog/531613)
+[https://www.jianshu.com/p/30bcaf55f451](https://www.jianshu.com/p/30bcaf55f451)
 
 ## zookeeper client zkCli.sh
 
@@ -204,7 +204,7 @@ zookeeper提供了很多方便的功能,方便我们查看服务器的状态,增
   
 目录分布情况请参考我的另一篇文章:
   
-zookeeper集群搭建 - <http://www.cnblogs.com/linuxbug/p/4840137.html>
+zookeeper集群搭建 - [http://www.cnblogs.com/linuxbug/p/4840137.html](http://www.cnblogs.com/linuxbug/p/4840137.html)
   
 zkServer.sh
   
@@ -316,7 +316,7 @@ Imok
 
 /0:0:0:0:0:0:0:1:53913[1][3]
 
-<http://izualzhy.cn/c/cpp/2016/09/24/zkcli-introduction>
+[http://izualzhy.cn/c/cpp/2016/09/24/zkcli-introduction](http://izualzhy.cn/c/cpp/2016/09/24/zkcli-introduction)
 
  [1]: queued=0,recved=1,sent=0
  [2]: queued=0,recved=4,sent=4

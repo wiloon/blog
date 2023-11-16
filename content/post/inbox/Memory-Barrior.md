@@ -15,7 +15,7 @@ tags:
 屏障技术
 内存屏障技术是一种屏障指令，它可以让 CPU 或者编译器在执行内存相关操作时遵循特定的约束，目前多数的现代处理器都会乱序执行指令以最大化性能，但是该技术能够保证内存操作的顺序性，在内存屏障前执行的操作一定会先于内存屏障后执行的操作6。
 
-<https://draveness.me/golang/docs/part3-runtime/ch07-memory/golang-garbage-collector/>
+[https://draveness.me/golang/docs/part3-runtime/ch07-memory/golang-garbage-collector/](https://draveness.me/golang/docs/part3-runtime/ch07-memory/golang-garbage-collector/)
 
 ### 内存屏障 Memory Barrior
 
@@ -52,7 +52,7 @@ final语义中的内存屏障
 X86处理器中，由于CPU不会对写-写操作进行重排序，所以StoreStore屏障会被省略；而X86也不会对逻辑上有先后依赖关系的操作进行重排序，所以LoadLoad也会变省略。
 
 作者: Rinoux
-链接: <https://www.jianshu.com/p/2ab5e3d7e510>
+链接: [https://www.jianshu.com/p/2ab5e3d7e510](https://www.jianshu.com/p/2ab5e3d7e510)
 
 ### 重排序
 
@@ -89,5 +89,5 @@ Memory access instructions, such as loads and stores, typically take longer to e
 
 内存访问: X86指令可访问内存地址，而现代RISC CPU则使用LOAD/STORE模式，只有LOAD和STORE指令才能从内存中读取数据到寄存器，所有其他指令只对寄存器中的操作数计算。在CPU的速度是内存速度的5倍或5倍以上的情况下，后一种工作模式才是正途。
 
-><https://cothee.github.io/programming/2019/07/30/memory-reording/>
-><https://blog.csdn.net/yongchaocsdn/article/details/57181573>
+>[https://cothee.github.io/programming/2019/07/30/memory-reording/](https://cothee.github.io/programming/2019/07/30/memory-reording/)
+>[https://blog.csdn.net/yongchaocsdn/article/details/57181573](https://blog.csdn.net/yongchaocsdn/article/details/57181573)

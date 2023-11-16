@@ -212,6 +212,6 @@ Date.from(foo)
 
 ---
 
-<https://blog.csdn.net/x541211190/article/details/79597236>
-<https://howtodoinjava.com/java/date-time/format-localdatetime-to-string/>
-><https://javadeveloperzone.com/java-basic/java-convert-int-to-byte-array/>
+[https://blog.csdn.net/x541211190/article/details/79597236](https://blog.csdn.net/x541211190/article/details/79597236)
+[https://howtodoinjava.com/java/date-time/format-localdatetime-to-string/](https://howtodoinjava.com/java/date-time/format-localdatetime-to-string/)
+>[https://javadeveloperzone.com/java-basic/java-convert-int-to-byte-array/](https://javadeveloperzone.com/java-basic/java-convert-int-to-byte-array/)

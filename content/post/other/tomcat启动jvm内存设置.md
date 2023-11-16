@@ -35,4 +35,4 @@ JAVA_OPTS="-server -Xms256m -Xmx512m -XX:PermSize=64M -XX:MaxPermSize=128m"
 
 环境变量中设 变量名: JAVA_OPTS 变量值: -Xms512m -Xmx512m
 
-<https://www.cnblogs.com/oskyhg/p/6549877.html>
+[https://www.cnblogs.com/oskyhg/p/6549877.html](https://www.cnblogs.com/oskyhg/p/6549877.html)

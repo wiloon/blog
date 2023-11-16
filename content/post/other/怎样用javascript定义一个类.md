@@ -61,7 +61,7 @@ alert(dog02.Category);
 
 当你已经耐心的看到这儿的时候,我相信对朝九晚五的写("."),("#")的朋友指明了一个方向。如果我写的这些你已经知道了,你可以去看看阮一峰写的 Javascript定义类的几种方法: [http://www.ruanyifeng.com/blog/2012/07/three_ways_to_define_a_javascript_class.html][1]
 
-<http://www.cnblogs.com/v10258/archive/2013/05/20/3065247.html>
+[http://www.cnblogs.com/v10258/archive/2013/05/20/3065247.html](http://www.cnblogs.com/v10258/archive/2013/05/20/3065247.html)
 
 
  [1]: http://www.ruanyifeng.com/blog/2012/07/three_ways_to_define_a_javascript_class.html

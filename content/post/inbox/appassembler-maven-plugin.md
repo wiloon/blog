@@ -260,9 +260,9 @@ appassembler-maven-plugin</artifactId>
   
 </plugin>
 
-<http://lavafree.iteye.com/blog/1502594>
+[http://lavafree.iteye.com/blog/1502594](http://lavafree.iteye.com/blog/1502594)
 
-<http://www.mojohaus.org/appassembler/appassembler-maven-plugin/>
+[http://www.mojohaus.org/appassembler/appassembler-maven-plugin/](http://www.mojohaus.org/appassembler/appassembler-maven-plugin/)
 
  [1]: http://www.mojohaus.org/appassembler/appassembler-maven-plugin/assemble-mojo.html
  [2]: http://www.mojohaus.org/appassembler/appassembler-maven-plugin/create-repository-mojo.html

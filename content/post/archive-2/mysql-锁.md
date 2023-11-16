@@ -475,7 +475,7 @@ InnoDB锁
 
       如果出现死锁,可以用SHOW INNODB STATUS命令来确定最后一个死锁产生的原因和改进措施。
 
-<http://www.cnblogs.com/sliverdang/p/3163455.html>
+[http://www.cnblogs.com/sliverdang/p/3163455.html](http://www.cnblogs.com/sliverdang/p/3163455.html)
 
 Innodb具备的锁种类
 
@@ -662,23 +662,23 @@ innodb_locks ## 当前出现的锁
   
 innodb_lock_waits ## 锁等待的对应关系
 
-<http://blog.sina.com.cn/s/blog_53e68b3b0101bjxi.html>
+[http://blog.sina.com.cn/s/blog_53e68b3b0101bjxi.html](http://blog.sina.com.cn/s/blog_53e68b3b0101bjxi.html)
 
-<http://www.cnblogs.com/chenqionghe/p/4845693.html>
+[http://www.cnblogs.com/chenqionghe/p/4845693.html](http://www.cnblogs.com/chenqionghe/p/4845693.html)
 
-<http://novoland.github.io/%E6%95%B0%E6%8D%AE%E5%BA%93/2015/08/17/InnoDB%20%E9%94%81.html>
+[http://novoland.github.io/%E6%95%B0%E6%8D%AE%E5%BA%93/2015/08/17/InnoDB%20%E9%94%81.html](http://novoland.github.io/%E6%95%B0%E6%8D%AE%E5%BA%93/2015/08/17/InnoDB%20%E9%94%81.html)
 
-<http://MySQLlover.com/?p=416>
+[http://MySQLlover.com/?p=416](http://MySQLlover.com/?p=416)
 
-<http://MySQL.taobao.org/monthly/2016/01/01/>
+[http://MySQL.taobao.org/monthly/2016/01/01/](http://MySQL.taobao.org/monthly/2016/01/01/)
 
-<http://MySQL.taobao.org/monthly/>
+[http://MySQL.taobao.org/monthly/](http://MySQL.taobao.org/monthly/)
 
-<http://xiaobaoqiu.github.io/blog/2015/06/03/MySQL-innodbsi-suo/>
+[http://xiaobaoqiu.github.io/blog/2015/06/03/MySQL-innodbsi-suo/](http://xiaobaoqiu.github.io/blog/2015/06/03/MySQL-innodbsi-suo/)
 
-<https://liuzhengyang.github.io/2016/09/25/MySQLinnodb/>
+[https://liuzhengyang.github.io/2016/09/25/MySQLinnodb/](https://liuzhengyang.github.io/2016/09/25/MySQLinnodb/)
 
-<http://www.wiloon.com/wp-admin/post.php?post=8558&action=edit>
+[http://www.wiloon.com/wp-admin/post.php?post=8558&action=edit](http://www.wiloon.com/wp-admin/post.php?post=8558&action=edit)
 
  [1]: http://www.hollischuang.com/archives/909
  [2]: http://www.hollischuang.com/archives/923

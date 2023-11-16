@@ -26,14 +26,14 @@ tags:
 事件驱动：你定义的回调函数，被系统调用。还是没有懂？事件驱动，就是“哨兵模式”！哨兵轮询环境信息，你就安心睡大觉好了，不用每个人都轮询环境。发生了事件，哨兵 (操作系统/浏览器/轮询中心）负责通知你！怎么处理这个消息，是你的责任！
 
 作者：fdego
-链接：<https://www.zhihu.com/question/30396023/answer/447966119>
+链接：[https://www.zhihu.com/question/30396023/answer/447966119](https://www.zhihu.com/question/30396023/answer/447966119)
 来源：知乎
 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
 
 #### 事件驱动, reactor
 
 The reactor design pattern is an event handling pattern for handling service requests delivered concurrently to a service handler by one or more inputs.
-<https://en.wikipedia.org/wiki/Reactor_pattern>
+[https://en.wikipedia.org/wiki/Reactor_pattern](https://en.wikipedia.org/wiki/Reactor_pattern)
 
 #### 响应式 和 事件驱动编程
 
@@ -49,7 +49,7 @@ Event data programming 和 Reactive programming 区别在于:
 
 Event data programming 事件是全局性的当发出一个信号大家都会听看看是不是自己的, reactive programing 每个事件是唯一的, 如果你想监听这个事件你需要订阅它, 在这方面感觉 reactive 极大优化了性能.
 Event data programing 只处理事件, Reactive programming 除了可以订阅事件还可以订阅某个数据变化.
-<https://cnodejs.org/topic/5ccdb79d776fb66e0d171c2a>
+[https://cnodejs.org/topic/5ccdb79d776fb66e0d171c2a](https://cnodejs.org/topic/5ccdb79d776fb66e0d171c2a)
 
 ### Reactor
 
@@ -129,7 +129,7 @@ tomcat服务器的早期版本确实是这样实现的。多线程的方式确�
 Reactor 翻译过来的意思是「反应堆」，可能大家会联想到物理学里的核反应堆，实际上并不是的这个意思。这里的反应指的是「对事件反应」，也就是来了一个事件，Reactor 就有相对应的反应/响应。事实上，Reactor 模式也叫 Dispatcher 模式，我觉得这个名字更贴合该模式的含义，即 I/O 多路复用监听事件，收到事件后，根据事件类型分配 (Dispatch) 给某个进程 / 线程。Reactor 模式主要由 Reactor 和处理资源池这两个核心部分组成，它俩负责的事情如下: Reactor 负责监听和分发事件，事件类型包含连接事件、读写事件；处理资源池负责处理事件，如 read -> 业务逻辑 -> send；Reactor 模式是灵活多变的，可以应对不同的业务场景，灵活在于: Reactor 的数量可以只有一个，也可以有多个；处理资源池可以是单个进程 / 线程，也可以是多个进程 /线程；
 
 作者: 小林coding
-链接: <https://www.zhihu.com/question/26943938/answer/1856426252>
+链接: [https://www.zhihu.com/question/26943938/answer/1856426252](https://www.zhihu.com/question/26943938/answer/1856426252)
 来源: 知乎
 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
 
@@ -159,9 +159,9 @@ handle(socket)
 
 Netty 3.7中Reactor的EventLoop在AbstractNioSelector.run()中，它实现了Runnable接口。这个类是Netty NIO部分的核心。它的逻辑非常复杂，其中还包括一些对JDK Bug的处理 (例如rebuildSelector）
 
-<https://www.cnblogs.com/crazymakercircle/p/9833847.html>
+[https://www.cnblogs.com/crazymakercircle/p/9833847.html](https://www.cnblogs.com/crazymakercircle/p/9833847.html)
 
-<http://gee.cs.oswego.edu/dl/cpjslides/nio.pdf>
+[http://gee.cs.oswego.edu/dl/cpjslides/nio.pdf](http://gee.cs.oswego.edu/dl/cpjslides/nio.pdf)
 
-><http://www.linkedkeeper.com/12.html>
-><http://gee.cs.oswego.edu/dl/cpjslides/nio.pdf>
+>[http://www.linkedkeeper.com/12.html](http://www.linkedkeeper.com/12.html)
+>[http://gee.cs.oswego.edu/dl/cpjslides/nio.pdf](http://gee.cs.oswego.edu/dl/cpjslides/nio.pdf)

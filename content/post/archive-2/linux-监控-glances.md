@@ -9,7 +9,7 @@ tags:
   - reprint
 ---
 ## 'linux  监控  glances'
-<http://glances.readthedocs.io/en/latest/index.html>
+[http://glances.readthedocs.io/en/latest/index.html](http://glances.readthedocs.io/en/latest/index.html)
 
 ```bash
   
@@ -45,7 +45,7 @@ $ sudo pip install glances
 
 $ su root
 
-# rpm -ivh <http://fr2.rpmfind.net/linux/epel/6/x86_64/epel-release-6-7.noarch.rpm>
+# rpm -ivh [http://fr2.rpmfind.net/linux/epel/6/x86_64/epel-release-6-7.noarch.rpm](http://fr2.rpmfind.net/linux/epel/6/x86_64/epel-release-6-7.noarch.rpm)
 
 # yum install python-pip python-devel
 
@@ -95,4 +95,4 @@ $ python test.py
   
 {"linux_distro": "Ubuntu 12.04", "platform": "64bit", "os_name": "Linux", "hostname": "vpsee.com", "os_version": "3.2.0-23-virtual"}
 
-<http://www.vpsee.com/2013/07/a-new-system-monitoring-tool-glances-installation-and-usage/>
+[http://www.vpsee.com/2013/07/a-new-system-monitoring-tool-glances-installation-and-usage/](http://www.vpsee.com/2013/07/a-new-system-monitoring-tool-glances-installation-and-usage/)

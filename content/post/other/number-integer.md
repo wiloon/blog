@@ -75,8 +75,8 @@ select  LOG(256,10)*126   from dual
 
 If you know that a variable will never have the value `NULL` or need overflow checking, declare it as `SIMPLE_INTEGER` rather than `PLS_INTEGER`. Without the overhead of checking for nullness and overflow, `SIMPLE_INTEGER` performs significantly better than `PLS_INTEGER`.
 
-<http://www.itpub.net/thread-1261515-1-1.html>
+[http://www.itpub.net/thread-1261515-1-1.html](http://www.itpub.net/thread-1261515-1-1.html)
 
-<http://docs.oracle.com/cd/E11882_01/appdev.112/e17126/datatypes.htm#CIHGBFGB>
+[http://docs.oracle.com/cd/E11882_01/appdev.112/e17126/datatypes.htm#CIHGBFGB](http://docs.oracle.com/cd/E11882_01/appdev.112/e17126/datatypes.htm#CIHGBFGB)
 
  [1]: http://docs.oracle.com/cd/E11882_01/appdev.112/e17126/fundamentals.htm#CIHCJJAG

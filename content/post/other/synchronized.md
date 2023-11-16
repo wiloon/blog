@@ -285,8 +285,8 @@ super.doSomething();//若内置锁是不可重入的，则发生死锁
 
 以上代码在同一个线程执行时，不会导致死锁，java中的synchronized 本身就是可以重入的 (reentrant) ， 不管是synchronized方法，还是synchronized statements。参见:
   
-><http://docs.oracle.com/javase/tutorial/essential/concurrency/locksync.html>
-><http://stackoverflow.com/questions/5787957/reentrant-synchronization-behavior-with-synchronized-statements>
+>[http://docs.oracle.com/javase/tutorial/essential/concurrency/locksync.html](http://docs.oracle.com/javase/tutorial/essential/concurrency/locksync.html)
+>[http://stackoverflow.com/questions/5787957/reentrant-synchronization-behavior-with-synchronized-statements](http://stackoverflow.com/questions/5787957/reentrant-synchronization-behavior-with-synchronized-statements)
 
 LoggingWidget 的对象调用doSomething方法时，锁对象为LoggingWidget对象 super.doSomething()调用是锁对象是LoggingWidget对象运行程序，查看thread dump发现: 调用super.doSomething()时锁对象依然是LoggingWidget对象。
 
@@ -504,20 +504,20 @@ Java 提供的 monitor 机制，其实是 Object，synchronized 等元素合作�
 我觉得应该这么理解：Java 对 monitor 的支持，是以机制的粒度提供给开发者使用的，也就是说，开发者要结合使用 synchronized 关键字，以及 Object 的 wait / notify 等元素，才能说自己利用 monitor 的机制去解决了一个生产者消费者的问题。
 
 版权声明: 本文为CSDN博主「朱清震」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
-原文链接: <https://blog.csdn.net/zqz_zqz/article/details/70233767>
+原文链接: [https://blog.csdn.net/zqz_zqz/article/details/70233767](https://blog.csdn.net/zqz_zqz/article/details/70233767)
 
-<http://leo-faith.iteye.com/blog/177779>
+[http://leo-faith.iteye.com/blog/177779](http://leo-faith.iteye.com/blog/177779)
   
-<http://topmanopensource.iteye.com/blog/1736739>
+[http://topmanopensource.iteye.com/blog/1736739](http://topmanopensource.iteye.com/blog/1736739)
   
-<http://blog.csdn.net/guyuealian/article/details/52525724>
+[http://blog.csdn.net/guyuealian/article/details/52525724](http://blog.csdn.net/guyuealian/article/details/52525724)
 
 版权声明: 本文为CSDN博主「codershamo」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
-原文链接: <https://blog.csdn.net/codershamo/java/article/details/52071996>
-<https://ddnd.cn/2019/03/21/java-synchronized/>
-<https://juejin.im/post/5c936018f265da60ec281bcb>
-><http://www.imooc.com/video/6775>
-><https://dymanzy.github.io/2017/08/07/synchronized%E4%B8%8E%E5%AF%B9%E8%B1%A1%E7%9A%84Monitor/>
+原文链接: [https://blog.csdn.net/codershamo/java/article/details/52071996](https://blog.csdn.net/codershamo/java/article/details/52071996)
+[https://ddnd.cn/2019/03/21/java-synchronized/](https://ddnd.cn/2019/03/21/java-synchronized/)
+[https://juejin.im/post/5c936018f265da60ec281bcb](https://juejin.im/post/5c936018f265da60ec281bcb)
+>[http://www.imooc.com/video/6775](http://www.imooc.com/video/6775)
+>[https://dymanzy.github.io/2017/08/07/synchronized%E4%B8%8E%E5%AF%B9%E8%B1%A1%E7%9A%84Monitor/](https://dymanzy.github.io/2017/08/07/synchronized%E4%B8%8E%E5%AF%B9%E8%B1%A1%E7%9A%84Monitor/)
 
 ## synchronized 原理, 偏向锁, 轻量锁, 重量锁
 http://www.jianshu.com/p/5dbb07c8d5d5

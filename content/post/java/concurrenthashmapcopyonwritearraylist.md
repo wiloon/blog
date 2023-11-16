@@ -22,7 +22,7 @@ tags:
   
     同步的集合包装器 synchronizedMap 和 synchronizedList ，有时也被称作 有条件地线程安全――所有单个的操作都是线程安全的，但是多个操作组成的操作序列却可能导致数据争用，因为在操作序列中控制流取决于前面操作的结果。 清单1中第一片段展示了公用的put-if-absent语句块――如果一个条目不在 Map 中，那么添加这个条目。不幸的是，在 containsKey() 方法返回到 put() 方法被调用这段时间内，可能会有另一个线程也插入一个带有相同键的值。如果您想确保只有一次插入，您需要用一个对 Map m 进行同步的同步块将这一对语句包装起来。
   
-<http://www-128.ibm.com/developerworks/cn/java/j-jtp07233/index.html#listing1>
+[http://www-128.ibm.com/developerworks/cn/java/j-jtp07233/index.html#listing1](http://www-128.ibm.com/developerworks/cn/java/j-jtp07233/index.html#listing1)
 
 中其他的例子与迭代有关。在第一个例子中， List.size() 的结果在循环的执行期间可能会变得无效，因为另一个线程可以从这个列表中删除条目。如果时机不得当，在刚好进入循环的最后一次迭代之后有一个条目被另一个线程删除了，则 List.get() 将返回 null ，而 doSomething() 则很可能会抛出一个 NullPointerException 异常。那么，采取什么措施才能避免这种情况呢？如果当您正在迭代一个 List 时另一个线程也可能正在访问这个 List ，那么在进行迭代时您必须使用一个 synchronized 块将这个 List 包装起来，在 List 1 上同步，从而锁住整个 List 。这样做虽然解决了数据争用问题，但是在并发性方面付出了更多的代价，因为在迭代期间锁住整个 List 会阻塞其他线程，使它们在很长一段时间内不能访问这个列表。
   

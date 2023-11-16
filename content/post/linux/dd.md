@@ -316,5 +316,5 @@ dd if=/dev/sda of=/dev/sda
   
 当硬盘较长时间 (比如1，2年) 放置不使用后，磁盘上会产生magnetic flux point。当磁头读到这些区域时会遇到困难，并可能导致I/O错误。当这种情况影响到硬盘的第一个扇区时，可能导致硬盘报废。上边的命令有可能使这些数据起死回生。且这个过程是安全，高效的。
 
-><http://www.linuxso.com/command/dd.html>
-><https://blog.csdn.net/beswkwangbo/article/details/46375795>
+>[http://www.linuxso.com/command/dd.html](http://www.linuxso.com/command/dd.html)
+>[https://blog.csdn.net/beswkwangbo/article/details/46375795](https://blog.csdn.net/beswkwangbo/article/details/46375795)

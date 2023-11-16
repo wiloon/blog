@@ -10,7 +10,7 @@ tags:
 ---
 ## MySQL大小写敏感配置, COLLATE
 
-<https://blog.csdn.net/fdipzone/article/details/73692929>
+[https://blog.csdn.net/fdipzone/article/details/73692929](https://blog.csdn.net/fdipzone/article/details/73692929)
 
 ```sql
 show global variables like '%lower_case%';
@@ -61,7 +61,7 @@ COLLATE: 排序规则
 
 作者: 腾讯云加社区
   
-链接: <https://juejin.im/post/5bfe5cc36fb9a04a082161c2>
+链接: [https://juejin.im/post/5bfe5cc36fb9a04a082161c2](https://juejin.im/post/5bfe5cc36fb9a04a082161c2)
   
 来源: 掘金
   
@@ -95,8 +95,8 @@ SELECT * FROM table WHERE txt = 'a'
   
 那么在utf8_bin中你就找不到 txt = 'A' 的那一行, 而 utf8_general_ci 则可以.
 
-本文转载自: <http://blog.csdn.net/chenghuan1990/article/details/10078931>
+本文转载自: [http://blog.csdn.net/chenghuan1990/article/details/10078931](http://blog.csdn.net/chenghuan1990/article/details/10078931)
 
-> 部分引用自文章: <http://www.imooc.com/article/14190>
+> 部分引用自文章: [http://www.imooc.com/article/14190](http://www.imooc.com/article/14190)
 
-> <https://blog.csdn.net/Veir_123/article/details/73730751>
+> [https://blog.csdn.net/Veir_123/article/details/73730751](https://blog.csdn.net/Veir_123/article/details/73730751)

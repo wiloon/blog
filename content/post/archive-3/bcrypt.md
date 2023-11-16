@@ -9,7 +9,7 @@ tags:
   - reprint
 ---
 ## Bcrypt
-<https://www.jianshu.com/p/2b131bfc2f10>
+[https://www.jianshu.com/p/2b131bfc2f10](https://www.jianshu.com/p/2b131bfc2f10)
   
 Bcrypt 是单向Hash加密算法，类似 Pbkdf2 算法 不可反向破解生成明文。 每次输出的hashPass 都不一样，
   
@@ -31,16 +31,16 @@ myHash: 经过明文密码password和盐salt进行hash，个人的理解是默�
 
 作者: martin6699
   
-链接: <https://www.jianshu.com/p/2b131bfc2f10>
+链接: [https://www.jianshu.com/p/2b131bfc2f10](https://www.jianshu.com/p/2b131bfc2f10)
   
 来源: 简书
   
 简书著作权归作者所有，任何形式的转载都请联系作者获得授权并注明出处。
 
-><https://www.ujcms.com/knowledge/509.html>
-><http://www.mindrot.org/projects/jBCrypt/>
-><https://www.cnblogs.com/jpfss/p/11024716.html>
-><http://www.mindrot.org/projects/jBCrypt/>
+>[https://www.ujcms.com/knowledge/509.html](https://www.ujcms.com/knowledge/509.html)
+>[http://www.mindrot.org/projects/jBCrypt/](http://www.mindrot.org/projects/jBCrypt/)
+>[https://www.cnblogs.com/jpfss/p/11024716.html](https://www.cnblogs.com/jpfss/p/11024716.html)
+>[http://www.mindrot.org/projects/jBCrypt/](http://www.mindrot.org/projects/jBCrypt/)
 
 ### 在 Java 中使用 Bcrypt, BCryptPasswordEncoder
 
@@ -93,5 +93,5 @@ hashed = B.crypt_raw(passwordb, saltb, rounds);
 
 即，加密的hashPass中，前部分已经包含了盐信息。
 
-><https://zhuanlan.zhihu.com/p/92845975>
-><https://www.cnblogs.com/jpfss/p/11023906.html>
+>[https://zhuanlan.zhihu.com/p/92845975](https://zhuanlan.zhihu.com/p/92845975)
+>[https://www.cnblogs.com/jpfss/p/11023906.html](https://www.cnblogs.com/jpfss/p/11023906.html)

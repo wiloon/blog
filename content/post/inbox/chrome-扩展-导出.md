@@ -28,6 +28,6 @@ linux path:
   
 /home/USER0/.config/chromium/Default/Extensions/fhhdlnnepfjhlhilgmeepgkhjmhhhjkh/2.8.5_0
 
-<http://blog.csdn.net/sonictl/article/details/9069977>
+[http://blog.csdn.net/sonictl/article/details/9069977](http://blog.csdn.net/sonictl/article/details/9069977)
 
-<http://jingyan.baidu.com/article/9158e0004ff9bba25512284d.html>
+[http://jingyan.baidu.com/article/9158e0004ff9bba25512284d.html](http://jingyan.baidu.com/article/9158e0004ff9bba25512284d.html)

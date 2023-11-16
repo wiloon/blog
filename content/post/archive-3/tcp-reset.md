@@ -77,7 +77,7 @@ A 和服务器 B 之间建立了 TCP 连接，此时 C 伪造了一个 TCP 包�
 
 版权声明: 本文为CSDN博主「Sunface撩技术」的原创文章，遵循 CC 4.0 BY-SA 版权协议，转载请附上原文出处链接及本声明。
   
-原文链接: <https://blog.csdn.net/erlib/java/article/details/50132307>
+原文链接: [https://blog.csdn.net/erlib/java/article/details/50132307](https://blog.csdn.net/erlib/java/article/details/50132307)
 
 ## 关闭一个 TCP 连接, killcx
 
@@ -107,7 +107,7 @@ killcx 工具的工作原理，如下图。
 用 Challenge ACK 里的序列号伪造 RST 报文发送给客户端，客户端收到 RST 也会释放连接。
 正是通过这样的方式，成功将一个 TCP 连接关闭了！
 
-<https://bbs.huaweicloud.com/blogs/301407>
+[https://bbs.huaweicloud.com/blogs/301407](https://bbs.huaweicloud.com/blogs/301407)
 
 ## "tcp rst"
 
@@ -194,7 +194,7 @@ nc服务端进程退出。
 
 向已接收到rst的连接进行send将产生SIGPIPE信号。
 
-<https://zhuanlan.zhihu.com/p/30791159>
+[https://zhuanlan.zhihu.com/p/30791159](https://zhuanlan.zhihu.com/p/30791159)
 
 ## TCP 连接中出现 RST 的情况
 
@@ -202,8 +202,8 @@ It's fatal. The remote server has sent you a RST packet, which indicates an imme
 
 "Connection reset by peer" is the TCP/IP equivalent of slamming the phone back on the hook. It's more polite than merely not replying, leaving one hanging. But it's not the FIN-ACK expected of the truly polite TCP/IP converseur.
 
-><https://stackoverflow.com/questions/1434451/what-does-connection-reset-by-peer-mean>
-><https://my.oschina.net/costaxu/blog/127394>
+>[https://stackoverflow.com/questions/1434451/what-does-connection-reset-by-peer-mean](https://stackoverflow.com/questions/1434451/what-does-connection-reset-by-peer-mean)
+>[https://my.oschina.net/costaxu/blog/127394](https://my.oschina.net/costaxu/blog/127394)
 
 在TCP协议中RST表示复位 ,用来异常的关闭连接, 在TCP的设计中它是不可或缺的。 发送 RST 包关闭连接时, 不必等缓冲区的包都发出去, 直接就丢弃缓存区的包发送RST包。 而接收端收到 RST 包后, 也不必发送ACK包来确认。
 
@@ -501,8 +501,8 @@ return 0;
   
 ### 从TCP协议的原理来谈谈RST攻击
 >
-><http://russelltao.iteye.com/blog/1405349>
+>[http://russelltao.iteye.com/blog/1405349](http://russelltao.iteye.com/blog/1405349)
 
 ### TCP客户-服务器程序例子
 >
-><http://blog.csdn.net/youkuxiaobin/article/details/6917880>
+>[http://blog.csdn.net/youkuxiaobin/article/details/6917880](http://blog.csdn.net/youkuxiaobin/article/details/6917880)

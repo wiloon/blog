@@ -11,7 +11,7 @@ tags:
 ---
 ## JavaEE 7
 
-<http://www.iteye.com/news/27980>
+[http://www.iteye.com/news/27980](http://www.iteye.com/news/27980)
 
 甲骨文公司在2013年6月中旬正式发布了JavaEE 7 (JSR 342) 。
 

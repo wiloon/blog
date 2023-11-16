@@ -9,7 +9,7 @@ tags:
   - reprint
 ---
 ## debian wine frozen throne
-download source  from <http://www.winehq.org/download/>
+download source  from [http://www.winehq.org/download/](http://www.winehq.org/download/)
 
 sudo apt-get install flex
 

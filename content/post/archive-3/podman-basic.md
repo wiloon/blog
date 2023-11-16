@@ -13,7 +13,7 @@ tags:
 
 ## install
 
-<https://podman.io/getting-started/installation>
+[https://podman.io/getting-started/installation](https://podman.io/getting-started/installation)
 
 ### archlinux install podman
 
@@ -29,7 +29,7 @@ Netavark 是一个 用 rust 实现的 配置 linux 容器网络的工具。
 
 In addition to the existing CNI Out of the stack ,Podman Now it also supports based on  Netavark  and  Aardvark New network stack . The new stack features improved support for containers in multiple networks 、 improvement IPv6 Support , And improve performance . To ensure that there is no impact on existing users , used CNI The stack will keep the default value of the existing installation , The new installation will use Netvark.
 
-<https://github.com/containers/netavark>
+[https://github.com/containers/netavark](https://github.com/containers/netavark)
 
 ### ubuntu install podman
 
@@ -117,7 +117,7 @@ driver = "overlay2"
 ```
 
 修改driver之后 要删除 文件 sudo rm -rf ~/.local/share/containers/, 否则会报错: User-selected graph driver "overlay2" overwritten by graph driver "overlay" from database - delete libpod local files to resolve
-<https://github.com/containers/podman/issues/5114>
+[https://github.com/containers/podman/issues/5114](https://github.com/containers/podman/issues/5114)
 
 ## logs
 
@@ -160,7 +160,7 @@ location = "docker.mirrors.ustc.edu.cn"
 location = "registry.docker-cn.com"
 ```
 
-<https://blog.csdn.net/leave00608/article/details/114156354>
+[https://blog.csdn.net/leave00608/article/details/114156354](https://blog.csdn.net/leave00608/article/details/114156354)
 
 ```r
 [registries.search]
@@ -340,21 +340,21 @@ podman pod create -n pod_0 -p 8086:8086 -p 3000:3000 -p 8888:8888
     podman run -d --pod pod_name_0 influxdb
 ```
 
-<https://www.hangge.com/blog/cache/detail_2475.html>
+[https://www.hangge.com/blog/cache/detail_2475.html](https://www.hangge.com/blog/cache/detail_2475.html)
   
-<https://www.mankier.com/1/podman-unshare>
+[https://www.mankier.com/1/podman-unshare](https://www.mankier.com/1/podman-unshare)
   
-<https://opensource.com/article/19/2/how-does-rootless-podman-work>
+[https://opensource.com/article/19/2/how-does-rootless-podman-work](https://opensource.com/article/19/2/how-does-rootless-podman-work)
   
-<https://www.mankier.com/1/podman-generate-systemd>
+[https://www.mankier.com/1/podman-generate-systemd](https://www.mankier.com/1/podman-generate-systemd)
 
-<https://computingforgeeks.com/how-to-install-epel-repository-on-rhel-8-centos-8/>"
+[https://computingforgeeks.com/how-to-install-epel-repository-on-rhel-8-centos-8/](https://computingforgeeks.com/how-to-install-epel-repository-on-rhel-8-centos-8/)"
 
-<https://computingforgeeks.com/how-to-install-epel-repository-on-rhel-8-centos-8/embed/#?secret=Vw63QL1LVb>"
+[https://computingforgeeks.com/how-to-install-epel-repository-on-rhel-8-centos-8/embed/#?secret=Vw63QL1LVb](https://computingforgeeks.com/how-to-install-epel-repository-on-rhel-8-centos-8/embed/#?secret=Vw63QL1LVb)"
 
-<https://computingforgeeks.com/how-to-install-and-use-podman-on-centos-rhel/>"
+[https://computingforgeeks.com/how-to-install-and-use-podman-on-centos-rhel/](https://computingforgeeks.com/how-to-install-and-use-podman-on-centos-rhel/)"
 
-<https://computingforgeeks.com/how-to-install-and-use-podman-on-centos-rhel/embed/#?secret=kP3lpS51yS>"
+[https://computingforgeeks.com/how-to-install-and-use-podman-on-centos-rhel/embed/#?secret=kP3lpS51yS](https://computingforgeeks.com/how-to-install-and-use-podman-on-centos-rhel/embed/#?secret=kP3lpS51yS)"
 
 ### rootless
 
@@ -372,7 +372,7 @@ getcap /usr/bin/newgidmap
 
 ### macvlan
 
-<https://ctimbai.github.io/2019/04/14/tech/docker-macvlan/>
+[https://ctimbai.github.io/2019/04/14/tech/docker-macvlan/](https://ctimbai.github.io/2019/04/14/tech/docker-macvlan/)
 
 ```bash
 # docker network create -d macvlan --subnet=172.16.10.0/24 --gateway=172.16.10.1 -o parent=enp0s8 mac1
@@ -394,11 +394,11 @@ podman network create \
 podman run -itd --name c1 --ip=192.168.50.99 --network mac1 busybox
 ```
 
-<https://stackoverflow.com/questions/59515026/how-do-i-replicate-a-docker-macvlan-network-with-podman>
+[https://stackoverflow.com/questions/59515026/how-do-i-replicate-a-docker-macvlan-network-with-podman](https://stackoverflow.com/questions/59515026/how-do-i-replicate-a-docker-macvlan-network-with-podman)
 
 ### podman
 
-<http://docs.podman.io/en/latest/>
+[http://docs.podman.io/en/latest/](http://docs.podman.io/en/latest/)
 
 ### VFS , fuse-overlayfs
 
@@ -414,7 +414,7 @@ podman image rm image-id-0
 
 ---
 
-<https://github.com/containernetworking/plugins>
+[https://github.com/containernetworking/plugins](https://github.com/containernetworking/plugins)
 
 ### other
 
@@ -441,7 +441,7 @@ podman history image0
 podman ps -a -f "status=exited"
 ```
 
-<https://docs.podman.io/en/latest/markdown/podman-ps.1.html>
+[https://docs.podman.io/en/latest/markdown/podman-ps.1.html](https://docs.podman.io/en/latest/markdown/podman-ps.1.html)
 
 ## 导出镜像, podman save
 

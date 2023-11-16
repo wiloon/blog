@@ -12,7 +12,7 @@ tags:
 
 ## archlinux ca-certificates update, 导入证书
 
-<https://www.archlinux.org/news/ca-certificates-update/>
+[https://www.archlinux.org/news/ca-certificates-update/](https://www.archlinux.org/news/ca-certificates-update/)
 
 ```bash
 # .pem rename to .crt
@@ -39,9 +39,9 @@ sudo dpkg-reconfigure ca-certificates
 
 ---
 
-英文版出处: <http://majic.rs/blog/system-wide-installation-of-certificates>
+英文版出处: [http://majic.rs/blog/system-wide-installation-of-certificates](http://majic.rs/blog/system-wide-installation-of-certificates)
   
-<https://blog.csdn.net/ziyouwayj/article/details/36371747>
+[https://blog.csdn.net/ziyouwayj/article/details/36371747](https://blog.csdn.net/ziyouwayj/article/details/36371747)
   
 因为众所周知的原因，同步android源码成了非常痛苦的事情。迫不得已采用了goagent，但是在同步时发生经常发生SSL错误，意思是CA认证失败。网上找了一圈资料，最后明白根本的原因是系统中没有安装goagent的CA证书。这里的系统不是指firefox，也不是Chrouium。于是找到了上面这篇文章。来个对照翻译吧，水平有限，错误或生硬的地方请留言，我更正。
 
@@ -101,4 +101,4 @@ After these steps many utilities (like wget, for example) will be able to proper
   
 版权声明: 本文为CSDN博主「ziyouwaYJ」的原创文章，遵循 CC 4.0 BY-SA 版权协议，转载请附上原文出处链接及本声明。
   
-原文链接: <https://blog.csdn.net/ziyouwayj/article/details/36371747>
+原文链接: [https://blog.csdn.net/ziyouwayj/article/details/36371747](https://blog.csdn.net/ziyouwayj/article/details/36371747)

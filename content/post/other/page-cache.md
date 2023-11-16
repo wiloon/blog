@@ -43,7 +43,7 @@ DDR4 3200：25.6 GB/s
 7200转台式机硬盘大致在130-190MB区间，10000转的西数黑盘也在这个区间内
 10000转和15000转台式机硬盘数据不详
 
-<https://zhuanlan.zhihu.com/p/443104177>
+[https://zhuanlan.zhihu.com/p/443104177](https://zhuanlan.zhihu.com/p/443104177)
 
 ## 什么是页缓存
 
@@ -84,7 +84,7 @@ Buffer(Buffer Cache) 以块形式缓冲了块设备的操作，定时或手动�
 
 Cache(Page Cache) 以页面形式缓存了文件系统的文件，给需要使用的程序读取，它是为了给读操作提供缓冲，避免频繁读硬盘，提高读取效率。
 
-><https://lday.me/2019/09/09/0023_linux_page_cache_and_buffer_cache/>
-><https://cloud.tencent.com/developer/article/1848933>
-><https://qinglinmao8315.github.io/linux/2018/03/14/linux-page-cache.html>
-><https://zhuanlan.zhihu.com/p/35277219>
+>[https://lday.me/2019/09/09/0023_linux_page_cache_and_buffer_cache/](https://lday.me/2019/09/09/0023_linux_page_cache_and_buffer_cache/)
+>[https://cloud.tencent.com/developer/article/1848933](https://cloud.tencent.com/developer/article/1848933)
+>[https://qinglinmao8315.github.io/linux/2018/03/14/linux-page-cache.html](https://qinglinmao8315.github.io/linux/2018/03/14/linux-page-cache.html)
+>[https://zhuanlan.zhihu.com/p/35277219](https://zhuanlan.zhihu.com/p/35277219)

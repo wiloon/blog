@@ -50,8 +50,8 @@ Java的JProfiler/TPTP/CodePro Profiler
 
     性能调优攻略
   
-<https://coolshell.cn/articles/7490.html/embed#?secret=sGuaIXdcl5>
+[https://coolshell.cn/articles/7490.html/embed#?secret=sGuaIXdcl5](https://coolshell.cn/articles/7490.html/embed#?secret=sGuaIXdcl5)
   
-<https://www.linuxhot.com/java-cpu-used-high.html>
+[https://www.linuxhot.com/java-cpu-used-high.html](https://www.linuxhot.com/java-cpu-used-high.html)
   
-<https://linux.cn/article-5633-1.html>
+[https://linux.cn/article-5633-1.html](https://linux.cn/article-5633-1.html)

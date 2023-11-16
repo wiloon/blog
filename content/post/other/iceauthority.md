@@ -9,7 +9,7 @@ tags:
   - reprint
 ---
 ## ICEAuthority
-<http://serverfault.com/questions/119580/what-is-iceauthority-file-in-opensuse-11-2>
+[http://serverfault.com/questions/119580/what-is-iceauthority-file-in-opensuse-11-2](http://serverfault.com/questions/119580/what-is-iceauthority-file-in-opensuse-11-2)
 
 Here is a good paper on what ICE is, and what it does.
 

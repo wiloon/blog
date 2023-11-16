@@ -483,11 +483,11 @@ avg-cpu:  %user   %nice %system %iowait  %steal   %idle
   
 7.62    0.00    5.12    0.50    0.00   86.75
 
-<http://www.cnblogs.com/peida/archive/2012/12/28/2837345.html>
+[http://www.cnblogs.com/peida/archive/2012/12/28/2837345.html](http://www.cnblogs.com/peida/archive/2012/12/28/2837345.html)
   
-<http://lirenke.net/2015/01/07/io-model-dd-cmd/>
+[http://lirenke.net/2015/01/07/io-model-dd-cmd/](http://lirenke.net/2015/01/07/io-model-dd-cmd/)
   
-<http://guozengxin.me/2013/08/24/linux-dd-introduction/>
+[http://guozengxin.me/2013/08/24/linux-dd-introduction/](http://guozengxin.me/2013/08/24/linux-dd-introduction/)
 
 ## 找到 IO 占用高的进程
 

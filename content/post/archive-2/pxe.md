@@ -10,7 +10,7 @@ tags:
 ---
 ## PXE
 
-<http://blog.csdn.net/nirendao/article/details/76012939>
+[http://blog.csdn.net/nirendao/article/details/76012939](http://blog.csdn.net/nirendao/article/details/76012939)
 
 PXE启动原理以及与普通Linux启动的对比
   
@@ -48,9 +48,9 @@ DHCP的用途是: 提供client network参数和TFTP服务器的地址,最初的b
 
 参考文献:
   
-1. <https://en.wikipedia.org/wiki/Preboot_Execution_Environment>
+1. [https://en.wikipedia.org/wiki/Preboot_Execution_Environment](https://en.wikipedia.org/wiki/Preboot_Execution_Environment)
 
-1. <http://blog.csdn.net/nirendao/article/details/75949536>
+1. [http://blog.csdn.net/nirendao/article/details/75949536](http://blog.csdn.net/nirendao/article/details/75949536)
 
 2.
 

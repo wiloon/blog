@@ -111,4 +111,4 @@ ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 
 重新启动即可。
 
-<http://www.cnblogs.com/zhangeamon/p/5500744.html>
+[http://www.cnblogs.com/zhangeamon/p/5500744.html](http://www.cnblogs.com/zhangeamon/p/5500744.html)

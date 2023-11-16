@@ -25,7 +25,7 @@ An executable image. Components defined in this specification support on elf the
 这是一个“独立的映像”，和我们一般理解的概念就完全不同，但如果你学计算机，请了解，这是我们的惯例。
 ————————————————
 版权声明：本文为CSDN博主「AllFiredUp」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
-原文链接：<https://blog.csdn.net/weixin_36272622/article/details/112024476>
+原文链接：[https://blog.csdn.net/weixin_36272622/article/details/112024476](https://blog.csdn.net/weixin_36272622/article/details/112024476)
 
 ### akonadi
 

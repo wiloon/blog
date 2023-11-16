@@ -83,20 +83,20 @@ gradle bootRun
 java -jar xxx.jar --spring.profiles.active=prod
 ```
 
-<https://tengj.github.io/2017/02/26/springboot1/>
+[https://tengj.github.io/2017/02/26/springboot1/](https://tengj.github.io/2017/02/26/springboot1/)
 
-<http://git.oschina.net/wiloon/java8x/tree/master/java-web-x?dir=1&filepath=java-web-x&oid=f781e8d83fbb0bf06b36e766fbe0bbaeb8f51756&sha=121ba0714d171c1fe53e246cf86a43fb145589b4>
+[http://git.oschina.net/wiloon/java8x/tree/master/java-web-x?dir=1&filepath=java-web-x&oid=f781e8d83fbb0bf06b36e766fbe0bbaeb8f51756&sha=121ba0714d171c1fe53e246cf86a43fb145589b4](http://git.oschina.net/wiloon/java8x/tree/master/java-web-x?dir=1&filepath=java-web-x&oid=f781e8d83fbb0bf06b36e766fbe0bbaeb8f51756&sha=121ba0714d171c1fe53e246cf86a43fb145589b4)
 
-<https://spring.io/guides/gs/rest-service/>
+[https://spring.io/guides/gs/rest-service/](https://spring.io/guides/gs/rest-service/)
 
-<https://github.com/mariuszs/spring-boot-web-jsp-example>
+[https://github.com/mariuszs/spring-boot-web-jsp-example](https://github.com/mariuszs/spring-boot-web-jsp-example)
 
 作者：Johnny_
-链接：<https://www.jianshu.com/p/628acadbe3d8>
+链接：[https://www.jianshu.com/p/628acadbe3d8](https://www.jianshu.com/p/628acadbe3d8)
 来源：简书
 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
 
-><https://www.yiibai.com/spring-boot/spring-boot-starter-web.html>
+>[https://www.yiibai.com/spring-boot/spring-boot-starter-web.html](https://www.yiibai.com/spring-boot/spring-boot-starter-web.html)
 
 ### Spring Boot 启动时，让方法自动执行的 4 种方法
 
@@ -171,7 +171,7 @@ public void run(String... ) throws Exception {
     System.out.println("CommandLineRunner的run方法");
 }
 
-><https://segmentfault.com/a/1190000039363178>
+>[https://segmentfault.com/a/1190000039363178](https://segmentfault.com/a/1190000039363178)
 
 ### 参数检验
 

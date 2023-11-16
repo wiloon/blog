@@ -10,7 +10,7 @@ tags:
 ---
 ## centos, kde, vnc
 
-转自: <http://digitalocean.youhuima.cc/centos-7-kde-vnc-remote.html> (侵删)
+转自: [http://digitalocean.youhuima.cc/centos-7-kde-vnc-remote.html](http://digitalocean.youhuima.cc/centos-7-kde-vnc-remote.html) (侵删)
 
 VPS远程操作用的最多的是SSH,有时候一些特殊需求也要用到远程图形化操作,比如使用在VPS上使用浏览器访问网站。本文以Digitalocean VPS为例分享如何安装KDE和VNC实现远程图形界面访问。如果要购买Digitalocean VPS,建议使用Digitalocean优惠码,可以节省不少银子。
 
@@ -118,13 +118,13 @@ vncserver -kill :1
 
 5. 安装VNC viewer:
   
-官方下载vnc viewer的地址: <https://www.realvnc.com/download/viewer/windows/>
+官方下载vnc viewer的地址: [https://www.realvnc.com/download/viewer/windows/](https://www.realvnc.com/download/viewer/windows/)
 
 VNC viewer的基本无需额外设置,点击菜单file-> new connection,然后VNC server地址填写格式: IP:5901  (端口号依据上面配置文件设置的序号加上5900即可) 。
 
 上面就是在Digitalocean VPS上安装KDE图形界面和VNC实现远程图像化操作的整个步骤,希望对您有用。这个步骤适用于任何centos 7的VPS,比如vultr、linode、阿里云、腾讯云等热门云主机或VPS。
 
-本文地址: <http://digitalocean.youhuima.cc/centos-7-kde-vnc-remote.html>
+本文地址: [http://digitalocean.youhuima.cc/centos-7-kde-vnc-remote.html](http://digitalocean.youhuima.cc/centos-7-kde-vnc-remote.html)
 
 备注:
 

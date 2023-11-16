@@ -78,7 +78,7 @@ STFW是Search The Fu**ing Web的意思
 
 ### country code
 
-<https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes>
+[https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes](https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes)
 
 ### Darwin
 
@@ -90,14 +90,14 @@ Darwin是由苹果公司于2000年所发布的一个开放源代码操作系统�
 
 oVirt基于kvm，并整合使用了libvirt、gluster、patternfly、ansible等一系列优秀的开源软件。
 
-oVirt的定位是替代vmware vsphere (<https://docs.vmware.com/cn/VMware-vSphere/index.html），oVirt目前已经成为了企业虚拟化环境可选的解决方案，另外相比OpenStack的庞大和复杂，oVirt在企业私有云建设中具备部署和维护使用简单的优势。利用oVirt管理KVM虚拟机和网络，企业可以快速的搭建起一个私有云环境。从这一点看来，oVirt的定位和另一个知名云计算项目OpenStack>的定位是有些类似的。
+oVirt的定位是替代vmware vsphere ([https://docs.vmware.com/cn/VMware-vSphere/index.html），oVirt目前已经成为了企业虚拟化环境可选的解决方案，另外相比OpenStack的庞大和复杂，oVirt在企业私有云建设中具备部署和维护使用简单的优势。利用oVirt管理KVM虚拟机和网络，企业可以快速的搭建起一个私有云环境。从这一点看来，oVirt的定位和另一个知名云计算项目OpenStack](https://docs.vmware.com/cn/VMware-vSphere/index.html），oVirt目前已经成为了企业虚拟化环境可选的解决方案，另外相比OpenStack的庞大和复杂，oVirt在企业私有云建设中具备部署和维护使用简单的优势。利用oVirt管理KVM虚拟机和网络，企业可以快速的搭建起一个私有云环境。从这一点看来，oVirt的定位和另一个知名云计算项目OpenStack)的定位是有些类似的。
 
 ### 自动变量 (Automatic Variable）
 
 在计算机编程领域，自动变量 (Automatic Variable）指的是局部作用域变量，具体来说即是在控制流进入变量作用域时系统自动为其分配存储空间，并在离开作用域时释放空间的一类变量。在许多程序语言中，自动变量与术语“局部变量” (Local Variable）所指的变量实际上是同一种变量，所以通常情况下“自动变量”与“局部变量”是同义的。
 
 版权声明：本文为CSDN博主「前方一片光明」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
-原文链接：<https://blog.csdn.net/qq_26230421/article/details/106638046>
+原文链接：[https://blog.csdn.net/qq_26230421/article/details/106638046](https://blog.csdn.net/qq_26230421/article/details/106638046)
 
 ## lint
 
@@ -110,7 +110,7 @@ KDE系统自KDE2版起，在档案及网页浏览器使用了KHTML引擎。该�
 KHTML拥有速度快捷的优点，但对错误语法的容忍度则比Mozilla产品所使用的Gecko引擎小。
 苹果电脑于2002年采纳了KHTML，作为开发Safari浏览器之用，并发布所修改的最新及过去版本源代码。后来发表了开放源代码的WebCore及WebKit引擎，它们均是KHTML的衍生产品，在开发网站列出引擎改变内容，并会传回至KDE计划。由于两个衍生产品各走不同路线，使两者源代码偏离，在与KDE交换更新会出现困难。其中一个原因，是苹果在对外公开源代码之前，以一年时间编修他们的KHTML。另外，苹果传送更新至KDE计划的方式，多是一口气把大量改动一起传送，KDE在整理资料也出现一定的困难，及后苹果表示会以CVS格式来传送。再者，苹果所作出的改动包括Mac OS X系统独有的事物，如Objective-C、KWQ等，在Linux及KHTML是没有的。但KDE方面仍透过这些改动，为KHTML加入新功能及加快其排版速度。
 
-<http://codante.org/blog/post/rendering-engine-trident-gecko-presto-khtml-webcore-webkit/>
+[http://codante.org/blog/post/rendering-engine-trident-gecko-presto-khtml-webcore-webkit/](http://codante.org/blog/post/rendering-engine-trident-gecko-presto-khtml-webcore-webkit/)
 
 ## 正斜杠, 反斜杠
 
@@ -140,7 +140,7 @@ open synaptic..... install libsdl1.2-dev
 
 CAT (Central Application Tracking) 是一个实时和接近全量的监控系统，它侧重于对Java应用的监控，基本接入了美团上海侧所有核心应用。目前在中间件 (MVC、RPC、数据库、缓存等) 框架中得到广泛应用，为美团各业务线提供系统的性能指标、健康状况、监控告警等。
 
-<https://github.com/dianping/cat>
+[https://github.com/dianping/cat](https://github.com/dianping/cat)
 
 ## Seam Security
 
@@ -154,7 +154,7 @@ TOAD具有功能强大的模式浏览器，可以快速访问数据字典、浏�
 
 为帮助用户对其应用进行彻底测试，TOAD套件中还集成了数据生成测试工具和压力测试工具。数据生成测试工具有助于开发人员快速生成大量有实际意义且引用关系正确的测试数据，简化应用的测试过程；压力测试工具则能模拟现实环境中的用户流量，预测应用系统在真实生产环境中的运行性能，帮助用户主动解决应用系统的性能和扩展性问题。TOAD的启动方式与其他工具相似，都需要进行连接，如图3-8所示。具体使用方法请参考其他相关资料或联机帮助。
 
-<http://www.toadworld.com>
+[http://www.toadworld.com](http://www.toadworld.com)
 
 ## update-alternatives
 
@@ -162,7 +162,7 @@ update-alternatives是 dpkg 的实用工具，用来维护系统命令的符号�
 
 ## hue
 
-<http://www.cnblogs.com/smartloli/p/4527168.html>
+[http://www.cnblogs.com/smartloli/p/4527168.html](http://www.cnblogs.com/smartloli/p/4527168.html)
   
 Hue是一个开源的Apache Hadoop UI系统,由Cloudera Desktop演化而来,最后Cloudera公司将其贡献给Apache基金会的Hadoop社区,它是基于Python Web框架Django实现的。通过使用Hue我们可以在浏览器端的Web控制台上与Hadoop集群进行交互来分析处理数据,例如操作HDFS上的数据,运行MapReduce Job,执行Hive的SQL语句,浏览HBase数据库等等。
 
@@ -192,7 +192,7 @@ Oozie调度器,可以通过DashBoard来提交和监控Workflow、Coordinator以�
 
 ## PMU
 
-本文引用地址：<http://www.eepw.com.cn/article/273622.htm>
+本文引用地址：[http://www.eepw.com.cn/article/273622.htm](http://www.eepw.com.cn/article/273622.htm)
 
 1.PMU是什么–简介
 　　PMU是power management unit的缩写，中文名称为电源管理单元，是一种高度集成的、针对便携式应用的电源管理方案，即将传统分立的若干类电源管理器件整合在单个的封装之内，这样可实现更高的电源转换效率和更低功耗。PMU智能电源管理已经是大势所趋，“主控+PMU”的模式越来越受到产业上下游的青睐，包括TI、Philips Semiconductor、National Semiconductor国际巨头都推出了相应的产品。
@@ -223,7 +223,7 @@ DWARF使用DIE（Debugging Information Entry）来描述变量、数据类型、
 
 DWARF还定义了一些关键的数据结构，如行号表（Line Number Table)、调用栈信息（Call Frame Information）等，有了这些关键数据结构之后，开发者就可以在源码级别动态添加断点、显示完整的调用栈信息、查看调用栈中指定栈帧的信息。
 
-<https://www.hitzhangjie.pro/debugger101.io/8-dwarf/>
+[https://www.hitzhangjie.pro/debugger101.io/8-dwarf/](https://www.hitzhangjie.pro/debugger101.io/8-dwarf/)
 
 ## ECU odx
 
@@ -239,4 +239,4 @@ Marco表示,对于整车厂以及ECU供应商来说,用ODX标准取代专有的�
 
 这样,我们就不难看出,通过使用ODX标准,车辆制造商和ECU供应商之间建立起了一个更加轻松简单的数据交换流程: 不但减少了数据同步的花费,而且因为有了ODX使诊断测试进入了一个更加宽广的领域,即能够从单个ECU的角度宽展到整个系统的角度进行诊断测试。这样就提高了产品的可靠性,提高了客户的满意度。
 
-<http://archive.eet-china.com/www.eet-china.com/ART_8800509901_480401_NT_0bab8f92.HTM>
+[http://archive.eet-china.com/www.eet-china.com/ART_8800509901_480401_NT_0bab8f92.HTM](http://archive.eet-china.com/www.eet-china.com/ART_8800509901_480401_NT_0bab8f92.HTM)

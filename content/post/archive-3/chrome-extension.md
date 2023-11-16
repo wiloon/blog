@@ -21,14 +21,14 @@ puzzle button: chrome extension 图标后面的拼图按钮
 
 ## chrome extension doc
 
-<https://developer.chrome.com/docs/extensions/mv3/>
+[https://developer.chrome.com/docs/extensions/mv3/](https://developer.chrome.com/docs/extensions/mv3/)
 
-- javascript web api: <https://developer.mozilla.org/en-US/docs/Web/API>
-- chrome api: <https://developer.mozilla.org/en-US/docs/Web/API>
-- html: <https://web.dev/learn/html/>
-- css: <https://web.dev/learn/css/>
-- javascript: <https://developer.mozilla.org/en-US/docs/Learn/JavaScript>
-- chrome extension development overview: <https://developer.chrome.com/docs/extensions/mv3/devguide/>
+- javascript web api: [https://developer.mozilla.org/en-US/docs/Web/API](https://developer.mozilla.org/en-US/docs/Web/API)
+- chrome api: [https://developer.mozilla.org/en-US/docs/Web/API](https://developer.mozilla.org/en-US/docs/Web/API)
+- html: [https://web.dev/learn/html/](https://web.dev/learn/html/)
+- css: [https://web.dev/learn/css/](https://web.dev/learn/css/)
+- javascript: [https://developer.mozilla.org/en-US/docs/Learn/JavaScript](https://developer.mozilla.org/en-US/docs/Learn/JavaScript)
+- chrome extension development overview: [https://developer.chrome.com/docs/extensions/mv3/devguide/](https://developer.chrome.com/docs/extensions/mv3/devguide/)
 
 ## chrome extension 的构成
 
@@ -39,6 +39,6 @@ puzzle button: chrome extension 图标后面的拼图按钮
 
 ## crxjs, react
 
-<https://crxjs.dev/vite-plugin>
+[https://crxjs.dev/vite-plugin](https://crxjs.dev/vite-plugin)
 
-<https://www.freecodecamp.org/news/chrome-extension-message-passing-essentials/>
+[https://www.freecodecamp.org/news/chrome-extension-message-passing-essentials/](https://www.freecodecamp.org/news/chrome-extension-message-passing-essentials/)

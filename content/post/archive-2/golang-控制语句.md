@@ -111,7 +111,7 @@ return "MyName"
   
 }
 
-此代码编译不通过,错误信息: function ends without a return statement,这是在设计Go时故意这样的,也可以说是一个Bug (可参见:<https://code.google.com/p/go/issues/detail?id=65>) ,这是一种编码风格,即在if语句块中去做return处理,而else中不处理,而是继续执行if-else后面的代码,这样能减少一个代码缩进,不需要在了解代码时去记住else语句块的处理。当然如果想必须这样写,也可以进行特殊处理,在函数的末行添加语句**panic("")**
+此代码编译不通过,错误信息: function ends without a return statement,这是在设计Go时故意这样的,也可以说是一个Bug (可参见:[https://code.google.com/p/go/issues/detail?id=65](https://code.google.com/p/go/issues/detail?id=65)) ,这是一种编码风格,即在if语句块中去做return处理,而else中不处理,而是继续执行if-else后面的代码,这样能减少一个代码缩进,不需要在了解代码时去记住else语句块的处理。当然如果想必须这样写,也可以进行特殊处理,在函数的末行添加语句**panic("")**
 
 在if中可以包含初始化语句,这是非常实用的。例如在文件处理,取字典项时需要判断是否执行操作成功,只有在成功时才能继续处理,这样就可以通过if-else处理。
 
@@ -409,6 +409,6 @@ select
   
 还有另一个控制语句select,在讨论chan 时再来学习
 
-<http://www.cnblogs.com/howDo/archive/2013/06/01/GoLang-Control.html>
+[http://www.cnblogs.com/howDo/archive/2013/06/01/GoLang-Control.html](http://www.cnblogs.com/howDo/archive/2013/06/01/GoLang-Control.html)
 
-<http://stackoverflow.com/questions/7782411/is-there-a-foreach-loop-in-go>
+[http://stackoverflow.com/questions/7782411/is-there-a-foreach-loop-in-go](http://stackoverflow.com/questions/7782411/is-there-a-foreach-loop-in-go)

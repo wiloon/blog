@@ -14,11 +14,11 @@ tags:
 
 【设置】->【无线和网络设置】->【绑定与便携式热点】->【USB绑定】
 
-详细内容参见: <https://support.google.com/android/answer/182134#usb>
+详细内容参见: [https://support.google.com/android/answer/182134#usb](https://support.google.com/android/answer/182134#usb)
 
 2.下载驱动安装信息
 
-从android官网下载驱动程序信息文件 tetherxp.inf ( <http://www.android.com/drivers/tetherxp.inf> )
+从android官网下载驱动程序信息文件 tetherxp.inf ( [http://www.android.com/drivers/tetherxp.inf](http://www.android.com/drivers/tetherxp.inf) )
 
 3.使用手机附带的 USB 线连接手机与计算机。
   
@@ -30,6 +30,6 @@ tags:
   
 7.在 Windows XP 安装完用于 Android USB 以太网/RNDIS 的软件后，点击完成。
 
-<http://blog.sina.com.cn/s/blog_570343830101ezix.html>
+[http://blog.sina.com.cn/s/blog_570343830101ezix.html](http://blog.sina.com.cn/s/blog_570343830101ezix.html)
 
-<https://support.google.com/android/answer/182134#usb>
+[https://support.google.com/android/answer/182134#usb](https://support.google.com/android/answer/182134#usb)

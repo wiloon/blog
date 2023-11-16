@@ -10,7 +10,7 @@ tags:
 ---
 ## 更新Jar包中的文件
 
-<http://blackwing.iteye.com/blog/1545670>
+[http://blackwing.iteye.com/blog/1545670](http://blackwing.iteye.com/blog/1545670)
 
 更新Jar包中的文件
 

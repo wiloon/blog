@@ -78,7 +78,7 @@ Windows XP
 ICMP 回显应答的 TTL 字段值为 128
 这样，我们就可以通过这种方法来辨别操作系统
 
-<https://unix.stackexchange.com/questions/329110/display-the-missing-icmp-seq-count-ping-command>
+[https://unix.stackexchange.com/questions/329110/display-the-missing-icmp-seq-count-ping-command](https://unix.stackexchange.com/questions/329110/display-the-missing-icmp-seq-count-ping-command)
 
 Ping命令返回的TTL值详解
   
@@ -86,7 +86,7 @@ Ping命令返回的TTL值详解
   
 展开
   
-转自: <http://429006.com/article/Technology/160.htm>
+转自: [http://429006.com/article/Technology/160.htm](http://429006.com/article/Technology/160.htm)
 
 Time To Live (TTL) 域的信息很有趣。每一个被发送出的IP信息包都有一个TTL域，该域被设置为一个较高的数值 (在本例中ping信息包的TTL值为255)。当信息包在网络中被传输时，TTL的域值通过一个路由器时递减1；当TTL 递减到0时，信息包被路由器抛弃。
 

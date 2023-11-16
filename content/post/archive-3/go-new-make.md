@@ -10,7 +10,7 @@ tags:
 ---
 ## go new make
 
-<https://sanyuesha.com/2017/07/26/go-make-and-new/>
+[https://sanyuesha.com/2017/07/26/go-make-and-new/](https://sanyuesha.com/2017/07/26/go-make-and-new/)
 
 new 和 make 都可以用来分配空间，初始化类型，但是它们确有不同。
 
@@ -241,4 +241,4 @@ make和new都是golang用来分配内存的內建函数，且在堆上分配内�
 make返回的还是引用类型本身；而new返回的是指向类型的指针。
 make只能用来分配及初始化类型为slice，map，channel的数据；new可以分配任意类型的数据。
 
-<https://segmentfault.com/a/1190000018967149>
+[https://segmentfault.com/a/1190000018967149](https://segmentfault.com/a/1190000018967149)

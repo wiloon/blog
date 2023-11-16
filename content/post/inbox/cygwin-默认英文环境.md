@@ -26,4 +26,4 @@ export LC_ALL='en_US.GBK'
   
 Bingo！重启cygwin之后,vi恢复正常行为。
 
-转载自 <http://hi.baidu.com/chrisyue/blog/item/41225fe79cedb33db838207a> .html
+转载自 [http://hi.baidu.com/chrisyue/blog/item/41225fe79cedb33db838207a](http://hi.baidu.com/chrisyue/blog/item/41225fe79cedb33db838207a) .html

@@ -122,6 +122,6 @@ if(r==-1) //小于
   
 if(big_decimal.equals(BigDecimal.Zero)) //是否等于0
 
-<https://zhidao.baidu.com/question/296052164.html>
+[https://zhidao.baidu.com/question/296052164.html](https://zhidao.baidu.com/question/296052164.html)
   
-<http://www.cnblogs.com/linjiqin/p/3413894.html>
+[http://www.cnblogs.com/linjiqin/p/3413894.html](http://www.cnblogs.com/linjiqin/p/3413894.html)

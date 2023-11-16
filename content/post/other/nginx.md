@@ -42,7 +42,7 @@ emacs /etc/yum.repos.d/nginx.repo
   
 name=nginx repo
   
-baseurl=<http://nginx.org/packages/mainline/centos/7/$basearch/>
+baseurl=[http://nginx.org/packages/mainline/centos/7/$basearch/](http://nginx.org/packages/mainline/centos/7/$basearch/)
   
 gpgcheck=0
   
@@ -50,4 +50,4 @@ enabled=1
 
 yum install nginx
 
-下载 地址: <http://nginx.org/packages/centos/7/x86_64/RPMS/>
+下载 地址: [http://nginx.org/packages/centos/7/x86_64/RPMS/](http://nginx.org/packages/centos/7/x86_64/RPMS/)

@@ -95,7 +95,7 @@ ssh-keygen -f "/home/wiloon/.ssh/known_hosts" -R "192.168.1.2"
 
 by **Karanbir Singh**
 
-<http://www.karan.org/blog/index.php/2009/08/25/multiple-ssh-private-keys>
+[http://www.karan.org/blog/index.php/2009/08/25/multiple-ssh-private-keys](http://www.karan.org/blog/index.php/2009/08/25/multiple-ssh-private-keys)
   
 In quite a few situations its preferred to have ssh keys dedicated for a service or a specific role. Eg. a key to use for home / fun stuff and another one to use for Work things, and another one for Version Control access etc. Creating the keys is simple, just use
 
@@ -129,6 +129,6 @@ Host *.d0.karan.org
 Ofcourse, if I am connecting to a remote host that does not match any of these selections, ssh will default back to checking for and using the 'usual' key, ~/.ssh/id_dsa or ~/.ssh/id_rsa
 
 作者：Martain
-链接：<https://www.jianshu.com/p/75bf863c4ab6>
+链接：[https://www.jianshu.com/p/75bf863c4ab6](https://www.jianshu.com/p/75bf863c4ab6)
 来源：简书
 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。

@@ -33,7 +33,7 @@ echo "foo">foo.html
 socat -v -v TCP-LISTEN:8000,crlf,reuseaddr,fork SYSTEM:"echo HTTP/1.0 200; echo Content-Type\: text/plain; echo; cat foo.html"
 ```
 
-<https://stackoverflow.com/questions/29739901/socat-fake-http-server-use-a-file-as-server-response>
+[https://stackoverflow.com/questions/29739901/socat-fake-http-server-use-a-file-as-server-response](https://stackoverflow.com/questions/29739901/socat-fake-http-server-use-a-file-as-server-response)
 
 ## socat tcp 代理
 
@@ -229,8 +229,8 @@ Socat Examples
 
 ### 官网
 
-<http://www.dest-unreach.org/socat/>
+[http://www.dest-unreach.org/socat/](http://www.dest-unreach.org/socat/)
   
-<http://brieflyx.me/2015/linux-tools/socat-introduction/>
+[http://brieflyx.me/2015/linux-tools/socat-introduction/](http://brieflyx.me/2015/linux-tools/socat-introduction/)
   
-<https://www.hi-linux.com/posts/61543.html>
+[https://www.hi-linux.com/posts/61543.html](https://www.hi-linux.com/posts/61543.html)

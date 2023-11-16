@@ -43,7 +43,7 @@ history
   
 能看到这个用户历史命令,默认最近的1000条
 
-<http://blog.csdn.net/wudiyi815/article/details/8061459>
+[http://blog.csdn.net/wudiyi815/article/details/8061459](http://blog.csdn.net/wudiyi815/article/details/8061459)
 
 作为系统管理员,你可能经常会 (在某个时候) 需要查看系统中有哪些用户正在活动。有些时候,你甚至需要知道他 (她) 们正在做什么。本文为我们总结了4种查看系统用户信息 (通过编号 (ID) ) 的方法。
 
@@ -134,4 +134,4 @@ jason pts/1 192.168.201.12 Thu Mar 12 09:03 - 09:19 (00:15)
   
 jason pts/0 dev-db-server Wed Mar 11 20:11 - 20:50 (00:39
 
-转自: <http://blog.csdn.net/newdriver2783/article/details/8059368>
+转自: [http://blog.csdn.net/newdriver2783/article/details/8059368](http://blog.csdn.net/newdriver2783/article/details/8059368)

@@ -10,7 +10,7 @@ tags:
 ---
 ## hostapd
 
-主页: <http://w1.fi/hostapd/>
+主页: [http://w1.fi/hostapd/](http://w1.fi/hostapd/)
 
 hostapd是一个_IEEE 802.11的AP和IEEE 802.1X/WPA/WPA2/EAP/RADIUS验证器_.此页面用于怎么在linux系统下使用它.其他操作系统请参考hostapd主页
 
@@ -231,7 +231,7 @@ That should be all of the settings that you'll need to change for a basic, secur
 
 #### Dynamic VLAN tagging {#Dynamic_VLAN_tagging}
 
-hostapd can be configured to move STAs into separate VLANs based on RADIUS tunnel attributes (as specified in RFC3580, <http://tools.ietf.org/html/rfc3580#section-3.31>):
+hostapd can be configured to move STAs into separate VLANs based on RADIUS tunnel attributes (as specified in RFC3580, [http://tools.ietf.org/html/rfc3580#section-3.31](http://tools.ietf.org/html/rfc3580#section-3.31)):
 
 
 Tunnel-Type=VLAN (13)

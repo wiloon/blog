@@ -285,14 +285,14 @@ drop 命令表示你要丢弃这个 commit 以及它的修改。同样可以删�
 
 执行之后会根据你使用的命令的不同进行不同的操作，比如有的可以直接 rebase 有的则会打开一个文件让你进行一些操作，具体信息见上面的描述。
 
-<https://git-scm.com/book/zh/v1/Git-%E5%88%86%E6%94%AF-%E5%88%86%E6%94%AF%E7%9A%84%E6%96%B0%E5%BB%BA%E4%B8%8E%E5%90%88%E5%B9%B6>
+[https://git-scm.com/book/zh/v1/Git-%E5%88%86%E6%94%AF-%E5%88%86%E6%94%AF%E7%9A%84%E6%96%B0%E5%BB%BA%E4%B8%8E%E5%90%88%E5%B9%B6](https://git-scm.com/book/zh/v1/Git-%E5%88%86%E6%94%AF-%E5%88%86%E6%94%AF%E7%9A%84%E6%96%B0%E5%BB%BA%E4%B8%8E%E5%90%88%E5%B9%B6)
   
-<http://blog.hanghu.me/git/2017/03/08/The-merge-tool-bc-is-not-available-as-bcompare.html>
+[http://blog.hanghu.me/git/2017/03/08/The-merge-tool-bc-is-not-available-as-bcompare.html](http://blog.hanghu.me/git/2017/03/08/The-merge-tool-bc-is-not-available-as-bcompare.html)
   
-<http://www.rosipov.com/blog/use-vimdiff-as-git-mergetool/>
+[http://www.rosipov.com/blog/use-vimdiff-as-git-mergetool/](http://www.rosipov.com/blog/use-vimdiff-as-git-mergetool/)
 
 作者：AlvinStar
-链接：<https://www.jianshu.com/p/f23f72251abc>
+链接：[https://www.jianshu.com/p/f23f72251abc](https://www.jianshu.com/p/f23f72251abc)
 来源：简书
 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
 
@@ -339,14 +339,14 @@ git rebase -i commit0
 自然地，假如我们对当前分支的某次历史提交执行 rebase，其结果就是会将这次提交之后的所有提交重新应用在当前分支，在交互模式下，即允许我们对这些提交进行更改。
 
 作者：zuopf769
-链接：<https://juejin.cn/post/6844903600976576519>
+链接：[https://juejin.cn/post/6844903600976576519](https://juejin.cn/post/6844903600976576519)
 来源：稀土掘金
 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
 
-<http://jartto.wang/2018/12/11/git-rebase/>  
-<https://waynerv.com/posts/git-rebase-intro/>  
-<https://www.theserverside.com/blog/Coffee-Talk-Java-News-Stories-and-Opinions/How-to-Git-rebase-a-branch-to-master-example>  
-<https://blog.csdn.net/weixin_42310154/article/details/119004977>  
+[http://jartto.wang/2018/12/11/git-rebase/](http://jartto.wang/2018/12/11/git-rebase/)  
+[https://waynerv.com/posts/git-rebase-intro/](https://waynerv.com/posts/git-rebase-intro/)  
+[https://www.theserverside.com/blog/Coffee-Talk-Java-News-Stories-and-Opinions/How-to-Git-rebase-a-branch-to-master-example](https://www.theserverside.com/blog/Coffee-Talk-Java-News-Stories-and-Opinions/How-to-Git-rebase-a-branch-to-master-example)  
+[https://blog.csdn.net/weixin_42310154/article/details/119004977](https://blog.csdn.net/weixin_42310154/article/details/119004977)  
 
 ### 修改最近的第 n 次 commit message
 
@@ -366,6 +366,6 @@ git push --force origin master
 ```
 
 作者：zuopf769
-链接：<https://juejin.cn/post/6844903600976576519>
+链接：[https://juejin.cn/post/6844903600976576519](https://juejin.cn/post/6844903600976576519)
 来源：稀土掘金
 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。

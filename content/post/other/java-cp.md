@@ -10,7 +10,7 @@ tags:
 ---
 ## java cp
 
-<http://quicker.iteye.com/blog/856722>
+[http://quicker.iteye.com/blog/856722](http://quicker.iteye.com/blog/856722)
 
 java -cp .;c:dir1lib.jar Test
 

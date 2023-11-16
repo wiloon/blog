@@ -49,4 +49,4 @@ application/json: Official MIME type for json
 
 text/x-json: Experimental(unofficial) MIME type for json before application/json got officially registered
 
-><https://stackoverflow.com/questions/22406077/what-is-the-exact-difference-between-content-type-text-json-and-application-jso>
+>[https://stackoverflow.com/questions/22406077/what-is-the-exact-difference-between-content-type-text-json-and-application-jso](https://stackoverflow.com/questions/22406077/what-is-the-exact-difference-between-content-type-text-json-and-application-jso)

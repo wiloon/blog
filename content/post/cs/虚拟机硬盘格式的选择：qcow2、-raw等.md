@@ -37,7 +37,7 @@ QEMU image format, the most versatile format. Use it to have smaller images (use
 1、更小的虚拟硬盘空间 (尤其是宿主分区不支持hole的情况下)
 2、optional AES encryption, zlib based compression and support of multiple VM snapshots.
 
-另外，根据fedora12的wiki，说测试结果是raw比qcow2性能更好，即使是新版的qcow2。<http://fedoraproject.org/wiki/Featur...w2_Performance>
+另外，根据fedora12的wiki，说测试结果是raw比qcow2性能更好，即使是新版的qcow2。[http://fedoraproject.org/wiki/Featur...w2_Performance](http://fedoraproject.org/wiki/Featur...w2_Performance)
 
 如果单纯靠这些信息，那么raw好像更有优势，而且更方便。 (raw支持快照否？？？)
 
@@ -100,4 +100,4 @@ qemu跑98、me、xp是很慢的，但跑win95，win2000，是飞速的，尤其�
 
 也就是说，如果要在线具备更高级的硬盘特性/稳
 
-  转自: <http://jobinson99.blog.163.com/blog/static/2591478201051194046840/>
+  转自: [http://jobinson99.blog.163.com/blog/static/2591478201051194046840/](http://jobinson99.blog.163.com/blog/static/2591478201051194046840/)

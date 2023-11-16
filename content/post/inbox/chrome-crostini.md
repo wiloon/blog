@@ -29,7 +29,7 @@ Create crostini VM vmc start dev. This'll download the termina component, and op
   
 Launch a container run_container.sh -container_name=stretch -user=wiloon -shell
 
-<https://www.youtube.com/watch?v=s9mrR2tqVbQ>
+[https://www.youtube.com/watch?v=s9mrR2tqVbQ](https://www.youtube.com/watch?v=s9mrR2tqVbQ)
 
 
   

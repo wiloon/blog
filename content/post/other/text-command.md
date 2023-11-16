@@ -67,7 +67,7 @@ sort -n -k 2 test
 sort -n -t "," -k 2 test
 ————————————————
 版权声明：本文为CSDN博主「sunjiangangok」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
-原文链接：<https://blog.csdn.net/sunjiangangok/article/details/69943756>
+原文链接：[https://blog.csdn.net/sunjiangangok/article/details/69943756](https://blog.csdn.net/sunjiangangok/article/details/69943756)
 
 ## 升序
 
@@ -310,4 +310,4 @@ head 命令可用于查看文件的开头部分的内容,有一个常用的参�
     -c<数目> 显示的字节数。
     -n<行数> 显示的行数。
 
-<http://blog.csdn.net/forgotaboutgirl/article/details/6801525#t16>
+[http://blog.csdn.net/forgotaboutgirl/article/details/6801525#t16](http://blog.csdn.net/forgotaboutgirl/article/details/6801525#t16)

@@ -146,7 +146,7 @@ yarn test:e2e
 yarn lint
 ```
 
-<https://www.jianshu.com/p/7de5d4f612d7>
+[https://www.jianshu.com/p/7de5d4f612d7](https://www.jianshu.com/p/7de5d4f612d7)
 
 ### ui
 
@@ -166,7 +166,7 @@ Pug，Babel (with ES2015 modules)，和 Stylus。
 
 ## Docker 部署 vue 项目
 
-<https://juejin.im/post/5cce4b1cf265da0373719819>
+[https://juejin.im/post/5cce4b1cf265da0373719819](https://juejin.im/post/5cce4b1cf265da0373719819)
 
     server {
         listen       80;
@@ -183,8 +183,8 @@ Pug，Babel (with ES2015 modules)，和 Stylus。
 
     }
 
-<https://vue-loader.vuejs.org/zh/#vue-loader-%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F>
-<https://webpack.js.org/configuration/>
+[https://vue-loader.vuejs.org/zh/#vue-loader-%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F](https://vue-loader.vuejs.org/zh/#vue-loader-%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F)
+[https://webpack.js.org/configuration/](https://webpack.js.org/configuration/)
 
 ### webstorm reformat
 
@@ -331,7 +331,7 @@ npm install --save vue vue-class-component
         workbox.core.skipWaiting()
 
 ### vue typescript 调用 javascript
-<https://blog.csdn.net/qq_29483485/article/details/86605215>
+[https://blog.csdn.net/qq_29483485/article/details/86605215](https://blog.csdn.net/qq_29483485/article/details/86605215)
 
     vim src/assets/foo.js
 
@@ -349,10 +349,10 @@ npm install --save vue vue-class-component
 ---
 
 ### vue typescript
-<https://xie.infoq.cn/article/00845440bed4248cb80c15128?utm_source=rss&utm_medium=article>
+[https://xie.infoq.cn/article/00845440bed4248cb80c15128?utm_source=rss&utm_medium=article](https://xie.infoq.cn/article/00845440bed4248cb80c15128?utm_source=rss&utm_medium=article)
 
 ### vue + element ui
-<https://github.com/ElementUI/vue-cli-plugin-element>
+[https://github.com/ElementUI/vue-cli-plugin-element](https://github.com/ElementUI/vue-cli-plugin-element)
 
     vue create my-app
     cd my-app
@@ -390,7 +390,7 @@ vue-router是什么
 ​    vue-router就是WebApp的链接路径管理系统。vue的单页面应用是基于路由和组件的，路由用于设定访问路径，并将路径和组件映射起来。传统的页面应用，是用一些超链接来实现页面切换和跳转的。在vue-router单页面应用中，则是路径之间的切换，也就是组件的切换。路由模块的本质 就是建立起url和页面之间的映射关系。
 
 作者: 前端开膛手
-链接: <https://juejin.cn/post/6844903816953856007>
+链接: [https://juejin.cn/post/6844903816953856007](https://juejin.cn/post/6844903816953856007)
 来源: 掘金
 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
 
@@ -400,15 +400,15 @@ vue-router是什么
 
 #### vue vuetify admin
 
-><https://github.com/NelsonEAX/vue-vuetify-admin>
+>[https://github.com/NelsonEAX/vue-vuetify-admin](https://github.com/NelsonEAX/vue-vuetify-admin)
 
 ### vue element admin
 
-><https://panjiachen.github.io/vue-element-admin-site/zh/>
+>[https://panjiachen.github.io/vue-element-admin-site/zh/](https://panjiachen.github.io/vue-element-admin-site/zh/)
 
 #### go admin
 
-><https://github.com/guyan0319/go-admin>
+>[https://github.com/guyan0319/go-admin](https://github.com/guyan0319/go-admin)
 
 ### package.json>script, http header size
 
@@ -426,14 +426,14 @@ http status 431 问题
 
 ### vue props
 
-><https://www.jianshu.com/p/89bd18e44e73>
-><https://www.freecodecamp.org/news/how-to-use-props-in-vuejs/>
+>[https://www.jianshu.com/p/89bd18e44e73](https://www.jianshu.com/p/89bd18e44e73)
+>[https://www.freecodecamp.org/news/how-to-use-props-in-vuejs/](https://www.freecodecamp.org/news/how-to-use-props-in-vuejs/)
 
 ### mounted vs created
 
 created:在模板渲染成html前调用，即通常初始化某些属性值，然后再渲染成视图。
 mounted:在模板渲染成html后调用，通常是初始化页面完成后，再对html的dom节点进行一些需要的操作。
-><https://blog.csdn.net/xdnloveme/article/details/78035065>
+>[https://blog.csdn.net/xdnloveme/article/details/78035065](https://blog.csdn.net/xdnloveme/article/details/78035065)
 
 ### 取当前路由
 
@@ -443,14 +443,14 @@ this.$router.currentRoute.path
 
 ### axios 401
 
-><https://blog.csdn.net/weixin_49696014/article/details/113180848>
+>[https://blog.csdn.net/weixin_49696014/article/details/113180848](https://blog.csdn.net/weixin_49696014/article/details/113180848)
 
 ----
 
-<https://cli.vuejs.org/zh/guide/prototyping.html>
-<https://blog.csdn.net/flyspace/article/details/39993103>
-<https://www.jianshu.com/p/0093c189b0cd>
-<https://www.webascii.cn/article/5ef2cb72071be112473165bc/>
-<https://github.com/vuejs/vue-next>
-<https://qingbii.com/2019/10/10/building-vue3-from-scratch/>
-<https://juejin.im/post/5dd3d4dae51d453d493092da>
+[https://cli.vuejs.org/zh/guide/prototyping.html](https://cli.vuejs.org/zh/guide/prototyping.html)
+[https://blog.csdn.net/flyspace/article/details/39993103](https://blog.csdn.net/flyspace/article/details/39993103)
+[https://www.jianshu.com/p/0093c189b0cd](https://www.jianshu.com/p/0093c189b0cd)
+[https://www.webascii.cn/article/5ef2cb72071be112473165bc/](https://www.webascii.cn/article/5ef2cb72071be112473165bc/)
+[https://github.com/vuejs/vue-next](https://github.com/vuejs/vue-next)
+[https://qingbii.com/2019/10/10/building-vue3-from-scratch/](https://qingbii.com/2019/10/10/building-vue3-from-scratch/)
+[https://juejin.im/post/5dd3d4dae51d453d493092da](https://juejin.im/post/5dd3d4dae51d453d493092da)

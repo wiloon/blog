@@ -87,9 +87,9 @@ date -s 11/03/2009
 date -s 17:55:55
 ```
 
-<http://jerrybear.blog.51cto.com/629421/393097>
+[http://jerrybear.blog.51cto.com/629421/393097](http://jerrybear.blog.51cto.com/629421/393097)
 
-<https://blog.csdn.net/BalterNotz/article/details/52949493>
+[https://blog.csdn.net/BalterNotz/article/details/52949493](https://blog.csdn.net/BalterNotz/article/details/52949493)
 
 BASH SHELL中可以定义变量显示当前日期
 
@@ -101,7 +101,7 @@ DATE=`date +%Y%m%d` +号后面是定义格式为年月日
 
 DATE1=`date -d '1 days ago' +%Y%m%d` 加-d参数可以设置与当前日期的计算时间,同样,前2天为'2 days ago',去掉ago则为当前日期之后多少天
 
-以下内容就是网上看到的一篇不错的文章,出自<http://www.labri.fr/perso/strandh/Teaching/USI/Common/Sh-utils/sh-utils_65.html>
+以下内容就是网上看到的一篇不错的文章,出自[http://www.labri.fr/perso/strandh/Teaching/USI/Common/Sh-utils/sh-utils_65.html](http://www.labri.fr/perso/strandh/Teaching/USI/Common/Sh-utils/sh-utils_65.html)
 
 Here are a few examples. Also see the documentation for the \`-d' option in the previous section.
 
@@ -165,6 +165,6 @@ date -d '1970-01-01 946684800 sec' +"%Y-%m-%d %T %z"
 
 ---
 
-<https://blog.csdn.net/shanliangliuxing/article/details/16821175>
+[https://blog.csdn.net/shanliangliuxing/article/details/16821175](https://blog.csdn.net/shanliangliuxing/article/details/16821175)
 
-<https://man7.org/linux/man-pages/man1/date.1.html>
+[https://man7.org/linux/man-pages/man1/date.1.html](https://man7.org/linux/man-pages/man1/date.1.html)

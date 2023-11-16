@@ -10,7 +10,7 @@ tags:
 ---
 ## 缓存
 
-<https://xie.infoq.cn/article/0134f29b0c0895df548dd929b?utm_source=rss&utm_medium=article>
+[https://xie.infoq.cn/article/0134f29b0c0895df548dd929b?utm_source=rss&utm_medium=article](https://xie.infoq.cn/article/0134f29b0c0895df548dd929b?utm_source=rss&utm_medium=article)
 
 缓存的存在,是为了调和差异。
 
@@ -179,12 +179,12 @@ promise 的原理其实是一种_代理模式_,实际的缓存值被 promise 代
 
 这样,就不会发生大量并发请求同时操作底层存储的情况。
 
-<https://segmentfault.com/a/1190000017375843>
+[https://segmentfault.com/a/1190000017375843](https://segmentfault.com/a/1190000017375843)
 
 ————————————————
 版权声明: 本文为CSDN博主「徐刘根」的原创文章,遵循CC 4.0 BY-SA版权协议,转载请附上原文出处链接及本声明。
-原文链接: <https://blog.csdn.net/xlgen157387/article/details/79530877>
+原文链接: [https://blog.csdn.net/xlgen157387/article/details/79530877](https://blog.csdn.net/xlgen157387/article/details/79530877)
 
-<https://xie.infoq.cn/article/98bf087574f4c13fb3b5e8c23>
+[https://xie.infoq.cn/article/98bf087574f4c13fb3b5e8c23](https://xie.infoq.cn/article/98bf087574f4c13fb3b5e8c23)
 
-<https://my.oschina.net/magebyte/blog/5510913>
+[https://my.oschina.net/magebyte/blog/5510913](https://my.oschina.net/magebyte/blog/5510913)

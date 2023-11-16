@@ -247,37 +247,37 @@ getPoolSize:线程池的线程数量。如果线程池不销毁的话，池里�
   
 通过扩展线程池进行监控。通过继承线程池并重写线程池的beforeExecute，afterExecute和terminated方法，我们可以在任务执行前，执行后和线程池关闭前干一些事情。如监控任务的平均执行时间，最大执行时间和最小执行时间等。
 
-<http://www.cnblogs.com/jersey/archive/2011/03/30/2000231.html>
+[http://www.cnblogs.com/jersey/archive/2011/03/30/2000231.html](http://www.cnblogs.com/jersey/archive/2011/03/30/2000231.html)
   
-<http://sunnylocus.iteye.com/blog/223327>
+[http://sunnylocus.iteye.com/blog/223327](http://sunnylocus.iteye.com/blog/223327)
 
-<http://coach.iteye.com/blog/743185>
+[http://coach.iteye.com/blog/743185](http://coach.iteye.com/blog/743185)
 
-<http://www.cnblogs.com/www-35java-com/archive/2010/12/31/1923495.html>
+[http://www.cnblogs.com/www-35java-com/archive/2010/12/31/1923495.html](http://www.cnblogs.com/www-35java-com/archive/2010/12/31/1923495.html)
 
-<http://coach.iteye.com/blog/855850>
+[http://coach.iteye.com/blog/855850](http://coach.iteye.com/blog/855850)
 
-<http://dongxuan.iteye.com/blog/901689>
+[http://dongxuan.iteye.com/blog/901689](http://dongxuan.iteye.com/blog/901689)
 
-<http://www.cnblogs.com/jersey/archive/2011/03/30/2000231.html>
+[http://www.cnblogs.com/jersey/archive/2011/03/30/2000231.html](http://www.cnblogs.com/jersey/archive/2011/03/30/2000231.html)
 
-<http://denghua10.iteye.com/blog/999442>
+[http://denghua10.iteye.com/blog/999442](http://denghua10.iteye.com/blog/999442)
 
-<http://blog.csdn.net/java2000_net/article/details/2972352>
+[http://blog.csdn.net/java2000_net/article/details/2972352](http://blog.csdn.net/java2000_net/article/details/2972352)
 
-<http://www.infoq.com/cn/articles/java-threadPool>
+[http://www.infoq.com/cn/articles/java-threadPool](http://www.infoq.com/cn/articles/java-threadPool)
   
-<http://825635381.iteye.com/blog/2184680>
+[http://825635381.iteye.com/blog/2184680](http://825635381.iteye.com/blog/2184680)
 
 Executors 类提供了使用了 ThreadPoolExecutor 的简单的 ExecutorService 实现，也就是上面所说的四种Executors线程池，但是 ThreadPoolExecutor 提供的功能远不止于此。
 不过在java doc中，并不提倡我们直接使用ThreadPoolExecutor，而是使用Executors类中提供的几个静态方法来创建线程池
 ————————————————
 版权声明：本文为CSDN博主「xlxxcc」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
-原文链接：<https://blog.csdn.net/xlxxcc/article/details/52108534>
+原文链接：[https://blog.csdn.net/xlxxcc/article/details/52108534](https://blog.csdn.net/xlxxcc/article/details/52108534)
 
 ## ExecutorService
 
-<http://blog.dyngr.com/blog/2016/09/15/java-forkjoinpool-internals/>
+[http://blog.dyngr.com/blog/2016/09/15/java-forkjoinpool-internals/](http://blog.dyngr.com/blog/2016/09/15/java-forkjoinpool-internals/)
 
 ```java
 public class ExecutorServiceCalculator implements Calculator {

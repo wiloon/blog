@@ -150,7 +150,7 @@ uint是32字节或者64字节
   
 int和uint是一样的大小
 
-<http://studygolang.com/articles/9852>
+[http://studygolang.com/articles/9852](http://studygolang.com/articles/9852)
 
 golang的字符称为rune，等价于C中的char，可直接与整数转换
 
@@ -180,7 +180,7 @@ fmt.Println(string(97))
 a
 a
 
-><https://segmentfault.com/q/1010000000404709>
+>[https://segmentfault.com/q/1010000000404709](https://segmentfault.com/q/1010000000404709)
 
 ## byte
 
@@ -238,7 +238,7 @@ UTF-8 是编码规则，将 Unicode 中字符的 ID 以某种方式进行编码�
 
 广义的 Unicode 指的是一个标准，它定义了字符集及编码规则，即 Unicode 字符集和 UTF-8、UTF-16 编码等。
 
-><http://c.biancheng.net/view/18.html>
+>[http://c.biancheng.net/view/18.html](http://c.biancheng.net/view/18.html)
 
 ## 值类型， 引用类型
 
@@ -250,4 +250,4 @@ UTF-8 是编码规则，将 Unicode 中字符的 ID 以某种方式进行编码�
 
 引用类型的特点是：变量存储的是一个地址，这个地址对应的空间里才是真正存储的值，内存通常在堆中分配
 
-><https://www.jianshu.com/p/9be895c65684?utm_campaign=studygolang.com&utm_medium=studygolang.com&utm_source=studygolang.com>
+>[https://www.jianshu.com/p/9be895c65684?utm_campaign=studygolang.com&utm_medium=studygolang.com&utm_source=studygolang.com](https://www.jianshu.com/p/9be895c65684?utm_campaign=studygolang.com&utm_medium=studygolang.com&utm_source=studygolang.com)

@@ -38,7 +38,7 @@ sudo mkfs.ext4 /dev/sdx3
 sudo mkswap /dev/sda2
 ```
 
-<http://blog.csdn.net/zhangkekf/article/details/10417203>
+[http://blog.csdn.net/zhangkekf/article/details/10417203](http://blog.csdn.net/zhangkekf/article/details/10417203)
 
 我的需求是,将新硬盘只分一个区来使用
 
@@ -148,7 +148,7 @@ mkfs -t ext4 -c /dev/xvdb1    #格式化硬盘
 
 格式化中。。。
 
-以下内容转载自: <http://lbyzx123.iteye.com/blog/835004>
+以下内容转载自: [http://lbyzx123.iteye.com/blog/835004](http://lbyzx123.iteye.com/blog/835004)
 
 关于硬盘分区: 主分区 (包含扩展分区) 、逻辑分区,主分区最多有4个 (包含扩展分区) 。
 

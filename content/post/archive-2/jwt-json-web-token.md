@@ -75,7 +75,7 @@ Claims 部分包含了一些跟这个 token 有关的重要信息。 JWT 标准�
 
 #### 其它 claim name, IANA JSON Web Token Registry中定义的关键字
 
-<https://www.iana.org/assignments/jwt/jwt.xhtml>
+[https://www.iana.org/assignments/jwt/jwt.xhtml](https://www.iana.org/assignments/jwt/jwt.xhtml)
 
 #### Public claims
 
@@ -93,9 +93,9 @@ signature 可以选择对称加密算法或者非对称加密算法,常用的就
 对称加密:  加密方和解密方利用同一个秘钥对数据进行加密和解密。
 非对称加密:  加密方用私钥加密,并把公钥告诉解密方用于解密。
 
-<https://www.jianshu.com/p/15572dfa4ccd>
+[https://www.jianshu.com/p/15572dfa4ccd](https://www.jianshu.com/p/15572dfa4ccd)
 
-<http://blog.leapoahead.com/2015/09/06/understanding-jwt/>
+[http://blog.leapoahead.com/2015/09/06/understanding-jwt/](http://blog.leapoahead.com/2015/09/06/understanding-jwt/)
 
 JWT (其实还有SAML) 最适合的应用场景就是"开票",或者"签字"。
 
@@ -111,7 +111,7 @@ JWT (其实还有SAML) 最适合的应用场景就是"开票",或者"签字"。
 
 ### aud
 
-<https://stackoverflow.com/questions/28418360/jwt-json-web-token-audience-aud-versus-client-id-whats-the-difference>
+[https://stackoverflow.com/questions/28418360/jwt-json-web-token-audience-aud-versus-client-id-whats-the-difference](https://stackoverflow.com/questions/28418360/jwt-json-web-token-audience-aud-versus-client-id-whats-the-difference)
 
 As it turns out, my suspicions were right. The audience aud claim in a JWT is meant to refer to the Resource Servers that should accept the token.
 
@@ -119,7 +119,7 @@ As this post simply puts it:
 
 The audience of a token is the intended recipient of the token.
 
-The audience value is a string -- typically, the base address of the resource being accessed, such as <https://contoso.com>.
+The audience value is a string -- typically, the base address of the resource being accessed, such as [https://contoso.com](https://contoso.com).
 
 The client_id in OAuth refers to the client application that will be requesting resources from the Resource Server.
 
@@ -127,9 +127,9 @@ The Client app (e.g. your iOS app) will request a JWT from your Authentication S
 
 The JWT will contain an aud claim that specifies which Resource Servers the JWT is valid for. If the aud contains www.myfunwebapp.com, but the client app tries to use the JWT on www.supersecretwebapp.com, then access will be denied because that Resource Server will see that the JWT was not meant for it.
 
-<http://blog.leapoahead.com/2015/09/06/understanding-jwt/>  
+[http://blog.leapoahead.com/2015/09/06/understanding-jwt/](http://blog.leapoahead.com/2015/09/06/understanding-jwt/)  
 
 JWT(auth0): RS256非对称加密算法实现Token的签发、验证
-原文链接:  <https://xie.infoq.cn/article/e55bb7e46be860902e39f9280?utm_source=rss&utm_medium=article>
+原文链接:  [https://xie.infoq.cn/article/e55bb7e46be860902e39f9280?utm_source=rss&utm_medium=article](https://xie.infoq.cn/article/e55bb7e46be860902e39f9280?utm_source=rss&utm_medium=article)
 
-><https://github.com/dgrijalva/jwt-go>
+>[https://github.com/dgrijalva/jwt-go](https://github.com/dgrijalva/jwt-go)

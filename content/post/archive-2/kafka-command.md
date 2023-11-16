@@ -59,7 +59,7 @@ bin/kafka-console-producer.sh \
 
 ### kafka download
 
-<https://mirrors.bfsu.edu.cn/apache/kafka/2.6.0/kafka_2.13-2.6.0.tgz>
+[https://mirrors.bfsu.edu.cn/apache/kafka/2.6.0/kafka_2.13-2.6.0.tgz](https://mirrors.bfsu.edu.cn/apache/kafka/2.6.0/kafka_2.13-2.6.0.tgz)
 
 ### group
 
@@ -148,15 +148,15 @@ ssl.endpoint.identification.algorithm=
 
 #### 可用的配置项
 
-<https://kafka.apache.org/090/documentation.html>
+[https://kafka.apache.org/090/documentation.html](https://kafka.apache.org/090/documentation.html)
 
 ssl.endpoint.identification.algorithm 默认值问题
 
-<https://docs.confluent.io/platform/current/kafka/authentication_ssl.html>
+[https://docs.confluent.io/platform/current/kafka/authentication_ssl.html](https://docs.confluent.io/platform/current/kafka/authentication_ssl.html)
 
 生成证书 keystore trust store...
 
-<https://www.cnblogs.com/huxi2b/p/7427815.html>
+[https://www.cnblogs.com/huxi2b/p/7427815.html](https://www.cnblogs.com/huxi2b/p/7427815.html)
 
 ### 查看 topic 详细信息, 如: 分区数, replication
 
@@ -205,7 +205,7 @@ bin/kafka-topics.sh --create \
 --topic topic0
 ```
 
-<https://cloud.tencent.com/developer/article/1436988>
+[https://cloud.tencent.com/developer/article/1436988](https://cloud.tencent.com/developer/article/1436988)
 
 ### 调整分区数, add partition
 
@@ -261,7 +261,7 @@ kafka_2.13-3.1.0.jar
 ## kafka 删除 topic
 
 - 停掉 topic 对应的 producer 和 consumer 或者设置 auto.create.topics.enable = false
-- server.properties 设置 delete.topic.enable=true, 1.0.0 版本以后的 kafka 默认是 true, <https://issues.apache.org/jira/browse/KAFKA-5384>
+- server.properties 设置 delete.topic.enable=true, 1.0.0 版本以后的 kafka 默认是 true, [https://issues.apache.org/jira/browse/KAFKA-5384](https://issues.apache.org/jira/browse/KAFKA-5384)
 - 删除 topic
 
 ```bash
@@ -330,7 +330,7 @@ cat increase-replication-factor.json
 
 安装一个只有单 broker 节点的集群（也被称为伪集群）
 
-download <http://kafka.apache.org/downloads.html>
+download [http://kafka.apache.org/downloads.html](http://kafka.apache.org/downloads.html)
 
 ### kraft
 
@@ -361,8 +361,8 @@ bitnami/kafka:3.4.0 kafka-storage.sh format --config /bitnami/kafka/config/serve
 
 #### kraft podmann
 
-<https://github.com/bitnami/bitnami-docker-kafka/issues/159>
-<https://github.com/bitnami/bitnami-docker-kafka/blob/master/README.md>
+[https://github.com/bitnami/bitnami-docker-kafka/issues/159](https://github.com/bitnami/bitnami-docker-kafka/issues/159)
+[https://github.com/bitnami/bitnami-docker-kafka/blob/master/README.md](https://github.com/bitnami/bitnami-docker-kafka/blob/master/README.md)
 
 ```bash
 # create volume
@@ -540,25 +540,25 @@ podman run -d --name cmak\
      hlebalbau/kafka-manager:stable
 ```
 
-<https://www.jianshu.com/p/25a7b0ceb78a>  
-<https://github.com/wurstmeister/kafka-docker>  
-<https://juejin.im/entry/5cbfe36b6fb9a032036187aa>  
-<https://my.oschina.net/u/218540/blog/223501>  
-<https://www.cnblogs.com/AcAc-t/p/kafka_topic_consumer_group_command.html>  
-<https://blog.csdn.net/lzufeng/article/details/81743521>  
-<https://www.jianshu.com/p/26495e334613>  
+[https://www.jianshu.com/p/25a7b0ceb78a](https://www.jianshu.com/p/25a7b0ceb78a)  
+[https://github.com/wurstmeister/kafka-docker](https://github.com/wurstmeister/kafka-docker)  
+[https://juejin.im/entry/5cbfe36b6fb9a032036187aa](https://juejin.im/entry/5cbfe36b6fb9a032036187aa)  
+[https://my.oschina.net/u/218540/blog/223501](https://my.oschina.net/u/218540/blog/223501)  
+[https://www.cnblogs.com/AcAc-t/p/kafka_topic_consumer_group_command.html](https://www.cnblogs.com/AcAc-t/p/kafka_topic_consumer_group_command.html)  
+[https://blog.csdn.net/lzufeng/article/details/81743521](https://blog.csdn.net/lzufeng/article/details/81743521)  
+[https://www.jianshu.com/p/26495e334613](https://www.jianshu.com/p/26495e334613)  
 
 ### kafka producer, consumer api doc
 
-<https://kafka.apache.org/30/javadoc/org/apache/kafka/clients/producer/KafkaProducer.html>
+[https://kafka.apache.org/30/javadoc/org/apache/kafka/clients/producer/KafkaProducer.html](https://kafka.apache.org/30/javadoc/org/apache/kafka/clients/producer/KafkaProducer.html)
 
-<https://kafka.apache.org/30/javadoc/org/apache/kafka/clients/consumer/KafkaConsumer.html>
+[https://kafka.apache.org/30/javadoc/org/apache/kafka/clients/consumer/KafkaConsumer.html](https://kafka.apache.org/30/javadoc/org/apache/kafka/clients/consumer/KafkaConsumer.html)
 
 ## kafka SSL
 
-<https://www.cnblogs.com/huxi2b/p/7427815.html>
+[https://www.cnblogs.com/huxi2b/p/7427815.html](https://www.cnblogs.com/huxi2b/p/7427815.html)
 
-<https://www.cnblogs.com/huxi2b/p/7427815.html>
+[https://www.cnblogs.com/huxi2b/p/7427815.html](https://www.cnblogs.com/huxi2b/p/7427815.html)
 
 ## 生成 kafka 服务端, 客户端证书, jks
 
@@ -574,4 +574,4 @@ openssl req -new -x509 -keyout ~/tmp/ca-key -out ~/tmp/ca-cert -days 3650 -passo
 keytool -keystore ~/tmp/server.truststore.jks -alias CARoot -import -file ~/tmp/ca-cert -storepass 123456
 ```
 
-<https://www.cnblogs.com/tortoise512/articles/16347191.html>
+[https://www.cnblogs.com/tortoise512/articles/16347191.html](https://www.cnblogs.com/tortoise512/articles/16347191.html)

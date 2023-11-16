@@ -24,7 +24,7 @@ RR (Resource Records)————资源记录（RR）是包含了下列字段的
 域名服务器记录（NS记录）：用来指定该域名由哪个DNS服务器来进行解析。您注册域名时，总有默认的DNS服务器，每个注册的域名都是由一个DNS域名服务器来进行解析的，DNS服务器NS记录地址一般以以下的形式出现：ns1.domain.com、ns2.domain.com等。简单的说，NS记录返回域中主机IP地址的权威DNS服务器的主机名。
 邮件交换记录（MX记录）：返回别名为Name对应的邮件服务器的规范主机名。
 
-<https://www.cnblogs.com/even160941/p/14292059.html>
+[https://www.cnblogs.com/even160941/p/14292059.html](https://www.cnblogs.com/even160941/p/14292059.html)
 
 ```bash
 # nslookup –option1 –option2 host-to-find dns-server

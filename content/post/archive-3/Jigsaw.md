@@ -101,9 +101,9 @@ java.desktop.jmod
 
 ---
 
-<https://www.liaoxuefeng.com/wiki/1252599548343744/1281795926523938>
-<https://www.jianshu.com/p/bec282e8fb41>
-<https://developer.51cto.com/art/202007/620291.htm>
+[https://www.liaoxuefeng.com/wiki/1252599548343744/1281795926523938](https://www.liaoxuefeng.com/wiki/1252599548343744/1281795926523938)
+[https://www.jianshu.com/p/bec282e8fb41](https://www.jianshu.com/p/bec282e8fb41)
+[https://developer.51cto.com/art/202007/620291.htm](https://developer.51cto.com/art/202007/620291.htm)
 
 ## java 模块 hello world
 
@@ -308,7 +308,7 @@ $HOME/.m2/toolchains.xml
 
 ### 一个模块示例
 
-<https://blog.csdn.net/rickiyeat/article/details/78068316>
+[https://blog.csdn.net/rickiyeat/article/details/78068316](https://blog.csdn.net/rickiyeat/article/details/78068316)
 
 ### 模块文件 module-info.java
 
@@ -354,7 +354,7 @@ java --module-path mods -m com.wiloon.java9x/com.wiloon.java9x.Java9Tester
 
 ---
 
-<http://lizhe.name/index.php/node/273>
+[http://lizhe.name/index.php/node/273](http://lizhe.name/index.php/node/273)
 
 ## 'java 8 > java 9+ 模块'
 
@@ -403,9 +403,9 @@ java --module-path mods -m com.wiloon.java9x/com.wiloon.java9x.Java9Tester
 
 <git@github.com>:wiloon/java9x.git
 
-<http://blog.oneapm.com/apm-tech/724.html>
+[http://blog.oneapm.com/apm-tech/724.html](http://blog.oneapm.com/apm-tech/724.html)
 
-<http://stackoverflow.com/questions/39882669/unrecognized-option-modulepath>
+[http://stackoverflow.com/questions/39882669/unrecognized-option-modulepath](http://stackoverflow.com/questions/39882669/unrecognized-option-modulepath)
 
 ```bash
 

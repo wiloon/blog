@@ -10,7 +10,7 @@ tags:
 ---
 ## golang base64
 
-<http://www.01happy.com/golang-base64-encode-decode/>
+[http://www.01happy.com/golang-base64-encode-decode/](http://www.01happy.com/golang-base64-encode-decode/)
 
 golang中base64编码和解码
 
@@ -32,7 +32,7 @@ import (
 
 func main() {
 
-input := []byte("hello golang base64 快乐编程<http://www.01happy.com> +~")
+input := []byte("hello golang base64 快乐编程[http://www.01happy.com](http://www.01happy.com) +~")
 
     // 演示base64编码
     encodeString := base64.StdEncoding.EncodeToString(input)
@@ -65,8 +65,8 @@ go run encode.go
   
 aGVsbG8gZ29sYW5nIGJhc2U2NCDlv6vkuZDnvJbnqItodHRwOi8vd3d3LjAxaGFwcHkuY29tICt+
   
-hello golang base64 快乐编程<http://www.01happy.com> +~
+hello golang base64 快乐编程[http://www.01happy.com](http://www.01happy.com) +~
 
 aGVsbG8gZ29sYW5nIGJhc2U2NCDlv6vkuZDnvJbnqItodHRwOi8vd3d3LjAxaGFwcHkuY29tICt-
   
-hello golang base64 快乐编程<http://www.01happy.com> +~
+hello golang base64 快乐编程[http://www.01happy.com](http://www.01happy.com) +~

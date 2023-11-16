@@ -27,12 +27,12 @@ tags:
 一般进程使用的内存是远低于全部虚拟内存的。二级模式只为进程实际使用的那些虚拟内存区分配页表，既提升了效率，也减少了内存的使用量。
 
 作者：长安
-链接：<https://www.zhihu.com/question/50796850/answer/654281605>
+链接：[https://www.zhihu.com/question/50796850/answer/654281605](https://www.zhihu.com/question/50796850/answer/654281605)
 来源：知乎
 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
 
 作者：Ideal
-链接：<https://www.zhihu.com/question/50796850/answer/1449056116>
+链接：[https://www.zhihu.com/question/50796850/answer/1449056116](https://www.zhihu.com/question/50796850/answer/1449056116)
 来源：知乎
 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
 
@@ -74,4 +74,4 @@ tags:
 
 此外另一个提升性能的方法是引入交换空间，磁盘I/O到交换空间要比到文件系统要快，因此在进程开始时将文件复制到交换空间，从交换空间进行按需调页，通过降低内存访问时间来提高性能。
 
-转载于:<https://my.oschina.net/u/2990965/blog/880187>
+转载于:[https://my.oschina.net/u/2990965/blog/880187](https://my.oschina.net/u/2990965/blog/880187)

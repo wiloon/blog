@@ -20,4 +20,4 @@ chmod a+x *.AppImage
 执行它！
 ./*.AppImage
 
-<https://doc.appimage.cn/docs/appimage/>
+[https://doc.appimage.cn/docs/appimage/](https://doc.appimage.cn/docs/appimage/)

@@ -11,7 +11,7 @@ tags:
 ---
 ## 消息队列/message queue/MQ, CORBA, DCOM, RMI, RPC
 
-<http://blog.csdn.net/mr_smile2014/article/details/47452281>
+[http://blog.csdn.net/mr_smile2014/article/details/47452281](http://blog.csdn.net/mr_smile2014/article/details/47452281)
 
 消息队列是在消息的传输过程中保存消息的容器，消息队列管理器在将消息从它的源中继到它的目标时充当中间人。队列的主要目的是提供路由并保证消息的传递；如果发送消息时接收者不可用，消息队列会保留消息，直到可以成功地传递它。
 

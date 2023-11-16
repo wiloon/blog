@@ -16,7 +16,7 @@ tags:
 
 对于我们并不期望会发生的事,我们可以使用异常捕捉；对于我们觉得可能会发生的事,使用返回码。
 
-<https://time.geekbang.org/column/article/675>
+[https://time.geekbang.org/column/article/675](https://time.geekbang.org/column/article/675)
 
 你觉得自己是一个Java专家吗？是否肯定自己  已经全面掌握了Java的异常处理机制？在下面这段代码中,你能够迅速找出异常处理的六个问题吗？
 

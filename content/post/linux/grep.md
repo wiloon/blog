@@ -73,7 +73,7 @@ grep -r 'linux' *
 
 ### grep 正则
 
-<https://blog.csdn.net/yufenghyc/article/details/51078107>
+[https://blog.csdn.net/yufenghyc/article/details/51078107](https://blog.csdn.net/yufenghyc/article/details/51078107)
 
 ### grep 与 egrep 的区别
 
@@ -190,7 +190,7 @@ egrep "(([A-z]+|[0-9]+))" my.txt
 
 /bin/egrep 指定了指向 egrep 命令的符号链接。
   
-<https://blog.csdn.net/joby1981/article/details/19346279>
+[https://blog.csdn.net/joby1981/article/details/19346279](https://blog.csdn.net/joby1981/article/details/19346279)
 
 BRE(basic regular expression)
 
@@ -869,8 +869,8 @@ grep -E 'a[[:blank]]' a.txt
 
 grep -E 'a\\b' a.txt
 
-<http://www.cnblogs.com/end/archive/2012/02/21/2360965.htm>
+[http://www.cnblogs.com/end/archive/2012/02/21/2360965.htm](http://www.cnblogs.com/end/archive/2012/02/21/2360965.htm)
   
-<https://www.cnblogs.com/sparkdev/p/11294517.html>
+[https://www.cnblogs.com/sparkdev/p/11294517.html](https://www.cnblogs.com/sparkdev/p/11294517.html)
   
-<https://www.cnblogs.com/ywl925/p/3947778.html>
+[https://www.cnblogs.com/ywl925/p/3947778.html](https://www.cnblogs.com/ywl925/p/3947778.html)

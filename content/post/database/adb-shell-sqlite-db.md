@@ -61,4 +61,4 @@ sqlite> .schema emperors
   
 CREATE TABLE emperors( id integer primary key autoincrement, name text,dynasty text,start_year text);
 
-<http://marshal.easymorse.com/index.html%3Fp=2981.html>
+[http://marshal.easymorse.com/index.html%3Fp=2981.html](http://marshal.easymorse.com/index.html%3Fp=2981.html)

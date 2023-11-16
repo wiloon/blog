@@ -15,9 +15,9 @@ tags:
 
 ### 软件升级
 
-<https://support.ruckuswireless.com/software?filter=88#sort=relevancy&f:@source=[Software%20Downloads>]&f:@commonproducts=[R310]  
+[https://support.ruckuswireless.com/software?filter=88#sort=relevancy&f:@source=[Software%20Downloads](https://support.ruckuswireless.com/software?filter=88#sort=relevancy&f:@source=[Software%20Downloads)]&f:@commonproducts=[R310]  
 
-<https://support.ruckuswireless.com/software/2791-ruckus-solo-access-point-110-0-0-0-2014-ga-refresh2-software-release-r310>  
+[https://support.ruckuswireless.com/software/2791-ruckus-solo-access-point-110-0-0-0-2014-ga-refresh2-software-release-r310](https://support.ruckuswireless.com/software/2791-ruckus-solo-access-point-110-0-0-0-2014-ga-refresh2-software-release-r310)  
 
 Ruckus Solo Access Point 110.0.0.0.2014 (GA Refresh2) Software Release (R310)
 
@@ -46,7 +46,7 @@ AIR- Mesh上行链路状态灯,有些型号的双频AP没有AIR灯,用5G灯来�
 绿色快闪- Mesh上行链路不佳 (此时需要检查干扰情况,或者调整AP的位置和间距)
 绿色慢闪- Mesh上行链路不存在,AP没有找到Root AP
 红色 AP硬件损坏
-NOTE1: Mesh技术介绍 <http://baike.baidu.com/view/1215700.htm>
+NOTE1: Mesh技术介绍 [http://baike.baidu.com/view/1215700.htm](http://baike.baidu.com/view/1215700.htm)
 NOTE2: AP都会有一个Reset按键,是一个凹陷的孔。先把AP加电,2-3秒钟之后,用曲别针之类的东西按住Reset键 6 秒钟再松手,AP就可以恢复出厂设置。为了避免Reset失败,最好按8秒再松手。
 NOTE3: 有些型号的AP还会有一个soft reset,作用是重启AP。
 
@@ -197,9 +197,9 @@ NOTE: AP的IP地址可以是管理IP,也可以是Local Subnet三层接口地址,
 有时候,当你拿到一台Ruckus的AP,却发现Configuration菜单下面没有Wireless或者Radio的配置选项,Reset AP也还是没有。你可能认为AP坏了,其实并没有。在Ruckus Support网站注册一个帐号,下载100.x.x.x.x版本的固件,升级AP,你就可以配置Radio了。
 ————————————————
 版权声明: 本文为CSDN博主「然后咧」的原创文章,遵循CC 4.0 BY-SA版权协议,转载请附上原文出处链接及本声明。
-原文链接: <https://blog.csdn.net/chenghit/article/details/50364883>
+原文链接: [https://blog.csdn.net/chenghit/article/details/50364883](https://blog.csdn.net/chenghit/article/details/50364883)
 
 ---
 
-<https://blog.csdn.net/chenghit/article/details/50364883>  
-<https://post.smzdm.com/p/ax08q0r3/>  
+[https://blog.csdn.net/chenghit/article/details/50364883](https://blog.csdn.net/chenghit/article/details/50364883)  
+[https://post.smzdm.com/p/ax08q0r3/](https://post.smzdm.com/p/ax08q0r3/)  

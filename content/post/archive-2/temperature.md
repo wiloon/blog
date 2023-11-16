@@ -52,7 +52,7 @@ Sensor 1:     +64.8°C  (low  = -273.1°C, high = +65261.8°C)
 Sensor 2:     +74.8°C  (low  = -273.1°C, high = +65261.8°C)
 ```
 
-原贴:<http://goodfifagun.pixnet.net/blog/post/21587839>
+原贴:[http://goodfifagun.pixnet.net/blog/post/21587839](http://goodfifagun.pixnet.net/blog/post/21587839)
 
 現在購買主機板時都會有廠商提供的監控軟體可以使用，而最常使用到到功
  能像溫度監控，系統狀態等等，但是這些軟體都只能在windows 下使用，所

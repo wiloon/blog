@@ -34,6 +34,6 @@ git config --global --unset https.proxy
 npm config delete proxy
 ```
 
-<https://gist.github.com/laispace/666dd7b27e9116faece6>
+[https://gist.github.com/laispace/666dd7b27e9116faece6](https://gist.github.com/laispace/666dd7b27e9116faece6)
 
-<https://www.jianshu.com/p/739f139cf13c>
+[https://www.jianshu.com/p/739f139cf13c](https://www.jianshu.com/p/739f139cf13c)

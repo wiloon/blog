@@ -46,7 +46,7 @@ System.setProperty("http.proxyPort", "8080");
         
           [c language="-sharp"][/c]
 
-<http://blog.csdn.net/redhat456/article/details/6149774>#
+[http://blog.csdn.net/redhat456/article/details/6149774](http://blog.csdn.net/redhat456/article/details/6149774)#
 
         http.proxyUserName=username
       
@@ -64,9 +64,9 @@ System.setProperty("http.proxyPort", "8080");
         
           ```java```
 
-<http://blog.csdn.net/redhat456/article/details/6149774>#
+[http://blog.csdn.net/redhat456/article/details/6149774](http://blog.csdn.net/redhat456/article/details/6149774)#
 
-<http://blog.csdn.net/redhat456/article/details/6149774>#
+[http://blog.csdn.net/redhat456/article/details/6149774](http://blog.csdn.net/redhat456/article/details/6149774)#
 
         Authenticator.setDefault(new BasicAuthenticator(userName, password));
       
@@ -89,7 +89,7 @@ System.setProperty("http.proxyPort", "8080");
         
           ```java```
 
-<http://blog.csdn.net/redhat456/article/details/6149774>#
+[http://blog.csdn.net/redhat456/article/details/6149774](http://blog.csdn.net/redhat456/article/details/6149774)#
 
         Proxy proxy = new Proxy(Proxy.Type.HTTP, new InetSocketAddress(host, port));
       
@@ -109,7 +109,7 @@ System.setProperty("http.proxyPort", "8080");
         
           ```java```
 
-<http://blog.csdn.net/redhat456/article/details/6149774>#
+[http://blog.csdn.net/redhat456/article/details/6149774](http://blog.csdn.net/redhat456/article/details/6149774)#
 
         //格式如下: 
       

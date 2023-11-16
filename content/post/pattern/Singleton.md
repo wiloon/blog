@@ -137,15 +137,15 @@ public static Singleton getInstance() {
 
 golang
   
-<https://blog.csdn.net/qibin0506/article/details/50733314>
+[https://blog.csdn.net/qibin0506/article/details/50733314](https://blog.csdn.net/qibin0506/article/details/50733314)
 
-<http://blog.csdn.net/qjyong/article/details/1721342>
+[http://blog.csdn.net/qjyong/article/details/1721342](http://blog.csdn.net/qjyong/article/details/1721342)
 
-<http://wuchong.me/blog/2014/08/28/how-to-correctly-write-singleton-pattern/>
+[http://wuchong.me/blog/2014/08/28/how-to-correctly-write-singleton-pattern/](http://wuchong.me/blog/2014/08/28/how-to-correctly-write-singleton-pattern/)
 
-<http://www.iteye.com/topic/537563>
+[http://www.iteye.com/topic/537563](http://www.iteye.com/topic/537563)
 
-<https://github.com/pzxwhc/MineKnowContainer/issues/74>
+[https://github.com/pzxwhc/MineKnowContainer/issues/74](https://github.com/pzxwhc/MineKnowContainer/issues/74)
   
-<http://www.wiloon.com/?p=9951>
-><https://juejin.cn/post/6844903655510917128>
+[http://www.wiloon.com/?p=9951](http://www.wiloon.com/?p=9951)
+>[https://juejin.cn/post/6844903655510917128](https://juejin.cn/post/6844903655510917128)

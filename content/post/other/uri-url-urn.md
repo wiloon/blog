@@ -10,11 +10,11 @@ tags:
 ---
 ## URI, URL, URN
 
-<http://www.ibm.com/developerworks/cn/xml/x-urlni.html>
+[http://www.ibm.com/developerworks/cn/xml/x-urlni.html](http://www.ibm.com/developerworks/cn/xml/x-urlni.html)
   
 -
   
-<http://www.cisco.com/en/US/partners/index.html> —— 是一个 URI
+[http://www.cisco.com/en/US/partners/index.html](http://www.cisco.com/en/US/partners/index.html) —— 是一个 URI
   
 方案名 (http)
   

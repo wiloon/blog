@@ -21,4 +21,4 @@ cd output
 ./kk create cluster
 ```
 
-<https://kubesphere.io/zh/docs/installing-on-linux/introduction/intro/>
+[https://kubesphere.io/zh/docs/installing-on-linux/introduction/intro/](https://kubesphere.io/zh/docs/installing-on-linux/introduction/intro/)

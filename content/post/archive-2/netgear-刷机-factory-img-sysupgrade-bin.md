@@ -39,8 +39,8 @@ tftp> quit
 - 设备重启后, 可手动断电, 再重启。否则可能没有5G。这不是BUG,其他openwrt也是一样的
 - 如果恢复过程中断或失败, 重复上述步骤再做尝试。
 
-<https://www.netgear.com/support/product/WNDR4300.aspx>
+[https://www.netgear.com/support/product/WNDR4300.aspx](https://www.netgear.com/support/product/WNDR4300.aspx)
 
-<https://downloads.openwrt.org/releases/19.07.3/targets/ar71xx/nand/openwrt-19.07.3-ar71xx-nand-wndr4300-ubi-factory.img>
+[https://downloads.openwrt.org/releases/19.07.3/targets/ar71xx/nand/openwrt-19.07.3-ar71xx-nand-wndr4300-ubi-factory.img](https://downloads.openwrt.org/releases/19.07.3/targets/ar71xx/nand/openwrt-19.07.3-ar71xx-nand-wndr4300-ubi-factory.img)
 
-<https://downloads.openwrt.org/releases/17.01.4/targets/ar71xx/nand/lede-17.01.4-ar71xx-nand-wndr4300-squashfs-sysupgrade.tar>
+[https://downloads.openwrt.org/releases/17.01.4/targets/ar71xx/nand/lede-17.01.4-ar71xx-nand-wndr4300-squashfs-sysupgrade.tar](https://downloads.openwrt.org/releases/17.01.4/targets/ar71xx/nand/lede-17.01.4-ar71xx-nand-wndr4300-squashfs-sysupgrade.tar)

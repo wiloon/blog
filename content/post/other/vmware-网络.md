@@ -9,7 +9,7 @@ tags:
   - reprint
 ---
 ## VMWare 网络
-<http://bbs.ylmf.net/forum.php?mod=viewthread&tid=1764295&extra=>
+[http://bbs.ylmf.net/forum.php?mod=viewthread&tid=1764295&extra=](http://bbs.ylmf.net/forum.php?mod=viewthread&tid=1764295&extra=)
 
 VMWare虚拟系统上网设置及VMWare虚拟机三种工作模式详解
   

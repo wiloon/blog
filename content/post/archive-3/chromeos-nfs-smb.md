@@ -22,4 +22,4 @@ Choose "Add New Service"
   
 Choose "SMB file share"
 
-<https://chrome.google.com/webstore/detail/network-file-share-for-ch/ndjpildffkeodjdaeebdhnncfhopkajk>
+[https://chrome.google.com/webstore/detail/network-file-share-for-ch/ndjpildffkeodjdaeebdhnncfhopkajk](https://chrome.google.com/webstore/detail/network-file-share-for-ch/ndjpildffkeodjdaeebdhnncfhopkajk)

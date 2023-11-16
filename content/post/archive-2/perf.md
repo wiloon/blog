@@ -568,18 +568,18 @@ Reference
   
 [1]. Linux的系统级性能剖析工具系列,by 承刚
 
-[2]. <http://www.ibm.com/developerworks/cn/linux/l-cn-perf1/>
+[2]. [http://www.ibm.com/developerworks/cn/linux/l-cn-perf1/](http://www.ibm.com/developerworks/cn/linux/l-cn-perf1/)
 
-[3]. <http://www.ibm.com/developerworks/cn/linux/l-cn-perf2/>
+[3]. [http://www.ibm.com/developerworks/cn/linux/l-cn-perf2/](http://www.ibm.com/developerworks/cn/linux/l-cn-perf2/)
 
-[4]. <https://perf.wiki.kernel.org/index.php/Tutorial>
+[4]. [https://perf.wiki.kernel.org/index.php/Tutorial](https://perf.wiki.kernel.org/index.php/Tutorial)
   
 ————————————————
   
 版权声明: 本文为CSDN博主「zhangskd」的原创文章,遵循 CC 4.0 BY-SA 版权协议,转载请附上原文出处链接及本声明。
   
-原文链接: <https://blog.csdn.net/zhangskd/article/details/37902159>
+原文链接: [https://blog.csdn.net/zhangskd/article/details/37902159](https://blog.csdn.net/zhangskd/article/details/37902159)
 
-<https://www.ibm.com/developerworks/cn/linux/l-cn-perf1/index.html>
+[https://www.ibm.com/developerworks/cn/linux/l-cn-perf1/index.html](https://www.ibm.com/developerworks/cn/linux/l-cn-perf1/index.html)
   
-<https://blog.csdn.net/zhangskd/article/details/37902159>
+[https://blog.csdn.net/zhangskd/article/details/37902159](https://blog.csdn.net/zhangskd/article/details/37902159)

@@ -103,7 +103,7 @@ entry，表示真正存放数据的数据项，长度不定。一个数据项 (e
 
 zlend， ziplist最后1个字节，值固定等于255，其是一个结束标记。
 
-<https://www.cnblogs.com/exceptioneye/p/7040815.html>
+[https://www.cnblogs.com/exceptioneye/p/7040815.html](https://www.cnblogs.com/exceptioneye/p/7040815.html)
 
 ### 连锁更新
 
@@ -179,8 +179,8 @@ ziplist由于是一整块连续内存，所以存储效率很高。但是，它�
 每个quicklist节点上的ziplist越长，则为ziplist分配大块连续内存空间的难度就越大。有可能出现内存里有很多小块的空闲空间 (它们加起来很多) ，但却找不到一块足够大的空闲空间分配给ziplist的情况。这同样会降低存储效率。这种情况的极端是整个quicklist只有一个节点，所有的数据项都分配在这仅有的一个节点的ziplist里面。这其实蜕化成一个ziplist了。
 可见，一个quicklist节点上的ziplist要保持一个合理的长度。那到底多长合理呢？这可能取决于具体应用场景。实际上，Redis提供了一个配置参数list-max-ziplist-size，就是为了让使用者可以来根据自己的情况进行调整。
 
-<https://www.cnblogs.com/chenchuxin/p/14199444.html>
+[https://www.cnblogs.com/chenchuxin/p/14199444.html](https://www.cnblogs.com/chenchuxin/p/14199444.html)
 
-<https://segmentfault.com/a/1190000027074753>
+[https://segmentfault.com/a/1190000027074753](https://segmentfault.com/a/1190000027074753)
 
-<http://zhangtielei.com/posts/blog-redis-quicklist.html>
+[http://zhangtielei.com/posts/blog-redis-quicklist.html](http://zhangtielei.com/posts/blog-redis-quicklist.html)

@@ -15,7 +15,7 @@ Jackson 框架，轻易转换JSON
 
 Jackson可以轻松的将Java对象转换成json对象和xml文档，同样也可以将json、xml转换成Java对象。
 
-前面有介绍过json-lib这个框架，在线博文: <http://www.cnblogs.com/hoojo/archive/2011/04/21/2023805.html>
+前面有介绍过json-lib这个框架，在线博文: [http://www.cnblogs.com/hoojo/archive/2011/04/21/2023805.html](http://www.cnblogs.com/hoojo/archive/2011/04/21/2023805.html)
 
 相比json-lib框架，Jackson所依赖的jar包较少，简单易用并且性能也要相对高些。而且Jackson社区相对比较活跃，更新速度也比较快。
 
@@ -23,11 +23,11 @@ Jackson可以轻松的将Java对象转换成json对象和xml文档，同样也�
 
 1. 下载依赖库jar包
 
-Jackson的jar all下载地址: <http://jackson.codehaus.org/1.7.6/jackson-all-1.7.6.jar>
+Jackson的jar all下载地址: [http://jackson.codehaus.org/1.7.6/jackson-all-1.7.6.jar](http://jackson.codehaus.org/1.7.6/jackson-all-1.7.6.jar)
 
 然后在工程中导入这个jar包即可开始工作
 
-官方示例: <http://wiki.fasterxml.com/JacksonInFiveMinutes>
+官方示例: [http://wiki.fasterxml.com/JacksonInFiveMinutes](http://wiki.fasterxml.com/JacksonInFiveMinutes)
 
 因为下面的程序是用junit测试用例运行的，所以还得添加junit的jar包。版本是junit-4.2.8
 
@@ -97,7 +97,7 @@ import com.hoo.entity.AccountBean;
 
 * @project Spring3
 
-* @blog <http://blog.csdn.net/IBM_hoojo>
+* @blog [http://blog.csdn.net/IBM_hoojo](http://blog.csdn.net/IBM_hoojo)
 
 * @email <hoojo_@126.com>
 
@@ -950,7 +950,7 @@ import com.hoo.entity.AccountBean;
 * @file JacksonTest.java
 * @package com.hoo.test
 * @project Spring3
-* @blog <http://blog.csdn.net/IBM_hoojo>
+* @blog [http://blog.csdn.net/IBM_hoojo](http://blog.csdn.net/IBM_hoojo)
 * @email <hoojo_@126.com>
 * @version 1.0
  */
@@ -1424,6 +1424,6 @@ china-Guangzhou</address><name>hoojo</name><id>1</id><birthday/><email>hoojo_@12
   
         作者: hoojo
 
- 出处: <http://www.cnblogs.com/hoojo/archive/2011/04/22/2024628.html>
- blog: <http://blog.csdn.net/IBM_hoojo>
+ 出处: [http://www.cnblogs.com/hoojo/archive/2011/04/22/2024628.html](http://www.cnblogs.com/hoojo/archive/2011/04/22/2024628.html)
+ blog: [http://blog.csdn.net/IBM_hoojo](http://blog.csdn.net/IBM_hoojo)
  本文版权归作者和博客园共有,欢迎转载,但未经作者同意必须保留此段声明,且在文章页面明显位置给出原文连接,否则保留追究法律责任的权利。

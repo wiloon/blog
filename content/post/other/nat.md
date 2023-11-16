@@ -35,7 +35,7 @@ NAT的实现方式有三种，即静态转换Static Nat、动态转换Dynamic Na
 
 在配置网络地址转换的过程之前，首先必须搞清楚内部接口和外部接口，以及在哪个外部接口上启用NAT。通常情况下，连接到用户内部网络的接口是NAT内部接口，而连接到外部网络(如Internet)的接口是NAT外部接口。
 
-<http://20100823.blog.51cto.com/2031838/401704>
+[http://20100823.blog.51cto.com/2031838/401704](http://20100823.blog.51cto.com/2031838/401704)
 
 ## nat, napt,snat,dnat
 
@@ -103,11 +103,11 @@ NAT的基本工作原理是,当私有网主机和公共网主机通信的IP包�
   
 顶
   
-<http://blog.sina.com.cn/s/blog_5a1d98bc0100zk0h.html>
+[http://blog.sina.com.cn/s/blog_5a1d98bc0100zk0h.html](http://blog.sina.com.cn/s/blog_5a1d98bc0100zk0h.html)
   
-<http://lustlost.blog.51cto.com/2600869/943110>
+[http://lustlost.blog.51cto.com/2600869/943110](http://lustlost.blog.51cto.com/2600869/943110)
   
-<http://blog.csdn.net/hzhsan/article/details/45038265>
+[http://blog.csdn.net/hzhsan/article/details/45038265](http://blog.csdn.net/hzhsan/article/details/45038265)
 
 ## 局域网保留地址
 
@@ -116,4 +116,4 @@ NAT的基本工作原理是,当私有网主机和公共网主机通信的IP包�
 - 172.16.0.0/12
 - 192.0.0.0/24
 
-<https://www.iana.org/assignments/iana-ipv4-special-registry/iana-ipv4-special-registry.xhtml>
+[https://www.iana.org/assignments/iana-ipv4-special-registry/iana-ipv4-special-registry.xhtml](https://www.iana.org/assignments/iana-ipv4-special-registry/iana-ipv4-special-registry.xhtml)

@@ -10,7 +10,7 @@ tags:
 ---
 ## 将HTML5封装成android应用APK文件的几种方法
 
-<http://mobile.51cto.com/android-386448.htm>
+[http://mobile.51cto.com/android-386448.htm](http://mobile.51cto.com/android-386448.htm)
 
 越来越多的开发者热衷于使用html5+JavaScript开发移动Web App。不过，HTML5 Web APP的出现能否在未来取代移动应用，就目前来说，还是个未知数。一方面，用户在使用习惯上，不喜欢在浏览器上输入复杂的网址；另一方面，Html5 Web App 存放在服务器端，在每次使用时需要进行数据传递，会造成流量浪费。有些开发者不想接触复杂的JAVA代码，那么，有什么办法，既可以使用HTMl5开发应 用，又可以将其简单封装成APK文件呢？
   
@@ -132,7 +132,7 @@ android:label="@string/app_name">
   
 PhoneGap是一个用基于HTML，CSS和JavaScript的，创建移动跨平台移动应用程序的快速开发平台。它使开发者能够利用 iPhone，Android，Palm，Symbian,WP7,Bada和Blackberry智能手机的核心功能——包括地理定位，加速器，联系 人，声音和振动等，此外PhoneGap拥有丰富的插件，可以以此扩展无限的功能。PhoneGap是免费的，但是它需要特定平台提供的附加软件，例如 iPhone的iPhone SDK，Android的Android SDK等，
 
-详细方法请见: <http://phonegap.com/start#android>
+详细方法请见: [http://phonegap.com/start#android](http://phonegap.com/start#android)
 
 优点: 在Eclipse中加入SDK，编程自由，完美适应不同设备屏幕大小，适合高手使用。
 
@@ -142,7 +142,7 @@ PhoneGap是一个用基于HTML，CSS和JavaScript的，创建移动跨平台移�
 
 Rexsee是开源的Android开发平台，支持开发者以标准化Web开发模式，使用HTML5、CSS3、Javascript快速实现移动应用。会 HTML就会Android。你要做的只是将做好的HTML5 应用上传到Rexsee服务器，很快，会编译成标准的APK安装文件。
 
-网站: <http://www.rexsee.com>
+网站: [http://www.rexsee.com](http://www.rexsee.com)
 
 优点: 一键生成，适学普通人使用
 

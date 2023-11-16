@@ -220,11 +220,11 @@ public class BufferExample {
 }
 
 参考
-<http://javapapers.com/java/java-nio-buffer/>
-<http://www.importnew.com/19816.html>
-<https://www.ibm.com/developerworks/cn/education/java/j-nio/j-nio.html>
+[http://javapapers.com/java/java-nio-buffer/](http://javapapers.com/java/java-nio-buffer/)
+[http://www.importnew.com/19816.html](http://www.importnew.com/19816.html)
+[https://www.ibm.com/developerworks/cn/education/java/j-nio/j-nio.html](https://www.ibm.com/developerworks/cn/education/java/j-nio/j-nio.html)
 
 作者: 六尺帐篷
-链接: <https://www.jianshu.com/p/e20f54672865>
+链接: [https://www.jianshu.com/p/e20f54672865](https://www.jianshu.com/p/e20f54672865)
 来源: 简书
 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。

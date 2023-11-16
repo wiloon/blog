@@ -10,7 +10,7 @@ tags:
 ---
 ## Java 压缩字符串
 
-<https://www.cnblogs.com/EasonJim/p/8256906.html>
+[https://www.cnblogs.com/EasonJim/p/8256906.html](https://www.cnblogs.com/EasonJim/p/8256906.html)
 
 说明:
 
@@ -709,8 +709,8 @@ return arrayOfByte;
 
 参考:
 
-<https://www.cnblogs.com/dongzhongwei/p/5964758.html> (以上内容部分转自此篇文章)
+[https://www.cnblogs.com/dongzhongwei/p/5964758.html](https://www.cnblogs.com/dongzhongwei/p/5964758.html) (以上内容部分转自此篇文章)
 
-<http://www.blogjava.net/fastunit/archive/2008/04/25/195932.html> (以上内容部分转自此篇文章)
+[http://www.blogjava.net/fastunit/archive/2008/04/25/195932.html](http://www.blogjava.net/fastunit/archive/2008/04/25/195932.html) (以上内容部分转自此篇文章)
 
-<http://blog.csdn.net/xyw591238/article/details/51720016> (以上内容部分转自此篇文章)
+[http://blog.csdn.net/xyw591238/article/details/51720016](http://blog.csdn.net/xyw591238/article/details/51720016) (以上内容部分转自此篇文章)

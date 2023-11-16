@@ -155,4 +155,4 @@ JPS失效处理
 
 1.如何给JVM传递参数 在eclipse中,鼠标右键->Run As->Run COnfiguations->Arguments->在VM arguments中写下要传的参数值 (一般以-D开头)
 
-<http://www.hollischuang.com/archives/105>
+[http://www.hollischuang.com/archives/105](http://www.hollischuang.com/archives/105)

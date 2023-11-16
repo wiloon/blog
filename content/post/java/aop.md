@@ -122,6 +122,6 @@ abstract void unlocked();
   
     spring  
 
-    板桥里人 <http://www.jdon.com> 2004/01/09
+    板桥里人 [http://www.jdon.com](http://www.jdon.com) 2004/01/09
 
-    <http://baike.baidu.com.cn/view/73626.htm>
+    [http://baike.baidu.com.cn/view/73626.htm](http://baike.baidu.com.cn/view/73626.htm)

@@ -182,4 +182,4 @@ addnewmode
 
 xrandr -addmode "1680x1050_60.00"
 
-<https://wiki.archlinux.org/index.php/Xrandr>
+[https://wiki.archlinux.org/index.php/Xrandr](https://wiki.archlinux.org/index.php/Xrandr)

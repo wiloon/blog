@@ -49,7 +49,7 @@ ControlPath   ~/.ssh/master-%r@%h:%p
 ControlPersist 10m
 ```
 
-<http://schin.space/ops/OPS-openssh-multiplexing/>
+[http://schin.space/ops/OPS-openssh-multiplexing/](http://schin.space/ops/OPS-openssh-multiplexing/)
 
 很多使用类Unix的用户常常头疼的一个问题是，多次登录远程主机的时候，需要重复的输入密码，尤其在登录跳板机还要输入动态token的时候，开多个会话窗口是一件很繁琐的事情
 
@@ -134,4 +134,4 @@ $file ssh-root@47.91._._
 ssh-root@47.91._._: socket
   
 ### ssh agnet not working
-<https://superuser.com/questions/840340/ssh-agent-forwarding-not-working-even-when-using-ssh-a>
+[https://superuser.com/questions/840340/ssh-agent-forwarding-not-working-even-when-using-ssh-a](https://superuser.com/questions/840340/ssh-agent-forwarding-not-working-even-when-using-ssh-a)

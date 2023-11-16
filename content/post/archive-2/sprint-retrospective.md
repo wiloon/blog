@@ -40,6 +40,6 @@ Scrum并不是一种方法,而是给软件开发流程提供了一种框架,在�
   
 囚犯 (P) 是极不愿意来参加这个会议的,他们要么就是厌恶会议,要么就是忙得没时间参加会议,总之他们是被迫来的,他们期望着会议能马上结束就好,没有心思参与到会议的讨论中来。
 
-<http://blog.csdn.net/ljinddlj/article/details/5328404>
+[http://blog.csdn.net/ljinddlj/article/details/5328404](http://blog.csdn.net/ljinddlj/article/details/5328404)
   
-<https://www.jianshu.com/p/95a59fe7844c>
+[https://www.jianshu.com/p/95a59fe7844c](https://www.jianshu.com/p/95a59fe7844c)

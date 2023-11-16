@@ -42,11 +42,11 @@ fruits.push("banana", "apple", "peach");
 console.log(fruits.length); // 3
 ```
 
-<https://es6.ruanyifeng.com/>
+[https://es6.ruanyifeng.com/](https://es6.ruanyifeng.com/)
 
 ### ES6之Object.assign()
 
-<https://blog.fundebug.com/2017/09/11/object-assign/>  
+[https://blog.fundebug.com/2017/09/11/object-assign/](https://blog.fundebug.com/2017/09/11/object-assign/)  
 
 ES6提供了Object.assign()，用于合并/复制对象的属性。
 
@@ -89,7 +89,7 @@ return - x* x;
     return sum;
 }
 
-<https://www.liaoxuefeng.com/wiki/1022910821149312/1031549578462080>
+[https://www.liaoxuefeng.com/wiki/1022910821149312/1031549578462080](https://www.liaoxuefeng.com/wiki/1022910821149312/1031549578462080)
 
 ## Js中的history.back()在FireFox和Chrome
 

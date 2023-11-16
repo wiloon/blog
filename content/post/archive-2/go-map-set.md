@@ -101,7 +101,7 @@ gods > treemap
 golang 没有内置 Set 类型  
 这个 gods 项目 现了各种数据类型, 其中就有set
   
-<https://github.com/emirpasic/gods#hashset>
+[https://github.com/emirpasic/gods#hashset](https://github.com/emirpasic/gods#hashset)
 
 ```go
 package main
@@ -126,7 +126,7 @@ func main() {
 
 或者可以实现。
   
-golang set: <https://studygolang.com/articles/8231>
+golang set: [https://studygolang.com/articles/8231](https://studygolang.com/articles/8231)
 
 ```go
 
@@ -251,7 +251,7 @@ len和cap分别可以获取当前map的kv个数和总容量
 
 ### Getting a slice of keys from a map
 
-<https://stackoverflow.com/questions/21362950/getting-a-slice-of-keys-from-a-map>
+[https://stackoverflow.com/questions/21362950/getting-a-slice-of-keys-from-a-map](https://stackoverflow.com/questions/21362950/getting-a-slice-of-keys-from-a-map)
   
 there is not a simpler/nicer way.
 
@@ -269,11 +269,11 @@ func main() {
 
 文/icexin (简书作者)
   
-原文链接: <http://www.jianshu.com/p/32b839e99289>
+原文链接: [http://www.jianshu.com/p/32b839e99289](http://www.jianshu.com/p/32b839e99289)
   
 著作权归作者所有,转载请联系作者获得授权,并标注"简书作者"。
   
-<http://www.jianshu.com/p/32b839e99289>
+[http://www.jianshu.com/p/32b839e99289](http://www.jianshu.com/p/32b839e99289)
 
 ## 检测单向链表是否有环
 
@@ -297,9 +297,9 @@ visited := make(map[*Node]bool)
 }
 ```
 
-<https://www.jianshu.com/p/ba7852fbcc80>
+[https://www.jianshu.com/p/ba7852fbcc80](https://www.jianshu.com/p/ba7852fbcc80)
 
-<https://segmentfault.com/a/1190000023879178>
+[https://segmentfault.com/a/1190000023879178](https://segmentfault.com/a/1190000023879178)
 
 ## go source code
 
@@ -332,4 +332,4 @@ type hmap struct {
 
 [[go-pointer#unsafe Pointer]]
 
-<https://segmentfault.com/a/1190000023879178>
+[https://segmentfault.com/a/1190000023879178](https://segmentfault.com/a/1190000023879178)

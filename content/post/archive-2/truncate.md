@@ -210,5 +210,5 @@ Empty File Using cat Command
     echo -n "" > access.log
 ```
 
-<https://www.fengbohello.top/archives/linux-truncate>
-<https://linux.cn/article-8024-1.html#3_5958>
+[https://www.fengbohello.top/archives/linux-truncate](https://www.fengbohello.top/archives/linux-truncate)
+[https://linux.cn/article-8024-1.html#3_5958](https://linux.cn/article-8024-1.html#3_5958)

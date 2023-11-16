@@ -11,7 +11,7 @@ tags:
 ---
 ## windows netsh 端口转发
 
-<http://aofengblog.blog.163.com/blog/static/631702120148573851740/>
+[http://aofengblog.blog.163.com/blog/static/631702120148573851740/](http://aofengblog.blog.163.com/blog/static/631702120148573851740/)
 
 在windows上用netsh动态配置端口转发
 
@@ -199,6 +199,6 @@ netsh interface portproxy delete v4tov4 listenport=9090
 
 作者: 傲风(aofengblog@163.com)       编写时间: 2014年09月05日
 
-网址: <http://aofengblog.blog.163.com>
+网址: [http://aofengblog.blog.163.com](http://aofengblog.blog.163.com)
 
 作者保留所有权利，转载请保留文章全部内容或者说明原作者和转载地址！

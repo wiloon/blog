@@ -11,7 +11,7 @@ tags:
 ---
 ## 'java  illegal character  \65279'
 
-<http://blog.csdn.net/shixing_11/article/details/6976900>
+[http://blog.csdn.net/shixing_11/article/details/6976900](http://blog.csdn.net/shixing_11/article/details/6976900)
 
 某些编辑器会往utf8文件中添加utf8标记 (editplus称其为签名) ，它会在文件开始的地方插入三个不可见的字符 (0xEF 0xBB 0xBF，即BOM) ，它的表示的是 Unicode 标记 (BOM) 。 因此要解决这个问题的关键就是把这个标记选项去掉，可按如下方法操作。
   
@@ -23,6 +23,6 @@ UTF-8以字节为编码单元，没有字节序的问题。UTF-16以两个字节
 
 扩展阅读:
 
-UTF-8, UTF-16, UTF-32 & BOM: <http://www.unicode.org/faq/utf_bom.html#BOM>
+UTF-8, UTF-16, UTF-32 & BOM: [http://www.unicode.org/faq/utf_bom.html#BOM](http://www.unicode.org/faq/utf_bom.html#BOM)
 
-W3C官方说明: <http://www.w3.org/International/questions/qa-utf8-bom>
+W3C官方说明: [http://www.w3.org/International/questions/qa-utf8-bom](http://www.w3.org/International/questions/qa-utf8-bom)

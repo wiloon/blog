@@ -10,7 +10,7 @@ tags:
 ---
 ## AKKA
 
-<http://sunxiang0918.cn/2016/01/10/Akka-in-JAVA-1/>
+[http://sunxiang0918.cn/2016/01/10/Akka-in-JAVA-1/](http://sunxiang0918.cn/2016/01/10/Akka-in-JAVA-1/)
 
 Akka是一个由Scala编写的,能兼容Sacala和JAVA的,用于编写高可用和高伸缩性的**Actor模型**框架.它基于了事件驱动的并发处理模式,性能非常的高,并且有很高的可用性.大大的简化了我们在应用系统中开发并发处理的过程.它在各个领域都有很好的表现.
   
@@ -68,5 +68,5 @@ akka-zeromq:整合ZeroMQ
   
 要在JAVA中实现一个Actor也非常的简单,直接继承akka.actor.UntypedActor类,然后实现public void onReceive(Object message) throws Exception方法即可.
 
-><https://guobinhit.github.io/akka-guide/>
-><https://www.zhihu.com/question/279512440/answer/407373037>
+>[https://guobinhit.github.io/akka-guide/](https://guobinhit.github.io/akka-guide/)
+>[https://www.zhihu.com/question/279512440/answer/407373037](https://www.zhihu.com/question/279512440/answer/407373037)

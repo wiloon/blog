@@ -29,7 +29,7 @@ type echo
 ```
 
 ### which
-<http://www.cnblogs.com/peida/archive/2012/11/08/2759805.html>
+[http://www.cnblogs.com/peida/archive/2012/11/08/2759805.html](http://www.cnblogs.com/peida/archive/2012/11/08/2759805.html)
 
 我们经常在linux要查找某个文件，但不知道放在哪里了，可以使用下面的一些命令来搜索:
   
@@ -117,4 +117,4 @@ which cd
 
 cd 这个常用的命令竟然找不到啊！为什么呢？这是因为 cd 是bash 内建的命令！ 但是 which 默认是找 PATH 内所规范的目录，所以当然一定找不到的！
 
-><https://segmentfault.com/a/1190000039188240>
+>[https://segmentfault.com/a/1190000039188240](https://segmentfault.com/a/1190000039188240)

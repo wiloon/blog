@@ -10,7 +10,7 @@ tags:
 ---
 ## smali
 
-<http://blog.csdn.net/caszhao/article/details/6030425>
+[http://blog.csdn.net/caszhao/article/details/6030425](http://blog.csdn.net/caszhao/article/details/6030425)
 
 je或jz //相等则跳 (机器码是74或84)
 

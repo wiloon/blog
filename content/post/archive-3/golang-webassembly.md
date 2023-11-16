@@ -10,9 +10,9 @@ tags:
 ---
 ## golang WebAssembly
 
-<https://github.com/golang/go/wiki/WebAssembly>
+[https://github.com/golang/go/wiki/WebAssembly](https://github.com/golang/go/wiki/WebAssembly)
   
-<https://tutorialedge.net/golang/go-webassembly-tutorial/>
+[https://tutorialedge.net/golang/go-webassembly-tutorial/](https://tutorialedge.net/golang/go-webassembly-tutorial/)
 
 ```go
 package main

@@ -11,7 +11,7 @@ tags:
 ---
 ## 'mac os terminal,  Creating New Users'
 
-<http://www.maclife.com/article/columns/terminal_101_creating_new_users>
+[http://www.maclife.com/article/columns/terminal_101_creating_new_users](http://www.maclife.com/article/columns/terminal_101_creating_new_users)
 
 Every Monday, we'll show you how to do something new and simple with Apple's built-in command line application. You don't need any fancy software, or a knowledge of coding to do any of these. All you need is a keyboard to type 'em out!
 

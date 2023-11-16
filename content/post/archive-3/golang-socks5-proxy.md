@@ -10,8 +10,8 @@ tags:
 ---
 ## golang SOCKS5 proxy, http proxy
 
-<https://segmentfault.com/a/1190000038247560>
+[https://segmentfault.com/a/1190000038247560](https://segmentfault.com/a/1190000038247560)
 
-<https://github.com/wiloon/pingd-proxy>
+[https://github.com/wiloon/pingd-proxy](https://github.com/wiloon/pingd-proxy)
 
-<https://golangnote.com/topic/258.html>
+[https://golangnote.com/topic/258.html](https://golangnote.com/topic/258.html)

@@ -74,7 +74,7 @@ deb http://download.proxmox.com/debian/pve bullseye pve-no-subscription
 
 ## 管理页面
 
-<https://192.168.50.xxx:8006>
+[https://192.168.50.xxx:8006](https://192.168.50.xxx:8006)
 
 ## create vm
 
@@ -133,13 +133,13 @@ vi /etc/network/interfaces
 
 ### 显卡直通
 
-<https://www.10bests.com/win10-htpc-on-pve/>
+[https://www.10bests.com/win10-htpc-on-pve/](https://www.10bests.com/win10-htpc-on-pve/)
 
 #### virtio-win.iso
 
-<https://www.10bests.com/win10-htpc-on-pve/>
+[https://www.10bests.com/win10-htpc-on-pve/](https://www.10bests.com/win10-htpc-on-pve/)
 
-<https://fedorapeople.org/groups/virt/virtio-win/direct-downloads/archive-virtio/>
+[https://fedorapeople.org/groups/virt/virtio-win/direct-downloads/archive-virtio/](https://fedorapeople.org/groups/virt/virtio-win/direct-downloads/archive-virtio/)
 
 ### 创建网桥
 
@@ -195,7 +195,7 @@ scp vzdump-qemu-105-2022_09_10-15_19_12.vma.zst root@192.168.50.7:/var/lib/vz/du
 
 ————————————————
 版权声明: 本文为CSDN博主「Halyace」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
-原文链接: <https://blog.csdn.net/lyace2010/article/details/108918070>
+原文链接: [https://blog.csdn.net/lyace2010/article/details/108918070](https://blog.csdn.net/lyace2010/article/details/108918070)
 
 ### pve cli
 
@@ -217,11 +217,11 @@ scp vzdump-qemu-105-2022_09_10-15_19_12.vma.zst root@192.168.50.7:/var/lib/vz/du
     pvesh create /nodes/PVE节点名称/qemu/虚拟机的id/status/start
 ```
 
-<https://pve.proxmox.com/wiki/Main_Page>
+[https://pve.proxmox.com/wiki/Main_Page](https://pve.proxmox.com/wiki/Main_Page)
 
-<https://wangxingcs.com/2020/0307/1424/>
+[https://wangxingcs.com/2020/0307/1424/](https://wangxingcs.com/2020/0307/1424/)
 
-<https://www.10bests.com/install-openwrt-lede-on-pve/>
+[https://www.10bests.com/install-openwrt-lede-on-pve/](https://www.10bests.com/install-openwrt-lede-on-pve/)
 
 ## 关闭屏幕, 熄屏
 
@@ -232,4 +232,4 @@ setterm --blank 1 # 1分钟后关闭屏幕，1 可以改成别的整数
 GRUB_CMDLINE_LINUX="consoleblank=300" # 每次开机后无操作都是5分钟关闭屏幕300的单位是秒
 ```
 
-<https://www.xltyu.com/3276.html>
+[https://www.xltyu.com/3276.html](https://www.xltyu.com/3276.html)

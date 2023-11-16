@@ -10,7 +10,7 @@ tags:
 ---
 ## FQDN
 
-<https://blog.csdn.net/u012842205/article/details/51931017>
+[https://blog.csdn.net/u012842205/article/details/51931017](https://blog.csdn.net/u012842205/article/details/51931017)
   
 FQDN是完全合格域名/全程域名缩写,Fully Qualified Domain Name,即是域名,访问时将由DNS进行解析,得到IP。
 

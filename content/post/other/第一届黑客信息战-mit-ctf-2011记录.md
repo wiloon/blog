@@ -252,7 +252,7 @@ Well， 我们还是等了他们。 这时的我们做下资源清点: 我们手
 
 我们可爱的队长，就这么被社工了。其他队伍真是yd啊！
 
-跑去注册了<http://mitctf-2011.wikispaces.com/grading-Key> 做的和官方网站一模一样，
+跑去注册了[http://mitctf-2011.wikispaces.com/grading-Key](http://mitctf-2011.wikispaces.com/grading-Key) 做的和官方网站一模一样，
 
 但是多了个警示: 所有的队伍请检查ssh key是不是和这个相等，
 
@@ -350,7 +350,7 @@ Iptable屏蔽了怎么还是被入侵了？难道裁判被入侵了？
 
 VM:
 
-<http://mitctf2011.wikispaces.com/Competition+VM>
+[http://mitctf2011.wikispaces.com/Competition+VM](http://mitctf2011.wikispaces.com/Competition+VM)
 
 说明下 我和 dcluo 测试过
 
@@ -358,10 +358,10 @@ VM:
 
 plugin打包:
 
-<http://u.115.com/file/f47ab66eae>
+[http://u.115.com/file/f47ab66eae](http://u.115.com/file/f47ab66eae)
 
 攻防wiki:
 
-<http://mitctf2011.wikispaces.com/MIT+CTF+external+links+for+self-study>
+[http://mitctf2011.wikispaces.com/MIT+CTF+external+links+for+self-study](http://mitctf2011.wikispaces.com/MIT+CTF+external+links+for+self-study)
 
-来源: <http://hi.baidu.com/hackercasper/blog/item/1e165434c681340490ef398c.html>
+来源: [http://hi.baidu.com/hackercasper/blog/item/1e165434c681340490ef398c.html](http://hi.baidu.com/hackercasper/blog/item/1e165434c681340490ef398c.html)

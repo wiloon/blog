@@ -10,7 +10,7 @@ tags:
 ---
 ## mount --bind
 
-<https://xionchen.github.io/2016/08/25/linux-bind-mount/>
+[https://xionchen.github.io/2016/08/25/linux-bind-mount/](https://xionchen.github.io/2016/08/25/linux-bind-mount/)
 
 The bind mounts
   

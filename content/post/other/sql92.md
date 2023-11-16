@@ -10,7 +10,7 @@ tags:
 ---
 ## SQL92
 
-<http://baike.baidu.com/view/1889818.htm>
+[http://baike.baidu.com/view/1889818.htm](http://baike.baidu.com/view/1889818.htm)
 
 SQL92是数据库的一个ANSI/ISO标准
 

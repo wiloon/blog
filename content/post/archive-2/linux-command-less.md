@@ -17,9 +17,9 @@ tags:
 less +F
 ```
 
-<https://unix.stackexchange.com/questions/82058/how-do-i-make-vim-behave-like-tail-f>
+[https://unix.stackexchange.com/questions/82058/how-do-i-make-vim-behave-like-tail-f](https://unix.stackexchange.com/questions/82058/how-do-i-make-vim-behave-like-tail-f)
   
-<http://www.cnblogs.com/peida/archive/2012/11/05/2754477.html>
+[http://www.cnblogs.com/peida/archive/2012/11/05/2754477.html](http://www.cnblogs.com/peida/archive/2012/11/05/2754477.html)
 
 less 工具也是对文件或其它输出进行分页显示的工具,应该说是linux正统查看文件内容的工具,功能极其强大。less 的用法比起 more 更加的有弹性。在 more 的时候,我们并没有办法向前面翻, 只能往后面看,但若使用了 less 时,就可以使用 [pageup] [pagedown] 等按键的功能来往前往后翻看文件,更容易用来查看一个文件的内容！除此之外,在 less 里头可以拥有更多的搜索功能,不止可以向下搜,也可以向上搜。
   

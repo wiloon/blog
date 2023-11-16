@@ -99,4 +99,4 @@ PS: 默认网关
 网关实质上是一个网络通向其他网络的IP地址。路由器是一个设备,可以做网关使用。它是一种连接多个网络或网段的网络设备，它能将不同网络或网段之间的数据信息进行"翻译"，以使它们能够相互"读"懂对方的数据，从而构成一个更大的网络。
 ————————————————
 版权声明: 本文为CSDN博主「风吹过的时光」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
-原文链接: <https://blog.csdn.net/hzhsan/java/article/details/44059861>
+原文链接: [https://blog.csdn.net/hzhsan/java/article/details/44059861](https://blog.csdn.net/hzhsan/java/article/details/44059861)

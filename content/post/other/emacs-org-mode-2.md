@@ -70,8 +70,8 @@ C-c / t (org-show-todo-tree) will redisplay the current document as a sparse tre
 
 to archive all done item c-c c-x c-s
 
-<http://www.cnblogs.com/holbrook/archive/2012/04/12/2444992.html>
+[http://www.cnblogs.com/holbrook/archive/2012/04/12/2444992.html](http://www.cnblogs.com/holbrook/archive/2012/04/12/2444992.html)
   
-<http://i.linuxtoy.org/docs/guide/ch32s02.html>
+[http://i.linuxtoy.org/docs/guide/ch32s02.html](http://i.linuxtoy.org/docs/guide/ch32s02.html)
   
-<http://emacser.com/org-mode.htm>
+[http://emacser.com/org-mode.htm](http://emacser.com/org-mode.htm)

@@ -53,4 +53,4 @@ alert('ok')将在当前页执行。原理是form提交后的结果在target指�
   
 而iframe将其隐藏。这样提交后的效果就和无刷新的效果一样。
 
-<http://vsp.iteye.com/blog/1570466>
+[http://vsp.iteye.com/blog/1570466](http://vsp.iteye.com/blog/1570466)

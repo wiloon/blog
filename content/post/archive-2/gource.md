@@ -10,9 +10,9 @@ tags:
 ---
 ## gource
 
-<https://github.com/acaudwell/Gource/wiki>
+[https://github.com/acaudwell/Gource/wiki](https://github.com/acaudwell/Gource/wiki)
 
-<https://linuxtoy.org/archives/gource.html>
+[https://linuxtoy.org/archives/gource.html](https://linuxtoy.org/archives/gource.html)
 
 Gource, 可以在版本控制系统上轻松实现现在流行的数据可视化。
 

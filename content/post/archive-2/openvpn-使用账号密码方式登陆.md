@@ -10,9 +10,9 @@ tags:
 ---
 ## OpenVPN 使用账号+密码方式登陆
 
-<http://openwrt.iteye.com/blog/2306421>
+[http://openwrt.iteye.com/blog/2306421](http://openwrt.iteye.com/blog/2306421)
 
-<https://xu3352.github.io/linux/2017/06/08/openvpn-use-username-and-password-authentication>
+[https://xu3352.github.io/linux/2017/06/08/openvpn-use-username-and-password-authentication](https://xu3352.github.io/linux/2017/06/08/openvpn-use-username-and-password-authentication)
 
 OpenVPN 使用账号+密码方式登陆
   

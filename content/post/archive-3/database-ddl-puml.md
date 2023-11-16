@@ -10,7 +10,7 @@ tags:
 ---
 ## database DDL > puml
 
-<https://github.com/wangyuheng/ddl2plantuml>
+[https://github.com/wangyuheng/ddl2plantuml](https://github.com/wangyuheng/ddl2plantuml)
 
 ```bash
 java -jar ~/apps/ddl2plantuml.jar foo.sql er.puml

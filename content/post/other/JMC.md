@@ -38,14 +38,14 @@ Flight Recorder直接在JVM中实现了它自己的基于事件的监控接口�
 
 JMC (jmc命令) 打包在了Java开发工具集中 (JDK) ，位于bin目录下。额外的日志可以通过使用 –consoleLog –debug选项来启用。各种体验式的插件 (比如针对DTrace、JMX控制台的插件) 也可以进行在JMC中进行下载。
 
-<http://download.oracle.com/technology/products/missioncontrol/updatesites/base/5.5.1/eclipse/update-site-instructions/index.html>
+[http://download.oracle.com/technology/products/missioncontrol/updatesites/base/5.5.1/eclipse/update-site-instructions/index.html](http://download.oracle.com/technology/products/missioncontrol/updatesites/base/5.5.1/eclipse/update-site-instructions/index.html)
   
-<https://stackoverflow.com/questions/23580934/what-are-the-differences-between-jvisualvm-and-java-mission-control>
+[https://stackoverflow.com/questions/23580934/what-are-the-differences-between-jvisualvm-and-java-mission-control](https://stackoverflow.com/questions/23580934/what-are-the-differences-between-jvisualvm-and-java-mission-control)
 
-<http://www.infoq.com/cn/news/2016/10/Java-Flight-Recorder-Mission>
+[http://www.infoq.com/cn/news/2016/10/Java-Flight-Recorder-Mission](http://www.infoq.com/cn/news/2016/10/Java-Flight-Recorder-Mission)
 
-<http://www.infoq.com/cn/news/2013/10/misson-control-flight-recorder>
+[http://www.infoq.com/cn/news/2013/10/misson-control-flight-recorder](http://www.infoq.com/cn/news/2013/10/misson-control-flight-recorder)
   
-<https://www.infoq.com/news/2013/09/java7u40>
+[https://www.infoq.com/news/2013/09/java7u40](https://www.infoq.com/news/2013/09/java7u40)
   
-<http://www.oracle.com/technetwork/java/javaseproducts/mission-control/java-mission-control-1998576.html>
+[http://www.oracle.com/technetwork/java/javaseproducts/mission-control/java-mission-control-1998576.html](http://www.oracle.com/technetwork/java/javaseproducts/mission-control/java-mission-control-1998576.html)

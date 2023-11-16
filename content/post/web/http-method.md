@@ -9,7 +9,7 @@ tags:
 ---
 ## "http method, get, head, post, options, put, delte, trace, connect"
 
-<https://www.cnblogs.com/machao/p/5788425.html>
+[https://www.cnblogs.com/machao/p/5788425.html](https://www.cnblogs.com/machao/p/5788425.html)
 
 前言
 HTTP Method 的历史:
@@ -183,9 +183,9 @@ HTTP的幂等性
 
 HTTP协议本身是一种面向资源的应用层协议，但对HTTP协议的使用实际上存在着两种不同的方式: 一种是RESTful的，它把HTTP当成应用层协议，比较忠实地遵守了HTTP协议的各种规定；另一种是SOA的，它并没有完全把HTTP当成应用层协议，而是把HTTP协议作为了传输层协议，然后在HTTP之上建立了自己的应用层协议。本文所讨论的HTTP幂等性主要针对RESTful风格的，不过正如上一节所看到的那样，幂等性并不属于特定的协议，它是分布式系统的一种特性；所以，不论是SOA还是RESTful的Web API设计都应该考虑幂等性。下面将介绍HTTP GET、DELETE、PUT、POST四种主要方法的语义和幂等性。
 
-HTTP GET方法用于获取资源，不应有副作用，所以是幂等的。比如: GET <http://www.bank.com/account/123456，不会改变资源的状态，不论调用一次还是N次都没有副作用。请注意，这里强调的是一次和N次具有相同的副作用，而不是每次GET的结果相同。GET> <http://www.news.com/latest-news这个HTTP>请求可能会每次得到不同的结果，但它本身并没有产生任何副作用，因而是满足幂等性的。
+HTTP GET方法用于获取资源，不应有副作用，所以是幂等的。比如: GET <http://www.bank.com/account/123456，不会改变资源的状态，不论调用一次还是N次都没有副作用。请注意，这里强调的是一次和N次具有相同的副作用，而不是每次GET的结果相同。GET> [http://www.news.com/latest-news这个HTTP](http://www.news.com/latest-news这个HTTP)请求可能会每次得到不同的结果，但它本身并没有产生任何副作用，因而是满足幂等性的。
 
-HTTP DELETE方法用于删除资源，有副作用，但它应该满足幂等性。比如: DELETE <http://www.forum.com/article/4231，调用一次和N次对系统产生的副作用是相同的，即删掉id为4231>的帖子；因此，调用者可以多次调用或刷新页面而不必担心引起错误。
+HTTP DELETE方法用于删除资源，有副作用，但它应该满足幂等性。比如: DELETE [http://www.forum.com/article/4231，调用一次和N次对系统产生的副作用是相同的，即删掉id为4231](http://www.forum.com/article/4231，调用一次和N次对系统产生的副作用是相同的，即删掉id为4231)的帖子；因此，调用者可以多次调用或刷新页面而不必担心引起错误。
 
 比较容易混淆的是HTTP POST和PUT。POST和PUT的区别容易被简单地误认为"POST表示创建资源，PUT表示更新资源"；而实际上，二者均可用于创建资源，更为本质的差别是在幂等性方面。在HTTP规范中对POST和PUT是这样定义的:
 
@@ -193,15 +193,15 @@ The POST method is used to request that the origin server accept the entity encl
 
 The PUT method requests that the enclosed entity be stored under the supplied Request-URI. If the Request-URI refers to an already existing resource, the enclosed entity SHOULD be considered as a modified version of the one residing on the origin server. If the Request-URI does not point to an existing resource, and that URI is capable of being defined as a new resource by the requesting user agent, the origin server can create the resource with that URI.
 
-POST所对应的URI并非创建的资源本身，而是资源的接收者。比如: POST <http://www.forum.com/articles的语义是在http://www.forum.com/articles下创建一篇帖子，HTTP响应中应包含帖子的创建状态以及帖子的URI。两次相同的POST请求会在服务器端创建两份资源，它们具有不同的URI；所以，POST方法不具备幂等性。而PUT所对应的URI>是要创建或更新的资源本身。比如: PUT <http://www.forum/articles/4231的语义是创建或更新ID为4231的帖子。对同一URI进行多次PUT的副作用和一次PUT是相同的；因此，PUT>方法具有幂等性。
+POST所对应的URI并非创建的资源本身，而是资源的接收者。比如: POST <http://www.forum.com/articles的语义是在http://www.forum.com/articles下创建一篇帖子，HTTP响应中应包含帖子的创建状态以及帖子的URI。两次相同的POST请求会在服务器端创建两份资源，它们具有不同的URI；所以，POST方法不具备幂等性。而PUT所对应的URI>是要创建或更新的资源本身。比如: PUT [http://www.forum/articles/4231的语义是创建或更新ID为4231的帖子。对同一URI进行多次PUT的副作用和一次PUT是相同的；因此，PUT](http://www.forum/articles/4231的语义是创建或更新ID为4231的帖子。对同一URI进行多次PUT的副作用和一次PUT是相同的；因此，PUT)方法具有幂等性。
 
 在介绍了几种操作的语义和幂等性之后，我们来看看如何通过Web API的形式实现前面所提到的取款功能。很简单，用POST /tickets来实现create_ticket；用PUT /accounts/account_id/ticket_id&amount=xxx来实现idempotent_withdraw。值得注意的是严格来讲amount参数不应该作为URI的一部分，真正的URI应该是/accounts/account_id/ticket_id，而amount应该放在请求的body中。这种模式可以应用于很多场合，比如: 论坛网站中防止意外的重复发帖。
 
 上面简单介绍了幂等性的概念，用幂等设计取代分布式事务的方法，以及HTTP主要方法的语义和幂等性特征。其实，如果要追根溯源，幂等性是数学中的一个概念，表达的是N次变换与1次变换的结果相同，有兴趣的读者可以从Wikipedia上进一步了解。
 
 参考资料
-<https://www.quora.com/What-is-the-history-of-HTTP-verbs-PUT-GET-POST-and-DELETE>
-<http://www.cnblogs.com/weidagang2046/archive/2011/06/04/idempotence.html>
-<http://www.360doc.com/content/15/1124/19/29350465_515532644.shtml>
-<https://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html>  
-<https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Methods/CONNECT>  
+[https://www.quora.com/What-is-the-history-of-HTTP-verbs-PUT-GET-POST-and-DELETE](https://www.quora.com/What-is-the-history-of-HTTP-verbs-PUT-GET-POST-and-DELETE)
+[http://www.cnblogs.com/weidagang2046/archive/2011/06/04/idempotence.html](http://www.cnblogs.com/weidagang2046/archive/2011/06/04/idempotence.html)
+[http://www.360doc.com/content/15/1124/19/29350465_515532644.shtml](http://www.360doc.com/content/15/1124/19/29350465_515532644.shtml)
+[https://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html](https://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html)  
+[https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Methods/CONNECT](https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Methods/CONNECT)  

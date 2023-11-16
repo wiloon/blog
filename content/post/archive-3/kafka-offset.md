@@ -18,13 +18,13 @@ offset的保存
 
 作者: 123archu
   
-链接: <https://www.jianshu.com/p/d3e963ff8b70>
+链接: [https://www.jianshu.com/p/d3e963ff8b70](https://www.jianshu.com/p/d3e963ff8b70)
   
 来源: 简书
   
 简书著作权归作者所有，任何形式的转载都请联系作者获得授权并注明出处。
 
-<https://blog.csdn.net/u012129558/article/details/80075270>
+[https://blog.csdn.net/u012129558/article/details/80075270](https://blog.csdn.net/u012129558/article/details/80075270)
 
 对Kafka offset的管理，一直没有进行系统的总结，这篇文章对它进行分析。
 
@@ -90,8 +90,8 @@ High Watermark(HW)：已经成功备份到其他 replicas 中的最新一条数�
   
 来源: CSDN
   
-原文: <https://blog.csdn.net/u012129558/article/details/80075270>
+原文: [https://blog.csdn.net/u012129558/article/details/80075270](https://blog.csdn.net/u012129558/article/details/80075270)
   
 版权声明: 本文为博主原创文章，转载请附上博文链接！
 
-<https://blog.csdn.net/lishuangzhe7047/article/details/74530417>
+[https://blog.csdn.net/lishuangzhe7047/article/details/74530417](https://blog.csdn.net/lishuangzhe7047/article/details/74530417)

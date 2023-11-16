@@ -370,8 +370,8 @@ ThreadLocalMap通过结合三个巧妙的设计去解决这个问题:
 之所以不用累加而用该值,笔者认为可能跟其找最近的空槽有关 (跳跃查找比自增1查找用来找空槽可能更有效一些,因为有了更多可选择的空间spreading out) ,同时也跟其良好的散列性有关
 0x61c88647与黄金比例、Fibonacci 数有关,读者可参见What is the meaning of 0x61C88647 constant in ThreadLocal.java
 
-<https://stackoverflow.com/questions/38994306/what-is-the-meaning-of-0x61c88647-constant-in-threadlocal-java>
-<https://web.archive.org/web/20161121124236/http://brpreiss.com/books/opus4/html/page214.html>
+[https://stackoverflow.com/questions/38994306/what-is-the-meaning-of-0x61c88647-constant-in-threadlocal-java](https://stackoverflow.com/questions/38994306/what-is-the-meaning-of-0x61c88647-constant-in-threadlocal-java)
+[https://web.archive.org/web/20161121124236/http://brpreiss.com/books/opus4/html/page214.html](https://web.archive.org/web/20161121124236/http://brpreiss.com/books/opus4/html/page214.html)
 
 ### 链地址法和开放地址法的优缺点
 
@@ -393,15 +393,15 @@ ThreadLocalMap 采用开放地址法原因
 ThreadLocal 中看到一个属性 HASH_INCREMENT = 0x61c88647 ,0x61c88647 是一个神奇的数字,让哈希码能均匀的分布在2的N次方的数组里, 即 Entry[] table,关于这个神奇的数字google 有很多解析,这里就不重复说了
 ThreadLocal 往往存放的数据量不会特别大 (而且key 是弱引用又会被垃圾回收,及时让数据量更小) ,这个时候开放地址法简单的结构会显得更省空间,同时数组的查询效率也是非常高,加上第一点的保障,冲突概率也低
 
-<https://juejin.cn/post/6844903974454329358>
+[https://juejin.cn/post/6844903974454329358](https://juejin.cn/post/6844903974454329358)
 来源: 掘金
 著作权归作者所有。商业转载请联系作者获得授权,非商业转载请注明出处。
 
 ---
 
-<https://zhuanlan.zhihu.com/p/139214244>  
-<https://droidyue.com/blog/2016/03/13/learning-threadlocal-in-java/>
+[https://zhuanlan.zhihu.com/p/139214244](https://zhuanlan.zhihu.com/p/139214244)  
+[https://droidyue.com/blog/2016/03/13/learning-threadlocal-in-java/](https://droidyue.com/blog/2016/03/13/learning-threadlocal-in-java/)
 
-<https://www.liaoxuefeng.com/wiki/1252599548343744/1306581251653666>  
-<https://blog.csdn.net/Summer_And_Opencv/article/details/104632272>  
-<https://juejin.cn/post/6844903974454329358>  
+[https://www.liaoxuefeng.com/wiki/1252599548343744/1306581251653666](https://www.liaoxuefeng.com/wiki/1252599548343744/1306581251653666)  
+[https://blog.csdn.net/Summer_And_Opencv/article/details/104632272](https://blog.csdn.net/Summer_And_Opencv/article/details/104632272)  
+[https://juejin.cn/post/6844903974454329358](https://juejin.cn/post/6844903974454329358)  

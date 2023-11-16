@@ -12,7 +12,7 @@ tags:
 
 ### goreplay, Gor
 
-<https://github.com/buger/goreplay>
+[https://github.com/buger/goreplay](https://github.com/buger/goreplay)
 
 一、http_load
   
@@ -20,7 +20,7 @@ tags:
   
 http_load以并行复用的方式运行,用以测试web服务器的吞吐量与负载。但是它不同于大多数压力测试工具,它可以以一个单一的进程运行,一般不会把客户机搞死。还可以测试HTTPS类的网站请求。
 
-下载地址: <http://soft.vpser.net/test/http_load/http_load-12mar2006.tar.gz>
+下载地址: [http://soft.vpser.net/test/http_load/http_load-12mar2006.tar.gz](http://soft.vpser.net/test/http_load/http_load-12mar2006.tar.gz)
 
 安装
   
@@ -50,19 +50,19 @@ make && make install
 
     VPS服务器的选择
   
-<https://www.vpser.net/other/choose-vps.html/embed#?secret=iAUiVVmnMv>
+[https://www.vpser.net/other/choose-vps.html/embed#?secret=iAUiVVmnMv](https://www.vpser.net/other/choose-vps.html/embed#?secret=iAUiVVmnMv)
 
     HyperVM使用教程/手册
   
-<https://www.vpser.net/vps-cp/hypervm-tutorial.html/embed#?secret=cLrZu8rncf>
+[https://www.vpser.net/vps-cp/hypervm-tutorial.html/embed#?secret=cLrZu8rncf](https://www.vpser.net/vps-cp/hypervm-tutorial.html/embed#?secret=cLrZu8rncf)
 
     DiaVPS 4月最新优惠
   
-<https://www.vpser.net/coupons/diavps-april-coupons.html/embed#?secret=aK3vT9Oj6d>
+[https://www.vpser.net/coupons/diavps-april-coupons.html/embed#?secret=aK3vT9Oj6d](https://www.vpser.net/coupons/diavps-april-coupons.html/embed#?secret=aK3vT9Oj6d)
 
     VPS主机上备份网站和数据库
   
-<https://www.vpser.net/security/vps-backup-web-MySQL.html/embed#?secret=GisBcCy5FH>
+[https://www.vpser.net/security/vps-backup-web-MySQL.html/embed#?secret=GisBcCy5FH](https://www.vpser.net/security/vps-backup-web-MySQL.html/embed#?secret=GisBcCy5FH)
   
 例如:
   
@@ -110,7 +110,7 @@ Qpt-每秒响应用户数和response time,每连接响应用户时间。
 
 webbench是Linux下的一个网站压力测试工具,最多可以模拟3万个并发连接去测试网站的负载能力。下载地址可以到google搜,我这里给出一个
   
-下载地址: <http://soft.vpser.net/test/webbench/webbench-1.5.tar.gz>
+下载地址: [http://soft.vpser.net/test/webbench/webbench-1.5.tar.gz](http://soft.vpser.net/test/webbench/webbench-1.5.tar.gz)
   
 这个程序更小,解压后不到50K,呵呵
 
@@ -130,7 +130,7 @@ webbench -c 并发数 -t 运行测试时间 URL
   
 如:
   
-webbench -c 5000 -t 120 <http://www.163.com>
+webbench -c 5000 -t 120 [http://www.163.com](http://www.163.com)
 
 三、ab
 
@@ -262,17 +262,17 @@ table 这里 >.
 
 参数很多,一般我们用 -c 和 -n 参数就可以了. 例如:
 
-./ab -c 1000 -n 1000 <http://127.0.0.1/index.php>
+./ab -c 1000 -n 1000 [http://127.0.0.1/index.php](http://127.0.0.1/index.php)
 
 这个表示同时处理1000个请求并运行1000次index.php文件.
   
-# /usr/local/xiaobai/apache2054/bin/ab -c 1000 -n 1000 <http://127.0.0.1/index.html.zh-cn.gb2312>
+# /usr/local/xiaobai/apache2054/bin/ab -c 1000 -n 1000 [http://127.0.0.1/index.html.zh-cn.gb2312](http://127.0.0.1/index.html.zh-cn.gb2312)
   
 This is ApacheBench, Version 2.0.41-dev <$Revision: 1.121.2.12 $> apache-2.0
   
-Copyright (c) 1996 Adam Twiss, Zeus Technology Ltd, <http://www.zeustech.net/>
+Copyright (c) 1996 Adam Twiss, Zeus Technology Ltd, [http://www.zeustech.net/](http://www.zeustech.net/)
   
-Copyright (c) 1998-2002 The Apache Software Foundation, <http://www.apache.org/>
+Copyright (c) 1998-2002 The Apache Software Foundation, [http://www.apache.org/](http://www.apache.org/)
 
 Benchmarking 127.0.0.1 (be patient)
   
@@ -400,9 +400,9 @@ Percentage of the requests served within a certain time (ms)
   
 一款开源的压力测试工具,可以根据配置对一个WEB站点进行多用户的并发访问,记录每个用户所有请求过程的相应时间,并在一定数量的并发访问下重复进行。
   
-官方: <http://www.joedog.org/>
+官方: [http://www.joedog.org/](http://www.joedog.org/)
   
-Siege下载: <http://soft.vpser.net/test/siege/siege-2.67.tar.gz>
+Siege下载: [http://soft.vpser.net/test/siege/siege-2.67.tar.gz](http://soft.vpser.net/test/siege/siege-2.67.tar.gz)
   
 解压:
 
@@ -426,11 +426,11 @@ siege -c 200 -r 10 -f example.url
 
 example.url内容:
 
-<http://www.licess.cn>
+[http://www.licess.cn](http://www.licess.cn)
   
-<http://www.vpser.net>
+[http://www.vpser.net](http://www.vpser.net)
   
-<http://soft.vpser.net>
+[http://soft.vpser.net](http://soft.vpser.net)
 
 结果说明
   
@@ -462,8 +462,8 @@ Shortest transaction: 0.00 //每次传输所花最短时间
 
     十个免费的Web压力测试工具
   
-<https://coolshell.cn/articles/2589.html/embed#?secret=No65LHIzR5>
+[https://coolshell.cn/articles/2589.html/embed#?secret=No65LHIzR5](https://coolshell.cn/articles/2589.html/embed#?secret=No65LHIzR5)
   
-<http://www.cnblogs.com/shipengzhi/archive/2012/10/09/2716766.html>
+[http://www.cnblogs.com/shipengzhi/archive/2012/10/09/2716766.html](http://www.cnblogs.com/shipengzhi/archive/2012/10/09/2716766.html)
   
-<https://studygolang.com/articles/3576>
+[https://studygolang.com/articles/3576](https://studygolang.com/articles/3576)

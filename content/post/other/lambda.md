@@ -395,14 +395,14 @@ Arrays.sort(persons, Person::compareTo);
 IsReferable demo = () -> ReferenceDemo.commonMethod("Argument in method.");
 
 作者: 杰哥长得帅
-链接: <https://www.jianshu.com/p/4a3da6a11b58>
+链接: [https://www.jianshu.com/p/4a3da6a11b58](https://www.jianshu.com/p/4a3da6a11b58)
 来源: 简书
 著作权归作者所有。商业转载请联系作者获得授权,非商业转载请注明出处。
 
 ---
 
-<https://colobu.com/2014/10/28/secrets-of-java-8-functional-interface/>
+[https://colobu.com/2014/10/28/secrets-of-java-8-functional-interface/](https://colobu.com/2014/10/28/secrets-of-java-8-functional-interface/)
 
-<http://ckjava.com/2019/05/14/understand-Java-8-method-reference/>  
-<https://liujiacai.net/blog/2014/10/12/lambda-calculus-introduction/>
-<https://www.jianshu.com/p/4a3da6a11b58>  
+[http://ckjava.com/2019/05/14/understand-Java-8-method-reference/](http://ckjava.com/2019/05/14/understand-Java-8-method-reference/)  
+[https://liujiacai.net/blog/2014/10/12/lambda-calculus-introduction/](https://liujiacai.net/blog/2014/10/12/lambda-calculus-introduction/)
+[https://www.jianshu.com/p/4a3da6a11b58](https://www.jianshu.com/p/4a3da6a11b58)  

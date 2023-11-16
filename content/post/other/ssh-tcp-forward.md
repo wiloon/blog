@@ -123,4 +123,4 @@ ssh client 和 ssh server 是同一台机器，并充当socks5代理：
 
 通过SSH建立的SOCKS服务器使用的是SOCKS5协议，在为应用程序设置SOCKS代理的时候要注意。
 
-><http://linuxperf.com/?p=30>
+>[http://linuxperf.com/?p=30](http://linuxperf.com/?p=30)

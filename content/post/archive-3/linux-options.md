@@ -10,7 +10,7 @@ tags:
 ---
 ## Linux 命令选项, 参数，括号, 可选, 必选
 
-<https://blog.csdn.net/raoqin/article/details/8875089>
+[https://blog.csdn.net/raoqin/article/details/8875089](https://blog.csdn.net/raoqin/article/details/8875089)
 
 1. []: 内的内容意思是: 可写可不写
   例如: /home下就一个list 文件，使用ls -help中的 Usage: ls [OPTION]... [FILE]...

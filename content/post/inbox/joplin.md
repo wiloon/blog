@@ -83,7 +83,7 @@ APP_PORT=22300
 
 ### joplin server
 
-<https://hub.docker.com/r/joplin/server>
+[https://hub.docker.com/r/joplin/server](https://hub.docker.com/r/joplin/server)
 
 ```bash
 podman run -d --name joplin --env-file /data/joplin/joplin.env -v joplin-data:/home/joplin -p 22300:22300 joplin/server:2.7.4-beta
@@ -118,4 +118,4 @@ server {
 
 admin@localhost/admin
 
-<https://github.com/laurent22/joplin>
+[https://github.com/laurent22/joplin](https://github.com/laurent22/joplin)

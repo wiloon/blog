@@ -35,6 +35,6 @@ gomods/athens:latest
 export GOPROXY=http://localhost:3000 && go get module@v1
 ```
 
-<https://docs.gomods.io/>
+[https://docs.gomods.io/](https://docs.gomods.io/)
 
-<https://github.com/gomods/athens>
+[https://github.com/gomods/athens](https://github.com/gomods/athens)

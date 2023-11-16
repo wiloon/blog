@@ -159,7 +159,7 @@ Block element 块级元素,顾名思义就是以块显示的元素,高度宽度�
   
     比如,我们设定一个内联元素border-bottom:1px solid #000;时其表现是以每行进行重复,每一行下方都会有一条黑色的细线。如果是块级元素那么所显示的的黑线只会在块的下方出现。
   
-    <http://hi.baidu.com/fengchuyang/item/e1350540aa7029ab61d7b9a0>
+    [http://hi.baidu.com/fengchuyang/item/e1350540aa7029ab61d7b9a0](http://hi.baidu.com/fengchuyang/item/e1350540aa7029ab61d7b9a0)
   
-    <http://www.cnblogs.com/jdonson/archive/2011/06/10/2077932.html>
+    [http://www.cnblogs.com/jdonson/archive/2011/06/10/2077932.html](http://www.cnblogs.com/jdonson/archive/2011/06/10/2077932.html)
   

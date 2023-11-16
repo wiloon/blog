@@ -36,7 +36,7 @@ getQuery
 
 URI类的另一个作用是处理绝对标识符和相对标识符。如果存在一个如下的绝对URI: 
 
-<http://docs.mycompany.com/api/java/net/serversocket.html>
+[http://docs.mycompany.com/api/java/net/serversocket.html](http://docs.mycompany.com/api/java/net/serversocket.html)
 
 和一个如下的相对URI: 
 
@@ -44,17 +44,17 @@ URI类的另一个作用是处理绝对标识符和相对标识符。如果存�
 
 那么你可以将它们合并成一个绝对URI: 
 
-<http://docs.mycompany.com/api/java/net/socket.html#Socket>()
+[http://docs.mycompany.com/api/java/net/socket.html#Socket](http://docs.mycompany.com/api/java/net/socket.html#Socket)()
 
 这个过程被称为相对URL的转换。
 
 与此相反的过程成为相对化。例如: 假设你有一个基本URI: 
 
-<http://docs.mycompany/api>
+[http://docs.mycompany/api](http://docs.mycompany/api)
 
 和另一个URI: 
 
-<http://docs.mycompany/api/java/lang/String.html>
+[http://docs.mycompany/api/java/lang/String.html](http://docs.mycompany/api/java/lang/String.html)
 
 那么相对化后的URI就是: 
 

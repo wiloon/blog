@@ -10,7 +10,7 @@ tags:
 ---
 ## SQL99
 
-来自ITwiki，开放的信息技术大百科  <http://wiki.ccw.com.cn/SQL99>
+来自ITwiki，开放的信息技术大百科  [http://wiki.ccw.com.cn/SQL99](http://wiki.ccw.com.cn/SQL99)
 
 SQL99是数据库的一个ANSI/ISO标准。这个标准的前身是SQL92 ANSI/ISO标准，而SQL92之前还有一个SQL89 ANSI/ISO标准。它定义了一种语言 (SQL) 以及数据库的行为 (事务、隔离级别等) 。你知道许多商业数据库至少在某种程度上是符合SQL99的吗？不过，这对于查询和应用的可移植性没有多大的意义，这一点你也清楚吗？
 

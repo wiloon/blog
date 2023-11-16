@@ -29,4 +29,4 @@ axel -s 102400 https://download.jetbrains.8686c.com/idea/ideaIU-2017.1.2.tar.gz
 
 下载目录会有一个.st文件, 会自动断点续传
 
-<http://linuxtoy.org/archives/axel.html>
+[http://linuxtoy.org/archives/axel.html](http://linuxtoy.org/archives/axel.html)

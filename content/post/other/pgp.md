@@ -16,8 +16,8 @@ gpg -recv-key <KEYID>
   
 ```
 
-<https://bbs.archlinux.org/viewtopic.php?id=191954>
+[https://bbs.archlinux.org/viewtopic.php?id=191954](https://bbs.archlinux.org/viewtopic.php?id=191954)
 
 Two PGP Keyrings for Package Management in Arch Linux
   
-<http://allanmcrae.com/2015/01/two-pgp-keyrings-for-package-management-in-arch-linux/embed/#?secret=zQHTu5bbvd>
+[http://allanmcrae.com/2015/01/two-pgp-keyrings-for-package-management-in-arch-linux/embed/#?secret=zQHTu5bbvd](http://allanmcrae.com/2015/01/two-pgp-keyrings-for-package-management-in-arch-linux/embed/#?secret=zQHTu5bbvd)

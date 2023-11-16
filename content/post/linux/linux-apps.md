@@ -26,7 +26,7 @@ tags:
 
 ## application list
 
-<https://wiki.archlinux.org/index.php/List_of_applications>
+[https://wiki.archlinux.org/index.php/List_of_applications](https://wiki.archlinux.org/index.php/List_of_applications)
 
 ```bash
 # apps
@@ -131,7 +131,7 @@ sudo pacman -S powerdevil kmix kscreen ark
 | webstorm-jre                          | yay -S webstorm webstorm-jre                                             |
 | clion                                 | yay -S clion clion-jre                                                   |
 | google-chrome                         |                                                                          |
-| deepin-wine-wechat                    | 微信,<https://github.com/countstarlight/deepin-wine-wechat-arch>          |
+| deepin-wine-wechat                    | 微信,[https://github.com/countstarlight/deepin-wine-wechat-arch](https://github.com/countstarlight/deepin-wine-wechat-arch)          |
 | google-chrome-beta                    |                                                                          |
 | redis-desktop-manager                 | rdm                                                                      |
 | wps-office                            | 依赖                                                                      |

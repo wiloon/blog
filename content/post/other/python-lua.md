@@ -11,7 +11,7 @@ tags:
 ---
 ## Python, Lua
 
-<http://blog.csdn.net/suxinpingtao51/article/details/8508428>
+[http://blog.csdn.net/suxinpingtao51/article/details/8508428](http://blog.csdn.net/suxinpingtao51/article/details/8508428)
 
 lua最著名的应用要数魔兽争霸了，但是具体怎那么用的却不知道，实在惭愧。相对于其他语言，它最大的特点可能就是嵌入式了。其次offical的网站说是所有脚本语言里最快的，但是这也是以简单为代价的，语言简单了自然就快了，但是要实现某些功能就要写更多的代码了。再就是诸如可移植之类的就没什么好说的了，大多数脚本语言都能跨平台。似乎lua不是linux标配，但是安装比较简单，make一下就行了。
 

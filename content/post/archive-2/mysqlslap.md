@@ -16,7 +16,7 @@ MySQL数据库基准压力测试工具之MySQLSlap使用实例 2013-05-20 19:04:
   
 分类:  MySQL/postgreSQL
   
-<http://www.2cto.com/database/201303/195303.html>
+[http://www.2cto.com/database/201303/195303.html](http://www.2cto.com/database/201303/195303.html)
 
 MySQL数据库基准压力测试工具之MySQLSlap使用实例
 
@@ -194,4 +194,4 @@ MySQLslap -create=/yourpath/Test1.sql -query=/yourpath/Test2.sql -concurrency=50
   
 在设定的yourpath目录下创建你的测试sql文Test1及Test2并进行50、100及200的模拟并发测试
 
-<http://blog.chinaunix.net/uid-177564-id-3711520.html>
+[http://blog.chinaunix.net/uid-177564-id-3711520.html](http://blog.chinaunix.net/uid-177564-id-3711520.html)

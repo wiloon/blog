@@ -110,7 +110,7 @@ sudo locale-gen
 sudo apt-get install fonts-droid-fallback ttf-wqy-zenhei ttf-wqy-microhei fonts-arphic-ukai fonts-arphic-uming
 ```
 
-<https://blog.csdn.net/weixin_39792252/article/details/80415550>
+[https://blog.csdn.net/weixin_39792252/article/details/80415550](https://blog.csdn.net/weixin_39792252/article/details/80415550)
 
 ### 查看软件安装位置
 

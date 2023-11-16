@@ -63,6 +63,6 @@ echo "Last argument is $(eval echo $#)"
 
 ---
 
-转自: <http://www.2cto.com/os/201311/255577.html>
-转自: <http://www.cnblogs.com/xdzone/archive/2011/03/15/1984971.html>
-<https://blog.csdn.net/vizts/article/details/47043695>
+转自: [http://www.2cto.com/os/201311/255577.html](http://www.2cto.com/os/201311/255577.html)
+转自: [http://www.cnblogs.com/xdzone/archive/2011/03/15/1984971.html](http://www.cnblogs.com/xdzone/archive/2011/03/15/1984971.html)
+[https://blog.csdn.net/vizts/article/details/47043695](https://blog.csdn.net/vizts/article/details/47043695)

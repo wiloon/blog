@@ -30,4 +30,4 @@ Intel® Core&#x2122; m3-6Y30 Processor (4M Cache, up to 2.20 GHz)
 
 ### 安装 bios
 
-<https://www.intel.cn/content/www/cn/zh/support/articles/000006039/mini-pcs/intel-compute-sticks.html>
+[https://www.intel.cn/content/www/cn/zh/support/articles/000006039/mini-pcs/intel-compute-sticks.html](https://www.intel.cn/content/www/cn/zh/support/articles/000006039/mini-pcs/intel-compute-sticks.html)

@@ -237,8 +237,8 @@ DenyUsers, AllowUsers, DenyGroups, AllowGroups
 
 ---
 
-<https://segmentfault.com/a/1190000014822400>
-<http://matt-u.iteye.com/blog/851158>  
+[https://segmentfault.com/a/1190000014822400](https://segmentfault.com/a/1190000014822400)
+[http://matt-u.iteye.com/blog/851158](http://matt-u.iteye.com/blog/851158)  
 
 ## input_userauth_request: invalid user
 

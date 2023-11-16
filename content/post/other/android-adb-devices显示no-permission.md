@@ -10,7 +10,7 @@ tags:
 ---
 ## adb, no permission
 
-<http://www.blogjava.net/brian/articles/316019.html>
+[http://www.blogjava.net/brian/articles/316019.html](http://www.blogjava.net/brian/articles/316019.html)
 
 在ubuntu(9.10)下执行adb devices命令, 返回的结果是:
   
@@ -38,7 +38,7 @@ HT848KV04386 device
 
 这次设备就被正确识别了。自然地, 像ddms之类的工具也能派上用场了。
 
-如果你的机器不能识别，或不是Ubuntu环境，请参考官方文档:<http://developer.android.com/guide/developing/device.html>。
+如果你的机器不能识别，或不是Ubuntu环境，请参考官方文档:[http://developer.android.com/guide/developing/device.html](http://developer.android.com/guide/developing/device.html)。
 
 ### insufficient permissions for device
 

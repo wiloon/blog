@@ -128,7 +128,7 @@ dir1 := path[:sepIndex]
 
 ### Full Slice Expression, 后续的 append() 操作将会导致重新分配内存
 
-<https://coolshell.cn/articles/21128.html>
+[https://coolshell.cn/articles/21128.html](https://coolshell.cn/articles/21128.html)
 
 ```go
 dir1 := path[:sepIndex:sepIndex]
@@ -428,9 +428,9 @@ return c
   
 可以使用 append 实现一个更简洁的版本。这留给读者作为练习。
 
-<https://blog.go-zh.org/go-slices-usage-and-internals>
+[https://blog.go-zh.org/go-slices-usage-and-internals](https://blog.go-zh.org/go-slices-usage-and-internals)
   
-<http://www.cnblogs.com/howDo/archive/2013/04/25/GoLang-Array-Slice.html>
+[http://www.cnblogs.com/howDo/archive/2013/04/25/GoLang-Array-Slice.html](http://www.cnblogs.com/howDo/archive/2013/04/25/GoLang-Array-Slice.html)
 
 数组指针与指针数组
 数组指针与指针数组听起来似乎有点拗口，那么来展开说明一下：
@@ -467,7 +467,7 @@ fmt.Println(pointerArray)
 总结
 ————————————————
 版权声明：本文为CSDN博主「weixin_39693437」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
-原文链接：<https://blog.csdn.net/weixin_39693437/article/details/111389778>
+原文链接：[https://blog.csdn.net/weixin_39693437/article/details/111389778](https://blog.csdn.net/weixin_39693437/article/details/111389778)
 
 ---
 
@@ -476,5 +476,5 @@ slice 的底层数据结构是什么？给slice赋值，到底赋了什么内容
 append在背后到底做了哪些事情？
 slice的扩容机制是什么？
 
-><https://segmentfault.com/a/1190000041181996>
-><https://swsmile.info/post/golang-implement-slice/>
+>[https://segmentfault.com/a/1190000041181996](https://segmentfault.com/a/1190000041181996)
+>[https://swsmile.info/post/golang-implement-slice/](https://swsmile.info/post/golang-implement-slice/)

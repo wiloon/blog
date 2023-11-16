@@ -10,7 +10,7 @@ tags:
 
 ---
 ## OLAP, OLTP
-<http://www.cnblogs.com/beyondstorm/archive/2006/08/12/475011.html>
+[http://www.cnblogs.com/beyondstorm/archive/2006/08/12/475011.html](http://www.cnblogs.com/beyondstorm/archive/2006/08/12/475011.html)
 
 OLAP和OLTP的区别(基础知识)
 

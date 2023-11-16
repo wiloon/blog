@@ -10,7 +10,7 @@ tags:
 ---
 ## Ansible
 
-<https://linuxtoy.org/archives/hands-on-with-ansible.html>
+[https://linuxtoy.org/archives/hands-on-with-ansible.html](https://linuxtoy.org/archives/hands-on-with-ansible.html)
 
 最近纠结于在 [Puppet][1]、[Chef][2]、[SaltStack][3]、[Ansible][4] 等一干配置管理工具中如何选择。考虑到一旦开始没有选好,以后更改又是一堆麻烦事,所以就稍微有些慎重。
 

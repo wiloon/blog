@@ -79,4 +79,4 @@ USHRT_MAX    Maximum value of a type unsigned short int.
 WORD_BIT    Number of bits in a word or type int
 ```
 
-<https://www.cnblogs.com/wjoyxt/p/4815782.html>
+[https://www.cnblogs.com/wjoyxt/p/4815782.html](https://www.cnblogs.com/wjoyxt/p/4815782.html)

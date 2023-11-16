@@ -17,7 +17,7 @@ Archlinux 如果做服务器用的话, 最好安装 LTS 内核, 否则...说不�
 
 - 检查 /boot 目录是否已经挂载 `mount |grep boot`
 
-用 archinstall, <https://github.com/archlinux/archinstall> 安装的 archlinux 启动之后默认不挂载 /boot 目录，需要手动挂载，再更换内核。  
+用 archinstall, [https://github.com/archlinux/archinstall](https://github.com/archlinux/archinstall) 安装的 archlinux 启动之后默认不挂载 /boot 目录，需要手动挂载，再更换内核。  
 当然....如果 /boot 不是独立的分区, 可以跳过挂载, 直接安装 linux-lts.  
 
 - 挂载 /boot `mount /dev/sda1 /boot`
@@ -58,8 +58,8 @@ Archlinux 如果做服务器用的话, 最好安装 LTS 内核, 否则...说不�
 
 ### 引用
 
-<https://linux.cn/article-12618-1.html>
+[https://linux.cn/article-12618-1.html](https://linux.cn/article-12618-1.html)
 
-<https://averagelinuxuser.com/the-lts-kernel-in-arch-linux/>
+[https://averagelinuxuser.com/the-lts-kernel-in-arch-linux/](https://averagelinuxuser.com/the-lts-kernel-in-arch-linux/)
 
-<https://blog.csdn.net/weixin_42157556/article/details/116882203>
+[https://blog.csdn.net/weixin_42157556/article/details/116882203](https://blog.csdn.net/weixin_42157556/article/details/116882203)

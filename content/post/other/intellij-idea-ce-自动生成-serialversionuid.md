@@ -17,4 +17,4 @@ Setting->Inspections->Serialization issues->Serializable class without 'serialVe
   
 选上以后，在你的class中: Alt+Enter就会提示自动创建serialVersionUID了。
 
-<http://blog.sina.com.cn/s/blog_728c25590100y33w.html>
+[http://blog.sina.com.cn/s/blog_728c25590100y33w.html](http://blog.sina.com.cn/s/blog_728c25590100y33w.html)

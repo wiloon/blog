@@ -79,7 +79,7 @@ openssl x509 -noout -text -in foo.pem
 openssl verify selfsign.crt
 ```
 
-<https://github.com/denji/golang-tls>
+[https://github.com/denji/golang-tls](https://github.com/denji/golang-tls)
 
 Generate private key (.key)
 
@@ -175,9 +175,9 @@ cat tos.dec
 
 some secret
 
-<https://my.oschina.net/u/1382972/blog/325442>
+[https://my.oschina.net/u/1382972/blog/325442](https://my.oschina.net/u/1382972/blog/325442)
 
-<https://www.openssl.org/>
+[https://www.openssl.org/](https://www.openssl.org/)
 
 ## 获取服务端 CA 证书
 

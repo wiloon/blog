@@ -64,7 +64,7 @@ func main() {
 - 如果没有 default, 那么代码块会被阻塞, 直到有一个 case 通过评估；否则一直阻塞
 - 如果 case 语句中 的 receive 操作的对象是 nil channel, 那么也会阻塞
 
-<https://yanyiwu.com/work/2014/11/08/golang-select-typical-usage.html>
+[https://yanyiwu.com/work/2014/11/08/golang-select-typical-usage.html](https://yanyiwu.com/work/2014/11/08/golang-select-typical-usage.html)
 
 golang 的 select 的功能和 select, poll, epoll 相似, 就是监听 IO 操作, 当 IO 操作发生时, 触发相应的动作。
 
@@ -167,6 +167,6 @@ select {
 
 比如我们有一个服务, 当请求进来的时候我们会生成一个 job 扔进 channel, 由其他协程从 channel 中获取 job 去执行。 但是我们希望当 channel 满了的时候, 将该 job 抛弃并回复 【服务繁忙,请稍微再试。】 就可以用 select 实现该需求。
 
-<https://segmentfault.com/a/1190000006815341>
+[https://segmentfault.com/a/1190000006815341](https://segmentfault.com/a/1190000006815341)
 
-<https://talks.golang.org/2012/concurrency.slide#32>
+[https://talks.golang.org/2012/concurrency.slide#32](https://talks.golang.org/2012/concurrency.slide#32)

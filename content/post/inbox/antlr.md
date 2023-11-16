@@ -10,7 +10,7 @@ tags:
 ---
 ## ANTLR
 
-<http://blog.csdn.net/dc_726/article/details/45399371>
+[http://blog.csdn.net/dc_726/article/details/45399371](http://blog.csdn.net/dc_726/article/details/45399371)
 
 当我们实现一种语言时,我们需要构建读取句子 (sentence) 的应用,并对输入中的元素做出反应。如果应用计算或执行句子,我们就叫它解释器 (interpreter) ,包括计算器、配置文件读取器、Python解释器都属于解释器。如果我们将句子转换成另一种语言,我们就叫它翻译器 (translator) ,像Java到C#的翻译器和编译器都属于翻译器。不管是解释器还是翻译器,应用首先都要识别出所有有效的句子、词组、字词组等,识别语言的程序就叫解析器 (parser) 或语法分析器 (syntax analyzer) 。我们学习的重点就是如何实现自己的解析器,去解析我们的目标语言,像DSL语言、配置文件、自定义SQL等等。
 

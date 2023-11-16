@@ -10,7 +10,7 @@ tags:
 
 ---
 ## class.getName
-<http://bbs.csdn.net/topics/70162498>
+[http://bbs.csdn.net/topics/70162498](http://bbs.csdn.net/topics/70162498)
 
 java.lang.Object
   

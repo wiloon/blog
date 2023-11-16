@@ -10,13 +10,13 @@ tags:
 ---
 ## newifi breed
 
-<https://www.right.com.cn/forum/thread-342918-1-1.html>
+[https://www.right.com.cn/forum/thread-342918-1-1.html](https://www.right.com.cn/forum/thread-342918-1-1.html)
 
 1. 开启固件 SSH
   
     a) 开启路由器,进入管理界面 (假设路由器 IP 地址是 192.168.99.1)
   
-    b) 在浏览器中输入 <http://192.168.99.1/newifi/ifiwen_hss.html> 并进入
+    b) 在浏览器中输入 [http://192.168.99.1/newifi/ifiwen_hss.html](http://192.168.99.1/newifi/ifiwen_hss.html) 并进入
   
     c) 页面显示 success 即表明已开启 SSH
 

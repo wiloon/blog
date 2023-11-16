@@ -33,7 +33,7 @@ ctl+alt+S setting
 生成.iws文件: mvn idea:workspace
 生成.iml文件: mvn idea:module
 
-<https://www.jetbrains.com/idea/download/download-thanks.html?platform=linux&code=IIC>
+[https://www.jetbrains.com/idea/download/download-thanks.html?platform=linux&code=IIC](https://www.jetbrains.com/idea/download/download-thanks.html?platform=linux&code=IIC)
 
 ### settings repository
 
@@ -104,7 +104,7 @@ windows
 
 Run Test选择 Run “test()”with coverage
 
-<http://hi.baidu.com/geeree/blog/item/1eeb29fab2c35f9d58ee9075.html>
+[http://hi.baidu.com/geeree/blog/item/1eeb29fab2c35f9d58ee9075.html](http://hi.baidu.com/geeree/blog/item/1eeb29fab2c35f9d58ee9075.html)
 
 ## native keychain is not available
 
@@ -136,7 +136,7 @@ File> settings> Build,Execution,Deployment>Build Tools> maven> importing> vm opt
 2.1 文件->项目结构
 2.2 平台设置-> Sourcepath >选择源路径->加号图标->从JDK安装路径中选择src.zip
 
-<https://blog.csdn.net/cyan20115/article/details/106549340>
+[https://blog.csdn.net/cyan20115/article/details/106549340](https://blog.csdn.net/cyan20115/article/details/106549340)
 
 ## file header
 

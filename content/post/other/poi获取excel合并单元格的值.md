@@ -10,7 +10,7 @@ tags:
 ---
 ## poi获取Excel合并单元格的值
 
-<http://zhoupuyue.iteye.com/blog/1136255>
+[http://zhoupuyue.iteye.com/blog/1136255](http://zhoupuyue.iteye.com/blog/1136255)
 
 /**
   

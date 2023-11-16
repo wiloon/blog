@@ -10,7 +10,7 @@ tags:
 ---
 ## ArrayList Capacity
 
-<http://topic.csdn.net/t/20061223/10/5250896.html>
+[http://topic.csdn.net/t/20061223/10/5250896.html](http://topic.csdn.net/t/20061223/10/5250896.html)
   
 任何一个 ArrayList 对象都有一个 capacity 属性，用来指示该 ArrayList 的容量，用"容量"这个词容易引起像本贴楼主那样的误解，我觉得用"容纳能力"比较贴切。
 
@@ -24,4 +24,4 @@ java允许我们在构造ArrayList的同时指定capacity，如new   ArrayList(5
 
 最后说说ArrayList的size，前面说过，size一定小于等于capactiy，而且更重要的是，访问超过size的位置将抛出异常，尽管这个位置可能没有超过capacity。ensureCapacity()只可能增加capacity，而不会对size有任何影响。要增加size，只能用add()方法。
 
-<https://blog.csdn.net/vandavidchou/article/details/104306445>
+[https://blog.csdn.net/vandavidchou/article/details/104306445](https://blog.csdn.net/vandavidchou/article/details/104306445)

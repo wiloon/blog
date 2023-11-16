@@ -231,17 +231,17 @@ fatal error: all goroutines are asleep - deadlock!
 
 所以在 go1.3 版本中, 运行过程中允许 RUnLock 早于 RLock 一个, 也只能早于1个 (注: 虽然代码允许,但是强烈不推荐使用), 并且在早于之后必须利用 RLock 进行加锁才可以继续使用
 
-<https://blog.csdn.net/chenbaoke/article/details/41957725>
+[https://blog.csdn.net/chenbaoke/article/details/41957725](https://blog.csdn.net/chenbaoke/article/details/41957725)
 
 作者：WangZZ
-链接：<https://www.jianshu.com/p/679041bdaa39>
+链接：[https://www.jianshu.com/p/679041bdaa39](https://www.jianshu.com/p/679041bdaa39)
 来源：简书
 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
 
 ————————————————
 版权声明：本文为CSDN博主「恋喵大鲤鱼」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
-原文链接：<https://blog.csdn.net/K346K346/article/details/90476721>
+原文链接：[https://blog.csdn.net/K346K346/article/details/90476721](https://blog.csdn.net/K346K346/article/details/90476721)
 
-<https://laravelacademy.org/post/19928>
-<https://en.wikipedia.org/wiki/Readers%E2%80%93writers_problem>
-<https://en.wikipedia.org/wiki/Fetch-and-add>
+[https://laravelacademy.org/post/19928](https://laravelacademy.org/post/19928)
+[https://en.wikipedia.org/wiki/Readers%E2%80%93writers_problem](https://en.wikipedia.org/wiki/Readers%E2%80%93writers_problem)
+[https://en.wikipedia.org/wiki/Fetch-and-add](https://en.wikipedia.org/wiki/Fetch-and-add)

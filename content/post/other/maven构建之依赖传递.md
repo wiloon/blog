@@ -10,7 +10,7 @@ tags:
 
 ---
 ## Maven构建之依赖传递
-<http://a123159521.iteye.com/blog/774322>
+[http://a123159521.iteye.com/blog/774322](http://a123159521.iteye.com/blog/774322)
 
 博客分类:  Maven
   
@@ -54,7 +54,7 @@ Java代码 收藏代码
   
 <?xml version="1.0" encoding="UTF-8"?>
   
-<project xsi:schemaLocation="<http://maven.apache.org/POM/4.0.0> <http://maven.apache.org/xsd/maven-4.0.0.xsd>" xmlns="http://maven.apache.org/POM/4.0.0"
+<project xsi:schemaLocation="<http://maven.apache.org/POM/4.0.0> [http://maven.apache.org/xsd/maven-4.0.0.xsd](http://maven.apache.org/xsd/maven-4.0.0.xsd)" xmlns="http://maven.apache.org/POM/4.0.0"
   
 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   
@@ -78,7 +78,7 @@ util</artifactId>
   
 <name>util</name>
   
-<url><http://maven.apache.org></url>
+<url><http://maven.apache.org>[/url](/url)
 
 <build>
   
@@ -134,7 +134,7 @@ Java代码 收藏代码
   
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   
-xsi:schemaLocation="<http://maven.apache.org/POM/4.0.0> <http://maven.apache.org/xsd/maven-4.0.0.xsd>">
+xsi:schemaLocation="<http://maven.apache.org/POM/4.0.0> [http://maven.apache.org/xsd/maven-4.0.0.xsd>"](http://maven.apache.org/xsd/maven-4.0.0.xsd>")
   
 <modelVersion>4.0.0</modelVersion>
   
@@ -158,7 +158,7 @@ app</artifactId>
 
 <name>app</name>
   
-<url><http://maven.apache.org></url>
+<url><http://maven.apache.org>[/url](/url)
 
 <build>
   
@@ -214,7 +214,7 @@ Java代码 收藏代码
   
 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   
-xsi:schemaLocation="<http://maven.apache.org/POM/4.0.0> <http://maven.apache.org/maven-v4_0_0.xsd>">
+xsi:schemaLocation="<http://maven.apache.org/POM/4.0.0> [http://maven.apache.org/maven-v4_0_0.xsd>"](http://maven.apache.org/maven-v4_0_0.xsd>")
   
 <modelVersion>4.0.0</modelVersion>
   
@@ -238,7 +238,7 @@ webapp</artifactId>
   
 <name>webapp Maven Webapp</name>
   
-<url><http://maven.apache.org></url>
+<url><http://maven.apache.org>[/url](/url)
 
 <build>
   
@@ -272,7 +272,7 @@ tomcat-maven-plugin</artifactId>
   
 <configuration>
   
-<url><http://127.0.0.1:9001/manager></url>
+<url><http://127.0.0.1:9001/manager>[/url](/url)
   
 <server>test</server>
   

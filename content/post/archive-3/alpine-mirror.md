@@ -70,5 +70,5 @@ CMD ["bin/server"]
 
 ```
 
-><https://megamorf.gitlab.io/2019/09/08/alpine-go-builds-with-cgo-enabled/>
-><https://pkgs.alpinelinux.org/packages>
+>[https://megamorf.gitlab.io/2019/09/08/alpine-go-builds-with-cgo-enabled/](https://megamorf.gitlab.io/2019/09/08/alpine-go-builds-with-cgo-enabled/)
+>[https://pkgs.alpinelinux.org/packages](https://pkgs.alpinelinux.org/packages)

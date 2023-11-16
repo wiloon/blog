@@ -472,9 +472,9 @@ return h;
   
 ```
 
-<http://yikun.github.io/2016/06/09/%E4%B8%80%E8%87%B4%E6%80%A7%E5%93%88%E5%B8%8C%E7%AE%97%E6%B3%95%E7%9A%84%E7%90%86%E8%A7%A3%E4%B8%8E%E5%AE%9E%E8%B7%B5/>
+[http://yikun.github.io/2016/06/09/%E4%B8%80%E8%87%B4%E6%80%A7%E5%93%88%E5%B8%8C%E7%AE%97%E6%B3%95%E7%9A%84%E7%90%86%E8%A7%A3%E4%B8%8E%E5%AE%9E%E8%B7%B5/](http://yikun.github.io/2016/06/09/%E4%B8%80%E8%87%B4%E6%80%A7%E5%93%88%E5%B8%8C%E7%AE%97%E6%B3%95%E7%9A%84%E7%90%86%E8%A7%A3%E4%B8%8E%E5%AE%9E%E8%B7%B5/)
   
-<http://blog.csdn.net/wuhuan_wp/article/details/7010071>
+[http://blog.csdn.net/wuhuan_wp/article/details/7010071](http://blog.csdn.net/wuhuan_wp/article/details/7010071)
 
-<https://segmentfault.com/a/1190000021199728>  
-<https://blog.csdn.net/suifeng629/article/details/81567777>
+[https://segmentfault.com/a/1190000021199728](https://segmentfault.com/a/1190000021199728)  
+[https://blog.csdn.net/suifeng629/article/details/81567777](https://blog.csdn.net/suifeng629/article/details/81567777)

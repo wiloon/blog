@@ -12,7 +12,7 @@ tags:
 
 ## 简介
 
-<http://baike.baidu.com/albums/67105/67105/0/0.html#0$11794d437a7d7f519213c675>
+[http://baike.baidu.com/albums/67105/67105/0/0.html#0$11794d437a7d7f519213c675](http://baike.baidu.com/albums/67105/67105/0/0.html#0$11794d437a7d7f519213c675)
 Web Service
 
 Web service是一个平台独立的,松耦合的,自包含的、基于可编程的web的应用程序,可使用开放的XML标准来描述、发布、发现、协调和配置这些应用程序,用于开发分布式的互操作的应用程序。[1]

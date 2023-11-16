@@ -84,6 +84,6 @@ ebtables -A FPRWARD -p ipv4 -i eth0/eth1 -ip-proto (7/17) -ip-src(源IP) -ip-spo
 DROP
 
 
-<http://ebtables.sourceforge.net/misc/ebtables-man.html>
+[http://ebtables.sourceforge.net/misc/ebtables-man.html](http://ebtables.sourceforge.net/misc/ebtables-man.html)
 
 

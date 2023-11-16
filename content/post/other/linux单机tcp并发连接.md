@@ -10,7 +10,7 @@ tags:
 ---
 ## Linux单机 TCP 并发连接
 
-<http://blog.csdn.net/kobejayandy/article/details/47127991>
+[http://blog.csdn.net/kobejayandy/article/details/47127991](http://blog.csdn.net/kobejayandy/article/details/47127991)
 
 总结下服务端对于tcp连接的限制与提高tcp连接数的方法,可能工作中永远不会用到,但对于网络知识理解会有帮助。1.服务端与16位的端口号 (最大65535) 没什么关系
   
@@ -40,7 +40,7 @@ too many of orphaned sockets"。
   
 千兆网卡,上限满负荷工作,大概有600兆左右,单位为b,除以8为75k/单个连接。这个一般可以满足。
 
-参考<http://www.blogjava.net/yongboy/archive/2013/04/11/397677.html> linux下需要修改的地方有:
+参考[http://www.blogjava.net/yongboy/archive/2013/04/11/397677.html](http://www.blogjava.net/yongboy/archive/2013/04/11/397677.html) linux下需要修改的地方有:
   
 echo "* - nofile 1048576" >> /etc/security/limits.conf   #open file resource limit 是linux中process可以打开的文件句柄数量。
   

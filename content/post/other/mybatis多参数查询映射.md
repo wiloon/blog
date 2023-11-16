@@ -9,7 +9,7 @@ tags:
   - reprint
 ---
 ## Mybatis多参数查询映射
-<http://fengfan876.iteye.com/blog/1473863>
+[http://fengfan876.iteye.com/blog/1473863](http://fengfan876.iteye.com/blog/1473863)
 
 最近在做一个Mybatis的项目，由于是接触不久，虽然看了一下资料，但在实际开发中还是暴露了很多问题，其中最让我头疼的就是selete的parameterType问题，网上这类的帖子虽然有但是不全，很多情况下很难找到你想要的答案。
   
@@ -79,4 +79,4 @@ foreach 最后的效果是select 字段... from XXX where id in ('1','2','3','4'
 
 3: 熟能生巧；
 
-再次奉上Mybatis官方的中文指南<http://fengfan876.iteye.com/blog/1485686>
+再次奉上Mybatis官方的中文指南[http://fengfan876.iteye.com/blog/1485686](http://fengfan876.iteye.com/blog/1485686)

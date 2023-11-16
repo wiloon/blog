@@ -14,7 +14,7 @@ crostini 的Debian 对snap 支持不全， 不能使用snap 应用
 
 ### terminal
 
-<https://snugug.com/musings/developing-on-chrome-os/>
+[https://snugug.com/musings/developing-on-chrome-os/](https://snugug.com/musings/developing-on-chrome-os/)
 
 ### terminal, tilix
 
@@ -42,8 +42,8 @@ Change to "jbrsdk-8u-232-linux-x64-b1638.6.tar.gz", which should be the very las
   
 Click install, restart IDE, enjoy!
 
-<https://www.reddit.com/r/Crostini/comments/e67tij/pycharmwebstormjetbrains_ide_fix/>
+[https://www.reddit.com/r/Crostini/comments/e67tij/pycharmwebstormjetbrains_ide_fix/](https://www.reddit.com/r/Crostini/comments/e67tij/pycharmwebstormjetbrains_ide_fix/)
   
-<https://github.com/gnunn1/tilix>
+[https://github.com/gnunn1/tilix](https://github.com/gnunn1/tilix)
   
-<https://www.reddit.com/r/Crostini/comments/8gku8y/psa_you_can_install_a_better_terminal_emulator/>
+[https://www.reddit.com/r/Crostini/comments/8gku8y/psa_you_can_install_a_better_terminal_emulator/](https://www.reddit.com/r/Crostini/comments/8gku8y/psa_you_can_install_a_better_terminal_emulator/)

@@ -13,17 +13,17 @@ tags:
 
 seelog
   
-<https://github.com/cihub/seelog>
+[https://github.com/cihub/seelog](https://github.com/cihub/seelog)
 
 log, glog, logrus
 
-<https://sites.google.com/site/kjellhedstrom2/g2log-efficient-background-io-processign-with-c11/g2log-vs-google-s-glog-performance-comparison>
+[https://sites.google.com/site/kjellhedstrom2/g2log-efficient-background-io-processign-with-c11/g2log-vs-google-s-glog-performance-comparison](https://sites.google.com/site/kjellhedstrom2/g2log-efficient-background-io-processign-with-c11/g2log-vs-google-s-glog-performance-comparison)
   
-<https://logmatic.io/blog/our-guide-to-a-golang-logs-world/>
+[https://logmatic.io/blog/our-guide-to-a-golang-logs-world/](https://logmatic.io/blog/our-guide-to-a-golang-logs-world/)
   
-<https://www.goinggo.net/2013/11/using-log-package-in-go.html>
+[https://www.goinggo.net/2013/11/using-log-package-in-go.html](https://www.goinggo.net/2013/11/using-log-package-in-go.html)
   
-<http://legendtkl.com/2016/03/11/go-log/>
+[http://legendtkl.com/2016/03/11/go-log/](http://legendtkl.com/2016/03/11/go-log/)
 
 log
   

@@ -31,7 +31,7 @@ Write the prompt to the standard error and read the password from the standard i
 
 可见加上-S参数sudo才会从标准输入中读取密码，不加-S参数以上命令将起不到作用
 
-<https://askubuntu.com/questions/470383/how-to-avoid-being-prompted-for-a-password-by-sudo>
+[https://askubuntu.com/questions/470383/how-to-avoid-being-prompted-for-a-password-by-sudo](https://askubuntu.com/questions/470383/how-to-avoid-being-prompted-for-a-password-by-sudo)
 
 ### sudo 免密码
 
@@ -48,9 +48,9 @@ joe ALL=(ALL) NOPASSWD: ALL
 %admin ALL=(ALL) NOPASSWD: ALL
 ```
 
-<https://www.cnblogs.com/itech/archive/2009/08/07/1541017.html>
+[https://www.cnblogs.com/itech/archive/2009/08/07/1541017.html](https://www.cnblogs.com/itech/archive/2009/08/07/1541017.html)
 
-<https://askubuntu.com/questions/70534/what-are-the-differences-between-su-sudo-s-sudo-i-sudo-su>
+[https://askubuntu.com/questions/70534/what-are-the-differences-between-su-sudo-s-sudo-i-sudo-su](https://askubuntu.com/questions/70534/what-are-the-differences-between-su-sudo-s-sudo-i-sudo-su)
 
 ### This account is currently not available
 
@@ -373,6 +373,6 @@ your_user_name ALL=(ALL) ALL
   
 6. 输入":q"(退出)
 
-原文地址: <http://kenshin54.iteye.com/blog/941896>
+原文地址: [http://kenshin54.iteye.com/blog/941896](http://kenshin54.iteye.com/blog/941896)
   
-<https://wiki.archlinux.org/index.php/Sudo_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87>)
+[https://wiki.archlinux.org/index.php/Sudo_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87](https://wiki.archlinux.org/index.php/Sudo_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87))

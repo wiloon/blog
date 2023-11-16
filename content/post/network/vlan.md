@@ -31,4 +31,4 @@ vlan范围: 0~4095
 5. 拥有和TAG标记一致的VID的物理端口,不论是否在这个VID上是Untagged Port或者tagged Port,都可以接受来自交换机内部的标记了这个TAG标记的tagged 数据帧；
 6. 拥有和TAG标记一致的VID的物理端口,只有在这个VID上是tagged Port,才可以接受来自交换机外部的标记了这个TAG标记的tagged 数据帧；
 
-<https://www.cnblogs.com/iiiiher/p/8067226.html>
+[https://www.cnblogs.com/iiiiher/p/8067226.html](https://www.cnblogs.com/iiiiher/p/8067226.html)
