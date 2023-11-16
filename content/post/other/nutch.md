@@ -10,7 +10,7 @@ tags:
 
 ---
 ## Nutch
-<http://baike.baidu.com/view/46642.htm>
+[http://baike.baidu.com/view/46642.htm](http://baike.baidu.com/view/46642.htm)
 
 Nutch 是一个开源Java 实现的搜索引擎。它提供了我们运行自己的搜索引擎所需的全部工具。包括全文搜索和Web爬虫。
 

@@ -203,9 +203,9 @@ Wait-free 是并发代码的一个非常理想的属性，但是很难获得。�
 
 (译文完)
 
-><https://www.xiaobotalk.com/2020/06/atomic-multithreading/>
+>[https://www.xiaobotalk.com/2020/06/atomic-multithreading/](https://www.xiaobotalk.com/2020/06/atomic-multithreading/)
 本作品采用 知识共享署名-相同方式共享 4.0 国际许可协议 进行许可
 
-<https://www.internalpointers.com/post/lock-free-multithreading-atomic-operations>
-<https://www.xiaobotalk.com/2020/06/atomic-multithreading/>
-<https://blog.csdn.net/csfreebird/article/details/50321053>
+[https://www.internalpointers.com/post/lock-free-multithreading-atomic-operations](https://www.internalpointers.com/post/lock-free-multithreading-atomic-operations)
+[https://www.xiaobotalk.com/2020/06/atomic-multithreading/](https://www.xiaobotalk.com/2020/06/atomic-multithreading/)
+[https://blog.csdn.net/csfreebird/article/details/50321053](https://blog.csdn.net/csfreebird/article/details/50321053)

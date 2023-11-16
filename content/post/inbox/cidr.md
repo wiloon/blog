@@ -24,7 +24,7 @@ CIDR prefix是子网掩码（subnet mask）中bit 是1 的个数
 例如: 255.255.255.0 的CIDR prefix是/24
 255.255.255.0 => 11111111.11111111.11111111.0
 
-<http://blog.csdn.net/hzhsan/article/details/44100215>
+[http://blog.csdn.net/hzhsan/article/details/44100215](http://blog.csdn.net/hzhsan/article/details/44100215)
 
 如: xx.xx.xx.2/24
 
@@ -59,6 +59,6 @@ CIDR:无类别域间路由选择,Classless and Subnet Address Extensions and Sup
 
 28位说明网络位是28位,那么主机位4位,则子网的IP个数是14个,即是从00000001到00001110.
 
-<https://zh.wikipedia.org/wiki/%E6%97%A0%E7%B1%BB%E5%88%AB%E5%9F%9F%E9%97%B4%E8%B7%AF%E7%94%B1>
+[https://zh.wikipedia.org/wiki/%E6%97%A0%E7%B1%BB%E5%88%AB%E5%9F%9F%E9%97%B4%E8%B7%AF%E7%94%B1](https://zh.wikipedia.org/wiki/%E6%97%A0%E7%B1%BB%E5%88%AB%E5%9F%9F%E9%97%B4%E8%B7%AF%E7%94%B1)
 
-<https://blog.csdn.net/Charonmomo/article/details/117459859>
+[https://blog.csdn.net/Charonmomo/article/details/117459859](https://blog.csdn.net/Charonmomo/article/details/117459859)

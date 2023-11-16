@@ -24,9 +24,9 @@ Linux 文件系统对于删除操作，只标记为未使用，实际并没有�
 
 SSD中提供了一个TRIM命令，操作系统在删除文件时可以通过向SSD发送TRIM命令告诉它哪些数据块中的数据已经不再使用了。SSD在收到TRIM命令后，通常会在定期的垃圾收集操作中重新组织这些区块，为将来写入数据做好准备，不过每一款SSD在底层对TRIM命令的执行机制都不尽相同，但无论如何，通过TRIM能够显著改善SSD的性能和寿命。
 
-<https://www.guokr.com/blog/483475/>
+[https://www.guokr.com/blog/483475/](https://www.guokr.com/blog/483475/)
 
-<https://zhuanlan.zhihu.com/p/34683444>
+[https://zhuanlan.zhihu.com/p/34683444](https://zhuanlan.zhihu.com/p/34683444)
 
 ## SSD 检测工具
 
@@ -36,4 +36,4 @@ SSD中提供了一个TRIM命令，操作系统在删除文件时可以通过向S
 
 ## Samsung_Magician_Installer_Official_7.0.1.630
 
-<https://semiconductor.samsung.com/consumer-storage/support/tools/>
+[https://semiconductor.samsung.com/consumer-storage/support/tools/](https://semiconductor.samsung.com/consumer-storage/support/tools/)

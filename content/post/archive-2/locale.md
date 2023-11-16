@@ -169,8 +169,8 @@ LC_TIME=en_DK.UTF-8
 source 使其生效
 ————————————————
 版权声明：本文为CSDN博主「liaowenxiong」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
-原文链接：<https://blog.csdn.net/liaowenxiong/article/details/116401524>
+原文链接：[https://blog.csdn.net/liaowenxiong/article/details/116401524](https://blog.csdn.net/liaowenxiong/article/details/116401524)
 
 ## C.UTF-8 and en_US.UTF-8 locales?
 
-<https://stackoverflow.com/questions/55673886/what-is-the-difference-between-c-utf-8-and-en-us-utf-8-locales>
+[https://stackoverflow.com/questions/55673886/what-is-the-difference-between-c-utf-8-and-en-us-utf-8-locales](https://stackoverflow.com/questions/55673886/what-is-the-difference-between-c-utf-8-and-en-us-utf-8-locales)

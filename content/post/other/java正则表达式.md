@@ -173,8 +173,8 @@ pattern.matcher("abcd1234567").matches();
 
       ◆截取http://地址
  //截取url
- Pattern pattern = Pattern.compile("(<http://|https://>){1}[//w//.//-/:]+");
- Matcher matcher = pattern.matcher("dsdsds<http://dsds//gfgffdfd>fdf");
+ Pattern pattern = Pattern.compile("([http://|https://](http://|https://)){1}[//w//.//-/:]+");
+ Matcher matcher = pattern.matcher("dsdsds[http://dsds//gfgffdfd](http://dsds//gfgffdfd)fdf");
  StringBuffer buffer = new StringBuffer();
  while(matcher.find()){
  buffer.append(matcher.group());
@@ -280,5 +280,5 @@ private String_regexp;
 
       Java正则的功用还有很多，事实上只要是字符处理，就没有正则做不到的事情存在。 (当然，正则解释时较耗时间就是了|||……)
 
-      <http://blog.csdn.net/kdnuggets/article/details/2526588>
+      [http://blog.csdn.net/kdnuggets/article/details/2526588](http://blog.csdn.net/kdnuggets/article/details/2526588)
   

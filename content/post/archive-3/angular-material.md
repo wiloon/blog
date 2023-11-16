@@ -40,12 +40,12 @@ styles.css
 
 @import '@angular/material/prebuilt-themes/deeppurple-amber.css';
 
-<https://material.angular.io/>
+[https://material.angular.io/](https://material.angular.io/)
   
-<https://material.angular.cn/guides>
+[https://material.angular.cn/guides](https://material.angular.cn/guides)
   
-<https://github.com/stbui/angular-material-app/tree/master/src/app>
+[https://github.com/stbui/angular-material-app/tree/master/src/app](https://github.com/stbui/angular-material-app/tree/master/src/app)
   
-<https://material.io/>
+[https://material.io/](https://material.io/)
   
-<https://material.angular.io/components/categories>
+[https://material.angular.io/components/categories](https://material.angular.io/components/categories)

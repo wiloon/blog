@@ -12,7 +12,7 @@ tags:
 
 确认 cronie 已经安装并启动
 
-<http://wiloon.com/cron>
+[http://wiloon.com/cron](http://wiloon.com/cron)
 
 ### 全局配置
 
@@ -180,6 +180,6 @@ inodes
 
 日志在拷贝完到清空文件这段时间内, 程序输出的日志没有备份就清空了, 这些日志不是丢了吗？是的, copytruncate有丢失部分日志内容的风险。所以能用create的方案就别用 copytruncate。所以很多程序提供了通知我更新打开日志文件的功能来支持 create 方案,或者自己做了日志滚动,不依赖 logrotate。
 
-<http://www.lightxue.com/how-logrotate-works>
+[http://www.lightxue.com/how-logrotate-works](http://www.lightxue.com/how-logrotate-works)
   
-<https://jin-yang.github.io/post/logrotate-usage.html>
+[https://jin-yang.github.io/post/logrotate-usage.html](https://jin-yang.github.io/post/logrotate-usage.html)

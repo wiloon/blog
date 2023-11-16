@@ -30,4 +30,4 @@ Action: What did you do? The interviewer will be looking for information on what
 Results: What was the outcome of your actions? What did you achieve through your actions and did you meet your objectives. What did you learn from this experience and have you used this learning since?
 结果：你行动的结果是什么？从你的行动中，你得到了什么？有没有完成你的目标？你从中获得了什么经验教训？之后有没有用到这些经验？
 
-<https://zhuanlan.zhihu.com/p/24244963>
+[https://zhuanlan.zhihu.com/p/24244963](https://zhuanlan.zhihu.com/p/24244963)

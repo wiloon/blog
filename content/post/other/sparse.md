@@ -251,9 +251,9 @@ zjc@~$ ls -lsh file*
 
 InnoDB以InnoDB页为单元进行存储，对于一般的情况，InnoDB页默认为16KB，文件系统默认为4KB。当InnoDB要存储一个页时，会对16KB进行压缩，压缩后大小为12KB，那么12KB到16KB之间的内容会首先被填零，然后用fallocate作“deallocation”打洞，这样额外的一个文件系统块就因压缩而被节约了；同样，若压缩后的页小于8 KB或小于4 KB，那么分别就可以节约8 KB 或 12 KB。
 
-[1] fallocate – manipulate file space, <http://man7.org/linux/man-pages/man2/fallocate.2.html>
+[1] fallocate – manipulate file space, [http://man7.org/linux/man-pages/man2/fallocate.2.html](http://man7.org/linux/man-pages/man2/fallocate.2.html)
 
-[2] MySQL InnoDB透明页压缩的简单分析, <http://blog.jcix.top/2017-04-16/transparent_page_compression/>
+[2] MySQL InnoDB透明页压缩的简单分析, [http://blog.jcix.top/2017-04-16/transparent_page_compression/](http://blog.jcix.top/2017-04-16/transparent_page_compression/)
 
 ### sparse 文件的传输
 
@@ -292,16 +292,16 @@ cp命令能够自动探测文件是否为sparse文件，空洞数据不会拷贝
 
 ---
 
-<http://donghao.org/2011/07/ext4aoaupunch-hole.html>  
-<http://blog.jcix.top/2018-09-28/hole_punching/>  
+[http://donghao.org/2011/07/ext4aoaupunch-hole.html](http://donghao.org/2011/07/ext4aoaupunch-hole.html)  
+[http://blog.jcix.top/2018-09-28/hole_punching/](http://blog.jcix.top/2018-09-28/hole_punching/)  
 
 ---------------------
 原文来自【学领未来】，转载时请保留原文链接。
-链接: <http://bbs.learnfuture.com/topic/7650>
+链接: [http://bbs.learnfuture.com/topic/7650](http://bbs.learnfuture.com/topic/7650)
 
 ---
 
-<http://blog.csdn.net/shenlanzifa/article/details/44016537>
+[http://blog.csdn.net/shenlanzifa/article/details/44016537](http://blog.csdn.net/shenlanzifa/article/details/44016537)
 
 我们知道lseek()系统调用可以改变文件的偏移量，但如果程序调用使得文件偏移量跨越了文件结尾，然后再执行I/O操作，将会发生什么情况？ read()调用将会返回0，表示文件结尾。令人惊讶的是，write()函数可以在文件结尾后的任意位置写入数据。在这种情况下，对该文件的下一次写将延长该文件，并在文件中构成一个空洞，这一点是允许的。从原来的文件结尾到新写入数据间的这段空间被成为文件空洞。调用write后文件结尾的位置已经发生变化。
 
@@ -309,7 +309,7 @@ cp命令能够自动探测文件是否为sparse文件，空洞数据不会拷贝
 
 文件空洞占用任何磁盘空间，直到后续某个时点，在文件空洞中写入了数据，文件系统才会为之分配磁盘块。空洞的存在意味着一个文件名义上的大小可能要比其占用的磁盘存储总量要大 (有时大出许多) 。向文件空洞中写入字节，内核需要为其分配存储单元，即使文件大小不变，系统的可用磁盘空间也将减少。这种情况并不常见，但也需要了解。
 
-下面看一个例子:  (转自<http://blog.csdn.NET/wangxiaoqin00007/article/details/6617801>)
+下面看一个例子:  (转自[http://blog.csdn.NET/wangxiaoqin00007/article/details/6617801](http://blog.csdn.NET/wangxiaoqin00007/article/details/6617801))
   
 ls -l file 查看文件逻辑大小
   

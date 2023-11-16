@@ -10,7 +10,7 @@ tags:
 ---
 ## Java ReentrantLock, synchronized
 
-<http://www.ibm.com/developerworks/cn/java/j-jtp10264/index.html>
+[http://www.ibm.com/developerworks/cn/java/j-jtp10264/index.html](http://www.ibm.com/developerworks/cn/java/j-jtp10264/index.html)
 
 多线程和并发性并不是什么新内容,但是 Java 语言设计中的创新之一就是,它是第一个直接把跨平台线程模型和正规的内存模型集成到语言中的主流语言。核心类库包含一个 Thread 类,可以用它来构建、启动和操纵线程,Java 语言包括了跨线程传达并发性约束的构造 - synchronized 和 volatile. 在简化与平台无关的并发类的开发的同时,它决没有使并发类的编写工作变得更繁琐,只是使它变得更容易了。
 
@@ -160,7 +160,7 @@ ObjectMonitor() {
 屏蔽硬件的复杂性: 硬件千奇百怪,各种型号,需要各种匹配的驱动才能运行,一个应用层软件想从硬盘读取数据,如果没有操作系统这个黑盒子给你提供便利 (系统调用) ,那你要从硬盘驱动开始写？等你写好了塑料花儿都谢了。
 所以,系统调用开销是很大的,因此在程序中尽量减少系统调用的次数,并且让每次系统调用完成尽可能多的工作,例如每次读写大量的数据而不是每次仅读写一个字符。
 
-那么Linux有哪些系统调用？这里可以查(系统调用表): <http://blog.rchapman.org/posts/Linux_System_Call_Table_for_x86_64>
+那么Linux有哪些系统调用？这里可以查(系统调用表): [http://blog.rchapman.org/posts/Linux_System_Call_Table_for_x86_64](http://blog.rchapman.org/posts/Linux_System_Call_Table_for_x86_64)
 
 从系统调用的角度分析
 就一个锁而言,那么关键的东西我认为是如何上锁以及如何让线程阻塞以及唤醒线程,那么就从这三个方面分析
@@ -188,7 +188,7 @@ protected final boolean compareAndSetState(int expect, int update) {
 
 /**
 
-* 源码在<http://hg.openjdk.java.net/jdk8/jdk8/jdk/file/687fd7c7986d/src/share/classes/sun/misc/Unsafe.java>
+* 源码在[http://hg.openjdk.java.net/jdk8/jdk8/jdk/file/687fd7c7986d/src/share/classes/sun/misc/Unsafe.java](http://hg.openjdk.java.net/jdk8/jdk8/jdk/file/687fd7c7986d/src/share/classes/sun/misc/Unsafe.java)
 * Unsafe.compareAndSwapInt
 * Atomically update Java variable to x if it is currently
 * holding expected
@@ -197,7 +197,7 @@ protected final boolean compareAndSetState(int expect, int update) {
 public final native boolean compareAndSwapInt(Object o, long offset,
                                               int expected,
                                               int x);
-继续跟踪在JVM中的实现,源码位置: <http://hg.openjdk.java.net/jdk8/jdk8/hotspot/file/tip/src/share/vm/prims/unsafe.cpp>
+继续跟踪在JVM中的实现,源码位置: [http://hg.openjdk.java.net/jdk8/jdk8/hotspot/file/tip/src/share/vm/prims/unsafe.cpp](http://hg.openjdk.java.net/jdk8/jdk8/hotspot/file/tip/src/share/vm/prims/unsafe.cpp)
 
 UNSAFE_ENTRY(jboolean, Unsafe_CompareAndSwapInt(JNIEnv *env, jobject unsafe, jobject obj, jlong offset, jint e, jint x))
   UnsafeWrapper("Unsafe_CompareAndSwapInt");
@@ -205,7 +205,7 @@ UNSAFE_ENTRY(jboolean, Unsafe_CompareAndSwapInt(JNIEnv *env, jobject unsafe, job
   jint* addr = (jint *) index_oop_from_field_offset_long(p, offset);
   return (jint)(Atomic::cmpxchg(x, addr, e)) == e;//此处调用了Atomic::cmpxchg
 UNSAFE_END
-里面又调用了Atomic::cmpxchg,源码位置: <http://hg.openjdk.java.net/jdk8/jdk8/hotspot/file/87ee5ee27509/src/os_cpu/linux_x86/vm/atomic_linux_x86.inline.hpp>
+里面又调用了Atomic::cmpxchg,源码位置: [http://hg.openjdk.java.net/jdk8/jdk8/hotspot/file/87ee5ee27509/src/os_cpu/linux_x86/vm/atomic_linux_x86.inline.hpp](http://hg.openjdk.java.net/jdk8/jdk8/hotspot/file/87ee5ee27509/src/os_cpu/linux_x86/vm/atomic_linux_x86.inline.hpp)
 
 inline jint     Atomic::cmpxchg    (jint     exchange_value, volatile jint*     dest, jint     compare_value) {
   int mp = os::is_MP();
@@ -250,7 +250,7 @@ private final boolean parkAndCheckInterrupt() {
 
 /**
 
-* 源码在<http://hg.openjdk.java.net/jdk8/jdk8/jdk/file/687fd7c7986d/src/share/classes/sun/misc/Unsafe.java>
+* 源码在[http://hg.openjdk.java.net/jdk8/jdk8/jdk/file/687fd7c7986d/src/share/classes/sun/misc/Unsafe.java](http://hg.openjdk.java.net/jdk8/jdk8/jdk/file/687fd7c7986d/src/share/classes/sun/misc/Unsafe.java)
 * Block current thread, returning when a balancing
 * unpark occurs, or a balancing unpark has
 * already occurred, or the thread is interrupted, or, if not
@@ -262,14 +262,14 @@ private final boolean parkAndCheckInterrupt() {
 * elsewhere.
  */
 public native void park(boolean isAbsolute, long time);
-看JVM中Unsafe.park的实现,源码在<http://hg.openjdk.java.net/jdk8/jdk8/hotspot/file/tip/src/share/vm/prims/unsafe.cpp>
+看JVM中Unsafe.park的实现,源码在[http://hg.openjdk.java.net/jdk8/jdk8/hotspot/file/tip/src/share/vm/prims/unsafe.cpp](http://hg.openjdk.java.net/jdk8/jdk8/hotspot/file/tip/src/share/vm/prims/unsafe.cpp)
 
 UNSAFE_ENTRY(void, Unsafe_Park(JNIEnv *env, jobject unsafe, jboolean isAbsolute, jlong time))
   ...省略
   thread->parker()->park(isAbsolute != 0, time);
   ...省略
 UNSAFE_END
-调用了parker()->park(),即Parker::park,看一下Parker的定义,源码在<http://hg.openjdk.java.net/jdk7/jdk7/hotspot/file/81d815b05abb/src/share/vm/runtime/park.hpp>
+调用了parker()->park(),即Parker::park,看一下Parker的定义,源码在[http://hg.openjdk.java.net/jdk7/jdk7/hotspot/file/81d815b05abb/src/share/vm/runtime/park.hpp](http://hg.openjdk.java.net/jdk7/jdk7/hotspot/file/81d815b05abb/src/share/vm/runtime/park.hpp)
 
 class Parker : public os::PlatformParker {
     public:
@@ -331,7 +331,7 @@ void Parker::park(bool isAbsolute, jlong time) {
         jt->java_suspend_self();
     }
 }
-其实park方法内部也用了CAS！重点关注一下此调用: pthread_cond_wait,就是调用此函数让线程阻塞的,这是POSIX线程(pthread)函数库中一个函数,感兴趣的可以看下它的源码: <https://code.woboq.org/userspace/glibc/nptl/pthread_cond_wait.c.html>
+其实park方法内部也用了CAS！重点关注一下此调用: pthread_cond_wait,就是调用此函数让线程阻塞的,这是POSIX线程(pthread)函数库中一个函数,感兴趣的可以看下它的源码: [https://code.woboq.org/userspace/glibc/nptl/pthread_cond_wait.c.html](https://code.woboq.org/userspace/glibc/nptl/pthread_cond_wait.c.html)
 
 pthread_cond_wait内部调用了futex,而futex里面进行了系统调用sys_futex！那么futex是啥？参考下man 2 futex
 
@@ -358,7 +358,7 @@ if (s != null)
 
 /**
 
-* 源码在: <http://hg.openjdk.java.net/jdk8/jdk8/jdk/file/687fd7c7986d/src/share/classes/sun/misc/Unsafe.java>
+* 源码在: [http://hg.openjdk.java.net/jdk8/jdk8/jdk/file/687fd7c7986d/src/share/classes/sun/misc/Unsafe.java](http://hg.openjdk.java.net/jdk8/jdk8/jdk/file/687fd7c7986d/src/share/classes/sun/misc/Unsafe.java)
 * Unblock the given thread blocked on park, or, if it is
 * not blocked, cause the subsequent call to park not to
 * block.  Note: this operation is "unsafe" solely because the
@@ -424,7 +424,7 @@ int index =_cur_index;
 
 int futex(int *uaddr, int op, int val, const struct timespec*timeout,
           int *uaddr2, int val3);
-第二个参数op即operation有下面可选,参考: <https://linux.die.net/man/2/futex>
+第二个参数op即operation有下面可选,参考: [https://linux.die.net/man/2/futex](https://linux.die.net/man/2/futex)
 
 pthread_cond_wait传参为FUTEX_WAIT,而pthread_cond_signal传参为FUTEX_WAKE
 
@@ -467,7 +467,7 @@ ObjectMonitor::ObjectMonitor() {
 由于synchronized是JVM来实现的,所以下面代码都是c/c++的
 
 如何上锁
-由于我们省略了锁升级的过程,直接看重量级锁的进入,代码在<https://github.com/JetBrains/jdk8u_hotspot/blob/master/src/share/vm/runtime/objectMonitor.cpp>
+由于我们省略了锁升级的过程,直接看重量级锁的进入,代码在[https://github.com/JetBrains/jdk8u_hotspot/blob/master/src/share/vm/runtime/objectMonitor.cpp](https://github.com/JetBrains/jdk8u_hotspot/blob/master/src/share/vm/runtime/objectMonitor.cpp)
 
 注意看源码的方法,看源码顺着一条线索去看,比如如何上锁,不要在乎细节,因为看了也看不懂(笑),反而导致丧失了继续看下去的耐心,当以后能力提升了再来看这些细节
 
@@ -575,7 +575,7 @@ inline jint     Atomic::cmpxchg    (jint     exchange_value, volatile jint*     
 所谓上锁就是给ObjectMonitor._owner设置为指向获得锁的线程
 
 如何阻塞
-看上面的ObjectMonitor::EnterI方法,获取不到锁的时候调用了ParkEvent::park()方法,看到这是不是想到Parker::park()？那么到底有啥区别,看一下ParkEvent的定义,源码在<https://github.com/JetBrains/jdk8u_hotspot/blob/master/src/share/vm/runtime/park.hpp>
+看上面的ObjectMonitor::EnterI方法,获取不到锁的时候调用了ParkEvent::park()方法,看到这是不是想到Parker::park()？那么到底有啥区别,看一下ParkEvent的定义,源码在[https://github.com/JetBrains/jdk8u_hotspot/blob/master/src/share/vm/runtime/park.hpp](https://github.com/JetBrains/jdk8u_hotspot/blob/master/src/share/vm/runtime/park.hpp)
 
 class ParkEvent : public os::PlatformEvent {
   public:
@@ -733,7 +733,7 @@ public class CASTest {
     * 因为直接拿要抛异常,不信你可以试试看,原因在于直接拿Unsafe会检查当前类加载器是不是Bootstrap加载器
     * 如果不是就抛异常,当前类加载器是AppClassLoader,当然不是Bootstrap ClassLoader,
     * 也就是说,Unsafe只允许JVM的某些系统来拿,但是你非要用,也可以自己通过下面的骚操作拿
-    * 参考: <https://blog.csdn.net/a7980718/article/details/83279728>
+    * 参考: [https://blog.csdn.net/a7980718/article/details/83279728](https://blog.csdn.net/a7980718/article/details/83279728)
          */
         Field unsafeField = Unsafe.class.getDeclaredFields()[0];
         unsafeField.setAccessible(true);
@@ -875,12 +875,12 @@ futex(0x7fdee81c0c04, FUTEX_WAIT_PRIVATE, 541, NULL) = ?
 由于个人水平有限,有些细节难免有疏漏或错误,敬请指正。
 
 参考
-<https://juejin.cn/post/6844903918653145102#heading-15>
-<https://albk.tech/%E8%81%8A%E8%81%8ACPU%E7%9A%84LOCK%E6%8C%87%E4%BB%A4.html>
-<https://www.beikejiedeliulangmao.top/java/concurrent/thread-park/>
-<https://blog.csdn.net/zwjyyy1203/article/details/106217887>
-<https://zhuanlan.zhihu.com/p/151271009>
+[https://juejin.cn/post/6844903918653145102#heading-15](https://juejin.cn/post/6844903918653145102#heading-15)
+[https://albk.tech/%E8%81%8A%E8%81%8ACPU%E7%9A%84LOCK%E6%8C%87%E4%BB%A4.html](https://albk.tech/%E8%81%8A%E8%81%8ACPU%E7%9A%84LOCK%E6%8C%87%E4%BB%A4.html)
+[https://www.beikejiedeliulangmao.top/java/concurrent/thread-park/](https://www.beikejiedeliulangmao.top/java/concurrent/thread-park/)
+[https://blog.csdn.net/zwjyyy1203/article/details/106217887](https://blog.csdn.net/zwjyyy1203/article/details/106217887)
+[https://zhuanlan.zhihu.com/p/151271009](https://zhuanlan.zhihu.com/p/151271009)
 
 ---
 
-<https://zhuanlan.zhihu.com/p/353546643>
+[https://zhuanlan.zhihu.com/p/353546643](https://zhuanlan.zhihu.com/p/353546643)

@@ -323,10 +323,10 @@ JWT通过将数据保留在客户端的方式以空间换时间。你应用程�
 最后，根据自己的需求，决定是否需要将生成的token存入数据库或者redis，但建议不要存储用户密码等敏感信息。
 
 ### token刷新
-<https://zhuanlan.zhihu.com/p/52300092>
-<https://hasura.io/blog/best-practices-of-using-jwt-with-graphql/#silent_refresh>
-<https://usthe.com/2018/04/%E7%AD%BE%E5%8F%91%E7%9A%84%E7%94%A8%E6%88%B7%E8%AE%A4%E8%AF%81token%E8%B6%85%E6%97%B6%E5%88%B7%E6%96%B0%E7%AD%96%E7%95%A5/>
-<https://auth0.com/blog/refresh-tokens-what-are-they-and-when-to-use-them/>
+[https://zhuanlan.zhihu.com/p/52300092](https://zhuanlan.zhihu.com/p/52300092)
+[https://hasura.io/blog/best-practices-of-using-jwt-with-graphql/#silent_refresh](https://hasura.io/blog/best-practices-of-using-jwt-with-graphql/#silent_refresh)
+[https://usthe.com/2018/04/%E7%AD%BE%E5%8F%91%E7%9A%84%E7%94%A8%E6%88%B7%E8%AE%A4%E8%AF%81token%E8%B6%85%E6%97%B6%E5%88%B7%E6%96%B0%E7%AD%96%E7%95%A5/](https://usthe.com/2018/04/%E7%AD%BE%E5%8F%91%E7%9A%84%E7%94%A8%E6%88%B7%E8%AE%A4%E8%AF%81token%E8%B6%85%E6%97%B6%E5%88%B7%E6%96%B0%E7%AD%96%E7%95%A5/)
+[https://auth0.com/blog/refresh-tokens-what-are-they-and-when-to-use-them/](https://auth0.com/blog/refresh-tokens-what-are-they-and-when-to-use-them/)
 
 所以... JWT 适合做什么？
 在本文之初，我就提到 JWT 虽然不适合作为 Session 机制，但在其它方面的确有它的用武之地。该主张依旧成立，JWT 特别有效的使用例子通常是作为一次性的授权令牌。
@@ -350,4 +350,4 @@ Tokens 仅单次使用。应用服务器应当在每次下载时颁发新的 Tok
 
 ---
 
-<https://learnku.com/articles/22616>
+[https://learnku.com/articles/22616](https://learnku.com/articles/22616)

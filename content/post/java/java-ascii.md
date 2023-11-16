@@ -22,7 +22,7 @@ tags:
     my_string.replaceAll("\\p{C}", "?");
 ```
 
- <https://stackoverflow.com/questions/6198986/how-can-i-replace-non-printable-unicode-characters-in-java>
+ [https://stackoverflow.com/questions/6198986/how-can-i-replace-non-printable-unicode-characters-in-java](https://stackoverflow.com/questions/6198986/how-can-i-replace-non-printable-unicode-characters-in-java)
 
 ### StringEscapeUtils
 
@@ -118,4 +118,4 @@ public class EscapeTest {
 <script>alert('1111')</script>
 ```
 
-<https://github.com/lq920320/blogs/issues/9>
+[https://github.com/lq920320/blogs/issues/9](https://github.com/lq920320/blogs/issues/9)

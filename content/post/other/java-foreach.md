@@ -329,8 +329,8 @@ Process finished with exit code 0
   
 foreach语句是for语句特殊情况下的增强版本，简化了编程，提高了代码的可读性和安全性 (不用怕数组越界) 。相对老的for语句来说是个很好的补充。提倡能用foreach的地方就不要再用for了。在用到对集合或者数组索引的情况下，foreach显得力不从心，这个时候是用for语句的时候了。
   
-<http://lavasoft.blog.51cto.com/62575/53321>
+[http://lavasoft.blog.51cto.com/62575/53321](http://lavasoft.blog.51cto.com/62575/53321)
   
-<http://blog.csdn.net/lee_yaob/article/details/7731185>
+[http://blog.csdn.net/lee_yaob/article/details/7731185](http://blog.csdn.net/lee_yaob/article/details/7731185)
   
-<http://www.runoob.com/java/java-loop.html>
+[http://www.runoob.com/java/java-loop.html](http://www.runoob.com/java/java-loop.html)

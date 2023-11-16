@@ -37,7 +37,7 @@ tags:
 
 ### 第三方包
 
-- io.netty:netty-all:jar:4.1.22.Final, <https://wiloon.com/netty>
+- io.netty:netty-all:jar:4.1.22.Final, [https://wiloon.com/netty](https://wiloon.com/netty)
 - junit:junit:jar:4.12
 - com.squareup.okhttp3:okhttp:jar:4.7.2
 - com.google.guava:guava:jar:19.0
@@ -89,7 +89,7 @@ tags:
 
 ### dev env
 
-- 字体 <https://blog.wiloon.com/?p=6077>
+- 字体 [https://blog.wiloon.com/?p=6077](https://blog.wiloon.com/?p=6077)
 
 ### board, dev server
 

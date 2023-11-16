@@ -10,7 +10,7 @@ tags:
 ---
 ## /dev/shm
 
-<http://dbua.iteye.com/blog/1271574>
+[http://dbua.iteye.com/blog/1271574](http://dbua.iteye.com/blog/1271574)
 
 1.linux下的/dev/shm是什么？
   

@@ -57,37 +57,37 @@ CORS需要浏览器和服务器同时支持。目前，所有浏览器都支持�
 
 因此，实现CORS通信的关键是服务器。只要服务器实现了CORS接口，就可以跨源通信。
 
-<https://www.ruanyifeng.com/blog/2016/04/cors.html>
+[https://www.ruanyifeng.com/blog/2016/04/cors.html](https://www.ruanyifeng.com/blog/2016/04/cors.html)
 
 由于现实使用中，很多需要跨域访问，所以 W3C 标准就提出了 CORS。
 
 跨域资源共享(CORS) 是一种机制，它使用额外的 HTTP 头来告诉浏览器 让运行在一个 origin (domain) 上的Web应用被准许访问来自不同源服务器上的指定的资源。当一个资源从与该资源本身所在的服务器不同的域、协议或端口请求一个资源时，资源会发起一个跨域 HTTP 请求。
 
-具体查看官方文档：<https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Access_control_CORS>
-<https://tech.meituan.com/2018/09/27/fe-security.html>
+具体查看官方文档：[https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Access_control_CORS](https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Access_control_CORS)
+[https://tech.meituan.com/2018/09/27/fe-security.html](https://tech.meituan.com/2018/09/27/fe-security.html)
 简单里的理解，就是 CORS 提供了一种设置你的页面可以访问指定的域名下的资源 (API）的方法。当然这些域名是你受信任的。从而避免了 CRSF 攻击。CORS 就像是一个过滤器。
 
 注意：很多开发者在碰到跨域问题提时，通过搜索得到的答案就是直接设置 Oragin: * 这样的结果就是你的网页信任任何域名，虽然达到了跨域访问的目的，但是同时失去了 CORS 的意义，因为你设置了这个过滤器不过滤任何域
 
-<https://www.ruanyifeng.com/blog/2016/04/cors.html>  
-<https://tech.meituan.com/2018/09/27/fe-security.html>  
-<https://github.com/OWASP?page=5>  
+[https://www.ruanyifeng.com/blog/2016/04/cors.html](https://www.ruanyifeng.com/blog/2016/04/cors.html)  
+[https://tech.meituan.com/2018/09/27/fe-security.html](https://tech.meituan.com/2018/09/27/fe-security.html)  
+[https://github.com/OWASP?page=5](https://github.com/OWASP?page=5)  
 
-<https://github.com/owasp/java-html-sanitizer>
+[https://github.com/owasp/java-html-sanitizer](https://github.com/owasp/java-html-sanitizer)
 
-<https://www.owasp.org/index.php/Category:OWASP_AntiSamy_Project>
+[https://www.owasp.org/index.php/Category:OWASP_AntiSamy_Project](https://www.owasp.org/index.php/Category:OWASP_AntiSamy_Project)
 
-<https://mvnrepository.com/artifact/org.owasp.antisamy/antisamy>
+[https://mvnrepository.com/artifact/org.owasp.antisamy/antisamy](https://mvnrepository.com/artifact/org.owasp.antisamy/antisamy)
 
-<https://github.com/GDSSecurity/AntiXSS-for-Java>
+[https://github.com/GDSSecurity/AntiXSS-for-Java](https://github.com/GDSSecurity/AntiXSS-for-Java)
 
-<https://segmentfault.com/a/1190000007059639>
+[https://segmentfault.com/a/1190000007059639](https://segmentfault.com/a/1190000007059639)
 
-<https://www.freebuf.com/sectool/134015.html>
+[https://www.freebuf.com/sectool/134015.html](https://www.freebuf.com/sectool/134015.html)
 
-<https://blog.csdn.net/ru_li/article/details/51334082>
+[https://blog.csdn.net/ru_li/article/details/51334082](https://blog.csdn.net/ru_li/article/details/51334082)
 
-<https://blog.csdn.net/zer0_o/article/details/28399533>
+[https://blog.csdn.net/zer0_o/article/details/28399533](https://blog.csdn.net/zer0_o/article/details/28399533)
 
 ```html
 <!DOCTYPE html>
@@ -173,4 +173,4 @@ xhr.withCredentials = true;
 xhr.withCredentials = false;
 需要注意的是，如果要发送Cookie，Access-Control-Allow-Origin就不能设为星号，必须指定明确的、与请求网页一致的域名。同时，Cookie依然遵循同源政策，只有用服务器域名设置的Cookie才会上传，其他域名的Cookie并不会上传，且 (跨源）原网页代码中的document.cookie也无法读取服务器域名下的Cookie。
 
-><https://www.ruanyifeng.com/blog/2016/04/cors.html>
+>[https://www.ruanyifeng.com/blog/2016/04/cors.html](https://www.ruanyifeng.com/blog/2016/04/cors.html)

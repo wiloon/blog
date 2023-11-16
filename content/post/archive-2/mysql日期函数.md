@@ -628,4 +628,4 @@ select date_sub('2008-08-08 12:00:00', interval 8 hour); - 2008-08-08 04:00:00
   
 select timestampadd(hour, -8, '2008-08-08 12:00:00'); - 2008-08-08 04:00:00
 
-<http://xuantan.iteye.com/blog/1143706>
+[http://xuantan.iteye.com/blog/1143706](http://xuantan.iteye.com/blog/1143706)

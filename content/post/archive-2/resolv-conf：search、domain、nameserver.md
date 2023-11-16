@@ -10,7 +10,7 @@ tags:
 ---
 ## 'resolv.conf, search, domain, nameserver, DNS'
 
-<http://www.ttlsa.com/linux/resolv-conf-desc/>
+[http://www.ttlsa.com/linux/resolv-conf-desc/](http://www.ttlsa.com/linux/resolv-conf-desc/)
   
 resolv.conf 是 resolver 类库使用的配置文件, 每当一个程序需要通过域名来访问 internet 上面的其它主机时, 需要利用该类库将域名转换成对应的IP, 然后才可进行访问.
 
@@ -58,7 +58,7 @@ PING news.google.com (74.125.128.101) 56(84) bytes of data.
   
 /etc/nsswitch.conf: 这个档案则是在『决定』先要使用 /etc/hosts 还是 /etc/resolv.conf的设定！
   
-<https://www.jianshu.com/p/2c1c081cc521>
+[https://www.jianshu.com/p/2c1c081cc521](https://www.jianshu.com/p/2c1c081cc521)
 
 ## /etc/hosts
 

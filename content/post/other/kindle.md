@@ -16,7 +16,7 @@ tags:
 
 ### 设置/查看 amazon账号配置的kindle 邮箱地址
 
-<https://www.amazon.cn/hz/mycd/myx#/home/settings/payment>
+[https://www.amazon.cn/hz/mycd/myx#/home/settings/payment](https://www.amazon.cn/hz/mycd/myx#/home/settings/payment)
 
 账户列表》 数字内容和设备》内容和设备》首选项》个人文档设置》〖发送至Kindle〗电子邮箱
 

@@ -74,7 +74,7 @@ func main() {
 }
 ```
 
-<https://my.oschina.net/u/943306/blog/149395>
+[https://my.oschina.net/u/943306/blog/149395](https://my.oschina.net/u/943306/blog/149395)
 
 ### After函数 time.After(time.Duration)
 
@@ -106,7 +106,7 @@ fmt.Println("the 4")
 
 //打印the 4
 
-<http://www.jianshu.com/p/8fd62c805ee5>
+[http://www.jianshu.com/p/8fd62c805ee5](http://www.jianshu.com/p/8fd62c805ee5)
 
 Go有一个package名字叫time,通过这个package可以很容易的实现与时间有关的操作。time package中有一个ticker结构,可以实现定时任务。
 
@@ -128,12 +128,12 @@ fmt.Printf("ticked at %v", time.Now())
 
 作者: 蓝色信仰
 
-链接: <http://www.jianshu.com/p/8fd62c805ee5>
+链接: [http://www.jianshu.com/p/8fd62c805ee5](http://www.jianshu.com/p/8fd62c805ee5)
 
 來源: 简书
 
 著作权归作者所有。商业转载请联系作者获得授权,非商业转载请注明出处。
 
-<https://github.com/golang/go/issues/17601>
+[https://github.com/golang/go/issues/17601](https://github.com/golang/go/issues/17601)
 
-<https://blog.csdn.net/lanyang123456/article/details/79794183>
+[https://blog.csdn.net/lanyang123456/article/details/79794183](https://blog.csdn.net/lanyang123456/article/details/79794183)

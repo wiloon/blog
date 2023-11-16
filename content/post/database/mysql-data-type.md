@@ -228,7 +228,7 @@ Rows: MySQL Query Optimizer 通过系统收集的统计信息估算出来的结�
 
 Extra: 查询中每一步实现的额外细节信息，主要会是以下内容。
 
-注: <http://www.cnblogs.com/hustcat/articles/1579244.html>
+注: [http://www.cnblogs.com/hustcat/articles/1579244.html](http://www.cnblogs.com/hustcat/articles/1579244.html)
 
             (2) profile的意义以及使用场景。
 
@@ -296,7 +296,7 @@ Extra: 查询中每一步实现的额外细节信息，主要会是以下内容�
 buffer pool的大小，默认值128MB，建议为总内存的80%(InnoDB还要为buffer pool预留一些空间供control structures使用，因此实际大小为设定值的110%左右)
 
 该参数定义了 InnoDB 存储引擎的表数据和索引数据的最大内存缓冲区大小。和 MyISAM 存储引擎不同，MyISAM 的 key_buffer_size只缓存索引键， 而 innodb_buffer_pool_size 却是同时为数据块和索引块做缓存，这个特性和 Oracle 是一样的。这个值设得越高，访问 表中数据需要的磁盘 I/O 就越少。在一个专用的数据库服务器上，可以设置这个参数达机器 物理内存大小的 80%。尽管如此，还是建议用户不要把它设置得太大，因为对物理内存的竞 争可能在操作系统上导致内存调度。  
-<https://zhuanlan.zhihu.com/p/60089484>  
+[https://zhuanlan.zhihu.com/p/60089484](https://zhuanlan.zhihu.com/p/60089484)  
 
   Innodb_read_io_thread，根据处理器内核数决定；
 
@@ -371,4 +371,4 @@ buffer pool的大小，默认值128MB，建议为总内存的80%(InnoDB还要为
 
    原因是:innodb是将primary key index和相关的行数据共同放在B+树的叶节点；innodb一定会有一个primary key，secondary index查找的时候，也是通过找到对应的primary，再找对应的数据行；
 
-<http://www.cnblogs.com/wyeat/p/job_interview2.html>
+[http://www.cnblogs.com/wyeat/p/job_interview2.html](http://www.cnblogs.com/wyeat/p/job_interview2.html)

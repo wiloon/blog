@@ -10,7 +10,7 @@ tags:
 ---
 ## raspberry pi router
 
-<http://www.embeddedlinux.org.cn/emb-linux/entry-level/201703/18-6294.html>
+[http://www.embeddedlinux.org.cn/emb-linux/entry-level/201703/18-6294.html](http://www.embeddedlinux.org.cn/emb-linux/entry-level/201703/18-6294.html)
 
 ```bash
 sudo -i
@@ -101,12 +101,12 @@ vim /etc/rc.local
 iptables-restore < /etc/iptables.ipv4.nat
 ```
 
-<https://www.raspberrypi.org/documentation/configuration/wireless/access-point.md>
-<https://blog.csdn.net/u012313335/article/details/73992102>
-<https://gist.github.com/snakevil/7d7af1d8ca2c739e3fedc5b15eb8e4aa>
+[https://www.raspberrypi.org/documentation/configuration/wireless/access-point.md](https://www.raspberrypi.org/documentation/configuration/wireless/access-point.md)
+[https://blog.csdn.net/u012313335/article/details/73992102](https://blog.csdn.net/u012313335/article/details/73992102)
+[https://gist.github.com/snakevil/7d7af1d8ca2c739e3fedc5b15eb8e4aa](https://gist.github.com/snakevil/7d7af1d8ca2c739e3fedc5b15eb8e4aa)
   
 bridge
   
-<http://www.instructables.com/id/Use-Raspberry-Pi-3-As-Router/>
-<https://wireless.wiki.kernel.org/en/users/Drivers/ath10k/configuration>
-<https://www.raspberrypi.org/forums/viewtopic.php?t=80299>
+[http://www.instructables.com/id/Use-Raspberry-Pi-3-As-Router/](http://www.instructables.com/id/Use-Raspberry-Pi-3-As-Router/)
+[https://wireless.wiki.kernel.org/en/users/Drivers/ath10k/configuration](https://wireless.wiki.kernel.org/en/users/Drivers/ath10k/configuration)
+[https://www.raspberrypi.org/forums/viewtopic.php?t=80299](https://www.raspberrypi.org/forums/viewtopic.php?t=80299)

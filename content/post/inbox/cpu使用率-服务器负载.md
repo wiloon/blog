@@ -10,7 +10,7 @@ tags:
 ---
 ## CPU 使用率, 服务器负载
 
-<http://www.jianshu.com/p/e134b8498413>
+[http://www.jianshu.com/p/e134b8498413](http://www.jianshu.com/p/e134b8498413)
 
 load average: 系统平均负载是 CPU 的Load, 它所包含的信息不是 CPU 的使用率状况, 而是在一段时间内 CPU 正在处理以及等待 CPU 处理的进程数之和的统计信息, 也就是 CPU 使用队列的长度的统计信息, 这个数字越小越好。
 

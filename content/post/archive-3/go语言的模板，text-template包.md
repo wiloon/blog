@@ -325,4 +325,4 @@ hi false{{end}}
   
 只有这样写，不管有没有"Thank you"，正文和Best wishes,之间始终只有1行空白
 
-<https://my.oschina.net/u/943306/blog/153156>
+[https://my.oschina.net/u/943306/blog/153156](https://my.oschina.net/u/943306/blog/153156)

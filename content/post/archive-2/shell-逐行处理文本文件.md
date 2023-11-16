@@ -10,7 +10,7 @@ tags:
 ---
 ## Shell 逐行处理文本文件， shell 读文件
 
-<https://www.cnblogs.com/dwdxdy/archive/2012/07/25/2608816.html>
+[https://www.cnblogs.com/dwdxdy/archive/2012/07/25/2608816.html](https://www.cnblogs.com/dwdxdy/archive/2012/07/25/2608816.html)
 
 ## read命令
 

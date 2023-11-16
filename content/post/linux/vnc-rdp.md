@@ -24,4 +24,4 @@ RDP 又是什么？
 
 VNC协议是基于像素的。尽管这带来了极大的灵活性，可以显示任何类型的桌面，但它的效率往往不如那些更好地理解底层图形布局(例 如： X11)或桌面(例如：RDP )的解决方案。这些协议以更简单的形式(例如：打开窗口)发送图形原语或高级命令，而 VNC 的 RFB 协议尽管支持压缩但只能是发送原始像素数据。
 
-<https://aws.amazon.com/cn/blogs/china/vnc-or-rdp-how-to-choose-a-remote-desktop-on-the-cloud/>
+[https://aws.amazon.com/cn/blogs/china/vnc-or-rdp-how-to-choose-a-remote-desktop-on-the-cloud/](https://aws.amazon.com/cn/blogs/china/vnc-or-rdp-how-to-choose-a-remote-desktop-on-the-cloud/)

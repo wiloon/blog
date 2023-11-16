@@ -295,5 +295,5 @@ Zookeeper 作为 Hadoop 项目中的一个子项目,是 Hadoop 集群管理的�
 
 本文介绍的 Zookeeper 的基本知识,以及介绍了几个典型的应用场景。这些都是 Zookeeper 的基本功能,最重要的是 Zoopkeeper 提供了一套很好的分布式集群管理的机制,就是它这种基于层次型的目录树的数据结构,并对树中的节点进行有效管理,从而可以设计出多种多样的分布式的数据管理模型,而不仅仅局限于上面提到的几个常用应用场景。
 
-><https://blog.csdn.net/zzhongcy/article/details/89401204>
-><https://draveness.me/zookeeper-chubby/>
+>[https://blog.csdn.net/zzhongcy/article/details/89401204](https://blog.csdn.net/zzhongcy/article/details/89401204)
+>[https://draveness.me/zookeeper-chubby/](https://draveness.me/zookeeper-chubby/)

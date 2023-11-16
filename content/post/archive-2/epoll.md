@@ -420,7 +420,7 @@ kqueue设计的目的并非是为了替代基于 socket 事件复用技术的sel
 kqueue API由两个函数调用 ( kqueue()与kevent()) 和一个辅助设置事件的宏组成。
 ————————————————
 版权声明: 本文为CSDN博主「白夜行515」的原创文章,遵循CC 4.0 BY-SA版权协议,转载请附上原文出处链接及本声明。
-原文链接: <https://blog.csdn.net/baiye_xing/article/details/76360247>
+原文链接: [https://blog.csdn.net/baiye_xing/article/details/76360247](https://blog.csdn.net/baiye_xing/article/details/76360247)
 
 ### LT, ET
 
@@ -432,7 +432,7 @@ epoll的两种模式,电平触发和边沿触发。
 
 2.边沿触发效率较高,内核缓冲区事件只通知一次。
 
-<https://bingowith.me/2019/10/03/et-lt-intro/>
+[https://bingowith.me/2019/10/03/et-lt-intro/](https://bingowith.me/2019/10/03/et-lt-intro/)
 
 这两个名词应该来源于电气,用于激活电路.摘取一段爆栈网的回答:
 
@@ -479,11 +479,11 @@ java中只支持LT,netty通过JNI实现了ET,选择的原因在一个邮件里�
 这边就进行了简单的一些资料整合,没有涉及到更深的内容,如果文中有什么错误欢迎评论.
 
 参考资料:
-<https://netty.io/wiki/native-transports.html>
+[https://netty.io/wiki/native-transports.html](https://netty.io/wiki/native-transports.html)
 
-<http://man7.org/linux/man-pages/man7/epoll.7.html>
+[http://man7.org/linux/man-pages/man7/epoll.7.html](http://man7.org/linux/man-pages/man7/epoll.7.html)
 
-<https://github.com/tokio-rs/mio>
+[https://github.com/tokio-rs/mio](https://github.com/tokio-rs/mio)
 
 ### libevent介绍
 
@@ -492,13 +492,13 @@ Libevent 已经被广泛的应用,作为底层的网络库；比如 memcached、
 
 ---
 
-<https://segmentfault.com/a/1190000003063859>
+[https://segmentfault.com/a/1190000003063859](https://segmentfault.com/a/1190000003063859)
   
-<https://zhuanlan.zhihu.com/p/22803683>
+[https://zhuanlan.zhihu.com/p/22803683](https://zhuanlan.zhihu.com/p/22803683)
 
-<https://zhuanlan.zhihu.com/p/36764771>
+[https://zhuanlan.zhihu.com/p/36764771](https://zhuanlan.zhihu.com/p/36764771)
 
-<https://www.cnblogs.com/fg123/p/5256553.html>
+[https://www.cnblogs.com/fg123/p/5256553.html](https://www.cnblogs.com/fg123/p/5256553.html)
 
-<http://luodw.cc/2016/01/24/epoll/>
-><https://wiyi.org/linux-io-model.html>
+[http://luodw.cc/2016/01/24/epoll/](http://luodw.cc/2016/01/24/epoll/)
+>[https://wiyi.org/linux-io-model.html](https://wiyi.org/linux-io-model.html)

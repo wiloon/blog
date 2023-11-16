@@ -39,13 +39,13 @@ fi
 
 sddm
   
-<https://wiki.archlinux.org/index.php/Display_manager#Loading_the_display_manager>
+[https://wiki.archlinux.org/index.php/Display_manager#Loading_the_display_manager](https://wiki.archlinux.org/index.php/Display_manager#Loading_the_display_manager)
 
  [1]: https://wiki.archlinux.org/index.php/Xinit#Autostart_X_at_login "https://wiki.archlinux.org/index.php/Xinit#Autostart_X_at_login"
 
 ### 锁屏界面的日期时间格式
 
-<https://chubuntu.com/questions/28565/how-to-display-kde-lock-screen-time-in-24-hour-format.html>
+[https://chubuntu.com/questions/28565/how-to-display-kde-lock-screen-time-in-24-hour-format.html](https://chubuntu.com/questions/28565/how-to-display-kde-lock-screen-time-in-24-hour-format.html)
 
 ```bash
 vim  /usr/share/plasma/look-and-feel/org.kde.breeze.desktop/contents/components/Clock.qml
@@ -97,5 +97,5 @@ meson build/ --prefix=/root/tmp/foo
 # Failed to load module: libicuuc.so.70, 等 weston 升版本
 ```
 
-<https://man.archlinux.org/man/weston.1>
-<https://gitlab.freedesktop.org/wayland/weston>
+[https://man.archlinux.org/man/weston.1](https://man.archlinux.org/man/weston.1)
+[https://gitlab.freedesktop.org/wayland/weston](https://gitlab.freedesktop.org/wayland/weston)

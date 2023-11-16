@@ -83,6 +83,6 @@ ij> disconnect;
 ij> exit;
 
 
-<http://itmingong.iteye.com/blog/1338722>
+[http://itmingong.iteye.com/blog/1338722](http://itmingong.iteye.com/blog/1338722)
 
-<http://www.oracle.com/technetwork/java/javadb/overview/index.html>
+[http://www.oracle.com/technetwork/java/javadb/overview/index.html](http://www.oracle.com/technetwork/java/javadb/overview/index.html)

@@ -194,7 +194,7 @@ public class Thread extends Object implements Runnable
 
 发现Thread类也是Runnable接口的子类。
 
-<http://jinguo.iteye.com/blog/286772>
+[http://jinguo.iteye.com/blog/286772](http://jinguo.iteye.com/blog/286772)
 
 Runnable是Thread的接口，在大多数情况下"推荐用接口的方式"生成线程，因为接口可以实现多继承，况且Runnable只有一个run方法，很适合继承。
 
@@ -318,7 +318,7 @@ ExecutorService es = Executors.newSingleThreadExecutor();
 
 什么是竞争条件以及竞争条件为什么会产生漏洞  
 竞争条件是系统中的一种反常现象， 由于现代Linux系统中大量使用并发编程，对资源进行共享，如果产生错误的访问模式，便可能产生内存泄露， 系统崩溃，数据破坏，甚至安全问题。 竞争条件漏洞就是多个进程访问同一资源时产生的时间或者序列的冲突，并利用这个冲突来对系统进行攻击。 一个看起来无害的程序如果被恶意攻击者利用，将发生竞争条件漏洞  
-<https://www.cnblogs.com/0xJDchen/p/5988275.html>
+[https://www.cnblogs.com/0xJDchen/p/5988275.html](https://www.cnblogs.com/0xJDchen/p/5988275.html)
 
 ### 数据争用(data race) 和竞态条件(race condition)
 
@@ -511,36 +511,36 @@ hadMerchanddis.add(user, merchanddis);
 
 ---
 
-<http://blog.csdn.net/wwww1988600/article/details/7309070>
+[http://blog.csdn.net/wwww1988600/article/details/7309070](http://blog.csdn.net/wwww1988600/article/details/7309070)
 
-<https://www.kancloud.cn/digest/java-multithreading/134267>
+[https://www.kancloud.cn/digest/java-multithreading/134267](https://www.kancloud.cn/digest/java-multithreading/134267)
 
 locl condition
 
-<http://blog.csdn.net/ghsau/article/details/7481142>
+[http://blog.csdn.net/ghsau/article/details/7481142](http://blog.csdn.net/ghsau/article/details/7481142)
 
 ### 创建和启动线程的三种方式
 
- <https://jisonami.github.io/2016/09/04/JavaThread1/>
+ [https://jisonami.github.io/2016/09/04/JavaThread1/](https://jisonami.github.io/2016/09/04/JavaThread1/)
 
 ### 多线程的代价及上下文切换
 
-<http://www.wiloon.com/?p=9968>
+[http://www.wiloon.com/?p=9968](http://www.wiloon.com/?p=9968)
 
-<http://www.wiloon.com/?p=9968&embed=true#?secret=Y65uz4t1vN>
+[http://www.wiloon.com/?p=9968&embed=true#?secret=Y65uz4t1vN](http://www.wiloon.com/?p=9968&embed=true#?secret=Y65uz4t1vN)
 
-<https://blog.csdn.net/gg_18826075157/article/details/72582939>
+[https://blog.csdn.net/gg_18826075157/article/details/72582939](https://blog.csdn.net/gg_18826075157/article/details/72582939)
 
 ————————————————
 版权声明: 本文为CSDN博主「烧煤的快感」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
-原文链接: <https://blog.csdn.net/gg_18826075157/article/details/72582939>
+原文链接: [https://blog.csdn.net/gg_18826075157/article/details/72582939](https://blog.csdn.net/gg_18826075157/article/details/72582939)
 
-<https://www.cnblogs.com/skywang12345/p/java_threads_category.html>
+[https://www.cnblogs.com/skywang12345/p/java_threads_category.html](https://www.cnblogs.com/skywang12345/p/java_threads_category.html)
 
 作者: _____Mori_
-链接: <https://www.jianshu.com/p/b9d3468d9baf>
+链接: [https://www.jianshu.com/p/b9d3468d9baf](https://www.jianshu.com/p/b9d3468d9baf)
 来源: 简书
 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
 
-<http://www.spring4all.com/article/806>
-<https://blog.csdn.net/zqz_zqz/article/details/70233767>
+[http://www.spring4all.com/article/806](http://www.spring4all.com/article/806)
+[https://blog.csdn.net/zqz_zqz/article/details/70233767](https://blog.csdn.net/zqz_zqz/article/details/70233767)

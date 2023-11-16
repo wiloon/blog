@@ -440,7 +440,7 @@ dir /data/redisdata
 
 3. 这两个缺点是个很大的痛点。为了解决这些痛点，GitHub的两位工程师 Bryana Knight 和 Miguel Fernández 日前写了一篇 文章 ，讲述了将持久数据从Redis迁出的经验:
 
-<http://www.open-open.com/lib/view/open1487736984424.html>
+[http://www.open-open.com/lib/view/open1487736984424.html](http://www.open-open.com/lib/view/open1487736984424.html)
   
 ### AOF持久化
 
@@ -496,13 +496,13 @@ AOF的重写也分为手动触发与自动触发
 
 版权声明: 本文为CSDN博主「ljheee」的原创文章，遵循 CC 4.0 BY-SA 版权协议，转载请附上原文出处链接及本声明。
   
-原文链接: <https://blog.csdn.net/ljheee/article/details/76284082>
+原文链接: [https://blog.csdn.net/ljheee/article/details/76284082](https://blog.csdn.net/ljheee/article/details/76284082)
 
-<https://zhuanlan.zhihu.com/p/98497789>
+[https://zhuanlan.zhihu.com/p/98497789](https://zhuanlan.zhihu.com/p/98497789)
 
-<https://segmentfault.com/a/1190000022792882>
+[https://segmentfault.com/a/1190000022792882](https://segmentfault.com/a/1190000022792882)
 
 作者: TurboSnail
-链接: <https://juejin.cn/post/6844903939339452430>
+链接: [https://juejin.cn/post/6844903939339452430](https://juejin.cn/post/6844903939339452430)
 来源: 掘金
 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。

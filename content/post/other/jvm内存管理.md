@@ -10,15 +10,15 @@ tags:
 ---
 ## java JVM 内存问题 调查,调优
 
-<https://my.oschina.net/u/3345762/blog/1784199>
+[https://my.oschina.net/u/3345762/blog/1784199](https://my.oschina.net/u/3345762/blog/1784199)
   
-<https://my.oschina.net/u/3345762/blog/1644973>
+[https://my.oschina.net/u/3345762/blog/1644973](https://my.oschina.net/u/3345762/blog/1644973)
 
-<http://www.infoq.com/cn/articles/Troubleshooting-Java-Memory-Issues?utm_campaign=infoq_content&utm_source=infoq&utm_medium=feed&utm_term=global>
+[http://www.infoq.com/cn/articles/Troubleshooting-Java-Memory-Issues?utm_campaign=infoq_content&utm_source=infoq&utm_medium=feed&utm_term=global](http://www.infoq.com/cn/articles/Troubleshooting-Java-Memory-Issues?utm_campaign=infoq_content&utm_source=infoq&utm_medium=feed&utm_term=global)
 
-<http://www.importnew.com/14933.html>
+[http://www.importnew.com/14933.html](http://www.importnew.com/14933.html)
   
-<http://lovestblog.cn/blog/2015/08/21/rssxmx/>
+[http://lovestblog.cn/blog/2015/08/21/rssxmx/](http://lovestblog.cn/blog/2015/08/21/rssxmx/)
 
 ```bash
   
@@ -198,7 +198,7 @@ finalize()在什么时候被调用?
 
 3.System.GC 算法
 
-<http://timyang.net/java/java_gc_tunning/>
+[http://timyang.net/java/java_gc_tunning/](http://timyang.net/java/java_gc_tunning/)
 
 Java垃圾回收调优
   
@@ -286,6 +286,6 @@ Java中有四种不同的回收算法,对应的启动参数为
   
 另外在今年的Sun Tech Days上Joey Shen讲的Improving Java Performance(PDF)也是一个很好的Java GC调优的入门教程。
 
-<http://zhanjindong.com/2016/03/02/jvm-memory-tunning-notes>
+[http://zhanjindong.com/2016/03/02/jvm-memory-tunning-notes](http://zhanjindong.com/2016/03/02/jvm-memory-tunning-notes)
   
-<https://stackoverflow.com/questions/12916603/what-s-the-purpose-of-mmap-memory-protection-prot-none>
+[https://stackoverflow.com/questions/12916603/what-s-the-purpose-of-mmap-memory-protection-prot-none](https://stackoverflow.com/questions/12916603/what-s-the-purpose-of-mmap-memory-protection-prot-none)

@@ -11,7 +11,7 @@ tags:
 ---
 ## SKU
 
-<http://baike.baidu.com/view/276922.htm>
+[http://baike.baidu.com/view/276922.htm](http://baike.baidu.com/view/276922.htm)
 
 SKU=Stock Keeping Unit (库存量单位) 。即库存进出计量的单位,可以是以件,盒,托盘等为单位。SKU这是对于大型连锁超市DC (配送中心) 物流管理的一个必要的方法。现在已经被我们引申为产品统一编号的简称,每种产品均对应有唯一的SKU号。单品: 对一种商品而言,当其品牌、型号、配置、等级、花色、包装容量、单位、生产日期、保质期、用途、价格、产地等属性与其他商品存在不同时,可称为一个单品。[1]
 

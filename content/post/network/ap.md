@@ -22,12 +22,12 @@ Wi-Fi非常稳定,快速漫游、无缝切换、 5G占比调节等都是基本�
 
 ---
 
-<https://zhuanlan.zhihu.com/p/118554342>
+[https://zhuanlan.zhihu.com/p/118554342](https://zhuanlan.zhihu.com/p/118554342)
 
 ## RUCKUS H320
 
-<https://webresources.ruckuswireless.com/datasheets/h320/ds-commscope-h320-zh-cn.html>
+[https://webresources.ruckuswireless.com/datasheets/h320/ds-commscope-h320-zh-cn.html](https://webresources.ruckuswireless.com/datasheets/h320/ds-commscope-h320-zh-cn.html)
 
 ## H350
 
-<https://support.ruckuswireless.com/products/191-ruckus-h350?open=document#sort=relevancy&f:@source=[Documentation]&f:@commonproducts=[H350]>
+[https://support.ruckuswireless.com/products/191-ruckus-h350?open=document#sort=relevancy&f:@source=[Documentation]&f:@commonproducts=[H350]](https://support.ruckuswireless.com/products/191-ruckus-h350?open=document#sort=relevancy&f:@source=[Documentation]&f:@commonproducts=[H350])

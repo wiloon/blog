@@ -11,7 +11,7 @@ tags:
 ---
 ## putty ssh 超时
 
-<http://blog.fens.me/putty-timeout/>
+[http://blog.fens.me/putty-timeout/](http://blog.fens.me/putty-timeout/)
   
     用Putty进行SSH连接的时候，如果几分钟没动，就会出现断线的情况，然后Putty客户端就死了。
   

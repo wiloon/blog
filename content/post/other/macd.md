@@ -329,6 +329,6 @@ MACD指标的一般研判标准主要是围绕快速和慢速两条均线及红�
 
 大趋势的转变。
 
-<http://baike.baidu.com/view/1073868.htm?fromtitle=%E5%B9%B3%E6%BB%91%E5%BC%82%E5%90%8C%E7%A7%BB%E5%8A%A8%E5%B9%B3%E5%9D%87%E7%BA%BF&fromid=1982903&type=syn>
+[http://baike.baidu.com/view/1073868.htm?fromtitle=%E5%B9%B3%E6%BB%91%E5%BC%82%E5%90%8C%E7%A7%BB%E5%8A%A8%E5%B9%B3%E5%9D%87%E7%BA%BF&fromid=1982903&type=syn](http://baike.baidu.com/view/1073868.htm?fromtitle=%E5%B9%B3%E6%BB%91%E5%BC%82%E5%90%8C%E7%A7%BB%E5%8A%A8%E5%B9%B3%E5%9D%87%E7%BA%BF&fromid=1982903&type=syn)
 
-<http://www.icbc.com.cn/ICBCCollege/client/page/KnowledgeDetail.aspx?ItemID=633787143353893914>
+[http://www.icbc.com.cn/ICBCCollege/client/page/KnowledgeDetail.aspx?ItemID=633787143353893914](http://www.icbc.com.cn/ICBCCollege/client/page/KnowledgeDetail.aspx?ItemID=633787143353893914)

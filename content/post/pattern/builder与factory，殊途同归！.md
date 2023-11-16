@@ -10,7 +10,7 @@ tags:
 
 ---
 ## Builder, Factory
-<http://www.cnblogs.com/shenfx318/archive/2007/01/28/632724.html>
+[http://www.cnblogs.com/shenfx318/archive/2007/01/28/632724.html](http://www.cnblogs.com/shenfx318/archive/2007/01/28/632724.html)
 
   
     

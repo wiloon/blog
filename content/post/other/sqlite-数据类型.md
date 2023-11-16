@@ -97,4 +97,4 @@ tags:
   
     所以一般来说，如果含有中文字符，用nchar/nvarchar，如果纯英文和数字，用char/varchar。
   
-<http://blog.csdn.net/jin868/article/details/5961263>
+[http://blog.csdn.net/jin868/article/details/5961263](http://blog.csdn.net/jin868/article/details/5961263)

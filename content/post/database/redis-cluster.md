@@ -12,7 +12,7 @@ tags:
 
 redis 工作在集群模式的时候除了常规的 tcp 端口 6379, 还需要一个额外的 TCP 端口跟集群内的其它节点通信, 端口号是在 tcp 端口基础上加一个固定的偏移量 10000, `6379 + 10000 = 16379`
 
-<https://rajivsharma-2205.medium.com/enable-tcp-keepalive-on-redis-cluster-bus-153128e412fa>
+[https://rajivsharma-2205.medium.com/enable-tcp-keepalive-on-redis-cluster-bus-153128e412fa](https://rajivsharma-2205.medium.com/enable-tcp-keepalive-on-redis-cluster-bus-153128e412fa)
 
 redis5.0.x 上 redis-trib.rb 工具不再可用，redis-trib.rb 相关的全部功能，已迁移到 redis-cli --cluster 命令上了。
 
@@ -94,12 +94,12 @@ cluster info
 
 16348=16k, 用 bitmap 来压缩心跳包的话, 就相当于使用 2_8_10=2KB 大小的心跳包。而如果用 crc16 算法( redis使用这个而不是用哈希一致性算法)来确定哈希槽的分配。他的最大值是是2的16次方。用上面的算法换算需要8KB的心跳包来传输, 作者自己认为这样不划算。而一个redis节点一般不会有超过 1000 个master(这个是作者自己说的), 用16k 来划分是比较合适的
 
-<https://www.zhihu.com/question/54817522>
+[https://www.zhihu.com/question/54817522](https://www.zhihu.com/question/54817522)
 
-<https://github.com/antirez/redis/issues/2576>
+[https://github.com/antirez/redis/issues/2576](https://github.com/antirez/redis/issues/2576)
 
 ```bash
-wget <https://download.redis.io/releases/redis-6.2.4.tar.gz>
+wget [https://download.redis.io/releases/redis-6.2.4.tar.gz](https://download.redis.io/releases/redis-6.2.4.tar.gz)
 tar xzf redis-6.2.4.tar.gz
 cd redis-6.2.4
 make
@@ -154,7 +154,7 @@ cd 7000
 
 redis requires Ruby version >= 2.2.2
   
-<https://blog.csdn.net/FengYe_YuLu/article/details/77628094>
+[https://blog.csdn.net/FengYe_YuLu/article/details/77628094](https://blog.csdn.net/FengYe_YuLu/article/details/77628094)
 
 这个命令在这里用于创建一个新的集群, 选项–replicas 1 表示我们希望为集群中的每个主节点创建一个从节点。
 
@@ -262,13 +262,13 @@ OK: 集群可以正常工作,负责处理全部16384个槽节点中,没有一个
 在集群的生命周期中, 如果一个带有 PROMOTED 标识的主节点因为某些原因转变成了从节点, 那么该节点将丢失它所带有的 PROMOTED 标识。
 ————————————————
 版权声明: 本文为CSDN博主「艾米莉Emily」的原创文章,遵循CC 4.0 BY-SA版权协议,转载请附上原文出处链接及本声明。
-原文链接: <https://blog.csdn.net/yaomingyang/article/details/79081299>
+原文链接: [https://blog.csdn.net/yaomingyang/article/details/79081299](https://blog.csdn.net/yaomingyang/article/details/79081299)
 
-<https://redis.io/topics/cluster-spec>
+[https://redis.io/topics/cluster-spec](https://redis.io/topics/cluster-spec)
 
-<http://greemranqq.iteye.com/blog/2229640>
+[http://greemranqq.iteye.com/blog/2229640](http://greemranqq.iteye.com/blog/2229640)
 
-<http://redis.cn/topics/cluster-tutorial.html>
+[http://redis.cn/topics/cluster-tutorial.html](http://redis.cn/topics/cluster-tutorial.html)
 
 ## redis-cli --cluster help
 
@@ -312,7 +312,7 @@ Cluster Manager Commands:
 
 ```
 
-<https://redis.io/docs/manual/scaling/>
+[https://redis.io/docs/manual/scaling/](https://redis.io/docs/manual/scaling/)
 
 ## k8s, redis-cluster
 

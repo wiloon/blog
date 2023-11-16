@@ -22,13 +22,13 @@ log4j是apache基金会的一个项目,日志记录器(Logger)是日志处理的
 分为OFF、FATAL、ERROR、WARN、INFO、DEBUG、TRACE、ALL或者您定义的级别。  
 Log4j建议只使用四个级别，优先级从高到低分别是ERROR、WARN、INFO、DEBUG。通过在这里定义的级别，您可以控制到应用程序中相应级别的日志信息的开关。比如在这里定义了INFO级别，则应用程序中所有DEBUG级别的日志信息将不被打印出来。程序会打印高于或等于所设置级别的日志，设置的日志等级越高，打印出来的日志就越少。如果设置级别为INFO，则优先级高于等于INFO级别 (如: INFO、WARN、ERROR) 的日志信息将可以被输出,小于该级别的如DEBUG将不会被输出。
 
-<http://blog.sina.com.cn/s/blog_9c7ba64d01012z02.html>
+[http://blog.sina.com.cn/s/blog_9c7ba64d01012z02.html](http://blog.sina.com.cn/s/blog_9c7ba64d01012z02.html)
 
 日志记录器(Logger)是日志处理的核心组件。
   
 log4j具有5种正常级别(Level)。
   
-日志记录器(Logger)的可用级别Level (不包括自定义级别 Level)， 以下内容就是摘自log4j API (<http://jakarta.apache.org/log4j/docs/api/index.html>):
+日志记录器(Logger)的可用级别Level (不包括自定义级别 Level)， 以下内容就是摘自log4j API ([http://jakarta.apache.org/log4j/docs/api/index.html](http://jakarta.apache.org/log4j/docs/api/index.html)):
   
 public static final Level TRACE
   
@@ -57,13 +57,13 @@ TheTRACELevel designates finer-grained informational events than the DEBUG.Since
 ### FATAL
 
 每个严重的错误事件将会导致应用程序的退出。
-另外，还有两个可用的特别的日志记录级别: (以下描述来自log4j API <http://jakarta.apache.org/log4j/docs/api/index.html>):
+另外，还有两个可用的特别的日志记录级别: (以下描述来自log4j API [http://jakarta.apache.org/log4j/docs/api/index.html](http://jakarta.apache.org/log4j/docs/api/index.html)):
 
 ### OFF
 
 最高等级的，用于关闭所有日志记录。
 
-<http://blog.csdn.net/maxracer/article/details/7920997>
+[http://blog.csdn.net/maxracer/article/details/7920997](http://blog.csdn.net/maxracer/article/details/7920997)
 
 Log4j 日志级别
   
@@ -77,7 +77,7 @@ log4j (1)
   
 版权声明: 本文为博主原创文章，未经博主允许不得转载。
   
-官方网址: <http://logging.apache.org/log4j/1.2/>
+官方网址: [http://logging.apache.org/log4j/1.2/](http://logging.apache.org/log4j/1.2/)
   
 DEBUG Level: 细粒度信息事件对调试应用程序是非常有帮助.
   

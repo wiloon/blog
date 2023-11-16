@@ -47,7 +47,7 @@ echo "mem" > /sys/power/state 这相当于待机
 
 echo "disk" > /sys/power/state 这相当于休眠
 
-from <http://linux.chinaunix.net/bbs/viewthread.php?tid=1057578>
+from [http://linux.chinaunix.net/bbs/viewthread.php?tid=1057578](http://linux.chinaunix.net/bbs/viewthread.php?tid=1057578)
 
 命令行中执行如下:
 
@@ -67,7 +67,7 @@ standby mem disk
 
 关于Linux操作系统睡眠和休眠
 
-from <http://www.xxlinux.com/linux/article/accidence/technique/20080303/14073.html>
+from [http://www.xxlinux.com/linux/article/accidence/technique/20080303/14073.html](http://www.xxlinux.com/linux/article/accidence/technique/20080303/14073.html)
 
 在作之前,先检查一下你的内核能支持哪些方式:
 
@@ -107,7 +107,7 @@ kernel /boot/vmlinuz root=/dev/sda1 resume=/dev/sda2 vga=0×314 …
 
 Linux休眠和挂起 (2008新版)
 
-from <http://blog.chinaunix.net/u/20515/showart_637851.html>
+from [http://blog.chinaunix.net/u/20515/showart_637851.html](http://blog.chinaunix.net/u/20515/showart_637851.html)
 
 Linux2.6内核已经有了非常多的变化,配置也要相应的改变
 

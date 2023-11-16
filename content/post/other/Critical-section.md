@@ -74,4 +74,4 @@ A: 回写寄存器值(3)到内存. this.count 现在等于 3
   
 当两个线程竞争同一资源时，如果对资源的访问顺序敏感，就称存在竞态条件。导致竞态条件发生的代码区称作临界区。上例中 add()方法就是一个临界区,它会产生竞态条件。在临界区中使用适当的同步就可以避免竞态条件。
 
-<http://wiki.jikexueyuan.com/project/java-concurrent/race-conditions-and-critical-sections.html>
+[http://wiki.jikexueyuan.com/project/java-concurrent/race-conditions-and-critical-sections.html](http://wiki.jikexueyuan.com/project/java-concurrent/race-conditions-and-critical-sections.html)

@@ -23,11 +23,11 @@ SUBSCRIBE channel0
 publish channel0 message0
 ```
 
-<http://redisbook.readthedocs.io/en/latest/feature/pubsub.html>
+[http://redisbook.readthedocs.io/en/latest/feature/pubsub.html](http://redisbook.readthedocs.io/en/latest/feature/pubsub.html)
 
 在消费者下线的情况下,生产的消息会丢失,得使用专业的消息队列如RocketMQ等。
 
-<http://blog.csdn.net/lihao21/article/details/48370687>
+[http://blog.csdn.net/lihao21/article/details/48370687](http://blog.csdn.net/lihao21/article/details/48370687)
 
 Redis为我们提供了publish/subscribe(发布/订阅)功能。我们可以对某个channel(频道)进行subscribe(订阅),当有人在这个channel上publish(发布)消息时,redis就会通知我们,这样我们可以收到别人发布的消息。
   
@@ -267,6 +267,6 @@ receive redis published message, channel mychannel, message hello
   
 参考资料
   
-<https://github.com/xetorthio/jedis/wiki/AdvancedUsage>
+[https://github.com/xetorthio/jedis/wiki/AdvancedUsage](https://github.com/xetorthio/jedis/wiki/AdvancedUsage)
   
-<http://basrikahveci.com/a-simple-jedis-publish-subscribe-example/>
+[http://basrikahveci.com/a-simple-jedis-publish-subscribe-example/](http://basrikahveci.com/a-simple-jedis-publish-subscribe-example/)

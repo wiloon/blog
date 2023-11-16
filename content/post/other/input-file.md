@@ -10,7 +10,7 @@ tags:
 ---
 ## input file 文件上传控件隐藏后用button触发 click事件
 
-<http://bbs.csdn.net/topics/320156312>
+[http://bbs.csdn.net/topics/320156312](http://bbs.csdn.net/topics/320156312)
 
 ```html
 
@@ -106,4 +106,4 @@ tags:
 
   所以同时使用 'filter:alpha(opacity=50);' opacity:0.5; 即可保证在所有浏览器中呈现出半透明效果。
 
-  <http://www.w3help.org/zh-cn/causes/BT9011>
+  [http://www.w3help.org/zh-cn/causes/BT9011](http://www.w3help.org/zh-cn/causes/BT9011)

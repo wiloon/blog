@@ -16,7 +16,7 @@ pwgen -s -y
   
 ```
 
-<http://blog.csdn.net/u011582658/article/details/38045311>
+[http://blog.csdn.net/u011582658/article/details/38045311](http://blog.csdn.net/u011582658/article/details/38045311)
 
 1.pwgen
   

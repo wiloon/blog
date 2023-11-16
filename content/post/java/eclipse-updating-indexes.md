@@ -43,4 +43,4 @@ Secondly, assuming that you are working on a LAN, I would suggest that you insta
 
 This will enable your downloads to be resolved quickly against a local mirror, rather than continually checking against repositories on the internet.
 
-<http://stackoverflow.com/questions/5012567/why-does-eclipse-take-so-long-to-update-maven-dependencies>
+[http://stackoverflow.com/questions/5012567/why-does-eclipse-take-so-long-to-update-maven-dependencies](http://stackoverflow.com/questions/5012567/why-does-eclipse-take-so-long-to-update-maven-dependencies)

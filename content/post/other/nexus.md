@@ -44,7 +44,7 @@ provider Maven2
 
 Repository Policy: Release
 
-Remote Storage location: <http://maven.aliyun.com/nexus/content/groups/public/>
+Remote Storage location: [http://maven.aliyun.com/nexus/content/groups/public/](http://maven.aliyun.com/nexus/content/groups/public/)
 
 click save
 

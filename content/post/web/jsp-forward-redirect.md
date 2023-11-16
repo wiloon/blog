@@ -29,6 +29,6 @@ Forward高,  Redirect低, 因为Redirect的流程是这样的,  request 1  sent 
   
 由于对request.setAttribute() 来说, 它携带的对象生存范围只在request内, 所以Redirect方式会导致request携带的对象丢失.
 
-<http://www.iteye.com/topic/3497>
+[http://www.iteye.com/topic/3497](http://www.iteye.com/topic/3497)
 
-<http://article2008.iteye.com/blog/173832>
+[http://article2008.iteye.com/blog/173832](http://article2008.iteye.com/blog/173832)

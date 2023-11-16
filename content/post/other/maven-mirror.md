@@ -25,7 +25,7 @@ local repository: 存放在本地磁盘的一个文件夹，例如，windows上�
   
 1.2 Remote Repository主要有3种:
   
-中央仓库: <http://repo1.maven.org/maven2/>
+中央仓库: [http://repo1.maven.org/maven2/](http://repo1.maven.org/maven2/)
   
 私服: 内网自建的maven repository，其URL是一个内部网址
   
@@ -193,7 +193,7 @@ mirror相当于一个拦截器，它会拦截maven对remote repository的相关�
 </settings>
 ```
 
-<http://www.cnblogs.com/chenying99/archive/2012/06/23/2559218.html>
+[http://www.cnblogs.com/chenying99/archive/2012/06/23/2559218.html](http://www.cnblogs.com/chenying99/archive/2012/06/23/2559218.html)
 
 ## maven mirror aliyun
 

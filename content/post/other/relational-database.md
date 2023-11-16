@@ -135,4 +135,4 @@ NoSql适合存储非结构化数据，比如：文章、评论：
  (3）按照key获取数据效率很高，但是对于join或其他结构化查询的支持就比较差。
 ————————————————
 版权声明：本文为CSDN博主「追梦的晓米」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
-原文链接：<https://blog.csdn.net/lzj3462144/article/details/70973368>
+原文链接：[https://blog.csdn.net/lzj3462144/article/details/70973368](https://blog.csdn.net/lzj3462144/article/details/70973368)

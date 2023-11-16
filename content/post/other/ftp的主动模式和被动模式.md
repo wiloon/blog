@@ -11,7 +11,7 @@ tags:
 ---
 ## FTP的主动模式和被动模式
 
-<http://space.itpub.net/14075938/viewspace-495630>
+[http://space.itpub.net/14075938/viewspace-495630](http://space.itpub.net/14075938/viewspace-495630)
 
 **FTP**两种工作**模式**: **主动****模式**(Active**FTP**) 和被动**模式**(Passive**FTP**)
 

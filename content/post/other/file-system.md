@@ -434,7 +434,7 @@ FAT 格式
 闪盘使用的文件系统一般为 FAT 格式.FAT 这种格式的文件系统并没有 inode 存在,所以 FAT 没有办法将这个文件的所有 block 在一开始就读取出来.每个 block 号码都记录在前一个
 block 当中
 
-<https://zhuanlan.zhihu.com/p/69289429>
+[https://zhuanlan.zhihu.com/p/69289429](https://zhuanlan.zhihu.com/p/69289429)
 >https://blog.51cto.com/u_15265005/2888316
 >https://blog.csdn.net/wh8_2011/article/details/49883411
 
@@ -464,4 +464,4 @@ block 当中
 
 inode number 在单个磁盘分区中是唯一的.
 
-<https://www.leftpocket.cn/post/linux/cp/>
+[https://www.leftpocket.cn/post/linux/cp/](https://www.leftpocket.cn/post/linux/cp/)

@@ -57,7 +57,7 @@ Prerequisites
 
 1. xrdp is available in EPEL repository, so Install and configure EPEL repository.
 
-rpm -Uvh <https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm>
+rpm -Uvh [https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm](https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm)
   
 Install xrdp on CentOS 7
   

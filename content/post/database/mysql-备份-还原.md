@@ -26,4 +26,4 @@ MySQL>source /path/to/sql/abc.sql;
 MySQL -uusername -ppassword db_name < db_name.sql
 ```
 
-<http://blog.csdn.net/myron_sqh/article/details/13016945>
+[http://blog.csdn.net/myron_sqh/article/details/13016945](http://blog.csdn.net/myron_sqh/article/details/13016945)

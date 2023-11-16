@@ -35,11 +35,11 @@ test资源，指位于src/test/resources路径下的资源文件
 对于非main资源或非test资源，又没有在pom.xml的`<build><resources>...</build></resources>`配置的资源，在构建过程中不会输出到项目的target/classes/目录下。
 ————————————————
 版权声明：本文为CSDN博主「易生一世」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
-原文链接：<https://blog.csdn.net/taiyangdao/article/details/103636330>
+原文链接：[https://blog.csdn.net/taiyangdao/article/details/103636330](https://blog.csdn.net/taiyangdao/article/details/103636330)
 
 java-使用maven将版本号输出到文本
-<https://www.itranslater.com/qa/details/2582583740010595328>
-<https://blog.csdn.net/u011781521/article/details/79052725>
+[https://www.itranslater.com/qa/details/2582583740010595328](https://www.itranslater.com/qa/details/2582583740010595328)
+[https://blog.csdn.net/u011781521/article/details/79052725](https://blog.csdn.net/u011781521/article/details/79052725)
 
     src/main/resources/version.txt
     ${project.version}

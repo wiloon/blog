@@ -10,7 +10,7 @@ tags:
   - reprint
 ---
 ## shiro 标签
-<http://kdboy.iteye.com/blog/1155450>
+[http://kdboy.iteye.com/blog/1155450](http://kdboy.iteye.com/blog/1155450)
 
 授权即访问控制,它将判断用户在应用程序中对资源是否拥有相应的访问权限。
   

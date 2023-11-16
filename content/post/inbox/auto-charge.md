@@ -12,7 +12,7 @@ tags:
 
 ## Chanify 消息推送工具
 
-<https://github.com/chanify/chanify-ios/blob/main/README-zh_CN.md>
+[https://github.com/chanify/chanify-ios/blob/main/README-zh_CN.md](https://github.com/chanify/chanify-ios/blob/main/README-zh_CN.md)
 
 ```bash
 # sample
@@ -50,7 +50,7 @@ curl "http://chanify.wiloon.com/v1/sender/<token>/msg0"
 
 ## 礼信通4芯数据传输 USB 定时开关遥控制器延长线智能 WIFI 电源数据
 
-<https://item.taobao.com/item.htm?spm=a1z09.2.0.0.3b462e8dwgAuy1&id=675291964059&_u=m2lc6g03a41>
+[https://item.taobao.com/item.htm?spm=a1z09.2.0.0.3b462e8dwgAuy1&id=675291964059&_u=m2lc6g03a41](https://item.taobao.com/item.htm?spm=a1z09.2.0.0.3b462e8dwgAuy1&id=675291964059&_u=m2lc6g03a41)
 
 ### 查看控制指令 URL
 
@@ -67,7 +67,7 @@ curl -v "http://saygift.qlkkj.net/oder?Qd=<key>&sw=1&od=cs"
 
 ## MacroDroid
 
-<https://www.macrodroid.com/>
+[https://www.macrodroid.com/](https://www.macrodroid.com/)
 
 android 机 安装 MacroDroid, 配置规则电池电量低于 30%
 
@@ -76,7 +76,7 @@ android 机 安装 MacroDroid, 配置规则电池电量低于 30%
 
 ## scrcpy, 显示并控制通过 USB (或 TCP/IP) 连接的安卓设备
 
-<https://github.com/Genymobile/scrcpy/blob/master/README.zh-Hans.md>
+[https://github.com/Genymobile/scrcpy/blob/master/README.zh-Hans.md](https://github.com/Genymobile/scrcpy/blob/master/README.zh-Hans.md)
 
 ## iPhone 自动充电
 
@@ -96,4 +96,4 @@ openssl
 yay -S python-miio
 ```
 
-<https://www.leavesongs.com/THINK/iOS-with-chuangmiplug-smart-plug2.html>
+[https://www.leavesongs.com/THINK/iOS-with-chuangmiplug-smart-plug2.html](https://www.leavesongs.com/THINK/iOS-with-chuangmiplug-smart-plug2.html)

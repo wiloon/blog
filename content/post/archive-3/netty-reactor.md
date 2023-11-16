@@ -106,11 +106,11 @@ ThreadPool -- 用户自定义线程池
 ④ ServerBootstrapAcceptor的readChannel方法会该SocketChannel(客户端的连接)注册到workerGroup(NioEventLoopGroup) 中的某个NioEventLoop的Selector上，并注册READ事件为SocketChannel所感兴趣的事件。启动SocketChannel所在NioEventLoop的事件循环，接下来就可以开始客户端和服务器端的通信了。
 
 作者：tomas家的小拨浪鼓
-链接：<https://www.jianshu.com/p/1ccbc6a348db>
+链接：[https://www.jianshu.com/p/1ccbc6a348db](https://www.jianshu.com/p/1ccbc6a348db)
 来源：简书
 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
 
-><https://www.jianshu.com/p/1ccbc6a348db>
-<https://groups.google.com/forum/#!topic/netty/1kAS-FJWGRE>
+>[https://www.jianshu.com/p/1ccbc6a348db](https://www.jianshu.com/p/1ccbc6a348db)
+[https://groups.google.com/forum/#!topic/netty/1kAS-FJWGRE](https://groups.google.com/forum/#!topic/netty/1kAS-FJWGRE)
   
-<https://github.com/netty/netty/issues/1912>
+[https://github.com/netty/netty/issues/1912](https://github.com/netty/netty/issues/1912)

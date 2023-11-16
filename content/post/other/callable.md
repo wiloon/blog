@@ -242,11 +242,11 @@ public class Callable0 {
 
 如果为了可取消性而使用 Future 但又不提供可用的结果，则可以声明 Future<?> 形式类型、并返回 null 作为底层任务的结果。
 
-<http://www.cnblogs.com/dolphin0520/p/3949310.html>
+[http://www.cnblogs.com/dolphin0520/p/3949310.html](http://www.cnblogs.com/dolphin0520/p/3949310.html)
 
 若有不正之处请多多谅解，并欢迎批评指正。  
 请尊重作者劳动成果，转载请标明原文链接:  
-<http://www.cnblogs.com/dolphin0520/p/3949310.html>
+[http://www.cnblogs.com/dolphin0520/p/3949310.html](http://www.cnblogs.com/dolphin0520/p/3949310.html)
 
 ### Callable
 

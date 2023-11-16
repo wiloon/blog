@@ -10,7 +10,7 @@ tags:
 ---
 ## maven dependency version range
 
-<http://maven.apache.org/components/enforcer/enforcer-rules/versionRanges.html>
+[http://maven.apache.org/components/enforcer/enforcer-rules/versionRanges.html](http://maven.apache.org/components/enforcer/enforcer-rules/versionRanges.html)
 
 ## Version Range Specification
 
@@ -122,6 +122,6 @@ The [RequireMavenVersion][1] and [RequireJavaVersion][2] rules use the [standard
     
       x != 1.1
 
-<http://maven.apache.org/components/enforcer/enforcer-rules/requireMavenVersion.html>  
-<http://maven.apache.org/components/enforcer/enforcer-rules/requireJavaVersion.html>  
-<http://docs.codehaus.org/display/MAVEN/Dependency+Mediation+and+Conflict+Resolution#DependencyMediationandConflictResolution-DependencyVersionRanges>  
+[http://maven.apache.org/components/enforcer/enforcer-rules/requireMavenVersion.html](http://maven.apache.org/components/enforcer/enforcer-rules/requireMavenVersion.html)  
+[http://maven.apache.org/components/enforcer/enforcer-rules/requireJavaVersion.html](http://maven.apache.org/components/enforcer/enforcer-rules/requireJavaVersion.html)  
+[http://docs.codehaus.org/display/MAVEN/Dependency+Mediation+and+Conflict+Resolution#DependencyMediationandConflictResolution-DependencyVersionRanges](http://docs.codehaus.org/display/MAVEN/Dependency+Mediation+and+Conflict+Resolution#DependencyMediationandConflictResolution-DependencyVersionRanges)  

@@ -22,4 +22,4 @@ Next to the Command section click Browse... button and select idea.sh file in /p
   
 Click OK.
 
-<https://stackoverflow.com/questions/43706663/intellij-idea-lost-icon-after-launch>
+[https://stackoverflow.com/questions/43706663/intellij-idea-lost-icon-after-launch](https://stackoverflow.com/questions/43706663/intellij-idea-lost-icon-after-launch)

@@ -462,7 +462,7 @@ ip rule add from 193.233.7.83 nat 192.203.80.144 table 1 prio 320 把源地址�
   
 版权声明: 本文为CSDN博主「zqixiao_09」的原创文章,遵循 CC 4.0 BY-SA 版权协议,转载请附上原文出处链接及本声明。
   
-原文链接: <https://blog.csdn.net/zqixiao_09/article/details/53327074>
+原文链接: [https://blog.csdn.net/zqixiao_09/article/details/53327074](https://blog.csdn.net/zqixiao_09/article/details/53327074)
 
 路由表是指路由器或者其他互联网网络设备上存储的一张路由信息表,该表中存有到达特定网络终端的路径,在某些情况下,还有一些与这些路径相关的度量。
 
@@ -484,7 +484,7 @@ Ethernet is preferred over WiFi
   
 WiFi is preferred over WWAN
 
-<https://diego.assencio.com/?index=d71346b8737ee449bb09496784c9b344>
+[https://diego.assencio.com/?index=d71346b8737ee449bb09496784c9b344](https://diego.assencio.com/?index=d71346b8737ee449bb09496784c9b344)
 
 ### deprecated net-tools command
 
@@ -1029,20 +1029,20 @@ ip route add default via 195.96.98.253 dev ppp2 table John #规则中添加路�
   
 ip route flush cache #刷新路由表
 
-<http://www.policyrouting.org/iproute2.doc.html#ss9.5>
+[http://www.policyrouting.org/iproute2.doc.html#ss9.5](http://www.policyrouting.org/iproute2.doc.html#ss9.5)
   
-<http://www.cnblogs.com/gunl/archive/2010/09/14/1826234.html>
+[http://www.cnblogs.com/gunl/archive/2010/09/14/1826234.html](http://www.cnblogs.com/gunl/archive/2010/09/14/1826234.html)
   
-<http://www.cnblogs.com/peida/archive/2013/03/05/2943698.html>
+[http://www.cnblogs.com/peida/archive/2013/03/05/2943698.html](http://www.cnblogs.com/peida/archive/2013/03/05/2943698.html)
   
-<https://blog.csdn.net/younger_china/article/details/72081779>
-<https://www.cnblogs.com/wanstack/p/7728785.html>
-<http://just4coding.com/2016/12/23/iptables-mark-and-polices-based-route/>
-<https://man7.org/linux/man-pages/man8/ip-route.8.html>
-<https://blog.csdn.net/destruction666/article/details/7974199>
-<https://zhuanlan.zhihu.com/p/43279912>
-<https://www.jianshu.com/p/efed363da831>
-<https://www.jianshu.com/p/76d7ed2d77b9>
+[https://blog.csdn.net/younger_china/article/details/72081779](https://blog.csdn.net/younger_china/article/details/72081779)
+[https://www.cnblogs.com/wanstack/p/7728785.html](https://www.cnblogs.com/wanstack/p/7728785.html)
+[http://just4coding.com/2016/12/23/iptables-mark-and-polices-based-route/](http://just4coding.com/2016/12/23/iptables-mark-and-polices-based-route/)
+[https://man7.org/linux/man-pages/man8/ip-route.8.html](https://man7.org/linux/man-pages/man8/ip-route.8.html)
+[https://blog.csdn.net/destruction666/article/details/7974199](https://blog.csdn.net/destruction666/article/details/7974199)
+[https://zhuanlan.zhihu.com/p/43279912](https://zhuanlan.zhihu.com/p/43279912)
+[https://www.jianshu.com/p/efed363da831](https://www.jianshu.com/p/efed363da831)
+[https://www.jianshu.com/p/76d7ed2d77b9](https://www.jianshu.com/p/76d7ed2d77b9)
 
 ## maxos 路由, route
 
@@ -1050,4 +1050,4 @@ ip route flush cache #刷新路由表
 sudo route -n add -net 192.168.5.4 -netmask 255.255.255.0 xxx.xxx.200.1
 ```
 
-<https://www.jianshu.com/p/da975a32a915>
+[https://www.jianshu.com/p/da975a32a915](https://www.jianshu.com/p/da975a32a915)

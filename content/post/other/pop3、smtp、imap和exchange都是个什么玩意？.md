@@ -46,5 +46,5 @@ Microsoft Exchange Online 是一个电子邮件、日程和联系人云解决方
 
 Microsoft Exchange Server使用RPC protocol, MAPI/RPC (Microsoft Outlook client)  ,支持Exchange ActiveSync (安全和 Exchange server同步邮件、联系人和其它数据) ,支持ActiveSync push e-mail, 这些功能已经使用到iPhone和Android 等设备。
 
-><http://en.wikipedia.org/wiki/Microsoft_Exchange_Server>
-><http://blog.csdn.net/forlong401/article/details/7545180>
+>[http://en.wikipedia.org/wiki/Microsoft_Exchange_Server](http://en.wikipedia.org/wiki/Microsoft_Exchange_Server)
+>[http://blog.csdn.net/forlong401/article/details/7545180](http://blog.csdn.net/forlong401/article/details/7545180)

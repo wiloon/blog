@@ -235,7 +235,7 @@ systemctl restart systemd-networkd
 ### android client
 
 安装wireguard
-<https://f-droid.org/en/packages/com.wireguard.android/>  
+[https://f-droid.org/en/packages/com.wireguard.android/](https://f-droid.org/en/packages/com.wireguard.android/)  
 点右下角的加号新建 连接  
 输入连接名
 点击私钥后面的刷新按钮 新建一对密钥
@@ -319,7 +319,7 @@ peers> Add>
 - public key: `<public key>`
 - allowed ips: 192.168.53.0/24
 
-<https://www.xmodulo.com/wireguard-vpn-network-manager-gui.html>
+[https://www.xmodulo.com/wireguard-vpn-network-manager-gui.html](https://www.xmodulo.com/wireguard-vpn-network-manager-gui.html)
 
 ## openwrt wireguard
 
@@ -381,16 +381,16 @@ else
 fi
 ```
 
-<https://forum.openwrt.org/t/restart-wireguard-via-cli/51935/10>
+[https://forum.openwrt.org/t/restart-wireguard-via-cli/51935/10](https://forum.openwrt.org/t/restart-wireguard-via-cli/51935/10)
 
 ---
 
-<https://www.whosneo.com/wireguard-openwrt-ipv6/>
+[https://www.whosneo.com/wireguard-openwrt-ipv6/](https://www.whosneo.com/wireguard-openwrt-ipv6/)
 
 ### crostini
 
 ~~crostini 不支持wireguard 类型的网络设备， 不能直接使用wireguard, 需要安装tunsafe~~
-~~<https://tunsafe.com/user-guide/linux>~~
+~~[https://tunsafe.com/user-guide/linux](https://tunsafe.com/user-guide/linux)~~
 
 ### ~~tunsafe  安装~~
 
@@ -437,15 +437,15 @@ chromeos从 google play 安装wireguard,连接成功后，vpn全局生效包括c
 
 ~~crostini 不支持wireguard 类型的网络设备， 不能直接使用wireguard, 需要安装tunsafe~~
 
-~~<https://tunsafe.com/user-guide/linux>~~
+~~[https://tunsafe.com/user-guide/linux](https://tunsafe.com/user-guide/linux)~~
 
 ---
 
-<https://www.wireguard.com/install/>
-<https://www.linode.com/docs/networking/vpn/set-up-wireguard-vpn-on-debian/>
-<https://blog.mozcp.com/wireguard-usage/>
-<https://mine260309.me/archives/1697>
-<https://mine260309.me/archives/1697/embed#?secret=3eFM6gPGdn>
-<https://wiki.debian.org/Wireguard>
-<https://docs.linuxconsulting.mn.it/notes/setup-wireguard-vpn-on-debian9>
-<https://github.com/wgredlong/WireGuard/blob/master/2.%E7%94%A8%20wg-quick%20%E8%B0%83%E7%94%A8%20wg0.conf%20%E7%AE%A1%E7%90%86%20WireGuard.md>
+[https://www.wireguard.com/install/](https://www.wireguard.com/install/)
+[https://www.linode.com/docs/networking/vpn/set-up-wireguard-vpn-on-debian/](https://www.linode.com/docs/networking/vpn/set-up-wireguard-vpn-on-debian/)
+[https://blog.mozcp.com/wireguard-usage/](https://blog.mozcp.com/wireguard-usage/)
+[https://mine260309.me/archives/1697](https://mine260309.me/archives/1697)
+[https://mine260309.me/archives/1697/embed#?secret=3eFM6gPGdn](https://mine260309.me/archives/1697/embed#?secret=3eFM6gPGdn)
+[https://wiki.debian.org/Wireguard](https://wiki.debian.org/Wireguard)
+[https://docs.linuxconsulting.mn.it/notes/setup-wireguard-vpn-on-debian9](https://docs.linuxconsulting.mn.it/notes/setup-wireguard-vpn-on-debian9)
+[https://github.com/wgredlong/WireGuard/blob/master/2.%E7%94%A8%20wg-quick%20%E8%B0%83%E7%94%A8%20wg0.conf%20%E7%AE%A1%E7%90%86%20WireGuard.md](https://github.com/wgredlong/WireGuard/blob/master/2.%E7%94%A8%20wg-quick%20%E8%B0%83%E7%94%A8%20wg0.conf%20%E7%AE%A1%E7%90%86%20WireGuard.md)

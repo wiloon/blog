@@ -11,7 +11,7 @@ tags:
 ---
 ## SSL/HTTPS
 
-<http://lingfengjazz.popo.blog.163.com/blog/static/94709922008426102358851/>
+[http://lingfengjazz.popo.blog.163.com/blog/static/94709922008426102358851/](http://lingfengjazz.popo.blog.163.com/blog/static/94709922008426102358851/)
 
 SSL/HTTPS加密技术
 
@@ -67,17 +67,17 @@ https是以安全为目标的HTTP通道，简单讲是HTTP的安全版。即HTTP
 
 ## SSL, TLS
 
-<http://www.ruanyifeng.com/blog/2014/02/ssl_tls.html>
+[http://www.ruanyifeng.com/blog/2014/02/ssl_tls.html](http://www.ruanyifeng.com/blog/2014/02/ssl_tls.html)
   
-<http://www.ruanyifeng.com/blog/2011/08/what_is_a_digital_signature.html>
+[http://www.ruanyifeng.com/blog/2011/08/what_is_a_digital_signature.html](http://www.ruanyifeng.com/blog/2011/08/what_is_a_digital_signature.html)
   
-<http://www.ruanyifeng.com/blog/2013/06/rsa_algorithm_part_one.html>
+[http://www.ruanyifeng.com/blog/2013/06/rsa_algorithm_part_one.html](http://www.ruanyifeng.com/blog/2013/06/rsa_algorithm_part_one.html)
   
-<http://www.youdzone.com/signature.html>
+[http://www.youdzone.com/signature.html](http://www.youdzone.com/signature.html)
   
-<http://www.ruanyifeng.com/blog/2006/12/notes_on_cryptography.html>
+[http://www.ruanyifeng.com/blog/2006/12/notes_on_cryptography.html](http://www.ruanyifeng.com/blog/2006/12/notes_on_cryptography.html)
   
-<http://www.ruanyifeng.com/blog/2013/07/rsa_algorithm_part_two.html>
+[http://www.ruanyifeng.com/blog/2013/07/rsa_algorithm_part_two.html](http://www.ruanyifeng.com/blog/2013/07/rsa_algorithm_part_two.html)
 
 SSL (Secure Socket Layer)
   
@@ -144,8 +144,8 @@ SNI的技术原理
 SNI通过让客户端发送虚拟域的名称作为TLS协商的ClientHello消息的一部分来解决此问题。这使服务器可以及早选择正确的虚拟域，并向浏览器提供包含正确名称的证书。
 ————————————————
 版权声明：本文为CSDN博主「程序猿编码」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
-原文链接：<https://blog.csdn.net/chen1415886044/article/details/116330304>
+原文链接：[https://blog.csdn.net/chen1415886044/article/details/116330304](https://blog.csdn.net/chen1415886044/article/details/116330304)
 
 ## No subject alternative names present
 
-<https://medium.com/@sajithekanayaka/solved-java-security-cert-certificateexception-no-subject-alternative-names-present-eec1669faf0d>
+[https://medium.com/@sajithekanayaka/solved-java-security-cert-certificateexception-no-subject-alternative-names-present-eec1669faf0d](https://medium.com/@sajithekanayaka/solved-java-security-cert-certificateexception-no-subject-alternative-names-present-eec1669faf0d)

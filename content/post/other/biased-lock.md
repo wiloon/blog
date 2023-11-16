@@ -40,6 +40,6 @@ Java偏向锁(Biased Locking) 是Java6引入的一项多线程优化。它通过
 
 所以在你非常熟悉自己的代码前提下,大可禁用偏向锁 -XX:-UseBiasedLocking 。
 
-<http://blog.csdn.net/hsuxu/article/details/9472381>
+[http://blog.csdn.net/hsuxu/article/details/9472381](http://blog.csdn.net/hsuxu/article/details/9472381)
   
-<http://www.cnblogs.com/paddix/p/5405678.html>
+[http://www.cnblogs.com/paddix/p/5405678.html](http://www.cnblogs.com/paddix/p/5405678.html)

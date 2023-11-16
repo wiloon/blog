@@ -16,7 +16,7 @@ correlation 相关性，主要强调两种或多种事物之间相互联动、�
   
 relation 关系，不强调相互作用，只表明两种事物之间的血缘或物理关系，如外交关系，男女关系等
 
-<http://blog.sina.com.cn/s/blog_5056454d0100iw0d.html>
+[http://blog.sina.com.cn/s/blog_5056454d0100iw0d.html](http://blog.sina.com.cn/s/blog_5056454d0100iw0d.html)
 
 Bart Lorang may be the best boss ever.
 

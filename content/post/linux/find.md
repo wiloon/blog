@@ -61,7 +61,7 @@ find ./path0/ -path './path0/sub0' -o -path './path0/sub1' -o -path './path0/sub
 ```
 
 作者：武斌
-链接：<https://juejin.cn/post/6844904166305841160>
+链接：[https://juejin.cn/post/6844904166305841160](https://juejin.cn/post/6844904166305841160)
 来源：稀土掘金
 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
 
@@ -124,7 +124,7 @@ linux 文件的几种时间 (以 find 为例):
   
 (如果想反序查看的话需要加一个选项 -r)
   
-以上出自 "ShawOnline" 博客，请务必保留此出处<http://shawonline.blog.51cto.com/304978/199674>
+以上出自 "ShawOnline" 博客，请务必保留此出处[http://shawonline.blog.51cto.com/304978/199674](http://shawonline.blog.51cto.com/304978/199674)
   
 [acm]time 计量单位是天，即24H
   
@@ -230,13 +230,13 @@ find . -amin -1
 - -anewer 指最近被读取过的文件
 - -cnewer 指状态最近发生变化的文件
 
-<https://www.modb.pro/db/27010>
+[https://www.modb.pro/db/27010](https://www.modb.pro/db/27010)
 
 ## -path
 
-<https://unix.stackexchange.com/questions/200344/further-questions-about-path-for-find?noredirect=1#comment337661_200344>
+[https://unix.stackexchange.com/questions/200344/further-questions-about-path-for-find?noredirect=1#comment337661_200344](https://unix.stackexchange.com/questions/200344/further-questions-about-path-for-find?noredirect=1#comment337661_200344)
 
-<https://man7.org/linux/man-pages/man1/find.1.html>
+[https://man7.org/linux/man-pages/man1/find.1.html](https://man7.org/linux/man-pages/man1/find.1.html)
 
 ```bash
 find . -path "*/src/*"

@@ -32,7 +32,7 @@ Hystrix是Netflix开源的一款**容错框架**，包含常用的容错方法�
 Hystrix通过**命令模式**，将每个类型的业务请求封装成对应的命令请求，比如查询订单->订单Command，查询商品->商品Command，查询用户->用户Command。每个类型的Command对应一个线程池。创建好的线程池是被放入到ConcurrentHashMap中
 当第二次查询订单请求过来的时候，则可以直接从Map中获取该线程池。
 
-执行Command的方式一共四种，直接看官方文档(<https://github.com/Netflix/Hystrix/wiki/How-it-Works>)，具体区别如下：
+执行Command的方式一共四种，直接看官方文档([https://github.com/Netflix/Hystrix/wiki/How-it-Works](https://github.com/Netflix/Hystrix/wiki/How-it-Works))，具体区别如下：
 
 execute()：以同步堵塞方式执行run()。调用execute()后，hystrix先创建一个新线程运行run()，接着调用程序要在execute()调用处一直堵塞着，直到run()运行完成。
 
@@ -75,8 +75,8 @@ Netflix API每天使用线程隔离处理10亿次Hystrix Command执行。 每个
 熔断器，现实生活中有一个很好的类比，就是家庭电路中都会安装一个保险盒，当电流过大的时候保险盒里面的保险丝会自动断掉，来保护家里的各种电器及电路。Hystrix中的熔断器(Circuit Breaker)也是起到这样的作用，Hystrix在运行过程中会向每个commandKey对应的熔断器报告成功、失败、超时和拒绝的状态，熔断器维护计算统计的数据，根据这些统计的信息来确定熔断器是否打开。如果打开，后续的请求都会被截断。然后会隔一段时间默认是5s，尝试半开，放入一部分流量请求进来，相当于对依赖服务进行一次健康检查，如果恢复，熔断器关闭，随后完全恢复调用
 
 作者：新栋BOOK
-链接：<https://www.jianshu.com/p/3e11ac385c73>
+链接：[https://www.jianshu.com/p/3e11ac385c73](https://www.jianshu.com/p/3e11ac385c73)
 来源：简书
 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
-><https://www.jianshu.com/p/3e11ac385c73>
-><https://github.com/Netflix/Hystrix>
+>[https://www.jianshu.com/p/3e11ac385c73](https://www.jianshu.com/p/3e11ac385c73)
+>[https://github.com/Netflix/Hystrix](https://github.com/Netflix/Hystrix)

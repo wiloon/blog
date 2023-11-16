@@ -223,7 +223,7 @@ ALTER TABLE [tablename] DROP CONSTRAINT table_name_id_fkey;
 ```
 
 版权声明：本文为CSDN博主「亮子介」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
-原文链接：<https://blog.csdn.net/henryhu712/article/details/104092141>
+原文链接：[https://blog.csdn.net/henryhu712/article/details/104092141](https://blog.csdn.net/henryhu712/article/details/104092141)
 
 ## 查看外键
 
@@ -372,11 +372,11 @@ SELECT pg_terminate_backend(pid) FROM pg_stat_activity WHERE state='idle';
 
 - pgAdmin
 
-<https://www.postgresql.org/docs/current/app-psql.html>
+[https://www.postgresql.org/docs/current/app-psql.html](https://www.postgresql.org/docs/current/app-psql.html)
 
 ## sql 历史
 
-<https://www.cnblogs.com/qianxunman/p/12149586.html>
+[https://www.cnblogs.com/qianxunman/p/12149586.html](https://www.cnblogs.com/qianxunman/p/12149586.html)
 
 ## 导出 csv
 
@@ -387,7 +387,7 @@ psql --dbname=database0 --host=127.0.0.1 --username=user0 -c "COPY (select now()
 
 ————————————————
 版权声明：本文为CSDN博主「df0128」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
-原文链接：<https://blog.csdn.net/df0128/article/details/89673596>
+原文链接：[https://blog.csdn.net/df0128/article/details/89673596](https://blog.csdn.net/df0128/article/details/89673596)
 
 ## log, 日志
 
@@ -411,7 +411,7 @@ The log files tend to grow a lot over a time, and might kill your machine. For y
 
 ## PostgreSQL 中统计指定字符或者单词或者字符串在一个长字符串中出现总次数，PostgreSQL 统计字符串中某字符出现次数
 
-<https://blog.csdn.net/sunny_day_day/article/details/109183521>
+[https://blog.csdn.net/sunny_day_day/article/details/109183521](https://blog.csdn.net/sunny_day_day/article/details/109183521)
 
 ```sql
 select array_length(regexp_split_to_array(config,'"id":'),1)-1 from xxx;
@@ -436,9 +436,9 @@ SELECT pg_is_in_recovery();
 -- 如果返回 t 说明是备库，返回 f 是主库
 ```
 
-<https://blog.csdn.net/m15217321304/article/details/88845353>
+[https://blog.csdn.net/m15217321304/article/details/88845353](https://blog.csdn.net/m15217321304/article/details/88845353)
 
-<https://www.postgresql.org/docs/15/functions-admin.html>
+[https://www.postgresql.org/docs/15/functions-admin.html](https://www.postgresql.org/docs/15/functions-admin.html)
 
 ## filter
 
@@ -450,13 +450,13 @@ select c1,count(*)  from test group by c1;
 select c1,count(*), count(*) filter (where id<1000) from test group by c1;
 ```
 
-<https://blog.csdn.net/wuyujin1997/article/details/125904177>
+[https://blog.csdn.net/wuyujin1997/article/details/125904177](https://blog.csdn.net/wuyujin1997/article/details/125904177)
 
 ## regclass
 
 regclass是oid的别名，postgresql自动的为每一个系统表都建立了一个OId，其中有一个系统表叫做：pg_class，这个表里记录了数据表、索引(仍然需要参阅pg_index)、序列、视图、复合类型和一些特殊关系类型的元数据
 
-<https://blog.csdn.net/shiyibodec/article/details/52447755>
+[https://blog.csdn.net/shiyibodec/article/details/52447755](https://blog.csdn.net/shiyibodec/article/details/52447755)
 
 ## postgresql中如何Kill掉正在执行的SQL语句
 
@@ -473,4 +473,4 @@ SELECT pg_terminate_backend(PID);
 这种可以kill掉各种操作(select、update、delete、drop等)操作
 ————————————————
 版权声明：本文为CSDN博主「SunWuKong_Hadoop」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
-原文链接：<https://blog.csdn.net/SunWuKong_Hadoop/article/details/89448075>
+原文链接：[https://blog.csdn.net/SunWuKong_Hadoop/article/details/89448075](https://blog.csdn.net/SunWuKong_Hadoop/article/details/89448075)

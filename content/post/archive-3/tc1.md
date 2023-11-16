@@ -9,7 +9,7 @@ tags:
   - reprint
 ---
 ## TC1
-<https://ljr.im/articles/streamline-the-fibonacci-tc1-firmware/>
+[https://ljr.im/articles/streamline-the-fibonacci-tc1-firmware/](https://ljr.im/articles/streamline-the-fibonacci-tc1-firmware/)
 
 docker pull python:2-slim-stretch
 
@@ -25,7 +25,7 @@ pip install mico-cube && \
   
 cd /workdir && \
   
-wget <http://firmware.mxchip.com/MiCoder_v1.1.Linux.tar.gz> && \
+wget [http://firmware.mxchip.com/MiCoder_v1.1.Linux.tar.gz](http://firmware.mxchip.com/MiCoder_v1.1.Linux.tar.gz) && \
   
 tar -zxf MiCoder_v1.1.Linux.tar.gz && \
   
@@ -43,11 +43,11 @@ mico new TC1 -create-only
   
 cd /workdir/TC1 && \
   
-mico add <https://code.aliyun.com/mico/mico-os.git/#6c465211d3ff8797cd835e400ec54a06530dd476>
+mico add [https://code.aliyun.com/mico/mico-os.git/#6c465211d3ff8797cd835e400ec54a06530dd476](https://code.aliyun.com/mico/mico-os.git/#6c465211d3ff8797cd835e400ec54a06530dd476)
 
 # 容器bash
   
-git clone <https://github.com/cnk700i/tc1_mqtt.git> && \
+git clone [https://github.com/cnk700i/tc1_mqtt.git](https://github.com/cnk700i/tc1_mqtt.git) && \
   
 mv tc1_mqtt/TC1 . && \
   

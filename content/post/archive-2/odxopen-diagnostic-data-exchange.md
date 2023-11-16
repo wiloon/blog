@@ -10,7 +10,7 @@ tags:
 ---
 ## ODX(Open Diagnostic Data Exchange)
 
-<http://auto.vogel.com.cn/news_view.html?id=358026>
+[http://auto.vogel.com.cn/news_view.html?id=358026](http://auto.vogel.com.cn/news_view.html?id=358026)
 
 随着汽车电子技术的不断发展,电子控制单元 (ECU) 在现代汽车中得到了广泛的应用。电子控制单元在提高汽车动力性、经济性、舒适性和安全性的同时,也使得车辆中的电子电气系统越来越复杂,这也促使汽车诊断技术有了更大的发展。在整车生命周期中,为了便于交换诊断数据,提高研发、测试、生产及售后的效率,降低诊断数据管理成本,一种开源的标准化诊断数据格式——ODX得到了越来越多的应用。本文介绍了ODX的基本体系结构,其与车辆通信模型接口 (MVCI) 的关系,并分析了现在ODX的主要应用及未来发展方向。
 

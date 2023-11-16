@@ -161,7 +161,7 @@ ls -l /proc/<PID>/fd |wc -l
 
 JDK 的实现中, 会直接将 nofile 的 soft 先改成了和 hard 一样的值
   
-<https://stackoverflow.com/questions/30487284/how-and-when-and-where-jvm-change-the-max-open-files-value-of-linux>
+[https://stackoverflow.com/questions/30487284/how-and-when-and-where-jvm-change-the-max-open-files-value-of-linux](https://stackoverflow.com/questions/30487284/how-and-when-and-where-jvm-change-the-max-open-files-value-of-linux)
 
 ## file-max, 控制内核总共可以打开的文件数
 
@@ -432,34 +432,34 @@ ulimit命令可修改当前shell进程的设置。这也说明,为了保证下�
 
 作者: maoshuai
   
-链接: <https://juejin.im/post/5d4cf32f6fb9a06b1d21312c>
+链接: [https://juejin.im/post/5d4cf32f6fb9a06b1d21312c](https://juejin.im/post/5d4cf32f6fb9a06b1d21312c)
   
 来源: 掘金
   
 著作权归作者所有。商业转载请联系作者获得授权,非商业转载请注明出处。
 
-<https://juejin.im/post/5d4cf32f6fb9a06b1d21312c>
+[https://juejin.im/post/5d4cf32f6fb9a06b1d21312c](https://juejin.im/post/5d4cf32f6fb9a06b1d21312c)
 
-<http://www.wiloon.com/?p=9913>
+[http://www.wiloon.com/?p=9913](http://www.wiloon.com/?p=9913)
 
-<http://www.wiloon.com/?p=9913&embed=true#?secret=NZmp3nWOGQ>
+[http://www.wiloon.com/?p=9913&embed=true#?secret=NZmp3nWOGQ](http://www.wiloon.com/?p=9913&embed=true#?secret=NZmp3nWOGQ)
   
-<http://jameswxx.iteye.com/blog/2096461>
+[http://jameswxx.iteye.com/blog/2096461](http://jameswxx.iteye.com/blog/2096461)
   
-<https://www.ibm.com/developerworks/cn/linux/l-cn-ulimit/>
+[https://www.ibm.com/developerworks/cn/linux/l-cn-ulimit/](https://www.ibm.com/developerworks/cn/linux/l-cn-ulimit/)
 
-<http://smilejay.com/2016/06/centos-7-systemd-conf-limits/>
+[http://smilejay.com/2016/06/centos-7-systemd-conf-limits/](http://smilejay.com/2016/06/centos-7-systemd-conf-limits/)
 
-<http://smilejay.com/2016/06/centos-7-systemd-conf-limits/embed/#?secret=ik43aqQV8y>
+[http://smilejay.com/2016/06/centos-7-systemd-conf-limits/embed/#?secret=ik43aqQV8y](http://smilejay.com/2016/06/centos-7-systemd-conf-limits/embed/#?secret=ik43aqQV8y)
 
-<https://zhangxugg-163-com.iteye.com/blog/1108402>
+[https://zhangxugg-163-com.iteye.com/blog/1108402](https://zhangxugg-163-com.iteye.com/blog/1108402)
 
-<https://www.cnblogs.com/zengkefu/p/5635153.html>
+[https://www.cnblogs.com/zengkefu/p/5635153.html](https://www.cnblogs.com/zengkefu/p/5635153.html)
 
-<https://liqiang.io/post/what-is-soft-limit-and-hard-limit-for-ulimit-590cff7d>
+[https://liqiang.io/post/what-is-soft-limit-and-hard-limit-for-ulimit-590cff7d](https://liqiang.io/post/what-is-soft-limit-and-hard-limit-for-ulimit-590cff7d)
 
-<https://unix.stackexchange.com/questions/80598/ulimit-rlimit-in-linux-are-they-the-same-thing>
+[https://unix.stackexchange.com/questions/80598/ulimit-rlimit-in-linux-are-they-the-same-thing](https://unix.stackexchange.com/questions/80598/ulimit-rlimit-in-linux-are-they-the-same-thing)
 
-<https://pubs.opengroup.org/onlinepubs/009695399/functions/ulimit.html>
+[https://pubs.opengroup.org/onlinepubs/009695399/functions/ulimit.html](https://pubs.opengroup.org/onlinepubs/009695399/functions/ulimit.html)
 
-<https://linux.die.net/man/2/setrlimit>
+[https://linux.die.net/man/2/setrlimit](https://linux.die.net/man/2/setrlimit)

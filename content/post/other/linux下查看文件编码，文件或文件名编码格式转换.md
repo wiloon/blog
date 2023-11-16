@@ -11,7 +11,7 @@ tags:
 ---
 ## Linux下查看文件编码，文件或文件名编码格式转换
 
-><http://blog.sina.com.cn/s/blog_6fe0d70d0101du41.html>
+>[http://blog.sina.com.cn/s/blog_6fe0d70d0101du41.html](http://blog.sina.com.cn/s/blog_6fe0d70d0101du41.html)
 
 ### Vim 的多字符编码工作方式
 

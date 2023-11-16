@@ -31,7 +31,7 @@ ssh -L 2000:192.168.50.11:5432 192.168.50.10 -l root
 # 192.168.50.10 跳板机, 运行 ssh 服务端的主机, 并且 从192.168.50.10 能访问 192.168.50.11:5432
 ```
 
-<https://wangdoc.com/ssh/port-forwarding.html>, <https://zhuanlan.zhihu.com/p/148825449>
+<https://wangdoc.com/ssh/port-forwarding.html>, [https://zhuanlan.zhihu.com/p/148825449](https://zhuanlan.zhihu.com/p/148825449)
 
 ## ssh 不登陆直接执行命令
 
@@ -144,7 +144,7 @@ SSH登录主要分为两个阶段：
 
 8）服务器使用相同的会话共享密钥和他生成的随机数计算出MD5哈希值，并与客户端返回的MD5哈希值进行比较。如果两个值相等，证明客户端拥有对应私钥，则通过验证。
 
-<https://zhuanlan.zhihu.com/p/139285610>
+[https://zhuanlan.zhihu.com/p/139285610](https://zhuanlan.zhihu.com/p/139285610)
 
 ## openssh 9.0 sftp-server
 

@@ -10,7 +10,7 @@ tags:
 ---
 ## 远程桌面 看不到 鼠标指针
 
-<https://support.huawei.com/enterprise/zh/knowledge/EKB1000027195>
+[https://support.huawei.com/enterprise/zh/knowledge/EKB1000027195](https://support.huawei.com/enterprise/zh/knowledge/EKB1000027195)
   
 windows版本:  windows server 2008 R2 Standard
   

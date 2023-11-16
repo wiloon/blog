@@ -25,4 +25,4 @@ JPA的EntityManager也为我们准备好了API来完成对这些实体的操作:
 
 persist方法将实体变为受管状态，持久化到数据库。merge方法将当前的实体状态合并 (更新) 到当前持久化上下文中。remove方法直接从数据库里销毁实体 (删除) ，remove方法只是将数据库里的实体删除，并没有销毁内存里的实体对象，当事务提交或者调用flush方法，数据库里的实体才会被删除。
 
-<http://blog.163.com/oyhj_nicholas/blog/static/323592520107211295105>
+[http://blog.163.com/oyhj_nicholas/blog/static/323592520107211295105](http://blog.163.com/oyhj_nicholas/blog/static/323592520107211295105)

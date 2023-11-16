@@ -85,7 +85,7 @@ https://docs.oracle.com/javase/8/docs/technotes/guides/troubleshoot/tooldescr007
 
 ### JMX
 
-<http://blog.wiloon.com/?p=9748>
+[http://blog.wiloon.com/?p=9748](http://blog.wiloon.com/?p=9748)
   
 ManagementAgent.stop
   
@@ -139,7 +139,7 @@ http://0opslab.com/2016/01/19/JDK%E5%91%BD%E4%BB%A4jcmd/
   
 https://segmentfault.com/a/1190000007518014
   
-<http://hirt.se/blog/?p=211>
+[http://hirt.se/blog/?p=211](http://hirt.se/blog/?p=211)
   
 http://www.rowkey.me/blog/2016/11/16/java-trouble-shooting/
   

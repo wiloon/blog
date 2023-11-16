@@ -89,4 +89,4 @@ server {
         }
     }
 
-<https://aotu.io/notes/2016/08/16/nginx-https/index.html>
+[https://aotu.io/notes/2016/08/16/nginx-https/index.html](https://aotu.io/notes/2016/08/16/nginx-https/index.html)

@@ -9,15 +9,15 @@ tags:
   - reprint
 ---
 ## MySQL, sql_mode
-<http://xstarcd.github.io/wiki/MySQL/MySQL-sql-mode.html>
+[http://xstarcd.github.io/wiki/MySQL/MySQL-sql-mode.html](http://xstarcd.github.io/wiki/MySQL/MySQL-sql-mode.html)
 
 MySQL的sql_mode合理设置
   
 目录
   
-<http://dev.MySQL.com/doc/refman/5.7/en/sql-mode.html>
+[http://dev.MySQL.com/doc/refman/5.7/en/sql-mode.html](http://dev.MySQL.com/doc/refman/5.7/en/sql-mode.html)
   
-<http://blog.csdn.net/wyzxg/article/details/8787878>
+[http://blog.csdn.net/wyzxg/article/details/8787878](http://blog.csdn.net/wyzxg/article/details/8787878)
   
 当前sql-mode设置
   

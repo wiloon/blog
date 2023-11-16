@@ -97,7 +97,7 @@ Java8中,可以这样
 
 可以轻松选择用纳秒、毫秒、秒、分钟、小时或者天来表示时间间隔的单位。
 
-<https://my.oschina.net/benhaile/blog/193956>
+[https://my.oschina.net/benhaile/blog/193956](https://my.oschina.net/benhaile/blog/193956)
   
 ### 格式化
 
@@ -161,7 +161,7 @@ public static void calculateTimeDifferenceByDuration() {
 }
 ```
 
-<https://docs.oracle.com/javase/8/docs/api/java/time/format/DateTimeFormatter.html>
+[https://docs.oracle.com/javase/8/docs/api/java/time/format/DateTimeFormatter.html](https://docs.oracle.com/javase/8/docs/api/java/time/format/DateTimeFormatter.html)
 
 Java 8新的时间日期库的20个使用示例
 
@@ -1105,7 +1105,7 @@ Sat, 12 Aug 1995 13:30:00 GMT
   
 版权声明: 本文为CSDN博主「frcoder」的原创文章,遵循 CC 4.0 BY-SA 版权协议,转载请附上原文出处链接及本声明。
   
-原文链接: <https://blog.csdn.net/u012107143/java/article/details/78790378>
+原文链接: [https://blog.csdn.net/u012107143/java/article/details/78790378](https://blog.csdn.net/u012107143/java/article/details/78790378)
 
 介绍java 8 的 Period 和 Duration 类
   
@@ -1228,11 +1228,11 @@ assertEquals(30, duration.minus(30, ChronoUnit.SECONDS).getSeconds());
 本文我们介绍了java 8 中Period 和 Duration类,并通过实例介绍了其常用方法。
 
 版权声明: 本文为CSDN博主「neweastsun」的原创文章,遵循 CC 4.0 BY-SA 版权协议,转载请附上原文出处链接及本声明。  
-原文链接: <https://blog.csdn.net/neweastsun/java/article/details/88770592>  
-<http://www.importnew.com/15637.html>  
-<https://nkcoder.github.io/2016/01/31/java-8-date-time-api/>  
-<https://my.oschina.net/kolbe/blog/507974>  
-<https://blog.csdn.net/u012107143/java/article/details/78790378>  
+原文链接: [https://blog.csdn.net/neweastsun/java/article/details/88770592](https://blog.csdn.net/neweastsun/java/article/details/88770592)  
+[http://www.importnew.com/15637.html](http://www.importnew.com/15637.html)  
+[https://nkcoder.github.io/2016/01/31/java-8-date-time-api/](https://nkcoder.github.io/2016/01/31/java-8-date-time-api/)  
+[https://my.oschina.net/kolbe/blog/507974](https://my.oschina.net/kolbe/blog/507974)  
+[https://blog.csdn.net/u012107143/java/article/details/78790378](https://blog.csdn.net/u012107143/java/article/details/78790378)  
 
 版权声明: 本文为CSDN博主「sy793314598」的原创文章,遵循CC 4.0 BY-SA版权协议,转载请附上原文出处链接及本声明。
-原文链接: <https://blog.csdn.net/sy793314598/java/article/details/79544796>
+原文链接: [https://blog.csdn.net/sy793314598/java/article/details/79544796](https://blog.csdn.net/sy793314598/java/article/details/79544796)

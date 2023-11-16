@@ -58,7 +58,7 @@ awk处理第二行时:  先读取a[$3]值再自增,a[$3]即a[3]值为1,即为awk
 
 最后实现的效果就是对于$3是第一次出现的行进行打印,也就是去除$3重复的行
 
-转自: <http://bbs.chinaunix.net/forum.php?mod=viewthread&tid=1672726#pid11904888>
+转自: [http://bbs.chinaunix.net/forum.php?mod=viewthread&tid=1672726#pid11904888](http://bbs.chinaunix.net/forum.php?mod=viewthread&tid=1672726#pid11904888)
   
 sort和uniq
 
@@ -124,4 +124,4 @@ $ sort happybirthday.txt | uniq -dc
 
 还有另一个选项 -s ,它的功能就像 -f 一样,但是跳过给定数目的字符。您可以一起使用 -f 和 -s 。 uniq 先跳过字段,再跳过字符。如果您只想使用一些预先设置的字符进行比较,那么该怎么办呢？试试看 -w 选项。
 
-转自: <http://weiyingjun.blog.hexun.com/55766273_d.html>
+转自: [http://weiyingjun.blog.hexun.com/55766273_d.html](http://weiyingjun.blog.hexun.com/55766273_d.html)

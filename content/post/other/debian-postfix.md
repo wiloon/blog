@@ -275,13 +275,13 @@ broken_sasl_auth_clients = yes
   
 很多人就这样把问题解决了，但似乎谁都不知道原理
 
-<http://goahead2010.iteye.com/blog/1911165>
+[http://goahead2010.iteye.com/blog/1911165](http://goahead2010.iteye.com/blog/1911165)
 
-<https://help.ubuntu.com/community/PostfixBasicSetupHowto>
+[https://help.ubuntu.com/community/PostfixBasicSetupHowto](https://help.ubuntu.com/community/PostfixBasicSetupHowto)
 
-<http://yubosun.akcms.com/tech/postfix-dovecot-smtp.htm>
+[http://yubosun.akcms.com/tech/postfix-dovecot-smtp.htm](http://yubosun.akcms.com/tech/postfix-dovecot-smtp.htm)
 
-<http://forum.ubuntu.org.cn/viewtopic.php?f=54&t=170026>
+[http://forum.ubuntu.org.cn/viewtopic.php?f=54&t=170026](http://forum.ubuntu.org.cn/viewtopic.php?f=54&t=170026)
 
-<http://myworkrecord.blog.51cto.com/3407230/649209>
+[http://myworkrecord.blog.51cto.com/3407230/649209](http://myworkrecord.blog.51cto.com/3407230/649209)
 

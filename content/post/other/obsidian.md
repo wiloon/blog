@@ -10,14 +10,14 @@ tags:
 ---
 ## obsidian
 
-<https://forum-zh.obsidian.md/>
+[https://forum-zh.obsidian.md/](https://forum-zh.obsidian.md/)
 
 ```bash
 flatpak install flathub md.obsidian.Obsidian
 flatpak run md.obsidian.Obsidian
 ```
 
-<https://decoge.medium.com/how-to-install-obsidian-on-a-chromebook-53e379217adf>
+[https://decoge.medium.com/how-to-install-obsidian-on-a-chromebook-53e379217adf](https://decoge.medium.com/how-to-install-obsidian-on-a-chromebook-53e379217adf)
 
 ## install plugin: remotely save
 

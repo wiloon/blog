@@ -10,7 +10,7 @@ tags:
 ---
 ## Java Exchanger
 
-<http://mouselearnjava.iteye.com/blog/1921947>
+[http://mouselearnjava.iteye.com/blog/1921947](http://mouselearnjava.iteye.com/blog/1921947)
 
 本文介绍Exchanger工具类, 然后采用Exchanger给出一个两个线程交换数值的简单实例。
 

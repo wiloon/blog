@@ -12,4 +12,4 @@ tags:
 
 keytool -import -alias stan -file StanSmith.cer -keystore exampleruthstore
 
-<https://docs.oracle.com/javase/tutorial/security/toolfilex/rstep1.html>
+[https://docs.oracle.com/javase/tutorial/security/toolfilex/rstep1.html](https://docs.oracle.com/javase/tutorial/security/toolfilex/rstep1.html)

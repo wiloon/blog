@@ -34,4 +34,4 @@ cortex-a9多核处理器，对MPCore的优化，向高性能的发展，未来�
 
 目前最好的是cortex-A9构架的CPU是高端的主流CPU，比如NV的双核，德州仪器的双核很多都是用的A9构架，A8是目前的中高端的主流，一般A8构架的双核CPU不多，几乎没有。
 
-<https://blog.csdn.net/maochengtao/article/details/9951131>
+[https://blog.csdn.net/maochengtao/article/details/9951131](https://blog.csdn.net/maochengtao/article/details/9951131)

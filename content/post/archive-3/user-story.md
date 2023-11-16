@@ -21,7 +21,7 @@ tags:
 
 作者: 马菲菲
   
-链接: <https://www.zhihu.com/question/26996772/answer/35078718>
+链接: [https://www.zhihu.com/question/26996772/answer/35078718](https://www.zhihu.com/question/26996772/answer/35078718)
   
 来源: 知乎
   
@@ -29,12 +29,12 @@ tags:
 
 ## 用户故事
 
-<https://www.tapd.cn/forum/view/43571>
+[https://www.tapd.cn/forum/view/43571](https://www.tapd.cn/forum/view/43571)
   
-<https://www.cnblogs.com/jetlian/p/3946359.html>
+[https://www.cnblogs.com/jetlian/p/3946359.html](https://www.cnblogs.com/jetlian/p/3946359.html)
   
-<http://www.scrumcn.com/agile/scrum/4823.html>
+[http://www.scrumcn.com/agile/scrum/4823.html](http://www.scrumcn.com/agile/scrum/4823.html)
   
-<http://www.scrumcn.com/agile/scrum/20026.html>
+[http://www.scrumcn.com/agile/scrum/20026.html](http://www.scrumcn.com/agile/scrum/20026.html)
   
-<https://blog.csdn.net/GitChat/article/details/78410016>
+[https://blog.csdn.net/GitChat/article/details/78410016](https://blog.csdn.net/GitChat/article/details/78410016)

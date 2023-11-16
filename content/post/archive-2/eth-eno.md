@@ -42,4 +42,4 @@ systemd 197为许多命名策略新增了许多本地化的支持到 systemd/ude
 8、网络接口命名方式更加贴近symlinks的命方式
 9、对x86架构无约束，适用于多种架构
 
-<https://blog.csdn.net/u010558281/article/details/68488791>
+[https://blog.csdn.net/u010558281/article/details/68488791](https://blog.csdn.net/u010558281/article/details/68488791)

@@ -154,6 +154,6 @@ emerge -update -upgradeonly world
   
 emerge -pv opera
 
-参考文档: <http://www.gentoo.org/doc/zh_cn/index.xml>
+参考文档: [http://www.gentoo.org/doc/zh_cn/index.xml](http://www.gentoo.org/doc/zh_cn/index.xml)
   
-永久链接 : <http://www.ha97.com/3192.html>
+永久链接 : [http://www.ha97.com/3192.html](http://www.ha97.com/3192.html)

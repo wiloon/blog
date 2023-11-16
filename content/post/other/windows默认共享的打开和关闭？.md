@@ -10,7 +10,7 @@ tags:
 ---
 ## windows默认共享的打开和关闭？
 
-<http://www.cnblogs.com/Fooo/archive/2007/06/04/771021.html>
+[http://www.cnblogs.com/Fooo/archive/2007/06/04/771021.html](http://www.cnblogs.com/Fooo/archive/2007/06/04/771021.html)
 
 Windows启动时都会默认打开admin$ ipc$ 和每个盘符的共享，对于不必要的默认共享，一般都会把它取消掉，可当又需要打开此默认共享时，又该从哪里设置呢，一般来说有两个地方，MSDOS命令和计算机管理共享文件夹，下面主要从DOS命令来设置，因为比较简单，也可进行批处理。
 

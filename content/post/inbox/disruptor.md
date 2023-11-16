@@ -10,7 +10,7 @@ tags:
 ---
 ## disruptor
 
-<http://www.cnblogs.com/haiq/p/4112689.html>
+[http://www.cnblogs.com/haiq/p/4112689.html](http://www.cnblogs.com/haiq/p/4112689.html)
 
 已经不记得最早接触到 Disruptor 是什么时候了,只记得发现它的时候它是以具有闪电般的速度被介绍的。于是在脑子里, Disruptor 和"闪电"一词关联了起来,然而却一直没有时间去探究一下。
 

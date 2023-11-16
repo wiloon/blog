@@ -13,7 +13,7 @@ tags:
 
 #### wsl, ubuntu install rust
 
-   curl --proto '=https' --tlsv1.2 -sSf <https://sh.rustup.rs> | sh
+   curl --proto '=https' --tlsv1.2 -sSf [https://sh.rustup.rs](https://sh.rustup.rs) | sh
 
 ### 查看版本
 
@@ -60,4 +60,4 @@ tags:
 
 ---
 
-<https://kaisery.github.io/trpl-zh-cn/ch01-01-installation.html>
+[https://kaisery.github.io/trpl-zh-cn/ch01-01-installation.html](https://kaisery.github.io/trpl-zh-cn/ch01-01-installation.html)

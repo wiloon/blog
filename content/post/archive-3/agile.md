@@ -66,13 +66,13 @@ tags:
 
 敏捷的核心可以归纳成四个字: "渐进增强"。
 
-<http://agilemanifesto.org/>
-<https://blog.csdn.net/hanyongan300/article/details/79678030>  
-<https://blog.csdn.net/superkunkun/article/details/52940329>  
-<https://www.infoq.cn/article/k4TB7hZU4uM_8lhXEY9h?utm_source=rss&utm_medium=article>  
-<http://www.scrummanifesto.org/>  
-<https://www.scrum.org/resources/what-is-scrum>  
-<https://www.atlassian.com/agile/scrum>  
+[http://agilemanifesto.org/](http://agilemanifesto.org/)
+[https://blog.csdn.net/hanyongan300/article/details/79678030](https://blog.csdn.net/hanyongan300/article/details/79678030)  
+[https://blog.csdn.net/superkunkun/article/details/52940329](https://blog.csdn.net/superkunkun/article/details/52940329)  
+[https://www.infoq.cn/article/k4TB7hZU4uM_8lhXEY9h?utm_source=rss&utm_medium=article](https://www.infoq.cn/article/k4TB7hZU4uM_8lhXEY9h?utm_source=rss&utm_medium=article)  
+[http://www.scrummanifesto.org/](http://www.scrummanifesto.org/)  
+[https://www.scrum.org/resources/what-is-scrum](https://www.scrum.org/resources/what-is-scrum)  
+[https://www.atlassian.com/agile/scrum](https://www.atlassian.com/agile/scrum)  
 
 ## '敏捷  框架'
 
@@ -80,10 +80,10 @@ tags:
 * LeSS: 大规模 Scrum，以 Scrum 为基础。LeSS 分两个模式，LeSS 模式宣称适合 8 人团队、最多 8 个团队共 64 个人的情况，LeSS HUGE 模式则号称可适应数千人规模的产品研发；在敏捷方法方面，LeSS 以 Scrum 为核心，工程实践维度，有实践指导材料；
 * SAFe: 大规模敏捷框架，完整的 SAFe 框架可以分为四个层级，团队级适合 5~9 人团队、项目群级适合 5~12 个团队 (约 50~125 人) 、大型解决方案级适合数百人规模、组合级适合 500~1000 人规模；敏捷方法论方面，介绍了 Scrum、XP、Kanban 方法，主张团队自主选择，工程实践方面有所提及，但没有特别详细的介绍；
 
-<https://www.infoq.cn/article/6dc4LQmRpdfGlt1jb5YJ?utm_source=rss&utm_medium=article>
+[https://www.infoq.cn/article/6dc4LQmRpdfGlt1jb5YJ?utm_source=rss&utm_medium=article](https://www.infoq.cn/article/6dc4LQmRpdfGlt1jb5YJ?utm_source=rss&utm_medium=article)
 
 ## 敏捷软件开发合同
 
-<https://www.agilesoftwaredevelopment.com/posts/10-agile-contracts>
+[https://www.agilesoftwaredevelopment.com/posts/10-agile-contracts](https://www.agilesoftwaredevelopment.com/posts/10-agile-contracts)
 
-<https://saat-network.ch/2019/05/ten-contracts-for-your-next-agile-project/>
+[https://saat-network.ch/2019/05/ten-contracts-for-your-next-agile-project/](https://saat-network.ch/2019/05/ten-contracts-for-your-next-agile-project/)

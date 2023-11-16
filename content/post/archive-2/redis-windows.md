@@ -20,7 +20,7 @@ redis-server.exe  redis.windows.conf
 
 ```
 
-<https://github.com/MSOpenTech/redis/releases>
+[https://github.com/MSOpenTech/redis/releases](https://github.com/MSOpenTech/redis/releases)
 
 修改配置文件
 

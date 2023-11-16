@@ -311,8 +311,8 @@ select * from users where adddate<'2007-01-01';
   
 以上,就对其中MySQL索引类型进行了介绍。
 
-<https://tech.meituan.com/MySQL-index.html>
+[https://tech.meituan.com/MySQL-index.html](https://tech.meituan.com/MySQL-index.html)
   
-<http://www.cnblogs.com/hustcat/archive/2009/10/28/1591648.html>
+[http://www.cnblogs.com/hustcat/archive/2009/10/28/1591648.html](http://www.cnblogs.com/hustcat/archive/2009/10/28/1591648.html)
   
-<https://segmentfault.com/a/1190000003072424>
+[https://segmentfault.com/a/1190000003072424](https://segmentfault.com/a/1190000003072424)

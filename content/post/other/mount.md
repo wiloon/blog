@@ -135,4 +135,4 @@ $ mount /dev/fd0
 
 这样才是真正完成了我们最初的目标。现在，让我们回到多用户模式中(telinit 3 代表标准的文本模式，telinit 5 代表 X Window 系统)。如果没有后续的管理工作要做的话，您就可以从 root 账户注销了。
   
-<https://xionchen.github.io/2016/08/25/linux-bind-mount/>
+[https://xionchen.github.io/2016/08/25/linux-bind-mount/](https://xionchen.github.io/2016/08/25/linux-bind-mount/)

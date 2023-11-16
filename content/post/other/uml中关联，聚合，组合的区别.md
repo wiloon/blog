@@ -172,5 +172,5 @@ Perhaps you can read from my tone that I'm pretty disillusioned with UML. Too ba
 
 8. 关联是一种结构关系，表现为一个对象能够获得另一个对象的实例引用并调用它的服务 (即使用它）；依赖是一种使用关系，表现为一个对象仅仅是调用了另一个对象的服务。
 
-<https://www.cnblogs.com/gaochundong/p/uml_difference_between_dependency_and_association.html>
-><https://leetschau.github.io/umlzhong-guan-lian-associationhe-yi-lai-dependencyde-qu-bie.html>
+[https://www.cnblogs.com/gaochundong/p/uml_difference_between_dependency_and_association.html](https://www.cnblogs.com/gaochundong/p/uml_difference_between_dependency_and_association.html)
+>[https://leetschau.github.io/umlzhong-guan-lian-associationhe-yi-lai-dependencyde-qu-bie.html](https://leetschau.github.io/umlzhong-guan-lian-associationhe-yi-lai-dependencyde-qu-bie.html)

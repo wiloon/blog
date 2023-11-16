@@ -137,10 +137,10 @@ DMA 引擎将数据从内核 socket 缓冲区拷贝到协议引擎中
 3. Linux 中的零拷贝技术，第 2 部分
 
 作者: 叫我不矜持
-链接: <https://www.jianshu.com/p/028cf0008ca5>
+链接: [https://www.jianshu.com/p/028cf0008ca5](https://www.jianshu.com/p/028cf0008ca5)
 来源: 简书
 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
 
-<https://blog.csdn.net/qq_38293564/article/details/99203065>  
-<https://cloud.tencent.com/developer/news/406991>  
-<https://spongecaptain.cool/SimpleClearFileIO/2.%20DMA%20%E4%B8%8E%E9%9B%B6%E6%8B%B7%E8%B4%9D%E6%8A%80%E6%9C%AF.html>  
+[https://blog.csdn.net/qq_38293564/article/details/99203065](https://blog.csdn.net/qq_38293564/article/details/99203065)  
+[https://cloud.tencent.com/developer/news/406991](https://cloud.tencent.com/developer/news/406991)  
+[https://spongecaptain.cool/SimpleClearFileIO/2.%20DMA%20%E4%B8%8E%E9%9B%B6%E6%8B%B7%E8%B4%9D%E6%8A%80%E6%9C%AF.html](https://spongecaptain.cool/SimpleClearFileIO/2.%20DMA%20%E4%B8%8E%E9%9B%B6%E6%8B%B7%E8%B4%9D%E6%8A%80%E6%9C%AF.html)  

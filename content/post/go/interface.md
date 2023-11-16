@@ -26,7 +26,7 @@ go 允许不带任何方法的 interface ，这种类型的 interface 叫 empty 
 
 ## 'golang 获取interface{} 的数据类型'
 
-<https://blog.csdn.net/xia_xing/article/details/49423771>
+[https://blog.csdn.net/xia_xing/article/details/49423771](https://blog.csdn.net/xia_xing/article/details/49423771)
 
 interface{} 可以接受任何类型的对象值
   
@@ -108,6 +108,6 @@ fmt.Println("b1.(type):", "other", v)
   
 版权声明: 本文为CSDN博主「夏星笑语」的原创文章，遵循 CC 4.0 BY-SA 版权协议，转载请附上原文出处链接及本声明。
   
-原文链接: <https://blog.csdn.net/xia_xing/article/details/49423771>
+原文链接: [https://blog.csdn.net/xia_xing/article/details/49423771](https://blog.csdn.net/xia_xing/article/details/49423771)
 
-<https://sanyuesha.com/2017/07/22/how-to-understand-go-interface/>
+[https://sanyuesha.com/2017/07/22/how-to-understand-go-interface/](https://sanyuesha.com/2017/07/22/how-to-understand-go-interface/)

@@ -160,7 +160,7 @@ mvn jetty:run
   
 版权声明: 本文为CSDN博主「wxy_fighting」的原创文章，遵循 CC 4.0 BY-SA 版权协议，转载请附上原文出处链接及本声明。
   
-原文链接: <https://blog.csdn.net/wxyFighting/article/details/9408153>
+原文链接: [https://blog.csdn.net/wxyFighting/article/details/9408153](https://blog.csdn.net/wxyFighting/article/details/9408153)
 
 ### Java JPDA
 
@@ -188,24 +188,24 @@ JDI (Java Debug Interface) 是三个模块中最高层的接口，在多数的 J
 
 ---
 
-<https://developer.ibm.com/zh/articles/j-lo-jpda1/>#
-<https://juejin.im/post/6844903855029747725>
-<https://www.jianshu.com/p/f902ac5d29e4>
-<https://blog.csdn.net/xlgen157387/article/details/50268457>
-<http://blog.csdn.net/cchaha/article/details/3962502>
-<http://hi.baidu.com/huamarco/blog/item/75c3f2a411e3ebf29152ee34.html>
-<http://blog.csdn.net/zmxj/>
-<http://www.blogjava.net/yongbing/articles/221179.html>
+[https://developer.ibm.com/zh/articles/j-lo-jpda1/](https://developer.ibm.com/zh/articles/j-lo-jpda1/)#
+[https://juejin.im/post/6844903855029747725](https://juejin.im/post/6844903855029747725)
+[https://www.jianshu.com/p/f902ac5d29e4](https://www.jianshu.com/p/f902ac5d29e4)
+[https://blog.csdn.net/xlgen157387/article/details/50268457](https://blog.csdn.net/xlgen157387/article/details/50268457)
+[http://blog.csdn.net/cchaha/article/details/3962502](http://blog.csdn.net/cchaha/article/details/3962502)
+[http://hi.baidu.com/huamarco/blog/item/75c3f2a411e3ebf29152ee34.html](http://hi.baidu.com/huamarco/blog/item/75c3f2a411e3ebf29152ee34.html)
+[http://blog.csdn.net/zmxj/](http://blog.csdn.net/zmxj/)
+[http://www.blogjava.net/yongbing/articles/221179.html](http://www.blogjava.net/yongbing/articles/221179.html)
 
 作者: 用户112986583106
-链接: <https://juejin.im/post/6844903813141233671>
+链接: [https://juejin.im/post/6844903813141233671](https://juejin.im/post/6844903813141233671)
 来源: 掘金
 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
   
-<http://dn.codegear.com/cn/article/33654>"><http://dn.codegear.com/cn/article/33654>
-<http://www.eclipsezone.com/eclipse/forums/t53459.html>
-<http://articles.techrepublic.com.com/5100-10878_11-6139512.html>
-<http://www.lifevv.com/tenyo/doc/20070918003423784.html>
+<http://dn.codegear.com/cn/article/33654>">[http://dn.codegear.com/cn/article/33654](http://dn.codegear.com/cn/article/33654)
+[http://www.eclipsezone.com/eclipse/forums/t53459.html](http://www.eclipsezone.com/eclipse/forums/t53459.html)
+[http://articles.techrepublic.com.com/5100-10878_11-6139512.html](http://articles.techrepublic.com.com/5100-10878_11-6139512.html)
+[http://www.lifevv.com/tenyo/doc/20070918003423784.html](http://www.lifevv.com/tenyo/doc/20070918003423784.html)
 
 ## JSR45, JPDA
 
@@ -343,11 +343,11 @@ jdb -connect com.sun.jdi.SocketAttach:hostname=<host>,port=<port>
 Java 虚拟机调试接口（JVMDI）在此发行版中不受支持。已将它替换为 Java 虚拟机工具接口（JVMTI）。
 
 有关 JDB 和 JPDA 及其用法的更多信息，请参阅以下 Web 站点：
-<http://www.oracle.com/technetwork/java/javase/tech/jpda-141715.html>
-<https://docs.oracle.com/javase/7/docs/technotes/guides/jpda/>
-<https://docs.oracle.com/javase/7/docs/technotes/guides/jpda/jdb.html>
+[http://www.oracle.com/technetwork/java/javase/tech/jpda-141715.html](http://www.oracle.com/technetwork/java/javase/tech/jpda-141715.html)
+[https://docs.oracle.com/javase/7/docs/technotes/guides/jpda/](https://docs.oracle.com/javase/7/docs/technotes/guides/jpda/)
+[https://docs.oracle.com/javase/7/docs/technotes/guides/jpda/jdb.html](https://docs.oracle.com/javase/7/docs/technotes/guides/jpda/jdb.html)
 
-<https://www.ibm.com/docs/zh/sdk-java-technology/7?topic=dja-java-debugger-jdb-1>
+[https://www.ibm.com/docs/zh/sdk-java-technology/7?topic=dja-java-debugger-jdb-1](https://www.ibm.com/docs/zh/sdk-java-technology/7?topic=dja-java-debugger-jdb-1)
 
 ## Remote Debugging | Fitnesse with Eclipse
 

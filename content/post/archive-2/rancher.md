@@ -10,17 +10,17 @@ tags:
 ---
 ## rancher
 
-<https://rancher.com/docs/rancher/v2.6/en/>
+[https://rancher.com/docs/rancher/v2.6/en/](https://rancher.com/docs/rancher/v2.6/en/)
 
 RKE: Rancher Kubernetes Engine
 EKS: Amazon EKS (Elastic Kubernetes Service)
 GKE: Google Kubernetes Engine
 
-<https://github.com/rancher/rancher>
+[https://github.com/rancher/rancher](https://github.com/rancher/rancher)
 
-<https://helm.sh/>
+[https://helm.sh/](https://helm.sh/)
 
-<https://k3s.io/>
+[https://k3s.io/](https://k3s.io/)
 
 ## k3s
 
@@ -90,9 +90,9 @@ helm install rancher rancher-latest/rancher \
 
 ## Installing Rancher on a Single Node Using Docker
 
-<https://rancher.com/docs/rancher/v2.6/en/installation/other-installation-methods/single-node-docker/>
+[https://rancher.com/docs/rancher/v2.6/en/installation/other-installation-methods/single-node-docker/](https://rancher.com/docs/rancher/v2.6/en/installation/other-installation-methods/single-node-docker/)
 
-ubuntu 22.04 fix <https://github.com/rancher/rancher/issues/36238>
+ubuntu 22.04 fix [https://github.com/rancher/rancher/issues/36238](https://github.com/rancher/rancher/issues/36238)
 
 ```bash
 vim /etc/default/grub
@@ -109,7 +109,7 @@ sudo docker run -d --restart=unless-stopped \
   rancher/rancher:latest
 ```
 
-url: <https://192.168.50.167>
+url: [https://192.168.50.167](https://192.168.50.167)
 
 ## create k8s cluster
 

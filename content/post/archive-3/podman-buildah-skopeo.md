@@ -22,13 +22,13 @@ Podman专注于维护和修改OCI镜像的所有命令和功能，例如拉动�
 
 Buildah 是套件中的 Build 工具，用来构建OCI镜像。虽然 Podman 也可以用户构建 Docker 镜像，但是构建速度超慢，并且默认情况下使用 vfs 存储驱动程序会消耗大量磁盘空间。 而 buildah bud (使用Dockerfile构建) 非常快，并使用覆盖存储驱动程序，可以节约大量的空间。
 
-Buildah (<https://buildah.io>) 。Buildah 是 Red Hat 开发的一款工具，可以很好地与 Podman 配合使用。如果你已经安装了 Podman，可能会注意到 podman build 子命令，它实际上是经过包装的 Buildah。
+Buildah ([https://buildah.io](https://buildah.io)) 。Buildah 是 Red Hat 开发的一款工具，可以很好地与 Podman 配合使用。如果你已经安装了 Podman，可能会注意到 podman build 子命令，它实际上是经过包装的 Buildah。
 
 ### Skopeo
 
 Skopeo是套件中镜像管理工具，允许我们通过推，拉和复制镜像来处理Docker和OC镜像。
 
-<https://zhuanlan.zhihu.com/p/77373246>
+[https://zhuanlan.zhihu.com/p/77373246](https://zhuanlan.zhihu.com/p/77373246)
 
 除了 Docker 和 Podman 之外，还有其他容器引擎，但我认为它们没有出路或者都不适合用于本地开发。不过如果你想要对容器引擎有一个较为完整的了解，我们可以列出一些:
 LXD——是 LXC (Linux 容器)的容器管理器(守护进程)。这个工具提供了运行系统容器的能力，这些系统容器提供了类似于 VM 的容器环境。它比较小众，没有很多用户，所以除非你有特定的用例，否则最好使用 Docker 或 Podman。
@@ -36,6 +36,6 @@ CRI-O——如果你在网上搜索 cri-o 是什么东西，你可能会发现�
 rkt——rkt(“rocket”)是由 CoreOS 开发的容器引擎。这里提到这个项目只是为了清单的完整性，因为这个项目已经结束了，它的开发也停止了——因此它不应该再被使用。
 
 是时候跟Docker说再见了
-原文链接:  <https://www.infoq.cn/article/pzvqukmvk5fh9elhipgb>
+原文链接:  [https://www.infoq.cn/article/pzvqukmvk5fh9elhipgb](https://www.infoq.cn/article/pzvqukmvk5fh9elhipgb)
 
-unc 的另一种替代品是 crun (<https://github.com/containers/crun>) 。这是 Red Hat 开发的一款工具，完全用 C 语言开发(runc 是用 Go 开发的)，所以它比 runc 更快，内存效率更高。因为它也是兼容 OCI 的运行时，所以你应该可以很容易上手。尽管它现在还不是很流行，但作为 RHEL 8.3 版本的技术预览，它将作为一个可选的 OCI 运行时，又因为它是 Red Hat 的产品，它可能最终会成为 Podman 或 CRI-O 的默认配置。
+unc 的另一种替代品是 crun ([https://github.com/containers/crun](https://github.com/containers/crun)) 。这是 Red Hat 开发的一款工具，完全用 C 语言开发(runc 是用 Go 开发的)，所以它比 runc 更快，内存效率更高。因为它也是兼容 OCI 的运行时，所以你应该可以很容易上手。尽管它现在还不是很流行，但作为 RHEL 8.3 版本的技术预览，它将作为一个可选的 OCI 运行时，又因为它是 Red Hat 的产品，它可能最终会成为 Podman 或 CRI-O 的默认配置。

@@ -111,7 +111,7 @@ alert(RegExp.rightContext); //显示为6
 
 上面说的三个例子，/i,/g,/m分开来说的，可以排列组合使用的。个人觉得/m没有多大用处
 
-<http://blog.51yip.com/jsjquery/1076.html>
+[http://blog.51yip.com/jsjquery/1076.html](http://blog.51yip.com/jsjquery/1076.html)
 
 ### javascript 密码 正则
 
@@ -127,4 +127,4 @@ let testPassword = /^(?=.*?[a-z])(?=.*?[A-Z])(?=.*?\d)(?=.*?[!@#$%^&;*()_=+\-])[
 
 ————————————————
 版权声明：本文为CSDN博主「weixin_42553179」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
-原文链接：<https://blog.csdn.net/weixin_42553179/article/details/103045970>
+原文链接：[https://blog.csdn.net/weixin_42553179/article/details/103045970](https://blog.csdn.net/weixin_42553179/article/details/103045970)

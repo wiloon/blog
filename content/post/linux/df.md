@@ -123,7 +123,7 @@ none tmpfs 127372 0 127372 0% /dev/shm
   
 /dev/hda6 ext3 256667 232729 10686 96% /var2
 
-<http://os.51cto.com/art/201012/240726_all.htm>
+[http://os.51cto.com/art/201012/240726_all.htm](http://os.51cto.com/art/201012/240726_all.htm)
 
 ## df
 

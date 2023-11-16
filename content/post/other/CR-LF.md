@@ -18,7 +18,7 @@ tags:
 - windows: 换行(回车+换行), \r\n, Unix/Mac 下打开会显示成 `^M`
 - macos: Line Feed, LF
 
-<https://blog.csdn.net/wjcquking/article/details/6634504>
+[https://blog.csdn.net/wjcquking/article/details/6634504](https://blog.csdn.net/wjcquking/article/details/6634504)
 
 回车符号和换行符号产生背景
 
@@ -72,7 +72,7 @@ Dos   下换行符有: \r\n
   
 来源: CSDN
   
-原文: <https://blog.csdn.net/wjcquking/article/details/6634504>
+原文: [https://blog.csdn.net/wjcquking/article/details/6634504](https://blog.csdn.net/wjcquking/article/details/6634504)
   
 版权声明: 本文为博主原创文章，转载请附上博文链接！
 

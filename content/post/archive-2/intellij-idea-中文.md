@@ -12,7 +12,7 @@ tags:
 
     IntelliJ IDEA Windows JBR是什么
 
-<https://www.4spaces.org/what-is-intellij-idea-jbr/embed/#?secret=ZFT4esKgN4>
+[https://www.4spaces.org/what-is-intellij-idea-jbr/embed/#?secret=ZFT4esKgN4](https://www.4spaces.org/what-is-intellij-idea-jbr/embed/#?secret=ZFT4esKgN4)
 
 ### idea without JBR
 
@@ -60,4 +60,4 @@ Intellij IDEA 12 设置字体
   
 用记事本打开Darcula1.xml文件,把第8行改为然后重启IntelliJ IDEA 12.0,中文字符问题解决,
   
-<http://www.cnblogs.com/vhua/p/idea_1.html>
+[http://www.cnblogs.com/vhua/p/idea_1.html](http://www.cnblogs.com/vhua/p/idea_1.html)

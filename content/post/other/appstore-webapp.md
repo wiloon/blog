@@ -12,7 +12,7 @@ tags:
 
 苹果真的要在 AppStore 里封杀 WebApp 吗?
 
-<http://fins.iteye.com/blog/1685886>
+[http://fins.iteye.com/blog/1685886](http://fins.iteye.com/blog/1685886)
 
   苹果真的要在 AppStore 里封杀 WebApp 吗 ?
   

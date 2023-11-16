@@ -25,9 +25,9 @@ bufio.Read(p []byte) 的思路如下：
 3、当缓存区没有内容的时候且len(p)<len(buf),即要读取的内容比缓存区小，缓存区从文件读取内容充满缓存区，并将p填满 (此时缓存区有剩余内容）
 4、以后再次读取时缓存区有内容，将缓存区内容全部填入p并清空缓存区 (此时和情况1一样）
 
-<https://www.cnblogs.com/ricklz/p/13188188.html>
+[https://www.cnblogs.com/ricklz/p/13188188.html](https://www.cnblogs.com/ricklz/p/13188188.html)
 
-<http://www.cnblogs.com/golove/p/3282667.html>
+[http://www.cnblogs.com/golove/p/3282667.html](http://www.cnblogs.com/golove/p/3282667.html)
 
 // bufio 包实现了带缓存的 I/O 操作
 

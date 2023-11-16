@@ -16,4 +16,4 @@ tags:
 return语句用来明确地从一个方法返回。也就是，return 语句使程序控制返回到调用它方法。因此，将它分类为跳转语句。尽管对return 语句详细讨论在第 7 章开始，这里对其作简要地介绍。在一个方法任何时间，return 语句可被用来使正在执行分支程序返回到调用它方法。下面例子说明这一点。下例中，由于是Java 运行系统调用main() ，因此，return语句使程序执行返回到Java 运行系统。
 
 
-<http://java.chinaitlab.com/base/799194.html>
+[http://java.chinaitlab.com/base/799194.html](http://java.chinaitlab.com/base/799194.html)

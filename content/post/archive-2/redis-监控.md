@@ -10,7 +10,7 @@ tags:
 ---
 ## redis 监控
 
-<http://ghoulich.xninja.org/2016/12/08/how-to-use-latency-monitor-in-redis/>
+[http://ghoulich.xninja.org/2016/12/08/how-to-use-latency-monitor-in-redis/](http://ghoulich.xninja.org/2016/12/08/how-to-use-latency-monitor-in-redis/)
 
 Redis 2.8.13引入了一个新特性,叫做延迟监控 (Latency Monitoring) ,它可以帮助用户检查和定位可能的延迟问题。延迟监控由下面的几个组件构成:
 
@@ -20,7 +20,7 @@ Redis 2.8.13引入了一个新特性,叫做延迟监控 (Latency Monitoring) ,�
 分析引擎: 这个组件会根据测量方法向用户提供易读的报告和提示信息。
 本文只会详细描述延迟监控子系统的各项功能。如果想要了解如何检查和定位Redis的延迟问题,请参考《Redis延迟问题的排查方法》。
 
-<http://www.jianshu.com/p/68485d5c7fb9>
+[http://www.jianshu.com/p/68485d5c7fb9](http://www.jianshu.com/p/68485d5c7fb9)
 
 Redis Server监控数据采集
   
@@ -140,6 +140,6 @@ cluster_known_nodes:6
   
 文/疲马羁禽 (简书作者)
   
-原文链接: <http://www.jianshu.com/p/68485d5c7fb9>
+原文链接: [http://www.jianshu.com/p/68485d5c7fb9](http://www.jianshu.com/p/68485d5c7fb9)
   
 著作权归作者所有,转载请联系作者获得授权,并标注"简书作者"。

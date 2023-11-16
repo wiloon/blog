@@ -10,7 +10,7 @@ tags:
 ---
 ## slackware
 # Slackware Linux
-<http://baike.baidu.com/view/10899.htm>
+[http://baike.baidu.com/view/10899.htm](http://baike.baidu.com/view/10899.htm)
 Slackware Linux是由Patrick Volkerding制作的GNU/Linux发行版，它是世界上依然存活的最久的Linux发行版，在它的辉煌时期，曾经在所有发行版中拥有最多的用户数量。但是，随着 Linux商业化的浪潮，Redhat、Mandrake 和Suse 这些产品通过大规模的商业推广，占据了广大的市场；Debian作为一个社区发行版，也拥有很大的用户群。相比之下，Slackware的不事声张，使得它从许多人(尤其是使用Linux的新用户)的视野中消失了。
 
     Slackware是Patrick Volkerding制作的Linux发行版本。Slackware 走了一条同其他的发行版本 (Red Hat、Debian、Gentoo、SuSE、 Mandriva、Ubuntu等) 不同的道路，它力图成为"UNIX风格"的Linux发行版本。它的方针是只吸收稳定版本的应用程序，并且缺少其他linux版本中那些为发行版本定制的配置工具。

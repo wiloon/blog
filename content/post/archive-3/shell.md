@@ -35,7 +35,7 @@ chsh -l
 
 ## 查看当前使用的 shell
 
-<https://blog.csdn.net/qq_32590631/article/details/93640599>
+[https://blog.csdn.net/qq_32590631/article/details/93640599](https://blog.csdn.net/qq_32590631/article/details/93640599)
 
 ```bash
 echo $0
@@ -102,7 +102,7 @@ echo ${url: 2}  #省略 length，截取到字符串末尾
 # 结果为biancheng.net。
 ```
 
-<http://c.biancheng.net/view/1120.html>
+[http://c.biancheng.net/view/1120.html](http://c.biancheng.net/view/1120.html)
 
 ### shell字符串大小写转换
 
@@ -129,7 +129,7 @@ echo 'HELLO' | tr '[:upper:]' '[:lower:]'
 
 ————————————————
 版权声明：本文为CSDN博主「LLZK_」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
-原文链接：<https://blog.csdn.net/LLZK_/article/details/66972407>
+原文链接：[https://blog.csdn.net/LLZK_/article/details/66972407](https://blog.csdn.net/LLZK_/article/details/66972407)
 
 ### 判断字符串是否相等
 
@@ -180,7 +180,7 @@ Usage of the $ like ${HOME} gives the value of HOME. Usage of the $ like $(echo 
 
 #### Command Substitution
 
-<https://www.gnu.org/software/bash/manual/html_node/Command-Substitution.html>
+[https://www.gnu.org/software/bash/manual/html_node/Command-Substitution.html](https://www.gnu.org/software/bash/manual/html_node/Command-Substitution.html)
 
 ## 括号
 
@@ -223,7 +223,7 @@ Test 和 [] 中可用的比较运算符只有 == 和 !=，两者都是用于字�
 
 the $[ syntax was an early syntax that was deprecated in favor of $((, since the latter was already used by the Korn shell.
 
-<https://unix.stackexchange.com/questions/209833/what-does-a-dollar-sign-followed-by-a-square-bracket-mean-in-bash>
+[https://unix.stackexchange.com/questions/209833/what-does-a-dollar-sign-followed-by-a-square-bracket-mean-in-bash](https://unix.stackexchange.com/questions/209833/what-does-a-dollar-sign-followed-by-a-square-bracket-mean-in-bash)
 
 ```r
 { Single Curly Braces }
@@ -231,11 +231,11 @@ the $[ syntax was an early syntax that was deprecated in favor of $((, since the
 <<Double Angle Heredocs
 ```
 
-<https://zhuanlan.zhihu.com/p/75145247>
+[https://zhuanlan.zhihu.com/p/75145247](https://zhuanlan.zhihu.com/p/75145247)
 
-<https://www.runoob.com/w3cnote/linux-shell-brackets-features.html>
+[https://www.runoob.com/w3cnote/linux-shell-brackets-features.html](https://www.runoob.com/w3cnote/linux-shell-brackets-features.html)
 
-<https://dev.to/rpalo/bash-brackets-quick-reference-4eh6>
+[https://dev.to/rpalo/bash-brackets-quick-reference-4eh6](https://dev.to/rpalo/bash-brackets-quick-reference-4eh6)
 
 ## 循环, shell loop
 
@@ -288,7 +288,7 @@ if [ "$the_world_is_flat" = true ] ; then
 fi
 ```
 
-<https://stackoverflow.com/questions/2953646/how-can-i-declare-and-use-boolean-variables-in-a-shell-script?rq=1>
+[https://stackoverflow.com/questions/2953646/how-can-i-declare-and-use-boolean-variables-in-a-shell-script?rq=1](https://stackoverflow.com/questions/2953646/how-can-i-declare-and-use-boolean-variables-in-a-shell-script?rq=1)
 
 ### 字符串包含
 
@@ -479,7 +479,7 @@ echo $B
 echo $C
 ```
 
-<https://my.oschina.net/u/2428064/blog/3045121>
+[https://my.oschina.net/u/2428064/blog/3045121](https://my.oschina.net/u/2428064/blog/3045121)
 
 ## string
 
@@ -712,7 +712,7 @@ ${\#}
 
 ### 模式匹配截断
 
-<https://blog.csdn.net/K346K346/article/details/51819236>
+[https://blog.csdn.net/K346K346/article/details/51819236](https://blog.csdn.net/K346K346/article/details/51819236)
 
 ### 以-分隔取最后一段字符串
 
@@ -742,7 +742,7 @@ ${\#}
     foo-bar
 ```
 
-<https://stackoverflow.com/questions/16153446/bash-last-index-of>
+[https://stackoverflow.com/questions/16153446/bash-last-index-of](https://stackoverflow.com/questions/16153446/bash-last-index-of)
 
 ### Shell中去除字符串前后空格
 
@@ -880,7 +880,7 @@ ${var:-newstring}
 
 ---
 版权声明: 本文为CSDN博主「无知的蜗牛」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
-原文链接: <https://blog.csdn.net/weixin_37998647/java/article/details/79718821>
+原文链接: [https://blog.csdn.net/weixin_37998647/java/article/details/79718821](https://blog.csdn.net/weixin_37998647/java/article/details/79718821)
 
 ## grep 操作的返回值
 
@@ -1429,28 +1429,28 @@ fi
 
 awk '{print $2}' class.txt | grep '^[0-9.]' > res
   
-<https://www.linuxquestions.org/questions/programming-9/bash-put-output-from-%60ls%60-into-an-array-346719/>
+[https://www.linuxquestions.org/questions/programming-9/bash-put-output-from-%60ls%60-into-an-array-346719/](https://www.linuxquestions.org/questions/programming-9/bash-put-output-from-%60ls%60-into-an-array-346719/)
   
 版权声明: 本文为CSDN博主「DevMaster」的原创文章，遵循 CC 4.0 BY-SA 版权协议，转载请附上原文出处链接及本声明。
   
-原文链接: <https://blog.csdn.net/wncnke/java/article/details/54847140>
+原文链接: [https://blog.csdn.net/wncnke/java/article/details/54847140](https://blog.csdn.net/wncnke/java/article/details/54847140)
 
 参考
 
-<http://fyan.iteye.com/blog/1130034>
+[http://fyan.iteye.com/blog/1130034](http://fyan.iteye.com/blog/1130034)
 作者: 翔云翔云  
 来源: CSDN
-原文: <https://blog.csdn.net/lanyang123456/article/details/57416906>
+原文: [https://blog.csdn.net/lanyang123456/article/details/57416906](https://blog.csdn.net/lanyang123456/article/details/57416906)
 版权声明: 本文为博主原创文章，转载请附上博文链接！
-本文来自 wujiangguizhen 的CSDN 博客 ，全文地址请点击: <https://blog.csdn.net/wujiangguizhen/article/details/26992353?utm_source=copy>
+本文来自 wujiangguizhen 的CSDN 博客 ，全文地址请点击: [https://blog.csdn.net/wujiangguizhen/article/details/26992353?utm_source=copy](https://blog.csdn.net/wujiangguizhen/article/details/26992353?utm_source=copy)
 
 ---
 
-<https://www.shellscript.sh/functions.html>
-<http://www.cnblogs.com/barrychiao/archive/2012/10/22/2733210.html>
-<https://www.cnblogs.com/lr-ting/archive/2013/02/28/2936792.html>
+[https://www.shellscript.sh/functions.html](https://www.shellscript.sh/functions.html)
+[http://www.cnblogs.com/barrychiao/archive/2012/10/22/2733210.html](http://www.cnblogs.com/barrychiao/archive/2012/10/22/2733210.html)
+[https://www.cnblogs.com/lr-ting/archive/2013/02/28/2936792.html](https://www.cnblogs.com/lr-ting/archive/2013/02/28/2936792.html)
 
-<https://wxnacy.com/2018/06/20/shell-replace/>
+[https://wxnacy.com/2018/06/20/shell-replace/](https://wxnacy.com/2018/06/20/shell-replace/)
 
 ## 'linux #!/bin/sh'
 
@@ -1515,9 +1515,9 @@ fun0 foo
 
 ```
 
-<https://www.runoob.com/linux/linux-shell-func.html>
+[https://www.runoob.com/linux/linux-shell-func.html](https://www.runoob.com/linux/linux-shell-func.html)
   
-<https://wiki.jikexueyuan.com/project/shell-tutorial/shell-function-parameter.html>
+[https://wiki.jikexueyuan.com/project/shell-tutorial/shell-function-parameter.html](https://wiki.jikexueyuan.com/project/shell-tutorial/shell-function-parameter.html)
 
 ## shell 把命令输出结果存入变量
 
@@ -1531,18 +1531,18 @@ var=\`ls -lR|grep "^d"|wc -l\`
   
 ```
 
-<https://blog.csdn.net/baidu_35757025/article/details/64440047>
+[https://blog.csdn.net/baidu_35757025/article/details/64440047](https://blog.csdn.net/baidu_35757025/article/details/64440047)
 
-<https://wangdoc.com/bash/quotation.html>
+[https://wangdoc.com/bash/quotation.html](https://wangdoc.com/bash/quotation.html)
 
 ## echo $$, $BASHPID
 
 `$$`是当前bash进程的pid 等同于 `$BASHPID`
 
-<https://www.zhihu.com/question/50517601>
+[https://www.zhihu.com/question/50517601](https://www.zhihu.com/question/50517601)
 
 ## *, **
 
 `*` 只匹配当前目录的文件和目录, `**` 匹配所有当前目录和子目录的文件和目录
 
-<https://stackoverflow.com/questions/28176590/what-does-the-double-asterisk-wildcard-mean>
+[https://stackoverflow.com/questions/28176590/what-does-the-double-asterisk-wildcard-mean](https://stackoverflow.com/questions/28176590/what-does-the-double-asterisk-wildcard-mean)

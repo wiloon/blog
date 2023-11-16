@@ -12,7 +12,7 @@ tags:
 
  Bootchart 已经成为 systemd 的一部分
 
-<https://wiki.archlinux.org/title/Improving_performance/Boot_process#Analyzing_the_boot_process>
+[https://wiki.archlinux.org/title/Improving_performance/Boot_process#Analyzing_the_boot_process](https://wiki.archlinux.org/title/Improving_performance/Boot_process#Analyzing_the_boot_process)
 
  systemd-analyze plot > plot.svg
 

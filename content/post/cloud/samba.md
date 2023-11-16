@@ -63,6 +63,6 @@ file share url: \\hostname0\share0
 mount -t cifs //SERVER/sharename /mnt/mountpoint -o username=username,password=password,iocharset=utf8,vers=3.1.1
 ```
 
-<https://linuxize.com/post/how-to-install-and-configure-samba-on-centos-7/>
+[https://linuxize.com/post/how-to-install-and-configure-samba-on-centos-7/](https://linuxize.com/post/how-to-install-and-configure-samba-on-centos-7/)
 
 [[nfs]]

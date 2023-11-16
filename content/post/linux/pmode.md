@@ -149,10 +149,10 @@ IA-32e 是基于保护模式的，也就是说也是通过段选择子、段描�
 
 最初的操作系统是无法对内存段做访问限制，有了这样的需求以后，CPU厂商决定采用段描述符来实现相关的功能，在硬件一级上添加GDTR和LDTR来支持全局描述符表和局部描述符表，并由硬件负责周边的安全检测。当初的CPU厂商也并不是凭空制造出了这样一个概念，是与操作系统厂商共同协商后才有了一套硬件方面的支持。  如今x86架构的OS，大都都把分段视为是兼容性的考虑 (类似于对实模式的处理），在系统初始化阶段象征性地初始化GDT，之后的运行就没分段啥事儿了。地址空间的保护模型都来自分页，像ARM体系结构就不支持分段，仅靠MMU进行保护。
 
-<https://zhuanlan.zhihu.com/p/42309472>  
-<https://zhuanlan.zhihu.com/p/54083337>  
+[https://zhuanlan.zhihu.com/p/42309472](https://zhuanlan.zhihu.com/p/42309472)  
+[https://zhuanlan.zhihu.com/p/54083337](https://zhuanlan.zhihu.com/p/54083337)  
 
 作者：长安
-链接：<https://www.zhihu.com/question/50796850/answer/654281605>
+链接：[https://www.zhihu.com/question/50796850/answer/654281605](https://www.zhihu.com/question/50796850/answer/654281605)
 来源：知乎
 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。

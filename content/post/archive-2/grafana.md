@@ -45,7 +45,7 @@ Q. How do I use the second y axis, secondYAxis function does not work
 
 A. You can switch any series to the second y axis by clicking on the colored line to left of the series name in the legend below the graph. Alternately, use the "Display Styles" > "Series Specific overrides" to define an alias or regex + "Y-axis: 2" to move metrics to the right Axis
 
-<https://github.com/grafana/grafana/wiki/FAQ>
+[https://github.com/grafana/grafana/wiki/FAQ](https://github.com/grafana/grafana/wiki/FAQ)
 
 ## reset password
 

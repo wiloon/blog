@@ -10,7 +10,7 @@ tags:
 ---
 ## linux shell Manipulating Strings
 
-<http://www.faqs.org/docs/abs/HTML/string-manipulation.html>
+[http://www.faqs.org/docs/abs/HTML/string-manipulation.html](http://www.faqs.org/docs/abs/HTML/string-manipulation.html)
 
 ## 连接字符串
 

@@ -25,7 +25,7 @@ killall命令杀死同一进程组内的所有进程。其允许指定要终止�
   
     killall java
 
-<http://www.cnblogs.com/itech/archive/2012/03/05/2380794.html>
+[http://www.cnblogs.com/itech/archive/2012/03/05/2380794.html](http://www.cnblogs.com/itech/archive/2012/03/05/2380794.html)
 
 kill命令用于终止指定的进程 (terminate a process) ，是Unix/Linux下进程管理的常用命令。通常，我们在需要终止某个或某些进程时，先使用ps/pidof/pstree/top等工具获取进程PID，然后使用kill命令来杀掉该进程。kill命令的另外一个用途就是向指定的进程或进程组发送信号 (The  command kill sends the specified signal to the specified process or process group) ，或者确定进程号为PID的进程是否还在。比如，有许多程序都把 SIGHUP 信号作为重新读取配置文件的触发条件。
   
@@ -86,13 +86,13 @@ root      3370  2822  0 16:21 pts/0    00:00:00 grep vim
   
 参考:
   
-<http://codingstandards.iteye.com/blog/847299>
+[http://codingstandards.iteye.com/blog/847299](http://codingstandards.iteye.com/blog/847299)
   
 完！
 
 作者: iTech
   
-出处: <http://itech.cnblogs.com/>
+出处: [http://itech.cnblogs.com/](http://itech.cnblogs.com/)
 
 ```bash
 kill -HUP xxx
@@ -119,7 +119,7 @@ kill -l
 
 作者: cityhash123
   
-链接: <http://www.jianshu.com/p/966d18eac17e>
+链接: [http://www.jianshu.com/p/966d18eac17e](http://www.jianshu.com/p/966d18eac17e)
   
 來源: 简书
   
@@ -258,7 +258,7 @@ KNOWN bugS (已知 BUGS)
   
 在两次扫描的间隙, 如果进程消失了而被代之以一个有同样 PID 的新进程, killall -w 侦测不到。
 
-<http://os.51cto.com/art/200910/158639.htm>
+[http://os.51cto.com/art/200910/158639.htm](http://os.51cto.com/art/200910/158639.htm)
 
 根据进程名杀死进程 －kill进程名
   
@@ -278,7 +278,7 @@ KNOWN bugS (已知 BUGS)
   
 2. #kill -9 $(pidof 进程名关键字)
 
-<https://blog.csdn.net/zhaoyue007101/article/details/7699259>
+[https://blog.csdn.net/zhaoyue007101/article/details/7699259](https://blog.csdn.net/zhaoyue007101/article/details/7699259)
 
 ## kill -9 都杀不掉的进程
 
@@ -288,10 +288,10 @@ a、该进程处于"Zombie"状态 (使用ps命令返回defunct的进程) 。此�
   
 b、 该进程处于"kernel mode" (核心态) 且在等待不可获得的资源。处于核心态的进程忽略所有信号处理,因此对于这些一直处于核心态的进程只能通过重启系统实现。进程在AIX 中会处于两种状态,即用户态和核心态。只有处于用户态的进程才可以用"kill"命令将其终止。
   
-<https://blog.csdn.net/lemontree1945/article/details/79169178>
+[https://blog.csdn.net/lemontree1945/article/details/79169178](https://blog.csdn.net/lemontree1945/article/details/79169178)
 
 ## kill a process in one line using bash
-<https://stackoverflow.com/questions/3510673/find-and-kill-a-process-in-one-line-using-bash-and-regex>
+[https://stackoverflow.com/questions/3510673/find-and-kill-a-process-in-one-line-using-bash-and-regex](https://stackoverflow.com/questions/3510673/find-and-kill-a-process-in-one-line-using-bash-and-regex)
 
 ```bash
   
@@ -300,7 +300,7 @@ kill $(ps -ef|grep process-foo |grep -v grep |awk '{print $2}')
 ```
 
 ## killall
-<http://www.cnblogs.com/peida/archive/2012/12/21/2827366.html>
+[http://www.cnblogs.com/peida/archive/2012/12/21/2827366.html](http://www.cnblogs.com/peida/archive/2012/12/21/2827366.html)
 
 Linux系统中的killall命令用于杀死指定名字的进程 (kill processes by name) 。我们可以使用kill命令杀死指定进程PID的进程,如果要找到我们需要杀死的进程,我们还需要在之前使用ps等命令再配合grep来查找进程,而killall把这两个过程合二为一,是一个很好用的命令。
   

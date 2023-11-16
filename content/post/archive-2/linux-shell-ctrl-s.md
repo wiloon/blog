@@ -20,6 +20,6 @@ ctrl+q 恢复屏幕输出
   
 ctrl+l 清屏,【是字母L的小写】等同于Clear
 
-<http://www.tsingpost.com/articles/201405/828.html>
+[http://www.tsingpost.com/articles/201405/828.html](http://www.tsingpost.com/articles/201405/828.html)
   
-<http://blog.csdn.net/absurd/article/details/593881>
+[http://blog.csdn.net/absurd/article/details/593881](http://blog.csdn.net/absurd/article/details/593881)

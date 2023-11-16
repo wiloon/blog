@@ -12,7 +12,7 @@ tags:
 
 版权声明: 本文为博主原创文章，遵循 CC 4.0 by-sa 版权协议，转载请附上原文出处链接和本声明。
   
-本文链接: <https://blog.csdn.net/qq_33642117/article/details/52040345>
+本文链接: [https://blog.csdn.net/qq_33642117/article/details/52040345](https://blog.csdn.net/qq_33642117/article/details/52040345)
   
 一，Set
   
@@ -78,4 +78,4 @@ System.out.println(it.next());
   
 版权声明: 本文为CSDN博主「飘走的我」的原创文章，遵循CC 4.0 by-sa版权协议，转载请附上原文出处链接及本声明。
   
-原文链接: <https://blog.csdn.net/qq_33642117/article/details/52040345>
+原文链接: [https://blog.csdn.net/qq_33642117/article/details/52040345](https://blog.csdn.net/qq_33642117/article/details/52040345)

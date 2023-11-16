@@ -72,4 +72,4 @@ heihaier@heihaier-desktop:~$ sudo cat /etc/passwd | grep root
   
 root:x:0:0:root:/root:/bin/bash
 
-<https://blog.csdn.net/sinat_31500569/article/details/69943903>
+[https://blog.csdn.net/sinat_31500569/article/details/69943903](https://blog.csdn.net/sinat_31500569/article/details/69943903)

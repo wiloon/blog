@@ -9,9 +9,9 @@ tags:
   - reprint
 ---
 ## '浏览器,F5 和 Ctrl+F5的区别'
-引:<http://morganchengmo.spaces.live.com/blog/cns!9950CE918939932E!2144.entry>
+引:[http://morganchengmo.spaces.live.com/blog/cns!9950CE918939932E!2144.entry](http://morganchengmo.spaces.live.com/blog/cns!9950CE918939932E!2144.entry)
 
-<http://www.cnblogs.com/cxd4321/archive/2009/03/11/1408425.html>
+[http://www.cnblogs.com/cxd4321/archive/2009/03/11/1408425.html](http://www.cnblogs.com/cxd4321/archive/2009/03/11/1408425.html)
 
 **Browser: F5 vs Ctrl+F5**
 

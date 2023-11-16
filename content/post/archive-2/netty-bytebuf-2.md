@@ -31,10 +31,10 @@ Pooling (池化，这点减少了内存复制和GC，提升效率)
 引用计数
 ————————————————
 版权声明：本文为CSDN博主「架构师-尼恩」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
-原文链接：<https://blog.csdn.net/crazymakercircle/article/details/84198042>
+原文链接：[https://blog.csdn.net/crazymakercircle/article/details/84198042](https://blog.csdn.net/crazymakercircle/article/details/84198042)
 
-><https://caorong.github.io/2017/01/16/head-first-netty-3/>  
-><https://segmentfault.com/a/1190000007560884>  
+>[https://caorong.github.io/2017/01/16/head-first-netty-3/](https://caorong.github.io/2017/01/16/head-first-netty-3/)  
+>[https://segmentfault.com/a/1190000007560884](https://segmentfault.com/a/1190000007560884)  
 
 根据 Wiki 对 Zero-copy 的定义:
 
@@ -286,4 +286,4 @@ Email: yongshun1228@gmail .com
   
 本文标题为: 对于 Netty ByteBuf 的零拷贝(Zero Copy) 的理解
   
-本文链接为: <https://segmentfault.com/a/1190000007560884>
+本文链接为: [https://segmentfault.com/a/1190000007560884](https://segmentfault.com/a/1190000007560884)

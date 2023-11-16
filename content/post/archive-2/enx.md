@@ -14,4 +14,4 @@ chrome-enx reload
 
 deploy api
 
-<https://github.com/wiloon/enx/blob/main/enx-api/deploy.sh>
+[https://github.com/wiloon/enx/blob/main/enx-api/deploy.sh](https://github.com/wiloon/enx/blob/main/enx-api/deploy.sh)

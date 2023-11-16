@@ -137,4 +137,4 @@ load-in  swap-out  swapped   delta      used     delta      used     delta
 
 ---
 
-<http://ifeve.com/redis-mem/>
+[http://ifeve.com/redis-mem/](http://ifeve.com/redis-mem/)

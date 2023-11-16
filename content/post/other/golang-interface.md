@@ -35,7 +35,7 @@ func main(){
 }
 ```
 
-<http://www.cnblogs.com/chenny7/p/4497969.html>
+[http://www.cnblogs.com/chenny7/p/4497969.html](http://www.cnblogs.com/chenny7/p/4497969.html)
 
 Go语言没有沿袭传统面向对象编程中的诸多概念，比如继承、虚函数、构造函数和析构函数、隐藏的 this 指针等。
 
@@ -498,10 +498,10 @@ IntegerConstant中匿名嵌入了Token类型，使得IntegerConstant"继承"了T
 
 ----
 
-<https://hackthology.com/golangzhong-de-mian-xiang-dui-xiang-ji-cheng.html>
+[https://hackthology.com/golangzhong-de-mian-xiang-dui-xiang-ji-cheng.html](https://hackthology.com/golangzhong-de-mian-xiang-dui-xiang-ji-cheng.html)
 
-<http://se77en.cc/2014/05/05/methods-interfaces-and-embedded-types-in-golang/>
+[http://se77en.cc/2014/05/05/methods-interfaces-and-embedded-types-in-golang/](http://se77en.cc/2014/05/05/methods-interfaces-and-embedded-types-in-golang/)
   
-<http://se77en.cc/2014/05/04/choose-whether-to-use-a-value-or-pointer-receiver-on-methods/>
+[http://se77en.cc/2014/05/04/choose-whether-to-use-a-value-or-pointer-receiver-on-methods/](http://se77en.cc/2014/05/04/choose-whether-to-use-a-value-or-pointer-receiver-on-methods/)
   
-<https://github.com/astaxie/build-web-application-with-golang/blob/master/zh/02.6.md>
+[https://github.com/astaxie/build-web-application-with-golang/blob/master/zh/02.6.md](https://github.com/astaxie/build-web-application-with-golang/blob/master/zh/02.6.md)

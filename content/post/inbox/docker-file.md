@@ -105,8 +105,8 @@ into a dockerfile\n'\
 >> /etc/example.conf
 ```
 
-<http://blog.wiloon.com/?p=11796>
-<http://dockone.io/article/8196>
+[http://blog.wiloon.com/?p=11796](http://blog.wiloon.com/?p=11796)
+[http://dockone.io/article/8196](http://dockone.io/article/8196)
 
 ## Dockerfile RUN，CMD，ENTRYPOINT命令区别
 
@@ -181,7 +181,7 @@ ENTRYPOINT 中的参数始终会被使用，而 CMD 的额外参数可以在容�
 如果想为容器设置默认的启动命令，可使用 CMD 指令。用户可在 docker run 命令行中替换此默认命令。
 
 作者：伊凡的一天
-链接：<https://www.jianshu.com/p/f0a0f6a43907>
+链接：[https://www.jianshu.com/p/f0a0f6a43907](https://www.jianshu.com/p/f0a0f6a43907)
 来源：简书
 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
 
@@ -229,7 +229,7 @@ FROM nginx:1.13.1-alpine
 
 LABEL maintainer="GPF <5173180@qq.com>"
 
-<https://yeasy.gitbooks.io/docker_practice/content/image/build.html>
+[https://yeasy.gitbooks.io/docker_practice/content/image/build.html](https://yeasy.gitbooks.io/docker_practice/content/image/build.html)
 
 RUN mkdir -p /etc/nginx/cert \
     && mkdir -p /etc/nginx/conf.d \
@@ -273,4 +273,4 @@ done
 
 ## copy vs. add
 
-<https://www.cnblogs.com/sparkdev/p/9573248.html>
+[https://www.cnblogs.com/sparkdev/p/9573248.html](https://www.cnblogs.com/sparkdev/p/9573248.html)

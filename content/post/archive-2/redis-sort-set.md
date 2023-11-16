@@ -224,6 +224,6 @@ Redis中的sorted set, 是在 skiplist、dict 和 ziplist 基础上构建起来�
 当数据较少时, sorted set 是由一个 ziplist 来实现的。
 当数据多的时候, sorted set 是由一个叫 zset 的数据结构来实现的, 这个 zset 包含一个 dict 加一个 skiplist。 dict 用来查询数据(member) 到分数 (score) 的对应关系, 而 skiplist 用来根据分数或者 (分数or排名) 范围查询数据。这样 skiplist 中只需要通过指针来获取对应分数的键 member, 而不用管键到底占了多大空间, 把它交给dict去存储。
 
-><https://redis.readthedocs.io/en/2.4/sorted_set.html>
-><http://www.cnblogs.com/stephen-liu74/archive/2012/02/16/2354994.html>
-><https://elsef.com/2019/12/06/%E5%85%B3%E4%BA%8EZipList/>
+>[https://redis.readthedocs.io/en/2.4/sorted_set.html](https://redis.readthedocs.io/en/2.4/sorted_set.html)
+>[http://www.cnblogs.com/stephen-liu74/archive/2012/02/16/2354994.html](http://www.cnblogs.com/stephen-liu74/archive/2012/02/16/2354994.html)
+>[https://elsef.com/2019/12/06/%E5%85%B3%E4%BA%8EZipList/](https://elsef.com/2019/12/06/%E5%85%B3%E4%BA%8EZipList/)

@@ -18,4 +18,4 @@ glide install
 
 ```
 
-<https://github.com/Masterminds/glide>
+[https://github.com/Masterminds/glide](https://github.com/Masterminds/glide)

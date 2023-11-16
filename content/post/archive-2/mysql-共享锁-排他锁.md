@@ -10,7 +10,7 @@ tags:
 ---
 ## 'MySQL 共享锁  排他锁'
 
-<http://www.hollischuang.com/archives/923>
+[http://www.hollischuang.com/archives/923](http://www.hollischuang.com/archives/923)
 
 共享锁(Share Lock)
   

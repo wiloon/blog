@@ -71,7 +71,7 @@ $ find /usr/lib -name 'crt1.o'
 
 ### Hello World背后的故事：如何在Linux上编译C语言程序
 
-<https://lulaoshi.info/blog/compile-c-hello-world-on-linux>  
+[https://lulaoshi.info/blog/compile-c-hello-world-on-linux](https://lulaoshi.info/blog/compile-c-hello-world-on-linux)  
 
 ### 查询gcc能否搜寻到指定的库文件
 

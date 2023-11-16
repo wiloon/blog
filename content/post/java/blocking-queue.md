@@ -331,11 +331,11 @@ in.close();
 
 }
 
-<http://jiangzhengjun.iteye.com/blog/683593>
+[http://jiangzhengjun.iteye.com/blog/683593](http://jiangzhengjun.iteye.com/blog/683593)
   
-<http://www.cnblogs.com/jackyuj/archive/2010/11/24/1886553.html>
+[http://www.cnblogs.com/jackyuj/archive/2010/11/24/1886553.html](http://www.cnblogs.com/jackyuj/archive/2010/11/24/1886553.html)
   
-<http://www.infoq.com/cn/articles/java-blocking-queue>
+[http://www.infoq.com/cn/articles/java-blocking-queue](http://www.infoq.com/cn/articles/java-blocking-queue)
 
  [1]: http://www.wiloon.com/?p=8256
  [2]: http://www.wiloon.com/?p=8253

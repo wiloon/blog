@@ -11,7 +11,7 @@ tags:
 ---
 ## Pivot Table
 
-<http://www.cnblogs.com/waitrabbit/archive/2010/06/29/1767702.html>
+[http://www.cnblogs.com/waitrabbit/archive/2010/06/29/1767702.html](http://www.cnblogs.com/waitrabbit/archive/2010/06/29/1767702.html)
 
 "数据透视表" 英文是 Pivot Table ，直接翻译是轴向旋转表 ，什么意思呢？ 及把我们的数据分成多个维度来进行统计，可以理解为我们平时说的简单报表。
 

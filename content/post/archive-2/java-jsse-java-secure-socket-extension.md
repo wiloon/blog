@@ -197,30 +197,30 @@ keytool -import -alias sslclient -keystore sslservertrust -file sslclient.cer
   
 truststore和keystore的性质是一样的,都是存放key的一个仓库,区别在于,truststore里存放的是只包含公钥的数字证书,代表了可以信任的证书,而keystore是包含私钥的。
 
-<https://www.jianshu.com/p/981431a2b6ea>
+[https://www.jianshu.com/p/981431a2b6ea](https://www.jianshu.com/p/981431a2b6ea)
 
-<https://www.ibm.com/developerworks/cn/java/j-lo-ssltls/>
+[https://www.ibm.com/developerworks/cn/java/j-lo-ssltls/](https://www.ibm.com/developerworks/cn/java/j-lo-ssltls/)
   
-<https://www.ibm.com/developerworks/cn/java/j-lo-socketkeytool/index.html>
+[https://www.ibm.com/developerworks/cn/java/j-lo-socketkeytool/index.html](https://www.ibm.com/developerworks/cn/java/j-lo-socketkeytool/index.html)
   
-<https://waylau.com/essential-netty-in-action/CORE%20FUNCTIONS/Securing%20Netty%20applications%20with%20SSLTLS.html>
+[https://waylau.com/essential-netty-in-action/CORE%20FUNCTIONS/Securing%20Netty%20applications%20with%20SSLTLS.html](https://waylau.com/essential-netty-in-action/CORE%20FUNCTIONS/Securing%20Netty%20applications%20with%20SSLTLS.html)
   
-<https://www.jianshu.com/p/981431a2b6ea>
+[https://www.jianshu.com/p/981431a2b6ea](https://www.jianshu.com/p/981431a2b6ea)
 
 使用java keytool 查看,添加,删除 jks 文件
   
-<https://blog.byneil.com/%e4%bd%bf%e7%94%a8java-keytool-%e6%9f%a5%e7%9c%8b%e6%b7%bb%e5%8a%a0%e5%88%a0%e9%99%a4-jks-%e6%96%87%e4%bb%b6/embed/#?secret=701X4GNJmy>
+[https://blog.byneil.com/%e4%bd%bf%e7%94%a8java-keytool-%e6%9f%a5%e7%9c%8b%e6%b7%bb%e5%8a%a0%e5%88%a0%e9%99%a4-jks-%e6%96%87%e4%bb%b6/embed/#?secret=701X4GNJmy](https://blog.byneil.com/%e4%bd%bf%e7%94%a8java-keytool-%e6%9f%a5%e7%9c%8b%e6%b7%bb%e5%8a%a0%e5%88%a0%e9%99%a4-jks-%e6%96%87%e4%bb%b6/embed/#?secret=701X4GNJmy)
   
-<http://www.cnblogs.com/benio/archive/2010/09/15/1826990.html>
+[http://www.cnblogs.com/benio/archive/2010/09/15/1826990.html](http://www.cnblogs.com/benio/archive/2010/09/15/1826990.html)
   
-<http://yushan.iteye.com/blog/434955>
+[http://yushan.iteye.com/blog/434955](http://yushan.iteye.com/blog/434955)
   
-<http://lukejin.iteye.com/blog/605634>
+[http://lukejin.iteye.com/blog/605634](http://lukejin.iteye.com/blog/605634)
   
-<http://www.cnblogs.com/gsls200808/p/4500246.html>
+[http://www.cnblogs.com/gsls200808/p/4500246.html](http://www.cnblogs.com/gsls200808/p/4500246.html)
   
-<http://www.cnblogs.com/gaoxing/p/4805311.html>
+[http://www.cnblogs.com/gaoxing/p/4805311.html](http://www.cnblogs.com/gaoxing/p/4805311.html)
   
-<http://www.cnblogs.com/orientsun/archive/2012/07/26/2609444.html>
+[http://www.cnblogs.com/orientsun/archive/2012/07/26/2609444.html](http://www.cnblogs.com/orientsun/archive/2012/07/26/2609444.html)
   
-<https://docs.oracle.com/javase/8/docs/api/javax/net/ssl/SSLContext.html>
+[https://docs.oracle.com/javase/8/docs/api/javax/net/ssl/SSLContext.html](https://docs.oracle.com/javase/8/docs/api/javax/net/ssl/SSLContext.html)

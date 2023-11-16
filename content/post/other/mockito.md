@@ -114,7 +114,7 @@ import org.junit.Test;
 
 * @date 2012-5-5
 
-* {@link <http://weibo.com/u/1697702241>}
+* {@link [http://weibo.com/u/1697702241](http://weibo.com/u/1697702241)}
 
 *
 
@@ -384,11 +384,11 @@ public void verifyInvocate(){
 
 [http://qiuguo0205.iteye.com/blog/1443344](http://qiuguo0205.iteye.com/blog/1443344)
 
-<http://bijian1013.iteye.com/blog/1986068>
+[http://bijian1013.iteye.com/blog/1986068](http://bijian1013.iteye.com/blog/1986068)
 
-<http://blog.csdn.net/onlyqi/article/details/6396646>
+[http://blog.csdn.net/onlyqi/article/details/6396646](http://blog.csdn.net/onlyqi/article/details/6396646)
 
-<http://site.mockito.org/mockito/docs/current/org/mockito/Mockito.html>
+[http://site.mockito.org/mockito/docs/current/org/mockito/Mockito.html](http://site.mockito.org/mockito/docs/current/org/mockito/Mockito.html)
 
 ockito是一种mock工具/框架。我理解EasyMock有点过时了，Mockito是现在比较流行的。
 
@@ -410,10 +410,10 @@ Mock object and EasyMock framework
 
 一篇很好的入门文章:
 
-<http://blog.csdn.net/huoshuxiao/archive/2010/12/30/6107835.aspx>
+[http://blog.csdn.net/huoshuxiao/archive/2010/12/30/6107835.aspx](http://blog.csdn.net/huoshuxiao/archive/2010/12/30/6107835.aspx)
 
 一些稍微复杂且实用一点的例子:
 
 [http://gojko.net/2009/10/23/mockito-in-six-easy-examples/](http://gojko.net/2009/10/23/mockito-in-six-easy-examples/)
 
-<http://liuzhijun.iteye.com/blog/1512780>
+[http://liuzhijun.iteye.com/blog/1512780](http://liuzhijun.iteye.com/blog/1512780)

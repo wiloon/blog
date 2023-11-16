@@ -10,7 +10,7 @@ tags:
 ---
 ## MySQL事务autocommit自动提交
 
-<http://www.qttc.net/201208175.html>
+[http://www.qttc.net/201208175.html](http://www.qttc.net/201208175.html)
 
 MySQL默认操作模式就是autocommit自动提交模式。这就表示除非显式地开始一个事务,否则每个查询都被当做一个单独的事务自动执行。我们可以通过设置autocommit的值改变是否是自动提交autocommit模式。
 

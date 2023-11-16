@@ -10,7 +10,7 @@ tags:
 ---
 ## Proxmox VE, pve
 
-<https://www.proxmox.com/en/>
+[https://www.proxmox.com/en/](https://www.proxmox.com/en/)
 
 一、Proxmox VE 简介
   
@@ -27,7 +27,7 @@ Proxmox Virtual Environment，或 Proxmox VE，是来自德国的开源虚拟化
 网页或是命令行管理真是方便啊，再也不用在 Windows 虚拟机里运行 Citrix XenCenter 或是 VMware vSphere Client 了。
 
 网络
-PVE网络配置官方文档: <https://pve.proxmox.com/wiki/Network_Configuration>
+PVE网络配置官方文档: [https://pve.proxmox.com/wiki/Network_Configuration](https://pve.proxmox.com/wiki/Network_Configuration)
 
 可以通过GUI或通过手动编辑文件/etc/network/interfaces来完成网络配置，该文件包含整个网络配置。以下介绍两种常用模式。
 
@@ -37,4 +37,4 @@ PVE网络配置官方文档: <https://pve.proxmox.com/wiki/Network_Configuration
 网桥就像用软件实现的物理网络交换机。所有虚拟机都可以共享一个网桥，或者您可以创建多个网桥来分离网络域。每个主机最多可以有4094个网桥。
 安装程序将创建一个名为vmbr0的网桥，该网桥连接到第一个以太网卡。/etc/network/interfaces中的相应配置可能如下所示 (不同网口配置，需要使用空行分隔) :
 
-<https://wzyboy.im/post/1293.html>
+[https://wzyboy.im/post/1293.html](https://wzyboy.im/post/1293.html)

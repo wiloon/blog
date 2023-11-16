@@ -11,7 +11,7 @@ tags:
 
 ### 下载 usbip-win
 
-<https://github.com/cezanne/usbip-win/releases>
+[https://github.com/cezanne/usbip-win/releases](https://github.com/cezanne/usbip-win/releases)
 
 ### 解压到一个目录
 
@@ -49,6 +49,6 @@ bcdedit.exe /set TESTSIGNING ON
 
 ---
 
-<https://yadom.in/archives/usb-passthrough-hyper-v-and-wsl2.html>  
-<https://snowstar.org/2020/06/14/wsl2-usb-via-usbip/>  
-<https://github.com/microsoft/WSL2-Linux-Kernel>  
+[https://yadom.in/archives/usb-passthrough-hyper-v-and-wsl2.html](https://yadom.in/archives/usb-passthrough-hyper-v-and-wsl2.html)  
+[https://snowstar.org/2020/06/14/wsl2-usb-via-usbip/](https://snowstar.org/2020/06/14/wsl2-usb-via-usbip/)  
+[https://github.com/microsoft/WSL2-Linux-Kernel](https://github.com/microsoft/WSL2-Linux-Kernel)  

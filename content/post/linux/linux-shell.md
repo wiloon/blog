@@ -10,7 +10,7 @@ tags:
 ---
 ## 'shell, bash, csh, sh, ksh, dash, zsh'
 
-<https://blog.csdn.net/lina_acm/article/details/51815080>
+[https://blog.csdn.net/lina_acm/article/details/51815080](https://blog.csdn.net/lina_acm/article/details/51815080)
 
 Linux中的shell有多种类型，其中最常用的几种是Bourne shell (sh) 、C shell (csh) 和Korn shell (ksh) 。三种shell各有优缺点。Bourne shell是UNIX最初使用的shell，并且在每种UNIX上都可以使用。Bourne shell在shell编程方面相当优秀，但在处理与用户的交互方面做得不如其他几种shell。Linux操作系统缺省的shell是Bourne Again shell，它是Bourne shell的扩展，简称Bash，与Bourne shell完全向后兼容，并且在Bourne shell的基础上增加、增强了很多特性。Bash放在/bin/bash中，它有许多特色，可以提供如命令补全、命令编辑和命令历史表等功能，它还包含了很多C shell和Korn shell中的优点，有灵活和强大的编程接口，同时又有很友好的用户界面。
 

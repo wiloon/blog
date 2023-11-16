@@ -21,7 +21,7 @@ tags:
 
 ### 无符号右移
 
-<https://blog.wiloon.com/?p=15522>
+[https://blog.wiloon.com/?p=15522](https://blog.wiloon.com/?p=15522)
 
 ### & 操作符
 
@@ -70,4 +70,4 @@ OR(a,b) = 1
 // prints 11000111
 ```
 
-<https://lihaoquan.me/2018/1/1/bit-operator.html>
+[https://lihaoquan.me/2018/1/1/bit-operator.html](https://lihaoquan.me/2018/1/1/bit-operator.html)

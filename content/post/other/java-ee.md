@@ -66,6 +66,6 @@ JMX - Java Management
   
 StAX - Streaming APIs for XML Parsers
 
-<http://zh.wikipedia.org/wiki/Java_EE>
+[http://zh.wikipedia.org/wiki/Java_EE](http://zh.wikipedia.org/wiki/Java_EE)
 
 http://en.wikipedia.org/wiki/Java_EE_version_history

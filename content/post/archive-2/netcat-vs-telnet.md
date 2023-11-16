@@ -124,10 +124,10 @@ NetCat的一些主要功能:
 
 Use Netcat - not Telnet - to test network connectivity
   
-<http://www.terminalinflection.com/use-netcat-not-telnet-to-test-network-connectivity/embed/#?secret=xAPNTA4aj2>
+[http://www.terminalinflection.com/use-netcat-not-telnet-to-test-network-connectivity/embed/#?secret=xAPNTA4aj2](http://www.terminalinflection.com/use-netcat-not-telnet-to-test-network-connectivity/embed/#?secret=xAPNTA4aj2)
 
 Stop using telnet and start using netcat
   
-<https://scottlinux.com/2013/12/19/stop-using-telnet-and-start-using-netcat/embed/#?secret=mR1NgJH6y2>
+[https://scottlinux.com/2013/12/19/stop-using-telnet-and-start-using-netcat/embed/#?secret=mR1NgJH6y2](https://scottlinux.com/2013/12/19/stop-using-telnet-and-start-using-netcat/embed/#?secret=mR1NgJH6y2)
   
-<https://stackoverflow.com/questions/47844060/how-to-test-a-remote-port-is-reachable-with-socat>
+[https://stackoverflow.com/questions/47844060/how-to-test-a-remote-port-is-reachable-with-socat](https://stackoverflow.com/questions/47844060/how-to-test-a-remote-port-is-reachable-with-socat)

@@ -174,4 +174,4 @@ pidstat -d 1
   
 以上命令以1秒为信息采集周期,分别获取cpu、内存和磁盘IO的统计信息。
 
-转自 <http://www.cnblogs.com/bangerlee/articles/2555307.html>
+转自 [http://www.cnblogs.com/bangerlee/articles/2555307.html](http://www.cnblogs.com/bangerlee/articles/2555307.html)

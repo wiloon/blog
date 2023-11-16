@@ -63,7 +63,7 @@ tags:
  <FORM ACTION="getpost.asp" METHOD="get">
  <INPUT TYPE="text" NAME="Text" VALUE="
 
- <http://wxf0701.cnblogs.com/>
+ [http://wxf0701.cnblogs.com/](http://wxf0701.cnblogs.com/)
  />
  <INPUT TYPE="submit" VALUE="Get方式"></INPUT>
  </FORM>
@@ -126,4 +126,4 @@ HttpServletResponse提供了快捷的redirect()方法实现302重定向。
 
 https://www.liaoxuefeng.com/wiki/1252599548343744/1328761739935778
 
-<https://alanli7991.github.io/2016/10/26/HTTP%E8%AF%B7%E6%B1%82GETPOST%E4%B8%8E%E5%8F%82%E6%95%B0%E5%B0%8F%E7%BB%93/>
+[https://alanli7991.github.io/2016/10/26/HTTP%E8%AF%B7%E6%B1%82GETPOST%E4%B8%8E%E5%8F%82%E6%95%B0%E5%B0%8F%E7%BB%93/](https://alanli7991.github.io/2016/10/26/HTTP%E8%AF%B7%E6%B1%82GETPOST%E4%B8%8E%E5%8F%82%E6%95%B0%E5%B0%8F%E7%BB%93/)

@@ -36,13 +36,13 @@ docker run -p '3000:3000' gomods/athens:latest
 
 ---
 
-<https://goproxy.io/zh/>
+[https://goproxy.io/zh/](https://goproxy.io/zh/)
 
-<https://blog.wiloon.com/?p=15941>
+[https://blog.wiloon.com/?p=15941](https://blog.wiloon.com/?p=15941)
 
-<https://shockerli.net/post/go-get-golang-org-x-solution/>
+[https://shockerli.net/post/go-get-golang-org-x-solution/](https://shockerli.net/post/go-get-golang-org-x-solution/)
   
-<https://github.com/goproxy/goproxy.cn>
+[https://github.com/goproxy/goproxy.cn](https://github.com/goproxy/goproxy.cn)
 
 GOPRIVATE 环境变量
 完成设置后，go 命令会从公共镜像 goproxy.io 上下载依赖包，并且会对下载的软件包和代码库进行安全校验，当你的代码库是公开的时候，这些功能都没什么问题。但是如果你的仓库是私有的怎么办呢？
@@ -75,4 +75,4 @@ GOPRIVATE=*.corp.example.com,rsc.io/private
 
 这样 go 命令和其他工具就会把 corp.example.com 这个域名下的依赖包识别成私有的，但是用户仍然会从公司内部的代理镜像服务器 proxy.example.com 上下载所有公有和私有的仓库，因为用户设置了 GONOPROXY=none， 这个设置会覆盖 GOPRIVATE 变量。
 
-<https://goproxy.io/zh/docs/GOPRIVATE-env.html>
+[https://goproxy.io/zh/docs/GOPRIVATE-env.html](https://goproxy.io/zh/docs/GOPRIVATE-env.html)

@@ -34,13 +34,13 @@ ExecStart=/path/to/execfile/foo
   
 WantedBy=multi-user.target
 
-<https://vincent.bernat.im/en/blog/2017-systemd-golang>
+[https://vincent.bernat.im/en/blog/2017-systemd-golang](https://vincent.bernat.im/en/blog/2017-systemd-golang)
   
-<https://serversforhackers.com/c/process-monitoring-with-systemd>
+[https://serversforhackers.com/c/process-monitoring-with-systemd](https://serversforhackers.com/c/process-monitoring-with-systemd)
 
-<https://fabianlee.org/2017/05/21/golang-running-a-go-binary-as-a-systemd-service-on-ubuntu-16-04/>
+[https://fabianlee.org/2017/05/21/golang-running-a-go-binary-as-a-systemd-service-on-ubuntu-16-04/](https://fabianlee.org/2017/05/21/golang-running-a-go-binary-as-a-systemd-service-on-ubuntu-16-04/)
 
-<http://shanks.leanote.com/post/Go%E5%88%9B%E5%BB%BAdaemon%E7%A8%8B%E5%BA%8F>
+[http://shanks.leanote.com/post/Go%E5%88%9B%E5%BB%BAdaemon%E7%A8%8B%E5%BA%8F](http://shanks.leanote.com/post/Go%E5%88%9B%E5%BB%BAdaemon%E7%A8%8B%E5%BA%8F)
 
     Monit and CentOS - Solving the Error "Could not execute systemctl"
   

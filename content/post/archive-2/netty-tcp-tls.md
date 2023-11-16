@@ -34,6 +34,6 @@ keytool -import -trustcacerts -alias tlsServer -file server.cer -storepass passw
 keytool -import -trustcacerts -alias tlsClient -file client.cer -storepass password0 -keystore clientTrust.jks
 ```
 
-<http://www.infoq.com/cn/articles/netty-security>
+[http://www.infoq.com/cn/articles/netty-security](http://www.infoq.com/cn/articles/netty-security)
   
-<https://segmentfault.com/a/1190000010054860>
+[https://segmentfault.com/a/1190000010054860](https://segmentfault.com/a/1190000010054860)

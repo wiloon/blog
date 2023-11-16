@@ -11,7 +11,7 @@ tags:
 ---
 ## archlinux 64位上运行32位程序
 
-<http://blog.csdn.net/cnsword/article/details/7447670>
+[http://blog.csdn.net/cnsword/article/details/7447670](http://blog.csdn.net/cnsword/article/details/7447670)
 
 archlinux纯64位版是没有办法直接运行32位程序的。因为缺少最主要的glibc的32位版本的支持。
 

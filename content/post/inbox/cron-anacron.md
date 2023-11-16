@@ -16,7 +16,7 @@ anacron 如何在 Linux 工作
   
 anacron 任务被列在 /etc/anacrontab 中,任务可以使用下面的格式 (anacron 文件中的注释必须以 # 号开始) 安排。
 
-<https://linux.cn/article-8590-1.html>
+[https://linux.cn/article-8590-1.html](https://linux.cn/article-8590-1.html)
 
 在本篇中,我们会解释 cron 和 anacron,并向你展示如何在 Linux 中设置 anacron。我们也会比较这两个工具。
 

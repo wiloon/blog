@@ -274,11 +274,11 @@ listFile(file);
 
 在这个程序中，输入quit完全可以执行System.exit(0)操作来退出程序，但正如前面提到的，这是个GUI程序核心逻辑的模拟，在GUI中，执行System.exit(0)会使得整个程序退出。
 
-><https://www.cnblogs.com/onlywujun/p/3565082.html>
+>[https://www.cnblogs.com/onlywujun/p/3565082.html](https://www.cnblogs.com/onlywujun/p/3565082.html)
 
 作者: Intopass
-链接: <https://www.zhihu.com/question/41048032/answer/89431513>
+链接: [https://www.zhihu.com/question/41048032/answer/89431513](https://www.zhihu.com/question/41048032/answer/89431513)
 来源: 知乎
 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
 
-><http://www.infoq.com/cn/articles/java-interrupt-mechanism>
+>[http://www.infoq.com/cn/articles/java-interrupt-mechanism](http://www.infoq.com/cn/articles/java-interrupt-mechanism)

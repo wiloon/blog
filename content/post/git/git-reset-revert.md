@@ -276,11 +276,11 @@ git revert -n C..D  //git revert C..D
 类似方法1，revert从C到D之间的提交，假设中间还有很多提交时可以用这种
 
 作者：顾小浪
-链接：<https://www.jianshu.com/p/7e513b302d47>
+链接：[https://www.jianshu.com/p/7e513b302d47](https://www.jianshu.com/p/7e513b302d47)
 来源：简书
 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
 
-<http://zhaojunde1976.blog.163.com/blog/static/12199866820136119201752/>
+[http://zhaojunde1976.blog.163.com/blog/static/12199866820136119201752/](http://zhaojunde1976.blog.163.com/blog/static/12199866820136119201752/)
 
 git中的后悔方法: rebase, revert, reset
 
@@ -302,16 +302,16 @@ reset 可以回滚到某一次提交,而该提交之后的所有修改都会丢�
 
 git reset -hard head~3
 
-<https://www.jianshu.com/p/7e513b302d47>
+[https://www.jianshu.com/p/7e513b302d47](https://www.jianshu.com/p/7e513b302d47)
 
-<https://swumao.github.io/swumao/update/git/rebase/pick/edit/reword/drop/squash/fixup/2016/08/31/Git-rebase-%E5%90%88%E5%B9%B6%E5%A4%9A%E4%B8%AAcommit.html>
+[https://swumao.github.io/swumao/update/git/rebase/pick/edit/reword/drop/squash/fixup/2016/08/31/Git-rebase-%E5%90%88%E5%B9%B6%E5%A4%9A%E4%B8%AAcommit.html](https://swumao.github.io/swumao/update/git/rebase/pick/edit/reword/drop/squash/fixup/2016/08/31/Git-rebase-%E5%90%88%E5%B9%B6%E5%A4%9A%E4%B8%AAcommit.html)
 
 作者：jrg陈咪咪sunny
-链接：<https://www.jianshu.com/p/952d83fc5bc8>
+链接：[https://www.jianshu.com/p/952d83fc5bc8](https://www.jianshu.com/p/952d83fc5bc8)
 来源：简书
 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
 
 作者：鹅鹅鹅曲项向天歌呀
-链接：<https://www.jianshu.com/p/491a14d414f6>
+链接：[https://www.jianshu.com/p/491a14d414f6](https://www.jianshu.com/p/491a14d414f6)
 来源：简书
 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。

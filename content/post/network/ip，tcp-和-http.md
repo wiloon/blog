@@ -19,9 +19,9 @@ tags:
   
 192.168.1.1/24     就表示ip是192.168.1.1, 子网掩码是255.255.255.0
 
-<http://objccn.io/issue-10-6/>
+[http://objccn.io/issue-10-6/](http://objccn.io/issue-10-6/)
 
-当 app 和服务器进行通信的时候,大多数情况下,都是采用 HTTP 协议。HTTP 最初是为 web 浏览器而定制的,如果在浏览器里输入 <http://www.objc.io> ,浏览器会通过 HTTP 协议和 <www.objc.io> 所对应的服务器进行通信。
+当 app 和服务器进行通信的时候,大多数情况下,都是采用 HTTP 协议。HTTP 最初是为 web 浏览器而定制的,如果在浏览器里输入 <http://www.objc.io> ,浏览器会通过 HTTP 协议和 [www.objc.io](www.objc.io) 所对应的服务器进行通信。
 
 HTTP是运行在应用层上的应用协议,而不同的层级上都有相应的协议在运行。层级的堆栈关系一般可以这么描述:
 
@@ -189,7 +189,7 @@ ACK 是 acknowledgment (确认)的缩写。当某一端接到了报文包后,通
 
 运行如下语句:
 
-curl -4 <http://www.apple.com/contact/>
+curl -4 [http://www.apple.com/contact/](http://www.apple.com/contact/)
 
 这是通过 curl 命令与 <www.apple.com> 的 80 端口创建一个 TCP 连接。
 
@@ -327,13 +327,13 @@ HTTP — 超文本传输协议 (Hypertext Transfer Protocol)
 
 请求与响应
   
-HTTP 采用简单的请求和响应机制。在 Safari 输入 <http://www.apple.com> 时,会向 <www.appple.com> 所在的服务器发送一个 HTTP 请求。服务器会对请求做出一个响应,将请求结果信息返回给 Safari。
+HTTP 采用简单的请求和响应机制。在 Safari 输入 <http://www.apple.com> 时,会向 [www.appple.com](www.appple.com) 所在的服务器发送一个 HTTP 请求。服务器会对请求做出一个响应,将请求结果信息返回给 Safari。
 
 每一个请求都有一个对应的响应信息。请求和响应遵从同样的格式。第一行是请求行或者响应状态行。接下来是 header 信息,header 信息之后会有一个空行。空行之后是 body 请求信息体。
 
 一个简单请求
   
-当 Safari 加载 HTML 页面 <http://www.objc.io/about.html> 的时候,先是发送 HTTP 请求到 <www.objc.io,请求的内容是>:
+当 Safari 加载 HTML 页面 <http://www.objc.io/about.html> 的时候,先是发送 HTTP 请求到 [www.objc.io,请求的内容是](www.objc.io,请求的内容是):
 
 GET /about.html HTTP/1.1
   
@@ -351,7 +351,7 @@ If-Modified-Since: Mon, 10 Feb 2014 18:08:48 GMT
   
 User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.74.9 (KHTML, like Gecko) Version/7.0.2 Safari/537.74.9
   
-Referer: <http://www.objc.io/>
+Referer: [http://www.objc.io/](http://www.objc.io/)
   
 DNT: 1
   
@@ -419,7 +419,7 @@ HTTP 定义了一系列状态码,它们各有用途。本例中的 304 表示所
   
 用 curl 发送一个请求:
 
-% curl <http://www.apple.com/hotnews/> > /dev/null
+% curl [http://www.apple.com/hotnews/> ](http://www.apple.com/hotnews/> ) /dev/null
 
 curl 没有使用本地缓存。整个请求会是这样的:
 
@@ -597,6 +597,6 @@ If-None-Match: "a54907f38b306fe3ae4f32c003ddd507"
   
 利用 NSURLSession 发 HTTP 请求是非常简单便捷的。但是请求背后有很多技术点做支撑。只有知晓和理解其中的细节和内涵才能更好的去优化 HTTP 请求。用户期望的是我们的 app 时时刻刻都是好用的。只有深刻理解 IP,TCP 和 HTTP 的工作原理才能更好的去满足用户的期望。
 
-<https://bhsc881114.github.io/2015/06/23/HTTP%E8%AF%B7%E6%B1%82%E7%9A%84TCP%E7%93%B6%E9%A2%88%E5%88%86%E6%9E%90/>
+[https://bhsc881114.github.io/2015/06/23/HTTP%E8%AF%B7%E6%B1%82%E7%9A%84TCP%E7%93%B6%E9%A2%88%E5%88%86%E6%9E%90/](https://bhsc881114.github.io/2015/06/23/HTTP%E8%AF%B7%E6%B1%82%E7%9A%84TCP%E7%93%B6%E9%A2%88%E5%88%86%E6%9E%90/)
 
- [1]: <http://itbbs.pconline.com.cn/network/16608720.html#> "172.16.128.0/24 经常看到这类IP地址"/24"表示什么意思？"
+ [1]: [http://itbbs.pconline.com.cn/network/16608720.html#](http://itbbs.pconline.com.cn/network/16608720.html#) "172.16.128.0/24 经常看到这类IP地址"/24"表示什么意思？"

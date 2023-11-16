@@ -28,16 +28,16 @@ cgo，允许你在 Go 代码中调用C代码
 
 如果 CGO_ENABLED=1，但依然要强制静态编译，需传递 -linkmode=external 给 cmd/link
 
-<https://johng.cn/cgo-enabled-affect-go-static-compile/>
+[https://johng.cn/cgo-enabled-affect-go-static-compile/](https://johng.cn/cgo-enabled-affect-go-static-compile/)
 
-<https://johng.cn/cgo-enabled-affect-go-static-compile/embed/#?secret=w5uCEbc4UP>
+[https://johng.cn/cgo-enabled-affect-go-static-compile/embed/#?secret=w5uCEbc4UP](https://johng.cn/cgo-enabled-affect-go-static-compile/embed/#?secret=w5uCEbc4UP)
 
 ---
 
-<https://studygolang.com/articles/16315>  
-<https://zhuanlan.zhihu.com/p/349197066>  
-<https://tonybai.com/2017/06/27/an-intro-about-go-portability/>
+[https://studygolang.com/articles/16315](https://studygolang.com/articles/16315)  
+[https://zhuanlan.zhihu.com/p/349197066](https://zhuanlan.zhihu.com/p/349197066)  
+[https://tonybai.com/2017/06/27/an-intro-about-go-portability/](https://tonybai.com/2017/06/27/an-intro-about-go-portability/)
 
 ### go cpp
 
-<https://github.com/arrieta/golang-cpp-basic-example/tree/master>
+[https://github.com/arrieta/golang-cpp-basic-example/tree/master](https://github.com/arrieta/golang-cpp-basic-example/tree/master)

@@ -11,7 +11,7 @@ tags:
 
 ## task struct, task_struct, 进程描述符, 进程控制块 (PCB)
 
-<https://github.com/torvalds/linux/blob/master/include/linux/sched.h>
+[https://github.com/torvalds/linux/blob/master/include/linux/sched.h](https://github.com/torvalds/linux/blob/master/include/linux/sched.h)
 
 进程是资源分配的基本单位。
 
@@ -31,7 +31,7 @@ Linux内核通过一个被称为进程描述符的task_struct结构体来管理�
   volatile long state;    /*-1 unrunnable, 0 runnable, >0 stopped*/
 state成员的可能取值如下
 
-参见<http://lxr.free-electrons.com/source/include/linux/sched.h?v=4.5#L207>
+参见[http://lxr.free-electrons.com/source/include/linux/sched.h?v=4.5#L207](http://lxr.free-electrons.com/source/include/linux/sched.h?v=4.5#L207)
 
  /*
 
@@ -143,7 +143,7 @@ Unix系统通过pid来标识进程，linux把不同的pid与系统中每个进�
 在CONFIG_BASE_SMALL配置为0的情况下，PID的取值范围是0到32767，即系统中的进程数最大为32768个。
 
 # define PID_MAX_DEFAULT (CONFIG_BASE_SMALL ? 0x1000 : 0x8000)  
-参见 <http://lxr.free-electrons.com/source/include/linux/threads.h#L27>
+参见 [http://lxr.free-electrons.com/source/include/linux/threads.h#L27](http://lxr.free-electrons.com/source/include/linux/threads.h#L27)
 
 在Linux系统中，一个线程组中的所有线程使用和该线程组的领头线程 (该组中的第一个轻量级进程) 相同的PID，并被存放在tgid成员中。只有线程组的领头线程的pid成员才会被设置为与tgid相同的值。注意，getpid()系统调用返回的是当前进程的tgid值而不是pid值。
 
@@ -226,7 +226,7 @@ THREAD_SIZE为8K，二进制的表示为0000 0000 0000 0000 0010 0000 0000 0000�
 
 这个定义是体系结构无关的，当然linux也为各个体系结构定义了更加方便或者快速的current
 
-请参见 : <http://lxr.free-electrons.com/ident?v=4.5;i=current>
+请参见 : [http://lxr.free-electrons.com/ident?v=4.5;i=current](http://lxr.free-electrons.com/ident?v=4.5;i=current)
 
 分配和销毁thread_info
 进程通过alloc_thread_info_node函数分配它的内核栈，通过free_thread_info函数释放所分配的内核栈。
@@ -274,7 +274,7 @@ flags成员的可能取值如下，这些宏以PF(ProcessFlag)开头
 
 参见
 
-<http://lxr.free-electrons.com/source/include/linux/sched.h？v4.5#L2083>
+[http://lxr.free-electrons.com/source/include/linux/sched.h？v4.5#L2083](http://lxr.free-electrons.com/source/include/linux/sched.h？v4.5#L2083)
 
 例如
 PF_FORKNOEXEC 进程刚创建，但还没执行。
@@ -362,7 +362,7 @@ siginfo_t *last_siginfo; /* For ptrace use.  */
 
 参见
 
-<http://lxr.free-electrons.com/source/include/linux/ptrace.h?v=4.5#L20>
+[http://lxr.free-electrons.com/source/include/linux/ptrace.h?v=4.5#L20](http://lxr.free-electrons.com/source/include/linux/ptrace.h?v=4.5#L20)
 
 /*
 
@@ -408,7 +408,7 @@ Performance Event是一款随 Linux 内核代码一同发布和维护的性能�
     struct list_head perf_event_list;
 # endif
 
-关于Performance Event工具的介绍可参考文章<http://www.ibm.com/developerworks/cn/linux/l-cn-perf1/index.html?ca=drs-#major1和http://www.ibm.com/developerworks/cn/linux/l-cn-perf2/index.html?ca=drs-#major1>。
+关于Performance Event工具的介绍可参考文章[http://www.ibm.com/developerworks/cn/linux/l-cn-perf1/index.html?ca=drs-#major1和http://www.ibm.com/developerworks/cn/linux/l-cn-perf2/index.html?ca=drs-#major1](http://www.ibm.com/developerworks/cn/linux/l-cn-perf1/index.html?ca=drs-#major1和http://www.ibm.com/developerworks/cn/linux/l-cn-perf2/index.html?ca=drs-#major1)。
 
 进程调度
 优先级
@@ -421,19 +421,19 @@ normal_prio    的值取决于静态优先级和调度策略
 prio    用于保存动态优先级
 实时优先级范围是0到MAX_RT_PRIO-1 (即99) ，而普通进程的静态优先级范围是从MAX_RT_PRIO到MAX_PRIO-1 (即100到139) 。值越大静态优先级越低。
 
-/*  <http://lxr.free-electrons.com/source/include/linux/sched/prio.h#L21>  */
+/*  [http://lxr.free-electrons.com/source/include/linux/sched/prio.h#L21](http://lxr.free-electrons.com/source/include/linux/sched/prio.h#L21)  */
 # define MAX_USER_RT_PRIO    100
 # define MAX_RT_PRIO     MAX_USER_RT_PRIO
 
-/* <http://lxr.free-electrons.com/source/include/linux/sched/prio.h#L24>  */
+/* [http://lxr.free-electrons.com/source/include/linux/sched/prio.h#L24](http://lxr.free-electrons.com/source/include/linux/sched/prio.h#L24)  */
 # define MAX_PRIO        (MAX_RT_PRIO + 40)
 # define DEFAULT_PRIO        (MAX_RT_PRIO + 20)
 
 调度策略相关字段
-/*  <http://lxr.free-electrons.com/source/include/linux/sched.h?v=4.5#L1426>  */
+/*  [http://lxr.free-electrons.com/source/include/linux/sched.h?v=4.5#L1426](http://lxr.free-electrons.com/source/include/linux/sched.h?v=4.5#L1426)  */
 unsigned int policy;
 
-/*  <http://lxr.free-electrons.com/source/include/linux/sched.h?v=4.5#L1409>  */
+/*  [http://lxr.free-electrons.com/source/include/linux/sched.h?v=4.5#L1409](http://lxr.free-electrons.com/source/include/linux/sched.h?v=4.5#L1409)  */
 
 const struct sched_class *sched_class;
 struct sched_entity se;
@@ -451,7 +451,7 @@ policy表示进程的调度策略，目前主要有以下五种:
 
 参见
 
-<http://lxr.free-electrons.com/source/include/uapi/linux/sched.h？v=4.5#L36>
+[http://lxr.free-electrons.com/source/include/uapi/linux/sched.h？v=4.5#L36](http://lxr.free-electrons.com/source/include/uapi/linux/sched.h？v=4.5#L36)
 
 /*
 
@@ -661,7 +661,7 @@ struct list_head tasks;
 # ifdef CONFIG_SMP  
     struct plist_node pushable_tasks;  
 # endif  
-补丁说明请参考: <http://lkml.indiana.edu/hypermail/linux/kernel/0808.3/0503.html>
+补丁说明请参考: [http://lkml.indiana.edu/hypermail/linux/kernel/0808.3/0503.html](http://lkml.indiana.edu/hypermail/linux/kernel/0808.3/0503.html)
 
  (12) 、防止内核堆栈溢出
 # ifdef CONFIG_CC_STACKPROTECTOR  
@@ -885,7 +885,7 @@ struct ftrace_ret_stack*ret_stack;
 # endif /*CONFIG_TRACING*/  
 ————————————————
 版权声明: 本文为CSDN博主「CHENG Jian」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
-原文链接: <https://blog.csdn.net/gatieme/article/details/51383272>
+原文链接: [https://blog.csdn.net/gatieme/article/details/51383272](https://blog.csdn.net/gatieme/article/details/51383272)
 
 Linux下的进程控制块 (PCB(process control block)
 本文转载自Linux下的进程控制块(PCB)

@@ -11,7 +11,7 @@ tags:
 ---
 ## System.load 和 System.loadLibrary
 
-<http://blog.csdn.net/ring0hx/article/details/3242245>
+[http://blog.csdn.net/ring0hx/article/details/3242245](http://blog.csdn.net/ring0hx/article/details/3242245)
 
 System.load 和 System.loadLibrary详解
 

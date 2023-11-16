@@ -67,7 +67,7 @@ AV1和HEVC/H.265之间很可能会是长期并存和竞争的关系，不管AV1�
 
 AV1和VP9之间，应该不太存在竞争，而是直接替代的方式。因为AV1的核心代码都来自VP10
 
-<https://my.oschina.net/u/1018779/blog/139167>
+[https://my.oschina.net/u/1018779/blog/139167](https://my.oschina.net/u/1018779/blog/139167)
 
 ### 1080p
 
@@ -114,4 +114,4 @@ ffprobe -show_packets pm.mp4
 
 ---
 
-<https://zhuanlan.zhihu.com/p/67878761>
+[https://zhuanlan.zhihu.com/p/67878761](https://zhuanlan.zhihu.com/p/67878761)

@@ -14,7 +14,7 @@ tags:
 
 - download iso
 
-<http://mirrors.163.com/archlinux/iso>
+[http://mirrors.163.com/archlinux/iso](http://mirrors.163.com/archlinux/iso)
 
 ```bash
 curl -O http://mirrors.163.com/archlinux/iso/2022.02.01/archlinux-2022.02.01-x86_64.iso
@@ -39,7 +39,7 @@ systemctl start sshd
 
 ## archinstall
 
-<https://github.com/archlinux/archinstall>
+[https://github.com/archlinux/archinstall](https://github.com/archlinux/archinstall)
 
 ```bash
 pacman -Sy archinstall
@@ -146,12 +146,12 @@ sudo dd bs=4M if=archlinux-2020.03.01-x86_64.iso of=/dev/sdx status=progress && 
 
 ### 设置网络
 
-setup network with shell script <https://gist.github.com/wiloon/xxxxxx>
+setup network with shell script [https://gist.github.com/wiloon/xxxxxx](https://gist.github.com/wiloon/xxxxxx)
 
 #### or  
 
 title: systemd-networkd  
-<https://wiloon.com/systemd-networkd>
+[https://wiloon.com/systemd-networkd](https://wiloon.com/systemd-networkd)
 
 ```bash
 # 给root设置密码
@@ -173,7 +173,7 @@ ls /sys/firmware/efi/efivars
 
 >wangyue.dev/pacman
 
-<https://blog.wiloon.com/?p=7501>
+[https://blog.wiloon.com/?p=7501](https://blog.wiloon.com/?p=7501)
 
 ### pacman 更新， 不要用-Syu， -Syu有可能会把U盘写满
 
@@ -186,11 +186,11 @@ pacman -Sy
 ### 用 parted 分区
 
 title: parted
-<http://blog.wiloon.com/parted>
+[http://blog.wiloon.com/parted](http://blog.wiloon.com/parted)
 
 #### 用 fdisk 分区
 
-<http://blog.wiloon.com/?p=7609>
+[http://blog.wiloon.com/?p=7609](http://blog.wiloon.com/?p=7609)
 
 ```bash
 # Mount the partitions
@@ -278,7 +278,7 @@ options root=PARTUUID=xxx rw
 
 ### boot with grub
 
-<https://blog.wiloon.com/?p=15345>
+[https://blog.wiloon.com/?p=15345](https://blog.wiloon.com/?p=15345)
 
 ```bash
 useradd -m -s /bin/bash wiloon
@@ -310,23 +310,23 @@ poweroff
 
 ## archlinux init
 
-<http://blog.wiloon.com/?p=8913>
+[http://blog.wiloon.com/?p=8913](http://blog.wiloon.com/?p=8913)
 
 * * *
 
-<https://wiki.archlinux.org/index.php/Install_from_existing_Linux>
+[https://wiki.archlinux.org/index.php/Install_from_existing_Linux](https://wiki.archlinux.org/index.php/Install_from_existing_Linux)
   
-<https://wiki.archlinux.org/index.php/Installation_guide>
+[https://wiki.archlinux.org/index.php/Installation_guide](https://wiki.archlinux.org/index.php/Installation_guide)
   
-<https://wiki.archlinux.org/index.php/Installing_Arch_Linux_on_a_USB_key>
+[https://wiki.archlinux.org/index.php/Installing_Arch_Linux_on_a_USB_key](https://wiki.archlinux.org/index.php/Installing_Arch_Linux_on_a_USB_key)
   
-<https://wiki.archlinux.org/index.php/Installing_Arch_Linux_on_a_USB_key_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87>)
+[https://wiki.archlinux.org/index.php/Installing_Arch_Linux_on_a_USB_key_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87](https://wiki.archlinux.org/index.php/Installing_Arch_Linux_on_a_USB_key_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87))
   
-<http://www.linuxidc.com/Linux/2014-04/99749.htm>
+[http://www.linuxidc.com/Linux/2014-04/99749.htm](http://www.linuxidc.com/Linux/2014-04/99749.htm)
   
-<https://wiki.archlinux.org/index.php/Syslinux>
+[https://wiki.archlinux.org/index.php/Syslinux](https://wiki.archlinux.org/index.php/Syslinux)
   
-<https://wiki.archlinux.org/index.php/syslinux#Installation_on_BIOS>
+[https://wiki.archlinux.org/index.php/syslinux#Installation_on_BIOS](https://wiki.archlinux.org/index.php/syslinux#Installation_on_BIOS)
 
 * * *
 
@@ -356,4 +356,4 @@ LABEL Arch
 
 ### Arch Linux Fast Installer
 
-><https://github.com/MatMoul/archfi>
+>[https://github.com/MatMoul/archfi](https://github.com/MatMoul/archfi)

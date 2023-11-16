@@ -373,7 +373,7 @@ number of mounts allowed per mount namespace
   
 设置idmapper缓存项的最大寿命,单位是秒
   
-<http://blog.wiloon.com/?p=12603>
+[http://blog.wiloon.com/?p=12603](http://blog.wiloon.com/?p=12603)
 
 ## fs.nfs.nfs_callback_tcpport
 
@@ -431,22 +431,22 @@ echo 'net.ipv4.tcp_wmem= 10240 87380 12582912' >> /etc/sysctl.conf
 
 quic-go 建议设置的值是 net.ipv4.tcp_rmem=2048kiB
 
-<https://github.com/lucas-clemente/quic-go/wiki/UDP-Receive-Buffer-Size>
+[https://github.com/lucas-clemente/quic-go/wiki/UDP-Receive-Buffer-Size](https://github.com/lucas-clemente/quic-go/wiki/UDP-Receive-Buffer-Size)
 
-<https://zhuanlan.zhihu.com/p/89620832>
+[https://zhuanlan.zhihu.com/p/89620832](https://zhuanlan.zhihu.com/p/89620832)
 
 UDP 中 SO_RCVBUF 与内核中 /proc/sys/net/core/rmem_default 对应，SO_SNDBUF 与 /proc/sys/net/core/wmem_default 对应。  
 而 TCP 中 SO_RCVBUF 与内核中 /proc/sys/net/ipv4/tcp_rmem 的第二项 default 对应，SO_SNDBUF 与 /proc/sys/net/ipv4/tcp_wmem 的第二项default对应。  (可能是操作系统实现的差异?)
 SO_RCVBUF 来设置接收缓冲区，该参数在设置的时候不会与 rmem_max 进行对比校验，但是如果设置的大小超过 rmem_max 的话，则超过 rmem_max 的部分不会生效；  
 rmem_max 参数是整个系统的大小，不是单个socket的大小。  
 
-><https://www.cnblogs.com/scaugsh/p/10254483.html>
+>[https://www.cnblogs.com/scaugsh/p/10254483.html](https://www.cnblogs.com/scaugsh/p/10254483.html)
 
 如果指定了tcp_wmem，则net.core.wmem_default被tcp_wmem的覆盖。send Buffer在tcp_wmem的最小值和最大值之间自动调整。如果调用setsockopt()设置了socket选项SO_SNDBUF，将关闭发送端缓冲的自动调节机制，tcp_wmem将被忽略，SO_SNDBUF 的最大值由net.core.wmem_max限制。
 
-<https://zhuanlan.zhihu.com/p/89620832>
+[https://zhuanlan.zhihu.com/p/89620832](https://zhuanlan.zhihu.com/p/89620832)
 
-<https://stackoverflow.com/questions/31546835/tcp-receiving-window-size-higher-than-net-core-rmem-max>
+[https://stackoverflow.com/questions/31546835/tcp-receiving-window-size-higher-than-net-core-rmem-max](https://stackoverflow.com/questions/31546835/tcp-receiving-window-size-higher-than-net-core-rmem-max)
 
 ### net.core.rmem_default
 
@@ -526,21 +526,21 @@ Setting this too high will OOM your machine instantly.
 代表系统所保留空闲内存的最低限
 用于计算影响内存回收的三个参数 watermark[min/low/high]
 
-><https://www.dazhuanlan.com/sanword/topics/989350>
+>[https://www.dazhuanlan.com/sanword/topics/989350](https://www.dazhuanlan.com/sanword/topics/989350)
 
-<https://www.kernel.org/doc/Documentation/sysctl/fs.txt>
+[https://www.kernel.org/doc/Documentation/sysctl/fs.txt](https://www.kernel.org/doc/Documentation/sysctl/fs.txt)
   
-<https://blog.csdn.net/u012707739/article/details/78254241>
+[https://blog.csdn.net/u012707739/article/details/78254241](https://blog.csdn.net/u012707739/article/details/78254241)
   
-<https://www.cnblogs.com/tolimit/p/5065761.html>
+[https://www.cnblogs.com/tolimit/p/5065761.html](https://www.cnblogs.com/tolimit/p/5065761.html)
   
-<https://www.centos.org/forums/viewtopic.php?t=5657>
+[https://www.centos.org/forums/viewtopic.php?t=5657](https://www.centos.org/forums/viewtopic.php?t=5657)
   
-<https://blog.51cto.com/qujunorz/1703295>
+[https://blog.51cto.com/qujunorz/1703295](https://blog.51cto.com/qujunorz/1703295)
   
-<https://www.cnblogs.com/fczjuever/archive/2013/04/17/3026694.html>  
-<https://www.cnblogs.com/leonardchen/p/9635407.html>  
-><https://feisky.gitbooks.io/sdn/content/linux/params.html>
+[https://www.cnblogs.com/fczjuever/archive/2013/04/17/3026694.html](https://www.cnblogs.com/fczjuever/archive/2013/04/17/3026694.html)  
+[https://www.cnblogs.com/leonardchen/p/9635407.html](https://www.cnblogs.com/leonardchen/p/9635407.html)  
+>[https://feisky.gitbooks.io/sdn/content/linux/params.html](https://feisky.gitbooks.io/sdn/content/linux/params.html)
 
 ### dquot-nr and dquot-max
 
@@ -562,7 +562,7 @@ cat /proc/sys/fs/file-nr
 
 shows data about inodes in RAM (kernel cache), first currently allocated ones, and then free ones. The kernel uses inodes for many things, not just files. For example, network sockets are identified by inodes too.
 
-><https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git/tree/Documentation/sysctl/fs.txt>
+>[https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git/tree/Documentation/sysctl/fs.txt](https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git/tree/Documentation/sysctl/fs.txt)
 
 This file contains the first two values from inode-state.
 
@@ -574,5 +574,5 @@ because Linux allocates them one page full at a time.  nr_free_inodes represents
 inodes.  preshrink is non-zero when the nr_inodes > inode-max and the system needs to prune the inode
 list instead of allocating more.
 
-><https://sysctl-explorer.net/>
-><https://www.infoq.cn/article/sFjkj1C5bz2kOXSxYbHO?utm_source=rss&utm_medium=article>
+>[https://sysctl-explorer.net/](https://sysctl-explorer.net/)
+>[https://www.infoq.cn/article/sFjkj1C5bz2kOXSxYbHO?utm_source=rss&utm_medium=article](https://www.infoq.cn/article/sFjkj1C5bz2kOXSxYbHO?utm_source=rss&utm_medium=article)

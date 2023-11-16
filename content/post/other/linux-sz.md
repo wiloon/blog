@@ -10,7 +10,7 @@ tags:
 ---
 ## Linux sz
 
-<http://codingstandards.iteye.com/blog/827637>
+[http://codingstandards.iteye.com/blog/827637](http://codingstandards.iteye.com/blog/827637)
 
 我使用过的Linux命令之sz - 下载文件，无需ftp/sftp
   
@@ -20,7 +20,7 @@ LinuxCC++C#Web
   
 我使用过的Linux命令之sz - 下载文件，无需ftp/sftp
   
-本文链接: <http://codingstandards.iteye.com/blog/827637>    (转载请注明出处)
+本文链接: [http://codingstandards.iteye.com/blog/827637](http://codingstandards.iteye.com/blog/827637)    (转载请注明出处)
 
 用途说明
   

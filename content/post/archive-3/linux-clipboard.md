@@ -25,13 +25,13 @@ tags:
 
 xclip -i /etc/passwd
 
-<https://www.x.org/releases/X11R7.7/doc/xorg-docs/icccm/icccm.html>
+[https://www.x.org/releases/X11R7.7/doc/xorg-docs/icccm/icccm.html](https://www.x.org/releases/X11R7.7/doc/xorg-docs/icccm/icccm.html)
 
-<http://blog.acgtyrant.com/Linux-%E5%89%AA%E8%B4%B4%E6%9D%BF%E3%83%BB%E7%BB%88%E9%98%B6.html>
+[http://blog.acgtyrant.com/Linux-%E5%89%AA%E8%B4%B4%E6%9D%BF%E3%83%BB%E7%BB%88%E9%98%B6.html](http://blog.acgtyrant.com/Linux-%E5%89%AA%E8%B4%B4%E6%9D%BF%E3%83%BB%E7%BB%88%E9%98%B6.html)
 我用 Linux 好多年，依然没真正理清 Linux 下剪贴板的用法，因为很多程序的复制粘贴行为都不一样，何况Ｘ还有两种剪贴板，再加上我经常跨机编辑，即 termite+ssh+tmux+neovim，这么多程序叠加在一起，就一直不知道到底怎么复制粘贴好。这不，今天我要在远程主机 yy 上通过 NeoVim 选中里面的内容，复制到另一个远程主机 103 的 NeoVim 上，乱按快捷键一通也没解决。于是终于彻底下定决心搞清 Linux 以及众多程序的剪贴板原理，在此整理并归档研究结论。
 
 原理
-<https://wiki.archlinux.org/index.php/Clipboard>
+[https://wiki.archlinux.org/index.php/Clipboard](https://wiki.archlinux.org/index.php/Clipboard)
 
 X Window 中的剪贴板
 
@@ -59,7 +59,7 @@ X Window 中的剪贴板
 xclip 默认复制进 primary，坑。
 
 御用虚拟终端・Termite
-<https://wiki.archlinux.org/index.php/Termite>
+[https://wiki.archlinux.org/index.php/Termite](https://wiki.archlinux.org/index.php/Termite)
 
 Termite 像 Vim，有两种模式: Insert 和 Selection。
 
@@ -117,8 +117,8 @@ registers. Nvim looks for these clipboard tools, in order of priority:
 - pbcopy/pbpaste (macOS)
 - xsel (if $DISPLAY is set)
 - xclip (if $DISPLAY is set)
-- lemonade (for SSH) <https://github.com/pocke/lemonade>
-- doitclient (for SSH) <http://www.chiark.greenend.org.uk/~sgtatham/doit/>
+- lemonade (for SSH) [https://github.com/pocke/lemonade](https://github.com/pocke/lemonade)
+- doitclient (for SSH) [http://www.chiark.greenend.org.uk/~sgtatham/doit/](http://www.chiark.greenend.org.uk/~sgtatham/doit/)
 - win32yank (Windows)
 - tmux (if $TMUX is set)
 显然装 xclip 就行了。
@@ -135,7 +135,7 @@ Vim 默认 VISUAL 选中内容不会复制进 primary，这样正好，毕竟 Vi
 Written with StackEdit.
 
 ## xclip
-<https://linuxtoy.org/archives/xclip.html>
+[https://linuxtoy.org/archives/xclip.html](https://linuxtoy.org/archives/xclip.html)
 
 在 X 系统里面,从一个窗口复制一段文字到另一个窗口,有两套机制,分别是 Selections 和 cut
   

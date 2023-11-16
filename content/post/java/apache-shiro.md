@@ -27,6 +27,6 @@ Shiro还支持一些辅助特性,如Web应用安全、单元测试和多线程,�
 
 **Subject**一词是一个安全术语,其基本意思是"当前的操作用户"。称之为"用户"并不准确,因为"用户"一词通常跟人相关。在安全领域,术语"Subject"可以是人,也可以是第三方进程、后台帐户 (Daemon Account) 或其他类似事物。它仅仅意味着"当前跟软件交互的东西"。但考虑到大多数目的和用途,你可以把它认为是Shiro的"用户"概念。在代码的任何地方,你都能轻易的获得Shiro Subject,
 
-<http://www.infoq.com/cn/articles/apache-shiro>
+[http://www.infoq.com/cn/articles/apache-shiro](http://www.infoq.com/cn/articles/apache-shiro)
 
-<http://kdboy.iteye.com/blog/1154644>
+[http://kdboy.iteye.com/blog/1154644](http://kdboy.iteye.com/blog/1154644)

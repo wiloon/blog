@@ -85,6 +85,6 @@ tmpfs /tmp tmpfs size=1024m 0 0
   
 保存,关闭,然后在下次启动时你就用上tmpfs了。
   
-<https://www.jianshu.com/p/6f9b200671bb>
+[https://www.jianshu.com/p/6f9b200671bb](https://www.jianshu.com/p/6f9b200671bb)
   
-<https://wiki.archlinux.org/index.php/tmpfs>
+[https://wiki.archlinux.org/index.php/tmpfs](https://wiki.archlinux.org/index.php/tmpfs)

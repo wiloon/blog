@@ -23,8 +23,8 @@ Get subscription list. Each subscription contains a "category" if the user had c
 
 firstitemmsec 起初难倒了我, 直到我添加了一个新的预定。我注意到，GOOGLE阅读器的feed条目可回溯一个月之长 (可能是无限期的) 。因此，阅读器只能从你订阅的时间上判断，向你显示文章。
 
-<http://anirudhsasikumar.net/blog/2009.11.04.html>
+[http://anirudhsasikumar.net/blog/2009.11.04.html](http://anirudhsasikumar.net/blog/2009.11.04.html)
 
-<http://www.keakon.net/2011/07/11/GoogleReaderAPI%E7%AE%80%E4%BB%8B>
+[http://www.keakon.net/2011/07/11/GoogleReaderAPI%E7%AE%80%E4%BB%8B](http://www.keakon.net/2011/07/11/GoogleReaderAPI%E7%AE%80%E4%BB%8B)
 
-<http://blog.csdn.net/lihe111/article/details/5437993>
+[http://blog.csdn.net/lihe111/article/details/5437993](http://blog.csdn.net/lihe111/article/details/5437993)

@@ -712,5 +712,5 @@ AtomicReferenceFieldUpdater ATOMIC_REFERENCE_FIELD_UPDATER = AtomicReferenceFiel
 可以看到,这里传递的参数增加了一个属性的类型,因为引用的是一个对象,对象本身也有一个类型。
 
 ### Java中的Atomic包使用指南
-<http://blog.csdn.net/xieyuooo/article/details/8594713>
-><https://segmentfault.com/a/1190000015864724>
+[http://blog.csdn.net/xieyuooo/article/details/8594713](http://blog.csdn.net/xieyuooo/article/details/8594713)
+>[https://segmentfault.com/a/1190000015864724](https://segmentfault.com/a/1190000015864724)

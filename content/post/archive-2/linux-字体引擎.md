@@ -40,7 +40,7 @@ xfs: 设置文件是X11/fs/config
 
 X字库设置必读: Juliusz Chroboczek的Fonts in XFree86
   
-<http://www.xfree86.org/~dawes/4.3.0/fonts.html>
+[http://www.xfree86.org/~dawes/4.3.0/fonts.html](http://www.xfree86.org/~dawes/4.3.0/fonts.html)
 
 理论知识
   
@@ -76,6 +76,6 @@ xft的配置稍微麻烦一些,配置文件为/etc/fonts/fonts.conf,有点累了
   
 如果你要在fvwm中使用xft的话不用修改XF86Config- 4或xorg.conf,直接这样设置fvwm的菜单样式MenuStyle \* Font "xft:Tahoma:Medium:Size=12:encoding=iso8859-1",如果要显示中文则这样设置MenuStyle \* Font "StringEncoding=gbk-0:xft:SimSun:Medium:Size=12:encoding=iso10646-1",使用 xft实现刚才的功能 (中英文使用不同的字体显示) 我一直没找到方法,如果你知道的话一定记得告诉我,在此谢过了。
 
-<http://blog.csdn.net/wesleyluo/article/details/7470362>
+[http://blog.csdn.net/wesleyluo/article/details/7470362](http://blog.csdn.net/wesleyluo/article/details/7470362)
 
-<http://i.linuxtoy.org/docs/guide/ch19s07.html>
+[http://i.linuxtoy.org/docs/guide/ch19s07.html](http://i.linuxtoy.org/docs/guide/ch19s07.html)

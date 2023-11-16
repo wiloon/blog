@@ -246,7 +246,7 @@ sample2.operate();
   
  (2)  枚举可能的状态,因此,需要事先确定状态种类。
   
-状态模式可以允许客户端改变状态的转换行为,而状态机则是能够自动改变状态,状态机是一个比较独立的而且复杂的机制,具体可参考一个状态机开源项目: <http://sourceforge.net/projects/smframework/>
+状态模式可以允许客户端改变状态的转换行为,而状态机则是能够自动改变状态,状态机是一个比较独立的而且复杂的机制,具体可参考一个状态机开源项目: [http://sourceforge.net/projects/smframework/](http://sourceforge.net/projects/smframework/)
 
 状态模式在工作流或游戏等各种系统中有大量使用,甚至是这些系统的核心功能设计,例如政府OA中,一个批文的状态有多种: 未办；正在办理；正在批示；正在审核；已经完成等各种状态,使用状态机可以封装这个状态的变化规则,从而达到扩充状态时,不必涉及到状态的使用者。
 
@@ -266,8 +266,8 @@ sample2.operate();
 
 状态从一个方面说明了流程,流程是随时间而改变,状态是截取流程某个时间片。
 
-<http://www.jdon.com/designpatterns/designpattern_State.htm>
+[http://www.jdon.com/designpatterns/designpattern_State.htm](http://www.jdon.com/designpatterns/designpattern_State.htm)
 
 设计模式之State
   
-板桥里人 <http://www.jdon.com> 2002/4/6/
+板桥里人 [http://www.jdon.com](http://www.jdon.com) 2002/4/6/

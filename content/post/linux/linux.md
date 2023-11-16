@@ -1132,8 +1132,8 @@ Linux 内核中设计较新的一种虚拟的基于内存的文件系统，它�
 
 ### linux source code
 
-><https://github.com/torvalds/linux>
-><https://github.com/torvalds/linux/blob/master/tools/arch/x86/include/asm/cmpxchg.h>
+>[https://github.com/torvalds/linux](https://github.com/torvalds/linux)
+>[https://github.com/torvalds/linux/blob/master/tools/arch/x86/include/asm/cmpxchg.h](https://github.com/torvalds/linux/blob/master/tools/arch/x86/include/asm/cmpxchg.h)
 
 ## linux basic
 

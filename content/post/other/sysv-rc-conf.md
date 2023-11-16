@@ -367,4 +367,4 @@ tags:
   
   xorg-common 设置x服务ice socket。不用管它。
 
-  <http://baike.baidu.com/view/2521377.htm?fromTaglist>
+  [http://baike.baidu.com/view/2521377.htm?fromTaglist](http://baike.baidu.com/view/2521377.htm?fromTaglist)

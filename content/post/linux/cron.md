@@ -203,7 +203,7 @@ _/1 * * * * ls >> /tmp/ls.txt
 
 晚上11点到早上8点之间每两个小时，早上八点
   
-0 23-7/2，8 ** * echo "Welcome to <http://beyl.cn>.: ) " >> /tmp/test.txt
+0 23-7/2，8 ** * echo "Welcome to [http://beyl.cn>.: ) " >](http://beyl.cn>.: ) " >) /tmp/test.txt
   
 每个月的4号和每个礼拜的礼拜一到礼拜三的早上11点
   
@@ -303,4 +303,4 @@ run at 10 pm on weekdays, annoy Joe
   
 23 0-23/2 ** * echo "run 23 minutes after midn, 2am, 4am …, everyday"
 
-<https://wiki.gentoo.org/wiki/Cron>
+[https://wiki.gentoo.org/wiki/Cron](https://wiki.gentoo.org/wiki/Cron)

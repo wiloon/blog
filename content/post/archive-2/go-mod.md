@@ -49,7 +49,7 @@ go mod tidy 删除掉无用的模块；
 go mod tidy 也可以；
 手动编辑；
 
-<https://moelove.info/2020/12/19/Go-1.16-%E4%B8%AD%E5%85%B3%E4%BA%8E-go-get-%E5%92%8C-go-install-%E4%BD%A0%E9%9C%80%E8%A6%81%E6%B3%A8%E6%84%8F%E7%9A%84%E5%9C%B0%E6%96%B9/>
+[https://moelove.info/2020/12/19/Go-1.16-%E4%B8%AD%E5%85%B3%E4%BA%8E-go-get-%E5%92%8C-go-install-%E4%BD%A0%E9%9C%80%E8%A6%81%E6%B3%A8%E6%84%8F%E7%9A%84%E5%9C%B0%E6%96%B9/](https://moelove.info/2020/12/19/Go-1.16-%E4%B8%AD%E5%85%B3%E4%BA%8E-go-get-%E5%92%8C-go-install-%E4%BD%A0%E9%9C%80%E8%A6%81%E6%B3%A8%E6%84%8F%E7%9A%84%E5%9C%B0%E6%96%B9/)
 
 ## go mod replace
 
@@ -149,6 +149,6 @@ replace信息已经更新了,现在我们只要go mod tidy或者go build,我们�
   
 如果有错误和疑问,欢迎在评论指出,也感谢@goozp提出的问题。
 
-<https://stackoverflow.com/questions/53588764/how-to-add-local-dependence-to-vendor-when-using-go-mod>
+[https://stackoverflow.com/questions/53588764/how-to-add-local-dependence-to-vendor-when-using-go-mod](https://stackoverflow.com/questions/53588764/how-to-add-local-dependence-to-vendor-when-using-go-mod)
   
-<https://www.cnblogs.com/apocelipes/p/9609895.html>
+[https://www.cnblogs.com/apocelipes/p/9609895.html](https://www.cnblogs.com/apocelipes/p/9609895.html)

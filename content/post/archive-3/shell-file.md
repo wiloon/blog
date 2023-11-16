@@ -78,4 +78,4 @@ END_TEXT
   
 没错，把起始标识符用单引号包起来，就会使其中的文本被认为是在单引号之间。
 
-<https://blog.shengbin.me/posts/create-text-file-in-shell-scripts>
+[https://blog.shengbin.me/posts/create-text-file-in-shell-scripts](https://blog.shengbin.me/posts/create-text-file-in-shell-scripts)

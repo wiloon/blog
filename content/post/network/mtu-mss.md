@@ -298,13 +298,13 @@ ping –f –l 1200 [url]www.163.com[/url]
   
 -f命令: 将数据报DF (don't fragment) 位设置为1 (不能分段)
   
-本文出自 "我是木头" 博客,请务必保留此出处<http://infotech.blog.51cto.com/391844/123859>
-<http://infotech.blog.51cto.com/>
-<https://zhuanlan.zhihu.com/p/139537936>
+本文出自 "我是木头" 博客,请务必保留此出处[http://infotech.blog.51cto.com/391844/123859](http://infotech.blog.51cto.com/391844/123859)
+[http://infotech.blog.51cto.com/](http://infotech.blog.51cto.com/)
+[https://zhuanlan.zhihu.com/p/139537936](https://zhuanlan.zhihu.com/p/139537936)
 
 ## MTU, MSS
 
-><http://blog.crhan.com/2014/05/mtu-and-mss/>
+>[http://blog.crhan.com/2014/05/mtu-and-mss/](http://blog.crhan.com/2014/05/mtu-and-mss/)
 
 MTU 到底是怎么来的
   

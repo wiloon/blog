@@ -50,7 +50,7 @@ qemu-img resize /data/daixuan1.qcow2 +5G
 
 在 This PC 上点右键》选择Manage>Storage>Disk Management>右键点击分区》选择extend volume
 
-<http://blog.51cto.com/daixuan/1743047>
+[http://blog.51cto.com/daixuan/1743047](http://blog.51cto.com/daixuan/1743047)
 
 fdisk -l 列出系统中所有的磁盘设备和分区表,这里磁盘设备容量已经增加5G
 

@@ -168,9 +168,9 @@ tags:
 
 在应用中，通过LoggerFactory类的静态getLogger()获取logger。通过查看该类的代码可以看出，最终是通过StaticLoggerBinder.SINGLETON.getLoggerFactory()方法获取LoggerFactory然后，在通过该具体的LoggerFactory来获取logger的。类org.slf4j.impl.StaticLoggerBinder并不在slf4j-api-1.5.2.jar包中，仔细查看每个与具体日志系统对应的jar包，就会发现，相应的jar包都有一个org.slf4j.impl.StaticLoggerBinder的实现，不同的实现返回与该日志系统对应的LoggerFactory，因此就实现了所谓的动态绑定，达到只要选取不同jar包就能简单灵活配置的目的。
 
-SLF4J官方网站: <http://www.slf4j.org>
+SLF4J官方网站: [http://www.slf4j.org](http://www.slf4j.org)
 
-文章出处: <http://www.diybl.com/course/3_program/java/javaxl/2008910/141669.html>
+文章出处: [http://www.diybl.com/course/3_program/java/javaxl/2008910/141669.html](http://www.diybl.com/course/3_program/java/javaxl/2008910/141669.html)
 
 SLF4J 的几种实际应用模式-之一: SLF4J+Log4J
   
@@ -258,7 +258,7 @@ slf4j-log4j12-1.5.11.jar
 
 为什么会兴起 SLF4J，看看我们原来哪一个框架中，大的如 SSH 三雄(Spring、Struts、Hibernate)，还有 WAS 应用服务器，小的就不计其数以前用的通用日志框架都清一色的 Jakarta Commons Logging(JCL)，日志实现会选用 Log4j，为何现在 Hibernate、Tapesty、DbUnit、Jetty V6 等纷纷变节，都采用了 SLF4J 了呢？SLF4J 与 JCL 相比，定然是有其可表之处。而其中 SLF4J 受类加载器的影响较小，不易产生内存溢出的问题，性能得到了改善，更主要是顺应了潮流的发展-可方便部署到 OSGI 环境中。
 
-关于当前有哪些项目改用了 SLF4J，请参看页面 <http://www.slf4j.org/>。
+关于当前有哪些项目改用了 SLF4J，请参看页面 [http://www.slf4j.org/](http://www.slf4j.org/)。
 
 ```java
 
@@ -384,10 +384,10 @@ SLF4J提供了基于占位符的日志方法，这通过去除检查isDebugEnabl
   
 更多阅读:
 
-<http://javarevisited.blogspot.com/2013/08/why-use-sl4j-over-log4j-for-logging-in.html#ixzz2konULdTB>
+[http://javarevisited.blogspot.com/2013/08/why-use-sl4j-over-log4j-for-logging-in.html#ixzz2konULdTB](http://javarevisited.blogspot.com/2013/08/why-use-sl4j-over-log4j-for-logging-in.html#ixzz2konULdTB)
 
 原文链接:  javarevisited 翻译:  ImportNew.com - Jaskey
   
-译文链接:  <http://www.importnew.com/7450.html>
+译文链接:  [http://www.importnew.com/7450.html](http://www.importnew.com/7450.html)
   
 [ 转载请保留原文出处、译者和译文链接。]

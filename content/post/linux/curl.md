@@ -83,7 +83,7 @@ ssl_verify_result ssl 认证结果，返回0表示认证成功。( The result of
 
 ————————————————
 版权声明：本文为CSDN博主「weifangan」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
-原文链接：<https://blog.csdn.net/weifangan/article/details/80741981>
+原文链接：[https://blog.csdn.net/weifangan/article/details/80741981](https://blog.csdn.net/weifangan/article/details/80741981)
 
 ```bash
 curl -w http_code: %{http_code} wiloon.com
@@ -125,7 +125,7 @@ curl -v -b cookie.txt "http://localhost:8080/get"
 curl -v -d "name=admin&password=admin" -b cookie.txt -c cookie.txt "http://localhost:8080/user/login" && curl -v -b cookie.txt "http://localhost:8080/get"
 ```
 
-<https://stackoverflow.com/questions/30760213/save-cookies-between-two-curl-requests/37127263>
+[https://stackoverflow.com/questions/30760213/save-cookies-between-two-curl-requests/37127263](https://stackoverflow.com/questions/30760213/save-cookies-between-two-curl-requests/37127263)
 
 ## POST
 
@@ -198,7 +198,7 @@ curl -G -v "http://localhost:30001/data" --data-urlencode "msg=hello world" --da
 > Accept: */*
 ```
 
-<https://unix.stackexchange.com/questions/86729/any-way-to-encode-the-url-in-curl-command>
+[https://unix.stackexchange.com/questions/86729/any-way-to-encode-the-url-in-curl-command](https://unix.stackexchange.com/questions/86729/any-way-to-encode-the-url-in-curl-command)
 
 ### 格式化返回的 json 数据
 
@@ -253,24 +253,24 @@ curl -v -i -N -H "Connection: Upgrade" -H "Upgrade: websocket" -H "Host: 127.0.0
 
 ```
 
-<http://www.ruanyifeng.com/blog/2011/09/curl.html>
+[http://www.ruanyifeng.com/blog/2011/09/curl.html](http://www.ruanyifeng.com/blog/2011/09/curl.html)
   
-<http://blog.51cto.com/xoyabc/1950743>
+[http://blog.51cto.com/xoyabc/1950743](http://blog.51cto.com/xoyabc/1950743)
   
-<https://blog.csdn.net/dreamer2020/article/details/52050001>
+[https://blog.csdn.net/dreamer2020/article/details/52050001](https://blog.csdn.net/dreamer2020/article/details/52050001)
 
 ## libcurl error codes
 
 - CURLE_COULDNT_RESOLVE_HOST (6) Could not resolve host. The given remote host was not resolved. 无法解析主机
 - CURLE_COULDNT_CONNECT (7) Failed to connect() to host or proxy. 无法连接到主机或代理, 在服务器端, 目标端口没有监听.
 - CURLE_OPERATION_TIMEDOUT (28) Operation timeout. The specified time-out period was reached according to the conditions. 建立连接时 tcp SYN 没有响应超过 n秒, 服务器响应时间超过 `-m, --max-time`
-- CURLE_RECV_ERROR (56), Failure with receiving network data. 户端向服务器发送POST请求，服务器未响应，6 次TCP重传无响应后，【libcurl】判定HTTP数据接收失败。 <https://blog.csdn.net/wjb123sw99/article/details/103946046>
+- CURLE_RECV_ERROR (56), Failure with receiving network data. 户端向服务器发送POST请求，服务器未响应，6 次TCP重传无响应后，【libcurl】判定HTTP数据接收失败。 [https://blog.csdn.net/wjb123sw99/article/details/103946046](https://blog.csdn.net/wjb123sw99/article/details/103946046)
 
-<https://curl.se/libcurl/c/libcurl-errors.html>
+[https://curl.se/libcurl/c/libcurl-errors.html](https://curl.se/libcurl/c/libcurl-errors.html)
 
-<https://curl.se>
+[https://curl.se](https://curl.se)
 
-<https://curl.se/docs/manpage.html>
+[https://curl.se/docs/manpage.html](https://curl.se/docs/manpage.html)
 
 ## 双向验证
 

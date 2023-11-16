@@ -49,9 +49,9 @@ string pool是使用Map结构存储字符串及引用，如果想要增加string
  -XX:StringTableSize=1000003
 Java8中默认是60013，设置的值最好是素数，以减少Hash碰撞，提高查询效率。
 
-<https://segmentfault.com/a/1190000021643930>
+[https://segmentfault.com/a/1190000021643930](https://segmentfault.com/a/1190000021643930)
 
-<http://tech.meituan.com/in_depth_understanding_string_intern.html>
+[http://tech.meituan.com/in_depth_understanding_string_intern.html](http://tech.meituan.com/in_depth_understanding_string_intern.html)
   
 引言
   

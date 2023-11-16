@@ -99,12 +99,12 @@ SSH是替代Telnet和其他远程控制台管理应用程序的行业标准。SS
   
 通过使用SSH把所有传输的数据进行加密，这样"中间人"这种攻击方式就不可能实现了，而且也能够防止DNS和IP欺骗。还有一个额外的好处就是传输的数据是经过压缩的，所以可以加快传输的速度。SSH有很多功能，它既可以代替telnet，又可以为ftp、pop、甚至ppp提供一个安全的"通道"。
 
-<http://bbs.chinaunix.net/thread-2163553-1-1.html>
+[http://bbs.chinaunix.net/thread-2163553-1-1.html](http://bbs.chinaunix.net/thread-2163553-1-1.html)
   
-<http://www.cnblogs.com/peida/archive/2013/03/13/2956992.html>
+[http://www.cnblogs.com/peida/archive/2013/03/13/2956992.html](http://www.cnblogs.com/peida/archive/2013/03/13/2956992.html)
 
 ## win10 telnet
 
 设置> 应用> 程序和功能> 启用或关闭 Windows 功能> Telnet Client
 
-<https://jingyan.baidu.com/article/4d58d54119d4db9dd4e9c0aa.html>
+[https://jingyan.baidu.com/article/4d58d54119d4db9dd4e9c0aa.html](https://jingyan.baidu.com/article/4d58d54119d4db9dd4e9c0aa.html)

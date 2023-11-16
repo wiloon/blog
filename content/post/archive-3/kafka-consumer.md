@@ -173,7 +173,7 @@ heartbeat 心跳主要用于沟通交流，及时返回请求响应。这个时�
 
 #### 新版本 VS 老版本
 
-"我的kafkaoffsetmonitor为什么无法监控到offset了？"——这是我在Kafka中国社区见到最多的问题，没有之一！实际上，Kafka 0.9开始提供了新版本的consumer及consumer group，位移的管理与保存机制发生了很大的变化——新版本consumer默认将不再保存位移到zookeeper中，而目前kafkaoffsetmonitor还没有应对这种变化(虽然已经有很多人在要求他们改了，详见<https://github.com/quantifind/KafkaOffsetMonitor/issues/79)，所以很有可能是因为你使用了新版本的consumer>才无法看到的。关于新旧版本，这里统一说明一下: kafka0.9以前的consumer是使用Scala编写的，包名结构是kafka.consumer._，分为high-level consumer和low-level consumer两种。我们熟知的ConsumerConnector、ZookeeperConsumerConnector以及SimpleConsumer就是这个版本提供的；自0.9版本开始，Kafka提供了java版本的consumer，包名结构是o.a.k.clients.consumer._，熟知的类包括KafkaConsumer和ConsumerRecord等。新版本的consumer可以单独部署，不再需要依赖server端的代码。
+"我的kafkaoffsetmonitor为什么无法监控到offset了？"——这是我在Kafka中国社区见到最多的问题，没有之一！实际上，Kafka 0.9开始提供了新版本的consumer及consumer group，位移的管理与保存机制发生了很大的变化——新版本consumer默认将不再保存位移到zookeeper中，而目前kafkaoffsetmonitor还没有应对这种变化(虽然已经有很多人在要求他们改了，详见[https://github.com/quantifind/KafkaOffsetMonitor/issues/79)，所以很有可能是因为你使用了新版本的consumer](https://github.com/quantifind/KafkaOffsetMonitor/issues/79)，所以很有可能是因为你使用了新版本的consumer)才无法看到的。关于新旧版本，这里统一说明一下: kafka0.9以前的consumer是使用Scala编写的，包名结构是kafka.consumer._，分为high-level consumer和low-level consumer两种。我们熟知的ConsumerConnector、ZookeeperConsumerConnector以及SimpleConsumer就是这个版本提供的；自0.9版本开始，Kafka提供了java版本的consumer，包名结构是o.a.k.clients.consumer._，熟知的类包括KafkaConsumer和ConsumerRecord等。新版本的consumer可以单独部署，不再需要依赖server端的代码。
 
 #### 消费者组 (Consumer Group)
 
@@ -323,20 +323,20 @@ Stable: rebalance完成！可以开始消费了~
 总结一下，本文着重讨论了一下新版本的consumer group的内部设计原理，特别是consumer group与coordinator之间的交互过程，希望对各位有所帮助。
 
 作者：技术洞察TIC
-链接：<https://juejin.cn/post/6844903713916583944>
+链接：[https://juejin.cn/post/6844903713916583944](https://juejin.cn/post/6844903713916583944)
 来源：稀土掘金
 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
 
-<https://blog.csdn.net/lishuangzhe7047/article/details/74530417>
+[https://blog.csdn.net/lishuangzhe7047/article/details/74530417](https://blog.csdn.net/lishuangzhe7047/article/details/74530417)
 
-<https://www.cnblogs.com/huxi2b/p/6223228.html>
+[https://www.cnblogs.com/huxi2b/p/6223228.html](https://www.cnblogs.com/huxi2b/p/6223228.html)
 
 ————————————————
 版权声明：本文为CSDN博主「_lizhiqiang」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
-原文链接：<https://blog.csdn.net/u010022158/article/details/106271208>
+原文链接：[https://blog.csdn.net/u010022158/article/details/106271208](https://blog.csdn.net/u010022158/article/details/106271208)
 
-<https://kafka.apache.org/10/javadoc/org/apache/kafka/clients/consumer/StickyAssignor.html>
+[https://kafka.apache.org/10/javadoc/org/apache/kafka/clients/consumer/StickyAssignor.html](https://kafka.apache.org/10/javadoc/org/apache/kafka/clients/consumer/StickyAssignor.html)
 
-<https://www.confluent.io/blog/apache-kafka-producer-improvements-sticky-partitioner/>
+[https://www.confluent.io/blog/apache-kafka-producer-improvements-sticky-partitioner/](https://www.confluent.io/blog/apache-kafka-producer-improvements-sticky-partitioner/)
 
-<https://cwiki.apache.org/confluence/display/KAFKA/KIP-54±+Sticky+Partition+Assignment+Strategy>
+[https://cwiki.apache.org/confluence/display/KAFKA/KIP-54±+Sticky+Partition+Assignment+Strategy](https://cwiki.apache.org/confluence/display/KAFKA/KIP-54±+Sticky+Partition+Assignment+Strategy)

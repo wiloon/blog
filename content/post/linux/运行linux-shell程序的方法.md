@@ -106,7 +106,7 @@ source make_command
 
 ### 三种shell脚本调用方法 (fork, exec, source)
 
-原文: <http://mindream.wang.blog.163.com/blog/static/2325122220084624318692/>
+原文: [http://mindream.wang.blog.163.com/blog/static/2325122220084624318692/](http://mindream.wang.blog.163.com/blog/static/2325122220084624318692/)
 
 fork(/path/to/script.sh)
 fork是最普通的, 就是直接在脚本里面用 /directory/script.sh 来调用script.sh这个脚本。
@@ -150,4 +150,4 @@ export A
 echo "2.sh: $A is $A"
 ```
 
-><https://blog.csdn.net/zdh9378/article/details/39586783>
+>[https://blog.csdn.net/zdh9378/article/details/39586783](https://blog.csdn.net/zdh9378/article/details/39586783)

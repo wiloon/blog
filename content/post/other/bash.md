@@ -44,7 +44,7 @@ world
 $BASH_ARGV 参数数组
 $BASH_ARGC 参数数组的长度
 我们可以在bash中直接使用，但是这些都是bash特有的，具体参见：
-<https://www.gnu.org/software/bash/manual/html_node/Bash-Variables.html>
+[https://www.gnu.org/software/bash/manual/html_node/Bash-Variables.html](https://www.gnu.org/software/bash/manual/html_node/Bash-Variables.html)
 
 ### shopt
 
@@ -52,9 +52,9 @@ $BASH_ARGC 参数数组的长度
 
 shopt 也可以控制 set 的选项
 
-<https://www.cnblogs.com/ziyunfei/p/4913758.html>
+[https://www.cnblogs.com/ziyunfei/p/4913758.html](https://www.cnblogs.com/ziyunfei/p/4913758.html)
 
 作者：llicety
-链接：<https://www.jianshu.com/p/198d819d24d1>
+链接：[https://www.jianshu.com/p/198d819d24d1](https://www.jianshu.com/p/198d819d24d1)
 来源：简书
 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。

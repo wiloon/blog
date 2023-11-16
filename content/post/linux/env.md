@@ -18,7 +18,7 @@ tags:
 - source 运行脚本的时候，不会启用一个新的 shell 进程，而是在当前shell进程环境中运行脚本。
 - exec 运行脚本或命令的时候，不会启用一个新的 shell 进程，并且 exec 后续的脚本内容不会得到执行，即当前shell进程结束了。
 
-<https://segmentfault.com/a/1190000013356532>
+[https://segmentfault.com/a/1190000013356532](https://segmentfault.com/a/1190000013356532)
 
 ## .bashrc 文件
   
@@ -98,7 +98,7 @@ export CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar
 
 －－－
   
-摘自IBM官方网站，原文地址: <http://publib.boulder.ibm.com/infocenter/pseries/v5r3/index.jsp?topic=/com.ibm.aix.baseadmn/doc/baseadmndita/etc_env_file.htm>
+摘自IBM官方网站，原文地址: [http://publib.boulder.ibm.com/infocenter/pseries/v5r3/index.jsp?topic=/com.ibm.aix.baseadmn/doc/baseadmndita/etc_env_file.htm](http://publib.boulder.ibm.com/infocenter/pseries/v5r3/index.jsp?topic=/com.ibm.aix.baseadmn/doc/baseadmndita/etc_env_file.htm)
 
 The /etc/environment, /etc/profile, and .profile files are run once at login time. The .env file, on the other hand, is run every time you open a new shell or a window.
 
@@ -136,7 +136,7 @@ csh下
 
 删除: unsetenv 变量名
 
-<https://segmentfault.com/a/1190000013356532>
+[https://segmentfault.com/a/1190000013356532](https://segmentfault.com/a/1190000013356532)
 
 ## env command
 

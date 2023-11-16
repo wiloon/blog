@@ -15,8 +15,8 @@ tags:
 
 Android, iOS
 
-<https://artarmin.com/embed/#?secret=jkb2vbmib7>
+[https://artarmin.com/embed/#?secret=jkb2vbmib7](https://artarmin.com/embed/#?secret=jkb2vbmib7)
 
 ## scrum poker online, 在线点数估算
 
-<https://www.scrumpoker-online.org/en/room/04930078>
+[https://www.scrumpoker-online.org/en/room/04930078](https://www.scrumpoker-online.org/en/room/04930078)

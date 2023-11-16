@@ -354,18 +354,18 @@ Sun的JVM Generational Collecting(垃圾回收)原理是这样的: 把对象分�
 
 2. JProfiler 收费的工具，但是到处都有破解办法。安装好以后按照配置调试的方式配置好一个本地的session即可运行。可以监测当时的内存、CPU、线程等，能具体的列出内存的占用情况，还可以就某个类进行分析。优点很多，缺点太影响速度，而且有的类可能无法被织入方法，例如我使用jprofiler时一直没有备份成功过，总会有一些类的错误。
 
-<http://www.cnblogs.com/xhr8334/archive/2011/12/01/2270994.html>
+[http://www.cnblogs.com/xhr8334/archive/2011/12/01/2270994.html](http://www.cnblogs.com/xhr8334/archive/2011/12/01/2270994.html)
   
-<http://zqhxuyuan.github.io/2016/07/26/JVM/>
-><https://www.netjstech.com/2017/10/jvm-run-time-data-areas-java-memory-allocation.html>
+[http://zqhxuyuan.github.io/2016/07/26/JVM/](http://zqhxuyuan.github.io/2016/07/26/JVM/)
+>[https://www.netjstech.com/2017/10/jvm-run-time-data-areas-java-memory-allocation.html](https://www.netjstech.com/2017/10/jvm-run-time-data-areas-java-memory-allocation.html)
 
 ## JVM运行时数据区
-<http://www.cnblogs.com/zhouyuqin/p/5161677.html>
+[http://www.cnblogs.com/zhouyuqin/p/5161677.html](http://www.cnblogs.com/zhouyuqin/p/5161677.html)
   
-<http://blog.csdn.net/luanlouis/article/details/40043991>
+[http://blog.csdn.net/luanlouis/article/details/40043991](http://blog.csdn.net/luanlouis/article/details/40043991)
 
-><https://blog.csdn.net/Carrie_Q/article/details/107830994>
-><https://juejin.cn/post/6995362542386151431>
-><https://github.com/wangzhiwubigdata/God-Of-BigData/blob/master/JVM/JVM%E5%86%85%E5%AD%98%E7%BB%93%E6%9E%84.md>
-><https://zhuanlan.zhihu.com/p/29881777>
-><http://gityuan.com/2016/01/09/java-memory/>
+>[https://blog.csdn.net/Carrie_Q/article/details/107830994](https://blog.csdn.net/Carrie_Q/article/details/107830994)
+>[https://juejin.cn/post/6995362542386151431](https://juejin.cn/post/6995362542386151431)
+>[https://github.com/wangzhiwubigdata/God-Of-BigData/blob/master/JVM/JVM%E5%86%85%E5%AD%98%E7%BB%93%E6%9E%84.md](https://github.com/wangzhiwubigdata/God-Of-BigData/blob/master/JVM/JVM%E5%86%85%E5%AD%98%E7%BB%93%E6%9E%84.md)
+>[https://zhuanlan.zhihu.com/p/29881777](https://zhuanlan.zhihu.com/p/29881777)
+>[http://gityuan.com/2016/01/09/java-memory/](http://gityuan.com/2016/01/09/java-memory/)

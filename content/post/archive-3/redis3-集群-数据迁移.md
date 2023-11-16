@@ -564,4 +564,4 @@ redis-cli -p 7000 cluster nodes | grep master
 
 版权声明: 本文为CSDN博主「QIANGLU0」的原创文章，遵循CC 4.0 by-sa版权协议，转载请附上原文出处链接及本声明。
   
-原文链接: <https://blog.csdn.net/luqiang81191293/article/details/50628676>
+原文链接: [https://blog.csdn.net/luqiang81191293/article/details/50628676](https://blog.csdn.net/luqiang81191293/article/details/50628676)

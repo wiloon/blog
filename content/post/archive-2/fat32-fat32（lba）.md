@@ -10,7 +10,7 @@ tags:
 ---
 ## fat32, fat32 (LBA)
 
-<http://www.tsingpost.com/articles/201403/480.html>
+[http://www.tsingpost.com/articles/201403/480.html](http://www.tsingpost.com/articles/201403/480.html)
 
 ### fat32和fat32 (LBA) 的区别
   
@@ -26,4 +26,4 @@ VFAT文件系统存储长文件名的方式产生了一个有趣的副作用。�
 
 我们之所以在这里对VFAT进行讨论，主要是因为这种文件系统的应用范围比FAT更加广泛。除以上所提到的不同之处外，这两种文件系统在其它方面遵守相同的规范。当您在Windows NT中使用FAT对某一分区进行格式化时，该分区实际将被格式化为VFAT。在Windows NT 4.0系统环境下，您唯一可能接触真正FAT分区的方式便是使用由其它操作系统 (如MS-DOS）完成格式化的分区。
 
-<https://blog.csdn.net/tesport/article/details/5581699>
+[https://blog.csdn.net/tesport/article/details/5581699](https://blog.csdn.net/tesport/article/details/5581699)

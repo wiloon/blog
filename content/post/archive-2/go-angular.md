@@ -18,7 +18,7 @@ tags:
 
 ### install yarn
 
-<http://blog.wiloon.com/?p=11228>
+[http://blog.wiloon.com/?p=11228](http://blog.wiloon.com/?p=11228)
 
 install angular cli
 
@@ -58,7 +58,7 @@ ng generate module app-routing --flat --module=app
 
 --module=app 告诉 CLI 把它注册到 AppModule 的 imports 数组中
 
-<https://github.com/aralroca/helloworld-angular-with-golang>
+[https://github.com/aralroca/helloworld-angular-with-golang](https://github.com/aralroca/helloworld-angular-with-golang)
 
 ### 修改 angular 编译输出目录
 
@@ -117,6 +117,6 @@ import { FormsModule } from '@angular/forms';
 <input [(ngModel)]="hero.name" placeholder="name"/>
 ```
 
-<https://zhuanlan.zhihu.com/p/27696268>
+[https://zhuanlan.zhihu.com/p/27696268](https://zhuanlan.zhihu.com/p/27696268)
   
-<https://medium.com/@anshap1719/getting-started-with-angular-and-go-setting-up-a-boilerplate-project-8c273b81aa6>
+[https://medium.com/@anshap1719/getting-started-with-angular-and-go-setting-up-a-boilerplate-project-8c273b81aa6](https://medium.com/@anshap1719/getting-started-with-angular-and-go-setting-up-a-boilerplate-project-8c273b81aa6)

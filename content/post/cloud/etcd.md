@@ -132,6 +132,6 @@ zookeeper 是用 java 开发的，被 Apache 很多项目采用。
 etcd 是用 go 开发的，主要是被 Kubernetes 采用。
 zookeeper 非常稳定，是一个著名的分布式协调系统，etcd 是后起之秀，前景广阔。
 
-><https://medium.com/@Imesha94/apache-curator-vs-etcd3-9c1362600b26>
-><https://juejin.im/post/5e02fb1f518825123b1aa341>
-><https://juejin.cn/post/6844904147779600391>
+>[https://medium.com/@Imesha94/apache-curator-vs-etcd3-9c1362600b26](https://medium.com/@Imesha94/apache-curator-vs-etcd3-9c1362600b26)
+>[https://juejin.im/post/5e02fb1f518825123b1aa341](https://juejin.im/post/5e02fb1f518825123b1aa341)
+>[https://juejin.cn/post/6844904147779600391](https://juejin.cn/post/6844904147779600391)

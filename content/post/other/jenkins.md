@@ -14,10 +14,10 @@ tags:
 
 ## Jenkins setup
 
-* download jenkins.war; <http://mirrors.jenkins-ci.org/war/1.432/>
+* download jenkins.war; [http://mirrors.jenkins-ci.org/war/1.432/](http://mirrors.jenkins-ci.org/war/1.432/)
 * deploy the war to jboss(version:4.0.5.GA) or tomcat
 * start jboss
-* open url <http://localhost:8080/jenkins>
+* open url [http://localhost:8080/jenkins](http://localhost:8080/jenkins)
 * navigate to  Manage Jenkins>Configure system
 * configure name and path for maven
 * go to jenkins > manage jenkins> manage plugins>advanced
@@ -39,10 +39,10 @@ tags:
 
 ## Jenkins plugins
 
-<http://updates.jenkins-ci.org/download/plugins/>
+[http://updates.jenkins-ci.org/download/plugins/](http://updates.jenkins-ci.org/download/plugins/)
 
 ## jenkins sender email address
 
 Jenkins uses the _System Admin e-mail address_ as the sender address for e-mail notification. You can configure this under _Manage Jenkins -> Configure System_. This is under the _Jenkins Location_ header on that page
 
-<http://stackoverflow.com/questions/9693526/how-can-i-set-the-senders-address-in-jenkins>
+[http://stackoverflow.com/questions/9693526/how-can-i-set-the-senders-address-in-jenkins](http://stackoverflow.com/questions/9693526/how-can-i-set-the-senders-address-in-jenkins)

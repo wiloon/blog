@@ -20,7 +20,7 @@ unicode是国际组织制定的可以容纳世界上所有文字和符号的字�
 
 UNICODE与UCS实际上是两个不同组织的产物,为了编码一体化而进行协商,可以把unicode看做UCS-2的父集,UCS-4的子集,以为UNICODE只支持U+0FFFF-U+10FFFF的编码,而UCS-4支持31个平面。
 
-<https://www.jianshu.com/p/1a39be00f5b8>
+[https://www.jianshu.com/p/1a39be00f5b8](https://www.jianshu.com/p/1a39be00f5b8)
 
 ### Unicode ASCII UTF-8 GBK关系
 
@@ -100,7 +100,7 @@ Unicode 只规定了符号的二进制代码, 并没有规定这个二进制代�
 GB2312 是为了解决 ASCII 不支持中文的问题.
 GBK 是在 GB2312 基础上扩容后兼容 GB2312 的标准.
 
-<https://blog.csdn.net/weiwenjuan0923/article/details/52713387>
+[https://blog.csdn.net/weiwenjuan0923/article/details/52713387](https://blog.csdn.net/weiwenjuan0923/article/details/52713387)
 
 摘要总结:
 
@@ -346,15 +346,15 @@ fmt.Printf("%X", []byte(str)) // EFBFBD,即字符「�」
 
 ---
 
-<https://liudanking.com/golang/utf-8_replacement_character/>
+[https://liudanking.com/golang/utf-8_replacement_character/](https://liudanking.com/golang/utf-8_replacement_character/)
 
-参考链接1: <http://www.ruanyifeng.com/blog/2007/10/ascii_unicode_and_utf-8.html>
+参考链接1: [http://www.ruanyifeng.com/blog/2007/10/ascii_unicode_and_utf-8.html](http://www.ruanyifeng.com/blog/2007/10/ascii_unicode_and_utf-8.html)
 
-<https://my.oschina.net/darionyaphet/blog/221124>
+[https://my.oschina.net/darionyaphet/blog/221124](https://my.oschina.net/darionyaphet/blog/221124)
 
-<http://blog.csdn.net/u012223913/article/details/51772610>
+[http://blog.csdn.net/u012223913/article/details/51772610](http://blog.csdn.net/u012223913/article/details/51772610)
   
-参考链接2: <http://blog.csdn.net/u012223913/article/details/51772610>
-<http://www.cnblogs.com/malecrab/p/5300503.html>
+参考链接2: [http://blog.csdn.net/u012223913/article/details/51772610](http://blog.csdn.net/u012223913/article/details/51772610)
+[http://www.cnblogs.com/malecrab/p/5300503.html](http://www.cnblogs.com/malecrab/p/5300503.html)
   
-<http://www.ruanyifeng.com/blog/2007/10/ascii_unicode_and_utf-8.html>
+[http://www.ruanyifeng.com/blog/2007/10/ascii_unicode_and_utf-8.html](http://www.ruanyifeng.com/blog/2007/10/ascii_unicode_and_utf-8.html)

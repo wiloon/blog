@@ -12,7 +12,7 @@ tags:
 ---
 ## Tomcat 访问日志
   
-<http://hooray520.iteye.com/blog/1335156>
+[http://hooray520.iteye.com/blog/1335156](http://hooray520.iteye.com/blog/1335156)
   
 Tomcat的访问日志是靠org.apache.catalina.valves.AccessLogValve来控制的，你可以修改$tomcat/conf/server.xml来启用它 ($tomcat是Tomcat安装的目录)。AccessLogValve默认应该是注释掉的，简单的将其注释去掉，然后重启Tomcat就可以了。
   

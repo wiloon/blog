@@ -28,7 +28,7 @@ GPL、LGPL 传染性开源，编译的代码里用了这里的代码，都必须
 
 ### MIT
 
-分发软件时，必须保留原始的许可证声明，与 BSD (二条款版) 基本一致。 <https://opensource.org/licenses/mit-license.php>
+分发软件时，必须保留原始的许可证声明，与 BSD (二条款版) 基本一致。 [https://opensource.org/licenses/mit-license.php](https://opensource.org/licenses/mit-license.php)
 
 来源于大学，MIT 许可证是史上最为简洁和慷慨（permissive）的开源协议之一。作者只想保留版权, 而无任何其他了限制. 也就是说, 你必须在你的发行版里包含原许可协议的声明, 无论你是以二进制发布的还是以源代码发布的。
 
@@ -135,10 +135,10 @@ GPL 许可证规定，只要你的项目包含了 GPL 代码，整个项目就�
 
 ### Choose a License
 
-<https://creativecommons.org/choose/>
+[https://creativecommons.org/choose/](https://creativecommons.org/choose/)
 
-<http://www.ruanyifeng.com/blog/2011/05/how_to_choose_free_software_licenses.html>
+[http://www.ruanyifeng.com/blog/2011/05/how_to_choose_free_software_licenses.html](http://www.ruanyifeng.com/blog/2011/05/how_to_choose_free_software_licenses.html)
   
 <www.ruanyifeng.com/blog/2017/10/open-source-license-tutorial.html>
   
-<https://www.zhihu.com/question/19771481>
+[https://www.zhihu.com/question/19771481](https://www.zhihu.com/question/19771481)

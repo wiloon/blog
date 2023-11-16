@@ -10,7 +10,7 @@ tags:
 ---
 ## MySQL 在线修改表结构
 
-<http://www.cnblogs.com/wangtao_20/p/3504395.html>
+[http://www.cnblogs.com/wangtao_20/p/3504395.html](http://www.cnblogs.com/wangtao_20/p/3504395.html)
 
 MySQL在线修改表结构大数据表的风险与解决办法归纳
   
@@ -36,7 +36,7 @@ F.刷新数据字典,并释放锁
 
 在这个过程中会锁表。造成当前操作的表无法写入数据,影响用户使用。由于需要复制原表的数据到中间表,所以表的数据量越大,等待的时候越长,卡死在那里(用户被拒绝执行update和insert操作,表现就是延迟了一直在等待)。
 
-其实就是对表加了个排它锁,这个时候其他用户只能读表的数据,不能写。想具体体验一下是什么效果,我以前测验对MySQL的表加锁,操作的时候是如何的: <http://www.cnblogs.com/wangtao_20/p/3463435.html>
+其实就是对表加了个排它锁,这个时候其他用户只能读表的数据,不能写。想具体体验一下是什么效果,我以前测验对MySQL的表加锁,操作的时候是如何的: [http://www.cnblogs.com/wangtao_20/p/3463435.html](http://www.cnblogs.com/wangtao_20/p/3463435.html)
 
 平时进行修改表的结构,更改字段,新增字段,更改字段名称一般都是通过ALTER TABLE TABLENAE 语法进行修改的。对于测试库,在线小表或者并发访问不是很大的情况是OK。但是如果是在线大表。那就很麻烦。由于表数据量大,复制表需要比较长的时间,在这个时间段里面,表是被加了锁的(写锁),加写锁时其他用户只能select表不能update、insert表。表数据量越大,耗时越长。
 
@@ -46,11 +46,11 @@ F.刷新数据字典,并释放锁
 
 看这几篇文章就知道了:
 
-1. <http://wiki.hexnova.com/pages/viewpage.action?pageId=2031684> MySQL在线修改表字段造成的锁表
+1. [http://wiki.hexnova.com/pages/viewpage.action?pageId=2031684](http://wiki.hexnova.com/pages/viewpage.action?pageId=2031684) MySQL在线修改表字段造成的锁表
 
-2. <http://hidba.org/?p=795>
+2. [http://hidba.org/?p=795](http://hidba.org/?p=795)
 
-3. 比如就有人专门在加字段之前进行测验MySQL是否复制表,以减低应用卡死的风险: <http://www.cnblogs.com/zuoxingyu/archive/2013/03/28/2986715.html>
+3. 比如就有人专门在加字段之前进行测验MySQL是否复制表,以减低应用卡死的风险: [http://www.cnblogs.com/zuoxingyu/archive/2013/03/28/2986715.html](http://www.cnblogs.com/zuoxingyu/archive/2013/03/28/2986715.html)
 
 拷贝表结构,然后插入少量的数据。去修改表结构。看影响的行。如果为0,则表示不会拷贝中间表的方式
 
@@ -62,7 +62,7 @@ F.刷新数据字典,并释放锁
 
 能够停掉MySQL服务器来修改字段,这就好办,时间长也无所谓,呵呵,至少用户不会使用你网站的时候卡死吧。但是互联网应用往往不能影响用户使用,所以很多公司尽量是在凌晨的时候进行操作(这个时候访问用户少,对用户影响就小)
 
-比如像这个例子: <http://www.MySQLops.com/2011/03/30/myisam-innodb.html>
+比如像这个例子: [http://www.MySQLops.com/2011/03/30/myisam-innodb.html](http://www.MySQLops.com/2011/03/30/myisam-innodb.html)
 
 表的数据量上亿。要把表的存储引擎从myisam改为innodb(我觉得存储结构都不同了,转换需要时间更长),但是他是停掉MySQL服务器操作的。
 
@@ -78,11 +78,11 @@ F.刷新数据字典,并释放锁
 
 另外腾讯的技术也介绍了他们自己定制的tMySQL进行在线加字段的实现原理:
 
-<http://www.zhdba.com/MySQLops/2013/09/14/MySQL-innodb-online-ddl/>
+[http://www.zhdba.com/MySQLops/2013/09/14/MySQL-innodb-online-ddl/](http://www.zhdba.com/MySQLops/2013/09/14/MySQL-innodb-online-ddl/)
 
 facebook自己开发的工具,官网:
 
-<http://bazaar.launchpad.net/~MySQLatfacebook/MySQLatfacebook/tools/files/head:/osc>
+[http://bazaar.launchpad.net/~MySQLatfacebook/MySQLatfacebook/tools/files/head:/osc](http://bazaar.launchpad.net/~MySQLatfacebook/MySQLatfacebook/tools/files/head:/osc)
 
 * * *
 
@@ -106,7 +106,7 @@ facebook自己开发的工具,官网:
 
 percona是一个MySQL分支维护公司,专门提供MySQL技术服务的。我的理解,类似于linux的分支redhat公司
 
-官网下载地址为: <http://www.percona.com/redir/downloads/percona-toolkit/2.2.1/percona-toolkit-2.2.1.tar.gz>
+官网下载地址为: [http://www.percona.com/redir/downloads/percona-toolkit/2.2.1/percona-toolkit-2.2.1.tar.gz](http://www.percona.com/redir/downloads/percona-toolkit/2.2.1/percona-toolkit-2.2.1.tar.gz)
 
 腾讯,淘宝,百度这些公司多少都有自己开发的工具来解决这个头痛的问题。
 

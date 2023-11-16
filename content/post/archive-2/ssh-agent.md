@@ -165,7 +165,7 @@ ssh-add -D
 ssh-agent 是用于管理 SSH private keys 的, 长时间持续运行的守护进程 (daemon) . 唯一目的就是对解密的私钥进行高速缓存.
 ssh-add 提示并将用户的使用的私钥添加到由 ssh-agent 维护的列表中. 此后, 当使用公钥连接到远程 SSH 或 SCP 主机时, 不再提示相关信息.
 
-<http://xstarcd.github.io/wiki/shell/fork_exec_source.html>
+[http://xstarcd.github.io/wiki/shell/fork_exec_source.html](http://xstarcd.github.io/wiki/shell/fork_exec_source.html)
 
 ## ssh-agent
 
@@ -212,7 +212,7 @@ Host *
 
 ---
 
-<https://www.jianshu.com/p/12de50582e63>
+[https://www.jianshu.com/p/12de50582e63](https://www.jianshu.com/p/12de50582e63)
 
 ssh 到 node1
   
@@ -305,11 +305,11 @@ ssh-add -L
 
 ---
 
-<https://blog.csdn.net/vizts/article/details/47043695>
-<https://www.fythonfang.com/blog/2017/12/27/ssh-agent-and-ssh-agent-forwarding>
-<https://wiki.archlinux.org/index.php/Systemd/User>
-<https://wiki.archlinux.org/index.php/SSH_keys>
-<https://www.jianshu.com/p/12de50582e63>
+[https://blog.csdn.net/vizts/article/details/47043695](https://blog.csdn.net/vizts/article/details/47043695)
+[https://www.fythonfang.com/blog/2017/12/27/ssh-agent-and-ssh-agent-forwarding](https://www.fythonfang.com/blog/2017/12/27/ssh-agent-and-ssh-agent-forwarding)
+[https://wiki.archlinux.org/index.php/Systemd/User](https://wiki.archlinux.org/index.php/Systemd/User)
+[https://wiki.archlinux.org/index.php/SSH_keys](https://wiki.archlinux.org/index.php/SSH_keys)
+[https://www.jianshu.com/p/12de50582e63](https://www.jianshu.com/p/12de50582e63)
 
 ## win11 ssh-agent
 
@@ -324,6 +324,6 @@ ssh-add -L
 Get-Service ssh-agent
 ```
 
-<https://corvo.myseu.cn/2020/10/16/2020-10-16-OpenSSH%E7%B3%BB%E5%88%97(%E6%89%A9%E5%B1%95%E4%B8%89)-%E5%85%B3%E4%BA%8Eforward%20agent%E7%9A%84%E4%BD%BF%E7%94%A8%E4%BB%A5%E5%8F%8A%E8%B0%83%E8%AF%95/>
+[https://corvo.myseu.cn/2020/10/16/2020-10-16-OpenSSH%E7%B3%BB%E5%88%97(%E6%89%A9%E5%B1%95%E4%B8%89)-%E5%85%B3%E4%BA%8Eforward%20agent%E7%9A%84%E4%BD%BF%E7%94%A8%E4%BB%A5%E5%8F%8A%E8%B0%83%E8%AF%95/](https://corvo.myseu.cn/2020/10/16/2020-10-16-OpenSSH%E7%B3%BB%E5%88%97(%E6%89%A9%E5%B1%95%E4%B8%89)-%E5%85%B3%E4%BA%8Eforward%20agent%E7%9A%84%E4%BD%BF%E7%94%A8%E4%BB%A5%E5%8F%8A%E8%B0%83%E8%AF%95/)
 
-<https://www.zsythink.net/archives/2422>
+[https://www.zsythink.net/archives/2422](https://www.zsythink.net/archives/2422)

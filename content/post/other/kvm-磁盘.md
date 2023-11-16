@@ -10,7 +10,7 @@ tags:
   - reprint
 ---
 ## kvm 磁盘
-<http://forum.ubuntu.org.cn/viewtopic.php?f=65&t=302055>
+[http://forum.ubuntu.org.cn/viewtopic.php?f=65&t=302055](http://forum.ubuntu.org.cn/viewtopic.php?f=65&t=302055)
 
 固定大小虚拟磁盘效率最高
   

@@ -18,7 +18,7 @@ Quic 是一个通用的基于UDP的传输层网络协议, 其目的是为了在�
 
 QUIC 是 Google 制定的一种互联网传输层协议，它基于UDP传输层协议，同时兼具TCP、TLS、HTTP/2等协议的可靠性与安全性，可以有效减少连接与传输延迟，更好地应对当前传输层与应用层的挑战。目前阿里云 CDN 线上提供 QUIC 版本服务，已经有 Tbps 级别的流量承载，并对客户来带了显著的延迟收益。本文将由低向上分层讨论 QUIC 协议的特点。
 
-QUIC协议在当前Chrome版本中被默认开启，活跃的会话可以用 chrome://net-export/ 导出, 再导入分析工具 <https://netlog-viewer.appspot.com/> 查看。
+QUIC协议在当前Chrome版本中被默认开启，活跃的会话可以用 chrome://net-export/ 导出, 再导入分析工具 [https://netlog-viewer.appspot.com/](https://netlog-viewer.appspot.com/) 查看。
 
 HTTP/3就是基于QUIC协议的
 
@@ -43,8 +43,8 @@ QUIC包含一个连接标识符，该标识符唯一地标识客户端与服务�
 
 QUIC连接未严格绑定到单个网络路径上。连接迁移使用连接标识符来允许连接转移到新的网络路径。在这个版本的QUIC中，只有客户端能够进行迁移。此设计还允许在网络拓扑或地址映射发生变化 (如NAT重新绑定可能引起的变化）后继续连接。
 
-><https://github.com/alibaba/xquic/blob/main/docs/translation/draft-ietf-quic-transport-34-zh.md>
-><https://zhuanlan.zhihu.com/p/311221111>
+>[https://github.com/alibaba/xquic/blob/main/docs/translation/draft-ietf-quic-transport-34-zh.md](https://github.com/alibaba/xquic/blob/main/docs/translation/draft-ietf-quic-transport-34-zh.md)
+>[https://zhuanlan.zhihu.com/p/311221111](https://zhuanlan.zhihu.com/p/311221111)
 
 - 前向冗余纠错。
 - stream mode
@@ -76,32 +76,32 @@ QUIC 是一种基于 UDP 封装的安全 可靠传输协议，他的目标是取
 sysctl -w net.core.rmem_max=2500000
 ```
 
-><https://www.cnblogs.com/weijunji/p/quic-study.html>
+>[https://www.cnblogs.com/weijunji/p/quic-study.html](https://www.cnblogs.com/weijunji/p/quic-study.html)
 
 ### quic-go
-<https://github.com/lucas-clemente/quic-go>
-><https://datatracker.ietf.org/doc/html/rfc9000>
+[https://github.com/lucas-clemente/quic-go](https://github.com/lucas-clemente/quic-go)
+>[https://datatracker.ietf.org/doc/html/rfc9000](https://datatracker.ietf.org/doc/html/rfc9000)
 
-><https://fangqiuhang.github.io/RFC9000_Chinese_Translation/>
+>[https://fangqiuhang.github.io/RFC9000_Chinese_Translation/](https://fangqiuhang.github.io/RFC9000_Chinese_Translation/)
 
-><https://zhuanlan.zhihu.com/p/32553477>
-><https://zhuanlan.zhihu.com/p/151639428>
-<http://www.infoq.com/cn/news/2018/03/weibo-quic?utm_campaign=infoq_content&utm_source=infoq&utm_medium=feed&utm_term=global>
+>[https://zhuanlan.zhihu.com/p/32553477](https://zhuanlan.zhihu.com/p/32553477)
+>[https://zhuanlan.zhihu.com/p/151639428](https://zhuanlan.zhihu.com/p/151639428)
+[http://www.infoq.com/cn/news/2018/03/weibo-quic?utm_campaign=infoq_content&utm_source=infoq&utm_medium=feed&utm_term=global](http://www.infoq.com/cn/news/2018/03/weibo-quic?utm_campaign=infoq_content&utm_source=infoq&utm_medium=feed&utm_term=global)
 
-<https://www.bennythink.com/quic.html>
+[https://www.bennythink.com/quic.html](https://www.bennythink.com/quic.html)
 
-<https://devsisters.github.io/goquic/>
+[https://devsisters.github.io/goquic/](https://devsisters.github.io/goquic/)
   
-<https://github.com/mholt/caddy>
-><https://datatracker.ietf.org/doc/html/rfc9000>
-><https://datatracker.ietf.org/doc/html/draft-ietf-quic-transport-29>
+[https://github.com/mholt/caddy](https://github.com/mholt/caddy)
+>[https://datatracker.ietf.org/doc/html/rfc9000](https://datatracker.ietf.org/doc/html/rfc9000)
+>[https://datatracker.ietf.org/doc/html/draft-ietf-quic-transport-29](https://datatracker.ietf.org/doc/html/draft-ietf-quic-transport-29)
 
 ### Tunneling TCP inside QUIC
-<https://datatracker.ietf.org/doc/html/draft-piraux-quic-tunnel-tcp-00>
-><https://pkg.go.dev/github.com/lucas-clemente/quic-go#Session>
+[https://datatracker.ietf.org/doc/html/draft-piraux-quic-tunnel-tcp-00](https://datatracker.ietf.org/doc/html/draft-piraux-quic-tunnel-tcp-00)
+>[https://pkg.go.dev/github.com/lucas-clemente/quic-go#Session](https://pkg.go.dev/github.com/lucas-clemente/quic-go#Session)
 
-><https://github.com/10cella/awesome-quic>
-><https://github.com/alibaba/xquic/blob/main/docs/docs-zh/README-zh.md>
-><https://datatracker.ietf.org/wg/quic/about/>
-><https://kiosk007.top/2021/07/24/QUIC-%E5%8F%91%E7%94%9F%E4%BA%86%E4%BB%80%E4%B9%88/#QUIC-%E4%BB%8E%E5%93%AA%E6%9D%A5>
-><https://interop.seemann.io/>
+>[https://github.com/10cella/awesome-quic](https://github.com/10cella/awesome-quic)
+>[https://github.com/alibaba/xquic/blob/main/docs/docs-zh/README-zh.md](https://github.com/alibaba/xquic/blob/main/docs/docs-zh/README-zh.md)
+>[https://datatracker.ietf.org/wg/quic/about/](https://datatracker.ietf.org/wg/quic/about/)
+>[https://kiosk007.top/2021/07/24/QUIC-%E5%8F%91%E7%94%9F%E4%BA%86%E4%BB%80%E4%B9%88/#QUIC-%E4%BB%8E%E5%93%AA%E6%9D%A5](https://kiosk007.top/2021/07/24/QUIC-%E5%8F%91%E7%94%9F%E4%BA%86%E4%BB%80%E4%B9%88/#QUIC-%E4%BB%8E%E5%93%AA%E6%9D%A5)
+>[https://interop.seemann.io/](https://interop.seemann.io/)

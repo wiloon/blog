@@ -19,7 +19,7 @@ tags:
   
 <beans xmlns:util="http://www.springframework.org/schema/util"
   
-xsi:schemaLocation="<http://www.springframework.org/schema/util> <http://www.springframework.org/schema/util/spring-util-3.1.xsd>">
+xsi:schemaLocation="<http://www.springframework.org/schema/util> [http://www.springframework.org/schema/util/spring-util-3.1.xsd>"](http://www.springframework.org/schema/util/spring-util-3.1.xsd>")
   
 </beans>
 

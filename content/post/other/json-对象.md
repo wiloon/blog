@@ -11,7 +11,7 @@ tags:
 ---
 ## JavaScript json 对象
 
-<http://www.cnblogs.com/tomxu/archive/2012/01/11/2311956.html>
+[http://www.cnblogs.com/tomxu/archive/2012/01/11/2311956.html](http://www.cnblogs.com/tomxu/archive/2012/01/11/2311956.html)
 
 深入理解JavaScript系列 (9) : 根本没有"JSON对象"这回事！
 
@@ -23,7 +23,7 @@ tags:
   
 本文的主题是基于ECMAScript262-3来写的，2011年的262-5新规范增加了JSON对象，和我们平时所说的JSON有关系，但是不是同一个东西，文章最后一节会讲到新增加的JSON对象。
 
-英文原文: <http://benalman.com/news/2010/03/theres-no-such-thing-as-a-json/>
+英文原文: [http://benalman.com/news/2010/03/theres-no-such-thing-as-a-json/](http://benalman.com/news/2010/03/theres-no-such-thing-as-a-json/)
   
 我想给大家澄清一下一个非常普遍的误解，我认为很多JavaScript开发人员都错误地把 JavaScript 对象字面量 (Object Literals) 称为JSON对象 (JSON Objects) ，因为他的语法和JSON规范里描述的一样，但是该规范里也明确地说了JSON只是一个数据交换语言，只有我们将之用在string上下文的时候它才叫JSON。
 

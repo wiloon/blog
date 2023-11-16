@@ -34,7 +34,7 @@ https://netlog-viewer.appspot.com/
 
 ## Chrome 清除某个特定网站下的缓存
 
-<https://www.cnblogs.com/Chesky/p/chrome_disabling_cache.html>
+[https://www.cnblogs.com/Chesky/p/chrome_disabling_cache.html](https://www.cnblogs.com/Chesky/p/chrome_disabling_cache.html)
 
 打开开发者工具 (F12), 选择 Network——Disable cache 即可。需要清除某网站缓存时 F12 打开开发者工具就会自动清除这个网站的缓存,而不必清除所有网站的缓存了。
 
@@ -44,7 +44,7 @@ google-chrome --password-store:basic
 
 How to prevent the huge CPU usage of gnome-keyring-daemon when starting Google Chrome
   
-<https://www.andreafortuna.org/technology/linux/how-to-prevent-the-huge-cpu-usage-of-gnome-keyring-daemon-when-starting-google-chrome/embed/#?secret=NSkQcrRM22>
+[https://www.andreafortuna.org/technology/linux/how-to-prevent-the-huge-cpu-usage-of-gnome-keyring-daemon-when-starting-google-chrome/embed/#?secret=NSkQcrRM22](https://www.andreafortuna.org/technology/linux/how-to-prevent-the-huge-cpu-usage-of-gnome-keyring-daemon-when-starting-google-chrome/embed/#?secret=NSkQcrRM22)
 
 ## chrome 参数 修改默认用户目录, todo merge
 

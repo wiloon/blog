@@ -72,4 +72,4 @@ alias df='df -h'
 
 原文地址:
   
-<http://www.idcnews.net/html/edu/linux/20080425/301436.html>
+[http://www.idcnews.net/html/edu/linux/20080425/301436.html](http://www.idcnews.net/html/edu/linux/20080425/301436.html)

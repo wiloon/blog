@@ -27,4 +27,4 @@ tags:
 4. 如果主调函数和多个被调函数都加了 @Transactional 注解, 则整个主调函数将是一个统一的事务控制范围, 甚至它们分属多个Service也能被统一事务控制着
 5. 通常我们应该使用 Propagation.REQUIRED, 但需要说明的是, 如果一个非事务方法顺序调用了"两个不同service bean"的事务函数, 它们并不在同一个事务上下文中, 而是分属于不同的事务上下文.
 
-><https://www.cnblogs.com/harrychinese/p/SpringBoot_jdbc_transaction.html>
+>[https://www.cnblogs.com/harrychinese/p/SpringBoot_jdbc_transaction.html](https://www.cnblogs.com/harrychinese/p/SpringBoot_jdbc_transaction.html)

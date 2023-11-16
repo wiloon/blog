@@ -100,8 +100,8 @@ W 表示离指定日期的最近那个工作日(周一至周五). 例如在日�
   
 0 11 11 11 11 ?  每年的11月11号 11点11分触发(光棍节)
 
-<http://www.ibm.com/developerworks/cn/java/j-quartz/>
+[http://www.ibm.com/developerworks/cn/java/j-quartz/](http://www.ibm.com/developerworks/cn/java/j-quartz/)
 
-<http://www.open-open.com/open2714.htm>
+[http://www.open-open.com/open2714.htm](http://www.open-open.com/open2714.htm)
 
-<http://blog.csdn.net/hotnet522/article/details/7169321>
+[http://blog.csdn.net/hotnet522/article/details/7169321](http://blog.csdn.net/hotnet522/article/details/7169321)

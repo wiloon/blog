@@ -26,13 +26,13 @@ xfreerdp /v:192.168.50.6:3389 /u:"wiloon" /p:password0 /size:1680x1024  +clipboa
 freerdp-shadow-cli -auth /port:12345
 ```
 
-<https://www.mankier.com/1/freerdp-shadow-cli#>
+[https://www.mankier.com/1/freerdp-shadow-cli#](https://www.mankier.com/1/freerdp-shadow-cli#)
 
 ## windows 远程桌面
 
 ### 剪切板
 
-<http://www.cnblogs.com/hobinly/archive/2012/09/20/2694708.htmlT2001V00000087FG3>
+[http://www.cnblogs.com/hobinly/archive/2012/09/20/2694708.htmlT2001V00000087FG3](http://www.cnblogs.com/hobinly/archive/2012/09/20/2694708.htmlT2001V00000087FG3)
 
 这几天遇到远程桌面控制服务器时, 无法剪切、粘贴一些东西, 上网搜了一下, 原来是 rdpclip.exe(remote desktop clipboard)不起作用了。此程序负责管理本地机与远程服务器之间共享剪切板,它运行在远程服务器上。
 

@@ -32,4 +32,4 @@ node_name 选取此节点的所有子节点。
 .. 选取当前节点的父节点。
 @ 选取属性值，通过属性值选取数据。常用元素属性有 @id 、@name、@type、@class、@tittle、@href。
 
-<http://c.biancheng.net/python_spider/xpath.html>
+[http://c.biancheng.net/python_spider/xpath.html](http://c.biancheng.net/python_spider/xpath.html)

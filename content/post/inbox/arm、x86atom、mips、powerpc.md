@@ -10,7 +10,7 @@ tags:
 ---
 ## ARM, X86/Atom, MIPS, PowerPC
 
-<http://blog.csdn.net/wangjianno2/article/details/52140936>
+[http://blog.csdn.net/wangjianno2/article/details/52140936](http://blog.csdn.net/wangjianno2/article/details/52140936)
 
 四大CPU体系结构ARM、X86/Atom、MIPS、PowerPC
   
@@ -221,8 +221,8 @@ A64: 提供与 ARM 和 Thumb 指令集类似功能的 32 位固定长度指令�
 ARM ISA 不断改进,以满足前沿应用程序开发人员日益增长的要求,同时保留了必要的向后兼容性,以保护软件开发投资。在 ARMv8-A 中,对 A32 和 T32 进行了一些增补,以保持与 A64 指令集一致。
 
 作者: 赏金Micheal
-链接: <https://www.jianshu.com/p/2753c45af9bf>
+链接: [https://www.jianshu.com/p/2753c45af9bf](https://www.jianshu.com/p/2753c45af9bf)
 来源: 简书
 著作权归作者所有。商业转载请联系作者获得授权,非商业转载请注明出处。
 
-><http://navigating.blogbus.com/logs/67535773.html>
+>[http://navigating.blogbus.com/logs/67535773.html](http://navigating.blogbus.com/logs/67535773.html)

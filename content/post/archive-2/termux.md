@@ -10,7 +10,7 @@ tags:
 ---
 ## Termux
 
-<https://www.jianshu.com/p/5c8678cef499>
+[https://www.jianshu.com/p/5c8678cef499](https://www.jianshu.com/p/5c8678cef499)
 
 神器Termux的使用日常
 
@@ -49,7 +49,7 @@ Termux维护着适合Android的库,并自带包管理器apt
   
 修改Termux的源地址  (特别是国内用户)
   
-和Linux类似,Termux有自己的软件源,安装Termux后默认的软件源是Termux官网,即 <http://termux.net>,可打开源列表查看。
+和Linux类似,Termux有自己的软件源,安装Termux后默认的软件源是Termux官网,即 [http://termux.net](http://termux.net),可打开源列表查看。
 
 ### 如何查看
 
@@ -61,19 +61,19 @@ apt edit-sources
 
 The main termux repository
 
-deb [arch=all,你的平台架构] <http://termux.net> stable main
+deb [arch=all,你的平台架构] [http://termux.net](http://termux.net) stable main
   
 上面的指令中我们指定 vi 作为默认文本编辑器,vi指令是Termux自带的,你也可以指定其他文本编辑器,但需要先安装。默认的源服务器在国内是无法访问的,除非使用梯子,也就是说刚开始你可能只能使用vi编辑器,而且不能安装任何软件,毕竟 apt updage && apt upgrade都不能成功执行,换言之没有梯子默认情况下你无法获取资源列表。
   
-国内用户建议使用清华维护的源服务器: <http://mirrors.tuna.tsinghua.edu.cn/termux>
+国内用户建议使用清华维护的源服务器: [http://mirrors.tuna.tsinghua.edu.cn/termux](http://mirrors.tuna.tsinghua.edu.cn/termux)
 
 ## 国内用户建议使用的源列表内容
 
 The main termux repository
 
-deb [arch=all,你的平台架构] <http://termux.net> stable main
+deb [arch=all,你的平台架构] [http://termux.net](http://termux.net) stable main
 
-deb [arch=all,你的平台架构] <http://mirrors.tuna.tsinghua.edu.cn/termux> stable main
+deb [arch=all,你的平台架构] [http://mirrors.tuna.tsinghua.edu.cn/termux](http://mirrors.tuna.tsinghua.edu.cn/termux) stable main
   
 默认情况下内容是使用http协议传输的,我们可以为apt添加安全传输支持,这样就可以使用https安全传输协议。
 
@@ -173,9 +173,9 @@ Transdroid 通过API获取下载器的任务信息,并能够在Transdroid上实�
   
 关于Transdroid的配置方法和其他具体信息可参考:
 
-Transdroid官网: <https://www.transdroid.org/>
+Transdroid官网: [https://www.transdroid.org/](https://www.transdroid.org/)
   
-Transdroid on Github: <https://github.com/erickok/transdroid>
+Transdroid on Github: [https://github.com/erickok/transdroid](https://github.com/erickok/transdroid)
   
 自行搜索其他相关信息
 
@@ -187,4 +187,4 @@ Transdroid支持的下载器有很多,包括Aria2。按文章 "使用Aria2完成
 
 在本节中主要是介绍在Android设备上使用Aria2进行下载,并使用Transdroid进行下载管理,因此Transdroid和Aria2运行在一个设备上,不存在防火墙和端口映射的问题,直接在Transdroid中设置好即可。Aria2+Transdroid完全能够代替其他手机版下载软件,并且表现完美。唯一的问题是aria2依托于Termux终端环境,终端关闭,Aria2下载服务也就关闭了。因此,要在Android中使用Aria2获得友好下载体验,要同时打开Termux终端运行aria2服务和Transdroid下载管理程序。
 
-关于结合Aria2和Transdroid的尝试还可参见: <https://github.com/UKeyboard/aria2>
+关于结合Aria2和Transdroid的尝试还可参见: [https://github.com/UKeyboard/aria2](https://github.com/UKeyboard/aria2)

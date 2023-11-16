@@ -504,13 +504,13 @@ m.Result("$0"):           [CSDN][5]
 
 m.Groups[0].Value:        [CSDN][5]
 
-m.Result("$2"):           <http://www.csdn.net>
+m.Result("$2"):           [http://www.csdn.net](http://www.csdn.net)
 
-m.Groups[2].Value:        <http://www.csdn.net>
+m.Groups[2].Value:        [http://www.csdn.net](http://www.csdn.net)
 
-m.Result("${url}"):       <http://www.csdn.net>
+m.Result("${url}"):       [http://www.csdn.net](http://www.csdn.net)
 
-m.Groups["url"].Value:    <http://www.csdn.net>
+m.Groups["url"].Value:    [http://www.csdn.net](http://www.csdn.net)
 
 m.Result("$3"):           CSDN
 
@@ -522,7 +522,7 @@ m.Groups["text"].Value:   CSDN
 
 对于捕获组0的引用，可以简写作m.Value。
 
-<http://blog.csdn.net/lovingprince/article/details/2774819>
+[http://blog.csdn.net/lovingprince/article/details/2774819](http://blog.csdn.net/lovingprince/article/details/2774819)
 
     正则表达式在字符串处理中经常使用，关于正则简单的用法相信有一点程序基础的人都懂得一些，这里就不介绍简单基础了。这里主要讲解一下在JAVA中实现了的正则的高级用法-分组与捕获。
   
