@@ -55,18 +55,32 @@ Ctrl + y        粘贴最后一次被删除的单词
 
 ## brew
 
+- brew 会把软件安装在用户主目录里, 不需要 sudo
+- brew 装的主要是 command line tool。
+- brew cask装的大多是有gui界面的app以及驱动，brew cask是brew的一个官方源。
+
 [https://brew.sh/](https://brew.sh/)
 
 ```bash
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 brew install ansible
 brew list ansible
+
 # 更新自己
 brew update
+
 # 查看所有需要更新的包
 brew outdated
-# 更新所有包
-brew upgrade
+
 # 更新某一个包
 brew upgrade package0
+
+# 更新所有包
+brew upgrade
+
+brew install --cask obsidian
 ```
+
+### all casks packages
+
+[https://formulae.brew.sh/cask/](https://formulae.brew.sh/cask/)

@@ -8,7 +8,9 @@ categories:
 tags:
   - reprint
 ---
-## GOF 23种设计模式, Design pattern
+## GOF 23 种设计模式, Design pattern
+
+在 1994 年，由 Erich Gamma、Richard Helm、Ralph Johnson 和 John Vlissides 四人合著出版了一本名为 Design Patterns - Elements of Reusable Object-Oriented Software（中文译名：设计模式 - 可复用的面向对象软件元素） 的书，该书首次提到了软件开发中设计模式的概念。 四位作者合称 GOF（四人帮，全拼 Gang of Four）。
 
 1. 单例 (Singleton）模式：某个类只能生成一个实例，该类提供了一个全局访问点供外部获取该实例，其拓展是有限多例模式 [[Singleton#单例模式 Singleton]]
 2. 原型 (Prototype）模式：将一个对象作为原型，通过对其进行复制而克隆出多个和原型类似的新实例。[[prototype模式#原型模式 Prototype]]

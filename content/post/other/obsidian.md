@@ -21,10 +21,15 @@ flatpak run md.obsidian.Obsidian
 
 ## install plugin: remotely save
 
-settings> community plugins> turn on community plugins> browse
+Obsidian> settings> community plugins> turn on community plugins> browse
 
 search remotely save and install and enable
 
 config s3 storage:
 
-- endpoint
+- Choose A Remote Service: S2 or compatible
+- endpoint: s3.ap-southeast-1.amazonaws.com
+- region: ap-southeast-1
+- ak: <check in bitwarden>
+- sk: <check in bitwarden>
+- bucket name: obsidian-w10n
