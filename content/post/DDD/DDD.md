@@ -12,8 +12,23 @@ tags:
 
 领域驱动设计 (Domain-Driven Design，简称DDD）
 
-领域驱动设计 (DDD) 是由 Eric Evans 发明的一个概念。他在 2004 年出版的《领域驱动设计》一书 (即”大蓝皮书“) 中探讨了这个概念
-领域驱动设计(Domain Driven Design,DDD)
+2003 年的时候，Eric Evans 在2003年出版的: Domain-driven Design: Tackling Complexity in the Heart of Software，正式定义了领域的概念，开始了 DDD 的时代。
+
+Domain-Driven Design: Tackling Complexity in the Heart of Software 1st Edition
+Publisher: Addison-Wesley Professional; 1st edition (August 20, 2003)
+
+2013 年，Vaughn Vernon 写了一本 Implementing Domain-Driven Design 进一步定义了 DDD 的领域方向，并且给出了很多落地指导，它让人们离 DDD 又进了一步。
+
+## 什么是DDD
+
+DDD首先从业务领域入手，划分 业务领域边界，采用事件风暴工作坊方法，分析并提取业务场景中的实体、值对象、聚合根、聚合、领域事件等领域对象，根据限界上下文边界构建领域模型，将领域模型作为微服务设计的输入，进而完成微服务洋细设计。
+
+用DDD方法设计出来的微服务，业务和应用边界非常清晰，符合“高内聚，低耦合”的设计原则，可以轻松适应业务模型变化和微服务架构演进。
+
+——《基于DDD和微服务的中台架构与实现》
+————————————————
+版权声明：本文为CSDN博主「40岁资深老架构师尼恩」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
+原文链接：https://blog.csdn.net/crazymakercircle/article/details/134128426
 
 Martin Fowler在《企业应用架构模式》一书中写道:
 
@@ -79,6 +94,8 @@ public class OrderItem {
 
 ### 演进式设计
 
+重构是克服演进式设计中大杂烩问题的主力
+
 有一种解决方案，按照演进式设计的理论，让系统的设计随着系统实现的增长而增长。我们不需要作提前设计，就让系统伴随业务成长而演进。这当然是可行的，敏捷实践中的重构、测试驱动设计及持续集成可以对付各种混乱问题。
 重构 -- 保持行为不变的代码改善清除了不协调的局部设计，测试驱动设计确保对系统的更改不会导致系统丢失或破坏现有功能，持续集成则为团队提供了同一代码库。
 
@@ -135,7 +152,7 @@ DDD的核心诉求就是将业务架构映射到系统架构上，在响应业�
 共享内核 (Shared Kernel）：两个上下文依赖部分共享的模型。
 客户方-供应方开发 (Customer-Supplier Development）：上下文之间有组织的上下游依赖。
 遵奉者 (Conformist）：下游上下文只能盲目依赖上游上下文。
-防腐层 (Anticorruption Layer）：一个上下文通过一些适配和转换与另一个上下文交互。
+防腐层 (Anti-Corruption Layer）：一个上下文通过一些适配和转换与另一个上下文交互。
 开放主机服务 (Open Host Service）：定义一种协议来让其他上下文来对本上下文进行访问。
 发布语言 (Published Language）：通常与OHS一起使用，用于定义开放主机的协议。
 大泥球 (Big Ball of Mud）：混杂在一起的上下文关系，边界不清晰。
@@ -145,7 +162,7 @@ DDD的核心诉求就是将业务架构映射到系统架构上，在响应业�
 
 [https://domain-driven-design.org/zh/ddd-concept-reference.html](https://domain-driven-design.org/zh/ddd-concept-reference.html)
 
-## 限界上下文
+## 限界上下文, Bounded Context
 
 一个由显示边界限定的特定职责。领域模型便存在于这个边界之内。在边界内，每一个模型概念，包括它的属性和操作，都具有特殊的含义。
 
