@@ -17,7 +17,7 @@ tags:
 - 基本上是我接触过的知识的一个集合
 - 大部分内容是转载的 70%+
   - 一般第一次接触的知识会找质量比较好的或者能解决问题的文章收集进来
-  - 有一部分原因是防止源站消失 (比如...已经消失的一个站点[https://my.oschina.net/goberl/blog/85816](https://my.oschina.net/goberl/blog/85816))，还有方便查找，省掉重新 Google 的过程。
+  - 有一部分原因是防止源站消失 (比如...已经消失的一个站点[http://blog.jessitron.com/2017/01/dependencies.html](http://blog.jessitron.com/2017/01/dependencies.html))，还有方便查找，省掉重新 Google 的过程。
   - 有仔细读过的会修正 typo
   - 日常遇到问题会逐渐整理，也会补充其它引用来源
   - 有明显整理痕迹的都是仔细读过的，比如有段落标题，有代码语法高亮。
