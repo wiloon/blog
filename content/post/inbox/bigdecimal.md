@@ -2,15 +2,61 @@
 title: BigDecimal
 author: "-"
 date: 2016-02-29T01:10:18+00:00
-url: /?p=8751
+url: BigDecimal
 categories:
-  - Inbox
+  - Java
 tags:
   - reprint
+  - remix
 ---
 ## BigDecimal
 
-Java在java.math包中提供的API类BigDecimal,用来对超过16位有效位的数进行精确的运算。双精度浮点型变量double可以处理16位有效数。在实际应用中,需要对更大或者更小的数进行运算和处理。float和double只能用来做科学计算或者是工程计算,在商业计算中要用java.math.BigDecimal。BigDecimal所创建的是对象,我们不能使用传统的+、-、*、/等算术运算符直接对其对象进行数学运算,而必须调用其相对应的方法。方法中的参数也必须是BigDecimal的对象。构造器是类的特殊方法,专门用来创建对象,特别是带有参数的对象。
+```Java
+package com.wiloon.javax;
+
+
+import java.math.BigDecimal;
+
+public class BigDecimalTest {
+    public static void main(String[] args) {
+        BigDecimal a = new BigDecimal(1234567890123456.1234);
+        System.out.println("a values is:" + a);
+
+        BigDecimal b = new BigDecimal(123456789012345.1234);
+        System.out.println("b values is:" + b);
+
+        BigDecimal c = new BigDecimal(12345678901234.1234);
+        System.out.println("c values is:" + c);
+
+        BigDecimal d = new BigDecimal(1234567890123.1234);
+        System.out.println("d values is:" + d);
+        BigDecimal e = new BigDecimal(123456789012.1234);
+        System.out.println("e values is:" + e);
+
+        // 创建一个BigDecimal对象
+        BigDecimal bigDecimal = new BigDecimal("1234567890123456.1234");
+
+        // 输出
+        System.out.println("处理的浮点数为: " + bigDecimal);
+        System.out.println(bigDecimal.add(new BigDecimal(1)));
+        System.out.println(bigDecimal.add(new BigDecimal(0.0001)));
+    }
+}
+```
+
+```output
+a values is:1234567890123456
+b values is:123456789012345.125
+c values is:12345678901234.123046875
+d values is:1234567890123.123291015625
+e values is:123456789012.1233978271484375
+处理的浮点数为: 1234567890123456.1234
+1234567890123457.1234
+1234567890123456.123500000000000000004792173602385929598312941379845142364501953125
+```
+
+Java 在 java.math 包中提供的 API 类 BigDecimal, 用来对超过 16 位有效位的数进行精确的运算。双精度浮点型变量 double 可以处理 16 位有效数。在实际应用中,需要对更大或者更小的数进行运算和处理。
+float和double只能用来做科学计算或者是工程计算,在商业计算中要用java.math.BigDecimal。BigDecimal所创建的是对象,我们不能使用传统的+、-、*、/等算术运算符直接对其对象进行数学运算,而必须调用其相对应的方法。方法中的参数也必须是BigDecimal的对象。构造器是类的特殊方法,专门用来创建对象,特别是带有参数的对象。
 
 二、构造器描述
   

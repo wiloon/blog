@@ -213,6 +213,7 @@ System V 风格和 BSD 风格, ps aux 最初用到 Unix Style 中( BSD的格式)
 ```bash
 # ububtu
 apt install procps
+
 # redhat, centos
 yum install procps-ng
 ```

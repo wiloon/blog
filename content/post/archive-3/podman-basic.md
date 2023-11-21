@@ -36,6 +36,7 @@ In addition to the existing CNI Out of the stack ,Podman Now it also supports ba
 ```bash
 sudo apt-get -y update
 sudo apt-get -y install podman
+
 # ------
 . /etc/os-release
 echo "deb https://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable/xUbuntu_${VERSION_ID}/ /" | sudo tee /etc/apt/sources.list.d/devel:kubic:libcontainers:stable.list
@@ -50,6 +51,31 @@ sudo apt-get -y install podman
 
 ```bash
 dnf install podman
+```
+
+### centos 8 install podman
+
+Install EPEL Repository on RHEL / CentOS 8
+
+```bash
+sudo dnf install https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
+```
+
+Ensure PowerTools repo is enabled as well – CentOS 8 only
+
+```bash
+sudo dnf config-manager --set-enabled PowerTools
+```
+
+Install Podman
+
+```bash
+sudo dnf -y update
+sudo systemctl reboot
+
+sudo dnf module list | grep container-tools
+sudo dnf install -y @container-tools
+podman version
 ```
 
 ### hello world
@@ -68,10 +94,19 @@ podman version
 podman info --debug
 
 podman ps
+
 # 按名字过滤
 podman ps -f  name=zookeeper
+
 # 显示指定的列
 podman ps -a --format "{{.ID}} {{.Names}}"
+
+# 查看元数据, env, volume...
+sudo podman inspect postgres
+
+# 查看一部分元数据
+sudo podman inspect --format "{{.Mounts}}" postgres
+
 podman ps -a
 podman inspect -l
 
@@ -82,8 +117,10 @@ podman container restore <container_id>
 podman stop --latest
 podman rm --latest
 podman --log-level=debug pull dockerhub.azk8s.cn/library/golang
+
 # 显示虚悬镜像(dangling image)
 podman image ls -f dangling=true
+
 # 删除无效镜像
 podman image prune
 ```
@@ -117,6 +154,7 @@ driver = "overlay2"
 ```
 
 修改driver之后 要删除 文件 sudo rm -rf ~/.local/share/containers/, 否则会报错: User-selected graph driver "overlay2" overwritten by graph driver "overlay" from database - delete libpod local files to resolve
+
 [https://github.com/containers/podman/issues/5114](https://github.com/containers/podman/issues/5114)
 
 ## logs
@@ -128,7 +166,7 @@ podman logs --latest
 
 ### registry config, mirror
 
-配置文件有两种版本格式，v1和v2，两种格式的配置不能混用，混用会提示错误。
+配置文件有两种版本格式，v1 和 v2，两种格式的配置不能混用，混用会提示错误。
 
 vim /etc/containers/registries.conf
 
@@ -162,7 +200,7 @@ location = "registry.docker-cn.com"
 
 [https://blog.csdn.net/leave00608/article/details/114156354](https://blog.csdn.net/leave00608/article/details/114156354)
 
-```r
+```Bash
 [registries.search]
 registries = ['docker-registries.wiloon.com']
 [registries.insecure]
@@ -193,7 +231,7 @@ location = "xxxxxx.mirror.aliyuncs.com"
 
 ## run
 
-限制cpu, 内存
+限制 cpu, 内存
 
 ```bash
 podman run \
@@ -234,31 +272,6 @@ podman network inspect net0
 podman run -it --network=net0 busybox
 # 指定ip
 podman run -it --network=net0 --ip 172.22.16.8 busybox
-```
-
-### centos 8 install podman
-
-Install EPEL Repository on RHEL / CentOS 8
-
-```bash
-sudo dnf install https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
-```
-
-Ensure PowerTools repo is enabled as well – CentOS 8 only
-
-```bash
-sudo dnf config-manager --set-enabled PowerTools
-```
-
-Install Podman
-
-```bash
-sudo dnf -y update
-sudo systemctl reboot
-
-sudo dnf module list | grep container-tools
-sudo dnf install -y @container-tools
-podman version
 ```
 
 ## volume
@@ -334,10 +347,10 @@ podman pod create -n pod_0 -p 8086:8086 -p 3000:3000 -p 8888:8888
 # 使用pod, 端口映射要配置到pod上，pod内的容器不配端口
 ```
 
-#### 创建容器并加入pod
+#### 创建容器并加入 pod
 
 ```bash
-    podman run -d --pod pod_name_0 influxdb
+podman run -d --pod pod_name_0 influxdb
 ```
 
 [https://www.hangge.com/blog/cache/detail_2475.html](https://www.hangge.com/blog/cache/detail_2475.html)
@@ -412,8 +425,6 @@ podman image prune
 podman image rm image-id-0
 ```
 
----
-
 [https://github.com/containernetworking/plugins](https://github.com/containernetworking/plugins)
 
 ### other
@@ -474,5 +485,4 @@ sudo pacman -S podman-compose
 podman-compose --help
 podman-compose up --help
 podman-compose up
-
 ```

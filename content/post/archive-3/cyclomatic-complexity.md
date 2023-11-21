@@ -42,27 +42,18 @@ String test1 = case1(1);
 
 圈复杂度的计算方法，可以参考这篇文章: [http://blog.csdn.net/lg707415323/article/details/7790660](http://blog.csdn.net/lg707415323/article/details/7790660)
 
-可以直接降低圈复杂度的9种重构技术 (针对结构化编程)
+可以直接降低圈复杂度的 9 种重构技术 (针对结构化编程)
 
-1.Composing Methods(重新组织你的函数)
-  
-<1>Extract Method(提炼函数)
-  
-<2>Substitute Algorithm(替换你的算法)
-
-2.Simplifying Conditional Expressions(简化条件表达式)
-  
-<1>Decompose Conditional(分解表达式)
-  
-<2>Consolidate Conditional Expression(合并表达式)
-  
-<3>Consolidate Duplicate Conditional Fragments (合并重复的条件)
-  
-<4>Remove Control Flag(移除控制标记)
-
-3.Making Method Calls Simpler(简化函数调用)
-  
-<1>Separate Query from Modifier(将查询函数和修改函数分离)
+1. Composing Methods(重新组织你的函数)
+   - Extract Method(提炼函数)
+   - Substitute Algorithm(替换你的算法)
+2. Simplifying Conditional Expressions(简化条件表达式)
+   - Decompose Conditional(分解表达式)
+   - Consolidate Conditional Expression(合并表达式)
+   - Consolidate Duplicate Conditional Fragments (合并重复的条件)
+   - Remove Control Flag(移除控制标记)
+3. Making Method Calls Simpler(简化函数调用)
+   - Separate Query from Modifier(将查询函数和修改函数分离)
   
 <2>PARAMETERIZE Method(令函数携带参数)
   

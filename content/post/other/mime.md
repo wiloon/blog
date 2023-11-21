@@ -28,7 +28,7 @@ type有下面的形式。
 * Audio: 用于传输音频或者音声数据；
 * Video: 用于传输动态影像数据，可以是与音频编辑在一起的视频数据格式。
 
-subtype用于指定type的详细形式。
+subtype 用于指定 type 的详细形式。
 
 * text/plain (纯文本)
 * text/html (HTML文档)

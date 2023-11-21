@@ -2,7 +2,7 @@
 title: CMake
 author: "-"
 date: 2013-02-24T03:15:38+00:00
-url: /?p=5241
+url: cmake
 categories:
   - Linux
 tags:
@@ -12,12 +12,14 @@ tags:
 
 ### build
 
-先创建一个叫build的文件夹 (这个并非必须，因为cmake命令指向CMakeLists.txt所在的目录，例如cmake .. 表示CMakeLists.txt在当前目录的上一级目录。cmake后会生成很多编译的中间文件以及makefile文件，所以一般建议新建一个新的目录，专门用来编译) ，然后执行下列操作: 
+先创建一个叫 build 的文件夹 (这个并非必须，因为 cmake 命令指向 CMakeLists.txt 所在的目录，例如 cmake .. 表示 CMakeLists.txt 在当前目录的上一级目录。cmake 后会生成很多编译的中间文件以及 makefile 文件，所以一般建议新建一个新的目录，专门用来编译) ，然后执行下列操作: 
 
-    mkdir build
-    cd build 
-    cmake .. 
-    make 
+```Bash
+mkdir build
+cd build 
+cmake .. 
+make 
+```
 
 你或许听过好几种 Make 工具，例如 GNU Make ，QT 的 qmake ，微软的 MS nmake，BSD Make (pmake) ，Makepp，等等。这些 Make 工具遵循着不同的规范和标准，所执行的 Makefile 格式也千差万别。这样就带来了一个严峻的问题: 如果软件想跨平台，必须要保证能够在不同平台编译。而如果使用上面的 Make 工具，就得为每一种标准写一次 Makefile ，这将是一件让人抓狂的工作。
 

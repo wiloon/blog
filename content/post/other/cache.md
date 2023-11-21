@@ -167,7 +167,7 @@ Redis 以优秀的性能和丰富的数据结构,以及稳定性和数据一致�
 
 比如,当某一名人新发布了图片,而他们粉丝都会收到通知,大量的粉丝争先抢后的想去看发布了什么,但是,因为是新发布的图片,服务端还没有进行缓存,就会发生大量请求被打到底层存储,超过服务处理能力导致超时后,粉丝又会不停的刷新,造成恶性循环。
 
-解决方案: 锁 和 Promise
+解决方案: 锁和 Promise
 
 发生这种踩踏的底层原因是对缓存这类公共资源拼抢,那么,就把公共资源加锁,消除并发拼抢。
 
@@ -188,3 +188,40 @@ promise 的原理其实是一种_代理模式_,实际的缓存值被 promise 代
 [https://xie.infoq.cn/article/98bf087574f4c13fb3b5e8c23](https://xie.infoq.cn/article/98bf087574f4c13fb3b5e8c23)
 
 [https://my.oschina.net/magebyte/blog/5510913](https://my.oschina.net/magebyte/blog/5510913)
+
+## 更新缓存的的 Design Pattern 有四种
+
+- Cache aside
+- Read through
+- Write through
+- Write behind caching
+
+[https://coolshell.cn/articles/17416.html](https://coolshell.cn/articles/17416.html)
+
+### Cache Aside Pattern
+
+这是最常用最常用的 pattern 了。其具体逻辑如下：
+
+- 失效：应用程序先从 cache 取数据，没有得到，则从数据库中取数据，成功后，放到缓存中。
+- 命中：应用程序从 cache 中取数据，取到后返回。
+- 更新：先把数据存到数据库中，成功后，再让缓存失效。
+
+### Read/Write Through Pattern
+
+我们可以看到，在上面的 Cache Aside 套路中，我们的应用代码需要维护两个数据存储，一个是缓存（Cache），一个是数据库（Repository）。所以，应用程序比较啰嗦。而Read/Write Through套路是把更新数据库（Repository）的操作由缓存自己代理了，所以，对于应用层来说，就简单很多了。可以理解为，应用认为后端就是一个单一的存储，而存储自己维护自己的Cache。
+
+Read Through
+Read Through 套路就是在查询操作中更新缓存，也就是说，当缓存失效的时候（过期或LRU换出），Cache Aside 是由调用方负责把数据加载入缓存，而Read Through 则用缓存服务自己来加载，从而对应用方是透明的。
+
+Write Through
+Write Through 套路和 Read Through 相仿，不过是在更新数据时发生。当有数据更新的时候，如果没有命中缓存，直接更新数据库，然后返回。如果命中了缓存，则更新缓存，然后再由Cache自己更新数据库（这是一个同步操作）
+
+### Write Behind Caching Pattern
+
+Write Behind 又叫 Write Back。一些了解Linux操作系统内核的同学对write back应该非常熟悉，这不就是Linux文件系统的Page Cache的算法吗？是的，你看基础这玩意全都是相通的。所以，基础很重要，我已经不是一次说过基础很重要这事了。
+
+Write Back套路，一句说就是，在更新数据的时候，只更新缓存，不更新数据库，而我们的缓存会异步地批量更新数据库。这个设计的好处就是让数据的I/O操作飞快无比（因为直接操作内存嘛 ），因为异步，write backg还可以合并对同一个数据的多次操作，所以性能的提高是相当可观的。
+
+但是，其带来的问题是，数据不是强一致性的，而且可能会丢失（我们知道Unix/Linux非正常关机会导致数据丢失，就是因为这个事）。在软件设计上，我们基本上不可能做出一个没有缺陷的设计，就像算法设计中的时间换空间，空间换时间一个道理，有时候，强一致性和高性能，高可用和高性性是有冲突的。软件设计从来都是取舍Trade-Off。
+
+另外，Write Back实现逻辑比较复杂，因为他需要track有哪数据是被更新了的，需要刷到持久层上。操作系统的write back会在仅当这个cache需要失效的时候，才会被真正持久起来，比如，内存不够了，或是进程退出了等情况，这又叫lazy write。
