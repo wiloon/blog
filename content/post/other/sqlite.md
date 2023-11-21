@@ -1,5 +1,5 @@
 ---
-title: sqlite
+title: SQLite
 author: "-"
 date: 2022-01-21 15:35:49
 url: sqlite
@@ -8,9 +8,11 @@ categories:
 tags:
   - reprint
 ---
-## sqlite
+## SQLite
 
-- SQlite 通过文件来保存数据库，一个文件就是一个数据库
+version: 3.44.0
+
+- SQLite 通过文件来保存数据库，一个文件就是一个数据库
 
 ### command
 
@@ -49,7 +51,6 @@ alter table feed
 
 # 打开一个已经存在的数据库
 sqlite3 /var/lib/enx-api/enx.db
-
 ```
 
 ```sql

@@ -238,7 +238,22 @@ powercfg.exe /hibernate on
 
 [https://github.com/microsoft/terminal](https://github.com/microsoft/terminal)
 
+winget 搜不到最新版本, 目前看...只能去 github 下载, 然后解压就能用, 不需要安装
+
+默认配置文件在 `C:\Users\user0\AppData\Local\Microsoft\Windows Terminal`
+
 Windows Terminal> Settings> Actions 可以设置快捷键,解决 vim  ctrl-v 的问题
+
+### add archlinux@virtualbox into Windows terminal list
+
+```json
+{
+    "commandline": "ssh wiloon@localhost",
+    "guid": "{14fd428f-8203-4f45-b9d8-c70e02741cc9}",
+    "hidden": false,
+    "name": "Arch Linux"
+}
+```
 
 ## 查看本机域名以及登录账户使用的命令
 

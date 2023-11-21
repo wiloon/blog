@@ -4,7 +4,7 @@ author: "-"
 date: 2015-01-29T16:01:21+00:00
 url: Conway
 categories:
-  - Inbox
+  - Law
 tags:
   - reprint
 ---
@@ -14,7 +14,7 @@ tags:
 
 任何组织在设计一套系统 (广义概念上的系统）时，所交付的设计方案在结构上都与该组织的沟通结构保持一致。
 
-https://www.cnblogs.com/ghj1976/p/5703462.html
+[https://www.cnblogs.com/ghj1976/p/5703462.html]()
 
 康威定律——"设计系统的组织，最终产生的设计等同于组织之内、之间的沟通结构。"
   
@@ -38,4 +38,4 @@ Any organization that designs a system (defined broadly) will produce a design w
 
 任何设计系统的组织，必然会产生以下设计结果: 即其结构就是该组织沟通结构的写照。简单来说:  产品必然是其组织沟通结构的缩影。
 
-http://tech2ipo.com/102149
+[http://tech2ipo.com/102149]()

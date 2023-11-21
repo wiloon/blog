@@ -9,6 +9,7 @@ tags:
   - reprint
 ---
 ## Product Backlog
+
 Product Backlog由所有的功能特性，包括业务功能，非业务功能 (技术、架构和工程实践相关) ，提升点以及缺陷的修复等组成。这些内容也是将来产品版本发布的主要内容。
 
 一个完整的Backlog是一个蓝图，可以根据它来把产品改造成为我们期望的样子。
@@ -75,7 +76,7 @@ How to demo (如何做演示) ——它大略描述了这个故事应该如何�
   
 o 如果你在使用TDD (测试驱动开发) ，那么这段描述就可以作为验收测试的伪码表示。
 
-                                                  Product Backlog (示例)  
+Product Backlog (示例)  
     
 
 ID Name Imp Est How to demo Notes

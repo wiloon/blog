@@ -1,15 +1,16 @@
 ---
-title: UML basic
+title: UML
 author: "-"
 date: 2012-09-24T07:40:34+00:00
 url: uml
-tags:
-  - uml
 categories:
-  - UML
+- UML
+tags:
+  - reprint
+  - remix
 ---
 
-## UML basic
+# UML
 
 - 时序图, Sequence Diagram
 - Use Case Diagram
@@ -29,6 +30,10 @@ categories:
 
 [https://zhuanlan.zhihu.com/p/78244670](https://zhuanlan.zhihu.com/p/78244670)
 
+[https://plantuml.com/zh/component-diagram](https://plantuml.com/zh/component-diagram)
+
+组件图：组件图是 UML（统一建模语言）中的一种结构图，用于可视化系统组件的组织和关系。这些图有助于将复杂的系统分解成易于管理的组件，展示它们之间的相互依存关系，确保高效的系统设计和架构。
+
 Component diagram shows components, provided and required interfaces, ports, and relationships between them. This type of diagrams is used in Component-Based Development (CBD) to describe systems with Service-Oriented Architecture (SOA).
 Component-based development is based on assumptions that previously constructed components could be reused and that components could be replaced by some other "equivalent" or "conformant" components, if needed.
 The artifacts that implement component are intended to be capable of being deployed and re-deployed independently, for instance to update an existing system.
@@ -47,7 +52,7 @@ component JMM {
   [thread stack] as ts2
 
   ts0 -[hidden]-> heap
-  ts1 -[hidden]-> heap
+  ts1 --> heap
   ts2 -[hidden]-> heap
 
 }

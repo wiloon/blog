@@ -23,7 +23,7 @@ tags:
     HTTP定义了与服务器交互的不同方法，最基本的方法是 GET 和 POST.
   
   
-    HTTP-GET和HTTP-POST是使用HTTP的标准协议动词，用于编码和传送变量名/变量值对参数，并且使用相关的请求语义。每个HTTP-GET和HTTP-POST都由一系列HTTP请求头组成，这些请求头定义了客户端从服务器请求了什么，而响应则是由一系列HTTP应答头和应答数据组成，如果请求成功则返回应答。
+HTTP-GET和HTTP-POST是使用HTTP的标准协议动词，用于编码和传送变量名/变量值对参数，并且使用相关的请求语义。每个HTTP-GET和HTTP-POST都由一系列HTTP请求头组成，这些请求头定义了客户端从服务器请求了什么，而响应则是由一系列HTTP应答头和应答数据组成，如果请求成功则返回应答。
  HTTP-GET以使用MIME类型application/x-www-form-urlencoded的urlencoded文本的格式传递参数。Urlencoding是一种字符编码，保证被传送的参数由遵循规范的文本组成，例如一个空格的编码是"%20"。附加参数还能被认为是一个查询字符串。
  与HTTP-GET类似，HTTP-POST参数也是被URL编码的。然而，变量名/变量值不作为URL的一部分被传送，而是放在实际的HTTP请求消息内部被传送。
   
@@ -58,22 +58,19 @@ tags:
     下面举一个简单的例子来说明它们的区别: 
   
   
-    ```html
+```html
  <!-分别通过get和post方式提交表单->
  <FORM ACTION="getpost.asp" METHOD="get">
- <INPUT TYPE="text" NAME="Text" VALUE="
-
- [http://wxf0701.cnblogs.com/](http://wxf0701.cnblogs.com/)
- />
+ <INPUT TYPE="text" NAME="Text" VALUE=""/>
  <INPUT TYPE="submit" VALUE="Get方式"></INPUT>
  </FORM>
 
  <FORM ACTION="getpost.asp" METHOD="post">
- <INPUT TYPE="text" NAME="Text" VALUE="http://wxf0701.cnblogs.com/>
+ <INPUT TYPE="text" NAME="Text" VALUE="http://wxf0701.cnblogs.com"/>
  <INPUT TYPE="submit" VALUE="Post方式"></INPUT>
  </FORM>
 
-    <% If Request.QueryString("Text") <> "" Then %>
+<% If Request.QueryString("Text") <> "" Then %>
  通过get方式传递的字符串是:  "<%= Request.QueryString("Text") %>"
 
  <% End If %>
@@ -82,7 +79,6 @@ tags:
  通过Post方式传递的字符串是:  "<%= Request.Form("Text") %>"
 
  <% End If %>
-
  ```
   
   

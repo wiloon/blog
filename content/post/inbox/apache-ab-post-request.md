@@ -19,7 +19,9 @@ yay -S apache-tools
 sudo yum -y install httpd-tools
 ```
 
-```bash格式: ab [options] [http://]hostname[:port]/path
+```bash
+
+格式: ab [options] [http://]hostname[:port]/path
 
 # get 请求, 不带 -p参数时  发get请求
 ab -n 1 -c 1   -T 'application/x-www-form-urlencoded' "http://127.0.0.1:7000/"
