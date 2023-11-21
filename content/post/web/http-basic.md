@@ -60,12 +60,12 @@ HTTP-GET和HTTP-POST是使用HTTP的标准协议动词，用于编码和传送�
   
 ```html
  <!-分别通过get和post方式提交表单->
- <FORM ACTION="getpost.asp" METHOD="get">
+ <FORM ACTION="foo.asp" METHOD="get">
  <INPUT TYPE="text" NAME="Text" VALUE=""/>
  <INPUT TYPE="submit" VALUE="Get方式"/>
  </FORM>
 
- <FORM ACTION="getpost.asp" METHOD="post">
+ <FORM ACTION="foo.asp" METHOD="post">
  <INPUT TYPE="text" NAME="Text" VALUE="http://wxf0701.cnblogs.com"/>
  <INPUT TYPE="submit" VALUE="Post方式"/>
  </FORM>
