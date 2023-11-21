@@ -425,7 +425,6 @@ log_duration = off ---- 记录每条SQL语句执行完成消耗的时间，将�
 -1表示不可用，0将记录所有SQL语句和它们的耗时，>0只记录那些耗时超过（或等于）这个值（ms）的SQL语句。个人更喜欢使用该配置来跟踪那些耗时较长，可能存在性能问题的SQL语句。虽然使用log_statement和log_duration也能够统计SQL语句及耗时，但是SQL语句和耗时统计结果可能相差很多行，或在不同的文件中，但是log_min_duration_statement会将SQL语句和耗时在同一行记录，更方便阅读。
 
 11.log_connections = off ----是否记录连接日志
-
 12.log_disconnections = off ---- 是否记录连接断开日志
 
 13.log_line_prefix = '%m %p %u %d %r ' ---- 日志输出格式（%m,%p实际意义配置文件中有解释）,可根据自己需要设置（能够记录时间，用户名称，数据库名称，客户端IP和端口，方便定位问题）
