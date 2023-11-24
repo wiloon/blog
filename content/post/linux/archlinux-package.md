@@ -57,3 +57,7 @@ Userspace utilities to manage btrfs filesystems
 ## gst-plugins-base
 
 This is GStreamer, a framework for streaming media.
+
+## c-ares
+
+c-ares是一个C语言实现的异步请求DNS的实现。很多知名 软件(curl、seastar、gevent、Nodejs等等)都使用了该软件。

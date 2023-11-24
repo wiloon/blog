@@ -20,6 +20,8 @@ tags:
 - ctrl + alt + y, reload from disk
 - ctrl + alt + f, find in files
 - ctrl + n, Down
+- ctrl + [, Move caret to code block start
+- ctrl + ], Move caret to code block end
 
 CTRL+SHIFT+N 查找文件
   
