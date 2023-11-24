@@ -719,11 +719,35 @@ print(b.decode())       # 默认 encoding="utf-8"
 
 ```
 
-## singleten
+## singleton, 单例
 
 [https://www.birdpython.com/posts/1/71/](https://www.birdpython.com/posts/1/71/)
 
 [https://stackoverflow.com/questions/6760685/creating-a-singleton-in-python?page=1&tab=scoredesc#tab-top](https://stackoverflow.com/questions/6760685/creating-a-singleton-in-python?page=1&tab=scoredesc#tab-top)
+
+```Python
+from threading import Lock
+
+class MetaClass(type):
+    _instances = {}
+    _lock: Lock = Lock()
+
+    def __call__(cls, *args, **kwargs):
+        with cls._lock:
+            if cls not in cls._instances:
+                instance = super().__call__(*args, **kwargs)
+                cls._instances[cls] = instance
+        return cls._instances[cls]
+
+
+class Class0(metaclass=MetaClass):
+    foo = None
+
+    def __init__(self) -> None:
+        print('init')
+    def get(self, key, sub_key):
+        print('func 0')
+```
 
 ## sqlalchemy
 
