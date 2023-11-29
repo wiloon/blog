@@ -17,24 +17,25 @@ tags:
 - macrodroid, 设备自动化, 监控电池电量发http请求.
 - otter, 语音转文字
 - Ingress Prime, 一个 LBS 游戏
+- APTV, apple tv, ios 看电视频道
 
-|name       |comments|
-|-|-|
-| 古诗文网    ||
-| Wander      ||
+| name   | comments |
+|--------|----------|
+| 古诗文网   |          |
+| Wander |          |
 
 ### iOS app
 
-|name|comments|
-|-|-|
-|英语轻松读      ||
-|surge|网络调试工具|
-|wireguard|vpn|
-|Chanify|消息推送工具|
-|默沙东诊疗手册||
-|Sun Surveyor Lite| 查看太阳轨迹|
-|Star Walk 2 ||
-|Strongbox  |keepassxc的ios实现, deprecated, > bitwarden|
+| name              | comments                                 |
+|-------------------|------------------------------------------|
+| 英语轻松读             |                                          |
+| surge             | 网络调试工具                                   |
+| wireguard         | vpn                                      |
+| Chanify           | 消息推送工具                                   |
+| 默沙东诊疗手册           |                                          |
+| Sun Surveyor Lite | 查看太阳轨迹                                   |
+| Star Walk 2       |                                          |
+| Strongbox         | keepassxc的ios实现, deprecated, > bitwarden |
 
 ### iOS app 美区
 
