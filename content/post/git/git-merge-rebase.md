@@ -85,7 +85,7 @@ git merge master feature
 
 ### options
 
-- -i, --interactive     let the user edit the list of commits to rebase, 交互模式
+- -i, --interactive    let the user edit the list of commits to rebase, 交互模式
 
 - git rebase 命令的文档描述是 Reapply commits on top of another base tip
 - rebase 有人把它翻译成 "变基"
@@ -93,7 +93,7 @@ git merge master feature
 - rebase 通常用于重写提交历史。可以保持提交历史的整洁
 - 跟 merge 一样, rebase 也会遇到冲突
 - 不要公共分支上执行 rebase, 比如: 不建议在以下示例中的 main 分支上执行 git rebase branch_xx
-- 不要通过rebase对任何已经提交到公共仓库中的commit进行修改（你自己一个人玩的分支除外）
+- 不要通过 rebase 对任何已经提交到公共仓库中的commit进行修改（你自己一个人玩的分支除外）
 - 可以用来合并 commit 历史, 得到更简洁的项目历史, 没有 merge commit
 - 缺点：如果合并出现代码问题不容易定位，因为 re-write 了 history  
 
@@ -104,7 +104,15 @@ git merge master feature
   - feature 分支跟 dev 分支合并前
 - 整理 feature 分支的 commit 历史
 
-#### git rebase 交互模式 整理 feature 分支的 commit 历史
+#### 把 dev 分支的 commit 更新到 feature 分支
+
+```Bash
+git rebase dev
+# 有可能需要处理冲突
+git push -f
+```
+
+#### git rebase 交互模式, 整理 feature 分支的 commit 历史
 
 1. git switch feature0
 2. git pull
@@ -127,7 +135,7 @@ git merge master feature
 2. branch_feature0 分支和 dev 分支都做一次 git pull
    1. git pull
    2. git fetch origin dev:dev
-3. git rebase dev
+3. `git rebase dev`
 4. 如果有冲突的话, 就处理冲突
    1. 有冲突的时候大概会显示成这样 `CONFLICT (content): Merge conflict in path/to/foo.txt`
    2. 处理冲突 `vim path/to/foo.txt`, `git add path/to/foo.txt`

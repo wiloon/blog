@@ -16,7 +16,6 @@ tags:
 ```bash
 # 显示工作树状态, (已经修改但是没 git add, 或者 没有 git commit)
 # 显示索引文件和当前HEAD提交有差异的路径，工作树和索引文件有差异的路径，以及工作树中不被Git追踪的路径（也不被gitignore[5]忽略）。前者是你通过运行 "git commit "会提交的东西；第二和第三者是你在运行 "git commit "之前通过运行 "git add "可以提交的东西。
-
 git status -s
 
 # 查看本地仓库的当前分支和远程分支的差异(已经 commit 但是还没 push), 只显示 commit id 和 comments
@@ -55,16 +54,22 @@ origin 是远程仓库的默认别名, 查看配置了几个远程仓库和别�
 ```bash
 # 查看本地分支, 当前分支前面会标一个 `*` 号
 git branch
+
 # 查看远程分支
 git branch -r 
+
 # 查看所有的分支, 本地 + 远程
 git branch -a
+
 # check branch detail
 git branch -v
+
 # git 查看本地分支关联（跟踪）的远程分支之间的对应关系，本地分支对应哪个远程分支
 git branch -vv
+
 # 获取当前的分支名称
 git rev-parse --abbrev-ref HEAD
+
 # 获取当前的分支名称, Git 2.22 及更高版本
 git branch --show-current
 ```
@@ -74,6 +79,7 @@ git branch --show-current
 ```bash
 # 新建并切换到分支
 git switch -c branch0
+
 # 把新分支推到远程仓库并设置本地分支和远程分支的关联
 git push --set-upstream origin branch0
 ```
@@ -81,6 +87,10 @@ git push --set-upstream origin branch0
 新建分支其实就是在当前位置打个标签, 也就是说... 新分支是以当前分支的 commit 为基础的.
 
 ```bash
+
+# 从 tag v1.2.3 创建分支 branch1
+git checkout -b branch1 v1.2.3
+
 # 新建并切换到分支
 # -c, --create
 git switch -c branch0
@@ -88,13 +98,13 @@ git checkout -b branch0
 
 # 从当前分支创建新分支, 新 branch 名字: branch0
 git branch branch0
+
 # 从 branch0 分支 创建 branch1 分支
 git branch branch1 branch0
+
 # 从 branch0 分支 创建 branch1 分支并切换到 branch1 分支 
 git checkout -b branch1 branch0
 
-# 从 tag v1.2.3 创建分支 branch1
-git checkout -b branch1 v1.2.3
 ```
 
 ### 切换到分支
@@ -119,6 +129,7 @@ git branch --set-upstream-to=origin/<remote_branch> <local_branch>
 ```bash
 # 删除本地分支
 git branch -d branch0
+
 # 删除远程分支
 git push origin --delete branch0
 # 强制删除分支，删除没 merge 的分支
@@ -157,7 +168,7 @@ git symbolic-ref --short HEAD
 ### git tag options
 
 - -a, --annotate        annotated tag, needs a message
-- -m, --message
+- -m <msg>, --message=<msg>
 
 轻量标签 lightweight tag 与附注标签 annotated tag
 
@@ -165,8 +176,7 @@ git symbolic-ref --short HEAD
 # 打印当前分支最新的 tag
 git describe --tags --abbrev=0
 
-# -m <msg>, --message=<msg>
-git tag -a v1.0.0 -m "message0"
+git tag v1.0.0 -a -m "message0"
 git push origin v1.0.0
 ```
 
@@ -424,7 +434,7 @@ git cherry-pick <commitHash>
 
 [https://www.ruanyifeng.com/blog/2020/04/git-cherry-pick.html](https://www.ruanyifeng.com/blog/2020/04/git-cherry-pick.html)
 
-### 指定ssh 私钥
+### 指定 ssh 私钥
 
 ```bash
 GIT_SSH_COMMAND="ssh -i ~/tmp/id_rsa" git clone git@github.com:wiloon/foo.git
@@ -436,7 +446,7 @@ GIT_SSH_COMMAND="ssh -i ~/tmp/id_rsa" git clone git@github.com:wiloon/foo.git
 git rev-parse HEAD
 ```
 
-### git checkout 检出
+## git checkout 检出
 
 git checkout: Git 的 checkout 有两个作用，其一是在不同的 branch 之间进行切换，例如 'git checkout branch0' 就会切换到 branch0 的分支上去；另一个功能是还原代码的作用，例如 'git checkout path/to/foo.py' 就会将 foo.py 文件从上一个已提交的版本中更新回来，未提交的内容全部会回滚/丢失.
 
@@ -701,11 +711,15 @@ git checkout -b branch_name tag_name
 
 [https://git-scm.com/book/zh/v2/Git-%E5%9F%BA%E7%A1%80-%E6%89%93%E6%A0%87%E7%AD%BE](https://git-scm.com/book/zh/v2/Git-%E5%9F%BA%E7%A1%80-%E6%89%93%E6%A0%87%E7%AD%BE)
 
-### git clone
+## git clone
 
 git clone <版本库的网址> <本地目录名>
 
 ```bash
+#checkout tag/branch
+git clone --branch <branch or tag name> <repo_url>
+git clone -b dev_jk http://10.1.1.11/service/tmall-service.git
+git clone -b v1.30.0 https://github.com/foo/bar
 
 git clone https://user0:password0@git.foo.com/path/to/project.git
 # clone 某个仓库和某个分支
@@ -725,16 +739,15 @@ git ls-files -d | xargs git checkout --
 ## git push
 
 ```bash
-# push 
-git push <远程仓库名> <本地分支名>:<远程分支名>
+# push <远程仓库名> <本地分支名>:<远程分支名>
 
 # 提交本地 test 分支作为远程的 master 分支
 git push origin test:master
 
-git push <远程仓库名>:<本地分支名>
-
 # 将本地的 master 分支推送到 origin 主机的 master 分支
 git push origin master:master
+
+# 可以省略掉 仓库名, 如果只有一个 origin 仓库, git push <远程仓库名>:<本地分支名>
 
 # 如果本地分支名与远程分支名相同，则可以省略冒号
 # 省略冒号简写成这样
@@ -748,39 +761,6 @@ git push -f
 
 # fatal: The current branch production has no upstream branch.
 git push --set-upstream origin production
-```
-
-```bash
-#checkout tag/branch
-git clone --branch <tag_name> <repo_url>
-git clone -b dev_jk http://10.1.1.11/service/tmall-service.git
-git clone -b v1.30.0 https://github.com/foo/bar
-
-git clean -fd
-
-# rebase
-git rebase
-
-git stash
-
-git push origin test:master // 提交本地test分支作为远程的master分支 //好像只写这一句，远程的github就会自动创建一个test分支
-git push origin test:test // 提交本地test分支作为远程的test分支
-
-git status -s
-git add .
-
-git commit -m "***"
-git push git@localhost:ET.git master
-
-git clone git@DomainName:ET.git
-#need port 22
-
-git commit -m "xxx"
-git push origin master
-
-# 恢复一个文件"hello.rb",
-git checkout -- hello.rb
-git log master..origin/master
 ```
 
 git am –show-current-patch
@@ -981,23 +961,23 @@ git reflog expire --expire=now --all
 
 ```bash
 // 先将本地修改进行暂存
-> git stash
+git stash
  
 // 暂存完毕后执行 git status 会显示不出本地的修改
 // 再拉取当前分支
-> git pull 
+git pull 
  
 // 新建并切换到开发分支，如dev-2021-11
-> git checkout -b dev-2021-11
+git checkout -b dev-2021-11
  
 // 将暂存的本地修改取出
-> git stash apply
+git stash apply
  
 // 这时执行 git status 可以看到本地修改又显示出来了
 // 正常提交即可
-> git add .
-> git commit -am "local code"
-> git push origin dev-2021-11
+git add .
+git commit -am "local code"
+git push origin dev-2021-11
 ```
 
 [https://www.cnblogs.com/toutou/p/git_stash.html](https://www.cnblogs.com/toutou/p/git_stash.html)
@@ -1039,9 +1019,10 @@ git rebase origin/dev
 
 多说一句，之所以显示上面的“错误”，是因为 A -> B -> C -> D 和 A -> B -> E 有一个共同的祖先 B，你在本地多了一个 commit E，远程多了两个 commits C 和 D。这个时候如果你要在 A -> B -> E 的 branch 上 push，git 猜不出到底想保留 C 和 D，还是只要 E，还是都要，就会出现上面的提示。
 
-## git status
+## git status, git status -s
 
 ```bash
+git status
 git status -s
 ```
 
@@ -1051,11 +1032,11 @@ XY ORIG_PATH -> PATH
 ```
 
 - `XY` 是一个双字母的状态代码。
-  - `X` 显示索引文件 (index) 的状态，`Y` 显示工作树 (working tree) 的状态。
-    - 比如 " M" 表示工作树有修改但是没有执行 `git add`, 没有更新到索引.
-- 当一个路径没有被追踪时，`X`和`Y`总是相同的，因为它们是 未知的索引。
+  - `X` 显示索引文件 (index) 的状态
+  - `Y` 显示工作树 (working tree) 的状态。
+  - 比如 " M" 表示工作树有修改但是没有执行 `git add`, 没有更新到索引.
+- 当一个路径没有被追踪时，`X`和`Y`总是相同的，因为它们是未知的索引。
 - `??` 用于未跟踪的路径。除非使用了 `--ignored`
-
 - ' ' = 空格表示未修改的
 - M = 修改过的
 - U = 更新但未合并
