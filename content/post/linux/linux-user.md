@@ -72,6 +72,7 @@ su -
 # 查看当前用户所属的组
 groups
 id user0
+
 # 查看用户所属的组
 groups user0
 

@@ -12,7 +12,7 @@ tags:
 
 ## ssh config
 
-### public key
+### public key, authorized_keys
 
 ```bash
 vim ~/.ssh/authorized_keys

@@ -2,18 +2,24 @@
 title: dnf basic
 author: "-"
 date: 2020-04-26T02:14:25+00:00
-url: /?p=16066
+url: dnf
 categories:
-  - inbox
+  - Linux
 tags:
   - reprint
+  - remix
 ---
 ## dnf basic
 
 ### 升级所有系统软件包
 用处: 该命令用于升级系统中所有有可用升级的软件包
-命令: # dnf update 或 # dnf upgrade
-"update" is just a deprecated alias for "upgrade", they do exactly the same thing.
+
+```Bash
+# "update" is just a deprecated alias for "upgrade", they do exactly the same thing.
+dnf update
+dnf upgrade
+```
+
 
 ### 安装
 

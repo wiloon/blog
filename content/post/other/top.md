@@ -36,9 +36,9 @@ zombie 进程 : 不是异常情况。 一个进程从创建到结束在最后那
 
 ### Cpu(s): 表示这一行显示CPU总体信息
 
-- us: 用户态进程占用 CPU 时间百分比，不包含renice值为负的任务占用的CPU的时间。 CPU 消耗在 User space 的时间百分比
+- us: 用户态进程占用 CPU 时间百分比，不包含 renice 值为负的任务占用的CPU的时间。 CPU 消耗在 User space 的时间百分比
 - sy: 内核线程占用 CPU 时间百分比, 消耗在 Kernel space 的时间百分比。
-- ni: renice值为负的任务的用户态进程的CPU时间百分比。nice是优先级的意思, 表示被nice命令改变优先级的任务所占的百分比
+- ni: renice 值为负的任务的用户态进程的CPU时间百分比。nice 是优先级的意思, 表示被 nice 命令改变优先级的任务所占的百分比
 - id: 空闲CPU时间百分比
 - wa: IO wait 的缩写, io wait 所占的百分比, CPU 等待外部 I/O 的时间百分比，这段时间 CPU 不能干其他事，但是也没有执行运算，这个值太高就说明外部设备有问题
 - hi: CPU硬中断时间百分比, hardware interrupt 的缩写，CPU 响应硬件中断请求的时间百分比
