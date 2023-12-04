@@ -40,8 +40,6 @@ Host *
 ```bash
 host 192.168.*
     user root
-
-
 ```
 
 ## ssh client config, 保持连接
@@ -56,7 +54,6 @@ vim ~/.ssh/config
 Host 192.168.*
     ServerAliveInterval 120
     User root
-
 ```
 
 用 SSH 过程连接电脑时，经常遇到长时间不操作而被服务器踢出的情况，常见的提示如:

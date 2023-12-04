@@ -35,13 +35,11 @@ apt instll ansible
 # pip install ansible
 pip install --user ansible
 # 把 ~/.local/bin 加入 $PATH
-
 ```
 
 ```
 yum install ansible     # RHEL/CentOS/Fedora,需要配置 EPEL
 emerge -avt ansible     # Gentoo/Funtoo
-
 ```
 
 **准备 Inventory**

@@ -15,6 +15,7 @@ tags:
 - Monosnap, 截图
 - Stats, [https://github.com/exelban/stats](https://github.com/exelban/stats), 监控
 - Itsycal, 在任务栏显示日历周
+- RealVNC® Viewer
 
 ## brew
 

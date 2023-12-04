@@ -11,3 +11,10 @@ tags:
 ## ansible 变量
 
 ram_size: "{{ (ansible_memtotal_mb * 0.8)|int }}"
+
+```yaml
+---
+- hosts: 'all'
+  vars:
+    var0: 'value0'
+```

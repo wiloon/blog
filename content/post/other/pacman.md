@@ -17,7 +17,7 @@ tags:
 ```bash
 -Sy #仅同步源
 -Syy # 两个 y 代表强制更新 database 文件, 即使文件看起来是最新的, 回退到旧版本的时候会用到
--Syyuu # 降级软件包的时候用.
+-Syyuu # 降级软件包的时候用
 -Q 查询 pacman 数据库, 比如查询某一个已经安装的包的版本 pacman -Q openssl
 -Ql boost-libs #Display file list provided by local package
 -o <file> 查看某个文件属于哪个包
@@ -78,7 +78,7 @@ vim /etc/pacman.d/mirrorlist
 SigLevel = PackageRequired
 Server = https://archive.archlinux.org/repos/2022/11/04/$repo/os/$arch
 
-# pacman -Syu 是回不到早期版本的, 要用 pacman -Syyuu
+# pacman -Syu 是回不到早期版本, 要用 pacman -Syyuu
 # Then update the database and force downgrade
 pacman -Syyuu
 ```

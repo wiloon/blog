@@ -40,8 +40,10 @@ kubectl logs --namespace <NAMESPACE> <NAME>
 
 # scale, 扩缩容
 kubectl scale --replicas=0 deployment/deployment0
+
 # 删除 pod
 kubectl delete pod pod0
+
 ## 强制删除
 kubectl delete pod pod0 --force --grace-period=0
 kubectl delete pod pod0 -n namespace0 --force --grace-period=0

@@ -1,5 +1,5 @@
 ---
-title: zsh, oh-my-zsh
+title: zsh, oh-my-zsh, oh my zsh
 author: "-"
 date: 2017-04-06T04:56:02+00:00
 url: zsh
@@ -8,10 +8,15 @@ categories:
 tags:
   - reprint
   - remix
-
-
 ---
-## zsh, oh-my-zsh
+## zsh, oh-my-zsh, oh my zsh
+
+## update
+
+```Bash
+# need vpn to access github
+omz update
+```
 
 ## 查看 zsh 版本
 

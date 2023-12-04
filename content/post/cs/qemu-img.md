@@ -14,18 +14,21 @@ tags:
 结论： 建议用 raw
 
 曾经有过一段时间，徘徊于对虚拟机硬盘格式的迷惑中，2009年，终于得出了一些结论 (下面的思路基本通用于其他虚拟机)
-搜了下，发现大部分用qemu或者kvm的，都默认使用qcow2来作为虚拟硬盘，但qemu官方默认是用raw。
-下面是qemu wiki对两种格式的描述:
+搜了下，发现大部分用 qemu 或者 kvm 的，都默认使用 qcow2 来作为虚拟硬盘，但 qemu 官方默认是用 raw。
+下面是 qemu wiki 对两种格式的描述:
 
 ## raw
 
-Raw disk image format (default). This format has the advantage of being simple and easily exportable to all other emulators. If your file system supports holes (for example in ext2 or ext3 on Linux or NTFS on Windows), then only the written sectors will reserve space. Use qemu-img info to know the real size used by the image or ls -ls on Unix/Linux.
+Raw disk image format (default). This format has the advantage of being simple and easily exportable to all other emulators. 
+If your file system supports holes (for example in ext2 or ext3 on Linux or NTFS on Windows), then only the written sectors will reserve space. 
+Use qemu-img info to know the real size used by the image or ls -ls on Unix/Linux.
 
 ## qcow2
 
-QEMU image format, the most versatile format. Use it to have smaller images (useful if your filesystem does not supports holes, for example on Windows), optional AES encryption, zlib based compression and support of multiple VM snapshots.
+QEMU image format, the most versatile format. Use it to have smaller images (useful if your filesystem does not supports holes, for example on Windows), 
+optional AES encryption, zlib based compression and support of multiple VM snapshots.
 
-## raw的优势 (能找到的相关资料太少，不知道是不是理解有误)
+## raw 的优势 (能找到的相关资料太少，不知道是不是理解有误)
 
 1、简单，并能够导出为其他虚拟机的虚拟硬盘格式
 2、根据实际使用量来占用空间使用量，而非原先设定的最大值 (比如设定最高20G，而实际只使用3G) 。——需要宿主分区支持hole (比如ext2 ext3 ext4 ntfs 等)
@@ -50,38 +53,36 @@ qemu跑98、me、xp是很慢的，但跑win95，win2000，是飞速的，尤其�
   
 更进一步认识，并修正上面的看法
   
-但今天 (2010年) 再回过头来看，发现其实raw更好:
+但今天 (2010年) 再回过头来看，发现其实 raw 更好:
   
-    raw相比qcow2就缺乏的四个功能，但都能通过别的方式解决: 
- 1、加密功能: 把raw本身就当普通文件加密之搞定
- 2、快照功能: 把raw加入版本管理目录中，具体需要的设置可能稍微有点多。
- 3、宿主机不支持按需打孔模式 (hole) : 这个可以自己根据使用情况来扩展raw的最大值
-  
+raw 相比 qcow2 就缺乏的四个功能，但都能通过别的方式解决: 
+
+1、加密功能: 把raw本身就当普通文件加密之搞定
+2、快照功能: 把raw加入版本管理目录中，具体需要的设置可能稍微有点多。
+3、宿主机不支持按需打孔模式 (hole) : 这个可以自己根据使用情况来扩展raw的最大值
 4、硬盘压缩: 就当普通电脑文件压缩之即可而raw有qcow2所无法媲美的功能:
- 1、效率高于qcow2
- 2、直接读写虚拟机硬盘里面的文件，这比较"暴力"，但既然可以这么暴力，那么也就不怕虚拟机出任何问题了。
-  
-  3、通用性好，是转为其他虚拟机的格式的通用中间格式，这样就不用担心转换虚拟机系统了。
+1、效率高于qcow2
+2、直接读写虚拟机硬盘里面的文件，这比较"暴力"，但既然可以这么暴力，那么也就不怕虚拟机出任何问题了。
+3、通用性好，是转为其他虚拟机的格式的通用中间格式，这样就不用担心转换虚拟机系统了。
 
-  ==================================================================
+==================================================================
 
-  补充一:
+补充一:
 
-  如何让KVM等各种虚拟系统能够拿到本地硬件的原始级别图形加速功能:
+如何让KVM等各种虚拟系统能够拿到本地硬件的原始级别图形加速功能:
 
-  在linuxsir上playfish提到: 可以让kvm拿到native级别的图形加速性能。目前我对spice仍然不熟，感觉就是一个虚拟机统一后端/前端图形界面，但这个用远程桌面不也可以实现？ (已经被我下面的否定了，两者不一样，spice应该是: 远程桌面+远程资源本地映射) 刚刚看了其英文介绍，简要翻译下:
- 硬件加速方面:
- 1、"客户端"2D使用通用的Cairo渲染
- 2、"客户端"windows下使用GDI，linux下使用Opengl
- 3、使用"客户端"的GPU来替换CPU渲染: 可因此获得高效的渲染，并改善虚拟机的CPU使用率
+在linuxsir上playfish提到: 可以让kvm拿到native级别的图形加速性能。目前我对spice仍然不熟，感觉就是一个虚拟机统一后端/前端图形界面，但这个用远程桌面不也可以实现？ (已经被我下面的否定了，两者不一样，spice应该是: 远程桌面+远程资源本地映射) 刚刚看了其英文介绍，简要翻译下:
+硬件加速方面:
+1、"客户端"2D使用通用的Cairo渲染
+2、"客户端"windows下使用GDI，linux下使用Opengl
+3、使用"客户端"的GPU来替换CPU渲染: 可因此获得高效的渲染，并改善虚拟机的CPU使用率
+4、"服务端"使用Opengl来渲染
   
-    4、"服务端"使用Opengl来渲染
   
+ps: 这很好玩，不管虚拟的机子是什么类型，都可以根据自己电脑的配置，来使用本地的硬件，那这样的话，同样的一个虚拟机，在不同的电脑上显示效果可就不一样了。
   
-    ps: 这很好玩，不管虚拟的机子是什么类型，都可以根据自己电脑的配置，来使用本地的硬件，那这样的话，同样的一个虚拟机，在不同的电脑上显示效果可就不一样了。
-  
-  ==============================================================
- 补充二:
+==============================================================
+补充二:
 
 虚拟硬盘所在的宿主机分区该使用何种分区方式？
  问题的关键可能是虚拟机的虚拟硬盘到底保留了多少宿主机的分区格式特点了。比如宿主用ext3,而虚拟机里用ext4,那么虚拟机里面的性能如何？是 ext3的性能还是ext4的性能？——我想可能ext3的性能应该是该虚拟机的最高上限了，而不会有ext4提升的那部分。硬盘的最大性能>特定分区格式和系统所能利用的最大性能>虚拟机虚拟硬盘所能利用的最大性能>虚拟机中的操作系统和分区格式所能利用的 最大性能
