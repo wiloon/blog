@@ -10,6 +10,8 @@ tags:
 ---
 ## archlinux package
 
+- aom
+
 ## linux-firmware
 
 在Linux Kernel中，Driver和Firmware是有明确含义的，其中Driver是控制被操作系统管理的外部设备(Device)的代码段。很多时候Driver会被实现为LKM，但这不是必要条件。driver通过driver_register()注册到总线(bus_type)上，代表系统具备了驱动某种设备(device)的能力。当某个device被注册到同样的总线的时候(通常是总线枚举的时候发现了这个设备)，总线驱动会对driver和device会通过一定的策略进行binding(即进行匹配)，如果Binding成功，总线驱动会调用driver的probe()函数，把设备的信息(例如端口，中断号等)传递给驱动，驱动就可以对真实的物理部件进行初始化，并把对该设备的控制接口注册到Linux的其他子系统上(例如字符设备，v4l2子系统等)。这样操作系统的其他部分就可以通过这些通用的接口来访问设备了。
@@ -61,3 +63,7 @@ This is GStreamer, a framework for streaming media.
 ## c-ares
 
 c-ares是一个C语言实现的异步请求DNS的实现。很多知名 软件(curl、seastar、gevent、Nodejs等等)都使用了该软件。
+
+## aom
+
+Alliance for Open Media video codec
