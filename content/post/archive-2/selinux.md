@@ -8,15 +8,13 @@ categories:
 tags:
   - reprint
   - security
-
-
 ---
 ## selinux
 
-## 临时关闭selinux
+## 临时关闭 selinux
 
 ```bash
-# 查询selinux 状态
+# 查询 selinux 状态
 sestatus
 # 临时关闭selinux
 setenforce 0
@@ -28,9 +26,9 @@ vim /etc/selinux/config
 
 把 `#SELINUX=enforcing` 改成 `SELINUX=disabled`
 
->[https://www.ibm.com/developerworks/cn/linux/l-secure-linux-ru/index.html](https://www.ibm.com/developerworks/cn/linux/l-secure-linux-ru/index.html)
->[http://okeeper.leanote.com/post/CentOS7%E4%B8%AD%E5%85%B3%E9%97%ADselinux](http://okeeper.leanote.com/post/CentOS7%E4%B8%AD%E5%85%B3%E9%97%ADselinux)
->[https://my.oschina.net/oaoa/blog/185833](https://my.oschina.net/oaoa/blog/185833)
+[https://www.ibm.com/developerworks/cn/linux/l-secure-linux-ru/index.html](https://www.ibm.com/developerworks/cn/linux/l-secure-linux-ru/index.html)
+[http://okeeper.leanote.com/post/CentOS7%E4%B8%AD%E5%85%B3%E9%97%ADselinux](http://okeeper.leanote.com/post/CentOS7%E4%B8%AD%E5%85%B3%E9%97%ADselinux)
+[https://my.oschina.net/oaoa/blog/185833](https://my.oschina.net/oaoa/blog/185833)
 
 ---
 
