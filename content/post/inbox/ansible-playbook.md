@@ -2,16 +2,17 @@
 title: ansible playbook
 author: "-"
 date: 2017-08-09T01:22:30+00:00
-url: /?p=11019
+url: ansible/playbook
 categories:
-  - Inbox
+  - devops
 tags:
   - reprint
+  - remix
 ---
 ## ansible playbook
 
 ```bash
----                         #任何playbook文件(其实就是yaml文件)都要以这个开头
+---                         #任何 playbook 文件 (其实就是yaml文件) 都要以这个开头
 - hosts: '{{ hosts }}'      #可以是主机组或IP
   become: root
   gather_facts: true

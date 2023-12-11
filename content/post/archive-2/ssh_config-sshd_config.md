@@ -18,6 +18,17 @@ tags:
 vim ~/.ssh/authorized_keys
 ```
 
+## ~/.ssh/config
+
+```Bash
+Host gitserv
+    Hostname remote.server.com
+    IdentityFile ~/.ssh/id_rsa.github
+    IdentitiesOnly yes
+```
+
+The IdentitiesOnly yes is required to prevent the SSH default behavior of sending the identity file matching the default filename for each protocol. If you have a file named ~/.ssh/id_rsa that will get tried BEFORE your ~/.ssh/id_rsa.github without this option.
+
 ## sshd config, /etc/ssh/sshd_config
 
 ### PermitRootLogin

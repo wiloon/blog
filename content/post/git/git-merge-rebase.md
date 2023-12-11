@@ -88,20 +88,17 @@ git merge master feature
 - -i, --interactive    let the user edit the list of commits to rebase, 交互模式
 
 - git rebase 命令的文档描述是 Reapply commits on top of another base tip
-- rebase 有人把它翻译成 "变基"
-- rebase 是「在另一个 base 之上重新应用提交」
-- rebase 通常用于重写提交历史。可以保持提交历史的整洁
+- rebase 是在另一个 base 之上重新应用提交, 有人把它翻译成 "变基"
+- rebase 通常用于重写/合并提交历史。得到更简洁的提交历史, 没有 merge commit
 - 跟 merge 一样, rebase 也会遇到冲突
-- 不要公共分支上执行 rebase, 比如: 不建议在以下示例中的 main 分支上执行 git rebase branch_xx
-- 不要通过 rebase 对任何已经提交到公共仓库中的commit进行修改（你自己一个人玩的分支除外）
-- 可以用来合并 commit 历史, 得到更简洁的项目历史, 没有 merge commit
-- 缺点：如果合并出现代码问题不容易定位，因为 re-write 了 history  
+- 不要公共分支上执行 rebase, 对任何已经提交到公共仓库中的 commit 进行修改（你自己一个人玩的分支除外）
+- 如果合并出现代码问题不容易定位，因为重写了历史 (re-write history) 
 
 ### 使用场景
 
 - 把 dev 分支的 commit 更新到 feature 分支
-  - feature 分支开发过程中
-  - feature 分支跟 dev 分支合并前
+  - 在 feature 分支开发过程中
+  - 在 feature 分支跟 dev 分支合并前
 - 整理 feature 分支的 commit 历史
 
 #### 把 dev 分支的 commit 更新到 feature 分支
@@ -116,14 +113,15 @@ git push -f
 
 1. git switch feature0
 2. git pull
-3. git rebase -i commit_id_x, 或者 git rebase -i HEAD~3
-4. 第一行 保留 pick
-5. 其它后面的行用 squash
-6. `:x` 保存退出
-7. 然后会提示修改 commit message
-8. 修改好之后 `:x` 保存退出
-9. `git push -f`
-10. 如果以上命令是在 shell 里操作的, 回到 jetbrain 之后要操作一次 reload from dick
+3. git log 找到 rebase 的基准点(base commit), 比如 (origin & main)
+4. git rebase -i commit_id_x, 或者 git rebase -i HEAD~3
+5. 第一行 保留 pick, 保留一个 commit, vim 替换命令 `:%s/^pick/squash/gc`
+6. 其它后面的行用 squash, 合并其它 commit.
+7. `:x` 保存退出
+8. 然后会提示修改 commit message
+9. 修改好之后保存退出 `:x`
+10. 把合并之后的 commit 强制推送到仓库 `git push -f` (不要在公共分支上操作, 只在特性分支, 只有自己在用的分支操作.)
+11. 如果以上命令是在 shell 里操作的, 回到 jetbrain 之后要操作一次 reload from dick
 
 ### feature 分支合并到 dev 分支
 
@@ -182,11 +180,11 @@ git rebase --abort
 5. 切换到 branch_feature0 分支
 6. 在 branch_feature0 分支上执行 git rebase main, 把 branch_feature0 分支的 base 变成 main
 7. 执行 rebase 之后, 在 branch_feature0 执行 git log, 时间戳顺序是错的: B> C> D> E
-8. git push origin branch_feature0:branch_feature0 会提示 Updates were rejected because the tip of your current branch is behind its remote counterpart. Integrate the remote changes (e.g.'git pull ...') before pushing again.
-9. git push -f, push 的时候一定要加 --fource, 否则服务器不会接受 rebase 的 分支.
+8. git push origin branch_feature0:branch_feature0 会提示 Updates were rejected because the tip of your current branch is behind its remote counterpart. Integrate the remote changes (e.g."git pull ...") before pushing again.
+9. git push -f, push 的时候一定要加 --force, 否则服务器不会接受 rebase 的 分支.
 10. git switch main
 11. git merge branch_feature0, 执行一次 Fast forward merge
-12. 此时 main 和 branch_featuer0 都指向了最新的提交
+12. 此时 main 和 branch_feature0 都指向了最新的提交
 
 rebase 的执行过程是首先找到这两个分支（即当前分支 branch_feature0, rebase 操作的目标分支 main 的最近共同祖先提交 A，然后对比当前分支 (branch_feature0) 相对于该祖先 (A) 提交的历次提交（D 和 E），提取相应的修改并存为临时文件 (patch)，然后将当前分支 (branch_feature0) 指向目标分支 main 的最新的提交 C, 最后以此作为新的 base 将之前另存为临时文件 (patch) 的修改依序应用。 (commit 的时间戳有可能是乱序的)
 
@@ -329,7 +327,7 @@ git rebase -i commit0
 - exec：执行 shell 命令（缩写:x）
 - drop：我要丢弃该 commit（缩写:d）
 
-交互模式, 即弹出交互式的界面让用户编辑完成合并操作，[startpoint] [endpoint] 指定了一个编辑区间，如果不指定 [endpoint]，该区间的终点默认是当前分支HEAD 所指向的 commit (注：该区间指定的是一个**前开后闭**的区间)。
+交互模式, 即弹出交互式的界面让用户编辑完成合并操作，`[startpoint]` `[endpoint]` 指定了一个编辑区间，如果不指定 `[endpoint]`，该区间的终点默认是当前分支HEAD 所指向的 commit (注：该区间指定的是一个**前开后闭**的区间)。
 
 两种模式的区别
 我们前面提到， rebase 是「在另一个基端之上重新应用提交」，而在重新应用的过程中，这些提交会被重新创建，自然也可以进行修改。在 rebase 的标准模式下，当前工作分支的提交会被直接应用到传入分支的顶端；而在交互模式下，则允许我们在重新应用之前通过编辑器以及特定的命令规则对这些提交进行合并、重新排序及删除等重写操作。
@@ -346,7 +344,7 @@ git rebase -i commit0
 
 自然地，假如我们对当前分支的某次历史提交执行 rebase，其结果就是会将这次提交之后的所有提交重新应用在当前分支，在交互模式下，即允许我们对这些提交进行更改。
 
-作者：zuopf769
+作者：`zuopf769`
 链接：[https://juejin.cn/post/6844903600976576519](https://juejin.cn/post/6844903600976576519)
 来源：稀土掘金
 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
@@ -373,7 +371,7 @@ git push origin master
 git push --force origin master
 ```
 
-作者：zuopf769
+作者：`zuopf769`
 链接：[https://juejin.cn/post/6844903600976576519](https://juejin.cn/post/6844903600976576519)
 来源：稀土掘金
 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。

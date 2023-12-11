@@ -1418,3 +1418,52 @@ The driver told me himself. (反身代词后置)
 Did you paint the portrait yourself? (反身代词后置)
 
 以上（2），（3）例子中，在带有强调反身单词的同位结构名词短语中，只有反身单词是主语时，才可以后置。
+
+## 句子片段
+
+[https://zhuanlan.zhihu.com/p/386526178](https://zhuanlan.zhihu.com/p/386526178)
+
+## 定语
+
+[https://www.zhihu.com/tardis/zm/art/27459344?source_id=1003](https://www.zhihu.com/tardis/zm/art/27459344?source_id=1003)
+
+定语是广义的形容词
+形容词用来修饰名词或代词，其一般可以被翻译为“......的”：
+
+The cute boy speaks English.
+（那个可爱的男孩会说英语。）
+形容词cute修饰名词boy，表达“可爱的男孩”之意。
+
+
+
+但形容词是词类，我们很难用它来表达更加丰富的语义。
+
+比如我们要表达“穿红衣服的男孩”或是“刚刚和我一起玩的男孩”，形容词就无能为力了。
+
+
+
+因此在一些情景中，我们使用另外一些表达能力更为丰富的结构来充当形容词，比如介词短语和定语从句等：
+
+The boy in red speaks English.
+（穿红衣服的男孩会说英语。）
+
+
+The boy whom I played with speaks English.
+（刚刚和我一起玩的男孩会说英语。)
+
+
+我们将形容词“cute”、介词短语“in red”、定语从句“whom I played with”这类可以充当形容词使用的结构称为定语，此类结构作定语时均可以被翻译为“......的”。
+
+所以，我们称定语是广义的形容词。
+
+## 定语从句
+
+[https://zhuanlan.zhihu.com/p/340408166](https://zhuanlan.zhihu.com/p/340408166)
+
+定语从句，在句中起定语作用，修饰某一名词或代词，或修饰整个主句。被定语从句修饰的词叫先行词。定语从句通常跟在先行词之后，由“关系词”引出，因此定语从句又称为关系从句，或称形容词从句。
+
+关系词可分为：关系代词和关系副词
+
+关系代词：which、that、who、whom、whose 等
+
+关系副词：when、where、why 等

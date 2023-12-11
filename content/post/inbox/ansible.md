@@ -35,7 +35,6 @@ apt instll ansible
 # pip install ansible
 pip install --user ansible
 # 把 ~/.local/bin 加入 $PATH
-
 ```
 
 ```
@@ -44,7 +43,7 @@ emerge -avt ansible     # Gentoo/Funtoo
 
 ```
 
-**准备 Inventory**
+## 准备 Inventory
 Inventory 文件用来定义你要管理的主机。其默认位置在 `/etc/ansible/hosts` ,如果不保存在默认位置,也可通过 `-i` 选项指定。被管理的机器可以通过其 IP 或域名指定。未分组的机器需保留在 hosts 的顶部,分组可以使用`[]` 指定,如:
 
 [web]  

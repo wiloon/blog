@@ -25,11 +25,11 @@ EOF
 ```
 
 -S 参数的作用
-使用man命令查询sudo，对参数-S的说明如下：
+使用 man 命令查询 sudo，对参数 -S 的说明如下：
 
 Write the prompt to the standard error and read the password from the standard input instead of using the terminal device. The password must be followed by a newline character.
 
-可见加上-S参数sudo才会从标准输入中读取密码，不加-S参数以上命令将起不到作用
+可见加上 -S 参数 sudo 才会从标准输入中读取密码，不加 -S 参数以上命令将起不到作用
 
 [https://askubuntu.com/questions/470383/how-to-avoid-being-prompted-for-a-password-by-sudo](https://askubuntu.com/questions/470383/how-to-avoid-being-prompted-for-a-password-by-sudo)
 
@@ -40,11 +40,10 @@ sudo visudo
 wiloon ALL=(ALL) NOPASSWD: ALL
 ```
 
-注意： 有的时候你的将用户设了nopasswd，但是不起作用，原因是被后面的group的设置覆盖了，需要把group的设置也改为nopasswd。
+注意： 有的时候你的将用户设了 `nopasswd`，但是不起作用，原因是被后面的group的设置覆盖了，需要把group的设置也改为 `nopasswd`。
 
 ```bash
 joe ALL=(ALL) NOPASSWD: ALL
-
 %admin ALL=(ALL) NOPASSWD: ALL
 ```
 

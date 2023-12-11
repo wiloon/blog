@@ -104,9 +104,9 @@ ssh-keygen -t rsa -f ~/.ssh/id_rsa.work -C "Key for Word stuff"
 Use different file names for each key. Lets assume that there are 2 keys, ~/.ssh/id_rsa.work and ~/.ssh/id_rsa.misc . The simple way of making sure each of the keys works all the time is to now create config file for ssh:
 
 touch ~/.ssh/config
- chmod 600 ~/.ssh/config
- echo "IdentityFile ~/.ssh/id_rsa.work" >> ~/.ssh/config
- echo "IdentityFile ~/.ssh/id_rsa.misc" >> ~/.ssh/config
+chmod 600 ~/.ssh/config
+echo "IdentityFile ~/.ssh/id_rsa.work" >> ~/.ssh/config
+echo "IdentityFile ~/.ssh/id_rsa.misc" >> ~/.ssh/config
 
 This would make sure that both the keys are always used whenever ssh makes a connection. However, ssh config lets you get down to a much finer level of control on keys and other per-connection setups. And I recommend, if you are able to, to use a key selection based on the Hostname. My ~/.ssh/config looks like this :
 

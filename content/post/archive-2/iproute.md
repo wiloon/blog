@@ -250,11 +250,7 @@ link/ether 00:0c:29:3b:9c:6f brd ff:ff:ff:ff:ff:ff
 
 inet 192.168.0.10/24 brd 192.168.0.255 scope global eth0
 
-```bash
-# Change link MTU
-ip link set dev ${interface name} mtu ${MTU value}
-# Examples:
-ip link set dev tun0 mtu 1480
+```Bash
 # check arp cache
 ip neigh
 
@@ -263,8 +259,6 @@ ip link set dev ${interface name} down
 ip route show
 ip tuntap list
 ```
-
----
 
 [https://baturin.org/docs/iproute2/](https://baturin.org/docs/iproute2/)
   
