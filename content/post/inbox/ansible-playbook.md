@@ -11,6 +11,17 @@ tags:
 ---
 ## ansible playbook
 
+end play
+
+```yaml
+    - block:
+        - name: "check if end play"
+          debug:
+            msg: "end play"
+        - meta: end_play
+      when: "true"
+```
+
 ```bash
 ---                         #任何 playbook 文件 (其实就是yaml文件) 都要以这个开头
 - hosts: '{{ hosts }}'      #可以是主机组或IP

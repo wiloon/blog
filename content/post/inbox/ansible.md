@@ -40,7 +40,6 @@ pip install --user ansible
 ```
 yum install ansible     # RHEL/CentOS/Fedora,需要配置 EPEL
 emerge -avt ansible     # Gentoo/Funtoo
-
 ```
 
 ## 准备 Inventory

@@ -10,6 +10,12 @@ tags:
 ---
 ## centos basic
 
+## AlmaLinux
+
+AlmaLinux 是CloudLinux公司搞得RHEL下游发行版
+
+---
+
 centos 7 minimal 安装之后 磁盘占用 1.4G
 
 - yum repo

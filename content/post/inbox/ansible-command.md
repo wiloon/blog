@@ -114,9 +114,9 @@ sudo ansible 192.168.1.11 -m file -a 'path=/home/roy/xxx/ state=absent'
 ### debug
 
 ```yaml
-   - name: Display all variables/facts known for a host
-      debug:
-        msg: "archlinux init"
+- name: Display all variables/facts known for a host
+   debug:
+     msg: "archlinux init"
 ```
 
 ```bash
