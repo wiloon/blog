@@ -21,6 +21,7 @@ tags:
 ## commands
 
 ```bash
+kubectl cluster-info
 kubectl get pods -n kube-system
 kubectl label node 192.168.0.212 gpu=true
 kubectl get node -L gpu
@@ -49,7 +50,7 @@ kubectl delete pod pod0 --force --grace-period=0
 kubectl delete pod pod0 -n namespace0 --force --grace-period=0
 
 kubectl get pods calico-node-tcwtg  -n kube-system -o  yaml | grep image:| cut -c 4-|sort|uniq
-kubectl cluster-info
+
 kubectl get nodes
 
 kubectl -o wide get pod

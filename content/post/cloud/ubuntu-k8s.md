@@ -246,6 +246,7 @@ kubeadm join 192.168.50.80:6443 --token abcdef.0123456789abcdef \
 
 
 ```Bash
+vim /root/.bashrc
 export KUBECONFIG=/etc/kubernetes/admin.conf
 ```
 
@@ -265,8 +266,8 @@ kubectl get pod -n kube-system
 curl https://github.com/flannel-io/flannel/releases/latest/download/kube-flannel.yml -o kube-flannel.yml
 
 vim /run/flannel/subnet.env
-FLANNEL_NETWORK=10.244.0.0/16
-FLANNEL_SUBNET=10.244.0.1/24
+FLANNEL_NETWORK=10.1.0.0/16
+FLANNEL_SUBNET=10.1.0.1/24
 FLANNEL_MTU=1450
 FLANNEL_IPMASQ=true
 
@@ -277,6 +278,18 @@ kubectl apply -f kube-flannel.yml
 
 ```Bash
 kubectl get pod -n kube-system
+kubectl describe pods -n kube-system xxx
+```
+
+## node 节点加入
+
+node 节点不需要 执行 kubeadm init
+node 节点不需要 安装 网络组件
+直接执行 kubeadm join
+
+```Bash
+kubeadm join 192.168.50.80:6443 --token abcdef.0123456789abcdef \
+    --discovery-token-ca-cert-hash sha256:7caea0c080754eb234dbc6212ba2c808330b25b81079c85f494de997acd5f736
 ```
 
 ## todo

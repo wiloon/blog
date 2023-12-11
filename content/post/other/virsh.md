@@ -72,11 +72,23 @@ virt-install  \
   --cpu host                \
   --cdrom /home/tmp/ubuntu-22.04.3-live-server-amd64.iso \
   --disk path=/home/tmp/libvirtDisk/ubuntu0.raw,size=20,format=raw  \
-  --network network:default \
+  --network network:bridged-network \
   --virt-type kvm \
   --graphics vnc,password=123456,port=5900,listen=0.0.0.0 \
   --noautoconsole
-  
+ 
+virt-install  \
+    --name ubuntu1 \
+    --memory 2048 \
+    --vcpus=2 \
+    --cpu host \
+    --cdrom /home/tmp/ubuntu-22.04.3-live-server-amd64.iso \
+    --disk path=/home/tmp/libvirtDisk/ubuntu1.raw,size=20,format=raw  \
+    --network network:bridged-network \
+    --virt-type kvm \
+    --graphics vnc,password=123456,port=5901,listen=0.0.0.0 \
+    --noautoconsole
+ 
 virt-install \
 --name=foo --ram 2048 --vcpus=1 \
 --disk path=/root/tmp/foo.raw,size=10,format=raw,bus=virtio \
