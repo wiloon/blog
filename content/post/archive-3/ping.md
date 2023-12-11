@@ -10,6 +10,14 @@ tags:
 ---
 ## ping command, fping
 
+## options
+
+- -s<数据包大小>：设置数据包的大小；
+- -M hint 	设置MTU（最大传输单元）分片策略。 可设置为：
+  - 'do'：禁止分片，即使包被丢弃；
+  - 'want'：当包过大时分片；
+  - 'dont'：不设置分片标志（DF flag）；
+
 ## install
 
 ```bash
@@ -42,11 +50,11 @@ ping -c 1 -I veth0 192.168.3.102
 fping -l google.com
 ```
 
-### 什么是ping
+### 什么是 ping
 
 PING (Packet Internet Grope)，因特网包探索器，用于测试网络连接量的程序。Ping发送一个ICMP回声请求消息给目的地并报告是否收到所希望的ICMP回声应答。
 
-### 什么是TTL
+### 什么是 TTL
 
 TTL: 生存时间
 指定数据包被路由器丢弃之前允许通过的网段数量。
@@ -160,3 +168,5 @@ UNIX 系列 255
 # -t, 一直 ping 直到 ctrl + c
 ping 127.0.0.1 -t
 ```
+
+[https://www.cnblogs.com/machangwei-8/p/10352808.html](https://www.cnblogs.com/machangwei-8/p/10352808.html)

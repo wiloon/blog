@@ -48,7 +48,7 @@ lsb_release -a
 
 [https://my.oschina.net/vshcxl/blog/698656](https://my.oschina.net/vshcxl/blog/698656)
 
-## 查 LINUX是32位还是64位, 64bit
+## 查 LINUX是32 位还是64 位, 64bit
 
 ```bash
 uname -m
