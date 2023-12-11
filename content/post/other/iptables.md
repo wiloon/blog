@@ -14,7 +14,13 @@ tags:
 
 iptables 是 Linux 内核集成的 IP 信息包过滤系统。该系统用于在 Linux 系统上控制 IP 数据包过滤和防火墙配置
   
-iptables操作的是2.4以上内核的netfilter。所以需要linux的内核在2.4以上。其功能与安全性远远比其前辈ipfwadm,ipchains强大，iptables大致是工作在OSI七层的二、三、四层，其前辈ipchains不能单独实现对tcp/udp port以及对mac地址的的定义与操作
+iptables 操作的是 2.4 以上内核的 netfilter。所以需要 linux 的内核在 2.4 以上。其功能与安全性远远比其前辈 ipfwadm, ipchains 强大，iptables大致是工作在OSI七层的二、三、四层，其前辈ipchains不能单独实现对tcp/udp port以及对mac地址的的定义与操作
+
+## iptables-nft
+
+iptables vs. iptables-nft
+
+[https://developers.redhat.com/blog/2020/08/18/iptables-the-two-variants-and-their-relationship-with-nftables#the_iptables_rules_appear_in_the_nftables_rule_listing](https://developers.redhat.com/blog/2020/08/18/iptables-the-two-variants-and-their-relationship-with-nftables#the_iptables_rules_appear_in_the_nftables_rule_listing)
 
 ### iptables 包含4个表，5个链
 

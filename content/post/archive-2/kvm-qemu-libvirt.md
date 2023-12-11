@@ -12,7 +12,7 @@ tags:
 
 http://blog.51cto.com/changfei/1672147
 
-KVM-Qemu-Libvirt三者之间的关系
+KVM-Qemu-Libvirt 三者之间的关系
 
 ## Qemu
 
@@ -54,7 +54,7 @@ Qemu 模拟其他的硬件,如Network, Disk,同样会影响这些设备的性能
 
 ## libvirt
 
-libvirt是目前使用最为广泛的对KVM虚拟机进行管理的工具和API。Libvirtd是一个daemon进程,可以被本地的 virsh 调用,也可以被远程的virsh调用,Libvirtd调用qemu-kvm操作虚拟机。
+libvirt 是目前使用最为广泛的对KVM虚拟机进行管理的工具和API。Libvirtd是一个daemon进程,可以被本地的 virsh 调用,也可以被远程的virsh调用,Libvirtd调用qemu-kvm操作虚拟机。
 
 ## libvirt、virsh、virt-manager
 

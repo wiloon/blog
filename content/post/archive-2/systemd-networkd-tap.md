@@ -27,7 +27,7 @@ sudo ip link set tap0 up
 sudo ip addr del 192.168.60.1/24 dev tap0
 ```
 
-### 启动时由systemd自动创建tap0
+### 启动时由 systemd 自动创建 tap0
 
 ```bash
 sudo vim /etc/systemd/network/90-tap0.netdev

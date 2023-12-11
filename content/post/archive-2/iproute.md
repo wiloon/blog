@@ -10,6 +10,12 @@ tags:
 ---
 ## iproute2 basic
 
+## commands
+
+```Bash
+ip link show type bridge
+```
+
 ### install
 
 ```bash

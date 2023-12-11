@@ -12,16 +12,42 @@ tags:
 ---
 ## libvirt, virsh
 
+- libvirt
+- virsh: command line utility
+
 ## archlinux
 
 ```bash
-sudo pacman -S libvirt
-systemctl status libvirtd
-systemctl enable libvirtd --now
+sudo pacman -S libvirt  virt-install
+sudo pacman -S iptables-nft dnsmasq dmidecode
 
-pacman -S dnsmasq dmidecode
-virsh net-list --all
-virsh net-start default
+systemctl status libvirtd
+sudo systemctl enable libvirtd --now
+sudo systemctl enable virtlogd --now
+sudo systemctl enable virtlockd --now
+
+
+sudo usermod -a -G libvirt wiloon
+
+# test
+virsh -c qemu:///system
+virsh pool-list --all
+
+virsh pool-define-as pool0 dir - - - - /home/wiloon/workspace/libvirtPool
+virsh pool-build pool0
+virsh pool-start pool0
+virsh pool-autostart pool0
+virsh help pool
+virsh help pool-autostart
+virsh pool-autostart pool0 --disable
+# remove pool
+virsh pool-destroy pool0
+virsh pool-undefine  poolname
+
+virsh list --all
+
+sudo virsh net-list --all
+sudo virsh net-start default
 ```
 
 > vim /etc/libvirt/qemu.conf
@@ -38,6 +64,31 @@ systemctl restart libvirtd
 ```
 
 ```bash
+# memory=2GB, disk=20GB
+virt-install  \
+  --name ubuntu0 \
+  --memory 2048             \
+  --vcpus=2      \
+  --cpu host                \
+  --cdrom /home/tmp/ubuntu-22.04.3-live-server-amd64.iso \
+  --disk path=/home/tmp/libvirtDisk/ubuntu0.raw,size=20,format=raw  \
+  --network network:bridged-network \
+  --virt-type kvm \
+  --graphics vnc,password=123456,port=5900,listen=0.0.0.0 \
+  --noautoconsole
+ 
+virt-install  \
+    --name ubuntu1 \
+    --memory 2048 \
+    --vcpus=2 \
+    --cpu host \
+    --cdrom /home/tmp/ubuntu-22.04.3-live-server-amd64.iso \
+    --disk path=/home/tmp/libvirtDisk/ubuntu1.raw,size=20,format=raw  \
+    --network network:bridged-network \
+    --virt-type kvm \
+    --graphics vnc,password=123456,port=5901,listen=0.0.0.0 \
+    --noautoconsole
+ 
 virt-install \
 --name=foo --ram 2048 --vcpus=1 \
 --disk path=/root/tmp/foo.raw,size=10,format=raw,bus=virtio \
@@ -72,13 +123,14 @@ vncviewer 10.1.10.2:1
 --network bridge    #指定桥接网卡
    model            #网卡模式，这里也是使用性能更好的virtio
 --graphics          #图形参数
-
-
 ```
 
 ## 命令
 
 ```bash
+# 编辑虚拟机xml文件
+virsh edit <虚拟机名称> 
+                     
 virt-install --osinfo list
 virsh list                                  # 查看活动虚拟机状态
 virsh list --all                            # 查看所有虚拟机状态, 包括已经关闭的
@@ -114,17 +166,12 @@ virsh dominfo <虚拟机名称>                   # 查看虚拟机domain信息
 virsh domblklist <虚拟机名称>                # 列出虚拟机所有块存储设备
 virsh console <虚拟机名称>                   # 控制台连接虚拟机
 
-virsh edit <虚拟机名称>                      # 编辑虚拟机xml文件
+
 virsh managedsave <虚拟机名称>               # 保存状态save并关闭虚拟机，下次启动会恢复到之前保存的状态
 virsh start <虚拟机名称>                     # 启动并恢复managedsave保存的状态
 virsh reset <虚拟机名称>                     # 对虚拟机执行强制重启，类似重置电源按钮
 virsh create <虚拟机xml文件>                 # 从xml文件中创建domain，创建完成后会自动启动；
                                             # 一个xml对应一个domain虚拟机
-
-
-
-
-
 
 virsh snapshot-create-as <虚拟机名称> --name <快照名称>      # 从命令行创建快照
 virsh snapshot-create <虚拟机名称>                          # 从xml文件创建快照
@@ -200,3 +247,61 @@ virt-install \
 --noautoconsole
 
 ```
+
+## bridged networking
+
+```Bash
+virsh net-list --all
+virsh net-edit default
+ip link show type bridge
+
+# 虚拟机启动之后能看到虚拟机的网卡
+ip link show master virbr0
+
+pacman -S bridge-utils
+
+ip link add br0 type bridge
+ip link set dev br0 up
+ip link set enp0s29u1u1 master br0
+# delete ip on enp0s20f0u2
+ip addr flush enp0s20f0u2
+ip address add dev br0 192.168.50.17
+
+# Making the configuration persistent
+vim /etc/sysctl.d/99-netfilter-bridge.conf
+
+# content of 99-netfilter-bridge.conf
+net.bridge.bridge-nf-call-ip6tables = 0
+net.bridge.bridge-nf-call-iptables = 0
+net.bridge.bridge-nf-call-arptables = 0
+
+modprobe br_netfilter
+
+vim /etc/modules-load.d/br_netfilter.conf
+
+# content of br_netfilter.conf
+
+br_netfilter
+
+sysctl -p /etc/sysctl.d/99-netfilter-bridge.conf
+```
+
+bridged-network.xml
+
+```xml
+
+<network>
+    <name>bridged-network</name>
+    <forward mode="bridge" />
+    <bridge name="br0" />
+</network>
+```
+
+```Bash
+virsh net-define bridged-network.xml
+virsh net-start bridged-network
+virsh net-autostart bridged-network
+virsh net-list
+```
+
+[https://linuxconfig.org/how-to-use-bridged-networking-with-libvirt-and-kvm](https://linuxconfig.org/how-to-use-bridged-networking-with-libvirt-and-kvm)

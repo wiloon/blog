@@ -12,11 +12,15 @@ tags:
 
 ### 列出软件包安装了哪些文件
 
-    dpkg -L package
+```Bash
+dpkg -L package
+```
 
 ### 列出已安装的软件包
 
-  apt list --installed
+```Bash
+apt list --installed
+```
 
 ## apt 查询软件包
 
