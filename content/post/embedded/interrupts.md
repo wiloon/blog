@@ -272,13 +272,13 @@ c.在新的栈中保存ss和esp以前的值，这些值定义了与旧特权级�
 
 注二: 更详细的内容和其它一些注意事项请参考内核源代码包中Documentations/rtc.txt
 
-注三: 之所以这里使用汇编而不是C来实现这些函数，是因为C编译器会在函数的实现中推入额外的栈信息。而CPU在中断来临时保存和恢复现场都按照严格的格式进行，一个字节的变化都不能有。
+注三: 之所以这里使用汇编而不是 C 来实现这些函数，是因为C编译器会在函数的实现中推入额外的栈信息。而 CPU 在中断来临时保存和恢复现场都按照严格的格式进行，一个字节的变化都不能有。
 
 参考资料
 
 1 "保护模式下的8259A芯片编程及中断处理探究" 潇寒 哈工大纯C论坛 [http://purec.binghua.com/Article/ShowArticle.asp?ArticleID=91](http://purec.binghua.com/Article/ShowArticle.asp?ArticleID=91)
 
-2 "80x86 IBM PC及兼容计算机 (卷I和卷II) : 汇编语言、设计与接口技术" Muhammad Ali Mazidi等著 张波等译 清华大学出版社
+2 "80x86 IBM PC及兼容计算机 (卷I和卷II): 汇编语言、设计与接口技术" Muhammad Ali Mazidi等著 张波等译 清华大学出版社
 
 3 "编写操作系统之键盘交互的实现" 潇寒 哈工大纯C论坛 [http://purec.binghua.com/Article/ShowArticle.asp?ArticleID=104](http://purec.binghua.com/Article/ShowArticle.asp?ArticleID=104)
 

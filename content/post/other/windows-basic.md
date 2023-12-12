@@ -337,3 +337,19 @@ MKLINK [[/D] | [/H] | [/J]] Link Target
 # mklink 跟 linux 的 ln 命令参数相反
 mklink /d C:\Users\ywang6\workspace C:\workspace
 ```
+
+## dir
+
+```Bash
+# the /B option says to only show the file names
+dir /B
+```
+
+## scoop
+
+```Bash
+# non-admin PowerShell
+Set-ExecutionPolicy RemoteSigned -Scope CurrentUser
+iwr -useb get.scoop.sh | iex
+scoop install main/gradle-bin
+```

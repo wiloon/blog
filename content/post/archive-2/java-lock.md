@@ -665,7 +665,7 @@ Java 的多线程安全是基于 Lock 机制实现的,而 Lock 的性能往往�
 
 轻量级锁 (Lightweight Locking) 本意是为了减少多线程进入互斥的几率,并不是要替代互斥。
   
-它利用了CPU原语Compare-And-Swap(CAS,汇编指令CMPXCHG),尝试在进入互斥前,进行补救。
+它利用了 CPU 原语 Compare-And-Swap(CAS, 汇编指令 `CMPXCHG`), 尝试在进入互斥前, 进行补救。
 
 本文将详细介绍JVM如何利用CAS,实现轻量级锁。
 

@@ -1,5 +1,5 @@
 ---
-title: GOF 23种设计模式, Design pattern
+title: GOF 23 种设计模式, Design pattern
 author: "-"
 date: 2011-10-29T07:59:18+00:00
 url: design-pattern
@@ -245,3 +245,5 @@ Mary: "你的小弟弟必须要有50cm长"
 [http://baike.baidu.com/view/66964.htm](http://baike.baidu.com/view/66964.htm)
 [https://refactoringguru.cn/design-patterns/chain-of-responsibility](https://refactoringguru.cn/design-patterns/chain-of-responsibility)
 >[https://design-patterns.readthedocs.io/zh_CN/latest/behavioral_patterns/command.html](https://design-patterns.readthedocs.io/zh_CN/latest/behavioral_patterns/command.html)
+
+https://www.cnblogs.com/cj723/

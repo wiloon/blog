@@ -2,11 +2,12 @@
 title:  c basic, c, c lang, c 语言
 author: "-"
 date: 2016-11-16T07:09:09+00:00
-url: /?p=9397
+url: c
 categories:
-  - inbox
+  - C
 tags:
   - reprint
+  - remix
 ---
 ## c basic, c, c lang, c 语言
 
@@ -26,7 +27,7 @@ int main(){
 gcc main.c
 ./a.out
 
-# 也可以不使用a.out这个名字，我们自己对其进行命名：
+# 也可以不使用 a.out 这个名字，我们自己对其进行命名：
 gcc main.c -o hello
 ./hello
 ```
@@ -184,13 +185,12 @@ TIME 包含当前时间的字符串
 将源代码文件最终转化为可执行文件的过程，被称为构建 (Build）。
 
 编译一般分为四步：预处理 (Preprocess）、编译 (Compile）、汇编 (Assembly）和链接 (Link）。
-,
 
-[https://wangdoc.com/clang/](https://wangdoc.com/clang/)  
-[https://github.com/wangdoc/clang-tutorial](https://github.com/wangdoc/clang-tutorial)  
+[https://wangdoc.com/clang/](https://wangdoc.com/clang/)
+[https://github.com/wangdoc/clang-tutorial](https://github.com/wangdoc/clang-tutorial)
 [http://world77.blog.51cto.com/414605/328263](http://world77.blog.51cto.com/414605/328263)
-[https://www.cnblogs.com/clover-toeic/p/3851102.html](https://www.cnblogs.com/clover-toeic/p/3851102.html)  
-[http://c.biancheng.net/view/443.html](http://c.biancheng.net/view/443.html)  
-[https://blog.csdn.net/chosen0ne/article/details/7210946](https://blog.csdn.net/chosen0ne/article/details/7210946)  
-[https://ubuntuqa.com/article/1513.html](https://ubuntuqa.com/article/1513.html)  
-[http://c.biancheng.net/cpp/html/345.html](http://c.biancheng.net/cpp/html/345.html)  
+[https://www.cnblogs.com/clover-toeic/p/3851102.html](https://www.cnblogs.com/clover-toeic/p/3851102.html)
+[http://c.biancheng.net/view/443.html](http://c.biancheng.net/view/443.html)
+[https://blog.csdn.net/chosen0ne/article/details/7210946](https://blog.csdn.net/chosen0ne/article/details/7210946)
+[https://ubuntuqa.com/article/1513.html](https://ubuntuqa.com/article/1513.html)
+[http://c.biancheng.net/cpp/html/345.html](http://c.biancheng.net/cpp/html/345.html)

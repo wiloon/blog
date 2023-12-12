@@ -151,7 +151,7 @@ class Student(object):
 bart = Student()
 
 class Student1(object):
-    # 相当于构造函数
+    # __init__ 相当于构造函数
     def __init__(self, name, score):
         self.name = name
         # public 可见 外部可以访问 无 _

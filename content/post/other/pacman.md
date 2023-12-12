@@ -49,8 +49,8 @@ pacman -h
 # -Q 的 help
 pacman -Q -h
 pacman -Q                # 列出已经安装的软件包
-pacman -Q  boost-libs    #Display version
-pacman -Ql boost-libs    #Display file list provided by local package
+pacman -Q  boost-libs    # Display version
+pacman -Ql boost-libs    # Display file list provided by local package
 
 # 查看文件/命令属于哪个包, Check if the file is owned by any package, 查看命令由哪个包提供.
 pacman -Qo /etc/profile

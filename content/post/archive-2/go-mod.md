@@ -99,7 +99,7 @@ replace google.golang.org/appengine v1.6.0 => github.com/golang/appengine v1.6.0
 
 这里有几点要注意:
   
-replace应该在引入新的依赖后立即执行,以免go tools自动更新mod文件时使用了old package导致可能的失败
+replace 应该在引入新的依赖后立即执行, 以免 go tools 自动更新 mod 文件时使用了 old package 导致可能的失败
   
 package后面的version不可省略。 (edit所有操作都需要版本tag)
   
@@ -111,7 +111,7 @@ version不能是master或者latest,这两者 go get 可用, 但是 go mod edit �
   
 然后查看go.mod,手动复制new-package的版本号 (如果你知道版本号,则跳过,这一步十分得不人性化,也许以后会改进)
   
-接着go mod tidy或者go build或者使用其他的go tools,他们会去获取new-package然后替换掉old-package
+接着 go mod tidy 或者 go build 或者使用其他的 go tools, 他们会去获取 new-package 然后替换掉 old-package
   
 最后,在你的代码里直接使用old-package的名字,golang会自动识别出replace,然后实际你的程序将会使用new-package,替换成功
   

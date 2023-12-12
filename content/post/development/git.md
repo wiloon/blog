@@ -12,6 +12,9 @@ tags:
 ## commands
 
 ```bash
+# windows install git
+winget install Git.Git
+
 # 显示工作树状态, (已经修改但是没 git add, 或者 没有 git commit)
 # 显示索引文件和当前HEAD提交有差异的路径，工作树和索引文件有差异的路径，以及工作树中不被Git追踪的路径（也不被gitignore[5]忽略）。前者是你通过运行 "git commit "会提交的东西；第二和第三者是你在运行 "git commit "之前通过运行 "git add "可以提交的东西。
 git status -s
@@ -134,15 +137,29 @@ git push origin --delete branch0
 git branch -D branch0
 ```
 
-#### 删除远程的 todo branch
-
 ```bash
+# 删除远程的 todo branch
 git branch -d -r origin/todo
 ```
 
 ```bash
-# 分支改名
+# 分支改名, branch rename,  -m, --[no-]move       move/rename a branch and its reflog
+
 git branch -m branch0 branch1
+# 分支改名之后 git push 会报错说上游的分支名跟本地的不一样
+# 推送到远程的 branch0
+git push origin HEAD:branch0
+# 推送到远程的同名分支, 新分支名会被推送到远程仓库, 远程仓库会同时存在 branch0, branch1 两个分支
+git push origin HEAD
+```
+
+github 可以直接在页面上改分支名, 如果本地有已经 clone 的代码, 需要执行以下操作
+
+```Bash
+git branch -m master main
+git fetch origin
+git branch -u origin/main main
+git remote set-head origin -a
 ```
 
 ### 设置默认的分支名
@@ -250,12 +267,12 @@ git merge branch0 -m "MSG0"
 git merge branch0 -m "merge with no-ff" --no-ff
 ```
 
-### fast forward
+### fast-forward
 
 - fast forward 模式，快速合并，看不出做过合并。 不会显示 feature，只保留单条分支记录
 - --no-ff, no fast-forward 模式，普通合并，可以保存之前的分支历史。能够更好的查看 merge历史，以及branch 状态。会生成一个新的commit-id
 
-默认情况下，Git执行 快进式合并, fast-forward merge，会直接将 Master 分支指向 Develop 分支。使用 --no-ff 参数后，会执行正常合并，在Master 分支上生成一个新节点。为了保证版本演进的清晰，我们希望采用这种做法。关于合并的更多解释，请参考 Benjamin Sandofsky 的《Understanding the Git Workflow》。
+默认情况下，Git执行 快进式合并, fast-forward merge，会直接将 Master 分支指向 Develop 分支。使用 --no-ff 参数后，会执行正常合并，在Master 分支上生成一个新节点。为了保证版本演进的清晰，我们希望采用这种做法。关于合并的更多解释，请参考 `Benjamin Sandofsky` 的《Understanding the Git Workflow》。
 
 ### git merge --squash
 
@@ -564,7 +581,7 @@ git reflog show
 
 ### 更改最多的文件
 
-git log --pretty=format: --name-only | sort | uniq -c | sort -rg | head -10
+`git log --pretty=format: --name-only | sort | uniq -c | sort -rg | head -10`
 
 --pretty。 使用不同于默认格式的方式展示提交历史
 format ，可以定制记录的显示格式。 --pretty=format:"%h - %an, %ar : %s"
@@ -774,13 +791,13 @@ git am –show-current-patch
 core.autocrlf配置
 假如你正在Windows上写程序，又或者你正在和其他人合作，他们在Windows上编程，而你却在其他系统上，在这些情况下，你可能会遇到行尾结束符问题。这是因为Windows使用回车和换行两个字符来结束一行，而Mac和Linux只使用换行一个字符。虽然这是小问题，但它会极大地扰乱跨平台协作。
 
-Git可以在你提交时自动地把行结束符CRLF转换成LF，而在签出代码时把LF转换成CRLF。用core.autocrlf来打开此项功能，如果是在Windows系统上，把它设置成true，这样当签出代码时，LF会被转换成CRLF:
+Git可以在你提交时自动地把行结束符 CRLF 转换成 LF，而在签出代码时把 LF 转换成 CRLF。用 core.autocrlf 来打开此项功能，如果是在 Windows 系统上，把它设置成 true，这样当签出代码时，LF 会被转换成 CRLF:
 
 ```bash
 git config --global core.autocrlf true
 ```
 
-Linux或Mac系统使用LF作为行结束符，因此你不想 Git 在签出文件时进行自动的转换；当一个以CRLF为行结束符的文件不小心被引入时你肯定想进行修正，把core.autocrlf设置成input来告诉 Git 在提交时把CRLF转换成LF，签出时不转换:
+Linux 或 Mac 系统使用 LF 作为行结束符，因此你不想 Git 在签出文件时进行自动的转换；当一个以 CRLF 为行结束符的文件不小心被引入时你肯定想进行修正，把 core.autocrlf 设置成 input 来告诉 Git 在提交时把 CRLF 转换成 LF，签出时不转换:
 
 ```bash
 git config --global core.autocrlf input
@@ -835,14 +852,8 @@ rm .git/module/* 删除模块下的子模块目录，每个子模块对应一个
 ```
 
 ————————————————
-版权声明：本文为CSDN博主「guotianqing」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
+版权声明：本文为CSDN博主「`guotianqing`」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
 原文链接：[https://blog.csdn.net/guotianqing/article/details/82391665](https://blog.csdn.net/guotianqing/article/details/82391665)
-
-### [0x7FFA0BF6E0A4] ANOMALY: use of REX.w is meaningless (default operand size is 64)
-
-导致这个问题的原因之一，是因为电脑安装了浪潮的 IP-GUARD 监控软件  
-卸载电脑原先的 Git，安装 3 2位 Git  
-或者卸载监控软件
 
 ### git restore
 
@@ -929,7 +940,7 @@ git pull --allow-unrelated-histories
 
 ```
 
-原因："git merge" used to allow merging two branches that have no common base by default, which led to a brand new history of an existing project created and then get pulled by an unsuspecting maintainer, which allowed an unnecessary parallel history merged into the existing project. The command has been taught not to allow this by default, with an escape hatch "--allow-unrelated-histories" option to be used in a rare event that merges histories of two projects that started their lives independently（stackoverflow）.
+原因："git merge" used to allow merging two branches that have no common base by default, which led to a brand-new history of an existing project created and then get pulled by an unsuspecting maintainer, which allowed an unnecessary parallel history merged into the existing project. The command has been taught not to allow this by default, with an escape hatch "--allow-unrelated-histories" option to be used in a rare event that merges histories of two projects that started their lives independently（stackoverflow）.
 
 作者：勿以浮沙筑高台
 链接：[https://www.jianshu.com/p/536080638cc9](https://www.jianshu.com/p/536080638cc9)
@@ -1074,7 +1085,7 @@ git cherry -v master asa
 
 [https://www.cnblogs.com/rainbow-tan/p/15314711.html](https://www.cnblogs.com/rainbow-tan/p/15314711.html)
 
-## git cherry pick
+## git cherry-pick
 
 把某一个或几个 commit 应用到当前分支.
 
@@ -1094,7 +1105,7 @@ Reuse recorded resolution
 git rerere [clear | forget <pathspec>…​ | diff | status | remaining | gc]
 ```
 
-## .gitattributes
+## `.gitattributes`
 
 [https://zhuanlan.zhihu.com/p/108266134](https://zhuanlan.zhihu.com/p/108266134)
 
@@ -1121,3 +1132,12 @@ git push -u origin master -f
 [http://leonshi.com/2016/02/01/add-existing-project-to-github/](http://leonshi.com/2016/02/01/add-existing-project-to-github/)
   
 [http://blog.csdn.net/shiren1118/article/details/7761203](http://blog.csdn.net/shiren1118/article/details/7761203)
+
+## IP-GUARD
+
+[0x7FFA0BF6E0A4] ANOMALY: use of REX.w is meaningless (default operand size is 64)
+
+导致这个问题的原因之一，是因为电脑安装了浪潮的 IP-GUARD 监控软件  
+卸载电脑原先的 Git，安装 32位 Git  
+或者卸载监控软件
+或者修改注册表让 ip guard 不监控 git.exe

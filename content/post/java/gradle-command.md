@@ -13,10 +13,20 @@ tags:
 ### command
 
 ```bash
-    gradle build
+gradle build
 ```
 
 ### install
+
+```Bash
+sudo pacman -S gradle
+```
+
+## windows install gradle
+
+```Bash
+scoop install main/gradle-bin
+```
 
 download latest version of gradle from [http://www.gradle.org/downloads.html](http://www.gradle.org/downloads.html)
   
@@ -39,7 +49,19 @@ gradle build --refresh-dependencies
 # publish to maven
 gradle publish
 
-#create project structure
+# create project structure
+
+mkdir java21
+
+gradle init \
+  --type java-application \
+  --dsl kotlin \
+  --test-framework junit-jupiter \
+  --package com.wiloon.java21 \
+  --project-name java21  \
+  --no-split-project  \
+  --java-version 21
+  
 gradle init --type java-library --project-name jvm-library --dsl kotlin
 gradle init --type java-library
 gradle init --type java-application
