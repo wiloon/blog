@@ -7,12 +7,32 @@ categories:
   - Linux
 tags:
   - reprint
+  - remix
 ---
 ## ssh basic, openssh
 
 - 端口转发
 - ssh 不登陆直接执行命令
 - openssh 9.0 sftp-server
+
+### options, 参数
+
+- -T：禁止分配伪终端, Disable pseudo-terminal allocation
+-  -t 或 -tt: 强制分配伪终端, Force pseudo-terminal allocation. This can be used to execute arbitrary screen-based programs on a remote machine, which can be very useful, e.g. when implementing menu servi ces. Multiple -t options force tty allocation, even if ssh has no local tty
+- -f：后台执行ssh指令
+- -N：不执行远程指令
+- -L listen-port:host:port 指派本地的 port 到达端机器地址上的 port, 建立本地SSH隧道(本地客户端建立监听端口), 将本地机(客户机)的某个端口转发到远端指定机器的指定端口.
+- -v: verbose
+- -vv: verbose
+- -o: 指定配置选项
+
+#### 配置选项
+
+```Bash
+ssh -vv -T -oKexAlgorithms=ecdh-sha2-nistp521 git@foo.com
+```
+
+- KexAlgorithms: key exchange algorithm, 
 
 ## 端口转发
 
@@ -31,19 +51,15 @@ ssh -L 2000:192.168.50.11:5432 192.168.50.10 -l root
 # 192.168.50.10 跳板机, 运行 ssh 服务端的主机, 并且 从192.168.50.10 能访问 192.168.50.11:5432
 ```
 
-<https://wangdoc.com/ssh/port-forwarding.html>, [https://zhuanlan.zhihu.com/p/148825449](https://zhuanlan.zhihu.com/p/148825449)
+[https://wangdoc.com/ssh/port-forwarding.html](https://wangdoc.com/ssh/port-forwarding.html)
+
+[https://zhuanlan.zhihu.com/p/148825449](https://zhuanlan.zhihu.com/p/148825449)
 
 ## ssh 不登陆直接执行命令
 
 ```bash
 ssh root@192.168.50.31 "whoami"
 ```
-
-## 参数
-
-- -f：后台执行ssh指令
-- -N：不执行远程指令
-- -L listen-port:host:port 指派本地的 port 到达端机器地址上的 port, 建立本地SSH隧道(本地客户端建立监听端口), 将本地机(客户机)的某个端口转发到远端指定机器的指定端口.
 
 ## 指定私钥
 
@@ -160,3 +176,7 @@ A workaround is to add the -O option.
 ```bash
 scp -O foo.txt root@192.168.50.4:~
 ```
+
+————————————————
+版权声明：本文为CSDN博主「phantom_111」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
+原文链接：https://blog.csdn.net/phantom_111/article/details/56297242

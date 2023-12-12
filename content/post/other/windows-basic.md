@@ -242,7 +242,12 @@ winget 搜不到最新版本, 目前看...只能去 github 下载, 然后解压�
 
 默认配置文件在 `C:\Users\user0\AppData\Local\Microsoft\Windows Terminal`
 
-Windows Terminal> Settings> Actions 可以设置快捷键,解决 vim  ctrl-v 的问题
+Windows Terminal> Settings> Actions 可以设置快捷键, 解决 vim  ctrl-v 的问题
+
+- setting> rendering> use the new text renderer AtlasEngine, 打开字体渲染引擎
+- 可以把常用的服务器添加到 自定义 profile 里
+- profile 可以自定义图标, 不支持 SVG 格式
+- 调整 profile 顺序貌似只能打开 json 配置文件修改.
 
 ### add archlinux@virtualbox into Windows terminal list
 

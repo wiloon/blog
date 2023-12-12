@@ -15,6 +15,9 @@ tags:
 ## commands
 
 ```bash
+# 临时的 inventory file
+ansible -i '192.168.50.111,' all  -m shell -a 'whoami'  -u root
+
 ansible-galaxy collection install community.general
 # localhost
 ansible localhost -m shell -a 'ls'
@@ -22,7 +25,7 @@ ansible localhost -m shell -a 'ls'
 ansible -i 'wiloon.com,' all -m shell -a 'systemctl stop enx-api' -u root --key-file ~/.ssh/id_ed25519_w10n
 ```
 
-### hibernate, 临时的 inventory file
+### hibernate
 
 ```bash
 ansible -i '192.168.50.31,' all  -m shell -a 'sudo systemctl hibernate'  -u user0

@@ -206,11 +206,10 @@ chage -l user0
 
 ### su - 与 su
 
-通过 su 切换用户还可以直接使用命令 su USERNAME，与 su - USERNAME 的不同之处如下:
+通过 su 切换用户还可以直接使用命令 `su USERNAME`，与 `su - USERNAME` 的不同之处如下:
 
-su - USERNAME 切换用户后，同时切换到新用户的工作环境中
-
-su USERNAME 切换用户后，不改变原用户的工作目录，及其他环境变量目录
+- su - USERNAME 切换用户后，同时切换到新用户的工作环境中
+- su USERNAME 切换用户后，不改变原用户的工作目录，及其他环境变量目录
 
 1. 删除用户 (userdel命令)
   

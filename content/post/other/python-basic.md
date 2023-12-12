@@ -33,6 +33,13 @@ cdsitepackages      #和上面的类似，直接进入到 site-packages 目录
 lssitepackages      #显示 site-packages 目录中的内容
 ```
 
+## 查看包依赖树
+
+```Bash
+pip install pipdeptree
+pipdeptree -p apscheduler
+```
+
 ## 查看 python 的版本, python version
 
 ```bash
@@ -1060,6 +1067,8 @@ pip list --outdated
 pip install --upgrade package0
 # 卸载
 pip uninstall package0
+# 安装 whl
+pip install foo.whl
 ```
 
 ### 手动重新安装 pip
