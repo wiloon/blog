@@ -11,6 +11,14 @@ tags:
 ---
 ## docker basic, commands
 
+## commands
+
+```Bash
+docker ps --filter"name=test-nginx"
+docker ps --format "table {{.ID}}\t{{.Names}}\t{{.Status}}"
+docker ps --format "table {{.ID}}\t{{.IMAGE}}\t{{.CREATED}}\t{{.STATUS}}\t{{.NAMES}}"
+```
+
 ### 批量删除镜像
 
 ```bash
@@ -305,3 +313,17 @@ default volumn path /var/lib/docker/volumes/
 ## docker 跨平台镜像
 
 [https://cloud.tencent.com/developer/article/1543689](https://cloud.tencent.com/developer/article/1543689)
+
+## docker-compose
+
+docker compose up 命令基于 docker-compose.yml 文件启动一个新容器。 它类似于在彼此顺序运行时运行 docker create 和 docker start。
+
+```Bash
+# 不指定容器名称或 ID，停止所有容器
+docker compose stop
+docker compose stop name0
+docker compose stop id0
+docker-compose --help
+docker-compose -f /path/to/docker-compose.yml stop
+docker-compose -f /path/to/docker-compose.yml up -d
+```

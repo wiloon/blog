@@ -9,8 +9,6 @@ tags:
     - reprint
     - remix
 ---
-## Git basic commands, git 常用命令
-
 ## commands
 
 ```bash
@@ -280,7 +278,7 @@ git merge --abort
 git branch -m oldName newName
 ```
 
-## Git 连通性测试
+## Git, github 连通性测试
 
 ```bash
 ssh -T git@github.com
@@ -530,7 +528,11 @@ git config --global --edit
 ## git log
 
 ```bash
-# 按s向下翻log
+# --no-pager, 不使用默认的 less pager
+# --oneline, 显示简化版的 log, 没有 Auther, 没有 Date
+git --no-pager log --oneline -n 10
+
+# 按 s 向下翻 log
 git log
 # 显示最近的 3 个 commit
 git log -n 3
@@ -734,6 +736,8 @@ git ls-files -d
 # 恢复已删除的文件
 
 git ls-files -d | xargs git checkout --
+
+git clone --progress --verbose
 ```
 
 ## git push

@@ -398,7 +398,7 @@ psql --dbname=database0 --host=127.0.0.1 --username=user0 -c "COPY (select now()
 
 ## postgresql log, 日志
 
-PG安装完成后默认不会记录日志，必须修改对应的（${PGDATA}/postgresql.conf）配置才可以
+PG 安装完成后默认不会记录日志，必须修改对应的（${PGDATA}/postgresql.conf）配置才可以
 
 `${PGDATA}` 的值取自 docker 或系统的环境变量 `PGDATA`
 

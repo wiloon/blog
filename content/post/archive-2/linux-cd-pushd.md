@@ -1,55 +1,152 @@
 ---
-title: linux cd Pushd
+title: cd pushd
 author: "-"
 date: 2016-07-02T02:05:53+00:00
 url: /?p=9105
 categories:
-  - Inbox
+  - Linux
 tags:
   - reprint
+  - remix
 ---
-## linux cd Pushd
+## cd pushd
+
 http://os.51cto.com/art/200910/158752.htm
 
+## cd -
 
-3,如何在多个目录之间切换？
+```Bash
+# list current dir
+pwd
+/foo
 
-用 pushd +n即可
-  
-说明:
-  
-n是一个数字,有此参数时,是切换到堆栈中的第n个目录,并把此目录以堆栈循环的方式推到堆栈的顶部
-  
-需要注意: 堆栈从第0个开始数起
+# cd to /bar
+cd /bar
+pwd
+/bar
 
-看例子:
+# 可以在 $OLDPWD 变量里查看旧目录
+echo $OLDPWD
 
-[root@localhost grub]# dirs -v
-  
-0  /boot/grub
-  
-1  /usr/share/kde4/apps/kget
-  
-2  /usr/local/sbin
-  
-3  ~
-  
-[root@localhost grub]# pushd +2
-  
-/usr/local/sbin ~ /boot/grub /usr/share/kde4/apps/kget
-  
-[root@localhost sbin]# dirs -v
-  
-0  /usr/local/sbin
-  
-1  ~
-  
-2  /boot/grub
-  
-3  /usr/share/kde4/apps/kget
+# cd - return to previous dir /foo
+cd -
+pwd
+/foo
 
-4,如何把目录从堆栈中删除?
+# cd -, return to previous dir /bar
+cd -
+pwd
+/bar
+```
 
+## pushd、popd 和 dirs
+
+pushd 和 popd 是对一个目录栈进行操作，而 dirs 是显示目录栈的内容。而目录栈就是一个保存目录的栈结构，该栈结构的顶端永远都存放着当前目录（这里点从下面可以进一步看到）。
+
+dirs 的 参数：
+
+- -p	每行显示一条记录
+- -v	每行显示一条记录，同时展示该记录在栈中的 index
+- -c	清空目录栈, 将目录栈中除当前目录之外的其它目录清除
+
+每次 cd 之后, 新目录都会被记录到目录栈中
+
+pushd
+每次pushd命令执行完成之后，默认都会执行一个dirs命令来显示目录栈的内容。pushd的用法主要有如下几种：
+
+pushd 目录
+
+pushd 后面如果直接跟目录使用，会切换到该目录并且将该目录置于目录栈的栈顶。(时时刻刻都要记住，目录栈的栈顶永远存放的是当前目录。如果当前目录发生变化，那么目录栈的栈顶元素肯定也变了；反过来，如果栈顶元素发生变化，那么当前目录肯定也变了。)
+
+pushd 不带任何参数。相当于 pushd -1
+
+pushd 不带任何参数执行的效果就是，将目录栈最顶层的两个目录进行交换。前面说过，栈顶目录和当前目录一个发生变化，另一个也变。这样，实际上，就实现了cd -的功能。
+
+
+## pushd -n
+
+在 archlinux 上测试的 pushd 行为跟搜到的资料不一致, 可能是版本不同吧 2023.12.05
+
+pushd -n cd 到 dirs -v 正序第 n 个目录
+pushd +n cd 到 dirs -v 倒序第 n 个目录
+
+```Bash
+dirs -c
+cd /home
+cd /mnt
+cd /tmp
+cd /var
+
+dirs -v
+
+0       /var
+1       /tmp
+2       /mnt
+3       /home
+4       /
+
+pushd -1
+/tmp /mnt /home / /var
+
+pushd +1
+/ /var /tmp /mnt /home
+```
+
+## popd
+
+次popd命令执行完成之后，默认都会执行一个dirs命令来显示目录栈的内容。popd的用法主要有如下几种：
+
+popd不带参数
+
+popd不带任何参数执行的效果，就是将目录栈中的栈顶元素出栈。这时，栈顶元素发生变化，自然当前目录也会发生相应的切换(接上文的执行现场)，
+
+```Bash
+dirs -v
+0       /
+1       /var
+2       /tmp
+3       /mnt
+4       /home
+
+popd
+
+dirs -v
+0       /var
+1       /tmp
+2       /mnt
+3       /home
+
+# 从栈中删除第二个元素 /mnt 但是栈顶元素不变, 目录不会发生切换.
+popd -2
+
+0       /var
+1       /tmp
+2       /home
+
+pupd /mnt
+
+0       /mnt
+1       /var
+2       /tmp
+3       /home
+
+# 从栈中删除倒数第一个元素 /tmp, 栈顶元素不变, 目录不切换
+popd +1
+
+0       /mnt
+1       /var
+2       /home
+
+# 删除栈中倒数第二个元素 /mnt, 栈顶元素变化, 目录切换到了 /var
+popd +2
+/var /home
+```
+
+-n是指从左往右数，+n是指从右往左数，都是从0开始。
+
+---
+
+如何把目录从堆栈中删除?
 
 在向大家详细介绍linux之前,首先让大家了解下linux cd命令,然后全面介绍巧用linux cd命令的方法。在Linux的多目录命令提示符中工作是一种痛苦的事情,但以下这些利用linux cd命令和pushd切换目录的技巧有助于你节省时间和精力。
 
@@ -84,3 +181,8 @@ n是一个数字,有此参数时,是切换到堆栈中的第n个目录,并把此
 如果你需要从堆栈中删除一个目录,键入popd,然后是目录名称,再按回车键。想查看堆栈中目录列表,键入dirs,然后按回车键。popd和dirs命令也是常用函数中的一部分。
   
 以上是巧用linux cd命令和Pushd切换目录的方法,希望对您能有所帮助。
+
+作者：SpaceCat
+链接：https://www.jianshu.com/p/53cccae3c443
+来源：简书
+著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
