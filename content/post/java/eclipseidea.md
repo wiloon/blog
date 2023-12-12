@@ -200,7 +200,7 @@ outline - structure, Ctrl+F12
       Ctrl+D 复制行
     
     
-      Ctrl+H 显示类结构图
+- Ctrl+H 显示类结构图
     
     
       Ctrl+Q 显示注释文档
