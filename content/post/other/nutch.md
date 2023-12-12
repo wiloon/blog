@@ -9,7 +9,8 @@ tags:
   - Crawler
 
 ---
-## Nutch
+## placeholder
+
 [http://baike.baidu.com/view/46642.htm](http://baike.baidu.com/view/46642.htm)
 
 Nutch 是一个开源Java 实现的搜索引擎。它提供了我们运行自己的搜索引擎所需的全部工具。包括全文搜索和Web爬虫。
@@ -59,5 +60,5 @@ Nutch 致力于让每个人能很容易, 同时花费很少就可以配置世界
     Index是Crawler抓取的所有网页的索引,它是通过对所有单个segment中的索引进行合并处理所得的。Nutch利用Lucene技术进行索引,所以Lucene中对索引进行操作的接口对Nutch中的index同样有效。但是需要注意的是,Lucene中的segment和Nutch中的不同,Lucene中的segment是索引index的一部分,但是Nutch中的segment只是WebDB中各个部分网页的内容和索引,最后通过其生成的index跟这些segment已经毫无关系了。
   
   
-    Web database,也叫WebDB,其中存储的是爬虫所抓取网页之间的链接结构信息,它只在爬虫Crawler工作中使用而和Searcher的工作没有任何关系。WebDB内存储了两种实体的信息: page和link。Page实体通过描述网络上一个网页的特征信息来表征一个实际的网页,因为网页有很多个需要描述,WebDB中通过网页的URL和网页内容的MD5两种索引方法对这些网页实体进行了索引。Page实体描述的网页特征主要包括网页内的link数目,抓取此网页的时间等相关抓取信息,对此网页的重要度评分等。同样的,Link实体描述的是两个page实体之间的链接关系。WebDB构成了一个所抓取网页的链接结构图,这个图中Page实体是图的结点,而Link实体则代表图的边。
+Web database,也叫WebDB,其中存储的是爬虫所抓取网页之间的链接结构信息,它只在爬虫Crawler工作中使用而和Searcher的工作没有任何关系。WebDB内存储了两种实体的信息: page和link。Page实体通过描述网络上一个网页的特征信息来表征一个实际的网页,因为网页有很多个需要描述,WebDB中通过网页的URL和网页内容的MD5两种索引方法对这些网页实体进行了索引。Page实体描述的网页特征主要包括网页内的link数目,抓取此网页的时间等相关抓取信息,对此网页的重要度评分等。同样的,Link实体描述的是两个page实体之间的链接关系。WebDB构成了一个所抓取网页的链接结构图,这个图中Page实体是图的结点,而Link实体则代表图的边。
   

@@ -76,9 +76,9 @@ SIZE 之前也可以加上下面的特性:
 ## 示例
 
 ```bash
-[root@my1-222 ~]# truncate -c --size 2000m x.dbf
-# 源文件test.db和目标文件test.db.bak
-[root@my1-222 ~]# ll -th /root/test.db
+truncate -c --size 2000m x.dbf
+# 源文件 test.db 和目标文件 test.db.bak
+ll -th /root/test.db
 -rw-r--r--. 1 root root 12G May 24 01:26 /root/test.db
 [root@my1-222 ~]# ll -th /root/test.db.bak
 -rw-r--r--. 1 root root 0 May 24 17:51 /root/test.db.bak
@@ -120,14 +120,14 @@ inode可能处于三种状态：
 
 ### df > du
 
-文件从目录里删掉了, 但是还有进程在读写文件, 磁盘空间没有释放. df 是按superblock里的信息统计磁盘空间的, du 是按目录关联的 inode 统计的, 所以会不一致.
+文件从目录里删掉了, 但是还有进程在读写文件, 磁盘空间没有释放. df 是按 superblock 里的信息统计磁盘空间的, du 是按目录关联的 inode 统计的, 所以会不一致.
 
 ### 通过重定向到 Null 来清空文件内容
 
 清空或者让一个文件成为空白的最简单方式,是像下面那样,通过 shell 重定向 null  (不存在的事物) 到该文件:
 
 ```bash
-    > access.log
+> access.log
 ```
 
 Empty Large File Using Null Redirect in Linux
@@ -158,7 +158,9 @@ Empty Large File Using Linux Commands
 
 ## cat
 
-另外,你可以通过使用 cat 命令 显示 /dev/null 的内容然后重定向输出到某个文件,以此来达到清空该文件的目的。
+可以通过使用 cat 命令 显示 /dev/null 的内容然后重定向输出到某个文件, 以此来达到清空该文件的目的。
+
+有其它进程正在写入的文件也可以操作, 执行之后能看到文件变小, 不影响新数据写入.
 
 ```bash
 cat /dev/null > access.log
@@ -173,7 +175,7 @@ Empty File Using cat Command
 下面,我们将使用 cp 命令 复制 /dev/null 的内容到某个文件来达到清空该文件的目的,具体如下所示:
 
 ```bash
-    cp /dev/null access.log
+cp /dev/null access.log
 ```
 
 ## dd
@@ -181,7 +183,7 @@ Empty File Using cat Command
 而下面的命令中, if 代表输入文件,of 代表输出文件。
 
 ```bash
-    dd if=/dev/null of=access.log
+dd if=/dev/null of=access.log
 ```
 
 ## echo
@@ -191,13 +193,13 @@ Empty File Using cat Command
 在这里,你可以使用 echo 命令 将空字符串的内容重定向到文件中,具体如下:
 
 ```bash
-    echo "" > access.log
+echo "" > access.log
 ```
 
 或者
 
 ```bash
-    echo > access.log
+echo > access.log
 ```
 
 注意: 你应该记住空字符串并不等同于 null 。字符串表明它是一个具体的事物,只不过它的内容可能是空的,但 null 则意味着某个事物并不存在。
