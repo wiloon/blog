@@ -9,17 +9,17 @@ tags:
   - reprint
 ---
 ## DOM, BOM
+
 ### BOM 浏览器对象模型
+
 提供了独立于内容而与浏览器窗口进行交互的对象。描述了与浏览器进行交互的方法和接口，可以对浏览器窗口进行访问和操作，譬如可以弹出新的窗口，改变状态栏中的文本，对Cookie的支持，IE还扩展了BOM，加入了ActiveXObject类，可以通过js脚本实例化ActiveX对象等等) 
 
 #### 文档结构图
+
 BOM由以一系列相关的对象组成。下图展示了基本的BOM体系结构。
 
-![][1]
-
-图1 BOM体系结构
-
 #### BOM中的对象
+
 Window对象: 
 
 是整个BOM的核心，所有对象和集合都以某种方式回接到window对象。Window对象表示整个浏览器窗口，但不必表示其中包含的内容。
@@ -59,8 +59,9 @@ Opera和Safrai支持所有的DOM Level1和大部分DOM Level2。
 
 IE，支持大部分的DOM Level 1。
 
-#### DOM的各种Level
-DOM Level 1 包括DOM Core和DOM HTML。前者提供了基于XML的文档结构图。后者添加了一些HTML专用的对象和方法，从而扩展了DOM Core.
+#### DOM 的各种 Level
+
+DOM Level 1 包括 DOM Core 和 DOM HTML。前者提供了基于XML的文档结构图。后者添加了一些HTML专用的对象和方法，从而扩展了DOM Core.
 
 DOM Level 2 引入几个新模块: DOM视图，事件，样式，遍历和范围
 

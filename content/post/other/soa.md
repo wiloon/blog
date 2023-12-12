@@ -114,16 +114,9 @@ tags:
   
     4. 作为一个中间件平台，为众多行业应用提供应用支持。
   
-  
-    
-      SODA架构
-  
-  
-    SODA系统的架构图如下: 
-  
-  
-  
-    在这个架构中，设备集成接口定义是关键，也就是所谓的API (Application Programming Interface) 和设备描述语言 (Device Description Language) 的定义。 由于末端设备对实时性以及footprint大小要求较高，一般用REST而不是用SOAP来定义和实现Web Services接口。
+SODA架构
+
+在这个架构中，设备集成接口定义是关键，也就是所谓的API (Application Programming Interface) 和设备描述语言 (Device Description Language) 的定义。 由于末端设备对实时性以及footprint大小要求较高，一般用REST而不是用SOAP来定义和实现Web Services接口。
   
   
   

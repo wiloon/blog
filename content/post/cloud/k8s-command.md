@@ -173,7 +173,7 @@ Kubelet 是 kubernetes 工作节点上的一个代理组件，运行在每个节
 Kubelet是工作节点上的主要服务，定期从kube-apiserver组件接收新的或修改的Pod规范，并确保Pod及其容器在期望规范下运行。同时该组件作为工作节点的监控组件，向kube-apiserver汇报主机的运行状况。
 
 架构
-Kubelet 的组件架构图，如下所示，Kubelet 由许多内部组件构成
+Kubelet 由许多内部组件构成
 
 Kubelet API，包括 10250 认证API、4194 端口的 cAdvisor API、10255 端口的只读 API 以及 10248 端口的健康检查 API
 syncLoop：从 API 或者 manifest 目录接收 Pod 更新，发送到 podWorkers 处理，大量使用 channel 处理来处理异步请求
