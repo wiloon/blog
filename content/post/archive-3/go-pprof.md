@@ -1,5 +1,5 @@
 ---
-title: 'go 调试, pprof, go tool trace'
+title: go 调试, pprof, go tool trace
 author: "-"
 date: 2019-11-20T08:00:32+00:00
 url: pprof
@@ -8,7 +8,7 @@ categories:
 tags:
   - reprint
 ---
-## 'go 调试,  pprof, go tool trace'
+## go 调试,  pprof, go tool trace
 
 做 Profiling 第一步就是怎么获取应用程序的运行情况数据。go 语言提供了 runtime/pprof 和 net/http/pprof 两个库
 

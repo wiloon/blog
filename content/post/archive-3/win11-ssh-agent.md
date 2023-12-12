@@ -26,7 +26,9 @@ tags:
 
 add private key into ssh-agent
 
-`ssh-add id_ed25519`
+```Bash
+ssh-add C:\Users\user0\.ssh\id_ed25519
+```
 
 search service
 ## unable to start ssh-agent service, error :1058

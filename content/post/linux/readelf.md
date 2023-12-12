@@ -6,38 +6,40 @@ url: readelf
 categories:
   - OS
 tags:
-  - inbox
-
+  - reprint
 ---
 ## readelf
 
-readelf命令
-功能：用于查看ELF格式的文件信息，常见的文件如在Linux上的可执行文件，动态库(.so)或者静态库(.a) 等包含ELF格式的文件。
+功能：用于查看ELF格式的文件信息，常见的文件如在 Linux 上的可执行文件，动态库(.so) 或者静态库 (.a) 等包含 ELF 格式的文件。
 
 示例：
 
 # 查看静态库定义的函数
 
+```Bash
 readelf -c xxx.a
+```
 
 # 查看静态库定义的函数
 
+```Bash
 readelf -A xxx.so
-————————————————
+```
+
 版权声明：本文为CSDN博主「mayue_csdn」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
 原文链接：[https://blog.csdn.net/mayue_web/article/details/103879976](https://blog.csdn.net/mayue_web/article/details/103879976)
 
-readelf 一般用于查看 ELF 格式的文件信息。
-
 ELF (Executable and Linkable Format) 即可执行连接文件格式，是一种比较复杂的文件格式，但其应用广泛。当你使用 file 命令发现某个文件是 ELF 文件时，你就可以使用 readelf 命令来读取这个文件的信息。
 
-    readelf -h /bin/pwd
+```Bash
+readelf -h /bin/pwd
+```
 
 readelf 命令 用来显示一个或者多个elf格式的目标文件的信息，可以通过它的选项来控制显示哪些信息。这里的elf-file(s)就表示那些被检查的文件。可以支持32位，64位的elf格式文件，也支持包含elf文件的文档 (这里一般指的是使用ar命令将一些elf文件打包之后生成的例如lib*.a之类的“静态库”文件）。
 
 这个程序和 objdump 提供的功能类似，但是它显示的信息更为具体，并且它不依赖BFD库(BFD库是一个GNU项目，它的目标就是希望通过一种统一的接口来处理不同的目标文件)，所以即使BFD库有什么bug存在的话也不会影响到readelf程序。
 
-运行readelf的时候，除了-v和-H之外，其它的选项必须有一个被指定。
+运行 readelf 的时候，除了 -v和 -H之外，其它的选项必须有一个被指定。
 
 ELF文件类型
 3种类型的ELF文件：

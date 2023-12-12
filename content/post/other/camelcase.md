@@ -1,14 +1,14 @@
 ---
-title: Camel Casing, CamelCase, Pascal Case, kebab case
+title: naming convention, Camel Casing, CamelCase, Pascal Case, kebab case, Snake case
 author: "-"
 date: 2011-10-12T13:38:23+00:00
-url: /?p=1026
+url: naming-convention
 categories:
   - Java
 tags:
   - reprint
 ---
-## Camel Casing, CamelCase, Pascal Case, kebab case
+## naming convention, Camel Casing, CamelCase, Pascal Case, kebab case, Snake case
 
 在英语中，依靠单词的大小写拼写复合词的做法，叫做"骆驼拼写法" (CamelCase) 。比如，backColor这个复合词，color的第一个字母采用大写。
 
@@ -27,5 +27,10 @@ camelCase：驼峰命名法，第一个单词首字母小写，后面的每个�
 
 kebab-case：短横线隔开命名法，每个单词首字母小写。
 
->[https://www.huoxiaoqiang.com/experience/jingyan/3618.html](https://www.huoxiaoqiang.com/experience/jingyan/3618.html)
+[https://www.huoxiaoqiang.com/experience/jingyan/3618.html](https://www.huoxiaoqiang.com/experience/jingyan/3618.html)
+
 [http://www.cnblogs.com/lm002003/archive/2011/08/13/2137606.html](http://www.cnblogs.com/lm002003/archive/2011/08/13/2137606.html)
+
+## Snake case, snake_case
+
+Snake case (stylized as snake_case) is the naming convention in which each space is replaced with an underscore (_) character, and words are written in lowercase. It is a commonly used naming convention in computing, for example for variable and subroutine names, and for filenames.

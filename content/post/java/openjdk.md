@@ -14,6 +14,12 @@ tags:
 
 [https://jdk.java.net](https://jdk.java.net)
 
+## windows install openjdk
+
+```Bash
+winget install Microsoft.OpenJDK.21
+```
+
 ## archlinux openjdk
 
 ```bash
@@ -23,6 +29,8 @@ sudo pacman -S openjdk-src
 # jdk8
 sudo pacman -S jdk8-openjdk openjdk8-src
 sudo pacman -S jdk11-openjdk
+
+# 查看已经安装的 jdk
 archlinux-java status
 sudo archlinux-java set java-11-openjdk
 sudo pacman -S jdk17-openjdk openjdk17-src
@@ -56,7 +64,7 @@ ls -l /usr/lib/jvm/
 
 # 查看
 sudo update-java-alternatives -l
-# 切换jdk
+# 切换 jdk
 sudo update-alternatives --config java
 
 ```

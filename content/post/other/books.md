@@ -1,6 +1,6 @@
 ---
 author: "w10n"
-date: 2022-11-26 21:50:50
+date: 2023-12-11T11:46:45+08:00
 title: Books
 categories:
   - w10n
@@ -15,7 +15,26 @@ tags:
 
 ## 2023
 
-- 编程之美
+- Rust语言圣经(Rust Course)
+  - Author/作者: Sunface
+  - 译作名: N/A
+  - 译者: N/A
+  - 时间: 2023.12 -
+- 编程之美 - 微软技术面试心得
+  - Author/作者: 《编程之美》小组
+  - 译作名: N/A
+  - 译者: N/A
+  - 时间: 2023.12 -
+- Design Patterns - Elements of Reusable Object-oriented Software
+  - Author/作者: Erich Gamma, Richard Helm, Ralph Johnson, John Vlissides
+  - 译作名: 设计模式 - 可利用面向对象软件的基础
+  - 译者: 李英军 / 马晓星 / 蔡敏 / 刘建中
+  - 时间: 2023.12 -
+- 大话设计模式
+  - Author/作者: 程杰
+  - 译作名: N/A
+  - 译者: N/A
+  - 时间: 2023.12 -
 
 ## 2022
 

@@ -148,11 +148,11 @@ h: 显示帮助
 
 UP/DOWN/PGUP/PGDN/SPACE: 上下和翻页。
 
-a: annotate current symbol,注解当前符号。能够给出汇编语言的注解,给出各条指令的采样率。
+a: annotate current symbol, 注解当前符号。能够给出汇编语言的注解, 给出各条指令的采样率。
 
-d: 过滤掉所有不属于此DSO的符号。非常方便查看同一类别的符号。
+d: 过滤掉所有不属于此 DSO 的符号。非常方便查看同一类别的符号。
 
-P: 将当前信息保存到perf.hist.N中。
+P: 将当前信息保存到 perf.hist.N 中。
 
 (3) 常用命令行参数
 
@@ -206,23 +206,25 @@ perf stat [-e <EVENT> | -event=EVENT] [-a] - <command> [<options>]
 
 Performance counter stats for 'ls':
 
-          0.653782 task-clock                #    0.691 CPUs utilized          
-                 0 context-switches          #    0.000 K/sec                  
-                 0 CPU-migrations            #    0.000 K/sec                  
-               247 page-faults               #    0.378 M/sec                  
-         1,625,426 cycles                    #    2.486 GHz                    
-         1,050,293 stalled-cycles-frontend   #   64.62% frontend cycles idle   
-           838,781 stalled-cycles-backend    #   51.60% backend  cycles idle   
-         1,055,735 instructions              #    0.65  insns per cycle        
-                                             #    0.99  stalled cycles per insn
-           210,587 branches                  #  322.106 M/sec                  
-            10,809 branch-misses             #    5.13% of all branches        
-    
-       0.000945883 seconds time elapsed
+```Bash
+0.653782 task-clock                #    0.691 CPUs utilized          
+     0 context-switches          #    0.000 K/sec                  
+     0 CPU-migrations            #    0.000 K/sec                  
+   247 page-faults               #    0.378 M/sec                  
+1,625,426 cycles                    #    2.486 GHz                    
+1,050,293 stalled-cycles-frontend   #   64.62% frontend cycles idle   
+838,781 stalled-cycles-backend    #   51.60% backend  cycles idle   
+1,055,735 instructions              #    0.65  insns per cycle        
+                                 #    0.99  stalled cycles per insn
+210,587 branches                  #  322.106 M/sec                  
+10,809 branch-misses             #    5.13% of all branches        
 
-输出包括ls的执行时间,以及10个性能事件的统计。
+0.000945883 seconds time elapsed
+```
 
-task-clock: 任务真正占用的处理器时间,单位为ms。CPUs utilized = task-clock / time elapsed,CPU的占用率。
+输出包括 ls 的执行时间, 以及 10 个性能事件的统计。
+
+task-clock: 任务真正占用的处理器时间, 单位为 ms。CPUs utilized = task-clock / time elapsed, CPU 的占用率。
 
 context-switches: 上下文的切换次数。
 
@@ -230,21 +232,21 @@ CPU-migrations: 处理器迁移次数。Linux为了维持多个处理器的负�
 
 迁移到另一个CPU。
 
-page-faults: 缺页异常的次数。当应用程序请求的页面尚未建立、请求的页面不在内存中,或者请求的页面虽然在内
+page-faults: 缺页异常的次数。当应用程序请求的页面尚未建立、请求的页面不在内存中, 或者请求的页面虽然在内
 
-存中,但物理地址和虚拟地址的映射关系尚未建立时,都会触发一次缺页异常。另外TLB不命中,页面访问权限不匹配
+存中, 但物理地址和虚拟地址的映射关系尚未建立时, 都会触发一次缺页异常。另外TLB不命中, 页面访问权限不匹配
 
 等情况也会触发缺页异常。
 
 cycles: 消耗的处理器周期数。如果把被ls使用的cpu cycles看成是一个处理器的,那么它的主频为2.486GHz。
 
-可以用cycles / task-clock算出。
+可以用cycles / task-clock 算出。
 
 stalled-cycles-frontend: 略过。
 
 stalled-cycles-backend: 略过。
 
-instructions: 执行了多少条指令。IPC为平均每个cpu cycle执行了多少条指令。
+instructions: 执行了多少条指令。IPC 为平均每个 cpu cycle 执行了多少条指令。
 
 branches: 遇到的分支指令数。branch-misses是预测错误的分支指令数。
 

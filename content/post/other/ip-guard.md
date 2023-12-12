@@ -15,10 +15,10 @@ HKEY_LOCAL_MACHINE\SOFTWARE\TEC\Ocular.3\agent\config
 value: cmd.exe;wsl.exe
 
 ## foo.reg
+
 ```
 Windows Registry Editor Version 5.00
 
 [HKEY_LOCAL_MACHINE\SOFTWARE\TEC\Ocular.3\agent\config]
 "hookapi_filterproc_external"="cmd.exe;wsl.exe"
-
 ```

@@ -215,10 +215,11 @@ inline jint     Atomic::cmpxchg    (jint     exchange_value, volatile jint*     
                     : "cc", "memory");
   return exchange_value;
 }
-__asm__表示是汇编指令
+__asm__ 表示是汇编指令
+
 LOCK_IF_MP,是否是多核处理器,如果是加上lock指令
-lock 和cmpxchgl是CPU指令,lock指令是个前缀,可以修饰其他指令,cmpxchgl即为CAS指令
-这个lock才是主角,它才是实现CAS的原子性的关键 (因为现在基本都是多核处理器了,那么肯定会存在多个核心争抢资源的情况) ,在Intel® 64 and IA-32 Architectures Software Developer’s Manual 中的章节LOCK—Assert LOCK# Signal Prefix 中给出LOCK指令的详细解释
+lock 和 cmpxchgl 是 CPU 指令,lock 指令是个前缀, 可以修饰其他指令,cmpxchgl 即为 CAS 指令
+这个 lock 才是主角, 它才是实现 CAS 的原子性的关键 (因为现在基本都是多核处理器了,那么肯定会存在多个核心争抢资源的情况) ,在Intel® 64 and IA-32 Architectures Software Developer’s Manual 中的章节LOCK—Assert LOCK# Signal Prefix 中给出LOCK指令的详细解释
 
 总线锁
 LOCK#信号就是我们经常说到的总线锁,处理器使用LOCK#信号达到锁定总线,来解决原子性问题,当一个处理器往总线上输出LOCK#信号时,其它处理器的请求将被阻塞,此时该处理器此时独占共享内存；总线锁这种做法锁定的范围太大了,导致CPU利用率急剧下降,因为使用LOCK#是把CPU和内存之间的通信锁住了,这使得锁定时期间,其它处理器不能操作其内存地址的数据 ,所以总线锁的开销比较大。

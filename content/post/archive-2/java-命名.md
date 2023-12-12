@@ -9,6 +9,7 @@ tags:
   - reprint
 ---
 ## java 命名
+
 包名,使用网络地址倒置,小写,如com.myssh.action。(RFC规定url不准带下划线)
   
 类名,大写开头,驼峰写法,如LoginAction。

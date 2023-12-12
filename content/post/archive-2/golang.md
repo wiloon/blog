@@ -55,6 +55,9 @@ go get -u github.com/redis/go-redis/v9
 go get -u github.com/redis/go-redis/v9@v9.0.4
 ```
 
+- -u 更新包，包括他们的依赖项
+- -v 输出详细信息
+
 [http://studygolang.com/articles/1941](http://studygolang.com/articles/1941)
   
 [https://gobyexample.com/hello-world](https://gobyexample.com/hello-world)
@@ -368,7 +371,6 @@ go tool dist list
 
 # go mod initialize a new module
 go mod init github.com/you/hello
-
 ```
 
 ## Go 交叉编译, go cross compile
@@ -754,4 +756,17 @@ func Test0(t *testing.T) {
 }
 // 2023/11/15 14:14:23 test: params0
 // Spaces are always added between operands and a newline is appended.
+```
+
+## go tool
+
+一些 golang 提供的工具, 比如 objdump, pprof; 不带参数执行 `go tool` 会打印工具列表
+
+```Bash
+# golang 编译为汇编代码
+#-N    disable optimizations
+#-l    disable inlining
+#-S    print assembly listing
+go tool compile -N -l -S main.go
+go tool objdump -S -s "main.main" main64.exe
 ```
