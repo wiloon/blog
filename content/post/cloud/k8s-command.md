@@ -21,6 +21,7 @@ tags:
 ## commands
 
 ```bash
+# 显示集群信息
 kubectl cluster-info
 kubectl get pods -n kube-system
 kubectl label node 192.168.0.212 gpu=true

@@ -20,3 +20,13 @@ speedtest-cli --server=43752  --bytes
 ```
 
 [https://github.com/sivel/speedtest-cli](https://github.com/sivel/speedtest-cli)
+
+### macos install speedtest-cli
+
+```Bash
+brew install speedtest-cli
+```
+
+```Bash
+speedtest-cli --list 
+```
