@@ -12,6 +12,13 @@ tags:
 
 ## shell basic, shell script
 
+## commands
+
+```Bash
+# to refresh your current bash session
+exec bash
+```
+
 ## 逻辑与，逻辑或表达式
 
 ```bash

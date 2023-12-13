@@ -11,6 +11,19 @@ tags:
 ---
 ## ubuntu install k8s
 
+install Kubernetes 1.28.2 on Ubuntu 22.04
+
+- ufw disable
+- selinux disable
+- swap disable
+- setting up hostnames
+- setting up the IPv4 bridge on all nodes
+- install Docker
+- install k8s components
+- initializing the k8s master
+- install Calico
+- adding worker nodes
+
 ```Bash
 # ufw 查看当前的防火墙状态：inactive 状态是防火墙关闭状态 active 是开启状态。
 ufw status
@@ -23,21 +36,38 @@ ufw status
 sestatus
 #禁用SELINUX, 如果显示 Command 'sestatus' not found, 说明有可能 selinux 并没有被安装
 setenforce 0
+```
 
+## disable swap
+
+Kubernetes schedules work based on the understanding of available resources. If workloads start using swap, it can become difficult for Kubernetes to make accurate scheduling decisions. Therefore, it’s recommended to disable swap before installing Kubernetes.
+
+```Bash
 # 查看是否启用了 swap, 没有输出就是没启用
 swapon
 # 临时禁用 swap
 sudo swapoff -a
-# 在文件中永久禁用 /swapfile
-sudo vim /etc/fstab
 
+# 在文件中永久禁用 swip
+# 用 sed 注释掉
+sudo sed -i '/ swap / s/^/#/' /etc/fstab
+# 或者直接编辑文件
+sudo vim /etc/fstab
+```
+
+## setting up hostnames
+
+```Bash
 # 配置多台主机 hosts
 vim /etc/hosts
 192.168.50.80 k8s80
 192.168.50.81 k8s81
 192.168.50.82 k8s82
+```
 
-# 重启
+## 重启服务器
+
+```Bash
 reboot
 ```
 
@@ -168,7 +198,7 @@ kubeadm config print init-defaults > kubeadm.yaml
 - name: k8s80 # 节点的虚拟机的 hostname
 - imageRepository: registry.aliyuncs.com/google_containers # 镜像仓库
 - kubernetesVersion: 1.28.0 # 指定版本
-- podSubnet: 10.1.0.0/16  # 增加指定pod的网段
+- podSubnet: 10.244.0.0/16  # 增加指定pod的网段
 - # 指定 cgroup
 
 ```Bash
@@ -254,7 +284,7 @@ export KUBECONFIG=/etc/kubernetes/admin.conf
 
 ```Bash
 kubectl get nodes
-#查看一下集群状态，确认个组件都处于healthy状态
+# 查看一下集群状态，确认个组件都处于healthy状态
 kubectl get cs
 kubectl get pod -n kube-system
 ```
@@ -262,12 +292,12 @@ kubectl get pod -n kube-system
 ## master 配置安装网络组件 （calico 或者 flannel）
 
 ```Bash
-# 使用flannel 当前最新
+# 使用 flannel 当前最新
 curl https://github.com/flannel-io/flannel/releases/latest/download/kube-flannel.yml -o kube-flannel.yml
 
 vim /run/flannel/subnet.env
-FLANNEL_NETWORK=10.1.0.0/16
-FLANNEL_SUBNET=10.1.0.1/24
+FLANNEL_NETWORK=10.244.0.0/16
+FLANNEL_SUBNET=10.244.0.1/24
 FLANNEL_MTU=1450
 FLANNEL_IPMASQ=true
 
