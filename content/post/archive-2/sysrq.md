@@ -2,24 +2,21 @@
 title: SysRq
 author: "-"
 date: 2018-08-27T08:53:47+00:00
-url: /?p=12584
+url: SysRq
 categories:
-  - Inbox
+  - Linux
 tags:
   - reprint
 ---
 ## SysRq
+
 https://blog.csdn.net/jasonchen_gbd/article/details/79080576
 
-  1. SysRq介绍
-  
-    我第一次接触到SysRq是由于硬件同事调试时突然发现串口打印了HELP信息,还以为软件出问题了,我就去了解了一下SysRq。而我真正用上SysRq是为了破解一个禁止了所有命令的系统…… (很有帮助哈哈) 。
-
-SysRq是Linux提供的一个"Magic System Request Key",它可以在系统出现故障的时候协助恢复和调试系统。只要你的虚拟终端或串口还可以接收键盘输入 (系统还能响应键盘的按键中断) ,SysRq就可用,你可以借助它来查看当时的内存、进程状态等信息,而不是直接强行拔掉电源重启系统。
+SysRq是Linux提供的一个"Magic System Request Key", 它可以在系统出现故障的时候协助恢复和调试系统。只要你的虚拟终端或串口还可以接收键盘输入 (系统还能响应键盘的按键中断), SysRq 就可用, 你可以借助它来查看当时的内存、进程状态等信息,而不是直接强行拔掉电源重启系统。
 
 SysRq能做的事情看HELP就知道了: 
 
-[16037.132214] SysRq : HELP : loglevel(0-9) reboot(b) crash(c) terminate-all-tasks(e) memory-full-oom-kill(f)
+SysRq : HELP : loglevel(0-9) reboot(b) crash(c) terminate-all-tasks(e) memory-full-oom-kill(f)
   
 kill-all-tasks(i) thaw-filesystems(j) sak(k) show-backtrace-all-active-cpus(l)
   
@@ -27,7 +24,7 @@ show-memory-usage(m) nice-all-RT-tasks(n) poweroff(o) show-registers(p) show-all
   
 unraw(r) sync(s) show-task-states(t) unmount(u) show-blocked-tasks(w) dump-ftrace-buffer(z)
   
-2. SysRq的用法
+## SysRq的用法
   
 2.1 启用SysRq
   
@@ -35,9 +32,9 @@ unraw(r) sync(s) show-task-states(t) unmount(u) show-blocked-tasks(w) dump-ftrac
   
 另外内核中有一个宏定义SYSRQ_DEFAULT_ENABLE,表示系统默认情况下是否启用SysRq功能键。当然,不管这个值是不是yes,你都可以通过proc文件系统来开启或关闭SysRq键: 
   
-查看当前SysRq是否被开启 (0表示关闭) : 
+查看当前SysRq是否被开启 (0表示关闭), archlinux 默认开启 
 
-# cat /proc/sys/kernel/sysrq
+`cat /proc/sys/kernel/sysrq`
 
 开启SysRq: 
 
@@ -69,7 +66,7 @@ SysRq支持的所有功能列表及相应的handler见drivers/tty/sysrq.c中静�
 
 在Ubuntu下,图形界面环境不能使用SysRq,需进入文本虚拟终端环境 (Ctrl+Alt+F1从图形桌面切换到虚拟终端,Alt+F7可切回来) ,然后同时按下Alt和Print Screen键以及相应的字母键。
   
-在嵌入式设备上,通过串口工具也可以触发SysRq,如果使用SecureCRT,则同时按下Alt和Print Screen键,会出现上述HELP,然后紧接着按下某个字母。如果使用teraTerm,则点击菜单中的Control->Send Break,会出现上述HELP,然后紧接着按下某个字母。
+在嵌入式设备上, 通过串口工具也可以触发 SysRq, 如果使用 SecureCRT, 则同时按下 Alt 和 Print Screen 键, 会出现上述HELP,然后紧接着按下某个字母。如果使用teraTerm,则点击菜单中的Control->Send Break,会出现上述HELP,然后紧接着按下某个字母。
   
 也可以不通过按键,而是写/proc/sysrq-trigger的方式,用法形如: 
 

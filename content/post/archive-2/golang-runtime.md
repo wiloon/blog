@@ -10,6 +10,11 @@ tags:
 ---
 ## Golang runtime
 
+### golang 判断操作系统是 windows 还是 linux
+
+```Go
+
+```
 [http://www.jianshu.com/p/e45cea3e1723](http://www.jianshu.com/p/e45cea3e1723)
 
 runtime 调度器是个非常有用的东西,关于 runtime 包几个方法:

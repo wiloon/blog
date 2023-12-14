@@ -1,17 +1,33 @@
 ---
-title: PuTTY/SecureCRT
+title: PuTTY, SecureCRT
 author: "-"
 date: 2012-03-14T03:37:37+00:00
-url: /?p=2561
+url: win-ssh
 categories:
-  - Linux
+  - SSH
 tags:
   - reprint
 ---
-## PuTTY/SecureCRT
-从windows访问linux，除了samba之外，日常操作用得最多的大概就是PuTTY和SecureCRT
+## PuTTY
 
-Putty是免费的，SecureCRT是收费的 (当然，有破解版) 。
+## SecureCRT
+
+在命令行启动 SecureCRT 的时候指定配置文件目录
+
+```Bash
+# SecureCRT /F folder
+SecureCRT /F C:\workspace\conf\securecrt
+```
+
+直接连接某一个 ssh 服务
+
+```Bash
+SecureCRT.exe /SSH2 /L wiloon /P 22 /PASSWORD password0 192.168.50.80
+```
+
+从 windows 访问 linux，除了 samba 之外，日常操作用得最多的大概就是 PuTTY 和 SecureCRT
+
+Putty是免费的，SecureCRT是收费的
   
 Putty缺省配置就很好看很好用，SecureCRT的缺省配置不是为linux准备的而且很难看。
   
@@ -27,4 +43,4 @@ Putty不支持同时登录多个linux，SecureCRT可以在每个tab page里面�
   
 以上两个区别使得SecureCRT更适合系统管理员使用。
 
-在写代码调程序，以及平常使用的时候，我更愿意用putty。但是当我需要象系统管理员那样操作很多台linux的时候，我更愿意用SecureCRT。
+在写代码调程序，以及平常使用的时候，我更愿意用putty。但是当我需要象系统管理员那样操作很多台linux的时候，我更愿意用 SecureCRT。

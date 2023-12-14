@@ -21,9 +21,6 @@ tags:
     c) 页面显示 success 即表明已开启 SSH
 
 2. 进入路由器 SSH 环境
-  
-    a) 略。使用 PuTTY/SecureCRT/ssh 均可
-
 3. 上传解锁文件到路由器
   
     a) 下载附件,解压得到 newifi-d2-jail-break.ko

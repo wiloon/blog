@@ -770,3 +770,26 @@ func Test0(t *testing.T) {
 go tool compile -N -l -S main.go
 go tool objdump -S -s "main.main" main64.exe
 ```
+
+## check weather linux or windows
+
+```Go
+package main
+ 
+import (
+	"runtime"
+	"fmt"
+)
+ 
+func main() {
+    sysType := runtime.GOOS
+ 
+    if sysType == 'linux' {
+       // LINUX系统
+    } 
+ 
+    if sysType == 'windows' {
+        // windows系统
+    }
+}
+```

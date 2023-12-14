@@ -83,6 +83,13 @@ git merge master feature
 
 ## git rebase
 
+```Bash
+# <upstream>: 上游分支, 比如 dev 分支, <branch>: topic 分支, 或者叫 feature 分支
+git rebase [-i | --interactive] [<options>] [--exec <cmd>] [--onto <newbase> | --keep-base] [<upstream> [<branch>]]
+git rebase [-i | --interactive] [<options>] [--exec <cmd>] [--onto <newbase>] --root [<branch>]
+git rebase (--continue | --skip | --abort | --quit | --edit-todo | --show-current-patch)
+```
+
 ### options
 
 - -i, --interactive    let the user edit the list of commits to rebase, 交互模式
@@ -103,11 +110,22 @@ git merge master feature
 
 #### 把 dev 分支的 commit 更新到 feature 分支
 
+在开发过程中把其它人提交到 dev 分支的 commit, 更新到自己的 feature 分支.
+
 ```Bash
 git rebase dev
 # 有可能需要处理冲突
 git push -f
 ```
+
+#### 用交互模式整理 feature 分支 commit 历史, 同时把 feature 分支 合并到 dev 分支
+
+1. `git rebase -i dev`
+2. git 显示出 feature 分支的所有新的 commit.
+3. 修改 除每一行之外其它行的 pick 到 s
+4. 修改 commit msg
+5. 有冲突的话处理冲突
+6. push -f
 
 #### git rebase 交互模式, 整理 feature 分支的 commit 历史
 
@@ -195,7 +213,7 @@ rebase 的执行过程是首先找到这两个分支（即当前分支 branch_fe
 git check branch0
 # 保存 branch0 的修改, 保存成 patch 文件, 把 branch0 更新到 main 最新的修改, 把 patch 文件应用到  main 分支上
 git rebase main
-# 另外一种写法, 不需要 checkout branch0 直接执行
+# 另外一种写法, 不需要 checkout branch0 直接执行, git 会先切换到 topicbranch 再做 rebase
 # git rebase <basebranch> <topicbranch>
 git rebase main branch0
 
