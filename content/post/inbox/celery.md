@@ -40,31 +40,31 @@ celery -A tasks worker --loglevel=INFO
 版权声明：本文为CSDN博主「吴秋霖」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
 原文链接：[https://blog.csdn.net/qiulin_wu/article/details/106119757](https://blog.csdn.net/qiulin_wu/article/details/106119757)
 
- django-admin startproject HelloWorld
+`django-admin startproject HelloWorld`
 
-## pycharm celery
+## django and celery
 
-start rabbitmq
-
-run api
+- start rabbitmq
+- run api
+- run celery
 
 ```bash
 python manage.py runserver 0.0.0.0:8000
 ```
 
-run celery
+## run celery in CLI
 
 ```bash
 celery -A app0 worker -c 1 --workdir=/path/to/celery_app/root/
 ```
 
-### pycharm debug
+## pycharm celery run/debug config
 
-add new python script
+add new "Python" script
 
-script: /home/wiloon/apps/venv-36/bin/celery
-script parameters: worker -A app0 -c 1 --workdir=/path/to/celery_app/root/
-working directory is celery path: /home/wiloon/apps/venv-36/bin/
+script/script path: /home/wiloon/apps/venv-36/bin/celery
+parameters/script parameters: worker -A app0 -c 1 --workdir=/path/to/celery_app/root/
+working directory: /home/wiloon/apps/venv-36/bin/
 environment variables: import appropriate variables
 
 [https://stackoverflow.com/questions/29312809/how-do-i-enable-remote-celery-debugging-in-pycharm](https://stackoverflow.com/questions/29312809/how-do-i-enable-remote-celery-debugging-in-pycharm)

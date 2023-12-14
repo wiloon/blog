@@ -75,7 +75,8 @@ virt-install  \
   --network network:bridged-network \
   --virt-type kvm \
   --graphics vnc,password=123456,port=5900,listen=0.0.0.0 \
-  --noautoconsole
+  --noautoconsole \
+  --osinfo ubuntu22.04
  
 virt-install  \
     --name ubuntu1 \
