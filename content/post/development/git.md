@@ -702,7 +702,7 @@ git pull <远程主机名> <远程分支名>:<本地分支名>
 标准或完整的命令是 `git pull remote_repository_name branch_name`
 
 ```bash
-# 除了做了git fetch origin master:mymaster的工作外，还会将远程分支merge进本地当前分支。
+# 除了做了 git fetch origin master:mymaster 的工作外，还会将远程分支 merge 进本地当前分支。
 git pull origin <远程分支名>:<本地分支名>
 git branch --set-upstream-to=origin/<remote_branch> <local_branch>
 git pull
@@ -711,7 +711,7 @@ git pull -v
 git pull origin master
 git pull origin branch0
 git pull --rebase # rebase the current branch on top of the upstream branch after fetching.
-git pull --merge
+git pull --no-rebase
 git config --global pull.rebase true # merge
 git config pull.rebase false  # merge
 git config pull.rebase true   # rebase
