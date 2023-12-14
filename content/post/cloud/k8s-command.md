@@ -21,22 +21,42 @@ tags:
 ## commands
 
 ```bash
+# pod
+kubectl get pod -A -o wide
+
+# configmap
+kubectl apply -f redis-config.yaml
+kubectl get configmap
+kubectl get configmap -n namespace0
+kubectl edit configmap configmap0
+kubectl delete configmap configmap0
+
 # 显示集群信息
 kubectl cluster-info
+kubectl cluster-info dump
+
+# 查询所有节点标签信息
+kubectl get node -o wide --show-labels
+
+# kube-system namespace 的 pod
 kubectl get pods -n kube-system
 kubectl label node 192.168.0.212 gpu=true
 kubectl get node -L gpu
 kubectl get node -L kubernetes.io/arch
-# 查询所有节点标签信息
-kubectl get node -o wide --show-labels
+
 # delete lable
 kubectl label node minikube disktype-
 kubectl describe node node0
+
+# 查看 pod 状态
+kubectl get pods --all-namespaces
+
 # kubectl exec
 kubectl exec -it pod0 -- sh
 
 # logs
 kubectl logs pod0
+kubectl logs -f kube-flannel-ds-kp9mt
 kubectl logs -f --since 5m istiod-9cbc77d98-kk98q -n istio-system
 kubectl logs --namespace <NAMESPACE> <NAME>
 
@@ -118,6 +138,9 @@ kubectl delete svc svc0
 
 kubectl create namespace influxdb
 kubectl explain pod
+# 强制替换pod ，相当于重启
+kubectl replace --force -f kube-flannel.yml
+
 ```
 
 ### docker cli to kubectl
@@ -404,7 +427,7 @@ curl -O https://raw.githubusercontent.com/flannel-io/flannel/master/Documentatio
 ```bash
 kubectl apply -f kube-flannel.yml
 
-# 查看 详细， 能看到pod为什么 启动失败，比如拉取镜像失败
+# 查看 详细， 能看到 pod 为什么 启动失败，比如拉取镜像失败
 kubectl describe pods kube-flannel-ds-fgnhq -n kube-system
 
 # kubectl apply -f ...有可能因为拉取镜像的问题，墙的问题失败，调整好 /etc/containers/registries.conf 的配置后需要重启 crio 使配置生效
@@ -457,7 +480,7 @@ curl http://demo.localdev.me:8080/
 
 [https://juejin.cn/post/6894457482635116551](https://juejin.cn/post/6894457482635116551)
 
-### pod cidr not assgned
+### pod cidr not assigned
 
 [https://github.com/flannel-io/flannel/issues/728](https://github.com/flannel-io/flannel/issues/728)
 
@@ -631,7 +654,7 @@ service 服务代理，代理谁？pod，通过label标签匹配，为什么需�
 
 ### golang 服务
 
-- 编译并推送到 docker registery
+- 编译并推送到 docker registry
 - 创建 deployment.yml
 
 ```yml
@@ -761,14 +784,14 @@ metadata:
     name: pv0
 spec:
     capacity:
-      storage: 2Gi
+      storage: 4Gi
     accessModes:
       - ReadWriteMany
     persistentVolumeReclaimPolicy: Recycle
     storageClassName: "pv0"
     nfs:
       path: "/data/nfs"
-      server: 192.168.50.50
+      server: 192.168.50.30
 ```
 
 ```bash
@@ -789,7 +812,7 @@ spec:
     - ReadWriteMany
   resources:
     requests:
-      storage: 2Gi
+      storage: 4Gi
   storageClassName: pv0
 ```
 
@@ -837,7 +860,7 @@ kubectl delete configmap configmap0
 
 ```
 
-### redis-deployment.yaml
+### redis.yaml
 
 ```yaml
 ---
@@ -876,7 +899,7 @@ spec:
     spec:
       containers:
         - name: redis
-          image: redis:5.0.8
+          image: redis:7.2.3
           command:
             - "sh"
             - "-c"
@@ -927,19 +950,18 @@ spec:
 ```
 
 ```bash
-kubectl create -f redis-deployment.yaml
+kubectl create -f redis.yaml
 ```
 
 ## evicted
 
-eviction，即驱赶的意思，意思是当节点出现异常时，kubernetes将有相应的机制驱赶该节点上的Pod。
+eviction，即驱赶的意思，意思是当节点出现异常时，kubernetes 将有相应的机制驱赶该节点上的Pod。
 多见于资源不足时导致的驱赶。
 
 删除旧 evicted 的遗留
 
 ```bash
 kubectl get pods | grep Evicted | awk '{print $1}' | xargs kubectl delete pod
-
 ```
 
 ## mysql
