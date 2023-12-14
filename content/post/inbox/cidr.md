@@ -2,7 +2,7 @@
 title: CIDR, IP 后面斜杠加数字
 author: "-"
 date: 2018-02-27T01:06:29+00:00
-url: CIDR
+url: cidr
 categories:
   - Network
 tags:
