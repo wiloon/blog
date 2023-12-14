@@ -25,6 +25,10 @@ install Kubernetes 1.28.2 on Ubuntu 22.04
 - adding worker nodes
 
 ```Bash
+sudo apt install nfs-common
+```
+
+```Bash
 # ufw 查看当前的防火墙状态：inactive 状态是防火墙关闭状态 active 是开启状态。
 ufw status
 # 如果状态是 active, 使用以下命令禁用默认配置的 iptables 防火墙服务
