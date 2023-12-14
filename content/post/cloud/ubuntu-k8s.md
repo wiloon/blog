@@ -191,6 +191,9 @@ apt install -y  kubeadm=1.28.2-00 kubelet=1.28.2-00 kubectl=1.22.2-00
 kubeadm config print init-defaults > kubeadm.yaml
 ```
 
+- ServiceSubnet是k8s services使用的子网。默认为“10.96.0.0/12”。
+- podSubnet 是 pods 使用的子网。# 指定 flannel 模型通信 pod 网段地址, 此网段和 flannel 网段一致
+
 ### 文件修改对应如下：
 
 - token: abcdef.0123456789abcdef # 可以自定义，正则([a-z0-9]{6}).([a-z0-9]{16})
@@ -199,6 +202,7 @@ kubeadm config print init-defaults > kubeadm.yaml
 - imageRepository: registry.aliyuncs.com/google_containers # 镜像仓库
 - kubernetesVersion: 1.28.0 # 指定版本
 - podSubnet: 10.244.0.0/16  # 增加指定pod的网段
+
 - # 指定 cgroup
 
 ```Bash
@@ -237,7 +241,7 @@ kubernetesVersion: 1.28.0
 networking:
   dnsDomain: cluster.local
   serviceSubnet: 10.96.0.0/12
-  podSubnet: 10.1.0.0/16
+  podSubnet: 10.244.0.0/16
 scheduler: {}
 ---
 apiVersion: kubelet.config.k8s.io/v1beta1
@@ -271,7 +275,7 @@ Run "kubectl apply -f [podnetwork].yaml" with one of the options listed at:
 Then you can join any number of worker nodes by running the following on each as root:
 
 kubeadm join 192.168.50.80:6443 --token abcdef.0123456789abcdef \
-	--discovery-token-ca-cert-hash sha256:7caea0c080754eb234dbc6212ba2c808330b25b81079c85f494de997acd5f736
+	--discovery-token-ca-cert-hash sha256:46962ddd30a5fa7caaba9f21cc412b9da0c898eeca8f9443728b3d1c4bb21276
 ```
 
 
@@ -293,14 +297,7 @@ kubectl get pod -n kube-system
 
 ```Bash
 # 使用 flannel 当前最新
-curl https://github.com/flannel-io/flannel/releases/latest/download/kube-flannel.yml -o kube-flannel.yml
-
-vim /run/flannel/subnet.env
-FLANNEL_NETWORK=10.244.0.0/16
-FLANNEL_SUBNET=10.244.0.1/24
-FLANNEL_MTU=1450
-FLANNEL_IPMASQ=true
-
+curl -L https://github.com/flannel-io/flannel/releases/latest/download/kube-flannel.yml -o kube-flannel.yml
 kubectl apply -f kube-flannel.yml
 ```
 
@@ -328,9 +325,7 @@ Warning: apt-key is deprecated. Manage keyring files in trusted.gpg.d instead (s
 
 W: https://download.docker.com/linux/ubuntu/dists/jammy/InRelease: Key is stored in legacy trusted.gpg keyring (/etc/apt/trusted.gpg), see the DEPRECATION section in apt-key(8) for details.
 
-
-
-作者：ITianl
+作者：`ITianl`
 链接：https://www.jianshu.com/p/4d696c8a6f41
 来源：简书
 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
