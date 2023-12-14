@@ -1,5 +1,5 @@
 ---
-title: 控制台,终端,tty,shell
+title: 控制台, 终端, tty, shell
 author: "-"
 date: 2018-12-24T04:52:41+00:00
 url: /?p=13199
@@ -54,7 +54,7 @@ Thompson shell是第一个Unix shell,由 Ken Thompso于1971年在Unix第一版�
 
 csh csh全称为 C Shell,由 Bill Joy在70年代晚期完成,那时候他还是加州伯克利大学的研究生。tcsh是csh的升级版。与sh不同,csh的shell脚本,语法接近于C语言。
 
-bash bash是由 Brian Fox为GNU项目开发的自由软件,作为Bourne shell的替代品,于1989年发布。是Linux和Mac OS X的默认shell。bash的命令语法是Bourne shell命令语法的超集,从ksh和csh借鉴了一些思想。
+bash 是由 Brian Fox为GNU项目开发的自由软件,作为Bourne shell的替代品,于1989年发布。是Linux和Mac OS X的默认shell。bash的命令语法是Bourne shell命令语法的超集,从ksh和csh借鉴了一些思想。
 
 ## 好了,就写到这里,上面的内容是我参考维基百科后写下的,不保证完全正确, 下面还提供了一些资料,如果有兴趣可以阅读一下
 

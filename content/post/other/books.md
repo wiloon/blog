@@ -35,6 +35,11 @@ tags:
   - 译作名: N/A
   - 译者: N/A
   - 时间: 2023.12 -
+- Asking The Right Questions:A Guide to Critical Thinking
+  - Author/作者: [美]尼尔·布朗 (Neil Browne) ，斯图尔特·基利 (Stuart Keel)
+  - 译作名: 学会提问
+  - 译者: 许蔚翰, 吴礼敬
+  - 时间: 2023.12 -
 
 ## 2022
 
