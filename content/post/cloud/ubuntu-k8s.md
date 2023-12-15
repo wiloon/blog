@@ -242,6 +242,7 @@ etcd:
 imageRepository: registry.aliyuncs.com/google_containers
 kind: ClusterConfiguration
 kubernetesVersion: 1.28.0
+controlPlaneEndpoint: 192.168.50.80:6443
 networking:
   dnsDomain: cluster.local
   serviceSubnet: 10.96.0.0/12
@@ -333,3 +334,23 @@ W: https://download.docker.com/linux/ubuntu/dists/jammy/InRelease: Key is stored
 链接：https://www.jianshu.com/p/4d696c8a6f41
 来源：简书
 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
+
+
+controlPlaneEndpoint
+string
+controlPlaneEndpoint 为控制面设置一个稳定的 IP 地址或 DNS 名称。 取值可以是一个合法的 IP 地址或者 RFC-1123 形式的 DNS 子域名，二者均可以带一个 可选的 TCP 端口号。 如果 controlPlaneEndpoint 未设置，则使用 advertiseAddress + bindPort。 如果设置了 controlPlaneEndpoint，但未指定 TCP 端口号，则使用 bindPort。
+
+可能的用法有：
+
+在一个包含不止一个控制面实例的集群中，该字段应该设置为放置在控制面 实例之前的外部负载均衡器的地址。
+在带有强制性节点回收的环境中，controlPlaneEndpoint 可以用来 为控制面设置一个稳定的 DNS。
+
+
+## 加入一个新的 contrl plane
+
+```Bash
+kubeadm init phase upload-certs --upload-certs
+    Using certificate key: ecf2abbfdf3a7bc45ddb2de75152ec12889971098d69939b98e4451b53aa3033
+kubeadm token create --print-join-command
+kubeadm join 172.16.0.1:6443 --token xxxxxxxxx --discovery-token-ca-cert-hash xxxxxxx --control-plane --certificate-key ecf2abbfdf3a7bc45ddb2de75152ec12889971098d69939b98e4451b53aa3033
+```
