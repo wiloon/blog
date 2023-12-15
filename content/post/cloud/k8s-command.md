@@ -581,7 +581,7 @@ scp -rp /etc/kubernetes/admin.conf k8s4:/etc/kubernetes
 # 在 control plan 上查看 token 是否可用 
 kubeadm token list
 # 如果没有输出就重新生成 token
-# 默认有效期24小时, 若想久一些可以结合 --ttl 参数, 设为 0 则用不过期
+# 默认有效期 24 小时, 若想久一些可以结合 --ttl 参数, 设为 0 则用不过期
 # 把生成的 kubeadm join 命令复制到新的节点执行
 kubeadm token create --print-join-command 
 
@@ -601,8 +601,7 @@ kubectl get nodes
 kubeadm join k8s0:6443 --token zkcu9u.44nifv9e83dvjayl --discovery-token-ca-cert-hash sha256:590186d23e11cba435d19ca1f1954d09cb6bc396ae80adafa4b4bad3a17c6ad4 --control-plane
 
 # join as worker
-kubeadm join k8s0:6443 --token 7iikfr.7b2s9q28iuhmtpvq \
-        --discovery-token-ca-cert-hash sha256:97d5fe071438d0cc279078e76cf768e898ff61b75069d574eb3bef36e81723db
+kubeadm join k8s0:6443 --token 7iikfr.7b2s9q28iuhmtpvq --discovery-token-ca-cert-hash sha256:97d5fe071438d0cc279078e76cf768e898ff61b75069d574eb3bef36e81723db
 
 ## ---
 
