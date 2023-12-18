@@ -1,5 +1,5 @@
 ---
-title: "pve"
+title: PVE
 author: "-"
 date: "2022-09-10 15:39:49"
 url: "pve"
@@ -10,7 +10,7 @@ tags:
   - VM
   - remix
 ---
-## "pve"
+## PVE
 
 ### 创建安装盘 U盘
 
@@ -157,6 +157,8 @@ bridge ports: 支持同时添加多个网口，用空格分隔
 
 ## 备份恢复虚拟机
 
+### 备份
+
 登录 pve 选择要备份的虚拟机
 磁盘需要勾选备份选项: tick the box, Hardware> Hard Disk> Edit> Advanced> Backup
 从 Hardware 菜单切换到 Backup 点击子菜单中的备份按钮
@@ -179,23 +181,20 @@ scp vzdump-qemu-105-2022_09_10-15_19_12.vma.zst root@192.168.50.7:/var/lib/vz/du
 
 等待上传完毕
 
-恢复虚拟机
+#### 恢复虚拟机
+
 登录pve02节点
 切换至相应的上传存储 (local)
 点击子菜单中的内容菜单
 选择刚上传的vma备份文件
-点击恢复按钮
+点击恢复按钮 (Restore)
 
-设置恢复到的存储和VM ID
+设置恢复到的存储和 VM ID
 点击恢复按钮开始恢复
 
 等待恢复完毕
 
-六、测试启动导入的虚拟机
-
-————————————————
-版权声明: 本文为CSDN博主「Halyace」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
-原文链接: [https://blog.csdn.net/lyace2010/article/details/108918070](https://blog.csdn.net/lyace2010/article/details/108918070)
+测试启动导入的虚拟机
 
 ### pve cli
 
@@ -233,3 +232,7 @@ GRUB_CMDLINE_LINUX="consoleblank=300" # 每次开机后无操作都是5分钟关
 ```
 
 [https://www.xltyu.com/3276.html](https://www.xltyu.com/3276.html)
+
+————————————————
+版权声明: 本文为CSDN博主「Halyace」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
+原文链接: [https://blog.csdn.net/lyace2010/article/details/108918070](https://blog.csdn.net/lyace2010/article/details/108918070)
