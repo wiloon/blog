@@ -124,9 +124,11 @@ sharedFolderName /path/to/mntPtOnGuestMachine vboxsf uid=user,gid=group,rw,dmode
 
 1. 虚拟机关机
 2. 打开 Oracle VM VirtualBox Manager
-3. 点击菜单栏 File> Tools> Virtual Media Manager> Properties> Size> Apply
+3. 点击菜单栏 File> Tools> Virtual Media Manager> 选中 foo.vdi> 点击工具栏中的 Properties> 调整 Size> Apply
+4. 重新启动虚拟机
+5. xfce> Applications> System> GParted
 
-linux 虚拟机如果有图形界面的话, 可以用 gparted 做后续扩容操作
+linux 虚拟机如果有图形界面的话, 可以用 `gparted` 做后续扩容操作
 
 [https://linux.cn/article-12869-1.html](https://linux.cn/article-12869-1.html)
 
