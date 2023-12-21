@@ -209,6 +209,8 @@ kubeadm config print init-defaults > kubeadm.yaml
 
 - # 指定 cgroup
 
+## kubeadm.yaml
+
 ```Bash
 apiVersion: kubeadm.k8s.io/v1beta3
 bootstrapTokens:
@@ -336,13 +338,14 @@ W: https://download.docker.com/linux/ubuntu/dists/jammy/InRelease: Key is stored
 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
 
 
-controlPlaneEndpoint
-string
-controlPlaneEndpoint 为控制面设置一个稳定的 IP 地址或 DNS 名称。 取值可以是一个合法的 IP 地址或者 RFC-1123 形式的 DNS 子域名，二者均可以带一个 可选的 TCP 端口号。 如果 controlPlaneEndpoint 未设置，则使用 advertiseAddress + bindPort。 如果设置了 controlPlaneEndpoint，但未指定 TCP 端口号，则使用 bindPort。
+## controlPlaneEndpoint
+
+controlPlaneEndpoint 为控制面设置一个稳定的 IP 地址或 DNS 名称。 取值可以是一个合法的 IP 地址或者 RFC-1123 形式的 DNS 子域名，二者均可以带一个 可选的 TCP 端口号。 
+如果 controlPlaneEndpoint 未设置，则使用 advertiseAddress + bindPort。 如果设置了 controlPlaneEndpoint，但未指定 TCP 端口号，则使用 bindPort。
 
 可能的用法有：
 
-在一个包含不止一个控制面实例的集群中，该字段应该设置为放置在控制面 实例之前的外部负载均衡器的地址。
+在一个包含不止一个控制面实例的集群中，该字段应该设置为放置在控制面实例之前的外部负载均衡器的地址。
 在带有强制性节点回收的环境中，controlPlaneEndpoint 可以用来 为控制面设置一个稳定的 DNS。
 
 
