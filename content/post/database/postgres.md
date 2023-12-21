@@ -17,6 +17,29 @@ tags:
 - test: 11.2
 - prod: 11.14
 
+## TO_DATE, to_timestamp
+
+YYYY	year (4 and more digits)
+MM	month number (01-12)
+DD	day of month (01-31)
+HH24	hour of day (00-23)
+
+```SQL
+-- TO_DATE(text,format);
+SELECT TO_DATE('20170103','YYYYMMDD');
+
+-- to_timestamp(text, text)
+SELECT to_timestamp('05 Dec 2000', 'DD Mon YYYY');
+SELECT to_timestamp('10:49 2023/01/20', 'HH24:MI YYYY/MM/DD');
+```
+
+## 时间差
+
+```SQL
+SELECT round(cast(date_part('epoch', start_time - end_time)/60/60 as numeric ),1) as time_diff_hours
+FROM table0
+```
+
 ## install
 
 ```bash
@@ -510,3 +533,40 @@ SELECT pg_terminate_backend(PID);
 ————————————————
 版权声明：本文为CSDN博主「SunWuKong_Hadoop」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
 原文链接：[https://blog.csdn.net/SunWuKong_Hadoop/article/details/89448075](https://blog.csdn.net/SunWuKong_Hadoop/article/details/89448075)
+
+
+## 为什么where子句中无法使用到字段别名作为筛选条件呢
+
+这就涉及到了SQL语句的整个执行顺序，如下表：
+
+(1) FROM <left_table>
+(3) <join_type> JOIN <right_table>
+(2) ON <join_condition>
+(4) WHERE <where_condition>
+(5) GROUP BY <group_by_list>
+(6) HAVING <having_condition>
+(7) SELECT
+(8) DISTINCT <select_list>
+(9) ORDER BY <order_by_condition>
+(10) LIMIT <limit_number>
+
+执行顺序依次为：
+
+from ：先确定查询范围
+ON：确定多表联合查询的条件
+JOIN：指定联合哪些数据表
+WHERE ：全表查询的筛选条件，生成第一个结果集
+GROUP BY：分组条件，对第一个结果集进行分组，得到第二个结果集
+HAVING ：过滤条件，与group by进行连用，对第二个结果集中的每组数据，进行筛选过滤，得到第三个结果集
+SELECT：指定获取的列项，得到第四个结果集
+DISTINCT ：对指定列进行去重操作
+ORDER BY：对结果集按照指定字段进行排序整理
+LIMIT：对最终结果集进行截取，一般和offset连用，可用于分页
+所以，以此可以看出，为什么在where语句中没法使用查询列的别名进行过滤了，因为调用where子句的时候，select子句还没有开始执行，所以不识别，同理，order by子句中是可以使用
+
+在查询mysql的字段别名使用的时候，翻到了mysql的官方文档，里面对别名的使用场景进行了简要的介绍：
+
+意思就是别名可以使在order by、having、group by 子句中，但是根据上面的SQL执行过程，很明显group by 和 having都在select之前啊，这里值得注意的是，mysql对group by 进行了优化加强，所以在group by子句中可以使用别名进行分类，但是其他数据库还是遵循着SQL的执行顺序
+————————————————
+版权声明：本文为CSDN博主「shenzhou_yh」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
+原文链接：https://blog.csdn.net/shenzhou_yh/article/details/103185772
