@@ -79,6 +79,7 @@ git branch --show-current
 
 ```bash
 # 新建并切换到分支
+# -c, --create
 git switch -c branch0
 
 # 把新分支推到远程仓库并设置本地分支和远程分支的关联
@@ -92,9 +93,6 @@ git push --set-upstream origin branch0
 # 从 tag v1.2.3 创建分支 branch1
 git checkout -b branch1 v1.2.3
 
-# 新建并切换到分支
-# -c, --create
-git switch -c branch0
 git checkout -b branch0
 
 # 从当前分支创建新分支, 新 branch 名字: branch0
@@ -112,6 +110,9 @@ git checkout -b branch1 branch0
 
 ```bash
 git switch branch0
+
+# 切换到 branch0 并且更新 submodule
+git switch --recurse-submodules branch0
 git checkout branch0
 ```
 

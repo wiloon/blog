@@ -13,6 +13,7 @@ tags:
 - aom
 - fzf, fzf is a general-purpose command-line fuzzy finder.
 - glslang, GLSL - OpenGL Shading Language 也称作 GLslang，是一个以C语言为基础的高阶着色语言。它是由 OpenGL ARB 所建立，提供开发者对绘图管线更多的直接控制，而无需使用汇编语言或硬件规格语言。
+- bluez-libs: Deprecated libraries for the bluetooth protocol stack
 
 ## linux-firmware
 
