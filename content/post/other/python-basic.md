@@ -173,6 +173,10 @@ class Student1(object):
             return 'B'
         else:
             return 'C'
+    
+    # 私有函数
+    def __foo(self):
+        pass
 
 student = Student1()
 # object to dict
@@ -512,7 +516,7 @@ isinstance() 函数来判断一个对象是否是一个已知的类型，类似 
 logger.info(f"type of xxx: {type(foo)}")
 ```
 
-## staticmethod
+## @staticmethod
 
 python staticmethod 返回函数的静态方法。
 
