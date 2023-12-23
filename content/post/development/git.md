@@ -108,6 +108,8 @@ git checkout -b branch1 branch0
 
 ### 切换到分支
 
+使用 --recurse-submodules，将根据超级项目中记录的提交更新所有活动子模块的内容。如果什么都不使用（或 --no-recurse-submodules），子模块工作树将不会被更新。就像 git-submodule，这会分离子模块的 HEAD。
+
 ```bash
 git switch branch0
 
@@ -486,14 +488,6 @@ git checkout 788258e49531eb24bfd347a600d69a16f966c495
 
 [https://blog.csdn.net/leedaning/article/details/51304690](https://blog.csdn.net/leedaning/article/details/51304690)
 
-### 指定克隆深度
-
-在 git clone 时加上--depth=1
-
-depth 用于指定克隆深度，为1即表示只克隆最近一次 commit.
-
-git checkout master
-
 ## git config
 
 ### 查看 config
@@ -741,9 +735,21 @@ git clone --branch <branch or tag name> <repo_url>
 git clone -b dev_jk http://10.1.1.11/service/tmall-service.git
 git clone -b v1.30.0 https://github.com/foo/bar
 
+# 如果给 git clone 命令传递 --recurse-submodules 选项，它就会自动初始化并更新仓库中的每一个子模块， 包括可能存在的嵌套子模块。
+git clone --recurse-submodules https://github.com/chaconinc/MainProject
+
 git clone https://user0:password0@git.foo.com/path/to/project.git
 # clone 某个仓库和某个分支
 git clone [git-url] -b [branch-name]
+
+### 指定克隆深度
+
+在 git clone 时加上 --depth=1
+
+depth 用于指定克隆深度，为1即表示只克隆最近一次 commit.
+
+git checkout main
+
 git log --pretty=oneline
 
 git-ls-files  # - Show information about files in the index and the working tree
@@ -814,11 +820,13 @@ git config --global core.autocrlf false
 
 ## submodule
 
-当你在一个Git 项目上工作时，你需要在其中使用另外一个Git 项目。也许它是一个第三方开发的Git 库或者是你独立开发和并在多个父项目中使用的。这个情况下一个常见的问题产生了: 你想将两个项目单独处理但是又需要在其中一个中使用另外一个。
+当你在一个 Git 项目上工作时，你需要在其中使用另外一个Git 项目。也许它是一个第三方开发的Git 库或者是你独立开发和并在多个父项目中使用的。这个情况下一个常见的问题产生了: 你想将两个项目单独处理但是又需要在其中一个中使用另外一个。
 
 在 Git 中你可以用子模块 submodule 来管理这些项目，submodule 允许你将一个 Git 仓库当作另外一个 Git 仓库的子目录。这允许你克隆另外一个仓库到你的项目中并且保持你的提交相对独立。
 
 - 主仓库切换分支之后,子仓库并不会跟着一起切换, 得在主仓库上执行一次 git submodule update
+
+git submodule update --init 将 git submodule init 和 git submodule update 合并成一步。如果还要初始化、抓取并检出任何嵌套的子模块， 请使用简明的 git submodule update --init --recursive。
 
 ```bash
 # 为已有的 git 仓库增加子模块, 命令执行完成，会在当前工程根路径下生成一个名为“.gitmodules”的文件

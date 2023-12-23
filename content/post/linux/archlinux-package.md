@@ -2,18 +2,19 @@
 title: archlinux package
 author: "-"
 date: "2021-12-30 10:10:08"
-url: ""
+url: archlinux-package
 categories:
   - Linux
 tags:
-  - inbox
+  - reprint
 ---
 ## archlinux package
 
 - aom
 - fzf, fzf is a general-purpose command-line fuzzy finder.
-- glslang, GLSL - OpenGL Shading Language 也称作 GLslang，是一个以C语言为基础的高阶着色语言。它是由 OpenGL ARB 所建立，提供开发者对绘图管线更多的直接控制，而无需使用汇编语言或硬件规格语言。
+- `glslang`, GLSL - OpenGL Shading Language 也称作 `GLslang`，是一个以 C 语言为基础的高阶着色语言。它是由 OpenGL ARB 所建立，提供开发者对绘图管线更多的直接控制，而无需使用汇编语言或硬件规格语言。
 - bluez-libs: Deprecated libraries for the bluetooth protocol stack
+- ca-certificates-mozilla: Mozilla's set of trusted CA certificates
 
 ## linux-firmware
 

@@ -10,8 +10,6 @@ tags:
 ---
 ## MySQL explain, 执行计划, Query Execution Plan
 
-# 执行计划, Query Execution Plan, explain
-
 关于explain命令相信大家并不陌生,具体用法和字段含义可以参考官网explain-output,这里需要强调rows是核心指标,绝大部分rows小的语句执行一定很快 (有例外,下面会讲到) 。所以优化语句基本上都是在优化rows。
 
 在日常工作中,我们会有时会开慢查询去记录一些执行时间比较久的SQL语句,找出这些SQL语句并不意味着完事了,些时我们常常用到explain这个命令来查看一个这些SQL语句的执行计划,查看该SQL语句有没有使用上了索引,有没有做全表扫描,这都可以通过explain命令来查看。所以我们深入了解MySQL的基于开销的优化器,还可以获得很多可能被优化器考虑到的访问策略的细节,以及当运行SQL语句时哪种策略预计会被优化器采用。 (QEP: sql生成一个执行计划query Execution plan)

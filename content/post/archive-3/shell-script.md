@@ -19,14 +19,54 @@ tags:
 exec bash
 ```
 
+
+## Shell 函数, function
+
+```template
+# 参数不在函数名后面的括号里定义
+[ function ] funname [()]
+{
+    action;
+    [return int;]
+}
+```
+
+```bash
+# 定义函数 fun0
+fun0(){
+    echo "run fun0: " + $1
+}
+# 调用函数 fun0
+fun0 "foo"
+
+```
+
+```bash
+# 定义带参数的函数 fun0
+# 在Shell中，调用函数时可以向其传递参数。在函数体内部，通过 $n 的形式来获取参数的值，例如，$1表示第一个参数，$2表示第二个参数...
+fun0(){
+    echo "run fun0 $1 "
+    echo "第一个参数为 $1 !"
+    echo "第二个参数为 $2 !"
+    echo "第十个参数为 $10 !"
+}
+# 调用带参数的函数 fun0
+fun0 foo
+
+```
+
+[https://www.runoob.com/linux/linux-shell-func.html](https://www.runoob.com/linux/linux-shell-func.html)
+
+[https://wiki.jikexueyuan.com/project/shell-tutorial/shell-function-parameter.html](https://wiki.jikexueyuan.com/project/shell-tutorial/shell-function-parameter.html)
+
 ## 逻辑与，逻辑或表达式
 
 ```bash
-#与&&: 
-if [ $str=a -a $str=b ] 
+# 与 &&
+if [ $str=a -a $str=b ]
 if [ $str=a ] && [  $str=b ]
 
-#或||: 
+# 或 ||
 if [ $str=a -o $str=b ] 
 if [ $str=a ] || [  $str=b ]
 ```
@@ -68,7 +108,11 @@ sudo -S apt-get update << EOF
 EOF
 ```
 
-## 目录
+### -f, 检查文件是否存在
+
+```bash
+if [ -f filename ]
+```
 
 ### 检查目录是否存在
 
@@ -167,7 +211,7 @@ echo "after exit"
 
 ```
 
-## 特殊变量: Shell $0, $#, $*, $@, $?, $$和命令行参数
+## 特殊变量: Shell $0, $#, $*, $@, $?, $$ 和命令行参数
 
 ```bash
 #变量       含义
@@ -177,7 +221,7 @@ $#        传递给脚本或函数的参数个数。
 $*        传递给脚本或函数的所有参数。
 $@        传递给脚本或函数的所有参数。被双引号(" ")包含时，与 $* 稍有不同，下面将会讲到。
 $?        上一个命令的退出状态，或函数的返回值。
-$$        Shell本身的进程ID(PID, Process ID)。对于 Shell 脚本，就是这些脚本所在的进程ID。
+$$        Shell 本身的进程 ID(PID, Process ID)。对于 Shell 脚本，就是这些脚本所在的进程ID。
 $!        上一个后台进程的进程号 (PID)
 ```
 
@@ -340,14 +384,6 @@ tmp=`pacman -Q go`
 echo $tmp
 ```
 
-### -f
-
-检查文件是否存在
-
-```bash
-if [ -f filename ]
-```
-
 ## 转义
 
 Bash 只有一种数据类型，就是字符串。不管用户输入什么数据，Bash 都视为字符串。因此，字符串相关的引号和转义，对 Bash 来说就非常重要。
@@ -407,7 +443,7 @@ it's
 
 ```r
 双引号 '\"'
-反引号 `` ` ``
+反引号 `
 美元符 `\$`
 反斜杠 `\`
 ```
@@ -488,7 +524,40 @@ echo $C
 
 [https://my.oschina.net/u/2428064/blog/3045121](https://my.oschina.net/u/2428064/blog/3045121)
 
-## string
+## string, 字符串
+
+
+### 字符串比较
+
+```bash
+=       等于,如:if [ "$a" = "$b" ]
+!=      不等于,如:if [ "$a" != "$b" ] 
+==      等于,如:if [ "$a" == "$b" ],与=等价 
+    注意:==的功能在[[]]和[]中的行为是不同的,如下: 
+    1 [[ $a == z* ]]    # 如果$a以"z"开头(模式匹配)那么将为 true 
+    2 [[ $a == "z*" ]] # 如果$a等于z*(字符匹配),那么结果为true 
+    4 [ $a == z* ]      # File globbing 和word splitting将会发生 
+    5 [ "$a" == "z*" ] # 如果$a等于z*(字符匹配),那么结果为true 
+    一点解释,关于File globbing是一种关于文件的速记法,比如"*.c"就是,再如~也是. 
+    但是file globbing并不是严格的正则表达式,虽然绝大多数情况下结构比较像. 
+
+    这个操作符将在[[]]结构中使用模式匹配. 
+<       小于,在ASCII字母顺序下.如: 
+    if [[ "$a" < "$b" ]] 
+    if [ "$a" \< "$b" ] 
+    注意:在[]结构中"<"需要被转义. 
+>       大于,在ASCII字母顺序下.如: 
+    if [[ "$a" > "$b" ]] 
+    if [ "$a" \> "$b" ] 
+    注意:在[]结构中">"需要被转义. 
+    具体参考Example 26-11来查看这个操作符应用的例子. 
+-z       字符串为"null".就是长度为0. 
+-n       字符串不为"null" 
+    注意: 
+    使用-n在[]结构中测试必须要用""把变量引起来.使用一个未被""的字符串来使用! -z 
+    或者就是未用""引用的字符串本身,放到[]结构中。虽然一般情况下可 
+    以工作,但这是不安全的.习惯于使用""来测试字符串是一种好习惯.
+```
 
 ### Replace
 
@@ -707,7 +776,12 @@ zsh 本身是不兼容 bash 的，但是他可以使用仿真模式 (emulation m
 
 ```bash
 # !/bin/bash
-dt=`date` #反引号内的字符串会当作 shell 执行 ，并且返回结果。
+
+# 反引号内的字符串会当作 shell 执行，并且返回结果。
+dt=`date`
+
+# 另外一种更推荐的写法
+echo "$(git submodule )"
 echo "dt=${dt}"
 ```
 
@@ -827,37 +901,6 @@ ${var:-newstring}
 >=       大于等于(需要双括号),如:(("$a" >= "$b")) 
 ```
 
-### 字符串比较
-
-```bash
-=       等于,如:if [ "$a" = "$b" ] 
-==      等于,如:if [ "$a" == "$b" ],与=等价 
-    注意:==的功能在[[]]和[]中的行为是不同的,如下: 
-    1 [[ $a == z* ]]    # 如果$a以"z"开头(模式匹配)那么将为 true 
-    2 [[ $a == "z*" ]] # 如果$a等于z*(字符匹配),那么结果为true 
-    4 [ $a == z* ]      # File globbing 和word splitting将会发生 
-    5 [ "$a" == "z*" ] # 如果$a等于z*(字符匹配),那么结果为true 
-    一点解释,关于File globbing是一种关于文件的速记法,比如"*.c"就是,再如~也是. 
-    但是file globbing并不是严格的正则表达式,虽然绝大多数情况下结构比较像. 
-!=       不等于,如:if [ "$a" != "$b" ] 
-    这个操作符将在[[]]结构中使用模式匹配. 
-<       小于,在ASCII字母顺序下.如: 
-    if [[ "$a" < "$b" ]] 
-    if [ "$a" \< "$b" ] 
-    注意:在[]结构中"<"需要被转义. 
->       大于,在ASCII字母顺序下.如: 
-    if [[ "$a" > "$b" ]] 
-    if [ "$a" \> "$b" ] 
-    注意:在[]结构中">"需要被转义. 
-    具体参考Example 26-11来查看这个操作符应用的例子. 
--z       字符串为"null".就是长度为0. 
--n       字符串不为"null" 
-    注意: 
-    使用-n在[]结构中测试必须要用""把变量引起来.使用一个未被""的字符串来使用! -z 
-    或者就是未用""引用的字符串本身,放到[]结构中。虽然一般情况下可 
-    以工作,但这是不安全的.习惯于使用""来测试字符串是一种好习惯.
-```
-
 ### 参数
 
 ```bash
@@ -921,9 +964,9 @@ fi
 ### if else if else
 
 ```bash
-    if ... fi 语句；
-    if ... else ... fi 语句；
-    if ... elif ... else ... fi 语句
+if ... fi 语句；
+if ... else ... fi 语句；
+if ... elif ... else ... fi 语句
 ```
 
 其实是三条命令，if [ -f ~/.bashrc ]是第一条，then . ~/.bashrc是第二条，fi是第三条。如果两条命令写在同一行则需要用;号隔开，一行只写一条命令就不需要写;号了，另外，then后面有换行，但这条命令没写完，Shell会自动续行，把下一行接在then后面当作一条命令处理。和[命令一样，要注意命令和各参数之间必须用空格隔开。if命令的参数组成一条子命令，如果该子命令的Exit Status为0 (表示真) ，则执行then后面的子命令，如果Exit Status非0 (表示假) ，则执行elif、else或者fi后面的子命令。if后面的子命令通常是测试命令，但也可以是其它命令。Shell脚本没有{}括号，所以用fi表示if语句块的结束。见下例:
@@ -1059,8 +1102,6 @@ num1 -ge num2 大于或等于 [ 3 -ge $mynum ]
 ```
 
 关系运算符
-
-= == != 表示大于、小于、大于等于、小于等于、等于、不等于操作
   
 && || 逻辑与、逻辑或操作
 
@@ -1170,7 +1211,6 @@ ${value//pattern/string}
 # !/bin/bash
 
 var1="1"
-  
 var2="2"
 ```
 
@@ -1487,44 +1527,6 @@ esac
 声明变量，设置或显示变量的值和属性。
 
 -A 创建关联数组(associative array)（如果支持）
-
-## Shell 函数, function
-
-```template
-[ function ] funname [()]
-{
-    action;
-    [return int;]
-}
-```
-
-```bash
-# 定义函数 fun0
-fun0(){
-    echo "run fun0: " + $1
-}
-# 调用函数 fun0
-fun0 "foo"
-
-```
-
-```bash
-# 定义带参数的函数 fun0
-# 在Shell中，调用函数时可以向其传递参数。在函数体内部，通过 $n 的形式来获取参数的值，例如，$1表示第一个参数，$2表示第二个参数...
-fun0(){
-    echo "run fun0 $1 "
-    echo "第一个参数为 $1 !"
-    echo "第二个参数为 $2 !"
-    echo "第十个参数为 $10 !"
-}
-# 调用带参数的函数 fun0
-fun0 foo
-
-```
-
-[https://www.runoob.com/linux/linux-shell-func.html](https://www.runoob.com/linux/linux-shell-func.html)
-  
-[https://wiki.jikexueyuan.com/project/shell-tutorial/shell-function-parameter.html](https://wiki.jikexueyuan.com/project/shell-tutorial/shell-function-parameter.html)
 
 ## shell 把命令输出结果存入变量
 

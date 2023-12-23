@@ -209,7 +209,7 @@ A-Z 字符范围(包含首尾字符)
 
 "Unicode 类"取值如下-普通类:
 
-  ```r
+```r
 C                 -其他-          (other)
 Cc                控制字符        (control)
 Cf                格式            (format)
@@ -246,9 +246,7 @@ Z                 -分隔符-        (separator)
 Zl                行分隔符        (line separator)
 Zp                段落分隔符      (paragraph separator)
 Zs                空白分隔符      (space separator)
-  ```
-
-* * *
+```
 
 "Unicode 类"取值如下-脚本类:
 

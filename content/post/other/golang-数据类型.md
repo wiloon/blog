@@ -98,12 +98,11 @@ fmt.Printf("The value is: %v", c1)
 
 Go语言的字符串的字节使用UTF-8编码标识Unicode文本。
   
-字符串的表示很简单，用双引号("")或者反引号(")来创建.例如: "hello world" 或者 'hello world'。
+字符串的表示很简单，用双引号("")或者反引号 (\`) 来创建. 例如: "hello world" 或者 \`hello world\`。
 
-两者的区别:
+两者的区别: 双引号之间的转义符会被转义，而反引号之间的字符保持不变。
 
-双引号之间的转义符会被转义，而反引号之间的字符保持不变。
-
+```Go
 // 示例代码
 
 var frenchHello string // 声明变量为字符串的一般方法
@@ -129,6 +128,7 @@ c[0] = 'c'
 s2 := string(c) // 再转换回 string 类型
   
 fmt.Printf("%s\n", s2)
+```
 
 ### string > []byte
 
