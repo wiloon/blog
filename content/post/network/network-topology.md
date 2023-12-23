@@ -9,7 +9,6 @@ tags:
 ---
 ## "network topology"
 
-### 
 ```plantuml
 @startuml
 
