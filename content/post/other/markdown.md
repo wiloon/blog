@@ -2,15 +2,20 @@
 title: Markdown 语法
 author: "-"
 date: 2012-09-17T12:51:31+00:00
-url: /?p=4069
+url: markdown
 categories:
-  - Linux
+  - Text
 tags:
   - reprint
+  - remix
 ---
 ## Markdown 语法
 
 JetBrain Writerside implements the CommonMark Spec: [https://spec.commonmark.org/0.30/]()
+
+## 转义
+
+比如在 Markdown 中显示反引号, 可以用反斜杠转义 \`
 
 ## 字体
 

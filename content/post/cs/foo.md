@@ -1,8 +1,8 @@
 ---
-title: Foo 是什么意思
+title: foo 是什么意思
 author: "-"
 date: 2012-04-04T08:55:29+00:00
-url: /?p=2793
+url: foo
 categories:
   - Development
 tags:
@@ -23,8 +23,8 @@ tags:
 问foo是啥就跟问张三是谁一样，我想外国人一定也很想知道，张三到底是谁，这个人怎么这么有名，总能看到这个名字，但是历史上记载却又找不到他。
   
 为了这个可恶的foo，居然还动用RFC给foo下了一个明确的词源追踪，无聊的童鞋可以看RFC3092解解闷。
-  
-中文RFC3092地址[http://www.computersci.net/articles/rfc/RFC3092.txt](http://www.computersci.net/articles/rfc/RFC3092.txt)
+
+[https://www.ietf.org/rfc/rfc3092.txt](https://www.ietf.org/rfc/rfc3092.txt)
   
 --------------------------------
   

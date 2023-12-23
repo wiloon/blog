@@ -1,14 +1,14 @@
 ---
-title: postgres
+title: PostgreSQL
 author: "-"
 date: 2022-11-08 15:04:37
-url: postgres
+url: PostgreSQL
 categories:
   - database
 tags:
   - reprint
 ---
-## postgres
+## PostgreSQL
 
 ## version
 
@@ -63,6 +63,9 @@ su -l postgres -c '/opt/pg9.6/bin/pg_ctl -D /mnt/pgdata reload'
 ## commands
 
 ```bash
+# 查看 表大小
+select pg_size_pretty(pg_relation_size('table0'));
+
 # 查看配置文件路径, 切换到 postgres 用户执行
 psql -c "show config_file"
 
@@ -570,3 +573,7 @@ LIMIT：对最终结果集进行截取，一般和offset连用，可用于分页
 ————————————————
 版权声明：本文为CSDN博主「shenzhou_yh」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
 原文链接：https://blog.csdn.net/shenzhou_yh/article/details/103185772
+
+
+## postgresql 执行计划
+

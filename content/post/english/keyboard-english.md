@@ -28,7 +28,7 @@ tags:
 - | 竖线 bar/pipe/vertical bar
 - _ 下划线 underline/underscore
 - $ 美元符号 dollar sign
-- @ at at sign
+- @ at, at sign
 - `#` 井号 crosshatch/sharp/hash mark
 - % 百分号 percent sign/mod
 - & and/和/兼 and/ampersand
