@@ -1012,6 +1012,10 @@ git push origin dev-2021-11
 
 git branch --set-upstream-to=origin/远程分支的名字(我的是master) 本地分支的名字(我的是master)
 
+```Bash
+git branch --set-upstream-to=origin/master master
+```
+
 [https://segmentfault.com/a/1190000009128253](https://segmentfault.com/a/1190000009128253)
 
 ## Your branch and 'origin/branch0' have diverged
