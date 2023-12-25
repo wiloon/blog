@@ -9,7 +9,9 @@ tags:
   - reprint
   - remix
 ---
-## linux 目录
+## linux 目录, Filesystem Hierarchy Standard (FHS)
+
+https://en.wikipedia.org/wiki/Filesystem_Hierarchy_Standard
 
 [https://my.oschina.net/njzjf/blog/317331](https://my.oschina.net/njzjf/blog/317331)
 
