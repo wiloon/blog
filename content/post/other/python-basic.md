@@ -1116,3 +1116,17 @@ pip freeze > requirements.txt
 # int to string
 int("7")
 ```
+
+## 三元运算符
+
+三元运算符通常在Python里被称为条件表达式，这些表达式基于真（true）/假（false）的条件判断，在 Python 2.4 以上才有了三元操作。
+
+```Python
+is_fat = True
+state = "fat" if is_fat else "not fat"
+
+#另一个晦涩一点的用法比较少见，它使用了元组, 这之所以能正常工作，是因为在Python中，True 等于1，而 False 等于0，这就相当于在元组中使用0和1来选取数据。
+fat = True
+fitness = ("skinny", "fat")[fat]
+print("Ali is", fitness)
+```
