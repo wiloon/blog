@@ -412,7 +412,7 @@ git clean -xfd
 
 ## git remote
 
-### 查看远程仓库地址 url
+### 查看远程仓库地址/url
 
 ```bash
 git remote -v
@@ -1011,6 +1011,10 @@ git push origin dev-2021-11
 是因为本地分支和远程分支没有建立联系 (使用git branch -vv 可以查看本地分支和远程分支的关联关系) .根据命令行提示只需要执行以下命令即可
 
 git branch --set-upstream-to=origin/远程分支的名字(我的是master) 本地分支的名字(我的是master)
+
+```Bash
+git branch --set-upstream-to=origin/master master
+```
 
 [https://segmentfault.com/a/1190000009128253](https://segmentfault.com/a/1190000009128253)
 

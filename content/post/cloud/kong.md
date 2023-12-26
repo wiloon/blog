@@ -75,3 +75,10 @@ curl -X POST http://192.168.50.31:8001/services/ \
 curl -X POST http://192.168.50.31:8001/services/k8s-service/routes/ \
     --data "hosts[]=k8s.wiloon.com"
 ```
+
+### commands
+
+```Bash
+curl -s localhost:8001 | jq '.configuration'
+
+```

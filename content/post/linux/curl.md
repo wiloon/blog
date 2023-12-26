@@ -25,6 +25,7 @@ curl [kɜrl]
 -i, --include 输出时包括 protocol 头信息, 显示 response header, 例如: HTTP/1.0 200, Content-Type: text/plain
 -v, verbos
 -N, Disables the buffering of the output stream
+-I, --head 只返回头信息, 比如 FTP 服务器只返回文件大小.
 -H, --header LINE Custom header to pass to server (H)
 -d, --data # DATA HTTP POST data, 如果使用 -d 命令，curl 会以 application/x-www-url-encoded 格式上传参数。 从文件中读取数据 -d @/path/to/foo.json
 --retry, 重试次数
