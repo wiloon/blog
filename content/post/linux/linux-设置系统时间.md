@@ -2,40 +2,56 @@
 title: linux 时区，时间
 author: lcf
 date: 2012-09-24T08:38:55+00:00
-url: /?p=4224
+url: linux/date
 categories:
   - Linux
 tags:
   - reprint
+  - remix
 ---
 ## linux 时区，时间
 
 ```bash
-#把硬件时间设置成系统时间
+# 把硬件时间设置成系统时间
 hwclock --hctosys
 
-#把系统时间设置成硬件
+# 把系统时间设置成硬件
 hwclock --systohc
 
-#设置硬件时间
+# 设置硬件时间
 hwclock --set --date="mm/dd/yy hh:mm:ss"
 
-#修改系统时间
+# 修改系统时间
 date -s "dd/mm/yyyy hh:mm:ss"
 ```
 
 ### CentOS 7 时区设置
 
-在 CentOS 7 中, 引入了一个叫 timedatectl 的设置设置程序.
+在 CentOS 7 中, 引入了一个叫 `timedatectl` 的设置设置程序.
 
 ```bash
 # 查看系统时间方面的各种状态
 timedatectl status
+
 # 列出所有时区
 timedatectl list-timezones
+
 # 设置系统时区为上海
 timedatectl set-timezone Asia/Shanghai 
 ```
+
+## timesync
+
+```Bash
+sudo systemctl restart systemd-timesyncd
+systemctl status systemd-timesyncd
+timedatectl show-timesync
+timedatectl timesync-status
+
+```
+
+https://www.linuxuprising.com/2019/07/how-to-set-timezone-and-enable-network.html
+
 
 timedatectl set-local-rtc 1 # 将硬件时钟调整为与本地时钟一致, 0 为设置为 UTC 时间
 
@@ -54,15 +70,12 @@ Linux中的所有命令 (包括函数) 都是采用的系统时钟设置。在Li
 date
 
 设置系统时间
-  
+
 ```bash
-  
 sudo date -set "09/12/2012 10:19"  (月/日/年时:分:秒) 
-  
 sudo date -set "08/31/2012 10:19"
-  
 ```
-  
+
 1. hwclock/clock
 
 查看硬件时间

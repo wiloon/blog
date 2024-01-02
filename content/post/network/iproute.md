@@ -51,7 +51,7 @@ ip addr del 192.168.53.0/24 dev wg0
 # Delete all IPv4 addresses on interface wlp3s0
 sudo ip -f inet addr del dev wlp3s0
 
-# 查端口
+# 查端口 ss, netstat
 ss -ntlp | grep ",1234,"
 
 sudo ip link set down eth1

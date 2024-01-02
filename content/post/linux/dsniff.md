@@ -130,7 +130,7 @@ Someone could be eavesdropping on you right now (man-in-the-middle attack)! It i
 
 > 修改#vi /etc/sysctl.conf:
   
-> net.ipv4.ip_forward = **1**
+net.ipv4.ip_forward = 1
 
 > 修改后运行#sysctl –p命令使得内核改变立即生效；
 

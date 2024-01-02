@@ -12,7 +12,7 @@ tags:
 ## outlook 导出邮件, 备份, archive, import, export
 
 File > Options > Advanced > Export > Export to a file > 选择 Outlook Data File (.pst) > Next  
-展开树状列表，选择要备份的目录, 勾选 "invlude subfolders"  
+展开树状列表，选择要备份的目录, 勾选 "include subfolders"  
 点击 Next  
 选择存放导出的 pst 文件的目标目录  (Save exported file as:)  
 点击 Finish  
