@@ -242,16 +242,11 @@ wmm_enabled=0
                
               
               
-                配置NAT，也就是路由了首先编辑/etc/sysctl.conf文件，主要是打开ipv4的转发功能。 
-                  net.ipv4.ip_forward=1
+配置NAT，也就是路由了首先编辑/etc/sysctl.conf文件，主要是打开ipv4的转发功能。 
+net.ipv4.ip_forward=1
+那么这就在内核当中开启了ipv4的转发，之后需要设置iptables来让数据包通过: 
                 
-                
-                
-                  那么这就在内核当中开启了ipv4的转发，之后需要设置iptables来让数据包通过: 
-                
-                
-                
-                  sudo iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
+sudo iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
 
 sudo iptables -A FORWARD -i eth0 -o wlan0 -m state --state RELATED,ESTABLISHED -j ACCEPT
 sudo iptables -A FORWARD -i wlan0 -o eth0 -j ACCEPT

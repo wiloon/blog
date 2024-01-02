@@ -33,3 +33,9 @@ config s3 storage:
 - ak: <check in bitwarden>
 - sk: <check in bitwarden>
 - bucket name: obsidian-w10n
+
+## 调整页边距
+
+解决编辑区域过窄的问题
+
+Obsidian> settings> Editor> Readable line length: diable

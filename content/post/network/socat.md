@@ -41,7 +41,7 @@ socat -v -v TCP-LISTEN:8000,crlf,reuseaddr,fork SYSTEM:"echo HTTP/1.0 200; echo 
 socat TCP-LISTEN:3389,fork TCP:192.168.55.2:3389
 ```
 
-### 建立TCP连接
+### 建立 TCP 连接
 
 ```bash
     socat - tcp:192.168.1.18:80
@@ -62,8 +62,10 @@ socat - tcp:[fd00::123]:12345
 ### http echo server
 
 ```bash
-# 直接返回 pong
+# echo server 直接返回 pong
 socat -v TCP-LISTEN:80,crlf,reuseaddr,fork SYSTEM:"echo HTTP/1.0 200; echo Content-Type\: text/plain; echo; echo pong"
+socat -v TCP-LISTEN:443,crlf,reuseaddr,fork SYSTEM:"echo HTTP/1.0 200; echo Content-Type\: text/plain; echo; echo pong"
+
 socat -v TCP-LISTEN:8000,crlf,reuseaddr,fork SYSTEM:"echo HTTP/1.0 200; echo Content-Type\: text/plain; echo; echo pong"
 # header: Access-Control-Allow-Origin
 socat -v TCP-LISTEN:8000,crlf,reuseaddr,fork SYSTEM:"echo HTTP/1.0 200; echo Content-Type\: text/plain; echo Access-Control-Allow-Origin\:*;echo; echo pong"

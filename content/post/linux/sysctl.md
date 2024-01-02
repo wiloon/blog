@@ -16,7 +16,7 @@ systemd-sysctl 服务在启动时会加载 /etc/sysctl.d/*.conf, 配置内核参
 
 /etc/sysctl.conf 不起作用
 
-sysctl命令被用于在内核运行时动态地修改内核的运行参数,可用的内核参数在目录/proc/sys中。它包含一些TCP/ip堆栈和虚拟内存系统的高级选项,用sysctl可以读取设置超过五百个系统变量。
+sysctl 命令被用于在内核运行时动态地修改内核的运行参数, 可用的内核参数在目录 `/proc/sys` 中。它包含一些 TCP/ip 堆栈和虚拟内存系统的高级选项,用sysctl可以读取设置超过五百个系统变量。
   
 CentOS 5 supported the placement of sysctl directives in files under /etc/sysctl.d/ . The code is within /etc/init.d/functions
 
@@ -27,14 +27,14 @@ sysctl [options] [variable[=value] …]
 -e: 忽略未知关键字错误；
 -N: 打印时只打印参数名称,不打印值；
 -w: 设置参数的值
--p: 从配置文件"/etc/sysctl.conf"加载内核参数设置
+-p: 从配置文件 "/etc/sysctl.conf" 加载内核参数设置
 -A: 以表格方式打印所有内核参数变量。
 ```
 
 ### 查看变量
 
 ```bash
-# 查看变量
+# 查看变量, 打印所有参数并过滤
 sysctl -a |grep tcp_syn_retrie
 sudo sysctl -a | egrep "rmem|wmem|adv_win|moderate"
 ```
@@ -100,12 +100,12 @@ This  file  contains  the  maximum  number of in-memory inodes.  On some (2.4) s
               increase this value.
 
 - kernel.msgmax
-  
-    从一个进程发送到另一个进程的消息的最大长度 (bytes) 。进程间的消息传递是在内核的内存中进行的,不会交换到磁盘上,所以如果增加该值,则将增加操作系统所使用的内存数量。
+    
+  从一个进程发送到另一个进程的消息的最大长度 (bytes) 。进程间的消息传递是在内核的内存中进行的,不会交换到磁盘上,所以如果增加该值,则将增加操作系统所使用的内存数量。
 
 - kernel.msgmnb
-  
-    消息队列的最大长度 (bytes)
+
+  消息队列的最大长度 (bytes)
 
 - kernel.shmall
   
@@ -174,9 +174,12 @@ This  file  contains  the  maximum  number of in-memory inodes.  On some (2.4) s
 net.ipv4.icmp_echo_ignore_broadcasts
 
 - net.ipv4.ip_forward
+
+  linux ipv4 封包转发 0: 禁止, 1: 打开
+
 - net.ipv4.conf.all.forwarding
   
-    ipv4的IP转发。0: 禁止, 1: 打开
+ipv4的IP转发。0: 禁止, 1: 打开
 
 本地发起连接时使用的端口范围,tcp初始化时会修改此值
 

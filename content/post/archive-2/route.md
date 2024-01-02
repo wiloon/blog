@@ -35,18 +35,17 @@ Usage: ip route { list | flush } SELECTOR
 - [] 表示可选
 - SPEC 应该是 specification 的缩写
 - NH 应该是 next hop 的缩写
-- PREFIX 就是地址加掩码的格式,比如 0.0.0.0/0
-- PREFIX 有个 default 的特殊表示,等同于 0.0.0.0/0,也就是默认路由
+- PREFIX 就是地址加掩码的格式, 比如 0.0.0.0/0
+- PREFIX 有个 default 的特殊表示, 等同于 0.0.0.0/0, 也就是默认路由
 
 ### 路由
 
-linux 系统路由表可以自定义从1－252个路由表,
-操作系统维护了4个路由表:
+linux 系统路由表可以自定义从 1－252 个路由表, 操作系统维护了 4 个路由表:
 
 - 0#表   系统保留表
-- 253#表 defulte table 没特别指定的默认路由都放在该表
+- 253#表 default table 没特别指定的默认路由都放在该表
 - 254#表 main table 没指明路由表的所有路由放在该表
-- 255#表 locale table 保存本地接口地址,广播地址、NAT地址 由系统维护,用户不得更改
+- 255#表 locale table 保存本地接口地址, 广播地址, NAT地址 由系统维护, 用户不得更改
 
 #### 数字与名字的关联
 
@@ -63,21 +62,21 @@ echo 200 John >> /etc/iproute2/rt_tables
 ### 查看路由
 
 ```bash
+ip route show # 显示主路由表信息
 
-ip route show #显示主路由表信息
+# main 路由表
+ip route list table main
+
 ip route | column -t
 
 ip route list table table_number
 ip route list table table_name
 
-# 不带参数时显示main表
+# 不带参数时显示 main 表
 ip route list
 
-# local表中存储的是内核自动生成本机路由和广播路由。
+# local 表中存储的是内核自动生成本机路由和广播路由
 ip route list table local
-
-# main 路由表
-ip route list table main
 
 # get 指定目的 IP/网段 的路由信息
 ip route get 172.18.0.10
@@ -93,7 +92,7 @@ ip route del 192.168.0.0/24 via 172.16.15.253 dev eth0
 
 ## 添加路由, ip route add
 
-路由表添加完毕即时生效
+路由添加完毕即时生效
 
 ```bash
 ip route add DESTINATION       [via NEXT_HOP]      [src SOURCE_ADDRESS]    [dev DEVICE]
@@ -103,19 +102,23 @@ ip route add default           via 192.168.50.1    src 192.168.50.8      dev enp
 ip route add default           via 192.168.50.4    src 192.168.50.169    dev ens18
 ip route add 192.168.54.0/24   via 192.168.50.11   src 192.168.50.8      dev enp0s31f6
 # src xxx 可以省略
+ip r     add default           via 192.168.50.1                          dev ens18       proto static
 ip r     add default           via 192.168.50.4                          dev ens18       proto static
 ip route add 192.168.0.0/24    via 172.16.15.253                         dev eth0
 ip route add 192.168.5.4       via xxx.xxx.200.1                         dev utun3
 ```
 
 - DESTINATION
-目标主机, 目标网络/掩码
+
+  目标主机, 目标网络/掩码
 
 - via NEXT_HOP
-网关, 下一跳的 IP,  下一跳的路由器或主机的 IP, 比如局域网里 下一跳一般是路由器 192.168.50.1, openvpn 的话是服务端地址
+
+  网关, 下一跳的 IP,  下一跳的路由器或主机的 IP, 比如局域网里下一跳一般是路由器 192.168.50.1, openvpn 的话是服务端地址
 
 - src SOURCE_ADDRESS
-当一个主机有多个网卡或者配置了多个 IP 的时候, 对于它产生的网络包, 可以在路由选择时设置源 IP 地址。  
+
+  当一个主机有多个网卡或者配置了多个 IP 的时候, 对于它产生的网络包, 可以在路由选择时设置源 IP 地址。  
 ip route add 78.22.45.0/24 via 10.45.22.1 src 10.45.22.12  (发到 78.22.45.0/24 网段的网络包,下一跳的路由器 IP 是 10.45.22.1, 包的源IP地址设为 10.45.22.12) 。
 要注意的是, src 选项只会影响该 host 上产生的网络包。如果是一个被路由的外来包,明显地它已经带有了一个源 IP 地址,这时候,src 参数的配置对它没有任何影响, 除非你使用 NAT 来改变它。
 
@@ -126,8 +129,8 @@ ip route add 78.22.45.0/24 via 10.45.22.1 src 10.45.22.12  (发到 78.22.45.0/24
 注: 各路由表中应当指明默认路由,尽量不回查路由表. 路由添加完毕,即可在路由规则中应用
 
 ```bash
-ip route add default via 192.168.1.1 table 1        在一号表中添加默认路由为192.168.1.1
-ip route add 192.168.0.0/24 via 192.168.1.2 table 1 在一号表中添加一条到192.168.0.0网段的路由为192.168.1.2
+ip route add default via 192.168.1.1 table 1        在一号表中添加默认路由为 192.168.1.1
+ip route add 192.168.0.0/24 via 192.168.1.2 table 1 在一号表中添加一条到 192.168.0.0 网段的路由为 192.168.1.2
 ```
 
 ### 路由表示例
@@ -307,7 +310,7 @@ Default路由本质上就是目标地址填了0.0.0.0的路由。Default路由�
 32767: from all lookup default 
 ```
 
-### IPTABLES MARK机制
+### IPTABLES MARK 机制
 
 MARK是IPTABLES的一种规则目标,它用于给匹配了相应规则的数据包设置标签。它只能用于mangle表中。然而,标签并不是设置于数据包内容中,而是设置在内核中数据包的载体上。如果需要在数据包内容中设置标签,可以使用TOS规则目标,它可以修改IP数据包头的TOS值。
 
@@ -339,10 +342,10 @@ ip rule list
 32766:     from all lookup main
 32767:     from all lookup default
 
-### 策略路由, 为mark值为1的数据包指定路由表策略
+### 策略路由, 为 mark 值为 1 的数据包指定路由表策略
 
 ```bash
-    ip rule add fwmark 0x1 table 300
+ip rule add fwmark 0x1 table 300
 ```
 
 再查看当前策略,确定已经生效:
@@ -367,8 +370,8 @@ ip报文头的type of sevice字段长度为1个字节,其中高3 bit用来标记
 
 fwmark
 
-将fwmark(forward mark,转发标记)作为匹配条件时,必须搭配Netfilter一起使用, 这看起来很麻烦, 却是最灵活的匹配条件。例如,某公司对外有三条ADSL,我们希望所有HTTP 协议经由第一条ADSL ,SMTP及POP3经由第二条ADSL,其余流量则经由第三条ADSL。可以使用如下的命令组合来达到这样的目的:
-首先使用Netfilter的managle机制针对特定的数据包设置MARK值,在此将HTTP数据包的MARK值设置为1,SMTP及POP3数据包的MARK值设置为2,其余数据包则设置MARK值为3。接着,再根据fwmark条件来判断数据包的MARK值,如果MARK值为1,则参考路由表1将数据包送出；MAKR值为2时,则参考路由表2将数据包送出；最后,MARK值为3的数据包则参考路由表3送出。
+将 fwmark (forward mark,转发标记) 作为匹配条件时, 必须搭配 Netfilter 一起使用, 这看起来很麻烦, 却是最灵活的匹配条件。例如,某公司对外有三条 ADSL, 我们希望所有 HTTP 协议经由第一条 ADSL, SMTP 及 POP3 经由第二条ADSL,其余流量则经由第三条ADSL。可以使用如下的命令组合来达到这样的目的:
+首先使用 Netfilter 的 managle 机制针对特定的数据包设置 MARK 值, 在此将 HTTP 数据包的 MARK 值设置为1, SMTP 及 POP3 数据包的 MARK 值设置为 2, 其余数据包则设置 MARK 值为3。接着, 再根据 fwmark 条件来判断数据包的MARK值,如果MARK值为1,则参考路由表1将数据包送出；MAKR值为2时,则参考路由表2将数据包送出；最后,MARK值为3的数据包则参考路由表3送出。
 
 以上示例只是一个概念而已,如果真要完整体现出这个示例的所有功能,还需要注意许多细节,稍后将使用详细的示例讲解这部分内容,在此只要首先了解fwmark与Netfilter结合使用的概念即可。
 
@@ -385,7 +388,7 @@ ip rule add fwmark 3 table 3
 ### ip rule
 
 ```bash
-# 使用iptables给相应的数据打上标记
+# 使用 iptables 给相应的数据打上标记
 iptables -A PREROUTING -t mangle -i eth0 -s 192.168.0.1 -192.168.0.100 -j MARK --set-mark 3
 # fwmark 3是标记,table 3 是路由表3 上边。 意思就是凡事标记了 3 的数据使用table3 路由表
 ip rule add fwmark 3  table 3
@@ -404,7 +407,7 @@ ip rule [list]
 32767:    from all lookup default
 ```
 
-上面列出了规则的优先顺序。ip route命令默认显示的就是main表
+上面列出了规则的优先顺序。 ip route 命令默认显示的就是 main 表
 
 高级路由重点之一路由规则 ip rule
 进行路由时,根据路由规则来进行匹配,按优先级 (pref) 从低到高匹配,直到找到合适的规则.所以在应用中配置默认路由是必要的..
@@ -435,7 +438,7 @@ ip route add 192.168.1.0/24 via 172.16.1.106
 
 # ip route add 192.168.1.0/24 src 172.16.1.106 dev eth1
 
- ip route del 192.168.0.1/24
+ip route del 192.168.0.1/24
 ```
 
 ip rule 命令:
@@ -664,21 +667,21 @@ ip route add default via a.b.c.d dev eth1
 步骤二: 使子网172.16.10.0/24可以通过gw2路由出去
 
 ```bash
-       ip route add 172.16.10.0/24 via e.f.g.h dev eth2
+ip route add 172.16.10.0/24 via e.f.g.h dev eth2
 ```
 
 步骤三: 添加一个路由表
 
 ```bash
-       echo   "250 HS_RT" >> /etc/iproute2/rt_tables
+echo   "250 HS_RT" >> /etc/iproute2/rt_tables
 ```
 
 步骤四: 使用策略路由使192.168.1.0/24网段的主机可以通过e.f.g.h这个网关上网
 
 ```bash
-       ip rule add from 192.168.1.0/24 dev eth0 table HS_RT pref 32765
-       ip route add default via e.f.g.h dev eth2
-       iptables –t nat –A POSTROUTING –s 192.168.1.0/24 –j MASQUERADE
+ip rule add from 192.168.1.0/24 dev eth0 table HS_RT pref 32765
+ip route add default via e.f.g.h dev eth2
+iptables –t nat –A POSTROUTING –s 192.168.1.0/24 –j MASQUERADE
 ```
 
 步骤五: 刷新路由cache,使新的路由表生效
@@ -714,8 +717,6 @@ th1这个网卡出去..
 第三行是说你要去任何地方的话..从网关61.132.43.134出去.并且网卡是eth0
 
 到这里我们看到了..我们除了去61.132.43.128这个网络是从eth1走以外..去其他地方都是从eth0�
-  
-�...
 
 这样是不是很浪费了双网卡??没错..是很浪费..因为不论你用那种监测工具查看流量..都是eth0有
   
@@ -739,7 +740,7 @@ ip ro ls ip就是ip命令啦,ro就是route的所写,ls是list的缩写...
 
 我们来看看吧:
 
-[root@localhost root]# ip ro ls
+ip ro ls
 
 61.132.43.128/26 dev eth1 proto kernel scope link src 61.132.43.136
 
@@ -1052,3 +1053,16 @@ sudo route -n add -net 192.168.5.4 -netmask 255.255.255.0 xxx.xxx.200.1
 ```
 
 [https://www.jianshu.com/p/da975a32a915](https://www.jianshu.com/p/da975a32a915)
+
+
+## 静态路由
+
+在 Linux 操作系统中，ip route proto static 是用于设置静态路由的命令。
+
+路由是指网络中不同子网之间数据包的传输路径。在使用静态路由时，网络管理员需要手动配置路由表，以指定数据包应该通过哪些网络设备进行传输。相比之下，动态路由则是由路由协议自动计算和更新的。
+
+在 ip route proto static 命令中，proto 参数指定要设置的路由协议类型，这里指的是静态路由。static 是静态路由的一种类型，用于手动配置路由表，这种路由通常不会随着网络拓扑的变化而发生改变。
+
+ip route 命令用于设置和管理路由表，包括添加、修改和删除路由信息。通过 ip route proto static 命令，管理员可以手动添加静态路由，以指定特定的网络流量通过哪些网卡进行传输，从而实现更灵活和精细的网络控制。
+
+总之，ip route proto static 命令是 Linux 操作系统中用于设置静态路由的命令，可以手动配置路由表，以实现更精细的网络控制。

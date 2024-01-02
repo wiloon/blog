@@ -2,18 +2,19 @@
 title:  NTP, Network Time Protocol
 author: "-"
 date: 2011-12-01T04:20:04+00:00
-url: /?p=1658
+url: ntp
 categories:
   - Linux
 tags:
   - reprint
 ---
 ## NTP, Network Time Protocol
+
 http://www.pool.ntp.org/zone/cn
   
 http://blog.csdn.net/iloli/article/details/6431757
 
-Linux NTP配置详解 (Network Time Protocol)
+Linux NTP 配置详解 (Network Time Protocol)
   
 转载 2011年05月19日 12:04:00 标签: linux /Linux /LINUX /network /server /Server /timezone /服务器 151170
   
@@ -23,7 +24,7 @@ Network Time Protocol (NTP) 也是RHCE新增的考试要求. 学习的时候也�
   
 和上次一样,下面的实验都在RHEL5上运行
 
-  1. 时间和时区
+## 时间和时区
 
 如果有人问你说现在几点? 你看了看表回答他说晚上8点了. 这样回答看上去没有什么问题,但是如果问你的这个人在欧洲的话那么你的回答就会让他很疑惑,因为他那里还太阳当空呢.
 
@@ -181,7 +182,7 @@ Fri 06 Jul 2007 12:27:17 AM BST -0.968931 seconds
   
 是否已经安装了NTP包可以用这条命令来确定: 
 
-[root@NTPser ~]# rpm -qa | grep ntp
+rpm -qa | grep ntp
   
 ntp-4.2.2p1-9.el5_4.1
   
