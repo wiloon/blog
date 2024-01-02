@@ -422,6 +422,15 @@ psql --dbname=database0 --host=127.0.0.1 --username=user0 -c "COPY (select now()
 版权声明：本文为CSDN博主「df0128」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
 原文链接：[https://blog.csdn.net/df0128/article/details/89673596](https://blog.csdn.net/df0128/article/details/89673596)
 
+## 导入 csv
+
+```Bash
+psql
+\c database0
+\copy table0(field0,field1,field2,"field3") from '/home/wiloon/tmp/foo.csv' delimiter ',' csv header;
+```
+
+
 ## postgresql log, 日志
 
 PG 安装完成后默认不会记录日志，必须修改对应的（${PGDATA}/postgresql.conf）配置才可以
