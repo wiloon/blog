@@ -20,7 +20,7 @@ Settings> General> Advanced> Shared Clipboard: Bidirectional
 
 - 名称: ssh
 - 协议: TCP
-- 主机IP: 0.0.0.0
+- 主机IP/host ip: 0.0.0.0
 - 主机端口: 22
 - 子系统IP: 10.0.2.15
 - 子系统端口: 22
