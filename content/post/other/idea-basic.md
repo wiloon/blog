@@ -1,5 +1,5 @@
 ---
-title: jetbrain, idea, basic
+title: JetBrains, idea, basic
 author: "-"
 date: 2022-12-09 10:33:44
 url: idea
@@ -9,9 +9,9 @@ tags:
   - reprint
   - remix
 ---
-## jetbrain, idea, basic
+## JetBrains, idea, basic
 
-## jetbrain keys, 快捷键
+## JetBrains keys, 快捷键
 
 - 列编辑/column selection mode,  Alt+Shift+Insert,Alt+Shift+i
 - Expand All,                   Ctrl+Shift+=
@@ -22,6 +22,7 @@ tags:
 - ctrl + n, Down
 - ctrl + [, Move caret to code block start
 - `ctrl + ]`, Move caret to code block end
+- ctrl + shift + i, generate date
 
 CTRL+SHIFT+N 查找文件
   
@@ -104,7 +105,7 @@ windows
 
 ### Coverage
 
-Run Test选择 Run “test()”with coverage
+Run Test选择 Run "test()"with coverage
 
 [http://hi.baidu.com/geeree/blog/item/1eeb29fab2c35f9d58ee9075.html](http://hi.baidu.com/geeree/blog/item/1eeb29fab2c35f9d58ee9075.html)
 

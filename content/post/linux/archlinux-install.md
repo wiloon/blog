@@ -8,11 +8,10 @@ categories:
 tags:
   - archlinux
   - remix
-
 ---
 ## archlinux install
 
-- download iso
+download iso
 
 [http://mirrors.163.com/archlinux/iso](http://mirrors.163.com/archlinux/iso)
 
@@ -20,12 +19,14 @@ tags:
 curl -O http://mirrors.163.com/archlinux/iso/2022.02.01/archlinux-2022.02.01-x86_64.iso
 ```
 
-## ventory@usb-stick
+## ventory, usb-stick
 
 - copy to ventoy usb partition
 - 用 ventoy U盘引导系统
 - 启动 sshd
 - 设置 root 密码
+
+进入 root@archiso 之后先设置 root 密码
 
 ```bash
 passwd
@@ -35,7 +36,9 @@ passwd
 systemctl start sshd
 ```
 
-- 用其它主机 ssh 登录, 然后进行后续操作
+在 virtual box 里安装的设置一下端口映射
+
+用其它主机 ssh 登录, 然后进行后续操作
 
 ## archinstall
 
@@ -46,27 +49,17 @@ pacman -Sy archinstall
 
 # 执行 archinstall, 开始安装
 archinstall
+```
 
-# Select one of the above keyboard languages (by number or full name): us
-# Select one of the above regions to download packages from (by number or full name): China
-# Select one or more harddrives to use and configure (leave blank to skip this step): 1
-# Select what you wish to do with the selected block devices: 0
-# Select which filesystem your main partition should use (by number or name): 2
-# Enter disk encryption password (leave blank for no encryption):
-# Would you like to use swap on zram? (Y/n): n
-# Desired hostname for the installation: host0
-# Enter root password (leave blank to disable root & create superuser): 
-# Enter a pre-programmed profile name if you want to install one: 1
-# Choose an audio server or leave blank to use none:
-# Choose which kernels to use (leave blank for default: linux): 0 
-# Write additional packages to install (space separated, leave blank to skip): 
-# Select one network interface to configure (leave blank to skip): 2
-# Select which mode to configure for ens18 or leave blank for DHCP: 0
-# Enter a valid timezone (examples: Europe/Stockholm, US/Eastern) or press enter to use UTC: Asia/Shanghai
-# Would you like to use automatic time synchronization (NTP) with the default time servers? [Y/n]: y
+- Archinstall language: English
+- Mirrors: China
+- Locales: us, en_US, UTF-8
+- 
 
+
+```bash
 # package
-vscode git keepassxc chromium wqy-microhei 
+vscode git keepassxc chromium wqy-microhei
 
 # init
 systemctl enable sshd
@@ -134,15 +127,7 @@ systemctl enable sshd
 
 初始化脚本后，70MB, 2.4G
 
-## 从U盘引导安装
 
-```bash
-# 创建USB启动盘
-#dd archlinux iso to usb
-sudo dd bs=4M if=archlinux-2020.03.01-x86_64.iso of=/dev/sdx status=progress && sync
-
-# boot with usb stick
-```
 
 ### 设置网络
 
@@ -357,3 +342,13 @@ LABEL Arch
 ### Arch Linux Fast Installer
 
 >[https://github.com/MatMoul/archfi](https://github.com/MatMoul/archfi)
+
+## 用 iso 制作 引导盘, 从 U 盘引导安装
+
+```bash
+# 创建USB启动盘
+#dd archlinux iso to usb
+sudo dd bs=4M if=archlinux-2020.03.01-x86_64.iso of=/dev/sdx status=progress && sync
+
+# boot with usb stick
+```
