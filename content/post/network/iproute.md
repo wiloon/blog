@@ -13,6 +13,8 @@ tags:
 ## commands
 
 ```Bash
+# 查看 iproute 是否安装, 查看版本
+ip -V
 ip link show type bridge
 ```
 
@@ -130,8 +132,6 @@ ip link show dev eth0
 
 title: iproute2 > 路由表, routing table
 
----
-
 对所有来源端口是8080的数据输出包进行标记处理,设置标记2
 
 iptables -t mangle -A OUTPUT -p tcp -sport 8080 -j MARK -set-mark 2
@@ -142,7 +142,7 @@ iptables -t mangle -A OUTPUT -p tcp -sport 8080 -j MARK -set-mark 2
 
 标记2的数据包按照2号路由规则表路由
 
-$: ip rule add priority 10000 fwmark 2 table 2
+ip rule add priority 10000 fwmark 2 table 2
 
 [https://segmentfault.com/a/1190000000638244](https://segmentfault.com/a/1190000000638244)
 
@@ -277,3 +277,5 @@ ip tuntap list
 [http://linux-ip.net/html/routing-tables.html](http://linux-ip.net/html/routing-tables.html)
 
 [http://linux-ip.net/gl/ip-cref/ip-cref.html](http://linux-ip.net/gl/ip-cref/ip-cref.html)
+
+https://www.cnblogs.com/wanstack/p/7728785.html

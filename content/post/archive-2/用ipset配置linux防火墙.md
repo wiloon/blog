@@ -190,17 +190,13 @@ NAT自动跟踪活动的连接,所以它能将返回的包发送给正确的内�
 
 下面是一个简单的outbound NAT规则,10.0.0.0/24是内部局域网:
 
-iptables -t nat -A POSTROUTING \
-  
--s 10.0.0.0/24 -j MASQUERADE
+iptables -t nat -A POSTROUTING -s 10.0.0.0/24 -j MASQUERADE
 
 该规则匹配所有来自内网的包,并对他们进行伪装。如果只有一个路由连接到internat这种方法是非常有效率的,通过该路有的所有流量都是公网的流量。然而,如果有连接到其它私有网络的路由存在,比如VPN或无力WAN连接,你可能就不会使用地址伪装。
 
 克服这个限制的一个简单方法是基于物理接口建立NAT规则,而不是使用基于网络地址的方式。
 
-iptables -t nat -A POSTROUTING \
-  
--o eth0 -j MASQUERADE
+iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
 
 该规则假设eth0是外部接口,该规则会匹配所有离开这个接口的包。与前面的规则不同的是,其他内网的数据包通过其它接口访问公网时不会匹配这条规则 (比如OpenVPN的连接) 。
 
@@ -222,15 +218,11 @@ ipset -A routed_nets 192.168.4.0/23
   
 ipset -A routed_nets 172.22.0.0/22
   
-iptables -t nat -A POSTROUTING \
+iptables -t nat -A POSTROUTING -s 10.0.0.0/24 \
   
--s 10.0.0.0/24 \
-  
--m set ! –set routed_nets dst \
-  
--j MASQUERADE
+-m set ! –set routed_nets dst -j MASQUERADE
 
-如我们所见,ipset 简单的实现了精确匹配。该规则伪装所有来自(10.0.0.0/24)的数据包,而不处理其他在routed_nets集合中的网络的包。由于该配置完全基于网络地址,所以你完全不用担心其他特殊的网络连接 (比如VPN) ,也不用担心物理接口和网络拓扑。
+如我们所见, ipset 简单的实现了精确匹配。该规则伪装所有来自(10.0.0.0/24)的数据包,而不处理其他在routed_nets集合中的网络的包。由于该配置完全基于网络地址,所以你完全不用担心其他特殊的网络连接 (比如VPN) ,也不用担心物理接口和网络拓扑。
 
 Limiting Certain PCs to Have Access Only to Certain Public Hosts
 

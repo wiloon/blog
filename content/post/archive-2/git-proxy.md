@@ -18,8 +18,8 @@ git config --global http.proxy http://proxy.mycompany:80
 
 # socks5 proxy
 # project
-git config http.proxy 'socks5://192.168.50.90:1080'
-git config https.proxy 'socks5://192.168.50.90:1080'
+git config http.proxy 'socks5://192.168.50.4:10800'
+git config https.proxy 'socks5://192.168.50.4:10800'
 
 # global
 git config --global http.proxy 'socks5://192.168.50.90:1080'

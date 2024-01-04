@@ -2,7 +2,7 @@
 title: linux 目录
 author: "-"
 date: 2012-02-05T10:42:19+00:00
-url: linux/path
+url: linux/dir
 categories:
   - Linux
 tags:
@@ -99,20 +99,24 @@ tmp - 临时文件目录，系统启动后的临时文件存放在/var/tmp
 
 lost+found - 在文件系统修复时恢复的文件
 
-## /sbin:/usr/sbin:/usr/local/sbin
+## /sbin, /usr/sbin, /usr/local/sbin
 
 In Arch Linux the /sbin is a symlink to /usr/bin
+
+这个目录是用来存放系统管理员的系统管理程序。大多是涉及系统管理的命令的存放，是超级权限用户 root 的可执行命令存放地，普通用户无权限执行这个目录下的命令，这个目录和 `/usr/sbin`, `/usr/X11R6/sbin` 或 `/usr/local/sbin` 目录是相似的；我们记住就行了，凡是目录sbin中包含的都是 root 权限才能执行的。
+
+/sbin 一般是指超级用户指令。主要放置一些系统管理的必备程序例如: cfdisk、dhcpcd、dump、e2fsck、fdisk、halt、ifconfig、ifup、 ifdown、init、insmod、lilo、lsmod、mke2fs、modprobe、quotacheck、reboot、rmmod、 runlevel、shutdown等。
+
+/usr/sbin   放置一些用户安装的系统管理的必备程式例如: dhcpd、httpd、imap、in.*d、inetd、lpd、named、netconfig、nmbd、samba、sendmail、squid、swap、tcpd、tcpdump等。
+如果新装的系统，运行一些很正常的诸如: shutdown，fdisk的命令时，悍然提示: bash:command not found。那么
+首先就要考虑root 的$PATH里是否已经包含了这些环境变量。
+可以查看PATH，如果是: PATH=$PATH:$HOME/bin则需要添加成如下:
+PATH=$PATH:$HOME/bin:/sbin:/usr/bin:/usr/sbin
 
 ### traditional saying
 
 放置系统管理员使用的/基本的系统命令/可执行命令，如fdisk、shutdown、mount等, 用于启动系统，修复系统, 与 /bin 不同的是，这几个目录是给系统管理员 root 使用的命令，一般用户只能 "查看" 而不能设置和使用。
 
-/usr/sbin   放置一些用户安装的系统管理的必备程式例如:dhcpd、httpd、imap、in.*d、inetd、lpd、named、netconfig、nmbd、samba、sendmail、squid、swap、tcpd、tcpdump等。
-    如果新装的系统，运行一些很正常的诸如: shutdown，fdisk的命令时，悍然提示: bash:command not found。那么
-    首先就要考虑root 的$PATH里是否已经包含了这些环境变量。
-    可以查看PATH，如果是: PATH=$PATH:$HOME/bin则需要添加成如下:
-    PATH=$PATH:$HOME/bin:/sbin:/usr/bin:/usr/sbin
-  
 /tmp: 一般用户或正在执行的程序临时存放文件的目录,任何人都可以访问,重要数据不可放置在此目录下
 
 /srv: 服务启动之后需要访问的数据目录，如www服务需要访问的网页数据存放在/srv/www内
@@ -225,5 +229,41 @@ db      /var/lib/foo/foo.db
 
 转下一位网友的解读，个人认为诠释得很到位:
 
-    /bin 是系统的一些指令。bin为binary的简写主要放置一些系统的必备执行档例如:cat、cp、chmod df、dmesg、gzip、kill、ls、mkdir、more、mount、rm、su、tar等。
-    /sbin一般是指超级用户指令。主要放置一些系统管理的必备程式例如:cfdisk、dhcpcd、dump、e2fsck、fdisk、halt、ifconfig、ifup、 ifdown、init、insmod、lilo、lsmod、mke2fs、modprobe、quotacheck、reboot、rmmod、 runlevel、shutdown等。
+/bin 是系统的一些指令。bin为binary的简写主要放置一些系统的必备执行档例如:cat、cp、chmod df、dmesg、gzip、kill、ls、mkdir、more、mount、rm、su、tar等。
+
+
+## /root
+
+Linux超级权限用户root的家目录。
+
+## /selinux
+
+好像是对SElinux的一些配置文件目录，SElinux可以让你的linux更加安全。
+
+## /srv
+
+服务启动后，所需访问的数据目录，举个例子来说，www服务启动读取的网页数据就可以放在/srv/www中
+
+### /sys
+
+Linux 内核中设计较新的一种虚拟的基于内存的文件系统，它的作用与 proc 有些类似，但除了与 proc 相同的具有查看和设定内核参数功能之外，还有为 Linux 统一设备模型作为管理之用。
+
+## /tmp
+
+临时文件目录，用来存放不同程序执行时产生的临时文件。有时用户运行程序的时候，会产生临时文件。/tmp就用来存放临时文件的。/var/tmp目录和这个目录相似。
+
+## /usr
+
+这是linux系统中占用硬盘空间最大的目录。用户的很多应用程序和文件都存放在这个目录下。在这个目录下，你可以找到那些不适合放在/bin或/etc目录下的额外的工具。比如像游戏啊，一些打印工具拉等等。 /usr目录包含了许多子目录:  /usr/bin目录用于存放程序;/usr/share用于存放一些共享的数据，比如音乐文件或者图标等等;/usr/lib目录用于存放那些不能直接 运行的，但却是许多程序运行所必需的一些函数库文件。你的软件包管理器(应该是"新立得"吧)会自动帮你管理好/usr目录的。
+
+## /usr/local
+
+这里主要存放那些手动安装的软件，即不是通过"新立得"或apt-get安装的软件。它和/usr目录具有相类似的目录结构。让软件包管理器来管理/usr目录，而把自定义的脚本(scripts)放到/usr/local目录下面，我想这应该是个不错的主意。
+
+## /usr/share
+
+系统共用的东西存放地，比如 /usr/share/fonts 是字体目录，/usr/share/doc和/usr/share/man帮助文件。
+
+## /var
+
+这个目录的内容是经常变动的，看名字就知道，我们可以理解为vary的缩写，/var下有/var/log 这是用来存放系统日志的目录。/var/ www目录是定义Apache服务器站点存放目录；/var/lib 用来存放一些库文件，比如MySQL的，以及MySQL数据库的的存放地。

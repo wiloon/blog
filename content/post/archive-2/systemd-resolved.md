@@ -24,8 +24,6 @@ DNSStubListener=no
 LLMNR=false
 ```
 
----
-
 [https://cloud-atlas.readthedocs.io/zh_CN/latest/linux/redhat_linux/systemd/systemd_resolved.html](https://cloud-atlas.readthedocs.io/zh_CN/latest/linux/redhat_linux/systemd/systemd_resolved.html)
 
 ## 测试 域名解析
@@ -52,6 +50,11 @@ FallbackDNS=223.5.5.5 223.6.6.6 114.114.114.114
 #Cache=yes
 #DNSStubListener=yes
 #ReadEtcHosts=yes
+```
+
+```Bash
+# 重启服务
+systemctl restart systemd-resolved
 ```
 
 ### link
