@@ -178,10 +178,6 @@ WARNING: DO NOT UNDER ANY CIRCUMSTANCE let these OVPN Client files get into the 
 Once these files are on your remote device open port 50000 to on your router to your Pi
 
 Consider setting up fail2ban for open VPN (this will ban IPs that try to connect to OpenVPN at port 50000) But with out a the above client config file - they are kind of wasting their time.
-
-
--------
-
 ```
 
 [https://www.raspberrypi.org/forums/viewtopic.php?t=81657](https://www.raspberrypi.org/forums/viewtopic.php?t=81657)
@@ -196,5 +192,4 @@ iptables -A FORWARD -i tun+ -j ACCEPT
 iptables -A FORWARD -i tun+ -o wlan0 -m state --state RELATED,ESTABLISHED -j ACCEPT
 iptables -A FORWARD -i wlan0 -o tun+ -m state --state RELATED,ESTABLISHED -j ACCEPT
 service openvpn restart
-
 ```

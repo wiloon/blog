@@ -65,6 +65,7 @@ All interactive shells source `/etc/bash.bashrc` and `~/.bashrc`, while interact
   
 默认情况下,Debian提供/etc/profile文件,这个文件用来设置$PATH变量 ($PATH通常用来声明命令的搜索路径) ,可以立即生效。下面的代码是/etc/profile的一部分。
 
+```Bash
 if [ "`id -u`" -eq 0 ]; then
   
 PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
@@ -76,6 +77,7 @@ PATH="/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games"
 fi
   
 export PATH
+```
   
 为了方便,root用户 (ID为0) 和其他任何用户的路径都不同。这是因为系统二进制目录 (sbin目录) 位置传统上是作为系统管理程序、或必须以root身份运行的程序存放的保留位置。而games路径对于root用户来说是省略的,因为不到非必要的时候,绝不可能使用root用户来运行游戏程序。
 

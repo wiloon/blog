@@ -50,7 +50,9 @@ linux 系统路由表可以自定义从 1－252 个路由表, 操作系统维护
 #### 数字与名字的关联
 
 ```bash
-/etc/iproute2/rt_tables
+cat /etc/iproute2/rt_tables
+# 或
+cat /usr/lib/iproute2/rt_tables
 ```
 
 此文件保存的是路由表序号和表名的对应关系, 可手动编辑
@@ -62,7 +64,13 @@ echo 200 John >> /etc/iproute2/rt_tables
 ### 查看路由
 
 ```bash
-ip route show # 显示主路由表信息
+# 列出所有路由表名字, 没有 table 字样的行是 main 表
+ip route show table all | grep "table" | sed 's/.*\(table.*\)/\1/g' | awk '{print $2}' | sort | uniq
+
+# 显示所有路由
+ip route list table all
+
+ip route show # 显示主路由表 (main) 信息
 
 # main 路由表
 ip route list table main
@@ -123,15 +131,23 @@ ip route add 78.22.45.0/24 via 10.45.22.1 src 10.45.22.12  (发到 78.22.45.0/24
 要注意的是, src 选项只会影响该 host 上产生的网络包。如果是一个被路由的外来包,明显地它已经带有了一个源 IP 地址,这时候,src 参数的配置对它没有任何影响, 除非你使用 NAT 来改变它。
 
 - dev DEVICE
-网卡
 
-路由表添加完毕即时生效,下面为实例
-注: 各路由表中应当指明默认路由,尽量不回查路由表. 路由添加完毕,即可在路由规则中应用
+  网卡, 符合规则的数据包被发送到哪个网卡上
+
+各路由表中应当指明默认路由, 尽量不回查路由表. 路由表添加完毕即时生效, 下面为实例
 
 ```bash
 ip route add default via 192.168.1.1 table 1        在一号表中添加默认路由为 192.168.1.1
 ip route add 192.168.0.0/24 via 192.168.1.2 table 1 在一号表中添加一条到 192.168.0.0 网段的路由为 192.168.1.2
 ```
+
+```Bash
+ip route add local default dev lo table 100
+```
+
+local - the destinations are assigned to this host. The packets are looped back and delivered locally.
+
+https://man7.org/linux/man-pages/man8/ip-route.8.html
 
 ### 路由表示例
 
@@ -294,14 +310,16 @@ Default路由本质上就是目标地址填了0.0.0.0的路由。Default路由�
 
 需要理解的是,路由表和网络设备是两个实体,路由表在决策的时候,由路由表看到的网络设备是独立于路由表存在的。他们是并行的关系,先要查询了路由表,找到满足路由表的路由条目,才有可能按照条目约定的路由路径去找到对应的设备。路由过程并不是发生在设备逻辑的内部,而是外部。所以实际上给设备添加了一个IP地址的时候,同时生成的路由条目实际上是两个操作被在上层进行了组合。技术上,完全可以分别的添加IP地址和路由条目,上面也说了这个添加的路由条目可以被删除,然后再次添加回去。
 
-## 策略路由  (Policy Routing)
+## 策略路由 Policy Routing
 
 ### 查看策略数据库
 
-要查看策略数据库的内容,可以使用ip rule show命令,或者可以使用ip rule ls。如下是命令执行后所得到的输出结果,在这些数据中,可以看到系统的三条默认规则,而这三条规则默认分别对应于local、mail及default三个路由表。
+要查看策略数据库的内容, 可以使用 ip rule show 命令,或者可以使用 ip rule ls。如下是命令执行后所得到的输出结果,在这些数据中,可以看到系统的三条默认规则,而这三条规则默认分别对应于local、mail及default三个路由表。
 
 ```bash
-    ip rule show
+ip rule show
+# 或
+ip rule ls
 ```
 
 ```r
@@ -370,10 +388,10 @@ ip报文头的type of sevice字段长度为1个字节,其中高3 bit用来标记
 
 fwmark
 
-将 fwmark (forward mark,转发标记) 作为匹配条件时, 必须搭配 Netfilter 一起使用, 这看起来很麻烦, 却是最灵活的匹配条件。例如,某公司对外有三条 ADSL, 我们希望所有 HTTP 协议经由第一条 ADSL, SMTP 及 POP3 经由第二条ADSL,其余流量则经由第三条ADSL。可以使用如下的命令组合来达到这样的目的:
+将 fwmark (forward mark, 转发标记) 作为匹配条件时, 必须搭配 Netfilter 一起使用, 这看起来很麻烦, 却是最灵活的匹配条件。例如,某公司对外有三条 ADSL, 我们希望所有 HTTP 协议经由第一条 ADSL, SMTP 及 POP3 经由第二条ADSL,其余流量则经由第三条ADSL。可以使用如下的命令组合来达到这样的目的:
 首先使用 Netfilter 的 managle 机制针对特定的数据包设置 MARK 值, 在此将 HTTP 数据包的 MARK 值设置为1, SMTP 及 POP3 数据包的 MARK 值设置为 2, 其余数据包则设置 MARK 值为3。接着, 再根据 fwmark 条件来判断数据包的MARK值,如果MARK值为1,则参考路由表1将数据包送出；MAKR值为2时,则参考路由表2将数据包送出；最后,MARK值为3的数据包则参考路由表3送出。
 
-以上示例只是一个概念而已,如果真要完整体现出这个示例的所有功能,还需要注意许多细节,稍后将使用详细的示例讲解这部分内容,在此只要首先了解fwmark与Netfilter结合使用的概念即可。
+以上示例只是一个概念而已, 如果真要完整体现出这个示例的所有功能, 还需要注意许多细节, 稍后将使用详细的示例讲解这部分内容, 在此只要首先了解 fwmark 与 Netfilter 结合使用的概念即可。
 
 ```r
 iptables -t mangle -A FORWARD -i eth3 -p tcp --dport 80 -j MARK --set-mark 1  
@@ -390,8 +408,9 @@ ip rule add fwmark 3 table 3
 ```bash
 # 使用 iptables 给相应的数据打上标记
 iptables -A PREROUTING -t mangle -i eth0 -s 192.168.0.1 -192.168.0.100 -j MARK --set-mark 3
-# fwmark 3是标记,table 3 是路由表3 上边。 意思就是凡事标记了 3 的数据使用table3 路由表
-ip rule add fwmark 3  table 3
+
+# fwmark 3 是标记, table 3 是路由表 3 上边。 意思就是凡事标记了 3 的数据使用 table3 路由表
+ip rule add fwmark 3 table 3
 ```
 
 ### 默认规则
@@ -898,7 +917,7 @@ ip route { change | del | add | append | replace | monitor } ROUTE
 
 如果想查看路由表的内容,可以通过命令:
 
-ip route list table table_number
+`ip route list table table_number`
 
 对于路由的操作包括change、del、add 、append 、replace 、 monitor这些。例如添加路由可以用:
 

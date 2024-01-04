@@ -24,7 +24,7 @@ host命令用来做DNS查询。如果命令参数是域名,命令会输出关联
 
 [http://www.cnblogs.com/kubixuesheng/p/6260195.html](http://www.cnblogs.com/kubixuesheng/p/6260195.html)
 
-    dnsmasq
+dnsmasq
   
 [http://blog.wiloon.com/?p=8698&embed=true#?secret=4F3Jvk9nTk](http://blog.wiloon.com/?p=8698&embed=true#?secret=4F3Jvk9nTk)
 
