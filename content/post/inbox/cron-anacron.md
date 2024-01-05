@@ -90,9 +90,9 @@ RANDOM_DELAY - 这定义添加到用户定义的任务延迟的最大随机延�
 
 Anacron – /etc/anacrontab:
 
-# /etc/anacrontab: configuration file for anacron
+/etc/anacrontab: configuration file for anacron
 
-# See anacron(8) and anacrontab(5) for details
+See anacron(8) and anacrontab(5) for details
 
 SHELL=/bin/sh
   
@@ -102,7 +102,7 @@ HOME=/root
   
 LOGNAME=root
 
-# These replace cron's entries
+These replace cron's entries
 
 1 5 cron.daily run-parts -report /etc/cron.daily
   

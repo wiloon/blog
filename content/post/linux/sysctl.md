@@ -177,15 +177,24 @@ net.ipv4.icmp_echo_ignore_broadcasts
 
   linux ipv4 封包转发 0: 禁止, 1: 打开
 
+
+- ip_forward_update_priority - INTEGER
+
+  转发一个 IPv4 的包后，是否要用 IP 头中的 TOS 字段来更新 SKB 优先级。新的 SKB 优先级通过 rt_tos2priority 映射表获得（参见 man tc-prio）
+  0: 不更新优先级  
+  1: 更新优先级（默认）  
+  注：SKB 指的是 socket buffer，SKB 结构中有个字段 priority 用来指定报文在 outgoing 队列的优先级。而 TOS[7] 是 IP 协议中用来指定 IP 报文优先级的字段。因此该选项相当于是指定在转发 IP 报文时，要不要支持 TOS 功能
+
+
 - net.ipv4.conf.all.forwarding
   
-ipv4的IP转发。0: 禁止, 1: 打开
+  ipv4的IP转发。0: 禁止, 1: 打开
 
 本地发起连接时使用的端口范围,tcp初始化时会修改此值
 
-net.ipv4.ip_local_port_range
+- net.ipv4.ip_local_port_range
 
-本端断开的socket连接,TCP保持在FIN-WAIT-2状态的时间。对方可能会断开连接或一直不结束连接或不可预料的进程死亡。默认值为 60 秒。过去在2.2版本的内核中是 180 秒。您可以设置该值,但需要注意,如果您的机器为负载很重的web服务器,您可能要冒内存被大量无效数据报填满的风险,FIN-WAIT-2 sockets 的危险性低于 FIN-WAIT-1,因为它们最多只吃 1.5K 的内存,但是它们存在时间更长。
+  本端断开的socket连接,TCP保持在FIN-WAIT-2状态的时间。对方可能会断开连接或一直不结束连接或不可预料的进程死亡。默认值为 60 秒。过去在2.2版本的内核中是 180 秒。您可以设置该值,但需要注意,如果您的机器为负载很重的web服务器,您可能要冒内存被大量无效数据报填满的风险,FIN-WAIT-2 sockets 的危险性低于 FIN-WAIT-1,因为它们最多只吃 1.5K 的内存,但是它们存在时间更长。
   
 ## net.ipv4.tcp_fin_timeout
 

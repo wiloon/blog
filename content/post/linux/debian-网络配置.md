@@ -116,7 +116,7 @@ wpa-psk "xxxx"
 
 手册上说，这种方法主要是用来检测两块网卡的MAC地址交换 (If their MAC addresses get swapped) ，其实就是两块网卡名互换了，这种情况在debian系统上再常见不过了，主要是因为内核识别网卡的顺序发生了变化。这个问题可以用下面 的这种方法来避免。
 
-> 46 auto eth0 eth1
+46 auto eth0 eth1
 47 mapping eth0 eth1
 48     script /path/to/get-mac-address.sh
 49     map 11:22:33:44:55:66 lan

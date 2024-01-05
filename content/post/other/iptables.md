@@ -31,11 +31,11 @@ iptables vs. iptables-nft
 #### 4 个表
 
 * filter: 一般的过滤功能， 这是默认的表，包含了内建的链 INPUT (处理进入的包)、FORWARD (处理通过的包) 和OUTPUT (处理本地生成的包) 。
-* nat: 用于nat功能 (端口映射，地址映射等)，对应的链: PREROUTING (修改到来的包)、OUTPUT (修改路由之前本地的包) 、POSTROUTING (修改准备出去的包) ，centos6没有input链，centos7 有 input 链。
-* mangle: 用于对特定数据包的修改， 对应的链: PREROUTING (修改路由之前进入的包) ,input, OUTPUT (修改路由 IPTABLES之前本地的包) , forward,postrouting
+* nat: 用于nat功能 (端口映射，地址映射等)，对应的链: `PREROUTING` (修改到来的包)、OUTPUT (修改路由之前本地的包) 、POSTROUTING (修改准备出去的包) ，centos6没有input链，centos7 有 input 链。
+* mangle: 用于对特定数据包的修改, 对应的链: `PREROUTING` (修改路由之前进入的包) ,input, OUTPUT (修改路由 IPTABLES 之前本地的包), forward, postrouting
 * raw: 优先级最高，设置raw时一般是为了不再让iptables做数据包的链接跟踪处理，提高性能
 
-### 5 个链: PREROUTING,INPUT,FORWARD,OUTPUT,POSTROUTING
+### 5 个链: PREROUTING, INPUT, FORWARD, OUTPUT, POSTROUTING
 
 * PREROUTING: 数据包进入路由表之前
 * INPUT: 通过路由表后目的地为本机
@@ -62,10 +62,15 @@ iptables [-t table] -I chain [rulenum] rule-specification [options]
 iptables [-t table] -R chain rulenum rule-specification [options]
 iptables [-t table] -D chain rulenum [options]
 iptables [-t table] -[LFZ] [chain] [options]
+
+# 创建新的链
 iptables [-t table] -N chain
 iptables [-t table] -X [chain]
 iptables [-t table] -P chain target [options]
 iptables [-t table] -E old-chain-name new-chain-name
+
+# 创建链 
+iptables -t mangle -N chain0
 ```
 
 ### 指定链
@@ -82,21 +87,17 @@ iptalbes 会使用 nf_conntrack 模块跟踪连接，而这个连接跟踪的数
 # 当前值
 wc -l /proc/net/nf_conntrack
 # 查看 最大值
-# 在/etc/sysctl.conf添加内核参数
+# 在 /etc/sysctl.conf 添加内核参数
 net.nf_conntrack_max = 2000500
 ```
 
 ### iptables 图
 
-![1](https://zh.wikipedia.org/wiki/Iptables#/media/File:Netfilter-packet-flow.svg)
+[![pijURTs.png](https://s11.ax1x.com/2024/01/02/pijURTs.png)](https://imgse.com/i/pijURTs)
 
-[![11bp8I.md.png][3]][4]{.wp-editor-md-post-content-link}
-  
-[https://www.zsythink.net/wp-content/uploads/2017/02/021217_0051_6.png](https://www.zsythink.net/wp-content/uploads/2017/02/021217_0051_6.png)
+[![pijrOK0.png](https://s11.ax1x.com/2024/01/03/pijrOK0.png)](https://imgse.com/i/pijrOK0)
 
-[![11v2WQ.md.png][5]][6]{.wp-editor-md-post-content-link}
-  
-![13pGXd.png][7]
+[![pijrXrV.png](https://s11.ax1x.com/2024/01/03/pijrXrV.png)](https://imgse.com/i/pijrXrV)
 
 ### 查看定义规则的详细信息
 
@@ -137,7 +138,7 @@ iptables -t mangle -I POSTROUTING 1  -p tcp ! --sport 22 -j LOG --log-prefix 'ip
 --dport num 匹配目标端口号
 --sport num 匹配来源端口号
 
-# 对所有来源端口是8080的数据输出包进行标记处理，设置标记2  
+# 对所有来源端口是 8080 的数据输出包进行标记处理，设置标记 2  
 iptables -t mangle -A OUTPUT -p tcp --sport 8080 -j MARK -set-mark 2
 
 # -t, --table
@@ -163,7 +164,7 @@ iptables-restore < /etc/network/iptables
 iptables [-t tables] <-A/I/D/R> 规则链名 [规则号] <-i/o 网卡名> -p 协议名 <-s 源IP/源子网> --sport 源端口 <-d 目标IP/目标子网> --dport 目标端口 -j 动作
 # tables 表名
 
-# 比如: 不允许172.16.0.0/24的进行访问。
+# 比如: 不允许 172.16.0.0/24 的进行访问。
 iptables -t filter -A INPUT -s 172.16.0.0/16 -p udp --dport 53 -j DROP
 # 当然你如果想拒绝的更彻底: 
 iptables -t filter -R INPUT 1 -s 172.16.0.0/16 -p udp --dport 53 -j REJECT
@@ -193,13 +194,13 @@ if you want iptables to be loaded automatically on boot, you must enable iptable
 
 这些选项指定执行明确的动作: 若指令行下没有其他规定，该行只能指定一个选项.对于长格式的命令和选项名，所用字母长度只要保证iptables能从其他选项中区分出该指令就行了。
   
-* -A -append  
-添加一条规则  
-在所选择的链末添加一条或更多规则。当源 (地址) 或者/与 目的 (地址) 转换为多个地址时，这条规则会加到所有可能的地址 (组合) 后面。
-  
-* -D -delete
-删除一条规则  
-从所选链中删除一条或更多规则。这条命令可以有两种方法: 可以把被删除规则指定为链中的序号 (第一条序号为1) ，或者指定为要匹配的规则。
+- -A -append  
+
+  添加一条规则, 在所选择的链末添加一条或更多规则。当源 (地址) 或者/与 目的 (地址) 转换为多个地址时，这条规则会加到所有可能的地址 (组合) 后面。
+
+- -D -delete
+
+  删除一条规则, 从所选链中删除一条或更多规则。这条命令可以有两种方法: 可以把被删除规则指定为链中的序号 (第一条序号为1) ，或者指定为要匹配的规则。
   
 * -R -replace
   
@@ -223,8 +224,9 @@ if you want iptables to be loaded automatically on boot, you must enable iptable
   
 把所有链的包及字节的计数器清空。它可以和 -L配合使用，在清空前察看计数器，请参见前文。
   
--N -new-chain  
-根据给出的名称建立一个新的用户定义链。这必须保证没有同名的链存在。
+- -N -new-chain
+
+  根据给出的名称建立一个新的用户定义链。这必须保证没有同名的链存在。
   
 -X -delete-chain
   
@@ -253,7 +255,7 @@ iptables -D INPUT 1
 第二种办法是 -A 命令的映射，不过用-D替换-A。当你的链中规则很复杂，而你不想计算它们的编号的时候这就十分有用了。这样的话，我们可以使用:
 
 ```bash
-    iptables -D INPUT -s 127.0.0.1 -p icmp -j DROP
+iptables -D INPUT -s 127.0.0.1 -p icmp -j DROP
 ```
 
 -D的语法必须和-A(或者-I或者-R)一样精确。如果链中有多个相同的规则，只会删除第一个。
@@ -299,8 +301,9 @@ OPTIONS
 
 以下参数构成规则详述，如用于add, delete, replace, ppend 和 check命令。
   
-* -p -protocal [!]protocol
-规则或者包检查 (待检查包) 的协议。指定协议可以是tcp、udp、icmp中的一个或者全部，也可以是数值，代表这些协议中的某一个。当然也可以使用在/etc/protocols中定义的协议名。在协议名前加上"!"表示相反的规则。数字0相当于所有all。Protocol all会匹配所有协议，而且这是缺省时的选项。在和check命令结合时，all可以不被使用。
+- -p, -protocol [!]protocol
+
+  规则或者包检查 (待检查包) 的协议。指定协议可以是tcp、udp、icmp中的一个或者全部，也可以是数值，代表这些协议中的某一个。当然也可以使用在/etc/protocols中定义的协议名。在协议名前加上"!"表示相反的规则。数字0相当于所有all。Protocol all会匹配所有协议，而且这是缺省时的选项。在和check命令结合时，all可以不被使用。
   
 * -s -source [!] address[/mask]
   
@@ -310,13 +313,28 @@ OPTIONS
   
 指定目标地址，要获取详细说明请参见 -s标志的说明。标志 -dst 是这个选项的简写。
   
-* -j -jump target  
-目标跳转  
-指定规则的目标；也就是说，如果包匹配应当做什么。目标可以是用户自定义链 (不是这条规则所在的) ，某个会立即决定包的命运的专用内建目标，或者一个扩展 (参见下面的EXTENSIONS) 。如果规则的这个选项被忽略，那么匹配的过程不会对包产生影响，不过规则的计数器会增加。
+- -j, -jump target
 
--i -in-interface [!] [name]
+  动作, 目标跳转, 指定规则的目标；也就是说，如果包匹配应当做什么。目标可以是用户自定义链 (不是这条规则所在的)，某个会立即决定包的命运的专用内置 target，或者一个扩展 (参见下面的 Target Extensions)。 
+如果规则的这个选项被忽略，那么匹配的过程不会对包产生影响，不过规则的计数器会增加。
+  -j 参数用来指定要进行的处理动作，常用的处理动作包括：ACCEPT、REJECT、DROP、REDIRECT、MASQUERADE、LOG、DNAT、SNAT、MIRROR、QUEUE、RETURN、MARK，分别说明如下
+
+  - ACCEPT： 将封包放行，进行完此处理动作后，将不再匹配其它规则，直接跳往下一个规则链（natostrouting）。
+  - REJECT： 拦阻该封包，并传送封包通知对方，可以传送的封包有几个选择：ICMP port-unreachable、ICMP echo-reply 或是tcp-reset（这个封包会要求对方关闭 连接），进行完此处理动作后，将不再匹配其它规则，直接中断过滤程序。 范例如下: `iptables -A FORWARD -p TCP --dport 22 -j REJECT --reject-with tcp-reset`
+  - DROP： 丢弃封包不予处理，进行完此处理动作后，将不再匹配其它规则，直接中断过滤程序。
+  - REDIRECT： 将封包重新导向到另一个端口（PNAT），进行完此处理动作后，将会继续匹配其它规则。 这个功能可以用来实现透明代理或用来保护 web 服务器。例如：`iptables -t nat -A PREROUTING -p tcp --dport 80 -j REDIRECT --to-ports 8080`
+  - MASQUERADE： 改写封包来源 IP 为防火墙 NIC IP，可以指定 port 对应的范围，进行完此处理动作后，直接跳往下一个规则 链（manglepostrouting）。这个功能与SNAT 略有不同，当进行 IP 伪装时，不需指定要伪装成哪个 IP，IP会从网卡直接读取，当使用拨 号接连时，IP通常是由ISP公司的DHCP 服务器指派的，这个时候 MASQUERADE 特别有用。范例如下：`iptables -t nat -A POSTROUTING -p TCP -j MASQUERADE --to-ports 1024-31000`
+  - LOG： 将封包相关讯息纪录在 /var/log 中，详细位置请查阅 /etc/syslog.conf 配置文件，进行完此处理动作后，将会继续匹配其规则。例如：`iptables -A INPUT -p tcp -j LOG --log-prefix "INPUT packets`
+  - SNAT： 改写封包来源 IP 为某特定 IP 或 IP 范围，可以指定 port 对应的范围，进行完此处理动作后，将直接跳往下一个规则（mangleostrouting）。范例如下：`iptables -t nat -A POSTROUTING -p tcp -o eth0 -j SNAT --to-source?194.236.50.155-194.236.50.160:1024-32000　`
+  - DNAT： 改写封包目的地 IP 为某特定 IP 或 IP 范围，可以指定 port 对应的范围，进行完此处理动作后，将会直接跳往下一个规则链（filter:input 或 filter:forward）。范例如下：`iptables -t nat -A PREROUTING -p tcp -d 15.45.23.67 --dport 80 -j DNAT --to-destination 192.168.1.1-192.168.1.10:80-100`
+  - MIRROR： 镜射封包，也就是将来源 IP 与目的地 IP 对调后，将封包送回，进行完此处理动作后，将会中断过滤程序。
+  - QUEUE： 中断过滤程序，将封包放入队列，交给其它程序处理。通过自行开发的处理程序，可以进行其它应用，例如：计算连接费用等。
+  - RETURN： 结束在目前规则链中的过滤程序，返回主规则链继续过滤，如果把自定义规则链看成是一个子程序，那么这个动作，就相当于提前结束子程序并返回到主程序中。
+  - MARK： 将封包标上某个代号，以便提供作为后续过滤的条件判断依据，进行完此处理动作后，将会继续匹配其它规则。范例如下：`iptables -t mangle -A PREROUTING -p tcp --dport 22 -j MARK --set-mark 2`
+
+- -i -in-interface [!] [name]
   
-i -进入的 (网络) 接口 [!][名称]
+  i -进入的 (网络) 接口 [!][名称]
   
 这是包经由该接口接收的可选的入口名称，包通过该接口接收 (在链INPUT、FORWORD和PREROUTING中进入的包) 。当在接口名前使用"!"说明后，指的是相反的名称。如果接口名后面加上"+"，则所有以此接口名开头的接口都会被匹配。如果这个选项被忽略，会假设为"+"，那么将匹配任意接口。
   
@@ -624,8 +642,6 @@ RELATED - meaning that the packet is starting a new connection, but is associate
 ### others
 
 tcp通信是双向的，访问公网只会经过OUTPUT链和POSTROUTING链， 访问公网IP不需要经过PREROUTING链，但被访问的服务器向网关返回信息时要经过PREROUTING链。
-
----
 
 [http://baike.baidu.com/view/504557.htm](http://baike.baidu.com/view/504557.htm)  
 [https://wsgzao.github.io/post/iptables/](https://wsgzao.github.io/post/iptables/)  

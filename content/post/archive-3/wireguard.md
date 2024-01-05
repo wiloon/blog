@@ -244,15 +244,14 @@ systemctl restart systemd-networkd
 #### 客户端
 
 局域网ip/address: 192.168.53.xx/32
-端口/port: random
+监听端口/port: random
 DNS servers: 192.168.50.1
 listen port: random
-dns: 192.168.50.1
 mtu: auto
 
 ##### 添加节点/add peer
 
-公钥:  服务端公钥
+公钥: 服务端公钥
 预共享密钥/pre-shared key (可以不填)
 对端/endpoint: xxx.wiloon.com:51xxx
 路由的ip地址: 0.0.0.0/0
