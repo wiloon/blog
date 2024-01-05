@@ -312,3 +312,27 @@ chrt是用来操纵进程的实时属性，所有优先级值在0-99范围内的
 
 [http://blog.csdn.net/zhouleiblog/article/details/9325913](http://blog.csdn.net/zhouleiblog/article/details/9325913)  
 [https://www.linuxcool.com/chrt](https://www.linuxcool.com/chrt)  
+
+## lsblk, blkid
+
+lsblk 是一个 Linux 工具，它会显示有关你系统里所有可用块设备的信息。它从 sysfs 文件系统 中获取信息。默认情况下，这个工具将会以树状格式显示（除了内存虚拟磁盘外的）所有块设备。
+
+默认情况下 lsblk 会将块设备输出为树状格式：
+
+NAME —— 设备的名称
+
+MAJ:MIN —— Linux 操作系统中的每个设备都以一个文件表示，对块（磁盘）设备来说，这里用主次设备编号来描述设备。
+
+RM —— 可移动设备。如果这是一个可移动设备将显示 1，否则显示 0。
+
+TYPE —— 设备的类型
+
+MOUNTPOINT —— 设备挂载的位置
+
+RO —— 对于只读文件系统，这里会显示 1，否则显示 0。
+
+SIZE —— 设备的容量
+
+blkid 命令是一个命令行工具，它可以显示关于可用块设备的信息。它可以识别一个块设备内容的类型（如文件系统、交换区）以及从内容的元数据（如卷标或 UUID 字段）中获取属性（如 tokens 和键值对）。它主要有两类作用：用指定的键值对搜索一个设备，或是显示一个或多个设备的键值对。
+
+https://linux.cn/article-4734-1.html

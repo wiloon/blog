@@ -12,7 +12,7 @@ tags:
 
 [http://tiger2020.blog.51cto.com/723949/1535774](http://tiger2020.blog.51cto.com/723949/1535774)
 
-查看设备的uuid的三种方法,总结如下:
+查看设备的 uuid 的三种方法, 总结如下:
   
 1 命令查看: blkid
   

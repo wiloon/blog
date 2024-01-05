@@ -2,13 +2,20 @@
 title: linux 内核, kernel 
 author: "-"
 date: 2012-02-26T06:37:22+00:00
-url: /?p=2457
+url: kernel
 categories:
   - Linux
 tags:
   - reprint
+  - remix
 ---
 ## linux 内核, kernel
+
+kernel-devel和kernel-headers都是Linux内核开发和编译过程中需要的软件包，它们包含的内容有一定的区别。
+
+kernel-headers是Linux内核头文件的软件包，它包含了编译内核模块所需的头文件和接口定义，但是不包含内核模块的源代码。这些头文件包括了Linux内核的各种数据结构、系统调用和其他接口的声明，编译内核模块时需要这些头文件来编译并链接内核模块。
+
+kernel-devel则是Linux内核开发包，它不仅包含了内核头文件，还包含了编译内核模块所需的各种库文件、编译器和调试工具等。它还包含了内核模块的源代码，可以让开发人员对内核进行修改和定制。
 
 ### kernel doc
 

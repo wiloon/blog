@@ -23,7 +23,9 @@ dnf upgrade
 
 ### 安装
 
+```Bash
     dnf install rsync
+```
 
 ### 删除
 
