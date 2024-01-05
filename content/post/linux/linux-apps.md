@@ -83,7 +83,6 @@ sudo pacman -S powerdevil kmix kscreen ark
 | lsof                  |                                                                                         |
 | playonlinux           | Wine软件兼容层的图形前端，允许Linux安装基于Windows的应用程序                            |
 | podman                |                                                                                         |
-| v2ray                 |                                                                                         |
 | nethogs               |                                                                                         |
 | ttf-jetbrains-mono    | jetbrain的mono字体                                                                      |
 | gpick                 | 颜色拾取工具                                                                            |
@@ -95,7 +94,6 @@ sudo pacman -S powerdevil kmix kscreen ark
 | lrzsz                 | zmodem                                                                                  |
 | remmina               | GTK 编写的远程桌面客户端                                                                |
 | freerdp               | remmina 的RDP 支持包                                                                     |
-| pycharm               |                                                                      |
 |cmake||
 |linux-lts|lts 内核|
 |filelight|图形化的磁盘空间管理工具|
