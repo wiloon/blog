@@ -409,6 +409,6 @@ sudo visudo
   代码:
 
 
-  ```bash
- arpalert ALL=NOPASSWD: /usr/local/sbin/arpdef.pl *
- ```
+```bash
+arpalert ALL=NOPASSWD: /usr/local/sbin/arpdef.pl *
+```

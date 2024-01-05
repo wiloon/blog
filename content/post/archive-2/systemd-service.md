@@ -62,35 +62,35 @@ WantedBy=multi-user.target
 
 ExecStart 执行的命令有参数时, 不要把可执行文件的路径和参数放在双引号里, ExceStart 会把参数 当作路径 的一部分, 然后报错说找不到文件.
 
-### systemd 添加开机启动运行shell脚本
+### systemd 添加开机启动运行 shell 脚本
 
-systemd 添加开机启动运行shell脚本
+systemd 添加开机启动运行 shell 脚本
   
-1.首先在/etc/systemd/systemd/下新建一个开机启动服务名为cs.service
+首先在 /etc/systemd/systemd/ 下新建一个开机启动服务名为 cs.service
   
 内容如下
 
 ```bash
 [Unit]
-# 开机启动会打印 [ok] description0
+# 开机启动会打印 description0
 Description=description0
 
 [Service]
-# ------->你要开机运行的脚本必须绝对位置 /bin/sh 为shell解释器不能省
+# 脚本路径必须是绝对路径 /bin/sh 为 shell 解释器不能省
 ExecStart=/bin/sh /home/root/cs.sh 
 
 [Install]
-
 WantedBy=multi-user.target
-# -------->你要安排在哪个服务后面才启动 (如依赖的服务) 
+
+# 在哪个服务后面启动 (如依赖的服务)
 Requires=pulseaudio.service
-#  --------->你要安排在哪个服务后面才启动 (如依赖的服务) 
+# 在哪个服务后面启动 (如依赖的服务)
 After=pulseaudio.service
 ```
 
-写好之后 敲入 #systemctl enable cs.service 将它添加到开机启动
+写好之后 敲入 `systemctl enable cs.service` 将它添加到开机启动
 
->注 脚本里的命令也必须是写绝对路径！！！！！！！！！！！！！！！
+>注: 脚本里的命令也必须是写绝对路径
 
 [http://lxiaogao.lofter.com/post/1cc6a101_62292d3](http://lxiaogao.lofter.com/post/1cc6a101_62292d3)
 
@@ -146,7 +146,6 @@ Restart=always
 
 [Install]
 WantedBy=multi-user.target
-
 ```
 
 ### zookeeper
@@ -284,19 +283,19 @@ Alias=dbus-org.freedesktop.NetworkManager.service
 
 Also=NetworkManager-dispatcher.service
 
-整个文件分三个部分,[Unit]·[Service]·[Install]
+整个文件分三个部分
 
-[Unit]: 记录unit文件的通用信息。
+- `[Unit]`: 记录unit文件的通用信息。
+- `[Service]`: 记录Service的信息
+- `[Install]`: 安装信息。
 
-[Service]: 记录Service的信息
-
-[Install]: 安装信息。
-
-### Unit主要包含以下内容
+### Unit 主要包含以下内容
 
 - Description: 对本service的描述。
 - Before, After: 定义启动顺序,Before=xxx.service,代表本服务在xxx.service启动之前启动。After=xxx.service,代表本服务在xxx之后启动。
-- Requires: 这个单元启动了,那么它"需要"的单元也会被启动; 它"需要"的单元被停止了,它自己也活不了。但是请注意,这个设定并不能控制某单元与它"需要"的单元的启动顺序 (启动顺序是另外控制的) ,即 Systemd 不是先启动 Requires 再启动本单元,而是在本单元被激活时,并行启动两者。于是会产生争分夺秒的问题,如果 Requires 先启动成功,那么皆大欢喜; 如果 Requires 启动得慢,那本单元就会失败 (Systemd 没有自动重试) 。所以为了系统的健壮性,不建议使用这个标记,而建议使用 Wants 标记。可以使用多个 Requires。
+- After, 与 Requires 相似，但会在后面列出的所有模块全部启动完成以后，才会启动当前的服务。After和Before字段只涉及启动顺序，不涉及依赖关系。
+- Requires: 这个 unit 启动了, 那么它 "需要(Requires)" 的 unit 也会被启动; 它"需要"的单元被停止了, 它自己也活不了。但是请注意, 这个设定并不能控制某单元与它"需要"的单元的启动顺序 (启动顺序是另外控制的) , 即 Systemd 不是先启动 Requires 再启动本单元, 而是在本单元被激活时, 并行启动两者。
+  于是会产生争分夺秒的问题, 如果 Requires 先启动成功,那么皆大欢喜; 如果 Requires 启动得慢,那本单元就会失败 (Systemd 没有自动重试) 。所以为了系统的健壮性,不建议使用这个标记,而建议使用 Wants 标记。可以使用多个 Requires。
 - RequiresOverridable: 跟 Requires 很像。但是如果这条服务是由用户手动启动的,那么 RequiresOverridable 后面的服务即使启动不成功也不报错。跟 Requires 比增加了一定容错性,但是你要确定你的服务是有等待功能的。另外,如果不由用户手动启动而是随系统开机启动,那么依然会有 Requires 面临的问题。
 - Requisite: 强势版本的 Requires。要是这里需要的服务启动不成功,那本单元文件不管能不能检测等不能等待都立刻就会失败。
 - Wants: 推荐使用。本单元启动了,它"想要"的单元也会被启动。但是启动不成功,对本单元没有影响。
@@ -326,9 +325,11 @@ notify,idle类型比较少见,不介绍。
 
 Install主要包含以下内容:
 
-- WantedBy: 何种情况下,服务被启用。
+- WantedBy: 何种情况下, 服务被启用。
 
-    eg: WantedBy=multi-user.target (多用户环境下启用)
+  Target的含义是服务组，表示一组服务。WantedBy=multi-user.target指的是，sshd 所在的 Target 是multi-user.target。
+  eg: WantedBy=multi-user.target (多用户环境下启用)
+
 - Alias: 别名
 
 multi-user.target

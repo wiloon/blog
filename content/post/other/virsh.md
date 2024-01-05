@@ -264,6 +264,7 @@ pacman -S bridge-utils
 ip link add br0 type bridge
 ip link set dev br0 up
 ip link set enp0s29u1u1 master br0
+
 # delete ip on enp0s20f0u2
 ip addr flush enp0s20f0u2
 ip address add dev br0 192.168.50.17
@@ -290,7 +291,6 @@ sysctl -p /etc/sysctl.d/99-netfilter-bridge.conf
 bridged-network.xml
 
 ```xml
-
 <network>
     <name>bridged-network</name>
     <forward mode="bridge" />

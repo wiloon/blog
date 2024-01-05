@@ -22,6 +22,9 @@ sha1sum foo.tar
 certutil -hashfile foo.tar MD5
 certutil -hashfile foo.tar SHA1
 certutil -hashfile foo.tar SHA256
+
+# macos
+md5 foo.tar
 ```
 
 MD5: 一种单向Hash函数/单向散列函数

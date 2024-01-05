@@ -2,11 +2,12 @@
 title: drill, dns tool, dig/drill, dnsutils to ldns dig -> dirll
 author: "-"
 date: 2016-07-12T05:16:26+00:00
-url: /?p=9125
+url: drill
 categories:
-  - Inbox
+  - Network
 tags:
   - reprint
+  - remix
 ---
 ## drill, dns tool, dig/drill, dnsutils to ldns dig -> dirll
 

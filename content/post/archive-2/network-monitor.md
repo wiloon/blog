@@ -18,7 +18,6 @@ tags:
 
 ```bash
 sudo pacman -S nethogs
-
 ```
 
 ```bash
