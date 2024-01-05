@@ -47,9 +47,11 @@ plugins=(git zsh-autosuggestions)
 ```bash
 sudo pacman -S git zsh
 
-#install oh-my-zsh, will set default shell to zsh
-sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+# install oh-my-zsh, will set default shell to zsh
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 ```
+
+https://ohmyz.sh/
 
 ## switch to zsh
 

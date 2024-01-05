@@ -15,7 +15,7 @@ tags:
 ## 参数, options
 
 ```bash
--Sy #仅同步源
+-Sy # 仅同步源
 -Syy # 两个 y 代表强制更新 database 文件, 即使文件看起来是最新的, 回退到旧版本的时候会用到
 -Syyuu # 降级软件包的时候用
 -Q 查询 pacman 数据库, 比如查询某一个已经安装的包的版本 pacman -Q openssl

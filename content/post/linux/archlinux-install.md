@@ -54,7 +54,8 @@ archinstall
 - Archinstall language: English
 - Mirrors: China
 - Locales: us, en_US, UTF-8
-- 
+
+安装完成之后 chroot 并启用 sshd
 
 
 ```bash
@@ -127,7 +128,7 @@ systemctl enable sshd
 
 初始化脚本后，70MB, 2.4G
 
-
+archlinux + KDE: 内存 1.2G, 磁盘: 4.4G
 
 ### 设置网络
 
@@ -352,3 +353,5 @@ sudo dd bs=4M if=archlinux-2020.03.01-x86_64.iso of=/dev/sdx status=progress && 
 
 # boot with usb stick
 ```
+
+[archlinux 简明指南](https://arch.icekylin.online/)

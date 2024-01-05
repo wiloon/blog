@@ -42,7 +42,7 @@ PaaS公司在网上提供各种开发和分发应用的解决方案，比如虚�
   
 你消费的服务完全是从网页如Netflix, MOG, Google Apps, Box.net, Dropbox或者苹果的iCloud那里进入这些分类。尽管这些网页服务是用作商务和娱乐或者两者都有，但这也算是云技术的一部分。
   
-一些用作商务的SaaS应用包括Citrix的GoToMeeting，Cisco的WebEx，Salesforce的CRM，ADP，Workday和SuccessFactors。
+一些用作商务的 SaaS 应用包括 Citrix 的 GoToMeeting，Cisco 的 WebEx，Salesforce的CRM，ADP，Workday和SuccessFactors。
 
 Iaas和Paas之间的比较
 

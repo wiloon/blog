@@ -27,14 +27,20 @@ Settings> General> Advanced> Shared Clipboard: Bidirectional
 
 ## archlinux guest
 
-在 virtual box 内安装的archlinux, 需要安装 virtualbox-guest-utils, 可以获得更流畅的图形界面,如 virtual的无缝模式。
+在 virtual box 内安装的 archlinux, 需要安装 virtualbox-guest-utils, 可以获得更流畅的图形界面, 如 virtual 的无缝模式。
 
 ```bash
 # for VirtualBox Guest utilities with X support
 sudo pacman -S virtualbox-guest-utils
-# 启用vboxservice, 否则无缝模式(seamless mode)的选项会是灰色的不可用状态
+
+# for VirtualBox Guest utilities without X support
+sudo pacman -S virtualbox-guest-utils-nox
+
+# 启用 vboxservice, 否则无缝模式(seamless mode)的选项会是灰色的不可用状态
 sudo systemctl --now enable vboxservice.service
 ```
+
+剪贴板共享默认是关闭的, 在这里打开: Settings > General > Advanced > Shared Clipboard
 
 [https://wiki.archlinux.org/index.php/VirtualBox](https://wiki.archlinux.org/index.php/VirtualBox)
 [https://bbs.archlinux.org/viewtopic.php?id=118986](https://bbs.archlinux.org/viewtopic.php?id=118986)
@@ -133,3 +139,13 @@ linux 虚拟机如果有图形界面的话, 可以用 `gparted` 做后续扩容�
 [https://linux.cn/article-12869-1.html](https://linux.cn/article-12869-1.html)
 
 [https://wiki.archlinux.org/title/VirtualBox](https://wiki.archlinux.org/title/VirtualBox)
+
+## 导出
+
+导出 ova 格式的备份
+
+File> Export Application
+
+https://www.virtualbox.org/
+
+https://wiki.archlinux.org/title/VirtualBox/Install_Arch_Linux_as_a_guest
