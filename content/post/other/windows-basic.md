@@ -275,7 +275,7 @@ rmdir /s /q folder0
 
 ## winget, windows 的包管理工具
 
-### winget search
+### 按名字查找包, winget search
 
 ```bash
 winget search golang

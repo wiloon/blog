@@ -2,33 +2,29 @@
 title: urxvt
 author: "-"
 date: 2017-02-10T04:08:47+00:00
-url: /?p=9768
+url: urxvt
 categories:
-  - Inbox
+  - Linux
 tags:
   - reprint
+  - remix
 ---
 ## urxvt
+
 urxvt is a highly customizable terminal emulator.
 
 ```bash
+# install
 sudo pacman -S rxvt-unicode
+
 #start rxvt-unicode
 urxvt
-
-#加载 urxvt 配置文件
-xrdb -load ~/.Xresources
-xrdb ~/.Xresources
-
-# 'rxvt-unicode-256color': unknown terminal type.
-urxvt -tn xterm
-#or
-mkdir -p ~/.terminfo/r/
-scp /usr/share/terminfo/r/rxvt-unicode-256color user@remotehost:.terminfo/r/
-
 ```
 
-配置文件在$HOME/.Xresources这个文件中。
+```Bash
+# 没有的话就创建这个文件, urxvt 启动的时候自动加载
+vim ~/.Xresources
+```
 
 ! 起始的行是注释
   
@@ -151,3 +147,17 @@ http://forum.ubuntu.org.cn/viewtopic.php?t=66302
 https://wiki.archlinux.org/index.php?title=Rxvt-unicode&redirect=no#Installation
   
 http://blog.liangzan.net/blog/2012/01/19/my-solarized-themed-arch-linux-setup/
+
+
+```Bash
+#加载 urxvt 配置文件
+xrdb -load ~/.Xresources
+xrdb ~/.Xresources
+
+# 'rxvt-unicode-256color': unknown terminal type.
+urxvt -tn xterm
+#or
+mkdir -p ~/.terminfo/r/
+scp /usr/share/terminfo/r/rxvt-unicode-256color user@remotehost:.terminfo/r/
+
+```

@@ -731,6 +731,7 @@ git clone <版本库的网址> <本地目录名>
 
 ```bash
 #checkout tag/branch
+# -b, --[no-]branch <branch>, checkout <branch> instead of the remote's HEAD
 git clone --branch <branch or tag name> <repo_url>
 git clone -b dev_jk http://10.1.1.11/service/tmall-service.git
 git clone -b v1.30.0 https://github.com/foo/bar

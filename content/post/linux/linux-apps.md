@@ -18,11 +18,14 @@ tags:
 - screenfetch, 打印发行版的 logo
 - mousepad, 易于使用的快速的文本编辑器
 - obsidian, 知识管理
+- code, visual studio code, vscode
+- chromium, 开源版chrome
 
 ## AUR
 
 - google-chrome
 - redisinsight: redis GUI
+- jetbrains-toolbox
 
 ## application list
 
@@ -50,7 +53,6 @@ sudo pacman -S powerdevil kmix kscreen ark
 | keepassxc             |                                                                                         |
 | sqlectron-gui         |                                                                                         |
 | hyper                 |                                                                                         |
-| code                  | visual studio code, vscode                                                              |
 | rsibreak              | 番茄钟                                                                                   |
 | libreoffice-fresh     |                                                                                         |
 | ark                   | kde dolphin extract zip,gz                                                              |

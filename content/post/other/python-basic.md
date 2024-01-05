@@ -14,13 +14,19 @@ tags:
 ## commands
 
 ```bash
+# install pip
+pacman -S python-pip
+
 # install specific version
 yay -S python36
-pacman -S python-pip
+
 # 打印包版本
 pip list
 pip install "setuptools<58.0.0"
+
+# -r, --requirement <file>    Install from the given requirements file. This option can be used multiple times.
 pip install -r requirements.txt
+
 pip freeze #查看当前安装库版本
 # 创建 requirements.txt 文件，其中包含了当前环境中所有包及各自的版本的简单列表
 # 保持部署相同，一键安装所有包
@@ -364,7 +370,7 @@ pickle.load(file)
 
 ## python 虚拟环境
 
-- venv: Python 标准库内置的虚拟环境管理工具，Python 3.3 加入，Python 3.5 开始作为管理虚拟环境的推荐工具，用法类似 virtualenv。如果你使用 Python 3，推荐使用 venv 来替代 virtualenv
+- venv(推荐): Python 标准库内置的虚拟环境管理工具，Python 3.3 加入，Python 3.5 开始作为管理虚拟环境的推荐工具，用法类似 virtualenv。如果你使用 Python 3，推荐使用 venv 来替代 virtualenv
 - archlinux> pyenv
 - PyPA：指 Python Packaging Authority，一个维护 Python 打包相关项目的小组，相关项目具体见 [https://github.com/pypa](https://github.com/pypa)。
 - pip：Python 包安装器。

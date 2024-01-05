@@ -155,4 +155,8 @@ another [link][2].
 
  [1]: http://wiloon.com "title wiloon.com"
 
-[https://www.markdownguide.org/](https://www.markdownguide.org/)
+## link, 链接
+
+`[text](url)`
+
+[Markdown Guide](https://www.markdownguide.org/)

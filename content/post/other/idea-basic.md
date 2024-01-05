@@ -11,6 +11,10 @@ tags:
 ---
 ## JetBrains, idea, basic
 
+## HiDPI
+
+search everywhere> "Show HiDPI Info"
+
 ## JetBrains keys, 快捷键
 
 - 列编辑/column selection mode,  Alt+Shift+Insert,Alt+Shift+i
