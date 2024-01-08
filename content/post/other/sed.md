@@ -14,7 +14,12 @@ tags:
 
 ```bash
 # 把 foo 替换成 bar
-sed -i 's/foo/bar/' file0
+# linux
+echo 'abcfooabc' > file0
+sed 's/foo/bar/' file0
+
+echo 'abcfooabc'| sed 's/foo/bar/'
+
 # macos
 sed -i '' 's/foo/bar/' file0
 ```
@@ -38,7 +43,11 @@ sed [-hnV][-e<script>][-f<script文件>][文本文件]
 -f # 直接将 sed 的动作写在一个文件内,  -f filename 则可以运行 filename 内的 sed 动作；
 -r # sed 的动作支持的是延伸型正规表示法的语法。(默认是基础正规表示法语法)
 -n # 使用安静(silent)模式。在一般 sed 的用法中, 所有来自 STDIN 的数据一般都会被列出到终端上。但如果加上 -n 参数后，则只有经过sed 特殊处理的那一行(或者动作)才会被列出来。
--e script, --expression=script: -e # 参数不常用, 因为 sed 默认把第一个非选项的字符串作为脚本, -e 参数用来显示的指定脚本位置， -e 和 -f 可以同时出现，也可以多次出现, 使用了-e之后，其它非选项字符串都 被认为是输入。
+-e script, --expression=script: sed -e  是可以在一行里执行多条命令, -e 参数用来显示的指定脚本位置， -e 和 -f 可以同时出现，也可以多次出现, 使用了 -e 之后，其它非选项字符串都被认为是输入。
+```
+
+```Bash
+sed -e 's/foo/bar/' -e 's/foobar/barfoo/' file0
 ```
 
 ### 删除包含指定字符的行

@@ -10,6 +10,10 @@ tags:
 ---
 ## VirtualBox
 
+## 显存
+
+使用 4k 显示器的时候如果 virtualbox 显存设置的太小, 会导致黑屏.
+
 ## 剪贴板共享
 
 Settings> General> Advanced> Shared Clipboard: Bidirectional

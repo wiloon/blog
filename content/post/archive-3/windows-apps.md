@@ -19,7 +19,8 @@ tags:
 
 ## winget
 
-- winscp, id: WinSCP.WinSCP
+- winscp, WinSCP.WinSCP
+- firefox, Mozilla.Firefox
 
 ### choco
 
