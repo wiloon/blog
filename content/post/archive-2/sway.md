@@ -11,6 +11,10 @@ tags:
 ---
 ## sway
 
+virtualbox 里的 sway
+
+virtualbox 窗口在不同分辨率的显示器之间切换时花屏, 剪贴板不好用, 窗口不能自动缩放 2024-01-08T08:17:03+08:00
+
 ## fedora sway
 
 1. download Fedora Sway Spin iso
