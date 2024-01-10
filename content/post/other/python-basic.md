@@ -697,7 +697,6 @@ class TestKafka(unittest.TestCase):
     def test_send(self):
         send_to_kafka("foo")
 
-
 if __name__ == '__main__':
     unittest.main()
 ```
@@ -955,7 +954,6 @@ from core.foo import bar
 faulthandler.enable()
 if __name__ == '__main__':
     bar()
-
 ```
 
 ```bash
@@ -1016,7 +1014,7 @@ l.remove(1)
 
 >>> x = set('spam')  
 >>> y = set(['h','a','m'])  
->>> x, y  
+>>> x, y
 (set(['a', 'p', 's', 'm']), set(['a', 'h', 'm']))    
   
 >>> x & y # 交集  
