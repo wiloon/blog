@@ -17,6 +17,11 @@ tags:
 - todesk 远程桌面
 - taskmgr, 任务管理器, C:\Windows\System32\Taskmgr.exe
 
+## winget
+
+- winscp, WinSCP.WinSCP
+- firefox, Mozilla.Firefox
+
 ### choco
 
 ```bash

@@ -98,4 +98,5 @@ meson build/ --prefix=/root/tmp/foo
 ```
 
 [https://man.archlinux.org/man/weston.1](https://man.archlinux.org/man/weston.1)
+
 [https://gitlab.freedesktop.org/wayland/weston](https://gitlab.freedesktop.org/wayland/weston)

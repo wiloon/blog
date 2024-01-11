@@ -18,11 +18,14 @@ tags:
 - screenfetch, 打印发行版的 logo
 - mousepad, 易于使用的快速的文本编辑器
 - obsidian, 知识管理
+- code, visual studio code, vscode
+- chromium, 开源版chrome
 
 ## AUR
 
 - google-chrome
 - redisinsight: redis GUI
+- jetbrains-toolbox
 
 ## application list
 
@@ -50,7 +53,6 @@ sudo pacman -S powerdevil kmix kscreen ark
 | keepassxc             |                                                                                         |
 | sqlectron-gui         |                                                                                         |
 | hyper                 |                                                                                         |
-| code                  | visual studio code, vscode                                                              |
 | rsibreak              | 番茄钟                                                                                   |
 | libreoffice-fresh     |                                                                                         |
 | ark                   | kde dolphin extract zip,gz                                                              |
@@ -81,7 +83,6 @@ sudo pacman -S powerdevil kmix kscreen ark
 | lsof                  |                                                                                         |
 | playonlinux           | Wine软件兼容层的图形前端，允许Linux安装基于Windows的应用程序                            |
 | podman                |                                                                                         |
-| v2ray                 |                                                                                         |
 | nethogs               |                                                                                         |
 | ttf-jetbrains-mono    | jetbrain的mono字体                                                                      |
 | gpick                 | 颜色拾取工具                                                                            |
@@ -93,7 +94,6 @@ sudo pacman -S powerdevil kmix kscreen ark
 | lrzsz                 | zmodem                                                                                  |
 | remmina               | GTK 编写的远程桌面客户端                                                                |
 | freerdp               | remmina 的RDP 支持包                                                                     |
-| pycharm               |                                                                      |
 |cmake||
 |linux-lts|lts 内核|
 |filelight|图形化的磁盘空间管理工具|

@@ -13,7 +13,8 @@ tags:
 
 ## tighervnc nightly build
 
-[https://github.com/TigerVNC/tigervnc/releases](https://github.com/TigerVNC/tigervnc/releases)  
+[https://github.com/TigerVNC/tigervnc/releases](https://github.com/TigerVNC/tigervnc/releases)
+
 [http://tigervnc.bphinz.com/nightly/](http://tigervnc.bphinz.com/nightly/)
 
 ### archlinux

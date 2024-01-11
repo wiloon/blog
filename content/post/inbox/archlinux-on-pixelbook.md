@@ -50,7 +50,7 @@ ip -4 a show dev eth0
 # install yay
 yay -S cros-container-guest-tools-git
 sudo pacman -S wayland
-sudo pacman -S  xorg-server-xwayland
+sudo pacman -S xorg-server-xwayland
 
 # 第一次执行如果报错,尝试停掉container重启
 lxc stop arch
