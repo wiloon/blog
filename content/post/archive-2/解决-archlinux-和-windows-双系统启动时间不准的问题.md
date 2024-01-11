@@ -15,10 +15,12 @@ tags:
 ```bash
 pacman -S openntpd
 systemctl start openntpd
-```
 
 ntpd -s -d
 
 hwclock -w
+```
+
+
 
 [http://mindonmind.github.io/notes/linux/arch_time.html](http://mindonmind.github.io/notes/linux/arch_time.html)```
