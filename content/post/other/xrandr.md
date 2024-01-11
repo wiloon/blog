@@ -1,21 +1,43 @@
 ---
-title: 'Linux  双显示器/多屏/扩展屏幕/xrandr'
+title: xrandr
 author: "-"
 date: 2012-11-11T11:21:57+00:00
-url: /?p=4647
+url: xrandr
 categories:
   - Linux
 tags:
   - reprint
+  - remix
 ---
 ## 'Linux  双显示器/多屏/扩展屏幕/xrandr'
 
+- Can't open display :0
+
+  用 root 用户执行 xrandr 会报错 Can't open display :0, 尝试用其它普通用户
+
+https://www.reddit.com/r/linux4noobs/comments/lu1plx/hi_i_get_this_authorization_required_but_no/
+
+## 4k 显示器调整 dpi
+
+```Bash
+xrandr -display :0.0 --listmonitors
+xrandr -display :0 --listmonitors
+xrandr -display :0 --dpi 144
+
+# 或者这样配置环境变量
+export DISPLAY=:0
+xrandr --listmonitors
+```
+
+```Bash
+xrdb -query
+xdpyinfo|grep dots
+xdpyinfo | grep -B 2 resolution
+```
+
 ```bash
-
 xrandr -verbose
-
 xrandr -output DVI-0 -left-of VGA-0 -auto
-  
 ```
 
 不带参数执行xrandr能够列出当前的显示设备和每个设备支持的模式。 edit xorg.conf add line Virtual 2560 1024

@@ -1,14 +1,21 @@
 ---
-title: display manager(DM), 显示管理器, sddm, gdm3, lightdm
+title: DM, DE, WM
 author: "-"
 date: 2013-11-08T15:28:48+00:00
 url: /?p=5910
 tags:
   - Linux
 categories:
-  - inbox
+  - reprint
 ---
 ## display manager(DM), 显示管理器, sddm, gdm3, lightdm
+
+## DE(Desktop Environment)
+
+DE就是 KDE Gnome Xfce这类大而全的软件, 每个DE都包含了WM , kde 的wm 是kwin, gnome也有自己的wm, 除此之外, DE还包含了很多其他的配套软件, 而WM只是DE的子集.DE的优点在于用户友好, 桌面配套软件高度图形化, 符合很多从windows来的用户的使用习惯, 并且有丰富的特效.
+但是DE的缺点很明显也很致命: 复杂 并且窗口操作效率和windows一样低下或者在经过用户设置后要稍微好一些.
+
+## WM(window manager)
 
 ### sddm
 
@@ -47,7 +54,7 @@ categories:
       
         killall chinput
 
-对于更为详细的$HOME/.xinitrc，你可以找更专业的书籍来看，我的目标是越简单越好。前面的大家应该都比较清楚吧。先设一些环境变量，再设下一些输入法(我用的是智能五笔)， 接下来是启动视窗管理程序kde3，注意了: kde3用shell script的exec描述所执行的，这造成执行xinit程序的shell会被执行kde3的shell所取代。所以一旦kde3程序结束，就会跳出 shell，相对地，xinit将会跟着结束，X Server将关闭。这正是X Window Manager执行的方式。必须确定在.xinitrc中最后执行的是指令是以exec为开头的的命令执行X Windows Manager,而且不应该加上&放在一些背景执行，不然，那些指令也毫无意义。后面的killall chinput是告诉要结束chinput，不然极有可能会因为chinput的原因，会造成一些问题。这是最为简单的桌面设置。倘若你还要启动更多的程序和设置，都可以在前面加的。只要你在你的$HOME/.xinitrc文件中稍加增加便可做到，但要记住加在X Window Manager执行段落之前。
+对于更为详细的 `$HOME/.xinitrc`，你可以找更专业的书籍来看，我的目标是越简单越好。前面的大家应该都比较清楚吧。先设一些环境变量，再设下一些输入法(我用的是智能五笔)， 接下来是启动视窗管理程序kde3，注意了: kde3用shell script的exec描述所执行的，这造成执行xinit程序的shell会被执行kde3的shell所取代。所以一旦kde3程序结束，就会跳出 shell，相对地，xinit将会跟着结束，X Server将关闭。这正是 X Window Manager 执行的方式。必须确定在.xinitrc中最后执行的是指令是以exec为开头的的命令执行X Windows Manager,而且不应该加上&放在一些背景执行，不然，那些指令也毫无意义。后面的killall chinput是告诉要结束chinput，不然极有可能会因为chinput的原因，会造成一些问题。这是最为简单的桌面设置。倘若你还要启动更多的程序和设置，都可以在前面加的。只要你在你的$HOME/.xinitrc文件中稍加增加便可做到，但要记住加在X Window Manager执行段落之前。
 
 [2]X视窗资源文件-Xdefaults
  在X的文献中，resources有两种意义。第一种是指被server管理或建立桌面应用程序使用的东西，例如: 视窗、光标、字体等均属于这种意义。另外的一种又是指一种可以传递预设置值、参数和其它值给应用程序的方法，比如，可以定义视窗的大小、前景颜色、显示字体、快捷键等。而在X Window System的操作应用过程中，泛指的resources的意义也局限于第二种，主要是采用resources功能。在X Window System 的资源文件Xdefaults中，主要是设置合适自己喜欢的应用程序的操作操控环境或界面。一般会执行X后，会自动读取$ HOME/.Xdefaults.
@@ -56,7 +63,7 @@ categories:
  /usr/XR116/lib/X11/app-defaults中，并以这些程序名称的大写文件名命名。比如，Xclok时钟程序的资源文件就是Xclock。其它的你自己看一下就会明白了。你可以直接修改这些应用程序的的资源文件，作为系统内定的应用程序的样式。不一定都要非得修改. Xdefaults来完成。因为.Xdefaults通常是个人爱好而使用环境来设置的东西。
 
 2. 启动我们的 X Window System
-X Window System的启动方法很多，最常用的还是上面得到的startx，除此外，还要先执行"X"启动X视窗系统，或者执行xinit启动X。现在的发行版本一般都是以xdm/gdm/kdm启动X，让Linux系统一启动就立即进入X Window System，并以图形模式让用用户来登录。倘若你想退出X Window Manager，你可以xterm中执行init 3离开。
+X Window System的启动方法很多，最常用的还是上面得到的startx，除此外，还要先执行"X"启动X视窗系统，或者执行xinit启动X。现在的发行版本一般都是以xdm/gdm/kdm启动X，让Linux系统一启动就立即进入X Window System，并以图形模式让用用户来登录。倘若你想退出 X Window Manager，你可以xterm中执行init 3离开。
 
 ### 以xinit/startx来启动X
 
@@ -96,13 +103,13 @@ X Window System的启动方法很多，最常用的还是上面得到的startx�
     2)执行/etc/X11/xdm/Xsessions来启动xdm或者是gdm。如果启动的是xdm，则装入用户家目录上的配置文件，.xsession和.Xclients。如果是gdm，则装载入/etc/X11/gdm/Sesseion与.Xclients。到此为止，就会出现X 视窗的登录的界面选项。
   
   
-    3)gdm则会检查/etc/X11/gdm/Session目录的Session操作。比如Fvwm,Wmaker,Default, Failsafe，Gnome,Kde与Default等。并将显示给用户选择进入哪个X Window Manager。其实这些Sessions都是Shell Script file。如果你选择Kde，就进入KDE DeskTop environment，选择Gnome就会进入GNOME DeskTop environment了。
+3)gdm则会检查/etc/X11/gdm/Session目录的Session操作。比如Fvwm,Wmaker,Default, Failsafe，Gnome,Kde与Default等。并将显示给用户选择进入哪个 X Window Manager。其实这些Sessions都是Shell Script file。如果你选择Kde，就进入KDE DeskTop environment，选择Gnome就会进入GNOME DeskTop environment了。
   
   
     4)用户如果选择是的Gnome，在输入用户名和password后，gdm GNOME Session就会找gnomerc script,$HOME/.gnomerc，如果没有这个文件，就会读会系统文件内定的GNOME resource file:/etc/X11/gdm/gnomerc，并且启动/usr/bin/gnome-session.
   
   
-    这就完成了一个xdm/gdm的过程。但细心的人会发现，startx会读取$HOME/.xinitrc，而xdm/gdm为什么不会读取这个呢，它又是如何设置根视窗口背景及你的logo和X Window Manager的呢。其中的原因是因为xdm/gdm改用了/etc/X11/xdm/Setup_0来设置的。其中xsetroot是设置根视窗颜色的，并执行xconsole设置系统登录画面的登录位置(geometry)。
+这就完成了一个xdm/gdm的过程。但细心的人会发现，startx会读取$HOME/.xinitrc，而xdm/gdm为什么不会读取这个呢，它又是如何设置根视窗口背景及你的logo和X Window Manager的呢。其中的原因是因为xdm/gdm改用了/etc/X11/xdm/Setup_0来设置的。其中xsetroot是设置根视窗颜色的，并执行xconsole设置系统登录画面的登录位置(geometry)。
   
   
     如果你想修改xdm/gdm执行时所采用的color depth(色深？)，可以修改/etc/X11/xdm/Xservers中的内容。我的Mandrake90中的是这样的: 
@@ -196,7 +203,7 @@ X Window System的启动方法很多，最常用的还是上面得到的startx�
     
   
   
-    5)对于使用何种X Window Manager与载入方式，并不属于Display Manager的范围。Display Manager只要负责启动各种Sessions即可。总这一句话，X Display Manager只管理sessions，想要实现更外层的工作，则可以让sessions自己去做哦。
+5)对于使用何种X Window Manager与载入方式，并不属于Display Manager的范围。Display Manager只要负责启动各种Sessions即可。总这一句话，X Display Manager只管理sessions，想要实现更外层的工作，则可以让sessions自己去做哦。
   
   
     6) 如果你喜欢那种方式Display Manager，你都可以选择嘛，修改成自己喜欢的东西。例如我的mandrake90中有/etc/X11/prefdm是目前系统内定使用的Display Manager。你看到它是只是一个/usr/bin/gdm一个连接而已。你还可以在/etc/inittab文件中最后定义像下面的，
@@ -221,11 +228,11 @@ X Window System的启动方法很多，最常用的还是上面得到的startx�
     你自己做个你系统有的xdm/gdm的连接就可以了。
   
   
-    3。结束我们X Window Manager.
+结束我们X Window Manager.
   
   
-    这个大家都会了吧。最简单的就是选择X Window Manager中的exit或logout或相关的就可以了。
- 呵呵，还记前面介绍的个 HOME/.xinitrc文件吧，是就在结束.xinitrc文件吧，执行了一个叫exec kde3的程序，这样的好处就是结束X Window Manager的时候，会连同x-server一起结束。另外的就是按CRTL+ALT+Backspace来结束你的X Window Manager吧，它就是把中断信号送给X-server结束X回到console terminal。
+这个大家都会了吧。最简单的就是选择X Window Manager中的exit或logout或相关的就可以了。
+呵呵，还记前面介绍的个 HOME/.xinitrc文件吧，是就在结束.xinitrc文件吧，执行了一个叫exec kde3的程序，这样的好处就是结束X Window Manager的时候，会连同x-server一起结束。另外的就是按CRTL+ALT+Backspace来结束你的X Window Manager吧，它就是把中断信号送给X-server结束X回到console terminal。
   
     上面的情况是针对用startx启动X的，如果你是用xdm/kdm/gdm来启动你的X的话，你按上面的方法是又会回到X视窗的登录界面的，X -server并不会结束。你可以在console下，运行init 3就会结束你的X-server，如果你是init 5的话，那X-server又回来了。
   

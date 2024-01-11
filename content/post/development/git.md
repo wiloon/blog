@@ -706,7 +706,7 @@ git pull -v
 git pull origin master
 git pull origin branch0
 git pull --rebase # rebase the current branch on top of the upstream branch after fetching.
-git pull --no-rebase
+git pull --no-rebase # merge
 git config --global pull.rebase true # merge
 git config pull.rebase false  # merge
 git config pull.rebase true   # rebase
@@ -731,6 +731,7 @@ git clone <版本库的网址> <本地目录名>
 
 ```bash
 #checkout tag/branch
+# -b, --[no-]branch <branch>, checkout <branch> instead of the remote's HEAD
 git clone --branch <branch or tag name> <repo_url>
 git clone -b dev_jk http://10.1.1.11/service/tmall-service.git
 git clone -b v1.30.0 https://github.com/foo/bar

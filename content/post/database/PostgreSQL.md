@@ -414,8 +414,12 @@ SELECT pg_terminate_backend(pid) FROM pg_stat_activity WHERE state='idle';
 ## 导出 csv
 
 ```sql
-copy (select now()) to '/tmp/foo.csv' with csv header;
-psql --dbname=database0 --host=127.0.0.1 --username=user0 -c "COPY (select now();) TO STDOUT with csv header" > /tmp/foo.csv
+COPY (
+  SELECT foo, bar
+  FROM table0
+)
+TO '/path/to/output.csv'
+WITH csv header;
 ```
 
 ————————————————

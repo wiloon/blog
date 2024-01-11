@@ -10,8 +10,6 @@ tags:
 ---
 ## xfce
 
-xfce 目前对 4K 显示器支持的不好 2024-01-04T11:28:41+08:00
-
 ## disable taskbar items grouping
 
 Right click on the taskbar, select Panel -> Panel Preferences

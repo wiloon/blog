@@ -55,7 +55,7 @@ All interactive shells source `/etc/bash.bashrc` and `~/.bashrc`, while interact
 
 有一些常见的情况,例如从Debian的包管理程序到Iaas的管理中,很多任务需要设置环境变量才能正常运行。
 
-有时,程序通常只需要在首次登陆时运行一次,例如xrandr命令。
+有时, 程序通常只需要在首次登陆时运行一次,例如 xrandr 命令。
 
 此外,有的程序偶尔会被注入到shell中,例如rbenv,rvn或 SitePoint's自己的 envswith 程序。
 
@@ -131,7 +131,7 @@ fi
 
 当启动X Window系统会话时 (不管是用显示管理或从虚拟终端启动startx) ,将会执行/etc/X11/Xsessionshell脚本。这基本上相当于登录shell调用/etc/profile。这个只对X Window生效,并且不是将其作为源配置文件,而是直接执行。但是它也相当复杂,类似于/etc/profile怎么从/etc/profile.d目录中的脚本读取配置,怎么从/etc/X11/Xsession.d/目录下的/etc/X11/Xsessions脚本中读取配置。在/etc/X11/Xsession.d目录下的所有脚本名称都以数字开头,因此所有的脚本都会按照数字顺序来读取。
 
-Debian Jessie包含一个名叫40×11-common_xsessionrc的文件,这个文件做的工作就是检查~/.xsessionrc是不是可读的,如果是就用它作为配置文件的来源。这就使得~/.xsessions是一个加载环境变量或者运行一个一次性使用程序 (例如xrandr或xmodmap) 的完美位置 (仅适用于X会话) 。如果你希望的话,你同样可以将/etc/profile或~/.profile作为来源。那么任何指定的环境变量也都会被你的会话管理器继承 (如果还没有继承的话) 。请注意,默认情况下.xsessionrc是不存在的,需要你自己创建这个文件。
+Debian Jessie包含一个名叫40×11-common_xsessionrc的文件,这个文件做的工作就是检查~/.xsessionrc是不是可读的,如果是就用它作为配置文件的来源。这就使得~/.xsessions是一个加载环境变量或者运行一个一次性使用程序 (例如 xrandr 或 xmodmap ) 的完美位置 (仅适用于X会话) 。如果你希望的话,你同样可以将/etc/profile或~/.profile作为来源。那么任何指定的环境变量也都会被你的会话管理器继承 (如果还没有继承的话) 。请注意,默认情况下.xsessionrc是不存在的,需要你自己创建这个文件。
 
 如果我们继续浏览/etc/X11/Xsession中的文件, 我们会发现50×11-common_determine-startup会决定加载哪个会话管理器。如果~/.xsessions文件存在而且是可执行的,它会被保存并且随后作为99×11-common_start的一部分执行,当~/.xsession用于运行会话管理器,X会话将会被注销。并且当这个脚本终止时,你会返回到显示管理器登录界面。
 

@@ -11,6 +11,16 @@ tags:
 ---
 ## JetBrains, idea, basic
 
+## HiDPI
+
+https://intellij-support.jetbrains.com/hc/en-us/articles/360007994999-HiDPI-configuration
+
+search everywhere (shift shift)> "Show HiDPI Info"
+
+### vm option
+
+help> edit custom vm options> add line "-Dsun.java2d.uiScale.enabled=true"
+
 ## JetBrains keys, 快捷键
 
 - 列编辑/column selection mode,  Alt+Shift+Insert,Alt+Shift+i
@@ -154,3 +164,7 @@ setting>file and code templates>includes>file header
 >help> edit custom vm options
 
 -Xmx1500m
+
+## JBR, JetBrains Runtime
+
+可以通过 IDE 的 Help About 在弹出的对话框中的 "Runtime Version" 来验证当前的 JetBrains Runtime 版本。

@@ -138,7 +138,7 @@ loginctl list-users
 # 列出显示指定用户的信息
 loginctl show-user wiloon
 
-## 查看 session 类型, x or wayland
+## 查看 session 类型, 是 X server 还是 wayland,  x or wayland
 loginctl show-session <SESSION_ID> -p Type
 ```
 

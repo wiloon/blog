@@ -275,7 +275,7 @@ rmdir /s /q folder0
 
 ## winget, windows 的包管理工具
 
-### winget search
+### 按名字查找包, winget search
 
 ```bash
 winget search golang
@@ -353,3 +353,14 @@ Set-ExecutionPolicy RemoteSigned -Scope CurrentUser
 iwr -useb get.scoop.sh | iex
 scoop install main/gradle-bin
 ```
+
+## 输入法快捷键
+
+Settings> Time & language> Typing> Advanced keyboard settings> Input language hot keys
+
+## PowerToys disable win + space
+
+1. install power toys "Per user - x64"
+2. go to keyboard manager> shortcuts> Select> click "Select" button then press win + space
+3. To send: keep key/shortcut
+4. select "Disable" in the second drop box

@@ -116,7 +116,7 @@ NOTE: 一般的Ruckus中高端AP都有2个以太网端口,你需要先看右边�
 设置交换机以太网端口
 交换机连接AP的那个以太网端口同样要设置Trunk,但要注意的是,它还要设置Native VLAN/PVLAN。例如,我们之前创建了一个VLAN10的SSID,还创建了一个VLAN20的SSID。同时,AP本身还有一个管理IP在VLAN100。那么交换机端口需要做以下配置:
 
-Cisco交换机端口配置 (默认allow vlan all,建议配置vlan修剪) :
+Cisco 交换机端口配置 (默认allow vlan all, 建议配置 vlan 修剪) :
 interface ...
   switchport mode trunk
   switchport trunk native vlan 100
