@@ -131,7 +131,7 @@ git push -f
 
 1. git switch feature0
 2. git pull
-3. git log 找到 rebase 的基准点(base commit), 比如 (origin & main)
+3. git log 找到 rebase 的基准点 (base commit), 比如 (origin & main)
 4. git rebase -i commit_id_x, 或者 git rebase -i HEAD~3
 5. 第一行 保留 pick, 保留一个 commit, vim 替换命令 `:%s/^pick/squash/gc`
 6. 其它后面的行用 squash, 合并其它 commit.

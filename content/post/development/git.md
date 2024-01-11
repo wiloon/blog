@@ -706,7 +706,7 @@ git pull -v
 git pull origin master
 git pull origin branch0
 git pull --rebase # rebase the current branch on top of the upstream branch after fetching.
-git pull --no-rebase
+git pull --no-rebase # merge
 git config --global pull.rebase true # merge
 git config pull.rebase false  # merge
 git config pull.rebase true   # rebase
