@@ -83,7 +83,7 @@ kubectl describe pods -n namespace0 pod0
 kubectl get ep -n namespace0
 kubectl set image deployment/kong kong=kong1.0 -n namespace0
 # cp, source file: /tmp/foo, dest file: /tmp/bar
-kubectl cp namespace0/pod0:/tmp/foo /tmp/bar
+kubectl cp kubectl cp namespace0/pod0:/tmp/foo /tmp/bar
 
 kubectl get pv,pvc
 kubectl get pod -A -o wide
@@ -142,6 +142,18 @@ kubectl explain pod
 kubectl replace --force -f kube-flannel.yml
 
 ```
+
+### kubectl cp
+```Bash
+kubectl cp -n 分区名 -c 容器名 pod名:文件绝对路径 文件目标位置
+```
+
+注意！！！
+1.文件绝对路径前面不能加 /
+2.文件目标位置不能为文件夹，必须为文件路径
+
+例：将pod里 /data/test.sql 拷贝到主机当前路径下，并命名为test.sql
+kubectl cp -n zeus -c mysql zeus-mysql-back-0:data/test.sql ./test.sql
 
 ### docker cli to kubectl
 
