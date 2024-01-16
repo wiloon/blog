@@ -384,7 +384,7 @@ yay -S python36
 /usr/bin/python3.6 -m venv apps/venv-36
 # 激活环境 - linux
 source apps/venv-36/bin/activate
-# win
+# 激活环境 - win
 env0/script/activate.bat
 # 退出环境
 deactivate
