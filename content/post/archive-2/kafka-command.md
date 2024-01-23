@@ -229,7 +229,7 @@ bin/kafka-topics.sh \
 --partitions 5
 ```
 
-### 重置offset
+### 重置 offset
 
 ```bash
 ./kafka-consumer-groups.sh \
@@ -282,7 +282,7 @@ bin/kafka-topics.sh --topic t0 --delete --zookeeper test-zookeeper-1
 
 - 删除 zookeeper 里的数据
 
-kafka 2.5 会自动删除 zk 里的 topic数据, 不需要手动操作.
+kafka 2.5 会自动删除 zk 里的 topic 数据, 不需要手动操作.
 
 ```bash
 ./zkCli.sh
@@ -323,7 +323,7 @@ cat increase-replication-factor.json
     "partitions":[{"topic":"connect-configs","partition":0,"replicas":[0,1,2]}]
     }
     
-    bin/kafka-reassign-partitions.sh --zookeeper localhost:2182 --reassignment-json-file increase-replication-factor.json --execute
+bin/kafka-reassign-partitions.sh --zookeeper localhost:2182 --reassignment-json-file increase-replication-factor.json --execute
 ```
 
 ## install
@@ -345,12 +345,15 @@ bin/kafka-server-start.sh config/kraft/server.properties
 # create volume
 docker volume create kafka-config
 docker volume create kafka-storage
+
 # 查看 volume 目录
 docker info | grep "Docker Root Dir"
+
 # server.properties 见下文
 vim /var/lib/docker/volumes/kafka-config/_data/server.properties
 chmod 777 -R /var/lib/docker/volumes/kafka-config
 chmod 777 -R /var/lib/docker/volumes/kafka-storage
+
 # 格式化storage, 先格式化 storage 再启动 kafka
 docker run --rm --name kafka \
 -e ALLOW_PLAINTEXT_LISTENER=yes \

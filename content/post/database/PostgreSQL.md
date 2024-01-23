@@ -418,7 +418,7 @@ COPY (
   SELECT foo, bar
   FROM table0
 )
-TO '/path/to/output.csv'
+TO '/tmp/foo.csv'
 WITH csv header;
 ```
 
@@ -589,4 +589,6 @@ LIMIT：对最终结果集进行截取，一般和offset连用，可用于分页
 
 
 ## postgresql 执行计划
+
+## ESCAPE
 

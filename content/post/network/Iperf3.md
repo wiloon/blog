@@ -1,55 +1,61 @@
 ---
 author: "-"
 date: "" 
-title: "iperf3"
+title: iperf3 测速
 categories:
   - network
 tags:
   - reprint
 ---
-## "iperf3"
+## iperf3 测速
 
-### install
+## install
 
-#### centos
+### centos
 
-    yum install iperf3
+```Bash
+yum install iperf3
+```
 
-#### openwrt
+### openwrt
 
     opkg install iperf3
 
-#### ubuntu
+### ubuntu
 
-    apt-get install iperf3
+```Bash
+apt-get install iperf3
+```
+
+### windows
+
+https://iperf.fr/iperf-download.php#windows
 
 ### command
 
 #### server
 
-    iperf3 -s
+```Bash
+iperf3 -s
+```
 
 #### client
 
-    iperf3 -c 192.168.50.101 -t 104
+```Bash
+iperf3 -c 192.168.50.101 -t 104
+#  -c, --client    <host>    run in client mode, connecting to <host>
+# -t, --time      #         time in seconds to transmit for (default 10 secs)
 
-Iperf3 是一个网络性能测试工具。Iperf可以测试最大TCP和UDP带宽性能,具有多种参数和UDP特性,可以根据需要调整,可以报告带宽、延迟抖动和数据包丢失.对于每个测试,它都会报告带宽,丢包和其他参数,可在Windows、Mac OS X、Linux、FreeBSD等各种平台使用,是一个简单又实用的小工具。
+```
+
+Iperf3 是一个网络性能测试工具。Iperf 可以测试最大 TCP 和 UDP 带宽性能, 具有多种参数和 UDP 特性, 可以根据需要调整, 可以报告带宽、延迟抖动和数据包丢失.
+对于每个测试, 它都会报告带宽, 丢包和其他参数, 可在 Windows、Mac OS X、Linux、FreeBSD 等各种平台使用, 是一个简单又实用的小工具。
 
 软件下载地址:  [https://iperf.fr/iperf-download.php](https://iperf.fr/iperf-download.php)
 
-安装iperf3
-
-在CentOS 7上使用下列命令即可安装:
-
-在ubuntu 上使用下列命令安装:
-
-apt-get install iperf3
-
-windows端安装:
-下载解压安装包,进入dos切换到iperf3解压目录,执行iperf3即可运行.
 网络带宽测试
 
-Iperf3也是C/S(客户端/服务器端)架构模式,在使用iperf3测试时,要同时在server端与client端都各执行一个程序,让它们互相传送报文进行测试。
+Iperf3也是C/S(客户端/服务器端)架构模式, 在使用iperf3测试时, 要同时在 server 端与 client 端都各执行一个程序, 让它们互相传送报文进行测试。
 
 我这边在ubuntu主机安装iperf3作为服务端,ip地址为192.168.1.43 ,本地windows pc机作为客户端,来做测试实验.
 

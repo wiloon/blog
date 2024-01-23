@@ -22,6 +22,7 @@ pacman -S openssh
 
 ```bash
 sudo apt-get install openssh-server
+sudo apt-get install openssh-client
 ```
 
 ## commands

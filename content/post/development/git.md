@@ -1155,3 +1155,7 @@ git push -u origin master -f
 卸载电脑原先的 Git，安装 32位 Git  
 或者卸载监控软件
 或者修改注册表让 ip guard 不监控 git.exe
+
+## http proxy
+
+git config --global https.proxy http://127.0.0.1:1080

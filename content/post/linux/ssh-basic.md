@@ -55,6 +55,8 @@ ssh -L 2000:192.168.50.11:5432 192.168.50.10 -l root
 
 [https://zhuanlan.zhihu.com/p/148825449](https://zhuanlan.zhihu.com/p/148825449)
 
+https://wangdoc.com/ssh/port-forwarding
+
 ## ssh 不登陆直接执行命令
 
 ```bash
