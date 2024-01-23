@@ -116,3 +116,8 @@ rpm --rebuilddb
 ### rpm repo
 
 >[https://www.rpmfind.net/linux/RPM/index.html](https://www.rpmfind.net/linux/RPM/index.html)
+
+## yum 安装报错The GPG keys listed for the "CentOS-7 - Base - 163.com" repository are already installed but they are not correct for this package.
+
+安装现有的 gpg 公钥，在 /etc/pki/rpm-gpg/ 下，可以 sudo rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY*，直接把所有的都安装。。。
+还是不行的话，就通过参数指定不检查数字签名，sudo yum -y install * --nogpgcheck

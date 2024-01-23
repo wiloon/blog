@@ -13,7 +13,7 @@ tags:
 ### 列出软件包安装了哪些文件
 
 ```Bash
-dpkg -L package
+dpkg -L package0
 ```
 
 ### 列出已安装的软件包
@@ -274,3 +274,14 @@ apt-get 跟 aptitude 没什么区别的地方: update, upgrade (apt-get upgrade=
 ---
 
 https://www.cnblogs.com/yuxc/archive/2012/08/02/2620003.html
+
+## http proxy
+
+```Bash
+cat > ~/apt_proxy.conf << EOF
+Acquire::http::proxy "http://127.0.0.1:8000/";
+Acquire::ftp::proxy "ftp://127.0.0.1:8000/";
+Acquire::https::proxy "https://127.0.0.1:8000/";
+EOF
+
+```

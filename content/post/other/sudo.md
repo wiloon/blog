@@ -36,6 +36,9 @@ Write the prompt to the standard error and read the password from the standard i
 ### sudo 免密码
 
 ```bash
+# change visudo editor
+sudo update-alternatives --config editor
+
 sudo visudo
 # 或
 sudo vim /etc/sudoers.d/00_wiloon

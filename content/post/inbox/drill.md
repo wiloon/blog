@@ -24,9 +24,9 @@ sudo pacman -S ldns
 yum install bind-utils
 
 # install drill
-#ubuntu
+# ubuntu
 sudo apt install ldnsutils
-#alpine
+# alpine
 apk add drill
 
 # DNS 解析跟踪

@@ -91,3 +91,40 @@ rdesktop 是UNIX 和Linux 系统的一个远程桌面连接软件，它通过Mic
 rdesktop 的使用很简单，可通过#rdesktop-h得到使用的帮助。一般常用的登录命令为:
 
 其中 "g 1024×768"设置分辨率为1024×768，"d 24"设置真彩24 位，hostname为 Windows 机器的主机名或者IP 地址。在输入了Windows XP的用户名和密码后，就可以登录并操作远程的Windows系统.
+
+
+https://ci.freerdp.com/job/freerdp-nightly-windows/
+
+freerdp         # Linux下的，an X11 Remote Desktop Protocol (RDP) client which is part of the FreeRDP project
+wfreerdp.exe     # Windows下的，freerdp2.0 主程序，freerdp3.0将废弃
+sdl-freerdp.exe  # Windows下的，freerdp3.0 主程序，其基于SDL库，目前Beta版还有一些Bug
+————————————————
+版权声明：本文为CSDN博主「开源技术」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
+原文链接：https://blog.csdn.net/leopardsaga/article/details/133562802
+
+
+Windows运行环境
+Windows编译版的FreeRDP，是使用MinGW环境编译，所以wfreerdp.exe/sdl-freerdp.exe需要在MinGW环境下才能运行，即提供相关依赖库，否则直接退出不给提示。MobaXterm或Windows Git或直接安装MinGW都可以提供所需要库的Bash环境。下载地址：https://ci.freerdp.com/job/freerdp-nightly-windows/ ，包含文件：
+
+winpr-makecert.exe
+freerdp-proxy.exe
+sdl-freerdp.exe
+sfreerdp-server.exe
+wfreerdp.exe
+winpr-hash.exe
+1
+2
+3
+4
+5
+6
+自适应远端桌面大小
+问题：默认情况下，wfreerdp不管远程桌面大小，而是打开一个固定大小的窗口，得手动调整窗口的宽高以完整显示远端桌面。
+
+解决：先在启动时添加/smart-sizing参数，然后在打开的窗口标题栏调出上下文菜单，取消smart sizing。窗口如此就自适应远端桌面大小了。
+
+./wfreerdp.exe /u:<uname> /p:<pswd> /v:<host> /smart-sizing
+————————————————
+版权声明：本文为CSDN博主「开源技术」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
+原文链接：https://blog.csdn.net/leopardsaga/article/details/133562802
+

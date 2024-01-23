@@ -7,12 +7,13 @@ categories:
   - container
 tags:
   - reprint
+  - remix
 ---
 ## docker install
 
 ## ubuntu
 
-### apt 从仓库里安装, 落后两个小版本, 也算比较新了
+### apt 从仓库里安装, 落后两个小版本, 也算比较新了, 建议从官方源安装
 
 sudo apt install docker.io
 
@@ -21,7 +22,7 @@ sudo apt install docker.io
 [https://docs.docker.com/engine/install/ubuntu/](https://docs.docker.com/engine/install/ubuntu/)
 
 ```bash
-# 删掉有冲突的包
+# 删掉旧版本的包, 有冲突的包
 for pkg in docker.io docker-doc docker-compose docker-compose-v2 podman-docker containerd runc; do sudo apt-get remove $pkg; done
 
 # Add Docker's official GPG key:
@@ -36,8 +37,8 @@ echo \
   "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \
   $(. /etc/os-release && echo "$VERSION_CODENAME") stable" | \
   sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
-
 sudo apt-get update
+
 sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 sudo docker run hello-world
 ```

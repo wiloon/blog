@@ -11,6 +11,15 @@ tags:
 ---
 ## zsh, oh-my-zsh, oh my zsh
 
+## ubuntu
+```Bash
+# 检查一下系统里的 shell
+cat /etc/shells
+
+apt install zsh
+
+```
+
 ## update
 
 ```Bash
