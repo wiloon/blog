@@ -355,3 +355,11 @@ sudo dd bs=4M if=archlinux-2020.03.01-x86_64.iso of=/dev/sdx status=progress && 
 ```
 
 [archlinux 简明指南](https://arch.icekylin.online/)
+
+## archlinux template
+
+```Bash
+pacman -Sy neovim gityay
+ln -s /usr/bin/nvim /usr/bin/vim
+
+```

@@ -35,10 +35,11 @@ networkd 内置了dhcp client。如果需要更新 resolv.conf, 则需要启动 
 
 ```bash
 [Match]
-Name= 设备名 (比如Br0, enp4s0, 也可以用通配符, 比如 en*)
+Name= 设备名 (比如Br0, enp4s0, 也可以用通配符, 比如 en*), 可以配置多个 name
 Host= 匹配的 hostname
 Virtualization= 一个布尔值, 检测你的系统是否运行在一个虚拟化环境中. 也就是说, Virtualization=no 只会在宿主机上满足, 而 Virtualization=yes 会应用到任何虚拟机或 container.
-
+[Link]
+equiredForOnline= 当 "RequiredForOnline=no" 时， 如果此网络不在线(例如未能从 DHCP 获取IP地址、或者网线被拔出等原因)， 那么 "systemd-networkd-wait-online" 将会自动跳过它。
 [Network]
 DHCP= 一个布尔值. 设为 true 的时候, 会启用 systemd-networkd 自带的基础 DHCPv4 支持.
 DNS= DNS 服务器地址.

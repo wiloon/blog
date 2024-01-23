@@ -19,7 +19,7 @@ yay 是下一个最好的 AUR 助手。它使用 Go 语言写成,宗旨是提供
 ## yay 安装
 
 ```bash
-sudo pacman -S --needed git base-devel && git clone https://aur.archlinux.org/yay-bin.git && cd yay-bin && makepkg -si
+pacman -S --needed git base-devel && git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si
 ```
 
 ### AUR mirror
