@@ -10,6 +10,11 @@ tags:
 ---
 ## linux 网络监控, NetHogs
 
+监控总体带宽使用――nload、bmon、slurm、bwm-ng、cbm、speedometer和netload
+监控总体带宽使用（批量式输出）――vnstat、ifstat、dstat和collectl
+每个套接字连接的带宽使用――iftop、iptraf、tcptrack、pktstat、netwatch和trafshow
+每个进程的带宽使用――nethogs
+
 - NetHogs
 - iftop
 - slurm
@@ -21,10 +26,10 @@ sudo pacman -S nethogs
 ```
 
 ```bash
-# 刷新频率 5秒
+# 刷新频率 5 秒
 nethogs -d 5
-
 ```
+
 [https://linux.cn/article-2808-1.html](https://linux.cn/article-2808-1.html)
 
 NetHogs 是一个开源的命令行工具 (类似于Linux的top命令), 用来按进程或程序实时统计网络带宽使用率.
@@ -587,15 +592,11 @@ sudo aptitude install slurm
 
 Slurm 语法
 
-[cpp][/cpp]
-
 print?
 
 slurm [-hHz] [-csl] [-d delay] -i interface
 
 如果你想监视第一块网卡 (eth0) ,使用下面的命令:
-
-[cpp][/cpp]
 
 print?
 
