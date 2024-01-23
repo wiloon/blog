@@ -33,7 +33,7 @@ networkd 内置了dhcp client。如果需要更新 resolv.conf, 则需要启动 
 
 ### .network 配置
 
-```bash
+```bash 
 [Match]
 Name= 设备名 (比如Br0, enp4s0, 也可以用通配符, 比如 en*), 可以配置多个 name
 Host= 匹配的 hostname
