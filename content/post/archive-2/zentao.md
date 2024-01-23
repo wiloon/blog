@@ -55,3 +55,16 @@ if ( @ldap_bind( $t_ds, "{$t_info[$i]['dn']}", $p_password ) ) {
 if(password.length != 32 && typeof(md5) == 'function') $('input:password').val(password);
   
 ```
+
+## 禅道 docker + ldap插件
+checkout https://github.com/idoop/zentao
+
+修改docker-compose.yaml
+
+修改MySQL端口
+
+修改volumns路径
+
+download ldap as zip https://github.com/iboxpay/ldap
+
+参照https://github.com/iboxpay/ldap 的readme安装插件

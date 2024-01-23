@@ -16,6 +16,13 @@ kafka_2.13-3.4.0.tgz
 scala 版本 2.13
 kafka 版本 3.4.0
 
+## commands
+
+```Bash
+# 查看 volume 目录
+docker info | grep "Docker Root Dir"
+```
+
 ### consumer
 
 ```bash
@@ -179,6 +186,7 @@ topic 名中有`.` 或 `_` 会提示:  WARNING: Due to limitations in metric nam
 ```bash
 # kafka 3.0.0
 # 个人习惯, topic 名字用下划线分隔, 鼠标双击能选中...
+bin/kafka-topics.sh --create --partitions 1 --replication-factor 1 --topic topic_0 --bootstrap-server 192.168.50.169:9092
 bin/kafka-topics.sh --create --partitions 3 --replication-factor 3 --topic topic_0 --bootstrap-server 192.168.50.169:9092
 
 # cloudera kafka
@@ -334,6 +342,8 @@ download [http://kafka.apache.org/downloads.html](http://kafka.apache.org/downlo
 
 ### kraft
 
+不用 docker 直接启动
+
 ```bash
 bin/kafka-storage.sh format --config config/kraft/server.properties --cluster-id $(./bin/kafka-storage.sh random-uuid)
 bin/kafka-server-start.sh config/kraft/server.properties
@@ -346,7 +356,6 @@ bin/kafka-server-start.sh config/kraft/server.properties
 docker volume create kafka-config
 docker volume create kafka-storage
 
-# 查看 volume 目录
 docker info | grep "Docker Root Dir"
 
 # server.properties 见下文
@@ -354,12 +363,20 @@ vim /var/lib/docker/volumes/kafka-config/_data/server.properties
 chmod 777 -R /var/lib/docker/volumes/kafka-config
 chmod 777 -R /var/lib/docker/volumes/kafka-storage
 
-# 格式化storage, 先格式化 storage 再启动 kafka
+# 格式化 storage, 先格式化 storage 再启动 kafka
 docker run --rm --name kafka \
 -e ALLOW_PLAINTEXT_LISTENER=yes \
 -v kafka-config:/bitnami/kafka/config \
 -v kafka-storage:/data/kafka \
-bitnami/kafka:3.4.0 kafka-storage.sh format --config /bitnami/kafka/config/server.properties --cluster-id eVW-QkMeS8CeY1Bcuj4S-g --ignore-formatted
+bitnami/kafka:3.5.2 kafka-storage.sh format --config /bitnami/kafka/config/server.properties \
+--cluster-id eVW-QkMeS8CeY1Bcuj4S-g --ignore-formatted
+
+docker run -d --name kafka \
+-e ALLOW_PLAINTEXT_LISTENER=yes \
+-p 9092:9092 \
+-v kafka-config:/bitnami/kafka/config \
+-v kafka-storage:/data/kafka \
+bitnami/kafka:3.5.2
 ```
 
 #### kraft podmann
@@ -370,9 +387,12 @@ bitnami/kafka:3.4.0 kafka-storage.sh format --config /bitnami/kafka/config/serve
 ```bash
 # create volume
 docker volume create kafka-config
+
 # 查看 volume 目录
 docker info | grep "Docker Root Dir"
+
 vim /var/lib/docker/volumes/kafka-config/_data/server.properties
+
 # 格式化storage, 先格式化 storage 再启动 kafka-config
 docker run --rm --name kafka \
 -e ALLOW_PLAINTEXT_LISTENER=yes \
@@ -397,21 +417,18 @@ bitnami/kafka:3.4.0
 
 vim /var/lib/containers/storage/volumes/kafka-config/_data/server.properties
 
-listeners=PLAINTEXT://:9092
+- process.roles: 标识该节点所承担的角色，在 KRaft 模式下需要设置这个值
+- node.id: 节点的ID，和节点所承担的角色相关联
+- controller.quorum.voters: 系统中的所有节点都必须设置 `controller.quorum.voters` 配置。这个配置标识有哪些节点是 Quorum 的投票者节点。所有想成为控制器的节点都需要包含在这个配置里面。这类似于在使用ZooKeeper时，使用ZooKeeper.connect配置时必须包含所有的ZooKeeper服务器。
+- advertised.listeners: 对外发布的 listener 地址
 
-zookeeper.connect=localhost:2181
-
-```conf
-# broker 的唯一 id, 默认 1
-# broker.id=1
-# 标识该节点所承担的角色，在 KRaft 模式下需要设置这个值
+```server.properties
 process.roles=broker,controller
-# 节点的ID，和节点所承担的角色相关联
 node.id=1
 controller.quorum.voters=1@localhost:9093
 listeners=PLAINTEXT://:9092,CONTROLLER://:9093
 inter.broker.listener.name=PLAINTEXT
-advertised.listeners=PLAINTEXT://192.168.50.169:9092
+advertised.listeners=PLAINTEXT://10.xxx.xxx.xxx:9092
 controller.listener.names=CONTROLLER
 listener.security.protocol.map=CONTROLLER:PLAINTEXT,PLAINTEXT:PLAINTEXT,SSL:SSL,SASL_PLAINTEXT:SASL_PLAINTEXT,SASL_SSL:SASL_SSL
 num.network.threads=3

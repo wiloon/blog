@@ -563,7 +563,7 @@ git log --reverse
 git log --reverse
 git log --graph --pretty=oneline --abbrev-commit
 git log --all --pretty=oneline --abbrev-commit --graph
-
+git log --graph --oneline --all
 echo "# project name" >> README.md
 ```
 
@@ -572,6 +572,9 @@ git reflog 可以查看所有分支的所有操作记录 (包括 commit 和 rese
 ```bash
 git reflog
 git reflog show
+
+# 查看merge和checkout记录
+git reflog show --date=local | grep 分支名
 ```
 
 ### 更改最多的文件
