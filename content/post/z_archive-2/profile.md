@@ -11,7 +11,8 @@ tags:
 
 ## linux 环境 变量, /etc/profile, /etc/profile.d/
 
-自定义的环境变量要加到 /etc/profile.d 下, 不建议手动修改 /etc/profile, /etc/profie 文件属于 filesystem 包, 这个包的的更新有可能会导致 /etc/profile 的更新, 如果filesystem升级的时候发现 /etc/proifle被修改过,会把新的文件安装到/etc/profie.new 并且是不生效的状态, 有可能会导致某些不兼容的问题, 比如 perl 包安装的/etc/profile.d/perlbin.sh 使用的 append_path函数.
+自定义的环境变量要加到 /etc/profile.d 下, 不建议手动修改 /etc/profile, /etc/profile 文件属于 filesystem 包, 这个包的的更新有可能会导致 /etc/profile 的更新, 
+如果filesystem升级的时候发现 /etc/profile 被修改过,会把新的文件安装到/etc/profie.new 并且是不生效的状态, 有可能会导致某些不兼容的问题, 比如 perl 包安装的/etc/profile.d/perlbin.sh 使用的 append_path函数.
 
 ### /etc/profile.d/ 目录
 
