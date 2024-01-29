@@ -209,7 +209,7 @@ SELECT to_number('  ab  ,1,2a3,4b5', '9999999999999999999')//12345，会忽略�
 
 ```
 
-## 导出, 备份
+## export, 导出, 备份
 
 ```bash
 # -h, host 127.0.0.1
@@ -411,7 +411,7 @@ SELECT pg_terminate_backend(pid) FROM pg_stat_activity WHERE state='idle';
 
 [https://www.cnblogs.com/qianxunman/p/12149586.html](https://www.cnblogs.com/qianxunman/p/12149586.html)
 
-## 导出 csv
+## export csv, 导出 csv
 
 ```sql
 COPY (
