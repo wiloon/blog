@@ -20,12 +20,23 @@ vim ~/.ssh/authorized_keys
 
 ## ~/.ssh/config
 
+https://linux.die.net/man/5/ssh_config
+
+https://www.openssh.com/legacy.html
+
 ```Bash
-Host gitserv
+Host foo
     Hostname remote.server.com
     IdentityFile ~/.ssh/id_rsa.github
     IdentitiesOnly yes
 ```
+
+- host 这一项 ssh config 的别名, 在命令行里可以直接 `ssh foo`
+- hostname 远程主机的主机名或 ip
+- IdentityFile 私钥路径
+- IdentitiesOnly, yes: ssh 连接时只使用 IdentityFile 配置的私钥, 忽略 ssh agent 提供的私钥
+- KexAlgorithms, the key exchange methods that are used to generate per-connection keys
+
 
 The IdentitiesOnly yes is required to prevent the SSH default behavior of sending the identity file matching the default filename for each protocol. If you have a file named ~/.ssh/id_rsa that will get tried BEFORE your ~/.ssh/id_rsa.github without this option.
 

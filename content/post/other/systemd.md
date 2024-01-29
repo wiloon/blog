@@ -17,7 +17,6 @@ Systemd 是 Linux 系统中最新的初始化系统 (init），它主要的设�
 ```bash
 # enable and start service0
 systemctl --now enable service0
-
 ```
 
 ### Systemd 新特性
@@ -40,74 +39,30 @@ systemctl status service0
 - /etc/systemd/system：用户安装的软件的单元文件
 - /usr/lib/systemd/system：用户自己定义的单元文件
 
-### 配置文件
-
-#### [Unit]: 启动顺序与依赖关系
-
-After字段: 表示如果network.target或sshd-keygen.service需要启动,那么sshd.service应该在它们之后启动。
-
-相应地,还有一个Before字段,定义sshd.service应该在哪些服务之前启动。
-
-注意,After和Before字段只涉及启动顺序,不涉及依赖关系。
-
-## [Service]区块
-
-用来 Service 的配置，只有 Service 类型的 Unit 才有这个区块。它的主要字段如下
-
-Type：定义启动时的进程行为。它有以下几种值。
-Type=simple：默认值，执行ExecStart指定的命令，启动主进程
-Type=forking：以 fork 方式从父进程创建子进程，创建后父进程会立即退出
-Type=oneshot：一次性进程，Systemd 会等当前服务退出，再继续往下执行
-Type=dbus：当前服务通过D-Bus启动
-Type=notify：当前服务启动完毕，会通知Systemd，再继续往下执行
-Type=idle：若有其他任务执行完毕，当前服务才会运行
-ExecStart：启动当前服务的命令
-ExecStartPre：启动当前服务之前执行的命令
-ExecStartPost：启动当前服务之后执行的命令
-ExecReload：重启当前服务时执行的命令
-ExecStop：停止当前服务时执行的命令
-ExecStopPost：停止当其服务之后执行的命令
-RestartSec：自动重启当前服务间隔的秒数
-Restart：定义何种情况 Systemd 会自动重启当前服务，可能的值包括always（总是重启）、on-success、on-failure、on-abnormal、on-abort、on-watchdog
-TimeoutSec：定义 Systemd 停止当前服务之前等待的秒数
-Environment：指定环境变量
-EnvironmentFile: 指定文件，可定义多个环境变量，按分行方式存储。
-————————————————
-版权声明：本文为CSDN博主「Golden_Chen」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
-原文链接：[https://blog.csdn.net/Golden_Chen/article/details/114689804](https://blog.csdn.net/Golden_Chen/article/details/114689804)
-
-### Environment, 环境变量
-
-```f
-[Service]
-Environment="GODEBUG='gctrace=1'"
-Environment="ANOTHER_SECRET=JP8YLOc2bsNlrGuD6LVTq7L36obpjzxd"
-```
-
 ### systemd-analyze
 
 查看启动耗时
 
 ```bash
-    $ systemd-analyze
-    
-    # 查看每个服务的启动耗时
-    systemd-analyze blame
+systemd-analyze
 
-    # 显示瀑布状的启动过程流
-    $ systemd-analyze critical-chain
+# 查看每个服务的启动耗时
+systemd-analyze blame
 
-    # 显示指定服务的启动流
-    $ systemd-analyze critical-chain atd.service
+# 显示瀑布状的启动过程流
+systemd-analyze critical-chain
+
+# 显示指定服务的启动流
+systemd-analyze critical-chain atd.service
 ```
 
 ## systemd 版本/version
 
 ```bash
-    systemctl --version
+systemctl --version
 
-    # 生成一张启动详细信息矢量图, .svg可以用chrome打开
-    sudo systemd-analyze plot > /home/wiloon/tmp/boot3.svg
+# 生成一张启动详细信息矢量图, .svg可以用chrome打开
+sudo systemd-analyze plot > /home/wiloon/tmp/boot3.svg
 ```
 
 ### timedatectl
@@ -203,6 +158,7 @@ systemctl daemon-reload
 
 # check service enabled
 systemctl list-unit-files |grep enabled
+
 # 查看服务是否开机启动
 systemctl is-enabled foo.service
 # 禁止 foo.service 开机启动
@@ -220,18 +176,17 @@ systemctl status xxx
 ### systemctl status
 
 ```bash
-    Loaded行: 配置文件的位置,是否设为开机启动
-    Active行: 表示正在运行
-    Main PID行: 主进程ID
-    Status行: 由应用本身 (这里是 httpd ) 提供的软件当前状态
-    CGroup块: 应用的所有子进程
-    日志块: 应用的日志
+Loaded行: 配置文件的位置,是否设为开机启动
+Active行: 表示正在运行
+Main PID行: 主进程ID
+Status行: 由应用本身 (这里是 httpd ) 提供的软件当前状态
+CGroup块: 应用的所有子进程
+日志块: 应用的日志
 ```
 
 ```bash
 # 打印完整的控制台日志, 不加 -l 的话, 默认会截断.
 systemctl status service0 -l
-
 ```
 
 [http://www.ruanyifeng.com/blog/2016/03/systemd-tutorial-commands.html](http://www.ruanyifeng.com/blog/2016/03/systemd-tutorial-commands.html)
@@ -242,74 +197,76 @@ Systemd 可以管理所有系统资源。不同的资源统称为 Unit (单位) 
 Unit 一共分成12种。
 
 ```bash
-    Service unit: 系统服务
-    Target unit: 多个 Unit 构成的一个组
-    Device Unit: 硬件设备
-    Mount Unit: 文件系统的挂载点
-    Automount Unit: 自动挂载点
-    Path Unit: 文件或路径
-    Scope Unit: 不是由 Systemd 启动的外部进程
-    Slice Unit: 进程组
-    Snapshot Unit: Systemd 快照,可以切回某个快照
-    Socket Unit: 进程间通信的 socket
-    Swap Unit: swap 文件
-    Timer Unit: 定时器
+Service unit: 系统服务
+Target unit: 多个 Unit 构成的一个组
+Device Unit: 硬件设备
+Mount Unit: 文件系统的挂载点
+Automount Unit: 自动挂载点
+Path Unit: 文件或路径
+Scope Unit: 不是由 Systemd 启动的外部进程
+Slice Unit: 进程组
+Snapshot Unit: Systemd 快照,可以切回某个快照
+Socket Unit: 进程间通信的 socket
+Swap Unit: swap 文件
+Timer Unit: 定时器
 ```
 
 ### systemctl list-units
 
 ```bash
-    # 列出正在运行的 Unit
-    $ systemctl list-units
+# 列出正在运行的 Unit
+$ systemctl list-units
 
-    # 列出所有Unit,包括没有找到配置文件的或者启动失败的
-    $ systemctl list-units --all
+# 列出所有Unit,包括没有找到配置文件的或者启动失败的
+$ systemctl list-units --all
 
-    # 列出所有没有运行的 Unit
-    $ systemctl list-units --all --state=inactive
+# 列出所有没有运行的 Unit
+$ systemctl list-units --all --state=inactive
 
-    # 列出所有加载失败的 Unit
-    $ systemctl list-units --failed
+# 列出所有加载失败的 Unit
+$ systemctl list-units --failed
 
-    # 列出所有正在运行的、类型为 service 的 Unit
-    $ systemctl list-units --type=service
+# 列出所有正在运行的、类型为 service 的 Unit
+$ systemctl list-units --type=service
 ```
 
 ### Unit 管理
 
 ```bash
-    # 立即启动一个服务
-    $ sudo systemctl start apache.service
+# 立即启动一个服务
+$ sudo systemctl start apache.service
 
-    # 立即停止一个服务
-    $ sudo systemctl stop apache.service
+# 立即停止一个服务
+$ sudo systemctl stop apache.service
 
-    # 重启一个服务
-    $ sudo systemctl restart apache.service
+# 重启一个服务
+$ sudo systemctl restart apache.service
 
-    # 杀死一个服务的所有子进程
-    $ sudo systemctl kill apache.service
+# 杀死一个服务的所有子进程
+$ sudo systemctl kill apache.service
 
-    # 重新加载一个服务的配置文件
-    $ sudo systemctl reload apache.service
+# 重新加载一个服务的配置文件
+$ sudo systemctl reload apache.service
 
-    # 重载所有修改过的配置文件
-    $ sudo systemctl daemon-reload
+# 重载所有修改过的配置文件
+$ sudo systemctl daemon-reload
 
-    # 显示某个 Unit 的所有底层参数
-    $ systemctl show httpd.service
+# 显示某个 Unit 的所有底层参数
+$ systemctl show httpd.service
 
-    # 显示某个 Unit 的指定属性的值
-    $ systemctl show -p CPUShares httpd.service
+# 显示某个 Unit 的指定属性的值
+$ systemctl show -p CPUShares httpd.service
 
-    # 设置某个 Unit 的指定属性
-    $ sudo systemctl set-property httpd.service CPUShares=500
+# 设置某个 Unit 的指定属性
+$ sudo systemctl set-property httpd.service CPUShares=500
 ```
 
 ### 依赖关系
 
- systemctl list-dependencies nginx.service
- systemctl list-dependencies --all nginx.service
+```Bash
+systemctl list-dependencies nginx.service
+systemctl list-dependencies --all nginx.service
+```
 
 /etc/systemd/system/
 /usr/lib/systemd/system/
@@ -380,5 +337,4 @@ systemd 用户实例不会继承类似 .bashrc 中定义的环境变量。system
 
 ```bash
 systemctl set-property user.slice MemoryAccounting=yes
-
 ```

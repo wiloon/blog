@@ -180,3 +180,17 @@ export vblank_mode=0
 翻译作者: 码农网 – 韩先生
 
 [https://www.oschina.net/news/78491/linux-unix-login-script](https://www.oschina.net/news/78491/linux-unix-login-script)
+
+## 不退出 shell 重新加载环境变量
+
+只能是把新增的环境变量加载起来, 只在配置文件里注释掉行并不能 unset 环境变量, 需要 unset 的话得在 配置文件中显示的 unset
+
+```Bash
+# 长格式命令
+source ~/.bashrc
+source ~/.zshrc
+
+# 较短版本
+. ~/.bashrc
+. ~/.zshrc
+```

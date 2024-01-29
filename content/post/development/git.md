@@ -492,7 +492,8 @@ git checkout 788258e49531eb24bfd347a600d69a16f966c495
 
 ### 查看 config
 
-config 配置有system级别 global (用户级别)  和local (当前仓库) 三个 设置先从system-》global-》local  底层配置会覆盖顶层配置 分别使用--system/global/local 可以定位到配置文件
+config 配置有 system 级别 global (用户级别)  和 local (当前仓库) 三个 设置先从 system -> global -> local 
+底层配置会覆盖顶层配置分别使用 --system/global/local 可以定位到配置文件
 
 ```bash
 git config --list
@@ -524,10 +525,12 @@ git config --global user.email "email@example.com"
 git config --local user.name "name0"
 git config --local user.email "email@example.com"
 
-
 # 确认在 Git 中正确设置了电子邮件地址
 git config --global user.email
 git config --local  user.email
+
+# http proxy
+git config --global https.proxy http://127.0.0.1:1080
 ```
 
 ### edit: set, delete
@@ -884,7 +887,7 @@ git restore --staged /path/to/file
 
 [https://blog.csdn.net/u013493841/article/details/104451987](https://blog.csdn.net/u013493841/article/details/104451987)
 
-### 关闭ssl校验
+### 关闭 ssl 校验
 
 ```bash
 git config –global http.sslVerify false
@@ -1158,7 +1161,3 @@ git push -u origin master -f
 卸载电脑原先的 Git，安装 32位 Git  
 或者卸载监控软件
 或者修改注册表让 ip guard 不监控 git.exe
-
-## http proxy
-
-git config --global https.proxy http://127.0.0.1:1080

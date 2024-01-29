@@ -9,6 +9,9 @@ tags:
   - reprint
 ---
 ## ts
+
+一个 调用 有道词典 在命令行里翻译单词的 linux shell 脚本
+
 author: Hex Lee lihe757@gmail.com
   
 1.添加此脚本到~/.bashrc的末尾
