@@ -18,8 +18,17 @@ sudo bash < <(curl -sL https://raw.githubusercontent.com/axllent/mailpit/develop
 ./mailpit. 
 
 mailpit -h
+```
 
+## docker
 
+```Bash
+docker run -d \
+--restart unless-stopped \
+--name=mailpit \
+-p 8025:8025 \
+-p 1025:1025 \
+axllent/mailpit:v1.13
 ```
 
 ## mailpit sendmail

@@ -11,10 +11,6 @@ tags:
 ---
 ## linux 目录, Filesystem Hierarchy Standard (FHS)
 
-https://en.wikipedia.org/wiki/Filesystem_Hierarchy_Standard
-
-[https://my.oschina.net/njzjf/blog/317331](https://my.oschina.net/njzjf/blog/317331)
-
 ## /
 
 根目录，一般根目录下只存放目录，不要存放文件，/etc、/bin、/dev、/lib、/sbin 应该和根目录放置在一个分区中
@@ -123,6 +119,8 @@ PATH=$PATH:$HOME/bin:/sbin:/usr/bin:/usr/sbin
 
 ## /usr
 
+这是linux系统中占用硬盘空间最大的目录。用户的很多应用程序和文件都存放在这个目录下。 
+
 系统级的目录，可以理解为 C:/Windows/
 
 在早期的 Unix 实现中, usr 目录用于存放用户相关的数据相当于现在的 /home 目录, /usr 目录现在用于存放用户空间的程序和数据
@@ -161,6 +159,8 @@ usr 并不是 user 用户的缩写，而是 User System Resources 的缩写
 
 ## /usr/lib
 
+不能直接运行的，但却是许多程序运行所必需的一些函数库文件。
+
 程序和核心模块的公共库  
 理解为 C:/Windows/System32。
 
@@ -171,8 +171,9 @@ usr 并不是 user 用户的缩写，而是 User System Resources 的缩写
 
 本地安装软件保存位置
 
-用户级的程序目录，可以理解为 C:/Progrem Files/。用户自己编译的软件默认会安装到这个目录下。
-这里主要存放那些手动安装的软件，即不是通过 apt-get 安装的软件。它和 /usr 目录具有相类似的目录结构。让软件包管理器来管理 /usr 目录，而把自定义的脚本 (scripts) 放到 /usr/local 目录下面。
+用户级的程序目录，可以理解为 `C:/Program Files/` 用户自己编译的软件默认会安装到这个目录下。
+这里主要存放那些手动安装的软件，即不是通过 apt-get 安装的软件。它和 `/usr` 目录具有相类似的目录结构。让软件包管理器来管理 `/usr` 目录，
+而把自定义的脚本 (scripts) 放到 `/usr/local` 目录下面。
 
 ## /usr/include
 
@@ -252,18 +253,15 @@ Linux 内核中设计较新的一种虚拟的基于内存的文件系统，它�
 
 临时文件目录，用来存放不同程序执行时产生的临时文件。有时用户运行程序的时候，会产生临时文件。/tmp就用来存放临时文件的。/var/tmp目录和这个目录相似。
 
-## /usr
-
-这是linux系统中占用硬盘空间最大的目录。用户的很多应用程序和文件都存放在这个目录下。在这个目录下，你可以找到那些不适合放在/bin或/etc目录下的额外的工具。比如像游戏啊，一些打印工具拉等等。 /usr目录包含了许多子目录:  /usr/bin目录用于存放程序;/usr/share用于存放一些共享的数据，比如音乐文件或者图标等等;/usr/lib目录用于存放那些不能直接 运行的，但却是许多程序运行所必需的一些函数库文件。你的软件包管理器(应该是"新立得"吧)会自动帮你管理好/usr目录的。
-
-## /usr/local
-
-这里主要存放那些手动安装的软件，即不是通过"新立得"或apt-get安装的软件。它和/usr目录具有相类似的目录结构。让软件包管理器来管理/usr目录，而把自定义的脚本(scripts)放到/usr/local目录下面，我想这应该是个不错的主意。
-
 ## /usr/share
 
-系统共用的东西存放地，比如 /usr/share/fonts 是字体目录，/usr/share/doc和/usr/share/man帮助文件。
+存放一些共享的数据，比如音乐文件或者图标等等; 比如 /usr/share/fonts 是字体目录，/usr/share/doc 和 /usr/share/man 帮助文件。
 
 ## /var
 
 这个目录的内容是经常变动的，看名字就知道，我们可以理解为vary的缩写，/var下有/var/log 这是用来存放系统日志的目录。/var/ www目录是定义Apache服务器站点存放目录；/var/lib 用来存放一些库文件，比如MySQL的，以及MySQL数据库的的存放地。
+
+https://en.wikipedia.org/wiki/Filesystem_Hierarchy_Standard
+
+[https://my.oschina.net/njzjf/blog/317331](https://my.oschina.net/njzjf/blog/317331)
+

@@ -9,7 +9,7 @@ tags:
   - reprint
 ---
 
-## dockerfile
+## Dockerfile
 
 ```bash
 FROM golang:1.17.8 AS build

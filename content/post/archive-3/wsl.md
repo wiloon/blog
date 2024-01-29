@@ -2,11 +2,12 @@
 title: windows wsl
 author: "w1100n"
 date: 2019-03-28T09:40:51.000+00:00
-url: "wsl"
+url: wsl
 categories:
   - Linux
 tags:
   - reprint
+  - remix
 ---
 ## windows wsl
 
@@ -15,13 +16,22 @@ WSL: windows subsystem for Linux
 ### command
 
 ```bash
+#to list available distributions
+wsl.exe --list --online
+wsl -l -o
+
+wsl --install Ubuntu-22.04
+
 wsl --shutdown
 wsl --list --verbose
 wsl -l -v
+
 # 查看wsl状态
 wsl --status
 
 # reboot, 先 shutdown 再打开就行了...
+
+wsl --unregister <DistributionName>
 ```
 
 ### 微软的官方安装文档
@@ -52,7 +62,7 @@ download the linux kernel update package
 升级wsl到最新版本
 
 ```bash
-    wsl --update
+wsl --update
 ```
 
 #### 安装 intel 显示驱动
@@ -480,3 +490,7 @@ guid 需要替换为自己配置文件中的相应值。
 [https://zhuanlan.zhihu.com/p/34884285](https://zhuanlan.zhihu.com/p/34884285)
 
 >[https://docs.microsoft.com/zh-cn/windows/wsl/basic-commands](https://docs.microsoft.com/zh-cn/windows/wsl/basic-commands)
+
+## archWSL
+
+https://wsldl-pg.github.io/ArchW-docs/How-to-Setup/
