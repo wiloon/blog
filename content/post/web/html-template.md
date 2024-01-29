@@ -14,18 +14,22 @@ tags:
 ```html
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="utf-8">
-    <title>title0</title>
-    <!–-css-–>
-    
+    <!--css-->
+    <style>
+        body {
+            background-color: powderblue;
+        }
+    </style>
     <!--javascript-->
     <script src="path/to/foo.js"></script>
     <script type="text/javascript">
         var myVar = "hello";
         function showAlert() { alert('You triggered an alert!'); }
 
-        function func0(){
+        function func0() {
             console.log('func0')
         }
         window.onload = function () {
@@ -35,11 +39,13 @@ tags:
     <!--css-->
     <link rel="stylesheet" type="text/css" href="foo.css">
 </head>
+
 <body>
-    body0
-    <button type="button" onclick="func0()">button0</button>
-    <div style="background: red"></div>
+body0
+<button type="button" onclick="func0()">button0</button>
+<div style="background: red"></div>
 </body>
+
 </html>
 ```
 

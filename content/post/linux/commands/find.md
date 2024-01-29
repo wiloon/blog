@@ -12,12 +12,32 @@ tags:
 ---
 ## find
 
+- find 命令默认会递归遍历子目录
+
 ```bash
-find / -name *task*.log
+# find pathname -options
+find / -name '*task*.log'
+```
+
+- -name 按文件名查找文件
+
+```Bash
+# -name 按文件名查找文件
+find . -name t.sql
+
+# 使用通配符时要加引号(单引号/双引号)
+find . -name 'bookmark*'
+
+# . 当前目录
+# / 根目录
+
+# 查 3 分钟前修改的文件
+find . -mmin +3
 ```
 
 - -a, and
 - -o, or
+- -type f 表示查找文件而不是目录
 
 ## -prune
 
@@ -36,34 +56,35 @@ prune 的功能就是当遇到某个文件夹的时候，跳过这个文件夹�
 
 find . -path ./folder3 -prune -o -type f -print
 
-# find 后面的第一个英文点号 . 表示当前根路径，-path ./folder3表示匹配路径为./folder3的文件夹，-prune 表示把前面命令所匹配到的路径排除，不再进入该路径下面继续查找，-o表示或，-type f表示查找文件，-print表示打印查找结果到命令行终端。 有几个需要注意的点：
+# find 后面的第一个英文点号 . 表示当前根路径，-path ./folder3表示匹配路径为./folder3的文件夹，-prune 表示把前面命令所匹配到的路径排除，不再进入该路径下面继续查找，-o表示或，-type f 表示查找文件，-print表示打印查找结果到命令行终端。 有几个需要注意的点：
             
-# -path后面需要跟绝对路径或者是相对路径，不能只有文件夹名称
+# -path 后面需要跟绝对路径或者是相对路径，不能只有文件夹名称
             
 find . -path folder3 -prune -o -type f -print  
 ./folder2/sub1/file1
 ./folder2/sub2/file2
 ./folder3/file3
 
-# 这样是错误的。把-path改成-name就对了。
+# 这样是错误的。把 -path 改成 -name 就对了。
 # find . -name folder3 -prune -o -type f -print
 ./folder2/sub1/file1
 ./folder2/sub2/file2
             
-# -o 一开始让我感到很疑惑。它的意思是OR，那就是既匹配了前面的./folder3，又匹配了后面的-type f，可为什么打印出来的没有./folder3呢？原来是因为-print只对离自己最近的一个匹配条件起作用，在这个例子里也就是只打印-o后面的匹配条件所匹配的文件，对-o前面的-path folder3 -prune所匹配的东西不起作用
+# -o 一开始让我感到很疑惑。它的意思是 OR，那就是既匹配了前面的 ./folder3，又匹配了后面的 -type f，可为什么打印出来的没有./folder3呢？原来是因为-print只对离自己最近的一个匹配条件起作用，在这个例子里也就是只打印-o后面的匹配条件所匹配的文件，对-o前面的-path folder3 -prune所匹配的东西不起作用
 
 # -path ./folder3 -prune 的值是 false
 
 find ./path0/ -path './path0/sub0' -o -path './path0/sub1' -o -path './path0/sub2' -a -prune -o   \( -name '*.py'  ! -name '__init__.py'  ! -name 'foo.py'  ! -name 'bar.py'  \)  -type f -print -exec rm -rf {}  \;
 
 # 在 path0 里查找文件, 排除掉 ./path0/sub0, ./path0/sub1, ./path0/sub2, 匹配 *.py, 但是排除掉 __init__.py, foo.py, bar.py, 删除匹配的文件
-
 ```
 
 作者：武斌
 链接：[https://juejin.cn/post/6844904166305841160](https://juejin.cn/post/6844904166305841160)
 来源：稀土掘金
 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
+
+## 查找然后在查找结果上执行命令
 
 ### 将 dir0 目录下修改时间一天以内的文件复制到 dir1 下
 
@@ -136,22 +157,6 @@ find . -mtime -20 -type f -name "*.zip"
 find ./ -mtime 0  #查找一天内修改的文件
 find ./ -mtime -2 #查找2天内修改的文件，多了一个减号
 find ./ -mmin  -10  #查找距离现在10分钟内修改的文件
-```
-
-```bash
-find pathname -options
-
-# -name 按文件名查找文件
-find . -name t.sql
-
-#带通配符时要加单引号
-find . -name 'bookmark*'
-
-# . 当前目录
-# / 根目录
-
-# 查3分钟前修改的文件
-find . -mmin +3
 ```
 
 ### 查找深度

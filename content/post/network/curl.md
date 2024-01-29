@@ -16,7 +16,8 @@ curl [kɜrl]
 ## options
 
 ```bash
--s, --silent, 不显示下载进度
+-s, --silent, 不显示下载进度, 不显示 error message
+-S, --show-error 在使用 -s 时, 打印 curl error message
 -C, --continue-at, 断点续传
 -o, --output <file>, write  output to <file> instead of stdout
 --connect-timeout <fractional seconds>, 建连接超时, 比如 tcp 三次握手
@@ -42,6 +43,7 @@ curl [kɜrl]
 --trace-ascii /tmp/curl.log, 把交互的数据打印到日志里, https 协议也能把明文打在日志里
 -tlsv1.x 这个参数并不是说客户端按你指定的tls版本去跟服务端匹配，不是==的关系，是在≥的关系里面desc降序匹配, 比如支持tls1.0/1.1/1.2的Server，客户端分别以--sslv3、--tlsv1.0、--tlsv1.1、--tlsv1.2这些参数去请求，最终的结果都是以--tlsv1.2去建联，这就是我说的“在≥的关系里面desc降序匹配”
 --tls-max 1.x 这个参数则是限定死了，最大按哪个来, 比如说服务端最大支持到tlsv1.2，客户端限定最大按tlsv1.3来，那最终肯定就是以tlsv1.2建联了；如果服务端不变，我指定客户端以--tls-max 1.1请求，那最终肯定是以tlsv1.1建联了
+-f, --fail 快速失败, 在服务器出错时不显示HTTP错误信息, 直接返回 error 22
 ```
 
 ## -w

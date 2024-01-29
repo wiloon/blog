@@ -177,7 +177,7 @@ State2 --> [*]
 
 ```
 
-### 安装 graphviz
+## 安装 graphviz
 
 ```bash
 sudo apt-get install -y graphviz
@@ -191,7 +191,7 @@ VS-Code扩展
 
 vim foo.md
 
-### vs code 渲染 uml 的快捷键
+## vs code 渲染 uml 的快捷键
 
 ctrl + p> PlantUML: Preview Current Diagram
 
@@ -203,7 +203,7 @@ ctrl + alt + d
 
 theme: plain,sandstone,sketchy-outline
 
-### 线路径
+## 线路径
 
 添加隐藏行a -[hidden]- b
 延长线a --- b的长度 (更多破折号，更长的线)
@@ -212,15 +212,21 @@ theme: plain,sandstone,sketchy-outline
 更改定义的顺序 (订单 重要......有时候)
 添加空白节点，背景/边框颜色设置为透明
 
-### plantuml server
+## plantuml server
+
+https://hub.docker.com/r/plantuml/plantuml-server
 
 ```bash
+docker run -d \
+--name plantuml \
+-p 30001:8080 plantuml/plantuml-server:jetty-v1.2023.13
+
 podman run -d \
 --name plantuml \
 -p 30001:8080 plantuml/plantuml-server:jetty-v1.2022.14
 ```
 
-### 定义组件的相对位置
+## 定义组件的相对位置
 
 一种典型的方法是将一行标记为隐藏(hidden)
 hidden只支持从左到右`->`和从上到下的 `-->` 行,因此您需要相应地放置左侧和右侧(X <[hidden]- Y似乎不支持语法).

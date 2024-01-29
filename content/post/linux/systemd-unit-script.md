@@ -1,5 +1,5 @@
 ---
-title: systemd unit
+title: systemd script, systemd unit, 启动脚本
 author: "-"
 date: 2018-02-23T07:17:35+00:00
 url: systemd/script
@@ -10,74 +10,25 @@ tags:
   - remix
 
 ---
-## systemd unit
+## systemd script, systemd unit, 启动脚本
 
-## systemd start script, 启动脚本
+## service unit 配置文件 template
 
-e.g. Golang binary
-
-```bash
+```Bash
 vim /etc/systemd/system/foo.service
-
-[Unit]
-Description=foo
-[Service]
-WorkingDirectory=/data/foo
-ExecStart=/data/foo/foo -bar=foobar
-User=root
-Type=simple
-Restart=on-failure
-RestartSec=10
-LimitNOFILE=100000
-
-[Install]
-WantedBy=multi-user.target
 ```
 
-- WorkingDirectory, 工作目录, 程序启动时的当前目录。如果使用到 workingdirectory，需要先创建该目录
-- ExecStart, 服务启动时要执行的命令
-- Restart, 服务在什么情况下会被重启，no, on-success, on-failure, on-abnormal, on-watchdog, on-abort, or always， 默认值: no
-
-### java
-
-```bash
+```Bash
 [Unit]
+# 服务启动时会在 journal 里打印 description0
 Description=description0
-After=network.target syslog.target
-[Service]
-PrivateTmp=true
-Restart=always
-Type=simple
-WorkingDirectory=/home/exc-led/uploader
-ExecStart=/usr/java/jre1.8.0_201-amd64/bin/java -jar boot-uploader-0.0.1.jar
-ExecStop=/usr/bin/kill -15  $MAINPID
-[Install]
-WantedBy=multi-user.target
-
-```
-
-[https://xie.infoq.cn/article/2de71d4489a44ae58b6cef4d0](https://xie.infoq.cn/article/2de71d4489a44ae58b6cef4d0)
-
-### ExecStart 命令行参数
-
-ExecStart 执行的命令有参数时, 不要把可执行文件的路径和参数放在双引号里, ExceStart 会把参数 当作路径 的一部分, 然后报错说找不到文件.
-
-### systemd 添加开机启动运行 shell 脚本
-
-systemd 添加开机启动运行 shell 脚本
-  
-首先在 /etc/systemd/systemd/ 下新建一个开机启动服务名为 cs.service
-  
-内容如下
-
-```bash
-[Unit]
-# 开机启动会打印 description0
-Description=description0
+After=network.target sshd-keygen.service
 
 [Service]
 # 脚本路径必须是绝对路径 /bin/sh 为 shell 解释器不能省
-ExecStart=/bin/sh /home/root/cs.sh 
+ExecStart=/bin/sh /usr/local/bin/shell-script0.sh
+Environment="GODEBUG='gctrace=1'"
+Environment="ANOTHER_SECRET=JP8YLOc2bsNlrGuD6LVTq7L36obpjzxd"
 
 [Install]
 WantedBy=multi-user.target
@@ -88,13 +39,133 @@ Requires=pulseaudio.service
 After=pulseaudio.service
 ```
 
-写好之后 敲入 `systemctl enable cs.service` 将它添加到开机启动
+- [Unit] 启动顺序与依赖关系
+  - After 字段: 表示如果 network.target 或 sshd-keygen.service 需要启动, 那么 foo.service 应该在它们之后启动。
+  - 相应地,还有一个 Before 字段,定义 foo.service 应该在哪些服务之前启动。
+  - 注意,After和Before字段只涉及启动顺序,不涉及依赖关系。
+- [Service] 区块
+  - 用来 Service 的配置，只有 Service 类型的 Unit 才有这个区块。它的主要字段如下
+  - Type：定义启动时的进程行为。它有以下几种值。
+    - Type=simple：默认值，执行ExecStart指定的命令，启动主进程
+    - Type=forking：以 fork 方式从父进程创建子进程，创建后父进程会立即退出
+    - Type=oneshot：一次性进程，Systemd 会等当前服务退出，再继续往下执行
+    - Type=dbus：当前服务通过D-Bus启动
+    - Type=notify：当前服务启动完毕，会通知Systemd，再继续往下执行
+    - Type=idle：若有其他任务执行完毕，当前服务才会运行
+  - ExecStart：启动当前服务的命令
+  - ExecStartPre：启动当前服务之前执行的命令
+  - ExecStartPost：启动当前服务之后执行的命令
+  - ExecReload：重启当前服务时执行的命令
+  - ExecStop：停止当前服务时执行的命令
+  - ExecStopPost：停止当其服务之后执行的命令
+  - RestartSec：自动重启当前服务间隔的秒数
+  - Restart：定义何种情况 Systemd 会自动重启当前服务，可能的值包括always（总是重启）、on-success、on-failure、on-abnormal、on-abort、on-watchdog
+  - TimeoutSec：定义 Systemd 停止当前服务之前等待的秒数
+  - Environment：指定环境变量
+  - EnvironmentFile: 指定文件，可定义多个环境变量，按分行方式存储。
+- WorkingDirectory, 工作目录, 程序启动时的当前目录。如果使用到 workingdirectory，需要先创建该目录
+- ExecStart, 服务启动时要执行的命令
+- Restart, 服务在什么情况下会被重启，no, on-success, on-failure, on-abnormal, on-watchdog, on-abort, or always， 默认值: no
 
->注: 脚本里的命令也必须是写绝对路径
+>注意:
+>脚本里的命令必须是绝对路径
+>ExecStart 命令行参数, ExecStart 执行的命令有参数时, 不要把可执行文件的路径和参数放在双引号里, ExecStart 会把参数 当作路径 的一部分, 然后报错说找不到文件.
+
+设置开机启动
+
+`systemctl enable foo.service`
+
+## Golang binary
+
+```Bash
+vim /etc/systemd/system/foo.service
+```
+
+file content
+
+```bash
+[Unit]
+Description=foo
+
+[Service]
+WorkingDirectory=/data/foo
+ExecStart=/data/foo/foo -key0=value0
+User=root
+Group=root
+Type=simple
+Restart=on-failure
+RestartSec=10
+LimitNOFILE=100000
+
+[Install]
+WantedBy=multi-user.target
+```
+
+[https://vincent.bernat.im/en/blog/2017-systemd-golang](https://vincent.bernat.im/en/blog/2017-systemd-golang)
+
+[https://serversforhackers.com/c/process-monitoring-with-systemd](https://serversforhackers.com/c/process-monitoring-with-systemd)
+
+[https://fabianlee.org/2017/05/21/golang-running-a-go-binary-as-a-systemd-service-on-ubuntu-16-04/](https://fabianlee.org/2017/05/21/golang-running-a-go-binary-as-a-systemd-service-on-ubuntu-16-04/)
+
+[http://shanks.leanote.com/post/Go%E5%88%9B%E5%BB%BAdaemon%E7%A8%8B%E5%BA%8F](http://shanks.leanote.com/post/Go%E5%88%9B%E5%BB%BAdaemon%E7%A8%8B%E5%BA%8F)
+
+## java
+
+```Bash
+vim /etc/systemd/system/foo.service
+```
+
+```bash
+[Unit]
+Description=description0
+After=network.target syslog.target
+
+[Service]
+User=root
+PrivateTmp=true
+Restart=on-failure
+RestartSec=10
+Type=simple
+WorkingDirectory=/home/exc-led/uploader
+ExecStart=/usr/java/jre1.8.0_201-amd64/bin/java -Xmx1024m -jar /data/server/service0/service0.jar
+ExecStop=/usr/bin/kill -15 $MAINPID
+
+[Install]
+WantedBy=multi-user.target
+```
+
+[https://xie.infoq.cn/article/2de71d4489a44ae58b6cef4d0](https://xie.infoq.cn/article/2de71d4489a44ae58b6cef4d0)
+
+### systemd service, shell 脚本
+
+```Bash
+vim /etc/systemd/system/foo.service
+```
+  
+内容如下
+
+```bash
+[Unit]
+Description=description0
+AssertPathIsDirectory=/mnt/drive_wiloon
+After=docker.service
+
+[Service]
+Type=simple
+ExecStart=/bin/sh /usr/local/bin/shell-script0.sh
+ExecStop=/bin/sh /usr/local/bin/shell-script1.sh
+Restart=always
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target
+Requires=pulseaudio.service
+After=pulseaudio.service
+```
 
 [http://lxiaogao.lofter.com/post/1cc6a101_62292d3](http://lxiaogao.lofter.com/post/1cc6a101_62292d3)
 
-### 执行shell脚本
+### systemd service mount rclone drive
 
 ```bash
 vim /usr/lib/systemd/system/foo.service
@@ -162,27 +233,6 @@ ExecStop=/data/server/zookeeper/zookeeper-3.4.12/bin/zkServer.sh stop
 
 [Install]
 WantedBy=multi-user.target
-```
-
-### java
-
-```bash
-#!/bin/sh
-service_name="service0"
-echo "
-[Unit]
-Description=${service_name}
-[Service]
-WorkingDirectory=/data/server/${service_name}
-ExecStart=/usr/bin/java -Xms128m -Xmx1024m -jar /data/server/${service_name}/${service_name}.jar
-User=root
-Type=simple
-Restart=on-failure
-RestartSec=10
-
-[Install]
-WantedBy=multi-user.target
-" > /etc/systemd/system/${service_name}.service 
 ```
 
 ### The mappings of systemd limits to ulimit
@@ -255,6 +305,7 @@ snapshot : 与 targetunit 相似,快照本身不做什么,唯一的目的就是�
 
 以下是一段service unit文件的例子,属于/usr/lib/systemd/system/NetworkManager.service文件,它描述的是系统中的网络管理服务。
 
+```Bash
 [Unit]
 
 Description=Network Manager
@@ -282,6 +333,7 @@ WantedBy=multi-user.target
 Alias=dbus-org.freedesktop.NetworkManager.service
 
 Also=NetworkManager-dispatcher.service
+```
 
 整个文件分三个部分
 

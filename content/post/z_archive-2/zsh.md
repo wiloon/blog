@@ -12,15 +12,19 @@ tags:
 ## zsh, oh-my-zsh, oh my zsh
 
 ## ubuntu
+
 ```Bash
 # 检查一下系统里的 shell
 cat /etc/shells
 
-apt install zsh
+## 查看当前 shell
+echo $SHELL
 
+# install zsh
+apt install zsh
 ```
 
-## update
+## update oh my zsh
 
 ```Bash
 # need vpn to access github
