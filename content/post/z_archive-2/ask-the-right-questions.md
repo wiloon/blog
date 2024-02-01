@@ -1,5 +1,5 @@
 ---
-title: Asking The Right Questions
+title: Asking The Right Questions, 学会提问
 author: "-"
 date: 2015-10-13T01:57:48+00:00
 url: ask-the-right-questions
@@ -8,7 +8,7 @@ categories:
 tags:
   - Reprint
 ---
-## Asking The Right Questions
+## Asking The Right Questions, 学会提问
 
 - Asking The Right Questions: A Guide to Critical Thinking
     - Author/作者: [美]尼尔·布朗 (Neil Browne) ，斯图尔特·基利 (Stuart Keel)
@@ -24,5 +24,6 @@ tags:
 - 斯蒂芬 科尔伯特 (Stephen Colbert): "我们并不是什么事实的拥趸, 你看, 事实还会发生改变, 可是我的观点从来都不会变, 不论它面对的是什么样的事实." 任何下决心死抱自己的结论不放手的人, 都有可能找到许多理由来证明自己的观点. 这种认证方式 被称作"操控型认证"(managed reasoning), 意思就是这种认证方式经过事先挑选, 以便得出某个特定的结论. P56/550
 - 描述性论题
 - 规定性论题
+- 薄弱的理由必然导致薄弱的认证. P114/550
 
 https://book.douban.com/subject/35513147/
