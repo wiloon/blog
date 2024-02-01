@@ -736,18 +736,21 @@ git checkout -b branch_name tag_name
 git clone <版本库的网址> <本地目录名>
 
 ```bash
-#checkout tag/branch
+# checkout/clone tag/branch, clone 某个仓库的某个分支
 # -b, --[no-]branch <branch>, checkout <branch> instead of the remote's HEAD
 git clone --branch <branch or tag name> <repo_url>
 git clone -b dev_jk http://10.1.1.11/service/tmall-service.git
 git clone -b v1.30.0 https://github.com/foo/bar
+# -b 也可以写后面
+git clone [git-url] -b [branch-name]
 
 # 如果给 git clone 命令传递 --recurse-submodules 选项，它就会自动初始化并更新仓库中的每一个子模块， 包括可能存在的嵌套子模块。
 git clone --recurse-submodules https://github.com/chaconinc/MainProject
 
+#  -j8 is an optional performance optimization that became available in version 2.8, and fetches up to 8 submodules at a time in parallel — see man git-clone.
+git clone --recurse-submodules -j8 git://github.com/foo/bar.git
+
 git clone https://user0:password0@git.foo.com/path/to/project.git
-# clone 某个仓库和某个分支
-git clone [git-url] -b [branch-name]
 
 ### 指定克隆深度
 

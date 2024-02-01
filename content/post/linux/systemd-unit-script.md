@@ -41,8 +41,10 @@ After=pulseaudio.service
 
 - [Unit] 启动顺序与依赖关系
   - After 字段: 表示如果 network.target 或 sshd-keygen.service 需要启动, 那么 foo.service 应该在它们之后启动。
-  - 相应地,还有一个 Before 字段,定义 foo.service 应该在哪些服务之前启动。
-  - 注意,After和Before字段只涉及启动顺序,不涉及依赖关系。
+  - 相应地,还有一个 Before 字段, 定义 foo.service 应该在哪些服务之前启动。
+  - 注意, After 和 Before 字段只涉及启动顺序,不涉及依赖关系。
+  - ConditionPathExists, AssertPathExists: 要求给定的绝对路径文件已经存在，否则不做任何事(condition)或进入failed状态(assert)，可在路径前使用!表示条件取反，即不存在时才启动服务。
+  - ConditionPathIsDirectory, AssertPathIsDirectory: 如上，路径存在且是目录时启动。
 - [Service] 区块
   - 用来 Service 的配置，只有 Service 类型的 Unit 才有这个区块。它的主要字段如下
   - Type：定义启动时的进程行为。它有以下几种值。
@@ -52,20 +54,23 @@ After=pulseaudio.service
     - Type=dbus：当前服务通过D-Bus启动
     - Type=notify：当前服务启动完毕，会通知Systemd，再继续往下执行
     - Type=idle：若有其他任务执行完毕，当前服务才会运行
-  - ExecStart：启动当前服务的命令
+  - ExecStart：服务启动时要执行的命令
   - ExecStartPre：启动当前服务之前执行的命令
   - ExecStartPost：启动当前服务之后执行的命令
   - ExecReload：重启当前服务时执行的命令
   - ExecStop：停止当前服务时执行的命令
   - ExecStopPost：停止当其服务之后执行的命令
   - RestartSec：自动重启当前服务间隔的秒数
-  - Restart：定义何种情况 Systemd 会自动重启当前服务，可能的值包括always（总是重启）、on-success、on-failure、on-abnormal、on-abort、on-watchdog
+  - Restart：定义何种情况 Systemd 会自动重启当前服务，no, on-success, on-failure, on-abnormal, on-watchdog, on-abort, or always， 默认值: no
   - TimeoutSec：定义 Systemd 停止当前服务之前等待的秒数
   - Environment：指定环境变量
   - EnvironmentFile: 指定文件，可定义多个环境变量，按分行方式存储。
-- WorkingDirectory, 工作目录, 程序启动时的当前目录。如果使用到 workingdirectory，需要先创建该目录
-- ExecStart, 服务启动时要执行的命令
-- Restart, 服务在什么情况下会被重启，no, on-success, on-failure, on-abnormal, on-watchdog, on-abort, or always， 默认值: no
+  - WorkingDirectory, 工作目录, 程序启动时的当前目录。如果使用到 workingdirectory，需要先创建该目录
+- [Install] 段落相关的指令，它们只在systemctl enable/disable操作时有效。如果期望服务开机自启动，一般只配置一个WantedBy指令，如果不期望服务开机自启动，则Install段落通常省略。主要包含以下内容:
+  - WantedBy 本服务设置开机自启动时，在被依赖目标的.wants目录下创建本服务的软链接。例如WantedBy = multi-user.target时，将在/etc/systemd/multi-user.target.wants目录下创建本服务的软链接。
+  - RequiredBy	类似WantedBy，但是是在.requires目录下创建软链接。
+  - Alias	指定创建软链接时链接至本服务配置文件的别名文件。例如reboot.target中配置了Alias=ctrl-alt-del.target，当执行enable时，将创建/etc/systemd/system/ctrl-alt-del.service软链接并指向reboot.target。
+  - DefaultInstance	当是一个模板服务配置文件时(即文件名为Service_Name@.service)，该指令指定该模板的默认实例。例如trojan@.service中配置了DefaultInstall=server时，systemctl enable trojan@.service时将创建名为trojan@server.service的软链接。
 
 >注意:
 >脚本里的命令必须是绝对路径
@@ -136,12 +141,12 @@ WantedBy=multi-user.target
 
 [https://xie.infoq.cn/article/2de71d4489a44ae58b6cef4d0](https://xie.infoq.cn/article/2de71d4489a44ae58b6cef4d0)
 
-### systemd service, shell 脚本
+## systemd service, shell 脚本
 
 ```Bash
 vim /etc/systemd/system/foo.service
 ```
-  
+
 内容如下
 
 ```bash
@@ -165,13 +170,11 @@ After=pulseaudio.service
 
 [http://lxiaogao.lofter.com/post/1cc6a101_62292d3](http://lxiaogao.lofter.com/post/1cc6a101_62292d3)
 
-### systemd service mount rclone drive
+## systemd service mount rclone drive
 
 ```bash
 vim /usr/lib/systemd/system/foo.service
 ```
-
-#### foo.service
 
 ```bash
 [Unit]
@@ -219,7 +222,7 @@ Restart=always
 WantedBy=multi-user.target
 ```
 
-### zookeeper
+## zookeeper
 
 ```bash
 [Unit]
@@ -235,7 +238,7 @@ ExecStop=/data/server/zookeeper/zookeeper-3.4.12/bin/zkServer.sh stop
 WantedBy=multi-user.target
 ```
 
-### The mappings of systemd limits to ulimit
+## The mappings of systemd limits to ulimit
 
 ```bash
 Directive        ulimit equivalent     Unit
@@ -255,7 +258,6 @@ LimitMSGQUEUE=   ulimit -q             Bytes
 LimitNICE=       ulimit -e             Nice Level 
 LimitRTPRIO=     ulimit -r             Realtime Priority  
 LimitRTTIME=     No equivalent
-
 ```
 
 编写systemd下服务脚本
@@ -370,17 +372,11 @@ notify,idle类型比较少见,不介绍。
 
 - ExecStartPre, ExecStartPost: ExecStart执行前后所调用的命令。
 - ExecStop: 定义停止服务时所执行的命令,定义服务退出前所做的处理。如果没有指定,使用systemctl stop xxx命令时,服务将立即被终结而不做处理。如果未设置此选项，那么当此服务被停止时， 该服务的所有进程都将会根据 KillSignal= 的设置被立即全部杀死。
-- Restart: 定义服务何种情况下重启 (启动失败,启动超时,进程被终结) 。可选选项: no, on-success, on-failure,on-watchdog, on-abort
 - SuccessExitStatus: 参考ExecStart中返回值,定义何种情况算是启动成功。
 
-    eg: SuccessExitStatus=1 2 8 SIGKILL
+eg: SuccessExitStatus=1 2 8 SIGKILL
 
-Install主要包含以下内容:
 
-- WantedBy: 何种情况下, 服务被启用。
-
-  Target的含义是服务组，表示一组服务。WantedBy=multi-user.target指的是，sshd 所在的 Target 是multi-user.target。
-  eg: WantedBy=multi-user.target (多用户环境下启用)
 
 - Alias: 别名
 

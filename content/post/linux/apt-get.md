@@ -10,7 +10,7 @@ tags:
 ---
 ## apt-get, apt basic command
 
-### 列出软件包安装了哪些文件
+### 列出某个软件包安装了哪些文件
 
 ```Bash
 dpkg -L package0
@@ -24,7 +24,9 @@ apt list --installed
 
 ## apt 查询软件包
 
-  apt-cache search keyword
+```Bash
+apt-cache search keyword
+```
 
 ### list versions in cache
 

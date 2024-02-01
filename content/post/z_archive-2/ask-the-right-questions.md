@@ -11,7 +11,7 @@ tags:
 ## Asking The Right Questions, 学会提问
 
 - Asking The Right Questions: A Guide to Critical Thinking
-    - Author/作者: [美]尼尔·布朗 (Neil Browne) ，斯图尔特·基利 (Stuart Keel)
+    - Author/作者: [美]尼尔·布朗 (Neil Browne)，斯图尔特·基利 (Stuart Keel)
     - 译作名: 学会提问
     - 译者: 许蔚翰, 吴礼敬
     - 时间: 2023.12 -
@@ -25,5 +25,12 @@ tags:
 - 描述性论题
 - 规定性论题
 - 薄弱的理由必然导致薄弱的认证. P114/550
+- 理由的提示词
+  - 由于, as a result of
+  - 研究显示, studies show
+  - 因为这个事实, because of the fact that
+  - 因为这个原因, for the reason that
+  - 由以下材料支撑, is supported by
+  - 因为证据显示, because the evidence is
 
 https://book.douban.com/subject/35513147/

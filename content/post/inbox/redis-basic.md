@@ -136,8 +136,20 @@ rpm -ivh redis-2.8.20-3.el6.art.x86_64.rpm
 
 ### podman, 单机 redis
 
+https://hub.docker.com/_/redis
+
 ```bash
 # customized config file and data volume
+docker run \
+-d \
+--name redis \
+--restart=always \
+-p 6379:6379 \
+-v /etc/localtime:/etc/localtime:ro \
+-v redis-conf:/etc/redis \
+-v redis-data:/var/lib/redis \
+redis:7.2.4 redis-server /etc/redis/redis.conf
+
 podman run \
 -d \
 --name redis \
@@ -145,7 +157,7 @@ podman run \
 -v /etc/localtime:/etc/localtime:ro \
 -v redis-conf:/etc/redis \
 -v redis-data:/var/lib/redis \
-redis:7.0.11 redis-server /etc/redis/redis.conf
+redis:7.2.4 redis-server /etc/redis/redis.conf
 
 # default config
 podman run \

@@ -13,7 +13,10 @@ tags:
 
 在Linux的命令行底下，一般的程序都是使用http_proxy和ftp_proxy这两个环境变量来获得代理设置的。
 ```bash
-  
+export HTTP_PROXY=[username]:[password]@[proxy-web-or-IP-address]:[port-number]
+export HTTPS_PROXY=[username]:[password]@[proxy-web-or-IP-address]:[port-number]
+export FTP_PROXY=[username]:[password]@ [proxy-web-or-IP-address]:[port-number]
+export NO_PROXY=localhost,127.0.0.1,::1
 export http_proxy=http://localhost:8118/
 
 # 需要密码的代理服务器
