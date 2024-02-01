@@ -34,7 +34,7 @@ tags:
 
 - 在转载文章的基础上整理过的
 - 记录了一部分常用的命令
-- 平时经常使用的工具, 命令, 脚本, 使用过程中遇到问题,解决问题后会频繁的修改，会补充命令的示例
+- 平时经常使用的工具, 命令, 脚本, 使用过程中遇到问题,解决问题后会频繁得修改，会补充命令的示例
 - 一般会有语法高亮
 - 有段落标注
 - 可能有N个引用来源
@@ -79,9 +79,9 @@ tags:
 - MySQL, Redis, InfluxDB, LevelDB
 - Kafka, Zookeeper
 - CentOS, Arch Linux, Ubuntu
-- AWS, Aliyun
-- Javascript, Vue, Element, Vuetify, Angular
-- Docker/Podman, Protobuf, JWT, Telegraf, PlantUML, Filebeat, ELK, Shell Script, Ansible
+- AWS, `Aliyun`
+- Javascript, Vue, Element, `Vuetify`, Angular
+- Docker/`Podman`, Protobuf, JWT, Telegraf, PlantUML, Filebeat, ELK, Shell Script, Ansible
 
 ### 业余时间
 
