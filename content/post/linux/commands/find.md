@@ -132,9 +132,9 @@ find / -mtime +5
 
 linux 文件的几种时间 (以 find 为例):
   
-- atime 最后一次访问时间, 如 ls, more 等, 但 chmod, chown, ls, stat 等不会修改些时间, 使用 ls -utl 可以按此时间顺序查看;
-- ctime 最后一次状态修改时间, 如 chmod, chown 等状态时间改变但修改时间不会改变, 使用 stat file 可以查看;
-- mtime 最后一次内容修改时间, 如 vi 保存后等, 修改时间发生改变的话, atime 和 ctime 也相应跟着发生改变.
+- `atime` 最后一次访问时间, 如 ls, more 等, 但 chmod, `chown`, ls, stat 等不会修改些时间, 使用 ls -utl 可以按此时间顺序查看;
+- `ctime` 最后一次状态修改时间, 如 chmod, `chown` 等状态时间改变但修改时间不会改变, 使用 stat file 可以查看;
+- `mtime` 最后一次内容修改时间, 如 vi 保存后等, 修改时间发生改变的话, `atime` 和 `ctime` 也相应跟着发生改变.
 
 注意: linux 里是不会记录文件的创建时间的, 除非这个文件自创建以来没有发生改变, 那么它的创建时间就是它的最后一次修改时间.
   
@@ -161,7 +161,7 @@ find ./ -mmin  -10  #查找距离现在10分钟内修改的文件
 
 ### 查找深度
 
-find 命令默认会递归遍历子目录, 要控制查找深度的话用 -maxdepth 参数。
+find 命令默认会递归遍历子目录, 要控制查找深度的话用 `-maxdepth` 参数。
 
 ```bash
 #  find all files that have been modified after a certain number of days.
@@ -183,7 +183,7 @@ find . -regex ".*/[0-9]*/.c" -print
 ./2234.c
 ```
 
-还有一个设置项(option)'-regextype'，可以让你根据自己的喜好选择使用的正则表达式类型，大家可以试试。
+还有一个设置项(option) `-regextype`，可以让你根据自己的喜好选择使用得正则表达式类型，大家可以试试。
 
 查找时间
 
@@ -217,7 +217,7 @@ find . -mtime +1
   
 默认情况下，-mtime、-atime 和 -ctime 指的是最近 24 小时。但是，如果它们前面加上了开始时间选项，则 24 小时的周期将从当日的开始时间算起。您还可以使用 mmin、amin 和 cmin 查找在不到 1 小时的时间内变化了的时间戳。
   
-如果您在登录到您的帐户后立即运行以下命令，您将找到在不到 1 分钟以前读取的所有文件:
+如果您在登录到您的账号后立即运行以下命令，您将找到在不到 1 分钟以前读取的所有文件:
 
 find . -amin -1
   
