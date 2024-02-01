@@ -17,6 +17,11 @@ tags:
 docker ps --filter"name=test-nginx"
 docker ps --format "table {{.ID}}\t{{.Names}}\t{{.Image}}\t{{.Status}}"
 docker ps --format "table {{.ID}}\t{{.IMAGE}}\t{{.CREATED}}\t{{.STATUS}}\t{{.NAMES}}"
+
+docker inspect xxx
+docker container update --restart=no <containername>
+# 修改 docker 容器为开机启动
+docker container update --restart=always <containername>
 ```
 
 ### 批量删除镜像
@@ -148,12 +153,6 @@ docker stats
 docker logs --since 10s -f influxdb
 ```
 
-```bash
-docker inspect xxx
-docker container update --restart=no <containername>
-docker container update --restart=always <containername>
-```
-
 ### docker build
 
 ```bash
@@ -170,7 +169,7 @@ docker pull swr.cn-south-1.myhuaweicloud.com/{组织名称}/dnsmasq:v1.0.0
 #  从 Git repo 中构建
 docker build https://github.com/twang2218/gitlab-ce-zh.git#:11.1
 
-# -f 指定Dockerfile路径
+# -f 指定 Dockerfile 路径
 docker build -f /path/to/Dockerfile .
 ```
 

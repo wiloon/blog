@@ -42,7 +42,18 @@ FROM table0
 
 ## install
 
+https://hub.docker.com/_/postgres
+
 ```bash
+# 默认用户名 postgres
+docker run --name postgres \
+--restart=always \
+-p 5432:5432 \
+-e POSTGRES_PASSWORD=password0 \
+-e PGDATA=/var/lib/postgresql/data/pgdata \
+-v postgres-data:/var/lib/postgresql/data \
+-d postgres:16.1
+
 podman run --name postgres \
 -p 5432:5432 \
 -e POSTGRES_PASSWORD=password0 \

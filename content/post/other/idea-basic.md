@@ -11,6 +11,9 @@ tags:
 ---
 ## JetBrains, idea, basic
 
+- file> open recent, 点击打开项目的同时按 ctrl 会在新窗口打开
+- jetbrain> Git, 选中分支名 Ctrl + C 会复制分支名
+
 ## HiDPI
 
 https://intellij-support.jetbrains.com/hc/en-us/articles/360007994999-HiDPI-configuration

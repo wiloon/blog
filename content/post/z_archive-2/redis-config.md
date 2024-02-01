@@ -15,7 +15,7 @@ tags:
 
 ```conf
 bind 0.0.0.0
-protected-mode yes
+protected-mode no
 port 6379
 tcp-backlog 511
 timeout 0
@@ -33,7 +33,7 @@ rdbcompression yes
 rdbchecksum yes
 dbfilename dump.rdb
 rdb-del-sync-files no
-dir /var/lib/redis/
+dir /var/lib/redis
 replica-serve-stale-data yes
 replica-read-only yes
 repl-diskless-sync yes

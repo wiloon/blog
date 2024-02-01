@@ -50,10 +50,14 @@ systemd-analyze
 systemd-analyze blame
 
 # 显示瀑布状的启动过程流
+# 打印严重消耗时间的服务树状表，按照启动消耗的时间进行排序，时间消耗越多，越排到前面。
+@之后是服务激活或者启动的时间，
++号之后是服务启动消耗的时间。
+个人理解 @ 是从系统引导到服务启动起来的时间，是一个相对时间消耗，+是服务启动消耗的时间，是一个绝对时间消耗。
 systemd-analyze critical-chain
 
-# 显示指定服务的启动流
-systemd-analyze critical-chain atd.service
+# 显示指定服务的启动流 比如 docker.service
+systemd-analyze critical-chain docker.service
 ```
 
 ## systemd 版本/version
@@ -65,7 +69,7 @@ systemctl --version
 sudo systemd-analyze plot > /home/wiloon/tmp/boot3.svg
 ```
 
-### timedatectl
+### `timedatectl`
 
 ```bash
 # 查看当前时区设置
@@ -81,7 +85,7 @@ $ sudo timedatectl set-time HH:MM:SS
 timedatectl set-ntp true
 ```
 
-### loginctl
+### `loginctl`
 
 ```bash
 # 列出当前session
@@ -100,7 +104,7 @@ loginctl show-session <SESSION_ID> -p Type
 ### cat
 
 ```bash
-    systemctl cat bluetooth|grep Condition
+systemctl cat bluetooth|grep Condition
 ```
 
 ### mask
@@ -118,19 +122,18 @@ systemctl list-timers --all
 ```
 
 ```bash
-
 # 查看是否启用
 systemctl is-enabled service0
 
 # to see which units have failed.
 systemctl --failed
 
-# 退出系统并关闭电源: 
+# 退出系统并关闭电源
 systemctl poweroff
 systemctl reboot
-# CPU停止工作
+# CPU 停止工作
 $ sudo systemctl halt
-# 待机: 
+# 待机
 systemctl suspend
 systemctl hibernate
 # 混合休眠模式 (同时休眠到硬盘并待机) : 

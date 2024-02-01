@@ -12,11 +12,14 @@ tags:
 ## linux 环境 变量, /etc/profile, /etc/profile.d/
 
 自定义的环境变量要加到 /etc/profile.d 下, 不建议手动修改 /etc/profile, /etc/profile 文件属于 filesystem 包, 这个包的的更新有可能会导致 /etc/profile 的更新, 
-如果filesystem升级的时候发现 /etc/profile 被修改过,会把新的文件安装到/etc/profie.new 并且是不生效的状态, 有可能会导致某些不兼容的问题, 比如 perl 包安装的/etc/profile.d/perlbin.sh 使用的 append_path函数.
+如果 filesystem 升级的时候发现 /etc/profile 被修改过, 会把新的文件安装到 /etc/profile.new 并且是不生效的状态, 有可能会导致某些不兼容的问题, 
+比如 perl 包安装的/etc/profile.d/perlbin.sh 使用的 append_path 函数.
 
 ### /etc/profile.d/ 目录
 
-在 /etc/profile.d 目录中存放的是一些应用程序所需的启动脚本,比如vim等命令的一些附加设置,在 /etc/profile.d 目录下添加相关的环境变量设置的 .sh 脚本文件,这些脚本文件的环境变量能够被生效,是因为在 /etc/profile 被读取的时候,会使用一个for循环语句来调用 /etc/profile.d 下的脚本,这些脚本文件所设置的环境变量就和 /etc/profile 启动时一起被设置起来了,cat /etc/profile 可以看到有一段加载 /etc/profile.d 目录下所有 .sh 脚本文件的代码:
+在 /etc/profile.d 目录中存放的是一些应用程序所需的启动脚本, 比如 vim 等命令的一些附加设置, 在 /etc/profile.d 目录下添加相关的环境变量设置的 .sh 脚本文件, 
+这些脚本文件的环境变量能够被生效, 是因为在 /etc/profile 被读取的时候, 会使用一个 for 循环语句来调用 /etc/profile.d 下的脚本, 
+这些脚本文件所设置的环境变量就和 /etc/profile 启动时一起被设置起来了, cat /etc/profile 可以看到有一段加载 /etc/profile.d 目录下所有 .sh 脚本文件的代码:
 
 ```bash
 if [ -d /etc/profile.d ]; then
@@ -187,11 +190,21 @@ export vblank_mode=0
 只能是把新增的环境变量加载起来, 只在配置文件里注释掉行并不能 unset 环境变量, 需要 unset 的话得在 配置文件中显示的 unset
 
 ```Bash
+“bash -l”，但这实际上创建了一个新的子shell，当你注销时，你将返回到“foo”仍在PATH中的封闭shell。
+
 # 长格式命令
+# source 是一个内置的 shell 命令，它执行作为参数传递的文件的内容, 示例中，它在当前 shell 中执行 .bashrc 文件。
 source ~/.bashrc
-source ~/.zshrc
 
 # 较短版本
+# .是“source”内置命令的 BASH 快捷方式。所以“. ~/.bashrc”对于 BASH 解释器来说与“source ~/.bashrc”是一样的。
+# source 是 dot/period 的同义词。在 bash 中，但不是在 POSIX sh 中，因此为了获得最大的兼容性，请使用句点。
 . ~/.bashrc
-. ~/.zshrc
+
+# . ~/.bashrc 或 source ~/.bashrc 将保留您当前的 shell 会话：除了将 ~/.bashrc 重新加载到当前 shell（采购）所做的修改之外，当前 shell 进程及其状态将被保留，其中包括环境变量、shell 变量、shell 选项、shell 函数和命令历史记录。
+
+# exec 命令通过运行指定的命令行完全替换了 shell 进程。在我们的示例中，它用新的 bash 实例（使用更新的配置文件）替换当前 shell 的任何内容。
+exec bash
+
 ```
+

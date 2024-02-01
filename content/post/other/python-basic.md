@@ -39,6 +39,27 @@ cdsitepackages      #和上面的类似，直接进入到 site-packages 目录
 lssitepackages      #显示 site-packages 目录中的内容
 ```
 
+## archlinux install python3.6
+
+```Bash
+yay -S python36
+```
+
+## install Python from source code on ubuntu
+
+https://stackoverflow.com/questions/52561997/segmentation-fault-during-installation-of-python-3-6-on-debian-8
+
+https://www.python.org/downloads/source/
+
+```Bash
+sudo apt update 
+sudo apt install build-essential zlib1g-dev libncurses5-dev libgdbm-dev libnss3-dev libssl-dev libreadline-dev libffi-dev libsqlite3-dev wget libbz2-dev tk-dev liblzma-dev lzma
+./configure --enable-optimizations
+make -j `nproc`
+sudo make altinstall
+/usr/local/bin/python3.6 --version
+```
+
 ## 查看包依赖树
 
 ```Bash
@@ -379,7 +400,6 @@ pickle.load(file)
 ### venv
 
 ```bash
-yay -S python36
 # 创建指定版本的运行环境
 /usr/bin/python3.6 -m venv apps/venv-36
 # 激活环境 - linux
