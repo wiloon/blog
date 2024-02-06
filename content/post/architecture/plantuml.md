@@ -273,3 +273,7 @@ pacman -S graphviz
 *** <s>Raspyfi</s> => Volumio
 @endmindmap
 ```
+
+## color name
+
+https://www.w3schools.com/colors/colors_names.asp

@@ -856,6 +856,8 @@ vim 配置文件路径 `~/.vimrc`, 没有的话就创建一个, vim 启动的时
 "comments
 "默认显示行号
 set number
+"语法高亮
+syntax on
 ```
 
 [https://www.ruanyifeng.com/blog/2018/09/vimrc.html](https://www.ruanyifeng.com/blog/2018/09/vimrc.html)

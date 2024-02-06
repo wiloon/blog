@@ -1,22 +1,26 @@
 ---
-title: Windows Power Shell
+title: Windows PowerShell
 author: "-"
 date: 2012-03-12T04:28:25+00:00
-url: /?p=2534
+url: powershell
 categories:
   - Windows
 tags:
   - reprint
 ---
-## Windows Power Shell
+## Windows PowerShell
 
-### 查看 power shell 版本
+```Bash
+# 查看 power shell 版本
+$PSVersionTable
 
-    $PSVersionTable
+# 查看安装路径 
+$PSHOME
+```
 
 ### install
 
-    https://github.com/PowerShell/PowerShell/releases
+https://github.com/PowerShell/PowerShell/releases
 
 ```bash
 

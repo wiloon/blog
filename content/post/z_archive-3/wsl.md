@@ -98,7 +98,7 @@ if [ $? -ne 0 ]; then
     (setsid socat UNIX-LISTEN:$SSH_AUTH_SOCK,fork EXEC:"/mnt/c/workspace/apps/npiperelay.exe -ei -s //./pipe/openssh-ssh-agent",nofork &) >/dev/null 2>&1
 fi
 
-ssh-add -L 
+ssh-add -L
 ```
 
 ### wsl 卸载
