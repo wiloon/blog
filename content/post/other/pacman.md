@@ -1,7 +1,7 @@
 ---
 title: pacman
 author: "-"
-date: 2023-05-18 10:00:38
+date: 2024-02-06T10:01:18+08:00
 url: pacman
 categories:
   - Linux
@@ -18,9 +18,12 @@ tags:
 -Sy # 仅同步源
 -Syy # 两个 y 代表强制更新 database 文件, 即使文件看起来是最新的, 回退到旧版本的时候会用到
 -Syyuu # 降级软件包的时候用
--Q 查询 pacman 数据库, 比如查询某一个已经安装的包的版本 pacman -Q openssl
--Ql boost-libs #Display file list provided by local package
--o <file> 查看某个文件属于哪个包
+-Q 查询 本地 pacman 数据库, 比如查询某一个已经安装的包的版本 pacman -Q openssl
+-Ql <boost-libs> #Display file list provided by local package
+-Qk # Check the local package database
+-Qo /path/to/file # Check if the file is owned by any package, 查看某个文件属于哪个包
+-F 查询远程仓库里的软件包
+-Fl 比如在安装软件包之前查询一下远程仓库, 看看会有哪些文件安装到本地
 --needed 已经是最新版本的包，不会再重新安装
 -R 删除软件包
 -b 指定 database 路径, 默认 /var/lib/pacman
@@ -95,7 +98,7 @@ IgnorePkg = linux
 
 pacman-key gpg 数据库有关。这个数据库包含所有必要的PGP公钥。
 
-error: unzip: signature from "Jonas Witschel <diabonas@gmx.de>" is unknown trust
+error: unzip: signature from `Jonas Witschel <diabonas@gmx.de> `is unknown trust
 :: File /var/cache/pacman/pkg/unzip-6.0-16-x86_64.pkg.tar.zst is corrupted (invalid or corrupted package (PGP signature)).
 
 [https://bbs.archlinux.org/viewtopic.php?id=128682](https://bbs.archlinux.org/viewtopic.php?id=128682)
@@ -111,7 +114,7 @@ sudo pacman -S archlinux-keyring && sudo pacman -Syu
 
 ### Disabling signature checking
 
-pacman.conf 是 global 的配置, 子仓库的配置优先级更高, 注意检查pacman.conf 和 mirrorlist 的其它 SigLeve 配置
+pacman.conf 是 global 的配置, 子仓库的配置优先级更高, 注意检查 pacman.conf 和 `mirrorlist` 的其它 SigLeve 配置
 
 ```bash
 vim /etc/pacman.conf
@@ -173,9 +176,9 @@ Server = http://mirrors.kernel.org/archlinux/$repo/os/$arch
 pacman -Sl |grep jdk
 ```
 
-### Enabling multilib
+### Enabling `multilib`
 
-To enable multilib repository, uncomment the [multilib] section in /etc/pacman.conf:
+To enable `multilib` repository, uncomment the `[multilib]` section in /etc/pacman.conf:
 
 ```bash
 /etc/pacman.conf
@@ -188,7 +191,7 @@ Include = /etc/pacman.d/mirrorlist
 #Server=https://archive.archlinux.org/repos/2018/06/17/$repo/os/$arch
 ```
 
-### --noconfirm, yes
+### `--noconfirm`, yes
 
 ```bash
 --noconfirm
@@ -206,19 +209,15 @@ Include = /etc/pacman.d/mirrorlist
 sudo rm /var/lib/pacman/db.lck
 ```
 
-## 查看软件包依赖
-
-### pactree, 查看 packageName 依赖了哪些软件包
+## 查看软件包依赖, `pactree`
 
 ```bash
+# 查看 packageName 依赖了哪些软件包
 # pactree 在 pacman-contrib 包里
 pacman -S pacman-contrib
 pactree <packageName>
-```
 
-### pactree，查看 packageName 被哪些软件包依赖了
-
-```bash
+# 查看 packageName 被哪些软件包依赖了
 pactree -r <packageName>
 ```
 
@@ -232,9 +231,7 @@ pacman -Syu
 
 ## 忽略/排除指定包
   
-pacman -Su -ignore postgresql -ignore libpqxx
-
-whoneeds package-name
+`pacman -Su -ignore postgresql -ignore libpqxx`
 
 sudo pacman -S pacman-contrib
 
@@ -279,17 +276,18 @@ pacman -Sg abc #查询abc这个包组包含的软件包
 
 ## 限速
   
-由于办公室装修，临时借宿到另一个兄弟公司干活。不过这兄弟可不够厚道，分配给我们的网络做了非常不人道的限制，每个网卡限速20k，于是乎瞬间回退到小猫时代。在这样的环境下，如果有时需要安装一些东西，就会由于pacman把带宽全部抢占而导致网页打不开、MSN断线等一系列严重后果。
+由于办公室装修，临时借宿到另一个兄弟公司干活。不过这兄弟可不够厚道，分配给我们的网络做了非常不人道的限制，每个网卡限速 20k，于是乎瞬间回退到小猫时代。在这样的环境下，如果有时需要安装一些东西，
+就会由于pacman把带宽全部抢占而导致网页打不开、MSN 断线等一系列严重后果。
 
-不过还好，虽然pacman并没有提供限速的功能，但是它提供了比较灵活的接口来使用其他下载程序。我使用的是wget，只要在/etc/pacman.conf中将XferCommand设置为如下配置即可实现限速10k的目的了。
+不过还好，虽然pacman并没有提供限速的功能，但是它提供了比较灵活的接口来使用其他下载程序。我使用的是 wget，只要在/etc/pacman.conf中将 `XferCommand` 设置为如下配置即可实现限速10k的目的了。
 
-XferCommand = /usr/bin/wget –passive-ftp –limit-rate=10k -c -O %o %u
+`XferCommand = /usr/bin/wget –passive-ftp –limit-rate=10k -c -O %o %u`
 
 查询包数据库
   
 Pacman 可以在包数据库中查询软件包，查询位置包含了包的名字和描述:
 
-Pacman 包管理器是 ArchLinux 的一大亮点。它汲取了其他 Linux 版本软件管理的优点，譬如Debian的APT机制、Redhat的Yum机制、 Suse的Yast等，对于安装软件提供了无与伦比的方便。另外由于ArchLinux是一个针对i686架构优化的发行版，因此对于软件的效率提高也有一定的帮助。pacman可以说是ArchLinux的基础，因为ArchLinux默认安装非常少的软件，其他软件都是使用pacman通过网络来安装的。它将一个简单的二进制包格式和易用的构建系统结合了起来。Pacman使得简单的管理与自定义软件包成为了可能，而不论他们来自于官方的Arch软件库或是用户自己创建的。Pacman可以通过和主服务器同步包列表来进行系统更新，这使得注重安全的系统管理员的维护工作成为轻而易举的事情。
+Pacman 包管理器是 ArchLinux 的一大亮点。它汲取了其他 Linux 版本软件管理的优点，譬如Debian的APT机制、Redhat的Yum机制、 Suse的 `Yast` 等，对于安装软件提供了无与伦比的方便。另外由于ArchLinux是一个针对i686架构优化的发行版，因此对于软件的效率提高也有一定的帮助。pacman可以说是ArchLinux的基础，因为ArchLinux默认安装非常少的软件，其他软件都是使用pacman通过网络来安装的。它将一个简单的二进制包格式和易用的构建系统结合了起来。Pacman使得简单的管理与自定义软件包成为了可能，而不论他们来自于官方的Arch软件库或是用户自己创建的。Pacman可以通过和主服务器同步包列表来进行系统更新，这使得注重安全的系统管理员的维护工作成为轻而易举的事情。
 
 下面是偶总结的Pacman命令参数:
 
@@ -301,7 +299,7 @@ pacman -S package_name1 package_name2
   
 有时候在不同的软件仓库中，一个软件包有多个版本 (比如extra和testing) 。你可以选择一个来安装:
 
-编辑/etc/pacman.d/mirrorlist，重新选择一个源。再pacman -Suy 更新系统，或pacman -Syy 更新软件库。
+编辑 `/etc/pacman.d/mirrorlist`， 重新选择一个源。再pacman -Suy 更新系统，或pacman -Syy 更新软件库。
 
 pacman -S extra/package_name
   
@@ -313,7 +311,7 @@ pacman -S testing/package_name
 
 pacman -Rs package_name
   
-缺省的，pacman会备份被删除程序的配置文件，将它们加上*.pacsave扩展名。如果你在删除软件包时要同时删除相应的配置文件 (这种行为在基于Debian的系统中称为清除purging) ，你可是使用命令:
+缺省的，pacman会备份被删除程序的配置文件，将它们加上 `*.pacsave` 扩展名。如果你在删除软件包时要同时删除相应的配置文件 (这种行为在基于Debian的系统中称为清除purging) ，你可是使用命令:
 
 pacman -Rn package_name
   
@@ -381,7 +379,7 @@ Warning: 关于pacman -Scc，仅在你确定不需要做任何软件包降级工
   
 要删除孤立软件包 (递归的，要小心):
   
-pacman -Rs $(pacman -Qtdq)
+`pacman -Rs $(pacman -Qtdq)`
   
 重新安装你系统中所有的软件包 (仓库中已有的) :
   

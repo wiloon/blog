@@ -290,8 +290,11 @@ del test_dict['Zhihu']
 ```
 
 ```py
-for kv in a.items():
+for kv in dict0.items():
     print(kv)
+
+for key, value in likes.items():
+    print(key, "->", value)
 
 ```
 

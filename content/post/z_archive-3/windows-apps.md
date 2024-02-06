@@ -9,7 +9,7 @@ categories:
 tags:
   - reprint
 ---
-## windows apps, win apps
+## Windows apps, win apps
 
 - WizTree, 硬盘占用分析
 - MiniTool Partition Wizard, 磁盘分区工具
@@ -19,8 +19,9 @@ tags:
 
 ## winget
 
-- winscp, WinSCP.WinSCP
+- WinScp, WinSCP.WinSCP
 - firefox, Mozilla.Firefox
+- powershell, Microsoft.PowerShell
 
 ### choco
 

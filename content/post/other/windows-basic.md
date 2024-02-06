@@ -305,6 +305,9 @@ winget -v
 winget search python
 winget install Python.Python.3.11
 winget install Python.Python.3.6
+
+# uninstall
+winget uninstall OpenJS.NodeJS
 ```
 
 ## 性能

@@ -196,6 +196,11 @@ git describe --tags --abbrev=0
 
 git tag v1.0.0 -a -m "message0"
 git push origin v1.0.0
+
+#  list all the tags along with annotations & 9 lines of message for every tag
+git tag -n9
+git tag -l -n9
+git tag -l -n9 'v1.38.*'
 ```
 
 ### 附注标签 annotated tag

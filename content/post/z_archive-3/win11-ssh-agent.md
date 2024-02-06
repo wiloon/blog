@@ -18,7 +18,9 @@ tags:
 
 1. Settings -> Apps -> Optional Features
 2. Scroll to “OpenSSH Client” and click on the item
-3. If it shows an “Uninstall” button, then OpenSSH is already installed and you can skip to the next section.
+3. If it shows an “Uninstall” button, then OpenSSH is already installed, and you can skip to the next section.
+
+open Windows service, win + R "services.msc"
 
 - Enabling the SSH Authentication Agent
   - scroll to “OpenSSH Authentication Agent” and set to Automatic Delayed Start
@@ -31,6 +33,7 @@ ssh-add C:\Users\user0\.ssh\id_ed25519
 ```
 
 search service
+
 ## unable to start ssh-agent service, error :1058
 
 启用 openssh agent
