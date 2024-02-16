@@ -19,27 +19,34 @@ wireguard default port: 51820
 
 ### archlinux
 
-archlinux 新版本的内核已经集成了 wireguard，不需要单独安装.
+archlinux 新版本的内核已经集成了 wireguard，不需要单独安装. 
+已经集成了 wireguard 但是默认没加载, 需要配置一下启动的时候加载 wireguard 内核模块.
 
-### load kernel module at boot
+#### 手动加载模块
+
+`sudo modprobe wireguard`
+
+#### load kernel module at boot
 
 ```bash
 vim /etc/modules-load.d/wireguard.conf
 
+# content of wireguard.conf 
 # load wireguard module at boot
 wireguard
 ```
 
 ```bash
+# 看看 wireguard 内核模块是不是已经加载了
+lsmod | grep wireguard
+
 pacman -Syu
+
 # 安装 wireguard 管理工具, wireguard 集成进内核了, 但是管理工具还是要手动安装的
 pacman -S wireguard-tools
-
-lsmod | grep wireguard
-sudo modprobe wireguard
 ```
 
-### debian
+### Debian
 
 ```bash
 echo "deb http://deb.debian.org/debian/ unstable main" | sudo tee /etc/apt/sources.list.d/unstable-wireguard.list
@@ -48,11 +55,13 @@ apt update
 apt install wireguard
 ```
 
-## macos
+### macos
 
-在 appstore 安装 wireguard
+在 appstore 安装 wireguard  
 
-### 生成密钥 peer A & peer B
+## 生成密钥
+
+peer A & peer B
 
 ```bash
 # 同时生成私钥公钥
@@ -69,9 +78,11 @@ wg pubkey < private.key > public.key
 wg genpsk > peer_A-peer_B.psk
 ```
 
-#### Peer A setup, server
+### Peer A setup
 
-##### 参数 allowed-ips
+假设 peer A 是服务端
+
+#### 参数 allowed-ips
 
 ```bash
 # 设置可以被路由到对端的 ip/段
@@ -155,7 +166,7 @@ wg-quick up wg0
 wg-quick down wg0
 ```
 
-### systemd-networkd
+## systemd-networkd
 
 ```bash
 systemd-networkd-wait-online.service
@@ -176,7 +187,25 @@ iptables -t nat    -A POSTROUTING -o ens18 -j MASQUERADE
 iptables -t nat    -A POSTROUTING -o wlp1s0 -j MASQUERADE
 ```
 
-### systemd-networkd, 用 systemd-networkd 配置 wireguard, 开机自动加载 wireguard 配置
+## systemd-networkd, 用 systemd-networkd 配置 wireguard, 开机自动加载 wireguard 配置
+
+```bash
+vim /etc/systemd/network/99-wg0.network
+```
+
+```bash
+[Match]
+Name = wg0
+
+[Network]
+# wg0 网卡的 IP
+Address = 192.168.53.1/32
+
+[Route]
+#配置路由表 目标地址是 192.168.53.0/24 发到 网关 192.168.53.1
+Gateway = 192.168.53.1
+Destination = 192.168.53.0/24
+```
 
 ```bash
 vim /etc/systemd/network/99-wg0.netdev
@@ -197,29 +226,13 @@ PrivateKey = private-key-0
 [WireGuardPeer]
 # 对端 A 公钥
 PublicKey = public-key-0
-# 对端 A IP
-AllowedIPs = 192.168.xx.xx/32 
+# allowed-ips, 对端 A IP
+AllowedIPs = 192.168.xx.xx/32
 
 # 对端 B
 [WireGuardPeer]
 PublicKey = public-key-1
-AllowedIPs = 192.168.xx.xx/32 
-```
-
-```bash
-vim /etc/systemd/network/99-wg0.network
-```
-
-```bash
-[Match]
-Name = wg0
-
-[Network]
-Address = 192.168.53.1/32
-
-[Route]
-Gateway = 192.168.53.1
-Destination = 192.168.53.0/24
+AllowedIPs = 192.168.xx.xx/32
 ```
 
 #### restart to enable
@@ -234,7 +247,7 @@ systemctl restart systemd-networkd
 
 ### android client
 
-安装wireguard
+安装 wireguard
 [https://f-droid.org/en/packages/com.wireguard.android/](https://f-droid.org/en/packages/com.wireguard.android/)  
 点右下角的加号新建 连接  
 输入连接名
@@ -264,13 +277,13 @@ mtu: auto
 4. 发送公钥到服务端
 5. 配置 foo.netdev
 6. Addresses/局域网IP地址: 192.168.54.x
-7. Listen port/监听端口:自动
+7. Listen port/监听端口: 自动/Automatic
 8. MTU: 1200
 9. DNS: 192.168.50.1
-10. Add peer/点击 添加节点
+10. Add peer/点击 添加节点 (配置对端)
 11. 节点配置:
-12. Public key/公钥: <服务端/对端公钥>
-13. Preshared key/预共享密钥: 不填
+12. Public key/公钥: <服务端/对端公钥> (对端提供)
+13. Preshared key/预共享密钥: 两端配置成一样的, 我一般不填
 14. Endpoint/对端: foo.bar.com:12345
 15. Allowed IPs/路由的IP地址(段): 0.0.0.0/0
 16. Exclude private IPs: yes

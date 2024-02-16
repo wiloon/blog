@@ -64,9 +64,12 @@ Ctrl + y        粘贴最后一次被删除的单词
 ```bash
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 brew install ansible
+
+# uninstall package
+brew uninstall packageName
 brew list ansible
 
-# 更新自己
+# 看看有哪些过期的包
 brew update
 
 # 查看所有需要更新的包
@@ -79,8 +82,9 @@ brew upgrade package0
 brew upgrade
 
 brew install --cask obsidian
+brew search foo
 ```
 
-### all casks packages
+### all casks package
 
 [https://formulae.brew.sh/cask/](https://formulae.brew.sh/cask/)
