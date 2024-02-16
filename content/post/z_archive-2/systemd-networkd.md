@@ -12,17 +12,23 @@ tags:
 
 ### dhcp
 
-networkd 内置了dhcp client。如果需要更新 resolv.conf, 则需要启动 systemd-resolved.service
+`networkd` 内置了 dhcp client。 如果需要更新 `resolv.conf`, 需要启动 systemd-resolved.service
 
-配置文件存放在 /usr/lib/systemd/network (上游提供的配置), /run/systemd/network (运行时配置), 以及 /etc/systemd/network (本地配置). 其中 /etc/systemd/network 有着最高的优先级.
+配置文件存放在 
+
+- /usr/lib/systemd/network (上游提供的配置), 
+- /run/systemd/network (运行时配置), 以及 
+- /etc/systemd/network (本地配置). 
+
+其中 /etc/systemd/network 优先级最高
 
 ### 有三类配置文件
 
 - .link 文件: 当一个网络设备出现时, udev 会寻找第一个匹配到的 .link 文件.
 - .network 文件: 给匹配到的设备应用一个网络配置
-- .netdev 文件: 给匹配到的环境创建一个虚拟的网络设备
+- `.netdev` 文件: 给匹配到的环境创建一个虚拟的网络设备
 
-他们都遵循一些相同的规则:
+他们都遵循一些相同的规则
 
 如果 [Match] 部分满足了条件, 在接下来的段落中的配置会被应用  
 [Match] 部分可以接受不止一项条目. 在这种情况下, 只有当每一个条目都被满足时, 这个配置才会被启用  
@@ -33,13 +39,16 @@ networkd 内置了dhcp client。如果需要更新 resolv.conf, 则需要启动 
 
 ### .network 配置
 
-```bash 
+``` 
 [Match]
 Name= 设备名 (比如Br0, enp4s0, 也可以用通配符, 比如 en*), 可以配置多个 name
 Host= 匹配的 hostname
 Virtualization= 一个布尔值, 检测你的系统是否运行在一个虚拟化环境中. 也就是说, Virtualization=no 只会在宿主机上满足, 而 Virtualization=yes 会应用到任何虚拟机或 container.
 [Link]
-equiredForOnline= 当 "RequiredForOnline=no" 时， 如果此网络不在线(例如未能从 DHCP 获取IP地址、或者网线被拔出等原因)， 那么 "systemd-networkd-wait-online" 将会自动跳过它。
+#当 "RequiredForOnline=no" 时， 如果此网络不在线(例如未能从 DHCP 获取IP地址、或者网线被拔出等原因)， 那么 "systemd-networkd-wait-online" 将会自动跳过它。
+# routable, make routing on this interface a dependency for network-online.target
+RequiredForOnline=no
+
 [Network]
 DHCP= 一个布尔值. 设为 true 的时候, 会启用 systemd-networkd 自带的基础 DHCPv4 支持.
 DNS= DNS 服务器地址.
@@ -102,7 +111,8 @@ vim /etc/systemd/network/eth.network
 Name=ens3
 
 [Network]
-Address=192.168.50.10/24
+# Address 一定要以 /24 结尾
+Address=192.168.50.20/24
 Gateway=192.168.50.1
 DNS=192.168.50.1
 ```
