@@ -825,10 +825,10 @@ ${\#}
 
 [https://stackoverflow.com/questions/16153446/bash-last-index-of](https://stackoverflow.com/questions/16153446/bash-last-index-of)
 
-### Shell中去除字符串前后空格
+### Shell 中去除字符串前后空格
 
 ```bash
-    echo ' A B C ' | awk '{gsub(/^\s+|\s+$/, "");print}'
+echo ' A B C ' | awk '{gsub(/^\s+|\s+$/, "");print}'
 ```
 
 将pwd的执行结果放到变量value中保存

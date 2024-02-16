@@ -53,6 +53,9 @@ kubectl get pods --all-namespaces
 
 # kubectl exec
 kubectl exec -it pod0 -- sh
+kubectl exec --stdin --tty shell-demo -- /bin/bash
+
+# 双破折号 "--" 用于将要传递给命令的参数与 kubectl 的参数分开。
 
 # logs
 kubectl logs pod0

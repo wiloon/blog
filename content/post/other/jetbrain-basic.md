@@ -171,3 +171,7 @@ setting>file and code templates>includes>file header
 ## JBR, JetBrains Runtime
 
 可以通过 IDE 的 Help About 在弹出的对话框中的 "Runtime Version" 来验证当前的 JetBrains Runtime 版本。
+
+## reload all from disk
+
+更新  spell check 之后 可以点击  reload 加载新的 spell check dict
