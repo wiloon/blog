@@ -603,3 +603,50 @@ LIMIT：对最终结果集进行截取，一般和offset连用，可用于分页
 
 ## ESCAPE
 
+## string to int
+
+```sql
+--把'1234'转成整数
+
+select cast('1234' as integer ) ;
+
+--用substring截取字符串，从第8个字符开始截取2个字符：结果是12
+
+select cast(substring('1234abc12',8,2) as integer)
+
+---使用to_number函数来转换成整数
+
+---to_number(text, text)  返回的类型 numeric     把字串转换成numeric   to_number('12,454.8-', '99G999D9S')
+
+select to_number('12121','999999999')
+————————————————
+
+                            版权声明：本文为博主原创文章，遵循 CC 4.0 BY-SA 版权协议，转载请附上原文出处链接和本声明。
+                        
+原文链接：https://blog.csdn.net/xingxiupaioxue/article/details/78295118
+```
+
+## 字符串分割函数
+
+1. SPLIT_PART
+   SPLIT_PART() 函数通过指定分隔符分割字符串，并返回第N个子串。语法：
+
+SPLIT_PART(string, delimiter, position)
+1
+string : 待分割的字符串
+delimiter：指定分割字符串
+position：返回第几个字串，从1开始，该参数必须是正数。如果参数值大于分割后字符串的数量，函数返回空串。
+示例：
+
+SELECT SPLIT_PART('A,B,C', ',', 2);  -- 返回B
+1
+下面我们利用该函数分割日期，获取年月日：
+
+select split_part( current_date::text,'-',1) as year ,
+split_part( current_date::text,'-',2) as  month,
+split_part( current_date::text,'-',3) as day
+————————————————
+
+                            版权声明：本文为博主原创文章，遵循 CC 4.0 BY-SA 版权协议，转载请附上原文出处链接和本声明。
+
+原文链接：https://blog.csdn.net/neweastsun/article/details/120243524

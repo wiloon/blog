@@ -182,7 +182,7 @@ openresolv
 
 ```bash
 iptables -t filter -A FORWARD -i wg0 -j ACCEPT
-iptables -t nat    -A POSTROUTING -o <eth0> -j MASQUERADE
+# iptables -t nat    -A POSTROUTING -o <eth0> -j MASQUERADE
 iptables -t nat    -A POSTROUTING -o ens18 -j MASQUERADE
 iptables -t nat    -A POSTROUTING -o wlp1s0 -j MASQUERADE
 ```

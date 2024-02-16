@@ -1157,3 +1157,57 @@ fat = True
 fitness = ("skinny", "fat")[fat]
 print("Ali is", fitness)
 ```
+
+## ms
+
+```Bash
+import time
+import datetime
+
+t = time.time()
+
+print (t)                       #原始时间数据
+print (int(t))                  #秒级时间戳
+print (int(round(t * 1000)))    #毫秒级时间戳
+
+nowTime = lambda:int(round(t * 1000))
+print (nowTime());              #毫秒级时间戳，基于lambda
+
+print (datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S'))   #日期格式化
+```
+
+## 补零
+
+```Python
+n = "123"
+s = n.zfill(5)
+assert s == "00123"
+```
+
+## 字符串拼接
+
+https://cloud.tencent.com/developer/article/1750006
+
+### 逗号
+
+有某种环境下会打印出奇怪的括号, 输出不太友好
+
+```Python
+str_a = 'python'
+print('hello', str_a, '!') 
+```
+
+运行结果：
+
+>hello python !
+
+用逗号拼接的结果中，相邻的两个字符串之间会有空格。 
+
+### 空格
+
+目前用的这种解决 jetbrain 提示代码行过长的问题
+
+```Python
+str_b = 'It is summer ' 'of 2019!'
+print(str_b) 
+```
