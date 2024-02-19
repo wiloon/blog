@@ -12,6 +12,13 @@ tags:
 
 ## shell basic, shell script
 
+## sample
+
+```Bash
+#!/usr/bin/env bash
+echo 'hello world'
+```
+
 ## commands
 
 ```Bash

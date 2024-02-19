@@ -53,7 +53,7 @@ xfs (RHEL 7.2 或更高版本) ,d_type=true 必须开启。使用 xfs_info 验�
 mkfs -t xfs -n ftype=1 /PATH/TO/DEVICE  # 开启 d_type 选项
 xfs_info /PATH/TO/DEVICE | grep ftype   # 验证是否已支持
 配置 overlay 或 overlay2 驱动
-满足使用 OverlayFS 的条件后,通过 /etc/docker/daemon.json 加入 overlay2 存储配置项,重启 docker daemon 即可生效。
+满足使用 OverlayFS 的条件后,通过 /etc/docker/daemon.json 加入 overlay2 存储配置项, 重启 docker daemon 即可生效。
 {
   "storage-driver": "overlay2"
 }

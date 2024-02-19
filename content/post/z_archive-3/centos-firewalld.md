@@ -29,6 +29,8 @@ work: 用于工作机。网络上的其他计算机通常是受信任的。仅�
 home: 用于家用机器。网络上的其他计算机通常是受信任的。仅允许选择的传入连接。
 Trusted: 接受所有网络连接。信任网络中的所有计算机。
 
+centos 7 firewall
+
 ```bash
 # 启动守护程序
 systemctl start firewalld --now

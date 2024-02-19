@@ -14,10 +14,9 @@ tags:
 ## install registry
 
 ```bash
-mkdir -p /data/docker-registry/
-
 # sample, https://docs.docker.com/registry/configuration/
-cat > /data/docker-registry/config.yml << EOF
+
+cat > /usr/local/etc/docker-registry-config.yml << EOF
 version: 0.1
 log:
   fields:
@@ -39,12 +38,23 @@ health:
     threshold: 3
 EOF
 
+# https://hub.docker.com/_/registry
+# docker
+docker run -d \
+--restart=always \
+-v /usr/local/etc/docker-registry-config.yml:/etc/docker/registry/config.yml \
+-p 5000:5000 \
+--name docker-registry \
+-v docker-registry:/var/lib/registry \
+registry:2.8.3
+
+# podman
 podman run -d \
--v /data/docker-registry/config.yml:/etc/docker/registry/config.yml \
+-v /usr/local/etc/docker-registry-config.yml:/etc/docker/registry/config.yml \
 -p 5000:5000 \
 --name registry \
 -v docker-registry:/var/lib/registry \
-registry:2.8.1
+registry:2.8.3
 
 buildah tag de3ebb1b260b registry.wiloon.com/pingd-proxy:v0.0.1
 buildah push registry.wiloon.com/pingd-proxy:v0.0.1
@@ -98,9 +108,8 @@ server {
 
 ```bash
 curl https://registry.wiloon.com/v2/_catalog
-# 查询镜像tag(版本)
+# 查询镜像 tag(版本)
 curl  https://registry.wiloon.com/v2/rssx-api/tags/list
-
 ```
 
 ## 删除镜像与空间回收

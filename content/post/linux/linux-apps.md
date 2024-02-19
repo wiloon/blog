@@ -26,6 +26,7 @@ tags:
 - google-chrome
 - redisinsight: redis GUI
 - jetbrains-toolbox
+- nvm, nvm allows you to quickly install and use different versions of node via the command line.
 
 ## application list
 

@@ -23,6 +23,9 @@ xxx
 ## command
 
 ```bash
+npm install
+npm run start
+
 # 更新 npm 到最新版本
 npm install -g npm@latest
 ```

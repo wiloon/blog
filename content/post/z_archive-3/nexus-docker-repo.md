@@ -8,9 +8,26 @@ categories:
 tags:
   - reprint
 ---
-## nexus docker proxy
 
+nexus 配置太复杂 用 https://hub.docker.com/_/registry 作为 docker registry 
+
+>wiloon.com/docker/registry
+
+---
+
+## docker hosted repo
 create repository
+
+- select recipe: docker (hosted)
+- name: docker-repo-0
+- HTTP: 5001, 仓库单独的访问端口（例如：5001）
+- allow anonymous: yes
+- Docker Registry API Support> Enable Docker V1 API> Allow clients to use the V1 API to interact with this repository: yes
+- Hosted> Deployment policy: Allow redeploy
+
+---
+
+## nexus docker proxy
 
 - Name: dockerhub-proxy
 - Remote storage 配置成 https://registry-1.docker.io

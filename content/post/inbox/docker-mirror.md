@@ -43,3 +43,13 @@ sudo docker info
 "registry-mirrors": ["https://registry.docker-cn.com", "http://hub-mirror.c.163.com","https://docker.mirrors.ustc.edu.cn"] 
 }
 ```
+
+## http: server gave HTTP response to HTTPS client
+
+https://stackoverflow.com/questions/49674004/docker-repository-server-gave-http-response-to-https-client
+
+```json
+{
+  "insecure-registries":["192.168.99.100:5000"]
+}
+```

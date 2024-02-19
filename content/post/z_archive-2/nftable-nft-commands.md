@@ -34,11 +34,11 @@ nft list ruleset # 列出所有规则
 nft list tables  # 列出所有表
 # 列出每个族的表
 nft list tables ip
-nft list table ip foo # 列出foo表的内容
+nft list table ip foo # 列出 foo 表的内容
 
 nft list chain filter input # 列出filter表input链
 
-# 列出handle
+# 列出 handle
 nft -a list table filter
 ```
 
@@ -53,7 +53,7 @@ nft add table ip foo
 
 family 参数是可选的,如果不指定 family,默认是 IPv4
 
-#### 增加链,add chain
+#### 增加链, add chain
 
 ```bash
 nft add chain [<family>]  <chain-name> { type <type> hook <hook> priority <value> \; [policy <policy>] }
@@ -72,7 +72,7 @@ nft insert rule nat post ip protocol icmp icmp type echo-request accept
 ### 删
 
 ```bash
-#清空整个规则集
+# 清空整个规则集
 nft flush ruleset
 # 删除表中所有的规则
 nft flush table ip foo
