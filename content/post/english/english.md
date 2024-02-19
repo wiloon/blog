@@ -1467,3 +1467,10 @@ The boy whom I played with speaks English.
 关系代词：which、that、who、whom、whose 等
 
 关系副词：when、where、why 等
+
+## take part in, join, participate, attend
+
+- take part in, take part in 一般指当事人主动参与，有积极性 actively involved in the event，并不仅仅是客观存在。
+- participate, 比 take part in 更正式更礼貌一些, 许多广告和活动宣传单上都会用到 participate 来鼓励人们参加活动赢得奖励。请注意 participate 后面也需要跟介词 in。可以用 take part in 替换, 替换后句子更口语化一些.
+- join in, 多数情况下是指参加游戏、娱乐、竞赛等等。 这里要注意的是当我们说 join in something 时，这些活动都已经开始了，正在进行中。所以，时间点是区分 join in 和 take part in 的重要因素。
+- attend, 它有好几个意思，其中最常用的是“参加，出席，到场”。Attend 也是一个正式用语，常出现在形容参加正式活动。比如，参加婚礼，参加葬礼，参加签约仪式，等等。请注意 attend 多数情况下是指出席了活动，但并不意味着参加者在活动中表现积极或者主观投入到了活动中。可能是个旁观者.
