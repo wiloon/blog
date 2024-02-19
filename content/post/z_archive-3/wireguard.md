@@ -22,7 +22,7 @@ wireguard default port: 51820
 archlinux 新版本的内核已经集成了 wireguard，不需要单独安装. 
 已经集成了 wireguard 但是默认没加载, 需要配置一下启动的时候加载 wireguard 内核模块.
 
-#### 手动加载模块
+#### 手动加载内核模块
 
 `sudo modprobe wireguard`
 
@@ -71,18 +71,18 @@ wg genkey | tee private.key | wg pubkey > public.key
 wg genkey > private.key
 chmod 600 private.key
 
-# 单独生成公钥
+# 从私钥生成公钥
 wg pubkey < private.key > public.key
 
 ### optional, pre-shared key
 wg genpsk > peer_A-peer_B.psk
 ```
 
-### Peer A setup
+## Peer A setup manually
 
 假设 peer A 是服务端
 
-#### 参数 allowed-ips
+### 参数 allowed-ips
 
 ```bash
 # 设置可以被路由到对端的 ip/段
@@ -104,7 +104,8 @@ allowed-ips 192.168.53.1/32,192.168.50.0/24
 ```bash
 sudo ip link add dev wg0 type wireguard
 sudo ip addr add 192.168.53.1/24 dev wg0
-# 使用本端私钥
+
+# 加载私钥
 sudo wg set wg0 private-key ./private.key
 sudo wg set wg0 listen-port 51900
 

@@ -10,9 +10,19 @@ tags:
 ---
 ## nexus OSS
 
-### podman
-
 ```bash
+# docker
+docker run \
+-d \
+--name nexus \
+-p 30081:8081 \
+-p 30083:8083 \
+-v /etc/localtime:/etc/localtime:ro \
+-v nexus-data:/nexus-data \
+-e INSTALL4J_ADD_VM_PARAMS="-Xms128m -Xmx512m -XX:MaxDirectMemorySize=256m" \
+sonatype/nexus3:3.65.0
+
+# podman
 podman run \
 -d \
 --name nexus \
@@ -82,9 +92,9 @@ click on the check box that says "Run as Administrator".
   
 click OK
 
-## 上传jar包
+## 上传 jar 包
 
-### 上传pom
+### 上传 pom
 
 选择pom文件，扩展名填写 "pom"
   

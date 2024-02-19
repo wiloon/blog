@@ -14,13 +14,25 @@ tags:
 
 ### current
 
-v14.18.1
+v14.21.3
 
 ### latest
 
-v18.2.0
+v21.6.2
+
+## nvm
+
+```Bash
+yay -S nvm
+# Due to the way nvm is designed, you have to source it before you can use it:
+source /usr/share/nvm/init-nvm.sh
+nvm install 14
+nvm use 14
+```
 
 ## nodejs downgrade
+
+no need to downgrade, use nvm
 
 ```bash
 npm install -g n

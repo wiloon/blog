@@ -14,6 +14,7 @@ tags:
 ## commands
 
 ```Bash
+docker exec nexus3 cat /nexus-data/admin.password
 docker ps --filter"name=test-nginx"
 docker ps --format "table {{.ID}}\t{{.Names}}\t{{.Image}}\t{{.Status}}"
 docker ps --format "table {{.ID}}\t{{.IMAGE}}\t{{.CREATED}}\t{{.STATUS}}\t{{.NAMES}}"
@@ -82,7 +83,7 @@ docker image ls --digests
 # 删除 image
 docker image rm [image id]
 
-# 删除未使用的映像
+# 删除未使用的映像, REPOSITORY: <none>, tag: <none>, 
 docker image prune
 
 docker rmi f8ab12e03d53
@@ -108,6 +109,7 @@ docker run \
 --name redis \
 -p 6379:6379 \
 -v /etc/localtime:/etc/localtime:ro \
+-e FOO="bar"
 --restart=always \
 redis
 ```
@@ -186,14 +188,14 @@ docker run -d id0 sleep 6000
 # sleep 6000, 6000 秒(100分钟/1小时40分)之后 关闭
 # -i, --interactive=false   打开 STDIN, 用于控制台交互
 # -t, --tty=false           分配 tty 设备, 该可以支持终端登录, 默认为 false
+# -p 80:80 映射端口, hostPort:containerPort
 # -t -a stdout              Outputs the container logs on the standard output
 # -P, --publish-all=false   Docker自动分配一个未被使用的端口
 # -v, --volume=[]           Bind mount a volume(挂载目录 -v /root:/opt/temp), 跟mount一样，path 里如果有文件的话，挂载之后是看不到的。
-# -d, --detach=false        Run container in background and print container ID(后台运行)并返回容器ID；
+# -d, --detach=false        Run container in background and print container ID(后台运行) 并返回容器ID；
 # --rm 容器退出后随之将其删除
 # bash: 放在镜像名后的是命令,这里我们希望有个交互式 Shell,因此用的是 bash
 # --name="nginx-lb" : 为容器指定一个名称；
-# -p 80:80 映射端口, hostPort:containerPort
 # --privileged=true, 大约在0.6版,privileged被引入docker。使用该参数,container内的root拥有真正的root权限。
 # --restart=always
 # --cap-add=SYS_TIME

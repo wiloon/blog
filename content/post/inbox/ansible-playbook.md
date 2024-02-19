@@ -11,6 +11,35 @@ tags:
 ---
 ## ansible playbook
 
+ansible playbook 是一个特定格式的 yaml 文件, 不要直接把搜到的 ansible 文档里的 例子直接粘贴到里面, ansible playbook 至少要包含 hosts tasks, ansible 文档里找到的的 task 要粘贴到 tasks 部分
+
+如果出现奇怪的异常, 比如: 'ansible.builtin.shell' is not a valid attribute for a Play, 检查 一下 playbook 文件 是不是标准格式 .
+ansible playbook sample
+
+```yaml
+- name: deploy sample
+  hosts: all
+  tasks:
+    - name: Pull an image
+      community.docker.docker_image_pull:
+        name: 192.168.50.111:5000/foo-mock:v0.0.1
+        platform: amd64
+```
+
+## ansible-galaxy collection
+
+```Bash
+ansible-galaxy collection list
+ansible-galaxy collection install community.docker
+
+# 安装之后才能用 docker
+- name: Pull an image
+  community.docker.docker_image_pull:
+    name: pacur/centos-7
+    # Select platform for pulling. If not specified, will pull whatever docker prefers.
+    platform: amd64
+```
+
 end play
 
 ```yaml

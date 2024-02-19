@@ -24,7 +24,7 @@ export GO111MODULE=on
 
 go mod init project0    # 初始化
 go mod tidy             # 拉取缺少的模块, 移除不用的模块。
-go mod download         # 下载依赖包
+go mod download         # 手动下载依赖包, 根据 go.mod 下载
 go mod graph            # 打印模块依赖图
 go mod vendor           # 将依赖复制到 vendor 下
 go mod verify           # 校验依赖

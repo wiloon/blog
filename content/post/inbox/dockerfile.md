@@ -12,22 +12,20 @@ tags:
 ## Dockerfile
 
 ```bash
-FROM golang:1.17.8 AS build
+FROM golang:1.22.0 AS build
 ENV GO111MODULE on
 ARG APP_NAME=rssx-api
 WORKDIR /workdir
 COPY . .
 RUN CGO_ENABLED=0 GOOS=linux GOPROXY=https://goproxy.io go build -a -o ${APP_NAME} main.go
 
-FROM alpine:3.15.0 AS prod
+FROM alpine:3.19.1 AS prod
 ARG APP_NAME=rssx-api
 COPY --from=build /workdir/${APP_NAME} /data/${APP_NAME}
 COPY config.toml config.toml
 COPY config.toml /data/config.toml
 ENV APPLICATION_NAME ${APP_NAME}
-RUN ["chmod", "+x", "/usr/src/app/docker-entrypoint.sh"]
-CMD "/data/${APPLICATION_NAME}"
-
+CMD "/usr/local/bin/${APPLICATION_NAME}"
 ```
 
 ```bash
