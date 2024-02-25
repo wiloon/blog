@@ -36,7 +36,7 @@ nft list tables  # 列出所有表
 nft list tables ip
 nft list table ip foo # 列出 foo 表的内容
 
-nft list chain filter input # 列出filter表input链
+nft list chain filter input # 列出 filter 表 input 链
 
 # 列出 handle
 nft -a list table filter

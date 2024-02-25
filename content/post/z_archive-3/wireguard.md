@@ -153,19 +153,7 @@ ip route add fd7b:d0bd:7a6e::/64 dev wg0
 wg set wg0 peer PEER_A_PUBLIC_KEY remove
 ```
 
-### 配置文件
 
-```bash
-/etc/wireguard/wg0.conf
-```
-
-#### 保存配置到文件
-
-```bash
-wg showconf wg0 > /etc/wireguard/wg0.conf
-wg-quick up wg0
-wg-quick down wg0
-```
 
 ## systemd-networkd
 
@@ -179,6 +167,15 @@ openresolv
 
 >wiloon.com/ip-forward
 
+```bash
+vim /etc/sysctl.d/30-ipforward.conf
+
+net.ipv4.ip_forward=1
+net.ipv6.conf.default.forwarding=1
+net.ipv6.conf.all.forwarding=1
+```
+
+`sysctl -a |grep net.ipv4.ip_forward`
 ### iptables, 设置 iptables 规则，客户端连接之后就能 Ping 通服务端局域网里的其它 ip 了
 
 ```bash
@@ -462,3 +459,14 @@ chromeos从 google play 安装wireguard,连接成功后，vpn全局生效包括c
 [https://wiki.debian.org/Wireguard](https://wiki.debian.org/Wireguard)
 [https://docs.linuxconsulting.mn.it/notes/setup-wireguard-vpn-on-debian9](https://docs.linuxconsulting.mn.it/notes/setup-wireguard-vpn-on-debian9)
 [https://github.com/wgredlong/WireGuard/blob/master/2.%E7%94%A8%20wg-quick%20%E8%B0%83%E7%94%A8%20wg0.conf%20%E7%AE%A1%E7%90%86%20WireGuard.md](https://github.com/wgredlong/WireGuard/blob/master/2.%E7%94%A8%20wg-quick%20%E8%B0%83%E7%94%A8%20wg0.conf%20%E7%AE%A1%E7%90%86%20WireGuard.md)
+
+## wireguard 配置文件
+
+```bash
+/etc/wireguard/wg0.conf
+
+# 保存配置到文件
+wg showconf wg0 > /etc/wireguard/wg0.conf
+wg-quick up wg0
+wg-quick down wg0
+```
