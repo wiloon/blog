@@ -111,7 +111,7 @@ ip route add default           via 192.168.50.4    src 192.168.50.169    dev ens
 ip route add 192.168.54.0/24   via 192.168.50.11   src 192.168.50.8      dev enp0s31f6
 # src xxx 可以省略
 ip r     add default           via 192.168.50.1                          dev ens18       proto static
-ip r     add default           via 192.168.50.4                          dev ens18       proto static
+ip r     add default           via 192.168.50.35                         dev ens18       proto static
 ip route add 192.168.0.0/24    via 172.16.15.253                         dev eth0
 ip route add 192.168.5.4       via xxx.xxx.200.1                         dev utun3
 ```
