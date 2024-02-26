@@ -23,5 +23,12 @@ File > Options > Advanced > Export > Export to a file > 选择 Outlook Data File
 ## 导入
 
 - 解压
+- 导入
+
+File> Open & Export> Open Outlook Data File
+
+然后到 Outlook Data File 下面就能找到了.
+
+File> Open & Export> Import/Export> Import from another program or file> outlook data file (.pst)
 
 在 Outlook 功能区顶部，选择“文件”> 选择 “打开和导出”>“导入/导出”(Import/Export)。 这将启动导入/导出向导。》 选择“从另一程序或文件导入”，然后单击“下一步”。》选择“Outlook 数据文件(.pst)”，然后单击“下一步”。》“浏览”到要导入的 .pst 文件。 在“选项”下，选择要如何处理电子邮件和联系人，然后选择“下一步”。

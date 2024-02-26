@@ -30,7 +30,7 @@ tags:
 -r 指定安装软件包的 root 路径, 默认 /
 -Rdd 要删除软件包，但是不删除依赖这个软件包的其他程序, pacman -Rdd package_name
 -Qqo '/path/to/dir' 查看文件关联的包
--Rsn 
+-Rsn
 ```
 
 ## 把 openssl 包安装到指定的目录

@@ -24,12 +24,14 @@ dnf upgrade
 ### 安装
 
 ```Bash
-    dnf install rsync
+dnf install rsync
 ```
 
 ### 删除
 
-    dnf remove nano 或 # dnf erase nano
+```Bash
+dnf remove nano 或 # dnf erase nano
+ ```
 
 ### 删除无用孤立的软件包
 
