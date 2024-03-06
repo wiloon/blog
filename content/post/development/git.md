@@ -270,6 +270,7 @@ git merge 命令用于合并指定分支到当前分支
 # merge 默认会把 commit 的历史都合并进来
 # 把 branch0 合并到当前分支
 git merge branch0
+
 git merge branch0 -m "MSG0"
 # 禁用 Fast forward
 git merge branch0 -m "merge with no-ff" --no-ff
@@ -1084,7 +1085,7 @@ XY ORIG_PATH -> PATH
 - M = 修改过的
 - U = 更新但未合并
 - ？= 未被追踪的, 未被 git 进行管理，可以使用 git add file0 把 file0 添加进 git, 使其能被 git 进行管理
-- MM
+- MM: 索引有修改没 commit, working tree 有修改  没 git add
 
 第一列 M（绿色M）：代表版本库(working tree)和中间状态(staging)有差异。就是工作树版本库和提交到暂存区中文件的差异，意思就是这篇文章中执行 git diff --cached 时出现的差异。最后一次commit提交到工作版本库中的文件和add到暂存区中的文件差别。  
 第二列 M（红色M）：代表工作区(working tree)和当前文件状态的差异。就是工作树版本库和本地开发文件的差异，意思就是这篇文章中执行git diff head 时出现的差异。最后一次commit提交到工作树版本库中文件和本地开发文件的差别。

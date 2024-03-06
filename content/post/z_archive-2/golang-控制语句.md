@@ -8,7 +8,7 @@ categories:
 tags:
   - reprint
 ---
-## golang 控制语句/control, foreach, loop, switch, 循环
+## golang 控制语句 control, foreach, loop, switch, 循环
 
 Go 中的控制语句较精简, 只有很少的几个控制结构, 仅有 if、for、select 和 switch, 没有 while 或者 do-while 循环。
 
@@ -57,7 +57,7 @@ for init; condition; post {
 for condition { } 
 // 和while 一样
 
-for { } 
+for { }
 // 和 C 的 for(;;) 一样 (死循环) 
 ```
 

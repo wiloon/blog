@@ -25,6 +25,22 @@ SecureCRT /F C:\workspace\conf\securecrt
 SecureCRT.exe /SSH2 /L wiloon /P 22 /PASSWORD password0 192.168.50.80
 ```
 
+### 端口转发
+
+File> Connection> 选择一个连接> Properties
+
+- Name: foo
+- Local
+  - Manually select IP address on which to allow connections (checked)
+    - IP address: 127.0.0.1
+  - Port: 32178
+- Remote
+  - Destination host is different from the SSH server(checked)
+    - Hostname: 192.168.1.111
+  - Port: 32178
+
+---
+
 从 windows 访问 linux，除了 samba 之外，日常操作用得最多的大概就是 PuTTY 和 SecureCRT
 
 Putty是免费的，SecureCRT是收费的

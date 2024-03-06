@@ -1,5 +1,5 @@
 ---
-title: 'Linux 查看 用户, 当前登录用户,  登录日志'
+title: who
 author: "-"
 date: 2015-08-27T05:31:56+00:00
 url: linux/user/login
@@ -10,7 +10,7 @@ tags:
   - User
 
 ---
-## Linux 查看 用户, 当前登录用户,  登录日志
+## Linux 查看用户, 当前登录用户,  登录日志
 
 ## 查看 ssh 上已经连接的用户、session
 

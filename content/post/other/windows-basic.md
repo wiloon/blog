@@ -367,3 +367,17 @@ Settings> Time & language> Typing> Advanced keyboard settings> Input language ho
 2. go to keyboard manager> shortcuts> Select> click "Select" button then press win + space
 3. To send: keep key/shortcut
 4. select "Disable" in the second drop box
+
+## dev env
+
+- winget 安装软件不知道会安装到哪
+- winget 需要 admin cmd, 但是 run as admin 经常报错, 几乎用不了.
+- cmd 没有 shell 好用, 也许 powershell 会更好用, 但是需要学习一下
+  - 复制到 cmd里的字符串过长会折行显示,但是其实并不在同一行, 从最后一行开始删除只能删到行首, 不能删到上面一行.
+- curl 在 windows 下不正常
+  - powershell 里 curl --version 执行不了
+  - cmd里能执行 curl --version
+  - 同样的 curl 命令, linux能执行 windows里执行不了, 有可能是因为命令参数是多行的. curl用最新版本,命令 改成一行也不行.. 神奇
+- 全局查找文件, 在资源管理器里搜索之后点击打开文件所在位置然后返回, 已经搜到的文件都 不见了, 得重新搜
+- Command Prompt's character escaping rules are both archaic and awful.  https://superuser.com/questions/1016710/how-to-make-a-curl-post-call-in-windows 
+- 让 curl 命令在 windows 下正常运行需要花太多精力...

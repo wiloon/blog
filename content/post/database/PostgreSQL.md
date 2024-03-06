@@ -317,7 +317,7 @@ select now();
 ## substring
 
 ```sql
-substring(string [from <str_pos>] [for <ext_char>])
+SUBSTRING(string, start_position, length)gjsongjson
 -- str_pos 
 ```
 

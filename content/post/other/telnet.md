@@ -10,7 +10,7 @@ tags:
 ---
 ## telnet, nc, socat
 
-arclinux install telnet
+archlinux install telnet
 
 ```bash
 pacman -S inetutils
@@ -29,7 +29,7 @@ TCP: nc host port
 UDP: nc -u host port (this does not seem to supported out of the box)
 ```
 
-用telent 发送http get 请求
+用 `telent` 发送 http get 请求
   
 telnet www.wiloon.com 80
   
@@ -103,8 +103,10 @@ SSH是替代Telnet和其他远程控制台管理应用程序的行业标准。SS
   
 [http://www.cnblogs.com/peida/archive/2013/03/13/2956992.html](http://www.cnblogs.com/peida/archive/2013/03/13/2956992.html)
 
-## win10 telnet
+## win10/win11 telnet
 
 设置> 应用> 程序和功能> 启用或关闭 Windows 功能> Telnet Client
 
 [https://jingyan.baidu.com/article/4d58d54119d4db9dd4e9c0aa.html](https://jingyan.baidu.com/article/4d58d54119d4db9dd4e9c0aa.html)
+
+setting> Search> "turn windows features on or off"> Telnet Client

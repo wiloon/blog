@@ -115,6 +115,7 @@ git rebase (--continue | --skip | --abort | --quit | --edit-todo | --show-curren
 ```Bash
 git rebase dev
 # 有可能需要处理冲突
+# 然后 git push -f
 git push -f
 ```
 

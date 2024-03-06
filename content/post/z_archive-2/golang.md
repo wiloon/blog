@@ -793,3 +793,9 @@ func main() {
     }
 }
 ```
+
+## go 1.22
+
+https://www.51cto.com/article/777578.html
+
+https://zhuanlan.zhihu.com/p/673906980

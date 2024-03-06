@@ -14,15 +14,17 @@ tags:
 
 ### 查看用户
 
-cat /etc/passwd
+`cat /etc/passwd`
 
-wyue:x:513:513::/home/wyue:/bin/bash  
+>wyue:x:513:513::/home/wyue:/bin/bash
+
 看第三个参数: 500 以上的，就是后来建的用户了。其它则为系统的用户。
 
-```bash
+## 创建用户
+
+```Bash
 # create user, 创建目录 /home/user0, 默认 bash
 sudo useradd -m user0
-
 sudo useradd -m -s /bin/bash user0
 # create group and user
 sudo useradd -m -s /bin/bash -g group0 user0
@@ -33,9 +35,11 @@ sudo useradd -M -s /bin/false user1
 sudo useradd user0
 ```
 
+### options
+
 ```bash
 # -m: create home folder, 不加 -m 参数，默认不创建 home
-# -M - Don't create a home directory
+# -M: Don't create a home directory
 # -s: specify shell for user, 默认是 /bin/bash
 # -s /bin/false - Don't assign a shell (or more accurately, make the shell /bin/false, so the user cannot be logged into)
 # -r: create system account
@@ -192,7 +196,7 @@ su 命令来自英文单词 switch user 的缩写，其功能是用于切换用�
 
 查看用户是否过期
 
-chage -l user0
+`chage -l user0`
 
 (su为switch user，即切换用户的简写)
 
@@ -213,9 +217,9 @@ chage -l user0
 
 1. 删除用户 (userdel命令)
   
-语法: userdel [-r] [要删除的用户的名称]
-  
-例如: [root@localhost ~]userdel -r aillo
+语法: `userdel [-r] [要删除的用户的名称]`
+
+例如: `userdel -r aillo`
 
 /usr/sbin/useradd
 
@@ -283,7 +287,7 @@ UID是唯一性，只是要求管理员所做的，其实我们修改/etc/passwd
 
 /etc/shadow文件是/etc/passwd 的影子文件，这个文件并不由/etc/passwd 而产生的，这两个文件是应该是对应互补的；shadow内容包括用户及被加密的密码以及其它/etc/passwd 不能包括的信息，比如用户的有效期限等；这个文件只有root权限可以读取和操作，权限如下:
 
--r——– 1 root root 1.5K 10月 16 09:49 /etc/shadow
+`-r——– 1 root root 1.5K 10月 16 09:49 /etc/shadow`
   
 /etc/shadow 的权限不能随便改为其它用户可读，这样做是危险的。如果您发现这个文件的权限变成了其它用户组或用户可读了，要进行检查，以防系统安全问题的发生；
 

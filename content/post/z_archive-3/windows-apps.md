@@ -22,6 +22,9 @@ tags:
 - WinScp, WinSCP.WinSCP
 - firefox, Mozilla.Firefox
 - powershell, Microsoft.PowerShell
+- curl, cURL.cURL
+- Golang, GoLang.Go
+- Tabby, Eugeny.Tabby
 
 ### choco
 

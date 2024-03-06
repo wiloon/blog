@@ -34,29 +34,6 @@ ssh -vv -T -oKexAlgorithms=ecdh-sha2-nistp521 git@foo.com
 
 - KexAlgorithms: key exchange algorithm, 
 
-## 端口转发
-
-比如 在一台远程主机上运行着 Grafana, 192.168.50.100:32178, 但是从 192.168.50.50 到 192.168.50.100 只开放了 ssh 的 22 端口, 我想从 192.168.50.50 访问 192.168.50.100 的 Grafana 就可以用 ssh 端口转发
-
-```bash
-ssh -L 32179:192.168.50.100:32178 192.168.50.100 -l user0
-# 32179 本地端口, 用户可以在 192.168.50.50 上用浏览器直接访问本地的 32179 端口, http://127.0.0.1:32179
-# 192.168.50.100:32178, 要访问的 ip 和 端口, 在 192.168.50.50 上访问 127.0.0.1:32179 就相当于访问 192.168.50.100:32178
-# 192.168.50.100 -l user0, ssh 连接的主机和用户名
-
-ssh -L 2000:192.168.50.11:5432 192.168.50.10 -l root
-# 2000 本地端口
-# 192.168.50.11 目标主机
-# 5432 目标端口
-# 192.168.50.10 跳板机, 运行 ssh 服务端的主机, 并且 从192.168.50.10 能访问 192.168.50.11:5432
-```
-
-[https://wangdoc.com/ssh/port-forwarding.html](https://wangdoc.com/ssh/port-forwarding.html)
-
-[https://zhuanlan.zhihu.com/p/148825449](https://zhuanlan.zhihu.com/p/148825449)
-
-https://wangdoc.com/ssh/port-forwarding
-
 ## ssh 不登陆直接执行命令
 
 ```bash
@@ -114,7 +91,7 @@ ssh -A user@myhost.com
 
 Add sshd: 116.31.116.20 to /etc/hosts.deny
 
-SSH两种登录验证方式
+SSH 两种登录验证方式
 
 一、SSH 协议
 SSH是一种协议标准，其目的是实现安全远程登录以及其它安全网络服务。

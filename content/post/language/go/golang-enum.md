@@ -43,6 +43,51 @@ const (
 
 ```bash
 level:=LEVEL(1))
+# 1
+```
+
+### get string
+
+```Go
+package main
+
+import (
+    "fmt"
+)
+
+type MyEnum int
+
+const (
+    Foo MyEnum = 1
+    Bar MyEnum = 2
+)
+
+func (e MyEnum) String() string {
+    switch e {
+    case Foo:
+        return "Foo"
+    case Bar:
+        return "Bar"
+    default:
+        return fmt.Sprintf("%d", int(e))
+    }
+}
+
+type MyStruct struct {
+    Field1 MyEnum
+    field2 MyEnum
+}
+
+func main() {
+    info := &MyStruct{
+        Field1: MyEnum(1),
+        field2: MyEnum(2),
+    }
+    fmt.Printf("%v\n", MyEnum(1))
+    fmt.Printf("%v\n", info)
+    fmt.Printf("%+v\n", info)
+    fmt.Printf("%#v\n", info)
+}
 ```
 
 有些概念有名字,并且有时候我们关注这些名字,甚至 (特别) 是在我们代码中。

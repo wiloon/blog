@@ -19,9 +19,20 @@ tags:
 -Syy # 两个 y 代表强制更新 database 文件, 即使文件看起来是最新的, 回退到旧版本的时候会用到
 -Syyuu # 降级软件包的时候用
 -Q 查询 本地 pacman 数据库, 比如查询某一个已经安装的包的版本 pacman -Q openssl
+-Qd, -d, --deps           list packages installed as dependencies [filter]
+-Qt,  -t, --unrequired     list packages not (optionally) required by any package (-tt to ignore optdepends) [filter]
+-Qh, -Q -h, print help
 -Ql <boost-libs> #Display file list provided by local package
 -Qk # Check the local package database
 -Qo /path/to/file # Check if the file is owned by any package, 查看某个文件属于哪个包
+-Qq, -q, --quiet          show less information for query and search, 省略版本号
+-Qs 关键字: 搜索已安装的软件包。
+-Qi 软件名: 查看某个软件包信息，显示软件简介,构架, 依赖,大小等详细信息。
+-Qu: 列出所有可升级的软件包
+-Qdtq 显示了不必要的依赖关系列表
+-Qqe 列出所有显式安装（-e,explicitly显式安装；-n忽略外部包AUR）
+-Qqd 列出自动安装的包（-d,depends 作为依赖项）
+-Qqdt 列出孤立的包（-t 不再被依赖的 "作为依赖项安装的包"）
 -F 查询远程仓库里的软件包
 -Fl 比如在安装软件包之前查询一下远程仓库, 看看会有哪些文件安装到本地
 --needed 已经是最新版本的包，不会再重新安装
@@ -31,6 +42,19 @@ tags:
 -Rdd 要删除软件包，但是不删除依赖这个软件包的其他程序, pacman -Rdd package_name
 -Qqo '/path/to/dir' 查看文件关联的包
 -Rsn
+-Rs, -s, --recursive      remove unnecessary dependencies, 同时删除本机上只有该软件依赖的软件。有其他包可选依赖这个包的话 pacman 会警告你，有其他包依赖这个包的话 pacman 会阻止你
+-Ru 软件名: 删除软件，同时删除不再被任何软件所需要的依赖。
+-Sg: 列出软件仓库上所有的软件包组。
+-Sg 软件包组: 查看某软件包组所包含的所有软件包。
+-Sc：清理未安装的包文件，包文件位于 /var/cache/pacman/pkg/ 目录。
+-Scc：清理所有的缓存文件。
+```
+
+## commands
+
+```Bash
+# 查看安装了多少个包
+pacman -Qq|wc -l
 ```
 
 ## 把 openssl 包安装到指定的目录
@@ -212,13 +236,15 @@ sudo rm /var/lib/pacman/db.lck
 ## 查看软件包依赖, `pactree`
 
 ```bash
-# 查看 packageName 依赖了哪些软件包
-# pactree 在 pacman-contrib 包里
+# pactree 是 pacman-contrib 提供的
 pacman -S pacman-contrib
-pactree <packageName>
 
-# 查看 packageName 被哪些软件包依赖了
-pactree -r <packageName>
+# 查看 package0 依赖了哪些软件包
+pactree package0
+
+# 查看 package0 被哪些软件包依赖了
+# 查看哪些包依赖 package0
+pactree -r package0
 ```
 
 ## 升级系统中所有已安装的包
@@ -472,4 +498,11 @@ Server = https://ftp.jaist.ac.jp/pub/Linux/ArchLinux/\$repo/os/\$arch
 EOF'
 
 fi
+```
+
+
+## pamac
+
+```Bash
+pamac list -e
 ```
