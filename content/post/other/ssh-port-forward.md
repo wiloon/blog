@@ -1,5 +1,5 @@
 ---
-title: SSH端口转发
+title: SSH 端口转发, ssh port forward
 author: "-"
 date: 2015-01-18T05:43:22+00:00
 url: /?p=7259
@@ -8,7 +8,32 @@ categories:
 tags:
   - reprint
 ---
-## SSH端口转发
+## SSH 端口转发, ssh port forward
+
+## 端口转发, ssh port forward
+
+比如在一台远程主机上运行着 Grafana: 192.168.50.100:32178, 但是 192.168.50.100 只对 192.168.50.50 开放了 22 端口, 我想从 192.168.50.50 访问 192.168.50.100 的 Grafana 就可以用 ssh 的端口转发
+
+```bash
+# 在 192.168.50.50 上执行
+ssh -L 32179:192.168.50.100:32178 192.168.50.100 -l user0
+
+# 32179 本地端口, 用户可以在 192.168.50.50 上用浏览器直接访问本地的 32179 端口的 grafana, http://127.0.0.1:32179
+# 192.168.50.100:32178, 要访问的 ip 和 端口, 在 192.168.50.50 上访问 127.0.0.1:32179 就相当于访问 192.168.50.100:32178
+# 192.168.50.100 -l user0, ssh 连接的主机和用户名
+
+ssh -L 2000:192.168.50.11:5432 192.168.50.10 -l root
+# 2000 本地端口
+# 192.168.50.11 目标主机
+# 5432 目标端口
+# 192.168.50.10 跳板机, 运行 ssh 服务端的主机, 并且 从192.168.50.10 能访问 192.168.50.11:5432
+```
+
+[https://wangdoc.com/ssh/port-forwarding.html](https://wangdoc.com/ssh/port-forwarding.html)
+
+[https://zhuanlan.zhihu.com/p/148825449](https://zhuanlan.zhihu.com/p/148825449)
+
+https://wangdoc.com/ssh/port-forwarding
 
 SSH端口转发
 2014/11/12 VMUNIX

@@ -10,12 +10,16 @@ tags:
 ---
 ## archlinux packages
 
-- aom
+- aom: Alliance for Open Media video codec
+- appstream: Provides a standard for creating app stores across distributions
+- bluez-libs: Deprecated libraries for the bluetooth protocol stack
+- botan: Crypto library written in C++
+- ca-certificates-mozilla: Mozilla's set of trusted CA certificates
+- fftw: A library for computing the discrete Fourier transform (DFT)
 - fzf, fzf is a general-purpose command-line fuzzy finder.
 - `glslang`, GLSL - OpenGL Shading Language 也称作 `GLslang`，是一个以 C 语言为基础的高阶着色语言。它是由 OpenGL ARB 所建立，提供开发者对绘图管线更多的直接控制，而无需使用汇编语言或硬件规格语言。
-- bluez-libs: Deprecated libraries for the bluetooth protocol stack
-- ca-certificates-mozilla: Mozilla's set of trusted CA certificates
-- appstream: Provides a standard for creating app stores across distributions
+- c-ares: c-ares是一个C语言实现的异步请求DNS的实现。很多知名 软件(curl、seastar、gevent、Nodejs等等)都使用了该软件。
+- cfitsio: A library of C and Fortran subroutines for reading and writing data files in FITS (Flexible Image Transport System) data format
 
 ## linux-firmware
 
@@ -64,10 +68,6 @@ Userspace utilities to manage btrfs filesystems
 ## gst-plugins-base
 
 This is GStreamer, a framework for streaming media.
-
-## c-ares
-
-c-ares是一个C语言实现的异步请求DNS的实现。很多知名 软件(curl、seastar、gevent、Nodejs等等)都使用了该软件。
 
 ## aom
 
