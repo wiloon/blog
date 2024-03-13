@@ -9,18 +9,10 @@ tags:
   - reprint
 ---
 ## golang 读系统环境变量
+
 http://studygolang.com/articles/3387
 
 ```go
-  
-package system
-
-import "os"
-
-func GetSystemEnv(key string) (value string) {
-      
-return os.Getenv(key)
-  
-}
-  
+os.Setenv("FOO", "1")
+fmt.Println("FOO:", os.Getenv("FOO"))
 ```

@@ -369,6 +369,45 @@ pickle.load(file)
 
 ## list array, 列表, 数组
 
+#Python合并两个列表
+
+# 法一：
+#Python合并两个列表，相加是拼接
+list1=[1,2,3]
+list2=[4,5,6,7]
+list3=list1+list2
+print('list3',list3)#输出[1,2,3,4,5,6,7]
+
+#注意：Python合并两个NumPy数组，相加时候是对应相加
+import numpy as  np
+arr1=np.array([1,2,3])
+arr2=np.array([4,5,6])
+arr3=arr1+arr2
+print(arr3)#输出[5 7 9]
+#那么NumPy数组怎么拼接呢，使用concatenate
+arr4=np.concatenate((arr1,arr2),axis=0)
+print('arr4',arr4)
+
+# 法二：
+l3=[]
+l1=[1,2,3]
+l2=[4,5,6]
+l3.append(l1)
+l3.append(l2)
+print('l3',l3)#输出[[1, 2, 3], [4, 5, 6]],注意这里是二维列表,不是我们想要的结果
+
+# 如何才能达到我们要的结果，使用extend
+l1.extend(l2)
+print('l1',l1)#[1, 2, 3, 4, 5, 6]
+
+# 总结：
+# Python合并两个列表，可用两个列表相加存入新列表，或者使用extend在原列表修改
+————————————————
+
+                            版权声明：本文为博主原创文章，遵循 CC 4.0 BY-SA 版权协议，转载请附上原文出处链接和本声明。
+
+原文链接：https://blog.csdn.net/m0_37690430/article/details/117512661
+
 准确来说 Python 中是没有数组类型的，只有列表(list) 和元组（tuple), 数组是 numpy 库中所定义的，所以在使用数组之前必须下载安装 numpy库。 python中 的list 是python 的内置数据类型，list 中的数据类不必相同的，而 array的中的类型必须全部相同。在list 中的数据类型保存的是数据的存放的地址，简单的说就是指针，并非数据，这样保存一个 list 就太麻烦了，例如 `list1=[1,2,3,'a']` 需要4个指针和四个数据，增加了存储和消耗cpu。numpy中封装的 array 有很强大的功能，里面存放的都是相同的数据类型。
 
 1. 列表的特点
@@ -382,7 +421,7 @@ pickle.load(file)
 
 元组（Tuple）
 
-1.元组的特点
+## 元组的特点
 
 元组是以圆括号“()”包围的数据集合,括号（）可以省略，不同成员（元素）以逗号“,”分隔，如：T=（1，2,3）。
 元组是不可变序列，即元组一旦创建，元组中的数据一旦确立就不能改变，不能对元组中中的元素进行增删改操作，因此元组没有增加元素append、修改元素、删除元素pop的相关方法，只能通过序号（索引）访问元组中的成员,元组中的成员的起始序号为0，如：T[0]=1, T=（1,2,3）。
@@ -625,7 +664,7 @@ logger.info('info0: %s', value)
 
 1、包名：全部小写字母，中间可以由点分隔开，不推荐使用下划线。作为命名空间，包名应该具有唯一性，推荐采用公司或者组织域名的倒置，如com.apple.quicktime.v2。
 
-2、模块名：全部小写字母，如果是多个单词构成，可以用下划线隔开，如dummy_threading。
+2、模块名：全部小写字母，如果是多个单词构成，可以用下划线隔开，如 dummy_threading。
 
 3、类名：总是使用首字母大写单词串。如MyClass。内部类可以使用额外的前导下划线。
 
@@ -760,6 +799,8 @@ print(b.decode())       # 默认 encoding="utf-8"
 
 ## singleton, 单例
 
+https://zhuanlan.zhihu.com/p/37534850
+
 [https://www.birdpython.com/posts/1/71/](https://www.birdpython.com/posts/1/71/)
 
 [https://stackoverflow.com/questions/6760685/creating-a-singleton-in-python?page=1&tab=scoredesc#tab-top](https://stackoverflow.com/questions/6760685/creating-a-singleton-in-python?page=1&tab=scoredesc#tab-top)
@@ -767,7 +808,7 @@ print(b.decode())       # 默认 encoding="utf-8"
 ```Python
 from threading import Lock
 
-class MetaClass(type):
+class FooMeta(type):
     _instances = {}
     _lock: Lock = Lock()
 
@@ -779,7 +820,7 @@ class MetaClass(type):
         return cls._instances[cls]
 
 
-class Class0(metaclass=MetaClass):
+class Class0(metaclass=FooMeta):
     foo = None
 
     def __init__(self) -> None:
@@ -845,7 +886,9 @@ print(path)
 ## 环境变量
 
 ```python
-os.environ.get()
+print(os.environ.keys())
+print(os.environ['LANG'])
+print(os.environ.get('LANG'))
 ```
 
 ## Python 正则
@@ -1269,3 +1312,7 @@ print kwargs
 3 4
 {'e': 5, 'g': 7, 'f': 6}
 参考资料： http://stackoverflow.com/questions/36901/what-does-double-star-and-star-do-for-python-parameters
+
+## enumerate()
+
+enumerate() 函数用于将一个可遍历的数据对象(如列表、元组或字符串)组合为一个索引序列，同时列出数据和数据下标，一般用在 for 循环当中。

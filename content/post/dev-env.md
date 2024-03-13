@@ -254,3 +254,9 @@ pattern--strategy_pattern
 #FF8A80   Index
 #C5E1A5   Done
 ```
+
+## IDE
+
+- 写码, 不需要经常执行测试脚本 win + Jetbrain, 因为更习惯 Jetbrain + Copilot
+- 调试, 修改然后测试, vscode remote + local VM
+- 少量修改+测试, Jetbrain fleet + local VM

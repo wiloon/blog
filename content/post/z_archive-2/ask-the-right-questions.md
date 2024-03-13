@@ -33,4 +33,8 @@ tags:
   - 由以下材料支撑, is supported by
   - 因为证据显示, because the evidence is
 
+## 谬误
+
+- 人身攻击型谬误 ad hominem fallacy, ad hominem, 针对个人进行人身攻击,而不是直接反驳其提供的理由. P247/550
+
 https://book.douban.com/subject/35513147/

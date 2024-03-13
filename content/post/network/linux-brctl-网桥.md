@@ -18,7 +18,7 @@ tags:
 
 [https://blog.wiloon.com/?p=13701](https://blog.wiloon.com/?p=13701)
 
-### 配置TAP
+### 配置 TAP
 
 [http://blog.wiloon.com/?p=13281](http://blog.wiloon.com/?p=13281)
 
@@ -62,7 +62,7 @@ sudo ip addr add 192.168.3.1/24 dev tap0
 sudo iptables -t nat -A POSTROUTING -o wlp3s0 -j MASQUERADE
 ```
 
-linux下brctl配置网桥
+linux下 `brctl` 配置网桥
   
 [http://zhumeng8337797.blog.163.com/blog/static/1007689142011643834429/](http://zhumeng8337797.blog.163.com/blog/static/1007689142011643834429/)
 

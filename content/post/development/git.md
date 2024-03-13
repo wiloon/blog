@@ -197,7 +197,7 @@ git describe --tags --abbrev=0
 git tag v1.0.0 -a -m "message0"
 git push origin v1.0.0
 
-#  list all the tags along with annotations & 9 lines of message for every tag
+# list all the tags along with annotations & 9 lines of message for every tag
 git tag -n9
 git tag -l -n9
 git tag -l -n9 'v1.38.*'
@@ -313,6 +313,11 @@ ssh -T git@github.com
 ### git add
 
 git add, 用工作树的内容更新 `索引文件`
+
+git add -u, add modified and deleted files
+`git add .` `git add -A` add new, modified and deleted files
+
+https://blog.csdn.net/haohaibo031113/article/details/70821321
 
 ### config git editor
 
@@ -448,6 +453,9 @@ git remote rm repo0
 ```bash
 git rm /xxx/xxx/xxx.xxx  
 git rm -rf xxx/xxx
+# 不支持 `git rm .`
+# 需要删除多个文件的时候可以用 -A: stage all (new, modified, deleted) files
+git add -A
 ```
 
 ### 将指定的提交 (commit) 应用于其他分支
@@ -1080,7 +1088,11 @@ XY ORIG_PATH -> PATH
   - `Y` 显示工作树 (working tree) 的状态。
   - 比如 " M" 表示工作树有修改但是没有执行 `git add`, 没有更新到索引.
 - 当一个路径没有被追踪时，`X`和`Y`总是相同的，因为它们是未知的索引。
-- `??` 用于未跟踪的路径。除非使用了 `--ignored`
+- `??` 用于未跟踪的路径。除非使用了 `--ignored`, 文件刚刚被加入一个git管理的目录的时候的状态.
+- `AA` 文件加入之后执行了一次 git add
+- ` D` 从工作树中删除还没有执行 git rm 
+- `D ` 执行过 git rm 之后, 已经从索引中删除了
+- `R ` 有可能是 rename 的缩写, 比如把文件移到了另外一个目录
 - ' ' = 空格表示未修改的
 - M = 修改过的
 - U = 更新但未合并

@@ -12,11 +12,11 @@ tags:
 
 ## installed by pacman
 
-- ncdu, 磁盘空间占用分析/清理
-- bitwarden, password management
-- btop, 另外一个 top 实现, 颜值还不错
-- screenfetch, 打印发行版的 logo
-- mousepad, 易于使用的快速的文本编辑器
+- `ncdu`, 磁盘空间占用分析/清理
+- `bitwarden`, password management
+- `btop`, 另外一个 top 实现, 颜值还不错
+- `screenfetch`, 打印发行版的 logo
+- `mousepad`, 易于使用的快速的文本编辑器
 - obsidian, 知识管理
 - code, visual studio code, vscode
 - chromium, 开源版chrome

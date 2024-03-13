@@ -26,7 +26,7 @@ help> edit custom vm options> add line "-Dsun.java2d.uiScale.enabled=true"
 
 ## JetBrains keys, 快捷键
 
-- 列编辑/column selection mode,  Alt+Shift+Insert,Alt+Shift+i
+- 列编辑/column selection mode,  Alt+Shift+Insert, Alt+Shift+i
 - Expand All,                   Ctrl+Shift+=
 - Ctrl + g, goto line
 - ctrl + shift + k, git push
@@ -36,6 +36,9 @@ help> edit custom vm options> add line "-Dsun.java2d.uiScale.enabled=true"
 - ctrl + [, Move caret to code block start
 - `ctrl + ]`, Move caret to code block end
 - ctrl + shift + i, generate date
+- ctrl + shift + f, find in file
+- ctrl + alt + l, reformat code
+- ctrl + shift + o, Run
 
 CTRL+SHIFT+N 查找文件
   

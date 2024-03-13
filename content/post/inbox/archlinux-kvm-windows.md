@@ -73,11 +73,11 @@ chmod 777 /usr/share/virtio/virtio-win_x86_64.vfd
 
 [https://blog.wiloon.com/?p=13701](https://blog.wiloon.com/?p=13701)
 
-#### 创建tap
+#### 创建 tap
 
 [https://blog.wiloon.com/?p=13281](https://blog.wiloon.com/?p=13281)
 
-#### config nat, nftables 实现, 跟下面的iptables实现二选一
+#### config nat, nftables 实现, 跟下面的 iptables 实现二选一
 
 [https://blog.wiloon.com/?p=8681](https://blog.wiloon.com/?p=8681)
 
