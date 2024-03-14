@@ -28,7 +28,7 @@ help> edit custom vm options> add line "-Dsun.java2d.uiScale.enabled=true"
 
 - 列编辑/column selection mode,  Alt+Shift+Insert, Alt+Shift+i
 - Expand All,                   Ctrl+Shift+=
-- Ctrl + g, goto line
+- goto line: Ctrl + g
 - ctrl + shift + k, git push
 - ctrl + alt + y, reload from disk
 - ctrl + alt + f, find in files
