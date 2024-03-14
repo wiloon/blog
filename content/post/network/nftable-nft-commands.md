@@ -1,5 +1,5 @@
 ---
-title: nftable, nft  basic, commands
+title: nftable, nft basic, nft commands
 author: "-"
 date: 2018-10-05T06:43:04+00:00
 url: nft
@@ -8,7 +8,7 @@ categories:
 tags:
   - reprint
 ---
-## nftable, nft  basic, commands
+## nftable, nft basic, nft commands
 
 ### 安装 nftables
 
