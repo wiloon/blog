@@ -32,9 +32,11 @@ systemctl disable --now firewalld
 ```Bash
 # 列出所有表
 nft list tables
+
 # 列出某一个族的表
 # 列出 inet 族的表
 nft list tables inet
+
 # 列出 ip 族的表
 nft list tables ip
 
@@ -42,38 +44,41 @@ nft list tables ip
 nft list table ip table0
 nft list table table0 
 
-# 列出 handle
+# list table content with handle
 nft -a list table filter
 
 # 增加表, Adding tables
 
-命令行
-
-```bash
+# 命令行
 # nft add table [family] <name>
-nft add table ip foo
+nft add table ip table0
 
-# 默认簇: ip
+# 族可以不写, 默认簇: ip
 nft add table table0
 
-# 删除 ip 族的 foo 表
-nft delete table ip foo
+# 删除 ip 族的 table0 表
+nft delete table ip table0
 # 默认 ip 族
-nft delete table foo
+nft delete table table0
 ```
 
 ## 链
 
 ```Bash
+# 查看 table 的内容, 能看到 Table 里的 链
+nft list table table0 
+
 # 创建链
-nft add chain [<family>]  <chain-name> { type <type> hook <hook> priority <value> \; [policy <policy>] }
-nft add chain filter input { type filter hook input priority 0 \; } # 要和hook (钩子) 相关连
 
 # 创建一个常规链
 # 将名为 chain0 的常规链添加到 ip 簇(默认) 中名为 mytable 的表中
 nft add chain table0 chain0
 
 # 创建一个基本链
+# nft add chain [<family>]  <chain-name> { type <type> hook <hook> priority <value> \; [policy <policy>] }
+# 要和hook (钩子) 相关连
+nft add chain table0 chain0 { type filter hook input priority 0 \; } 
+
 nft add chain ip table0 chain1 { type filter hook input priority 0\; }
 nft add chain table0 chain1 { type filter hook input priority 0\; }
 nft add chain table0 chain2 { type filter hook output priority 0\; }
@@ -86,22 +91,25 @@ nft chain ip table0 input { policy drop \; }
 ## 规则 
 
 ```Bash
-nft add rule [<family>] <table> <chain> <matches> <statements>
-nft add rule inet mytable input tcp dport ssh accept
+# nft add rule [<family>] <table> <chain> <matches> <statements>
 
 # family = ip
 # table = table0
-# chain = chain1
-# matches = tcp dport ssh accept
-nft add rule table0 chain1 tcp sport 1035 drop
+# chain = chain0
+# matches = tcp sport 1025 drop
+nft add rule table0 chain0 tcp sport 1025 drop
 
+nft add rule inet table0 chain0 tcp dport ssh accept
 
 nft replace rule [<family>] <table> <chain> [handle <handle>] <matches> <statements>
 nft replace rule ip table0 chain1 tcp sport 1025 drop
 nft replace rule table0 chain1 handle 4 tcp sport 1025 drop
 
+# list table content with handle
+nft -a list table table0
+
 # nft delete rule [<family>] <table> <chain> [handle <handle>]
-nft delete rule ip table0 chain1 handle 7
+nft delete rule ip table0 chain0 handle 2
 
 ```
 
