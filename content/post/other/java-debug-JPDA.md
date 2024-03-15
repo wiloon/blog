@@ -255,16 +255,9 @@ Components Debugger Interface
   
 debuggee --( |--------| <\---\---- JVMDI - Java VM Debug Interface | back-end | |\---\---\---\---\---\---\-----| / | comm channel -( | <\---\---\---\---\--- JDWP - Java Debug Wire Protocol | |\---\---\---\---\---\---\---| | front-end | |\---\---\---\---\---\---\---| <\---\---- JDI - Java Debug Interface | UI | |\---\---\---\---\---\---\---| 参见: http://java.sun.com/j2se/1.4.2/docs/guide/jpda/architecture.html Eclipse作为一个基于 JAVA 的调试客户端，利用 org.eclipse.jdt.debug Plugin 提供了JDI 的具体实现。JDI 接口主要包含下面 4 个包 com.sun.jdi com.sun.jdi.connect com.sun.jdi.event com.sun.jdi.request 本文不对 JDI 进行深入阐述，这里重点介绍 JDI 中与断点相关的接口。 com.sun.jdi 主要是JVM(VirtualMachine) 线程(ThreadReference) 调用栈(StackFrame) 以及类型、实例的描述。利用这组接口，调试客户端可以用类似类反射的方式，得到所有类型的定义，动态调用 Class 的方法。 com.sun.jdi.event 封装了JVM 产生的事件， JVM 正是将这些事件通知给调试客户端的。例如 BreakpointEvent 就是 JVM 执行到断点的时候，发出的事件；ClassPrepareEvent就是 Class 被加载时发出的事件。 com.sun.jdi.request 封装了调试客户端可以向 JVM发起的请求。例如 BreakpointRequest 向 JVM 发起一个添加断点的请求；ClassPrepareRequest 向 JVM 注册一个类加载请求，JVM 在加载指定 Class 的时候，就会发出一个 ClassPrepareEvent 事件。 JSR-45规范 JSR-45(Debugging Support for Other Languages)为那些非 JAVA 语言写成，却需要编译成 JAVA 代码，运行在 JVM 中的程序，提供了一个进行调试的标准机制。也许字面的意思有点不好理解，什么算是非 JAVA 语言呢？其实 JSP 就是一个再好不过的例子，JSR-45 的样例就是一个 JSP。 JSP的调试一直依赖于具体应用服务器的实现，没有一个统一的模式，JSR-45 针对这种情况，提供了一个标准的模式。我们知道，JAVA 的调试中，主要根据行号作为标志，进行定位。但是 JSP 被编译为 JAVA 代码之后，JAVA 行号与 JSP 行号无法一一对应，怎样解决呢？ JSR-45 是这样规定的: JSP 被编译成 JAVA 代码时，同时生成一份 JSP 文件名和行号与 JAVA 行号之间的对应表(SMAP)。JVM 在接受到调试客户端请求后，可以根据这个对应表(SMAP)，从 JSP 的行号转换到 JAVA 代码的行号；JVM 发出事件通知前, 也根据对应表(SMAP)进行转化，直接将 JSP 的文件名和行号通知调试客户端。 我们用 Tomcat 5.0 做个测试，有两个 JSP，Hello.jsp 和 greeting.jsp，前者 include 后者。Tomcat会将他们编译成 JAVA 代码(Hello_jsp.java)，JAVA Class(Hello_jsp.class) 以及 JSP 文件名/行号和 JAVA 行号之间的对应表(SMAP)。 Hello.jsp: 1
 
-2
 
-5
+<%@ include file="greeting.jsp" %>
 
-6 <%@ include file="greeting.jsp" %>
-
-7
-
-8
-  
 greeting.jsp:
 
 1 Hello There!

@@ -152,8 +152,15 @@ localTime, err := time.ParseInLocation("2006-01-02 15:04:05", "2017-12-03 22:01:
 ### 时间计算
 
 ```go
+// 计算时间
+// 一个小时之前
 h, _ := time.ParseDuration("-1h")
 start := time.Now().Add(h)
+
+// 7 天前
+h, _ := time.ParseDuration(fmt.Sprintf("%dh", 7*24))
+endTime := time.Now().Add(h)
+ruleEndTime := endTime.Format("15:04 2006/01/02")
 ```
 
 [https://github.com/jemygraw/TechDoc/blob/master/Go%E7%A4%BA%E4%BE%8B%E5%AD%A6/Go%20%E6%97%B6%E9%97%B4%E6%A0%BC%E5%BC%8F%E5%8C%96%E5%92%8C%E8%A7%A3%E6%9E%90.markdown](https://github.com/jemygraw/TechDoc/blob/master/Go%E7%A4%BA%E4%BE%8B%E5%AD%A6/Go%20%E6%97%B6%E9%97%B4%E6%A0%BC%E5%BC%8F%E5%8C%96%E5%92%8C%E8%A7%A3%E6%9E%90.markdown)

@@ -15,11 +15,10 @@ tags:
 
 ## 输出指定时区的时间
 
-shell支持在date命令前，指定TZ参数，即指定时区，这样date输出将会输出指定时区的时间。TZ是timezone的缩写。
+shell 支持在 date 命令前，指定 TZ 参数，即指定时区，这样 dat e输出将会输出指定时区的时间。TZ 是 timezone 的缩写。
 
 ```bash
 TZ=0 date
-
 ```
 
 ## date 打印的日期格式

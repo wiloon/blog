@@ -15,6 +15,7 @@ tags:
 - bluez-libs: Deprecated libraries for the bluetooth protocol stack
 - botan: Crypto library written in C++
 - ca-certificates-mozilla: Mozilla's set of trusted CA certificates
+- expat: An XML parser library
 - fftw: A library for computing the discrete Fourier transform (DFT)
 - fzf, fzf is a general-purpose command-line fuzzy finder.
 - gcr: A library for bits of crypto UI and parsing
