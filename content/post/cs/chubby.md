@@ -18,7 +18,11 @@ http://www.cnblogs.com/linhaohong/archive/2012/11/26/2789394.html
 Google在系统的可靠性方面提出了中心化的组件Chubby—粗粒度锁服务,通过锁原语为其他系统实现更高级的服务,比如组成员、域名服务和leader选举等等。Chubby本身也是一个小型的cell (通常由5个chubby结点组成) ,cell内部采用类似于状态机副本形式实现可靠容错。Google的Chubby论文在OSDI上发表后引起了很大的反响,原因很多,主要有两个: 第一,chubby很好的解决了分布式开发的一致性问题；
 第二,Google Chubby采用Leslie Lamport提出的paxos算法来实现可靠容错,这是业界关于paxos第一个完整可行的实现。正因为Google Chubby,paxos这个一直沉淀在学术研究的协议,终于曝光在工业界中,之后很快地推广开去。
 
-然而,Google Chubby并不是开源的,我们只能通过其论文和其他相关的文档中了解具体的细节。值得庆幸的是,Yahoo！借鉴Chubby的设计思想开发了Zookeeper,并将其开源。和Chubby相比,Zookeeper做了很多突破。不像Chubby的单点服务的结构,zookeeper采用多个server同时处理客户端的请求,异步读同步写,通过primary节点来同步数据的update,这一点大大改善了读服务的性能,当然弱化了客户端与服务器之间的一致性。另外,zookeeper采用block free的服务接口,采用watch机制的方式异步处理请求结果和指定数据的变更。Zookeeper对外提供了更加低级的原语primitive,基于此可以实现更多更加复杂的分布式算法,如queue、barrier和lock等等。如今很多云计算系统或者平台都使用Zookeeper来做可靠容错,进行订阅分发服务,或者其他应用。
+然而, Google Chubby 并不是开源的, 我们只能通过其论文和其他相关的文档中了解具体的细节。值得庆幸的是,Yahoo！借鉴 Chubby 的设计思想开发了 Zookeeper, 并将其开源。
+和 Chubby 相比, Zookeeper 做了很多突破。不像 Chubby 的单点服务的结构, zookeeper 采用多个 server 同时处理客户端的请求, 异步读同步写, 
+通过 primary 节点来同步数据的 update, 这一点大大改善了读服务的性能, 当然弱化了客户端与服务器之间的一致性。另外, zookeeper 采用 block free 的服务接口, 
+采用 watch 机制的方式异步处理请求结果和指定数据的变更。Zookeeper 对外提供了更加低级的原语 primitive, 基于此可以实现更多更加复杂的分布式算法, 如 queue、barrier 和 lock 等等。
+如今很多云计算系统或者平台都使用 Zookeeper 来做可靠容错, 进行订阅分发服务, 或者其他应用。
 
 和Chubby一样,zookeeper采用paxos的变种来实现消息传输的一致性。Zookeeper开发了原子多播协议 Zab 来实现数据的一致性传输。Zookeeper采用的是primary-backup的结构,primary节点产生non- commutative 事务,通过协议按序的广播到其他backup节点上。在节点无错的情况下,这是非常简单的事情,然而,面对复杂的网络环境,多变的软硬件条件,节点挂掉,重启,数据重复发送,这些异常很常见。Zookeeper如何做到即便是系统出现异常,也能够保证整个系统状态是一致？paxos的变种,Zookeeper的Zab协议很好的保证了这一点。
 

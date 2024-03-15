@@ -16,7 +16,7 @@ tags:
 用法: `bash -c "cmd string"`
 通常使用shell去运行脚本，两种方法 bash xxx.sh，另外一种就是bash -c "cmd string"
 对于bash xxx.sh, 首先bash 会在当前目录去寻找xxx.sh，如果找到，就直接运行，找不到则按照环境变量$PATH的指定路径，按顺序去找，如果找到，则执行，找不到则报错。
-shell脚本的参数$0就是要执行的shell脚本xxx.sh， $1就是后面紧跟xxx.sh的参数，$2 $3依次类推
+shell 脚本的参数 $0 就是要执行的 shell 脚本 xxx.sh， $1 就是后面紧跟 xxx.sh 的参数，$2 $3依次类推
 
 而对于bash -c "cmd string"
 首先我们看看官方的说明解释

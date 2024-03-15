@@ -44,7 +44,7 @@ https://everything.curl.dev/usingcurl/smtp
 ```Bash
 curl smtp://local-lab:1025 --mail-from from0@local-lab.com --mail-rcpt receiver0@local-lab.com
 
-curl smtp://local-lab:1025 --mail-from from0@local-lab.com --mail-rcpt receiver0@local-lab.com --upload-file foo.txt
+curl --connect-timeout 3 smtp://local-lab:1025 --mail-from from0@local-lab.com --mail-rcpt receiver0@local-lab.com --upload-file foo.txt
 ```
 
 foo.txt

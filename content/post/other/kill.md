@@ -291,12 +291,11 @@ b、 该进程处于"kernel mode" (核心态) 且在等待不可获得的资源�
 [https://blog.csdn.net/lemontree1945/article/details/79169178](https://blog.csdn.net/lemontree1945/article/details/79169178)
 
 ## kill a process in one line using bash
+
 [https://stackoverflow.com/questions/3510673/find-and-kill-a-process-in-one-line-using-bash-and-regex](https://stackoverflow.com/questions/3510673/find-and-kill-a-process-in-one-line-using-bash-and-regex)
 
 ```bash
-  
-kill $(ps -ef|grep process-foo |grep -v grep |awk '{print $2}')
-  
+kill $(ps -ef |grep process-foo |grep -v grep |awk '{print $2}')
 ```
 
 ## killall

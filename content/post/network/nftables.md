@@ -10,6 +10,10 @@ tags:
 ---
 ## nftables
 
+### 这里有张图
+
+https://wiki.nftables.org/wiki-nftables/index.php/Netfilter_hooks
+
 nftables 是一个新式的数据包过滤框架，旨在替代现用的 iptables、ip6tables、arptables 和 ebtables 的新的包过滤框架。nftables 诞生于 2008 年，2013 年底合并到 Linux 内核，从 Linux 内核 3.13 版本开始大多数场景下 nftables 已经可以使用，但是完整的支持（即：nftables 优先级高于 iptables）应该是在 Linux 内核 3.15 版本。
 
 nftables 旨在解决现有 {ip/ip6}tables 工具存在的诸多限制。相对于旧的 iptables，nftables 最引人注目的功能包括：改进性能、支持查询表、事务型规则更新、所有规则自动应用等等。
@@ -58,6 +62,17 @@ nftables 的表管理
 ip（即 IPv4）是默认簇，如果未指定簇，则使用该簇。如果要创建同时适用于 IPv4 和 IPv6 的规则，请使用 inet 簇 。inet 允许统一 ip 和 ip6 簇，以便更容易地定义规则。
 
 注意: inet 不能用于 nat 类型的链，只能用于 filter 类型的链。
+
+## nftable hook
+
+- ingress	
+- `prerouting`
+- forward
+- input
+- output
+- `postrouting`
+- egress
+
 
 ## nftables 的链管理
 

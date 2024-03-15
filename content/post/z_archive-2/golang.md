@@ -799,3 +799,9 @@ func main() {
 https://www.51cto.com/article/777578.html
 
 https://zhuanlan.zhihu.com/p/673906980
+
+## exec Shell command
+
+```Bash
+cmd := exec.Command("/bin/sh", "-c", "sudo find ...")
+```

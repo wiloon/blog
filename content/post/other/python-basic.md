@@ -1316,3 +1316,34 @@ print kwargs
 ## enumerate()
 
 enumerate() 函数用于将一个可遍历的数据对象(如列表、元组或字符串)组合为一个索引序列，同时列出数据和数据下标，一般用在 for 循环当中。
+
+
+## confluent-kafka
+
+```Bash
+pip install confluent-kafka
+
+```
+
+
+```Python
+from confluent_kafka import Consumer
+
+c = Consumer({'bootstrap.servers': 'localhost:9092,localhost:9093,localhost:9094'})
+c.subscribe(['mytopic'])
+
+try:
+    while True:
+        msg = c.poll(timeout=1.0)
+        if msg is None:
+            continue
+        if msg.error():
+            print('Error occured: {}'.format(msg.error()))
+        print('Message: {}'.format(msg.value().decode('utf-8')))
+
+except KeyboardInterrupt:
+    pass
+
+finally:
+    c.close()
+```
