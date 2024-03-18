@@ -24,7 +24,9 @@ archlinux 新版本的内核已经集成了 wireguard，不需要单独安装.
 
 #### 手动加载内核模块
 
-`sudo modprobe wireguard`
+```Bash
+sudo modprobe wireguard
+```
 
 #### load kernel module at boot
 
@@ -42,7 +44,7 @@ lsmod | grep wireguard
 
 pacman -Syu
 
-# 安装 wireguard 管理工具, wireguard 集成进内核了, 但是管理工具还是要手动安装的
+# 安装 wireguard 管理工具, wireguard 集成进内核了, 但是管理工具 (wg) 还是要手动安装的
 pacman -S wireguard-tools
 ```
 
@@ -138,7 +140,7 @@ sudo wg set wg0 peer PEER_A_PUBLIC_KEY persistent-keepalive 25 allowed-ips 0.0.0
 sudo ip link set wg0 up
 ```
 
-### 添加路由
+### peer B 添加路由
 
 ```bash
 # ipv4
@@ -153,13 +155,11 @@ ip route add fd7b:d0bd:7a6e::/64 dev wg0
 wg set wg0 peer PEER_A_PUBLIC_KEY remove
 ```
 
-
-
-## systemd-networkd
+## `systemd-networkd`
 
 ```bash
 systemd-networkd-wait-online.service
-systemd-resolvconf  
+systemd-resolvconf
 openresolv
 ```
 
@@ -170,19 +170,30 @@ openresolv
 ```bash
 vim /etc/sysctl.d/30-ipforward.conf
 
+# content of 30-ipforward.conf
 net.ipv4.ip_forward=1
 net.ipv6.conf.default.forwarding=1
 net.ipv6.conf.all.forwarding=1
 ```
 
-`sysctl -a |grep net.ipv4.ip_forward`
+```Bash
+# 检查 ip forward 是否设置成功
+sysctl -a |grep net.ipv4.ip_forward
+```
 ### iptables, 设置 iptables 规则，客户端连接之后就能 Ping 通服务端局域网里的其它 ip 了
 
 ```bash
 iptables -t filter -A FORWARD -i wg0 -j ACCEPT
 # iptables -t nat    -A POSTROUTING -o <eth0> -j MASQUERADE
 iptables -t nat    -A POSTROUTING -o ens18 -j MASQUERADE
-iptables -t nat    -A POSTROUTING -o wlp1s0 -j MASQUERADE
+#iptables -t nat    -A POSTROUTING -o wlp1s0 -j MASQUERADE
+```
+
+### load iptables on boot, 启动时加载规则
+
+```bash
+iptables-save -f /etc/iptables/iptables.rules
+systemctl enable iptables
 ```
 
 ## systemd-networkd, 用 systemd-networkd 配置 wireguard, 开机自动加载 wireguard 配置
@@ -200,7 +211,7 @@ Name = wg0
 Address = 192.168.53.1/32
 
 [Route]
-#配置路由表 目标地址是 192.168.53.0/24 发到 网关 192.168.53.1
+# 配置路由表 目标地址 (Destination) 是 192.168.53.0/24 发到 网关 (Gateway) 192.168.53.1
 Gateway = 192.168.53.1
 Destination = 192.168.53.0/24
 ```
@@ -217,7 +228,7 @@ Description = wireguard
 
 [WireGuard]
 ListenPort = 51900
-# 本端私钥
+# 本端私钥, 等号两边可以有空格
 PrivateKey = private-key-0
 
 # 对端 A
@@ -274,17 +285,17 @@ mtu: auto
 3. Generate keypair/生成密钥对
 4. 发送公钥到服务端
 5. 配置 foo.netdev
-6. Addresses/局域网IP地址: 192.168.54.x
+6. Addresses/局域网IP地址: 192.168.5x.x
 7. Listen port/监听端口: 自动/Automatic
 8. MTU: 1200
 9. DNS: 192.168.50.1
 10. Add peer/点击 添加节点 (配置对端)
 11. 节点配置:
 12. Public key/公钥: <服务端/对端公钥> (对端提供)
-13. Preshared key/预共享密钥: 两端配置成一样的, 我一般不填
+13. `Preshared key`/预共享密钥: 两端配置成一样的, 我一般不填
 14. Endpoint/对端: foo.bar.com:12345
 15. Allowed IPs/路由的IP地址(段): 0.0.0.0/0
-16. Exclude private IPs: yes
+16. Exclude private IPs: no
 17. 连接保活间隔(单位:秒): 不填
 
 ### chromeos > crostini
