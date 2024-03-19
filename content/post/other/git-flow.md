@@ -1,5 +1,5 @@
 ---
-title: Git 分支
+title: Git 分支管理, github flow, gitlab flow
 author: "-"
 date: 2013-01-20T09:25:18+00:00
 url: git/branch
@@ -8,20 +8,14 @@ categories:
 tags:
   - reprint
   - Git
+  - todo
 ---
-## Git 分支
+## Git 分支管理, github flow, gitlab flow
 
-[http://www.ruanyifeng.com/blog/2012/07/git.html](http://www.ruanyifeng.com/blog/2012/07/git.html)
+https://cloud.tencent.com/developer/article/1646937
 
-如果你严肃对待编程，就必定会使用"版本管理系统" (Version Control System) 。
-
-眼下最流行的"版本管理系统"，非Git莫属。
-
-相比同类软件，Git有很多优点。其中很显著的一点，就是版本的分支 (branch) 和合并 (merge) 十分方便。有些传统的版本管理软件，分支操作实际上会生成一份现有代码的物理拷贝，而Git只生成一个指向当前版本 (又称"快照") 的指针，因此非常快捷易用。
-
-但是，太方便了也会产生副作用。如果你不加注意，很可能会留下一个枝节蔓生、四处开放的版本库，到处都是分支，完全看不出主干发展的脉络。
-
-Vincent Driessen提出了一个分支管理的策略，我觉得非常值得借鉴。它可以使得版本库的演进保持简洁，主干清晰，各个分支各司其职、井井有条。理论上，这些策略对所有的版本管理系统都适用，Git只是用来举例而已。如果你不熟悉Git，跳过举例部分就可以了。
+Vincent Driessen 提出了一个分支管理的策略，我觉得非常值得借鉴。它可以使得版本库的演进保持简洁，主干清晰，各个分支各司其职、井井有条。
+理论上，这些策略对所有的版本管理系统都适用，Git只是用来举例而已。如果你不熟悉Git，跳过举例部分就可以了。
 
 ## 主分支 master/main
 
@@ -29,7 +23,7 @@ Vincent Driessen提出了一个分支管理的策略，我觉得非常值得借�
 
 Git主分支的名字，默认叫做Master。它是自动建立的，版本库初始化以后，默认就是在主分支在进行开发。
 
-## 开发分支Develop
+## 开发分支 Develop
 
 主分支只用来分布重大版本，日常开发应该在另一条分支上完成。我们把开发用的分支，叫做Develop。
 
@@ -37,13 +31,13 @@ Git主分支的名字，默认叫做Master。它是自动建立的，版本库�
 
 Git创建Develop分支的命令:
 
->git checkout -b develop master
+git switch -b develop master
 
 将Develop分支发布到Master分支的命令:
 
 ## 切换到Master分支
   
->git checkout master
+>git switch master
 
 ## 对 Develop 分支进行合并
   
@@ -73,11 +67,11 @@ git merge develop
 
 创建一个功能分支:
 
-> git checkout -b feature-x develop
+> git switch -b feature-x develop
 
 开发完成后，将功能分支合并到develop分支:
 
-> git checkout develop
+> git switch develop
 > git merge feature-x
 
 删除feature分支:
@@ -92,18 +86,18 @@ git merge develop
 
 创建一个预发布分支:
 
-> git checkout -b release-1.2 develop
+> git switch -b release-1.2 develop
 
 确认没有问题后，合并到master分支:
 
-> git checkout master
+> git switch master
 > git merge release-1.2
 > 对合并生成的新节点，做一个标签
 > git tag -a 1.2
 
 再合并到develop分支:
 
-> git checkout develop
+> git switch develop
 > git merge release-1.2
 
 最后，删除预发布分支:
@@ -118,17 +112,17 @@ git merge develop
 
 创建一个修补bug分支:
 
-> git checkout -b fixbug-0.1 master
+> git switch -b fixbug-0.1 master
 
 修补结束后，合并到master分支:
 
-> git checkout master
+> git switch master
 > git merge fixbug-0.1
 > git tag -a 0.1.1
 
 再合并到develop分支:
 
-> git checkout develop
+> git switch develop
 > git merge fixbug-0.1
 
 最后，删除"修补bug分支"

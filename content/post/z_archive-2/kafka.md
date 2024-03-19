@@ -201,3 +201,7 @@ Kafka 这种应用必然需要大量地通过网络与磁盘进行数据传输�
 [https://juejin.cn/post/6844903700616445960](https://juejin.cn/post/6844903700616445960)
 
 kafka 实战 - 胡夕
+
+## How to avoid rebalances and disconnections in Kafka consumers
+
+https://developers.redhat.com/articles/2023/12/01/how-avoid-rebalances-and-disconnections-kafka-consumers

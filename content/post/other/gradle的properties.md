@@ -88,7 +88,7 @@ tags:
   
     }
   
-在合作开发中遇到的一个尴尬的问题是,IDEA最新版还不能很好的支持Gradle Plugin 0.12+,而Android Studio最新版则要求使用0.12+。大家又共用一个Git仓库。可能的解决方案是,从Git checkout出来的项目需要有一个基础的版本号,但是开发者可以在本地通过一处文件 (不check in到git) 来重载版本号。
+在合作开发中遇到的一个尴尬的问题是,IDEA最新版还不能很好的支持Gradle Plugin 0.12+,而Android Studio最新版则要求使用0.12+。大家又共用一个Git仓库。可能的解决方案是, 从 Git checkout 出来的项目需要有一个基础的版本号,但是开发者可以在本地通过一处文件 (不check in到git) 来重载版本号。
 
 # 解决方案 {#toc_1}
 

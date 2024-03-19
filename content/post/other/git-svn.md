@@ -185,25 +185,25 @@ git branch workA
 
 与git的工作流程完全一样
 
-$ git checkout -b work
+git switch -b work
 
-$ git commit -a
+git commit -a
 
 切回master从SVN获取最新代码
 
-$ git checkout master
+git switch master
 
-$ git svn rebase
+git svn rebase
 
 master同步后,与工作分支合并
 
-$ git checkout work
+git switch work
 
 git rebase master ## 手工解决可能的冲突
 
 合并主分支
 
-git checkout master
+git switch master
 git merge work
 
 git-svn 解决冲突

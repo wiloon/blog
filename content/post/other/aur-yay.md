@@ -1,5 +1,5 @@
 ---
-title: archlinux AUR, yay, Yaourt
+title: archlinux AUR, yay
 author: "-"
 date: 2015-06-28T07:02:07+00:00
 url: yay
@@ -10,13 +10,22 @@ tags:
 categories:
   - Linux
 ---
-## archlinux AUR, yay, Yaourt
+## archlinux AUR, yay
 
-Yaourt 已经不再维护
+## yay
 
-yay 是下一个最好的 AUR 助手。它使用 Go 语言写成,宗旨是提供最少化用户输入的 pacman 界面、yaourt 式的搜索,而几乎没有任何依赖软件。
+https://github.com/Jguer/yay
+
+yay 是一个 AUR 助手。它使用 Go 语言写成, 宗旨是提供最少化用户输入的 pacman 界面、yaourt 式的搜索, 而几乎没有任何依赖软件。
 
 ## yay 安装
+
+```Bash
+pacman -S --needed git base-devel
+git clone https://aur.archlinux.org/yay.git
+cd yay
+makepkg -si
+```
 
 ```bash
 pacman -S --needed git base-devel && git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si
@@ -55,7 +64,11 @@ yay -Ql
 yay -Ql <package-name>
 ```
 
-yay github: https://github.com/Jguer/yay
+
+
+## Yaourt
+
+Yaourt 已经不再维护
 
 [https://mirrors.tuna.tsinghua.edu.cn/help/AUR/](https://mirrors.tuna.tsinghua.edu.cn/help/AUR/)  
 [http://bashell.nodemedia.cn/archives/install-yaourt.html](http://bashell.nodemedia.cn/archives/install-yaourt.html)  
