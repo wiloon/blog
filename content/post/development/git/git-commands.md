@@ -9,9 +9,20 @@ tags:
     - reprint
     - remix
 ---
+## Git
+
+目前比较流行的版本管理系统
+
+相比同类软件，Git有很多优点。其中很显著的一点，就是版本的分支 (branch) 和合并 (merge) 十分方便。
+有些传统的版本管理软件，分支操作实际上会生成一份现有代码的物理拷贝，而Git只生成一个指向当前版本 (又称"快照") 的指针，因此非常快捷易用。
+
 ## commands
 
 ```bash
+显示出 HEAD 对应的提交的 hash 值
+git rev-parse HEAD
+git rev-parse --short HEAD
+
 # windows install git
 winget install Git.Git
 
@@ -47,6 +58,8 @@ git -C /Users/jhoffmann/tmp/my-project/ pull
 origin 是远程仓库的默认别名, 查看配置了几个远程仓库和别名 `git remote -v`
 
 ## 分支, branch
+
+[http://www.ruanyifeng.com/blog/2012/07/git.html](http://www.ruanyifeng.com/blog/2012/07/git.html)
 
 最新版本的 Git 提供了新的 `git switch` 命令来切换分支, `git switch`，比 `git checkout` 要更容易理解。
 
@@ -480,24 +493,33 @@ git rev-parse HEAD
 
 ## git checkout 检出
 
-git checkout: Git 的 checkout 有两个作用，其一是在不同的 branch 之间进行切换，例如 'git checkout branch0' 就会切换到 branch0 的分支上去；另一个功能是还原代码的作用，例如 'git checkout path/to/foo.py' 就会将 foo.py 文件从上一个已提交的版本中更新回来，未提交的内容全部会回滚/丢失.
+Switch branches or restore working tree files
+
+切换分支可以用新的命令 git switch, restore working tree 可以用 git reset
+
+Git 的 checkout 有两个作用，其一是在不同的 branch 之间进行切换，例如 'git checkout branch0' 就会切换到 branch0 的分支上去；
+另一个功能是还原代码的作用，例如 'git checkout path/to/foo.py' 就会将 foo.py 文件从上一个已提交的版本中更新回来，未提交的内容全部会回滚/丢失.
 
 ### 放弃本地未提交的修改
 
-To discard all local changes, you do not use revert. revert is for reverting commits. Instead, do:
+To discard all local changes, you do not use revert. revert is for reverting commits. Instead, do `git checkout .`
 
 ```bash
+# 对文件的修改还没有提交, 撤消本地的修改, 已经 add/commit 的不适用
 git checkout . # 本地所有修改的。没有的提交的，都返回到原来的状态
 ```
 
-git checkout -f 提取当前 branch 的所有文件.
+`git checkout -f` 提取当前 branch 的所有文件.
 
-git checkout HEAD . # 将所有代码都 checkout 出來(最后一次 commit 的版本), 注意, 若有修改的代码都会被还原到上一版. (git checkout -f 亦可)
+`git checkout HEAD .` # 将所有代码都 checkout 出來(最后一次 commit 的版本), 注意, 若有修改的代码都会被还原到上一版. (`git checkout -f` 亦可)
 
 ### checkout 指定版本
 
 ```bash
 git checkout 788258e49531eb24bfd347a600d69a16f966c495
+
+# 建议用 switch
+git switch --detach 788258e49531eb24bfd347a600d69a16f966c495
 ```
 
 [https://blog.csdn.net/leedaning/article/details/51304690](https://blog.csdn.net/leedaning/article/details/51304690)
@@ -822,13 +844,13 @@ git am –show-current-patch
 core.autocrlf配置
 假如你正在Windows上写程序，又或者你正在和其他人合作，他们在Windows上编程，而你却在其他系统上，在这些情况下，你可能会遇到行尾结束符问题。这是因为Windows使用回车和换行两个字符来结束一行，而Mac和Linux只使用换行一个字符。虽然这是小问题，但它会极大地扰乱跨平台协作。
 
-Git可以在你提交时自动地把行结束符 CRLF 转换成 LF，而在签出代码时把 LF 转换成 CRLF。用 core.autocrlf 来打开此项功能，如果是在 Windows 系统上，把它设置成 true，这样当签出代码时，LF 会被转换成 CRLF:
+Git可以在你提交时自动地把行结束符 `CRLF` 转换成 LF，而在签出代码时把 LF 转换成 `CRLF`。用 core.autocrlf 来打开此项功能，如果是在 Windows 系统上，把它设置成 true，这样当签出代码时，LF 会被转换成 `CRLF`:
 
 ```bash
 git config --global core.autocrlf true
 ```
 
-Linux 或 Mac 系统使用 LF 作为行结束符，因此你不想 Git 在签出文件时进行自动的转换；当一个以 CRLF 为行结束符的文件不小心被引入时你肯定想进行修正，把 core.autocrlf 设置成 input 来告诉 Git 在提交时把 CRLF 转换成 LF，签出时不转换:
+Linux 或 Mac 系统使用 LF 作为行结束符，因此你不想 Git 在签出文件时进行自动的转换；当一个以 `CRLF` 为行结束符的文件不小心被引入时你肯定想进行修正，把 core.autocrlf 设置成 input 来告诉 Git 在提交时把 `CRLF` 转换成 LF，签出时不转换:
 
 ```bash
 git config --global core.autocrlf input
@@ -1086,18 +1108,20 @@ XY ORIG_PATH -> PATH
 - `XY` 是一个双字母的状态代码。
   - `X` 显示索引文件 (index) 的状态
   - `Y` 显示工作树 (working tree) 的状态。
-  - 比如 " M" 表示工作树有修改但是没有执行 `git add`, 没有更新到索引.
+  - ' ' = 空格表示未修改的
+  - M = 修改过的
+  - U = 更新但未合并
+  - ？= 未被追踪的, 未被 git 进行管理，可以使用 git add file0 把 file0 添加进 git, 使其能被 git 进行管理
+  - MM: 索引有修改没 commit, working tree 有修改  没 git add
 - 当一个路径没有被追踪时，`X`和`Y`总是相同的，因为它们是未知的索引。
 - `??` 用于未跟踪的路径。除非使用了 `--ignored`, 文件刚刚被加入一个git管理的目录的时候的状态.
 - `AA` 文件加入之后执行了一次 git add
+- ` M` 表示工作树有修改但是没有执行 `git add`, 没有更新到索引.
+- `M ` 表示索引有更新但是没有提交到 local repo, 没有执行过 `git commit`
 - ` D` 从工作树中删除还没有执行 git rm 
 - `D ` 执行过 git rm 之后, 已经从索引中删除了
 - `R ` 有可能是 rename 的缩写, 比如把文件移到了另外一个目录
-- ' ' = 空格表示未修改的
-- M = 修改过的
-- U = 更新但未合并
-- ？= 未被追踪的, 未被 git 进行管理，可以使用 git add file0 把 file0 添加进 git, 使其能被 git 进行管理
-- MM: 索引有修改没 commit, working tree 有修改  没 git add
+
 
 第一列 M（绿色M）：代表版本库(working tree)和中间状态(staging)有差异。就是工作树版本库和提交到暂存区中文件的差异，意思就是这篇文章中执行 git diff --cached 时出现的差异。最后一次commit提交到工作版本库中的文件和add到暂存区中的文件差别。  
 第二列 M（红色M）：代表工作区(working tree)和当前文件状态的差异。就是工作树版本库和本地开发文件的差异，意思就是这篇文章中执行git diff head 时出现的差异。最后一次commit提交到工作树版本库中文件和本地开发文件的差别。
@@ -1182,3 +1206,10 @@ git push -u origin master -f
 卸载电脑原先的 Git，安装 32位 Git  
 或者卸载监控软件
 或者修改注册表让 ip guard 不监控 git.exe
+
+## git switch
+
+```Bash
+# 切换到某一个 commit, 相当于 git checkout fff57bd92e7ad1f90d2b9367b7b7208ea72d9e93
+git switch --detach fff57bd92e7ad1f90d2b9367b7b7208ea72d9e93
+```

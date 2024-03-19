@@ -1,24 +1,31 @@
 ---
 title: plantuml, puml
 author: "-"
-date: 2020-01-26T04:41:00+00:00
+date: 2024-03-19T12:11:33+08:00
 url: plantuml
 categories:
   - uml
 tags:
   - reprint
+  - remix
 ---
 ## plantuml, puml
 
-- 时序图, Sequence Diagram
-- Use Case Diagram
+### UML
+
+- 序列图, Sequence Diagram
+- 用例图, Use Case Diagram
 - 类图, Class Diagram
-- Object Diagram
+- 对象图, Object Diagram
 - 活动图, Activity Diagram
 - 组件图, Component Diagram
 - 部署图, Deployment Diagram
 - 状态图, State Diagram
-- Timing Diagram
+- 时序图, Timing Diagram
+
+### 非 UML 图
+
+- 架构图, Archimate diagram
 
 ## UML 图
 
@@ -277,3 +284,25 @@ pacman -S graphviz
 ## color name
 
 https://www.w3schools.com/colors/colors_names.asp
+
+## 架构图, Archimate diagram
+
+https://plantuml.com/zh/archimate-diagram
+
+https://en.wikipedia.org/wiki/ArchiMate
+
+
+```puml
+@startuml
+archimate #Technology "VPN Server" as vpnServerA <<technology-device>>
+
+rectangle GO #lightgreen
+rectangle STOP #red
+rectangle WAIT #orange
+
+circle c0
+circle c1
+
+c0 -right- c1
+@enduml
+```

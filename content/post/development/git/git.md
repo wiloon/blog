@@ -18,7 +18,7 @@ tags:
 work --> stage: add
 [Repository\nLocal Repository\n本地仓库\nHistory\n历史记录区] as repo
 stage --> repo: commit
-[Remote\n远程仓库] as remote
+[Remote Repository\n远程仓库] as remote
 repo --> remote: push
 work <-- remote: pull
 remote --> repo: fetch/clone
@@ -60,7 +60,7 @@ Tips：不要手动修改 .git 目录的内容
 ### 远端仓库， 远程仓库副本
 
 团队协作往往需要指定远端仓库 (一般是一个，也可以有多个），团队成员通过跟远端仓库交互来实现团队协作。  
-存在于本地的远程仓库缓存。如需更新，可通过 git fetch/pull 命令获取远程仓库内容。使用fech获取时，并未合并到本地仓库，此时可使用git merge实现远程仓库副本与本地仓库的合并。git pull 根据配置的不同，可为 git fetch + git merge 或 git fetch + git rebase。
+存在于本地的远程仓库缓存。如需更新，可通过 git fetch/pull 命令获取远程仓库内容。使用 fetch 获取时，并未合并到本地仓库，此时可使用git merge实现远程仓库副本与本地仓库的合并。git pull 根据配置的不同，可为 git fetch + git merge 或 git fetch + git rebase。
 
 ## 理解 git fetch, git pull
 
@@ -117,14 +117,118 @@ cat .git/HEAD
 
 ### HEAD 和 head
 
-你可以认为 HEAD(大写) 是"current branch"(当下的分支)。当你用 git checkout 切换分支的时候，HEAD revision 重新指向新的分支。有的时候 HEAD 会指向一个没有分支名字的修订版本，这种情况叫 `detached HEAD`
-head(小写) 是 commit 对象的引用，每个 head 都有一个名字 (分支名字或者标签名字等等），但是默认情况下，每个叫master 的 repository 都会有一个 head, 一个 repository 可以包含任意数量的 head。在任何时候，只要这个 head 被选择成为 `current head`，那么这个 head 就成了 HEAD, 总是大写
+https://blog.csdn.net/albertsh/article/details/106448035
+
+git 中的 HEAD 概念也类似一个指针，它指向是当前分支的“头”，通过这个头节点可以追寻到当前分支之前的所有提交记录。
+
+git 的提交记录之间的关系很像一棵树，或者说是一张图，通过当前的提交记录指向上一次提交记录串联起来，形成一个头结构，
+而在 git 中我们常常说的切换分支，只不过是 git 客户端帮你把要操作的那条路径的头节点，存储到了 HEAD 文件中。
+
+HEAD 在 git 版本控制中代表头节点，也就是分支的最后一次提交，同时也是一个文件，通常在版本库中 repository/.git/HEAD，其中保存的一般是 ref: refs/heads/master 这种分支的名字，而本质上就是指向一次提交的 hash 值，一般长成这个样子 ce11d9be5cc7007995b607fb12285a43cd03154b。
+
+HEAD~ 和 HEAD^
+在 HEAD 后面加 ^ 或者 ~ 其实就是以 HEAD 为基准，来表示之前的版本，因为 HEAD 被认为是当前分支的最新版本，那么 HEAD~ 和 HEAD^ 都是指次新版本，也就是倒数第二个版本，HEAD~~ 和 HEAD^^ 都是指次次新版本，也就是倒数第三个版本，以此类推
+
+这个说法在之前的总结 《git checkout/git reset/git revert/git restore常用回退操作》 中提到过
+
+HEAD~ 和 HEAD^后面都加大于1的数字
+这时就会发现两者的不同了，比如我们把数字都定为2，那么 HEAD~2 代表后退两步，每一步都后退到第一个父提交上，而 HEAD^2 代表后退一步，这一步退到第二个父提交上，如果没有第二个父提交就会报出以下错误：
+
+fatal: ambiguous argument ‘HEAD^2’: unknown revision or path not in the working tree.
+Use ‘–’ to separate paths from revisions, like this:
+‘git […] – […]’
+
+HEAD~ 后面加数字表示后退的步数，每次后退都默认退到第一个父提交上，HEAD~2 表示连退两步。
+HEAD^ 后面加数字表示只退一步，但是这一步后退到数字表示的父提交上，HEAD^2 表示退一步到第二个父提交上。
+git 在查看多分支提交记录时，日志的先后顺序不代表提交时间的先后顺序。
+git reset 命令是一个重置 HEAD 的命令，可以指挥版本库指向任何一个合法提交。
+
+查看 HEAD 文件的内容 `cat .git/HEAD`
+
+HEAD就是当前活跃分支的游标。HEAD 的指向是跟随分支切换实时变化
+
+不过HEAD并非只能指向分支的最顶端（时间节点距今最近的那个），实际上它可以指向任何一个节点，它就是 Git 内部用来追踪当前位置的
+
+你可以认为 HEAD(大写) 是 "current branch" (当下的分支)。当你用 git checkout 切换分支的时候，HEAD revision 重新指向新的分支。
+有的时候 HEAD 会指向一个没有分支名字的修订版本，这种情况叫 `detached HEAD`
+
+head(小写) 是 commit 对象的引用，每个 head 都有一个名字 (分支名字或者标签名字等等），但是默认情况下，每个叫 master 的 repository 都会有一个 head, 
+一个 repository 可以包含任意数量的 head。在任何时候，只要这个 head 被选择成为 `current head`，那么这个 head 就成了 HEAD
+
+在 main 分支上，HEAD 指向 main，而 main 指向的是最近的一次提交。
+
+```puml
+@startuml
+circle "commit_0"  as c0
+circle "commit_1"  as c1
+circle "commit_2"  as c2
+note left: master
+note left: HEAD
+
+c0 -down- c1
+c1 -down- c2
+
+@enduml
+```
+
+新建分支时，比如 `git switch -c dev`，dev 会指向当前 main 分支的最近一次提交。
+切换到 dev 分支后，HEAD 就指向当前分支 dev 了。
+
+```puml
+@startuml
+circle "commit_0"  as c0
+circle "commit_1"  as c1
+circle "commit_2"  as c2
+
+rectangle main
+main -right- c2
+
+rectangle dev
+dev -left- c2
+
+rectangle HEAD
+HEAD -left- dev
+
+
+c0 -down- c1
+c1 -down- c2
+
+@enduml
+```
+
+在 dev 上修改，比如修改 `helloworld.c`，然后提交，分支 dev 指向当前分支的最新提交，而 main 指向 main 分支的最新提交。
+
+```puml
+@startuml
+circle "commit_0"  as c0
+circle "commit_1"  as c1
+circle "commit_2"  as c2
+circle "commit_3"  as c3
+
+c0 -down- c1
+c1 -down- c2
+c2 -down- c3
+
+rectangle main
+main -right- c2
+
+rectangle dev
+dev -left- c3
+
+rectangle HEAD
+HEAD -left- dev
+
+
+
+
+@enduml
+```
 
 [https://git-scm.com/book/zh](https://git-scm.com/book/zh)
 
 [https://blog.csdn.net/taiyangdao/article/details/52761572](https://blog.csdn.net/taiyangdao/article/details/52761572)
 
-作者： fandyst
+作者： `fandyst`
 出处： [http://www.cnblogs.com/todototry/](http://www.cnblogs.com/todototry/)
 本文版权归作者和博客园共有,欢迎转载,但未经作者同意必须保留此段声明,且在文章页面明显位置给出原文连接。
 
@@ -143,9 +247,12 @@ head(小写) 是 commit 对象的引用，每个 head 都有一个名字 (分支
 [https://segmentfault.com/a/1190000039320926](https://segmentfault.com/a/1190000039320926)
 [http://jartto.wang/2018/12/11/git-rebase/](http://jartto.wang/2018/12/11/git-rebase/)
 
-作者：zuopf769
+作者：`zuopf769`
 链接：[https://juejin.cn/post/6844903493078089736](https://juejin.cn/post/6844903493078089736)
 来源：稀土掘金
 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
 
 [https://www.zsythink.net/archives/3412](https://www.zsythink.net/archives/3412)
+
+版权声明：本文为博主原创文章，遵循 CC 4.0 BY-NC-SA 版权协议，转载请附上原文出处链接和本声明。
+原文链接：https://blog.csdn.net/albertsh/article/details/106448035

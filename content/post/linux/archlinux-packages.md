@@ -12,6 +12,7 @@ tags:
 
 - aom: Alliance for Open Media video codec
 - appstream: Provides a standard for creating app stores across distributions
+- at-spi2-core: Protocol definitions and daemon for D-Bus at-spi
 - bluez-libs: Deprecated libraries for the bluetooth protocol stack
 - botan: Crypto library written in C++
 - ca-certificates-mozilla: Mozilla's set of trusted CA certificates

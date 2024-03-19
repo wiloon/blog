@@ -11,7 +11,23 @@ tags:
 ---
 ## git reset
 
+关于 git reset 的一点思考
+刚学习 git reset 的命令时一直认为是一个回退命令，其实学习一段时间之后发现，这个命令其实很符合它的名字，就是一个重置(reset)命令，
+通过 git reset 命令可以修改 HEAD 指向不同的提交，这个提交甚至都不必是当前分支上的某次提交，测试后发现，
+只要是版本库中合法提交都可以使用这个命令进行设置，相应的版本库的内容也会发生对应的变化，从这一点来看，它真的太强大了，
+它可以使你正在开发的 dev 分支瞬间变成 master 分支。
+
+版权声明：本文为博主原创文章，遵循 CC 4.0 BY-NC-SA 版权协议，转载请附上原文出处链接和本声明。
+原文链接：https://blog.csdn.net/albertsh/article/details/106448035
+
 ```bash
+# 默认 --soft
+git reset
+# 如果本地有没提交到 local repo 的话, 会提示 Unstaged changes after reset, 如果的确是要放弃修改, 可以执行 git reset --hard
+
+# 丢弃工作树和索引的修改
+git reset --hard
+
 # reset 最近一次 commit
 git reset --hard HEAD^
 git reset --hard HEAD~1
@@ -66,17 +82,17 @@ git push origin 分支 --force ok，大功告成
 ```bash
 git push origin <分支名>
 会提示本地的版本落后于远端的版本；
-为覆盖掉远端的版本信息，使远端的仓库也回退相应版本，加上参数–force
+为覆盖掉远端的版本信息，使远端的仓库也回退相应版本，加上参数 -–force
 
 git push origin <分支名> --force
 ```
 
 ```bash
 # 按需选择想要回到哪个版本
-# 回到HEAD
+# 回到 HEAD
 git reset --soft HEAD
 
-# 回到HEAD的前一个版本
+# 回到 HEAD 的前一个版本
 git reset --soft HEAD^
 
 # 回到 HEAD 的前 5 个版本
@@ -89,7 +105,7 @@ git reset --soft a06ef2f
 git stash
 
 # 切换到正确的分支
-git checkout feat/xxx
+git switch feat/xxx
 
 # 重新应用缓存
 git stash pop
@@ -160,15 +176,7 @@ git reset --merge B
 和 --merge 有一些类似。使用成功的前提是：在 D 后有本地修改的文件在 C、D 两次提交中没有修改过，即 C、D 两次提交中没有它的修改记录。
 假设我们在D后修改了 a.txt 文件，而且 C、D 两次提交中我们都没有修改 a.txt 文件，这样我们调用 git reset --keep B 可以成功，并且a.txt文件中的修改依然会保留。
 
-## git checkout, revert, reset, 回退, 撤消
-
-## 撤销本地修改
-
-对文件的修改还没有提交, 撤消本地的修改, 已经 add/commit的不适用
-
-```bash
-git checkout .
-```
+## revert, reset, 回退, 撤消
 
 回滚提示  
 本地或者自己单独的仓库使用 reset 或者 revert 都可以  
