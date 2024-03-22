@@ -59,18 +59,23 @@ adb shell
 
   Android Debug Bridge version 1.0.20
 
-  2.安装应用到模拟器
- adb install [-l] [-r] <file>。
+2.安装应用到模拟器
 
-  其中file是需要安装的apk文件的决定路径。
+```Bash
+adb install [-l] [-r] <file>
+```
 
-  3.卸载已经安装的应用
+其中file是需要安装的apk文件的决定路径。
 
-   (1) 方法1:
+3.卸载已经安装的应用
 
-       adb uninstall [-k] <package>。
+(1) 方法1:
 
-  其中package表示需要卸载的应用的包的名字，k表示是否保留应用的配置信息和cache数据。
+```Bash
+adb uninstall [-k] <package>。
+```
+
+其中package表示需要卸载的应用的包的名字，k表示是否保留应用的配置信息和cache数据。
 
    (2) 手动删除。
  adb shell
@@ -812,17 +817,17 @@ adb: error while loading shared libraries: libncurses.so.5: cannot open shared o
   
 同理搜索ncurses可以看到需安装lib32-ncurses
 
-# pacman -S lib32-ncurses
+pacman -S lib32-ncurses
 
 再运行adb
 
-# adb devices
+adb devices
 
 adb: error while loading shared libraries: libstdc++.so.6: cannot open shared object file: No such file or directory
   
 再搜索可以看到需安装lib32-libstdc++5
 
-# pacman -S lib32-libstdc++5
+pacman -S lib32-libstdc++5
 
 再运行adb
 

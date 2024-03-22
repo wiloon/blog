@@ -576,6 +576,12 @@ obj to json [https://blog.csdn.net/mr_hui_/article/details/82941199](https://blo
 
 isinstance() 函数来判断一个对象是否是一个已知的类型，类似 type()。
 
+```Python
+x = isinstance(5, int)
+isinstance(whatever, bool)
+isinstance(value, str)
+```
+
 ## type()
 
 打印变量类型

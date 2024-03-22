@@ -174,9 +174,11 @@ WHERE
 AND pg_constraint.contype = 'p';
 ```
 
-## bigserial
+## `bigserial`
 
-postgresql 序列号（SERIAL）类型包括 smallserial（smallint,short）, serial(int)和 bigserial(bigint,long long int)，不管是 smallserial,serial还是bigserial，其范围都是(1,9223372036854775807)，但是序列号类型其实不是真正的类型，当声明一个字段为序列号类型时其实是创建了一个序列，INSERT时如果没有给该字段赋值会默认获取对应序列的下一个值。
+postgresql 序列号（SERIAL）类型包括 `smallserial`（smallint,short）, serial(int)和 `bigserial(bigint,long long int)`, 
+不管是 `smallserial`, serial 还是 `bigserial`，其范围都是(1,9223372036854775807)，但是序列号类型其实不是真正的类型，
+当声明一个字段为序列号类型时其实是创建了一个序列，INSERT时如果没有给该字段赋值会默认获取对应序列的下一个值。
 
 ## 日期格式化
 
@@ -251,7 +253,7 @@ CREATE SEQUENCE seq_0 INCREMENT 1 MINVALUE 1 START 1 CACHE 1;
 - INCREMENT, 步长
 - max/MINVALUE, 最大/小值
 - START, 初始值
-- CACHE, 缓存, 某个客户端调用 nextval() 之后, 服务端为其预分配的 seq 值的缓存, 如果客户端挂掉或重启缓存里的数据都会被丢弃.
+- CACHE, 缓存, 某个客户端调用 `nextval()` 之后, 服务端为其预分配的 seq 值的缓存, 如果客户端挂掉或重启缓存里的数据都会被丢弃.
 - cycle, 循环产生
 
 ## 删除外键限制
@@ -424,10 +426,11 @@ SELECT pg_terminate_backend(pid) FROM pg_stat_activity WHERE state='idle';
 
 ## export csv, 导出 csv
 
+sql 后面不要加分号
+
 ```sql
 COPY (
-  SELECT foo, bar
-  FROM table0
+  SELECT foo, bar FROM table0
 )
 TO '/tmp/foo.csv'
 WITH csv header;
@@ -448,7 +451,7 @@ psql
 
 ## postgresql log, 日志
 
-PG 安装完成后默认不会记录日志，必须修改对应的（${PGDATA}/postgresql.conf）配置才可以
+PG 安装完成后默认不会记录日志，必须修改对应的 `${PGDATA}/postgresql.conf` 配置才可以
 
 `${PGDATA}` 的值取自 docker 或系统的环境变量 `PGDATA`
 
@@ -538,9 +541,9 @@ select c1,count(*), count(*) filter (where id<1000) from test group by c1;
 
 [https://blog.csdn.net/wuyujin1997/article/details/125904177](https://blog.csdn.net/wuyujin1997/article/details/125904177)
 
-## regclass
+## `regclass`
 
-regclass是oid的别名，postgresql自动的为每一个系统表都建立了一个OId，其中有一个系统表叫做：pg_class，这个表里记录了数据表、索引(仍然需要参阅pg_index)、序列、视图、复合类型和一些特殊关系类型的元数据
+`regclass` 是 oid 的别名，postgresql 自动的为每一个系统表都建立了一个 OId，其中有一个系统表叫做：pg_class，这个表里记录了数据表、索引 (仍然需要参阅pg_index)、序列、视图、复合类型和一些特殊关系类型的元数据
 
 [https://blog.csdn.net/shiyibodec/article/details/52447755](https://blog.csdn.net/shiyibodec/article/details/52447755)
 
@@ -595,7 +598,7 @@ LIMIT：对最终结果集进行截取，一般和offset连用，可用于分页
 
 意思就是别名可以使在order by、having、group by 子句中，但是根据上面的SQL执行过程，很明显group by 和 having都在select之前啊，这里值得注意的是，mysql对group by 进行了优化加强，所以在group by子句中可以使用别名进行分类，但是其他数据库还是遵循着SQL的执行顺序
 ————————————————
-版权声明：本文为CSDN博主「shenzhou_yh」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
+版权声明：本文为CSDN博主`「shenzhou_yh」`的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
 原文链接：https://blog.csdn.net/shenzhou_yh/article/details/103185772
 
 
@@ -647,6 +650,13 @@ split_part( current_date::text,'-',2) as  month,
 split_part( current_date::text,'-',3) as day
 ————————————————
 
-                            版权声明：本文为博主原创文章，遵循 CC 4.0 BY-SA 版权协议，转载请附上原文出处链接和本声明。
+版权声明：本文为博主原创文章，遵循 CC 4.0 BY-SA 版权协议，转载请附上原文出处链接和本声明。
 
 原文链接：https://blog.csdn.net/neweastsun/article/details/120243524
+
+## like, `ilike`
+
+```SQL
+-- 模糊查询，并且不区分大小写
+select * from student where name ilike '%tom%'
+```

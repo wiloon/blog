@@ -10,7 +10,7 @@ tags:
 ---
 ## linux apps
 
-## installed by pacman
+## install by pacman
 
 - `ncdu`, 磁盘空间占用分析/清理
 - `bitwarden`, password management
@@ -44,7 +44,7 @@ git jdk8-openjdk openjdk8-src kotlin docker
 sudo pacman -S powerdevil kmix kscreen ark
 ```
 
-## archlinux pacman
+## install by pacman
 
 | name                  | comments                                                                                |
 | :-------------------- | :-------------------------------------------------------------------------------------- |
@@ -104,7 +104,7 @@ sudo pacman -S powerdevil kmix kscreen ark
 |audacity|一款免费的音频处理软件。它是在linux下发展起来的，一款遵循GNU协议的免费软件。有着傻瓜式的操作界面和专业的音频处理效果。|
 |python-pip||
 
-## installed by pacman, development
+## install by pacman, development
 
 | name                            | comments          |
 | :------------------------------ | :---------------- |
