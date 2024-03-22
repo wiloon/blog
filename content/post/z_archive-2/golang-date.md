@@ -18,7 +18,7 @@ start := time.Date(2021, 1, 7, 12, 0, 0, 0, time.Local)
 
 ### 比较
 
-先把当前时间格式化成相同格式的字符串, 然后使用time的Before, After, Equal 方法即可.
+先把当前时间格式化成相同格式的字符串, 然后使用 time 的 Before, After, Equal 方法即可.
 
 ```go
 time1 := "2015-03-20 08:50:29"
@@ -103,8 +103,8 @@ time.Now().Format("2006-1-2 15:4:5")
 ```
 
 ```go
-    format:="2006-01-02 15:04:05"
-    fmt.Println(time.Now().Format(format))
+format:="2006-01-02 15:04:05"
+fmt.Println(time.Now().Format(format))
 
 // 一天前
     d, _ := time.ParseDuration("-24h")

@@ -158,26 +158,6 @@ git branch -D branch0
 git branch -d -r origin/todo
 ```
 
-```bash
-# 分支改名, branch rename,  -m, --[no-]move       move/rename a branch and its reflog
-
-git branch -m branch0 branch1
-# 分支改名之后 git push 会报错说上游的分支名跟本地的不一样
-# 推送到远程的 branch0
-git push origin HEAD:branch0
-# 推送到远程的同名分支, 新分支名会被推送到远程仓库, 远程仓库会同时存在 branch0, branch1 两个分支
-git push origin HEAD
-```
-
-github 可以直接在页面上改分支名, 如果本地有已经 clone 的代码, 需要执行以下操作
-
-```Bash
-git branch -m master main
-git fetch origin
-git branch -u origin/main main
-git remote set-head origin -a
-```
-
 ### 设置默认的分支名
 
 ```bash
@@ -192,6 +172,40 @@ git branch -m main
 
 ```bash
 git symbolic-ref --short HEAD  
+```
+
+### 修改分支名, 分支改名
+
+https://juejin.cn/post/6844903880115896327
+
+```Bash
+# 分支改名, branch rename
+-m, --[no-]move       move/rename a branch and its reflog
+
+# 本地分支重命名
+git branch -m oldBranch newBranch
+
+# 分支改名之后如果直接 git push 会报错说上游的分支名跟本地的不一样
+
+# 删除远程分支（远端无此分支则跳过该步骤）
+git push --delete origin oldBranch
+
+# 将重命名后的分支推到远端
+git push origin newBranch
+# 或者
+git push origin HEAD:newBranch
+
+# 把修改后的本地分支与远程分支关联
+git branch --set-upstream-to origin/newBranch
+```
+
+github 可以直接在页面上改分支名, 如果本地有已经 clone 的代码, 需要执行以下操作
+
+```Bash
+git branch -m master main
+git fetch origin
+git branch -u origin/main main
+git remote set-head origin -a
 ```
 
 ## git tag
@@ -412,10 +426,21 @@ git clean -Xn
 
 ##### 清除文件或文件夹，-f 选项强制删除，-d 删除目录 (小心）
 
-git 删除未跟踪文件,  
+git 删除未跟踪文件
 
 ```bash
+# -n, --[no-]dry-run    dry run
+# -f, --[no-]force      force
+# -d                    remove whole directories
+# -x                    remove ignored files, too
+# -X                    remove only ignored files
 # 在使用 git clean 前，强烈建议加上 -n 参数先看看会删掉哪些文件，防止重要文件被误删
+# 删除未跟踪文件 dryrun
+git clean -nf
+# 删除
+git clean -f
+
+git clean -nfd
 git clean -nxfd
 git clean -nf
 git clean -nfd
@@ -429,7 +454,6 @@ git clean -fd
 # 连 gitignore 的 untrack 文件/目录也一起删掉 （慎用，一般这个是用来删掉编译出来的 .o 之类的文件用的）
 git clean -xfd
  
-
 ```
 
 [https://ruby-china.org/topics/17951](https://ruby-china.org/topics/17951)

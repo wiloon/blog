@@ -155,13 +155,13 @@ ls /sys/firmware/efi/efivars
 # 如果提示文件不存在， 那么当前系统就不是efi引用的， 可能 是bios或CSM
 ```
 
-### config pacman mirror
+### config mirror
 
 >wangyue.dev/pacman
 
 [https://blog.wiloon.com/?p=7501](https://blog.wiloon.com/?p=7501)
 
-### pacman 更新， 不要用-Syu， -Syu有可能会把U盘写满
+pacman 更新， 不要用-Syu， -Syu有可能会把U盘写满
 
 ```bash
 pacman -Sy
