@@ -11,6 +11,32 @@ tags:
 ---
 ## python basic
 
+## hashset
+
+```py
+myset = {"apple", "banana", "cherry"}
+
+>>> l = set()
+>>> l.add(1)
+>>> l.add(2)
+l.remove(1)
+
+', '.join(set_3)
+
+>>> x = set('spam')  
+>>> y = set(['h','a','m'])  
+>>> x, y
+(set(['a', 'p', 's', 'm']), set(['a', 'h', 'm']))    
+  
+>>> x & y # 交集  
+set(['a', 'm'])  
+  
+>>> x | y # 并集  
+set(['a', 'p', 's', 'h', 'm'])  
+  
+>>> x - y # 差集  
+set(['p', 's']) 
+```
 ## commands
 
 ```bash
@@ -711,7 +737,7 @@ exp1 if contion else exp2
 key0 = value0 if exp0 else value1
 ```
 
-## 函数
+## 函数, function
 
 ### 语法
 
@@ -720,6 +746,10 @@ def functionname( parameters ):
    "函数_文档字符串"
    function_suite
    return [expression]
+
+# 定义数据返回值类型
+def greeting(name: str) -> str:
+  return 'Hello, {}'.format(name)
 ```
 
 ### 示例
@@ -1082,32 +1112,7 @@ foo_second=10
 time.sleep(foo_second)
 ```
 
-## hashset
 
-```py
-myset = {"apple", "banana", "cherry"}
-
->>> l = set()
->>> l.add(1)
->>> l.add(2)
-l.remove(1)
-
-', '.join(set_3)
-
->>> x = set('spam')  
->>> y = set(['h','a','m'])  
->>> x, y
-(set(['a', 'p', 's', 'm']), set(['a', 'h', 'm']))    
-  
->>> x & y # 交集  
-set(['a', 'm'])  
-  
->>> x | y # 并集  
-set(['a', 'p', 's', 'h', 'm'])  
-  
->>> x - y # 差集  
-set(['p', 's']) 
-```
 
 ## Milliseconds
 
@@ -1353,3 +1358,10 @@ except KeyboardInterrupt:
 finally:
     c.close()
 ```
+
+## 运算符优先级
+
+| 运算符说明 | Python运算符 | 优先级 | 结合性 |
+|-------|-----------|-----|-----|
+| 逻辑与   | and       | 3   | 左   |
+| 逻辑或   | or        | 2   | 左   | 

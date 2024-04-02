@@ -121,6 +121,8 @@ https://blog.csdn.net/albertsh/article/details/106448035
 
 git 中的 HEAD 概念也类似一个指针，它指向是当前分支的“头”，通过这个头节点可以追寻到当前分支之前的所有提交记录。
 
+比如 git reset --hard HEAD 代表放弃工作树和索引的修改 reset 到 这个分支的最新版本
+
 git 的提交记录之间的关系很像一棵树，或者说是一张图，通过当前的提交记录指向上一次提交记录串联起来，形成一个头结构，
 而在 git 中我们常常说的切换分支，只不过是 git 客户端帮你把要操作的那条路径的头节点，存储到了 HEAD 文件中。
 
@@ -131,8 +133,9 @@ HEAD~ 和 HEAD^
 
 这个说法在之前的总结 《git checkout/git reset/git revert/git restore常用回退操作》 中提到过
 
-HEAD~ 和 HEAD^后面都加大于1的数字
-这时就会发现两者的不同了，比如我们把数字都定为2，那么 HEAD~2 代表后退两步，每一步都后退到第一个父提交上，而 HEAD^2 代表后退一步，这一步退到第二个父提交上，如果没有第二个父提交就会报出以下错误：
+HEAD~ 和 HEAD^ 后面都加大于1的数字
+这时就会发现两者的不同了，比如我们把数字都定为2，那么 HEAD~2 代表后退两步，每一步都后退到第一个父提交上，
+而 HEAD^2 代表后退一步，这一步退到第二个父提交上，如果没有第二个父提交就会报出以下错误：
 
 fatal: ambiguous argument ‘HEAD^2’: unknown revision or path not in the working tree.
 Use ‘–’ to separate paths from revisions, like this:

@@ -1,5 +1,5 @@
 ---
-title: pacman
+title: pacman command
 author: "-"
 date: 2024-02-06T10:01:18+08:00
 url: pacman
@@ -10,7 +10,7 @@ tags:
   - reprint
   - remix
 ---
-## pacman
+## pacman command
 
 ## 参数, options
 
