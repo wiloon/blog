@@ -60,6 +60,11 @@ fun0(){
 # 调用带参数的函数 fun0
 fun0 foo
 
+# check if params is not supplied
+if [ $# -eq 0 ]
+  then
+    echo "No arguments supplied"
+fi
 ```
 
 [https://www.runoob.com/linux/linux-shell-func.html](https://www.runoob.com/linux/linux-shell-func.html)
@@ -898,7 +903,7 @@ ${var:-newstring}
 ```bash
 -eq       等于,如:if [ "$a" -eq "$b" ] 
 -ne       不等于,如:if [ "$a" -ne "$b" ] 
--gt       大于,如:if [ "$a" -gt "$b" ] 
+-gt       大于, 如:if [ "$a" -gt "$b" ] 
 -ge       大于等于,如:if [ "$a" -ge "$b" ] 
 -lt       小于,如:if [ "$a" -lt "$b" ] 
 -le       小于等于,如:if [ "$a" -le "$b" ] 

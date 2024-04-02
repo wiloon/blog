@@ -1,5 +1,5 @@
 ---
-title: "git reset"
+title: git reset
 author: "-"
 date: "2022-08-17 11:35:15"
 url: "git/reset"
@@ -22,7 +22,9 @@ tags:
 
 ```bash
 # 默认 --soft
+# 默认 HEAD
 git reset
+
 # 如果本地有没提交到 local repo 的话, 会提示 Unstaged changes after reset, 如果的确是要放弃修改, 可以执行 git reset --hard
 
 # 丢弃工作树和索引的修改
