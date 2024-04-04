@@ -11,11 +11,14 @@ tags:
 ## archlinux packages
 
 - abseil-cpp: Collection of C++ library code designed to augment the C++ standard librar
+- ansible
+- ansible-core
 - aom: Alliance for Open Media video codec
 - appstream: Provides a standard for creating app stores across distributions
 - at-spi2-core: Protocol definitions and daemon for D-Bus at-spi
 - bluez-libs: Deprecated libraries for the bluetooth protocol stack
 - botan: Crypto library written in C++
+- btrfs-progs: Userspace utilities to manage btrfs filesystems
 - ca-certificates-mozilla: Mozilla's set of trusted CA certificates
 - dav1d: AV1 cross-platform decoder focused on speed and correctness
 - expat: An XML parser library
@@ -69,10 +72,6 @@ Akonadi 框架为应用程序提供中心数据库来统一保存、索引和获
 ## cmake
 
 一个跨平台的编译(Build)工具
-
-## btrfs-progs
-
-Userspace utilities to manage btrfs filesystems
 
 ## gst-plugins-base
 

@@ -17,6 +17,7 @@ tags:
 docker exec nexus3 cat /nexus-data/admin.password
 docker ps --filter"name=test-nginx"
 docker ps --format "table {{.ID}}\t{{.Names}}\t{{.Image}}\t{{.Status}}"
+docker ps --format "table {{.ID}}\t{{.Image}}\t{{.Command}}\t{{.Status}}\t{{.Names}}"
 docker ps --format "table {{.ID}}\t{{.IMAGE}}\t{{.CREATED}}\t{{.STATUS}}\t{{.NAMES}}"
 
 docker inspect xxx
@@ -109,7 +110,7 @@ docker run \
 --name redis \
 -p 6379:6379 \
 -v /etc/localtime:/etc/localtime:ro \
--e FOO="bar"
+-e FOO="bar" \
 --restart=always \
 redis
 ```
