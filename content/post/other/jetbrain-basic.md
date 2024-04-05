@@ -178,3 +178,7 @@ setting>file and code templates>includes>file header
 ## reload all from disk
 
 更新  spell check 之后 可以点击  reload 加载新的 spell check dict
+
+## Open Source Development License
+
+https://www.jetbrains.com/shop/eform/opensource
