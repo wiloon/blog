@@ -24,6 +24,9 @@ tags:
 # pod
 kubectl get pod -A -o wide
 
+# 查看 pod, 比如能看到镜像版本
+kubectl describe pods pod0
+
 # configmap
 kubectl apply -f redis-config.yaml
 kubectl get configmap
@@ -80,7 +83,7 @@ kubectl get nodes
 kubectl -o wide get pod
 kubectl describe svc svc0
 
-kubectl describe pods pod0
+
 kubectl describe pods -n namespace0 pod0
 # ENDPOINTS
 kubectl get ep -n namespace0

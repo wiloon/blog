@@ -37,7 +37,7 @@ git reset --hard HEAD~1
 # reset 最近两次 commit
 git reset --hard HEAD~2
 # reset 到某一个 commit, 退到/进到 指定 commit_id
-git reset --hard commit_id
+git reset commit_id
 
 git reset --soft HEAD^
 ```

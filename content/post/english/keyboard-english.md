@@ -23,8 +23,8 @@ tags:
 - `+` 加号 plus sign
 - `-` 减号/横线 hyphen/dash/minus sign/
 - = 等号 equal sign
-- / 斜线 slash
-- \ 反斜线 backslash/escape
+- / 斜杠/斜线 slash
+- \ 反斜杠/反斜线 backslash/escape
 - | 竖线 bar/pipe/vertical bar
 - _ 下划线 underline/underscore
 - $ 美元符号 dollar sign
