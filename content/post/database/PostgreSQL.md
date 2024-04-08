@@ -106,6 +106,9 @@ sudo -u postgres psql -c "\l"
 # 查看表结构
 \d table0
 
+# 比上面多几个字段 Storage  | Stats target | Description
+\d+ table0
+
 # Turn off printing of column names and result row count footers, etc. This is equivalent to \t or \pset tuples_only.
 \t tuples only on/off, tuples only on 的时候 select 语句的输出不带 header
 
@@ -243,7 +246,7 @@ pg_dump -d db_name | gzip > db.gz
 psql -h 127.0.0.1 -p 5432 -t table0 -U postgres -d database0 -f foo.sql
 ```
 
-## sequence
+## sequence, 序列
 
 ```sql
 CREATE SEQUENCE seq_0 START 1;
@@ -255,6 +258,17 @@ CREATE SEQUENCE seq_0 INCREMENT 1 MINVALUE 1 START 1 CACHE 1;
 - START, 初始值
 - CACHE, 缓存, 某个客户端调用 `nextval()` 之后, 服务端为其预分配的 seq 值的缓存, 如果客户端挂掉或重启缓存里的数据都会被丢弃.
 - cycle, 循环产生
+
+```SQL
+-- 查看 seq 定义
+\d+ seq_0
+
+-- 查看 seq 的当前值, 每查一次 seq 值 会加 1
+SELECT nextval('seq_0')
+
+-- 更新 seq 的值 
+select setval('seq_0 ', 88);
+```
 
 ## 删除外键限制
 

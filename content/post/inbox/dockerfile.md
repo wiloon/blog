@@ -92,7 +92,11 @@ COPY的语法与功能与ADD相同,只是不支持上面讲到的<src>是远程U
 
 ### WORKDIR
 
-WORKDIR指令用于设置Dockerfile中的RUN、CMD和ENTRYPOINT指令执行命令的工作目录(默认为/目录),该指令在Dockerfile文件中可以出现多次,如果使用相对路径则为相对于WORKDIR上一次的值,例如WORKDIR /a,WORKDIR b,RUN pwd最终输出的当前目录是/a/b。 (RUN cd /a/b,RUN pwd是得不到/a/b的)
+WORKDIR 指令用于设置 Dockerfile 中的 RUN、CMD 和 ENTRYPOINT 指令执行命令的工作目录(默认为/目录), 
+该指令在 Dockerfile 文件中可以出现多次, 如果使用相对路径则为相对于 WORKDIR 上一次的值, 例如 WORKDIR /a, WORKDIR b, 
+RUN pwd 最终输出的当前目录是 /a/b。 (RUN cd /a/b, RUN pwd 是得不到 /a/b的)
+
+目录不存在的时候会新建目录
 
 ### create file
 
