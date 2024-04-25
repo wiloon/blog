@@ -48,18 +48,15 @@ pacman -Syu
 pacman -S wireguard-tools
 ```
 
-### Debian
+### Ubuntu, Debian
 
 ```bash
-echo "deb http://deb.debian.org/debian/ unstable main" | sudo tee /etc/apt/sources.list.d/unstable-wireguard.list
-printf 'Package: *\nPin: release a=unstable\nPin-Priority: 90\n' | sudo tee /etc/apt/preferences.d/limit-unstable
-apt update
-apt install wireguard
+sudo apt install wireguard
 ```
 
 ### macos
 
-在 appstore 安装 wireguard  
+在 App Store 安装 wireguard  
 
 ## 生成密钥
 
@@ -115,7 +112,7 @@ sudo wg set wg0 listen-port 51900
 # PEER_B_PUBLIC_KEY = 对端公钥字符串
 sudo wg set wg0 peer <PEER_B_PUBLIC_KEY> persistent-keepalive 25 allowed-ips 192.168.53.2/32
 # 做为客户端时, 对端有确定的 IP 和端口时， 要配置对端的 endpoint
-sudo wg set wg0 peer <PEER_B_PUBLIC_KEY> persistent-keepalive 25 allowed-ips 192.168.53.2/32  endpoint 192.168.50.115:9000
+sudo wg set wg0 peer <PEER_B_PUBLIC_KEY> persistent-keepalive 25 allowed-ips 192.168.53.2/32 endpoint 192.168.50.115:9000
 
 # set interface up
 ip link set wg0 up
@@ -227,9 +224,12 @@ Kind = wireguard
 Description = wireguard
 
 [WireGuard]
+# 可以不配置 ListenPort, wireguard 会随机开放一个监听端口
 ListenPort = 51900
 # 本端私钥, 等号两边可以有空格
 PrivateKey = private-key-0
+# 也可以配置私钥路径
+# PrivateKeyFile=/etc/systemd/network/wg0.key
 
 # 对端 A
 [WireGuardPeer]
@@ -237,6 +237,9 @@ PrivateKey = private-key-0
 PublicKey = public-key-0
 # allowed-ips, 对端 A IP
 AllowedIPs = 192.168.xx.xx/32
+
+# 如果作为客户端主动连接远程的端口, 配置 Endpoint
+Endpoint=wireguard0.foo.com:51820
 
 # 对端 B
 [WireGuardPeer]
@@ -285,7 +288,7 @@ mtu: auto
 3. Generate keypair/生成密钥对
 4. 发送公钥到服务端
 5. 配置 foo.netdev
-6. Addresses/局域网IP地址: 192.168.5x.x
+6. Addresses/本端局域网 IP 地址: 192.168.5x.x
 7. Listen port/监听端口: 自动/Automatic
 8. MTU: 1200
 9. DNS: 192.168.50.1

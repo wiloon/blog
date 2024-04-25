@@ -9,6 +9,14 @@ tags:
 ---
 ## snap
 
+```Bash
+#列出已经安装的snap包
+sudo snap list
+
+# 列出所有已安装的版本
+snap list --all vlc
+```
+
 ## archlinux
 
 ```bash
@@ -26,3 +34,5 @@ sudo snap install another-redis-desktop-manager
 $ sudo snap set system proxy.http="http://<proxy_addr>:<proxy_port>"
 $ sudo snap set system proxy.https="http://<proxy_addr>:<proxy_port>"
 ```
+
+https://blog.csdn.net/omaidb/article/details/120581033

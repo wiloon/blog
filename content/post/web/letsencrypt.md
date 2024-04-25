@@ -16,7 +16,7 @@ tags:
 
 certbot: recommended by the offical website.
 certbot-auto: no longer supported.
-acme.sh: 第三方实现的 acme 协议.
+acme.sh: 第三方的 acme 协议实现.
 
 ## install certbot
 
@@ -25,9 +25,11 @@ acme.sh: 第三方实现的 acme 协议.
 ```bash
 # 不推荐用这种方式安装, 版本太旧
 sudo apt install certbot
+
 # 如果以前安装过, 先卸载掉再安装 snap 版本
 sudo apt-get remove certbot
 sudo apt update
+
 # for ubuntu snap is pre-installed
 sudo apt install snapd
 sudo snap install core 
@@ -35,6 +37,7 @@ sudo snap refresh core
 sudo snap install --classic certbot
 sudo ln -s /snap/bin/certbot /usr/bin/certbot
 snap set certbot trust-plugin-with-root=ok
+
 # 如果在使用 google dns, 需要安装这个包
 snap install certbot-dns-google
 ```

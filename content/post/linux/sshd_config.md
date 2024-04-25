@@ -11,14 +11,13 @@ tags:
 ## 查看 sshd 运行参数
 
 ```bash
-    sshd -T | sort
+sshd -T | sort
 ```
 
 ## sshd 日志
 
 ```bash
 journalctl -u sshd -f
-
 ```
 
 ## sshd config
