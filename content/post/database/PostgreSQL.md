@@ -676,3 +676,12 @@ split_part( current_date::text,'-',3) as day
 -- 模糊查询，并且不区分大小写
 select * from student where name ilike '%tom%'
 ```
+
+字符串转bytea:
+
+select cast('\000' as bytea) as name from nt_member limit 1;
+
+bytea转字符串：
+
+select encode('\x00','escape') from nt_member limit 1;
+

@@ -49,7 +49,6 @@ yay -S python36
 # 打印包版本
 pip list
 
-
 # -r, --requirement <file>    Install from the given requirements file. This option can be used multiple times.
 pip install -r requirements.txt
 
@@ -288,7 +287,7 @@ from 模块名 import 子模块 或 函数 或 类 或 变量：使用函数调�
 
 ### 字典 dict
 
-dict 是线程安全的
+- dict 是线程安全的
 
 ```python
 # 空的花括号代表空的 dict
@@ -315,7 +314,16 @@ print 'name' in d
 del test_dict['Zhihu']
 ```
 
+dict 遍历for
+
 ```py
+>>> for key in a.keys():
+print(key+':'+a[key])
+
+a:1
+b:2
+c:3
+
 for kv in dict0.items():
     print(kv)
 
@@ -1366,3 +1374,19 @@ finally:
 |-------|-----------|-----|-----|
 | 逻辑与   | and       | 3   | 左   |
 | 逻辑或   | or        | 2   | 左   | 
+
+## uuid to string
+
+a = uuid.uuid1()
+str(a)
+--> '448096f0-12b4-11e6-88f1-180373e5e84a'
+
+## remote debug
+
+https://debugtalk.com/post/remote-debugging-with-pycharm/
+
+
+## pdb --- Python 的调试器
+源代码： Lib/pdb.py
+
+pdb 模块定义了一个交互式源代码调试器，用于 Python 程序。它支持在源码行间设置（有条件的）断点和单步执行，检视堆栈帧，列出源码列表，以及在任何堆栈帧的上下文中运行任意 Python 代码。它还支持事后调试，可以在程序控制下调用。

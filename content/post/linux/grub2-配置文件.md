@@ -20,7 +20,7 @@ GRUB1.配置文件: /boot/grub/menu.lst
   
 GRUB2.配置文件: /boot/grub/grub.cfg，/etc/grub.d/下是生成配置文件的模板，/etc/default/grub是生成配置文件的参数
 
-If you change this file, run 'update-grub' afterwards to update
+If you change this file, run 'update-grub' afterward to update
   
 /boot/grub/grub.cfg.
   
