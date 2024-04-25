@@ -52,10 +52,9 @@ sudo useradd user0
 
 ### 删除用户
 
-userdel -r test
-
 ```bash
 -r, 删除用户home目录
+userdel -r test
 ```
 
 ## 创建密码

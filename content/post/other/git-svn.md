@@ -218,17 +218,26 @@ git svn dcommit
 
 ### 冲突的处理
 
-1. 使用 $git rebase --abort
+```Bash
+git rebase --abort
+```
+
 执行之后,本地内容会回到提交之间的状态,也就是回到以前提交但没有pull是的状态,简单来说就是撤销rebase。
 
-2. 使用 $git rebase --skip
-git rebase --skip 引起冲突的commits会被丢弃,对于本文应用的例子来说开发者A对c.sh文件的commit无效,开发者A自己修改的部分全部无效,因此,在使用skip时请慎重。执行: `vim c.sh` 查看本地 c.sh 文件提交内容,展示如下图所示,执行语句之后开发者A的修改无效。
+```Bash
+git rebase --skip
+```
 
-3. 使用 $git rebase --continue
-执行完$git pull --rebase 之后,本地如果产生冲突,手动解决冲突之后,用"git add"命令去更新这些内容的索引(index),然后只要执行:
+引起冲突的commits会被丢弃,对于本文应用的例子来说开发者A对c.sh文件的commit无效,开发者A自己修改的部分全部无效,因此,在使用skip时请慎重。执行: `vim c.sh` 查看本地 c.sh 文件提交内容,展示如下图所示,执行语句之后开发者A的修改无效。
 
-$ git rebase --continue 就可以线性的连接本地分支与远程分支,无误之后就回退出,回到主分支上。
-注意: 一般情况下,修改后检查没问题,使用rebase continue来合并冲突。
+```Bash
+git rebase --continue
+```
+
+`git pull --rebase` 之后,本地如果产生冲突,手动解决冲突之后,用"git add"命令去更新这些内容的索引(index),然后只要执行:
+
+`git rebase --continue` 就可以线性的连接本地分支与远程分支,无误之后就回退出,回到主分支上。
+注意: 一般情况下,修改后检查没问题,使用 `rebase continue` 来合并冲突。
 
 [https://git-scm.com/book/zh/v1/Git-%E4%B8%8E%E5%85%B6%E4%BB%96%E7%B3%BB%E7%BB%9F-Git-%E4%B8%8E-Subversion](https://git-scm.com/book/zh/v1/Git-%E4%B8%8E%E5%85%B6%E4%BB%96%E7%B3%BB%E7%BB%9F-Git-%E4%B8%8E-Subversion)
 

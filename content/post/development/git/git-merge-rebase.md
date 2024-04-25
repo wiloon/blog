@@ -30,7 +30,6 @@ c4:
 note right: experiment
 c2<-down-c4
 @enduml
-
 ```
 
 git merge 会把 c2, c3, c4 做三方合并

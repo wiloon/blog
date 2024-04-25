@@ -48,14 +48,14 @@ yay -S python36
 
 # 打印包版本
 pip list
-pip install "setuptools<58.0.0"
+
 
 # -r, --requirement <file>    Install from the given requirements file. This option can be used multiple times.
 pip install -r requirements.txt
 
 pip freeze #查看当前安装库版本
 # 创建 requirements.txt 文件，其中包含了当前环境中所有包及各自的版本的简单列表
-# 保持部署相同，一键安装所有包
+# 按 requirements.txt 安装依赖
 pip install -r requirements.txt
 pip freeze > requirements.txt
 pip uninstall kafka
@@ -1154,14 +1154,21 @@ pip install 命令用于安装包
 ```bash
 # install redis
 pip install redis
+
+# 安装指定版本的包
+pip install sasl==0.2.1
+pip install "setuptools<58.0.0"
+
 # 查看某个包是否已经安装
 pip show --files package0
 # 查看过期的包
 pip list --outdated
+
 # pip 升级某个包
 pip install --upgrade package0
 # 卸载
 pip uninstall package0
+
 # 安装 whl
 pip install foo.whl
 ```
@@ -1171,12 +1178,6 @@ pip install foo.whl
 ```bash
 curl -O https://bootstrap.pypa.io/get-pip.py
 sudo python get-pip.py
-```
-
-### 安装指定版本的包
-
-```bash
-pip install sasl==0.2.1
 ```
 
 ### 输出现有环境依赖包目录

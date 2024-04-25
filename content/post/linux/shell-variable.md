@@ -1,5 +1,5 @@
 ---
-title: shell basic 变量
+title: shell basic variable, 变量
 author: "-"
 date: 2016-03-03T03:25:04+00:00
 url: /?p=8771
@@ -8,9 +8,9 @@ categories:
 tags:
   - reprint
 ---
-## shell basic 变量
+## shell basic variable, 变量
 
-注意，变量名和等号之间不能有空格
+>注意，等号两侧不能有空格, 有空格变量会不生效.
 
 ```bash
 # 定义变量
