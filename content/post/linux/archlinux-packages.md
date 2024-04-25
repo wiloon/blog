@@ -30,6 +30,7 @@ tags:
 - `glslang`, GLSL - OpenGL Shading Language 也称作 `GLslang`，是一个以 C 语言为基础的高阶着色语言。它是由 OpenGL ARB 所建立，提供开发者对绘图管线更多的直接控制，而无需使用汇编语言或硬件规格语言。
 - gtk-update-icon-cache: GTK icon cache updater
 - hwdata: hardware identification databases
+- gnutls: A library which provides a secure layer over a reliable transport layer
 - libx11: X11 client-side library
 - c-ares: c-ares是一个C语言实现的异步请求DNS的实现。很多知名 软件(curl、seastar、gevent、Nodejs等等)都使用了该软件。
 - cfitsio: A library of C and Fortran subroutines for reading and writing data files in FITS (Flexible Image Transport System) data format

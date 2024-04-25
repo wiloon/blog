@@ -1,5 +1,5 @@
 ---
-title: lsof
+title: lsof command
 author: "-"
 date: 2022-10-12 13:40:33
 url: lsof
@@ -10,7 +10,7 @@ tags:
   - remix
   - Command
 ---
-## lsof
+## lsof command
 
 lsof means 'List Open Files'
 
@@ -29,6 +29,8 @@ sudo lsof -p 1098
 ## install lsof
 
 ```bash
+# archlinux
+pacman -Sy lsof
 # ubuntu
 apt-get install -y lsof
 # centos
@@ -87,34 +89,33 @@ COMMAND     PID   TID TASKCMD               USER   FD      TYPE             DEVI
 
 ```bash
 lsof /path/to/file/foo.txt
-
 ```
 
-### 使用-i显示所有连接
+### 使用 `-i` 显示所有连接
 
 ```bash
 lsof -i
 ```
 
-### 使用-i 6 仅获取IPv6流量
+### 使用 `-i 6` 仅获取 IPv6 流量
 
 ```bash
-    lsof -i 6
+lsof -i 6
 ```
 
 ### 仅显示 TCP 连接同理可获得UDP连接
 
 ```bash
-    lsof  -iTCP
+lsof  -iTCP
 ```
 
 ### 使用@host来显示指定到指定主机的连接
 
-lsof  -i@172.16.12.5
+`lsof  -i@172.16.12.5`
 
 ### 使用@host:port显示基于主机与端口的连接
 
-lsof  -i@172.16.12.5:22
+`lsof  -i@172.16.12.5:22`
 
 ### 找出正等候连接的端口,你也可以grep "LISTEN"来完成该任务
 

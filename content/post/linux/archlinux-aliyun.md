@@ -14,29 +14,30 @@ aliyun  vm  安装 非 EFI 的镜像
 
 ```bash
 cd /tmp
-curl -O http://mirrors.163.com/archlinux/iso/2023.05.03/archlinux-bootstrap-2023.05.03-x86_64.tar.gz
+curl -O http://mirrors.163.com/archlinux/iso/2024.04.01/archlinux-bootstrap-2024.04.01-x86_64.tar.gz
 
-# singapore
-curl -O http://mirrors.163.com/archlinux/iso/2023.05.03/archlinux-bootstrap-2023.05.03-x86_64.tar.gz
-
-tar zxvf archlinux-bootstrap-2023.05.03-x86_64.tar.gz
+tar zxvf archlinux-bootstrap-xxx.tar.gz
 # 要用 mount --bind 把 RootFS 解包的目录自己与自己链接起来，不然 pacman 会装不了软件
 sudo mount --bind /tmp/root.x86_64 /tmp/root.x86_64
+vim /tmp/root.x86_64/etc/pacman.d/mirrorlist
 /tmp/root.x86_64/bin/arch-chroot /tmp/root.x86_64/
 
+# 初始化 pacman 的密钥
 pacman-key --init
 pacman-key --populate archlinux
 
-mount /dev/vda1 /mnt
+mount /dev/vda3 /mnt
 
-# 保留的目录  /dev /proc /run /sys /tmp 
+# 保留的目录  /dev /proc /run /sys /tmp , 这些目录都是存储到硬件的映射的，所以不能删
 rm -rf /mnt/bin
 rm -rf /mnt/boot
 rm -rf /mnt/data
 rm -rf /mnt/etc
 rm -rf /mnt/home
 rm -rf /mnt/lib
+rm -rf /mnt/lib32
 rm -rf /mnt/lib64
+rm -rf /mnt/libx32
 rm -rf /mnt/media
 rm -rf /mnt/mnt
 rm -rf /mnt/opt
@@ -113,7 +114,7 @@ timedatectl set-ntp true
 [https://limelight.moe/t/topic/6007](https://limelight.moe/t/topic/6007)  
 [https://www.scarletdrop.cn/archives/14](https://www.scarletdrop.cn/archives/14)
 
-## grub, iso
+## aliyun, archlinux, grub, iso
 
 ```bash
 curl -O http://mirrors.163.com/archlinux/iso/2023.05.03/archlinux-2023.05.03-x86_64.iso

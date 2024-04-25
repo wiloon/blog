@@ -1,20 +1,37 @@
 ---
-title: grub2 配置文件
+title: grub
 author: "-"
 date: 2011-11-26T08:29:54+00:00
-url: /?p=1633
+url: grub
 categories:
   - Linux
 tags:
   - reprint
+  - remix
 ---
-## grub2 配置文件
+## grub
+
+https://www.gnu.org/software/grub/manual/grub/grub.html#Simple-configuration
+
+GRUB 来自 GRand Unified Bootloader 的缩写。它的功能是在启动时从 BIOS 接管掌控、加载自身、加载 Linux 内核到内存，然后再把执行权交给内核。一旦内核开始掌控，GRUB 就完成了它的任务，也就不再需要了。
+
+GRUB 支持多种 Linux 内核，并允许用户在启动时通过菜单在其中选择。
+
+GRUB 菜单提供了一个 “救援rescue” 内核，用于故障排除或者由于某些原因导致的常规内核不能完成启动过程。
+
+grub.cfg 文件是 GRUB 配置文件。它由 grub2-mkconfig 程序根据用户的配置使用一组主配置文件以及 grub 默认文件而生成。/boot/grub2/grub.cfg 文件在 Linux 安装时会初次生成，安装新内核时又会重新生成。
+
+grub.cfg 文件包括了类似 Bash 脚本的代码以及一个按照安装顺序排序的已安装内核列表。
+
+grub.cfg 的主要配置文件都在 /etc/grub.d 目录。该目录中的每个文件都包含了最终会整合到 grub.cfg 文件中的 GRUB 代码。这些配置文件的命名模式以排序方式设计，这使得最终的 grub.cfg 文件可以按正确的顺序整合而成。每个文件都有注释表明该部分的开始和结束，这些注释也是最终的 grub.cfg 文件的一部分，从而可以看出每个部分是由哪个文件生成。
 
 ## grub config file path
 
 ## check grub version
 
-    grub2-install --version
+```Bash
+grub2-install --version
+```
 
 GRUB1.配置文件: /boot/grub/menu.lst
   
