@@ -1,5 +1,5 @@
 ---
-title: curl
+title: curl command
 author: "-"
 date: 2022-04-18 22:48:04
 url: curl
@@ -9,7 +9,7 @@ tags:
   - reprint
   - remix
 ---
-## curl
+## curl command
 
 curl `[kɜrl]`
 
@@ -270,7 +270,7 @@ curl -v -i -N -H "Connection: Upgrade" -H "Upgrade: websocket" -H "Host: 127.0.0
 - `CURLE_COULDNT_RESOLVE_HOST` (6) Could not resolve host. The given remote host was not resolved. 无法解析主机
 - CURLE_COULDNT_CONNECT (7) Failed to connect() to host or proxy. 无法连接到主机或代理, 在服务器端, 目标端口没有监听.
 - CURLE_OPERATION_TIMEDOUT (28) Operation timeout. The specified time-out period was reached according to the conditions. 建立连接时 tcp SYN 没有响应超过 n秒, 服务器响应时间超过 `-m, --max-time`
-- CURLE_RECV_ERROR (56), Failure with receiving network data. 户端向服务器发送POST请求，服务器未响应，6 次TCP重传无响应后，【libcurl】判定HTTP数据接收失败。 [https://blog.csdn.net/wjb123sw99/article/details/103946046](https://blog.csdn.net/wjb123sw99/article/details/103946046)
+- CURLE_RECV_ERROR (56), Failure with receiving network data. 户端向服务器发送 POST 请求，服务器未响应，6 次 TCP 重传无响应后，【libcurl】判定 HTTP 数据接收失败。 [https://blog.csdn.net/wjb123sw99/article/details/103946046](https://blog.csdn.net/wjb123sw99/article/details/103946046)
 - CURLE_SSL_CONNECT_ERROR (35), A problem occurred somewhere in the SSL/TLS handshake. You really want the error buffer and read the message there as it pinpoints the problem slightly more. Could be certificates (file formats, paths, permissions), passwords, and others.
 
 [https://curl.se/libcurl/c/libcurl-errors.html](https://curl.se/libcurl/c/libcurl-errors.html)

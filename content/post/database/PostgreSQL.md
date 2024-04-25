@@ -434,10 +434,6 @@ SELECT pg_terminate_backend(pid) FROM pg_stat_activity WHERE state='idle';
 
 [https://www.postgresql.org/docs/current/app-psql.html](https://www.postgresql.org/docs/current/app-psql.html)
 
-## sql 历史
-
-[https://www.cnblogs.com/qianxunman/p/12149586.html](https://www.cnblogs.com/qianxunman/p/12149586.html)
-
 ## export csv, 导出 csv
 
 sql 后面不要加分号
@@ -463,7 +459,9 @@ psql
 ```
 
 
-## postgresql log, 日志
+## postgresql log, 日志, sql 历史
+
+[https://www.cnblogs.com/qianxunman/p/12149586.html](https://www.cnblogs.com/qianxunman/p/12149586.html)
 
 PG 安装完成后默认不会记录日志，必须修改对应的 `${PGDATA}/postgresql.conf` 配置才可以
 
@@ -473,7 +471,11 @@ PG 安装完成后默认不会记录日志，必须修改对应的 `${PGDATA}/po
 # 默认值: off, 改成 on 之后重启 postgresql 就开始写日志了, 日志目录会是 /var/lib/postgresql/data/pgdata/log/
 logging_collector = on
 
-# none, ddl, mod, all ---- 控制记录哪些 SQL 语句。none 不记录，ddl 记录所有数据定义命令，比如 CREATE, ALTER, 和 DROP 语句。mod 记录所有 ddl 语句, 加上数据修改语句 INSERT,UPDATE等,all记录所有执行的语句，将此配置设置为all可跟踪整个数据库执行的SQL语句。
+# none, ddl, mod, all ---- 控制记录哪些 SQL 语句。
+# none 不记录，(默认值)
+# ddl 记录所有数据定义命令，比如 CREATE, ALTER, 和 DROP 语句。
+# mod 记录所有 ddl 语句, 加上数据修改语句 INSERT,UPDATE等,
+# all 记录所有执行的语句，将此配置设置为all可跟踪整个数据库执行的SQL语句。
 log_statement = 'all'
 
 # 日志目录名, 默认值: log

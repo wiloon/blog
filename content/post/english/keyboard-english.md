@@ -21,7 +21,7 @@ tags:
 - ` 反引号，重音号 backquote/grave accent
 - `*` 星号 asterisk/star
 - `+` 加号 plus sign
-- `-` 减号/横线 hyphen/dash/minus sign/
+- `-` 减号/横线 hyphen/dash/minus sign
 - = 等号 equal sign
 - / 斜杠/斜线 slash
 - \ 反斜杠/反斜线 backslash/escape

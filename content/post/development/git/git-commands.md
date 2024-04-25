@@ -9,7 +9,7 @@ tags:
     - reprint
     - remix
 ---
-## Git
+## Git basic commands
 
 目前比较流行的版本管理系统
 
@@ -175,7 +175,7 @@ git branch -m main
 git symbolic-ref --short HEAD  
 ```
 
-### 修改分支名, 分支改名
+### 修改分支名, 分支改名, 分支重命名
 
 https://juejin.cn/post/6844903880115896327
 
@@ -210,6 +210,10 @@ git remote set-head origin -a
 ```
 
 ## git tag
+
+```Bash
+git tag v1.0.0 -a -m "message0"
+```
 
 ### git tag options
 
@@ -347,13 +351,6 @@ git add -u, add modified and deleted files
 
 https://blog.csdn.net/haohaibo031113/article/details/70821321
 
-### config git editor
-
-```bash
-git config --global core.editor vim
-export EDITOR=vim
-```
-
 ## commit
 
 ```bash
@@ -363,11 +360,12 @@ git commit -m "message0" --author="auther0 <auther0@foo.com>"
 
 ### commit message
 
-#### 修改已经 push 了的 commit 信息
+#### 修改已经 push 了的 commit 信息, git 修改 comments
 
 ```bash
 git rebase -i commit_id_0  
-# 把对应的 commit 的 action 改成 e  
+# 把对应的 commit 的 action 改成 e 
+ 
 git commit --amend --author="auth0 <auth0@foo.com>"
 git rebase --continue
 git push -f
@@ -599,6 +597,13 @@ git config --global https.proxy http://127.0.0.1:1080
 ```bash
 git config --edit
 git config --global --edit
+```
+
+### config git editor
+
+```bash
+git config --global core.editor vim
+export EDITOR=vim
 ```
 
 ## git log
@@ -1237,4 +1242,28 @@ git push -u origin master -f
 ```Bash
 # 切换到某一个 commit, 相当于 git checkout fff57bd92e7ad1f90d2b9367b7b7208ea72d9e93
 git switch --detach fff57bd92e7ad1f90d2b9367b7b7208ea72d9e93
+```
+
+## git orphan, 清除 git 所有历史提交记录方案
+
+1.创建新分支
+语法：git checkout --orphan <new_branch>
+例句：git checkout --orphan latest_branch
+
+使用 --orphan 选项，可创建1个"清洁"分支(无任何的提交历史，但是当前分支的内容一应俱全。但严格意义上说，这样创建的分支还不是一个真正的分支，因为HEAD指向的引用中没有commit值，只有在进行一次提交后，它才算得上真正的分支。
+
+作者：萌木盖
+链接：https://www.jianshu.com/p/e2b3d04542cb
+来源：简书
+著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
+
+```Bash
+git checkout --orphan branch0
+git add .
+# 或 git add -A
+git commit -m "message0"
+git push --set-upstream origin branch0
+
+# 删除原来的分支(master)
+git branch -D master
 ```

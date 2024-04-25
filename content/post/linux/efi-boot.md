@@ -33,8 +33,18 @@ Boot loader 被设置为一个可以通过固件访问的文件。Boot loader �
 
 ELILO 是一种基于 EFI 开发的 boot loader，而不是基于 BIOS 平台 , ELILO 允许用户在系统开机过程中自己选择哪个系统或内核，同时也支持用户传参数给内核。 ELILO 的配置文件，一般位于 EFI 启动分区。下面的实例就是将 elilo 作为 EFI 平台的 boot loader。
 
-### linux系统内查看是bios启动的还是uefi启动
+### linux系统内查看是 bios 启动的还是 uefi 启动
 
-在系统内运行shell命令：
+在系统内运行 shell 命令：
 
-    [ -d /sys/firmware/efi ] && echo UEFI || echo BIOS
+```Bash
+[ -d /sys/firmware/efi ] && echo UEFI || echo BIOS
+```
+
+## windows 查看是 BIOS 引导还是 UEFI 引导
+
+Win + R 快捷键调出“运行”对话框，输入“msinfo32”，确定，打开“系统信息”窗口。
+
+在“系统摘要”的右侧窗口中即可看到“BIOS模式”信息，如果显示的是“传统”，即为BIOS启动方式；如果显示的是“UEFI”，则为UEFI启动方式。
+
+BIOS Mode: UEFI
