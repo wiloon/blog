@@ -14,7 +14,7 @@ tags:
 
 - bitwarden
 - plex, 流媒体服务器
-- macrodroid, 设备自动化, 监控电池电量发http请求.
+- macrodroid, 设备自动化, 监控电池电量发 http 请求.
 - otter, 语音转文字
 - Ingress Prime, 一个 LBS 游戏
 - APTV, apple tv, ios 看电视频道

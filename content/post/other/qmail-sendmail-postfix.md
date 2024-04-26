@@ -44,9 +44,9 @@ Sendmail
     
     
       sendmail
- sendmai功能非常强大,很多先进功能在sendmail上都最先有实现。sendmail里的Milter技术是一个非常好的框架,目前postfix及qmail仍然没有官方发布的方案比milter要好。
+sendmai功能非常强大,很多先进功能在sendmail上都最先有实现。sendmail里的Milter技术是一个非常好的框架,目前postfix及qmail仍然没有官方发布的方案比milter要好。
 
-      但sendmail也有典型的历史问题,只有一个binary程序,需要sid权限,m4配置文件复杂难懂。这些是是阻碍sendmail更好发展的一些客观问题。客观来说,调教得好的sendmail,其性能也是相当不俗的,据一个国外的Unix杂志称,在solaris+内存文件系统+带电池的raid系统下,sendmail能达到惊人的287封/秒的注入速度！
+但sendmail也有典型的历史问题,只有一个binary程序,需要sid权限,m4配置文件复杂难懂。这些是是阻碍sendmail更好发展的一些客观问题。客观来说,调教得好的sendmail,其性能也是相当不俗的,据一个国外的Unix杂志称,在solaris+内存文件系统+带电池的raid系统下,sendmail能达到惊人的287封/秒的注入速度！
     
     
     
@@ -97,11 +97,9 @@ Sendmail
       数据同步
  如果从MTA对待操作系统的文件是否安全写入磁盘的策略来看,qmail和postfix也是不同的。Postfix使用的是随机写,并且需要写入完成并安全同步到磁盘后才算完成。而qmail的写入则是即刻执行的,因此它将等待数据安全写入磁盘后才返回。对于高流量的系统而言,这将导致性能问题。
 
-      此外,Postfix的队列对于不要使用softupdate,除非是有磁盘后写电池。
-    
-    
-    
-      扩充能力
+此外,Postfix的队列对于不要使用softupdate,除非是有磁盘后写电池。
+
+扩充能力
  sendmail有着非常好的扩充能力,支持众多的特性,功能可谓豪华。包括频率控制到集群支持应有尽有。而milterAPI则更加使sendmail的灵活性发挥至极,通过milter,用户可以对邮件几乎所有的参数进行控制！但是在存储方面,由于只支持mbox,会有一定的问题。
 
       qmail在系统容量扩展上有着独到的设计,配合qmail-ldap补丁,可以充分利用qmqp及分布存储的优势。现今已有各式各样的qmail扩展方案,最著名的是qmail-ldap。但qmail缺乏类似milter的设计,功能扩展需要各种补丁,而补丁的设计水平参差不齐,配置能力有限。实施起来相对是最复杂的。

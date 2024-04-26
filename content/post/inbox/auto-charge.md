@@ -69,7 +69,7 @@ curl -v "http://saygift.qlkkj.net/oder?Qd=<key>&sw=1&od=cs"
 
 [https://www.macrodroid.com/](https://www.macrodroid.com/)
 
-android 机 安装 MacroDroid, 配置规则电池电量低于 30%
+android 机 安装 MacroDroid, 配置规则电池电量低于 30% 触发
 
 1. 发消息到 chanify `https://chanify.wiloon.com/v1/sender/<token>/foo`
 2. 发http请求 `http://saygift.qlkkj.net/oder?Qd=<key>=1&od=op` 开始充电
