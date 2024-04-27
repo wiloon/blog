@@ -111,3 +111,34 @@ menuentry "arch iso" {
 ### Linux GRUB磁盘分区表示法
 
     第一个主分区    /dev/sda1    hd(0,0)
+
+## menuentry
+
+定义 GRUB 的菜单项。当选中菜单项时，GRUB 将执行括号内的命令。如果最后的命令返回成功，并且内核被加载时，将自动执行 boot 命令。
+
+https://www.cnblogs.com/fluidog/p/15176726.html
+
+## 设置环境变量
+
+set variable=value 设置变量的值
+
+## search
+
+搜索符合条件的分区
+
+查找设备。语法格式如下：
+
+search [-f, --file|--label|--fs-uuid] [--set [<var>]] [--no-floppy] <name>
+注解：
+
+[--file|--label|--fs-uuid]
+
+分别表示按文件、文件系统标志、文件系统 UUID 查找设备。
+
+[--set [<var>]]
+
+第一个找到的设备会被设置为环境变量 var 的值。默认变量是 root。
+
+[--no-floppy]
+
+防止搜索软盘。

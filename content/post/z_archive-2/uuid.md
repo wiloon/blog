@@ -24,7 +24,8 @@ A UUID is 128 bits long, and can guarantee uniqueness across space and time.  UU
 
 这样做和使用 /dev/sda5 这种直接引用分区的方法的一个优点就是,当硬盘中增加了新的分区,或者分区的顺序改变后,仍然能够保证系统加载分区到正确的加载点。
 
-这对于 swap 分区尤为重要, 如果硬盘分区顺序改变, 而 fstab 对 swap 分区编号做响应的调整, 是不是会把其他分区给作为 swap 哪？结果是很可怕的, 这个分区上的数据恐怕就要不保了。通过在 /dev/disk/uuid, 这里的uuid 列表实际上是一些symbol link文件,系统可以保证针对每一个分区生成一个唯一的编码,增加了系统的稳定性。
+这对于 swap 分区尤为重要, 如果硬盘分区顺序改变, 而 fstab 对 swap 分区编号做响应的调整, 是不是会把其他分区给作为 swap 哪？结果是很可怕的, 这个分区上的数据恐怕就要不保了。
+通过在 /dev/disk/uuid, 这里的uuid 列表实际上是一些symbol link文件,系统可以保证针对每一个分区生成一个唯一的编码,增加了系统的稳定性。
   
 UUID 具有以下涵义:
 
