@@ -55,9 +55,9 @@ echo 'nameserver 114.114.114.114' >> resolv.conf
 
 pacman -S gvim openssh grub sudo neofetch python
 
-echo 'pingd0' > /etc/hostname
+echo 'aliyun0' > /etc/hostname
 echo '127.0.0.1    localhost' >> /etc/hosts
-echo '127.0.0.1    pingd0' >> /etc/hosts
+echo '127.0.0.1    aliyun0' >> /etc/hosts
 
 systemctl enable systemd-networkd
 systemctl enable systemd-resolved
@@ -90,22 +90,22 @@ timedatectl set-ntp true
 ```
 
 ```bash
-                   -`                    root@pingd0 
-                  .o+`                   ----------- 
+                   -`                    root@aliyun0 
+                  .o+`                   ------------ 
                  `ooo/                   OS: Arch Linux x86_64 
                 `+oooo:                  Host: Alibaba Cloud ECS pc-i440fx-2.1 
-               `+oooooo:                 Kernel: 5.16.8-arch1-1 
-               -+oooooo+:                Uptime: 2 mins 
-             `/:-:++oooo+:               Packages: 128 (pacman) 
-            `/++++/+++++++:              Shell: bash 5.1.16 
+               `+oooooo:                 Kernel: 6.8.7-arch1-1 
+               -+oooooo+:                Uptime: 6 mins 
+             `/:-:++oooo+:               Packages: 254 (pacman) 
+            `/++++/+++++++:              Shell: bash 5.2.26 
            `/++++++++++++++:             Resolution: 1024x768 
-          `/+++ooooooooooooo/`           CPU: Intel Xeon Platinum 8163 (1) @ 2.500GHz 
-         ./ooosssso++osssssso+`          GPU: 00:02.0 Cirrus Logic GD 5446 
-        .oossssso-````/ossssss+`         Memory: 76MiB / 466MiB 
-       -osssssso.      :ssssssso.
-      :osssssss/        osssso+++.                               
+          `/+++ooooooooooooo/`           Terminal: /dev/pts/0 
+         ./ooosssso++osssssso+`          CPU: Intel Xeon Platinum 8269CY (2) @ 2.500GHz 
+        .oossssso-````/ossssss+`         GPU: 00:02.0 Cirrus Logic GD 5446 
+       -osssssso.      :ssssssso.        Memory: 93MiB / 422MiB 
+      :osssssss/        osssso+++.
      /ossssssss/        +ssssooo/-                               
-   `/ossssso+/:-        -:/+osssso+-
+   `/ossssso+/:-        -:/+osssso+-                             
   `+sso+:-`                 `.-/+oso:
  `++:.                           `-/+/
  .`                                 `/

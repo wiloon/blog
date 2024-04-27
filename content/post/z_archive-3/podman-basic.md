@@ -18,8 +18,10 @@ tags:
 ### archlinux install podman
 
 ```bash
-pacman -S netavark aardvark-dns podman
 pacman -S cni-plugins podman
+
+# pacman -S netavark aardvark-dns podman
+# 2024.04.27, aardvark-dns 没安装, 目前看起来..没有什么影响, 没重启 hello world 就好用
 # 正常情况，安装 podman 之后不需要重启系统, 但是如果有异常，比如 CNI 之类 的问题，可以考虑重启一下...
 ```
 
@@ -27,7 +29,12 @@ pacman -S cni-plugins podman
 
 Netavark 是一个 用 rust 实现的 配置 linux 容器网络的工具。
 
-In addition to the existing CNI Out of the stack ,Podman Now it also supports based on  Netavark  and  Aardvark New network stack . The new stack features improved support for containers in multiple networks 、 improvement IPv6 Support , And improve performance . To ensure that there is no impact on existing users , used CNI The stack will keep the default value of the existing installation , The new installation will use Netvark.
+In addition to the existing CNI Out of the stack,
+Podman Now it also supports based on  Netavark  and  Aardvark New network stack. 
+The new stack features improved support for containers in multiple networks 、 improvement IPv6 Support, 
+And improve performance. To ensure that there is no impact on existing users, 
+used CNI The stack will keep the default value of the existing installation, 
+The new installation will use Netvark.
 
 [https://github.com/containers/netavark](https://github.com/containers/netavark)
 
