@@ -177,6 +177,19 @@ podman logs --latest
 
 vim /etc/containers/registries.conf
 
+## podman registry config
+
+```bash
+vim /etc/containers/registries.conf
+
+# content
+unqualified-search-registries = ["docker.io"]
+
+[[registry]]
+prefix = "docker.io"
+location = "registry-1.docker.io"
+```
+
 #### v2
 
 ```bash
