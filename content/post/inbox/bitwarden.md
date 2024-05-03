@@ -12,7 +12,7 @@ tags:
 
 ## auto fill
 
-chrome extension> bitwarden> settings> option> autofill> enable auto-fill on page load
+Chrome extension> bitwarden> settings> option> autofill> enable auto-fill on page load
 
 ### podman server
 
