@@ -29,6 +29,7 @@ tags:
 - jetbrains-toolbox
 - nvm, nvm allows you to quickly install and use different versions of node via the command line.
 - pamac-aur, 图形界面的 pacman
+- podlet
 
 ## application list
 

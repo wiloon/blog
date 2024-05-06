@@ -15,13 +15,15 @@ tags:
 ```bash
 # save & load
 docker save f1905dce9659 > kafka.tar
-# 另外一种save语法
+
+# 另外一种 save 语法
 docker save -o images.tar postgres:9.6
+
 # 从 tar 包加载镜像而不是 stdin, --input, -i: 指定导入的文件，代替 STDIN。
 docker load -i foo.tar
 
 docker load < kafka.tar
-# docker load 之后repository和tag都是none,重新打一下tag
+# docker load 之后 repository 和 tag 都是 none, 重新打一下 tag
 docker tag f1905dce9659 wurstmeister/kafka:latest
 
 # export & import
@@ -35,4 +37,5 @@ docker load 用来载入镜像包，docker import 用来载入容器包，但两
 docker load 不能对载入的镜像重命名，而 docker import 可以为镜像指定新名称。
 
 [https://www.hangge.com/blog/cache/detail_2411.html](https://www.hangge.com/blog/cache/detail_2411.html)
+
 [https://jingsam.github.io/2017/08/26/docker-save-and-docker-export.html](https://jingsam.github.io/2017/08/26/docker-save-and-docker-export.html)

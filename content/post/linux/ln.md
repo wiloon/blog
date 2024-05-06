@@ -12,6 +12,8 @@ tags:
 
 ```bash
 ln [参数][源文件或目录][目标文件或目录]
+
+-f, --force                 remove existing destination files
 ```
 
 ```bash
@@ -124,7 +126,7 @@ ln source dist 是产生一个连结(dist)到 source，至于使用硬连结或�
   
 不论是硬连结或软链结都不会将原本的档案复制一份，只会占用非常少量的磁碟空间。
   
--f : 链结时先将与 dist 同档名的档案删除
+
   
 -d : 允许系统管理者硬链结自己的目录
   

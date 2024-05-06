@@ -22,7 +22,7 @@ tags:
 
 其中 /etc/systemd/network 优先级最高
 
-### 有三类配置文件
+### networkd 有三类配置文件
 
 - .link 文件: 当一个网络设备出现时, udev 会寻找第一个匹配到的 .link 文件.
 - .network 文件: 给匹配到的设备应用一个网络配置

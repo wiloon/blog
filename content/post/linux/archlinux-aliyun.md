@@ -114,8 +114,8 @@ timedatectl set-ntp true
 [https://limelight.moe/t/topic/6007](https://limelight.moe/t/topic/6007)  
 [https://www.scarletdrop.cn/archives/14](https://www.scarletdrop.cn/archives/14)
 
-## aliyun, archlinux, grub, iso
+## DNS
 
-```bash
-curl -O http://mirrors.163.com/archlinux/iso/2023.05.03/archlinux-2023.05.03-x86_64.iso
+```Bash
+ln -sf /run/systemd/resolve/stub-resolv.conf /etc/resolv.conf
 ```
