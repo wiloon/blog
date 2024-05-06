@@ -12,13 +12,16 @@ tags:
 
 [http://www.ttlsa.com/linux/resolv-conf-desc/](http://www.ttlsa.com/linux/resolv-conf-desc/)
   
-resolv.conf 是 resolver 类库使用的配置文件, 每当一个程序需要通过域名来访问 internet 上面的其它主机时, 需要利用该类库将域名转换成对应的IP, 然后才可进行访问.
+resolv.conf 是 resolver 类库使用的配置文件, 每当一个程序需要通过域名来访问 internet 上面的其它主机时, 
+需要利用该类库将域名转换成对应的IP, 然后才可进行访问.
 
-resolv.conf 文件的配置选项不多, 从 man 文档中看了半天,不理解 domain 和 search 使用来干嘛的。这里做个解释, 防止以后忘了 (环境: ubuntu12.04) :
+resolv.conf 文件的配置选项不多, 从 man 文档中看了半天,不理解 domain 和 search 使用来干嘛的。
+这里做个解释, 防止以后忘了 (环境: ubuntu12.04) :
 
 nameserver x.x.x.x 该选项用来制定 DNS 服务器的, 可以配置多个 nameserver 指定多个 DNS。
 
-domain mydomain.com 这个用来指定本地的域名, 在没有设置 search 的情况下, search 默认为 domain 的值。这个值可以随便配, 目前在我看来, domain 除了当 search 的默认值外, 没有其它用途。也就说一旦配置 search, 那 domain 就没用了。
+domain mydomain.com 这个用来指定本地的域名, 在没有设置 search 的情况下, search 默认为 domain 的值。
+这个值可以随便配, 目前在我看来, domain 除了当 search 的默认值外, 没有其它用途。也就说一旦配置 search, 那 domain 就没用了。
 
 search google.com baidu.com 该选项可以用来指定多个域名,中间用空格或tab键隔开。它是干嘛的呢？
 

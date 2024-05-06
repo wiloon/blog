@@ -18,23 +18,20 @@ tags:
 ### archlinux install podman
 
 ```bash
-pacman -S cni-plugins podman
-
-# pacman -S netavark aardvark-dns podman
-# 2024.04.27, aardvark-dns 没安装, 目前看起来..没有什么影响, 没重启 hello world 就好用
+pacman -S netavark aardvark-dns podman
 # 正常情况，安装 podman 之后不需要重启系统, 但是如果有异常，比如 CNI 之类 的问题，可以考虑重启一下...
 ```
 
-### Netavark
+### `Netavark`
 
-Netavark 是一个 用 rust 实现的 配置 linux 容器网络的工具。
+`Netavark` 是一个 用 rust 实现的 配置 linux 容器网络的工具。
 
 In addition to the existing CNI Out of the stack,
 Podman Now it also supports based on  Netavark  and  Aardvark New network stack. 
 The new stack features improved support for containers in multiple networks 、 improvement IPv6 Support, 
 And improve performance. To ensure that there is no impact on existing users, 
 used CNI The stack will keep the default value of the existing installation, 
-The new installation will use Netvark.
+The new installation will use `Netvark`.
 
 [https://github.com/containers/netavark](https://github.com/containers/netavark)
 
@@ -266,6 +263,9 @@ image0_name
 
 ## podman systemd
 
+podman-systemd 已被弃用，请参考使用 Quadlet 的新方法
+现在使用 podman generate systemd，会提示 DEPRECATED command: It is recommended to use Quadlets for running containers and pods under systemd.
+
 generate systemd script
 
 ```bash
@@ -276,6 +276,31 @@ podman generate systemd $service_name > /usr/lib/systemd/system/$service_name.se
 systemctl enable $service_name
 # enable and start service
 systemctl --now enable $service_name
+```
+
+## podman Quadlets
+
+```Bash
+
+yay -S podlet
+
+mkdir -p /etc/containers/systemd/
+
+podlet podlet podman run -d --name bitwarden -v bitwarden-data:/data/ -p 8000:80 vaultwarden/server:1.28.1-alpine > /etc/containers/systemd/bitwarden.container
+
+# content
+# bitwarden.container
+[Container]
+ContainerName=bitwarden
+Image=vaultwarden/server:1.28.1-alpine
+PublishPort=8000:80
+Volume=bitwarden-data:/data/
+
+[Install]
+WantedBy=multi-user.target default.target
+
+systemctl daemon-reload
+systemctl start bitwarden
 ```
 
 ### network
@@ -506,3 +531,8 @@ podman-compose --help
 podman-compose up --help
 podman-compose up
 ```
+
+## 默认 volumes 目录
+
+/var/lib/containers/storage/volumes
+

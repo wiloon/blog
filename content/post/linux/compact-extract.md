@@ -236,12 +236,13 @@ tar -rf all.tar *.gif
 
 ## .tar.gz 和 .tgz
 
-.tgz 和 .tar.gz 是同一个东西, .tgz 可以认为是 .tar.gz 是简写, 在远古时代比如 DOS 系统, 文件扩展名只能是三个字符, 所以有了 .tgz, 后来限制解除之后就能支持 .tar.gz 这种后缀了, 后者能更清晰的表达打包格式和压缩方式.
+.tgz 和 .tar.gz 是同一个东西, .tgz 可以认为是 .tar.gz 是简写, 在远古时代比如 DOS 系统, 文件扩展名只能是三个字符, 所以有了 .tgz, 
+后来限制解除之后就能支持 .tar.gz 这种后缀了, 后者能更清晰地表达打包格式和压缩方式.
 
 [https://stackoverflow.com/questions/11534918/are-tar-gz-and-tgz-the-same-thing](https://stackoverflow.com/questions/11534918/are-tar-gz-and-tgz-the-same-thing)
 
 这种格式是我使用得最多的压缩格式。它在压缩时不会占用太多 CPU 的，而且可以得到一个非常理想的压缩率  
-默认 tar 打包和系统默认的压缩工具是单线程的，pigz 是 gzip 的多线程实现, 默认用当前逻辑 cpu 个数来并发压缩，无法检测个数的话，则并发8个线程  
+默认 tar 打包和系统默认的压缩工具是单线程的，`pigz` 是 gzip 的多线程实现, 默认用当前逻辑 cpu 个数来并发压缩，无法检测个数的话，则并发8个线程  
 
 ### 压缩
 
@@ -305,6 +306,7 @@ tar --use-compress-program=pigz -xvpf package.tgz -C ./package
 ```bash
 # 压缩
 gzip FileName
+gzip foo.tar
 # 解压1
 gunzip FileName.gz
 # 解压2

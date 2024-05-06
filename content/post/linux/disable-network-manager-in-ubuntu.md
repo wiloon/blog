@@ -32,4 +32,4 @@ gateway 3.242.170.1
 
 If you chose a Static settings, you must also configure the DNS Servers. To do that, press Alt-F2 on your keyboard, then type the commands below and click Run:
 
-gksu edit /etc/resolv.conf
+gksu edit `/etc/resolv.conf`

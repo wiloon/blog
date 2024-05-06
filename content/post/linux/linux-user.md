@@ -835,7 +835,7 @@ cp /dev/hda* /mnt/debinst/dev/ -ap
   
 chroot /mnt/debinst
   
- (6) 配置/etc/fstab，/etc/hostname，/etc/resolv.conf，/etc/network/interfaces，并把文件系统挂载上来。
+- 配置/etc/fstab，/etc/hostname，/etc/resolv.conf，/etc/network/interfaces，并把文件系统挂载上来。
   
 如果挂载出错，很有可能是因为缺少设备文件，可按 (4) 解决。各配置文件的样本可以在debian.org找到，我摘抄部分如下:
   

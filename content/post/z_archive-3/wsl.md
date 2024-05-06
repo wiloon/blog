@@ -342,7 +342,7 @@ ubuntu2004.exe config --default-user user0
 ### resolv.conf
 
 ```bash
-    sudo vim /etc/resolv.conf
+sudo vim /etc/resolv.conf
 ```
 
 #### windows 防火墙配置

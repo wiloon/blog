@@ -8,7 +8,7 @@ categories:
 tags:
   - reprint
 ---
-## resolv.conf, systemd-resolved, DNS
+## `resolv.conf`, systemd-resolved, DNS
 
 ```bash
 # check systemd-resolved status
@@ -29,14 +29,19 @@ LLMNR=false
 ## 测试 域名解析
 
 ```bash
+resolvectl query goproxy.cn
 resolvectl query baidu.com
 resolvectl query google.com
 ```
 
 ### 配置
 
-```bash
+```Bash
 vim /etc/systemd/resolved.conf
+```
+
+```bash
+
 [Resolve]
 # DNS: 上游的 dns 服务器, 可以配置多条, 用空格分隔
 DNS=192.168.50.1

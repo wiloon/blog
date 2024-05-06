@@ -16,18 +16,21 @@ drill if you can, dig if you have to, nslookup if you must
 [https://imdjh.github.io/toolchain/2015/10/07/drill-if-you-can-dig-if-you-have-to.html](https://imdjh.github.io/toolchain/2015/10/07/drill-if-you-can-dig-if-you-have-to.html)
 
 ```bash
-# install dig
+
+# install drill
 ## archlinux
 sudo pacman -S ldns
 
-## cenos
-yum install bind-utils
-
-# install drill
 # ubuntu
 sudo apt install ldnsutils
 # alpine
 apk add drill
+
+# install dig
+
+
+## cenos
+yum install bind-utils
 
 # DNS 解析跟踪
 dig +trace wiloon.com

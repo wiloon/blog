@@ -10,6 +10,19 @@ tags:
 ---
 ## go module proxy, goproxy, athens
 
+### goproxy.io
+
+```Bash
+export GOPROXY=https://goproxy.io,direct
+```
+
+### goproxy.cn
+
+```Bash
+export GO111MODULE=on
+export GOPROXY=https://goproxy.cn
+```
+
 GO 版本大于 1.13，可以直接使用 go env -w 命令设置 GOPROXY
 
 ```bash

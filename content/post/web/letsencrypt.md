@@ -14,11 +14,17 @@ tags:
 
 ## certbot, certbot-auto, acme.sh
 
-certbot: recommended by the offical website.
+certbot: recommended by the official website.
 certbot-auto: no longer supported.
 acme.sh: 第三方的 acme 协议实现.
 
 ## install certbot
+
+### archlinux
+
+```bash
+pacman -S certbot
+```
 
 ### ubuntu
 
@@ -59,12 +65,6 @@ certbot delete
 
 # for google dns
 certbot certonly  --dns-google   --dns-google-credentials /root/cellular-deck-280204-6455aa19691d.json -d wiloon.com -d *.wiloon.com
-```
-
-### archlinux
-
-```bash
-pacman -S certbot
 ```
 
 #### centos
