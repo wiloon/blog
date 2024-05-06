@@ -125,6 +125,8 @@ winget install Python.Python.3.11
 winget install Python.Python.3.11 --location "C:\workspace\apps\python11" --verbose
 winget install -e -i --id=Python.Python.3.11
 winget uninstall Python.Python.3.11
+
+winget install Python.Python.3.6
 ```
 
 ### boolean variable
@@ -289,7 +291,12 @@ from 模块名 import 子模块 或 函数 或 类 或 变量：使用函数调�
 
 - dict 是线程安全的
 
+get(key) 方法在 key（键）不在字典中时，可以返回默认值 None 或者设置的默认值。
+
+dict[key] 在 key（键）不在字典中时，会触发 KeyError 异常。
+
 ```python
+
 # 空的花括号代表空的 dict
 empty_dict = {}
 print(empty_dict)
@@ -1390,3 +1397,11 @@ https://debugtalk.com/post/remote-debugging-with-pycharm/
 源代码： Lib/pdb.py
 
 pdb 模块定义了一个交互式源代码调试器，用于 Python 程序。它支持在源码行间设置（有条件的）断点和单步执行，检视堆栈帧，列出源码列表，以及在任何堆栈帧的上下文中运行任意 Python 代码。它还支持事后调试，可以在程序控制下调用。
+
+Python将多个空格换为一个空格
+最近在文本预处理时遇到这个问题，解决方法如下:
+
+import re
+str1 = '  rwe fdsa    fasf   '
+str1_after = re.sub(' +', '', str1)
+print(str1_after)

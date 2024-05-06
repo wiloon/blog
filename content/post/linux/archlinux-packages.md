@@ -18,6 +18,8 @@ tags:
 - aom: Alliance for Open Media video codec
 - appstream: Provides a standard for creating app stores across distributions
 - at-spi2-core: Protocol definitions and daemon for D-Bus at-spi
+- audit: Userspace components of the audit framework
+- avahi: Service Discovery for Linux using mDNS/DNS-SD (compatible with Bonjour)
 - bluez-libs: Deprecated libraries for the bluetooth protocol stack
 - botan: Crypto library written in C++
 - btrfs-progs: Userspace utilities to manage btrfs filesystems
@@ -31,12 +33,13 @@ tags:
 - gtk-update-icon-cache: GTK icon cache updater
 - hwdata: hardware identification databases
 - gnutls: A library which provides a secure layer over a reliable transport layer
+- libavif: Library for encoding and decoding .avif files
 - libx11: X11 client-side library
 - c-ares: c-ares是一个C语言实现的异步请求DNS的实现。很多知名 软件(curl、seastar、gevent、Nodejs等等)都使用了该软件。
 - cfitsio: A library of C and Fortran subroutines for reading and writing data files in FITS (Flexible Image Transport System) data format
 - cryptsetup: Userspace setup tool for transparent encryption of block devices using dm-crypt
 - archlinux-appstream-data: Arch Linux application database for AppStream-based software centers, appstream-data是一个用于支持软件中心和应用程序管理器的数据包。它包含应用程序的描述信息，如应用程序名称、图标、作者、版本等，这些信息可以在软件中心中显示出来，方便用户查看和选择。
-- audit: Userspace components of the audit framework
+
 
 ## linux-firmware
 
