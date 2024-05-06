@@ -45,6 +45,8 @@ FROM table0
 https://hub.docker.com/_/postgres
 
 ```bash
+docker pull postgres:16.1
+
 # 默认用户名 postgres
 docker run --name postgres \
 --restart=always \
