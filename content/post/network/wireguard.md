@@ -6,8 +6,8 @@ url: wireguard
 categories:
   - network
 tags:
-  - reprint
-  - remix
+  - Reprint
+  - Remix
   - VPN
   - Wireguard
 ---
@@ -19,7 +19,7 @@ wireguard default port: 51820
 
 ### archlinux
 
-archlinux 新版本的内核已经集成了 wireguard，不需要单独安装. 
+archlinux 新版本的内核已经集成了 wireguard，不需要单独安装.  
 已经集成了 wireguard 但是默认没加载, 需要配置一下启动的时候加载 wireguard 内核模块.
 
 #### 手动加载内核模块
@@ -77,39 +77,21 @@ wg pubkey < private.key > public.key
 wg genpsk > peer_A-peer_B.psk
 ```
 
-## Peer A setup manually
+## manually setup
+### Peer A setup manually
 
 假设 peer A 是服务端
-
-### 参数 allowed-ips
-
-```bash
-# 设置可以被路由到对端的 ip/段
-allowed-ips
-
-# 路由所有流量到对端
-allowed-ips 0.0.0.0/0
-
-# 路由指定 ip/段 到对端
-allowed-ips 192.168.53.1/32
-
-# 路由多个 ip/段 到对端
-allowed-ips 192.168.53.1/32,192.168.50.0/24
-
-# endpoint
-对端的 ip 和端口
-```
 
 ```bash
 sudo ip link add dev wg0 type wireguard
 sudo ip addr add 192.168.53.1/24 dev wg0
 
 # 加载私钥
-sudo wg set wg0 private-key ./private.key
+sudo wg set wg0 private-key /path/to/private-key
 sudo wg set wg0 listen-port 51900
 
 # 做为服务端使用时，对端的 ip 和端口一般是动态的，所以不需要配置 endpoint
-# PEER_B_PUBLIC_KEY = 对端公钥字符串
+# PEER_B_PUBLIC_KEY: 对端公钥字符串
 sudo wg set wg0 peer <PEER_B_PUBLIC_KEY> persistent-keepalive 25 allowed-ips 192.168.53.2/32
 # 做为客户端时, 对端有确定的 IP 和端口时， 要配置对端的 endpoint
 sudo wg set wg0 peer <PEER_B_PUBLIC_KEY> persistent-keepalive 25 allowed-ips 192.168.53.2/32 endpoint 192.168.50.115:9000
@@ -118,6 +100,23 @@ sudo wg set wg0 peer <PEER_B_PUBLIC_KEY> persistent-keepalive 25 allowed-ips 192
 ip link set wg0 up
 ```
 
+### 参数 allowed-ips
+
+设置可以被路由到对端的 ip/段
+
+```bash
+# 比如服务端路由指定 ip/段 到对端
+allowed-ips 192.168.53.1/32
+
+# 比如客户端路由所有流量到对端
+allowed-ips 0.0.0.0/0
+
+# 路由多个 ip/段 到对端
+allowed-ips 192.168.53.1/32,192.168.50.0/24
+
+# endpoint
+对端的 ip 和端口
+```
 ### peer B, client
 
 ```bash
@@ -223,7 +222,7 @@ Name = wg0
 Kind = wireguard
 Description = wireguard
 
-[WireGuard]
+[WireGuard]a
 # 可以不配置 ListenPort, wireguard 会随机开放一个监听端口
 ListenPort = 51900
 # 本端私钥, 等号两边可以有空格

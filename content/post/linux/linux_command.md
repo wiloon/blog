@@ -8,9 +8,14 @@ categories:
 tags:
   - reprint
   - remix
-
 ---
 ## linux 命令, linux command
+
+## 查看某文件的完整路径
+
+```Bash
+realpath file_0
+```
 
 ## cut
 
