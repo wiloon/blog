@@ -14,6 +14,16 @@ tags:
 
 tcpdump 工作在数据链路层
 
+## install
+
+```Bash
+#archlinux
+pacman -S tcpdump
+
+#redhat
+yum install -y tcpdump
+```
+
 ## 示例
 
 ```bash
@@ -105,13 +115,6 @@ tcpdump -i eth1
 
 #监听 loopback localhost
 sudo tcpdump -i lo
-
-#install
-#redhat
-yum install -y tcpdump
-
-#archlinux
-pacman -S tcpdump
 ```
 
 ### 选项

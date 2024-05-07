@@ -83,9 +83,8 @@ ip（即 IPv4）是默认簇，如果未指定簇，则使用该簇。如果要�
 
 创建链
 创建一个常规链
-1
-2
-# 将名为 tcpchain 的常规链添加到 inet 簇中名为 mytable 的表中
+
+将名为 tcpchain 的常规链添加到 inet 簇中名为 mytable 的表中
 $ nft add chain inet mytable tcpchain
 创建一个基本链
 添加一个基本链，你必需指定钩子和优先级。基本链的类型可以是 filter、route 或者 nat。

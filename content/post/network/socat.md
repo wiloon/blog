@@ -11,7 +11,7 @@ tags:
 ---
 ## socat
 
-## socat 测试 端口连通性, test a remote port is reachable with socat
+## socat 测试端口连通性, test a remote port is reachable with socat
 
 ```bash
 # test tcp port
@@ -19,11 +19,14 @@ socat /dev/null TCP:192.168.1.15:22
 socat - tcp4:192.168.1.15:22,connect-timeout=3
 
 # test udp port
-#set up a server listening on UDP port 48772
-socat UDP-RECV:48772 STDOUT
+# https://serverfault.com/questions/416205/testing-udp-port-connectivity
+# set up a server listening on UDP port 1234
+socat UDP-RECV:1234 STDOUT
+# or
+socat STDIO UDP-LISTEN:1234
 
 # test udp port
-socat - UDP:localhost:48772
+socat - UDP:localhost:1234
 ```
 
 ## http server, 加载本地 .html 文件
