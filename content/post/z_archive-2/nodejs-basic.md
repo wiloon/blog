@@ -20,12 +20,17 @@ v14.21.3
 
 v21.6.2
 
-## nvm
+## nvm, Node Version Manager
 
-```Bash
+[https://github.com/nvm-sh/nvm](https://github.com/nvm-sh/nvm)
+
+```bash
 yay -S nvm
 # Due to the way nvm is designed, you have to source it before you can use it:
 source /usr/share/nvm/init-nvm.sh
+echo 'source /usr/share/nvm/init-nvm.sh' >> ~/.zshrc
+nvm ls-remote
+nvm install --lts
 nvm install 14
 nvm use 14
 ```

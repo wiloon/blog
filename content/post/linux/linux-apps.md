@@ -14,6 +14,7 @@ tags:
 
 - `ncdu`, 磁盘空间占用分析/清理
 - `bitwarden`, password management
+- binutils: A set of programs to assemble and manipulate binary and object files
 - `btop`, 另外一个 top 实现, 颜值还不错
 - `screenfetch`, 打印发行版的 logo
 - `mousepad`, 易于使用的快速的文本编辑器

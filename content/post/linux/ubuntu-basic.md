@@ -11,7 +11,7 @@ tags:
 
 ## deb, deb-src
 
-不是要看代码或者自己编译的话 deb-src可以不要
+不是要看代码或者自己编译的话 deb-src 可以不要
 
 ## backports proposed security updates
 

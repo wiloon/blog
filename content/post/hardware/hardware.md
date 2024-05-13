@@ -336,7 +336,7 @@ WISPr
 ## Dell Inspiron N4050
 
 - i3-2370M 2nd gen Intel® Core™ i3
-- 8G DDR3-SDRAM
+- 8G DDR3-SDRAM, DDR3 1333, 标压 1.5v
 
 ## SONY WF-1000XM3
 

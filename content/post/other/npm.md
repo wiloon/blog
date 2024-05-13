@@ -69,18 +69,6 @@ pacman -S nodejs
 npm info pkg
 ```
 
-### nvm, Node Version Manager
-
-[https://github.com/nvm-sh/nvm](https://github.com/nvm-sh/nvm)
-
-```bash
-yay -S nvm
-source /usr/share/nvm/init-nvm.sh
-echo 'source /usr/share/nvm/init-nvm.sh' >> ~/.bashrc
-nvm ls-remote
-nvm install --lts
-```
-
 ### ubuntu
 
 ```bash
