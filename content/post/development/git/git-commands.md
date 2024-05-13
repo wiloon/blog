@@ -360,6 +360,18 @@ git commit -m "message0" --author="auther0 <auther0@foo.com>"
 
 ### commit message
 
+#### 修改最近一次的 commit message
+
+```bash
+# 执行后会提示输入 new commit message
+# auther 会变成默认的
+git commit --amend
+# 或者直接提供 new commit message
+git commit --amend -m "New commit message."
+# 如果是修改已经 push了的 commit, 得把这个修改强制推送到远程仓库
+git push -f
+```
+
 #### 修改已经 push 了的 commit 信息, git 修改 comments
 
 ```bash
@@ -368,31 +380,6 @@ git rebase -i commit_id_0
  
 git commit --amend --author="auth0 <auth0@foo.com>"
 git rebase --continue
-git push -f
-```
-
-```bash
-本条仅适用于修改已经 push 过了的最近一次的 commit 注释信息，确保本地文件的最新的。
-
-step1：使用【git commit --amend】命令，会进入到vim编辑器。
-
-step2：输入【i】，即进入编辑模式，此时编辑提交信息。
-
-step3：编辑好之后，按键【Esc】，输入【:wq】，即保存和退出。
-
-step4：输入【git push -f】强制提交。
-
-操作完之后，再看提交记录，即可看到修改的注释信息。
-```
-
-#### 修改最近一次的 commit message
-
-```bash
-# 执行后会提示输入 new commit message
-# auther 会变成默认的
-git commit --amend
-# 直接提供 new commit message
-git commit --amend -m "New commit message."
 git push -f
 ```
 
