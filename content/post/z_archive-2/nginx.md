@@ -43,7 +43,7 @@ podman run -d \
 -p 443:443 \
 -v nginx-config:/etc/nginx \
 -v nginx-www:/var/www \
--v cert:/etc/letsencrypt \
+-v nginx-cert:/etc/letsencrypt \
 -v /etc/localtime:/etc/localtime:ro \
 nginx:1.25.5
 
