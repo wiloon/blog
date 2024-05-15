@@ -551,7 +551,7 @@ GCARGS=
   
 fi
 
-# The Sun JDK caches all name resolution results forever, which is stupid
+The Sun JDK caches all name resolution results forever, which is stupid
 
 # This forces you to restart your application if any of the backends change
 

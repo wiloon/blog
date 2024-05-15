@@ -26,6 +26,7 @@ winget install Microsoft.OpenJDK.21
 # openjdk
 sudo pacman -S jdk-openjdk
 sudo pacman -S openjdk-src
+
 # jdk8
 sudo pacman -S jdk8-openjdk openjdk8-src
 sudo pacman -S jdk11-openjdk
