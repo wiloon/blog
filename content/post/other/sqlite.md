@@ -20,6 +20,9 @@ version: 3.44.0
 # 安装
 sudo pacman -S sqlite
 
+# 打开一个已经存在的数据库
+sqlite3 /var/lib/enx-api/enx.db
+
 # 启动 sqlite
 sqlite3
 
@@ -49,8 +52,7 @@ CREATE TABLE if not exists users (  id char(36) PRIMARY KEY NOT NULL,  name varc
 alter table feed
     rename to feeds;
 
-# 打开一个已经存在的数据库
-sqlite3 /var/lib/enx-api/enx.db
+
 ```
 
 ```sql

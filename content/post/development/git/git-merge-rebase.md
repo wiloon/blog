@@ -80,6 +80,12 @@ git merge master
 git merge master feature
 ```
 
+### ort strategy
+
+https://www.zhihu.com/question/518192414/answer/2369886778
+
+https://morningspace.github.io/tech/git-merge-stories-2/
+
 ## git rebase
 
 ```Bash
@@ -112,6 +118,7 @@ git rebase (--continue | --skip | --abort | --quit | --edit-todo | --show-curren
 在开发过程中把其它人提交到 dev 分支的 commit, 更新到自己的 feature 分支.
 
 ```Bash
+git switch feature_0
 git rebase dev
 # 有可能需要处理冲突
 # 然后 git push -f
@@ -345,7 +352,8 @@ git rebase -i commit0
 - exec：执行 shell 命令（缩写:x）
 - drop：我要丢弃该 commit（缩写:d）
 
-交互模式, 即弹出交互式的界面让用户编辑完成合并操作，`[startpoint]` `[endpoint]` 指定了一个编辑区间，如果不指定 `[endpoint]`，该区间的终点默认是当前分支HEAD 所指向的 commit (注：该区间指定的是一个**前开后闭**的区间)。
+交互模式, 即弹出交互式的界面让用户编辑完成合并操作，`[startpoint]` `[endpoint]` 指定了一个编辑区间，
+如果不指定 `[endpoint]`，该区间的终点默认是当前分支 HEAD 所指向的 commit (注：该区间指定的是一个**前开后闭**的区间)。
 
 两种模式的区别
 我们前面提到， rebase 是「在另一个基端之上重新应用提交」，而在重新应用的过程中，这些提交会被重新创建，自然也可以进行修改。在 rebase 的标准模式下，当前工作分支的提交会被直接应用到传入分支的顶端；而在交互模式下，则允许我们在重新应用之前通过编辑器以及特定的命令规则对这些提交进行合并、重新排序及删除等重写操作。

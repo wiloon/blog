@@ -41,23 +41,31 @@ JUnit 5 = JUnit Platform + JUnit Jupiter + JUnit Vintage
 你可以在Maven或Gradle项目中使用JUnit5，包含最小的两个依赖关系，即junit-jupiter-engince和junit-platform-runner。
 
 ```xml
-
-<properties>
-    <junit.jupiter.version>5.5.2</junit.jupiter.version>
-    <junit.platform.version>1.5.2</junit.platform.version>
-</properties>
-
-<dependency>
-    <groupId>org.junit.jupiter</groupId>
-    junit-jupiter-engine</artifactId>
-    <version>${junit.jupiter.version}</version>
-</dependency>
-<dependency>
-    <groupId>org.junit.platform</groupId>
-    junit-platform-runner</artifactId>
-    <version>${junit.platform.version}</version>
-    <scope>test</scope>
-</dependency>
+<project>
+   <properties>
+       <junit.jupiter.version>5.5.2</junit.jupiter.version>
+       <junit.platform.version>1.5.2</junit.platform.version>
+   </properties>
+   
+   <dependencies>
+   <dependency>
+      <groupId>org.junit.jupiter</groupId>
+      <artifactId>junit-jupiter-engine</artifactId>
+      <version>${junit.jupiter.version}</version>
+   </dependency>
+   <dependency>
+      <groupId>org.junit.platform</groupId>
+      <artifactId>junit-platform-runner</artifactId>
+      <version>${junit.platform.version}</version>
+      <scope>test</scope>
+   </dependency>
+   <dependency>
+      <groupId>org.jdbi</groupId>
+      <artifactId>jdbi3-core</artifactId>
+      <version>${jdbi.version}</version>
+   </dependency>
+   </dependencies>
+</project>
 ```
 
 ```java

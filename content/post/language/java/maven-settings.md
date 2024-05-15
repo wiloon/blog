@@ -6,8 +6,8 @@ url: maven/setting
 categories:
   - maven
 tags:
-  - Maven
-
+  - reprint
+  - remix
 ---
 ## maven setting, mirror, repository
 
@@ -153,32 +153,34 @@ mirror相当于一个拦截器，它会拦截maven对remote repository的相关�
 
 ### settings.xml
 
+localRepository 必须是绝对路径
+
 ```xml
-<?xml version="1.0" encoding="UTF-8"?>
-
-<settings xmlns="http://maven.apache.org/SETTINGS/1.0.0" 
-          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
-          xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0 http://maven.apache.org/xsd/settings-1.0.0.xsd">
-
- <localRepository>/path/to/local/repository</localRepository>
- <!-->注意: localRepository 必须是绝对路径。<!-->
-  <mirrors>
-       <mirror>
-       <id>public0</id>
-       <name>Repository0</name>
-       <url>https://maven.wiloon.com/repository/public</url>
-       <mirrorOf>central</mirrorOf>
-       </mirror>
-  </mirrors>
-  <profiles>
+<settings
+        xmlns="http://maven.apache.org/SETTINGS/1.0.0"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0 https://maven.apache.org/xsd/settings-1.0.0.xsd">
+    <localRepository>/home/wiloon/.m2/repository</localRepository>
+    <interactiveMode/>
+    <offline/>
+    <pluginGroups/>
+    <servers/>
+    <mirrors>
+        <mirror>
+            <id>public0</id>
+            <name>Repository0</name>
+            <url>https://repo1.maven.org/maven2/</url>
+            <mirrorOf>central</mirrorOf>
+        </mirror>
+    </mirrors>
+    <proxies/>
+    <profiles>
         <profile>
             <id>default</id>
-                <activeByDefault>true</activeByDefault>
-            </activation>
             <repositories>
                 <repository>
-                  <id>repo0</id>
-                  <url>https://maven.wiloon.com/repository/public</url>
+                    <id>repo0</id>
+                    <url>https://maven.wiloon.com/repository/public</url>
                     <snapshots>
                         <enabled>true</enabled>
                         <updatePolicy>always</updatePolicy>
@@ -189,10 +191,11 @@ mirror相当于一个拦截器，它会拦截maven对remote repository的相关�
                 </repository>
             </repositories>
         </profile>
-  </profiles>
+    </profiles>
+    <activeProfiles/>
 </settings>
 ```
-
+ 
 [http://www.cnblogs.com/chenying99/archive/2012/06/23/2559218.html](http://www.cnblogs.com/chenying99/archive/2012/06/23/2559218.html)
 
 ## maven mirror aliyun
@@ -204,5 +207,4 @@ mirror相当于一个拦截器，它会拦截maven对remote repository的相关�
     <name>阿里云公共仓库</name>
     <url>https://maven.aliyun.com/repository/public</url>
 </mirror>
-
 ```

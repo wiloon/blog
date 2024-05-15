@@ -65,7 +65,7 @@ mvn clean -Ptrip-app,daily package -Dmy.filter.value=1 -Dttidapk.ttids=21xx00
 ### 生成项目
 
 ```bash
-# common project
+# create common project
 # mvn archetype:generate 会自动创建项目目录 project0
 mvn archetype:generate -DgroupId=com.wiloon.demo -DartifactId=project0 \
 -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
@@ -117,8 +117,10 @@ mvn install:install-file -DgroupId=com.oracle -DartifactId=ojdbc6 -Dversion=11.2
 
 ```
 
+## commands
+
 ```bash
-#maven war plugin
+# maven war plugin
 mvn clean compile -Dmaven.test.skip=true org.apache.maven.plugins:maven-war-plugin:exploded
 
 # maven-assembly-plugin 打包
@@ -127,6 +129,7 @@ mvn clean compile -Dmaven.test.skip=true org.apache.maven.plugins:maven-war-plug
 #Generates JSW based daemon wrappers.
 mvn appassembler:generate-daemons 
 
+# 查看 maven 版本
 mvn -v
 mvn -version
 
@@ -138,7 +141,7 @@ mvn install -Dmaven.test.skip=true
 mvn package appassembler:assemble
 ```
 
-### 查看mvn 参数
+### 查看 mvn 参数
 
 ```bash
 mvn --help

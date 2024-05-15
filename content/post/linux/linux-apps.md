@@ -20,7 +20,7 @@ tags:
 - `mousepad`, 易于使用的快速的文本编辑器
 - obsidian, 知识管理
 - code, visual studio code, vscode
-- chromium, 开源版chrome
+- chromium, 开源版 chrome
 - base-devel
 
 ## AUR

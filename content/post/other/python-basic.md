@@ -324,6 +324,9 @@ del test_dict['Zhihu']
 dict 遍历for
 
 ```py
+for key, value in dict_0.items():
+    print(f"key: {key}, value: {value}")
+ 
 >>> for key in a.keys():
 print(key+':'+a[key])
 
@@ -334,8 +337,7 @@ c:3
 for kv in dict0.items():
     print(kv)
 
-for key, value in likes.items():
-    print(key, "->", value)
+
 
 ```
 
