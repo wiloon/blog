@@ -22,7 +22,7 @@ WHERE b.id IS NULL;
 
 ```sql
 inner join(等值连接) 只返回两个表中联结字段相等的行
-left join(左联接) 返回包括左表中的所有记录和右表中联结字段相等的记录
+left join (左联接) 返回包括左表中的所有记录和右表中联结字段相等的记录
 right join(右联接) 返回包括右表中的所有记录和左表中联结字段相等的记录
 ```
 
@@ -54,7 +54,7 @@ SELECT * FROM (((表1 INNER JOIN 表2 ON 表1.字段号=表2.字段号) INNER JO
 
 `join` `是 ``inner` `join``简写`
 
-left join:是SQL语言中的查询类型,即连接查询。它的全称为左外连接 (left outer join),是外连接的一种。
+left join: 是SQL语言中的查询类型,即连接查询。它的全称为左外连接 (left outer join),是外连接的一种。
 
 连接通常可以在select语句的from子句或where子句中建立,其语法格式为:
 
@@ -62,7 +62,8 @@ from join_table join_type join_table
 
 [on (join_condition)]
 
-其中join_table指出参与连接操作的表名,连接可以对同一个表操作,也可以对多表操作,对同一个表操作的连接称为自连接, join_type 为连接类型,可以是left join 或者outer join 或者inner join 。
+其中join_table指出参与连接操作的表名,连接可以对同一个表操作,也可以对多表操作,对同一个表操作的连接称为自连接,
+join_type 为连接类型,可以是left join 或者outer join 或者inner join 。
 
 on (join_condition) 用来指连接条件,它由被连接表中的列和比较运算符、逻辑运算符等构成。
 

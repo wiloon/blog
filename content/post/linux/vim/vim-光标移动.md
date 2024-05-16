@@ -8,7 +8,7 @@ categories:
 tags:
   - VIM
 ---
-## Vim光标移动
+## Vim 光标移动
 
 搜索结果之间跳转
 文件之间移动
