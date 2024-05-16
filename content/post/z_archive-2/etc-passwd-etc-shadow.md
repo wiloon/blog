@@ -14,9 +14,9 @@ tags:
 
 Linux系统中,所有用户 (包括系统管理员) 的账号和密码都可以在/etc/passwd和/etc/shadow这两个文件中找到, (用户和密码就放在文件中,不怕被其他人看的或者修改吗？/etc/passwd只有系统管理员才可以修改的,其他用户可以查看,/etc/shadow其他用户看不了)
 
-[root@localhost Python-3.5.0]# vim /etc/shadow
+vim /etc/shadow
   
-[root@localhost Python-3.5.0]# ls -al /etc/passwd /etc/shadow
+ls -al /etc/passwd /etc/shadow
   
 -rw-r-r-. 1 root root 2250 12月 14 00:17 /etc/passwd
   

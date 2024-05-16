@@ -1,51 +1,45 @@
 ---
-title: linux hexdump
+title: hexdump command
 author: "-"
 date: 2012-01-02T10:42:27+00:00
-url: /?p=2092
+url: hexdump
 categories:
   - Linux
 tags:
   - reprint
 ---
-## linux hexdump
+## hexdump command
 
-### 
-    hexdump -e '16/1 "%02X " "\n"'
-    hexdump -C
+```Bash
+hexdump -e '16/1 "%02X " "\n"'
+hexdump -C foo.bin
 
-hexdump命令一般用来查看"二进制"文件的十六进制编码，但实际上它的用途不止如此，手册页上的说法是"ascii, decimal, hexadecimal, octal dump"，这也就是本文标题为什么要将"十六"给引起来的原因，而且它能查看任何文件，而不只限于二进制文件了。另外还有xxd和od也可以做类似的事情，但是我从未用过。在程序输出二进制格式的文件时，常用hexdump来检查输出是否正确。当然也可以使用Windows上的UltraEdit32之类的工具查看文件的十六进制编码，但Linux上有现成的工具，何不拿来用呢。
+# 大文件可以和 less 配合使用
+hexdump -C foo.bin | less
+echo /etc/passwd | hexdump
+
+echo /etc/passwd | xxd
+echo /etc/passwd | hexdump -C
+```
+
+hexdump 命令一般用来查看"二进制"文件的十六进制编码，但实际上它的用途不止如此，
+手册页上的说法是"ascii, decimal, hexadecimal, octal dump"，
+这也就是本文标题为什么要将"十六"给引起来的原因，而且它能查看任何文件，而不只限于二进制文件了。
+另外还有xxd和od也可以做类似的事情，但是我从未用过。在程序输出二进制格式的文件时，常用hexdump来检查输出是否正确。
+当然也可以使用Windows上的UltraEdit32之类的工具查看文件的十六进制编码，但Linux上有现成的工具，何不拿来用呢。
 
 ## 参数
 
-如果要看到较理想的结果，使用-C参数，显示结果分为三列 (文件偏移量、字节的十六进制、ASCII字符) 。
+-C，显示结果分为三列 (文件偏移量、字节的十六进制、ASCII字符) 。
 
-格式: hexdump -C binfile
-
-一般文件都不是太小，最好用less来配合一下。
-
-格式: hexdump -C binfile | less
-
-## 使用示例
-
-### 示例一 比较各种参数的输出结果
-
-[root@new55 ~]# echo /etc/passwd | hexdump
+## od
   
-0000000 652f 6374 702f 7361 7773 0a64
-  
-000000c
-  
-[root@new55 ~]# echo /etc/passwd | od -x
+echo /etc/passwd | od -x
   
 0000000 652f 6374 702f 7361 7773 0a64
   
 0000014
-  
-[root@new55 ~]# echo /etc/passwd | xxd
-  
-0000000: 2f65 7463 2f70 6173 7377 640a            /etc/passwd.
-  
+
 [root@new55 ~]# echo /etc/passwd | hexdump -C      <== 规范的十六进制和ASCII码显示 (Canonical hex+ASCII display ) 
   
 00000000  2f 65 74 63 2f 70 61 73  73 77 64 0a              |/etc/passwd.|
@@ -137,88 +131,3 @@ Linux/Unix的换行符      n    即十六进制表示 0A
 [root@web186 root]# file tmp.wav
   
 tmp.wav: RIFF (little-endian) data, WAVE audio, ITU G.711 a-law, mono 8000 Hz
-
-[root@web186 root]# hexdump -C tmp.wav | less
-  
-00000000  52 49 46 46 75 7e 00 00  57 41 56 45 66 6d 74 20  |RIFFu~..WAVEfmt |
-  
-00000000  52 49 46 46 75 7e 00 00  57 41 56 45 66 6d 74 20  |RIFFu~..WAVEfmt |
-  
-00000010  12 00 00 00 06 00 01 00  40 1f 00 00 40 1f 00 00  |........@...@...|
-  
-00000020  01 00 08 00 00 00 66 61  63 74 04 00 00 00 43 7e  |......fact....C~|
-  
-00000030  00 00 64 61 74 61 43 7e  00 00 d5 d5 d5 d5 d5 d5  |..dataC~........|
-  
-00000040  d5 d5 d5 d5 d5 d5 d5 d5  d5 d5 d5 d5 d5 d5 d5 d5  |................|
-  
-*
-  
-000000a0  d5 d5 d5 d5 d5 d5 d5 d5  d5 55 d5 55 d5 d5 55 d5  |.........U.U..U.|
-  
-000000b0  55 d5 d5 55 d5 55 d5 d5  55 d5 55 55 55 55 55 55  |U..U.U..U.UUUUUU|
-  
-000000c0  55 55 55 55 55 55 55 d5  d5 d5 d5 d5 d5 d5 d5 d5  |UUUUUUU.........|
-  
-000000d0  d5 55 55 55 55 55 55 55  55 55 55 55 55 55 55 55  |.UUUUUUUUUUUUUUU|
-  
-000000e0  55 55 55 55 55 55 55 55  55 d5 d5 d5 d5 d5 d5 d5  |UUUUUUUUU.......|
-  
-000000f0  d5 d5 d5 d5 55 55 55 55  55 55 55 55 55 55 55 55  |....UUUUUUUUUUUU|
-  
-00000100  55 55 55 55 55 55 55 55  55 55 55 55 d5 d5 d5 d5  |UUUUUUUUUUUU....|
-  
-00000110  d5 d5 d5 d5 d5 d5 55 55  55 55 55 55 55 55 55 55  |......UUUUUUUUUU|
-  
-00000120  55 55 55 55 55 55 55 55  55 55 55 55 55 55 d5 d5  |UUUUUUUUUUUUUU..|
-  
-00000130  d5 d5 d5 d5 d5 d5 d5 d5  d5 55 55 55 55 55 55 55  |.........UUUUUUU|
-  
-00000140  55 55 d5 55 55 55 55 55  55 55 55 55 55 55 55 55  |UU.UUUUUUUUUUUUU|
-  
-00000150  55 d5 d5 d5 d5 d5 d5 d5  d5 d5 d5 55 55 55 55 55  |U..........UUUUU|
-  
-00000160  55 55 55 55 55 55 55 55  55 55 55 55 55 55 55 55  |UUUUUUUUUUUUUUUU|
-  
-00000170  55 55 55 55 d5 d5 d5 d5  d5 d5 d5 d5 d5 55 d5 55  |UUUU.........U.U|
-  
-00000180  55 55 55 55 55 55 55 55  55 55 55 55 55 55 55 55  |UUUUUUUUUUUUUUUU|
-  
-00000190  55 55 55 55 55 55 55 d5  d5 d5 d5 d5 d5 d5 d5 55  |UUUUUUU........U|
-  
-000001a0  55 55 55 55 55 55 55 d5  d5 55 55 55 55 55 55 55  |UUUUUUU..UUUUUUU|
-  
-000001b0  55 55 55 55 55 55 55 d5  55 55 d5 55 55 55 55 55  |UUUUUUU.UU.UUUUU|
-  
-000001c0  55 55 d5 55 d5 d5 55 d5  55 55 55 55 55 55 55 55  |UU.U..U.UUUUUUUU|
-  
-000001d0  55 55 55 55 55 55 55 55  55 55 55 55 55 55 55 d5  |UUUUUUUUUUUUUUU.|
-  
-000001e0  55 d5 d5 d5 d5 55 55 55  55 55 55 55 55 55 55 55  |U....UUUUUUUUUUU|
-  
-000001f0  55 55 55 55 55 55 55 55  55 55 55 55 d5 55 55 d5  |UUUUUUUUUUUU.UU.|
-  
-00000200  55 55 55 55 55 55 55 55  55 d5 d5 d5 d5 d5 55 55  |UUUUUUUUU.....UU|
-  
-00000210  55 55 55 55 55 55 55 55  55 55 55 55 55 55 55 d5  |UUUUUUUUUUUUUUU.|
-  
-00000220  55 55 d5 55 d5 55 55 d5  55 d5 55 55 d5 55 d5 d5  |UU.U.UU.U.UU.U..|
-  
-00000230  d5 d5 d5 d5 d5 d5 d5 d5  d5 d5 d5 d5 d5 d5 d5 d5  |................|
-  
-*
-  
-00000ba0  d5 d5 d5 d5 d5 d5 d5 d5  d5 d5 d5 55 55 d5 55 d5  |...........UU.U.|
-  
-00000bb0  55 55 d5 55 d5 55 d5 d5  55 d5 55 55 55 55 55 55  |UU.U.U..U.UUUUUU|
-  
-00000bc0  55 55 55 55 55 55 55 55  55 d5 d5 55 55 55 55 55  |UUUUUUUUU..UUUUU|
-  
-00000bd0  55 55 55 55 55 55 55 d5  55 55 55 55 55 55 d5 55  |UUUUUUU.UUUUUU.U|
-  
-00000be0  55 55 55 55 55 55 55 55  55 55 55 d5 55 55 55 55  |UUUUUUUUUUU.UUUU|
-  
-00000bf0  55 55 55 55 55 55 55 55  d5 d5 55 55 55 55 55 d5  |UUUUUUUU..UUUUU.|
-  
-00000c00  d5 55 55 55 55 d5 d5 d5  55 55 55 55 55 d5 d5 55  |.UUUU...UUUUU..U|
-  

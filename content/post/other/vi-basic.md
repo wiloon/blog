@@ -39,10 +39,12 @@ escape/ESC  回到命令模式
 ### vim 编辑二进制文件
 
 ```bash
-# 注意用-b，否则后面会有0a
+# 注意用 -b，否则后面会有 0a
 vim -b test.bin
-# 以16进制格式查看
+
+# 以 16 进制格式查看
 :%!xxd
+
 # 编辑完成后转换为二进制文件
 :$!xxd -r
 :wq
@@ -103,7 +105,7 @@ sudo apt install -y neovim
 
 #### g 全局的
 
-替换行中出现的每一个pattern
+替换行中出现的每一个 pattern
 
 ```v
 s/pattern/replacement/

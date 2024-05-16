@@ -68,9 +68,9 @@ STOP   19   暂停 (同 Ctrl + Z)
 
 二 示例
 
-1) 先用ps查找进程，然后用kill杀掉。
+先用 ps 查找进程，然后用 kill 杀掉。
   
-[root@new55 ~]# ps -ef|grep vim
+ps -ef|grep vim
   
 root      3368  2884  0 16:21 pts/1    00:00:00 vim install.log
   

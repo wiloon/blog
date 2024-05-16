@@ -141,7 +141,7 @@ MySQL> SHOW GLOBAL VARIABLES LIKE '%log%';
   
 更改错误日志位置可以使用log_error来设置形式如下:
   
-[root@stu18 data]# vim /etc/my.cnf
+vim /etc/my.cnf
   
 [MySQLd]
   

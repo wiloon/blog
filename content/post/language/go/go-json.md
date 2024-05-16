@@ -10,6 +10,13 @@ tags:
 ---
 ## golang JSON
 
+## read field from json 
+
+```Go
+import "github.com/tidwall/gjson"
+gjson.Get(jsonStr, "foo.bar.status").String()
+```
+
 ## go json string 格式化
 
 ```bash

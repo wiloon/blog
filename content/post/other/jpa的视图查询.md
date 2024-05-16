@@ -122,9 +122,12 @@ INSERT INTO \`students\` VALUES ('1005', '3', '让雷诺');
 使用Group By和不使用Group By: 
 
 
-```sql``` 
+```sql
+
+``` 
   
-SELECT b.deptId, b.deptName, count(*) as 'totalCount' FROM students a LEFT JOIN depts b ON a.deptId=b.deptId GROUP BY b.deptId ORDER BY b.deptId;
+SELECT b.deptId, b.deptName, count(*) as 'totalCount' FROM students a 
+LEFT JOIN depts b ON a.deptId=b.deptId GROUP BY b.deptId ORDER BY b.deptId;
   
 使用Group By之后，凡是没有对应学生记录的学院都没有显示出来 (我不明白为什么。。。如果有人知道的话麻烦告诉我好吗？) 
   
