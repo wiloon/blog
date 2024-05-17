@@ -29,6 +29,7 @@ HH24	hour of day (00-23)
 SELECT TO_DATE('20170103','YYYYMMDD');
 
 -- to_timestamp(text, text)
+to_timestamp('2018-03-12 18:47:35','yyyy-MM-dd hh24:mi:ss')
 SELECT to_timestamp('05 Dec 2000', 'DD Mon YYYY');
 SELECT to_timestamp('10:49 2023/01/20', 'HH24:MI YYYY/MM/DD');
 ```
@@ -399,7 +400,7 @@ ps -ef|grep postgres | grep wait
 ```
 
 ```sql
---查看当前库表和索引的的大小并排序显示前20条  
+--查看当前库表和索引的的大小并排序显示前20条
 SELECT nspname,
        relname,
        relkind                                       as "type",
@@ -561,7 +562,8 @@ select c1,count(*), count(*) filter (where id<1000) from test group by c1;
 
 ## `regclass`
 
-`regclass` 是 oid 的别名，postgresql 自动的为每一个系统表都建立了一个 OId，其中有一个系统表叫做：pg_class，这个表里记录了数据表、索引 (仍然需要参阅pg_index)、序列、视图、复合类型和一些特殊关系类型的元数据
+`regclass` 是 oid 的别名，postgresql 自动的为每一个系统表都建立了一个 OId，其中有一个系统表叫做：pg_class，
+这个表里记录了数据表、索引 (仍然需要参阅pg_index)、序列、视图、复合类型和一些特殊关系类型的元数据
 
 [https://blog.csdn.net/shiyibodec/article/details/52447755](https://blog.csdn.net/shiyibodec/article/details/52447755)
 
@@ -618,9 +620,6 @@ LIMIT：对最终结果集进行截取，一般和offset连用，可用于分页
 ————————————————
 版权声明：本文为CSDN博主`「shenzhou_yh」`的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
 原文链接：https://blog.csdn.net/shenzhou_yh/article/details/103185772
-
-
-## postgresql 执行计划
 
 ## ESCAPE
 
@@ -687,3 +686,45 @@ bytea转字符串：
 
 select encode('\x00','escape') from nt_member limit 1;
 
+## 索引
+
+```SQL
+CREATE INDEX index_0 ON table_0 (column_0);
+
+select * from pg_indexes where tablename='network_discovery_routing_data';
+select * from pg_statio_all_indexes where relname='network_discovery_routing_data';
+
+select pg_relation_size('network_discovery_routing_data_time_stamp_idx');
+select pg_relation_size('constraint_routing_id_time_stamp');
+```
+
+## 临时改变执行计划
+
+类似 oracle 的 hint 干预执行计划，pg也有 pg_hint 插件，后期再研究。
+通常情况下，pg 不会走错执行计划，走错大都是因为统计信息收集不及时导致的，可通过更频繁地运行 analyze 来解决这个问题，更改下列参数只是一个临时方法。（如下参数值均为布尔类型）
+
+```Bash
+set enable_seqscan = off;
+```
+
+`enable_seqscan`：是否选择全表顺序扫描，把这个变量关闭会让优化器存在其他方法时，优先选择其他方法。
+`enable_indexscan`：是否选择索引扫描。
+`enable_bitmapscan`：是否选择位图扫描。
+`enable_tidscan`：是否选择 TID 扫描。
+`enable_nestloop`：多表连接时，是否选择嵌套循环连接。
+`enable_hashjoin`：多表连接时，是否选择 hash 连接。
+`enable_mergejoin`：多表连接时，是否选择 merge 连接。
+`enable_hashagg`：是否使用 hash 聚合。
+`enable_sort`：是否选择排序。
+
+执行计划路径方式
+全表扫描（顺序扫描）：seq scan，所有数据块，从头扫到尾。
+索引扫描：index scan，在索引中找到数据行的位置，然后到表的数据块中把对应的数据读出。
+位图索引扫描：bitmap index scan，把满足条件的行或块在内存中建一个位图，扫描完索引后，再根据位图把表的数据文件中相应的数据读取出来。
+条件过滤：filter
+嵌套循环连接：`nestloop` join，外表（驱动表）小，内表（被驱动表）大
+散列连接：hash join，用较小的表在内存中建立散列表，再去扫描较大的表，连接的表均为小表。
+合并连接：merge join，通常散列连接比合并连接性能好，当有索引或结果已经被排序时，合并连接性能好。
+
+版权声明：本文为博主原创文章，遵循 CC 4.0 BY-SA 版权协议，转载请附上原文出处链接和本声明。  
+原文链接：https://blog.csdn.net/songyundong1993/article/details/122844254

@@ -2,17 +2,25 @@
 title: PostgreSQL execution plan, explain, 执行计划
 author: "-"
 date: 2015-09-17T10:42:01+00:00
-url: postgresql-explain
+url: postgresql/explain
 categories:
   - DB
 tags:
   - reprint
+  - remix
 ---
 ## PostgreSQL execution plan, explain, 执行计划
 
+## Seq Scan, 全表扫描，顺序扫描
+
+全表扫描，也叫顺序扫描，扫描时把表中所有的数据块从头到尾遍历一边，找到复合条件的数据块。全表扫描在在explain中使用Seq Scan表示
+
+## IndexOnly Scan
+
+IndexOnly Scan 是覆盖索引扫描，所需的返回结果能被所扫描的索引全部覆盖
+
 https://www.jianshu.com/p/682d798aee1f
 
-介绍
 了解 PostgreSQL 执行计划对于开发人员来说是一项关键技能，执行计划是我们优化查询，验证我们的优化查询是否确实按照我们期望的方式运行的重要方式。
 
 ## PostgreSQL 数据库中的查询生命周期
@@ -106,7 +114,7 @@ VERBOSE 命令参数将为复杂查询提供更多信息
 查询的节点
 EXPLAIN SELECT * FROM users LIMIT 10 OFFSET 500;
 节点是执行查询的关键部分
-一个节点可以被认为是数据库执行的一个阶段。节点大多是嵌套的，如上图；先完成Seq Scan，然后在进行Limit。添加一个Where子句来理解进一步的嵌套。
+一个节点可以被认为是数据库执行的一个阶段。节点大多是嵌套的，如上图；先完成 Seq Scan，然后在进行Limit。添加一个Where子句来理解进一步的嵌套。
 
 EXPLAIN SELECT * FROM users where NAME = '张三' LIMIT 10
 查询
@@ -121,7 +129,9 @@ PostgreSQL 执行计划中有几种节点类型，包括Scans、Joins、Sort等�
 在本文中，将主要探讨Scan节点类型。为了便于理解，禁用了并行扫描。
 
 SET max_parallel_workers_per_gather = 0;
-5.1、顺序扫描（seq scan）
+
+## 顺序扫描（seq scan）
+
 让我们搜索一下 user_id=20001 的数据。
 
 
