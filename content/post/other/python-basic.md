@@ -497,11 +497,11 @@ deactivate
 
 ### 删除环境
 
-没有使用 virtualenvwrapper 的情况，可以直接删除 venv 文件夹来删除环境
+没有使用 `virtualenvwrapper` 的情况, 可以直接删除 venv 文件夹来删除环境
 
-## Virtualenvwrapper
+## `Virtualenvwrapper`
 
-Virtaulenvwrapper 是 virtualenv 的扩展包，用于更方便管理虚拟环境，它可以做: - 将所有虚拟环境整合在一个目录下 - 管理（新增，删除，复制）虚拟环境 - 快速切换虚拟环境
+`Virtaulenvwrapper` 是 virtualenv 的扩展包，用于更方便管理虚拟环境，它可以做: - 将所有虚拟环境整合在一个目录下 - 管理（新增，删除，复制）虚拟环境 - 快速切换虚拟环境
 
 ```bash
 # 安装
@@ -531,7 +531,7 @@ rmvirtualenv venv
 
 settings> Project Interpreters
 
-## pip install python-ldap failed due to cannot find -lldap_r
+## pip install python-ldap failed due to cannot `find -lldap_r`
 
 [https://github.com/python-ldap/python-ldap/issues/432](https://github.com/python-ldap/python-ldap/issues/432)
 
@@ -555,7 +555,7 @@ This will allow Django to continue loading, and reveal the actual error.
 
 [https://stackoverflow.com/questions/27093746/django-stops-working-with-runtimeerror-populate-isnt-reentrant](https://stackoverflow.com/questions/27093746/django-stops-working-with-runtimeerror-populate-isnt-reentrant)
 
-ImportError: libcrypt.so.1: cannot open shared object file: No such file or directory
+ImportError: `libcrypt.so.1`: cannot open shared object file: No such file or directory
 
 ```bash
 sudo pacman -S libxcrypt-compat
@@ -583,7 +583,7 @@ python manage.py startapp polls
 
 [https://www.djangoproject.com/](https://www.djangoproject.com/)
 
-## djano path re_path
+## `djano` path re_path
 
 如果遇上路径和转换器语法都不足以定义的URL模式，那么就需要使用正则表达式，这时候就需要使用re_path()，而非path()。
 
@@ -600,7 +600,7 @@ python里百分号有2个意思，计算数的时候，它是求余数的意思�
 版权声明：本文为CSDN博主「谢仁慈Mercy」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
 原文链接：[https://blog.csdn.net/weixin_42502060/article/details/111985588](https://blog.csdn.net/weixin_42502060/article/details/111985588)
 
-## parse.urlencode() 与 parse.unquote()
+## `parse.urlencode()` 与 parse.unquote()
 
 通过parse.unquote()方法进行解码，把 URL编码字符串，转换回原先字符串。
 
@@ -615,9 +615,9 @@ json.load()：从一个文件读取JSON类型的数据，然后转转换成Pytho
 
 obj to json [https://blog.csdn.net/mr_hui_/article/details/82941199](https://blog.csdn.net/mr_hui_/article/details/82941199)
 
-## isinstance()
+## `isinstance()`
 
-isinstance() 函数来判断一个对象是否是一个已知的类型，类似 type()。
+`isinstance()` 函数来判断一个对象是否是一个已知的类型，类似 type()。
 
 ```Python
 x = isinstance(5, int)
@@ -633,9 +633,9 @@ isinstance(value, str)
 logger.info(f"type of xxx: {type(foo)}")
 ```
 
-## @staticmethod
+## `@staticmethod`
 
-python staticmethod 返回函数的静态方法。
+python `staticmethod` 返回函数的静态方法。
 
 该方法不强制要求传递参数，如下声明一个静态方法：
 
@@ -668,7 +668,7 @@ def foo(param1, *param2):
 def bar(param1, **param2):
 这两种用法其实都是用来将任意个数的参数导入到python函数中。
 
-单星号（*）：*agrs
+单星号（*）：`*agrs`
 将所以参数以元组(tuple)的形式导入：
 例如：
 
@@ -678,7 +678,7 @@ def bar(param1, **param2):
 >>> foo(1,2,3,4,5)
 1
 (2, 3, 4, 5)
-双星号（**）：**kwargs
+双星号（**）：`**kwargs`
 将参数以字典的形式导入
 
 ```python
@@ -738,8 +738,8 @@ SQLEngine、MimeTypes。
 Python中有三个去除头尾字符、空白符的函数，它们依次为:
 
 strip： 用来去除头尾字符、空白符(包括\n、\r、\t、’ '，即：换行、回车、制表符、空格)
-lstrip：用来去除开头字符、空白符(包括\n、\r、\t、’ '，即：换行、回车、制表符、空格)
-rstrip：用来去除结尾字符、空白符(包括\n、\r、\t、’ '，即：换行、回车、制表符、空格)
+`lstrip`：用来去除开头字符、空白符(包括\n、\r、\t、’ '，即：换行、回车、制表符、空格)
+`rstrip`：用来去除结尾字符、空白符(包括\n、\r、\t、’ '，即：换行、回车、制表符、空格)
 
 ## Python 三目运算符
 
@@ -946,11 +946,11 @@ print(os.environ.get('LANG'))
 
 ## Python 正则
 
-Python正则表达式前的 r 表示原生字符串（rawstring），该字符串声明了引号中的内容表示该内容的原始含义，避免了多次转义造成的反斜杠困扰。
+Python正则表达式前的 r 表示原生字符串（`rawstring`），该字符串声明了引号中的内容表示该内容的原始含义，避免了多次转义造成的反斜杠困扰。
 
 关于反斜杠困扰：与多数编程语言相同，正则表达式中使用“\”作为转义字符，如果需要匹配文本中的字符“\”，在正则表达式中需要4个“\”，首先，前2个“\”和后两个“\”在python解释器中分别转义成一个“\”，然后转义后的2个“\”在正则中被转义成一个“\”。
 
-## djano
+## `djano`
 
 ## get 请求参数
 
@@ -1064,17 +1064,16 @@ windows 下不需要 uwsgi, 生产环境 linux 环境才需要, windows依赖里
 ## setup.py
 
 - build_ext: build C/C++ extensions (compile/link to build directory)，给python编译一个c、c++的拓展
-- –inplace: ignore build-lib and put compiled extensions into the source directory alongside your pure Python modules，忽略build-lib，将编译后的扩展放到源目录中，与纯Python模块放在一起
+- `–inplace`: ignore build-lib and put compiled extensions into the source directory alongside your pure Python modules，忽略build-lib，将编译后的扩展放到源目录中，与纯Python模块放在一起
 
 -----------------------------------
 ©著作权归作者所有：来自51CTO博客作者怡宝2号的原创作品，请联系作者获取转载授权，否则将追究法律责任
-【python】——setup.py build_ext --inplace命令解析
+【python】——setup.py build_ext `--inplace` 命令解析
 [https://blog.51cto.com/u_15357586/3788424](https://blog.51cto.com/u_15357586/3788424)
 
-## faulthandler
+## `faulthandler`
 
-segmentation fault (core dumped)  python  
-Python Segmentation fault错误定位办法  
+segmentation fault (core dumped) Python Segmentation fault 错误定位办法
 
 ```py
 import faulthandler
@@ -1207,7 +1206,7 @@ pip freeze > requirements.txt
 
 [https://zhuanlan.zhihu.com/p/34378860](https://zhuanlan.zhihu.com/p/34378860)
 
-## @classmethod
+## `@classmethod`
 
 [https://zhuanlan.zhihu.com/p/35643573](https://zhuanlan.zhihu.com/p/35643573)
 
@@ -1217,7 +1216,7 @@ pip freeze > requirements.txt
 
 ## module package
 
-在Python中，一个.py文件就称之为一个模块（Module）。为了避免模块名冲突，Python又引入了按目录来组织模块的方法，称为包（Package）。每一个包目录下面都会有一个__init__.py的文件，这个文件是必须存在的，否则，Python就把这个目录当成普通目录，而不是一个包。__init__.py可以是空文件，也可以有Python代码，因为__init__.py本身就是一个模块，而它的模块名就是mycompany。类似的，可以有多级目录，组成多级层次的包结构。
+在Python中，一个.py文件就称之为一个模块（Module）。为了避免模块名冲突，Python又引入了按目录来组织模块的方法，称为包（Package）。每一个包目录下面都会有一个__init__.py的文件，这个文件是必须存在的，否则，Python就把这个目录当成普通目录，而不是一个包。__init__.py可以是空文件，也可以有Python代码，因为__init__.py本身就是一个模块，而它的模块名就是 `mycompany`。类似的，可以有多级目录，组成多级层次的包结构。
 
 ## code
 
@@ -1294,18 +1293,20 @@ str_b = 'It is summer ' 'of 2019!'
 print(str_b) 
 ```
 
-## python函数参数前面单星号（*）和双星号（**）的区别
+## python 函数参数前面单星号（*）和双星号（**）的区别
 
-在python的函数中经常能看到输入的参数前面有一个或者两个星号：例如
+在 python 的函数中经常能看到输入的参数前面有一个或者两个星号：例如
 
 def foo(param1, *param2):
 def bar(param1, **param2):
+
 这两种用法其实都是用来将任意个数的参数导入到python函数中。
 
-单星号（*）：*agrs
+单星号（*）：`*agrs`
 将所以参数以元组(tuple)的形式导入：
 例如：
 
+```Bash
 >>> def foo(param1, *param2):
 print param1
 print param2
@@ -1340,20 +1341,20 @@ print kwargs
 2
 3 4
 {'e': 5, 'g': 7, 'f': 6}
+```
+
 参考资料： http://stackoverflow.com/questions/36901/what-does-double-star-and-star-do-for-python-parameters
 
 ## enumerate()
 
-enumerate() 函数用于将一个可遍历的数据对象(如列表、元组或字符串)组合为一个索引序列，同时列出数据和数据下标，一般用在 for 循环当中。
-
+enumerate() 函数用于将一个可遍历的数据对象(如列表、元组或字符串)组合为一个索引序列，
+同时列出数据和数据下标，一般用在 for 循环当中。
 
 ## confluent-kafka
 
 ```Bash
 pip install confluent-kafka
-
 ```
-
 
 ```Python
 from confluent_kafka import Consumer
@@ -1396,6 +1397,7 @@ https://debugtalk.com/post/remote-debugging-with-pycharm/
 
 
 ## pdb --- Python 的调试器
+
 源代码： Lib/pdb.py
 
 pdb 模块定义了一个交互式源代码调试器，用于 Python 程序。它支持在源码行间设置（有条件的）断点和单步执行，检视堆栈帧，列出源码列表，以及在任何堆栈帧的上下文中运行任意 Python 代码。它还支持事后调试，可以在程序控制下调用。
@@ -1403,7 +1405,9 @@ pdb 模块定义了一个交互式源代码调试器，用于 Python 程序。�
 Python将多个空格换为一个空格
 最近在文本预处理时遇到这个问题，解决方法如下:
 
+```Python
 import re
 str1 = '  rwe fdsa    fasf   '
 str1_after = re.sub(' +', '', str1)
 print(str1_after)
+```

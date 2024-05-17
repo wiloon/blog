@@ -700,6 +700,10 @@ select pg_relation_size('constraint_routing_id_time_stamp');
 
 ## 临时改变执行计划
 
+```SQL
+set enable_seqscan=off;set enable_bitmapscan = off;set enable_tidscan = off;explain (analyze,buffers,verbose) select count(*) from aken01;
+```
+
 类似 oracle 的 hint 干预执行计划，pg也有 pg_hint 插件，后期再研究。
 通常情况下，pg 不会走错执行计划，走错大都是因为统计信息收集不及时导致的，可通过更频繁地运行 analyze 来解决这个问题，更改下列参数只是一个临时方法。（如下参数值均为布尔类型）
 
