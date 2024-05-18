@@ -19,9 +19,12 @@ mvn help:effective-settings
 
 [https://maven.apache.org/download.cgi](https://maven.apache.org/download.cgi)
 
-### setting>mirror
+### setting & mirror
 
-[https://developer.aliyun.com/mirror/maven](https://developer.aliyun.com/mirror/maven)
+[maven setting aliyun](https://developer.aliyun.com/mirror/maven)
+
+mkdir ~/.m2
+vim ~/.m2/settings.xml
 
 [https://repo.maven.apache.org/maven2](https://repo.maven.apache.org/maven2)
 
@@ -59,7 +62,7 @@ mvn clean -Ptrip-app,daily package -Dmy.filter.value=1 -Dttidapk.ttids=21xx00
 
 ```bash
 # skip test, 强制更新依赖包
-  mvn -Dmaven.test.skip=true clean package -U
+mvn -Dmaven.test.skip=true clean package -U
 ```
 
 ### 生成项目

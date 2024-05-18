@@ -20,7 +20,7 @@ tags:
 winget install Microsoft.OpenJDK.21
 ```
 
-## archlinux openjdk
+## archlinux install openjdk
 
 ```bash
 # openjdk
@@ -74,7 +74,7 @@ sudo update-alternatives --config java
 
 ### download jdk
 
-[https://jdk.java.net/17](https://jdk.java.net/17)
+[JDK](https://jdk.java.net/22)
 
 ### AdoptOpenJDK
 

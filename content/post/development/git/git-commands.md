@@ -103,21 +103,19 @@ git push --set-upstream origin branch0
 新建分支其实就是在当前位置打个标签, 也就是说... 新分支是以当前分支的 commit 为基础的.
 
 ```bash
-
-# 从 tag v1.2.3 创建分支 branch1
-git checkout -b branch1 v1.2.3
-
-git checkout -b branch0
-
 # 从当前分支创建新分支, 新 branch 名字: branch0
 git branch branch0
 
 # 从 branch0 分支 创建 branch1 分支
 git branch branch1 branch0
 
+# 从 tag v1.2.3 创建分支 branch1
+git checkout -b branch1 v1.2.3
+
+git checkout -b branch0
+
 # 从 branch0 分支 创建 branch1 分支并切换到 branch1 分支 
 git checkout -b branch1 branch0
-
 ```
 
 ### 切换到分支
@@ -522,7 +520,7 @@ git checkout . # 本地所有修改的。没有的提交的，都返回到原来
 
 `git checkout -f` 提取当前 branch 的所有文件.
 
-`git checkout HEAD .` # 将所有代码都 checkout 出來(最后一次 commit 的版本), 注意, 若有修改的代码都会被还原到上一版. (`git checkout -f` 亦可)
+`git checkout HEAD .` # 将所有代码都 checkout 出來(最后一次 commit 的版本), 注意, 若有修改的代码都会被还原到上一个版本. (`git checkout -f` 亦可)
 
 ### checkout 指定版本
 
@@ -868,7 +866,7 @@ Git可以在你提交时自动地把行结束符 `CRLF` 转换成 LF，而在签
 git config --global core.autocrlf true
 ```
 
-Linux 或 Mac 系统使用 LF 作为行结束符，因此你不想 Git 在签出文件时进行自动的转换；当一个以 `CRLF` 为行结束符的文件不小心被引入时你肯定想进行修正，把 core.autocrlf 设置成 input 来告诉 Git 在提交时把 `CRLF` 转换成 LF，签出时不转换:
+Linux 或 Mac 系统使用 LF 作为行结束符，因此你不想 Git 在签出文件时进行自地的转换；当一个以 `CRLF` 为行结束符的文件不小心被引入时你肯定想进行修正，把 core.autocrlf 设置成 input 来告诉 Git 在提交时把 `CRLF` 转换成 LF，签出时不转换:
 
 ```bash
 git config --global core.autocrlf input
