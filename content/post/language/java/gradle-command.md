@@ -10,6 +10,12 @@ tags:
 ---
 ## Gradle basic, command
 
+## create project structure
+
+```Bash
+gradle init --type java-application  --dsl kotlin
+```
+
 ### command
 
 ```bash
@@ -19,7 +25,10 @@ gradle build
 ### install
 
 ```Bash
+# archlinux
 sudo pacman -S gradle
+# mac
+brew install gradle
 ```
 
 ## windows install gradle
