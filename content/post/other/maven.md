@@ -312,7 +312,7 @@ src
 在maven2.0中，可以为http request配置代理。同样在user configuration中配置，配置如下:
 
 ```xml
-<settings></settings>
+<settings>
     <proxy>
       <id>optional</id>
       true</active>
@@ -323,6 +323,7 @@ src
       <port>80</port>
       <nonProxyHosts>local.net,some.host.com</nonProxyHosts>
     </proxy>
+</settings>
 ```
 
 详见: [http://maven.apache.org/guides/mini/guide-proxies.html](http://maven.apache.org/guides/mini/guide-proxies.html)
