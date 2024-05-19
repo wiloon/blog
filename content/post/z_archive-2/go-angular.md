@@ -81,8 +81,7 @@ div> 上, *ngFor 会导致
 
 div> 被列表中的每个商品都重复渲染一次。
 
-```xml
-
+```
 </div>
 ```
 
@@ -104,7 +103,7 @@ div> 被列表中的每个商品都重复渲染一次。
 
 事件绑定是通过把事件名称包裹在圆括号 () 中完成的
 
-```xml
+```
 <button (click)="share()">
 ```
 
@@ -112,7 +111,7 @@ div> 被列表中的每个商品都重复渲染一次。
 
 [(ngModel)] 是 Angular 的双向数据绑定语法。
 
-```xml
+```
 import { FormsModule } from '@angular/forms';
 <input [(ngModel)]="hero.name" placeholder="name"/>
 ```

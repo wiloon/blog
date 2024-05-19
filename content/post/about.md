@@ -26,7 +26,7 @@ tags:
   - 前期不太注意知识共享协议，最近在有意识的识别有共享协议的文章并按协议转载
   - 没有明显的知识共享协议的文章会逐渐转移到私有仓库 Obsidian + AWS S3
   - 转载内容的 Author 会标记为"-"
-- 会不定期删除本人使用频率低的内容, 比如早期接触过的ASP.net, Wordpress, PHP...
+- 会不定期删除本人使用频率低的内容, 比如早期接触过的 ASP.net, Wordpress, PHP...
 - 本站点对应的 GitHub 仓库:[https://github.com/wiloon/wiloon.com](https://github.com/wiloon/wiloon.com)
 - 转载内容有侵权可以随时联系我删除
 
