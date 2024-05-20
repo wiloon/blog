@@ -166,7 +166,7 @@ Syncing disks.
 
 [root@localhost ~]# reboot
 
-[root@localhost ~]# pvcreate /dev/vda3 //创建物理卷
+pvcreate /dev/vda3 //创建物理卷
 
 Physical volume "/dev/vda3" successfully created
 
