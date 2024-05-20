@@ -48,3 +48,16 @@ Win + R 快捷键调出“运行”对话框，输入“msinfo32”，确定，�
 在“系统摘要”的右侧窗口中即可看到“BIOS模式”信息，如果显示的是“传统”，即为BIOS启动方式；如果显示的是“UEFI”，则为UEFI启动方式。
 
 BIOS Mode: UEFI
+
+##  efibootmgr
+
+https://www.cnblogs.com/pipci/p/8862292.html
+
+UEFI用来替代传统BIOS引导操作系统，学会修改UEFI启动项也变得十分重要，UEFI全称为：“统一的可扩展固件接口”（Unified Extensible Firmware Interface），目前新购入的计算机都支持UEFI固件，若是需要启动传统MBR设备，则需开启CSM（Compatibility Support Module）。关闭CSM则变成纯UEFI启动，且完全支持安全启动。Secure Boot（安全启动），安全启动仅适用于使用UEFI启动的操作系统。如果电脑要启动不完全支持UEFI的设备，就必须关闭Secure Boot，然后打开CSM。如Win7系统，必须开启CSM兼容模式。Windows8及以上都能很好的支持UEFI，而为了设置系统引导，必须要管理UEFI启动项。
+
+在国内个人物理机直接安装Linux系统时，一般都会再安装个Windows系统实现双系统，这样有时候就会出现系统启动项丢失的情况多为Linux系统
+
+解决方法就是使用efibootmgr命令添加启动项，而在Windows下可以使用EasyUEFI这个软件。
+
+1、如果系统丢失Linux启动项，如果是双系统就只能进入Windows，但是我不喜欢用EasyUEFI，这时可以选择一个Linux liveCD系统，如Ubuntu，
+将Ubuntu liveCD 刻录成U盘启动，如果刻录成光驱启动系统会很慢。

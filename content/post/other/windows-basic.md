@@ -382,3 +382,15 @@ Settings> Time & language> Typing> Advanced keyboard settings> Input language ho
 - Command Prompt's character escaping rules are both archaic and awful.  https://superuser.com/questions/1016710/how-to-make-a-curl-post-call-in-windows 
 - 让 curl 命令在 windows 下正常运行需要花太多精力...
 - 用 golang 写 Api 的测试, 有时候要执行 Shell 命令, 比如 执行 `nft add rule table0 chain0 tcp sport 1025 drop` 去 禁用掉邮件服务的连接, 测试重发, 不是说不能在 win 里做, 如果在 win 里做的话就要再学习一下 windows 有没有类似 iptables, nftables 之类的工具, 假设找到了也研究出来怎么用了, 这些知识也只能适用于 windows, 如果开发环境在 linux 里, 就可以去研究 iptables, nftabls, 在解决生产环境的问题的时候, 这些知识也是可以用到的.
+
+## 在 windows 里重启然后进入 BIOS
+
+1. settings
+2. Recovery
+3. Advanced startup> Restart now
+4. Restart now
+5. 在显示 lenovo logo 的屏幕, 不需要按提示按 Enter
+6. Choose an option> Troubleshoot
+7. advanced options
+8. UEFI Firmware Settings
+9. Restart

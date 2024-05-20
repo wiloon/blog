@@ -2,11 +2,12 @@
 title: mbr gpt
 author: "-"
 date: 2015-04-21T13:30:02+00:00
-url: /?p=7472
+url: mbr-gpt
 categories:
-  - Inbox
+  - CS
 tags:
   - reprint
+  - remix
 ---
 ## mbr gpt
 
@@ -24,7 +25,7 @@ http://www.rodsbooks.com/linux-fs-code/
 
 下面IT之家也给大家分享下MBR和GPT的详细区别。
 
-MBR分区表: 
+## MBR分区表: 
 
 在传统硬盘分区模式中,引导扇区是每个分区 (Partition) 的第一扇区,而主引导扇区是硬盘的第一扇区。它由三个部分组成,主引导记录MBR、硬盘分区表DPT和硬盘有效标志。在总共512字节的主引导扇区里MBR占446个字节,第二部分是Partition table区 (分区表) ,即DPT,占64个字节,硬盘中分区有多少以及每一分区的大小都记在其中。第三部分是magic number,占2个字节,固定为55AA。
 
@@ -38,9 +39,12 @@ MBR分区表:
 
 •结束标志字,偏移地址01FE-01FF的2个字节值为结束标志55AA,如果该标志错误系统就不能启动。
 
-GPT分区表: 
+## GPT 分区表, GUID Partition Map
 
-GPT的分区信息是在分区中,而不象MBR一样在主引导扇区,为保护GPT不受MBR类磁盘管理软件的危害,GPT在主引导扇区建立了一个保护分区 (Protective MBR) 的MBR分区表 (此分区并不必要) ,这种分区的类型标识为0xEE,这个保护分区的大小在Windows下为128MB,Mac OS X下为200MB,在Window磁盘管理器里名为GPT保护分区,可让MBR类磁盘管理软件把GPT看成一个未知格式的分区,而不是错误地当成一个未分区的磁盘。
+GPT 的分区信息是在分区中,而不象 MBR 一样在主引导扇区, 为保护 GPT 不受 MBR 类磁盘管理软件的危害, 
+GPT 在主引导扇区建立了一个保护分区 (Protective MBR) 的MBR分区表 (此分区并不必要), 这种分区的类型标识为0xEE, 
+这个保护分区的大小在Windows下为128MB,Mac OS X下为200MB,在Window磁盘管理器里名为GPT保护分区,
+可让MBR类磁盘管理软件把GPT看成一个未知格式的分区,而不是错误地当成一个未分区的磁盘。
 
 另外,为了保护分区表,GPT的分区信息在每个分区的头部和尾部各保存了一份,以便分区表丢失以后进行恢复。
 

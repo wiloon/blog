@@ -6,21 +6,48 @@ categories:
   - inbox
 tags:
   - reprint
+  - remix
 ---
-## "dm-crypt, 加密"
+## dm-crypt, 加密
 
-### 用 cryptsetup 创建 LUKS 的虚拟加密盘 (逻辑卷) 
-在前一个章节，已经介绍了"对物理分区的加密"。其实 cryptsetup 也可以支持虚拟加密盘 (逻辑加密盘) ——类似于 TrueCrypt 那样。  
-### 何为"虚拟加密盘"
-考虑到某些读者没有看过《TrueCrypt 使用经验[1]: 关于加密算法和加密盘的类型》，俺再次唠叨一下: 所谓的"虚拟加密盘"，就是说这个盘并【不是】对应物理分区，而是对应一个虚拟分区 (逻辑卷) 。这个虚拟分区，说白了就是一个大文件。虚拟分区有多大，这个文件就有多大。  
-"虚拟加密盘"的一个主要好处在于——可以拷贝复制。比如你可以在不同的机器之间复制这个虚假分区对应的大文件。甚至可以把这个大文件上传到云端 (网盘) 进行备份——这么干的好处参见《文件备份技巧: 组合"虚拟加密盘"与"网盘"》。  
+dm-crypt 是整合到 linux 内核中的，而它的命令行前端 cryptsetup, 在大多数主流的 linux 发行版中都会自带
+
+LUKS = Linux Unified Key Setup
+
+## commands
+
+```Bash
+# 将分区设置为加密的 LUKS 分区, 这个时候会对磁盘分区进行全盘覆写，所以速度会比较慢
+cryptsetup luksFormat /dev/nvme0n1p1
+
+# 打开加密的 LUKS 分区, 映射加密分区, 映射加密分区到 nvme0n1p1_encrypted，
+# 实际上是将加密分区映射到 linux 逻辑分区 /dev/mapper/nvme0n1p8_crypt
+cryptsetup open /dev/nvme0n1p1 nvme0n1p1_encrypted
+
+# 重设 PV 上加密层的大小
+# https://unix.stackexchange.com/questions/322905/what-does-cryptsetup-resize-do-if-luks-doesnt-store-partition-size
+sudo cryptsetup resize /dev/mapper/devicemappername
+
+```
+
+### 用 `cryptsetup` 创建 LUKS 的虚拟加密盘 (逻辑卷) 
+
+在前一个章节，已经介绍了"对物理分区的加密"。其实 `cryptsetup` 也可以支持虚拟加密盘 (逻辑加密盘) ——类似于 TrueCrypt 那样。
+
+### 虚拟加密盘
+
+考虑到某些读者没有看过《TrueCrypt 使用经验[1]: 关于加密算法和加密盘的类型》，俺再次唠叨一下: 所谓的"虚拟加密盘"，
+就是说这个盘并【不是】对应物理分区，而是对应一个虚拟分区 (逻辑卷) 。这个虚拟分区，说白了就是一个大文件。虚拟分区有多大，这个文件就有多大。  
+"虚拟加密盘"的一个主要好处在于——可以拷贝复制。比如你可以在不同的机器之间复制这个虚假分区对应的大文件。
+甚至可以把这个大文件上传到云端 (网盘) 进行备份——这么干的好处参见《文件备份技巧: 组合"虚拟加密盘"与"网盘"》。  
 
 ### 创建一个文件作为容器
+
 下面用 dd 命令创建 1GB (1024MB) 的大文件，该文件位于 /root/luks.vol 路径。当然，你也可以指定其它的文件大小或其它的文件路径。
+
 ```bash
 dd if=/dev/zero of=/root/luks.vol bs=1M count=1024
 ```
- (dd 命令是一个牛逼命令，之前在《如何用 ISO 镜像制作 U 盘安装盘 (通用方法、无需 WinPE) 》介绍过该命令) 
 
 经某个热心读者提醒，还可以使用 fallocate 命令创建容器文件。对于特别大的容器文件，性能【高于】dd 命令。
 以下示例通过 fallocate 【瞬间】创建一个 64GB 的大文件。
@@ -30,19 +57,27 @@ fallocate -l 64G /root/luks.vol
 ```
 
 ### 用 LUKS 方式加密 (格式化) 该文件容器
-使用前面章节提及的参数，对上述文件容器进行加密。得到一个虚拟的加密盘.提示 are you sure时,输入 大写的 YES
 
-    cryptsetup --cipher aes-xts-plain64 --key-size 512 --hash sha512 --iter-time 10000 luksFormat /root/luks.vol
+使用前面章节提及的参数，对上述文件容器进行加密。得到一个虚拟的加密盘. 提示 are you sure时, 输入 大写的 YES
+
+```Bash
+cryptsetup --cipher aes-xts-plain64 --key-size 512 --hash sha512 --iter-time 10000 luksFormat /root/luks.vol
+```
 
 ### 打开加密之后的文件容器
+
 使用如下命令打开上述的文件容器，使用的映射名是 xxx (你也可以改用其它单词) 。
 
-    cryptsetup luksOpen /root/luks.vol xxx
+```Bash
+cryptsetup luksOpen /root/luks.vol xxx
+```
 
 打开之后，该虚拟盘会被映射到 /dev/mapper/xxx
 你可以用如下命令看到: 
 
-    ls /dev/mapper/
+```Bash
+ls /dev/mapper/
+```
 
 ### 创建文件系统
 由于加密盘已经打开并映射到 /dev/mapper/xxx 你可以在 /dev/mapper/xxx 之上创建文件系统。命令如下 (文件系统类型以 ext4 为例) 
@@ -78,3 +113,5 @@ fallocate -l 64G /root/luks.vol
 ---
 
 https://program-think.blogspot.com/2015/10/dm-crypt-cryptsetup.html
+
+https://rehtt.com/index.php/archives/268/
