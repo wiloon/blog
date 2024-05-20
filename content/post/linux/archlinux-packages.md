@@ -10,23 +10,23 @@ tags:
 ---
 ## archlinux packages
 
-- aalib: ASCII art graphic library
-- aardvark-dns: Authoritative dns server for A/AAAA container records
-- abseil-cpp: Collection of C++ library code designed to augment the C++ standard librar
+- `aalib`: ASCII art graphic library
+- aardvark-dns: Authoritative dns server for `A/AAAA` container records
+- abseil-cpp: Collection of C++ library code designed to augment the C++ standard `librar`
 - ansible
 - ansible-core
 - aom: Alliance for Open Media video codec
-- appstream: Provides a standard for creating app stores across distributions
+- `appstream`: Provides a standard for creating app stores across distributions
 - at-spi2-core: Protocol definitions and daemon for D-Bus at-spi
 - audit: Userspace components of the audit framework
 - avahi: Service Discovery for Linux using mDNS/DNS-SD (compatible with Bonjour)
 - bluez-libs: Deprecated libraries for the bluetooth protocol stack
 - botan: Crypto library written in C++
-- btrfs-progs: Userspace utilities to manage btrfs filesystems
+- `btrfs-progs`: Userspace utilities to manage btrfs filesystems
 - ca-certificates-mozilla: Mozilla's set of trusted CA certificates
-- chrony: Lightweight NTP client and server
-- conmon: OCI container runtime monitor
-- dav1d: AV1 cross-platform decoder focused on speed and correctness
+- `chrony`: Lightweight NTP client and server
+- `conmon`: OCI container runtime monitor
+- `dav1d`: AV1 cross-platform decoder focused on speed and correctness
 - expat: An XML parser library
 - fftw: A library for computing the discrete Fourier transform (DFT)
 - fzf, fzf is a general-purpose command-line fuzzy finder.
@@ -34,15 +34,15 @@ tags:
 - gcr: A library for bits of crypto UI and parsing
 - `glslang`, GLSL - OpenGL Shading Language 也称作 `GLslang`，是一个以 C 语言为基础的高阶着色语言。它是由 OpenGL ARB 所建立，提供开发者对绘图管线更多的直接控制，而无需使用汇编语言或硬件规格语言。
 - gtk-update-icon-cache: GTK icon cache updater
-- hwdata: hardware identification databases
+- `hwdata`: hardware identification databases
 - gnutls: A library which provides a secure layer over a reliable transport layer
-- libavif: Library for encoding and decoding .avif files
-- libplist: Library to handle Apple Property List files
-- libx11: X11 client-side library
-- c-ares: c-ares是一个C语言实现的异步请求DNS的实现。很多知名 软件(curl、seastar、gevent、Nodejs等等)都使用了该软件。
-- cfitsio: A library of C and Fortran subroutines for reading and writing data files in FITS (Flexible Image Transport System) data format
-- cryptsetup: Userspace setup tool for transparent encryption of block devices using dm-crypt
-- archlinux-appstream-data: Arch Linux application database for AppStream-based software centers, appstream-data是一个用于支持软件中心和应用程序管理器的数据包。它包含应用程序的描述信息，如应用程序名称、图标、作者、版本等，这些信息可以在软件中心中显示出来，方便用户查看和选择。
+- `libavif`: Library for encoding and decoding `.avif` files
+- `libplist`: Library to handle Apple Property List files
+- `libx11`: X11 client-side library
+- c-ares: c-ares是一个C语言实现的异步请求DNS的实现。很多知名 软件(curl、`seastar`、gevent、Nodejs等等)都使用了该软件。
+- `cfitsio`: A library of C and Fortran subroutines for reading and writing data files in FITS (Flexible Image Transport System) data format
+- `cryptsetup`: Userspace setup tool for transparent encryption of block devices using dm-crypt
+- `archlinux-appstream-data`: Arch Linux application database for AppStream-based software centers, `appstream-data` 是一个用于支持软件中心和应用程序管理器的数据包。它包含应用程序的描述信息，如应用程序名称、图标、作者、版本等，这些信息可以在软件中心中显示出来，方便用户查看和选择。
 
 
 ## linux-firmware
@@ -62,9 +62,9 @@ An executable image. Components defined in this specification support on elf the
 版权声明：本文为CSDN博主「AllFiredUp」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
 原文链接：[https://blog.csdn.net/weixin_36272622/article/details/112024476](https://blog.csdn.net/weixin_36272622/article/details/112024476)
 
-### akonadi
+### `akonadi`
 
-Akonadi 框架为应用程序提供中心数据库来统一保存、索引和获取用户的个人信息。这包括邮件、联系人、日历、事件、日志、闹钟和笔记等。在 SC 4.4 中， KAddressBook 成为首个使用 Akonadi 框架的程序。在 SC 4.7 中， KMail, KOrganizer, KJots等也开始更新使用 Akonadi 。此外，一些 等离子 部件也使用 Akonadi 保存和获取日历事件、笔记等。
+`Akonadi` 框架为应用程序提供中心数据库来统一保存、索引和获取用户的个人信息。这包括邮件、联系人、日历、事件、日志、闹钟和笔记等。在 SC 4.4 中， KAddressBook 成为首个使用 `Akonadi` 框架的程序。在 SC 4.7 中， KMail, KOrganizer, KJots等也开始更新使用 `Akonadi`。此外，一些 等离子 部件也使用 `Akonadi` 保存和获取日历事件、笔记等。
 
 ### iana-etc
 

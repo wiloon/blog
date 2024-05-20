@@ -236,7 +236,7 @@ sudo rm /var/lib/pacman/db.lck
 ## 查看软件包依赖, `pactree`
 
 ```bash
-# pactree 是 pacman-contrib 提供的
+# pactree 由 pacman-contrib 包提供
 pacman -S pacman-contrib
 
 # 查看 package0 依赖了哪些软件包

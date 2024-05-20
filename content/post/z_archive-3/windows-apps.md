@@ -1,9 +1,9 @@
 ---
-title: windows apps, win apps
+title: Windows apps, win apps
 author: "-"
 date: 2019-03-28T02:03:39+00:00
 url: windows/apps
-keys: win apps, windows apps
+keys: win apps, Windows apps
 categories:
   - windows
 tags:
