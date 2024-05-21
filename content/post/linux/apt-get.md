@@ -8,7 +8,7 @@ categories:
 tags:
   - reprint
 ---
-## apt-get, apt basic command
+## apt-get, apt basic command, apt command
 
 ### 列出某个软件包安装了哪些文件
 

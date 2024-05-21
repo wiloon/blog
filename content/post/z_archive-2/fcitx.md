@@ -154,3 +154,17 @@ ctrl-7
 [https://blog.csdn.net/rznice/article/details/79840261](https://blog.csdn.net/rznice/article/details/79840261)
 
 [https://registerboy.pixnet.net/blog/post/12180583](https://registerboy.pixnet.net/blog/post/12180583)
+
+
+## ubuntu install fcitx5
+
+```Bash
+sudo apt install fcitx5 \
+fcitx5-chinese-addons \
+fcitx5-frontend-gtk4 fcitx5-frontend-gtk3 fcitx5-frontend-gtk2 \
+fcitx5-frontend-qt5
+```
+
+settings> region& language> manage installed languages
+
+https://zhuanlan.zhihu.com/p/508797663

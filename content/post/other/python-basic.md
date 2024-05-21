@@ -77,8 +77,13 @@ https://stackoverflow.com/questions/52561997/segmentation-fault-during-installat
 https://www.python.org/downloads/source/
 
 ```Bash
-sudo apt update 
-sudo apt install build-essential zlib1g-dev libncurses5-dev libgdbm-dev libnss3-dev libssl-dev libreadline-dev libffi-dev libsqlite3-dev wget libbz2-dev tk-dev liblzma-dev lzma
+sudo apt update
+
+sudo apt-get install -y make build-essential libssl-dev zlib1g-dev \
+libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm libncurses5-dev \
+libncursesw5-dev xz-utils tk-dev libffi-dev liblzma-dev \
+libgdbm-dev libnss3-dev libedit-dev libc6-dev
+
 ./configure --enable-optimizations
 make -j `nproc`
 sudo make altinstall

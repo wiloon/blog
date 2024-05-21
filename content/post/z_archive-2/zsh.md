@@ -11,17 +11,26 @@ tags:
 ---
 ## zsh, oh-my-zsh, oh my zsh
 
-## ubuntu
-
 ```Bash
-# 检查一下系统里的 shell
+# 查看已经安装的 shell 列表
 cat /etc/shells
 
 ## 查看当前 shell
 echo $SHELL
 
-# install zsh
-apt install zsh
+# archlinux install zsh
+sudo pacman -S git zsh
+
+# ubuntu install zsh
+sudo apt install zsh
+```
+
+## install oh my zsh
+
+```Bash
+# install oh-my-zsh, will set default shell to zsh
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+# after oh my zsh installed, ubuntu user should logout and login.
 ```
 
 ## update oh my zsh
@@ -49,19 +58,21 @@ rm ~/.zcompdump*
 
 [https://www.jianshu.com/p/aea390c1c8ef](https://www.jianshu.com/p/aea390c1c8ef)
 
+https://github.com/zsh-users/zsh-autosuggestions
+
 ```bash
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 vim .zshrc
 plugins=(git zsh-autosuggestions)
 ```
 
-## install zsh
+## archlinux install zsh
 
 ```bash
 sudo pacman -S git zsh
 
-# install oh-my-zsh, will set default shell to zsh
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
+
 ```
 
 https://ohmyz.sh/

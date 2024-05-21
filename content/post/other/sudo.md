@@ -46,7 +46,7 @@ sudo vim /etc/sudoers.d/00_wiloon
 wiloon ALL=(ALL) NOPASSWD: ALL
 ```
 
-注意： 有的时候你的将用户设了 `nopasswd`， 但是不起作用，原因是被后面的 group 的设置覆盖了，需要把 group 的设置也改为 `nopasswd`。
+注意： 有的时候你的将用户设了 `nopasswd`， 但是不起作用，原因是被后面的 group 的设置覆盖了，需要把 group 的设置也改为 `nopasswd`
 
 ```bash
 joe ALL=(ALL) NOPASSWD: ALL

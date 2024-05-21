@@ -191,3 +191,13 @@ network:
 sudo netplan apply
 
 ```
+
+## 区域语言
+
+ls -l 文件日期显示中文的问题
+
+Region & Language> Manage Installed Languages> Regional Formats> Display numbers, dates and currency amounts in the usual format for: English(United States)
+
+apply system-wide
+
+
