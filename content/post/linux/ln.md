@@ -27,7 +27,9 @@ ln foo bar
 
 # 删除链结
 unlink link0
-  
+# see the actual contents of a symlink
+ls -l link0
+readlink link0
 ```
 
 Linux链接分两种，一种被称为硬链接 (Hard Link) ，另一种被称为符号链接 (soft link, Symbolic Link) 。默认情况下，ln命令产生硬链接。
