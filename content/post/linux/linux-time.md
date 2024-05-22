@@ -125,3 +125,11 @@ ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 重新启动即可。
 
 [http://www.cnblogs.com/zhangeamon/p/5500744.html](http://www.cnblogs.com/zhangeamon/p/5500744.html)
+
+## windows linux 双系统 时钟问题
+
+https://itsfoss.com/wrong-time-dual-boot/
+
+```Bash
+timedatectl set-local-rtc 1 --adjust-system-clock
+```
