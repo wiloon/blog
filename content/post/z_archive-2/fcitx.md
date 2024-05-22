@@ -10,6 +10,71 @@ tags:
 ---
 ## fcitx
 
+## ubuntu 22.04 install fcitx5
+
+检查系统中文环境
+在 Ubuntu 设置中打开「区域与语言」—— 「管理已安装的语言」，然后会自动检查已安装语言是否完整。若不完整，根据提示安装即可。
+
+最小安装
+为使用 Fcitx 5，需要安装三部分基本内容：
+
+Fcitx 5 主程序
+中文输入法引擎
+图形界面相关
+按照这个思路，可以直接使用 apt 进行安装：
+
+sudo apt install fcitx5 \
+fcitx5-chinese-addons \
+fcitx5-frontend-gtk4 fcitx5-frontend-gtk3 fcitx5-frontend-gtk2 \
+fcitx5-frontend-qt5
+
+配置
+设置为默认输入法
+使用 im-config 工具可以配置首选输入法，在任意命令行输入：
+
+im-config
+
+根据弹出窗口的提示，将首选输入法设置为 Fcitx 5 即可。
+
+环境变量
+需要为桌面会话设置环境变量，即将以下配置项写入某一配置文件中：
+
+```Bash
+export XMODIFIERS=@im=fcitx
+export GTK_IM_MODULE=fcitx
+export QT_IM_MODULE=fcitx
+```
+
+如果使用 zsh 作为 shell，则建议写入至 ~/.zshrc ，这样只对当前用户生效，而不影响其他用户。
+
+另一个可以写入此配置的文件为系统级的 /etc/profile 。
+
+开机自启动
+安装 Fcitx 5 后并没有自动添加到开机自启动中，每次开机后需要手动在应用程序中找到并启动，非常繁琐。
+
+解决方案非常简单，在 Tweaks（sudo apt install gnome-tweaks）中将 Fcitx 5 添加到「开机启动程序」列表中即可。
+
+Fcitx 配置
+Fcitx 5 提供了一个基于 Qt 的强大易用的 GUI 配置工具，可以对输入法功能进行配置。有多种启动该配置工具的方法：
+
+在应用程序列表中打开「Fcitx 配置」
+在 Fcitx 托盘上右键打开「设置」
+命令行命令 fcitx5-configtool
+根据个人偏好进行设置即可。需要注意的是「输入法」标签页下，应将「键盘 - 英语」放在首位，拼音（或其他中文输入法）放在后面的位置。
+
+取消勾选 only show current language
+
+在简体中文中选择 wubi 加入左边窗格
+
+自定义主题
+Fcitx 5 默认的外观比较朴素，用户可以根据喜好使用自定义主题。
+
+第一种方式为使用经典用户界面，可以在 GitHub 搜索主题，然后在 Fcitx5 configtool —— 「附加组件」 —— 「经典用户界面」中设置即可。
+
+第二种方式为使用 Kim面板，一种基于 DBus 接口的用户界面。此处安装了 Input Method Panel 这个 GNOME 扩展，黑色的风格与正在使用的 GNOME 主题 Orchis-dark 非常搭配。
+
+https://extensions.gnome.org/extension/261/kimpanel/
+
 ## 繁体简体转换快捷键
 
 addon 里找 繁体简体转换，修改快捷键
@@ -53,7 +118,13 @@ ctrl+7
 
 ### 五笔词库位置
 
+```Bash
+# fcitx5
+/home/ywang6/.local/share/fcitx5/table/wbx.user.dict
+
+# fcitx
 /home/wiloon/.config/fcitx/table/wbx.mb
+```
 
 ## 安装 fcitx
 
