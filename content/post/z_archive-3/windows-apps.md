@@ -112,8 +112,6 @@ puttygen
   
 puttyng
   
-rdm redis desktop manager
-  
 visualbox
 
 avirnt

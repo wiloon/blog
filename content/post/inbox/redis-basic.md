@@ -18,6 +18,7 @@ redis-cli -h 127.0.0.1 -p 6379
 redis-cli -h 127.0.0.1 -p 6379 -a password0
 # -n 指定 db
 redis-cli -h 127.0.0.1 -p 6379 -a password0 -n 10
+
 # OBJECT ENCODING 命令可以查看一个数据库键的值对象的编码
 OBJECT ENCODING key0
 
@@ -27,6 +28,9 @@ debug object key0
 
 # 查看各个库的 key 数量
 info keyspace
+
+# 不进入交互模式, 直接执行命令
+redis-cli -h 127.0.0.1 -p 6379 hget key0 field0
 ```
 
 #### 延迟时间
@@ -196,7 +200,7 @@ del key1 key2
 ### unlink
 
 ```bash
-    unlink key [key ...]
+unlink key [key ...]
 ```
 
 ### 判断 key 是否存在
@@ -222,7 +226,7 @@ EXPIRE key0 10
 ### ttl: 返回给定 key 的剩余生存时间(TTL, time to live)
 
 ```bash
-    TTL key
+TTL key
 ```
 
 以秒为单位，返回给定 key 的剩余生存时间(TTL, time to live)。
@@ -246,9 +250,6 @@ redis-cli -h 127.0.0.1 -p 6379
 
 #cluster
 redis-cli -c -h 127.0.0.1 -p 6379
-
-# 不进入交互模式, 直接执行命令
-redis-cli -h 127.0.0.1 -p 6379 hget key0 field0
 
 client list
 client kill ip:port

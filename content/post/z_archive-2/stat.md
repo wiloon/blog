@@ -10,13 +10,13 @@ tags:
 ---
 ## stat command
 
-stat命令，查看某个文件的 inode 信息, 除了文件名以外的所有文件信息，都存在inode之中。
+stat 命令，查看某个文件的 inode 信息, 除了文件名以外的所有文件信息，都存在inode之中。
 
-### stat, linux 文件创建时间, 修改时间
+### stat, linux 查看文件创建时间, 修改时间
 
 ### atime, mtime, ctime
 
-    简名     全名           中文名       含义
+    简名     全名            中文名      含义
     atime    access time    访问时间    文件中的数据库最后被访问的时间
     mtime    modify time    修改时间    文件内容被修改的最后时间
     ctime    change time    变化时间    文件的元数据发生变化。比如权限,所有者等
@@ -47,7 +47,9 @@ Tue Aug 4 15:13:44 HKT 2009
 
 ### 通过stat 命令查 atime, mtime, ctime
 
-    stat filetime.txt
+```Bash
+stat filetime.txt
+```
 
 #### output
 

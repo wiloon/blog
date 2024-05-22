@@ -248,3 +248,15 @@ https://askubuntu.com/questions/526308/i-created-a-desktop-file-in-usr-share-app
 ## super key
 
 windows key
+
+## dev env
+
+- citrix
+  - 能打开远程桌面
+  - 不能传文件，看不到 C 盘
+- Jetbrains OK
+- webex
+  - 只能发文字消息
+  - 会议模式 60s 断线崩溃， 可以用网页版 webex
+- 中文输入法
+  - 某些 APP 有可能用不了中文输入法，有可能需要在外面输中文再拷进去
