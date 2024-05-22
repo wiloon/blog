@@ -11,10 +11,14 @@ tags:
 ---
 ## audio, 音量, 静音, ALSA
 
+## ubuntu系统的声音太小，通过终端调高
+
+alsamixer
+
 ## linux audio, 音量,静音
 
 ```bash
-# archlinux+kde 不需要手动修改默认静音设置,安装alsa-utils, plasma-pa后重启即可。
+# archlinux+kde 不需要手动修改默认静音设置, 安装alsa-utils, plasma-pa后重启即可。
 sudo pacman -S alsa-utils
 #kde
 sudo pacman -S plasma-pa
@@ -26,7 +30,7 @@ sudo pacman -S gnome-alsamixer
 
 alsamixer
 
-## ArchLinux安装完没有声音
+## ArchLinux 安装完没有声音
 
 ### 解除静音
   

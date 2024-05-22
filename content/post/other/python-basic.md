@@ -76,6 +76,10 @@ https://stackoverflow.com/questions/52561997/segmentation-fault-during-installat
 
 https://www.python.org/downloads/source/
 
+https://stackoverflow.com/questions/72102435/how-to-install-python3-6-on-ubuntu-22-04
+
+https://www.python.org/ftp/python/
+
 ```Bash
 sudo apt update
 
@@ -84,10 +88,15 @@ libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm libncurses5-dev \
 libncursesw5-dev xz-utils tk-dev libffi-dev liblzma-dev \
 libgdbm-dev libnss3-dev libedit-dev libc6-dev
 
-./configure --enable-optimizations
-make -j `nproc`
+wget https://www.python.org/ftp/python/3.6.15/Python-3.6.15.tgz
+
+tar -xzf Python-3.6.15.tgz
+
+cd Python-3.6.15
+./configure --enable-optimizations  -with-lto  --with-pydebug
+make -j 8  # adjust for number of your CPU cores
 sudo make altinstall
-/usr/local/bin/python3.6 --version
+python3.6 -V
 ```
 
 ## 查看包依赖树
@@ -1416,3 +1425,22 @@ str1 = '  rwe fdsa    fasf   '
 str1_after = re.sub(' +', '', str1)
 print(str1_after)
 ```
+
+## errors
+
+```Bash
+sudo apt-get install g++
+sudo apt-get install libtool
+sudo apt-get install flex
+sudo apt-get install bison -y
+sudo apt-get install byacc -y
+# xlocale.h not found
+ln -s /usr/include/locale.h /usr/include/xlocale.h
+# psycopg2==2.7.3.2
+sudo apt-get install libpq-dev
+
+vim ~/.pip/pip.conf
+pip install xxx-utils
+
+```
+

@@ -12,7 +12,7 @@ tags:
 
 Open folder /home/USERNAME/.local/share/applications/
   
-Find jetbrains-idea.desktop.
+Find jetbrains-idea.desktop
   
 Right mouse click on it, then select Properties
   

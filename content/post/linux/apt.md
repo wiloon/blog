@@ -287,3 +287,18 @@ Acquire::https::proxy "https://127.0.0.1:8000/";
 EOF
 
 ```
+
+## Find what package a file belongs to in Ubuntu/Debian
+
+```Bash
+sudo apt-get install apt-file
+sudo apt-file update
+
+apt-file search filename
+# or 
+apt-file search /path/to/file
+
+# List of files installed from apt package
+apt-file list $package
+
+```

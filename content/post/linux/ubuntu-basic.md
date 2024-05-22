@@ -200,4 +200,51 @@ Region & Language> Manage Installed Languages> Regional Formats> Display numbers
 
 apply system-wide
 
+## add a shell script to launcher as shortcut
 
+Create *.desktop file, location depends on if it is for personal use or all users. If these directories do not exist, create them.
+For personal use , ~/.local/share/applications
+.desktop 文件不能用软链接
+
+gedit ~/.local/share/applications/name.desktop
+For all users, /usr/local/share/applications/ (or /usr/share/applications/ depending upon your system).
+
+sudo -i gedit /usr/share/applications/name.desktop
+Paste below text
+
+[Desktop Entry]
+Type=Application
+Terminal=true
+Name=unmount-mount
+Icon=/path/to/icon/icon.svg
+Exec=/path/to/file/mount-unmount.sh
+edit Icon= and Exec= and Name=
+
+Also Terminal=True/false determines whether the terminal opens a window and displays output or runs in the background
+
+put this in unity panel by dragging it from files manager
+
+logic is very simple that unity panel allows *.desktop files as launcher though I haven't tried it because I use Natty.
+Exec= 指定的Shell脚本不能有 nohup, 实际上也不需要 nohup, 设置 Terminal=false terminal 不会弹出来
+
+https://askubuntu.com/questions/141229/how-to-add-a-shell-script-to-launcher-as-shortcut
+
+I was facing this problem and I will share my notes in case it helps someone.
+
+If the .desktop file is for all users to use then it should be placed under /usr/local/share/applications.
+If the .desktop file is only for the current user then it should be placed under ~/.local/share/applications.
+The .desktop file placed as above does not need execute permissions. It can be 0644.
+If the .desktop file has a key Hidden then it should be Hidden=false.
+If the .desktop file has a key NoDisplay then it should be NoDisplay=false.
+The Exec key should have a valid command. Bash commands may not work as detailed in this answer.
+With these settings in place the desktop entry should be searchable using the Super key, and from there using the Right Click -> Add to Favorites option, it can be setup as a favorite on the dash.
+
+Note: In the above bullet points, "Has a key" means if the key is present in the config file. Alternatively, it can be absent, in which case the default value for that key takes effect.
+
+https://askubuntu.com/questions/1387328/add-to-favorites-not-available-for-manually-created-desktop-item
+
+https://askubuntu.com/questions/526308/i-created-a-desktop-file-in-usr-share-applications-but-it-doesnt-show-up-in-d/527154#527154
+
+## super key
+
+windows key
