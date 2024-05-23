@@ -335,7 +335,7 @@ print 'name' in d
 del test_dict['Zhihu']
 ```
 
-dict 遍历for
+### dict 遍历
 
 ```py
 for key, value in dict_0.items():
@@ -541,7 +541,7 @@ deactivate
 rmvirtualenv venv
 ```
 
-### Jetbrain Pycharm
+### JetBrains Pycharm
 
 settings> Project Interpreters
 
@@ -611,7 +611,7 @@ python里百分号有2个意思，计算数的时候，它是求余数的意思�
 
 第一种：数值运算 1 % 3 是指模运算, 取余数(remainder)>>> 7%2
 
-版权声明：本文为CSDN博主「谢仁慈Mercy」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
+版权声明：本文为`CSDN`博主「谢仁慈Mercy」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
 原文链接：[https://blog.csdn.net/weixin_42502060/article/details/111985588](https://blog.csdn.net/weixin_42502060/article/details/111985588)
 
 ## `parse.urlencode()` 与 parse.unquote()
@@ -1300,7 +1300,7 @@ print('hello', str_a, '!')
 
 ### 空格
 
-目前用的这种解决 jetbrain 提示代码行过长的问题
+目前用的这种解决 JetBrains 提示代码行过长的问题
 
 ```Python
 str_b = 'It is summer ' 'of 2019!'
@@ -1426,6 +1426,15 @@ str1_after = re.sub(' +', '', str1)
 print(str1_after)
 ```
 
+## pytest
+
+```Bash
+# 在项目根目录执行
+python -m pytest
+
+# 输出 print
+python -m pytest -s
+```
 ## errors
 
 ```Bash
