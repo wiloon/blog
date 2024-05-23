@@ -239,3 +239,7 @@ fcitx5-frontend-qt5
 settings> region& language> manage installed languages
 
 https://zhuanlan.zhihu.com/p/508797663
+
+## fcitx wayland chrome
+
+https://fcitx-im.org/wiki/Using_Fcitx_5_on_Wayland#Chromium_.2F_Electron

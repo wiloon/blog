@@ -11,7 +11,62 @@ tags:
 ---
 ## python basic
 
-## hashset
+## list array, 列表, 数组
+
+```Bash
+# Python合并两个列表
+# 法一：
+#Python合并两个列表，相加是拼接
+list1=[1,2,3]
+list2=[4,5,6,7]
+list3=list1+list2
+print('list3',list3)#输出[1,2,3,4,5,6,7]
+
+#注意：Python合并两个NumPy数组，相加时候是对应相加
+import numpy as  np
+arr1=np.array([1,2,3])
+arr2=np.array([4,5,6])
+arr3=arr1+arr2
+print(arr3)#输出[5 7 9]
+#那么NumPy数组怎么拼接呢，使用concatenate
+arr4=np.concatenate((arr1,arr2),axis=0)
+print('arr4',arr4)
+
+# 法二：
+l3=[]
+l1=[1,2,3]
+l2=[4,5,6]
+l3.append(l1)
+l3.append(l2)
+print('l3',l3)#输出[[1, 2, 3], [4, 5, 6]],注意这里是二维列表,不是我们想要的结果
+
+# 如何才能达到我们要的结果，使用extend
+l1.extend(l2)
+print('l1',l1)#[1, 2, 3, 4, 5, 6]
+
+# 总结：
+# Python合并两个列表，可用两个列表相加存入新列表，或者使用extend在原列表修改
+```
+
+————————————————
+
+版权声明：本文为博主原创文章，遵循 CC 4.0 BY-SA 版权协议，转载请附上原文出处链接和本声明。
+
+原文链接：https://blog.csdn.net/m0_37690430/article/details/117512661
+
+准确来说 Python 中是没有数组类型的，只有列表(list) 和元组（tuple), 数组是 numpy 库中所定义的，所以在使用数组之前必须下载安装 numpy库。 python中 的list 是python 的内置数据类型，list 中的数据类不必相同的，而 array的中的类型必须全部相同。在list 中的数据类型保存的是数据的存放的地址，简单的说就是指针，并非数据，这样保存一个 list 就太麻烦了，例如 `list1=[1,2,3,'a']` 需要4个指针和四个数据，增加了存储和消耗cpu。numpy中封装的 array 有很强大的功能，里面存放的都是相同的数据类型。
+
+1. 列表的特点
+   列表是以方括号 [] 包围的数据集合，不同成员以 “，”分隔。如 L = [1,2,3], 列表 a有3个成员。
+   列表是可变的数据类型【可进行增删改查】，列表中可以包含任何数据类型，也可以包含另一个列表。如： L = [1,2,[3,4]]，列表L有3个成员，最后一个成员为一个列表。
+   列表可以通过序号（索引）访问其中成员，成员序号从0开始，如：a[0]=1。
+   列表没有shape，计算列表中成员（元素）的个数，成员以最外层的[ ]中的逗号“，”来分隔，计算方式是len(L)=3, L = [1,2,[3,4]] ，没有数组中的a.shape操作。
+   空列表（0个元素的列表）：L=[], 一个元素的列表：L=[1], 多个元素的列表L=[1,2,3]
+
+负数索引表示从右边往左数，最右边的元素的索引为 -1，倒数第二个元素为 -2
+
+
+## set, hashset
 
 ```py
 myset = {"apple", "banana", "cherry"}
@@ -28,7 +83,7 @@ l.remove(1)
 >>> x, y
 (set(['a', 'p', 's', 'm']), set(['a', 'h', 'm']))    
   
->>> x & y # 交集  
+# 交集, x & y 
 set(['a', 'm'])  
   
 >>> x | y # 并集  
@@ -424,61 +479,7 @@ pickle.dump(obj, file[, protocol])
 pickle.load(file)
 　　反序列化对象。将文件中的数据解析为一个Python对象。
 
-## list array, 列表, 数组
-
-#Python合并两个列表
-
-# 法一：
-#Python合并两个列表，相加是拼接
-list1=[1,2,3]
-list2=[4,5,6,7]
-list3=list1+list2
-print('list3',list3)#输出[1,2,3,4,5,6,7]
-
-#注意：Python合并两个NumPy数组，相加时候是对应相加
-import numpy as  np
-arr1=np.array([1,2,3])
-arr2=np.array([4,5,6])
-arr3=arr1+arr2
-print(arr3)#输出[5 7 9]
-#那么NumPy数组怎么拼接呢，使用concatenate
-arr4=np.concatenate((arr1,arr2),axis=0)
-print('arr4',arr4)
-
-# 法二：
-l3=[]
-l1=[1,2,3]
-l2=[4,5,6]
-l3.append(l1)
-l3.append(l2)
-print('l3',l3)#输出[[1, 2, 3], [4, 5, 6]],注意这里是二维列表,不是我们想要的结果
-
-# 如何才能达到我们要的结果，使用extend
-l1.extend(l2)
-print('l1',l1)#[1, 2, 3, 4, 5, 6]
-
-# 总结：
-# Python合并两个列表，可用两个列表相加存入新列表，或者使用extend在原列表修改
-————————————————
-
-                            版权声明：本文为博主原创文章，遵循 CC 4.0 BY-SA 版权协议，转载请附上原文出处链接和本声明。
-
-原文链接：https://blog.csdn.net/m0_37690430/article/details/117512661
-
-准确来说 Python 中是没有数组类型的，只有列表(list) 和元组（tuple), 数组是 numpy 库中所定义的，所以在使用数组之前必须下载安装 numpy库。 python中 的list 是python 的内置数据类型，list 中的数据类不必相同的，而 array的中的类型必须全部相同。在list 中的数据类型保存的是数据的存放的地址，简单的说就是指针，并非数据，这样保存一个 list 就太麻烦了，例如 `list1=[1,2,3,'a']` 需要4个指针和四个数据，增加了存储和消耗cpu。numpy中封装的 array 有很强大的功能，里面存放的都是相同的数据类型。
-
-1. 列表的特点
-列表是以方括号 [] 包围的数据集合，不同成员以 “，”分隔。如 L = [1,2,3], 列表 a有3个成员。
-列表是可变的数据类型【可进行增删改查】，列表中可以包含任何数据类型，也可以包含另一个列表。如： L = [1,2,[3,4]]，列表L有3个成员，最后一个成员为一个列表。
-列表可以通过序号（索引）访问其中成员，成员序号从0开始，如：a[0]=1。
-列表没有shape，计算列表中成员（元素）的个数，成员以最外层的[ ]中的逗号“，”来分隔，计算方式是len(L)=3, L = [1,2,[3,4]] ，没有数组中的a.shape操作。
-空列表（0个元素的列表）：L=[], 一个元素的列表：L=[1], 多个元素的列表L=[1,2,3]
-
-负数索引表示从右边往左数，最右边的元素的索引为 -1，倒数第二个元素为 -2
-
-元组（Tuple）
-
-## 元组的特点
+## 元组（Tuple）
 
 元组是以圆括号“()”包围的数据集合,括号（）可以省略，不同成员（元素）以逗号“,”分隔，如：T=（1，2,3）。
 元组是不可变序列，即元组一旦创建，元组中的数据一旦确立就不能改变，不能对元组中中的元素进行增删改操作，因此元组没有增加元素append、修改元素、删除元素pop的相关方法，只能通过序号（索引）访问元组中的成员,元组中的成员的起始序号为0，如：T[0]=1, T=（1,2,3）。
@@ -1142,8 +1143,6 @@ foo_second=10
 time.sleep(foo_second)
 ```
 
-
-
 ## Milliseconds
 
 ```py
@@ -1155,12 +1154,12 @@ curr_time = round(time.time()*1000)
 print("milliseconds since epoch:",curr_time)
 ```
 
-## file
+## write file
 
 ```py
->>> f = open('/Users/michael/test.txt', 'w')
->>> f.write('Hello, world!')
->>> f.close()
+>>> txt_file = open('/Users/michael/test.txt', 'w')
+>>> txt_file.write('Hello, world!')
+>>> txt_file.close()
 
 os.remove(path) 
 ```
@@ -1179,7 +1178,7 @@ Python 3 >= 3.4 这些版本的 Python 会一并安装 pip
 
 pip install 命令用于安装包
 
-- -U, --upgrade 更新所有指定的包到最新的可用版本。 依赖项的处理取决于所使用的升级策略
+- -U, --upgrade 更新所有指定的包到最新地可用版本。 依赖项的处理取决于所使用的升级策略
 
 ```bash
 # install redis
@@ -1453,3 +1452,16 @@ pip install xxx-utils
 
 ```
 
+## if
+
+”5== len(a)== len(b)“等价于”5== len(a) and len(a)==len(b)“
+
+Unlike C, all comparison operations in Python have the same priority,which is lower than that of any arithmetic, shifting or bitwiseoperation.……
+
+Comparisons can be chained arbitrarily, e.g.,
+"x < y <= z" isequivalent to "x < y and y <= z",​……
+————————————————
+
+                            版权声明：本文为博主原创文章，遵循 CC 4.0 BY-SA 版权协议，转载请附上原文出处链接和本声明。
+
+原文链接：https://blog.csdn.net/u013660169/article/details/44587791
