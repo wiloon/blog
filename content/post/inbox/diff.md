@@ -1,5 +1,5 @@
 ---
-title: diff
+title: diff command
 author: "-"
 date: 2019-02-22T11:50:08+00:00
 url: diff
@@ -9,7 +9,7 @@ tags:
   - reprint
   - remix
 ---
-## diff
+## diff command
 
 - diff 的三种格式
   - 正常格式

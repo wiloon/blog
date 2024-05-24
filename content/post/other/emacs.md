@@ -174,11 +174,11 @@ m-x flush-lines
   
     M-x replace-string RET C-Q C-J RET C-Q C-J b l o o g i e SPACE RET
   
-## Emacs中以十六进制查看文件
+## Emacs 中以十六进制查看文件
   
-    打开文件后，用指令: 
-  
+打开文件后，用指令: 
 
-  
-    m-x hexl-mode
+```Bash
+m-x hexl-mode
+```
   
