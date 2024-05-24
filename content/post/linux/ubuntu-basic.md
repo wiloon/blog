@@ -260,3 +260,13 @@ windows key
   - 会议模式 60s 断线崩溃， 可以用网页版 webex
 - 中文输入法
   - 某些 APP 有可能用不了中文输入法，有可能需要在外面输中文再拷进去
+
+## indicator-sysmonitor
+
+https://ubuntuhandbook.org/index.php/2023/01/indicator-show-cpu-gpu-memory-ubuntu-panel/
+
+https://github.com/fossfreedom/indicator-sysmonitor
+
+```Bash
+cpu: {cpu} {cputemp} mem: {mem} network: {upordown} {net}
+```

@@ -13,8 +13,17 @@ tags:
 
 ## list array, 列表, 数组
 
+### colon syntax
+
+```Python
+: is the delimiter of the slice syntax to 'slice out' sub-parts in sequences , [start:end]
+
+[1:5] is equivalent to "from 1 to 5" (5 not included)
+[1:] is equivalent to "1 to end"
+```
+
 ```Bash
-# Python合并两个列表
+# Python 合并两个列表
 # 法一：
 #Python合并两个列表，相加是拼接
 list1=[1,2,3]
@@ -83,8 +92,8 @@ l.remove(1)
 >>> x, y
 (set(['a', 'p', 's', 'm']), set(['a', 'h', 'm']))    
   
-# 交集, x & y 
-set(['a', 'm'])  
+# 交集, x & y
+set(['a', 'm'])
   
 >>> x | y # 并集  
 set(['a', 'p', 's', 'h', 'm'])  
@@ -119,13 +128,15 @@ cdsitepackages      #和上面的类似，直接进入到 site-packages 目录
 lssitepackages      #显示 site-packages 目录中的内容
 ```
 
-## archlinux install python3.6
+## install python
+
+### archlinux install python3.6
 
 ```Bash
 yay -S python36
 ```
 
-## install Python from source code on ubuntu
+### install Python from source code on ubuntu
 
 https://stackoverflow.com/questions/52561997/segmentation-fault-during-installation-of-python-3-6-on-debian-8
 
@@ -152,6 +163,12 @@ cd Python-3.6.15
 make -j 8  # adjust for number of your CPU cores
 sudo make altinstall
 python3.6 -V
+```
+
+### ubuntu install python3
+
+```Bash
+apt install python3
 ```
 
 ## 查看包依赖树
@@ -1433,7 +1450,12 @@ python -m pytest
 
 # 输出 print
 python -m pytest -s
+
+# select one or moure function
+python -m pytest -s -k 'test_func_0'
+python -m pytest -s -k 'test_func_0 or test_func_1'
 ```
+
 ## errors
 
 ```Bash
@@ -1465,3 +1487,16 @@ Comparisons can be chained arbitrarily, e.g.,
                             版权声明：本文为博主原创文章，遵循 CC 4.0 BY-SA 版权协议，转载请附上原文出处链接和本声明。
 
 原文链接：https://blog.csdn.net/u013660169/article/details/44587791
+
+## kill process
+
+```Python
+import psutil
+
+PROCNAME = "python.exe"
+
+for proc in psutil.process_iter():
+    # check whether the process name matches
+    if proc.name() == PROCNAME:
+        proc.kill()
+```

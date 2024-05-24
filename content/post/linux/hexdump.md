@@ -40,7 +40,10 @@ echo /etc/passwd | od -x
   
 0000014
 
-[root@new55 ~]# echo /etc/passwd | hexdump -C      <== 规范的十六进制和ASCII码显示 (Canonical hex+ASCII display ) 
+```Bash
+# 规范的十六进制和ASCII码显示 (Canonical hex+ASCII display )
+echo /etc/passwd | hexdump -C   
+```   
   
 00000000  2f 65 74 63 2f 70 61 73  73 77 64 0a              |/etc/passwd.|
   
