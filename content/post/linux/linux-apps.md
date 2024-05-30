@@ -48,63 +48,63 @@ sudo pacman -S powerdevil kmix kscreen ark
 
 ## install by pacman
 
-| name                  | comments                                                                                |
-| :-------------------- | :-------------------------------------------------------------------------------------- |
-| thunderbird           | 邮件客户端|
-| flameshot             | 截图工具 screenshot                                                                     |
-| netdata               | 系统资源监控                                                                            |
-| qalculate-gtk         | 全宇宙最好用的计算器                                                                    |
-| neofetch              | 系统信息显示命令行脚本, Neofetch 和 ScreenFetch 或者 Linux_Logo 很像，但是它可以高度定制          |
-| keepassxc             |                                                                                         |
-| sqlectron-gui         |                                                                                         |
-| hyper                 |                                                                                         |
-| rsibreak              | 番茄钟                                                                                   |
-| libreoffice-fresh     |                                                                                         |
-| ark                   | kde dolphin extract zip,gz                                                              |
-| wine                  | 需要开启 Multilib 仓库                                                                    |
-| simplescreenrecorder  | 录屏                                                                                    |
-| openvpn               |                                                                                         |
-| rdesktop              |                                                                                         |
-| pulseaudio            |                                                                                         |
-| hexyl                 | 彩色hex编辑器                                                                           |
-| nftables              |                                                                                         |
-| zeitgeist             |                                                                                         |
-| catfish               |                                                                                         |
-| thunar-archive-plugin | thunar 右键解压文件                                                                     |
-| file-roller           | zip 7z rar support                                                                      |
-| zstd                  | 多线程，速度比较快的压缩工具, archlinux在用                                             |
-| digikam               | : KDE 环境下最好的选择                                                                  |
-| chromium              | 开源版chrome                                                                            |
-| kvm                   |                                                                                         |
-| kotlin                |                                                                                         |
-| docker                |                                                                                         |
-| hdparm                | 磁盘参数查看工具                                                                        |
-| Deluge                | bt client docker                                                                        |
-| aria2                 | 下载工具                                                                                |
-| axel                  | 下载工具                                                                                |
-| inetutils             | telnet client                                                                           |
-| zeal                  | 离线文档                                                                                |
-| wireshark-qt          | Wireshark                                                                               |
-| lsof                  |                                                                                         |
-| playonlinux           | Wine软件兼容层的图形前端，允许Linux安装基于Windows的应用程序                            |
-| podman                |                                                                                         |
-| nethogs               |                                                                                         |
-| ttf-jetbrains-mono    | jetbrain的mono字体                                                                      |
-| gpick                 | 颜色拾取工具                                                                            |
-| telegram-desktop      | telegram                                                                                |
-| apper                 | pacman GUI                                                                              |
-| dstat                 | 查看系统性能的工具 dstat -cdlmnpsy                                                      |
-| sl                    | 小火车                                                                                  |
-| inkscape              | 矢量图形创建和编辑程序,svg                                                              |
-| lrzsz                 | zmodem                                                                                  |
-| remmina               | GTK 编写的远程桌面客户端                                                                |
-| freerdp               | remmina 的RDP 支持包                                                                     |
-|cmake||
-|linux-lts|lts 内核|
-|filelight|图形化的磁盘空间管理工具|
-|okular|pdf reader|
-|audacity|一款免费的音频处理软件。它是在linux下发展起来的，一款遵循GNU协议的免费软件。有着傻瓜式的操作界面和专业的音频处理效果。|
-|python-pip||
+| name                  | comments                                                        |
+| :-------------------- |:----------------------------------------------------------------|
+| thunderbird           | 邮件客户端, email client                                             |
+| flameshot             | 截图工具 screenshot                                                 |
+| netdata               | 系统资源监控                                                          |
+| qalculate-gtk         | 全宇宙最好用的计算器                                                      |
+| neofetch              | 系统信息显示命令行脚本, Neofetch 和 ScreenFetch 或者 Linux_Logo 很像，但是它可以高度定制  |
+| keepassxc             |                                                                 |
+| sqlectron-gui         |                                                                 |
+| hyper                 |                                                                 |
+| rsibreak              | 番茄钟                                                             |
+| libreoffice-fresh     |                                                                 |
+| ark                   | kde dolphin extract zip,gz                                      |
+| wine                  | 需要开启 Multilib 仓库                                                |
+| simplescreenrecorder  | 录屏                                                              |
+| openvpn               |                                                                 |
+| rdesktop              |                                                                 |
+| pulseaudio            |                                                                 |
+| hexyl                 | 彩色hex编辑器                                                        |
+| nftables              |                                                                 |
+| zeitgeist             |                                                                 |
+| catfish               |                                                                 |
+| thunar-archive-plugin | thunar 右键解压文件                                                   |
+| file-roller           | zip 7z rar support                                              |
+| zstd                  | 多线程，速度比较快的压缩工具, archlinux在用                                     |
+| digikam               | : KDE 环境下最好的选择                                                  |
+| chromium              | 开源版chrome                                                       |
+| kvm                   |                                                                 |
+| kotlin                |                                                                 |
+| docker                |                                                                 |
+| hdparm                | 磁盘参数查看工具                                                        |
+| Deluge                | bt client docker                                                |
+| aria2                 | 下载工具                                                            |
+| axel                  | 下载工具                                                            |
+| inetutils             | telnet client                                                   |
+| zeal                  | 离线文档                                                            |
+| wireshark-qt          | Wireshark                                                       |
+| lsof                  |                                                                 |
+| playonlinux           | Wine软件兼容层的图形前端，允许Linux安装基于Windows的应用程序                          |
+| podman                |                                                                 |
+| nethogs               |                                                                 |
+| ttf-jetbrains-mono    | jetbrain的mono字体                                                 |
+| gpick                 | 颜色拾取工具                                                          |
+| telegram-desktop      | telegram                                                        |
+| apper                 | pacman GUI                                                      |
+| dstat                 | 查看系统性能的工具 dstat -cdlmnpsy                                       |
+| sl                    | 小火车                                                             |
+| inkscape              | 矢量图形创建和编辑程序,svg                                                 |
+| lrzsz                 | zmodem                                                          |
+| remmina               | GTK 编写的远程桌面客户端                                                  |
+| freerdp               | remmina 的RDP 支持包                                                |
+|cmake|                                                                 |
+|linux-lts| lts 内核                                                          |
+|filelight| 图形化的磁盘空间管理工具                                                    |
+|okular| pdf reader                                                      |
+|audacity| 一款免费的音频处理软件。它是在linux下发展起来的，一款遵循GNU协议的免费软件。有着傻瓜式的操作界面和专业的音频处理效果。 |
+|python-pip|                                                                 |
 
 ## install by pacman, development
 

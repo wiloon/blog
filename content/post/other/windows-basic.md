@@ -394,3 +394,6 @@ Settings> Time & language> Typing> Advanced keyboard settings> Input language ho
 7. advanced options
 8. UEFI Firmware Settings
 9. Restart
+
+## 清理磁盘空间
+

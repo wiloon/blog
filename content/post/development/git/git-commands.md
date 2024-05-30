@@ -92,6 +92,9 @@ git branch --show-current
 ### 新建分支
 
 ```bash
+# create branch from a commit
+git branch branch_name <commit-hash or HEAD~3>
+
 # 新建并切换到分支
 # -c, --create
 git switch -c branch0

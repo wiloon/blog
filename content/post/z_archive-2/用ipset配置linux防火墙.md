@@ -15,7 +15,7 @@ tags:
 pacman -S ipset
 apt-get install ipset
 
-# 查看集合。
+# 查看集合
 ipset list
 
 ipset create vlist hash:net

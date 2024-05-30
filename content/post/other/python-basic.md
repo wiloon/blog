@@ -16,6 +16,9 @@ tags:
 ### colon syntax
 
 ```Python
+# check if two list equal
+sorted(a) == sorted(b)
+
 : is the delimiter of the slice syntax to 'slice out' sub-parts in sequences , [start:end]
 
 [1:5] is equivalent to "from 1 to 5" (5 not included)
@@ -49,7 +52,7 @@ l3.append(l1)
 l3.append(l2)
 print('l3',l3)#输出[[1, 2, 3], [4, 5, 6]],注意这里是二维列表,不是我们想要的结果
 
-# 如何才能达到我们要的结果，使用extend
+# 如何才能达到我们要的结果，使用 extend
 l1.extend(l2)
 print('l1',l1)#[1, 2, 3, 4, 5, 6]
 
@@ -74,10 +77,120 @@ print('l1',l1)#[1, 2, 3, 4, 5, 6]
 
 负数索引表示从右边往左数，最右边的元素的索引为 -1，倒数第二个元素为 -2
 
+## 字典 dict
+
+- dict 是线程安全的
+
+get(key) 方法在 key（键）不在字典中时，可以返回默认值 None 或者设置的默认值。
+
+dict[key] 在 key（键）不在字典中时，会触发 KeyError 异常。
+
+```python
+
+# 空的花括号代表空的 dict
+empty_dict = {}
+print(empty_dict)
+
+scores = {'语文': 89, '数学': 92, '英语': 93}
+# 打印所有的 key
+print(scores.keys())
+print(scores)
+
+# 使用元组作为 dict 的 key
+dict2 = {(20, 30):'good', 30:'bad'}
+print(dict2)
+
+# 生成一个字典
+d = {'name':Tom, 'age':10, 'Tel':110}
+
+# 打印返回值，其中 d.keys() 是列出字典所有的key
+print 'name' in d.keys()
+print 'name' in d
+
+# 两个的结果都是返回 True
+del test_dict['Zhihu']
+```
+
+### dict 遍历
+
+```py
+for key, value in dict_0.items():
+    print(f"key: {key}, value: {value}")
+ 
+>>> for key in a.keys():
+print(key+':'+a[key])
+
+a:1
+b:2
+c:3
+
+for kv in dict0.items():
+    print(kv)
+
+```
+
+#### check if key is exist
+
+```python
+dict_1 = {"a": 1, "b":2, "c":3}
+if "a" in dict_1:
+    print("Exists")
+else:
+    print("Does not exist")
+
+```
+
+[http://c.biancheng.net/view/2212.html](http://c.biancheng.net/view/2212.html)
+
+dict() 函数用于创建一个字典
+
+python 字典初始化比较常用的两种方式：dict() 和 {}
+
+性能方面，{} 性能更好。
+
+Python 字典(Dictionary) update() 函数把字典 dict2 的键/值对更新到 dict 里。
+
+To delete a key regardless of whether it is in the dictionary, use the two-argument form of dict.pop():
+
+my_dict.pop('key', None)
+
+obj to dict [https://blog.csdn.net/weixin_42359464/article/details/80882549](https://blog.csdn.net/weixin_42359464/article/details/80882549)
+
 
 ## set, hashset
 
+### 交集, `&`
+
+```Python
+x = set([1,2,3])
+y = set([3,4,5])  
+
+print(x & y)
+# {3}
+```
+
+### 差集, `-`
+
+```Python
+print(x - y)
+# {1, 2}
+```
+
 ```py
+>>> a = set([1,2,3])
+>>> b = set(2,3,4)
+
+a!=b
+# true
+
+1. < 运算符。
+表示 左边是否是右边的子集。
+
+> 运算符。
+同理，表示右边是否是左边的子集。
+
+<=和>=同理，只是加入了是否两个集合相等的判断。
+
 myset = {"apple", "banana", "cherry"}
 
 >>> l = set()
@@ -92,15 +205,70 @@ l.remove(1)
 >>> x, y
 (set(['a', 'p', 's', 'm']), set(['a', 'h', 'm']))    
   
-# 交集, x & y
-set(['a', 'm'])
-  
 >>> x | y # 并集  
 set(['a', 'p', 's', 'h', 'm'])  
   
 >>> x - y # 差集  
-set(['p', 's']) 
+set(['p', 's'])
+
+# ---
+>>> a = set('abracadabra')
+>>> b = set('alacazam')
+
+>>> a ^ b # 不同时包含于a和b的元素, # 对称差集（项在a或b中，但不会同时出现在二者中）  
+# 并集减交集
+{'r', 'd', 'b', 'm', 'z', 'l'}
 ```
+
+## 类, class
+
+```python
+class Class0:
+    pass
+    
+# Student 继承 object 类
+class Student(object):
+    pass
+
+bart = Student()
+
+class Student1(object):
+    # __init__ 相当于构造函数
+    def __init__(self, name, score):
+        self.name = name
+        # public 可见 外部可以访问 无 _
+        self.score = score
+        # protect 不可见 外部可以访问 _(单下划线)
+        self._foo = "value0"
+        # private 不可见 不可访问 __ (双下划线)
+        self.__bar = "value1"
+
+    def print_score(self):
+        print('%s: %s' % (self.name, self.score))
+
+    # 类的方法
+    # 类内部访问数据的函数
+    def get_grade(self):
+        if self.score >= 90:
+            return 'A'
+        elif self.score >= 60:
+            return 'B'
+        else:
+            return 'C'
+    
+    # 私有函数
+    def __foo(self):
+        pass
+
+student = Student1()
+# object to dict
+vars(student)
+```
+
+### getattr()
+
+getattr() 函数用于返回一个对象属性值。
+
 ## commands
 
 ```bash
@@ -278,51 +446,6 @@ for line in lines:
     os.system(command)
 ```
 
-## 类, class
-
-```python
-class Class0:
-    pass
-    
-# Student 继承 object 类
-class Student(object):
-    pass
-
-bart = Student()
-
-class Student1(object):
-    # __init__ 相当于构造函数
-    def __init__(self, name, score):
-        self.name = name
-        # public 可见 外部可以访问 无 _
-        self.score = score
-        # protect 不可见 外部可以访问 _(单下划线)
-        self._foo = "value0"
-        # private 不可见 不可访问 __ (双下划线)
-        self.__bar = "value1"
-
-    def print_score(self):
-        print('%s: %s' % (self.name, self.score))
-
-    # 类的方法
-    # 类内部访问数据的函数
-    def get_grade(self):
-        if self.score >= 90:
-            return 'A'
-        elif self.score >= 60:
-            return 'B'
-        else:
-            return 'C'
-    
-    # 私有函数
-    def __foo(self):
-        pass
-
-student = Student1()
-# object to dict
-vars(student)
-```
-
 ## import
 
 ```py
@@ -372,87 +495,6 @@ from 模块名 import 子模块 或 函数 或 类 或 变量：使用函数调�
 [https://zhuanlan.zhihu.com/p/57309137](https://zhuanlan.zhihu.com/p/57309137)
 
 ## 数据类型
-
-### 字典 dict
-
-- dict 是线程安全的
-
-get(key) 方法在 key（键）不在字典中时，可以返回默认值 None 或者设置的默认值。
-
-dict[key] 在 key（键）不在字典中时，会触发 KeyError 异常。
-
-```python
-
-# 空的花括号代表空的 dict
-empty_dict = {}
-print(empty_dict)
-
-scores = {'语文': 89, '数学': 92, '英语': 93}
-# 打印所有的 key
-print(scores.keys())
-print(scores)
-
-# 使用元组作为 dict 的 key
-dict2 = {(20, 30):'good', 30:'bad'}
-print(dict2)
-
-# 生成一个字典
-d = {'name':Tom, 'age':10, 'Tel':110}
-
-# 打印返回值，其中 d.keys() 是列出字典所有的key
-print 'name' in d.keys()
-print 'name' in d
-
-# 两个的结果都是返回 True
-del test_dict['Zhihu']
-```
-
-### dict 遍历
-
-```py
-for key, value in dict_0.items():
-    print(f"key: {key}, value: {value}")
- 
->>> for key in a.keys():
-print(key+':'+a[key])
-
-a:1
-b:2
-c:3
-
-for kv in dict0.items():
-    print(kv)
-
-
-
-```
-
-#### check if key is exist
-
-```python
-dict_1 = {"a": 1, "b":2, "c":3}
-if "a" in dict_1:
-    print("Exists")
-else:
-    print("Does not exist")
-
-```
-
-[http://c.biancheng.net/view/2212.html](http://c.biancheng.net/view/2212.html)
-
-dict() 函数用于创建一个字典
-
-python 字典初始化比较常用的两种方式：dict() 和 {}
-
-性能方面，{} 性能更好。
-
-Python 字典(Dictionary) update() 函数把字典 dict2 的键/值对更新到 dict 里。
-
-To delete a key regardless of whether it is in the dictionary, use the two-argument form of dict.pop():
-
-my_dict.pop('key', None)
-
-obj to dict [https://blog.csdn.net/weixin_42359464/article/details/80882549](https://blog.csdn.net/weixin_42359464/article/details/80882549)
 
 ## 异常处理
 
@@ -1476,12 +1518,13 @@ pip install xxx-utils
 
 ## if
 
-”5== len(a)== len(b)“等价于”5== len(a) and len(a)==len(b)“
+`5 == len(a) == len(b)` 等价于 `5 == len(a) and len(a) == len(b)`
 
-Unlike C, all comparison operations in Python have the same priority,which is lower than that of any arithmetic, shifting or bitwiseoperation.……
+Unlike C, all comparison operations in Python have the same priority,which is lower than that of any arithmetic, 
+shifting or `bit` wise operation.
 
 Comparisons can be chained arbitrarily, e.g.,
-"x < y <= z" isequivalent to "x < y and y <= z",​……
+"x < y <= z" is equivalent to "x < y and y <= z",​……
 ————————————————
 
                             版权声明：本文为博主原创文章，遵循 CC 4.0 BY-SA 版权协议，转载请附上原文出处链接和本声明。
