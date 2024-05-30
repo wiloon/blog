@@ -11,8 +11,9 @@ tags:
 ## '命令行, curl  查公网 ip'
 
 ```bash
-curl whatismyip.akamai.com
+curl ifconfig.me
 
+curl whatismyip.akamai.com
 curl https://ip.cn
 curl icanhazip.com
 curl ident.me
@@ -24,7 +25,7 @@ curl ifconfig.me
 [https://blog.csdn.net/liu0808/article/details/80769810](https://blog.csdn.net/liu0808/article/details/80769810)
 
 ```bash
-curl ifconfig.me
+
 curl http://members.3322.org/dyndns/getip
 
 # 保存到文件 
