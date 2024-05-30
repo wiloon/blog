@@ -9,6 +9,19 @@ tags:
 ---
 ## ubuntu basic
 
+## apt-select
+
+```Bash
+# https://pypi.org/project/apt-select/
+pip install apt-select
+apt-select -C JP
+sudo cp /etc/apt/sources.list /etc/apt/sources.list.backup && sudo mv sources.list /etc/apt/
+```
+
+## mirrors
+
+http://mirrors.ubuntu.com/
+
 ## deb, deb-src
 
 不是要看代码或者自己编译的话 deb-src 可以不要

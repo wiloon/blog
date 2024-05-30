@@ -265,15 +265,33 @@ student = Student1()
 vars(student)
 ```
 
-### getattr()
+### `getattr()`
 
-getattr() 函数用于返回一个对象属性值。
+`getattr()` 函数用于返回一个对象属性值。
+
+## pip
+
+### archlinux pip
+
+```Bash
+# install pip
+pacman -S python-pip
+```
+
+### ubuntu pip
+
+```Bash
+apt install python3-pip
+
+# pip 默认安装路径是 ~.local/bin, 把它加到环境变量里
+vim .zshrc
+export PATH="$HOME/.local/bin:$PATH"
+```
 
 ## commands
 
 ```bash
-# install pip
-pacman -S python-pip
+
 
 # install specific version
 yay -S python36
@@ -1542,4 +1560,15 @@ for proc in psutil.process_iter():
     # check whether the process name matches
     if proc.name() == PROCNAME:
         proc.kill()
+```
+
+## exec shell script
+
+https://www.cnblogs.com/songzhenhua/p/9312757.html
+
+```Python
+command = "echo hello"
+shell_script = subprocess.Popen(command, shell=True)
+return_code = shell_script.wait()
+print(f"return code: {return_code}")
 ```

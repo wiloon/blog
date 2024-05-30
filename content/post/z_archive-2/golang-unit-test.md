@@ -363,3 +363,28 @@ ok lib 2.677s
 [https://geektutu.com/post/quick-go-test.html](https://geektutu.com/post/quick-go-test.html)
 
 [https://hedzr.com/golang/testing/golang-testing-1/](https://hedzr.com/golang/testing/golang-testing-1/)
+
+
+## 命令行参数
+
+https://siongui.github.io/2017/04/28/command-line-argument-in-golang-test/
+
+```Go
+package goef
+
+import (
+      "flag"
+      "testing"
+)
+
+var pkgdir = flag.String("pkgdir", "", "dir of package containing embedded files")
+
+func TestGenerateGoPackage(t *testing.T) {
+      t.Log(*pkgdir)
+}
+```
+
+```Bash
+$ export PKGDIR=${GOPATH}/src/github.com/siongui/myvfs
+$ go test -v embed.go buildpkg.go buildpkg_test.go -args -pkgdir=${PKGDIR}
+```

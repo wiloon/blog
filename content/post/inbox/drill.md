@@ -9,20 +9,20 @@ tags:
   - reprint
   - remix
 ---
-## drill, dns tool, dig/drill, dnsutils to ldns dig -> dirll
+## drill, dns tool, dig/drill, `dnsutils` to `ldns` dig -> `dirll`
 
-drill if you can, dig if you have to, nslookup if you must
+drill if you can, dig if you have to, `nslookup` if you must
 
 [https://imdjh.github.io/toolchain/2015/10/07/drill-if-you-can-dig-if-you-have-to.html](https://imdjh.github.io/toolchain/2015/10/07/drill-if-you-can-dig-if-you-have-to.html)
 
 ```bash
-
 # install drill
 ## archlinux
 sudo pacman -S ldns
 
 # ubuntu
 sudo apt install ldnsutils
+
 # alpine
 apk add drill
 
