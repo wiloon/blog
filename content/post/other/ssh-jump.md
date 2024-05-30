@@ -21,6 +21,7 @@ Host server0
   HostName 192.168.0.2
   User user0
   ProxyCommand ssh -q -W %h:%p jump0
+
 # %h: ~/.ssh/config 的语法, 代表主机名, 执行的时候会用 HostName 的值替换
 # %p: 端口
 # https://linux.die.net/man/5/ssh_config
