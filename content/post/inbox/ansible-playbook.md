@@ -19,12 +19,16 @@ ansible playbook sample
 ```yaml
 - name: deploy sample
   hosts: all
+  vars:
+    ansible_ssh_private_key_file: ~/.ssh/id_ed25519
   tasks:
     - name: Pull an image
       community.docker.docker_image_pull:
         name: 192.168.50.111:5000/foo-mock:v0.0.1
         platform: amd64
 ```
+
+- ansible_ssh_private_key_file: config ssh private key path
 
 ## ansible-galaxy collection
 

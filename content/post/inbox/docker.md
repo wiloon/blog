@@ -186,10 +186,10 @@ docker run [OPTIONS] IMAGE [COMMAND] [ARG...]
 docker run -it --rm ubuntu bash
 docker run -d id0 sleep 6000
 
-# sleep 6000, 6000 秒(100分钟/1小时40分)之后 关闭
+# sleep 6000, 6000 秒(100分钟/1小时40分)之后关闭
 # -i, --interactive=false   打开 STDIN, 用于控制台交互
 # -t, --tty=false           分配 tty 设备, 该可以支持终端登录, 默认为 false
-# -p 80:80 映射端口, hostPort:containerPort
+# -p 30080:80                  映射端口, hostPort:containerPort
 # -t -a stdout              Outputs the container logs on the standard output
 # -P, --publish-all=false   Docker自动分配一个未被使用的端口
 # -v, --volume=[]           Bind mount a volume(挂载目录 -v /root:/opt/temp), 跟mount一样，path 里如果有文件的话，挂载之后是看不到的。
