@@ -24,7 +24,7 @@ pacman -S tcpdump
 yum install -y tcpdump
 ```
 
-## 示例
+## commands
 
 ```bash
 # tcpdump 默认读取第一个网络接口上所有流过的数据包。
@@ -58,6 +58,8 @@ tcpdump 'tcp[tcpflags] & (tcp-syn|tcp-fin) != 0 and not src and dst net localnet
 ### 指定主机
 
 ```bash
+# 过滤主机和端口
+tcpdump host 192.168.1.1 and port 80
 tcpdump host 192.168.1.1
 ### 指定源地址
 tcpdump -i eth0 src host 192.168.1.1
