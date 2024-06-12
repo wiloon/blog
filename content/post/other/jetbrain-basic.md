@@ -33,6 +33,9 @@ help> edit custom vm options> add line "-Dsun.java2d.uiScale.enabled=true"
 - ctrl + alt + y, reload from disk
 - ctrl + alt + f, find in files
 - ctrl + n, Down
+- ctrl + p, Up
+- ctrl + f, Right
+- ctrl + b, Left
 - ctrl + [, Move caret to code block start
 - `ctrl + ]`, Move caret to code block end
 - ctrl + shift + i, generate date
