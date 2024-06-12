@@ -10,6 +10,10 @@ tags:
 ---
 ## linux apps
 
+## Ubuntu apt package
+
+- gnome-shell-pomodoro: Pomodoro, https://gnomepomodoro.org/
+
 ## install by pacman
 
 - `ncdu`, 磁盘空间占用分析/清理

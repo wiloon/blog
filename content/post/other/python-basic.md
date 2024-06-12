@@ -28,13 +28,13 @@ sorted(a) == sorted(b)
 ```Bash
 # Python 合并两个列表
 # 法一：
-#Python合并两个列表，相加是拼接
+# Python合并两个列表, 相加是拼接
 list1=[1,2,3]
 list2=[4,5,6,7]
 list3=list1+list2
 print('list3',list3)#输出[1,2,3,4,5,6,7]
 
-#注意：Python合并两个NumPy数组，相加时候是对应相加
+# 注意：Python合并两个NumPy数组，相加时候是对应相加
 import numpy as  np
 arr1=np.array([1,2,3])
 arr2=np.array([4,5,6])
@@ -159,6 +159,26 @@ obj to dict [https://blog.csdn.net/weixin_42359464/article/details/80882549](htt
 
 ## set, hashset
 
+### create set
+
+```Python
+foo=set()
+foo=set(1)
+foo=set([1,2,3])
+foo={1,2,3}
+```
+
+### 合并 set
+
+```Python
+set1 = {"a", "b" , "c"}
+set2 = {1, 2, 3}
+
+set1.update(set2)
+print(set1)
+# {1, 'b', 'c', 2, 3, 'a'}
+```
+
 ### 交集, `&`
 
 ```Python
@@ -177,12 +197,6 @@ print(x - y)
 ```
 
 ```py
->>> a = set([1,2,3])
->>> b = set(2,3,4)
-
-a!=b
-# true
-
 1. < 运算符。
 表示 左边是否是右边的子集。
 
@@ -207,9 +221,6 @@ l.remove(1)
   
 >>> x | y # 并集  
 set(['a', 'p', 's', 'h', 'm'])  
-  
->>> x - y # 差集  
-set(['p', 's'])
 
 # ---
 >>> a = set('abracadabra')
@@ -221,6 +232,8 @@ set(['p', 's'])
 ```
 
 ## 类, class
+
+https://blog.csdn.net/yilulvxing/article/details/85374142
 
 ```python
 class Class0:
@@ -513,6 +526,22 @@ from 模块名 import 子模块 或 函数 或 类 或 变量：使用函数调�
 [https://zhuanlan.zhihu.com/p/57309137](https://zhuanlan.zhihu.com/p/57309137)
 
 ## 数据类型
+
+### string
+
+```Python
+s1 = '  shark  '
+print(f"string: '{s1}'")
+
+s1_remove_leading = s1.lstrip()
+print(f"remove leading: '{s1_remove_leading}'")
+
+s1_remove_trailing = s1.rstrip()
+print(f"remove trailing: '{s1_remove_trailing}'")
+
+s1_remove_both = s1.strip()
+print(f"remove both: '{s1_remove_both}'")
+```
 
 ## 异常处理
 

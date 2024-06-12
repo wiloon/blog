@@ -55,3 +55,7 @@ chrome.exe --user-data-dir=D:\chrome --no-default-browser-check
 ## extensions
 
 - Language Reactor, youture 中英文字幕
+
+## /etc/hosts
+
+https://stackoverflow.com/questions/42636711/google-chrome-ignoring-hosts-file

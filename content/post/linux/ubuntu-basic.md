@@ -285,3 +285,13 @@ https://github.com/fossfreedom/indicator-sysmonitor
 ```Bash
 cpu: {cpu} {cputemp} mem: {mem} network: {upordown} {net}
 ```
+
+## audio recoder
+
+https://vitux.com/how-to-record-audio-in-ubuntu/
+
+## ogg player
+
+apt install vorbis-tools
+
+ogg123 foo.ogg

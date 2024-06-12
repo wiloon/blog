@@ -200,16 +200,16 @@ Input Method Configuration -> Addon -> Simplified Chinese To Traditional Chinese
 
 ctrl-7
 
-### deepin版微信输入中文
+### deepin 版微信输入中文
 
 [https://beekc.top/2019/01/26/deepin-wine-input-chinese/](https://beekc.top/2019/01/26/deepin-wine-input-chinese/ "https://beekc.top/2019/01/26/deepin-wine-input-chinese/")
 
 /opt/deepinwine/apps/Deepin-WeChat/run.sh
 
 ```bash
-    export GTK_IM_MODULE=fcitx
-    export QT_IM_MODULE=fcitx
-    export XMODIFIERS="@im=fcitx"
+export GTK_IM_MODULE=fcitx
+export QT_IM_MODULE=fcitx
+export XMODIFIERS="@im=fcitx"
 ```
 
 [https://blog.csdn.net/qq_18649781/article/details/87476043](https://blog.csdn.net/qq_18649781/article/details/87476043)
