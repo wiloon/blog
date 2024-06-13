@@ -13,6 +13,7 @@ tags:
 ## Ubuntu apt package
 
 - gnome-shell-pomodoro: Pomodoro, https://gnomepomodoro.org/
+- pavucontrol, chrome audio output, https://askubuntu.com/questions/457978/no-sound-from-chrome-sound-works-fine-in-firefox-etc-13-10
 
 ## install by pacman
 

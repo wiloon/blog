@@ -246,7 +246,12 @@ pg_dump -d db_name | gzip > db.gz
 ## 导入
 
 ```bash
+# sql
 psql -h 127.0.0.1 -p 5432 -t table0 -U postgres -d database0 -f foo.sql
+
+# csv, https://stackoverflow.com/questions/26701735/extra-data-after-last-expected-column-while-trying-to-import-a-csv-file-into-p
+\COPY agency (agency_name, agency_url, agency_timezone) FROM 'myFile.txt' CSV HEADER DELIMITER ',';
+
 ```
 
 ## sequence, 序列

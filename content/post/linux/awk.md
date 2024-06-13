@@ -42,6 +42,9 @@ ip addr | awk '/^[0-9]+: / {}; /inet.*global/ {print gensub(/(.*)\/(.*)/, "\\1",
 
 # print column range
 awk '{for(i=1;i<=NF-1;i++) printf $i" "; print ""}' marks.txt
+
+# 统计每一行逗号出现的次数
+awk -F "," '{pirnt NF-1}' foo.txt
 ```
 
 ## 变量
