@@ -27,6 +27,7 @@ tags:
 - Nuphy Air75
 - DELL U2723QX
 - Apple Watch Series 8
+- WH-1000XM5
 
 ## ROCK 5B
 
@@ -458,3 +459,7 @@ power> disable built-in battery
 
 - 32G
 - 41mm
+
+## WH-1000XM5
+
+https://helpguide.sony.net/mdr/wh1000xm5/v1/zh-cn/index.html
