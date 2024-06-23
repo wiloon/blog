@@ -55,6 +55,7 @@ sudo archlinux-java status
 ## ubuntu openjdk
 
 ```bash
+sudo apt install openjdk-21-jdk
 sudo apt install openjdk-8-jdk
 sudo apt install openjdk-8-source
 # openjdk 17, depends libc6 (>= 2.33)

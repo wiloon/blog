@@ -11,19 +11,14 @@ tags:
 
 ## install
 
-### centos
-
 ```Bash
+# centos
 yum install iperf3
-```
 
-### openwrt
+# openwrt 
+opkg install iperf3
 
-    opkg install iperf3
-
-### ubuntu
-
-```Bash
+#ubuntu
 apt-get install iperf3
 ```
 
@@ -43,8 +38,8 @@ iperf3 -s
 
 ```Bash
 iperf3 -c 192.168.50.101 -t 104
-#  -c, --client    <host>    run in client mode, connecting to <host>
-# -t, --time      #         time in seconds to transmit for (default 10 secs)
+# -c, --client    <host>    run in client mode, connecting to <host>
+# -t, --time                time in seconds to transmit for (default 10 secs)
 
 ```
 
@@ -72,7 +67,6 @@ C:\Users\iperf3>iperf3.exe -c 192.168.1.43
 接下来分析一下Server的测试输出结果:
 
 Server端日志显示接收了来自192.168.1.71,源端口56569的测试请求。Client端连续进行了10秒的测试,并显示了每秒传输的字节数,带宽信息；测试结束后会汇总发送和接收的统计信息。在Client连接关闭之后会继续侦听5201端口
----------------------
 
 iperf3 所提供的选项非常多,以下介绍一些常用的参数。
 
