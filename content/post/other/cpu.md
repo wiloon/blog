@@ -49,6 +49,8 @@ store buffer是什么
 ## '查CPU,  核心数'
 
 ```bash
+lscpu
+
 cat /proc/cpuinfo |grep name
 
 # 总核数 = 物理CPU个数 X 每颗物理CPU的核数 

@@ -330,9 +330,27 @@ docker-compose -f /path/to/docker-compose.yml stop
 docker-compose -f /path/to/docker-compose.yml up -d
 ```
 
-## docker proxy
+## docker 代理,  proxy
 
-dockerd代理 ¶
+Container代理
+在容器运行阶段，如果需要代理上网，则需要配置~/.docker/config.json。 以下配置，只在Docker 17.07及以上版本生效。
+
+```json
+{
+ "proxies": {
+   "default": {
+     "httpProxy": "http://proxy.xxx.com:80",
+     "httpsProxy": "http://proxy.xxx.com:80",
+     "noProxy": "*.test.example.com,.example.org,127.0.0.0/8"
+   }
+ }
+}
+
+```
+
+这个是用户级的配置，除了proxies，docker login等相关信息也会在其中。 而且还可以配置信息展示的格式、插件参数等。
+
+dockerd代理
 在执行docker pull时，是由守护进程dockerd来执行。 因此，代理需要配在dockerd的环境中。 而这个环境，则是受systemd所管控，因此实际是systemd的配置。
 
 sudo mkdir -p /etc/systemd/system/docker.service.d
@@ -345,26 +363,12 @@ Environment="HTTPS_PROXY=http://proxy.example.com:8080/"
 Environment="NO_PROXY=localhost,127.0.0.1,.example.com"
 其中，proxy.example.com:8080要换成可用的免密代理。 通常使用cntlm在本机自建免密代理，去对接公司的代理。 可参考《Linux下安装配置Cntlm代理》。
 
-Container代理 ¶
-在容器运行阶段，如果需要代理上网，则需要配置~/.docker/config.json。 以下配置，只在Docker 17.07及以上版本生效。
 
-{
-"proxies":
-{
-"default":
-{
-"httpProxy": "http://proxy.example.com:8080",
-"httpsProxy": "http://proxy.example.com:8080",
-"noProxy": "localhost,127.0.0.1,.example.com"
-}
-}
-}
-这个是用户级的配置，除了proxies，docker login等相关信息也会在其中。 而且还可以配置信息展示的格式、插件参数等。
 
-此外，容器的网络代理，也可以直接在其运行时通过-e注入http_proxy等环境变量。 这两种方法分别适合不同场景。 config.json非常方便，默认在所有配置修改后启动的容器生效，适合个人开发环境。 在CI/CD的自动构建环境、或者实际上线运行的环境中，这种方法就不太合适，用-e注入这种显式配置会更好，减轻对构建、部署环境的依赖。 当然，在这些环境中，最好用良好的设计避免配置代理上网。
+此外，容器的网络代理，也可以直接在其运行时通过-e注入 http_proxy 等环境变量。 这两种方法分别适合不同场景。 config.json非常方便，默认在所有配置修改后启动的容器生效，适合个人开发环境。 在CI/CD的自动构建环境、或者实际上线运行的环境中，这种方法就不太合适，用-e注入这种显式配置会更好，减轻对构建、部署环境的依赖。 当然，在这些环境中，最好用良好的设计避免配置代理上网。
 
 docker build代理 ¶
-虽然docker build的本质，也是启动一个容器，但是环境会略有不同，用户级配置无效。 在构建时，需要注入http_proxy等参数。
+虽然docker build的本质，也是启动一个容器，但是环境会略有不同，用户级配置无效。 在构建时，需要注入 http_proxy 等参数。
 
 docker build . \
 --build-arg "HTTP_PROXY=http://proxy.example.com:8080/" \

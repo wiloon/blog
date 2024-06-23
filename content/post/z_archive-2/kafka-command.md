@@ -276,9 +276,25 @@ kafka_2.13-3.1.0.jar
 - server.properties 设置 delete.topic.enable=true, 1.0.0 版本以后的 kafka 默认是 true, [https://issues.apache.org/jira/browse/KAFKA-5384](https://issues.apache.org/jira/browse/KAFKA-5384)
 - 删除 topic
 
+## kafka.conf
+
+```Bash
+security.protocol=SSL
+ssl.keystore.location=/home/top/KZ/kafka_2.13-2.6.3/cert/server.keystore.jks
+ssl.keystore.password=123456
+ssl.truststore.location=/home/top/KZ/kafka_2.13-2.6.3/cert/server.truststore.jks
+ssl.truststore.password=1q2w3e4r5t6y
+ssl.key.password=123456
+
+ssl.enabled.protocols=TLSv1.2
+enable.ssl.certificate.verification=false
+ssl.endpoint.identification.algorithm=
+```
+
 ```bash
 # normal kafka
 bin/kafka-topics.sh --bootstrap-server localhost:9092 --delete --topic topic0
+
 # tls kafka
 bin/kafka-topics.sh --bootstrap-server 127.0.0.1:9093 --delete --topic topic0  --command-config /root/tmp/kafka.conf
 
@@ -372,14 +388,14 @@ docker run --rm --name kafka \
 -e ALLOW_PLAINTEXT_LISTENER=yes \
 -v kafka-config:/bitnami/kafka/config \
 -v kafka-storage:/data/kafka \
-bitnami/kafka:3.5.2 kafka-storage.sh format --config /bitnami/kafka/config/server.properties \
+bitnami/kafka:3.6.2 kafka-storage.sh format --config /bitnami/kafka/config/server.properties \
 --cluster-id eVW-QkMeS8CeY1Bcuj4S-g --ignore-formatted
 
 docker run -d --name kafka \
 -e ALLOW_PLAINTEXT_LISTENER=yes \
 -p 9092:9092 \
 -v kafka-config:/bitnami/kafka/config \
--v kafka-storage:/data/kafka \
+-v kafka-storage:/dat/kafka \
 bitnami/kafka:3.5.2
 ```
 
