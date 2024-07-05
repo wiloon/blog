@@ -120,6 +120,17 @@ sudo -S apt-get update << EOF
 EOF
 ```
 
+### Automatically enter SSH password with script
+
+```Bash
+Ubuntu/Debian: apt-get install sshpass
+Fedora/CentOS: yum install sshpass
+Arch: pacman -S sshpass
+
+sshpass -p "YOUR_PASSWORD" ssh -o StrictHostKeyChecking=no YOUR_USERNAME@SOME_SITE.COM
+
+```
+
 ### -f, 检查文件是否存在
 
 ```bash

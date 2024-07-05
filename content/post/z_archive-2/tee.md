@@ -1,12 +1,13 @@
 ---
-title: tee
+title: tee command
 author: "-"
 date: 2017-02-28T07:29:45+00:00
-url: tee
+url: tee command
 categories:
   - Linux
 tags:
   - reprint
+  - remix
 ---
 ## tee
 

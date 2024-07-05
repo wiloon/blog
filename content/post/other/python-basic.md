@@ -23,6 +23,7 @@ sorted(a) == sorted(b)
 
 [1:5] is equivalent to "from 1 to 5" (5 not included)
 [1:] is equivalent to "1 to end"
+[:20] from start to 20
 ```
 
 ```Bash
@@ -138,6 +139,20 @@ if "a" in dict_1:
 else:
     print("Does not exist")
 
+```
+
+
+
+```Python
+car = {
+  "brand": "Ford",
+  "model": "Mustang",
+  "year": 1964
+}
+
+car.clear()
+
+print(car)
 ```
 
 [http://c.biancheng.net/view/2212.html](http://c.biancheng.net/view/2212.html)
@@ -555,6 +570,9 @@ print(f"remove both: '{s1_remove_both}'")
 ## 异常处理
 
 ```python
+class FooException(Exception):
+    pass
+
 def func1():
     # 相当于 java 的  throw new Exception
     raise Exception("--func1 exception--")

@@ -31,7 +31,7 @@ curl `[kɜrl]`
 -H, --header LINE Custom header to pass to server (H)
 -d, --data # DATA HTTP POST data, 如果使用 -d 命令，curl 会以 application/x-www-url-encoded 格式上传参数。 从文件中读取数据 -d @/path/to/foo.json
 --retry, 重试次数
-# 如果使用了 -F 参数，curl 会以 multipart/form-data 的方式发送 POST 请求。-F 以 key=value 的形式指定要上传的参数，如果是文件，则需要使用 key=@file 的形式。
+-F curl 会以 multipart/form-data 的方式发送 POST 请求。-F 以 key=value 的形式指定要上传的参数，如果是文件，则需要使用 key=@file 的形式。
 -k, --insecure flag to skip certificate validation.
 -L, --location: 追踪重定向, 如果服务器报告请求的页面已移动到其他位置（用 location: header 和 3xx 响应代码），此选项将使 curl 在新位置上重新执行请求。
 -x, 参数指定 HTTP 请求的代理
@@ -266,7 +266,7 @@ curl -v -i -N -H "Connection: Upgrade" -H "Upgrade: websocket" -H "Host: 127.0.0
 [https://blog.csdn.net/dreamer2020/article/details/52050001](https://blog.csdn.net/dreamer2020/article/details/52050001)
 
 ## libcurl error codes
-
+- CURLE_URL_MALFORMAT (3) The URL was not properly formatted.
 - `CURLE_COULDNT_RESOLVE_HOST` (6) Could not resolve host. The given remote host was not resolved. 无法解析主机
 - CURLE_COULDNT_CONNECT (7) Failed to connect() to host or proxy. 无法连接到主机或代理, 在服务器端, 目标端口没有监听.
 - CURLE_OPERATION_TIMEDOUT (28) Operation timeout. The specified time-out period was reached according to the conditions. 建立连接时 tcp SYN 没有响应超过 n秒, 服务器响应时间超过 `-m, --max-time`

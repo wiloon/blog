@@ -1,24 +1,36 @@
 ---
-title: golang grpc
+title: grpc
 author: "-"
 date: 2017-09-07T04:25:32+00:00
-url: grpc/go
+url: grpc
 categories:
-  - Go
+  - IPC
 tags:
   - reprint
   - RPC
 ---
-### grpc
+## python grpc
 
-gRPC通过 HTTP2 协议传输
+### golang grpc
 
-### protobuf
+gRPC 通过 HTTP2 协议传输
+
+1. 定义协议 protobuf
 
 ```bash
 syntax = "proto3";
-option go_package="./;api";
 
+message SearchRequest {
+  string query = 1;
+  int32 page_number = 2;
+  int32 results_per_page = 3;
+}
+```
+
+2. 生成 python 文件
+
+```Bash
+python -m grpc_tools.protoc --python_out=. --grpc_python_out=. -I. logServer.proto
 ```
 
 ## golang grpc
