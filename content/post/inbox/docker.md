@@ -44,7 +44,6 @@ docker stop $(docker ps -aq)
 docker image ls
 docker rm $(docker ps -aq)
 # 删除所有的镜像
-
 docker rmi $(docker images -q)
 # 复制文件
 
@@ -166,6 +165,8 @@ docker logs --since 10s -f influxdb
 
 docker build -t dnsmasq:v1.0.0 .
 docker tag dnsmasq:v1.0.0 swr.cn-south-1.myhuaweicloud.com/{组织名称}/dnsmasq:v1.0.0
+# 删除 tag
+docker rmi dnsmasq:v1.0.0 swr.cn-south-1.myhuaweicloud.com/{组织名称}/dnsmasq:v1.0.0
 docker push swr.cn-south-1.myhuaweicloud.com/{组织名称}/dnsmasq:v1.0.0
 docker pull swr.cn-south-1.myhuaweicloud.com/{组织名称}/dnsmasq:v1.0.0
 
