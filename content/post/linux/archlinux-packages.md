@@ -12,7 +12,7 @@ tags:
 
 - `aalib`: ASCII art graphic library
 - aardvark-dns: Authoritative dns server for `A/AAAA` container records
-- abseil-cpp: Collection of C++ library code designed to augment the C++ standard `librar`
+- sudo abseil-cpp: Collection of C++ library code designed to augment the C++ standard `librar`
 - ansible
 - ansible-core
 - aom: Alliance for Open Media video codec
