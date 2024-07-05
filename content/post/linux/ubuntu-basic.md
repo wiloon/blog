@@ -295,3 +295,11 @@ https://vitux.com/how-to-record-audio-in-ubuntu/
 apt install vorbis-tools
 
 ogg123 foo.ogg
+
+## autostart applications
+
+press win and search startup
+
+## gnome terminal 日志, 命令 保留条数
+
+Preferences> Unnamed> Scrolling> limit scrollback to: 100000 lines

@@ -15,7 +15,7 @@ tags:
 ```bash
 # archlinux 可以从仓库直接安装
 pacman -S protobuf
-# 其它发行版, 比如ubuntu 可以下载二进制包 解压即可.
+# 其它发行版, 比如 ubuntu 可以下载二进制包 解压即可.
 https://github.com/protocolbuffers/protobuf/releases/download/v3.6.1/protoc-3.6.1-linux-x86_64.zip
 # set protoc to PATH
 protoc -help
@@ -26,27 +26,37 @@ protoc -help
 download protoc  
 [https://developers.google.com/protocol-buffers/docs/downloads](https://developers.google.com/protocol-buffers/docs/downloads)
 
-### define message formates in a .proto file
+### define message format in a .proto file
+
+```proto
+syntax = "proto3";
+
+message SearchRequest {
+  string query = 1;
+  int32 page_number = 2;
+  int32 results_per_page = 3;
+}
+```
 
 ```bash
-    syntax = "proto3";
-    package package0;
-    option java_package = "com.wiloon.test.protobuf.package0";
-    
-    message Msg0 {
+syntax = "proto3";
+package package0;
+option java_package = "com.wiloon.test.protobuf.package0";
 
-    // comments0
-    string foo = 1;
-    ObjType enum0 = 2;
-    uint64 timestamp = 5;
-    int32 type = 6;
+message Msg0 {
 
-        //类型
-        enum ObjType {
-            type0 = 0;
-            type1 = 1;
-        }
+// comments0
+string foo = 1;
+ObjType enum0 = 2;
+uint64 timestamp = 5;
+int32 type = 6;
+
+    //类型
+    enum ObjType {
+        type0 = 0;
+        type1 = 1;
     }
+}
 ```
 
 ### generate java/golang code

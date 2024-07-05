@@ -72,6 +72,8 @@ bin/kafka-console-producer.sh \
 
 ### group detail, offset
 
+查看 group detail
+
 ```bash
 # list group detail, offset
 bin/kafka-consumer-groups.sh \
