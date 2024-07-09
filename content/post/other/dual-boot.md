@@ -11,13 +11,15 @@ tags:
 ---
 ## dual boot windows and ubuntu
 
+https://askubuntu.com/questions/1506694/dual-boot-with-windows-11-and-bitlocker/1514161#1514161
+
 Ubuntu: 22.04
 
-1. 在硬盘上准备一块空闲的空间
+- 在硬盘上准备一块空闲的空间
     - 用 windows 的磁盘管理工具调整现有的分区
-2. 用 balenaEtcher 制作 ubuntu 安装盘 (U盘)
-2. 在 BIOS 里确认 Secure Boot 已经开启
-3. 用分区工具在U盘或移动硬盘上准备一个大于 100MB 的 FAT32 分区
+- 用 `balenaEtcher` 制作 ubuntu 安装盘 (U盘)
+- 在 BIOS 里确认 Secure Boot 已经开启
+- 用分区工具在U盘或移动硬盘上准备一个大于 100MB 的 FAT32 分区
 4. 从 U 盘引导,安装 ubuntu, 选择 Try or install Ubuntu
 5. Select Language: English
 6. Install> Install Ubuntu
@@ -210,8 +212,6 @@ efibootmgr -v
     - nvme0n1p8_crypt
     - vgubuntu-swap_1 16G ubuntu swap
     - vgubuntu-root 67G ubuntu /root
-
-https://askubuntu.com/questions/1506694/dual-boot-with-windows-11-and-bitlocker/1514161#1514161
 
 - 获取和保存 BitLocker recovery key: https://account.microsoft.com/devices/recoverykey
 - shrink your BitLocker encrypted partition
