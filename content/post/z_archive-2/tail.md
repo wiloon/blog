@@ -1,5 +1,5 @@
 ---
-title: tail
+title: tail command
 author: "-"
 date: 2016-08-14T15:41:25+00:00
 url: tail
@@ -9,7 +9,7 @@ tags:
   - reprint
   - Command
 ---
-## tail
+## tail command
 
 ## 同时监控多个日志文件
 
@@ -33,7 +33,7 @@ Linux监测日志tail命令详细使用
   -f, --follow[={name|descriptor}]
                 即时输出文件变化后追加的数据。
                         -f, --follow 等于--follow=descriptor
-  -F            即--follow=name --retry
+  -F            即 --follow=name --retry
   -n, --lines=K            output the last K lines, instead of the last 10;
                            or use -n +K to output lines starting with the Kth
       --max-unchanged-stats=N
