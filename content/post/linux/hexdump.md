@@ -8,7 +8,7 @@ categories:
 tags:
   - reprint
 ---
-## hexdump command
+## hexdump command, 以 16进制查看文件
 
 ```Bash
 hexdump -e '16/1 "%02X " "\n"'

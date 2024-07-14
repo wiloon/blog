@@ -20,7 +20,7 @@ watch -n 3 -d netstat -ant
 ### 命令参数
 
 * -n, -interval, watch 默认每两秒运行一下程序, 可以用 -n或-interval来指定间隔的时间。
-* -d, -differences 用-d或-differences 选项watch 会高亮显示变化的区域。 而-d=cumulative选项会把变动过的地方(不管最近的那次有没有变动)都高亮显示出来。
+* -d, -differences 用 -d 或 -differences 选项 watch 会高亮显示变化的区域。 而-d=cumulative选项会把变动过的地方(不管最近的那次有没有变动)都高亮显示出来。
 * -t, -no-title 会关闭watch命令在顶部的时间间隔,命令,当前时间的输出。
 * -h, -help 查看帮助文档
 
