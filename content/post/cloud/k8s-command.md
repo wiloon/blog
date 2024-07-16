@@ -21,7 +21,7 @@ tags:
 ## commands
 
 ```bash
-kubectl exec -it "$(kubectl get pods | grep -Eo '^[^ ]+' |grep api)" bash
+kubectl exec -it "$(kubectl get pods | grep -Eo '^[^ ]+' |grep api)" -- bash
 
 # pod
 kubectl get pod -A -o wide
