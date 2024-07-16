@@ -31,6 +31,7 @@ message SearchRequest {
 
 ```Bash
 python -m grpc_tools.protoc --python_out=. --grpc_python_out=. -I. logServer.proto
+python -m grpc_tools.protoc -I. --python_out=. --grpc_python_out=. .\tests\remote\grpc_wrapper\service.proto
 ```
 
 ## golang grpc
