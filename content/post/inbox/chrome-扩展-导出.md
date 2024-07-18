@@ -1,5 +1,5 @@
 ---
-title: chrome 扩展
+title: chrome extension, 扩展
 author: "-"
 date: 2016-03-20T04:20:10+00:00
 url: /?p=8811
@@ -8,7 +8,7 @@ categories:
 tags:
   - reprint
 ---
-## chrome 扩展
+chrome extension, 扩展
 
 - uBlacklist
 
@@ -31,3 +31,5 @@ linux path:
 [http://blog.csdn.net/sonictl/article/details/9069977](http://blog.csdn.net/sonictl/article/details/9069977)
 
 [http://jingyan.baidu.com/article/9158e0004ff9bba25512284d.html](http://jingyan.baidu.com/article/9158e0004ff9bba25512284d.html)
+
+https://xieyufei.com/2021/11/09/Chrome-Plugin.html
