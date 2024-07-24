@@ -29,7 +29,7 @@ sqlite3
 # 列出数据库文件和名字
 .databases
 
-# query schema
+# query schema, 列出所有的表
 .table
 
 # 查看表结构
