@@ -11,7 +11,7 @@ tags:
 ---
 ## sqlite command
 
-在列模式下，每条记录在一个单独的行中以数据列对齐的方式显示。列如:
+在列模式下，每条记录在一个单独地行中以数据列对齐的方式显示。列如:
 
 sqlite> .mode column
 
@@ -77,6 +77,9 @@ func checkErr(err error) {
 ## 导出, export, dump, 导入, import, read
 
 ```bash
+# export
 sqlite3 db/boardsprofile.db ".dump" > /var/ftp/profile.sql
+
+# import
 sqlite3 test.db ".read /var/ftp/profile.sql"  
 ```

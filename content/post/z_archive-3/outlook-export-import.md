@@ -27,7 +27,7 @@ tags:
 
 File> Open & Export> Open Outlook Data File
 
-然后到 Outlook Data File 下面就能找到了.
+然后到 Outlook 窗口左侧的树状菜单底部的 Outlook Data File 下面就能找到了.
 
 File> Open & Export> Import/Export> Import from another program or file> outlook data file (.pst)
 
