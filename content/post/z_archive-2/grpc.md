@@ -11,6 +11,10 @@ tags:
 ---
 ## python grpc
 
+grpcio==1.48.2
+
+grpc 会忽略 linux 环境变量 里配置的 no_proxy, 导致请求失败, 在启动客户端之前 临时删除环境变量 unset HTTP_PROXY
+
 ### golang grpc
 
 gRPC 通过 HTTP2 协议传输

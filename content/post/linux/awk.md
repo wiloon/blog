@@ -30,6 +30,12 @@ $0 代表当前行
 ## commands
 
 ```bash
+#最短行：
+awk '(NR==1||length(min)>length()){min=$0}END{print min}'   data.txt
+
+# 最长行：
+awk '{if (length(max)<length()) max=$0}END{print max}'  data.txt 
+
 # 单独使用 awk, 不需要 cat
 awk '{print $1}' /tmp/foo.txt
 cat dep-clean|awk -F '@' '{if(NF>2){print "\"""@"$2"\""":"$3} else {pint $1":"$2}}'

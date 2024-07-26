@@ -47,7 +47,7 @@ service crond status
 ### 创建定时任务
 
 ```bash
-crontab -e # 执行后会跳转到vi (依赖环境变量配置,默认一般是vi)
+crontab -e # 执行后会跳转到 vi (依赖环境变量配置, 默认一般是 vi)
 # vi状态下插入一行, 每三分钟插入一行数据到/tmp/foo.txt
 */3 * * * * echo "foo" >> /tmp/foo.txt
 #3分钟之后查看文件  /tmp/foo.txt 应该已经有数据了.

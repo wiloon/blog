@@ -8,7 +8,13 @@ categories:
 tags:
   - reprint
 ---
-## json tool, jq command
+## json tool, jq command, json 格式化
+
+## install
+
+```Bash
+apt install jq
+```
 
 [https://stedolan.github.io/jq/](https://stedolan.github.io/jq/)
 
