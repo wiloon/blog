@@ -1600,7 +1600,7 @@ Unlike C, all comparison operations in Python have the same priority,which is lo
 shifting or `bit` wise operation.
 
 Comparisons can be chained arbitrarily, e.g.,
-"x < y <= z" is equivalent to "x < y and y <= z",​……
+"x < y <= z" is equivalent to "x < y and y <= z",……
 ————————————————
 
                             版权声明：本文为博主原创文章，遵循 CC 4.0 BY-SA 版权协议，转载请附上原文出处链接和本声明。
@@ -1629,4 +1629,36 @@ command = "echo hello"
 shell_script = subprocess.Popen(command, shell=True)
 return_code = shell_script.wait()
 print(f"return code: {return_code}")
+```
+
+## whl download
+
+python -m pip download --only-binary=:all: --platform amd64 --python-version 36 cython
+
+## config logger by code
+
+https://www.cnblogs.com/yyds/p/6885182.html
+
+```Python
+# 创建一个日志器logger并设置其日志级别为DEBUG
+logger = logging.getLogger('simple_logger')
+logger.setLevel(logging.DEBUG)
+
+# 创建一个流处理器handler并设置其日志级别为DEBUG
+handler = logging.StreamHandler(sys.stdout)
+handler.setLevel(logging.DEBUG)
+
+# 创建一个格式器formatter并将其添加到处理器handler
+formatter = logging.Formatter("%(asctime)s - %(name)s - %(levelname)s - %(message)s")
+handler.setFormatter(formatter)
+
+# 为日志器logger添加上面创建的处理器handler
+logger.addHandler(handler)
+
+# 日志输出
+logger.debug('debug message')
+logger.info('info message')
+logger.warn('warn message')
+logger.error('error message')
+logger.critical('critical message')
 ```

@@ -201,8 +201,8 @@ docker run -d id0 sleep 6000
 # --privileged=true, 大约在0.6版,privileged被引入docker。使用该参数,container内的root拥有真正的root权限。
 # --restart=always
 # --cap-add=SYS_TIME
-# -e, --env=[]                    Set environment variables(设置环境变量)
-# --link 用来链接2个容器,使得源容器 (被链接的容器) 和接收容器 (主动去链接的容器) 之间可以互相通信,并且接收容器可以获取源容器的一些数据,如源容器的环境变量。--link <name or id>:alias 其中,name和id是源容器的name和id,alias是源容器在link下的别名。 建议使用 docker network 而不是 --link
+# -e, --env=[]                    Set environment variables
+# --link 用来链接两个容器,使得源容器 (被链接的容器) 和接收容器 (主动去链接的容器) 之间可以互相通信,并且接收容器可以获取源容器的一些数据,如源容器的环境变量。--link <name or id>:alias 其中,name和id是源容器的name和id,alias是源容器在link下的别名。 建议使用 docker network 而不是 --link
 # --cpus=2
 # --cpuset-cpus="0" --cpu-shares=512
 # --hostname 修改容器的 hostname, 这个参数会直接将对应主机名写入机器的/etc/hostname文件中：

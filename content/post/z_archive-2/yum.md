@@ -121,3 +121,10 @@ rpm --rebuilddb
 
 安装现有的 gpg 公钥，在 /etc/pki/rpm-gpg/ 下，可以 sudo rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY*，直接把所有的都安装。。。
 还是不行的话，就通过参数指定不检查数字签名，sudo yum -y install * --nogpgcheck
+
+
+## Yum crashed with Keyboard Interrupt error
+
+yum 跟 python3 不兼容, 得手动改成 python2
+
+vi /usr/bin/yum, change /usr/bin/python to /usr/bin/python2 in first line.

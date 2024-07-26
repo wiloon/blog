@@ -10,10 +10,11 @@ tags:
 ---
 ## kong
 
+run postgresql
+
 ```Bash
 docker network create kong-net
 
-# run postgresql 
 docker run -d --name kong-database \
  --network=kong-net \
  -p 5432:5432 \

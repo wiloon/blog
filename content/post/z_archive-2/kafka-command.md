@@ -26,6 +26,9 @@ docker info | grep "Docker Root Dir"
 ### consumer
 
 ```bash
+# 打印 key
+bin/kafka-console-consumer.sh --topic du_fwa_commit --property print.key=true --property key.separator="-" --bootstrap-server 127.0.0.1:9092
+
 bin/kafka-console-consumer.sh --topic topic0 --bootstrap-server 127.0.0.1:9092
 # 指定 consumer group
 bin/kafka-console-consumer.sh --topic topic0 --bootstrap-server 127.0.0.1:9092 --group group0
@@ -75,7 +78,7 @@ bin/kafka-console-producer.sh \
 查看 group detail
 
 ```bash
-# list group detail, offset
+# list group detail, partition, offset, lag
 bin/kafka-consumer-groups.sh \
 --bootstrap-server 127.0.0.1:9092 \
 --describe \
@@ -125,7 +128,8 @@ CURRENT-OFFSET = LOG-END-OFFSET 说明当前消费组已经全部消费了;
 ```bash
 # 不加 --execute 只是打印出位移调整方案，不具体执行
 bin/kafka-consumer-groups.sh --bootstrap-server localhost:9092 --group test-group --reset-offsets --topic topic0 --to-offset 500000
-# 加 --execute 参数：执行位移调整
+
+# 加 --execute 参数: 执行位移调整
 bin/kafka-consumer-groups.sh --bootstrap-server localhost:9092 --group test-group --reset-offsets --topic topic0 --to-offset 500000 --execute
 
 # shift by
@@ -133,7 +137,9 @@ bin/kafka-consumer-groups.sh --bootstrap-server localhost:9092 --group test-grou
 
 bin/kafka-consumer-groups.sh --bootstrap-server localhost:9092 --group test-group --reset-offsets --topic topic0 --to-current --execute
 bin/kafka-consumer-groups.sh --bootstrap-server localhost:9092 --group test-group --reset-offsets --all-topics --to-earliest --execute
-bin/kafka-consumer-groups.sh --bootstrap-server localhost:9092 --group test-group --reset-offsets --all-topics --to-latest --execute
+
+bin/kafka-consumer-groups.sh --bootstrap-server localhost:9092 --group test-group --reset-offsets --all-topics --to-latest --dry-run
+bin/kafka-consumer-groups.sh --bootstrap-server localhost:9092 --group test-group --reset-offsets --all-topics --to-latest --execute 
 ```
 
 ## topic
@@ -268,8 +274,8 @@ bin/kafka-consumer-groups.sh --bootstrap-server localhost:9092 \
 # kafka 客户端的版本
 bin/kafka-topics.sh --version
 
-# 到kafka/libs 目录下查看kafka包的文件名, where 2.13 is Scala version and 3.1.0 is Kafka version.
-kafka_2.13-3.1.0.jar
+# 到 kafka/libs 目录下查看 kafka 包的文件名, 比如:kafka_2.13-3.1.0.jar,  where 2.13 is Scala version and 3.1.0 is Kafka version.
+
 ```
 
 ## kafka 删除 topic

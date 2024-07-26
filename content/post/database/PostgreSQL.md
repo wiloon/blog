@@ -254,6 +254,20 @@ psql -h 127.0.0.1 -p 5432 -t table0 -U postgres -d database0 -f foo.sql
 
 ```
 
+## 导出指定的行
+
+https://stackoverflow.com/questions/12815496/export-specific-rows-from-a-postgresql-table-as-insert-sql-script
+
+```Bash
+# 按过滤条件导出成 csv, 注意: copy 里面的 select SQL 结尾不能有分号
+COPY (
+SELECT * FROM nyummy.cimory WHERE city = 'tokio'
+) TO '/tmp/foo.csv';
+
+# 导入 csv
+COPY table_0 FROM '/path/to/file.csv';
+```
+
 ## sequence, 序列
 
 ```sql
@@ -716,7 +730,7 @@ set enable_seqscan=off;set enable_bitmapscan = off;set enable_tidscan = off;expl
 set enable_seqscan = off;
 ```
 
-`enable_seqscan`：是否选择全表顺序扫描，把这个变量关闭会让优化器存在其他方法时，优先选择其他方法。
+`enable_seqscan`：是否选择全表顺序扫描，这个变量关闭会让优化器存在其他方法时，优先选择其他方法。
 `enable_indexscan`：是否选择索引扫描。
 `enable_bitmapscan`：是否选择位图扫描。
 `enable_tidscan`：是否选择 TID 扫描。
