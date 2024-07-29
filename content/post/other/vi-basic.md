@@ -19,6 +19,11 @@ tags:
 - Insert mode, 输入模式: i 切换到插入模式
 - Last line mode,底线命令模式: `:` 切换到底线命令模式
 
+## 快捷键
+
+- ctrl + d 向下滚动半屏
+- ctrl + u 向上滚动半屏
+
 ## 基本插入
 
 ```r
