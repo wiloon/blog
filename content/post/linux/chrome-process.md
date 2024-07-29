@@ -7,7 +7,7 @@ categories:
 tags:
   - reprint
 ---
-## "chrome 为什么多进程而不是多线程"
+## chrome 为什么多进程而不是多线程
 
 https://www.zhihu.com/question/368712837
 

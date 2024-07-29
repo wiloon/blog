@@ -9,6 +9,16 @@ tags:
   - reprint
 ---
 ## linux shell 进程监控
+
+## 进程内存占用
+
+```Bash
+top -p <PID>
+
+# 查看进程的status文件
+cat /proc/2913/status 
+```
+
 http://www.ibm.com/developerworks/cn/linux/l-cn-shell-monitoring/index.html?ca=drs-
 
 ```bash
@@ -196,24 +206,4 @@ echo $DiskSpace
    
 }
   
-```
-  
-```bash
-
-```
-  
-```bash
-
-```
-  
-```bash
-
-```
-  
-```bash
-
-```
-  
-```bash
-
 ```

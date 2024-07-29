@@ -9,8 +9,10 @@ tags:
 ---
 ## "fork exec system()"
 system()、exec()、fork()三个与进程有关的函数的比较
+
 ### 启动新进程 (system函数) 
-system()函数可以启动一个新的进程。
+
+system() 函数可以启动一个新的进程。
 
 int system (const char *string )
 
