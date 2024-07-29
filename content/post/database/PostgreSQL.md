@@ -164,6 +164,7 @@ INNER JOIN pg_class ON pg_constraint.conrelid = pg_class.oid
 WHERE
     pg_class.relname = 'table_name_0'
 AND pg_constraint.contype = 'p';
+
 --查询主键的详细信息
 SELECT
     pg_constraint.conname AS pk_name,
@@ -285,7 +286,10 @@ CREATE SEQUENCE seq_0 INCREMENT 1 MINVALUE 1 START 1 CACHE 1;
 -- 查看 seq 定义
 \d+ seq_0
 
--- 查看 seq 的当前值, 每查一次 seq 值 会加 1
+-- 查看 seq 的当前值, 查询不会导致 sequence 值变化 , 每次查都 是一样的, 如果 没有其它客户端调用 nextval()
+SELECT last_value FROM sequence_name;
+
+-- 查看 seq 的下一个值, 每查一次 seq 值 会加 1
 SELECT nextval('seq_0')
 
 -- 更新 seq 的值 
