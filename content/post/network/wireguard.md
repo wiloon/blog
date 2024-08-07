@@ -56,7 +56,7 @@ sudo apt install wireguard
 
 ### macos
 
-在 App Store 安装 wireguard  
+在 App Store 安装 wireguard
 
 ## 生成密钥
 
@@ -84,7 +84,7 @@ wg genpsk > peer_A-peer_B.psk
 
 ```bash
 sudo ip link add dev wg0 type wireguard
-sudo ip addr add 192.168.53.1/24 dev wg0
+sudo ip addr add 192.168.10.1 dev wg0
 
 # 加载私钥
 sudo wg set wg0 private-key /path/to/private-key
