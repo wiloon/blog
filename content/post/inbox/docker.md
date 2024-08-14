@@ -14,6 +14,9 @@ tags:
 ## commands
 
 ```Bash
+# Docker查看容器完整的容器ID和镜像ID
+docker ps -a --no-trunc
+
 docker exec nexus3 cat /nexus-data/admin.password
 docker ps --filter"name=test-nginx"
 docker ps --format "table {{.ID}}\t{{.Names}}\t{{.Image}}\t{{.Status}}"
