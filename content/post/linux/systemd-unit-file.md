@@ -45,6 +45,8 @@ After=pulseaudio.service
   - 注意, After 和 Before 字段只涉及启动顺序,不涉及依赖关系。
   - ConditionPathExists, AssertPathExists: 要求给定的绝对路径文件已经存在，否则不做任何事(condition)或进入failed状态(assert)，可在路径前使用!表示条件取反，即不存在时才启动服务。
   - ConditionPathIsDirectory, AssertPathIsDirectory: 如上，路径存在且是目录时启动。
+  - StartLimitIntervalSec=400
+  - StartLimitBurst=3
 - [Service] 区块
   - 用来 Service 的配置，只有 Service 类型的 Unit 才有这个区块。它的主要字段如下
   - Type：定义启动时的进程行为。它有以下几种值。
@@ -72,6 +74,16 @@ After=pulseaudio.service
   - Alias	指定创建软链接时链接至本服务配置文件的别名文件。例如reboot.target中配置了Alias=ctrl-alt-del.target，当执行enable时，将创建/etc/systemd/system/ctrl-alt-del.service软链接并指向reboot.target。
   - DefaultInstance	当是一个模板服务配置文件时(即文件名为Service_Name@.service)，该指令指定该模板的默认实例。例如trojan@.service中配置了DefaultInstall=server时，systemctl enable trojan@.service时将创建名为trojan@server.service的软链接。
 
+可以通过以下两个选项来设置服务启动的频率：
+
+StartLimitIntervalSec=, StartLimitBurst=
+
+设置单元的启动频率限制。  StartLimitIntervalSec= 用于设置时长， 默认值等于 DefaultStartLimitIntervalSec= 的值(默认为10秒)，设为 0 表示不作限制。
+
+StartLimitBurst= 用于设置在一段给定的时长内，最多允许启动多少次， 默认值等于 DefaultStartLimitBurst= 的值(默认为5次)。 虽然此选项通常与 Restart= (参见 systemd.service(5)) 一起使用， 但实际上，此选项作用于任何方式的启动(包括手动启动)， 而不仅仅是由 Restart= 触发的启动。
+
+注意，一旦某个设置了 Restart= 自动重启逻辑的单元触碰到了启动频率限制，那么该单元将再也不会尝试自动重启； 不过，如果该单元后来又被手动重启成功的话，那么该单元的自动重启逻辑将会被再次激活。 注意，systemctl reset-failed 命令能够重置单元的启动频率计数器。 系统管理员在手动启动某个已经触碰到了启动频率限制的单元之前，可以使用这个命令清除启动限制。 注意，因为启动频率限制位于所有单元条件检查之后，所以基于失败条件的启动不会计入启动频率限制的启动次数之中。 注意， slice, target, device, scope 单元不受此选项的影响， 因为这几种单元要么永远不会启动失败、要么只能成功启动一次。
+
 >注意:
 >脚本里的命令必须是绝对路径
 >ExecStart 命令行参数, ExecStart 执行的命令有参数时, 不要把可执行文件的路径和参数放在双引号里, ExecStart 会把参数 当作路径 的一部分, 然后报错说找不到文件.
@@ -81,6 +93,8 @@ After=pulseaudio.service
 `systemctl enable foo.service`
 
 ## Golang binary
+
+Unit File (systemd) for Golang binary
 
 ```Bash
 vim /etc/systemd/system/foo.service

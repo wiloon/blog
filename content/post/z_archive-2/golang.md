@@ -22,7 +22,7 @@ Go 语言是静态类型的编程语言
 
 ## version
 
-- latest: 1.21.4
+- latest: 1.22.6
 - current: 1.17.7
 
 ### hello world
@@ -41,7 +41,7 @@ go build hello-world.go
 ./hello-world
 ```
 
-## 升级依赖包版本
+## 升级依赖包版本, upgrade package version
 
 ```bash
 go list -m all|grep redis
@@ -50,6 +50,7 @@ go list -m all|grep redis
 # 升级 go-redis 版本
 go get -u github.com/redis/go-redis/v9
 # -u The -u flag instructs get to update modules providing dependencies of packages named on the command line to use newer minor or patch releases when available.
+
 # 不带 -u 的 go get 在发现依赖包已经存在的时候不会更新, 加 -u 参数会检查依赖包是否有更新然后下载新版本.
 # 升级 go-redis 到 9.0.4
 go get -u github.com/redis/go-redis/v9@v9.0.4

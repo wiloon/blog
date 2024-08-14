@@ -62,6 +62,10 @@ Ctrl + y        粘贴最后一次被删除的单词
 [https://brew.sh/](https://brew.sh/)
 
 ```bash
+# 搜索
+brew search foo
+brew search golang
+
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 brew install ansible
 
@@ -82,9 +86,20 @@ brew upgrade package0
 brew upgrade
 
 brew install --cask obsidian
-brew search foo
+
 ```
 
 ### all casks package
 
 [https://formulae.brew.sh/cask/](https://formulae.brew.sh/cask/)
+
+## macos build linux bin
+
+https://www.baifachuan.com/posts/4862a3b1.html
+
+linux_syscall.c:67:13: error: call to undeclared function 'setresgid'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+
+```Bash
+brew install FiloSottile/musl-cross/musl-cross
+CGO_ENABLED=1 GOOS=linux GOARCH=amd64 CC=x86_64-linux-musl-gcc  CXX=x86_64-linux-musl-g++  go build -o ${package_name} enx-api.go
+```

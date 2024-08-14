@@ -119,12 +119,13 @@ PATH=$PATH:$HOME/bin:/sbin:/usr/bin:/usr/sbin
 
 ## /usr
 
-这是linux系统中占用硬盘空间最大的目录。用户的很多应用程序和文件都存放在这个目录下。 
+usr 并不是 user 用户的缩写，而是 User System Resources 的缩写, 用于存放用户空间的程序和数据
+
+这是 linux 系统中占用硬盘空间最大的目录。用户的很多应用程序和文件都存放在这个目录下。 
 
 系统级的目录，可以理解为 C:/Windows/
 
-在早期的 Unix 实现中, usr 目录用于存放用户相关的数据相当于现在的 /home 目录, /usr 目录现在用于存放用户空间的程序和数据
-usr 并不是 user 用户的缩写，而是 User System Resources 的缩写
+在早期的 Unix 实现中, usr 目录用于存放用户相关的数据相当于现在的 /home 目录, 
 
 存放应用程序，/usr/bin 存放应用程序，/usr/share 存放共享数据，/usr/lib 存放不能直接运行的，却是许多程序运行所必需的一些函数库文件。/usr/local:存放软件升级包。/usr/share/doc:系统说明文件存放目录。/usr/share/man: 程序说明文件存放目录，使用 man ls时会查询/usr/share/man/man1/ls.1.gz的内容建议单独分区，设置较大的磁盘空间
 
@@ -132,7 +133,7 @@ usr 并不是 user 用户的缩写，而是 User System Resources 的缩写
 
 系统启动时需要的执行文件 (二进制)  
 /bin 下存放一些普通的基本命令, /bin 下的命令管理员和一般的用户都可以使用。
-几乎所有用户所用命令，另外存在与 /bin，/usr/local/bin  
+几乎所有用户所用命令，另外存在于 /bin，/usr/local/bin  
 可执行二进制文件的目录，如常用的命令 ls、tar、mv、cat 等。
 
 /usr/bin 是你在后期安装的一些软件的运行脚本。主要放置一些应用软体工具的必备执行档例如c++、g++、gcc、chdrv、diff、dig、du、eject、elm、free、gnome*、 gzip、htpasswd、kfm、ktop、last、less、locale、m4、make、man、mcopy、ncftp、 newaliases、nslookup passwd、quota、smb*、wget等。
@@ -166,14 +167,14 @@ usr 并不是 user 用户的缩写，而是 User System Resources 的缩写
 
 ## /usr/local
 
-- /usr/local/bin 二进制文件
-- /usr/local/etc 配置文件
-
 本地安装软件保存位置
 
 用户级的程序目录，可以理解为 `C:/Program Files/` 用户自己编译的软件默认会安装到这个目录下。
 这里主要存放那些手动安装的软件，即不是通过 apt-get 安装的软件。它和 `/usr` 目录具有相类似的目录结构。让软件包管理器来管理 `/usr` 目录，
 而把自定义的脚本 (scripts) 放到 `/usr/local` 目录下面。
+
+- /usr/local/bin 二进制文件
+- /usr/local/etc 配置文件
 
 ## /usr/include
 
