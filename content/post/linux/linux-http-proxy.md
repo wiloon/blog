@@ -28,7 +28,6 @@ unset http_proxy
 unset https_proxy
   
 unset ftp_proxy
-  
 ```
 
 export no_proxy="localhost,127.0.0.0/8,*.local"

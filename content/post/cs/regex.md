@@ -11,7 +11,7 @@ tags:
 ## 正则表达式, regex
 
 ```py
-#PCRE
+# PCRE
 # 10.0.0.0/8; 172.0.0.0/12; 192.168.0.0/16
 ^[\d|\.|\/|;| ]+$
 
@@ -49,7 +49,7 @@ PCRE: Perl-compatible regular expressions
 - `+` 匹配前面的子表达式一次或多次。例如，"zo+"能匹配"zo"以及"zoo"，但不能匹配"z"。+等价于{1,}。
 - `(pattern)` 匹配pattern并获取这一匹配的子字符串。该子字符串用于向后引用。所获取的匹配可以从产生的Matches集合得到，在VBScript中使用SubMatches集合，在JScript中则使用$0…$9属性。要匹配圆括号字符，请使用“\(”或“\)”。可带数量后缀。
 - `?` 匹配前面的子表达式零次或一次。例如，"do(es)?"可以匹配"does"或"does"中的"do"。?等价于{0,1}。
-- `{n}` n 是一个非负整数。匹配确定的n次。例如，"o{2}"不能匹配"Bob"中的"o"，但是能匹配"food"中的两个o。
+- `{n}` n 是一个非负整数。匹配确定的 n 次。例如，"o{2}"不能匹配"Bob"中的"o"，但是能匹配"food"中的两个o。
 - `{n,}` n 是一个非负整数。至少匹配n次。例如，"o{2,}"不能匹配"Bob"中的"o"，但能匹配"foooood"中的所有o。"o{1,}"等价于"o+"。"o{0,}"则等价于"o_"。
 - `{1,3}` 匹配一次到三次
 
@@ -60,14 +60,14 @@ PCRE: Perl-compatible regular expressions
 ```bash
 echo 'a.gif' | grep -P '\.(jp?g|gif|bmp|png)'
 
-#输出
+# 输出
 a.gif
 
 # 如果只想输出匹配部分,则加上 -o 参数
 
-$ echo 'a.gif' | grep -P -o '\.(jp?g|gif|bmp|png)'
+echo 'a.gif' | grep -P -o '\.(jp?g|gif|bmp|png)'
 
-#输出
+# 输出
 .gif
 ```
 
@@ -302,3 +302,7 @@ un 匹配n，其中n是一个用四个十六进制数字表示的Unicode字符�
 链接：[https://www.jianshu.com/p/1af0493b474d](https://www.jianshu.com/p/1af0493b474d)
 来源：简书
 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
+
+## fnmatch syntax
+
+github 的 branch protoction 用的是
