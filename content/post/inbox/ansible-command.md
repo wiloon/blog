@@ -198,3 +198,14 @@ tasks:
 使用命令行变量
 在命令行里面传值得的方法：
  ansible-playbook e33_var_in_command.yml --extra-vars "hosts=web user=root"
+
+## python interpreter
+
+[WARNING]: Platform linux on host 192.168.50.36 is using the discovered Python interpreter at /usr/bin/python3.12, but future installation of
+another Python interpreter could change the meaning of that path. See https://docs.ansible.com/ansible-
+core/2.16/reference_appendices/interpreter_discovery.html for more information.
+
+edit ansible.cfg and set auto_silent mode:
+
+[defaults]
+interpreter_python=auto_silent
