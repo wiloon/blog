@@ -20,7 +20,7 @@ Ubuntu: 22.04
 - 用 `balenaEtcher` 制作 ubuntu 安装盘 (U盘)
 - 在 BIOS 里确认 Secure Boot 已经开启
 - 用分区工具在U盘或移动硬盘上准备一个大于 100MB 的 FAT32 分区
-4. 从 U 盘引导,安装 ubuntu, 选择 Try or install Ubuntu
+- 从 U 盘引导,安装 ubuntu, 选择 Try or install Ubuntu
 5. Select Language: English
 6. Install> Install Ubuntu
 7. Keyboard: English(US)> English(US)

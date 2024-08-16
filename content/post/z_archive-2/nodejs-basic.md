@@ -35,6 +35,13 @@ nvm install 14
 nvm use 14
 ```
 
+### ubuntu install nvm
+
+```Bash
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.0/install.sh | bash
+nmv install 16
+```
+
 ## nodejs downgrade
 
 no need to downgrade, use nvm
