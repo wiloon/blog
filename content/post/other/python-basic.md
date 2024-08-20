@@ -324,7 +324,11 @@ vars(student)
 
 ### hasattr
 
+对象是否有某一个属性字段
+
+```Bash
 op = hasattr(a,'getValue')
+```
 
 ## pip
 
@@ -1784,3 +1788,17 @@ print(e) # output: {'y':1}
                             版权声明：本文为博主原创文章，遵循 CC 4.0 BY-SA 版权协议，转载请附上原文出处链接和本声明。
 
 原文链接：https://blog.csdn.net/S_o_l_o_n/article/details/102823490
+
+## print exception trace
+
+```Python
+import traceback
+
+def do_stuff():
+    raise Exception("test exception")
+
+try:
+    do_stuff()
+except Exception:
+    print(traceback.format_exc())
+```
