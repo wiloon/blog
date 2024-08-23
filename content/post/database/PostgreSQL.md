@@ -103,17 +103,19 @@ FROM table0
 https://hub.docker.com/_/postgres
 
 ```bash
-docker pull postgres:16.1
+docker pull postgres:16.4
 
+# docker
 # 默认用户名 postgres
-docker run --name postgres \
+docker run --name postgres-dev \
 --restart=always \
--p 5432:5432 \
+-p 5433:5432 \
 -e POSTGRES_PASSWORD=password0 \
 -e PGDATA=/var/lib/postgresql/data/pgdata \
--v postgres-data:/var/lib/postgresql/data \
--d postgres:16.1
+-v postgres-data-dev:/var/lib/postgresql/data \
+-d postgres:16.4
 
+# podman
 podman run --name postgres \
 -p 5432:5432 \
 -e POSTGRES_PASSWORD=password0 \
