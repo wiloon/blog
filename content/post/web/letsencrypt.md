@@ -58,9 +58,12 @@ snap install certbot-dns-google
 # --keep-until-expiring: keep cert yes
 certbot certonly --standalone -m wiloon.wy@gmail.com --agree-tos --eff-email --keep-until-expiring \
 -d wiloon.com -d bitwarden.wiloon.com -d enx.wiloon.com -d hello.wiloon.com
+
 certbot certonly --standalone -m wiloon.wy@gmail.com --agree-tos --eff-email --keep-until-expiring -d wangyue.dev
+
 # list all certificates issued by certbot
 certbot certificates
+
 # select and delete certificates
 certbot delete
 
