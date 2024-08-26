@@ -40,3 +40,9 @@ WebDAV一种基于HTTP1.1的扩展协议，
 参考：[https://baike.baidu.com/item/WebDAV](https://baike.baidu.com/item/WebDAV)
 
 >[https://www.cnblogs.com/bors/p/WinSCP.html](https://www.cnblogs.com/bors/p/WinSCP.html)
+
+## run winscp from cmd
+
+```Bash
+winscp.exe /ini="C:\Users\martin\Documents\myconfig.ini"
+```
