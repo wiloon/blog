@@ -18,7 +18,7 @@ categories:
 
 ### latest
 
-xxx
+10.8.2
 
 ## command
 
@@ -125,7 +125,12 @@ npm config get cache
 npm cache clean
 npm install express --save
 npm install express --save-dev
-# --save参数表示将该模块写入dependencies属性，--save-dev表示将该模块写入devDependencies属性。
+# --save 参数表示将该模块写入 dependencies 属性，--save-dev 表示将该模块写入 devDependencies 属性。
+# --save和--save-dev区别
+# --save-dev 是开发时依赖的包，--save 是发布后还依赖的包
+
+# print verbose log
+npm install --save-dev jest --loglevel verbose
 
 npm cache clean
 npm cache clean --force
@@ -216,8 +221,7 @@ npm install xxx@1.2.0
 npm run build --report
 ```
 
---save和--save-dev区别
-一句话:--save-dev是你开发时依赖的东西，--save是发布后还依赖的东西.
+
 
 nodejs的出现，可以算是前端里程碑式的一个事件，它让前端攻城狮们摆脱了浏览器的束缚，踏上了一个更加宽广的舞台。前端的可能性，从此更加具有想象空间。
 
