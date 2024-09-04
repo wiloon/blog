@@ -22,8 +22,16 @@ Go 语言是静态类型的编程语言
 
 ## version
 
-- latest: 1.22.6
+- latest: 1.23.0
 - current: 1.17.7
+
+## install
+
+```Bash
+# macos
+brew search golang
+brew upgrade golang
+```
 
 ### hello world
 

@@ -47,7 +47,8 @@ Ctrl + y        粘贴最后一次被删除的单词
 
 ## .DS_Store
 
-.DS_Store [英文全称 **Desktop Services Store**](1) 是一种由苹果公司的 Mac OS X 操作系统所创造的隐藏文件, 目的在于存贮文件夹的自定义属性,例如文件们的图标位置或者是背景色的选择。
+.DS_Store Desktop Services Store 是一种由苹果公司的 Mac OS X 操作系统所创造的隐藏文件, 目的在于存贮文件夹的自定义属性,
+例如文件们的图标位置或者是背景色的选择。
 
 ## 重启 ipad
 
@@ -57,7 +58,7 @@ Ctrl + y        粘贴最后一次被删除的单词
 
 - brew 会把软件安装在用户主目录里, 不需要 sudo
 - brew 装的主要是 command line tool。
-- brew cask装的大多是有gui界面的app以及驱动，brew cask是brew的一个官方源。
+- brew cask 装的大多是有 gui 界面的 app 以及驱动，brew cask 是 brew 的一个官方源。
 
 [https://brew.sh/](https://brew.sh/)
 
