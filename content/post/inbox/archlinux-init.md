@@ -123,7 +123,6 @@ yay -S google-chrome
 #### 输入法ibus
 
 [http://www.wiloon.com/?p=7507](http://www.wiloon.com/?p=7507)
-
 #### for right click extrace package
 
 pacman -S file-roller

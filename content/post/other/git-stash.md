@@ -18,10 +18,12 @@ tags:
 ```bash
   
 git stash
+
 # 如果有新添加的文件，那么就需要添加 -a 参数
 git stash save -a "msg0"
+
 git stash list
-  
+
 git stash pop
 ```
 

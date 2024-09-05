@@ -305,8 +305,12 @@ tar --use-compress-program=pigz -xvpf package.tgz -C ./package
 
 ```bash
 # 压缩
-gzip FileName
+# 直接压缩文件, 压缩成功之后默认会把原文件删掉, 变成 foo.txt.gz
+gzip foo.txt
+
+# 压缩 tar 文件到 .tar.gz
 gzip foo.tar
+
 # 解压1
 gunzip FileName.gz
 # 解压2

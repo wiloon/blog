@@ -76,11 +76,11 @@ fi
 ```bash
 # 与 &&
 if [ $str=a -a $str=b ]
-if [ $str=a ] && [  $str=b ]
+if [ $str=a ] && [ $str=b ]
 
 # 或 ||
 if [ $str=a -o $str=b ] 
-if [ $str=a ] || [  $str=b ]
+if [ $str=a ] || [ $str=b ]
 ```
 
 ## 查看安装的 shell

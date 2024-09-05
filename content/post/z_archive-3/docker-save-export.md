@@ -8,7 +8,7 @@ categories:
 tags:
   - reprint
 ---
-## docker save 与 docker export 的区别, docker 镜像 导出
+## docker save 与 docker export, docker 镜像 导出
 
 ### 导出
 

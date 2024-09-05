@@ -11,7 +11,7 @@ tags:
 ---
 ## Hardware
 
-- QNAP TS453Bmini
+- QNAP TS453B mini
 - Dell Wyse 5070
 - R86S
 - Dell Inspiron N4050
@@ -28,6 +28,7 @@ tags:
 - DELL U2723QX
 - Apple Watch Series 8
 - WH-1000XM5
+- AM40
 
 ## ROCK 5B
 
@@ -463,3 +464,7 @@ power> disable built-in battery
 ## WH-1000XM5
 
 https://helpguide.sony.net/mdr/wh1000xm5/v1/zh-cn/index.html
+
+## AM40
+
+- 

@@ -87,6 +87,10 @@ git rev-parse --abbrev-ref HEAD
 
 # 获取当前的分支名称, Git 2.22 及更高版本
 git branch --show-current
+
+# 查看本地分支对应的远程分支
+# 查看本地分支和远程分支的同步状态, update to date/local out of date
+git remote show origin
 ```
 
 ### 新建分支
@@ -854,6 +858,10 @@ git push -f
 
 # fatal: The current branch production has no upstream branch.
 git push --set-upstream origin production
+
+#To push to the branch of the same name on the remote, use
+# 已经关联了远程分支, 在本地改名之后, 远程不会改, 删除远程分支之后执行这个命令
+git push origin HEAD
 ```
 
 git am –show-current-patch
