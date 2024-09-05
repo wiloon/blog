@@ -53,8 +53,8 @@ source (source /directory/script.sh)
 
 使用 source 执行命令时, 脚本文件可以没有执行权限, source 命令是 bash 的内置命令，不需要 (也没有) 绝对路径.  
 source 命令也称为"点命令"，也就是一个点符号 ". "。 source 命令通常用于重新执行刚修改的初始化文件，使之立即生效，而不必注销并重新登录。
-  
-用法: 注意点后面有空格
+
+注意: 点后面有空格
 
 ```bash
 source filename 或 . filename

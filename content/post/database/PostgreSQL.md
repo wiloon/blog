@@ -10,7 +10,7 @@ tags:
 ---
 ## PostgreSQL
 
-## postgresql log, 日志, sql 历史
+## postgresql.conf, postgresql log, 日志, sql 历史
 
 [https://www.cnblogs.com/qianxunman/p/12149586.html](https://www.cnblogs.com/qianxunman/p/12149586.html)
 
@@ -51,6 +51,18 @@ log_duration = off ---- 记录每条SQL语句执行完成消耗的时间，将�
 
 13.log_line_prefix = '%m %p %u %d %r ' ---- 日志输出格式（%m,%p实际意义配置文件中有解释）,可根据自己需要设置（能够记录时间，用户名称，数据库名称，客户端IP和端口，方便定位问题）
 14.log_timezone = 'Asia/Shanghai' ---- 日志时区，最好和服务器设置同一个时区，方便问题定位
+```
+
+### timezone
+
+```Bash
+timezone = 'Asia/Shanghai'
+```
+
+### 重新加载配置文件
+
+```Bash
+pg_ctl reload
 ```
 
 [https://www.cnblogs.com/alianbog/p/5596921.html](https://www.cnblogs.com/alianbog/p/5596921.html)
@@ -105,14 +117,19 @@ https://hub.docker.com/_/postgres
 ```bash
 docker pull postgres:16.4
 
+# 修改配置文件
+log_timezone = 'UTC'
+timezone = 'Asia/Shanghai'
+
 # docker
 # 默认用户名 postgres
-docker run --name postgres-dev \
+docker run --name postgres \
 --restart=always \
--p 5433:5432 \
+-p 5432:5432 \
 -e POSTGRES_PASSWORD=password0 \
 -e PGDATA=/var/lib/postgresql/data/pgdata \
--v postgres-data-dev:/var/lib/postgresql/data \
+-v postgres-data:/var/lib/postgresql/data \
+-v /etc/postgresql/postgresql.conf:/etc/postgresql/postgresql.conf \
 -d postgres:16.4
 
 # podman
@@ -131,6 +148,8 @@ su -l postgres -c '/opt/pg9.6/bin/pg_ctl -D /mnt/pgdata start'
 
 # 重载配置
 su -l postgres -c '/opt/pg9.6/bin/pg_ctl -D /mnt/pgdata reload'
+
+docker run -i --rm postgres:16.4 cat /usr/share/postgresql/postgresql.conf.sample > postgresql.conf
 ```
 
 ## commands
@@ -199,7 +218,7 @@ create table table0(
   );
 ```
 
-## psql 直接执行 sql
+## psql 命令行直接执行 sql
 
 ```sql
 PGPASSWORD=postgres psql -h 127.0.0.1 -p 5432 -d database0 -U user0  --command 'select version();'
@@ -410,9 +429,13 @@ timestamp with time zone   TIMESTAMPTZ       PostgreSQL遵守这个行为。time
 ```sql
 show timezone;
 select * from pg_timezone_names where abbrev='+04';
-set time zone "Asia/Dubai";
+
+# 临时设置时区, 退出 psql 之后失效
+set time zone "Asia/Shanghai";
 
 select now();
+# 查看数据库可供选择的时区:
+select * from pg_timezone_names;
 ```
 
 ## substring

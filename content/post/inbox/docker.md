@@ -25,6 +25,7 @@ docker ps --format "table {{.ID}}\t{{.IMAGE}}\t{{.CREATED}}\t{{.STATUS}}\t{{.NAM
 
 docker inspect xxx
 docker container update --restart=no <containername>
+
 # 修改 docker 容器为开机启动
 docker container update --restart=always <containername>
 ```
@@ -71,7 +72,7 @@ docker port [OPTIONS] CONTAINER [PRIVATE_PORT[/PROTO]]
 
 ### install docker
 
-[https://blog.wiloon.com/docker/install](https://blog.wiloon.com/docker/install)
+https://docs.docker.com/engine/install/ubuntu/
 
 ### image
 
