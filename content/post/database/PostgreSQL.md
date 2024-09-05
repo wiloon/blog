@@ -129,7 +129,6 @@ docker run --name postgres \
 -e POSTGRES_PASSWORD=password0 \
 -e PGDATA=/var/lib/postgresql/data/pgdata \
 -v postgres-data:/var/lib/postgresql/data \
--v /etc/postgresql/postgresql.conf:/etc/postgresql/postgresql.conf \
 -d postgres:16.4
 
 # podman
