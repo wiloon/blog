@@ -184,3 +184,13 @@ some secret
 ```bash
 openssl s_client -showcerts -servername wiloon.com -connect wiloon.com:443
 ```
+
+## crt to pem
+
+用 notepad 打开 .crt 看一下, 有可能只改一下文件后缀就可以了.
+
+https://stackoverflow.com/questions/991758/how-to-get-pem-file-from-key-and-crt-files
+
+```Bash
+openssl x509 -inform PEM -in server.crt > public.pem
+```

@@ -68,7 +68,7 @@ tcpdump -i eth1 dst host 192.168.1.1
 tcpdump -n -i eth0 host 192.168.1.2 and 192.168.1.3
 tcpdump -n -i eth0 host 192.168.1.2 or 192.168.1.3 or 192.168.1.4
 # -i any 任意网卡
-tcpdump  -ni any port 443 -w https.pcap
+tcpdump  -ni any port 443
 ```
 
 ### 指定端口
@@ -1950,3 +1950,8 @@ libpcap主要由两部份组成：网络分接口(Network Tap)和数据过滤器
 [http://dngood.blog.51cto.com/446195/1084796](http://dngood.blog.51cto.com/446195/1084796)  
 [https://mozillazg.com/2018/01/tcpdump-common-useful-examples-cookbook.html](https://mozillazg.com/2018/01/tcpdump-common-useful-examples-cookbook.html)  
 >[https://www.cnblogs.com/jiujuan/p/9017495.html](https://www.cnblogs.com/jiujuan/p/9017495.html)
+
+
+## TLS
+
+https://www.wsh-study.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/HTTP/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8tcpdump%E6%8A%93%E6%8B%8Dhttps%E5%8C%85/
