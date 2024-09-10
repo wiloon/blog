@@ -42,3 +42,7 @@ puzzle button: chrome extension 图标后面的拼图按钮
 [https://crxjs.dev/vite-plugin](https://crxjs.dev/vite-plugin)
 
 [https://www.freecodecamp.org/news/chrome-extension-message-passing-essentials/](https://www.freecodecamp.org/news/chrome-extension-message-passing-essentials/)
+
+## background.js
+
+不能直接访问页面的内容, 只能发消息给 content.js
