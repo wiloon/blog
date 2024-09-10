@@ -26,3 +26,14 @@ mainClassName = "org.gradle.sample.Main"
 gradle distZip
 
 applicationDefaultJvmArgs 用于配置jvm 参数
+
+
+## gradle executable jar, application plugin
+apply plugin: 'application'
+
+
+```bash
+
+gradle installApp
+
+```
