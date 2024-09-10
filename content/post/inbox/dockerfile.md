@@ -50,6 +50,10 @@ ADD configs/xxx.json .
 CMD ["./xxx"]
 ```
 
+```Bash
+buildah -f Dockerfile-0 --build-arg foo="bar"
+```
+
 ### 环境变量
 
 设置环境变量 USERNAME 默认值为 admin，后面可以通过docker run -e USERNAME="XXXXXX"修改，这个环境变量在容器里也可以$USERNAME获取

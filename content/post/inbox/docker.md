@@ -14,7 +14,7 @@ tags:
 ## commands
 
 ```Bash
-# Docker查看容器完整的容器ID和镜像ID
+# Docker查看容器完整的容器 ID 和镜像 ID
 docker ps -a --no-trunc
 
 docker exec nexus3 cat /nexus-data/admin.password

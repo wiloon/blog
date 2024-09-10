@@ -369,6 +369,8 @@ pip freeze #查看当前安装库版本
 # 创建 requirements.txt 文件，其中包含了当前环境中所有包及各自的版本的简单列表
 # 按 requirements.txt 安装依赖
 pip install -r requirements.txt
+# [SSL: CERTIFICATE_VERIFY_FAILED]
+pip install --trusted-host pypi.org --trusted-host pypi.python.org --trusted-host files.pythonhosted.org <package_name>
 pip freeze > requirements.txt
 pip uninstall kafka
 lsvirtualenv        #列举所有的环境
