@@ -192,3 +192,16 @@ vi remi.repo 将[remi] 中的 enabled=0 改成 enabled=1 来启用 remi 源
 [root@orcl1 yum.repos.d]# rpm –import /etc/pki/rpm-gpg/RPM-GPG-KEY-remi
   
 在remi.repo中和epel.repo中添加priority设置即可使用。
+
+## centos 7 repo
+
+https://henchat.net/centos%E7%B3%BB%E7%BB%9F%E8%BF%98%E5%8E%9F%E5%AE%98%E6%96%B9yum%E6%BA%90/
+
+```Bash
+sed -e "s|^mirrorlist=|#mirrorlist=|g" \
+    -e "s|^#baseurl=http://mirror.centos.org/centos/\$releasever|baseurl=https://vault.centos.org/7.9.2009/|g" \
+    -e "s|^#baseurl=http://mirror.centos.org/\$contentdir/\$releasever|baseurl=https://vault.centos.org/7.9.2009/|g" \
+    -i.bak \
+    /etc/yum.repos.d/CentOS-*.repo
+
+```
