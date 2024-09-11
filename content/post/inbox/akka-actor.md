@@ -46,7 +46,7 @@ akka-zeromq:整合ZeroMQ
   
 其中最总要的就是akka-actor,最简单的AKKA使用的话,只需要引入这个包就可以了.
   
-### Actor模型
+### Actor 模型
 
 什么是Actor
   

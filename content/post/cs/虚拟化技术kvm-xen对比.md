@@ -14,7 +14,9 @@ Linux虚拟化技术的用户目前有两种免费的开源管理程序可以选
   
 作为较早出现的虚拟化技术，Xen是"第一类"运行在裸机上的虚拟化管理程序 (Hypervisor) ，也是当前相当一部分商业化运作公司的基础技术，其中包括Citrix系统公司的XenServer和Oracle的虚拟机。Xen技术的倡导者们声称Xen的性能强劲，并且拥有一个广泛的管理工具和能够交付卓越性能，以及其它诸多优点。
   
-但是最近有一些Linux厂商-包括Red Hat和Canonical把基于内核的虚拟机 (KVM: Kernel-based Virtual Machine) 技术内置在Ubuntu中。KVM是一个轻量级的虚拟化管理程序模块，该模块主要来自于Linux内核。虽然只是后来者，但是由于其性能和实施的简易性，以及对Linux重量级的持续支持，所以还是有必要认真对待KVM技术的。
+但是最近有一些Linux厂商-包括Red Hat和Canonical把基于内核的虚拟机 (KVM: Kernel-based Virtual Machine) 技术内置在Ubuntu中。
+KVM是一个轻量级的虚拟化管理程序模块，该模块主要来自于Linux内核。虽然只是后来者，但是由于其性能和实施的简易性，以及对Linux重量级的持续支持，
+所以还是有必要认真对待KVM技术的。
   
 在本期虚拟化面面观中，两位IT专家将会对Xen和KVM做出比较，并给出各自的理由。
   
