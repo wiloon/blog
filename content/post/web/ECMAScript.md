@@ -9,6 +9,31 @@ tags:
 ---
 ## ECMAScript, javascript basic, js basic
 
+https://juejin.cn/post/7103511045062590500
+
+JavaScript 是一种轻量级脚本语言, 它本身不提供 I/O 相关的 API, I/O 操作需要宿主环境提供, 
+
+```html
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="foo.js"></script>
+    <script type="text/javascript">
+        console.log('javascript0')
+        var myVar = "hello";
+        function showAlert() { alert('You triggered an alert!'); }
+    </script>
+</head>
+
+<body>
+    body0
+    <button>
+</body>
+
+</html>
+```
+
 ## 模板字面量, 多行字符串
 
 ```js
