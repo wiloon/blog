@@ -52,7 +52,10 @@ podman run -d --name wekan -e "WITH_API=true" -e "MONGO_URL=mongodb://192.168.50
 
 ## Mingle
 
-Mingle在ThoughtWorks官方站点可以免费下载，且5个用户以下的可以永久免费使用。Mingle是用纯Ruby打造的且运行在JRuby上 的一个产品，由于ruby是一门脚本语言，所以其移植性就很好，用其编写的程序安装起来也甚是容易，在Windows、Mac和Unix多种主流平台上跑 都是没有问题的；但也正是由于采用ruby编写，Mingle对硬件的要求也甚高，在我这台512M内存的机器上跑是超慢的、让人闹心的，建议还是放到性 能好的、单独的服务器上，内存容量官方建议是2G。还遇到了好几次ie错误，只好放弃了。
+Mingle在ThoughtWorks官方站点可以免费下载，且5个用户以下的可以永久免费使用。Mingle是用纯Ruby打造的且运行在JRuby上 的一个产品，
+由于ruby是一门脚本语言，所以其移植性就很好，用其编写的程序安装起来也甚是容易，在Windows、Mac和Unix多种主流平台上跑 都是没有问题的；
+但也正是由于采用ruby编写，Mingle对硬件的要求也甚高，在我这台512M内存的机器上跑是超慢的、让人闹心的，建议还是放到性 能好的、单独的服务器上，
+内存容量官方建议是2G。还遇到了好几次ie错误，只好放弃了。
 
 Mingle后台存储采用数据库方式，目前仅支持MySQL和Postgres两种数据库版本，这个比 较遗憾，我无法使用现成的Oracle数据库了。
 

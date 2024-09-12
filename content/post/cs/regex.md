@@ -139,7 +139,8 @@ ERE 如何使用 \1、\2…\9这样的反引用？和BRE一样，就是\1、\2�
 
 PCRE: Perl Compatible Regular Expressions：perl 语言兼容正则表达式
 
-Perl 语言第一版是由 Larry Wall 发布于1987年12月，Perl 在发布之初，就因其强大的功能而一票走红，Perl 的定位目标就是“天天要使用的工具”。Perl 比较显诸特征之一是与 sed 与 awk 兼容，这造就了 Perl 成为第一个通用性脚本语言。
+Perl 语言第一版是由 Larry Wall 发布于1987年12月，Perl 在发布之初，就因其强大的功能而一票走红，Perl 的定位目标就是“天天要使用的工具”。
+Perl 比较显诸特征之一是与 sed 与 awk 兼容，这造就了 Perl 成为第一个通用性脚本语言。
 
 随着 Perl 的不断发展，其支持的正则表达式的功能也越来越强大。其中影响较大的是于 1994年10月发布的 Perl 5，其增加了很多特性，比如 non-capturing parentheses、lazy quantifiers、look-ahead、元符号\G等等。
 
