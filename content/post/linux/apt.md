@@ -7,8 +7,17 @@ categories:
   - Linux
 tags:
   - reprint
+  - remix
 ---
 ## apt-get, apt basic command, apt command
+
+## commands
+```Bash
+sudo apt update
+# 不需要 sudo
+apt list --upgradable
+sudo apt upgrade
+```
 
 ### 列出某个软件包安装了哪些文件
 
