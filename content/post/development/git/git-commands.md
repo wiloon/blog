@@ -4,10 +4,10 @@ author: "-"
 date: 2022-01-29 10:33:11
 url: git/basic
 categories:
-    - Git
+- Git
 tags:
-    - reprint
-    - remix
+- reprint
+- remix
 ---
 ## Git basic commands
 
@@ -544,25 +544,26 @@ git switch --detach 788258e49531eb24bfd347a600d69a16f966c495
 
 ### 查看 config
 
-config 配置有 system 级别 global (用户级别)  和 local (当前仓库) 三个 设置先从 system -> global -> local 
+config 配置有 system 级别 global (用户级别)  和 local (当前仓库) 三个, 设置先从 system -> global -> local
 底层配置会覆盖顶层配置分别使用 --system/global/local 可以定位到配置文件
 
 ```bash
+# 查看当前用户 (global) 配置
+git config --global  --list
+
+# 查看当前仓库配置信息
+# 如果当前仓库的配置信息里没有配置某个 key, git会默认读 global 配置
+git config --local  --list
+
 git config --list
 git config --system --list
 git config --global core.editor vim
-```
 
-查看当前用户 (global) 配置
+# 查看全局用户名
+git config user.name
 
-```bash
-git config --global  --list
-```
-
-查看当前仓库配置信息
-
-```bash
-git config --local  --list
+# 查看全局邮箱
+git config user.email
 ```
 
 ### 设置
@@ -573,7 +574,7 @@ git config --local  --list
 git config --global user.name "name0"
 git config --global user.email "email@example.com"
 
-# local
+# local, 当前仓库
 git config --local user.name "name0"
 git config --local user.email "email@example.com"
 
@@ -583,6 +584,9 @@ git config --local  user.email
 
 # http proxy
 git config --global https.proxy http://127.0.0.1:1080
+
+# remove config key
+git config --global --unset user.name
 ```
 
 ### edit: set, delete
@@ -736,13 +740,13 @@ git merge tmp
 git branch -d temp
 //如果不想保留temp分支 可以用这步删除
 
- (1) 如果直接使用git fetch，则步骤如下:
+(1) 如果直接使用git fetch，则步骤如下:
 
 创建并更新本 地远程分支。即创建并更新origin/xxx 分支，拉取代码到origin/xxx分支上。
 在FETCH_HEAD中设定当前分支-origin/当前分支对应，如直接到时候git merge就可以将origin/abc合并到abc分支上。
- (2) git fetch origin
+(2) git fetch origin
 只是手动指定了要fetch的remote。在不指定分支时通常默认为master
- (3) git fetch origin dev
+(3) git fetch origin dev
 指定远程remote和FETCH_HEAD，并且只拉取该分支的提交。
 
 ## git pull
@@ -1133,19 +1137,19 @@ XY ORIG_PATH -> PATH
 ```
 
 - `XY` 是一个双字母的状态代码。
-  - `X` 显示索引文件 (index) 的状态
-  - `Y` 显示工作树 (working tree) 的状态。
-  - ' ' = 空格表示未修改的
-  - M = 修改过的
-  - U = 更新但未合并
-  - ？= 未被追踪的, 未被 git 进行管理，可以使用 git add file0 把 file0 添加进 git, 使其能被 git 进行管理
-  - MM: 索引有修改没 commit, working tree 有修改  没 git add
+    - `X` 显示索引文件 (index) 的状态
+    - `Y` 显示工作树 (working tree) 的状态。
+    - ' ' = 空格表示未修改的
+    - M = 修改过的
+    - U = 更新但未合并
+    - ？= 未被追踪的, 未被 git 进行管理，可以使用 git add file0 把 file0 添加进 git, 使其能被 git 进行管理
+    - MM: 索引有修改没 commit, working tree 有修改  没 git add
 - 当一个路径没有被追踪时，`X`和`Y`总是相同的，因为它们是未知的索引。
 - `??` 用于未跟踪的路径。除非使用了 `--ignored`, 文件刚刚被加入一个git管理的目录的时候的状态.
 - `AA` 文件加入之后执行了一次 git add
 - ` M` 表示工作树有修改但是没有执行 `git add`, 没有更新到索引.
 - `M ` 表示索引有更新但是没有提交到 local repo, 没有执行过 `git commit`
-- ` D` 从工作树中删除还没有执行 git rm 
+- ` D` 从工作树中删除还没有执行 git rm
 - `D ` 执行过 git rm 之后, 已经从索引中删除了
 - `R ` 有可能是 rename 的缩写, 比如把文件移到了另外一个目录
 
@@ -1222,7 +1226,7 @@ git push -u origin master -f
 ```
 
 [http://leonshi.com/2016/02/01/add-existing-project-to-github/](http://leonshi.com/2016/02/01/add-existing-project-to-github/)
-  
+
 [http://blog.csdn.net/shiren1118/article/details/7761203](http://blog.csdn.net/shiren1118/article/details/7761203)
 
 ## IP-GUARD
@@ -1263,4 +1267,33 @@ git push --set-upstream origin branch0
 
 # 删除原来的分支(master)
 git branch -D master
+```
+
+## 修改历史 commit 的 user 和 email
+
+foo.sh
+
+```Bash
+#!/bin/sh
+git filter-branch --env-filter '
+OLD_EMAIL="原来的邮箱"
+CORRECT_NAME="现在的名字"
+CORRECT_EMAIL="现在的邮箱"
+if [ "$GIT_COMMITTER_EMAIL" = "$OLD_EMAIL" ]
+then
+    export GIT_COMMITTER_NAME="$CORRECT_NAME"
+    export GIT_COMMITTER_EMAIL="$CORRECT_EMAIL"
+fi
+if [ "$GIT_AUTHOR_EMAIL" = "$OLD_EMAIL" ]
+then
+    export GIT_AUTHOR_NAME="$CORRECT_NAME"
+    export GIT_AUTHOR_EMAIL="$CORRECT_EMAIL"
+fi
+' --tag-name-filter cat -- --branches --tags
+```
+
+```Bash
+chmod u+x foo.sh
+./foo.sh
+git push -f
 ```
