@@ -591,7 +591,7 @@ I am books in my room.（×）
 
 [https://www.zhihu.com/tardis/zm/art/27457921?source_id=1003](https://www.zhihu.com/tardis/zm/art/27457921?source_id=1003)
 
-## 后置现象(postponement)
+## 后置 (postponement)
 
 1. 后置定义(postponement)。
 后置,指的是在包含结构(containing structure)(尤其是在从句)中，将单词，短语，从句等置于句中更靠右的位置，后置有时候又称为移尾(extraposition)。

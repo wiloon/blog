@@ -14,76 +14,7 @@ tags:
 
 1．HTTP请求格式:
 
-    在HTTP请求中，第一行必须是一个请求行 (request line) ，用来说明请求类型、要访问的资源以及使用的HTTP版本。紧接着是一个首部 (header) 小节，用来说明服务器要使用的附加信息。在首部之后是一个空行，再此之后可以添加任意的其他数据[称之为主体 (body) ]。
-  
-  
-    2．GET与POST区别
-  
-  
-    HTTP定义了与服务器交互的不同方法，最基本的方法是 GET 和 POST.
-  
-  
-HTTP-GET和HTTP-POST是使用HTTP的标准协议动词，用于编码和传送变量名/变量值对参数，并且使用相关的请求语义。每个HTTP-GET和HTTP-POST都由一系列HTTP请求头组成，这些请求头定义了客户端从服务器请求了什么，而响应则是由一系列HTTP应答头和应答数据组成，如果请求成功则返回应答。
- HTTP-GET以使用MIME类型application/x-www-form-urlencoded的urlencoded文本的格式传递参数。Urlencoding是一种字符编码，保证被传送的参数由遵循规范的文本组成，例如一个空格的编码是"%20"。附加参数还能被认为是一个查询字符串。
- 与HTTP-GET类似，HTTP-POST参数也是被URL编码的。然而，变量名/变量值不作为URL的一部分被传送，而是放在实际的HTTP请求消息内部被传送。
-  
-      get是从服务器上获取数据，post是向服务器传送数据。
-    
-    
-      在客户端，Get方式在通过URL提交数据，数据在URL中可以看到；数据的按照variable=value的形式，添加到action所指向的URL后面，并且两者使用"?"连接，而各个变量之间使用"&"连接；POST方式，数据放置在HTML HEADER内提交。
-    
-    
-      对于get方式，服务器端用Request.QueryString获取变量的值，对于post方式，服务器端用Request.Form获取提交的数据。
-    
-    
-      GET方式提交的数据最多只能有1024字节，而POST则没有此限制。上传文件只能使用Post.
-    
-    
-      安全性问题。使用 Get 的时候，参数会显示在地址栏上，而 Post 不会。所以，如果这些数据是中文数据而且是非敏感数据，那么使用 get；如果用户输入的数据不是中文字符而且包含敏感数据，那么还是使用 post为好。
-    
-    
-      Get限制Form表单的数据集的值必须为ASCII字符；而Post支持整个ISO10646字符集。默认是用ISO-8859-1编码
-    
-    
-      Get是Form的默认方法。
-    
-    
-      get方法没有请求实体，含有数据的url都在请求头里面.
-    
-  
-  
-    注: 所谓安全的意味着该操作用于获取信息而非修改信息。幂等的意味着对同一 URL 的多个请求应该返回同样的结果。完整的定义并不像看起来那样严格。换句话说，GET 请求一般不应产生副作用。从根本上讲，其目标是当用户打开一个链接时，她可以确信从自身的角度来看没有改变资源。比如，新闻站点的头版不断更新。虽然第二次请求会返回不同的一批新闻，该操作仍然被认为是安全的和幂等的，因为它总是返回当前的新闻。反之亦然。POST 请求就不那么轻松了。POST 表示可能改变服务器上的资源的请求。仍然以新闻站点为例，读者对文章的注解应该通过 POST 请求实现，因为在注解提交之后站点已经不同了 (比方说文章下面出现一条注解) 。
-  
-  
-    下面举一个简单的例子来说明它们的区别: 
-  
-  
-```html
- <!-分别通过get和post方式提交表单->
- <FORM ACTION="foo.asp" METHOD="get">
- <INPUT TYPE="text" NAME="Text" VALUE=""/>
- <INPUT TYPE="submit" VALUE="Get方式"/>
- </FORM>
-
- <FORM ACTION="foo.asp" METHOD="post">
- <INPUT TYPE="text" NAME="Text" VALUE="http://wxf0701.cnblogs.com"/>
- <INPUT TYPE="submit" VALUE="Post方式"/>
- </FORM>
-
-<% If Request.QueryString("Text") <> "" Then %>
- 通过get方式传递的字符串是:  "<%= Request.QueryString("Text") %>"
-
- <% End If %>
-  
-    <% If Request.Form("Text") <> "" Then %>
- 通过Post方式传递的字符串是:  "<%= Request.Form("Text") %>"
-
- <% End If %>
- ```
-  
-  
-    RFC2616 http://www.ietf.org/rfc/rfc2616.txt
-  
+在HTTP请求中，第一行必须是一个请求行 (request line) ，用来说明请求类型、要访问的资源以及使用的HTTP版本。紧接着是一个首部 (header) 小节，用来说明服务器要使用的附加信息。在首部之后是一个空行，再此之后可以添加任意的其他数据[称之为主体 (body) ]。
 
 ### 重定向
 Redirect
@@ -116,10 +47,86 @@ Location: /hello
 HttpServletResponse提供了快捷的redirect()方法实现302重定向。
 
 ### http2
->https://halfrost.com/http2-http-frames/
 
----
+>https://halfrost.com/http2-http-frames/
 
 https://www.liaoxuefeng.com/wiki/1252599548343744/1328761739935778
 
 [https://alanli7991.github.io/2016/10/26/HTTP%E8%AF%B7%E6%B1%82GETPOST%E4%B8%8E%E5%8F%82%E6%95%B0%E5%B0%8F%E7%BB%93/](https://alanli7991.github.io/2016/10/26/HTTP%E8%AF%B7%E6%B1%82GETPOST%E4%B8%8E%E5%8F%82%E6%95%B0%E5%B0%8F%E7%BB%93/)
+
+## http basic
+
+- HTTP 用什么请求和参数在哪里一点关系没有
+- HTTP 协议对参数长度也没限制，大多数和服务器容器的配置有关
+- HTTP 用什么方法都不安全，除非用 HTTPS
+
+## url 参数
+
+在 URL 里放参数最简单，就是问号加键值对，它存在于 HTTP 的 Header 中第一行
+
+```bash
+POST /psas/bug/image/confirm?key0=value0&key1=value1&key2=value2 HTTP/1.1
+```
+
+## http GET POST 长度
+
+[http://blog.csdn.net/blueling51/article/details/6935901](http://blog.csdn.net/blueling51/article/details/6935901)
+
+1. Get方法长度限制
+
+Http Get方法提交的数据大小长度并没有限制,HTTP协议规范没有对URL长度进行限制。这个限制是特定的浏览器及服务器对它的限制。
+
+如: IE对URL长度的限制是2083字节(2K+35)。
+
+下面就是对各种浏览器和服务器的最大处理能力做一些说明.
+
+Microsoft Internet Explorer (Browser)
+
+IE浏览器对URL的最大限制为2083个字符,如果超过这个数字,提交按钮没有任何反应。
+
+Firefox (Browser)
+
+对于Firefox浏览器URL的长度限制为65,536个字符。
+
+Safari (Browser)
+
+URL最大长度限制为 80,000个字符。
+
+Opera (Browser)
+
+URL最大长度限制为190,000个字符。
+
+Google (chrome)
+
+URL最大长度限制为8182个字符。
+
+Apache (Server)
+
+能接受最大url长度为8,192个字符。
+
+Microsoft Internet Information Server(IIS)
+
+能接受最大url的长度为16,384个字符。
+
+通过上面的数据可知,为了让所有的用户都能正常浏览, URL最好不要超过IE的最大长度限制(2083个字符) ,当然,如果URL不直接提供给用户,而是提供给程序调用,这时的长度就只受Web服务器影响了。
+
+注: 对于中文的传递,最终会为urlencode后的编码形式进行传递,如果浏览器的编码为UTF8的话,一个汉字最终编码后的字符长度为9个字符。
+
+因此如果使用的 GET 方法,最大长度等于URL最大长度减去实际路径中的字符数。
+
+2. POST方法长度限制
+
+理论上讲,POST是没有大小限制的。HTTP协议规范也没有进行大小限制,起限制作用的是服务器的处理程序的处理能力。
+
+如: 在Tomcat下取消POST大小的限制 (Tomcat默认2M) ；
+
+## HTTP 请求超时
+
+请求超时，比如现在网络超级不好，当客户端发起一个请求，通信层开始请求与服务器建立连接（包括在重试），如果在5S之内还没有连接到服务器，那么认为超时。
+
+响应超时，当我们连接到服务器时，一般比如url参数（url?key=value）会直接提交到服务器，比如body类型的参数（Form、JsonBody、key=value&key1=value1等）我们会通过连接中的stream再手动写出去，当服务器接受到请求数据后开始【处理数据->响应】，这个【处理数据->响应】阶段就可能会发生响应超时，比如服务器去执行数据库操作，在5S内还没有对stream做出反馈，那么客户端就认为超时（少部分人对下载有误解，下载则不一样，因为一直有输出数据，也就是对stream做了反馈），主动断开和服务器的连接。
+
+作者：严振杰
+链接：[https://www.zhihu.com/question/21609463/answer/160100810](https://www.zhihu.com/question/21609463/answer/160100810)
+来源：知乎
+著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。

@@ -17,7 +17,7 @@ tags:
 - 基本上是我接触过的知识的一个集合
 - 大部分内容是转载的 70%+
   - 一般第一次接触的知识会找质量比较好的或者能解决问题的文章收集进来
-  - 有一部分原因是防止源站消失 (比如...已经消失的一个站点[http://blog.jessitron.com/2017/01/dependencies.html](http://blog.jessitron.com/2017/01/dependencies.html))，还有方便查找，省掉重新 Google 的过程。
+  - 有一部分原因是防止源站消失 (比如...已经消失的一个站点[http://www.yining.org/2010/05/04/http-get-vs-post-and-thoughts/](http://www.yining.org/2010/05/04/http-get-vs-post-and-thoughts/))，还有方便查找，省掉重新 Google 的过程。
   - 有仔细读过的会修正 typo
   - 日常遇到问题会逐渐整理，也会补充其它引用来源
   - 有明显整理痕迹的都是仔细读过的，比如有段落标题，有代码语法高亮。
@@ -65,17 +65,17 @@ tags:
 - Backend Engineer / FullStack
 - Language: Java / Golang / Python
 
-- 中学时期一度沉迷计算机硬件，是<<微型计算机>>的忠实读者, 练就了一手装机技能。大学时期人称 "机修"。
+- 中学时期一度沉迷计算机硬件，是 <<微型计算机>> 的忠实读者, 练就了一手装机技能。大学时期人称 "机修"。
 - 工作之后有三年时间被派到上海出差，期间接触到了当地的 Linux 用户组, 也因为自己的二手IBM笔记本跑 Windows 太吃力所以转投了 Linux, 在各种发行版之间折腾了很长时间, 最后选择了Arch Linux.
-- 写过 Java, C#, Android, iOS, Go; 目前工作主力: Java, Go
+- 写过 Java, C#, Android, iOS, Go; 目前工作主力: Python, Go
 - 日常系统 Arch Linux + KDE
-- Google 粉，用过Google的各种好用的和不好用的产品: Nexus5, Nexus6P, Nexus7, Moto 360, Pixel1/2/3, Pixelbook
+- 曾经的 Google 粉，用过 Google 的各种好用的和不好用的产品: Nexus5, Nexus6P, Nexus7, Moto 360, Pixel1/2/3, Pixelbook
 
 ### 技术栈
 
 接触过的主要技术，从左到右按熟悉程度排序
 
-- Java, Golang
+- Java, Python, Golang
 - MySQL, Redis, InfluxDB, LevelDB
 - Kafka, Zookeeper
 - CentOS, Arch Linux, Ubuntu
