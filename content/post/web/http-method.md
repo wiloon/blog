@@ -3,20 +3,21 @@ author: "-"
 date: "" 
 title: "http method, get, head, post, options, put, delte, trace, connect"
 categories:
-  - inbox
+  - web
 tags:
   - reprint
+  - remix
 ---
-## "http method, get, head, post, options, put, delte, trace, connect"
+## "http method, get, head, post, options, put, delete, trace, connect"
 
 [https://www.cnblogs.com/machao/p/5788425.html](https://www.cnblogs.com/machao/p/5788425.html)
 
-前言
 HTTP Method 的历史:
 
-HTTP 0.9 这个版本只有GET方法
-HTTP 1.0 这个版本有GET HEAD POST这三个方法
-HTTP 1.1 这个版本是当前版本，包含GET HEAD POST OPTIONS PUT DELETE TRACE CONNECT 这8个方法
+- HTTP 0.9 这个版本只有 GET 方法
+- HTTP 1.0 这个版本有 GET HEAD POST 这三个方法
+- HTTP 1.1 这个版本是当前版本，包含 GET HEAD POST OPTIONS PUT DELETE TRACE CONNECT 这 8 个方法
+
 我们先看看HTTP 1.1 规范的中文翻译
 
 方法定义 (Method Definitions)
@@ -65,51 +66,172 @@ GET请求的响应是可缓存的 (cacheable) 如果此响应满足第13节HTTP�
 
 看15.1.3节关于GET请求用于表单时安全考虑。
 
+### get & post
+
+blog.wiloon.com/http-get-post
+
 ### HEAD
 
 HEAD方法和GET方法一致，除了服务器不能在响应里返回消息主体。HEAD请求响应里HTTP头域里的元信息应该和GET请求响应里的元信息一致。此方法被用来获取请求实体的元信息而不需要传输实体主体 (entity-body) 。此方法经常被用来测试超文本链接的有效性，可访问性，和最近的改变。.
 
 HEAD请求的响应是可缓存的，因为响应里的信息可能被用于更新以前的那个资源的缓存实体.。如果出现一个新的域值指明了缓存实体和当前源服务器上实体的不同 (可能因为Content-Length，Content-MD5，ETag或Last-Modified值的改变) ，那么缓存 (cache) 必须认为此缓存项是过时的 (stale) 。
 
-### POST
+### http POST
 
-POST 方法被用于请求源服务器接受请求中的实体作为请求资源的一个新的从属物。POST被设计涵盖下面的功能。
+POST 方法，通常用于创建新的资源或提交数据到服务器进行处理。
+使用 POST 请求时，客户端将数据提交到服务器，服务器根据数据进行处理，并返回响应。通常情况下，POST 请求会在服务器上创建新的资源，并返回该资源的 URI。
 
--已存在的资源的注释；
+POST 请求的一些特点：
 
--发布消息给一个布告板，新闻组，邮件列表，或者相似的文章组。
+- 可以创建新的资源或提交数据到服务器进行处理。
+- 客户端**可以**只发送**部分**资源内容。
+- 如果请求成功，服务器会返回一个表示新资源的 URI。
+- POST 请求不具有幂等性。
 
--提供一个数据块，如提交一个表单给一个数据处理过程。
+POST 方法被用于请求源服务器接受请求中的实体作为请求资源的一个新的从属物。POST 被设计涵盖下面的功能。
 
--通过追加操作来扩展数据库。
+- 已存在的资源的注释
+- 发布消息给一个布告板，新闻组，邮件列表，或者相似的文章组。
+- 提供一个数据块，如提交一个表单给一个数据处理过程。
+- 通过追加操作来扩展数据库。
 
-POST方法的实际功能是由服务器决定的，并且经常依赖于请求URI (Request-URI) 。POST提交的实体是请求URI的从属物，就好像一个文件从属于一个目录，一篇新闻文章从属于一个新闻组，或者一条记录从属于一个数据库。
+POST 方法的实际功能是由服务器决定的，并且经常依赖于请求 URI (Request-URI) 。POST 提交的实体是请求 URI 的从属物，就好像一个文件从属于一个目录，
+一篇新闻文章从属于一个新闻组，或者一条记录从属于一个数据库。
 
-POST方法执行的动作可能不会对请求URI所指的资源起作用。在这种情况下，200 (成功) 或者204 (没有内容) 将是适合的响应状态，这依赖于响应是否包含一个描述结果的实体。
+POST 方法执行的动作可能不会对请求 URI 所指的资源起作用。在这种情况下，200 (成功) 或者 204 (没有内容) 将是适合的响应状态，
+这依赖于响应是否包含一个描述结果的实体。
 
-如果资源被源服务器创建，响应应该是201 (Created) 并且包含一个实体，此实体描述了请求的状态并且此实体引用了一个新资源和一个Location头域 (见14.30节) 。
+如果资源被源服务器创建，响应应该是 201 (Created) 并且包含一个实体，此实体描述了请求的状态并且此实体引用了一个新资源和一个 Location 头域
 
-POST方法的响应是可缓存的。除非响应里有Cache-Control或者Expires头域指示其响应不可缓存。然而，303 (见其他) 响应能被利用去指导用户代理 (agent) 去获得可缓存的响应。
-
-POST 请求必须遵循8.2节里指明的消息传输需求。
-
-参见15.1.3节关于安全性的考虑.
+POST 方法的响应是可缓存的。除非响应里有 Cache-Control 或者 Expires 头域指示其响应不可缓存。
+然而，303 (见其他) 响应能被利用去指导用户代理 (agent) 去获得可缓存的响应。
 
 ### PUT
 
-PUT方法请求服务器去把请求里的实体存储在请求URI (Request-URI) 标识下。如果请求URI (Request-URI) 指定的的资源已经在源服务器上存在，那么此请求里的实体应该被当作是源服务器此URI所指定资源实体的修改版本。如果请求URI (Request-URI) 指定的资源不存在，并且此URI被用户代理 (user agent，译注: 用户代理可认为是客户浏览器) 定义为一个新资源，那么源服务器就应该根据请求里的实体创建一个此URI所标识下的资源。如果一个新的资源被创建了，源服务器必须能向用户代理 (user agent)  发送201 (已创建) 响应。如果已存在的资源被改变了，那么源服务器应该发送200 (Ok) 或者204 (无内容) 响应。如果资源不能根据请求URI创建或者改变，一个合适的错误响应应该给出以反应问题的性质。实体的接收者不能忽略任何它不理解的Content-* (如: Content-Range) 头域，并且必须返回501 (没有被实现) 响应。
+PUT 方法，通常用于更新或替换服务器上的资源。使用 PUT 请求时，客户端需要将整个资源的新版本发送到服务器。
+如果服务器上已存在该资源，则用客户端提交的新版本替换原有的资源。如果该资源不存在，则会创建一个新的资源。
 
-如果请求穿过一个缓存 (cache) ，并且此请求URI (Request-URI) 指示了一个或多个当前缓存的实体，那么这些实体应该被看作是旧的。PUT方法的响应不应该被缓存。
+PUT 请求的一些特点：
 
-POST方法和PUT方法请求最根本的区别是请求URI (Request-URI) 的含义不同。POST请求里的URI指示一个能处理请求实体的资源 (译注: 此资源可能是一段程序，如jsp里的servlet)  。此资源可能是一个数据接收过程，一个网关 (gateway，译注: 网关和代理服务器的区别是: 网关可以进行协议转换，而代理服务器不能，只是起代理的作用，比如缓存服务器其实就是一个代理服务器) ，或者一个单独接收注释的实体。而PUT方法请求里有一个实体一一用户代理知道URI意指什么，并且服务器不能把此请求应用于其他URI指定的资源。如果服务器期望请求被应用于一个不同的URI，那么它必须发送301 (永久移动了) 响应；用户代理可以自己决定是否重定向请求。
+- 可以更新整个资源。
+- 客户端需要发送完整的资源内容。
+- 如果服务器上不存在该资源，则会创建一个新的资源。
+- PUT 请求具有幂等性，即执行多次 PUT 请求的结果应该相同。
 
-一个独立的资源可能会被许多不同的URI指定。如: 一篇文章可能会有一个URI指定当前版本，此URI区别于其文章其他特殊版本的URI。这种情况下，一个通用URI的PUT请求可能会导致其资源的其他URI被源服务器定义。
+PUT 方法请求服务器去把请求里的实体存储在请求 URI (Request-URI) 标识下。
+如果请求 URI (Request-URI) 指定的的资源已经在源服务器上存在，那么此请求里的实体应该被当作是源服务器此 URI 所指定资源实体的修改版本。
+如果请求URI (Request-URI) 指定的资源不存在，并且此 URI 被浏览器 (user agent，译注: 用户代理可认为是客户浏览器) 定义为一个新资源，
+那么源服务器就应该根据请求里的实体创建一个此 URI 所标识下的资源。
+如果一个新的资源被创建了，源服务器必须能向浏览器 (user agent) 发送201 (已创建) 响应。
+如果已存在的资源被改变了，那么源服务器应该发送 200 (Ok) 或者 204 (无内容) 响应。
+如果资源不能根据请求URI创建或者改变，一个合适的错误响应应该给出以反应问题的性质。
+实体的接收者不能忽略任何它不理解的 Content-* (如: Content-Range) 头域，并且必须返回501 (没有被实现) 响应。
 
-HTTP/1.1没有定义PUT方法对源服务器的状态影响。
+如果请求穿过一个缓存 (cache) ，并且此请求 URI (Request-URI) 指示了一个或多个当前缓存的实体，那么这些实体应该被看作是旧的。
+PUT方法的响应不应该被缓存。
 
-PUT请求必须遵循8.2节中的消息传输要求。
+### http POST & PUT
 
-除非特别指出，PUT方法请求里的实体头域应该被用于资源的创建或修改。
+PUT 和 POST 的区别主要在以下几个方面：
+
+- 使用 PUT 时，必须明确知道要操作的对象, 比如订单 id 
+- POST既可以创建对象，也可以修改对象。但用POST创建对象时，之前并不知道要操作的对象(比如订单 id )
+- 语义不同：PUT 请求通常用于更新或替换服务器上的资源，而 POST 请求通常用于创建新的资源或提交数据到服务器进行处理。
+- 客户端发送的数据不同：PUT 请求需要客户端发送**完整**的资源内容，而 POST 请求可以只发送**部分**资源内容。
+- 响应不同：PUT 请求成功后通常返回 200 OK 状态码，而 POST 请求成功后通常返回 201 Created 状态码，并返回表示新资源的 URI。
+- 幂等性不同：PUT 请求具有幂等性，即执行多次 PUT 请求的结果应该相同，而 POST 请求不具有幂等性。
+
+我们都知道，PUT和POST是HTTP的两个方法(Method)，都可以用来向HTTP服务器提交数据。似乎用哪个都可以，但其实两者还是有本质的区别的。
+
+网上关于两者区别的文章比较多，但有相当一部分绝对是误导人。所以这次特意查看了RFC7231，来澄清二者的区别。
+
+首先直接摘出RFC7231中的的部分关键原文：
+
+The fundamental difference between the POST and PUT methods is   highlighted by the different intent for the enclosed representation.   The target resource in a POST request is intended to handle the   enclosed representation according to the resource's own semantics,   whereas the enclosed representation in a PUT request is defined as   replacing the state of the target resource.  Hence, the intent of PUT   is idempotent and visible to intermediaries, even though the exact   effect is only known by the origin server.
+
+Proper interpretation of a PUT request presumes that the user agent   knows which target resource is desired.  A service that selects a   proper URI on behalf of the client, after receiving a state-changing   request, SHOULD be implemented using the POST method rather than PUT.
+
+上面这两段描述的关键词就是“idempotent”（幂等），理解了这个词就理解了二者的本质区别。下面就围绕这个词从以下几个角度分析PUT和POST的区别。
+
+1、使用PUT时，必须明确知道要操作的对象，例如：
+
+PUT /customer/doc/1
+
+{
+
+"name": "John Doe"
+
+}
+
+上面的PUT请求明确是对编号为1的文档进行操作，这里编号为1的文档就是要操作的对象。如果该文档不存在，就创建该文档；如果文档已经存在，就直接整个替换文档内容。
+
+2、 有人可能会质疑，上面的例子用POST也可以实现。没错，如果用将上例中的PUT接口改成POST接口，就是这样：
+
+POST /customer/doc/
+
+{
+
+"name": "John Doe"
+
+}
+
+注意这里有一个重要的不同，这里POST请求并不知道要操作的对象，它只是向HTTP服务器提交一篇新文档，由HTTP服务器为该文档产生一个编号。这就是上面从RFC7231中摘出的第二段文字所描述的含义。
+
+3、有人可能会继续质问：用POST也可以用来修改目标资源对象阿。说得还是没错。还是沿用上面的例子，稍作如下改动：
+
+POST /customer/doc/1
+
+{
+
+"description": "I am a student"
+
+}
+
+这里的含义是给编号为1的文档增加一个属性“description”。注意这里有两个不同：（1）这里编号为1的文档必须是已经存在的文档，否则必须使用PUT；（2）这里是对目标对象的部分修改。只是增加了一个新属性“description”，之前的属性“name”不受影响。
+
+４、最后简要总结一下，使用PUT时，必须明确知道要操作的对象，如果对象不存在，创建对象；如果对象存在，则全部替换目标对象。同样POST既可以创建对象，也可以修改对象。但用POST创建对象时，之前并不知道要操作的对象，由HTTP服务器为新创建的对象生成一个唯一的URI；使用POST修改已存在的对象时，一般只是修改目标对象的部分内容。
+
+经过了以上４条的分析之后，对PUT和POST的区别应该很清楚了吧？再强调一遍，PUT是“idempotent”（幂等），意味着相同的PUT请求不管执行多少次，结果都是一样的。但POST则不是。就类似于"x=1"这条语句是幂等的，因为无论执行多少次，变量x的值都是１；但"x++"就不是幂等的，因为每执行一次，变量x的值都不一样。
+
+当然，这里讲的都是规范，都是最佳实践（best practise）。如果你在实际开发中，不按这个来，没有人能管得了你；但是当你的REST API要开放给别人使用时，就会和大家所接受的“普世价值”违背，很可能就会发生各种问题。
+
+如果还有疑问，欢迎留言交流讨论:)。
+
+--END--
+
+The difference between POST and PUT is that PUT requests are idempotent. That is, calling the same PUT request multiple times will always produce the same result. In contrast, calling a POST request repeatedly have side effects of creating the same resource multiple times.
+
+POST和PUT之间的区别在于PUT请求是幂等的。 也就是说，多次调用相同的PUT请求将始终产生相同的结果。 相反，重复调用POST请求具有多次创建相同资源的副作用。
+
+
+
+
+总之，PUT 和 POST 请求有些相似之处，但也有一些其他的区别：
+
+- 安全性不同：PUT 请求是安全的，即对服务器上的资源的任何操作都不会导致状态的改变。而 POST 请求不是安全的，它可能会导致状态的改变。
+- 可缓存性不同：PUT 请求是可缓存的，客户端可以使用缓存的响应来更新资源。而 POST 请求不是可缓存的，客户端不能使用缓存的响应来更新资源。
+- 使用场景不同：PUT 请求适用于更新完整的资源，比如更新用户信息、文章内容等。而 POST 请求适用于提交数据到服务器进行处理，比如创建新的文章、提交表单等。
+
+
+在使用 PUT 和 POST 请求时，需要注意它们的区别，选择合适的请求方法来处理不同的业务场景。
+
+在实际的 RESTful API 设计中，需要根据资源的性质和业务场景来选择合适的请求方法。如果要更新整个资源，应该使用 PUT 请求；
+如果要创建新的资源或提交数据到服务器进行处理，应该使用 POST 请求。
+同时，应该遵循 RESTful API 的设计规范，为资源命名、定义 URI、选择合适的 HTTP 方法等。
+
+POST 方法和 PUT 方法请求最根本的区别是请求 URI (Request-URI) 的含义不同。
+POST 请求里的 URI 指示一个能处理请求实体的资源 (译注: 此资源可能是一段程序，如 jsp 里的 servlet )。
+此资源可能是一个数据接收过程，一个网关
+(gateway，译注: 网关和代理服务器的区别是: 网关可以进行协议转换，而代理服务器不能，只是起代理的作用，比如缓存服务器其实就是一个代理服务器) ，
+或者一个单独接收注释的实体。而 PUT 方法请求里有一个实体一一用户代理知道 URI 意指什么，并且服务器不能把此请求应用于其他 URI 指定的资源。
+如果服务器期望请求被应用于一个不同的 URI，那么它必须发送 301 (永久移动) 响应；用户代理可以自己决定是否重定向请求。
+
+一个独立的资源可能会被许多不同的 URI 指定。如: 一篇文章可能会有一个 URI 指定当前版本，此 URI 区别于其文章其他特殊版本的 URI。
+这种情况下，一个通用 UR I的 PUT 请求可能会导致其资源的其他 URI 被源服务器定义。
+
+HTTP/1.1 没有定义 PUT 方法对源服务器的状态影响。
+
+除非特别指出，PUT 方法请求里的实体头域应该被用于资源的创建或修改。
 
 ### DELETE (删除)
 
@@ -199,9 +321,17 @@ POST所对应的URI并非创建的资源本身，而是资源的接收者。比�
 
 上面简单介绍了幂等性的概念，用幂等设计取代分布式事务的方法，以及HTTP主要方法的语义和幂等性特征。其实，如果要追根溯源，幂等性是数学中的一个概念，表达的是N次变换与1次变换的结果相同，有兴趣的读者可以从Wikipedia上进一步了解。
 
+GET、PUT、和DELETE方法都是幂等的，而POST方法不是幂等的。
+
 参考资料
 [https://www.quora.com/What-is-the-history-of-HTTP-verbs-PUT-GET-POST-and-DELETE](https://www.quora.com/What-is-the-history-of-HTTP-verbs-PUT-GET-POST-and-DELETE)
 [http://www.cnblogs.com/weidagang2046/archive/2011/06/04/idempotence.html](http://www.cnblogs.com/weidagang2046/archive/2011/06/04/idempotence.html)
 [http://www.360doc.com/content/15/1124/19/29350465_515532644.shtml](http://www.360doc.com/content/15/1124/19/29350465_515532644.shtml)
 [https://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html](https://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html)  
 [https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Methods/CONNECT](https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Methods/CONNECT)  
+
+https://apifox.com/apiskills/the-difference-between-put-and-post/
+
+https://www.cnblogs.com/gzhjj/p/12633904.html
+
+https://cloud.tencent.com/developer/news/39873

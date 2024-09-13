@@ -19,19 +19,19 @@ tags:
 ### http post
 
 ```go
-        func httpPostForm() {
-        // params:=url.Values{}
-        // params.Set("hello","fdsfs")  //这两种都可以
-        params= url.Values{"key": {"Value"}, "id": {"123"}}
-            resp, _:= http.PostForm("http://baidu.com",
-            body)
-        
-            defer resp.Body.Close()
-            body, _:= ioutil.ReadAll(resp.Body)
-            
-            fmt.Println(string(body))
-        
-        }
+func httpPostForm() {
+// params:=url.Values{}
+// params.Set("hello","fdsfs")  //这两种都可以
+params= url.Values{"key": {"Value"}, "id": {"123"}}
+    resp, _:= http.PostForm("http://baidu.com",
+    body)
+
+    defer resp.Body.Close()
+    body, _:= ioutil.ReadAll(resp.Body)
+    
+    fmt.Println(string(body))
+
+}
 ```
 
 ### proxy

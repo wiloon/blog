@@ -131,7 +131,7 @@ curl -v -d "name=admin&password=admin" -b cookie.txt -c cookie.txt "http://local
 
 [https://stackoverflow.com/questions/30760213/save-cookies-between-two-curl-requests/37127263](https://stackoverflow.com/questions/30760213/save-cookies-between-two-curl-requests/37127263)
 
-## POST
+## curl POST
 
 用 -d 传 POST 参数  
 可以用 -X POST 来声明请求方法, 使用 -d 时, 默认为 POST 请求, -X POST 可以省略  
