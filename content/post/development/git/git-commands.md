@@ -587,11 +587,13 @@ git config --global https.proxy http://127.0.0.1:1080
 
 # remove config key
 git config --global --unset user.name
+git config --global --edit
 ```
 
 ### edit: set, delete
 
 ```bash
+# edit the config file
 git config --edit
 git config --global --edit
 ```
