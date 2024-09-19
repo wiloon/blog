@@ -12,9 +12,10 @@ tags:
 ```Bash
 # 列出已经安装的 snap 包
 sudo snap list
-
 # 列出所有已安装的版本
 snap list --all vlc
+# update all Snap packages
+sudo snap refresh 
 ```
 
 ## archlinux
