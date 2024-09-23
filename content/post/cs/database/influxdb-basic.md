@@ -168,6 +168,16 @@ influx -precision rfc3339
 ### docker
 
 ```bash
+docker pull influxdb:2.7.10-alpine
+
+docker run -d \
+    --name influxdb \
+    -p 8086:8086 \
+    -v "influxdb-data:/var/lib/influxdb2" \
+    -v "influxdb-config:/etc/influxdb2" \
+    influxdb:2.7.10-alpine
+
+
 # docker
 docker run -d \
 --name influxdb \
