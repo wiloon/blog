@@ -11,6 +11,10 @@ tags:
 ## grafana
 
 ```bash
+docker pull grafana/grafana:11.2.0
+
+docker run -d --name=grafana -e "GF_SECURITY_ADMIN_PASSWORD=password0" -p 3000:3000 -v grafana-storage:/var/lib/grafana -v /etc/localtime:/etc/localtime:ro grafana/grafana:11.2.0
+
 # podman
 podman run \
 -d \

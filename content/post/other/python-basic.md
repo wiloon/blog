@@ -1155,6 +1155,8 @@ Color(1).name
 
 ## string
 
+string.isdecimal()    如果 string 只包含十进制数字(整数)，则返回 True 否则返回 False.
+
 ## substring
 
 ```Python
@@ -1804,3 +1806,9 @@ try:
 except Exception:
     print(traceback.format_exc())
 ```
+
+## 性能分析工具
+
+https://blog.csdn.net/Bit_Coders/article/details/120154767
+
+pycharm 专业版，从 Run 中点击 Profile，即可对当前 python 脚本进行性能分析
