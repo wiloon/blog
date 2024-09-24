@@ -29,6 +29,7 @@ tags:
 - Apple Watch Series 8
 - WH-1000XM5
 - AM40
+- 高尔夫(进口) 2019款 1.8TSI 旅行版
 
 ## ROCK 5B
 
@@ -467,4 +468,8 @@ https://helpguide.sony.net/mdr/wh1000xm5/v1/zh-cn/index.html
 
 ## AM40
 
-- 
+## 高尔夫(进口) 2019款 1.8TSI 旅行版
+
+https://www.dongchedi.com/auto/params-carIds-34951
+
+- 整备质量(kg) 1456

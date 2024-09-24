@@ -1811,4 +1811,12 @@ except Exception:
 
 https://blog.csdn.net/Bit_Coders/article/details/120154767
 
+https://www.jetbrains.com/help/pycharm/profiler.html
+
+https://github.com/sumerc/yappi
+
 pycharm 专业版，从 Run 中点击 Profile，即可对当前 python 脚本进行性能分析
+
+```Bash
+pip install yappi
+```
