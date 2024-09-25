@@ -62,7 +62,15 @@ origin 是远程仓库的默认别名, 查看配置了几个远程仓库和别�
 
 [http://www.ruanyifeng.com/blog/2012/07/git.html](http://www.ruanyifeng.com/blog/2012/07/git.html)
 
-最新版本的 Git 提供了新的 `git switch` 命令来切换分支, `git switch`，比 `git checkout` 要更容易理解。
+https://stackoverflow.com/questions/4330610/switch-to-another-git-tag
+
+最新版本的 Git 提供了新的 `git switch` 命令来切换分支, `git switch`，比 `git checkout` 要更容易理解, 更安全, 所有 git checkout 能实现的切换类操作, 都建议用 git switch 替换.
+
+As of Git v2.23.0 (August 2019), git switch is preferred over git checkout when you’re simply switching branches/tags. I’m guessing they did this since git checkout had two functions: for switching branches and for restoring files. So in v2.23.0, they added two new commands, git switch, and git restore, to separate those concerns. I would predict at some point in the future, git checkout will be deprecated.
+
+To switch to a normal branch, use git switch <branch-name>. To switch to a commit-like object, including single commits and tags, use git switch --detach <commitish>, where <commitish> is the tag name or commit number.
+
+The --detach option forces you to recognize that you’re in a mode of “inspection and discardable experiments”. To create a new branch from the commitish you’re switching to, use git switch -c <new-branch> <start-point>.
 
 ### 查看分支
 
@@ -99,7 +107,7 @@ git remote show origin
 # create branch from a commit
 git branch branch_name <commit-hash or HEAD~3>
 
-# 新建并切换到分支
+# 新建并切换到分支, 不加 -c 的话 git switch 到一个不存在的分支会报错
 # -c, --create
 git switch -c branch0
 
@@ -117,12 +125,18 @@ git branch branch0
 git branch branch1 branch0
 
 # 从 tag v1.2.3 创建分支 branch1
-git checkout -b branch1 v1.2.3
+# 建议使用 git switch
+# git checkout -b branch_name tag_name
+# git checkout -b branch1 v1.2.3
+git switch -c branch1 v1.2.3
 
-git checkout -b branch0
+# 切换到 分支  branch0
+# git checkout -b branch0
+git switch branch0
 
 # 从 branch0 分支 创建 branch1 分支并切换到 branch1 分支 
-git checkout -b branch1 branch0
+# git checkout -b branch1 branch0
+git switch -c branch1 branch0
 ```
 
 ### 切换到分支
@@ -130,11 +144,13 @@ git checkout -b branch1 branch0
 使用 --recurse-submodules，将根据超级项目中记录的提交更新所有活动子模块的内容。如果什么都不使用（或 --no-recurse-submodules），子模块工作树将不会被更新。就像 git-submodule，这会分离子模块的 HEAD。
 
 ```bash
+# 切换到已经存在的某一个分支
+# git checkout branch0
 git switch branch0
 
 # 切换到 branch0 并且更新 submodule
 git switch --recurse-submodules branch0
-git checkout branch0
+
 ```
 
 ### 把新建的分支推送到远端
@@ -277,7 +293,8 @@ git branch --contains tags/<tag>
 git show commit_id
 
 # checkout tag, tag name=v1.2.3
-git checkout v1.2.3
+# git checkout v1.2.3
+git switch --detach v1.2.3
 
 # add a tag
 git tag v1.0.0
@@ -521,6 +538,7 @@ Git 的 checkout 有两个作用，其一是在不同的 branch 之间进行切�
 To discard all local changes, you do not use revert. revert is for reverting commits. Instead, do `git checkout .`
 
 ```bash
+# todo git restore
 # 对文件的修改还没有提交, 撤消本地的修改, 已经 add/commit 的不适用
 git checkout . # 本地所有修改的。没有的提交的，都返回到原来的状态
 ```
@@ -529,12 +547,12 @@ git checkout . # 本地所有修改的。没有的提交的，都返回到原来
 
 `git checkout HEAD .` # 将所有代码都 checkout 出來(最后一次 commit 的版本), 注意, 若有修改的代码都会被还原到上一个版本. (`git checkout -f` 亦可)
 
-### checkout 指定版本
+### checkout 指定版本(某一个 commit)
 
 ```bash
-git checkout 788258e49531eb24bfd347a600d69a16f966c495
-
 # 建议用 switch
+# 切换到某一个 commit, 相当于 git checkout fff57bd92e7ad1f90d2b9367b7b7208ea72d9e93
+# git checkout 788258e49531eb24bfd347a600d69a16f966c495
 git switch --detach 788258e49531eb24bfd347a600d69a16f966c495
 ```
 
@@ -641,7 +659,7 @@ git reflog 可以查看所有分支的所有操作记录 (包括 commit 和 rese
 git reflog
 git reflog show
 
-# 查看merge和checkout记录
+# 查看 merge 和 checkout 记录
 git reflog show --date=local | grep 分支名
 ```
 
@@ -788,10 +806,7 @@ git pull --ff-only
 ```bash
 man git-fetch
 git fetch --prune  #在本地删除在远程不存在的branch
-git fetch --all 告诉 Git 同步所有的远端仓库。
-
-# git分析指定的tag标签创建分支的命令
-git checkout -b branch_name tag_name
+git fetch --all 告诉 Git 同步所有的远端仓库
 ```
 
 [https://git-scm.com/book/zh/v2/Git-%E5%9F%BA%E7%A1%80-%E6%89%93%E6%A0%87%E7%AD%BE](https://git-scm.com/book/zh/v2/Git-%E5%9F%BA%E7%A1%80-%E6%89%93%E6%A0%87%E7%AD%BE)
@@ -821,9 +836,10 @@ git clone https://user0:password0@git.foo.com/path/to/project.git
 
 在 git clone 时加上 --depth=1
 
-depth 用于指定克隆深度，为1即表示只克隆最近一次 commit.
+depth 用于指定克隆深度, 为1即表示只克隆最近一次 commit.
 
-git checkout main
+#git checkout main
+git switch main
 
 git log --pretty=oneline
 
@@ -1070,8 +1086,9 @@ git stash
 // 再拉取当前分支
 git pull 
  
-// 新建并切换到开发分支，如dev-2021-11
-git checkout -b dev-2021-11
+// 新建并切换到开发分支, 如dev-2021-11
+# git checkout -b dev-2021-11
+git switch dev-2021-11
  
 // 将暂存的本地修改取出
 git stash apply
@@ -1239,13 +1256,6 @@ git push -u origin master -f
 卸载电脑原先的 Git，安装 32位 Git  
 或者卸载监控软件
 或者修改注册表让 ip guard 不监控 git.exe
-
-## git switch
-
-```Bash
-# 切换到某一个 commit, 相当于 git checkout fff57bd92e7ad1f90d2b9367b7b7208ea72d9e93
-git switch --detach fff57bd92e7ad1f90d2b9367b7b7208ea72d9e93
-```
 
 ## git orphan, 清除 git 所有历史提交记录方案
 
