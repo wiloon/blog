@@ -1819,4 +1819,10 @@ pycharm 专业版，从 Run 中点击 Profile，即可对当前 python 脚本进
 
 ```Bash
 pip install yappi
+
+# 安装 vmprof 之后 pstat 不能打印函数名了...
+pip install vmprof
+
+# /usr/bin/ld: cannot find -lunwind: No such file or directory
+sudo apt-get install -y libunwind-dev
 ```
