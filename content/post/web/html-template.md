@@ -43,7 +43,13 @@ tags:
 <body>
 body0
 <button type="button" onclick="func0()">button0</button>
-<div style="background: red"></div>
+<div id="div_0" style="background: red">
+    text_0
+    <div id="div_1" style="background: green; width: 100px;">
+        text_1
+    </div>
+    text_2
+</div>
 </body>
 
 </html>
