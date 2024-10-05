@@ -1,5 +1,5 @@
 ---
-title: parted
+title: parted command
 author: "-"
 date: 2015-10-22T09:55:38+00:00
 url: parted
@@ -8,9 +8,9 @@ categories:
 tags:
   - reprint
 ---
-## parted
+## parted command
 
-## instll parted
+## install parted
 
 ```bash
 apt install parted
@@ -19,6 +19,10 @@ apt install parted
 ```bash
 # 查看磁盘信息
 lsblk
+
+# 查看 /dev/sdd 当前的分区情况
+# 只能看分区信息, 想知道硬盘上有没有空闲的没创建分区的空间得自己算, 看 start end 是不是连续来判断.
+sudo parted /dev/sdd print
 
 # list disk and partitions
 # -l, --list

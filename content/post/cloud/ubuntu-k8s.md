@@ -186,7 +186,7 @@ apt-cache madison kubeadm|head
 apt install -y  kubeadm=1.28.2-00 kubelet=1.28.2-00 kubectl=1.22.2-00
 ```
 
-## 备份虚拟机磁盘
+## 备份宿主机磁盘
 
 ## 安装 master 节点
 
@@ -202,7 +202,7 @@ kubeadm config print init-defaults > kubeadm.yaml
 
 - token: abcdef.0123456789abcdef # 可以自定义，正则([a-z0-9]{6}).([a-z0-9]{16})
 - advertiseAddress: 192.168.50.80 # kubernetes主节点IP
-- name: k8s80 # 节点的虚拟机的 hostname
+- name: k8s80 # 节点的宿主机的 hostname
 - imageRepository: registry.aliyuncs.com/google_containers # 镜像仓库
 - kubernetesVersion: 1.28.0 # 指定版本
 - podSubnet: 10.244.0.0/16  # 增加指定pod的网段
