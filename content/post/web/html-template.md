@@ -31,6 +31,21 @@ tags:
 
         function func0() {
             console.log('func0')
+            var outerDiv = document.getElementById('div_0');
+
+            // 获取最外层 div 元素的内容
+            var outerDivContent = outerDiv.childNodes;
+
+            // 过滤出文本节点
+            var textContent = '';
+            outerDivContent.forEach(function (node) {
+                if (node.nodeType === Node.TEXT_NODE) {
+                    textContent += node.textContent.trim() + '\n';
+                }
+            });
+
+            // 输出结果
+            console.log(textContent.trim());
         }
         window.onload = function () {
             console.log('window.onload')
@@ -53,6 +68,7 @@ body0
 </body>
 
 </html>
+
 ```
 
 ```bash
