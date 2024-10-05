@@ -48,7 +48,7 @@ Ubuntu: 22.04
 20. 回到 Ubuntu 的图形化安装环境 选择 something else, click continue
 21. 选择 free space, 一般在 /dev/nvme0n1p3 和 /dev/nvme0n1p4 之间
 22. 点击加号创建分区
-    - 创建一个512MB 的分区
+    - 创建一个 512 MB 的分区
       - Use as: EFI System Partition
     - 创建一个 2048MB 的分区
       - Use as: Ext4 journaling file system
@@ -57,7 +57,7 @@ Ubuntu: 22.04
       - Use as: Ext4 journaling file system
       - mount point: `/`
       - 之后会删掉, 这个分区不需要太大
-23. Device for boot loader installation: 选择新的 EFI 分区: /dev/nvme0n1p5, 点击 Install Now
+23. Device for bootloader installation: 选择新的 EFI 分区: /dev/nvme0n1p5, 点击 Install Now
     - 选择了 /dev/nvme0n1p5 但是 Ubuntu 还是会安装到 /dev/nvme0n1p1
     - 安装完成之后再把备份的 windows boot loader 恢复回来
 24. 选择时区
@@ -67,9 +67,9 @@ Ubuntu: 22.04
     - Pick a username: xxx
     - Choose a password: xxx
     - Confirm your password: xxx
-26. 安装结束之后不要点击 Restart Now, 点击右上角的 `X` 关闭窗口, 系统会回到 Ubuntu live usb 状态 
+26. 安装结束之后不要点击 Restart Now, 点击右上角的 `X` 关闭窗口, 系统会回到 Ubuntu live usb 的桌面
 27. open a terminal with ctrl+alt+t, 切换到 root 用户: sudo -i
-28. 把 ubuntu installer 刚才安装的 /dev/nvme0n1p1 拷到 /dev/nvme0n1p5
+28. 把 ubuntu installer 刚才安装的 /dev/nvme0n1p1 复制到 /dev/nvme0n1p5
     - mount /dev/nvme0n1p1 /mnt/efi
     - mkdir /mnt/new-efi && mount /dev/nvme0n1p5 /mnt/new-efi
     - rsync -av /mnt/efi/ /mnt/new-efi/ (with trailing slashes)
@@ -86,7 +86,7 @@ Ubuntu: 22.04
     - 创建分区
       - File system: cleared
       - click Add
-    - Appy All Operations
+    - Apply All Operations
 32. 关掉 gparted, 回到 root terminal
 33. 加密分区
     - cryptsetup luksFormat /dev/nvme0n1p8

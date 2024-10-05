@@ -253,7 +253,7 @@ reboot
 # 安装完以上的包 ip forward, nf-call会自动设置好。
 sysctl -a |grep vm.swappiness && sysctl -a |grep ip_forward && sysctl -a |grep bridge-nf-call
 
-# 把虚拟机的网关设置成有梯子的网关，kubelet 需要梯子
+# 把宿主机的网关设置成有梯子的网关，kubelet 需要梯子
 
 # 配置内网dns
 192.168.50.110 k8s0

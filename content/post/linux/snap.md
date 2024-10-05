@@ -10,6 +10,8 @@ tags:
 ## snap
 
 ```Bash
+# ubuntu: Unable to update "Snap Store": cannot refresh "snap-store": snap "snap-store" has running apps 
+snap-store --quit
 # 列出已经安装的 snap 包
 sudo snap list
 # 列出所有已安装的版本
