@@ -66,15 +66,6 @@ vim .zshrc
 plugins=(git zsh-autosuggestions)
 ```
 
-## archlinux install zsh
-
-```bash
-sudo pacman -S git zsh
-
-
-
-```
-
 https://ohmyz.sh/
 
 ## switch to zsh
@@ -99,12 +90,18 @@ export HISTSIZE=10000
   
 export SAVEHIST=10000
 
-### theme, random 模式使用theme列表
+## random theme
 
-使用random模式时经常会随机到系统不支持的主题, 使用ZSH_THEME_RANDOM_CANDIDATES 配置, 可以把随机主题控制在一定范围内。
+ZSH_THEME="random"
+
+### theme, random 模式使用 theme 列表
+
+使用 random 模式时经常会随机到系统不支持的主题, 使用 ZSH_THEME_RANDOM_CANDIDATES 配置, 可以把随机主题控制在一定范围内。
+
+打开 zsh 配置文件 ~/.zshrc, 查找关键字 zSH_THEME_RANDOM_CANDIDATES, 解除注释
 
 ```bash
-zSH_THEME_RANDOM_CANDIDATES=(
+ZSH_THEME_RANDOM_CANDIDATES=(
   "robbyrussell"
   "agnoster"
 )
@@ -112,7 +109,7 @@ zSH_THEME_RANDOM_CANDIDATES=(
 
 ### .zshenv
 
-.zshenv总是被读取,所以通常把$PATH, $EDITOR等变量写在这里,这样无论是在shell交互,或者运行程序都会读取此文件
+.zshenv 总是被读取,所以通常把$PATH, $EDITOR等变量写在这里,这样无论是在shell交互,或者运行程序都会读取此文件
 Since .zshenv is always sourced, it often contains exported variables that should be available to other programs. For example, $PATH, $EDITOR, and $PAGER are often set in .zshenv. Also, you can set $ZDOTDIR in .zshenv to specify an alternative location for the rest of your zsh configuration.
 
 ### .zprofile
@@ -152,3 +149,29 @@ You should go through the configuration files of random Github users to get a be
 [http://blog.xsudo.com/2019/04/12/1445/](http://blog.xsudo.com/2019/04/12/1445/)  
 
 [https://zhuanlan.zhihu.com/p/19556676](https://zhuanlan.zhihu.com/p/19556676)  
+
+## 修改提示词
+
+https://blog.csdn.net/zxc3590235/article/details/109954843
+
+oh my zsh 默认使用 robbyrussell, 路径 .oh-my-zsh/themes/robbyrussell.zsh-theme
+
+```Bash
+# 默认的
+PROMPT="%(?:%{$fg_bold[green]%}%1{➜%} :%{$fg_bold[red]%}%1{➜%} ) %{$fg[cyan]%}%c%{$reset_color%}"
+# 在前面加个 %M 
+PROMPT="%M %(?:%{$fg_bold[green]%}%1{➜%} :%{$fg_bold[red]%}%1{➜%} ) %{$fg[cyan]%}%c%{$reset_color%}"
+# 退出重新登录, 提示符前面多了个主机名
+```
+
+%T	系统时间（时：分）
+%*	系统时间（时：分：秒）
+%D	系统日期（年-月-日）
+%n	用户名称（即：当前登陆终端的用户的名称，和whami命令输出相同）
+%B - %b	开始到结束使用粗体打印
+%U - %u	开始到结束使用下划线打印
+%d	你当前的工作目录
+%~	你目前的目录相对于～的相对路径
+%M	计算机的主机名
+%m	计算机的主机名（在第一个句号之前截断）
+%l	你当前的tty
