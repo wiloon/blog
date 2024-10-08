@@ -1137,7 +1137,7 @@ tcpdump的简单选项介绍
   
 aodv (Ad-hoc On-demand Distance Vector protocol, 按需距离向量路由协议, 在Ad hoc(点对点模式)网络中使用),
   
-cnfp (Cisco NetFlow protocol), rpc(Remote Procedure Call), rtp (Real-Time Applications protocol),
+cnfp, rpc(Remote Procedure Call), rtp (Real-Time Applications protocol)
   
 rtcp (Real-Time Applications con-trol protocol), snmp (Simple Network Management Protocol),
   
