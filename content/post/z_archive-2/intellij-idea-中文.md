@@ -16,7 +16,7 @@ tags:
 
 ### idea without JBR
 
-JBR是指JetBrains Runtime,JetBrains Runtime是一个运行时环境,用于在Windows,macOS和Linux上运行基于IntelliJ Platform的产品。 JetBrains Runtime基于OpenJDK项目并进行了一些修改。 这些修改包括: 亚像素抗锯齿(Subpixel Anti-Aliasing),Linux上的增强字体渲染,HiDPI支持,连字(ligatures),macOS上的San Francisco字体系列支持,官方构建中未提供的本机崩溃的一些修复,以及其他小的增强功能。
+JBR是指JetBrains Runtime,JetBrains Runtime是一个运行时环境,用于在Windows,macOS和Linux上运行基于IntelliJ Platform的产品。 JetBrains Runtime基于OpenJDK项目并进行了一些修改。 这些修改包括: 亚像素抗锯齿(Subpixel Anti-Aliasing),Linux上的增强字体渲染,HiDPI支持,连字(ligatures),macOS上的 San Francisco 字体系列支持,官方构建中未提供的本机崩溃的一些修复,以及其他小的增强功能。
 
 JetBrains Runtime与所有JetBrains IDE的最新版本捆绑在一起,默认情况下使用,除非执行显式重新配置。 例外是32位Linux系统,其中IDE需要单独的JDK安装,因为目前只捆绑了64位JetBrains Runtime。 对于Windows,捆绑了32位JetBrains Runtime,它可以在32位和64位系统上运行。
 

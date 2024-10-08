@@ -12,10 +12,10 @@ tags:
 
 [http://www.ibm.com/developerworks/cn/xml/x-urlni.html](http://www.ibm.com/developerworks/cn/xml/x-urlni.html)
 
-`http://www.cisco.com/en/US/partners/index.html` 是一个 URI
+`http://www.wiloon.com/en/US/partners/index.html` 是一个 URI
   
 - 方案名: http
-- 域名:  www.cisco.com
+- 域名:  www.wiloon.com
 - 路径: /en/US/partners/index.html
 
 URI 按照 UNIX® 的惯例采用了正斜杠 (a/b/c)，因为在 20 世纪 80 年代后期设计 URI 的时候, 在 Internet 上， UNIX 文化比 PC 文化更流行。

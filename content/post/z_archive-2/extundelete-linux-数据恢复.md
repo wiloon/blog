@@ -262,7 +262,7 @@ RECOVERED_FILES
   
 ganglia-3.4.0 passwd test
   
-[root@cloud1 RECOVERED_FILES]# du -sh /mnt/RECOVERED_FILES/*
+du -sh /mnt/RECOVERED_FILES/*
   
 15M /mnt/RECOVERED_FILES/ganglia-3.4.0
   
