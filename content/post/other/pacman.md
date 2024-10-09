@@ -509,4 +509,6 @@ pamac list -e
 
 ## error: could not open file /var/lib/pacman/sync/community.db: Unrecognized archive format
 
-`pacman -Syy`
+```Bash
+pacman -Syy
+```
