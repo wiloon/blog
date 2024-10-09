@@ -35,10 +35,6 @@ git cherry -v
 
 # 查看本地仓库的当前分支和远程分支的差异(已经 commit 但是还没 push), 展示方式类似 git log
 git log master ^origin/master
-
-# 获取所有的 tag
-git fetch --tags
-
 # 计算对象数和磁盘消耗
 git count-objects -vH
 # 指定目录 1.8.5 以前
@@ -57,6 +53,80 @@ git -C /Users/jhoffmann/tmp/my-project/ pull
 [https://www.zhihu.com/question/27712995](https://www.zhihu.com/question/27712995)
 
 origin 是远程仓库的默认别名, 查看配置了几个远程仓库和别名 `git remote -v`
+
+## git fetch
+
+默认更新
+
+- tag
+- FETCH_HEAD
+- 分支历史 commit
+
+git fetch 是更新(update) 在本地电脑上的远程跟踪分支（如origin/master分支，注意远程跟踪分支是保存在本地，
+一般在.git\refs\remotes\origin目录下），并更新(update) .git/FETCH_HEAD 文件。并不会和本地分支 merge，即不会更新本地分支。
+
+git fetch 命令用来拉取远程仓库的数据 (objects and refs).  
+默认情况下，git fetch 取回**所有**分支 (branch) 的更新。如果只想取回特定分支的更新，可以指定分支名。
+
+更新 (update) .git/FETCH_HEAD 文件
+
+- git fetch 从远程仓库取数据更新到本地仓库, JetBrains git plugin 里的 git 分支后面会出现蓝色箭头, 代表识别到了远程仓库有新的 commit
+- working tree/local branch 不会被更新
+- JetBrains 里分支 commit 历史不会更新
+
+```Bash
+# 获取所有的 tag
+git fetch --tags
+```
+
+### git fetch 更新其它分支
+
+```bash
+# 当前分支不是 dev 分支, 并且 dev 分支在本地没有修改的时候 更新 dev 分支
+git fetch origin dev:dev
+```
+
+该命令必须严格同时满足以下两个条件：
+
+1. 本地当前分支不能是 dev
+2. 本地 dev 分支和 origin/dev 不能分叉, 就是说可以 fast-forward merge
+
+则该命令执行后，可以实现 本地 dev 和远程 dev 分支进行 fast-forward merge，更新本地 dev 分支
+只要这两个条件其中一个不满足，则执行该命令会报错
+
+版权声明：本文为 CSDN 博主「啊大1号」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
+原文链接：[https://blog.csdn.net/a3192048/article/details/100069772](https://blog.csdn.net/a3192048/article/details/100069772)
+
+```bash
+# git fetch [<options>] [<repository> [<refspec>…​]]
+# git fetch <远程仓库名> <分支名>
+# <远程仓库名> 默认值: origin
+# <分支名> 默认值: 当前分支
+git fetch
+# 取回对应分支的更新, -u or --update-head-ok
+git fetch -u origin dev:dev
+# 取回所有分支的更新
+git fetch
+# 比如，取回 origin 仓库的 master 分支
+git fetch origin master
+# -p, 分支在远程删掉之后, 执行 git fetch -p, 更新一下本地的分支列表, 本地就看不到已经删除的分支了
+git fetch -p
+```
+
+### git fetch 与 git pull
+
+git fetch 和 git pull 都可以将远端仓库更新至本地那么他们之间有何区别? 想要弄清楚这个问题有有几个概念不得不提。
+
+FETCH_HEAD: 是一个版本链接，记录在本地的一个文件中，指向着目前已经从远程仓库取下来的分支的末端版本。
+commit-id: 在每次本地工作完成后，都会做一个 git commit 操作来保存当前工作到本地的 repo， 此时会产生一个 commit-id，
+这是一个能唯一标识一个版本的序列号。 在使用 git push 后，这个 id 会同步到远程仓库。
+
+有了以上的概念再来说说 git fetch
+git fetch: 这将更新 git remote 中所有的远程仓库所包含分支的最新 commit-id, 将其记录到 .git/FETCH_HEAD 文件中
+git fetch 更新远程仓库的方式如下:
+
+git fetch origin master:tmp
+在本地新建一个 temp 分支，并将远程 origin 仓库的 master 分支代码下载到本地 temp 分支
 
 ## 分支, branch
 
@@ -198,13 +268,26 @@ git symbolic-ref --short HEAD
 
 ### 修改分支名, 分支改名, 分支重命名
 
+#### 在 github 页面上改分支名
+
+github 可以直接在页面上改分支名, 如果本地有已经 clone 的代码, 需要执行以下操作
+
+```Bash
+# 在 github 页面上修改分支名
+git branch -m master main
+git fetch origin
+# -u, --set-upstream-to <upstream>
+git branch -u origin/main main
+# 设置默认分支
+git remote set-head origin -a
+```
+
 https://juejin.cn/post/6844903880115896327
 
 ```Bash
 # 分支改名, branch rename
--m, --[no-]move       move/rename a branch and its reflog
-
 # 本地分支重命名
+# -m, --move            move/rename a branch and its reflog
 git branch -m oldBranch newBranch
 
 # 分支改名之后如果直接 git push 会报错说上游的分支名跟本地的不一样
@@ -219,15 +302,6 @@ git push origin HEAD:newBranch
 
 # 把修改后的本地分支与远程分支关联
 git branch --set-upstream-to origin/newBranch
-```
-
-github 可以直接在页面上改分支名, 如果本地有已经 clone 的代码, 需要执行以下操作
-
-```Bash
-git branch -m master main
-git fetch origin
-git branch -u origin/main main
-git remote set-head origin -a
 ```
 
 ## git tag
@@ -376,8 +450,8 @@ https://blog.csdn.net/haohaibo031113/article/details/70821321
 ## commit
 
 ```bash
-# 本次 commit 使用指定的 auther 信息
-git commit -m "message0" --author="auther0 <auther0@foo.com>"
+# 本次 commit 使用指定的 author 信息
+git commit -m "message0" --author="author0 <auther0@foo.com>"
 ```
 
 ### commit message
@@ -386,7 +460,7 @@ git commit -m "message0" --author="auther0 <auther0@foo.com>"
 
 ```bash
 # 执行后会提示输入 new commit message
-# auther 会变成默认的
+# author 会变成默认的
 git commit --amend
 # 或者直接提供 new commit message
 git commit --amend -m "New commit message."
@@ -444,7 +518,7 @@ git 删除未跟踪文件
 # -x                    remove ignored files, too
 # -X                    remove only ignored files
 # 在使用 git clean 前，强烈建议加上 -n 参数先看看会删掉哪些文件，防止重要文件被误删
-# 删除未跟踪文件 dryrun
+# 删除未跟踪文件 dry-run
 git clean -nf
 # 删除
 git clean -f
@@ -627,7 +701,7 @@ export EDITOR=vim
 
 ```bash
 # --no-pager, 不使用默认的 less pager
-# --oneline, 显示简化版的 log, 没有 Auther, 没有 Date
+# --oneline, 显示简化版的 log, 没有 Author, 没有 Date
 git --no-pager log --oneline -n 10
 
 # 按 s 向下翻 log
@@ -681,67 +755,6 @@ git remote add origin git@github.com:wiloon/go-angular-x.git
 git push -u origin master
 ```
 
-## git fetch
-
-git fetch是更新(update)在本地电脑上的远程跟踪分支（如origin/master分支，注意远程跟踪分支是保存在本地，一般在.git\refs\remotes\origin目录下），并更新(update) .git/FETCH_HEAD文件。并不会和本地分支merge，即不会更新本地分支。
-
-git fetch 命令用来拉取远程仓库的数据 (objects and refs).  
-默认情况下，git fetch 取回**所有**分支 (branch) 的更新。如果只想取回特定分支的更新，可以指定分支名。
-
-更新(update) .git/FETCH_HEAD文件
-
-- git fetch 从远程仓库取数据更新到本地仓库, jetbrain git plugin 里的 git 分支后面会出现蓝色箭头, 代表识别到了远程仓库有新的 commit
-- working tree/local branch 不会被更新
-- jetbrain 里分支 commit 历史不会更新
-
-## git fetch 更新其它分支
-
-当前分支不是 dev 分支, 并且 dev 分支在本地没有修改的时候 更新 dev 分支
-
-```bash
-git fetch origin dev:dev
-```
-
-该命令必须严格同时满足以下两个条件：
-
-1. 本地当前分支不能是 dev。
-2. 本地 dev 分支和 origin/dev 不能分叉, 就是说可以 fast-forward merge
-
-则该命令执行后，可以实现 本地 dev 和远程 dev 分支进行 fast-forward merge，更新了本地 dev 分支。
-只要这两个条件其中一个不满足，则执行该命令会报错！
-————————————————
-版权声明：本文为CSDN博主「啊大1号」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
-原文链接：[https://blog.csdn.net/a3192048/article/details/100069772](https://blog.csdn.net/a3192048/article/details/100069772)
-
-```bash
-# git fetch <远程主机名> <分支名>
-git fetch
-
-git fetch <远程主机名> <分支名>
-# 取回对应分支的更新, -u or --update-head-ok
-git fetch -u origin dev:dev
-# 取回所有分支的更新
-git fetch
-# 比如，取回 origin 主机的 master 分支。
-git fetch origin master
-# -p, 分支在远程删掉之后, 执行 git fetch -p, 更新一下本地的分支列表, 本地就看不到已经删除的分支了
-git fetch -p
-```
-
-### git fetch 与 git pull
-
-git fetch 和 git pull 都可以将远端仓库更新至本地那么他们之间有何区别?想要弄清楚这个问题有有几个概念不得不提。
-
-FETCH_HEAD: 是一个版本链接，记录在本地的一个文件中，指向着目前已经从远程仓库取下来的分支的末端版本。
-commit-id: 在每次本地工作完成后，都会做一个git commit 操作来保存当前工作到本地的repo， 此时会产生一个 commit-id，这是一个能唯一标识一个版本的序列号。 在使用 git push 后，这个序列号还会同步到远程仓库。
-
-有了以上的概念再来说说 git fetch
-git fetch: 这将更新 git remote 中所有的远程仓库所包含分支的最新 commit-id, 将其记录到.git/FETCH_HEAD 文件中
-git fetch 更新远程仓库的方式如下:
-
-git fetch origin master: tmp
-//在本地新建一个temp分支，并将远程origin仓库的master分支代码下载到本地temp分支
-
 ## git diff
 
 ```bash
@@ -790,7 +803,7 @@ git pull <远程主机名> <远程分支名>:<本地分支名>
 git pull origin <远程分支名>:<本地分支名>
 git branch --set-upstream-to=origin/<remote_branch> <local_branch>
 git pull
-# verbos
+# verbose
 git pull -v
 git pull origin master
 git pull origin branch0
@@ -1044,7 +1057,7 @@ git pull --allow-unrelated-histories
 
 ```
 
-原因："git merge" used to allow merging two branches that have no common base by default, which led to a brand-new history of an existing project created and then get pulled by an unsuspecting maintainer, which allowed an unnecessary parallel history merged into the existing project. The command has been taught not to allow this by default, with an escape hatch "--allow-unrelated-histories" option to be used in a rare event that merges histories of two projects that started their lives independently（stackoverflow）.
+原因： "git merge" used to allow merging two branches that have no common base by default, which led to a brand-new history of an existing project created and then get pulled by an unsuspecting maintainer, which allowed an unnecessary parallel history merged into the existing project. The command has been taught not to allow this by default, with an escape hatch "--allow-unrelated-histories" option to be used in a rare event that merges histories of two projects that started their lives independently（stackoverflow）.
 
 作者：勿以浮沙筑高台
 链接：[https://www.jianshu.com/p/536080638cc9](https://www.jianshu.com/p/536080638cc9)
