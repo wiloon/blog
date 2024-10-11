@@ -188,6 +188,11 @@ usermod -U newuser1
 
 ## su command
 
+```bash
+# "This account is currently not available" error when trying to ssh
+sudo su -l jenkins -s /bin/bash
+```
+
 su 命令来自英文单词 switch user 的缩写，其功能是用于切换用户身份。管理员切换至任意用户身份而无须密码验证，而普通用户切换至任意用户身份均需密码验证。另外添加单个减号（-）参数为完全的身份变更，不保留任何之前用户的环境变量信息。
 原文链接：[https://www.linuxcool.com/su](https://www.linuxcool.com/su)
 

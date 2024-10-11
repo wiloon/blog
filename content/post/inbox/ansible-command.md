@@ -16,6 +16,7 @@ tags:
 
 ```bash
 # 临时的 inventory file
+# -u 以 root 用户到远程主机上执行命令
 ansible -i '192.168.50.111,' all  -m shell -a 'whoami'  -u root
 
 ansible-galaxy collection install community.general
@@ -205,7 +206,7 @@ tasks:
 another Python interpreter could change the meaning of that path. See https://docs.ansible.com/ansible-
 core/2.16/reference_appendices/interpreter_discovery.html for more information.
 
-edit ansible.cfg and set auto_silent mode:
+edit /etc/ansible/ansible.cfg and set auto_silent mode:
 
 [defaults]
 interpreter_python=auto_silent

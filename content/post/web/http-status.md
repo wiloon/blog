@@ -169,7 +169,7 @@ Web 服务器找不到您所请求的文件或脚本。请检查URL 以确保路
   
 如果问题依然存在，请与服务器的管理员联系。
 
-### 405 Method Not Allowed
+## 405 Method Not Allowed
 
 HTTP 错误 405
   
@@ -201,7 +201,7 @@ HTTP 错误 412
   
 如果问题依然存在，请与 Web 服务器的管理员联系。
 
-HTTP 错误 414
+## 414
   
 414 Request-URI 太长
   

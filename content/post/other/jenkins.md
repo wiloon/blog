@@ -11,6 +11,36 @@ tags:
 ---
 ## Jenkins basic
 
+## archlinux install jenkins
+
+```bash
+# 直接 pacman 安装
+pacman -S jenkins
+# start jenkins
+systectl start jenkins
+```
+
+jenkins 默认用 jenkins 用户启动和执行编译
+
+jenkins 默认的 home 目录 /var/lib/jenkins/, 比如 .ssh 目录的位置 /var/lib/jenkins/.ssh
+
+## docker 
+
+```bash
+docker run \
+  --name jenkins \
+  --rm \
+  --detach \
+  --privileged \
+  --network jenkins \
+  --network-alias docker \
+  --env DOCKER_TLS_CERTDIR=/certs \
+  --volume jenkins-docker-certs:/certs/client \
+  --volume jenkins-data:/var/jenkins_home \
+  --publish 2376:2376 \
+  docker:dind \
+  --storage-driver overlay2
+```
 
 ## Jenkins setup
 
@@ -32,10 +62,6 @@ tags:
 * **[build], click "add build step",  select invoke top-level Maven targets**
 * **select maven version**
 * **input Goals. e.g. clean, install, surefire-report:report, cobertura:cobertura**
-
-  * **
-  
-**
 
 ## Jenkins plugins
 
