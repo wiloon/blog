@@ -64,7 +64,8 @@ add new "Python" script
 
 script/script path: /home/wiloon/apps/venv-36/bin/celery
 parameters/script parameters: worker -A app0 -c 1 --workdir=/path/to/celery_app/root/
-working directory: /home/wiloon/apps/venv-36/bin/
 environment variables: import appropriate variables
+working directory: /home/wiloon/apps/venv-36/bin/
+
 
 [https://stackoverflow.com/questions/29312809/how-do-i-enable-remote-celery-debugging-in-pycharm](https://stackoverflow.com/questions/29312809/how-do-i-enable-remote-celery-debugging-in-pycharm)

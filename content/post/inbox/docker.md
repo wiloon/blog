@@ -202,7 +202,7 @@ docker run -d id0 sleep 6000
 # --rm 容器退出后随之将其删除
 # bash: 放在镜像名后的是命令,这里我们希望有个交互式 Shell,因此用的是 bash
 # --name="nginx-lb" : 为容器指定一个名称；
-# --privileged=true, 大约在0.6版,privileged被引入docker。使用该参数,container内的root拥有真正的root权限。
+# --privileged=true, 大约在 0.6 版, privileged 被引入 docker。使用该参数, container 内的 root 拥有真正的 root 权限。
 # --restart=always
 # --cap-add=SYS_TIME
 # -e, --env=[]                    Set environment variables

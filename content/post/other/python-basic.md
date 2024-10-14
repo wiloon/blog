@@ -1582,6 +1582,8 @@ print(str1_after)
 
 ## pytest
 
+https://blog.csdn.net/wuShiJingZuo/article/details/136631668
+
 ```Bash
 # 在项目根目录执行
 python -m pytest
@@ -1592,6 +1594,8 @@ python -m pytest -s
 # select one or moure function
 python -m pytest -s -k 'test_func_0'
 python -m pytest -s -k 'test_func_0 or test_func_1'
+
+py.test path/to/test.py
 ```
 
 ## errors
@@ -1825,4 +1829,50 @@ pip install vmprof
 
 # /usr/bin/ld: cannot find -lunwind: No such file or directory
 sudo apt-get install -y libunwind-dev
+```
+
+## pytest performance
+
+https://pypi.org/project/pytest-benchmark/
+
+```Bash
+pip install pytest-benchmark
+```
+
+```Python
+def something(duration=0.000001):
+    """
+    Function that needs some serious benchmarking.
+    """
+    time.sleep(duration)
+    # You may return anything you want, like the result of a computation
+    return 123
+
+def test_my_stuff(benchmark):
+    # benchmark something
+    result = benchmark(something)
+
+    # Extra code, to verify that the run completed correctly.
+    # Sometimes you may want to check the result, fast functions
+    # are no good if they return incorrect results :-)
+    assert result == 123
+```
+
+```Bash
+python -m pytest -s -k "test_my_stuff"
+```
+
+## pytest profiling
+
+```Bash
+pip install pytest-profiling
+pip install gprof2dot
+sudo apt install inkscape
+
+# GNOME image viewer
+eog combined.svg
+
+/usr/bin/google-chrome-stable combined.svg
+inkscape combined.svg
+inkview combined.svg
 ```

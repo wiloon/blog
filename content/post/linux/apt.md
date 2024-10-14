@@ -11,6 +11,18 @@ tags:
 ---
 ## apt-get, apt basic command, apt command
 
+## only upgrade libstdc++6
+
+"`GLIBCXX_3.4.32' not found" error at runtime. GCC 13.2.0
+
+https://stackoverflow.com/questions/76974555/glibcxx-3-4-32-not-found-error-at-runtime-gcc-13-2-0
+
+```Bash
+sudo add-apt-repository ppa:ubuntu-toolchain-r/test
+sudo apt-get update
+sudo apt-get install --only-upgrade libstdc++6
+```
+
 ## commands
 ```Bash
 sudo apt update
@@ -39,13 +51,15 @@ apt-cache search keyword
 
 ### list versions in cache
 
-  apt-cache madison  package_name_0
-  sudo apt-get autoremove
-  sudo apt-get --purge remove
-  sudo dpkg --remove --force-remove-reinstreq tspc
-  sudo apt-get autoclean
-  sudo apt-get clean
-  sudo apt-get -f install
+```Bash
+apt-cache madison  package_name_0
+sudo apt-get autoremove
+sudo apt-get --purge remove
+sudo dpkg --remove --force-remove-reinstreq tspc
+sudo apt-get autoclean
+sudo apt-get clean
+sudo apt-get -f install
+```
 
 ### remove
 
