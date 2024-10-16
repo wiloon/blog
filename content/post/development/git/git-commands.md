@@ -1322,3 +1322,7 @@ chmod u+x foo.sh
 ./foo.sh
 git push -f
 ```
+
+## windows vscode git
+
+vscode 会直接读 c:/user/user0/.ssh/ 里面的私钥, win 下可以在 cmd 里执行 ssh-keygen 生成 密钥对.

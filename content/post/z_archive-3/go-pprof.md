@@ -68,7 +68,7 @@ defer profile.Start(profile.MutexProfile).Stop()
 
 ```
 
-## CPU profiling
+## golang CPU profiling
 
 CPU 性能分析(CPU profiling) 是最常见的性能分析类型。
 

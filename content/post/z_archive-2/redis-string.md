@@ -15,18 +15,25 @@ Redis 字符串数据类型的相关命令用于管理 redis 字符串值
 ### template
 
 ```r
-    SET key value [EX seconds] [PX milliseconds] [NX|XX]
+SET key value [EX seconds] [PX milliseconds] [NX|XX]
 
-    EX second : 设置键的过期时间为 second 秒。 SET key value EX second 效果等同于 SETEX key second value 。
-    PX millisecond : 设置键的过期时间为 millisecond 毫秒。 SET key value PX millisecond 效果等同于 PSETEX key millisecond value 。
-    NX: 只在键不存在时,才对键进行设置操作。 SET key value NX 效果等同于 SETNX key value
-    XX: 只在键已经存在时,才对键进行设置操作。
+EX、PX、NX、XX 是 redis 2.6.12 版本添加的可选参数
+
+EX second: 设置键的过期时间为 second 秒。 SET key value EX second 效果等同于 SETEX key second value 。
+PX millisecond: 设置键的过期时间为 millisecond 毫秒。 SET key value PX millisecond 效果等同于 PSETEX key millisecond value 。
+NX: 只在键不存在时, 才对键进行设置操作。 SET key value NX 效果等同于 SETNX key value
+XX: 只在键已经存在时,才对键进行设置操作。
+KEEPTTL: redis 6.0 版本添加的可选参数, 保留设置前指定键的生存时间
 ```
 
 ```bash
 SET KEY_NAME VALUE
 
-# 将值value关联到key,并将key的生存时间设为seconds(以秒为单位)。
+# 设置过期时间
+# 设置过期时间之后再用不带 EX 的命令 比如 set key0 value1, 过期时间会失效
+set key0 value0 EX 600
+
+# 将值 value 关联到 key, 并将 key 的生存时间设为 seconds (以秒为单位), 可以直接用 set key0 value0 EX 3
 SETEX KEY_NAME seconds VALUE
 
 GET KEY_NAME
@@ -69,4 +76,23 @@ O(1)获取长度,c语言的字符串本身不记录长度,而是通过末尾的\
 
 ### embstr vs sds
 
-    https://www.cnblogs.com/sunchong/p/11924295.html
+https://www.cnblogs.com/sunchong/p/11924295.html
+
+## SETNX
+
+Redis Setnx（SET if Not eXists） 命令在指定的 key 不存在时，为 key 设置指定的值, 
+redis 2.6.12 之后 可以用 set key0 value0 NX 实现, 还能同时加过期时间.
+
+```Bash
+redis> EXISTS job                # job 不存在
+(integer) 0
+
+redis> SETNX job "programmer"    # job 设置成功
+(integer) 1
+
+redis> SETNX job "code-farmer"   # 尝试覆盖 job ，失败
+(integer) 0
+
+redis> GET job                   # 没有被覆盖
+"programmer"
+```

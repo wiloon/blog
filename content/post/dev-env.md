@@ -201,9 +201,7 @@ file_system--xfs
 [Paxos] as paxos
  
 [etcd]
-[分布式锁] as lockd
 [Chubby\nmysql\nzookeepet\nredis\netcd] as Chubby 
-lockd--Chubby
 [zab]
 [2pc]
 
@@ -228,8 +226,6 @@ zero_copy--mmap
 zero_copy--splice
 file_system--fd
 file_system--ext4
- 
-lockd--etcd
 
 consistency--etcd
 

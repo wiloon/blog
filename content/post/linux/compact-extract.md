@@ -140,7 +140,7 @@ unzstd foo.txt.zst
 # 指定压缩级别 1-19 默认3
 zstd -6 foo.txt
 
-# 线程数, 线程数为0时会检测cpu核心数
+# 线程数, 线程数为 0 时 zstd 会自动检测 cpu 核心数
 zstd -T0 foo.txt
 # --rm 压缩后删除原文件
 ```

@@ -22,69 +22,67 @@ raft的论文，两位研究者也提到，他们也花了很长的时间来理�
 
 raft算法概览
 回到顶部
-  Raft算法的头号目标就是容易理解 (UnderStandable），这从论文的标题就可以看出来。当然，Raft增强了可理解性，在性能、可靠性、可用性方面是不输于Paxos的。
+Raft算法的头号目标就是容易理解 (UnderStandable），这从论文的标题就可以看出来。当然，Raft增强了可理解性，在性能、可靠性、可用性方面是不输于Paxos的。
 
 Raft more understandable than Paxos and also provides a better foundation for building practical systems
 
-   为了达到易于理解的目标，raft做了很多努力，其中最主要是两件事情：
+为了达到易于理解的目标，raft做了很多努力，其中最主要是两件事情：
 
 问题分解
 状态简化
-   问题分解是将"复制集中节点一致性"这个复杂的问题划分为数个可以被独立解释、理解、解决的子问题。在raft，子问题包括，leader election， log replication，safety，membership changes。而状态简化更好理解，就是对算法做出一些限制，减少需要考虑的状态数，使得算法更加清晰，更少的不确定性 (比如，保证新选举出来的leader会包含所有commited log entry）
+问题分解是将"复制集中节点一致性"这个复杂的问题划分为数个可以被独立解释、理解、解决的子问题。在raft，子问题包括，leader election， log replication，safety，membership changes。而状态简化更好理解，就是对算法做出一些限制，减少需要考虑的状态数，使得算法更加清晰，更少的不确定性 (比如，保证新选举出来的leader会包含所有commited log entry）
 
 Raft implements consensus by first electing a distinguished leader, then giving the leader complete responsibility for managing the replicated log. The leader accepts log entries from clients, replicates them on other servers, and tells servers when it is safe to apply log entries to their state machines. A leader can fail or become disconnected from the other servers, in which case a new leader is elected.
 
-   上面的引文对raft协议的工作原理进行了高度的概括：raft会先选举出leader，leader完全负责replicated log的管理。leader负责接受所有客户端更新请求，然后复制到follower节点，并在“安全”的时候执行这些请求。如果leader故障，followes会重新选举出新的leader。
+上面的引文对raft协议的工作原理进行了高度的概括：raft会先选举出leader，leader完全负责replicated log的管理。leader负责接受所有客户端更新请求，然后复制到follower节点，并在“安全”的时候执行这些请求。如果leader故障，followes会重新选举出新的leader。
 
-   这就涉及到raft最新的两个子问题： leader election和log replication
+这就涉及到raft最新的两个子问题： leader election和log replication
 
 leader election
 回到顶部
-   raft协议中，一个节点任一时刻处于以下三个状态之一：
+raft协议中，一个节点任一时刻处于以下三个状态之一：
 
 leader
 follower
 candidate
-   给出状态转移图能很直观的直到这三个状态的区别
+给出状态转移图能很直观的直到这三个状态的区别
 
+可以看出所有节点启动时都是follower状态；在一段时间内如果没有收到来自leader的心跳，从follower切换到candidate，发起选举；如果收到majority的造成票 (含自己的一票）则切换到leader状态；如果发现其他节点比自己更新，则主动切换到follower。
 
-  可以看出所有节点启动时都是follower状态；在一段时间内如果没有收到来自leader的心跳，从follower切换到candidate，发起选举；如果收到majority的造成票 (含自己的一票）则切换到leader状态；如果发现其他节点比自己更新，则主动切换到follower。
-
-   总之，系统中最多只有一个leader，如果在一段时间里发现没有leader，则大家通过选举-投票选出leader。leader会不停的给follower发心跳消息，表明自己的存活状态。如果leader故障，那么follower会转换成candidate，重新选出leader。
+总之，系统中最多只有一个leader，如果在一段时间里发现没有leader，则大家通过选举-投票选出leader。leader会不停的给follower发心跳消息，表明自己的存活状态。如果leader故障，那么follower会转换成candidate，重新选出leader。
 
 term
-   从上面可以看出，哪个节点做leader是大家投票选举出来的，每个leader工作一段时间，然后选出新的leader继续负责。这根民主社会的选举很像，每一届新的履职期称之为一届任期，在raft协议中，也是这样的，对应的术语叫term。
+从上面可以看出，哪个节点做leader是大家投票选举出来的，每个leader工作一段时间，然后选出新的leader继续负责。这根民主社会的选举很像，每一届新的履职期称之为一届任期，在raft协议中，也是这样的，对应的术语叫term。
 
-
-   term (任期）以选举 (election）开始，然后就是一段或长或短的稳定工作期 (normal Operation）。从上图可以看到，任期是递增的，这就充当了逻辑时钟的作用；另外，term 3展示了一种情况，就是说没有选举出leader就结束了，然后会发起新的选举，后面会解释这种split vote的情况。
+term (任期）以选举 (election）开始，然后就是一段或长或短的稳定工作期 (normal Operation）。从上图可以看到，任期是递增的，这就充当了逻辑时钟的作用；另外，term 3展示了一种情况，就是说没有选举出leader就结束了，然后会发起新的选举，后面会解释这种split vote的情况。
 
 选举过程详解
-   上面已经说过，如果follower在election timeout内没有收到来自leader的心跳， (也许此时还没有选出leader，大家都在等；也许leader挂了；也许只是leader与该follower之间网络故障），则会主动发起选举。步骤如下：
+上面已经说过，如果follower在election timeout内没有收到来自leader的心跳， (也许此时还没有选出leader，大家都在等；也许leader挂了；也许只是leader与该follower之间网络故障），则会主动发起选举。步骤如下：
 
 增加节点本地的 current term ，切换到candidate状态
 投自己一票
 并行给其他节点发送 RequestVote RPCs
 等待其他节点的回复
-   在这个过程中，根据来自其他节点的消息，可能出现三种结果
+在这个过程中，根据来自其他节点的消息，可能出现三种结果
 
 收到majority的投票 (含自己的一票），则赢得选举，成为leader
 被告知别人已当选，那么自行切换到follower
 一段时间内没有收到majority投票，则保持candidate状态，重新发出选举
-   第一种情况，赢得了选举之后，新的leader会立刻给所有节点发消息，广而告之，避免其余节点触发新的选举。在这里，先回到投票者的视角，投票者如何决定是否给一个选举请求投票呢，有以下约束：
+第一种情况，赢得了选举之后，新的leader会立刻给所有节点发消息，广而告之，避免其余节点触发新的选举。在这里，先回到投票者的视角，投票者如何决定是否给一个选举请求投票呢，有以下约束：
 
 在任一任期内，单个节点最多只能投一票
 候选人知道的信息不能比自己的少 (这一部分，后面介绍log replication和safety的时候会详细介绍）
 first-come-first-served 先来先得
-   第二种情况，比如有三个节点A B C。A B同时发起选举，而A的选举消息先到达C，C给A投了一票，当B的消息到达C时，已经不能满足上面提到的第一个约束，即C不会给B投票，而A和B显然都不会给对方投票。A胜出之后，会给B,C发心跳消息，节点B发现节点A的term不低于自己的term，知道有已经有Leader了，于是转换成follower。
+第二种情况，比如有三个节点A B C。A B同时发起选举，而A的选举消息先到达C，C给A投了一票，当B的消息到达C时，已经不能满足上面提到的第一个约束，即C不会给B投票，而A和B显然都不会给对方投票。A胜出之后，会给B,C发心跳消息，节点B发现节点A的term不低于自己的term，知道有已经有Leader了，于是转换成follower。
 
-   第三种情况，没有任何节点获得majority投票，比如下图这种情况：
+第三种情况，没有任何节点获得majority投票，比如下图这种情况：
 
 
-   总共有四个节点，Node C、Node D同时成为了candidate，进入了term 4，但Node A投了NodeD一票，NodeB投了Node C一票，这就出现了平票 split vote的情况。这个时候大家都在等啊等，直到超时后重新发起选举。如果出现平票的情况，那么就延长了系统不可用的时间 (没有leader是不能处理客户端写请求的），因此raft引入了randomized election timeouts来尽量避免平票情况。同时，leader-based 共识算法中，节点的数目都是奇数个，尽量保证majority的出现。
+总共有四个节点，Node C、Node D同时成为了candidate，进入了term 4，但Node A投了NodeD一票，NodeB投了Node C一票，这就出现了平票 split vote的情况。这个时候大家都在等啊等，直到超时后重新发起选举。如果出现平票的情况，那么就延长了系统不可用的时间 (没有leader是不能处理客户端写请求的），因此raft引入了randomized election timeouts来尽量避免平票情况。同时，leader-based 共识算法中，节点的数目都是奇数个，尽量保证majority的出现。
 
 log replication
 回到顶部
-   当有了leader，系统应该进入对外工作期了。客户端的一切请求来发送到leader，leader来调度这些并发请求的顺序，并且保证leader与followers状态的一致性。raft中的做法是，将这些请求以及执行顺序告知followers。leader和followers以相同的顺序来执行这些请求，保证状态一致。
+当有了leader，系统应该进入对外工作期了。客户端的一切请求来发送到leader，leader来调度这些并发请求的顺序，并且保证leader与followers状态的一致性。raft中的做法是，将这些请求以及执行顺序告知followers。leader和followers以相同的顺序来执行这些请求，保证状态一致。
 
 Replicated state machines
    共识算法的实现一般是基于复制状态机 (Replicated state machines），何为复制状态机：
@@ -273,11 +271,11 @@ Raft算法将这类问题抽象为"ReplicatedState Machine",详见上图,每台S
   
 通常来说,在分布式环境下,可以通过两种手段达成一致: 
 
-1.       Symmetric, leader-less
+1. ymmetric, leader-less
 
 所有Server都是对等的,Client可以和任意Server进行交互
 
-2.       Asymmetric, leader-based
+2. Asymmetric, leader-based
 
 任意时刻,有且仅有1台Server拥有决策权,Client仅和该Leader交互
 

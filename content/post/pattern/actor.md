@@ -1,5 +1,5 @@
 ---
-title: Actor模型, Actor model
+title: Actor 模型, Actor model
 author: "-"
 date: 2011-09-06T14:54:33+00:00
 url: actor
@@ -8,8 +8,9 @@ categories:
 tags:
   - reprint
 ---
-## Actor模型, Actor model
-“使用actor就像租车——我们如果需要，可以快速便捷地租到一辆；如果车辆发生故障，也不需要自己修理，直接打电话给租车公司更换另外一辆即可。”
+## Actor 模型, Actor model
+
+使用actor就像租车——我们如果需要，可以快速便捷地租到一辆；如果车辆发生故障，也不需要自己修理，直接打电话给租车公司更换另外一辆即可。
 
 摘录来自: [美] Paul Butcher. “七周七并发模型。”
 
