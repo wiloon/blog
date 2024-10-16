@@ -31,7 +31,9 @@ hash操作命令如下:
 
 ### hget
 
-hget(key, field) 返回名称为key的hash中field对应的value hsetnx HSETNX key field value 将哈希表key中的域field的值设置为value,当且仅当域field不存在。若域field已经存在,该操作无效。如果key不存在,一个新哈希表被创建并执行h#setnx命令。
+hget(key, field) 返回名称为key的hash中field对应的value 
+hsetnx HSETNX key field value 将哈希表key中的域field的值设置为value,当且仅当域field不存在。若域field已经存在,该操作无效。
+如果key不存在,一个新哈希表被创建并执行h#setnx命令。
 
 ### hmget
 

@@ -11,9 +11,9 @@ tags:
 ## "redis pipeline"
 
 why pipeline ?
-Redis客户端与server的请求/响应模型
-前面的文章 Redis底层协议RESP详解 ，介绍到redis客户端与redis-server交互通信，采用的TCP请求/响应模型；
-我们通过Redis客户端执行命令，如set key value，客户端遵循RESP协议，将命令的协议串发送给redis-server执行，redis-server执行完成后再同步返回结果。
+Redis 客户端与 server 的请求/响应模型
+前面的文章 Redis 底层协议RESP详解 ，介绍到 redis 客户端与 redis-server 交互通信，采用的 TCP 请求/响应模型;
+我们通过 Redis 客户端执行命令，如set key value，客户端遵循RESP协议，将命令的协议串发送给redis-server执行，redis-server执行完成后再同步返回结果。
 手写Redis客户端-实现自己的Jedis 对这一过程进行了重点分析，并遵循RESP实现了自己简易版的Redis客户端。
 
 Redis客户端与server通信，使用的是客户端-服务器 (CS) 模式；每次交互，都是完整的请求/响应模式。
@@ -61,7 +61,7 @@ pipeline不仅是一种减少往返时间的延迟成本的方法，它实际上
 pipeline(管道)功能在命令行CLI客户端redis-cli中没有提供，也就是我们不能通过终端交互的方式使用pipeline；
 redis的客户端，如jedis，lettuce等都实现了对pipeline的支持。
 
-pipeline为我们节省了哪部分时间？
+pipeline 为我们节省了哪部分时间？
 pipeline在某些场景下非常有用，比如有多个command需要被“及时的”提交，而且他们对相应结果没有互相依赖，对结果响应也无需立即获得，那么pipeline就可以充当这种“批处理”的工具；而且在一定程度上，可以较大的提升性能: 
 
 我们使用JedisPool连接池，节省了建立连接connection的时间；
@@ -97,7 +97,7 @@ Jedis客户端缓存是8192，超过该大小则刷新缓存，或者直接发�
 pipeline 的局限性
 pipeline 只能用于执行连续且无相关性的命令，当某个命令的生成需要依赖于前一个命令的返回时(或需要一起执行时)，就无法使用 pipeline 了。通过 scripting 功能，可以规避这一局限性。
 
-有些系统可能对可靠性要求很高，每次操作都需要立马知道这次操作是否成功，是否数据已经写进redis了，如Redis实现分布式锁等，那这种场景就不适合了。
+有些系统可能对可靠性要求很高，每次操作都需要立马知道这次操作是否成功，是否数据已经写进redis了，如 Redis 实现分布式锁等，那这种场景就不适合了。
 
 批量执行命令的其他方式
 Redis事务

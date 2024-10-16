@@ -325,3 +325,67 @@ apt-file search /path/to/file
 apt-file list $package
 
 ```
+
+## 离线安装 vim
+
+https://www.cnblogs.com/ddcoder/p/18024804
+
+咚..咚
+Ubuntu在无网络环境下，用离线源apt-get安装软件
+步骤概要如下：
+
+1、假设目标安装的是服务器A，需先准备一台正常环境，且操作系统版本与A一致的服务器B；
+
+2、用apt-get在服务器B上下载需要安装的包，并用dpkg-scanpackages依赖打包；
+
+3、将打好的依赖包传到服务器A上；
+
+4、更新服务器A的apt源，并清空apt缓存；
+
+5、服务器A上用apt安装软件。
+
+
+
+详细步骤如下（以安装vim为例）：
+
+1、在服务器B上创建/opt/offline-packages/archives目录，并进入目录中
+
+mkdir -p /opt/offline-packages/archives
+
+cd /opt/offline-packages/archives
+2、用apt-get下载需要的安装包（这里以vim为例）
+
+sudo apt-get download $(apt-cache depends --recurse --no-recommends --no-suggests --no-conflicts --no-breaks --no-replaces --no-enhances vim | grep "^\w" | sort -u)
+备注：如果有多个包，可以在vim后面跟上多个包，可同时下载。
+
+3、打包依赖包
+
+cd /opt/offline-packages
+
+#带上-m，会将所有包全部建立依赖关系到 Packages.gz中，如此会有重复，但无需剔除重复的包
+sudo dpkg-scanpackages -m . /dev/null | gzip -9c > Packages.gz
+
+cp Packages.gz ./archives
+4、将/opt/offline-packages这个目录复制在服务器A上（各种方法都行：内网SSH、U盘或者SCP）
+
+假设复制到服务器A的/opt/offline-packages目录。
+
+注意：这个路径很重要，就是服务器A的本地源路径。
+
+5、修改服务器A的本地源路径
+
+deb [trusted=yes] file:///opt/offline-packages  archives/
+6、更新服务器A的apt-get缓存
+
+sudo apt-get update
+7、在服务器A中用apt-get安装软件
+
+apt-get -y install vim
+
+server -f --allow-unauthenticated
+
+
+本方法适用于内网Ubuntu服务器，无网络状态下软件用apt-get安装的问题，亲测可用。
+
+但是有一点要注意，服务器A和服务器B的Ubuntu版本要严格一致，并且补丁包也要完全一致，否则打包的本地源传到服务器A上会不适用。
+

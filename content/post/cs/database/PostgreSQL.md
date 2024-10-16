@@ -440,7 +440,7 @@ select * from pg_timezone_names;
 ## substring
 
 ```sql
-SUBSTRING(string, start_position, length)gjsongjson
+SUBSTRING(string, start_position, length)
 -- str_pos 
 ```
 
