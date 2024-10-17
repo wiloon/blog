@@ -21,7 +21,7 @@ ps -e -o 'pid,comm,args,pcpu,rsz,vsz,stime,user,uid' 其中 rsz 是是实际内�
 ps -e -o 'pid,comm,args,pcpu,rsz,vsz,stime,user,uid' | grep oracle | sort -nrk5
 ```
 
-其中 rsz 为实际内存，上例实现按内存排序，由大到小s
+其中 rsz 为实际内存，上例实现按内存排序，由大到小
 
 [http://blog.fpliu.com/it/software/procps](http://blog.fpliu.com/it/software/procps)
 
@@ -39,7 +39,7 @@ linux 上进程有 5 种状态
 
 ### STAT 进程的状态
 
-```bash
+```
 R 运行    Runnable (on run queue)            正在运行或在运行队列中等待。
 S 睡眠    Sleeping                休眠中, 受阻, 在等待某个条件的形成或接受到信号。
 I 空闲    Idle
@@ -78,7 +78,7 @@ ps -eo pid,ppid,command
 
 ### 参数
 
-```bash
+```
 -e, -A  显示所有进程, 默认情况下，ps 不会显示很多进程信息，只是列出与当前终端会话相关的进程, -e 参数会显示系统所有进程
 -j     作业格式
 -l     长格式 (有F, wchan, C, PRI, NI 等字段) 
@@ -100,9 +100,9 @@ x      显示当前用户在所有终端下的进程。
 -f  打印完整格式的列表, -f 参数可以跟其它 UNIX-style 参数一起使用(如: ps -fa, ps -fx ...), 附加 -f 之后会输出一些额外的字段, 并且会打印进程的完整的命令行参数.
 ```
 
-### Head 标头
+### ps -ef 的输出, Head 标头
 
-```bash
+```
 F           代表这个程序的旗标 (flag)， 4 代表使用者为 super user  
 S           代表这个程序的状态 (STAT)，关于各 STAT 的意义将在内文介绍  
 USER        用户名  
@@ -188,11 +188,11 @@ ps auxw -sort=%cpu
 
 - VSZ
 
-  Virtual Size: The virtual memory usage of entire task in kilobytes.
+Virtual Size: The virtual memory usage of entire task in kilobytes.
 
 - RSS
 
-  RSS is Resident Set Size, the non-swapped physical memory used by process. (in kiloBytes). (alias rssize, rsz).
+RSS is Resident Set Size, the non-swapped physical memory used by process. (in kiloBytes). (alias rssize, rsz).
 
 版权声明：本文为CSDN博主「逝鸿」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
 原文链接：[https://blog.csdn.net/qq_21127313/article/details/79877483](https://blog.csdn.net/qq_21127313/article/details/79877483)
