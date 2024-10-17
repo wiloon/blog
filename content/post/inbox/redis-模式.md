@@ -10,9 +10,11 @@ tags:
 ---
 ## "主从模式 VS 哨兵sentinel模式 VS Redis cluster模式"
 
-主从模式 (redis2.8版本之前的模式) 、哨兵sentinel模式 (redis2.8及之后的模式) 、redis cluster模式 (redis3.0版本之后)
+- 主从模式 (redis2.8版本之前的模式) 、
+- 哨兵 sentinel模式 (redis2.8及之后的模式) 、
+- redis cluster模式 (redis3.0版本之后)
 
-主从模式原理
+### 主从模式原理
 
 同MySQL主从复制的原因一样，Redis虽然读取写入的速度都特别快，但是也会产生读压力特别大的情况。为了分担读压力，Redis支持主从复制，Redis的主从结构可以采用一主多从或者级联结构，Redis主从复制可以根据是否是全量分为全量同步和增量同步。下图为级联结构。
 
@@ -30,27 +32,26 @@ tags:
 
 3. 无法实现动态扩容
 
-sentinel模式
+### sentinel 哨兵模式
 
-Sentinel (哨兵) 是Redis的高可用性解决方案: 由一个或多个Sentinel实例组成的Sentinel系统可以监视任意多个主服务器，以及这些主服务器属下的所有从服务器，并在被监视的主服务器进入下线状态时，自动将下线主服务器属下的某个从服务器升级为新的主服务器。
-
-例如:
+Sentinel (哨兵) 是 Redis 的高可用性解决方案: 由一个或多个 Sentinel实例组成的Sentinel系统可以监视任意多个主服务器，
+以及这些主服务器属下的所有从服务器，并在被监视的主服务器进入下线状态时，自动将下线主服务器属下的某个从服务器升级为新的主服务器。
 
 优点
 
 1. Master 状态监测
 
-2. 如果Master 异常，则会进行Master-slave 转换，将其中一个Slave作为Master，将之前的Master作为Slave
+2. 如果 Master 异常，则会进行 Master-slave 转换，将其中一个 Slave 作为 Master，将之前的 Master 作为 Slave
 
-3. Master-Slave切换后，master_redis.conf、slave_redis.conf和sentinel.conf的内容都会发生改变，即master_redis.conf中会多一行slaveof的配置，sentinel.conf的监控目标会随之调换
+3. Master-Slave 切换后，master_redis.conf、slave_redis.conf 和 sentinel.conf 的内容都会发生改变，即 master_redis.conf 中会多一行 slaveof 的配置，sentinel.conf 的监控目标会随之调换
 
 缺点:
 
-1. 如果是从节点下线了，sentinel是不会对其进行故障转移的，连接从节点的客户端也无法获取到新的可用从节点
+1. 如果是从节点下线了，sentinel 是不会对其进行故障转移的，连接从节点的客户端也无法获取到新地可用从节点
 
 2. 无法实现动态扩容
 
-cluster模式
+### cluster 模式
 
 在这个图中，每一个蓝色的圈都代表着一个redis的服务器节点。它们任何两个节点之间都是相互连通的。客户端可以与任何一个节点相连接，然后就可以访问集群中的任何一个节点。对其进行存取和其他操作。
 
@@ -113,17 +114,16 @@ sentinel着眼于高可用，Cluster提高并发量。
 
 ### Redis Sentinel 与 Redis Cluster
 
-置顶 回_憶 2018-07-26 14:06:18  34676  收藏 54
-分类专栏:  数据库 java se 开发工具 文章标签:  Redis Sentinel Cluster 哨兵 集群
-版权
-一、前言
-互联网高速发展的今天，对应用系统的抗压能力要求越来越高，传统的应用层+数据库已经不能满足当前的需要。所以一大批内存式数据库和Nosql数据库应运而生，其中redis,memcache,mongodb,hbase等被广泛的使用来提高系统的吞吐性，所以如何正确使用cache是作为开发的一项基技能。本文主要介绍Redis Sentinel 及 Redis Cluster的区别及用法，Redis的基本操作可以自行去参看其官方文档 。 其他几种cache有兴趣的可自行找资料去学习。
+互联网高速发展的今天，对应用系统的抗压能力要求越来越高，传统的应用层+数据库已经不能满足当前的需要。
+所以一大批内存式数据库和Nosql数据库应运而生，其中redis,memcache,mongodb,hbase等被广泛的使用来提高系统的吞吐性，
+所以如何正确使用cache是作为开发的一项基技能。本文主要介绍Redis Sentinel 及 Redis Cluster的区别及用法，
+Redis的基本操作可以自行去参看其官方文档 。 其他几种cache有兴趣的可自行找资料去学习。
 
 二、Redis Sentinel 及 Redis Cluster 简介
 
 1. Redis Sentinel
 
- Redis-Sentinel(哨兵模式)是Redis官方推荐的高可用性(HA)解决方案，当用Redis做Master-slave的高可用方案时，假如master宕机了，Redis本身(包括它的很多客户端)都没有实现自动进行主备切换，而Redis-sentinel本身也是一个独立运行的进程，它能监控多个master-slave集群，发现master宕机后能进行自懂切换。它的主要功能有以下几点:
+Redis-Sentinel(哨兵模式)是Redis官方推荐的高可用性(HA)解决方案，当用Redis做Master-slave的高可用方案时，假如master宕机了，Redis本身(包括它的很多客户端)都没有实现自动进行主备切换，而Redis-sentinel本身也是一个独立运行的进程，它能监控多个master-slave集群，发现master宕机后能进行自懂切换。它的主要功能有以下几点:
 
 不时地监控redis是否按照预期良好地运行;
 如果发现某个redis节点运行出现状况，能够通知另外一个进程(例如它的客户端);
