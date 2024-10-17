@@ -18,7 +18,9 @@ tags:
 ### archlinux install podman
 
 ```bash
-pacman -S netavark aardvark-dns podman
+pacman -S podman
+# 提示选择 crun, runc, 选 crun
+# netavark aardvark-dns 会默认安装
 # 正常情况，安装 podman 之后不需要重启系统, 但是如果有异常，比如 CNI 之类 的问题，可以考虑重启一下...
 ```
 
@@ -34,6 +36,14 @@ used CNI The stack will keep the default value of the existing installation,
 The new installation will use `Netvark`.
 
 [https://github.com/containers/netavark](https://github.com/containers/netavark)
+
+### crun, runc
+
+runc 和 crun 是容器运行时，可以互换使用，因为二者都实现 OCI 运行时规范。与 runc 相比，crun 容器运行时有一些优点，因为它速度更快，且需要较少的内存。因此，crun 容器运行时是推荐使用的容器运行时。
+
+runc 运行时与 Docker 共享大量低级代码，但不依赖于 Docker 平台的任何组件。
+
+crun 是一个快速、占用内存少的 OCI 容器运行时，是用 C 语言编写的。crun 二进制文件比 runc 二进制文件小多达 50 倍，快两倍。使用 crun，也可以在运行容器时设置最少的进程数。crun 运行时也支持 OCI hook。
 
 ### ubuntu install podman
 
@@ -505,8 +515,9 @@ podman save will save parent layers of the image(s)
 
 ```bash
 # 如果执行 podman save 时磁盘上已经存在 kafka.tar 会提示: docker-archive doesn't support modifying existing images
+# --format=docker-archiv, podman save 保存成兼容 docker 的文件格式
 sudo podman save --format=docker-archive -o kafka.tar 5701259bb69a bitnami/kafka:3.4.0
-podman save be96e19ac6ef >pingd-proxy.tar
+podman save be96e19ac6ef > pingd-proxy.tar
 ```
 
 >wangyue.dev/docker/save

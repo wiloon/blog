@@ -45,7 +45,7 @@ podman run -d \
 -v nginx-www:/var/www \
 -v nginx-cert:/etc/letsencrypt \
 -v /etc/localtime:/etc/localtime:ro \
-nginx:1.27.0
+nginx:1.27.2
 
 # nginx config text
 docker run --name nginx-config-test --rm -t -a stdout -v nginx-conf:/etc/nginx:ro nginx nginx -c /etc/nginx/nginx.conf -t
