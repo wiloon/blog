@@ -139,7 +139,8 @@ LVM 的使用过程是这样的:
 
 块设备: 给机器插上新的硬盘。
 硬盘分区: 把块设备分成多个分区 (1个分区用尽整块磁盘也可以，无所谓)，每个分区的大小也是固定的。
-创建物理卷 (PV): 按照 LVM 的规则，把每个硬盘分区创建为一个物理卷 (physical volume)。 物理卷Physical volume (PV)：可以在上面建立卷组的媒介，可以是硬盘分区，也可以是硬盘本身或者回环文件（loopback file）。物理卷包括一个特殊的header，其余部分被切割为一块块物理区域（physical extents）。 Think of physical volumes as big building blocks which can be used to build your hard drive.要创建物理卷必须首先对硬盘进行分区，并且将硬盘分区的类型设置为"8e"后，才能使用pvcreate指令将分区初始化为物理卷。
+创建物理卷 (PV): 按照 LVM 的规则，把每个硬盘分区创建为一个物理卷 (physical volume)。 物理卷Physical volume (PV)：可以在上面建立卷组的媒介，可以是硬盘分区，也可以是硬盘本身或者回环文件（loopback file）。物理卷包括一个特殊的header，其余部分被切割为一块块物理区域（physical extents）。 Think of physical volumes as big building blocks which can be used to build your hard drive.要创建物理卷必须首先对硬盘进行分区，并且将硬盘分区的类型设置为"8e"后，
+才能使用pvcreate指令将分区初始化为物理卷。
 创建卷池 (VG): 新建的物理卷就像一桶矿泉水，把它们加入到一个VG大池子里面，这样池子里的水 (硬件空间)就会变多。卷组Volume group (VG)：将一组物理卷收集为一个管理单元。Group of physical volumes that are used as storage volume (as one disk). They contain logical volumes. Think of volume groups as hard drives.
 创建逻辑卷 (LV): 想要划分一块硬盘空间拿来使用，只需要从 VG 里面取一瓢水出来即可，这个划分出来的硬盘空间叫做一个 LV (logical volume)。逻辑卷Logical volume (LV)：虚拟分区，由物理区域（physical extents）组成。A "virtual/logical partition" that resides in a volume group and is composed of physical extents. Think of logical volumes as normal partitions.
 

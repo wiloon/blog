@@ -23,32 +23,36 @@ Ubuntu: 22.04
 - 从 U 盘引导,安装 ubuntu, 选择 Try or install Ubuntu
   - Select Language: English
   - Install> Install Ubuntu
-7. Keyboard: English(US)> English(US)
-8. Wireless
-9. What apps would you like to install to start with: Minimal installation
-10. 勾选 Install third-party software for graphics and wi-fi hardware and additional media formats
-11. 勾选 Configure Secure Boot, 设置 Secure boot 密码
-12. open a terminal with ctrl+alt+t
-13. 切换到 root 用户: sudo -i
-14. lsblk to list all devices
-15. 挂载 FAT32 分区
-    - mkdir /mnt/persistent
-    - mount /dev/sda2 /mnt/persistent
-    - mkdir /mnt/persistent/efi-backup
-16. Mount the Windows bootloader partition
-    - mkdir /mnt/efi
-    - mount /dev/nvme0n1p1 /mnt/efi
-17. Backup all the data on it, and make sure to correctly execute rsync as shown here (with trailing slashes):
-    rsync -av /mnt/efi/ /mnt/persistent/efi-backup/
-18. Now we delete the content on the efi partition (don't be scared, we will copy it back later)
-    rm -rf /mnt/efi/*
-19. Umount again the efi partition
-    umount /mnt/efi
-    umount /mnt/persistent
-20. 回到 Ubuntu 的图形化安装环境 选择 something else, click continue
-21. 选择 free space, 一般在 /dev/nvme0n1p3 和 /dev/nvme0n1p4 之间
-22. 点击加号创建分区
-    - 创建一个 512 MB 的分区
+  - Keyboard: English(US)> English(US)
+  - Wireless
+  - What apps would you like to install to start with: Minimal installation
+  - 勾选 Install third-party software for graphics and wi-fi hardware and additional media formats
+  - 勾选 Configure Secure Boot, 设置 Secure boot 密码
+
+## 备份 windows 的 EFI 分区 到 U 盘 (/dev/sda2)
+
+open a terminal with ctrl+alt+t
+- 切换到 root 用户: sudo -i
+- `lsblk` to list all devices
+- 挂载 FAT32 分区
+    - `mkdir /mnt/persistent`
+    - `mount /dev/sda2 /mnt/persistent`
+    - `mkdir /mnt/persistent/efi-backup`
+- Mount the Windows bootloader partition
+  - `mkdir /mnt/efi`
+  - `mount /dev/nvme0n1p1 /mnt/efi`
+- Backup all the data on it, and make sure to correctly execute rsync as shown here (with trailing slashes):
+  `rsync -av /mnt/efi/ /mnt/persistent/efi-backup/`
+- Now we delete the content on the efi partition (don't be scared, we will copy it back later)
+  `rm -rf /mnt/efi/*`
+- Umount again the efi partition
+  `umount /mnt/efi`
+  `umount /mnt/persistent`
+
+  - 回到 Ubuntu 的图形化安装环境, 选择 something else, click continue
+  - 选择 free space, 一般在 /dev/nvme0n1p3 和 /dev/nvme0n1p4 之间
+  - 点击加号创建分区
+    - 创建一个 512 MB 的分区 (/dev/nvme0n1p5)
       - Use as: EFI System Partition
     - 创建一个 2048MB 的分区
       - Use as: Ext4 journaling file system
@@ -57,49 +61,78 @@ Ubuntu: 22.04
       - Use as: Ext4 journaling file system
       - mount point: `/`
       - 之后会删掉, 这个分区不需要太大
-23. Device for bootloader installation: 选择新的 EFI 分区: /dev/nvme0n1p5, 点击 Install Now
-    - 选择了 /dev/nvme0n1p5 但是 Ubuntu 还是会安装到 /dev/nvme0n1p1
-    - 安装完成之后再把备份的 windows boot loader 恢复回来
-24. 选择时区
-25. Who are you
-    - Your name: xxx
-    - Your computer's name: xxx
-    - Pick a username: xxx
-    - Choose a password: xxx
-    - Confirm your password: xxx
-26. 安装结束之后不要点击 Restart Now, 点击右上角的 `X` 关闭窗口, 系统会回到 Ubuntu live usb 的桌面
-27. open a terminal with ctrl+alt+t, 切换到 root 用户: sudo -i
-28. 把 ubuntu installer 刚才安装的 /dev/nvme0n1p1 复制到 /dev/nvme0n1p5
-    - mount /dev/nvme0n1p1 /mnt/efi
-    - mkdir /mnt/new-efi && mount /dev/nvme0n1p5 /mnt/new-efi
-    - rsync -av /mnt/efi/ /mnt/new-efi/ (with trailing slashes)
-29. 把之前备份的 windows boot loader 恢复到 /dev/nvme0n1p1
-    - mount /dev/sda2 /mnt/persistent
-    - rm -rf /mnt/efi/*
-    - rsync -av /mnt/persistent/efi-backup/ /mnt/efi/ (with trailing slashes)
-30. umount
-    - umount /mnt/efi
-    - umount /mnt/new-efi
-    - umount /mnt/persistent
-31. 在 terminal 运行 gparted
-    - 选中 /dev/nvme0n1p7 后面的 unallocated 空间
-    - 创建分区
-      - File system: cleared
-      - click Add
-    - Apply All Operations
-32. 关掉 gparted, 回到 root terminal
-33. 加密分区
-    - cryptsetup luksFormat /dev/nvme0n1p8
-      - are you sure: YES (一定要输入大写的 YES)
-    - cryptsetup open /dev/nvme0n1p8 nvme0n1p8_crypt
-    - pvcreate /dev/mapper/nvme0n1p8_crypt
-    - vgcreate vgubuntu /dev/mapper/nvme0n1p8_crypt
-    - vgs -a # Check the available size and decide how big your partitions hould be
-    - lvcreate --name swap_1 -L 16G vgubuntu
-    - lvcreate --name root -L 67g vgubuntu
-    - mkfs.ext4 /dev/vgubuntu/root
-    - mkswap /dev/vgubuntu/swap_1
-34. 把之前安装的未加密的 ubuntu 拷到新的加密分区
+  - Device for bootloader installation: 选择新的 EFI 分区: /dev/nvme0n1p5, 点击 Install Now
+      - 这里选择了 /dev/nvme0n1p5 但是 Ubuntu 还是会安装到 /dev/nvme0n1p1, (Ubuntu installer 的 bug, 这就是前面备份 windows EFI 分区的原因)安装完成之后再把备份的 windows boot loader 恢复回来
+  - 选择时区
+  - Who are you
+      - Your name: xxx
+      - Your computer's name: xxx
+      - Pick a username: xxx
+      - Choose a password: xxx
+      - Confirm your password: xxx
+      - 安装结束之后不要点击 Restart Now, 点击右上角的 `X` 关闭窗口, 系统会回到 Ubuntu live usb 的桌面
+
+## 把 Ubuntu 的 EFI 分区复制到 /dev/nvme0n1p5
+
+open a terminal with ctrl+alt+t, 切换到 root 用户: sudo -i
+把 ubuntu installer 刚才安装的 /dev/nvme0n1p1 复制到 /dev/nvme0n1p5
+
+```Bash
+mount /dev/nvme0n1p1 /mnt/efi
+mkdir /mnt/new-efi
+mount /dev/nvme0n1p5 /mnt/new-efi
+# with trailing slashes
+rsync -av /mnt/efi/ /mnt/new-efi/ 
+```
+
+把之前备份的 windows boot loader 恢复到 /dev/nvme0n1p1
+
+```Bash
+mount /dev/sda2 /mnt/persistent
+rm -rf /mnt/efi/*
+
+# with trailing slashes
+rsync -av /mnt/persistent/efi-backup/ /mnt/efi/
+```
+
+umount
+
+```Bash
+umount /mnt/efi
+umount /mnt/new-efi
+umount /mnt/persistent
+```
+
+## 把 Ubuntu 复制到加密分区 LVM + LUKS
+
+在 terminal 运行 gparted 创建新分区 
+
+- 选中 /dev/nvme0n1p7 后面的 unallocated 空间
+- 创建分区
+  - File system: cleared
+  - click Add
+- Apply All Operations
+
+- 关掉 gparted, 回到 root terminal
+- 加密分区 /dev/nvme0n1p8
+
+```Bash
+# Use the cryptsetup luksFormat command to set up the partition for encryption.
+# are you sure: YES (一定要输入大写的 YES)
+cryptsetup luksFormat /dev/nvme0n1p8
+# 打开一个LUKS设备, nvme0n1p8_crypt: 这是解密后设备在 /dev/mapper/ 目录下的名称。通过这个名称，可以访问解密后的文件系统。
+cryptsetup open /dev/nvme0n1p8 nvme0n1p8_crypt
+pvcreate /dev/mapper/nvme0n1p8_crypt
+- vgcreate vgubuntu /dev/mapper/nvme0n1p8_crypt
+- vgs -a # Check the available size and decide how big your partitions hould be
+- lvcreate --name swap_1 -L 16G vgubuntu
+- lvcreate --name root -L 67g vgubuntu
+- mkfs.ext4 /dev/vgubuntu/root
+- mkswap /dev/vgubuntu/swap_1
+```
+
+
+34. 把之前安装的未加密的 Ubuntu 拷到新的加密分区
     - mkdir /mnt/root-orig
     - mkdir /mnt/root-new
         mount /dev/nvme0n1p7 /mnt/root-orig/
