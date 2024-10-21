@@ -2,24 +2,30 @@
 title: linux 环境 变量, /etc/profile, /etc/profile.d/
 author: "-"
 date: 2016-10-28T04:34:33+00:00
-url: /?p=9346
+url: profile
 categories:
-  - inbox
+  - Linux
 tags:
   - reprint
+  - remix
 ---
 
 ## linux 环境 变量, /etc/profile, /etc/profile.d/
 
-自定义的环境变量要加到 /etc/profile.d 下, 不建议手动修改 /etc/profile, /etc/profile 文件属于 filesystem 包, 这个包的的更新有可能会导致 /etc/profile 的更新, 
-如果 filesystem 升级的时候发现 /etc/profile 被修改过, 会把新的文件安装到 /etc/profile.new 并且是不生效的状态, 有可能会导致某些不兼容的问题, 
+自定义的环境变量要加到 /etc/profile.d 下, 这里的配置会开机加载, 配置到 ~/.zshrc的话会每打开一个 terminal 加载一次, 
+不建议手动修改 /etc/profile, /etc/profile 文件属于 filesystem 包, 
+这个包的的更新有可能会导致 /etc/profile 的更新, 
+如果 filesystem 升级的时候发现 /etc/profile 被修改过, 会把新的文件安装到 /etc/profile.new 并且是不生效的状态, 
+有可能会导致某些不兼容的问题, 
 比如 perl 包安装的/etc/profile.d/perlbin.sh 使用的 append_path 函数.
 
 ### /etc/profile.d/ 目录
 
-在 /etc/profile.d 目录中存放的是一些应用程序所需的启动脚本, 比如 vim 等命令的一些附加设置, 在 /etc/profile.d 目录下添加相关的环境变量设置的 .sh 脚本文件, 
+在 /etc/profile.d 目录中存放的是一些应用程序所需的启动脚本, 比如 vim 等命令的一些附加设置, 
+在 /etc/profile.d 目录下添加相关的环境变量设置的 .sh 脚本文件, 
 这些脚本文件的环境变量能够被生效, 是因为在 /etc/profile 被读取的时候, 会使用一个 for 循环语句来调用 /etc/profile.d 下的脚本, 
-这些脚本文件所设置的环境变量就和 /etc/profile 启动时一起被设置起来了, cat /etc/profile 可以看到有一段加载 /etc/profile.d 目录下所有 .sh 脚本文件的代码:
+这些脚本文件所设置的环境变量就和 /etc/profile 启动时一起被设置起来了, 
+cat /etc/profile 可以看到有一段加载 /etc/profile.d 目录下所有 .sh 脚本文件的代码:
 
 ```bash
 if [ -d /etc/profile.d ]; then
@@ -32,13 +38,18 @@ if [ -d /etc/profile.d ]; then
 fi
 ```
 
-从上面的代码不难理解,/etc/profile.d/ 目录下设置环境变量和 /etc/profile 效果是一样的,都是全局环境变量,一旦生效后也都是永久环境变量； /etc/profile.d/ 比 /etc/profile 好维护,不想要的环境变量从 /etc/profile.d/ 目录中移除即可,创建好的环境变量拷贝文件就轻松的移植到其他的计算机,不用每次去改动 /etc/profile 文件。
+从上面的代码不难理解, /etc/profile.d/ 目录下设置环境变量和 /etc/profile 效果是一样的, 都是全局环境变量, 一旦生效后也都是永久环境变量； 
+/etc/profile.d/ 比 /etc/profile 好维护, 不想要的环境变量从 /etc/profile.d/ 目录中移除即可, 
+创建好的环境变量拷贝文件就轻松地移植到其他的计算机, 不用每次去改动 /etc/profile 文件。
 
 根据上面描述可以推理出:
 
-/etc/profile.d 目录下的环境变量是 /etc/profile 启动时一起被读取,那么想要在当前shell终端临时生效可以使用 source /etc/profile,要全局生效则需要注销重登录或者直接重启系统,和 /etc/profile 原理一样；
-/etc/profile.d 目录下的环境变量和 /etc/profile 的环境变量优先级,根据环境变量在 /etc/profile 的for循环语句调用 /etc/profile.d 的前面还是后面,在前则被 /etc/profile.d 目录下的环境变量覆盖,在后则被 /etc/profile 的环境变量覆盖
-关于/etc/profile.d 目录,我使用我的Ubuntu 14.04.5系统,切换到 /etc/profile.d 目录,再使用 ls 命令列出目录下的所有脚本文件:
+/etc/profile.d 目录下的环境变量是 /etc/profile 启动时一起被读取, 那么想要在当前 shell 终端临时生效可以使用 source /etc/profile, 
+要全局生效则需要注销重登录或者直接重启系统, 和 /etc/profile 原理一样；
+/etc/profile.d 目录下的环境变量和 /etc/profile 的环境变量优先级, 
+根据环境变量在 /etc/profile 的 for 循环语句调用 /etc/profile.d 的前面还是后面, 在前则被 /etc/profile.d 目录下的环境变量覆盖, 
+在后则被 /etc/profile 的环境变量覆盖
+关于 /etc/profile.d 目录, 我使用我的 Ubuntu 14.04.5 系统,切换到 /etc/profile.d 目录, 再使用 ls 命令列出目录下的所有脚本文件
 
 ```bash
 unset key
@@ -48,12 +59,13 @@ unset key
 
 Archlinux Interactive, non-login shells 会加载 `~/.bashrc`, login shell 不会加载  `~/.bashrc`
 
-win10 WSL + zsh + oh my zsh 用 root 用户  SSH 登录 archlinux 会加载 .bash_profile, 不会加载 .bashrc
+win10 WSL + zsh + oh my zsh 用 root 用户 SSH 登录 archlinux 会加载 .bash_profile, 不会加载 .bashrc
 win10 putty SSH 登录 同上
 
 ### ~/.bash_profile
 
-All interactive shells source `/etc/bash.bashrc` and `~/.bashrc`, while interactive login shells also source /etc/profile and `~/.bash_profile`
+All interactive shells source `/etc/bash.bashrc` and `~/.bashrc`, 
+while interactive login shells also source /etc/profile and `~/.bash_profile`
 
 不知道你有没有遇到过这样的场景,当你需要设置一个环境变量,或者运行一个程序设置你的shell或桌面环境,但是不知道在哪里是最方便设置的位置。
 
