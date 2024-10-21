@@ -15,7 +15,7 @@ tags:
 
 ## 参数
 
-```r
+```
 -F fs, --field-separator=fs, # 指定输入文件折分隔符，fs 是一个字符串或者是一个正则表达式
 ```
 
@@ -113,7 +113,7 @@ echo "i have two apples and one banana" | awk -F'one|two' '{for(i=1;i<=NF;i++)pr
 
 ### substr, awk 字符串截取, substr
 
-```bash
+```
 substr($4,20)    --->  表示是从第4个字段里的第20个字符开始，一直到设定的分隔符","结束.
 substr($3,12,8)  --->  表示是从第3个字段里的第12个字符开始，截取8个字符结束.
 substr($3,6)     --->  表示是从第3个字段里的第6个字符开始，一直到设定的分隔.
