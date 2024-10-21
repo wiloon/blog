@@ -304,3 +304,13 @@ press win and search startup
 ## gnome terminal 日志, 命令 保留条数
 
 Preferences> Unnamed> Scrolling> limit scrollback to: 100000 lines
+
+## background
+
+Ubuntu 22.04 不能在 GUI 中设置纯色背景, 只能在命令行里实现.
+
+```Bash
+gsettings set org.gnome.desktop.background picture-uri ""
+gsettings set org.gnome.desktop.background primary-color '#000000'
+gsettings set org.gnome.desktop.background primary-color '#263238'
+```
