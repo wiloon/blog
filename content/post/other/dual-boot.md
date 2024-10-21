@@ -19,10 +19,10 @@ Ubuntu: 22.04
     - 用 windows 的磁盘管理工具调整现有的分区
 - 用 `balenaEtcher` 制作 ubuntu 安装盘 (U盘)
 - 在 BIOS 里确认 Secure Boot 已经开启
-- 用分区工具在U盘或移动硬盘上准备一个大于 100MB 的 FAT32 分区
+- 用分区工具在 U 盘或移动硬盘上准备一个大于 100MB 的 FAT32 分区
 - 从 U 盘引导,安装 ubuntu, 选择 Try or install Ubuntu
-5. Select Language: English
-6. Install> Install Ubuntu
+  - Select Language: English
+  - Install> Install Ubuntu
 7. Keyboard: English(US)> English(US)
 8. Wireless
 9. What apps would you like to install to start with: Minimal installation
@@ -305,3 +305,6 @@ https://manpages.ubuntu.com/manpages/focal/en/man8/update-initramfs.8.html
 update-initramfs - generate an initramfs image
 
 https://help.ubuntu.com/community/ResizeEncryptedPartitions
+
+## LVM + LUKS 磁盘扩容
+
