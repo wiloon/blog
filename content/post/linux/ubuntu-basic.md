@@ -24,7 +24,7 @@ http://mirrors.ubuntu.com/
 
 ## deb, deb-src
 
-不是要看代码或者自己编译的话 deb-src 可以不要
+不是要看代码或者自己编译的话 deb-src 可以注释掉或者删除
 
 ## backports proposed security updates
 
@@ -215,30 +215,44 @@ apply system-wide
 
 ## add a shell script to launcher as shortcut
 
-Create *.desktop file, location depends on if it is for personal use or all users. If these directories do not exist, create them.
-For personal use , ~/.local/share/applications
+Create foo.desktop file, location depends on if it is for personal use or all users. 
+If these directories do not exist, create them.
+For personal use, ~/.local/share/applications
 .desktop 文件不能用软链接
 
 gedit ~/.local/share/applications/name.desktop
+
 For all users, /usr/local/share/applications/ (or /usr/share/applications/ depending upon your system).
 
 sudo -i gedit /usr/share/applications/name.desktop
+
 Paste below text
 
+```
 [Desktop Entry]
 Type=Application
 Terminal=true
 Name=unmount-mount
 Icon=/path/to/icon/icon.svg
 Exec=/path/to/file/mount-unmount.sh
+```
+
 edit Icon= and Exec= and Name=
-
 Also Terminal=True/false determines whether the terminal opens a window and displays output or runs in the background
-
-put this in unity panel by dragging it from files manager
-
-logic is very simple that unity panel allows *.desktop files as launcher though I haven't tried it because I use Natty.
 Exec= 指定的Shell脚本不能有 nohup, 实际上也不需要 nohup, 设置 Terminal=false terminal 不会弹出来
+put this in unity panel by dragging it from files manager
+logic is very simple that unity panel allows *.desktop files as launcher though I haven't tried it because I use Natty.
+
+比如 pycharm
+
+```
+[Desktop Entry]
+Type=Application
+Terminal=false
+Name=PyCharm
+Icon=/home/wiloon/apps/pycharm-2022.2.5/bin/pycharm.svg
+Exec=/home/wiloon/apps/pycharm-2022.2.5/bin/pycharm.sh
+```
 
 https://askubuntu.com/questions/141229/how-to-add-a-shell-script-to-launcher-as-shortcut
 

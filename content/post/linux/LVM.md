@@ -13,6 +13,41 @@ tags:
 ---
 ## LVM
 
+```Bash
+# 扫描系统中连接的所有硬盘，列出找到的物理卷列表。使用pvscan命令的-n选项可以显示硬盘中的不属于任何卷组的物理卷，这些物理卷是未被使用的。
+# -d：调试模式；
+# -e：仅显示属于输出卷组的物理卷；
+# -n：仅显示不属于任何卷组的物理卷；
+# -s：短格式输出；
+# -u：显示UUID。
+sudo pvscan
+# 输出格式化的物理卷信息报表。使用pvs命令仅能得到物理卷的概要信息，如果要得到更加详细的信息可以使用pvdisplay命令。
+# --noheadings：不输出标题头；
+# --nosuffix：不输出空间大小的单位。
+sudo pvs
+# 显示物理卷的属性。pvdisplay命令显示的物理卷信息包括：物理卷名称、所属的卷组、物理卷大小、PE大小、总PE数、可用PE数、已分配的PE数和UUID。
+sudo pvdisplay
+
+# 查找系统中存在的LVM卷组，并显示找到的卷组列表。vgscan 命令仅显示找到的卷组的名称和 LVM 元数据类型，
+# 要得到卷组的详细信息需要使用 vgdisplay 命令。
+sudo vgscan
+# vgs命令来自英文词组“volume groups display”的缩写，其功能是用于显示逻辑卷的卷组信息。
+sudo vgs
+# 显示卷组属性
+# -A 仅显示活动卷组的属性
+# -s 使用短格式输出信息
+sudo vgdisplay
+
+# 扫描当前系统中存在的所有的LVM逻辑卷。使用lvscan指令可以发现系统中的所有逻辑卷，及其对应的设备文件。
+sudo lvscan
+# 报告有关逻辑卷的信息
+sudo lvs
+# lvdisplay命令用于显示LVM逻辑卷空间大小、读写状态和快照信息等属性。如果省略”逻辑卷”参数，则lvdisplay命令显示所有的逻辑卷属性。
+# 否则，仅显示指定的逻辑卷属性。
+sudo lvdisplay
+
+```
+
 https://www.cnblogs.com/sparkdev/p/10130934.html
 
 https://linux.cn/article-5117-1.html

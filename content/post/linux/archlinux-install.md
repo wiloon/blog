@@ -317,9 +317,9 @@ poweroff
 * * *
 
 ```bash
-#uefi 可以直接启动archlinux, 不需要 bootloader
-#Install a boot loader, e.g.syslinux
-#check whather using mbr or gpt
+# uefi 可以直接启动 archlinux, 不需要 bootloader
+# Install a boot loader, e.g.syslinux
+# check whether using mbr or gpt
 blkid -s PTTYPE -o value /dev/sdx
 mbr:dos
 
@@ -328,7 +328,7 @@ pacman -S gptfdisk
 
 syslinux-install_update -i -a -m
 
-#编辑/boot/syslinux/syslinux.cfg 把/dev/sdax 替换成uuid
+# 编辑/boot/syslinux/syslinux.cfg 把/dev/sdax 替换成 uuid
 使用UUID:
 LABEL Arch
  MENU LABEL Arch Linux

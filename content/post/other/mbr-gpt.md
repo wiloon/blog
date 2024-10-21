@@ -9,13 +9,11 @@ tags:
   - reprint
   - remix
 ---
-## mbr gpt
+## MBR GPT
 
 http://www.rodsbooks.com/linux-fs-code/
 
-硬盘分区表扫盲: MBR 和 GPT 表, 你在用哪一样？
-
-自从 2007 年 Vista 操作系统推出以后, 各大硬件厂商对于硬件开发速度明显加快, 其中对于硬盘的速度和容量, 从最早的 5400 转, 160G 容量, 
+自从 2007 年 Vista 操作系统推出以后, 各大硬件厂商对硬件开发速度明显加快, 其中对于硬盘的速度和容量, 从最早的 5400 转, 160G 容量, 
 提升到现在的 7200 转甚至万转机械盘, 容量也先后出现上 TB 级别的。单硬盘都出现 4Tb 容量。
 
 由于磁盘容量越来越大, 传统的 MBR 分区表 (主引导记录) 已经不能满足大容量磁盘的需求。传统的 MBR 分区表只能识别磁盘前面的 2.2TB 左右的空间, 
@@ -25,7 +23,7 @@ http://www.rodsbooks.com/linux-fs-code/
 
 下面IT之家也给大家分享下MBR和GPT的详细区别。
 
-## MBR分区表: 
+## MBR 分区表
 
 在传统硬盘分区模式中,引导扇区是每个分区 (Partition) 的第一扇区,而主引导扇区是硬盘的第一扇区。它由三个部分组成,主引导记录MBR、硬盘分区表DPT和硬盘有效标志。在总共512字节的主引导扇区里MBR占446个字节,第二部分是Partition table区 (分区表) ,即DPT,占64个字节,硬盘中分区有多少以及每一分区的大小都记在其中。第三部分是magic number,占2个字节,固定为55AA。
 
@@ -53,7 +51,20 @@ GPT 在主引导扇区建立了一个保护分区 (Protective MBR) 的MBR分区�
 
 ### /dev/sda contains GPT signatures
  
+```Bash
 fixparts /dev/sdc
+```
+
+怎么判断磁盘分区表是 MBR 还是 GPT
+
+```Bash
+parted -l
+# Partition Table: gpt
+
+fdisk -l
+# Disklabel type: gpt
+```
+
 http://www.rodsbooks.com/fixparts/
 http://www.rodsbooks.com/gdisk/gdisk.html
 https://forums.kali.org/showthread.php?18265-dev-sda-contains-GPT-signatures

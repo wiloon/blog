@@ -1878,3 +1878,10 @@ inkview combined.svg
 ```
 
 ## Python性能调试工具py-spy
+
+## func
+
+```Python
+# 获取对象的内存地址, 返回对象的唯一标识符，标识符是一个整数。
+id()
+```
