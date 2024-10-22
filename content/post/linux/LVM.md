@@ -144,10 +144,10 @@ lvcreate --name swap_1 -L 32G vgubuntu
 
 # vgchange 指令用于修改卷组的属性，经常被用来设置卷组是处于活动状态或者非活动状态。
 # -a 设置卷组的活动状态
+# 将 vgubuntu 卷组激活
+vgchange -ay vgubuntu
+# 将 vgubuntu 停用（deactivate）
 vgchange -an vgubuntu
-
-vgchange -ay vgubuntu  # 将 vgubuntu 卷组激活
-vgchange -an vgubuntu  # 将 vgubuntu 卷组去激活
 
 # pvresize命令的作用是调整一个卷组中的物理卷的大小。pvresize命令可以调整可能已经在卷组中的物理卷的大小，并在其中分配活动的逻辑卷。
 # https://linuxcommand.p2hp.com/pvresize
