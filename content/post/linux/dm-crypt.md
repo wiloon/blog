@@ -18,6 +18,10 @@ LUKS = Linux Unified Key Setup
 
 ```Bash
 # 将分区设置为加密的 LUKS 分区, 这个时候会对磁盘分区进行全盘覆写，所以速度会比较慢
+# luksFormat: 初始化并格式化一个分区以便使用 LUKS 加密。
+# luksOpen: 打开一个已加密的 LUKS 分区，使其可用。
+# luksClose: 关闭一个已打开的 LUKS 分区。
+# status: 查看加密设备的状态。
 cryptsetup luksFormat /dev/nvme0n1p1
 
 # 打开加密的 LUKS 分区, 映射加密分区, 映射加密分区到 nvme0n1p1_encrypted，
@@ -82,7 +86,9 @@ ls /dev/mapper/
 ### 创建文件系统
 由于加密盘已经打开并映射到 /dev/mapper/xxx 你可以在 /dev/mapper/xxx 之上创建文件系统。命令如下 (文件系统类型以 ext4 为例) 
 
-    mkfs.ext4 /dev/mapper/xxx
+```Bash
+mkfs.ext4 /dev/mapper/xxx
+```
 
 ### 挂载文件系统
 创建完文件系统之后，你还需要挂载该文件系统，才能使用它。挂载的步骤如下。

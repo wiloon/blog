@@ -166,7 +166,10 @@ Syncing disks.
 
 [root@localhost ~]# reboot
 
-pvcreate /dev/vda3 //创建物理卷
+```Bash
+#创建物理卷
+pvcreate /dev/vda3 
+```
 
 Physical volume "/dev/vda3" successfully created
 
@@ -190,7 +193,10 @@ PV VG Fmt Attr PSize PFree
 
 /dev/vda3 VolGroup lvm2 a- 5.00g 0
 
-[root@localhost ~]# vgs //VFree中5G
+```Bash
+# //VFree中5G
+vgs 
+```
 
 VG #PV #LV #SN Attr VSize VFree
 
