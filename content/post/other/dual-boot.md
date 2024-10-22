@@ -15,8 +15,7 @@ https://askubuntu.com/questions/1506694/dual-boot-with-windows-11-and-bitlocker/
 
 Ubuntu: 22.04
 
-- 在硬盘上准备一块空闲的空间
-    - 用 windows 的磁盘管理工具调整现有的分区
+- 在硬盘上准备一块空闲的空间, 用 windows 的磁盘管理工具调整现有的分区
 - 用 `balenaEtcher` 制作 ubuntu 安装盘 (U盘)
 - 在 BIOS 里确认 Secure Boot 已经开启
 - 用分区工具在 U 盘或移动硬盘上准备一个大于 100MB 的 FAT32 分区
@@ -103,7 +102,7 @@ umount /mnt/new-efi
 umount /mnt/persistent
 ```
 
-## 把 Ubuntu 复制到加密分区 LVM + LUKS
+## 把 Ubuntu 复制到加密分区 LVM on LUKS
 
 在 terminal 运行 gparted 创建新分区 (/dev/nvme0n1p8)
 
@@ -116,6 +115,8 @@ umount /mnt/persistent
 - 关掉 gparted, 回到 root terminal
 
 ## 加密分区 /dev/nvme0n1p8
+
+LVM on LUKS, 管理起来更简单, 可以用一个密码解密所有的分区, 可以加密 swap 分区
 
 ```Bash
 # Use the cryptsetup luksFormat command to set up the partition for encryption.
@@ -140,48 +141,63 @@ mkswap /dev/vgubuntu/swap_1
 lvcreate --name root -L 67g vgubuntu
 # 创建 ext4 文件系统
 mkfs.ext4 /dev/vgubuntu/root
-
 ```
 
 
-34. 把之前安装的未加密的 Ubuntu 拷到新的加密分区
-    - mkdir /mnt/root-orig
-    - mkdir /mnt/root-new
-        mount /dev/nvme0n1p7 /mnt/root-orig/
-        mount /dev/vgubuntu/root /mnt/root-new/
-        rsync -avhPAXHx --numeric-ids /mnt/root-orig/ /mnt/root-new/
-    - umount /mnt/root-orig
-    - umount /mnt/root-new
-    - vgchange -an vgubuntu
-    - cryptsetup luksClose nvme0n1p8_crypt
-      - (准备删除分区和扩分区)
-35. 删除旧的未加密的 ubuntu, 扩展加密分区
-    - open gparted
-    - remove /dev/nvme0n1p7
-    - resize /dev/nvme0n1p8 to use free space
-    - cryptsetup open /dev/nvme0n1p8 nvme0n1p8_crypt
-    - vgchange -an vgubuntu
-    - cryptsetup resize nvme0n1p8_crypt
-    - pvresize /dev/mapper/nvme0n1p8_crypt
-    - vgchange -ay vgubuntu
-    - pvchange -x y /dev/mapper/nvme0n1p8_crypt
-    - lvresize -L +11G vgubuntu/root
-    - pvchange -x n /dev/mapper/nvme0n1p8_crypt
-    - e2fsck -f /dev/mapper/vgubuntu-root
-    - resize2fs -p /dev/mapper/vgubuntu-root
-36. chroot to configure new installation
-    - mount /dev/vgubuntu/root /mnt/root-new/
-    - mount /dev/nvme0n1p6 /mnt/root-new/boot/
-    - mount /dev/nvme0n1p5 /mnt/root-new/boot/efi/
-    - mount --bind /dev /mnt/root-new/dev/
-    - mount --bind /proc /mnt/root-new/proc/
-    - mount --bind /sys /mnt/root-new/sys/
-    - mount --bind /run /mnt/root-new/run/
-    - chroot /mnt/root-new/ /bin/bash
-    - apt update
-    - apt install lvm2 cryptsetup vim
-    - blkid /dev/nvme0n1p8 # Copy the UUID
-    - vim /etc/crypttab
+## 把之前安装的未加密的 Ubuntu 拷到新的加密分区
+
+```Bash
+mkdir /mnt/root-orig
+mkdir /mnt/root-new
+mount /dev/nvme0n1p7 /mnt/root-orig/
+mount /dev/vgubuntu/root /mnt/root-new/
+rsync -avhPAXHx --numeric-ids /mnt/root-orig/ /mnt/root-new/
+umount /mnt/root-orig
+umount /mnt/root-new
+# 停用 volume group: vgubuntu
+vgchange -an vgubuntu
+# 关闭 LUKS 分区
+cryptsetup luksClose nvme0n1p8_crypt
+# 准备删除分区和扩分区
+```
+
+## 删除旧的未加密的 ubuntu, 扩展加密分区
+
+https://wiki.archlinux.org/title/Resizing_LVM-on-LUKS
+
+open gparted, 删除未加密的 ubuntu 分区, /dev/nvme0n1p7
+
+```Bash
+# resize /dev/nvme0n1p8 to use free space
+cryptsetup open /dev/nvme0n1p8 nvme0n1p8_crypt
+vgchange -an vgubuntu
+cryptsetup resize nvme0n1p8_crypt
+```
+
+- pvresize /dev/mapper/nvme0n1p8_crypt
+- vgchange -ay vgubuntu
+- pvchange -x y /dev/mapper/nvme0n1p8_crypt
+- lvresize -L +11G vgubuntu/root
+- pvchange -x n /dev/mapper/nvme0n1p8_crypt
+- e2fsck -f /dev/mapper/vgubuntu-root
+- resize2fs -p /dev/mapper/vgubuntu-root
+
+## chroot to configure new installation
+
+```Bash
+mount /dev/vgubuntu/root /mnt/root-new/
+mount /dev/nvme0n1p6 /mnt/root-new/boot/
+mount /dev/nvme0n1p5 /mnt/root-new/boot/efi/
+mount --bind /dev /mnt/root-new/dev/
+mount --bind /proc /mnt/root-new/proc/
+mount --bind /sys /mnt/root-new/sys/
+mount --bind /run /mnt/root-new/run/
+chroot /mnt/root-new/ /bin/bash
+apt update
+apt install lvm2 cryptsetup vim
+blkid /dev/nvme0n1p8 # Copy the UUID
+vim /etc/crypttab
+```
 
 And now put in a new entry with your copied UUID
 
