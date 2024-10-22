@@ -31,11 +31,7 @@ sudo pvdisplay
 # 查找系统中存在的LVM卷组，并显示找到的卷组列表。vgscan 命令仅显示找到的卷组的名称和 LVM 元数据类型，
 # 要得到卷组的详细信息需要使用 vgdisplay 命令。
 sudo vgscan
-# vgs命令来自英文词组“volume groups display”的缩写，其功能是用于显示逻辑卷的卷组信息。
-sudo vgs
-# 显示卷组属性
-# -A 仅显示活动卷组的属性
-# -s 使用短格式输出信息
+
 sudo vgdisplay
 
 # 扫描当前系统中存在的所有的LVM逻辑卷。使用lvscan指令可以发现系统中的所有逻辑卷，及其对应的设备文件。
@@ -46,6 +42,33 @@ sudo lvs
 # 否则，仅显示指定的逻辑卷属性。
 sudo lvdisplay
 
+# 将物理卷添加到已经存在的卷组
+vgextend vg_data /dev/sde1 /dev/sdf1 /dev/sdg1
+```
+
+## pvcreate
+
+pvcreate 命令 用于将物理硬盘分区初始化为物理卷，以便LVM使用。
+
+pvcreate 命令的功能是用于创建物理卷 (Physical Volume) 设备。LVM 逻辑卷管理器技术由物理卷、卷组和逻辑卷组成，
+其中 pvcreate 命令的工作属于第一个环节 - 创建物理卷设备。
+
+-f：强制创建物理卷，不需要用户确认；
+-u：指定设备的UUID；
+-y：所有的问题都回答“yes”；
+-Z：是否利用前4个扇区。
+
+```Bash
+pvcreate /dev/mapper/nvme0n1p8_crypt
+```
+
+## vgcreate
+
+指令用于创建LVM卷组 (Volume Group)。
+
+```Bash
+# the name of new volume group: vgubuntu
+vgcreate vgubuntu /dev/mapper/nvme0n1p8_crypt
 ```
 
 https://www.cnblogs.com/sparkdev/p/10130934.html
@@ -71,24 +94,45 @@ LVM 的优点对服务器的管理非常有用，但对于桌面系统的帮助�
 
 
 LVM 中的基本概念
+
 通过 LVM 技术，可以屏蔽掉磁盘分区的底层差异，在逻辑上给文件系统提供了一个卷的概念，然后在这些卷上建立相应的文件系统。下面是 LVM 中主要涉及的一些概念。
 PM 物理存储设备(Physical Media)：指系统的存储设备文件，比如 /dev/sda、/dev/sdb 等。 
-PV(物理卷 Physical Volume)： PV 可以看做是硬盘上的分区, 指硬盘分区或者从逻辑上看起来和硬盘分区类似的设备(比如 RAID 设备)。
-PE(Physical Extent)：PV(物理卷)中可以分配的最小存储单元称为 PE，PE 的大小是可以指定的。
+PV (物理卷 Physical Volume)： PV 可以看做是硬盘上的分区, 指硬盘分区或者从逻辑上看起来和硬盘分区类似的设备(比如 RAID 设备)。
+PE (Physical Extent)：PV(物理卷)中可以分配的最小存储单元称为 PE，PE 的大小是可以指定的。
 
-VG(卷组 Volume Group)：类似于非 LVM 系统中的物理硬盘，一个 LVM 卷组由一个或者多个 PV(物理卷)组成。
-LV(逻辑卷 Logical Volume)：类似于非 LVM 系统上的磁盘分区，LV 建立在 VG 上，可以在 LV 上建立文件系统。
+VG(卷组 Volume Group)： 类似于非 LVM 系统中的**物理硬盘**，一个 LVM 卷组由一个或者多个 PV(物理卷)组成。 卷组: 物理卷的组合
+LV(逻辑卷 Logical Volume)：类似于非 LVM 系统上的**硬盘分区**，LV 建立在 VG 上，可以在 LV 上建立文件系统。
 LE(Logical Extent)：LV(逻辑卷)中可以分配的最小存储单元称为 LE，在同一个卷组中，LE 的大小和 PE 的大小是一样的，并且一一对应。
 可以这么理解，LVM 是把硬盘的分区分成了更小的单位(PE)，再用这些单元拼成更大的看上去像分区的东西(PV)，进而用 PV 拼成看上去像硬盘的东西(VG)，最后在这个新的硬盘上创建分区(LV)。文件系统则建立在 LV 之上，这样就在物理硬盘和文件系统中间添加了一层抽象(LVM)。下图大致描述了这些概念之间的关系：
 
 ## commands
 
-vgs命令来自英文词组“volume groups display”的缩写，其功能是用于显示逻辑卷的卷组信息。LVM逻辑卷管理器中vg卷组是由一个或多个pv物理卷组成的设备，使用vgs命令能够查看到其基本信息，如若想要看到更详细的参数信息则需要使用vgdisplay命令。
+### vgs
+
+vgs 命令来自英文词组 “volume groups display” 的缩写，其功能是用于显示逻辑卷的卷组信息。
+
+vgs 命令来自英文词组“volume groups display”的缩写，其功能是用于显示逻辑卷的卷组信息。LVM逻辑卷管理器中vg卷组是由一个或多个pv物理卷组成的设备，使用vgs命令能够查看到其基本信息，如若想要看到更详细的参数信息则需要使用vgdisplay命令。
 原文链接：https://www.linuxcool.com/vgs
 
 ```Bash
-vgs -a
+sudo vgs -a
+# 显示卷组属性
+# -a|--all
+# -A 仅显示活动卷组的属性
+# -s 使用短格式输出信息
+```
 
+### lvcreate
+
+在卷组中创建逻辑卷 (Logical Volume)
+LVM 系统中的分区
+
+```Bash
+lvcreate --name swap_1 -L 16G vgubuntu
+lvcreate --name root -L 67g vgubuntu
+```
+
+```Bash
 # list logical volume
 lvs
 
@@ -139,12 +183,16 @@ LVM 的使用过程是这样的:
 
 块设备: 给机器插上新的硬盘。
 硬盘分区: 把块设备分成多个分区 (1个分区用尽整块磁盘也可以，无所谓)，每个分区的大小也是固定的。
-创建物理卷 (PV): 按照 LVM 的规则，把每个硬盘分区创建为一个物理卷 (physical volume)。 物理卷Physical volume (PV)：可以在上面建立卷组的媒介，可以是硬盘分区，也可以是硬盘本身或者回环文件（loopback file）。物理卷包括一个特殊的header，其余部分被切割为一块块物理区域（physical extents）。 Think of physical volumes as big building blocks which can be used to build your hard drive.要创建物理卷必须首先对硬盘进行分区，并且将硬盘分区的类型设置为"8e"后，
-才能使用pvcreate指令将分区初始化为物理卷。
+创建物理卷 (PV): 按照 LVM 的规则，把每个硬盘分区创建为一个物理卷 (physical volume)。 
+物理卷 Physical volume (PV)：可以在上面建立卷组的媒介，可以是硬盘分区，也可以是硬盘本身或者回环文件（loopback file）。
+物理卷包括一个特殊的 header，其余部分被切割为一块块物理区域（physical extents）。 
+Think of physical volumes as big building blocks which can be used to build your hard drive.
+要创建物理卷必须首先对硬盘进行分区，并且将硬盘分区的类型设置为 `8e` 后，
+才能使用 pvcreate 指令将分区初始化为物理卷。
 创建卷池 (VG): 新建的物理卷就像一桶矿泉水，把它们加入到一个VG大池子里面，这样池子里的水 (硬件空间)就会变多。卷组Volume group (VG)：将一组物理卷收集为一个管理单元。Group of physical volumes that are used as storage volume (as one disk). They contain logical volumes. Think of volume groups as hard drives.
 创建逻辑卷 (LV): 想要划分一块硬盘空间拿来使用，只需要从 VG 里面取一瓢水出来即可，这个划分出来的硬盘空间叫做一个 LV (logical volume)。逻辑卷Logical volume (LV)：虚拟分区，由物理区域（physical extents）组成。A "virtual/logical partition" that resides in a volume group and is composed of physical extents. Think of logical volumes as normal partitions.
 
-物理区域Physical extent (PE)：硬盘可供指派给逻辑卷的最小单位（通常为4MB）。A small part of a disk (usually 4MB) that can be assigned to a logical Volume. Think of physical extents as parts of disks that can be allocated to any partition.
+物理区域 Physical extent (PE)：硬盘可供指派给逻辑卷的最小单位（通常为4MB）。A small part of a disk (usually 4MB) that can be assigned to a logical Volume. Think of physical extents as parts of disks that can be allocated to any partition.
 
 文件系统: 现在可以对 LV 制作文件系统，比如: ext4 格式。
 挂载目录: 现在可以把在做好文件系统的 LV 挂载到某个目录，就可以访问了。

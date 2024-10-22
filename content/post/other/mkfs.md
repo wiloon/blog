@@ -229,9 +229,11 @@ Filename                                Type            Size    Used    Priority
 如果让swap开机就加载，应该改 /etc/fstab文件，加类似如下一行；
 
 [http://www.linuxso.com/command/mkfs.html](http://www.linuxso.com/command/mkfs.html)
-mke2fs命令
 
-mke2fs命令是专门用于管理ext系列文件系统的一个专门的工具。其还有像mkfs.ext2，mkfs.ext3，mkfs.ext4等衍生的命令，它们的用法mke2fs类似，在系统man下它们的帮助手册会直接跳转mke2fs命令的帮助手册。
+mke2fs 命令
+
+mke2fs 命令是专门用于管理 ext 系列文件系统的一个专门的工具。其还有像 mkfs.ext2，mkfs.ext3，mkfs.ext4 等衍生的命令，
+它们的用法 mke2fs 类似，在系统 man 下它们的帮助手册会直接跳转 mke2fs 命令的帮助手册。
 命令格式:
 
 mke2fs [options] [device]

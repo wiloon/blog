@@ -105,7 +105,7 @@ umount /mnt/persistent
 
 ## 把 Ubuntu 复制到加密分区 LVM + LUKS
 
-在 terminal 运行 gparted 创建新分区 
+在 terminal 运行 gparted 创建新分区 (/dev/nvme0n1p8)
 
 - 选中 /dev/nvme0n1p7 后面的 unallocated 空间
 - 创建分区
@@ -114,21 +114,33 @@ umount /mnt/persistent
 - Apply All Operations
 
 - 关掉 gparted, 回到 root terminal
-- 加密分区 /dev/nvme0n1p8
+
+## 加密分区 /dev/nvme0n1p8
 
 ```Bash
 # Use the cryptsetup luksFormat command to set up the partition for encryption.
 # are you sure: YES (一定要输入大写的 YES)
+# 初始化/格式化一个加密分区
 cryptsetup luksFormat /dev/nvme0n1p8
-# 打开一个LUKS设备, nvme0n1p8_crypt: 这是解密后设备在 /dev/mapper/ 目录下的名称。通过这个名称，可以访问解密后的文件系统。
+# 打开一个LUKS设备, nvme0n1p8_crypt: 这是解密后设备在 /dev/mapper/ 目录下的名称。通过这个名称，可以访问解密后的分区。
 cryptsetup open /dev/nvme0n1p8 nvme0n1p8_crypt
+# 在加密分区上 nvme0n1p8_crypt 创建物理卷 (Physical Volume)
 pvcreate /dev/mapper/nvme0n1p8_crypt
-- vgcreate vgubuntu /dev/mapper/nvme0n1p8_crypt
-- vgs -a # Check the available size and decide how big your partitions hould be
-- lvcreate --name swap_1 -L 16G vgubuntu
-- lvcreate --name root -L 67g vgubuntu
-- mkfs.ext4 /dev/vgubuntu/root
-- mkswap /dev/vgubuntu/swap_1
+# /dev/mapper/nvme0n1p8_crypt: 作为物理卷 (Physical Volume) 加入卷组的设备路径。
+vgcreate vgubuntu /dev/mapper/nvme0n1p8_crypt
+# 查看 卷组 信息
+vgs -a # Check the available size and decide how big your partitions should be
+# 创建 LVM 逻辑卷 (分区)
+# swap 分区
+lvcreate --name swap_1 -L 16G vgubuntu
+# 创建交换空间 (swap space)
+mkswap /dev/vgubuntu/swap_1
+
+# root 分区
+lvcreate --name root -L 67g vgubuntu
+# 创建 ext4 文件系统
+mkfs.ext4 /dev/vgubuntu/root
+
 ```
 
 
@@ -317,19 +329,7 @@ https://www.cnblogs.com/dongxb/p/16717567.html
 
 https://zhuanlan.zhihu.com/p/481696760
 
-## pvcreate
 
-pvcreate 命令的功能是用于创建物理卷设备。LVM逻辑卷管理器技术由物理卷、卷组和逻辑卷组成，其中pvcreate命令的工作属于第一个环节——创建物理卷设备。
-
-```Bash
-pvcreate /dev/mapper/nvme0n1p8_crypt
-```
-
-vgcreate 指令用于创建LVM卷组。
-
-```Bash
-vgcreate vgubuntu /dev/mapper/nvme0n1p8_crypt
-```
 
 ## initramfs
 
