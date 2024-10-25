@@ -30,8 +30,8 @@ Most modern shells have a builtin kill function, with a usage rather similar to 
 
 If sig is 0, then no signal is sent, but error checking is still performed.
 
-一些异常比如除以0或者 segmentation violation 相应的会产生SIGFPE和SIGSEGV信号，缺省情况下导致core dump和程序退出。
-内核在某些情况下发送信号，比如在进程往一个已经关闭的管道写数据时会产生SIGPIPE信号。
+一些异常比如除以 0 或者 segmentation violation 相应的会产生 SIGFPE 和 SIGSEGV 信号，缺省情况下导致 core dump 和程序退出。
+内核在某些情况下发送信号，比如在进程往一个已经关闭的管道写数据时会产生 SIGPIPE 信号。
 在进程的终端敲入特定的组合键也会导致系统发送某个特定的信号给此进程: 
 
 Ctrl-C 发送 INT signal (SIGINT)，通常导致进程结束
@@ -71,28 +71,29 @@ Linux系统共定义了64种信号，分为两大类: 可靠信号与不可靠�
 Linux 使用34-64信号用作实时系统中。
 命令man 7 signal提供了官方的信号介绍。
 
-在POSIX.1-1990标准中定义的信号列表
+## 在 POSIX.1-1990 标准中定义的信号列表
 
-信号           值           动作    说明
-SIGHUP           1           Term    终端控制进程结束(终端连接断开)
-SIGINT           2           Term    用户发送INTR字符(Ctrl+C)触发
-SIGQUIT    3           Core    用户发送QUIT字符(Ctrl+/)触发
-SIGILL           4           Core    非法指令(程序错误、试图执行数据段、栈溢出等)
-SIGABRT    6           Core    调用abort函数触发
-SIGFPE           8           Core    算术运行错误(浮点运算错误、除数为零等)
-SIGKILL    9           Term    无条件结束程序(不能被捕获、阻塞或忽略)
-SIGSEGV    11           Core    无效内存引用(试图访问不属于自己的内存空间、对只读内存空间进行写操作)
-SIGPIPE    13           Term    消息管道损坏(FIFO/Socket通信时，管道未打开而进行写操作)
-SIGALRM    14           Term    时钟定时信号
-SIGTERM    15           Term    结束程序(可以被捕获、阻塞或忽略)
+信号       值           动作    说明
+SIGHUP     1           Term    终端控制进程结束(终端连接断开)
+SIGINT     2           Term    用户发送 INTR 字符(Ctrl+C)触发
+SIGQUIT    3           Core    用户发送 QUIT 字符(Ctrl+/)触发
+SIGILL     4           Core    非法指令(程序错误、试图执行数据段、栈溢出等)
+SIGABRT    6           Core    调用 abort 函数触发
+SIGFPE     8           Core    算术运行错误 (浮点运算错误、除数为零等)
+SIGKILL    9           Term    无条件结束程序 (不能被捕获、阻塞或忽略)
+SIGSEGV    11          Core    无效内存引用 (试图访问不属于自己的内存空间、对只读内存空间进行写操作)
+SIGPIPE    13          Term    消息管道损坏 (FIFO/Socket通信时，管道未打开而进行写操作)
+SIGALRM    14          Term    时钟定时信号
+SIGTERM    15          Term    结束程序 (可以被捕获、阻塞或忽略)
 SIGUSR1    30,10,16    Term    用户保留
 SIGUSR2    31,12,17    Term    用户保留
-SIGCHLD    20,17,18    Ign    子进程结束(由父进程接收)
-SIGCONT    19,18,25    Cont    继续执行已经停止的进程(不能被阻塞)
-SIGSTOP    17,19,23    Stop    停止进程(不能被捕获、阻塞或忽略)
-SIGTSTP    18,20,24    Stop    停止进程(可以被捕获、阻塞或忽略)
+SIGCHLD    20,17,18    Ign     子进程结束 (由父进程接收)
+SIGCONT    19,18,25    Cont    继续执行已经停止的进程 (不能被阻塞)
+SIGSTOP    17,19,23    Stop    停止进程 (不能被捕获、阻塞或忽略)
+SIGTSTP    18,20,24    Stop    停止进程 (可以被捕获、阻塞或忽略)
 SIGTTIN    21,21,26    Stop    后台程序从终端中读取数据时触发
 SIGTTOU    22,22,27    Stop    后台程序向终端中写数据时触发
+
 在SUSv2和POSIX.1-2001标准中的信号列表:
 
 信号    值    动作    说明
@@ -214,7 +215,7 @@ SIGABRT
        ~~~~~~      调用abort函数生成的信号。
 
 SIGBUS
-非法地址, 包括内存地址对齐(alignment)出错。比如访问一个四个字长的整数, 但其地址不是4的倍数。它与SIGSEGV的区别在于后者是由于对合法存储地址的非法访问触发的(如访问不属于自己存储空间或只读存储空间)。
+非法地址, 包括内存地址对齐(alignment)出错。比如访问一个四个字长的整数, 但其地址不是4的倍数。它与 SIGSEGV 的区别在于后者是由于对合法存储地址的非法访问触发的(如访问不属于自己存储空间或只读存储空间)。
 
 SIGFPE
        ~~~~~~      FPE是floating-point exception (浮点异常) 的首字母缩略字。在发生致命的算术运算错误时发出. 不仅包括浮点运算错误, 还包括溢出及除数为0等其它所有的算术的错误。SIGFPE的符号常量在头文件signal.h中定义。
@@ -227,6 +228,7 @@ SIGUSR1
        ~~~~~~      留给用户使用
 
 ### SIGSEGV
+
 试图访问未分配给自己的内存, 或试图往没有写权限的内存地址写数据.
 SIGSEGV --- Segment Fault. The possible cases of your encountering this error are: 
 
@@ -234,9 +236,10 @@ SIGSEGV --- Segment Fault. The possible cases of your encountering this error ar
 2. stack overflow --- please keep in mind that the default stack size is 8192K. 
 3. illegal file access --- file operations are forbidden on our judge system.
 
-#### SIGBUS与SIGSEGV信号的一般区别如下:
-1. SIGBUS(Bus error)意味着指针所对应的地址是有效地址，但总线不能正常使用该指针。通常是未对齐的数据访问所致。
-2. SIGSEGV(Segment fault)意味着指针所对应的地址是无效地址，没有物理内存对应该地址。
+#### SIGBUS 与 SIGSEGV 信号的一般区别如下:
+
+1. SIGBUS (Bus error) 意味着指针所对应的地址是有效地址，但总线不能正常使用该指针。通常是未对齐的数据访问所致。
+2. SIGSEGV (Segment fault) 意味着指针所对应的地址是无效地址，没有物理内存对应该地址。
 
 SIGUSR2
 留给用户使用
@@ -251,6 +254,7 @@ SIGTERM
 程序结束(terminate)信号, 与SIGKILL不同的是该信号可以被阻塞和处理。通常用来要求程序自己正常退出，shell命令kill缺省产生这个信号。如果进程终止不了，我们才会尝试SIGKILL。
 
 ### SIGCHLD
+
 子进程 (child) 结束时, 父进程会收到这个信号。如果父进程没有处理这个信号，也没有等待(wait)子进程，子进程虽然终止，但是还会在内核进程表中占有表项，这时的子进程称为僵尸进程。这种情 况我们应该避免(父进程或者忽略SIGCHILD信号，或者捕捉它，或者wait它派生的子进程，或者父进程先终止，这时子进程的终止自动由init进程 来接管)。
 
 SIGCONT
@@ -265,12 +269,12 @@ SIGTSTP
 SIGTTIN
        ~~~~~~      当后台作业要从用户终端读数据时, 该作业中的所有进程会收到SIGTTIN信号. 缺省时这些进程会停止执行.
        ~~~~~~      Unix环境下，当一个进程以后台形式启动，但尝试去读写控制台终端时，将会触发SIGTTIN (读) 和SIGTTOU (写) 信号量，接着，进程将会暂停 (linux默认情况下) ，read/write将会返回错误。这个时候，shell将会发送通知给用户，提醒用户切换此进程为前台进程，以便继续执行。由后台切换至前台的方式是fg命令，前台转为后台则为CTRL+Z快捷键。
-  那么问题来了，如何才能在不把进程切换至前台的情况下，读写控制器不会被暂停？答案: 只要忽略SIGTTIN和SIGTTOU信号量即可: signal(SIGTTOU, SIG_IGN)。
-  stty stop/-stop命令是用于设置收到SIGTTOU信号量后是否执行暂停，因为有些系统的默认行为不一致，比如mac是默认忽略，而linux是默认启用。stty -a可以查看当前tty的配置参数。
+那么问题来了，如何才能在不把进程切换至前台的情况下，读写控制器不会被暂停？答案: 只要忽略SIGTTIN和SIGTTOU信号量即可: signal(SIGTTOU, SIG_IGN)。
+stty stop/-stop命令是用于设置收到SIGTTOU信号量后是否执行暂停，因为有些系统的默认行为不一致，比如mac是默认忽略，而linux是默认启用。stty -a可以查看当前tty的配置参数。
 在这里插入图片描述
 
 SIGTTOU
-  类似于SIGTTIN, 但在写终端(或修改终端模式)时收到。具体见上面SIGTTIN
+类似于SIGTTIN, 但在写终端(或修改终端模式)时收到。具体见上面SIGTTIN
 
 SIGURG
   SIGURG, urgent, 紧急的。有"紧急"数据或out-of-band数据到达socket时产生.

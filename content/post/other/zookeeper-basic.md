@@ -321,3 +321,11 @@ Imok
  [1]: queued=0,recved=1,sent=0
  [2]: queued=0,recved=4,sent=4
  [3]: queued=0,recved=88,sent=88,sid=0x14ffe63e9ce0001,lop=PING,est=1443098949817,to=30000,lcxid=0x2,lzxid=0x30000000a,lresp=1443099814079,llat=0,minlat=0,avglat=0,maxlat=3
+
+## zkui
+
+修改zkui session 过期 时间
+
+```bash
+sed -i '/sessionTimeout/s/300/1440/g' /var/app/config.cfg
+```

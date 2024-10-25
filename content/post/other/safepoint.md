@@ -181,7 +181,8 @@ __ serialize_memory(G2_thread, G1_scratch, G3_scratch);
 }
   
 }
-  
+```
+
 __ load_contents(sync_state, G3_scratch);
   
 __ cmp(G3_scratch, SafepointSynchronize::_not_synchronized);

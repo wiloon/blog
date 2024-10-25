@@ -274,3 +274,9 @@ SVG格式文件是可缩放矢量图形文件的缩写，是一种标准的图�
 ## 重量级语言
 
 比如 Java, C, Golang, 复杂, 需要编译.
+
+## xterm.js
+
+xterm.js
+
+xterm 是一个使用 TypeScript 编写的前端终端组件。并在 Vscode等 热门项目中得到了应用

@@ -9,10 +9,10 @@ tags:
   - reprint
   - remix
 ---
-## tee
+## tee command
 
 ```bash
-tail -f foo.log |grep bar tee bar.log
+tail -f foo.log |grep bar | tee bar.log
 ```
 
 命令说明: 双向重定向, 从标准输入读取数据, 输出到屏幕上, 同时保存成文件。
