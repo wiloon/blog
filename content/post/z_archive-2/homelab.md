@@ -15,10 +15,14 @@ tags:
 
 1. 在阿里云控制台添加新域名
 2. 等域名生效 `drill jenkins.wiloon.com`
-2. 在 wiloon.com 更新证书加入新域名, ssh aliyun
-2. podman stop nginx
-2. certbot
-3. 
+3. 在 wiloon.com 更新证书加入新域名, ssh aliyun 
+4. podman stop nginx 
+5. certbot
+6. ssh root@nginx
+7. sh /data/cert/cert.sh
+8. ssh router
+9. vi /etc/hosts
+10. /etc/init.d/dnsmasq restart
 
 ## DNS
 
