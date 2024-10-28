@@ -17,6 +17,7 @@ tags:
 - Itsycal, 在任务栏显示日历周
 - RealVNC® Viewer
 - golang
+- iterm2, another terminal
 
 ## brew
 

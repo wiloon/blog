@@ -10,6 +10,8 @@ tags:
 ---
 ## linux apps
 
+- kitty, terminal
+
 ## Ubuntu apt package
 
 - gnome-shell-pomodoro: Pomodoro, https://gnomepomodoro.org/
