@@ -306,3 +306,14 @@ circle c1
 c0 -right- c1
 @enduml
 ```
+
+## Differences of Component Diagrams and Deployment Diagrams
+
+https://stackoverflow.com/questions/1558835/differences-of-component-diagrams-and-deployment-diagrams
+
+Simply put, a Component diagram shows you how different elements of your system have been grouped together (into assemblies / dlls etc) - and the link between these components. A Deployment diagram takes you one step further and describes on which hardware elements do these components reside.
+
+So for example, if "Utility.dll" is a component and say it is deployed on the Client Machine (hardware). Then, the Component Diagram of this system will show Utility and its link with other components in the system (say.. Customer / SQL Packages). Whereas, the Deployment Diagram will show the hardware configuration - DB Server / Web Server / Client Machine .. and Utility component will be placed into the Client Machine Node.
+
+
+https://plantuml.com/
