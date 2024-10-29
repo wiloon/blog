@@ -118,6 +118,9 @@ git rebase (--continue | --skip | --abort | --quit | --edit-todo | --show-curren
 在开发过程中把其它人提交到 dev 分支的 commit, 更新到自己的 feature 分支.
 
 ```Bash
+# rebase 之前, dev 分支先拉取远程仓库最新的 commit.
+git switch dev
+git pull
 git switch feature_0
 git rebase dev
 # 有可能需要处理冲突

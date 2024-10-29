@@ -15,3 +15,6 @@ kitty 是一个 GPU based terminal
 
 https://sw.kovidgoyal.net/kitty/
 
+## 快捷键
+
+https://www.escapelife.site/posts/8e342b57.html
