@@ -123,13 +123,14 @@ git svn dcommit
 执行 git add 冲突文件
 
 ```bash
-    git rebase --continue
-    git svn dcommit
+git rebase --continue
+git svn dcommit
 ```
 
-git与SVN协同的工作流程
+git 与 SVN 协同的工作流程
 
-git可以和SVN服务器一起使用,即,中央服务器采用svn,本地代码库使用git。这样的好处是,可以兼容以前的项目,同时本地有一套完整的版本控制系统,可以随时查看代码修改历史,随时提交,不需要网络。合适的时候再提交到SVN服务器。git-svn的工作流程也有很多,我们推荐使用下面这种方式。
+git 可以和 SVN 服务器一起使用,即,中央服务器采用 svn,本地代码库使用git。这样的好处是,可以兼容以前的项目,同时本地有一套完整的版本控制系统,
+可以随时查看代码修改历史,随时提交,不需要网络。合适的时候再提交到SVN服务器。git-svn 的工作流程也有很多,我们推荐使用下面这种方式。
 
 git-svn初始化
 

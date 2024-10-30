@@ -412,3 +412,18 @@ git push --force origin master
 3. 在弹出的分支列表中点击主分支, 比如 main 分支
 4. 点击 rebase branch_0 onto main
 5. 强制 push, 点击菜单 Git> Push, 点击 push这边的下拉箭头, 点击 Force Push
+
+## git 修改上一次提交的 commit 信息
+
+https://blog.csdn.net/scgaliguodong123_/article/details/122423940
+
+修改 分支 branch_0 最近一次 commit 的 author, 这个 commit 已经被 push 到了远程仓库
+
+```Bash
+git switch branch_0
+git pull
+git commit --amend --author="Wang Yue<yue.wang>"
+# 如果不想修改提交信息，比如只修改 author, 则添加 --no-edit
+git commit --amend --author="Wang Yue<yue.wang>" --no-edit
+git push -f
+```

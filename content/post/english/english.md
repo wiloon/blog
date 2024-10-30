@@ -1474,3 +1474,36 @@ The boy whom I played with speaks English.
 - participate, 比 take part in 更正式更礼貌一些, 许多广告和活动宣传单上都会用到 participate 来鼓励人们参加活动赢得奖励。请注意 participate 后面也需要跟介词 in。可以用 take part in 替换, 替换后句子更口语化一些.
 - join in, 多数情况下是指参加游戏、娱乐、竞赛等等。 这里要注意的是当我们说 join in something 时，这些活动都已经开始了，正在进行中。所以，时间点是区分 join in 和 take part in 的重要因素。
 - attend, 它有好几个意思，其中最常用的是“参加，出席，到场”。Attend 也是一个正式用语，常出现在形容参加正式活动。比如，参加婚礼，参加葬礼，参加签约仪式，等等。请注意 attend 多数情况下是指出席了活动，但并不意味着参加者在活动中表现积极或者主观投入到了活动中。可能是个旁观者.
+
+## regular, normal
+
+Regular
+
+规律的: 表示某事或某物按照一定的时间间隔发生或出现。
+
+例子: He has regular check-ups with his doctor. (他定期去看医生。)
+常规的: 表示某事物是常见的、惯例的。
+
+例子: She is a regular customer at this cafe. (她是这家咖啡馆的常客。)
+规则的: 表示某事物遵循一定的规则或模式。
+
+例子: The pattern on the wall is regular. (墙上的图案是有规律的。)
+
+Normal
+
+正常的: 表示符合通常的标准或预期的状态。
+
+例子: It's normal to feel nervous before a big exam. (在大考前感到紧张是正常的。)
+正常范围内的: 表示某事物在通常接受的范围内。
+
+例子: Her blood pressure is normal. (她的血压是正常的。)
+
+用法区别
+
+时间和规律: "Regular" 更强调时间上的规律性和一致性。例如，"regular meetings" (定期会议) 表示会议在固定的时间举行。
+状态和标准: "Normal" 更侧重于符合某种标准或常态。例如，"normal behavior" (正常行为) 表示行为符合一般人的预期。
+
+例子对比
+
+Regular: He goes for a regular jog every morning. (他每天早上都会去跑步。)
+Normal: It's normal for him to jog in the morning. (他早上跑步是正常的。)

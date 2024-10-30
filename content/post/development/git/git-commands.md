@@ -149,7 +149,7 @@ The --detach option forces you to recognize that you’re in a mode of “inspec
 git branch
 
 # 查看远程分支
-git branch -r 
+git branch -r
 
 # 查看所有的分支, 本地 + 远程
 git branch -a
@@ -174,8 +174,13 @@ git remote show origin
 ### 新建分支
 
 ```bash
+# 从 tag v1.2.3 创建分支 branch1
+# 建议使用 git switch
+# git checkout -b branch_name tag_name
+# git checkout -b branch1 v1.2.3
+git switch -c branch1 v1.2.3
 # create branch from a commit
-git branch branch_name <commit-hash or HEAD~3>
+# git branch branch_name <commit-hash or HEAD~3>
 
 # 新建并切换到分支, 不加 -c 的话 git switch 到一个不存在的分支会报错
 # -c, --create
@@ -193,13 +198,6 @@ git branch branch0
 
 # 从 branch0 分支 创建 branch1 分支
 git branch branch1 branch0
-
-# 从 tag v1.2.3 创建分支 branch1
-# 建议使用 git switch
-# git checkout -b branch_name tag_name
-# git checkout -b branch1 v1.2.3
-git switch -c branch1 v1.2.3
-
 # 切换到 分支  branch0
 # git checkout -b branch0
 git switch branch0
@@ -246,8 +244,8 @@ git branch -D branch0
 ```
 
 ```bash
-# 删除远程的 todo branch
-git branch -d -r origin/todo
+# 删除远程的 branch_0
+git branch -d -r origin/branch_0
 ```
 
 ### 设置默认的分支名
@@ -286,7 +284,7 @@ https://juejin.cn/post/6844903880115896327
 
 ```Bash
 # 分支改名, branch rename
-# 本地分支重命名
+# 本地分支重命名  (还没有推送到远程)
 # -m, --move            move/rename a branch and its reflog
 git branch -m oldBranch newBranch
 
@@ -426,12 +424,6 @@ git commit -m "comments0"
 git merge --abort
 ```
 
-### 本地分支重命名 (还没有推送到远程)
-
-```bash
-git branch -m oldName newName
-```
-
 ## Git, github 连通性测试
 
 ```bash
@@ -449,8 +441,10 @@ https://blog.csdn.net/haohaibo031113/article/details/70821321
 
 ## commit
 
+通过git commit命令将暂存区内容添加到本地仓库后，git会生成相应的commit id。
+
 ```bash
-# 本次 commit 使用指定的 author 信息
+# 在 commit 的时候使用指定的 author 信息
 git commit -m "message0" --author="author0 <auther0@foo.com>"
 ```
 
