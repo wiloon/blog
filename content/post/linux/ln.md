@@ -30,6 +30,10 @@ unlink link0
 # see the actual contents of a symlink
 ls -l link0
 readlink link0
+# 打印原始路径
+ls -l link0
+# 如果 link0 是个目录, 会列出目录下的文件
+ls -l link0/
 ```
 
 Linux链接分两种，一种被称为硬链接 (Hard Link) ，另一种被称为符号链接 (soft link, Symbolic Link) 。默认情况下，ln命令产生硬链接。
