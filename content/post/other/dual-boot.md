@@ -123,7 +123,7 @@ LVM on LUKS, 管理起来更简单, 可以用一个密码解密所有的分区, 
 # are you sure: YES (一定要输入大写的 YES)
 # 初始化/格式化一个加密分区
 cryptsetup luksFormat /dev/nvme0n1p8
-# 打开一个LUKS设备, nvme0n1p8_crypt: 这是解密后设备在 /dev/mapper/ 目录下的名称。通过这个名称，可以访问解密后的分区。
+# 打开一个 LUKS 设备, nvme0n1p8_crypt: 这是解密后设备在 /dev/mapper/ 目录下的名称。通过这个名称，可以访问解密后的分区。
 cryptsetup open /dev/nvme0n1p8 nvme0n1p8_crypt
 # 在加密分区上 nvme0n1p8_crypt 创建物理卷 (Physical Volume)
 pvcreate /dev/mapper/nvme0n1p8_crypt
@@ -151,6 +151,7 @@ mkdir /mnt/root-orig
 mkdir /mnt/root-new
 mount /dev/nvme0n1p7 /mnt/root-orig/
 mount /dev/vgubuntu/root /mnt/root-new/
+# 复制分区数据
 rsync -avhPAXHx --numeric-ids /mnt/root-orig/ /mnt/root-new/
 umount /mnt/root-orig
 umount /mnt/root-new
@@ -169,8 +170,11 @@ open gparted, 删除未加密的 ubuntu 分区, /dev/nvme0n1p7
 
 ```Bash
 # resize /dev/nvme0n1p8 to use free space
+# 重新打开 LUKS 设备: nvme0n1p8, 因为前面删分区 nvme0n1p7 之前 把 nvme0n1p8 关了
 cryptsetup open /dev/nvme0n1p8 nvme0n1p8_crypt
+# 停用 volume group: vgubuntu, todo: 为啥 需要停用呢, 难倒 上面一句会默认激活卷组?  先用这个查看一下卷组状态 sudo vgdisplay vgubuntu
 vgchange -an vgubuntu
+# todo, cryptsetup resize 怎么知道是向前扩展还是向后扩展?
 cryptsetup resize nvme0n1p8_crypt
 ```
 

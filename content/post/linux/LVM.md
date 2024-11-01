@@ -32,6 +32,7 @@ sudo pvdisplay
 # 要得到卷组的详细信息需要使用 vgdisplay 命令。
 sudo vgscan
 
+# 查看卷组状态, VG Status            有可能是 resizable, available, inactive
 sudo vgdisplay
 
 # 扫描当前系统中存在的所有的LVM逻辑卷。使用lvscan指令可以发现系统中的所有逻辑卷，及其对应的设备文件。
@@ -148,7 +149,6 @@ lvcreate --name swap_1 -L 32G vgubuntu
 vgchange -ay vgubuntu
 # 将 vgubuntu 停用（deactivate）
 vgchange -an vgubuntu
-
 # pvresize命令的作用是调整一个卷组中的物理卷的大小。pvresize命令可以调整可能已经在卷组中的物理卷的大小，并在其中分配活动的逻辑卷。
 # https://linuxcommand.p2hp.com/pvresize
 pvresize /dev/mapper/nvme0n1p8_crypt

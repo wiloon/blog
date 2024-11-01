@@ -442,7 +442,8 @@ growpart /dev/vda 1;resize2fs /dev/vda1
 
 ## lVM on LUKS 分区扩容
 
-1. 备份硬盘
+- 备份硬盘
+- ubuntu luks+lvm 的 Root 分区 缩容
 2. 把 ubuntu 的 EFI 移到空闲空间的最前面
 3. 把 ubuntu 的 boot 分区移到空闲空间的最前面
 4. 修改 windows 的 EFI 配置, 把 ubuntu启动项 指向新的 ubuntu EFI 分区 用新的 ubuntu EFI, boot 引导 ubuntu 启动.
