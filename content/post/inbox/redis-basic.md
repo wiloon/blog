@@ -322,7 +322,9 @@ flushdb
 (Redis 4.0.0 or greater)  
 删除 所有 DB 中的 所有数据, 默认是同步操作，选项 ASYNC 表示异步，即清空操作在一个新的线程中进行，不会阻塞主线程。
 
-Redis is now able to delete keys in the background in a different thread without blocking the server. An ASYNC option was added to FLUSHALL and FLUSHDB in order to let the entire dataset or a single database to be freed asynchronously.
+Redis is now able to delete keys in the background in a different thread without blocking the server. 
+An ASYNC option was added to FLUSHALL and FLUSHDB in order to let the entire dataset or a single database 
+to be freed asynchronously.
 
 ```bash
 redis-cli -h 127.0.0.1 -p 6379 FLUSHALL ASYNC
@@ -564,3 +566,21 @@ kubectl create -f redis-deployment.yml
 ## Redis 从文件中批量插入数据
 
 [https://blog.csdn.net/chwshuang/article/details/52915685](https://blog.csdn.net/chwshuang/article/details/52915685)
+
+## redis db
+
+- 单体Redis 默认有16个数据库, 数量可以通过配置文件修改
+- 每个 db 是 redis 提供的存储数据的字典
+- redis-cli 默认连 db=0, 可以用 select 命令切换到不同的 db
+- 用户不能修改 db 名字
+- 不支持为不同的 db 设置 不同的密码
+- 对于Redis来说这些db更像是一种命名空间
+- 在集群的情况下不支持使用select命令来切换db，因为Redis集群模式下只有一个db0
+
+## 集群与单机Reids的区别
+
+key批量操作支持有限：例如mget、mset必须在一个slot
+Key事务和Lua支持有限：操作的key必须在一个节点
+key是数据分区的最小粒度：不支持bigkey分区
+不支持多个数据库：集群模式下只有一个db0
+复制只支持一层：不支持树形复制结构

@@ -818,3 +818,13 @@ GC日志
 [https://www.cnblogs.com/zhulin-jun/p/6516292.html](https://www.cnblogs.com/zhulin-jun/p/6516292.html)
 
 [https://docs.oracle.com/en/java/javase/16/migrate/removed-tools-and-components.html#GUID-BBCF36FE-C892-4769-95CB-AB3FFC3A3B13](https://docs.oracle.com/en/java/javase/16/migrate/removed-tools-and-components.html#GUID-BBCF36FE-C892-4769-95CB-AB3FFC3A3B13)
+
+## VM Thread
+
+VM Thread是JVM层面的一个线程，主要工作是对其他线程的创建，分配和对象的清理等工作的。
+
+cpu 100% 通常的思路是查看runnable的线程，但如果发现是耗尽cpu的是vmthread
+
+多半会伴随old区已满 (此时垃圾回收已停止) ，通常这是由于在并发下短时间内创建很多对象造成。
+
+https://my.oschina.net/zhangxufeng/blog/1613808
