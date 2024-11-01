@@ -12,3 +12,8 @@ tags:
 ## redis thread
 
 https://www.cnblogs.com/traditional/p/13273089.html
+
+在 Redis4.0 之前，Redis 是单线程运行的 但是单线程并不代表效率就低 因为底层采用了基于 epoll 的 IO 多路复用
+
+
+

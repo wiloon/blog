@@ -1,5 +1,5 @@
 ---
-title: 磁盘扩容, PVE, Archlinux
+title: 硬盘扩容, PVE, Archlinux
 author: "-"
 date: 2022-06-21 08:19:27
 url: disk/resize
@@ -11,7 +11,7 @@ tags:
   - PVE
   - Archlinux
 ---
-## 磁盘扩容
+## 硬盘扩容
 
 ## PVE ext4
 
@@ -289,3 +289,167 @@ mount -a 然后mnt就可以使用了
 注:  raw格式
   
 步骤基本上和qcow2一样。如果提示 This image format does not support resize, 检查一下你qemu-img create的时候,是否有加 preallocation=metadata 选项,如果有,就不能resize了。
+
+## 华为云磁盘扩容
+
+3 minute - manually
+
+## 华为云帮助文档
+
+[https://support.huaweicloud.com/usermanual-evs/evs_01_0109.html#evs_01_0109__section13346184710300](https://support.huaweicloud.com/usermanual-evs/evs_01_0109.html#evs_01_0109__section13346184710300)
+
+### 查看分区表类型
+
+```bash
+parted -l
+```
+
+回显有可能是
+
+```r
+Partition Table: msdos
+Partition Table: gpt
+Partition Table: loop
+```
+
+msdos 对应华为云帮助中的 MBR.  
+gpt 对应华为云帮助中的 GPT.  
+如果显示 Partition Table: loop, 是因为格式化时没指定分区 id, 格式化了整个磁盘.
+
+### 查看磁盘的分区信息
+
+```bash
+lsblk
+
+# 回显
+# vdb 挂载到了 /foo
+vdb    253:16   0  200G  0 disk /foo
+```
+
+### 停掉写磁盘的服务
+
+```bash
+systemctl stop service0
+```
+
+### 卸载磁盘分区
+
+```bash
+umount /dev/vdb1
+```
+
+如果提示:  umount: /foo: target is busy， 考虑强制卸载，参照后面的 ### 强制卸载
+
+### 强制卸载
+
+用 fuser 查看使用 /data 目录的进程
+
+```bash
+fuser -m /foo
+
+# 杀掉进程, 或强制卸载
+kill -9 xxxx
+umount -l /foo
+```
+
+### 确认磁盘分区的卸载结果
+
+```bash
+lsblk
+
+# 回显
+# vdb 没有挂载
+vdb    253:16   0  200G  0 disk
+```
+
+### 如果第 1 步查到的分区表类型是 gpt, 执行No.7，如果分区表类型是 loop 可以跳到 No.8
+
+进入 parted 分区工具。
+
+```bash
+parted /dev/vdb
+# 输入"unit s"，按"Enter"，设置磁盘的计量单位为磁柱。
+(parted) unit s
+
+# 输入"p"，按"Enter"，查看当前磁盘分区情况。
+(parted) p
+
+# 如果提示需要修复，执行Fix
+Fix
+# 记录待扩大分区 "/dev/vdb2" 的初始磁柱值 (start) 和截止磁柱值 (End) 
+Number  Start  End         Size        File system  Flags
+ 1      0s     419430399s  419430400s  ext4
+
+# 输入"rm"和分区编号，此处以"1"为例，按"Enter"。
+(parted)  rm 1
+
+# 重新划分分区，执行以下命令，按"Enter", xxxs 为上一步记录的初始磁柱值。
+(parted)  mkpart ext4 xxxs 100%
+
+# 查看分区
+(parted)  p
+
+# 退出parted
+(parted)  q
+```
+
+### 退出parted 后用lsblk再次检查挂载状态
+
+```bash
+lsblk
+```
+
+### 退出 parted 后分区有可能被自动挂载，再 umount 一次
+
+```bash
+umount /dev/vdb1
+```
+
+### 检查磁盘分区文件系统的正确性, 磁盘扩容
+
+```bash
+# 执行以下命令，检查磁盘分区文件系统的正确性,
+e2fsck -f /dev/vdb1
+
+#  如果回显 /dev/vdb is in use , vim /etc/fstab, 注释掉/data 的挂载, 重启
+
+# 执行以下命令，扩展磁盘分区文件系统的大小。
+resize2fs /dev/vdb1
+
+# 挂载磁盘到目录 
+mount /dev/vdb1 /data
+
+# 查看分区容量
+df -TH
+
+```
+
+### 启动写磁盘的服务
+
+```bash
+systemctl start service0
+# 检查服务状态
+systemctl status service0
+```
+
+### 系统盘扩容
+
+```bash
+growpart /dev/vda 1;resize2fs /dev/vda1
+```
+
+[https://support.huaweicloud.com/usermanual-evs/zh-cn_topic_0044524728.html#zh-cn_topic_0044524728__section31113372194023](https://support.huaweicloud.com/usermanual-evs/zh-cn_topic_0044524728.html#zh-cn_topic_0044524728__section31113372194023)
+
+## lVM on LUKS 分区扩容
+
+1. 备份硬盘
+2. 把 ubuntu 的 EFI 移到空闲空间的最前面
+3. 把 ubuntu 的 boot 分区移到空闲空间的最前面
+4. 修改 windows 的 EFI 配置, 把 ubuntu启动项 指向新的 ubuntu EFI 分区 用新的 ubuntu EFI, boot 引导 ubuntu 启动.
+5. 测试 ubuntu 启动
+4. 扩展 ubuntu 的 /root 分区 填充空闲的硬盘空间
+5. 缩容 ubuntu 的 /root 分区, 在硬盘最后面留出 ubuntu efi + boot 的空间
+6. 把 ubuntu 的 efi 和 boot 移到 硬盘最后面的空间
+7. 修改 windows efi, 把 ubuntu 启动项指向 最后面的 efi + boot
+8. 确认能正常启动, 删除 /root 分区前面的 ubuntu efi + boot
+9. 扩容 ubuntu root 填充 windows和 ubuntu之间 的空闲空间

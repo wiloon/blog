@@ -55,7 +55,7 @@ tags:
 5. <extension>-Implementation-Vendor-Id
 5. <extension>-Implementation-URL
 
-### 四. 扩展标识属性
+### 扩展标识属性
 1. Extension-Name
 该属性定义了jar文件的标识，例如Extension-Name: Struts Framework
 

@@ -63,7 +63,9 @@ sudo apt-get -f install
 
 ### remove
 
-  apt-get remove packagename
+```Bash
+apt-get remove packagename
+```
 
 ### answer yes
 

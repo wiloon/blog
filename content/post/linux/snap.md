@@ -17,7 +17,10 @@ sudo snap list
 # 列出所有已安装的版本
 snap list --all vlc
 # update all Snap packages
-sudo snap refresh 
+sudo snap refresh
+# Check for snap changes
+sudo snap changes
+sudo snap abort <number>
 ```
 
 ## archlinux
