@@ -2,11 +2,12 @@
 title: 'socks5 -> http/https proxy, privoxy/cow'
 author: "-"
 date: 2017-02-15T07:23:41+00:00
-url: /?p=9815
+url: socks5
 categories:
-  - Inbox
+  - socks5
 tags:
   - reprint
+  - remix
 ---
 ## 'socks5 -> http/https proxy, privoxy/cow'
 
@@ -37,10 +38,10 @@ listen-address 127.0.0.1:8118
 
 sudo systemctl start privoxy
 
-* * *
-
 ## proxychains
 
+ProxyChains是Linux和其他Unix下的代理工具。它可以使任何程序通过代理上网， 允许TCP和DNS通过代理隧道。ProxyChains通过一个用户定义的代理列表强制连接指定的应用程序， 直接断开接收方和发送方的连接。
+ProxyChains是一个开源Unix/Linux代理工具，能够强制使任何应用的TCP连接使用SOCKS4,SOCKS或者HTTP(S)代理进行连接。
 ```bash
 #Arch Linux
 sudo pacman -S proxychains-ng
@@ -52,8 +53,7 @@ apt-get install proxychains
 brew install proxychains-ng
 
 # 用户级配置文件
-  
-编辑~/.proxychains/proxychains.conf:
+~/.proxychains/proxychains.conf
 
 # 系统级配置文件
 vim /etc/proxychains.conf
