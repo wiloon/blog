@@ -390,7 +390,7 @@ git rebase -i commit0
 git rebase -i HEAD~2
 git rebase -i commit_id_x
 # git log 你可以发现，git 的最后一次提交已经变成你选的那个了
-# 把pick 修改成edit然后保存退出，然后会看到提示 git commit --amend
+# 把 pick 修改成 edit 然后保存退出, 然后会看到提示 git commit --amend
 git commit --amend
 # 修改注释之后，保存退出，然后 git rebase --continue
 git rebase --continue
@@ -411,19 +411,15 @@ git push --force origin master
 2. 点击右下角的分支名
 3. 在弹出的分支列表中点击主分支, 比如 main 分支
 4. 点击 rebase branch_0 onto main
-5. 强制 push, 点击菜单 Git> Push, 点击 push这边的下拉箭头, 点击 Force Push
+5. 处理冲突, 如果有的话
+6. 强制 push, 点击菜单 Git> Push, 点击 push 这边的下拉箭头, 点击 Force Push
 
-## git 修改上一次提交的 commit 信息
+## jetbrain git rebase 合并历史
 
-https://blog.csdn.net/scgaliguodong123_/article/details/122423940
-
-修改 分支 branch_0 最近一次 commit 的 author, 这个 commit 已经被 push 到了远程仓库
-
-```Bash
-git switch branch_0
-git pull
-git commit --amend --author="Wang Yue<yue.wang>"
-# 如果不想修改提交信息，比如只修改 author, 则添加 --no-edit
-git commit --amend --author="Wang Yue<yue.wang>" --no-edit
-git push -f
-```
+1. 点击左下角的 git 打开 git log
+2. 右键点击要合并的 n 个 commit 中的最早的一个, 选择 Interactively Rebase from Here...
+3. 在弹出的窗口中选中所有的 commit
+4. 点击 squash 按钮
+5. 修改commit message
+6. 点击 rebase 按钮
+7. 在菜单中操作 git push, 在弹出的窗口中点击 push按钮后面的下拉按钮, 点击 force push

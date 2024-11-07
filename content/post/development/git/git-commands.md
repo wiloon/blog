@@ -448,35 +448,49 @@ https://blog.csdn.net/haohaibo031113/article/details/70821321
 git commit -m "message0" --author="author0 <auther0@foo.com>"
 ```
 
-### commit message
+### --amend
 
-#### 修改最近一次的 commit message
+Rewriting the most recent commit message
+You can change the most recent commit message using the git commit --amend command.
+
+In Git, the text of the commit message is part of the commit.
+Changing the commit message will change the commit ID--i.e., the SHA1 checksum that names the commit.
+Effectively, you are creating a new commit that replaces the old one.
+
+修改 分支 branch_0 最近一次的 commit message, author
+
+https://blog.csdn.net/scgaliguodong123_/article/details/122423940
 
 ```bash
-# 执行后会提示输入 new commit message
+git switch branch_0
+git pull
+
+# 不带参数, 执行后会提示输入 new commit message
 # author 会变成默认的
 git commit --amend
 # 或者直接提供 new commit message
 git commit --amend -m "New commit message."
-# 如果是修改已经 push了的 commit, 得把这个修改强制推送到远程仓库
+
+# 修改 author, 然后也会提示修改 message
+git commit --amend --author="Wang Yue<yue.wang>"
+# 只修改 author
+git commit --amend --author="Wang Yue<yue.wang>" --no-edit
+# 这个 commit 已经被 push 到了远程仓库, 修改之后得再 push 一下, 把这个修改强制推送到远程仓库
 git push -f
 ```
 
-#### 修改已经 push 了的 commit 信息, git 修改 comments
+#### 修改已经 push 了的 commit, git 修改 message, 不是最近一次提交
+
+进入 git rebase 的交互模式修改
 
 ```bash
 git rebase -i commit_id_0  
-# 把对应的 commit 的 action 改成 e 
+# 把对应的 commit 的 action 改成 e
  
 git commit --amend --author="auth0 <auth0@foo.com>"
 git rebase --continue
 git push -f
 ```
-
-Rewriting the most recent commit message
-You can change the most recent commit message using the git commit --amend command.
-
-In Git, the text of the commit message is part of the commit. Changing the commit message will change the commit ID--i.e., the SHA1 checksum that names the commit. Effectively, you are creating a new commit that replaces the old one.
 
 ### git 清除所有被 Ignore 的文件
 

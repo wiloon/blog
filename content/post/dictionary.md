@@ -280,3 +280,8 @@ SVG格式文件是可缩放矢量图形文件的缩写，是一种标准的图�
 xterm.js
 
 xterm 是一个使用 TypeScript 编写的前端终端组件。并在 Vscode等 热门项目中得到了应用
+
+## Salt Stack
+
+Salt Stack 是一个配置管理和编排工具。它使用一个中心化的仓库来提供新的服务器和其它 IT 基础设施以及自动化重复的系统管理工作和代码部署任务。
+Salt Stack 的核心组件，是一个远程执行引擎，创建一个安全的、双向的以及高速的通信网络。当一个 master 运行的时候，一个启动的 minion 会创建加密哈希并且连接到 master。再使用公钥认证后，minion 可从 master 接收命令。Salt 也可以运行在一个无 master 的 minion 模式。
