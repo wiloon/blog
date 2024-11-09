@@ -122,10 +122,14 @@ commit-id: 在每次本地工作完成后，都会做一个 git commit 操作来
 这是一个能唯一标识一个版本的序列号。 在使用 git push 后，这个 id 会同步到远程仓库。
 
 有了以上的概念再来说说 git fetch
-git fetch: 这将更新 git remote 中所有的远程仓库所包含分支的最新 commit-id, 将其记录到 .git/FETCH_HEAD 文件中
+git fetch: 这将更新本地仓库关联的所有的远程仓库所包含所有分支的最新 commit-id, 
+将其记录到 .git/FETCH_HEAD 文件中
 git fetch 更新远程仓库的方式如下:
 
+```Bash
 git fetch origin master:tmp
+```
+
 在本地新建一个 temp 分支，并将远程 origin 仓库的 master 分支代码下载到本地 temp 分支
 
 ## 分支, branch
@@ -167,7 +171,7 @@ git rev-parse --abbrev-ref HEAD
 git branch --show-current
 
 # 查看本地分支对应的远程分支
-# 查看本地分支和远程分支的同步状态, update to date/local out of date
+# 查看本地分支和远程分支的同步状态, update to date, local out of date
 git remote show origin
 ```
 
@@ -424,6 +428,26 @@ git commit -m "comments0"
 git merge --abort
 ```
 
+## git remote
+
+```bash
+# 查看远程仓库地址/url
+git remote -v
+# 添加远程库
+# 添加一个新的远程 Git 仓库，同时指定一个方便使用的简写
+# 命令格式
+git remote add <shortname> <url>
+# 示例
+git remote add pingd http://192.168.50.13:10880/wiloon/wiloon.com.git
+# 向远程仓库推送代码
+# origin 是远程库的名字, 单个远程库, 一般用默认的 origin, 多个远程库的时候可以改成方便记忆的名字.
+git push -u origin master
+#更改远程仓库指向 remote url
+git remote set-url origin git@github.com:test/thinkphp.git
+# 删除远程库
+git remote rm repo0
+```
+
 ## Git, github 连通性测试
 
 ```bash
@@ -435,7 +459,7 @@ ssh -T git@github.com
 git add, 用工作树的内容更新 `索引文件`
 
 git add -u, add modified and deleted files
-`git add .` `git add -A` add new, modified and deleted files
+`git add .`, `git add -A` add new, modified and deleted files
 
 https://blog.csdn.net/haohaibo031113/article/details/70821321
 
@@ -549,34 +573,7 @@ git clean -xfd
 
 [https://ruby-china.org/topics/17951](https://ruby-china.org/topics/17951)
 
-## git remote
-
-### 查看远程仓库地址/url
-
-```bash
-git remote -v
-```
-
-### 添加远程库
-
-```bash
-# 添加一个新的远程 Git 仓库，同时指定一个方便使用的简写
-# 命令格式
-git remote add <shortname> <url>
-# 示例
-git remote add pingd http://192.168.50.13:10880/wiloon/wiloon.com.git
-# 向远程仓库推送代码
-# origin 是远程库的名字, 单个远程库, 一般用默认的 origin, 多个远程库的时候可以改成方便记忆的名字.
-git push -u origin master
-```
-
-### 删除远程库
-
-```bash
-git remote rm repo0
-```
-
-### 删除文件, git delete file
+## 删除文件, git delete file
 
 ```bash
 git rm /xxx/xxx/xxx.xxx  
@@ -586,7 +583,7 @@ git rm -rf xxx/xxx
 git add -A
 ```
 
-### 将指定的提交 (commit) 应用于其他分支
+## 将指定的提交 (commit) 应用于其他分支
 
 ```bash
 git cherry-pick <commitHash>
@@ -594,13 +591,13 @@ git cherry-pick <commitHash>
 
 [https://www.ruanyifeng.com/blog/2020/04/git-cherry-pick.html](https://www.ruanyifeng.com/blog/2020/04/git-cherry-pick.html)
 
-### 指定 ssh 私钥
+## 指定 ssh 私钥
 
 ```bash
 GIT_SSH_COMMAND="ssh -i ~/tmp/id_rsa" git clone git@github.com:wiloon/foo.git
 ```
 
-### 打印当前版本
+## 打印当前版本
 
 ```bash
 git rev-parse HEAD
@@ -669,6 +666,8 @@ git config user.email
 ### 设置
 
 ```bash
+# 打开 vi 直接编辑
+git config -e
 # 设置电子邮件地址
 # global
 git config --global user.name "name0"
@@ -1248,21 +1247,13 @@ git rerere [clear | forget <pathspec>…​ | diff | status | remaining | gc]
 ## 已存在的目录转换为一个 GIT 项目并托管到 GITHUB 仓库
 
 ```bash
-  
 git init
-  
 git add .
-  
 git commit -m "Initial commit"
-
 #访问 GitHub, 创建一个新仓库
-  
 git remote add origin https://github.com/superRaytin/alipay-app-ui.git
-  
 #git push origin master
-  
 git push -u origin master -f
-  
 ```
 
 [http://leonshi.com/2016/02/01/add-existing-project-to-github/](http://leonshi.com/2016/02/01/add-existing-project-to-github/)

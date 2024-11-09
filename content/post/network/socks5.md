@@ -64,6 +64,13 @@ socks5  192.168.50.205 1080
 http    127.0.0.1 4321
 ```
 
+proxychains looks for config file in following order:
+1)	file listed in environment variable PROXYCHAINS_CONF_FILE or
+      provided as a -f argument to proxychains script or binary.
+2)	./proxychains.conf
+3)	$(HOME)/.proxychains/proxychains.conf
+4)	$(sysconfdir)/proxychains.conf  **
+
 ### 使用
 
 ```bash

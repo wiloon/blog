@@ -163,3 +163,22 @@ mount -t ntfs-3g /dev/sda5 /mnt
 ```bash
 reboot
 ```
+
+## archlinux 中文支持
+
+```bash
+vim /etc/locale.gen
+en_US.UTF-8 UTF-8
+zh_CN.UTF-8 UTF-8
+
+locale-gen
+
+/etc/locale.conf文件设置全局有效的locale
+LANG=en_US.UTF-8
+
+# 中文字体 
+sudo pacman -S wqy-microhei
+
+locale -a 来显示当前Linux系统支持的所有的语言环境。
+
+```

@@ -56,11 +56,11 @@ Ctrl + y        粘贴最后一次被删除的单词
 
 ## brew
 
+https://brew.sh/
+
 - brew 会把软件安装在用户主目录里, 不需要 sudo
 - brew 装的主要是 command line tool。
 - brew cask 装的大多是有 gui 界面的 app 以及驱动，brew cask 是 brew 的一个官方源。
-
-[https://brew.sh/](https://brew.sh/)
 
 ```bash
 # 搜索
@@ -87,7 +87,39 @@ brew upgrade package0
 brew upgrade
 
 brew install --cask obsidian
+```
 
+### brew update install 慢
+
+网络问题, 换国内的源
+
+```Bash
+
+# 步骤一
+cd "$(brew --repo)"
+# 查看源
+git remote -v
+# 更新源
+git remote set-url origin https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/brew.git
+
+# 步骤二
+cd "$(brew --repo)/Library/Taps/homebrew/homebrew-core"
+git remote set-url origin https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/homebrew-core.git
+
+#步骤三
+brew update
+```
+
+恢复默认源
+
+```Bash
+cd "$(brew --repo)"
+git remote set-url origin https://github.com/Homebrew/brew.git
+ 
+cd "$(brew --repo)/Library/Taps/homebrew/homebrew-core"
+git remote set-url origin https://github.com/Homebrew/homebrew-core
+ 
+brew update
 ```
 
 ### all casks package
