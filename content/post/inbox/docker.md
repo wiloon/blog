@@ -391,3 +391,26 @@ dockerd 代理的修改比较特殊，它实际上是改systemd的配置，因�
 
 sudo systemctl daemon-reload
 sudo systemctl restart docker
+
+## uninstall docker from ubuntu
+
+https://hands-on.cloud/docker/uninstall-ubuntu/
+
+```Bash
+docker ps -a
+docker stop $(docker ps -a -q)
+docker rm $(docker ps -a -q)
+docker rmi $(docker images -a -q)
+docker rmi -f $(docker images -a -q)
+docker system prune -a --volumes
+dpkg -l | grep -i docker
+sudo apt purge docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin docker-ce-rootless-extras
+sudo rm -rf /var/lib/docker /etc/docker
+sudo rm -rf /var/run/docker.sock
+sudo rm -rf /usr/local/bin/docker-compose
+sudo rm -rf /etc/docker
+sudo rm -rf ~/.docker
+sudo rm -rf /var/lib/containerd
+sudo groupdel docker
+sudo apt autoremove
+```

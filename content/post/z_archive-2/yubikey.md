@@ -11,6 +11,8 @@ tags:
 ---
 ## yubikey
 
+## HMAC-SHA1 challenge-response
+
 YubiKey 4 可以同时工作在三种模式:
 
 - OTP mode: 作为键盘设备 (HID) :
@@ -27,9 +29,10 @@ HOTP:算法与Challenge-Response类似,然而使用累加计数器代替了输�
   
 在YubiKey中包含两个configuration slot,每一个slot可以单独配置以上模式中的其中一种,通过短触和长触来选择输入。
 
-- U2F mode:
+## U2F mode:
   
-U2F是一个开源的认证标准协议,使用非对称加密算法,在每次需要认证是设备可以对challenge信息使用私钥进行签名来完成认证。作为一个开源的标准协议,Google、Dropbox等网站都支持这种协议的两步验证,然而现阶段浏览器端仅有Chrome支持。
+U2F 是一个开源的认证标准协议, 使用非对称加密算法, 在每次需要认证是设备可以对 challenge 信息使用私钥进行签名来完成认证。
+作为一个开源的标准协议, Google、Dropbox 等网站都支持这种协议的两步验证, 然而现阶段浏览器端仅有 Chrome 支持。
 
 - CCID mode, Smartcard 模式:
   
@@ -134,3 +137,98 @@ CanoKey由清华大学的一些老师/学生（同时也是开源社区的大佬
 
 [https://www.yubico.com/products/computer-login-tools/](https://www.yubico.com/products/computer-login-tools/)
 [https://zh.101-help.com/236052d633-configure-use-yubikey-secure-loginzai-windows-10-local-account/](https://zh.101-help.com/236052d633-configure-use-yubikey-secure-loginzai-windows-10-local-account/)
+
+## ubuntu yubikey login
+
+https://support.yubico.com/hc/en-us/articles/360016649099-Ubuntu-Linux-Login-Guide-U2F
+
+https://support.yubico.com/hc/en-us/articles/360016649099-Ubuntu-Linux-Login-Guide-U2F
+
+```Bash
+# Yubico Authenticator 6.0+
+curl -O https://developers.yubico.com/yubioath-flutter/Releases/yubico-authenticator-latest-linux.tar.gz
+tar zxvf yubico-authenticator-latest-linux.tar.gz
+cd yubico-authenticator-7.1.1-linux
+./desktop_integration.sh -i
+
+# pcscd
+sudo apt install pcscd
+sudo  systemctl start  pcscd
+sudo  systemctl enable  pcscd
+systemctl is-enabled pcscd
+
+# yubikey-manager
+sudo add-apt-repository ppa:yubico/stable
+sudo udevadm --version
+sudo apt-get install libpam-u2f
+mkdir -p ~/.config/Yubico
+pamu2fcfg > ~/.config/Yubico/u2f_keys
+# touch the metal contact to confirm the association
+
+# add backup device
+pamu2fcfg -n >> ~/.config/Yubico/u2f_keys
+
+# login
+sudo vim  /etc/pam.d/gdm-password
+```
+
+## ubuntu yubikey login HMAC-SHA1 challenge-response
+
+https://support.yubico.com/hc/en-us/articles/360018695819-Ubuntu-Linux-20-Login-Guide-Challenge-Response
+
+```Bash
+sudo apt install libpam-yubico yubikey-manager
+ykman otp chalresp -g 2
+
+```
+
+
+```Bash
+sudo vim /etc/pam.d/yubico-sufficient
+```
+
+content of /etc/pam.d/yubico-sufficient
+
+```Bash
+auth sufficient pam_yubico.so mode=challenge-response debug debug_file=/var/log/pam_yubico.log
+```
+
+```Bash
+sudo vim /etc/pam.d/sudo
+```
+
+Add the line above the “@include common-auth” line. 
+```Bash
+@include yubico-sufficient
+```
+
+```Bash
+# 测试
+sudo echo test
+```
+
+### for login
+
+```Bash
+sudo vim /etc/pam.d/gdm-password
+```
+
+Add the line above the “@include common-auth” line.
+
+```Bash
+@include yubico-sufficient
+```
+
+### for for TTY
+
+```Bash
+sudo vim /etc/pam.d/login
+```
+
+Add the line above the “@include common-auth” line.
+
+```Bash
+@include yubico-sufficient
+```
+
+
