@@ -92,12 +92,10 @@ https://eonun.com/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/Hacker/proxychains.conf%E
 # install mitmproxy
 # macOS
 brew install mitmproxy
-# run mitmproxy
-./mitmproxy --host
 ```
 
-给系统安装根证书，默认情况下 mitmproxy 会自动生成一个根证书（mitmproxy-ca-cert.pem），
-这个根证书位于~/.mitmproxy下面。
+给系统安装根证书，默认情况下 mitmproxy 会自动生成一个根证书 `mitmproxy-ca-cert.pem`，
+这个根证书位于 `~/.mitmproxy` 目录
 
 ```Bash
 # 用 finder 打开目录
@@ -122,13 +120,16 @@ sudo security add-trusted-cert -d -r trustRoot -k /Library/Keychains/System.keyc
 运行 mitmproxy
 
 ```Bash
-# 默认监听本地的 8080 端口
+# run mitmproxy
+# 默认监听 *:8080
 mitmproxy
 ```
 
 测试一下
 
 ```Bash
+proxychains4 -f /Users/wiloon/.proxychains/proxychains.conf ./curl https://calebfenton.github.io/
+proxychains4 -f /Users/wiloon/.proxychains/proxychains.conf wget https://calebfenton.github.io/
 proxychains4 curl http://ifconfig.co/
 proxychains4 curl https://calebfenton.github.io/
 proxychains4 -f /path/to/proxychains.conf curl https://calebfenton.github.io/

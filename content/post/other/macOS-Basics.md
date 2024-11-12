@@ -11,6 +11,11 @@ tags:
 ## macOS Basic
 
 ```bash
+# uninstal
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/uninstall.sh)"
+# install
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
 brew install maven
 diskutil list
 ```
@@ -87,6 +92,9 @@ brew upgrade package0
 brew upgrade
 
 brew install --cask obsidian
+
+brew config
+brew doctor
 ```
 
 ### brew update install 慢
