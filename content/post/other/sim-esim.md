@@ -1,39 +1,56 @@
 ---
-title: IMSI, IMEI
+title: SIM, eSIM
 author: "-"
 date: 2015-08-05T08:47:25+00:00
-url: /?p=8062
+url: sim
 categories:
-  - Inbox
+  - Data
 tags:
   - reprint
+  - remix
 ---
+## SIM, eSIM
+
+## 香港手机流量
+
+在支付宝搜索 "境外上网", 打开境外上网小程序, 选择中国移动, 目的地选择 “中国香港”
+选择 "4G 本地" -- 使用香港本地 4G 网络, 能访问 Google
+下载 “无忧行” APP, 可以查看流量激活情况和剩余流量.
+选择套餐: 境外流量包 4G 本地, 5 天15G: 40RMB -- 2024-11-09
+
+## 泰国手机卡
+
+在支付宝 “境外上网” 里选择目的地 泰国, 选择套餐, 点击预订, 等待实体卡邮寄.
+
+Happy 卡 7天 15G: 40RMB -- 2024-11-09
+
+## Textr eSIM
+
+覆盖全球 131 个国家或地区, 支持 eSIM
+香港 10G/68.19RMB
+泰国 10G/121.69RMB
+-- 2024-11-09
+
 ## IMSI, IMEI
 
 http://cuisuqiang.iteye.com/blog/2067254
 
-
-IMSI与IMEI 概念
-  
-博客分类: 理论知识
-  
 IMSIIMEI网络码运营商MNC
-  
+
 IMSI是相对手机卡而言的
-  
+
 国际移动用户识别码 (IMSI: International Mobile Subscriber Identification Number) 
 
-
-IMSI共有15位，其结构如下
+IMSI 共有15位，其结构如下
   
 MCC+MNC+MSIN
-  
+
 MCC: Mobile Country Code，移动国家码，MCC的资源由国际电联 (ITU) 统一分配和管理，唯一识别移动用户所属的国家，共3位，中国为460;
-  
+
 MNC:Mobile Network Code，移动网络码，2~3位，中国移动系统使用00、02、07，中国联通GSM系统使用01、06，中国电信CDMA系统使用03、05，中国铁通系统使用20。
-  
+
 MSIN:Mobile Subscriber Identification Number, 移动用户识别号码,共有10位，其结构如下: 
-  
+
 EF+M0M1M2M3+ABCD
   
 其中的M0M1M2M3和MDN号码中的H0H1H2H3可存在对应关系，ABCD四位为自由分配。
