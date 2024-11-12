@@ -12,16 +12,48 @@ tags:
 
 ### 常用命令
 
-    supervisorctl status
-    supervisorctl stop service0
-    supervisorctl stop all
-    supervisorctl start all
-    supervisorctl restart all
+```Bash
+supervisorctl status
+supervisorctl stop service0
+supervisorctl stop all
+supervisorctl start all
+supervisorctl restart all
+```
 
 ### supervisor 配置文件
 
     /etc/supervisord.conf
 
+```Bash
+[program:program_0]
+#程序的启动目录
+directory = /home/user_0/projects/
+# 启动命令, 跟命令行启动的命令是一样的
+command = python foo.py
+# 在 supervisord 启动的时候也自动启动
+autostart = true
+# 启动 5 秒后没有异常退出, 就当作已经正常启动了, 这个选项是子进程启动多少秒之后，此时状态如果是running，则我们认为启  动成功了
+# number of secs prog must stay running (def. 10)
+# 进程持续运行多久才认为是启动成功
+startsecs = 5
+# 这个是当我们向子进程发送 stopsignal 信号后，到系统返回信息给 supervisord，所等待的最大时间。 超过这个时间，supervisord 会向该 子进程发送一个强制 kill的信号。 默认为10秒。。非必须设置
+stopwaitsecs=10               ; 
+autorestart = true ; 程序异常退出后自动重启
+  
+startretries = 3 ; 启动失败自动重试次数,默认是 3
+  
+user = leon ; 用哪个用户启动
+  
+redirect_stderr = true ; 把 stderr 重定向到 stdout,默认 false
+  
+stdout_logfile_maxbytes = 20MB ; stdout 日志文件大小,默认 50MB
+  
+stdout_logfile_backups = 20 ; stdout 日志文件备份数
+  
+; stdout 日志文件,需要注意当指定目录不存在时无法正常启动,所以需要手动创建目录 (supervisord 会自动创建日志文件)
+  
+stdout_logfile = /data/logs/usercenter_stdout.log
+```
 ### 使用 supervisor 管理进程
 
 Supervisor ([http://supervisord.org](http://supervisord.org)) 是一个用 Python 写的进程管理工具,可以很方便的用来启动、重启、关闭进程 (不仅仅是 Python 进程) 。除了对单个进程的控制,还可以同时启动、关闭多个进程,比如很不幸的服务器出问题导致所有应用程序都被杀死,此时可以用 supervisor 同时启动所有应用程序而不是一个一个地敲命令启动。
@@ -126,31 +158,7 @@ gunicorn -c gunicorn.py wsgi:app
   
 现在编写一份配置文件来管理这个进程 (需要注意: 用 supervisord 管理时,gunicorn 的 daemon 选项需要设置为 False) :
   
-[program:usercenter]
-  
-directory = /home/leon/projects/usercenter ; 程序的启动目录
-  
-command = gunicorn -c gunicorn.py wsgi:app ; 启动命令,可以看出与手动在命令行启动的命令是一样的
-  
-autostart = true ; 在 supervisord 启动的时候也自动启动
-  
-startsecs = 5 ; 启动 5 秒后没有异常退出,就当作已经正常启动了
-  
-autorestart = true ; 程序异常退出后自动重启
-  
-startretries = 3 ; 启动失败自动重试次数,默认是 3
-  
-user = leon ; 用哪个用户启动
-  
-redirect_stderr = true ; 把 stderr 重定向到 stdout,默认 false
-  
-stdout_logfile_maxbytes = 20MB ; stdout 日志文件大小,默认 50MB
-  
-stdout_logfile_backups = 20 ; stdout 日志文件备份数
-  
-; stdout 日志文件,需要注意当指定目录不存在时无法正常启动,所以需要手动创建目录 (supervisord 会自动创建日志文件)
-  
-stdout_logfile = /data/logs/usercenter_stdout.log
+
 
 ; 可以通过 environment 来添加需要的环境变量,一种常见的用法是修改 PYTHONPATH
   

@@ -49,10 +49,11 @@ apt list --installed
 apt-cache search keyword
 ```
 
-### list versions in cache
+
 
 ```Bash
-apt-cache madison  package_name_0
+# list versions in cache
+apt-cache madison package_name_0
 sudo apt-get autoremove
 sudo apt-get --purge remove
 sudo dpkg --remove --force-remove-reinstreq tspc

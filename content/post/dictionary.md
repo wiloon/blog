@@ -285,3 +285,23 @@ xterm 是一个使用 TypeScript 编写的前端终端组件。并在 Vscode等 
 
 Salt Stack 是一个配置管理和编排工具。它使用一个中心化的仓库来提供新的服务器和其它 IT 基础设施以及自动化重复的系统管理工作和代码部署任务。
 Salt Stack 的核心组件，是一个远程执行引擎，创建一个安全的、双向的以及高速的通信网络。当一个 master 运行的时候，一个启动的 minion 会创建加密哈希并且连接到 master。再使用公钥认证后，minion 可从 master 接收命令。Salt 也可以运行在一个无 master 的 minion 模式。
+
+## superset
+
+[https://sanyuesha.com/2017/11/14/superset/](https://sanyuesha.com/2017/11/14/superset/)
+
+Superset 是 Airbnb 开源的大数据可视化平台，其特性包括:
+
+backend 支持几乎所有主流的数据库
+
+支持复杂的权限控制和管理(OpenId, OAuth 等)，满足企业内部不同部门人员对数据的权限要求
+
+丰富的可视化展示，支持自定义创建 dashboard，可分享
+
+可扩展、细粒度的数据库权限控制，满足不同层级人员对数据库权限的要求
+
+数据的展示完全可控，可自定义展示字段、聚合数据、数据源等
+
+深度集成 Druid.io
+
+Superset 目前由 Apache 孵化，地址是 github.com/apache/incubator-superset

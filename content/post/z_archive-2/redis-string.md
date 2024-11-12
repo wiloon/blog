@@ -14,7 +14,7 @@ Redis 字符串数据类型的相关命令用于管理 redis 字符串值
 
 ### template
 
-```r
+```
 SET key value [EX seconds] [PX milliseconds] [NX|XX]
 
 EX、PX、NX、XX 是 redis 2.6.12 版本添加的可选参数

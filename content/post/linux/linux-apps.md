@@ -29,6 +29,7 @@ tags:
 - code, visual studio code, vscode
 - chromium, 开源版 chrome
 - base-devel
+- stress, 压力测试
 
 ## AUR
 

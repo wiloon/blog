@@ -87,9 +87,11 @@ docker image ls --digests
 # 删除 image
 docker image rm [image id]
 
-# 删除未使用的映像, REPOSITORY: <none>, tag: <none>, 
+# 删除未使用的映像, REPOSITORY: <none>, tag: <none>
+# 删除所有未被容器使用的悬空镜像（dangling images）
 docker image prune
-
+# 一般用在脚本里不需要确认删除 y/n
+docker image prune -f
 docker rmi f8ab12e03d53
 Error response from daemon: conflict: unable to delete f8ab12e03d53 (must be forced) - image is referenced in multiple repositories
 docker rmi 192.168.0.1/you/tom:1.0.8
@@ -269,7 +271,7 @@ docker rm container_id   # 删除容器
 # network
 docker network ls
 
-# start dokcer
+# start docker
 systemctl start docker
 docker pull centos
 docker image pull library/hello-world
@@ -338,7 +340,7 @@ docker-compose -f /path/to/docker-compose.yml up -d
 ## docker 代理,  proxy
 
 Container代理
-在容器运行阶段，如果需要代理上网，则需要配置~/.docker/config.json。 以下配置，只在Docker 17.07及以上版本生效。
+在容器运行阶段，如果需要代理上网，则需要配置 `~/.docker/config.json` 以下配置，只在D ocker 17.07及以上版本生效。
 
 ```json
 {

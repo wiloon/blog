@@ -39,7 +39,9 @@ The new installation will use `Netvark`.
 
 ### crun, runc
 
-runc 和 crun 是容器运行时，可以互换使用，因为二者都实现 OCI 运行时规范。与 runc 相比，crun 容器运行时有一些优点，因为它速度更快，且需要较少的内存。因此，crun 容器运行时是推荐使用的容器运行时。
+runc 和 crun 是容器运行时，可以互换使用，因为二者都实现 OCI 运行时规范。
+与 runc 相比，crun 容器运行时有一些优点，因为它速度更快，且需要较少的内存。
+因此，crun 容器运行时是推荐使用的容器运行时。
 
 runc 运行时与 Docker 共享大量低级代码，但不依赖于 Docker 平台的任何组件。
 
