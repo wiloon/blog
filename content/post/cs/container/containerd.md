@@ -57,3 +57,8 @@ VERSION=${VERSION##*/}
 mkdir -p $HOME/.docker/cli-plugins
 wget https://github.com/docker/buildx/releases/download/$VERSION/buildx-$VERSION.linux-amd64 -O $HOME/.docker/cli-plugins/docker-buildx
 ```
+
+https://www.zhangjiee.com/blog/2021/container-runtime.html
+https://www.zhangjiee.com/blog/2018/different-from-docker-and-vm.html
+https://www.zhangjiee.com/blog/2018/an-overall-view-on-docker-ecosystem-containers-moby-swarm-linuxkit-containerd-kubernete.html
+https://www.zhangjiee.com/blog/2021/kubernetes-vs-docker.html
