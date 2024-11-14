@@ -151,6 +151,9 @@ tar zxvf yubico-authenticator-latest-linux.tar.gz
 cd yubico-authenticator-7.1.1-linux
 ./desktop_integration.sh -i
 
+# install yubikey manager
+# visit this page, https://support.yubico.com/hc/en-us/articles/360016649039-Installing-Yubico-Software-on-Linux
+# download the app image: https://developers.yubico.com/yubikey-manager-qt/Releases/yubikey-manager-qt-latest-linux.AppImage
 # pcscd
 sudo apt install pcscd
 sudo  systemctl start  pcscd
@@ -160,6 +163,8 @@ systemctl is-enabled pcscd
 # yubikey-manager
 sudo add-apt-repository ppa:yubico/stable
 sudo udevadm --version
+
+# u2f
 sudo apt-get install libpam-u2f
 mkdir -p ~/.config/Yubico
 pamu2fcfg > ~/.config/Yubico/u2f_keys
@@ -179,9 +184,11 @@ https://support.yubico.com/hc/en-us/articles/360018695819-Ubuntu-Linux-20-Login-
 ```Bash
 sudo apt install libpam-yubico yubikey-manager
 ykman otp chalresp -g 2
-
+# otp: deals with the one time password functionality
+# chalresp: for the challenge-response feature
+# -g: generate a new challenge-response key
+# 2 targeting the second slot of yubikey
 ```
-
 
 ```Bash
 sudo vim /etc/pam.d/yubico-sufficient

@@ -64,7 +64,7 @@ Nginx 的缓冲配置
 
 ## http
 
-```bash
+```
 http {
     include       mime.types;
     default_type  application/octet-stream;

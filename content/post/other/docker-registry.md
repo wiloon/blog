@@ -107,9 +107,9 @@ server {
 ## 查看仓库镜像
 
 ```bash
-curl https://registry.wiloon.com/v2/_catalog
+curl https://registry.wiloon.com/v2/_catalog | jq .
 # 查询镜像 tag(版本)
-curl  https://registry.wiloon.com/v2/rssx-api/tags/list
+curl https://registry.wiloon.com/v2/rssx-api/tags/list
 ```
 
 ## 删除镜像与空间回收

@@ -34,7 +34,17 @@ docker run -d \
 -v nginx-www:/var/www \
 -v /etc/letsencrypt:/etc/letsencrypt \
 -v /etc/localtime:/etc/localtime:ro \
-nginx:1.27.0
+nginx:1.27.2
+
+docker run -d \
+--name nginx \
+--restart=always \
+-p 80:80 \
+-p 443:443 \
+-v nginx-config:/etc/nginx \
+-v nginx-www:/var/www \
+-v /etc/localtime:/etc/localtime:ro \
+nginx:1.27.2
 
 # podman
 podman run -d \

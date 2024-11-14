@@ -1,15 +1,131 @@
 ---
-title: SSL/HTTPS
+title: TLS, HTTPS
 author: "-"
 date: 2012-03-21T02:51:42+00:00
-url: /?p=2593
+url: tls
 categories:
   - Network
   - Security
 tags:
   - reprint
+  - remix
 ---
-## SSL/HTTPS
+## TLS, HTTPS
+
+## 创建自签名TLS/SSL证书和私钥
+
+https://www.ssldragon.com/zh/how-to/openssl/create-self-signed-certificate-openssl/
+
+```Bash
+# 生成私钥
+openssl genpkey -algorithm RSA -out private.key
+```
+
+---
+
+自签名证书里的域名不能用 .dev 结尾, .dev 是 Google 持有的顶级域名, 不能用在自签名证书里
+
+https://stackoverflow.com/questions/49503337/self-signed-dev-cert-untrusted-using-firefox-59-on-ubuntu
+
+https://blog.ideawand.com/2017/11/22/build-certificate-that-support-Subject-Alternative-Name-SAN/
+https://www.mikesay.com/2018/12/30/create-self-signed-ssl/
+创建 CA 证书用的配置文件 ca.cnf
+
+```
+```
+
+
+---
+
+
+
+https://www.mikesay.com/2018/12/30/create-self-signed-ssl/
+
+```Bash
+sudo openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout selfsigned-key.key -out selfsigned-certificate.crt
+```
+
+openssl: 基本命令行工具，用来创建和管理OpenSSL证书，私钥和其它文件。
+req: 子命令，主要是用来创建和处理PKCS#10格式的证书请求。它也能创建被用作根证书的自签名证书。
+-x509: 这个选项告诉openssl创建一个自签名证书而不是一个证书请求。
+-nodes: 这个选项告诉openssl不要加密私钥，否则当使用在Nginx上时，每次Nginx启动都要提示输入密码。
+-days 365: 设置证书的有效期为1年（365天）。
+-newkey rsa:2048: 这个选项告诉 openss l在生成证书的同时生成私钥。rsa:2048 说明创建一个 2048 比特长的 RSA 私钥。
+-keyout: 告诉 openssl 生成的私钥的名字和路径。
+-out: 告诉openssl生成的自签名证书和路径。
+
+### 客户端安装自签名证书
+
+```Bash
+# ubuntu
+# 将证书拷贝到目录“/usr/local/share/ca-certificates”
+sudo cp selfsigned-certificate.crt /usr/local/share/ca-certificates
+# 更新CA存储
+sudo update-ca-certificates
+
+# 删除sudo update-ca-certificates --fresh
+sudo rm /usr/local/share/ca-certificates/selfsigned-certificate.crt
+sudo update-ca-certificates --fresh
+```
+
+Subject Alternative Name（证书主体别名）
+　　SAN(Subject Alternative Name) 是 SSL 标准 x509 中定义的一个扩展。它允许一个证书支持多个不同的域名。通过使用SAN字段，可以在一个证书中指定多个DNS名称（域名）、IP地址或其他类型的标识符，这样证书就可以同时用于多个不同的服务或主机上。这种灵活性意味着企业不需要为每个域名单独购买和安装证书，从而降低了成本和复杂性。
+
+AN的由来
+　　在早期的互联网中，每个SSL/TLS证书通常只包含一个CN字段，用于标识单一的域名或IP地址。随着虚拟主机技术的发展和企业对于简化管理的需求增加，需要一种机制能够允许单个证书有效地代表多个域名或服务。例如，一个企业可能拥有多个子域名，希望用单一的证书来保护它们。
+
+为了解决这个问题，SAN扩展被引入到X.509证书标准中。最初在1999年的RFC 2459中提出，SAN提供了一种方法来指定额外的主题名称，从而使得一个证书能有效地代表多个实体。
+
+1.3 SAN的作用和重要性
+多域名保护：SAN使得一个证书可以保护多个域名和子域名，减少了管理的复杂性和成本。
+灵活性增强：企业和组织可以更灵活地管理和部署证书，根据需要快速调整和扩展保护范围。
+兼容性：随着技术的发展，现代浏览器和客户端软件都已经支持SAN。它们会优先检查SAN字段，如果找到匹配项，通常不会再回退到检查CN。
+1.4 如何使用SAN
+　　在申请SSL/TLS证书时，可以指定一个或多个SAN值。这些值通常是你希望证书保护的域名或IP地址。证书颁发机构（CA）在颁发证书时会验证这些信息的正确性，并将它们包含在证书的SAN字段中。
+
+2、如何在OpenSSL证书中添加SAN
+在OpenSSL中创建证书时添加SAN，需要在配置文件中添加一个subjectAltName扩展。这通常涉及到以下几个步骤：
+
+准备配置文件：在配置文件中指定subjectAltName扩展，并列出要包含的域名和IP地址。
+生成密钥：使用OpenSSL生成私钥。
+生成证书签发请求（CSR）：使用私钥和配置文件生成CSR，该CSR将包含SAN信息。
+签发证书：使用CA（证书颁发机构）或自签名方式签发证书，证书中将包含SAN信息。
+
+csr.conf
+
+```
+[ req ] 
+default_bits = 2048 
+prompt = no 
+default_md = sha256 
+req_extensions = v3_ext 
+distinguished_name = dn 
+   
+[ dn ] 
+C = CN
+ST = Liaoning
+L = SZ 
+O = Wise2c 
+OU = Wise2c 
+CN = zmc 
+   
+[ req_ext ] 
+subjectAltName = @alt_names 
+   
+[ alt_names ] 
+DNS.1 = *.zmcheng.com 
+DNS.2 = *.zmcheng.net 
+DNS.3 = *.zmc.com 
+DNS.4 = *.zmc.net 
+   
+[ v3_ext ] 
+basicConstraints=CA:FALSE 
+keyUsage=keyEncipherment,dataEncipherment 
+extendedKeyUsage=serverAuth,clientAuth 
+subjectAltName=@alt_names
+```
+
+---
 
 [http://lingfengjazz.popo.blog.163.com/blog/static/94709922008426102358851/](http://lingfengjazz.popo.blog.163.com/blog/static/94709922008426102358851/)
 
@@ -149,3 +265,9 @@ SNI通过让客户端发送虚拟域的名称作为TLS协商的ClientHello消息
 ## No subject alternative names present
 
 [https://medium.com/@sajithekanayaka/solved-java-security-cert-certificateexception-no-subject-alternative-names-present-eec1669faf0d](https://medium.com/@sajithekanayaka/solved-java-security-cert-certificateexception-no-subject-alternative-names-present-eec1669faf0d)
+
+## Chrome
+
+Chrome 浏览器内置了一个受信任的根证书颁发机构（CA）列表。 
+Chrome 不读取 linux 系统的 ca-certificates, 比如: /usr/local/share/ca-certificates
+想在 chrome 里访问 自签名证书的站点, 要把 自签名的 CA 证书加到 chrome里, settings> privacy and security> security> manage certificates> authorities> import> 选择自签名用的 ca.pem

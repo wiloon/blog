@@ -22,7 +22,7 @@ X.509 是常见通用的证书格式。所有的证书都符合为 Public Key In
 X.509 DER 编码 (ASCII) 的后缀是:  .DER .CER .CRT  
 X.509 PEM 编码 (Base64) 的后缀是: .PEM .CER .CRT  
 .cer/.crt是用于存放证书,它是2进制形式存放的,不含私钥。  
-.pem跟crt/cer的区别是它以 Ascii来表示。  
+.pem 跟 crt/cer 的区别是它以 Ascii 来表示。  
 
 编码格式
 同样的 X.509 证书, 可能有不同的编码格式, 目前有以下两种编码格式.

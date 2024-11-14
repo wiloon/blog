@@ -107,11 +107,11 @@ openssl rsa -in [foo.key] -aes256 -passout pass:xxxxxx -out out.key
 openssl rsa -in [file1.key] -out [file2.key]
 ```
 
-### 生成TLS证书
+### 生成 TLS 证书
 
 ```bash
-#服务器端的证书生成
-#生成服务器端的私钥
+# 服务器端的证书生成
+# 生成服务器端的私钥
 openssl genrsa -out certs/server.key 2048
 #生成服务器端证书
 openssl req -new -x509 -key certs/server.key -out certs/server.pem -days 3650

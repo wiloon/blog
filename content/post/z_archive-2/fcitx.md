@@ -120,7 +120,7 @@ ctrl+7
 
 ```Bash
 # fcitx5
-/home/ywang6/.local/share/fcitx5/table/wbx.user.dict
+/home/user_0/.local/share/fcitx5/table/wbx.user.dict
 
 # fcitx
 /home/wiloon/.config/fcitx/table/wbx.mb

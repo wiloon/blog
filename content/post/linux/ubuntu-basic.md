@@ -328,3 +328,7 @@ gsettings set org.gnome.desktop.background picture-uri ""
 gsettings set org.gnome.desktop.background primary-color '#000000'
 gsettings set org.gnome.desktop.background primary-color '#263238'
 ```
+
+## 桌面图标
+
+settings> appearance> show person folder: False

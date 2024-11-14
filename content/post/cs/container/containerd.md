@@ -24,6 +24,16 @@ sudo mv nerdctl /usr/bin/nerdctl
 sudo mkdir -p /opt/cni/bin/
 sudo tar -zxf cni-plugins-linux-amd64-v1.3.0.tgz -C /opt/cni/bin/
 
+# containerd config
+sudo mkdir /etc/containerd
+containerd config default | sudo tee /etc/containerd/config.toml
+sudo sed -i 's/SystemdCgroup \= false/SystemdCgroup \= true/g' /etc/containerd/config.toml
+sudo curl -L https://raw.githubusercontent.com/containerd/containerd/main/containerd.service -o /etc/systemd/system/containerd.service
+sudo systemctl daemon-reload
+sudo systemctl enable --now containerd
+sudo nerdctl pull hello-world
+sudo nerdctl run hello-world
+
 # buildkit
 # download latest version of buildkit from https://github.com/moby/buildkit/releases
 tar zxvf buildkit-v0.17.1.linux-amd64.tar.gz
@@ -35,15 +45,7 @@ sudo curl -L https://raw.githubusercontent.com/moby/buildkit/refs/heads/master/e
 sudo systemctl daemon-reload
 sudo systemctl enable --now buildkit
 
-# containerd config
-sudo mkdir /etc/containerd
-containerd config default | sudo tee /etc/containerd/config.toml
-sudo sed -i 's/SystemdCgroup \= false/SystemdCgroup \= true/g' /etc/containerd/config.toml
-sudo curl -L https://raw.githubusercontent.com/containerd/containerd/main/containerd.service -o /etc/systemd/system/containerd.service
-sudo systemctl daemon-reload
-sudo systemctl enable --now containerd
-sudo nerdctl pull hello-world
-sudo nerdctl run hello-world
+
 ```
 
 ## CNI（Container Network Interface）
@@ -62,3 +64,25 @@ https://www.zhangjiee.com/blog/2021/container-runtime.html
 https://www.zhangjiee.com/blog/2018/different-from-docker-and-vm.html
 https://www.zhangjiee.com/blog/2018/an-overall-view-on-docker-ecosystem-containers-moby-swarm-linuxkit-containerd-kubernete.html
 https://www.zhangjiee.com/blog/2021/kubernetes-vs-docker.html
+
+## containerd
+
+```Bash
+# check containerd version
+containerd --version
+```
+
+### containerd config
+
+sudo vim /etc/containerd/config.toml
+
+```Bash
+[plugins."io.containerd.grpc.v1.cri".registry]
+   config_path = "/etc/containerd/certs.d"
+```
+
+## nerdctl
+
+```Bash
+sudo nerdctl --insecure-registry push 127.0.0.1:5000/image_0:1.4
+```

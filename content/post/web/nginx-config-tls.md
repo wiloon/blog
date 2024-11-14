@@ -35,7 +35,7 @@ server {
 
 ### stream
 
-代理远程桌面3389的tcp连接
+代理远程桌面 3389 的 tcp 连接
 
     stream {
         upstream mstsc {
@@ -50,19 +50,21 @@ server {
 
 ### tls
 
-    server {
-        #ssl参数
-        listen              443 ssl;
-        # 多域名配置
-        server_name         foo.wiloon.com bar.wiloon.com;
-        #证书文件
-        ssl_certificate     example.com.crt;
-        #私钥文件
-        ssl_certificate_key example.com.key;
-        ssl_protocols       TLSv1 TLSv1.1 TLSv1.2;
-        ssl_ciphers         HIGH:!aNULL:!MD5;
-        #...
-    }
+```
+server {
+    #ssl参数
+    listen              443 ssl;
+    # 多域名配置
+    server_name         foo.wiloon.com bar.wiloon.com;
+    #证书文件
+    ssl_certificate     example.com.crt;
+    #私钥文件
+    ssl_certificate_key example.com.key;
+    ssl_protocols       TLSv1 TLSv1.1 TLSv1.2;
+    ssl_ciphers         HIGH:!aNULL:!MD5;
+    #...
+}
+```
 
 ### 静态网站
 

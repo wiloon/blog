@@ -8,7 +8,7 @@ categories:
 tags:
   - reprint
 ---
-## ca-certificates 导入CA证书
+## ca-certificates 导入 CA 证书
 
 ## archlinux ca-certificates update, 导入证书
 
@@ -77,7 +77,7 @@ $ yum install ca-certificates
 
 Make sure you have certificates in PEM format, with the .crt extension. For the purpose of this example the certificate file will be named Example Root.ca
   
-2.确认您要安装的证书文件是PEM格式，后缀名是.crt。例如Root.ca
+确认您要安装的证书文件是 PEM 格式，后缀名是 .crt。例如 Root.ca
 
 Create a subdirectory within the /usr/share/ca-certificates/ directory. For the purpose of this example the directory will be named example.com. Place the certificate authority certificate into this subdirectory.
   

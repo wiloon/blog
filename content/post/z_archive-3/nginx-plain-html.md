@@ -22,20 +22,11 @@ hello
 </html>
 ```
 
-```r
+```
 server{
     listen 80;
-    server_name localhost;
+    server_name hello.wiloon.dev;
     root /var/www;
     index hello.html;
-}
-```
-
-```r
-server{
-    listen 80;
-    server_name localhost;
-    root /var/www;
-    index index.htm;
 }
 ```
