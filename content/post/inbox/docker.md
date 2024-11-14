@@ -14,6 +14,8 @@ tags:
 ## commands
 
 ```Bash
+# Docker images by tag
+docker rmi $(docker images --filter=reference="tag_name_0" -q)
 # Docker查看容器完整的容器 ID 和镜像 ID
 docker ps -a --no-trunc
 
