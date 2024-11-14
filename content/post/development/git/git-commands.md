@@ -409,7 +409,7 @@ git merge branch0 -m "merge with no-ff" --no-ff
 ### fast-forward
 
 - fast forward 模式，快速合并，看不出做过合并。 不会显示 feature，只保留单条分支记录
-- --no-ff, no fast-forward 模式，普通合并，可以保存之前的分支历史。能够更好的查看 merge历史，以及branch 状态。会生成一个新的commit-id
+- --no-ff, no fast-forward 模式，普通合并，可以保存之前的分支历史。能够更好的查看 merge 历史，以及branch 状态。会生成一个新的commit-id
 
 默认情况下，Git执行 快进式合并, fast-forward merge，会直接将 Master 分支指向 Develop 分支。使用 --no-ff 参数后，会执行正常合并，在Master 分支上生成一个新节点。为了保证版本演进的清晰，我们希望采用这种做法。关于合并的更多解释，请参考 `Benjamin Sandofsky` 的《Understanding the Git Workflow》。
 
@@ -1071,19 +1071,18 @@ git pull --allow-unrelated-histories
 来源：简书
 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
 
-## Git 删除某个文件的历史记录
+## Git 删除某个文件的历史记录, 删除 commit 历史
 
 ```bash
 git filter-branch --force --index-filter 'git rm --cached --ignore-unmatch /content/post/archive-2/cross-compile.md' --prune-empty --tag-name-filter cat -- --all
 
-# 本地记录覆盖到 Github, (所有branch以及所有tags)
+# 本地记录覆盖到 Github, (所有 branch 以及所有 tags)
 git push origin --force --all
 git push origin --force --tags
 
 # 确保没有什么问题之后, 强制解除对本地存储库中的所有对象的引用和垃圾收集
 git for-each-ref --format='delete %(refname)' refs/original | git update-ref --stdin
 git reflog expire --expire=now --all
-
 ```
 
 ————————————————
@@ -1269,13 +1268,14 @@ git push -u origin master -f
 或者卸载监控软件
 或者修改注册表让 ip guard 不监控 git.exe
 
-## git orphan, 清除 git 所有历史提交记录方案
+## git orphan, 清除 git 所有历史提交记录
 
 1.创建新分支
 语法：git checkout --orphan <new_branch>
 例句：git checkout --orphan latest_branch
 
-使用 --orphan 选项，可创建1个"清洁"分支(无任何的提交历史，但是当前分支的内容一应俱全。但严格意义上说，这样创建的分支还不是一个真正的分支，因为HEAD指向的引用中没有commit值，只有在进行一次提交后，它才算得上真正的分支。
+使用 --orphan 选项，可创建1个"清洁"分支(无任何的提交历史，但是当前分支的内容一应俱全。
+但严格意义上说，这样创建的分支还不是一个真正的分支，因为HEAD指向的引用中没有commit值，只有在进行一次提交后，它才算得上真正的分支。
 
 作者：萌木盖
 链接：https://www.jianshu.com/p/e2b3d04542cb
