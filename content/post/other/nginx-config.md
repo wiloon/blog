@@ -577,11 +577,11 @@ client_body_buffer_size 8k;
 
 Nginx默认为这个directive设定的值是1m，可以在http, server 和 location模块中定义，例如:
 
+```
 server {
-
-client_max_body_size 2m;
-  
+    client_max_body_size 2m;
 }
+```
   
 client_body_in_file_only
   

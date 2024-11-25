@@ -332,3 +332,19 @@ gsettings set org.gnome.desktop.background primary-color '#263238'
 ## 桌面图标
 
 settings> appearance> show person folder: False
+
+## ubuntu 22.04 thinkpad x1 gen9
+
+https://github.com/pachadotdev/x1-carbon-9th-gen-ubuntu/blob/main/README.md
+
+```Bash
+sudo add-apt-repository ppa:pipewire-debian/pipewire-upstream
+sudo apt update
+sudo apt install pipewire
+sudo apt install libspa-0.2-bluetooth
+sudo apt install pipewire-audio-client-libraries
+systemctl --user daemon-reload
+systemctl --user --now disable pulseaudio.service pulseaudio.socket
+systemctl --user mask pulseaudio
+systemctl --user --now enable pipewire-media-session.service
+```
