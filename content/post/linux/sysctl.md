@@ -481,7 +481,7 @@ sysctl 中的 rmem 或者 wmem，如果是代码中指定的话对应着 SO_SNDB
 
 ## bridge-nf
 
-bridge-nf使得netfilter可以对Linux网桥上的IPv4/ARP/IPv6包过滤。比如，设置net.bridge.bridge-nf-call-iptables＝1后，二层的网桥在转发包时也会被iptables的FORWARD规则所过滤，这样有时会出现L3层的iptables rules去过滤L2的帧的问题 (见这里）。
+bridge-nf 使得 netfilter 可以对Linux网桥上的IPv4/ARP/IPv6包过滤。比如，设置net.bridge.bridge-nf-call-iptables＝1后，二层的网桥在转发包时也会被iptables的FORWARD规则所过滤，这样有时会出现L3层的iptables rules去过滤L2的帧的问题 (见这里）。
 
 常用的选项包括
 

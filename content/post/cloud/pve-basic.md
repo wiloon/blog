@@ -157,7 +157,7 @@ bridge ports: 支持同时添加多个网口，用空格分隔
 
 ## 备份恢复虚拟机
 
-### 备份
+### 备份虚拟机
 
 登录 pve 选择要备份的虚拟机
 磁盘需要勾选备份选项: tick the box, Hardware> Hard Disk> Edit> Advanced> Backup

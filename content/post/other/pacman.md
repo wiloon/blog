@@ -120,7 +120,7 @@ IgnorePkg = linux
 
 ## archlinux-keyring
 
-pacman-key gpg 数据库有关。这个数据库包含所有必要的PGP公钥。
+pacman-key gpg 数据库有关。这个数据库包含所有必要的 PGP 公钥。
 
 error: unzip: signature from `Jonas Witschel <diabonas@gmx.de> `is unknown trust
 :: File /var/cache/pacman/pkg/unzip-6.0-16-x86_64.pkg.tar.zst is corrupted (invalid or corrupted package (PGP signature)).

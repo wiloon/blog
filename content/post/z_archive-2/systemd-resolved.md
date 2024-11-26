@@ -17,7 +17,7 @@ resolvectl restart
 
 # disable dns on 53 port
 vim /etc/systemd/resolved.conf
-#switch off binding to port 53
+# switch off binding to port 53
 DNSStubListener=no
 
 # disable LLMNR

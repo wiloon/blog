@@ -27,7 +27,9 @@ search remotely save and install and enable
 
 config s3 storage:
 
-- Choose A Remote Service: S2 or compatible
+setting> community plugins> remotely save
+
+- Choose A Remote Service: S3 or compatible
 - endpoint: s3.ap-southeast-1.amazonaws.com
 - region: ap-southeast-1
 - ak: <check in bitwarden>
