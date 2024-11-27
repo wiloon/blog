@@ -18,3 +18,15 @@ install balenaEtcher
 ```Bash
 dd bs=1M conv=fdatasync if=./clonezilla-live-3.2.0-5-amd64.iso of=/dev/sdx
 ```
+
+```
+start clonezilla
+device-image
+nfs_server
+dhcp
+nfs4
+192.168.50.227
+/backup_xxxx/
+beginner
+save parts
+```

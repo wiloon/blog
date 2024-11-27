@@ -1,5 +1,5 @@
 ---
-title: fzf
+title: fzf command
 author: "-"
 date: 2019-07-08T05:47:58+00:00
 url: fzf
@@ -8,7 +8,7 @@ categories:
 tags:
   - reprint
 ---
-## fzf
+## fzf command
 
 ```Bash
 # 可以直接运行

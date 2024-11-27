@@ -10,10 +10,7 @@ tags:
 ---
 ## Desk Check
 
-  
-    敏捷实践之Desk Check
-  
-
+敏捷实践之 Desk Check
 
 http://insights.thoughtworkers.org/desk-check/embed/#?secret=5PpVVMPtJf
 
