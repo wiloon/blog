@@ -25,3 +25,4 @@ install -Dm644 /usr/share/doc/bspwm/examples/sxhkdrc ~/.config/sxhkd/sxhkdrc
 
 - win + enter: 打开 urxvt
 - win + space: dmenu_run
+- 
