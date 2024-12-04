@@ -28,6 +28,8 @@ npm run start
 
 # 更新 npm 到最新版本
 npm install -g npm@latest
+# 清除 npm 缓存
+npm cache clean --force
 ```
 
 ## 编译

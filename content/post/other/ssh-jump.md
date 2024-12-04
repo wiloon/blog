@@ -25,6 +25,7 @@ Host server0
 # %h: ~/.ssh/config 的语法, 代表主机名, 执行的时候会用 HostName 的值替换
 # %p: 端口
 # https://linux.die.net/man/5/ssh_config
+# -q 表示代理命令工作在静默模式下，而 -W 则表示 stdio 转发
 ```
 
 这里说的 ssh 跳板，是指我们通过一个中继服务器其访问另一台内网服务器。典型的应用场景是在 VPN 网络中，我们进入了 VPN 服务器之后再访问另一个网段的内网服务器。
@@ -40,15 +41,6 @@ ssh -J username@host1:port username@host2:port
 ssh -J username@host1:port,username@host2:port username@host3:port
 2 静态列表配置
 ssh 中 host 别名可以在 ~/.ssh/config 文件中进行设置。如按照如下设置
-
-1
-2
-3
-4
-5
-6
-7
-8
 
 ### First jumphost. Directly reachable
 
@@ -66,17 +58,6 @@ Host contabo
 ssh -J vps1 contabo
 另外，如果某个远端服务器总是需要经过一个固定的跳板服务器，我们可以通过配置文件固定下来。如：
 
-1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
 Host vps1
     HostName vps1.example.org
     IdentityFile ~/.ssh/vps1.pem
@@ -96,8 +77,6 @@ Host contabo
 ssh contabo
 这里说一个让 ssh 在空闲是保持连接的方法：在 ~/.ssh/config 文件中加入：
 
-1
-2
 Host *
     ServerAliveInterval 10
 

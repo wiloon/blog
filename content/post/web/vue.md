@@ -8,7 +8,7 @@ categories:
 tags:
   - reprint
 ---
-## "vue basic"
+## vue basic
 
 ## vue3
 
