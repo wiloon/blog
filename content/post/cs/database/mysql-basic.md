@@ -20,6 +20,25 @@ sudo pacman -S mariadb
 mariadb-install-db --user=mysql --basedir=/usr --datadir=/var/lib/mysql
 systemctl start mysql
 
+### 查看有哪些数据库
+  
+show databases;
+
+
+### 创建数据库, 数据库名 mydb
+create database db_0;
+#创建数据库指定数据库的字符集
+create database mydb character set utf8;
+
+
+
+### 创建新用户 user_0
+CREATE USER user_0 IDENTIFIED BY 'password_0';
+
+### 授权用户 user0 拥有数据库 database_0 的所有权限
+grant all privileges on newbee_mall.* to user_0@'%' identified by 'password_0';
+
+
 # 表, 增加字段
 ALTER TABLE table_name ADD field_name field_type;
 alter table tbl_user add email varchar(255) NOT NULL;
@@ -83,34 +102,7 @@ MySQL管理员用户名: root
 登录MySQL:
     MySQL -u root -p
 
-### 查看有哪些数据库
-  
-show databases;
 
-### 创建新用户 wiloon
-
-```sql
-CREATE USER wiloon IDENTIFIED BY '123456';
--- 密码要带引号
-```
-
-### 创建数据库, 数据库名 mydb
-
-```sql
-create database mydb;
-```
-
-创建数据库指定数据库的字符集
-
-```sql
-create database mydb character set utf8;
-```
-
-### 授权用户 user0 拥有数据库 database_0 的所有权限
-
-```sql
-grant all privileges on database_0.* to user0@'%' identified by 'password';
-```
 
 退出后用wiloon登录, 然后show databases; 应该可以看到enlab了.
 
@@ -143,12 +135,16 @@ docker run -d \
 -v marial-config:/etc/mysql/conf.d \
 -v marial-data:/var/lib/mysql \
 -e MARIADB_ROOT_PASSWORD=password0 \
-mariadb:10.11.2 \
+mariadb:11.6.2 \
 --character-set-server=utf8mb4 \
 --collation-server=utf8mb4_unicode_ci
 
-# client, -p 和密码之间不能有空格 --- 不懂是为什么 -_-!
-docker run -it --rm mariadb:10.11.2 mysql -h 127.0.0.1 -u root -ppassword0 -D database0
+# login
+docker exec -it mariadb bash
+mariadb -u root -ppassword0
+
+# client, -p 和密码 之间不能有空格 --- 不懂是为什么 -_-!
+docker run -it --rm mariadb:11.6.2 mysql -h 127.0.0.1 -u root -ppassword0 -D database0
 
 # 执行 sql 文件
 docker run -i --rm mariadb:10.11.2 mysql -h 10.0.0.42 -u root -ppassword0 newbee_mall  < newbee_mall_db_v2_schema.sql 

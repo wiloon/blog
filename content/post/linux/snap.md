@@ -42,3 +42,16 @@ $ sudo snap set system proxy.https="http://<proxy_addr>:<proxy_port>"
 ```
 
 https://blog.csdn.net/omaidb/article/details/120581033
+
+## 清理 Snap 缓存, 旧版本的 APP
+
+```Bash
+#!/bin/bash
+#Removes old revisions of snaps
+#CLOSE ALL SNAPS BEFORE RUNNING THIS
+set -eu
+LANG=en_US.UTF-8 snap list --all | awk '/disabled/{print $1, $3}' |
+while read snapname revision; do
+snap remove "$snapname" --revision="$revision"
+done
+```

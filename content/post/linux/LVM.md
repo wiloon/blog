@@ -13,22 +13,38 @@ tags:
 ---
 ## LVM
 
+## LVM 的基本概念
+
+通过 LVM 技术，可以屏蔽掉磁盘分区的底层差异，在逻辑上给文件系统提供了一个卷的概念，然后在这些卷上建立相应的文件系统。下面是 LVM 中主要涉及的一些概念。
+PM 物理存储设备 (Physical Media): 指系统的存储设备文件，比如 某一块硬盘, /dev/sda、/dev/sdb 等。 或者 设备映射器（Device Mapper）管理的加密分区. /dev/mapper/nvme0n1p8_crypt
+PV (物理卷 Physical Volume)： PV 可以看做是硬盘上的分区, 指硬盘分区或者从逻辑上看起来和硬盘分区类似的设备 (比如 RAID 设备)。
+PE (Physical Extent)：PV(物理卷)中可以分配的最小存储单元称为 PE，PE 的大小是可以指定的。
+
+VG (卷组, Volume Group)： 卷组: 物理卷的组合. 类似于非 LVM 系统中的**物理硬盘**，一个 LVM 卷组由一个或者多个 PV(物理卷) 组成。 
+                         卷组是 LVM 的中间层，VG 将多个物理卷（Physical Volumes, PV）组合在一起，
+                         以便在其上创建逻辑卷（Logical Volumes, LV）。
+
+LV (逻辑卷 Logical Volume)：类似于非 LVM 系统上的**硬盘分区**，LV 建立在 VG 上，可以在 LV 上建立文件系统。
+LE (Logical Extent)：LV(逻辑卷)中可以分配的最小存储单元称为 LE，在同一个卷组中，LE 的大小和 PE 的大小是一样的，并且一一对应。
+可以这么理解，LVM 是把硬盘的分区分成了更小的单位(PE)，再用这些单元拼成更大的看上去像分区的东西(PV)，进而用 PV 拼成看上去像硬盘的东西(VG)，最后在这个新的硬盘上创建分区(LV)。文件系统则建立在 LV 之上，这样就在物理硬盘和文件系统中间添加了一层抽象(LVM)。下图大致描述了这些概念之间的关系：
+
+
 ```Bash
-# 扫描系统中连接的所有硬盘，列出找到的物理卷列表。使用pvscan命令的-n选项可以显示硬盘中的不属于任何卷组的物理卷，这些物理卷是未被使用的。
+# 扫描系统中连接的所有硬盘，列出找到的物理卷列表。使用 pvscan 命令的 -n 选项可以显示硬盘中的不属于任何卷组的物理卷，这些物理卷是未被使用的。
 # -d：调试模式；
 # -e：仅显示属于输出卷组的物理卷；
 # -n：仅显示不属于任何卷组的物理卷；
 # -s：短格式输出；
 # -u：显示UUID。
 sudo pvscan
-# 输出格式化的物理卷信息报表。使用pvs命令仅能得到物理卷的概要信息，如果要得到更加详细的信息可以使用pvdisplay命令。
+# 输出格式化的物理卷信息报表。使用 pvs 命令仅能得到物理卷的概要信息，如果要得到更加详细的信息可以使用 pvdisplay 命令。
 # --noheadings：不输出标题头；
 # --nosuffix：不输出空间大小的单位。
 sudo pvs
-# 显示物理卷的属性。pvdisplay命令显示的物理卷信息包括：物理卷名称、所属的卷组、物理卷大小、PE大小、总PE数、可用PE数、已分配的PE数和UUID。
+# 显示物理卷的属性。pvdisplay 命令显示的物理卷信息包括：物理卷名称、所属的卷组、物理卷大小、PE 大小、总 PE 数、可用 PE 数、已分配的 PE 数和 UUID。
 sudo pvdisplay
 
-# 查找系统中存在的LVM卷组，并显示找到的卷组列表。vgscan 命令仅显示找到的卷组的名称和 LVM 元数据类型，
+# 查找系统中存在的 LVM 卷组，并显示找到的卷组列表。vgscan 命令仅显示找到的卷组的名称和 LVM 元数据类型，
 # 要得到卷组的详细信息需要使用 vgdisplay 命令。
 sudo vgscan
 
@@ -49,10 +65,10 @@ vgextend vg_data /dev/sde1 /dev/sdf1 /dev/sdg1
 
 ## pvcreate
 
-pvcreate 命令 用于将物理硬盘分区初始化为物理卷，以便LVM使用。
+LVM 逻辑卷管理器技术由物理卷、卷组和逻辑卷组成, 其中 pvcreate 命令的工作属于第一个环节 - 创建物理卷设备。
 
-pvcreate 命令的功能是用于创建物理卷 (Physical Volume) 设备。LVM 逻辑卷管理器技术由物理卷、卷组和逻辑卷组成，
-其中 pvcreate 命令的工作属于第一个环节 - 创建物理卷设备。
+pvcreate 命令 用于将物理硬盘分区初始化为物理卷 (Physical Volume) ，供 LVM 使用。
+使用这个命令之前，请确保在该设备上的数据已经备份，因为 pvcreate 会覆盖设备上的分区表信息，从而导致数据丢失。
 
 -f：强制创建物理卷，不需要用户确认；
 -u：指定设备的UUID；
@@ -65,11 +81,12 @@ pvcreate /dev/mapper/nvme0n1p8_crypt
 
 ## vgcreate
 
-指令用于创建LVM卷组 (Volume Group)。
+指令用于创建 LVM 卷组 (Volume Group)。
 
 ```Bash
 # the name of new volume group: vgubuntu
 vgcreate vgubuntu /dev/mapper/nvme0n1p8_crypt
+# /dev/mapper/nvme0n1p8_crypt 是将被包含在卷组 vgubuntu 中的物理卷。这通常是通过之前的 pvcreate 命令初始化的设备。
 ```
 
 https://www.cnblogs.com/sparkdev/p/10130934.html
@@ -88,23 +105,10 @@ LVM 的优点如下：
 可以很方便地导出整个卷组，并导入到另外一台机器上。
 LVM 也有一些缺点：
 
-在从卷组中移除一个磁盘的时候必须使用 reducevg 命令(这个命令要求root权限，并且不允许在快照卷组中使用)。
+在从卷组中移除一个磁盘的时候必须使用 reducevg 命令(这个命令要求 root 权限，并且不允许在快照卷组中使用)。
 当卷组中的一个磁盘损坏时，整个卷组都会受影响。
 因为增加了一个逻辑层，存储的性能会受影响。
 LVM 的优点对服务器的管理非常有用，但对于桌面系统的帮助则没有那么显著，所以需要我们根据使用的场景来决定是否应用 LVM。
-
-
-LVM 中的基本概念
-
-通过 LVM 技术，可以屏蔽掉磁盘分区的底层差异，在逻辑上给文件系统提供了一个卷的概念，然后在这些卷上建立相应的文件系统。下面是 LVM 中主要涉及的一些概念。
-PM 物理存储设备(Physical Media)：指系统的存储设备文件，比如 /dev/sda、/dev/sdb 等。 
-PV (物理卷 Physical Volume)： PV 可以看做是硬盘上的分区, 指硬盘分区或者从逻辑上看起来和硬盘分区类似的设备(比如 RAID 设备)。
-PE (Physical Extent)：PV(物理卷)中可以分配的最小存储单元称为 PE，PE 的大小是可以指定的。
-
-VG(卷组 Volume Group)： 类似于非 LVM 系统中的**物理硬盘**，一个 LVM 卷组由一个或者多个 PV(物理卷)组成。 卷组: 物理卷的组合
-LV(逻辑卷 Logical Volume)：类似于非 LVM 系统上的**硬盘分区**，LV 建立在 VG 上，可以在 LV 上建立文件系统。
-LE(Logical Extent)：LV(逻辑卷)中可以分配的最小存储单元称为 LE，在同一个卷组中，LE 的大小和 PE 的大小是一样的，并且一一对应。
-可以这么理解，LVM 是把硬盘的分区分成了更小的单位(PE)，再用这些单元拼成更大的看上去像分区的东西(PV)，进而用 PV 拼成看上去像硬盘的东西(VG)，最后在这个新的硬盘上创建分区(LV)。文件系统则建立在 LV 之上，这样就在物理硬盘和文件系统中间添加了一层抽象(LVM)。下图大致描述了这些概念之间的关系：
 
 ## commands
 
@@ -129,6 +133,8 @@ sudo vgs -a
 LVM 系统中的分区
 
 ```Bash
+# -L 16G 指定逻辑卷的大小为 16 GB。
+# vgubuntu 是逻辑卷所基于的卷组名称。该卷组应该已经通过 vgcreate 命令创建并包含一个或多个物理卷。
 lvcreate --name swap_1 -L 16G vgubuntu
 lvcreate --name root -L 67g vgubuntu
 ```

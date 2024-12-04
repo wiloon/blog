@@ -29,6 +29,7 @@ Host foo
     Hostname remote.server.com
     IdentityFile ~/.ssh/id_rsa.github
     IdentitiesOnly yes
+    port 22
 ```
 
 - host 这一项 ssh config 的别名, 在命令行里可以直接 `ssh foo`
