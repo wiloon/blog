@@ -79,6 +79,12 @@ Warning
 When using RabbitMQ as a message broker when specifying a countdown over 15 minutes, you may encounter the problem that the worker terminates with an PreconditionFailed error will be raised:
 
 amqp.exceptions.PreconditionFailed: (0, 0): (406) PRECONDITION_FAILED - consumer ack timed out on channel
-In RabbitMQ since version 3.8.15 the default value for consumer_timeout is 15 minutes. Since version 3.8.17 it was increased to 30 minutes. If a consumer does not ack its delivery for more than the timeout value, its channel will be closed with a PRECONDITION_FAILED channel exception. See Delivery Acknowledgement Timeout for more information.
+In RabbitMQ since version 3.8.15 the default value for consumer_timeout is 15 minutes. 
+Since version 3.8.17 it was increased to 30 minutes. 
+If a consumer does not ack its delivery for more than the timeout value, 
+its channel will be closed with a PRECONDITION_FAILED channel exception. 
+See Delivery Acknowledgement Timeout for more information.
 
-To solve the problem, in RabbitMQ configuration file rabbitmq.conf you should specify the consumer_timeout parameter greater than or equal to your countdown value. For example, you can specify a very large value of consumer_timeout = 31622400000, which is equal to 1 year in milliseconds, to avoid problems in the future.
+To solve the problem, in RabbitMQ configuration file rabbitmq.conf you should specify the consumer_timeout parameter 
+greater than or equal to your countdown value. For example, you can specify a very large value of 
+consumer_timeout = 31622400000, which is equal to 1 year in milliseconds, to avoid problems in the future.
