@@ -14,11 +14,10 @@ tags:
 
 # & 后台运行, 但是使用父进程的 stdout 和 stderr
 ./command0 &
-# nohup 的意思是 no hup, 忽略所有发送给子命令的 SIGHUP 信号,  shell关闭时 sigup 不会被发到子进程.
+# nohup 的意思是 no hup, 忽略所有发送给子命令的 SIGHUP 信号,  shell 关闭时 sigup 不会被发到子进程.
 nohup ./command0 &
 # 使用 nohup 之后 会看到 nohup: appending output to "nohup.out",  command0 的 stdout 和 stderr 都 被重定向到 nohup.out
 nohup ./command0 > /dev/null 2>&1 &
-
 ```
 
 >https://www.jianshu.com/p/747e0d5021a2
