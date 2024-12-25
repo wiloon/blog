@@ -65,7 +65,7 @@ origin 是远程仓库的默认别名, 查看配置了几个远程仓库和别�
 git fetch 是更新(update) 在本地电脑上的远程跟踪分支（如origin/master分支，注意远程跟踪分支是保存在本地，
 一般在.git\refs\remotes\origin目录下），并更新(update) .git/FETCH_HEAD 文件。并不会和本地分支 merge，即不会更新本地分支。
 
-git fetch 命令用来拉取远程仓库的数据 (objects and refs).  
+git fetch 命令用来拉取远程仓库的数据 (objects and refs).
 默认情况下，git fetch 取回**所有**分支 (branch) 的更新。如果只想取回特定分支的更新，可以指定分支名。
 
 更新 (update) .git/FETCH_HEAD 文件
