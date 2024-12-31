@@ -483,3 +483,25 @@ wg showconf wg0 > /etc/wireguard/wg0.conf
 wg-quick up wg0
 wg-quick down wg0
 ```
+
+## wg-quick
+
+/etc/wireguard/wg0.conf
+
+```
+[Interface]
+PrivateKey = <private_key_0_client_private_key>
+ListenPort = 51000
+Address = 192.168.53.14/32 
+
+[Peer]
+PublicKey = <public_key_0_server_public_key>
+Endpoint = foo.bar.com:51900 
+AllowedIPs = 192.168.50.0/24,192.168.53.0/24
+```
+```Bash
+sudo vim /etc/wireguard/wg0.conf
+sudo wg-quick up wg0
+sudo wg-quick down wg0
+
+```
