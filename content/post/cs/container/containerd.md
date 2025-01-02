@@ -11,6 +11,15 @@ tags:
 ---
 ## containerd
 
+## almalinux install containerd
+
+```Bash
+# cni plugin
+mkdir -p /opt/cni/bin
+tar Cxzvf /opt/cni/bin cni-plugins-linux-amd64-v1.1.1.tgz
+```
+
+
 https://gist.github.com/Faheetah/4baf1e413691bc4e7784fad16d6275a9
 https://www.techrepublic.com/article/install-containerd-ubuntu/
 

@@ -12,7 +12,15 @@ tags:
 
 ## AlmaLinux
 
-AlmaLinux 是CloudLinux公司搞得RHEL下游发行版
+AlmaLinux 是 CloudLinux 公司搞得 RHEL 下游发行版
+
+```Bash
+sudo dnf --refresh update
+sudo dnf upgrade
+
+# The containerd.io package contains runc too, but does not contain CNI plugins.
+sudo dnf install containerd.io
+```
 
 ---
 

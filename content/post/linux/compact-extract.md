@@ -260,6 +260,8 @@ GZIP=-9 tar cvzf file.tar.gz /path/to/directory
 
 ```bash
 tar -zcvf /data/tmp/foo.tar.gz /data/server/source
+# 解压到指定目录
+tar Cxzvf /opt/cni/bin cni-plugins-linux-amd64-v1.6.1.tgz
 ```
 
 ### tar.gz 解压
