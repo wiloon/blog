@@ -8,7 +8,7 @@ categories:
 tags:
   - reprint
 ---
-## 两个 iphone 同步数据
+## 两个 iphone 同步数据, new iphone, sync
 
 1. 旧手机关掉 vpn
 2. 旧手机备份和删除照片
@@ -23,5 +23,6 @@ tags:
 
 - duo mobile, 新手机 app 激活之后, 旧手机的 app 就不能用了
 - webex 重新登录
-- bitwarden, 新手机上重新 输入密码
-- ultra mobile eSIM
+- bitwarden, 新手机上重新输入密码
+- ultra mobile eSIM, wifi calling
+- hsbc 
