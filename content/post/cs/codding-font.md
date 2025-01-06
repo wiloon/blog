@@ -35,7 +35,7 @@ Source Code Pro 是 Adobe 公司号称最佳的编程字体。而且还是开源
 
 [https://www.archlinux.org/packages/extra/any/adobe-source-code-pro-fonts/](https://www.archlinux.org/packages/extra/any/adobe-source-code-pro-fonts/)
 
-### jetbrain字体
+### jetbrain 字体
 
 JetBrain Mono
 
