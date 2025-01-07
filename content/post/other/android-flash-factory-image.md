@@ -12,6 +12,8 @@ tags:
 
 ### download factory image from
 
+https://developers.google.com/android/nexus/images
+
 [https://developer.android.com/preview/get](https://developer.android.com/preview/get)
   
 [https://developers.google.com/android/images](https://developers.google.com/android/images)

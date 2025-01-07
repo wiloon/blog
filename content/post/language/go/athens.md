@@ -13,6 +13,18 @@ tags:
 
 Athens: Go Packages 服务器, 私服, go package 私有仓库, 其它可选方案 Nexus.
 
+```Bash
+docker volume create athens-data
+
+docker run -d \
+--name athens \
+-p 4000:3000 \
+-v athens-data:/var/lib/athens \
+-e ATHENS_DISK_STORAGE_ROOT=/var/lib/athens \
+-e ATHENS_STORAGE_TYPE=disk \
+gomods/athens:v0.15.4
+```
+
 ```bash
 podman volume create athens-data
 
@@ -28,7 +40,7 @@ podman run -d \
 -e ATHENS_DISK_STORAGE_ROOT=/var/lib/athens \
 -e ATHENS_STORAGE_TYPE=disk \
 -e ATHENS_DOWNLOAD_MODE=file:/var/lib/athens/download-mode \
-gomods/athens:latest
+gomods/athens:v0.15.4
 ```
 
 ```bash
