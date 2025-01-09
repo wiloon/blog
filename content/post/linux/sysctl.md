@@ -588,3 +588,17 @@ list instead of allocating more.
 
 >[https://sysctl-explorer.net/](https://sysctl-explorer.net/)
 >[https://www.infoq.cn/article/sFjkj1C5bz2kOXSxYbHO?utm_source=rss&utm_medium=article](https://www.infoq.cn/article/sFjkj1C5bz2kOXSxYbHO?utm_source=rss&utm_medium=article)
+
+
+### net.ipv4.tcp_fastopen
+
+net.ipv4.tcp_fastopen 是 Linux 内核中的一个配置参数，它用于控制 TCP Fast Open 功能。
+
+具体地，net.ipv4.tcp_fastopen 的值可以是以下几种：
+
+0：禁用 TCP Fast Open 功能。
+1：在客户端启用 TCP Fast Open 功能。
+2：在服务器端启用 TCP Fast Open 功能。
+3：在客户端和服务器端都启用 TCP Fast Open 功能。
+
+https://yngty.github.io/2024/03/21/network/TCP-TFO%E5%BF%AB%E9%80%9F%E6%89%93%E5%BC%80/

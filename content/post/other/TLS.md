@@ -21,8 +21,6 @@ https://www.ssldragon.com/zh/how-to/openssl/create-self-signed-certificate-opens
 openssl genpkey -algorithm RSA -out private.key
 ```
 
----
-
 自签名证书里的域名不能用 .dev 结尾, .dev 是 Google 持有的顶级域名, 不能用在自签名证书里
 
 https://stackoverflow.com/questions/49503337/self-signed-dev-cert-untrusted-using-firefox-59-on-ubuntu
@@ -30,14 +28,6 @@ https://stackoverflow.com/questions/49503337/self-signed-dev-cert-untrusted-usin
 https://blog.ideawand.com/2017/11/22/build-certificate-that-support-Subject-Alternative-Name-SAN/
 https://www.mikesay.com/2018/12/30/create-self-signed-ssl/
 创建 CA 证书用的配置文件 ca.cnf
-
-```
-```
-
-
----
-
-
 
 https://www.mikesay.com/2018/12/30/create-self-signed-ssl/
 
@@ -68,26 +58,33 @@ sudo rm /usr/local/share/ca-certificates/selfsigned-certificate.crt
 sudo update-ca-certificates --fresh
 ```
 
-Subject Alternative Name（证书主体别名）
-　　SAN(Subject Alternative Name) 是 SSL 标准 x509 中定义的一个扩展。它允许一个证书支持多个不同的域名。通过使用SAN字段，可以在一个证书中指定多个DNS名称（域名）、IP地址或其他类型的标识符，这样证书就可以同时用于多个不同的服务或主机上。这种灵活性意味着企业不需要为每个域名单独购买和安装证书，从而降低了成本和复杂性。
+## SAN
 
-AN的由来
-　　在早期的互联网中，每个SSL/TLS证书通常只包含一个CN字段，用于标识单一的域名或IP地址。随着虚拟主机技术的发展和企业对于简化管理的需求增加，需要一种机制能够允许单个证书有效地代表多个域名或服务。例如，一个企业可能拥有多个子域名，希望用单一的证书来保护它们。
+SAN, Subject Alternative Name（证书主体别名）
+是 SSL 标准 x509 中定义的一个扩展。它允许一个证书支持多个不同的域名。通过使用 SAN 字段，可以在一个证书中指定多个 DNS 名称（域名）、
+IP 地址或其他类型的标识符，这样证书就可以同时用于多个不同的服务或主机上。这种灵活性意味着企业不需要为每个域名单独购买和安装证书，
+从而降低了成本和复杂性。
 
-为了解决这个问题，SAN扩展被引入到X.509证书标准中。最初在1999年的RFC 2459中提出，SAN提供了一种方法来指定额外的主题名称，从而使得一个证书能有效地代表多个实体。
+SAN 的由来, 在早期的互联网中，每个 TLS 证书通常只包含一个 CN 字段，用于标识单一的域名或 IP 地址。
+随着虚拟主机技术的发展和企业对于简化管理的需求增加，需要一种机制能够允许单个证书有效的代表多个域名或服务。
+例如，一个企业可能拥有多个子域名，希望用单一的证书来保护它们。
 
-1.3 SAN的作用和重要性
-多域名保护：SAN使得一个证书可以保护多个域名和子域名，减少了管理的复杂性和成本。
+为了解决这个问题，SAN 扩展被引入到 X.509 证书标准中。最初在 1999 年的 RFC 2459 中提出，SAN 提供了一种方法来指定额外的主题名称，
+从而使得一个证书能有效地代表多个实体。
+
+SAN 的作用和重要性
+多域名保护：SAN 使得一个证书可以保护多个域名或子域名，减少了管理的复杂性和成本。
 灵活性增强：企业和组织可以更灵活地管理和部署证书，根据需要快速调整和扩展保护范围。
-兼容性：随着技术的发展，现代浏览器和客户端软件都已经支持SAN。它们会优先检查SAN字段，如果找到匹配项，通常不会再回退到检查CN。
-1.4 如何使用SAN
-　　在申请SSL/TLS证书时，可以指定一个或多个SAN值。这些值通常是你希望证书保护的域名或IP地址。证书颁发机构（CA）在颁发证书时会验证这些信息的正确性，并将它们包含在证书的SAN字段中。
+兼容性：随着技术的发展，现代浏览器和客户端软件都已经支持 SAN。它们会优先检查 SAN 字段，如果找到匹配项，通常不会再回退到检查 CN。
 
-2、如何在OpenSSL证书中添加SAN
-在OpenSSL中创建证书时添加SAN，需要在配置文件中添加一个subjectAltName扩展。这通常涉及到以下几个步骤：
+如何使用 SAN, 在申请 TLS 证书时，可以指定一个或多个 SAN 值。这些值通常是你希望证书保护的域名或 IP 地址。
+证书颁发机构（CA）在颁发证书时会验证这些信息的正确性，并将它们包含在证书的 SAN 字段中。
 
-准备配置文件：在配置文件中指定subjectAltName扩展，并列出要包含的域名和IP地址。
-生成密钥：使用OpenSSL生成私钥。
+2、如何在 OpenSSL 证书中添加 SAN
+在 OpenSSL 中创建证书时添加 SAN，需要在配置文件中添加一个 subjectAltName 扩展。这通常涉及到以下几个步骤：
+
+准备配置文件：在配置文件中指定 subjectAltName 扩展，并列出要包含的域名和 IP 地址。
+生成密钥：使用 OpenSSL 生成私钥。
 生成证书签发请求（CSR）：使用私钥和配置文件生成CSR，该CSR将包含SAN信息。
 签发证书：使用CA（证书颁发机构）或自签名方式签发证书，证书中将包含SAN信息。
 
@@ -251,13 +248,15 @@ TLS 记录层从高层接收任意大小无空块的连续数据。密钥计算:
 
 ## SNI
 
-什么是SNI
-
-Server Name Indication (SNI) 是TLS协议（以前称为SSL协议）的扩展，该协议在HTTPS中使用。它包含在TLS/SSL握手流程中，以确保客户端设备能够看到他们尝试访问的网站的正确SSL证书。该扩展使得可以在TLS握手期间指定网站的主机名或域名 ，而不是在握手之后打开HTTP连接时指定。
+Server Name Indication (SNI) 是 TLS 协议（以前称为 SSL 协议）的扩展，该协议在 HTTPS 中使用。它包含在 TLS 握手流程中，
+以确保客户端设备能够看到他们尝试访问的网站的正确 TLS 证书。该扩展使得可以在 TLS 握手期间指定网站的主机名或域名,
+而不是在握手之后打开 HTTP 连接时指定。
 
 SNI的技术原理
 
-SNI通过让客户端发送虚拟域的名称作为TLS协商的ClientHello消息的一部分来解决此问题。这使服务器可以及早选择正确的虚拟域，并向浏览器提供包含正确名称的证书。
+SNI通过让客户端发送虚拟域的名称作为 TLS 协商的 ClientHello 消息的一部分来解决此问题。这使服务器可以及早选择正确的虚拟域，
+并向浏览器提供包含正确名称的证书。
+
 ————————————————
 版权声明：本文为CSDN博主「程序猿编码」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
 原文链接：[https://blog.csdn.net/chen1415886044/article/details/116330304](https://blog.csdn.net/chen1415886044/article/details/116330304)
