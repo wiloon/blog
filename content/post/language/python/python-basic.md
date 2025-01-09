@@ -1611,6 +1611,8 @@ print(str1_after)
 https://blog.csdn.net/wuShiJingZuo/article/details/136631668
 
 ```Bash
+# -U Upgrade all specified packages
+pip install -U pytest
 # 在项目根目录执行
 python -m pytest
 
@@ -1622,6 +1624,19 @@ python -m pytest -s -k 'test_func_0'
 python -m pytest -s -k 'test_func_0 or test_func_1'
 
 py.test path/to/test.py
+```
+
+### pytest windows
+
+```Bash
+# python 3.6 虚拟环境
+C:\workspace\python-env-36\Scripts\activate.bat
+# 安装 pytest
+pip install -U pytest
+# cd c:\path\to\project\root\dir\
+# 配置环境变量
+# set foo=bar
+python -m pytest -s -k test_
 ```
 
 ## errors
