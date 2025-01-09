@@ -192,6 +192,8 @@ docker build -f /path/to/Dockerfile .
 docker run [OPTIONS] IMAGE [COMMAND] [ARG...]
 
 ```bash
+# 给容器设置内核参数
+docker run -d -p 9000:9000 --name name_0 --sysctl 'net.ipv4.tcp_fastopen=3' -v /etc/foo:/etc/foo foo:24.12.28
 docker run -it --rm ubuntu bash
 docker run -d id0 sleep 6000
 
@@ -269,7 +271,8 @@ sudo docker-compose up
 docker ps                # 列出容器
 docker stop container_id # 停止容器
 docker rm container_id   # 删除容器
-
+# force stop and remove
+docker rm -f CONTAINER_ID
 # network
 docker network ls
 

@@ -47,7 +47,7 @@ socat TCP-LISTEN:3389,fork TCP:192.168.55.2:3389
 ### 建立 TCP 连接
 
 ```bash
-    socat - tcp:192.168.1.18:80
+socat - tcp:192.168.1.18:80
 ```
 
 ### 建立连接并发送数据
