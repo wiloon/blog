@@ -18,3 +18,19 @@ https://sw.kovidgoyal.net/kitty/
 ## 快捷键
 
 https://www.escapelife.site/posts/8e342b57.html
+
+- ctrl+shift+f2, 打开配置文件
+- ctrl+shift+f5, reload config
+- ctrl+shift+f6, display current config
+
+## ubuntu install
+
+```Bash
+sudo apt update
+sudo apt install kitty -y
+kitty
+```
+
+## 配置文件
+
+~/.config/kitty/kitty.conf
