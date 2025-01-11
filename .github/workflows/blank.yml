@@ -38,10 +38,10 @@ jobs:
           REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
           REMOTE_PORT: 27623
           REMOTE_USER: "blog"
-          TARGET: "/home/blog/tmp/"
+          #TARGET: "/home/blog/tmp/"
+          TARGET: "/var/lib/nerdctl/1935db59/volumes/default/nginx-www/_data/"
           EXCLUDE: "/node_modules/"
           SCRIPT_BEFORE: |
             whoami
             pwd
             ls -al
-          #TARGET: "/var/lib/nerdctl/1935db59/volumes/default/nginx-www/_data/"
