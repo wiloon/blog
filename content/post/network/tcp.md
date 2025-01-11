@@ -240,3 +240,22 @@ TTL与MSL是有关系的但不是简单的相等的关系，MSL要大于等于TT
 ————————————————
 版权声明：本文为CSDN博主「xiaofei0859」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
 原文链接：[https://blog.csdn.net/xiaofei0859/article/details/6044694](https://blog.csdn.net/xiaofei0859/article/details/6044694)
+
+## MPTCP
+
+MPTCP是一个全新的古老协议，从效果上看，它对标准TCP的扩展主要体现在两方面：
+
+多路径切换：应用程序无感知的前提下在多条链路之间进行切换。
+负载均衡：使用多条路径同时传输，提高链路带宽利用率。
+似乎人们对多路径切换更感兴趣，几乎所有MPTCP的资料上都会介绍MPTCP在Wi-Fi和3G之间的透明切换能力，但有趣的是，定义MPTCP的RFC6182中(详见Section 2. Goals1)并没有提到这一点，路径备份似乎是一个附加的功能。
+
+从本质(而不是从表面)上看，MPTCP是一个支持流量调度的资源分配协议。MPTCP将同一连接的每条路径上的数据流抽象成subflow，将所有的subflow路径上的带宽看作一个资源池，在该资源池中进行动态流量调度。
+
+池化带宽资源，是分组交换网统计复用的极致体现。引用一段MPTCP网站blog的原话：
+
+Since the early days of computer networks, statistical multiplexing, failure resilience and load balancing have played a key role in enabling networks to carry a growing amount of traffic. However, many of the techniques that are used today were designed under the assumption that they needed to have a local impact. Many of these designs missed the opportunity of considering the problem of pooling all the available resources as an end-to-end problem. 2
+————————————————
+
+                            版权声明：本文为博主原创文章，遵循 CC 4.0 BY-SA 版权协议，转载请附上原文出处链接和本声明。
+
+原文链接：https://blog.csdn.net/dog250/article/details/120784839

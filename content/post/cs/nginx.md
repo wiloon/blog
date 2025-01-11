@@ -24,6 +24,19 @@ nginx -s signal
 
 ```bash
 # install
+
+# nerdctl
+nerdctl run -d \
+--name nginx \
+--restart=always \
+-p 80:80 \
+-p 443:443 \
+-v nginx-config:/etc/nginx \
+-v nginx-www:/var/www \
+-v /etc/letsencrypt:/etc/letsencrypt \
+-v /etc/localtime:/etc/localtime:ro \
+nginx:1.27.2
+
 # docker
 docker run -d \
 --name nginx \
