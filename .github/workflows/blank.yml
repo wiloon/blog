@@ -28,7 +28,7 @@ jobs:
       
       # Deploy to vm-bwg
       - name: Deploy to vm-bwg
-        uses: easingthemes/ssh-deploy@v2.1.2
+        uses: easingthemes/ssh-deploy@v5.1.0
         env:
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY_BWG_USER_BLOG }}
           ARGS: "-avz --delete"
