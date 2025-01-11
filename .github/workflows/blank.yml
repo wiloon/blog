@@ -32,7 +32,6 @@ jobs:
       - name: Deploy to vm-bwg
         uses: easingthemes/ssh-deploy@v5.1.0
         env:
-          SCRIPT_BEFORE: ls
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY_BWG_USER_BLOG }}
           ARGS: "-avz --delete"
           SOURCE: "public/"
@@ -40,4 +39,9 @@ jobs:
           REMOTE_PORT: 27623
           REMOTE_USER: "blog"
           TARGET: "/home/blog/tmp/"
+          EXCLUDE: "/node_modules/"
+          SCRIPT_BEFORE: |
+            whoami
+            pwd
+            ls -al
           #TARGET: "/var/lib/nerdctl/1935db59/volumes/default/nginx-www/_data/"
