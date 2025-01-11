@@ -25,7 +25,11 @@ jobs:
 
       - name: Build
         run: hugo --minify -v
-      
+
+      - name: setup_rsync
+        uses: GuillaumeFalourd/setup-rsync@v1.2
+        run: rsync --version
+
       # Deploy to vm-bwg
       - name: Deploy to vm-bwg
         uses: easingthemes/ssh-deploy@v5.1.0
