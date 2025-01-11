@@ -39,4 +39,5 @@ jobs:
           REMOTE_HOST: "66.112.212.90"
           REMOTE_PORT: 27623
           REMOTE_USER: "blog"
-          TARGET: "/var/lib/nerdctl/1935db59/volumes/default/nginx-www/_data/"
+          TARGET: "/home/blog/tmp/"
+          #TARGET: "/var/lib/nerdctl/1935db59/volumes/default/nginx-www/_data/"
