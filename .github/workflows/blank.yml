@@ -31,13 +31,13 @@ jobs:
         uses: easingthemes/ssh-deploy@v5.1.0
         env:
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY_BWG_USER_BLOG }}
-          ARGS: "-avz --no-t --delete"
+          ARGS: "-avz --delete"
           SOURCE: "public/"
           REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
           REMOTE_PORT: 27623
           REMOTE_USER: "blog"
           #TARGET: "/home/blog/tmp/"
-          TARGET: "/var/lib/nerdctl/1935db59/volumes/default/nginx-www/_data/"
+          TARGET: "/var/lib/nerdctl/1935db59/volumes/default/nginx-www/_data/blog/"
           EXCLUDE: "/node_modules/"
           SCRIPT_BEFORE: |
             whoami
