@@ -9,9 +9,6 @@ jobs:
   build-deploy:
     runs-on: ubuntu-22.04
     steps:
-      - uses: GuillaumeFalourd/setup-rsync@v1.2
-      - run: rsync --version
-
       - uses: actions/checkout@v1  # v2 does not have submodules option now
         with:
           submodules: true
@@ -28,6 +25,10 @@ jobs:
 
       - name: Build
         run: hugo --minify -v
+
+      - run: apt-get install rsync
+
+      - run: rsync --version
 
       # Deploy to vm-bwg
       - name: Deploy to vm-bwg
