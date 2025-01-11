@@ -26,14 +26,13 @@ jobs:
       - name: Build
         run: hugo --minify -v
 
-      - run: sudo apt-get -y install rsync
-
       - run: rsync --version
 
       # Deploy to vm-bwg
       - name: Deploy to vm-bwg
         uses: easingthemes/ssh-deploy@v5.1.0
         env:
+          SCRIPT_BEFORE: ls
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY_BWG_USER_BLOG }}
           ARGS: "-avz --delete"
           SOURCE: "public/"
