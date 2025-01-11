@@ -23,6 +23,11 @@ tags:
 ## 创建用户
 
 ```Bash
+# 创建用户 user_0, 默认会创建 home 目录, 默认 bash
+sudo useradd user_0
+# 给 user_0 设置密码
+sudo passwd user_0
+
 # create user, 创建目录 /home/user0, 默认 bash
 sudo useradd -m user0
 sudo useradd -m -s /bin/bash user0
