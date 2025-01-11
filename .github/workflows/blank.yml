@@ -26,7 +26,7 @@ jobs:
       - name: Build
         run: hugo --minify -v
 
-      - run: apt-get install rsync
+      - run: sudo apt-get -y install rsync
 
       - run: rsync --version
 

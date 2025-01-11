@@ -70,7 +70,9 @@ apt-get remove packagename
 
 ### answer yes
 
-    apt-get -y install [packagename]
+```Bash
+apt-get -y install [packagename]
+```
 
 ### /etc/apt/sources.list
 
