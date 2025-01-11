@@ -10,30 +10,32 @@ tags:
   - remix
 
 ---
-## ssh-keygen
+## ssh-keygen, linux 生成 ssh 密钥
 
-ssh-keygen 是用于为 SSH 创建新的身份验证密钥对的工具。此类密钥对用于自动登录，单点登录和验证主机。目前广泛的用在 linux 服务验证、git 身份验证上。
+ssh-keygen 是用于为 SSH 创建新的身份验证密钥对的工具。此类密钥对用于自动登录，单点登录和验证主机。
+目前广泛的用在 linux 服务验证、git 身份验证上。
 
 执行 ssh-keygen 可以生成一个密钥对, 这个密钥对称为公钥文件和私钥文件 ,例如：
 
-使用 rsa 算法：id_rsa(密钥), id_rsa.pub(公钥)
-使用 dsa 算法：id_dsa(密钥), id_dsa.pub(公钥)
-
--t 选择加密算法
-ssh-keygen 目前支持三种加密算法: rsa, dsa, ecdsa, 默认使用的是 rsa，ssh-keygen 程序是交互式的
+使用 rsa 算法：id_rsa(私钥), id_rsa.pub(公钥)
+使用 dsa 算法：id_dsa(私钥), id_dsa.pub(公钥)
 
 在 ~/.ssh 目录下生成私钥 id_rsa 和公钥 id_rsa.pub 文件
 
 ```bash
 # 优先使用 ed25519
+# 默认的密钥目录 /home/user_0/.ssh, .ssh 目录不存在的话会自动创建.
 ssh-keygen -t ed25519 -C "foo"
 ssh-keygen -t ed25519 -f foo -C "bar"
 
-# -t 选择加密算法, -t ed25519 使用加密算法 ed25519, 可选值: ed25519, rsa 
+# -t 选择加密算法, -t ed25519 使用加密算法 ed25519, 可选值: ed25519, rsa, dsa
 # -f foo, 生成的密钥文件名, 不指定文件名的话, ed25519 算法默认的文件名是 id_ed25519 
 # -C "bar" 在公钥文件中添加注释，即为这个公钥“起个别名”（不是 id，可以更改）。
 
-# 打印公钥指纹, The -l option instructs to show the fingerprint in the public key while the -f option specifies the file of the key to list the fingerprint for.
+# 公钥放到服务器的这个文件里 vim ~/.ssh/authorized_keys
+
+# 打印公钥指纹, The -l option instructs to show the fingerprint in the public key 
+# while the -f option specifies the file of the key to list the fingerprint for.
 ssh-keygen -l -f id_ed25519
 
 # 从私钥生成公钥

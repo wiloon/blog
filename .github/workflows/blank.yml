@@ -3,7 +3,7 @@ name: github pages
 on:
   push:
     branches:
-      - master
+      - main
 
 jobs:
   build-deploy:
@@ -30,10 +30,10 @@ jobs:
       - name: Deploy to vm-bwg
         uses: easingthemes/ssh-deploy@v2.1.2
         env:
-          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY_BWG }}
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY_BWG_USER_BLOG }}
           ARGS: "-avz --delete"
           SOURCE: "public/"
-          REMOTE_HOST: "wangyue.dev"
-          REMOTE_PORT: 10000
+          REMOTE_HOST: "66.112.212.90"
+          REMOTE_PORT: 27623
           REMOTE_USER: "blog"
-          TARGET: "/var/www/blog/"
+          TARGET: "/var/lib/nerdctl/1935db59/volumes/default/nginx-www/_data/"
