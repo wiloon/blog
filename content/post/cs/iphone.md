@@ -27,3 +27,5 @@ tags:
 - bitwarden, 新手机上重新输入密码
 - ultra mobile eSIM, wifi calling
 - hsbc, 先在旧手机里操作删除保安密码器, 再去新手机登录, 拍护照的照片可能会失败, 失败三次之后会引导输入密码登录
+- 银行 app 重新登录, 开 faceid
+- 微信, 支付宝 开 faceid 支付

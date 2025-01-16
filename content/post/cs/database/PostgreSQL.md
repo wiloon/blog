@@ -208,13 +208,17 @@ alter table foo
     add time0 timestamptz;
 ```
 
-## create table
-
 ```sql
+-- create table
 create table table0(
   field0 json,
   create_time             timestamp with time zone default now(),
   );
+ 
+-- rename column
+alter table table_0
+    rename column column_foo to column_bar;
+
 ```
 
 ## psql 命令行直接执行 sql
