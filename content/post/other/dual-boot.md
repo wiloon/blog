@@ -305,8 +305,8 @@ efibootmgr --create --disk /dev/nvme0n1 --part 5 --label "Ubuntu" --loader /EFI/
 efibootmgr -v
 
 - /dev/nvme0n1
-  - /dev/nvme0n1p1: 100MB, window boot loader EFI
-  - /dev/nvme0n1p2: 16MB, unknow, created by windows
+  - /dev/nvme0n1p1: 100MB, window bootloader EFI
+  - /dev/nvme0n1p2: 16MB, unknown, created by windows
   - /dev/nvme0n1p3: 378G, windows data NTFS (bitlocker)
   - /dev/nvme0n1p4: 890MB, windows recovery
   - /dev/nvme0n1p5: 487MB, ubuntu boot loader EFI

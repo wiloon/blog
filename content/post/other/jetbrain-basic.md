@@ -44,6 +44,7 @@ help> edit custom vm options> add line "-Dsun.java2d.uiScale.enabled=true"
 - ctrl + shift + o, Run
 - ctrl + shift + up, move statement up
 - ctrl + shift + down, move statement down
+- alt + sift + up, move line up
 
 CTRL+SHIFT+N 查找文件
   
