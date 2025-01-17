@@ -54,6 +54,68 @@ git -C /Users/jhoffmann/tmp/my-project/ pull
 
 origin 是远程仓库的默认别名, 查看配置了几个远程仓库和别名 `git remote -v`
 
+
+## git log
+
+```bash
+# --no-pager, 不使用默认的 less pager
+# --oneline, 显示简化版的 log, 没有 Author, 没有 Date
+git --no-pager log --oneline -n 10
+
+# 按 s 向下翻 log
+git log
+# 显示最近的 3 个 commit
+git log -n 3
+# 查看某一个分支的 log
+git log branch0
+# 查看某一个远程分支的 log
+git log remotes/origin/branch0
+
+git log file0
+git log -3 file0
+# 以一行展现
+git log --oneline
+git log --reverse
+
+# git log 倒序, 仓库创建时间
+git log --reverse
+git log --graph --pretty=oneline --abbrev-commit
+git log --all --pretty=oneline --abbrev-commit --graph
+git log --graph --oneline --all
+echo "# project name" >> README.md
+```
+
+### 日志过滤
+
+```Bash
+# 按本地分支过滤
+git log branch_0
+# 按远程分支过滤
+git log origin/branch_0
+# 按照数量过滤
+git log -3
+# 按照日期过滤
+git log --after="2014-7-1"
+git log --after="yesterday"
+git log --after="2014-7-1" --before="2014-7-4"
+# 按照作者过滤
+git log --author="John"
+git log --author="John|Mary"
+# 按照提交信息过滤
+git log --grep="JRA-224:"
+# 按照文件过滤
+git log -- foo.py bar.py
+# 按照提交内容过滤
+git log -S"Hello, World!"
+```
+
+### reflog
+
+```Bash
+# 查看引用日志（reflog）
+git log -g
+```
+
 ## git fetch
 
 默认更新
@@ -110,6 +172,7 @@ git fetch
 # 比如，取回 origin 仓库的 master 分支
 git fetch origin master
 # -p, 分支在远程删掉之后, 执行 git fetch -p, 更新一下本地的分支列表, 本地就看不到已经删除的分支了
+# -p 是 --prune 的缩写。它的作用是清理本地的远程跟踪分支
 git fetch -p
 ```
 
@@ -243,6 +306,10 @@ git branch -d branch0
 
 # 删除远程分支
 git push origin --delete branch0
+# 删除之后本地缓存里还能看到这个远程分支, 要用下面的 git fetch -p 清理一下
+# -p 清理本地的远程跟踪分支
+git fetch -p
+
 # 强制删除分支，删除没 merge 的分支
 git branch -D branch0
 ```
@@ -702,36 +769,6 @@ git config --global --edit
 ```bash
 git config --global core.editor vim
 export EDITOR=vim
-```
-
-## git log
-
-```bash
-# --no-pager, 不使用默认的 less pager
-# --oneline, 显示简化版的 log, 没有 Author, 没有 Date
-git --no-pager log --oneline -n 10
-
-# 按 s 向下翻 log
-git log
-# 显示最近的 3 个 commit
-git log -n 3
-# 查看某一个分支的 log
-git log branch0
-# 查看某一个远程分支的 log
-git log remotes/origin/branch0
-
-git log file0
-git log -3 file0
-# 以一行展现
-git log --oneline
-git log --reverse
-
-# git log 倒序, 仓库创建时间
-git log --reverse
-git log --graph --pretty=oneline --abbrev-commit
-git log --all --pretty=oneline --abbrev-commit --graph
-git log --graph --oneline --all
-echo "# project name" >> README.md
 ```
 
 git reflog 可以查看所有分支的所有操作记录 (包括 commit 和 reset 的操作），包括已经被删除的 commit 记录，git log 则不能察看已经删除了的 commit 记录。
@@ -1325,3 +1362,14 @@ git push -f
 ## windows vscode git
 
 vscode 会直接读 c:/user/user0/.ssh/ 里面的私钥, win 下可以在 cmd 里执行 ssh-keygen 生成 密钥对.
+
+## 恢复 github 已经删除的分支
+
+```Bash
+# 在 github 按分支名过滤 pr
+is:pr is:closed base:branch_0
+# 找到 branch_0 作为目录分支的最后一个 pr
+# 找到 commit  id
+# 从这个 commit id 新建分支 
+git branch branch_0 commit_id_0
+```
