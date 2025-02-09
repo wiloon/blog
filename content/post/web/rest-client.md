@@ -8,7 +8,12 @@ tags:
   - reprint
   - remix
 ---
-## "rest client"
+## rest client, HTTP Client
+
+jetbrain: HTTP Client plugin
+vscode: REST Client
+
+---
 
 使用变量
 变量的好处，在开发过程中我们都知道，在 HTTP 语言中同样可以使用变量来帮助我们组织请求代码

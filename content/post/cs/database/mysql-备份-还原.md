@@ -15,7 +15,7 @@ tags:
 # Export
 MySQLdump -uwiloon -pPASSWORD --default-character-set=utf8 enlab >enlab.sql
 
-#-u与username 之前可以有空格, -p与password之间可以有空格, -p后也可以不跟密码, 命令执行后会提示输入密码.
+# -u 与 username 之前可以有空格, -p 与 password 之间可以有空格, -p 后也可以不跟密码, 命令执行后会提示输入密码.
 
 #Import:
 #1.

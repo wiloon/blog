@@ -29,7 +29,7 @@ docker inspect xxx
 docker container update --restart=no <containername>
 
 # 修改 docker 容器为开机启动
-docker container update --restart=always <containername>
+docker container update --restart=always container_0
 ```
 
 ### 批量删除镜像

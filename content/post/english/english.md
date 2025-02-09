@@ -250,6 +250,10 @@ Does 表示时间； eat 表示状态；这就是“时态”。
 
 ## 状语
 
+## 冠词, art.
+
+
+
 ## 不定冠词 a/an
 
 冠词是一个虚词, 它置于名词之前, 限定名词的意义。  
@@ -1507,3 +1511,11 @@ Normal
 
 Regular: He goes for a regular jog every morning. (他每天早上都会去跑步。)
 Normal: It's normal for him to jog in the morning. (他早上跑步是正常的。)
+
+## several, some
+
+- some 后接可数名词或不可数名词
+- 没有准确地陈述数量或数字时，你可以用some来指代某物的数量或一些人或事物。
+- several 后接可数名词
+- several用来指数量不大但大于2的人或物的数量。
+- Several is three or more; some can imply any number, usually more than one.
