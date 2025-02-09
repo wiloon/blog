@@ -14,4 +14,5 @@ tags:
 - a, an art. 一个
 - abandon v. 抛弃，放弃
 - abandonment n.放弃
+- accord [ә'kɔ:d] vt.使一致,给予
 - 

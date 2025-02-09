@@ -56,6 +56,7 @@ snap install certbot-dns-google
 # --agree-tos: tos yes
 # --eff-email: share email yes
 # --keep-until-expiring: keep cert yes
+
 certbot certonly --standalone -m wiloon.wy@gmail.com --agree-tos --eff-email --keep-until-expiring \
 -d wiloon.com -d bitwarden.wiloon.com -d enx.wiloon.com -d hello.wiloon.com -d jenkins.wiloon.com
 
