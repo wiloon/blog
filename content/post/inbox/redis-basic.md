@@ -569,7 +569,7 @@ kubectl create -f redis-deployment.yml
 
 ## redis db
 
-- 单体Redis 默认有16个数据库, 数量可以通过配置文件修改
+- 单体Redis 默认有 16 个数据库, 数量可以通过配置文件修改
 - 每个 db 是 redis 提供的存储数据的字典
 - redis-cli 默认连 db=0, 可以用 select 命令切换到不同的 db
 - 用户不能修改 db 名字

@@ -10,6 +10,131 @@ tags:
 ---
 ## PostgreSQL
 
+
+## commands
+
+```bash
+
+#当表没有其他关系时
+TRUNCATE TABLE tablename;
+#当表中有外键时，要用级联方式删所有关联的数据
+TRUNCATE TABLE tablename CASCADE;
+
+# 查看 表大小
+select pg_size_pretty(pg_relation_size('table0'));
+
+# 查看配置文件路径, 切换到 postgres 用户执行
+psql -c "show config_file"
+
+# 查看版本
+select version();
+
+pacman -S postgresql
+psql -h 127.0.0.1 -p 5432 -d database0 -U user0
+
+# create database
+create database database0;
+
+# create table
+create table test(id int, c1 int);
+create table table0(field0 json);
+
+# delete table
+DROP TABLE table0;
+# 查看字段类型
+select column_name, data_type from information_schema.columns where table_name='table0';
+
+\l 或 \list meta-command 列出所有数据库
+sudo -u postgres psql -c "\l"
+用 \c + 数据库名 来进入数据库：
+\dt 列出所有数据库表：
+
+# 查看表结构
+\d table0
+
+# 比上面多几个字段 Storage  | Stats target | Description
+\d+ table0
+
+# Turn off printing of column names and result row count footers, etc. This is equivalent to \t or \pset tuples_only.
+\t tuples only on/off, tuples only on 的时候 select 语句的输出不带 header
+
+\h
+\?
+select * length( "abc"::TEXT)
+insert into test select generate_series(1,10000), random()*10;
+```
+
+
+## 导入/导出
+
+### export, 导出, 备份
+
+```Bash
+# https://www.postgresql.org/download/linux/ubuntu/
+# install pg_dump
+sudo apt install -y postgresql-common
+sudo /usr/share/postgresql-common/pgdg/apt.postgresql.org.sh
+# ubuntu install pg_dump
+sudo apt-get install postgresql-client-17
+```
+
+```bash
+
+# -h, host 127.0.0.1
+# -p, port 5432
+# -t, table: table0, 不加 -t 参数时会导出所有表结构
+# -s, 不导出数据
+# database: database0
+# -F : 指定输出文件的格式，它可以是以下格式之一： c: 自定义格式 d: 目录格式存档 t: tar 文件包 p: SQL 脚本文件
+pg_dump -h 127.0.0.1 -U username -W -F t db_name > foo.tar
+# -c --clean	创建数据库对象前先清理（删除）它们。
+pg_restore -h 127.0.0.1 -U username -W -d db_name -c foo.tar
+
+pg_dump -h 127.0.0.1 -p 5432 -t table_0 -U postgres database0 > foo.sql
+pg_dump -h 127.0.0.1 -p 5432 -s -t table_0 -U postgres database0 > foo.sql
+
+# 导出并压缩
+pg_dump -d db_name | gzip > db.gz
+
+pg_dump -a -t table_0 "host=127.0.0.1 hostaddr=127.0.0.1 port=5432 user=user_0 password=password_0 dbname=db_0"
+# export insert sql
+pg_dump -a -t table_0 "host=127.0.0.1 hostaddr=127.0.0.1 port=5432 user=user_0 password=password_0 dbname=db_0" --inserts
+```
+
+### 导入
+
+```bash
+# sql
+psql -h 127.0.0.1 -p 5432 -t table0 -U postgres -d database0 -f foo.sql
+
+# csv, https://stackoverflow.com/questions/26701735/extra-data-after-last-expected-column-while-trying-to-import-a-csv-file-into-p
+\COPY agency (agency_name, agency_url, agency_timezone) FROM 'myFile.txt' CSV HEADER DELIMITER ',';
+
+```
+
+### 导出指定的行
+
+https://stackoverflow.com/questions/12815496/export-specific-rows-from-a-postgresql-table-as-insert-sql-script
+
+```Bash
+# 按过滤条件导出成 csv, 注意: copy 里面的 select SQL 结尾不能有分号
+COPY (
+SELECT * FROM nyummy.cimory WHERE city = 'tokio'
+) TO '/tmp/foo.csv';
+
+# 导入 csv
+COPY table_0 FROM '/path/to/file.csv';
+```
+
+
+## create user
+
+```Bash
+CREATE USER user_0 WITH PASSWORD 'password_0';
+CREATE DATABASE db_0 OWNER user_0;
+GRANT ALL PRIVILEGES ON DATABASE db_0 TO user_0;
+```
+
 ## postgresql.conf, postgresql log, 日志, sql 历史
 
 [https://www.cnblogs.com/qianxunman/p/12149586.html](https://www.cnblogs.com/qianxunman/p/12149586.html)
@@ -151,53 +276,6 @@ su -l postgres -c '/opt/pg9.6/bin/pg_ctl -D /mnt/pgdata reload'
 docker run -i --rm postgres:16.4 cat /usr/share/postgresql/postgresql.conf.sample > postgresql.conf
 ```
 
-## commands
-
-```bash
-# 查看 表大小
-select pg_size_pretty(pg_relation_size('table0'));
-
-# 查看配置文件路径, 切换到 postgres 用户执行
-psql -c "show config_file"
-
-# 查看版本
-select version();
-
-pacman -S postgresql
-psql -h 127.0.0.1 -p 5432 -d database0 -U user0
-
-# create database
-create database database0;
-
-# create table
-create table test(id int, c1 int);
-create table table0(field0 json);
-
-# delete table
-DROP TABLE table0;
-# 查看字段类型
-select column_name, data_type from information_schema.columns where table_name='table0';
-
-\l 或 \list meta-command 列出所有数据库
-sudo -u postgres psql -c "\l"
-用 \c + 数据库名 来进入数据库：
-\dt 列出所有数据库表：
-
-# 查看表结构
-\d table0
-
-# 比上面多几个字段 Storage  | Stats target | Description
-\d+ table0
-
-# Turn off printing of column names and result row count footers, etc. This is equivalent to \t or \pset tuples_only.
-\t tuples only on/off, tuples only on 的时候 select 语句的输出不带 header
-
-\h
-\?
-select * length( "abc"::TEXT)
-insert into test select generate_series(1,10000), random()*10;
-```
-
 ## sql
 
 ```sql
@@ -308,46 +386,6 @@ SELECT to_number(''||12345, '9999')//1234，由于模式是4位，结果忽略�
 SELECT to_number('    12345', '9999999999999999999')//12345
 SELECT to_number('  ab  ,1,2a3,4b5', '9999999999999999999')//12345，会忽略所有字符串中非数字字符
 
-```
-
-## export, 导出, 备份
-
-```bash
-# -h, host 127.0.0.1
-# -p, port 5432
-# -t, table: table0, 不加 -t 参数时会导出所有表结构
-# -s, 不导出数据
-# database: database0
-pg_dump -h 127.0.0.1 -p 5432 -t table0 -U postgres database0 > foo.sql
-pg_dump -h 127.0.0.1 -p 5432 -s -t table0 -U postgres database0 > foo.sql
-
-# 导出并压缩
-pg_dump -d db_name | gzip > db.gz
-```
-
-## 导入
-
-```bash
-# sql
-psql -h 127.0.0.1 -p 5432 -t table0 -U postgres -d database0 -f foo.sql
-
-# csv, https://stackoverflow.com/questions/26701735/extra-data-after-last-expected-column-while-trying-to-import-a-csv-file-into-p
-\COPY agency (agency_name, agency_url, agency_timezone) FROM 'myFile.txt' CSV HEADER DELIMITER ',';
-
-```
-
-## 导出指定的行
-
-https://stackoverflow.com/questions/12815496/export-specific-rows-from-a-postgresql-table-as-insert-sql-script
-
-```Bash
-# 按过滤条件导出成 csv, 注意: copy 里面的 select SQL 结尾不能有分号
-COPY (
-SELECT * FROM nyummy.cimory WHERE city = 'tokio'
-) TO '/tmp/foo.csv';
-
-# 导入 csv
-COPY table_0 FROM '/path/to/file.csv';
 ```
 
 ## sequence, 序列
@@ -785,3 +823,4 @@ set enable_seqscan = off;
 
 版权声明：本文为博主原创文章，遵循 CC 4.0 BY-SA 版权协议，转载请附上原文出处链接和本声明。  
 原文链接：https://blog.csdn.net/songyundong1993/article/details/122844254
+

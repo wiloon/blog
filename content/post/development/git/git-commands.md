@@ -43,17 +43,82 @@ git --git-dir=/Users/jhoffmann/tmp/my-project/.git --work-tree=/Users/jhoffmann/
 git -C /Users/jhoffmann/tmp/my-project/ pull
 ```
 
-## options
+### options
 
 - -C, 大写 `C` 指定目录, `.git` 所在的目录
 - --version, 查看 git 版本
 
-## origin
+### origin
 
 [https://www.zhihu.com/question/27712995](https://www.zhihu.com/question/27712995)
 
 origin 是远程仓库的默认别名, 查看配置了几个远程仓库和别名 `git remote -v`
 
+
+## commit
+
+通过git commit命令将暂存区内容添加到本地仓库后，git会生成相应的commit id。
+
+```bash
+# 在 commit 的时候使用指定的 author 信息
+git commit -m "message0" --author="author0 <auther0@foo.com>"
+```
+
+### --amend
+
+Rewriting the most recent commit message
+You can change the most recent commit message using the git commit --amend command.
+
+In Git, the text of the commit message is part of the commit.
+Changing the commit message will change the commit ID--i.e., the SHA1 checksum that names the commit.
+Effectively, you are creating a new commit that replaces the old one.
+
+修改 分支 branch_0 最近一次的 commit message, author
+
+https://blog.csdn.net/scgaliguodong123_/article/details/122423940
+
+```bash
+git switch branch_0
+git pull
+
+# 不带参数, 执行后会提示输入 new commit message
+# author 会变成默认的
+git commit --amend
+# 或者直接提供 new commit message
+git commit --amend -m "New commit message."
+
+# 修改 author, 然后也会提示修改 message
+git commit --amend --author="Wang Yue<yue.wang>"
+# 只修改 author
+git commit --amend --author="Wang Yue<yue.wang>" --no-edit
+# 这个 commit 已经被 push 到了远程仓库, 修改之后得再 push 一下, 把这个修改强制推送到远程仓库
+git push -f
+```
+
+#### 修改已经 push 了的 commit, git 修改 message, 不是最近一次提交
+
+进入 git rebase 的交互模式修改
+
+```bash
+  git rebase -i commit_id_0  
+  # 把对应的 commit 的 action 改成 e
+   
+  git commit --amend --author="auth0 <auth0@foo.com>"
+  git rebase --continue
+  git push -f
+```
+
+### emoji
+
+https://cloud.tencent.com/developer/article/2067309
+
+git commit 时可以加入表情，可以使得提交历史内容清晰
+
+```Bash
+  git commit -m ":bug: message_0"
+```
+
+- :bug: 修复 bug
 
 ## git log
 
@@ -529,59 +594,6 @@ git add -u, add modified and deleted files
 `git add .`, `git add -A` add new, modified and deleted files
 
 https://blog.csdn.net/haohaibo031113/article/details/70821321
-
-## commit
-
-通过git commit命令将暂存区内容添加到本地仓库后，git会生成相应的commit id。
-
-```bash
-# 在 commit 的时候使用指定的 author 信息
-git commit -m "message0" --author="author0 <auther0@foo.com>"
-```
-
-### --amend
-
-Rewriting the most recent commit message
-You can change the most recent commit message using the git commit --amend command.
-
-In Git, the text of the commit message is part of the commit.
-Changing the commit message will change the commit ID--i.e., the SHA1 checksum that names the commit.
-Effectively, you are creating a new commit that replaces the old one.
-
-修改 分支 branch_0 最近一次的 commit message, author
-
-https://blog.csdn.net/scgaliguodong123_/article/details/122423940
-
-```bash
-git switch branch_0
-git pull
-
-# 不带参数, 执行后会提示输入 new commit message
-# author 会变成默认的
-git commit --amend
-# 或者直接提供 new commit message
-git commit --amend -m "New commit message."
-
-# 修改 author, 然后也会提示修改 message
-git commit --amend --author="Wang Yue<yue.wang>"
-# 只修改 author
-git commit --amend --author="Wang Yue<yue.wang>" --no-edit
-# 这个 commit 已经被 push 到了远程仓库, 修改之后得再 push 一下, 把这个修改强制推送到远程仓库
-git push -f
-```
-
-#### 修改已经 push 了的 commit, git 修改 message, 不是最近一次提交
-
-进入 git rebase 的交互模式修改
-
-```bash
-git rebase -i commit_id_0  
-# 把对应的 commit 的 action 改成 e
- 
-git commit --amend --author="auth0 <auth0@foo.com>"
-git rebase --continue
-git push -f
-```
 
 ### git 清除所有被 Ignore 的文件
 

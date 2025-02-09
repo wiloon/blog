@@ -667,11 +667,17 @@ pickle.load(file)
 
 ## python 虚拟环境
 
+- pdm: python 3.9 以上可以用 pdm
 - venv(推荐): Python 标准库内置的虚拟环境管理工具，Python 3.3 加入，Python 3.5 开始作为管理虚拟环境的推荐工具，用法类似 virtualenv。如果你使用 Python 3，推荐使用 venv 来替代 virtualenv
 - archlinux> pyenv
 - PyPA：指 Python Packaging Authority，一个维护 Python 打包相关项目的小组，相关项目具体见 [https://github.com/pypa](https://github.com/pypa)。
 - pip：Python 包安装器。
 - virtualenv: Python 虚拟环境管理工具
+
+```Bash
+# 判断当时是否在虚拟环境里
+which python
+```
 
 ### venv
 
@@ -1955,3 +1961,29 @@ PYTHONUNBUFFERED=1 python stderr_stdout.py
 第一种方法是给python指定 -u 参数，第二种方法是在python运行时，指定 PYTHONUNBUFFERED 环境变量，这两种方法其实是等效的。
 当然，也可以在程序的第一行指定 #!/usr/bin/python -u 然后程序加可执行权限来运行，或者把 export PYTHONUNBUFFERED=1 写到 .bashrc 里去。
 
+## pdm
+
+```Bash
+apt install python3.10-venv
+curl -sSL https://pdm-project.org/install-pdm.py | python3 -
+pdm sync
+# 加入新的依赖包, pdm会自动维护 pyproject.toml 文件
+pdm add redis
+```
+
+## @classmethod
+
+@classmethod 是一个装饰器，用于定义类方法（class method）。类方法是绑定到类而不是实例的方法，这意味着它们可以访问类本身而不是某个实例的数据。类方法的第一个参数通常被命名为 cls，代表类本身。
+
+## PEP
+
+https://peps.python.org/pep-0582/
+
+## ruff
+
+python 代码静态检查
+
+```Bash
+pip install ruff
+ruff check
+```

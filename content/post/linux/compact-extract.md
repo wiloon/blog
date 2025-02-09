@@ -43,6 +43,12 @@ yum install p7zip
 pacman -S p7zip
 sudo apt install p7zip-full p7zip-rar
 
+# 压缩
+7z a -t7z -r manager.7z /home/manager/*
+# a 代表添加文件/文件夹到压缩包
+# -t 是指定压缩类型 一般我们定为7z
+# -r 表示递归所有的子文件夹，manager.7z 是压缩好后的压缩包名，/home/manager/* 是要压缩的目录，＊是表示该目录下所有的文件。
+
 7z x filename.7z
 ```
 
