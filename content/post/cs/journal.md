@@ -16,6 +16,20 @@ tags:
 journalctl -u file-server
 ```
 
+## 清理磁盘空间
+
+```Bash
+# Check current disk usage of journal files
+sudo journalctl --disk-usage
+
+# Delete journal logs older than 5 days:
+sudo journalctl --vacuum-time=5days
+# Delete log files until the disk space taken falls below 200M:
+sudo journalctl --vacuum-size=200M
+# Delete old logs and limit file number to 10:
+sudo journalctl --vacuum-files=10
+```
+
 Arch Linux 启用 systemd 后, 很多服务都被替换掉了, 当然 syslog 也不例外, 被 Systemd Journal 所替代。
 
 systemd 拥有强大的处理与系统日志记录功能。在使用其它工具时,日志往往被分散在整套系统当中,由不同的守护进程及进程负责处理,这意味着我们很难跨越多种应用程序对其内容进行解读。

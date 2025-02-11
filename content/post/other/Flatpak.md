@@ -21,8 +21,7 @@ Flatpak应用程序主要针对三种桌面环境——FreeDesktop、KDE和GNOME
 [https://blog.csdn.net/weixin_39636364/article/details/120424180](https://blog.csdn.net/weixin_39636364/article/details/120424180)
 
 ```bash
-pacan -S flatpak 
-
+pacan -S flatpak
 
 flatpak search Spotify
 flatpak install flathub Spotify

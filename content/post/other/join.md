@@ -8,13 +8,13 @@ categories:
 tags:
   - reprint
 ---
-## 左外连接，右外连接，全连接，内连接, left join
+## 左外连接，右外连接，全连接，内连接, left join, right join
 
-外联接。外联接可以是左向外联接、右向外联接或完整外部联接。
+外联接: 外联接可以是左向外联接、右向外联接或完整外部联接。
   
 在 FROM 子句中指定外联接时，可以由下列几组关键字中的一组指定: 
 
-LEFT JOIN 或 LEFT OUTER JOIN。
+LEFT JOIN 或 LEFT OUTER JOIN, SQL 标准允许省略 OUTER 关键字，因此 LEFT JOIN 已经足够明确。
   
 左向外联接的结果集包括 LEFT OUTER 子句中指定的左表的所有行，而不仅仅是联接列所匹配的行。
 如果左表的某行在右表中没有匹配行，则在相关联的结果集行中右表的所有选择列表列均为空值。
