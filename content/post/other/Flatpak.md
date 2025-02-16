@@ -23,9 +23,10 @@ Flatpak应用程序主要针对三种桌面环境——FreeDesktop、KDE和GNOME
 ```bash
 pacan -S flatpak
 
+flatpak list
 flatpak search Spotify
 flatpak install flathub Spotify
-flatpak list
+
 flatpak run com.spotify.Client
 flatpak uninstall name
 ```

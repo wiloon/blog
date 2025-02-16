@@ -1361,7 +1361,14 @@ ip proto protocol
   
 如果数据包为ipv4数据包并且其协议类型为protocol, 则与此对应的条件表达式为真.
   
-Protocol 可以是一个数字也可以是名字, 比如:icmp6, igmp, igrp(nt: Interior Gateway Routing Protocol,内部网关路由协议), pim(Protocol Independent Multicast, 独立组播协议, 应用于组播路由器),ah, esp(nt: ah, 认证头, esp 安全负载封装, 这两者会用在IP包的安全传输机制中 ), vrrp(Virtual Router Redundancy Protocol, 虚拟路由器冗余协议), udp, or tcp. 由于tcp , udp 以及icmp是tcpdump 的关键字,所以在这些协议名字之前必须要用\来进行转义(如果在C-shell 中需要用&#92;来进行转义). 注意此表达元不会把数据包中协议头链中所有协议头内容全部打印出来(nt: 实际上只会打印指定协议的一些头部信息, 比如可以用tcpdump -i eth0 'ip proto \tcp and host 192.168.3.144', 则只打印主机192.168.3.144 发出或接收的数据包中tcp 协议头所包含的信息)
+Protocol 可以是一个数字也可以是名字, 比如:icmp6, igmp, igrp(nt: Interior Gateway Routing Protocol,内部网关路由协议), 
+pim(Protocol Independent Multicast, 独立组播协议, 应用于组播路由器),ah,
+esp(nt: ah, 认证头, esp 安全负载封装, 这两者会用在IP包的安全传输机制中 ), vrrp(Virtual Router Redundancy Protocol, 
+虚拟路由器冗余协议), udp, or tcp. 
+由于tcp , udp 以及icmp是tcpdump 的关键字,所以在这些协议名字之前必须要用\来进行转义(如果在C-shell 中需要用&#92;来进行转义). 
+注意此表达元不会把数据包中协议头链中所有协议头内容全部打印出来(nt: 实际上只会打印指定协议的一些头部信息, 
+比如可以用tcpdump -i eth0 'ip proto \tcp and host 192.168.3.144', 
+则只打印主机192.168.3.144 发出或接收的数据包中tcp 协议头所包含的信息)
 
 ip6 proto protocol
   
