@@ -8,7 +8,7 @@ categories:
 tags:
   - reprint
 ---
-## url 转义字符
+## url 转义字符, urlencode
 
 ## url 转义字符, URL escape codes
 

@@ -22,6 +22,7 @@ iostat [参数] [时间] [次数]
 ```bash
 sudo pacman -S sysstat
 sudo yum install sysstat
+sudo apt install sysstat -y
 
 iostat -sxz 1
 iostat 1
