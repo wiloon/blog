@@ -19,7 +19,7 @@ tags:
 SecureCRT /F C:\workspace\conf\securecrt
 ```
 
-直接连接某一个 ssh 服务
+命令行直接连接某一个 ssh 服务
 
 ```Bash
 SecureCRT.exe /SSH2 /L wiloon /P 22 /PASSWORD password0 192.168.50.80

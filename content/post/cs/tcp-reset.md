@@ -198,16 +198,20 @@ nc服务端进程退出。
 
 ## TCP 连接中出现 RST 的情况
 
-It's fatal. The remote server has sent you a RST packet, which indicates an immediate dropping of the connection, rather than the usual handshake. This bypasses the normal half-closed state transition. I like this description:
+It's fatal. The remote server has sent you a RST packet, which indicates an immediate dropping of the connection, 
+rather than the usual handshake. This bypasses the normal half-closed state transition. I like this description:
 
-"Connection reset by peer" is the TCP/IP equivalent of slamming the phone back on the hook. It's more polite than merely not replying, leaving one hanging. But it's not the FIN-ACK expected of the truly polite TCP/IP converseur.
+"Connection reset by peer" is the TCP/IP equivalent of slamming the phone back on the hook. 
+It's more polite than merely not replying, leaving one hanging. 
+But it's not the FIN-ACK expected of the truly polite TCP/IP converseur.
 
 >[https://stackoverflow.com/questions/1434451/what-does-connection-reset-by-peer-mean](https://stackoverflow.com/questions/1434451/what-does-connection-reset-by-peer-mean)
 >[https://my.oschina.net/costaxu/blog/127394](https://my.oschina.net/costaxu/blog/127394)
 
-在TCP协议中RST表示复位 ,用来异常的关闭连接, 在TCP的设计中它是不可或缺的。 发送 RST 包关闭连接时, 不必等缓冲区的包都发出去, 直接就丢弃缓存区的包发送RST包。 而接收端收到 RST 包后, 也不必发送ACK包来确认。
+在 TCP 协议中 RST 表示复位, 用来异常地关闭连接, 在 TCP 的设计中它是不可或缺的. 发送 RST 包关闭连接时, 不必等缓冲区的包都发出去, 
+直接就丢弃缓存区的包发送 RST 包。 而接收端收到 RST 包后, 也不必发送 ACK 包来确认。
 
-其实在网络编程过程中, 各种RST错误其实是比较难排查和找到原因的。下面我列出几种会出现RST的情况。
+其实在网络编程过程中, 各种 RST 错误其实是比较难排查和找到原因的。下面我列出几种会出现RST的情况。
 
 ## 请求超时
   
