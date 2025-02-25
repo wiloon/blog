@@ -1387,3 +1387,13 @@ is:pr is:closed base:branch_0
 # 从这个 commit id 新建分支 
 git branch branch_0 commit_id_0
 ```
+
+## 查看 commit 属于哪个分支
+
+```Bash
+git branch --contains <commit-hash>
+# 检查远程分支
+git branch -r --contains <commit-hash>
+# 查看所有分支（本地和远程）
+git branch -a --contains <commit-hash>
+```

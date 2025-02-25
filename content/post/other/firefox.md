@@ -22,3 +22,7 @@ firefox beta 和 firefox nightly build 可以在地址栏输入 `about:config` �
 - network.proxy.socks_port: 1080
 - network.proxy.socks_remote_dns: true
 - network.proxy.type: 1
+
+# ubuntu install firefox
+
+https://support.mozilla.org/en-US/kb/install-firefox-linux#w_install-firefox-deb-package-for-debian-based-distributions-recommended
