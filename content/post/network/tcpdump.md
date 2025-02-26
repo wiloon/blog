@@ -61,9 +61,9 @@ tcpdump 'tcp[tcpflags] & (tcp-syn|tcp-fin) != 0 and not src and dst net localnet
 # 过滤主机和端口
 tcpdump host 192.168.1.1 and port 80
 tcpdump host 192.168.1.1
-### 指定源地址
+### 指定源地址, 只打印源地址是 192.168.1.1 的包
 tcpdump -i eth0 src host 192.168.1.1
-### 指定目的地址
+### 指定目的地址, 只打印目的地址是 192.168.1.1 的包
 tcpdump -i eth1 dst host 192.168.1.1
 tcpdump -n -i eth0 host 192.168.1.2 and 192.168.1.3
 tcpdump -n -i eth0 host 192.168.1.2 or 192.168.1.3 or 192.168.1.4
