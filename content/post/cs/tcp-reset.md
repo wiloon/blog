@@ -215,7 +215,8 @@ But it's not the FIN-ACK expected of the truly polite TCP/IP converseur.
 
 ## 请求超时
   
-曾经遇到过这样一个情况:一个客户端连接服务器, connect 返回-1并且 error=EINPROGRESS。 直接 telnet 发现网络连接没有问题。ping没有出现丢包。用抓包工具查看, 客户端是在收到服务器发出的SYN之后就莫名其妙的发送了 RST。
+曾经遇到过这样一个情况:一个客户端连接服务器, connect 返回-1并且 error=EINPROGRESS。 直接 telnet 发现网络连接没有问题。
+ping没有出现丢包。用抓包工具查看, 客户端是在收到服务器发出的 SYN 之后就莫名其妙的发送了 RST。
 
 比如像下面这样:
 
