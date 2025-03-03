@@ -9,6 +9,16 @@ tags:
 ---
 ## snap
 
+安装 snap 的过程还是需要些内存的, 我有个虚拟机剩余内存 230M, snap 安装失败... 
+
+### almalinux
+
+```Bash
+sudo dnf install epel-release
+sudo dnf upgrade
+dnf install snapd --enablerepo=epel -y
+```
+
 ```Bash
 # ubuntu: Unable to update "Snap Store": cannot refresh "snap-store": snap "snap-store" has running apps 
 snap-store --quit

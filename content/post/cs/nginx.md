@@ -22,6 +22,14 @@ nginx -s signal
 # reopen — reopening the log files
 ```
 
+### almalinux install nginx
+
+```Bash
+sudo dnf update -y
+sudo dnf install nginx -y
+sudo systemctl enable --now  nginx
+```
+
 ```bash
 # install
 

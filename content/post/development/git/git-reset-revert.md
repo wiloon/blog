@@ -11,10 +11,9 @@ tags:
 ---
 ## git reset
 
-关于 git reset 的一点思考
-刚学习 git reset 的命令时一直认为是一个回退命令，其实学习一段时间之后发现，这个命令其实很符合它的名字，就是一个重置(reset)命令，
-通过 git reset 命令可以修改 HEAD 指向不同的提交，这个提交甚至都不必是当前分支上的某次提交，测试后发现，
-只要是版本库中合法提交都可以使用这个命令进行设置，相应的版本库的内容也会发生对应的变化，从这一点来看，它真的太强大了，
+git reset 是一个重置 (reset) 命令，
+通过 git reset 命令可以修改 HEAD 指向不同的提交，这个提交甚至都不必是当前分支上的某次提交，
+只要是版本库中合法提交都可以使用这个命令进行设置，相应的版本库的内容也会发生对应的变化，
 它可以使你正在开发的 dev 分支瞬间变成 master 分支。
 
 版权声明：本文为博主原创文章，遵循 CC 4.0 BY-NC-SA 版权协议，转载请附上原文出处链接和本声明。
@@ -56,12 +55,14 @@ hard （修改版本库，修改暂存区，修改工作区）
 --hard HEAD～1 (或是版本号) 意为将版本库回退 1 个版本，但是不仅仅是将本地版本库的头指针全部重置到指定版本，也会丢弃 `工作区` (撤销 git add .) 和 `暂存区` (撤销 commit) 的本次修改, 回退到上一次提交的状态.
 
 ```bash
-git reset --hard HEAD~1 (或者版本号)
+git reset --hard HEAD~1
+git reset --hard commit_id_0
 ```
 
 直接会改变本地源码，不仅仅指向变化了，代码也回到了那个版本时的代码
 
-git commit --hard 是具有破坏性，是很危险的操作，它很容易导致数据丢失，如果我们真的进行了该操作想要找回丢失的数据，那么此时可以使用 git reflog 回到未来，找到丢失的commit。
+git commit --hard 是具有破坏性，是很危险的操作，它很容易导致数据丢失，如果我们真的进行了该操作想要找回丢失的数据，
+那么此时可以使用 git reflog 回到未来，找到丢失的commit。
 
 ### git reset --soft
 
@@ -134,21 +135,23 @@ git reset --hard
 ```
 
 ```bash
-git reset [-q] [<tree-ish>] [--] <paths>…​
-git reset (--patch | -p) [<tree-ish>] [--] [<paths>…​]
+git reset [-q] [<tree-ish>] [--] <paths>
+git reset (--patch | -p) [<tree-ish>] [--] [<paths>]
 EXPERIMENTAL: git reset [-q] [--stdin [-z]] [<tree-ish>]
 git reset [--soft | --mixed [-N] | --hard | --merge | --keep] [-q] [<commit>]
 ```
 
-回退HEAD到某一个`<commit>`
+回退 HEAD 到某一个`<commit>`
 git reset `<paths>`
 这是 git add `<paths>` 的反向用法。
 
 git add `<paths>` 是将修改后的文件添加到暂存区。
 git reset `<paths>` 则是将暂存区内的文件移出。如果没有指定路径文件，则会将暂存区内修改的文件全部移出。
 
-假设master分支上的提交记录如下：
-A->B->C->D
+假设 master 分支上的提交记录如下：
+
+>A->B->C->D
+
 目前HEAD指向commit D,我们要将代码回退到B提交时的状态
 
 方法1
