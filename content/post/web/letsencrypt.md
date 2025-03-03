@@ -20,6 +20,17 @@ acme.sh: 第三方的 acme 协议实现.
 
 ## install certbot
 
+### almalinux pip
+
+```bash
+sudo dnf install python3 augeas-libs
+sudo dnf remove certbot
+python3 -m venv /opt/certbot/
+/opt/certbot/bin/pip install --upgrade pip
+/opt/certbot/bin/pip install certbot certbot-nginx
+ln -s /opt/certbot/bin/certbot /usr/bin/certbot
+```
+
 ### archlinux
 
 ```bash

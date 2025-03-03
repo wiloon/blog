@@ -9,6 +9,10 @@ tags:
 ---
 ## "nginx config, tls"
 
+ssl_certificate: 服务器的 SSL 证书文件的路径。该证书用于证明服务器的身份，并与客户端建立安全连接。通常，这个文件包含服务器的公钥信息。
+ssl_certificate_key: 服务器证书匹配的私钥文件路径。私钥用于解密客户端传来的信息，因此必须保密并妥善保护。
+ssl_trusted_certificate: 一个或多个被信任的证书颁发机构（CA）的证书文件路径。它用于验证客户端证书的真实性，尤其在启用客户端证书验证时。在大多数情况下，使用 Let's Encrypt 证书时不需要单独指定这个文件，因为 fullchain.pem 已经包含了必要的中间证书链，通常足以满足大多数应用的验证需求。
+
 ## TLS, nginx config include
 
 ```bash
@@ -92,3 +96,51 @@ server {
     }
 
 [https://aotu.io/notes/2016/08/16/nginx-https/index.html](https://aotu.io/notes/2016/08/16/nginx-https/index.html)
+
+## nginx tcp proxy with tls
+
+```bash
+#check tls version
+openssl s_client -connect 127.0.0.1:443
+```
+
+set yum repo, /etc/yum.repos.d/nginx.repo
+
+```bash
+[nginx]
+name=nginx repo
+baseurl=http://nginx.org/packages/centos/7/$basearch/
+gpgcheck=0
+enabled=1
+```
+
+[https://www.nginx.com/resources/admin-guide/tcp-load-balancing/](https://www.nginx.com/resources/admin-guide/tcp-load-balancing/)
+
+```bash
+stream {
+    server {
+        listen 9000 ssl;
+        proxy_pass stream_backend;
+
+        ssl_certificate        /path/to/server.crt;
+        ssl_certificate_key    /path/to/server.key;
+        ssl_protocols  TLSv1.2;
+        ssl_ciphers    HIGH:!aNULL:!MD5;
+    }
+
+    upstream stream_backend {
+        server localhost:7001;
+        server localhost:7002;
+    }
+}
+
+```
+
+[https://aotu.io/notes/2016/08/16/nginx-https/index.html](https://aotu.io/notes/2016/08/16/nginx-https/index.html)
+
+[http://www.ruanyifeng.com/blog/2014/02/ssl_tls.html](http://www.ruanyifeng.com/blog/2014/02/ssl_tls.html)
+
+[http://seanlook.com/2015/05/28/nginx-ssl/](http://seanlook.com/2015/05/28/nginx-ssl/)
+
+[https://imququ.com/post/enable-tls-1-3.html](https://imququ.com/post/enable-tls-1-3.html)
+
