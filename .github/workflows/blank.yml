@@ -36,8 +36,7 @@ jobs:
           REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
           REMOTE_PORT: 22
           REMOTE_USER: "blog"
-          # TARGET: "/root/volumes/nginx-www/_data/blog/"
-          TARGET: "/home/blog/tmp/"
+          TARGET: "/var/lib/containers/storage/volumes/nginx-www/_data/blog/"
           EXCLUDE: "/node_modules/"
           SCRIPT_BEFORE: |
             whoami
