@@ -34,7 +34,7 @@ jobs:
           ARGS: "-avz --delete"
           SOURCE: "public/"
           REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
-          REMOTE_PORT: ${{ SSH_PORT }}
+          REMOTE_PORT: 22
           REMOTE_USER: "blog"
           TARGET: "/root/volumes/nginx-www/_data/blog/"
           EXCLUDE: "/node_modules/"
