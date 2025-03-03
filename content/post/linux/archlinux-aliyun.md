@@ -1,12 +1,13 @@
 ---
-title: aliyun ecs, 阿里云安装 archlinux
+title: 公有云安装 archlinux, Aliyun/阿里云 ecs, bwg KVM
 author: "-"
 date: 2012-09-16T07:11:34+00:00
-url: archlinux/aliyun
+url: archlinux/cloud
 categories:
   - Linux
 tags:
   - reprint
+  - remix
 ---
 ## aliyun ecs, 阿里云安装 archlinux
 
@@ -17,20 +18,28 @@ cd /tmp
 curl -O http://mirrors.163.com/archlinux/iso/2024.04.01/archlinux-bootstrap-2024.04.01-x86_64.tar.gz
 
 tar zxvf archlinux-bootstrap-xxx.tar.gz
+
 # 要用 mount --bind 把 RootFS 解包的目录自己与自己链接起来，不然 pacman 会装不了软件
 sudo mount --bind /tmp/root.x86_64 /tmp/root.x86_64
+
+# edit mirror list
 vim /tmp/root.x86_64/etc/pacman.d/mirrorlist
+
+# chroot
 /tmp/root.x86_64/bin/arch-chroot /tmp/root.x86_64/
 
 # 初始化 pacman 的密钥
 pacman-key --init
 pacman-key --populate archlinux
 
-mount /dev/vda3 /mnt
+# 把 原系统的 根目录 / 挂载到  /mnt
+# 先 df -h 看一下 根目录在哪个分区
+mount /dev/vdaX /mnt
 
 # 保留的目录  /dev /proc /run /sys /tmp , 这些目录都是存储到硬件的映射的，所以不能删
-rm -rf /mnt/bin
+# boot 目录有可能会删除失败
 rm -rf /mnt/boot
+rm -rf /mnt/bin
 rm -rf /mnt/data
 rm -rf /mnt/etc
 rm -rf /mnt/home
@@ -118,4 +127,12 @@ timedatectl set-ntp true
 
 ```Bash
 ln -sf /run/systemd/resolve/stub-resolv.conf /etc/resolv.conf
+```
+
+## bwg intall archlinux
+
+```bash
+curl -O https://mirror.adectra.com/archlinux/iso/2025.02.01/archlinux-bootstrap-2025.02.01-x86_64.tar.zst
+dnf install zstd
+tar -I zstd -xvf archlinux-bootstrap-2025.02.01-x86_64.tar.zst
 ```

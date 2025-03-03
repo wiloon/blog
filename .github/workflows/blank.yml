@@ -27,17 +27,16 @@ jobs:
         run: hugo --minify -v
 
       # Deploy to vm-bwg
-      - name: Deploy to vm-bwg
+      - name: Deploy to vm-aliyun
         uses: easingthemes/ssh-deploy@v5.1.0
         env:
-          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY_BWG_USER_BLOG }}
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY_ALIYUN }}
           ARGS: "-avz --delete"
           SOURCE: "public/"
           REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
-          REMOTE_PORT: 27623
+          REMOTE_PORT: ${{SSH_PORT}}
           REMOTE_USER: "blog"
-          #TARGET: "/home/blog/tmp/"
-          TARGET: "/var/lib/nerdctl/1935db59/volumes/default/nginx-www/_data/blog/"
+          TARGET: "/root/volumes/nginx-www/_data/blog/"
           EXCLUDE: "/node_modules/"
           SCRIPT_BEFORE: |
             whoami

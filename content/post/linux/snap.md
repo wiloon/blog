@@ -19,6 +19,15 @@ sudo dnf upgrade
 dnf install snapd --enablerepo=epel -y
 ```
 
+### almalinux
+
+```Bash
+sudo dnf install epel-release
+sudo dnf config-manager --set-enable epel
+sudo dnf upgrade
+sudo dnf install snapd
+```
+
 ```Bash
 # ubuntu: Unable to update "Snap Store": cannot refresh "snap-store": snap "snap-store" has running apps 
 snap-store --quit
