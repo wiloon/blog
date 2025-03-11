@@ -1,4 +1,4 @@
----
+`---
 title: Ansible
 author: "-"
 date: 2015-10-14T07:14:28+00:00
@@ -26,6 +26,12 @@ Puppet 和 SaltStack 我曾用过,但不是十分符合预期,所以先行排除
 ## 安装 Ansible
 
 Ansible 能够安装到 Linux、BSD、Mac OS X 等平台,Python 版本最低要求为 2.6。常用 Linux 发行一般可以通过其自带的包管理器[安装 Ansible][5]
+
+### macos
+
+```bash
+brew install ansible
+```
 
 ### ubuntu
 

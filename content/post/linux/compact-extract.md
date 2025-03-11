@@ -157,6 +157,10 @@ zstd -T0 foo.txt
 tar 命令可以把多个文件打包成一个文件, 还可以向 tar 包里添加文件或提取某一个文件.  tar 最初被用来在磁带上创建归档文件.  
 Tar 是在 Linux 中使用得非常广泛的文档打包格式。它的好处就是它只消耗非常少的 CPU 以及时间去打包文件，tar 仅仅只是一个打包工具，没有压缩的功能。  
 
+```Bash
+dnf install tar gzip
+```
+
 ```bash
 # 打包: -c 是表示产生新的包，-f 指定包的文件名。
 tar cvf FileName.tar DirName

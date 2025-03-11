@@ -121,13 +121,13 @@ certbot certonly   --dns-google   --dns-google-credentials /root/cellular-deck-2
 [https://github.com/tengattack/certbot-dns-aliyun](https://github.com/tengattack/certbot-dns-aliyun)
 
 ```bash
-    sudo dnf install python3
-    pip3 install certbot-dns-aliyun
+sudo dnf install python3
+pip3 install certbot-dns-aliyun
 
-    certbot certonly -a dns-aliyun \
-    --certbot-dns-aliyun:dns-aliyun-credentials /root/apps/credentials.ini \
-    -d wiloon.com \
-    -d "*.wiloon.com"
+certbot certonly -a dns-aliyun \
+--certbot-dns-aliyun:dns-aliyun-credentials /root/apps/credentials.ini \
+-d wiloon.com \
+-d "*.wiloon.com"
 ```
 
 ---
