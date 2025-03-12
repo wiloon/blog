@@ -290,6 +290,7 @@ windows key
   - 某些 APP 有可能用不了中文输入法，有可能需要在外面输中文再拷进去
 - outlook 用网页版
 - gnome terminal: 可以配置保留所有命令行的输出, windows terminal 只能保留 32767 行
+- containerd + nerdctl
 
 ## indicator-sysmonitor
 

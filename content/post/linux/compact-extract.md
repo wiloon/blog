@@ -12,6 +12,73 @@ tags:
 ---
 ## compact/extract 压缩/解压
 
+## .tar.gz 和 .tgz
+
+.tgz 和 .tar.gz 是同一个东西, .tgz 可以认为是 .tar.gz 是简写, 在远古时代比如 DOS 系统, 文件扩展名只能是三个字符, 所以有了 .tgz,
+后来限制解除之后就能支持 .tar.gz 这种后缀了, 后者能更清晰地表达打包格式和压缩方式.
+
+[https://stackoverflow.com/questions/11534918/are-tar-gz-and-tgz-the-same-thing](https://stackoverflow.com/questions/11534918/are-tar-gz-and-tgz-the-same-thing)
+
+这种格式是我使用得最多的压缩格式。它在压缩时不会占用太多 CPU 的，而且可以得到一个非常理想的压缩率  
+默认 tar 打包和系统默认的压缩工具是单线程的，`pigz` 是 gzip 的多线程实现, 默认用当前逻辑 cpu 个数来并发压缩，无法检测个数的话，则并发8个线程
+
+### 压缩
+
+```bash
+tar -czvf all.tar.gz *.jpg
+
+# 排除掉文件
+tar -czvf tomcat.tar.gz --exclude=tomcat/logs tomcat
+
+# 设置压缩级别
+GZIP=-9 tar cvzf file.tar.gz /path/to/directory
+```
+
+### 压缩到指定目录
+
+```bash
+tar -zcvf /data/tmp/foo.tar.gz /data/server/source
+# 解压到指定目录
+tar Cxzvf /opt/cni/bin cni-plugins-linux-amd64-v1.6.1.tgz
+```
+
+### tar.gz 解压
+
+```bash
+tar -xf foo.tar.gz
+# 解压 tar.gz 文件时, 不使用 z 参数, 貌似 tar 会检测文件类型 自动 用 gzip 解压...
+tar xvf all.tar.gz
+tar zxvf all.tar.gz
+tar -zxvf all.tar.gz
+```
+
+### 解压到指定目录
+
+```bash
+tar zxvf /path/to/foo.tar.gz -C /path/to/target/dir/
+tar -zxvf /path/to/foo.tar.gz -C /path/to/target/dir/
+```
+
+```bash
+sudo pacman -S pigz
+# 压缩
+tar --use-compress-program=pigz -cvpf package.tgz ./package
+# 解压
+tar --use-compress-program=pigz -xvpf package.tgz -C ./package
+
+#tar –use-compress-program=pigz表示指定pigz来进行打包
+#c表示create创建 x表示extract解压 v表示verbose详细 f表示指定压缩文件 C表示指定目录
+#-cvpf package.tgz ./ 表示将./package目录打包为package.tgz
+#-xvpf package.tgz -C ./表示将package.tgz解压到./package目录下
+```
+
+```bash-c, --create #建立新的存档
+\-v, --verbose #详细显示处理的文件
+\-f, --file [HOSTNAME:]F #指定存档或设备 (缺省为 /dev/rmt0)
+\-z, --gzip, --ungzip #用 gzip 对存档压缩或解压
+\-x, --extract, --get #从存档展开文件
+```
+
 ## 解压多个文件
 
 ```bash
@@ -245,74 +312,6 @@ tar -rf all.tar *.gif
 -version 显示版本信息
 ```
 
-## .tar.gz 和 .tgz
-
-.tgz 和 .tar.gz 是同一个东西, .tgz 可以认为是 .tar.gz 是简写, 在远古时代比如 DOS 系统, 文件扩展名只能是三个字符, 所以有了 .tgz, 
-后来限制解除之后就能支持 .tar.gz 这种后缀了, 后者能更清晰地表达打包格式和压缩方式.
-
-[https://stackoverflow.com/questions/11534918/are-tar-gz-and-tgz-the-same-thing](https://stackoverflow.com/questions/11534918/are-tar-gz-and-tgz-the-same-thing)
-
-这种格式是我使用得最多的压缩格式。它在压缩时不会占用太多 CPU 的，而且可以得到一个非常理想的压缩率  
-默认 tar 打包和系统默认的压缩工具是单线程的，`pigz` 是 gzip 的多线程实现, 默认用当前逻辑 cpu 个数来并发压缩，无法检测个数的话，则并发8个线程  
-
-### 压缩
-
-```bash
-tar -czvf all.tar.gz *.jpg
-
-# 排除掉文件
-tar -czvf tomcat.tar.gz --exclude=tomcat/logs tomcat
-
-# 设置压缩级别
-GZIP=-9 tar cvzf file.tar.gz /path/to/directory
-```
-
-### 压缩到指定目录
-
-```bash
-tar -zcvf /data/tmp/foo.tar.gz /data/server/source
-# 解压到指定目录
-tar Cxzvf /opt/cni/bin cni-plugins-linux-amd64-v1.6.1.tgz
-```
-
-### tar.gz 解压
-
-```bash
-tar -xf foo.tar.gz
-# 解压 tar.gz 文件时, 不使用 z 参数, 貌似 tar 会检测文件类型 自动 用 gzip 解压...
-tar xvf all.tar.gz
-tar zxvf all.tar.gz
-tar -zxvf all.tar.gz
-```
-
-### 解压到指定目录
-
-```bash
-tar zxvf /path/to/foo.tar.gz -C /path/to/target/dir/
-tar -zxvf /path/to/foo.tar.gz -C /path/to/target/dir/
-```
-
-```bash
-
-
-sudo pacman -S pigz
-# 压缩
-tar --use-compress-program=pigz -cvpf package.tgz ./package
-# 解压
-tar --use-compress-program=pigz -xvpf package.tgz -C ./package
-
-#tar –use-compress-program=pigz表示指定pigz来进行打包
-#c表示create创建 x表示extract解压 v表示verbose详细 f表示指定压缩文件 C表示指定目录
-#-cvpf package.tgz ./ 表示将./package目录打包为package.tgz
-#-xvpf package.tgz -C ./表示将package.tgz解压到./package目录下
-```
-
-```bash-c, --create #建立新的存档
-\-v, --verbose #详细显示处理的文件
-\-f, --file [HOSTNAME:]F #指定存档或设备 (缺省为 /dev/rmt0)
-\-z, --gzip, --ungzip #用 gzip 对存档压缩或解压
-\-x, --extract, --get #从存档展开文件
-```
 
 ## .gz
 

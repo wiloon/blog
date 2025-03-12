@@ -91,6 +91,43 @@ print('l1',l1)#[1, 2, 3, 4, 5, 6]
 
 负数索引表示从右边往左数，最右边的元素的索引为 -1，倒数第二个元素为 -2
 
+## string
+
+### string replace, 字符串 替换
+
+```py
+txt = "I like bananas"
+
+x = txt.replace("bananas", "apples")
+
+print(x)
+
+```
+
+```py
+str_0 = str_0.replace(r"\\\\n", r"\n")
+```
+
+### string format
+
+```python
+txt = "For only {price:.2f} dollars!"
+print(txt.format(price = 49))
+
+```
+
+### string trim
+
+```py
+>>>a=" gho stwwl "
+>>>a.lstrip()
+'gho stwwl '
+>>>a.rstrip()
+' gho stwwl'
+>>>a.strip()
+'gho stwwl'
+```
+
 ## json
 
 json.dumps 序列化, 将 Python 对象编码成 JSON 字符串
@@ -109,14 +146,17 @@ get(key) 方法在 key（键）不在字典中时，可以返回默认值 None �
 
 dict[key] 在 key（键）不在字典中时，会触发 KeyError 异常。
 
-## 判断 key 在 dict 中是否存在
+### 判断 key 在 dict 中是否存在
 
 ```Python
-# 打印返回值，其中 d.keys() 是列出字典所有的 key
-print 'name' in dict_0
-print 'name' in dict_0.keys()
+foo = {'k0': 'v0', 'k1': 'v1'}
+print('k0' in foo)
+print('k0' in foo.keys())
+print('k2' in foo)
 
-# 两个的结果都是返回 True
+True
+True
+False
 ```
 
 ```python
@@ -199,7 +239,6 @@ To delete a key regardless of whether it is in the dictionary, use the two-argum
 my_dict.pop('key', None)
 
 obj to dict [https://blog.csdn.net/weixin_42359464/article/details/80882549](https://blog.csdn.net/weixin_42359464/article/details/80882549)
-
 
 ## set, hashset
 
@@ -1218,37 +1257,6 @@ print(stringVar.upper())
      str.append('M')              
  str1=''.join(str) 
 
-```
-
-## string replace, 字符串 替换
-
-```py
-txt = "I like bananas"
-
-x = txt.replace("bananas", "apples")
-
-print(x)
-
-```
-
-## string format
-
-```python
-txt = "For only {price:.2f} dollars!"
-print(txt.format(price = 49))
-
-```
-
-## string trim
-
-```py
->>>a=" gho stwwl "
->>>a.lstrip()
-'gho stwwl '
->>>a.rstrip()
-' gho stwwl'
->>>a.strip()
-'gho stwwl'
 ```
 
 ## windows python
