@@ -12,19 +12,20 @@ tags:
 
 disk usage
 
-### 查看文件占用的磁盘空间
-
 ```bash
+### 查看文件占用的磁盘空间
 du --block-size=1 sparse-file-0
+# Show top 10 biggest subdirs in the current dir.
+du -sk * | sort -nr | head -10
 ```
 
 ### 查看各子目录大小 -d, --max-depth
 
 ```bash
-    du -hd 1
-    du -hd1
-    du -h --max-depth=1
-    du -hd1 --exclude=proc
+du -hd 1
+du -hd1
+du -h --max-depth=1
+du -hd1 --exclude=proc
 ```
 
 ### 参数

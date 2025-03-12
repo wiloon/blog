@@ -1,5 +1,5 @@
 ---
-title: find
+title: find command
 author: "-"
 date: 2011-04-30T08:20:38+00:00
 url: find
@@ -7,16 +7,21 @@ categories:
   - Linux
 tags:
   - reprint
+  - remix
   - command
 
 ---
-## find
+## find command
 
 - find 命令默认会递归遍历子目录
 
 ```bash
 # find pathname -options
 find / -name '*task*.log'
+
+# find by file size
+# >100MB
+find . -type f -size +102400k
 ```
 
 - -name 按文件名查找文件

@@ -21,6 +21,9 @@ https://stackoverflow.com/questions/76974555/glibcxx-3-4-32-not-found-error-at-r
 sudo add-apt-repository ppa:ubuntu-toolchain-r/test
 sudo apt-get update
 sudo apt-get install --only-upgrade libstdc++6
+sudo apt-get clean
+sudo apt-get autoclean
+sudo apt-get autoremove
 ```
 
 ## commands
