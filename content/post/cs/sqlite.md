@@ -35,14 +35,22 @@ sqlite3
 # query schema, 列出所有的表
 .table
 
-# 查看表结构
+# 查看表结构, 注意, 表名后面没有分号
 .schema table0
 
 # 创建数据库
 sqlite3 /data/rssx/rssx.db
 
 # 建表
-CREATE TABLE if not exists users (  id char(36) PRIMARY KEY NOT NULL,  name varchar(50) DEFAULT NULL,  create_time timestamp DEFAULT NULL);
+CREATE TABLE if not exists table_0 (id char(36) PRIMARY KEY NOT NULL, name varchar(50) DEFAULT NULL, create_time timestamp DEFAULT NULL);
+CREATE TABLE if not exists table_0 (name varchar(50) PRIMARY KEY, create_time timestamp DEFAULT NULL);
+# insert data
+insert into table_0 (name) values ('foo');
+
+CREATE TABLE if not exists table_1 (name varchar(50) collate nocase PRIMARY KEY, create_time timestamp DEFAULT NULL);
+insert into table_1 (name) values ('foo');
+insert into table_1 (name) values ('Foo'); -- Runtime error: UNIQUE constraint failed: table_1.name (19)
+
 # help 
 .help
 
