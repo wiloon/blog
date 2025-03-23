@@ -698,7 +698,7 @@ ON：确定多表联合查询的条件
 JOIN：指定联合哪些数据表
 WHERE ：全表查询的筛选条件，生成第一个结果集
 GROUP BY：分组条件，对第一个结果集进行分组，得到第二个结果集
-HAVING ：过滤条件，与group by进行连用，对第二个结果集中的每组数据，进行筛选过滤，得到第三个结果集
+HAVING ：过滤条件，与 group by 连用，对第二个结果集中的每组数据，进行筛选过滤，得到第三个结果集
 SELECT：指定获取的列项，得到第四个结果集
 DISTINCT ：对指定列进行去重操作
 ORDER BY：对结果集按照指定字段进行排序整理
@@ -707,7 +707,7 @@ LIMIT：对最终结果集进行截取，一般和offset连用，可用于分页
 
 在查询mysql的字段别名使用的时候，翻到了mysql的官方文档，里面对别名的使用场景进行了简要的介绍：
 
-意思就是别名可以使在order by、having、group by 子句中，但是根据上面的SQL执行过程，很明显group by 和 having都在select之前啊，这里值得注意的是，mysql对group by 进行了优化加强，所以在group by子句中可以使用别名进行分类，但是其他数据库还是遵循着SQL的执行顺序
+意思就是别名可以使在 order by、having、group by 子句中，但是根据上面的SQL执行过程，很明显group by 和 having都在select之前啊，这里值得注意的是，mysql对group by 进行了优化加强，所以在group by子句中可以使用别名进行分类，但是其他数据库还是遵循着SQL的执行顺序
 ————————————————
 版权声明：本文为CSDN博主`「shenzhou_yh」`的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
 原文链接：https://blog.csdn.net/shenzhou_yh/article/details/103185772

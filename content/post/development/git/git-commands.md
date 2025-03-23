@@ -35,6 +35,7 @@ git cherry -v
 
 # 查看本地仓库的当前分支和远程分支的差异(已经 commit 但是还没 push), 展示方式类似 git log
 git log master ^origin/master
+
 # 计算对象数和磁盘消耗
 git count-objects -vH
 # 指定目录 1.8.5 以前
@@ -294,7 +295,8 @@ git branch -v
 # git 查看本地分支关联（跟踪）的远程分支之间的对应关系，本地分支对应哪个远程分支
 git branch -vv
 
-# 获取当前的分支名称
+# 获取当前的分支名称, 不进入交互模式
+git branch --show-current
 git rev-parse --abbrev-ref HEAD
 
 # 获取当前的分支名称, Git 2.22 及更高版本

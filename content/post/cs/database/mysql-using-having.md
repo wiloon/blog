@@ -30,7 +30,8 @@ SELECT t1.id,t2.name FROM t1 LEFT JOIN t2 USING(id) WHERE ....
 
 ## HAVING
 
-MySQL 中的 where 和 having 子句都可以实现筛选记录的功能, having 可以认为是对 where 的补充, 因为它可以对分组数据进行再次判断, 一般跟在 group by 后面, 并可以使用聚集函数 (sum, min, max, avg, count)
+MySQL 中的 where 和 having 子句都可以实现筛选记录的功能, having 可以认为是对 where 的补充, 因为它可以对分组数据进行再次判断, 
+一般跟在 group by 后面, 并可以使用聚集函数 (sum, min, max, avg, count)
 
 ```sql
 SELECT `uid`, SUM(`points`) num FROM table GROUP BY `uid` HAVING num > 1000

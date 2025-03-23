@@ -20,7 +20,11 @@ sudo pacman -S nfs-utils
 sudo apt install nfs-common
 ```
 
+## nfs server
+
 ### nfs 依赖时钟, 需要 ntp 服务
+
+archlinux enabled ntp by default
 
 [https://blog.wiloon.com/ntp](https://blog.wiloon.com/ntp)
 
@@ -32,7 +36,7 @@ vim /etc/fstab
 /mnt/nfs /data/nfs none bind 0 0
 
 # NFS 服务的主配置文件
-# 格式：[共享的目录]   [主机名或IP(参数,参数)]
+# 格式：[共享的目录] [主机名或IP(参数,参数)]
 vim /etc/exports
 /data/nfs       *(rw,async,no_root_squash)
 
@@ -47,7 +51,7 @@ sudo systemctl enable nfs-server
 showmount -e 127.0.0.1
 ```
 
-## client
+## nfs client
 
 ### linux client
 

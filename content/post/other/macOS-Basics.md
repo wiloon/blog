@@ -2,11 +2,12 @@
 title: macOS Basics
 author: "-"
 date: 2012-11-20T01:19:09+00:00
-url: /?p=4723
+url: macos/basic
 categories:
   - Inbox
 tags:
   - reprint
+  - remix
 ---
 ## macOS Basic
 
