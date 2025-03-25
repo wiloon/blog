@@ -16,16 +16,15 @@ Chrome extension> bitwarden> settings> option> autofill> enable auto-fill on pag
 
 ### podman server
 
+https://hub.docker.com/r/vaultwarden/server
+
 ```bash
-podman pull vaultwarden/server:1.29.2-alpine
+# docker pull vaultwarden/server:1.33.2-alpine
+podman pull vaultwarden/server:1.33.2-alpine
+
+podman run -d --name bitwarden -v bitwarden-data:/data/ -p 8000:80 vaultwarden/server:1.33.2-alpine
 
 podman run --rm --name bitwarden -v bitwarden-data:/data/ -p 8000:80 vaultwarden/server:1.28.1-alpine
-podman run -d --name bitwarden -v bitwarden-data:/data/ -p 8000:80 vaultwarden/server:1.28.1-alpine
-podman run -d --name bitwarden -v bitwarden-data:/data/ -p 8000:80 vaultwarden/server:1.29.2-alpine
-podman run -d --name bitwarden -v bitwarden-data:/data/ -p 8000:80 vaultwarden/server:1.32.4-alpine
-podman run --rm --name bitwarden -v bitwarden-data-new:/data/ -p 8000:80 bitwarden/server:2024.11.0
-podman run -d --name bitwarden -v bitwarden-data:/data/ -p 8000:80 bitwarden/server:2024.11.0
-
 docker run -d --name bitwarden --restart=always -v bitwarden-data:/data/ -p 8000:80 vaultwarden/server:1.28.1-alpine
 ```
 
