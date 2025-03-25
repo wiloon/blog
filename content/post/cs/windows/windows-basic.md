@@ -60,7 +60,7 @@ netsh interface set interface "eth0" disabled
 netsh interface set interface "eth0" enabled
 ```
 
-### Windows 命令行 (批处理文件) 延迟 (sleep) 方法, 使用ping 的定时功能，精度1秒
+### Windows 命令行 (批处理文件) 延迟 (sleep) 方法, 使用 ping 的定时功能，精度1秒
 
 ```bash
 ping -n 3 127.0.0.1>nul
@@ -191,37 +191,42 @@ windows设置>控制面板>更改账户类型>添加>
 
 [https://blog.csdn.net/hongweigg/article/details/41517025](https://blog.csdn.net/hongweigg/article/details/41517025)
 
-### 清理c盘空间, windows清理硬盘空间, windows清理磁盘空间
+## 清理c盘空间, windows清理硬盘空间, windows清理磁盘空间
 
-#### 升级包
+### 临时文件
+
+点击开始菜单，输入【运行】，输入【%TEMP%】, delete all
+
+
+### 升级包
 
 ```bash
-    # win11 没有这个目录
-    rmdir C:\Windows\SoftwareDistribution.old
-    # 停止正在运行的自动更新服务；, win11 没有...
-    net stop wuauserv
-    ren C:\Windows\SoftwareDistribution C:\Windows\SoftwareDistribution.bak
-    net start wuauserv
+# win11 没有这个目录
+rmdir C:\Windows\SoftwareDistribution.old
+# 停止正在运行的自动更新服务；, win11 没有...
+net stop wuauserv
+ren C:\Windows\SoftwareDistribution C:\Windows\SoftwareDistribution.bak
+net start wuauserv
 ```
 
-#### 旧版本的系统
+### 旧版本的系统
 
 搜索> 磁盘清理(disk cleanup)> 清理系统文件
 
-#### pagefile.sys
+### pagefile.sys
 
 - win 10 虚拟内存
 搜索高级系统设置> 高级> 性能> 设置> 性能选项> 高级>
 - win 11 虚拟内存
 搜索 性能选项> 高级> 虚拟内存> 更改> 重启
 
-##### win 10
+#### win 10
 
-点击 此电脑，然后右键打开属性，然后高级系统设置。点击“高级”，然后点击 设置。再次点击“高级”，然后点击 更改。将默认勾选的“自动管理所有驱动器的分页文件大小”选项取消；
+点击 此电脑，然后右键打开属性，然后高级系统设置。点击“高级”，然后点击 设置。再次点击“高级”，然后点击 更改。将默认勾选的 “自动管理所有驱动器的分页文件大小” 选项取消；
 
-#### hiberfil.sys
+### hiberfil.sys
 
-```r
+```
 powercfg.exe /hibernate off
 powercfg.exe /hibernate on
 ```

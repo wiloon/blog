@@ -40,9 +40,9 @@ CCID (SmartCard)
 
 OpenPGP card 和 PIV card, 可以用来安全地保存 RSA 私钥
   
-YubiKey还可以作为标准的 OpenPGP Smart Card 使用, 用来存储 PGP 私钥 (设备中私钥是可写不可读的, 解密/签名操作在设备上完成) 。关于PGP Smart Card 的更多信息,可以参考这篇文章。
+YubiKey 还可以作为标准的 OpenPGP Smart Card 使用, 用来存储 PGP 私钥 (设备中私钥是可写不可读的, 解密/签名操作在设备上完成) 。关于 PGP Smart Card 的更多信息, 可以参考这篇文章。
 
-以上提到的三个功能是可以同时使用的,相互之间并不冲突。
+以上提到的三个功能是可以同时使用的, 相互之间并不冲突。
 
 [https://wiki.archlinux.org/index.php/yubikey#Introduction](https://wiki.archlinux.org/index.php/yubikey#Introduction)
 
@@ -239,3 +239,6 @@ Add the line above the “@include common-auth” line.
 ```
 
 
+## PIV
+
+PIV（Personal Identity Verification）功能是一种用于身份验证的技术。PIV标准由美国政府制定，旨在通过智能卡提供强大的身份验证。YubiKey作为一个硬件安全设备，支持PIV功能，使用户能够安全地进行身份验证和加密操作。

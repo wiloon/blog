@@ -91,7 +91,7 @@ kubectl describe pods -n namespace0 pod0
 kubectl get ep -n namespace0
 kubectl set image deployment/kong kong=kong1.0 -n namespace0
 # cp, source file: /tmp/foo, dest file: /tmp/bar
-kubectl cp kubectl cp namespace0/pod0:/tmp/foo /tmp/bar
+kubectl cp namespace0/pod0:/tmp/foo /tmp/bar
 
 kubectl get pv,pvc
 kubectl get pod -A -o wide
