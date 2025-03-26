@@ -11,7 +11,9 @@ tags:
 ---
 ## Windows apps, win apps
 
-- WizTree, 硬盘占用分析
+- WizTree 硬盘占用分析, 商用收费
+- SpaceSniffer 硬盘占用分析, 商用友好
+- WinDirStat
 - MiniTool Partition Wizard, 磁盘分区工具
 - anydeak 远程桌面
 - todesk 远程桌面
