@@ -349,3 +349,10 @@ systemctl --user --now disable pulseaudio.service pulseaudio.socket
 systemctl --user mask pulseaudio
 systemctl --user --now enable pipewire-media-session.service
 ```
+
+## 中文字体
+
+系统语言选择英文, 在 webex 里中文字体不正常的问题
+
+ubuntu 22.04 修改 /etc/fonts/conf.avail/64-language-selector-prefer.conf, 把 所有 `<family>Noto Sans CJK SC</family>` 调整到第一行
+ubuntu 24.04 /etc/fonts/conf.d/64-language-selector-cjk-prefer.conf

@@ -23,7 +23,6 @@ tags:
 - ROCK 5B
 - Mitsubishi Outlander
 - MacBook Air
-- U2723QX
 - Nuphy Air75
 - DELL U2723QX
 - Apple Watch Series 8
@@ -31,6 +30,7 @@ tags:
 - AM40
 - 高尔夫(进口) 2019款 1.8TSI 旅行版
 - nexus 7 2013
+- 畅网微控 n100 
 
 ## ROCK 5B
 

@@ -107,6 +107,7 @@ server {
 ## 查看仓库镜像
 
 ```bash
+# 镜像列表
 curl https://registry.wiloon.com/v2/_catalog | jq .
 # 查询镜像 tag(版本)
 curl https://registry.wiloon.com/v2/rssx-api/tags/list

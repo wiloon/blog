@@ -1972,7 +1972,7 @@ PYTHONUNBUFFERED=1 python stderr_stdout.py
 ## pdm
 
 ```Bash
-apt install python3.10-venv
+sudo apt install python3.10-venv
 curl -sSL https://pdm-project.org/install-pdm.py | python3 -
 pdm sync
 # 加入新的依赖包, pdm会自动维护 pyproject.toml 文件

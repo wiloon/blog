@@ -300,6 +300,7 @@ Need to run with administrator privileges
 ```bash
 # Id: GoLang.Go
 winget install GoLang.Go
+winget install cURL.cURL
 ```
 
 ### commands
