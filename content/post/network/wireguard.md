@@ -22,15 +22,13 @@ wireguard default port: 51820
 archlinux 新版本的内核已经集成了 wireguard，不需要单独安装.  
 已经集成了 wireguard 但是默认没加载, 需要配置一下启动的时候加载 wireguard 内核模块.
 
-#### 手动加载内核模块
-
 ```Bash
+# 看看 wireguard 内核模块是不是已经加载了
+lsmod | grep wireguard
+# 手动加载内核模块
 sudo modprobe wireguard
-```
 
-#### load kernel module at boot
-
-```bash
+# load kernel module at boot
 vim /etc/modules-load.d/wireguard.conf
 
 # content of wireguard.conf 
@@ -39,13 +37,8 @@ wireguard
 ```
 
 ```bash
-# 看看 wireguard 内核模块是不是已经加载了
-lsmod | grep wireguard
-
-pacman -Syu
-
 # 安装 wireguard 管理工具, wireguard 集成进内核了, 但是管理工具 (wg) 还是要手动安装的
-pacman -S wireguard-tools
+pacman -Sy wireguard-tools
 ```
 
 ### Ubuntu, Debian
@@ -78,6 +71,7 @@ wg genpsk > peer_A-peer_B.psk
 ```
 
 ## manually setup
+
 ### Peer A setup manually
 
 假设 peer A 是服务端

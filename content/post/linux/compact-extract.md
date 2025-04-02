@@ -312,7 +312,6 @@ tar -rf all.tar *.gif
 -version 显示版本信息
 ```
 
-
 ## .gz
 
 ```bash

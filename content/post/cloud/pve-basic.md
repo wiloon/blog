@@ -12,6 +12,19 @@ tags:
 ---
 ## PVE
 
+## macos
+
+```bash
+hdiutil convert proxmox-ve_8.3-1.iso -format UDRW -o proxmox-ve_8.3-1.dmg
+diskutil list
+# insert the USB flash drive
+diskutil list
+diskutil unmountDisk /dev/diskX
+
+# rdiskX, instead of diskX, in the last command is intended. It will increase the write speed.
+sudo dd if=proxmox-ve_8.3-1.dmg bs=1M of=/dev/rdisk5
+```
+
 ### 创建安装盘 U盘
 
 >wiloon.com/ventoy
