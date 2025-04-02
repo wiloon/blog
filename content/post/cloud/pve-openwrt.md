@@ -91,6 +91,10 @@ PVE 安装完后系统只会创建一个虚拟网桥，前面创建虚拟机的�
 
 到此 Openwrt 虚拟机软路由就创建完成了。
 
+### 把其它网口都绑到 vmbr0 上
+
+选择 pve 节点> network> vmbr0 (路由器里 lan 对应的网卡)> 把其它网口也加到 bridge ports 里, 用空格分隔
+
 ### Openwrt 设置
 
 启动虚拟机, 虚拟机控制台修改 openwrt 的 vr-lan ip
