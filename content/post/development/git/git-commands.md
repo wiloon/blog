@@ -209,9 +209,15 @@ git fetch 命令用来拉取远程仓库的数据 (objects and refs).
 git fetch --tags
 ```
 
-### git fetch 更新其它分支
+### git fetch
+
+更新本地存储库中远程分支的引用
 
 ```bash
+# 更新默认配置的远程仓库 比如 origin
+git fetch
+# 更新所有远程仓库
+git fetch --all
 # 当前分支不是 dev 分支, 并且 dev 分支在本地没有修改的时候 更新 dev 分支
 git fetch origin dev:dev
 ```

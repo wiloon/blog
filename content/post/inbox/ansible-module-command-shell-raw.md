@@ -36,7 +36,7 @@ ansible-playbook显示执行shell的模块的返回结果
 
 ### local_action
 
-local_action 需要sudo密码
+local_action 需要 sudo 密码
 
 ```bash
 export ANSIBLE_ASK_SUDO_PASS=true
