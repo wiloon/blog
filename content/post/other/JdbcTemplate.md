@@ -12,7 +12,7 @@ tags:
 >https://segmentfault.com/a/1190000010907688
 >https://www.cnblogs.com/gongxr/p/8053010.html
 
-### jdbcTemplate 获取刚插入的主键id
+### jdbcTemplate 获取刚插入的主键 id
 >https://blog.csdn.net/liuao107329/article/details/79126118
 
 ### jdbctemplate unit test

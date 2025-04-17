@@ -21,10 +21,17 @@ PDM（Python Development Master）是一款新一代的 Python 包管理工具�
 
 ```Bash
 # install pdm
+sudo apt install python3.10-venv
 curl -sSL https://pdm-project.org/install-pdm.py | python3 -
 # 安装程序会将 PDM 安装到用户家目录中, linux 系统
 #$HOME/.local/bin Unix 系统
 
+# 初始化项目
+pdm sync
+# 加入新的依赖包, pdm会自动维护 pyproject.toml 文件, 但是版本范围可能需要改一下
+pdm add redis
+
+pdm info --env
 ```
 
 ### 配置文件
@@ -32,7 +39,7 @@ curl -sSL https://pdm-project.org/install-pdm.py | python3 -
 pyproject.toml
 
 ```
-~=（兼容版本运算符）:例如，python-dotenv~=0.20.0 表示允许安装 python-dotenv 的版本为 0.20.0 到小于 0.21.0 之间的任何版本。
+~=（兼容版本运算符: 例如，python-dotenv~=0.20.0 表示允许安装 python-dotenv 的版本为 0.20.0 到小于 0.21.0 之间的任何版本。
 
 >=（大于或等于运算符）:
 

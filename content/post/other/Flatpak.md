@@ -28,7 +28,11 @@ flatpak search Spotify
 flatpak install flathub Spotify
 
 flatpak run com.spotify.Client
-flatpak uninstall name
+flatpak uninstall <appid>
+flatpak uninstall --unused
+sudo apt-get remove --autoremove flatpak
+
+sudo apt-get purge flatpak
 ```
 
 ## ubuntu

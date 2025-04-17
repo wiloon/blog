@@ -765,6 +765,10 @@ rmvirtualenv venv
 
 ### JetBrains Pycharm
 
+#### import 报错
+
+right click, mark directory as source root
+
 settings> Project Interpreters
 
 ## pip install python-ldap failed due to cannot `find -lldap_r`
@@ -1968,16 +1972,6 @@ python -u stderr_stdout.py
 PYTHONUNBUFFERED=1 python stderr_stdout.py
 第一种方法是给python指定 -u 参数，第二种方法是在python运行时，指定 PYTHONUNBUFFERED 环境变量，这两种方法其实是等效的。
 当然，也可以在程序的第一行指定 #!/usr/bin/python -u 然后程序加可执行权限来运行，或者把 export PYTHONUNBUFFERED=1 写到 .bashrc 里去。
-
-## pdm
-
-```Bash
-sudo apt install python3.10-venv
-curl -sSL https://pdm-project.org/install-pdm.py | python3 -
-pdm sync
-# 加入新的依赖包, pdm会自动维护 pyproject.toml 文件
-pdm add redis
-```
 
 ## @classmethod
 

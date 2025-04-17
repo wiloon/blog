@@ -370,7 +370,7 @@ select NOW(), NOW() - interval '1 hours 4 minutes';
 string||string
 ```
 
-## 转义
+## postgresql single quote 转义
 
 ```sql
 -- 单引号转义 ''

@@ -2,7 +2,7 @@
 title: 数据库主键设计
 author: "-"
 date: 2015-03-04T08:17:03+00:00
-url: /?p=7371
+url: primary-key
 categories:
   - Inbox
 tags:
@@ -11,7 +11,15 @@ tags:
 ---
 ## 数据库主键设计
 
-如果使用 b-tree 索引形式，有序 id 比无需 id 好，如果是 hash 索引，两个差别不大。主要原因是索引在磁盘上存储的形式，
+## surrogate key (单主键), composite primary keys (联合主键)
+
+https://www.zhihu.com/question/265739203
+
+https://stackoverflow.com/questions/2667988/why-single-primary-key-is-better-than-composite-keys
+
+---
+
+如果使用 b-tree 索引形式，有序 id 比无序 id 好，如果是 hash 索引，两个差别不大。主要原因是索引在磁盘上存储的形式，
 常用的 b-tree 索引如果 id 是连续的，那么数据存储在相邻的磁盘上，如果查询和写入操作的 id 连续，那么减少随机读写硬盘的几率，提升读写效率。
 
 作者：郭麒
