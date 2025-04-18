@@ -99,8 +99,8 @@ Datacenter> nuc8> local(nuc8) >ISO Images >-->Upload
 ### 创建虚拟机
 
 ```bash
-create vm > 
-    general > name: foo
+create vm >
+    general > name: nam_0
     general > advanced
         advanced > start at boot
 

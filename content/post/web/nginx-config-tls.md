@@ -39,18 +39,24 @@ server {
 
 ### stream
 
+```bash
+pacman -Sy   nginx-mainline-mod-stream
+```
+
 代理远程桌面 3389 的 tcp 连接
 
-    stream {
-        upstream mstsc {
-            server 1.2.3.4:3389;
-        }
-
-        server {
-            listen 1082;
-            proxy_pass mstsc;
-        }
+```conf
+stream {
+    upstream mstsc {
+        server 1.2.3.4:3389;
     }
+
+    server {
+        listen 1082;
+        proxy_pass mstsc;
+    }
+}
+```
 
 ### tls
 

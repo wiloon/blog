@@ -38,7 +38,7 @@ systemctl start sshd
 
 在 virtual box 里安装的设置一下端口映射
 
-用其它主机 ssh 登录, 然后进行后续操作
+ssh 登录, 然后进行后续操作
 
 ## archinstall
 

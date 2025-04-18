@@ -85,7 +85,7 @@ docker run --name nginx-config-test --rm -t -a stdout -v nginx-conf:/etc/nginx:r
 sudo pacman -S nginx-mainline
 
 # start
-sudo systemctl start nginx
+sudo systemctl enable --now nginx
 
 # restart
 kill -HUP pid

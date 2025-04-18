@@ -28,6 +28,9 @@ lsmod | grep wireguard
 # 手动加载内核模块
 sudo modprobe wireguard
 
+# 再看一下应该已经加载了
+lsmod | grep wireguard
+
 # load kernel module at boot
 vim /etc/modules-load.d/wireguard.conf
 
@@ -66,7 +69,7 @@ chmod 600 private.key
 # 从私钥生成公钥
 wg pubkey < private.key > public.key
 
-### optional, pre-shared key
+# optional, pre-shared key
 wg genpsk > peer_A-peer_B.psk
 ```
 
