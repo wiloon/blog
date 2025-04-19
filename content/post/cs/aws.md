@@ -16,3 +16,5 @@ aws s3 cp foobar  s3://obsidian-w10n
 ```
 
 [https://aws.amazon.com/cli/](https://aws.amazon.com/cli/)
+
+## SAA, Solution Architect Ass

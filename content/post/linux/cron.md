@@ -24,6 +24,8 @@ Since version 197 systemd supports timers, making cron unnecessary on a systemd 
 ```bash
 # archlinux 
 pacman -S cronie
+systemctl status cronie
+systemctl enable --now cronie
 
 # https://wiki.gentoo.org/wiki/Cron
 # https://wiki.gentoo.org/wiki/Systemd#Timer_services
@@ -90,6 +92,8 @@ cron will then examine the modification time on all crontabs and reload those wh
 ### 示例
 
 ```bash
+# 每天早上 1 点运行
+0 1 * * * /root/bin/backup.sh
 # 每天早上 5 点运行
 0 5 * * * /root/bin/backup.sh
 # 从 5 点开始, 连续一个小时, 每分钟运行一次

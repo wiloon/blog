@@ -33,7 +33,14 @@ tags:
 ssh -vv -T -oKexAlgorithms=ecdh-sha2-nistp521 git@foo.com
 ```
 
-- KexAlgorithms: key exchange algorithm, 
+- KexAlgorithms: key exchange algorithm
+
+## commands
+
+```bash
+# 指定 shell 可以解决 This account is currently not available.
+sudo -u username -s /bin/bash
+```
 
 ## ssh 不登陆直接执行命令
 
@@ -160,7 +167,6 @@ scp -O foo.txt root@192.168.50.4:~
 ————————————————
 版权声明：本文为CSDN博主「phantom_111」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
 原文链接：https://blog.csdn.net/phantom_111/article/details/56297242
-
 
 ## 'ssh_exchange_identification,read,Connection reset by peer'
 

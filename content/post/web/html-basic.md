@@ -31,9 +31,9 @@ tags:
 
 ## node type
 
-1.	ELEMENT_NODE (元素节点)：值为 1
-2.	ATTRIBUTE_NODE (属性节点)：值为 2
-3.	TEXT_NODE (文本节点)：值为 3
+1. ELEMENT_NODE (元素节点)：值为 1
+2. ATTRIBUTE_NODE (属性节点)：值为 2
+3. TEXT_NODE (文本节点)：值为 3
 4.	CDATA_SECTION_NODE (CDATA区段节点)：值为 4
 5.	ENTITY_REFERENCE_NODE (实体引用节点)：值为 5 (在HTML中不常见)
 6.	ENTITY_NODE (实体节点)：值为 6 (在HTML中不常见)

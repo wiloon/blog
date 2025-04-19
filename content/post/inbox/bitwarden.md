@@ -22,9 +22,7 @@ https://hub.docker.com/r/vaultwarden/server
 # docker pull vaultwarden/server:1.33.2-alpine
 podman pull vaultwarden/server:1.33.2-alpine
 
-podman run -d --name bitwarden -v bitwarden-data:/data/ -p 8000:80 vaultwarden/server:1.33.2-alpine
-
-podman run --rm --name bitwarden -v bitwarden-data:/data/ -p 8000:80 vaultwarden/server:1.28.1-alpine
+podman run -d --name bitwarden -v bitwarden-data:/data/ -p 8000:80 docker.io/vaultwarden/server:latest
 docker run -d --name bitwarden --restart=always -v bitwarden-data:/data/ -p 8000:80 vaultwarden/server:1.28.1-alpine
 ```
 

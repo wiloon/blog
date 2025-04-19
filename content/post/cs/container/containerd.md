@@ -11,6 +11,21 @@ tags:
 ---
 ## containerd
 
+## archlinux install containerd
+
+```bash
+pacman -S containerd runc nerdctl cni-plugins
+
+# containerd config
+sudo mkdir /etc/containerd
+containerd config default | sudo tee /etc/containerd/config.toml
+sudo sed -i 's/SystemdCgroup \= false/SystemdCgroup \= true/g' /etc/containerd/config.toml
+sudo systemctl daemon-reload
+sudo systemctl enable --now containerd
+sudo nerdctl pull hello-world
+sudo nerdctl run --rm hello-world
+```
+
 ## almalinux install containerd
 
 ```Bash
@@ -19,13 +34,13 @@ mkdir -p /opt/cni/bin
 tar Cxzvf /opt/cni/bin cni-plugins-linux-amd64-v1.1.1.tgz
 ```
 
-
 https://gist.github.com/Faheetah/4baf1e413691bc4e7784fad16d6275a9
 https://www.techrepublic.com/article/install-containerd-ubuntu/
 
 ```Bash
 sudo apt-get update
 sudo apt-get install containerd
+
 # download latest version of nerdctl from https://github.com/containerd/nerdctl/releases
 tar zxvf nerdctl-2.0.0-linux-amd64.tar.gz
 sudo mv nerdctl /usr/bin/nerdctl

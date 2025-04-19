@@ -10,7 +10,7 @@ tags:
 ---
 ## test for a specific port from Linux,  shell> telnet> netcat> socat
 
-### 使用 Telnet验证端口的连通性
+### 使用 Telnet 验证端口的连通性
 
 打开命令行模式。具体方法,请参考打开命令或 Shell 提示符 (2076587) (Opening a command or shell prompt (1003892))。
 
