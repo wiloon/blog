@@ -9,6 +9,7 @@ tags:
   - reprint
 ---
 ## FreeDOS USB Bootable Drive
+
 http://www.aselabs.com/articles.php?id=243
 
 Author
@@ -94,9 +95,7 @@ This will be the pictorial step. The basic layout is to use cfdisk to create a s
 note: umount the usb drive firstly.
 
 ```bash
-  
-aronschatz@asetest2:~$ sudo cfdisk /dev/sdb
-  
+sudo cfdisk /dev/sdb
 ```
 
 The flash drive is ready to be partitioned. We want to add a "New" partition.

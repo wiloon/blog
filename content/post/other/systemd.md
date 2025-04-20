@@ -19,7 +19,7 @@ Systemd 是 Linux 系统中最新的初始化系统 (init），它主要的设�
 systemctl --now enable service0
 ```
 
-### Systemd 新特性
+### Systemd 特性
 
 - 系统引导时实现服务并行启动
 - 按需启动守护进程
@@ -339,5 +339,6 @@ systemd 用户实例不会继承类似 .bashrc 中定义的环境变量。system
 >[https://documentation.suse.com/zh-cn/sles/15-SP2/html/SLES-all/cha-tuning-cgroups.html](https://documentation.suse.com/zh-cn/sles/15-SP2/html/SLES-all/cha-tuning-cgroups.html)
 
 ```bash
+systemctl list-unit-files --state=enabled
 systemctl set-property user.slice MemoryAccounting=yes
 ```

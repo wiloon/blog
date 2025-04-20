@@ -7,15 +7,90 @@ categories:
   - OS
 tags:
   - Reprint
+  - Remix
   - Disk
   - PVE
-  - Archlinux
 ---
 ## 硬盘扩容
 
-## PVE ext4
+## PVE ext4 disk resize
 
-## virtualbox ext4 disk resize
+### 查看分区表类型
+
+```bash
+parted -l
+```
+
+回显有可能是以下其中一种
+
+```bash
+Partition Table: msdos
+Partition Table: gpt
+Partition Table: loop
+```
+
+msdos: MBR
+gpt: GPT
+loop: loop 设备（虚拟磁盘）
+
+### 查看磁盘的分区信息
+
+```bash
+lsblk
+
+# 回显
+# sda2 挂载到了根目录 /
+NAME   MAJ:MIN RM  SIZE RO TYPE MOUNTPOINTS
+sda      8:0    0   13G  0 disk 
+├─sda1   8:1    0  200M  0 part /boot
+└─sda2   8:2    0  7.8G  0 part /
+```
+
+### 停掉写磁盘的服务
+
+```bash
+systemctl stop service0
+```
+
+### 非根分区扩容, 建议先卸载磁盘分区
+
+```bash
+umount /dev/sda2
+```
+
+#### 确认磁盘分区的卸载结果
+
+```bash
+lsblk
+
+# 回显
+# vdb 没有挂载
+vdb    253:16   0  200G  0 disk
+```
+
+### 进入 parted
+
+根分区卸载不掉, 直接进入 parted
+
+```bash
+# 进入 parted 分区工具, 参数要传整个硬盘(sda), 不要传某一个分区(sda2)
+parted /dev/sda
+
+# 输入"p" 然后回车，查看当前磁盘分区情况。
+(parted) p
+
+# 如果提示需要修复，执行Fix
+Fix
+
+# 扩容, 使用所有剩余空间
+(parted) resizepart 2 100%
+
+# 查看分区
+(parted)  p
+
+# 退出 parted
+(parted)  q
+```
 
 ## PVE archlinux xfs disk resize
 
@@ -37,18 +112,18 @@ xfs_growfs /dev/sda2
 
 ### kvm 虚拟磁盘扩容
 
-磁盘扩容分为 raw和 qcow2 两种扩容方式, 命令相同, 区别是后缀名
+磁盘扩容分为 raw 和 qcow2 两种扩容方式, 命令相同, 区别是后缀名
 
 ```bash
 # 查看磁盘信息
 qemu-img info /data/daixuan1.qcow2
-# 加5G
+# 加 5G
 qemu-img resize /data/daixuan1.qcow2 +5G
 ```
 
 ### windows 虚拟机需要用分区工具再调整一下
 
-在 This PC 上点右键》选择Manage>Storage>Disk Management>右键点击分区》选择extend volume
+在 This PC 上点右键> 选择Manage>Storage>Disk Management>右键点击分区》选择extend volume
 
 [http://blog.51cto.com/daixuan/1743047](http://blog.51cto.com/daixuan/1743047)
 
@@ -312,9 +387,8 @@ Partition Table: gpt
 Partition Table: loop
 ```
 
-msdos 对应华为云帮助中的 MBR.  
-gpt 对应华为云帮助中的 GPT.  
-如果显示 Partition Table: loop, 是因为格式化时没指定分区 id, 格式化了整个磁盘.
+msdos 对应华为云帮助中的 MBR.
+gpt 对应华为云帮助中的 GPT.
 
 ### 查看磁盘的分区信息
 
@@ -393,7 +467,7 @@ Number  Start  End         Size        File system  Flags
 (parted)  q
 ```
 
-### 退出parted 后用lsblk再次检查挂载状态
+### 退出 parted 后用lsblk再次检查挂载状态
 
 ```bash
 lsblk

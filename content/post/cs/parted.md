@@ -13,6 +13,9 @@ tags:
 ## install parted
 
 ```bash
+# archlinux
+pacman -S parted
+# ubuntu
 apt install parted
 ```
 

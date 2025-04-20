@@ -345,8 +345,6 @@ https://www.cnblogs.com/dongxb/p/16717567.html
 
 https://zhuanlan.zhihu.com/p/481696760
 
-
-
 ## initramfs
 
 https://manpages.ubuntu.com/manpages/focal/en/man8/update-initramfs.8.html
@@ -356,4 +354,3 @@ update-initramfs - generate an initramfs image
 https://help.ubuntu.com/community/ResizeEncryptedPartitions
 
 ## LVM + LUKS 磁盘扩容
-

@@ -549,3 +549,12 @@ podman-compose up
 
 /var/lib/containers/storage/volumes
 
+## uninstall
+
+```bash
+pacman -R podman
+pacman -R crun
+pacman -R containers-common
+pacman -R netavark
+pacman -R aardvark-dns
+```
