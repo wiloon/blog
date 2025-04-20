@@ -15,6 +15,8 @@ tags:
 
 ## PVE ext4 disk resize
 
+[Online Lossless Expansion of EXT4 Partition](https://tech.he-sb.top/posts/online-lossless-expansion-of-ext4-partition/)
+
 ### 查看分区表类型
 
 ```bash
@@ -90,6 +92,21 @@ Fix
 
 # 退出 parted
 (parted)  q
+```
+
+### 检查磁盘分区文件系统的正确性, 文件系统扩容
+
+```bash
+# 执行以下命令，检查磁盘分区文件系统的正确性, 如果是要分区分显示正在使用, 检查不了
+e2fsck -f /dev/sda2
+
+#  其它分区如果回显 /dev/vdb is in use, 停掉读写硬盘的服务重试
+
+# 执行以下命令，扩展磁盘分区文件系统的大小。
+resize2fs /dev/sda2
+
+# 查看分区容量
+df -TH
 ```
 
 ## PVE archlinux xfs disk resize
