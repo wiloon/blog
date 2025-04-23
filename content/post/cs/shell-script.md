@@ -646,7 +646,7 @@ else
 fi
 ```
 
-### shell脚本中echo显示内容带颜色
+### shell 脚本中 echo 显示内容带颜色
 
 shell脚本中echo显示内容带颜色显示,echo显示带颜色，需要使用参数-e
 格式如下:  

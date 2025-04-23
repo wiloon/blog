@@ -1313,6 +1313,38 @@ for i in range(1, 10):
     print(h % 10)
 ```
 
+### for else
+
+```py
+# 示例：检查列表中是否包含某个值
+numbers = [1, 2, 3, 4, 5]
+target = 6
+
+for number in numbers:
+    if number == target:
+        print("找到了目标值!")
+        break
+else:
+    print("目标值不在列表中。")
+
+# 结果: 目标值不在列表中。
+```
+
+```py
+# 示例：检查列表中是否包含某个值
+numbers = [1, 2, 3, 4, 5]
+target = 3
+
+for number in numbers:
+    if number == target:
+        print("找到了目标值!")
+        break
+else:
+    print("目标值不在列表中。")
+
+# 结果: 目找到了目标值!
+```
+
 ### while
 
 ```python
