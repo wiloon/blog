@@ -1,8 +1,8 @@
 ---
-title: UML中关联，聚合，组合的区别
+title: UML 类的关系: 关联，聚合，组合的区别
 author: "-"
 date: 2012-10-15T08:40:14+00:00
-url: /?p=4463
+url: uml
 categories:
   - UML
 tags:
@@ -10,40 +10,62 @@ tags:
 
 ---
 ## UML 中关联，聚合，组合的区别
-  
+
+- 关联 Association
+- 聚合 Aggregation
+- Composition
+
+
 ### 类间关系
 
-在类图中，除了需要描述单独的类的名称、属性和操作外，我们还需要描述类之间的联系，因为没有类是单独存在的，它们通常需要和别的类协作，创造比单独工作更大的语义。在UML类图中，关系用类框之间的连线来表示，连线上和连线端头处的不同修饰符表示不同的关系。类之间的关系有继承 (泛化) 、关联、聚合和组合。
+在类图中，除了需要描述单独的类的名称、属性和操作外，我们还需要描述类之间的联系，因为没有类是单独存在的，它们通常需要和别的类协作，创造比单独工作更大的语义。在 UML 类图中，关系用类框之间的连线来表示，连线上和连线端头处的不同修饰符表示不同的关系。类之间的关系有继承 (泛化) 、关联、聚合和组合。
 
-继承: 指的是一个类 (称为子类) 继承另外的一个类 (称为基类) 的功能，并增加它自己的新功能的能力，继承是类与类之间最常见的关系。类图中继承的表示方法是从子类拉出一条闭合的、单键头 (或三角形) 的实线指向基类。例如，图3.2给出了MFC中CObject类和菜单类CMenu的继承关系。
-  
-类的继承在C++中呈现为:
+#### 关联 (Association)
 
-class B { }
-class A : public B{ }
+关联指的是模型元素之间的一种语义联系，是类之间的一种很弱的联系。关联可以有方向，可以是单向关联，也可以是双向关联。可以给关联加上关联名来描述关联的作用。关联两端的类也可以以某种角色参与关联，角色可以具有多重性，表示可以有多少个对象参与关联。可以通过关联类进一步描述关联的属性、操作以及其他信息。关联类通过一条虚线与关联连接。对于关联可以加上一些约束，以加强关联的含义。
 
-关联: 指的是模型元素之间的一种语义联系，是类之间的一种很弱的联系。关联可以有方向，可以是单向关联，也可以是双向关联。可以给关联加上关联名来描述关联的作用。关联两端的类也可以以某种角色参与关联，角色可以具有多重性，表示可以有多少个对象参与关联。可以通过关联类进一步描述关联的属性、操作以及其他信息。关联类通过一条虚线与关联连接。对于关联可以加上一些约束，以加强关联的含义。
+```py
+class A:
+  pass
+
+class B:
+  def func_0(a:A)
+
+# 一个类作为另一个类方法的参数
+```
   
-    关联在C++中呈现为: 
-  
-  
-    class A{...}
-  
-  
-    class B{ ...}
-  
-  
-    A::Function1(B &b) //或A::Function1(B b) //或A::Function1(B *b)
-  
-  
-    即一个类作为另一个类方法的参数。
-  
-  
-    聚合: 指的是整体与部分的关系。通常在定义一个整体类后，再去分析这个整体类的组成结构。从而找出一些组成类，该整体类和组成类之间就形成了聚合关系。例如一个航母编队包括海空母舰、驱护舰艇、舰载飞机及核动力攻击潜艇等。需求描述中"包含"、"组成"、"分为…部分"等词常意味着聚合关系。
-  
-  
-    组合: 也表示类之间整体和部分的关系，但是组合关系中部分和整体具有统一的生存期。一旦整体对象不存在，部分对象也将不存在。部分对象与整体对象之间具有共生死的关系。
-  
+#### 聚合 (aggregation)
+
+指的是整体与部分的关系。通常在定义一个整体类后，再去分析这个整体类的组成结构。从而找出一些组成类，该整体类和组成类之间就形成了聚合关系。例如一个航母编队包括海空母舰、驱护舰艇、舰载飞机及核动力攻击潜艇等。需求描述中"包含"、"组成"、"分为…部分"等词常意味着聚合关系。
+
+在聚合中，所包含的类并不强烈依赖于容器的生命周期。在同一示例中，即使图书馆解散，书籍仍将保留。
+
+聚合使用一个带有 空心菱形 的箭头表示，菱形指向"整体"类。
+
+```puml
+class School
+
+class Student
+
+Student --o School
+```
+
+
+
+#### 组合 (composition)
+
+也表示类之间整体和部分的关系，但是组合关系中部分和整体具有统一的生存期。一旦整体对象不存在，部分对象也将不存在。部分对象与整体对象之间具有共生死的关系。
+
+
+组合使用一个带有 实心菱形 的箭头表示，菱形指向"整体"类。
+
+```puml
+class Person
+
+class Heart
+
+Heart --* Person
+```
   
     聚合和组合的区别在于: 聚合关系是"has-a"关系，组合关系是"contains-a"关系；聚合关系表示整体与部分的关系比较弱，而组合比较强；聚合关系中代表部分事物的对象与代表聚合事物的对象的生存期无关，一旦删除了聚合对象不一定就删除了代表部分事物的对象。组合中一旦删除了组合对象，同时也就删除了代表部分事物的对象。
   
@@ -92,7 +114,51 @@ class A : public B{ }
   
     你和你的朋友之间是assoc
   
-### UML中依赖 (Dependency) 和关联 (Association) 之间的区别
+  
+#### 继承 (Extension)
+
+指的是一个类 (称为子类) 继承另外的一个类 (称为基类) 的功能，并增加它自己的新功能的能力，继承是类与类之间最常见的关系。
+
+组合关系与聚合关系非常相似，唯一的区别在于其主要目的是强调被包含类对容器类生命周期的依赖。也就是说，当容器类被销毁时，被包含的类也会随之消失。例如，当单肩包被销毁时，它的侧袋也会随之消失。
+
+符号: 实线, 空心的三角箭头 指向父类
+
+类的继承在 Python 中呈现为:
+
+```py
+class Parent
+
+class Child(Parent)
+```
+
+```puml
+@startuml
+class Parent
+
+class Child
+
+Parent <|-- Child
+@enduml
+```
+
+#### Implementation/Realization 实现
+
+比如类和接口的关系: 实现
+
+```puml
+@startuml
+interface Interface0
+
+class Class0
+
+Interface0 <|.. Class0
+@enduml
+```
+
+
+  
+
+### UML 中依赖 (Dependency) 和关联 (Association) 之间的区别
 
 0. 一般情况下，使用关联 (association) 来表示像类中的字段等。这个关系是始终存在的，因此你可以随时针对关联项进行访问调用，例如可以始终从 Customer 对象获取 Order 对象。但事实上它并不需要是一个字段，如果从更偏向于接口建模的角度来看，它只是表示 Customer 中存在了一个可以返回 Order 的方法。
 
@@ -174,3 +240,5 @@ Perhaps you can read from my tone that I'm pretty disillusioned with UML. Too ba
 
 [https://www.cnblogs.com/gaochundong/p/uml_difference_between_dependency_and_association.html](https://www.cnblogs.com/gaochundong/p/uml_difference_between_dependency_and_association.html)
 >[https://leetschau.github.io/umlzhong-guan-lian-associationhe-yi-lai-dependencyde-qu-bie.html](https://leetschau.github.io/umlzhong-guan-lian-associationhe-yi-lai-dependencyde-qu-bie.html)
+
+https://creately.com/guides/class-diagram-relationships/

@@ -65,6 +65,10 @@ interface Interface0
 
 ' 注意, 接口名和冒号之间必须用空格分隔
 Interface0 : void method0()
+
+class Class0{
+  - private_field_0
+}
 @enduml
 ```
 
