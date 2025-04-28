@@ -103,6 +103,17 @@ find /dir0 -mtime -1 -type f -exec cp {} /dir1 \;
 # "\;" 是固定写法表示 -exec 的结束 
 ```
 
+### 删除7天以前修改过的文件
+
+```bash
+find . -type f -mtime +7 -exec ls -ltr {} \;
+find . -type f -mtime +7 -exec mv {} tmp \;
+find . -mtime +7 -type f -exec rm -f {} \;
+# 参数 -type f 不能省, 不限定文件类型的话,会把代表当前目录的 "." 也查出来, 然后就会列出所有文件
+# -exec 表示需要执行的命令, {} 代表 find 找到的内容
+# "\;" 是固定写法表示 -exec 的结束 
+```
+
 ### 按时间查
 
 File's data was last modified (n+1)*24 hours ago
@@ -113,6 +124,7 @@ File's data was last modified (n+1)*24 hours ago
 # 24小时内更改过内容的文件
 # 1 天之内被修改过的文件, 2021-11-10 13:53 - 2021.11.11 13:53
 find / -mtime 0
+
 # 2021-11-09 13:53 - 2021-11-10 13:53
 find / -mtime 1
 # 2021-11-10 13:53 - 2021.11.11 13:53
@@ -125,8 +137,8 @@ find / -mtime -2
 find / -mtime -5
 # 5天前的那一天修改过的文件, 2021-11-05 13:53 - 2021.11.06 13:53
 find / -mtime 5
-# 5 天之前修改过的文件, -∞ - 2021-11-05 13:53
-find / -mtime +5
+# 7 天之前修改过的文件, -∞ - 2021-11-05 13:53
+find / -mtime +7
 ```
 
 ```block
