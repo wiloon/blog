@@ -121,9 +121,8 @@ Error response from daemon: conflict: unable to delete f8ab12e03d53 (must be for
 docker rmi 192.168.0.1/you/tom:1.0.8
 ```
 
-## archlinux install docker
-
 ```bash
+## archlinux install docker
 sudo pacman -S docker
 systemctl start docker.service
 

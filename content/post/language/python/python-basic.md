@@ -435,9 +435,8 @@ lssitepackages      #显示 site-packages 目录中的内容
 
 ## install python
 
-### archlinux install python3.6
-
 ```Bash
+# archlinux install python3.6
 yay -S python36
 ```
 
@@ -501,9 +500,8 @@ source my_env/bin/activate
 
 [https://www.digitalocean.com/community/tutorials/ubuntu-18-04-python-3-zh](https://www.digitalocean.com/community/tutorials/ubuntu-18-04-python-3-zh)
 
-### archlinux install python
-
 ```bash
+# archlinux install python
 pacman -S python
 ```
 

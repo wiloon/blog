@@ -1,5 +1,5 @@
 ---
-title: ssh basic, ssh command, openssh
+title: ssh command, openssh
 author: "-"
 date: 2022-10-20 22:38:04
 url: ssh
@@ -9,7 +9,7 @@ tags:
   - reprint
   - remix
 ---
-## ssh basic, openssh
+## ssh command, openssh
 
 - 端口转发
 - ssh 不登陆直接执行命令
@@ -25,9 +25,11 @@ tags:
 - -L listen-port:host:port 指派本地的 port 到达端机器地址上的 port, 建立本地SSH隧道(本地客户端建立监听端口), 将本地机(客户机)的某个端口转发到远端指定机器的指定端口.
 - -v: verbose
 - -vv: verbose
-- -o: 指定配置选项
+- -o: 指定配置选项, 具体参数看 "配置选项"
 
 #### 配置选项
+
+- StrictHostKeyChecking=no 忽略主机密钥验证
 
 ```Bash
 ssh -vv -T -oKexAlgorithms=ecdh-sha2-nistp521 git@foo.com

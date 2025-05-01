@@ -11,19 +11,21 @@ tags:
 ---
 ## containerd
 
-## archlinux install containerd
-
 ```bash
-pacman -S containerd runc nerdctl cni-plugins
+# archlinux install containerd
+pacman -S containerd runc nerdctl cni-plugins buildkit
 
 # containerd config
 sudo mkdir /etc/containerd
 containerd config default | sudo tee /etc/containerd/config.toml
-sudo sed -i 's/SystemdCgroup \= false/SystemdCgroup \= true/g' /etc/containerd/config.toml
+#sudo sed -i 's/SystemdCgroup \= false/SystemdCgroup \= true/g' /etc/containerd/config.toml
 sudo systemctl daemon-reload
+sudo systemctl enable --now buildkit
 sudo systemctl enable --now containerd
 sudo nerdctl pull hello-world
 sudo nerdctl run --rm hello-world
+
+nerdctl build -t dnsmasq:v1.0.0 .
 ```
 
 ## almalinux install containerd

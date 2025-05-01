@@ -10,6 +10,13 @@ tags:
 ---
 ## go mod
 
+## create project
+
+```bash
+mkdir project-0
+go mod init project-0
+```
+
 ```bash
 go mod edit [editing flags] [go.mod]
 ```

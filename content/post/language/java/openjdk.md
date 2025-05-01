@@ -20,9 +20,8 @@ tags:
 winget install Microsoft.OpenJDK.21
 ```
 
-## archlinux install openjdk
-
 ```bash
+## archlinux install openjdk
 # openjdk
 sudo pacman -S jdk-openjdk
 sudo pacman -S openjdk-src

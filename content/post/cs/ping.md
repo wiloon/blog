@@ -26,9 +26,8 @@ apt install iputils-ping
 
 ```
 
-## archlinux install fping
-
 ```bash
+# archlinux install fping
 pacman -S fping
 ```
 

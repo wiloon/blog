@@ -13,6 +13,22 @@ tags:
 
 Athens: Go Packages 服务器, 私服, go package 私有仓库, 其它可选方案 Nexus.
 
+nerdctl
+
+```Bash
+nerdctl volume create athens-data
+
+nerdctl run -d \
+--name athens \
+-p 4000:3000 \
+-v athens-data:/var/lib/athens \
+-e ATHENS_STORAGE_TYPE=disk \
+-e ATHENS_DISK_STORAGE_ROOT=/var/lib/athens \
+gomods/athens:v0.16.0
+```
+
+docker
+
 ```Bash
 docker volume create athens-data
 
@@ -20,8 +36,8 @@ docker run -d \
 --name athens \
 -p 4000:3000 \
 -v athens-data:/var/lib/athens \
--e ATHENS_DISK_STORAGE_ROOT=/var/lib/athens \
 -e ATHENS_STORAGE_TYPE=disk \
+-e ATHENS_DISK_STORAGE_ROOT=/var/lib/athens \
 gomods/athens:v0.15.4
 ```
 
@@ -44,7 +60,8 @@ gomods/athens:v0.15.4
 ```
 
 ```bash
-export GOPROXY=http://localhost:3000 && go get module@v1
+GOPROXY=http://127.0.0.1:4000 && go get github.com/google/uuid@v1.4.0
+GOPROXY=http://192.168.50.63:4000 && go get github.com/google/uuid@v1.4.0
 ```
 
 [https://docs.gomods.io/](https://docs.gomods.io/)

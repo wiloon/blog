@@ -15,9 +15,8 @@ tags:
 
 [https://podman.io/getting-started/installation](https://podman.io/getting-started/installation)
 
-### archlinux install podman
-
 ```bash
+# archlinux install podman
 pacman -S podman
 # 提示选择 crun, runc, 选 crun
 # netavark aardvark-dns 会默认安装

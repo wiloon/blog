@@ -1,15 +1,18 @@
 ---
-title: dockerfile
+title: Containerfile
 author: "-"
 date: 2018-12-22T13:02:46+00:00
-url: dockerfile
+url: containerfile
 categories:
   - container
 tags:
   - reprint
+  - remix
 ---
 
-## Dockerfile
+## Containerfile
+
+buildkit 默认会查找当前目录的 Containerfile 或者 Dockerfile
 
 ```bash
 FROM golang:1.22.0 AS build

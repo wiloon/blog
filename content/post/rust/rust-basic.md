@@ -78,11 +78,10 @@ winget install Rustlang.Rust.MSVC
 
 `curl --proto '=https' --tlsv1.2 -sSf [https://sh.rustup.rs](https://sh.rustup.rs) | sh`
 
-### archlinux install rust
-
 rustup self update will not work when installed this way, the package needs to be updated by pacman.
 
 ```Bash
+# archlinux install rust
 sudo pacman -S rustup
 rustup default stable
 ```

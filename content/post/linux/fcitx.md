@@ -128,8 +128,10 @@ ctrl+7
 
 ## 安装 fcitx
 
+https://blog.csdn.net/GaaraZ/article/details/128618441
+
 ```bash
-sudo pacman -S fcitx  kcm-fcitx fcitx-configtool fcitx-im fcitx-table-extra
+sudo pacman -S fcitx5 kcm-fcitx fcitx-configtool fcitx-im fcitx-table-extra
 # kcm-fcitx: 图形界面的配置程序: KDE 中的 kcm-fcitx
 # fcitx-im: 输入法模块
 # fcitx-table-extra: 输入法模块-五笔, 可能需要重启

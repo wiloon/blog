@@ -13,7 +13,7 @@ tags:
 
 download iso
 
-[http://mirrors.163.com/archlinux/iso](http://mirrors.163.com/archlinux/iso)
+<https://mirrors.aliyun.com/archlinux/iso/2025.04.01/>
 
 ```bash
 curl -O http://mirrors.163.com/archlinux/iso/2022.02.01/archlinux-2022.02.01-x86_64.iso
@@ -22,7 +22,7 @@ curl -O http://mirrors.163.com/archlinux/iso/2022.02.01/archlinux-2022.02.01-x86
 ## ventory, usb-stick
 
 - copy to ventoy usb partition
-- 用 ventoy U盘引导系统
+- 用 ventoy U 盘引导系统
 - 启动 sshd
 - 设置 root 密码
 
@@ -30,6 +30,28 @@ curl -O http://mirrors.163.com/archlinux/iso/2022.02.01/archlinux-2022.02.01-x86
 
 ```bash
 passwd
+```
+
+## 连无线网
+
+```bash
+# 20250501, archlinux 的 iso 里默认已经安装 wpa_supplicant
+
+# start systemd-networkd and systemd-resolved service
+systemctl start systemd-networkd
+systemctl start systemd-resolved.service
+
+# wifi network 有默认配置 /etc/systemd/network/wifi.network
+
+# 设置 wifi 密码, 注意后面的 wlp3s0 替换成无线网卡的名字, 用 `ip a` 看一下
+# psk 里写明文的密码
+cat /etc/wpa_supplicant/wpa_supplicant-wlp3s0.conf
+network={
+ ssid="w1100n"
+ psk="wifi_password_0"
+}
+
+sudo systemctl start wpa_supplicant@wlp3s0
 ```
 
 ```bash
@@ -56,7 +78,6 @@ archinstall
 - Locales: us, en_US, UTF-8
 
 安装完成之后 chroot 并启用 sshd
-
 
 ```bash
 # package

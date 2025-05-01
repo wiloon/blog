@@ -14,11 +14,11 @@ tags:
 
 `networkd` 内置了 dhcp client。 如果需要更新 `resolv.conf`, 需要启动 systemd-resolved.service
 
-配置文件存放在 
+配置文件存放在
 
-- /usr/lib/systemd/network (上游提供的配置), 
-- /run/systemd/network (运行时配置), 以及 
-- /etc/systemd/network (本地配置). 
+- /usr/lib/systemd/network (上游提供的配置)
+- /run/systemd/network (运行时配置)
+- /etc/systemd/network (本地配置)
 
 其中 /etc/systemd/network 优先级最高
 
@@ -39,7 +39,7 @@ tags:
 
 ### .network 配置
 
-``` 
+```
 [Match]
 Name= 设备名 (比如Br0, enp4s0, 也可以用通配符, 比如 en*), 可以配置多个 name
 Host= 匹配的 hostname
@@ -83,8 +83,6 @@ network={
 }
 
 sudo systemctl start wpa_supplicant@wlp2s0
-
-
 ```
 
 ### DHCP
