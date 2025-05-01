@@ -72,6 +72,7 @@ podman run -d \
 --name nginx \
 -p 80:80 \
 -p 443:443 \
+-p 1022:1022 \
 -v nginx-config:/etc/nginx \
 -v nginx-www:/var/www \
 -v nginx-cert:/etc/letsencrypt \

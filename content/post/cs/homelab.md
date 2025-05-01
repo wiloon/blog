@@ -37,4 +37,4 @@ tags:
 1. 在内网有梯子的机器 podman pull nginx:1.27.2
 2. podman save 7f553e8bbc897571642d836b31eaf6ecbe395d7641c2b24291356ed28f3f2bd0>nginx.tar
 3. tar zcvf nginx.tar.gz nginx.tar
-3. scp nginx.tar.gz aliyun:~
+4. scp nginx.tar.gz aliyun:~
