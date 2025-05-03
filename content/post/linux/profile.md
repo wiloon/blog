@@ -12,11 +12,22 @@ tags:
 
 ## linux 环境 变量, /etc/profile, /etc/profile.d/
 
-自定义的环境变量要加到 /etc/profile.d 下, 这里的配置会开机加载, 配置到 ~/.zshrc 的话会每打开一个 terminal 加载一次, 
-不建议手动修改 /etc/profile, /etc/profile 文件属于 filesystem 包, 
-这个包的的更新有可能会导致 /etc/profile 的更新, 
-如果 filesystem 升级的时候发现 /etc/profile 被修改过, 会把新的文件安装到 /etc/profile.new 并且是不生效的状态, 
-有可能会导致某些不兼容的问题, 
+## ~/.bashrc, ~/.profile
+
+Archlinux Interactive, non-login shells 会加载 `~/.bashrc`, login shell 不会加载  `~/.bashrc`
+
+/root/.bashrc 主要是为交互式的 非登录 shell 准备的，而 root 用户登录时的默认 shell 会加载的文件是 /root/.profile，而不是 ~/.bashrc
+
+win10 WSL + zsh + oh my zsh 用 root 用户 SSH 登录 archlinux 会加载 .bash_profile, 不会加载 .bashrc
+win10 putty SSH 登录 同上
+
+## /etc/profile.d
+
+自定义的环境变量要加到 /etc/profile.d 下, 这里的配置会开机加载, 配置到 ~/.zshrc 的话会每打开一个 terminal 加载一次,
+不建议手动修改 /etc/profile, /etc/profile 文件属于 filesystem 包,
+这个包的的更新有可能会导致 /etc/profile 的更新,
+如果 filesystem 升级的时候发现 /etc/profile 被修改过, 会把新的文件安装到 /etc/profile.new 并且是不生效的状态,
+有可能会导致某些不兼容的问题,
 比如 perl 包安装的/etc/profile.d/perlbin.sh 使用的 append_path 函数.
 
 ### /etc/profile.d/ 目录
@@ -55,12 +66,7 @@ fi
 unset key
 ```
 
-### ~/.bashrc
 
-Archlinux Interactive, non-login shells 会加载 `~/.bashrc`, login shell 不会加载  `~/.bashrc`
-
-win10 WSL + zsh + oh my zsh 用 root 用户 SSH 登录 archlinux 会加载 .bash_profile, 不会加载 .bashrc
-win10 putty SSH 登录 同上
 
 ### ~/.bash_profile
 
@@ -113,7 +119,7 @@ Debian GNU/linux通常预装Dash,Dash是一个仅仅旨在实现POSIX (和一些
 
 需要牢记的一点是,默认的Debian框架目录 (/etc/skel,用于存放要复制到新用户账户主目录的文件和目录) 包含.profile文件,但不包含.bash_profile和.bash_login文件。此外Debian使用Bash作为默认的shell,因此,许多Debian用户习惯于将他们的Bash 登录shell设置放在.profile文件中。
 
-我曾经看到过一些项目的安装说明,例如RVN,这个项目建议用户创建一个.bash_profile文件,但是这样做是非常危险的,根据上面提到的知识我们知道,这个会改变用户的shell环境。即使用户没有修改.profile文件,它也可能利用默认~/.profile功能,将~/bin添加到$PATH环境变量。一个可能提高安全性的选项是,在创建用户的账户之前,将.bash_profile作为.bash_rc的符号链接文件,放到/etc/skel目录中。
+我曾经看到过一些项目的安装说明,例如RVN,这个项目建议用户创建一个.bash_profile文件,但是这样做是非常危险的,根据上面提到的知识我们知道,这个会改变用户的shell环境。即使用户没有修改.profile文件,它也可能利用默认~/.profile功能,将~/bin添加到$PATH环境变量。一个可能提高安全性的选项是,在创建用户的账户之前,将.bash_profile作为 .bash_rc 的符号链接文件,放到/etc/skel目录中。
 
 如果我们查看Debian Jessie的默认.profile脚本,我们可以看到下面的代码片段:
 
