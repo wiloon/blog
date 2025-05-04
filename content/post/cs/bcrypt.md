@@ -9,13 +9,14 @@ tags:
   - reprint
 ---
 ## Bcrypt
+
 [https://www.jianshu.com/p/2b131bfc2f10](https://www.jianshu.com/p/2b131bfc2f10)
   
-Bcrypt 是单向Hash加密算法，类似 Pbkdf2 算法 不可反向破解生成明文。 每次输出的hashPass 都不一样，
+Bcrypt 是单向 Hash 加密算法，类似 Pbkdf2 算法 不可反向破解生成明文。 每次输出的 hashPass 都不一样，
   
-## Bcrypt是怎么加密的？
+## Bcrypt 是怎么加密的？
   
-Bcrypt有四个变量:
+Bcrypt 有四个变量:
 
 saltRounds: 正数，代表hash杂凑次数，数值越高越安全，默认10次。
   
@@ -61,7 +62,7 @@ public class BCryptPasswordEncoderTest {
 }
 ```
 
-可以看到，每次输出的hashPass 都不一样，
+可以看到，每次输出的 hashPass 都不一样，
 但是最终的f都为 true,即匹配成功。
 
 查看代码，可以看到，其实每次的随机盐，都保存在hashPass中。

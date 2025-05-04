@@ -1,5 +1,5 @@
 ---
-title: cron, crond, crontab, linux 定时任务, cronie
+title: systemd timer, cron, crond, crontab, linux 定时任务, cronie
 author: "-"
 date: 2012-03-02T15:36:38+00:00
 url: /cron
@@ -9,11 +9,15 @@ tags:
   - remix
   - reprint
 ---
-## cron, crond, crontab, linux 定时任务, cronie
+## systemd timer, cron, crond, crontab, linux 定时任务, cronie
 
-When using the systemd init system, (persistent) timers are available as a replacement of (ana)cron. Systemd#Timer_services
+安装了 systemd 的系统, 可以用 systemd-timer 来替代 cron 和 anacron。
 
-Since version 197 systemd supports timers, making cron unnecessary on a systemd system. Since version 212 persistent services are supported, replacing even anacron. Persistent timers are run at the next opportunity if the system was powered down when the timer was scheduled to run.
+When using the systemd init system, (persistent) timers are available as a replacement of (ana)cron.
+
+Since version 197 systemd supports timers, making cron unnecessary on a systemd system. 
+Since version 212 persistent services are supported, replacing even anacron. 
+Persistent timers are run at the next opportunity if the system was powered down when the timer was scheduled to run.
 
 [[systemd-timer#systemd timer]]
 
@@ -22,16 +26,20 @@ Since version 197 systemd supports timers, making cron unnecessary on a systemd 
 ### 安装 cron
 
 ```bash
-# archlinux 
+# archlinux
+# check cron status
+systemctl status cronie
+# install
 pacman -S cronie
 systemctl status cronie
 systemctl enable --now cronie
+systemctl disable --now cronie
 
 # https://wiki.gentoo.org/wiki/Cron
 # https://wiki.gentoo.org/wiki/Systemd#Timer_services
 
-# 查看 cron 是否已经安装
 # centos
+# 查看 cron 是否已经安装
 yum list installed |grep cron
 yum install cronie    # vixie-cron 已经不再维护, 建议安装 cronie
 ```
@@ -48,18 +56,16 @@ service crond status
 
 ### 创建定时任务
 
+新建一个定时任务测试一下
+
 ```bash
 crontab -e # 执行后会跳转到 vi (依赖环境变量配置, 默认一般是 vi)
-# vi状态下插入一行, 每三分钟插入一行数据到/tmp/foo.txt
-*/3 * * * * echo "foo" >> /tmp/foo.txt
-#3分钟之后查看文件  /tmp/foo.txt 应该已经有数据了.
+# vi 状态下插入一行, 每一分钟插入一行数据到 /tmp/foo.txt
+*/1 * * * * echo "foo" >> /tmp/foo.txt
+# 1 分钟之后查看文件  /tmp/foo.txt 应该已经有数据了.
 ```
 
 ```bash
-service crond start # 启动服务
-service crond stop # 关闭服务
-service crond restart # 重启服务
-service crond reload # 重新载入配置, 新建定时任务的时候,不需要reload.
 crontab -l # 列出cron服务的详细内容
 crontab -u root -l #列出某个用户cron服务的详细内容
 crontab -e # 编辑某个用户的 cron 服务, 可以像使用 vi 编辑其他任何文件那样修改 crontab 文件并退出。如果修改了某些条目或添加了新的条目，那么在保存该文件时， cron 会对其进行必要的完整性检查。如果其中的某个域出现了超出允许范围的值，它会提示你。
@@ -73,8 +79,8 @@ crontab -r # 删除没个用户的 cron 服务
 # +----- minute (0 – 59)
 # |  +---- hour (0 – 23)
 # |  |  +--- day-of-the-month (1 – 31)
-# |  |  |  +-- month (1 – 12)
-# |  |  |  |  +- day-of-the-week (0 – 7) (Sunday=0 or 7)
+# |  |  |  +--- month (1 – 12)
+# |  |  |  |  +--- day-of-the-week (0 – 7) (Sunday=0 or 7)
 # |  |  |  |  |
 # *  *  *  *  *  user-name command to be executed
 ```
@@ -82,7 +88,7 @@ crontab -r # 删除没个用户的 cron 服务
 ```bash
 # Use the hash sign to prefix a comment
 ### 配置自动生效
-cron will then examine the modification time on all crontabs and reload those which have changed. Thus cron need not be restarted whenever a crontab file is modified
+# cron will then examine the modification time on all crontabs and reload those which have changed. Thus cron need not be restarted whenever a crontab file is modified
 ```
 
 ### 在线 crontab 表达式执行时间计算
@@ -92,7 +98,9 @@ cron will then examine the modification time on all crontabs and reload those wh
 ### 示例
 
 ```bash
-# 每天早上 1 点运行
+# 每 29 天执行一次
+0 0 */29 * * /path/to/script.sh
+# 每天凌晨 1 点执行
 0 1 * * * /root/bin/backup.sh
 # 每天早上 5 点运行
 0 5 * * * /root/bin/backup.sh
@@ -308,3 +316,12 @@ run at 10 pm on weekdays, annoy Joe
 23 0-23/2 ** * echo "run 23 minutes after midn, 2am, 4am …, everyday"
 
 [https://wiki.gentoo.org/wiki/Cron](https://wiki.gentoo.org/wiki/Cron)
+
+---
+
+```bash
+service crond start # 启动服务
+service crond stop # 关闭服务
+service crond restart # 重启服务
+service crond reload # 重新载入配置, 新建定时任务的时候,不需要reload.
+```

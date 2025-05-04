@@ -83,6 +83,13 @@ certbot delete
 certbot certonly  --dns-google   --dns-google-credentials /root/cellular-deck-280204-6455aa19691d.json -d wiloon.com -d *.wiloon.com
 ```
 
+## commands
+
+```Bash
+# 查看证书, 查看已经安装的证书
+certbot certificates
+```
+
 #### centos
 
 ```bash

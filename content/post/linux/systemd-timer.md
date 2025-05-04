@@ -22,6 +22,7 @@ systemctl list-timers --all
 vim /etc/systemd/system/foo.service
 ```
 
+content of foo.service
 ```bash
 [Unit]
 Description=foo service
@@ -38,6 +39,7 @@ WantedBy=multi-user.target
 vim /etc/systemd/system/foo.timer
 ```
 
+content of foo.timer
 ```bash
 [Unit]
 Description=foo timer
@@ -55,7 +57,7 @@ WantedBy=multi-user.target
 ## 启用 timer
 
 ```bash
-systemctl --now enable foo.timer
+systemctl enable --now foo.timer
 ```
 
 [http://www.ruanyifeng.com/blog/2018/03/systemd-timer.html](http://www.ruanyifeng.com/blog/2018/03/systemd-timer.html)
@@ -79,7 +81,8 @@ It is divided into 3 parts -
 
 [https://silentlad.com/systemd-timers-oncalendar-(cron)-format-explained](https://silentlad.com/systemd-timers-oncalendar-(cron)-format-explained)
 
-- Every day at 2am `*-*-* 02:00:00`
+- Every day at 2am, `*-*-* 02:00:00`
+- every 29 days at 2am, `*-*-* 02:00:00/29`
 
 ## systemd timer 相比 cron 的优点
 
