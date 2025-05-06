@@ -13,4 +13,8 @@ tags:
 ```bash
 echo abc | cut -c 2-
 # bc
+
+echo abcdef | cut -c 1-3
+
+# abc
 ```

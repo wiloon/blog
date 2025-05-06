@@ -123,7 +123,7 @@ SELECT * FROM nyummy.cimory WHERE city = 'tokio'
 ) TO '/tmp/foo.csv';
 
 # 导入 csv
-COPY table_0 FROM '/path/to/file.csv';
+COPY table_0 FROM '/tmp/foo.csv';
 ```
 
 
