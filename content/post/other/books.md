@@ -13,35 +13,49 @@ tags:
 
 平时看到有人推荐好书就忍不住想屯几本，但是到了读书的时候大都是看了几页几十页就被各种事情打断了..., 很少有一本书能读完的，从 2021 年开始计划着多花些时间读书，从第一页读到最后一页的那种。然后就有了这里的列表。
 
+## 2025
+
+- Elon Musk
+  - Author/作者:  [美]沃尔特·艾萨克森
+  - 译作名: 埃隆·马斯克传
+  - 译者: 孙思远 / 刘家琦
+
+- Elon Musk
+  - Author/作者:  [美] 阿什利·万斯
+  - 译作名: 硅谷钢铁侠
+  - 译者: 周恒星
+
+- Steve Jobs
+  - Author/作者: [美]沃尔特·艾萨克森
+  - 译作名: 史蒂夫·乔布斯传
+  - 译者: 赵灿
+
+- The Gardener and the Carpenter
+  - Author/作者: [美] 艾莉森•高普尼克(Alison Gopnik)
+  - 译作名: 园丁与木匠
+  - 译者: 刘家杰 / 赵昱鲲
+
+- 三体
+  - Author/作者: 刘慈欣
+
+- The Scientist in the Crib
+  - Author/作者:  [美]艾莉森•高普尼克 / [美]安德鲁•梅尔佐夫 / [美]帕特里夏•库尔
+  - 译作名: 孩子如何学习
+  - 译者: 林文韵 / 杨田田
+
+- The Philosophical Baby
+  - Author/作者: 艾莉森 高普尼克 (Alison Gopnik)
+  - 译作名: 孩子如何思考
+  - 译者: 杨彦捷
+
 ## 2023
 
-- Rust语言圣经(Rust Course)
-  - Author/作者: Sunface
-  - 译作名: N/A
-  - 译者: N/A
-  - 时间: 2023.12 -
-- 编程之美 - 微软技术面试心得
-  - Author/作者: 《编程之美》小组
-  - 译作名: N/A
-  - 译者: N/A
-  - 时间: 2023.12 -
-- Design Patterns - Elements of Reusable Object-oriented Software
-  - Author/作者: Erich Gamma, Richard Helm, Ralph Johnson, John Vlissides
-  - 译作名: 设计模式 - 可利用面向对象软件的基础
-  - 译者: 李英军 / 马晓星 / 蔡敏 / 刘建中
-  - 时间: 2023.12 -
-- 大话设计模式
-  - Author/作者: 程杰
-  - 译作名: N/A
-  - 译者: N/A
-  - 时间: 2023.12 -
 - Asking The Right Questions: A Guide to Critical Thinking
   - Author/作者: [美]尼尔·布朗 (Neil Browne) ，斯图尔特·基利 (Stuart Keel)
   - 译作名: 学会提问
   - 译者: 许蔚翰, 吴礼敬
-  - 时间: 2023.12 -
+  - 时间: 2023.12 - 2024.12
   - https://book.douban.com/subject/35513147/
-  - 53/476
 
 ## 2022
 
@@ -82,6 +96,18 @@ tags:
   - 又名:《弗兰肯斯坦》
   - Author/作者: 英国女作家 玛丽·雪莱
   - 译者: 孙法理
+- Rust语言圣经(Rust Course)
+  - Author/作者: Sunface
+- 编程之美 - 微软技术面试心得
+  - Author/作者: 《编程之美》小组
+- Design Patterns - Elements of Reusable Object-oriented Software
+  - Author/作者: Erich Gamma, Richard Helm, Ralph Johnson, John Vlissides
+  - 译作名: 设计模式 - 可利用面向对象软件的基础
+  - 译者: 李英军 / 马晓星 / 蔡敏 / 刘建中
+- 大话设计模式
+  - Author/作者: 程杰
+  - 译作名: N/A
+  - 译者: N/A
 
 ## Template
 

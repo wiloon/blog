@@ -27,7 +27,7 @@ content of foo.service
 [Unit]
 Description=foo service
 [Service]
-ExecStart=/path/to/foo.sh
+ExecStart=/usr/local/bin/foo.sh
 
 [Install]
 WantedBy=multi-user.target
@@ -45,8 +45,12 @@ content of foo.timer
 Description=foo timer
 
 [Timer]
+# every 29 days
+# OnUnitActiveSec=29d
+
 # every day 12:00:00
 OnCalendar=*-*-* 12:00:00
+
 Persistent=true
 Unit=foo.service
 

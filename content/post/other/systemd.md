@@ -27,10 +27,11 @@ systemctl --now enable service0
 - 同时采用socket式与D-Bus总线式激活服务
 - 系统状态快照
 
-### 查看配置文件位置
-
 ```bash
+# 查看配置文件位置
 systemctl status service0
+# 修改配置之后重新加载配置文件
+systemctl daemon-reload
 ```
 
 配置文件主要放在 /usr/lib/systemd/system 目录, 也可能在/etc/systemd/system 目录
@@ -157,7 +158,7 @@ systemctl list-units --type=service
 
 systemctl is-active httpd.service  (仅显示是否 Active)
 
-systemctl daemon-reload
+
 
 # check service enabled
 systemctl list-unit-files |grep enabled

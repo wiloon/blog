@@ -10,7 +10,8 @@ tags:
 ---
 ## 关于本站/关于我/About
 
-本站主要是个人使用的读书笔记，因为早期使用了 Wordpress 所以申请了域名, 转到 Github + Markdown 后也保留了公开访问，本人使用频率比较高的技术文档都有仔细整理和验证过，希望能帮助到有需要的同学。当然...也有大量的转载未整理的内容，在不段完善整理中...
+本站主要是个人使用的读书笔记，因为早期使用了 Wordpress 所以申请了域名, 转到 Github + Markdown 后也保留了公开访问，
+本人使用频率比较高的技术文档都有仔细整理和验证过，希望能帮助到有需要的同学。当然...也有大量的转载未整理的内容，在不段完善整理中...
 
 ### 收集综合症/转载
 
@@ -25,9 +26,9 @@ tags:
   - 一篇文章可能有多个引用来源， 对同一个问题也有可能有相互矛盾的来源，会补充验证后的结果。
   - 前期不太注意知识共享协议，最近在有意识的识别有共享协议的文章并按协议转载
   - 没有明显的知识共享协议的文章会逐渐转移到私有仓库 Obsidian + AWS S3
-  - 转载内容的 Author 会标记为"-"
+  - 转载内容的 Author 会标记为 "-"
 - 会不定期删除本人使用频率低的内容, 比如早期接触过的 ASP.net, Wordpress, PHP...
-- 本站点对应的 GitHub 仓库:[https://github.com/wiloon/wiloon.com](https://github.com/wiloon/wiloon.com)
+- 本站点对应的 GitHub 仓库: [https://github.com/wiloon/wiloon.com](https://github.com/wiloon/wiloon.com)
 - 转载内容有侵权可以随时联系我删除
 
 ### 整理过的
@@ -37,8 +38,8 @@ tags:
 - 平时经常使用的工具, 命令, 脚本, 使用过程中遇到问题,解决问题后会频繁得修改，会补充命令的示例
 - 一般会有语法高亮
 - 有段落标注
-- 可能有N个引用来源
-- 以Tag(remix)方式标记整理过的转载内容 -- 逐渐整理中，要花些时间从收集的文档里捞出来。
+- 可能有 N 个引用来源
+- 以 Tag(remix) 方式标记整理过的转载内容 -- 逐渐整理中，要花些时间从收集的文档里捞出来。
 
 ### 日常记录
 
@@ -66,7 +67,7 @@ tags:
 - Language: Java / Golang / Python
 
 - 中学时期一度沉迷计算机硬件，是 <<微型计算机>> 的忠实读者, 练就了一手装机技能。大学时期人称 "机修"。
-- 工作之后有三年时间被派到上海出差，期间接触到了当地的 Linux 用户组, 也因为自己的二手IBM笔记本跑 Windows 太吃力所以转投了 Linux, 在各种发行版之间折腾了很长时间, 最后选择了Arch Linux.
+- 工作之后有三年时间被派到上海出差，期间接触到了当地的 Linux 用户组, 也因为自己的二手 IBM 笔记本跑 Windows 太吃力所以转投了 Linux, 在各种发行版之间折腾了很长时间, 最后选择了Arch Linux.
 - 写过 Java, C#, Android, iOS, Go; 目前工作主力: Python, Go
 - 日常系统 Arch Linux + KDE
 - 曾经的 Google 粉，用过 Google 的各种好用的和不好用的产品: Nexus5, Nexus6P, Nexus7, Moto 360, Pixel1/2/3, Pixelbook
@@ -76,21 +77,21 @@ tags:
 接触过的主要技术，从左到右按熟悉程度排序
 
 - Java, Python, Golang
-- MySQL, Redis, InfluxDB, LevelDB
+- MySQL, PostgreSQL, Redis, InfluxDB, LevelDB
 - Kafka, Zookeeper
 - CentOS, Arch Linux, Ubuntu
 - AWS, `Aliyun`
-- Javascript, Vue, Element, `Vuetify`, Angular
+- Javascript, Vue, Element, `Vuetify`
 - Docker/`Podman`, Protobuf, JWT, Telegraf, PlantUML, Filebeat, ELK, Shell Script, Ansible
 
 ### 业余时间
 
 - 最近在折腾家里的软路由。
 - 做一些目前只有自己在用的 Side Projects: Rss 阅读器, 英语词典, 等等...
-- 伺候猫主子，家里有一只名叫"皮皮"的中华田园猫。
+- 伺候猫主子，家里有一只名叫 "皮皮" 的中华田园猫。
 - 偶尔玩游戏: 王者荣耀, 英雄联盟。
 - 断断续续的学了一点儿钢琴，目前能弹一首半简单的曲子。
-- 曾经热爱自行车运动，最的远距离是骑行40公里。
+- 曾经热爱自行车运动，最的远距离是骑行 40 公里。
 
 ### 联系方式
 
