@@ -95,8 +95,11 @@ lsblk
 sudo mkswap /dev/sdx2
 swapon /dev/sdx2
 
-# 查看磁盘分区UUID, 没有root权限时, blkid没有输出, 要加sudo.
-# sudo blkid
+# 查看磁盘分区UUID, 没有 root 权限时, blkid 没有输出
+
+```bash
+sudo blkid
+```
 
 #genfstab -p -U /mnt > /mnt/etc/fstab
 ```

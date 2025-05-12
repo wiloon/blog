@@ -11,9 +11,11 @@ tags:
 ---
 ## python basic
 
-## list array, 列表, 数组
+## 数据类型
 
-### list/dict str to list/dict
+### list array, 列表, 数组
+
+#### list/dict str to list/dict
 
 ```Python
 >>> import ast
@@ -26,7 +28,7 @@ tags:
 ['A', 'B', 'C', 'D']
 ```
 
-### colon syntax
+#### colon syntax
 
 ```Python
 # check if two list equal
@@ -91,9 +93,9 @@ print('l1',l1)#[1, 2, 3, 4, 5, 6]
 
 负数索引表示从右边往左数，最右边的元素的索引为 -1，倒数第二个元素为 -2
 
-## string
+### string
 
-### string replace, 字符串 替换
+#### string replace, 字符串 替换
 
 ```py
 txt = "I like bananas"
@@ -108,7 +110,7 @@ print(x)
 str_0 = str_0.replace(r"\\\\n", r"\n")
 ```
 
-### string format
+#### string format
 
 ```python
 txt = "For only {price:.2f} dollars!"
@@ -116,7 +118,7 @@ print(txt.format(price = 49))
 
 ```
 
-### string trim
+#### string trim
 
 ```py
 >>>a=" gho stwwl "
@@ -464,9 +466,12 @@ tar -xzf Python-3.6.15.tgz
 
 cd Python-3.6.15
 ./configure --enable-optimizations  -with-lto  --with-pydebug
-make -j 8  # adjust for number of your CPU cores
+
+# adjust for number of your CPU cores
+make -j 8
 sudo make altinstall
 python3.6 -V
+ls -l /usr/local/bin/python3.6
 ```
 
 ### ubuntu install python3
@@ -492,11 +497,6 @@ python --version
 ### ubuntu install python
 
 sudo apt install python3
-sudo apt install -y python3-venv
-mkdir python3-env
-cd python3-env
-python3 -m venv my_env
-source my_env/bin/activate
 
 [https://www.digitalocean.com/community/tutorials/ubuntu-18-04-python-3-zh](https://www.digitalocean.com/community/tutorials/ubuntu-18-04-python-3-zh)
 
@@ -712,6 +712,8 @@ pickle.load(file)
 - virtualenv: Python 虚拟环境管理工具
 
 ```Bash
+# install venv
+sudo apt install -y python3-venv
 # 判断当时是否在虚拟环境里
 which python
 ```

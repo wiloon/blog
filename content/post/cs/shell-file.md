@@ -10,15 +10,14 @@ tags:
 ---
 ## 用 shell 脚本生成文本文件, shell 创建文件
 
-## sudo
-
 ```bash
+# sudo
 echo "nohup ${app_path}/goland/default/bin/goland.sh >/dev/null 2>&1 &" | sudo tee /usr/local/bin/goland > /dev/null
 ```
 
 生成一个具有特定内容的文本文件
 
-### 使用echo命令
+### 使用 echo 命令
 
 ```bash
 echo "Hello, World!

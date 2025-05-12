@@ -17,6 +17,8 @@ tags:
 - gnome-shell-pomodoro: Pomodoro, https://gnomepomodoro.org/
 - pavucontrol, chrome audio output, https://askubuntu.com/questions/457978/no-sound-from-chrome-sound-works-fine-in-firefox-etc-13-10
 - baobab, 硬盘占用分析工具
+- indicator-sysmonitor, 任务栏里的系统资源监控
+
 
 ## install by pacman
 

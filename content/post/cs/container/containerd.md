@@ -11,6 +11,11 @@ tags:
 ---
 ## containerd
 
+## ubuntu install from source
+
+https://github.com/containerd/containerd/blob/main/docs/getting-started.md
+
+
 ```bash
 # archlinux install containerd
 pacman -S containerd runc nerdctl cni-plugins buildkit
@@ -35,6 +40,8 @@ nerdctl build -t dnsmasq:v1.0.0 .
 mkdir -p /opt/cni/bin
 tar Cxzvf /opt/cni/bin cni-plugins-linux-amd64-v1.1.1.tgz
 ```
+
+## ubuntu install containerd
 
 https://gist.github.com/Faheetah/4baf1e413691bc4e7784fad16d6275a9
 https://www.techrepublic.com/article/install-containerd-ubuntu/
@@ -103,8 +110,18 @@ containerd --version
 sudo vim /etc/containerd/config.toml
 
 ```Bash
-[plugins."io.containerd.grpc.v1.cri".registry]
-   config_path = "/etc/containerd/certs.d"
+[plugins.'io.containerd.cri.v1.images'.registry]
+  config_path = '/etc/containerd/certs.d'
+```
+
+/etc/containerd/certs.d/192.168.50.10:5000/hosts.toml
+
+```
+server = "http://192.168.50.10:5000"
+
+[host."http://192.168.50.10:5000"]
+  capabilities = ["pull", "resolve", "push"]
+  skip_verify = true
 ```
 
 ## nerdctl

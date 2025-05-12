@@ -10,29 +10,6 @@ tags:
 ---
 ## su, sudo
 
-## sudo 提供密码
-
-```bash
-echo 'password' | sudo -S command
-```
-
-```bash
-#!/bin/bash
-sudo -S apt-get update << EOF 
-你的密码
-EOF
-
-```
-
--S 参数的作用
-使用 man 命令查询 sudo，对参数 -S 的说明如下：
-
-Write the prompt to the standard error and read the password from the standard input instead of using the terminal device. The password must be followed by a newline character.
-
-可见加上 -S 参数 sudo 才会从标准输入中读取密码，不加 -S 参数以上命令将起不到作用
-
-[https://askubuntu.com/questions/470383/how-to-avoid-being-prompted-for-a-password-by-sudo](https://askubuntu.com/questions/470383/how-to-avoid-being-prompted-for-a-password-by-sudo)
-
 ### sudo 免密码
 
 ```bash
@@ -56,6 +33,31 @@ joe ALL=(ALL) NOPASSWD: ALL
 [https://www.cnblogs.com/itech/archive/2009/08/07/1541017.html](https://www.cnblogs.com/itech/archive/2009/08/07/1541017.html)
 
 [https://askubuntu.com/questions/70534/what-are-the-differences-between-su-sudo-s-sudo-i-sudo-su](https://askubuntu.com/questions/70534/what-are-the-differences-between-su-sudo-s-sudo-i-sudo-su)
+
+
+## sudo 提供密码
+
+```bash
+echo 'password' | sudo -S command
+```
+
+```bash
+#!/bin/bash
+sudo -S apt-get update << EOF 
+你的密码
+EOF
+
+```
+
+-S 参数的作用
+使用 man 命令查询 sudo，对参数 -S 的说明如下：
+
+Write the prompt to the standard error and read the password from the standard input instead of using the terminal device. The password must be followed by a newline character.
+
+可见加上 -S 参数 sudo 才会从标准输入中读取密码，不加 -S 参数以上命令将起不到作用
+
+[https://askubuntu.com/questions/470383/how-to-avoid-being-prompted-for-a-password-by-sudo](https://askubuntu.com/questions/470383/how-to-avoid-being-prompted-for-a-password-by-sudo)
+
 
 ### This account is currently not available
 

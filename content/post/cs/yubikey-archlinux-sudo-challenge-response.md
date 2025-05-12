@@ -8,7 +8,9 @@ categories:
 tags:
   - reprint
 ---
-## yubikey, archlinux sudo, challenge-response
+## yubikey, challenge-response
+
+archlinux sudo
 
 install yubi pam
   

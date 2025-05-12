@@ -8,7 +8,7 @@ categories:
 tags:
   - reprint
 ---
-## sudo 命令自动补全
+## 命令自动补全
 
 ```bash
 sudo pacman -S bash-completion
