@@ -215,6 +215,8 @@ apply system-wide
 
 ## add a shell script to launcher as shortcut
 
+把 shell script 加到 ubuntu gnome 的 launcher 里显示成一个图标。
+
 Create foo.desktop file, location depends on if it is for personal use or all users. 
 If these directories do not exist, create them.
 For personal use, ~/.local/share/applications
@@ -227,6 +229,7 @@ For all users, /usr/local/share/applications/ (or /usr/share/applications/ depen
 sudo -i gedit /usr/share/applications/name.desktop
 
 Paste below text
+
 
 ```
 [Desktop Entry]
