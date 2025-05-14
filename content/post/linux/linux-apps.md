@@ -18,6 +18,7 @@ tags:
 - pavucontrol, chrome audio output, https://askubuntu.com/questions/457978/no-sound-from-chrome-sound-works-fine-in-firefox-etc-13-10
 - baobab, 硬盘占用分析工具
 - indicator-sysmonitor, 任务栏里的系统资源监控
+- thunderbird, 邮件客户端, email client
 
 
 ## install by pacman
@@ -61,7 +62,6 @@ sudo pacman -S powerdevil kmix kscreen ark
 
 | name                  | comments                                                               |
 | :-------------------- |:-----------------------------------------------------------------------|
-| thunderbird           | 邮件客户端, email client                                                    |
 | flameshot             | 截图工具 screenshot                                                        |
 | netdata               | 系统资源监控                                                                 |
 | qalculate-gtk         | 全宇宙最好用的计算器                                                             |
