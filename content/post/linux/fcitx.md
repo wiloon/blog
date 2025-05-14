@@ -10,7 +10,7 @@ tags:
 ---
 ## fcitx
 
-## ubuntu 22.04 install fcitx5
+## ubuntu 24.04 install fcitx5
 
 检查系统中文环境
 在 Ubuntu 设置中打开「区域与语言 (Region & Language)」—— 「管理已安装的语言」 (Manage Installed Languages)，然后会自动检查已安装语言是否完整。若不完整，根据提示安装即可。
@@ -121,7 +121,7 @@ vim ~/.config/fcitx/config
 ## 快捷键
 
 ```bash
-## 切换 全角半角符号, 逗号, 句号
+## 切换 全角半角符号, 逗号, 句号, 不需要改配置永久禁用全角符号, 切换即可
 
 ctrl + .
 
