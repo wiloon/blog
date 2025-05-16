@@ -13,6 +13,16 @@ tags:
 ---
 ## LVM
 
+## commands
+
+```bash
+# lvreduce, 用于减小 LVM 逻辑卷（Logical Volume）的大小
+# -r, 同时调整（resize）文件系统的大小（调用 resize2fs xfs_growfs 等）
+# -L -40G	减小逻辑卷的大小 40GB（注意 - 表示减小）
+# /dev/ubuntu-vg/root 要调整的逻辑卷路径（通常是根分区）
+sudo lvreduce -r -L -40G /dev/ubuntu-vg/root
+```
+
 ## LVM 的基本概念
 
 通过 LVM 技术，可以屏蔽掉磁盘分区的底层差异，在逻辑上给文件系统提供了一个卷的概念，然后在这些卷上建立相应的文件系统。下面是 LVM 中主要涉及的一些概念。
@@ -41,7 +51,8 @@ sudo pvscan
 # --noheadings：不输出标题头；
 # --nosuffix：不输出空间大小的单位。
 sudo pvs
-# 显示物理卷的属性。pvdisplay 命令显示的物理卷信息包括：物理卷名称、所属的卷组、物理卷大小、PE 大小、总 PE 数、可用 PE 数、已分配的 PE 数和 UUID。
+
+# 显示物理卷的属性。pvdisplay 命令显示的物理卷信息包括：物理卷名称、所属的卷组、物理卷大小、PE 大小、总 PE 数、可用 PE 数、已分配的 PE 数和 UUID
 sudo pvdisplay
 
 # 查找系统中存在的 LVM 卷组，并显示找到的卷组列表。vgscan 命令仅显示找到的卷组的名称和 LVM 元数据类型，

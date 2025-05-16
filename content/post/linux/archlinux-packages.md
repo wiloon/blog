@@ -24,6 +24,7 @@ tags:
 - botan: Crypto library written in C++
 - `btrfs-progs`: Userspace utilities to manage btrfs filesystems
 - ca-certificates-mozilla: Mozilla's set of trusted CA certificates
+- `cryptsetup`: Userspace setup tool for transparent encryption of block devices using dm-crypt
 - `chrony`: Lightweight NTP client and server
 - `conmon`: OCI container runtime monitor
 - `dav1d`: AV1 cross-platform decoder focused on speed and correctness
@@ -41,7 +42,7 @@ tags:
 - `libx11`: X11 client-side library
 - c-ares: c-ares是一个C语言实现的异步请求DNS的实现。很多知名 软件(curl、`seastar`、gevent、Nodejs等等)都使用了该软件。
 - `cfitsio`: A library of C and Fortran subroutines for reading and writing data files in FITS (Flexible Image Transport System) data format
-- `cryptsetup`: Userspace setup tool for transparent encryption of block devices using dm-crypt
+
 - `archlinux-appstream-data`: Arch Linux application database for AppStream-based software centers, `appstream-data` 是一个用于支持软件中心和应用程序管理器的数据包。它包含应用程序的描述信息，如应用程序名称、图标、作者、版本等，这些信息可以在软件中心中显示出来，方便用户查看和选择。
 
 

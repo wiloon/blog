@@ -58,7 +58,7 @@ SystemMaxUse=50M
 ```
 
 ```bash
-# 最近一次重新引导后收集到的日志
+# 最近一次重新引导后收集到的日志, 表示只查看本次启动以来的日志（boot）。
 journalctl -b
 
 sudo journalctl /usr/lib/systemd/systemd -b

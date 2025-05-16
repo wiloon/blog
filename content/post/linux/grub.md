@@ -11,6 +11,12 @@ tags:
 ---
 ## grub
 
+## 判断是否由 grub 引导 
+
+```bash
+journalctl -b | grep -i grub
+```
+
 https://www.gnu.org/software/grub/manual/grub/grub.html#Simple-configuration
 
 GRUB 来自 GRand Unified Bootloader 的缩写。它的功能是在启动时从 BIOS 接管掌控、加载自身、加载 Linux 内核到内存，然后再把执行权交给内核。一旦内核开始掌控，GRUB 就完成了它的任务，也就不再需要了。
