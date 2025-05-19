@@ -212,6 +212,7 @@ lvresize -L +11G vgubuntu/root
 pvchange -x n /dev/mapper/nvme0n1p8_crypt
 # e2fsck 命令可以帮助确保文件系统的一致性，特别是在调整文件系统大小之前。
 e2fsck -f /dev/mapper/vgubuntu-root
+
 # resize2fs 命令用于调整 ext2/ext3/ext4 文件系统的大小
 # 这个命令会自动调整文件系统的大小，使其占满整个逻辑卷（如果是扩展）或减少到逻辑卷的当前大小（如果是缩小）。
 # p 选项用于在调整过程中显示进度，

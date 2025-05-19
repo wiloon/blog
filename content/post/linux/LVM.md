@@ -50,6 +50,7 @@ sudo pvscan
 # 输出格式化的物理卷信息报表。使用 pvs 命令仅能得到物理卷的概要信息，如果要得到更加详细的信息可以使用 pvdisplay 命令。
 # --noheadings：不输出标题头；
 # --nosuffix：不输出空间大小的单位。
+
 sudo pvs
 
 # 显示物理卷的属性。pvdisplay 命令显示的物理卷信息包括：物理卷名称、所属的卷组、物理卷大小、PE 大小、总 PE 数、可用 PE 数、已分配的 PE 数和 UUID
@@ -125,9 +126,11 @@ LVM 的优点对服务器的管理非常有用，但对于桌面系统的帮助�
 
 ### vgs
 
+列出所有的卷组
+
 vgs 命令来自英文词组 “volume groups display” 的缩写，其功能是用于显示逻辑卷的卷组信息。
 
-vgs 命令来自英文词组“volume groups display”的缩写，其功能是用于显示逻辑卷的卷组信息。LVM逻辑卷管理器中vg卷组是由一个或多个pv物理卷组成的设备，使用vgs命令能够查看到其基本信息，如若想要看到更详细的参数信息则需要使用vgdisplay命令。
+LVM 逻辑卷管理器中 vg 卷组是由一个或多个 pv 物理卷组成的设备，使用 vgs 命令能够查看到其基本信息，如若想要看到更详细的参数信息则需要使用 vgdisplay 命令。
 原文链接：https://www.linuxcool.com/vgs
 
 ```Bash
@@ -161,9 +164,14 @@ lvremove /dev/vgubuntu/swap_1
 lvcreate --name swap_1 -L 32G vgubuntu
 
 # vgchange 指令用于修改卷组的属性，经常被用来设置卷组是处于活动状态或者非活动状态。
-# -a 设置卷组的活动状态
+# -a 设置卷组的活动状态, 指定是否激活或停用逻辑卷：a 表示 activate（激活）
 # 将 vgubuntu 卷组激活
+# y 表示 “yes”，即 激活逻辑卷（n 则表示停用）
 vgchange -ay vgubuntu
+
+# 参数里不放卷组名字,激活系统中的所有分区
+sudo vgchange -ay
+
 # 将 vgubuntu 停用（deactivate）
 vgchange -an vgubuntu
 # pvresize命令的作用是调整一个卷组中的物理卷的大小。pvresize命令可以调整可能已经在卷组中的物理卷的大小，并在其中分配活动的逻辑卷。

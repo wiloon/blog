@@ -545,3 +545,31 @@ growpart /dev/vda 1;resize2fs /dev/vda1
 7. 修改 windows efi, 把 ubuntu 启动项指向 最后面的 efi + boot
 8. 确认能正常启动, 删除 /root 分区前面的 ubuntu efi + boot
 9. 扩容 ubuntu root 填充 windows和 ubuntu之间 的空闲空间
+
+## luks over lvm 分区缩容
+
+```bash
+sudo cryptsetup open /dev/nvme0n1p1 nvme0n1p1_encrypted
+sudo vgs
+sudo vgchange -ay
+sudo e2fsck -f /dev/ubuntu-vg/root
+# 缩小 EXT4 文件系统
+# 尝试将文件系统的大小调整为 500GB
+sudo resize2fs /dev/ubuntu-vg/root 500G
+sudo lvreduce -L 500G /dev/ubuntu-vg/root
+# 或者
+# -r 自动同时调整（resize）文件系统大小
+# -L 把逻辑卷大小调整为 500GB
+sudo lvreduce -r -L 500G /dev/ubuntu-vg/root
+# 查看物理卷
+sudo pvs
+sudo pvresize --setphysicalvolumesize 505G /dev/mapper/cryptroot
+sudo vgchange -an
+sudo cryptsetup close cryptroot
+
+# 修改分区表
+sudo parted /dev/nvme0n1
+print
+resizepart 3 510GB
+quit
+```

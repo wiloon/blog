@@ -25,8 +25,8 @@ LUKS = Linux Unified Key Setup
 cryptsetup luksFormat /dev/nvme0n1p1
 cryptsetup luksOpen /dev/nvme0n1pX cryptroot
 
-# 打开加密的 LUKS 分区, 映射加密分区, 映射加密分区到 nvme0n1p1_encrypted，
-# 实际上是将加密分区映射到 linux 逻辑分区 /dev/mapper/nvme0n1p8_crypt
+# 打开加密的 LUKS 分区, 映射加密分区到 nvme0n1p1_encrypted，
+# 将加密分区映射到 linux 逻辑分区 /dev/mapper/nvme0n1p8_crypt
 cryptsetup open /dev/nvme0n1p1 nvme0n1p1_encrypted
 
 # 重设 PV 上加密层的大小

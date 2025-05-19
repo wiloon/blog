@@ -54,8 +54,9 @@ help mkpart
 
 mkpart 磁盘分区名称 起始磁柱值 截止磁柱值
 
-# fs-type: ext4,fat32
+# fs-type: ext4, fat32
 mkpart primary ext4 0% 100%
+mkpart primary ext4 510G 100%
 
 # 指定分区名和起止位置,起点会自动设置成2048s
 mkpart data 0% 100%

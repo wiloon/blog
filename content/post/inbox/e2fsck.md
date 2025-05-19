@@ -1,5 +1,5 @@
 ---
-title: e2fsck
+title: e2fsck command
 author: "-"
 date: 2016-04-18T13:46:59+00:00
 url: e2fsck
@@ -9,16 +9,16 @@ tags:
   - reprint
   - remix
 ---
-## e2fsck
+## e2fsck command
 
-linux下磁盘检查修复命令
+linux 下磁盘检查修复命令
 
 ```bash
 # 注意, 是对分区进行检查, 如果参数只写磁盘 /dev/sda, 有可能会报分区表异常之类的... e2fsck: Bad magic number in super-block while trying to open /dev/vdb1
 e2fsck -f /dev/sda2
 ```
 
-e2fsck用于检查和修复ext3和ext2文件系统的硬盘分区,不过这个命令还有专有形式: fsck.ext3, fsck.ext2分别用于检测ext3和ext2。
+e2fsck 用于检查和修复 ext3 和 ext2 文件系统的硬盘分区, 不过这个命令还有专有形式: fsck.ext3, fsck.ext2分别用于检测ext3和ext2。
 
 使用方法:
 
