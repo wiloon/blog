@@ -1,7 +1,7 @@
 ---
 title: 硬盘扩容, PVE, Archlinux
 author: "-"
-date: 2022-06-21 08:19:27
+date: 2025-05-20 09:17:42
 url: disk/resize
 categories:
   - OS
@@ -548,8 +548,39 @@ growpart /dev/vda 1;resize2fs /dev/vda1
 
 ## luks over lvm 分区缩容
 
+https://linux-blog.anracom.com/2018/11/09/shrinking-an-encrypted-partition-with-lvm-on-luks/
+https://starbeamrainbowlabs.com/blog/article.php?article=posts%2F441-resize-luks-lvm.html
+https://wiki.archlinux.org/title/Resizing_LVM-on-LUKS
+
 ```bash
+# Step 1: Get an overview over your block devices
+lsblk
+# Step 2: Open the encrypted partition
 sudo cryptsetup open /dev/nvme0n1p1 nvme0n1p1_encrypted
+ls -la /dev/mapper
+# Step 3: Get an overview on LVM structure
+pvdisplay
+vgdisplay
+lvdisplay
+
+# Step 4: Check the integrity of the filesystem
+fsck /dev/mapper/ubuntu--vg-ubuntu--lv
+# Step 5: Check the physical block size of the filesystem and the used space within the filesystem
+fdisk -l
+## Use tunefs to get some block information:
+tune2fs -l /dev/mapper/ubuntu--vg-ubuntu--lv
+
+# Step 6: Plan the reduced volume and filesystem sizes ahead – perform safety and limit considerations
+
+# 500G * 0.9 = 450G
+
+#Step 7: Shrink the filesystem
+resize2fs /dev/mapper/vg1-lvroot 450G
+e2fsck -f /dev/mapper/vg1-lvroot
+
+lvreduce -L 60G /dev/mapper/vg1-lvroot 
+resize2fs /dev/mapper/vg1-lvroot 
+
 sudo vgs
 sudo vgchange -ay
 sudo e2fsck -f /dev/ubuntu-vg/root
