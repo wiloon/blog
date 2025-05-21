@@ -170,8 +170,8 @@ Step 16: Closing and leaving the encrypted device
 ```bash
 vgchange -an ubuntu-vg
 cryptsetup close cr-ext
-# ubuntu 24.04, 在执行 vgchange -an 之后, 有某种未知的机智 ubuntu-vg 又被激活了
+# ubuntu 24.04, 在执行 vgchange -an 之后, 有某种未知的机制 ubuntu-vg 马上又被激活了
 # 所以... 可以这样
-# 解除激活之后马上 cryptsetup close
+# 解除激活之后, 趁系统还没注意, 马上 cryptsetup close
 vgchange -an ubuntu-vg && cryptsetup close cr-ext
 ```
