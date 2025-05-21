@@ -61,13 +61,13 @@ mkpart primary ext4 510G 100%
 # 指定分区名和起止位置,起点会自动设置成2048s
 mkpart data 0% 100%
 
-# 创建efi分区建议550M, linux的efi分区用fat32,系统分区不能用fat,fat会有各种问题,比如不允许使用冒号作文件名
+# 创建efi分区建议550M, linux的efi分区用 fat32, 系统分区不能用fat,fat 会有各种问题,比如不允许使用冒号作文件名
 (parted) mkpart primary fat32 1 551
 
-# 设置efi分区标记
+# 设置 efi 分区标记
 (parted) set 1 esp on
 
-# 设置常规bios引导, esp is an alias for boot on GPT
+# 设置常规 bios 引导, esp is an alias for boot on GPT
 (parted) set 1 boot on
 # grub引导
 (parted) set 1 bios_grub on
