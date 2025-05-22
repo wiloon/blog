@@ -1,11 +1,12 @@
 ---
 title: kafka basic, command
 author: "-"
-date: 2022-10-11 22:02:39
-url: "kafka"
+date: 2025-05-22 09:24:19
+url: kafka
 categories:
   - Kafka
 tags:
+  - reprint
   - remix
   - command
 ---
@@ -16,11 +17,25 @@ kafka_2.13-3.4.0.tgz
 scala 版本 2.13
 kafka 版本 3.4.0
 
-## commands
+## TLS kafka
 
 ```Bash
-# 查看 volume 目录
-docker info | grep "Docker Root Dir"
+# topic list
+./kafka-topics.sh --list --bootstrap-server 127.0.0.1:9093 --command-config /tmp/kafka.conf
+```
+
+content of kafka.conf
+
+```bash
+# kafka.config
+# kafka 启用了 TLS, 配置文件如果不配置 security.protocol=SSL, 客户端会默认用 PLAINTEXT 连接 9093, 然后 报异常 OutOfMemoryError: Java heap space
+security.protocol=SSL
+ssl.truststore.location=/path/to/client.truststore.jks
+ssl.truststore.password=password_0
+ssl.keystore.location=/path/to/client.keystore.jks
+ssl.keystore.password=password_0
+# 是否校验服务端主机名, 默认检验主机名, 值是: https, 赋空值禁用主机名校验
+ssl.endpoint.identification.algorithm=
 ```
 
 ### consumer
@@ -154,16 +169,9 @@ bin/kafka-topics.sh --list --bootstrap-server 192.168.50.169:9092
 bin/kafka-topics.sh --list --zookeeper localhost:2181
 
 ~/apps/kafka_2.13-3.2.1/bin/kafka-topics.sh --list --bootstrap-server 127.0.0.1:9093 --command-config ~/projects/project0/kafka.config
-
-# kafka.config
-security.protocol=SSL
-ssl.truststore.location=/path/to/client.truststore.jks
-ssl.truststore.password=password0
-ssl.keystore.location=/path/to/client.keystore.jks
-ssl.keystore.password=password0
-# 是否校验服务端主机名, 默认检验主机名, 值是: https, 赋空值禁用主机名校验
-ssl.endpoint.identification.algorithm=
 ```
+
+
 
 #### 可用的配置项
 

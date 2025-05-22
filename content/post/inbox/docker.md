@@ -30,6 +30,9 @@ docker container update --restart=no <containername>
 
 # 修改 docker 容器为开机启动
 docker container update --restart=always container_0
+
+# 查看 volume 目录
+docker info | grep "Docker Root Dir"
 ```
 
 ### 批量删除镜像
