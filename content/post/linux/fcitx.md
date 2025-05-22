@@ -7,8 +7,33 @@ categories:
   - Desktop
 tags:
   - reprint
+  - remix
 ---
 ## fcitx
+
+## archlinux 安装 fcitx
+
+https://blog.csdn.net/GaaraZ/article/details/128618441
+
+```bash
+sudo pacman -S fcitx5 kcm-fcitx fcitx-configtool fcitx-im fcitx-table-extra
+# kcm-fcitx: 图形界面的配置程序: KDE 中的 kcm-fcitx
+# fcitx-im: 输入法模块
+# fcitx-table-extra: 输入法模块-五笔, 可能需要重启
+# fcitx-configtool: gtk3 config tool, optional
+```
+
+### .zshrc
+
+```bash
+vim .zshrc
+```
+
+```bash
+export GTK_IM_MODULE=fcitx
+export QT_IM_MODULE=fcitx
+export XMODIFIERS=@im=fcitx
+```
 
 ## ubuntu 24.04 install fcitx5
 
@@ -144,29 +169,7 @@ ctrl+7
 /home/wiloon/.config/fcitx/table/wbx.mb
 ```
 
-## 安装 fcitx
 
-https://blog.csdn.net/GaaraZ/article/details/128618441
-
-```bash
-sudo pacman -S fcitx5 kcm-fcitx fcitx-configtool fcitx-im fcitx-table-extra
-# kcm-fcitx: 图形界面的配置程序: KDE 中的 kcm-fcitx
-# fcitx-im: 输入法模块
-# fcitx-table-extra: 输入法模块-五笔, 可能需要重启
-# fcitx-configtool: gtk3 config tool, optional
-```
-
-### .zshrc
-
-```bash
-vim .zshrc
-```
-
-```bash
-export GTK_IM_MODULE=fcitx
-export QT_IM_MODULE=fcitx
-export XMODIFIERS=@im=fcitx
-```
 
 ### start fcitx
 

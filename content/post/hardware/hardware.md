@@ -32,6 +32,7 @@ tags:
 - nexus 7 2013
 - 畅网微控 n100
 - Ruckus R310, 优科
+- beelink SER8
 
 ## ROCK 5B
 
@@ -475,3 +476,8 @@ https://helpguide.sony.net/mdr/wh1000xm5/v1/zh-cn/index.html
 https://www.dongchedi.com/auto/params-carIds-34951
 
 - 整备质量(kg) 1456
+
+## beelink SER8
+
+- AMD 8845HS
+- AMD Radeon™ 780M

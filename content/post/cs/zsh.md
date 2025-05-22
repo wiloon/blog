@@ -61,6 +61,10 @@ rm ~/.zcompdump*
 https://github.com/zsh-users/zsh-autosuggestions
 
 ```bash
+# archlinux 
+sudo pacman -S zsh-autosuggestions
+
+# install from source
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 vim .zshrc
 plugins=(git zsh-autosuggestions)

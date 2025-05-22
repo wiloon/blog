@@ -63,8 +63,11 @@ Gateway= 网关地址.
 pacman -S wpa_supplicant
 
 # start systemd-networkd and systemd-resolved service
+systemctl status systemd-networkd
 systemctl enable systemd-networkd
 systemctl start systemd-networkd
+
+systemctl status systemd-resolved
 systemctl enable systemd-resolved.service
 systemctl start systemd-resolved.service
 
@@ -76,7 +79,7 @@ Name=wlp3s0
 [Network]
 DHCP=yes
 
-cat /etc/wpa_supplicant/wpa_supplicant-wlp3s0.conf
+cat /etc/wpa_supplicant/wpa_supplicant-wlp2s0.conf
 network={
  ssid="w1100n"
  psk="xxxxxxxx"

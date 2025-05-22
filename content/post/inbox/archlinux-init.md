@@ -123,6 +123,7 @@ yay -S google-chrome
 #### 输入法ibus
 
 [http://www.wiloon.com/?p=7507](http://www.wiloon.com/?p=7507)
+
 #### for right click extrace package
 
 pacman -S file-roller
@@ -181,4 +182,10 @@ sudo pacman -S wqy-microhei
 
 locale -a 来显示当前Linux系统支持的所有的语言环境。
 
+```
+## amd driver
+
+```bash
+sudo pacman -S xf86-video-amdgpu
+sudo pacman -S vulkan-radeon
 ```
