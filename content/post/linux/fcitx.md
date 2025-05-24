@@ -11,11 +11,15 @@ tags:
 ---
 ## fcitx
 
+https://wiki.archlinux.org/title/Fcitx5
+
 ## archlinux 安装 fcitx
 
 https://blog.csdn.net/GaaraZ/article/details/128618441
 
 ```bash
+pacman -S fcitx5 fcitx5-configtool
+#---
 sudo pacman -S fcitx5 kcm-fcitx fcitx-configtool fcitx-im fcitx-table-extra
 # kcm-fcitx: 图形界面的配置程序: KDE 中的 kcm-fcitx
 # fcitx-im: 输入法模块

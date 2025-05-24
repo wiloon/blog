@@ -17,6 +17,8 @@ drill if you can, dig if you have to, `nslookup` if you must
 
 ```bash
 # install drill
+## aws linux
+yum install ldns-utils
 ## archlinux
 sudo pacman -S ldns
 
@@ -27,7 +29,6 @@ sudo apt install ldnsutils
 apk add drill
 
 # install dig
-
 
 ## cenos
 yum install bind-utils
