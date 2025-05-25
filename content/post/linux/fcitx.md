@@ -27,6 +27,10 @@ sudo pacman -S fcitx5 kcm-fcitx fcitx-configtool fcitx-im fcitx-table-extra
 # fcitx-configtool: gtk3 config tool, optional
 ```
 
+chrome 
+
+application launcher> right click chrome> command line arguments: --ozone-platform=wayland 
+
 ### .zshrc
 
 ```bash
