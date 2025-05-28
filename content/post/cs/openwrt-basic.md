@@ -17,7 +17,6 @@ tags:
 ```bash
 # 更新所有软件，包括 OpenWRT 内核、固件等
 opkg list-upgradable | cut -f 1 -d ' ' | xargs opkg upgrade
-
 ```
 
 ### wan dns
@@ -26,13 +25,13 @@ opkg list-upgradable | cut -f 1 -d ' ' | xargs opkg upgrade
 
 ### ssh port
 
-   vim /etc/init.d/dropbear
+vim /etc/init.d/dropbear
 
-   validate_section_dropbear > port
+validate_section_dropbear > port
 
 ### ssh public key
 
-   vim /etc/dropbear/authorized_keys
+vim /etc/dropbear/authorized_keys
 
 ### dns 配置
 
@@ -220,7 +219,7 @@ stop() {
 opkg 工具 (一个 ipkg 变种) 是一个用来从本地软件仓库或互联网软件仓库上下载并安装 OpenWrt 软件包的轻量型软件包管理器。
 
 ```bash
-opkg list # 获取软件列表
+opkg list  # 获取软件列表
 opkg update # 更新可以获取的软件包列表
 opkg upgrade # 对已经安装的软件包升级
 opkg install xxx.ipk # 安装本地的软件包
@@ -257,10 +256,12 @@ logread
 ### 启动脚本位置
 
 ```bash
-    /etc/rc.d
+/etc/rc.d
 ```
 
 ### openwrt 添加开机运行脚本, start script
+
+openwrt 系统启动的时候执行
 
 openwrt 添加开机运行脚本
 进入 /etc/init.d/ 目录创建脚本 test

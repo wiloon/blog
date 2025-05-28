@@ -37,7 +37,7 @@ sudo parted -a optimal /dev/sdx
 
 # 查看磁盘分区
 (parted) p
-# set disk label
+# set disk label, 硬盘没有其它分区的时候, 可以设置分区表类型
 (parted) mklabel gpt
 # or mklabel msdos
 

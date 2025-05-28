@@ -70,6 +70,7 @@ ssh 登录, 然后进行后续操作
 pacman -Sy archinstall
 
 # 执行 archinstall, 开始安装
+# 用 archinstall 安装, bootloader 是必选的.
 archinstall
 ```
 
@@ -172,8 +173,8 @@ systemctl start sshd
 # ssh 登录以后执行以下操作
 
 # 查看当前的引导模式，uefi or bios
-ls /sys/firmware/efi/efivars
-# 如果提示文件不存在， 那么当前系统就不是efi引用的， 可能 是bios或CSM
+cat /sys/firmware/efi/fw_platform_size
+# 64: uefi
 ```
 
 ### config mirror
@@ -208,7 +209,7 @@ mkdir /mnt/tmp/boot
 mount /dev/sdx3 /mnt/tmp
 mount /dev/sdx1 /mnt/tmp/boot
 
-pacstrap /mnt/tmp base linux linux-firmware
+pacstrap -K /mnt base linux linux-firmware
 # if command not found, see http://www.wiloon.com/?p=8443
 
 # 建议使用UUID方式生成fstab和启动管理器配置
