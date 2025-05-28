@@ -11,9 +11,17 @@ tags:
 ---
 ## ubuntu dev env init
 
+- install chrome, download deb
+- install vscode, download deb
+- install 1password, download deb
+- export ssh private key from 1password
+
+
 ```bash
-config ssh private key
 sudo apt install git
+# ubuntu install python3 by default
+
+# pdm depends on python3.12-venv
 sudo apt install python3.12-venv
 curl -sSL https://pdm-project.org/install-pdm.py | python3 -
 export PATH=/home/ywang6/.local/bin:$PATH

@@ -55,7 +55,7 @@ export XMODIFIERS=@im=fcitx
 2. 中文输入法引擎
 3. 图形界面相关
 
-按照这个思路，可以直接使用 apt 进行安装：
+用 apt 进行安装：
 
 ```bash
 sudo apt install fcitx5 \
@@ -75,7 +75,7 @@ im-config
 根据弹出窗口的提示，将首选输入法设置为 Fcitx 5 即可。
 
 环境变量
-需要为桌面会话设置环境变量，即将以下配置项写入某一配置文件中：
+xorg 需要为桌面会话设置环境变量，即将以下配置项写入某一配置文件中：
 
 ```Bash
 export XMODIFIERS=@im=fcitx
