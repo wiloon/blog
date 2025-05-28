@@ -177,18 +177,18 @@ kill -l
 注意: 该命令可以使用 -9 参数来强制杀死进程
 
 ### pkill
-  
-    作用: 通过程序的名字，直接杀死所有进程
-  
-    用法: #pkill 正在运行的程序名
-  
-    举例: 
-  
-    [root@localhost beinan]# pgrep -l gaim 2979 gaim
-  
-    [root@localhost beinan]# pkill gaim
 
-  4. xkill
+通过程序的名字，直接杀死所有进程
+
+```bash
+pgrep -l gaim 2979 gaim
+pkill gaim
+# -f, --full                use full process name to match
+pkill -f foo
+```
+
+
+## xkill
   
     作用: 杀死桌面图形界面的程序。
   

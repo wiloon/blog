@@ -531,22 +531,7 @@ growpart /dev/vda 1;resize2fs /dev/vda1
 
 [https://support.huaweicloud.com/usermanual-evs/zh-cn_topic_0044524728.html#zh-cn_topic_0044524728__section31113372194023](https://support.huaweicloud.com/usermanual-evs/zh-cn_topic_0044524728.html#zh-cn_topic_0044524728__section31113372194023)
 
-## lVM on LUKS 分区扩容
-
-- 备份硬盘
-- ubuntu luks+lvm 的 Root 分区 缩容
-2. 把 ubuntu 的 EFI 移到空闲空间的最前面
-3. 把 ubuntu 的 boot 分区移到空闲空间的最前面
-4. 修改 windows 的 EFI 配置, 把 ubuntu启动项 指向新的 ubuntu EFI 分区 用新的 ubuntu EFI, boot 引导 ubuntu 启动.
-5. 测试 ubuntu 启动
-4. 扩展 ubuntu 的 /root 分区 填充空闲的硬盘空间
-5. 缩容 ubuntu 的 /root 分区, 在硬盘最后面留出 ubuntu efi + boot 的空间
-6. 把 ubuntu 的 efi 和 boot 移到 硬盘最后面的空间
-7. 修改 windows efi, 把 ubuntu 启动项指向 最后面的 efi + boot
-8. 确认能正常启动, 删除 /root 分区前面的 ubuntu efi + boot
-9. 扩容 ubuntu root 填充 windows和 ubuntu之间 的空闲空间
-
-## luks over lvm 分区缩容
+## lVM on LUKS 分区缩容
 
 https://linux-blog.anracom.com/2018/11/09/shrinking-an-encrypted-partition-with-lvm-on-luks/
 https://starbeamrainbowlabs.com/blog/article.php?article=posts%2F441-resize-luks-lvm.html
@@ -556,8 +541,9 @@ https://wiki.archlinux.org/title/Resizing_LVM-on-LUKS
 # Step 1: Get an overview over your block devices
 lsblk
 # Step 2: Open the encrypted partition
-sudo cryptsetup open /dev/nvme0n1p1 nvme0n1p1_encrypted
+sudo cryptsetup open /dev/nvme0n1p3 cr-ext
 ls -la /dev/mapper
+
 # Step 3: Get an overview on LVM structure
 pvdisplay
 vgdisplay
@@ -567,19 +553,25 @@ lvdisplay
 fsck /dev/mapper/ubuntu--vg-ubuntu--lv
 # Step 5: Check the physical block size of the filesystem and the used space within the filesystem
 fdisk -l
+# 能看到 /dev/mapper/ubuntu--vg-ubuntu--lv 的 sectors 数量, 每个 sector 512 bytes
+
 ## Use tunefs to get some block information:
 tune2fs -l /dev/mapper/ubuntu--vg-ubuntu--lv
 
 # Step 6: Plan the reduced volume and filesystem sizes ahead – perform safety and limit considerations
 
+# 因为接下来使用的工具用的单位不一样 有的是 GB, 有的是 GiB, 所以, 假设计划缩容之后 的分区是500G, 那么 在做文件系统缩容的时候,把文件系统缩容到450G是比较安全的
 # 500G * 0.9 = 450G
 
 #Step 7: Shrink the filesystem
-resize2fs /dev/mapper/vg1-lvroot 450G
+resize2fs /dev/mapper/ubuntu--vg-ubuntu--lv 450G
 e2fsck -f /dev/mapper/vg1-lvroot
+# 有可能 会提示 inode 35131705 extent tree (at level 1) could be shorter. optimize<y>?
+#这通常不是错误，而是一种结构上的优化建议，可以减少元数据开销，提高效率。
 
-lvreduce -L 60G /dev/mapper/vg1-lvroot 
-resize2fs /dev/mapper/vg1-lvroot 
+# Step 8: Shrink the logical volume
+lvreduce -L 500G /dev/mapper/ubuntu--vg-ubuntu--lv
+resize2fs /dev/mapper/ubuntu--vg-ubuntu--lv
 
 sudo vgs
 sudo vgchange -ay
