@@ -13,7 +13,7 @@ tags:
 
 download iso
 
-<https://mirrors.aliyun.com/archlinux/iso/2025.04.01/>
+https://mirrors.aliyun.com/archlinux/iso/2025.04.01/
 
 ```bash
 curl -O http://mirrors.163.com/archlinux/iso/2022.02.01/archlinux-2022.02.01-x86_64.iso
@@ -58,7 +58,7 @@ sudo systemctl start wpa_supplicant@wlp3s0
 systemctl start sshd
 ```
 
-在 virtual box 里安装的设置一下端口映射
+在 virtual box 里安装得设置一下端口映射
 
 ssh 登录, 然后进行后续操作
 
@@ -243,8 +243,8 @@ locale-gen
 vim /etc/locale.conf
 LANG=en_US.UTF-8
 
-## 如果是安装到U盘，需要修改mkinitcpio.conf
-# 用 mkinitcpio -p linux创建 RAM Disk 前，在修改 /etc/mkinitcpio.conf，将 block 添加到紧挨 udev 的后面. 只有这样早期用户空间才能正确的装入模块。
+## 如果是安装到U盘，需要修改 mkinitcpio.conf
+# 用 mkinitcpio -p linux 创建 RAM Disk 前，在修改 /etc/mkinitcpio.conf，将 block 添加到紧挨 udev 的后面. 只有这样早期用户空间才能正确的装入模块。
 
 # set root password
 passwd

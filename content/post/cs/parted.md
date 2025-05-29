@@ -37,14 +37,14 @@ sudo parted -a optimal /dev/sdx
 
 # 查看磁盘分区
 (parted) p
-# set disk label, 硬盘没有其它分区的时候, 可以设置分区表类型
+# set disk label, 硬盘没有其它分区的时候, 设置分区表类型
 (parted) mklabel gpt
 # or mklabel msdos
 
 # 设置 单位为 s, MiB, GiB, MB,GB
 unit mib
 
-# 查看parted 命令帮助
+# 查看 parted 命令帮助
 help mkpart
 # mkpart part-type fs-type start end
 # fs-type 是文件系统类型,支持的类型列表可以通过 help mkpart 查看。 
