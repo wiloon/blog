@@ -373,21 +373,6 @@ Settings> Time & language> Typing> Advanced keyboard settings> Input language ho
 3. To send: keep key/shortcut
 4. select "Disable" in the second drop box
 
-## windows dev env
-
-- winget 安装软件不知道会安装到哪
-- winget 需要 admin cmd, 但是 run as admin 经常报错, 几乎用不了.
-- cmd 没有 shell 好用, 也许 powershell 会更好用, 但是需要学习一下
-  - 复制到 cmd里的字符串过长会折行显示,但是其实并不在同一行, 从最后一行开始删除只能删到行首, 不能删到上面一行.
-- curl 在 windows 下不正常
-  - powershell 里 curl --version 执行不了
-  - cmd里能执行 curl --version
-  - 同样的 curl 命令, linux能执行 windows里执行不了, 有可能是因为命令参数是多行的. curl用最新版本,命令 改成一行也不行.. 神奇
-- 全局查找文件, 在资源管理器里搜索之后点击打开文件所在位置然后返回, 已经搜到的文件都 不见了, 得重新搜
-- Command Prompt's character escaping rules are both archaic and awful.  https://superuser.com/questions/1016710/how-to-make-a-curl-post-call-in-windows 
-- 让 curl 命令在 windows 下正常运行需要花太多精力...
-- 用 golang 写 Api 的测试, 有时候要执行 Shell 命令, 比如 执行 `nft add rule table0 chain0 tcp sport 1025 drop` 去 禁用掉邮件服务的连接, 测试重发, 不是说不能在 win 里做, 如果在 win 里做的话就要再学习一下 windows 有没有类似 iptables, nftables 之类的工具, 假设找到了也研究出来怎么用了, 这些知识也只能适用于 windows, 如果开发环境在 linux 里, 就可以去研究 iptables, nftabls, 在解决生产环境的问题的时候, 这些知识也是可以用到的.
-
 ## 在 windows 里重启然后进入 BIOS
 
 1. settings

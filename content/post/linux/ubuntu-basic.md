@@ -279,21 +279,7 @@ https://askubuntu.com/questions/526308/i-created-a-desktop-file-in-usr-share-app
 
 windows key
 
-## dev env
 
-- citrix
-  - 能打开远程桌面
-  - 不能传文件，看不到 C 盘, 也许通过配置能解决
-- Jetbrains OK
-- webex
-  - fcitx 偶尔能输入中文, 有时候没有响应,只能用英文
-  - 会议模式 ok, 音质销差但是不影响
-  - 不能共享屏幕
-- 中文输入法
-  - 某些 APP 有可能用不了中文输入法，有可能需要在外面输中文再拷进去
-- outlook 用网页版
-- gnome terminal: 可以配置保留所有命令行的输出, windows terminal 只能保留 32767 行
-- containerd + nerdctl
 
 ## indicator-sysmonitor
 
