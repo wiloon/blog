@@ -18,7 +18,7 @@ tags:
 ```bash
 # lvreduce, 用于减小 LVM 逻辑卷（Logical Volume）的大小
 # -r, 同时调整（resize）文件系统的大小（调用 resize2fs xfs_growfs 等）
-# -L -40G	减小逻辑卷的大小 40GB（注意 - 表示减小）
+# -L -40G 减小逻辑卷的大小 40GB（注意 - 表示减小）
 # /dev/ubuntu-vg/root 要调整的逻辑卷路径（通常是根分区）
 sudo lvreduce -r -L -40G /dev/ubuntu-vg/root
 ```

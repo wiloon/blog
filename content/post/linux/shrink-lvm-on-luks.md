@@ -25,9 +25,7 @@ Step 1: Get an overview over your block devices
 lsblk
 ```
 
-
 加密分区在 /dev/nvme0n1p3 上
-
 
 Step 2: Open the encrypted partition
 
@@ -42,7 +40,6 @@ ls -la /dev/mapper
 能看到 PV: /dev/mapper/cr-ext
 还有 LVM-volumes: /dev/mapper/ubuntu--vg-ubuntu--lv
 
-
 Step 3: Get an overview on LVM structure
 
 ```bash
@@ -56,7 +53,8 @@ lvdisplay
 lvs -o lv_name,lv_attr
 ```
 
-输出 
+输出
+
 ```bash
 # 第五位 a 表示 LV 是 active（已激活）
 LV          Attr
@@ -67,6 +65,7 @@ ubuntu-lv   -wi-ao----
 如果没有激活的话, 手动激活 vg
 
 ```bash
+# 手动激活 vg
 vgchange -ay ubuntu-vg
 vgchange -ay ubuntu-vg --verbose
 ```
@@ -83,20 +82,20 @@ Step 5: Check the physical block size of the filesystem and the used space withi
 ```bash
 fdisk -l
 tune2fs -l /dev/mapper/ubuntu--vg-ubuntu--lv
-
 ```
 
 Step 6: Plan the reduced volume and filesystem sizes ahead – perform safety and limit considerations
-1000G 缩容 到 500G
+
+1000G 缩容到 500G
 安全系数 0.9
 500*0.9 = 450G
-文件系统至少要比逻辑卷小 10%
+文件系统至少要比逻辑卷小 10%, 因为后面用到的工具使用的单位不一样, 有的是 GB, 有的是 GiB
 
 Step 7: Shrink the filesystem
 
 ```bash
-#先执行 fsck, 再执行 resize2fs
-fsck /dev/mapper/ubuntu--vg-ubuntu--lv
+# 先执行 fsck, 再执行 resize2fs, 否则会提示先执行 fsck
+fsck -f /dev/mapper/ubuntu--vg-ubuntu--lv
 resize2fs /dev/mapper/ubuntu--vg-ubuntu--lv 450G
 ```
 
@@ -116,7 +115,6 @@ resize2fs /dev/mapper/ubuntu--vg-ubuntu--lv
 Step 10: Check for gaps between the volumes of your LVM volume group
 
 ubuntu 24.04 默认不会有 swap 分区, 有个swap 文件 在 /root 分区
-
 
 Step 11: Resize/reduce the physical LVM
 
@@ -150,7 +148,7 @@ End?  [112GB]? 614GB
 Step 14: Set new size of the encrypted region
 
 ```bash
-cryptsetup  resize cr-ext
+cryptsetup resize cr-ext
 cryptsetup status cr-ext
 ```
 
@@ -166,12 +164,11 @@ pvs -v --segments /dev/mapper/cr-ext
 
 Step 16: Closing and leaving the encrypted device
 
-
 ```bash
 vgchange -an ubuntu-vg
 cryptsetup close cr-ext
 # ubuntu 24.04, 在执行 vgchange -an 之后, 有某种未知的机制 ubuntu-vg 马上又被激活了
 # 所以... 可以这样
-# 解除激活之后, 趁系统还没注意, 马上 cryptsetup close
+# 解除激活之后, 趁系统还没反应过来, 马上 cryptsetup close
 vgchange -an ubuntu-vg && cryptsetup close cr-ext
 ```
