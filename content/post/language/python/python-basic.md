@@ -454,6 +454,13 @@ https://www.python.org/ftp/python/
 
 ```Bash
 sudo apt update
+sudo apt-get install libsqlite3-dev
+./configure --with-pydebug --enable-loadable-sqlite-extensions
+make -j 8
+sudo make altinstall
+
+###
+sudo apt update
 
 sudo apt-get install -y make build-essential libssl-dev zlib1g-dev \
 libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm libncurses5-dev \
@@ -465,6 +472,7 @@ wget https://www.python.org/ftp/python/3.6.15/Python-3.6.15.tgz
 tar -xzf Python-3.6.15.tgz
 
 cd Python-3.6.15
+./configure --with-pydebug
 ./configure --enable-optimizations  -with-lto  --with-pydebug
 
 # adjust for number of your CPU cores
