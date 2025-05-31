@@ -12,6 +12,21 @@ tags:
 ## archlinux kde, config
 
 ```bash
+# 虽然启动的是 Wayland 会话，KDE Plasma（以及大多数现代 Linux 桌面）仍会启用一层叫做 XWayland 的兼容层：
+sudo pacman -S xorg-xrdb xorg-xlsclients
+
+sudo pacman -S plasma-desktop
+sudo pacman -S konsole dolphin kate
+
+# start kde from CLI
+/usr/lib/plasma-dbus-run-session-if-needed /usr/bin/startplasma-wayland
+sudo pacman -S sddm
+systemctl enable sddm
+```
+
+---------
+
+```bash
 sudo pacman -S xorg xorg-xinit
 sudo pacman -S plasma-desktop
 echo "exec startplasma-x11" > ~/.xinitrc
