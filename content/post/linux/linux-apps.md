@@ -20,7 +20,6 @@ tags:
 - indicator-sysmonitor, 任务栏里的系统资源监控
 - thunderbird, 邮件客户端, email client
 
-
 ## install by pacman
 
 - `ncdu`, 磁盘空间占用分析/清理
