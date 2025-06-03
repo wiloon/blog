@@ -10,6 +10,11 @@ tags:
 ---
 ## obsidian
 
+```bash
+# archlinux
+pacman -S obsidian
+```
+
 [https://forum-zh.obsidian.md/](https://forum-zh.obsidian.md/)
 
 ```bash

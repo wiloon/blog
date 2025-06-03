@@ -56,6 +56,8 @@ openssl s_client -showcerts -connect www.baidu.com:443
 
 ### 查看 pem 证书内容
 
+比如证书关联到了哪几个域名, 证书的有效期等.
+
 ```bash
 openssl x509 -in certificate.pem -text -noout
 

@@ -296,13 +296,13 @@ net.ipv4.conf.all.arp_notify
   
 net.ipv4.conf.default.arp_notify
 
+### net.ipv6.conf.all.disable_ipv6
+
 是否禁用ipv6
-  
+
 0: 不禁用
   
 1: 禁用
-  
-net.ipv6.conf.all.disable_ipv6
 
 - debug.panic_on_rcu_stall
   

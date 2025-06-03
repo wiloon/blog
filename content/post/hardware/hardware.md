@@ -34,6 +34,11 @@ tags:
 - Ruckus R310, 优科
 - beelink SER8
 
+## beelink SER8
+
+- AMD 8845HS
+- AMD Radeon 780M
+
 ## ROCK 5B
 
 [https://wiki.radxa.com/Rock5](https://wiki.radxa.com/Rock5)
@@ -477,7 +482,3 @@ https://www.dongchedi.com/auto/params-carIds-34951
 
 - 整备质量(kg) 1456
 
-## beelink SER8
-
-- AMD 8845HS
-- AMD Radeon™ 780M

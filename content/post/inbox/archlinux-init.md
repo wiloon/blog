@@ -19,6 +19,27 @@ tags:
 - pacman -Syu
 - yay for telegraf
 
+after install mesa, to confirm it works 被正确加载
+
+```bash
+glxinfo | grep "OpenGL renderer"
+# OpenGL renderer string: AMD Radeon Graphics (radeonsi, phoenix, LLVM 19.1.7, DRM 3.61, 6.14.9-arch1-1)
+# 看内核模块是否加载成功
+lsmod | grep amdgpu
+vulkaninfo | grep "deviceName"
+```
+
+after install vkcube
+
+```bash
+# 测试 vulkan
+su - wiloon
+echo $WAYLAND_DISPLAY
+# wayland-0
+# vkcube 默认会尝试用 xlib（X11）作为窗口系统接口, 如果你想要使用 Wayland, 需要指定 --wsi wayland
+vkcube --wsi wayland
+```
+
 ### before ansible script
 
 ```bash

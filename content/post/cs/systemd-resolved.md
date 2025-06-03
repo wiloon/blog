@@ -11,6 +11,8 @@ tags:
 ## `resolv.conf`, systemd-resolved, DNS
 
 ```bash
+# 查看版本
+systemd-resolve --version
 # check systemd-resolved status
 resolvectl status
 resolvectl restart
@@ -60,6 +62,11 @@ FallbackDNS=223.5.5.5 223.6.6.6 114.114.114.114
 ```Bash
 # 重启服务
 systemctl restart systemd-resolved
+
+# check systemd-resolved status
+resolvectl status
+# 确认状态
+systemd-resolve --status
 ```
 
 ### link
@@ -71,21 +78,6 @@ ln -sf /run/systemd/resolve/stub-resolv.conf /etc/resolv.conf
 archlinux
   
 [https://wiki.archlinux.org/index.php/Systemd-resolved](https://wiki.archlinux.org/index.php/Systemd-resolved)
-
-```bash
-vim /etc/systemd/resolved.conf
-[Resolve]
-DNS=192.168.50.1
-
-# link
-ln -sf /run/systemd/resolve/stub-resolv.conf /etc/resolv.conf
-
-# restart systemd-resolved
-sudo systemctl restart systemd-resolved
-
-# check systemd-resolved status
-resolvectl status
-```
 
 systemd-resolved
   
@@ -109,10 +101,6 @@ sudo dhclient
 ```bash
 # 重新连接服务
 sudo ln -sf /lib/systemd/system/systemd-resolved.service /etc/systemd/system/dbus-org.freedesktop.resolve1.service
-# 重启服务 
-sudo systemctl restart systemd-resolved.service
-# 确认状态
-systemd-resolve --status
 ```
 
 [http://www.jinbuguo.com/systemd/resolved.conf.html](http://www.jinbuguo.com/systemd/resolved.conf.html)

@@ -12,10 +12,13 @@ tags:
 
 ## ss, Socket Statistics
 
-   ss -ntlp
-   ss -ntp
-   ss -nxlp
-   ss -nxp
+```bash
+ss -ntlp
+ss -ntp
+ss -nxlp
+ss -nxp
+sudo ss -tuln6 | grep ':53'
+```
 
 ss 是 Socket Statistics 的缩写。ss 命令可以用来获取 socket 统计信息，它显示的内容和 netstat 类似。但 ss 的优势在于它能够显示更多更详细的有关 TCP 和连接状态的信息，而且比 netstat 更快。当服务器的 socket 连接数量变得非常大时，无论是使用 netstat 命令还是直接 cat /proc/net/tcp，执行速度都会很慢。ss 命令利用到了 TCP 协议栈中 tcp_diag。tcp_diag 是一个用于分析统计的模块，可以获得 Linux 内核中第一手的信息，因此 ss 命令的性能会好很多。
 

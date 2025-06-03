@@ -18,7 +18,8 @@ https://wiki.archlinux.org/title/Fcitx5
 https://blog.csdn.net/GaaraZ/article/details/128618441
 
 ```bash
-pacman -S fcitx5 fcitx5-configtool
+# include 1) fcitx5  2) fcitx5-configtool  3) fcitx5-gtk  4) fcitx5-qt
+sudo pacman -S fcitx5-im
 #---
 sudo pacman -S fcitx5 kcm-fcitx fcitx-configtool fcitx-im fcitx-table-extra
 # kcm-fcitx: 图形界面的配置程序: KDE 中的 kcm-fcitx
@@ -27,7 +28,7 @@ sudo pacman -S fcitx5 kcm-fcitx fcitx-configtool fcitx-im fcitx-table-extra
 # fcitx-configtool: gtk3 config tool, optional
 ```
 
-chrome 
+chrome
 
 application launcher> right click chrome> command line arguments: --ozone-platform=wayland 
 
