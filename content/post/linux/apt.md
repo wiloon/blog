@@ -28,6 +28,9 @@ sudo apt-get autoremove
 
 ## commands
 ```Bash
+# 查看apt 仓库里某一个包的版本
+apt-cache policy runc
+
 sudo apt update
 # 不需要 sudo
 apt list --upgradable

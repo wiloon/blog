@@ -1,7 +1,7 @@
 ---
 title: containerd
 author: "-"
-date: 2020-03-02T02:45:30+00:00
+date: 2025-06-03 14:37:21
 url: containerd
 categories:
   - Container
@@ -10,11 +10,6 @@ tags:
   - remix
 ---
 ## containerd
-
-## ubuntu install from source
-
-https://github.com/containerd/containerd/blob/main/docs/getting-started.md
-
 
 ```bash
 # archlinux install containerd
@@ -47,23 +42,42 @@ https://gist.github.com/Faheetah/4baf1e413691bc4e7784fad16d6275a9
 https://www.techrepublic.com/article/install-containerd-ubuntu/
 
 ```Bash
-sudo apt-get update
-sudo apt-get install containerd
+# install runc
+curl -LO https://github.com/opencontainers/runc/releases/download/v1.3.0/runc.amd64
+sudo install -m 755 runc.amd64 /usr/local/sbin/runc
+# 验证安装
+runc --version
 
-# download latest version of nerdctl from https://github.com/containerd/nerdctl/releases
-tar zxvf nerdctl-2.0.0-linux-amd64.tar.gz
-sudo mv nerdctl /usr/bin/nerdctl
-# download latest version of CNI plugins from https://github.com/containernetworking/plugins/releases/
-sudo mkdir -p /opt/cni/bin/
-sudo tar -zxf cni-plugins-linux-amd64-v1.3.0.tgz -C /opt/cni/bin/
+# install cni plugin
+# 创建插件目录, 容器运行时默认期望插件在这个目录：
+sudo mkdir -p /opt/cni/bin
+
+# 设置版本
+VERSION="v1.7.1"
+
+# 下载
+curl -LO https://github.com/containernetworking/plugins/releases/download/${VERSION}/cni-plugins-linux-amd64-${VERSION}.tgz
+
+# 解压到目标目录
+sudo tar -C /opt/cni/bin -xzf cni-plugins-linux-amd64-${VERSION}.tgz
+
+# install containerd
+# apt 仓库里的包版本太旧， 2025-06-03 13:17:05， apt里的 containerd 1.7.27, 官网最新的 2.1.1
+sudo tar Cxzvf /usr/local containerd-1.6.2-linux-amd64.tar.gz
 
 # containerd config
 sudo mkdir /etc/containerd
 containerd config default | sudo tee /etc/containerd/config.toml
-sudo sed -i 's/SystemdCgroup \= false/SystemdCgroup \= true/g' /etc/containerd/config.toml
+# sudo sed -i 's/SystemdCgroup \= false/SystemdCgroup \= true/g' /etc/containerd/config.toml
+
+# config systemd
 sudo curl -L https://raw.githubusercontent.com/containerd/containerd/main/containerd.service -o /etc/systemd/system/containerd.service
 sudo systemctl daemon-reload
 sudo systemctl enable --now containerd
+
+# download latest version of nerdctl from https://github.com/containerd/nerdctl/releases
+sudo tar Cxzvf /usr/bin/ nerdctl-2.0.0-linux-amd64.tar.gz
+
 sudo nerdctl pull hello-world
 sudo nerdctl run hello-world
 
@@ -71,13 +85,18 @@ sudo nerdctl run hello-world
 # download latest version of buildkit from https://github.com/moby/buildkit/releases
 tar zxvf buildkit-v0.17.1.linux-amd64.tar.gz
 sudo mv bin/* /usr/local/bin/
+# buildkit service
 sudo curl -L https://raw.githubusercontent.com/moby/buildkit/refs/heads/master/examples/systemd/system/buildkit.service -o /etc/systemd/system/buildkit.service
-# edit buildkit.service, add --oci-worker=false --containerd-worker=true after buildkitd
-sudo vim /etc/systemd/system/buildkit.service
+# buildkit socket
 sudo curl -L https://raw.githubusercontent.com/moby/buildkit/refs/heads/master/examples/systemd/system/buildkit.socket -o /etc/systemd/system/buildkit.socket
+
+# edit buildkit.service, add --oci-worker=false --containerd-worker=true after buildkitd
+# 禁用了本地 runc worker（oci-worker）
+# 启用了 containerd worker
+sudo vim /etc/systemd/system/buildkit.service
+
 sudo systemctl daemon-reload
 sudo systemctl enable --now buildkit
-
 
 ```
 

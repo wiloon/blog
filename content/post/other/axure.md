@@ -1,16 +1,23 @@
 ---
-title: Axure
+title: AI
 author: "-"
-date: 2013-04-24T04:15:37+00:00
-url: /?p=5419
+date: 2025-06-03 10:20:13
+url: ai
 categories:
-  - Development
+  - AI
 tags:
   - reprint
+  - remix
 ---
-## Axure
+## AI
 
-  Axure RP是美国Axure Software Solution公司旗舰产品，是一个专业的快速原型设计工具，让负责定义需求和规格、设计功能和界面的专家能够快速创建应用软件或Web网站的线框图、流程图、原型和规格说明文档。作为专门的原型设计工具，它比一般创建静态原型的工具如Visio、Omnigraffle、Illustrator、Photoshop、Dreamweaver、Visual Studio、FireWorks要快速、高效。它同时支持多人协作设计和版本控制管理。
+## AI IDE
 
+- Microsoft Copilot
+- Cursor
+- Windsurf
+- augment code
 
-  Axure RP目前已被一些大公司采用。Axure RP的使用者主要包括商业分析师、信息架构师、可用性专家、产品经理、IT咨询师、用户体验设计师、交互设计师、界面设计师等，另外，架构师、程序开发工程师也在使用Axure。
+## AI 编程
+
+之前有一种想法，有些小的修改， 比如只有几行代码的修改不需要用 AI, 因为构思提示词的时间往往比直接写代码的时间要长，但是最近这种想法有了一丝松动，AI 写代码出的问题更少一些， 手工改代码很有可能一不小心拷错了，或者敲错字符，AI写码不会有这些小问题，另外 AI 去改的时候会发现一些本来我认为不需要修改的逻辑分支，如果手动修改的话，这些分支只能是等到测试阶段才被发现。

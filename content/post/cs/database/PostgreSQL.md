@@ -73,6 +73,7 @@ insert into test select generate_series(1,10000), random()*10;
 # https://www.postgresql.org/download/linux/ubuntu/
 # install pg_dump
 sudo apt install -y postgresql-common
+# This script will enable the PostgreSQL APT repository on apt.postgresql.org
 sudo /usr/share/postgresql-common/pgdg/apt.postgresql.org.sh
 # ubuntu install pg_dump
 sudo apt-get install postgresql-client-17
