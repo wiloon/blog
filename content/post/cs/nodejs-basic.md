@@ -116,7 +116,7 @@ pacman -S nodejs
 
 ```bash
 node -v
-```
+``` 
 
 作者: 合肥懒皮
 链接: [https://www.jianshu.com/p/857ef827fbd4](https://www.jianshu.com/p/857ef827fbd4)
