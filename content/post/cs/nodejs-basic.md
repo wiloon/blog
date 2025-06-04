@@ -12,26 +12,25 @@ tags:
 
 ## version
 
-### current
-
-v14.21.3
-
-### latest
-
-v21.6.2
+- current v14.21.3
+- latest v21.6.2
 
 ## nvm, Node Version Manager
 
 [https://github.com/nvm-sh/nvm](https://github.com/nvm-sh/nvm)
 
 ```bash
+# ubuntu 24.04 install nvm
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash
+
+# archlinux install nvm
 yay -S nvm
 # Due to the way nvm is designed, you have to source it before you can use it:
 source /usr/share/nvm/init-nvm.sh
 echo 'source /usr/share/nvm/init-nvm.sh' >> ~/.zshrc
 nvm ls-remote
 nvm install --lts
-nvm install 14
+nvm install 16
 nvm use 14
 ```
 
