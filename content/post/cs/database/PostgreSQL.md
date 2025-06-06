@@ -241,6 +241,8 @@ FROM table0
 https://hub.docker.com/_/postgres
 
 ```bash
+nerdctl pull postgres:17.5
+###
 docker pull postgres:16.4
 
 # 修改配置文件
