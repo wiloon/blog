@@ -51,9 +51,10 @@ The request could not be understood by the server due to malformed syntax. The c
   
 由于语法格式有误，服务器无法理解此请求。不作修改，客户程序就无法重复此请求。
 
-## HTTP 错误 401
+## 401
   
-401 Unauthorized 客户试图未经授权访问受密码保护的页面。应答中会包含一个 WWW-Authenticate 头，浏览器据此显示用户名字/密码对话框，然后在填写合适的Authorization头后再次发出请求。
+401 Unauthorized 客户试图未经授权访问受密码保护的页面。应答中会包含一个 WWW-Authenticate 头，浏览器据此显示用户名字/密码对话框，
+然后在填写合适的 Authorization 头后再次发出请求。
 
 401.1 未授权: 登录失败
   

@@ -30,6 +30,9 @@ npm run start
 npm install -g npm@latest
 # 清除 npm 缓存
 npm cache clean --force
+
+# check versions of jest
+npm show jest versions
 ```
 
 ## 编译
@@ -181,8 +184,8 @@ npm install jquery@3.0.0 --save
 npm list
 npm ls
 
-# 查看某一个包的依赖树
-npm ls package0
+# 查看某一个包的依赖树, 看这个包 (package_0) 依赖是由哪个包引入的
+npm ls package_0
 npm install -g npm-remote-ls
 npm-remote-ls foo
 
