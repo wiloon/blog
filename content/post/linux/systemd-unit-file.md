@@ -20,6 +20,20 @@ vim /etc/systemd/system/foo.service
 
 ```Bash
 [Unit]
+Description=start proxy
+After=network.target
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/bin/proxy.sh
+RemainAfterExit=true
+
+[Install]
+WantedBy=multi-user.target
+```
+
+```Bash
+[Unit]
 # 服务启动时会在 journal 里打印 description0
 Description=description0
 After=network.target sshd-keygen.service
