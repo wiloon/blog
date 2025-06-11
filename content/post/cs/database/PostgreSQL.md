@@ -73,8 +73,10 @@ insert into test select generate_series(1,10000), random()*10;
 # https://www.postgresql.org/download/linux/ubuntu/
 # install pg_dump
 sudo apt install -y postgresql-common
+
 # This script will enable the PostgreSQL APT repository on apt.postgresql.org
 sudo /usr/share/postgresql-common/pgdg/apt.postgresql.org.sh
+
 # ubuntu install pg_dump
 sudo apt-get install postgresql-client-17
 ```
@@ -87,7 +89,10 @@ sudo apt-get install postgresql-client-17
 # -s, 不导出数据
 # database: database0
 # -F : 指定输出文件的格式，它可以是以下格式之一： c: 自定义格式 d: 目录格式存档 t: tar 文件包 p: SQL 脚本文件
+# -W	命令执行时提示输入用户密码（不会直接在命令中写密码）。
 pg_dump -h 127.0.0.1 -U username -W -F t db_name > foo.tar
+
+# 导入
 # -c --clean	创建数据库对象前先清理（删除）它们。
 pg_restore -h 127.0.0.1 -U username -W -d db_name -c foo.tar
 
@@ -238,10 +243,46 @@ FROM table0
 
 ## install
 
+### ubuntu install postgresql
+
+```bash
+sudo apt install -y postgresql-common
+sudo /usr/share/postgresql-common/pgdg/apt.postgresql.org.sh
+
+# Import the repository signing key:
+sudo apt install curl ca-certificates
+sudo install -d /usr/share/postgresql-common/pgdg
+sudo curl -o /usr/share/postgresql-common/pgdg/apt.postgresql.org.asc --fail https://www.postgresql.org/media/keys/ACCC4CF8.asc
+
+# Create the repository configuration file:
+. /etc/os-release
+sudo sh -c "echo 'deb [signed-by=/usr/share/postgresql-common/pgdg/apt.postgresql.org.asc] https://apt.postgresql.org/pub/repos/apt $VERSION_CODENAME-pgdg main' > /etc/apt/sources.list.d/pgdg.list"
+
+# Update the package lists:
+sudo apt update
+
+# Install the latest version of PostgreSQL:
+# If you want a specific version, use 'postgresql-17' or similar instead of 'postgresql'
+sudo apt -y install postgresql
+sudo -u postgres psql
+CREATE USER user_0 WITH PASSWORD 'password_0';
+```
+
 https://hub.docker.com/_/postgres
 
 ```bash
 nerdctl pull postgres:17.5
+sudo mkdir -p /var/lib/postgresql/17/data
+sudo chown -R 777 /var/lib/postgresql/17/data
+
+# 默认用户名 POSTGRES_USER=postgres
+nerdctl run \
+  --name postgres \
+  -e POSTGRES_PASSWORD=password_0 \
+  -p 5432:5432 \
+  -v /var/lib/postgresql/17/data:/var/lib/postgresql/data \
+  -d postgres:17.5
+
 ###
 docker pull postgres:16.4
 

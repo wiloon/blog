@@ -11,6 +11,8 @@ tags:
 ---
 ## containerd
 
+## archlinux install containerd
+
 ```bash
 # archlinux install containerd
 pacman -S containerd runc nerdctl cni-plugins buildkit
@@ -45,6 +47,7 @@ https://www.techrepublic.com/article/install-containerd-ubuntu/
 # install runc
 curl -LO https://github.com/opencontainers/runc/releases/download/v1.3.0/runc.amd64
 sudo install -m 755 runc.amd64 /usr/local/sbin/runc
+
 # 验证安装
 runc --version
 
@@ -60,6 +63,17 @@ curl -LO https://github.com/containernetworking/plugins/releases/download/${VERS
 
 # 解压到目标目录
 sudo tar -C /opt/cni/bin -xzf cni-plugins-linux-amd64-${VERSION}.tgz
+
+# 查看是否安装成功
+ls /opt/cni/bin
+# 确认 CNI 配置文件是否存在
+ls /etc/cni/net.d/
+
+# 使用 nerdctl 运行容器测试网络
+nerdctl run -it --rm busybox
+
+# 在容器中执行
+ping -c 2 baidu.com
 
 # install containerd
 # apt 仓库里的包版本太旧， 2025-06-03 13:17:05， apt里的 containerd 1.7.27, 官网最新的 2.1.1
