@@ -15,6 +15,9 @@ tags:
 ## commands
 
 ```bash
+# 查看 openwrt 版本
+cat /etc/openwrt_release
+
 # 更新所有软件，包括 OpenWRT 内核、固件等
 opkg list-upgradable | cut -f 1 -d ' ' | xargs opkg upgrade
 ```
