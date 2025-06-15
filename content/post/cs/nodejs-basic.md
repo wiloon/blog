@@ -24,10 +24,13 @@ tags:
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash
 
 # archlinux install nvm
-yay -S nvm
+pacman -S nvm
+
 # Due to the way nvm is designed, you have to source it before you can use it:
 source /usr/share/nvm/init-nvm.sh
 echo 'source /usr/share/nvm/init-nvm.sh' >> ~/.zshrc
+
+# 列出远程 Node.js 版本
 nvm ls-remote
 nvm install --lts
 nvm install 16

@@ -20,7 +20,7 @@ tags:
 - indicator-sysmonitor, 任务栏里的系统资源监控
 - thunderbird, 邮件客户端, email client
 
-## install by pacman
+## pacman
 
 - `ncdu`, 磁盘空间占用分析/清理
 - `bitwarden`, password management
@@ -33,16 +33,17 @@ tags:
 - chromium, 开源版 chrome
 - base-devel
 - stress, 压力测试
+- nvm, nvm allows you to quickly install and use different versions of node via the command line.
 
 ## AUR
 
 - google-chrome
 - redisinsight: redis GUI
 - jetbrains-toolbox
-- nvm, nvm allows you to quickly install and use different versions of node via the command line.
 - pamac-aur, 图形界面的 pacman
 - podlet
 - visual-studio-code-bin
+- claude-code
 
 ## application list
 
