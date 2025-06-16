@@ -1,7 +1,7 @@
 ---
 title: ldd 查看程序依赖 动态链接库
 author: "-"
-date: 2019-04-05T14:05:40+00:00
+date: 2025-06-16 08:26:45
 url: ldd
 categories:
   - Linux
@@ -11,6 +11,19 @@ tags:
 ## ldd 查看程序依赖 动态链接库
 
 ldd 命令可以用于分析可执行文件的依赖。
+
+```bash
+# 检测 动态链接
+# 查看 libcups 是否真的链接到了 avahi
+ldd /usr/lib/libcups.so | grep avahi
+```
+
+```bash
+# 输出
+libavahi-common.so.3 => /usr/lib/libavahi-common.so.3 (0x00007f4d777c4000)
+libavahi-client.so.3 => /usr/lib/libavahi-client.so.3 (0x00007f4d777b2000)
+
+```
 
 我们使用 file 命令来分析一个可执行文件的时候，有时候可以看到输出中有 dynamically linked 这样的字眼。这个是啥意思呢？
 

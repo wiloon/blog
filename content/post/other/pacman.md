@@ -460,7 +460,10 @@ installing xorgproto (2019.2-2) breaks dependency 'xf86dgaproto' required by lib
 ```
 
 ```bash
-sudo pacman -Rdd libdmx libxxf86dga && sudo pacman -Syu
+# 强制删除
+sudo pacman -Rdd libdmx libxxf86dga
+# 等价
+sudo pacman -R --nodeps libxxf86dga
 ```
 
 ## 一个切换 mirror 的脚本
