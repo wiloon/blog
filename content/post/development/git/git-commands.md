@@ -1225,6 +1225,9 @@ git rebase origin/dev
 
 ```bash
 git status
+# git status 的简洁版本，只显示每个文件的一行状态，适合快速查看变更。
+git status --short
+# 简写
 git status -s
 ```
 
