@@ -10,10 +10,37 @@ tags:
 ---
 ## PostgreSQL
 
-
 ## commands
 
+```
+\l 或 \list meta-command 列出所有数据库
+sudo -u postgres psql -c "\l"
+用 \c + 数据库名 来进入数据库：
+\dt 列出所有数据库表：
+
+# 查看表结构
+\d table0
+
+# 比上面多几个字段 Storage  | Stats target | Description
+\d+ table0
+
+# Turn off printing of column names and result row count footers, etc. This is equivalent to \t or \pset tuples_only.
+\t tuples only on/off, tuples only on 的时候 select 语句的输出不带 header
+
+\h
+\?
+
+\du 列出所有的用户
+```
+
 ```bash
+# 创建用户 
+CREATE USER user_0 WITH PASSWORD 'password_0';
+# create database, 所有者 user_0
+create database database_0 OWNER user_0;
+psql -h 192.168.1.100 -p 5432 -U user_0 -d database_0
+
+PGPASSWORD=password_0 psql -h 192.168.1.100 -p 5432 -U user_0 -d database_0 --command 'select version();'
 
 #当表没有其他关系时
 TRUNCATE TABLE tablename;
@@ -32,8 +59,7 @@ select version();
 pacman -S postgresql
 psql -h 127.0.0.1 -p 5432 -d database0 -U user0
 
-# create database
-create database database0;
+
 
 # create table
 create table test(id int, c1 int);
@@ -44,22 +70,7 @@ DROP TABLE table0;
 # 查看字段类型
 select column_name, data_type from information_schema.columns where table_name='table0';
 
-\l 或 \list meta-command 列出所有数据库
-sudo -u postgres psql -c "\l"
-用 \c + 数据库名 来进入数据库：
-\dt 列出所有数据库表：
 
-# 查看表结构
-\d table0
-
-# 比上面多几个字段 Storage  | Stats target | Description
-\d+ table0
-
-# Turn off printing of column names and result row count footers, etc. This is equivalent to \t or \pset tuples_only.
-\t tuples only on/off, tuples only on 的时候 select 语句的输出不带 header
-
-\h
-\?
 select * length( "abc"::TEXT)
 insert into test select generate_series(1,10000), random()*10;
 ```
@@ -89,7 +100,7 @@ sudo apt-get install postgresql-client-17
 # -s, 不导出数据
 # database: database0
 # -F : 指定输出文件的格式，它可以是以下格式之一： c: 自定义格式 d: 目录格式存档 t: tar 文件包 p: SQL 脚本文件
-# -W	命令执行时提示输入用户密码（不会直接在命令中写密码）。
+# -W 命令执行时提示输入用户密码（不会直接在命令中写密码）。
 pg_dump -h 127.0.0.1 -U username -W -F t db_name > foo.tar
 
 # 导入
@@ -242,6 +253,11 @@ FROM table0
 ```
 
 ## install
+
+```bash
+# archlinux, 没有把 服务端和客户端分成不同的包
+sudo pacman -S postgresql
+```
 
 ### ubuntu install postgresql
 

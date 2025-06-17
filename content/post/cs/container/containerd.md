@@ -15,19 +15,22 @@ tags:
 
 ```bash
 # archlinux install containerd
-pacman -S containerd runc nerdctl cni-plugins buildkit
+pacman -S containerd runc nerdctl cni-plugins
 
 # containerd config
 sudo mkdir /etc/containerd
 containerd config default | sudo tee /etc/containerd/config.toml
 #sudo sed -i 's/SystemdCgroup \= false/SystemdCgroup \= true/g' /etc/containerd/config.toml
 sudo systemctl daemon-reload
-sudo systemctl enable --now buildkit
+
 sudo systemctl enable --now containerd
 sudo nerdctl pull hello-world
 sudo nerdctl run --rm hello-world
 
-nerdctl build -t dnsmasq:v1.0.0 .
+# 如果需要编译镜像
+pacman -S buildkit
+sudo systemctl enable --now buildkit\
+nerdctl build -t foo:v1.0.0 .
 ```
 
 ## almalinux install containerd
@@ -161,4 +164,6 @@ server = "http://192.168.50.10:5000"
 
 ```Bash
 sudo nerdctl --insecure-registry push 127.0.0.1:5000/image_0:1.4
+nerdctl network ls
+nerdctl run --rm --network=kong-net busybox ping postgresql
 ```
