@@ -11,29 +11,68 @@ tags:
 ---
 ## 闭包, closure
 
-### java内部类
-
->wiloon.com/inner-class
-
 ### 何为闭包
 
 闭包是由函数及其相关的引用环境组合而成的实体(即：闭包=函数+引用环境)
 
+闭包（Closure） 是一种函数（或函数和其相关的变量环境的组合），它不仅包含函数的定义，还“记住”了创建该函数时的 作用域中的变量。
+
+通俗解释：
+闭包就是一个函数 “带着”它所需要的外部变量一起打包起来使用。即使这些外部变量在函数外部已经不存在了，闭包仍然可以访问它们。
+
+- 函数嵌套：闭包一定是函数内部的函数。
+- 访问外部变量：内部函数访问了外部函数的局部变量。
+- 变量生命周期延长：被闭包引用的外部变量不会在外部函数结束后立即销毁。
+
+### java内部类
+
+>wiloon.com/inner-class
+
 ### golang 闭包
 
 ```go
-func Add(y int) {
-    return func(x int) int {
-        return x + y
+func outer() func() int {
+    x := 0
+    return func() int {
+        x++
+        return x
     }
 }
 
-a := Add(10)
-a(5) // return 15
+```
+
+### Javascript
+
+```javascript
+function outer() {
+    let count = 0;
+    return function inner() {
+        count++;
+        console.log(count);
+    };
+}
+
+const counter = outer();
+counter(); // 输出 1
+counter(); // 输出 2
 
 ```
 
-我们知道这个返回的闭包中包含了Add函数中提供的变量y (也就是闭包产生的环境）
+### python
+
+```python
+def outer():
+    x = 10
+    def inner():
+        print(x)
+    return inner
+
+f = outer()
+f()  # 输出 10
+
+```
+
+我们知道这个返回的闭包中包含了 Add 函数中提供的变量 y (也就是闭包产生的环境）
 也就是说这个闭包包含了函数本身，以及一个对局部变量y的引用。
 这里特别需要注意的一点是，如果y是定义在函数Add的调用栈里的一个变量，那么当Add()函数被调用完毕后，y就销毁了，这时候再用原来的指针去访问y就会出问题，因此这里就出现了一个原则：
 闭包中引用的外部变量必须是在堆上分配的
@@ -415,3 +454,140 @@ public class Demo8 {
 >[http://baike.baidu.com/view/648413.htm?fr=aladdin](http://baike.baidu.com/view/648413.htm?fr=aladdin)
 >[https://zhuanlan.zhihu.com/p/357864072](https://zhuanlan.zhihu.com/p/357864072)
 >[https://juejin.cn/post/6844903969836236808](https://juejin.cn/post/6844903969836236808)
+
+### 使用闭包的常见场景
+
+- 创建私有变量
+- 实现函数工厂
+- 回调、异步操作
+- 保持某些状态（例如在事件监听器中）
+
+#### 创建私有变量
+
+count 是 make_counter() 的局部变量。
+
+counter() 是一个闭包，捕获了 count 的引用。
+
+count 无法在 make_counter() 外部访问或修改，只能通过 counter() 这个函数来改变。
+counter() 函数不能在外部被直接访问，只能通过 make_counter() 返回的闭包来访问。
+
+```py
+def make_counter():
+    count = 0  # 私有变量
+    def counter():
+        nonlocal count  # 声明为非局部变量，允许修改
+        count += 1
+        print(count)
+    return counter
+
+counter = make_counter()
+counter()
+counter()
+```
+
+#### 实现函数工厂
+
+make_multiplier(2) 返回了一个新的 multiply(x) 函数，它“闭包”了 factor=2。
+
+make_multiplier(3) 返回了另一个函数，它“闭包”了 factor=3。
+
+这两个函数都在自己的作用域中记住了各自的 factor。
+
+你创建了一个“工厂”make_multiplier，它批量制造函数，每个函数都有自己的“配置参数”factor，但它们的核心逻辑（乘法）是一样的。
+
+```py
+def make_multiplier(n):
+    def multiplier(x):
+        return x * n
+    return multiplier
+
+double = make_multiplier(2)
+triple = make_multiplier(3)
+
+print(double(5))  # 输出 10
+print(triple(5))  # 输出 15
+```
+
+```py
+# 格式化器工厂
+def make_formatter(prefix):
+    def formatter(msg):
+        return f"{prefix}: {msg}"
+    return formatter
+
+error_formatter = make_formatter("ERROR")
+info_formatter = make_formatter("INFO")
+
+print(error_formatter("File not found"))  # 输出 ERROR: File not found
+print(info_formatter("Process started"))  # 输出 INFO: Process started
+```
+
+#### 回调、异步操作
+
+```py
+import time
+import threading
+
+def make_callback(task_name):
+    def callback():
+        print(f"[{task_name}] finished at {time.strftime('%X')}")
+    return callback
+
+def do_async_task(duration, callback):
+    def task():
+        print(f"Task started, will take {duration} seconds...")
+        time.sleep(duration)
+        callback()
+    threading.Thread(target=task).start()
+
+# 创建多个回调，每个绑定了自己的任务名
+cb1 = make_callback("Download A")
+cb2 = make_callback("Download B")
+
+do_async_task(2, cb1)
+do_async_task(3, cb2)
+
+# 等待线程结束（仅示范用途）
+time.sleep(5)
+
+```
+
+```js
+function delayedPrint(msg, delay) {
+    setTimeout(function() {
+        console.log(`Message: ${msg}`);
+    }, delay);
+}
+
+delayedPrint("Hello after 1 second", 1000);
+delayedPrint("Another after 2 seconds", 2000);
+
+```
+
+
+#### 保持某些状态（例如在事件监听器中）
+
+```html
+<!DOCTYPE html>
+<html>
+  <body>
+    <button id="myBtn">Click me</button>
+
+    <script>
+      function createClickHandler() {
+        let count = 0; // 状态被闭包保持住
+        return function () {
+          count++;
+          console.log(`Button clicked ${count} times`);
+        };
+      }
+
+      const button = document.getElementById("myBtn");
+      const handler = createClickHandler();  // 创建独立的状态
+
+      button.addEventListener("click", handler);
+    </script>
+  </body>
+</html>
+
+```

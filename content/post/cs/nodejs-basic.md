@@ -119,7 +119,7 @@ pacman -S nodejs
 
 ```bash
 node -v
-``` 
+```
 
 作者: 合肥懒皮
 链接: [https://www.jianshu.com/p/857ef827fbd4](https://www.jianshu.com/p/857ef827fbd4)
@@ -127,3 +127,9 @@ node -v
 著作权归作者所有。商业转载请联系作者获得授权,非商业转载请注明出处。
 
 [http://www.alloyteam.com/2016/03/master-npm/](http://www.alloyteam.com/2016/03/master-npm/)
+
+## 用 node 运行 js
+
+```bash
+node foo.js
+```

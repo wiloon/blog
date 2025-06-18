@@ -2029,3 +2029,20 @@ python 代码静态检查
 pip install ruff
 ruff check
 ```
+
+## 私有变量
+
+```PY
+class Counter:
+    def __init__(self):
+        self.__count = 0  # 私有变量，带双下划线
+
+    def increment(self):
+        self.__count += 1
+        return self.__count
+
+c = Counter()
+print(c.increment())  # 输出 1
+print(c.increment())  # 输出 2
+
+```
