@@ -21,6 +21,14 @@ tags:
 ## commands
 
 ```bash
+# 找到 Pod 所属的 Controller（通常是 Deployment）
+kubectl get pod <pod-name> -o jsonpath="{.metadata.ownerReferences[0].name}"
+# 查看 Deployment 的 YAML 启动命令
+kubectl get deployment bgp-opt-backend -o yaml
+```
+
+```bash
+# exec api
 kubectl exec -it "$(kubectl get pods | grep -Eo '^[^ ]+' |grep api)" -- bash
 
 # pod
