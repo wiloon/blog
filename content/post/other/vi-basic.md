@@ -13,6 +13,17 @@ tags:
 
 ## vi/vim basic, command
 
+
+commands
+
+```bash
+vim -u NONE -N -n bigfile.txt
+
+# -u NONE: 不加载配置文件
+# -N: 启用现代兼容模式（非 Vi）
+# -n: 不创建 swap 文件
+```
+
 基本上 vi/vim 共分为三种模式，分别是命令模式（Command mode），输入模式（Insert mode）和底线命令模式（Last line mode）
 
 - Command mode, 命令模式: 用户启动Vim之后，vim 默认是在命令模式。
