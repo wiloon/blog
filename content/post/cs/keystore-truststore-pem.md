@@ -112,7 +112,7 @@ DER转为PEM openssl x509 -in cert.crt -inform der -outform pem -out cert.pem
 获得证书
 向权威证书颁发机构申请证书
 
-用这命令生成一个csr: openssl req -newkey rsa:2048 -new -nodes -keyout my.key -out my.csr
+用这命令生成一个 csr: openssl req -newkey rsa:2048 -new -nodes -keyout my.key -out my.csr
 把csr交给权威证书颁发机构,权威证书颁发机构对此进行签名,完成.保留好csr,当权威证书颁发机构颁发的证书过期的时候,你还可以用同样的csr来申请新的证书,key保持不变.
 
 或者生成自签名的证书
