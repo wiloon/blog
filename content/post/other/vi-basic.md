@@ -20,6 +20,8 @@ commands
 vim -u NONE -N -n bigfile.txt
 
 # -u NONE: 不加载配置文件
+# -u 后面跟的是要加载的配置文件路径。
+# -u NONE：不加载任何配置，相当于“安全模式”或“干净模式”。
 # -N: 启用现代兼容模式（非 Vi）
 # -n: 不创建 swap 文件
 ```
