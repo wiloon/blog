@@ -11,6 +11,23 @@ tags:
 ---
 ## 自签名证书, self-signed cert
 
+```bash
+sudo pacman -S openssl
+
+# ist all available curves
+openssl ecparam -list_curves
+
+# 生成 ECC 私钥
+# -noout - 抑制输出椭圆曲线参数, 如果不加这个参数，命令会同时输出曲线参数和私钥,加上后只输出私钥部分
+openssl ecparam -name prime256v1 -genkey -noout -out ecc.key
+
+# 生成证书签名请求（CSR）
+
+```
+
+---
+
+
 ## ecc crt
 
 https://ayushsuman.medium.com/creating-elliptic-curve-based-certs-using-openssl-d4ebbb9d071f
