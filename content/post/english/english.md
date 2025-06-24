@@ -153,20 +153,20 @@ manage to do:
 
 [https://zhuanlan.zhihu.com/p/41209715](https://zhuanlan.zhihu.com/p/41209715)
 
-## 一般过去时 (did; was/were)
+### 一般过去时 (did; was/were)
 
 一般过去时表示过去某个时间发生的动作或存在的状态。
 一般过去时用来谈论以前完成的动作。持续多久并不重要，动作的发生时间可能是不久之前或很久以前。
 常和表示过去的时间状语连用，如：last weekend,last year,yesterday,just now(刚才)等；也可以表示过去经常反复发生的动作，常和often,always等频率副词连用。
 
-### 表示过去某个时间发生的动作或情况
+#### 表示过去某个时间发生的动作或情况
 
 I bought some fruits yesterday.  
 我昨天买了一些水果。
 
 I was a government major
 
-### 表示过去习惯性动作
+#### 表示过去习惯性动作
 
 would/ used to do  
 过去常常......  
@@ -177,7 +177,7 @@ The old man would sit on a bench in the quiet park and look at others for hours 
 He used to visit his mother once a week.  
 他以前总是每周看望一次他的母亲.
 
-### 一般过去时的结构
+#### 一般过去时的结构
 
 - 肯定形式: 主语 + 动词过去式 + 其他, 例句: I was an ugly child.
 
@@ -465,7 +465,7 @@ We have been learning English for ten years.（现在完成进行时）
 
 （二）被动语态中的be 助动词be能够与主要动词的过去分词一起构成被动语态，即be done结构。如：
 
-Chinese iswidely used around the world nowadays.
+Chinese is widely used around the world nowadays.
 
 The window wasbroken by the naughty boy just now.
 
@@ -1519,3 +1519,13 @@ Normal: It's normal for him to jog in the morning. (他早上跑步是正常的�
 - several 后接可数名词
 - several用来指数量不大但大于2的人或物的数量。
 - Several is three or more; some can imply any number, usually more than one.
+
+## 现在进行时的被动语态（passive voice in present continuous tense）
+
+"the type field is being sent as foo"
+
+构成：is + being + 过去分词（sent）
+
+用来表示：某个动作正在发生，而主语是动作的接受者。
+在这里，"the type field" 不是发送动作的执行者，而是被发送的对象。
+
