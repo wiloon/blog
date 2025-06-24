@@ -11,6 +11,12 @@ tags:
 ---
 ## vscode basic，vscode, visual studio code
 
+linux vscode 配置
+
+```bash
+echo "--enable-features=UseOzonePlatform --ozone-platform=wayland" >> ~/.config/code-flags.conf
+```
+
 ### debian install visual studio code
 
 #### install from repo
