@@ -139,13 +139,13 @@ rootfs用gz打包后的文件
 
 要让系统启动,需要引导器 (x86是使用grub,好比是路由中的uboot,当然uboot管的内容更多) 、kernel、rootfs三者。
 
-### 安装证书
+### openwrt 安装证书
 
-openwrt 里访问 使用let's encrypt 签发的证书站点报错:  
+openwrt 里访问 使用 let's encrypt 签发的证书站点报错:  
 
 x509: certificate signed by unknown authority
 
-安装最新的 ca-certificates 包也解决不了, 可能是因为 ca-certificates 里也没有 let's encrypt 的根证书。  
+安装最新的 ca-certificates 包也解决不了, 可能是因为 ca-certificates 里也没有 let's encrypt 的根证书。
 浏览器访问站点手动导出证书后放到这个目录下解决。
 
 ```bash

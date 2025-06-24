@@ -1,25 +1,37 @@
 ---
 title: ca-certificates 导入CA证书
 author: "-"
-date: 2020-02-13T13:18:54+00:00
+date: 2025-06-24 09:18:49
 url: ca
 categories:
-  - Inbox
+  - Security
 tags:
   - reprint
+  - remix
 ---
 ## ca-certificates 导入 CA 证书
 
-## archlinux ca-certificates update, 导入证书
+## archlinux ca-certificates update, 导入证书/安装证书
 
 [https://www.archlinux.org/news/ca-certificates-update/](https://www.archlinux.org/news/ca-certificates-update/)
 
 ```bash
 # .pem rename to .crt
 # xxx.crt should export from sub ca
-sudo cp xxx.crt /etc/ca-certificates/trust-source/anchors/
+sudo cp certs/ca-cert.pem /etc/ca-certificates/trust-source/anchors/wangyue-ca.crt
 sudo trust extract-compat
+
+# 验证是否安装成功
+trust list|grep wiloon.com -A 5 -B 5
+
+openssl s_client -connect hello.wiloon.com:443
+
 ```
+
+## chrome
+
+Chrome（Linux/macOS）直接使用操作系统的证书信任链
+关闭所有 Chrome 进程，然后再打开它以生效。
 
 ## centos
 
