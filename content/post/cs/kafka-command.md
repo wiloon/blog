@@ -19,8 +19,26 @@ kafka 版本 3.4.0
 
 ## TLS kafka
 
+todo
+
+## commands
+
 ```Bash
-# topic list
+# list topic
+/opt/kafka/bin/kafka-topics.sh --list --bootstrap-server 127.0.0.1:9092
+# create topic
+/opt/kafka/bin/kafka-topics.sh --create --partitions 1 --replication-factor 1 --topic topic_0 --bootstrap-server 127.0.0.1:9092
+# consumer
+/opt/kafka/bin/kafka-console-consumer.sh --topic topic_0 --bootstrap-server 127.0.0.1:9092
+# producer
+/opt/kafka/bin/kafka-console-producer.sh --bootstrap-server 127.0.0.1:9092 --topic topic_0
+# list group name
+/opt/kafka/bin/kafka-consumer-groups.sh --bootstrap-server 127.0.0.1:9092 --list
+
+# 查看 consumer group offset
+/opt/kafka/bin/kafka-consumer-groups.sh --bootstrap-server 127.0.0.1:9092 --describe --group group0
+
+# tls
 ./kafka-topics.sh --list --bootstrap-server 127.0.0.1:9093 --command-config /tmp/kafka.conf
 ```
 
@@ -354,7 +372,7 @@ bin/kafka-console-consumer.sh --bootstrap-server --zookeeper xxx:2181 test-kafka
 
 bin/kafka-console-consumer.sh --bootstrap-server test-kafka-1:9092 --topic t0 --from-beginning
 
-# 会只消费 N 条数据,如果配合 --from-beginning,就会消费最早 N 条数据。
+# 会只消费 N 条数据,如果配合 --from-beginning,就会消费最早 N 条数据
 bin/kafka-console-consumer.sh --bootstrap-server test-kafka-1:9092 --topic t0 --max-messages 10
 ```
 
@@ -371,6 +389,122 @@ bin/kafka-reassign-partitions.sh --zookeeper localhost:2182 --reassignment-json-
 ```
 
 ## install
+
+ubuntu install kafka, no docker kafka 4.0
+
+```bash
+sudo apt update
+sudo apt install default-jdk
+sudo adduser --system --no-create-home --group kafka
+
+cd /opt
+sudo wget https://dlcdn.apache.org/kafka/4.0.0/kafka_2.13-4.0.0.tgz
+sudo tar -xvzf kafka_2.13-4.0.0.tgz
+ssudo ln -s kafka_2.13-4.0.0 kafka
+sudo chown -R kafka:kafka /opt/kafka
+sudo chown -R kafka:kafka /opt/kafka_2.13-4.0.0
+
+# create log.dir
+mkdir /var/lib/kafka
+sudo chown -R kafka:kafka /var/lib/kafka
+
+# create config dir
+sudo mkdir -p /etc/kafka
+sudo chown -R kafka:kafka /etc/kafka
+
+```
+
+kafka 4.0 配置
+/etc/kafka/server.properties
+
+修改 log dir: log.dirs=/var/lib/kafka
+
+
+```bash
+KAFKA_CLUSTER_ID="$(/opt/kafka/bin/kafka-storage.sh random-uuid)"
+/opt/kafka/bin/kafka-storage.sh format --standalone -t $KAFKA_CLUSTER_ID -c /etc/kafka/server.properties
+
+sudo chown -R kafka:kafka /var/lib/kafka
+/opt/kafka/bin/kafka-server-start.sh /etc/kafka/server.properties
+
+
+```
+
+/etc/systemd/system/kafka.service
+
+```bash
+[Unit]
+Description=Apache Kafka (KRaft mode)
+After=network.target
+
+[Service]
+Type=simple
+ExecStart=/opt/kafka/bin/kafka-server-start.sh /etc/kafka/server.properties
+Restart=on-failure
+User=kafka
+Group=kafka
+LimitNOFILE=100000
+
+[Install]
+WantedBy=multi-user.target
+```
+
+```bash
+sudo systemctl daemon-reload
+sudo systemctl enable kafka
+sudo systemctl start kafka
+```
+
+### kafka 3.9 kraft
+
+```bash
+# create log.dir
+mkdir /var/lib/kafka/data
+mkdir /var/lib/kafka/meta-logs
+sudo chown -R kafka:kafka /var/lib/kafka
+```
+
+kafka 3.9 kraft 配置
+
+```bash
+# Kafka Broker ID
+#broker.id=0
+node.id=1
+
+# 启用 KRaft 模式
+process.roles=broker,controller
+
+# 控制器节点列表
+controller.quorum.voters=1@localhost:9093
+
+# Kafka 网络配置
+listeners=PLAINTEXT://localhost:9092,CONTROLLER://localhost:9093
+listener.security.protocol.map=PLAINTEXT:PLAINTEXT,CONTROLLER:PLAINTEXT
+inter.broker.listener.name=PLAINTEXT
+controller.listener.names=CONTROLLER
+
+# 数据目录（metadata logs 是 KRaft 的关键）
+log.dirs=/data/kafka/data
+metadata.log.dir=/data/kafka/meta-logs
+```
+
+Kafka KRaft 模式必须在第一次启动前执行一次元数据格式化：
+
+
+```bash
+/opt/kafka/bin/kafka-storage.sh format \
+  --config /etc/kafka/server.properties \
+  --cluster-id $(/opt/kafka/bin/kafka-storage.sh random-uuid)
+
+
+systemctl start kafka
+
+journalctl -u kafka.service -f
+# Started kafka.service - Apache Kafka (KRaft mode)
+```
+
+
+---
 
 安装一个只有单 broker 节点的集群（也被称为伪集群）
 
@@ -484,7 +618,7 @@ log.retention.check.interval.ms=300000
 ```
 
 ```bash
-# 格式化storage, 先格式化 storage 再启动 kafka
+# 格式化 storage, 先格式化 storage 再启动 kafka
 podman run --rm --name kafka \
 -e ALLOW_PLAINTEXT_LISTENER=yes \
 -p 9092:9092 \

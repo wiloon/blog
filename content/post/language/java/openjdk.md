@@ -54,6 +54,14 @@ sudo archlinux-java status
 ## ubuntu openjdk
 
 ```bash
+# 安装默认版本, 最新的 TLS 版本
+sudo apt update
+sudo apt install default-jdk
+
+# 验证安装
+java -version
+javac -version
+
 sudo apt install openjdk-21-jdk
 sudo apt install openjdk-8-jdk
 sudo apt install openjdk-8-source

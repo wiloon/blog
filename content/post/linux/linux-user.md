@@ -23,6 +23,12 @@ tags:
 ## 创建用户
 
 ```Bash
+# ubuntu, adduser 是一个高级脚本，通常存在于 Debian / Ubuntu 系统 上。
+# --system 创建一个系统用户，通常用于运行系统服务（如 Kafka、nginx、mysql 等），不是用于日常登录的普通用户。系统用户的 UID 通常小于 1000。
+# --group 同时创建一个与用户名相同的用户组（kafka），并将用户添加进这个组。
+# kafka 是一个系统用户，通常用于运行 Kafka 服务。
+sudo adduser --system --no-create-home --group kafka
+
 # 创建用户 user_0, archlinux 默认会创建 home 目录, 默认 bash
 sudo useradd user_0
 # 给 user_0 设置密码
