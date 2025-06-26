@@ -47,3 +47,12 @@ sudo apt install flatpak
 flatpak --user remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 ```
+
+remove flatpak
+
+```bash
+flatpak uninstall --all
+sudo apt purge flatpak
+rm -rf ~/.local/share/flatpak
+sudo rm -rf /var/lib/flatpak
+```
