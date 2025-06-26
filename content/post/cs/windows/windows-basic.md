@@ -22,6 +22,12 @@ copy /b/v/y C:\Users\desktop\foo.txt D:\backup\
 
 # cmd-连续执行多条命令
 copy C:\Users\desktop\foo.txt D:\backup\ && D:\backup\foo.exe
+
+# 查看证书
+certmgr.msc
+
+# 查看 windows 的版本
+winver
 ```
 
 ## ISO
@@ -46,12 +52,6 @@ copy C:\Users\desktop\foo.txt D:\backup\ && D:\backup\foo.exe
 ### uupdump
 
 [https://uupdump.net/](https://uupdump.net/)
-
-### 查看 windows 的版本
-
-```bash
-winver
-```
 
 ### bat 脚本控制网卡启用禁用
 
@@ -278,6 +278,8 @@ rmdir /s /q folder0
 ```
 
 ## winget, windows 的包管理工具
+
+Windows 11 默认是预装了 winget
 
 ### 按名字查找包, winget search
 

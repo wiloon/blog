@@ -1,7 +1,7 @@
 ---
 title: windows wsl
 author: "w1100n"
-date: 2019-03-28T09:40:51.000+00:00
+date: 2025-06-26 11:23:28
 url: wsl
 categories:
   - Linux
@@ -13,30 +13,74 @@ tags:
 
 WSL: windows subsystem for Linux
 
+## 微软的官方安装文档
+
+https://learn.microsoft.com/zh-cn/windows/wsl/install
+
+## wsl 文档
+
+https://learn.microsoft.com/en-us/windows/wsl/
+https://learn.microsoft.com/zh-cn/windows/wsl/
+
 ### command
 
+管理员 模式下打开 PowerShell 或 cmd
+
 ```bash
-#to list available distributions
-wsl.exe --list --online
-wsl -l -o
-
-wsl --install Ubuntu-22.04
-
-wsl --shutdown
+# 查看 windows 里已经安装的 wsl
 wsl --list --verbose
 wsl -l -v
 
-# 查看wsl状态
+# list available distributions
+wsl --list --online
+# 简写
+wsl -l -o
+
+# 安装 wsl ubuntu
+# 默认安装 ubuntu 的最新 LTS 版本
+wsl --install
+# 安装指定的版本, 比如 archlinux
+# wsl --install -d <DistroName>
+wsl --install -d archlinux
+# 创建默认用户
+# 设置密码
+
+# wsl 卸载
+# wsl --unregister <DistributionName>
+wsl --unregister Ubuntu-22.04
+
+# 安装 windows terminal
+winget install Microsoft.WindowsTerminal
+
+wsl --shutdown
+# 查看 wsl 状态
 wsl --status
-
 # reboot, 先 shutdown 再打开就行了...
-
-wsl --unregister <DistributionName>
 ```
 
-### 微软的官方安装文档
+## in ubuntu
 
-[https://docs.microsoft.com/zh-cn/windows/wsl/install](https://docs.microsoft.com/zh-cn/windows/wsl/install)
+```bash
+sudo apt update && sudo apt upgrade
+# git 默认安装
+```
+
+## 文件共享
+
+ubuntu 访问 windows 文件
+
+```bash
+cd /mnt/c/
+ls -l 
+```
+
+windows 访问 ubuntu 文件
+
+```bash
+\\wsl$\Ubuntu\
+```
+
+## vscode connect to WSL
 
 ### 开启 windows 功能
 
@@ -101,11 +145,7 @@ fi
 ssh-add -L
 ```
 
-### wsl 卸载
 
-```bash
-wsl --unregister Ubuntu
-```
 
 ---
 
@@ -373,29 +413,29 @@ wslconfig /list /all
 wslconfig /unregister <这里填你要卸载的名称，只能填写使用wslconfig /list或者wslconfig /list /all中所包含的，不是随便填的>
 ```
 
-## 把wsl的磁盘移到 d 盘
+## 把 wsl 的磁盘移到 d 盘
 
 ```bash
 Run powershell.exe as Administrator
 
-    PS C:\WINDOWS\system32> wsl -l
-    Windows Subsystem for Linux Distributions:
-    Ubuntu (Default)
+PS C:\WINDOWS\system32> wsl -l
+Windows Subsystem for Linux Distributions:
+Ubuntu (Default)
 
-    # mkdir D:\workspace\wsl
+# mkdir D:\workspace\wsl
 
-    PS C:\WINDOWS\system32> wsl --export Ubuntu S:\ISOs\ubuntu-wsl.tar
+PS C:\WINDOWS\system32> wsl --export Ubuntu S:\ISOs\ubuntu-wsl.tar
 
-    # mkdir D:\workspace\vm\ubuntu-wsl
+# mkdir D:\workspace\vm\ubuntu-wsl
 
-    PS C:\WINDOWS\system32> cd D:\workspace\vm\ubuntu-wsl
-    PS W:\VMs> mkdir ubuntu-wsl
-    PS W:\VMs> wsl --unregister Ubuntu
-    Unregistering...
-    PS W:\VMs> wsl --import Ubuntu W:\VMs\ubuntu-wsl S:\ISOs\ubuntu-wsl.tar
-    PS W:\VMs> wsl -l
-    Windows Subsystem for Linux Distributions:
-    Ubuntu (Default)
+PS C:\WINDOWS\system32> cd D:\workspace\vm\ubuntu-wsl
+PS W:\VMs> mkdir ubuntu-wsl
+PS W:\VMs> wsl --unregister Ubuntu
+Unregistering...
+PS W:\VMs> wsl --import Ubuntu W:\VMs\ubuntu-wsl S:\ISOs\ubuntu-wsl.tar
+PS W:\VMs> wsl -l
+Windows Subsystem for Linux Distributions:
+Ubuntu (Default)
 ```
 
 ### wsl2 graphical

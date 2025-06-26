@@ -26,8 +26,10 @@ git reset
 
 # 如果本地有没提交到 local repo 的话, 会提示 Unstaged changes after reset, 如果的确是要放弃修改, 可以执行 git reset --hard
 
-# 丢弃工作树和索引的修改
+# 丢弃 工作树 和 索引 的修改
 git reset --hard
+# 等价于
+git reset --hard HEAD
 
 # reset 最近一次 commit
 git reset --hard HEAD^

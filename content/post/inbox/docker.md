@@ -127,7 +127,11 @@ docker rmi 192.168.0.1/you/tom:1.0.8
 ```bash
 ## archlinux install docker
 sudo pacman -S docker
+systemctl enable --now docker.service
 systemctl start docker.service
+
+sudo docker pull hello-world
+sudo docker run --rm hello-world
 
 docker run -it --rm archlinux bash -c "echo hello world"
 

@@ -442,7 +442,9 @@ lssitepackages      #显示 site-packages 目录中的内容
 yay -S python36
 ```
 
-### install Python from source code on ubuntu
+## ubuntu24.04 install python3.6
+
+install Python from source code on ubuntu
 
 https://stackoverflow.com/questions/52561997/segmentation-fault-during-installation-of-python-3-6-on-debian-8
 
@@ -453,33 +455,42 @@ https://stackoverflow.com/questions/72102435/how-to-install-python3-6-on-ubuntu-
 https://www.python.org/ftp/python/
 
 ```Bash
-sudo apt update
-sudo apt-get install libsqlite3-dev
-./configure --with-pydebug --enable-loadable-sqlite-extensions
-make -j 8
-sudo make altinstall
-
-###
-sudo apt update
-
-sudo apt-get install -y make build-essential libssl-dev zlib1g-dev \
-libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm libncurses5-dev \
-libncursesw5-dev xz-utils tk-dev libffi-dev liblzma-dev \
-libgdbm-dev libnss3-dev libedit-dev libc6-dev
+sudo apt update && sudo apt upgrade
 
 wget https://www.python.org/ftp/python/3.6.15/Python-3.6.15.tgz
-
 tar -xzf Python-3.6.15.tgz
-
 cd Python-3.6.15
+
+sudo apt install -y \
+    build-essential \
+    libssl-dev \
+    zlib1g-dev \
+    libncurses5-dev \
+    libncursesw5-dev \
+    libreadline-dev \
+    libsqlite3-dev \
+    libgdbm-dev \
+    libdb5.3-dev \
+    libbz2-dev \
+    libexpat1-dev \
+    liblzma-dev \
+    tk-dev \
+    libffi-dev \
+    wget
+
+./configure --prefix=/opt/python3.6 --with-openssl=/usr
+make -j$(nproc)
+sudo make install
+/opt/python3.6/bin/python3.6 -V
+
+---
+./configure --with-pydebug --enable-loadable-sqlite-extensions
 ./configure --with-pydebug
 ./configure --enable-optimizations  -with-lto  --with-pydebug
 
 # adjust for number of your CPU cores
 make -j 8
 sudo make altinstall
-python3.6 -V
-ls -l /usr/local/bin/python3.6
 ```
 
 ### ubuntu install python3

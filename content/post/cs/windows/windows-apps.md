@@ -21,6 +21,11 @@ tags:
 
 ## winget
 
+```bash
+winget install Microsoft.WindowsTerminal
+```
+
+- Microsoft.WindowsTerminal
 - WinScp, WinSCP.WinSCP
 - firefox, Mozilla.Firefox
 - powershell, Microsoft.PowerShell

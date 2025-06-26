@@ -179,3 +179,7 @@ code --install-extension jsynowiec.vscode-insertdatestring-2.3.1.vsix
   "command": "workbench.action.quickOpen"
 }
 ```
+
+
+https://code.visualstudio.com/docs/devcontainers/containers
+

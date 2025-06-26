@@ -14,15 +14,15 @@ tags:
 
 ## 参数, options
 
-```
+```bash
 -Sy # 仅同步源
 -Syy # 两个 y 代表强制更新 database 文件, 即使文件看起来是最新的, 回退到旧版本的时候会用到
 -Syyuu # 降级软件包的时候用
--Q 查询 本地 pacman 数据库, 比如查询某一个已经安装的包的版本 pacman -Q openssl
--Qd, -d, --deps           list packages installed as dependencies [filter]
--Qt,  -t, --unrequired     list packages not (optionally) required by any package (-tt to ignore optdepends) [filter]
+-Q     # 查询 本地 pacman 数据库, 比如查询某一个已经安装的包的版本 pacman -Q openssl
+-Qd, -d, --deps           # list packages installed as dependencies [filter]
+-Qt,  -t, --unrequired     # list packages not (optionally) required by any package (-tt to ignore optdepends) [filter]
 -Qh, -Q -h, print help
--Ql <boost-libs> #Display file list provided by local package
+-Ql <boost-libs> #D isplay file list provided by local package
 -Qk # Check the local package database
 -Qo /path/to/file # Check if the file is owned by any package, 查看某个文件属于哪个包
 -Qq, -q, --quiet          show less information for query and search, 省略版本号
