@@ -90,3 +90,23 @@ curl -X POST http://192.168.50.31:8001/services/k8s-service/routes/ \
 curl -s localhost:8001 | jq '.configuration'
 
 ```
+
+## kong manager
+
+### add route
+
+- upstreams
+  - name: enx-api
+  - targets
+    - target address: enx:8080
+- gateway service
+  - new gateway service
+    - name: enx-api-service
+    - service endpoint
+      - protocol: https
+      - host: enx-api-upstream
+- ca certificate
+  - cert: past the content of ca-cert.crt
+- certificates
+  - cert: the content of wiloon.crt
+  - key: wiloon.key
