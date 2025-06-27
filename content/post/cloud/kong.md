@@ -110,3 +110,4 @@ curl -s localhost:8001 | jq '.configuration'
 - certificates
   - cert: the content of wiloon.crt
   - key: wiloon.key
+  - 
