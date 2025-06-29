@@ -10,8 +10,6 @@ tags:
 ---
 ## 'ansible  管理工作站配置, linux初始化'
 
-### archlinux
-
 ```bash
 # archlinux 直接从仓库里安装就是最新版本
 sudo pacman -S git ansible

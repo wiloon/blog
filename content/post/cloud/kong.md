@@ -110,4 +110,11 @@ curl -s localhost:8001 | jq '.configuration'
 - certificates
   - cert: the content of wiloon.crt
   - key: wiloon.key
-  - 
+
+## gateway service
+
+Service 是指一个后端的服务，它可以是一个 HTTP、HTTPS、gRPC 或 TCP 服务。Service 表示需要路由到的目标服务。
+gateway service> service endpoint>protocol: http; ff
+
+## Route
+

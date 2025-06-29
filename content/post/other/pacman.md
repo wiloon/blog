@@ -57,6 +57,20 @@ tags:
 pacman -Qq|wc -l
 ```
 
+## 查看软件包依赖, `pactree`
+
+```bash
+# pactree 由 pacman-contrib 包提供
+pacman -S pacman-contrib
+
+# 查看 package_0 依赖了哪些软件包
+pactree package_0
+
+# 查看 package_0 被哪些软件包依赖了
+# 查看哪些包依赖 package_0
+pactree -r package_0
+```
+
 ## 把 openssl 包安装到指定的目录
 
 ```bash
@@ -231,20 +245,6 @@ Include = /etc/pacman.d/mirrorlist
 
 ```bash
 sudo rm /var/lib/pacman/db.lck
-```
-
-## 查看软件包依赖, `pactree`
-
-```bash
-# pactree 由 pacman-contrib 包提供
-pacman -S pacman-contrib
-
-# 查看 package0 依赖了哪些软件包
-pactree package0
-
-# 查看 package0 被哪些软件包依赖了
-# 查看哪些包依赖 package0
-pactree -r package0
 ```
 
 ## 升级系统中所有已安装的包

@@ -413,7 +413,6 @@ pattern--strategy_pattern
 - redis
 - mariadb
 
-
 ## archlinux
 
 ```bash

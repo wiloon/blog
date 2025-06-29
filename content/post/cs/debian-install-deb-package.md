@@ -33,7 +33,9 @@ dpkg --get-selections | grep <package-name>*
 dpkg -l softwarename
 ```
 
-## debian install deb package
+## debian install deb
+
+debian install deb package
 
 deb 包
   

@@ -12,6 +12,7 @@ tags:
 
 - `aalib`: ASCII art graphic library
 - aardvark-dns: Authoritative dns server for `A/AAAA` container records
+- adwaita-fonts 是一个包含 Adwaita 字体（Adwaita Fonts） 的软件包。提供了一套由 GNOME 项目开发的字体, wechat
 - sudo abseil-cpp: Collection of C++ library code designed to augment the C++ standard `librar`
 - ansible
 - ansible-core

@@ -17,9 +17,8 @@ tags:
 
 [http://tigervnc.bphinz.com/nightly/](http://tigervnc.bphinz.com/nightly/)
 
-### archlinux
-
 ```bash
+# archlinux
 pacman -S tigervnc
 # vncserver
 # dell desktop

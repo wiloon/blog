@@ -17,9 +17,8 @@ tags:
 Advanced> APM Configuration> Power on by PCI-E/PCI
 ```
 
-### archlinux, wol
-
 ```bash
+# archlinux, wol
 pacman -S wol
 wol -i 192.168.50.255 -p 9  1c:b7:2c:af:9a:6a
 # -i 192.168.50.255, 广播地址

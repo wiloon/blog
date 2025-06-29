@@ -11,9 +11,8 @@ tags:
 ---
 ## telegraf
 
-### archlinux, telegraf
-
 ```bash
+# archlinux, telegraf
 yay -S telegraf-bin
 ```
 
