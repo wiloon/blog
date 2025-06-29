@@ -225,4 +225,3 @@ source ~/.bashrc
 exec bash
 
 ```
-

@@ -13,9 +13,11 @@ tags:
 
 https://wiki.archlinux.org/title/Fcitx5
 
-## archlinux 安装 fcitx
+## archlinux KDE 安装 fcitx
 
 https://blog.csdn.net/GaaraZ/article/details/128618441
+
+https://fcitx-im.org/wiki/Using_Fcitx_5_on_Wayland#KDE_Plasma
 
 ```bash
 # include 1) fcitx5  2) fcitx5-configtool  3) fcitx5-gtk  4) fcitx5-qt
