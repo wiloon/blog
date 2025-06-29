@@ -154,6 +154,11 @@ GRANT ALL PRIVILEGES ON DATABASE db_0 TO user_0;
 
 ## postgresql.conf, postgresql log, 日志, sql 历史
 
+```bash
+# 查看配置文件路径, ubuntu 24.04 apt 安装的 postgresql
+sudo -u postgres psql -c "SHOW config_file;"
+```
+
 [https://www.cnblogs.com/qianxunman/p/12149586.html](https://www.cnblogs.com/qianxunman/p/12149586.html)
 
 default log path: /var/lib/postgresql/data/pgdata/log/
@@ -173,11 +178,11 @@ logging_collector = on
 # all 记录所有执行的语句，将此配置设置为all可跟踪整个数据库执行的SQL语句。
 log_statement = 'all'
 
-# 日志目录名, 默认值: log
+# 日志目录名, 默认值: log, 使用默认值, 不需要修改
 # log_directory = 'log'
 
-# 默认文件名
-log_filename = 'postgresql-%Y-%m-%d_%H%M%S.log'
+# 默认文件名, 使用默认值, 不需要修改
+#log_filename = 'postgresql-%Y-%m-%d_%H%M%S.log'
 
 log_rotation_age = 1d ----  单个日志文件的生存期，默认 1 天，在日志文件大小没有达到 log_rotation_size 时，一天只生成一个日志文件
 log_rotation_size = 10MB  ---- 单个日志文件的大小，如果时间没有超过 log_rotation_age，一个日志文件最大只能到 10M，否则将新生成一个日志文件。
@@ -186,7 +191,7 @@ log_duration = off ---- 记录每条SQL语句执行完成消耗的时间，将�
 
 10.log_min_duration_statement = -1 # -1 is disabled, 0 logs all statements and their durations, > 0 logs only statements running at least this number of milliseconds
 
--1表示不可用，0将记录所有SQL语句和它们的耗时，>0只记录那些耗时超过（或等于）这个值（ms）的SQL语句。个人更喜欢使用该配置来跟踪那些耗时较长，可能存在性能问题的SQL语句。虽然使用log_statement和log_duration也能够统计SQL语句及耗时，但是SQL语句和耗时统计结果可能相差很多行，或在不同的文件中，但是log_min_duration_statement会将SQL语句和耗时在同一行记录，更方便阅读。
+# -1表示不可用，0将记录所有SQL语句和它们的耗时，>0只记录那些耗时超过（或等于）这个值（ms）的SQL语句。个人更喜欢使用该配置来跟踪那些耗时较长，可能存在性能问题的SQL语句。虽然使用log_statement和log_duration也能够统计SQL语句及耗时，但是SQL语句和耗时统计结果可能相差很多行，或在不同的文件中，但是log_min_duration_statement会将SQL语句和耗时在同一行记录，更方便阅读。
 
 11.log_connections = off ----是否记录连接日志
 12.log_disconnections = off ---- 是否记录连接断开日志
@@ -282,6 +287,16 @@ sudo apt update
 sudo apt -y install postgresql
 sudo -u postgres psql
 CREATE USER user_0 WITH PASSWORD 'password_0';
+
+# 用 systemctl 启动 postgresql 服务
+sudo systemctl restart  postgresql
+
+# 默认配置文件位置 
+ /etc/postgresql/17/main/postgresql.conf
+
+# 日志 路径 
+/var/lib/postgresql/17/main/log
+
 ```
 
 https://hub.docker.com/_/postgres
