@@ -111,10 +111,43 @@ curl -s localhost:8001 | jq '.configuration'
   - cert: the content of wiloon.crt
   - key: wiloon.key
 
+## upstreams
+
+Upstream 是在 Kong 中管理后端服务的负载均衡机制。当请求到达 Service 时，Kong 会通过定义的 Upstream 来选择一个具体的后端实例（例如，一个微服务的多个副本）。
+如果不使用负载均衡就不需要配置 upstreams 了, 直接在 gateway service 中配置 service endpoint 即可.
+
 ## gateway service
 
 Service 是指一个后端的服务，它可以是一个 HTTP、HTTPS、gRPC 或 TCP 服务。Service 表示需要路由到的目标服务。
-gateway service> service endpoint>protocol: http; ff
+
+gateway service> service endpoint>protocol: http; 后端服务(upstream)的协议
+gateway service> service endpoint>host: 后端服务 的 upstream name
+gateway service> service endpoint>path: 设置转发到后端时请求 URL 的路径前缀, 比如 /api/v1/users?id=42 中的 "v1"
 
 ## Route
 
+一个 route 对应一个 service
+Route 是对请求的匹配规则，决定请求如何路由到具体的 Service。你可以根据请求的 URL 路径、HTTP 方法、头信息等来匹配 Route。
+
+route> route configuration> protocols: http, https; 控制 客户端 到 Kong 的通信协议（入口）, protocols 决定了客户端使用什么协议才能命中这个 Route，是匹配协议的第一道门槛。
+route> route configuration> host: enx-dev.wiloon.com; 控制 客户端 到 Kong 的通信协议（入口）, host 决定了客户端请求的域名是否能命中这个 Route.
+route> route configuration> path: /api; 控制 客户端 到 Kong 的通信协议（入口）, path 决定了客户端请求的 URL 路径是否能命中这个 Route. 比如 前端资源(/static)的请求要发给其它的 route.
+
+```bash
+Client Request
+     ↓
+   Route
+     ↓
+  Service (host=my-upstream)
+     ↓
+  Upstream (name=my-upstream)
+     ↓
+Targets:
+  - 192.168.1.101:8000
+  - 192.168.1.102:8000
+```
+
+
+## health check
+
+curl -s http://kong.wiloon.com:8001/upstreams/enx-api-upstream/health | jq

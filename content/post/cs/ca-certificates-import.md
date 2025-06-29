@@ -11,6 +11,11 @@ tags:
 ---
 ## ca-certificates 导入 CA 证书
 
+## macos 导入自签名证书
+
+在 Spotlight 里搜索 “钥匙串访问” 或者 Keychain Access, 在左侧栏里选择 System, 点击菜单栏 File> import items, 导入 自签名的 ca 证书
+然后在 系统证书里面找名字是 *.wiloon.com 的证书, 双击打开, 展开 trust, when using this certificate: always trust
+
 ## archlinux ca-certificates update, 导入证书/安装证书
 
 [https://www.archlinux.org/news/ca-certificates-update/](https://www.archlinux.org/news/ca-certificates-update/)
