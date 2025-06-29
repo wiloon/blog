@@ -426,11 +426,12 @@ F1 默认走 罗技优联, F2 和 F3 可以连接另外两个蓝牙设备. 蓝�
 - 最大允许总质量(kg) 1985
 - 载重 460
 
-## MacBook Air
+## MacBook Air (M2, 2022)
 
 - M2
   - ARMv8
 - 2560 x 1664 (224 ppi)
+- Weight: 2.7 pounds (1.24 kg)4
 
 ## U2723QX
 
