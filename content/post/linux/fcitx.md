@@ -20,17 +20,21 @@ https://blog.csdn.net/GaaraZ/article/details/128618441
 ```bash
 # include 1) fcitx5  2) fcitx5-configtool  3) fcitx5-gtk  4) fcitx5-qt
 sudo pacman -S fcitx5-im
+sudo pacman -S fcitx5-chinese-addons
+
+# disable fcitx5 desktop file after install fcitx5 in kde
+sudo mv /etc/xdg/autostart/org.fcitx.Fcitx5.desktop/org.fcitx.Fcitx5.desktop /etc/xdg/autostart/org.fcitx.Fcitx5.desktop/org.fcitx.Fcitx5.desktop.bak
+
 #---
-sudo pacman -S fcitx5 kcm-fcitx fcitx-configtool fcitx-im fcitx-table-extra
-# kcm-fcitx: 图形界面的配置程序: KDE 中的 kcm-fcitx
-# fcitx-im: 输入法模块
+sudo pacman -S  fcitx-table-extra
+# kcm-fcitx5 包的实际内容是 fcitx5-configtool
 # fcitx-table-extra: 输入法模块-五笔, 可能需要重启
 # fcitx-configtool: gtk3 config tool, optional
 ```
 
 chrome
 
-application launcher> right click chrome> command line arguments: --ozone-platform=wayland 
+application launcher> right click chrome> command line arguments: --ozone-platform=wayland
 
 ### .zshrc
 

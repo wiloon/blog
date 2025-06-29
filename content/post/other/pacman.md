@@ -44,7 +44,6 @@ tags:
 -Rsn
 -Rs, -s, --recursive      remove unnecessary dependencies, 同时删除本机上只有该软件依赖的软件。有其他包可选依赖这个包的话 pacman 会警告你，有其他包依赖这个包的话 pacman 会阻止你
 -Ru 软件名: 删除软件，同时删除不再被任何软件所需要的依赖。
--Sg: 列出软件仓库上所有的软件包组。
 -Sg 软件包组: 查看某软件包组所包含的所有软件包。
 -Sc：清理未安装的包文件，包文件位于 /var/cache/pacman/pkg/ 目录。
 -Scc：清理所有的缓存文件。
@@ -298,7 +297,7 @@ pacman -Sd abc #忽略依赖性问题，安装包abc
   
 pacman -Su –ignore foo #升级时不升级包foo
   
-pacman -Sg abc #查询abc这个包组包含的软件包
+
 
 ## 限速
   
