@@ -45,12 +45,19 @@ nerdctl run -d --name kong \
 -e "KONG_ADMIN_ERROR_LOG=/dev/stderr" \
 -e "KONG_ADMIN_LISTEN=0.0.0.0:8001,0.0.0.0:8443 ssl" \
 -e KONG_ADMIN_GUI_LISTEN=0.0.0.0:8002 \
--p 8000:8000 \
+-p 80:8000 \
+-p 443:8443 \
 -p 8001:8001 \
--p 8443:8443 \
 -p 8002:8002 \
 -p 8444:8444 \
 kong:3.9.1
+
+# -p 80:8000 # HTTP 代理端口
+# -p 443:8443 # HTTPS 代理端口
+# -p 8001:8001 # Admin API HTTP 端口
+# -p 8002:8002 # Admin GUI HTTP 端口
+# -p 8444:8444 # Admin API HTTPS 端口
+
 
 curl -i -X GET --url http://localhost:8001/services
 

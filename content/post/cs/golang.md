@@ -387,7 +387,7 @@ go mod init github.com/you/hello
 
 设置 GOOS 和 GOARCH 两个环境变量生成所需平台的 Go 程序
 
-常用的一些 值
+常用的一些值
 
 ### GOOS
 
@@ -413,6 +413,18 @@ windows 环境编译时忽略标注 `//go:build linux` 的文件
 
 ```go
 //go:build darwin || linux
+
+```
+
+### macos M2 编译 linux amd64
+
+```bash
+brew tap messense/macos-cross-toolchains
+brew install x86_64-unknown-linux-gnu
+
+export CC=x86_64-unknown-linux-gnu-gcc
+export CXX=x86_64-unknown-linux-gnu-g++
+CGO_ENABLED=1 GOOS=linux GOARCH=amd64 go build -o ${package_name} enx-api.go
 
 ```
 
