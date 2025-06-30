@@ -102,3 +102,9 @@ DELETE /user/:id # 删除id用户 (注销）
 [http://www.goodhr.com/api/v1/companies/66/employees/{员工id](http://www.goodhr.com/api/v1/companies/66/employees/{员工id)}
 
 [https://zhuanlan.zhihu.com/p/81723602](https://zhuanlan.zhihu.com/p/81723602)
+
+## get
+
+推荐的方式是扁平化参数： GET /items?name=apple&price_gt=10
+
+参数非常复杂：建议改用 POST 请求, 这种方式是很多现代 API（如 Elasticsearch、GraphQL、一些复杂搜索接口）采用的做法。
