@@ -1,7 +1,7 @@
 ---
 title: linux apps
 author: "w10n"
-date: 2022-04-04 17:43:03
+date: 2025-07-01 15:29:59
 url: linux/apps
 categories:
   - Linux
@@ -11,6 +11,12 @@ tags:
 ## linux apps
 
 - kitty, terminal
+
+## Go
+
+```bash
+go install github.com/jesseduffield/lazygit@latest
+```
 
 ## Ubuntu apt package
 
