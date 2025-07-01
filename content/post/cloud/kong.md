@@ -158,3 +158,17 @@ Targets:
 ## health check
 
 curl -s http://kong.wiloon.com:8001/upstreams/enx-api-upstream/health | jq
+
+## kong add new loadbalance service
+
+new gateway service
+  general information
+    name: kong-manager-service
+  service endpoint
+    protocol: http
+    host: 192.168.50.64
+    port: 8002
+new route
+  general information:
+    name: kong-manager-route
+    

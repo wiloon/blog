@@ -26,7 +26,7 @@ openssl ecparam -list_curves
 # 生成 ECDSA（椭圆曲线数字签名算法）密钥对, CA 密钥, root private key
 # 参数: -noout - 抑制输出椭圆曲线参数, 如果不加这个参数，命令会同时输出曲线参数和私钥,加上后只输出私钥部分
 # -genkey：生成密钥对
-# prime256v1	secp256r1 / NIST P-256	256	默认、安全性好、广泛兼容（TLS 默认）
+# prime256v1 secp256r1 / NIST P-256 256 默认、安全性好、广泛兼容（TLS 默认）
 openssl ecparam -name prime256v1 -genkey -out private/ca-key.pem
 
 # read ca key
@@ -124,6 +124,12 @@ sudo update-ca-certificates --fresh
 
 ```
 
+```bash
+# Generate the private key for one domain (某一个域名的私钥)
+openssl ecparam -name prime256v1 -genkey -out wiloon.key
+
+```
+
 wiloon.cnf
 
 the value in the basicConstrains is CA:false instead
@@ -181,18 +187,15 @@ DNS.2       = www.wiloon.com
 DNS.3       = enx-dev.wiloon.com
 DNS.4       = localhost
 DNS.5       = localhost.localdomain
+DNS.6       = kong.wiloon.com
 IP.1        = 127.0.0.1
 IP.2        = 10.124.44.91 # localhost IP from Android emulators. Only for Android Developers.
 
 ```
 
 ```bash
-
-# Generate the private key for one domain (某一个域名的私钥)
-openssl ecparam -name prime256v1 -genkey -out wiloon.key
-
 # Create Certificate Signing Request (CSR)
-# -key wiloon.key	指定私钥文件（用于签名 CSR）
+# -key wiloon.key 指定私钥文件（用于签名 CSR）
 # -config wiloon.cnf 使用自定义的 OpenSSL 配置文件
 # wiloon.csr 是包含公钥信息和签名(私钥对 CSR 内容进行数字签名) 的请求文件，可以发送给 CA 来生成 .crt 证书。
 openssl req -new -key wiloon.key -out wiloon.csr -sha256 -config wiloon.cnf -extensions v3_req
@@ -210,19 +213,13 @@ openssl ca -keyfile private/ca-key.pem -cert certs/ca-cert.pem -in wiloon.csr -o
 # read crt
 openssl x509 -noout -text -in wiloon.crt
 
-# # To verify that the certificate is built correctly
+# To verify that the certificate is built correctly
 openssl verify -CAfile certs/ca-cert.pem -verify_hostname enx-dev.wiloon.com wiloon.crt
 
 # check crt of web site
 openssl s_client -connect site.domain:443
 
-# 更新 csr 信息之后, 重新签发证书
-# 撤销旧证书
-# 注意 01.pem 是要撤消的证书
-openssl ca -config ca-cert.cnf -revoke certs/01.pem
 
-# 重新签发证书, 跟前面的命令是一样的
-openssl ca -keyfile private/ca-key.pem -cert certs/ca-cert.pem -in wiloon.csr -out wiloon.crt -config wiloon.cnf -extensions v3_req
 
 # R 代表已经撤销的证书
 cat index.txt
@@ -231,6 +228,35 @@ cat index.txt
 scp wiloon.crt root@192.168.50.130:/var/lib/containers/storage/volumes/certbot-conf/_data/fullchain.pem
 scp wiloon.key root@192.168.50.130:/var/lib/containers/storage/volumes/certbot-conf/_data/privkey.pem
 podman restart nginx
+```
+
+### 增加一个域名之后重新生成证书
+
+```bash
+#撤消旧证书, 
+# 查看 index.txt, 找到最新的版本号
+cat index.txt
+
+# 更新 csr 信息之后, 重新签发证书
+# 撤销旧证书
+# 注意 01.pem 是要撤消的证书
+openssl ca -config ca-cert.cnf -revoke certs/04.pem
+
+# 修改 wiloon.cnf, 加入新域名
+
+# 重新生成  csr
+openssl req -new -key wiloon.key -out wiloon.csr -sha256 -config wiloon.cnf -extensions v3_req
+
+# 重新签发证书, 跟前面的命令是一样的
+openssl ca -keyfile private/ca-key.pem -cert certs/ca-cert.pem -in wiloon.csr -out wiloon.crt -config wiloon.cnf -extensions v3_req
+```
+
+```bash
+# kong upload crt
+curl -i -X POST http://192.168.50.64:8001/certificates \
+  --data "cert=@wiloon.crt" \
+  --data "key=@wiloon.key" \
+  --data "snis=kong.wiloon.com"
 ```
 
 https://ayushsuman.medium.com/creating-elliptic-curve-based-certs-using-openssl-d4ebbb9d071f
