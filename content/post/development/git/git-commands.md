@@ -734,6 +734,8 @@ config 配置有 system 级别 global (用户级别)  和 local (当前仓库) �
 底层配置会覆盖顶层配置分别使用 --system/global/local 可以定位到配置文件
 
 ```bash
+git config --global core.editor "vim"
+
 # 查看当前用户 (global) 配置
 git config --global  --list
 
