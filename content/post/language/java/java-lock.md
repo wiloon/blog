@@ -401,7 +401,7 @@ Thread-5准备读取数据
 
 juc中的锁源码分析
 
-juc中的锁分两种, 1. 可重入锁; 2. 读写锁. 两者都用到了一个通用组件 AbstractQueuedSynchronizer. 先从它说起
+juc 中的锁分两种, 1. 可重入锁; 2. 读写锁. 两者都用到了一个通用组件 AbstractQueuedSynchronizer. 先从它说起
 
 3.1 AbstractQueuedSynchronizer
 

@@ -87,7 +87,7 @@ RCU锁是读写锁的扩展版本,简单来说就是支持多读多写同时加�
 ### 可重入锁和不可重入锁
 
 递归锁 recursive mutex 可重入锁(reentrant mutex)
-非递归锁non-recursive mutex 不可重入锁(non-reentrant mutex)
+非递归锁 non-recursive mutex 不可重入锁(non-reentrant mutex)
 Windows下的Mutex和Critical Section是可递归的。Linux下的pthread_mutex_t锁默认是非递归的。在Linux中可以显式设置PTHREAD_MUTEX_RECURSIVE属性,将pthread_mutex_t设为递归锁避免这种场景。 同一个线程可以多次获取同一个递归锁,不会产生死锁。而如果一个线程多次获取同一个非递归锁,则会产生死锁。
 
 如下代码对于非递归锁的死锁示例:

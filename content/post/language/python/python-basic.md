@@ -2057,3 +2057,13 @@ print(c.increment())  # 输出 1
 print(c.increment())  # 输出 2
 
 ```
+
+## GIL
+
+GIL的全称是Global Interpreter Lock (全局解释器锁)
+
+在 CPython，GIL 是一个全局互斥锁, 保证同一时间只有一个线程在执行 Python 字节码。所以 python 线程同时只能有一个线程在一个 cpu 核心上执行, 其他线程只能等待, 这就导致了 python 的多线程并不能真正的实现多核并行。 所以Python 解释器层面的多线程执行 = 单核轮流跑。
+
+对 CPU 密集型任务，你说的完全正确，Python 多线程无法多核并行。
+
+对 I/O 密集型任务，GIL 在执行 I/O 时会被释放（read/write/socket 调用期间），这时候其他线程可以抢到 GIL 继续运行，所以多线程对 I/O 密集场景依然是有用的。
