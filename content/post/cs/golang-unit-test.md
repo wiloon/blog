@@ -18,9 +18,22 @@ tags:
 go test foo_test.go
 go test -v foo_test.go
 
+// 强制 go test 运行一次，不使用缓存, 在配置了 -count 参数的情况下，go test 会忽略缓存
+// -count, 执行测试的次数
+go test -count=1 foo_test.go
+
 # 执行某一个文件中的某一个或几个函数
 go test path/to/foo_test.go -run "^TestFunc0$"
 ```
+
+
+go test 会默认缓存测试运行的结果（Test Cache），缓存判断的依据是：
+
+测试本身的代码（如 *_test.go 文件）
+
+测试依赖的源文件是否发生变更
+
+测试的相关环境参数是否发生变化（环境变量、命令参数等）
 
 Go 语言推荐测试文件和源代码文件放在一块，测试文件以 _test.go 结尾。比如，当前 package 有 calc.go 一个文件，我们想测试 calc.go 中的 Add 和 Mul 函数，那么应该新建 calc_test.go 作为测试文件。
 
