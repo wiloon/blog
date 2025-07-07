@@ -216,7 +216,7 @@ git fetch --tags
 ```bash
 # 更新默认配置的远程仓库 比如 origin
 git fetch
-# 更新所有远程仓库
+# 更新所有远程仓库, 有多个远程仓库的时候, 会更新所有远程仓库
 git fetch --all
 # 当前分支不是 dev 分支, 并且 dev 分支在本地没有修改的时候 更新 dev 分支
 git fetch origin dev:dev
@@ -251,6 +251,8 @@ git fetch -p
 ```
 
 ### git fetch 与 git pull
+
+git pull 会默认先做一次 git fetch, 然后再做一次 git merge.
 
 git fetch 和 git pull 都可以将远端仓库更新至本地那么他们之间有何区别? 想要弄清楚这个问题有有几个概念不得不提。
 
@@ -381,6 +383,7 @@ git branch -d branch0
 
 # 删除远程分支
 git push origin --delete branch0
+
 # 删除之后本地缓存里还能看到这个远程分支, 要用下面的 git fetch -p 清理一下
 # -p 清理本地的远程跟踪分支
 git fetch -p
@@ -390,8 +393,8 @@ git branch -D branch0
 ```
 
 ```bash
-# 删除远程的 branch_0
-git branch -d -r origin/branch_0
+# 除本地的远程分支缓存引用
+git branch -dr origin/branch_0
 ```
 
 ### 设置默认的分支名
@@ -525,7 +528,7 @@ git push origin v1.0.0
 git tag -d v1.0.0
 
 # delete remote tag
-git push --delete origin tag0
+git push origin --delete tag_0
 git push origin :refs/tags/v1.0.0
 ```
 
