@@ -1,39 +1,41 @@
 ---
-title: fuser命令用法详解
+title: fuser 命令用法详解
 author: "-"
 date: 2013-10-06T08:07:39+00:00
-url: /?p=5839
+url: fuser
 categories:
   - Linux
 tags:
   - reprint
+  - remix
 
 ---
-## fuser命令用法详解
+## fuser 命令用法详解
 
 http://www.ha97.com/category/linux" rel="category tag
 http://www.ha97.com/tag/linux
   
 
-  
-    用途
-  
-  
-    使用文件或文件结构识别进程。
+查看哪些进程正在访问特定的文件、目录或端口。它也可以配合选项来终止这些进程。
   
   
-    语法
+语法
+
+```bash
+# fuser [ -c | -d | -f ] [ -k ] [ -u ] [ -x ] [ -V ]文件 …
+
+# 查看正在使用 TCP 端口 2222 的进程
+fuser 2222/tcp
+
+# 终止（kill）正在使用 TCP 端口 2222 的进程
+# || true 可以忽略失败，确保整个命令的退出码是 0（成功），防止脚本中断。
+sudo fuser -k 2222/tcp || true
+```
   
-  
-    fuser [ -c | -d | -f ] [ -k ] [ -u ] [ -x ] [ -V ]文件 …
-  
-  
-    描述
-  
-  
-    此 fuser 命令列出了本地进程的进程号，那些本地进程使用File 参数指定的本地或远程文件。对于阻塞特别设备，此命令列出了使用该设备上任何文件的进程。
-  
-  
+描述
+
+此 fuser 命令列出了本地进程的进程号，那些本地进程使用File 参数指定的本地或远程文件。对于阻塞特别设备，此命令列出了使用该设备上任何文件的进程。
+
     每个进程号后面都跟随一个字母，该字母指示进程如何使用文件。
   
   
