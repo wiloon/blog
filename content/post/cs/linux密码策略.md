@@ -54,7 +54,9 @@ RHEL6,CentOS6,Scientific6
   
 编辑 /etc/pam.d/system-auth 文件:
 
-# vim /etc/pam.d/system-auth
+```bash
+vim /etc/pam.d/system-auth
+```
 
 找到如下一行,修改:
 
