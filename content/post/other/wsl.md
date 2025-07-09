@@ -56,6 +56,9 @@ wsl --shutdown
 # 查看 wsl 状态
 wsl --status
 # reboot, 先 shutdown 再打开就行了...
+
+# 安装多个子系统, 启动其中一个
+wsl -d archlinux
 ```
 
 ## in ubuntu
@@ -449,21 +452,41 @@ With the latest update, you can access remote ports(WSL2) as local on Windows Ho
 
 ### .wslconfig
 
-```r
-    %UserProfile%\.wslconfig
-    C:\Users\user0\.wslconfig
+```bash
+[wsl2]
+# 限制 WSL2 虚拟机最大使用 5GB 内存。
+memory=5GB
+# 分配给 WSL2 虚拟机的 CPU 核心数。
+processors=6
+swap=8GB
+# network mirror mode
+networkingMode=mirrored
+nestedVirtualization=false
+debugConsole=false
+dnsTunneling=true
+firewall=true
+autoProxy=true
+
+[experimental]
+autoMemoryReclaim=gradual
+sparseVhd=true
+```
+
+```bash
+%UserProfile%\.wslconfig
+C:\Users\user0\.wslconfig
 
 
-    [wsl2]
-    kernel=<path>              # An absolute Windows path to a custom Linux kernel.
-    memory=<size>              # How much memory to assign to the WSL2 VM.
-    processors=<number>        # How many processors to assign to the WSL2 VM.
-    swap=<size>                # How much swap space to add to the WSL2 VM. 0 for no swap file.
-    swapFile=<path>            # An absolute Windows path to the swap vhd.
-    localhostForwarding=<bool> # Boolean specifying if ports bound to wildcard or localhost in the WSL2 VM should be connectable from the host via localhost:port (default true).
+[wsl2]
+kernel=<path>              # An absolute Windows path to a custom Linux kernel.
+memory=<size>              # How much memory to assign to the WSL2 VM.
+processors=<number>        # How many processors to assign to the WSL2 VM.
+swap=<size>                # How much swap space to add to the WSL2 VM. 0 for no swap file.
+swapFile=<path>            # An absolute Windows path to the swap vhd.
+localhostForwarding=<bool> # Boolean specifying if ports bound to wildcard or localhost in the WSL2 VM should be connectable from the host via localhost:port (default true).
 
-    # <path> entries must be absolute Windows paths with escaped backslashes, for example C:\\Users\\Ben\\kernel
-    # <size> entries must be size followed by unit, for example 8GB or 512MB
+# <path> entries must be absolute Windows paths with escaped backslashes, for example C:\\Users\\Ben\\kernel
+# <size> entries must be size followed by unit, for example 8GB or 512MB
 ```
 
 ### auto start service
