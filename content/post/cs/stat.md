@@ -1,12 +1,13 @@
 ---
 title: stat command
 author: "-"
-date: 2017-03-25T02:32:27+00:00
+date: 2025-07-09 10:16:36
 url: stat
 categories:
-  - inbox
+  - Linux
 tags:
   - reprint
+  - remix
 ---
 ## stat command
 
@@ -14,12 +15,38 @@ stat 命令，查看某个文件的 inode 信息, 除了文件名以外的所有
 
 ### stat, linux 查看文件创建时间, 修改时间
 
+```bash
+stat file_0.txt
+```
+
 ### atime, mtime, ctime
 
     简名     全名            中文名      含义
     atime    access time    访问时间    文件中的数据库最后被访问的时间
     mtime    modify time    修改时间    文件内容被修改的最后时间
     ctime    change time    变化时间    文件的元数据发生变化。比如权限,所有者等
+
+### 另外一种格式
+
+```bash
+Access: 2021-07-05 19:47:15.5638661078 +0800
+Modify: 2021-07-04 19:29:15.563861472 +0800
+Change: 2021-07-04 19:29:15.563861468 +0800
+ Birth: 2021-07-04 19:29:15.563861472 +0800
+```
+
+- Access: 最近一次读取文件内容的时间, 不一定意味着文件被修改，仅表示被读取过，例如用 cat file_0.txt。
+- Modify: 最近一次修改文件内容的时间, 如使用 echo something >> file_0.txt 会更新这个时间。
+- Change: 最近一次修改文件inode 元数据（如权限、所有者）最后一次被更改的时间, 如使用 chmod 755 file_0.txt 会更新这个时间。只修改文件内容可能也会更新, 比如更新 inode(block分配等)。
+- Birth: 文件创建时间, 不是所有文件系统都支持这个字段。系统返回了它，说明使用的文件系统支持（如 btrfs, ext4（带特定挂载选项）或 xfs 带 crtime 补丁等）。 本示例的创建时间可能不是真的, 有可能底层文件系统不支持.
+
+```bash
+# 输出创建时间（epoch 格式，-1 表示不支持）
+# -c：自定义输出格式（即只显示我们想看的字段）。
+# '%W'：表示输出文件的 创建时间（Birth time）
+# 如果 文件系统不支持创建时间，则输出：-1
+stat -c '%W' file_0.txt
+```
 
 在windows下,一个文件有: 创建时间、修改时间、访问时间。
   
