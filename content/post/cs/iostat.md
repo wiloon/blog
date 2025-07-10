@@ -9,7 +9,7 @@ tags:
   - reprint
   - IO
 ---
-## iostat
+## iostat command
 
 通过 iostat 方便查看 CPU、网卡、tty 设备、磁盘、CD-ROM 等等设备的活动情况, 负载信息。
 
@@ -22,7 +22,7 @@ iostat [参数] [时间] [次数]
 ```bash
 sudo pacman -S sysstat
 sudo yum install sysstat
-sudo apt install sysstat -y
+sudo apt install sysstat
 
 iostat -sxz 1
 iostat 1
@@ -32,7 +32,7 @@ iostat -x 1
 ### 参数
 
 ```p
--x Display extended statistics; 显示详细信息
+-x Display extended statistics; 显示详细信息, 显示扩展统计信息（extended statistics），包括每个设备的利用率、服务时间等。
 -C 显示CPU使用情况
 -d 显示磁盘使用情况
 -k 以 KB 为单位显示
@@ -42,6 +42,8 @@ iostat -x 1
 -p [磁盘] 显示磁盘和分区的情况
 -t 显示终端和CPU的信息
 -V 显示版本信息
+-s: 显示所有设备的汇总统计（summary）
+-z: 省略所有值为零的设备（即没有活动的设备）。
 ```
 
 ### 字段

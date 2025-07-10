@@ -24,6 +24,7 @@ categories:
 
 ```bash
 npm install
+npm install --verbose
 npm run start
 
 # 更新 npm 到最新版本
