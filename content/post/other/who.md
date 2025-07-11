@@ -12,9 +12,10 @@ tags:
 ---
 ## Linux 查看用户, 当前登录用户,  登录日志
 
-## 查看 ssh 上已经连接的用户、session
+
 
 ```bash
+# 查看 ssh 上已经连接的用户、session
 # 查看登录用户正在使用的进程信息
 w
 who

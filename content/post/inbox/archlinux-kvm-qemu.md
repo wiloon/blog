@@ -27,9 +27,9 @@ pacman -S bridge-utils
 $ sudo brctl addbr br0
 ip tuntap
 
-#start gentoo with sshd
+# start gentoo with sshd
 gentoo dosshd
-#or /etc/init.d/sshd start
+# or /etc/init.d/sshd start
 
 #prepare partition
 

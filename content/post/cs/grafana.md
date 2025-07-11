@@ -11,9 +11,9 @@ tags:
 ## grafana
 
 ```bash
-docker pull grafana/grafana:11.2.0
+docker pull grafana/grafana:12.0.2
 
-docker run -d --name=grafana -e "GF_SECURITY_ADMIN_PASSWORD=password0" -p 3000:3000 -v grafana-storage:/var/lib/grafana -v /etc/localtime:/etc/localtime:ro grafana/grafana:11.2.0
+docker run -d --name=grafana -e "GF_SECURITY_ADMIN_PASSWORD=password0" -p 3000:3000 -v grafana-storage:/var/lib/grafana -v /etc/localtime:/etc/localtime:ro grafana/grafana:12.0.2
 
 # podman
 podman run \
@@ -66,4 +66,32 @@ update user set password = '59acf18b94d7eb0694c61e60ce44c110c7a683ac6a8f09580d62
 
 # 退出
 .exit
+```
+
+## prometheus
+
+/usr/local/etc/prometheus.yml
+
+```yaml
+global:
+  scrape_interval: 15s
+
+scrape_configs:
+  - job_name: 'prometheus'
+    static_configs:
+      - targets: ['localhost:9090']
+
+  - job_name: 'node'
+    static_configs:
+      - targets: ['host.docker.internal:9100']
+
+```
+
+```bash
+docker run -d \
+  --name prometheus \
+  -p 9090:9090 \
+  -v "/usr/local/etc/prometheus.yml:/etc/prometheus/prometheus.yml" \
+  -v "prometheus-data:/prometheus" \
+  prom/prometheus:v3.4.2
 ```

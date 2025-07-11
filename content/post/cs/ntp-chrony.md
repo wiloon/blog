@@ -15,7 +15,7 @@ archlinux 默认启用 ntp
 
 ## systemd-timesyncd
 
-archinstall 默认使用 systemd-timesyncd 作时钟同步
+archinstall 默认使用 systemd-timesyncd 作时钟同步,  UDP 123 端口（NTP 协议），不能用 https 代理
 
 systemd-timesyncd 是一个用于跨网络同步系统时钟的守护服务。它实现了一个 SNTP 客户端。与NTP的复杂实现相比，这个服务简单的多，它只专注于从远程服务器查询然后同步到本地时钟。
 
@@ -23,6 +23,20 @@ systemd-timesyncd 是一个用于跨网络同步系统时钟的守护服务。�
 # archlinux 的时钟同步是默认启用的.
 timedatectl status
 # System clock synchronized: yes
+
+# 检查其状态
+systemctl status systemd-timesyncd
+# systemd-timesyncd 服务启用
+sudo systemctl enable systemd-timesyncd --now
+
+# timedatectl 层面启用 NTP
+sudo timedatectl set-ntp true
+
+# 禁用
+sudo systemctl stop systemd-timesyncd
+sudo systemctl disable systemd-timesyncd
+sudo systemctl mask systemd-timesyncd
+sudo timedatectl set-ntp false
 ```
 
 ## chrony install

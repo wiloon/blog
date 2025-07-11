@@ -25,12 +25,11 @@ hwclock --set --date="mm/dd/yy hh:mm:ss"
 date -s "dd/mm/yyyy hh:mm:ss"
 ```
 
-### CentOS 7 时区设置
-
-在 CentOS 7 中, 引入了一个叫 `timedatectl` 的设置设置程序.
+### timedatectl 设置时区
 
 ```bash
 # 查看系统时间方面的各种状态
+timedatectl
 timedatectl status
 
 # 列出所有时区
