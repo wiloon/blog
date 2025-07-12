@@ -154,3 +154,93 @@ sudo systemctl daemon-reexec
 sudo systemctl enable --now node_exporter
 
 ```
+
+## loki
+
+/usr/local/etc/loki-config.yaml
+
+```yaml
+auth_enabled: false
+
+server:
+  http_listen_port: 3100
+  grpc_listen_port: 9095
+  log_level: info
+
+ingester:
+  lifecycler:
+    ring:
+      kvstore:
+        store: inmemory
+      replication_factor: 1
+    final_sleep: 0s
+  chunk_idle_period: 5m
+  chunk_retain_period: 30s
+  max_transfer_retries: 0
+
+schema_config:
+  configs:
+    - from: 2022-01-01
+      store: boltdb-shipper
+      object_store: filesystem
+      schema: v11
+      index:
+        prefix: index_
+        period: 24h
+
+storage_config:
+  boltdb_shipper:
+    active_index_directory: /loki/index
+    cache_location: /loki/boltdb-cache
+    shared_store: filesystem
+
+  filesystem:
+    directory: /loki/chunks
+
+limits_config:
+  reject_old_samples: true
+  reject_old_samples_max_age: 168h  # 7 days
+
+chunk_store_config:
+  max_look_back_period: 0s
+
+table_manager:
+  retention_deletes_enabled: true
+  retention_period: 7d
+
+ruler:
+  storage:
+    type: local
+    local:
+      directory: /loki/rules
+  rule_path: /loki/rules-temp
+  alertmanager_url: http://localhost:9093
+  ring:
+    kvstore:
+      store: inmemory
+  enable_api: true
+```
+
+
+
+
+```bash
+docker run -d --name=loki \
+  -p 3100:3100 \
+  -v "/usr/local/etc/loki-config.yaml:/etc/loki/local-config.yaml" \
+  grafana/loki:3.5 \
+  -config.file=/etc/loki/local-config.yaml
+
+```
+
+/usr/local/etc/promtail-config.yaml
+
+```bash
+docker run -d \
+  --name=promtail \
+  -v /var/lib/docker:/var/lib/docker \
+  -v /usr/local/etc/promtail-config.yaml:/etc/promtail/config.yaml \
+  grafana/promtail:3.5 \
+  -config.file=/etc/promtail/config.yaml
+
+```
