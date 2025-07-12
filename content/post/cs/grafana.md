@@ -70,7 +70,7 @@ update user set password = '59acf18b94d7eb0694c61e60ce44c110c7a683ac6a8f09580d62
 
 ## prometheus
 
-/usr/local/etc/prometheus.yml
+/usr/local/etc/prometheus/prometheus.yml
 
 ```yaml
 global:
@@ -85,13 +85,72 @@ scrape_configs:
     static_configs:
       - targets: ['host.docker.internal:9100']
 
+  - job_name: 'node_dynamic'
+    file_sd_configs:
+      - files:
+          - /etc/prometheus/node_exporters.json
+        refresh_interval: 15s
 ```
+
+/usr/local/etc/prometheus/node_exporters.json
+
+```json
+[
+  {
+    "targets": ["192.168.50.150:9100"],
+    "labels": {
+      "instance": "ser8"
+    }
+  }
+]
+```
+
 
 ```bash
 docker run -d \
   --name prometheus \
   -p 9090:9090 \
-  -v "/usr/local/etc/prometheus.yml:/etc/prometheus/prometheus.yml" \
+  -v "/usr/local/etc/prometheus/:/etc/prometheus/" \
   -v "prometheus-data:/prometheus" \
   prom/prometheus:v3.4.2
+```
+
+## node_exporter
+
+```bash
+# 进入临时目录
+cd /tmp
+
+# 获取最新版（也可以访问 GitHub 获取具体版本号）
+curl -s https://api.github.com/repos/prometheus/node_exporter/releases/latest \
+  | grep browser_download_url \
+  | grep linux-amd64.tar.gz \
+  | cut -d '"' -f 4 \
+  | wget -i -
+
+# 解压
+tar -xzf node_exporter-*.linux-amd64.tar.gz
+
+# 移动到系统目录
+sudo cp node_exporter-*/node_exporter /usr/local/bin/
+
+sudo useradd -rs /bin/false node_exporter
+
+sudo tee /etc/systemd/system/node_exporter.service > /dev/null <<EOF
+[Unit]
+Description=Node Exporter
+After=network.target
+
+[Service]
+User=node_exporter
+ExecStart=/usr/local/bin/node_exporter
+
+[Install]
+WantedBy=default.target
+EOF
+
+
+sudo systemctl daemon-reexec
+sudo systemctl enable --now node_exporter
+
 ```

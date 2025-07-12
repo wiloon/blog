@@ -150,7 +150,7 @@ ntpq -p
 ntpq -4p
 ```
 
-chrony的优势
+chrony 的优势
   
 Chrony 的优势包括:
 
@@ -204,6 +204,24 @@ Stratum 是 NTP 中表示时间服务器层级的术语。基准时钟（refcloc
 [https://zhuanlan.zhihu.com/p/257335659](https://zhuanlan.zhihu.com/p/257335659)
 
 ## htpdate
+
+使用 htpdate 工具，通过 HTTPS 获取互联网时间；
+
+再用 Chrony 在本地分发时间（供内网其他服务器同步）。
+
+```bash
+sudo apt install htpdate
+vim /etc/default/htpdate
+
+HTPDATE_OPTIONS="-a -P proxy-wsa.esl.cisco.com:80 -t https://google.com"
+
+#---
+sudo systemctl enable --now htpdate
+sudo systemctl status htpdate
+journalctl -u htpdate --no-pager
+
+```
+
 
 NTP uses UDP port 123
 
