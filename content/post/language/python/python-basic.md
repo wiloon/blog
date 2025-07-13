@@ -386,10 +386,12 @@ op = hasattr(a,'getValue')
 
 ## pip
 
-### archlinux pip
+pip 是 Python 的包管理工具，全称是 “Pip Installs Packages”。它用于安装、更新、卸载 Python 包（也叫模块、库）。
 
 ```Bash
-# install pip
+# 查看是否安装了 pip
+pip --version
+# archlinux install pip
 pacman -S python-pip
 ```
 

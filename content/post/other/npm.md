@@ -40,6 +40,7 @@ npm show jest versions
 
 ```bash
 npm run build
+npm run build --verbose
 
 ### 指定 package.json 路径 
 # /path/to/project 是包含 package.json 的目录。
