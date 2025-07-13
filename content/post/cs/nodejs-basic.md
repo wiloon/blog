@@ -20,6 +20,9 @@ tags:
 [https://github.com/nvm-sh/nvm](https://github.com/nvm-sh/nvm)
 
 ```bash
+# macos install nvm
+brew install nvm
+
 # ubuntu 24.04 install nvm
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash
 
