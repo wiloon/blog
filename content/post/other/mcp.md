@@ -1,7 +1,7 @@
 ---
 title: MCP
 author: "-"
-date: 2014-07-31T02:15:00+00:00
+date: 2025-07-14 21:02:38
 url: mcp
 categories:
   - AI
