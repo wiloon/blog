@@ -72,11 +72,13 @@ visudo
 wiloon ALL=(ALL) NOPASSWD: ALL
 ```
 
-### install and enable sshd
+```bash
+# install and enable sshd
 
 pacman -S openssh
 systemctl start sshd
 systemctl enable sshd
+```
 
 connect to new system with user0 via ssh
 
