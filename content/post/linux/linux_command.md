@@ -11,6 +11,11 @@ tags:
 ---
 ## linux 命令, linux command
 
+```bash
+# 查看当前系统的CPU核心数
+nproc
+```
+
 ## 查看某文件的完整路径
 
 ```Bash

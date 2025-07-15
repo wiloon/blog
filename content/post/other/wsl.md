@@ -1,7 +1,7 @@
 ---
 title: windows wsl
 author: "w1100n"
-date: 2025-06-26 11:23:28
+date: 2025-07-15 10:23:01
 url: wsl
 categories:
   - Linux
@@ -52,7 +52,14 @@ wsl --unregister Ubuntu-22.04
 # 安装 windows terminal
 winget install Microsoft.WindowsTerminal
 
+# 关闭 所有 wsl 实例, 
+# wsl没有提供关闭某一个实例的命令, 可以退出 所有的 shell, 等实例自动关闭
 wsl --shutdown
+
+# 强制关闭某一个实例, wsl --terminate <DistributionName>
+wsl --t Ubuntu
+wsl --terminate Ubuntu
+
 # 查看 wsl 状态
 wsl --status
 # reboot, 先 shutdown 再打开就行了...
@@ -452,6 +459,9 @@ With the latest update, you can access remote ports(WSL2) as local on Windows Ho
 
 ### .wslconfig
 
+确保 没有 BOM（UTF-8 编码），用 VS Code 等编辑器保存成 UTF-8 无 BOM 格式。
+可以尝试设置环境变量 WSL_DEBUG_CONSOLE=true 并重新启动 WSL，再查看日志提示是否读取了配置。
+
 ```bash
 [wsl2]
 # 限制 WSL2 虚拟机最大使用 5GB 内存。
@@ -475,7 +485,6 @@ sparseVhd=true
 ```bash
 %UserProfile%\.wslconfig
 C:\Users\user0\.wslconfig
-
 
 [wsl2]
 kernel=<path>              # An absolute Windows path to a custom Linux kernel.
