@@ -558,9 +558,6 @@ guid 需要替换为自己配置文件中的相应值。
 
 https://wsldl-pg.github.io/ArchW-docs/How-to-Setup/
 
-
-
-
 WSL_DEBUG_CONSOLE=true 这个环境变量的支持在 WSL 1.1.0 之后基本上被废弃，在 WSL 1.2.x / 2.x.x（Microsoft Store 版本）中被完全移除或忽略。
 如何取代 WSL_DEBUG_CONSOLE
 使用 free -h、nproc 等命令验证 .wslconfig 是否生效
