@@ -32,6 +32,7 @@ winget install Microsoft.WindowsTerminal
 - curl, cURL.cURL
 - Golang, GoLang.Go
 - Tabby, Eugeny.Tabby
+- nodejs, OpenJS.NodeJS
 
 ### choco
 
