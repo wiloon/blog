@@ -361,3 +361,9 @@ Ardour 的功能包括: 多通道录音，非破坏性编辑，无限撤销/重�
 首先,BitNami 提供多个国外著名开源软件傻瓜化安装包 (BitNami Stack) ,针对其中的每个软件都提供了Native (本地安装) 、VM virtual (可供 VMWare 和 VirtualBox加载使用的最小化linux操作系统和相应BitNami Stack) 、Cloud (支持运行于Amazon EC2) 三个大分支。其中Native (本地安装) 又包含了Windows、Linux、Mac x86、Mac PPC四个小分支,VM virtual则包括openSUSE 11.3、Ubuntu 10.10两个小分支。
 
 目前,已经发布了包括: SugarCRM、Redmine、Drupal、Wordpress、Joomla在内的28个BitNami Stack。其次,BitNami 提供多个供多个与开发架构包 (BitNami Infrastructure Stacks) : WAMP/LAMP/MAMP/WAPP/LAPP/MAPP/Ruby/JRuby/Django/Tomcat/JBoss/BitNami。
+
+## Cdrtfe
+
+现在市面上的刻录工具大多数华而不实,臃肿的体积,繁琐的操作,令人感到反感。如果你想找寻一款纯光盘刻录工具的话,那么,Cdrtfe ,这款小巧的开源工具将是你最好的选择。
+
+该款工具的名字不太好读,而且界面也其貌不扬,不过它确确实实是一款实用型简约风格的刻录工具。软件支持刻录数据光盘(CD和DVD)、创建音乐CD、刻录已经生成的光盘镜像、删除可擦写光盘上的数据、创建并且刻录 VCD 或者 SVCD 的镜像。Cdrtfe 的使用和一般的刻录工具不太一样,给我的感觉就是,使用 Cdrtfe 刻录光盘像在浏览网页。因为软件的每一个刻录功能都对应一个标签页,标签页中还包含关于该项功能的配置选项,使用上清清楚楚,丝毫不会有什么弄不明白的地方。
