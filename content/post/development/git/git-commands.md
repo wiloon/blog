@@ -578,6 +578,10 @@ git merge --abort
 ```bash
 # 查看远程仓库地址/url
 git remote -v
+
+# 更改远程仓库指向 remote url
+git remote set-url origin git@github.com:test/thinkphp.git
+
 # 添加远程库
 # 添加一个新的远程 Git 仓库，同时指定一个方便使用的简写
 # 命令格式
@@ -587,8 +591,7 @@ git remote add pingd http://192.168.50.13:10880/wiloon/wiloon.com.git
 # 向远程仓库推送代码
 # origin 是远程库的名字, 单个远程库, 一般用默认的 origin, 多个远程库的时候可以改成方便记忆的名字.
 git push -u origin master
-# 更改远程仓库指向 remote url
-git remote set-url origin git@github.com:test/thinkphp.git
+
 # 删除远程库
 git remote rm repo0
 ```
