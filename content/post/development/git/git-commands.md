@@ -1011,8 +1011,19 @@ git config --global core.autocrlf false
 git submodule update --init 将 git submodule init 和 git submodule update 合并成一步。如果还要初始化、抓取并检出任何嵌套的子模块， 请使用简明的 git submodule update --init --recursive。
 
 ```bash
-# 为已有的 git 仓库增加子模块, 命令执行完成，会在当前工程根路径下生成一个名为“.gitmodules”的文件
-git submodule add https://github.com/maonx/vimwiki-assets.git assets
+# 为已有的 git 仓库增加子模块, 放在 enx 目录下
+# 这个命令会把子模块的代码 clone 到当前目录下的 enx
+# 命令执行完成，会在当前工程根路径下生成一个名为“.gitmodules” 的文件
+git submodule add git@github.com:wiloon/enx.git enx
+
+git add .gitmodules enx
+git commit -m "Add enx submodule"
+
+# 查看子模块的状态
+git submodule status
+
+# 更新子模块, 把子模块更新到跟主仓库关联的 commit id 一致
+git submodule update --init --recursive
 
 # 已经配置子模块的仓库, 主项目和子模块一起克隆
 git clone -b branch0 git@github.com:foo/bar.git --recursive
