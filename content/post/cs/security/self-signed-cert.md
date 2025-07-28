@@ -235,14 +235,15 @@ podman restart nginx
 ```bash
 #撤消旧证书, 
 # 查看 index.txt, 找到最新的版本号
-cat index.txt
+cat /home/wiloon/workspace/apps/self-signed-cert/index.txt
 
 # 更新 csr 信息之后, 重新签发证书
 # 撤销旧证书
 # 注意 01.pem 是要撤消的证书
-openssl ca -config ca-cert.cnf -revoke certs/04.pem
+openssl ca -config ca-cert.cnf -revoke certs/05.pem
 
 # 修改 wiloon.cnf, 加入新域名
+vim wiloon.cnf
 
 # 重新生成  csr
 openssl req -new -key wiloon.key -out wiloon.csr -sha256 -config wiloon.cnf -extensions v3_req
@@ -254,9 +255,9 @@ openssl ca -keyfile private/ca-key.pem -cert certs/ca-cert.pem -in wiloon.csr -o
 ```bash
 # kong upload crt
 curl -i -X POST http://192.168.50.64:8001/certificates \
-  --data "cert=@wiloon.crt" \
-  --data "key=@wiloon.key" \
-  --data "snis=kong.wiloon.com"
+  -F "cert=@wiloon.crt;type=text/plain" \
+  -F "key=@wiloon.key;type=text/plain" \
+  -F "snis=kong.wiloon.com"
 ```
 
 https://ayushsuman.medium.com/creating-elliptic-curve-based-certs-using-openssl-d4ebbb9d071f

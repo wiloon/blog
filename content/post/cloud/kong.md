@@ -155,7 +155,6 @@ Targets:
   - 192.168.1.102:8000
 ```
 
-
 ## health check
 
 curl -s http://kong.wiloon.com:8001/upstreams/enx-api-upstream/health | jq
