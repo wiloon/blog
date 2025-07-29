@@ -176,15 +176,26 @@ ctrl+7
 
 ### 五笔词库位置
 
+词库是一个二进制文件，包含了词组和编码的映射关系。.dict 的结构是 fcitx5-table 的内部格式
+
 ```Bash
 # fcitx5
-/home/user_0/.local/share/fcitx5/table/wbx.user.dict
+~/.local/share/fcitx5/table/wbx.user.dict
 
 # fcitx
-/home/wiloon/.config/fcitx/table/wbx.mb
+~/.config/fcitx/table/wbx.mb
 ```
 
+#### .mb
 
+```bash
+git clone https://github.com/fcitx/fcitx5-table-extra.git
+cd fcitx5-table-extra/tools
+mkdir build && cd build
+cmake ..
+make
+sudo make install
+```
 
 ### start fcitx
 
