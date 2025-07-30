@@ -212,3 +212,13 @@ locale -a 来显示当前Linux系统支持的所有的语言环境。
 sudo pacman -S xf86-video-amdgpu
 sudo pacman -S vulkan-radeon
 ```
+
+## archlinux kde bluetooth
+
+```bash
+sudo pacman -S bluez bluez-utils
+sudo pacman -S bluedevil
+sudo systemctl enable bluetooth.service
+sudo systemctl start bluetooth.service
+systemctl status bluetooth.service
+```
