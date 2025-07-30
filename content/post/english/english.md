@@ -1514,7 +1514,22 @@ Normal: It's normal for him to jog in the morning. (他早上跑步是正常的�
 
 ## several, some
 
-- some 后接可数名词或不可数名词
+- several
+  - 明确表示“几个”，通常指多于两个但不是很多（一般为3-7个）。
+  - 例：I have several books on this topic.（我有几本关于这个主题的书。）
+  - “several” 只能用于可数名词的复数形式。
+  - several 往往在需要强调具体数量时使用，语气较为明确。
+  - There are several apples on the table.（桌子上有几个苹果。——一般理解为3-7个）
+
+- some
+  - 泛指“一些”，数量不确定，可能是几个，也可能是很多。
+  - 更加模糊，可以指很少，也可以指很多，取决于上下文。
+  - 例：I have some books on this topic.（我有一些关于这个主题的书。）
+  - some 可用于可数名词复数和不可数名词。
+  - some 用于泛指、不强调数量，语气更随意。
+  - There are some apples on the table.（桌子上有一些苹果。——可能是2个，也可能是10个）
+
+
 - 没有准确地陈述数量或数字时，你可以用some来指代某物的数量或一些人或事物。
 - several 后接可数名词
 - several用来指数量不大但大于2的人或物的数量。
