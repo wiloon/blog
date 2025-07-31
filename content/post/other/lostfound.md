@@ -8,7 +8,7 @@ categories:
 tags:
   - reprint
 ---
-## linux lost+found 目录
+## linux lost+found
 
 /lost found
 

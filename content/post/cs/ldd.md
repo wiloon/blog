@@ -10,12 +10,14 @@ tags:
 ---
 ## ldd 查看程序依赖 动态链接库
 
-ldd 命令可以用于分析可执行文件的依赖。
+ldd 命令可以用于分析可执行文件所依赖的共享库（动态链接库）
 
 ```bash
 # 检测 动态链接
 # 查看 libcups 是否真的链接到了 avahi
 ldd /usr/lib/libcups.so | grep avahi
+
+ldd /proc/737543/exe
 ```
 
 ```bash
