@@ -36,14 +36,17 @@ sudo -u postgres psql -c "\l"
 ```bash
 # 创建用户 
 CREATE USER user_0 WITH PASSWORD 'password_0';
+
 # create database, 所有者 user_0
 create database database_0 OWNER user_0;
+
 psql -h 192.168.1.100 -p 5432 -U user_0 -d database_0
 
 PGPASSWORD=password_0 psql -h 192.168.1.100 -p 5432 -U user_0 -d database_0 --command 'select version();'
 
 #当表没有其他关系时
 TRUNCATE TABLE tablename;
+
 #当表中有外键时，要用级联方式删所有关联的数据
 TRUNCATE TABLE tablename CASCADE;
 
@@ -59,8 +62,6 @@ select version();
 pacman -S postgresql
 psql -h 127.0.0.1 -p 5432 -d database0 -U user0
 
-
-
 # create table
 create table test(id int, c1 int);
 create table table0(field0 json);
@@ -73,6 +74,10 @@ select column_name, data_type from information_schema.columns where table_name='
 
 select * length( "abc"::TEXT)
 insert into test select generate_series(1,10000), random()*10;
+
+# 复制表结构到另外一个数据库
+pg_dump -U postgres --schema-only source_db | psql -U postgres target_db
+
 ```
 
 
