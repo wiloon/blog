@@ -58,8 +58,7 @@ Write the prompt to the standard error and read the password from the standard i
 
 [https://askubuntu.com/questions/470383/how-to-avoid-being-prompted-for-a-password-by-sudo](https://askubuntu.com/questions/470383/how-to-avoid-being-prompted-for-a-password-by-sudo)
 
-
-### This account is currently not available
+> This account is currently not available
 
 比如我是 su kafka的时候出现的问题
 用vi看看 kafka的帐号信息
