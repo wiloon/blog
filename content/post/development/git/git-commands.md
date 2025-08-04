@@ -700,6 +700,13 @@ git rev-parse HEAD
 
 ## git checkout 检出
 
+```bash
+# 在处理冲突时选用你当前分支（也就是 "ours"）的版本来覆盖某个文件或目录。
+# 只在冲突时可用：如果没有冲突，这个命令会报错：
+git checkout --ours file_0
+```
+
+
 Switch branches or restore working tree files
 
 切换分支可以用新的命令 git switch, restore working tree 可以用 git reset
