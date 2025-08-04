@@ -1,5 +1,5 @@
 ---
-title: 英语 English
+title: 英语, English
 author: "-"
 date: 2016-05-15T07:28:02+00:00
 url: english
@@ -9,7 +9,41 @@ tags:
   - reprint
   - remix
 ---
-## 英语 English
+# 英语 English
+
+## 句子成分
+
+- 主语 Subject
+- 谓语 Predicate
+- 宾语 Object
+
+### 主语 Subject
+指句子中动作的执行者或状态的承受者，通常是名词、代词或相当于名词的词或短语。
+在祈使句中，主语通常是隐含的 "You"。
+
+### 谓语 Predicate
+通常是一个动词（或动词短语），说明主语做什么或处于什么状态。
+
+#### 主语 和谓语的关系
+主语是动作的执行者，谓语是主语所做的动作或状态的描述。
+
+#### 主谓一致（Subject-Verb Agreement）
+主语和谓语在数（单复数）和人称上必须一致。
+
+### 宾语 Object
+宾语是动作的承受者，通常是谓语动词的作用对象。换句话说，就是“谁”或“什么”受到了这个动作。
+通常出现在 及物动词（transitive verb） 后面
+
+通常是名词、代词，或相当于名词的词/短语(名词短语)/从句
+
+- 直接宾语	Direct Object	动作直接作用的对象	I read a book.
+- 间接宾语	Indirect Object	表示动作的接受者或受益者，通常在人之前	She gave me a gift. me: 间接宾语, a gift: 直接宾语
+- 宾语从句	Object Clause	整个从句作为宾语	I think (that he is right).
+
+动词后不一定有宾语, 及物动词需要宾语,比如 need, like, see, eat, 不及物动词通常不需要宾语, 比如: sleep, arrive, go
+
+动词不能直接当宾语, 但可以用动名词(v-ing) 或不定式(to do) 来充当宾语。
+I enjoy reading. I want to sleep.
 
 ## 介词 Preposition
 
@@ -24,6 +58,11 @@ tags:
 - 反义疑问句
 - 祈使句
 - 感叹句
+
+## 祈使句（命令句）
+
+祈使句（命令句），主语省略，默认是 “you”。
+祈使句（Imperative Sentence）是用来发出命令、请求或建议的句子。它通常以动词原形开头，主语通常是隐含的 "you"。
 
 ## 陈述句
 
@@ -1543,4 +1582,54 @@ Normal: It's normal for him to jog in the morning. (他早上跑步是正常的�
 
 用来表示：某个动作正在发生，而主语是动作的接受者。
 在这里，"the type field" 不是发送动作的执行者，而是被发送的对象。
+
+## 名词短语（Noun Phrase, NP）
+
+名词短语是以一个名词为核心（中心词），并可以带有限定词、形容词、介词短语或从句等修饰语的短语。它在句中常常充当主语、宾语、表语等。
+
+名词短语的结构公式（常见构成）
+
+```
+[限定词] + [形容词等修饰语] + 名词（中心词）+ [后置修饰语]
+```
+
+- 限定词（determiner）	a, the, this, my, two	限定范围或数量
+- 前置修饰语	big, red, long	形容词、形容词短语等
+- 名词（核心）	book, files, student	名词短语的中心
+- 置修饰语	in the box, related to testing, that I bought	介词短语、现在分词、过去分词、定语从句等
+
+### 几个例子
+
+- books	名词	最简单的名词短语
+- the book	限定词 + 名词	有限定词修饰
+- a very good student	限定词 + 副词 + 形容词 + 名词	带前置修饰语
+- the car in the garage	限定词 + 名词 + 介词短语	介词短语作后置修饰语
+- the files related to performance testing	限定词 + 名词 + 过去分词短语	被动意义的分词短语作后置定语
+- the boy who won the prize	限定词 + 名词 + 定语从句	定语从句修饰主语
+
+### 名词短语的作用（句法功能）
+名词短语可以在句中扮演很多角色：
+
+句中位置	例子	说明
+主语	The little girl is singing.	名词短语作主语
+宾语	I like that new movie.	名词短语作宾语
+表语	She is a smart engineer.	名词短语作表语
+介词宾语	I’m waiting for my friend from Canada.	介词 for 后接名词短语
+
+## 过去分词短语
+
+过去分词短语是以 过去分词（V-ed） 为核心构成的短语，常用于修饰名词或补充动作信息。
+它通常表示：
+
+被动意义（被……）
+
+完成状态（已经……）
+
+### 常见结构
+
+written by him, 被动含义	The book written by him is great.	written 是 write 的过去分词，表示“被他写的书”
+
+The broken window, 状态结果	The broken window was repaired.	broken 表示“已经破了的窗户”
+
+### 过去分词短语的主要用法
 

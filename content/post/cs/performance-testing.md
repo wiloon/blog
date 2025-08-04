@@ -1,14 +1,21 @@
 ---
-title: 性能测试
+title: 性能测试, performance testing
 author: "-"
 date: 2020-04-21T00:41:08+00:00
-url: /?p=16014
+url: performance-testing
 categories:
   - Inbox
 tags:
   - reprint
+  - remix
 ---
-## 性能测试
+
+- 性能测试, performance testing
+- 基准测试, benchmarking testing
+
+## 性能测试, performance testing
+
+测试系统在各种负载条件下的响应时间、吞吐量、资源使用等性能表现，以确保系统在预期的使用场景下能正常运行。
 
 性能测试是什么: 性能测试就是通过特定的方式对被测试系统按照一定测试策略施加压力，获取该系统的响应时间、TPS、吞吐量、资源利用率等性能指标，来检测系统上线后能否满足用户需求的过程。
   
@@ -137,3 +144,16 @@ TPS (Transaction Per second)
 2. 用于协助分析性能瓶颈: 吞吐量的限制是性能瓶颈的一种重要表现形式，因此，有针对性地对吞吐量设计测试，可以协助尽快定位到性能冰晶所在位置。
 
 [https://www.cnblogs.com/fnng/archive/2012/06/29/2570558.html](https://www.cnblogs.com/fnng/archive/2012/06/29/2570558.html)
+
+## 基准测试, benchmarking testing
+
+使用标准的、通常是业界认可的测试工具或测试集，对系统进行测试并将结果与预定标准或其他系统进行对比。
+
+Benchmark Testing（基准测试）是用公开的、标准化的测试方法，用于跨系统、跨产品对比性能。
+
+例如：SPEC、TPC、LINPACK、Apache Bench 对比多个数据库或 Web 服务器。
+
+它强调对外可重复、可对比、标准化，而不是评估自身变化。
+
+在某些上下文中，Benchmark Testing 可以被视为 Performance Testing 的一个特例，特别是当它用于测量系统性能指标时。
+
