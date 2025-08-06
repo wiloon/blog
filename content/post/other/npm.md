@@ -24,6 +24,8 @@ categories:
 
 ```bash
 npm install
+
+# with verbose log
 npm install --verbose
 npm run start
 

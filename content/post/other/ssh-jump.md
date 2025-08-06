@@ -2,7 +2,7 @@
 title: ssh 跳板(Jump Host)的使用
 author: "-"
 date: 2014-08-08T07:35:43+00:00
-url: /?p=6912
+url: ssh-proxy-jump
 categories:
   - Inbox
 tags:
@@ -10,8 +10,23 @@ tags:
 ---
 ## ssh 跳板(Jump Host)的使用
 
+### ProxyJump
+
 ```bash
-# jump0:跳板机
+Host hostB
+    HostName 10.124.44.91
+    User root
+
+Host arch-vm
+    HostName 192.168.122.2
+    User root
+    ProxyJump hostB
+```
+
+---
+
+```bash
+# jump0: 跳板机
 # server0: 目标服务器
 host jump0
   HostName 192.168.0.1

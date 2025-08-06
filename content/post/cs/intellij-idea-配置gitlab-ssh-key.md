@@ -1,5 +1,5 @@
 ---
-title: intellij idea 配置git ssh key
+title: intellij idea 配置 git ssh key
 author: "-"
 date: 2019-02-27T15:48:53+00:00
 url: /?p=13731

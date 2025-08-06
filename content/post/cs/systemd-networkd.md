@@ -96,7 +96,10 @@ for eth0, vim  /etc/systemd/network/eth.network
 [Match]
 Name=en*
 [Network]
+# 启用 DHCP（获取 IP、网关、DNS 等）。
 DHCP=yes
+# 启用 mDNS（多播 DNS），方便局域网主机互相通过主机名访问（例如 hostname.local）。
+MulticastDNS=yes
 ```
 
 ### 配置静态 IP, 网关

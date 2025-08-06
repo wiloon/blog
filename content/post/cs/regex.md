@@ -191,11 +191,15 @@ Linux/Unix工具与正则表达式的POSIX规范
 (?<=pattern) 反向肯定预查，与正向肯定预查类似，只是方向相反。例如，"(?<=95|98|NT|2000)Windows"能匹配"2000Windows"中的"Windows"，但不能匹配"3.1Windows"中的"Windows"。
   
 (?<!pattern) 反向否定预查，与正向否定预查类似，只是方向相反。例如"(?<!95|98|NT|2000)Windows"能匹配"3.1Windows"中的"Windows"，但不能匹配"2000Windows"中的"Windows"。
-  
+
+
+```bash
 x|y 匹配x或y。例如，"z|food"能匹配"z"或"food"。"(z|f)ood"则匹配"zood"或"food"。
-  
+
 b 匹配一个单词边界，也就是指单词和空格间的位置。例如，"erb"可以匹配"never"中的"er"，但不能匹配"verb"中的"er"。
-  
+```
+
+
 B 匹配非单词边界。"erB"能匹配"verb"中的"er"，但不能匹配"never"中的"er"。
   
 cx 匹配由x指明的控制字符。例如，cM匹配一个Control-M或回车符。x的值必须为A-Z或a-z之一。否则，将c视为一个原义的"c"字符。

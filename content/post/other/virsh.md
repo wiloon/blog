@@ -15,9 +15,10 @@ tags:
 - libvirt
 - virsh: command line utility
 
-## archlinux
+
 
 ```bash
+# archlinux install libvirt
 sudo pacman -S libvirt  virt-install
 sudo pacman -S iptables-nft dnsmasq dmidecode
 
@@ -25,9 +26,21 @@ systemctl status libvirtd
 sudo systemctl enable libvirtd --now
 sudo systemctl enable virtlogd --now
 sudo systemctl enable virtlockd --now
+sudo usermod -a -G libvirt $(whoami)
 
+# ubuntu install libvirt
+sudo apt install qemu-kvm libvirt-daemon-system libvirt-clients bridge-utils virt-manager
+sudo systemctl enable --now libvirtd
+sudo usermod -aG libvirt $(whoami)
 
-sudo usermod -a -G libvirt wiloon
+# libvirt commands
+
+virsh list --all
+
+virsh vncdisplay archlinux
+
+sudo virsh net-list --all
+sudo virsh net-start default
 
 # test
 virsh -c qemu:///system
@@ -40,14 +53,12 @@ virsh pool-autostart pool0
 virsh help pool
 virsh help pool-autostart
 virsh pool-autostart pool0 --disable
+
 # remove pool
 virsh pool-destroy pool0
 virsh pool-undefine  poolname
 
-virsh list --all
 
-sudo virsh net-list --all
-sudo virsh net-start default
 ```
 
 > vim /etc/libvirt/qemu.conf
@@ -306,3 +317,23 @@ virsh net-list
 ```
 
 [https://linuxconfig.org/how-to-use-bridged-networking-with-libvirt-and-kvm](https://linuxconfig.org/how-to-use-bridged-networking-with-libvirt-and-kvm)
+
+
+Server 版 Ubuntu ISO（支持 TUI 安装器），可以直接用 --graphics none 和 --console pty 创建 VM，安装过程就在 SSH 终端里完成。
+
+```bash
+virt-install \
+  --name ubuntu-vm \
+  --ram 4096 \
+  --vcpus 2 \
+  --disk path=/var/lib/libvirt/images/ubuntu-vm.qcow2,size=20,format=qcow2 \
+  --cdrom /var/lib/libvirt/images/ubuntu-24.04-live-server-amd64.iso \
+  --network network=default \
+  --os-variant ubuntu24.04 \
+  --graphics none \
+  --console pty,target_type=serial
+```
+
+```bash
+
+```

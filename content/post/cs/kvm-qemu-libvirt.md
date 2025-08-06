@@ -1,14 +1,15 @@
 ---
-title: KVM-Qemu-Libvirt
+title: kvm
 author: "-"
 date: 2018-10-27T03:36:21+00:00
-url: /?p=12820
+url: kvm
 categories:
-  - Inbox
+  - VM
 tags:
   - reprint
+  - remix
 ---
-## KVM-Qemu-Libvirt
+## kvm
 
 http://blog.51cto.com/changfei/1672147
 
@@ -88,3 +89,12 @@ pacman -S kernel26 qemu
 
 http://blog.sina.com.cn/s/blog_6b1c9ed50100w9jj.html
 http://changfei.blog.51cto.com/4848258/1672147
+
+## ubuntu 24.04 kvm
+
+```bash
+sudo apt install qemu-kvm libvirt-daemon-system libvirt-clients bridge-utils virt-manager
+sudo systemctl enable --now libvirtd
+sudo usermod -aG libvirt $(whoami)
+
+```
