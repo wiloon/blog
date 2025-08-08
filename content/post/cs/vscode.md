@@ -63,6 +63,16 @@ Consolas,'Courier New','微软雅黑',monospace
 ## vscode plugin, 扩展
 
 - Markdown PDF, markdown 转 pdf
+- github copilot
+- github copilot chat
+
+### github copilot
+
+在你输入代码时提供实时的代码建议, 代码补全, 默认使用 Codex 模型, 不可选择不同的模型
+
+### github copilot chat
+
+AI 助手聊天界面, 可以选择不同的模型
 
 ### code runner
 
