@@ -48,7 +48,7 @@ req: 子命令，主要是用来创建和处理PKCS#10格式的证书请求。�
 
 ```Bash
 # ubuntu
-# 将证书拷贝到目录“/usr/local/share/ca-certificates”
+# 将证书拷贝到目录 “/usr/local/share/ca-certificates”
 sudo cp selfsigned-certificate.crt /usr/local/share/ca-certificates
 # 更新CA存储
 sudo update-ca-certificates

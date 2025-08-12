@@ -65,7 +65,10 @@ socat - tcp:[fd00::123]:12345
 ### http echo server
 
 ```bash
-# echo server 直接返回 pong
+# 绑定在 ipv4 地址上
+sudo socat -v TCP4-LISTEN:80,bind=0.0.0.0,crlf,reuseaddr,fork SYSTEM:"echo HTTP/1.0 200; echo Content-Type\: text/plain; echo; echo pong"
+
+# echo server 直接返回 pong, 有可能 会绑定在 ipv6上
 socat -v TCP-LISTEN:80,crlf,reuseaddr,fork SYSTEM:"echo HTTP/1.0 200; echo Content-Type\: text/plain; echo; echo pong"
 socat -v TCP-LISTEN:443,crlf,reuseaddr,fork SYSTEM:"echo HTTP/1.0 200; echo Content-Type\: text/plain; echo; echo pong"
 

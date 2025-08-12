@@ -99,6 +99,7 @@ sudo nerdctl pull hello-world
 sudo nerdctl run hello-world
 
 # buildkit
+# containerd 默认使用 buildkit
 # download latest version of buildkit from https://github.com/moby/buildkit/releases
 tar zxvf buildkit-v0.17.1.linux-amd64.tar.gz
 sudo mv bin/* /usr/local/bin/
@@ -114,7 +115,7 @@ sudo vim /etc/systemd/system/buildkit.service
 
 sudo systemctl daemon-reload
 sudo systemctl enable --now buildkit
-
+sudo systemctl status buildkit
 ```
 
 ## CNI（Container Network Interface）
