@@ -11,6 +11,11 @@ tags:
 ## mvn, maven basic
 
 ```bash
+# ubuntu install maven
+sudo apt install maven
+```
+
+```bash
 # 打印当前在使用的 settings
 mvn help:effective-settings
 ```
@@ -65,7 +70,7 @@ mvn clean -Ptrip-app,daily package -Dmy.filter.value=1 -Dttidapk.ttids=21xx00
 mvn -Dmaven.test.skip=true clean package -U
 ```
 
-### 生成项目
+### 创建项目
 
 ```bash
 # create common project

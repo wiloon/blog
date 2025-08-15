@@ -10,6 +10,13 @@ tags:
 ---
 ## 多态性, polymorphism, /pɑlɪˈmɔrfɪzm/
 
+一个接口（方法或函数）表现出不同的行为。
+
+多态的实现方式
+
+- 继承与重写（Override）：子类继承父类并重写父类的方法，通过父类引用或指针调用时，会执行子类重写后的方法。
+- 接口（Interface）：实现同一个接口的不同类，可以以统一的方式调用接口方法，实际执行的是各个类自己的实现。
+
 什么是多态
 多态的概念：
 多态（Polymorphism）这个概念最早来自于生物学，表示的是同一物种在同一种群中存在两种或多种明显不同的表型。比如：在南美种群中存在两种颜色的美洲虎：浅黄色的和黑色的。
@@ -35,137 +42,93 @@ tags:
 java 多态:
 
 ```java
-
 class A {
-   
-public String show(D obj) {
-   
-return "A and D";
-   
-}
-
-public String show(A obj) {
-   
-return "A and A";
-   
-}
-  
+    
+    public String show(D obj) {
+        return "A and D";
+    }
+    
+    public String show(A obj) {
+        return "A and A";
+    }
 }
 
 class B extends A {
-   
-public String show(B obj) {
-   
-return "B and B";
-   
-}
-
-public String show(A obj) {
-   
-return "B and A";
-   
-}
-  
+    
+    public String show(B obj) {
+        return "B and B";
+    }
+    
+    public String show(A obj) {
+        return "B and A";
+    }
 }
 
 class C extends B {
-  
+    
 }
 
 class D extends B {
-  
+    
 }
-  
+
 public class Test {
-   
-public static void main(String[] args) {
-   
-A a1 = new A();
-   
-A a2 = new B();
-   
-B b = new B();
-   
-C c = new C();
-   
-D d = new D();
-   
-System.out.println(a1.show(b));
-   
-System.out.println(a1.show(c));
-   
-System.out.println(a1.show(d));
-   
-System.out.println(a2.show(b));
-   
-System.out.println(a2.show(c));
-   
-System.out.println(a2.show(d));
-   
-System.out.println(b.show(b));
-   
-System.out.println(b.show(c));
-   
-System.out.println(b.show(d));
-   
-}
-  
+    
+    public static void main(String[] args) {
+        A a1 = new A();
+        A a2 = new B();
+        B b = new B();
+        C c = new C();
+        D d = new D();
+        
+        System.out.println(a1.show(b));
+        System.out.println(a1.show(c));
+        System.out.println(a1.show(d));
+
+        System.out.println(a2.show(b));  // 4. output: B and A
+        System.out.println(a2.show(c));  // 5. output: B and A
+        System.out.println(a2.show(d));  // 6. output: A and D
+
+        System.out.println(b.show(b));
+        System.out.println(b.show(c));
+        System.out.println(b.show(d));
+    }
 }
 
 ```
 
-## 问题: 以下输出结果是什么？
+输出
 
-```java
-A a1 = new A();
-A a2 = new B();
-B b = new B();
-C c = new C();
-D d = new D();
-System.out.println(a1.show(b));   ①
-System.out.println(a1.show(c));   ②
-System.out.println(a1.show(d));   ③
-System.out.println(a2.show(b));   ④
-System.out.println(a2.show(c));   ⑤
-System.out.println(a2.show(d));   ⑥
-System.out.println(b.show(b));     ⑦
-System.out.println(b.show(c));     ⑧
-System.out.println(b.show(d));     ⑨
 ```
-
-### 答案
-
-```r
 ①   A and A
-  
 ②   A and A
-  
 ③   A and D
-  
-④   B and A
-  
-⑤   B and A
-  
-⑥   A and D
-  
 ⑦   B and B
-  
 ⑧   B and B
-  
 ⑨   A and D
 ```
 
 ### 分析
 
-①②③比较好理解，一般不会出错。④⑤就有点糊涂了，为什么输出的不是"B and B"呢？！！先来回顾一下多态性。
+①②③比较好理解，一般不会有问题。
 
-运行时多态性是面向对象程序设计代码重用的一个最强大机制，动态性的概念也可以被说成"一个接口，多个方法"。Java实现运行时多态性的基础是动态方法调度，它是一种在运行时而不是在编译期调用重载方法的机制。
+4,5 为什么不是"B and B"？
 
-方法的重写Overriding和重载Overloading是Java多态性的不同表现。重写Overriding是父类与子类之间多态性的一种表现，重载Overloading是一个类中多态性的一种表现。如果在子类中定义某方法与其父类有相同的名称和参数，我们说该方法被重写(Overriding)。子类的对象使用这个方法时，将调用子类中的定义，对它而言，父类中的定义如同被"屏蔽"了。如果在一个类中定义了多个同名的方法，它们或有不同的参数个数或有不同的参数类型，则称为方法的重载(Overloading)。Overloaded的方法是可以改变返回值的类型。
+a2 是一个引用变量
+a2 的声明类型是 A（编译时类型）
+new B() 创建了一个 B 类型的对象实例, 将这个 B 对象的引用赋值给 a2 变量, B 是 A 的子类, 根据多态性原则，子类对象可以赋值给父类类型的变量, 这叫做"向上转型"（Upcasting）
 
-**_当超类对象引用变量引用子类对象时，被引用对象的类型而不是引用变量的类型决定了调用谁的成员方法，但是这个被调用的方法必须是在超类中定义过的，也就是说被子类覆盖的方法。_**  (但是如果强制把超类转换成子类的话，就可以调用子类中新添加而超类没有的方法了。) 
+1. this.show(O) - 在类 A 中查找 show(B obj) 方法, 类 A 中没有 show(B obj) 方法
+2. super.show(O) - 在 A 的超类中查找 show(B obj) 方法, A 没有超类
+3. this.show((super)O) - 在类 A 中查找 show(A obj) 方法（因为 B 的父类是 A）,类 A 中有 show(A obj) 方法 ✓, 但是 a2 引用的是 B 对象，而 B 类重写了 show(A obj) 方法 ✓, 所以调用的是 B 类的 show(A obj) 方法，返回 "B and A" ✓
 
-好了，先温习到这里，言归正传！实际上这里涉及方法调用的优先问题 ，优先级由高到低依次为: this.show(O)、super.show(O)、this.show((super)O)、super.show((super)O)。让我们来看看它是怎么工作的。
+运行时多态性是面向对象程序设计代码重用的一个最强大机制，动态性的概念也可以被说成 "一个接口，多个方法"。Java 实现运行时多态性的基础是动态方法调度，它是一种在运行时而不是在编译期调用重载方法的机制。
+
+方法的重写 Overriding 和重载 Overloading 是 Java 多态性的不同表现。重写 Overriding 是父类与子类之间多态性的一种表现，重载 Overloading 是一个类中多态性的一种表现。如果在子类中定义某方法与其父类有相同的名称和参数，我们说该方法被重写(Overriding)。子类的对象使用这个方法时，将调用子类中的定义，对它而言，父类中的定义如同被"屏蔽"了。如果在一个类中定义了多个同名的方法，它们或有不同的参数个数或有不同的参数类型，则称为方法的重载 (Overloading)。 Overloaded的方法是可以改变返回值的类型。
+
+**当超类对象引用变量引用子类对象时，被引用对象的类型而不是引用变量的类型决定了调用谁的成员方法，但是这个被调用的方法必须是在超类中定义过的，也就是说被子类覆盖的方法**  (但是如果强制把超类转换成子类的话，就可以调用子类中新添加而超类没有的方法了。) 
+
+好了，先温习到这里，言归正传！实际上这里涉及方法调用的优先问题 ，优先级由高到低依次为: this.show(O) > super.show(O) > this.show((super)O) > super.show((super)O)。让我们来看看它是怎么工作的。
 
 比如④，a2.show(b)，a2是一个引用变量，类型为A，则this为a2，b是B的一个实例，于是它到类A里面找show(B obj)方法，没有找到，于是到A的super(超类)找，而A没有超类，因此转到第三优先级this.show((super)O)，this仍然是a2，这里O为B，(super)O即(super)B即A，因此它到类A里面找show(A obj)的方法，类A有这个方法，但是由于a2引用的是类B的一个对象，B覆盖了A的show(A obj)方法，因此最终锁定到类B的show(A obj)，输出为"B and A"。
 

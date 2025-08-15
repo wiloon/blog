@@ -10,7 +10,7 @@ tags:
 ---
 ## java basic
 
-### JDK和JRE的区别
+### JDK 和 JRE 的区别
 
 JRE：Java Runtime Environment 的简称，java 运行时环境，为 java 的运行提供了所需环境。
 

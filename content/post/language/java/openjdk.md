@@ -16,9 +16,17 @@ tags:
 
 ## windows install openjdk
 
+https://github.com/ojdkbuild/ojdkbuild
+
 ```Bash
 winget install Microsoft.OpenJDK.21
 ```
+
+linux
+
+https://github.com/ojdkbuild/contrib_jdk8u-ci
+
+https://github.com/ojdkbuild/ojdkbuild/releases/download/java-1.8.0-openjdk-1.8.0.242-1.b08/java-1.8.0-openjdk-1.8.0.242-1.b08.ojdkbuild.windows.x86_64.msi
 
 ```bash
 ## archlinux install openjdk
@@ -36,7 +44,7 @@ sudo archlinux-java set java-11-openjdk
 sudo pacman -S jdk17-openjdk openjdk17-src
 ```
 
-### 切换jdk版本
+### 切换 jdk 版本
 
 ```bash
 archlinux-java help

@@ -8,41 +8,31 @@ categories:
 tags:
   - reprint
 ---
-## java 开发环境
+# java 开发环境
 
-### jdk
+## jdk
 
-#### 安装 openjdk
+>wiloon.com/jdk
 
-##### windows
-
-https://github.com/ojdkbuild/ojdkbuild
-
-##### linux
-
-https://github.com/ojdkbuild/contrib_jdk8u-ci
-
-https://github.com/ojdkbuild/ojdkbuild/releases/download/java-1.8.0-openjdk-1.8.0.242-1.b08/java-1.8.0-openjdk-1.8.0.242-1.b08.ojdkbuild.windows.x86_64.msi
-
-### 安装 maven
+安装 maven
 
 https://maven.apache.org/download.cgi
   
 apache-maven-3.6.3-bin.zip
 
-### 安装idea
+安装 idea
 
 https://www.jetbrains.com/idea/download/#section=windows
   
 https://download.jetbrains.8686c.com/idea/ideaIC-2019.3.3.exe
 
-### 安装 eclipse
+安装 eclipse
 
 https://www.eclipse.org/downloads/packages/
   
 Eclipse IDE for Java Developers, Windows 64-bit
 
-#### subclipse
+subclipse
 
 https://github.com/subclipse/subclipse/wiki
   

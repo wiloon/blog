@@ -75,7 +75,7 @@ JFR.check
 
 VM.native_memory
 
-### 解锁jdk的商业特性
+### 解锁 jdk 的商业特性
 
 VM.check_commercial_features
   
