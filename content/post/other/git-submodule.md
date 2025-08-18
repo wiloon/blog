@@ -11,6 +11,14 @@ tags:
 ---
 ## git submodule
 
+有 submodule 的 git 仓库根目录会有 .gitmodules 文件。
+
+```bash
+# check submodule with command
+git submodule status
+# 有输出就是有 submodule
+```
+
 当你在一个 Git 项目上工作时，你需要在其中使用另外一个Git 项目。也许它是一个第三方开发的Git 库或者是你独立开发和并在多个父项目中使用的。这个情况下一个常见的问题产生了: 你想将两个项目单独处理但是又需要在其中一个中使用另外一个。
 
 在 Git 中你可以用子模块 submodule 来管理这些项目，submodule 允许你将一个 Git 仓库当作另外一个 Git 仓库的子目录。这允许你克隆另外一个仓库到你的项目中并且保持你的提交相对独立。
@@ -21,7 +29,8 @@ git submodule update --init 将 git submodule init 和 git submodule update 合�
 
 ```bash
 # 为已有的 git 仓库增加子模块, 命令执行完成，会在当前工程根路径下生成一个名为“.gitmodules”的文件
-git submodule add https://github.com/maonx/vimwiki-assets.git assets
+# enx: 子模块的目录名
+git submodule add git@github.com:wiloon/enx.git enx
 
 # 已经配置子模块的仓库, 主项目和子模块一起克隆
 git clone -b branch0 git@github.com:foo/bar.git --recursive
@@ -36,6 +45,8 @@ git submodule init
 git submodule update
 # 把 submodule 更新到子仓库最新的 commit id, 这个 commit 有可能跟之前关联的 commit id 不一样, 一般会比之前 关联的 commit id 更新, git status 会看到 submodule 有变更需要提交, 需要更新 关联的 commit id.
 git submodule update --remote
+# 拉取子模块 的代码
+git submodule update --init --recursive
 ```
 
 使用 submodule, 主仓库 git pull 之后, submodule 不会自动更新, 还要检查一下 submodule 的版本, 可能需要执行git submodule update 更新 一下.

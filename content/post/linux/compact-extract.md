@@ -42,7 +42,7 @@ tar -zcvf /data/tmp/foo.tar.gz /data/server/source
 tar Cxzvf /opt/cni/bin cni-plugins-linux-amd64-v1.6.1.tgz
 ```
 
-### tar.gz 解压
+### tar.gz, tgz 解压
 
 ```bash
 tar -xf foo.tar.gz

@@ -21,6 +21,8 @@ tags:
 ## commands
 
 ```bash
+# 查看某一个 pod 配置
+kubectl get pod <pod-name> -n <namespace> -o yaml
 # 找到 Pod 所属的 Controller（通常是 Deployment）
 kubectl get pod <pod-name> -o jsonpath="{.metadata.ownerReferences[0].name}"
 # 查看 Deployment 的 YAML 启动命令
