@@ -10,6 +10,11 @@ tags:
 ---
 # DDD
 
+- Domain Layer 领域层 - 业务实体, 值对象, 领域服务
+- Infrastructure Layer 基础设施层 - 数据访问, 外部服务调用等技术实现
+- Application Layer 应用层 - 协调领域对象来执行应用用例
+- Interface Layer 接口层 - API 控制器, 视图
+
 领域驱动设计 (Domain-Driven Design，简称 DDD）
 
 2003 年的时候，Eric Evans 在2003年出版的: Domain-driven Design: Tackling Complexity in the Heart of Software，
