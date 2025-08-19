@@ -21,10 +21,16 @@ pacman -Sy aws-cli
 https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html
 ```
 
+aws console> iam> user> w10n_ec2>create access key> cli>
+
 ## commands
 
 ```bash
 aws configure
+
+# default region name: ap-southeast-1
+# default output format: json
+
 cat ~/.aws/credentials
 cat ~/.aws/config
 
