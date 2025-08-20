@@ -7,6 +7,7 @@ categories:
   - pattern
 tags:
   - reprint
+  - remix
 ---
 ## GOF 23 种设计模式, Design pattern
 

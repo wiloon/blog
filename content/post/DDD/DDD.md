@@ -10,12 +10,85 @@ tags:
 ---
 # DDD
 
+领域驱动设计 (Domain-Driven Design，简称 DDD）
+
 - Domain Layer 领域层 - 业务实体, 值对象, 领域服务
 - Infrastructure Layer 基础设施层 - 数据访问, 外部服务调用等技术实现
 - Application Layer 应用层 - 协调领域对象来执行应用用例
 - Interface Layer 接口层 - API 控制器, 视图
+- 值对象 (Value Objects)
+- 实体对象 (Entity)
+- Repository 模式
+- 聚合根
+- Factory 模式
+- Domain Service
 
-领域驱动设计 (Domain-Driven Design，简称 DDD）
+## 值对象 (Value Objects)
+
+代表领域中没有身份标识但有重要意义的概念
+
+不可变性 (Immutability), 一旦创建，不能修改, 只读属性
+
+基于值的相等性 (Value-based Equality), 比较的是值，不是对象引用
+
+无身份标识 (No Identity), 两个值相同的对象被认为是相等的
+
+可哈希性 (Hashable)
+
+生命周期	短暂，可替换	
+
+封装业务逻辑: 比如某些固定规则的字符串组合
+
+值对象的使用场景: 复合标识符
+
+## 实体对象 (Entity)
+
+有唯一身份ID
+
+相等性	 	基于身份ID
+
+可变性	 	可变
+
+生命周期	 	持久，可追踪
+
+## Repository 模式
+
+Repository 模式不属于传统的 GoF 23种设计, 它属于企业级应用模式 (Enterprise Application Patterns)
+
+由 Martin Fowler 在《企业应用架构模式》中提出
+专门解决企业级应用中的数据访问问题
+领域驱动设计模式 (DDD Patterns)
+
+Eric Evans 在《Domain-Driven Design》中推广
+专注于领域建模和业务逻辑
+
+传统设计模式：解决代码结构问题, Repository 模式：解决架构层次问题
+
+Domain-Driven Design Patterns
+    ├── Repository Pattern      ← 这里
+    ├── Domain Service Pattern
+    ├── Aggregate Pattern
+    └── Value Object Pattern
+    
+提供了一个抽象的数据访问层，使领域层能够访问持久化数据，而无需了解具体的存储技术细节。
+Repository 接口使用领域术语而非技术术语
+
+关注点分离 (Separation of Concerns)
+
+依赖倒置 (Dependency Inversion)
+
+基础设施层 (Infrastructure) , 实现 Repository 接口 , Redis/Database/File 具体实现 
+
+可测试性 (Testability), 测试时可以轻松使用 Mock 实现
+
+集合导向 (Collection-Oriented),  像集合操作一样自然
+
+聚合根操作 (Aggregate Root Operations), Repository 通常针对聚合根进行操作
+
+ Repository 接口定义（领域层）, 具体实现（基础设施层）
+---
+
+
 
 2003 年的时候，Eric Evans 在2003年出版的: Domain-driven Design: Tackling Complexity in the Heart of Software，
 正式定义了领域的概念，开始了 DDD 的时代。
