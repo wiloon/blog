@@ -480,7 +480,13 @@ https://helpguide.sony.net/mdr/wh1000xm5/v1/zh-cn/index.html
 
 ## 高尔夫(进口) 2019款 1.8TSI 旅行版
 
+Volkswagen Golf Variant 1.8 TSI 2019 是欧洲和中国市场常用的官方名称；
+Volkswagen Golf Wagon 1.8 TSI 2019 多用于澳大利亚、新西兰等市场；
+
 https://www.dongchedi.com/auto/params-carIds-34951
 
 - 整备质量(kg) 1456
+- 有刹车拖挂质量(Towing Capacity/trailer weight)：1500kg
+- 最大拖车重量（挂车有刹车，坡度不超过8%）：1700公斤
 
+英文版手册: https://ownersmanuals2.com/volkswagen/golf-variant-2019-owners-manual-96599
