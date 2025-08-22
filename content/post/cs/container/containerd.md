@@ -55,10 +55,10 @@ sudo install -m 755 runc.amd64 /usr/local/sbin/runc
 runc --version
 
 # install cni plugin
-# 创建插件目录, 容器运行时默认期望插件在这个目录：
+# 创建插件目录, 容器运行时默认期望插件在这个目录
 sudo mkdir -p /opt/cni/bin
 
-# 设置版本
+# 设置 cni 版本
 VERSION="v1.7.1"
 
 # 下载
@@ -72,15 +72,15 @@ ls /opt/cni/bin
 # 确认 CNI 配置文件是否存在
 ls /etc/cni/net.d/
 
-# 使用 nerdctl 运行容器测试网络
-nerdctl run -it --rm busybox
-
-# 在容器中执行
-ping -c 2 baidu.com
+# 查看 cni 版本
+/opt/cni/bin/bridge --version
+/opt/cni/bin/loopback --version
 
 # install containerd
 # apt 仓库里的包版本太旧， 2025-06-03 13:17:05， apt里的 containerd 1.7.27, 官网最新的 2.1.1
-sudo tar Cxzvf /usr/local containerd-1.6.2-linux-amd64.tar.gz
+containerd_version="2.1.4"
+curl -LO https://github.com/containerd/containerd/releases/download/v${containerd_version}/containerd-${containerd_version}-linux-amd64.tar.gz
+sudo tar Cxzvf /usr/local containerd-${containerd_version}-linux-amd64.tar.gz
 
 # containerd config
 sudo mkdir /etc/containerd
@@ -92,17 +92,35 @@ sudo curl -L https://raw.githubusercontent.com/containerd/containerd/main/contai
 sudo systemctl daemon-reload
 sudo systemctl enable --now containerd
 
+# 验证安装
+containerd --version
+
+# install nerdctl
 # download latest version of nerdctl from https://github.com/containerd/nerdctl/releases
-sudo tar Cxzvf /usr/bin/ nerdctl-2.0.0-linux-amd64.tar.gz
+nerdctl_version="2.1.3"
+curl -LO "https://github.com/containerd/nerdctl/releases/download/v${nerdctl_version}/nerdctl-${nerdctl_version}-linux-amd64.tar.gz"
+sudo tar Cxzvf /usr/bin/ nerdctl-${nerdctl_version}-linux-amd64.tar.gz
+
+# 验证安装
+nerdctl --version
+sudo nerdctl info
 
 sudo nerdctl pull hello-world
 sudo nerdctl run hello-world
 
+# 使用 nerdctl 运行容器测试网络, 测试 CNI plugin
+nerdctl run -it --rm busybox
+# 在容器中执行
+ping -c 2 baidu.com
+
 # buildkit
 # containerd 默认使用 buildkit
 # download latest version of buildkit from https://github.com/moby/buildkit/releases
-tar zxvf buildkit-v0.17.1.linux-amd64.tar.gz
+buildkit_version="0.23.2"
+curl -LO "https://github.com/moby/buildkit/releases/download/v${buildkit_version}/buildkit-v${buildkit_version}.linux-amd64.tar.gz"
+tar zxvf buildkit-v${buildkit_version}.linux-amd64.tar.gz
 sudo mv bin/* /usr/local/bin/
+
 # buildkit service
 sudo curl -L https://raw.githubusercontent.com/moby/buildkit/refs/heads/master/examples/systemd/system/buildkit.service -o /etc/systemd/system/buildkit.service
 # buildkit socket
@@ -116,6 +134,7 @@ sudo vim /etc/systemd/system/buildkit.service
 sudo systemctl daemon-reload
 sudo systemctl enable --now buildkit
 sudo systemctl status buildkit
+sudo systemctl restart buildkit
 ```
 
 ## CNI（Container Network Interface）
@@ -134,13 +153,6 @@ https://www.zhangjiee.com/blog/2021/container-runtime.html
 https://www.zhangjiee.com/blog/2018/different-from-docker-and-vm.html
 https://www.zhangjiee.com/blog/2018/an-overall-view-on-docker-ecosystem-containers-moby-swarm-linuxkit-containerd-kubernete.html
 https://www.zhangjiee.com/blog/2021/kubernetes-vs-docker.html
-
-## containerd
-
-```Bash
-# check containerd version
-containerd --version
-```
 
 ### containerd config
 

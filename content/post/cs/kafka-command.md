@@ -25,15 +25,15 @@ todo
 
 ```Bash
 # list topic
-/opt/kafka/bin/kafka-topics.sh --list --bootstrap-server 127.0.0.1:9092
+bin/kafka-topics.sh --list --bootstrap-server 127.0.0.1:9092
 # create topic
-/opt/kafka/bin/kafka-topics.sh --create --partitions 1 --replication-factor 1 --topic topic_0 --bootstrap-server 127.0.0.1:9092
+bin/kafka-topics.sh --create --partitions 1 --replication-factor 1 --topic topic_0 --bootstrap-server 127.0.0.1:9092
 # consumer
-/opt/kafka/bin/kafka-console-consumer.sh --topic topic_0 --bootstrap-server 127.0.0.1:9092
+bin/kafka-console-consumer.sh --topic topic_0 --bootstrap-server 127.0.0.1:9092
 # producer
-/opt/kafka/bin/kafka-console-producer.sh --bootstrap-server 127.0.0.1:9092 --topic topic_0
+bin/kafka-console-producer.sh --bootstrap-server 127.0.0.1:9092 --topic topic_0
 # list group name
-/opt/kafka/bin/kafka-consumer-groups.sh --bootstrap-server 127.0.0.1:9092 --list
+bin/kafka-consumer-groups.sh --bootstrap-server 127.0.0.1:9092 --list
 
 # 查看 consumer group offset
 /opt/kafka/bin/kafka-consumer-groups.sh --bootstrap-server 127.0.0.1:9092 --describe --group group0
@@ -392,7 +392,37 @@ bin/kafka-reassign-partitions.sh --zookeeper localhost:2182 --reassignment-json-
 ### kafka + nerdctl + network: host
 
 ```bash
-nerdctl pull bitnami/kafka:3.9.0
+sudo nerdctl pull apache/kafka:3.9.1
+
+# create volume
+sudo nerdctl volume create kafka-storage
+sudo nerdctl volume inspect kafka-storage
+
+sudo chmod -R 777 /var/lib/nerdctl/1935db59/volumes/default/kafka-storage/_data
+
+# 初始化 KRaft 元数据
+sudo nerdctl run --rm   -v kafka-storage:/tmp/kraft-combined-logs   apache/kafka:3.9.1   /opt/kafka/bin/kafka-storage.sh format -t $(uuidgen) -c /opt/kafka/config/kraft/server.properties --ignore-formatted
+
+# 查看 cluster id
+sudo cat /var/lib/nerdctl/1935db59/volumes/default/kafka-storage/_data/meta.properties
+
+# CLUSTER_ID 用上面查到的值
+sudo nerdctl run -d --name kafka \
+  --network host \
+  -p 9092:9092 \
+  -v kafka-storage:/tmp/kraft-combined-logs \
+  -e KAFKA_NODE_ID=1 \
+  -e CLUSTER_ID=eb79f6f4-34b5-44de-be81-ba6784f46a2f \
+  -e KAFKA_PROCESS_ROLES=broker,controller \
+  -e KAFKA_CONTROLLER_QUORUM_VOTERS=1@localhost:9093 \
+  -e KAFKA_LISTENERS=PLAINTEXT://localhost:9092,CONTROLLER://localhost:9093 \
+  -e KAFKA_ADVERTISED_LISTENERS=PLAINTEXT://localhost:9092 \
+  -e KAFKA_CONTROLLER_LISTENER_NAMES=CONTROLLER \
+  -e KAFKA_LOG_DIRS=/tmp/kraft-combined-logs \
+  --memory 2g \
+  -e KAFKA_HEAP_OPTS="-Xmx1g -Xms1g" \
+  apache/kafka:3.9.1
+
 ```
 
 ---
