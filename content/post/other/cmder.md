@@ -1,13 +1,18 @@
 ---
-title: cmder
+title: GPU
 author: "-"
 date: 2015-09-22T00:52:00+00:00
-url: /?p=8321
+url: gpu
 categories:
-  - Inbox
+  - GPU
 tags:
   - reprint
+  - remix
 ---
-## cmder
+## GPU
 
-cmder 是为 Windows 提供的一个便携式控制台仿真器。使用非常简单，只需下载解压后执行 cmder.bat 即可。
+```bash
+# AMD 显卡 查看 显存等信息, 显存使用率
+sudo apt install radeontop
+radeontop
+```

@@ -15,3 +15,11 @@ tags:
 npm install -g @anthropic-ai/claude-code
 
 ```
+
+## claude command
+
+```bash
+claude whoami
+claude chat --prompt "你当前是哪个模型？请给出模型名称。"
+
+```

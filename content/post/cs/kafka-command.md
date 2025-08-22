@@ -296,12 +296,11 @@ bin/kafka-consumer-groups.sh --bootstrap-server localhost:9092 \
 
 ### 查看 kafka 版本, kafka version
 
+kafka/libs 目录下查看 kafka 包的文件名, 比如:kafka_2.13-3.1.0.jar,  where 2.13 is Scala version and 3.1.0 is Kafka version.
+
 ```bash
 # kafka 客户端的版本
 bin/kafka-topics.sh --version
-
-# 到 kafka/libs 目录下查看 kafka 包的文件名, 比如:kafka_2.13-3.1.0.jar,  where 2.13 is Scala version and 3.1.0 is Kafka version.
-
 ```
 
 ## kafka 删除 topic
@@ -390,7 +389,15 @@ bin/kafka-reassign-partitions.sh --zookeeper localhost:2182 --reassignment-json-
 
 ## install
 
-ubuntu install kafka, no docker kafka 4.0
+### kafka + nerdctl + network: host
+
+```bash
+nerdctl pull bitnami/kafka:3.9.0
+```
+
+---
+
+### ubuntu install kafka, no docker kafka 4.0
 
 ```bash
 sudo apt update

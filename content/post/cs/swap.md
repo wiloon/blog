@@ -43,6 +43,7 @@ UUID=ed325732-b768-4680-a4ff-24dd0da24509       none            swap            
 
 # 关闭swap交换分区
 swapoff /dev/vda2
+swapoff -a
 ```
 
 ### priority

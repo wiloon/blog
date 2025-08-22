@@ -9,7 +9,71 @@ tags:
   - Reprint
   - Remix
 ---
-## ubuntu install k8s
+# ubuntu install k8s
+
+## ubuntu 24.04 安装 单节点 k8s
+
+```bash
+sudo swapoff -a
+sudo sed -i '/swap/s/^/#/' /etc/fstab
+
+
+sudo apt-get update
+sudo apt-get install -y apt-transport-https ca-certificates curl
+# 安装 containerd, 我之前 已经 安装 了, 跳过这步
+
+K8S_VER="v1.33.4"
+ARCH="amd64"
+
+# 下载二进制文件
+curl -LO "https://dl.k8s.io/release/${K8S_VER}/bin/linux/${ARCH}/kubectl"
+curl -LO "https://dl.k8s.io/release/${K8S_VER}/bin/linux/${ARCH}/kubeadm"
+curl -LO "https://dl.k8s.io/release/${K8S_VER}/bin/linux/${ARCH}/kubelet"
+
+# 添加可执行权限
+chmod +x kubectl kubeadm kubelet
+
+# 移动到系统 PATH 目录
+sudo mv kubectl kubeadm kubelet /usr/local/bin/
+
+
+/etc/systemd/system/kubelet.service
+
+[Unit]
+Description=kubelet: The Kubernetes Node Agent
+Documentation=https://kubernetes.io/docs/
+After=containerd.service
+Wants=containerd.service
+
+[Service]
+ExecStart=/usr/local/bin/kubelet
+Restart=always
+StartLimitInterval=0
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target
+
+
+sudo systemctl daemon-reload
+sudo systemctl enable kubelet
+
+
+VERSION="v1.34.0"
+curl -LO https://github.com/kubernetes-sigs/cri-tools/releases/download/${VERSION}/crictl-${VERSION}-linux-amd64.tar.gz
+sudo tar -C /usr/local/bin -xzvf crictl-${VERSION}-linux-amd64.tar.gz
+crictl --version
+
+# 如果之前 有过 初始化
+sudo kubeadm reset -f
+sudo systemctl stop kubelet
+# 初始化集群, kubeadm 会启动 kubelet 服务
+sudo kubeadm init --pod-network-cidr=10.244.0.0/16
+
+```
+
+
+---
 
 install Kubernetes 1.28.2 on Ubuntu 22.04
 

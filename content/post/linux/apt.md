@@ -18,6 +18,9 @@ tags:
 https://stackoverflow.com/questions/76974555/glibcxx-3-4-32-not-found-error-at-runtime-gcc-13-2-0
 
 ```Bash
+apt install foo.deb
+apt remove foo
+
 sudo add-apt-repository ppa:ubuntu-toolchain-r/test
 sudo apt-get update
 sudo apt-get install --only-upgrade libstdc++6

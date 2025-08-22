@@ -13,9 +13,9 @@ tags:
 ### linux ubuntu
 
 - kafka
-- postman
+- containerd + nerdctl
 - yubico login
-- ywang6 cert, use for nginx
+- selfsigned cert, use for nginx
 
 - citrix OK
   - 远程桌面正常使用
