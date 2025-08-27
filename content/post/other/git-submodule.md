@@ -33,13 +33,13 @@ git submodule update --init 将 git submodule init 和 git submodule update 合�
 git submodule add git@github.com:wiloon/enx.git enx
 
 # 已经配置子模块的仓库, 主项目和子模块一起克隆
-git clone -b branch0 git@github.com:foo/bar.git --recursive
+git clone -b branch_0 git@github.com:foo/bar.git --recursive
 
 # 查看子模块, 如果 git submodule 返回的 hash 前面有一个减号, 代表子模块还没有检出, 加号代表 submodule 距离上一次跟主仓库关联的 commit id 有新的 commit, 这时在主仓库里对 submodule 所在的目录做 git add folder0 之后 git submodule 命令返回的数据不再有加号.
 # git submodule 返回的 commit id 是当前 submodule 目录当前的 commit id
 # commit id 前面 的加号代表远程仓库关联的submodule 有更新, 执行 git submodule update 之后 , submodule 的版本会更新到与远程主仓库关联的submodule commit id 一致.
 git submodule
-# 比如只克隆了主仓库, submodule所在的目录肯定是空的, 要用这个命令初始化一下 submodule, 然后再执行 git submodule update, submodule 目录就克隆下来了.
+# 比如只克隆了主仓库, submodule 所在的目录肯定是空的, 要用这个命令初始化一下 submodule, 然后再执行 git submodule update, submodule 目录就克隆下来了.
 git submodule init
 # 把submodule 更新到跟远程主仓库关联的 commit id 一致, git status 应该是 clear 的
 git submodule update
