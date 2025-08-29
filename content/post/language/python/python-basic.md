@@ -415,7 +415,9 @@ yay -S python36
 
 # 打印包版本
 pip list
+pip list | grep requests
 
+# 查看某一个包的信息
 pip show django
 
 # -r, --requirement <file>    Install from the given requirements file. This option can be used multiple times.
@@ -424,6 +426,8 @@ pip install -r requirements.txt
 sudo pip install --proxy http://<usr_name>:<password>@<proxyserver_name>:<port#> <pkg_name> 
 
 pip freeze #查看当前安装库版本
+
+pip freeze |grep 
 # 创建 requirements.txt 文件，其中包含了当前环境中所有包及各自的版本的简单列表
 # 按 requirements.txt 安装依赖
 pip install -r requirements.txt

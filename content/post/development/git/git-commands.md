@@ -328,10 +328,11 @@ git switch -c branch1 v1.2.3
 
 # 新建并切换到分支, 不加 -c 的话 git switch 到一个不存在的分支会报错
 # -c, --create
-git switch -c branch0
+git switch -c branch_0
 
+# 本地新建的分支不能直接 push 到远程仓库, git push 会提示用 --set-upstream
 # 把新分支推到远程仓库并设置本地分支和远程分支的关联
-git push --set-upstream origin branch0
+git push --set-upstream origin branch_0
 ```
 
 新建分支其实就是在当前位置打个标签, 也就是说... 新分支是以当前分支的 commit 为基础的.
