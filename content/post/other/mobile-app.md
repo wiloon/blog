@@ -113,7 +113,6 @@ nextcloud
 
 ### list
 
-- AnXray
 - 冰箱
 - chrome
 - 滴答清单

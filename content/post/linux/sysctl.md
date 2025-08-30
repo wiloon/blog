@@ -7,6 +7,7 @@ categories:
   - Linux
 tags:
   - reprint
+  - remix
 ---
 ## sysctl
 
@@ -34,8 +35,12 @@ sysctl [options] [variable[=value] …]
 ### 查看变量
 
 ```bash
+# 查看
+sysctl net.ipv4.ip_forward
+cat /proc/sys/net/ipv4/ip_forward
+
 # 查看变量, 打印所有参数并过滤
-sysctl -a |grep tcp_syn_retrie
+sysctl -a | grep tcp_syn_retrie
 sudo sysctl -a | egrep "rmem|wmem|adv_win|moderate"
 ```
 
@@ -46,10 +51,12 @@ sudo sysctl -a | egrep "rmem|wmem|adv_win|moderate"
 重启之后会恢复为默认值。
 
 ```bash
-# 不加 -w 默认就是设置参数值 
+# 不加 -w 默认就是设置参数值
+sudo sysctl net.ipv4.ip_forward = 1
 sudo sysctl net.core.rmem_max=2500000
 sudo sysctl -w net.core.rmem_max=2500000
 sudo sysctl -w "fs.file-max=2000500"
+echo 1 | sudo tee /proc/sys/net/ipv4/ip_forward
 ```
 
 ### 永久设置

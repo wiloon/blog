@@ -323,9 +323,9 @@ OPTIONS
   - REJECT： 拦阻该封包，并传送封包通知对方，可以传送的封包有几个选择：ICMP port-unreachable、ICMP echo-reply 或是tcp-reset（这个封包会要求对方关闭 连接），进行完此处理动作后，将不再匹配其它规则，直接中断过滤程序。 范例如下: `iptables -A FORWARD -p TCP --dport 22 -j REJECT --reject-with tcp-reset`
   - DROP： 丢弃封包不予处理，进行完此处理动作后，将不再匹配其它规则，直接中断过滤程序。
   - REDIRECT： 将封包重新导向到另一个端口（PNAT），进行完此处理动作后，将会继续匹配其它规则。 这个功能可以用来实现透明代理或用来保护 web 服务器。例如：`iptables -t nat -A PREROUTING -p tcp --dport 80 -j REDIRECT --to-ports 8080`
-  - MASQUERADE： 改写封包来源 IP 为防火墙 NIC IP，可以指定 port 对应的范围，进行完此处理动作后，直接跳往下一个规则 链（manglepostrouting）。这个功能与SNAT 略有不同，当进行 IP 伪装时，不需指定要伪装成哪个 IP，IP会从网卡直接读取，当使用拨 号接连时，IP通常是由ISP公司的DHCP 服务器指派的，这个时候 MASQUERADE 特别有用。范例如下：`iptables -t nat -A POSTROUTING -p TCP -j MASQUERADE --to-ports 1024-31000`
+  - MASQUERADE： 改写封包来源 IP 为防火墙 NIC IP，可以指定 port 对应的范围，进行完此处理动作后，直接跳往下一个规则 链（mangle postrouting）。这个功能与SNAT 略有不同，当进行 IP 伪装时，不需指定要伪装成哪个 IP，IP会从网卡直接读取，当使用拨 号接连时，IP通常是由ISP公司的DHCP 服务器指派的，这个时候 MASQUERADE 特别有用。范例如下：`iptables -t nat -A POSTROUTING -p TCP -j MASQUERADE --to-ports 1024-31000`
   - LOG： 将封包相关讯息纪录在 /var/log 中，详细位置请查阅 /etc/syslog.conf 配置文件，进行完此处理动作后，将会继续匹配其规则。例如：`iptables -A INPUT -p tcp -j LOG --log-prefix "INPUT packets`
-  - SNAT： 改写封包来源 IP 为某特定 IP 或 IP 范围，可以指定 port 对应的范围，进行完此处理动作后，将直接跳往下一个规则（mangleostrouting）。范例如下：`iptables -t nat -A POSTROUTING -p tcp -o eth0 -j SNAT --to-source?194.236.50.155-194.236.50.160:1024-32000　`
+  - SNAT： 改写封包来源 IP 为某特定 IP 或 IP 范围，可以指定 port 对应的范围，进行完此处理动作后，将直接跳往下一个规则（mangle postrouting）。范例如下：`iptables -t nat -A POSTROUTING -p tcp -o eth0 -j SNAT --to-source?194.236.50.155-194.236.50.160:1024-32000　`
   - DNAT： 改写封包目的地 IP 为某特定 IP 或 IP 范围，可以指定 port 对应的范围，进行完此处理动作后，将会直接跳往下一个规则链（filter:input 或 filter:forward）。范例如下：`iptables -t nat -A PREROUTING -p tcp -d 15.45.23.67 --dport 80 -j DNAT --to-destination 192.168.1.1-192.168.1.10:80-100`
   - MIRROR： 镜射封包，也就是将来源 IP 与目的地 IP 对调后，将封包送回，进行完此处理动作后，将会中断过滤程序。
   - QUEUE： 中断过滤程序，将封包放入队列，交给其它程序处理。通过自行开发的处理程序，可以进行其它应用，例如：计算连接费用等。

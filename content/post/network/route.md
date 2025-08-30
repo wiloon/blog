@@ -114,6 +114,12 @@ ip r     add default           via 192.168.50.1                          dev ens
 ip r     add default           via 192.168.50.35                         dev ens18       proto static
 ip route add 192.168.0.0/24    via 172.16.15.253                         dev eth0
 ip route add 192.168.5.4       via xxx.xxx.200.1                         dev utun3
+
+# ip route add 添加 路由
+# route type: local 本地路由, 将流量直接发送到本地接口, 其它可选值比如 blackhole 用于安全场景，静默丢弃不需要的流量, 默认值是 unicast, 用于常规的单播路由
+# destination: default（等同于 0.0.0.0/0），表示匹配所有可能的目标 IP 地址
+# device: dev lo 使用的网络设备（本地回环接口）
+ip route add local default dev lo table 100
 ```
 
 - DESTINATION
@@ -252,16 +258,17 @@ Dev相对于对gateway的一个更小的约束。同样起到约束作用的还�
 ### type: 路由类型
 
 unicast ,local, broadcast ,multicast , throw,unreachable ,prohibit , blackhole, nat
-    类型        说明
-    unicast        该类型路由描述到目的地址的真实路径
-    local        目的地址被分配给本机,数据包通过回环被投递到本地
-    broadcast    目的地址是广播地址,数据包作为链路广播发送。
-    multicast    使用多播路由。在普通的路由表中,这种路由并不存在。
-    throw        如果选择了这种路由,就会认为没有发现路由,在这个表中的查询就会被终止,并产生ICMP信息net unreachable。本地发送者会返回ENETUNREACH错误。
-    unreachable    目的地址是不可达的。如果发过去的数据包都被丢弃并且收到ICMP信息host unreachable,目的地址就会被标记为不可达。在这种情况下,本地发送者将返回EHOSTUNREACH错误。
-    prohibit    路由是不可达的。发过去的数据包都被丢弃,而且产生ICMP信息communication administratively prohibited 。本地发送者会返回EACCESS错误。
-    blackhole    目的地址不可达,而且发过去的数据包都被丢弃。在这种情况下,本地发送者将返回EINVAL错误。
-    nat            特定的NAT路由。目标地址属于哑地址 (或者称为外部地址) ,在转发前需要进行地址转换。
+
+类型            说明
+unicast        该类型路由描述到目的地址的真实路径
+local          目的地址被分配给本机,数据包通过回环被投递到本地
+broadcast      目的地址是广播地址,数据包作为链路广播发送。
+multicast      使用多播路由。在普通的路由表中,这种路由并不存在。
+throw          如果选择了这种路由,就会认为没有发现路由,在这个表中的查询就会被终止,并产生ICMP信息net unreachable。本地发送者会返回ENETUNREACH错误。
+unreachable    目的地址是不可达的。如果发过去的数据包都被丢弃并且收到ICMP信息host unreachable,目的地址就会被标记为不可达。在这种情况下,本地发送者将返回EHOSTUNREACH错误。
+prohibit       路由是不可达的。发过去的数据包都被丢弃,而且产生ICMP信息communication administratively prohibited 。本地发送者会返回EACCESS错误。
+blackhole      目的地址不可达,而且发过去的数据包都被丢弃。在这种情况下,本地发送者将返回EINVAL错误。
+nat            特定的NAT路由。目标地址属于哑地址 (或者称为外部地址) ,在转发前需要进行地址转换。
 
 ## # ip route
 
@@ -1073,7 +1080,6 @@ sudo route -n add -net 192.168.5.4 -netmask 255.255.255.0 xxx.xxx.200.1
 
 [https://www.jianshu.com/p/da975a32a915](https://www.jianshu.com/p/da975a32a915)
 
-
 ## 静态路由
 
 在 Linux 操作系统中，ip route proto static 是用于设置静态路由的命令。
@@ -1085,3 +1091,25 @@ sudo route -n add -net 192.168.5.4 -netmask 255.255.255.0 xxx.xxx.200.1
 ip route 命令用于设置和管理路由表，包括添加、修改和删除路由信息。通过 ip route proto static 命令，管理员可以手动添加静态路由，以指定特定的网络流量通过哪些网卡进行传输，从而实现更灵活和精细的网络控制。
 
 总之，ip route proto static 命令是 Linux 操作系统中用于设置静态路由的命令，可以手动配置路由表，以实现更精细的网络控制。
+
+## 为什么会有多个路由表
+
+单个路由表条目过多时，查找匹配路由的时间会增加，因此引入了多个路由表的概念。通过将不同类型的流量分配到不同的路由表中，可以提高路由查找的效率。
+路由查找通常使用最长前缀匹配(LPM)算法，表项越多，匹配时间越长
+
+大型单一路由表会占用更多缓存空间, 分表后每个表更小，更容易放入缓存
+
+多个路由表可以支持并行查找
+
+不同类型的流量可以使用不同的路由表
+
+减少锁竞争，提高并发性能
+
+可以根据不同的流量类型或策略分别管理
+
+不同用户/应用可能需要不同的路由策略
+例如：某些用户需要走高速线路，其他用户走普通线路
+或者根据源地址、目标端口等条件选择不同的出口
+
+当存在多个互联网出口时，可以更灵活地控制流量走向
+实现负载均衡或者特定流量的定向路由
