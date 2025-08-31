@@ -10,10 +10,12 @@ tags:
 ## "typescript basic"
 
 ### number <> string
+
     let n = Number('1234')
     String(page_number);
 
 ### 遍历Array
+
 #### 方法一，for…of
 这个貌似是最常用的方法，angular 2中HTML语法绑定也是要的这种语法。
 
@@ -24,6 +26,7 @@ tags:
     }
 
 #### 方法二，for循环
+
 for循环其实是标准的C风格语法。
 
     let someArray = [1, "string", false];
@@ -87,3 +90,7 @@ class Car {
 ---
 
 https://blog.csdn.net/alvachien/article/details/52475745
+
+## Object
+
+Object 是内置的全局对象（构造函数），用于创建对象。
