@@ -52,7 +52,8 @@ sudo sysctl -a | egrep "rmem|wmem|adv_win|moderate"
 
 ```bash
 # 不加 -w 默认就是设置参数值
-sudo sysctl net.ipv4.ip_forward = 1
+# 等号两侧不能有空格
+sudo sysctl net.ipv4.ip_forward=1
 sudo sysctl net.core.rmem_max=2500000
 sudo sysctl -w net.core.rmem_max=2500000
 sudo sysctl -w "fs.file-max=2000500"

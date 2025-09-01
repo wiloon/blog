@@ -114,6 +114,7 @@ allowed-ips 192.168.53.1/32,192.168.50.0/24
 # endpoint
 对端的 ip 和端口
 ```
+
 ### peer B, client
 
 ```bash
@@ -173,6 +174,7 @@ net.ipv6.conf.all.forwarding=1
 # 检查 ip forward 是否设置成功
 sysctl -a |grep net.ipv4.ip_forward
 ```
+
 ### iptables, 设置 iptables 规则，客户端连接之后就能 Ping 通服务端局域网里的其它 ip 了
 
 ```bash
@@ -243,7 +245,7 @@ PublicKey = public-key-1
 AllowedIPs = 192.168.xx.xx/32
 ```
 
-#### restart to enable
+### restart to enable
 
 ```bash
 systemctl restart systemd-networkd
@@ -485,7 +487,7 @@ wg-quick down wg0
 
 /etc/wireguard/wg0.conf
 
-```
+```bash
 [Interface]
 PrivateKey = <private_key_0_client_private_key>
 ListenPort = 51000
@@ -496,6 +498,7 @@ PublicKey = <public_key_0_server_public_key>
 Endpoint = foo.bar.com:51900 
 AllowedIPs = 192.168.50.0/24,192.168.53.0/24
 ```
+
 ```Bash
 sudo vim /etc/wireguard/wg0.conf
 sudo wg-quick up wg0

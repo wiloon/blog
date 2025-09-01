@@ -10,7 +10,6 @@ tags:
   - remix
 
 ---
-
 ## iproute2 > 路由表, routing table, ip route
 
 ## commands
@@ -38,14 +37,14 @@ Usage: ip route { list | flush } SELECTOR
 - PREFIX 就是地址加掩码的格式, 比如 0.0.0.0/0
 - PREFIX 有个 default 的特殊表示, 等同于 0.0.0.0/0, 也就是默认路由
 
-### 路由
+### 路由表
 
 linux 系统路由表可以自定义从 1－252 个路由表, 操作系统维护了 4 个路由表:
 
-- 0#表   系统保留表
+- 0#表                 系统保留表
 - 253#表 default table 没特别指定的默认路由都放在该表
-- 254#表 main table 没指明路由表的所有路由放在该表
-- 255#表 locale table 保存本地接口地址, 广播地址, NAT地址 由系统维护, 用户不得更改
+- 254#表 main table    没指明路由表的所有路由放在该表
+- 255#表 locale table  保存本地接口地址, 广播地址, NAT地址 由系统维护, 用户不得更改
 
 #### 数字与名字的关联
 
@@ -64,6 +63,12 @@ echo 200 John >> /etc/iproute2/rt_tables
 ### 查看路由
 
 ```bash
+# 查看 table 100 的内容
+ip route show table 100
+
+# 查看 路由表 local(255#表) 里的路由
+ip route show table local
+
 # 列出所有路由表名字, 没有 table 字样的行是 main 表
 ip route show table all | grep "table" | sed 's/.*\(table.*\)/\1/g' | awk '{print $2}' | sort | uniq
 
@@ -103,9 +108,8 @@ ip route del 192.168.0.0/24 via 172.16.15.253 dev eth0
 路由添加完毕即时生效
 
 ```bash
-ip route add DESTINATION       [via NEXT_HOP]      [src SOURCE_ADDRESS]    [dev DEVICE]
+ip route add DESTINATION       [via NEXT_HOP]      [src SOURCE_ADDRESS]  [dev DEVICE]
 
-ip route add default           via 192.168.50.1    src 192.168.50.8      dev enp0s31f6
 ip route add default           via 192.168.50.1    src 192.168.50.8      dev enp0s31f6
 ip route add default           via 192.168.50.4    src 192.168.50.169    dev ens18
 ip route add 192.168.54.0/24   via 192.168.50.11   src 192.168.50.8      dev enp0s31f6
@@ -116,10 +120,11 @@ ip route add 192.168.0.0/24    via 172.16.15.253                         dev eth
 ip route add 192.168.5.4       via xxx.xxx.200.1                         dev utun3
 
 # ip route add 添加 路由
-# route type: local 本地路由, 将流量直接发送到本地接口, 其它可选值比如 blackhole 用于安全场景，静默丢弃不需要的流量, 默认值是 unicast, 用于常规的单播路由
+# route type(type: 路由类型): local 本地路由, 将流量直接发送到本地接口, 其它可选值比如 blackhole 用于安全场景，静默丢弃不需要的流量, 默认值是 unicast, 用于常规的单播路由
 # destination: default（等同于 0.0.0.0/0），表示匹配所有可能的目标 IP 地址
 # device: dev lo 使用的网络设备（本地回环接口）
 ip route add local default dev lo table 100
+# local - the destinations are assigned to this host. The packets are looped back and delivered locally.
 ```
 
 - DESTINATION
@@ -147,11 +152,7 @@ ip route add default via 192.168.1.1 table 1        在一号表中添加默认�
 ip route add 192.168.0.0/24 via 192.168.1.2 table 1 在一号表中添加一条到 192.168.0.0 网段的路由为 192.168.1.2
 ```
 
-```Bash
-ip route add local default dev lo table 100
-```
 
-local - the destinations are assigned to this host. The packets are looped back and delivered locally.
 
 https://man7.org/linux/man-pages/man8/ip-route.8.html
 
@@ -193,7 +194,7 @@ dev the output device name
 routing protocol identifier of this route.
 proto字段的定义在内核中并没有实质的意义,只是一个显示字段
 
-UNSPEC表示未指定
+UNSPEC 表示未指定
 REDIRECT已经不再使用
 KERNEL 内核自身添加的路由
 BOOT为在启动过程中安装的路由
@@ -257,11 +258,11 @@ Dev相对于对gateway的一个更小的约束。同样起到约束作用的还�
 
 ### type: 路由类型
 
-unicast ,local, broadcast ,multicast , throw,unreachable ,prohibit , blackhole, nat
+unicast, local, broadcast, multicast, throw, unreachable, prohibit, blackhole, nat
 
 类型            说明
 unicast        该类型路由描述到目的地址的真实路径
-local          目的地址被分配给本机,数据包通过回环被投递到本地
+local          目的地址被分配给本机,数据包通过回环接口（loopback interface，lo）被投递到本地, 表示这是一个本地路由（local route），即目标地址是本地主机（localhost）的路由。本地路由的流量不会离开设备，而是直接在本地处理。
 broadcast      目的地址是广播地址,数据包作为链路广播发送。
 multicast      使用多播路由。在普通的路由表中,这种路由并不存在。
 throw          如果选择了这种路由,就会认为没有发现路由,在这个表中的查询就会被终止,并产生ICMP信息net unreachable。本地发送者会返回ENETUNREACH错误。
@@ -418,6 +419,12 @@ iptables -A PREROUTING -t mangle -i eth0 -s 192.168.0.1 -192.168.0.100 -j MARK -
 
 # fwmark 3 是标记, table 3 是路由表 3 上边。 意思就是凡事标记了 3 的数据使用 table3 路由表
 ip rule add fwmark 3 table 3
+
+# ip rule：Linux 的 iproute2 工具集中的命令，用于管理策略路由规则。策略路由允许基于数据包的某些属性（如标记、源地址、目标地址等）选择不同的路由表，而非仅依赖默认路由表。
+# add：表示添加一条新的策略路由规则。
+# fwmark 1：指定匹配条件，表示只对标记（firewall mark）值为 1 的数据包应用该规则。fwmark 是内核为数据包分配的一个整数标记，通常由 iptables 或 nftables 等工具设置（如 TPROXY --tproxy-mark 1）。
+# table 100：指定当数据包匹配 fwmark 1 时，使用编号为 100 的路由表（routing table）来决定数据包的路由。
+ip rule add fwmark 1 table 100
 ```
 
 ### 默认规则

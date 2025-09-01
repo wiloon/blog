@@ -10,6 +10,8 @@ tags:
 ---
 ## TProxy
 
+
+
 ## net.ipv4.ip_forward
 
 这条命令的作用是开启 Linux 系统的 IPv4 协议栈的数据包转发功能。
@@ -82,6 +84,14 @@ NAT 表的 PREROUTING 是做 DNAT 的，改变的是 目的 IP/端口，和 TPRO
 filter 表主要是 允许/拒绝，没有改变路由的能力。
 
 mangle 表才允许 标记数据包/修改 TTL 等参数，并且是 TPROXY 实现所需的表。  mangle 表专门负责修改数据包的元数据，例如修改 TTL、TOS/DSCP 字段等，用于流量整形或高级路由。
+
+-j TPROXY --tproxy-mark 1 会为匹配的数据包（TCP 或 UDP）设置一个标记值（mark）为 1。这个标记是 Linux 内核中的一种元数据，附加在数据包的 sk_buff（socket buffer）结构上。
+
+在 Linux 内核的网络协议栈中，每个 TCP/IP 数据包在内核处理过程中都会被封装在一个 sk_buff（socket buffer）结构中。
+
+当网络接口（如网卡）接收到一个数据包时，内核会为其分配一个 sk_buff 结构，用于存储数据包的原始数据（包括以太网头部、IP 头部、TCP/UDP 头部和有效载荷）。
+在数据包从物理层向上通过协议栈（如链路层、网络层、传输层）处理的过程中，sk_buff 会携带数据包的元数据，并在各层之间传递。
+同样，当系统发送数据包时，内核会为待发送的数据分配一个 sk_buff，并在协议栈向下处理后通过网卡发送出去。
 
 TPROXY 只能在 mangle 表的 PREROUTING 链上工作
 
