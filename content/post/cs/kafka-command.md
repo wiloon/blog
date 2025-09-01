@@ -36,7 +36,7 @@ bin/kafka-console-producer.sh --bootstrap-server 127.0.0.1:9092 --topic topic_0
 bin/kafka-consumer-groups.sh --bootstrap-server 127.0.0.1:9092 --list
 
 # 查看 consumer group offset
-/opt/kafka/bin/kafka-consumer-groups.sh --bootstrap-server 127.0.0.1:9092 --describe --group group0
+bin/kafka-consumer-groups.sh --bootstrap-server 127.0.0.1:9092 --describe --group group0
 
 # tls
 ./kafka-topics.sh --list --bootstrap-server 127.0.0.1:9093 --command-config /tmp/kafka.conf
@@ -59,10 +59,12 @@ ssl.endpoint.identification.algorithm=
 ### consumer
 
 ```bash
+# 常规的 consumer
+bin/kafka-console-consumer.sh --topic topic_0 --bootstrap-server 127.0.0.1:9092
 # 打印 key
 bin/kafka-console-consumer.sh --topic du_fwa_commit --property print.key=true --property key.separator="-" --bootstrap-server 127.0.0.1:9092
 
-bin/kafka-console-consumer.sh --topic topic0 --bootstrap-server 127.0.0.1:9092
+
 # 指定 consumer group
 bin/kafka-console-consumer.sh --topic topic0 --bootstrap-server 127.0.0.1:9092 --group group0
 # ssl
@@ -86,9 +88,7 @@ bin/kafka-console-consumer.sh \
 ### producer
 
 ```bash
-bin/kafka-console-producer.sh \
---bootstrap-server 127.0.0.1:9092 \
---topic topic0
+bin/kafka-console-producer.sh --bootstrap-server 127.0.0.1:9092 --topic topic_0
 
 bin/kafka-console-producer.sh \
 --bootstrap-server kafka.wiloon.com:9092 \
@@ -408,21 +408,24 @@ sudo cat /var/lib/nerdctl/1935db59/volumes/default/kafka-storage/_data/meta.prop
 
 # CLUSTER_ID 用上面查到的值
 sudo nerdctl run -d --name kafka \
+  --restart unless-stopped \
+  --hostname localhost \
   --network host \
   -p 9092:9092 \
   -v kafka-storage:/tmp/kraft-combined-logs \
   -e KAFKA_NODE_ID=1 \
-  -e CLUSTER_ID=eb79f6f4-34b5-44de-be81-ba6784f46a2f \
+  -e CLUSTER_ID=19f7b2ea-fe92-4b4d-ac56-6d22fffb1cd4 \
   -e KAFKA_PROCESS_ROLES=broker,controller \
-  -e KAFKA_CONTROLLER_QUORUM_VOTERS=1@localhost:9093 \
-  -e KAFKA_LISTENERS=PLAINTEXT://localhost:9092,CONTROLLER://localhost:9093 \
-  -e KAFKA_ADVERTISED_LISTENERS=PLAINTEXT://localhost:9092 \
+  -e KAFKA_CONTROLLER_QUORUM_VOTERS=1@127.0.0.1:9093 \
+  -e KAFKA_LISTENERS=PLAINTEXT://0.0.0.0:9092,CONTROLLER://0.0.0.0:9093 \
+  -e KAFKA_ADVERTISED_LISTENERS=PLAINTEXT://127.0.0.1:9092 \
   -e KAFKA_CONTROLLER_LISTENER_NAMES=CONTROLLER \
+  -e KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR=1 \
   -e KAFKA_LOG_DIRS=/tmp/kraft-combined-logs \
   --memory 2g \
   -e KAFKA_HEAP_OPTS="-Xmx1g -Xms1g" \
+  --restart unless-stopped \
   apache/kafka:3.9.1
-
 ```
 
 ---
