@@ -115,6 +115,28 @@ RouteMetric=100
 RouteMetric=100
 ```
 
+```bash
+[Match]
+Name=en*
+Name=eth*
+
+[Link]
+RequiredForOnline=routable
+
+[Network]
+# 启用 DHCP（获取 IP、网关、DNS 等）。
+DHCP=yes
+# 启用 mDNS（多播 DNS），方便局域网主机互相通过主机名访问（例如 hostname.local）。
+MulticastDNS=yes
+Gateway=192.168.50.21
+
+[DHCPv4]
+RouteMetric=100
+UseGateway=false
+[IPv6AcceptRA]
+RouteMetric=100
+```
+
 ### 配置静态 IP, 网关
 
 ```bash
