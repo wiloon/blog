@@ -1,7 +1,7 @@
 ---
 title: wireguard
 author: "-"
-date: 2022-07-31 13:54:01
+date: 2025-08-31 17:21:47 +0800
 url: wireguard
 categories:
   - network
@@ -20,10 +20,10 @@ wireguard default port: 51820
 ### archlinux
 
 archlinux 新版本的内核已经集成了 wireguard，不需要单独安装.  
-已经集成了 wireguard 但是默认没加载, 需要配置一下启动的时候加载 wireguard 内核模块.
+archlinux 集成了 wireguard 但是默认没加载, 需要配置一下启动的时候加载 wireguard 内核模块.
 
 ```Bash
-# 看看 wireguard 内核模块是不是已经加载了
+# 查看 wireguard 内核模块是不是已经加载了
 lsmod | grep wireguard
 # 手动加载内核模块
 sudo modprobe wireguard
@@ -60,7 +60,7 @@ peer A & peer B
 
 ```bash
 # 同时生成私钥公钥
-wg genkey | tee private.key | wg pubkey > public.key
+wg genkey | (umask 0077 && tee peer_A.key) | wg pubkey > peer_A.pub
 
 # 单独生成私钥
 wg genkey > private.key
