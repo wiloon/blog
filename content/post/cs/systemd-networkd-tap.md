@@ -13,7 +13,7 @@ tags:
 - 手动创建tap
 - 开机自动创建tap
 
-### 手动创建tap0
+### 手动创建 tap0
 
 ```bash
 sudo ip tuntap add dev tap0 mode tap

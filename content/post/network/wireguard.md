@@ -19,7 +19,7 @@ wireguard default port: 51820
 
 ### archlinux
 
-archlinux 新版本的内核已经集成了 wireguard，不需要单独安装.  
+archlinux 新版本的内核已经集成了 wireguard，不需要单独安装.
 archlinux 集成了 wireguard 但是默认没加载, 需要配置一下启动的时候加载 wireguard 内核模块.
 
 ```Bash
@@ -34,7 +34,7 @@ lsmod | grep wireguard
 # load kernel module at boot
 vim /etc/modules-load.d/wireguard.conf
 
-# content of wireguard.conf 
+# content of wireguard.conf
 # load wireguard module at boot
 wireguard
 ```
@@ -51,6 +51,10 @@ sudo apt install wireguard
 ```
 
 ### macos
+
+```bash
+brew install wireguard-tools
+```
 
 在 App Store 安装 wireguard
 
@@ -159,8 +163,6 @@ openresolv
 
 ## ipv4 forward
 
->wiloon.com/ip-forward
-
 ```bash
 vim /etc/sysctl.d/30-ipforward.conf
 
@@ -171,24 +173,8 @@ net.ipv6.conf.all.forwarding=1
 ```
 
 ```Bash
-# 检查 ip forward 是否设置成功
+# 重启之后验证 ip forward 是否设置成功
 sysctl -a |grep net.ipv4.ip_forward
-```
-
-### iptables, 设置 iptables 规则，客户端连接之后就能 Ping 通服务端局域网里的其它 ip 了
-
-```bash
-iptables -t filter -A FORWARD -i wg0 -j ACCEPT
-# iptables -t nat    -A POSTROUTING -o <eth0> -j MASQUERADE
-iptables -t nat    -A POSTROUTING -o ens18 -j MASQUERADE
-#iptables -t nat    -A POSTROUTING -o wlp1s0 -j MASQUERADE
-```
-
-### load iptables on boot, 启动时加载规则
-
-```bash
-iptables-save -f /etc/iptables/iptables.rules
-systemctl enable iptables
 ```
 
 ## systemd-networkd, 用 systemd-networkd 配置 wireguard, 开机自动加载 wireguard 配置
@@ -221,9 +207,9 @@ Name = wg0
 Kind = wireguard
 Description = wireguard
 
-[WireGuard]a
+[WireGuard]
 # 可以不配置 ListenPort, wireguard 会随机开放一个监听端口
-ListenPort = 51900
+ListenPort = 51820
 # 本端私钥, 等号两边可以有空格
 PrivateKey = private-key-0
 # 也可以配置私钥路径
@@ -239,7 +225,7 @@ AllowedIPs = 192.168.xx.xx/32
 # 如果作为客户端主动连接远程的端口, 配置 Endpoint
 Endpoint=wireguard0.foo.com:51820
 
-# 对端 B
+# 对端 B, 没有配置 Endpoint, 等对方主动连接
 [WireGuardPeer]
 PublicKey = public-key-1
 AllowedIPs = 192.168.xx.xx/32
@@ -249,6 +235,22 @@ AllowedIPs = 192.168.xx.xx/32
 
 ```bash
 systemctl restart systemd-networkd
+```
+
+### iptables, 设置 iptables 规则，客户端连接之后就能 Ping 通服务端局域网里的其它 ip 了
+
+```bash
+iptables -t filter -A FORWARD -i wg0 -j ACCEPT
+# iptables -t nat    -A POSTROUTING -o <eth0> -j MASQUERADE
+iptables -t nat    -A POSTROUTING -o ens18 -j MASQUERADE
+#iptables -t nat    -A POSTROUTING -o wlp1s0 -j MASQUERADE
+```
+
+### load iptables on boot, 启动时加载规则
+
+```bash
+iptables-save -f /etc/iptables/iptables.rules
+systemctl enable iptables
 ```
 
 ### config router, add port forward config

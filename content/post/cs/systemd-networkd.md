@@ -39,7 +39,7 @@ tags:
 
 ### .network 配置
 
-```
+```bash
 [Match]
 Name= 设备名 (比如Br0, enp4s0, 也可以用通配符, 比如 en*), 可以配置多个 name
 Host= 匹配的 hostname
@@ -92,14 +92,27 @@ sudo systemctl start wpa_supplicant@wlp2s0
 
 for eth0, vim  /etc/systemd/network/eth.network
 
+DHCP=yes 会从 DHCP 服务器获取 IP 地址、子网掩码、以及默认网关
+
 ```bash
 [Match]
 Name=en*
+Name=eth*
+
+[Link]
+RequiredForOnline=routable
+
 [Network]
 # 启用 DHCP（获取 IP、网关、DNS 等）。
 DHCP=yes
 # 启用 mDNS（多播 DNS），方便局域网主机互相通过主机名访问（例如 hostname.local）。
 MulticastDNS=yes
+
+[DHCPv4]
+RouteMetric=100
+
+[IPv6AcceptRA]
+RouteMetric=100
 ```
 
 ### 配置静态 IP, 网关

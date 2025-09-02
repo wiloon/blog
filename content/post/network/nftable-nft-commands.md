@@ -18,6 +18,7 @@ tags:
 sudo pacman -S nftables
 sudo systemctl start nftables
 sudo systemctl enable nftables
+sudo systemctl status nftables
 ```
 
 #### centos 8
