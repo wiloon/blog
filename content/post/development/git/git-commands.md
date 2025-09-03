@@ -452,6 +452,18 @@ git push origin HEAD:newBranch
 git branch --set-upstream-to origin/newBranch
 ```
 
+#### 修改远程仓库的分支名
+
+git 不支持直接重命名远程分支, 只能是基于远程分支 建 一个本地分支, 然后推送到远程再把旧名字的分支删掉
+
+```bash
+git fetch origin
+git branch new_branch origin/old_branch
+git push origin new_branch
+git push origin --delete old_branch
+git remote prune origin
+```
+
 ## git tag
 
 ```Bash
