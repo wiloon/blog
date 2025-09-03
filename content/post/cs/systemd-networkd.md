@@ -108,12 +108,15 @@ DHCP=yes
 # 启用 mDNS（多播 DNS），方便局域网主机互相通过主机名访问（例如 hostname.local）。
 MulticastDNS=yes
 
+# RequiredForOnline=routable 告诉 systemd：只有当这个网络接口（比如 ens18）成功获取到一个可用的默认路由后，才能认为整个系统的网络连接已准备就绪（即 'online'）。
 [DHCPv4]
 RouteMetric=100
 
 [IPv6AcceptRA]
 RouteMetric=100
 ```
+
+忽略 DHCP 服务器提供的网关信息, 使用我们手动指定的网关
 
 ```bash
 [Match]
@@ -133,6 +136,7 @@ Gateway=192.168.50.21
 [DHCPv4]
 RouteMetric=100
 UseGateway=false
+
 [IPv6AcceptRA]
 RouteMetric=100
 ```
@@ -148,6 +152,9 @@ vim /etc/systemd/network/eth.network
 ```bash
 [Match]
 Name=ens3
+
+[Link]
+RequiredForOnline=routable
 
 [Network]
 # Address 一定要以 /24 结尾
