@@ -2,11 +2,12 @@
 title: Git 分支管理, github flow, gitlab flow
 author: "-"
 date: 2013-01-20T09:25:18+00:00
-url: git/branch
+url: git-flow
 categories:
-  - VCS
+  - Git
 tags:
   - reprint
+  - r3emix
   - Git
   - todo
 ---
@@ -21,26 +22,26 @@ Vincent Driessen 提出了一个分支管理的策略，我觉得非常值得借
 
 首先，代码库应该有一个、且仅有一个主分支。所有提供给用户使用的正式版本，都在这个主分支上发布。
 
-Git主分支的名字，默认叫做Master。它是自动建立的，版本库初始化以后，默认就是在主分支在进行开发。
+Git主分支的名字，默认叫做 main。它是自动建立的，版本库初始化以后，默认就是在主分支在进行开发。
 
-## 开发分支 Develop
+## 开发分支 develop
 
-主分支只用来分布重大版本，日常开发应该在另一条分支上完成。我们把开发用的分支，叫做Develop。
+主分支只用来分布重大版本，日常开发应该在另一条分支上完成。我们把开发用的分支，叫做 develop。
 
-这个分支可以用来生成代码的最新隔夜版本 (nightly) 。如果想正式对外发布，就在Master分支上，对Develop分支进行"合并" (merge) 。
+这个分支可以用来生成代码的最新隔夜版本 (nightly) 。如果想正式对外发布，就在 main 分支上，对 develop 分支进行"合并" (merge) 。
 
-Git创建Develop分支的命令:
+Git创建 develop 分支的命令:
 
-git switch -b develop master
+git switch -b develop main
 
-将Develop分支发布到Master分支的命令:
+将 develop 分支发布到 main 分支的命令:
 
-## 切换到Master分支
-  
->git switch master
+## 切换到 main 分支
 
-## 对 Develop 分支进行合并
-  
+>git switch main
+
+## 对 develop 分支进行合并
+
 ```bash
 git merge develop
 ```
@@ -128,3 +129,19 @@ git merge develop
 最后，删除"修补bug分支"
 
 > git branch -d fixbug-0.1
+
+阮一峰 -- Git 工作流程
+
+https://www.ruanyifeng.com/blog/2015/12/git-workflow.html
+
+gitlab flow
+
+https://www.ruanyifeng.com/blog/2015/12/git-workflow.html
+
+https://about.gitlab.com/blog/gitlab-flow-duo/
+
+github flow
+
+https://docs.github.com/en/get-started/using-github/github-flow
+
+https://gitlab.com/gitlab-org/gitlab-foss/-/blob/0fdb03ee16f0ccd7f122a4f0af23ee628d1de3c9/doc/workflow/gitlab_flow.md

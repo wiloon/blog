@@ -1594,3 +1594,12 @@ echo "full path to currently executed script is : ${baseDirForScriptSelf}"
 
 [1]: http://www.zeali.net/entry/404 "获得jar包存放路径的方法"
 
+
+##
+
+查看当前目录下所有以prefix开头的文件，并打印出每个文件的第一行内容
+
+```bash
+for file in prefix*; do echo "$file: " && head -n 1 "$file"; done
+
+```
