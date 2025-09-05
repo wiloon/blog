@@ -177,6 +177,22 @@ net.ipv6.conf.all.forwarding=1
 sysctl -a |grep net.ipv4.ip_forward
 ```
 
+### iptables, 设置 iptables 规则，客户端连接之后就能 Ping 通服务端局域网里的其它 ip 了
+
+```bash
+iptables -t filter -A FORWARD -i wg0 -j ACCEPT
+# iptables -t nat    -A POSTROUTING -o <eth0> -j MASQUERADE
+iptables -t nat    -A POSTROUTING -o ens18 -j MASQUERADE
+# iptables -t nat    -A POSTROUTING -o wlp1s0 -j MASQUERADE
+```
+
+### load iptables on boot, 启动时加载规则
+
+```bash
+iptables-save -f /etc/iptables/iptables.rules
+systemctl enable iptables
+```
+
 ## systemd-networkd, 用 systemd-networkd 配置 wireguard, 开机自动加载 wireguard 配置
 
 ```bash
@@ -301,12 +317,7 @@ mtu: auto
 16. Exclude private IPs: no
 17. 连接保活间隔(单位:秒): 不填
 
-### chromeos > crostini
-
-使用 android 版本的 wireguard
-chromeos 从 google play 安装wireguard,连接成功后，vpn全局生效包括crostini里的linux也可以使用vpn通道
-
-## windows
+## windows wireguard GUI
 
 - 新建空隧道
   - 名称: pingd
@@ -316,14 +327,14 @@ chromeos 从 google play 安装wireguard,连接成功后，vpn全局生效包括
 [Interface]
 # 自动生成的私钥
 PrivateKey = privateKey0
-# 本端地址, 跟对端配置填成一样的
+# 本端地址, 跟对端客户端配置填成一样的
 Address = 192.168.53.8/32
 # DNS 可选字段, 配置之后 DNS 请求会发到这个地址
 DNS = 192.168.50.1
 
 [Peer]
 # publicKey0: 服务端公钥, 对端公钥
-PublicKey = publicKey0
+PublicKey = publicKey_0
 AllowedIPs = 192.168.50.0/24, 192.168.53.0/24
 # endpoint 配置了域名的时候, wireguard 建立连接时会先把域名解析成ip,再建连接,断网重连的时候直接用上一次的ip重连, 用DDNS的情况, ip变了之后会导致重连失败.
 Endpoint = foo.bar.com:51900
