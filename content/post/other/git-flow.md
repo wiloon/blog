@@ -1,5 +1,5 @@
 ---
-title: Git 分支管理, github flow, gitlab flow
+title: git flow, Git 分支管理, github flow, gitlab flow
 author: "-"
 date: 2013-01-20T09:25:18+00:00
 url: git-flow
@@ -11,7 +11,66 @@ tags:
   - Git
   - todo
 ---
-## Git 分支管理, github flow, gitlab flow
+## git flow, Git 分支管理, github flow, gitlab flow
+
+### git flow
+
+- main: 稳定的生产代码，只有发布版本才合并到这里, 长期分支，始终存在。
+- develop：日常开发的主分支，所有新功能和 bug 修复先合并到 develop, 长期分支，始终存在。用于整合开发中的代码
+- feature/xxx：新功能开发的临时分支，开发完成后合并到 develop, 合并之后删掉, 短期分支， 不是长期保持。开发新特性时创建,合并后删除
+- release/xxx：发布准备分支，从 develop 分出，准备发布, 短期分支， 不是长期保持。
+- hotfix/xxx：生产环境紧急修复，从 main 分出，修复后合并回 main 和 develop, 短期分支， 不是长期保持。
+
+Git flow 是一个Git分支管理模型，由 Vincent Driessen 于2010年发布在其个人网站的一篇博文中《A successful Git branching model》，该模型适用于多版本管理的项目，能够有效的促进团队成员之间的协作，提升代码的清晰度。
+
+https://nvie.com/posts/a-successful-git-branching-model/
+https://www.cnblogs.com/youbins/p/17632165.html
+
+Git flow的优点是清晰可控，缺点是相对复杂，需要同时维护两个长期分支。大多数工具都将master当作默认分支，可是开发是在develop分支进行的，这导致经常要切换分支，非常烦人。
+
+更大问题在于，这个模式是基于”版本发布”的，目标是一段时间以后产出一个新版本。但是，很多网站项目是”持续发布”，代码一有变动，就部署一次。这时，master分支和develop分支的差别不大，没必要维护两个长期分支。
+
+### github flow
+
+- 只有主分支（通常是 main 或 master）和临时 feature 分支。
+- 在 GitHub Flow 中并不推荐或保留 develop 分支。
+- feature/bugfix 分支：开发新功能或修复 bug 时，从 main 分出，开发完成后提 Pull Request（PR），通过代码审查后合并到 main。开发完成后通过 Pull Request 合并到 main，feature 分支随即删除。
+- GitHub Flow 本身不适合多版本并行维护
+
+https://docs.github.com/en/get-started/using-github/github-flow
+
+Github flow 是Git flow的简化版，专门配合”持续发布”。它是 Github.com 使用的工作流程。
+
+Github flow 的最大优点就是简单，对于”持续发布”的产品，可以说是最合适的流程。
+
+问题在于它的假设：master分支的更新与产品的发布是一致的。也就是说，master分支的最新代码，默认就是当前的线上代码。
+
+可是，有些时候并非如此，代码合并进入master分支，并不代表它就能立刻发布。比如，苹果商店的APP提交审核以后，等一段时间才能上架。这时，如果还有新的代码提交，master分支就会与刚发布的版本不一致。另一个例子是，有些公司有发布窗口，只有指定时间才能发布，这也会导致线上版本落后于master分支。
+
+上面这种情况，只有master一个主分支就不够用了。通常，你不得不在master分支以外，另外新建一个production分支跟踪线上版本。
+
+### gitlab flow
+
+https://www.ruanyifeng.com/blog/2015/12/git-workflow.html
+
+https://about.gitlab.com/blog/gitlab-flow-duo/
+
+Gitlab flow 是 Git flow 与 Github flow 的综合。它吸取了两者的优点，既有适应不同开发环境的弹性，又有单一主分支的简单和便利。它是 Gitlab.com 推荐的做法。
+它只有一个长期分支，就是main，因此用起来非常简单。
+
+上游优先, Gitlab flow 的最大原则叫做”上游优先”（upsteam first），即只存在一个主分支 main, 它是所有其他分支的”上游”。只有上游分支采纳的代码变化，才能应用到其他分支。
+
+对于”持续发布”的项目，它建议在main分支以外，再建立不同的环境分支。比如，”开发环境”的分支是main，”预发环境”的分支是pre-production，”生产环境”的分支是production。
+
+开发分支是预发分支的”上游”，预发分支又是生产分支的”上游”。代码的变化，必须由”上游”向”下游”发展。比如，生产环境出现了bug，这时就要新建一个功能分支，先把它合并到main，确认没有问题，再cherry-pick到pre-production，这一步也没有问题，才进入production。
+
+只有紧急情况，才允许跳过上游，直接合并到下游分支。
+
+GitLab Flow 的灵活性
+GitLab Flow 并不是一种“固定的分支模型”，而是一套分支管理思想和实践建议，它允许团队根据实际需求灵活选择分支策略。
+官方文档明确提出，GitLab Flow 可以结合发布驱动（Release-based）、环境驱动（Environment-based）、功能驱动（Feature-based）等多种模式[1]。
+
+----
 
 https://cloud.tencent.com/developer/article/1646937
 
@@ -136,12 +195,10 @@ https://www.ruanyifeng.com/blog/2015/12/git-workflow.html
 
 gitlab flow
 
-https://www.ruanyifeng.com/blog/2015/12/git-workflow.html
 
-https://about.gitlab.com/blog/gitlab-flow-duo/
 
 github flow
 
-https://docs.github.com/en/get-started/using-github/github-flow
+
 
 https://gitlab.com/gitlab-org/gitlab-foss/-/blob/0fdb03ee16f0ccd7f122a4f0af23ee628d1de3c9/doc/workflow/gitlab_flow.md
