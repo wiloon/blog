@@ -7,6 +7,7 @@ categories:
   - Linux
 tags:
   - reprint
+  - remix
 ---
 ## linux user, group, 用户 用户组
 
@@ -64,13 +65,16 @@ sudo useradd user0
 ### 删除用户
 
 ```bash
--r, 删除用户home目录
+-r, 删除用户 home 目录
 userdel -r test
 ```
 
-## 创建密码
+## 设置密码
 
+```bash
 sudo passwd user0
+```
+
 输入密码: 一般密码至少要有六个字符，这里输入的密码是看不见的，屏幕没显示
 重新输一次密码:
 
