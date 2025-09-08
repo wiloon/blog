@@ -1,14 +1,19 @@
 ---
 author: "-"
 date: "2020-05-16T05:53:01Z"
-title: "tree, 以树形结构显示文件目录结构, 目录树"
+title: "tree command, 以树形结构显示文件目录结构, 目录树"
 categories:
   - Linux
 tags:
   - reprint
   - command
 ---
-## "tree, 以树形结构显示文件目录结构, 目录树"
+## tree command, 以树形结构显示文件目录结构, 目录树
+
+```bash
+#
+tree -L 3 dir_0
+```
 
 以树形结构显示文件目录结构
 
@@ -24,9 +29,11 @@ Linux tree命令用于以树状图列出目录的内容。
 
 ### 语法
 
-    tree [-aACdDfFgilnNpqstux][-I <范本样式>][-P <范本样式>][目录...]
+```bash
+tree [-aACdDfFgilnNpqstux][-I <范本样式>][-P <范本样式>][目录...]
+```
 
-**参数说明**: 
+**参数说明**:
 
 * -a 显示所有文件和目录。
 * -A 使用 ASNI 绘图字符显示树状图而非以 ASCII 字符组合。
@@ -49,8 +56,5 @@ Linux tree命令用于以树状图列出目录的内容。
 * -u 列出文件或目录的拥有者名称，没有对应的名称时，则显示用户识别码。
 * -x 将范围局限在现行的文件系统中，若指定目录下的某些子目录，其存放于另一个文件系统上，则将该子目录予以排除在寻找范围外。
     -I pattern Do not list those files that match the wild-card pattern.
-
-
----
 
 https://blog.csdn.net/xuehuafeiwu123/article/details/53817161
