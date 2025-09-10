@@ -135,8 +135,8 @@ iptables -t filter -I ufw-user-input 1 -s 0.0.0.0/0 -p tcp --dport 443 -j ACCEPT
 # 插入一条， 插入位置 10
 iptables -t nat -I  VY 10 -p tcp -m set --match-set vlist dst -j REDIRECT --to-ports 1081
 iptables -t mangle -I POSTROUTING 1  -p tcp ! --sport 22 -j LOG --log-prefix 'ipt-log-m-p1: '
---dport num 匹配目标端口号
---sport num 匹配来源端口号
+--dport num 匹配目标端口
+--sport num 匹配来源端口
 
 # 对所有来源端口是 8080 的数据输出包进行标记处理，设置标记 2  
 iptables -t mangle -A OUTPUT -p tcp --sport 8080 -j MARK -set-mark 2
@@ -148,7 +148,7 @@ iptables -t mangle -A OUTPUT -p tcp --sport 8080 -j MARK -set-mark 2
 # -I, 插入一条规则
 
 # 选项与参数: 
-#显示所选链的所有规则。如果没有选择链，所有链将被显示。也可以和z选项一起使用，这时链会被自动列出和归零。#精确输出受其它所给参数影响。
+# 显示所选链的所有规则。如果没有选择链，所有链将被显示。也可以和z选项一起使用，这时链会被自动列出和归零。#精确输出受其它所给参数影响。
 
 # delete chain
 iptables -t nat -X chain0

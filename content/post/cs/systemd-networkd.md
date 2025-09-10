@@ -177,6 +177,9 @@ Bridge=br0
 
 ```bash
 networkctl status -a
+
+# 在修改之后应用新的配置
+systemctl restart systemd-networkd
 ```
 
 ---

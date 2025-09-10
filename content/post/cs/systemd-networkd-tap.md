@@ -10,8 +10,8 @@ tags:
 ---
 ## systemd-networkd, TAP
 
-- 手动创建tap
-- 开机自动创建tap
+- 手动创建 tap
+- 开机自动创建 tap
 
 ### 手动创建 tap0
 
