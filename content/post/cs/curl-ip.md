@@ -1,5 +1,5 @@
 ---
-title: '命令行, curl  查公网ip'
+title: '命令行, curl  查询公网 ip'
 author: "-"
 date: 2019-05-07T03:18:01+00:00
 url: curl/ip
@@ -18,8 +18,7 @@ curl https://ip.cn
 curl icanhazip.com
 curl ident.me
 curl tnx.nl/ip  
-curl myip.dnsomatic.com 
-curl ifconfig.me  
+curl myip.dnsomatic.com
 ```
 
 [https://blog.csdn.net/liu0808/article/details/80769810](https://blog.csdn.net/liu0808/article/details/80769810)
