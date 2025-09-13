@@ -8,7 +8,7 @@ categories:
 tags:
   - reprint
 ---
-## '命令行, curl  查公网 ip'
+## '命令行, curl  查询公网 ip'
 
 ```bash
 curl ifconfig.me

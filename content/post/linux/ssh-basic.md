@@ -278,3 +278,11 @@ HostKeyAlgorithms
 
              If hostkeys are known for the destination host then this default is modified to prefer their algorithms.
 ```
+
+## ssh-keyscan
+
+ssh-keyscan 是一个用于收集远程主机公钥的命令行工具，通常用于 SSH（Secure Shell）相关操作。它可以从指定的主机获取 SSH 公钥并以标准格式输出，方便将其添加到 known_hosts 文件中，从而避免手动验证主机身份时的交互提示。主要用于自动化脚本或批量管理 SSH 信任关系。
+
+```bash
+ssh-keyscan -H 192.168.50.168 >> ~/.ssh/known_hosts
+```
