@@ -18,7 +18,7 @@ linux 下磁盘检查修复命令
 e2fsck -f /dev/sda2
 ```
 
-e2fsck 用于检查和修复 ext3 和 ext2 文件系统的硬盘分区, 不过这个命令还有专有形式: fsck.ext3, fsck.ext2分别用于检测ext3和ext2。
+e2fsck 用于检查和修复 ext 文件系统的硬盘分区, 不过这个命令还有专有形式: fsck.ext3, fsck.ext2分别用于检测ext3和ext2。
 
 使用方法:
 

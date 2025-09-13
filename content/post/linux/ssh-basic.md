@@ -48,6 +48,8 @@ sudo -u username -s /bin/bash
 
 ```bash
 ssh root@192.168.50.31 "whoami"
+# 也可以用单引号
+ssh root@192.168.50.31 'whoami'
 ```
 
 ## 指定私钥, 指定密钥

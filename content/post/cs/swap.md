@@ -10,9 +10,20 @@ tags:
 ---
 ## swap
 
+## archlinux 禁用 swap
+
+禁用 zram swap
+
+```bash
+systemctl list-units --type=swap
+sudo systemctl mask dev-zram0.swap
+reboot
+```
+
 ### 查看 swap 使用情况, 没有输出的话就是没有启用 swap
 
 ```bash
+swapon --show
 swapon
 free -m
 cat /proc/swaps

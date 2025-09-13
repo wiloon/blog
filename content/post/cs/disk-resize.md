@@ -1,7 +1,7 @@
 ---
 title: 硬盘扩容, PVE, Archlinux
 author: "-"
-date: 2025-05-20 09:17:42
+date: 2025-09-13 15:33:33
 url: disk/resize
 categories:
   - OS
@@ -13,9 +13,102 @@ tags:
 ---
 ## 硬盘扩容
 
+## pve ext4 根分区磁盘扩容
+
+虚拟机关机
+
+在 pve 里给硬盘扩容: vm>hardware> Hard Disk> Disk Action> resize: 填写新增的容量
+
+挂载 archlinux iso, 修改引导顺序, 让虚拟机从 iso 启动
+
+启动虚拟机
+
+```bash
+lsblk
+
+# 看到磁盘总大小增加了，但分区大小未变。
+fdisk -l
+# 调整分区表, 扩容
+fdisk /dev/sda
+# 如果不是从 iso 引导,直接在操作系统里执行, 会提示 This disk is currently in use - repartitioning is probably a bad idea. It's recommended to umount all file systems, nd swapoff all swap partitions on this disk.
+
+# 用 fdisk 调整分区表一般不会丢数据，但是最好备份一下。
+fdisk /dev/sda
+
+Welcome to fdisk (util-linux 2.41.1).
+Changes will remain in memory only, until you decide to write them.
+Be careful before using the write command.
+
+This disk is currently in use - repartitioning is probably a bad idea.
+It's recommended to umount all file systems, and swapoff all swap
+partitions on this disk.
+
+
+Command (m for help): p
+
+Disk /dev/sda: 20 GiB, 21474836480 bytes, 41943040 sectors
+Disk model: QEMU HARDDISK   
+Units: sectors of 1 * 512 = 512 bytes
+Sector size (logical/physical): 512 bytes / 512 bytes
+I/O size (minimum/optimal): 512 bytes / 512 bytes
+Disklabel type: dos
+Disk identifier: 0x1bc64ef0
+
+Device     Boot   Start      End  Sectors Size Id Type
+/dev/sda1  *       6144  2103295  2097152   1G  b W95 FAT32
+/dev/sda2       2103296 20971519 18868224   9G 83 Linux
+
+Command (m for help): d
+Partition number (1,2, default 2): 2
+
+Partition 2 has been deleted.
+
+Command (m for help): n
+Partition type
+   p   primary (1 primary, 0 extended, 3 free)
+   e   extended (container for logical partitions)
+Select (default p): p
+Partition number (2-4, default 2): 
+First sector (2048-41943039, default 2048): 2103296
+Last sector, +/-sectors or +/-size{K,M,G,T,P} (2103296-41943039, default 41943039): 
+
+Created a new partition 2 of type 'Linux' and of size 19 GiB.
+Partition #2 contains a ext4 signature.
+
+Do you want to remove the signature? [Y]es/[N]o: Y
+
+The signature will be removed by a write command.
+
+Command (m for help): p
+Disk /dev/sda: 20 GiB, 21474836480 bytes, 41943040 sectors
+Disk model: QEMU HARDDISK   
+Units: sectors of 1 * 512 = 512 bytes
+Sector size (logical/physical): 512 bytes / 512 bytes
+I/O size (minimum/optimal): 512 bytes / 512 bytes
+Disklabel type: dos
+Disk identifier: 0x1bc64ef0
+
+Device     Boot   Start      End  Sectors Size Id Type
+/dev/sda1  *       6144  2103295  2097152   1G  b W95 FAT32
+/dev/sda2       2103296 41943039 39839744  19G 83 Linux
+
+Filesystem/RAID signature on partition 2 will be wiped.
+
+Command (m for help): w
+The partition table has been altered.
+Syncing disks.
+
+# ------
+e2fsck -f /dev/sda2
+resize2fs /dev/sda2
+
+```
+
 ## PVE ext4 disk resize
 
 [Online Lossless Expansion of EXT4 Partition](https://tech.he-sb.top/posts/online-lossless-expansion-of-ext4-partition/)
+
+vm>hardware> Hard Disk> Disk Action> resize: 填写新增的容量
 
 ### 查看分区表类型
 
