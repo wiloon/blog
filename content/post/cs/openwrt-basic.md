@@ -106,13 +106,14 @@ crontab -l
 
 ### x86/64/
 
-### openwrt-24.10.0-x86-64-generic-ext4-combined-efi
+### openwrt-24.10.0-x86-64-generic-ext4-combined-efi (推荐使用)
 
 generic-ext4-combined-efi.img.gz:
-	•	这个镜像包含了对 UEFI (统一可扩展固件接口) 启动支持的配置。UEFI 是 BIOS 的现代替代品，提供更加强大的启动和系统管理功能。
-	•	设备使用这个镜像可以在支持 UEFI 启动的硬件上启动。这通常包括现代的个人电脑和一些新型号的嵌入式设备。
+
+- 这个镜像包含了对 UEFI (统一可扩展固件接口) 启动支持的配置。UEFI 是 BIOS 的现代替代品，提供更加强大的启动和系统管理功能。
+- 设备使用这个镜像可以在支持 UEFI 启动的硬件上启动。这通常包括现代的个人电脑和一些新型号的嵌入式设备。
   
-#### combined-ext4.img.gz (推荐使用)
+#### combined-ext4.img.gz
 
 包含 vmlinuz rootfs (ext4), 引导信息以及相关分区信息的 img, 一般是两个分区, 可以把它看成是硬盘镜像, 直接 dd 到某个磁盘
 此磁盘映像使用单个读写 ext4 分区, 没有只读 squashfs 根文件系统, 因此可以扩大分区。故障安全模式或出厂重置等功能将不可用, 因为它们需要只读的 squashfs 分区才能起作用。

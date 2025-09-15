@@ -66,14 +66,6 @@ kubectl apply -f https://raw.githubusercontent.com/projectcalico/calico/v3.26.0/
 kubectl get pods -n kube-system
 ```
 
-
----
-其它命令
-
-```bash
-kubeadm config images pull
-```
-
 ## kubeadm reset
 
 ```bash
@@ -105,6 +97,16 @@ sudo systemctl stop containerd
 
 ```
 
+
+## 在 k8s-67 上生成加入命令
+
+```bash
+sudo kubeadm init phase upload-certs --upload-certs
+sudo kubeadm token create --print-join-command --certificate-key <certificate-key>
+#在 k8s-38 上执行上面生成的 join 命令
+```
+
+
 Kubernetes 和 cgroup 的关系
 
 cgroup（Control Groups） 是 Linux 内核提供的功能，用于限制和管理进程的资源（如 CPU、内存、IO 等）。Kubernetes 使用 cgroup 来为 Pod 和容器分配资源，确保隔离和资源限制。
@@ -114,3 +116,12 @@ containerd 的默认行为
 containerd 默认使用 cgroupfs 作为其 cgroup 驱动，而不是 systemd。
 cgroupfs 是直接操作 Linux 内核的 cgroup 文件系统，而 systemd 通过 systemd 单元来管理 cgroup 层级。Kubernetes 更倾向于使用 systemd，因为它与现代 Linux 发行版的初始化系统集成更好，且提供更细粒度的控制。
 如果 containerd 使用 cgroupfs 而 Kubernetes 使用 systemd（默认情况），就会出现 cgroup driver mismatch 错误，导致 kubelet（Kubernetes 节点代理）无法与 containerd 正确通信。
+
+其它命令
+
+```bash
+kubeadm config images pull
+kubeadm version
+kubectl version --client
+telnet 192.168.50.67 6443
+```

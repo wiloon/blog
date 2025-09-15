@@ -1,5 +1,5 @@
 ---
-title: "pve + openwrt"
+title: pve + openwrt
 author: "-"
 date: "2021-06-17 22:28:37"
 url: ""
@@ -9,7 +9,7 @@ tags:
   - inbox
   - openwrt
 ---
-## "pve + openwrt"
+## pve + openwrt
 
 局域网网段: 192.168.50.0/24
 pve 宿主机 ip: 192.168.50.6
@@ -32,19 +32,19 @@ curl -O https://downloads.openwrt.org/releases/24.10.0/targets/x86/64/openwrt-24
 gunzip openwrt-19.07.7-x86-64-combined-ext4.img.gz
 ```
 
-上传到 pve local
+把 openwrt-24.10.0-x86-64-generic-ext4-combined-efi.img 上传到 pve local
 pve>local(xxx)>ISO Images>upload
 
 #### 创建虚拟机
 
-1. 点击 "创建虚拟机"，默认的虚拟机 ID: 100, 填写虚拟机名称 (例如 Router), 选"高级"，勾选"开机自启动" (软路由必须开机启动) ，点击"下一步"。
-2. CD/DVD 选择 "Do not use any media"，点击"下一步"。
-3. 系统选项卡全部默认，点击"下一步"。
-4. 硬盘不用改，之后会删除，会用上一步下载的 img 镜像创建虚拟磁盘。
+1. 点击 "创建虚拟机(Create VM)", 填写虚拟机名称 (例如 openwrt-24-10), 选"高级"，勾选"开机自启动" (软路由必须开机启动) ，点击"下一步"。
+2. OS: CD/DVD 选择 "Do not use any media"(不要去选择刚才上传的镜像)，点击"下一步"。
+3. System: 系统选项卡全部默认，点击"下一步"。
+4. Disk: 硬盘不用改，之后会删除，会用上一步下载的 .img 镜像创建虚拟磁盘。
 5. CPU 核心数量按需添加，一般双核足够了
-6. 内存 256MB 以上都是够的，系统有富余就多加一点，一般不用超高2GB，点击"下一步"
-7. PVE 虚拟机可选网卡模型 (虚拟网卡) 有 Intel E1000、VirtIO (半虚拟化) 、Realtek RTL8139和VMware vmxnet3四种。建议选用默认的 VirtIO (半虚拟化) ，其性能和效率最高。
-8. 分离不用的硬盘: 选择刚刚创建的虚拟机 >  硬件 > Hard Disk(scsi0) > 点击"分离(Detach)"。
+6. 内存 256MB 以上都是够的，系统有富余就多加一点，一般不用超过 2GB，点击"下一步"
+7. Network: PVE 虚拟机可选网卡模型 (虚拟网卡) 有 Intel E1000、VirtIO (半虚拟化) 、Realtek RTL8139和VMware vmxnet3四种。建议选用默认的 VirtIO (半虚拟化) ，其性能和效率最高。
+8. 分离不用的硬盘: 选择刚刚创建的虚拟机 >  硬件(Hardware) > Hard Disk(scsi0) > 点击"分离(Detach)", 然后它会变成 unused disk。
 9. 删除不用的硬盘和光驱: 选中"Unused disk 0"，点击"删除"；再用同样的方法删除不用的光驱。
 
 ### 添加启动盘
@@ -53,7 +53,7 @@ pve>local(xxx)>ISO Images>upload
 
 ### 查看上传镜像的目录
 
-点击网页下端的任务选项卡 > 双击最新的"数据拷贝"任务 > "target file" 后面就是刚刚上传的镜像文件完整目录:
+点击网页下端的任务选项卡 > 双击最新的"数据拷贝"任务 > "target file" 后面就是刚刚上传的镜像文件完整路径:
 
 target file:  
 /var/lib/vz/template/iso/openwrt-24.10.0-x86-64-generic-ext4-combined-efi.img
@@ -69,9 +69,11 @@ qm importdisk 100 /var/lib/vz/template/iso/openwrt-24.10.0-x86-64-generic-ext4-c
 
 shell 会显示 vm-100-disk-0 虚拟磁盘创建的进度，最后显示 ‘Successfully imported disk as 'unused0:local-lvm:vm-100-disk-0' 就是添加成功了。
 
-qm importdisk 是 PVE 导入磁盘到虚拟机的工具，后面的参数‘100’是Openwrt虚拟机的编号，‘/var/lib/vz/template/iso/openwrt-24.10.0-x86-64-generic-ext4-combined-efi.img’是刚才上传Openwrt镜像的完整目录，‘local-lvm’是PVE储存虚拟磁盘的存储空间。
+qm importdisk 是 PVE 导入磁盘到虚拟机的工具，后面的参数‘100’是Openwrt虚拟机的编号，
+‘/var/lib/vz/template/iso/openwrt-24.10.0-x86-64-generic-ext4-combined-efi.img’ 是刚才上传Openwrt镜像的完整目录，
+‘local-lvm’ 是PVE储存虚拟磁盘的存储空间。
 
-导入成功后在 ‘Openwrt’ 虚拟机的"硬件"选项卡就能看到一个"未使用的磁盘0"，选中它点击编辑，弹出配置窗口，Bus/Device 选"sata"，最后点击添加。
+导入成功后在 ‘Openwrt’ 虚拟机的"硬件"选项卡就能看到一个"未使用的磁盘0(Unused Disk 0)"，选中它点击编辑，弹出配置窗口，Bus/Device 选"sata"，最后点击添加。
 
 切换到虚拟机的 "Options" 选项卡，双击 "Boot Order"，第一引导项选 "Disk ‘sata0’"。
 
