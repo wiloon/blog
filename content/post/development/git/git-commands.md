@@ -276,7 +276,7 @@ git fetch origin master:tmp
 
 在本地新建一个 temp 分支，并将远程 origin 仓库的 master 分支代码下载到本地 temp 分支
 
-## 分支, branch
+## branch
 
 [http://www.ruanyifeng.com/blog/2012/07/git.html](http://www.ruanyifeng.com/blog/2012/07/git.html)
 
@@ -323,11 +323,11 @@ git remote show origin
 ### 新建分支
 
 ```bash
-# 从 tag v1.2.3 创建分支 branch1
-# 建议使用 git switch
+# 从 tag v1.2.3 创建分支 branch_1, 建议使用 git switch
+git switch -c branch_1 v1.2.3
 # git checkout -b branch_name tag_name
-# git checkout -b branch1 v1.2.3
-git switch -c branch1 v1.2.3
+# git checkout -b branch_1 v1.2.3
+
 # create branch from a commit
 # git branch branch_name <commit-hash or HEAD~3>
 
