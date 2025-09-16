@@ -11,6 +11,13 @@ tags:
 ---
 ## bash
 
+```bash
+# -n 选项代表只检查语法，不执行脚本。
+bash -n foo.sh
+
+# -n 或 --noexec 选项告诉 Bash：只读取并检查脚本的语法是否正确，但不会实际执行脚本中的任何命令。
+```
+
 ### bash -c
 
 用法: `bash -c "cmd string"`

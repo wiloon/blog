@@ -43,6 +43,8 @@ git submodule
 git submodule init
 # 把submodule 更新到跟远程主仓库关联的 commit id 一致, git status 应该是 clear 的
 git submodule update
+# 更新指定的 submodule 到远程仓库的最新版本
+git submodule update --init --remote <submodule_path>
 # 把 submodule 更新到子仓库最新的 commit id, 这个 commit 有可能跟之前关联的 commit id 不一样, 一般会比之前 关联的 commit id 更新, git status 会看到 submodule 有变更需要提交, 需要更新 关联的 commit id.
 git submodule update --remote
 # 拉取子模块 的代码

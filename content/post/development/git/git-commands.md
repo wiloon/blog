@@ -19,7 +19,11 @@ tags:
 ## commands
 
 ```bash
-显示出 HEAD 对应的提交的 hash 值
+git status --porcelain #用于以简洁、脚本友好的格式显示 Git 仓库当前的状态，方便自动化处理和快速查看文件的变动情况。
+git ls-files --unmerged
+git diff --name-only --diff-filter=U
+
+#显示出 HEAD 对应的提交的 hash 值
 git rev-parse HEAD
 git rev-parse --short HEAD
 
@@ -143,6 +147,7 @@ git log file0
 git log -3 file0
 # 以一行展现
 git log --oneline
+git log --oneline -5
 git log --reverse
 
 # git log 倒序, 仓库创建时间
@@ -858,7 +863,7 @@ git diff HEAD [<path>...]比较工作区与最新本地版本库。如果HEAD指
 git diff commit-id [<path>...]比较工作区与指定commit-id的差异　　　　　　
 git diff --cached [<commit-id>] [<path>...]比较暂存区与指定commit-id的差异
 git diff [<commit-id>] [<commit-id>]比较两个commit-id之间的差异
-
+git diff file_0
 ```
 
 // 来比较本地代码与刚刚从远程下载下来的代码的区别
