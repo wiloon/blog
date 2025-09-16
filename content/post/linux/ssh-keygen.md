@@ -26,6 +26,7 @@ ssh-keygen 是用于为 SSH 创建新的身份验证密钥对的工具。此类�
 # 优先使用 ed25519
 # 默认的密钥目录 /home/user_0/.ssh, .ssh 目录不存在的话会自动创建.
 ssh-keygen -t ed25519 -C "foo"
+ssh-keygen -t ed25519 -C "foo" -f ~/tmp/foo
 
 # RSA 算法
 ssh-keygen -t rsa -C "foo"
