@@ -12,13 +12,13 @@ tags:
 
 ## commands
 
-```
+```bash
 \l 或 \list meta-command 列出所有数据库
 sudo -u postgres psql -c "\l"
 用 \c + 数据库名 来进入数据库：
 \dt 列出所有数据库表：
 
-# 查看表结构
+# 查看表结构, 索引
 \d table0
 
 # 比上面多几个字段 Storage  | Stats target | Description
