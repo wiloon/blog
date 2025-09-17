@@ -43,7 +43,7 @@ nerdctl run -d \
 -v nginx-www:/var/www \
 -v /etc/letsencrypt:/etc/letsencrypt \
 -v /etc/localtime:/etc/localtime:ro \
-nginx:1.27.2
+nginx:1.29.1
 
 # docker
 docker run -d \

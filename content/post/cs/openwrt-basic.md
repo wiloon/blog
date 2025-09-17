@@ -336,8 +336,6 @@ echo -e "Subject: Hello!\n\nHello, world!" |sendmail wiloon.wy@gmail.com
 
 ```
 
----
-
 [https://wiki.openwrt.org/zh-cn/doc/techref/opkg](https://wiki.openwrt.org/zh-cn/doc/techref/opkg)  
 [https://blog.csdn.net/whatday/article/details/78920494](https://blog.csdn.net/whatday/article/details/78920494)  
 [https://wiki.openwrt.org/doc/techref/odhcpd](https://wiki.openwrt.org/doc/techref/odhcpd)  

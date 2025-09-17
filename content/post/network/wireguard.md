@@ -164,6 +164,10 @@ openresolv
 ## ipv4 forward
 
 ```bash
+sudo sysctl net.ipv4.ip_forward=1
+sudo sysctl net.ipv6.conf.default.forwarding=1
+sudo sysctl net.ipv6.conf.all.forwarding=1
+
 vim /etc/sysctl.d/30-ipforward.conf
 
 # content of 30-ipforward.conf
@@ -181,6 +185,7 @@ sysctl -a |grep net.ipv4.ip_forward
 
 ```bash
 iptables -t filter -A FORWARD -i wg0 -j ACCEPT
+# nat 要注意网卡名称
 # iptables -t nat    -A POSTROUTING -o <eth0> -j MASQUERADE
 iptables -t nat    -A POSTROUTING -o ens18 -j MASQUERADE
 # iptables -t nat    -A POSTROUTING -o wlp1s0 -j MASQUERADE
@@ -252,24 +257,6 @@ AllowedIPs = 192.168.xx.xx/32
 ```bash
 systemctl restart systemd-networkd
 ```
-
-### iptables, 设置 iptables 规则，客户端连接之后就能 Ping 通服务端局域网里的其它 ip 了
-
-```bash
-iptables -t filter -A FORWARD -i wg0 -j ACCEPT
-# iptables -t nat    -A POSTROUTING -o <eth0> -j MASQUERADE
-iptables -t nat    -A POSTROUTING -o ens18 -j MASQUERADE
-#iptables -t nat    -A POSTROUTING -o wlp1s0 -j MASQUERADE
-```
-
-### load iptables on boot, 启动时加载规则
-
-```bash
-iptables-save -f /etc/iptables/iptables.rules
-systemctl enable iptables
-```
-
-### config router, add port forward config
 
 ## client
 
