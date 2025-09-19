@@ -38,6 +38,8 @@ nvm ls-remote
 nvm install --lts
 nvm install 16
 nvm use 14
+nvm list-remote --lts
+
 ```
 
 ### ubuntu install nvm

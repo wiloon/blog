@@ -11,6 +11,20 @@ tags:
 ---
 ## PostgreSQL execution plan, explain, 执行计划
 
+```sql
+--  查看执行计划
+EXPLAIN
+select * from table_0 where id < 1000;
+
+-- EXPLAIN ANALYZE - 查看实际执行情况（推荐）
+EXPLAIN ANALYZE
+select * from table_0 where id < 1000;
+
+-- 更详细的执行计划
+EXPLAIN (ANALYZE, BUFFERS, VERBOSE, FORMAT TEXT)
+select * from table_0 where id < 1000;
+```
+
 ## Seq Scan, 全表扫描，顺序扫描
 
 全表扫描，也叫顺序扫描，扫描时把表中所有的数据块从头到尾遍历一边，找到复合条件的数据块。全表扫描在在explain中使用Seq Scan表示
@@ -29,7 +43,7 @@ https://www.jianshu.com/p/682d798aee1f
 
 
 查询生命周期
-第一阶段是通过Postgres 的客户端连接到数据库。
+第一阶段是通过 Postgres 的客户端连接到数据库。
 
 第二阶段是将查询转换为称为解析树的中间格式。
 

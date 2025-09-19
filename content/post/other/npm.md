@@ -1,14 +1,19 @@
 ---
-title: npm basic
+title: pnpm basic, npm basic
 author: "-"
 date: 2014-02-19T05:50:38+00:00
-url: npm
+url: pnpm
 tags:
-  - node, npm
+  - node, npm, pnpm
 categories:
   - inbox
 ---
-## npm basic
+## pnpm basic, npm basic
+
+```json
+npm install -g pnpm
+pnpm --version
+```
 
 ## version
 

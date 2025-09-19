@@ -34,7 +34,7 @@ sudo -u postgres psql -c "\l"
 ```
 
 ```bash
-# 创建用户 
+# 创建用户
 CREATE USER user_0 WITH PASSWORD 'password_0';
 
 # create database, 所有者 user_0
@@ -867,6 +867,17 @@ select * from pg_statio_all_indexes where relname='network_discovery_routing_dat
 
 select pg_relation_size('network_discovery_routing_data_time_stamp_idx');
 select pg_relation_size('constraint_routing_id_time_stamp');
+-- 按名字删除索引
+DROP INDEX index_0;
+
+--查看索引占用的空间 
+SELECT 
+    indexrelname AS indexname,
+    pg_size_pretty(pg_relation_size(indexrelid)) AS index_size,
+    pg_relation_size(indexrelid) AS index_size_bytes
+FROM pg_stat_user_indexes 
+WHERE indexrelname = 'index_0';
+
 ```
 
 ## 临时改变执行计划
