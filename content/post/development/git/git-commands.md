@@ -221,8 +221,10 @@ git fetch --tags
 ```bash
 # 更新默认配置的远程仓库 比如 origin
 git fetch
-# 更新所有远程仓库, 有多个远程仓库的时候, 会更新所有远程仓库
+# 更新所有远程仓库, 有多个远程仓库的时候, 会更新所有远程仓库, 不会单独拉取所有 tag，除非分支更新时带有 tag。
 git fetch --all
+# 只拉取 tag，不会更新分支
+git fetch --tags
 # 当前分支不是 dev 分支, 并且 dev 分支在本地没有修改的时候 更新 dev 分支
 git fetch origin dev:dev
 ```
