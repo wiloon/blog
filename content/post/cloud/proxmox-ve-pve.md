@@ -44,6 +44,30 @@ vim /etc/apt/sources.list.d/pve-enterprise.list
 
 ## 更新源
 
+### pve9
+
+```bash
+# ceph.sources
+Types: deb
+URIs: https://mirrors.bfsu.edu.cn/proxmox/debian/ceph-squid 
+Suites: trixie
+Components: no-subscription 
+Signed-By: /usr/share/keyrings/proxmox-archive-keyring.gpg
+
+# debian.sources
+Types: deb
+URIs: https://mirrors.bfsu.edu.cn/debian/ 
+Suites: trixie trixie-updates
+Components: main contrib non-free-firmware
+Signed-By: /usr/share/keyrings/debian-archive-keyring.gpg
+
+Types: deb
+URIs: https://mirrors.bfsu.edu.cn/debian-security/ 
+Suites: trixie-security
+Components: main contrib non-free-firmware
+Signed-By: /usr/share/keyrings/debian-archive-keyring.gpg
+```
+
 ### pve 6.x
 
 vi /etc/apt/sources.list
@@ -200,7 +224,7 @@ scp vzdump-qemu-105-2022_09_10-15_19_12.vma.zst root@192.168.50.7:/var/lib/vz/du
 
 #### 恢复虚拟机
 
-登录pve02节点
+登录 pve02 节点
 切换至相应的上传存储 (local)
 点击子菜单中的内容菜单
 选择刚上传的vma备份文件
