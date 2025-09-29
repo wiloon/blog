@@ -1,22 +1,41 @@
 ---
-title: tcp_syn_retries等参数
+title: tcp_syn_retries
 author: "-"
-date: 2018-08-23T11:20:58+00:00
-url: /?p=12551
+date: 2025-09-29 12:45:01
+url: tcp_syn_retries
 categories:
   - Inbox
 tags:
   - reprint
+  - remix
 ---
-## tcp_syn_retries等参数
+## tcp_syn_retries
+
 [http://www.chengweiyang.cn/2017/02/18/linux-connect-timeout/](http://www.chengweiyang.cn/2017/02/18/linux-connect-timeout/)
 
-tcp_syn_retries
-  
-tcp_synack_retries
+- tcp_syn_retries
+- tcp_synack_retries
 
 ```bash
-sysctl -a | grep tcp_synack_retries
+# ubuntu 24.04
+➜  ~ sysctl net.ipv4.tcp_syn_retries
+net.ipv4.tcp_syn_retries = 6
+➜  ~ sysctl net.ipv4.tcp_synack_retries
+net.ipv4.tcp_synack_retries = 5
+➜  ~ 
+```
+
+```
+# 对于主动连接（客户端主动发起连接），每次SYN重试的间隔会逐步递增（不是固定值），由内核写死，不能通过 sysctl 直接调整。
+t0 第一次请求 超时时间 1s
+t1 第一次重试 超时时间 2s
+t2 第二次重试 超时时间 4s
+t3 第三次重试 超时时间 8s
+t4 第四次重试 超时时间 16s
+t5 第五次重试 超时时间 32s
+t6 第六次重试 超时时间 64s
+
+总计 1+2+4+8+16+32+64 = 127s
 ```
 
 [http://www.cnitblog.com/Scripts/archive/2009/05/20/57350.html](http://www.cnitblog.com/Scripts/archive/2009/05/20/57350.html)

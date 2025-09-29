@@ -19,9 +19,8 @@ vi /etc/apk/repositories
 sed -i 's/dl-cdn.alpinelinux.org/mirrors.aliyun.com/g' /etc/apk/repositories
 ```
 
-### alpine install telnet
-
 ```bash
+# alpine install telnet
 apk update
 apk add busybox-extras
 busybox-extras telnet localhost 6900
