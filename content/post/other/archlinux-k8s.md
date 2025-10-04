@@ -11,15 +11,16 @@ tags:
 ---
 ## archlinux k8s
 
-单节点 archlinux k8s 4G 内存  20G 硬盘
-
 ```bash
 # disable swap
 swapon --show
-systemctl list-units --type=swap
-sudo swapoff -a
-sudo systemctl mask dev-zram0.swap
 
+# check swap status
+systemctl list-units --type=swap
+# disable swap
+sudo swapoff -a
+# disable zram swap
+sudo systemctl mask dev-zram0.swap
 
 sudo pacman -Syu
 sudo pacman -S kubeadm kubelet kubectl containerd

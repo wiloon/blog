@@ -20,9 +20,10 @@ sudo systemctl mask dev-zram0.swap
 reboot
 ```
 
-### 查看 swap 使用情况, 没有输出的话就是没有启用 swap
+### 查看 swap 使用情况
 
 ```bash
+# 没有输出的话就是没有启用 swap
 swapon --show
 swapon
 free -m
