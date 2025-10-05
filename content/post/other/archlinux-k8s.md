@@ -29,7 +29,7 @@ sudo systemctl mask dev-zram0.swap
 ```bash
 sudo pacman -Syu
 reboot
-sudo pacman -S containerd kubeadm kubelet kubectl
+sudo pacman -S containerd kubeadm kubelet kubectl curl jq
 # 如果提示 : iptables-nft-1:1.8.11-2 and iptables-1:1.8.11-2 are in conflict. Remove iptables? [y/N]
 # 删除 iptables, Kubernetes，推荐使用 iptables-nft，因为 Kubernetes 自 v1.13 起支持 iptables 的 nftables 后端（iptables-nft），而且 nftables 是 Linux 内核中更现代的防火墙实现，逐渐取代传统 iptables。此外，Arch Linux 的默认配置倾向于 nftables。
 
@@ -73,17 +73,34 @@ sudo systemctl enable --now containerd
 sudo systemctl status kubelet
 systemctl enable kubelet.service
 
+# kube-vip
+export VIP=192.168.1.100  # 你的 VIP（同一子网，未使用）
+export INTERFACE=ens18   # 用 `ip a` 检查网卡
+KVVERSION=$(curl -sL https://api.github.com/repos/kube-vip/kube-vip/releases | jq -r ".[0].name")
+# 设置 kube-vip 运行别名
+alias kube-vip="sudo ctr image pull ghcr.io/kube-vip/kube-vip:$KVVERSION && sudo ctr run --rm --net-host ghcr.io/kube-vip/kube-vip:$KVVERSION vip /kube-vip"
+# 生成 kube-vip Manifest：
+sudo mkdir -p /etc/kubernetes/manifests
+kube-vip manifest pod \
+  --interface $INTERFACE \
+  --address $VIP \
+  --controlplane \
+  --services \
+  --arp \
+  --leaderElection \
+  | sudo tee /etc/kubernetes/manifests/kube-vip.yaml
+
 # dryrun
 sudo kubeadm init --dry-run --v=10 --pod-network-cidr=10.244.0.0/16
-
 # 测试 Kubernetes 仓库
 curl -I https://registry.k8s.io/v2/
-
 # 拉取镜像
 sudo kubeadm config images pull
 
-# 一个集群里执行一次就可以了, 其它的 control plane, worker node 只需要执行 kubeadm join
-sudo kubeadm init --pod-network-cidr=10.244.0.0/16 --upload-certs 
+# 初始化 Kubernetes 集群# 一个集群里执行一次就可以了, 其它的 control plane, worker node 只需要执行 kubeadm join
+sudo kubeadm init --control-plane-endpoint "$VIP:6443" --upload-certs --pod-network-cidr=10.244.0.0/16 --kubernetes-version=1.34.1
+sudo kubeadm init --pod-network-cidr=10.244.0.0/16 --upload-certs
+
 sudo journalctl -u kubelet -f
 
 To start using your cluster, you need to run the following as a regular user:
