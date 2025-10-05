@@ -13,6 +13,7 @@ tags:
 
 ```bash
 # disable swap
+# check swap usage, if no output, swap is disabled
 swapon --show
 
 # check swap status
@@ -23,18 +24,24 @@ sudo swapoff -a
 sudo systemctl mask dev-zram0.swap
 
 sudo pacman -Syu
+reboot
 sudo pacman -S kubeadm kubelet kubectl containerd
 # 如果提示 : iptables-nft-1:1.8.11-2 and iptables-1:1.8.11-2 are in conflict. Remove iptables? [y/N]
-# 删除 iptables, 
-# Kubernetes，推荐使用 iptables-nft，因为 Kubernetes 自 v1.13 起支持 iptables 的 nftables 后端（iptables-nft），而且 nftables 是 Linux 内核中更现代的防火墙实现，逐渐取代传统 iptables。此外，Arch Linux 的默认配置倾向于 nftables。
+# 删除 iptables, Kubernetes，推荐使用 iptables-nft，因为 Kubernetes 自 v1.13 起支持 iptables 的 nftables 后端（iptables-nft），而且 nftables 是 Linux 内核中更现代的防火墙实现，逐渐取代传统 iptables。此外，Arch Linux 的默认配置倾向于 nftables。
 
-# 在安装 kubelet 的时候 br_netfilter 已经设置 好了, 这里可以删掉了
+lsmod|grep br_netfilter
+lsmod|grep overlay
+
+# 在安装 kubelet 的时候 br_netfilter 已经设置 好了, k8s.conf 里可以删掉了
 cat <<EOF | sudo tee /etc/modules-load.d/k8s.conf
 overlay
 EOF
 
 sudo modprobe overlay
-sudo modprobe br_netfilter
+
+sysctl net.bridge.bridge-nf-call-iptables
+sysctl net.bridge.bridge-nf-call-ip6tables
+sysctl net.ipv4.ip_forward
 
 # 安装 kubeadm 的时候以下这三个变量会自动设置, 这里可以删掉了
 cat <<EOF | sudo tee /etc/sysctl.d/k8s.conf
@@ -43,6 +50,7 @@ net.bridge.bridge-nf-call-ip6tables = 1
 net.ipv4.ip_forward                 = 1
 EOF
 
+# 使配置生效
 sudo sysctl --system
 
 # containerd config
@@ -52,14 +60,26 @@ vim /etc/containerd/config.toml
 # 打开文件,找到 `[plugins.'io.containerd.cri.v1.runtime'.containerd.runtimes.runc.options]`
 # 在下面加 一行 SystemdCgroup = true
 
-# 检查  containerd的 状态 
+# 检查  containerd 的 状态
 sudo systemctl status containerd
 # 重启 containerd
 sudo systemctl restart containerd
 sudo systemctl enable --now containerd
 
-# 一个集群里执行一次就可以了,其它的 control plance, worker node 只需要执行 kubeadm join
+systemctl enable kubelet.service
+
+# dryrun
+sudo kubeadm init --dry-run --v=10 --pod-network-cidr=10.244.0.0/16
+
+# 测试 Kubernetes 仓库
+curl -I https://registry.k8s.io/v2/
+
+# 拉取镜像
+sudo kubeadm config images pull
+
+# 一个集群里执行一次就可以了, 其它的 control plane, worker node 只需要执行 kubeadm join
 sudo kubeadm init --pod-network-cidr=10.244.0.0/16
+sudo journalctl -u kubelet -f
 
 kubectl get nodes
 
@@ -70,7 +90,8 @@ kubectl get pods -n kube-system
 ## kubeadm reset
 
 ```bash
-# kubeadm reset 会清理containerd里面运行的容器
+# kubeadm reset 会清理 containerd 里面运行的容器
+# reset 之后一般不需要重启虚拟机
 sudo kubeadm reset
 sudo systemctl status containerd
 sudo systemctl status kubelet.service
