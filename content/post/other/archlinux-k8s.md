@@ -11,6 +11,8 @@ tags:
 ---
 ## archlinux k8s
 
+disable swap
+
 ```bash
 # disable swap
 # check swap usage, if no output, swap is disabled
@@ -22,10 +24,12 @@ systemctl list-units --type=swap
 sudo swapoff -a
 # disable zram swap
 sudo systemctl mask dev-zram0.swap
+```
 
+```bash
 sudo pacman -Syu
 reboot
-sudo pacman -S kubeadm kubelet kubectl containerd
+sudo pacman -S containerd kubeadm kubelet kubectl
 # 如果提示 : iptables-nft-1:1.8.11-2 and iptables-1:1.8.11-2 are in conflict. Remove iptables? [y/N]
 # 删除 iptables, Kubernetes，推荐使用 iptables-nft，因为 Kubernetes 自 v1.13 起支持 iptables 的 nftables 后端（iptables-nft），而且 nftables 是 Linux 内核中更现代的防火墙实现，逐渐取代传统 iptables。此外，Arch Linux 的默认配置倾向于 nftables。
 
@@ -66,6 +70,7 @@ sudo systemctl status containerd
 sudo systemctl restart containerd
 sudo systemctl enable --now containerd
 
+sudo systemctl status kubelet
 systemctl enable kubelet.service
 
 # dryrun
@@ -78,8 +83,18 @@ curl -I https://registry.k8s.io/v2/
 sudo kubeadm config images pull
 
 # 一个集群里执行一次就可以了, 其它的 control plane, worker node 只需要执行 kubeadm join
-sudo kubeadm init --pod-network-cidr=10.244.0.0/16
+sudo kubeadm init --pod-network-cidr=10.244.0.0/16 --upload-certs 
 sudo journalctl -u kubelet -f
+
+To start using your cluster, you need to run the following as a regular user:
+
+  mkdir -p $HOME/.kube
+  sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
+  sudo chown $(id -u):$(id -g) $HOME/.kube/config
+
+Alternatively, if you are the root user, you can run:
+
+  export KUBECONFIG=/etc/kubernetes/admin.conf
 
 kubectl get nodes
 
@@ -94,7 +109,7 @@ kubectl get pods -n kube-system
 # reset 之后一般不需要重启虚拟机
 sudo kubeadm reset
 sudo systemctl status containerd
-sudo systemctl status kubelet.service
+sudo systemctl status kubelet
 
 # ---------
 sudo systemctl stop containerd
