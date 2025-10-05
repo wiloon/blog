@@ -12,6 +12,11 @@ tags:
 ---
 ## PVE
 
+```bash
+# 查看 pve 版本
+pveversion
+```
+
 ## macos
 
 ```bash
