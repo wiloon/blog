@@ -151,7 +151,6 @@ sudo systemctl stop containerd
 
 ```
 
-
 ## 在 k8s-67 上生成加入命令
 
 ```bash
@@ -159,7 +158,6 @@ sudo kubeadm init phase upload-certs --upload-certs
 sudo kubeadm token create --print-join-command --certificate-key <certificate-key>
 #在 k8s-38 上执行上面生成的 join 命令
 ```
-
 
 Kubernetes 和 cgroup 的关系
 
