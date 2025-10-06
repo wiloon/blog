@@ -14,7 +14,6 @@ tags:
 disable swap
 
 ```bash
-# disable swap
 # check swap usage, if no output, swap is disabled
 swapon --show
 
@@ -30,8 +29,12 @@ sudo systemctl mask dev-zram0.swap
 sudo pacman -Syu
 reboot
 sudo pacman -S containerd kubeadm kubelet kubectl curl jq
+reboot
+
 # 如果提示 : iptables-nft-1:1.8.11-2 and iptables-1:1.8.11-2 are in conflict. Remove iptables? [y/N]
 # 删除 iptables, Kubernetes，推荐使用 iptables-nft，因为 Kubernetes 自 v1.13 起支持 iptables 的 nftables 后端（iptables-nft），而且 nftables 是 Linux 内核中更现代的防火墙实现，逐渐取代传统 iptables。此外，Arch Linux 的默认配置倾向于 nftables。
+
+ctr version
 
 lsmod|grep br_netfilter
 lsmod|grep overlay
@@ -43,19 +46,10 @@ EOF
 
 sudo modprobe overlay
 
+# 安装 kubeadm 的时候这三个变量会自动设置, 输出应该都是 1
 sysctl net.bridge.bridge-nf-call-iptables
 sysctl net.bridge.bridge-nf-call-ip6tables
 sysctl net.ipv4.ip_forward
-
-# 安装 kubeadm 的时候以下这三个变量会自动设置, 这里可以删掉了
-cat <<EOF | sudo tee /etc/sysctl.d/k8s.conf
-net.bridge.bridge-nf-call-iptables  = 1
-net.bridge.bridge-nf-call-ip6tables = 1
-net.ipv4.ip_forward                 = 1
-EOF
-
-# 使配置生效
-sudo sysctl --system
 
 # containerd config
 sudo mkdir /etc/containerd
@@ -73,13 +67,12 @@ sudo systemctl enable --now containerd
 sudo systemctl status kubelet
 systemctl enable kubelet.service
 
-# kube-vip
-export VIP=192.168.1.100  # 你的 VIP（同一子网，未使用）
-export INTERFACE=ens18   # 用 `ip a` 检查网卡
+# kube-vip, 在每个 control plane 节点上执行
+# VIP（同一子网，未使用）
+export VIP=192.168.50.100
+export INTERFACE=ens18
 KVVERSION=$(curl -sL https://api.github.com/repos/kube-vip/kube-vip/releases | jq -r ".[0].name")
-# 设置 kube-vip 运行别名
 alias kube-vip="sudo ctr image pull ghcr.io/kube-vip/kube-vip:$KVVERSION && sudo ctr run --rm --net-host ghcr.io/kube-vip/kube-vip:$KVVERSION vip /kube-vip"
-# 生成 kube-vip Manifest：
 sudo mkdir -p /etc/kubernetes/manifests
 kube-vip manifest pod \
   --interface $INTERFACE \
@@ -88,7 +81,29 @@ kube-vip manifest pod \
   --services \
   --arp \
   --leaderElection \
-  | sudo tee /etc/kubernetes/manifests/kube-vip.yaml
+  | tee /etc/kubernetes/manifests/kube-vip.yaml
+
+vim /etc/kubernetes/manifests/kube-vip.yaml, 在 spec.volumes 下添加 super-admin.conf 挂载卷（如果 volumes 为空，从 spec: 后添加）：
+
+spec:
+  volumes:
+  - hostPath:
+      path: /etc/kubernetes/super-admin.conf
+      type: File
+    name: kubeconfig
+  # ... 其他 volumes（如 ca 等，如果有）
+
+在 spec.containers[0].volumeMounts 下添加挂载（覆盖默认 admin.conf）：
+
+spec:
+  containers:
+  - name: kube-vip
+    # ... 其他配置
+    volumeMounts:
+    - mountPath: /etc/kubernetes/admin.conf
+      name: kubeconfig
+      readOnly: true
+    # ... 其他 volumeMounts
 
 # dryrun
 sudo kubeadm init --dry-run --v=10 --pod-network-cidr=10.244.0.0/16
@@ -98,8 +113,7 @@ curl -I https://registry.k8s.io/v2/
 sudo kubeadm config images pull
 
 # 初始化 Kubernetes 集群# 一个集群里执行一次就可以了, 其它的 control plane, worker node 只需要执行 kubeadm join
-sudo kubeadm init --control-plane-endpoint "$VIP:6443" --upload-certs --pod-network-cidr=10.244.0.0/16 --kubernetes-version=1.34.1
-sudo kubeadm init --pod-network-cidr=10.244.0.0/16 --upload-certs
+sudo kubeadm init --control-plane-endpoint "$VIP:6443" --upload-certs --pod-network-cidr=10.244.0.0/16 --kubernetes-version=1.34.1 --v=5
 
 sudo journalctl -u kubelet -f
 
@@ -115,6 +129,11 @@ Alternatively, if you are the root user, you can run:
 
 kubectl get nodes
 
+# 验证 kube-vip
+kubectl get pods -n kube-system | grep kube-vip
+#应 Running。
+
+# 安装其它 k8s control plane 节点, 
 kubectl apply -f https://raw.githubusercontent.com/projectcalico/calico/v3.26.0/manifests/calico.yaml
 kubectl get pods -n kube-system
 ```
@@ -124,6 +143,10 @@ kubectl get pods -n kube-system
 ```bash
 # kubeadm reset 会清理 containerd 里面运行的容器
 # reset 之后一般不需要重启虚拟机
+sudo kubeadm reset -f
+sudo rm -rf /etc/kubernetes /var/lib/etcd /var/lib/kubelet
+sudo systemctl restart containerd kubelet
+
 sudo kubeadm reset
 sudo systemctl status containerd
 sudo systemctl status kubelet
