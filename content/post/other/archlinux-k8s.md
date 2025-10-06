@@ -93,6 +93,8 @@ spec:
     name: kubeconfig
   # ... 其他 volumes（如 ca 等，如果有）
 
+# super-admin.conf, should be copy to other control plane nodes
+
 在 spec.containers[0].volumeMounts 下添加挂载（覆盖默认 admin.conf）：
 
 spec:
@@ -134,7 +136,14 @@ kubectl get pods -n kube-system | grep kube-vip
 #应 Running。
 
 # 安装其它 k8s control plane 节点, 
-kubectl apply -f https://raw.githubusercontent.com/projectcalico/calico/v3.26.0/manifests/calico.yaml
+
+# install calico
+curl -O https://raw.githubusercontent.com/projectcalico/calico/v3.30.3/manifests/tigera-operator.yaml
+kubectl create -f tigera-operator.yaml
+curl -O https://raw.githubusercontent.com/projectcalico/calico/v3.30.3/manifests/custom-resources.yaml
+kubectl create -f custom-resources.yaml
+
+
 kubectl get pods -n kube-system
 ```
 
