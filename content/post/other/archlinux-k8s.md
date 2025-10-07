@@ -34,12 +34,13 @@ reboot
 # 如果提示 : iptables-nft-1:1.8.11-2 and iptables-1:1.8.11-2 are in conflict. Remove iptables? [y/N]
 # 删除 iptables, Kubernetes，推荐使用 iptables-nft，因为 Kubernetes 自 v1.13 起支持 iptables 的 nftables 后端（iptables-nft），而且 nftables 是 Linux 内核中更现代的防火墙实现，逐渐取代传统 iptables。此外，Arch Linux 的默认配置倾向于 nftables。
 
+# 查看 containerd 版本
 ctr version
 
 lsmod|grep br_netfilter
 lsmod|grep overlay
 
-# 在安装 kubelet 的时候 br_netfilter 已经设置 好了, k8s.conf 里可以删掉了
+# 在安装 kubelet 的时候 br_netfilter 已经设置 好了, k8s.conf 里不需要再加 br_netfilter
 cat <<EOF | sudo tee /etc/modules-load.d/k8s.conf
 overlay
 EOF
@@ -57,6 +58,7 @@ containerd config default | sudo tee /etc/containerd/config.toml
 vim /etc/containerd/config.toml
 # 打开文件,找到 `[plugins.'io.containerd.cri.v1.runtime'.containerd.runtimes.runc.options]`
 # 在下面加 一行 SystemdCgroup = true
+# 配置 containerd 使用 systemd 作为 cgroup 驱动
 
 # 检查  containerd 的 状态
 sudo systemctl status containerd
@@ -66,13 +68,21 @@ sudo systemctl enable --now containerd
 
 sudo systemctl status kubelet
 systemctl enable kubelet.service
+```
 
-# kube-vip, 在每个 control plane 节点上执行
-# VIP（同一子网，未使用）
+## kube-vip
+
+kube-vip 相关的命令要在每个 control plane 节点上执行
+
+```bash
+# VIP（找一个跟 control plane 在同一子网，未使用的IP）
 export VIP=192.168.50.100
+# 要绑定 VIP 的网卡名称
 export INTERFACE=ens18
+# 获取 kube-vip 最新版本
 KVVERSION=$(curl -sL https://api.github.com/repos/kube-vip/kube-vip/releases | jq -r ".[0].name")
 alias kube-vip="sudo ctr image pull ghcr.io/kube-vip/kube-vip:$KVVERSION && sudo ctr run --rm --net-host ghcr.io/kube-vip/kube-vip:$KVVERSION vip /kube-vip"
+
 sudo mkdir -p /etc/kubernetes/manifests
 kube-vip manifest pod \
   --interface $INTERFACE \
@@ -82,9 +92,13 @@ kube-vip manifest pod \
   --arp \
   --leaderElection \
   | tee /etc/kubernetes/manifests/kube-vip.yaml
+```
 
-vim /etc/kubernetes/manifests/kube-vip.yaml, 在 spec.volumes 下添加 super-admin.conf 挂载卷（如果 volumes 为空，从 spec: 后添加）：
+vim /etc/kubernetes/manifests/kube-vip.yaml
 
+在 spec.volumes 下添加 super-admin.conf 挂载卷（如果 volumes 为空，从 spec: 后添加）：
+
+```bash
 spec:
   volumes:
   - hostPath:
@@ -93,10 +107,13 @@ spec:
     name: kubeconfig
   # ... 其他 volumes（如 ca 等，如果有）
 
-# super-admin.conf, should be copy to other control plane nodes
+```
+
+super-admin.conf, should be copy to other control plane nodes
 
 在 spec.containers[0].volumeMounts 下添加挂载（覆盖默认 admin.conf）：
 
+```bash
 spec:
   containers:
   - name: kube-vip
@@ -106,7 +123,9 @@ spec:
       name: kubeconfig
       readOnly: true
     # ... 其他 volumeMounts
+```
 
+```bash
 # dryrun
 sudo kubeadm init --dry-run --v=10 --pod-network-cidr=10.244.0.0/16
 # 测试 Kubernetes 仓库
@@ -208,4 +227,16 @@ kubeadm config images pull
 kubeadm version
 kubectl version --client
 telnet 192.168.50.67 6443
+```
+
+## 上传证书
+
+```bash
+kubectl create secret tls wiloon-tls \
+  --cert=wiloon.crt \
+  --key=wiloon.key \
+  --namespace=default
+
+# 验证
+kubectl get secret wiloon-tls -o yaml
 ```

@@ -30,7 +30,6 @@ sudo trust extract-compat
 trust list|grep wiloon.com -A 5 -B 5
 
 openssl s_client -connect hello.wiloon.com:443
-
 ```
 
 ## chrome
