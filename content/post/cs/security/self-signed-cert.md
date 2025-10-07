@@ -18,6 +18,8 @@ sudo pacman -S openssl
 openssl version -d
 
 # Create two directories for all certs and root private key that you will generate
+su - wiloon
+mkdir -p /home/wiloon/apps/self-signed-cert
 mkdir certs private
 
 # list all available curves
@@ -33,11 +35,9 @@ openssl ecparam -name prime256v1 -genkey -out private/ca-key.pem
 openssl ec -in private/ca-key.pem -text -noout
 ```
 
-准备一个生成 CA 证书的 配置文件 ca-cert.cnf
+准备一个生成 CA 证书的 配置文件 ca-cert.cnf, the value in the basicConstrains is CA:true
 
-the value in the basicConstrains is CA:true
-
-修改 dir
+注意要修改 dir 的值
 
 ```bash
 [ ca ]
@@ -90,9 +90,7 @@ keyUsage                  = critical,digitalSignature,keyCertSign
 nsComment                 = "OpenSSL Generated Certificate"
 ```
 
-index.txt
-
-每次生成新证书, 这两个文件会被自动更新, 比如后面生成 wiloon.crt 的时候
+index.txt 文件, 每次生成新证书, 这两个文件会被自动更新, 比如后面生成 wiloon.crt 的时候
 
 ```bash
 touch index.txt
@@ -103,15 +101,16 @@ echo 01 > serial
 # Generate the root certificate from the private key and the configs
 openssl req -new -x509 -days 3650 -config ca-cert.cnf -extensions v3_ca -key private/ca-key.pem -out certs/ca-cert.pem
 
-# read ca pem, root pem 
+# read ca pem, root pem
 openssl x509 -in certs/ca-cert.pem -text -noout
 ```
 
-### 客户端安装自签名证书
+### 客户端安装 root certificate, ca-cert.pem
+
+把刚才生成的 ca 根证书安装到客户端主机上, 让浏览器等信任这个 CA
 
 ```Bash
 # ubuntu
-sudo rm /usr/local/share/ca-certificates/foo_cert.crt
 sudo update-ca-certificates --fresh
 # 将证书拷贝到目录“/usr/local/share/ca-certificates”
 sudo cp foo_cert.crt /usr/local/share/ca-certificates
@@ -121,18 +120,17 @@ sudo update-ca-certificates
 # remove from Ubuntu
 sudo rm /usr/local/share/ca-certificates/ca-cert.crt
 sudo update-ca-certificates --fresh
-
 ```
 
 ```bash
 # Generate the private key for one domain (某一个域名的私钥)
 openssl ecparam -name prime256v1 -genkey -out wiloon.key
-
 ```
 
 wiloon.cnf
 
-the value in the basicConstrains is CA:false instead
+- the value in the basicConstrains is CA:false instead, 这个证书不是 CA 证书, 只是普通的某一个域名的证书
+- 申请证书的域名要写在 alternate_names 里
 
 ```Bash
 [ ca ]
@@ -188,9 +186,9 @@ DNS.3       = enx-dev.wiloon.com
 DNS.4       = localhost
 DNS.5       = localhost.localdomain
 DNS.6       = kong.wiloon.com
+DNS.7       = hello.wiloon.com
 IP.1        = 127.0.0.1
-IP.2        = 10.124.44.91 # localhost IP from Android emulators. Only for Android Developers.
-
+IP.2        = 192.168.50.123 # localhost IP from Android emulators. Only for Android Developers.
 ```
 
 ```bash
@@ -214,11 +212,10 @@ openssl ca -keyfile private/ca-key.pem -cert certs/ca-cert.pem -in wiloon.csr -o
 openssl x509 -noout -text -in wiloon.crt
 
 # To verify that the certificate is built correctly
-openssl verify -CAfile certs/ca-cert.pem -verify_hostname enx-dev.wiloon.com wiloon.crt
+openssl verify -CAfile certs/ca-cert.pem -verify_hostname hello.wiloon.com wiloon.crt
 
 # check crt of web site
 openssl s_client -connect site.domain:443
-
 
 
 # R 代表已经撤销的证书
