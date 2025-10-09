@@ -16,7 +16,7 @@ download iso
 https://mirrors.aliyun.com/archlinux/iso/2025.04.01/
 
 ```bash
-curl -O http://mirrors.163.com/archlinux/iso/2022.02.01/archlinux-2022.02.01-x86_64.iso
+curl -O https://mirrors.tuna.tsinghua.edu.cn/archlinux/iso/2025.10.01/archlinux-2025.10.01-x86_64.iso
 ```
 
 ## ventory, usb-stick

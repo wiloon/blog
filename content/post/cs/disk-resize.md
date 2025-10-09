@@ -28,22 +28,11 @@ lsblk
 
 # 看到磁盘总大小增加了，但分区大小未变。
 fdisk -l
-# 调整分区表, 扩容
+# 调整分区表, 扩容, 用 fdisk 调整分区表一般不会丢数据，但是最好备份一下。
 fdisk /dev/sda
 # 如果不是从 iso 引导,直接在操作系统里执行, 会提示 This disk is currently in use - repartitioning is probably a bad idea. It's recommended to umount all file systems, nd swapoff all swap partitions on this disk.
 
-# 用 fdisk 调整分区表一般不会丢数据，但是最好备份一下。
-fdisk /dev/sda
-
-Welcome to fdisk (util-linux 2.41.1).
-Changes will remain in memory only, until you decide to write them.
-Be careful before using the write command.
-
-This disk is currently in use - repartitioning is probably a bad idea.
-It's recommended to umount all file systems, and swapoff all swap
-partitions on this disk.
-
-
+# print the partition table
 Command (m for help): p
 
 Disk /dev/sda: 20 GiB, 21474836480 bytes, 41943040 sectors
@@ -103,6 +92,8 @@ e2fsck -f /dev/sda2
 resize2fs /dev/sda2
 
 ```
+
+------
 
 ## PVE ext4 disk resize
 

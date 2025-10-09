@@ -227,26 +227,30 @@ scp wiloon.key root@192.168.50.130:/var/lib/containers/storage/volumes/certbot-c
 podman restart nginx
 ```
 
-### 增加一个域名之后重新生成证书
+### 增加一个域名之然后重新生成证书
 
 ```bash
-#撤消旧证书, 
+# 撤消旧证书, 
 # 查看 index.txt, 找到最新的版本号
-cat /home/wiloon/workspace/apps/self-signed-cert/index.txt
+cd /home/wiloon/apps/self-signed-cert
+cat index.txt
 
-# 更新 csr 信息之后, 重新签发证书
 # 撤销旧证书
-# 注意 01.pem 是要撤消的证书
-openssl ca -config ca-cert.cnf -revoke certs/05.pem
+# 注意 01 是前面 index.txt 里对应的版本号
+openssl ca -config ca-cert.cnf -revoke certs/02.pem
 
 # 修改 wiloon.cnf, 加入新域名
 vim wiloon.cnf
 
-# 重新生成  csr
+# 更新 cnf 加入新域名之后, 重新生成  csr
 openssl req -new -key wiloon.key -out wiloon.csr -sha256 -config wiloon.cnf -extensions v3_req
 
-# 重新签发证书, 跟前面的命令是一样的
+# 重新签发证书, 跟之前用过的命令是一样的
 openssl ca -keyfile private/ca-key.pem -cert certs/ca-cert.pem -in wiloon.csr -out wiloon.crt -config wiloon.cnf -extensions v3_req
+
+# 查看 index.txt, 发现新证书已经生成, 旧证书被标记为 R
+cat /home/wiloon/workspace/apps/self-signed-cert/index.txt
+scp wiloon.crt wiloon@192.168.50.67:~
 ```
 
 ```bash

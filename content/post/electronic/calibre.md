@@ -33,7 +33,7 @@ spec:
     spec:
       containers:
         - name: calibre-web-container
-          image: lscr.io/linuxserver/calibre-web:0.6.18
+          image: lscr.io/linuxserver/calibre-web:0.6.25
           imagePullPolicy: IfNotPresent
           env:
           - name: PUID
@@ -41,7 +41,7 @@ spec:
           - name: PGID
             value: "1000"
           - name: TZ
-            value: "Asia/China"
+            value: "Asia/Shanghai"
           - name: DOCKER_MODS
             value: "linuxserver/calibre-web:calibre"
           - name: OAUTHLIB_RELAX_TOKEN_SCOPE
@@ -80,7 +80,7 @@ podman run -d \
   --name=calibre-web \
   -e PUID=1000 \
   -e PGID=1000 \
-  -e TZ=Asia/China \
+  -e TZ=Asia/Shanghai \
   -e DOCKER_MODS=linuxserver/calibre-web:calibre \
   -e OAUTHLIB_RELAX_TOKEN_SCOPE=1 \
   -p 8083:8083 \
@@ -97,7 +97,7 @@ podman run -d \
   --name=calibre \
   -e PUID=1000 \
   -e PGID=1000 \
-  -e TZ=Asia/China \
+  -e TZ=Asia/Shanghai \
   -p 8080:8080 \
   -p 8081:8081 \
   -v calibre-data-tmp:/config \

@@ -32,9 +32,17 @@ trust list|grep wiloon.com -A 5 -B 5
 openssl s_client -connect hello.wiloon.com:443
 ```
 
+### archlinux + chrome
+
+```bash
+sudo pacman -Syu nss
+certutil -d sql:$HOME/.pki/nssdb -A -t "C,," -n "wangyue-ca" -i /etc/ca-certificates/trust-source/anchors/wangyue-ca.crt
+certutil -L -d sql:$HOME/.pki/nssdb | grep wangyue-ca
+```
+
 ## chrome
 
-Chrome（Linux/macOS）直接使用操作系统的证书信任链
+Chrome（macOS）直接使用操作系统的证书信任链
 关闭所有 Chrome 进程，然后再打开它以生效。
 
 ## centos
