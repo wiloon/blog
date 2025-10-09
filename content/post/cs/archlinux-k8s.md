@@ -28,7 +28,7 @@ sudo systemctl mask dev-zram0.swap
 ```bash
 sudo pacman -Syu
 reboot
-sudo pacman -S containerd kubeadm kubelet kubectl curl jq
+sudo pacman -S containerd kubeadm kubelet kubectl curl jq open-iscsi
 reboot
 
 # 如果提示 : iptables-nft-1:1.8.11-2 and iptables-1:1.8.11-2 are in conflict. Remove iptables? [y/N]
@@ -68,6 +68,8 @@ sudo systemctl enable --now containerd
 
 sudo systemctl status kubelet
 systemctl enable kubelet.service
+systemctl enable --now iscsid
+
 ```
 
 ## kube-vip
@@ -202,12 +204,10 @@ sudo systemctl stop containerd
 
 ```
 
-## 在 k8s-67 上生成加入命令
+## 在 control plane 上生成加入命令
 
 ```bash
-sudo kubeadm init phase upload-certs --upload-certs
-sudo kubeadm token create --print-join-command --certificate-key <certificate-key>
-# 在 k8s-38 上执行上面生成的 join 命令
+kubeadm token create --print-join-command
 ```
 
 Kubernetes 和 cgroup 的关系
