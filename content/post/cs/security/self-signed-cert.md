@@ -236,7 +236,7 @@ cd /home/wiloon/apps/self-signed-cert
 cat index.txt
 
 # 撤销旧证书
-# 注意 01 是前面 index.txt 里对应的版本号
+# 注意 02 是前面 index.txt 里对应的版本号
 openssl ca -config ca-cert.cnf -revoke certs/02.pem
 
 # 修改 wiloon.cnf, 加入新域名
@@ -251,6 +251,7 @@ openssl ca -keyfile private/ca-key.pem -cert certs/ca-cert.pem -in wiloon.csr -o
 # 查看 index.txt, 发现新证书已经生成, 旧证书被标记为 R
 cat /home/wiloon/workspace/apps/self-signed-cert/index.txt
 scp wiloon.crt wiloon@192.168.50.67:~
+
 ```
 
 ```bash
