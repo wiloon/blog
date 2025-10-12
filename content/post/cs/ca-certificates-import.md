@@ -9,7 +9,7 @@ tags:
   - reprint
   - remix
 ---
-## ca-certificates 导入 CA 证书
+## ca-certificates 导入 CA 证书, 安装 CA 证书
 
 ## macos 导入自签名证书
 
@@ -29,16 +29,26 @@ sudo trust extract-compat
 # 验证是否安装成功
 trust list|grep wiloon.com -A 5 -B 5
 
+# 如果连接成功，它会输出服务器的证书链（包括自签名证书）、握手细节、证书的主题、颁发者等信息。
+# s_client 工具在不指定验证选项时，只会“显示”证书信息，而不强制验证链条。
 openssl s_client -connect hello.wiloon.com:443
+
+openssl s_client -connect calibre.wiloon.com:443 -CApath /etc/ssl/certs -verify_return_error
 ```
 
 ### archlinux + chrome
 
+但 Chrome（包括 Chromium）在 Linux 上使用独立的 NSS（Network Security Services）证书数据库，默认不直接读取系统 CA。它有自己的信任存储，通常位于 ~/.pki/nssdb/
+
 ```bash
 sudo pacman -Syu nss
+# 查看已安装的证书
+certutil -d "sql:$HOME/.pki/nssdb" -L
 certutil -d sql:$HOME/.pki/nssdb -A -t "C,," -n "wangyue-ca" -i /etc/ca-certificates/trust-source/anchors/wangyue-ca.crt
 certutil -L -d sql:$HOME/.pki/nssdb | grep wangyue-ca
 ```
+
+curl 和 Firefox 都使用系统的 CA 证书存储（/etc/ssl/certs）
 
 ## chrome
 

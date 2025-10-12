@@ -25,11 +25,18 @@ mkdir certs private
 # list all available curves
 openssl ecparam -list_curves
 
-# 生成 ECDSA（椭圆曲线数字签名算法）密钥对, CA 密钥, root private key
+# 使用 ECDSA 私钥
+# 生成 ECDSA （椭圆曲线数字签名算法）密钥对, CA 密钥, root private key
 # 参数: -noout - 抑制输出椭圆曲线参数, 如果不加这个参数，命令会同时输出曲线参数和私钥,加上后只输出私钥部分
 # -genkey：生成密钥对
 # prime256v1 secp256r1 / NIST P-256 256 默认、安全性好、广泛兼容（TLS 默认）
+# ecparam 子命令, 专门处理椭圆曲线参数（EC Parameters）
+# -name prime256v1 指定曲线名称
 openssl ecparam -name prime256v1 -genkey -out private/ca-key.pem
+
+# 使用 rsa 密钥
+# genrsa 子命令默认就是生成 RSA 私钥, genrsa子命令没有-genkey参数
+openssl genrsa -out private/ca-key.pem 4096
 
 # read ca key
 openssl ec -in private/ca-key.pem -text -noout
@@ -126,6 +133,8 @@ sudo update-ca-certificates --fresh
 # Generate the private key for one domain (某一个域名的私钥)
 openssl ecparam -name prime256v1 -genkey -out wiloon.key
 ```
+
+### 生成某一个域名的证书, 需要准备一个配置文件
 
 wiloon.cnf
 

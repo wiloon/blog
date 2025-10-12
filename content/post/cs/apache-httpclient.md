@@ -9,6 +9,7 @@ tags:
   - reprint
 ---
 ## Apache HttpClient 4.5 How to Get Server Certificates
+
 ```java
 package com.memorynotfound.httpclient;
 
