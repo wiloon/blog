@@ -426,10 +426,20 @@ sudo nerdctl run -d --name kafka \
   -e KAFKA_HEAP_OPTS="-Xmx1g -Xms1g" \
   --restart unless-stopped \
   apache/kafka:3.9.1
+
+# kafka ui
+sudo nerdctl run -d \
+  --name kafka-ui \
+  --restart unless-stopped \
+  --network host \
+  -p 8080:8080 \
+  -e DYNAMIC_CONFIG_ENABLED=true \
+  -e KAFKA_CLUSTERS_0_NAME=local \
+  -e KAFKA_CLUSTERS_0_BOOTSTRAPSERVERS=localhost:9092 \
+  provectuslabs/kafka-ui:v0.7.2
 ```
 
 ---
-
 ### ubuntu install kafka, no docker kafka 4.0
 
 ```bash
