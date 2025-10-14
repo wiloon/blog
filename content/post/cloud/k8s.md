@@ -26,15 +26,28 @@ Pod 还包含其容器的共享网络和存储资源：
 ## K8s Service
 
 Service 服务可以为一组具有相同功能的容器应用提供一个统一的入口地址。
+Service 是 k8s 用来定义和管理网络访问 Pod 的一种资源对象。不同类型的 Service 决定了应用服务的暴露方式和访问范围。
 
 Pod 在摧毁重建时ip地址是会动态变化的，这样通过客户端直接访问不合适了，这时候就可以选择使用服务来和Pod建立连接，通过标签选择器进行适配。这样就能有效的解决了Pod ip地址动态变换的问题了。
 
 K8s Service有四种类型
 
-- Service
-- Headless Service
-- NodePort Service
+- ClusterIP （默认类型）
+  - 只在集群内部可访问，外部无法直接访问。
+  - 适合微服务之间的内部通信。
+  - 示例：type: ClusterIP
+- NodePort
+  - 在每个节点(master node and worker node, all node)的指定端口开放服务，外部可以通过节点IP+端口访问服务。
+  - 一般用于开发、测试，或与外部负载均衡器配合使用。
+  - 示例：type: NodePort
 - LoadBalancer Service
+  - 集成云服务商的负载均衡器（如 AWS ELB、GCP LB），自动分配一个外部 IP，通过该 IP 访问服务。
+  - 适合生产环境，需要公网访问的服务。
+  - 示例：type: LoadBalancer
+- ExternalName
+  - 不真正暴露端口，而是把服务名解析为 DNS 名称（如外部数据库）。
+  - 适合集群内服务直接访问集群外部服务（如通过 DNS 访问外部资源）。
+  - 示例：type: ExternalName
 
 ### headless service
 

@@ -2,7 +2,7 @@
 title: SSH 端口转发, ssh port forward
 author: "-"
 date: 2015-01-18T05:43:22+00:00
-url: /?p=7259
+url: ssh-port-forward
 categories:
   - Inbox
 tags:
