@@ -307,17 +307,12 @@ sudo systemctl restart  postgresql
 https://hub.docker.com/_/postgres
 
 ```bash
-nerdctl pull postgres:17.5
-sudo mkdir -p /var/lib/postgresql/17/data
-sudo chown -R 777 /var/lib/postgresql/17/data
+nerdctl pull postgres:18.0
+sudo mkdir -p /var/lib/postgresql/18/data
+sudo chown -R 999:999 /var/lib/postgresql/18/data
 
 # 默认用户名 POSTGRES_USER=postgres
-nerdctl run \
-  --name postgres \
-  -e POSTGRES_PASSWORD=password_0 \
-  -p 5432:5432 \
-  -v /var/lib/postgresql/17/data:/var/lib/postgresql/data \
-  -d postgres:17.5
+sudo nerdctl run -d --name postgres --network host --restart=always -e POSTGRES_PASSWORD=password_0 -e POSTGRES_USER=postgres -v /var/lib/postgresql/18/data:/var/lib/postgresql/18/docker postgres:18.0
 
 ###
 docker pull postgres:16.4
