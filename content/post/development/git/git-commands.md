@@ -57,9 +57,50 @@ git -C /Users/jhoffmann/tmp/my-project/ pull
 
 [https://www.zhihu.com/question/27712995](https://www.zhihu.com/question/27712995)
 
-origin 是远程仓库的默认别名, 查看配置了几个远程仓库和别名 `git remote -v`
+origin 是远程仓库的默认别名, 查看所有远程仓库和别名 `git remote -v`
+origin 是 Git 克隆时自动创建的远程仓库别名
 
+## git pull
 
+git pull 命令用于从另一个存储库或本地分支获取并集成(整合)。git pull 命令的作用是：取回远程主机某个分支的更新，再与本地的指定分支合并
+
+git pull: 首先，基于本地的 FETCH_HEAD 记录，比对本地的 FETCH_HEAD 记录与远程仓库的版本号，然后 git fetch 获得当前指向的远程分支的后续版本的数据，然后再利用 git merge 将其与本地的当前分支合并。所以可以认为 git pull 是 git fetch 和 git merge 两个步骤的结合。
+
+git pull 的用法如下:
+
+```bash
+git pull <远程主机名> <远程分支名>:<本地分支名>
+```
+
+因此，与 git pull 相比 git fetch 相当于是从远程获取最新版本到本地，但不会自动 merge。如果需要有选择的合并 git fetch 是更好的选择。效果相同时 git pull 将更为快捷。
+
+标准或完整的命令是 `git pull remote_repository_name branch_name`
+
+```bash
+# 除了做了 git fetch origin master:mymaster 的工作外，还会将远程分支 merge 进本地当前分支。
+git pull origin <远程分支名>:<本地分支名>
+git branch --set-upstream-to=origin/<remote_branch> <local_branch>
+git pull
+# verbose
+git pull -v
+git pull origin master
+git pull origin branch0
+git pull --rebase # rebase the current branch on top of the upstream branch after fetching.
+git pull --no-rebase # merge
+git config --global pull.rebase true # merge
+git config pull.rebase false  # merge
+git config pull.rebase true   # rebase
+git config pull.ff only       # fast-forward only
+git pull --ff-only
+```
+
+```bash
+man git-fetch
+git fetch --prune  #在本地删除在远程不存在的branch
+git fetch --all 告诉 Git 同步所有的远端仓库
+```
+
+[https://git-scm.com/book/zh/v2/Git-%E5%9F%BA%E7%A1%80-%E6%89%93%E6%A0%87%E7%AD%BE](https://git-scm.com/book/zh/v2/Git-%E5%9F%BA%E7%A1%80-%E6%89%93%E6%A0%87%E7%AD%BE)
 ## commit
 
 通过git commit命令将暂存区内容添加到本地仓库后，git会生成相应的commit id。
@@ -191,14 +232,16 @@ git log -g
 
 ## git fetch
 
+更新本地存储库中远程分支的引用
+
 默认更新
 
 - tag
 - FETCH_HEAD
 - 分支历史 commit
 
-git fetch 是更新(update) 在本地电脑上的远程跟踪分支（如origin/master分支，注意远程跟踪分支是保存在本地，
-一般在.git\refs\remotes\origin目录下），并更新(update) .git/FETCH_HEAD 文件。并不会和本地分支 merge，即不会更新本地分支。
+git fetch 是更新(update) 在本地的远程跟踪分支（如origin/main 分支，注意远程跟踪分支是保存在本地，
+一般在 .git\refs\remotes\origin 目录下），并更新 (update) .git/FETCH_HEAD 文件。并不会和本地分支 merge，即不会更新本地分支。
 
 git fetch 命令用来拉取远程仓库的数据 (objects and refs).
 默认情况下，git fetch 取回**所有**分支 (branch) 的更新。如果只想取回特定分支的更新，可以指定分支名。
@@ -214,13 +257,14 @@ git fetch 命令用来拉取远程仓库的数据 (objects and refs).
 git fetch --tags
 ```
 
-### git fetch
-
-更新本地存储库中远程分支的引用
 
 ```bash
-# 更新默认配置的远程仓库 比如 origin
+# git fetch 不加任何参数时，会从默认远程（通常是 origin）抓取所有分支的最新信息，但不会自动合并到你的本地分支。
+# 会获取远程仓库所有分支的最新提交和引用信息（包括新分支、标签等）。
+# 只会更新本地的远程分支（如 origin/main、origin/dev 等），不会更改你当前检出的分支的内容。
 git fetch
+# 跟上面的命令是一样的, git fetch 默认的远程仓库是 origin
+git fetch origin
 # 更新所有远程仓库, 有多个远程仓库的时候, 会更新所有远程仓库, 不会单独拉取所有 tag，除非分支更新时带有 tag。
 git fetch --all
 # 只拉取 tag，不会更新分支
@@ -359,7 +403,7 @@ git switch branch0
 git switch -c branch1 branch0
 ```
 
-### 切换到分支
+### 切换分支
 
 使用 --recurse-submodules，将根据超级项目中记录的提交更新所有活动子模块的内容。如果什么都不使用（或 --no-recurse-submodules），子模块工作树将不会被更新。就像 git-submodule，这会分离子模块的 HEAD。
 
@@ -370,7 +414,23 @@ git switch branch0
 
 # 切换到 branch0 并且更新 submodule
 git switch --recurse-submodules branch0
+```
 
+### 修改分支
+
+```bash
+# 重命名当前分支
+git branch -m main
+# -u, --set-upstream-to <upstream>
+# 设置本地 main 分支跟踪远程的 origin/main
+# 本地分支: main
+# 远程分支: origin/main
+git branch -u origin/main main
+# 设置默认分支
+# 手动指定 远程的默认分支 为 main
+git remote set-head origin main
+# 参数 -a, --auto 自动检测远程仓库的默认分支并设置本地的 remotes/origin/HEAD
+git remote set-head origin -a
 ```
 
 ### 把新建的分支推送到远端
@@ -883,47 +943,6 @@ git branch -d temp
 (3) git fetch origin dev
 指定远程remote和FETCH_HEAD，并且只拉取该分支的提交。
 
-## git pull
-
-git pull 命令用于从另一个存储库或本地分支获取并集成(整合)。git pull 命令的作用是：取回远程主机某个分支的更新，再与本地的指定分支合并
-
-git pull: 首先，基于本地的 FETCH_HEAD 记录，比对本地的 FETCH_HEAD 记录与远程仓库的版本号，然后 git fetch 获得当前指向的远程分支的后续版本的数据，然后再利用 git merge 将其与本地的当前分支合并。所以可以认为 git pull 是 git fetch 和 git merge 两个步骤的结合。
-
-git pull 的用法如下:
-
-```bash
-git pull <远程主机名> <远程分支名>:<本地分支名>
-```
-
-因此，与 git pull 相比 git fetch 相当于是从远程获取最新版本到本地，但不会自动 merge。如果需要有选择的合并 git fetch 是更好的选择。效果相同时 git pull 将更为快捷。
-
-标准或完整的命令是 `git pull remote_repository_name branch_name`
-
-```bash
-# 除了做了 git fetch origin master:mymaster 的工作外，还会将远程分支 merge 进本地当前分支。
-git pull origin <远程分支名>:<本地分支名>
-git branch --set-upstream-to=origin/<remote_branch> <local_branch>
-git pull
-# verbose
-git pull -v
-git pull origin master
-git pull origin branch0
-git pull --rebase # rebase the current branch on top of the upstream branch after fetching.
-git pull --no-rebase # merge
-git config --global pull.rebase true # merge
-git config pull.rebase false  # merge
-git config pull.rebase true   # rebase
-git config pull.ff only       # fast-forward only
-git pull --ff-only
-```
-
-```bash
-man git-fetch
-git fetch --prune  #在本地删除在远程不存在的branch
-git fetch --all 告诉 Git 同步所有的远端仓库
-```
-
-[https://git-scm.com/book/zh/v2/Git-%E5%9F%BA%E7%A1%80-%E6%89%93%E6%A0%87%E7%AD%BE](https://git-scm.com/book/zh/v2/Git-%E5%9F%BA%E7%A1%80-%E6%89%93%E6%A0%87%E7%AD%BE)
 
 ## git clone
 

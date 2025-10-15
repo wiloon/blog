@@ -10,7 +10,6 @@ tags:
 ---
 ## Git HEAD
 
-HEAD 指向当前检出的分支的最新提交（commit）。
 当你提交（commit）新更改时，HEAD 会随着分支一起移动到新的提交。
 当你切换分支（比如用 git checkout 或 git switch），HEAD 会改变指向，指向你切换到的分支。
 
@@ -20,9 +19,43 @@ HEAD 指向当前检出的分支的最新提交（commit）。
 你 checkout 某个历史 commit，HEAD 内容是该 commit 的 SHA（分离 HEAD 状态）
 
 ```bash
-# 查看 HEAD 指向
+# 正常情况下(attached HEAD)，HEAD 是一个符号引用，指向当前分支
+# 本地 HEAD 通常指向分支，而不是直接指向提交
 cat .git/HEAD
+# 输出：ref: refs/heads/main
+
+# 1. HEAD 指向 main 分支
+# 2. main 分支指向它的最新提交
+# 3. HEAD 通过分支间接指向最新提交
+
+# HEAD -> 分支 -> 最新提交
+# HEAD → refs/heads/main → commit_abc123
+# 查看 HEAD 指向的分支
+git symbolic-ref HEAD
+# 输出：refs/heads/main
+
+# 查看 HEAD 最终指向的提交
+git rev-parse HEAD  
+# 输出：abc123...（提交SHA）
+
+git rev-parse HEAD          # 获取当前HEAD指向的提交SHA
+git rev-parse main          # 获取main分支的最新提交SHA
+cat .git/refs/heads/main    # 直接查看分支文件内容（提交SHA）
 ```
+
+### detached HEAD
+
+```bash
+# 当检出具体 commit 时，HEAD 直接指向提交
+git switch --detach commit_abc123
+
+cat .git/HEAD
+# 输出：commit_abc123...（直接是提交SHA，不是 ref: 开头）
+
+# 此时 HEAD 直接指向提交，不通过分支
+```
+
+HEAD 的作用是告诉 Git "我现在在哪里工作"
 
 ### HEAD 和 head
 
@@ -105,6 +138,20 @@ git reset 命令是一个重置 HEAD 的命令，可以指挥版本库指向任�
 查看 HEAD 文件的内容 `cat .git/HEAD`
 
 HEAD就是当前活跃分支的游标。HEAD 的指向是跟随分支切换实时变化
+
+### 本地 HEAD vs 远程 HEAD
+
+需要区分两种不同的 HEAD：
+
+#### 本地 HEAD
+- 位置：`.git/HEAD`
+- 作用：指向当前检出的本地分支
+- 示例：`ref: refs/heads/main`
+
+#### 远程 HEAD（remotes/origin/HEAD）
+- 作用：指向远程仓库的默认分支, 只代表分支
+- 当执行 `git branch -a` 时可以看到类似：`remotes/origin/HEAD -> origin/master`
+- 这告诉 Git 当有人克隆仓库时应该默认检出哪个分支, 如果 remotes/origin/HEAD 跟实际情况不一致，会导致比如这个命令 `git pull origin` 拉取错误的分支
 
 不过HEAD并非只能指向分支的最顶端（时间节点距今最近的那个），实际上它可以指向任何一个节点，它就是 Git 内部用来追踪当前位置的
 
