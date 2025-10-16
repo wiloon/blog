@@ -233,6 +233,8 @@ git log -g
 ## git fetch
 
 更新本地存储库中远程分支的引用
+git fetch 会同步远程仓库的新增和更新的分支到本地的远程分支引用（如 remotes/origin/main）。
+远程已经删除的分支不会自动在本地消失，只是本地的远程分支引用还在。
 
 默认更新
 
@@ -271,6 +273,8 @@ git fetch --all
 git fetch --tags
 # 当前分支不是 dev 分支, 并且 dev 分支在本地没有修改的时候 更新 dev 分支
 git fetch origin dev:dev
+# 加了 --prune 参数, 不仅会拉取新建和更新的分支还会自动清理本地那些远程已经被删除的分支引用
+git fetch --prune
 ```
 
 该命令必须严格同时满足以下两个条件：
