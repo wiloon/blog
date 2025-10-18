@@ -621,42 +621,6 @@ git rev-parse tags/v1.0.0
 git branch --contains commit0
 ```
 
-## merge 合并
-
-git merge 命令用于合并指定分支到当前分支
-
-```bash
-# merge 默认会把 commit 的历史都合并进来
-# 把 branch0 合并到当前分支
-git merge branch0
-
-git merge branch0 -m "MSG0"
-# 禁用 Fast forward
-git merge branch0 -m "merge with no-ff" --no-ff
-```
-
-### fast-forward
-
-- fast forward 模式，快速合并，看不出做过合并。 不会显示 feature，只保留单条分支记录
-- --no-ff, no fast-forward 模式，普通合并，可以保存之前的分支历史。能够更好的查看 merge 历史，以及branch 状态。会生成一个新的commit-id
-
-默认情况下，Git执行 快进式合并, fast-forward merge，会直接将 Master 分支指向 Develop 分支。使用 --no-ff 参数后，会执行正常合并，在Master 分支上生成一个新节点。为了保证版本演进的清晰，我们希望采用这种做法。关于合并的更多解释，请参考 `Benjamin Sandofsky` 的《Understanding the Git Workflow》。
-
-### git merge --squash
-
-```bash
-# git merge --squash, 把多次 commit 的历史合并成一次 commit
-# 把 branch1 的提交 合并 到 branch0
-git switch branch0
-git merge --squash branch1
-git commit -m "comments0"
-```
-
-```bash
-# 解决Git报错:error: You have not concluded your merge (MERGE_HEAD exists).
-git merge --abort
-```
-
 ## git remote
 
 ```bash

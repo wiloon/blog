@@ -9,13 +9,54 @@ tags:
   - reprint
   - remix
 ---
-## git merge
 
 - git merge
 - git rebase
   - interactive rebase
-
 - Join two or more development histories together
+
+## merge 合并
+
+用于将两个或多个分支的更改合并到一起。它通常用于将一个分支上的开发成果合并到当前分支（如将 feature 分支合并回 main/master 分支）。其主要作用是整合不同开发者或分支上的工作，保持代码库的统一和最新。
+
+```bash
+# 基本用法
+git merge <branch-name>
+# merge 默认会把 commit 的历史都合并进来
+# 把 branch0 合并到当前分支
+git merge branch0
+# -m 参数用于指定合并提交（merge commit）的说明信息，即合并时生成的 commit message。
+git merge branch0 -m "MSG0"
+# 禁用 Fast forward
+git merge branch0 -m "merge with no-ff" --no-ff
+```
+
+### 合并方式
+
+#### Fast-forward
+
+如果当前分支没有新的提交，仅仅是落后于目标分支，Git 会直接把指针向前移动到目标分支的位置，这种合并不会产生新的合并提交。快速合并，看不出做过合并。 快进合并后不会留下一个明显的“feature 分支合并节点”，只有一条线性的记录。
+
+#### 普通合并（Non fast-forward）
+
+no fast-forward 模式`--no-ff`，可以保留分支拓扑(分支曾经存在并被合并)。图上能看到分叉并在 merge commit 汇合，之后仍可追溯某个提交来自哪个特性分支。会生成一个新的 commit-id
+
+默认情况下，Git 执行快进式合并, fast-forward merge，会直接将 Master 分支指向 Develop 分支。使用 --no-ff 参数后，会执行正常合并，在Master 分支上生成一个新节点。为了保证版本演进的清晰，我们希望采用这种做法。关于合并的更多解释，请参考 `Benjamin Sandofsky` 的《Understanding the Git Workflow》。
+
+### git merge --squash
+
+```bash
+# git merge --squash, 把多次 commit 的历史合并成一次 commit
+# 把 branch1 的提交 合并 到 branch0
+git switch branch0
+git merge --squash branch1
+git commit -m "comments0"
+```
+
+```bash
+# 解决Git报错:error: You have not concluded your merge (MERGE_HEAD exists).
+git merge --abort
+```
 
 开发任务分叉到两个不同分支，又各自提交了更新。
 
