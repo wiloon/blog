@@ -8,66 +8,98 @@ categories:
 tags:
   - reprint
 ---
-## XSS, Cross Site Scripting, CSRF, Cross-site request forgery, CORS
+## CORS, XSS, Cross Site Scripting, CSRF, Cross-site request forgery
 
-## XSS, Cross Site Scripting(CSS), CSRF, Cross-site request forgery， 跨站脚本攻击, CORS
+## CORS, Cross-Origin Resource Sharing, 跨源资源共享, 跨域资源共享
 
-XSS 攻击又称CSS,全称Cross Site Script   (跨站脚本攻击）,缩写为XSS。恶意攻击者往Web页面里插入恶意javaScript代码,当用户浏览该页之时,嵌入其中Web里面的javaScript代码会被执行,从而达到恶意攻击用户的目的。
+CORS (Cross-Origin Resource Sharing，跨源资源共享) 是一种基于 HTTP 头的机制,允许服务器指示浏览器应该允许哪些源(域、协议或端口)来访问其资源。
 
-什么是 XSS
-Cross-Site Scripting (跨站脚本攻击）简称 XSS，是一种代码注入攻击。攻击者通过在目标网站上注入恶意脚本，使之在用户的浏览器上运行。利用这些恶意脚本，攻击者可获取用户的敏感信息如 Cookie、SessionID 等，进而危害数据安全。
+### 核心概念
 
-为了和 CSS 区分，这里把攻击的第一个字母改成了 X，于是叫做 XSS。
+1. 同源策略 (Same-Origin Policy)
+同源策略是浏览器最核心的安全机制之一,用于隔离潜在的恶意文档,防止不同源的网页之间互相干扰。
+默认情况下, 网页只能请求与自身同源的资源。
 
-XSS 的本质是：恶意代码未经过滤，与网站正常的代码混在一起；浏览器无法分辨哪些脚本是可信的，导致恶意脚本被执行。
+什么是"同源":
 
-而由于直接在用户的终端执行，恶意代码能够直接获取用户的信息，或者利用这些信息冒充用户向网站发起攻击者定义的请求。
+两个 URL 只有在以下三个部分完全相同时才被认为是同源的:
 
-在部分情况下，由于输入的限制，注入的恶意脚本比较短。但可以通过引入外部的脚本，并由浏览器执行，来完成比较复杂的攻击策略。
+协议 (Protocol): http/https
+域名 (Domain): 包括子域名
+端口 (Port): 默认端口可省略
 
-### XSS攻击的分类
+假设当前页面是: http://www.example.com:80/dir/page.html
 
-1. 反射型
-又称为非持久性跨站点脚本攻击。漏洞产生的原因是攻击者注入的数据反映在响应中。非持久型XSS攻击要求用户访问一个被攻击者篡改后的链接,用户访问该链接时,被植入的攻击脚本被用户流览器执行,从而达到攻击目的。也就是我上面举的那个简单的XSS攻击案例,通过url参数直接注入。然后在响应的数据中包含着危险的代码。
-当黑客把这个链接发给你,你就中招啦！
+http://www.example.com/dir2/other.html	        ✅ 同源	    协议、域名、端口相同
+http://www.example.com:80/dir/inner/page.html	✅ 同源	    80 是 http 默认端口
+https://www.example.com/page.html	            ❌ 不同源	协议不同 (https vs http)
+http://www.example.com:8080/page.html	        ❌ 不同源	端口不同 (8080 vs 80)
+http://api.example.com/page.html	            ❌ 不同源	域名不同 (子域名不同)
+http://example.com/page.html	                ❌ 不同源	域名不同 (缺少 www)
 
-2. 存储型
-又称为持久型跨站点脚本,它一般发生在XSS攻击向量(一般指XSS攻击代码)存储在网站数据库,当一个页面被用户打开的时候执行。持久的XSS相比非持久性XSS攻击危害性更大,容易造成蠕虫,因为每当用户打开页面,查看内容时脚本将自动执行。
+### 同源策略的限制范围
 
-该网页有一个发表评论的功能,该评论会写入后台数据库,并且访问主页的时候,会从数据库中加载出所有的评论。
+1. DOM 访问限制
+不同源的网页不能通过 JavaScript 访问对方的 DOM:
 
-XSS:  通过客户端脚本语言 (最常见如: JavaScript)
+```bash
+// 页面 A: http://example.com
+// 页面 B: http://other.com (在 iframe 中)
+const iframe = document.getElementById('myIframe');
+iframe.contentWindow.document; // ❌ 跨域访问被阻止
+```
 
-在一个论坛发帖中发布一段恶意的JavaScript代码就是脚本注入,如果这个代码内容有请求外部服务器,那么就叫做XSS！
+2. Cookie、LocalStorage、IndexedDB 访问限制
+不同源的页面无法读取对方的存储数据:
 
-### CSRF，Cross-site request forgery， 跨站请求伪造
+3. AJAX 请求限制
+不同源的 AJAX 请求会被浏览器阻止(除非服务器配置 CORS):
 
-又称 XSRF, 冒充用户发起请求 (在用户不知情的情况下) ,完成一些违背用户意愿的请求 (如恶意发帖, 删帖, 改密码, 发邮件等).
-XSS 更偏向于方法论, CSRF 更偏向于一种形式, 只要是伪造用户发起的请求, 都可成为 CSRF 攻击。
+```javascript
+fetch('http://api.other.com/data')
+  .then(res => res.json())
+  .catch(err => {
+    // ❌ CORS error: 跨域请求被阻止
+    console.error(err);
+  });
+```
 
-通常来说 CSRF 是由XSS实现的, 所以 CSRF 时常也被称为 XSRF [用XSS的方式实现伪造请求]  (但实现的方式绝不止一种, 还可以直接通过命令行模式 (命令行敲命令来发起请求) 直接伪造请求 [只要通过合法验证即可]) 。
+不受同源策略限制的情况
+以下资源可以跨域加载:
 
-XSS 更偏向于代码实现 (即写一段拥有跨站请求功能的 JavaScript 脚本注入到一条帖子里, 然后有用户访问了这个帖子, 这就算是中了 XSS 攻击了), CSRF 更偏向于一个攻击结果, 只要发起了冒牌请求那么就算是 CSRF 了。
+<script> 标签: <script src="http://other.com/script.js"></script>
+<link> 标签: <link href="http://other.com/style.css">
+<img> 标签: <img src="http://other.com/image.jpg">
+<video> 和 <audio> 标签
+<iframe> 标签: 可以嵌入,但无法访问内容
+@font-face 字体文件
+表单提交: <form action="http://other.com/submit">
 
-### CORS, Cross-Origin Resource Sharing, 跨源资源共享, 跨域资源共享
 
-CORS需要浏览器和服务器同时支持。目前，所有浏览器都支持该功能，IE浏览器不能低于IE10。
+2. 跨域问题
+当前端代码(如 https://example.com)需要请求不同源的 API(如 https://api.other.com)时,浏览器会阻止这个请求。
 
-整个CORS通信过程，都是浏览器自动完成，不需要用户参与。对于开发者来说，CORS通信与同源的AJAX通信没有差别，代码完全一样。浏览器一旦发现AJAX请求跨源，就会自动添加一些附加的头信息，有时还会多出一次附加的请求，但用户不会有感觉。
-
-因此，实现CORS通信的关键是服务器。只要服务器实现了CORS接口，就可以跨源通信。
-
-[https://www.ruanyifeng.com/blog/2016/04/cors.html](https://www.ruanyifeng.com/blog/2016/04/cors.html)
+3. CORS 的作用
+CORS 提供了一种安全的方式来突破同源策略的限制,允许服务器明确声明哪些外部源可以访问其资源。
 
 由于现实使用中，很多需要跨域访问，所以 W3C 标准就提出了 CORS。
 
-跨域资源共享(CORS) 是一种机制，它使用额外的 HTTP 头来告诉浏览器 让运行在一个 origin (domain) 上的Web应用被准许访问来自不同源服务器上的指定的资源。当一个资源从与该资源本身所在的服务器不同的域、协议或端口请求一个资源时，资源会发起一个跨域 HTTP 请求。
+跨域资源共享(CORS) 是一种机制，它使用额外的 HTTP 头来告诉浏览器 让运行在一个 origin (domain) 上的 Web 应用被准许访问来自不同源服务器上的指定的资源。当一个资源从与该资源本身所在的服务器不同的域、协议或端口请求一个资源时，资源会发起一个跨域 HTTP 请求。
 
 具体查看官方文档：[https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Access_control_CORS](https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Access_control_CORS)
 [https://tech.meituan.com/2018/09/27/fe-security.html](https://tech.meituan.com/2018/09/27/fe-security.html)
 简单里的理解，就是 CORS 提供了一种设置你的页面可以访问指定的域名下的资源 (API）的方法。当然这些域名是你受信任的。从而避免了 CRSF 攻击。CORS 就像是一个过滤器。
 
-注意：很多开发者在碰到跨域问题提时，通过搜索得到的答案就是直接设置 Oragin: * 这样的结果就是你的网页信任任何域名，虽然达到了跨域访问的目的，但是同时失去了 CORS 的意义，因为你设置了这个过滤器不过滤任何域
+注意：很多开发者在碰到跨域问题提时，通过搜索得到的答案就是直接设置 Origin: * 这样的结果就是你的网页信任任何域名，虽然达到了跨域访问的目的，但是同时失去了 CORS 的意义，因为你设置了这个过滤器不过滤任何域
+
+CORS 需要浏览器和服务器同时支持。目前，所有浏览器都支持该功能，IE 浏览器不能低于 IE10。
+
+整个 CORS 通信过程，都是浏览器自动完成，不需要用户参与。对于开发者来说，CORS 通信与同源的 AJAX 通信没有差别，代码完全一样。浏览器一旦发现 AJAX 请求跨源，就会自动添加一些附加的头信息，有时还会多出一次附加的请求，但用户不会有感觉。
+
+因此，实现 CORS 通信的关键是服务器。只要服务器实现了 CORS 接口，就可以跨源通信。
+
+[https://www.ruanyifeng.com/blog/2016/04/cors.html](https://www.ruanyifeng.com/blog/2016/04/cors.html)
+
 
 [https://www.ruanyifeng.com/blog/2016/04/cors.html](https://www.ruanyifeng.com/blog/2016/04/cors.html)  
 [https://tech.meituan.com/2018/09/27/fe-security.html](https://tech.meituan.com/2018/09/27/fe-security.html)  
@@ -174,3 +206,44 @@ xhr.withCredentials = false;
 需要注意的是，如果要发送Cookie，Access-Control-Allow-Origin就不能设为星号，必须指定明确的、与请求网页一致的域名。同时，Cookie依然遵循同源政策，只有用服务器域名设置的Cookie才会上传，其他域名的Cookie并不会上传，且 (跨源）原网页代码中的document.cookie也无法读取服务器域名下的Cookie。
 
 >[https://www.ruanyifeng.com/blog/2016/04/cors.html](https://www.ruanyifeng.com/blog/2016/04/cors.html)
+
+
+## XSS, Cross Site Scripting(CSS), CSRF, Cross-site request forgery， 跨站脚本攻击, CORS
+
+XSS 攻击又称CSS,全称Cross Site Script   (跨站脚本攻击）,缩写为XSS。恶意攻击者往Web页面里插入恶意javaScript代码,当用户浏览该页之时,嵌入其中Web里面的javaScript代码会被执行,从而达到恶意攻击用户的目的。
+
+什么是 XSS
+Cross-Site Scripting (跨站脚本攻击）简称 XSS，是一种代码注入攻击。攻击者通过在目标网站上注入恶意脚本，使之在用户的浏览器上运行。利用这些恶意脚本，攻击者可获取用户的敏感信息如 Cookie、SessionID 等，进而危害数据安全。
+
+为了和 CSS 区分，这里把攻击的第一个字母改成了 X，于是叫做 XSS。
+
+XSS 的本质是：恶意代码未经过滤，与网站正常的代码混在一起；浏览器无法分辨哪些脚本是可信的，导致恶意脚本被执行。
+
+而由于直接在用户的终端执行，恶意代码能够直接获取用户的信息，或者利用这些信息冒充用户向网站发起攻击者定义的请求。
+
+在部分情况下，由于输入的限制，注入的恶意脚本比较短。但可以通过引入外部的脚本，并由浏览器执行，来完成比较复杂的攻击策略。
+
+### XSS攻击的分类
+
+1. 反射型
+又称为非持久性跨站点脚本攻击。漏洞产生的原因是攻击者注入的数据反映在响应中。非持久型XSS攻击要求用户访问一个被攻击者篡改后的链接,用户访问该链接时,被植入的攻击脚本被用户流览器执行,从而达到攻击目的。也就是我上面举的那个简单的XSS攻击案例,通过url参数直接注入。然后在响应的数据中包含着危险的代码。
+当黑客把这个链接发给你,你就中招啦！
+
+2. 存储型
+又称为持久型跨站点脚本,它一般发生在XSS攻击向量(一般指XSS攻击代码)存储在网站数据库,当一个页面被用户打开的时候执行。持久的XSS相比非持久性XSS攻击危害性更大,容易造成蠕虫,因为每当用户打开页面,查看内容时脚本将自动执行。
+
+该网页有一个发表评论的功能,该评论会写入后台数据库,并且访问主页的时候,会从数据库中加载出所有的评论。
+
+XSS:  通过客户端脚本语言 (最常见如: JavaScript)
+
+在一个论坛发帖中发布一段恶意的JavaScript代码就是脚本注入,如果这个代码内容有请求外部服务器,那么就叫做XSS！
+
+### CSRF，Cross-site request forgery， 跨站请求伪造
+
+又称 XSRF, 冒充用户发起请求 (在用户不知情的情况下) ,完成一些违背用户意愿的请求 (如恶意发帖, 删帖, 改密码, 发邮件等).
+XSS 更偏向于方法论, CSRF 更偏向于一种形式, 只要是伪造用户发起的请求, 都可成为 CSRF 攻击。
+
+通常来说 CSRF 是由XSS实现的, 所以 CSRF 时常也被称为 XSRF [用XSS的方式实现伪造请求]  (但实现的方式绝不止一种, 还可以直接通过命令行模式 (命令行敲命令来发起请求) 直接伪造请求 [只要通过合法验证即可]) 。
+
+XSS 更偏向于代码实现 (即写一段拥有跨站请求功能的 JavaScript 脚本注入到一条帖子里, 然后有用户访问了这个帖子, 这就算是中了 XSS 攻击了), CSRF 更偏向于一个攻击结果, 只要发起了冒牌请求那么就算是 CSRF 了。
+
