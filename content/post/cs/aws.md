@@ -9,6 +9,8 @@ tags:
 ---
 ## aws
 
+查看所有区域的资源: ec2>左侧菜单> AWS Global View
+
 ```bash
 aws s3 ls s3://obsidian-w10n
 aws configure

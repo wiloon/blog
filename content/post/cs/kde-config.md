@@ -1,5 +1,5 @@
 ---
-title: kde idea 图标消失
+title: kde config, kde 配置
 author: "-"
 date: 2019-02-20T05:39:48+00:00
 url: kde/icon
@@ -8,6 +8,20 @@ categories:
 tags:
   - reprint
 ---
+## kde config, kde 配置
+
+显示器亮度问题
+
+通过 dbus 设置亮度
+
+```bash
+dbus-send --session --print-reply \
+  --dest=org.kde.Solid.PowerManagement \
+  /org/kde/Solid/PowerManagement/Actions/BrightnessControl \
+  org.kde.Solid.PowerManagement.Actions.BrightnessControl.setBrightness \
+  int32:6000
+```
+
 ## kde idea 图标消失
 
 Open folder /home/USERNAME/.local/share/applications/
