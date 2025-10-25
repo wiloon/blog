@@ -10,7 +10,7 @@ tags:
   - remix
 ---
 
-## Containerfile
+## Containerfile, Dockerfile
 
 buildkit 默认会查找当前目录的 Containerfile 或者 Dockerfile
 

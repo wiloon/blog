@@ -2094,3 +2094,22 @@ test_foo                                        36.9506  154.7800  55.8549  24.3
 - OPS: 每秒操作数 (Operations Per Second)
 - Rounds: 测试轮数
 - Iterations: 每轮迭代次数
+
+## 生成器表达式（Generator Expression）
+
+Python 2.4+
+
+是 Python 中一种内存高效的创建生成器的方式，它的语法类似于列表推导式，但使用圆括号 () 而不是方括号 []。
+
+```Python
+data = ['1', '2', '3', '4', '5']
+integers = (int(x) for x in data)
+```
+
+## any() 函数
+
+any() 是 Python 的内置函数，用于判断可迭代对象中是否至少有一个元素为真（True）。
+
+```Python
+any([False, False, True])
+```
