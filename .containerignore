@@ -1,0 +1,26 @@
+# Containerfile build artifacts
+public/
+
+# Hugo build cache
+.hugo_build.lock
+resources/_gen/
+
+# Node modules
+node_modules/
+
+# Git
+.git/
+.github/
+
+# Development files
+.vscode/
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
