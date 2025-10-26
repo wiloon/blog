@@ -31,7 +31,7 @@ sudo nerdctl run --rm hello-world
 
 # 如果需要编译镜像
 pacman -S buildkit
-sudo systemctl enable --now buildkit\
+sudo systemctl enable --now buildkit
 nerdctl build -t foo:v1.0.0 .
 ```
 

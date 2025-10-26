@@ -1,7 +1,7 @@
 # Multi-stage build for Hugo blog
 
 # Stage 1: Build the Hugo site
-FROM docker.io/library/alpine:3.18 AS builder
+FROM docker.io/library/alpine:3.22.2 AS builder
 
 # Install Hugo
 ENV HUGO_VERSION=0.70.0
@@ -22,7 +22,7 @@ COPY . .
 RUN hugo --minify -v
 
 # Stage 2: Create production image with Nginx
-FROM docker.io/library/nginx:1.25-alpine
+FROM docker.io/library/nginx:1.29.2-alpine
 
 # Copy built static files from builder stage
 COPY --from=builder /blog/public /usr/share/nginx/html
