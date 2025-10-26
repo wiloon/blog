@@ -35,8 +35,6 @@ sudo systemctl enable --now buildkit\
 nerdctl build -t foo:v1.0.0 .
 ```
 
-## almalinux install containerd
-
 ```Bash
 # cni plugin
 mkdir -p /opt/cni/bin
