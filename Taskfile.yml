@@ -1,0 +1,89 @@
+version: '3'
+
+vars:
+  IMAGE_NAME: blog
+  IMAGE_TAG: latest
+  CONTAINER_NAME: blog
+  PORT: 8080
+
+tasks:
+  default:
+    desc: Show all available tasks
+    cmds:
+      - go-task --list-all
+    silent: true
+
+  build:
+    desc: Build container image
+    cmds:
+      - sudo nerdctl build -t {{.IMAGE_NAME}}:{{.IMAGE_TAG}} -f Containerfile .
+      - echo "✅ Image built {{.IMAGE_NAME}}:{{.IMAGE_TAG}}"
+
+  run:
+    desc: Run container
+    deps: [stop]
+    cmds:
+      - sudo nerdctl run -d --name {{.CONTAINER_NAME}} -p {{.PORT}}:80 {{.IMAGE_NAME}}:{{.IMAGE_TAG}}
+      - echo "✅ Container started at http://localhost:{{.PORT}}"
+
+  stop:
+    desc: Stop and remove container
+    cmds:
+      - sudo nerdctl stop {{.CONTAINER_NAME}} 2>/dev/null || true
+      - sudo nerdctl rm {{.CONTAINER_NAME}} 2>/dev/null || true
+    silent: true
+
+  restart:
+    desc: Restart container (rebuild and run)
+    deps: [stop, build, run]
+    cmds:
+      - echo "✅ Restart completed"
+
+  logs:
+    desc: View container logs
+    cmds:
+      - sudo nerdctl logs -f {{.CONTAINER_NAME}}
+
+  shell:
+    desc: Enter container shell
+    cmds:
+      - sudo nerdctl exec -it {{.CONTAINER_NAME}} sh
+
+  ps:
+    desc: View container status
+    cmds:
+      - sudo nerdctl ps -a | grep {{.CONTAINER_NAME}} || echo "❌ Container not running"
+
+  images:
+    desc: List images
+    cmds:
+      - sudo nerdctl images | grep -E "REPOSITORY|{{.IMAGE_NAME}}"
+
+  clean:
+    desc: Clean up container and images
+    deps: [stop]
+    cmds:
+      - sudo nerdctl rmi {{.IMAGE_NAME}}:{{.IMAGE_TAG}} 2>/dev/null || true
+      - echo "✅ Cleanup completed"
+
+  test:
+    desc: Test container health
+    cmds:
+      - sleep 3
+      - curl -f http://localhost:{{.PORT}} && echo "✅ Health check passed" || echo "❌ Health check failed"
+
+  dev:
+    desc: Development mode (quick restart)
+    deps: [stop, build, run]
+    cmds:
+      - echo "🚀 Dev mode started, visit http://localhost:{{.PORT}}"
+
+  inspect:
+    desc: Inspect image details
+    cmds:
+      - sudo nerdctl inspect {{.IMAGE_NAME}}:{{.IMAGE_TAG}}
+
+  stats:
+    desc: View container resource usage
+    cmds:
+      - sudo nerdctl stats {{.CONTAINER_NAME}}
