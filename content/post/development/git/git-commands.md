@@ -608,7 +608,7 @@ git tag v1.0.0
 git push origin <tagname>
 git push origin v1.0.0
 
-# delete tag, 删除 tag
+# delete local tag, 删除 tag
 git tag -d v1.0.0
 
 # delete remote tag
