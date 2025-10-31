@@ -21,14 +21,14 @@ tags:
 
 ```bash
 # 基本用法
-git merge <branch-name>
+# git merge <branch-name>
 # merge 默认会把 commit 的历史都合并进来
-# 把 branch0 合并到当前分支
-git merge branch0
+# 把 branch_0 合并到当前分支
+git merge branch_0
 # -m 参数用于指定合并提交（merge commit）的说明信息，即合并时生成的 commit message。
-git merge branch0 -m "MSG0"
+git merge branch_0 -m "MSG0"
 # 禁用 Fast forward
-git merge branch0 -m "merge with no-ff" --no-ff
+git merge branch_0 -m "merge with no-ff" --no-ff
 ```
 
 ### 合并方式
@@ -464,3 +464,220 @@ git push --force origin master
 5. 修改commit message
 6. 点击 rebase 按钮
 7. 在菜单中操作 git push, 在弹出的窗口中点击 push按钮后面的下拉按钮, 点击 force push
+
+
+------
+
+# Git Merge vs Rebase
+
+## 场景说明
+
+当你在 `feature` 分支开发,准备提 PR 合并到主分支时,需要先同步主分支的最新代码。此时有两种方式:
+
+## 两种方式对比
+
+### Git Merge
+
+```bash
+git checkout feature
+git merge main
+```
+
+**特点:**
+- ✅ 保留完整的提交历史
+- ✅ 显示真实的开发时间线
+- ✅ 操作安全,不会改写历史
+- ❌ 会产生额外的 merge commit
+- ❌ 提交历史呈现分叉结构,较复杂
+
+**提交历史示意:**
+```
+main:     A---B---C---D
+               \         \
+feature:        E---F---G---M (merge commit)
+```
+
+### Git Rebase
+
+```bash
+git checkout feature
+git rebase main
+```
+
+**特点:**
+- ✅ 提交历史呈线性,清晰易读
+- ✅ 没有多余的 merge commit
+- ✅ 便于 Code Review
+- ❌ 会改写提交历史(生成新的 commit hash)
+- ❌ 需要强制推送(如果之前已推送)
+
+**提交历史示意:**
+```
+main:     A---B---C---D
+                       \
+feature:                E'---F'---G' (重新应用的提交)
+```
+
+## 推荐方案
+
+### ⭐ 推荐使用 Rebase
+
+**原因:**
+1. 提交历史线性清晰,便于理解
+2. PR 更容易审查
+3. 避免无意义的 merge commit
+4. 符合现代 Git 工作流最佳实践
+
+## 标准工作流程
+
+### 使用 Rebase 的完整流程
+
+```bash
+# 1. 确保在 feature 分支
+git checkout feature
+
+# 2. 获取远程主分支最新代码
+git fetch origin main
+
+# 3. Rebase 到主分支
+git rebase origin/main
+
+# 4. 如果有冲突
+# 解决冲突后:
+git add .
+git rebase --continue
+
+# 如果想放弃 rebase:
+# git rebase --abort
+
+# 5. 推送到远程(首次推送)
+git push origin feature
+
+# 或者(如果之前已推送过)
+git push --force-with-lease origin feature
+```
+
+### 使用 Merge 的完整流程
+
+```bash
+# 1. 确保在 feature 分支
+git checkout feature
+
+# 2. 拉取主分支最新代码
+git pull origin main
+
+# 3. 合并主分支
+git merge main
+
+# 4. 如果有冲突,解决后提交
+git add .
+git commit
+
+# 5. 推送到远程
+git push origin feature
+```
+
+## ⚠️ 重要注意事项
+
+### Rebase 的黄金法则
+
+**永远不要 rebase 已经推送到公共仓库且被其他人使用的提交!**
+
+**安全使用场景:**
+- ✅ 自己的 feature 分支
+- ✅ 还未被其他人基于此分支开发
+- ✅ 准备提 PR 之前
+
+**危险场景:**
+- ❌ 已经合并到主分支的提交
+- ❌ 多人协作的共享分支
+- ❌ 已发布的公共提交
+
+### 强制推送的安全命令
+
+```bash
+# 推荐使用(更安全)
+git push --force-with-lease
+
+# 不推荐(会覆盖远程任何更改)
+git push --force
+```
+
+`--force-with-lease` 会检查远程分支是否有其他人的提交,如果有则拒绝推送,更加安全。
+
+## 何时使用 Merge?
+
+以下情况建议使用 merge:
+
+1. **多人协作的公共分支** - 避免影响他人工作
+2. **需要保留完整历史** - 记录真实的开发过程
+3. **团队规范要求** - 遵循团队约定
+4. **不熟悉 rebase** - 避免操作失误
+
+## 团队协作建议
+
+### 个人开发分支
+```bash
+# 同步主分支时使用 rebase
+git rebase main
+```
+
+### 提交 PR 之前
+```bash
+# 整理提交历史
+git rebase -i main  # 交互式 rebase,可以合并、编辑提交
+
+# 推送
+git push --force-with-lease
+```
+
+### 合并 PR 时
+大多数团队使用以下策略之一:
+- **Squash and merge** - 将所有提交压缩成一个
+- **Rebase and merge** - 保持线性历史
+- **Create a merge commit** - 保留分支历史
+
+## 常见问题
+
+### Q: Rebase 过程中遇到冲突怎么办?
+
+```bash
+# 1. 解决冲突文件
+# 2. 标记为已解决
+git add <resolved-files>
+# 3. 继续 rebase
+git rebase --continue
+
+# 如果想放弃整个 rebase
+git rebase --abort
+```
+
+### Q: 已经 push 过代码,rebase 后如何处理?
+
+```bash
+# 使用 --force-with-lease 安全地强制推送
+git push --force-with-lease origin feature
+```
+
+### Q: 如何撤销一个已完成的 rebase?
+
+```bash
+# 查找 rebase 前的 commit hash
+git reflog
+
+# 重置到之前的状态
+git reset --hard <commit-hash>
+```
+
+## 总结
+
+| 特性 | Merge | Rebase |
+|------|-------|--------|
+| 历史结构 | 分叉合并 | 线性 |
+| 提交哈希 | 不变 | 改变 |
+| Merge Commit | 产生 | 不产生 |
+| 操作难度 | 简单 | 中等 |
+| 历史清晰度 | 较低 | 高 |
+| 推荐场景 | 公共分支 | 个人分支+PR |
+
+**最佳实践:** 在个人 feature 分支提 PR 前使用 **rebase**,保持提交历史清晰,便于团队协作和代码审查。
