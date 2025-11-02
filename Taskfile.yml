@@ -5,6 +5,14 @@ vars:
   IMAGE_TAG: latest
   CONTAINER_NAME: blog
   PORT: 8080
+  # 根据操作系统自动选择容器工具
+  CONTAINER_CMD:
+    sh: |
+      if [ "{{OS}}" = "darwin" ]; then
+        echo "container"
+      else
+        echo "sudo nerdctl"
+      fi
 
 tasks:
   default:
@@ -22,21 +30,21 @@ tasks:
   build:
     desc: Build container image
     cmds:
-      - sudo nerdctl build -t {{.IMAGE_NAME}}:{{.IMAGE_TAG}} -f Containerfile .
+      - '{{.CONTAINER_CMD}} build -t {{.IMAGE_NAME}}:{{.IMAGE_TAG}} -f Containerfile .'
       - echo "✅ Image built {{.IMAGE_NAME}}:{{.IMAGE_TAG}}"
 
   run:
     desc: Run container
     deps: [stop]
     cmds:
-      - sudo nerdctl run -d --name {{.CONTAINER_NAME}} -p {{.PORT}}:80 {{.IMAGE_NAME}}:{{.IMAGE_TAG}}
+      - '{{.CONTAINER_CMD}} run -d --name {{.CONTAINER_NAME}} -p {{.PORT}}:80 {{.IMAGE_NAME}}:{{.IMAGE_TAG}}'
       - echo "✅ Container started at http://localhost:{{.PORT}}"
 
   stop:
     desc: Stop and remove container
     cmds:
-      - sudo nerdctl stop {{.CONTAINER_NAME}} 2>/dev/null || true
-      - sudo nerdctl rm {{.CONTAINER_NAME}} 2>/dev/null || true
+      - '{{.CONTAINER_CMD}} stop {{.CONTAINER_NAME}} 2>/dev/null || true'
+      - '{{.CONTAINER_CMD}} rm {{.CONTAINER_NAME}} 2>/dev/null || true'
     silent: true
 
   restart:
@@ -48,28 +56,33 @@ tasks:
   logs:
     desc: View container logs
     cmds:
-      - sudo nerdctl logs -f {{.CONTAINER_NAME}}
+      - '{{.CONTAINER_CMD}} logs -f {{.CONTAINER_NAME}}'
 
   shell:
     desc: Enter container shell
     cmds:
-      - sudo nerdctl exec -it {{.CONTAINER_NAME}} sh
+      - '{{.CONTAINER_CMD}} exec -it {{.CONTAINER_NAME}} sh'
 
   ps:
     desc: View container status
     cmds:
-      - sudo nerdctl ps -a | grep {{.CONTAINER_NAME}} || echo "❌ Container not running"
+      - |
+        if [ "{{OS}}" = "darwin" ]; then
+          {{.CONTAINER_CMD}} ls | grep {{.CONTAINER_NAME}} || echo "❌ Container not running"
+        else
+          {{.CONTAINER_CMD}} ps -a | grep {{.CONTAINER_NAME}} || echo "❌ Container not running"
+        fi
 
   images:
     desc: List images
     cmds:
-      - sudo nerdctl images | grep -E "REPOSITORY|{{.IMAGE_NAME}}"
+      - '{{.CONTAINER_CMD}} images | grep -E "REPOSITORY|{{.IMAGE_NAME}}"'
 
   clean:
     desc: Clean up container and images
     deps: [stop]
     cmds:
-      - sudo nerdctl rmi {{.IMAGE_NAME}}:{{.IMAGE_TAG}} 2>/dev/null || true
+      - '{{.CONTAINER_CMD}} rmi {{.IMAGE_NAME}}:{{.IMAGE_TAG}} 2>/dev/null || true'
       - echo "✅ Cleanup completed"
 
   test:
@@ -87,9 +100,9 @@ tasks:
   inspect:
     desc: Inspect image details
     cmds:
-      - sudo nerdctl inspect {{.IMAGE_NAME}}:{{.IMAGE_TAG}}
+      - '{{.CONTAINER_CMD}} inspect {{.IMAGE_NAME}}:{{.IMAGE_TAG}}'
 
   stats:
     desc: View container resource usage
     cmds:
-      - sudo nerdctl stats {{.CONTAINER_NAME}}
+      - '{{.CONTAINER_CMD}} stats {{.CONTAINER_NAME}}'
