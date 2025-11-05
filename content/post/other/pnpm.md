@@ -1,14 +1,584 @@
 ---
 title: pnpm basic, npm basic
 author: "-"
-date: 2014-02-19T05:50:38+00:00
+date: 2025-11-05T08:30:00+00:00
 url: pnpm
 tags:
-  - node, npm, pnpm
+  - node
+  - npm
+  - pnpm
+  - remix
+  - AI-assisted
 categories:
   - inbox
 ---
-## pnpm basic, npm basic
+
+# pnpm - 高效的 Node.js 包管理器
+
+## pnpm 简介
+
+**pnpm** (performant npm) 是一个快速、节省磁盘空间的 JavaScript 包管理器，作为 npm 和 yarn 的替代方案。它通过创建硬链接和符号链接的方式来共享依赖，避免重复安装相同的包。
+
+### 核心特点
+
+1. **节省磁盘空间**
+   - 所有版本的依赖都存储在硬盘上的单一位置（全局存储目录）
+   - 当安装包时，文件会从全局存储硬链接到项目的 `node_modules`
+   - 如果你有 100 个项目使用相同版本的某个依赖，磁盘上只会有这个依赖的一份文件
+
+2. **极快的安装速度**
+   - 由于使用硬链接，安装过程比 npm 和 yarn 都快
+   - 多个项目共享依赖时，速度优势更加明显
+   - 严格的依赖解析算法避免了冗余操作
+
+3. **创建非扁平化的 node_modules**
+   - 使用符号链接创建依赖的嵌套结构
+   - 只有 `package.json` 中声明的依赖才能访问
+   - 避免了"幽灵依赖"（phantom dependencies）问题
+
+4. **严格的依赖管理**
+   - 防止访问未声明的依赖
+   - 确保项目的可重现性和安全性
+
+### pnpm 工作原理
+
+```
+全局存储 (~/.pnpm-store/)
+    ├── package-a@1.0.0
+    ├── package-b@2.0.0
+    └── package-c@3.0.0
+           ↓ (硬链接)
+项目 node_modules/
+    └── .pnpm/
+        └── package-a@1.0.0/
+            └── node_modules/
+                └── package-a (实际内容)
+           ↓ (符号链接)
+    └── package-a → .pnpm/package-a@1.0.0/node_modules/package-a
+```
+
+### 与 npm/yarn 的对比
+
+| 特性 | pnpm | npm | yarn |
+|------|------|-----|------|
+| 磁盘空间效率 | ⭐⭐⭐⭐⭐ | ⭐⭐ | ⭐⭐ |
+| 安装速度 | ⭐⭐⭐⭐⭐ | ⭐⭐⭐ | ⭐⭐⭐⭐ |
+| 依赖隔离 | ⭐⭐⭐⭐⭐ | ⭐⭐ | ⭐⭐ |
+| Monorepo 支持 | ⭐⭐⭐⭐⭐ | ⭐⭐⭐ | ⭐⭐⭐⭐ |
+| 严格性 | ⭐⭐⭐⭐⭐ | ⭐⭐⭐ | ⭐⭐⭐ |
+
+## pnpm 安装
+
+### 全局安装 pnpm
+
+```bash
+# 使用 npm 安装
+npm install -g pnpm
+
+# 使用 Homebrew (macOS/Linux)
+brew install pnpm
+
+# 使用独立脚本安装
+curl -fsSL https://get.pnpm.io/install.sh | sh -
+
+# Windows (PowerShell)
+iwr https://get.pnpm.io/install.ps1 -useb | iex
+```
+
+### 查看版本
+
+```bash
+pnpm --version
+pnpm -v
+```
+
+## pnpm 基本命令
+
+### 安装依赖
+
+```bash
+# 安装 package.json 中的所有依赖
+pnpm install
+pnpm i
+
+# 安装指定包
+pnpm add <package>
+pnpm add lodash
+
+# 安装指定版本
+pnpm add lodash@4.17.21
+
+# 安装到 devDependencies
+pnpm add -D <package>
+pnpm add --save-dev jest
+
+# 全局安装
+pnpm add -g <package>
+pnpm add -g typescript
+
+# 安装指定 workspace 包
+pnpm add <package> --filter <workspace>
+```
+
+### 更新依赖
+
+```bash
+# 更新所有依赖
+pnpm update
+pnpm up
+
+# 更新指定包
+pnpm update lodash
+pnpm up lodash
+
+# 更新到最新版本（忽略 package.json 中的版本范围）
+pnpm update --latest
+pnpm up -L
+
+# 交互式更新
+pnpm update -i
+```
+
+### 删除依赖
+
+```bash
+# 删除指定包
+pnpm remove <package>
+pnpm rm lodash
+
+# 删除全局包
+pnpm remove -g <package>
+```
+
+### 查看依赖
+
+```bash
+# 列出所有依赖
+pnpm list
+pnpm ls
+
+# 列出指定包的依赖树
+pnpm list <package>
+
+# 查看过期的包
+pnpm outdated
+
+# 查看包信息
+pnpm view lodash
+pnpm info lodash
+```
+
+### 运行脚本
+
+```bash
+# 运行 package.json 中定义的脚本
+pnpm run <script>
+pnpm run build
+pnpm run test
+
+# 简写（对于常用命令）
+pnpm start
+pnpm test
+pnpm t
+```
+
+### 清理缓存
+
+```bash
+# 清理未被引用的包
+pnpm store prune
+
+# 查看 store 状态
+pnpm store status
+
+# 查看 store 路径
+pnpm store path
+```
+
+### 安全审计
+
+```bash
+# 检查依赖包的安全漏洞（对应 npm audit）
+pnpm audit
+
+# 自动修复漏洞（对应 npm audit fix）
+pnpm audit --fix
+
+# 仅生产环境依赖审计
+pnpm audit --prod
+
+# 输出 JSON 格式
+pnpm audit --json
+
+# 审计并显示详细信息
+pnpm audit --audit-level=<severity>
+# severity 可选值: low, moderate, high, critical
+```
+
+**pnpm audit 与 npm audit 的差异：**
+
+| 功能 | npm audit | pnpm audit |
+|------|-----------|------------|
+| 检查漏洞 | `npm audit` | `pnpm audit` |
+| 自动修复 | `npm audit fix` | `pnpm audit --fix` |
+| 强制修复 | `npm audit fix --force` | 不支持 `--force`，需手动更新 |
+| 跳过审计 | `npm install --no-audit` | `pnpm install --no-audit` |
+| 仅生产环境 | `npm audit --production` | `pnpm audit --prod` |
+
+**注意事项：**
+- pnpm audit 不支持 `--force` 选项
+- 如果 `--fix` 无法自动修复，需要手动更新 package.json
+- 可以在 `.npmrc` 中设置 `audit-level` 来控制审计级别
+
+```ini
+# .npmrc 配置审计级别
+audit-level=moderate
+```
+
+### 安全漏洞处理实践
+
+**audit 的工作原理：**
+1. 扫描项目依赖（包括直接依赖和间接依赖）
+2. 与 npm 漏洞数据库对比
+3. 列出发现的已知安全漏洞（CVE）
+4. 提供修复建议（如果有可用的安全版本）
+
+**当上游未修复漏洞时的处理方案：**
+
+```bash
+# 1. 查看详细的漏洞信息
+pnpm audit --json > audit-report.json
+
+# 2. 评估漏洞的实际影响
+# - 漏洞是否会影响你的使用场景？
+# - 攻击路径在你的应用中是否可达？
+# - 是否是开发依赖还是生产依赖？
+```
+
+**实际应对策略：**
+
+1. **等待上游修复**（推荐但需要时间）
+   ```bash
+   # 使用 package.json 的 resolutions (yarn) 或 overrides (npm 8.3+/pnpm)
+   ```
+   
+   在 `package.json` 中使用 `pnpm.overrides`:
+   ```json
+   {
+     "pnpm": {
+       "overrides": {
+         "vulnerable-package": "^2.0.0"
+       }
+     }
+   }
+   ```
+
+2. **寻找替代包**
+   ```bash
+   # 如果漏洞严重且长期未修复，考虑迁移到其他包
+   pnpm remove vulnerable-package
+   pnpm add alternative-package
+   ```
+
+3. **Fork 并自行修复**（高级方案）
+   ```bash
+   # Fork 有漏洞的包，自己修复后使用
+   pnpm add https://github.com/your-username/forked-package
+   ```
+
+4. **使用 patch-package 打补丁**
+   ```bash
+   # 安装 patch-package
+   pnpm add -D patch-package
+   
+   # 修改 node_modules 中的文件后生成补丁
+   pnpm patch-package vulnerable-package
+   
+   # package.json 中添加
+   {
+     "scripts": {
+       "postinstall": "patch-package"
+     }
+   }
+   ```
+
+5. **降低风险而非完全消除**
+   ```bash
+   # 添加安全相关的中间件或防护措施
+   # 限制受影响功能的暴露面
+   # 加强输入验证和输出转义
+   ```
+
+6. **忽略特定漏洞**（临时方案，不推荐）
+   ```bash
+   # 创建 .npmrc 或 pnpm-audit-ignore.json
+   # 但这不会真正解决问题，只是隐藏警告
+   ```
+
+**漏洞严重性分级与处理优先级：**
+
+| 级别 | 说明 | 建议处理时间 |
+|------|------|-------------|
+| Critical (严重) | 可被远程利用，造成重大影响 | 立即处理 |
+| High (高) | 可能导致重大安全问题 | 1-7天内处理 |
+| Moderate (中) | 有安全风险但利用难度较高 | 1个月内处理 |
+| Low (低) | 理论风险或需特定条件才能触发 | 视情况处理 |
+
+**实际项目中的最佳实践：**
+
+```bash
+# 1. 定期检查（可集成到 CI/CD）
+pnpm audit
+
+# 2. 开发环境的漏洞可以适当放宽
+pnpm audit --prod  # 只检查生产依赖
+
+# 3. 设置合理的审计级别
+# .npmrc
+audit-level=high  # 只关注 high 和 critical
+
+# 4. 在 CI 中失败构建（根据团队策略）
+pnpm audit --audit-level=high || exit 1
+```
+
+**典型场景示例：**
+
+```bash
+# 场景1: 发现漏洞但不影响你的使用
+# 例如：漏洞在服务端包的浏览器特性中，而你只在 Node.js 中使用
+# 处理：记录在案，评估后可以暂时忽略
+
+# 场景2: 间接依赖有漏洞
+# 例如：你依赖的 package-a 依赖了有漏洞的 package-b
+# 处理：
+pnpm update package-a  # 先尝试更新直接依赖
+# 如果不行，使用 overrides 强制更新 package-b
+
+# 场景3: 开发依赖有漏洞
+# 例如：测试工具有漏洞，但不会打包到生产环境
+# 处理：优先级可以降低，但仍需关注
+
+# 场景4: 无可用修复版本
+# 处理：评估风险 → 寻找替代 → Fork修复 → 添加防护措施
+```
+
+**总结：**
+您说得对，如果上游没有修复，我们的选择确实有限。但 audit 的价值在于：
+1. **及早发现问题** - 让你知道有风险存在
+2. **评估影响** - 帮助你判断是否需要立即行动
+3. **推动更新** - 促使你保持依赖的更新
+4. **合规要求** - 某些行业/公司要求必须定期做安全审计
+
+关键是要**理性看待漏洞报告**，不是所有漏洞都会实际影响你的应用，需要根据具体情况评估和处理。
+
+## pnpm 高级功能
+
+### Workspace (Monorepo)
+
+pnpm 内置了强大的 monorepo 支持，无需额外工具。
+
+**创建 `pnpm-workspace.yaml`:**
+
+```yaml
+packages:
+  - 'packages/*'
+  - 'apps/*'
+  - 'tools/*'
+```
+
+**Workspace 命令:**
+
+```bash
+# 在所有 workspace 中安装依赖
+pnpm install
+
+# 在指定 workspace 中添加依赖
+pnpm add axios --filter my-app
+
+# 在所有 workspace 中运行脚本
+pnpm -r run build
+
+# 在指定 workspace 中运行脚本
+pnpm --filter my-app run dev
+
+# 运行多个 workspace 的脚本（并行）
+pnpm --parallel -r run test
+```
+
+### 配置文件
+
+**`.npmrc` 配置示例:**
+
+```ini
+# 设置镜像源
+registry=https://registry.npmmirror.com
+
+# 严格的 peer dependencies
+strict-peer-dependencies=true
+
+# 自动安装 peer dependencies
+auto-install-peers=true
+
+# 幽灵依赖检查
+hoist=false
+
+# 公共 hoist 模式（允许某些包提升）
+public-hoist-pattern[]=*eslint*
+public-hoist-pattern[]=*prettier*
+```
+
+### pnpm 的 .npmrc 特殊配置
+
+```bash
+# 禁用幽灵依赖（推荐）
+node-linker=hoisted
+
+# 使用 pnpm 的符号链接模式（默认）
+node-linker=isolated
+
+# 共享 lockfile
+shared-workspace-lockfile=true
+
+# 仅允许 pnpm
+engine-strict=true
+```
+
+**在 `package.json` 中限制只能使用 pnpm:**
+
+```json
+{
+  "engines": {
+    "pnpm": ">=8.0.0"
+  },
+  "packageManager": "pnpm@8.10.0"
+}
+```
+
+## pnpm 最佳实践
+
+### 1. 使用 `pnpm-lock.yaml`
+
+```bash
+# 确保 lockfile 被提交到 git
+git add pnpm-lock.yaml
+```
+
+### 2. 启用严格模式
+
+在 `.npmrc` 中:
+```ini
+strict-peer-dependencies=true
+auto-install-peers=true
+```
+
+### 3. Monorepo 项目结构
+
+```
+my-monorepo/
+├── pnpm-workspace.yaml
+├── package.json
+├── pnpm-lock.yaml
+├── packages/
+│   ├── package-a/
+│   │   └── package.json
+│   └── package-b/
+│       └── package.json
+└── apps/
+    └── web/
+        └── package.json
+```
+
+### 4. 使用 preinstall hook 强制使用 pnpm
+
+在根 `package.json` 中:
+```json
+{
+  "scripts": {
+    "preinstall": "npx only-allow pnpm"
+  }
+}
+```
+
+### 5. 迁移现有项目到 pnpm
+
+```bash
+# 1. 删除旧的依赖
+rm -rf node_modules package-lock.json yarn.lock
+
+# 2. 安装 pnpm
+npm install -g pnpm
+
+# 3. 导入 package-lock.json（如果存在）
+pnpm import
+
+# 4. 安装依赖
+pnpm install
+```
+
+## pnpm 常见问题
+
+### 解决幽灵依赖问题
+
+如果某些工具需要访问未声明的依赖，可以在 `.npmrc` 中配置:
+
+```ini
+public-hoist-pattern[]=*types*
+public-hoist-pattern[]=@babel/*
+```
+
+### 符号链接问题
+
+某些构建工具可能不支持符号链接，可以使用:
+
+```bash
+# 临时禁用符号链接
+pnpm install --shamefully-hoist
+
+# 或在 .npmrc 中配置
+node-linker=hoisted
+```
+
+### 查看实际磁盘占用
+
+```bash
+# 查看项目的 node_modules 大小
+du -sh node_modules
+
+# 查看全局 store 大小
+du -sh ~/.pnpm-store
+```
+
+## pnpm 与 npm 命令对照表
+
+| npm 命令 | pnpm 命令 |
+|---------|----------|
+| `npm install` | `pnpm install` |
+| `npm install <pkg>` | `pnpm add <pkg>` |
+| `npm install -D <pkg>` | `pnpm add -D <pkg>` |
+| `npm uninstall <pkg>` | `pnpm remove <pkg>` |
+| `npm update` | `pnpm update` |
+| `npm run <script>` | `pnpm <script>` or `pnpm run <script>` |
+| `npx <command>` | `pnpm dlx <command>` |
+| `npm list` | `pnpm list` |
+| `npm outdated` | `pnpm outdated` |
+| `npm cache clean` | `pnpm store prune` |
+| `npm audit` | `pnpm audit` |
+| `npm audit fix` | `pnpm audit --fix` |
+
+## 总结
+
+pnpm 是一个现代化、高效的包管理器，特别适合：
+
+- **大型项目**: 节省大量磁盘空间
+- **Monorepo**: 内置支持，无需额外工具
+- **CI/CD**: 更快的安装速度
+- **团队协作**: 严格的依赖管理，避免环境差异
+
+如果你的项目还在使用 npm 或 yarn，强烈建议尝试迁移到 pnpm！
+
+---
+
+## npm basic, pnpm basic
 
 ```json
 npm install -g pnpm
