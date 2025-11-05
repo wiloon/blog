@@ -9,6 +9,7 @@ tags:
   - reprint
 ---
 ## USB数据线
+
 编号 定义 颜色识别
   
 1 VBUS Red (红色) 
