@@ -399,3 +399,7 @@ slmgr.vbs -dlv 显示: 最为详尽的激活信息，包括: 激活ID、安装ID
 slmgr.vbs -dli 显示: 操作系统版本、部分产品密钥、许可证状态
 slmgr.vbs -xpr 显示: 是否彻底激活
 ```
+
+## dd for windows
+
+dd if=install-amd64-minimal-20150910.iso of=\\.\j: bs=4M
