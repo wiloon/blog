@@ -28,6 +28,7 @@ git submodule status
 git submodule update --init 将 git submodule init 和 git submodule update 合并成一步。如果还要初始化、抓取并检出任何嵌套的子模块， 请使用简明的 git submodule update --init --recursive。
 
 ```bash
+# 添加 submodule
 # 为已有的 git 仓库增加子模块, 命令执行完成，会在当前工程根路径下生成一个名为“.gitmodules”的文件
 # enx: 子模块的目录名
 git submodule add git@github.com:wiloon/enx.git enx
