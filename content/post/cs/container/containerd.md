@@ -77,7 +77,7 @@ ls /etc/cni/net.d/
 /opt/cni/bin/loopback --version
 
 # install containerd
-# apt 仓库里的包版本太旧， 2025-06-03 13:17:05， apt里的 containerd 1.7.27, 官网最新的 2.1.1
+# apt 仓库里的包版本太旧， 2025-06-03 13:17:05， apt 里的 containerd 1.7.27, 官网最新的 2.1.1
 containerd_version="2.1.4"
 curl -LO https://github.com/containerd/containerd/releases/download/v${containerd_version}/containerd-${containerd_version}-linux-amd64.tar.gz
 sudo tar Cxzvf /usr/local containerd-${containerd_version}-linux-amd64.tar.gz
@@ -1153,3 +1153,55 @@ nerdctl run -d nginx
 ## 私有容器仓库
 
 https://github.com/goharbor/harbor
+
+## install 命令
+
+`install` 是 Linux 系统的标准命令（GNU coreutils），用于**复制文件并设置属性**（权限、所有者等），常用于软件安装脚本中。
+
+### 基本语法
+
+```bash
+install [选项] 源文件 目标位置
+```
+
+### 常用选项
+
+| 选项 | 说明 | 示例 |
+|------|------|------|
+| `-m MODE` | 设置权限模式 | `install -m 755 file /usr/bin/` |
+| `-o OWNER` | 设置所有者 | `install -o root file /usr/bin/` |
+| `-g GROUP` | 设置所属组 | `install -g root file /usr/bin/` |
+| `-d` | 创建目录 | `install -d /opt/myapp` |
+| `-D` | 自动创建父目录 | `install -D file /a/b/c/file` |
+
+### 使用示例
+
+```bash
+# 复制文件并设置权限为 755（可执行）
+install -m 755 runc.amd64 /usr/local/sbin/runc
+
+# 等价于以下两步操作：
+cp runc.amd64 /usr/local/sbin/runc
+chmod 755 /usr/local/sbin/runc
+
+# 创建目录并设置权限
+install -d -m 755 /opt/myapp
+
+# 复制文件并设置所有者和权限
+install -m 644 -o root -g root config.conf /etc/myapp/
+```
+
+### 为什么用 install 而不是 cp？
+
+1. **一步到位**：同时完成复制和设置权限
+2. **安全性**：自动处理临时文件，避免覆盖时的竞态条件
+3. **惯例**：软件安装脚本的标准做法
+4. **原子性**：更安全的文件替换操作
+
+### 跨平台支持
+
+- ✅ 所有 Linux 发行版（Ubuntu、Debian、Arch、CentOS、Fedora 等）
+- ✅ macOS（通过 GNU coreutils）
+- ✅ BSD 系统
+
+这是一个 **POSIX 标准命令**，几乎所有类 Unix 系统都支持。
