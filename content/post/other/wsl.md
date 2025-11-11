@@ -303,10 +303,6 @@ mvn spring-boot:run
 export DISPLAY=$(awk '/nameserver / {print $2; exit}' /etc/resolv.conf 2>/dev/null):0
 ```
 
-#### Windows 防火墙配置
-
-添加高级规则：允许 TCP 端口 0
-
 #### Windows 脚本设置网卡 IP
 
 参考：[WSL2 固定 IP 配置](https://blog.csdn.net/manbu_cy/article/details/108476859)
@@ -431,7 +427,13 @@ startxfce4
 
 ### Windows 防火墙配置
 
-注意：需要选择"公用网络"，否则执行 `startxfce4` 后会报错"无法连接"
+**Xfce4 图形界面：**
+
+- 需要选择"公用网络"，否则执行 `startxfce4` 后会报错"无法连接"
+
+**固定 IP 配置：**
+
+- 添加高级规则：允许 TCP 端口 0
 
 ### Xfce4 快捷键
 
