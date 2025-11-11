@@ -1,13 +1,14 @@
 ---
 title: git merge, git rebase
 author: "-"
-date: 2023-05-19 11:10:01
+date: 2025-11-11T16:30:00+08:00
 url: git/merge-rebase
 categories:
   - Git
 tags:
   - reprint
   - remix
+  - AI-assisted
 ---
 
 - git merge
@@ -17,7 +18,7 @@ tags:
 
 ## merge 合并
 
-用于将两个或多个分支的更改合并到一起。它通常用于将一个分支上的开发成果合并到当前分支（如将 feature 分支合并回 main/master 分支）。其主要作用是整合不同开发者或分支上的工作，保持代码库的统一和最新。
+用于将两个或多个分支的更改合并到一起。它通常用于将一个分支上的开发成果合并到当前分支（如将 feature 分支合并回 main 分支）。其主要作用是整合不同开发者或分支上的工作，保持代码库的统一和最新。
 
 ```bash
 # 基本用法
@@ -33,15 +34,85 @@ git merge branch_0 -m "merge with no-ff" --no-ff
 
 ### 合并方式
 
-#### Fast-forward
+#### Fast-forward（快进合并）
 
-如果当前分支没有新的提交，仅仅是落后于目标分支，Git 会直接把指针向前移动到目标分支的位置，这种合并不会产生新的合并提交。快速合并，看不出做过合并。 快进合并后不会留下一个明显的“feature 分支合并节点”，只有一条线性的记录。
+如果当前分支没有新的提交，仅仅是落后于目标分支，Git 会直接把指针向前移动到目标分支的位置，这种合并不会产生新的合并提交。快速合并，看不出做过合并。快进合并后不会留下一个明显的"feature 分支合并节点"，只有一条线性的记录。
+
+**特点：**
+- 不创建 merge commit
+- 分支指针直接前移
+- 提交历史呈线性
+- 无法看出曾经有分支存在
+
+**示意图：**
+```
+合并前：
+main:     A---B
+               \
+feature:        C---D
+
+合并后（Fast-forward）：
+main:     A---B---C---D
+feature:            C---D
+```
 
 #### 普通合并（Non fast-forward）
 
-no fast-forward 模式`--no-ff`，可以保留分支拓扑(分支曾经存在并被合并)。图上能看到分叉并在 merge commit 汇合，之后仍可追溯某个提交来自哪个特性分支。会生成一个新的 commit-id
+no fast-forward 模式`--no-ff`，可以保留分支拓扑(分支曾经存在并被合并)。图上能看到分叉并在 merge commit 汇合，之后仍可追溯某个提交来自哪个特性分支。会生成一个新的 commit-id。
 
-默认情况下，Git 执行快进式合并, fast-forward merge，会直接将 Master 分支指向 Develop 分支。使用 --no-ff 参数后，会执行正常合并，在Master 分支上生成一个新节点。为了保证版本演进的清晰，我们希望采用这种做法。关于合并的更多解释，请参考 `Benjamin Sandofsky` 的《Understanding the Git Workflow》。
+**特点：**
+- 强制创建 merge commit
+- 保留分支拓扑结构
+- 可以清楚地看到分支合并历史
+- 便于整体回滚某个功能
+
+**示意图：**
+```
+合并前：
+main:     A---B
+               \
+feature:        C---D
+
+合并后（--no-ff）：
+main:     A---B-------M (merge commit)
+               \     /
+feature:        C---D
+```
+
+**为什么要禁用 Fast-forward？**
+
+使用 `--no-ff` 参数的主要原因：
+
+1. **保留功能边界** - 清晰地标记出哪些提交属于同一个功能分支
+2. **便于回滚** - 可以通过 `git revert -m 1 <merge-commit>` 一次性回滚整个功能
+3. **更好的历史追溯** - 明确显示功能何时被合并
+4. **符合 Git Flow 规范** - 大多数分支管理策略推荐使用 `--no-ff`
+
+**对比示例：**
+
+| 特性 | Fast-forward | --no-ff |
+|------|-------------|---------|
+| Merge Commit | 不创建 | 创建 |
+| 分支历史 | 线性 | 保留分支结构 |
+| 回滚操作 | 逐个提交回滚 | 可一次回滚整个功能 |
+| 历史追溯 | 难以区分功能边界 | 清晰显示功能边界 |
+| 适用场景 | 个人分支更新 | 功能分支合并到主分支 |
+
+**配置默认行为：**
+
+```bash
+# 设置合并时总是禁用 fast-forward
+git config --global merge.ff false
+
+# 设置合并时只在可能的情况下 fast-forward
+git config --global merge.ff only
+
+# 恢复默认行为（允许 fast-forward）
+git config --global --unset merge.ff
+```
+
+**参考资料：**
+- `Benjamin Sandofsky` 的《Understanding the Git Workflow》
 
 ### git merge --squash
 
@@ -681,3 +752,173 @@ git reset --hard <commit-hash>
 | 推荐场景 | 公共分支 | 个人分支+PR |
 
 **最佳实践:** 在个人 feature 分支提 PR 前使用 **rebase**,保持提交历史清晰,便于团队协作和代码审查。
+
+## Octopus Merge（章鱼合并）
+
+### 什么是 Octopus Merge
+
+Octopus Merge 是 Git 的一种特殊合并策略，允许**同时合并两个以上的分支**到当前分支。这个名字很形象，就像章鱼有多条触手一样，一次性把多个分支合并到一起。
+
+### 基本用法
+
+```bash
+# 同时合并多个分支到当前分支
+git merge branch1 branch2 branch3
+
+# 示例：在 main 分支同时合并三个功能分支
+git checkout main
+git merge feature-1 feature-2 feature-3
+```
+
+### 提交历史示意
+
+```
+main:     A---B-----------M (octopus merge commit)
+              |          /|\
+feature-1:    C---D     / | \
+              |        /  |  \
+feature-2:    E---F   /   |   \
+              |      /    |    \
+feature-3:    G---H------/     |
+                              /
+```
+
+### 重要限制
+
+#### ⚠️ 不能有冲突
+
+Octopus Merge 的**最大限制**是：**所有被合并的分支之间不能有任何冲突**。
+
+```bash
+# 如果合并时出现冲突，Git 会拒绝继续
+error: 'octopus' strategy can not handle conflicts
+fatal: merge program failed
+
+# 此时需要中止 octopus merge
+git merge --abort
+
+# 改为逐个合并
+git merge feature-1
+# 解决冲突...
+git merge feature-2
+# 解决冲突...
+git merge feature-3
+```
+
+### 适用场景
+
+#### ✅ 适合使用的情况
+
+1. **多个独立的功能分支**
+   - 各分支修改的是不同的文件或代码区域
+   - 分支之间完全独立，不会产生冲突
+   
+2. **批量合并小改动**
+   - 多个小的 bug 修复
+   - 文档更新
+   - 配置文件调整
+
+3. **示例场景**
+   ```bash
+   # 三个独立的功能分支，互不冲突
+   # feature-login: 修改了 src/auth/login.js
+   # feature-api: 修改了 src/api/user.js
+   # feature-ui: 修改了 src/components/Header.vue
+   
+   git checkout main
+   git merge feature-login feature-api feature-ui
+   ```
+
+#### ❌ 不适合使用的情况
+
+1. **分支之间可能有冲突**
+   - 多个分支修改了同一个文件
+   - 不确定是否有冲突的情况
+
+2. **需要仔细审查的变更**
+   - 复杂的功能分支
+   - 需要逐个进行 Code Review 的情况
+
+3. **大型项目的日常开发**
+   - 风险较高，不易追溯问题
+   - 不便于回滚单个功能
+
+### 实际建议
+
+在实际工作中，Octopus Merge **使用较少**，原因如下：
+
+#### 为什么很少使用
+
+1. **冲突限制严格**
+   - 任何冲突都会导致合并失败
+   - 大多数情况下，多个分支难免有重叠修改
+
+2. **可维护性差**
+   - 一次性合并多个分支，出问题难以定位
+   - 不利于代码审查和问题追踪
+
+3. **现代工作流不适配**
+   - PR/MR 工作流提倡逐个审查合并
+   - CI/CD 流程通常需要独立测试每个分支
+
+#### 推荐的替代方案
+
+```bash
+# 方案一：逐个合并（推荐）
+git checkout main
+git merge feature-1
+git merge feature-2
+git merge feature-3
+
+# 方案二：使用 GitHub/GitLab PR 工作流
+# 1. 为每个 feature 分支创建独立的 PR
+# 2. 逐个进行 Code Review
+# 3. 独立测试和合并
+
+# 方案三：如果确实需要批量合并且确认无冲突
+git merge --no-ff feature-1 feature-2 feature-3
+```
+
+### 如何检查是否有冲突
+
+在尝试 Octopus Merge 之前，可以预先检查：
+
+```bash
+# 检查分支之间是否有冲突
+git diff feature-1...feature-2
+git diff feature-2...feature-3
+git diff feature-1...feature-3
+
+# 或者先做一次测试合并
+git checkout -b test-merge main
+git merge feature-1 feature-2 feature-3
+
+# 如果成功，说明没有冲突
+# 如果失败，需要逐个处理
+git checkout main
+git branch -D test-merge
+```
+
+### 合并策略选择
+
+Git 提供多种合并策略，Octopus 只是其中之一：
+
+```bash
+# 明确指定使用 octopus 策略
+git merge -s octopus feature-1 feature-2 feature-3
+
+# 其他合并策略
+git merge -s recursive feature-1   # 默认策略，处理两个分支
+git merge -s ours feature-1         # 忽略目标分支的更改
+git merge -s subtree feature-1      # 用于子树合并
+```
+
+### 总结
+
+- **Octopus Merge 技术上可以同时合并多个分支**
+- **必须保证所有分支之间无冲突**
+- **实际使用场景非常有限**
+- **大多数团队更倾向于逐个合并分支**
+- **现代 PR/MR 工作流更适合渐进式合并**
+
+**最佳实践：** 除非有特殊需求且确认无冲突，否则建议逐个合并分支，这样更安全、可控且便于问题定位。
