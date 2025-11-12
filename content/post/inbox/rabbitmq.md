@@ -63,7 +63,7 @@ curl -1sLf https://github.com/rabbitmq/signing-keys/releases/download/3.0/clouds
 ## Community mirror of Cloudsmith: RabbitMQ repository
 curl -1sLf https://github.com/rabbitmq/signing-keys/releases/download/3.0/cloudsmith.rabbitmq-server.9F4587F226208342.key | sudo gpg --dearmor | sudo tee /usr/share/keyrings/rabbitmq.9F4587F226208342.gpg > /dev/null
 
-## Add apt repositories maintained by Team RabbitMQ
+# Add apt repositories maintained by Team RabbitMQ
 sudo tee /etc/apt/sources.list.d/rabbitmq.list <<EOF
 ## Provides modern Erlang/OTP releases
 ##
