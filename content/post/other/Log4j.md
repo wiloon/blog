@@ -1,7 +1,7 @@
 ---
 title: Log4j 日志级别
 author: "-"
-date: -001-11-30T00:00:00+00:00
+date: 2020-01-01T00:00:00+08:00
 draft: true
 url: /?p=6788
 categories:

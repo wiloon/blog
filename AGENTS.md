@@ -57,3 +57,20 @@ tags:
 - 使用适当的 Markdown 语法
 - 代码块要指定语言类型
 - 保持中英文之间的适当空格
+
+---
+
+## 开发环境信息
+
+### 容器工具
+- 本地使用 **nerdctl** 而非 docker 或 podman
+- 需要使用 **sudo** 权限执行
+- 构建镜像时使用：`sudo nerdctl build`
+- 运行容器时使用：`sudo nerdctl run`
+
+### Hugo 博客信息
+- 静态站点生成器：Hugo
+- 当前主题：PaperMod
+- Hugo 版本：Extended 版本（具体版本见 `Containerfile` 中的 `HUGO_VERSION`）
+- 内容目录：`content/post/`
+- 主题目录：`themes/PaperMod/`
