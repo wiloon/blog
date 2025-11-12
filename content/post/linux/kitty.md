@@ -1,7 +1,7 @@
 ---
 title: kitty
 author: "-"
-date: 2025-11-10T20:30:00+08:00
+date: 2025-11-12T08:30:00+08:00
 url: kitty
 categories:
   - Linux
@@ -31,6 +31,7 @@ https://www.escapelife.site/posts/8e342b57.html
 - `Ctrl+Shift+[` - 切换到上一个窗口
 - `Ctrl+Shift+W` - 关闭当前窗口
 - `Ctrl+Shift+R` - 调整窗口大小模式
+- `Ctrl+Shift+L` - 切换窗口布局（tall/fat/grid/horizontal/vertical/splits/stack）
 
 ### 标签页管理
 - `Ctrl+Shift+T` - 新建标签页
