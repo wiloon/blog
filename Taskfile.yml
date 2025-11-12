@@ -4,7 +4,7 @@ vars:
   IMAGE_NAME: blog
   IMAGE_TAG: latest
   CONTAINER_NAME: blog
-  PORT: 8080
+  PORT: 8090
   # 根据操作系统自动选择容器工具
   CONTAINER_CMD:
     sh: |
@@ -18,13 +18,13 @@ tasks:
   default:
     desc: Show all available tasks
     cmds:
-      - go-task --list-all
+      - task --list-all
     silent: true
 
   help:
     desc: Show help information
     cmds:
-      - go-task --list
+      - task --list
     silent: true
 
   build:
@@ -37,8 +37,8 @@ tasks:
     desc: Run container
     deps: [stop]
     cmds:
-      - '{{.CONTAINER_CMD}} run -d --name {{.CONTAINER_NAME}} -p {{.PORT}}:80 {{.IMAGE_NAME}}:{{.IMAGE_TAG}}'
-      - echo "✅ Container started at http://localhost:{{.PORT}}"
+      - '{{.CONTAINER_CMD}} run -d --name {{.CONTAINER_NAME}} --network host {{.IMAGE_NAME}}:{{.IMAGE_TAG}}'
+      - echo "✅ Container started at http://localhost:80"
 
   stop:
     desc: Stop and remove container

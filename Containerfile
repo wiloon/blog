@@ -3,14 +3,16 @@
 # Stage 1: Build the Hugo site
 FROM docker.io/library/alpine:3.22.2 AS builder
 
-# Install Hugo
-ENV HUGO_VERSION=0.70.0
-RUN apk add --no-cache wget ca-certificates && \
-    wget -q https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_${HUGO_VERSION}_Linux-64bit.tar.gz && \
-    tar -xzf hugo_${HUGO_VERSION}_Linux-64bit.tar.gz && \
-    mv hugo /usr/local/bin/ && \
-    rm hugo_${HUGO_VERSION}_Linux-64bit.tar.gz && \
-    apk del wget
+# Install Hugo Extended (required for PaperMod theme - requires v0.146.0+)
+ENV HUGO_VERSION=0.152.2
+RUN apk add --no-cache wget ca-certificates libc6-compat libstdc++ && \
+    wget -q https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_extended_${HUGO_VERSION}_linux-amd64.tar.gz && \
+    tar -xzf hugo_extended_${HUGO_VERSION}_linux-amd64.tar.gz && \
+    chmod +x hugo && \
+    mv hugo /usr/local/bin/hugo && \
+    rm hugo_extended_${HUGO_VERSION}_linux-amd64.tar.gz && \
+    apk del wget && \
+    hugo version
 
 # Set working directory
 WORKDIR /blog
@@ -19,10 +21,10 @@ WORKDIR /blog
 COPY . .
 
 # Build the Hugo site
-RUN hugo --minify -v
+RUN hugo
 
 # Stage 2: Create production image with Nginx
-FROM docker.io/library/nginx:1.29.2-alpine
+FROM docker.io/library/nginx:1.29.3-alpine
 
 # Copy built static files from builder stage
 COPY --from=builder /blog/public /usr/share/nginx/html
