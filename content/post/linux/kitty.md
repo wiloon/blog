@@ -16,17 +16,17 @@ kitty 是一个 GPU based terminal
 
 https://sw.kovidgoyal.net/kitty/
 
-## macOS 安装与配置 Kitty
-
-### 1. 安装 Kitty
-
-推荐使用 Homebrew 安装：
+## 安装 Kitty
 
 ```bash
+# macOS
 brew install kitty
-```
 
-安装完成后，可以在「应用程序」中找到 Kitty，或在终端输入 `kitty` 启动。
+# Linux (Debian/Ubuntu)
+sudo apt update
+sudo apt install kitty -y
+kitty
+```
 
 ### 2. 安装 JetBrains Mono 字体
 
@@ -92,11 +92,70 @@ map cmd+0 change_font_size all 0
 
 ## 快捷键
 
-https://www.escapelife.site/posts/8e342b57.html
+### macOS 快捷键
 
-- ctrl+shift+f2, 打开配置文件
-- ctrl+shift+f5, reload config
-- ctrl+shift+f6, display current config
+```conf
+# 复制粘贴
+map cmd+c copy_to_clipboard
+map cmd+v paste_from_clipboard
+# 新建/关闭窗口
+map cmd+n new_os_window
+map cmd+w close_window
+# 新建/关闭标签页
+map cmd+t new_tab
+map shift+cmd+w close_tab
+# 垂直/水平分屏
+map cmd+d launch --location=vsplit --cwd=current
+map cmd+shift+d launch --location=hsplit --cwd=current
+# 字体大小调整
+map cmd+equal change_font_size all +1.0
+map cmd+minus change_font_size all -1.0
+map cmd+0 change_font_size all 0
+# 其他快捷键详见配置文件
+```
+
+#### 配置管理
+- `Cmd+,` - 编辑配置文件
+- `Cmd+Shift+,` - 重新加载配置
+- `Cmd+Shift+/` - 显示滚动历史
+- `Cmd+Shift+F11` - 切换全屏
+
+#### 窗口分割与管理
+- `Cmd+Shift+Enter` - 新建窗口（在当前窗口下方创建新窗口，水平分割）
+- `Cmd+Shift+W` - 关闭当前窗口
+- `Cmd+]` / `Cmd+[` - 切换窗口
+- `Cmd+Shift+]` / `Cmd+Shift+[` - 移动窗口
+- `Cmd+Shift+R` - 重新加载配置
+
+#### 标签页管理
+- `Cmd+T` - 新建标签
+- `Shift+Cmd+W` - 关闭标签
+- `Cmd+1~9` - 切换到指定标签页
+- `Ctrl+Tab` / `Ctrl+Shift+Tab` - 切换标签页
+
+---
+
+### Linux 快捷键
+
+#### 配置管理
+- `Ctrl+Shift+F2` - 打开配置文件
+- `Ctrl+Shift+F5` - 重新加载配置
+- `Ctrl+Shift+F6` - 显示当前配置
+
+#### 窗口分割与管理
+- `Ctrl+Shift+Enter` - 新建窗口（在当前窗口下方创建新窗口，水平分割）
+- `Ctrl+Shift+W` - 关闭当前窗口
+- `Ctrl+Shift+]` - 切换到下一个窗口
+- `Ctrl+Shift+[` - 切换到上一个窗口
+- `Ctrl+Shift+R` - 调整窗口大小模式
+- `Ctrl+Shift+L` - 切换窗口布局（tall/fat/grid/horizontal/vertical/splits/stack）
+
+#### 标签页管理
+- `Ctrl+Shift+T` - 新建标签
+- `Ctrl+Shift+W` - 关闭标签（当只有一个窗口时）
+- `Ctrl+Shift+Q` - 退出 kitty
+- `Ctrl+Shift+Right` - 切换到下一个标签页
+- `Ctrl+Shift+Left` - 切换到上一个标签页
 
 ## ubuntu install
 
