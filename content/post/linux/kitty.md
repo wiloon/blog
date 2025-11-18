@@ -150,12 +150,34 @@ map cmd+0 change_font_size all 0
 - `Ctrl+Shift+R` - 调整窗口大小模式
 - `Ctrl+Shift+L` - 切换窗口布局（tall/fat/grid/horizontal/vertical/splits/stack）
 
-#### 标签页管理
+### 窗口位置调整
+
+窗口移动功能需要在配置文件中手动配置。编辑 `~/.config/kitty/kitty.conf` 添加：
+
+```conf
+# 移动窗口位置
+map ctrl+shift+up move_window up
+map ctrl+shift+down move_window down
+map ctrl+shift+left move_window left
+map ctrl+shift+right move_window right
+
+# 修改标签页切换快捷键（避免与窗口移动冲突）
+map ctrl+shift+page_up previous_tab
+map ctrl+shift+page_down next_tab
+```
+
+配置后按 `Ctrl+Shift+F5` 重新加载配置，然后就可以使用：
+- `Ctrl+Shift+Up` - 将当前窗口向上移动
+- `Ctrl+Shift+Down` - 将当前窗口向下移动  
+- `Ctrl+Shift+Left` - 将当前窗口向左移动
+- `Ctrl+Shift+Right` - 将当前窗口向右移动
+
+### 标签页管理
 - `Ctrl+Shift+T` - 新建标签
 - `Ctrl+Shift+W` - 关闭标签（当只有一个窗口时）
 - `Ctrl+Shift+Q` - 退出 kitty
-- `Ctrl+Shift+Right` - 切换到下一个标签页
-- `Ctrl+Shift+Left` - 切换到上一个标签页
+- `Ctrl+Shift+PageDown` - 切换到下一个标签页（避免与窗口移动冲突）
+- `Ctrl+Shift+PageUp` - 切换到上一个标签页（避免与窗口移动冲突）
 
 ## ubuntu install
 

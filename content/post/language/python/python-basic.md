@@ -393,6 +393,10 @@ pip 是 Python 的包管理工具，全称是 “Pip Installs Packages”。它�
 pip --version
 # archlinux install pip
 pacman -S python-pip
+
+# 使用普通用户安装包（用户级安装）
+python3.14 -m pip install --user package_name
+
 ```
 
 ### ubuntu pip

@@ -1,12 +1,14 @@
 ---
 title: HTTP status, HTTP code
 author: "-"
-date: 2012-06-24T07:53:32+00:00
+date: 2025-11-18T10:30:00+08:00
 url: http/status
 categories:
   - Web
 tags:
   - reprint
+  - remix
+  - AI-assisted
 ---
 ## HTTP status, HTTP code
 
@@ -45,16 +47,55 @@ tags:
 
 HTTP 错误 400
 
-400 请求出错
+## 400 Bad Request (请求错误)
 
 The request could not be understood by the server due to malformed syntax. The client SHOULD NOT repeat the request without modifications.
   
-由于语法格式有误，服务器无法理解此请求。不作修改，客户程序就无法重复此请求。
+由于请求语法格式有误或请求数据不合法，服务器无法理解此请求。客户端需要修改请求后才能重试。
 
-## 401
+**常见原因**：
+- JSON/XML 格式错误或不符合 API 规范
+- 缺少必需的请求参数
+- 参数类型不正确（如期望数字却传了字符串）
+- 请求体过大或为空
+- URL 编码错误
+- Content-Type 头不正确
+
+**示例场景**：
+```json
+// 错误的 JSON 格式（缺少引号）
+{name: "张三", age: 25}
+
+// 正确的格式
+{"name": "张三", "age": 25}
+```
+
+## 401 Unauthorized (未授权)
   
-401 Unauthorized 客户试图未经授权访问受密码保护的页面。应答中会包含一个 WWW-Authenticate 头，浏览器据此显示用户名字/密码对话框，
-然后在填写合适的 Authorization 头后再次发出请求。
+客户端试图访问需要身份认证的资源，但未提供有效的认证信息或认证失败。响应中会包含 `WWW-Authenticate` 头，指示客户端应如何进行身份认证。
+
+**与 403 的区别**：
+- **401**：你没有提供身份认证，或者认证信息无效 → "我不知道你是谁"
+- **403**：你的身份是有效的，但没有访问权限 → "我知道你是谁，但你不能访问"
+
+**常见原因**：
+- 缺少 Authorization 头或 Token
+- Token 已过期或无效
+- API Key 错误
+- 用户名或密码不正确
+- Session 已失效
+- 认证方式不正确（如 Bearer Token vs Basic Auth）
+
+**示例场景**：
+```bash
+# 缺少认证信息
+curl https://api.example.com/user/profile
+# 返回: 401 Unauthorized
+
+# 提供正确的认证
+curl -H "Authorization: Bearer your_token_here" https://api.example.com/user/profile
+# 返回: 200 OK
+```
 
 401.1 未授权: 登录失败
   

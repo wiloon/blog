@@ -32,6 +32,13 @@ pdm sync
 pdm add redis
 
 pdm info --env
+
+# pdm use 切换到 Python 3.14
+pdm use python3.14
+
+pdm self update
+rm pdm.lock
+pdm lock
 ```
 
 ### 配置文件
@@ -59,3 +66,4 @@ conda可以理解为一个工具，其核心功能是包管理与环境管理。
 conda 不会依赖于系统中已经存在的 python 进行运行。因此 conda 拥有较高的独立性以及强悍的跨版本支持，在多版本管理上
 每个虚拟环境中均包含了一个完整的 python
 conda 的虚拟环境更像是对整个开发环境的虚拟，而不是 poetry 和 pdm 那种在解释器层面的虚拟
+   jmyi86d57t44rwesadZq 3
