@@ -1,7 +1,7 @@
 ---
 title: kafka basic, command
 author: "-"
-date: 2025-05-22 09:24:19
+date: 2025-11-19T08:30:00+08:00
 url: kafka
 categories:
   - Kafka
@@ -9,6 +9,7 @@ tags:
   - reprint
   - remix
   - command
+  - AI-assisted
 ---
 ## kafka basic, command
 
@@ -83,6 +84,39 @@ bin/kafka-console-consumer.sh \
 --bootstrap-server kafka.wiloon.com:9092 \
 --topic topic0 \
 --from-beginning
+
+# 从指定 partition 的指定 offset 开始消费
+bin/kafka-console-consumer.sh \
+  --bootstrap-server 127.0.0.1:9092 \
+  --topic topic0 \
+  --partition 0 \
+  --offset 100
+
+# 消费指定数量的消息（配合 --max-messages 限制消费条数）
+# 例如：从 offset 100 开始消费 50 条消息
+bin/kafka-console-consumer.sh \
+  --bootstrap-server 127.0.0.1:9092 \
+  --topic topic0 \
+  --partition 0 \
+  --offset 100 \
+  --max-messages 50
+
+# 从 earliest 开始消费指定 partition
+bin/kafka-console-consumer.sh \
+  --bootstrap-server 127.0.0.1:9092 \
+  --topic topic0 \
+  --partition 0 \
+  --offset earliest
+
+# 打印 key、value、timestamp、partition、offset 等详细信息
+bin/kafka-console-consumer.sh \
+  --bootstrap-server 127.0.0.1:9092 \
+  --topic topic0 \
+  --property print.key=true \
+  --property print.timestamp=true \
+  --property print.partition=true \
+  --property print.offset=true \
+  --property key.separator=":"
 ```
 
 ### producer
@@ -173,6 +207,36 @@ bin/kafka-consumer-groups.sh --bootstrap-server localhost:9092 --group test-grou
 
 bin/kafka-consumer-groups.sh --bootstrap-server localhost:9092 --group test-group --reset-offsets --all-topics --to-latest --dry-run
 bin/kafka-consumer-groups.sh --bootstrap-server localhost:9092 --group test-group --reset-offsets --all-topics --to-latest --execute 
+
+# 重置指定 topic 的 offset 到最新位置（跳过所有旧消息，只消费新消息）
+# 注意：执行前必须停止该 consumer group 的所有消费者
+# 参数说明：
+#   --bootstrap-server: Kafka broker 地址
+#   --group: 指定要操作的 consumer group 名称
+#   --topic: 指定要重置 offset 的 topic（如果要重置所有 topic，使用 --all-topics）
+#   --reset-offsets: 重置 offset 的操作
+#   --to-latest: 重置到最新位置（跳过所有旧消息，之后只能消费新产生的消息）
+#   --dry-run: 预览模式，不实际执行，只显示将要进行的操作，用于确认无误
+#   --execute: 实际执行重置操作
+# 使用流程：
+#   1. 先用 --dry-run 预览，确认要重置的分区和 offset
+#   2. 确认无误后，将 --dry-run 改为 --execute 真正执行
+bin/kafka-consumer-groups.sh \
+  --bootstrap-server localhost:9092 \
+  --group group_name \
+  --topic topic0 \
+  --reset-offsets \
+  --to-latest \
+  --dry-run
+
+# 确认无误后，使用 --execute 实际执行
+bin/kafka-consumer-groups.sh \
+  --bootstrap-server localhost:9092 \
+  --group group_name \
+  --topic topic0 \
+  --reset-offsets \
+  --to-latest \
+  --execute
 ```
 
 ## topic
@@ -206,6 +270,7 @@ ssl.endpoint.identification.algorithm 默认值问题
 ### 查看 topic 详细信息, 如: 分区数, replication
 
 ```bash
+# 查看 topic 详细信息，包括分区数(PartitionCount)、副本因子(ReplicationFactor)等
 # kafka 3.0.0
 bin/kafka-topics.sh --describe --topic topic0 --bootstrap-server 192.168.50.169:9092
 
@@ -216,7 +281,23 @@ bin/kafka-topics.sh \
 --describe
 ```
 
-replication-factor: 副本数, partitions: 分区数
+输出示例：
+
+```text
+Topic: topic0   PartitionCount: 3   ReplicationFactor: 1   Configs: 
+    Topic: topic0   Partition: 0    Leader: 1    Replicas: 1    Isr: 1
+    Topic: topic0   Partition: 1    Leader: 1    Replicas: 1    Isr: 1
+    Topic: topic0   Partition: 2    Leader: 1    Replicas: 1    Isr: 1
+```
+
+字段说明：
+
+- PartitionCount: 分区数，即该 topic 有几个 partition
+- ReplicationFactor: 副本数
+- Leader: 该分区的 leader broker ID
+- Replicas: 副本所在的 broker ID 列表
+- Isr: In-Sync Replicas，同步副本列表
+
 topic 名中有`.` 或 `_` 会提示:  WARNING: Due to limitations in metric names, topics with a period ('.') or underscore ('_') could collide. To avoid issues it is best to use either, but not both.
 
 ### create topic
