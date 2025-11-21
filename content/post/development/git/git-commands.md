@@ -736,9 +736,54 @@ git cherry-pick <commitHash>
 
 ## 指定 ssh 私钥
 
+### 方法1：使用 GIT_SSH_COMMAND 环境变量（推荐）
+
 ```bash
 GIT_SSH_COMMAND="ssh -i ~/tmp/id_rsa" git clone git@github.com:wiloon/foo.git
 ```
+
+### 方法2：使用 core.sshCommand 配置
+
+```bash
+git clone -c core.sshCommand="ssh -i /path/to/private_key" git@github.com:user/repo.git
+```
+
+### 方法3：使用 ssh-agent
+
+```bash
+# 启动 ssh-agent
+eval "$(ssh-agent -s)"
+
+# 添加私钥
+ssh-add /path/to/private_key
+
+# 正常 clone
+git clone git@github.com:user/repo.git
+```
+
+### 方法4：使用 SSH config 文件（推荐用于长期配置）
+
+在 `~/.ssh/config` 中添加：
+
+```bash
+Host github.com
+  HostName github.com
+  User git
+  IdentityFile ~/.ssh/specific_key
+  IdentitiesOnly yes
+```
+
+然后正常 clone：
+
+```bash
+git clone git@github.com:user/repo.git
+```
+
+**注意事项：**
+
+- 私钥文件权限必须是 600：`chmod 600 /path/to/private_key`
+- 如果私钥有密码，可能需要使用 `ssh-agent`
+- 方法1和2适合临时使用，方法4适合长期配置
 
 ## 打印当前版本
 

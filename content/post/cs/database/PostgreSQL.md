@@ -1,12 +1,14 @@
 ---
 title: PostgreSQL
 author: "-"
-date: 2022-11-08 15:04:37
+date: 2025-11-21T08:30:00+08:00
 url: PostgreSQL
 categories:
   - database
 tags:
   - reprint
+  - remix
+  - AI-assisted
 ---
 ## PostgreSQL
 
@@ -146,6 +148,24 @@ SELECT * FROM nyummy.cimory WHERE city = 'tokio'
 
 # 导入 csv
 COPY table_0 FROM '/tmp/foo.csv';
+
+# 按过滤条件导出成 INSERT SQL 语句
+# 方法1: 使用 psql 生成 INSERT 语句
+psql -h 127.0.0.1 -p 5432 -U postgres -d database0 -t -A -c "
+SELECT 'INSERT INTO table_0 VALUES (' || 
+       quote_literal(field1) || ',' || 
+       quote_literal(field2) || ');' 
+FROM table_0 
+WHERE city = 'tokio';" > foo.sql
+
+# 方法2: 使用 pg_dump 配合临时表或视图
+# 先创建临时视图
+psql -h 127.0.0.1 -p 5432 -U postgres -d database0 -c "
+CREATE TEMP VIEW temp_view AS 
+SELECT * FROM table_0 WHERE city = 'tokio';"
+
+# 然后导出视图数据为 INSERT 语句
+pg_dump -h 127.0.0.1 -p 5432 -U postgres -d database0 -t temp_view -a --inserts > foo.sql
 ```
 
 

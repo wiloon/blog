@@ -1,13 +1,14 @@
 ---
 title: curl command
 author: "-"
-date: 2022-04-18 22:48:04
+date: 2025-11-20T08:30:00+08:00
 url: curl
 categories:
   - Commands
 tags:
   - reprint
   - remix
+  - AI-assisted
 ---
 ## curl command
 
@@ -30,6 +31,7 @@ curl `[kɜrl]`
 -I, --head 只返回头信息, 比如 FTP 服务器只返回文件大小.
 -H, --header LINE Custom header to pass to server (H)
 -d, --data # DATA HTTP POST data, 如果使用 -d 命令，curl 会以 application/x-www-url-encoded 格式上传参数。 从文件中读取数据 -d @/path/to/foo.json
+-b, --cookie <data|filename>, 发送请求时附带 cookie。可以直接传入 cookie 字符串，或从文件中读取 cookie
 --retry, 重试次数
 -F curl 会以 multipart/form-data 的方式发送 POST 请求。-F 以 key=value 的形式指定要上传的参数，如果是文件，则需要使用 key=@file 的形式。
 -k, --insecure flag to skip certificate validation.
