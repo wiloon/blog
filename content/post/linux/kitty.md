@@ -1,7 +1,7 @@
 ---
 title: kitty
 author: "-"
-date: 2025-11-15T14:30:00+08:00
+date: 2025-11-24T20:00:00+08:00
 url: kitty
 categories:
   - Linux
@@ -15,6 +15,199 @@ tags:
 kitty 是一个 GPU based terminal
 
 https://sw.kovidgoyal.net/kitty/
+
+## 清空控制台历史输出
+
+### 方法一：使用 clear 命令（推荐）
+
+```bash
+clear
+# 或
+Ctrl+L  # 快捷键，清空当前屏幕显示
+```
+
+**注意**：`clear` 或 `Ctrl+L` 只是清空当前屏幕显示，**不会删除滚动缓冲区**的历史内容，按 `Ctrl+Shift+H` 仍能看到之前的输出。
+
+### 方法二：完全清空包括滚动缓冲区
+
+```bash
+# 清空屏幕并清除滚动缓冲区
+printf '\033[2J\033[3J\033[1;1H'
+
+# 或使用 Kitty 专用命令
+clear && printf '\033[2J'
+```
+
+### 方法三：使用 Kitty 远程控制（最彻底）
+
+```bash
+# 清空当前窗口的滚动缓冲区
+kitty @ scroll-window reset
+
+# 如果需要在配置文件中设置快捷键
+# 在 ~/.config/kitty/kitty.conf 中添加：
+# map ctrl+shift+k scroll_end
+# map ctrl+shift+delete clear_terminal reset active
+```
+
+### 快捷键配置（推荐）
+
+在 `~/.config/kitty/kitty.conf` 中添加：
+
+```conf
+# Linux
+map ctrl+shift+delete clear_terminal reset active
+
+# macOS
+map cmd+k clear_terminal reset active
+```
+
+配置后：
+- **Linux**: `Ctrl+Shift+Delete` - 完全清空终端和滚动缓冲区
+- **macOS**: `Cmd+K` - 完全清空终端和滚动缓冲区
+
+### 三种清空方式对比
+
+| 方式 | 命令/快捷键 | 清空屏幕 | 清空滚动缓冲区 |
+|------|------------|---------|---------------|
+| 标准 clear | `clear` 或 `Ctrl+L` | ✅ | ❌ |
+| 完全清空 | `printf '\033[2J\033[3J\033[1;1H'` | ✅ | ✅ |
+| Kitty 快捷键 | `Ctrl+Shift+Delete` (需配置) | ✅ | ✅ |
+
+## 滚动查看历史输出
+
+Kitty 没有滚动条，但可以用快捷键或鼠标滚动查看历史输出：
+
+### 快速跳转到顶部/底部
+
+**Linux 快捷键：**
+- `Ctrl+Shift+Home` - 跳转到滚动缓冲区的**第一行**（最早的输出）
+- `Ctrl+Shift+End` - 跳转到滚动缓冲区的**最后一行**（最新的输出）
+- `Ctrl+Shift+H` - 进入 history 浏览模式，然后按 `g` 跳到顶部，按 `G` 跳到底部
+
+**macOS 快捷键：**
+- `Cmd+Home` - 跳转到滚动缓冲区的第一行
+- `Cmd+End` - 跳转到滚动缓冲区的最后一行
+
+### 滚动浏览
+
+**鼠标操作：**
+- 鼠标滚轮上下滚动
+- `Shift+鼠标滚轮` - 加速滚动
+
+**键盘操作（Linux）：**
+- `Ctrl+Shift+Up` - 向上滚动一行
+- `Ctrl+Shift+Down` - 向下滚动一行
+- `Ctrl+Shift+Page Up` - 向上翻页
+- `Ctrl+Shift+Page Down` - 向下翻页
+
+**键盘操作（macOS）：**
+- `Cmd+Up` - 向上滚动
+- `Cmd+Down` - 向下滚动
+- `Cmd+Page Up` - 向上翻页
+- `Cmd+Page Down` - 向下翻页
+
+### History 浏览模式（推荐）
+
+进入 history 模式可以像 Vim 一样浏览：
+
+1. 按 `Ctrl+Shift+H` 进入浏览模式
+2. 使用 Vim 风格的快捷键：
+   - `g` - 跳转到第一行（顶部）
+   - `G` - 跳转到最后一行（底部）
+   - `j`/`k` - 逐行上下移动
+   - `Ctrl+F` / `Ctrl+B` - 向前/向后翻页
+   - `d`/`u` - 向下/向上翻半页
+3. 按 `q` 或 `Esc` 退出浏览模式
+
+**最快方式：`Ctrl+Shift+H` 然后按 `g` 直接跳到第一行！**
+
+## 搜索终端文字
+
+在 Kitty 中可以搜索终端显示的文字内容（包括滚动缓冲区）：
+
+### macOS 快捷键
+
+- `Cmd+F` - 打开搜索栏
+- `Cmd+G` - 查找下一个匹配
+- `Cmd+Shift+G` - 查找上一个匹配
+- `Esc` - 关闭搜索栏
+
+### Linux 快捷键
+
+- `Ctrl+Shift+H` - 打开 scrollback history 浏览模式（使用 less/vim 风格）
+- `Esc` 或 `q` - 退出 history 浏览模式
+
+**History 浏览模式说明**：
+
+`Ctrl+Shift+H` 会打开**滚动历史浏览模式**，这是一个类似 `less` 的全屏浏览器：
+
+- 窗口标题显示 "history"
+- 使用 **Vim/less 风格的操作**：
+  - `/` - 输入搜索关键词（会在底部显示冒号 `:` 或 `/`）
+  - `n` - 跳转到下一个匹配
+  - `N` - 跳转到上一个匹配
+  - `j`/`k` - 上下滚动
+  - `g`/`G` - 跳转到开头/结尾
+  - `q` 或 `Esc` - 退出浏览模式
+- 这个模式用于浏览和搜索终端的历史输出
+- 搜索时输入的文字会在底部冒号后显示
+
+**这就是 Kitty 的搜索功能！**
+
+Kitty 默认使用 Vim/less 风格的搜索，没有图形化搜索框。如果你习惯了这种方式，这就是最直接的搜索方法。
+
+**想要更好的搜索体验？使用 fzf**：
+
+如果想要交互式的模糊搜索界面，可以配置 fzf：
+
+```conf
+# 在 ~/.config/kitty/kitty.conf 中添加
+# 使用 Ctrl+Shift+F 打开 fzf 模糊搜索（需要先安装 fzf）
+map ctrl+shift+f launch --type=overlay --stdin-source=@screen_scrollback fzf --no-sort --no-mouse --exact -i --tac
+```
+
+### 搜索功能特性
+
+- 支持正则表达式搜索
+- 实时高亮所有匹配项
+- 支持大小写敏感/不敏感切换
+- 可搜索滚动缓冲区中的历史内容
+- 搜索时会自动滚动到匹配位置
+
+### 配置搜索相关快捷键
+
+可以在 `~/.config/kitty/kitty.conf` 中自定义搜索快捷键：
+
+```conf
+# macOS
+map cmd+f launch --type=overlay --stdin-source=@screen_scrollback /bin/sh -c 'fzf --no-sort --no-mouse --exact -i'
+
+# Linux
+map ctrl+shift+f launch --type=overlay --stdin-source=@screen_scrollback /bin/sh -c 'fzf --no-sort --no-mouse --exact -i'
+```
+
+### 配合 fzf 使用（高级）
+
+如果安装了 `fzf`，可以实现更强大的搜索功能：
+
+```bash
+# 安装 fzf
+# macOS
+brew install fzf
+
+# Linux
+sudo apt install fzf
+```
+
+配置使用 fzf 搜索滚动缓冲区：
+
+```conf
+# 使用 fzf 搜索滚动缓冲区
+map ctrl+shift+f launch --type=overlay --stdin-source=@screen_scrollback fzf --no-sort --no-mouse --exact -i --tac
+```
+
+这样可以实现模糊搜索、多选、预览等高级功能。
 
 ## 安装 Kitty
 
@@ -190,6 +383,50 @@ kitty
 ## 配置文件
 
 ~/.config/kitty/kitty.conf
+
+### 配置滚动缓冲区大小
+
+控制 Kitty 保存的历史输出行数，在 `~/.config/kitty/kitty.conf` 中配置：
+
+```conf
+# 设置滚动缓冲区行数（默认值：10000）
+scrollback_lines 10000
+
+# 常用配置示例：
+# scrollback_lines 20000   # 保存 2 万行
+# scrollback_lines 50000   # 保存 5 万行
+# scrollback_lines 100000  # 保存 10 万行
+# scrollback_lines 0       # 禁用滚动缓冲区（不推荐）
+# scrollback_lines -1      # 无限制（慎用，可能占用大量内存）
+```
+
+**配置说明：**
+
+- **默认值**：10000 行（约 10MB 内存）
+- **推荐值**：10000-50000 行（适合日常使用）
+- **大值影响**：设置过大会占用更多内存
+- **特殊值**：
+  - `0` - 禁用历史记录（不推荐）
+  - `-1` - 无限制（会持续占用内存，慎用）
+
+**生效方式：**
+
+配置后按 `Ctrl+Shift+F5`（Linux）或 `Cmd+Shift+R`（macOS）重新加载配置。
+
+**查看当前配置：**
+
+```bash
+# 在 Kitty 中运行
+kitty @ get-config scrollback_lines
+```
+
+**内存占用估算：**
+
+- 10000 行 ≈ 10MB
+- 50000 行 ≈ 50MB  
+- 100000 行 ≈ 100MB
+
+根据你的使用场景和内存情况选择合适的值。
 
 ## macOS Terminal vs Kitty 对比
 

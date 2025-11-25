@@ -1,13 +1,15 @@
 ---
 title: python 虚拟环境
 author: "-"
-date: 2020-01-01T00:00:00+08:00
+date: 2025-11-24T08:30:00+08:00
 draft: true
 url: python/venv
 categories:
   - Inbox
 tags:
   - reprint
+  - remix
+  - AI-assisted
 ---
 ## PDM
 
@@ -30,6 +32,13 @@ curl -sSL https://pdm-project.org/install-pdm.py | python3 -
 pdm sync
 # 加入新的依赖包, pdm会自动维护 pyproject.toml 文件, 但是版本范围可能需要改一下
 pdm add redis
+
+# pdm install 和 pdm sync 的区别
+# pdm install: 安装 pyproject.toml 中定义的所有依赖，并更新 pdm.lock（如果需要）
+# pdm sync: 严格按照 pdm.lock 文件安装依赖，不会更新 lock 文件，确保环境完全一致
+# 推荐使用场景：
+# - 开发环境：使用 pdm install，允许依赖更新
+# - 生产环境/CI：使用 pdm sync，确保依赖版本完全一致
 
 pdm info --env
 
