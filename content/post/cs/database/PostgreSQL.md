@@ -1,7 +1,7 @@
 ---
 title: PostgreSQL
 author: "-"
-date: 2025-11-21T08:30:00+08:00
+date: 2025-11-26T17:15:00+08:00
 url: PostgreSQL
 categories:
   - database
@@ -435,6 +435,55 @@ WHERE
 AND pg_constraint.contype = 'p';
 ```
 
+## 查看唯一约束
+
+```sql
+-- 方法1: 查询表上所有唯一约束的名称和字段
+SELECT
+    pg_constraint.conname AS constraint_name,
+    pg_attribute.attname AS column_name
+FROM
+    pg_constraint
+INNER JOIN pg_class ON pg_constraint.conrelid = pg_class.oid
+INNER JOIN pg_attribute ON pg_attribute.attrelid = pg_class.oid
+    AND pg_attribute.attnum = ANY(pg_constraint.conkey)
+WHERE
+    pg_class.relname = 'table_name_0'
+    AND pg_constraint.contype = 'u'  -- 'u' 表示 unique constraint
+ORDER BY pg_constraint.conname, pg_attribute.attnum;
+
+-- 方法2: 使用 information_schema 查询唯一约束
+SELECT
+    tc.constraint_name,
+    kcu.column_name
+FROM
+    information_schema.table_constraints AS tc
+JOIN information_schema.key_column_usage AS kcu
+    ON tc.constraint_name = kcu.constraint_name
+WHERE
+    tc.constraint_type = 'UNIQUE'
+    AND tc.table_name = 'table_name_0'
+ORDER BY tc.constraint_name, kcu.ordinal_position;
+
+-- 方法3: 查看表结构时一起显示约束信息
+\d table_name_0
+
+-- 方法4: 查询唯一约束的详细信息（包括索引）
+SELECT
+    con.conname AS constraint_name,
+    con.contype AS constraint_type,
+    array_agg(att.attname ORDER BY array_position(con.conkey, att.attnum)) AS columns,
+    pg_get_constraintdef(con.oid) AS constraint_definition
+FROM
+    pg_constraint con
+JOIN pg_class rel ON con.conrelid = rel.oid
+JOIN pg_attribute att ON att.attrelid = rel.oid AND att.attnum = ANY(con.conkey)
+WHERE
+    rel.relname = 'table_name_0'
+    AND con.contype = 'u'
+GROUP BY con.conname, con.contype, con.oid;
+```
+
 ## `bigserial`
 
 postgresql 序列号（SERIAL）类型包括 `smallserial`（smallint,short）, serial(int)和 `bigserial(bigint,long long int)`, 
@@ -729,6 +778,166 @@ SELECT pg_is_in_recovery();
 -- You can use pg_is_in_recovery() which returns True if recovery is still in progress(so the server is running in standby mode). Check the System Administration Functions for further informations.
 -- 如果返回 t 说明是备库，返回 f 是主库
 ```
+
+## 检查主从复制状态
+
+### 第一步：判断当前库角色
+
+在检查主从复制状态之前，需要先确认当前连接的是主库还是从库：
+
+```sql
+-- 判断当前库是主库还是从库
+SELECT pg_is_in_recovery();
+-- 返回 f (false) = 主库
+-- 返回 t (true) = 从库（处于恢复模式）
+```
+
+```bash
+# 操作系统层面查看进程
+ps -ef | grep "wal" | grep -v "grep"
+# 主库会有: postgres: walwriter, postgres: walsender
+# 从库会有: postgres: walreceiver
+
+# 通过 pg_controldata 查看
+pg_controldata | grep cluster
+```
+
+### 第二步：根据角色执行相应检查
+
+**在主库上执行：**
+
+```sql
+-- 快速查看所有从库 IP
+SELECT client_addr FROM pg_stat_replication;
+-- 返回 0 条数据 = 没有从库连接，或当前是从库
+
+-- 查看从库 IP 和基本状态
+SELECT 
+    client_addr AS slave_ip,
+    state,
+    sync_state
+FROM pg_stat_replication;
+
+-- 查看完整的复制连接状态和延迟
+SELECT 
+    client_addr AS slave_ip,
+    state,
+    sent_lsn,
+    write_lsn,
+    flush_lsn,
+    replay_lsn,
+    sync_state,
+    pg_wal_lsn_diff(sent_lsn, replay_lsn) AS replication_lag_bytes,
+    write_lag,
+    flush_lag,
+    replay_lag
+FROM pg_stat_replication;
+
+-- 简化版本，查看基本复制状态
+SELECT 
+    client_addr,
+    state,
+    sync_state,
+    replay_lag
+FROM pg_stat_replication;
+
+-- 检查复制槽状态（如果使用了复制槽）
+SELECT 
+    slot_name,
+    slot_type,
+    database,
+    active,
+    restart_lsn,
+    confirmed_flush_lsn,
+    pg_wal_lsn_diff(pg_current_wal_lsn(), restart_lsn) AS lag_bytes
+FROM pg_replication_slots;
+```
+
+**在从库上执行：**
+
+```sql
+-- 查看从库接收状态
+SELECT 
+    status,
+    receive_start_lsn,
+    receive_start_tli,
+    received_lsn,
+    received_tli,
+    last_msg_send_time,
+    last_msg_receipt_time,
+    latest_end_lsn,
+    latest_end_time,
+    slot_name
+FROM pg_stat_wal_receiver;
+
+-- 在从库上执行：查看主从延迟
+SELECT 
+    now() - pg_last_xact_replay_timestamp() AS replication_delay;
+
+-- 查看 WAL 应用状态
+SELECT 
+    pg_last_wal_receive_lsn() AS receive_lsn,
+    pg_last_wal_replay_lsn() AS replay_lsn,
+    pg_last_xact_replay_timestamp() AS last_replay_time;
+```
+
+### 字段说明
+
+- `state`: 连接状态（streaming 表示正常流复制）
+- `sync_state`: 同步状态（async 异步，sync 同步，potential 可能同步）
+- `replay_lag`: 从库应用 WAL 的延迟时间
+- `replication_lag_bytes`: 主从之间的字节延迟
+- `active`: 复制槽是否激活
+- `status`: WAL 接收器状态
+
+### 健康检查流程
+
+1. **判断角色**：`SELECT pg_is_in_recovery();`
+2. **主库检查**：`pg_stat_replication` 查看是否有从库连接，state 是否为 streaming
+   - 如果 `pg_stat_replication` 返回 0 条：可能是没有配置从库，或从库未连接
+3. **从库检查**：`pg_stat_wal_receiver` 查看是否正常接收，计算延迟时间
+4. **延迟监控**：关注 `replay_lag` 和 `replication_lag_bytes`，确保在可接受范围内
+
+### 常见问题排查
+
+**Q: `pg_stat_replication` 返回 0 条数据？**
+
+如果 `pg_is_in_recovery()` 返回 `f`（主库），但 `pg_stat_replication` 返回 0 条，说明没有从库连接。可能原因：
+
+1. **没有配置主从复制**（单机主库）
+2. **配置了主从，但从库有问题**：
+   - 从库未启动
+   - 从库网络不通
+   - 从库配置错误（连接信息、认证失败）
+   - 主库 `pg_hba.conf` 未允许从库连接
+
+**如何判断是否配置了主从？**
+
+```sql
+-- 检查是否配置了复制槽（如果使用复制槽）
+SELECT * FROM pg_replication_slots;
+-- 返回 0 条 = 可能没配置主从
+
+-- 检查主库日志
+-- 查看是否有从库连接失败的错误信息
+```
+
+```bash
+# 检查主库配置文件
+grep -E "wal_level|max_wal_senders|wal_keep_size" $PGDATA/postgresql.conf
+# wal_level = replica (或 logical) 才能做主从
+# max_wal_senders > 0 才能发送 WAL
+
+# 检查主库访问控制
+cat $PGDATA/pg_hba.conf | grep replication
+# 需要有类似这样的配置才允许从库连接：
+# host    replication    all    从库IP/32    md5
+```
+
+**如果是主库无从库连接，建议：**
+1. 确认是否需要配置从库（业务需求）
+2. 如果需要高可用，应配置从库
+3. 如果只是单机环境，无需担心
 
 [https://blog.csdn.net/m15217321304/article/details/88845353](https://blog.csdn.net/m15217321304/article/details/88845353)
 

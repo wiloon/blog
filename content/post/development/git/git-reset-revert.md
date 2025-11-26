@@ -1,13 +1,14 @@
 ---
 title: git reset
 author: "-"
-date: "2022-08-17 11:35:15"
+date: "2025-11-26T17:25:00+08:00"
 url: "git/reset"
 categories:
   - "Git"
 tags:
   - "reprint"
   - "remix"
+  - "AI-assisted"
 ---
 ## git reset
 
@@ -39,7 +40,13 @@ git reset --hard HEAD~1
 git reset --hard HEAD~2
 
 # reset 到某一个 commit, 退到/进到 指定 commit_id
+# 默认是 --mixed 模式（保留工作区修改，撤销 commit 和 git add）
 git reset commit_id
+# 等价于
+git reset --mixed commit_id
+
+# hard reset 到指定 commit（危险！会丢失所有修改）
+git reset --hard commit_id
 
 git reset --soft HEAD^
 ```
@@ -57,11 +64,26 @@ hard （修改版本库，修改暂存区，修改工作区）
 --hard HEAD～1 (或是版本号) 意为将版本库回退 1 个版本，但是不仅仅是将本地版本库的头指针全部重置到指定版本，也会丢弃 `工作区` (撤销 git add .) 和 `暂存区` (撤销 commit) 的本次修改, 回退到上一次提交的状态.
 
 ```bash
+# 回退到上一个版本
 git reset --hard HEAD~1
-git reset --hard commit_id_0
+
+# 回退到指定 commit
+git reset --hard commit_id
 ```
 
 直接会改变本地源码，不仅仅指向变化了，代码也回到了那个版本时的代码
+
+**常用场景示例：**
+```bash
+# 查看提交历史，找到目标 commit_id
+git log --oneline
+
+# 假设要回退到 commit a1b2c3d
+git reset --hard a1b2c3d
+
+# 如果已经 push 到远程，需要强制推送（谨慎使用）
+git push origin branch_name --force
+```
 
 git commit --hard 是具有破坏性，是很危险的操作，它很容易导致数据丢失，如果我们真的进行了该操作想要找回丢失的数据，
 那么此时可以使用 git reflog 回到未来，找到丢失的commit。
@@ -80,10 +102,16 @@ soft （修改版本库，保留暂存区，保留工作区）
 因为当前分支的版本低于远程分支的版本，所以要想覆盖掉它，必须使用force
 git push origin 分支 --force ok，大功告成
 
-### --mixed
+### --mixed（默认模式）
 
 意思是：不删除工作空间改动代码，撤销 commit，并且撤销 git add .
-这个为默认参数, git reset --mixed HEAD^ 和 git reset HEAD^ 效果是一样的。
+**这个为默认参数**，以下命令效果完全一样：
+```bash
+git reset HEAD^
+git reset --mixed HEAD^
+git reset commit_id
+git reset --mixed commit_id
+```
 
 ```bash
 git push origin <分支名>

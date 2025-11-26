@@ -1,7 +1,7 @@
 ---
 title: devpi
 author: "-"
-date: 2025-10-31T08:30:00+00:00
+date: 2025-11-26T16:00:00+08:00
 url: devpi
 categories:
   - Python
@@ -537,6 +537,181 @@ pip show flask
 
 # 列出已安装的包
 pip list
+```
+
+## 检查包的下载状态
+
+devpi 在下载和缓存包时，可以通过以下方法检查包的状态：
+
+### 方法 1: 通过 Web UI 查看（最直观）
+
+访问 devpi Web 界面：`http://localhost:3141`
+
+1. 浏览到对应的索引（如 `root/pypi`）
+2. 搜索包名
+3. 点击包名查看详情
+4. 查看包版本列表和文件列表
+
+**状态判断**：
+- ✅ **已缓存**：能看到包的详细信息，包括 `.whl` 或 `.tar.gz` 文件链接
+- ⏳ **正在下载**：包列表中存在，但点击后文件列表为空或加载中
+- ❌ **未缓存**：包列表中不存在
+
+### 方法 2: 通过 devpi-client 命令行查看
+
+```bash
+# 首次使用需要指定 devpi 服务器地址（只需执行一次）
+devpi use http://localhost:3141
+
+# 查看某个包的所有版本（查询公开索引无需登录）
+devpi list flask
+
+# 输出示例（已缓存）:
+# http://localhost:3141/root/pypi/+f/abc/flask-3.1.0-py3-none-any.whl
+# http://localhost:3141/root/pypi/+f/def/flask-3.1.0.tar.gz
+
+# 查看指定版本的详细信息
+devpi list flask==3.1.0
+
+# 如果输出为空或没有文件链接，说明未缓存或正在下载
+
+# 注意：如果查询私有索引或遇到权限错误，需要先登录
+# devpi login root --password=''
+```
+
+### 方法 3: 检查缓存目录中的文件
+
+```bash
+# 查看缓存目录
+ls -lh /var/cache/devpi/+files/
+
+# 搜索特定包的文件
+find /var/cache/devpi/+files -name "*flask*" -type f
+
+# 输出示例（已缓存）:
+# /var/cache/devpi/+files/abc123/flask-3.1.0-py3-none-any.whl
+# /var/cache/devpi/+files/def456/flask-3.1.0.tar.gz
+
+# 查看文件大小（判断是否下载完整）
+du -h /var/cache/devpi/+files/*flask*
+
+# 实时监控缓存目录变化（适合观察正在下载的包）
+watch -n 1 'ls -lh /var/cache/devpi/+files/ | grep flask'
+```
+
+### 方法 4: 查看 devpi 日志
+
+```bash
+# 实时查看 devpi 日志
+sudo nerdctl logs -f devpi
+
+# 查看最近的日志（包含下载活动）
+sudo nerdctl logs --tail 100 devpi
+
+# 输出示例（正在下载）:
+# [INFO] fetching https://files.pythonhosted.org/packages/.../flask-3.1.0-py3-none-any.whl
+# [INFO] storing flask-3.1.0-py3-none-any.whl (size: 101KB)
+
+# 过滤特定包的日志
+sudo nerdctl logs devpi | grep flask
+```
+
+### 方法 5: 使用 HTTP API 检查（编程方式）
+
+devpi 提供 JSON API 接口，可以编程查询包状态：
+
+```bash
+# 查询包的元数据
+curl http://localhost:3141/root/pypi/flask/ | jq
+
+# 查询特定版本
+curl http://localhost:3141/root/pypi/flask/3.1.0 | jq
+
+# 检查包文件是否存在（返回 200 表示已缓存）
+curl -I http://localhost:3141/root/pypi/+f/abc123/flask-3.1.0-py3-none-any.whl
+
+# 输出示例（已缓存）:
+# HTTP/1.1 200 OK
+# Content-Type: application/octet-stream
+# Content-Length: 103456
+
+# 输出示例（未缓存/正在下载）:
+# HTTP/1.1 404 Not Found
+```
+
+### 方法 6: 测试下载速度判断状态
+
+```bash
+# 第一次下载（如果未缓存，会从上游下载，较慢）
+time pip download --no-deps --dest /tmp flask==3.1.0
+# 耗时 > 3 秒 → 可能正在首次下载
+
+# 第二次下载（如果已缓存，非常快）
+rm /tmp/flask*.whl
+time pip download --no-deps --dest /tmp flask==3.1.0
+# 耗时 < 1 秒 → 已完成缓存
+
+# 使用 pip 的 -v 参数查看详细日志
+pip download --no-deps --dest /tmp -v flask==3.1.0
+# 输出会显示从哪个地址下载，以及是否命中缓存
+```
+
+### 下载状态总结表
+
+| 状态 | Web UI | devpi list | 缓存目录 | 日志 | 下载速度 |
+|------|--------|------------|----------|------|----------|
+| **未缓存** | 无记录 | 无输出 | 无文件 | 无日志 | - |
+| **正在下载** | 有记录但无文件 | 有记录但无文件链接 | 文件不完整或临时文件 | 显示 fetching | 较慢（首次） |
+| **已缓存** | 显示完整信息和文件 | 显示文件链接 | 文件完整 | 显示 stored | 极快（< 1s） |
+
+### 实用脚本：检查包是否已缓存
+
+创建 `check-devpi-cache.sh`：
+
+```bash
+#!/bin/bash
+# 检查 devpi 中的包是否已缓存
+
+PACKAGE=$1
+VERSION=$2
+
+if [ -z "$PACKAGE" ]; then
+    echo "用法: $0 <package-name> [version]"
+    echo "示例: $0 flask 3.1.0"
+    exit 1
+fi
+
+# 构造查询 URL
+if [ -z "$VERSION" ]; then
+    URL="http://localhost:3141/root/pypi/$PACKAGE/"
+else
+    URL="http://localhost:3141/root/pypi/$PACKAGE/$VERSION"
+fi
+
+# 查询包信息
+echo "查询: $URL"
+RESPONSE=$(curl -s "$URL")
+
+# 检查是否有文件链接（已缓存的标志）
+if echo "$RESPONSE" | grep -q "+f/.*\.whl\|+f/.*\.tar\.gz"; then
+    echo "✅ 包已缓存"
+    # 提取文件链接
+    echo "$RESPONSE" | grep -oP '"\+f/[^"]+\.(whl|tar\.gz)"' | sed 's/"//g'
+else
+    echo "❌ 包未缓存或正在下载"
+fi
+```
+
+使用方法：
+
+```bash
+chmod +x check-devpi-cache.sh
+
+# 检查包（所有版本）
+./check-devpi-cache.sh flask
+
+# 检查特定版本
+./check-devpi-cache.sh flask 3.1.0
 ```
 
 ## 性能优化建议
