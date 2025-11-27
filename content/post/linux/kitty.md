@@ -1,7 +1,7 @@
 ---
 title: kitty
 author: "-"
-date: 2025-11-24T20:00:00+08:00
+date: 2025-11-27T23:30:00+08:00
 url: kitty
 categories:
   - Linux
@@ -109,7 +109,7 @@ Kitty 没有滚动条，但可以用快捷键或鼠标滚动查看历史输出�
 
 ### History 浏览模式（推荐）
 
-进入 history 模式可以像 Vim 一样浏览：
+进入 history 模式可以像 Vim 一样浏览：qq
 
 1. 按 `Ctrl+Shift+H` 进入浏览模式
 2. 使用 Vim 风格的快捷键：
@@ -342,6 +342,43 @@ map cmd+0 change_font_size all 0
 - `Ctrl+Shift+[` - 切换到上一个窗口
 - `Ctrl+Shift+R` - 调整窗口大小模式
 - `Ctrl+Shift+L` - 切换窗口布局（tall/fat/grid/horizontal/vertical/splits/stack）
+
+### 窗口布局调整
+
+Kitty 默认的分割行为是：第一次分割后，后续窗口都会在下半屏继续分割。可以通过以下方式调整：
+
+#### 快速切换布局（推荐）
+
+- `Ctrl+Shift+L` - 在不同布局之间循环切换
+  - **tall** - 主窗口在左，其他窗口在右侧垂直排列
+  - **fat** - 主窗口在上，其他窗口在下方水平排列
+  - **grid** - 网格布局，所有窗口平均分配空间
+  - **horizontal** - 所有窗口水平排列
+  - **vertical** - 所有窗口垂直排列
+  - **splits** - 自由分割（默认布局）
+  - **stack** - 只显示一个窗口，其他隐藏
+
+#### 设置默认布局
+
+在 `~/.config/kitty/kitty.conf` 中配置：
+
+```conf
+# 设置启用的布局和默认布局
+enabled_layouts tall,fat,grid,splits
+
+# 或者只使用 grid 布局（推荐，窗口平均分配）
+# enabled_layouts grid
+```
+
+#### 自定义分割方向
+
+```conf
+# 垂直分割（左右分屏）
+map ctrl+shift+v launch --location=vsplit --cwd=current
+
+# 水平分割（上下分屏）
+map ctrl+shift+h launch --location=hsplit --cwd=current
+```
 
 ### 窗口位置调整
 
