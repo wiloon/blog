@@ -373,11 +373,11 @@ enabled_layouts tall,fat,grid,splits
 #### 自定义分割方向
 
 ```conf
-# 垂直分割（左右分屏）
-map ctrl+shift+v launch --location=vsplit --cwd=current
+# 垂直分割（左右分屏）- | for Vertical
+map ctrl+shift+\ launch --location=vsplit --cwd=current
 
-# 水平分割（上下分屏）
-map ctrl+shift+h launch --location=hsplit --cwd=current
+# 水平分割（上下分屏）- - for Horizontal  
+map ctrl+shift+- launch --location=hsplit --cwd=current
 ```
 
 ### 窗口位置调整
