@@ -1,7 +1,7 @@
 ---
 title: kitty
 author: "-"
-date: 2025-11-27T23:30:00+08:00
+date: 2025-12-01T10:35:00+08:00
 url: kitty
 categories:
   - Linux
@@ -15,6 +15,60 @@ tags:
 kitty 是一个 GPU based terminal
 
 https://sw.kovidgoyal.net/kitty/
+
+## 远程控制（Remote Control）
+
+Kitty 支持通过命令行远程控制终端，可以实现自动化窗口管理、发送命令等功能。
+
+### 启用远程控制
+
+在 `~/.config/kitty/kitty.conf` 中添加：
+
+```conf
+# Unix Socket 方式（推荐，可从任何终端控制）
+allow_remote_control socket-only
+listen_on unix:/tmp/kitty.sock
+```
+
+**注意**：使用 Unix Socket 方式时，Kitty 会在 socket 文件名后自动添加进程 ID，例如：
+- 配置：`listen_on unix:/tmp/kitty.sock`
+- 实际文件：`/tmp/kitty.sock-387363`（387363 是进程 ID）
+
+### 基本使用示例
+
+```bash
+# 查找当前 Kitty 的 socket 文件
+ls -t /tmp/kitty.sock-* | head -1
+
+# Hello World 示例：在终端打印 "hello world"
+kitty @ --to unix:/tmp/kitty.sock-387363 send-text "echo hello world\n"
+
+# 自动查找 socket 的通用命令
+kitty @ --to unix:$(ls -t /tmp/kitty.sock-* | head -1) send-text "echo hello world\n"
+```
+
+### 常用远程控制命令
+
+```bash
+# 列出所有窗口和标签页
+kitty @ --to unix:$(ls -t /tmp/kitty.sock-* | head -1) ls
+
+# 创建新窗口
+kitty @ --to unix:$(ls -t /tmp/kitty.sock-* | head -1) launch
+
+# 切换布局
+kitty @ --to unix:$(ls -t /tmp/kitty.sock-* | head -1) goto-layout tall
+
+# 发送命令到当前窗口
+kitty @ --to unix:$(ls -t /tmp/kitty.sock-* | head -1) send-text "ls -la\n"
+```
+
+### 远程控制的应用场景
+
+- **自动化开发环境**：一键启动多个项目窗口
+- **IDE 集成**：从编辑器发送代码到终端执行
+- **脚本自动化**：批量管理窗口和标签页
+- **会话管理**：保存和恢复工作环境
 
 ## 清空控制台历史输出
 
@@ -350,13 +404,15 @@ Kitty 默认的分割行为是：第一次分割后，后续窗口都会在下�
 #### 快速切换布局（推荐）
 
 - `Ctrl+Shift+L` - 在不同布局之间循环切换
-  - **tall** - 主窗口在左，其他窗口在右侧垂直排列
+  - **tall** - 主窗口在左，其他窗口在右侧垂直排列（**推荐用于垂直分割**）
   - **fat** - 主窗口在上，其他窗口在下方水平排列
   - **grid** - 网格布局，所有窗口平均分配空间
   - **horizontal** - 所有窗口水平排列
   - **vertical** - 所有窗口垂直排列
-  - **splits** - 自由分割（默认布局）
+  - **splits** - 自由分割（默认布局，但分割位置不可预测）
   - **stack** - 只显示一个窗口，其他隐藏
+
+**提示**：如果你希望 `Ctrl+Shift+\` 总是在当前窗口右侧创建新窗口，应该使用 `tall` 布局而不是 `splits`
 
 #### 设置默认布局
 
@@ -366,6 +422,9 @@ Kitty 默认的分割行为是：第一次分割后，后续窗口都会在下�
 # 设置启用的布局和默认布局
 enabled_layouts tall,fat,grid,splits
 
+# 如果希望垂直/水平分割更符合预期，推荐使用 tall 布局
+# enabled_layouts tall,splits
+
 # 或者只使用 grid 布局（推荐，窗口平均分配）
 # enabled_layouts grid
 ```
@@ -374,7 +433,12 @@ enabled_layouts tall,fat,grid,splits
 
 ```conf
 # 垂直分割（左右分屏）- | for Vertical
+# 使用 neighbor 确保新窗口出现在当前窗口旁边
 map ctrl+shift+\ launch --location=vsplit --cwd=current
+
+# 如果上面的方式不起作用，可以尝试使用 tall 布局：
+# enabled_layouts tall,splits
+# map ctrl+shift+\ launch --location=vsplit --cwd=current
 
 # 水平分割（上下分屏）- - for Horizontal  
 map ctrl+shift+- launch --location=hsplit --cwd=current
