@@ -33,6 +33,7 @@ tags:
 - 畅网微控 n100
 - Ruckus R310, 优科
 - beelink SER8
+- Dell U2412Mb
 
 ## beelink SER8
 

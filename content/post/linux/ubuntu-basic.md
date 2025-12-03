@@ -1,13 +1,25 @@
 ---
 author: "-"
-date: "2020-10-09 14:34:24" 
+date: "2025-12-04T01:15:00+08:00"
 title: ubuntu basic
 categories:
   - inbox
 tags:
   - reprint
+  - remix
+  - AI-assisted
 ---
+
 ## ubuntu basic
+
+## 显示器分辨率问题
+
+> **详细的显示器分辨率问题修复指南已移至专门文档：**
+> 
+> [Ubuntu 显示器分辨率问题修复：手动加载 EDID 固件](../ubuntu-monitor-edid-fix/)
+> 
+> 该文档包含完整的诊断、修复步骤和故障排除方法。
+
 
 ## apt-select
 

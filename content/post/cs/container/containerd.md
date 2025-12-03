@@ -1110,6 +1110,7 @@ sudo nerdctl logs nginx
 
 # 进入容器
 sudo nerdctl exec -it nginx bash
+sudo nerdctl save -o foo.tar foo:latest
 ```
 
 ### 安装说明
