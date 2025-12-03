@@ -1,12 +1,14 @@
 ---
 title: ubuntu archlinux dual boot
 author: "-"
-date: 2014-11-30T01:40:15+00:00
+date: 2025-12-03T15:30:00+08:00
 url: ubuntu-archlinux-dual-boot
 categories:
   - Linux
 tags:
   - reprint
+  - remix
+  - AI-assisted
 ---
 ## ubuntu archlinux dual boot
 
@@ -62,6 +64,46 @@ genfstab -U /mnt >> /mnt/etc/fstab
 
 # Change root into the new system
 arch-chroot /mnt
+```
+
+## 当前分区配置
+
+当前 Archlinux 系统使用的分区信息：
+
+**根分区（/）：**
+- 设备：`/dev/nvme0n1p4`
+- 文件系统：ext4
+- 容量：353GB
+- 已使用：90GB (27%)
+- 可用空间：245GB
+- UUID：`63c2c764-83b9-4b1b-99f3-db52c03f0109`
+
+**EFI 分区（/efi）：**
+- 设备：`/dev/nvme0n1p1`
+- 文件系统：vfat (FAT32)
+- 容量：约 1GB
+- UUID：`FF07-C6C8`
+
+其他分区：
+- `nvme0n1p2`：ext4（未挂载，可能是 Ubuntu 分区）
+- `nvme0n1p3`：加密分区 crypto_LUKS（未挂载）
+
+查看分区信息的命令：
+
+```bash
+# 查看所有块设备及其文件系统
+lsblk -f
+
+# 查看根分区的详细挂载信息
+df -h /
+
+# 查看文件系统挂载配置
+cat /etc/fstab
+```
+
+## 继续安装
+
+```bash
 
 #Set the time zone:
 ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
