@@ -13,13 +13,17 @@ tags:
 
 download iso
 
-https://mirrors.aliyun.com/archlinux/iso/2025.04.01/
+https://mirrors.tuna.tsinghua.edu.cn/archlinux/iso/
 
 ```bash
 curl -O https://mirrors.tuna.tsinghua.edu.cn/archlinux/iso/2025.10.01/archlinux-2025.10.01-x86_64.iso
 ```
 
-## ventory, usb-stick
+## Ventoy, usb-stick
+
+```bash
+yay -S ventoy-bin
+```
 
 - copy to ventoy usb partition
 - 用 ventoy U 盘引导系统

@@ -26,7 +26,7 @@ brew install nvm
 # ubuntu 24.04 install nvm
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash
 
-# archlinux install nvm
+# archlinux
 pacman -S nvm
 
 # Due to the way nvm is designed, you have to source it before you can use it:
