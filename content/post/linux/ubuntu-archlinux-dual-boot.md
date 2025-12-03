@@ -96,16 +96,17 @@ timedatectl
 # 查看磁盘信息
 lsblk
 
-# 用 parted 分区
+# 用 parted 分区（首次安装时执行，重装时跳过）
 # 有 32G 内存, 所以没有建 swap 分区
 # 跟 ubuntu 共享 EFI 分区, 也就是 /boot/efi
+# 注意：如果 nvme0n1p4 分区已经存在，跳过分区步骤，直接格式化
 parted -a optimal /dev/nvme0n1
 # 查看分区情况, 空闲空间也打印出来
 (parted) print free
 (parted) mkpart primary ext4 615GB 1000GB
 (parted) quit
 
-# 格式化分区为 ext4
+# 格式化分区为 ext4（会清除分区上的所有数据）
 mkfs.ext4 /dev/nvme0n1p4
 
 # Mount the file systems
@@ -119,7 +120,13 @@ Server = https://mirrors.tuna.tsinghua.edu.cn/archlinux/$repo/os/$arch
 
 # Install essential packages
 # amd cpu 所以需要 amd-ucode
+mkdir -p /mnt/etc && touch /mnt/etc/vconsole.conf
 pacstrap -K /mnt base linux linux-firmware amd-ucode vim
+# 注意：安装过程中可能会出现 "ERROR: file not found: '/etc/vconsole.conf'" 错误
+# 这是正常的，因为是全新安装，该文件尚不存在，可以忽略继续
+# 如果想避免这个错误，可以在 pacstrap 前创建空文件：
+# mkdir -p /mnt/etc && touch /mnt/etc/vconsole.conf
+
 # Generate an fstab file
 genfstab -U /mnt >> /mnt/etc/fstab
 
@@ -163,7 +170,7 @@ Name=en*
 
 [Network]
 Address=192.168.50.19/24
-Gateway=192.168.50.21
+Gateway=192.168.50.61
 DNS=192.168.50.1
 
 # Set the root password:
@@ -182,8 +189,6 @@ vim /etc/ssh/sshd_config # PermitRootLogin yes
 
 # Reboot
 # Exit the chroot environment by typing exit or pressing Ctrl+d.
-
-
 ```
 
 ## ubuntu grub 配置 archlinux
