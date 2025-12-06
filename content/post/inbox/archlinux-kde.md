@@ -65,11 +65,8 @@ rm -rf ~/.cache/kde*
 # 1. 更新系统
 sudo pacman -Syu
 
-# 2. 安装 KDE Plasma 桌面（基础版本）
-sudo pacman -S plasma-desktop
-
-# 如果需要完整的 KDE Plasma 环境，可以安装：
-# sudo pacman -S plasma
+# 2. 安装 KDE Plasma plasma-meta（元包/包组）
+sudo pacman -S plasma-meta
 
 # 3. 安装常用的 KDE 应用
 sudo pacman -S konsole dolphin kate
@@ -82,7 +79,10 @@ systemctl enable sddm
 systemctl start sddm
 
 # 6. 安装 Wayland 支持（可选）
-sudo pacman -S plasma-wayland-session
+# 注意：plasma-wayland-session 已集成到 plasma-workspace 中
+# 如果已安装 plasma-desktop，Wayland 会话支持已经包含
+# 只需安装 XWayland 相关组件即可
+sudo pacman -S xorg-xwayland
 
 # 7. 安装 GTK 主题支持（可选）
 sudo pacman -S breeze-gtk breeze kde-gtk-config

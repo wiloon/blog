@@ -1,12 +1,13 @@
 ---
 title: archlinux AUR, yay
 author: "-"
-date: 2015-06-28T07:02:07+00:00
+date: 2025-12-03T08:30:00+08:00
 url: yay
 tags:
   - archlinux
   - reprint
   - remix
+  - AI-assisted
 categories:
   - Linux
 ---
@@ -25,6 +26,14 @@ pacman -S --needed git base-devel
 git clone https://aur.archlinux.org/yay.git
 cd yay
 makepkg -si
+
+# 如果遇到 sudo 权限问题，可以分两步执行：
+# 1. 构建包（普通用户）
+makepkg
+# 2. 安装包（需要 root 权限）
+su -c "pacman -U yay-*.pkg.tar.zst"
+# 或者
+sudo pacman -U yay-*.pkg.tar.zst
 ```
 
 ```bash
