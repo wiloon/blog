@@ -1,13 +1,14 @@
 ---
 title: drill, dns tool, dig/drill, dnsutils to ldns dig -> dirll
 author: "-"
-date: 2016-07-12T05:16:26+00:00
+date: 2025-12-07T08:30:00+08:00
 url: drill
 categories:
   - Network
 tags:
   - reprint
   - remix
+  - AI-assisted
 ---
 ## drill, dns tool, dig/drill, `dnsutils` to `ldns` dig -> `dirll`
 
@@ -17,8 +18,12 @@ drill if you can, dig if you have to, `nslookup` if you must
 
 ```bash
 # install drill
+## macOS
+brew install ldns
+
 ## aws linux
 yum install ldns-utils
+
 ## archlinux
 sudo pacman -S ldns
 
