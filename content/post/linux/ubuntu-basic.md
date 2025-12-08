@@ -102,9 +102,8 @@ deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ jammy-security main restricted 
 
 ```
 
-### WSL
-
 ```bash
+# wsl
 export DISPLAY=172.18.80.1:0 # windows 里ipconfig看到的连接wsl的ip
 apt install git-svn
 apt install openjdk-8-jdk

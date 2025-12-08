@@ -37,7 +37,9 @@ bcdedit.exe /set TESTSIGNING ON
 
      .\usbipd.exe -d -4
 
-### WSL2客户端, 编译内核
+### 编译内核
+
+WSL2 客户端
 
 安装工具包
 
