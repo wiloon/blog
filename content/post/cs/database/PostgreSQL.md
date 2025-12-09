@@ -1,7 +1,7 @@
 ---
 title: PostgreSQL
 author: "-"
-date: 2025-11-26T17:15:00+08:00
+date: 2025-12-08T14:30:00+08:00
 url: PostgreSQL
 categories:
   - database
@@ -143,11 +143,38 @@ https://stackoverflow.com/questions/12815496/export-specific-rows-from-a-postgre
 ```Bash
 # 按过滤条件导出成 csv, 注意: copy 里面的 select SQL 结尾不能有分号
 COPY (
-SELECT * FROM nyummy.cimory WHERE city = 'tokio'
+SELECT * FROM table_0 WHERE id = '1'
 ) TO '/tmp/foo.csv';
 
-# 导入 csv
+# 导出 CSV 并自定义 NULL 值表示
+# 默认情况下 NULL 值会导出为 \N
+COPY (
+SELECT * FROM table_0 WHERE id = '1'
+) TO '/tmp/foo.csv' WITH (FORMAT CSV, HEADER, NULL 'NULL');
+
+# 或者使用空字符串表示 NULL
+COPY (
+SELECT * FROM table_0 WHERE id = '1'
+) TO '/tmp/foo.csv' WITH (FORMAT CSV, HEADER, NULL '');
+
+# 完整的 CSV 导出选项
+COPY (
+SELECT * FROM table_0 WHERE id = '1'
+) TO '/tmp/foo.csv' WITH (
+    FORMAT CSV,           -- CSV 格式
+    HEADER true,          -- 包含表头
+    DELIMITER ',',        -- 分隔符
+    NULL 'NULL',          -- NULL 值表示为 'NULL' 而不是 \N
+    QUOTE '"',            -- 引号字符
+    ESCAPE '"',           -- 转义字符
+    ENCODING 'UTF8'       -- 编码
+);
+
+# 导入 csv (默认 \N 为 NULL)
 COPY table_0 FROM '/tmp/foo.csv';
+
+# 导入 CSV 并指定 NULL 值表示
+COPY table_0 FROM '/tmp/foo.csv' WITH (FORMAT CSV, HEADER, NULL 'NULL');
 
 # 按过滤条件导出成 INSERT SQL 语句
 # 方法1: 使用 psql 生成 INSERT 语句
