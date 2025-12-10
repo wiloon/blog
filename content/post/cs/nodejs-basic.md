@@ -1,12 +1,14 @@
 ---
 title: nodejs basic
 author: "-"
-date: 2019-02-22T05:20:53+00:00
+date: 2025-12-05T16:30:00+08:00
 url: /?p=13672
 categories:
   - Inbox
 tags:
   - reprint
+  - remix
+  - AI-assisted
 ---
 ## nodejs basic
 
@@ -14,6 +16,28 @@ tags:
 
 - current v14.21.3
 - latest v21.6.2
+
+## Node.js 版本管理工具对比
+
+### nvm vs fnm
+
+| 特性 | nvm | fnm |
+|------|-----|-----|
+| **性能** | 较慢 (shell 脚本) | 快速 (Rust 编写) |
+| **启动时间** | 明显延迟 (每次启动 shell) | 几乎无延迟 |
+| **自动切换** | 需手动配置 hook | 内置支持 `--use-on-cd` |
+| **配置文件** | `.nvmrc` | `.nvmrc` 或 `.node-version` |
+| **跨平台** | macOS/Linux | macOS/Linux/Windows |
+| **Windows 支持** | 需要 nvm-windows (独立项目) | 原生支持 |
+| **项目隔离** | 支持 (通过 .nvmrc) | 支持 (自动检测) |
+| **安装速度** | 较慢 | 快速 |
+| **内存占用** | 较高 | 较低 |
+| **成熟度** | 非常成熟 (2010年) | 较新 (2019年) |
+| **社区** | 庞大 | 增长中 |
+
+**推荐场景:**
+- **使用 nvm**: 需要最成熟稳定的方案,或团队已在使用
+- **使用 fnm**: 追求性能,需要 Windows 支持,或新项目
 
 ## nvm, Node Version Manager
 
@@ -40,6 +64,32 @@ nvm install 16
 nvm use 14
 nvm list-remote --lts
 
+# 项目级版本管理 - 创建 .nvmrc 文件
+echo "16.20.0" > .nvmrc
+nvm use  # 读取 .nvmrc 自动切换
+
+# 配置自动切换 (添加到 ~/.zshrc)
+autoload -U add-zsh-hook
+load-nvmrc() {
+  local node_version="$(nvm version)"
+  local nvmrc_path="$(nvm_find_nvmrc)"
+
+  if [ -n "$nvmrc_path" ]; then
+    local nvmrc_node_version=$(nvm version "$(cat "${nvmrc_path}")")
+
+    if [ "$nvmrc_node_version" = "N/A" ]; then
+      nvm install
+    elif [ "$nvmrc_node_version" != "$node_version" ]; then
+      nvm use
+    fi
+  elif [ "$node_version" != "$(nvm version default)" ]; then
+    echo "Reverting to nvm default version"
+    nvm use default
+  fi
+}
+add-zsh-hook chpwd load-nvmrc
+load-nvmrc
+
 ```
 
 ### ubuntu install nvm
@@ -48,6 +98,56 @@ nvm list-remote --lts
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.0/install.sh | bash
 nmv install 16
 ```
+
+## fnm (Fast Node Manager)
+
+[https://github.com/Schniz/fnm](https://github.com/Schniz/fnm)
+
+fnm 是用 Rust 编写的快速 Node.js 版本管理器,比 nvm 性能更好,支持自动项目级版本切换。
+
+```bash
+# 安装 fnm
+# macOS
+brew install fnm
+
+# Linux (通用)
+curl -fsSL https://fnm.vercel.app/install | bash
+
+# Arch Linux
+pacman -S fnm
+
+# 配置 shell (添加到 ~/.zshrc)
+eval "$(fnm env --use-on-cd)"
+
+# 基本使用
+fnm list-remote          # 列出可用版本
+fnm install 16.20.0      # 安装指定版本
+fnm install --lts        # 安装 LTS 版本
+fnm use 16.20.0          # 切换版本
+fnm list                 # 列出已安装版本
+fnm default 16.20.0      # 设置默认版本
+
+# 项目级版本管理
+# 在项目根目录创建 .node-version 或 .nvmrc
+echo "16.20.0" > .node-version
+
+# 配置了 --use-on-cd 后,cd 进入目录会自动切换
+cd your-project  # 自动切换到 16.20.0
+
+# 如果版本未安装,先安装
+fnm install
+
+# 卸载版本
+fnm uninstall 14.0.0
+```
+
+### fnm 优势
+
+1. **极快的性能** - Rust 编写,启动几乎无延迟
+2. **自动切换** - `--use-on-cd` 自动检测项目配置
+3. **跨平台** - 原生支持 Windows/macOS/Linux
+4. **兼容 nvm** - 支持 `.nvmrc` 文件
+5. **零配置** - 开箱即用的项目隔离
 
 ## nodejs downgrade
 

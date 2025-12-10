@@ -1,13 +1,14 @@
 ---
 title: kong
 author: "-"
-date: 2025-06-17 21:37:38
+date: 2025-12-09T15:30:00+08:00
 url: kong
 categories:
   - network
 tags:
   - reprint
   - remix
+  - AI-assisted
 ---
 ## kong
 
@@ -171,4 +172,84 @@ new gateway service
 new route
   general information:
     name: kong-manager-route
+
+## 在 Kubernetes 中查看 Kong 日志
+
+对于运行在 Kubernetes 中的 Kong 服务，有以下几种查看日志的方式：
+
+### 1. 容器级别查看（推荐方式）
+
+这是最常用和便捷的方式：
+
+```bash
+# 查看 Kong Pod 的日志
+kubectl logs <pod-name> -n <namespace>
+
+# 实时查看日志（类似 tail -f）
+kubectl logs -f <pod-name> -n <namespace>
+
+# 查看最近的日志（如最近100行）
+kubectl logs --tail=100 <pod-name> -n <namespace>
+
+# 如果 Pod 有多个容器，指定容器名
+kubectl logs <pod-name> -c kong -n <namespace>
+```
+
+### 2. 查看所有 Kong Pod 的日志
+
+```bash
+# 通过 label selector 查看所有 Kong Pod 的日志
+kubectl logs -l app=kong -n <namespace> --all-containers=true
+
+# 或者使用 stern（需要安装）
+stern kong -n <namespace>
+```
+
+### 3. 进入容器查看文件日志
+
+Kong 默认将日志输出到标准输出/错误，但也可以配置写入文件：
+
+```bash
+# 进入容器
+kubectl exec -it <pod-name> -n <namespace> -- /bin/sh
+
+# Kong 默认日志位置（如果配置了文件输出）
+# /usr/local/kong/logs/access.log
+# /usr/local/kong/logs/error.log
+```
+
+### 4. Kong 日志配置
+
+Kong 有两种主要日志：
+
+- **Access Log**（访问日志）：记录请求信息
+- **Error Log**（错误日志）：记录错误和警告
+
+可以通过环境变量或配置文件控制：
+
+```yaml
+env:
+  - name: KONG_PROXY_ACCESS_LOG
+    value: "/dev/stdout"  # 输出到标准输出
+  - name: KONG_ADMIN_ACCESS_LOG
+    value: "/dev/stdout"
+  - name: KONG_PROXY_ERROR_LOG
+    value: "/dev/stderr"
+  - name: KONG_ADMIN_ERROR_LOG
+    value: "/dev/stderr"
+```
+
+### 5. 集中式日志方案
+
+如果集群配置了日志收集系统：
+
+- **ELK/EFK Stack**：通过 Kibana 查看
+- **Loki + Grafana**：通过 Grafana 查看
+- **云服务**：如阿里云日志服务、AWS CloudWatch 等
+
+**推荐做法**：
+
+1. 开发/调试阶段：直接使用 `kubectl logs -f` 查看实时日志
+2. 生产环境：配置集中式日志收集系统，方便查询和分析
+3. Kong 默认配置已经将日志输出到 stdout/stderr，非常适合容器环境
     
