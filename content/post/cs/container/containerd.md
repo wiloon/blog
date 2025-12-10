@@ -1,15 +1,21 @@
 ---
 title: containerd, nerdctl
 author: "-"
-date: 2025-06-03 14:37:21
+date: 2025-12-10T16:30:00+08:00
 url: containerd
 categories:
   - Container
 tags:
   - reprint
   - remix
+  - AI-assisted
 ---
 ## containerd, nerdctl
+
+- containerd: 2.2.0-1
+- runc: 1.4.0-1
+- nerdctl: 2.2.0-1
+- cni-plugins: 1.9.0-1
 
 ## archlinux install containerd
 
@@ -24,21 +30,20 @@ containerd config default | sudo tee /etc/containerd/config.toml
 sudo systemctl daemon-reload
 
 sudo systemctl enable --now containerd
-# containerd 内存占用47MB
+# containerd 内存占用 47MB
 # containerd、runc、nerdctl 都是用户空间的程序, 不是内核模块，不需要重新加载内核, 不需要重启系统, 只需要运行守护进程即可, 安装完成就可以使用
 sudo nerdctl pull hello-world
 sudo nerdctl run --rm hello-world
 
 # 如果需要编译镜像
-pacman -S buildkit
+sudo pacman -S buildkit
 sudo systemctl enable --now buildkit
-nerdctl build -t foo:v1.0.0 .
-```
 
-```Bash
-# cni plugin
-mkdir -p /opt/cni/bin
-tar Cxzvf /opt/cni/bin cni-plugins-linux-amd64-v1.1.1.tgz
+# build image, 需要在有 Dockerfile 的目录下运行
+nerdctl build -t foo:v1.0.0 .
+
+sudo sed -i 's/SystemdCgroup = false/SystemdCgroup = true/' /etc/containerd/config.toml
+sudo systemctl restart containerd
 ```
 
 ## ubuntu install containerd

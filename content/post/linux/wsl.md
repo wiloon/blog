@@ -1,7 +1,7 @@
 ---
 title: windows wsl
 author: "w1100n"
-date: 2025-12-09T00:05:00+08:00
+date: 2025-12-10T15:30:00+08:00
 url: wsl
 categories:
   - Linux
@@ -56,6 +56,10 @@ wsl --shutdown
 # 强制关闭某一个实例
 wsl --terminate Ubuntu
 wsl -t Ubuntu
+
+# 设置默认发行版
+wsl --set-default archlinux
+wsl -s archlinux  # 简写形式
 
 # 查看 WSL 状态
 wsl --status
