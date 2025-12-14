@@ -1,7 +1,7 @@
 ---
 title: windows wsl
 author: "w1100n"
-date: 2025-11-11T16:30:00+08:00
+date: 2025-12-10T15:30:00+08:00
 url: wsl
 categories:
   - Linux
@@ -30,6 +30,10 @@ WSL: Windows Subsystem for Linux
 wsl --list --verbose
 wsl -l -v
 
+# 启动指定的发行版
+wsl -d archlinux
+wsl -d archlinux -u wiloon  # 指定用户
+
 # 列出可用的发行版
 wsl --list --online
 wsl -l -o
@@ -53,11 +57,12 @@ wsl --shutdown
 wsl --terminate Ubuntu
 wsl -t Ubuntu
 
+# 设置默认发行版
+wsl --set-default archlinux
+wsl -s archlinux  # 简写形式
+
 # 查看 WSL 状态
 wsl --status
-
-# 启动指定的发行版
-wsl -d archlinux
 ```
 
 ## Ubuntu 基本设置
@@ -119,50 +124,6 @@ wsl --update
 #### 安装 Intel 显示驱动
 
 - [Intel Graphics Windows DCH Drivers](https://downloadcenter.intel.com/download/30579/Intel-Graphics-Windows-DCH-Drivers)
-
-## SSH Agent 与 KeePassXC 集成
-
-参考文档：[WSL2 KeePassXC SSH 集成](https://code.mendhak.com/wsl2-keepassxc-ssh/)
-
-### 1. 启用 OpenSSH Authentication Agent
-
-在 Windows 中：
-
-1. 打开"计算机管理"
-2. 进入"服务"
-3. 找到"OpenSSH Authentication Agent"
-4. 右键 → 属性 → 启动类型 → 自动
-5. 点击"启动"
-
-### 2. 下载 npiperelay
-
-下载地址：[npiperelay v0.1.0](https://github.com/jstarks/npiperelay/releases/download/v0.1.0/npiperelay_windows_amd64.zip)
-
-### 3. 安装 socat
-
-在 WSL 中安装：
-
-```bash
-sudo apt install socat
-```
-
-### 4. 配置 Shell
-
-编辑 `~/.zshrc` 或 `~/.bashrc`：
-
-```bash
-export SSH_AUTH_SOCK=$HOME/.ssh/agent.sock
-
-ss -a | grep -q $SSH_AUTH_SOCK
-if [ $? -ne 0 ]; then
-    rm -f $SSH_AUTH_SOCK
-    (setsid socat UNIX-LISTEN:$SSH_AUTH_SOCK,fork EXEC:"/mnt/c/workspace/apps/npiperelay.exe -ei -s //./pipe/openssh-ssh-agent",nofork &) >/dev/null 2>&1
-fi
-
-ssh-add -L
-```
-
----
 
 ## WSL 安装步骤
 
@@ -334,6 +295,39 @@ pause
 
 ### 设置默认用户
 
+#### 方法 1：使用 wsl.conf 配置（推荐）
+
+编辑 `/etc/wsl.conf`（需要 root 权限）：
+
+```bash
+sudo vim /etc/wsl.conf
+```
+
+添加或修改以下内容：
+
+```ini
+[boot]
+# 是否启用 systemd
+systemd=true
+
+[interop]
+enabled = true
+appendWindowsPath = true
+
+[user]
+default=your_username  # 替换为你的用户名，如 wiloon
+```
+
+保存后，在 Windows PowerShell 中重启 WSL：
+
+```powershell
+wsl --shutdown
+```
+
+重新启动后，默认会以指定用户登录。
+
+#### 方法 2：使用发行版配置命令
+
 在 PowerShell 中执行：
 
 ```powershell
@@ -341,7 +335,235 @@ cd C:\Users\<用户名>\AppData\Local\Microsoft\WindowsApps
 dir
 # 找到以 ubuntu 开头的 exe 文件
 ubuntu2004.exe config --default-user user0
+
+# ArchLinux 使用
+arch.exe config --default-user wiloon
 ```
+
+#### 方法 3：在 Windows Terminal 中配置
+
+打开 Windows Terminal 设置（`Ctrl + ,`），修改对应发行版的配置：
+
+```json
+{
+    "guid": "{be8746a7-283c-54e5-babb-613c0628ae4d}",
+    "hidden": false,
+    "name": "archlinux",
+    "source": "Microsoft.WSL",
+    "commandline": "wsl.exe -d archlinux -u wiloon"
+}
+```
+
+**参数说明：**
+
+- `-d archlinux` - 指定 WSL 发行版名称
+- `-u wiloon` - 指定默认登录用户
+
+### WSL Interop 故障排查
+
+#### 问题：su 切换用户后 Windows 命令不可用
+
+**现象：**
+
+```bash
+# root 用户下可以执行
+ssh-add.exe -l
+
+# 切换到普通用户后失败
+su - wiloon
+ssh-add.exe -l  # command not found
+```
+
+**原因：**
+
+使用 `su -` 切换用户时会创建全新的 login shell，不会继承以下关键环境变量：
+
+- `WSL_INTEROP` - WSL 与 Windows 互操作的核心变量
+- `PATH` - 包含 Windows 可执行文件路径
+
+**解决方案：**
+
+##### 方案 1：不使用 su 切换用户（强烈推荐）
+
+使用上述方法配置默认用户，直接以目标用户启动 WSL：
+
+```bash
+# 在 Windows 中直接以指定用户启动
+wsl -d archlinux -u wiloon
+
+# 或在 Windows Terminal 中配置 commandline
+```
+
+##### 方案 2：修复 su 切换后的环境
+
+在目标用户的 `~/.bashrc` 或 `~/.zshrc` 中添加：
+
+```bash
+# WSL Interop - 修复 su 切换用户后的问题
+if [ -n "$WSL_DISTRO_NAME" ]; then
+    # 重新设置 WSL_INTEROP
+    if [ -z "$WSL_INTEROP" ]; then
+        export WSL_INTEROP=$(ls /run/WSL/*_interop 2>/dev/null | head -1)
+    fi
+    
+    # 确保 Windows PATH 存在
+    if ! echo "$PATH" | grep -q "/mnt/c/Windows"; then
+        export PATH="$PATH:/mnt/c/Windows/System32:/mnt/c/Windows:/mnt/c/Windows/System32/WindowsPowerShell/v1.0"
+    fi
+fi
+```
+
+应用配置：
+
+```bash
+source ~/.bashrc  # 或 source ~/.zshrc
+```
+
+验证：
+
+```bash
+# 检查环境变量
+echo $WSL_INTEROP
+echo $PATH | grep "/mnt/c"
+
+# 测试 Windows 命令
+ssh-add.exe -l
+where.exe ssh-add.exe
+```
+
+**为什么直接启动比 su 切换更好：**
+
+| 方式 | WSL_INTEROP | Windows PATH | 推荐度 |
+|------|-------------|--------------|--------|
+| `wsl -u user` | ✅ 自动设置 | ✅ 自动加载 | ⭐⭐⭐⭐⭐ |
+| `/etc/wsl.conf` 默认用户 | ✅ 自动设置 | ✅ 自动加载 | ⭐⭐⭐⭐⭐ |
+| `su - user` | ❌ 丢失 | ❌ 丢失 | ⭐⭐ |
+| `su user`（无 -） | ⚠️ 部分保留 | ⚠️ 部分保留 | ⭐⭐⭐ |
+
+#### 错误：cannot execute binary file: Exec format error
+
+**现象：**
+
+```bash
+# 执行 Windows 命令时报错
+ssh-add.exe -l
+# bash: /mnt/c/WINDOWS/System32/OpenSSH/ssh-add.exe: cannot execute binary file: Exec format error
+
+cmd.exe /c echo test
+# bash: /mnt/c/WINDOWS/system32/cmd.exe: cannot execute binary file: Exec format error
+```
+
+**原因：**
+
+在 ArchWSL 中启用 `systemd=true` 会导致 `binfmt_misc` 无法正确注册 Windows 可执行文件处理器，从而导致所有 `.exe` 文件都无法执行。
+
+这是 WSL2 与 systemd 的已知兼容性问题，特别是在 ArchLinux 发行版中更为常见。
+
+**排查步骤：**
+
+```bash
+# 1. 检查 binfmt_misc 注册情况
+ls -la /proc/sys/fs/binfmt_misc/
+# 如果只有 register 和 status 文件，说明 WSLInterop 未注册
+
+# 2. 测试简单的 Windows 命令
+cmd.exe /c echo test
+# 如果报 "Exec format error"，确认是 interop 问题
+
+# 3. 检查当前 wsl.conf 配置
+cat /etc/wsl.conf
+```
+
+**解决方案：**
+
+##### 方案 1：禁用 systemd（推荐，最可靠）
+
+编辑 `/etc/wsl.conf`：
+
+```bash
+sudo nano /etc/wsl.conf
+```
+
+修改为：
+
+```ini
+[boot]
+systemd=false
+
+[interop]
+enabled = true
+appendWindowsPath = true
+
+[user]
+default=your_username
+```
+
+在 Windows PowerShell 中重启 WSL：
+
+```powershell
+wsl --shutdown
+```
+
+重新进入 WSL 测试：
+
+```bash
+# 测试 Windows 命令
+cmd.exe /c echo "Windows interop works"
+ssh-add.exe -l
+```
+
+##### 方案 2：保留 systemd 但手动修复 binfmt（不稳定）
+
+如果必须使用 systemd，可以尝试在每次启动后手动注册 binfmt：
+
+```bash
+# 创建启动脚本（需要 root 权限）
+sudo tee /usr/local/bin/fix-wsl-interop.sh > /dev/null << 'EOF'
+#!/bin/bash
+if [ ! -f /proc/sys/fs/binfmt_misc/WSLInterop ]; then
+    echo ':WSLInterop:M::MZ::/init:PF' > /proc/sys/fs/binfmt_misc/register
+fi
+EOF
+
+sudo chmod +x /usr/local/bin/fix-wsl-interop.sh
+
+# 添加到 ~/.bashrc 或创建 systemd 服务
+echo '/usr/local/bin/fix-wsl-interop.sh' | sudo tee -a /etc/profile
+```
+
+**注意：** 此方法不保证稳定，重启后可能失效。
+
+##### 方案 3：使用完整路径配合环境变量
+
+如果上述方案都不理想，可以在需要时临时切换配置：
+
+```bash
+# 创建配置切换脚本
+# ~/.local/bin/toggle-systemd.sh
+
+#!/bin/bash
+if grep -q "systemd=true" /etc/wsl.conf; then
+    sudo sed -i 's/systemd=true/systemd=false/' /etc/wsl.conf
+    echo "Disabled systemd. Run 'wsl --shutdown' in Windows to apply."
+else
+    sudo sed -i 's/systemd=false/systemd=true/' /etc/wsl.conf
+    echo "Enabled systemd. Run 'wsl --shutdown' in Windows to apply."
+fi
+```
+
+**对比总结：**
+
+| 方案 | Windows 命令 | systemd 功能 | 稳定性 | 推荐度 |
+|------|-------------|-------------|--------|--------|
+| 禁用 systemd | ✅ 完美支持 | ❌ 不可用 | ⭐⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ |
+| 手动修复 binfmt | ⚠️ 不稳定 | ✅ 可用 | ⭐⭐ | ⭐⭐ |
+| 按需切换 | ✅ 取决于配置 | ✅ 取决于配置 | ⭐⭐⭐ | ⭐⭐⭐ |
+
+**最佳实践：**
+
+对于大多数 WSL 使用场景，**不需要 systemd**。如果你主要使用 WSL 进行开发、编译、运行脚本等，禁用 systemd 可以获得更好的 Windows 互操作体验。
+
+只有在需要运行依赖 systemd 的服务（如 Docker、某些数据库服务）时，才考虑启用 systemd，但要接受 Windows 命令可能不可用的限制。
 
 ### 字体配置（解决乱码）
 
@@ -683,6 +905,71 @@ localhostForwarding=<bool>
 
 **注意：** `WSL_DEBUG_CONSOLE=true` 这个环境变量在 WSL 1.1.0 之后已被废弃，在 WSL 1.2.x / 2.x.x (Microsoft Store 版本) 中已被完全移除或忽略。
 
+### 配置镜像源
+
+ArchWSL 可以直接使用常规的 ArchLinux 镜像源，推荐使用国内镜像提升速度。
+
+编辑 `/etc/pacman.d/mirrorlist`：
+
+```bash
+sudo nano /etc/pacman.d/mirrorlist
+```
+
+在文件开头添加国内镜像（任选其一）：
+
+```text
+# 清华源（推荐）
+Server = https://mirrors.tuna.tsinghua.edu.cn/archlinux/$repo/os/$arch
+
+# 阿里云
+Server = https://mirrors.aliyun.com/archlinux/$repo/os/$arch
+
+# 中科大
+Server = https://mirrors.ustc.edu.cn/archlinux/$repo/os/$arch
+```
+
+### 初始化和更新系统
+
+```bash
+# 初始化 keyring（首次可能需要）
+sudo pacman-key --init
+sudo pacman-key --populate archlinux
+
+# 更新系统
+sudo pacman -Syu
+```
+
+### WSL 重启说明
+
+**重要：WSL 中不能使用 `reboot` 命令**
+
+- WSL 是运行在 Windows 上的子系统，不是独立虚拟机
+- `reboot`、`shutdown` 等命令在 WSL 中不起作用
+
+**正确的重启方法：**
+
+```powershell
+# 在 Windows PowerShell 或 CMD 中执行
+
+# 方法 1: 关闭所有 WSL 实例
+wsl --shutdown
+
+# 方法 2: 只关闭 ArchLinux
+wsl --terminate ArchLinux
+wsl -t ArchLinux
+
+# 然后重新启动
+wsl -d ArchLinux
+```
+
+**何时需要重启 WSL：**
+
+- 更新了 Linux 内核（`linux` 包）
+- 更新了 systemd 或底层库（如 glibc）
+- 修改了 `.wslconfig` 配置文件
+
+**大部分软件包更新后无需重启，直接可用。**
+
 ### 验证配置是否生效
 
 ```bash
@@ -697,3 +984,156 @@ wsl --update
 free -h
 nproc
 ```
+
+---
+
+## 1Password SSH Agent 与 WSL 集成
+
+1Password 提供了优雅的 SSH 密钥管理方案，可以与 WSL 完美集成。
+
+### 官方文档
+
+- [1Password SSH Agent 与 WSL 集成](https://developer.1password.com/docs/ssh/integrations/wsl/)
+
+### 前置条件
+
+- 1Password 8 或更高版本
+- WSL 2
+- 1Password 订阅账户
+
+### 配置步骤
+
+#### 1. 启用 Windows OpenSSH Authentication Agent 服务
+
+1. 按 `Win + R` 打开运行窗口
+2. 输入 `services.msc` 按回车
+3. 找到 **OpenSSH Authentication Agent**
+4. 右键 → 属性 → 启动类型 → 自动
+5. 点击“启动”
+
+#### 2. 在 Windows 中启用 1Password SSH Agent
+
+1. 打开 1Password 应用
+2. 点击右上角的 **设置图标**（齿轮图标）
+3. 选择 **Settings** → **Developer**
+4. 找到 **SSH Agent** 部分
+5. 勾选 ✅ **Use the SSH agent**
+6. 勾选 ✅ **Integrate with 1Password CLI**
+
+**注意：**
+
+- 在 1Password 8.11.x 版本中，WSL 集成是通过启用 SSH Agent 自动实现的
+- 不是所有版本都显示独立的 "Integrate with WSL" 选项
+- 只要启用了 "Use the SSH agent"，WSL 集成就会自动生效
+
+#### 3. 在 WSL 中配置环境变量
+
+编辑 `~/.bashrc` 或 `~/.zshrc`：
+
+```bash
+# 1Password SSH Agent 集成
+export SSH_AUTH_SOCK=$HOME/.1password/agent.sock
+```
+
+应用配置：
+
+```bash
+source ~/.bashrc  # 或 source ~/.zshrc
+```
+
+#### 4. 验证配置
+
+```bash
+# 查看已加载的 SSH 密钥
+ssh-add -l
+
+# 测试 SSH 连接（以 GitHub 为例）
+ssh -T git@github.com
+```
+
+### 在 1Password 中添加 SSH 密钥
+
+#### 方法 1：导入现有密钥
+
+1. 打开 1Password
+2. 点击 "+" 创建新项目
+3. 选择 "SSH Key"
+4. 点击 "Choose file" 导入私钥文件
+5. 可选：添加密钥的公钥和备注信息
+
+#### 方法 2：生成新密钥
+
+1. 打开 1Password
+2. 创建新项目 → SSH Key
+3. 点击 "Generate new key"
+4. 1Password 会自动生成并保存密钥对
+
+### 配置 Git 使用 1Password SSH
+
+```bash
+# Git over SSH 自动使用 1Password Agent
+git clone git@github.com:username/repo.git
+
+# 无需额外配置，Git 会自动通过 SSH Agent 获取密钥
+```
+
+### 优势
+
+- ✅ **自动解锁** - 使用 Windows Hello 生物识别快速解锁
+- ✅ **无需密码** - SSH 连接时不再需要输入密钥密码
+- ✅ **安全存储** - 私钥加密存储在 1Password 中
+- ✅ **多设备同步** - 密钥自动同步到所有设备
+- ✅ **操作简单** - 一次配置，永久使用
+
+### 故障排查
+
+#### 错误：Error connecting to agent: No such file or directory
+
+这是最常见的问题，说明 1Password SSH Agent socket 文件不存在。
+
+**排查步骤：**
+
+```bash
+# 1. 检查 socket 文件是否存在
+ls -la ~/.1password/agent.sock
+
+# 2. 检查 1Password 是否正在运行
+# 在 Windows 任务管理器中确认 1Password.exe 进程存在
+
+# 3. 检查 1Password 是否已解锁
+# 打开 1Password 应用，确保已登录并解锁
+```
+
+**解决方案：**
+
+1. 打开 1Password Windows 应用
+2. 进入 Settings → Developer
+3. 确认 ✅ "Use the SSH agent" 已勾选
+4. **重启 1Password**（完全退出后重新打开）
+5. 重启 WSL：
+
+```powershell
+# 在 Windows PowerShell 中执行
+wsl --shutdown
+```
+
+#### 密钥未显示或为空
+
+```bash
+# 确认环境变量已设置
+echo $SSH_AUTH_SOCK
+# 应该输出：/home/username/.1password/agent.sock
+
+# 检查 1Password 中是否有 SSH 密钥
+# 打开 1Password → 查看是否有 "SSH Key" 类型的项目
+```
+
+### 其他方案对比
+
+| 方案 | 优点 | 缺点 | 推荐度 |
+|------|------|------|--------|
+| **1Password SSH Agent** | 官方支持、配置简单、体验最佳 | 需要订阅 | ⭐⭐⭐⭐⭐ |
+| KeePassXC + npiperelay | 开源免费、自主可控 | 配置复杂、需手动维护 | ⭐⭐⭐ |
+| Windows SSH Agent | 系统原生、无需额外软件 | 功能有限、密钥管理不便 | ⭐⭐ |
+
+**推荐：** 对于 WSL 使用场景，强烈推荐 1Password SSH Agent 方案，配置更简单，使用更流畅。

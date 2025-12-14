@@ -1,15 +1,140 @@
 ---
 title: apt-get, apt basic command
 author: "-"
-date: 2012-02-26T03:18:38+00:00
+date: 2025-12-12T15:30:00+08:00
 url: apt
 categories:
   - Linux
 tags:
   - reprint
   - remix
+  - AI-assisted
 ---
 ## apt-get, apt basic command, apt command
+
+## apt upgrade 后是否需要重启
+
+### 需要重启的包类型
+
+| 包类型 | 示例 | 原因 |
+|--------|------|------|
+| **内核** | `linux-image-*` | 内核在启动时加载，更新后需重启才能使用新内核 |
+| **C 标准库** | `libc6` (glibc) | 几乎所有程序都依赖它，热更新风险高 |
+| **systemd** | `systemd`, `systemd-sysv` | 系统初始化和服务管理的核心 |
+| **D-Bus** | `dbus`, `libdbus-1-3` | 系统进程间通信的基础设施 |
+| **图形驱动** | `nvidia-*`, `mesa-*` | 需要重新加载驱动模块 |
+
+### 系统会提示需要重启吗？
+
+**会的！** Ubuntu/Debian 有专门的机制：
+
+```bash
+# 检查是否需要重启
+cat /var/run/reboot-required
+
+# 查看哪些包导致需要重启
+cat /var/run/reboot-required.pkgs
+```
+
+**示例输出：**
+
+```text
+*** System restart required ***
+```
+
+### 其他提示方式
+
+1. **apt 升级时的提示** - 更新关键包后会显示提示信息
+1. **MOTD (登录提示)** - SSH 登录时会显示 "System restart required"
+1. **图形界面** - Ubuntu Desktop 会弹出重启提示通知
+
+### 快速检查命令
+
+```bash
+# 一行命令检查
+[ -f /var/run/reboot-required ] && echo "⚠️ 需要重启" || echo "✅ 不需要重启"
+```
+
+### 不重启会怎样？
+
+- 旧内核继续运行，新内核下次启动才生效
+- 旧版本的库可能还在内存中被进程使用
+- 安全补丁可能未完全生效
+
+**简单原则：**
+
+- 日常更新 → 系统没提示就不用管
+- 安全更新（尤其是内核、openssl、glibc）→ 看到提示尽快处理
+
+## needrestart 工具
+
+`needrestart` 是一个用于**检测系统更新后哪些服务/进程需要重启**的工具。
+
+### 核心功能
+
+| 功能 | 说明 |
+|------|------|
+| **检测过期库** | 找出正在使用已被更新/删除的共享库的进程 |
+| **检测内核更新** | 判断当前运行的内核是否与磁盘上的最新内核一致 |
+| **服务重启建议** | 列出需要重启的 systemd 服务 |
+| **自动重启** | 可配置为自动重启受影响的服务 |
+
+### 使用示例
+
+```bash
+# 安装
+sudo apt install needrestart
+
+# 运行检查
+sudo needrestart
+```
+
+### 典型输出
+
+```text
+Scanning processes...
+Scanning candidates...
+Scanning linux images...
+
+Running kernel seems to be up-to-date.
+
+Services to be restarted:
+ systemctl restart apache2.service
+ systemctl restart docker.service
+ systemctl restart ssh.service
+
+No containers need to be restarted.
+No user sessions are running outdated binaries.
+```
+
+### 运行模式
+
+```bash
+# 只列出信息，不做任何操作
+sudo needrestart -r l
+
+# 交互模式（默认）- 询问是否重启
+sudo needrestart -r i
+
+# 自动重启所有需要重启的服务
+sudo needrestart -r a
+```
+
+### 为什么需要它？
+
+**场景：** 你更新了 `openssl` 库，但很多服务（nginx、ssh、mysql）还在内存中使用旧版本的库。
+
+- ❌ **不重启服务** → 安全漏洞仍然存在
+- ✅ **用 needrestart** → 精确告诉你哪些服务需要重启，而不是重启整个系统
+
+### 与系统重启的区别
+
+| 方案 | 适用场景 |
+|------|----------|
+| **重启服务** (needrestart) | 更新了库文件（openssl、glibc 等） |
+| **重启系统** | 更新了内核、systemd 等核心组件 |
+
+Ubuntu 在 `apt upgrade` 后会**自动调用** needrestart（如果已安装），所以你可能见过升级后弹出的服务重启选择界面。
 
 ## only upgrade libstdc++6
 

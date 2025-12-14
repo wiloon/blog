@@ -1,7 +1,8 @@
 ---
 author: "-"
-date: "2025-12-04T01:20:00+08:00"
+date: "2025-12-12T16:00:00+08:00"
 title: "Ubuntu 显示器分辨率问题修复：手动加载 EDID 固件"
+url: ubuntu-monitor-edid-fix
 categories:
   - Linux
 tags:
@@ -13,142 +14,31 @@ tags:
   - AI-assisted
 ---
 
-## EDID 简介
-
-### 什么是 EDID？
-
-**EDID (Extended Display Identification Data)** 是一种标准化的数据结构，用于显示器向计算机系统描述自己的能力和特性。可以将它理解为显示器的"身份证"或"技术规格说明书"。
-
-**EDID 包含的信息**：
-
-1. **基本标识信息**：
-   - 制造商 ID（如 Dell = "DEL", Samsung = "SAM"）
-   - 产品型号代码和序列号
-   - 生产日期（周数/年份）
-
-2. **显示能力参数**：
-   - 支持的分辨率列表（如 1920x1200, 1600x1200, 1280x1024）
-   - 支持的刷新率（如 60Hz, 75Hz）
-   - 原生（推荐）分辨率
-   - 色彩深度和色域信息
-
-3. **物理特性**：
-   - 屏幕物理尺寸（以毫米为单位，用于计算正确的 DPI）
-   - 显示接口类型（模拟/数字）
-   - Gamma 值（2.2 是常见值）
-
-### 系统如何读取 EDID？
-
-**是的，操作系统从显示器读取 EDID 信息。** 这是一个自动化的初始化过程：
-
-```
-┌─────────────────────────────────────────────────────────────┐
-│ 1. 物理连接                                                  │
-│    显示器连接到主机（HDMI/DisplayPort/DVI/VGA）              │
-│    硬件检测到连接                                             │
-└──────────────────┬──────────────────────────────────────────┘
-                   ↓
-┌─────────────────────────────────────────────────────────────┐
-│ 2. DDC 通信初始化                                            │
-│    主机 → 显示器：发起 DDC (Display Data Channel) 请求       │
-│    使用 I2C 总线协议                                          │
-└──────────────────┬──────────────────────────────────────────┘
-                   ↓
-┌─────────────────────────────────────────────────────────────┐
-│ 3. EDID 数据传输                                             │
-│    显示器 → 主机：返回 EDID 数据（128 或 256 字节）          │
-│    通过显示线缆内的专用数据通道                               │
-└──────────────────┬──────────────────────────────────────────┘
-                   ↓
-┌─────────────────────────────────────────────────────────────┐
-│ 4. 内核处理                                                  │
-│    GPU 驱动解析 EDID → 验证校验和 → 提取支持的模式          │
-└──────────────────┬──────────────────────────────────────────┘
-                   ↓
-┌─────────────────────────────────────────────────────────────┐
-│ 5. 自动配置                                                  │
-│    选择最佳分辨率（通常是原生分辨率）→ 配置显示输出          │
-└─────────────────────────────────────────────────────────────┘
-```
-
-**通信协议细节**：
-- **HDMI/DisplayPort**：使用 DDC 协议通过 AUX 通道或 HPD (Hot Plug Detect) 引脚传输
-- **VGA**：通过 DDC1/DDC2B 协议，使用视频线缆中的第 12 和 15 引脚（SDA/SCL）
-- **DVI**：类似 HDMI，使用 DDC2B+ 协议
-
-整个过程**完全自动**，无需用户干预，通常在显示器连接后的几毫秒内完成。
-
-### EDID 读取失败的后果
-
-当 EDID 读取失败时（就像本文要解决的问题），系统会：
-
-```bash
-# 内核日志显示错误
-[drm] EDID block 0 is all zeroes         # EDID 数据全为 0
-[drm:amdgpu] *ERROR* Bad EDID, status3!  # 读取失败错误代码
-
-# xrandr 显示受限状态
-DP-9 connected 1024x768+0+0 (normal left inverted right x axis y axis) 0mm x 0mm
-#              ↑ 低分辨率                                               ↑ 物理尺寸未知
-```
-
-**具体影响**：
-- ❌ 系统不知道显示器支持的分辨率列表
-- ❌ 回退到 VESA 安全模式（通常是 1024x768）
-- ❌ 物理尺寸显示为 `0mm x 0mm`（导致 DPI 计算错误）
-- ❌ 无法使用原生高分辨率（如 1920x1200）
-- ❌ 刷新率可能不正确
-
-### EDID 读取失败的常见原因
-
-1. **硬件故障**：
-   - 显示器内部 EDID 芯片损坏或老化
-   - 显示线缆质量差（特别是廉价转接线）
-   - 接口引脚接触不良或氧化
-
-2. **驱动/固件问题**：
-   - GPU 驱动 bug（AMD/NVIDIA 驱动的已知问题）
-   - 内核版本与硬件不兼容
-   - 显示器固件 bug
-
-3. **时序问题**：
-   - 显示器启动较慢，系统读取时还未准备好
-   - DisplayPort 热插拔检测机制故障
-   - 多显示器环境下的枚举冲突
-
-### 手动加载 EDID 固件的原理
-
-本文介绍的解决方案是通过内核参数提供一个"备用 EDID"：
-
-```bash
-# GRUB 配置
-drm.edid_firmware=DP-9:edid/dell_u2412m.bin
-#                  ↑         ↑
-#                  接口名    EDID 固件文件路径（相对于 /lib/firmware/）
-```
-
-**工作流程**：
-
-```
-内核启动 → 检测到 DP-9 显示器 → 尝试读取 EDID → 失败
-                                                    ↓
-                            检查 drm.edid_firmware 参数
-                                                    ↓
-                    加载 /lib/firmware/edid/dell_u2412m.bin
-                                                    ↓
-                    验证 EDID 校验和 → 解析数据 → 配置显示器
-                                                    ↓
-                            显示器正常工作（1920x1200）
-```
-
-**关键点**：
-- 只有在硬件 EDID 读取**失败**时才使用固件文件
-- 如果硬件 EDID 读取成功，内核会**忽略**固件参数
-- 因此，为多个接口配置 EDID 固件不会影响正常显示器
-
 ## 问题描述
 
-在使用 Ubuntu（特别是 AMD GPU + 多显示器环境）时，可能遇到某个显示器无法识别正确分辨率的问题，表现为上述 EDID 读取失败的症状。
+在使用 Ubuntu（特别是 AMD GPU + 多显示器环境）时，可能遇到显示器无法识别正确分辨率的问题：
+
+- 显示器只能使用低分辨率（如 1024x768）
+- `xrandr` 显示物理尺寸为 `0mm x 0mm`
+- 内核日志出现 `EDID block 0 is all zeroes` 错误
+- 休眠恢复后显示器被错误识别
+
+## TL;DR 快速解决
+
+```bash
+# 1. 创建 EDID 固件目录
+sudo mkdir -p /lib/firmware/edid
+
+# 2. 生成 EDID 文件（以 1920x1200 显示器为例）
+# 见下文 Python 脚本，生成后复制到 /lib/firmware/edid/
+
+# 3. 配置 GRUB（替换 DP-X 为实际接口）
+sudo vim /etc/default/grub
+# 添加：drm.edid_firmware=DP-9:edid/dell_u2412m.bin
+
+# 4. 更新并重启
+sudo update-grub && sudo reboot
+```
 
 ## 诊断问题
 
@@ -179,6 +69,18 @@ sudo dmesg | grep -i "drm\|amdgpu\|edid" | tail -30
 EDID block 0 is all zeroes
 [drm:link_add_remote_sink [amdgpu]] *ERROR* Bad EDID, status3!
 ```
+
+### 使用 ddcutil 验证硬件 EDID
+
+```bash
+# 安装 ddcutil
+sudo apt install ddcutil
+
+# 检测显示器（通过 DDC 协议直接读取硬件 EDID）
+sudo ddcutil detect
+```
+
+如果 `ddcutil` 能正确读取显示器信息，但 `xrandr` 显示错误，说明内核缓存了错误的 EDID。
 
 ## 解决方案：手动加载 EDID 固件
 
@@ -318,7 +220,10 @@ sudo cp /etc/default/grub /etc/default/grub.backup.$(date +%Y%m%d)
 
 # 修改 GRUB 配置
 # 注意：DisplayPort 接口编号可能在重启后变化，建议配置多个接口
-sudo sed -i 's/GRUB_CMDLINE_LINUX_DEFAULT="quiet splash"/GRUB_CMDLINE_LINUX_DEFAULT="quiet splash drm.edid_firmware=DP-8:edid\/dell_u2412m.bin,DP-9:edid\/dell_u2412m.bin,DP-10:edid\/dell_u2412m.bin,DP-11:edid\/dell_u2412m.bin,DP-12:edid\/dell_u2412m.bin"/' /etc/default/grub
+sudo vim /etc/default/grub
+
+# 添加 drm.edid_firmware 参数
+GRUB_CMDLINE_LINUX_DEFAULT="quiet splash drm.edid_firmware=DP-9:edid/dell_u2412m.bin,DP-10:edid/dell_u2412m.bin,DP-11:edid/dell_u2412m.bin,DP-12:edid/dell_u2412m.bin"
 
 # 验证配置
 grep "GRUB_CMDLINE_LINUX_DEFAULT" /etc/default/grub
@@ -342,6 +247,59 @@ xrandr
 # 检查物理尺寸（应该不再是 0mm x 0mm）
 xrandr | grep -E "connected|mm"
 ```
+
+## 多显示器场景
+
+### 问题场景
+
+当使用多个不同尺寸的显示器时（例如 24 寸 + 27 寸），如果为所有 DP 接口都配置了同一个 EDID 文件，可能会导致问题：
+
+```bash
+# 错误配置示例：所有接口都使用 24 寸显示器的 EDID
+GRUB_CMDLINE_LINUX_DEFAULT="quiet splash drm.edid_firmware=DP-8:edid/dell_u2412m.bin,DP-9:edid/dell_u2412m.bin,DP-10:edid/dell_u2412m.bin,DP-11:edid/dell_u2412m.bin,DP-12:edid/dell_u2412m.bin"
+```
+
+**症状**：
+
+- 系统启动时可能正常（因为硬件 EDID 读取成功）
+- 休眠恢复后，27 寸显示器被识别为 24 寸
+- `xrandr` 显示两个显示器物理尺寸相同
+- 27 寸 4K 显示器无法使用正确的 3840x2160 分辨率
+
+### 解决方案
+
+**核心原则**：只为真正需要 EDID 固件的显示器配置，不要为能正常读取 EDID 的显示器配置固件。
+
+```bash
+# 编辑 GRUB 配置
+sudo vim /etc/default/grub
+
+# 修改前（错误）：所有接口都配置了 24 寸 EDID
+GRUB_CMDLINE_LINUX_DEFAULT="quiet splash drm.edid_firmware=DP-8:edid/dell_u2412m.bin,DP-9:edid/dell_u2412m.bin,DP-10:edid/dell_u2412m.bin,DP-11:edid/dell_u2412m.bin,DP-12:edid/dell_u2412m.bin"
+
+# 修改后（正确）：移除正常显示器的接口（如 DP-8）
+GRUB_CMDLINE_LINUX_DEFAULT="quiet splash drm.edid_firmware=DP-9:edid/dell_u2412m.bin,DP-10:edid/dell_u2412m.bin,DP-11:edid/dell_u2412m.bin,DP-12:edid/dell_u2412m.bin"
+
+# 更新 GRUB 并重启
+sudo update-grub
+sudo reboot
+```
+
+### drm.edid_firmware 工作机制
+
+内核处理 EDID 的逻辑：
+
+```text
+1. 尝试从硬件读取 EDID
+2. 如果成功 → 使用硬件 EDID（忽略固件文件）
+3. 如果失败 → 使用 drm.edid_firmware 指定的固件文件
+```
+
+**重要理解**：
+
+- `drm.edid_firmware` 是**备用方案**，不是强制覆盖
+- 只有当硬件 EDID 读取失败时，才会使用固件文件
+- 为正常显示器配置错误的 EDID 固件，在硬件读取偶尔失败时会导致问题
 
 ## 故障排除
 
@@ -371,6 +329,7 @@ sudo update-grub && sudo reboot
 **症状**：上次是 DP-10，重启后变成了 DP-9
 
 **原因**：
+
 - 内核检测显示器的顺序可能不同
 - 显示器启动时序影响接口分配
 - AMD GPU 驱动的接口枚举机制
@@ -381,12 +340,13 @@ sudo update-grub && sudo reboot
 sudo vim /etc/default/grub
 
 # 涵盖所有可能的接口（DP-8 到 DP-12）
-GRUB_CMDLINE_LINUX_DEFAULT="quiet splash drm.edid_firmware=DP-8:edid/dell_u2412m.bin,DP-9:edid/dell_u2412m.bin,DP-10:edid/dell_u2412m.bin,DP-11:edid/dell_u2412m.bin,DP-12:edid/dell_u2412m.bin"
+GRUB_CMDLINE_LINUX_DEFAULT="quiet splash drm.edid_firmware=DP-9:edid/dell_u2412m.bin,DP-10:edid/dell_u2412m.bin,DP-11:edid/dell_u2412m.bin,DP-12:edid/dell_u2412m.bin"
 
 sudo update-grub && sudo reboot
 ```
 
 **说明**：
+
 - 同时配置多个接口不会影响正常显示器
 - 内核对能正常读取 EDID 的显示器会优先使用其自身的 EDID
 - EDID 固件仅在显示器 EDID 读取失败时才生效
@@ -466,19 +426,47 @@ xrandr --output DP-9 --mode 1920x1200_60.00
 
 **注意**：此方法在重启后会失效，仅用于测试。
 
-## 关键知识点
+## 附录：EDID 背景知识
 
-1. **EDID 的作用**：EDID 包含显示器的能力信息（支持的分辨率、刷新率、物理尺寸等），操作系统通过读取 EDID 来自动配置显示器。
+### 什么是 EDID？
 
-2. **校验和的重要性**：EDID 文件必须有正确的校验和，否则内核会认为文件损坏而拒绝加载。校验和是前 127 字节的和取反后的低 8 位。
+**EDID (Extended Display Identification Data)** 是一种标准化的数据结构，用于显示器向计算机系统描述自己的能力和特性。可以将它理解为显示器的"身份证"。
 
-3. **文件大小要求**：
+**EDID 包含的信息**：
+
+- **基本标识**：制造商 ID、产品型号、序列号、生产日期
+- **显示能力**：支持的分辨率列表、刷新率、原生分辨率、色彩深度
+- **物理特性**：屏幕物理尺寸（用于计算 DPI）、接口类型、Gamma 值
+
+### 系统如何读取 EDID？
+
+```text
+显示器连接 → DDC 通信初始化 → EDID 数据传输 → GPU 驱动解析 → 自动配置显示
+```
+
+**通信协议**：
+
+- **HDMI/DisplayPort**：使用 DDC 协议通过 AUX 通道传输
+- **VGA**：通过 DDC1/DDC2B 协议，使用视频线缆中的专用引脚
+- **DVI**：类似 HDMI，使用 DDC2B+ 协议
+
+### EDID 读取失败的常见原因
+
+1. **硬件故障**：显示器 EDID 芯片损坏、线缆质量差、接口接触不良
+2. **驱动/固件问题**：GPU 驱动 bug、内核不兼容、显示器固件 bug
+3. **时序问题**：显示器启动慢、热插拔检测故障、多显示器枚举冲突
+
+### 关键知识点
+
+1. **校验和的重要性**：EDID 文件必须有正确的校验和，否则内核会拒绝加载。校验和是前 127 字节的和取反后的低 8 位。
+
+2. **文件大小要求**：
    - 基本 EDID：128 字节
-   - 带扩展块：256 字节（128字节基本块 + 128字节扩展块）
+   - 带扩展块：256 字节
 
-4. **接口编号变化**：DisplayPort 接口编号可能在重启后变化，这是正常现象。通过配置多个接口可以解决这个问题。
+3. **接口编号变化**：DisplayPort 接口编号可能在重启后变化，这是正常现象。
 
-5. **不影响正常显示器**：为正常显示器配置 EDID 固件不会有负面影响，内核会优先使用硬件 EDID。
+4. **运行时刷新限制**：内核的 EDID 缓存在运行时无法通过简单方法刷新，需要重启才会重新读取。
 
 ## 参考资料
 
