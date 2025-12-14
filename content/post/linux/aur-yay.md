@@ -21,7 +21,7 @@ yay 是一个 AUR 助手。它使用 Go 语言写成, 宗旨是提供最少化�
 
 ## yay 安装
 
-```Bash
+```Bashc
 pacman -S --needed git base-devel
 git clone https://aur.archlinux.org/yay.git
 cd yay
