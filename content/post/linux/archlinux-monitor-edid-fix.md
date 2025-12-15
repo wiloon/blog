@@ -1,7 +1,8 @@
 ---
 author: "-"
-date: "2025-12-04T15:30:00+08:00"
+date: "2025-12-14T16:45:00+08:00"
 title: "Arch Linux 显示器分辨率问题修复：手动加载 EDID 固件"
+url: archlinux-monitor-edid-fix
 categories:
   - Linux
 tags:
@@ -9,6 +10,7 @@ tags:
   - EDID
   - 显示器
   - 分辨率
+  - remix
   - AI-assisted
 ---
 
@@ -525,23 +527,185 @@ sudo pacman -S edid-decode
 
 ## 临时测试方案（重启后失效）
 
-在永久修复前，可以先临时测试自定义分辨率：
+在永久修复前，可以先临时测试自定义分辨率。
+
+### 方法 1：使用自动化脚本（推荐）
+
+我提供了一个交互式脚本 `fix-monitor.sh`，自动完成所有步骤：
 
 ```bash
-# 生成 modeline
-cvt 1920 1200 60
+#!/bin/bash
+# fix-monitor.sh - 修复显示器分辨率问题的脚本
 
-# 创建新的显示模式（从 cvt 输出复制 modeline）
-xrandr --newmode "1920x1200_60.00"  193.25  1920 2056 2256 2592  1200 1203 1209 1245 -hsync +vsync
+set -e
 
-# 将模式添加到显示器（替换 DP-X 为实际接口名称）
-xrandr --addmode DP-9 1920x1200_60.00
+# 颜色定义
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+YELLOW='\033[1;33m'
+NC='\033[0m'
+
+echo -e "${GREEN}=== 显示器分辨率修复脚本 ===${NC}"
+echo ""
+
+# 步骤 1: 显示当前显示器状态
+echo -e "${YELLOW}[1/4] 检查当前显示器状态...${NC}"
+xrandr
+echo ""
+
+# 步骤 2: 选择显示器接口
+echo -e "${YELLOW}[2/4] 请输入要修复的显示器接口名称 (例如: HDMI-1, DP-9, DVI-1)${NC}"
+read -p "显示器接口: " MONITOR
+
+if [ -z "$MONITOR" ]; then
+    echo -e "${RED}错误: 未输入显示器接口${NC}"
+    exit 1
+fi
+
+# 验证显示器是否存在
+if ! xrandr | grep -q "^$MONITOR"; then
+    echo -e "${RED}错误: 显示器接口 '$MONITOR' 不存在${NC}"
+    echo -e "${YELLOW}可用的接口:${NC}"
+    xrandr | grep " connected" | awk '{print $1}'
+    exit 1
+fi
+
+# 步骤 3: 输入目标分辨率
+echo ""
+echo -e "${YELLOW}[3/4] 请输入目标分辨率${NC}"
+echo "常见分辨率:"
+echo "  1920x1200  (16:10 WUXGA)"
+echo "  1920x1080  (16:9 Full HD)"
+echo "  2560x1440  (16:9 2K)"
+echo "  3840x2160  (16:9 4K)"
+echo "  1680x1050  (16:10 WSXGA+)"
+echo "  1600x1200  (4:3 UXGA)"
+
+read -p "宽度 (如 1920): " WIDTH
+read -p "高度 (如 1200): " HEIGHT
+read -p "刷新率 (如 60, 默认 60): " REFRESH
+REFRESH=${REFRESH:-60}
+
+if [ -z "$WIDTH" ] || [ -z "$HEIGHT" ]; then
+    echo -e "${RED}错误: 分辨率不能为空${NC}"
+    exit 1
+fi
+
+# 步骤 4: 生成并应用自定义分辨率
+echo ""
+echo -e "${YELLOW}[4/4] 生成并应用自定义分辨率...${NC}"
+
+# 使用 cvt 生成 modeline
+MODELINE=$(cvt $WIDTH $HEIGHT $REFRESH | grep "Modeline" | sed 's/Modeline //')
+
+if [ -z "$MODELINE" ]; then
+    echo -e "${RED}错误: 无法生成 modeline${NC}"
+    exit 1
+fi
+
+# 提取模式名称和参数
+MODE_NAME=$(echo $MODELINE | awk '{print $1}' | tr -d '"')
+MODE_PARAMS=$(echo $MODELINE | cut -d' ' -f2-)
+
+echo "生成的模式: $MODE_NAME"
+echo "参数: $MODE_PARAMS"
+echo ""
+
+# 删除可能存在的旧模式
+echo "清理旧模式..."
+xrandr --delmode $MONITOR $MODE_NAME 2>/dev/null || true
+xrandr --rmmode $MODE_NAME 2>/dev/null || true
+
+# 创建新模式
+echo "创建新模式..."
+xrandr --newmode $MODE_NAME $MODE_PARAMS
+
+# 将模式添加到显示器
+echo "添加模式到显示器 $MONITOR..."
+xrandr --addmode $MONITOR $MODE_NAME
 
 # 应用新分辨率
+echo "应用新分辨率..."
+xrandr --output $MONITOR --mode $MODE_NAME
+
+echo ""
+echo -e "${GREEN}✓ 完成！分辨率已设置为 ${WIDTH}x${HEIGHT}@${REFRESH}Hz${NC}"
+echo ""
+echo -e "${YELLOW}注意事项:${NC}"
+echo "1. 此设置在重启后会失效"
+echo "2. 如果显示异常，等待 10 秒会自动恢复"
+echo "3. 要永久修复，请参考文档配置 EDID 固件"
+echo ""
+
+# 显示新的显示器状态
+echo -e "${YELLOW}当前显示器状态:${NC}"
+xrandr | grep "^$MONITOR" -A 3
+```
+
+**使用方法**：
+
+```bash
+# 保存脚本并添加执行权限
+chmod +x fix-monitor.sh
+
+# 运行脚本
+./fix-monitor.sh
+```
+
+**脚本执行示例**：
+
+```
+=== 显示器分辨率修复脚本 ===
+
+[1/4] 检查当前显示器状态...
+Screen 0: minimum 320 x 200, current 3840 x 1200, maximum 16384 x 16384
+DP-8 connected 1920x1200+0+0 (normal left inverted right x axis y axis) 518mm x 324mm
+DP-9 connected 1024x768+1920+0 (normal left inverted right x axis y axis) 0mm x 0mm
+
+[2/4] 请输入要修复的显示器接口名称 (例如: HDMI-1, DP-9, DVI-1)
+显示器接口: DP-9
+
+[3/4] 请输入目标分辨率
+常见分辨率:
+  1920x1200  (16:10 WUXGA)
+  1920x1080  (16:9 Full HD)
+  2560x1440  (16:9 2K)
+宽度 (如 1920): 1920
+高度 (如 1200): 1200
+刷新率 (如 60, 默认 60): 60
+
+[4/4] 生成并应用自定义分辨率...
+生成的模式: 1920x1200_60.00
+参数: 193.25  1920 2056 2256 2592  1200 1203 1209 1245 -hsync +vsync
+
+✓ 完成！分辨率已设置为 1920x1200@60Hz
+```
+
+### 方法 2：手动执行命令
+
+如果你想手动执行每一步：
+
+```bash
+# 1. 查看当前显示器状态
+xrandr
+
+# 2. 生成 modeline（以 1920x1200@60Hz 为例）
+cvt 1920 1200 60
+
+# 输出示例:
+# Modeline "1920x1200_60.00"  193.25  1920 2056 2256 2592  1200 1203 1209 1245 -hsync +vsync
+
+# 3. 创建新的显示模式（从 cvt 输出复制 modeline）
+xrandr --newmode "1920x1200_60.00"  193.25  1920 2056 2256 2592  1200 1203 1209 1245 -hsync +vsync
+
+# 4. 将模式添加到显示器（替换 DP-9 为实际接口名称）
+xrandr --addmode DP-9 1920x1200_60.00
+
+# 5. 应用新分辨率
 xrandr --output DP-9 --mode 1920x1200_60.00
 ```
 
-**注意**：此方法在重启后会失效，仅用于测试。
+**注意**：此方法在重启后会失效，仅用于测试。如果测试成功，建议使用 EDID 固件方案进行永久修复。
 
 ## Arch Linux 与 Ubuntu 差异总结
 
