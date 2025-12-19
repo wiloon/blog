@@ -1,6 +1,6 @@
 ---
 author: "-"
-date: "2025-12-14T16:45:00+08:00"
+date: "2025-12-20T18:30:00+08:00"
 title: "Arch Linux 显示器分辨率问题修复：手动加载 EDID 固件"
 url: archlinux-monitor-edid-fix
 categories:
@@ -10,6 +10,8 @@ tags:
   - EDID
   - 显示器
   - 分辨率
+  - Wayland
+  - KDE
   - remix
   - AI-assisted
 ---
@@ -154,6 +156,11 @@ drm.edid_firmware=DP-9:edid/dell_u2412m.bin
 
 在使用 Arch Linux（特别是 AMD GPU + 多显示器环境）时，可能遇到某个显示器无法识别正确分辨率的问题，表现为上述 EDID 读取失败的症状。
 
+**环境说明**：
+- 本文主要针对 **KDE Plasma + Wayland** 环境
+- X11 环境有部分临时解决方案（详见下文）
+- GRUB 永久方案适用于所有桌面环境
+
 ## 诊断问题
 
 ### 检查显示器状态
@@ -179,9 +186,192 @@ sudo dmesg | grep -i "drm\|amdgpu\|edid" | tail -30
 
 如果看到以下错误，说明 EDID 读取失败：
 
+```深入理解：EDID 加载机制
+
+### 内核 EDID 缓存位置
+
+EDID 数据在内核中的存储：
+
+```c
+// 内核数据结构（简化）
+struct drm_connector {
+    struct drm_device *dev;
+    
+    const struct drm_edid *edid_blob_ptr;  // EDID 缓存
+    struct edid *edid;  // 128 或 256 字节的 EDID 数据
+    
+    bool override_edid;  // 是否使用覆盖的 EDID
+    struct list_head modes;  // 从 EDID 解析的模式列表
+};
+```
+
+**内存布局**：
 ```text
-EDID block 0 is all zeroes
-[drm:link_add_remote_sink [amdgpu]] *ERROR* Bad EDID, status3!
+内核内存
+  └─ DRM 设备
+      └─ 连接器列表
+          ├─ DP-7
+          │   ├─ edid → [EDID 数据 128字节] ✅
+          │   └─ modes → [3840x2160, 2560x1440, ...]
+          └─ DP-9
+              ├─ edid → [EDID 数据 128字节] ❌ 损坏
+              └─ modes → [1024x768, 800x600, ...] 降级模式
+```
+
+### drm.edid_firmware 参数详解
+
+**参数定义**：
+- **名称**：`drm.edid_firmware`
+- **类型**：内核命令行参数
+- **子系统**：DRM (Direct Rendering Manager)
+- **作用**：在启动时为指定显示器加载 EDID 固件
+
+**完整格式**：
+```bash
+drm.edid_firmware=<connector>:<firmware_path>
+
+# 示例
+drm.edid_firmware=DP-9:edid/monitor.bin
+
+# 多个显示器（逗号分隔）
+drm.edid_firmware=DP-9:edid/monitor1.bin,HDMI-A-1:edid/monitor2.bin
+```
+
+**参数说明**：
+
+| 部分 | 说明 | 示例 |
+|------|------|------|
+| `connector` | 显示器接口名称 | `DP-9`, `HDMI-A-1`, `eDP-1` |
+| `firmware_path` | 相对于 `/lib/firmware/` 的路径 | `edid/monitor.bin` |
+
+**路径解析**：
+```bash
+drm.edid_firmware=DP-9:edid/monitor.bin
+                        └──────────────┘
+                              ↓
+    实际文件路径: /lib/firmware/edid/monitor.bin
+```
+
+### 内核加载流程
+
+```c
+// 内核启动时的 EDID 加载流程（简化伪代码）
+void drm_connector_init(struct drm_connector *connector) {
+    struct edid *edid;
+    
+    // 1. 尝试从硬件读取 EDID
+    edid = drm_get_edid(connector);
+    
+    if (!edid || !drm_edid_is_valid(edid)) {
+        // 2. 硬件读取失败，检查内核参数
+        if (has_firmware_override(connector->name)) {
+            // 3. 加载固件 EDID ✨
+            char *fw_path = get_firmware_path(connector->name);
+            edid = load_firmware_edid(fw_path);
+            
+            pr_info("DRM: Using EDID firmware for %s\n", 
+                    connector->name);
+        } else {
+            // 4. 使用降级的安全模式
+            edid = create_fallback_edid();
+        }
+    }
+    
+    // 5. 解析 EDID，构建模式列表
+    drm_add_edid_modes(connector, edid);
+}
+```
+
+**时序图**：
+```text
+系统启动
+  ↓
+GRUB 传递参数: drm.edid_firmware=DP-9:edid/monitor.bin
+  ↓
+内核初始化
+  ↓
+DRM 子系统初始化
+  ↓
+枚举显示器 (DP-9)
+  ↓
+尝试读取硬件 EDID → 失败 ❌
+  ↓
+检查内核参数 → 找到 DP-9 的固件配置 ✅
+  ↓
+加载 /lib/firmware/edid/monitor.bin
+  ↓
+验证 EDID 校验和 → 通过 ✅
+  ↓
+解析 EDID → 生成模式列表 [1920x1200, 1920x1080, ...]
+  ↓
+Wayland/X11 启动 → 使用正确的分辨率 ✅
+```
+
+### 为什么没有运行时更新 EDID 的 API？
+
+**技术原因**：
+
+1. **EDID 是"物理真相"**
+   - 内核认为 EDID 来自硬件，不应被用户空间随意修改
+   - 防止恶意软件伪造显示器信息
+
+2. **运行时更新的复杂性**
+   - 需要重新初始化整个显示管道
+   - 可能导致 Wayland/X 会话崩溃
+   - 需要协调多个子系统（DRM → 合成器 → 应用程序）
+
+3. **现有方案已够用**
+   - 内核参数可以解决 99% 的 EDID 问题
+   - 不需要增加内核复杂度
+
+**技术上可以实现运行时 API**：
+
+理论方案（未在主线内核中实现）：
+
+```c
+// 可能的实现方式
+static ssize_t edid_store(struct device *device,
+                          const char *buf, size_t count)
+{
+    struct drm_connector *connector = to_drm_connector(device);
+    
+    // 1. 验证新 EDID 数据
+    // 2. 获取锁
+    // 3. 替换 connector->edid
+    // 4. 重新生成模式列表
+    // 5. 触发热插拔事件通知用户空间
+    
+    return count;
+}
+
+// 用户空间使用
+sudo cat /lib/firmware/edid/monitor.bin > /sys/class/drm/card0-DP-9/edid
+```
+
+**社区态度**：
+- 相关补丁曾被提交但未合并
+- 主要反对理由：安全性、不必要、维护负担
+
+### 配置 EDID 固件的所有方式
+
+| 方式 | 推荐度 | 适用场景 |
+|------|-------|---------|
+| **GRUB 参数** | ⭐⭐⭐⭐⭐ | 使用 GRUB 引导 |
+| **systemd-boot** | ⭐⭐⭐⭐⭐ | 使用 systemd-boot |
+| **模块参数** | ⭐⭐⭐ | DRM 驱动是模块 |
+| **EFISTUB** | ⭐⭐⭐ | 直接 EFI 引导 |
+| **编译内核** | ⭐ | 特殊需求 |
+
+所有方式的本质都是在**内核 DRM 初始化时**传递 `drm.edid_firmware` 参数。
+
+## 解决方案：手动加载 EDID 固件（GRUB 方式）
+
+通过为内核提供一个自定义的 EDID 固件文件，可以绕过硬件 EDID 读取失败的问题。
+
+**适用于**：
+- ✅ 所有桌面环境（X11/Wayland）
+- ✅ 所有显卡驱动（AMD/Intel/NVIDIA）
+- ✅ 永久有效（重启后自动生效）Bad EDID, status3!
 ```
 
 ## 解决方案：手动加载 EDID 固件
@@ -520,9 +710,96 @@ cvt 1920 1200 60
 yay -S edid-decode-git
 
 # 方法 2：手动从官方仓库安装（如果可用）
-sudo pacman -S edid-decode
+sudWayland vs X11 环境差异
 
-# 方法 3：跳过验证步骤，直接使用生成的 EDID 文件
+### 显示管理架构对比
+
+| 方面 | X11 (xrandr) | Wayland (KMS) |
+|------|-------------|---------------|
+| **显示管理** | 用户空间（X Server） | 内核空间（KMS） + 合成器 |
+| **模式列表来源** | X Server 可以"伪造" | 只能使用内核报告的模式 |
+| **动态添加分辨率** | ✅ 可以（cvt + xrandr --newmode） | ❌ 不可以 |
+| **依赖 EDID** | 中等（可绕过） | 强（必须正确） |
+| **系统设置可选项** | EDID 模式 + 自定义模式 | 严格限于 EDID 模式 |
+
+### 为什么 Wayland 不能动态添加分辨率？
+
+**X11 的灵活性**：
+```bash
+# X11: X Server 在用户空间管理，可以添加自定义模式
+### EDID 基础
+
+1. **EDID 的作用**：EDID 包含显示器的能力信息（支持的分辨率、刷新率、物理尺寸等），操作系统通过读取 EDID 来自动配置显示器。
+
+2. **系统设置的限制**：
+   - Wayland：分辨率选项**严格限于** EDID 声明的模式
+   - X11：主要依赖 EDID，但可以临时添加自定义模式
+   - **结论**：修复 EDID 是根本解决方案
+
+3. **校验和的重要性**：EDID 文件必须有正确的校验和，否则内核会认为文件损坏而拒绝加载。校验和是前 127 字节的和取反后的低 8 位。
+
+4. **文件大小要求**：
+   - 基本 EDID：128 字节
+   - 带扩展块：256 字节（128 字节基本块 + 128 字节扩展块）
+
+### 内核机制
+
+5. **EDID 缓存位置**：
+   - 内核数据结构：`struct drm_connector->edid`
+   - 在 DRM 子系统初始化时加载
+   - 运行时难以修改（缺乏标准 API）
+
+6. **drm.edid_firmware 参数**：
+   - 内核命令行参数，在启动时生效
+   - 格式：`接口名:固件路径`（路径相对于 `/lib/firmware/`）
+   - 只在硬件 EDID 读取失败时使用固件
+   - 配置方式：GRUB、systemd-boot、模块参数等
+
+7. **为什么没有运行时 API**：
+   - 安全性考虑（防止伪造硬件信息）
+   - 稳定性考虑（运行时修改可能导致系统崩溃）
+   - 现有启动时加载方案已够用
+
+### 实用技巧
+
+8. **接口编号变化**：DisplayPort 接口编号可能在重启后变化，这是正常现象。通过配置多个接口可以解决这个问题。
+
+9. **不影响正常显示器**：为正常显示器配置 EDID 固件不会有负面影响，内核会优先使用硬件 EDID。
+
+10. **Wayland vs X11**：
+    - Wayland 更依赖正确的 EDID（没有绕过机制）
+    - X11 可以临时绕过（但不推荐）
+    - 两者都应该从根本上修复 EDID
+**实际影响**：
+
+```text
+EDID 损坏（DP-9）:
+  内核 → 只知道 640x480, 1024x768 等安全模式
+          ↓
+  Wayland → 只能使用这些模式
+          ↓
+  系统设置 → 分辨率下拉框中只有低分辨率选项 ❌
+
+EDID 正确:
+  内核 → 知道 1920x1200, 1920x1080, 1600x1200 等
+          ↓
+  Wayland → 可以使用完整模式列表
+          ↓
+  系统设置 → 分辨率下拉框中有高分辨率选项 ✅
+```
+
+## 临时测试方案（重启后失效）
+
+### 方案适用性
+
+| 桌面环境 | 临时方案可行性 | 推荐方案 |
+|---------|--------------|---------|
+| **X11** | ✅ 可行（xrandr） | EDID 固件 |
+| **Wayland (KDE/GNOME)** | ❌ 不可行 | **必须修复 EDID** |
+
+### X11 环境临时方案
+
+在永久修复前，X11 用户跳过验证步骤，直接使用生成的 EDID 文件
 ```
 
 ## 临时测试方案（重启后失效）
@@ -646,6 +923,31 @@ xrandr | grep "^$MONITOR" -A 3
 
 ```bash
 # 保存脚本并添加执行权限
+
+### Wayland 环境说明
+
+**Wayland 用户无法使用上述临时方案**，原因：
+
+1. **架构限制**：Wayland 合成器不允许动态创建自定义分辨率
+2. **内核依赖**：必须在内核 DRM 层面提供正确的 EDID
+3. **唯一方案**：配置 GRUB 参数 + EDID 固件（见下文）
+
+**尝试运行时重新加载驱动的失败原因**：
+
+```text
+问题分析：
+  1. EDID 在内核 DRM 初始化时读取并缓存
+  2. 运行时重新加载驱动时：
+     - 如果显示器仍连接 → 内核使用缓存的 EDID
+     - modprobe 参数可能被忽略
+     - Wayland 会话状态难以保持
+  3. 即使驱动重新加载，EDID 固件也可能不生效
+```
+
+**技术原因**：
+- 内核 `struct drm_connector->edid` 缓存机制
+- 缺乏运行时更新 EDID 的标准 API
+- Wayland 合成器依赖内核的正确初始化
 chmod +x fix-monitor.sh
 
 # 运行脚本
