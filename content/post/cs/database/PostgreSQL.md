@@ -1,7 +1,7 @@
 ---
 title: PostgreSQL
 author: "-"
-date: 2025-12-08T14:30:00+08:00
+date: 2025-12-15T19:30:00+08:00
 url: PostgreSQL
 categories:
   - database
@@ -627,6 +627,217 @@ WHERE constraint_type = 'FOREIGN KEY' AND tc.table_name = 'table0';
 - BOOLEAN
 - json
 - jsonb
+
+### timestamptz 时区处理详解
+
+`timestamptz` (timestamp with time zone) 是 PostgreSQL 中推荐使用的时间类型，它能自动处理时区转换。
+
+#### 核心特性
+
+**存储机制：**
+
+- ✅ 始终以 UTC+0 格式存储（内部存储为 Unix 时间戳）
+- ✅ 不受 PostgreSQL 服务器操作系统时区影响
+- ✅ 不受数据库 `timezone` 配置影响
+- ✅ 自动转换带时区信息的输入为 UTC+0
+
+**工作原理：**
+
+1. **写入时**：PostgreSQL 将任何带时区的时间自动转换为 UTC+0 存储
+2. **读取时**：根据客户端/会话时区设置返回对应时区的时间
+
+**示例：**
+
+```sql
+-- 插入 UTC+3 时间
+INSERT INTO table_name (created_at) 
+VALUES ('2025-12-15 15:00:00+03:00');
+
+-- 数据库实际存储为: 2025-12-15 12:00:00+00 (UTC+0)
+
+-- 查询时，如果客户端时区是 UTC+3
+SELECT created_at FROM table_name;
+-- 返回: 2025-12-15 15:00:00+03
+
+-- 如果客户端时区是 UTC+8
+SELECT created_at FROM table_name;
+-- 返回: 2025-12-15 20:00:00+08
+
+-- 不管服务器在哪个时区，存储都是 UTC+0
+-- 场景1: PostgreSQL 服务器在中国（UTC+8）
+INSERT INTO table_name (ts) VALUES ('2025-12-15 15:00:00+03:00');
+-- 存储为: 2025-12-15 12:00:00+00 (UTC+0)
+
+-- 场景2: PostgreSQL 服务器在美国（UTC-5）
+INSERT INTO table_name (ts) VALUES ('2025-12-15 15:00:00+03:00');
+-- 存储为: 2025-12-15 12:00:00+00 (UTC+0)
+-- 结果完全相同！
+```
+
+#### 代码层面最佳实践
+
+**关键点：**
+
+- ✅ 确保传入的 datetime 对象**带时区信息**（timezone-aware）
+- ✅ PostgreSQL 会自动转换为 UTC 存储，无需手动转换
+- ❌ 不要在应用层手动转换时区，让数据库处理
+- ⚠️ 避免使用不带时区的时间（naive datetime），否则会按服务器时区解释
+
+**Python 示例：**
+
+```python
+from datetime import datetime, timezone
+import pytz
+
+# 创建 UTC+3 时间
+tz = pytz.timezone('Europe/Moscow')  # UTC+3
+dt = datetime.now(tz)
+
+# 直接插入，PostgreSQL 会自动转换为 UTC 存储
+cursor.execute(
+    "INSERT INTO table_name (created_at) VALUES (%s)", 
+    (dt,)
+)
+```
+
+**Java 示例：**
+
+```java
+import java.time.ZonedDateTime;
+import java.time.ZoneId;
+
+// 创建带时区的时间对象
+ZonedDateTime dt = ZonedDateTime.now(ZoneId.of("Europe/Moscow")); // UTC+3
+
+// 直接插入，JDBC 会正确处理时区
+PreparedStatement pstmt = conn.prepareStatement(
+    "INSERT INTO table_name (created_at) VALUES (?)"
+);
+pstmt.setObject(1, dt);
+pstmt.executeUpdate();
+```
+
+#### 数据库时区配置
+
+**是否需要配置？**
+
+- 对于 `timestamptz`，数据库时区**不影响存储**（始终 UTC+0）
+- 但影响**不带时区的输入如何解释**
+- 建议明确配置为 UTC，避免歧义
+
+**配置方式：**
+
+```sql
+-- 查看当前时区
+SHOW timezone;
+
+-- 设置数据库级别时区（推荐）
+ALTER DATABASE your_db SET timezone = 'UTC';
+
+-- 或设置会话级别
+SET timezone = 'UTC';
+
+-- 或设置为具体时区
+SET timezone = 'Europe/Moscow';  -- UTC+3
+```
+
+**最佳实践：**
+
+```sql
+-- ✅ 推荐：数据库设为 UTC
+ALTER DATABASE your_db SET timezone = 'UTC';
+
+-- 应用层使用带时区的时间
+-- timestamptz 会自动转换为 UTC 存储
+INSERT INTO table_name (created_at) 
+VALUES ('2025-12-15 15:00:00+03:00');
+```
+
+#### timestamp vs timestamptz
+
+```sql
+-- timestamp without time zone
+-- 不存储时区信息，不做任何转换
+CREATE TABLE test1 (ts timestamp);
+INSERT INTO test1 VALUES ('2025-12-15 15:00:00');
+-- 存储什么就是什么，不关心时区
+
+-- timestamp with time zone (timestamptz)
+-- 存储 UTC+0，读取时转换
+CREATE TABLE test2 (ts timestamptz);
+INSERT INTO test2 VALUES ('2025-12-15 15:00:00+03:00');
+-- 存储为 UTC+0，显示时根据客户端时区转换
+```
+
+**推荐使用 `timestamptz`，原因：**
+
+1. 自动处理时区转换，避免手动计算
+2. 跨时区应用更可靠
+3. 存储统一（UTC+0），避免混乱
+4. 符合国际化应用最佳实践
+
+#### 常见陷阱
+
+**陷阱1：使用 naive datetime**
+
+```python
+# ❌ 错误：不带时区信息
+from datetime import datetime
+dt = datetime.now()  # naive datetime
+cursor.execute("INSERT INTO table_name (ts) VALUES (%s)", (dt,))
+# 会按数据库/服务器时区解释，可能不是你想要的
+
+# ✅ 正确：带时区信息
+from datetime import datetime, timezone
+dt = datetime.now(timezone.utc)  # 或指定具体时区
+cursor.execute("INSERT INTO table_name (ts) VALUES (%s)", (dt,))
+```
+
+**陷阱2：手动转换时区**
+
+```python
+# ❌ 不推荐：手动转换
+import pytz
+from datetime import datetime
+
+tz_moscow = pytz.timezone('Europe/Moscow')
+dt_moscow = datetime.now(tz_moscow)
+# 手动转换为 UTC
+dt_utc = dt_moscow.astimezone(pytz.UTC)
+cursor.execute("INSERT INTO table_name (ts) VALUES (%s)", (dt_utc,))
+# 多余的操作，PostgreSQL 会自动转换
+
+# ✅ 推荐：直接传入
+dt_moscow = datetime.now(tz_moscow)
+cursor.execute("INSERT INTO table_name (ts) VALUES (%s)", (dt_moscow,))
+# PostgreSQL 自动转换为 UTC 存储
+```
+
+**陷阱3：混用 timestamp 和 timestamptz**
+
+```sql
+-- ❌ 避免混用
+CREATE TABLE bad_table (
+    ts1 timestamp,      -- 不带时区
+    ts2 timestamptz     -- 带时区
+);
+-- 容易造成混乱和错误
+
+-- ✅ 统一使用 timestamptz
+CREATE TABLE good_table (
+    created_at timestamptz,
+    updated_at timestamptz
+);
+```
+
+#### 总结
+
+- `timestamptz` 始终以 **UTC+0** 格式存储
+- **无需**在应用代码中手动转换时区
+- **确保**传入带时区信息的时间对象
+- **建议**数据库时区设为 UTC
+- **推荐**在所有需要时间存储的场景使用 `timestamptz`
+- 服务器时区**不影响** timestamptz 的存储（始终 UTC+0）
 
 ```sql
 名字                        别名             描述

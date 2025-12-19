@@ -10,7 +10,7 @@ tags:
 ---
 ## openjdk
 
-[http://openjdk.java.net/projects/jdk/](http://openjdk.java.net/projects/jdk/)
+https://openjdk.org/projects/jdk/
 
 [https://jdk.java.net](https://jdk.java.net)
 
@@ -92,13 +92,9 @@ sudo update-alternatives --config java
 
 [JDK](https://jdk.java.net/22)
 
-### AdoptOpenJDK
+### adoptium
 
-AdoptOpenJDK 是一个由OpenJDK构建，并以免费软件的形式提供社区版的 OpenJDK 二进制包。它至少提供 4 年的免费长期支持(LTS)。
-
-### AdoptOpenJDK mirror
-
-[https://mirrors.tuna.tsinghua.edu.cn/AdoptOpenJDK/16/jdk/x64/linux](https://mirrors.tuna.tsinghua.edu.cn/AdoptOpenJDK/16/jdk/x64/linux)
+https://adoptium.net/temurin/releases
 
 #### jdk 8
 
