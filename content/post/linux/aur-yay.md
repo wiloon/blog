@@ -1,8 +1,8 @@
 ---
 title: archlinux AUR, yay
 author: "-"
-date: 2025-12-03T08:30:00+08:00
-url: yay
+date: 2025-12-21T22:28:02+08:00
+url: aur-yay
 tags:
   - archlinux
   - reprint
@@ -57,19 +57,58 @@ https://github.com/Jguer/yay/releases
 
 ### AUR mirror
 
-默认的仓库  (aur.archlinux.org） 非常慢, 可以走梯子加速, 或者用国内的镜像
+默认的仓库 (aur.archlinux.org) 非常慢, 可以走梯子加速, 或者用国内的镜像。
+
 执行以下命令修改 aururl :
 
 ```bash
-yay --aururl "https://aur.tuna.tsinghua.edu.cn" --save
 yay --aururl "https://aur.archlinux.org" --save
 ```
 
-修改的配置文件位于 ~/.config/yay/config.json, 可以通过以下命令查看修改过的配置
+**⚠️ 注意：清华镜像源已停止服务**
+
+清华大学 AUR 镜像源 `aur.tuna.tsinghua.edu.cn` 已经停止服务。如果遇到以下错误：
+
+```
+dial tcp: lookup aur.tuna.tsinghua.edu.cn: no such host
+```
+
+请切换回官方源：
+
+```bash
+yay --aururl "https://aur.archlinux.org" --save
+```
+
+**重要：如果执行上述命令后仍然报错**
+
+如果执行 `--aururl` 命令后仍然尝试访问清华镜像源，说明配置文件中 `aurrpcurl` 字段仍然保留旧的镜像地址。需要手动编辑配置文件：
+
+```bash
+# 编辑配置文件
+vim ~/.config/yay/config.json
+# 或者使用其他编辑器
+nano ~/.config/yay/config.json
+```
+
+找到 `aurrpcurl` 字段，确保其值为：
+
+```json
+"aurrpcurl": "https://aur.archlinux.org/rpc?",
+```
+
+或者使用 sed 命令快速修复：
+
+```bash
+sed -i 's|"aurrpcurl": "https://aur.tuna.tsinghua.edu.cn/rpc?"|"aurrpcurl": "https://aur.archlinux.org/rpc?"|' ~/.config/yay/config.json
+```
+
+修改的配置文件位于 `~/.config/yay/config.json`，可以通过以下命令查看修改过的配置：
 
 ```bash
 yay -P -g
 ```
+
+如果官方源访问较慢，建议使用代理或 VPN 加速访问。
 
 ### 使用 命令
 
