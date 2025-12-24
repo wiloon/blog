@@ -538,6 +538,7 @@ git remote prune origin
 ## git tag
 
 ```Bash
+# create an annotated tag
 git tag v1.0.0 -a -m "message0"
 ```
 
@@ -610,6 +611,8 @@ git push origin v1.0.0
 
 # delete local tag, 删除 tag
 git tag -d v1.0.0
+# 删除某一种前缀的 tag
+git tag | grep "^v1\." | xargs git tag -d
 
 # delete remote tag
 git push origin --delete tag_0
