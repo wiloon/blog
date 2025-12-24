@@ -1,23 +1,31 @@
 ---
 title: linux 网络监控, NetHogs
 author: "-"
-date: 2015-11-04T02:03:53+00:00
+date: 2025-12-24T15:30:00+08:00
 url: network/monitor
 categories:
   - network
 tags:
   - reprint
+  - remix
+  - AI-assisted
 ---
 ## linux 网络监控, NetHogs
 
-监控总体带宽使用 - nload、bmon、slurm、bwm-ng、cbm、speedometer和netload
-监控总体带宽使用（批量式输出）――vnstat、ifstat、dstat和collectl
-每个套接字连接的带宽使用――iftop、iptraf、tcptrack、pktstat、netwatch和trafshow
-每个进程的带宽使用――nethogs
+**推荐工具：**
 
-- NetHogs
-- iftop
-- slurm
+- **bandwhich** - 进程级网络监控，显示连接详情（推荐）
+- **btop++** - 全能系统监控（含网络）
+- **bottom** - 轻量级系统监控
+- **nethogs** - 经典进程带宽监控
+
+**按功能分类：**
+
+监控总体带宽使用 - nload、bmon、slurm、bwm-ng、cbm、speedometer、netload
+监控总体带宽使用（批量式输出）- vnstat、ifstat、dstat、collectl
+每个套接字连接的带宽使用 - iftop、iptraf、tcptrack、pktstat、netwatch、trafshow
+每个进程的带宽使用 - **bandwhich**、nethogs
+全面系统监控（含网络）- **btop++**、**bottom**
 
 ## nethogs
 
@@ -29,6 +37,112 @@ sudo pacman -S nethogs
 # 刷新频率 5 秒
 nethogs -d 5
 ```
+
+## 网络监控工具推荐
+
+### bandwhich - 专注网络的监控工具
+
+**最推荐用于网络流量监控** - 使用 Rust 编写，2019 年开始开发
+
+**核心特点：**
+
+- 🚀 现代化的终端 UI，彩色交互界面
+- 📊 实时显示每个进程、连接、远程地址的网络使用情况
+- 🎯 可同时查看进程级和连接级的流量详情
+- 💡 显示目标主机名（DNS 解析）、端口、协议
+- ⚡ 性能优秀，资源占用低
+- 🔍 支持排序和过滤功能
+
+**适用场景：**
+
+- 排查哪个程序在占用网络带宽
+- 监控异常网络连接和流量去向
+- 查看具体的远程地址和端口信息
+
+```bash
+# 安装（Arch Linux）
+sudo pacman -S bandwhich
+
+# 使用（需要 root 权限）
+sudo bandwhich
+```
+
+**与 nethogs 对比：**
+
+- bandwhich 显示更详细的连接信息（远程地址、DNS、端口）
+- nethogs 只显示进程和总流量
+- bandwhich UI 更现代化
+
+---
+
+### btop++ - 全能系统监控套件
+
+**最漂亮的系统监控工具** - 使用 C++ 编写，2021 年开始开发
+
+**核心特点：**
+
+- 🎨 超漂亮的 UI，支持鼠标操作
+- 📈 全面监控：CPU、内存、磁盘、**网络**、进程
+- 🎯 交互式界面，可直接管理进程
+- 🌈 高度可定制的主题系统
+- 📊 实时图表和历史数据
+
+**网络监控功能：**
+
+- 显示每个网络接口的上传/下载速度
+- 实时流量图表
+- 但无法显示进程级的网络连接详情
+
+```bash
+# 安装（Arch Linux）
+sudo pacman -S btop
+
+# 使用（不需要 root）
+btop
+```
+
+**推荐组合使用：** `btop++` 作为日常系统监控，需要详细网络分析时切换到 `bandwhich`
+
+---
+
+### bottom (btm) - 轻量级系统监控
+
+**最轻量的监控工具** - 使用 Rust 编写，2020 年开始开发
+
+**核心特点：**
+
+- ⚡ 极轻量，启动速度快
+- 📊 监控 CPU、内存、磁盘、网络、进程
+- 🔧 简单的 TOML 配置文件
+- 🌍 优秀的跨平台支持
+- 💨 资源占用极低，适合低配服务器
+
+**网络监控功能：**
+
+- 显示总体网络流量
+- 相比 btop++ 更简洁轻量
+- 无进程级网络详情
+
+```bash
+# 安装（Arch Linux）
+sudo pacman -S bottom
+
+# 使用
+btm  # 或 bottom
+```
+
+---
+
+### 工具选择建议
+
+| 需求 | 推荐工具 | 理由 |
+|------|---------|------|
+| **专注网络监控** | bandwhich | 最详细的进程级网络信息 |
+| **日常系统监控** | btop++ | 界面美观，功能全面 |
+| **低配置环境** | bottom | 轻量快速 |
+| **经典简单** | nethogs | 稳定可靠，专注进程带宽 |
+
+**最佳实践：** 安装 `btop++` + `bandwhich` 组合，日常用 btop++，网络问题排查用 bandwhich
 
 [https://linux.cn/article-2808-1.html](https://linux.cn/article-2808-1.html)
 
