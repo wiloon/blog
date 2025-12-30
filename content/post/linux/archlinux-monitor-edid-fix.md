@@ -1,6 +1,6 @@
 ---
 author: "-"
-date: "2025-12-20T18:30:00+08:00"
+date: "2025-12-30T16:45:00+08:00"
 title: "Arch Linux 显示器分辨率问题修复：手动加载 EDID 固件"
 url: archlinux-monitor-edid-fix
 categories:
@@ -12,6 +12,8 @@ tags:
   - 分辨率
   - Wayland
   - KDE
+  - GRUB
+  - 双系统
   - remix
   - AI-assisted
 ---
@@ -537,16 +539,22 @@ grep "GRUB_CMDLINE_LINUX_DEFAULT" /etc/default/grub
 
 ### 步骤 6：更新 GRUB 并重新生成 initramfs
 
+**如果是单系统（Arch Linux 控制引导）：**
+
 ```bash
-# 更新 GRUB 配置（Arch Linux 使用 grub-mkconfig）
+# 更新 GRUB 配置
 sudo grub-mkconfig -o /boot/grub/grub.cfg
 
 # 可选：重新生成 initramfs（确保 EDID 固件被包含）
 sudo mkinitcpio -P
 
-# 重启系统
+# 重启生效
 sudo reboot
 ```
+
+**如果是双系统（例如由 Ubuntu GRUB 引导 Arch）：**
+
+请参考下面的 [双系统场景：从 Ubuntu GRUB 引导 Arch Linux](#双系统场景从-ubuntu-grub-引导-arch-linux) 章节。
 
 ### 步骤 7：重启后验证
 
@@ -563,6 +571,297 @@ xrandr | grep -E "connected|mm"
 # 验证内核参数是否生效
 cat /proc/cmdline | grep edid_firmware
 ```
+
+## 双系统场景：从 Ubuntu GRUB 引导 Arch Linux
+
+如果你的系统是双系统（Ubuntu 和 Arch Linux），且由 Ubuntu 的 GRUB 负责引导，需要按照以下流程操作。
+
+### 前置准备（在 Arch Linux 中）
+
+在当前的 Arch Linux 系统中，确保 EDID 固件文件已经准备好：
+
+```bash
+# 1. 检查 EDID 固件文件是否存在
+ls -lh /lib/firmware/edid/monitor_1920x1200.bin
+
+# 应该输出：
+# -rw-r--r-- 1 root root 128 Dec 20 18:30 /lib/firmware/edid/monitor_1920x1200.bin
+
+# 2. 验证 EDID 文件的校验和（确保文件没有损坏）
+edid-decode /lib/firmware/edid/monitor_1920x1200.bin | grep "Checksum"
+
+# 应该输出：
+# Checksum: 0x36 (valid)
+
+# 3. 记录当前的显示器接口名称
+kscreen-doctor -o | grep "^Output:" | grep "DP-"
+
+# 输出示例：
+# Output: 2 DP-9 d8f8ccc4-e04a-4b67-9b2c-1a29991f75cc
+
+# 4. 找到 Arch Linux 的根分区 UUID（重要！后续在 Ubuntu 中需要用到）
+lsblk -f | grep -E "nvme|sda|vda"
+
+# 输出示例：
+# nvme0n1p3  ext4    arch-root  123e4567-e89b-12d3-a456-426614174000  /
+```
+
+**记录以下信息**（后续步骤需要）：
+
+1. ✅ EDID 固件文件路径：`/lib/firmware/edid/monitor_1920x1200.bin`
+2. ✅ 显示器接口名称：`DP-9`（根据你的实际输出）
+3. ✅ Arch Linux 根分区 UUID：`123e4567-e89b-12d3-a456-426614174000`（示例，根据你的实际输出）
+
+### 操作步骤（在 Ubuntu 中）
+
+重启进入 Ubuntu 系统后，按照以下步骤操作：
+
+#### 步骤 1：挂载 Arch Linux 分区
+
+```bash
+# 1. 找到 Arch Linux 的根分区（使用之前记录的 UUID）
+sudo blkid | grep "123e4567-e89b-12d3-a456-426614174000"
+
+# 输出示例：
+# /dev/nvme0n1p3: UUID="123e4567-e89b-12d3-a456-426614174000" TYPE="ext4"
+
+# 2. 创建挂载点
+sudo mkdir -p /mnt/arch
+
+# 3. 挂载 Arch Linux 根分区（替换为你的实际分区）
+sudo mount /dev/nvme0n1p3 /mnt/arch
+
+# 4. 验证挂载是否成功
+ls -l /mnt/arch/lib/firmware/edid/monitor_1920x1200.bin
+
+# 应该能看到 EDID 文件
+```
+
+#### 步骤 2：验证 EDID 文件可访问性
+
+```bash
+# 确保 Ubuntu 能够访问 Arch 分区上的 EDID 文件
+sudo edid-decode /mnt/arch/lib/firmware/edid/monitor_1920x1200.bin
+
+# 如果 Ubuntu 没有 edid-decode，可以安装：
+sudo apt install edid-decode
+
+# 输出应该包含：
+# Checksum: 0x36 (valid)
+# Preferred mode: 1920x1200 @ 60Hz
+```
+
+#### 步骤 3：修改 Ubuntu 的 GRUB 配置
+
+**方法 A：使用 GRUB 自定义配置（推荐）**
+
+```bash
+# 1. 编辑 GRUB 自定义配置文件
+sudo vim /etc/grub.d/40_custom
+
+# 2. 在文件末尾添加以下内容（根据实际情况修改）：
+```
+
+在 vim 中添加：
+
+```bash
+#!/bin/sh
+exec tail -n +3 $0
+# 自定义 Arch Linux 启动项（添加 EDID 固件加载）
+
+menuentry 'Arch Linux (with EDID fix)' --class arch --class gnu-linux --class gnu --class os {
+    # 设置 Arch Linux 的根分区（替换为你的实际 UUID）
+    search --no-floppy --fs-uuid --set=root 123e4567-e89b-12d3-a456-426614174000
+    
+    # 加载 Linux 内核（添加 EDID 固件参数）
+    # 注意：内核文件路径可能是 /boot/vmlinuz-linux 或 /vmlinuz-linux
+    linux /boot/vmlinuz-linux root=UUID=123e4567-e89b-12d3-a456-426614174000 rw drm.edid_firmware=DP-9:edid/monitor_1920x1200.bin quiet splash
+    
+    # 加载 initramfs
+    initrd /boot/initramfs-linux.img
+}
+```
+
+**重要说明**：
+
+- `search --fs-uuid --set=root`：设置 Arch Linux 根分区作为文件系统根
+- `linux /boot/vmlinuz-linux`：Arch 内核位置（相对于 Arch 根分区）
+- `root=UUID=...`：传递给内核的根分区参数
+- `drm.edid_firmware=DP-9:edid/monitor_1920x1200.bin`：**关键参数**，指定 EDID 固件加载
+- 固件路径 `edid/monitor_1920x1200.bin` 是相对于 `/lib/firmware/` 的路径
+
+**方法 B：修改已有的 Arch Linux 启动项（不推荐，但更简单）**
+
+如果 Ubuntu 的 `os-prober` 已经自动检测到 Arch Linux 启动项：
+
+```bash
+# 1. 生成当前 GRUB 配置（让 Ubuntu 发现 Arch）
+sudo update-grub
+
+# 2. 检查生成的配置文件
+sudo grep -A 10 "Arch Linux" /boot/grub/grub.cfg
+
+# 输出示例：
+# menuentry 'Arch Linux' {
+#     linux /boot/vmlinuz-linux root=UUID=123e4567... rw quiet
+#     initrd /boot/initramfs-linux.img
+# }
+
+# 3. 手动编辑生成的 grub.cfg（不推荐，下次 update-grub 会覆盖）
+sudo vim /boot/grub/grub.cfg
+
+# 在 linux 行末尾添加：drm.edid_firmware=DP-9:edid/monitor_1920x1200.bin
+# 修改后：
+# linux /boot/vmlinuz-linux root=UUID=123e4567... rw quiet drm.edid_firmware=DP-9:edid/monitor_1920x1200.bin
+```
+
+⚠️ **警告**：直接编辑 `/boot/grub/grub.cfg` 的修改会在下次运行 `update-grub` 时被覆盖，建议使用方法 A。
+
+#### 步骤 4：更新 GRUB 配置
+
+```bash
+# 更新 GRUB 配置（使 40_custom 的修改生效）
+sudo update-grub
+
+# 输出应该包含：
+# Generating grub configuration file ...
+# Found linux image: /boot/vmlinuz-6.x.x-generic
+# Found initrd image: /boot/initrd.img-6.x.x-generic
+# Found Arch Linux on /dev/nvme0n1p3
+# done
+
+# 验证配置是否包含自定义启动项
+sudo grep -A 5 "Arch Linux (with EDID fix)" /boot/grub/grub.cfg
+```
+
+#### 步骤 5：卸载 Arch 分区并重启
+
+```bash
+# 卸载 Arch 分区
+sudo umount /mnt/arch
+
+# 重启系统
+sudo reboot
+```
+
+### 启动和验证
+
+1. **重启后在 GRUB 菜单中**：
+   - 应该能看到新的启动项：`Arch Linux (with EDID fix)`
+   - 选择这个启动项启动 Arch Linux
+
+2. **进入 Arch Linux 后验证**：
+
+```bash
+# 1. 检查内核参数是否生效
+cat /proc/cmdline | grep edid_firmware
+
+# 应该输出：
+# ... drm.edid_firmware=DP-9:edid/monitor_1920x1200.bin ...
+
+# 2. 检查内核日志
+sudo dmesg | grep -i edid
+
+# 应该看到类似输出：
+# [drm] Got external EDID base block and 0 extensions from "edid/monitor_1920x1200.bin" for connector "DP-9"
+
+# 3. 验证显示器分辨率
+kscreen-doctor -o | grep "DP-9" -A 5
+
+# 应该能看到 1920x1200 分辨率选项
+```
+
+### 故障排查
+
+#### 问题 1：GRUB 菜单中没有自定义启动项
+
+**可能原因**：
+
+- `/etc/grub.d/40_custom` 没有执行权限
+- 配置文件格式错误
+
+**解决方法**：
+
+```bash
+# 确保 40_custom 有执行权限
+sudo chmod +x /etc/grub.d/40_custom
+
+# 检查语法错误
+sudo grub-script-check /etc/grub.d/40_custom
+
+# 重新生成配置
+sudo update-grub
+```
+
+#### 问题 2：启动后 EDID 没有加载
+
+**可能原因**：
+
+- UUID 不正确
+- 内核路径错误
+- 固件文件路径不对
+
+**解决方法**：
+
+```bash
+# 在 GRUB 启动菜单中按 'e' 编辑启动项，检查：
+# 1. root=UUID=... 是否正确
+# 2. linux /boot/vmlinuz-linux 路径是否存在
+# 3. drm.edid_firmware 参数格式是否正确
+
+# 临时修改后按 Ctrl+X 或 F10 启动测试
+```
+
+#### 问题 3：DisplayPort 接口编号变化
+
+DisplayPort 接口编号（DP-7, DP-9 等）可能在重启后变化，解决方法：
+
+```bash
+# 在 40_custom 中为多个接口配置 EDID（逗号分隔，不要有空格）
+linux /boot/vmlinuz-linux root=UUID=... rw drm.edid_firmware=DP-7:edid/monitor_1920x1200.bin,DP-8:edid/monitor_1920x1200.bin,DP-9:edid/monitor_1920x1200.bin,DP-10:edid/monitor_1920x1200.bin quiet splash
+```
+
+### 进阶技巧：让 os-prober 自动应用参数
+
+如果希望 Ubuntu 的 `os-prober` 自动检测 Arch 并应用 EDID 参数：
+
+```bash
+# 在 Ubuntu 中创建自定义脚本
+sudo vim /etc/grub.d/09_arch_edid_fix
+
+# 添加以下内容：
+```
+
+```bash
+#!/bin/sh
+set -e
+
+# 为 os-prober 检测到的 Arch Linux 添加 EDID 参数
+cat << EOF
+# 此脚本在 os-prober 之前运行，自动为 Arch 添加 EDID 参数
+# 由 /etc/grub.d/09_arch_edid_fix 生成
+EOF
+
+# 注意：此方法较复杂，推荐使用 40_custom 方法
+```
+
+```bash
+# 赋予执行权限
+sudo chmod +x /etc/grub.d/09_arch_edid_fix
+
+# 更新 GRUB
+sudo update-grub
+```
+
+### 小结
+
+双系统场景下的关键点：
+
+1. ✅ **EDID 固件文件**必须在 Arch Linux 的 `/lib/firmware/edid/` 目录下
+2. ✅ **GRUB 配置**由 Ubuntu 管理，需要在 Ubuntu 中修改
+3. ✅ **内核参数**通过 GRUB 的 `linux` 命令行传递给 Arch Linux 内核
+4. ✅ **固件路径**是相对于 Arch 根分区的 `/lib/firmware/` 目录
+5. ✅ **推荐方法**：使用 `/etc/grub.d/40_custom` 创建自定义启动项
 
 ## Arch Linux 特有配置（可选）
 
