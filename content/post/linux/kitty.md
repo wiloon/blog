@@ -1,7 +1,7 @@
 ---
 title: kitty
 author: "-"
-date: 2025-12-01T10:35:00+08:00
+date: 2026-01-03T15:20:00+08:00
 url: kitty
 categories:
   - Linux
@@ -369,6 +369,8 @@ map cmd+0 change_font_size all 0
 
 #### 窗口分割与管理
 - `Cmd+Shift+Enter` - 新建窗口（在当前窗口下方创建新窗口，水平分割）
+- `Cmd+D` - 垂直分割（左右分屏）
+- `Cmd+Shift+D` - 水平分割（上下分屏）
 - `Cmd+Shift+W` - 关闭当前窗口
 - `Cmd+]` / `Cmd+[` - 切换窗口
 - `Cmd+Shift+]` / `Cmd+Shift+[` - 移动窗口
@@ -379,6 +381,137 @@ map cmd+0 change_font_size all 0
 - `Shift+Cmd+W` - 关闭标签
 - `Cmd+1~9` - 切换到指定标签页
 - `Ctrl+Tab` / `Ctrl+Shift+Tab` - 切换标签页
+
+### macOS 窗口分割快捷键故障排查
+
+如果在 macOS 中窗口分割快捷键不工作，可能的原因和解决方案：
+
+#### 问题 1：系统快捷键冲突
+
+**检查方法：**
+1. 打开"系统设置" → "键盘" → "键盘快捷键"
+2. 检查"应用快捷键"和其他系统快捷键是否占用了 `Cmd+D` 或 `Cmd+Shift+D`
+
+**解决方案：**
+```conf
+# 方案 1：在 kitty.conf 中更改为不冲突的快捷键
+map cmd+\ launch --location=vsplit --cwd=current
+map cmd+- launch --location=hsplit --cwd=current
+
+# 方案 2：使用 Ctrl 组合键
+map ctrl+shift+\ launch --location=vsplit --cwd=current
+map ctrl+shift+- launch --location=hsplit --cwd=current
+```
+
+#### 问题 2：快捷键未配置或被覆盖
+
+**检查配置文件：**
+```bash
+# 查看配置文件
+cat ~/.config/kitty/kitty.conf | grep -E "(map.*split|map.*launch)"
+
+# 确认配置文件路径
+kitty --debug-config | grep "Loaded config"
+```
+
+**完整配置示例：**
+```conf
+# ~/.config/kitty/kitty.conf
+
+# 启用布局（推荐使用 tall 或 splits）
+enabled_layouts tall,fat,grid,splits
+
+# 垂直分割（左右分屏）
+map cmd+d launch --location=vsplit --cwd=current
+map cmd+\ launch --location=vsplit --cwd=current
+
+# 水平分割（上下分屏）  
+map cmd+shift+d launch --location=hsplit --cwd=current
+map cmd+- launch --location=hsplit --cwd=current
+
+# 窗口导航
+map cmd+[ previous_window
+map cmd+] next_window
+map cmd+shift+w close_window
+
+# 窗口移动
+map cmd+shift+up move_window up
+map cmd+shift+down move_window down
+map cmd+shift+left move_window left
+map cmd+shift+right move_window right
+```
+
+#### 问题 3：权限问题
+
+**验证 Kitty 权限：**
+```bash
+# 检查 Kitty 是否有辅助功能权限（可能影响某些快捷键）
+# macOS 系统设置 → 隐私与安全性 → 辅助功能 → 确认 Kitty 在列表中并已启用
+```
+
+#### 问题 4：快捷键测试
+
+**测试快捷键是否生效：**
+```bash
+# 在终端中直接测试命令
+kitty @ launch --location=vsplit --cwd=current
+kitty @ launch --location=hsplit --cwd=current
+
+# 如果命令有效但快捷键无效，说明是快捷键配置问题
+```
+
+#### 问题 5：配置文件语法错误
+
+**检查配置文件语法：**
+```bash
+# Kitty 会在启动时显示配置错误
+kitty --debug-config
+
+# 或查看日志
+tail -f ~/.local/share/kitty/kitty.log
+```
+
+#### 快速修复步骤
+
+1. **备份现有配置：**
+```bash
+cp ~/.config/kitty/kitty.conf ~/.config/kitty/kitty.conf.backup
+```
+
+2. **添加或修改分割快捷键：**
+```bash
+# 编辑配置文件
+nano ~/.config/kitty/kitty.conf
+
+# 添加以下内容（如果不存在）
+enabled_layouts tall,splits
+map cmd+d launch --location=vsplit --cwd=current
+map cmd+shift+d launch --location=hsplit --cwd=current
+```
+
+3. **重新加载配置：**
+- 按 `Cmd+Shift+R` 或
+- 重启 Kitty
+
+4. **测试快捷键：**
+- 按 `Cmd+D` 应该垂直分割窗口
+- 按 `Cmd+Shift+D` 应该水平分割窗口
+
+#### 替代方案
+
+如果快捷键仍然不工作，可以使用命令行：
+```bash
+# 在终端中直接输入
+kitty @ launch --location=vsplit --cwd=current  # 垂直分割
+kitty @ launch --location=hsplit --cwd=current  # 水平分割
+```
+
+或创建 shell 别名：
+```bash
+# 在 ~/.zshrc 或 ~/.bashrc 中添加
+alias ksplit-v='kitty @ launch --location=vsplit --cwd=current'
+alias ksplit-h='kitty @ launch --location=hsplit --cwd=current'
+```
 
 ---
 
