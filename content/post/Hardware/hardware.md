@@ -34,6 +34,7 @@ tags:
 - Ruckus R310, 优科
 - beelink SER8
 - Dell U2412Mb
+- keychron Q5HE
 
 ## beelink SER8
 
@@ -491,3 +492,9 @@ https://www.dongchedi.com/auto/params-carIds-34951
 - 最大拖车重量（挂车有刹车，坡度不超过8%）：1700公斤
 
 英文版手册: https://ownersmanuals2.com/volkswagen/golf-variant-2019-owners-manual-96599
+
+## keychron Q5HE
+
+磁轴键盘
+
+https://www.keychron.com/pages/keychron-q5-he-user-guide?srsltid=AfmBOoqF34zO0QFUa0jDbdvhn3ysV43R_hz33qS_cdkZv5dTHQlCW-Mu
