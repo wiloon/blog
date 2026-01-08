@@ -1,7 +1,7 @@
 ---
 title: git reset
 author: "-"
-date: "2025-11-26T17:25:00+08:00"
+date: "2026-01-08T15:30:00+08:00"
 url: "git/reset"
 categories:
   - "Git"
@@ -49,6 +49,10 @@ git reset --mixed commit_id
 git reset --hard commit_id
 
 git reset --soft HEAD^
+
+# 重置到远程分支（丢弃本地未 push 的 commit）
+git fetch origin
+git reset --hard origin/main  # 如果是其他分支，替换 main 为对应分支名
 ```
 
 进行了错误的提交，但是还没有 push 到远程分支，想要撤销最近的几次提交 (commit)，可以使用 git reset –-soft/hard 命令。
@@ -69,6 +73,7 @@ git reset --hard HEAD~1
 
 # 回退到指定 commit
 git reset --hard commit_id
+
 ```
 
 直接会改变本地源码，不仅仅指向变化了，代码也回到了那个版本时的代码

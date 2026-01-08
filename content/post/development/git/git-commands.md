@@ -263,7 +263,7 @@ git fetch --tags
 ```bash
 # git fetch 不加任何参数时，会从默认远程（通常是 origin）抓取所有分支的最新信息，但不会自动合并到你的本地分支。
 # 会获取远程仓库所有分支的最新提交和引用信息（包括新分支、标签等）。
-# 只会更新本地的远程分支（如 origin/main、origin/dev 等），不会更改你当前检出的分支的内容。
+# 只会更新本地的远程分支（如 origin/main, origin/dev 等），不会更改你当前检出的分支的内容。
 git fetch
 # 跟上面的命令是一样的, git fetch 默认的远程仓库是 origin
 git fetch origin
