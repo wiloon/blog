@@ -3,6 +3,9 @@
 # Stage 1: Build the Hugo site
 FROM docker.io/library/alpine:3.22.2 AS builder
 
+# Configure Alpine mirror for faster downloads (China)
+RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.aliyun.com/g' /etc/apk/repositories
+
 # Install Hugo Extended (required for PaperMod theme - requires v0.146.0+)
 ENV HUGO_VERSION=0.152.2
 ARG TARGETARCH
