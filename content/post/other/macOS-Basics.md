@@ -1,13 +1,14 @@
 ---
 title: macOS Basics
 author: "-"
-date: 2012-11-20T01:19:09+00:00
+date: 2026-01-10T20:30:00+08:00
 url: macos/basic
 categories:
   - Inbox
 tags:
   - reprint
   - remix
+  - AI-assisted
 ---
 ## macOS Basic
 
@@ -145,3 +146,40 @@ linux_syscall.c:67:13: error: call to undeclared function 'setresgid'; ISO C99 a
 brew install FiloSottile/musl-cross/musl-cross
 CGO_ENABLED=1 GOOS=linux GOARCH=amd64 CC=x86_64-linux-musl-gcc  CXX=x86_64-linux-musl-g++  go build -o ${package_name} enx-api.go
 ```
+
+## sudo 免密码配置
+
+### 方法：创建单独的配置文件（推荐）
+
+1. 创建新文件：
+
+```bash
+sudo visudo -f /etc/sudoers.d/nopasswd
+```
+
+2. 添加内容（将 `your_username` 替换为你的用户名）：
+
+```
+your_username ALL=(ALL) NOPASSWD: ALL
+```
+
+3. 保存退出（按 `Esc` 然后输入 `:wq` 回车）
+
+### 验证配置
+
+执行任意 sudo 命令测试：
+
+```bash
+sudo echo "test"
+```
+
+如果不再要求输入密码，说明配置成功。
+
+### 安全建议
+
+- **针对特定命令免密**：如果只需要某个命令免密，可以使用：
+  ```
+  your_username ALL=(ALL) NOPASSWD: /usr/bin/nerdctl
+  ```
+- **生产环境慎用**：完全免密配置会降低系统安全性，建议仅在开发环境使用
+- **检查用户名**：确保用户名拼写正确，错误配置可能导致无法使用 sudo
