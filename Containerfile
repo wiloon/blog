@@ -33,11 +33,12 @@ RUN hugo
 # Stage 2: Create production image with Nginx
 FROM docker.io/library/nginx:1.29.3-alpine
 
-# Clean nginx default content (必须在复制前清理，否则 nginx 默认的 index.html 不会被覆盖)
+# Clean nginx default content completely (必须在复制前清理，否则 nginx 默认的 index.html 不会被覆盖)
 RUN rm -rf /usr/share/nginx/html/*
 
 # Copy built static files from builder stage
-COPY --from=builder /blog/public /usr/share/nginx/html
+# Note: Using trailing slash to ensure contents are copied, not the directory itself
+COPY --from=builder /blog/public/ /usr/share/nginx/html/
 
 # Copy custom nginx configuration (optional)
 # COPY nginx.conf /etc/nginx/nginx.conf
