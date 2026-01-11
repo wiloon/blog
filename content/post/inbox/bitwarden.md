@@ -1,12 +1,14 @@
 ---
 title: bitwarden
 author: "-"
-date: "2022-06-06 22:00:54"
-url: "bitwarden"
+date: 2026-01-11T22:00:54+08:00
+url: bitwarden
 categories:
   - Security
 tags:
   - Security
+  - remix
+  - AI-assisted
 ---
 ## bitwarden
 
@@ -20,7 +22,7 @@ https://hub.docker.com/r/vaultwarden/server
 
 ```bash
 # docker pull vaultwarden/server:1.33.2-alpine
-podman pull vaultwarden/server:1.33.2-alpine
+podman pull vaultwarden/server:1.35.2-alpine
 
 podman run -d --name bitwarden -v bitwarden-data:/data/ -p 8000:80 docker.io/vaultwarden/server:latest
 docker run -d --name bitwarden --restart=always -v bitwarden-data:/data/ -p 8000:80 vaultwarden/server:1.28.1-alpine
@@ -30,8 +32,24 @@ docker run -d --name bitwarden --restart=always -v bitwarden-data:/data/ -p 8000
 
 ### client
 
+**Linux (Arch):**
+
 ```bash
 pacman -S bitwarden
+```
+
+**macOS (Homebrew):**
+
+桌面应用：
+
+```bash
+brew install --cask bitwarden
+```
+
+命令行工具（CLI）：
+
+```bash
+brew install bitwarden-cli
 ```
 
 ## bitwarden ssh key, bw-key
