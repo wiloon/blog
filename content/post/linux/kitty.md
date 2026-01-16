@@ -562,36 +562,81 @@ Kitty 默认的分割行为是：第一次分割后，后续窗口都会在下�
 
 #### 查看当前布局
 
-Kitty 没有内置的 UI 显示当前布局，可以使用远程控制命令查询：
+**方法 1：启用标签栏显示布局（最推荐）✅**
+
+在 `~/.config/kitty/kitty.conf` 中添加配置，让标签栏自动显示当前布局：
+
+```conf
+# 启用标签栏（即使只有一个标签页也显示）
+tab_bar_edge top
+tab_bar_style powerline
+
+# 自定义标签栏格式，显示布局名称
+tab_title_template "{fmt.fg.red}{bell_symbol}{activity_symbol}{fmt.fg.tab}{title} [{layout_name}]"
+```
+
+配置后，标签栏会实时显示当前布局名称，例如：
+- `~ [tall]` - 当前是 tall 布局
+- `~ [fat]` - 当前是 fat 布局（水平分割）
+- `~ [grid]` - 当前是 grid 布局
+
+**方法 2：切换布局时临时显示（推荐）✅**
+
+创建一个智能的布局切换脚本，切换时显示 3 秒提示：
+
+```conf
+# 在 ~/.config/kitty/kitty.conf 中替换原来的布局切换快捷键
+map ctrl+shift+l kitten hints --type=linenum --program=- "next_layout" && launch --type=overlay --hold sh -c 'layout=$(kitty @ ls | grep -o "\"layout\": \"[^\"]*\"" | head -1 | cut -d\" -f4); echo ""; echo "════════════════════"; echo "  当前布局: $layout"; echo "════════════════════"; sleep 2'
+```
+
+或者使用更简洁的方式：
+
+```conf
+# 切换布局并显示提示
+map ctrl+shift+l combine : next_layout : launch --type=overlay --hold sh -c 'layout=$(kitty @ ls | grep -o "\"layout\": \"[^\"]*\"" | head -1 | cut -d\" -f4); printf "\n  📐 布局: \033[1;36m$layout\033[0m\n\n"; sleep 1.5'
+```
+
+**方法 3：快捷键查看当前布局**
+
+```conf
+# 按键显示当前布局信息
+map ctrl+shift+alt+l launch --type=overlay --hold sh -c 'layout=$(kitty @ ls 2>/dev/null | grep -o "\"layout\": \"[^\"]*\"" | head -1 | cut -d\" -f4); echo ""; echo "════════════════════════════"; echo "  📐 当前布局: $layout"; echo "════════════════════════════"; echo ""; echo "可用布局:"; echo "  • tall  - 垂直分割"; echo "  • fat   - 水平分割"; echo "  • grid  - 网格布局"; echo "  • splits- 自由分割"; echo ""; echo "按回车继续..."; read'
+```
+
+**方法 4：命令行查询（无需配置）**
 
 ```bash
 # 查询当前布局
-kitty @ --to unix:$(ls -t /tmp/kitty.sock-* | head -1) ls | grep -o '"layout": "[^"]*"' | head -1 | cut -d'"' -f4
+kitty @ ls | grep -o '"layout": "[^"]*"' | head -1 | cut -d'"' -f4
 
-# 或创建 shell 函数（推荐）
-# 在 ~/.zshrc 中添加：
+# 创建 shell 函数（在 ~/.zshrc 中添加）
 show-layout() {
-    local layout=$(kitty @ --to unix:$(ls -t /tmp/kitty.sock-* | head -1) ls 2>/dev/null | grep -o '"layout": "[^"]*"' | head -1 | cut -d'"' -f4)
+    local layout=$(kitty @ ls 2>/dev/null | grep -o '"layout": "[^"]*"' | head -1 | cut -d'"' -f4)
     if [[ -n "$layout" ]]; then
-        echo "当前布局: $layout"
+        echo "📐 当前布局: $layout"
     else
         echo "无法获取布局信息"
     fi
 }
 ```
 
-**配置快捷键显示布局信息（推荐）**
-
-在 `~/.config/kitty/kitty.conf` 中添加快捷键，按键后会弹出覆盖层显示当前布局：
+**推荐配置组合：**
 
 ```conf
-# 显示当前布局信息的快捷键
-map ctrl+shift+alt+l launch --type=overlay sh -c 'layout=$(kitty @ --to unix:$(ls -t /tmp/kitty.sock-* 2>/dev/null | head -1) ls 2>/dev/null | grep -o "\"layout\": \"[^\"]*\"" | head -1 | cut -d\" -f4); echo ""; echo "═══════════════════════════════"; echo "  当前布局: $layout"; echo "═══════════════════════════════"; echo ""; echo "按回车继续..."; read'
+# 方案 A：标签栏实时显示（最直观）
+tab_bar_edge top
+tab_bar_style powerline
+tab_title_template "{title} [{layout_name}]"
+
+# 方案 B：切换时显示提示（更简洁）
+map ctrl+shift+l combine : next_layout : show_message --duration=1.5 "Layout switched"
+
+# 可以同时使用两种方案
 ```
 
 配置后：
-- 按 `Ctrl+Shift+L` - 切换布局
-- 按 `Ctrl+Shift+Alt+L` - 显示当前布局信息
+- 按 `Ctrl+Shift+L` - 切换布局（标签栏实时显示当前布局）
+- 按 `Ctrl+Shift+Alt+L` - 查看详细布局信息
 
 #### 设置默认布局
 
