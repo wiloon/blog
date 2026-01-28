@@ -408,7 +408,7 @@ Bluetooth 4.0
 
 Intel HD Graphics 4400 (shared memory)
 
-## K375S改
+## K375S 改
 
 F1 默认走 罗技优联, F2 和 F3 可以连接另外两个蓝牙设备. 蓝牙配对: 长按 Fn + 2 或 Fn + 3, 对应的数字键下方的 LED 灯快速闪烁时, 键盘就是进入配对模式了, 另外一端, 比如 iphone 会弹出 提示, 需要在键盘上输入一串数字然后按回车. 配对成功.
 
@@ -495,6 +495,12 @@ https://www.dongchedi.com/auto/params-carIds-34951
 
 ## keychron Q5HE
 
-磁轴键盘
+### 磁轴键盘
 
-https://www.keychron.com/pages/keychron-q5-he-user-guide?srsltid=AfmBOoqF34zO0QFUa0jDbdvhn3ysV43R_hz33qS_cdkZv5dTHQlCW-Mu
+docs: https://www.keychron.com/pages/keychron-q5-he-user-guide?srsltid=AfmBOoqF34zO0QFUa0jDbdvhn3ysV43R_hz33qS_cdkZv5dTHQlCW-Mu
+
+### launcher
+
+https://launcher.keychron.com/#/not-connect
+
+点击页面左上角的 connect 连接键盘

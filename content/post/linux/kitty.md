@@ -1,7 +1,7 @@
 ---
 title: kitty
 author: "-"
-date: 2026-01-03T15:20:00+08:00
+date: 2026-01-28T14:20:00+08:00
 url: kitty
 categories:
   - Linux
@@ -106,19 +106,10 @@ kitty @ scroll-window reset
 
 ### 快捷键配置（推荐）
 
-在 `~/.config/kitty/kitty.conf` 中添加：
-
-```conf
-# Linux
-map ctrl+shift+delete clear_terminal reset active
-
-# macOS
-map cmd+k clear_terminal reset active
-```
-
-配置后：
 - **Linux**: `Ctrl+Shift+Delete` - 完全清空终端和滚动缓冲区
 - **macOS**: `Cmd+K` - 完全清空终端和滚动缓冲区
+
+完整配置参见下文的 **Linux 完整配置** 和 **macOS 配置说明** 部分
 
 ### 三种清空方式对比
 
@@ -132,94 +123,36 @@ map cmd+k clear_terminal reset active
 
 Kitty 没有滚动条，但可以用快捷键或鼠标滚动查看历史输出：
 
-### 快速跳转到顶部/底部
+- **鼠标滚轮** - 上下滚动，按住 Shift 加速
+- **快速跳转** - Home/End 键跳到顶部/底部
+- **History 浏览模式** - `Ctrl+Shift+H`（Linux）或 `Cmd+H`（macOS）进入 Vim 风格浏览
 
-**Linux 快捷键：**
-- `Ctrl+Shift+Home` - 跳转到滚动缓冲区的**第一行**（最早的输出）
-- `Ctrl+Shift+End` - 跳转到滚动缓冲区的**最后一行**（最新的输出）
-- `Ctrl+Shift+H` - 进入 history 浏览模式，然后按 `g` 跳到顶部，按 `G` 跳到底部
-
-**macOS 快捷键：**
-- `Cmd+Home` - 跳转到滚动缓冲区的第一行
-- `Cmd+End` - 跳转到滚动缓冲区的最后一行
-
-### 滚动浏览
-
-**鼠标操作：**
-- 鼠标滚轮上下滚动
-- `Shift+鼠标滚轮` - 加速滚动
-
-**键盘操作（Linux）：**
-- `Ctrl+Shift+Up` - 向上滚动一行
-- `Ctrl+Shift+Down` - 向下滚动一行
-- `Ctrl+Shift+Page Up` - 向上翻页
-- `Ctrl+Shift+Page Down` - 向下翻页
-
-**键盘操作（macOS）：**
-- `Cmd+Up` - 向上滚动
-- `Cmd+Down` - 向下滚动
-- `Cmd+Page Up` - 向上翻页
-- `Cmd+Page Down` - 向下翻页
+完整快捷键配置参见下文的 **Linux 完整配置** 和 **macOS 配置说明** 部分
 
 ### History 浏览模式（推荐）
 
-进入 history 模式可以像 Vim 一样浏览：qq
+进入 history 模式可以像 Vim 一样浏览：
 
-1. 按 `Ctrl+Shift+H` 进入浏览模式
-2. 使用 Vim 风格的快捷键：
-   - `g` - 跳转到第一行（顶部）
-   - `G` - 跳转到最后一行（底部）
-   - `j`/`k` - 逐行上下移动
-   - `Ctrl+F` / `Ctrl+B` - 向前/向后翻页
-   - `d`/`u` - 向下/向上翻半页
-3. 按 `q` 或 `Esc` 退出浏览模式
+- 使用 Vim 风格的快捷键：`g`/`G` 跳转开头/结尾，`j`/`k` 上下移动，`/` 搜索
+- 按 `q` 或 `Esc` 退出浏览模式
 
-**最快方式：`Ctrl+Shift+H` 然后按 `g` 直接跳到第一行！**
+**提示**：最快查看历史记录的方式是进入 history 模式然后按 `g` 直接跳到第一行！
 
 ## 搜索终端文字
 
 在 Kitty 中可以搜索终端显示的文字内容（包括滚动缓冲区）：
 
-### macOS 快捷键
+### 搜索方式
 
-- `Cmd+F` - 打开搜索栏
-- `Cmd+G` - 查找下一个匹配
-- `Cmd+Shift+G` - 查找上一个匹配
-- `Esc` - 关闭搜索栏
+**Vim/less 风格搜索（内置）**：
+- 进入 history 浏览模式，按 `/` 输入搜索关键词
+- 按 `n` 跳转到下一个匹配，`N` 上一个匹配
+- Kitty 默认使用这种方式，无需图形化搜索框
 
-### Linux 快捷键
-
-- `Ctrl+Shift+H` - 打开 scrollback history 浏览模式（使用 less/vim 风格）
-- `Esc` 或 `q` - 退出 history 浏览模式
-
-**History 浏览模式说明**：
-
-`Ctrl+Shift+H` 会打开**滚动历史浏览模式**，这是一个类似 `less` 的全屏浏览器：
-
-- 窗口标题显示 "history"
-- 使用 **Vim/less 风格的操作**：
-  - `/` - 输入搜索关键词（会在底部显示冒号 `:` 或 `/`）
-  - `n` - 跳转到下一个匹配
-  - `N` - 跳转到上一个匹配
-  - `j`/`k` - 上下滚动
-  - `g`/`G` - 跳转到开头/结尾
-  - `q` 或 `Esc` - 退出浏览模式
-- 这个模式用于浏览和搜索终端的历史输出
-- 搜索时输入的文字会在底部冒号后显示
-
-**这就是 Kitty 的搜索功能！**
-
-Kitty 默认使用 Vim/less 风格的搜索，没有图形化搜索框。如果你习惯了这种方式，这就是最直接的搜索方法。
-
-**想要更好的搜索体验？使用 fzf**：
-
-如果想要交互式的模糊搜索界面，可以配置 fzf：
-
-```conf
-# 在 ~/.config/kitty/kitty.conf 中添加
-# 使用 Ctrl+Shift+F 打开 fzf 模糊搜索（需要先安装 fzf）
-map ctrl+shift+f launch --type=overlay --stdin-source=@screen_scrollback fzf --no-sort --no-mouse --exact -i --tac
-```
+**fzf 模糊搜索（推荐）**：
+- 需要先安装 fzf：`sudo apt install fzf`（Linux）或 `brew install fzf`（macOS）
+- 提供交互式模糊搜索界面、实时预览、多选等高级功能
+- 配置方法参见下文的 **Linux 完整配置** 部分
 
 ### 搜索功能特性
 
@@ -229,39 +162,7 @@ map ctrl+shift+f launch --type=overlay --stdin-source=@screen_scrollback fzf --n
 - 可搜索滚动缓冲区中的历史内容
 - 搜索时会自动滚动到匹配位置
 
-### 配置搜索相关快捷键
-
-可以在 `~/.config/kitty/kitty.conf` 中自定义搜索快捷键：
-
-```conf
-# macOS
-map cmd+f launch --type=overlay --stdin-source=@screen_scrollback /bin/sh -c 'fzf --no-sort --no-mouse --exact -i'
-
-# Linux
-map ctrl+shift+f launch --type=overlay --stdin-source=@screen_scrollback /bin/sh -c 'fzf --no-sort --no-mouse --exact -i'
-```
-
-### 配合 fzf 使用（高级）
-
-如果安装了 `fzf`，可以实现更强大的搜索功能：
-
-```bash
-# 安装 fzf
-# macOS
-brew install fzf
-
-# Linux
-sudo apt install fzf
-```
-
-配置使用 fzf 搜索滚动缓冲区：
-
-```conf
-# 使用 fzf 搜索滚动缓冲区
-map ctrl+shift+f launch --type=overlay --stdin-source=@screen_scrollback fzf --no-sort --no-mouse --exact -i --tac
-```
-
-这样可以实现模糊搜索、多选、预览等高级功能。
+完整搜索快捷键配置参见下文的 **Linux 完整配置** 和 **macOS 配置说明** 部分
 
 ## 安装 Kitty
 
@@ -513,32 +414,182 @@ alias ksplit-v='kitty @ launch --location=vsplit --cwd=current'
 alias ksplit-h='kitty @ launch --location=hsplit --cwd=current'
 ```
 
+### Linux 完整配置
+
+完整的 Kitty 配置文件，包含所有基础设置和快捷键：
+
+```conf
+# ============================================
+# Kitty 配置文件 - Linux 版本
+# ~/.config/kitty/kitty.conf
+# ============================================
+
+# -------------------- 远程控制配置 --------------------
+allow_remote_control socket-only
+listen_on unix:/tmp/kitty.sock
+
+# -------------------- 布局配置 --------------------
+enabled_layouts tall,fat,grid,splits,stack
+
+# -------------------- 字体配置 --------------------
+font_family      Cascadia Code
+bold_font        auto
+italic_font      auto
+bold_italic_font auto
+font_size        12.0
+disable_ligatures always
+
+# -------------------- 光标配置 --------------------
+cursor_shape block
+cursor_blink_interval 0
+
+# -------------------- 窗口配置 --------------------
+remember_window_size  yes
+initial_window_width  1200
+initial_window_height 800
+
+# -------------------- 性能优化 --------------------
+repaint_delay 10
+input_delay 3
+sync_to_monitor yes
+
+# -------------------- 标签页样式 --------------------
+tab_bar_edge top
+tab_bar_style powerline
+tab_powerline_style slanted
+tab_bar_min_tabs 1
+tab_title_template "{fmt.fg.red}{bell_symbol}{activity_symbol}{fmt.fg.tab}{title} [{layout_name}]"
+
+# -------------------- 滚动缓冲区 --------------------
+scrollback_lines 30000
+
+# -------------------- 主题配色 --------------------
+include ./kitty-themes/themes/Tokyo_Night.conf
+
+# ============================================
+# 快捷键配置
+# ============================================
+
+# -------------------- 配置管理 --------------------
+map ctrl+shift+f2 load_config_file     # 打开配置文件
+map ctrl+shift+f5 load_config_file     # 重新加载配置
+map ctrl+shift+f6 debug_config         # 显示当前配置
+
+# -------------------- 窗口分割 --------------------
+map ctrl+shift+enter launch --cwd=current                 # 新建窗口
+map ctrl+shift+\ launch --location=vsplit --cwd=current   # 垂直分割（左右分屏）
+map ctrl+shift+- launch --location=hsplit --cwd=current   # 水平分割（上下分屏）
+
+# -------------------- 窗口管理 --------------------
+map ctrl+shift+w close_window          # 关闭当前窗口
+map ctrl+shift+x close_window          # 关闭当前窗口（备用）
+map alt+w close_window                 # 关闭当前窗口（Alt+W）
+map ctrl+shift+] next_window           # 切换到下一个窗口
+map ctrl+shift+[ previous_window       # 切换到上一个窗口
+map ctrl+shift+r start_resizing_window # 调整窗口大小模式
+
+# -------------------- 窗口移动 --------------------
+map ctrl+shift+up move_window up       # 将当前窗口向上移动
+map ctrl+shift+down move_window down   # 将当前窗口向下移动
+map ctrl+shift+left move_window left   # 将当前窗口向左移动
+map ctrl+shift+right move_window right # 将当前窗口向右移动
+
+# -------------------- 布局切换 --------------------
+map ctrl+shift+l next_layout           # 循环切换布局
+map ctrl+shift+h goto_layout fat       # 切换到 fat 布局（水平分割）
+map ctrl+shift+g goto_layout grid      # 切换到 grid 布局（网格）
+map ctrl+shift+s goto_layout splits    # 切换到 splits 布局（自由分割）
+map ctrl+shift+a goto_layout stack     # 切换到 stack 布局（全屏单窗口）
+
+# -------------------- 标签页管理 --------------------
+map ctrl+shift+t new_tab               # 新建标签页
+map ctrl+shift+q quit                  # 退出 kitty
+map ctrl+shift+page_up previous_tab    # 切换到上一个标签页
+map ctrl+shift+page_down next_tab      # 切换到下一个标签页
+
+# -------------------- 搜索与历史 --------------------
+map ctrl+shift+/ show_scrollback       # 打开历史浏览模式（使用 / 因为在 vim 中代表搜索）
+map ctrl+shift+f launch --type=overlay --stdin-source=@screen_scrollback fzf --no-sort --no-mouse --exact -i --tac  # fzf 模糊搜索
+map ctrl+shift+home scroll_home        # 跳转到第一行
+map ctrl+shift+end scroll_end          # 跳转到最后一行
+map ctrl+alt+page_up scroll_page_up    # 向上翻页（使用 ctrl+alt 避免与标签页切换冲突）
+map ctrl+alt+page_down scroll_page_down  # 向下翻页（使用 ctrl+alt 避免与标签页切换冲突）
+
+# -------------------- 清空终端 --------------------
+map ctrl+shift+delete clear_terminal reset active  # 完全清空终端和滚动缓冲区
+```
+
+**快捷键记忆法：**
+
+- **tall 布局** → 默认布局，用 `Ctrl+Shift+L` 循环回来（无需单独快捷键）
+- `H` → **H**orizontal/Fat（水平分割，上下布局）
+- `G` → **G**rid（网格布局）
+- `S` → **S**plits（自由分割）
+- `A` → st**A**ck（全屏单窗口）
+- `F` → **F**uzzy/Find 搜索（fzf 模糊搜索历史输出）
+
+### macOS 配置说明
+
+macOS 下的快捷键配置与 Linux 基本相同，主要区别是：
+
+1. **将 `ctrl` 替换为 `cmd`**：大部分快捷键只需将 `ctrl+shift` 改为 `cmd+shift` 即可
+2. **额外的 macOS 特有快捷键**：
+
+```conf
+# ============================================
+# Kitty 配置文件 - macOS 版本
+# ~/.config/kitty/kitty.conf
+# ============================================
+
+# macOS 特有快捷键（其余快捷键将 ctrl 替换为 cmd 即可）
+
+# -------------------- 复制粘贴 --------------------
+map cmd+c copy_to_clipboard            # 复制
+map cmd+v paste_from_clipboard         # 粘贴
+
+# -------------------- 窗口管理（macOS 特有）--------------------
+map cmd+n new_os_window                # 新建操作系统窗口
+
+# -------------------- 配置管理 --------------------
+map cmd+, load_config_file             # 编辑配置文件
+map cmd+shift+f11 toggle_fullscreen    # 切换全屏
+
+# -------------------- 标签页快速切换 --------------------
+map cmd+1 goto_tab 1                   # 切换到标签页 1-9
+map cmd+2 goto_tab 2
+# ... (cmd+3 到 cmd+9 类推)
+
+# -------------------- 字体大小调整 --------------------
+map cmd+equal change_font_size all +1.0    # 增大字体
+map cmd+minus change_font_size all -1.0    # 减小字体
+map cmd+0 change_font_size all 0           # 重置字体大小
+
+# -------------------- 清空终端（macOS 惯例）--------------------
+map cmd+k clear_terminal reset active  # 完全清空终端（macOS 使用 cmd+k 而非 ctrl+shift+delete）
+
+# -------------------- 其他快捷键 --------------------
+# 所有 Linux 配置中的 ctrl+shift 快捷键，在 macOS 下都改为 cmd+shift
+# 例如：
+#   ctrl+shift+l → cmd+shift+l  （循环切换布局）
+#   ctrl+shift+h → cmd+shift+h  （切换到 fat 布局）
+#   ctrl+shift+g → cmd+shift+g  （切换到 grid 布局）
+#   ctrl+shift+a → cmd+shift+a  （切换到 stack 布局）
+#   ctrl+shift+f → cmd+f        （fzf 搜索）
+# ... 其余类推
+
+# -------------------- 布局配置 --------------------
+enabled_layouts tall,fat,grid,splits,stack
+```
+
 ---
 
-### Linux 快捷键
+## 窗口布局调整
 
-#### 配置管理
-- `Ctrl+Shift+F2` - 打开配置文件
-- `Ctrl+Shift+F5` - 重新加载配置
-- `Ctrl+Shift+F6` - 显示当前配置
+Kitty 默认的分割行为是：第一次分割后，后续窗口都会在下半屏继续分割。可以通过切换布局来调整窗口排列方式。
 
-#### 窗口分割与管理
-- `Ctrl+Shift+Enter` - 新建窗口（在当前窗口下方创建新窗口，水平分割）
-- `Ctrl+Shift+W` - 关闭当前窗口
-- `Ctrl+Shift+]` - 切换到下一个窗口
-- `Ctrl+Shift+[` - 切换到上一个窗口
-- `Ctrl+Shift+R` - 调整窗口大小模式
-- `Ctrl+Shift+L` - 切换窗口布局（tall/fat/grid/horizontal/vertical/splits/stack）
+**快捷键**：完整的布局切换快捷键配置参见上文的 **快捷键** 章节（Linux 完整配置和 macOS 配置说明）。
 
-### 窗口布局调整
-
-Kitty 默认的分割行为是：第一次分割后，后续窗口都会在下半屏继续分割。可以通过以下方式调整：
-
-#### 快速切换布局（推荐）
-
-- `Ctrl+Shift+L` - 在不同布局之间循环切换
-
-#### 布局类型详解
+### 布局类型详解
 
 | 布局名称 | 视觉特征 | 适用场景 | 窗口行为 |
 |---------|---------|---------|---------|
@@ -580,30 +631,7 @@ tab_title_template "{fmt.fg.red}{bell_symbol}{activity_symbol}{fmt.fg.tab}{title
 - `~ [fat]` - 当前是 fat 布局（水平分割）
 - `~ [grid]` - 当前是 grid 布局
 
-**方法 2：切换布局时临时显示（推荐）✅**
-
-创建一个智能的布局切换脚本，切换时显示 3 秒提示：
-
-```conf
-# 在 ~/.config/kitty/kitty.conf 中替换原来的布局切换快捷键
-map ctrl+shift+l kitten hints --type=linenum --program=- "next_layout" && launch --type=overlay --hold sh -c 'layout=$(kitty @ ls | grep -o "\"layout\": \"[^\"]*\"" | head -1 | cut -d\" -f4); echo ""; echo "════════════════════"; echo "  当前布局: $layout"; echo "════════════════════"; sleep 2'
-```
-
-或者使用更简洁的方式：
-
-```conf
-# 切换布局并显示提示
-map ctrl+shift+l combine : next_layout : launch --type=overlay --hold sh -c 'layout=$(kitty @ ls | grep -o "\"layout\": \"[^\"]*\"" | head -1 | cut -d\" -f4); printf "\n  📐 布局: \033[1;36m$layout\033[0m\n\n"; sleep 1.5'
-```
-
-**方法 3：快捷键查看当前布局**
-
-```conf
-# 按键显示当前布局信息
-map ctrl+shift+alt+l launch --type=overlay --hold sh -c 'layout=$(kitty @ ls 2>/dev/null | grep -o "\"layout\": \"[^\"]*\"" | head -1 | cut -d\" -f4); echo ""; echo "════════════════════════════"; echo "  📐 当前布局: $layout"; echo "════════════════════════════"; echo ""; echo "可用布局:"; echo "  • tall  - 垂直分割"; echo "  • fat   - 水平分割"; echo "  • grid  - 网格布局"; echo "  • splits- 自由分割"; echo ""; echo "按回车继续..."; read'
-```
-
-**方法 4：命令行查询（无需配置）**
+**方法 2：命令行查询（无需配置）**
 
 ```bash
 # 查询当前布局
@@ -620,31 +648,13 @@ show-layout() {
 }
 ```
 
-**推荐配置组合：**
-
-```conf
-# 方案 A：标签栏实时显示（最直观）
-tab_bar_edge top
-tab_bar_style powerline
-tab_title_template "{title} [{layout_name}]"
-
-# 方案 B：切换时显示提示（更简洁）
-map ctrl+shift+l combine : next_layout : show_message --duration=1.5 "Layout switched"
-
-# 可以同时使用两种方案
-```
-
-配置后：
-- 按 `Ctrl+Shift+L` - 切换布局（标签栏实时显示当前布局）
-- 按 `Ctrl+Shift+Alt+L` - 查看详细布局信息
-
 #### 设置默认布局
 
 在 `~/.config/kitty/kitty.conf` 中配置：
 
 ```conf
 # 设置启用的布局和默认布局
-enabled_layouts tall,fat,grid,splits
+enabled_layouts tall,fat,grid,splits,stack
 
 # 如果希望垂直/水平分割更符合预期，推荐使用 tall 布局
 # enabled_layouts tall,splits
@@ -652,49 +662,6 @@ enabled_layouts tall,fat,grid,splits
 # 或者只使用 grid 布局（推荐，窗口平均分配）
 # enabled_layouts grid
 ```
-
-#### 自定义分割方向
-
-```conf
-# 垂直分割（左右分屏）- | for Vertical
-# 使用 neighbor 确保新窗口出现在当前窗口旁边
-map ctrl+shift+\ launch --location=vsplit --cwd=current
-
-# 如果上面的方式不起作用，可以尝试使用 tall 布局：
-# enabled_layouts tall,splits
-# map ctrl+shift+\ launch --location=vsplit --cwd=current
-
-# 水平分割（上下分屏）- - for Horizontal  
-map ctrl+shift+- launch --location=hsplit --cwd=current
-```
-
-### 窗口位置调整
-
-窗口移动功能需要在配置文件中手动配置。编辑 `~/.config/kitty/kitty.conf` 添加：
-
-```conf
-# 移动窗口位置
-map ctrl+shift+up move_window up
-map ctrl+shift+down move_window down
-map ctrl+shift+left move_window left
-map ctrl+shift+right move_window right
-
-# 修改标签页切换快捷键（避免与窗口移动冲突）
-map ctrl+shift+page_up previous_tab
-map ctrl+shift+page_down next_tab
-```
-
-配置后按 `Ctrl+Shift+F5` 重新加载配置，然后就可以使用：
-- `Ctrl+Shift+Up` - 将当前窗口向上移动
-- `Ctrl+Shift+Down` - 将当前窗口向下移动  
-- `Ctrl+Shift+Left` - 将当前窗口向左移动
-- `Ctrl+Shift+Right` - 将当前窗口向右移动
-
-### 标签页管理
-- `Ctrl+Shift+T` - 新建标签
-- `Ctrl+Shift+Q` - 退出 kitty
-- `Ctrl+Shift+PageDown` - 切换到下一个标签页（避免与窗口移动冲突）
-- `Ctrl+Shift+PageUp` - 切换到上一个标签页（避免与窗口移动冲突）
 
 ## ubuntu install
 
