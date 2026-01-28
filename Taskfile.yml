@@ -5,11 +5,12 @@ vars:
   IMAGE_TAG: latest
   CONTAINER_NAME: blog
   PORT: 8090
+  REGISTRY: container-registry.wiloon.com
   # 根据操作系统自动选择容器工具
   CONTAINER_CMD:
     sh: |
       if [ "{{OS}}" = "darwin" ]; then
-        echo "container"
+        echo "colima nerdctl --"
       else
         echo "sudo nerdctl"
       fi
@@ -28,10 +29,24 @@ tasks:
     silent: true
 
   build:
-    desc: Build container image
+    desc: Build container image (amd64)
     cmds:
-      - '{{.CONTAINER_CMD}} build -t {{.IMAGE_NAME}}:{{.IMAGE_TAG}} -f Containerfile .'
+      - '{{.CONTAINER_CMD}} build --platform linux/amd64 --progress=plain -t {{.IMAGE_NAME}}:{{.IMAGE_TAG}} -f Containerfile .'
+      - '{{.CONTAINER_CMD}} tag {{.IMAGE_NAME}}:{{.IMAGE_TAG}} {{.REGISTRY}}/{{.IMAGE_NAME}}:{{.IMAGE_TAG}}'
       - echo "✅ Image built {{.IMAGE_NAME}}:{{.IMAGE_TAG}}"
+      - echo "✅ Image tagged {{.REGISTRY}}/{{.IMAGE_NAME}}:{{.IMAGE_TAG}}"
+
+  push:
+    desc: Push image to container registry
+    cmds:
+      - '{{.CONTAINER_CMD}} push {{.REGISTRY}}/{{.IMAGE_NAME}}:{{.IMAGE_TAG}}'
+      - echo "✅ Image pushed to {{.REGISTRY}}/{{.IMAGE_NAME}}:{{.IMAGE_TAG}}"
+
+  build-push:
+    desc: Build and push image to registry
+    deps: [build, push]
+    cmds:
+      - echo "✅ Build and push completed"
 
   run:
     desc: Run container

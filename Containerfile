@@ -3,9 +3,12 @@
 # Stage 1: Build the Hugo site
 FROM docker.io/library/alpine:3.22.2 AS builder
 
+# Configure Alpine mirror for faster downloads (China)
+RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.aliyun.com/g' /etc/apk/repositories
+
 # Install Hugo Extended (required for PaperMod theme - requires v0.146.0+)
 ENV HUGO_VERSION=0.152.2
-RUN apk add --no-cache wget ca-certificates libc6-compat libstdc++ && \
+RUN apk add --no-cache wget ca-certificates libc6-compat libstdc++ git && \
     wget -q https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_extended_${HUGO_VERSION}_linux-amd64.tar.gz && \
     tar -xzf hugo_extended_${HUGO_VERSION}_linux-amd64.tar.gz && \
     chmod +x hugo && \
@@ -20,14 +23,22 @@ WORKDIR /blog
 # Copy blog source files
 COPY . .
 
+# Clone PaperMod theme directly (since git submodules don't work well in Docker without .git dir)
+RUN git clone --depth=1 https://github.com/adityatelange/hugo-PaperMod.git themes/PaperMod && \
+    rm -rf themes/PaperMod/.git
+
 # Build the Hugo site
 RUN hugo
 
 # Stage 2: Create production image with Nginx
 FROM docker.io/library/nginx:1.29.3-alpine
 
+# Clean nginx default content completely (必须在复制前清理，否则 nginx 默认的 index.html 不会被覆盖)
+RUN rm -rf /usr/share/nginx/html/*
+
 # Copy built static files from builder stage
-COPY --from=builder /blog/public /usr/share/nginx/html
+# Note: Using trailing slash to ensure contents are copied, not the directory itself
+COPY --from=builder /blog/public/ /usr/share/nginx/html/
 
 # Copy custom nginx configuration (optional)
 # COPY nginx.conf /etc/nginx/nginx.conf

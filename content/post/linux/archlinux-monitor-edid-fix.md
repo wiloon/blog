@@ -1,6 +1,6 @@
 ---
 author: "-"
-date: "2025-12-20T18:30:00+08:00"
+date: "2025-12-30T16:45:00+08:00"
 title: "Arch Linux 显示器分辨率问题修复：手动加载 EDID 固件"
 url: archlinux-monitor-edid-fix
 categories:
@@ -12,6 +12,8 @@ tags:
   - 分辨率
   - Wayland
   - KDE
+  - GRUB
+  - 双系统
   - remix
   - AI-assisted
 ---
@@ -508,6 +510,8 @@ edid-decode /lib/firmware/edid/dell_u2412m.bin | grep -E "Checksum|1920x1200"
 
 #### 方法 1：直接编辑 GRUB 配置文件
 
+##### Ubuntu 配置示例
+
 ```bash
 # 备份 GRUB 配置
 sudo cp /etc/default/grub /etc/default/grub.backup.$(date +%Y%m%d)
@@ -515,30 +519,80 @@ sudo cp /etc/default/grub /etc/default/grub.backup.$(date +%Y%m%d)
 # 编辑 GRUB 配置
 sudo vim /etc/default/grub
 
-# 找到 GRUB_CMDLINE_LINUX_DEFAULT 行，在末尾添加 EDID 固件参数
+# Ubuntu 的 GRUB_CMDLINE_LINUX_DEFAULT 通常包含 quiet splash
 # 修改前：
 # GRUB_CMDLINE_LINUX_DEFAULT="quiet splash"
-# 修改后（注意：DisplayPort 接口编号可能在重启后变化，建议配置多个接口）：
+# 修改后：
 # GRUB_CMDLINE_LINUX_DEFAULT="quiet splash drm.edid_firmware=DP-8:edid/dell_u2412m.bin,DP-9:edid/dell_u2412m.bin,DP-10:edid/dell_u2412m.bin,DP-11:edid/dell_u2412m.bin,DP-12:edid/dell_u2412m.bin"
 ```
 
-#### 方法 2：使用 sed 自动修改
+##### Arch Linux 配置示例
 
 ```bash
 # 备份 GRUB 配置
 sudo cp /etc/default/grub /etc/default/grub.backup.$(date +%Y%m%d)
 
-# 使用 sed 修改配置
+# 编辑 GRUB 配置
+sudo vim /etc/default/grub
+
+# Arch Linux 的 GRUB_CMDLINE_LINUX_DEFAULT 通常比较简洁
+# 修改前：
+# GRUB_CMDLINE_LINUX_DEFAULT="loglevel=3 quiet"
+# 修改后（在末尾添加 EDID 固件参数）：
+# GRUB_CMDLINE_LINUX_DEFAULT="loglevel=3 quiet drm.edid_firmware=DP-8:edid/dell_u2412m.bin,DP-9:edid/dell_u2412m.bin,DP-10:edid/dell_u2412m.bin,DP-11:edid/dell_u2412m.bin,DP-12:edid/dell_u2412m.bin"
+```
+
+**注意事项**：
+
+- DisplayPort 接口编号可能在重启后变化，建议配置多个接口（DP-8 到 DP-12）
+- Arch Linux 默认配置通常更简洁，没有 `splash` 参数
+- 两个系统的 EDID 固件路径相同：`/lib/firmware/edid/`
+- 内核参数格式在两个系统中完全一致
+
+#### 方法 2：使用 sed 自动修改
+
+**通用命令（Ubuntu 和 Arch Linux 均适用）**：
+
+```bash
+# 备份 GRUB 配置
+sudo cp /etc/default/grub /etc/default/grub.backup.$(date +%Y%m%d)
+
+# 使用 sed 修改配置（自动在现有参数后追加 EDID 配置）
 sudo sed -i 's/GRUB_CMDLINE_LINUX_DEFAULT="\(.*\)"/GRUB_CMDLINE_LINUX_DEFAULT="\1 drm.edid_firmware=DP-8:edid\/dell_u2412m.bin,DP-9:edid\/dell_u2412m.bin,DP-10:edid\/dell_u2412m.bin,DP-11:edid\/dell_u2412m.bin,DP-12:edid\/dell_u2412m.bin"/' /etc/default/grub
 
 # 验证配置
 grep "GRUB_CMDLINE_LINUX_DEFAULT" /etc/default/grub
 ```
 
-### 步骤 6：更新 GRUB 并重新生成 initramfs
+**预期输出示例**：
 
 ```bash
-# 更新 GRUB 配置（Arch Linux 使用 grub-mkconfig）
+# Ubuntu:
+GRUB_CMDLINE_LINUX_DEFAULT="quiet splash drm.edid_firmware=DP-8:edid/dell_u2412m.bin,DP-9:edid/dell_u2412m.bin,DP-10:edid/dell_u2412m.bin,DP-11:edid/dell_u2412m.bin,DP-12:edid/dell_u2412m.bin"
+
+# Arch Linux:
+GRUB_CMDLINE_LINUX_DEFAULT="loglevel=3 quiet drm.edid_firmware=DP-8:edid/dell_u2412m.bin,DP-9:edid/dell_u2412m.bin,DP-10:edid/dell_u2412m.bin,DP-11:edid/dell_u2412m.bin,DP-12:edid/dell_u2412m.bin"
+```
+
+### 步骤 6：更新 GRUB 并重新生成 initramfs
+
+#### Ubuntu
+
+```bash
+# Ubuntu 更新 GRUB 配置
+sudo update-grub
+
+# 可选：重新生成 initramfs（确保 EDID 固件被包含）
+sudo update-initramfs -u -k all
+
+# 重启系统
+sudo reboot
+```
+
+#### Arch Linux
+
+```bash
+# Arch Linux 更新 GRUB 配置
 sudo grub-mkconfig -o /boot/grub/grub.cfg
 
 # 可选：重新生成 initramfs（确保 EDID 固件被包含）
@@ -547,6 +601,14 @@ sudo mkinitcpio -P
 # 重启系统
 sudo reboot
 ```
+
+**命令对比**：
+
+| 操作 | Ubuntu | Arch Linux |
+|------|--------|------------|
+| 更新 GRUB | `sudo update-grub` | `sudo grub-mkconfig -o /boot/grub/grub.cfg` |
+| 重新生成 initramfs | `sudo update-initramfs -u -k all` | `sudo mkinitcpio -P` |
+| 重启系统 | `sudo reboot` | `sudo reboot` |
 
 ### 步骤 7：重启后验证
 
@@ -647,7 +709,144 @@ sudo grub-mkconfig -o /boot/grub/grub.cfg && sudo reboot
 - EDID 固件仅在显示器 EDID 读取失败时才生效
 - 不存在的接口会被内核自动忽略
 
-### 问题 3：Invalid firmware EDID 错误
+### 问题 3：双系统环境下修改 ArchLinux 启动参数
+
+**症状**：Ubuntu 和 ArchLinux 双系统，在 Ubuntu 中修改了 GRUB 配置，但 ArchLinux 启动时 EDID 参数不生效
+
+**问题分析**：
+
+当你从 Ubuntu 查看 `/boot/grub/grub.cfg` 时，可能会看到类似这样的 ArchLinux 启动项：
+
+```bash
+menuentry 'Arch Linux (on /dev/nvme0n1p4)' --class arch --class gnu-linux --class gnu --class os {
+    insmod part_gpt
+    insmod ext2
+    search --no-floppy --fs-uuid --set=root a9769c82-3d32-48b5-b2ad-da69a31b0510
+    linux /boot/vmlinuz-linux root=/dev/nvme0n1p4
+    initrd /boot/initramfs-linux.img
+}
+```
+
+**关键问题**：
+
+1. 这个启动项是由 Ubuntu 的 `os-prober` 自动探测生成的
+2. `os-prober` 只会读取 ArchLinux 分区内的 GRUB 配置
+3. 即使在 Ubuntu 的 `/etc/default/grub` 中添加 EDID 参数，也只会影响 Ubuntu 自己的启动项
+4. ArchLinux 的启动参数来自 **ArchLinux 系统内部的 `/etc/default/grub`**
+
+**正确的解决方法**：
+
+**步骤 1：启动进入 ArchLinux 系统**
+
+从 GRUB 菜单选择 ArchLinux 启动。
+
+**步骤 2：在 ArchLinux 中准备 EDID 固件**
+
+```bash
+# 确认 EDID 文件存在（如果没有，参考前文生成）
+stat /lib/firmware/edid/dell_u2412m.bin
+
+# 如果文件不存在，需要先创建目录并复制/生成 EDID 文件
+sudo mkdir -p /lib/firmware/edid
+# （然后按照前文步骤 2-3 生成并复制 EDID 文件）
+```
+
+**步骤 3：修改 ArchLinux 的 GRUB 配置**
+
+```bash
+# 备份配置
+sudo cp /etc/default/grub /etc/default/grub.backup.$(date +%Y%m%d)
+
+# 编辑 GRUB 配置
+sudo vim /etc/default/grub
+
+# 找到 GRUB_CMDLINE_LINUX_DEFAULT 行，通常是：
+# GRUB_CMDLINE_LINUX_DEFAULT="loglevel=3 quiet"
+#
+# 修改为（在末尾添加 EDID 参数）：
+# GRUB_CMDLINE_LINUX_DEFAULT="loglevel=3 quiet drm.edid_firmware=DP-8:edid/dell_u2412m.bin,DP-9:edid/dell_u2412m.bin,DP-10:edid/dell_u2412m.bin,DP-11:edid/dell_u2412m.bin,DP-12:edid/dell_u2412m.bin"
+```
+
+**步骤 4：在 ArchLinux 中更新 GRUB**
+
+```bash
+# ArchLinux 使用 grub-mkconfig 命令
+sudo grub-mkconfig -o /boot/grub/grub.cfg
+
+# 可选：重新生成 initramfs
+sudo mkinitcpio -P
+```
+
+**步骤 5：在 Ubuntu 中更新 GRUB（重要！）**
+
+```bash
+# 重启回到 Ubuntu
+# 在 Ubuntu 中运行 update-grub，让 os-prober 重新探测 ArchLinux
+sudo update-grub
+
+# 这会让 Ubuntu 的 GRUB 菜单读取到 ArchLinux 更新后的内核参数
+```
+
+**步骤 6：验证配置**
+
+```bash
+# 重启进入 ArchLinux
+# 检查内核参数是否包含 EDID 配置
+cat /proc/cmdline | grep edid_firmware
+
+# 应该看到类似输出：
+# ... drm.edid_firmware=DP-8:edid/dell_u2412m.bin,DP-9:edid/dell_u2412m.bin ...
+
+# 检查显示器分辨率
+xrandr
+```
+
+**为什么需要在两个系统中都操作？**
+
+```text
+双系统 GRUB 启动流程：
+
+开机 → Ubuntu 的 GRUB (主引导器)
+          ↓
+          ├─→ 启动 Ubuntu (使用 Ubuntu 的 /etc/default/grub)
+          │
+          └─→ 启动 ArchLinux (使用 ArchLinux 的 /etc/default/grub)
+               ↑
+               └─ os-prober 从 ArchLinux 分区读取启动参数
+```
+
+**关键理解**：
+
+- Ubuntu 的 GRUB 是主引导器（安装在 MBR/ESP）
+- Ubuntu 的 GRUB 通过 `os-prober` 发现其他系统
+- 但每个系统的**内核参数**来自各自系统内的 `/etc/default/grub`
+- 所以要修改 ArchLinux 的启动参数，必须在 ArchLinux 系统内部修改
+
+**替代方案：手动编辑 Ubuntu 的 GRUB 配置文件（不推荐）**
+
+如果你不想重启到 ArchLinux，可以直接编辑 Ubuntu 的 `/boot/grub/grub.cfg`，但这**不推荐**，因为：
+
+1. 该文件会在下次 `update-grub` 时被覆盖
+2. 容易出错（语法错误可能导致无法启动）
+3. 不是标准做法
+
+如果坚持要这样做：
+
+```bash
+# 备份
+sudo cp /boot/grub/grub.cfg /boot/grub/grub.cfg.backup
+
+# 编辑文件
+sudo vim /boot/grub/grub.cfg
+
+# 找到 ArchLinux 启动项，手动在 linux 行末尾添加 EDID 参数：
+# 修改前：
+#   linux /boot/vmlinuz-linux root=/dev/nvme0n1p4
+# 修改后：
+#   linux /boot/vmlinuz-linux root=/dev/nvme0n1p4 drm.edid_firmware=DP-8:edid/dell_u2412m.bin,DP-9:edid/dell_u2412m.bin,DP-10:edid/dell_u2412m.bin
+```
+
+### 问题 4：Invalid firmware EDID 错误
 
 **症状**：内核日志显示
 

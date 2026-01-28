@@ -1,13 +1,14 @@
 ---
 title: Git basic commands, git 常用命令
 author: "-"
-date: 2022-01-29 10:33:11
+date: 2026-01-14T16:30:00+08:00
 url: git/basic
 categories:
 - Git
 tags:
 - reprint
 - remix
+- AI-assisted
 ---
 ## Git basic commands
 
@@ -262,7 +263,7 @@ git fetch --tags
 ```bash
 # git fetch 不加任何参数时，会从默认远程（通常是 origin）抓取所有分支的最新信息，但不会自动合并到你的本地分支。
 # 会获取远程仓库所有分支的最新提交和引用信息（包括新分支、标签等）。
-# 只会更新本地的远程分支（如 origin/main、origin/dev 等），不会更改你当前检出的分支的内容。
+# 只会更新本地的远程分支（如 origin/main, origin/dev 等），不会更改你当前检出的分支的内容。
 git fetch
 # 跟上面的命令是一样的, git fetch 默认的远程仓库是 origin
 git fetch origin
@@ -990,6 +991,53 @@ depth 用于指定克隆深度, 为1即表示只克隆最近一次 commit.
 git switch main
 
 git log --pretty=oneline
+
+## git mirror
+
+### git clone --mirror
+
+创建一个裸仓库的完整镜像，包含所有分支、标签和引用：
+
+```bash
+# 镜像克隆远程仓库
+git clone --mirror https://github.com/user/repo.git
+
+# 会创建一个 repo.git 目录，包含完整的仓库数据
+```
+
+**特点：**
+
+- 克隆所有引用（分支、标签、远程分支等）
+- 创建裸仓库（bare repository），没有工作目录
+- 常用于备份或迁移整个仓库
+
+### git push --mirror
+
+将本地所有引用（分支、标签等）镜像推送到远程：
+
+```bash
+# 推送所有分支和标签到远程
+git push --mirror https://github.com/user/new-repo.git
+```
+
+**特点：**
+
+- 推送所有本地分支和标签
+- 会删除远程仓库中本地不存在的引用
+- ⚠️ 危险操作，会覆盖远程仓库
+
+### 典型使用场景：仓库迁移
+
+```bash
+# 1. 镜像克隆原仓库
+git clone --mirror https://old-host.com/repo.git
+
+# 2. 进入镜像仓库目录
+cd repo.git
+
+# 3. 镜像推送到新仓库
+git push --mirror https://new-host.com/repo.git
+```
 
 git-ls-files  # - Show information about files in the index and the working tree
 

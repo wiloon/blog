@@ -26,7 +26,7 @@ tags:
 ```bash
 lsblk
 
-# 看到磁盘总大小增加了，但分区大小未变。
+# 看到磁盘总大小增加了，但分区大小没变。
 fdisk -l
 # 调整分区表, 扩容, 用 fdisk 调整分区表一般不会丢数据，但是最好备份一下。
 fdisk /dev/sda
@@ -47,6 +47,7 @@ Device     Boot   Start      End  Sectors Size Id Type
 /dev/sda1  *       6144  2103295  2097152   1G  b W95 FAT32
 /dev/sda2       2103296 20971519 18868224   9G 83 Linux
 
+# delete partition 2
 Command (m for help): d
 Partition number (1,2, default 2): 2
 
@@ -56,18 +57,28 @@ Command (m for help): n
 Partition type
    p   primary (1 primary, 0 extended, 3 free)
    e   extended (container for logical partitions)
+
+# 输入 p
 Select (default p): p
+
+# 使用默认值 2
 Partition number (2-4, default 2): 
+
+# 输入分区的起始扇区, 要和删除的分区起始扇区一样
 First sector (2048-41943039, default 2048): 2103296
+
+# 输入分区的结束扇区, 使用默认值, 即使用所有剩余空间
 Last sector, +/-sectors or +/-size{K,M,G,T,P} (2103296-41943039, default 41943039): 
 
 Created a new partition 2 of type 'Linux' and of size 19 GiB.
 Partition #2 contains a ext4 signature.
 
+# 输入 y 确认删除 ext4 签名
 Do you want to remove the signature? [Y]es/[N]o: Y
 
 The signature will be removed by a write command.
 
+# 再次打印分区表， 应该能看到分区 2 已经变大了
 Command (m for help): p
 Disk /dev/sda: 20 GiB, 21474836480 bytes, 41943040 sectors
 Disk model: QEMU HARDDISK   
@@ -83,14 +94,27 @@ Device     Boot   Start      End  Sectors Size Id Type
 
 Filesystem/RAID signature on partition 2 will be wiped.
 
+# 输入命令 w 保存分区表
 Command (m for help): w
 The partition table has been altered.
 Syncing disks.
 
 # ------
 e2fsck -f /dev/sda2
+
+# 有可能会询问是否优化，输入 y， 后面可能会有很多类似的提示，全部输入 y 即可， 还有可能提示输入 a: 确认全部
+root@archiso ~ # e2fsck -f /dev/sda2
+e2fsck 1.47.3 (8-Jul-2025)
+ext2fs_open2: Bad magic number in super-block
+e2fsck: Superblock invalid, trying backup blocks...
+Pass 1: Checking inodes, blocks, and sizes
+
+Inode 287507 extent tree (at level 1) could be narrower.  Optimize<y>? 
+
+# resize the filesystem
 resize2fs /dev/sda2
 
+# 分区扩容完成，重启虚拟机
 ```
 
 ------

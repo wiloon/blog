@@ -1,7 +1,7 @@
 ---
 title: k8s command
 author: "-"
-date: 2021-09-26 00:09:45
+date: 2026-01-10T16:30:00+08:00
 url: k8s/command
 categories:
   - K8S
@@ -9,6 +9,7 @@ tags:
   - reprint
   - k8s
   - remix
+  - AI-assisted
 ---
 ## k8s command
 
@@ -62,6 +63,25 @@ kubectl get node -L kubernetes.io/arch
 # delete lable
 kubectl label node minikube disktype-
 kubectl describe node node0
+
+## 节点关机操作
+
+```bash
+# 1. 标记节点为不可调度（防止新 Pod 调度到该节点）
+kubectl cordon <node-name>
+
+# 2. 驱逐节点上的 Pod（优雅地将 Pod 迁移到其他节点）
+kubectl drain <node-name> --ignore-daemonsets --delete-emptydir-data
+
+# 3. 验证节点上是否还有 Pod 运行
+kubectl get pods --all-namespaces -o wide | grep <node-name>
+
+# 4. 关机
+sudo poweroff
+
+# 5. 节点重新上线后，恢复调度（取消不可调度状态）
+kubectl uncordon <node-name>
+```
 
 # 查看 pod 状态
 kubectl get pods --all-namespaces

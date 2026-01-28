@@ -1,8 +1,8 @@
 ---
-title: archlinux AUR, yay
+title: archlinux AUR Helper, yay, paru
 author: "-"
-date: 2025-12-21T22:28:02+08:00
-url: aur-yay
+date: 2026-01-01T08:30:00+08:00
+url: aur-helper-yay-paru
 tags:
   - archlinux
   - reprint
@@ -11,7 +11,7 @@ tags:
 categories:
   - Linux
 ---
-## archlinux AUR, yay
+## archlinux AUR Helper
 
 ## yay
 
@@ -127,7 +127,111 @@ yay -Ql
 yay -Ql <package-name>
 ```
 
+## paru
 
+https://github.com/Morganamilo/paru
+
+paru 是另一个流行的 AUR 助手，使用 Rust 语言编写，被认为是下一代 AUR 助手。
+
+### paru 安装
+
+```bash
+pacman -S --needed git base-devel
+git clone https://aur.archlinux.org/paru.git
+cd paru
+makepkg -si
+```
+
+或者安装二进制版本：
+
+```bash
+pacman -S --needed git base-devel
+git clone https://aur.archlinux.org/paru-bin.git
+cd paru-bin
+makepkg -si
+```
+
+### paru 使用命令
+
+```bash
+# 搜索
+paru -Ss <package-name>
+
+# 安装
+paru -S <package-name>
+
+# 更新所有包
+paru
+
+# 查看 Arch 新闻
+paru --news
+```
+
+## yay vs paru 对比
+
+### 相同点
+
+- 都是 AUR 助手，用于管理 Arch Linux AUR 软件包
+- 都提供类似 pacman 的命令行界面
+- 都支持彩色输出和搜索功能
+- 都可以同时管理官方仓库和 AUR 软件包
+
+### 主要区别
+
+| 特性 | yay | paru |
+|------|-----|------|
+| **编程语言** | Go | Rust |
+| **开发状态** | 活跃维护 | 活跃维护 |
+| **默认行为** | 较宽松，自动执行更多操作 | 更严格，需要更多确认 |
+| **性能** | 快速 | 稍快（得益于 Rust） |
+| **配置文件** | `~/.config/yay/config.json` | `~/.config/paru/paru.conf` |
+| **特色功能** | 简单易用，接近 yaourt | 更安全的默认设置，更好的 PKGBUILD 审查 |
+| **新闻功能** | 不支持 | 支持显示 Arch 新闻 |
+| **依赖** | 几乎无依赖 | 几乎无依赖 |
+
+### 使用体验差异
+
+**yay 特点：**
+
+- 更适合新手，默认行为更"聪明"
+- 命令简短，如 `yay` 即可更新所有包
+- 配置相对简单
+
+**paru 特点：**
+
+- 更注重安全性，会提示查看 PKGBUILD
+- 默认显示 Arch 新闻（重要更新通知）
+- 更严格的包审查流程
+- 被认为是 yay 的"精神继承者"，但更现代化
+
+### 命令对比
+
+两者的基本命令几乎完全相同：
+
+```bash
+# 安装包
+yay -S package-name
+paru -S package-name
+
+# 搜索包
+yay -Ss keyword
+paru -Ss keyword
+
+# 系统更新
+yay
+paru
+
+# 删除包
+yay -R package-name
+paru -R package-name
+```
+
+### 如何选择
+
+- **选 yay**：如果你想要简单、快速、类似 yaourt 的体验
+- **选 paru**：如果你重视安全性、想要 Arch 新闻提醒、喜欢现代化的 Rust 工具链
+
+两者都是优秀的 AUR 助手，选择哪个主要看个人偏好。许多用户从 yay 迁移到 paru，因为 paru 被认为是"下一代"AUR 助手。
 
 ## Yaourt
 
