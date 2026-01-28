@@ -96,7 +96,7 @@ git pull --ff-only
 
 ```bash
 man git-fetch
-git fetch --prune  #在本地删除在远程不存在的branch
+git fetch --prune  # 在本地删除在远程不存在的branch
 git fetch --all 告诉 Git 同步所有的远端仓库
 ```
 
@@ -259,7 +259,6 @@ git fetch 命令用来拉取远程仓库的数据 (objects and refs).
 git fetch --tags
 ```
 
-
 ```bash
 # git fetch 不加任何参数时，会从默认远程（通常是 origin）抓取所有分支的最新信息，但不会自动合并到你的本地分支。
 # 会获取远程仓库所有分支的最新提交和引用信息（包括新分支、标签等）。
@@ -316,7 +315,7 @@ commit-id: 在每次本地工作完成后，都会做一个 git commit 操作来
 这是一个能唯一标识一个版本的序列号。 在使用 git push 后，这个 id 会同步到远程仓库。
 
 有了以上的概念再来说说 git fetch
-git fetch: 这将更新本地仓库关联的所有的远程仓库所包含所有分支的最新 commit-id, 
+git fetch: 这将更新本地仓库关联的所有的远程仓库所包含所有分支的最新 commit-id,
 将其记录到 .git/FETCH_HEAD 文件中
 git fetch 更新远程仓库的方式如下:
 
