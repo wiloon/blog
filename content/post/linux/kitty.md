@@ -1,7 +1,7 @@
 ---
 title: kitty
 author: "-"
-date: 2026-01-28T14:20:00+08:00
+date: 2026-01-30T11:30:06+08:00
 url: kitty
 categories:
   - Linux
@@ -420,18 +420,18 @@ alias ksplit-h='kitty @ launch --location=hsplit --cwd=current'
 
 ```conf
 # ============================================
-# Kitty 配置文件 - Linux 版本
+# Kitty Configuration - Linux Version
 # ~/.config/kitty/kitty.conf
 # ============================================
 
-# -------------------- 远程控制配置 --------------------
+# -------------------- Remote Control --------------------
 allow_remote_control socket-only
 listen_on unix:/tmp/kitty.sock
 
-# -------------------- 布局配置 --------------------
+# -------------------- Layout --------------------
 enabled_layouts tall,fat,grid,splits,stack
 
-# -------------------- 字体配置 --------------------
+# -------------------- Font --------------------
 font_family      Cascadia Code
 bold_font        auto
 italic_font      auto
@@ -439,84 +439,84 @@ bold_italic_font auto
 font_size        12.0
 disable_ligatures always
 
-# -------------------- 光标配置 --------------------
+# -------------------- Cursor --------------------
 cursor_shape block
 cursor_blink_interval 0
 
-# -------------------- 窗口配置 --------------------
+# -------------------- Window --------------------
 remember_window_size  yes
 initial_window_width  1200
 initial_window_height 800
 
-# -------------------- 性能优化 --------------------
+# -------------------- Performance --------------------
 repaint_delay 10
 input_delay 3
 sync_to_monitor yes
 
-# -------------------- 标签页样式 --------------------
+# -------------------- Tab Bar Style --------------------
 tab_bar_edge top
 tab_bar_style powerline
 tab_powerline_style slanted
 tab_bar_min_tabs 1
 tab_title_template "{fmt.fg.red}{bell_symbol}{activity_symbol}{fmt.fg.tab}{title} [{layout_name}]"
 
-# -------------------- 滚动缓冲区 --------------------
+# -------------------- Scrollback Buffer --------------------
 scrollback_lines 30000
 
-# -------------------- 主题配色 --------------------
+# -------------------- Theme --------------------
 include ./kitty-themes/themes/Tokyo_Night.conf
 
 # ============================================
-# 快捷键配置
+# Keyboard Shortcuts
 # ============================================
 
-# -------------------- 配置管理 --------------------
-map ctrl+shift+f2 load_config_file     # 打开配置文件
-map ctrl+shift+f5 load_config_file     # 重新加载配置
-map ctrl+shift+f6 debug_config         # 显示当前配置
+# -------------------- Config Management --------------------
+map ctrl+shift+f2 load_config_file     # Open config file
+map ctrl+shift+f5 load_config_file     # Reload config
+map ctrl+shift+f6 debug_config         # Show current config
 
-# -------------------- 窗口分割 --------------------
-map ctrl+shift+enter launch --cwd=current                 # 新建窗口
-map ctrl+shift+\ launch --location=vsplit --cwd=current   # 垂直分割（左右分屏）
-map ctrl+shift+- launch --location=hsplit --cwd=current   # 水平分割（上下分屏）
+# -------------------- Window Split --------------------
+map ctrl+shift+enter launch --cwd=current                 # New window
+map ctrl+shift+\ launch --location=vsplit --cwd=current   # Vertical split (side by side)
+map ctrl+shift+- launch --location=hsplit --cwd=current   # Horizontal split (top/bottom)
 
-# -------------------- 窗口管理 --------------------
-map ctrl+shift+w close_window          # 关闭当前窗口
-map ctrl+shift+x close_window          # 关闭当前窗口（备用）
-map alt+w close_window                 # 关闭当前窗口（Alt+W）
-map ctrl+shift+] next_window           # 切换到下一个窗口
-map ctrl+shift+[ previous_window       # 切换到上一个窗口
-map ctrl+shift+r start_resizing_window # 调整窗口大小模式
+# -------------------- Window Management --------------------
+map ctrl+shift+w close_window          # Close current window
+map ctrl+shift+x close_window          # Close current window (alternative)
+map alt+w close_window                 # Close current window (Alt+W)
+map ctrl+shift+] next_window           # Switch to next window
+map ctrl+shift+[ previous_window       # Switch to previous window
+map ctrl+shift+r start_resizing_window # Enter window resize mode
 
-# -------------------- 窗口移动 --------------------
-map ctrl+shift+up move_window up       # 将当前窗口向上移动
-map ctrl+shift+down move_window down   # 将当前窗口向下移动
-map ctrl+shift+left move_window left   # 将当前窗口向左移动
-map ctrl+shift+right move_window right # 将当前窗口向右移动
+# -------------------- Window Move --------------------
+map ctrl+shift+up move_window up       # Move current window up
+map ctrl+shift+down move_window down   # Move current window down
+map ctrl+shift+left move_window left   # Move current window left
+map ctrl+shift+right move_window right # Move current window right
 
-# -------------------- 布局切换 --------------------
-map ctrl+shift+l next_layout           # 循环切换布局
-map ctrl+shift+h goto_layout fat       # 切换到 fat 布局（水平分割）
-map ctrl+shift+g goto_layout grid      # 切换到 grid 布局（网格）
-map ctrl+shift+s goto_layout splits    # 切换到 splits 布局（自由分割）
-map ctrl+shift+a goto_layout stack     # 切换到 stack 布局（全屏单窗口）
+# -------------------- Layout Switch --------------------
+map ctrl+shift+l next_layout           # Cycle through layouts
+map ctrl+shift+h goto_layout fat       # Switch to fat layout (horizontal)
+map ctrl+shift+g goto_layout grid      # Switch to grid layout
+map ctrl+shift+s goto_layout splits    # Switch to splits layout (free split)
+map ctrl+shift+a goto_layout stack     # Switch to stack layout (fullscreen single)
 
-# -------------------- 标签页管理 --------------------
-map ctrl+shift+t new_tab               # 新建标签页
-map ctrl+shift+q quit                  # 退出 kitty
-map ctrl+shift+page_up previous_tab    # 切换到上一个标签页
-map ctrl+shift+page_down next_tab      # 切换到下一个标签页
+# -------------------- Tab Management --------------------
+map ctrl+shift+t new_tab               # New tab
+map ctrl+shift+q quit                  # Quit kitty
+map ctrl+shift+page_up previous_tab    # Switch to previous tab
+map ctrl+shift+page_down next_tab      # Switch to next tab
 
-# -------------------- 搜索与历史 --------------------
-map ctrl+shift+/ show_scrollback       # 打开历史浏览模式（使用 / 因为在 vim 中代表搜索）
-map ctrl+shift+f launch --type=overlay --stdin-source=@screen_scrollback fzf --no-sort --no-mouse --exact -i --tac  # fzf 模糊搜索
-map ctrl+shift+home scroll_home        # 跳转到第一行
-map ctrl+shift+end scroll_end          # 跳转到最后一行
-map ctrl+alt+page_up scroll_page_up    # 向上翻页（使用 ctrl+alt 避免与标签页切换冲突）
-map ctrl+alt+page_down scroll_page_down  # 向下翻页（使用 ctrl+alt 避免与标签页切换冲突）
+# -------------------- Search & History --------------------
+map ctrl+shift+/ show_scrollback       # Open history browser (/ is search in vim)
+map ctrl+shift+f launch --type=overlay --stdin-source=@screen_scrollback fzf --no-sort --no-mouse --exact -i --tac  # fzf fuzzy search
+map ctrl+shift+home scroll_home        # Jump to first line
+map ctrl+shift+end scroll_end          # Jump to last line
+map ctrl+alt+page_up scroll_page_up    # Page up (ctrl+alt to avoid tab switch conflict)
+map ctrl+alt+page_down scroll_page_down  # Page down (ctrl+alt to avoid tab switch conflict)
 
-# -------------------- 清空终端 --------------------
-map ctrl+shift+delete clear_terminal reset active  # 完全清空终端和滚动缓冲区
+# -------------------- Clear Terminal --------------------
+map ctrl+shift+delete clear_terminal reset active  # Clear terminal and scrollback buffer
 ```
 
 **快捷键记忆法：**

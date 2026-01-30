@@ -1,7 +1,7 @@
 ---
 title: python basic
 author: "-"
-date: 2025-11-26T14:30:00+08:00
+date: 2026-01-29T15:46:00+08:00
 url: python
 categories:
   - Python
@@ -326,6 +326,218 @@ l.remove(1)
 (set(['a', 'p', 's', 'm']), set(['a', 'h', 'm']))    
 ```
 
+## 对象拷贝 copy
+
+### copy.deepcopy() 深拷贝
+
+Python 中的 `copy.deepcopy()` 函数用于创建对象的深拷贝（deep copy）。深拷贝会递归地复制对象及其包含的所有子对象，生成一个完全独立的新对象。
+
+#### 浅拷贝 vs 深拷贝
+
+**浅拷贝（Shallow Copy）**：
+
+- 只复制对象的第一层，嵌套的对象仍然是引用
+- 使用 `copy.copy()` 或切片 `[:]` 创建
+- 修改嵌套对象会影响原对象
+
+**深拷贝（Deep Copy）**：
+
+- 递归复制对象及所有嵌套对象
+- 使用 `copy.deepcopy()` 创建
+- 完全独立，修改不影响原对象
+
+#### 基本用法
+
+```python
+import copy
+
+# 简单示例
+original = [1, 2, [3, 4]]
+deep_copied = copy.deepcopy(original)
+
+# 修改深拷贝的嵌套列表
+deep_copied[2][0] = 999
+print(original)      # [1, 2, [3, 4]]  - 不受影响
+print(deep_copied)   # [1, 2, [999, 4]] - 已修改
+```
+
+#### 浅拷贝与深拷贝对比
+
+```python
+import copy
+
+original = [1, 2, [3, 4]]
+
+# 浅拷贝
+shallow = copy.copy(original)
+shallow[2][0] = 999
+print(original)  # [1, 2, [999, 4]] - 受影响！
+
+# 深拷贝
+original = [1, 2, [3, 4]]
+deep = copy.deepcopy(original)
+deep[2][0] = 888
+print(original)  # [1, 2, [3, 4]] - 不受影响
+```
+
+#### 复制自定义对象
+
+```python
+import copy
+
+class Person:
+    def __init__(self, name, friends):
+        self.name = name
+        self.friends = friends  # 列表引用
+
+# 原始对象
+alice = Person("Alice", ["Bob", "Charlie"])
+
+# 浅拷贝
+alice_shallow = copy.copy(alice)
+alice_shallow.friends.append("David")
+print(alice.friends)  # ['Bob', 'Charlie', 'David'] - 受影响
+
+# 深拷贝
+alice = Person("Alice", ["Bob", "Charlie"])
+alice_deep = copy.deepcopy(alice)
+alice_deep.friends.append("Eve")
+print(alice.friends)  # ['Bob', 'Charlie'] - 不受影响
+print(alice_deep.friends)  # ['Bob', 'Charlie', 'Eve']
+```
+
+#### 复制字典
+
+```python
+import copy
+
+original_dict = {
+    'name': 'John',
+    'age': 30,
+    'hobbies': ['reading', 'gaming'],
+    'address': {'city': 'Beijing', 'country': 'China'}
+}
+
+# 深拷贝字典
+copied_dict = copy.deepcopy(original_dict)
+
+# 修改嵌套结构
+copied_dict['hobbies'].append('swimming')
+copied_dict['address']['city'] = 'Shanghai'
+
+print(original_dict['hobbies'])  # ['reading', 'gaming'] - 不受影响
+print(original_dict['address'])  # {'city': 'Beijing', 'country': 'China'} - 不受影响
+```
+
+#### 性能注意事项
+
+深拷贝的性能开销较大，因为它需要递归遍历所有嵌套对象：
+
+```python
+import copy
+import time
+
+# 大型嵌套结构
+large_list = [[i] * 100 for i in range(1000)]
+
+# 测量深拷贝时间
+start = time.time()
+deep_copy = copy.deepcopy(large_list)
+print(f"深拷贝耗时: {time.time() - start:.4f} 秒")
+
+# 测量浅拷贝时间
+start = time.time()
+shallow_copy = copy.copy(large_list)
+print(f"浅拷贝耗时: {time.time() - start:.4f} 秒")
+```
+
+#### 循环引用处理
+
+`copy.deepcopy()` 可以正确处理循环引用的对象：
+
+```python
+import copy
+
+class Node:
+    def __init__(self, value):
+        self.value = value
+        self.next = None
+
+# 创建循环引用
+node1 = Node(1)
+node2 = Node(2)
+node1.next = node2
+node2.next = node1  # 循环引用
+
+# 深拷贝可以正确处理
+copied_node1 = copy.deepcopy(node1)
+print(copied_node1.value)  # 1
+print(copied_node1.next.value)  # 2
+print(copied_node1.next.next.value)  # 1
+```
+
+#### 何时使用深拷贝
+
+**适合使用深拷贝的场景**：
+
+- 需要完全独立的对象副本
+- 对象包含嵌套的可变类型（列表、字典、自定义对象）
+- 需要修改副本而不影响原对象
+- 处理复杂的数据结构
+
+**不需要深拷贝的场景**：
+
+- 对象只包含不可变类型（int、str、tuple）
+- 只需要复制第一层数据
+- 性能要求高且不需要完全独立的副本
+
+#### 自定义深拷贝行为
+
+可以通过实现 `__deepcopy__()` 方法自定义深拷贝行为：
+
+```python
+import copy
+
+class CustomClass:
+    def __init__(self, data):
+        self.data = data
+    
+    def __deepcopy__(self, memo):
+        # 自定义深拷贝逻辑
+        print("执行自定义深拷贝")
+        new_obj = CustomClass(copy.deepcopy(self.data, memo))
+        return new_obj
+
+original = CustomClass([1, 2, 3])
+copied = copy.deepcopy(original)
+# 输出: 执行自定义深拷贝
+```
+
+#### 常见陷阱
+
+**1. 文件对象和网络连接无法深拷贝**：
+
+```python
+import copy
+
+f = open('file.txt', 'r')
+try:
+    copied_f = copy.deepcopy(f)  # TypeError: cannot deepcopy file objects
+except TypeError as e:
+    print(f"错误: {e}")
+```
+
+**2. 某些内置类型会返回自身**：
+
+```python
+import copy
+
+# 不可变类型的深拷贝返回自身
+x = (1, 2, 3)
+y = copy.deepcopy(x)
+print(x is y)  # True - 元组是不可变的，直接返回引用
+```
+
 ## 类, class
 
 https://blog.csdn.net/yilulvxing/article/details/85374142
@@ -384,6 +596,723 @@ vars(student)
 ```Bash
 op = hasattr(a,'getValue')
 ```
+
+## 垃圾回收 (Garbage Collection)
+
+Python 的内存管理主要通过自动垃圾回收机制来实现，它结合了**引用计数**和**分代回收**两种策略。
+
+### 垃圾回收策略
+
+#### 1. 引用计数（Reference Counting）
+
+引用计数是 Python 内存管理的主要机制：
+
+```python
+import sys
+
+a = [1, 2, 3]
+print(sys.getrefcount(a))  # 2（一个是 a，一个是传递给 getrefcount 的参数）
+
+b = a  # 引用计数增加
+print(sys.getrefcount(a))  # 3
+
+del b  # 引用计数减少
+print(sys.getrefcount(a))  # 2
+```
+
+**引用计数的优缺点**：
+
+- ✅ 优点：实时性好，对象引用计数为 0 时立即回收
+- ✅ 优点：实现简单，易于理解
+- ❌ 缺点：无法处理循环引用
+- ❌ 缺点：维护引用计数有额外开销
+
+#### 2. 分代回收（Generational GC）
+
+Python 使用分代回收来解决循环引用问题，将对象分为三代：
+
+- **第 0 代（Generation 0）**：新创建的对象
+- **第 1 代（Generation 1）**：经历过 1 次 GC 存活的对象
+- **第 2 代（Generation 2）**：经历过多次 GC 存活的对象
+
+**分代假说**：大多数对象朝生夕死，存活时间越长的对象越不容易被回收。
+
+```python
+import gc
+
+# 查看当前 GC 阈值
+print(gc.get_threshold())  # (700, 10, 10)
+# 700: 第 0 代触发阈值
+# 10: 第 1 代触发阈值
+# 10: 第 2 代触发阈值
+```
+
+#### 3. 循环引用检测
+
+Python 通过标记-清除算法检测并处理循环引用：
+
+```python
+import gc
+
+class Node:
+    def __init__(self, value):
+        self.value = value
+        self.next = None
+
+# 创建循环引用
+node1 = Node(1)
+node2 = Node(2)
+node1.next = node2
+node2.next = node1
+
+# 删除引用
+del node1
+del node2
+
+# 循环引用的对象不会立即被回收（引用计数不为 0）
+# 但会在下次 GC 时被检测到并回收
+gc.collect()  # 手动触发垃圾回收
+```
+
+### GC 配置与控制
+
+Python 的 `gc` 模块提供了丰富的配置选项：
+
+#### 启用/禁用 GC
+
+```python
+import gc
+
+# 检查 GC 是否启用
+print(gc.isenabled())  # True
+
+# 禁用自动垃圾回收
+gc.disable()
+
+# 启用自动垃圾回收
+gc.enable()
+```
+
+#### 手动触发垃圾回收
+
+```python
+import gc
+
+# 手动执行垃圾回收，返回不可达对象数量
+collected = gc.collect()
+print(f"回收了 {collected} 个对象")
+
+# 指定回收哪一代
+gc.collect(0)  # 只回收第 0 代
+gc.collect(1)  # 回收第 0、1 代
+gc.collect(2)  # 回收所有代（完全回收）
+```
+
+#### 配置 GC 阈值
+
+```python
+import gc
+
+# 获取当前阈值
+thresholds = gc.get_threshold()
+print(f"当前阈值: {thresholds}")  # (700, 10, 10)
+
+# 设置新阈值
+# 参数含义：(threshold0, threshold1, threshold2)
+gc.set_threshold(1000, 15, 15)
+
+# 阈值说明：
+# threshold0: 当新分配对象数 - 释放对象数 > 700 时，触发第 0 代回收
+# threshold1: 第 0 代回收 10 次后，触发第 1 代回收
+# threshold2: 第 1 代回收 10 次后，触发第 2 代回收
+```
+
+#### 查看 GC 统计信息
+
+```python
+import gc
+
+# 获取每一代的对象数量
+print(gc.get_count())  # (581, 7, 3)
+# 581: 第 0 代对象数量
+# 7: 距离上次第 1 代回收的次数
+# 3: 距离上次第 2 代回收的次数
+
+# 获取 GC 统计信息
+for i, stats in enumerate(gc.get_stats()):
+    print(f"第 {i} 代统计: {stats}")
+```
+
+#### 调试和追踪
+
+```python
+import gc
+
+# 设置调试标志
+gc.set_debug(gc.DEBUG_STATS | gc.DEBUG_LEAK)
+
+# 常用调试标志：
+# gc.DEBUG_STATS: 打印回收统计信息
+# gc.DEBUG_LEAK: 打印泄漏的对象
+# gc.DEBUG_COLLECTABLE: 打印可回收的对象
+# gc.DEBUG_UNCOLLECTABLE: 打印无法回收的对象
+# gc.DEBUG_SAVEALL: 保存所有对象到 gc.garbage
+
+# 查看所有被追踪的对象
+objects = gc.get_objects()
+print(f"当前追踪了 {len(objects)} 个对象")
+
+# 查找特定类型的对象
+for obj in gc.get_objects():
+    if isinstance(obj, dict):
+        print(f"发现字典对象: {id(obj)}")
+        break
+
+# 查看无法回收的对象（通常是循环引用）
+print(gc.garbage)  # []
+```
+
+### 性能优化建议
+
+#### 1. 合理使用 GC 控制
+
+```python
+import gc
+import time
+
+# 对于批量处理，可以临时禁用 GC
+def batch_process(data):
+    gc.disable()  # 禁用 GC
+    try:
+        result = [process_item(item) for item in data]
+    finally:
+        gc.enable()  # 重新启用 GC
+        gc.collect()  # 手动触发一次回收
+    return result
+```
+
+#### 2. 避免循环引用
+
+```python
+import weakref
+
+class Node:
+    def __init__(self, value):
+        self.value = value
+        # 使用弱引用避免循环引用
+        self._parent = None
+    
+    def set_parent(self, parent):
+        # 使用弱引用
+        self._parent = weakref.ref(parent) if parent else None
+    
+    def get_parent(self):
+        return self._parent() if self._parent else None
+```
+
+#### 3. 使用上下文管理器
+
+```python
+from contextlib import contextmanager
+import gc
+
+@contextmanager
+def no_gc():
+    """临时禁用 GC 的上下文管理器"""
+    gc_enabled = gc.isenabled()
+    gc.disable()
+    try:
+        yield
+    finally:
+        if gc_enabled:
+            gc.enable()
+            gc.collect()
+
+# 使用示例
+with no_gc():
+    # 在这里执行不需要 GC 的代码
+    big_list = [i for i in range(1000000)]
+```
+
+#### 4. 监控内存使用
+
+```python
+import gc
+import sys
+
+def get_size(obj):
+    """递归计算对象大小"""
+    size = sys.getsizeof(obj)
+    if isinstance(obj, dict):
+        size += sum([get_size(v) for v in obj.values()])
+        size += sum([get_size(k) for k in obj.keys()])
+    elif isinstance(obj, (list, tuple, set)):
+        size += sum([get_size(i) for i in obj])
+    return size
+
+# 查找内存占用最大的对象
+def find_large_objects(limit=10):
+    objects = gc.get_objects()
+    sizes = [(obj, sys.getsizeof(obj)) for obj in objects]
+    sizes.sort(key=lambda x: x[1], reverse=True)
+    
+    for i, (obj, size) in enumerate(sizes[:limit], 1):
+        print(f"{i}. {type(obj).__name__}: {size} bytes")
+```
+
+### 实际应用场景
+
+#### 1. 长期运行的服务
+
+```python
+import gc
+import time
+
+def main_loop():
+    gc.set_threshold(1000, 15, 15)  # 调整阈值减少 GC 频率
+    
+    while True:
+        # 处理请求
+        process_requests()
+        
+        # 每小时执行一次完全回收
+        if time.time() % 3600 < 1:
+            gc.collect(2)
+```
+
+#### 2. 内存密集型应用
+
+```python
+import gc
+
+def memory_intensive_task():
+    # 处理大量数据时禁用 GC
+    gc.disable()
+    
+    try:
+        # 创建大量临时对象
+        data = process_large_dataset()
+        result = analyze_data(data)
+    finally:
+        # 手动清理并触发回收
+        del data
+        gc.enable()
+        gc.collect()
+    
+    return result
+```
+
+#### 3. 内存泄漏检测
+
+```python
+import gc
+import sys
+
+def detect_memory_leak():
+    # 强制回收所有代
+    gc.collect()
+    
+    # 记录初始对象数
+    before = len(gc.get_objects())
+    
+    # 执行可能泄漏的代码
+    suspicious_function()
+    
+    # 再次回收
+    gc.collect()
+    
+    # 检查对象数变化
+    after = len(gc.get_objects())
+    leaked = after - before
+    
+    if leaked > 100:
+        print(f"警告：可能存在内存泄漏，增加了 {leaked} 个对象")
+        
+        # 查找新增的对象类型
+        objects = gc.get_objects()[before:after]
+        types = {}
+        for obj in objects:
+            t = type(obj).__name__
+            types[t] = types.get(t, 0) + 1
+        
+        print("新增对象类型：")
+        for t, count in sorted(types.items(), key=lambda x: x[1], reverse=True)[:10]:
+            print(f"  {t}: {count}")
+```
+
+### 检查运行中应用的 GC 配置
+
+对于已经在生产环境运行的 Python 应用，有多种方式可以检查其 GC 配置：
+
+#### 1. 通过代码内置检查
+
+最简单的方法是在应用启动时或特定端点输出 GC 配置信息：
+
+```python
+import gc
+import json
+
+def get_gc_config():
+    """获取当前 GC 配置信息"""
+    config = {
+        "enabled": gc.isenabled(),
+        "threshold": gc.get_threshold(),
+        "count": gc.get_count(),
+        "debug_flags": gc.get_debug(),
+        "tracked_objects": len(gc.get_objects()),
+        "garbage_objects": len(gc.garbage),
+    }
+    return config
+
+# 在应用启动时记录
+print("GC Configuration:", json.dumps(get_gc_config(), indent=2))
+
+# 或者提供一个健康检查端点（Flask 示例）
+from flask import Flask, jsonify
+app = Flask(__name__)
+
+@app.route('/health/gc')
+def gc_status():
+    return jsonify(get_gc_config())
+```
+
+#### 2. 使用信号处理器实时查看
+
+在运行中的应用中注册信号处理器，通过发送信号来输出 GC 信息：
+
+```python
+import gc
+import signal
+import sys
+import json
+
+def handle_gc_info(signum, frame):
+    """信号处理器：输出 GC 配置信息"""
+    info = {
+        "enabled": gc.isenabled(),
+        "threshold": gc.get_threshold(),
+        "count": gc.get_count(),
+        "stats": gc.get_stats(),
+    }
+    print("\n=== GC Configuration ===", file=sys.stderr)
+    print(json.dumps(info, indent=2), file=sys.stderr)
+    print("=" * 25 + "\n", file=sys.stderr)
+
+# 注册信号处理器（Unix/Linux）
+# SIGUSR1 (信号 10) 用于用户自定义
+signal.signal(signal.SIGUSR1, handle_gc_info)
+
+print(f"Process PID: {os.getpid()}")
+print("Send SIGUSR1 to view GC info: kill -USR1 <PID>")
+
+# 应用主循环
+while True:
+    # 你的应用逻辑
+    time.sleep(1)
+```
+
+使用方法：
+```bash
+# 查找进程 PID
+ps aux | grep python
+
+# 发送信号查看 GC 配置
+kill -USR1 <PID>
+
+# 或者使用 pkill
+pkill -USR1 -f "your_app.py"
+```
+
+#### 3. 使用 Python 调试器 (pdb/ipdb)
+
+如果应用允许，可以附加调试器：
+
+```python
+# 在代码中添加远程调试入口
+import pdb
+import signal
+
+def debug_handler(signum, frame):
+    """信号触发调试器"""
+    pdb.set_trace()
+
+signal.signal(signal.SIGUSR2, debug_handler)
+
+# 发送信号后在调试器中执行：
+# >>> import gc
+# >>> gc.isenabled()
+# >>> gc.get_threshold()
+# >>> gc.get_count()
+```
+
+#### 4. 使用 py-spy 性能分析工具
+
+`py-spy` 可以附加到运行中的进程而不修改代码：
+
+```bash
+# 安装 py-spy
+pip install py-spy
+
+# 查看进程信息（需要 root 权限或进程所有者）
+sudo py-spy dump --pid <PID>
+
+# 生成火焰图
+sudo py-spy record -o profile.svg --pid <PID>
+```
+
+虽然 py-spy 主要用于性能分析，但可以观察到 GC 的影响。
+
+#### 5. 使用日志记录 GC 事件
+
+配置应用定期记录 GC 信息到日志文件：
+
+```python
+import gc
+import logging
+import threading
+import time
+
+# 配置日志
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
+    handlers=[
+        logging.FileHandler('gc_monitor.log'),
+        logging.StreamHandler()
+    ]
+)
+logger = logging.getLogger('gc_monitor')
+
+def monitor_gc(interval=60):
+    """定期监控 GC 状态"""
+    while True:
+        info = {
+            "enabled": gc.isenabled(),
+            "threshold": gc.get_threshold(),
+            "count": gc.get_count(),
+            "collections": gc.get_stats(),
+        }
+        logger.info(f"GC Status: {info}")
+        time.sleep(interval)
+
+# 启动监控线程
+monitor_thread = threading.Thread(target=monitor_gc, args=(300,), daemon=True)
+monitor_thread.start()
+```
+
+#### 6. 通过 Python 的 gc 回调
+
+设置 GC 回调函数来监控每次垃圾回收：
+
+```python
+import gc
+import time
+
+def gc_callback(phase, info):
+    """
+    GC 回调函数
+    phase: 'start' 或 'stop'
+    info: 包含 generation 和 collected/uncollectable 对象数
+    """
+    if phase == 'stop':
+        print(f"[{time.strftime('%Y-%m-%d %H:%M:%S')}] "
+              f"GC Generation {info['generation']} completed: "
+              f"collected={info['collected']}, "
+              f"uncollectable={info['uncollectable']}")
+
+# 设置回调（Python 3.3+）
+gc.callbacks.append(gc_callback)
+```
+
+#### 7. 使用系统监控工具
+
+结合系统工具监控内存使用情况：
+
+```python
+import gc
+import psutil
+import os
+
+def get_memory_info():
+    """获取进程内存和 GC 信息"""
+    process = psutil.Process(os.getpid())
+    mem_info = process.memory_info()
+    
+    return {
+        "rss_mb": mem_info.rss / 1024 / 1024,  # 物理内存
+        "vms_mb": mem_info.vms / 1024 / 1024,  # 虚拟内存
+        "gc_enabled": gc.isenabled(),
+        "gc_threshold": gc.get_threshold(),
+        "gc_count": gc.get_count(),
+        "tracked_objects": len(gc.get_objects()),
+    }
+
+# 定期输出
+import json
+while True:
+    print(json.dumps(get_memory_info(), indent=2))
+    time.sleep(60)
+```
+
+#### 8. 在容器环境中检查
+
+如果应用运行在 Docker 容器中：
+
+```bash
+# 进入容器
+docker exec -it <container_id> bash
+
+# 启动 Python REPL 并附加到进程（需要 pyrasite）
+pip install pyrasite
+echo "import gc; print(gc.get_threshold())" | pyrasite-shell <PID>
+
+# 或者使用 docker logs 查看输出
+docker logs -f <container_id> | grep -i "gc"
+```
+
+#### 9. 环境变量检查
+
+某些 GC 行为可以通过环境变量控制：
+
+```bash
+# 查看进程环境变量
+cat /proc/<PID>/environ | tr '\0' '\n' | grep PYTHON
+
+# 相关环境变量：
+# PYTHONGC - 控制 GC 行为
+# PYTHONDEBUG - 调试模式
+# PYTHONMALLOC - 内存分配器
+```
+
+#### 10. 使用专业 APM 工具
+
+生产环境推荐使用专业的应用性能监控工具：
+
+```python
+# 使用 Datadog APM
+from ddtrace import tracer, patch_all
+patch_all()
+
+# 使用 New Relic
+import newrelic.agent
+newrelic.agent.initialize('newrelic.ini')
+
+# 使用 Prometheus + Python client
+from prometheus_client import Gauge, start_http_server
+import gc
+
+gc_objects = Gauge('python_gc_objects_tracked', 'Number of objects tracked by GC')
+gc_collections = Gauge('python_gc_collections', 'GC collection count', ['generation'])
+
+def update_gc_metrics():
+    gc_objects.set(len(gc.get_objects()))
+    counts = gc.get_count()
+    for gen, count in enumerate(counts):
+        gc_collections.labels(generation=gen).set(count)
+
+# 定期更新指标
+start_http_server(8000)
+while True:
+    update_gc_metrics()
+    time.sleep(10)
+```
+
+#### 实用命令行工具
+
+```bash
+# 1. 使用 strace 监控系统调用（间接观察 GC 行为）
+strace -p <PID> -e trace=brk,mmap,munmap
+
+# 2. 使用 gdb 附加到进程
+gdb -p <PID>
+(gdb) call PyGILState_Ensure()
+(gdb) call PyRun_SimpleString("import gc; print(gc.get_threshold())")
+
+# 3. 使用 lsof 查看进程打开的文件（包括日志）
+lsof -p <PID> | grep log
+```
+
+### 生产环境最佳实践
+
+1. **预先内置监控**：在应用中提前加入 GC 监控代码
+2. **健康检查端点**：暴露 `/health/gc` 端点便于查看
+3. **结构化日志**：使用 JSON 格式记录 GC 信息
+4. **定期快照**：每小时记录一次完整的 GC 状态
+5. **告警机制**：设置阈值，GC 异常时触发告警
+6. **性能基线**：记录正常情况下的 GC 指标作为基线
+
+```python
+# 生产环境监控模板
+import gc
+import logging
+import time
+from datetime import datetime
+
+class GCMonitor:
+    def __init__(self, check_interval=300):
+        self.check_interval = check_interval
+        self.logger = logging.getLogger('gc_monitor')
+        self.baseline = self._get_gc_snapshot()
+    
+    def _get_gc_snapshot(self):
+        return {
+            "timestamp": datetime.now().isoformat(),
+            "enabled": gc.isenabled(),
+            "threshold": gc.get_threshold(),
+            "count": gc.get_count(),
+            "stats": gc.get_stats(),
+            "tracked": len(gc.get_objects()),
+            "garbage": len(gc.garbage),
+        }
+    
+    def check_and_alert(self):
+        current = self._get_gc_snapshot()
+        
+        # 检查异常情况
+        if current["garbage"] > 0:
+            self.logger.warning(f"发现无法回收的对象: {current['garbage']}")
+        
+        tracked_increase = current["tracked"] - self.baseline["tracked"]
+        if tracked_increase > 10000:
+            self.logger.warning(
+                f"追踪对象数异常增长: {tracked_increase}"
+            )
+        
+        self.logger.info(f"GC Status: {current}")
+        return current
+    
+    def run(self):
+        while True:
+            self.check_and_alert()
+            time.sleep(self.check_interval)
+
+# 使用示例
+if __name__ == "__main__":
+    monitor = GCMonitor(check_interval=300)  # 每5分钟检查一次
+    monitor.run()
+```
+
+### 关键要点总结
+
+**GC 策略**：
+1. 主要依赖引用计数（实时回收）
+2. 分代回收处理循环引用
+3. 标记-清除算法检测循环引用
+
+**是否可配置**：
+✅ 可以配置：
+- 启用/禁用 GC
+- 调整阈值参数
+- 手动触发回收
+- 设置调试标志
+- 选择回收哪一代
+
+**最佳实践**：
+- 大多数情况下使用默认配置即可
+- 批量处理时可临时禁用 GC
+- 避免手动管理内存，除非有性能瓶颈
+- 使用弱引用避免循环引用
+- 定期监控内存使用情况
 
 ## pip
 

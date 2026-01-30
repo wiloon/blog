@@ -239,9 +239,10 @@ git fetch 会同步远程仓库的新增和更新的分支到本地的远程分�
 
 默认更新
 
-- tag
+- 拉取所有分支更新, 从远程仓库拉取所有分支的最新提交(commit)
+- 拉取分支历史中引用的 tag
+- 不拉取"孤立"的 tag（不在任何分支历史中的 tag）
 - FETCH_HEAD
-- 分支历史 commit
 
 git fetch 是更新(update) 在本地的远程跟踪分支（如origin/main 分支，注意远程跟踪分支是保存在本地，
 一般在 .git\refs\remotes\origin 目录下），并更新 (update) .git/FETCH_HEAD 文件。并不会和本地分支 merge，即不会更新本地分支。
@@ -256,8 +257,11 @@ git fetch 命令用来拉取远程仓库的数据 (objects and refs).
 - JetBrains 里分支 commit 历史不会更新
 
 ```Bash
-# 获取所有的 tag
+# 拉取所有分支更新
+# 拉取所有 tag（包括孤立的 tag）
 git fetch --tags
+
+# 什么是"孤立 tag"？比如你在一个临时分支上打了 tag，然后删除了那个分支 或者有人直接对某个 commit 打了 tag，但那个 commit 不在任何活跃分支上
 ```
 
 ```bash
@@ -267,6 +271,8 @@ git fetch --tags
 git fetch
 # 跟上面的命令是一样的, git fetch 默认的远程仓库是 origin
 git fetch origin
+# 配置了多个远程仓库, 拉取指定远程仓库 upstream 的更新
+git fetch upstream
 # 更新所有远程仓库, 有多个远程仓库的时候, 会更新所有远程仓库, 不会单独拉取所有 tag，除非分支更新时带有 tag。
 git fetch --all
 # 只拉取 tag，不会更新分支

@@ -1,7 +1,7 @@
 ---
 title: git reset
 author: "-"
-date: "2026-01-08T15:30:00+08:00"
+date: "2026-01-29T14:06:21+08:00"
 url: "git/reset"
 categories:
   - "Git"
@@ -92,6 +92,44 @@ git push origin branch_name --force
 
 git commit --hard 是具有破坏性，是很危险的操作，它很容易导致数据丢失，如果我们真的进行了该操作想要找回丢失的数据，
 那么此时可以使用 git reflog 回到未来，找到丢失的commit。
+
+### git reset --hard ORIG_HEAD
+
+**恢复到上一次危险操作之前的状态**
+
+#### ORIG_HEAD 是什么
+
+Git 会在执行某些可能改变 HEAD 指向的危险操作时，自动将操作前的 HEAD 保存到 `ORIG_HEAD`。
+
+这些危险操作包括：
+- `git reset`
+- `git merge`
+- `git rebase`
+- `git pull`
+
+#### 使用场景
+
+```bash
+# 场景1: 撤销错误的 reset
+git reset --hard HEAD~3      # 误操作：回退了3个版本
+git reset --hard ORIG_HEAD   # 恢复到 reset 之前的状态
+
+# 场景2: 撤销错误的 merge
+git merge feature-branch     # 合并后发现有问题
+git reset --hard ORIG_HEAD   # 撤销这次合并
+
+# 场景3: 撤销错误的 pull
+git pull origin main         # pull 后发现有冲突或问题
+git reset --hard ORIG_HEAD   # 回到 pull 之前的状态
+```
+
+**相当于：**
+这是 Git 提供的"后悔药"机制，让你可以撤销刚才的危险操作。
+
+**注意事项：**
+- `ORIG_HEAD` 只保存最近一次危险操作前的位置
+- 如果连续执行多次危险操作，只能回退到最后一次操作之前
+- 这是 `--hard` 模式，会丢弃工作区和暂存区的所有修改
 
 ### git reset --soft
 
