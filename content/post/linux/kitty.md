@@ -414,120 +414,6 @@ alias ksplit-v='kitty @ launch --location=vsplit --cwd=current'
 alias ksplit-h='kitty @ launch --location=hsplit --cwd=current'
 ```
 
-### Linux 完整配置
-
-完整的 Kitty 配置文件，包含所有基础设置和快捷键：
-
-```conf
-# ============================================
-# Kitty Configuration - Linux Version
-# ~/.config/kitty/kitty.conf
-# ============================================
-
-# -------------------- Remote Control --------------------
-allow_remote_control socket-only
-listen_on unix:/tmp/kitty.sock
-
-# -------------------- Layout --------------------
-enabled_layouts tall,fat,grid,splits,stack
-
-# -------------------- Font --------------------
-font_family      Cascadia Code
-bold_font        auto
-italic_font      auto
-bold_italic_font auto
-font_size        12.0
-disable_ligatures always
-
-# -------------------- Cursor --------------------
-cursor_shape block
-cursor_blink_interval 0
-
-# -------------------- Window --------------------
-remember_window_size  yes
-initial_window_width  1200
-initial_window_height 800
-
-# -------------------- Performance --------------------
-repaint_delay 10
-input_delay 3
-sync_to_monitor yes
-
-# -------------------- Tab Bar Style --------------------
-tab_bar_edge top
-tab_bar_style powerline
-tab_powerline_style slanted
-tab_bar_min_tabs 1
-tab_title_template "{fmt.fg.red}{bell_symbol}{activity_symbol}{fmt.fg.tab}{title} [{layout_name}]"
-
-# -------------------- Scrollback Buffer --------------------
-scrollback_lines 30000
-
-# -------------------- Theme --------------------
-include ./kitty-themes/themes/Tokyo_Night.conf
-
-# ============================================
-# Keyboard Shortcuts
-# ============================================
-
-# -------------------- Config Management --------------------
-map ctrl+shift+f2 load_config_file     # Open config file
-map ctrl+shift+f5 load_config_file     # Reload config
-map ctrl+shift+f6 debug_config         # Show current config
-
-# -------------------- Window Split --------------------
-map ctrl+shift+enter launch --cwd=current                 # New window
-map ctrl+shift+\ launch --location=vsplit --cwd=current   # Vertical split (side by side)
-map ctrl+shift+- launch --location=hsplit --cwd=current   # Horizontal split (top/bottom)
-
-# -------------------- Window Management --------------------
-map ctrl+shift+w close_window          # Close current window
-map ctrl+shift+x close_window          # Close current window (alternative)
-map alt+w close_window                 # Close current window (Alt+W)
-map ctrl+shift+] next_window           # Switch to next window
-map ctrl+shift+[ previous_window       # Switch to previous window
-map ctrl+shift+r start_resizing_window # Enter window resize mode
-
-# -------------------- Window Move --------------------
-map ctrl+shift+up move_window up       # Move current window up
-map ctrl+shift+down move_window down   # Move current window down
-map ctrl+shift+left move_window left   # Move current window left
-map ctrl+shift+right move_window right # Move current window right
-
-# -------------------- Layout Switch --------------------
-map ctrl+shift+l next_layout           # Cycle through layouts
-map ctrl+shift+h goto_layout fat       # Switch to fat layout (horizontal)
-map ctrl+shift+g goto_layout grid      # Switch to grid layout
-map ctrl+shift+s goto_layout splits    # Switch to splits layout (free split)
-map ctrl+shift+a goto_layout stack     # Switch to stack layout (fullscreen single)
-
-# -------------------- Tab Management --------------------
-map ctrl+shift+t new_tab               # New tab
-map ctrl+shift+q quit                  # Quit kitty
-map ctrl+shift+page_up previous_tab    # Switch to previous tab
-map ctrl+shift+page_down next_tab      # Switch to next tab
-
-# -------------------- Search & History --------------------
-map ctrl+shift+/ show_scrollback       # Open history browser (/ is search in vim)
-map ctrl+shift+f launch --type=overlay --stdin-source=@screen_scrollback fzf --no-sort --no-mouse --exact -i --tac  # fzf fuzzy search
-map ctrl+shift+home scroll_home        # Jump to first line
-map ctrl+shift+end scroll_end          # Jump to last line
-map ctrl+alt+page_up scroll_page_up    # Page up (ctrl+alt to avoid tab switch conflict)
-map ctrl+alt+page_down scroll_page_down  # Page down (ctrl+alt to avoid tab switch conflict)
-
-# -------------------- Clear Terminal --------------------
-map ctrl+shift+delete clear_terminal reset active  # Clear terminal and scrollback buffer
-```
-
-**快捷键记忆法：**
-
-- **tall 布局** → 默认布局，用 `Ctrl+Shift+L` 循环回来（无需单独快捷键）
-- `H` → **H**orizontal/Fat（水平分割，上下布局）
-- `G` → **G**rid（网格布局）
-- `S` → **S**plits（自由分割）
-- `A` → st**A**ck（全屏单窗口）
-- `F` → **F**uzzy/Find 搜索（fzf 模糊搜索历史输出）
-
 ### macOS 配置说明
 
 macOS 下的快捷键配置与 Linux 基本相同，主要区别是：
@@ -917,3 +803,117 @@ include ./kitty-themes/themes/Dracula.conf
 - **One Dark** - Atom 编辑器经典主题
 - **Monokai Pro** - Sublime Text 经典配色
 - **Catppuccin** - 柔和的粉彩色调
+
+### Linux 完整配置
+
+完整的 Kitty 配置文件，包含所有基础设置和快捷键:
+
+```conf
+# ============================================
+# Kitty Configuration - Linux Version
+# ~/.config/kitty/kitty.conf
+# ============================================
+
+# -------------------- Remote Control --------------------
+allow_remote_control socket-only
+listen_on unix:/tmp/kitty.sock
+
+# -------------------- Layout --------------------
+enabled_layouts fat,tall,grid,splits,stack
+
+# -------------------- Font --------------------
+font_family      Cascadia Code
+bold_font        auto
+italic_font      auto
+bold_italic_font auto
+font_size        12.0
+disable_ligatures always
+
+# -------------------- Cursor --------------------
+cursor_shape block
+cursor_blink_interval 0
+
+# -------------------- Window --------------------
+remember_window_size  yes
+initial_window_width  1200
+initial_window_height 800
+
+# -------------------- Performance --------------------
+repaint_delay 10
+input_delay 3
+sync_to_monitor yes
+
+# -------------------- Tab Bar Style --------------------
+tab_bar_edge top
+tab_bar_style powerline
+tab_powerline_style slanted
+tab_bar_min_tabs 1
+tab_title_template "{fmt.fg.red}{bell_symbol}{activity_symbol}{fmt.fg.tab}{title} [{layout_name}]"
+
+# -------------------- Scrollback Buffer --------------------
+scrollback_lines 30000
+
+# -------------------- Theme --------------------
+include ./kitty-themes/themes/Tokyo_Night.conf
+
+# ============================================
+# Keyboard Shortcuts
+# ============================================
+
+# -------------------- Config Management --------------------
+map ctrl+shift+f2 load_config_file     # Open config file
+map ctrl+shift+f5 load_config_file     # Reload config
+map ctrl+shift+f6 debug_config         # Show current config
+
+# -------------------- Window Split --------------------
+map ctrl+shift+enter launch --cwd=current                 # New window
+map ctrl+shift+\ launch --location=vsplit --cwd=current   # Vertical split (side by side)
+map ctrl+shift+- launch --location=hsplit --cwd=current   # Horizontal split (top/bottom)
+
+# -------------------- Window Management --------------------
+map ctrl+shift+w close_window          # Close current window
+map ctrl+shift+x close_window          # Close current window (alternative)
+map alt+w close_window                 # Close current window (Alt+W)
+map ctrl+shift+] next_window           # Switch to next window
+map ctrl+shift+[ previous_window       # Switch to previous window
+map ctrl+shift+r start_resizing_window # Enter window resize mode
+
+# -------------------- Window Move --------------------
+map ctrl+shift+up move_window up       # Move current window up
+map ctrl+shift+down move_window down   # Move current window down
+map ctrl+shift+left move_window left   # Move current window left
+map ctrl+shift+right move_window right # Move current window right
+
+# -------------------- Layout Switch --------------------
+map ctrl+shift+l next_layout           # Cycle through layouts
+map ctrl+shift+h goto_layout fat       # Switch to fat layout (horizontal)
+map ctrl+shift+g goto_layout grid      # Switch to grid layout
+map ctrl+shift+s goto_layout splits    # Switch to splits layout (free split)
+map ctrl+shift+a goto_layout stack     # Switch to stack layout (fullscreen single)
+
+# -------------------- Tab Management --------------------
+map ctrl+shift+t new_tab               # New tab
+map ctrl+shift+q quit                  # Quit kitty
+map ctrl+shift+page_up previous_tab    # Switch to previous tab
+map ctrl+shift+page_down next_tab      # Switch to next tab
+
+# -------------------- Search & History --------------------
+map ctrl+shift+/ show_scrollback       # Open history browser (/ is search in vim)
+map ctrl+shift+f launch --type=overlay --stdin-source=@screen_scrollback fzf --no-sort --no-mouse --exact -i --tac  # fzf fuzzy search
+map ctrl+shift+home scroll_home        # Jump to first line
+map ctrl+shift+end scroll_end          # Jump to last line
+map ctrl+alt+page_up scroll_page_up    # Page up (ctrl+alt to avoid tab switch conflict)
+map ctrl+alt+page_down scroll_page_down  # Page down (ctrl+alt to avoid tab switch conflict)
+
+# -------------------- Clear Terminal --------------------
+map ctrl+shift+delete clear_terminal reset active  # Clear terminal and scrollback buffer
+```
+
+**快捷键记忆法：**
+
+- **tall 布局** → 默认布局，用 `Ctrl+Shift+L` 循环回来（无需单独快捷键）
+- `H` → **H**orizontal/Fat（水平分割，上下布局）
+- `G` → **G**rid（网格布局）
+- `S` → **S**plits（自由分割）
+- `A` → st**A**ck（全屏单窗口）
+- `F` → **F**uzzy/Find 搜索（fzf 模糊搜索历史输出）
