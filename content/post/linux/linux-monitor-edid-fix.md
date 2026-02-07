@@ -1,12 +1,13 @@
 ---
 author: "-"
-date: "2025-12-30T16:45:00+08:00"
-title: "Arch Linux 显示器分辨率问题修复：手动加载 EDID 固件"
-url: archlinux-monitor-edid-fix
+date: "2026-02-08T07:31:04+08:00"
+title: "Linux 显示器分辨率问题修复：手动加载 EDID 固件"
+url: linux-monitor-edid-fix
 categories:
   - Linux
 tags:
   - Arch Linux
+  - Ubuntu
   - EDID
   - 显示器
   - 分辨率
@@ -822,7 +823,50 @@ xrandr
 - 但每个系统的**内核参数**来自各自系统内的 `/etc/default/grub`
 - 所以要修改 ArchLinux 的启动参数，必须在 ArchLinux 系统内部修改
 
-**替代方案：手动编辑 Ubuntu 的 GRUB 配置文件（不推荐）**
+**替代方案 A：使用 `/etc/grub.d/40_custom` 添加持久启动项（推荐）**
+
+如果你不方便每次都重启到 Arch Linux 修改配置，可以在 Ubuntu 侧通过 `40_custom` 添加一个自定义的 Arch Linux 启动项。这个文件 **不会** 被 `update-grub` 覆盖，是最持久的方案：
+
+```bash
+# 编辑自定义 GRUB 配置
+sudo vim /etc/grub.d/40_custom
+
+# 在文件末尾添加以下内容（注意替换 UUID 和接口名称）：
+```
+
+```bash
+# Arch Linux with EDID firmware fix
+menuentry 'Arch Linux (EDID fix)' --class arch --class gnu-linux --class gnu --class os {
+    insmod part_gpt
+    insmod ext2
+    search --no-floppy --fs-uuid --set=root a9769c82-3d32-48b5-b2ad-da69a31b0510
+    linux /boot/vmlinuz-linux root=/dev/nvme0n1p4 rw drm.edid_firmware=DP-8:edid/dell_u2412m.bin,DP-9:edid/dell_u2412m.bin,DP-10:edid/dell_u2412m.bin,DP-11:edid/dell_u2412m.bin,DP-12:edid/dell_u2412m.bin
+    initrd /boot/initramfs-linux.img
+}
+```
+
+```bash
+# 更新 GRUB
+sudo update-grub
+
+# 验证条目已生成
+sudo grep -A5 "Arch Linux (EDID" /boot/grub/grub.cfg
+```
+
+**关键优势**：
+
+- `/etc/grub.d/40_custom` 是 GRUB 官方推荐的自定义入口
+- `update-grub` 会 **保留** 此文件内容并自动包含到 `grub.cfg`
+- Ubuntu 系统更新后不需要重新配置
+- 重启后在 GRUB 菜单中选择 "Arch Linux (EDID fix)" 即可
+
+**注意事项**：
+
+- 需要替换 `search --no-floppy --fs-uuid --set=root` 中的 UUID 为你的 Arch Linux 分区 UUID（`blkid /dev/nvme0n1p4`）
+- `root=/dev/nvme0n1p4` 也要替换为实际的 Arch Linux 分区
+- os-prober 生成的原始 "Arch Linux" 条目仍然存在（不带 EDID 参数），两个都会出现在 GRUB 菜单中
+
+**替代方案 B：手动编辑 Ubuntu 的 GRUB 配置文件（不推荐）**
 
 如果你不想重启到 ArchLinux，可以直接编辑 Ubuntu 的 `/boot/grub/grub.cfg`，但这**不推荐**，因为：
 
@@ -1232,6 +1276,83 @@ xrandr --output DP-9 --mode 1920x1200_60.00
 1. **接口编号变化**：DisplayPort 接口编号可能在重启后变化，这是正常现象。通过配置多个接口可以解决这个问题。
 
 1. **不影响正常显示器**：为正常显示器配置 EDID 固件不会有负面影响，内核会优先使用硬件 EDID。
+
+## EDID 固件数据备份
+
+### 十六进制数据（Dell U2412M）
+
+如果需要重新生成 EDID 固件文件，可以使用以下十六进制数据：
+
+```hex
+00 ff ff ff ff ff ff 00 10 ac 71 a0 4c 37 30 41
+0c 16 01 03 80 34 20 78 ee ee 95 a3 54 4c 99 26
+0f 50 54 a5 4b 00 d1 c0 a9 40 81 80 71 4f 01 01
+01 01 01 01 01 01 28 3c 80 a0 70 b0 23 40 30 20
+36 00 06 44 21 00 00 1a 00 00 00 ff 00 44 45 4c
+4c 30 30 30 31 0a 20 20 20 20 00 00 00 fc 00 44
+45 4c 4c 20 55 32 34 31 32 4d 0a 20 00 00 00 fd
+00 38 4c 1e 53 11 00 0a 20 20 20 20 20 20 00 5e
+```
+
+### 从十六进制数据生成二进制文件
+
+```bash
+echo "00 ff ff ff ff ff ff 00 10 ac 71 a0 4c 37 30 41 \
+0c 16 01 03 80 34 20 78 ee ee 95 a3 54 4c 99 26 \
+0f 50 54 a5 4b 00 d1 c0 a9 40 81 80 71 4f 01 01 \
+01 01 01 01 01 01 28 3c 80 a0 70 b0 23 40 30 20 \
+36 00 06 44 21 00 00 1a 00 00 00 ff 00 44 45 4c \
+4c 30 30 30 31 0a 20 20 20 20 00 00 00 fc 00 44 \
+45 4c 4c 20 55 32 34 31 32 4d 0a 20 00 00 00 fd \
+00 38 4c 1e 53 11 00 0a 20 20 20 20 20 20 00 5e" | \
+xxd -r -p > dell_u2412m.bin
+```
+
+### EDID 解码信息
+
+```text
+Block 0, Base EDID:
+  EDID Structure Version & Revision: 1.3
+  Vendor & Product Identification:
+    Manufacturer: DEL
+    Model: 41073
+    Serial Number: 1093678924
+    Made in: week 12 of 2012
+  Basic Display Parameters & Features:
+    Digital display
+    Maximum image size: 52 cm x 32 cm
+    Gamma: 2.20
+  Established Timings I & II:
+    DMT 0x04:   640x480    59.940476 Hz   4:3
+    DMT 0x09:   800x600    60.316541 Hz   4:3
+    DMT 0x10:  1024x768    60.003840 Hz   4:3
+    DMT 0x24:  1280x1024   75.024675 Hz   5:4
+  Standard Timings:
+    DMT 0x52:  1920x1080   60.000000 Hz  16:9
+    DMT 0x33:  1600x1200   60.000000 Hz   4:3
+    DMT 0x23:  1280x1024   60.019740 Hz   5:4
+    DMT 0x15:  1152x864    75.000000 Hz   4:3
+  Detailed Timing Descriptors:
+    DTD 1:  1920x1200   59.950171 Hz   8:5  (518 mm x 324 mm)
+    Display Product Serial Number: 'DELL0001'
+    Display Product Name: 'DELL U2412M'
+    Display Range Limits:
+      Monitor ranges (GTF): 56-76 Hz V, 30-83 kHz H, max dotclock 170 MHz
+Checksum: 0x5e
+
+关键信息：
+- 显示器型号：DELL U2412M
+- 原生分辨率：1920x1200 @ 60Hz
+- 屏幕尺寸：518mm x 324mm (24 英寸)
+- 文件大小：128 字节（标准 EDID Block 0）
+```
+
+## 操作记录
+
+- 2025-12-04：创建 EDID 固件文件 `/lib/firmware/edid/dell_u2412m.bin`
+- 2025-12-31：确认 EDID 读取失败问题，准备操作指南
+- 2025-12-31：在 Ubuntu 中修改 GRUB 配置，为 Ubuntu 启动项添加 `drm.edid_firmware` 参数
+- 2026-02-08：Ubuntu 系统更新（内核升级到 6.17.0-14）后发现 os-prober 重新生成的 Arch Linux 启动项丢失 EDID 参数，通过 `/etc/grub.d/40_custom` 添加持久化的 Arch Linux 启动项修复
 
 ## 参考资料
 
