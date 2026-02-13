@@ -1,7 +1,7 @@
 ---
 title: kong
 author: "-"
-date: 2025-12-09T15:30:00+08:00
+date: 2026-02-11T11:08:11+08:00
 url: kong
 categories:
   - network
@@ -10,6 +10,20 @@ tags:
   - remix
   - AI-assisted
 ---
+## Kong 插件开发语言
+
+Kong 支持使用多种语言开发自定义插件：
+
+| 语言 | 方式 | 说明 |
+|------|------|------|
+| Lua | 原生支持 | Kong 基于 OpenResty/Lua 构建，Lua 是最成熟、性能最好的插件开发语言，官方内置插件均用 Lua 编写 |
+| Go | Go PDK | 通过 go-pdk 库开发，编译为独立进程，Kong 通过 IPC 通信调用 |
+| JavaScript / TypeScript | JavaScript PDK | 通过 kong-js-pdk 开发，运行在独立的 Node.js 进程中 |
+| Python | Python PDK | 通过 kong-python-pdk 开发，运行在独立进程中，适合快速原型开发 |
+| WebAssembly (Wasm) | Wasm Filter | Kong 3.4+ 支持，可以用 Rust、C/C++、Go (TinyGo) 等编译到 Wasm 的语言开发，性能接近原生 |
+
+> 除 Lua 外的其他语言插件都通过进程间通信（IPC）与 Kong 交互，会有一定的性能开销。生产环境对性能要求高的场景推荐使用 Lua 或 Wasm。
+
 ## kong
 
 run postgresql
