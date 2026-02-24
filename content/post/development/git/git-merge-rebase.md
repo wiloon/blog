@@ -1,7 +1,7 @@
 ---
 title: git merge, git rebase
 author: "-"
-date: 2025-11-11T16:30:00+08:00
+date: 2026-02-13T11:08:43+08:00
 url: git/merge-rebase
 categories:
   - Git
@@ -207,6 +207,7 @@ git rebase [-i | --interactive] [<options>] [--exec <cmd>] [--onto <newbase>] --
 git rebase (--continue | --skip | --abort | --quit | --edit-todo | --show-current-patch)
 
 # git rebase
+# 切换到 feature 分支, 把 feature 分支的 base 变成 dev 的最新 commit
 git switch branch_feature_0
 git rebase dev
 
