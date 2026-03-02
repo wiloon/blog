@@ -1,13 +1,14 @@
 ---
 title: ps command
 author: "-"
-date: 2011-07-20T07:50:28+00:00
+date: 2026-03-02T11:29:31+08:00
 url: ps
 categories:
   - Linux
 tags:
   - remix
   - command
+  - AI-assisted
 ---
 ## ps command
 
@@ -220,6 +221,31 @@ apt install procps
 # redhat, centos
 yum install procps-ng
 ```
+
+## 查看进程运行了多久（Elapsed Time）
+
+```bash
+# 查看指定进程的已运行时长，格式为 [[DD-]hh:]mm:ss
+# 2-18:25:27 表示已运行 2 天 18 小时 25 分 27 秒
+ps -p <PID> -o etime
+
+# 以秒为单位显示已运行时长
+ps -p <PID> -o etimes
+
+# 同时显示 PID、运行时长和命令名
+ps -p <PID> -o pid,etime,cmd
+
+# 查看所有进程的运行时长
+ps -eo pid,etime,cmd
+
+# 按名称查找进程并查看运行时长
+ps -C nginx -o pid,etime,cmd
+```
+
+`etime` 字段说明：
+
+- 格式为 `[[DD-]hh:]mm:ss`，例如：`3-02:15:30` 表示已运行 3 天 2 小时 15 分 30 秒
+- `etimes` 以秒为单位，方便脚本计算
 
 ## linux 进程启动时间
 
