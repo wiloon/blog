@@ -1,7 +1,7 @@
 ---
 title: kitty
 author: "-"
-date: 2026-01-30T11:30:06+08:00
+date: 2026-02-20T17:35:23+08:00
 url: kitty
 categories:
   - Linux
@@ -15,6 +15,34 @@ tags:
 kitty 是一个 GPU based terminal
 
 https://sw.kovidgoyal.net/kitty/
+
+## SSH 连接远程主机
+
+### xterm-kitty: unknown terminal type
+
+Kitty 使用 `xterm-kitty` 作为 `$TERM` 环境变量的值。通过 SSH 连接远程主机时，该值会被传递过去，但远程主机的 terminfo 数据库中没有 `xterm-kitty` 的定义，导致 `git`、`vim` 等程序报错：
+
+```text
+'xterm-kitty': unknown terminal type.
+```
+
+### 解决方案：使用 kitty +kitten ssh
+
+Kitty 内置了 `ssh` kitten，连接时会自动将 terminfo 传到远程主机。
+
+在 `~/.zshrc`（或 `~/.bashrc`）中添加别名：
+
+```bash
+alias ssh='kitty +kitten ssh'
+```
+
+然后执行：
+
+```bash
+source ~/.zshrc
+```
+
+之后直接执行 `ssh openclaw` 即可，无需其他改动。
 
 ## 远程控制（Remote Control）
 

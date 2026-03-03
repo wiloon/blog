@@ -139,8 +139,9 @@ create vm >
 
     next
 
+    system > next
     Hard Disk> Disk size
-    Hard Disk> Backup
+    Hard Disk> 勾选 Backup
 
 create vm > system > qemu agent: select
 ```
