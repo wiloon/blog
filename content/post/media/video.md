@@ -1,11 +1,14 @@
 ---
 author: "-"
-date: "2020-09-06 00:21:46" 
+date: 2026-03-03T19:12:50+08:00
 title: "video, h.264, h.265, ffmpeg"
+url: video-h264-h265-ffmpeg
 categories:
   - inbox
 tags:
   - reprint
+  - remix
+  - AI-assisted
 ---
 ## "video, h.264, h.265, ffmpeg"
 
@@ -108,9 +111,24 @@ ffprobe -show_packets pm.mp4
 
 ### 转换 input.mp4 视频文件到 output.mp3 音频文件
 
-    ffmpeg -i input.mp4 -vn output.mp3
-    # 对输出文件使用各种各样的音频转换编码选项
-    ffmpeg -i input.mp4 -vn -ar 44100 -ac 2 -ab 320 -f mp3 output.mp3
+```bash
+ffmpeg -i input.mp4 -vn output.mp3
+# 对输出文件使用各种各样的音频转换编码选项
+ffmpeg -i input.mp4 -vn -ar 44100 -ac 2 -ab 320 -f mp3 output.mp3
+```
+
+使用 VBR 最高质量提取音频：
+
+```bash
+ffmpeg -i meeting.mp4 -q:a 0 -map a meeting.mp3
+```
+
+| 参数 | 说明 |
+|------|------|
+| `-i meeting.mp4` | 输入文件 |
+| `-q:a 0` | 设置音频质量（`-qscale:a` 的缩写），值为 `0` 表示最高质量（VBR 模式，0 最好，9 最差） |
+| `-map a` | 只映射音频流，丢弃所有视频流（比 `-vn` 更明确地指定"取所有音频流"） |
+| `meeting.mp3` | 输出文件，格式由扩展名自动推断为 MP3 |
 
 ---
 
