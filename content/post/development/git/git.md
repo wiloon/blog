@@ -1,33 +1,34 @@
 ---
 title: Git
 author: "-"
-date: 2023-02-14 21:10:42
+date: 2026-03-06T11:28:08+08:00
 url: git
 categories:
   - git
 tags:
   - reprint
   - remix
+  - AI-assisted
 ---
 ## Git
 
-```puml
-@startuml
-[Working tree\n工作树\n工作区] as work
-[Index, 索引\nStaging Area\nStaged,暂存区] as stage
-work --> stage: add
-[Repository\nLocal Repository\n本地仓库\nHistory\n历史记录区] as repo
-stage --> repo: commit
-[Remote Repository\n远程仓库] as remote
-repo --> remote: push
-work <-- remote: pull
-remote --> repo: fetch/clone
-stage --> work: checkout
-repo --> work: merge
-repo --> stage: reset --soft
-repo --> stage: rebase
-repo --> work: reset --mixed
-@enduml
+```mermaid
+graph LR
+    work["Working tree<br/>工作树/工作区"]
+    stage["Index / Staging Area<br/>暂存区"]
+    repo["Local Repository<br/>本地仓库"]
+    remote["Remote Repository<br/>远程仓库"]
+
+    work -->|add| stage
+    stage -->|commit| repo
+    repo -->|push| remote
+    remote -->|pull| work
+    remote -->|"fetch/clone"| repo
+    stage -->|checkout| work
+    repo -->|merge| work
+    repo -->|"reset --soft"| stage
+    repo -->|rebase| stage
+    repo -->|"reset --mixed"| work
 ```
 
 ### 工作区 (working tree)
@@ -42,10 +43,10 @@ working tree, 2.9.1 之前被称作 Working Directory [https://stackoverflow.com
 
 索引文件也在 .git 目录里
 
-也称暂存区, 缓存区  
+也称暂存区, 缓存区
 逻辑上处于工作区和本地仓库之间，主要作用是标记修改内容，暂存区里的内容默认将在下一次提交时记录到本地仓库中。  
-Git本地库中的索引Index就是一个二进制文件，默认存储在.git/index路径下。  
-修改提交版本库前的一个过渡阶段。查看GIT自带帮助手册的时候，通常以index来表示暂存区。在工作目录下有一个.git的目录，里面有个index文件，存储着关于暂存区的内容。git add 命令将工作树的变更添加到索引。
+Git 本地库中的索引 Index 就是一个二进制文件，默认存储在 .git/index 路径下。  
+修改提交版本库前的一个过渡阶段。查看 GIT 自带帮助手册的时候，通常以 index 来表示暂存区。在工作目录下有一个 .git 的目录，里面有个 index 文件，存储着关于暂存区的内容。git add 命令将工作树的变更添加到索引。
 
 ### 本地仓库 Repository, local repository，.git目录
 
