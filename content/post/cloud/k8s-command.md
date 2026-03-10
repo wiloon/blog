@@ -1,7 +1,7 @@
 ---
 title: k8s command
 author: "-"
-date: 2026-01-10T16:30:00+08:00
+date: 2026-03-10T10:38:17+08:00
 url: k8s/command
 categories:
   - K8S
@@ -100,6 +100,32 @@ kubectl logs --namespace <NAMESPACE> <NAME>
 
 # scale, 扩缩容
 kubectl scale --replicas=0 deployment/deployment0
+
+# 滚动重启 deployment（推荐，不中断服务）
+# 触发 deployment 的滚动更新，逐步替换旧 Pod 为新 Pod，整个过程不会中断服务
+# 等同于手动更新了一个无实际变化的字段（如 annotation），让 k8s 认为配置发生变化从而触发重启
+# 适用场景：刷新 ConfigMap/Secret 挂载、解决 Pod 僵尸状态、强制拉取新镜像等
+kubectl rollout restart deployment <deployment-name> -n <namespace>
+
+# 查看滚动更新状态
+kubectl rollout status deployment <deployment-name> -n <namespace>
+
+# 回滚到上一个版本
+kubectl rollout undo deployment <deployment-name> -n <namespace>
+
+# 查看发布历史（每次 apply/set image/rollout restart 都会产生一个新 revision）
+kubectl rollout history deployment <deployment-name> -n <namespace>
+# 示例输出：
+# REVISION  CHANGE-CAUSE
+# 1         <none>
+# 2         kubectl set image deployment/nginx nginx=nginx:1.19
+# 3         kubectl rollout restart deployment/nginx
+
+# 查看某个具体 revision 的详细信息
+kubectl rollout history deployment <deployment-name> -n <namespace> --revision=2
+
+# 回滚到指定 revision
+kubectl rollout undo deployment <deployment-name> -n <namespace> --to-revision=2
 
 # 删除 pod
 kubectl delete pod pod0
