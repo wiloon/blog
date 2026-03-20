@@ -1,7 +1,7 @@
 ---
 title: Git basic commands, git 常用命令
 author: "-"
-date: 2026-01-14T16:30:00+08:00
+date: 2026-03-18T09:52:30+08:00
 url: git/basic
 categories:
 - Git
@@ -223,6 +223,26 @@ git log -- foo.py bar.py
 # 按照提交内容过滤
 git log -S"Hello, World!"
 ```
+
+### 统计某作者的 commit 数量
+
+```bash
+# 统计某作者在某时间之后的 commit 数量
+git log --author="作者名" --after="2024-01-01" --oneline | wc -l
+
+# 排除 merge commit
+git log --author="作者名" --after="2024-01-01" --oneline --no-merges | wc -l
+
+# 显示每条 commit 详情
+git log --author="作者名" --after="2024-01-01" --oneline
+
+# 用 shortlog 汇总（直接输出数量 + 作者名）
+git shortlog -s --author="作者名" --after="2024-01-01"
+```
+
+- `--author` 支持部分匹配，如 `--author="wang"` 会匹配所有包含 wang 的作者
+- `--after` 等价于 `--since`，支持 `"2024-01-01"`、`"1 week ago"`、`"yesterday"` 等格式
+- `--no-merges` 排除 merge commit
 
 ### reflog
 

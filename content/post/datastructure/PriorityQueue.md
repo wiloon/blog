@@ -1,174 +1,94 @@
 ---
 title: PriorityQueue
 author: "-"
-date: 2015-06-27T13:00:28+00:00
-url: PriorityQueue
+date: 2026-03-20T17:16:12+08:00
+url: priority-queue
 categories:
-  - Java
+  - DataStructure
 tags:
-  - reprint
   - Queue
+  - remix
+  - AI-assisted
 ---
-## PriorityQueue
 
-[http://java-er.com/blog/java-priority-queue/](http://java-er.com/blog/java-priority-queue/)
+## 概念
 
-PriorityQueue 是个基于优先级堆的极大优先级队列。
+优先级队列（Priority Queue）是一种特殊的队列，队列中每个元素都附有一个"优先级"。出队时，不再遵循普通队列的 FIFO（先进先出）原则，而是**优先级最高（或最低）的元素先出队**。
 
-此队列按照在构造时所指定的顺序对元素排序，既可以根据元素的自然顺序来指定排序 (参阅 Comparable) ，
-  
-也可以根据 Comparator 来指定，这取决于使用哪种构造方法。优先级队列不允许 null 元素。
-  
-依靠自然排序的优先级队列还不允许插入不可比较的对象 (这样做可能导致 ClassCastException)
+直观类比：医院的急诊室——无论谁先到，病情最重的患者优先就诊。
 
-比如队列 1 3 5 10 2 自动会被排列 1 2 3 5 10
+## 核心特性
 
-package com.javaer.examples.datastruct;
+- **插入（insert / enqueue）**：将元素连同优先级一起加入队列
+- **取最值（peek）**：查看优先级最高的元素，不移除
+- **取出最值（poll / dequeue）**：取出并移除优先级最高的元素
+- **不保证全局有序**：内部结构只保证堆顶（最值）正确，其余元素顺序不确定
 
-import java.util.Comparator;
-  
-import java.util.PriorityQueue;
-  
-import java.util.Queue;
+## 内部实现：二叉堆
 
-import org.apache.poi.ss.formula.functions.Count;
+绝大多数语言的标准库都用**二叉堆（Binary Heap）**实现优先级队列。
 
-public class PriorityQueueExample {
+### 堆的结构
 
-/**
-  
-* @param args
-  
-*/
-  
-public static void main(String[] args) {
-  
-// TODO Auto-generated method stub
-  
-Queue<Integer> qi = new PriorityQueue<Integer>();
+- 用**完全二叉树**表示，通常以数组存储
+- **最小堆（Min-Heap）**：父节点 ≤ 子节点，根为最小值
+- **最大堆（Max-Heap）**：父节点 ≥ 子节点，根为最大值
 
-qi.add(5);
-  
-qi.add(2);
-  
-qi.add(1);
-  
-qi.add(10);
-  
-qi.add(3);
+数组索引关系（从 0 开始）：
 
-while (!qi.isEmpty()){
-  
-System.out.print(qi.poll() + ",");
-  
-}
-  
-System.out.println();
-  
-System.out.println("----------");
+| 节点 | 索引 |
+|------|------|
+| 父节点 | `(i-1) / 2` |
+| 左子节点 | `2*i + 1` |
+| 右子节点 | `2*i + 2` |
 
-Comparator<Integer> cmp;
-  
-cmp = new Comparator<Integer>() {
-  
-public int compare(Integer e1, Integer e2) {
-  
-return e2 - e1;
-  
-}
-  
-};
-  
-Queue<Integer> q2 = new PriorityQueue<Integer>(5,cmp);
-  
-q2.add(2);
-  
-q2.add(8);
-  
-q2.add(9);
-  
-q2.add(1);
-  
-while (!q2.isEmpty()){
-  
-System.out.print(q2.poll() + ",");
-  
-}
+### 核心操作：上浮与下沉
 
-}
+**上浮（Sift Up）**：插入新元素时，将其放在数组末尾，然后与父节点比较，不满足堆性质则交换，直到满足为止。
 
-}
+**下沉（Sift Down）**：取出堆顶后，将末尾元素移到堆顶，然后与子节点比较，不满足堆性质则与较小（或较大）的子节点交换，直到满足为止。
 
-output
+## 时间复杂度
 
-1,2,3,5,10,
-  
-----------
-  
-9,8,2,1,
-  
-自定义的比较器，可以让我们自由定义比较的顺序
+| 操作 | 时间复杂度 |
+|------|-----------|
+| 插入 | $O(\log n)$ |
+| 取出最值 | $O(\log n)$ |
+| 查看最值 | $O(1)$ |
+| 建堆（heapify） | $O(n)$ |
 
-Comparator cmp;
-  
-cmp = new Comparator() {
-  
-public int compare(Integer e1, Integer e2) {
-  
-return e2 - e1;
-  
-}
-  
-};
+## 两种变体
 
-此队列的头是按指定排序方式的最小元素。如果多个元素都是最小值，则头是其中一个元素——选择方法是任意的。
-  
-队列检索操作 poll、remove、peek 和 element 访问处于队列头的元素。
-  
-优先级队列是无界的，但是有一个内部容量，控制着用于存储队列元素的数组的大小。
-  
-它总是至少与队列的大小相同。随着不断向优先级队列添加元素，其容量会自动增加。无需指定容量增加策略的细节。
+### 最小优先级队列（Min Priority Queue）
 
-注意1: 该队列是用数组实现，但是数组大小可以动态增加，容量无限。
+优先级数值最小的元素最先出队。例如：Dijkstra 最短路径算法中，每次选取距离最小的节点。
 
-注意2:此实现不是同步的。不是线程安全的。如果多个线程中的任意线程从结构上修改了列表， 则这些线程不应同时访问 PriorityQueue 实例，这时请使用线程安全的PriorityBlockingQueue 类。
+### 最大优先级队列（Max Priority Queue）
 
-注意3:不允许使用 null 元素。
+优先级数值最大的元素最先出队。例如：任务调度中，优先执行优先级最高的任务。
 
-注意4: 此实现为插入方法 (offer、poll、remove() 和 add 方法) 提供 O(log(n)) 时间；
+## 典型应用场景
 
-为 remove(Object) 和 contains(Object) 方法提供线性时间；
-  
-为检索方法 (peek、element 和 size) 提供固定时间。
+- **图算法**：Dijkstra 最短路、Prim 最小生成树
+- **Top-K 问题**：从海量数据中找出最大/最小的 K 个元素
+- **任务调度**：操作系统进程调度、定时任务队列
+- **事件驱动模拟**：按时间戳处理事件
+- **中位数维护**：用一个最大堆 + 一个最小堆动态维护数据流的中位数
+- **合并 K 个有序链表**：每次从堆中取出最小节点
 
-注意5:方法iterator()中提供的迭代器并不保证以有序的方式遍历优先级队列中的元素。
+## 与其他数据结构对比
 
-至于原因可参考下面关于PriorityQueue的内部实现
-  
-如果需要按顺序遍历，请考虑使用 Arrays.sort(pq.toArray())。
+| 结构 | 取最值 | 插入 | 删除任意元素 |
+|------|--------|------|-------------|
+| 无序数组 | $O(n)$ | $O(1)$ | $O(n)$ |
+| 有序数组 | $O(1)$ | $O(n)$ | $O(n)$ |
+| 二叉堆 | $O(1)$ | $O(\log n)$ | $O(\log n)$ |
+| 平衡 BST | $O(\log n)$ | $O(\log n)$ | $O(\log n)$ |
 
-注意6: 可以在构造函数中指定如何排序。如:
+二叉堆在"频繁插入 + 频繁取最值"的场景下是最佳选择。
 
-PriorityQueue()
-  
-使用默认的初始容量 (11) 创建一个 PriorityQueue，并根据其自然顺序来排序其元素 (使用 Comparable) 。
-  
-PriorityQueue(int initialCapacity)
-  
-使用指定的初始容量创建一个 PriorityQueue，并根据其自然顺序来排序其元素 (使用 Comparable) 。
-  
-PriorityQueue(int initialCapacity, Comparator comparator)
-  
-使用指定的初始容量创建一个 PriorityQueue，并根据指定的比较器comparator来排序其元素。
+## 注意事项
 
-注意7:此类及其迭代器实现了 Collection 和 Iterator 接口的所有可选 方法。
-
-PriorityQueue的内部实现
-  
-PriorityQueue对元素采用的是堆排序，头是按指定排序方式的最小元素。堆排序只能保证根是最大 (最小) ，整个堆并不是有序的。
-  
-方法iterator()中提供的迭代器可能只是对整个数组的依次遍历。也就只能保证数组的第一个元素是最小的。
-  
-实例1的结果也正好与此相符
-
-[http://blog.csdn.net/hiphopmattshi/article/details/7334487](http://blog.csdn.net/hiphopmattshi/article/details/7334487)
+- 优先级队列**不保证同优先级元素的相对顺序**（非稳定）
+- 标准实现通常**不是线程安全**的，并发场景需使用专门的并发版本（如 Java 的 `PriorityBlockingQueue`）
+- 迭代器遍历**不保证按优先级顺序**输出，如需有序输出需反复 poll 或对底层数组排序
