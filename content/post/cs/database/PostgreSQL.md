@@ -1,7 +1,7 @@
 ---
 title: PostgreSQL
 author: "-"
-date: 2025-12-15T19:30:00+08:00
+date: 2026-03-20T19:11:11+08:00
 url: PostgreSQL
 categories:
   - database
@@ -1376,4 +1376,472 @@ set enable_seqscan = off;
 
 版权声明：本文为博主原创文章，遵循 CC 4.0 BY-SA 版权协议，转载请附上原文出处链接和本声明。  
 原文链接：https://blog.csdn.net/songyundong1993/article/details/122844254
+
+## synchronous_commit 同步提交配置
+
+`synchronous_commit` 控制事务提交时, PostgreSQL 需要等待 WAL 被写到哪个阶段才向客户端返回成功。它是**性能与数据安全**的核心权衡点。
+
+### 五个级别详解
+
+```ini
+synchronous_commit = off | local | remote_write | remote_apply | on
+```
+
+从最弱到最强:
+
+#### off — 异步提交
+
+```text
+客户端发出 COMMIT
+    ↓
+PostgreSQL 立即返回成功
+    ↓  (后台异步)
+WAL 写入操作系统缓冲区
+WAL 刷盘
+WAL 发送给 Standby
+Standby 写入并应用
+```
+
+- 性能最高, 延迟最低
+- 风险: 服务器崩溃可能丢失最近几个事务 (通常 < 600ms 的数据)
+- 适用: 可容忍少量数据丢失的场景 (日志、统计、临时数据)
+
+#### local — 本地同步 (默认值的近似)
+
+```text
+客户端发出 COMMIT
+    ↓
+等待 WAL 刷入本地磁盘 (fsync)
+    ↓
+返回成功
+    ↓  (后台异步)
+WAL 发送给 Standby
+```
+
+- 保证本地宕机不丢数据
+- 不等待 Standby, 主从复制仍是异步的
+- 这是大多数单机场景的合理默认值
+
+#### on — 等待 Standby 写入磁盘
+
+```text
+客户端发出 COMMIT
+    ↓
+等待 WAL 刷入本地磁盘
+等待 Standby 确认已将 WAL 写入并刷盘 (flush)
+    ↓
+返回成功
+```
+
+- WAL 已在 Primary 和 Standby 双端落盘
+- Standby **还没有 apply (回放)** WAL, 数据在 Standby 上尚不可查询
+- 主节点故障后, Standby 可以恢复所有已提交事务
+
+#### remote_write — 等待 Standby 写入但不刷盘
+
+```text
+等待 Standby 确认已将 WAL 写入操作系统缓冲区 (write, 未 fsync)
+```
+
+- 比 `on` 略快 (不等 Standby fsync)
+- 如果 Standby 的操作系统崩溃 (而非 PostgreSQL 崩溃), 可能丢失数据
+- 实践中较少使用
+
+#### remote_apply — 等待 Standby 应用 WAL ⭐ 最强
+
+```text
+客户端发出 COMMIT
+    ↓
+等待 WAL 刷入本地磁盘
+等待 Standby 确认已将 WAL replay (应用到数据文件)
+    ↓
+返回成功
+```
+
+- 事务提交后, 数据**立即在 Standby 上可查询**
+- 这是实现读写分离强一致性的基础
+- 也是用 PostgreSQL 行级锁表实现**跨 Failover 强一致分布式锁**的必要条件
+- 延迟最高 (需等待网络往返 + Standby apply)
+
+### 五个级别对比
+
+| 级别 | 等待阶段 | 本地宕机丢数据 | Standby 宕机丢数据 | Failover 后数据完整 | 相对延迟 |
+|------|---------|--------------|------------------|------------------|---------|
+| `off` | 无 | ⚠️ 可能 | ⚠️ 可能 | ❌ 可能丢失 | 最低 |
+| `local` | 本地 fsync | ✅ 不会 | ⚠️ 可能 | ❌ 可能丢失 | 低 |
+| `remote_write` | Standby write | ✅ 不会 | ⚠️ OS 崩溃时可能 | ✅ 基本保证 | 中 |
+| `on` | Standby fsync | ✅ 不会 | ✅ 不会 | ✅ 保证 | 中高 |
+| `remote_apply` | Standby apply | ✅ 不会 | ✅ 不会 | ✅ 保证且立即可查 | 最高 |
+
+### 配置方式
+
+```sql
+-- 查看当前值
+SHOW synchronous_commit;
+
+-- 数据库级别设置
+ALTER DATABASE mydb SET synchronous_commit = 'remote_apply';
+
+-- 会话级别设置 (只影响当前连接)
+SET synchronous_commit = 'remote_apply';
+
+-- 事务级别设置 (只影响当前事务)
+BEGIN;
+SET LOCAL synchronous_commit = 'remote_apply';
+-- ... 业务操作
+COMMIT;
+```
+
+同时需要配置哪些 Standby 参与同步:
+
+```ini
+# postgresql.conf on Primary
+synchronous_commit = remote_apply
+# * 表示任意一个 Standby 确认即可
+# 也可以指定名称: synchronous_standby_names = 'standby1'
+synchronous_standby_names = '*'
+```
+
+Standby 连接时会携带 `application_name`, 需与 `synchronous_standby_names` 匹配:
+
+```ini
+# recovery.conf 或 postgresql.conf on Standby (PG 12+)
+primary_conninfo = 'host=primary_ip port=5432 user=replicator application_name=standby1'
+```
+
+### remote_apply 的实际影响
+
+**好处:**
+
+1. **读写分离强一致**: 向 Primary 写入后立即从 Standby 读取, 数据已存在
+2. **Failover 零数据丢失**: 所有已提交事务在 Standby 上已完全应用
+3. **分布式锁一致性**: 行级锁表的锁记录在 Failover 后完整保留
+
+**代价:**
+
+1. **写入延迟增加**: 每次提交需要等待网络往返 + Standby apply 时间
+   - 典型延迟: 本地 LAN 环境 1~5ms, 跨机房可能 10~50ms+
+2. **Standby 不可用时 Primary 阻塞**: 如果 Standby 宕机, Primary 的写事务会一直等待直到超时
+   - 通过 `synchronous_commit_timeout` 控制超时行为
+3. **吞吐量下降**: 高并发写入场景下影响明显
+
+### Standby 不可用时的行为
+
+```ini
+# 等待超时后降级为异步提交, 避免 Primary 完全阻塞
+# 默认值: 1s
+wal_sender_timeout = 60s    # Standby 超时踢出同步列表
+```
+
+```sql
+-- 查看当前同步状态
+SELECT application_name, sync_state FROM pg_stat_replication;
+-- sync_state = 'sync'      当前同步 Standby
+-- sync_state = 'async'     异步 Standby
+-- sync_state = 'potential' 候补同步 Standby
+```
+
+如果同步 Standby 全部断线, PostgreSQL 会等待 `wal_sender_timeout` 后将其移出同步列表, Primary 恢复正常写入 (降级为异步)。
+
+### 适用场景建议
+
+| 场景 | 推荐配置 |
+|------|---------|
+| 单机开发/测试 | `local` (默认) |
+| 一般生产主从, 允许极少量数据丢失 | `on` |
+| 读写分离且要求强一致 | `remote_apply` |
+| 用 PG 行级锁表做分布式锁且需跨 Failover 一致 | `remote_apply` |
+| 高并发写入, 优先吞吐量 | `local` 或 `off` + 业务幂等 |
+| 金融核心交易, 零数据丢失 | `remote_apply` + 多 Standby |
+
+> `remote_apply` 是「强一致但有代价」的选择。在延迟敏感或高并发写入场景, 建议先评估实际延迟影响再决定是否启用。可以考虑只对关键事务通过 `SET LOCAL synchronous_commit = 'remote_apply'` 单独启用, 而不是全库开启。
+
+## Advisory Lock 咨询锁
+
+### 什么是 Advisory Lock
+
+Advisory Lock (咨询锁) 是 PostgreSQL 提供的一种**应用层协调机制**。与行锁、表锁保护的是数据库内部的数据对象不同, Advisory Lock 的含义完全由**应用自己定义** —— 数据库只负责加锁/解锁的原子性和互斥性, 至于这把锁代表什么、保护什么资源, 完全取决于应用程序的约定。
+
+Advisory Lock 使用一个 64 位整数 (或两个 32 位整数) 作为锁的 key, 存储在**共享内存**中, 不写入 WAL, 不占用磁盘空间。
+
+### 核心 API
+
+#### Session 级别 (会话级)
+
+```sql
+-- 获取排他锁 (阻塞, 直到获取成功)
+SELECT pg_advisory_lock(key bigint);
+
+-- 尝试获取排他锁 (非阻塞, 成功返回 true, 失败返回 false)
+SELECT pg_try_advisory_lock(key bigint);
+
+-- 获取共享锁 (多个会话可同时持有共享锁)
+SELECT pg_advisory_lock_shared(key bigint);
+
+-- 尝试获取共享锁 (非阻塞)
+SELECT pg_try_advisory_lock_shared(key bigint);
+
+-- 释放排他锁
+SELECT pg_advisory_unlock(key bigint);
+
+-- 释放共享锁
+SELECT pg_advisory_unlock_shared(key bigint);
+
+-- 释放当前会话所有 Advisory Lock
+SELECT pg_advisory_unlock_all();
+```
+
+#### Transaction 级别 (事务级)
+
+```sql
+-- 获取事务级排他锁 (事务结束时自动释放, 无法手动解锁)
+SELECT pg_advisory_xact_lock(key bigint);
+
+-- 尝试获取事务级排他锁
+SELECT pg_try_advisory_xact_lock(key bigint);
+```
+
+#### 两个 int4 参数版本
+
+当业务 key 由两个维度组成时 (如 resource_type + resource_id), 可以用两个 int4:
+
+```sql
+-- 等效于 pg_advisory_lock((int8(class) << 32) | int8(id))
+SELECT pg_advisory_lock(class int4, id int4);
+SELECT pg_try_advisory_lock(class int4, id int4);
+```
+
+### Session 级 vs Transaction 级的区别
+
+| 维度 | Session 级 | Transaction 级 |
+|------|-----------|----------------|
+| 释放时机 | 手动调用 `pg_advisory_unlock` 或连接断开 | 事务提交或回滚时自动释放 |
+| 可重入 | ✅ 同一 Session 可多次加锁, 需同等次数解锁 | ✅ 事务内多次加锁只需一次 (事务结束统一释放) |
+| 可手动解锁 | ✅ | ❌ 只能等事务结束 |
+| 连接池兼容性 | ⚠️ 有风险 (见下文) | ✅ 使用 `AUTOCOMMIT` 时自然归还 |
+
+### Advisory Lock 的重要特性
+
+#### 1. 存储在共享内存, 不写 WAL
+
+ Advisory Lock 不记录到 WAL (Write-Ahead Log), 因此:
+- **不会复制**到 Standby, 主从切换后锁状态消失
+- 服务器崩溃重启后锁状态消失
+- 性能极高, 无磁盘 I/O
+
+这与行级锁表方案形成对比: 行级锁写入 WAL, 可以通过同步复制保证 Failover 后锁一致性。
+
+#### 2. 可重入性
+
+Session 级 Advisory Lock 是**可重入**的: 同一会话可以对同一个 key 多次调用 `pg_advisory_lock`, 内部维护一个计数器, 必须调用相同次数的 `pg_advisory_unlock` 才能真正释放。
+
+```sql
+SELECT pg_advisory_lock(100);   -- count = 1
+SELECT pg_advisory_lock(100);   -- count = 2
+SELECT pg_advisory_unlock(100); -- count = 1, 锁仍持有
+SELECT pg_advisory_unlock(100); -- count = 0, 锁释放
+```
+
+#### 3. 连接断开自动释放
+
+持有 Session 级 Advisory Lock 的连接断开后 (正常关闭或异常崩溃), PostgreSQL 会自动释放该会话持有的所有 Advisory Lock。这天然解决了**死锁**问题 —— 持有锁的进程崩溃后锁不会永久阻塞其他进程。
+
+### 使用连接池的注意事项
+
+使用 PgBouncer 等连接池时, Session 级 Advisory Lock 存在风险:
+
+```text
+应用 A: 从连接池借到连接 conn-1
+应用 A: pg_advisory_lock(100) → 加锁成功
+应用 A: 完成业务, 将 conn-1 归还连接池  ← 忘记 unlock!
+
+应用 B: 从连接池借到 conn-1
+应用 B: 以为是干净连接, 实际上 conn-1 仍持有 key=100 的锁
+应用 B: 对其他 key 加锁, 操作共享资源 → 产生意外的锁竞争
+```
+
+**解决方案:**
+
+1. **始终在 finally 块中解锁**, 确保归还连接前释放锁
+2. **优先使用 Transaction 级 `pg_advisory_xact_lock`**, 事务结束时自动释放, 配合 `AUTOCOMMIT` 使用时尤其安全
+3. **在 `pg_advisory_lock` 前先调用 `pg_advisory_unlock_all()`** 作为保险措施 (不推荐, 副作用大)
+
+### 典型使用场景
+
+#### 场景一: 分布式定时任务防重
+
+多个实例同时运行定时任务时, 用 Advisory Lock 保证只有一个实例执行:
+
+```sql
+-- 在应用代码中 (伪代码)
+connection.execute("SELECT pg_try_advisory_lock(hashtext('daily_report_job'))");
+if result == true:
+    run_daily_report()
+    connection.execute("SELECT pg_advisory_unlock(hashtext('daily_report_job'))")
+else:
+    log("Another instance is running the job, skip")
+```
+
+#### 场景二: 防止并发处理同一业务对象
+
+```sql
+-- 对 order_id=12345 加锁, 防止并发处理
+SELECT pg_try_advisory_xact_lock(12345);
+-- 返回 true: 获取成功, 处理订单
+-- 返回 false: 已有其他事务在处理, 跳过或等待
+
+-- 事务提交时自动释放, 无需手动 unlock
+COMMIT;
+```
+
+#### 场景三: 与 SELECT FOR UPDATE 配合
+
+先用 Advisory Lock 防止并发, 再用 `SELECT FOR UPDATE` 锁定行:
+
+```sql
+BEGIN;
+SELECT pg_advisory_xact_lock(order_id);
+SELECT * FROM orders WHERE id = order_id FOR UPDATE;
+-- 处理业务逻辑
+COMMIT;
+```
+
+### Advisory Lock vs 其他方案对比
+
+| 方案 | 性能 | 复制到 Standby | 崩溃后自动释放 | 适用场景 |
+|------|------|---------------|--------------|----------|
+| Advisory Lock (Session) | ⭐⭐⭐⭐⭐ | ❌ | ✅ (连接断开) | 任务调度, 轻量协调 |
+| Advisory Lock (Xact) | ⭐⭐⭐⭐⭐ | ❌ | ✅ (事务结束) | 短事务内互斥 |
+| 行级锁表 | ⭐⭐⭐ | ✅ (同步复制时) | ✅ (TTL + 清理) | 强一致性, 跨服务 |
+| Redis SET NX | ⭐⭐⭐⭐⭐ | ❌ (异步复制) | ✅ (TTL) | 高并发, 允许极低概率失败 |
+| ZooKeeper / etcd | ⭐⭐⭐ | ✅ (Raft) | ✅ | 强一致性要求 |
+
+### 主从切换与数据库重启对 Advisory Lock 的影响
+
+**结论先行: Advisory Lock 在主从切换和数据库重启后会完全消失。**
+
+#### 为什么会消失
+
+Advisory Lock 存储在 PostgreSQL 的**共享内存 (Shared Memory)** 中, 不写入 WAL (Write-Ahead Log)。这意味着:
+
+- 进程内存的数据在进程终止后即消失
+- 没有 WAL 就无法复制到 Standby
+- 没有 WAL 就无法在崩溃恢复时重放
+
+#### 场景一: 数据库重启
+
+```text
+应用 A 持有 Advisory Lock(100) ← 存在共享内存中
+
+数据库重启 (计划内 or 崩溃)
+    ↓
+共享内存清空
+    ↓
+Advisory Lock(100) 消失
+
+数据库重启完成后:
+- 应用 A 的连接已断开 (连接断开时锁本来就会自动释放)
+- 即使应用 A 重新连接, 也需要重新申请锁
+- 其他应用可以正常申请 Lock(100)
+```
+
+**影响**: 数据库重启后锁状态清空, **行为是符合预期的**。因为持有锁的连接在重启时已强制断开, 锁随之释放, 不存在「锁记录残留但持有者已消失」的僵尸状态。
+
+#### 场景二: 主从切换 (Failover)
+
+```text
+应用 A 连接 Primary, 持有 Advisory Lock(100)
+Primary 宕机
+    ↓
+Standby 晋升为新 Primary
+    ↓
+新 Primary 共享内存中没有 Advisory Lock(100)
+    ↓
+应用 B 连接新 Primary, 申请 Advisory Lock(100) → 成功! ⚠️
+
+同时:
+应用 A 的连接已断开 (Primary 宕机)
+应用 A 重连新 Primary, 发现自己没有锁了
+```
+
+**影响**: Failover 窗口期内存在**互斥性被短暂破坏**的风险 —— 原持有锁的客户端还没意识到 Primary 已切换, 而新 Primary 上已经可以申请到同一把锁。
+
+#### 与行级锁表的对比
+
+| 事件 | Advisory Lock | 行级锁表 (异步复制) | 行级锁表 (同步复制) |
+|------|--------------|------------------|------------------|
+| 数据库重启 | 锁消失 (正常) | 锁记录保留 | 锁记录保留 |
+| 主从切换 | 锁消失 | ❌ 可能丢锁 | ✅ 锁记录保留 |
+| 对互斥性的影响 | 短暂窗口期风险 | 短暂窗口期风险 | 安全 |
+
+#### 实际应对方式
+
+**方案一: 业务幂等兜底 (最重要)**
+
+无论用何种分布式锁方案, 幂等性都是最后一道防线。Failover 期间即使两个客户端同时获得锁, 幂等检查也能保证业务结果正确:
+
+```sql
+-- 获得锁后, 先检查业务状态
+SELECT pg_try_advisory_xact_lock(order_id);
+IF acquired THEN
+    -- 检查幂等: 是否已经处理过?
+    IF NOT EXISTS (SELECT 1 FROM orders WHERE id = order_id AND status = 'processed') THEN
+        -- 处理业务
+        UPDATE orders SET status = 'processed' WHERE id = order_id;
+    END IF;
+END IF;
+```
+
+**方案二: 客户端感知重连**
+
+应用层在重连后重新申请锁, 并检查业务状态是否需要重新处理。
+
+**方案三: 对强一致性要求高时, 改用行级锁表 + 同步复制**
+
+如果业务绝对不能容忍 Failover 期间的短暂互斥失效, 应改用行级锁表方案并开启同步复制:
+
+```ini
+# postgresql.conf
+synchronous_commit = remote_apply
+synchronous_standby_names = 'standby1'
+```
+
+#### 总结
+
+| 场景 | Advisory Lock 行为 | 是否需要担心 |
+|------|------------------|------------|
+| 计划内重启 | 锁随连接断开消失, 正常 | 不需要, 持有锁的连接会重新连接并申请 |
+| 崩溃重启 | 锁消失, 正常 | 不需要, 配合业务幂等即可 |
+| 主从切换 | 锁消失, 存在短暂窗口期 | 需要幂等兜底 |
+| Standby 上申请锁 | Standby 只读, 无法申请 | 不适用 |
+
+> **Advisory Lock 不适合需要跨 Failover 保持严格互斥的场景。** 对于这类需求, 应使用行级锁表 + 同步复制, 或 etcd/ZooKeeper。大多数场景下, Advisory Lock + 业务幂等是足够且高效的组合。
+
+### 查看当前 Advisory Lock 状态
+
+```sql
+-- 查看当前所有 Advisory Lock
+SELECT
+    pid,
+    locktype,
+    classid,
+    objid,
+    mode,
+    granted
+FROM pg_locks
+WHERE locktype = 'advisory';
+
+-- 结合进程信息
+SELECT
+    l.pid,
+    a.usename,
+    a.application_name,
+    l.classid,
+    l.objid,
+    l.mode,
+    l.granted
+FROM pg_locks l
+JOIN pg_stat_activity a ON l.pid = a.pid
+WHERE l.locktype = 'advisory';
+```
 
