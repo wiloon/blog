@@ -1,16 +1,17 @@
 ---
-title: 'Java 异常处理'
+title: 'Exception Handling'
 author: "-"
-date: 2013-01-16T10:23:13+00:00
-url: /?p=5041
+date: 2026-03-23T10:52:19+08:00
+url: exception-handling
 categories:
   - Java
 tags:
   - Exception
   - Java
+  - remix
+  - AI-assisted
 
 ---
-## 'Java 异常处理'
 
 异常捕捉的确是对性能有影响的,那是因为一旦异常被抛出,函数也就跟着 return 了。而程序在执行时需要处理 函数栈 的上下文,这会导致性能变得很慢,尤其是线程栈比较深的时候。但从另一方面来说,异常的抛出基本上表明程序的错误。程序在绝大多数情况下,应该是在没有异常的情况下运行的, 所以,有异常的情况应该是少数的情况,不会影响正常处理的性能问题。
 
@@ -227,6 +228,96 @@ System.err(this.getClass().getName() + ".mymethod - 不能关闭输出文件" + 
 本文的结论不是放之四海皆准的教条,有时常识和经验才是最好的老师。如果你对自己的做法没有百分之百的信心,务必加上详细、全面的注释。
 
 另一方面,不要笑话这些错误,不妨问问你自己是否真地彻底摆脱了这些坏习惯。即使最有经验的程序员偶尔也会误入歧途,原因很简单,因为它们确确实实带来了"方便"。所有这些反例都可以看作Java编程世界的恶魔,它们美丽动人,无孔不入,时刻诱惑着你。也许有人会认为这些都属于鸡皮蒜毛的小事,不足挂齿,但请记住: 勿以恶小而为之,勿以善小而不为。
+
+## 异常的两种用途模式
+
+### 异常作为控制流 (Exceptions as Control Flow)
+
+将异常用于**正常的程序逻辑跳转**，而非处理真正的错误情况。
+
+**典型反模式：**
+
+```python
+# 反模式：用异常控制循环终止
+def find_index(lst, value):
+    try:
+        return lst.index(value)
+    except ValueError:
+        return -1
+
+# 更清晰的方式
+def find_index(lst, value):
+    return lst.index(value) if value in lst else -1
+```
+
+```java
+// Java 中臭名昭著的反模式：用异常结束循环
+try {
+    int i = 0;
+    while (true) {
+        arr[i++] = 0;  // 用 ArrayIndexOutOfBoundsException 来结束循环
+    }
+} catch (ArrayIndexOutOfBoundsException e) {}
+```
+
+**特点：**
+
+- 性能差（异常构建栈轨迹代价高）
+- 可读性差，逻辑不直观
+- 通常被视为**反模式**
+- 部分语言/场景例外，如 Python 的 `StopIteration` 用于迭代器终止
+
+### 异常作为错误传播 (Exceptions as Error Propagation)
+
+将异常作为**错误信息的传递机制**，沿调用栈向上冒泡，由合适的层级统一处理。这是异常的**设计本意**和正当用途。
+
+**调用栈传播示意：**
+
+```text
+[数据库层] → 抛出 SQLException
+     ↓
+[Repository 层] → 捕获，包装为 DataAccessException 重新抛出
+     ↓
+[Service 层] → 捕获，包装为 BusinessException 重新抛出
+     ↓
+[Controller 层] → 捕获，转换为 HTTP 400/500 响应
+```
+
+**异常链（Exception Chaining）示例：**
+
+```java
+// Java 中保留原始异常上下文
+try {
+    userRepository.findById(userId);
+} catch (DataAccessException e) {
+    throw new ServiceException("用户查询失败", e);  // 保留原因链
+}
+```
+
+```python
+# Python 中的异常链
+try:
+    user = db.query(user_id)
+except DatabaseError as e:
+    raise ServiceError("用户查询失败") from e  # 保留原始异常上下文
+```
+
+**特点：**
+
+- 关注点分离：底层抛出，上层决定如何处理
+- 应避免"吞异常"（catch 后不处理）
+- 跨层传递时应做**异常转译**（重新包装为当前抽象层的语义）
+
+### 两种用途的核心区别
+
+| 维度 | 控制流 | 错误传播 |
+|------|--------|----------|
+| 用途 | 替代 `if/else`、`goto` | 传递错误信息 |
+| 是否正常逻辑 | 是 | 否（非预期情况） |
+| 推荐度 | 通常是反模式 | 正当用途 |
+| 性能影响 | 明显（频繁触发） | 可接受（异常路径少） |
+
+**原则：** 只在真正"异常"（非预期、不可恢复）的情况下抛出异常，正常逻辑分支用条件判断。
 
 ----------------------下面是一些java异常集-------------------------------
   
