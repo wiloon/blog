@@ -1,12 +1,13 @@
 ---
 title: linux apps
 author: "w10n"
-date: 2025-07-01 15:29:59
+date: 2026-03-27T08:58:00+08:00
 url: linux/apps
 categories:
   - Linux
 tags:
   - remix
+  - AI-assisted
 ---
 ## linux apps
 
@@ -51,6 +52,7 @@ go install github.com/jesseduffield/lazygit@latest
 - podlet
 - visual-studio-code-bin
 - claude-code
+- gitkraken, git GUI client, Free for non-commercial use
 
 ## application list
 
@@ -161,7 +163,6 @@ sudo pacman -S powerdevil kmix kscreen ark
 | wps-office                            | 依赖                                                                      |
 | ttf-wps-fonts                         | wps字体                                                                   |
 | nixnote2-git                          | evernote linux 客户端                                                     |
-| gitkraken                             | git GUI clinet, Free for non-commercial use                              |
 | github-desktop-bin                    | MIT Linense                                                              |
 | heidisql                              | MySQL客户端                                                               |
 | jd-gui-bin                            | java反编译                                                                |
