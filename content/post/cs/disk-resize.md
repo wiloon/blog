@@ -1,7 +1,7 @@
 ---
 title: 硬盘扩容, PVE, Archlinux
 author: "-"
-date: 2025-09-13 15:33:33
+date: 2026-03-26T15:38:08+08:00
 url: disk/resize
 categories:
   - OS
@@ -10,6 +10,8 @@ tags:
   - Remix
   - Disk
   - PVE
+  - remix
+  - AI-assisted
 ---
 ## 硬盘扩容
 
@@ -24,6 +26,7 @@ tags:
 启动虚拟机
 
 ```bash
+# 列出所有块设备（磁盘及分区）的信息，以树状结构显示设备名、大小、挂载点等
 lsblk
 
 # 看到磁盘总大小增加了，但分区大小没变。
@@ -64,7 +67,7 @@ Select (default p): p
 # 使用默认值 2
 Partition number (2-4, default 2): 
 
-# 输入分区的起始扇区, 要和删除的分区起始扇区一样
+# 输入分区的起始扇区, 要和删除的分区起始扇区一样, 注意!默认值会是2048, 不要使用这个默认值, 要输入前面打印分区表时看到的分区 2 的起始扇区值, 否则会丢数据, 这里是2103296
 First sector (2048-41943039, default 2048): 2103296
 
 # 输入分区的结束扇区, 使用默认值, 即使用所有剩余空间
@@ -99,7 +102,7 @@ Command (m for help): w
 The partition table has been altered.
 Syncing disks.
 
-# ------
+# 强制检查 ext2/ext3/ext4 文件系统的一致性，-f 表示即使文件系统标记为干净也强制执行检查
 e2fsck -f /dev/sda2
 
 # 有可能会询问是否优化，输入 y， 后面可能会有很多类似的提示，全部输入 y 即可， 还有可能提示输入 a: 确认全部
@@ -112,6 +115,7 @@ Pass 1: Checking inodes, blocks, and sizes
 Inode 287507 extent tree (at level 1) could be narrower.  Optimize<y>? 
 
 # resize the filesystem
+# resize2fs 要求文件系统在扩容前必须是干净状态（通过 e2fsck 校验），否则拒绝执行
 resize2fs /dev/sda2
 
 # 分区扩容完成，重启虚拟机
@@ -638,3 +642,37 @@ growpart /dev/vda 1;resize2fs /dev/vda1
 ```
 
 [https://support.huaweicloud.com/usermanual-evs/zh-cn_topic_0044524728.html#zh-cn_topic_0044524728__section31113372194023](https://support.huaweicloud.com/usermanual-evs/zh-cn_topic_0044524728.html#zh-cn_topic_0044524728__section31113372194023)
+
+## 为什么扩容前要用 e2fsck 检查文件系统一致性
+
+### 扩容操作的两个独立层次
+
+扩容涉及两个相互独立的层面：
+
+- **分区层**：`fdisk` / `parted` 修改分区表，告诉内核这个分区占多少扇区
+- **文件系统层**：ext4 的 superblock 里也记录了文件系统的大小，与分区表互不感知
+
+这两层信息在扩容后会产生不一致，需要 `resize2fs` 来同步。但 `resize2fs` 要求文件系统在操作前必须处于干净状态，否则会拒绝执行，因此要先用 `e2fsck` 检查并修复。
+
+### 用 fdisk 删除重建分区时的特殊风险
+
+文章中的 PVE ext4 根分区扩容方案采用了"删除旧分区 + 重建新分区"的方式，这会带来额外风险：
+
+fdisk 在重建分区时提示 `Partition #2 contains a ext4 signature. Remove?`，输入 `Y` 后会擦除分区开头的 ext4 签名信息，导致主 superblock 损坏。从实际回显可以看到：
+
+```text
+ext2fs_open2: Bad magic number in super-block
+e2fsck: Superblock invalid, trying backup blocks...
+```
+
+ext4 文件系统在磁盘上保有多个备份 superblock（分布在不同位置），`e2fsck` 会自动用备份恢复主 superblock，修复后就可以正常执行 `resize2fs`。
+
+### 用 parted resizepart 扩容时
+
+`parted resizepart` 直接移动分区的结束边界，不删除重建，不会破坏 superblock，风险较小。但 `e2fsck` 仍然建议在 `resize2fs` 前运行，以排除文件系统本身存在的其他问题（如非正常关机遗留的脏标记）。
+
+### 总结：扩容完整流程的三个层次
+
+1. **磁盘层**：PVE 控制台给虚拟磁盘文件扩容（qcow2 文件变大）
+2. **分区层**：`fdisk` / `parted` 修改分区表，扩大分区边界
+3. **文件系统层**：`e2fsck` 检查修复 → `resize2fs` 扩展文件系统，使其填满整个分区

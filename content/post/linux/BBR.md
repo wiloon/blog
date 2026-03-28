@@ -13,7 +13,7 @@ tags:
 ### 检查是否已经开启了 BBR
 
 ````Bash#\
-# 如果结果中带有bbr，则证明你的内核已开启bbr。
+# 如果结果中带有bbr，则证明你的内核已开启 bbr。
 sysctl net.ipv4.tcp_available_congestion_control
 ````
 
