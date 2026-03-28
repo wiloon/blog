@@ -6,7 +6,7 @@ url: linux/apps
 categories:
   - Linux
 tags:
-  - remix
+  - original
   - AI-assisted
 ---
 ## linux apps
