@@ -156,9 +156,15 @@ hasCJKLanguage = true
     minMatchCharLength = 0
     keys = ["title", "permalink", "summary", "content"]
 
-# 输出格式
+# 输出格式（全局禁用 RSS，避免超大文件超过 Cloudflare Pages 25MB 限制）
 [outputs]
-  home = ["HTML", "RSS", "JSON"]  # JSON for search
+  home = ["HTML", "JSON"]
+  section = ["HTML"]
+  taxonomy = ["HTML"]
+  term = ["HTML"]
+
+# 禁用 RSS
+disableRSS = true
 
 # Minify 配置：禁用 HTML 压缩（内嵌 JS 有 bug），保留 JSON/CSS 压缩
 [minify]
