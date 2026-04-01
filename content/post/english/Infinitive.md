@@ -8,7 +8,6 @@ categories:
 tags:
   - "Inbox"
   - "reprint"
-  - "original"
   - "remix"
 ---
 ## Infinitive 不定式

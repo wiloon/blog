@@ -28,7 +28,7 @@ ubuntu 安装之后再手动的给分区缩容, 然后再安装 archlinux
 - 大小：1.1GB
 - 挂载点：
   - Ubuntu: `/boot/efi`
-  - Archlinux: `/efi`
+  - Arch Linux: `/efi`
 - 使用率：1%
 - UUID：`FF07-C6C8`
 - 说明：双系统共享的 UEFI 引导分区
@@ -54,7 +54,7 @@ ubuntu 安装之后再手动的给分区缩容, 然后再安装 archlinux
   - 文件系统 UUID：`e3ad7c01-acec-4afc-9915-2203badc5e11`
 - 说明：Ubuntu 的加密根分区，使用 LUKS + LVM
 
-### 4. nvme0n1p4 - Archlinux 根分区
+### 4. nvme0n1p4 - Arch Linux 根分区
 
 - 文件系统：ext4
 - 大小：约 353GB

@@ -4,7 +4,7 @@ author: "-"
 date: 2019-07-08T05:47:58+00:00
 url: fzf
 categories:
-  - Agile
+  - Linux
 tags:
   - reprint
 ---

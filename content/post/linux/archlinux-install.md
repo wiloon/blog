@@ -6,7 +6,7 @@ url: archlinux
 categories:
   - Linux
 tags:
-  - archlinux
+  - Arch Linux
   - remix
 ---
 ## archlinux install
