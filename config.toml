@@ -160,6 +160,11 @@ hasCJKLanguage = true
 [outputs]
   home = ["HTML", "RSS", "JSON"]  # JSON for search
 
+# Minify 配置：禁用 HTML 压缩（内嵌 JS 有 bug），保留 JSON/CSS 压缩
+[minify]
+  disableHTML = true
+  disableJS = true
+
 # 隐私设置
 [privacy]
   [privacy.youtube]
