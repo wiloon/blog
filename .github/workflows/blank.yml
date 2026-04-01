@@ -9,36 +9,22 @@ jobs:
   build-deploy:
     runs-on: ubuntu-22.04
     steps:
-      - uses: actions/checkout@v1  # v2 does not have submodules option now
+      - uses: actions/checkout@v4
         with:
           submodules: true
-      
-      - uses: actions/setup-node@v1
-        with:
-          node-version: '12'
-      
+
       - name: Setup Hugo
-        uses: peaceiris/actions-hugo@v2
+        uses: peaceiris/actions-hugo@v3
         with:
-          hugo-version: '0.70.0'
-          # extended: true
+          hugo-version: '0.159.1'
+          extended: true
 
       - name: Build
-        run: hugo --minify -v
+        run: hugo --minify
 
-      # Deploy to vm-bwg
-      - name: Deploy to vm-aliyun
-        uses: easingthemes/ssh-deploy@v5.1.0
-        env:
-          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY_ALIYUN }}
-          ARGS: "-avz --delete"
-          SOURCE: "public/"
-          REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
-          REMOTE_PORT: 22
-          REMOTE_USER: "blog"
-          TARGET: "/var/lib/containers/storage/volumes/nginx-www/_data/blog/"
-          EXCLUDE: "/node_modules/"
-          SCRIPT_BEFORE: |
-            whoami
-            pwd
-            ls -al
+      - name: Deploy to Cloudflare Pages
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: pages deploy public/ --project-name=blog --commit-dirty=true

@@ -7,7 +7,7 @@ FROM docker.io/library/alpine:3.22.2 AS builder
 RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.aliyun.com/g' /etc/apk/repositories
 
 # Install Hugo Extended (required for PaperMod theme - requires v0.146.0+)
-ENV HUGO_VERSION=0.152.2
+ENV HUGO_VERSION=0.159.1
 RUN apk add --no-cache wget ca-certificates libc6-compat libstdc++ git && \
     wget -q https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_extended_${HUGO_VERSION}_linux-amd64.tar.gz && \
     tar -xzf hugo_extended_${HUGO_VERSION}_linux-amd64.tar.gz && \
