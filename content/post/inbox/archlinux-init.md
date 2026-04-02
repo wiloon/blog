@@ -107,7 +107,6 @@ connect to new system with user0 via ssh
 # install xfce4
 
 sudo pacman -S xorg-server
-# sudo pacman -S xorg #includes Xorg server,  xorg-apps
 sudo pacman -S xf86-video-vesa
 sudo pacman -S xf86-video-intel # for intel GPU
 sudo pacman -S xf86-video-fbdev #for hyper v

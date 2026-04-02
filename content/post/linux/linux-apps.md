@@ -53,13 +53,13 @@ go install github.com/jesseduffield/lazygit@latest
 - visual-studio-code-bin
 - claude-code
 - gitkraken, git GUI client, Free for non-commercial use
+- wechat
 
 ## application list
 
 [https://wiki.archlinux.org/index.php/List_of_applications](https://wiki.archlinux.org/index.php/List_of_applications)
 
 ```bash
-# apps
 sudo pacman -S code go jdk-openjdk openjdk-src \
 maven gradle openvpn nftables zstd chromium \
 git jdk8-openjdk openjdk8-src kotlin docker
