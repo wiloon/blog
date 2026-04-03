@@ -19,6 +19,15 @@ jobs:
           hugo-version: '0.159.1'
           extended: true
 
+      - name: Generate blog stats
+        run: |
+          count=$(find content/post -name "*.md" | wc -l | tr -d ' ')
+          chars=$(find content/post -name "*.md" -exec cat {} + | wc -m | tr -d ' ')
+          ts=$(date +%s)
+          echo "{\"article_count\":${count},\"total_chars\":${chars},\"generated_at\":${ts}}" \
+            > static/stats.json
+          echo "article_count=${count}, total_chars=${chars}"
+
       - name: Build
         run: hugo --minify
 
