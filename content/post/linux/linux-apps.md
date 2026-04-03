@@ -1,229 +1,42 @@
 ---
 title: linux apps
 author: "w10n"
-date: 2026-03-27T08:58:00+08:00
+date: 2026-04-03T09:04:50+08:00
 url: linux/apps
 categories:
   - Linux
 tags:
   - original
+  - remix
   - AI-assisted
 ---
-## linux apps
+## 必装软件（重装系统后优先安装）
 
-- kitty, terminal
+| app       | source | notes          |
+| --------- | ------ | -------------- |
+| kitty     | pacman | terminal       |
+| neovim    | pacman | 编辑器         |
+| flameshot | pacman | 截图+标注      |
+| bitwarden | pacman | 密码管理       |
+| btop                 | pacman     | 颜值不错的 top 替代            |
+| wechat           | aur    |            |
+| visual-studio-code-bin          | aur    | VSCode 官方二进制版                                                        |
 
-## Go
+## 说明
 
-```bash
-go install github.com/jesseduffield/lazygit@latest
-```
+- `pacman` — `sudo pacman -S`
+- `aur` — `yay -S`
+- `apt` — `sudo apt install`
+- `go` — `go install`
 
-## Ubuntu apt package
+## Browser
 
-- gnome-shell-pomodoro: Pomodoro, https://gnomepomodoro.org/
-- pavucontrol, chrome audio output, https://askubuntu.com/questions/457978/no-sound-from-chrome-sound-works-fine-in-firefox-etc-13-10
-- baobab, 硬盘占用分析工具
-- indicator-sysmonitor, 任务栏里的系统资源监控
-- thunderbird, 邮件客户端, email client
-- flameshot, 截图工具
-
-## pacman
-
-- `ncdu`, 磁盘空间占用分析/清理
-- `bitwarden`, password management
-- binutils: A set of programs to assemble and manipulate binary and object files
-- `btop`, 另外一个 top 实现, 颜值还不错
-- `fastfetch`, 打印发行版的 logo
-- `mousepad`, 易于使用的快速的文本编辑器
-- obsidian, 知识管理
-- code, visual studio code, vscode
-- chromium, 开源版 chrome
-- base-devel
-- stress, 压力测试
-- nvm, nvm allows you to quickly install and use different versions of node via the command line.
-
-## AUR
-
-- google-chrome
-- redisinsight: redis GUI
-- jetbrains-toolbox
-- pamac-aur, 图形界面的 pacman
-- podlet
-- visual-studio-code-bin
-- claude-code
-- gitkraken, git GUI client, Free for non-commercial use
-- wechat
-
-## application list
-
-[https://wiki.archlinux.org/index.php/List_of_applications](https://wiki.archlinux.org/index.php/List_of_applications)
-
-```bash
-sudo pacman -S code go jdk-openjdk openjdk-src \
-maven gradle openvpn nftables zstd chromium \
-git jdk8-openjdk openjdk8-src kotlin docker
-
-# kde
-sudo pacman -S powerdevil kmix kscreen ark
-```
-
-## install by pacman
-
-| name                  | comments                                                               |
-| :-------------------- |:-----------------------------------------------------------------------|
-| flameshot             | 截图工具 screenshot                                                        |
-| netdata               | 系统资源监控                                                                 |
-| qalculate-gtk         | 全宇宙最好用的计算器                                                             |
-| neofetch              | 系统信息显示命令行脚本, Neofetch 和 ScreenFetch 或者 Linux_Logo 很像，但是它可以高度定制, 没有人维护了 |
-| keepassxc             |                                                                        |
-| sqlectron-gui         |                                                                        |
-| hyper                 |                                                                        |
-| rsibreak              | 番茄钟                                                                    |
-| libreoffice-fresh     |                                                                        |
-| ark                   | kde dolphin extract zip,gz                                             |
-| wine                  | 需要开启 Multilib 仓库                                                       |
-| simplescreenrecorder  | 录屏                                                                     |
-| openvpn               |                                                                        |
-| rdesktop              |                                                                        |
-| pulseaudio            |                                                                        |
-| hexyl                 | 彩色hex编辑器                                                               |
-| nftables              |                                                                        |
-| zeitgeist             |                                                                        |
-| catfish               |                                                                        |
-| thunar-archive-plugin | thunar 右键解压文件                                                          |
-| file-roller           | zip 7z rar support                                                     |
-| zstd                  | 多线程，速度比较快的压缩工具, archlinux在用                                            |
-| digikam               | : KDE 环境下最好的选择                                                         |
-| chromium              | 开源版chrome                                                              |
-| kvm                   |                                                                        |
-| kotlin                |                                                                        |
-| docker                |                                                                        |
-| hdparm                | 磁盘参数查看工具                                                               |
-| Deluge                | bt client docker                                                       |
-| aria2                 | 下载工具                                                                   |
-| axel                  | 下载工具                                                                   |
-| inetutils             | telnet client                                                          |
-| zeal                  | 离线文档                                                                   |
-| wireshark-qt          | Wireshark                                                              |
-| lsof                  |                                                                        |
-| playonlinux           | Wine软件兼容层的图形前端，允许Linux安装基于Windows的应用程序                                 |
-| podman                |                                                                        |
-| nethogs               |                                                                        |
-| ttf-jetbrains-mono    | jetbrain的mono字体                                                        |
-| gpick                 | 颜色拾取工具                                                                 |
-| telegram-desktop      | telegram                                                               |
-| apper                 | pacman GUI                                                             |
-| dstat                 | 查看系统性能的工具 dstat -cdlmnpsy                                              |
-| sl                    | 小火车                                                                    |
-| inkscape              | 矢量图形创建和编辑程序,svg                                                        |
-| lrzsz                 | zmodem                                                                 |
-| remmina               | GTK 编写的远程桌面客户端                                                         |
-| freerdp               | remmina 的RDP 支持包                                                       |
-|cmake|                                                                        |
-|linux-lts| lts 内核                                                                 |
-|filelight| 图形化的磁盘空间管理工具                                                           |
-|okular| pdf reader                                                             |
-|audacity| 一款免费的音频处理软件。它是在linux下发展起来的，一款遵循GNU协议的免费软件。有着傻瓜式的操作界面和专业的音频处理效果。        |
-|python-pip|                                                                        |
-
-## install by pacman, development
-
-| name                            | comments          |
-| :------------------------------ | :---------------- |
-| graphviz                        | plantuml依赖的包, /opt/local/bin/dot              |
-| jdk-openjdk                     | latest openjdk    |
-| jdk8-openjdk                    | openjdk 8         |
-| openjdk8-src                    | openjdk 8 source  |
-| intellij-idea-community-edition | IDEA社区版        |
-| maven                           |                   |
-| gradle                          |                   |
-| gradle-src                      |                   |
-| git                             |                   |
-| rust                            | rust-lang         |
-| iperf3                          | 网络测试工具      |
-| termite                         | 支持32位色的终端  |
-| neovim                          | 用户体验更好的vim |
-| adobe-source-code-pro-fonts     | adobe 的编程字体  |
-| tmux                            |                   |
-
-## AUR table
-
-| name                                  | comments                                                                 |
-| :------------------------------------ | :-------------------------------------------------------------           |
-| intellij-idea-ultimate-edition        | yay -S intellij-idea-ultimate-edition intellij-idea-ultimate-edition-jre |
-| telegraf-bin                          |                                                                          |
-| goland                                | yay -S goland goland-jre, 两个一起安装                                     |
-| webstorm-jre                          | yay -S webstorm webstorm-jre                                             |
-| clion                                 | yay -S clion clion-jre                                                   |
-| google-chrome                         |                                                                          |
-| deepin-wine-wechat                    | 微信,[https://github.com/countstarlight/deepin-wine-wechat-arch](https://github.com/countstarlight/deepin-wine-wechat-arch)          |
-| google-chrome-beta                    |                                                                          |
-| redis-desktop-manager                 | rdm                                                                      |
-| wps-office                            | 依赖                                                                      |
-| ttf-wps-fonts                         | wps字体                                                                   |
-| nixnote2-git                          | evernote linux 客户端                                                     |
-| github-desktop-bin                    | MIT Linense                                                              |
-| heidisql                              | MySQL客户端                                                               |
-| jd-gui-bin                            | java反编译                                                                |
-| eclipse-mat                           | Eclipse Memory Analyzer (MAT)                                            |
-| dingtalk                              | 钉钉                                                                      |
-| menulibre                             | xfce的系统菜单管理工具                                                      |
-| ttf-consolas-with-yahei-powerline-git | Consolas-with-Yahei字体                                                   |
-| zoom                                  |                                                                |
-| shutter                               |                                                                |
-| perl-goo-canvas                       | shutter 的画线插件                                             |
-| google-chrome-dev                     |                                                                |
-| intellij-idea-community-edition-jre   | idea with jre                                                  |
-| tableplus                             | MySQL client                                                   |
-| procmon                               | 微软的进程监控工具                                             |
-| platformio                            | 物联网开发的开源生态系统                                       |
-| slurm                                 | 网络监控                                                       |
-| typora                                | markdown 编辑器，joplin 外部编辑器                             |
-| feishu                                | 飞书                                                           |
-|libiconv |编码转换|
-|hardinfo-git|HardInfo是一个Linux系统信息查看软件。它可以显示有关的硬件，软件，并进行简单的性能基准测试。|
-|vscodium-bin|vscode 社区版|
-|gtk-recordmydesktop|录屏|
-
-## KDE
-
-| name          | comments             |
-| ------------- | -------------------- |
-| powerdevil    | 电源管理，休眠按钮   |
-| kmix          | 音量调节             |
-| ark           | 压缩包管理器         |
-| gwenview      | 图片查看             |
-| kscreen       | kde 多显示器管理工具 |
-| kcolorchooser | 颜色拾取             |
-
-## KDE widget
-
-| name               | comments                   |
-| ------------------ | -------------------------- |
-| netspeed widget    | 网络监控                   |
-| resources monitor  | CPU, 内存 监控             |
-| Plasma Week Number | 显示周数                   |
-| rsibreak           | 蕃茄钟, install via pacman |
-
-## ubuntu
-
-| Name             | Comments                                                    |
-| ---------------- | ----------------------------------------------------------- |
-| openjdk-8-jdk    |                                                             |
-| openjdk-8-source |                                                             |
-| git-svn          |                                                             |
-| nautilus         | ubuntu默认的文件管理器                                      |
-| ttf-wqy-microhei | 文泉驿-微米黑                                               |
-| ttf-wqy-zenhei   | 文泉驿-正黑                                                 |
-| xfonts-wqy       | 文泉驿-点阵宋体                                             |
-| keepassxc        |                                                             |
-| eog              | Eye of Gnome, 图片查看                                      |
-| neofetch         | 发行版logo                                                  |
-| tree             | 以树型结构显示文件目录结构, tree -L N 子文件夹显示到第 N 层 |
-| x11-apps         | xclock, xserver 测试用                                      |
-| rar ||
-| unrar ||
+| app                | source | notes          |
+| ------------------ | ------ | -------------- |
+| chromium           | pacman | 开源版 Chrome  |
+| google-chrome      | aur    |                |
+| google-chrome-beta | aur    |                |
+| google-chrome-dev  | aur    |                |
 
 ### ubuntu install chrome
 
@@ -232,31 +45,243 @@ curl -O https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.de
 sudo apt install ./google-chrome-stable_current_amd64.deb
 ```
 
-### xfce4
+## Terminal
 
-file-roller
+| app     | source | notes         |
+| ------- | ------ | ------------- |
+| hyper   | pacman | terminal      |
+| termite | pacman | 支持32位色    |
+| tmux    | pacman |               |
 
-### tar
+## Text Editor / Notes
 
-| Name   | Comments              |
-| ------ | --------------------- |
-| Ventoy | 各种iso安装盘引导工具 |
-| jetbrains-toolbox ||
+| app          | source | notes                 |
+| ------------ | ------ | --------------------- |
+| mousepad     | pacman | 轻量文本编辑器        |
+| typora       | aur    | markdown 编辑器       |
+| obsidian     | pacman | 知识管理              |
+| nixnote2-git | aur    | Evernote Linux 客户端 |
 
-### openwrt
+## Screenshot / Recording
 
-| Name    | Comments |
-| ------- | -------- |
-| drill   |          |
-| openwrt |          |
+| app                  | source     | notes                        |
+| -------------------- | ---------- | ---------------------------- |
+| spectacle            | pacman     | KDE 原生截图                 |
+| simplescreenrecorder | pacman     | 录屏                         |
+| gtk-recordmydesktop  | aur        | 录屏                         |
+| shutter              | aur        | 截图，需配合 perl-goo-canvas |
 
-## other
+## System Monitor
 
-| Name    | Comments |
-| ------- | -------- |
-| datagrip   |          |
-| Joplin | Joplin.AppImage         |
+| app                  | source     | notes                          |
+| -------------------- | ---------- | ------------------------------ |
+| ncdu                 | pacman/apt | 命令行磁盘空间分析             |
+| netdata              | pacman     | 系统资源监控                   |
+| indicator-sysmonitor | apt        | 任务栏系统资源监控             |
+| nethogs              | pacman     | 网络流量监控                   |
+| dstat                | pacman     | 查看系统性能 `dstat -cdlmnpsy` |
+| slurm                | aur        | 网络监控                       |
+| hardinfo-git         | aur        | 硬件信息查看                   |
 
-## raspberry pi
+## System Info
 
-omxplayer
+| app       | source     | notes                  |
+| --------- | ---------- | ---------------------- |
+| fastfetch | pacman     | 打印发行版 logo        |
+| neofetch  | pacman/apt | 系统信息（已停止维护） |
+| stress    | pacman     | 压力测试               |
+| hdparm    | pacman     | 磁盘参数查看           |
+| procmon   | aur        | 微软的进程监控工具     |
+
+## File Management
+
+| app       | source | notes                    |
+| --------- | ------ | ------------------------ |
+| filelight | pacman | 图形化磁盘空间管理       |
+| baobab    | apt    | 硬盘占用分析工具         |
+| catfish   | pacman | 文件搜索                 |
+| tree      | apt    | 树形目录显示 `tree -L N` |
+| nautilus  | apt    | Ubuntu 默认文件管理器    |
+
+## Archive / Compression
+
+| app         | source | notes              |
+| ----------- | ------ | ------------------ |
+| ark         | pacman | KDE 压缩包管理器   |
+| file-roller | pacman | zip/7z/rar 支持    |
+| zstd        | pacman | 多线程快速压缩工具 |
+| rar/unrar   | apt    |                    |
+
+## Media / Graphics
+
+| app      | source | notes                 |
+| -------- | ------ | --------------------- |
+| digikam  | pacman | KDE 最佳图片管理      |
+| gwenview | pacman | KDE 图片查看          |
+| eog      | apt    | Eye of Gnome 图片查看 |
+| inkscape | pacman | 矢量图形编辑，SVG     |
+| audacity | pacman | 音频处理              |
+| okular   | pacman | PDF reader            |
+| gpick    | pacman | 颜色拾取工具          |
+
+## Download
+
+| app   | source | notes    |
+| ----- | ------ | -------- |
+| aria2 | pacman | 下载工具 |
+| axel  | pacman | 下载工具 |
+
+## Remote Desktop
+
+| app      | source | notes              |
+| -------- | ------ | ------------------ |
+| remmina  | pacman | GTK 远程桌面客户端 |
+| freerdp  | pacman | remmina RDP 支持包 |
+| rdesktop | pacman |                    |
+
+## Communication
+
+| app              | source | notes      |
+| ---------------- | ------ | ---------- |
+| thunderbird      | apt    | 邮件客户端 |
+| telegram-desktop | pacman |            |
+| feishu           | aur    | 飞书       |
+| dingtalk         | aur    | 钉钉       |
+| zoom             | aur    |            |
+
+## Office
+
+| app               | source | notes            |
+| ----------------- | ------ | ---------------- |
+| libreoffice-fresh | pacman |                  |
+| wps-office        | aur    | 需 ttf-wps-fonts |
+| ttf-wps-fonts     | aur    | WPS 字体依赖     |
+
+## Development Tools
+
+| app                | source     | notes                                                |
+| ------------------ | ---------- | ---------------------------------------------------- |
+| git                | pacman/apt |                                                      |
+| lazygit            | go         | `go install github.com/jesseduffield/lazygit@latest` |
+| gitkraken          | aur        | Git GUI，Free for non-commercial                     |
+| github-desktop-bin | aur        |                                                      |
+| base-devel         | pacman     | 编译工具链                                           |
+| cmake              | pacman     |                                                      |
+| kotlin             | pacman     |                                                      |
+| iperf3             | pacman     | 网络测试                                             |
+| wireshark-qt       | pacman     |                                                      |
+| lsof               | pacman     |                                                      |
+| hexyl              | pacman     | 彩色 hex 编辑器                                      |
+| lrzsz              | pacman     | zmodem                                               |
+| binutils           | pacman     | 二进制文件处理工具集                                 |
+| inetutils          | pacman     | telnet 等网络工具                                    |
+| zeal               | pacman     | 离线文档                                             |
+| platformio         | aur        | 物联网开发生态系统                                   |
+
+## IDE
+
+| app                             | source | notes                                                                      |
+| ------------------------------- | ------ | -------------------------------------------------------------------------- |
+| code                            | pacman | Visual Studio Code                                                         |
+| vscodium-bin                    | aur    | VSCode 社区版（无遥测）                                                    |
+| jetbrains-toolbox               | aur    | JetBrains 工具管理器                                                       |
+| intellij-idea-community-edition | pacman | IDEA 社区版                                                                |
+| intellij-idea-ultimate-edition  | aur    | `yay -S intellij-idea-ultimate-edition intellij-idea-ultimate-edition-jre` |
+| goland                          | aur    | `yay -S goland goland-jre`                                                 |
+| webstorm-jre                    | aur    | `yay -S webstorm webstorm-jre`                                             |
+| clion                           | aur    | `yay -S clion clion-jre`                                                   |
+| claude-code                     | aur    |                                                                            |
+
+## Java
+
+| app           | source | notes                   |
+| ------------- | ------ | ----------------------- |
+| jdk-openjdk   | pacman | Latest OpenJDK          |
+| jdk8-openjdk  | pacman | OpenJDK 8               |
+| openjdk8-src  | pacman | OpenJDK 8 源码          |
+| openjdk-8-jdk | apt    | OpenJDK 8               |
+| maven         | pacman |                         |
+| gradle        | pacman |                         |
+| graphviz      | pacman | PlantUML 依赖           |
+| jd-gui-bin    | aur    | Java 反编译             |
+| eclipse-mat   | aur    | Eclipse Memory Analyzer |
+
+## Node.js / Rust
+
+| app  | source | notes            |
+| ---- | ------ | ---------------- |
+| nvm  | pacman | Node.js 版本管理 |
+| rust | pacman |                  |
+
+## Database
+
+| app                   | source | notes        |
+| --------------------- | ------ | ------------ |
+| redisinsight          | aur    | Redis GUI    |
+| redis-desktop-manager | aur    | RDM          |
+| sqlectron-gui         | pacman |              |
+| heidisql              | aur    | MySQL 客户端 |
+| tableplus             | aur    | MySQL client |
+| datagrip              | —      | 官网下载     |
+
+## Fonts
+
+| app                                   | source | notes           |
+| ------------------------------------- | ------ | --------------- |
+| ttf-jetbrains-mono                    | pacman | JetBrains Mono  |
+| adobe-source-code-pro-fonts           | pacman | Adobe 编程字体  |
+| ttf-wqy-microhei                      | apt    | 文泉驿-微米黑   |
+| ttf-wqy-zenhei                        | apt    | 文泉驿-正黑     |
+| xfonts-wqy                            | apt    | 文泉驿-点阵宋体 |
+| ttf-consolas-with-yahei-powerline-git | aur    | Consolas+雅黑   |
+
+## KDE
+
+```bash
+sudo pacman -S powerdevil kmix kscreen ark gwenview kcolorchooser
+```
+
+| app           | source | notes              |
+| ------------- | ------ | ------------------ |
+| powerdevil    | pacman | 电源管理，休眠按钮 |
+| kmix          | pacman | 音量调节           |
+| kscreen       | pacman | 多显示器管理       |
+| kcolorchooser | pacman | 颜色拾取           |
+
+### KDE Widget
+
+| name               | notes         |
+| ------------------ | ------------- |
+| netspeed widget    | 网络监控      |
+| resources monitor  | CPU/内存监控  |
+| Plasma Week Number | 显示周数      |
+
+## Virtualization / Container
+
+| app         | source | notes                |
+| ----------- | ------ | -------------------- |
+| docker      | pacman |                      |
+| podman      | pacman |                      |
+| podlet      | aur    |                      |
+| kvm         | pacman |                      |
+| wine        | pacman | 需开启 Multilib 仓库 |
+| playonlinux | pacman | Wine 图形前端        |
+
+## Utilities
+
+| app                  | source | notes                   |
+| -------------------- | ------ | ----------------------- |
+| qalculate-gtk        | pacman | 全宇宙最好用的计算器    |
+| rsibreak             | pacman | 番茄钟                  |
+| gnome-shell-pomodoro | apt    | Pomodoro                |
+| openvpn              | pacman |                         |
+| pavucontrol          | apt    | Chrome 音频输出设置     |
+| sl                   | pacman | 小火车                  |
+| x11-apps             | apt    | xclock, xserver 测试用  |
+| pamac-aur            | aur    | 图形界面的 pacman       |
+| libiconv             | aur    | 编码转换                |
+| Ventoy               | —      | 各种 ISO 安装盘引导工具 |
+
+## References
+
+- [Arch Linux List of Applications](https://wiki.archlinux.org/index.php/List_of_applications)
