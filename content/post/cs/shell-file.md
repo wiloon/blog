@@ -1,7 +1,7 @@
 ---
 title: Shell 创建文件并写入内容
 author: "-"
-date: 2026-04-03T12:18:07+08:00
+date: 2026-04-03T12:30:02+08:00
 url: shell-create-file-write
 categories:
   - shell
@@ -25,10 +25,37 @@ tags:
 ## 单行字符串：推荐 `printf`
 
 ```bash
-printf '%s\n' "Hello, World!" > file.txt
+printf '%s\n' 'Hello, World!' > foo.txt
 ```
 
-`echo` 在不同 shell（bash/sh/dash）里对转义字符（`\n`、`\t`）的处理行为不一致，`printf` 行为一致且可预测，脚本中优先使用 `printf`。
+### printf 简介
+
+`printf` 在 Linux/Unix 系统上普遍可用，有两种形式：
+
+- **内建命令**（built-in）：bash、zsh、dash 等 shell 均内置，不依赖外部程序
+- **外部命令**：`/usr/bin/printf`，由 `coreutils` 包提供，几乎所有发行版默认安装
+
+`printf` 的作用是格式化输出，语法来自 C 语言的 `printf()`：
+
+```bash
+printf FORMAT [ARGUMENTS...]
+```
+
+常用格式占位符：
+
+| 占位符 | 含义 |
+|---|---|
+| `%s` | 字符串 |
+| `%d` | 整数 |
+| `%f` | 浮点数 |
+| `\n` | 换行 |
+| `\t` | Tab |
+
+`echo` 在 bash 里需要加 `-e` 才能解析 `\n`，而 sh/dash 的 `echo` 行为又不同，跨 shell 不可靠；`printf` 行为在所有 shell 里一致，脚本中优先使用 `printf`。
+
+### 引号选择
+
+字符串内容用**单引号**包裹：在交互式 shell（zsh/bash）中，双引号内的 `!` 会触发历史展开（history expansion），导致引号未闭合、shell 进入等待状态（`dquote>`）。没有变量展开需求时，用单引号可以避免这个问题。
 
 ## 多行内容：推荐 heredoc
 
