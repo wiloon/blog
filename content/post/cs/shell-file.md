@@ -1,80 +1,129 @@
 ---
-title: 用 shell 脚本生成文本文件, shell 创建文件 
+title: Shell 创建文件并写入内容
 author: "-"
-date: 2020-01-01T16:26:14+00:00
-url: shell/file/create
+date: 2026-04-03T12:30:02+08:00
+url: shell-create-file-write
 categories:
   - shell
 tags:
   - reprint
+  - remix
+  - AI-assisted
 ---
-## 用 shell 脚本生成文本文件, shell 创建文件
+
+## 选型总结
+
+| 场景 | 推荐方式 |
+|---|---|
+| 单行字符串 | `printf '%s\n' "..." > file` |
+| 多行内容 | `cat > file << 'EOF' ... EOF` |
+| 追加内容 | `>> file` |
+| 需要 root 写入 | `echo "..." \| sudo tee file` |
+| 脚本内变量展开 | heredoc 不加引号：`<< EOF` |
+| 禁止变量展开 | heredoc 加单引号：`<< 'EOF'` |
+
+## 单行字符串：推荐 `printf`
 
 ```bash
-# sudo
-echo "nohup ${app_path}/goland/default/bin/goland.sh >/dev/null 2>&1 &" | sudo tee /usr/local/bin/goland > /dev/null
+printf '%s\n' 'Hello, World!' > foo.txt
 ```
 
-生成一个具有特定内容的文本文件
+### printf 简介
 
-### 使用 echo 命令
+`printf` 在 Linux/Unix 系统上普遍可用，有两种形式：
+
+- **内建命令**（built-in）：bash、zsh、dash 等 shell 均内置，不依赖外部程序
+- **外部命令**：`/usr/bin/printf`，由 `coreutils` 包提供，几乎所有发行版默认安装
+
+`printf` 的作用是格式化输出，语法来自 C 语言的 `printf()`：
 
 ```bash
-echo "Hello, World!
-My name is Shengbin." > readme.txt
+printf FORMAT [ARGUMENTS...]
 ```
 
-这种方法其实就是把echo的输出重定向到了文件。echo会原样保留换行符，所以多行也是支持的。
+常用格式占位符：
 
-### 使用 cat 命令
+| 占位符 | 含义 |
+|---|---|
+| `%s` | 字符串 |
+| `%d` | 整数 |
+| `%f` | 浮点数 |
+| `\n` | 换行 |
+| `\t` | Tab |
+
+`echo` 在 bash 里需要加 `-e` 才能解析 `\n`，而 sh/dash 的 `echo` 行为又不同，跨 shell 不可靠；`printf` 行为在所有 shell 里一致，脚本中优先使用 `printf`。
+
+### 引号选择
+
+字符串内容用**单引号**包裹：在交互式 shell（zsh/bash）中，双引号内的 `!` 会触发历史展开（history expansion），导致引号未闭合、shell 进入等待状态（`dquote>`）。没有变量展开需求时，用单引号可以避免这个问题。
+
+## 多行内容：推荐 heredoc
 
 ```bash
-cat > readme.txt << EOF
+cat > file.txt << 'EOF'
 Hello, World!
-My name is Shengbin.
+Line 2
+$PWD 会原样保留，不展开
 EOF
 ```
 
-上面的END_TEXT是一个自定义的标识符，二者之间的文本将被认为是一个文件的内容，这个文件作为cat > readme.txt的输入参数。 这是一种被称为here document的技术。
+heredoc（here document）的优势是写在脚本里的格式与写入文件的格式完全一致，不需要手动处理换行。
 
-这种方法有一点优势就是在脚本里写的文本内容的格式与想要呈现在文本文件中的一模一样。上一种方法则要求内容的第一行必须在echo的同一行。
+### 单引号与双引号的区别
 
-区分单引号与双引号
-  
-Shell中双引号之间的内容会被进行变量展开和命令执行，如果想原样保留文本字符串，应该使用单引号 (这种单双引号的区分在别的语言里也有，如PHP、Perl之类的脚本语言) 。
+heredoc 起始标识符加单引号 `'EOF'`，禁止变量展开，内容原样写入：
 
-例如:
+```bash
+cat > file.txt << 'EOF'
+Your working directory is $PWD.
+EOF
+# 文件内容：Your working directory is $PWD.
+```
 
-echo "Your working directory can be read from the variable $PWD." >> readme.txt
-  
-和
+不加引号 `EOF`，`$VAR`、`$(cmd)` 会被 shell 展开：
 
-cat > readme.txt << END_TEXT
-  
-Your working directory can be read from the variable $PWD.
-  
-END_TEXT
-  
-产生的readme.txt内容都是类似这样的:
+```bash
+cat > file.txt << EOF
+Your working directory is $PWD.
+EOF
+# 文件内容：Your working directory is /home/user
+```
 
-Your working directory can be read from the variable /Users/shengbin/Desktop.
-  
-但实际希望的内容是:
+同理，`echo` 也遵循相同规则：
 
-Your working directory can be read from the variable $PWD.
-  
-所以正确的脚本应该这么写:
+```bash
+echo 'Your working directory is $PWD.' >> file.txt   # $PWD 不展开
+echo "Your working directory is $PWD."  >> file.txt  # $PWD 展开
+```
 
-echo 'Your working directory can be read from the variable $PWD.' >> readme.txt
-  
-或
+## 追加内容
 
-cat > readme.txt << 'END_TEXT'
-  
-Your working directory can be read from the variable $PWD.
-  
-END_TEXT
-  
-没错，把起始标识符用单引号包起来，就会使其中的文本被认为是在单引号之间。
+```bash
+printf '%s\n' "new line" >> file.txt
+```
 
-[https://blog.shengbin.me/posts/create-text-file-in-shell-scripts](https://blog.shengbin.me/posts/create-text-file-in-shell-scripts)
+`>` 覆盖写入，`>>` 追加写入。
+
+## 需要 sudo 权限写入：用 `tee`
+
+直接用 `sudo echo > /etc/file` 因为重定向在 sudo 提权前就已解析，会导致权限错误。正确做法是用 `tee`：
+
+```bash
+# 覆盖写入
+echo "content" | sudo tee /etc/config.conf > /dev/null
+
+# 追加写入
+echo "content" | sudo tee -a /etc/config.conf > /dev/null
+
+# 多行内容
+sudo tee /etc/config.conf > /dev/null << 'EOF'
+[setting]
+key = value
+EOF
+```
+
+`> /dev/null` 是为了抑制 `tee` 同时输出到终端的内容。
+
+## 参考
+
+- [https://blog.shengbin.me/posts/create-text-file-in-shell-scripts](https://blog.shengbin.me/posts/create-text-file-in-shell-scripts)
