@@ -6,7 +6,7 @@ url: ""
 categories:
   - Go
 tags:
-  - inbox
+  - Inbox
 ---
 
 ## "golang sync.Map"

@@ -6,7 +6,7 @@ url: godaddy
 categories:
   - Inbox
 tags:
-  - Remix
+  - remix
 ---
 ## godaddy
 

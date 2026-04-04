@@ -6,7 +6,7 @@ url: trickle
 categories:
   - Network
 tags:
-  - network
+  - Network
 
 ---
 ## trickle

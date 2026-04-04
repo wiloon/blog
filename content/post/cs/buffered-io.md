@@ -7,7 +7,7 @@ categories:
   - Linux
 tags:
   - reprint
-  - io
+  - IO
 ---
 ## 缓冲IO, 缓冲I/O, buffered I/O
 

@@ -6,7 +6,7 @@ url: "failover"
 categories:
   - inbox
 tags:
-  - inbox
+  - Inbox
 ---
 ## "failover, failfast, failback, failsafe"
 

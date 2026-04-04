@@ -6,7 +6,7 @@ url: /?p=4449
 categories:
   - Java
 tags:
-  - DesignPattern
+  - Pattern
 
 ---
 ## Builder, Factory

@@ -6,7 +6,7 @@ url: mmap
 categories:
   - Linux
 tags:
-  - inbox
+  - Inbox
 ---
 ## mmap
 

@@ -6,7 +6,7 @@ url: ""
 categories:
   - Font
 tags:
-  - inbox
+  - Inbox
 ---
 ## "字体 , 编程字体, 等宽字体"
 

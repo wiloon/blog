@@ -6,7 +6,7 @@ url: /?p=7738
 categories:
   - Inbox
 tags:
-  - Arch Linux
+  - Linux
 
 ---
 ## RDP Session Disconnected

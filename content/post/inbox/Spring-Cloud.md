@@ -6,7 +6,7 @@ url: "Spring-Cloud"
 categories:
   - inbox
 tags:
-  - inbox
+  - Inbox
 ---
 ## "Spring Cloud"
 

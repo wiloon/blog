@@ -6,7 +6,7 @@ url: "SkipList"
 categories:
   - Algorithm
 tags:
-  - inbox
+  - Inbox
 ---
 ## "SkipList, 跳表, 跳跃表"
 

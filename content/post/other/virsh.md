@@ -7,7 +7,7 @@ categories:
   - Desktop
 tags:
   - reprint
-  - kvm
+  - KVM
 
 ---
 ## libvirt, virsh

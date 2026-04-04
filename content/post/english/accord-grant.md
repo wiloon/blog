@@ -7,8 +7,8 @@ categories:
     - Inbox
 tags:
   - Inbox
-  - Reprint
-  - Remix
+  - reprint
+  - remix
 ---
 # accord, grant
 

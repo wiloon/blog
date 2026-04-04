@@ -6,7 +6,7 @@ url: /?p=847
 categories:
   - Java
 tags:
-  - DesignPattern
+  - Pattern
 
 ---
 ## 设计模式 – Decorator

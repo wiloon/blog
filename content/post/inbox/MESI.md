@@ -6,7 +6,7 @@ url: "MESI"
 categories:
   - inbox
 tags:
-  - inbox
+  - Inbox
 ---
 ## "MESI"
 CPU 在执行指令的时候需要从 memory 中获取指令和需要的数据，但是 CPU 的速度要比 memory 快很多，这就导致了 CPU 大部分时间都不是在做运算上而是用在了和 memory 进行数据的 I/O 过程中，这样性能是很低的。这就导致了 CPU cache 的产生，CPU 将数据从 memory 读取到 cache 中，在 cache 中对数据进行读写的速度是很快的，这样就提高了性能。CPU 执行运算时不可能需要某一个数据就去读取一次，这样就增加了 I/O 的频率，导致性能低下。所以会一次性读取一块内存的数据存放到 cache 中， 这个块称为 “cache line” ， cache line 的大小是固定的， 通常是 2 的 N 次方，在 16 ~ 256 byte 不等。当某个数据首次被 CPU 访问时， cache 中不存在，这称为 “cache miss”  (或 “startup” 或 “warmup” cache miss)。这意味着 CPU 必须要去 memory 中读取该数据，这时候 CPU 必须等待 (stalled)。当 cache 装满后，后续的 cache miss 需要置换 cache 中现有的数据，这样的 cache miss 被称为 “capacity miss” 。如果随后又访问了被替换的 cache line ，这时的 cache miss 被称为 “associativity miss” 。 

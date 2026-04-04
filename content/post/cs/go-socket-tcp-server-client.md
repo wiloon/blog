@@ -7,7 +7,7 @@ categories:
   - Inbox
 tags:
   - Go
-  - tcp
+  - TCP
 
 ---
 ## golang tcp socket

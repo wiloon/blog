@@ -6,7 +6,7 @@ url: /?p=7192
 categories:
   - Inbox
 tags:
-  - Hbase
+  - HBase
 
 ---
 ## HBase

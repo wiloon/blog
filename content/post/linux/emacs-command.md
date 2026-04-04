@@ -6,7 +6,7 @@ url: /?p=6370
 categories:
   - Inbox
 tags:
-  - emacs
+  - Emacs
 
 ---
 ## emacs command

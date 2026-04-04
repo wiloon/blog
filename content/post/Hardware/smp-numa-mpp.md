@@ -6,7 +6,7 @@ url: ""
 categories:
   - inbox
 tags:
-  - inbox
+  - Inbox
 ---
 ## "服务器三大体系 SMP、NUMA、MPP"
 

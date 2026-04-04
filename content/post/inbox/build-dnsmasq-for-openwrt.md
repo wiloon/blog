@@ -8,7 +8,7 @@ categories:
 tags:
   - reprint
   - HomeLab
-  - openwrt
+  - OpenWrt
 ---
 ## R7800 openwrt
 

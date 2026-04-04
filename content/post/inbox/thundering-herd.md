@@ -6,7 +6,7 @@ url: "template"
 categories:
   - inbox
 tags:
-  - inbox
+  - Inbox
 ---
 ## "thundering herd, 惊群效应"
 

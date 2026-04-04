@@ -6,7 +6,7 @@ url: /?p=7936
 categories:
   - Inbox
 tags:
-  - MemCache
+  - Memcache
 
 ---
 ## MemCache

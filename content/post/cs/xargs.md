@@ -7,7 +7,7 @@ categories:
   - Linux
 tags:
   - reprint
-  - command
+  - Command
 ---
 ## xargs
 

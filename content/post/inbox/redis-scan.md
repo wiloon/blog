@@ -6,7 +6,7 @@ url: "redis-scan"
 categories:
   - Inbox
 tags:
-  - redis
+  - Redis
 ---
 ## "redis scan"
 

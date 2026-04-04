@@ -6,7 +6,7 @@ url: "unsafe"
 categories:
   - Java
 tags:
-  - inbox
+  - Inbox
 ---
 ## "Unsafe"
 # unsafe

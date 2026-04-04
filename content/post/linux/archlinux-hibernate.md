@@ -6,7 +6,7 @@ url: archlinux/hibernate
 categories:
   - Linux
 tags:
-  - Arch Linux
+  - Linux
 
 ---
 ## archlinux hibernate

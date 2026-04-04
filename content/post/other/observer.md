@@ -6,7 +6,7 @@ url: observer
 categories:
   - Java
 tags:
-  - DesignPattern
+  - Pattern
 
 ---
 ## 观察者模式, Observer pattern

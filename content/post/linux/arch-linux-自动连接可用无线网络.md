@@ -6,7 +6,7 @@ url: /?p=7577
 categories:
   - Inbox
 tags:
-  - Arch Linux
+  - Linux
 
 ---
 ## Arch Linux 自动连接可用无线网络

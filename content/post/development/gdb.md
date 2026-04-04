@@ -6,7 +6,7 @@ url: gdb
 categories:
   - CS
 tags:
-  - Reprint
+  - reprint
 ---
 ## gdb
 

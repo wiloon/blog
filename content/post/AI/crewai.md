@@ -9,7 +9,7 @@ tags:
   - AI-assisted
   - agent
   - LLM
-  - python
+  - Python
 ---
 
 ## 什么是 CrewAI

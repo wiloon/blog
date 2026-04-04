@@ -6,7 +6,7 @@ url: "redis-pipeline"
 categories:
   - Database
 tags:
-  - redis
+  - Redis
 ---
 ## "redis pipeline"
 

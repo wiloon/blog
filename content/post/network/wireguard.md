@@ -6,8 +6,8 @@ url: wireguard
 categories:
   - Network
 tags:
-  - Reprint
-  - Remix
+  - reprint
+  - remix
   - VPN
   - Wireguard
 ---

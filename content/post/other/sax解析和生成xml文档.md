@@ -7,7 +7,7 @@ categories:
   - Inbox
 tags:
   - Java
-  - Xml
+  - XML
 
 ---
 ## SAX解析和生成XML文档

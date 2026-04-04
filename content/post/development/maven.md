@@ -6,7 +6,7 @@ url: maven/basic
 categories:
   - Java
 tags:
-  - maven
+  - Maven
 ---
 ## mvn, maven basic
 

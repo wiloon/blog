@@ -6,7 +6,7 @@ url: adb/sqlite
 categories:
   - Database
 tags:
-  - Sqlite
+  - SQLite
 
 ---
 ## adb shell sqlite DB

@@ -6,7 +6,7 @@ url: bash
 categories:
   - Linux
 tags:
-  - shell
+  - Shell
 
 ---
 ## bash

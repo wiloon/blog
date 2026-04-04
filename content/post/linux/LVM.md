@@ -8,7 +8,7 @@ categories:
 tags:
   - reprint
   - LVM
-  - linux
+  - Linux
   - remix
 ---
 ## LVM

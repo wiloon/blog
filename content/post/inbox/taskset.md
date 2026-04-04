@@ -6,7 +6,7 @@ url: "taskset"
 categories:
   - inbox
 tags:
-  - inbox
+  - Inbox
 ---
 ## "taskset"
 一、在Linux上修改进程的“CPU亲和力”

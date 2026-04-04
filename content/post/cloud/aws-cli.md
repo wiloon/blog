@@ -6,7 +6,7 @@ url: aws-cli
 categories:
   - Cloud
 tags:
-  - aws
+  - AWS
 
 ---
 ## aws-cli

@@ -6,7 +6,7 @@ url: ""
 categories:
   - English
 tags:
-  - inbox
+  - Inbox
 ---
 ## "equipment, device"
 

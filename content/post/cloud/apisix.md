@@ -6,7 +6,7 @@ url: ""
 categories:
   - inbox
 tags:
-  - inbox
+  - Inbox
 ---
 ## "apisix"
 

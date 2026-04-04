@@ -6,7 +6,7 @@ url: gorun
 categories:
   - Go
 tags:
-  - shell
+  - Shell
 
 ---
 ## gorun, golang, shell

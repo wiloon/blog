@@ -6,7 +6,7 @@ url: kde
 categories:
   - Linux
 tags:
-  - inbox
+  - Inbox
   - KDE
   - remix
   - AI-assisted

@@ -7,7 +7,7 @@ categories:
   - Inbox
 tags:
   - JavaScript
-  - Json
+  - JSON
   - Spring
 
 ---

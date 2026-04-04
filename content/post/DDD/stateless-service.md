@@ -6,7 +6,7 @@ url: stateless-service
 categories:
   - Pattern
 tags:
-  - Reprint
+  - reprint
 ---
 ## 无状态服务, stateless service
 

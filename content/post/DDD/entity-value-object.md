@@ -6,7 +6,7 @@ url: entity-value-object
 categories:
   - Pattern
 tags:
-  - Reprint
+  - reprint
 ---
 # 实体和值对象, entity, value object
 

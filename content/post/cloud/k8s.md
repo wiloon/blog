@@ -6,7 +6,7 @@ url: k8s
 categories:
   - Cloud
 tags:
-  - K8S
+  - k8s
   - "reprint"
   - "remix"
 ---

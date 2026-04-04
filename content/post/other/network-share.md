@@ -7,7 +7,7 @@ categories:
   - Desktop
 tags:
   - reprint
-  - network
+  - Network
 ---
 ## Windows 共享网络设置 (有线网络和无线网络）
 

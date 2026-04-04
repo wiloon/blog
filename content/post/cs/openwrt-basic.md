@@ -8,7 +8,7 @@ categories:
 tags:
   - reprint
   - HomeLab
-  - openwrt
+  - OpenWrt
 ---
 ## openwrt basic, opkg basic, ipk
 

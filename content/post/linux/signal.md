@@ -7,7 +7,7 @@ categories:
   - Linux
 tags:
   - Linux
-  - ipc
+  - IPC
 
 ---
 ## signal, 信号

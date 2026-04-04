@@ -7,7 +7,7 @@ categories:
   - Pattern
 tags:
   - reprint
-  - pattern
+  - Pattern
 ---
 ## 设计模式 – 模板方法, Template Method
 

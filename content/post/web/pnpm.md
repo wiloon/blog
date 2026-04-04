@@ -4,7 +4,7 @@ author: "-"
 date: 2026-03-24T10:36:23+08:00
 url: pnpm
 tags:
-  - node
+  - Node.js
   - npm
   - pnpm
   - remix

@@ -6,7 +6,7 @@ url: dependency-library-service
 categories:
   - inbox
 tags:
-  - inbox
+  - Inbox
 ---
 ## dependency-library-service, 依赖 库, 服务
 

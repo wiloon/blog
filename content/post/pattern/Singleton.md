@@ -6,7 +6,7 @@ url: Singleton
 categories:
   - Java
 tags:
-  - DesignPattern
+  - Pattern
 
 ---
 ## 单例 Singleton

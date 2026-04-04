@@ -6,8 +6,8 @@ url: ubuntu/k8s
 categories:
   - Cloud
 tags:
-  - Reprint
-  - Remix
+  - reprint
+  - remix
 ---
 # ubuntu install k8s
 

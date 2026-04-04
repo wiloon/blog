@@ -6,7 +6,7 @@ url: /redis/list
 categories:
   - Database
 tags:
-  - redis
+  - Redis
 ---
 ## redis list
 

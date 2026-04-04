@@ -6,7 +6,7 @@ url: /?p=6394
 categories:
   - JavaScript
 tags:
-  - regex
+  - Regex
 
 ---
 ## js正则标志/g /i /m的用法

@@ -7,7 +7,7 @@ categories:
   - Go
 tags:
   - reprint
-  - regex
+  - Regex
 ---
 ## go regex, 正则
 

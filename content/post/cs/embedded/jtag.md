@@ -6,7 +6,7 @@ url: "JTAG"
 categories:
   - inbox
 tags:
-  - inbox
+  - Inbox
 ---
 ## "JTAG"
 ## JTAG

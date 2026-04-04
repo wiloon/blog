@@ -7,7 +7,7 @@ tags:
   - concurrent
   - Java
   - synchronized
-  - monitor
+  - monitoring
 categories:
   - inbox
 ---

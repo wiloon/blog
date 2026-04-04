@@ -6,7 +6,7 @@ url: /lock
 categories:
   - Linux
 tags:
-  - Lock
+  - lock
 
 ---
 ## Linux中的各种锁, 自旋锁/spin lock, 排队自旋锁、MCS锁、CLH锁

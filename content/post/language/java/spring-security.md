@@ -6,7 +6,7 @@ url: spring/security
 categories:
   - inbox
 tags:
-  - inbox
+  - Inbox
 ---
 ## "spring security"
 ## spring security

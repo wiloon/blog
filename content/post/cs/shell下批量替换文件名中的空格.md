@@ -7,7 +7,7 @@ categories:
   - Linux
 tags:
   - reprint
-  - shell
+  - Shell
 ---
 ## shell下批量替换文件名中的空格
 

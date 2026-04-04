@@ -8,7 +8,7 @@ categories:
 tags:
   - reprint
   - remix
-  - openwrt
+  - OpenWrt
 ---
 ## 'netgear  刷机, factory.img, sysupgrade.bin, openwrt'
 

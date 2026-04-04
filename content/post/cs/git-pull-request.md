@@ -6,7 +6,7 @@ url: git-pull-request
 categories:
   - CS
 tags:
-  - git
+  - Git
   - GitHub
   - 开源
   - AI-assisted

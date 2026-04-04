@@ -6,7 +6,7 @@ url: "template"
 categories:
   - Database
 tags:
-  - inbox
+  - Inbox
 ---
 ## "主从模式 VS 哨兵sentinel模式 VS Redis cluster模式"
 

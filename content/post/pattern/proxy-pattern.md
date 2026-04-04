@@ -6,7 +6,7 @@ url: proxy
 categories:
   - Pattern
 tags:
-  - design-pattern
+  - Pattern
 
 ---
 ## 代理模式, proxy pattern

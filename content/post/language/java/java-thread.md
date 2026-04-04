@@ -4,7 +4,7 @@ author: "-"
 date: "2012-09-22 11:22:57+00:00"
 url: java-thread
 tags:
-  - Thread
+  - thread
 categories:
   - Java
 ---

@@ -6,7 +6,7 @@ url: Prototype
 categories:
   - Pattern
 tags:
-  - DesignPattern
+  - Pattern
 ---
 ## 原型模式 Prototype
 

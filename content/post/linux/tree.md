@@ -6,7 +6,7 @@ categories:
   - Linux
 tags:
   - reprint
-  - command
+  - Command
 ---
 ## tree command, 以树形结构显示文件目录结构, 目录树
 

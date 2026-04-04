@@ -6,7 +6,7 @@ url: /?p=7402
 categories:
   - Inbox
 tags:
-  - Sqlite
+  - SQLite
 
 ---
 ## sqlite 数据库字典

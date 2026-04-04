@@ -6,7 +6,7 @@ url: "redis"
 categories:
   - Database
 tags:
-  - inbox
+  - Inbox
 ---
 ## redis basic
 

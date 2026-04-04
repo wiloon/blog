@@ -7,7 +7,7 @@ categories:
   - Linux
 tags:
   - remix
-  - command
+  - Command
   - AI-assisted
 ---
 ## ps command

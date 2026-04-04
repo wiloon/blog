@@ -6,8 +6,8 @@ url: /?p=7929
 categories:
   - Algorithm
 tags:
-  - redis
-  - memcache
+  - Redis
+  - Memcache
   - cache
 
 ---

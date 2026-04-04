@@ -6,7 +6,7 @@ url: /?p=6358
 categories:
   - Inbox
 tags:
-  - Jboss
+  - JBoss
 
 ---
 ## golang download file

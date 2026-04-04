@@ -7,7 +7,7 @@ categories:
   - Agile
 tags:
   - reprint
-  - Scrum
+  - Agile
 ---
 ## Daily Scrum, stand-up meeting, 站会
 

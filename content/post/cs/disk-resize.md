@@ -6,9 +6,9 @@ url: disk/resize
 categories:
   - Linux
 tags:
-  - Reprint
-  - Remix
-  - Disk
+  - reprint
+  - remix
+  - disk
   - PVE
   - remix
   - AI-assisted

@@ -6,7 +6,7 @@ url: "epub"
 categories:
   - Life
 tags:
-  - inbox
+  - Inbox
 ---
 ## "epub pdf azw3 mobi"
 

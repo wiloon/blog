@@ -6,7 +6,7 @@ url: "template"
 categories:
   - inbox
 tags:
-  - inbox
+  - Inbox
 ---
 ## "esp,ebp,栈指针,帧指针"
 

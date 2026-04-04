@@ -6,7 +6,7 @@ url: /?p=6279
 categories:
   - Inbox
 tags:
-  - Junit
+  - JUnit
   - Spring
 
 ---

@@ -6,7 +6,7 @@ url: /?p=6050
 categories:
   - Inbox
 tags:
-  - Xml
+  - XML
 
 ---
 ## xml version

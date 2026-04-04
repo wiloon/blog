@@ -6,7 +6,7 @@ url: ""
 categories:
   - inbox
 tags:
-  - inbox
+  - Inbox
 ---
 ## "相互转换逗号分隔的字符串和List"
 

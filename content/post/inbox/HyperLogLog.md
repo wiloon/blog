@@ -6,7 +6,7 @@ url: "HyperLogLog"
 categories:
   - inbox
 tags:
-  - inbox
+  - Inbox
 ---
 ## "HyperLogLog"
 ### HyperLogLog

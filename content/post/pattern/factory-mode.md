@@ -6,7 +6,7 @@ url: /?p=1335
 categories:
   - Java
 tags:
-  - DesignPattern
+  - Pattern
 
 ---
 ## 工厂模式

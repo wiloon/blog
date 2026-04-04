@@ -6,7 +6,7 @@ url: date
 categories:
   - Linux
 tags:
-  - command
+  - Command
   - reprint
   - remix
 

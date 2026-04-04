@@ -6,7 +6,7 @@ url: "Gossip"
 categories: 
   - inbox
 tags:
-  - inbox
+  - Inbox
 ---
 ## "Gossip"
 

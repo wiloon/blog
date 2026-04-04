@@ -6,7 +6,7 @@ url: "iptables/nftables"
 categories:
   - Network
 tags:
-  - Original
+  - original
 ---
 ## iptables `nftables` 混合使用 -_-
 

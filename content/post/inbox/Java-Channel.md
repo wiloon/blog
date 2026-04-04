@@ -6,7 +6,7 @@ url: "Java-Channel"
 categories:
   - inbox
 tags:
-  - inbox
+  - Inbox
 ---
 ## "Java NIO Channel, buffer"
 

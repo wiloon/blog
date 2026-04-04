@@ -6,7 +6,7 @@ url: ""
 categories:
   - inbox
 tags:
-  - inbox
+  - Inbox
 ---
 ## "中断, interrupts"
 

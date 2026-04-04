@@ -6,7 +6,7 @@ url: mysql
 categories:
   - Database
 tags:
-  - mysql
+  - MySQL
 ---
 ## MySQL basic
 

@@ -6,7 +6,7 @@ url: /?p=6374
 categories:
   - Inbox
 tags:
-  - emacs
+  - Emacs
 
 ---
 ## emacs diff

@@ -6,8 +6,8 @@ url: git-fork-sync-and-pr
 categories:
   - CS
 tags:
-  - git
-  - github
+  - Git
+  - GitHub
   - opensource
   - remix
   - AI-assisted

@@ -7,7 +7,7 @@ categories:
   - Network
 tags:
   - reprint
-  - tcp
+  - TCP
 ---
 ## TCP 粘(nián)包 拆包
 

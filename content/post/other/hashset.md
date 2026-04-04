@@ -6,7 +6,7 @@ url: hashset
 categories:
   - Java
 tags:
-  - collection
+  - Collection
 
 ---
 ## HashSet, TreeSet, LinkedHashSet

@@ -6,7 +6,7 @@ url: /?p=7597
 categories:
   - Inbox
 tags:
-  - emacs
+  - Emacs
 
 ---
 ## linux emacs 乱码

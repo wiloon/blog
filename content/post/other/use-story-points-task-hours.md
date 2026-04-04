@@ -7,7 +7,7 @@ categories:
   - Agile
 tags:
   - reprint
-  - Scrum
+  - Agile
 ---
 ## Use Story Points, task hours
 

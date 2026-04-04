@@ -6,7 +6,7 @@ url: ""
 categories:
   - Go
 tags:
-  - regex
+  - Regex
 ---
 ## "golang 正则"
 

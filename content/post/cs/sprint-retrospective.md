@@ -7,7 +7,7 @@ categories:
   - Agile
 tags:
   - reprint
-  - Scrum
+  - Agile
 ---
 ## 迭代回顾, Sprint Retrospective
 

@@ -7,7 +7,7 @@ categories:
   - Agile
 tags:
   - reprint
-  - Scrum
+  - Agile
 ---
 ## us, 用户故事
 

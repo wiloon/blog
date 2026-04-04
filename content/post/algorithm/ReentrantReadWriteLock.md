@@ -7,7 +7,7 @@ categories:
   - Java
 tags:
   - reprint
-  - Lock
+  - lock
 ---
 ## ReentrantReadWriteLock
 

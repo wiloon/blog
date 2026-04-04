@@ -6,7 +6,7 @@ url: ""
 categories:
   - Java
 tags:
-  - inbox
+  - Inbox
 ---
 ## jvm
 

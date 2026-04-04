@@ -6,7 +6,7 @@ url: reentrant-lock
 categories:
   - Java
 tags:
-  - Lock
+  - lock
 
 ---
 ## ReentrantLock，互斥锁，重入锁

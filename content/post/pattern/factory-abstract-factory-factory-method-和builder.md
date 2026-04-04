@@ -6,7 +6,7 @@ url: /?p=4430
 categories:
   - Java
 tags:
-  - DesignPattern
+  - Pattern
 
 ---
 ## Factory, Abstract Factory, Factory Method, 和Builder

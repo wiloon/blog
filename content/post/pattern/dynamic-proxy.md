@@ -6,7 +6,7 @@ url: /?p=4504
 categories:
   - Pattern
 tags:
-  - DesignPattern
+  - Pattern
 
 ---
 ## 动态代理 Dynamic Proxy

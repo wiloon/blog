@@ -7,6 +7,6 @@ categories:
   - Agile
 tags:
   - reprint
-  - Scrum
+  - Agile
 ---
 ## 'Scrum,Sprint Review Meeting'

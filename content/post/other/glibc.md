@@ -7,7 +7,7 @@ categories:
   - Linux
 tags:
   - reprint
-  - c
+  - C
 
 
 ---

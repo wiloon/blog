@@ -6,7 +6,7 @@ url: wifi
 categories:
   - Network
 tags:
-  - network
+  - Network
 
 ---
 ## wifi

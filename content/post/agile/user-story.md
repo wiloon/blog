@@ -7,7 +7,7 @@ categories:
   - Agile
 tags:
   - reprint
-  - Scrum
+  - Agile
 ---
 ## 用户故事, user story
 

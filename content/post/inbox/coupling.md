@@ -7,8 +7,8 @@ categories:
 - Inbox
 tags:
   - Inbox
-  - Reprint
-  - Remix
+  - reprint
+  - remix
 ---
 # coupling relationship, 耦合关系
 

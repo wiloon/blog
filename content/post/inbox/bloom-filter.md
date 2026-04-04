@@ -6,7 +6,7 @@ url: "bloom-filter"
 categories:
   - "Data Structure"
 tags:
-  - inbox
+  - Inbox
 ---
 ## "bloom filter, 布隆过滤器"
 

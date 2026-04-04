@@ -6,7 +6,7 @@ url: ask-the-right-questions
 categories:
   - Life
 tags:
-  - Reprint
+  - reprint
 ---
 ## Asking The Right Questions, 学会提问
 

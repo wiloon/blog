@@ -6,7 +6,7 @@ url: "template"
 categories:
   - inbox
 tags:
-  - inbox
+  - Inbox
 ---
 ## challenge response, 挑战应答
 

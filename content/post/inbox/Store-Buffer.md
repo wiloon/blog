@@ -6,7 +6,7 @@ url: "Store-Buffer"
 categories:
   - inbox
 tags:
-  - inbox
+  - Inbox
 ---
 ## "Store Buffer"
 

@@ -6,7 +6,7 @@ url: /?p=4421
 categories:
   - Pattern
 tags:
-  - DesignPattern
+  - Pattern
 
 ---
 ## 创建者模式, 建造者模式, Builder

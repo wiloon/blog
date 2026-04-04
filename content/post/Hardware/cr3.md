@@ -6,7 +6,7 @@ url: "cr3"
 categories:
   - inbox
 tags:
-  - inbox
+  - Inbox
 ---
 ## "CR3控制寄存器"
 

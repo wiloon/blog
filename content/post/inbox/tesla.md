@@ -6,7 +6,7 @@ url: "tesla"
 categories:
   - inbox
 tags:
-  - inbox
+  - Inbox
 ---
 ## "tesla"
 

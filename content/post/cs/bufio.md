@@ -7,7 +7,7 @@ categories:
   - Go
 tags:
   - reprint
-  - io
+  - IO
 
 ---
 ## golang bufio

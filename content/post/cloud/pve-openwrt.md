@@ -6,8 +6,8 @@ url: ""
 categories:
   - Network
 tags:
-  - inbox
-  - openwrt
+  - Inbox
+  - OpenWrt
 ---
 ## pve + openwrt
 

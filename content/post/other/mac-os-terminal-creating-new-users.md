@@ -6,7 +6,7 @@ url: /?p=7330
 categories:
   - Inbox
 tags:
-  - Mac OS
+  - macOS
 
 ---
 ## 'mac os terminal,  Creating New Users'

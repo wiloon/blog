@@ -6,7 +6,7 @@ url: "escape"
 categories:
   - Java
 tags:
-  - inbox
+  - Inbox
 ---
 ## "java 替换ascii不可见字符, StringEscapeUtils.escapeJava"
 

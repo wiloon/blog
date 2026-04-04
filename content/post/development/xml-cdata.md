@@ -6,7 +6,7 @@ url: /?p=6472
 categories:
   - Inbox
 tags:
-  - Xml
+  - XML
 
 ---
 ## XML CDATA

@@ -6,7 +6,7 @@ url: ""
 categories:
   - inbox
 tags:
-  - inbox
+  - Inbox
 ---
 ## "golang 的类型转换, 强转、断言、“向上造型“"
 

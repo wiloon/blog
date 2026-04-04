@@ -6,7 +6,7 @@ url: "redis-bitmap"
 categories:
   - inbox
 tags:
-  - inbox
+  - Inbox
 ---
 ## "redis bitmap"
 

@@ -10,7 +10,7 @@ tags:
   - LangChain
   - agent
   - workflow
-  - python
+  - Python
 ---
 
 ## 什么是 LangGraph

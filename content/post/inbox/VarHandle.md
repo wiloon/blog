@@ -6,7 +6,7 @@ url: "VarHandle"
 categories:
   - inbox
 tags:
-  - inbox
+  - Inbox
 ---
 ## "VarHandle"
 

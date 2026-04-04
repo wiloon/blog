@@ -6,7 +6,7 @@ url: /?p=7250
 categories:
   - Inbox
 tags:
-  - Sqlite
+  - SQLite
 
 ---
 ## sqlite command

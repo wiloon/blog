@@ -7,7 +7,7 @@ categories:
   - Database
 tags:
   - reprint
-  - kafka
+  - Kafka
 ---
 ## kafka
 

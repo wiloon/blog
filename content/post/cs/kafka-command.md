@@ -8,7 +8,7 @@ categories:
 tags:
   - reprint
   - remix
-  - command
+  - Command
   - AI-assisted
 ---
 ## kafka basic, command

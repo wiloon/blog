@@ -6,7 +6,7 @@ url: /?p=1389
 categories:
   - Java
 tags:
-  - DesignPattern
+  - Pattern
 
 ---
 ## cooking

@@ -6,7 +6,7 @@ url: "gcm-cbc"
 categories:
   - inbox
 tags:
-  - inbox
+  - Inbox
 ---
 ## "gcm cbc"
 

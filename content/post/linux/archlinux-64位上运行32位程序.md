@@ -6,7 +6,7 @@ url: /?p=7728
 categories:
   - Inbox
 tags:
-  - Arch Linux
+  - Linux
 
 ---
 ## archlinux 64位上运行32位程序

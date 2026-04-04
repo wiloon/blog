@@ -6,7 +6,7 @@ url: javascript
 categories:
   - inbox
 tags:
-  - regex
+  - Regex
 
 ---
 ## javascript

@@ -6,7 +6,7 @@ url: "Cuckoo-filter"
 categories:
   - inbox
 tags:
-  - inbox
+  - Inbox
 ---
 ## "Cuckoo filter, 布谷过滤器"
 过滤器系列 (二) —— Cuckoo filter

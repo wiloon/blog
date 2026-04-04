@@ -4,7 +4,7 @@ author: "-"
 date: 2026-01-01T08:30:00+08:00
 url: aur-helper-yay-paru
 tags:
-  - Arch Linux
+  - Linux
   - reprint
   - remix
   - AI-assisted

@@ -6,8 +6,8 @@ url: template
 categories:
     - Life
 tags:
-  - Reprint
-  - Remix
+  - reprint
+  - remix
 ---
 ## sketch, 素描
 

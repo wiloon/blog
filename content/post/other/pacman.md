@@ -6,7 +6,7 @@ url: pacman
 categories:
   - Linux
 tags:
-  - Arch Linux
+  - Linux
   - reprint
   - remix
 ---

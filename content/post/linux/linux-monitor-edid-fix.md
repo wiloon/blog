@@ -6,7 +6,7 @@ url: linux-monitor-edid-fix
 categories:
   - Linux
 tags:
-  - Arch Linux
+  - Linux
   - Ubuntu
   - EDID
   - 显示器
