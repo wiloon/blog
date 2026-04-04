@@ -4,7 +4,7 @@ author: "-"
 date: ""
 url: k8s
 categories:
-  - K8S
+  - Cloud
 tags:
   - K8S
   - "reprint"

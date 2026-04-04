@@ -4,7 +4,7 @@ author: "-"
 date: 2017-12-06T04:56:26+00:00
 url: git-proxy
 categories:
-  - git
+  - Tools
 tags:
   - reprint
   - proxy

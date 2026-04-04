@@ -4,7 +4,7 @@ author: "-"
 date: 2013-03-20T14:39:45+00:00
 url: /?p=5326
 categories:
-  - DataBase
+  - Database
 tags:
   - reprint
 ---

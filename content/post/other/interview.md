@@ -4,7 +4,7 @@ author: "-"
 date: 2011-11-11T08:51:36+00:00
 url: interview
 categories:
-  - Development
+  - CS
 tags:
   - reprint
 ---

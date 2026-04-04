@@ -4,7 +4,7 @@ author: "-"
 date: 2019-03-30T00:11:19+00:00
 url: /?p=14005
 categories:
-  - filesystem
+  - Linux
 tags:
   - reprint
 ---

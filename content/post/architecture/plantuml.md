@@ -4,7 +4,7 @@ author: "-"
 date: 2024-03-19T12:11:33+08:00
 url: plantuml
 categories:
-  - uml
+  - Pattern
 tags:
   - reprint
   - remix

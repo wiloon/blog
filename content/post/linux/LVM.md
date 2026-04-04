@@ -4,7 +4,7 @@ author: "-"
 date: 2015-10-12T10:32:47+00:00
 url: lvm
 categories:
-  - filesystem
+  - Linux
 tags:
   - reprint
   - LVM

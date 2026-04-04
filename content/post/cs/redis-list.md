@@ -4,7 +4,7 @@ author: "-"
 date: 2015-12-01T02:32:24+00:00
 url: /redis/list
 categories:
-  - redis
+  - Database
 tags:
   - redis
 ---

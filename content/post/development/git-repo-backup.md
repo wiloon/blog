@@ -4,7 +4,7 @@ author: "-"
 date: 2012-04-03T02:13:21+00:00
 url: /?p=2750
 categories:
-  - VCS
+  - Tools
 tags:
   - Git
 

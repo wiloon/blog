@@ -4,7 +4,7 @@ author: "-"
 date: 2011-12-18T08:16:49+00:00
 url: ext4
 categories:
-  - filesystem
+  - Linux
 tags:
   - reprint
 ---

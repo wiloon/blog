@@ -4,7 +4,7 @@ author: lcf
 date: 2012-11-27T14:55:38+00:00
 url: database
 categories:
-  - DataBase
+  - Database
 tags:
   - reprint
 ---

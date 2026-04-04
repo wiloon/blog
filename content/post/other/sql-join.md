@@ -4,7 +4,7 @@ author: "-"
 date: 2012-11-14T07:37:09+00:00
 url: sql/join
 categories:
-  - DataBase
+  - Database
 tags:
   - reprint
 ---

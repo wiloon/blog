@@ -4,7 +4,7 @@ author: "-"
 date: 2022-08-11 08:27:40
 url: openwrt
 categories:
-  - network
+  - Network
 tags:
   - reprint
   - HomeLab

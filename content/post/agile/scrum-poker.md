@@ -4,7 +4,7 @@ author: "-"
 date: 2022-11-17 12:51:17
 url: scrum/poker
 categories:
-  - Scrum
+  - Agile
 tags:
   - reprint
   - remix

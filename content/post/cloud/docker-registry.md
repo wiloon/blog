@@ -4,7 +4,7 @@ author: "-"
 date: 2022-10-10 11:54:09
 url: docker/registry
 categories:
-  - container
+  - Cloud
 tags:
   - reprint
   - remix

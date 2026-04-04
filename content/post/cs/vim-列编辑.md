@@ -4,7 +4,7 @@ author: "-"
 date: 2018-12-25T01:58:57+00:00
 url: vim/column/edit
 categories:
-  - VIM
+  - Tools
 tags:
   - reprint
   - VIM

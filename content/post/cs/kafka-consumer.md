@@ -4,7 +4,7 @@ author: "-"
 date: 2019-05-21T02:54:18+00:00
 url: kafka/consumer/group
 categories:
-  - Kafka
+  - Database
 tags:
   - reprint
 ---

@@ -4,7 +4,7 @@ author: "-"
 date: 2014-01-01T08:06:12+00:00
 url: windows/network/share
 categories:
-  - windows
+  - Desktop
 tags:
   - reprint
   - network

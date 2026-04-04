@@ -4,7 +4,7 @@ author: "-"
 date: 2011-12-24T12:49:34+00:00
 url: btree
 categories:
-  - Data-Structure
+  - Algorithm
 tags:
   - reprint
 ---

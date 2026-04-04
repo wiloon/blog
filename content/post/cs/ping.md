@@ -4,7 +4,7 @@ author: "-"
 date: 2020-04-13T10:43:01+00:00
 url: ping
 categories:
-  - network
+  - Network
 tags:
   - reprint
 ---

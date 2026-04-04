@@ -4,7 +4,7 @@ author: "-"
 date: 2015-04-23T02:28:19+00:00
 url: file/create/delete
 categories:
-  - filesystem
+  - Linux
 tags:
   - file
 

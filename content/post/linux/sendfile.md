@@ -4,7 +4,7 @@ author: "-"
 date: "2021-04-21 13:17:52"
 url: sendfile
 categories:
-  - OS
+  - Linux
 tags:
   - IO
 ---

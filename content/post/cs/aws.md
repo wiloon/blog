@@ -2,7 +2,7 @@
 title: aws
 date: 2020-05-10T07:49:46.374Z
 categories:
-  - cloud
+  - Cloud
 tags:
   - reprint
   - remix

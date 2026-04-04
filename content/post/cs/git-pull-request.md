@@ -4,7 +4,7 @@ author: "-"
 date: 2026-02-01T11:10:47+08:00
 url: git-pull-request
 categories:
-  - Development
+  - CS
 tags:
   - git
   - GitHub

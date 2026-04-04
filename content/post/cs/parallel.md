@@ -4,7 +4,7 @@ author: "-"
 date: 2017-02-11T11:55:39+00:00
 url: parallel
 categories:
-  - command
+  - Linux
 tags:
   - reprint
 ---

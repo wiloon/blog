@@ -3,7 +3,7 @@ author: "-"
 date: "" 
 title: "http method, get, head, post, options, put, delte, trace, connect"
 categories:
-  - web
+  - Web
 tags:
   - reprint
   - remix

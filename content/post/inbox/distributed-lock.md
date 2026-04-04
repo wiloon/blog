@@ -4,7 +4,7 @@ author: "-"
 date: 2026-03-20T18:46:40+08:00
 url: distributed-lock
 categories:
-  - lock
+  - CS
 tags:
   - lock
   - remix

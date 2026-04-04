@@ -4,7 +4,7 @@ author: "-"
 date: 2025-12-18T15:30:00+08:00
 url: nerdctl
 categories:
-  - Container
+  - Cloud
 tags:
   - reprint
   - remix

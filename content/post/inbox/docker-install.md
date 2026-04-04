@@ -4,7 +4,7 @@ author: "-"
 date: 2018-11-28T06:08:37+00:00
 url: docker/install
 categories:
-  - container
+  - Cloud
 tags:
   - reprint
   - remix

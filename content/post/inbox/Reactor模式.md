@@ -4,7 +4,7 @@ author: "-"
 date: "2021-07-11 09:44:24"
 url: "Reactor模式"
 categories:
-  - pattern
+  - Pattern
 tags:
   - netty
 

@@ -4,7 +4,7 @@ author: "-"
 date: 2012-03-20T02:15:08+00:00
 url: git/flow
 categories:
-  - Git
+  - Tools
 tags:
   - Git
 

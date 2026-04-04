@@ -4,7 +4,7 @@ author: "-"
 date: 2022-01-21 14:33:13
 url: restful/api/design
 categories:
-  - RESTful
+  - Web
 tags:
   - reprint
 ---

@@ -4,7 +4,7 @@ author: "-"
 date: 2022-04-19 16:54:43
 url: socat
 categories:
-  - network
+  - Network
 tags:
   - reprint
   - remix

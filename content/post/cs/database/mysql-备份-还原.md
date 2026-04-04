@@ -4,7 +4,7 @@ author: "-"
 date: 2011-04-30T01:18:05+00:00
 url: mysql/export/import
 categories:
-  - DataBase
+  - Database
 tags:
   - MySQL
 

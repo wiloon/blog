@@ -4,7 +4,7 @@ author: "-"
 date: "2021-05-07 14:38:02"
 url: "redis"
 categories:
-  - redis
+  - Database
 tags:
   - inbox
 ---

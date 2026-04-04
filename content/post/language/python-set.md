@@ -4,7 +4,7 @@ author: "-"
 date: 2025-07-31 11:34:40
 url: python/set
 categories:
-  - python
+  - Python
 tags:
   - reprint
   - remix

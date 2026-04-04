@@ -4,7 +4,7 @@ author: "-"
 date: 2026-03-23T10:29:23+08:00
 url: eafp-vs-lbyl
 categories:
-  - cs
+  - CS
 tags:
   - Python
   - remix

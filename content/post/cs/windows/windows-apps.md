@@ -5,7 +5,7 @@ date: 2019-03-28T02:03:39+00:00
 url: windows/apps
 keys: win apps, Windows apps
 categories:
-  - windows
+  - Desktop
 tags:
   - reprint
 ---

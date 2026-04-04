@@ -4,7 +4,7 @@ author: "-"
 date: 2017-09-01T05:11:09+00:00
 url: truncate
 categories:
-  - OS
+  - Linux
 tags:
   - reprint
   - file

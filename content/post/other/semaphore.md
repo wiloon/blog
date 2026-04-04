@@ -4,7 +4,7 @@ author: "-"
 date: 2014-10-31T02:46:50+00:00
 url: semaphore
 categories:
-  - OS
+  - Linux
 tags:
   - reprint
 ---

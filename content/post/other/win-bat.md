@@ -4,7 +4,7 @@ author: "-"
 date: 2013-04-17T12:40:36+00:00
 url: bat
 categories:
-  - windows
+  - Desktop
 tags:
   - reprint
   - remix

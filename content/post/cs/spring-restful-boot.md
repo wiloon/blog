@@ -4,7 +4,7 @@ author: "-"
 date: 2017-02-22T08:51:55+00:00
 url: spring/boot
 categories:
-  - Spring
+  - Java
 tags:
   - reprint
   - RESTful

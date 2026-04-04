@@ -5,7 +5,7 @@ date: 2011-12-03T10:09:10+00:00
 url: /?p=1711
 categories:
   - Linux
-  - VM
+  - Desktop
 tags:
   - KVM
 

@@ -4,7 +4,7 @@ author: "-"
 date: ""
 url: entity-value-object
 categories:
-  - DDD
+  - Pattern
 tags:
   - Reprint
 ---

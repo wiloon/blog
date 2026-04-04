@@ -4,7 +4,7 @@ author: "-"
 date: 2017-10-26T06:17:15+00:00
 url: nginx/basic
 categories:
-  - nginx
+  - Web
 tags:
   - reprint
 ---

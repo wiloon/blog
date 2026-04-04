@@ -4,7 +4,7 @@ author: "-"
 date: 2013-01-24T06:22:39+00:00
 url: /?p=5069
 categories:
-  - DataBase
+  - Database
   - Java
 tags:
   - MyBatis

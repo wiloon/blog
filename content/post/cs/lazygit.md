@@ -4,7 +4,7 @@ author: "-"
 date: 2012-11-23T04:35:07+00:00
 url: lazygit
 categories:
-  - Git
+  - Tools
 tags:
   - reprint
   - remix

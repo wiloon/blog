@@ -4,7 +4,7 @@ author: "-"
 date: 2019-02-02T06:47:47+00:00
 url: wol
 categories:
-  - network
+  - Network
 tags:
   - reprint
   - remix

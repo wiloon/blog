@@ -4,7 +4,7 @@ author: "-"
 date: "2022-06-06 07:51:59"
 url: "epub"
 categories:
-  - Book
+  - Life
 tags:
   - inbox
 ---

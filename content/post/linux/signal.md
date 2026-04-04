@@ -4,7 +4,7 @@ author: "-"
 date: "2021-04-30 07:20:01" 
 url: signal
 categories:
-  - OS
+  - Linux
 tags:
   - Linux
   - ipc

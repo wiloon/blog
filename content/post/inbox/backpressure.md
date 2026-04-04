@@ -4,7 +4,7 @@ author: "-"
 date: 2026-03-20T17:51:42+08:00
 url: backpressure
 categories:
-  - network
+  - Network
 tags:
   - reprint
   - remix

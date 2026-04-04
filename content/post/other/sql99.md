@@ -4,7 +4,7 @@ author: "-"
 date: 2012-07-01T08:41:57+00:00
 url: sql99
 categories:
-  - DataBase
+  - Database
 tags:
   - reprint
 ---

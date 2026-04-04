@@ -1,5 +1,5 @@
 ---
-title: VS Code Agent Hand Off 机制详解
+title: VS Code Agent Hand Off
 author: "-"
 date: 2026-04-03T12:52:43+08:00
 url: vscode-agent-handoff

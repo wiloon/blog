@@ -4,7 +4,7 @@ author: "-"
 date: 2011-08-29T04:55:03+00:00
 url: /?p=332
 categories:
-  - Eclipse
+  - Tools
   - Java
 tags:
   - reprint

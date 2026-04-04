@@ -4,7 +4,7 @@ author: "-"
 date: 2018-08-28T11:23:26+00:00
 url: epoll
 categories:
-  - OS
+  - Linux
 tags:
   - reprint
 ---

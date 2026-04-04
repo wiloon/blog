@@ -4,7 +4,7 @@ author: "-"
 date: 2011-10-29T08:30:33+00:00
 url: page-cache
 categories:
-  - os
+  - Linux
 tags:
   - memory
 

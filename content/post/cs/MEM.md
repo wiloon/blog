@@ -4,7 +4,7 @@ author: "-"
 date: 2019-06-11T04:19:16+00:00
 url: mem
 categories:
-  - OS
+  - Linux
 tags:
   - reprint
 ---

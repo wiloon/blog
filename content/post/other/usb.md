@@ -4,7 +4,7 @@ author: "-"
 date: 2012-12-09T04:56:07+00:00
 url: usb
 categories:
-  - hardware
+  - Hardware
 tags:
   - reprint
   - remix

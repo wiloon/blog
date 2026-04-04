@@ -4,7 +4,7 @@ author: "-"
 date: 2011-08-29T02:18:19+00:00
 url: pattern/command
 categories:
-  - pattern
+  - Pattern
 tags:
   - reprint
 ---

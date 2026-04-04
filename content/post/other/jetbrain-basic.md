@@ -4,7 +4,7 @@ author: "-"
 date: 2022-12-09 10:33:44
 url: idea
 categories:
-  - IDE
+  - Tools
 tags:
   - reprint
   - remix

@@ -4,7 +4,7 @@ author: "-"
 date: "2021-07-22 15:36:26"
 url: "vim/cursor"
 categories:
-  - Editor
+  - Tools
 tags:
   - VIM
 ---

@@ -4,7 +4,7 @@ author: "-"
 date: 2011-08-12T05:32:00+00:00
 url: shell-params
 categories:
-  - shell
+  - Linux
 tags:
   - reprint
 ---

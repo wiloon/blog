@@ -4,7 +4,7 @@ author: "-"
 date: 2026-03-20T19:11:11+08:00
 url: PostgreSQL
 categories:
-  - database
+  - Database
 tags:
   - reprint
   - remix

@@ -4,7 +4,7 @@ author: "-"
 date: 2025-12-24T15:30:00+08:00
 url: network/monitor
 categories:
-  - network
+  - Network
 tags:
   - reprint
   - remix

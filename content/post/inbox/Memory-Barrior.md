@@ -4,7 +4,7 @@ author: "-"
 date: "2021-07-09 19:40:37"
 url: "Memory-Barrior"
 categories:
-  - cs
+  - CS
 tags:
   - reprint
 

@@ -4,7 +4,7 @@ author: "-"
 date: 2011-11-09T06:31:28+00:00
 url: /?p=1475
 categories:
-  - math
+  - Math
 tags:
   - reprint
 ---

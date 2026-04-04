@@ -4,7 +4,7 @@ author: "-"
 date: 2019-09-09T05:14:01+00:00
 url: transaction/lock
 categories:
-  - database
+  - Database
 tags:
   - reprint
 ---

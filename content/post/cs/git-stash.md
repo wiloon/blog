@@ -4,7 +4,7 @@ author: "-"
 date: 2014-08-09T01:13:47+00:00
 url: git/stash
 categories:
-  - Git
+  - Tools
 tags:
   - Git
   - reprint

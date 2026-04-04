@@ -4,7 +4,7 @@ author: "-"
 date: 2015-02-05T08:27:05+00:00
 url: remote/dev
 categories:
-  - dev
+  - CS
 tags:
   - remix
 ---

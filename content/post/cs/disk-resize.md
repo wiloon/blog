@@ -4,7 +4,7 @@ author: "-"
 date: 2026-03-26T15:38:08+08:00
 url: disk/resize
 categories:
-  - OS
+  - Linux
 tags:
   - Reprint
   - Remix

@@ -4,7 +4,7 @@ author: "-"
 date: 2017-11-22T06:17:25+00:00
 url: mysql/having
 categories:
-  - MySQL
+  - Database
 tags:
   - reprint
 ---

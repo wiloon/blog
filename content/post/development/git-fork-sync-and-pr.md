@@ -4,7 +4,7 @@ author: "-"
 date: 2026-02-02T18:56:44+08:00
 url: git-fork-sync-and-pr
 categories:
-  - development
+  - CS
 tags:
   - git
   - github

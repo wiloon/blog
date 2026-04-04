@@ -4,7 +4,7 @@ author: "-"
 date: "2021-07-25 18:17:06"
 url: "SkipList"
 categories:
-  - Data-Structure
+  - Algorithm
 tags:
   - inbox
 ---

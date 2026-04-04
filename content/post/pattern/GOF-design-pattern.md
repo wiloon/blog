@@ -4,7 +4,7 @@ author: "-"
 date: 2011-10-29T07:59:18+00:00
 url: design-pattern
 categories:
-  - pattern
+  - Pattern
 tags:
   - reprint
   - remix

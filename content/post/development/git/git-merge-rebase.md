@@ -4,7 +4,7 @@ author: "-"
 date: 2026-02-13T11:08:43+08:00
 url: git/merge-rebase
 categories:
-  - Git
+  - Tools
 tags:
   - reprint
   - remix

@@ -4,7 +4,7 @@ author: "-"
 date: 2014-04-14T08:06:08+00:00
 url: vfs
 categories:
-  - OS
+  - Linux
 tags:
   - reprint
 ---

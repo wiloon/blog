@@ -4,7 +4,7 @@ author: "-"
 date: 2018-10-28T02:49:31+00:00
 url: netgear
 categories:
-  - Router
+  - Network
 tags:
   - reprint
   - remix

@@ -4,7 +4,7 @@ author: "-"
 date: 2012-03-01T04:36:04+00:00
 url: executable
 categories:
-  - OS
+  - Linux
 tags:
   - reprint
 ---

@@ -4,7 +4,7 @@ author: "-"
 date: 2016-12-16T07:45:40+00:00
 url: maven/assembly/plugin
 categories:
-  - maven
+  - Java
 tags:
   - Java
   - Maven

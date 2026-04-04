@@ -4,7 +4,7 @@ author: "-"
 date: 2022-08-25 14:03:28
 url: VirtualBox
 categories:
-  - VM
+  - Desktop
 tags:
   - reprint
 ---

@@ -4,7 +4,7 @@ author: "-"
 date: 2013-07-17T04:40:17+00:00
 url: nginx
 categories:
-  - web
+  - Web
 tags:
   - reprint
 ---

@@ -4,7 +4,7 @@ author: "-"
 date: 2020-03-14T17:55:29+00:00
 url: nexus/docker
 categories:
-  - container
+  - Cloud
 tags:
   - reprint
 ---

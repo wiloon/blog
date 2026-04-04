@@ -4,7 +4,7 @@ author: "-"
 date: 2011-12-26T07:22:14+00:00
 url: /?p=2013
 categories:
-  - DataBase
+  - Database
 tags:
   - MySQL
 

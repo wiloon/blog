@@ -4,7 +4,7 @@ date: "2021-05-05 08:36:31"
 title: kernel thread, 内核线程, KTL
 url: "ktl"
 categories:
-  - OS
+  - Linux
 tags:
   - thread
   - kernel

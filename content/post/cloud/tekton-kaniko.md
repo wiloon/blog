@@ -5,7 +5,7 @@ date: 2026-03-25T10:06:15+08:00
 url: tekton-kaniko
 categories:
   - Cloud
-  - DevOps
+  - Cloud
 tags:
   - kaniko
   - tekton

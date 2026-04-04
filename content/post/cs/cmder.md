@@ -4,7 +4,7 @@ author: "-"
 date: 2015-09-22T00:52:00+00:00
 url: gpu
 categories:
-  - GPU
+  - Hardware
 tags:
   - reprint
   - remix

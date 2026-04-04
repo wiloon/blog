@@ -4,7 +4,7 @@ author: "-"
 date: 2011-11-12T08:12:59+00:00
 url: /?p=1512
 categories:
-  - Emacs
+  - Tools
 tags:
   - reprint
 ---

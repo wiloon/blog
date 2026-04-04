@@ -4,7 +4,7 @@ author: "-"
 date: 2012-02-25T13:43:36+00:00
 url: gitignore
 categories:
-  - VCS
+  - Tools
 tags:
   - Git
 

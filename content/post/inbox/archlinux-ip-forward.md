@@ -6,7 +6,7 @@ url: ip-forward
 tags:
   - network
 categories:
-  - network
+  - Network
 
 ---
 ## archlinux ip forward, ip_forward

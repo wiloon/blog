@@ -4,7 +4,7 @@ author: "-"
 date: 2012-02-29T10:25:26+00:00
 url: MongoDB
 categories:
-  - db
+  - Database
 tags:
   - reprint
 ---

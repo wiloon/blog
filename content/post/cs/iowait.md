@@ -4,7 +4,7 @@ author: "-"
 date: 2017-03-31T07:01:37+00:00
 url: iowait
 categories:
-  - OS
+  - Linux
 tags:
   - reprint
 ---

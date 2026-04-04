@@ -4,7 +4,7 @@ author: "-"
 date: 2025-11-20T08:30:00+08:00
 url: curl
 categories:
-  - Commands
+  - Linux
 tags:
   - reprint
   - remix

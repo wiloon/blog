@@ -4,7 +4,7 @@ author: "-"
 date: 2026-02-11T11:08:11+08:00
 url: kong
 categories:
-  - network
+  - Network
 tags:
   - reprint
   - remix

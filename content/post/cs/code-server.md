@@ -4,7 +4,7 @@ author: "-"
 date: 2019-05-19T01:52:15+00:00
 url: code-server
 categories:
-  - Editor
+  - Tools
 tags:
   - reprint
 ---

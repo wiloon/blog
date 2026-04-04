@@ -4,7 +4,7 @@ author: "-"
 date: 2011-04-23T08:54:55+00:00
 url: shell/commaand
 categories:
-  - shell
+  - Linux
 tags:
   - reprint
 ---

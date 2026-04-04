@@ -4,7 +4,7 @@ author: "-"
 date: 2011-12-28T04:18:46+00:00
 url: /?p=2041
 categories:
-  - Development
+  - CS
 tags:
   - openJPA
 

@@ -4,7 +4,7 @@ author: "-"
 date: 2025-08-31 17:21:47 +0800
 url: wireguard
 categories:
-  - network
+  - Network
 tags:
   - Reprint
   - Remix

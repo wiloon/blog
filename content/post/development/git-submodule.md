@@ -4,7 +4,7 @@ author: "-"
 date: 2015-01-18T03:38:49+00:00
 url: git-submodule
 categories:
-  - VCS
+  - Tools
 tags:
   - reprint
   - remix

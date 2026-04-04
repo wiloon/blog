@@ -4,7 +4,7 @@ author: "-"
 date: 2015-06-28T05:52:57+00:00
 url: /?p=7943
 categories:
-  - db
+  - Database
 tags:
   - MySQL
 

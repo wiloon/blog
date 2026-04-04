@@ -4,7 +4,7 @@ author: "-"
 date: 2019-02-16T11:08:43+00:00
 url: telegraf
 categories:
-  - devops
+  - Cloud
 tags:
   - reprint
   - remix

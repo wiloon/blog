@@ -4,7 +4,7 @@ author: "-"
 date: 2013-02-20T11:31:47+00:00
 url: /?p=5211
 categories:
-  - Windows
+  - Desktop
 tags:
   - reprint
   - bat

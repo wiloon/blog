@@ -4,7 +4,7 @@ author: "-"
 date: 2018-02-07T05:23:31+00:00
 url: jest
 categories:
-  - Javascript
+  - JavaScript
 tags:
   - reprint
   - remix

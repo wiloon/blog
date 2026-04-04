@@ -4,7 +4,7 @@ author: "-"
 date: 2020-04-03T02:02:29+00:00
 url: app-network
 categories:
-  - network
+  - Network
 tags:
   - reprint
   - remix

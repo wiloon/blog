@@ -4,7 +4,7 @@ author: "-"
 date: 2026-04-03T12:30:02+08:00
 url: shell-create-file-write
 categories:
-  - shell
+  - Linux
 tags:
   - reprint
   - remix

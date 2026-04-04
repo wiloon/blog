@@ -5,7 +5,7 @@ date: 2011-12-03T06:42:54+00:00
 url: /?p=1682
 categories:
   - Linux
-  - VM
+  - Desktop
 tags:
   - reprint
 ---

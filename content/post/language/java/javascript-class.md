@@ -4,7 +4,7 @@ author: "-"
 date: 2016-03-07T10:52:39+00:00
 url: javascript/class
 categories:
-  - Javascript
+  - JavaScript
 tags:
   - reprint
   - remix

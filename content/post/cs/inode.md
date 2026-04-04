@@ -4,7 +4,7 @@ author: "-"
 date: 2018-04-05T04:04:19+00:00
 url: inode
 categories:
-  - filesystem
+  - Linux
 tags:
   - reprint
   - file

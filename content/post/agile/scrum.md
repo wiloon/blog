@@ -4,7 +4,7 @@ author: "-"
 date: 2019-04-21T16:09:12+00:00
 url: scrum
 categories:
-  - Scrum
+  - Agile
 tags:
   - reprint
 ---

@@ -4,7 +4,7 @@ author: "-"
 date: 2013-02-21T03:25:59+00:00
 url: jib-maven-plugin
 categories:
-  - Maven
+  - Java
 tags:
   - reprint
 ---

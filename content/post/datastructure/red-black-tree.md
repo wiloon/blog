@@ -4,7 +4,7 @@ author: "-"
 date: 2015-06-28T02:05:01+00:00
 url: /?p=7914
 categories:
-  - Data-Structure
+  - Algorithm
 tags:
   - Algorithm
   - Java

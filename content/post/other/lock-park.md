@@ -4,7 +4,7 @@ author: "-"
 date: "2015-05-25T07:28:38+00:00"
 url: "lock"
 categories:
-  - lock
+  - CS
 tags:
   - Java
 ---

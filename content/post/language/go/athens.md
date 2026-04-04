@@ -4,7 +4,7 @@ author: "-"
 date: 2022-11-29 16:53:10
 url: athens
 categories:
-  - Golang
+  - Go
 tags:
   - reprint
   - remix

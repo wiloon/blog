@@ -4,7 +4,7 @@ author: "-"
 date: 2013-01-20T09:25:18+00:00
 url: git-flow
 categories:
-  - Git
+  - Tools
 tags:
   - reprint
   - r3emix

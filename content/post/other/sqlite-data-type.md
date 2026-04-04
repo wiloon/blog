@@ -4,7 +4,7 @@ author: "-"
 date: 2012-07-08T15:05:01+00:00
 url: sqlite/datatype
 categories:
-  - db
+  - Database
 tags:
   - reprint
 ---

@@ -4,7 +4,7 @@ author: "-"
 date: 2016-10-10T04:39:13+00:00
 url: service-mesh
 categories:
-  - cloud
+  - Cloud
 tags:
   - reprint
 ---

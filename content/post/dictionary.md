@@ -4,7 +4,7 @@ author: "-"
 date: 2012-10-26T04:31:08+00:00
 url: dictionary
 categories:
-  - dev
+  - CS
 tags:
   - reprint
 ---

@@ -4,7 +4,7 @@ author: "-"
 date: 2016-05-13T12:00:27+00:00
 url: ansible
 categories:
-  - devops
+  - Cloud
 tags:
   - reprint
   - remix

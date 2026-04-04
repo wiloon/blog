@@ -4,7 +4,7 @@ author: "-"
 date: 2012-05-24T14:18:34+00:00
 url: readelf
 categories:
-  - OS
+  - Linux
 tags:
   - reprint
 ---

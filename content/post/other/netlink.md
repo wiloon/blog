@@ -4,7 +4,7 @@ author: "-"
 date: 2012-02-15T04:34:49+00:00
 url: netlink
 categories:
-  - OS
+  - Linux
 tags:
   - reprint
 ---

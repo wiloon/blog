@@ -4,7 +4,7 @@ author: "-"
 date: ""
 url: "futex"
 categories:
-  - OS
+  - Linux
 tags:
   - lock
 ---

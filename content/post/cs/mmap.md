@@ -4,7 +4,7 @@ author: "-"
 date: 2017-02-10T00:43:18+00:00
 url: mmap
 categories:
-  - OS
+  - Linux
 tags:
   - inbox
 ---

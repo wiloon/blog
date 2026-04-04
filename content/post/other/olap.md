@@ -4,7 +4,7 @@ author: "-"
 date: 2013-02-17T05:54:30+00:00
 url: /?p=5164
 categories:
-  - CI
+  - Cloud
 tags:
   - Jenkins
 

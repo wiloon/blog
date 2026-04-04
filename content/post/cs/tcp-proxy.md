@@ -4,7 +4,7 @@ author: "-"
 date: 2021-10-02T01:27:23+00:00
 url: tcp/proxy
 categories:
-  - network
+  - Network
 tags:
   - reprint
   - proxy

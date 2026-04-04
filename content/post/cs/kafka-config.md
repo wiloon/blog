@@ -4,7 +4,7 @@ author: "-"
 date: 2017-05-04T09:27:25+00:00
 url: kafka/config
 categories:
-  - Kafka
+  - Database
 tags:
   - reprint
 ---

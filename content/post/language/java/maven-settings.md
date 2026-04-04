@@ -4,7 +4,7 @@ author: "-"
 date: 2014-05-18T09:11:15+00:00
 url: maven/setting
 categories:
-  - maven
+  - Java
 tags:
   - reprint
   - remix

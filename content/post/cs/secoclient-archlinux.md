@@ -4,7 +4,7 @@ author: "-"
 date: 2020-02-01T03:59:45+00:00
 url: secoclient
 categories:
-  - network
+  - Network
 tags:
   - reprint
   - VPN

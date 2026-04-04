@@ -4,7 +4,7 @@ author: "-"
 date: "2021-07-01 21:56:55"
 url: race-condition
 categories:
-  - cs
+  - CS
 tags:
   - reprint
 ---

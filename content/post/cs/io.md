@@ -4,7 +4,7 @@ author: "-"
 date: 2026-03-31T06:34:20+08:00
 url: io
 categories:
-  - OS
+  - Linux
 tags:
   - reprint
   - remix

@@ -4,7 +4,7 @@ author: "-"
 date: 2025-11-02T08:30:00+00:00
 url: macos-container
 categories:
-  - container
+  - Cloud
 tags:
   - reprint
   - remix

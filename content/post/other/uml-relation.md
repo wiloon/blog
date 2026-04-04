@@ -4,7 +4,7 @@ author: "-"
 date: 2012-10-15T08:40:14+00:00
 url: uml
 categories:
-  - UML
+  - Pattern
 tags:
   - UML
 

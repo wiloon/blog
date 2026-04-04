@@ -4,7 +4,7 @@ author: "-"
 date: 2013-02-19T06:14:59+00:00
 url: shell/map
 categories:
-  - shell
+  - Linux
 tags:
   - reprint
 ---

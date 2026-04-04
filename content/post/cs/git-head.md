@@ -4,7 +4,7 @@ author: "-"
 date: 2018-08-03T02:51:50+00:00
 url: git-head
 categories:
-  - git
+  - Tools
 tags:
   - reprint
 ---

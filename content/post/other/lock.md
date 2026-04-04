@@ -4,7 +4,7 @@ author: "-"
 date: 2014-12-05T01:05:56+00:00
 url: /lock
 categories:
-  - OS
+  - Linux
 tags:
   - Lock
 

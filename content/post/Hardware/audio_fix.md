@@ -6,7 +6,7 @@ url: audio-fix
 categories:
   - Inbox
 tags:
-  - Audio
+  - Linux
   - remix
   - AI-assisted
 

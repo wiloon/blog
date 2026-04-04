@@ -4,7 +4,7 @@ author: "-"
 date: 2017-01-30T08:43:37+00:00
 url: Strategy
 categories:
-  - pattern
+  - Pattern
 tags:
   - reprint
 ---

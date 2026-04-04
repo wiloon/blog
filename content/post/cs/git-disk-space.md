@@ -4,7 +4,7 @@ author: "-"
 date: 2012-10-26T04:44:51+00:00
 url: git/disk
 categories:
-  - Git
+  - Tools
 tags:
   - reprint
 ---

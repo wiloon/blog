@@ -4,7 +4,7 @@ author: "-"
 date: 2022-12-15 12:44:54
 url: vim
 categories:
-  - Editor
+  - Tools
 tags:
   - reprint
   - remix

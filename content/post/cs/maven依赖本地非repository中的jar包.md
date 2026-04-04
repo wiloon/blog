@@ -4,7 +4,7 @@ author: "-"
 date: 2016-03-12T06:23:38+00:00
 url: maven/local/jar
 categories:
-  - Maven
+  - Java
 tags:
   - reprint
 ---

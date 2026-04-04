@@ -4,7 +4,7 @@ author: "-"
 date: 2018-12-19T08:49:53+00:00
 url: vim/find/replace
 categories:
-  - Editor
+  - Tools
 tags:
   - reprint
   - VIM

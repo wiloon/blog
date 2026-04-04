@@ -4,7 +4,7 @@ author: "-"
 date: 2012-03-06T04:17:01+00:00
 url: iaas-paas-saas
 categories:
-  - Development
+  - CS
 tags:
   - reprint
 ---

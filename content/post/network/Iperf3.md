@@ -3,7 +3,7 @@ author: "-"
 date: "" 
 title: iperf3 测速
 categories:
-  - network
+  - Network
 tags:
   - reprint
 ---

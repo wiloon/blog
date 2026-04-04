@@ -4,7 +4,7 @@ author: "-"
 date: 2019-02-22T11:26:25+00:00
 url: redis/config
 categories:
-  - Redis
+  - Database
 tags:
   - reprint
   - remix

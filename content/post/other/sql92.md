@@ -4,7 +4,7 @@ author: "-"
 date: 2012-07-01T08:38:20+00:00
 url: sql92
 categories:
-  - DataBase
+  - Database
 tags:
   - reprint
 ---

@@ -4,7 +4,7 @@ author: "-"
 date: 2024-05-19T22:31:55+08:00
 url: dual-boot
 categories:
-  - System
+  - Linux
 tags:
   - reprint
   - remix

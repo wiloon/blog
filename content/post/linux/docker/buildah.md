@@ -4,7 +4,7 @@ author: "-"
 date: 2020-01-20T10:07:09+00:00
 url: buildah
 categories:
-  - Container
+  - Cloud
 tags:
   - reprint
   - remix

@@ -4,7 +4,7 @@ author: "-"
 date: 2015-10-13T01:57:48+00:00
 url: ask-the-right-questions
 categories:
-  - Book
+  - Life
 tags:
   - Reprint
 ---

@@ -4,7 +4,7 @@ author: "W10N"
 date: "2021-01-13 08:49:13"
 url: "hardware"
 categories:
-  - W10N
+  - Network
 tags:
   - Hardware
   - HomeLab

@@ -4,7 +4,7 @@ author: "-"
 date: 2017-02-15T07:23:41+00:00
 url: socks5
 categories:
-  - socks5
+  - Network
 tags:
   - reprint
   - remix

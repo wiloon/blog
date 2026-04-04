@@ -4,7 +4,7 @@ author: "-"
 date: 2011-12-03T08:27:03+00:00
 url: file-system
 categories:
-  - filesystem
+  - Linux
 tags:
   - reprint
   - remix

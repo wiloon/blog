@@ -4,7 +4,7 @@ author: "-"
 date: 2026-03-10T10:38:17+08:00
 url: k8s/command
 categories:
-  - K8S
+  - Cloud
 tags:
   - reprint
   - k8s

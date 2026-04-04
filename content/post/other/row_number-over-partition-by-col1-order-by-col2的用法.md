@@ -4,7 +4,7 @@ author: "-"
 date: 2013-05-08T03:13:29+00:00
 url: /?p=5430
 categories:
-  - DataBase
+  - Database
 tags:
   - oracle
 

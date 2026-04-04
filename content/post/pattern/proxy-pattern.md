@@ -4,7 +4,7 @@ author: "-"
 date: 2011-09-07T04:45:42+00:00
 url: proxy
 categories:
-  - pattern
+  - Pattern
 tags:
   - design-pattern
 

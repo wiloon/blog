@@ -4,7 +4,7 @@ author: "-"
 date: 2013-04-17T15:43:43+00:00
 url: /?p=5408
 categories:
-  - Raspberry-Pi
+  - Hardware
 tags:
   - reprint
 ---

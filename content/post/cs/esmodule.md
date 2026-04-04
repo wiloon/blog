@@ -4,7 +4,7 @@ author: "-"
 date: 2016-12-14T13:47:38+00:00
 url: esmodule
 categories:
-  - Javascript
+  - JavaScript
 tags:
   - reprint
   - remix

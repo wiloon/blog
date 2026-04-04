@@ -4,7 +4,7 @@ author: "-"
 date: 2018-01-27T08:35:04+00:00
 url: docker/basic
 categories:
-  - container
+  - Cloud
 tags:
   - reprint
   - remix

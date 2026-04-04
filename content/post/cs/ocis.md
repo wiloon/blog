@@ -4,7 +4,7 @@ author: "-"
 date: 2019-01-26T05:27:32+00:00
 url: Gofi
 categories:
-  - cloud
+  - Cloud
 tags:
   - reprint
 ---

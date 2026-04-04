@@ -4,7 +4,7 @@ author: "-"
 date: 2026-01-05T15:35:49+08:00
 url: sqlite
 categories:
-  - database
+  - Database
 tags:
   - reprint
   - remix

@@ -4,7 +4,7 @@ author: "-"
 date: "2021-07-02 16:49:41"
 url: "iomultiplex"
 categories:
-  - OS
+  - Linux
 tags:
   - IO
 ---

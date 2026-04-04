@@ -4,7 +4,7 @@ author: "-"
 date: 2012-11-09T06:01:56+00:00
 url: /?p=4643
 categories:
-  - UML
+  - Pattern
 tags:
   - reprint
 ---

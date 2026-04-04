@@ -4,7 +4,7 @@ author: "-"
 date: 2025-11-19T08:30:00+08:00
 url: kafka
 categories:
-  - Kafka
+  - Database
 tags:
   - reprint
   - remix

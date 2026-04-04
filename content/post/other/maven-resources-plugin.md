@@ -4,7 +4,7 @@ author: "-"
 date: 2011-10-09T04:35:36+00:00
 url: maven-resources-plugin
 categories:
-  - Maven
+  - Java
 tags:
   - reprint
 ---

@@ -4,7 +4,7 @@ author: "-"
 date: 2012-03-12T04:28:25+00:00
 url: powershell
 categories:
-  - Windows
+  - Desktop
 tags:
   - reprint
 ---

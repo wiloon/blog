@@ -4,7 +4,7 @@ author: "-"
 date: 2022-09-16 12:17:27
 url: "compact-extract"
 categories:
-  - Command
+  - Linux
 tags:
   - Linux
   - Command

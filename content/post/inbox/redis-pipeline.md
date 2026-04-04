@@ -4,7 +4,7 @@ author: "-"
 date: "2021-07-24 22:00:22"
 url: "redis-pipeline"
 categories:
-  - redis
+  - Database
 tags:
   - redis
 ---

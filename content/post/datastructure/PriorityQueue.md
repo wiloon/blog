@@ -4,7 +4,7 @@ author: "-"
 date: 2026-03-20T17:16:12+08:00
 url: priority-queue
 categories:
-  - DataStructure
+  - Algorithm
 tags:
   - Queue
   - remix

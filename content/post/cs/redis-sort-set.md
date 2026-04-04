@@ -4,7 +4,7 @@ author: "-"
 date: 2017-02-13T08:48:39+00:00
 url: redis/sort-set
 categories:
-  - redis
+  - Database
 tags:
   - reprint
 ---

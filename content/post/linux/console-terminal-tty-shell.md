@@ -4,7 +4,7 @@ author: "-"
 date: 2018-12-24T04:52:41+00:00
 url: console-terminal-tty-shell
 categories:
-  - shell
+  - Linux
 tags:
   - reprint
   - remix

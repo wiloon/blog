@@ -4,7 +4,7 @@ author: "-"
 date: ""
 url: ""
 categories:
-  - Editor
+  - Tools
 tags:
   - VIM
 ---

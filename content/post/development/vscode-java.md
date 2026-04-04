@@ -4,7 +4,7 @@ author: "-"
 date: 2011-07-18T04:47:44+00:00
 url: vscode/java
 categories:
-  - IDE
+  - Tools
 tags:
   - reprint
 ---

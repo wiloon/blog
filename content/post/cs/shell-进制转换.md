@@ -4,7 +4,7 @@ author: "-"
 date: 2020-03-24T02:21:01+00:00
 url: /?p=15812
 categories:
-  - shell
+  - Linux
 tags:
   - reprint
   - shell

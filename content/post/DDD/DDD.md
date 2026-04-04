@@ -4,7 +4,7 @@ author: "-"
 date: 2026-01-26T10:00:00+08:00
 url: ddd
 categories:
-  - DDD
+  - Pattern
 tags:
   - reprint
   - remix

@@ -4,7 +4,7 @@ author: "-"
 date: 2019-01-26T09:51:46+00:00
 url: ddns
 categories:
-  - network
+  - Network
 tags:
   - reprint
 ---
