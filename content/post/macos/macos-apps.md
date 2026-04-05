@@ -18,6 +18,7 @@ tags:
 - RealVNC® Viewer
 - golang
 - iterm2, another terminal
+- wechat
 
 ## brew
 
