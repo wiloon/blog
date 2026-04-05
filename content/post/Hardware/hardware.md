@@ -490,6 +490,7 @@ https://www.dongchedi.com/auto/params-carIds-34951
 - 整备质量(kg) 1456
 - 有刹车拖挂质量(Towing Capacity/trailer weight)：1500kg
 - 最大拖车重量（挂车有刹车，坡度不超过8%）：1700公斤
+- EA888 Gen 3 发动机
 
 英文版手册: https://ownersmanuals2.com/volkswagen/golf-variant-2019-owners-manual-96599
 
