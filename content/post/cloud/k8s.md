@@ -1,7 +1,7 @@
 ---
 title: "k8s"
 author: "-"
-date: ""
+date: "2026-04-06T15:42:03+08:00"
 url: k8s
 categories:
   - Cloud
@@ -9,6 +9,7 @@ tags:
   - k8s
   - "reprint"
   - "remix"
+  - "AI-assisted"
 ---
 ## k8s
 
@@ -68,3 +69,27 @@ Headless Service使用场景
 ————————————————
 版权声明：本文为CSDN博主「独步秋风」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
 原文链接：[https://blog.csdn.net/qq_33326449/article/details/117401847](https://blog.csdn.net/qq_33326449/article/details/117401847)
+
+## cordon
+
+`kubectl cordon` 将节点标记为不可调度（`SchedulingDisabled`），新的 Pod 不会被调度到该节点，但已运行的 Pod 不受影响。
+
+常用场景：节点维护前，先 cordon 阻止新 Pod 调度，再用 `drain` 驱逐现有 Pod。
+
+```bash
+# 标记节点不可调度
+kubectl cordon <node-name>
+
+# 恢复调度
+kubectl uncordon <node-name>
+
+# 查看节点状态
+kubectl get nodes
+```
+
+执行后节点状态会变为 `Ready,SchedulingDisabled`。
+
+与 `drain` 的区别：
+
+- `cordon`：只阻止新调度，不驱逐现有 Pod
+- `drain`：先 cordon，再驱逐所有 Pod（用于节点下线或重启）
