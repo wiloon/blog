@@ -10,7 +10,6 @@ tags:
   - remix
   - disk
   - PVE
-  - remix
   - AI-assisted
 ---
 ## 硬盘扩容
