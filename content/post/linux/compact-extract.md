@@ -1,13 +1,15 @@
 ---
 title: compact/extract 压缩/解压
 author: "-"
-date: 2022-09-16 12:17:27
+date: 2026-04-07T09:36:40+08:00
 url: "compact-extract"
 categories:
   - Linux
 tags:
   - Linux
   - Command
+  - remix
+  - AI-assisted
 
 ---
 ## compact/extract 压缩/解压
@@ -135,8 +137,16 @@ zip ~/all.zip *.jpg
 
 # 压缩的是个文件夹, -r 表示调用递归压缩
 zip -r temp.zip temp
+
 # 密码
-zip -P password0 foo.zip foo.txt       
+zip -P password0 foo.zip foo.txt
+
+# 压缩目录并加密码 (-r 递归, -P 指定密码)
+zip -r -P password0 foo.zip foo/
+
+# 交互式输入密码（更安全，密码不会暴露在命令历史中）
+zip -r -e foo.zip foo/
+
 # 指定压缩某几个文件
 zip foo.zip foo.txt bar.txt
 ```
