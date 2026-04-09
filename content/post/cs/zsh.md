@@ -1,13 +1,14 @@
 ---
 title: zsh, oh-my-zsh, oh my zsh
 author: "-"
-date: 2017-04-06T04:56:02+00:00
+date: 2026-04-09T08:15:42+08:00
 url: zsh
 categories:
   - Linux
 tags:
   - reprint
   - remix
+  - AI-assisted
 ---
 ## zsh, oh-my-zsh, oh my zsh
 
@@ -35,10 +36,25 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/too
 
 ## update oh my zsh
 
-```Bash
+```bash
 # need vpn to access github
 omz update
 ```
+
+错过更新提示后手动触发更新，直接运行：
+
+```bash
+omz update
+```
+
+如果错过了如下提示：
+
+```text
+[oh-my-zsh] Would you like to update? [Y/n] s
+[oh-my-zsh] You can update manually by running `omz update`
+```
+
+只需在终端执行 `omz update` 即可手动触发更新。
 
 ## 查看 zsh 版本
 
