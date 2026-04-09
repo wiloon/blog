@@ -160,11 +160,13 @@ tags:
 - **编辑已有文章**：必须添加 `remix` 和 `AI-assisted` 两个标签
   - `remix` - 表示内容经过重新编辑和改进（先写这个）
   - `AI-assisted` - AI 辅助编辑的标识（后写这个）
-- **新建文章**：只添加 `AI-assisted` 标签即可
+- **新建文章**：必须添加 `remix` 和 `AI-assisted` 两个标签
+
+⚠️ **`remix` 和 `reprint` 不能同时存在**：添加 `remix` 标签时，如果文章已有 `reprint` 标签，必须将其删除。
 
 ⚠️ **不要忘记：**
-- 编辑文章 = 更新日期 + 添加 `remix` 和 `AI-assisted` 标签
-- 新建文章 = 添加 `AI-assisted` 标签
+- 编辑文章 = 更新日期 + 添加 `remix` 和 `AI-assisted` 标签 + 删除 `reprint`（如有）
+- 新建文章 = 添加 `remix` 和 `AI-assisted` 标签
 
 示例：
 ```yaml
@@ -176,8 +178,8 @@ url: article-url
 categories:
   - 分类
 tags:
-  - 原有标签
-  - remix          # 内容经过编辑改进
+  - 原有标签        # 保留原有其他标签，但删除 reprint（如有）
+  - remix          # 内容经过编辑改进（与 reprint 互斥，不能共存）
   - AI-assisted    # AI 辅助编辑的标识
 ---
 ```
@@ -190,7 +192,7 @@ tags:
 2. ✅ **检查标题**：`title` 是否准确描述文章内容，否则更新
 3. ✅ **检查 URL**：确认 URL 是否与标题匹配，转换数字 URL
 4. ✅ **更新日期**：将 `date` 字段改为当前东八区时间
-5. ✅ **添加标签**：确保 `tags` 中包含 `remix` 和 `AI-assisted`
+5. ✅ **添加标签**：确保 `tags` 中包含 `remix` 和 `AI-assisted`，并删除 `reprint`（如有）
 6. ✅ **内容编辑**：完成实际的文章内容修改
 7. ✅ **格式检查**：确保 Markdown 格式正确
 

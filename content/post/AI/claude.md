@@ -22,4 +22,7 @@ npm install -g @anthropic-ai/claude-code
 claude whoami
 claude chat --prompt "你当前是哪个模型？请给出模型名称。"
 
+export ANTHROPIC_BASE_URL=http://127.0.0.1:4141 && \
+export ANTHROPIC_AUTH_TOKEN=sk-ant-api03-bridging-locally-format-check-passed-xxxxxxxxxxxx && \
+claude
 ```
