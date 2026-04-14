@@ -1,12 +1,11 @@
 ---
 title: PostgreSQL
 author: "-"
-date: 2026-03-20T19:11:11+08:00
+date: 2026-04-14T18:43:49+08:00
 url: PostgreSQL
 categories:
   - Database
 tags:
-  - reprint
   - remix
   - AI-assisted
 ---
@@ -1380,6 +1379,11 @@ set enable_seqscan = off;
 ## synchronous_commit 同步提交配置
 
 `synchronous_commit` 控制事务提交时, PostgreSQL 需要等待 WAL 被写到哪个阶段才向客户端返回成功。它是**性能与数据安全**的核心权衡点。
+
+在 PostgreSQL 复制术语中：
+
+- **Primary**（主节点）= 主库，负责写入
+- **Standby**（备节点）= 从库 / 副本，接收并回放 WAL 日志
 
 ### 五个级别详解
 

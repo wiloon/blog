@@ -1,7 +1,7 @@
 ---
 title: distributed lock 分布式锁
 author: "-"
-date: 2026-03-20T18:46:40+08:00
+date: 2026-04-14T20:46:09+08:00
 url: distributed-lock
 categories:
   - CS
@@ -132,6 +132,35 @@ Redis Cluster 解决的是**水平扩展**和**部分节点故障时的可用性
 | Redlock (5 独立节点) | ✅ | ✅ (概率上安全) | 多数派写入 |
 
 > **结论**: 如果你的 Redis 是集群模式, 同样需要使用 Redlock (多个独立节点, 不是 Cluster 的不同 Shard) 或者换用 ZooKeeper/etcd 来保证分布式锁的严格互斥性。
+
+### Redis 主从+哨兵的锁一致性问题
+
+Redis 主从（Master-Slave）与哨兵（Sentinel）模式存在相同的根本问题——**异步复制**：
+
+1. 线程 A 在 master 上 `SET lock:foo 1 NX EX 30` 成功
+2. master 将写入同步给 slave 之前宕机（异步复制存在延迟窗口）
+3. slave 被哨兵提升为新 master
+4. 新 master 上 `lock:foo` **不存在**
+5. 线程 B `SET lock:foo 1 NX EX 30` 成功——**两个线程同时持锁，互斥性破坏**
+
+哨兵解决的是**可用性**（自动故障转移），不解决**复制延迟**问题，主从切换瞬间的锁状态丢失无法避免。
+
+**`SET key value NX EX ttl` 命令参数说明**：
+
+- **`NX`**（Not eXists）：只在 key 不存在时写入，保证互斥——同一时刻只有一个客户端能成功加锁
+- **`EX ttl`**（EXpire）：设置过期时间，持锁进程崩溃时锁自动释放，防止死锁
+- 两个参数合为一条命令是**原子操作**。旧写法 `SETNX` + `EXPIRE` 是两条命令，若中间崩溃则锁永不过期，已废弃
+
+**`WAIT` 命令（同步复制缓解方案）**：
+
+```bash
+SET lock:foo 1 NX EX 30
+WAIT 1 100   # 等至少 1 个 slave 确认收到写入，最多等 100ms
+```
+
+`WAIT` 阻塞客户端直到指定数量的 slave 确认同步完成，本质是将这一次写入从异步变为同步确认。即使 master 随后宕机，已同步的 slave 上也保有该锁。
+
+缺点：slave 全部宕机时会一直阻塞到超时；网络抖动时每次加锁都需要等待，吞吐量下降；且属于尽力而为，无法完全消除窗口期。
 
 ## 代码实现
 
@@ -566,13 +595,59 @@ WHERE lock_name = 'order:123' AND locked_by = 'node-a-uuid';
 DELETE FROM distributed_locks WHERE expires_at < now();
 ```
 
+#### 方式三: SELECT FOR UPDATE NOWAIT + 锁字段
+
+适用于需要对同一资源串行处理、同时不希望请求阻塞等待的场景。
+
+锁表结构：
+
+```sql
+CREATE TABLE resource_lock (
+    resource_id  BIGINT PRIMARY KEY,
+    is_locked    BOOLEAN NOT NULL DEFAULT false,
+    locked_at    TIMESTAMP
+);
+```
+
+抢锁流程（事务内原子操作）：
+
+```sql
+-- 1. 抢锁：FOR UPDATE NOWAIT 对行加排他锁，获取不到立即抛异常（非阻塞）
+BEGIN;
+SELECT is_locked FROM resource_lock WHERE resource_id = ? FOR UPDATE NOWAIT;
+-- 若 is_locked = false，则置锁
+UPDATE resource_lock SET is_locked = true, locked_at = NOW()
+  WHERE resource_id = ? AND is_locked = false;
+COMMIT;  -- 行锁释放，is_locked = true 持久化
+
+-- 2. 执行实际工作
+
+-- 3. 释放锁：FOR UPDATE（阻塞等待），确保拿到行锁后再清除状态
+BEGIN;
+SELECT is_locked FROM resource_lock WHERE resource_id = ? FOR UPDATE;
+UPDATE resource_lock SET is_locked = false WHERE resource_id = ?;
+COMMIT;
+```
+
+**原理**：
+
+- `SELECT FOR UPDATE NOWAIT` 尝试对该行加排他锁，如果行已被锁则立即抛出异常（`ERROR: could not obtain lock on row`），不阻塞等待。调用方捕获异常后可跳过或将任务重新入队。
+- `is_locked` 字段跨事务持久化「资源正在被处理」的状态，事务结束后行锁释放但字段状态保留，直到工作完成后手动清除。
+- PostgreSQL MVCC 下普通 `SELECT` 读历史快照，不受行锁影响，持锁期间不阻塞普通读。
+
+**注意事项**：
+
+- 进程崩溃时 `is_locked` 可能残留 `true`，需配合 `locked_at` 字段编写超时清理任务（如超过 N 分钟自动重置）兜底
+- `FOR UPDATE NOWAIT` 只锁当前操作行，行锁粒度极细，不影响其他行
+- 与方式二（INSERT ON CONFLICT）相比：方式二每次加锁插入、解锁删除，适合短暂持锁；方式三锁记录持续存在，通过字段状态标记，适合需要明确区分「资源正在处理中」状态的场景
+
 ### PostgreSQL 同步复制: 根本性的区别
 
 这是 PostgreSQL 与 Redis 最关键的区别。**PostgreSQL 支持同步复制**, 可以通过配置要求 Primary 必须等待 Standby 确认写入后才返回事务提交成功:
 
 ```ini
 # postgresql.conf on Primary
-synchronous_commit = remote_apply     # 等待 Standby 应用 WAL 后才提交
+synchronous_commit = on     # 等待 Standby 写入并刷盘 (flush)
 synchronous_standby_names = 'standby1'
 ```
 
