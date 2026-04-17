@@ -1,14 +1,15 @@
 ---
 title: 开闭原则
 author: "-"
-date: 2012-10-08T08:25:07+00:00
-url: /?p=4382
+date: 2026-04-16T12:12:48+08:00
+url: open-closed-principle
 categories:
   - CS
   - Java
 tags:
   - Pattern
-
+  - remix
+  - AI-assisted
 ---
 ## 开闭原则
 开闭原则(Open-Close Principle/OCP)是面向对象设计中"可复用设计"的基石，是面向对象设计中最重要的原则之一，其它很多的设计原则都是实现开闭原则的一种手段。

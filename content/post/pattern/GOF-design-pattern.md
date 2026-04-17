@@ -39,35 +39,35 @@ tags:
 
 ## 分类
 
-### 创建模式
+### 创建模式, Creational Patterns
 
-* Simple Factory Pattern 简单工厂模式 [https://blog.wiloon.com/?p=1399](https://blog.wiloon.com/?p=1399)
-* Factory Method Pattern 工厂方法
-* Abstract Factory Pattern 抽象工厂模式
-* prototype, 原型
-* Builder, 建造者
+* Simple Factory 简单工厂模式 [https://blog.wiloon.com/?p=1399](https://blog.wiloon.com/?p=1399)
+* Factory Method 工厂方法
+* Abstract Factory 抽象工厂模式
+* [Prototype, 原型](/prototype-pattern)
+* [Builder, 建造者](/builder-pattern)
 * Singleton, 单例
 
-### 结构模式
+### 结构模式, Structural Patterns
 
-* Facade, 外观
-* Proxy, 代理
-* Adapter, 适配器
-* Composite, 组合
+* [Facade, 外观](/facade-pattern)
+* [Proxy, 代理](/proxy)
+* [Adapter, 适配器](/Adapter)
+* [Composite, 组合](/composite-pattern)
 * Decorator, 装饰器 [https://blog.wiloon.com/?p=847](https://blog.wiloon.com/?p=847)
 * Bridge, 桥接
 * Flyweight, 享元
 
-### 行为模式
+### 行为模式, Behavioral Patterns
 
-* Template Method, 模板方法 [https://blog.wiloon.com/?p=5526](https://blog.wiloon.com/?p=5526)
+* [Template Method, 模板方法](/design-pattern/template-method)
 * Memento, 备忘录
 * Observer - 观察者 [https://wiloon.com/observer](https://wiloon.com/observer)
-* Chain Of Responsibility - 责任链, 亦称: 职责链模式、命令链、CoR、Chain of Command、Chain of Responsibility
+* [Chain Of Responsibility, 责任链](/chain-of-responsibility)
 * Command, 命令模式 (别名: 动作模式(Action)或事务模式(Transaction))
-* State, 状态 - [https://blog.wiloon.com/?p=9678](https://blog.wiloon.com/?p=9678)
-* Strategy, 策略
-* Meidator, 中介者
+* [State, 状态](/state-pattern)
+* [Strategy, 策略](/strategy-pattern)
+* [Mediator, 中介者](/mediator-pattern)
 * Interpreter, 解释器
 * Visitor, 访问者
 * Iterator, 迭代器

@@ -1,12 +1,14 @@
 ---
 title: 代理模式, proxy pattern
 author: "-"
-date: 2011-09-07T04:45:42+00:00
+date: 2026-04-16T17:17:48+08:00
 url: proxy
 categories:
   - Pattern
 tags:
   - Pattern
+  - remix
+  - AI-assisted
 
 ---
 ## 代理模式, proxy pattern
@@ -45,7 +47,7 @@ public AProxy implements A {
 }
 ```
 
-合着Proxy就是为了给A接口再包一层，这不是脱了裤子放屁吗？
+看起来 Proxy 只是把 A 接口又包了一层，这有什么意义呢？
 
 当然不是。我们观察Proxy的实现A接口的方法：
 
@@ -55,7 +57,7 @@ public void a() {
 }
 ```
 
-这样写当然没啥卵用。但是，如果我们在调用a.a()的前后，加一些额外的代码：
+这样写确实没有额外价值。但是，如果我们在调用 a.a() 的前后加一些额外的逻辑：
 
 ```java
 public void a() {
