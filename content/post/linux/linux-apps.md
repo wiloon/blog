@@ -10,6 +10,8 @@ tags:
   - remix
   - AI-assisted
 ---
+## Linux apps
+
 ## 必装软件（重装系统后优先安装）
 
 | app       | source | notes          |

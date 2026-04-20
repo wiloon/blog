@@ -1,10 +1,10 @@
 ---
 title: claude
 author: "-"
-date: 2026-04-18T17:17:06+08:00
+date: 2026-04-20T10:11:57+08:00
 url: claude
 categories:
-  - Linux
+  - AI
 tags:
   - remix
   - AI-assisted
@@ -65,3 +65,32 @@ export ANTHROPIC_BASE_URL=http://127.0.0.1:4141 && \
 export ANTHROPIC_AUTH_TOKEN=sk-ant-api03-bridging-locally-format-check-passed-xxxxxxxxxxxx && \
 claude
 ```
+
+## CLAUDE.md 与 AGENTS.md
+
+不同 AI 编程工具各自识别不同的项目指令文件：
+
+| 工具 | 识别的指令文件 |
+|---|---|
+| VS Code Copilot | `AGENTS.md`、`.github/copilot-instructions.md` |
+| Claude Code CLI | `CLAUDE.md`（项目根目录或父目录） |
+| OpenAI Codex CLI | `AGENTS.md` |
+
+两者**不会**自动识别对方的约定文件：
+
+- 项目只有 `AGENTS.md`：Claude Code 不会加载它
+- 项目只有 `CLAUDE.md`：VS Code Copilot 不会加载它
+
+### 同时使用两个工具的方案
+
+**推荐：软链接**（以 `AGENTS.md` 为主文件）
+
+```bash
+ln -s AGENTS.md CLAUDE.md
+```
+
+优点：单一事实来源，改一处两个工具都生效，不依赖任何工具特定语法。
+
+**不推荐：`@include`**
+
+Claude Code 支持 `@path/to/file` 语法，但 VS Code Copilot 的 `AGENTS.md` 不支持 `@include`，只能单向引用，不是真正的双向共享。

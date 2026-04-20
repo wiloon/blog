@@ -1,13 +1,13 @@
 ---
 title: grub
 author: "-"
-date: 2011-11-26T08:29:54+00:00
+date: 2026-04-20T12:35:26+08:00
 url: grub
 categories:
   - Linux
 tags:
-  - reprint
   - remix
+  - AI-assisted
 ---
 ## grub
 
@@ -54,6 +54,55 @@ GRUB_HIDDEN_TIMEOUT=0
 GRUB_HIDDEN_TIMEOUT_QUIET=true ->隐藏菜单，grub2不再使用，不管
   
 GRUB_TIMEOUT="3" ->设置进入默认启动项的等候时间，默认值10秒，按自己需要修改
+
+## 设置默认启动系统
+
+编辑 `/etc/default/grub`，找到 `GRUB_DEFAULT` 字段：
+
+```bash
+# 按菜单顺序，从 0 开始计数
+GRUB_DEFAULT=0        # 第一个菜单项（默认）
+GRUB_DEFAULT=2        # 第三个菜单项
+
+# 记住上次启动的选择，下次自动使用
+GRUB_DEFAULT=saved
+GRUB_SAVEDEFAULT=true
+
+# 按菜单标题指定（更稳定，不受菜单顺序变化影响）
+GRUB_DEFAULT="Windows Boot Manager"
+```
+
+查看当前所有菜单项标题：
+
+```bash
+grep -E "^menuentry" /boot/grub/grub.cfg
+# 或
+grep -E "^menuentry" /boot/grub2/grub.cfg
+```
+
+修改后重新生成配置文件：
+
+```bash
+# Debian/Ubuntu
+sudo update-grub
+
+# RHEL/Fedora/Arch
+sudo grub2-mkconfig -o /boot/grub2/grub.cfg
+# 或（EFI 系统）
+sudo grub2-mkconfig -o /boot/efi/EFI/fedora/grub.cfg
+```
+
+## 设置 GRUB 菜单停留时间
+
+编辑 `/etc/default/grub`，修改 `GRUB_TIMEOUT`：
+
+```bash
+GRUB_TIMEOUT=5    # 等待 5 秒后自动启动
+GRUB_TIMEOUT=0    # 不显示菜单，直接启动默认项
+GRUB_TIMEOUT=-1   # 永久等待，不自动启动
+```
+
+修改后同样需要执行 `update-grub` 或 `grub2-mkconfig` 生效。
   
 GRUB_DISTRIBUTOR=\`lsb_release -i -s 2> /dev/null || echo Debian\`
   
