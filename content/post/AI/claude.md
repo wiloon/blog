@@ -1,7 +1,7 @@
 ---
 title: claude
 author: "-"
-date: 2026-04-20T10:11:57+08:00
+date: 2026-04-20T12:54:03+08:00
 url: claude
 categories:
   - AI
@@ -94,3 +94,28 @@ ln -s AGENTS.md CLAUDE.md
 **不推荐：`@include`**
 
 Claude Code 支持 `@path/to/file` 语法，但 VS Code Copilot 的 `AGENTS.md` 不支持 `@include`，只能单向引用，不是真正的双向共享。
+
+## 常见错误
+
+### model_max_prompt_tokens_exceeded
+
+```text
+API Error: 400 {"error":{"code":"model_max_prompt_tokens_exceeded","message":"prompt token count of 133252 exceeds the limit of 128000"}}
+```
+
+**原因：** 当前对话的上下文（prompt）超过了模型的最大 token 限制。
+
+Claude 原生 API 的上下文窗口为 **200k tokens**（claude-3-5-sonnet 等主流模型）。如果报错显示 128k 限制，通常是因为使用了**中转代理**（通过 `ANTHROPIC_BASE_URL` 设置的第三方或本地 API），代理服务自身限制了 prompt 大小为 128k。
+
+Claude Code 有**自动压缩**机制：当上下文接近限制时会自动触发 `/compact`，把对话历史总结压缩。但以下情况仍会绕过自动压缩直接报错：
+
+- **单次操作本身就超限**：比如一次性读取多个大文件，单个请求的 prompt 已经超过 128k，还没来得及压缩
+- **CLAUDE.md 本身过大**：每次请求都会带上指令文件，如果文件很长会持续占用大量 token
+- **自动压缩触发太晚**：压缩是在接近上限时触发，但如果下一步操作读取的内容很大，仍可能超出
+
+**解决方法：**
+
+- 手动执行 `/compact` 压缩当前对话历史
+- 开启新对话（`/clear`），彻底清空上下文
+- 减少一次性加载的文件数量，分批处理
+- 精简 CLAUDE.md / AGENTS.md 的内容，删除冗余说明
