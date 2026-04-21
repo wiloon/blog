@@ -1,12 +1,13 @@
 ---
 title: 关于本站/关于我
 author: "W10N"
-date: 2021-11-16T01:00:00+08:00
+date: 2026-04-21T17:11:03+08:00
 url: about
 categories:
   - W10N
 tags:
   - original
+  - AI-assisted
 ---
 ## 关于本站/关于我/About
 
@@ -28,7 +29,7 @@ tags:
   - 没有明显的知识共享协议的文章会逐渐转移到私有仓库 Obsidian + AWS S3
   - 转载内容的 Author 会标记为 "-"
 - 会不定期删除本人使用频率低的内容, 比如早期接触过的 ASP.net, Wordpress, PHP...
-- 本站点对应的 GitHub 仓库: [https://github.com/wiloon/wiloon.com](https://github.com/wiloon/wiloon.com)
+- 本站点对应的 GitHub 仓库: [https://github.com/wiloon/blog](https://github.com/wiloon/blog)
 - 转载内容有侵权可以随时联系我删除
 
 ### 整理过的
@@ -54,10 +55,8 @@ tags:
 - GitHub
 - GitHub Action
 - Hugo
-- Even theme
-- Nginx
-- Bandwagon VPS
-- Cloudflare
+- PaperMod theme
+- Cloudflare Pages
 
 ## 关于我
 
@@ -67,8 +66,8 @@ tags:
 
 - 中学时期一度沉迷计算机硬件，是 <<微型计算机>> 的忠实读者, 练就了一手装机技能。大学时期人称 "机修"。
 - 工作之后有三年时间被派到上海出差，期间接触到了当地的 Linux 用户组, 也因为自己的二手 IBM 笔记本跑 Windows 太吃力所以转投了 Linux, 在各种发行版之间折腾了很长时间, 最后选择了Arch Linux.
-- 写过 Java, C#, Android, iOS, Go; 目前工作主力: Python, Go
-- 日常系统 Arch Linux + KDE
+- 写过 Java, C#, Android, iOS, Go, Python; 目前工作主力: Python, Go
+- 日常开发环境 Arch Linux + KDE
 - 曾经的 Google 粉，用过 Google 的各种好用的和不好用的产品: Nexus5, Nexus6P, Nexus7, Moto 360, Pixel1/2/3, Pixelbook
 
 ### 技术栈
@@ -88,9 +87,9 @@ tags:
 - 最近在折腾家里的软路由。
 - 做一些目前只有自己在用的 Side Projects: Rss 阅读器, 英语词典, 等等...
 - 伺候猫主子，家里有一只名叫 "皮皮" 的中华田园猫。
-- 偶尔玩游戏: 王者荣耀, 英雄联盟。
+- 有一台 switch2，每天被4岁的女儿拉着一起玩星之卡比。
 - 断断续续的学了一点儿钢琴，目前能弹一首半简单的曲子。
-- 曾经热爱自行车运动，最的远距离是骑行 40 公里。
+- 每天早上跑步2km, 曾经热爱自行车运动，最的远距离是骑行 40 公里。
 
 ### 联系方式
 
