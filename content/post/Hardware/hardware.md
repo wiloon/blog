@@ -35,6 +35,7 @@ tags:
 - beelink SER8
 - Dell U2412Mb
 - keychron Q5HE
+- Nintendo Switch2
 
 ## beelink SER8
 
@@ -505,3 +506,7 @@ docs: https://www.keychron.com/pages/keychron-q5-he-user-guide?srsltid=AfmBOoqF3
 https://launcher.keychron.com/#/not-connect
 
 点击页面左上角的 connect 连接键盘
+
+## Nintendo Switch2
+
+- 存储: 256GB
