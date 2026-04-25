@@ -19,6 +19,7 @@ tags:
 - golang
 - iterm2, another terminal
 - wechat
+- telegram
 
 ## brew
 

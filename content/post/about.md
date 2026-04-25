@@ -94,10 +94,10 @@ tags:
 ### 联系方式
 
 - email: d2lsb29uLnd5QGdtYWlsLmNvbQ==
-- GitHub:[https://github.com/wiloon](https://github.com/wiloon)
-- Stackoverflow:[https://stackoverflow.com/users/1431884/w1100n](https://stackoverflow.com/users/1431884/w1100n)
+- GitHub: [https://github.com/wiloon](https://github.com/wiloon)
+- Stackoverflow: [https://stackoverflow.com/users/1431884/w1100n](https://stackoverflow.com/users/1431884/w1100n)
 
 ### 共享协议
 
-本站 仅 "日常记录" 分类中的文字由 w1100n 创作，采用知识共享署名-相同方式共享 4.0 国际许可协议进行许可。  
+本站 仅 "日常记录" 分类中的文字由 w1100n 创作，采用知识共享署名-相同方式共享 4.0 (CC BY-SA 4.0) 进行许可。  
 其它分类中转载的文档使用原作者的共享协议。
