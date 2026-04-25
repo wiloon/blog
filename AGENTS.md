@@ -202,6 +202,7 @@ tags:
   - `remix` - 表示内容经过重新编辑和改进（先写这个）
   - `AI-assisted` - AI 辅助编辑的标识（后写这个）
 - **新建文章**：必须添加 `remix` 和 `AI-assisted` 两个标签
+- **内容标签**：除强制标签外，必须根据文章实际内容添加具体技术标签（如 `java`、`go`、`docker`、`k8s` 等），便于检索
 
 ⚠️ **`remix` 和 `reprint` 不能同时存在**：添加 `remix` 标签时，如果文章已有 `reprint` 标签，必须将其删除。
 
@@ -220,6 +221,7 @@ categories:
   - 分类
 tags:
   - 原有标签        # 保留原有其他标签，但删除 reprint（如有）
+  - java           # 内容相关的具体技术标签（必须添加）
   - remix          # 内容经过编辑改进（与 reprint 互斥，不能共存）
   - AI-assisted    # AI 辅助编辑的标识
 ---
@@ -234,7 +236,7 @@ tags:
 3. ✅ **检查 URL**：确认 URL 是否与标题匹配，转换数字 URL
 4. ✅ **检查 categories**：分类是否与文章内容匹配，否则更新
 5. ✅ **更新日期**：将 `date` 字段改为当前东八区时间
-6. ✅ **添加标签**：确保 `tags` 中包含 `remix` 和 `AI-assisted`，并删除 `reprint`（如有）
+6. ✅ **添加标签**：确保 `tags` 中包含 `remix` 和 `AI-assisted`，并删除 `reprint`（如有）；同时添加与文章内容相关的具体技术标签（如 `java`、`go`、`docker` 等）
 7. ✅ **内容编辑**：完成实际的文章内容修改
 8. ✅ **格式检查**：确保 Markdown 格式正确
 
