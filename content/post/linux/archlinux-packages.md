@@ -1,7 +1,7 @@
 ---
 title: archlinux packages
 author: "-"
-date: "2026-04-26T05:35:31+08:00"
+date: "2026-04-27T09:25:00+08:00"
 url: archlinux-packages
 categories:
   - Linux
@@ -39,7 +39,7 @@ tags:
 - `conmon`: OCI container runtime monitor
 - `cryptsetup`: Userspace setup tool for transparent encryption of block devices using dm-crypt
 - `dav1d`: AV1 cross-platform decoder focused on speed and correctness
-- `expat`: An XML parser library
+- `expat`: C 语言实现的流式 XML 解析库（libexpat），详见 [expat](#expat)
 - `fftw`: A library for computing the discrete Fourier transform (DFT)
 - `fzf`: General-purpose command-line fuzzy finder
 - `gcr`: A library for bits of crypto UI and parsing
@@ -52,7 +52,9 @@ tags:
 - `libplist`: Library to handle Apple Property List files
 - `libx11`: X11 client-side library
 
-## 详细说明
+### expat
+
+C 语言实现的流式 XML 解析库（libexpat），采用 SAX（事件驱动）解析模型，适合处理大型 XML 文档。当前系统被以下包依赖：`antigravity`（Google 的 AI 辅助 IDE 工具）、`avahi`（mDNS/DNS-SD 零配置网络服务）、`cmake`（跨平台构建系统）、`dbus`（进程间通信总线）、`dbus-broker`（D-Bus 的替代实现）、`exiv2`（图片元数据读写库）、`fontconfig`（字体配置库）、`gdb`（GNU 调试器）、`git`（版本控制工具）、`mesa`（OpenGL/Vulkan 图形驱动实现）、`neon`（HTTP/WebDAV 客户端库）、`polkit`（权限授权框架）、`python`（Python 解释器）、`qt6-webengine`（Qt6 网页渲染引擎）、`vtk`（3D 可视化工具库）、`wayland`（显示服务协议库）、`webkit2gtk-4.1`（WebKit 网页渲染引擎）、`wechat-bin`（微信桌面客户端）。
 
 ### boost-libs
 

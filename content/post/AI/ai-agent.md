@@ -1,7 +1,7 @@
 ---
 title: AI Agent
 author: "-"
-date: 2026-04-25T19:21:28+08:00
+date: 2026-04-27T12:18:20+08:00
 url: ai-agent
 categories:
   - AI
@@ -256,6 +256,113 @@ Observation: 邮件发送成功
 
 Thought: 任务完成
 ```
+
+## ReAct 推理模式
+
+ReAct 来自论文 *ReAct: Synergizing Reasoning and Acting in Language Models*（Yao et al., 2022），是目前 AI Agent 最主流的推理框架。
+
+名称是 **Re**asoning（推理）+ **Act**ing（行动）的合并，核心思想是：**让 LLM 在推理时交错生成思考轨迹和行动指令**，而不是把推理和行动分成两个独立阶段。
+
+### 为什么需要 ReAct
+
+ReAct 之前，研究者主要在两条路上走：
+
+| 方法 | 做法 | 问题 |
+| --- | --- | --- |
+| **Chain-of-Thought (CoT)** | 让 LLM 先思考再回答，但不能访问外部信息 | 推理依赖训练时的静态知识，事实容易幻觉 |
+| **工具调用（Action Only）** | 让 LLM 直接输出工具调用指令，不产生推理过程 | 没有推理轨迹，遇到多步骤问题容易迷失方向，出错后无法自我纠正 |
+
+ReAct 把两者结合：**思考让行动有方向，行动让推理有事实依据**。
+
+### ReAct 的三个基本元素
+
+| 元素 | 作用 |
+| --- | --- |
+| **Thought（思考）** | LLM 的内部推理过程，解释当前状态、分析问题、规划下一步 |
+| **Action（行动）** | LLM 输出的具体操作指令，如调用搜索、执行代码、查询数据库 |
+| **Observation（观察）** | 外部环境（工具）返回的结果，追加到上下文后触发下一轮 Thought |
+
+### ReAct 的执行流程
+
+```
+用户输入
+   ↓
+Thought: 分析目标，决定下一步
+   ↓
+Action: tool_name(参数)
+   ↓
+Observation: 工具返回结果
+   ↓
+Thought: 根据结果重新评估，决定继续还是结束
+   ↓
+Action / 最终回复
+   ↓
+（循环，直到 Thought 判断任务完成）
+```
+
+**关键点**：每次迭代，LLM 看到的都是**完整的历史轨迹**（所有 Thought + Action + Observation 串联在一起），这让 LLM 能理解执行进展并动态调整策略。
+
+### ReAct 是 LLM 与 Agent 框架合作完成的
+
+Thought 和 Action 由 LLM 生成，但 Observation 必须靠 Agent 框架来执行工具并回传结果。三个步骤的分工如下：
+
+| 步骤 | 谁来做 | 说明 |
+| --- | --- | --- |
+| **Thought** | LLM | LLM 生成推理文本，完全在 LLM 内部 |
+| **Action** | LLM | LLM 输出工具调用指令（结构化文本或 JSON） |
+| **执行工具** | Agent 框架 | 框架解析 Action，真正调用搜索 / 代码 / API 等 |
+| **Observation** | Agent 框架 → LLM | 框架把工具结果追加到上下文，再把完整上下文喂给 LLM |
+
+**LLM 单独能模拟 ReAct，但 Observation 是假的**：如果只靠 LLM 自己，它可以在输出里「假装」调用工具、「假装」得到结果，但那只是凭训练知识编造的内容，本质上退化成了 CoT。
+
+**ReAct 的价值就在于 Observation 是真实的**：Agent 框架执行工具后，把真实结果注入上下文，让 LLM 的推理可以锚定在事实上，这才是 ReAct 解决幻觉问题的关键机制。
+
+> LLM 负责「想清楚该做什么」，Agent 框架负责「真的去做」，然后把结果告诉 LLM 继续想。
+
+### 完整示例
+
+```
+问题：苹果公司 2023 年的营收是多少？创始人是谁？
+
+Thought: 这个问题需要两个信息：苹果 2023 年营收 + 创始人。
+         我先搜索营收数据。
+Action: search("Apple Inc 2023 annual revenue")
+Observation: Apple reported revenue of $383.29 billion for fiscal year 2023.
+
+Thought: 获得了营收数据。现在搜索创始人信息。
+Action: search("Apple Inc founders")
+Observation: Apple was founded by Steve Jobs, Steve Wozniak, and Ronald Wayne in 1976.
+
+Thought: 两个信息都已获得，可以给出完整回答。
+最终回复: 苹果公司 2023 财年营收约 3832.9 亿美元。
+         公司由史蒂夫·乔布斯、史蒂夫·沃兹尼亚克和罗纳德·韦恩于 1976 年创立。
+```
+
+### ReAct 相比纯 CoT 的优势
+
+| 维度 | 纯 CoT | ReAct |
+| --- | --- | --- |
+| **信息来源** | 仅依赖训练时的静态知识 | 可实时检索外部信息 |
+| **事实准确性** | 容易产生幻觉 | 由工具结果锚定，更可靠 |
+| **可解释性** | Thought 可见，但无法验证 | Thought + 工具调用 + 结果都可追溯 |
+| **自我纠错** | 无法在执行中纠错 | 看到 Observation 后可以调整策略 |
+| **适用范围** | 纯推理类问题（数学、逻辑） | 需要外部信息的任务（问答、任务执行） |
+
+### ReAct 的局限性
+
+- **Token 消耗大**：每轮都要生成 Thought，上下文随循环轮次增长
+- **依赖工具质量**：Observation 的准确性上限取决于工具本身
+- **推理链可能出错**：多轮后 Thought 可能偏离原始目标（需要外部机制重置）
+- **不适合简单任务**：对于单步问答，Thought 是纯粹的开销
+
+### ReAct 在实际框架中的体现
+
+| 框架 | ReAct 的落地形式 |
+| --- | --- |
+| **LangChain AgentExecutor** | 内置 ReAct 提示模板，自动解析 Thought/Action/Observation |
+| **LangGraph** | 将 ReAct 循环显式建模为图节点，可自定义每个阶段的行为 |
+| **OpenAI Function Calling** | Action 由结构化 JSON 表达，Thought 嵌入在 `content` 字段 |
+| **Claude Tool Use** | 类似 OpenAI，Thought 通过 `thinking` 字段暴露 |
 
 ## Agent 的直观类比：人也是 Agent
 
