@@ -117,7 +117,6 @@ choco install python2
 #### 中间件, Middleware
 
 - Redis
-- Leveldb
 - zookeeper
 - influxdb
 - kafka

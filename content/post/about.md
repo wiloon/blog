@@ -72,7 +72,7 @@ tags:
 
 ### 技术栈
 
-接触过的主要技术，从左到右按熟悉程度排序
+接触过的主要技术
 
 - Java, Python, Golang
 - MySQL, PostgreSQL, Redis, InfluxDB, LevelDB
