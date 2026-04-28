@@ -25,41 +25,32 @@ tags:
   
 实现观察者模式有很多形式，比较直观的一种是使用一种"注册——通知——撤销注册"的形式。
 
-```puml
-@startuml
-class Publisher
-interface Subscriber
-Publisher o-right- Subscriber
-class ConcreateSubscriber
-Subscriber <|-- ConcreateSubscriber
-class Client
-ConcreateSubscriber <.. Client
-Publisher<--Client
-@enduml
+```mermaid
+classDiagram
+    class Subscriber {
+        <<interface>>
+    }
+    Publisher o-- Subscriber
+    Subscriber <|.. ConcreateSubscriber
+    Client ..> ConcreateSubscriber
+    Client --> Publisher
 ```
 
-```puml
-@startuml
-class Demo
-class Editor
-note right: 发布者\nPublisher\n被观察对象\nSubject
-Editor<-- Demo
-
-interface EventListener
-note left: 订阅者\nSubscriber\n观察者\nObserver
-
-class EmailNotificationListener
-note left: 具体订阅者
-EventListener<|-- EmailNotificationListener
-EmailNotificationListener<.. Demo
-
-class EventManager
-EventManager --o Editor
-EventListener -right-o EventManager
-class LogOpenListener
-EventListener<|-- LogOpenListener
-LogOpenListener<.. Demo
-@enduml
+```mermaid
+classDiagram
+    class EventListener {
+        <<interface>>
+    }
+    note for Editor "发布者 Publisher\n被观察对象 Subject"
+    note for EventListener "订阅者 Subscriber\n观察者 Observer"
+    note for EmailNotificationListener "具体订阅者"
+    Demo --> Editor
+    Editor o-- EventManager
+    EventManager o-- EventListener
+    EventListener <|.. EmailNotificationListener
+    Demo ..> EmailNotificationListener
+    EventListener <|.. LogOpenListener
+    Demo ..> LogOpenListener
 ```
 
 ### 发布者, Publisher, 被观察对象, Subject

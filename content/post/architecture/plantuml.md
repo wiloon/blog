@@ -1,14 +1,91 @@
 ---
 title: plantuml, puml
 author: "-"
-date: 2024-03-19T12:11:33+08:00
+date: 2026-04-28T12:48:25+08:00
 url: plantuml
 categories:
-  - Pattern
+  - architecture
 tags:
-  - reprint
+  - plantuml
+  - mermaid
+  - uml
   - remix
+  - AI-assisted
 ---
+## Mermaid：VS Code 内置替代方案
+
+Mermaid 是最佳替代方案，VS Code 的 Markdown 预览**内置支持**，无需扩展或服务器。直接在 Markdown 中写 ` ```mermaid ` 代码块，按 `Ctrl+Shift+V` 打开预览即可看到渲染结果。
+
+| 功能 | PlantUML | Mermaid |
+| --- | --- | --- |
+| VS Code 原生支持 | 需要 Java + 扩展 | 内置 |
+| GitHub 渲染 | 不支持 | 支持 |
+| 语法 | 更强大 | 更简洁 |
+| 离线使用 | 需要 graphviz | 完全离线 |
+
+### 序列图
+
+```mermaid
+sequenceDiagram
+    Alice->>Bob: Authentication Request
+    Bob-->>Alice: Authentication Response
+    Alice->>Bob: Another authentication Request
+    Alice<<--Bob: Another authentication Response
+```
+
+### 类图
+
+```mermaid
+classDiagram
+    class Animal {
+        +String name
+    }
+    class Duck {
+        +quack()
+    }
+    Animal <|-- Duck
+```
+
+### 活动图 / 流程图
+
+```mermaid
+flowchart TD
+    start([start])
+    stop([stop])
+    decision{foo?}
+
+    start --> decision
+    decision -->|yes| process0[process0]
+    decision -->|no| process1[process1]
+    process0 --> stop
+    process1 --> stop
+```
+
+### 状态图
+
+```mermaid
+stateDiagram-v2
+    [*] --> State1
+    State1 --> State2
+    State2 --> [*]
+```
+
+### 思维导图
+
+```mermaid
+mindmap
+  root((Debian))
+    Ubuntu
+      Linux Mint
+      Kubuntu
+      Lubuntu
+    LMDE
+    SteamOS
+    Raspbian
+```
+
+---
+
 ## plantuml, puml
 
 ### UML
