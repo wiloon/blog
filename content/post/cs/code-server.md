@@ -37,7 +37,7 @@ podman run -d --name code-server \
 codercom/code-server:3.12.0 --auth none
 ```
 
-### nginx 配置
+nginx 配置
 
 location / {
         proxy_pass [http://wyse5070.wiloon.com:8080](http://wyse5070.wiloon.com:8080);

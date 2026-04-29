@@ -1,13 +1,63 @@
 ---
 title: nginx basic, command
 author: "-"
-date: 2017-10-26T06:17:15+00:00
-url: nginx/basic
+date: 2026-04-29T13:08:52+08:00
+url: nginx-basic
 categories:
-  - Web
+  - network
 tags:
-  - reprint
+  - nginx
+  - remix
+  - AI-assisted
 ---
+## vhost（虚拟主机）
+
+nginx 中每个 `server {}` 块就是一个虚拟主机（vhost，Virtual Host），同一台服务器上可以配置多个 `server {}` 块，让 nginx 同时托管多个网站或服务。
+
+nginx 收到请求后，依次匹配 `listen`（端口/IP）和 `server_name`（域名），找到对应的 `server {}` 块处理请求。如果没有匹配项，则使用第一个定义的 server 或标记了 `default_server` 的块。
+
+### 基于域名（最常用）
+
+```nginx
+server {
+    listen 80;
+    server_name example.com;
+    root /var/www/example;
+}
+
+server {
+    listen 80;
+    server_name another.com;
+    root /var/www/another;
+}
+```
+
+### 基于端口
+
+```nginx
+server {
+    listen 8080;
+    server_name localhost;
+}
+
+server {
+    listen 9090;
+    server_name localhost;
+}
+```
+
+### 基于 IP
+
+```nginx
+server {
+    listen 192.168.1.1:80;
+}
+
+server {
+    listen 192.168.1.2:80;
+}
+```
+
 ## nginx basic, command
 
 ```bash

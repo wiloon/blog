@@ -75,7 +75,7 @@ sudo docker pull  registry.wiloon.com/myfirstimage
 sudo docker image ls
 ```
 
-### nginx config
+nginx config
 
 ```conf
 server {

@@ -8,7 +8,7 @@ categories:
 tags:
   - reprint
 ---
-## angular deploy to nginx
+## angular app deploy
 
 ```bash
 ng build --aot

@@ -1,14 +1,16 @@
 ---
 title: nerdctl
 author: "-"
-date: 2025-12-18T15:30:00+08:00
+date: 2026-04-29T13:00:43+08:00
 url: nerdctl
 categories:
   - Cloud
 tags:
-  - reprint
   - remix
   - AI-assisted
+  - nerdctl
+  - containerd
+  - systemd
 
 ---
 ## nerdctl
@@ -541,6 +543,48 @@ sudo nerdctl ps -a --format "{{.Names}}\t{{.Status}}\t{{.Labels}}"
 - `unless-stopped` 是最常用的策略，适合大多数服务容器
 - 设置重启策略后，需要确保 containerd 服务本身已设置为开机启动
 - 可以通过 `sudo systemctl enable containerd` 确保 containerd 服务开机启动
+
+### `--restart` 不能保证虚拟机重启后容器自动启动
+
+`--restart=always` 依赖 containerd 的 restart manager 来恢复容器，但在 VM 冷启动场景下存在以下问题：
+
+1. **没有严格的启动顺序保证** — containerd 自身启动后，restart manager 需要额外时间枚举并恢复容器状态，期间若网络或存储尚未就绪，容器启动会失败
+2. **nerdctl 的 restart 实现尚不成熟** — 与 Docker daemon 完整的 restart manager 相比，某些版本下 `--restart` 在冷启动后并不生效
+3. **CNI 网络时序问题** — 容器网络插件（CNI）初始化需要时间，容器太早启动会因网络未就绪而失败，containerd 的 restart manager 对此没有依赖声明机制
+
+### 用 systemd 管理容器开机启动更可靠
+
+用 systemd unit 管理容器开机启动，可以通过 `After=` 和 `Requires=` 明确声明依赖关系，保证时序正确：
+
+```ini
+# /etc/systemd/system/my-container.service
+[Unit]
+After=network-online.target containerd.service
+Requires=containerd.service
+
+[Service]
+ExecStart=/usr/bin/nerdctl start -a my-container
+ExecStop=/usr/bin/nerdctl stop my-container
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
+```
+
+```bash
+# 启用并启动服务
+sudo systemctl daemon-reload
+sudo systemctl enable --now my-container.service
+```
+
+| 对比项 | `--restart` | systemd unit |
+| --- | --- | --- |
+| **依赖管理** | 无 | `After=` / `Requires=` 精确控制 |
+| **启动时序** | 不保证 | 保证网络和 containerd 就绪后再启动 |
+| **实现层级** | 容器运行时层 | 操作系统 init 层（PID 1） |
+| **失败重试** | 有限 | `RestartSec`、`StartLimitBurst` 精细控制 |
+| **日志** | 有限 | journald 完整记录，便于排查 |
 
 ## 常用命令
 
