@@ -1,14 +1,38 @@
 ---
-title: yubikey
+title: YubiKey 使用笔记
 author: "-"
-date: 2018-06-20T13:55:29+00:00
-url: /?p=12337
+date: 2026-04-29T09:22:56+08:00
+url: yubikey
 categories:
   - Security
 tags:
-  - reprint
+  - yubikey
+  - mfa
+  - remix
+  - AI-assisted
 
 ---
+
+## MFA（多因素认证）
+
+MFA（Multi-Factor Authentication）是在密码之外再加一层验证，防止密码泄露后账户被盗。
+
+YubiKey 5C 支持 FIDO2/WebAuthn 协议，可作为硬件 MFA 设备使用，比手机 TOTP App 更安全。
+
+常见 MFA 类型对比：
+
+| 类型 | 示例 | 说明 |
+| --- | --- | --- |
+| 硬件 FIDO2/WebAuthn | YubiKey 5C | 物理密钥，最安全 |
+| 虚拟 TOTP | Google Authenticator、Authy | 手机 App 生成 6 位码 |
+| 硬件 TOTP | Gemalto 等老设备 | 专用硬件令牌 |
+
+### 在 AWS 上绑定 YubiKey
+
+IAM → 用户 → 安全凭证 → 分配 MFA 设备 → 选择"安全密钥（FIDO）" → 按提示触碰 YubiKey 完成注册。
+
+Root 用户和 IAM admin 用户建议各自绑定 MFA。
+
 ## yubikey
 
 ## HMAC-SHA1 challenge-response
