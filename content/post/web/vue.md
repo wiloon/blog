@@ -1,21 +1,92 @@
 ---
 author: "-"
-date: "2020-05-16T03:03:37Z"
-title: "vue basic"
-
+date: 2026-04-30T17:32:26+08:00
+title: "Vue"
+url: vue
 categories:
-  - inbox
+  - web
 tags:
-  - reprint
+  - vue
+  - vite
+  - remix
+  - AI-assisted
 ---
 ## vue basic
 
-## vue3
+## Vue 3
 
 ```bash
 npm init vue@latest
+```
+
+## 构建工具链
+
+Vue 3 官方脚手架从 Vue CLI（基于 Webpack）切换到了 **Vite**。
+
+### 工具分层
+
+| 层次 | Vue CLI 时代 | Vite 时代 |
+| --- | --- | --- |
+| 工具链 | Vue CLI + Webpack | Vite |
+| 转译器 | Babel | esbuild |
+| 打包器 | Webpack | Rollup（生产）|
+| 压缩 | Terser | esbuild（默认）|
+
+### Babel vs esbuild
+
+两者都是 **JS 转译器（Transpiler）**，核心职责相同：把现代 JS/TS/JSX 语法转换成目标环境能运行的 JS。
+
+| | Babel | esbuild |
+| --- | --- | --- |
+| 实现语言 | JavaScript | Go |
+| 速度 | 慢 | 快 10-100x |
+| 可扩展性 | 插件生态极其丰富 | 插件有限 |
+| 功能边界 | 只转译 | 转译 + 打包都能做 |
+| 适合场景 | 需要复杂插件、polyfill | 追求速度的现代项目 |
+
+### Rollup
+
+Rollup 是一个 JS **模块打包器（Bundler）**，解决的核心问题是：把多个 JS 模块文件合并成一个（或少数几个）输出文件。
+
+特点：
+
+- **Tree Shaking**：静态分析 ES Module，自动删除未使用的代码（Rollup 首创）
+- 输出格式灵活：可输出 ESM、CommonJS、UMD、IIFE 等
+- 适合打包库：输出干净，无多余运行时代码
+
+### Vite 内部分工
 
 ```
+开发模式
+  └── esbuild：转译 TS/JSX，预构建依赖（node_modules）
+
+生产构建
+  ├── Rollup：打包（模块合并、Tree Shaking、代码分割）
+  └── esbuild：压缩 minify（默认 minifier）
+```
+
+Vite 的设计思路：**用 esbuild 的速度服务开发体验，用 Rollup 的成熟度保证生产质量**。
+
+### Minify（代码压缩）
+
+Minify 是指把代码体积压缩到最小，具体包括：
+
+- 删除空白和注释
+- 缩短变量名
+- 合并语句、去除冗余
+
+```js
+// 原始代码
+function calculateTotal(price, quantity) {
+  // 计算总价
+  return price * quantity;
+}
+
+// minify 后
+function c(a,b){return a*b}
+```
+
+Minify 后的代码只用于生产环境，开发时保留原始代码方便调试。
 
 ## JSX
 
