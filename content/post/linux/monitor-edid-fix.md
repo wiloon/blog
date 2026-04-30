@@ -1,20 +1,18 @@
 ---
 author: "-"
-date: "2026-02-08T07:31:04+08:00"
+date: "2026-05-01T06:33:53+08:00"
 title: "Linux 显示器分辨率问题修复：手动加载 EDID 固件"
 url: linux-monitor-edid-fix
 categories:
   - Linux
 tags:
   - Linux
-  - Ubuntu
   - EDID
   - 显示器
   - 分辨率
   - Wayland
   - KDE
   - GRUB
-  - 双系统
   - remix
   - AI-assisted
 ---
@@ -189,7 +187,12 @@ sudo dmesg | grep -i "drm\|amdgpu\|edid" | tail -30
 
 如果看到以下错误，说明 EDID 读取失败：
 
-```深入理解：EDID 加载机制
+```text
+[drm] EDID block 0 is all zeroes
+[drm:amdgpu] *ERROR* Bad EDID, status3!
+```
+
+## 深入理解：EDID 加载机制
 
 ### 内核 EDID 缓存位置
 
@@ -953,7 +956,10 @@ cvt 1920 1200 60
 yay -S edid-decode-git
 
 # 方法 2：手动从官方仓库安装（如果可用）
-sudWayland vs X11 环境差异
+sudo pacman -S edid-decode
+```
+
+## Wayland vs X11 环境差异
 
 ### 显示管理架构对比
 
@@ -1353,6 +1359,7 @@ Checksum: 0x5e
 - 2025-12-31：确认 EDID 读取失败问题，准备操作指南
 - 2025-12-31：在 Ubuntu 中修改 GRUB 配置，为 Ubuntu 启动项添加 `drm.edid_firmware` 参数
 - 2026-02-08：Ubuntu 系统更新（内核升级到 6.17.0-14）后发现 os-prober 重新生成的 Arch Linux 启动项丢失 EDID 参数，通过 `/etc/grub.d/40_custom` 添加持久化的 Arch Linux 启动项修复
+- 2026-05-01：发现休眠唤醒后 AMD GPU 重新枚举 DisplayPort 设备，4K 主显示器被分配到 Dell EDID 覆盖的接口，导致分辨率降级为 1920x1200。编写 `fix-4k-after-resume.sh` 脚本，通过 `kscreen-doctor` 手动恢复 3840x2160，存放于 `w10n-config/homelab/workstation/fix-4k-after-resume/`
 
 ## 参考资料
 
