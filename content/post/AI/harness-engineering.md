@@ -12,6 +12,25 @@ tags:
 
 ## 什么是 Harness Engineering
 
+
+AI 领域的 Harness Engineering
+是一种针对 AI/LLM 应用的测试评估方法论，核心思想是：
+
+构建 eval 套件（评估集）来衡量 AI 输出质量
+建立 regression 检测，防止模型更新后效果变差
+用数据驱动方式持续改进 prompt 和模型选择
+
+AI 辅助开发的语境下，Harness Engineering 的核心思想是：
+
+用自动化验证手段构建"安全网"，让你能放心接受或拒绝 AI 生成的代码，而不是靠人工肉眼审查。
+
+harness engineering 的核心流程是：
+
+需求（Requirements） → 明确要做什么
+测试套件（Test Harness） → 先写测试，定义"完成"的标准
+实现（Implementation） → 写代码让测试通过
+验证（Verification） → 所有测试绿灯
+
 Harness Engineering 是一种以"脚手架优先"为核心思想的软件开发方法，尤其在 AI 辅助开发场景下越来越受到关注。
 
 "Harness"（脚手架/支撑框架）这个词借用自工程领域，在软件中指围绕核心系统搭建的一套**结构化支撑层**，包括：
