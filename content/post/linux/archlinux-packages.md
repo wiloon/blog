@@ -1,7 +1,7 @@
 ---
 title: archlinux packages
 author: "-"
-date: "2026-04-27T09:25:00+08:00"
+date: "2026-05-02T20:02:02+08:00"
 url: archlinux-packages
 categories:
   - Linux
@@ -71,6 +71,10 @@ GLSL（OpenGL Shading Language）编译器和验证器，也称作 GLslang，是
 ### akonadi
 
 `Akonadi` 框架为应用程序提供中心数据库来统一保存、索引和获取用户的个人信息。这包括邮件、联系人、日历、事件、日志、闹钟和笔记等。在 SC 4.4 中，KAddressBook 成为首个使用 `Akonadi` 框架的程序。在 SC 4.7 中，KMail、KOrganizer、KJots 等也开始更新使用 `Akonadi`。此外，一些等离子部件也使用 `Akonadi` 保存和获取日历事件、笔记等。
+
+### akonadi-search
+
+`akonadi-search` 为 Akonadi 提供全文搜索功能，基于 `xapian-core` 搜索引擎，提供在 Akonadi 数据库中搜索邮件、联系人、日历等个人信息数据的库和守护进程。当前系统被以下包依赖：`akonadiconsole`（Akonadi 管理与调试控制台）、`kaddressbook`（KDE 联系人管理器）、`kmail`（KDE 邮件客户端）、`merkuro`（KDE 邮件、日历、联系人和任务套件）、`messagelib`（KDE PIM 消息库）、`pimcommon`（KDE PIM 公共库）。
 
 ### iana-etc
 
