@@ -82,10 +82,10 @@ hasCJKLanguage = true
   url = "https://wiloon.github.io/running_page/"
   weight = 55
 
-[[menu.main]]
-  name = "搜索"
-  url = "/search/"
-  weight = 60
+# [[menu.main]]
+#   name = "搜索"
+#   url = "/search/"
+#   weight = 60
 
 # PaperMod 主题参数
 [params]
