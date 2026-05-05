@@ -1,7 +1,7 @@
 ---
 title: 硬盘扩容, PVE, Archlinux
 author: "-"
-date: 2026-03-26T15:38:08+08:00
+date: 2026-05-05T07:34:15+08:00
 url: disk/resize
 categories:
   - Linux
@@ -14,13 +14,122 @@ tags:
 ---
 ## 硬盘扩容
 
-## pve ext4 根分区磁盘扩容
+
+## PVE ext4 disk resize (parted)
+
+理论上 parted 可以在根分区正在被使用的情况下扩容根分区，但实际操作中发现根分区无法卸载，导致 parted 报错 `Error: /dev/sda: unrecognised disk label`，解决方法是直接进入 parted，parted 会提示修复，输入 Fix 即可修复分区表，然后就可以正常扩容了。
+
+```bash
+
+[Online Lossless Expansion of EXT4 Partition](https://tech.he-sb.top/posts/online-lossless-expansion-of-ext4-partition/)
+
+在 pve 里给硬盘扩容: vm>hardware> Hard Disk> Disk Action> resize: 填写新增的容量
+
+### 查看分区表类型
+
+```bash
+parted -l
+```
+
+回显有可能是以下其中一种
+
+```bash
+Partition Table: msdos
+Partition Table: gpt
+Partition Table: loop
+```
+
+msdos: MBR
+gpt: GPT
+loop: loop 设备（虚拟磁盘）
+
+### 查看磁盘的分区信息
+
+```bash
+lsblk
+
+# 回显
+# sda2 挂载到了根目录 /
+NAME   MAJ:MIN RM  SIZE RO TYPE MOUNTPOINTS
+sda      8:0    0   13G  0 disk 
+├─sda1   8:1    0  200M  0 part /boot
+└─sda2   8:2    0  7.8G  0 part /
+```
+
+### 停掉写磁盘的服务（如果是扩容非根分区）
+
+```bash
+systemctl stop service0
+```
+
+### 非根分区扩容, 建议先卸载磁盘分区
+
+```bash
+umount /dev/sda2
+```
+
+#### 确认磁盘分区的卸载结果
+
+```bash
+lsblk
+
+# 回显
+# vdb 没有挂载
+vdb    253:16   0  200G  0 disk
+```
+
+### 进入 parted
+
+```bash
+# 进入 parted 分区工具, 参数要传整个硬盘(sda), 不要传某一个分区(sda2)
+parted /dev/sda
+
+# 输入"p" 然后回车，查看当前磁盘分区情况。
+(parted) p
+
+# 如果提示需要修复，执行Fix
+Fix
+
+# 扩容, 使用所有剩余空间，在分区层面扩容
+(parted) resizepart 2 100%
+
+# 查看分区
+(parted)  p
+
+# 退出 parted
+(parted)  q
+```
+
+### 检查磁盘分区文件系统的正确性, 文件系统扩容
+
+```bash
+# 执行以下命令，检查磁盘分区文件系统的正确性, 如果是要分区分显示正在使用, 检查不了
+# 可能会提示 Inode 262714 extent tree (at level 1) could be narrower.  Optimize<y>? yes
+e2fsck -f /dev/sda2
+
+#  其它分区如果回显 /dev/vdb is in use, 停掉读写硬盘的服务重试
+
+# 执行以下命令，扩展磁盘分区文件系统的大小，在文件系统层面扩容
+resize2fs /dev/sda2
+
+# 查看分区容量(只能查看已挂载的分区容量, 如果是扩容非根分区, 需要先挂载分区才能看到扩容后的容量)
+df -TH
+
+# 查看分区大小（分区层）
+fdisk -l /dev/sda
+
+# 查看文件系统大小（文件系统层，Block count × Block size）
+dumpe2fs -h /dev/sda2 | grep -E "Block count|Block size"
+```
+
+
+## pve ext4 根分区磁盘扩容 （fdisk）
 
 虚拟机关机
 
 在 pve 里给硬盘扩容: vm>hardware> Hard Disk> Disk Action> resize: 填写新增的容量
 
-挂载 archlinux iso, 修改引导顺序, 让虚拟机从 iso 启动
+挂载 archlinux iso, 修改引导顺序, 让虚拟机从 iso 启动（扩容根分区只能从 ISO启动，不能在系统运行时扩容根分区）
 
 启动虚拟机
 
@@ -34,7 +143,11 @@ fdisk -l
 fdisk /dev/sda
 # 如果不是从 iso 引导,直接在操作系统里执行, 会提示 This disk is currently in use - repartitioning is probably a bad idea. It's recommended to umount all file systems, nd swapoff all swap partitions on this disk.
 
-# print the partition table
+```
+
+## print the partition table
+
+```bash
 Command (m for help): p
 
 Disk /dev/sda: 20 GiB, 21474836480 bytes, 41943040 sectors
@@ -48,8 +161,11 @@ Disk identifier: 0x1bc64ef0
 Device     Boot   Start      End  Sectors Size Id Type
 /dev/sda1  *       6144  2103295  2097152   1G  b W95 FAT32
 /dev/sda2       2103296 20971519 18868224   9G 83 Linux
+```
 
-# delete partition 2
+## delete partition 2
+
+```bash
 Command (m for help): d
 Partition number (1,2, default 2): 2
 
@@ -75,8 +191,9 @@ Last sector, +/-sectors or +/-size{K,M,G,T,P} (2103296-41943039, default 4194303
 Created a new partition 2 of type 'Linux' and of size 19 GiB.
 Partition #2 contains a ext4 signature.
 
-# 输入 y 确认删除 ext4 签名
-Do you want to remove the signature? [Y]es/[N]o: Y
+# 扩容场景应输入 N，保留现有的 ext4 签名（superblock），让 e2fsck 和 resize2fs 直接使用。
+# 输入 Y 会擦除主 superblock，导致 e2fsck 必须从备份恢复，增加风险。
+Do you want to remove the signature? [Y]es/[N]o: N
 
 The signature will be removed by a write command.
 
@@ -113,112 +230,17 @@ Pass 1: Checking inodes, blocks, and sizes
 
 Inode 287507 extent tree (at level 1) could be narrower.  Optimize<y>? 
 
-# resize the filesystem
+# 扩展文件系统，使其填满整个分区
 # resize2fs 要求文件系统在扩容前必须是干净状态（通过 e2fsck 校验），否则拒绝执行
+# resize2fs 会读取 superblock，更新其中记录的文件系统大小（block count），并同步所有备份 superblock
 resize2fs /dev/sda2
 
-# 分区扩容完成，重启虚拟机
+# 再确认一下分区状态
+fdisk -l
+# 分区扩容完成，关机调整启动顺序，重启虚拟机
 ```
 
 ------
-
-## PVE ext4 disk resize
-
-[Online Lossless Expansion of EXT4 Partition](https://tech.he-sb.top/posts/online-lossless-expansion-of-ext4-partition/)
-
-vm>hardware> Hard Disk> Disk Action> resize: 填写新增的容量
-
-### 查看分区表类型
-
-```bash
-parted -l
-```
-
-回显有可能是以下其中一种
-
-```bash
-Partition Table: msdos
-Partition Table: gpt
-Partition Table: loop
-```
-
-msdos: MBR
-gpt: GPT
-loop: loop 设备（虚拟磁盘）
-
-### 查看磁盘的分区信息
-
-```bash
-lsblk
-
-# 回显
-# sda2 挂载到了根目录 /
-NAME   MAJ:MIN RM  SIZE RO TYPE MOUNTPOINTS
-sda      8:0    0   13G  0 disk 
-├─sda1   8:1    0  200M  0 part /boot
-└─sda2   8:2    0  7.8G  0 part /
-```
-
-### 停掉写磁盘的服务
-
-```bash
-systemctl stop service0
-```
-
-### 非根分区扩容, 建议先卸载磁盘分区
-
-```bash
-umount /dev/sda2
-```
-
-#### 确认磁盘分区的卸载结果
-
-```bash
-lsblk
-
-# 回显
-# vdb 没有挂载
-vdb    253:16   0  200G  0 disk
-```
-
-### 进入 parted
-
-根分区卸载不掉, 直接进入 parted
-
-```bash
-# 进入 parted 分区工具, 参数要传整个硬盘(sda), 不要传某一个分区(sda2)
-parted /dev/sda
-
-# 输入"p" 然后回车，查看当前磁盘分区情况。
-(parted) p
-
-# 如果提示需要修复，执行Fix
-Fix
-
-# 扩容, 使用所有剩余空间
-(parted) resizepart 2 100%
-
-# 查看分区
-(parted)  p
-
-# 退出 parted
-(parted)  q
-```
-
-### 检查磁盘分区文件系统的正确性, 文件系统扩容
-
-```bash
-# 执行以下命令，检查磁盘分区文件系统的正确性, 如果是要分区分显示正在使用, 检查不了
-e2fsck -f /dev/sda2
-
-#  其它分区如果回显 /dev/vdb is in use, 停掉读写硬盘的服务重试
-
-# 执行以下命令，扩展磁盘分区文件系统的大小。
-resize2fs /dev/sda2
-
-# 查看分区容量
-df -TH
-```
 
 ## PVE archlinux xfs disk resize
 
@@ -644,6 +666,28 @@ growpart /dev/vda 1;resize2fs /dev/vda1
 
 ## 为什么扩容前要用 e2fsck 检查文件系统一致性
 
+### superblock 是什么
+
+superblock 是 ext4 文件系统的核心元数据块，存储在分区开头（偏移 1024 字节处），记录整个文件系统的全局信息：
+
+- 文件系统的总大小（块数量）
+- 块大小（通常 4KB）
+- 空闲块和 inode 的数量
+- 文件系统状态（是否干净、上次挂载时间等）
+- magic number（`0xEF53`），标识这是一个 ext4 文件系统
+
+`e2fsck` 读取 magic number 来识别文件系统类型，如果主 superblock 被破坏（magic number 被清除），就会报 `Bad magic number in super-block`。
+
+ext4 为了容灾，在磁盘多个位置保存了备份 superblock（默认在块组 1、3、5、7... 等位置），`e2fsck` 检测到主 superblock 损坏后会自动从备份恢复。
+
+`resize2fs` 扩容时会读取现有 superblock，计算新大小，写入新的 block count，同时扩展 inode 表、block group descriptor 等结构，并更新所有备份 superblock。因此 fdisk 时应输入 `N` 保留 superblock，`resize2fs` 才能直接读取并更新它。
+
+可以用以下命令查看备份 superblock 的位置：
+
+```bash
+dumpe2fs /dev/sda2 | grep -i "superblock"
+```
+
 ### 扩容操作的两个独立层次
 
 扩容涉及两个相互独立的层面：
@@ -657,14 +701,16 @@ growpart /dev/vda 1;resize2fs /dev/vda1
 
 文章中的 PVE ext4 根分区扩容方案采用了"删除旧分区 + 重建新分区"的方式，这会带来额外风险：
 
-fdisk 在重建分区时提示 `Partition #2 contains a ext4 signature. Remove?`，输入 `Y` 后会擦除分区开头的 ext4 签名信息，导致主 superblock 损坏。从实际回显可以看到：
+fdisk 在重建分区时提示 `Partition #2 contains a ext4 signature. Remove?`，扩容场景应输入 `N`，保留现有 ext4 签名（superblock），`e2fsck` 和 `resize2fs` 可以直接正常使用。
+
+如果误输入 `Y`，fdisk 会在写入时擦除分区开头的 ext4 签名（主 superblock 损坏），`e2fsck` 会报：
 
 ```text
 ext2fs_open2: Bad magic number in super-block
 e2fsck: Superblock invalid, trying backup blocks...
 ```
 
-ext4 文件系统在磁盘上保有多个备份 superblock（分布在不同位置），`e2fsck` 会自动用备份恢复主 superblock，修复后就可以正常执行 `resize2fs`。
+此时 ext4 文件系统的备份 superblock（分布在磁盘不同位置）会被用来恢复，通常仍能继续执行 `resize2fs`，但增加了不必要的风险。
 
 ### 用 parted resizepart 扩容时
 
