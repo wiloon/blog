@@ -1,23 +1,116 @@
 ---
-title: Windows apps, win apps
+title: Windows apps
 author: "-"
-date: 2019-03-28T02:03:39+00:00
+date: 2026-05-05T14:02:11+08:00
 url: windows/apps
-keys: win apps, Windows apps
 categories:
   - Desktop
 tags:
-  - reprint
+  - remix
+  - AI-assisted
 ---
-## Windows apps, win apps
 
-- WizTree 硬盘占用分析, 商用收费
-- SpaceSniffer 硬盘占用分析, 商用友好
-- WinDirStat
-- MiniTool Partition Wizard, 磁盘分区工具
-- anydeak 远程桌面
-- todesk 远程桌面
-- taskmgr, 任务管理器, C:\Windows\System32\Taskmgr.exe
+## Windows Apps
+
+跨平台常用软件统一维护于 [my apps](my-apps)，本文只记录 Windows 专属工具。
+
+## 说明
+
+- `winget` — `winget install <id>`
+- `choco` — `choco install <name>`
+
+## Essentials
+
+跨平台工具见 [my apps](my-apps)，以下为 Windows 专属推荐：
+
+| app | install | notes |
+| --- | --- | --- |
+| Windows Terminal | winget:Microsoft.WindowsTerminal | |
+| PowerToys | winget:Microsoft.PowerToys | |
+| WSL2 | — | `wsl --install` |
+| T-Clock | — | 任务栏显示周数，[GitHub](https://github.com/White-Tiger/T-Clock/wiki) |
+
+## Disk Analysis
+
+| app | install | notes |
+| --- | --- | --- |
+| WizTree | — | 硬盘占用分析，商用收费 |
+| SpaceSniffer | — | 硬盘占用分析，商用友好 |
+| WinDirStat | — | |
+
+## Partition
+
+| app | install | notes |
+| --- | --- | --- |
+| MiniTool Partition Wizard | — | 磁盘分区工具 |
+
+## Remote Desktop
+
+| app | install | notes |
+| --- | --- | --- |
+| AnyDesk | winget:AnyDesk.AnyDesk | 远程桌面 |
+| ToDesk | — | 远程桌面 |
+| MobaXterm | — | SSH client + X server |
+| WinSCP | winget:WinSCP.WinSCP | SFTP/SCP 客户端 |
+
+## System Tools
+
+| app | install | notes |
+| --- | --- | --- |
+| Process Hacker | choco:processhacker | 任务管理器替代 |
+| Open Hardware Monitor | — | 监控温度/内存 |
+| PowerToys | winget:Microsoft.PowerToys | |
+| Windows Terminal | winget:Microsoft.WindowsTerminal | |
+| taskmgr | — | `C:\Windows\System32\Taskmgr.exe` |
+
+## X Server
+
+| app | install | notes |
+| --- | --- | --- |
+| x410 | — | X server，Microsoft Store |
+| VcXsrv | choco:vcxsrv | X server |
+
+## Misc
+
+| app | install | notes |
+| --- | --- | --- |
+| T-Clock | — | 任务栏时钟（显示周数），格式：`mm-dd HH:nn \nW Wi ddd` |
+| rufus | choco:rufus | 创建启动盘，ISO to USB |
+| WSL2 | — | `wsl --install` |
+
+## winget packages
+
+```bash
+winget install Microsoft.WindowsTerminal
+winget install Microsoft.PowerToys
+winget install WinSCP.WinSCP
+winget install Mozilla.Firefox
+winget install Microsoft.PowerShell
+winget install cURL.cURL
+```
+
+## choco packages
+
+```bash
+# 安装
+choco install keepassxc
+# 升级
+choco upgrade keepassxc
+```
+
+| name | notes |
+| --- | --- |
+| keepassxc | |
+| microsoft-windows-terminal | |
+| winscp | |
+| heidisql | MySQL 客户端 |
+| redis-desktop-manager | |
+| processhacker | |
+| vcxsrv | X server |
+
+## 录屏
+
+- [v1tx 录屏工具推荐](https://www.v1tx.com/post/best-screen-recorder/)
 
 ## winget
 

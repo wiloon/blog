@@ -1,17 +1,18 @@
 ---
 title: Markdown 语法
 author: "-"
-date: 2012-09-17T12:51:31+00:00
+date: 2026-05-05T13:26:42+08:00
 url: markdown
 categories:
   - CS
 tags:
-  - reprint
   - remix
+  - AI-assisted
+  - markdown
 ---
 ## Markdown 语法
 
-JetBrain Writerside implements the CommonMark Spec: [https://spec.commonmark.org/0.30/]()
+JetBrain Writerside implements the CommonMark Spec: [https://spec.commonmark.org/0.30/](https://spec.commonmark.org/0.30/)
 
 ## 转义
 
@@ -76,6 +77,61 @@ foo*bar*foo
 |  c1r1 |  c1r1 |
 
 ```
+
+## 代码块 Code Blocks
+
+### 围栏式代码块（Fenced Code Blocks）
+
+使用三个反引号包裹，开头的反引号后面跟语言标识符：
+
+````markdown
+```language-identifier
+code here
+```
+````
+
+语言标识符告诉渲染器（GitHub、VS Code、Hugo 等）使用哪套语法高亮规则。
+
+### 常用语言标识符
+
+| 标识符 | 语言 |
+| --- | --- |
+| `bash` / `sh` / `shell` | Shell/Bash 脚本 |
+| `zsh` | Zsh shell |
+| `python` / `py` | Python |
+| `go` | Go |
+| `java` | Java |
+| `javascript` / `js` | JavaScript |
+| `typescript` / `ts` | TypeScript |
+| `rust` | Rust |
+| `c` / `cpp` | C / C++ |
+| `yaml` / `yml` | YAML |
+| `toml` | TOML |
+| `json` | JSON |
+| `xml` | XML |
+| `html` | HTML |
+| `css` / `scss` | CSS / SCSS |
+| `sql` | SQL |
+| `dockerfile` | Dockerfile |
+| `nginx` | Nginx 配置 |
+| `ini` / `conf` | 配置文件 |
+| `diff` | Diff 输出 |
+| `text` / `plaintext` | 纯文本，无语法高亮 |
+| `markdown` / `md` | Markdown |
+
+`text`（也写作 `plaintext`）表示**不启用语法高亮**——以等宽字体渲染，但不着色。适合展示命令输出、日志片段或 ASCII 图表等非代码内容。
+
+### 缩进式代码块（Indented Code Blocks）
+
+用 4 个空格缩进，无法指定语言标识符，不支持语法高亮，建议避免使用。
+
+```text
+    code here（缩进 4 个空格）
+```
+
+### 行内代码（Inline Code）
+
+用单个反引号包裹，不支持语言标识符：`` `code` ``
 
 ### 引用
 
