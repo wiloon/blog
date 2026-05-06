@@ -1,40 +1,63 @@
 ---
 author: "-"
-date: "2021-06-16 13:14:17" 
+date: 2026-05-05T14:02:11+08:00
 title: macos apps
 categories:
   - Desktop
 tags:
-  - reprint
   - remix
+  - AI-assisted
 ---
-## macos apps
 
-- CleanMyMac X
-- Bob, 词典
-- Monosnap, 截图
-- Stats, [https://github.com/exelban/stats](https://github.com/exelban/stats), 监控
-- Itsycal, 在任务栏显示日历周
-- RealVNC® Viewer
-- golang
-- iterm2, another terminal
-- wechat
-- telegram
+## macOS Apps
 
-## brew
+跨平台常用软件统一维护于 [my apps](my-apps)，本文只记录 macOS 专属工具。
 
-brew 是 Mac 下的一个包管理工具, 作用类似于 centos 下的 yum
+## 说明
 
-```bash
-# brew install package_0
-nodejs
-obsidian
-go
-```
+- `brew` — `brew install <name>`
+- `cask` — `brew install --cask <name>`
 
-- fping
+## Essentials
 
-## other
+跨平台工具见 [my apps](my-apps)，以下为 macOS 专属推荐：
 
-- Tunnelblick, openvpn gui client
-- Sketch, 矢量绘图
+| app | install | notes |
+| --- | --- | --- |
+| iterm2 | cask:iterm2 | 功能强大的 terminal |
+| stats | cask:stats | 任务栏系统资源监控 |
+| itsycal | cask:itsycal | 任务栏日历（显示周数） |
+| tunnelblick | cask:tunnelblick | OpenVPN GUI 客户端 |
+
+## Productivity
+
+| app | install | notes |
+| --- | --- | --- |
+| CleanMyMac X | — | 系统清理（官网购买） |
+| Bob | cask:bob | 翻译/词典 |
+| Itsycal | cask:itsycal | 任务栏日历，显示周数 |
+| Stats | cask:stats | 任务栏 CPU/内存/网络监控 |
+| Monosnap | cask:monosnap | 截图+标注 |
+| RealVNC Viewer | cask:vnc-viewer | 远程桌面 |
+
+## Terminal
+
+| app | install | notes |
+| --- | --- | --- |
+| iterm2 | cask:iterm2 | macOS 最流行的 terminal |
+
+## VPN
+
+| app | install | notes |
+| --- | --- | --- |
+| Tunnelblick | cask:tunnelblick | OpenVPN GUI，macOS 专属 |
+
+## Graphics / Design
+
+| app | install | notes |
+| --- | --- | --- |
+| Sketch | — | 矢量绘图（官网购买） |
+
+## References
+
+- [Homebrew](https://brew.sh)
