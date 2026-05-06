@@ -1,14 +1,15 @@
 ---
-title: english words
+title: English 学习笔记
 author: "-"
-date: 2015-09-24T00:07:48+00:00
-url: /?p=8340
+date: 2026-05-06T14:17:25+08:00
+url: english-notes
 categories:
-  - Inbox
+  - english
 tags:
-  - reprint
+  - english
+  - remix
+  - AI-assisted
 ---
-## english words
 
 ## right now, currently
 
@@ -41,3 +42,28 @@ tags:
 "She is currently working as a lab technician."（她目前是一名实验室技术员。）
 "The Director is currently having talks in the US."（主管目前正在美国进行会谈。）
 "Our social club currently has about 80 members."（我们的社交俱乐部目前大约有80名成员。）
+
+## obtain vs get
+
+两者都表示"获取/得到"，意思相同，但**语体（register）不同**。
+
+**get** — 非正式、口语化，日常使用频率极高
+
+- 适用场景：对话、非正式写作、日常操作说明
+- 含义很宽泛，可以表示接收、购买、取来、获得等各种方式
+- 例："Can you get me a coffee?"、"I need to get a driver's license."
+
+**obtain** — 正式、书面语，常见于技术文档、法律文本、官方说明
+
+- 含义上多了一层"通过一定程序或努力获取"的感觉
+- 适用场景：技术文档、官方指南、学术写作
+- 例："To obtain a Google OAuth Client ID"、"Please obtain written approval before proceeding."
+
+**实际对比**
+
+| 句子                               | 语感               |
+| ---------------------------------- | ------------------ |
+| To obtain a Google OAuth Client ID | 正式，技术文档风格 |
+| To get a Google OAuth Client ID    | 口语化，随意       |
+
+两句话**意思完全相同**，选哪个取决于你写的是正式文档还是随意说明。技术文档、官方教程通常用 obtain；聊天或非正式 README 里用 get 更自然。
