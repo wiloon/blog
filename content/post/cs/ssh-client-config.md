@@ -1,13 +1,69 @@
 ---
 title: ssh client config
 author: "-"
-date: 2020-04-18T12:36:57+00:00
-url: ssh/config
+date: 2026-05-07T09:42:47+08:00
+url: ssh-client-config
 categories:
   - Linux
 tags:
-  - reprint
+  - ssh
+  - remix
+  - AI-assisted
 ---
+## 后量子密钥交换警告
+
+连接到旧版 OpenSSH 服务器时，新版客户端（OpenSSH 9.9+）会显示如下警告：
+
+```
+** WARNING: connection is not using a post-quantum key exchange algorithm.
+** This session may be vulnerable to "store now, decrypt later" attacks.
+** The server may need to be upgraded. See https://openssh.com/pq.html
+```
+
+**原因：** OpenSSH 9.9 引入了后量子密钥交换算法（如 `mlkem768x25519-sha256`），当服务端不支持该算法时，连接回退到经典算法，客户端发出警告，提示存在「先存后解」攻击风险。
+
+**推荐解决方案：** 升级服务端 OpenSSH 到 9.9 或更高版本。
+
+**临时屏蔽警告（仅客户端）：** 如果无法升级服务端，可以在 `~/.ssh/config` 中对该主机设置 `LogLevel ERROR`，屏蔽 WARNING 级别的提示：
+
+```conf
+Host bwg
+    LogLevel ERROR
+```
+
+注意：此方法只是屏蔽了警告输出，并不能消除安全风险，仅适合临时或已评估风险的场景。
+
+## SSH 连接的两个阶段
+
+SSH 建立连接时分为两个独立阶段，使用完全不同的密钥：
+
+### 阶段一：密钥交换（Key Exchange）
+
+在连接建立之初（握手阶段），客户端和服务器通过密钥交换算法协商出一个临时的共享会话密钥，用来加密后续所有通信。这个过程发生在身份认证之前，使用的是 DH/ECDH 等算法（如 `curve25519-sha256`）。
+
+后量子警告针对的就是这一步：OpenSSH 9.9 引入了 `mlkem768x25519-sha256`（基于 ML-KEM / CRYSTALS-Kyber），可以抵抗量子计算机攻击。
+
+这个机制与 TLS 握手原理相同——TLS 1.3 也在推进同一套后量子算法。
+
+### 阶段二：身份认证（Authentication）
+
+加密信道建立后，才进行身份验证。你平时配置的 `~/.ssh/id_rsa` 或 `~/.ssh/id_ed25519` 私钥就在这一步使用：服务器发送一个随机挑战，客户端用私钥签名后发回，服务器验证签名。
+
+**私钥本身从不离开本地**，网络上只传输签名，因此被动窃听者无法反推私钥。
+
+### 为什么必须先建立加密信道再认证？
+
+- **密码认证**：如果没有加密信道，密码明文传输，中间人可直接截获。
+- **公钥认证**：即使用 Ed25519，没有加密信道也存在中间人攻击风险——攻击者可冒充服务器完成认证，之后你的所有命令和输出都暴露给攻击者。
+
+这也是 SSH 首次连接时要求手动确认 host key fingerprint 的原因：你在确认「我连的确实是那台服务器」，而不是中间人。
+
+### Ed25519 在量子时代安全吗？
+
+**目前安全，但长远来看同样面临量子威胁。** Ed25519 基于椭圆曲线离散对数，理论上量子计算机（Shor 算法）可以破解，与 RSA 一样脆弱。
+
+OpenSSH 目前只在密钥交换这一步完成了后量子升级；身份认证的后量子标准（如基于格密码的签名算法）仍在推进中，尚未进入 OpenSSH 主流支持。
+
 ## ssh config
 
 ```conf

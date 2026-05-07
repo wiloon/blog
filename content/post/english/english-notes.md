@@ -1,5 +1,5 @@
 ---
-title: English 学习笔记
+title: English Note
 author: "-"
 date: 2026-05-06T14:17:25+08:00
 url: english-notes

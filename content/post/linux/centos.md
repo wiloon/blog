@@ -1,25 +1,153 @@
 ---
 title: centos basic
 author: "-"
-date: 2012-01-25T01:22:34+00:00
+date: 2026-05-07T09:53:01+08:00
 url: centos
 categories:
   - Linux
 tags:
-  - reprint
+  - linux
+  - centos
+  - rhel
+  - remix
+  - AI-assisted
 ---
 ## centos basic
 
+## RHEL-based 发行版（CentOS EOL 后）
+
+CentOS 在 2024 年完全 EOL 后，主流的 RHEL 下游发行版：
+
+**免费的 1:1 RHEL 重建版（CentOS 直接替代）：**
+
+- **AlmaLinux** — 社区驱动，由 CloudLinux 公司支持，目前最流行
+- **Rocky Linux** — 由 CentOS 原创始人 Gregory Kurtzer 创建，同样非常流行
+
+**商业版：**
+
+- **RHEL**（Red Hat Enterprise Linux）— 上游源，通过 Red Hat 开发者计划可免费用于最多 16 个生产系统
+- **Oracle Linux** — Oracle 的重建版，免费使用，付费支持
+
+**其他：**
+
+- **CentOS Stream** — 仍然存在，但现在是下一个 RHEL 版本的*滚动预览*（位于 RHEL 上游而非下游），稳定性不如旧版 CentOS
+
+AlmaLinux 和 Rocky Linux 都提供迁移工具（`almalinux-deploy` / `migrate2rocky`），可将现有 CentOS 系统原地转换。
+
 ## AlmaLinux
 
-AlmaLinux 是 CloudLinux 公司搞得 RHEL 下游发行版
+AlmaLinux 是 CloudLinux 公司主导的 RHEL 下游发行版。
 
-```Bash
-sudo dnf --refresh update
+### 升级软件包
+
+**同主版本内更新所有软件包：**
+
+```bash
 sudo dnf upgrade
+# 加 --refresh 强制刷新缓存
+sudo dnf --refresh upgrade
+```
 
+`dnf update` 是 `dnf upgrade` 的别名（alias），两者完全等价。与旧版 yum 不同，DNF 统一了这两个命令，推荐使用 `dnf upgrade`。
+
+**跨主版本升级（如 AlmaLinux 8 → 9），使用官方工具 Leapp：**
+
+```bash
+sudo dnf install leapp-upgrade
+sudo leapp preupgrade   # 预检，生成报告，不实际升级
+sudo leapp upgrade      # 执行升级，需要重启
+```
+
+`leapp preupgrade` 会列出潜在问题和阻断项（inhibitors），必须先解决才能继续。
+
+```bash
 # The containerd.io package contains runc too, but does not contain CNI plugins.
 sudo dnf install containerd.io
+```
+
+## AlmaLinux 9 升级到 10
+
+### 前置条件
+
+- 确认当前版本是 AlmaLinux 9（`cat /etc/almalinux-release`）
+- 确保系统已完全更新到最新的 9.x 补丁版本
+- 备份重要数据
+- 确保有足够磁盘空间（至少 5GB 可用空间）
+- 建议在非生产环境先测试
+
+### 第一步：更新当前系统到最新
+
+```bash
+sudo dnf upgrade --refresh -y
+sudo reboot
+```
+
+### 第二步：安装 Leapp 升级工具
+
+```bash
+sudo dnf install -y leapp-upgrade
+```
+
+### 第三步：运行预检（preupgrade）
+
+```bash
+sudo leapp preupgrade
+```
+
+预检完成后查看报告：
+
+```bash
+sudo leapp report
+# 或查看报告文件
+cat /var/log/leapp/leapp-report.txt
+```
+
+报告中的条目分为两类：
+
+- **inhibitor**（阻断项）— 必须全部解决，否则无法继续升级
+- **warning**（警告）— 建议处理，但不阻断升级
+
+### 第四步：处理阻断项
+
+常见阻断项处理示例：
+
+```bash
+# 如果有 SELinux 相关阻断，确保 SELinux 不是 disabled 状态
+# /etc/selinux/config 中 SELINUX=enforcing 或 permissive
+
+# 如果有第三方软件源阻断，禁用相关 repo
+sudo dnf config-manager --disable <repo-name>
+
+# 确认没有已知不兼容的内核模块
+sudo leapp answer --section remove_pam_pkcs11_module_check.confirm=True
+```
+
+重复运行 `sudo leapp preupgrade` 直到没有 inhibitor。
+
+### 第五步：执行升级
+
+```bash
+sudo leapp upgrade
+```
+
+命令执行完成后系统会自动重启，进入升级专用的临时环境完成实际升级过程（这一步耗时较长，约 15~30 分钟）。
+
+### 第六步：升级后验证
+
+重启进入新系统后：
+
+```bash
+# 确认版本
+cat /etc/almalinux-release
+
+# 检查内核版本
+uname -r
+
+# 清理旧的 leapp 相关包和旧内核
+sudo dnf remove $(rpm -qa | grep el9) 2>/dev/null
+sudo dnf autoremove -y
+
+# 重新启用之前禁用的第三方 repo（按需）
 ```
 
 ---
