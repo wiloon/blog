@@ -1,12 +1,11 @@
 ---
 title: curl command
 author: "-"
-date: 2025-11-20T08:30:00+08:00
+date: 2026-05-08T06:49:40+08:00
 url: curl
 categories:
   - Linux
 tags:
-  - reprint
   - remix
   - AI-assisted
 ---
@@ -222,6 +221,9 @@ curl "http://toutiao.sogoucdn.com/ykvideo/20181130/0575139af28f38c336912739acf33
 
 ```bash
 curl http://foo.wiloon.com -v --retry 0 --connect-timeout 1
+
+# 重试 100 次, 每次间隔 1 秒, 连接被拒绝时也重试, 建连超时 3 秒, 强制使用 IPv4
+curl -4 -v --retry 100 --retry-delay 1 --retry-connrefused --connect-timeout 3 "https://www.google.com"
 
 # dns, 不依赖 /etc/hosts
 curl --resolve 'test.com:9443:127.0.0.1' https://test.com:9443/hello
