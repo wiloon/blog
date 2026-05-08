@@ -35,6 +35,7 @@ tags:
 - `c-ares`: 异步 DNS 解析 C 库，被 curl、Node.js 等广泛使用
 - `ca-certificates-mozilla`: Mozilla's set of trusted CA certificates
 - `cfitsio`: C/Fortran library for reading and writing FITS data format files
+- `clang`: C 语言族编译器前端（基于 LLVM），包含 clang-analyzer 和 clang-tools-extra。当前系统被以下包依赖：`doxygen`（文档生成工具）、`kdevelop`（KDE 集成开发环境）、`shiboken6`（Qt6 Python 绑定代码生成器）。
 - `chrony`: Lightweight NTP client and server
 - `conmon`: OCI container runtime monitor
 - `cryptsetup`: Userspace setup tool for transparent encryption of block devices using dm-crypt
