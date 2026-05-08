@@ -6,7 +6,7 @@ url: mobile/app
 categories:
   - Inbox
 tags:
-  - reprint
+  - original
 ---
 ## mobile apps, iOS apps, android apps, app list, apk
 

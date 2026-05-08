@@ -8,7 +8,7 @@
 2. ✅ **检查并更新 URL** → 确保 URL 与文章标题匹配
 3. ✅ **检查并更新 categories** → 确保分类与文章实际内容匹配
 4. ✅ **更新 date 字段** → 更新成当前东八区时间 (UTC+8)
-5. ✅ **添加标签** → 必须加 `remix` 和 `AI-assisted` 两个标签
+5. ✅ **添加标签** → 先检查是否有 `original` 标签：有则只加 `AI-assisted` 并删除 `remix`/`reprint`；无则加 `remix` 和 `AI-assisted` 并删除 `reprint`
 6. ✅ **编辑内容** → 完成实际的文章修改
 
 **❌ 如果只是移动文件位置，不要更新日期和标签！**
@@ -206,8 +206,11 @@ tags:
 
 ⚠️ **`remix` 和 `reprint` 不能同时存在**：添加 `remix` 标签时，如果文章已有 `reprint` 标签，必须将其删除。
 
+⚠️ **`original` 标签优先级最高，与 `remix`/`reprint` 互斥**：如果文章已有 `original` 标签，**不要添加** `remix` 或 `reprint` 标签；如果文章同时存在 `original` 和 `remix`/`reprint`，必须将 `remix` 和 `reprint` 删除。
+
 ⚠️ **不要忘记：**
-- 编辑文章 = 更新日期 + 添加 `remix` 和 `AI-assisted` 标签 + 删除 `reprint`（如有）
+- 编辑文章（无 `original` 标签）= 更新日期 + 添加 `remix` 和 `AI-assisted` 标签 + 删除 `reprint`（如有）
+- 编辑文章（有 `original` 标签）= 更新日期 + 添加 `AI-assisted` 标签 + 删除 `remix` 和 `reprint`（如有）
 - 新建文章 = 添加 `remix` 和 `AI-assisted` 标签
 
 示例：
@@ -236,7 +239,10 @@ tags:
 3. ✅ **检查 URL**：确认 URL 是否与标题匹配，转换数字 URL
 4. ✅ **检查 categories**：分类是否与文章内容匹配，否则更新
 5. ✅ **更新日期**：将 `date` 字段改为当前东八区时间
-6. ✅ **添加标签**：确保 `tags` 中包含 `remix` 和 `AI-assisted`，并删除 `reprint`（如有）；同时添加与文章内容相关的具体技术标签（如 `java`、`go`、`docker` 等）
+6. ✅ **添加标签**：先检查文章是否有 `original` 标签：
+   - **有 `original` 标签**：只添加 `AI-assisted`，删除 `remix` 和 `reprint`（如有）
+   - **无 `original` 标签**：确保包含 `remix` 和 `AI-assisted`，并删除 `reprint`（如有）
+   - 同时添加与文章内容相关的具体技术标签（如 `java`、`go`、`docker` 等）
 7. ✅ **内容编辑**：完成实际的文章内容修改
 8. ✅ **格式检查**：确保 Markdown 格式正确
 

@@ -7,7 +7,6 @@ categories:
   - Linux
 tags:
   - original
-  - remix
   - AI-assisted
 ---
 

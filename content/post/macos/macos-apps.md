@@ -5,7 +5,7 @@ title: macos apps
 categories:
   - Desktop
 tags:
-  - remix
+  - original
   - AI-assisted
 ---
 

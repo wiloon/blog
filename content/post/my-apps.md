@@ -7,9 +7,11 @@ categories:
   - Desktop
 tags:
   - apps
-  - remix
+  - original
   - AI-assisted
 ---
+
+## My Apps
 
 跨平台常用软件统一列表。各平台专属工具见：
 

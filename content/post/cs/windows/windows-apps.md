@@ -6,7 +6,7 @@ url: windows/apps
 categories:
   - Desktop
 tags:
-  - remix
+  - original
   - AI-assisted
 ---
 
