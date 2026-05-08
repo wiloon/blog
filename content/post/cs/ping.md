@@ -1,14 +1,43 @@
 ---
 title: ping command, fping
 author: "-"
-date: 2020-04-13T10:43:01+00:00
+date: 2026-05-08T18:16:31+08:00
 url: ping
 categories:
-  - Network
+  - network
 tags:
-  - reprint
+  - ping
+  - ping6
+  - IPv6
+  - ICMPv6
+  - remix
+  - AI-assisted
 ---
 ## ping command, fping
+
+## ping6
+
+`ping6` 是用于测试 IPv6 网络连通性的工具，功能与 `ping` 相同，但基于 ICMPv6 协议。
+
+- 使用 ICMPv6 Echo Request/Reply 报文
+- 目标地址为 IPv6 地址（如 `::1`、`2001:db8::1`）或支持 IPv6 的域名
+- 在现代 Linux 系统中，`ping` 已整合 IPv6 支持，可直接用 `ping -6` 替代 `ping6`
+
+```bash
+# 测试本地 IPv6 回环
+ping6 ::1
+
+# 等价写法（现代系统）
+ping -6 ::1
+
+# ping 链路本地地址时需指定网络接口（fe80:: 开头的地址必须指定接口）
+ping6 -I eth0 fe80::1
+
+# 指定发送次数
+ping6 -c 4 2001:4860:4860::8888
+```
+
+主要选项与 `ping` 基本相同，如 `-c`（次数）、`-i`（间隔）、`-s`（包大小）、`-I`（指定接口）。
 
 ## options
 

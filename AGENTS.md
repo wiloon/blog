@@ -303,16 +303,16 @@ title: 文章标题
 - 正确示例：
 
 ```markdown
-| 选项 | 说明 |
-| --- | --- |
+| 选项 | 说明                     |
+| ---- | ------------------------ |
 | `-n` | 以 IP 地址代替主机名显示 |
 ```
 
 - 错误示例（管道符后无空格）：
 
 ```markdown
-| 选项 | 说明 |
-|------|------|
+| 选项 | 说明                     |
+| ---- | ------------------------ |
 | `-n` | 以 IP 地址代替主机名显示 |
 ```
 
@@ -388,3 +388,10 @@ print("Hello")
 - Hugo 版本：Extended 版本（具体版本见 `Containerfile` 中的 `HUGO_VERSION`）
 - 内容目录：`content/post/`
 - 主题目录：`themes/PaperMod/`
+
+### 升级 Hugo 版本
+
+升级 Hugo 版本时，**必须同时修改以下两个文件**，否则本地构建与 CI 部署版本不一致：
+
+1. `Containerfile` — `ENV HUGO_VERSION=x.x.x`（本地容器构建用）
+2. `.github/workflows/deploy.yml` — `hugo-version: 'x.x.x'`（GitHub Actions 生产部署用）

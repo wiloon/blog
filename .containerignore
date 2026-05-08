@@ -8,15 +8,27 @@ resources/_gen/
 # Node modules
 node_modules/
 
-# Git
+# Version control
 .git/
 .github/
+.gitignore
 
 # Development files
 .vscode/
+.idea
 *.swp
 *.swo
 *~
+
+# Scripts and configs
+*.sh
+Taskfile.yml
+README.md
+AGENTS.md
+
+# Container files
+Containerfile
+.dockerignore
 
 # OS files
 .DS_Store

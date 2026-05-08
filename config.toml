@@ -132,11 +132,8 @@ hasCJKLanguage = true
 
   # 首页信息
   [params.homeInfoParams]
-    Title = "欢迎来到 W10N 的博客"
-    Content = """
-本站主要是个人使用的读书笔记和技术文档。
-收集整理了一些技术资料，希望能帮助到有需要的人。
-    """
+    Title = "Hi, 我是 W10N"
+    Content = "读书笔记和技术文档，收集整理了一些技术资料，希望能帮助到有需要的人。"
 
   # 社交链接
   [[params.socialIcons]]

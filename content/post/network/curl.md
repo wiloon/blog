@@ -224,6 +224,9 @@ curl http://foo.wiloon.com -v --retry 0 --connect-timeout 1
 
 # 重试 100 次, 每次间隔 1 秒, 连接被拒绝时也重试, 建连超时 3 秒, 强制使用 IPv4
 curl -4 -v --retry 100 --retry-delay 1 --retry-connrefused --connect-timeout 3 "https://www.google.com"
+curl -4 -v --connect-timeout 3 --resolve 'www.google.com:142.251.154.119' "https://www.google.com"
+curl -6 -v --retry 100 --retry-delay 1 --retry-connrefused --connect-timeout 3 "https://www.google.com"
+curl -6 -v --connect-timeout 3 --resolve 'www.google.com:443:2607:f8b0:4003:c00::6a' "https://www.google.com"
 
 # dns, 不依赖 /etc/hosts
 curl --resolve 'test.com:9443:127.0.0.1' https://test.com:9443/hello
