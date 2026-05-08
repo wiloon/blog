@@ -12,7 +12,6 @@ tags:
 
 ## 什么是 Harness Engineering
 
-
 AI 领域的 Harness Engineering
 是一种针对 AI/LLM 应用的测试评估方法论，核心思想是：
 
