@@ -9,12 +9,10 @@ tags:
   - original
   - AI-assisted
 ---
-## 关于本站/关于我/About
-
 本站主要是个人使用的读书笔记，因为早期使用了 Wordpress 所以申请了域名，转到 Github + Markdown 后也保留了公开访问，
 本人使用频率比较高的技术文档都有仔细整理和验证过，希望能帮助到有需要的同学。当然……也有大量的转载未整理的内容，在不断完善整理中……
 
-### 收集综合症/转载
+## 收集综合症/转载
 
 - 基本上是我接触过的知识的一个集合
 - 大部分内容是转载的 70%+
@@ -32,7 +30,7 @@ tags:
 - 本站点对应的 GitHub 仓库：[https://github.com/wiloon/blog](https://github.com/wiloon/blog)
 - 转载内容有侵权可以随时联系我删除
 
-### 整理过的
+## 整理过的
 
 - 在转载的基础上整理过的
 - 记录了一部分常用的命令
@@ -42,14 +40,14 @@ tags:
 - 可能有 N 个引用来源
 - 以 Tag(remix) 方式标记整理过的转载内容 -- 逐渐整理中，要花些时间从收集的文档里捞出来。
 
-### 日常记录
+## 日常记录
 
 - 少量的原创或原创比例比较高的文档
 - 日常遇到的问题和解决过程
 - 以 Tag(original) 方式标记 -- 逐渐整理中，要花些时间从收集的文档里捞出来。
 - Author 会标记为 "w1100n"
 
-### Blog 实现
+## Blog 实现
 
 - Markdown
 - GitHub
@@ -70,7 +68,7 @@ tags:
 - 日常开发环境 Arch Linux + KDE
 - 曾经的 Google 粉，用过 Google 的各种好用的和不好用的产品：Nexus5, Nexus6P, Nexus7, Moto 360, Pixel1/2/3, Pixelbook
 
-### 技术栈
+## 技术栈
 
 接触过的主要技术
 
@@ -82,7 +80,7 @@ tags:
 - Javascript, Vue, Element, `Vuetify`
 - Docker/`Podman`, Protobuf, JWT, Telegraf, PlantUML, Filebeat, ELK, Shell Script, Ansible
 
-### 业余时间
+## 业余时间
 
 - 折腾家里的网络，软路由，PVE 虚拟机，不可描述的加密线路
 - 做一些目前只有自己在用的 Side Projects：Rss 阅读器、英语词典，等等……
@@ -91,17 +89,13 @@ tags:
 - 断断续续的学了一点儿钢琴，能弹简化版的《勃拉姆斯摇篮曲》，最近因为太忙差不多荒废了，我老婆现在比我弹得好（她后来找专业的老师在学），等有时间我还是想再继续修炼这个技能
 - 每天早上跑步 2km，曾经热爱自行车运动，最的远距离是骑行 40 公里
 
-### 联系方式
+## 联系方式
 
-- email: wiloon.wy@gmail.com
+- email: <wiloon.wy@gmail.com>
 - GitHub: [https://github.com/wiloon](https://github.com/wiloon)
 - Stackoverflow: [https://stackoverflow.com/users/1431884/w1100n](https://stackoverflow.com/users/1431884/w1100n)
 
-### 共享协议
+## 共享协议
 
 本站仅 "日常记录" 分类中的文字由我创作（AI 帮我改过的，他会自己加上 "AI-assisted"），采用知识共享署名-相同方式共享 4.0 (CC BY-SA 4.0) 进行许可。
 其它分类中转载的文档使用原作者的共享协议。
-
-### 关于 AI 在这个仓库的使用
-
-这个仓库里的，近期修改或者创建的技术文档，都有 AI 的大量参与，但唯独这个文档，我曾经请 AI 帮我优化过一次，但是我看了之后就撤消了他的大规模修改，或许是因为模型不够强，更有可能是因为这个文档是我曾经一个字一个字敲的，AI 改了之后有一些细节变了，我感觉他改过的那个版本 "不是我"，有些文字 AI 会认为有重复，但是我觉得某些重复是必要的，有的地方 AI 认为会有人看不懂在说什么，但是我觉得懂的自然会懂。所以……带"original"标签的文档都是由"生物神经网络"生成的，我在指令文件里加了约束，带 “original” 标签的文档，AI 只能检查语法提修改建议，纠正标点符号的使用，不能直接修改文档的主体文字部分。
