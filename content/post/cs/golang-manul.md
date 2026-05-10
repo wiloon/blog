@@ -2,7 +2,7 @@
 title: golang manul
 author: "-"
 date: 2016-07-25T15:37:44+00:00
-url: /?p=9153
+url: golang-manul
 categories:
   - Inbox
 tags:

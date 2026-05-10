@@ -2,7 +2,7 @@
 title: java onerror
 author: "-"
 date: 2018-06-04T08:05:35+00:00
-url: /?p=12271
+url: java-onerror
 categories:
   - Inbox
 tags:

@@ -2,7 +2,7 @@
 title: JAVA获取时间戳
 author: "-"
 date: 2014-04-01T06:13:24+00:00
-url: /?p=6461
+url: java获取时间戳
 categories:
   - Inbox
 tags:

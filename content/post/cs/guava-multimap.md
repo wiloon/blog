@@ -2,7 +2,7 @@
 title: Guava Multimap
 author: "-"
 date: 2017-10-18T02:41:52+00:00
-url: /?p=11283
+url: guava-multimap
 categories:
   - Inbox
 tags:

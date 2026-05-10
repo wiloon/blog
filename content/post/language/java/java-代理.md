@@ -2,7 +2,7 @@
 title: java 代理模式
 author: "-"
 date: 2011-09-13T07:13:59+00:00
-url: /?p=765
+url: java-代理
 categories:
   - Java
 tags:

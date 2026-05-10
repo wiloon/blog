@@ -2,7 +2,7 @@
 title: TCP慢启动, TCP slow start 
 author: "-"
 date: 2016-02-29T09:11:30+00:00
-url: /?p=8757
+url: tcp慢启动
 categories:
   - Inbox
 tags:

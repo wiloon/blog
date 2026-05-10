@@ -2,7 +2,7 @@
 title: openvpn docker
 author: "-"
 date: 2019-04-29T15:23:57+00:00
-url: /?p=14273
+url: openvpn-docker-2
 categories:
   - Network
 tags:

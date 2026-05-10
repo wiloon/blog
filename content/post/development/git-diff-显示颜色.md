@@ -2,7 +2,7 @@
 title: git diff
 author: "-"
 date: 2011-05-02T04:39:12+00:00
-url: /?p=173
+url: git-diff-显示颜色
 categories:
   - Linux
   - Tools

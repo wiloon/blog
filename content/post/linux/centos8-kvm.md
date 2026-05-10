@@ -2,7 +2,7 @@
 title: centos8 kvm
 author: "-"
 date: 2013-11-10T11:25:12+00:00
-url: /?p=5942
+url: centos8-kvm
 categories:
   - Inbox
 tags:

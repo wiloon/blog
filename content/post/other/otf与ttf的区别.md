@@ -2,7 +2,7 @@
 title: OTF与TTF的区别
 author: "-"
 date: 2014-01-08T09:05:13+00:00
-url: /?p=6173
+url: otf与ttf的区别
 categories:
   - Inbox
 tags:

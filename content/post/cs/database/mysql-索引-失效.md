@@ -2,7 +2,7 @@
 title: 'MySQL 索引  失效'
 author: "-"
 date: 2017-11-24T02:03:41+00:00
-url: /?p=11479
+url: mysql-索引-失效
 categories:
   - Inbox
 tags:

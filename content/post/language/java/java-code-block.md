@@ -2,7 +2,7 @@
 title: java 代码块
 author: "-"
 date: 2013-06-27T01:58:46+00:00
-url: /?p=5552
+url: java-code-block
 categories:
   - Java
 tags:

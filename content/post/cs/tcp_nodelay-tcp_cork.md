@@ -2,7 +2,7 @@
 title: TCP_NODELAY, TCP_CORK, Nagle
 author: "-"
 date: 2017-09-21T07:43:05+00:00
-url: /?p=11179
+url: tcp_nodelay-tcp_cork
 categories:
   - Network
 tags:

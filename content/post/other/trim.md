@@ -2,7 +2,7 @@
 title: trim
 author: "-"
 date: 2011-11-05T12:16:12+00:00
-url: /?p=1449
+url: trim
 categories:
   - CS
 tags:

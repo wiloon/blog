@@ -2,7 +2,7 @@
 title: Java ReentrantLock, synchronized
 author: "-"
 date: 2017-03-26T03:00:39+00:00
-url: /?p=9958
+url: reentrantlock-synchronized
 categories:
   - Inbox
 tags:

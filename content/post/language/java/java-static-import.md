@@ -2,7 +2,7 @@
 title: java static import
 author: "-"
 date: 2012-05-14T06:47:02+00:00
-url: /?p=3135
+url: java-static-import
 categories:
   - Java
 tags:

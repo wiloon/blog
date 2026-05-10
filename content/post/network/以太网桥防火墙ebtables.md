@@ -2,7 +2,7 @@
 title: linux ebtables
 author: "-"
 date: 2011-12-11T06:18:46+00:00
-url: /?p=1850
+url: 以太网桥防火墙ebtables
 categories:
   - Linux
   - Network

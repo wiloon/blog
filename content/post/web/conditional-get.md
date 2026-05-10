@@ -2,7 +2,7 @@
 title: Conditional Get
 author: "-"
 date: 2011-10-23T01:30:12+00:00
-url: /?p=1240
+url: conditional-get
 categories:
   - Network
 tags:

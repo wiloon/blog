@@ -2,7 +2,7 @@
 title: CSS中加号、星号及其他符号的作用
 author: "-"
 date: 2014-04-11T05:47:57+00:00
-url: /?p=6516
+url: css中加号、星号及其他符号的作用
 categories:
   - Inbox
 tags:

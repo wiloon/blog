@@ -2,7 +2,7 @@
 title: User Agent Stylesheet
 author: "-"
 date: 2013-02-28T02:10:22+00:00
-url: /?p=5282
+url: user-agent-stylesheet
 categories:
   - Web
 tags:

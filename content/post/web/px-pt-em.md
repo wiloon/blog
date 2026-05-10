@@ -2,7 +2,7 @@
 title: px pt em
 author: "-"
 date: 2011-05-28T01:17:57+00:00
-url: /?p=200
+url: px-pt-em
 categories:
   - Web
 tags:

@@ -2,7 +2,7 @@
 title: Pivot Table
 author: "-"
 date: 2014-03-21T05:08:06+00:00
-url: /?p=6417
+url: pivot-table
 categories:
   - Inbox
 tags:

@@ -2,7 +2,7 @@
 title: java取整和四舍五入
 author: "-"
 date: 2012-09-30T07:24:48+00:00
-url: /?p=4356
+url: java取整和四舍五入
 categories:
   - Java
 tags:

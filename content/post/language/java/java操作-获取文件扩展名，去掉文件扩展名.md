@@ -2,7 +2,7 @@
 title: JAVA操作——获取文件扩展名，去掉文件扩展名
 author: "-"
 date: 2012-09-04T09:37:25+00:00
-url: /?p=4014
+url: java操作-获取文件扩展名，去掉文件扩展名
 categories:
   - Java
 tags:

@@ -2,7 +2,7 @@
 title: java juc锁 Lock
 author: "-"
 date: 2017-03-24T15:09:53+00:00
-url: /?p=9919
+url: java-lock
 categories:
   - Inbox
 tags:

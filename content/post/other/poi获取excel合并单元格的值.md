@@ -2,7 +2,7 @@
 title: poi获取Excel合并单元格的值
 author: "-"
 date: 2015-05-28T09:19:16+00:00
-url: /?p=7726
+url: poi获取excel合并单元格的值
 categories:
   - Inbox
 tags:

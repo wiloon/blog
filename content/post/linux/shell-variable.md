@@ -2,7 +2,7 @@
 title: shell basic variable, 变量
 author: "-"
 date: 2016-03-03T03:25:04+00:00
-url: /?p=8771
+url: shell-variable
 categories:
   - Linux
 tags:

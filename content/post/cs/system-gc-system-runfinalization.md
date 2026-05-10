@@ -2,7 +2,7 @@
 title: System.gc(), System.runFinalization()
 author: "-"
 date: 2017-06-02T05:29:15+00:00
-url: /?p=10456
+url: system-gc-system-runfinalization
 categories:
   - Inbox
 tags:

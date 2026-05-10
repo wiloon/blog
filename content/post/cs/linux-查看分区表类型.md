@@ -2,7 +2,7 @@
 title: linux 查看分区表类型
 author: "-"
 date: 2018-02-12T14:36:36+00:00
-url: /?p=11878
+url: linux-查看分区表类型
 categories:
   - Inbox
 tags:

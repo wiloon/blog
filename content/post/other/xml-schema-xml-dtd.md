@@ -2,7 +2,7 @@
 title: XML Schema, XML DTD
 author: lcf
 date: 2012-09-25T02:48:35+00:00
-url: /?p=4242
+url: xml-schema-xml-dtd
 categories:
   - Java
 tags:

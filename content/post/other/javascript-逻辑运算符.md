@@ -2,7 +2,7 @@
 title: javascript 逻辑运算符
 author: "-"
 date: 2011-11-05T12:17:57+00:00
-url: /?p=1452
+url: javascript-逻辑运算符
 categories:
   - CS
 tags:

@@ -2,7 +2,7 @@
 title: Mesos
 author: "-"
 date: 2018-06-30T08:23:59+00:00
-url: /?p=12385
+url: mesos
 categories:
   - Inbox
 tags:

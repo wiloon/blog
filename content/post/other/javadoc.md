@@ -2,7 +2,7 @@
 title: javadoc
 author: "-"
 date: 2011-08-28T05:29:23+00:00
-url: /?p=603
+url: javadoc
 categories:
   - Tools
 tags:

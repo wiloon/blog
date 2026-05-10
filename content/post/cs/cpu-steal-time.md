@@ -2,7 +2,7 @@
 title: CPU steal time
 author: "-"
 date: 2019-09-03T10:06:04+00:00
-url: /?p=14896
+url: cpu-steal-time
 categories:
   - Inbox
 tags:

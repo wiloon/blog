@@ -2,7 +2,7 @@
 title: 'debug1,expecting SSH2_MSG_KEX_ECDH_REPLY'
 author: "-"
 date: 2019-06-22T05:23:23+00:00
-url: /?p=14558
+url: debug1-expecting-ssh2_msg_kex_ecdh_reply
 categories:
   - Inbox
 tags:

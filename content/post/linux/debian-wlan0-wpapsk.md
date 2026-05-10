@@ -2,7 +2,7 @@
 title: debian wlan0 wpa/psk
 author: "-"
 date: 2011-12-03T14:18:27+00:00
-url: /?p=1723
+url: debian-wlan0-wpapsk
 categories:
   - Linux
   - Network

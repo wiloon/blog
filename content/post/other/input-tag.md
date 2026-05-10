@@ -2,7 +2,7 @@
 title: input tag
 author: "-"
 date: 2011-10-27T01:20:50+00:00
-url: /?p=1319
+url: input-tag
 categories:
   - Web
 tags:

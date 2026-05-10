@@ -2,7 +2,7 @@
 title: XMMS
 author: "-"
 date: 2012-03-10T04:21:42+00:00
-url: /?p=2530
+url: XMMS
 categories:
   - Linux
 tags:

@@ -2,7 +2,7 @@
 title: sftp config
 author: "-"
 date: 2011-08-04T03:47:31+00:00
-url: /?p=401
+url: linux-sftp-config
 categories:
   - Linux
 tags:

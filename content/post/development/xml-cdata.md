@@ -2,7 +2,7 @@
 title: XML CDATA
 author: "-"
 date: 2014-04-03T01:47:27+00:00
-url: /?p=6472
+url: xml-cdata
 categories:
   - Inbox
 tags:

@@ -2,7 +2,7 @@
 title: 设置Chrome以https方式访问指定网址
 author: "-"
 date: 2012-08-30T04:37:57+00:00
-url: /?p=3973
+url: 设置chrome以https方式访问指定网址
 categories:
   - chrome
 tags:

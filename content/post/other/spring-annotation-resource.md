@@ -2,7 +2,7 @@
 title: Spring Annotation @Resource
 author: "-"
 date: 2013-01-16T04:37:18+00:00
-url: /?p=5031
+url: spring-annotation-resource
 categories:
   - Java
   - Web

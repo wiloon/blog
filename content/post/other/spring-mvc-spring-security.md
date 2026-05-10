@@ -2,7 +2,7 @@
 title: spring security
 author: "-"
 date: 2014-04-29T03:45:23+00:00
-url: /?p=6567
+url: spring-mvc-spring-security
 categories:
   - inbox
 tags:

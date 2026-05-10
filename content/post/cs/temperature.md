@@ -2,7 +2,7 @@
 title: 温度监控, lm-sensors, temperature
 author: "-"
 date: 2018-06-17T03:15:48+00:00
-url: /?p=12312
+url: temperature
 categories:
   - Inbox
 tags:

@@ -2,7 +2,7 @@
 title: Linux网桥分析
 author: "-"
 date: 2011-12-04T06:59:11+00:00
-url: /?p=1775
+url: linux网桥分析
 categories:
   - Network
 tags:

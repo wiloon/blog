@@ -2,7 +2,7 @@
 title: NMT, Native Memory Tracking
 author: "-"
 date: 2017-02-06T05:15:44+00:00
-url: /?p=9726
+url: java-native-memory-tracking
 categories:
   - Inbox
 tags:

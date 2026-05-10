@@ -2,7 +2,7 @@
 title: Java 强引用, 软引用, 弱引用, 虚引用
 author: "-"
 date: 2013-11-17T07:59:05+00:00
-url: /?p=5973
+url: java-强引用-软引用-弱引用-虚引用
 categories:
   - Java
 tags:

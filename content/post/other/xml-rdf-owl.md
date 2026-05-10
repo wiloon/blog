@@ -2,7 +2,7 @@
 title: XML RDF OWL
 author: "-"
 date: 2011-09-22T05:28:50+00:00
-url: /?p=832
+url: xml-rdf-owl
 categories:
   - Inbox
 tags:

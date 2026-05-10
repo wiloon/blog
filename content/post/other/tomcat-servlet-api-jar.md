@@ -2,7 +2,7 @@
 title: servlet-api.jar
 author: "-"
 date: 2011-10-23T08:28:42+00:00
-url: /?p=1261
+url: tomcat-servlet-api-jar
 categories:
   - Java
 tags:

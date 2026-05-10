@@ -2,7 +2,7 @@
 title: Static Nested Class, Inner Class, Anonymous Inner Class
 author: "-"
 date: 2012-09-21T07:12:51+00:00
-url: /?p=4155
+url: static-nested-class-inner-class-anonymous-inner-class
 categories:
   - Java
 tags:

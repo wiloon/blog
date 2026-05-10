@@ -2,7 +2,7 @@
 title: kvm 虚拟机 vnc 开启音频 +rdp
 author: "-"
 date: 2012-09-13T13:35:41+00:00
-url: /?p=4031
+url: kvm虚拟机vnc开启音频rdp
 categories:
   - Linux
 tags:

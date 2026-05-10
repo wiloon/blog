@@ -2,7 +2,7 @@
 title: MySQL默认排序
 author: "-"
 date: 2016-01-12T03:14:03+00:00
-url: /?p=8664
+url: mysql默认排序
 categories:
   - Inbox
 tags:

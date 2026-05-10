@@ -2,7 +2,7 @@
 title: 'java 循环/loop  while,for,foreach'
 author: "-"
 date: 2013-11-16T07:52:48+00:00
-url: /?p=5965
+url: java-foreach
 categories:
   - Inbox
 tags:

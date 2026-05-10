@@ -2,7 +2,7 @@
 title: Iterator, Enumeration
 author: "-"
 date: 2015-06-27T14:56:25+00:00
-url: /?p=7910
+url: iterator-enumeration
 categories:
   - Inbox
 tags:

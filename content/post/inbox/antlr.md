@@ -2,7 +2,7 @@
 title: ANTLR
 author: "-"
 date: 2016-10-26T01:28:25+00:00
-url: /?p=9336
+url: antlr
 categories:
   - Inbox
 tags:

@@ -2,7 +2,7 @@
 title: cad 旋转
 author: "-"
 date: 2017-02-18T03:53:23+00:00
-url: /?p=9836
+url: cad-旋转
 categories:
   - Inbox
 tags:

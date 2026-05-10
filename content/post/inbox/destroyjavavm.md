@@ -2,7 +2,7 @@
 title: jvm thread DestroyJavaVM
 author: "-"
 date: 2017-03-30T07:30:51+00:00
-url: /?p=9996
+url: destroyjavavm
 categories:
   - Inbox
 tags:

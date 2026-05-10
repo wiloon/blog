@@ -3,7 +3,7 @@ title: linux 剪贴板
 author: "-"
 date: 2020-01-01T00:00:00+08:00
 draft: true
-url: /?p=15817
+url: linux-clipboard
 categories:
   - inbox
 tags:

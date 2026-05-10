@@ -2,7 +2,7 @@
 title: chrome command
 author: "-"
 date: 2022-01-22 20:05:13
-url: /?p=11277
+url: chrome-command
 categories:
   - chrome
 tags:

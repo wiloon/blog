@@ -2,7 +2,7 @@
 title: 'position,absolute、relative'
 author: "-"
 date: 2011-09-07T14:35:07+00:00
-url: /?p=709
+url: position-absolute、relative
 categories:
   - Inbox
 tags:

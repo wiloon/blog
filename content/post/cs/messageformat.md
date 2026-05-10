@@ -2,7 +2,7 @@
 title: MessageFormat
 author: "-"
 date: 2016-05-17T05:14:30+00:00
-url: /?p=9004
+url: messageformat
 categories:
   - Inbox
 tags:

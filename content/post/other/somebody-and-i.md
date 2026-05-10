@@ -2,7 +2,7 @@
 title: Somebody and I
 author: "-"
 date: 2013-08-09T03:42:32+00:00
-url: /?p=5766
+url: somebody-and-i
 categories:
   - English
 tags:

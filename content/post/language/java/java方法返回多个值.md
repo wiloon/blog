@@ -2,7 +2,7 @@
 title: Java方法返回多个值
 author: "-"
 date: 2013-01-29T04:50:00+00:00
-url: /?p=5083
+url: java方法返回多个值
 categories:
   - Java
 tags:

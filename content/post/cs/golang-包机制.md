@@ -2,7 +2,7 @@
 title: golang 包机制
 author: "-"
 date: 2017-03-09T00:03:22+00:00
-url: /?p=9903
+url: golang-包机制
 categories:
   - Inbox
 tags:

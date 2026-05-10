@@ -2,7 +2,7 @@
 title: canvas
 author: "-"
 date: 2014-11-29T14:26:43+00:00
-url: /?p=7059
+url: canvas
 categories:
   - Inbox
 tags:

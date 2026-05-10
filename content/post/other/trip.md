@@ -2,7 +2,7 @@
 title: journey、voyage、trip、tour、travel
 author: "-"
 date: 2015-05-01T14:40:54+00:00
-url: /?p=7546
+url: trip
 categories:
   - Inbox
 tags:

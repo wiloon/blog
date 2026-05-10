@@ -2,7 +2,7 @@
 title: System.load 和 System.loadLibrary
 author: "-"
 date: 2014-04-14T01:20:24+00:00
-url: /?p=6538
+url: system-load-和-system-loadlibrary
 categories:
   - Inbox
 tags:

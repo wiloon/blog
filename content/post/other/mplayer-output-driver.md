@@ -2,7 +2,7 @@
 title: mplayer output driver
 author: "-"
 date: 2012-04-07T12:40:58+00:00
-url: /?p=2850
+url: mplayer-output-driver
 categories:
   - Linux
 tags:

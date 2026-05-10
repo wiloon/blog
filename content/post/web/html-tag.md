@@ -2,7 +2,7 @@
 title: html tag
 author: "-"
 date: 2012-01-08T08:12:20+00:00
-url: /?p=2121
+url: html-tag
 categories:
   - Web
 tags:

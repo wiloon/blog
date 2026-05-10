@@ -2,7 +2,7 @@
 title: what if
 author: "-"
 date: 2012-11-25T10:09:04+00:00
-url: /?p=4768
+url: what-if
 categories:
   - English
 tags:

@@ -2,7 +2,7 @@
 title: bios boot partition
 author: "-"
 date: 2018-02-12T15:33:04+00:00
-url: /?p=11881
+url: bios-boot-partition
 categories:
   - Inbox
 tags:

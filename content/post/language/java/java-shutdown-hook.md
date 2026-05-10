@@ -2,7 +2,7 @@
 title: java shutdown hook
 author: "-"
 date: 2015-12-30T07:16:53+00:00
-url: /?p=8610
+url: java-shutdown-hook
 categories:
   - Inbox
 tags:

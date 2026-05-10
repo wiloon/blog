@@ -2,7 +2,7 @@
 title: web.xml
 author: "-"
 date: 2012-06-10T03:23:19+00:00
-url: /?p=3459
+url: web-xml
 categories:
   - Java
   - Web

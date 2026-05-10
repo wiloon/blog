@@ -2,7 +2,7 @@
 title: JPA criteria 查询,更新，删除
 author: "-"
 date: 2015-02-22T04:00:55+00:00
-url: /?p=7360
+url: jpa-criteria-查询
 categories:
   - Inbox
 tags:

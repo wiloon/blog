@@ -2,7 +2,7 @@
 title: archlinux 内网域名 ping结果和dig结果不一致
 author: "-"
 date: 2018-03-08T05:26:41+00:00
-url: /?p=11977
+url: dns-ping-dig
 categories:
   - Inbox
 tags:

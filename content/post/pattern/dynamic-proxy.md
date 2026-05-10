@@ -2,7 +2,7 @@
 title: 动态代理 Dynamic Proxy
 author: "-"
 date: 2012-10-16T08:20:11+00:00
-url: /?p=4504
+url: dynamic-proxy
 categories:
   - Pattern
 tags:

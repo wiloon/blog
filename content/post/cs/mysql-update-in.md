@@ -2,7 +2,7 @@
 title: MySQL update in
 author: "-"
 date: 2019-08-29T02:33:10+00:00
-url: /?p=14866
+url: mysql-update-in
 categories:
   - inbox
 tags:

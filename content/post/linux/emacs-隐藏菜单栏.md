@@ -2,7 +2,7 @@
 title: emacs org-mode TODO状态
 author: "-"
 date: 2011-12-11T14:02:27+00:00
-url: /?p=1860
+url: emacs-隐藏菜单栏
 categories:
   - Inbox
 tags:

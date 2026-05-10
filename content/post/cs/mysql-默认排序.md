@@ -2,7 +2,7 @@
 title: MySQL 默认排序
 author: "-"
 date: 2019-10-29T09:50:52+00:00
-url: /?p=15081
+url: mysql-默认排序
 categories:
   - Inbox
 tags:

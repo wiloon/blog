@@ -2,7 +2,7 @@
 title: jpackage, JEP 343
 author: "-"
 date: 2019-03-19T04:29:15+00:00
-url: /?p=13883
+url: jpackage-jep-343
 categories:
   - Inbox
 tags:

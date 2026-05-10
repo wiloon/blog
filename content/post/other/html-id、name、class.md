@@ -2,7 +2,7 @@
 title: HTML id、name、class
 author: "-"
 date: 2015-06-02T03:36:15+00:00
-url: /?p=7748
+url: html-id、name、class
 categories:
   - Inbox
 tags:

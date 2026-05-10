@@ -2,7 +2,7 @@
 title: DBCP
 author: "-"
 date: 2012-03-27T08:14:53+00:00
-url: /?p=2661
+url: dbcp
 categories:
   - Database
   - Java

@@ -2,7 +2,7 @@
 title: adb, no permission
 author: "-"
 date: 2012-06-23T01:35:19+00:00
-url: /?p=3627
+url: android-adb-devices显示no-permission
 categories:
   - Linux
 tags:

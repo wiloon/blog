@@ -2,7 +2,7 @@
 title: 将cmd中命令输出保存为TXT文本文件
 author: "-"
 date: 2019-09-17T02:41:45+00:00
-url: /?p=14926
+url: 将cmd中命令输出保存为txt文本文件
 categories:
   - Desktop
 tags:

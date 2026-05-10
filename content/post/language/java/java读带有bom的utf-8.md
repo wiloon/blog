@@ -2,7 +2,7 @@
 title: Java读带有BOM的UTF-8
 author: "-"
 date: 2016-03-28T02:45:40+00:00
-url: /?p=8842
+url: java读带有bom的utf-8
 categories:
   - Inbox
 tags:

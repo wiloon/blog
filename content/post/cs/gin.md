@@ -2,7 +2,7 @@
 title: gin
 author: "-"
 date: 2019-05-23T13:31:30+00:00
-url: /?p=14394
+url: gin
 categories:
   - Inbox
 tags:

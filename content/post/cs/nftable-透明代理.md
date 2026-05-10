@@ -2,7 +2,7 @@
 title: nftable 透明代理
 author: "-"
 date: 2018-08-10T11:47:14+00:00
-url: /?p=12518
+url: nftable-透明代理
 categories:
   - Inbox
 tags:

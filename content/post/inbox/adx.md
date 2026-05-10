@@ -2,7 +2,7 @@
 title: ADX指标
 author: "-"
 date: 2013-06-28T04:47:27+00:00
-url: /?p=5602
+url: adx
 categories:
   - Inbox
 tags:

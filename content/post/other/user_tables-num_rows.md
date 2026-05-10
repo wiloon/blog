@@ -2,7 +2,7 @@
 title: user_tables num_rows
 author: "-"
 date: 2015-03-06T02:46:02+00:00
-url: /?p=7399
+url: user_tables-num_rows
 categories:
   - Inbox
 tags:

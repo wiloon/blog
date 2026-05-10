@@ -2,7 +2,7 @@
 title: raspberry source list
 author: "-"
 date: 2015-05-02T04:59:51+00:00
-url: /?p=7566
+url: raspberry-source-list
 categories:
   - Hardware
 tags:

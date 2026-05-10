@@ -2,7 +2,7 @@
 title: Debian/Ubuntu 系统 Update-rc.d
 author: "-"
 date: 2011-11-18T22:36:08+00:00
-url: /?p=1523
+url: debianubuntu-系统-update-rc-d-命令
 categories:
   - Linux
 tags:

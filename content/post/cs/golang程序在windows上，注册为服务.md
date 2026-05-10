@@ -2,7 +2,7 @@
 title: golang程序在windows上,注册为服务
 author: "-"
 date: 2018-09-30T06:08:59+00:00
-url: /?p=12719
+url: golang程序在windows上，注册为服务
 categories:
   - Inbox
 tags:

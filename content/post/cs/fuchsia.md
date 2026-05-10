@@ -2,7 +2,7 @@
 title: fuchsia
 author: "-"
 date: 2020-04-14T23:49:16+00:00
-url: /?p=15953
+url: fuchsia
 categories:
   - Inbox
 tags:

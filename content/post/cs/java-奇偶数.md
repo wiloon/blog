@@ -2,7 +2,7 @@
 title: JAVA 奇偶数
 author: "-"
 date: 2020-02-26T10:46:21+00:00
-url: /?p=15637
+url: java-奇偶数
 categories:
   - Inbox
 tags:

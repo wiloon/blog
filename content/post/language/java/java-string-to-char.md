@@ -2,7 +2,7 @@
 title: java string api
 author: "-"
 date: 2012-06-14T01:23:47+00:00
-url: /?p=3528
+url: java-string-to-char
 categories:
   - Java
 tags:

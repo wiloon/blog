@@ -2,7 +2,7 @@
 title: SVN中Branch/tag
 author: "-"
 date: 2015-11-11T02:20:43+00:00
-url: /?p=8454
+url: svn中branchtag
 categories:
   - Inbox
 tags:

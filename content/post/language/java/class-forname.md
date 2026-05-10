@@ -2,7 +2,7 @@
 title: Class.forName
 author: "-"
 date: 2013-12-21T13:11:52+00:00
-url: /?p=6067
+url: class-forname
 categories:
   - Java
 tags:

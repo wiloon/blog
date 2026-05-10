@@ -2,7 +2,7 @@
 title: 内网 dns dig 能解析出ip, ping 返回 Name or service not known
 author: "-"
 date: 2018-05-08T08:15:32+00:00
-url: /?p=12217
+url: nsswitch
 categories:
   - Inbox
 tags:

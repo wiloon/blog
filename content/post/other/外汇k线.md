@@ -2,7 +2,7 @@
 title: 外汇K线
 author: "-"
 date: 2016-12-04T05:18:09+00:00
-url: /?p=9508
+url: 外汇k线
 categories:
   - Inbox
 tags:

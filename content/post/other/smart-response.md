@@ -2,7 +2,7 @@
 title: SSD - Smart Response
 author: "-"
 date: 2012-12-22T05:06:33+00:00
-url: /?p=4932
+url: smart-response
 categories:
   - Hardware
 tags:

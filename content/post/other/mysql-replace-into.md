@@ -2,7 +2,7 @@
 title: MySQL replace into
 author: "-"
 date: 2015-08-14T01:52:09+00:00
-url: /?p=8114
+url: mysql-replace-into
 categories:
   - Inbox
 tags:

@@ -2,7 +2,7 @@
 title: intellij idea 配置 git ssh key
 author: "-"
 date: 2019-02-27T15:48:53+00:00
-url: /?p=13731
+url: intellij-idea-配置gitlab-ssh-key
 categories:
   - Inbox
 tags:

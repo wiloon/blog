@@ -2,7 +2,7 @@
 title: 苹果 WebApp
 author: "-"
 date: 2015-01-12T08:09:18+00:00
-url: /?p=7226
+url: appstore-webapp
 categories:
   - Inbox
 tags:

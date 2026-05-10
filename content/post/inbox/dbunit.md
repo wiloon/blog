@@ -2,7 +2,7 @@
 title: DbUnit
 author: "-"
 date: 2016-04-13T01:54:26+00:00
-url: /?p=8888
+url: dbunit
 categories:
   - Inbox
 tags:

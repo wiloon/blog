@@ -2,7 +2,7 @@
 title: linux tty
 author: "-"
 date: 2014-08-11T12:06:08+00:00
-url: /?p=6932
+url: linux-tty
 tags:
   - Linux
 categories:

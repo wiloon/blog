@@ -2,7 +2,7 @@
 title: Java HTTP Helper
 author: lcf
 date: 2012-09-26T07:20:19+00:00
-url: /?p=4321
+url: java-http-helper
 categories:
   - Java
 tags:

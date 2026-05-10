@@ -2,7 +2,7 @@
 title: idea config, 配置
 author: "-"
 date: 2019-04-14T05:34:17.000+00:00
-url: "/?p=14170"
+url: idea-配置
 categories:
 - Uncategorized
 tags:

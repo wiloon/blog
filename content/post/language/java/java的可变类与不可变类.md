@@ -2,7 +2,7 @@
 title: JAVA的可变类与不可变类
 author: "-"
 date: 2015-06-26T02:26:25+00:00
-url: /?p=7847
+url: java的可变类与不可变类
 categories:
   - Inbox
 tags:

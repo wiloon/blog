@@ -2,7 +2,7 @@
 title: Kubernetes
 author: "-"
 date: 2016-12-13T04:13:28+00:00
-url: /?p=9543
+url: kubernetes
 categories:
   - Inbox
 tags:

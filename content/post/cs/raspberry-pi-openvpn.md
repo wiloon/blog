@@ -2,7 +2,7 @@
 title: raspberry pi openvpn
 author: "-"
 date: 2017-08-30T14:34:17+00:00
-url: /?p=11072
+url: raspberry-pi-openvpn
 categories:
   - Hardware
 tags:

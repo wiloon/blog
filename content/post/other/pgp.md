@@ -2,7 +2,7 @@
 title: One or more PGP signatures could not be verified
 author: "-"
 date: 2011-10-16T09:06:56+00:00
-url: /?p=1068
+url: pgp
 categories:
   - Java
 tags:

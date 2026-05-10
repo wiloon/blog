@@ -2,7 +2,7 @@
 title: jpa annotation, 注解
 author: "-"
 date: 2014-05-28T09:17:04+00:00
-url: /?p=6678
+url: jpa-annotation
 categories:
   - Inbox
 tags:

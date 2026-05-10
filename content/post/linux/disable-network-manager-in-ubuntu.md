@@ -2,7 +2,7 @@
 title: Disable Network Manager In Ubuntu
 author: "-"
 date: 2012-03-13T05:03:15+00:00
-url: /?p=2549
+url: disable-network-manager-in-ubuntu
 categories:
   - Linux
   - Network

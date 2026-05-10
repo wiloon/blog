@@ -2,7 +2,7 @@
 title: jmap
 author: "-"
 date: 2015-09-17T08:46:25+00:00
-url: /?p=8292
+url: jvm-dump
 categories:
   - Inbox
 tags:

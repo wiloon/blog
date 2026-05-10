@@ -2,7 +2,7 @@
 title: MySQL limit
 author: "-"
 date: 2013-02-03T05:07:23+00:00
-url: /?p=5117
+url: mysql-限制返回记录数limit
 categories:
   - Database
 tags:

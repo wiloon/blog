@@ -2,7 +2,7 @@
 title: linux shell Manipulating Strings
 author: "-"
 date: 2012-04-08T06:13:32+00:00
-url: /?p=2862
+url: linux-shell-manipulating-strings
 categories:
   - Linux
 tags:

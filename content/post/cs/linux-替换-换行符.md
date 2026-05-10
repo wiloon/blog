@@ -2,8 +2,7 @@
 title: linux 替换 换行符
 author: "-"
 date: 2018-10-10T02:14:03+00:00
-url: /?p=12776
-
+url: linux-替换-换行符
 categories:
   - inbox
 tags:

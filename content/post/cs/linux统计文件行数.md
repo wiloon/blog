@@ -2,7 +2,7 @@
 title: 统计文件行数, 文件数
 author: "-"
 date: 2016-05-15T05:01:30+00:00
-url: /?p=8996
+url: linux统计文件行数
 categories:
   - inbox
 tags:

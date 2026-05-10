@@ -2,7 +2,7 @@
 title: linux mount, invalid argument, no such device
 author: "-"
 date: 2016-07-02T03:28:59+00:00
-url: /?p=9109
+url: linux-mount-invalid-argument-no-such-device
 categories:
   - Inbox
 tags:

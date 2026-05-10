@@ -2,7 +2,7 @@
 title: nginx模块
 author: "-"
 date: 2017-11-08T08:37:36+00:00
-url: /?p=11389
+url: nginx模块
 categories:
   - Inbox
 tags:

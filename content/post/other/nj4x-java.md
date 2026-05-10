@@ -2,7 +2,7 @@
 title: nj4x java config
 author: "-"
 date: 2015-05-31T14:47:40+00:00
-url: /?p=7734
+url: nj4x-java
 categories:
   - Inbox
 tags:

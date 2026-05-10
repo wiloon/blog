@@ -2,7 +2,7 @@
 title: Execute bash script from URL
 author: "-"
 date: 2018-09-24T12:19:45+00:00
-url: /?p=12677
+url: execute-bash-script-from-url
 categories:
   - Inbox
 tags:

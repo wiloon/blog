@@ -2,7 +2,7 @@
 title: MACD
 author: "-"
 date: 2013-12-06T15:46:47+00:00
-url: /?p=6015
+url: macd
 categories:
   - Inbox
 tags:

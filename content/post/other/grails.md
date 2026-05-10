@@ -2,7 +2,7 @@
 title: Grails
 author: "-"
 date: 2014-01-22T04:15:34+00:00
-url: /?p=6245
+url: grails
 categories:
   - Inbox
 tags:

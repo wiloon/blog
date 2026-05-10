@@ -2,7 +2,7 @@
 title: failed to allocate direct memory
 author: "-"
 date: 2018-03-23T07:46:52+00:00
-url: /?p=12037
+url: failed-to-allocate-direct-memory
 categories:
   - Inbox
 tags:

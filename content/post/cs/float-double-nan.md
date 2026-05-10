@@ -2,7 +2,7 @@
 title: float double NaN
 author: "-"
 date: 2015-12-04T05:26:35+00:00
-url: /?p=8516
+url: float-double-nan
 categories:
   - Inbox
 tags:

@@ -2,7 +2,7 @@
 title: kibana 查询
 author: "-"
 date: 2018-06-22T01:28:24+00:00
-url: /?p=12348
+url: kibana-语法
 categories:
   - Inbox
 tags:

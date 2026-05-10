@@ -2,7 +2,7 @@
 title: 通过枚举enum实现单例设计
 author: "-"
 date: 2017-03-25T09:11:32+00:00
-url: /?p=9951
+url: 通过枚举enum实现单例设计
 categories:
   - Inbox
 tags:

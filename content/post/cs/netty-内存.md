@@ -2,7 +2,7 @@
 title: netty 内存
 author: "-"
 date: 2018-03-23T09:57:05+00:00
-url: /?p=12040
+url: netty-内存
 categories:
   - Inbox
 tags:

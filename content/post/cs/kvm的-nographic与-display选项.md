@@ -2,7 +2,7 @@
 title: KVM 的-nographic与-display选项
 author: "-"
 date: 2019-03-31T02:18:40+00:00
-url: /?p=14053
+url: kvm的-nographic与-display选项
 categories:
   - Inbox
 tags:

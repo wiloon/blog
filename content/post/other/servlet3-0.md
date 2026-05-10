@@ -2,7 +2,7 @@
 title: servlet3.0
 author: "-"
 date: 2012-06-10T08:44:52+00:00
-url: /?p=3491
+url: servlet3-0
 categories:
   - Java
   - Web

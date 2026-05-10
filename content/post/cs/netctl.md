@@ -2,7 +2,7 @@
 title: netctl
 author: "-"
 date: 2016-04-26T16:37:20+00:00
-url: /?p=8958
+url: netctl
 categories:
   - Inbox
 tags:

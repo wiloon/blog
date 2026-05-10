@@ -2,7 +2,7 @@
 title: MySQL日期函数
 author: "-"
 date: 2016-02-14T07:49:55+00:00
-url: /?p=8731
+url: mysql日期函数
 categories:
   - Inbox
 tags:

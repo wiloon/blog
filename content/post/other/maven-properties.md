@@ -2,7 +2,7 @@
 title: Maven内置属性、POM属性
 author: "-"
 date: 2012-04-09T06:44:58+00:00
-url: /?p=2894
+url: maven-properties
 categories:
   - Java
 tags:

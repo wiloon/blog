@@ -2,7 +2,7 @@
 title: java switch
 author: "-"
 date: 2012-06-13T10:44:36+00:00
-url: /?p=3525
+url: java-switch
 categories:
   - Java
 tags:

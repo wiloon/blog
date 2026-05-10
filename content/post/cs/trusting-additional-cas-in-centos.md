@@ -2,7 +2,7 @@
 title: Trusting additional CAs in Centos
 author: "-"
 date: 2018-10-30T06:33:06+00:00
-url: /?p=12839
+url: trusting-additional-cas-in-centos
 categories:
   - Inbox
 tags:

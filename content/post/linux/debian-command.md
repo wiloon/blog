@@ -2,7 +2,7 @@
 title: debian command
 author: "-"
 date: 2015-05-03T13:10:25+00:00
-url: /?p=7589
+url: debian-command
 categories:
   - Inbox
 tags:

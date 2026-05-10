@@ -2,7 +2,7 @@
 title: linux 命令行下使用socks 代理
 author: "-"
 date: 2016-12-23T05:58:43+00:00
-url: /?p=9610
+url: linux-命令行下使用-ss-代理
 categories:
   - Inbox
 tags:

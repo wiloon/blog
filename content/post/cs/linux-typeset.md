@@ -2,7 +2,7 @@
 title: linux typeset
 author: "-"
 date: 2019-10-28T09:32:49+00:00
-url: /?p=15069
+url: linux-typeset
 categories:
   - Inbox
 tags:

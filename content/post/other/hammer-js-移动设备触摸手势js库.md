@@ -2,7 +2,7 @@
 title: Hammer.js 移动设备触摸手势js库
 author: "-"
 date: 2014-03-10T05:54:29+00:00
-url: /?p=6390
+url: hammer-js-移动设备触摸手势js库
 categories:
   - Inbox
 tags:

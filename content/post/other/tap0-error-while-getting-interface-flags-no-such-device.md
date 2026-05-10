@@ -2,7 +2,7 @@
 title: 'tap0, ERROR while getting interface flags'
 author: "-"
 date: 2012-02-09T14:54:58+00:00
-url: /?p=2284
+url: tap0-error-while-getting-interface-flags-no-such-device
 categories:
   - Linux
   - Network

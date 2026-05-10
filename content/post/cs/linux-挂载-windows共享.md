@@ -2,7 +2,7 @@
 title: linux 挂载 windows共享
 author: "-"
 date: 2020-02-01T02:25:40+00:00
-url: /?p=15463
+url: linux-挂载-windows共享
 categories:
   - Inbox
 tags:

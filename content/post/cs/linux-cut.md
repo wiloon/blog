@@ -2,7 +2,7 @@
 title: linux cut
 author: "-"
 date: 2017-10-22T02:47:04+00:00
-url: /?p=11294
+url: linux-cut
 categories:
   - Inbox
 tags:

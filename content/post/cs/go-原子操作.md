@@ -2,7 +2,7 @@
 title: go 原子操作
 author: "-"
 date: 2020-04-26T10:51:29+00:00
-url: /?p=16090
+url: go-原子操作
 categories:
   - Inbox
 tags:

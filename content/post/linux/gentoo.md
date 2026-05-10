@@ -2,7 +2,7 @@
 title: Gentoo
 author: "-"
 date: 2011-11-26T06:40:52+00:00
-url: /?p=1607
+url: gentoo
 categories:
   - Linux
 tags:

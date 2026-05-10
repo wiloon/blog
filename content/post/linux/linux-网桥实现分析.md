@@ -2,7 +2,7 @@
 title: 网桥
 author: "-"
 date: 2011-12-04T04:43:30+00:00
-url: /?p=1753
+url: linux-网桥实现分析
 categories:
   - Linux
   - Network

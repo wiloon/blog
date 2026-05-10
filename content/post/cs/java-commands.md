@@ -2,7 +2,7 @@
 title: java commands
 author: "-"
 date: 2020-03-08T14:08:28+00:00
-url: /?p=15703
+url: java-commands
 categories:
   - Inbox
 tags:

@@ -2,7 +2,7 @@
 title: java 命名
 author: "-"
 date: 2016-04-13T09:17:02+00:00
-url: /?p=8890
+url: java-命名
 categories:
   - Inbox
 tags:

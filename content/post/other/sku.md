@@ -2,7 +2,7 @@
 title: SKU
 author: "-"
 date: 2014-06-09T05:04:04+00:00
-url: /?p=6710
+url: sku
 categories:
   - Inbox
 tags:

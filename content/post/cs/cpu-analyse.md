@@ -2,7 +2,7 @@
 title: cpu 占用分析
 author: "-"
 date: 2013-12-10T01:17:00+00:00
-url: /?p=6032
+url: cpu-analyse
 categories:
   - CS
 tags:

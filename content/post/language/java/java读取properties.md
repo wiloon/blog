@@ -2,7 +2,7 @@
 title: Java读取properties, getResourceAsStream
 author: "-"
 date: 2012-05-25T07:57:43+00:00
-url: /?p=3209
+url: java读取properties
 categories:
   - Java
 tags:

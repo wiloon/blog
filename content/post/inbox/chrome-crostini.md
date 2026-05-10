@@ -2,7 +2,7 @@
 title: 'chromeos linux,  crostini'
 author: "-"
 date: 2018-05-11T16:49:21+00:00
-url: /?p=12236
+url: chrome-crostini
 categories:
   - chrome
 tags:

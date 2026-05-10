@@ -2,7 +2,7 @@
 title: kde lock screen
 author: "-"
 date: 2019-01-03T05:39:16+00:00
-url: /?p=13298
+url: kde-lock-screen
 categories:
   - Desktop
 tags:

@@ -2,7 +2,7 @@
 title: Linux密码策略
 author: "-"
 date: 2019-01-25T05:33:44+00:00
-url: /?p=13480
+url: linux密码策略
 categories:
   - Inbox
 tags:

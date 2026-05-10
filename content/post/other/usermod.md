@@ -2,7 +2,7 @@
 title: usermod
 author: "-"
 date: 2013-12-01T11:58:41+00:00
-url: /?p=6003
+url: usermod
 categories:
   - Inbox
 tags:

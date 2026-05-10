@@ -2,7 +2,7 @@
 title: Row_number () over (partition by col1 order by col2)的用法
 author: "-"
 date: 2013-05-08T03:13:29+00:00
-url: /?p=5430
+url: row_number-over-partition-by-col1-order-by-col2的用法
 categories:
   - Database
 tags:

@@ -2,7 +2,7 @@
 title: 设置 Emacs 的编码格式
 author: "-"
 date: 2011-12-27T03:09:34+00:00
-url: /?p=2033
+url: 设置-emacs-的编码格式
 categories:
   - Tools
 tags:

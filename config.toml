@@ -1,4 +1,4 @@
-baseURL = "/"
+baseURL = "https://wiloon.com/"
 languageCode = "en"
 defaultContentLanguage = "en"
 title = "W10N"

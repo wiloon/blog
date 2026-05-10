@@ -2,7 +2,7 @@
 title: Java 8 函数式接口 functional interface
 author: "-"
 date: 2014-12-24T02:39:51+00:00
-url: /?p=7127
+url: functional-interface
 categories:
   - Inbox
 tags:

@@ -2,7 +2,7 @@
 title: Javascript 加载顺序
 author: "-"
 date: 2014-02-21T06:27:04+00:00
-url: /?p=6271
+url: javascript加载顺序
 categories:
   - JavaScript
 tags:

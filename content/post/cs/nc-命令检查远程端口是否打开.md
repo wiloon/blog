@@ -2,7 +2,7 @@
 title: nc 命令检查远程端口是否打开
 author: "-"
 date: 2017-12-16T08:33:52+00:00
-url: /?p=11614
+url: nc-命令检查远程端口是否打开
 categories:
   - Inbox
 tags:

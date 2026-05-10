@@ -2,7 +2,7 @@
 title: Web服务 压力测试工具,goreplay gor, http_load、webbench、apabhe ab、siege
 author: "-"
 date: 2015-09-15T07:13:48+00:00
-url: /?p=8261
+url: press-test-ab
 categories:
   - Inbox
 tags:

@@ -2,7 +2,7 @@
 title: pixel2, pixel3 root, android root
 author: "-"
 date: 2020-01-26T10:16:33+00:00
-url: /?p=15417
+url: pixel2-root-android-root
 categories:
   - Inbox
 tags:

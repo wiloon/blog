@@ -2,7 +2,7 @@
 title: Chrome 运行Android应用
 author: "-"
 date: 2014-11-19T03:49:12+00:00
-url: /?p=7019
+url: chrome-运行android应用
 categories:
   - chrome
 tags:

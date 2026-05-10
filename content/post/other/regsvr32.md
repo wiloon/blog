@@ -2,7 +2,7 @@
 title: Regsvr32
 author: "-"
 date: 2013-02-18T03:09:42+00:00
-url: /?p=5182
+url: regsvr32
 categories:
   - Desktop
 tags:

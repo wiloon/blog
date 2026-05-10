@@ -2,7 +2,7 @@
 title: MySQL 字典表
 author: "-"
 date: 2015-05-25T08:29:18+00:00
-url: /?p=7710
+url: mysql常用字典表
 categories:
   - Inbox
 tags:

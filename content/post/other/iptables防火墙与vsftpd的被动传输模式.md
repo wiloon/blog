@@ -2,7 +2,7 @@
 title: iptables防火墙与vsftpd的被动传输模式
 author: "-"
 date: 2012-05-26T02:17:40+00:00
-url: /?p=3234
+url: iptables防火墙与vsftpd的被动传输模式
 categories:
   - Linux
   - Network

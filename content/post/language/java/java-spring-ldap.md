@@ -2,7 +2,7 @@
 title: Java Spring LDAP
 author: lcf
 date: 2012-09-26T06:59:29+00:00
-url: /?p=4312
+url: java-spring-ldap
 categories:
   - Java
 tags:

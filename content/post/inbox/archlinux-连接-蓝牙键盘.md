@@ -2,7 +2,7 @@
 title: archlinux 连接 蓝牙键盘
 author: "-"
 date: 2017-02-17T13:30:10+00:00
-url: /?p=9834
+url: archlinux-连接-蓝牙键盘
 categories:
   - Inbox
 tags:

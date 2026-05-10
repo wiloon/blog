@@ -2,7 +2,7 @@
 title: 将HTML5封装成android应用APK文件的几种方法
 author: "-"
 date: 2014-12-30T09:32:16+00:00
-url: /?p=7164
+url: 将html5封装成android应用apk文件的几种方法
 categories:
   - Inbox
 tags:

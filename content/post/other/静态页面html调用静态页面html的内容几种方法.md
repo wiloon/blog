@@ -2,7 +2,7 @@
 title: 静态页面html调用静态页面html的内容几种方法
 author: "-"
 date: 2014-02-12T03:13:08+00:00
-url: /?p=6252
+url: 静态页面html调用静态页面html的内容几种方法
 categories:
   - Inbox
 tags:

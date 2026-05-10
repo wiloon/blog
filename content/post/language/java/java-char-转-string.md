@@ -2,7 +2,7 @@
 title: 'java char[] 转  String'
 author: "-"
 date: 2013-01-24T14:35:04+00:00
-url: /?p=5076
+url: java-char-转-string
 categories:
   - Java
 tags:

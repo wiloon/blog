@@ -2,7 +2,7 @@
 title: 'java  reflact invoke'
 author: "-"
 date: 2016-03-14T07:49:11+00:00
-url: /?p=8797
+url: java-reflact-invoke
 categories:
   - Inbox
 tags:

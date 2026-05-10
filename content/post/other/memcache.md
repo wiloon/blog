@@ -2,7 +2,7 @@
 title: MemCache
 author: "-"
 date: 2015-06-28T04:51:46+00:00
-url: /?p=7936
+url: memcache
 categories:
   - Inbox
 tags:

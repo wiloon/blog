@@ -2,7 +2,7 @@
 title: busybox
 author: "-"
 date: 2017-05-27T04:22:18+00:00
-url: /?p=10381
+url: busybox
 categories:
   - Inbox
 tags:

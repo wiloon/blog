@@ -2,7 +2,7 @@
 title: Java URL URI
 author: "-"
 date: 2014-02-26T05:24:54+00:00
-url: /?p=6287
+url: java-url-uri
 categories:
   - Inbox
 tags:

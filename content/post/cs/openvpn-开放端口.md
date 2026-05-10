@@ -2,7 +2,7 @@
 title: openvpn 开放端口
 author: "-"
 date: 2018-11-02T14:08:39+00:00
-url: /?p=12844
+url: openvpn-开放端口
 categories:
   - Inbox
 tags:

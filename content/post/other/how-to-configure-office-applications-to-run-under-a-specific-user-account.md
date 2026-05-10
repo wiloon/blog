@@ -2,7 +2,7 @@
 title: How to configure Office applications to run under a specific user account
 author: "-"
 date: 2013-09-23T02:23:23+00:00
-url: /?p=5822
+url: how-to-configure-office-applications-to-run-under-a-specific-user-account
 categories:
   - Inbox
 tags:

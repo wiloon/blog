@@ -2,7 +2,7 @@
 title: CSS继承性
 author: "-"
 date: 2013-01-24T04:55:52+00:00
-url: /?p=5067
+url: css继承性
 categories:
   - Web
 tags:

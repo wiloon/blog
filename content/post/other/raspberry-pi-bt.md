@@ -2,7 +2,7 @@
 title: raspberry pi bt
 author: "-"
 date: 2013-12-01T16:21:01+00:00
-url: /?p=6010
+url: raspberry-pi-bt
 categories:
   - Hardware
 tags:

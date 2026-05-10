@@ -2,7 +2,7 @@
 title: 用dd实现linux硬盘备份
 author: "-"
 date: 2016-04-08T11:15:00+00:00
-url: /?p=8863
+url: 用dd实现linux硬盘备份
 categories:
   - Inbox
 tags:

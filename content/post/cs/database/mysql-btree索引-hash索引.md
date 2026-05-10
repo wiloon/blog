@@ -2,7 +2,7 @@
 title: 'MySQL  btree索引 hash索引'
 author: "-"
 date: 2015-10-15T05:32:29+00:00
-url: /?p=8408
+url: mysql-btree索引-hash索引
 categories:
   - Inbox
 tags:

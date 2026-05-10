@@ -2,7 +2,7 @@
 title: linux history
 author: "-"
 date: 2017-10-11T06:12:50+00:00
-url: /?p=11247
+url: stat-查文件访问时间
 categories:
   - Inbox
 tags:

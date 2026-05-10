@@ -2,7 +2,7 @@
 title: MySQL用户与权限管理
 author: "-"
 date: 2011-12-26T04:23:28+00:00
-url: /?p=1998
+url: mysql用户与权限管理
 categories:
   - Database
 tags:

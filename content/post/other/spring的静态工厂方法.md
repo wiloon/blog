@@ -2,7 +2,7 @@
 title: Spring的静态工厂方法
 author: "-"
 date: 2012-03-26T04:35:02+00:00
-url: /?p=2629
+url: spring的静态工厂方法
 categories:
   - CS
 tags:

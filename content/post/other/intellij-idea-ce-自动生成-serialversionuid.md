@@ -2,7 +2,7 @@
 title: Intellij IDEA CE 自动生成 serialVersionUID
 author: "-"
 date: 2012-12-07T05:29:40+00:00
-url: /?p=4832
+url: intellij-idea-ce-自动生成-serialversionuid
 categories:
   - Java
 tags:

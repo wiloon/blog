@@ -2,7 +2,7 @@
 title: 线程通信
 author: "-"
 date: 2016-09-23T05:13:57+00:00
-url: /?p=9219
+url: java-condition-线程通信
 categories:
   - Inbox
 tags:

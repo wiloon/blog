@@ -2,7 +2,7 @@
 title: JaveEE
 author: "-"
 date: 2015-01-22T08:39:32+00:00
-url: /?p=7268
+url: javaee0
 categories:
   - Inbox
 tags:

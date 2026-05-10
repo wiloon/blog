@@ -2,7 +2,7 @@
 title: archlinux 64位上运行32位程序
 author: "-"
 date: 2015-05-29T23:55:49+00:00
-url: /?p=7728
+url: archlinux-64位上运行32位程序
 categories:
   - Inbox
 tags:

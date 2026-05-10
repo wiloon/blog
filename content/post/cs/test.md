@@ -2,7 +2,7 @@
 title: test
 author: "-"
 date: 2015-10-20T06:56:38+00:00
-url: /?p=8414
+url: test
 categories:
   - Inbox
 tags:

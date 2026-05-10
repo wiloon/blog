@@ -2,7 +2,7 @@
 title: MySQL 索引
 author: "-"
 date: 2014-01-20T10:43:03+00:00
-url: /?p=6243
+url: mysql索引类型一览-让mysql高效运行起来
 categories:
   - Inbox
 tags:

@@ -2,7 +2,7 @@
 title: 利用spring的jdbcTemplate处理blob、clob
 author: "-"
 date: 2013-01-16T04:41:51+00:00
-url: /?p=5034
+url: 利用spring的jdbctemplate处理blob、clob
 categories:
   - Java
   - Web

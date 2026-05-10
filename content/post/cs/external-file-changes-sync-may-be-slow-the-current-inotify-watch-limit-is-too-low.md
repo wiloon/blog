@@ -2,7 +2,7 @@
 title: 'external file changes sync may be slow the current inotify watch limit is too low'
 author: "-"
 date: 2017-03-09T02:05:42+00:00
-url: /?p=9906
+url: external-file-changes-sync-may-be-slow-the-current-inotify-watch-limit-is-too-low
 categories:
   - Inbox
 tags:

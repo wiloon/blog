@@ -2,7 +2,7 @@
 title: chkconfig
 author: "-"
 date: 2018-01-10T07:27:25+00:00
-url: /?p=11696
+url: chkconfig
 categories:
   - Inbox
 tags:

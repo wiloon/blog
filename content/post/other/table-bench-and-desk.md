@@ -2,7 +2,7 @@
 title: table bench and desk
 author: "-"
 date: 2015-03-24T00:56:47+00:00
-url: /?p=7422
+url: table-bench-and-desk
 categories:
   - Inbox
 tags:

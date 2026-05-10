@@ -2,7 +2,7 @@
 title: linux desktop
 author: "-"
 date: 2025-11-29T11:30:00+08:00
-url: /?p=7029
+url: linux-desktop
 categories:
   - Inbox
 tags:

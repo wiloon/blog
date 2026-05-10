@@ -2,7 +2,7 @@
 title: agile, desk check
 author: "-"
 date: 2019-07-06T11:28:49+00:00
-url: /?p=14638
+url: agile-desk-check
 categories:
   - Inbox
 tags:

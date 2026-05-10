@@ -2,7 +2,7 @@
 title: tomcat config, server, user
 author: "-"
 date: 2011-11-12T08:09:38+00:00
-url: /?p=1510
+url: tomcat-7-user-2
 categories:
   - Java
   - Web

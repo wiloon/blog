@@ -2,7 +2,7 @@
 title: Linux 密码生成工具
 author: "-"
 date: 2017-08-30T00:19:52+00:00
-url: /?p=11073
+url: linux-密码生成工具
 categories:
   - Inbox
 tags:

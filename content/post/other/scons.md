@@ -2,7 +2,7 @@
 title: SCons
 author: "-"
 date: 2013-02-12T14:51:01+00:00
-url: /?p=5134
+url: scons
 categories:
   - Linux
 tags:

@@ -2,7 +2,7 @@
 title: Revolution OS操作系统革命
 author: "-"
 date: 2012-09-22T01:52:47+00:00
-url: /?p=4171
+url: revolution-os操作系统革命
 categories:
   - Linux
 tags:

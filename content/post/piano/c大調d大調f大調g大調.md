@@ -2,7 +2,7 @@
 title: C大調D大調F大調G大調
 author: "-"
 date: 2015-05-02T11:06:06+00:00
-url: /?p=7572
+url: c大調d大調f大調g大調
 categories:
   - Inbox
 tags:

@@ -2,7 +2,7 @@
 title: blender
 author: "-"
 date: 2018-04-21T09:07:44+00:00
-url: /?p=12168
+url: blender
 categories:
   - Inbox
 tags:

@@ -2,7 +2,7 @@
 title: 'Java Hex To Byte & CRCChecker'
 author: lcf
 date: 2012-09-26T03:27:15+00:00
-url: /?p=4299
+url: java-hex-to-byte-crcchecker
 categories:
   - Java
 tags:

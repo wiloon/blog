@@ -2,7 +2,7 @@
 title: PolarSSL, mbed-TLS、 SSL、 OpenSSL、TLS的区别
 author: "-"
 date: 2018-10-09T00:21:31+00:00
-url: /?p=12768
+url: polarssl-mbed-tls、-ssl、-openssl、tls的区别
 categories:
   - Inbox
 tags:

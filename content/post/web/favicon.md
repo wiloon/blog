@@ -2,7 +2,7 @@
 title: favicon
 author: "-"
 date: 2011-12-17T08:26:27+00:00
-url: /?p=1918
+url: favicon
 categories:
   - Web
 tags:

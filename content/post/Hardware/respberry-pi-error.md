@@ -2,7 +2,7 @@
 title: respberry pi error
 author: "-"
 date: 2015-05-04T03:56:10+00:00
-url: /?p=7599
+url: respberry-pi-error
 categories:
   - Inbox
 tags:

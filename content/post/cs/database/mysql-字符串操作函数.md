@@ -2,7 +2,7 @@
 title: MySQL 字符串操作函数
 author: "-"
 date: 2016-04-11T11:15:05.000+00:00
-url: "/?p=8876"
+url: mysql-字符串操作函数
 categories:
 - Uncategorized
 tags:

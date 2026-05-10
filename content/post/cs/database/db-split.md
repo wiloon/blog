@@ -2,7 +2,7 @@
 title: 数据库水平拆分垂直拆分
 author: "-"
 date: 2017-01-14T15:07:01+00:00
-url: /?p=9656
+url: db-split
 categories:
   - Inbox
 tags:

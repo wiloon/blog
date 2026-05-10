@@ -2,7 +2,7 @@
 title: Arrays.binarySearch()
 author: "-"
 date: 2012-10-16T08:02:33+00:00
-url: /?p=4502
+url: arrays-binarysearch
 categories:
   - Java
 tags:

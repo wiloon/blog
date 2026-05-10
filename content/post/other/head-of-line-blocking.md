@@ -2,7 +2,7 @@
 title: 队头阻塞, head-of-line blocking
 author: "-"
 date: 2013-03-24T01:47:40+00:00
-url: /?p=5341
+url: head-of-line-blocking
 categories:
   - Network
 tags:

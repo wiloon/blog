@@ -2,7 +2,7 @@
 title: centos audit.log
 author: "-"
 date: 2018-09-25T02:02:50+00:00
-url: /?p=12690
+url: centos-audit-log
 categories:
   - Inbox
 tags:

@@ -2,7 +2,7 @@
 title: 伪共享 (false sharing) 
 author: "-"
 date: 2020-01-13T08:31:31+00:00
-url: /?p=15356
+url: false-sharing
 categories:
   - Inbox
 tags:

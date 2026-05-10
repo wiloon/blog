@@ -2,7 +2,7 @@
 title: java 开发环境
 author: "-"
 date: 2020-02-28T09:28:55+00:00
-url: /?p=15640
+url: java-开发环境
 categories:
   - Java
 tags:

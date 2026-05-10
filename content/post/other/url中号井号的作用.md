@@ -2,7 +2,7 @@
 title: 'URL中#号(井号)的作用'
 author: "-"
 date: 2012-10-31T08:21:34+00:00
-url: /?p=4601
+url: url中号井号的作用
 categories:
   - Web
 tags:

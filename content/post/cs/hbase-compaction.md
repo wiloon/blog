@@ -2,7 +2,7 @@
 title: HBase Compaction
 author: "-"
 date: 2017-07-07T09:54:41+00:00
-url: /?p=10802
+url: hbase-compaction
 categories:
   - Inbox
 tags:

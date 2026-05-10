@@ -2,7 +2,7 @@
 title: Java JNI
 author: "-"
 date: 2014-04-14T01:17:38+00:00
-url: /?p=6533
+url: java-jni
 categories:
   - Inbox
 tags:

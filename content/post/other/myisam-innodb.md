@@ -2,7 +2,7 @@
 title: MySQL 存储引擎
 author: "-"
 date: 2015-06-28T05:52:57+00:00
-url: /?p=7943
+url: myisam-innodb
 categories:
   - Database
 tags:

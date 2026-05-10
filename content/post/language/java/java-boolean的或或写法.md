@@ -2,7 +2,7 @@
 title: 'java boolean的|=或&=或^=写法'
 author: "-"
 date: 2016-03-25T03:59:49+00:00
-url: /?p=8828
+url: java-boolean的或或写法
 categories:
   - Inbox
 tags:

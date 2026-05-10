@@ -2,7 +2,7 @@
 title: Linux单机TCP并发连接
 author: "-"
 date: 2015-08-31T07:14:35+00:00
-url: /?p=8204
+url: linux单机tcp并发连接
 categories:
   - Inbox
 tags:

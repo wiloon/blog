@@ -2,7 +2,7 @@
 title: linux shell 进程监控
 author: "-"
 date: 2012-07-05T05:08:16+00:00
-url: /?p=3740
+url: linux-shell-进程监控
 categories:
   - Linux
 tags:

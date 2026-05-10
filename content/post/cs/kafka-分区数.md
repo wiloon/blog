@@ -2,7 +2,7 @@
 title: kafka 分区数
 author: "-"
 date: 2019-11-27T08:06:03+00:00
-url: /?p=15152
+url: kafka-分区数
 categories:
   - Database
 tags:

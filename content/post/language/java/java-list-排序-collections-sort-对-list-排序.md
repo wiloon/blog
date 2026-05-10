@@ -2,7 +2,7 @@
 title: java List 排序 Collections.sort() 对 List 排序
 author: "-"
 date: 2012-09-16T07:34:25+00:00
-url: /?p=4047
+url: java-list-排序-collections-sort-对-list-排序
 categories:
   - Java
 tags:

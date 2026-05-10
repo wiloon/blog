@@ -2,7 +2,7 @@
 title: ld.so.conf
 author: "-"
 date: 2016-12-24T10:27:20+00:00
-url: /?p=9613
+url: ld-so-conf
 categories:
   - Inbox
 tags:

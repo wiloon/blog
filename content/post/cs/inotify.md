@@ -2,7 +2,7 @@
 title: Inotify
 author: "-"
 date: 2025-11-19T11:00:00+08:00
-url: /?p=9619
+url: inotify
 categories:
   - Linux
 tags:

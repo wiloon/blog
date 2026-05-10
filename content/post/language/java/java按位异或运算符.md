@@ -2,7 +2,7 @@
 title: Java按位异或运算符
 author: "-"
 date: 2011-12-28T05:48:39+00:00
-url: /?p=2045
+url: java按位异或运算符
 categories:
   - Java
 tags:

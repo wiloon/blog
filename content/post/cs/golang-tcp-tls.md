@@ -2,7 +2,7 @@
 title: golang tcp tls
 author: "-"
 date: 2019-01-05T04:39:54+00:00
-url: /?p=13322
+url: golang-tcp-tls
 categories:
   - Inbox
 tags:

@@ -2,7 +2,7 @@
 title: 'Ext4 & btrfs'
 author: "-"
 date: 2011-12-03T08:33:54+00:00
-url: /?p=1689
+url: ext4-btrfs
 categories:
   - Linux
 tags:

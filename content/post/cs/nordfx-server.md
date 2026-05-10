@@ -2,7 +2,7 @@
 title: nordfx server
 author: "-"
 date: 2016-02-02T04:43:00+00:00
-url: /?p=8728
+url: nordfx-server
 categories:
   - Inbox
 tags:

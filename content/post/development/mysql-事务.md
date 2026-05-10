@@ -2,7 +2,7 @@
 title: DB 事务
 author: "-"
 date: 2014-05-21T03:09:21+00:00
-url: /?p=6645
+url: mysql-事务
 categories:
   - Inbox
 tags:

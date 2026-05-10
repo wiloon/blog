@@ -2,7 +2,7 @@
 title: update join, delete join
 author: "-"
 date: 2013-07-22T04:25:34+00:00
-url: /?p=5688
+url: update-join
 categories:
   - Database
 tags:

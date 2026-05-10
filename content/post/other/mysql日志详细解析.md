@@ -2,7 +2,7 @@
 title: MySQL 日志 log
 author: "-"
 date: 2014-05-07T08:22:15+00:00
-url: /?p=6599
+url: mysql日志详细解析
 categories:
   - Inbox
 tags:

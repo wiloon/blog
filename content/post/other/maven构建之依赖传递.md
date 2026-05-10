@@ -2,7 +2,7 @@
 title: Maven构建之依赖传递
 author: "-"
 date: 2014-05-28T02:30:40+00:00
-url: /?p=6672
+url: maven构建之依赖传递
 categories:
   - Inbox
 tags:

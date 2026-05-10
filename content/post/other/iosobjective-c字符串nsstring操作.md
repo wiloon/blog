@@ -2,7 +2,7 @@
 title: jvm Warmup
 author: "-"
 date: 2014-12-03T06:18:35+00:00
-url: /?p=7092
+url: iosobjective-c字符串nsstring操作
 categories:
   - Inbox
 tags:

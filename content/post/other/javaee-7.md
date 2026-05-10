@@ -2,7 +2,7 @@
 title: JavaEE 7
 author: "-"
 date: 2014-01-01T13:42:37+00:00
-url: /?p=6092
+url: javaee-7
 categories:
   - Inbox
 tags:

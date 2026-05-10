@@ -2,7 +2,7 @@
 title: MySQL Innodb 锁
 author: "-"
 date: 2015-12-15T07:38:27+00:00
-url: /?p=8558
+url: mysql-锁
 categories:
   - Inbox
 tags:

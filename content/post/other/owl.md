@@ -2,7 +2,7 @@
 title: OWL
 author: "-"
 date: 2011-09-22T06:17:11+00:00
-url: /?p=837
+url: owl
 categories:
   - Inbox
 tags:

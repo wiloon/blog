@@ -2,7 +2,7 @@
 title: kvm 磁盘
 author: "-"
 date: 2011-12-04T01:13:03+00:00
-url: /?p=1739
+url: kvm-磁盘
 categories:
   - Linux
   - Desktop

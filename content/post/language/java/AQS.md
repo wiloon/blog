@@ -2,7 +2,7 @@
 title: AbstractQueuedSynchronizer， AQS
 author: "-"
 date: 2013-05-15T07:00:21+00:00
-url: /?p=5472
+url: AQS
 categories:
   - Java
 tags:

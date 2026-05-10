@@ -2,7 +2,7 @@
 title: netty http client
 author: "-"
 date: 2015-12-17T01:29:08+00:00
-url: /?p=8569
+url: netty-http-client
 categories:
   - Inbox
 tags:

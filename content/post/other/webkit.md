@@ -2,7 +2,7 @@
 title: webkit
 author: "-"
 date: 2012-10-09T05:48:35+00:00
-url: /?p=4394
+url: webkit
 categories:
   - Web
 tags:

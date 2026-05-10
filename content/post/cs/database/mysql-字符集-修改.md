@@ -2,7 +2,7 @@
 title: 修改 MySQL 字符集
 author: "-"
 date: 2011-04-16T12:35:48+00:00
-url: /?p=69
+url: mysql-字符集-修改
 categories:
   - Database
 tags:

@@ -2,7 +2,7 @@
 title: Brotli
 author: "-"
 date: 2019-05-15T01:03:38+00:00
-url: /?p=14340
+url: brotli
 categories:
   - Inbox
 tags:

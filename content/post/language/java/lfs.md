@@ -2,7 +2,7 @@
 title: LFS
 author: "-"
 date: 2011-11-26T06:53:40+00:00
-url: /?p=1611
+url: lfs
 categories:
   - Linux
 tags:

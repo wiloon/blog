@@ -2,7 +2,7 @@
 title: Java中的instanceof关键字
 author: "-"
 date: 2012-10-31T06:26:36+00:00
-url: /?p=4585
+url: java中的instanceof关键字
 categories:
   - CS
   - Java

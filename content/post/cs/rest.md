@@ -2,7 +2,7 @@
 title: REST
 author: "-"
 date: 2018-01-22T04:10:29+00:00
-url: /?p=11777
+url: rest
 categories:
   - Inbox
 tags:

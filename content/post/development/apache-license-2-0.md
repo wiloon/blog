@@ -2,7 +2,7 @@
 title: Apache License 2.0
 author: "-"
 date: 2011-09-22T09:31:24+00:00
-url: /?p=860
+url: apache-license-2-0
 categories:
   - CS
 tags:

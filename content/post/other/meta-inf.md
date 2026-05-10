@@ -2,7 +2,7 @@
 title: META-INF, MANIFEST.MF
 author: "-"
 date: 2014-01-01T14:36:05+00:00
-url: /?p=6102
+url: meta-inf
 categories:
   - Java
 tags:

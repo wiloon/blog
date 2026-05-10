@@ -2,7 +2,7 @@
 title: go file
 author: "-"
 date: 2017-10-31T03:11:46+00:00
-url: /?p=11343
+url: go-file
 categories:
   - Inbox
 tags:

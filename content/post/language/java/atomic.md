@@ -2,7 +2,7 @@
 title: 原子操作
 author: "-"
 date: 2014-08-20T00:42:35+00:00
-url: /?p=6949
+url: atomic
 categories:
   - Inbox
 tags:

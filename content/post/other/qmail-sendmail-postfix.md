@@ -2,7 +2,7 @@
 title: qmail sendmail postfix
 author: "-"
 date: 2013-07-14T09:14:16+00:00
-url: /?p=5657
+url: qmail-sendmail-postfix
 categories:
   - Inbox
 tags:

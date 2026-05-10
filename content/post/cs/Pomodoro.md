@@ -2,7 +2,7 @@
 title: '番茄工作法，  番茄钟， Pomodoro'
 author: "-"
 date: 2020-02-24T04:09:58+00:00
-url: /?p=15628
+url: Pomodoro
 categories:
   - Inbox
 tags:

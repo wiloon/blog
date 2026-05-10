@@ -2,7 +2,7 @@
 title: shiro 标签
 author: "-"
 date: 2013-01-20T03:01:22+00:00
-url: /?p=5046
+url: shiro-标签
 categories:
   - Java
   - Web

@@ -2,7 +2,7 @@
 title: ingress
 author: "-"
 date: 2019-08-19T04:39:59+00:00
-url: /?p=14810
+url: ingress
 categories:
   - Inbox
 tags:

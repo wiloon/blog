@@ -2,7 +2,7 @@
 title: 怎样用Javascript定义一个类
 author: "-"
 date: 2014-02-25T05:40:45+00:00
-url: /?p=6282
+url: 怎样用javascript定义一个类
 categories:
   - JavaScript
 tags:

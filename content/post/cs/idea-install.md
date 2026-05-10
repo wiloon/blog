@@ -2,7 +2,7 @@
 title: idea install
 author: "-"
 date: 2019-02-20T05:35:34+00:00
-url: /?p=13646
+url: idea-install
 categories:
   - Inbox
 tags:

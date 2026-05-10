@@ -2,7 +2,7 @@
 title: Javascript异步编程
 author: "-"
 date: 2015-02-11T01:41:28+00:00
-url: /?p=7346
+url: javascript异步编程
 categories:
   - JavaScript
 tags:

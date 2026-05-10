@@ -2,7 +2,7 @@
 title: tcp 状态 LISTENING、ESTABLISHED、TIME_WAIT,CLOSE_WAIT
 author: "-"
 date: 2015-04-11T02:31:51+00:00
-url: /?p=7455
+url: 端口状态-listening、established、time_waitclose_wait
 categories:
   - Network
 tags:

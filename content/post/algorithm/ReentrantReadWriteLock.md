@@ -2,7 +2,7 @@
 title: ReentrantReadWriteLock
 author: "-"
 date: 2013-07-13T07:48:50+00:00
-url: /?p=5650
+url: ReentrantReadWriteLock
 categories:
   - Java
 tags:

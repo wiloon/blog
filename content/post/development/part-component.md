@@ -2,7 +2,7 @@
 title: part component
 author: "-"
 date: 2015-03-05T02:38:25+00:00
-url: /?p=7384
+url: part-component
 categories:
   - Inbox
 tags:

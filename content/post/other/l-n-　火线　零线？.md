@@ -2,7 +2,7 @@
 title: L N 火线零线？
 author: "-"
 date: 2015-05-01T06:39:38+00:00
-url: /?p=7541
+url: l-n-　火线　零线？
 categories:
   - Inbox
 tags:

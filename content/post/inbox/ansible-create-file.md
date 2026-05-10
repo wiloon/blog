@@ -2,7 +2,7 @@
 title: ansible create file
 author: "-"
 date: 2018-01-25T04:42:29+00:00
-url: /?p=11786
+url: ansible-create-file
 categories:
   - Inbox
 tags:

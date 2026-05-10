@@ -2,7 +2,7 @@
 title: linux下休眠/待机命令
 author: "-"
 date: 2014-03-02T05:05:01+00:00
-url: /?p=6302
+url: linux下休眠待机命令
 categories:
   - Inbox
 tags:

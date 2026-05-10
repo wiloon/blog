@@ -2,7 +2,7 @@
 title: Java assert
 author: "-"
 date: 2014-11-26T06:40:20+00:00
-url: /?p=7038
+url: uialertcontroller-example-in-ios
 categories:
   - Inbox
 tags:

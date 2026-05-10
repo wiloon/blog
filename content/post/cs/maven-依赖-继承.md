@@ -2,7 +2,7 @@
 title: maven 依赖 继承
 author: "-"
 date: 2016-07-05T05:33:04+00:00
-url: /?p=9115
+url: maven-依赖-继承
 categories:
   - Inbox
 tags:

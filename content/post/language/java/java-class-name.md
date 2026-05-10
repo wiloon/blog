@@ -2,7 +2,7 @@
 title: Java 取当前类名, 方法名
 author: "-"
 date: 2013-05-13T04:54:06+00:00
-url: /?p=5462
+url: java-class-name
 categories:
   - Inbox
 tags:

@@ -2,7 +2,7 @@
 title: sftp
 author: "-"
 date: 2020-02-11T01:26:55+00:00
-url: /?p=15509
+url: sftp
 categories:
   - Inbox
 tags:

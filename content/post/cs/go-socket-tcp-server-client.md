@@ -2,7 +2,7 @@
 title: golang tcp socket
 author: "-"
 date: 2016-06-29T00:16:05+00:00
-url: /?p=9088
+url: go-socket-tcp-server-client
 categories:
   - Inbox
 tags:

@@ -2,7 +2,7 @@
 title: kvm 参数
 author: "-"
 date: 2011-12-03T10:09:10+00:00
-url: /?p=1711
+url: kvm-参数
 categories:
   - Linux
   - Desktop

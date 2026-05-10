@@ -2,7 +2,7 @@
 title: 圈复杂度(Cyclomatic Complexity)
 author: "-"
 date: 2019-09-09T08:26:19+00:00
-url: /?p=14915
+url: cyclomatic-complexity
 categories:
   - Inbox
 tags:

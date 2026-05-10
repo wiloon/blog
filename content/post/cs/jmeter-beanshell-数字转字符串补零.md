@@ -2,7 +2,7 @@
 title: jmeter beanshell 数字转字符串补零
 author: "-"
 date: 2015-10-23T07:02:28+00:00
-url: /?p=8420
+url: jmeter-beanshell-数字转字符串补零
 categories:
   - Inbox
 tags:

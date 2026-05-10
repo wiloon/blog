@@ -2,7 +2,7 @@
 title: 'How to,List Current Keyboard Shortcuts'
 author: "-"
 date: 2013-08-08T08:28:29+00:00
-url: /?p=5764
+url: how-to-list-current-keyboard-shortcuts
 categories:
   - Inbox
 tags:

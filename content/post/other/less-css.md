@@ -2,7 +2,7 @@
 title: LESS CSS
 author: "-"
 date: 2012-11-24T11:17:02+00:00
-url: /?p=4756
+url: less-css
 categories:
   - Web
 tags:

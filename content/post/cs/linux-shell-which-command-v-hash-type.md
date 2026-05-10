@@ -2,7 +2,7 @@
 title: linux shell 查找文件位置，which, command -v, hash, type
 author: "-"
 date: 2019-06-21T00:18:13+00:00
-url: /?p=14537
+url: linux-shell-which-command-v-hash-type
 categories:
   - Linux
 tags:

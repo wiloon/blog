@@ -2,7 +2,7 @@
 title: linux ping 时间戳
 author: "-"
 date: 2020-03-10T05:39:11+00:00
-url: /?p=15720
+url: linux-ping-时间戳
 categories:
   - Inbox
 tags:

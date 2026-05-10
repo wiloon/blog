@@ -2,7 +2,7 @@
 title: 虚拟化技术 KVM Xen 对比
 author: "-"
 date: 2011-11-26T08:03:25+00:00
-url: /?p=1627
+url: 虚拟化技术kvm-xen对比
 categories:
   - Linux
   - Desktop

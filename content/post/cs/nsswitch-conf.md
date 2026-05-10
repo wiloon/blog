@@ -2,7 +2,7 @@
 title: nsswitch.conf
 author: "-"
 date: 2016-12-24T10:31:31+00:00
-url: /?p=9615
+url: nsswitch-conf
 categories:
   - Inbox
 tags:

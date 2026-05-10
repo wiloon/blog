@@ -2,7 +2,7 @@
 title: js正则标志/g /i /m的用法
 author: "-"
 date: 2014-03-10T10:13:48+00:00
-url: /?p=6394
+url: js正则标志g-i-m的用法
 categories:
   - JavaScript
 tags:

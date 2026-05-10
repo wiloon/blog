@@ -2,7 +2,7 @@
 title: 死锁 (Deadlocks) 
 author: lcf
 date: 2012-10-24T03:15:14+00:00
-url: /?p=4522
+url: 死锁（deadlocks）
 categories:
   - Database
   - Web

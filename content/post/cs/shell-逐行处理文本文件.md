@@ -2,7 +2,7 @@
 title: Shell 逐行处理文本文件
 author: "-"
 date: 2018-08-28T10:58:20+00:00
-url: /?p=12599
+url: shell-逐行处理文本文件
 categories:
   - Linux
 tags:

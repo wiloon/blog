@@ -2,7 +2,7 @@
 title: AGPS
 author: "-"
 date: 2016-10-18T08:39:09+00:00
-url: /?p=9310
+url: agps
 categories:
   - Inbox
 tags:

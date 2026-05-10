@@ -2,7 +2,7 @@
 title: MySQL 聚集函数
 author: "-"
 date: 2016-01-28T05:30:38+00:00
-url: /?p=8718
+url: mysql-聚集函数
 categories:
   - Inbox
 tags:

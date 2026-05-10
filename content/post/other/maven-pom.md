@@ -2,7 +2,7 @@
 title: maven pom
 author: "-"
 date: 2014-04-30T07:27:00+00:00
-url: /?p=6575
+url: maven-pom
 categories:
   - inbox
 tags:

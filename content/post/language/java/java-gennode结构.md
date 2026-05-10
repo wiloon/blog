@@ -2,7 +2,7 @@
 title: Java GenNode结构
 author: lcf
 date: 2012-09-24T08:48:33+00:00
-url: /?p=4229
+url: java-gennode结构
 categories:
   - Inbox
 tags:

@@ -2,7 +2,7 @@
 title: 数字单位, 十亿，百亿，兆
 author: "-"
 date: 2011-11-09T06:31:28+00:00
-url: /?p=1475
+url: unit
 categories:
   - Math
 tags:

@@ -2,7 +2,7 @@
 title: redis 主从复制
 author: "-"
 date: 2017-01-06T05:03:25+00:00
-url: /?p=9639
+url: redis-主从复制
 categories:
   - Inbox
 tags:

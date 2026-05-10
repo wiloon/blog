@@ -2,7 +2,7 @@
 title: Mybatis多参数查询映射
 author: "-"
 date: 2013-01-24T14:18:12+00:00
-url: /?p=5074
+url: mybatis多参数查询映射
 categories:
   - Java
 tags:

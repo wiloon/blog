@@ -2,7 +2,7 @@
 title: maven dependency version range
 author: "-"
 date: 2017-02-08T08:30:48+00:00
-url: /?p=9758
+url: maven-dependency-version-range
 categories:
   - Inbox
 tags:

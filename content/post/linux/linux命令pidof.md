@@ -2,7 +2,7 @@
 title: Linux命令pidof
 author: "-"
 date: 2012-04-06T14:55:41+00:00
-url: /?p=2813
+url: linux命令pidof
 categories:
   - Linux
 tags:

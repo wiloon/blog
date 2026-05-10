@@ -2,7 +2,7 @@
 title: jcl-over-slf4j
 author: "-"
 date: 2015-12-09T10:21:48+00:00
-url: /?p=8549
+url: jcl-over-slf4j
 categories:
   - Inbox
 tags:

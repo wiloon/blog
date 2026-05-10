@@ -2,7 +2,7 @@
 title: Linux网络协议分析工具tcpdump和tshark用法
 author: "-"
 date: 2012-06-25T14:46:16+00:00
-url: /?p=3671
+url: tcpdump-tshark
 categories:
   - Linux
   - Network

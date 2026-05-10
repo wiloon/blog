@@ -2,7 +2,7 @@
 title: CSS布局 块级元素及内联元素
 author: "-"
 date: 2014-01-06T05:39:45+00:00
-url: /?p=6154
+url: css布局-块级元素及内联元素
 categories:
   - Inbox
 tags:

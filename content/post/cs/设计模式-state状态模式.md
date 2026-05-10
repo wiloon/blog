@@ -2,7 +2,7 @@
 title: 设计模式 – State/状态模式
 author: "-"
 date: 2017-01-23T06:47:46+00:00
-url: /?p=9678
+url: 设计模式-state状态模式
 categories:
   - Pattern
 tags:

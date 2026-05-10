@@ -2,7 +2,7 @@
 title: java -cp
 author: "-"
 date: 2012-04-17T13:24:22+00:00
-url: /?p=2951
+url: java-cp
 categories:
   - Java
 tags:

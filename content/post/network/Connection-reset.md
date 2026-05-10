@@ -2,7 +2,7 @@
 title: Connection reset
 author: "-"
 date: 2011-09-14T06:22:13+00:00
-url: /?p=791
+url: Connection-reset
 categories:
   - Web
 tags:

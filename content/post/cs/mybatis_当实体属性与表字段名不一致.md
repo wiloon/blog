@@ -2,7 +2,7 @@
 title: MyBatis_当实体属性与表字段名不一致
 author: "-"
 date: 2014-05-07T09:01:55+00:00
-url: /?p=6601
+url: mybatis_当实体属性与表字段名不一致
 categories:
   - Inbox
 tags:

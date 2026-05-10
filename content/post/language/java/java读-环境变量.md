@@ -2,7 +2,7 @@
 title: Java读 环境变量
 author: "-"
 date: 2015-08-14T07:37:39+00:00
-url: /?p=8122
+url: java读-环境变量
 tags:
   - Java
 categories:

@@ -2,7 +2,7 @@
 title: linux lost+found 目录
 author: "-"
 date: 2011-12-03T08:56:56+00:00
-url: /?p=1696
+url: lostfound
 categories:
   - Linux
 tags:

@@ -2,7 +2,7 @@
 title: mbr, gpt
 author: "-"
 date: 2018-05-10T06:15:35+00:00
-url: /?p=12223
+url: parted-gdisk-fdisk
 categories:
   - Inbox
 tags:

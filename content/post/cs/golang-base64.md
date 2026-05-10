@@ -2,7 +2,7 @@
 title: golang base64
 author: "-"
 date: 2019-03-21T03:15:11+00:00
-url: /?p=13893
+url: golang-base64
 categories:
   - Inbox
 tags:

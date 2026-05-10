@@ -2,7 +2,7 @@
 title: java线程安全
 author: "-"
 date: 2012-09-21T02:43:48+00:00
-url: /?p=4139
+url: java线程安全总结
 categories:
   - Java
 tags:

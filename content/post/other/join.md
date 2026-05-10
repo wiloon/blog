@@ -2,7 +2,7 @@
 title: 左外连接，右外连接，全连接，内连接
 author: "-"
 date: 2013-03-20T14:39:45+00:00
-url: /?p=5326
+url: join
 categories:
   - Database
 tags:

@@ -2,7 +2,7 @@
 title: JPA 实体生命周期
 author: "-"
 date: 2014-05-28T08:38:35+00:00
-url: /?p=6674
+url: jpa-实体生命周期
 categories:
   - Inbox
 tags:

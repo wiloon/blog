@@ -2,7 +2,7 @@
 title: archlinux kvm qemu gentoo
 author: "-"
 date: 2015-12-07T14:37:48+00:00
-url: /?p=8534
+url: archlinux-kvm-qemu
 categories:
   - Inbox
 tags:

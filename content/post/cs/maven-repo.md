@@ -2,7 +2,7 @@
 title: maven repo
 author: "-"
 date: 2016-11-06T04:07:09+00:00
-url: /?p=9364
+url: maven-repo
 categories:
   - Inbox
 tags:

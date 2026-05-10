@@ -2,7 +2,7 @@
 title: raspberry GPIO 水泵
 author: "-"
 date: 2019-07-03T14:13:58+00:00
-url: /?p=14624
+url: raspberry-gpio-水泵
 categories:
   - Hardware
 tags:

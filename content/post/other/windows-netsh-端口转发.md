@@ -2,7 +2,7 @@
 title: windows netsh 端口转发
 author: "-"
 date: 2015-06-13T04:55:12+00:00
-url: /?p=7813
+url: windows-netsh-端口转发
 categories:
   - Inbox
 tags:

@@ -2,7 +2,7 @@
 title: jodatime date
 author: "-"
 date: 2012-09-16T11:01:30+00:00
-url: /?p=4056
+url: jodatime-date
 categories:
   - Inbox
 tags:

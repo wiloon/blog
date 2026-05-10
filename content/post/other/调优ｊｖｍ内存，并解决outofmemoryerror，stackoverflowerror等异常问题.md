@@ -2,7 +2,7 @@
 title: OutOfMemoryError, StackOverflowError
 author: "-"
 date: 2014-04-09T06:35:46+00:00
-url: /?p=6499
+url: 调优ｊｖｍ内存，并解决outofmemoryerror，stackoverflowerror等异常问题
 categories:
   - Inbox
 tags:

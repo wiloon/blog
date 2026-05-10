@@ -2,7 +2,7 @@
 title: postgresql json jsonb
 author: "-"
 date: 2012-09-22T06:56:02+00:00
-url: /?p=4173
+url: jsp内置对象
 categories:
   - Java
 tags:

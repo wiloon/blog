@@ -2,7 +2,7 @@
 title: SASS
 author: "-"
 date: 2012-11-24T11:10:25+00:00
-url: /?p=4753
+url: sass
 categories:
   - Web
 tags:

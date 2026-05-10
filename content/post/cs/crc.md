@@ -2,7 +2,7 @@
 title: 循环冗余校验 (CRC) 
 author: "-"
 date: 2019-03-21T04:04:34+00:00
-url: /?p=13895
+url: crc
 categories:
   - Algorithm
 tags:

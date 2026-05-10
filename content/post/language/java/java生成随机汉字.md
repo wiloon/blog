@@ -2,7 +2,7 @@
 title: JAVA生成随机汉字
 author: "-"
 date: 2013-11-17T09:53:42+00:00
-url: /?p=5981
+url: java生成随机汉字
 categories:
   - Inbox
 tags:

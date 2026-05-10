@@ -2,7 +2,7 @@
 title: Calendar compareTo
 author: "-"
 date: 2016-04-07T10:47:30+00:00
-url: /?p=8859
+url: calendar-compareto
 categories:
   - Inbox
 tags:

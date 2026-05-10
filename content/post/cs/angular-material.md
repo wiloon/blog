@@ -2,7 +2,7 @@
 title: angular material
 author: "-"
 date: 2019-06-08T08:38:12+00:00
-url: /?p=14477
+url: angular-material
 categories:
   - Inbox
 tags:

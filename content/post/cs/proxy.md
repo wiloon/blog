@@ -2,7 +2,7 @@
 title: 正向代理, Forward Proxy, 反向代理, reverse proxy
 author: "-"
 date: 2017-10-26T05:17:39+00:00
-url: /?p=11305
+url: proxy
 categories:
   - Inbox
 tags:

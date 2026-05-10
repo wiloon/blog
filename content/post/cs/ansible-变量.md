@@ -2,7 +2,7 @@
 title: ansible 变量
 author: "-"
 date: 2019-10-21T09:04:49+00:00
-url: /?p=15036
+url: ansible-变量
 categories:
   - Inbox
 tags:

@@ -2,7 +2,7 @@
 title: JUnit Assert
 author: "-"
 date: 2016-03-03T03:17:23+00:00
-url: /?p=8769
+url: junit-assert
 categories:
   - Inbox
 tags:

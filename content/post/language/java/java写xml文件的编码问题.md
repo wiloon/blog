@@ -2,7 +2,7 @@
 title: Java写xml文件的编码问题
 author: "-"
 date: 2014-05-26T09:15:02+00:00
-url: /?p=6658
+url: java写xml文件的编码问题
 categories:
   - Inbox
 tags:

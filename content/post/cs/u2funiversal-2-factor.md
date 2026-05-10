@@ -2,7 +2,7 @@
 title: U2F(Universal 2 Factor)
 author: "-"
 date: 2018-06-24T01:56:48+00:00
-url: /?p=12353
+url: u2funiversal-2-factor
 categories:
   - Inbox
 tags:

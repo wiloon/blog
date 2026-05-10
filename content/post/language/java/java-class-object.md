@@ -2,7 +2,7 @@
 title: java.lang.Class类
 author: "-"
 date: 2012-01-02T09:19:16+00:00
-url: /?p=734
+url: java-class-object
 categories:
   - Java
 tags:

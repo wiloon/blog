@@ -2,7 +2,7 @@
 title: java main函数 执行spring 代码
 author: "-"
 date: 2015-09-22T07:42:57+00:00
-url: /?p=8327
+url: java-main函数-执行spring-代码
 categories:
   - Inbox
 tags:

@@ -2,7 +2,7 @@
 title: java transient
 author: "-"
 date: 2015-06-28T08:37:35+00:00
-url: /?p=7964
+url: java-transient
 categories:
   - Java
 tags:

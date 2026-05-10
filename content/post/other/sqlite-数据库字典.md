@@ -2,7 +2,7 @@
 title: sqlite 数据库字典
 author: "-"
 date: 2015-03-06T03:19:15+00:00
-url: /?p=7402
+url: sqlite-数据库字典
 categories:
   - Inbox
 tags:

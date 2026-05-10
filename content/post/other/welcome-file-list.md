@@ -2,7 +2,7 @@
 title: welcome-file-list
 author: "-"
 date: 2012-06-10T04:51:55+00:00
-url: /?p=3479
+url: welcome-file-list
 categories:
   - Java
   - Web

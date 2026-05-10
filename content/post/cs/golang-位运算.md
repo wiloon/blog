@@ -2,7 +2,7 @@
 title: golang 位运算
 author: "-"
 date: 2019-11-06T03:02:17+00:00
-url: /?p=15113
+url: golang-位运算
 categories:
   - Inbox
 tags:

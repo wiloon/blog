@@ -2,7 +2,7 @@
 title: Java反射机制
 author: "-"
 date: 2012-01-02T09:21:07+00:00
-url: /?p=728
+url: java反射机制
 categories:
   - Java
 tags:

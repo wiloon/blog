@@ -2,7 +2,7 @@
 title: DCEVM, HotSwapAgent
 author: "-"
 date: 2019-12-17T04:29:09+00:00
-url: /?p=15208
+url: dcevm-hotswapagent
 categories:
   - Inbox
 tags:

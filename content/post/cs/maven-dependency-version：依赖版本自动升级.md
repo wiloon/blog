@@ -2,7 +2,7 @@
 title: Maven Dependency Version 依赖版本自动升级
 author: "-"
 date: 2020-03-03T02:44:07+00:00
-url: /?p=15677
+url: maven-dependency-version：依赖版本自动升级
 categories:
   - Inbox
 tags:

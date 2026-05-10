@@ -2,7 +2,7 @@
 title: Jode
 author: "-"
 date: 2014-04-11T06:48:25+00:00
-url: /?p=6521
+url: jode
 categories:
   - Inbox
 tags:

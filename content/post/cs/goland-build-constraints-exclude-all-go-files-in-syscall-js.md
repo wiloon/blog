@@ -2,7 +2,7 @@
 title: goland build constraints exclude all go files in syscall/js
 author: "-"
 date: 2019-05-13T12:27:04+00:00
-url: /?p=14336
+url: goland-build-constraints-exclude-all-go-files-in-syscall-js
 categories:
   - Inbox
 tags:

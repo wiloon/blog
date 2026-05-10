@@ -2,7 +2,7 @@
 title: 排队自旋锁/Ticket Lock
 author: "-"
 date: 2013-06-03T02:13:21+00:00
-url: /?p=5496
+url: Ticket-Lock
 categories:
   - Inbox
 tags:

@@ -2,7 +2,7 @@
 title: HTML template, 模板
 author: "-"
 date: 2012-02-19T09:01:11.000+00:00
-url: "/?p=2356"
+url: html-template
 categories:
 - Web
 tags:

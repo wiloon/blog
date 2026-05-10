@@ -2,7 +2,7 @@
 title: 基于REST的Web服务基础
 author: lcf
 date: 2012-11-08T07:07:17+00:00
-url: /?p=4640
+url: 基于rest的web服务：基础
 categories:
   - Inbox
 tags:

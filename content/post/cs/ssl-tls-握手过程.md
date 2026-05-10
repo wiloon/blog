@@ -2,7 +2,7 @@
 title: SSL/TLS 握手过程
 author: "-"
 date: 2019-01-06T10:06:11+00:00
-url: /?p=13336
+url: ssl-tls-握手过程
 categories:
   - Inbox
 tags:

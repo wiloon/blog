@@ -2,7 +2,7 @@
 title: /dev/shm
 author: "-"
 date: 2017-05-31T05:33:43+00:00
-url: /?p=10406
+url: devshm
 categories:
   - inbox
 tags:

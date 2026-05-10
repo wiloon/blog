@@ -2,7 +2,7 @@
 title: java 9
 author: "-"
 date: 2016-01-05T01:13:07+00:00
-url: /?p=8623
+url: java-9
 categories:
   - Inbox
 tags:

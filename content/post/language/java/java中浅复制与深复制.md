@@ -2,7 +2,7 @@
 title: JAVA 浅复制与深复制/深克隆/深拷贝
 author: "-"
 date: 2012-10-09T09:09:41+00:00
-url: /?p=4410
+url: java中浅复制与深复制
 categories:
   - Java
 tags:

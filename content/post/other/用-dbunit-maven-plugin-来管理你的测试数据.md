@@ -2,7 +2,7 @@
 title: 用 dbunit-maven-plugin 来管理你的测试数据
 author: "-"
 date: 2012-11-30T06:19:44+00:00
-url: /?p=4807
+url: 用-dbunit-maven-plugin-来管理你的测试数据
 categories:
   - Java
 tags:

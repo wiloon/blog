@@ -2,7 +2,7 @@
 title: ios iphone basic
 author: "-"
 date: 2020-01-11T15:56:50+00:00
-url: /?p=15334
+url: ios
 categories:
   - Inbox
 tags:

@@ -2,7 +2,7 @@
 title: 'linux  查看用户的UID和GID'
 author: "-"
 date: 2019-07-07T10:08:04+00:00
-url: /?p=14645
+url: linux-查看用户的uid和gid
 categories:
   - Inbox
 tags:

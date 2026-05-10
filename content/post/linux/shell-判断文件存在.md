@@ -2,7 +2,7 @@
 title: shell 判断文件存在
 author: "-"
 date: 2011-05-01T07:10:06+00:00
-url: /?p=164
+url: shell-判断文件存在
 categories:
   - Linux
 tags:

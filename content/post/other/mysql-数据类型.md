@@ -2,7 +2,7 @@
 title: MySQL 数据类型
 author: "-"
 date: 2011-12-26T04:42:58+00:00
-url: /?p=2001
+url: mysql-数据类型
 categories:
   - Database
 tags:

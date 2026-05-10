@@ -2,7 +2,7 @@
 title: cron, anacron
 author: "-"
 date: 2017-09-02T01:18:12+00:00
-url: /?p=11094
+url: cron-anacron
 categories:
   - Linux
 tags:

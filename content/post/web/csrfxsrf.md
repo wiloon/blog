@@ -2,7 +2,7 @@
 title: CSRF/XSRF
 author: "-"
 date: 2012-07-15T09:16:25+00:00
-url: /?p=3857
+url: csrfxsrf
 categories:
   - CS
 tags:

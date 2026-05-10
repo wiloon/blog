@@ -2,7 +2,7 @@
 title: MySQL 里的IFNULL、NULLIF和ISNULL用法
 author: "-"
 date: 2014-01-16T05:03:08+00:00
-url: /?p=6219
+url: mysql-里的ifnull、nullif和isnull用法
 categories:
   - Inbox
 tags:

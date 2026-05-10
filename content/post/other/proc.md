@@ -2,7 +2,7 @@
 title: 存储过程, proc
 author: "-"
 date: 2013-04-17T06:01:25+00:00
-url: /?p=5402
+url: proc
 categories:
   - Database
 tags:

@@ -2,7 +2,7 @@
 title: JPA的persistence.xml文件
 author: "-"
 date: 2014-05-29T05:47:15+00:00
-url: /?p=6688
+url: jpa的persistence-xml文件
 categories:
   - Inbox
 tags:

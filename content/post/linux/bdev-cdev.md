@@ -2,7 +2,7 @@
 title: BDEV, CDEV
 author: "-"
 date: 2014-12-24T03:52:50+00:00
-url: /?p=7129
+url: bdev-cdev
 categories:
   - Inbox
 tags:

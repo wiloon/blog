@@ -2,7 +2,7 @@
 title: 'MySQL 索引  btree hash rtree'
 author: "-"
 date: 2016-12-03T12:46:15+00:00
-url: /?p=9451
+url: mysql-索引-btree-hash-rtree
 categories:
   - Inbox
 tags:

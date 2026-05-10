@@ -2,7 +2,7 @@
 title: 重排序 Reorder
 author: "-"
 date: 2017-03-26T05:25:39+00:00
-url: /?p=9961
+url: reorder
 categories:
   - Inbox
 tags:

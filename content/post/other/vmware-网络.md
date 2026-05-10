@@ -2,7 +2,7 @@
 title: VMWare 网络
 author: "-"
 date: 2011-12-04T07:27:50+00:00
-url: /?p=1782
+url: vmware-网络
 categories:
   - Network
 tags:

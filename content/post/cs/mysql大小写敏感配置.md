@@ -2,7 +2,7 @@
 title: MySQL大小写敏感配置, COLLATE
 author: "-"
 date: 2019-07-02T05:13:32+00:00
-url: /?p=14600
+url: mysql大小写敏感配置
 categories:
   - Inbox
 tags:

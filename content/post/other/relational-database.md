@@ -2,7 +2,7 @@
 title: 关系型数据库 VS 非关系型数据库
 author: "-"
 date: 2012-02-21T13:42:10+00:00
-url: /?p=2384
+url: relational-database
 categories:
   - Database
 tags:

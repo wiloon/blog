@@ -2,7 +2,7 @@
 title: javascript 判断浏览器类型
 author: "-"
 date: 2013-01-14T04:44:46+00:00
-url: /?p=5008
+url: javascript-判断浏览器类型
 categories:
   - JavaScript
 tags:

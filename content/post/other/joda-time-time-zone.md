@@ -2,7 +2,7 @@
 title: joda time, time zone
 author: "-"
 date: 2012-06-13T05:09:31+00:00
-url: /?p=3523
+url: joda-time-time-zone
 categories:
   - Java
 tags:

@@ -2,7 +2,7 @@
 title: chrome sdch
 author: "-"
 date: 2015-09-06T02:24:22+00:00
-url: /?p=8219
+url: chrome-sdch
 categories:
   - chrome
 tags:

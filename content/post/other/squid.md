@@ -2,7 +2,7 @@
 title: Squid
 author: "-"
 date: 2012-01-18T07:37:43+00:00
-url: /?p=2153
+url: squid
 categories:
   - Network
 tags:

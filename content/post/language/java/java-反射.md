@@ -2,7 +2,7 @@
 title: java 反射, reflect
 author: "-"
 date: 2011-09-09T03:34:28+00:00
-url: /?p=736
+url: java-反射
 categories:
   - Java
 tags:

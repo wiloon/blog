@@ -2,7 +2,7 @@
 title: JPA
 author: "-"
 date: 2014-05-22T03:12:14+00:00
-url: /?p=6649
+url: jpa
 categories:
   - Inbox
 tags:

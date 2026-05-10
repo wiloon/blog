@@ -2,7 +2,7 @@
 title: raspberry pi disable ipv6
 author: "-"
 date: 2018-12-24T15:16:49+00:00
-url: /?p=13205
+url: raspberry-pi-disable-ipv6
 categories:
   - Hardware
 tags:

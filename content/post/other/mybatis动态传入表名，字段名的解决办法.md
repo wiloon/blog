@@ -2,7 +2,7 @@
 title: MyBatis动态传入表名，字段名的解决办法
 author: "-"
 date: 2013-01-24T06:22:39+00:00
-url: /?p=5069
+url: mybatis动态传入表名，字段名的解决办法
 categories:
   - Database
   - Java

@@ -2,7 +2,7 @@
 title: '设计模式, Design Pattern, Front Controller Pattern'
 author: "-"
 date: 2017-02-12T11:45:56+00:00
-url: /?p=9800
+url: front-controller-pattern
 categories:
   - Pattern
 tags:

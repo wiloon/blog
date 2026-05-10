@@ -2,7 +2,7 @@
 title: debian 网络配置
 author: "-"
 date: 2011-12-03T14:06:17+00:00
-url: /?p=1718
+url: debian-网络配置
 categories:
   - Linux
   - Network

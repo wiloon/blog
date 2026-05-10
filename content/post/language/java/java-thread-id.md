@@ -2,7 +2,7 @@
 title: java thread id, name
 author: "-"
 date: 2012-06-22T11:27:10+00:00
-url: /?p=3615
+url: java-thread-id
 categories:
   - Java
 tags:

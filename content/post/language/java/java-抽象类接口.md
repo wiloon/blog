@@ -2,7 +2,7 @@
 title: Java 抽象类/接口
 author: "-"
 date: 2012-06-03T02:35:17+00:00
-url: /?p=3336
+url: java-抽象类接口
 categories:
   - Java
 tags:

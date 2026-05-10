@@ -2,7 +2,7 @@
 title: linux capability, setcap/getcap
 author: "-"
 date: 2020-01-18T16:17:30+00:00
-url: /?p=15389
+url: linux-setcap-getcap
 categories:
   - Inbox
 tags:

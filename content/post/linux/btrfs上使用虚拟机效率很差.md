@@ -2,7 +2,7 @@
 title: btrfs上使用虚拟机效率很差
 author: "-"
 date: 2011-12-03T06:42:54+00:00
-url: /?p=1682
+url: btrfs上使用虚拟机效率很差
 categories:
   - Linux
   - Desktop

@@ -2,7 +2,7 @@
 title: logstash
 author: "-"
 date: 2018-01-18T09:05:15+00:00
-url: /?p=11755
+url: logstash
 categories:
   - Inbox
 tags:

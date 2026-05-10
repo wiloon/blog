@@ -2,7 +2,7 @@
 title: Web 服务编程,REST 与 SOAP的比较
 author: lcf
 date: 2012-11-07T06:11:12+00:00
-url: /?p=4634
+url: rest-soap
 categories:
   - Inbox
 tags:

@@ -2,7 +2,7 @@
 title: Mahonia
 author: "-"
 date: 2017-10-31T12:34:56+00:00
-url: /?p=11352
+url: mahonia
 categories:
   - Inbox
 tags:

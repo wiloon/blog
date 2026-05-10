@@ -2,7 +2,7 @@
 title: ServletContextListener
 author: "-"
 date: 2012-06-22T02:25:48+00:00
-url: /?p=3580
+url: servletcontextlistener
 categories:
   - Java
   - Web

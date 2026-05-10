@@ -2,7 +2,7 @@
 title: 创建/删除tun/tap设备
 author: "-"
 date: 2018-10-06T08:32:18+00:00
-url: /?p=12743
+url: 创建-删除tun-tap设备
 categories:
   - Inbox
 tags:

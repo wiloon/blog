@@ -2,7 +2,7 @@
 title: java.sql.Timestamp cannot be cast to java.sql.Date
 author: "-"
 date: 2015-09-22T10:05:46+00:00
-url: /?p=8331
+url: java-sql-timestamp-cannot-be-cast-to-java-sql-date
 categories:
   - Java
 tags:

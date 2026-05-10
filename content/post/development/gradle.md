@@ -2,7 +2,7 @@
 title: Gradle, 目录
 author: "-"
 date: 2013-12-20T15:52:04+00:00
-url: /?p=6053
+url: gradle
 categories:
   - Inbox
 tags:

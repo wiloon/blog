@@ -2,7 +2,7 @@
 title: Raspberry Pi init
 author: "-"
 date: 2014-03-02T05:08:05+00:00
-url: /?p=6304
+url: raspberry-pi-init
 categories:
   - Hardware
 tags:

@@ -2,7 +2,7 @@
 title: jdbc driver
 author: "-"
 date: 2012-12-08T04:54:49+00:00
-url: /?p=4859
+url: jdbc-driver
 categories:
   - Database
   - Java

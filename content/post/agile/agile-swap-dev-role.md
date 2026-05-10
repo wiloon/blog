@@ -2,7 +2,7 @@
 title: 角色互换, Swapping Roles
 author: "-"
 date: 2013-07-20T08:19:10+00:00
-url: /?p=5685
+url: agile-swap-dev-role
 categories:
   - Agile
 tags:

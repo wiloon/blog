@@ -2,7 +2,7 @@
 title: linux 设置 默认 声卡
 author: "-"
 date: 2017-01-24T12:39:16+00:00
-url: /?p=9682
+url: linux-设置-默认-声卡
 categories:
   - Inbox
 tags:

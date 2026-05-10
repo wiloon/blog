@@ -2,7 +2,7 @@
 title: Session
 author: "-"
 date: 2012-01-08T04:35:08.000+00:00
-url: "/?p=2105"
+url: session
 categories:
 - Java
 - Web

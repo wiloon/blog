@@ -2,7 +2,7 @@
 title: DNS劫持 DNS污染
 author: "-"
 date: 2016-07-23T06:27:29+00:00
-url: /?p=9142
+url: dns劫持-dns污染
 categories:
   - Inbox
 tags:

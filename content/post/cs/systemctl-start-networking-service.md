@@ -2,7 +2,7 @@
 title: systemctl start networking.service
 author: "-"
 date: 2018-07-08T03:22:30+00:00
-url: /?p=12409
+url: systemctl-start-networking-service
 categories:
   - inbox
 tags:

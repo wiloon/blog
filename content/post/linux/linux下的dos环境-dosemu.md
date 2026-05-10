@@ -2,7 +2,7 @@
 title: 'Linux下的DOS环境  (DOSEMU)'
 author: "-"
 date: 2012-04-02T14:03:09+00:00
-url: /?p=2735
+url: linux下的dos环境-dosemu
 categories:
   - Linux
 tags:

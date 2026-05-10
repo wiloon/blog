@@ -2,7 +2,7 @@
 title: Redis3 集群 数据迁移
 author: "-"
 date: 2019-08-06T11:08:17+00:00
-url: /?p=14776
+url: redis3-集群-数据迁移
 categories:
   - Inbox
 tags:

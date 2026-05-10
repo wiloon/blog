@@ -2,7 +2,7 @@
 title: java copy file
 author: "-"
 date: 2014-11-27T02:53:36+00:00
-url: /?p=7049
+url: java-copy-file
 categories:
   - Inbox
 tags:

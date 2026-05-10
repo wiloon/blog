@@ -2,7 +2,7 @@
 title: Android程序的反破解技术
 author: "-"
 date: 2014-03-20T05:56:17+00:00
-url: /?p=6410
+url: android程序的反破解技术
 categories:
   - Inbox
 tags:

@@ -2,7 +2,7 @@
 title: 'pacstrap,command not found'
 author: "-"
 date: 2015-11-01T10:39:10+00:00
-url: /?p=8443
+url: pacstrap-command-not-found
 categories:
   - Inbox
 tags:

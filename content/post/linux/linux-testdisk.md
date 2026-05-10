@@ -2,7 +2,7 @@
 title: Linux Testdisk
 author: "-"
 date: 2012-05-01T11:11:34+00:00
-url: /?p=3074
+url: linux-testdisk
 categories:
   - Hardware
   - Linux

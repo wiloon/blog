@@ -2,7 +2,7 @@
 title: spring MVC json
 author: "-"
 date: 2013-02-02T14:04:22+00:00
-url: /?p=5110
+url: spring-mvc-json
 categories:
   - Java
 tags:

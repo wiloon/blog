@@ -2,7 +2,7 @@
 title: java 监视器
 author: "-"
 date: 2017-05-25T08:55:15+00:00
-url: /?p=10375
+url: java-监视器
 categories:
   - Inbox
 tags:

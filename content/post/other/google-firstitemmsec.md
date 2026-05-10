@@ -2,7 +2,7 @@
 title: google firstitemmsec
 author: "-"
 date: 2012-07-09T14:51:56+00:00
-url: /?p=3838
+url: google-firstitemmsec
 categories:
   - Inbox
 tags:

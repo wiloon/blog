@@ -2,7 +2,7 @@
 title: Create spring mvc project
 author: "-"
 date: 2014-12-03T02:21:36+00:00
-url: /?p=7079
+url: spring-mvc-project
 categories:
   - Inbox
 tags:

@@ -2,7 +2,7 @@
 title: Kafka 文件存储机制
 author: "-"
 date: 2019-05-10T06:51:16+00:00
-url: /?p=14317
+url: kafka文件存储机制
 categories:
   - Database
 tags:

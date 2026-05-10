@@ -2,7 +2,7 @@
 title: java data convert
 author: "-"
 date: 2019-03-01T08:37:07+00:00
-url: /?p=13735
+url: java-data-convert
 categories:
   - Inbox
 tags:

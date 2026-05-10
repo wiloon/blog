@@ -2,7 +2,7 @@
 title: gz,bz2,xz三种压缩格式的 OpenBSD CVS库容量对比
 author: "-"
 date: 2012-02-26T03:59:24+00:00
-url: /?p=2451
+url: gzbz2xz三种压缩格式的-openbsd-cvs库容量对比
 categories:
   - Linux
 tags:

@@ -2,7 +2,7 @@
 title: javascript Location
 author: "-"
 date: 2012-10-31T07:51:02+00:00
-url: /?p=4595
+url: javascript-location
 categories:
   - JavaScript
 tags:

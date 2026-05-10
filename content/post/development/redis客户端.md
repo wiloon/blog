@@ -2,7 +2,7 @@
 title: Redis客户端
 author: "-"
 date: 2015-09-24T07:39:36+00:00
-url: /?p=8342
+url: redis客户端
 categories:
   - Inbox
 tags:

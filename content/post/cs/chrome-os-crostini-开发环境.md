@@ -2,7 +2,7 @@
 title: chrome os, crostini, 开发环境
 author: "-"
 date: 2020-02-17T05:36:02+00:00
-url: /?p=15562
+url: chrome-os-crostini-开发环境
 categories:
   - chrome
 tags:

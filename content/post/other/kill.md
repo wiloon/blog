@@ -2,7 +2,7 @@
 title: kill, killall, signal
 author: "-"
 date: 2015-09-17T07:24:41+00:00
-url: /?p=8289
+url: kill
 categories:
   - inbox
 tags:

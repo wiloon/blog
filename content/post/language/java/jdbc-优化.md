@@ -2,7 +2,7 @@
 title: JDBC 优化
 author: "-"
 date: 2016-01-15T08:55:00+00:00
-url: /?p=8671
+url: jdbc-优化
 categories:
   - Inbox
 tags:

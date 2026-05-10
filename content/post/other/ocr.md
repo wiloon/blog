@@ -2,7 +2,7 @@
 title: OCR之 Tesseract
 author: "-"
 date: 2012-09-30T08:25:13+00:00
-url: /?p=4358
+url: ocr
 categories:
   - Java
 tags:

@@ -2,7 +2,7 @@
 title: 从JVM角度理解线程
 author: "-"
 date: 2013-07-27T06:54:08+00:00
-url: /?p=5708
+url: thread
 categories:
   - Java
 tags:

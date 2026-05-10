@@ -2,7 +2,7 @@
 title: JAVA 随机数
 author: "-"
 date: 2012-05-25T07:56:45+00:00
-url: /?p=3207
+url: java获取随机数
 categories:
   - Java
 tags:

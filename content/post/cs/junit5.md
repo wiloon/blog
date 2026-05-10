@@ -2,7 +2,7 @@
 title: junit
 author: "-"
 date: 2020-01-09T02:27:43+00:00
-url: /?p=15303
+url: junit5
 categories:
   - Inbox
 tags:

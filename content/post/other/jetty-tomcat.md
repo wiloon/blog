@@ -2,7 +2,7 @@
 title: jetty tomcat
 author: "-"
 date: 2012-12-16T03:53:57+00:00
-url: /?p=4909
+url: jetty-tomcat
 categories:
   - Java
   - Web

@@ -2,7 +2,7 @@
 title: elk install
 author: "-"
 date: 2018-07-12T09:51:48+00:00
-url: /?p=12423
+url: elk-install
 categories:
   - Inbox
 tags:

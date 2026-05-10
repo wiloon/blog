@@ -2,7 +2,7 @@
 title: BeanFactory, ApplicationContext
 author: "-"
 date: 2015-01-26T01:04:59+00:00
-url: /?p=7286
+url: beanfactory-applicationcontext
 categories:
   - Inbox
 tags:

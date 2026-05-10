@@ -2,7 +2,7 @@
 title: archlinux kvm windows
 author: "-"
 date: 2016-02-01T08:05:51+00:00
-url: /?p=8723
+url: archlinux-kvm-windows
 categories:
   - inbox
 tags:

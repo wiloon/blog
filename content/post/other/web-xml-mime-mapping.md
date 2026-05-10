@@ -2,7 +2,7 @@
 title: web.xml – mime-mapping
 author: "-"
 date: 2012-06-10T04:44:26+00:00
-url: /?p=3474
+url: web-xml-mime-mapping
 categories:
   - Java
   - Web

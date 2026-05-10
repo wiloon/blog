@@ -2,7 +2,7 @@
 title: maven -pl 选项
 author: "-"
 date: 2012-06-19T07:25:10+00:00
-url: /?p=3548
+url: maven-pl-选项
 categories:
   - Java
 tags:

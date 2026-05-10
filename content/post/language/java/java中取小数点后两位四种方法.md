@@ -2,7 +2,7 @@
 title: java中取小数点后两位
 author: "-"
 date: 2012-05-28T09:41:14+00:00
-url: /?p=3279
+url: java中取小数点后两位四种方法
 categories:
   - Java
 tags:

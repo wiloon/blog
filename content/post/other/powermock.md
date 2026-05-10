@@ -2,7 +2,7 @@
 title: powermock
 author: "-"
 date: 2015-08-12T08:40:14+00:00
-url: /?p=8100
+url: powermock
 categories:
   - Inbox
 tags:

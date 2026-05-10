@@ -2,7 +2,7 @@
 title: 虚拟化, KVM
 author: "-"
 date: 2011-11-26T07:28:57+00:00
-url: /?p=1619
+url: kvm
 categories:
   - Linux
   - Desktop

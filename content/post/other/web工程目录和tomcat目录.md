@@ -2,7 +2,7 @@
 title: JavaEE Web 工程/项目 目录结构
 author: "-"
 date: 2014-01-01T14:16:26+00:00
-url: /?p=6096
+url: web工程目录和tomcat目录
 categories:
   - Inbox
 tags:

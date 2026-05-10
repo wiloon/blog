@@ -2,7 +2,7 @@
 title: AOP
 author: "-"
 date: 2012-01-07T07:58:58+00:00
-url: /?p=2097
+url: aop
 categories:
   - Java
 tags:

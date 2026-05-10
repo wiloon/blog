@@ -2,7 +2,7 @@
 title: getRequestDispatcher()， sendRedirect()
 author: "-"
 date: 2012-10-31T06:01:11+00:00
-url: /?p=4582
+url: getrequestdispatcher，-sendredirect
 categories:
   - Web
 tags:

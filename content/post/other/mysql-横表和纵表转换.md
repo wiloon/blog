@@ -2,7 +2,7 @@
 title: MySQL 横表和纵表转换
 author: "-"
 date: 2014-01-17T12:43:57.000+00:00
-url: "/?p=6232"
+url: mysql-横表和纵表转换
 categories:
 - Uncategorized
 tags:

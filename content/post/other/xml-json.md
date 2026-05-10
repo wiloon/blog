@@ -2,7 +2,7 @@
 title: 'XML & JSON'
 author: "-"
 date: 2012-06-28T15:35:48+00:00
-url: /?p=3693
+url: xml-json
 categories:
   - Inbox
 tags:

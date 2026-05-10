@@ -2,7 +2,7 @@
 title: TypeScript
 author: "-"
 date: 2015-06-13T00:22:45+00:00
-url: /?p=7806
+url: typescript
 categories:
   - Inbox
 tags:

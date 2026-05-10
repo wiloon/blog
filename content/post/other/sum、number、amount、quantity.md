@@ -2,7 +2,7 @@
 title: sum、number、amount、quantity
 author: "-"
 date: 2015-04-09T02:30:39+00:00
-url: /?p=7444
+url: sum、number、amount、quantity
 categories:
   - Inbox
 tags:

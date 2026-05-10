@@ -2,7 +2,7 @@
 title: golang 百万 TCP 连接
 author: "-"
 date: 2019-11-01T08:30:34+00:00
-url: /?p=15099
+url: golang-百万-tcp-连接
 categories:
   - Network
 tags:

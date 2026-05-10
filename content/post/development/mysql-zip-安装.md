@@ -2,7 +2,7 @@
 title: MySQL install
 author: "-"
 date: 2015-04-04T03:31:16+00:00
-url: /?p=7434
+url: mysql-zip-安装
 categories:
   - Inbox
 tags:

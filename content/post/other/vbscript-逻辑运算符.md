@@ -2,7 +2,7 @@
 title: jinfo
 author: "-"
 date: 2011-11-11T08:53:02+00:00
-url: /?p=1483
+url: vbscript-逻辑运算符
 categories:
   - CS
 tags:

@@ -2,7 +2,7 @@
 title: wording for code
 author: "-"
 date: 2019-07-06T11:38:21+00:00
-url: /?p=14640
+url: wording-for-code
 categories:
   - Inbox
 tags:

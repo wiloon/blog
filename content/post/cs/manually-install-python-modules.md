@@ -2,7 +2,7 @@
 title: manually install python modules
 author: "-"
 date: 2018-06-20T16:03:05+00:00
-url: /?p=12342
+url: manually-install-python-modules
 categories:
   - Inbox
 tags:

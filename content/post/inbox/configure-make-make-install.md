@@ -2,7 +2,7 @@
 title: AUTOCONF, AUTOMAKE, configure, make, make install
 author: "-"
 date: 2017-10-14T09:34:11+00:00
-url: /?p=11269
+url: configure-make-make-install
 categories:
   - Inbox
 tags:

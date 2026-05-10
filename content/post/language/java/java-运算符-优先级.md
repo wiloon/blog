@@ -2,7 +2,7 @@
 title: java 运算符 优先级
 author: "-"
 date: 2017-01-17T02:47:58+00:00
-url: /?p=9660
+url: java-运算符-优先级
 categories:
   - Inbox
 tags:

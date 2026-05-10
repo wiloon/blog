@@ -2,7 +2,7 @@
 title: ARC 与 GC 区别
 author: "-"
 date: 2015-02-05T02:50:20+00:00
-url: /?p=7311
+url: arc-与-gc-区别
 categories:
   - Inbox
 tags:

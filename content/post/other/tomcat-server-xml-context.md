@@ -2,7 +2,7 @@
 title: tomcat server.xml
 author: "-"
 date: 2012-06-02T02:54:38+00:00
-url: /?p=3318
+url: tomcat-server-xml-context
 categories:
   - Java
   - Web

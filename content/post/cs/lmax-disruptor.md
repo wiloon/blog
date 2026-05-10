@@ -2,7 +2,7 @@
 title: LMAX Disruptor
 author: "-"
 date: 2016-02-15T03:05:53+00:00
-url: /?p=8734
+url: lmax-disruptor
 categories:
   - Java
 tags:

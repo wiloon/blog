@@ -2,7 +2,7 @@
 title: easy-rsa
 author: "-"
 date: 2018-11-03T09:51:13+00:00
-url: /?p=12853
+url: easy-rsa
 categories:
   - Inbox
 tags:

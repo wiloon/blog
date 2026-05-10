@@ -2,7 +2,7 @@
 title: debian wine frozen throne
 author: "-"
 date: 2012-04-29T07:21:45+00:00
-url: /?p=3070
+url: debian-wine
 categories:
   - Linux
 tags:

@@ -2,7 +2,7 @@
 title: Smalltalk
 author: "-"
 date: 2012-11-04T13:01:17+00:00
-url: /?p=4616
+url: smalltalk
 categories:
   - CS
 tags:

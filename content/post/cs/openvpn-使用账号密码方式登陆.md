@@ -2,7 +2,7 @@
 title: OpenVPN 使用账号+密码方式登陆
 author: "-"
 date: 2018-11-03T04:38:29+00:00
-url: /?p=12849
+url: openvpn-使用账号密码方式登陆
 categories:
   - Inbox
 tags:

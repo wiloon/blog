@@ -2,7 +2,7 @@
 title: termite
 author: "-"
 date: 2019-09-26T02:16:18+00:00
-url: /?p=14960
+url: termite
 categories:
   - Inbox
 tags:

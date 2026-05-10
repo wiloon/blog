@@ -2,7 +2,7 @@
 title: java IO, InputStream, OutputStream
 author: "-"
 date: 2013-01-16T04:31:49+00:00
-url: /?p=5029
+url: java将inputstream转为byte数组的方法
 categories:
   - Java
 tags:

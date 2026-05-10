@@ -2,7 +2,7 @@
 title: Java获取客户端真实IP地址的两种方法
 author: "-"
 date: 2014-03-13T06:53:05+00:00
-url: /?p=6399
+url: java获取客户端真实ip地址的两种方法
 categories:
   - Inbox
 tags:

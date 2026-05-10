@@ -2,7 +2,7 @@
 title: tprofiler
 author: "-"
 date: 2016-10-25T00:09:20+00:00
-url: /?p=9327
+url: tprofiler
 categories:
   - Inbox
 tags:

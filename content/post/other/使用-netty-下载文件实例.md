@@ -2,7 +2,7 @@
 title: Netty 下载文件
 author: "-"
 date: 2015-09-17T10:42:40+00:00
-url: /?p=8299
+url: 使用-netty-下载文件实例
 categories:
   - Inbox
 tags:

@@ -2,7 +2,7 @@
 title: Linux 命令选项, 参数，括号, 可选, 必选
 author: "-"
 date: 2019-03-19T02:52:27+00:00
-url: /?p=13881
+url: linux-options
 categories:
   - Inbox
 tags:

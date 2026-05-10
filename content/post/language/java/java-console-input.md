@@ -2,7 +2,7 @@
 title: Java Console Input
 author: lcf
 date: 2012-09-26T03:19:55+00:00
-url: /?p=4295
+url: java-console-input
 categories:
   - Java
 tags:

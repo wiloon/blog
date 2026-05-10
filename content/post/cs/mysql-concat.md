@@ -2,7 +2,7 @@
 title: 'MySQL 字符串连接  CONCAT()'
 author: "-"
 date: 2014-01-16T05:03:31+00:00
-url: /?p=6221
+url: mysql-concat
 categories:
   - Inbox
 tags:

@@ -2,7 +2,7 @@
 title: Linux 服务器性能 命令
 author: "-"
 date: 2016-09-28T04:24:04+00:00
-url: /?p=9229
+url: linux-服务器性能-命令
 categories:
   - Inbox
 tags:

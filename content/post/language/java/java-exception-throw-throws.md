@@ -2,7 +2,7 @@
 title: 'Java  exception throw throws'
 author: "-"
 date: 2015-05-14T00:28:57+00:00
-url: /?p=7663
+url: java-exception-throw-throws
 categories:
   - Inbox
 tags:

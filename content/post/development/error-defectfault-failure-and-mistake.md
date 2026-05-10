@@ -2,7 +2,7 @@
 title: Error, defect,fault, failure and mistake
 author: "-"
 date: 2015-03-24T05:02:09+00:00
-url: /?p=7424
+url: error-defectfault-failure-and-mistake
 categories:
   - Inbox
 tags:

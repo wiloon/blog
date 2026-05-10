@@ -2,7 +2,7 @@
 title: Java Http连接中 (HttpURLConnection) 中使用代理 (Proxy) 及其验证 (Authentication) 
 author: "-"
 date: 2012-09-27T02:11:49+00:00
-url: /?p=4338
+url: java-http连接中（httpurlconnection）中使用代理（proxy）及其验证（authentication
 categories:
   - Java
 tags:

@@ -2,7 +2,7 @@
 title: linux shell split string
 author: "-"
 date: 2012-07-04T09:03:48+00:00
-url: /?p=3728
+url: linux-shell-split-string
 categories:
   - Linux
 tags:

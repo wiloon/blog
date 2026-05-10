@@ -2,7 +2,7 @@
 title: Javascript 重定向 window.location.href / replace / reload()
 author: "-"
 date: 2014-03-03T02:41:06+00:00
-url: /?p=6309
+url: window-location-hrefreplacereload
 tags:
   - JavaScript
 categories:

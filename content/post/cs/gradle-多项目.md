@@ -2,7 +2,7 @@
 title: gradle 多项目
 author: "-"
 date: 2016-01-20T00:21:51+00:00
-url: /?p=8683
+url: gradle-多项目
 categories:
   - Inbox
 tags:

@@ -2,7 +2,7 @@
 title: SSL 故障分析
 author: "-"
 date: 2019-03-15T07:41:58+00:00
-url: /?p=13852
+url: ssl-故障分析
 categories:
   - Inbox
 tags:

@@ -2,7 +2,7 @@
 title: Apt-get, aptitude 命令对比
 author: "-"
 date: 2011-12-11T03:46:11+00:00
-url: /?p=1845
+url: apt-get-aptitude-命令对比
 categories:
   - Linux
 tags:

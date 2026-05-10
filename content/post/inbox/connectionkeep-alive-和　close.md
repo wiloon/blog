@@ -2,7 +2,7 @@
 title: connection=keep alive 和close
 author: "-"
 date: 2015-12-02T01:16:53+00:00
-url: /?p=8501
+url: connectionkeep-alive-和　close
 categories:
   - Inbox
 tags:

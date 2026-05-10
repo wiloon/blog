@@ -2,7 +2,7 @@
 title: emacs 自动补全括号
 author: "-"
 date: 2011-04-23T12:00:20+00:00
-url: /?p=113
+url: emacs-自动补全括号
 categories:
   - Tools
 tags:

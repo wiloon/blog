@@ -2,7 +2,7 @@
 title: vnc rdp
 author: "-"
 date: 2021-03-13T15:13:27+00:00
-url: /?p=2556
+url: vnc-rdp
 categories:
   - Linux
 tags:

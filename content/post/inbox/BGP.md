@@ -2,7 +2,7 @@
 title: BGP 链路
 author: "-"
 date: 2016-04-13T00:26:47+00:00
-url: /?p=8883
+url: BGP
 categories:
   - Inbox
 tags:

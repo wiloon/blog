@@ -2,7 +2,7 @@
 title: linux网络的热插拔
 author: "-"
 date: 2011-12-06T13:07:16+00:00
-url: /?p=1814
+url: linux网络的热插拔
 categories:
   - Linux
   - Network

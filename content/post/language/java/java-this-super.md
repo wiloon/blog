@@ -2,7 +2,7 @@
 title: java this super
 author: "-"
 date: 2012-01-02T09:20:30+00:00
-url: /?p=730
+url: java-this-super
 categories:
   - Java
 tags:

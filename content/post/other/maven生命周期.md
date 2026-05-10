@@ -2,7 +2,7 @@
 title: Maven生命周期
 author: "-"
 date: 2011-09-28T03:29:34+00:00
-url: /?p=949
+url: maven生命周期
 categories:
   - Inbox
 tags:

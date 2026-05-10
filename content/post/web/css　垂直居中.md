@@ -2,7 +2,7 @@
 title: css垂直居中
 author: "-"
 date: 2012-02-25T04:01:39+00:00
-url: /?p=2395
+url: css　垂直居中
 categories:
   - Web
 tags:

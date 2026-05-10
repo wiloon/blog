@@ -2,7 +2,7 @@
 title: gentoo emerge install unstable version
 author: "-"
 date: 2015-10-01T02:16:11+00:00
-url: /?p=8368
+url: gentoo-emerge-install-unstable-version
 categories:
   - Inbox
 tags:

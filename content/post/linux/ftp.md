@@ -2,7 +2,7 @@
 title: linux ftp
 author: "-"
 date: 2012-01-07T10:45:15+00:00
-url: /?p=2100
+url: ftp
 categories:
   - Linux
 tags:

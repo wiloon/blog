@@ -2,7 +2,7 @@
 title: golang download file
 author: "-"
 date: 2014-03-07T06:28:42+00:00
-url: /?p=6358
+url: go-download-file
 categories:
   - Inbox
 tags:

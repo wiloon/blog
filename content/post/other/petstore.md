@@ -2,7 +2,7 @@
 title: PetStore
 author: "-"
 date: 2011-10-29T06:50:15+00:00
-url: /?p=1351
+url: petstore
 categories:
   - Java
 tags:

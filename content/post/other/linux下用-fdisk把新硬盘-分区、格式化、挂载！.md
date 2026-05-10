@@ -2,7 +2,7 @@
 title: fdisk for linux
 author: "-"
 date: 2015-05-04T09:53:34+00:00
-url: /?p=7609
+url: linux下用-fdisk把新硬盘-分区、格式化、挂载！
 categories:
   - Inbox
 tags:

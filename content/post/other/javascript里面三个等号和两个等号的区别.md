@@ -2,7 +2,7 @@
 title: JavaScript里面三个等号和两个等号的区别
 author: "-"
 date: 2013-03-14T10:55:36+00:00
-url: /?p=5322
+url: javascript里面三个等号和两个等号的区别
 categories:
   - JavaScript
 tags:

@@ -2,7 +2,7 @@
 title: MySQLslap
 author: "-"
 date: 2016-01-21T00:12:50+00:00
-url: /?p=8691
+url: mysqlslap
 categories:
   - Inbox
 tags:

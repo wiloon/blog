@@ -2,7 +2,7 @@
 title: Servlet.Filter
 author: "-"
 date: 2012-06-10T09:53:07+00:00
-url: /?p=3500
+url: servlet-filter
 categories:
   - Java
   - Web

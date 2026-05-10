@@ -2,7 +2,7 @@
 title: go xml
 author: "-"
 date: 2017-11-21T08:07:57+00:00
-url: /?p=11454
+url: go-xml
 categories:
   - Inbox
 tags:

@@ -2,7 +2,7 @@
 title: java 对象
 author: "-"
 date: 2014-11-19T07:10:27+00:00
-url: /?p=7023
+url: java-object
 categories:
   - Java
 tags:

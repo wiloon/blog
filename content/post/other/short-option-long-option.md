@@ -2,7 +2,7 @@
 title: 长选项, 短选项, short options, long options
 author: "-"
 date: 2019-07-24T05:44:05+00:00
-url: /?p=5703
+url: short-option-long-option
 categories:
   - Web
 tags:

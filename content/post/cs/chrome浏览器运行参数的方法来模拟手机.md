@@ -2,7 +2,7 @@
 title: Chrome浏览器运行参数的方法来模拟手机
 author: "-"
 date: 2014-06-17T01:10:36+00:00
-url: /?p=6728
+url: chrome浏览器运行参数的方法来模拟手机
 categories:
   - chrome
 tags:

@@ -2,7 +2,7 @@
 title: golang 枚举, enum
 author: "-"
 date: 2017-09-19T08:21:08+00:00
-url: /?p=11170
+url: golang-enum
 categories:
   - Inbox
 tags:

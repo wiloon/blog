@@ -2,7 +2,7 @@
 title: netty tcp 参数
 author: "-"
 date: 2015-12-19T13:19:28+00:00
-url: /?p=8572
+url: netty-参数
 categories:
   - Inbox
 tags:

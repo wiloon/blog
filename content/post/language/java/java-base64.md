@@ -2,7 +2,7 @@
 title: Java Base64
 author: lcf
 date: 2012-09-26T06:52:18+00:00
-url: /?p=4310
+url: java-base64
 categories:
   - Java
 tags:

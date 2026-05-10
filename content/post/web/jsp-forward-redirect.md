@@ -2,7 +2,7 @@
 title: forward redirect
 author: "-"
 date: 2012-09-21T07:07:03+00:00
-url: /?p=4153
+url: jsp-forward-redirect
 categories:
   - Java
 tags:

@@ -2,7 +2,7 @@
 title: agile backlog
 author: "-"
 date: 2017-02-21T04:11:52+00:00
-url: /?p=9850
+url: agile-backlog
 categories:
   - Inbox
 tags:

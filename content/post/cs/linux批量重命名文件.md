@@ -2,7 +2,7 @@
 title: Linux批量重命名文件
 author: "-"
 date: 2016-05-13T12:26:05+00:00
-url: /?p=8987
+url: linux批量重命名文件
 categories:
   - Inbox
 tags:

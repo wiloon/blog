@@ -2,7 +2,7 @@
 title: ts
 author: "-"
 date: 2012-03-27T14:03:01+00:00
-url: /?p=2666
+url: ts
 categories:
   - Linux
 tags:

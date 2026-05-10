@@ -2,7 +2,7 @@
 title: web应用防火墙(WAF)
 author: "-"
 date: 2018-12-14T08:03:45+00:00
-url: /?p=13084
+url: web应用防火墙waf
 categories:
   - Inbox
 tags:

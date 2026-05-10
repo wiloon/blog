@@ -2,7 +2,7 @@
 title: subsonic 调用 存储过程
 author: "-"
 date: 2013-06-27T08:18:32+00:00
-url: /?p=5579
+url: subsonic-调用-存储过程
 categories:
   - Inbox
 tags:

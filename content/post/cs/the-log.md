@@ -2,7 +2,7 @@
 title: the log
 author: "-"
 date: 2018-11-19T02:43:17+00:00
-url: /?p=12893
+url: the-log
 categories:
   - Inbox
 tags:

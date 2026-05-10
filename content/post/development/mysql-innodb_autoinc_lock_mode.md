@@ -2,7 +2,7 @@
 title: innodb_autoinc_lock_mode
 author: "-"
 date: 2014-01-20T09:34:59+00:00
-url: /?p=6241
+url: mysql-innodb_autoinc_lock_mode
 categories:
   - Inbox
 tags:

@@ -2,7 +2,7 @@
 title: HTTP Header ETag
 author: "-"
 date: 2015-09-07T06:09:17+00:00
-url: /?p=8221
+url: http-header-etag
 categories:
   - Inbox
 tags:

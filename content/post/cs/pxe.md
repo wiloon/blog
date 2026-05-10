@@ -2,7 +2,7 @@
 title: PXE
 author: "-"
 date: 2018-03-18T07:37:02+00:00
-url: /?p=11995
+url: pxe
 categories:
   - Inbox
 tags:

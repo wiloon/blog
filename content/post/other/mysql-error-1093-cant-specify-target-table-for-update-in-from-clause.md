@@ -2,7 +2,7 @@
 title: MySQL Error 1093 – Can't specify target table for update in FROM clause
 author: "-"
 date: 2015-08-06T11:22:19+00:00
-url: /?p=8067
+url: mysql-error-1093-cant-specify-target-table-for-update-in-from-clause
 categories:
   - Inbox
 tags:

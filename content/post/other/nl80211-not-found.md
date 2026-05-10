@@ -2,7 +2,7 @@
 title: nl80211 not found
 author: "-"
 date: 2013-12-01T07:58:13+00:00
-url: /?p=5997
+url: nl80211-not-found
 categories:
   - Inbox
 tags:

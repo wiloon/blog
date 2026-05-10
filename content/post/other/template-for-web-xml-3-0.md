@@ -2,7 +2,7 @@
 title: template for web.xml Servlet3.0
 author: "-"
 date: 2012-06-10T07:58:58+00:00
-url: /?p=3484
+url: template-for-web-xml-3-0
 categories:
   - Java
   - Web

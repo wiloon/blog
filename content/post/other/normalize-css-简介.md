@@ -2,7 +2,7 @@
 title: normalize.css 简介
 author: "-"
 date: 2012-11-24T12:03:38+00:00
-url: /?p=4759
+url: normalize-css-简介
 categories:
   - Web
 tags:

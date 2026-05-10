@@ -2,7 +2,7 @@
 title: CSS注释语法
 author: "-"
 date: 2012-02-19T09:28:47+00:00
-url: /?p=2366
+url: css注释语法
 categories:
   - Web
 tags:

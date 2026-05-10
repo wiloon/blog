@@ -2,7 +2,7 @@
 title: gor
 author: "-"
 date: 2020-04-16T16:37:41+00:00
-url: /?p=15965
+url: gor
 categories:
   - Inbox
 tags:

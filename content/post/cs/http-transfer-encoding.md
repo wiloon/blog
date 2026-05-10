@@ -2,7 +2,7 @@
 title: 'HTTP   Transfer-Encoding'
 author: "-"
 date: 2016-05-24T13:02:41+00:00
-url: /?p=9017
+url: http-transfer-encoding
 categories:
   - Inbox
 tags:

@@ -2,7 +2,7 @@
 title: windows route, 路由表
 author: "-"
 date: 2014-12-25T10:55:44+00:00
-url: /?p=7133
+url: windows-route-命令
 categories:
   - Inbox
 tags:

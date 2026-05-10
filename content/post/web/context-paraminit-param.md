@@ -2,7 +2,7 @@
 title: 'context-param&init-param'
 author: "-"
 date: 2012-06-10T09:23:34+00:00
-url: /?p=3498
+url: context-paraminit-param
 categories:
   - Java
   - Web

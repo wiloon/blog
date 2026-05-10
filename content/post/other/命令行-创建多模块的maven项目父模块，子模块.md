@@ -2,7 +2,7 @@
 title: 命令行 创建多模块的Maven项目(父模块,子模块)
 author: "-"
 date: 2014-05-06T11:42:33+00:00
-url: /?p=6584
+url: 命令行-创建多模块的maven项目父模块，子模块
 categories:
   - Inbox
 tags:

@@ -2,7 +2,7 @@
 title: 无线WI-FI路由器的信道选择
 author: "-"
 date: 2012-05-19T02:21:05+00:00
-url: /?p=3156
+url: 无线wi-fi路由器的信道选择
 categories:
   - Linux
   - Network

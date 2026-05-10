@@ -2,7 +2,7 @@
 title: linux shell sleep,wait
 author: "-"
 date: 2011-05-01T05:34:13+00:00
-url: /?p=159
+url: linux-shell-sleep
 categories:
   - Linux
 tags:

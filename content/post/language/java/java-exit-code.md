@@ -2,7 +2,7 @@
 title: java exit code
 author: "-"
 date: 2015-12-30T07:25:26+00:00
-url: /?p=8612
+url: java-exit-code
 categories:
   - Inbox
 tags:

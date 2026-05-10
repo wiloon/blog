@@ -2,7 +2,7 @@
 title: CXF Axis2
 author: "-"
 date: 2011-10-31T04:24:20+00:00
-url: /?p=1409
+url: cxf-axis2
 categories:
   - Java
   - Web

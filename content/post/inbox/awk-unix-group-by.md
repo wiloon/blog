@@ -2,7 +2,7 @@
 title: Awk/Unix group by
 author: "-"
 date: 2018-08-25T10:00:43+00:00
-url: /?p=12565
+url: awk-unix-group-by
 categories:
   - Inbox
 tags:

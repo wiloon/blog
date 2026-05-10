@@ -2,7 +2,7 @@
 title: favicon
 author: "-"
 date: 2014-03-19T07:03:48+00:00
-url: /?p=6405
+url: 获取网站favicon
 categories:
   - Inbox
 tags:

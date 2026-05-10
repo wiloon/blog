@@ -2,7 +2,7 @@
 title: redis docker
 author: "-"
 date: 2018-09-21T05:14:43+00:00
-url: /?p=12652
+url: redis-docker
 categories:
   - Inbox
 tags:

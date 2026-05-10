@@ -2,7 +2,7 @@
 title: TCP Keep-Alives
 author: "-"
 date: 2013-10-20T05:48:51+00:00
-url: /?p=5861
+url: tcp-keep-alive
 categories:
   - Network
 tags:

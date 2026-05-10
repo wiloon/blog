@@ -2,7 +2,7 @@
 title: SuperCSV
 author: "-"
 date: 2012-08-28T02:31:24+00:00
-url: /?p=3956
+url: supercsv
 categories:
   - Java
 tags:

@@ -2,7 +2,7 @@
 title: '/dev/net/tun,No such device'
 author: "-"
 date: 2017-06-30T05:19:10+00:00
-url: /?p=10724
+url: devnettun-no-such-device
 categories:
   - Inbox
 tags:

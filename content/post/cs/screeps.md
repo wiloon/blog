@@ -2,7 +2,7 @@
 title: Screeps
 author: "-"
 date: 2019-08-27T01:22:03+00:00
-url: /?p=14849
+url: screeps
 categories:
   - Inbox
 tags:

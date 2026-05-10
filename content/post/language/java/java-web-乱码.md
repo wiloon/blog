@@ -2,7 +2,7 @@
 title: Java web 乱码
 author: "-"
 date: 2012-06-03T10:34:29+00:00
-url: /?p=3371
+url: java-web-乱码
 categories:
   - Java
   - Web

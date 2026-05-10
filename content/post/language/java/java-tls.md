@@ -3,7 +3,7 @@ title: java tls 单向认证
 author: "-"
 date: 2020-01-01T00:00:00+08:00
 draft: true
-url: /?p=13342
+url: java-tls
 categories:
   - Inbox
 tags:

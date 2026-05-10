@@ -2,7 +2,7 @@
 title: linux iwconfig
 author: "-"
 date: 2012-01-01T06:05:56+00:00
-url: /?p=2065
+url: linux-iwconfig
 categories:
   - Linux
   - Network

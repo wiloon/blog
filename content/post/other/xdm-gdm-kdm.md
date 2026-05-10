@@ -2,7 +2,7 @@
 title: DM, DE, WM
 author: "-"
 date: 2013-11-08T15:28:48+00:00
-url: /?p=5910
+url: xdm-gdm-kdm
 tags:
   - Linux
 categories:

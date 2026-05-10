@@ -2,7 +2,7 @@
 title: golang sleep
 author: "-"
 date: 2017-07-27T06:30:10+00:00
-url: /?p=10934
+url: golang-sleep
 categories:
   - Inbox
 tags:

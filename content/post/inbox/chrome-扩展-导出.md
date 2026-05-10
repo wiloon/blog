@@ -2,7 +2,7 @@
 title: chrome extension, 扩展
 author: "-"
 date: 2016-03-20T04:20:10+00:00
-url: /?p=8811
+url: chrome-扩展-导出
 categories:
   - chrome
 tags:

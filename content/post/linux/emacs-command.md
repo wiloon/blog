@@ -2,7 +2,7 @@
 title: emacs command
 author: "-"
 date: 2014-03-08T08:34:47+00:00
-url: /?p=6370
+url: emacs-command
 categories:
   - Inbox
 tags:

@@ -2,7 +2,7 @@
 title: codeswarm
 author: "-"
 date: 2012-06-03T12:57:45+00:00
-url: /?p=3393
+url: codeswarm
 categories:
   - CS
 tags:

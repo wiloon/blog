@@ -2,7 +2,7 @@
 title: MySQL str to datatime
 author: "-"
 date: 2011-04-16T13:03:54+00:00
-url: /?p=73
+url: mysql-str-to-datatime
 categories:
   - Database
 tags:

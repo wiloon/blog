@@ -2,7 +2,7 @@
 title: btrfs command
 author: "-"
 date: 2019-04-14T03:15:40+00:00
-url: /?p=14150
+url: btrfs-command
 categories:
   - Inbox
 tags:

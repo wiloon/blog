@@ -2,7 +2,7 @@
 title: linux 网络命令
 author: "-"
 date: 2011-12-03T13:58:11+00:00
-url: /?p=1713
+url: debian-无线网卡
 categories:
   - Linux
   - Network

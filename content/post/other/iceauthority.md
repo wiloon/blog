@@ -2,7 +2,7 @@
 title: ICEAuthority
 author: "-"
 date: 2012-06-06T23:33:26+00:00
-url: /?p=3422
+url: iceauthority
 categories:
   - Linux
 tags:

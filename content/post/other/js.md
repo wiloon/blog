@@ -3,7 +3,7 @@ title: inline script 和外链script
 author: "-"
 date: ""
 draft: true
-url: /?p=4997
+url: js
 categories:
   - inbox
 tags:

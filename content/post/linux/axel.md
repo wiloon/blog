@@ -2,7 +2,7 @@
 title: axel
 author: "-"
 date: 2012-12-02T12:28:38+00:00
-url: /?p=4820
+url: axel
 categories:
   - inbox
 tags:

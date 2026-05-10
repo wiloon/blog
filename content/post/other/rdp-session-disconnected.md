@@ -2,7 +2,7 @@
 title: RDP Session Disconnected
 author: "-"
 date: 2015-06-01T12:40:45+00:00
-url: /?p=7738
+url: rdp-session-disconnected
 categories:
   - Inbox
 tags:

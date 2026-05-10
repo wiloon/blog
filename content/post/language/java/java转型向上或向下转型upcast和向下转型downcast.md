@@ -2,7 +2,7 @@
 title: Java转型(向上或向下转型)upcast)和向下转型(downcast)
 author: "-"
 date: 2014-05-30T01:48:04+00:00
-url: /?p=6700
+url: java转型向上或向下转型upcast和向下转型downcast
 categories:
   - Inbox
 tags:

@@ -2,7 +2,7 @@
 title: maven cmd utf8 error
 author: "-"
 date: 2014-12-30T05:54:51+00:00
-url: /?p=7153
+url: maven-cmd-utf8-error
 categories:
   - Inbox
 tags:

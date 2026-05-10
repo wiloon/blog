@@ -2,7 +2,7 @@
 title: 网关,路由
 author: "-"
 date: 2011-10-23T08:37:22+00:00
-url: /?p=1267
+url: gateway-网关
 categories:
   - Web
 tags:

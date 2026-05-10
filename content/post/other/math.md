@@ -2,7 +2,7 @@
 title: Math
 author: "-"
 date: 2011-08-24T01:27:47+00:00
-url: /?p=541
+url: math
 categories:
   - English
 tags:

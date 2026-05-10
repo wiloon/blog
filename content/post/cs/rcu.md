@@ -2,7 +2,7 @@
 title: RCU
 author: "-"
 date: 2018-08-28T07:45:54+00:00
-url: /?p=12593
+url: rcu
 categories:
   - Inbox
 tags:

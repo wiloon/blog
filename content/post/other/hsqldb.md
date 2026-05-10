@@ -2,7 +2,7 @@
 title: Hsqldb
 author: "-"
 date: 2013-02-23T07:07:54+00:00
-url: /?p=5235
+url: hsqldb
 categories:
   - Database
 tags:

@@ -2,7 +2,7 @@
 title: 磁盘 IO
 author: "-"
 date: 2018-04-20T02:30:54+00:00
-url: /?p=12154
+url: disk-io
 categories:
   - Inbox
 tags:

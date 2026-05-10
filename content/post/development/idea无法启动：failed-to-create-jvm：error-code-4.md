@@ -2,7 +2,7 @@
 title: IDEA无法启动,Failed to create JVM,error code -4
 author: "-"
 date: 2014-12-10T01:49:51+00:00
-url: /?p=7107
+url: idea无法启动：failed-to-create-jvm：error-code-4
 categories:
   - Inbox
 tags:

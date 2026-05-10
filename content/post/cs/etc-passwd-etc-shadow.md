@@ -2,7 +2,7 @@
 title: /etc/passwd, /etc/shadow
 author: "-"
 date: 2018-12-24T05:05:07+00:00
-url: /?p=13201
+url: etc-passwd-etc-shadow
 categories:
   - Inbox
 tags:

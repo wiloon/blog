@@ -2,7 +2,7 @@
 title: chrome standalone 离线安装
 author: "-"
 date: 2018-01-18T08:22:44+00:00
-url: /?p=11753
+url: chrome-离线安装
 categories:
   - chrome
 tags:

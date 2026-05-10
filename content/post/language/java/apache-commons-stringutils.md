@@ -2,7 +2,7 @@
 title: apache commons StringUtils
 author: "-"
 date: 2014-03-21T12:40:05+00:00
-url: /?p=6430
+url: apache-commons-stringutils
 categories:
   - Inbox
 tags:

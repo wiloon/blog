@@ -2,7 +2,7 @@
 title: OPTION SQL_SELECT_LIMIT
 author: "-"
 date: 2016-12-28T08:54:04+00:00
-url: /?p=9629
+url: option-sql_select_limit
 categories:
   - Inbox
 tags:

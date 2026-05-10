@@ -3,7 +3,7 @@ title: multi-release JAR (MR JAR)
 author: "-"
 date: 2020-01-01T00:00:00+08:00
 draft: true
-url: /?p=15716
+url: multi-release-JAR
 categories:
   - Java
 tags:

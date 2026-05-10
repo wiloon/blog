@@ -2,7 +2,7 @@
 title: raspberry pi nfs server
 author: "-"
 date: 2019-01-19T11:06:36+00:00
-url: /?p=13430
+url: raspberry-pi-nfs-server
 categories:
   - Hardware
 tags:

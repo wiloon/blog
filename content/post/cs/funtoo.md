@@ -2,7 +2,7 @@
 title: Funtoo
 author: "-"
 date: 2019-12-09T04:48:33+00:00
-url: /?p=15168
+url: funtoo
 categories:
   - Inbox
 tags:

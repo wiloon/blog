@@ -2,7 +2,7 @@
 title: 'debian & SDL'
 author: "-"
 date: 2013-02-13T07:33:21+00:00
-url: /?p=5136
+url: debian-sdl
 categories:
   - Linux
 tags:

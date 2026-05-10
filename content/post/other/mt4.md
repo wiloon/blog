@@ -2,7 +2,7 @@
 title: linux mt4
 author: "-"
 date: 2012-05-17T23:21:50+00:00
-url: /?p=3151
+url: mt4
 categories:
   - Inbox
 tags:

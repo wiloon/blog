@@ -2,7 +2,7 @@
 title: OAuth2.0
 author: "-"
 date: 2012-06-24T06:53:01+00:00
-url: /?p=3646
+url: oauth2-0
 categories:
   - Web
 tags:

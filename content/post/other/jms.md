@@ -2,7 +2,7 @@
 title: JMS
 author: "-"
 date: 2012-04-29T05:03:10+00:00
-url: /?p=3063
+url: jms
 categories:
   - Java
 tags:

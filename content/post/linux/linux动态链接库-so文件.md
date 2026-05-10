@@ -2,7 +2,7 @@
 title: Linux动态链接库.so文件
 author: "-"
 date: 2014-04-14T01:19:17+00:00
-url: /?p=6535
+url: linux动态链接库-so文件
 categories:
   - Inbox
 tags:

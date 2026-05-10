@@ -2,7 +2,7 @@
 title: dns PTR记录
 author: "-"
 date: 2013-07-28T12:29:16+00:00
-url: /?p=5732
+url: dns-ptr记录
 categories:
   - Inbox
 tags:

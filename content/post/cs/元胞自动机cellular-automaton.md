@@ -2,7 +2,7 @@
 title: 元胞自动机,Cellular Automaton
 author: "-"
 date: 2012-07-15T02:10:12+00:00
-url: /?p=3854
+url: 元胞自动机cellular-automaton
 categories:
   - CS
   - Life

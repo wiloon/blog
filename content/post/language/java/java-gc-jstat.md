@@ -2,7 +2,7 @@
 title: java gc监控, jstat
 author: "-"
 date: 2011-08-09T02:44:44+00:00
-url: /?p=411
+url: java-gc-jstat
 categories:
   - CS
 tags:

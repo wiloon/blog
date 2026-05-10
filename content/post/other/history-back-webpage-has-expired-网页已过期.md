@@ -2,7 +2,7 @@
 title: history.back() webpage has expired. 网页已过期
 author: "-"
 date: 2013-01-23T06:51:49+00:00
-url: /?p=5059
+url: history-back-webpage-has-expired-网页已过期
 categories:
   - Web
 tags:

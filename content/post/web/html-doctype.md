@@ -2,7 +2,7 @@
 title: html DOCTYPE
 author: "-"
 date: 2012-12-08T12:36:54+00:00
-url: /?p=4868
+url: html-doctype
 categories:
   - Web
 tags:

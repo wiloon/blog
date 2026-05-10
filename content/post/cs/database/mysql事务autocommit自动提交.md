@@ -2,7 +2,7 @@
 title: MySQL事务autocommit自动提交
 author: "-"
 date: 2016-10-26T00:53:24+00:00
-url: /?p=9333
+url: mysql事务autocommit自动提交
 categories:
   - Inbox
 tags:

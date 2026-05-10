@@ -2,7 +2,7 @@
 title: gradle application plugin 打可执行jar, gradle executable/runnable jar
 author: "-"
 date: 2016-01-18T09:26:01+00:00
-url: /?p=8674
+url: gradle-executable-jar
 categories:
   - Inbox
 tags:

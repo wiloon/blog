@@ -2,7 +2,7 @@
 title: 网卡命名规则
 author: "-"
 date: 2017-12-20T09:04:09+00:00
-url: /?p=11646
+url: eth-eno
 categories:
   - Network
 tags:

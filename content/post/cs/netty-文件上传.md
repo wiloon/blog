@@ -2,7 +2,7 @@
 title: netty 文件上传
 author: "-"
 date: 2016-05-24T12:05:33+00:00
-url: /?p=9013
+url: netty-文件上传
 categories:
   - Inbox
 tags:

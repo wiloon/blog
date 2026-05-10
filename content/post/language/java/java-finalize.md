@@ -2,7 +2,7 @@
 title: java finalize
 author: "-"
 date: 2017-02-06T02:58:12+00:00
-url: /?p=9720
+url: java-finalize
 categories:
   - Inbox
 tags:

@@ -2,7 +2,7 @@
 title: linux 运行级, runlevel
 author: "-"
 date: 2011-11-21T04:44:52+00:00
-url: /?p=1566
+url: run-level
 categories:
   - Linux
 tags:

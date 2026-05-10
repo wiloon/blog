@@ -2,7 +2,7 @@
 title: Java 数据对象 JDO,JDBC
 author: "-"
 date: 2012-09-25T07:12:54+00:00
-url: /?p=4284
+url: java-数据对象-jdojdbc
 categories:
   - Java
 tags:

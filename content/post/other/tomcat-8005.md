@@ -2,7 +2,7 @@
 title: tomcat 8005
 author: "-"
 date: 2012-05-13T11:16:08+00:00
-url: /?p=3122
+url: tomcat-8005
 categories:
   - Web
 tags:

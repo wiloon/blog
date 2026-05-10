@@ -2,7 +2,7 @@
 title: spring MVC 返回JSON数据(Spring3.0 MVC+Jackson+AJAX)
 author: "-"
 date: 2014-02-21T08:28:19+00:00
-url: /?p=6274
+url: spring-mvc-返回json数据spring3-0-mvcjacksonajax
 categories:
   - Inbox
 tags:

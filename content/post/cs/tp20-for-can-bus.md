@@ -2,7 +2,7 @@
 title: tp20 for can bus
 author: "-"
 date: 2017-08-14T04:01:11+00:00
-url: /?p=11041
+url: tp20-for-can-bus
 categories:
   - Inbox
 tags:

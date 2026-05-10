@@ -2,7 +2,7 @@
 title: us, 用户故事
 author: "-"
 date: 2012-03-19T01:58:10+00:00
-url: /?p=2578
+url: user-story
 categories:
   - Agile
 tags:

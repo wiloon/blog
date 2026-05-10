@@ -2,7 +2,7 @@
 title: apk 编译,反编译,AXMLPrinter2,smali,baksmali
 author: "-"
 date: 2014-04-14T08:07:13+00:00
-url: /?p=6549
+url: apk-编译，反编译，axmlprinter2smalibaksmali
 categories:
   - Inbox
 tags:

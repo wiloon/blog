@@ -2,7 +2,7 @@
 title: JWT, JSON Web Token
 author: "-"
 date: 2018-07-30T12:02:39+00:00
-url: /?p=12462
+url: jwt-json-web-token
 categories:
   - Inbox
 tags:

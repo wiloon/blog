@@ -2,7 +2,7 @@
 title: java 静态变量/方法
 author: "-"
 date: 2012-06-28T14:15:30+00:00
-url: /?p=3689
+url: java-静态变量方法
 categories:
   - Java
 tags:

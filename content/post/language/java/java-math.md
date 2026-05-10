@@ -2,7 +2,7 @@
 title: java math
 author: "-"
 date: 2012-05-29T08:30:47+00:00
-url: /?p=3289
+url: java-math
 categories:
   - Java
 tags:

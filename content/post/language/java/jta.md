@@ -2,7 +2,7 @@
 title: JTA
 author: "-"
 date: 2011-12-25T03:52:55+00:00
-url: /?p=1962
+url: jta
 categories:
   - Java
 tags:

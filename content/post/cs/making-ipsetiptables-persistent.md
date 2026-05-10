@@ -2,7 +2,7 @@
 title: Making ipset,iptables persistent
 author: "-"
 date: 2019-09-09T09:57:13+00:00
-url: /?p=14918
+url: making-ipsetiptables-persistent
 categories:
   - Inbox
 tags:

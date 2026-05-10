@@ -2,7 +2,7 @@
 title: 符号引用 直接引用
 author: "-"
 date: 2013-06-24T12:24:42+00:00
-url: /?p=5550
+url: 使用qc和qtp构建自动测试体系
 categories:
   - Inbox
 tags:

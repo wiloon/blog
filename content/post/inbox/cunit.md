@@ -2,7 +2,7 @@
 title: CUnit
 author: "-"
 date: 2016-11-14T08:58:15+00:00
-url: /?p=9385
+url: cunit
 categories:
   - Inbox
 tags:

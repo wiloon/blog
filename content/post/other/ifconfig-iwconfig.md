@@ -2,7 +2,7 @@
 title: iw
 author: "-"
 date: 2011-12-05T13:44:32+00:00
-url: /?p=1806
+url: ifconfig-iwconfig
 categories:
   - inbox
 tags:

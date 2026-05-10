@@ -2,7 +2,7 @@
 title: 0day
 author: "-"
 date: 2019-09-09T04:21:47+00:00
-url: /?p=14908
+url: 0day
 categories:
   - Inbox
 tags:

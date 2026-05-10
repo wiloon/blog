@@ -2,7 +2,7 @@
 title: nodejs basic
 author: "-"
 date: 2025-12-05T16:30:00+08:00
-url: /?p=13672
+url: nodejs-basic
 categories:
   - Inbox
 tags:

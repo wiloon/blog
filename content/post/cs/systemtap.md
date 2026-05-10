@@ -2,7 +2,7 @@
 title: systemtap
 author: "-"
 date: 2017-05-04T08:46:56+00:00
-url: /?p=10210
+url: systemtap
 categories:
   - Inbox
 tags:

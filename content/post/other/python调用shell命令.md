@@ -2,7 +2,7 @@
 title: python调用shell命令
 author: "-"
 date: 2012-11-17T08:34:06+00:00
-url: /?p=4709
+url: python调用shell命令
 categories:
   - Inbox
 tags:

@@ -2,7 +2,7 @@
 title: Less
 author: "-"
 date: 2013-03-20T04:34:22+00:00
-url: /?p=5324
+url: less
 categories:
   - Web
 tags:

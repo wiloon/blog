@@ -2,7 +2,7 @@
 title: GDebi
 author: "-"
 date: 2013-02-18T13:57:31+00:00
-url: /?p=5192
+url: gdebi
 categories:
   - Linux
 tags:

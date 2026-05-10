@@ -2,7 +2,7 @@
 title: Linux split, 文件分割与合并
 author: "-"
 date: 2017-09-01T05:13:51+00:00
-url: /?p=11083
+url: linux文件分割与合并
 categories:
   - Inbox
 tags:

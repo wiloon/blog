@@ -2,7 +2,7 @@
 title: 爬虫Labin,Nutch,Neritrix介绍和对比
 author: "-"
 date: 2015-01-05T06:22:18+00:00
-url: /?p=7174
+url: Larbin
 categories:
   - Inbox
 tags:

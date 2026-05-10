@@ -2,7 +2,7 @@
 title: Termux
 author: "-"
 date: 2018-03-18T11:23:53+00:00
-url: /?p=11999
+url: termux
 categories:
   - Inbox
 tags:

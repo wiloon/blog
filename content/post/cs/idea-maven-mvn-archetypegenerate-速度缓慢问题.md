@@ -2,7 +2,7 @@
 title: idea maven mvn archetype,generate 速度缓慢问题
 author: "-"
 date: 2017-02-22T06:39:15+00:00
-url: /?p=9856
+url: idea-maven-mvn-archetypegenerate-速度缓慢问题
 categories:
   - Inbox
 tags:

@@ -2,7 +2,7 @@
 title: java BC/Bouncy Castle
 author: "-"
 date: 2012-06-21T04:49:08+00:00
-url: /?p=3563
+url: java-bcbouncy-castle
 categories:
   - Java
 tags:

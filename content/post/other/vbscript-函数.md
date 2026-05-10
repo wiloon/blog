@@ -2,7 +2,7 @@
 title: ON DUPLICATE KEY UPDATE重复插入时更新
 author: "-"
 date: 2011-12-16T06:39:50+00:00
-url: /?p=1899
+url: vbscript-函数
 categories:
   - CS
 tags:

@@ -2,7 +2,7 @@
 title: raspberry pi, gpio, golang
 author: "-"
 date: 2019-07-13T08:00:44+00:00
-url: /?p=14679
+url: raspberry-pi-gpio-golang
 categories:
   - Hardware
 tags:

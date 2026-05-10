@@ -2,7 +2,7 @@
 title: html5 video
 author: "-"
 date: 2011-10-31T13:40:07+00:00
-url: /?p=1427
+url: html5-video
 categories:
   - Java
   - Web

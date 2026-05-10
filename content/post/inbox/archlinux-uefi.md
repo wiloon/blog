@@ -2,7 +2,7 @@
 title: archlinux UEFI
 author: "-"
 date: 2018-12-08T13:38:38+00:00
-url: /?p=12981
+url: archlinux-uefi
 categories:
   - Inbox
 tags:

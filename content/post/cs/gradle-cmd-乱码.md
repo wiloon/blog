@@ -2,7 +2,7 @@
 title: gradle cmd 乱码
 author: "-"
 date: 2016-03-07T08:55:47+00:00
-url: /?p=8781
+url: gradle-cmd-乱码
 categories:
   - Inbox
 tags:

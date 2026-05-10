@@ -2,7 +2,7 @@
 title: OutOfMemoryException Fix
 author: "-"
 date: 2013-09-04T08:38:07+00:00
-url: /?p=5790
+url: outofmemoryexception-fix
 categories:
   - Inbox
 tags:

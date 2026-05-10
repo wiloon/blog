@@ -2,7 +2,7 @@
 title: Import the Certificate as a Trusted Certificate
 author: "-"
 date: 2018-02-28T05:38:00+00:00
-url: /?p=11936
+url: import-the-certificate-as-a-trusted-certificate
 categories:
   - Inbox
 tags:

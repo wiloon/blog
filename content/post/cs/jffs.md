@@ -2,7 +2,7 @@
 title: JFFS
 author: "-"
 date: 2018-04-06T02:08:48+00:00
-url: /?p=12117
+url: jffs
 categories:
   - Inbox
 tags:

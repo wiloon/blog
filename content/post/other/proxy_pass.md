@@ -2,7 +2,7 @@
 title: nginx proxy_pass
 author: "-"
 date: 2014-12-18T05:06:13+00:00
-url: /?p=7119
+url: proxy_pass
 categories:
   - Inbox
 tags:

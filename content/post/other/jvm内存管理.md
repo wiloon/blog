@@ -2,7 +2,7 @@
 title: java JVM 内存问题 调查,调优
 author: lcf
 date: 2012-11-06T08:07:01+00:00
-url: /?p=4618
+url: jvm内存管理
 categories:
   - Java
 tags:

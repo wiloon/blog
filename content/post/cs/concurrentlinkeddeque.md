@@ -2,7 +2,7 @@
 title: ConcurrentLinkedDeque
 author: "-"
 date: 2019-10-23T05:20:33+00:00
-url: /?p=15053
+url: concurrentlinkeddeque
 categories:
   - Inbox
 tags:

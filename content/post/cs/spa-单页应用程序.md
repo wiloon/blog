@@ -2,7 +2,7 @@
 title: SPA 单页应用程序
 author: "-"
 date: 2018-07-30T11:23:08+00:00
-url: /?p=12460
+url: spa-单页应用程序
 categories:
   - Inbox
 tags:

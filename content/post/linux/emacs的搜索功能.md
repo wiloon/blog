@@ -2,7 +2,7 @@
 title: Emacs的搜索功能
 author: "-"
 date: 2013-07-16T08:35:31+00:00
-url: /?p=5668
+url: emacs的搜索功能
 categories:
   - Tools
 tags:

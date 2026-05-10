@@ -2,7 +2,7 @@
 title: golang bufio 处理 TCP 粘包
 author: "-"
 date: 2015-04-27T12:59:51+00:00
-url: /?p=7526
+url: go-tcp-bufio
 categories:
   - Go
 tags:

@@ -2,7 +2,7 @@
 title: Grub2配置详解(转)
 author: "-"
 date: 2011-11-26T09:14:14+00:00
-url: /?p=1640
+url: grub2配置详解转
 categories:
   - Linux
 tags:

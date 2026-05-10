@@ -2,7 +2,7 @@
 title: Maven内置变量
 author: "-"
 date: 2015-09-10T00:37:50+00:00
-url: /?p=8234
+url: maven内置变量
 categories:
   - Inbox
 tags:

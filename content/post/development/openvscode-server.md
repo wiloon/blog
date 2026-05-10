@@ -2,7 +2,7 @@
 title: OpenVSCode Server
 author: "-"
 date: 2011-08-27T13:06:15+00:00
-url: /?p=592
+url: openvscode-server
 categories:
   - Tools
 tags:

@@ -2,7 +2,7 @@
 title: 工厂模式
 author: "-"
 date: 2011-10-29T06:02:20+00:00
-url: /?p=1335
+url: factory-mode
 categories:
   - Java
 tags:

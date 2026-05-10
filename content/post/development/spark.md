@@ -2,7 +2,7 @@
 title: Spark
 author: "-"
 date: 2015-08-28T10:00:55+00:00
-url: /?p=8184
+url: spark
 categories:
   - Inbox
 tags:

@@ -2,7 +2,7 @@
 title: Tomcat 访问日志
 author: "-"
 date: 2014-01-10T06:12:27+00:00
-url: /?p=6194
+url: tomcat访问日志
 categories:
   - Inbox
 tags:

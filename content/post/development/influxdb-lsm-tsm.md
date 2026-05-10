@@ -2,7 +2,7 @@
 title: influxdb lsm tsm
 author: "-"
 date: 2012-01-13T15:46:12+00:00
-url: /?p=2141
+url: influxdb-lsm-tsm
 categories:
   - Inbox
 tags:

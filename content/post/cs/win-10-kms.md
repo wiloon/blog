@@ -2,7 +2,7 @@
 title: win 10 kms
 author: "-"
 date: 2018-03-26T13:48:54+00:00
-url: /?p=12072
+url: win-10-kms
 categories:
   - Inbox
 tags:

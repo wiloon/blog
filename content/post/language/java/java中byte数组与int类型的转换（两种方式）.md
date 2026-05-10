@@ -2,7 +2,7 @@
 title: java中byte数组与int类型的转换 (两种方式) 
 author: "-"
 date: 2015-10-12T08:58:05+00:00
-url: /?p=8392
+url: java中byte数组与int类型的转换（两种方式）
 categories:
   - Inbox
 tags:

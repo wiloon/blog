@@ -2,7 +2,7 @@
 title: jenkins api token
 author: "-"
 date: 2020-03-22T10:30:34+00:00
-url: /?p=15806
+url: jenkins-api-token
 categories:
   - Inbox
 tags:

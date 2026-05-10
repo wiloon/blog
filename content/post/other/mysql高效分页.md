@@ -2,7 +2,7 @@
 title: MySQL 分页
 author: lcf
 date: 2012-11-15T08:22:40+00:00
-url: /?p=4696
+url: mysql高效分页
 categories:
   - Database
 tags:

@@ -2,7 +2,7 @@
 title: 'java  float,double,decimal'
 author: "-"
 date: 2011-07-03T12:17:33+00:00
-url: /?p=321
+url: java-的-float-和-double
 categories:
   - Java
 tags:

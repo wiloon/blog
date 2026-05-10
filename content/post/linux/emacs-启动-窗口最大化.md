@@ -2,7 +2,7 @@
 title: emacs 启动 窗口最大化
 author: "-"
 date: 2011-08-18T02:49:36+00:00
-url: /?p=434
+url: emacs-启动-窗口最大化
 categories:
   - Tools
 tags:

@@ -2,7 +2,7 @@
 title: raspberry pi omxplayer mplayer
 author: "-"
 date: 2013-04-21T02:46:47+00:00
-url: /?p=5417
+url: raspberry-pi
 categories:
   - Hardware
 tags:

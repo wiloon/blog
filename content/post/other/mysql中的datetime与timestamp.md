@@ -2,7 +2,7 @@
 title: MySQL中的datetime与timestamp
 author: "-"
 date: 2014-05-07T01:46:29+00:00
-url: /?p=6592
+url: mysql中的datetime与timestamp
 categories:
   - Inbox
 tags:

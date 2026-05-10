@@ -2,7 +2,7 @@
 title: 进程调度
 author: "-"
 date: 2017-02-10T00:44:54+00:00
-url: /?p=9765
+url: scheduler
 categories:
   - inbox
 tags:

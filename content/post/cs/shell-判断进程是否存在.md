@@ -2,7 +2,7 @@
 title: Shell 判断进程是否存在
 author: "-"
 date: 2020-02-19T02:27:59+00:00
-url: /?p=15598
+url: shell-判断进程是否存在
 categories:
   - Linux
 tags:

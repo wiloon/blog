@@ -2,7 +2,7 @@
 title: shiro tag
 author: "-"
 date: 2013-02-03T08:12:18+00:00
-url: /?p=5121
+url: shiro-tag
 categories:
   - Java
 tags:

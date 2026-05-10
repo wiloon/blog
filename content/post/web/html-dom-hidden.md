@@ -2,7 +2,7 @@
 title: HTML DOM Hidden
 author: "-"
 date: 2014-04-12T03:47:06+00:00
-url: /?p=6529
+url: html-dom-hidden
 categories:
   - Inbox
 tags:

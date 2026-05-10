@@ -2,7 +2,7 @@
 title: emacs copy current line
 author: "-"
 date: 2011-04-30T09:32:53+00:00
-url: /?p=148
+url: emacs-copy-current-line
 categories:
   - Tools
 tags:

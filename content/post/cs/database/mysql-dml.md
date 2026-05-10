@@ -2,7 +2,7 @@
 title: MySQL dml
 author: "-"
 date: 2019-03-08T06:10:31+00:00
-url: /?p=13765
+url: mysql-dml
 categories:
   - Inbox
 tags:

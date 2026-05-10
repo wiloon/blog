@@ -2,7 +2,7 @@
 title: goexec
 author: "-"
 date: 2019-05-13T01:00:46+00:00
-url: /?p=14326
+url: goexec
 categories:
   - Inbox
 tags:

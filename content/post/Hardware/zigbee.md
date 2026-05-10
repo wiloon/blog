@@ -2,7 +2,7 @@
 title: zigbee
 author: "-"
 date: 2013-07-10T15:43:10+00:00
-url: /?p=5634
+url: zigbee
 categories:
   - Inbox
 tags:

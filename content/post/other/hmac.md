@@ -2,7 +2,7 @@
 title: Hash， MAC, HMAC
 author: "-"
 date: 2011-08-25T05:06:49+00:00
-url: /?p=560
+url: hmac
 categories:
   - Security
 tags:

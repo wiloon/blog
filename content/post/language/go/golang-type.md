@@ -2,7 +2,7 @@
 title: golang 类/type
 author: "-"
 date: 2017-02-17T01:22:13+00:00
-url: /?p=9825
+url: golang-type
 categories:
   - Inbox
 tags:

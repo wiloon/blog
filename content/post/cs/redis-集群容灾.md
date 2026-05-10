@@ -2,7 +2,7 @@
 title: redis 集群容灾
 author: "-"
 date: 2019-07-30T07:38:56+00:00
-url: /?p=14741
+url: redis-集群容灾
 categories:
   - Inbox
 tags:

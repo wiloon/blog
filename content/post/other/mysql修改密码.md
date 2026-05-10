@@ -2,7 +2,7 @@
 title: MySQL修改密码
 author: "-"
 date: 2011-12-26T07:22:14+00:00
-url: /?p=2013
+url: mysql修改密码
 categories:
   - Database
 tags:

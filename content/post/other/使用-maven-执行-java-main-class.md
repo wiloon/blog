@@ -2,7 +2,7 @@
 title: 使用 Maven 执行 java main class
 author: "-"
 date: 2012-12-25T02:51:34+00:00
-url: /?p=4943
+url: 使用-maven-执行-java-main-class
 categories:
   - Java
 tags:

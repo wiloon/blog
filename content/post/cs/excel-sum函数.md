@@ -2,7 +2,7 @@
 title: 'excel  函数'
 author: "-"
 date: 2012-09-17T03:25:23+00:00
-url: /?p=4063
+url: excel-sum函数
 categories:
   - Inbox
 tags:

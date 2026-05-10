@@ -2,7 +2,7 @@
 title: go env
 author: "-"
 date: 2019-07-21T22:24:25+00:00
-url: /?p=14713
+url: go-env
 categories:
   - inbox
 tags:

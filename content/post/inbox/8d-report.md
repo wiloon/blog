@@ -2,7 +2,7 @@
 title: 8D报告
 author: "-"
 date: 2015-04-08T00:34:11+00:00
-url: /?p=7439
+url: 8d-report
 categories:
   - Inbox
 tags:

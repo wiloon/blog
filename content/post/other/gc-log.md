@@ -2,7 +2,7 @@
 title: GC日志
 author: "-"
 date: 2013-06-27T08:24:58+00:00
-url: /?p=5584
+url: gc-log
 categories:
   - Inbox
 tags:

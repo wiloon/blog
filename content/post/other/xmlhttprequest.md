@@ -2,7 +2,7 @@
 title: XMLHttpRequest, XHR
 author: "-"
 date: 2012-09-09T07:15:49+00:00
-url: /?p=4021
+url: xmlhttprequest
 categories:
   - Java
   - Web

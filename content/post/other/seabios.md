@@ -2,7 +2,7 @@
 title: seabios
 author: "-"
 date: 2012-02-10T13:53:54+00:00
-url: /?p=2292
+url: seabios
 categories:
   - Linux
 tags:

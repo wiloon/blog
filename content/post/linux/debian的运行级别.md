@@ -2,7 +2,7 @@
 title: Debian的运行级别
 author: "-"
 date: 2011-12-11T03:39:39+00:00
-url: /?p=1843
+url: debian的运行级别
 categories:
   - Linux
 tags:

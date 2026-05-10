@@ -2,7 +2,7 @@
 title: 在MySQL中修改表名的sql语句
 author: "-"
 date: 2014-04-09T02:12:14+00:00
-url: /?p=6494
+url: 在mysql中修改表名的sql语句
 categories:
   - Inbox
 tags:

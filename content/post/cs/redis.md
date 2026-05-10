@@ -2,7 +2,7 @@
 title: Redis
 author: "-"
 date: 2015-07-13T09:06:18+00:00
-url: /?p=8023
+url: redis
 tags:
   - Database
   - Redis

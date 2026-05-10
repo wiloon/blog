@@ -2,7 +2,7 @@
 title: jvisualvm, JVM 监控分析工具(VisualVM)
 author: "-"
 date: 2015-11-04T02:02:03+00:00
-url: /?p=8447
+url: java多线程的监控分析工具visualvm
 categories:
   - Inbox
 tags:

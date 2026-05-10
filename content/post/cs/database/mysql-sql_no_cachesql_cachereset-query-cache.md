@@ -2,7 +2,7 @@
 title: MySQL SQL_NO_CACHE,sql_cache,RESET QUERY CACHE
 author: "-"
 date: 2017-11-24T06:51:17+00:00
-url: /?p=11488
+url: mysql-sql_no_cachesql_cachereset-query-cache
 categories:
   - Inbox
 tags:

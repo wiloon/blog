@@ -2,7 +2,7 @@
 title: java遍历目录及子目录下的文件
 author: "-"
 date: 2012-09-04T09:12:43+00:00
-url: /?p=4009
+url: java-path
 categories:
   - Java
 tags:

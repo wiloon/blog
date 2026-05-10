@@ -2,7 +2,7 @@
 title: Factory, Abstract Factory, Factory Method, 和Builder
 author: "-"
 date: 2012-10-11T06:53:48+00:00
-url: /?p=4430
+url: factory-abstract-factory-factory-method-和builder
 categories:
   - Java
 tags:

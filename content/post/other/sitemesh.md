@@ -2,7 +2,7 @@
 title: SIteMesh
 author: "-"
 date: 2012-12-07T08:08:32+00:00
-url: /?p=4840
+url: sitemesh
 categories:
   - Java
   - Web

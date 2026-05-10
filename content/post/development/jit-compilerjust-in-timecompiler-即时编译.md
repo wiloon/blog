@@ -2,7 +2,7 @@
 title: 'JAVA   JIT Compiler(Just-in-timeCompiler) 即时编译'
 author: "-"
 date: 2015-02-05T02:41:46+00:00
-url: /?p=7308
+url: jit-compilerjust-in-timecompiler-即时编译
 categories:
   - Inbox
 tags:

@@ -2,7 +2,7 @@
 title: 非容器环境运行OpenJPA应用
 author: "-"
 date: 2011-12-25T09:33:57+00:00
-url: /?p=1986
+url: 非容器环境运行openjpa应用
 categories:
   - Inbox
 tags:

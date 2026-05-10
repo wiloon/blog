@@ -2,7 +2,7 @@
 title: kafka rebalance
 author: "-"
 date: 2020-01-28T09:40:14+00:00
-url: /?p=15430
+url: kafka-rebalance
 categories:
   - Inbox
 tags:

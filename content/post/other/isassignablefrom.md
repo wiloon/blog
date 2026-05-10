@@ -2,7 +2,7 @@
 title: isAssignableFrom
 author: "-"
 date: 2014-06-09T06:10:03+00:00
-url: /?p=6715
+url: isassignablefrom
 categories:
   - Inbox
 tags:

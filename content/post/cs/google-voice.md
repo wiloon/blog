@@ -2,7 +2,7 @@
 title: google voice
 author: "-"
 date: 2020-02-08T02:39:00.000+00:00
-url: "/?p=15503"
+url: google-voice
 categories:
 - Uncategorized
 tags:

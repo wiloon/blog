@@ -2,7 +2,7 @@
 title: debian postfix dovecot
 author: "-"
 date: 2013-05-12T03:36:01+00:00
-url: /?p=5455
+url: debian-postfix
 categories:
   - Web
 tags:

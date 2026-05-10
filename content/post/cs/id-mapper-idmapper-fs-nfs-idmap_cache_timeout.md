@@ -2,7 +2,7 @@
 title: ID Mapper, idmapper, fs.nfs.idmap_cache_timeout
 author: "-"
 date: 2018-08-29T02:10:29+00:00
-url: /?p=12603
+url: id-mapper-idmapper-fs-nfs-idmap_cache_timeout
 categories:
   - Inbox
 tags:

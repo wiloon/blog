@@ -2,7 +2,7 @@
 title: java5
 author: "-"
 date: 2012-03-28T02:49:08+00:00
-url: /?p=2668
+url: java5
 tags:
   - Java
 categories:

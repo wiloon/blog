@@ -2,7 +2,7 @@
 title: MySQL, sql_mode
 author: "-"
 date: 2019-05-16T05:26:24+00:00
-url: /?p=14344
+url: mysql-sql_mode
 categories:
   - Inbox
 tags:

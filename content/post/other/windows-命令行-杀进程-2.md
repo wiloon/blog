@@ -2,7 +2,7 @@
 title: windows 命令行 杀进程
 author: "-"
 date: 2014-12-30T02:30:45+00:00
-url: /?p=7143
+url: windows-命令行-杀进程-2
 categories:
   - Inbox
 tags:

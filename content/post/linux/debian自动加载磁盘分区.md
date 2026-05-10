@@ -2,7 +2,7 @@
 title: debian自动加载磁盘分区
 author: "-"
 date: 2011-12-10T10:38:00+00:00
-url: /?p=1831
+url: debian自动加载磁盘分区
 categories:
   - Linux
 tags:

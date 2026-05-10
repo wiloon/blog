@@ -2,7 +2,7 @@
 title: '浏览器,F5 和 Ctrl+F5的区别'
 author: "-"
 date: 2013-05-09T00:53:53+00:00
-url: /?p=5438
+url: 浏览器-f5-和-ctrlf5的区别
 categories:
   - Web
 tags:

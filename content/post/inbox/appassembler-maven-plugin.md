@@ -2,7 +2,7 @@
 title: appassembler-maven-plugin
 author: "-"
 date: 2016-01-05T01:51:35+00:00
-url: /?p=8630
+url: appassembler-maven-plugin
 categories:
   - Inbox
 tags:

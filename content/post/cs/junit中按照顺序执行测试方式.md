@@ -2,7 +2,7 @@
 title: JUnit中按照顺序执行测试
 author: "-"
 date: 2016-01-27T06:34:42+00:00
-url: /?p=8714
+url: junit中按照顺序执行测试方式
 categories:
   - Inbox
 tags:

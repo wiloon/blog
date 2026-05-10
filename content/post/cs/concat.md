@@ -2,7 +2,7 @@
 title: concat
 author: "-"
 date: 2013-07-11T06:42:51+00:00
-url: /?p=5642
+url: concat
 categories:
   - Database
 tags:

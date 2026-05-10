@@ -2,7 +2,7 @@
 title: 'linux  网桥'
 author: "-"
 date: 2011-12-04T07:17:59+00:00
-url: /?p=1778
+url: linux-网桥
 categories:
   - inbox
 tags:

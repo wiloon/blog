@@ -2,7 +2,7 @@
 title: linux 查看 SATA 速度, 版本
 author: "-"
 date: 2019-04-14T02:33:16+00:00
-url: /?p=14159
+url: linux-查看-sata-速度-版本
 categories:
   - Inbox
 tags:

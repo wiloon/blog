@@ -2,7 +2,7 @@
 title: newifi breed
 author: "-"
 date: 2019-01-02T16:10:57+00:00
-url: /?p=13288
+url: newifi-breed
 categories:
   - Inbox
 tags:

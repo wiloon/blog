@@ -2,7 +2,7 @@
 title: maven plugins, pluginManagement
 author: "-"
 date: 2018-03-06T06:40:17+00:00
-url: /?p=11959
+url: maven-plugins-pluginmanagement
 categories:
   - Inbox
 tags:

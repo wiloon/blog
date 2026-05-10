@@ -2,7 +2,7 @@
 title: 抽奖概率-三种算法
 author: "-"
 date: 2015-01-26T02:33:26+00:00
-url: /?p=7288
+url: lottery
 categories:
   - Algorithm
 tags:

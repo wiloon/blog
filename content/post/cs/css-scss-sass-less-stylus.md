@@ -2,7 +2,7 @@
 title: css scss sass less stylus
 author: "-"
 date: 2019-05-19T05:34:07+00:00
-url: /?p=14365
+url: css-scss-sass-less-stylus
 categories:
   - Inbox
 tags:

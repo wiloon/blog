@@ -2,7 +2,7 @@
 title: chromeos Secure Shell App remove known host
 author: "-"
 date: 2020-03-14T06:27:26+00:00
-url: /?p=15741
+url: chromeos-secure-shell-app-remove-known-host
 categories:
   - chrome
 tags:

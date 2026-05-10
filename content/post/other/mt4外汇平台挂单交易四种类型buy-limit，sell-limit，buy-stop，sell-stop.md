@@ -2,7 +2,7 @@
 title: MT4外汇平台挂单交易四种类型buy limit，sell limit，buy stop，sell stop
 author: "-"
 date: 2013-08-07T16:11:10+00:00
-url: /?p=5762
+url: mt4外汇平台挂单交易四种类型buy-limit，sell-limit，buy-stop，sell-stop
 categories:
   - Inbox
 tags:

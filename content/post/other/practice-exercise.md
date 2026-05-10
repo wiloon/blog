@@ -2,7 +2,7 @@
 title: drill、exercise、practice、training与discipline
 author: "-"
 date: 2015-04-27T01:27:38+00:00
-url: /?p=7524
+url: practice-exercise
 categories:
   - English
 tags:

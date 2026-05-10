@@ -2,7 +2,7 @@
 title: linux 内存
 author: lcf
 date: 2012-09-25T05:30:38+00:00
-url: /?p=4259
+url: mem
 categories:
   - Linux
 tags:

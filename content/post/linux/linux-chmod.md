@@ -2,7 +2,7 @@
 title: chmod
 author: "-"
 date: 2011-04-24T08:34:50+00:00
-url: /?p=119
+url: linux-chmod
 categories:
   - Linux
 tags:

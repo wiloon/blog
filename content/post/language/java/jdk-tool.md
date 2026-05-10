@@ -2,7 +2,7 @@
 title: jdk tool, java tool, jvm tool
 author: "-"
 date: 2017-02-06T00:31:53+00:00
-url: /?p=9713
+url: jdk-tool
 categories:
   - Inbox
 tags:

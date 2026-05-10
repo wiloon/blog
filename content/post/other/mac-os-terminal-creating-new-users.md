@@ -2,7 +2,7 @@
 title: 'mac os terminal,  Creating New Users'
 author: "-"
 date: 2015-02-06T03:53:00+00:00
-url: /?p=7330
+url: mac-os-terminal-creating-new-users
 categories:
   - Inbox
 tags:

@@ -2,7 +2,7 @@
 title: REST是什么？
 author: lcf
 date: 2012-11-07T06:08:16+00:00
-url: /?p=4632
+url: rest是什么？
 categories:
   - Web
 tags:

@@ -2,7 +2,7 @@
 title: 临界区, 竞态条件
 author: "-"
 date: 2015-06-11T07:38:07+00:00
-url: /?p=7791
+url: Critical-section
 tags:
   - Java
 categories:

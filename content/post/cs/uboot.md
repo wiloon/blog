@@ -2,7 +2,7 @@
 title: Uboot
 author: "-"
 date: 2018-08-23T14:38:27+00:00
-url: /?p=12554
+url: uboot
 categories:
   - Inbox
 tags:

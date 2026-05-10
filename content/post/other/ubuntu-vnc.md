@@ -2,7 +2,7 @@
 title: ubuntu vnc
 author: "-"
 date: 2012-01-20T01:41:20+00:00
-url: /?p=2165
+url: ubuntu-vnc
 categories:
   - Linux
 tags:

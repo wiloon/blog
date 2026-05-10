@@ -2,7 +2,7 @@
 title: JPA JPQL
 author: "-"
 date: 2014-06-06T08:04:51+00:00
-url: /?p=6706
+url: jpa-jpql
 categories:
   - Inbox
 tags:

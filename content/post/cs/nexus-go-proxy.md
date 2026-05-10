@@ -2,7 +2,7 @@
 title: nexus go proxy
 author: "-"
 date: 2020-03-14T16:53:38+00:00
-url: /?p=15751
+url: nexus-go-proxy
 categories:
   - Inbox
 tags:

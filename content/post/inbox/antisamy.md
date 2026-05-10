@@ -2,7 +2,7 @@
 title: antisamy
 author: "-"
 date: 2018-12-14T07:44:26+00:00
-url: /?p=13081
+url: antisamy
 categories:
   - Inbox
 tags:

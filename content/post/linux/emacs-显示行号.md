@@ -2,7 +2,7 @@
 title: 分布式ID, 雪花算法
 author: "-"
 date: 2011-11-12T08:12:59+00:00
-url: /?p=1512
+url: emacs-显示行号
 categories:
   - Tools
 tags:

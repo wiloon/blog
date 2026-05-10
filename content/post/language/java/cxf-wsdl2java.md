@@ -2,7 +2,7 @@
 title: cxf wsdl2java
 author: "-"
 date: 2012-07-06T01:44:43+00:00
-url: /?p=3755
+url: cxf-wsdl2java
 categories:
   - Java
   - Web

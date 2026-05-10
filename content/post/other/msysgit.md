@@ -2,7 +2,7 @@
 title: msysgit
 author: "-"
 date: 2012-04-25T02:21:56+00:00
-url: /?p=3025
+url: msysgit
 categories:
   - Tools
 tags:

@@ -2,7 +2,7 @@
 title: gentoo
 author: "-"
 date: 2015-09-12T06:09:48+00:00
-url: /?p=8243
+url: gentoo-2
 categories:
   - Inbox
 tags:

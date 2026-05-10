@@ -2,7 +2,7 @@
 title: Java EE
 author: "-"
 date: 2011-10-16T07:49:50+00:00
-url: /?p=1057
+url: java-ee
 categories:
   - Java
 tags:

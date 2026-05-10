@@ -2,7 +2,7 @@
 title: HBase的WAL机制 WAL (Write-Ahead-Log)
 author: "-"
 date: 2017-05-09T02:03:37+00:00
-url: /?p=10265
+url: hbase的wal机制-wal-write-ahead-log
 categories:
   - Inbox
 tags:

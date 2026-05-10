@@ -2,7 +2,7 @@
 title: linux 文本 统计
 author: "-"
 date: 2015-10-28T06:09:58+00:00
-url: /?p=8439
+url: linux-文本-统计
 categories:
   - Inbox
 tags:

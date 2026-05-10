@@ -2,7 +2,7 @@
 title: Java Exchanger
 author: "-"
 date: 2013-07-22T07:52:38+00:00
-url: /?p=5690
+url: java-exchanger
 categories:
   - Inbox
 tags:

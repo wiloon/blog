@@ -2,7 +2,7 @@
 title: Android APK加壳技术方案
 author: "-"
 date: 2014-03-20T07:21:35+00:00
-url: /?p=6412
+url: android-apk加壳技术方案
 categories:
   - Inbox
 tags:

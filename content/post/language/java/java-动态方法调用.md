@@ -2,7 +2,7 @@
 title: Java 动态方法调用
 author: "-"
 date: 2012-09-19T08:29:05+00:00
-url: /?p=4093
+url: java-动态方法调用
 categories:
   - Java
 tags:

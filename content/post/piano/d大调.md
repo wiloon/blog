@@ -2,7 +2,7 @@
 title: D大调
 author: "-"
 date: 2015-05-02T10:56:04+00:00
-url: /?p=7570
+url: d大调
 categories:
   - Inbox
 tags:

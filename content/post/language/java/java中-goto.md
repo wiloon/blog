@@ -2,7 +2,7 @@
 title: Java中 goto
 author: "-"
 date: 2014-04-11T05:46:05+00:00
-url: /?p=6513
+url: java中-goto
 categories:
   - Inbox
 tags:

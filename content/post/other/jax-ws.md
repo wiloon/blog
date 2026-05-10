@@ -2,7 +2,7 @@
 title: JAX-WS
 author: "-"
 date: 2011-10-31T03:16:56+00:00
-url: /?p=1404
+url: jax-ws
 categories:
   - Java
   - Web

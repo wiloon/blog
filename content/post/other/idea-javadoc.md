@@ -2,7 +2,7 @@
 title: IDEA JavaDoc
 author: "-"
 date: 2012-09-02T04:18:03+00:00
-url: /?p=4000
+url: idea-javadoc
 categories:
   - Java
 tags:

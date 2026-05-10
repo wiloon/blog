@@ -2,7 +2,7 @@
 title: '移动平均线  均线 Moving Average  MA'
 author: "-"
 date: 2015-06-04T14:45:35+00:00
-url: /?p=7763
+url: 移动平均线-均线-moving-average-ma
 categories:
   - Inbox
 tags:

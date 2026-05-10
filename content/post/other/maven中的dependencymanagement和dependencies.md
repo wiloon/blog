@@ -2,7 +2,7 @@
 title: Maven中的DependencyManagement和Dependencies
 author: "-"
 date: 2014-04-28T05:52:59+00:00
-url: /?p=6564
+url: maven中的dependencymanagement和dependencies
 categories:
   - Inbox
 tags:

@@ -2,7 +2,7 @@
 title: 第一届黑客信息战 MIT CTF 2011记录
 author: "-"
 date: 2012-03-06T12:57:43+00:00
-url: /?p=2525
+url: 第一届黑客信息战-mit-ctf-2011记录
 categories:
   - Linux
 tags:

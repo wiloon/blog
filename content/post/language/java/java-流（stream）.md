@@ -2,7 +2,7 @@
 title: Java 流, Stream
 author: lcf
 date: 2012-09-25T06:38:01+00:00
-url: /?p=4278
+url: java-流（stream）
 categories:
   - Java
 tags:

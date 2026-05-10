@@ -2,7 +2,7 @@
 title: java ssh
 author: "-"
 date: 2015-08-14T05:41:21+00:00
-url: /?p=8120
+url: java-ssh
 categories:
   - Inbox
 tags:

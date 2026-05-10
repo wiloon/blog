@@ -3,7 +3,7 @@ title: 理解和使用 alsa 配置-默认静音,必须先用amixer解除主音�
 author: "-"
 date: 2020-01-01T00:00:00+08:00
 draft: true
-url: /?p=6810
+url: alsa
 categories:
   - Inbox
 tags:

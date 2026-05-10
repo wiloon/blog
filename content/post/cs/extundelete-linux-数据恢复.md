@@ -2,7 +2,7 @@
 title: extundelete linux 数据恢复
 author: "-"
 date: 2018-02-08T15:27:49+00:00
-url: /?p=11843
+url: extundelete-linux-数据恢复
 categories:
   - Inbox
 tags:

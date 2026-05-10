@@ -2,7 +2,7 @@
 title: 'java 读文件到Byte[]数组'
 author: "-"
 date: 2016-03-17T09:23:41+00:00
-url: /?p=8806
+url: java-file和byte数组-相互转换
 categories:
   - Inbox
 tags:

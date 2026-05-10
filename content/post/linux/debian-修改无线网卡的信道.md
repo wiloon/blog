@@ -2,7 +2,7 @@
 title: debian 修改无线网卡的信道
 author: "-"
 date: 2012-05-19T02:37:05+00:00
-url: /?p=3160
+url: debian-修改无线网卡的信道
 categories:
   - Linux
   - Network

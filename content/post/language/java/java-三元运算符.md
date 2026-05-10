@@ -2,7 +2,7 @@
 title: Java 运算符
 author: "-"
 date: 2012-05-03T07:28:36+00:00
-url: /?p=3083
+url: java-三元运算符
 categories:
   - Java
 tags:

@@ -2,7 +2,7 @@
 title: 阻塞队列 BlockingQueue
 author: "-"
 date: 2013-12-20T04:52:28+00:00
-url: /?p=6043
+url: blocking-queue
 categories:
   - Java
 tags:

@@ -2,7 +2,7 @@
 title: 'Java   Builder'
 author: "-"
 date: 2019-05-13T10:59:45+00:00
-url: /?p=14333
+url: java-builder
 categories:
   - Inbox
 tags:

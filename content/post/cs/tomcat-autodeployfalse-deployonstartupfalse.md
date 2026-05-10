@@ -2,7 +2,7 @@
 title: 'tomcat autoDeploy="false"  deployOnStartup="false"'
 author: "-"
 date: 2018-09-19T04:48:43+00:00
-url: /?p=12646
+url: tomcat-autodeployfalse-deployonstartupfalse
 categories:
   - Inbox
 tags:

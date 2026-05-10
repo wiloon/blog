@@ -2,7 +2,7 @@
 title: Golang，Signal
 author: "-"
 date: 2020-02-24T03:41:55+00:00
-url: /?p=15626
+url: golang，-signal
 categories:
   - Go
 tags:

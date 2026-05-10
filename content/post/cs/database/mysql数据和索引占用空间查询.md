@@ -2,7 +2,7 @@
 title: MySQL数据和索引占用空间查询
 author: "-"
 date: 2017-11-24T08:42:42+00:00
-url: /?p=11501
+url: mysql数据和索引占用空间查询
 categories:
   - Inbox
 tags:

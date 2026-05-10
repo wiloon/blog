@@ -2,7 +2,7 @@
 title: gmail mail filter
 author: "-"
 date: 2016-12-24T10:47:28+00:00
-url: /?p=9617
+url: gmail-mail-filter
 categories:
   - Inbox
 tags:

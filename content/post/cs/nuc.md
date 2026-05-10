@@ -2,7 +2,7 @@
 title: nuc
 author: "-"
 date: 2018-12-11T00:29:12+00:00
-url: /?p=13042
+url: nuc
 categories:
   - Inbox
 tags:

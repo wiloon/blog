@@ -2,7 +2,7 @@
 title: Gradle 修改 Maven 仓库地址
 author: "-"
 date: 2016-03-20T05:57:31+00:00
-url: /?p=8813
+url: gradle-修改-maven-仓库地址
 categories:
   - Inbox
 tags:

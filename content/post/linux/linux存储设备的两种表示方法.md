@@ -2,7 +2,7 @@
 title: Linux存储设备的两种表示方法
 author: "-"
 date: 2012-01-02T02:31:21+00:00
-url: /?p=2074
+url: linux存储设备的两种表示方法
 categories:
   - Linux
 tags:

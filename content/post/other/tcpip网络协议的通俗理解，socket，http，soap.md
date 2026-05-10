@@ -2,7 +2,7 @@
 title: TCP/IP 网络协议的通俗理解, socket，http，soap
 author: "-"
 date: 2013-11-17T09:03:02+00:00
-url: /?p=5979
+url: tcpip网络协议的通俗理解，socket，http，soap
 categories:
   - Inbox
 tags:

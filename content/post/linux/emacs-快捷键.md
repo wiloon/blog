@@ -2,7 +2,7 @@
 title: Emacs 快捷键, keys
 author: "-"
 date: 2011-05-01T07:02:28+00:00
-url: /?p=161
+url: emacs-快捷键
 categories:
   - inbox
 tags:

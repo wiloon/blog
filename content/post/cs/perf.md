@@ -2,7 +2,7 @@
 title: Perf
 author: "-"
 date: 2018-08-31T02:11:12+00:00
-url: /?p=12623
+url: perf
 categories:
   - Inbox
 tags:

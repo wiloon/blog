@@ -2,7 +2,7 @@
 title: linux enca 编码并转换
 author: "-"
 date: 2017-10-31T12:53:47+00:00
-url: /?p=11354
+url: linux-enca-编码并转换
 categories:
   - Inbox
 tags:

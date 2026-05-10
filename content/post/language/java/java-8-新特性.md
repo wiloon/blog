@@ -2,7 +2,7 @@
 title: java 8 新特性
 author: "-"
 date: 2017-03-25T02:00:47+00:00
-url: /?p=9930
+url: java-8-新特性
 categories:
   - Inbox
 tags:

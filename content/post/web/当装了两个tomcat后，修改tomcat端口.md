@@ -2,7 +2,7 @@
 title: 当装了两个tomcat后，修改tomcat端口
 author: "-"
 date: 2012-05-13T10:49:12+00:00
-url: /?p=3112
+url: 当装了两个tomcat后，修改tomcat端口
 categories:
   - Java
   - Web

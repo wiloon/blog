@@ -2,7 +2,7 @@
 title: PPT模板中的背景图片如何修改
 author: "-"
 date: 2015-07-09T02:46:57+00:00
-url: /?p=8015
+url: ppt模板中的背景图片如何修改
 categories:
   - Inbox
 tags:

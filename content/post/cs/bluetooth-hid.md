@@ -2,7 +2,7 @@
 title: 蓝牙 HID
 author: "-"
 date: 2011-08-18T02:19:41+00:00
-url: /?p=422
+url: bluetooth-hid
 categories:
   - Linux
 tags:

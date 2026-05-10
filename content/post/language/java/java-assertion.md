@@ -2,7 +2,7 @@
 title: Java assertion
 author: "-"
 date: 2012-09-21T08:16:05+00:00
-url: /?p=4159
+url: java-assertion
 categories:
   - Java
 tags:

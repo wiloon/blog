@@ -2,7 +2,7 @@
 title: application start script
 author: "-"
 date: 2019-10-21T02:56:24+00:00
-url: /?p=15026
+url: linux-app-start-script
 categories:
   - Inbox
 tags:

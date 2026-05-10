@@ -2,7 +2,7 @@
 title: ultra mobile
 author: "-"
 date: 2012-09-22T07:33:03+00:00
-url: /?p=4179
+url: ultra-mobile
 categories:
   - Java
 tags:

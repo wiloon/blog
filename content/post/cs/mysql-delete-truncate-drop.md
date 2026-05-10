@@ -2,7 +2,7 @@
 title: MySQL DELETE TRUNCATE drop
 author: "-"
 date: 2019-03-18T10:16:04+00:00
-url: /?p=13873
+url: mysql-delete-truncate-drop
 categories:
   - Inbox
 tags:

@@ -2,7 +2,7 @@
 title: Tomcat Port 8009 与AJP13协议
 author: "-"
 date: 2012-05-13T11:38:04+00:00
-url: /?p=3124
+url: tomcat-port-8009-与ajp13协议
 categories:
   - Web
 tags:

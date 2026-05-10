@@ -2,7 +2,7 @@
 title: Xen
 author: "-"
 date: 2011-11-26T07:02:20+00:00
-url: /?p=1613
+url: xen
 categories:
   - Linux
 tags:

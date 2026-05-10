@@ -2,7 +2,7 @@
 title: linux 格式化U盘
 author: "-"
 date: 2012-03-29T14:49:17+00:00
-url: /?p=2691
+url: linux-格式化u盘
 categories:
   - Linux
 tags:

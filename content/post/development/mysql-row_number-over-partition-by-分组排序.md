@@ -2,7 +2,7 @@
 title: MySQL 实现 row_number() over(partition by) 分组排序功能
 author: "-"
 date: 2015-08-06T11:25:24.000+00:00
-url: "/?p=8069"
+url: mysql-row_number-over-partition-by-分组排序
 categories:
 - Uncategorized
 tags:

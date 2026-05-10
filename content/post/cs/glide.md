@@ -2,7 +2,7 @@
 title: glide
 author: "-"
 date: 2017-12-18T08:21:39+00:00
-url: /?p=11631
+url: glide
 categories:
   - Inbox
 tags:

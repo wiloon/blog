@@ -2,7 +2,7 @@
 title: MySQL collect
 author: "-"
 date: 2019-07-02T05:27:27+00:00
-url: /?p=14604
+url: mysql-collect
 categories:
   - Inbox
 tags:

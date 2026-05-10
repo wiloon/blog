@@ -2,7 +2,7 @@
 title: ODX, OTX, UDS
 author: "-"
 date: 2017-08-14T04:23:33+00:00
-url: /?p=11045
+url: odx-otx-uds
 categories:
   - Inbox
 tags:

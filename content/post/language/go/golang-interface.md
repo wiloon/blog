@@ -2,7 +2,7 @@
 title: golang  方法, 接口, 继承
 author: "-"
 date: 2012-11-18T15:12:11+00:00
-url: /?p=4716
+url: golang-interface
 categories:
   - inbox
 tags:

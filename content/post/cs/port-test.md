@@ -2,7 +2,7 @@
 title: test for a specific port from Linux or Unix command line
 author: "-"
 date: 2018-11-26T06:06:17+00:00
-url: /?p=12935
+url: port-test
 categories:
   - Inbox
 tags:

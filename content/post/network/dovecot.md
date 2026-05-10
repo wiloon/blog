@@ -2,7 +2,7 @@
 title: Dovecot, 邮件服务器
 author: "-"
 date: 2013-05-10T13:45:52+00:00
-url: /?p=5443
+url: dovecot
 categories:
   - Inbox
 tags:

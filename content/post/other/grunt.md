@@ -2,7 +2,7 @@
 title: Grunt
 author: "-"
 date: 2015-05-10T13:14:07+00:00
-url: /?p=7653
+url: grunt
 categories:
   - Inbox
 tags:

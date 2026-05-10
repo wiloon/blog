@@ -2,7 +2,7 @@
 title: HTML5 中 div section article 的区别
 author: "-"
 date: 2012-02-19T12:21:06+00:00
-url: /?p=2374
+url: html5-中-div-section-article-的区别
 categories:
   - Web
 tags:

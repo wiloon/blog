@@ -2,7 +2,7 @@
 title: MySQL 在线修改表结构
 author: "-"
 date: 2018-08-03T06:54:44+00:00
-url: /?p=12488
+url: mysql-在线修改表结构
 categories:
   - Inbox
 tags:

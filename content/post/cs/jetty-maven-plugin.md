@@ -2,7 +2,7 @@
 title: jetty-maven-plugin, jetty maven plugin
 author: "-"
 date: 2018-03-06T07:10:51+00:00
-url: /?p=11958
+url: jetty-maven-plugin
 categories:
   - Java
 tags:

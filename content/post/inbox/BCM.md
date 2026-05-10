@@ -2,7 +2,7 @@
 title: BCM Body Control Module
 author: "-"
 date: 2016-01-04T05:13:23+00:00
-url: /?p=8615
+url: BCM
 categories:
   - Inbox
 tags:

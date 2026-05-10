@@ -2,7 +2,7 @@
 title: json tool, jq command
 author: "-"
 date: 2020-04-19T13:17:58+00:00
-url: /?p=16004
+url: json-tool-jq
 categories:
   - Inbox
 tags:

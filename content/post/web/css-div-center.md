@@ -2,7 +2,7 @@
 title: CSS DIV居中
 author: "-"
 date: 2014-06-25T05:40:35+00:00
-url: /?p=6771
+url: css-div-center
 categories:
   - Inbox
 tags:

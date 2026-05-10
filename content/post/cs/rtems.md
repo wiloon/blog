@@ -2,7 +2,7 @@
 title: RTEMS
 author: "-"
 date: 2016-01-06T09:48:11+00:00
-url: /?p=8655
+url: rtems
 categories:
   - Inbox
 tags:

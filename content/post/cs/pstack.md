@@ -2,7 +2,7 @@
 title: pstack
 author: "-"
 date: 2017-06-10T09:28:17+00:00
-url: /?p=10516
+url: pstack
 categories:
   - Inbox
 tags:

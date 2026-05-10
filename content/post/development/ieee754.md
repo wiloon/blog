@@ -2,7 +2,7 @@
 title: IEEE754
 author: "-"
 date: 2011-07-02T13:08:01+00:00
-url: /?p=263
+url: ieee754
 categories:
   - inbox
 tags:

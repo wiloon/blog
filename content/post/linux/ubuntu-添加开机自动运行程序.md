@@ -2,7 +2,7 @@
 title: 开机自动运行
 author: "-"
 date: 2011-05-08T01:59:13+00:00
-url: /?p=181
+url: ubuntu-添加开机自动运行程序
 categories:
   - Linux
 tags:

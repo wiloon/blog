@@ -2,7 +2,7 @@
 title: System.exit(n)
 author: "-"
 date: 2017-01-06T06:55:57+00:00
-url: /?p=9642
+url: system-exitn
 categories:
   - Inbox
 tags:

@@ -2,7 +2,7 @@
 title: Daily Scrum, stand-up meeting, 站会
 author: "-"
 date: 2013-02-27T15:08:54+00:00
-url: /?p=5278
+url: stand-up-meeting
 categories:
   - Agile
 tags:

@@ -2,7 +2,7 @@
 title: 幼儿园防拐骗专题安全演练
 author: "-"
 date: 2025-11-20T10:30:00+08:00
-url: /?p=5850
+url: kid
 categories:
   - Inbox
 tags:

@@ -2,7 +2,7 @@
 title: hyper -v 端口映射
 author: "-"
 date: 2019-05-05T04:30:41+00:00
-url: /?p=14286
+url: hyper-v-端口映射
 categories:
   - Inbox
 tags:

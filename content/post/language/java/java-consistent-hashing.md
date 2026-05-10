@@ -2,7 +2,7 @@
 title: 一致性哈希算法与Java实现
 author: "-"
 date: 2012-05-28T07:05:44+00:00
-url: /?p=3276
+url: java-consistent-hashing
 categories:
   - Algorithm
 tags:

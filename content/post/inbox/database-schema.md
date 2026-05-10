@@ -2,7 +2,7 @@
 title: database schema
 author: "-"
 date: 2017-07-18T08:27:02+00:00
-url: /?p=10866
+url: database-schema
 categories:
   - Inbox
 tags:

@@ -2,7 +2,7 @@
 title: linux string cut, sort
 author: "-"
 date: 2018-07-13T09:17:44+00:00
-url: /?p=12427
+url: linux-string-cut-sort
 categories:
   - Inbox
 tags:

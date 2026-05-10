@@ -2,7 +2,7 @@
 title: debian VSFTPD
 author: "-"
 date: 2012-05-26T01:39:22+00:00
-url: /?p=3227
+url: vsftpd-配置
 categories:
   - Linux
   - Network

@@ -2,7 +2,7 @@
 title: JAVA读文本文件
 author: "-"
 date: 2012-09-02T04:14:58+00:00
-url: /?p=3997
+url: java读文本文件
 categories:
   - Java
 tags:

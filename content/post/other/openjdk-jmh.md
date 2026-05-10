@@ -2,7 +2,7 @@
 title: java openjdk JMH
 author: "-"
 date: 2014-09-03T01:04:10+00:00
-url: /?p=6973
+url: openjdk-jmh
 categories:
   - Java
 tags:

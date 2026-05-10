@@ -2,7 +2,7 @@
 title: vim 粘贴注释
 author: "-"
 date: 2020-04-22T02:07:04+00:00
-url: /?p=16040
+url: vim粘贴注释
 categories:
   - Tools
 tags:

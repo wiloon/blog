@@ -2,7 +2,7 @@
 title: 设置MySQL允许外网访问
 author: "-"
 date: 2015-02-10T15:21:59+00:00
-url: /?p=7344
+url: 设置mysql允许外网访问
 categories:
   - Inbox
 tags:

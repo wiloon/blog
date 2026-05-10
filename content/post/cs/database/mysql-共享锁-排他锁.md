@@ -2,7 +2,7 @@
 title: 'MySQL 共享锁  排他锁'
 author: "-"
 date: 2017-04-12T08:34:11+00:00
-url: /?p=10066
+url: mysql-共享锁-排他锁
 categories:
   - Inbox
 tags:

@@ -2,7 +2,7 @@
 title: java 纳秒
 author: "-"
 date: 2018-11-13T10:45:44+00:00
-url: /?p=12879
+url: java-纳秒
 categories:
   - Inbox
 tags:

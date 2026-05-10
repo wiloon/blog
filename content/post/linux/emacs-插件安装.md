@@ -2,7 +2,7 @@
 title: emacs 插件安装
 author: "-"
 date: 2011-04-23T08:34:58+00:00
-url: /?p=98
+url: emacs-插件安装
 categories:
   - Tools
 tags:

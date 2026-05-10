@@ -2,7 +2,7 @@
 title: ODX(Open Diagnostic Data Exchange)
 author: "-"
 date: 2015-11-25T00:40:28+00:00
-url: /?p=8469
+url: odxopen-diagnostic-data-exchange
 categories:
   - Inbox
 tags:

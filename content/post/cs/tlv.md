@@ -2,7 +2,7 @@
 title: tlv
 author: "-"
 date: 2018-06-25T08:55:03+00:00
-url: /?p=12365
+url: tlv
 categories:
   - Inbox
 tags:

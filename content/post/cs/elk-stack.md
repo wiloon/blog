@@ -2,7 +2,7 @@
 title: ELK Stack
 author: "-"
 date: 2018-01-10T08:03:10+00:00
-url: /?p=11698
+url: elk-stack
 categories:
   - Inbox
 tags:

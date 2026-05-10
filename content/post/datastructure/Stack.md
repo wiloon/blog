@@ -2,7 +2,7 @@
 title: 虚拟机栈(Virtual Machine Stack)，栈帧(Stack Frame)
 author: "-"
 date: 2013-09-16T07:08:48+00:00
-url: /?p=5814
+url: Stack
 categories:
   - Java
 tags:

@@ -2,7 +2,7 @@
 title: spring生成EntityManagerFactory的三种方式
 author: "-"
 date: 2014-05-29T11:38:28+00:00
-url: /?p=6695
+url: spring生成entitymanagerfactory的三种方式
 categories:
   - Inbox
 tags:

@@ -2,7 +2,7 @@
 title: Spring静态注入的三种方式
 author: "-"
 date: 2020-02-06T14:18:04+00:00
-url: /?p=15495
+url: spring静态注入的三种方式
 categories:
   - Inbox
 tags:

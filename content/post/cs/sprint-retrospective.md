@@ -2,7 +2,7 @@
 title: 迭代回顾, Sprint Retrospective
 author: "-"
 date: 2015-10-12T14:44:49+00:00
-url: /?p=8396
+url: sprint-retrospective
 categories:
   - Agile
 tags:

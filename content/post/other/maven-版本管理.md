@@ -2,7 +2,7 @@
 title: Maven
 author: "-"
 date: 2015-08-14T04:31:06+00:00
-url: /?p=8117
+url: maven-版本管理
 categories:
   - Inbox
 tags:

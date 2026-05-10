@@ -2,7 +2,7 @@
 title: KVM Xen
 author: "-"
 date: 2011-11-26T08:06:57+00:00
-url: /?p=1629
+url: kvm-vs-xen
 categories:
   - Linux
   - Desktop

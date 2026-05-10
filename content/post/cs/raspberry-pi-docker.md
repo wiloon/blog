@@ -2,7 +2,7 @@
 title: raspberry pi docker
 author: "-"
 date: 2018-11-24T14:54:21+00:00
-url: /?p=12926
+url: raspberry-pi-docker
 categories:
   - Hardware
 tags:

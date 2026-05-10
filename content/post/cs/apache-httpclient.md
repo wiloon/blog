@@ -2,7 +2,7 @@
 title: Apache HttpClient 4.5 How to Get Server Certificates
 author: "-"
 date: 2019-04-18T08:58:28+00:00
-url: /?p=14198
+url: apache-httpclient
 categories:
   - Inbox
 tags:

@@ -2,7 +2,7 @@
 title: FTP的主动模式和被动模式
 author: "-"
 date: 2012-05-26T02:28:17+00:00
-url: /?p=3238
+url: ftp的主动模式和被动模式
 categories:
   - Linux
   - Network

@@ -2,7 +2,7 @@
 title: Install msysgit
 author: "-"
 date: 2012-06-04T03:25:10+00:00
-url: /?p=3416
+url: install-msysgit
 categories:
   - Tools
 tags:

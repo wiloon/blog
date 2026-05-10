@@ -2,7 +2,7 @@
 title: 电脑通过USB共享android手机网络访问Internet
 author: "-"
 date: 2014-02-25T05:42:24+00:00
-url: /?p=6284
+url: 电脑通过usb共享android手机网络访问internet
 categories:
   - Inbox
 tags:

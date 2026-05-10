@@ -2,7 +2,7 @@
 title: emacs auto backup
 author: "-"
 date: 2011-04-23T09:05:52+00:00
-url: /?p=106
+url: emacs-auto-backup
 categories:
   - Tools
 tags:

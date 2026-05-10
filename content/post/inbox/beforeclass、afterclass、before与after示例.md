@@ -2,7 +2,7 @@
 title: BeforeClass、AfterClass、Before与After示例
 author: "-"
 date: 2016-01-27T06:49:03+00:00
-url: /?p=8716
+url: beforeclass、afterclass、before与after示例
 categories:
   - Inbox
 tags:

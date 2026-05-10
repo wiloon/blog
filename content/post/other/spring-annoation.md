@@ -2,7 +2,7 @@
 title: Spring annoation
 author: "-"
 date: 2012-12-18T04:27:33+00:00
-url: /?p=4925
+url: spring-annoation
 categories:
   - Java
   - Web

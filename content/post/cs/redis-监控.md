@@ -2,7 +2,7 @@
 title: redis 监控
 author: "-"
 date: 2016-12-29T00:06:42+00:00
-url: /?p=9631
+url: redis-监控
 categories:
   - Inbox
 tags:

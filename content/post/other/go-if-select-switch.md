@@ -2,7 +2,7 @@
 title: golang 控制语句 if, for, switch
 author: "-"
 date: 2013-07-09T05:14:45+00:00
-url: /?p=5624
+url: go-if-select-switch
 categories:
   - Inbox
 tags:

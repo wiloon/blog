@@ -2,7 +2,7 @@
 title: Arch Linux 自动连接可用无线网络
 author: "-"
 date: 2015-05-02T23:46:55+00:00
-url: /?p=7577
+url: arch-linux-自动连接可用无线网络
 categories:
   - Inbox
 tags:

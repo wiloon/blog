@@ -2,7 +2,7 @@
 title: rxvt-unicode 标签
 author: "-"
 date: 2017-07-25T01:52:06+00:00
-url: /?p=10901
+url: rxvt-unicode-标签
 categories:
   - Inbox
 tags:

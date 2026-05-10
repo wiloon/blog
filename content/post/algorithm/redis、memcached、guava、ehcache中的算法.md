@@ -2,7 +2,7 @@
 title: Redis, Memcache, Guava, Ehcache 中的算法
 author: "-"
 date: 2015-06-28T03:19:50+00:00
-url: /?p=7929
+url: redis、memcached、guava、ehcache中的算法
 categories:
   - Algorithm
 tags:

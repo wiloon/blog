@@ -2,7 +2,7 @@
 title: tune2fs
 author: "-"
 date: 2020-01-12T06:51:40+00:00
-url: /?p=15348
+url: tune2fs
 categories:
   - Inbox
 tags:

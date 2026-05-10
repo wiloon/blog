@@ -2,7 +2,7 @@
 title: Linux下查看文件编码，文件或文件名编码格式转换
 author: "-"
 date: 2015-05-04T03:57:24+00:00
-url: /?p=7601
+url: linux下查看文件编码，文件或文件名编码格式转换
 categories:
   - Inbox
 tags:

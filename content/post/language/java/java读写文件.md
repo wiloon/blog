@@ -2,7 +2,7 @@
 title: java读写文件
 author: "-"
 date: 2012-09-27T02:31:11+00:00
-url: /?p=4340
+url: java读写文件
 categories:
   - Java
 tags:

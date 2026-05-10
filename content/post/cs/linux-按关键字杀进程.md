@@ -2,7 +2,7 @@
 title: linux 按关键字杀进程
 author: "-"
 date: 2018-12-17T04:40:43+00:00
-url: /?p=13121
+url: linux-按关键字杀进程
 categories:
   - Linux
 tags:

@@ -2,7 +2,7 @@
 title: Linux /etc/init.d /etc/rc.local
 author: "-"
 date: 2015-05-02T23:46:21+00:00
-url: /?p=7575
+url: linux-etcinit-d-etcrc-local
 categories:
   - Inbox
 tags:

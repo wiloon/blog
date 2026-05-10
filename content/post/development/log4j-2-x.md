@@ -2,7 +2,7 @@
 title: Log4j 2.x
 author: "-"
 date: 2013-12-27T03:29:31+00:00
-url: /?p=6079
+url: log4j-2-x
 categories:
   - Inbox
 tags:

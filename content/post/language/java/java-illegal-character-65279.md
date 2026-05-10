@@ -2,7 +2,7 @@
 title: 'java  illegal character  \65279'
 author: "-"
 date: 2013-12-27T03:39:49+00:00
-url: /?p=6081
+url: java-illegal-character-65279
 categories:
   - Inbox
 tags:

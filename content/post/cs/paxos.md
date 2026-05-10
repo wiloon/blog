@@ -2,7 +2,7 @@
 title: Paxos
 author: "-"
 date: 2015-12-23T02:48:43+00:00
-url: /?p=8592
+url: paxos
 categories:
   - Inbox
 tags:

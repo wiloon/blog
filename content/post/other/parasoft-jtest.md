@@ -2,7 +2,7 @@
 title: Parasoft Jtest
 author: "-"
 date: 2012-09-03T02:51:41+00:00
-url: /?p=4005
+url: parasoft-jtest
 categories:
   - Java
 tags:

@@ -2,7 +2,7 @@
 title: Servlet生命周期
 author: "-"
 date: 2011-10-30T08:25:36+00:00
-url: /?p=1398
+url: servlet生命周期
 categories:
   - Java
 tags:

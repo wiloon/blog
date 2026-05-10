@@ -2,7 +2,7 @@
 title: 国内生产总值/GDP
 author: "-"
 date: 2016-12-04T04:33:47+00:00
-url: /?p=9485
+url: 国内生产总值gdp
 categories:
   - Inbox
 tags:

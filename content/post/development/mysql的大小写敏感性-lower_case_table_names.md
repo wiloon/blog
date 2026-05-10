@@ -2,7 +2,7 @@
 title: MySQL的大小写敏感性 lower_case_table_names
 author: "-"
 date: 2014-04-09T02:10:43+00:00
-url: /?p=6491
+url: mysql的大小写敏感性-lower_case_table_names
 categories:
   - Inbox
 tags:

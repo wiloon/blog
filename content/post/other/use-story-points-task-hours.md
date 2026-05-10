@@ -2,7 +2,7 @@
 title: Use Story Points, task hours
 author: "-"
 date: 2013-02-21T15:05:36+00:00
-url: /?p=5223
+url: use-story-points-task-hours
 categories:
   - Agile
 tags:

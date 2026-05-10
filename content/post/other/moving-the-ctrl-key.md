@@ -2,7 +2,7 @@
 title: Moving The Ctrl Key
 author: "-"
 date: 2012-04-23T05:13:04+00:00
-url: /?p=3011
+url: moving-the-ctrl-key
 categories:
   - Tools
 tags:

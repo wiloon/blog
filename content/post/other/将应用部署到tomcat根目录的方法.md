@@ -2,7 +2,7 @@
 title: 将应用部署到Tomcat根目录的方法
 author: "-"
 date: 2013-01-16T04:44:06+00:00
-url: /?p=5036
+url: 将应用部署到tomcat根目录的方法
 categories:
   - Java
   - Web

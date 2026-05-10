@@ -2,7 +2,7 @@
 title: SpringMVC
 author: "-"
 date: 2012-11-30T08:01:33+00:00
-url: /?p=4812
+url: springmvc
 categories:
   - Java
 tags:

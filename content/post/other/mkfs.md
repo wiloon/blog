@@ -2,7 +2,7 @@
 title: linux disk format, mkfs,mke2fs 格式化磁盘
 author: "-"
 date: 2015-05-04T09:52:55+00:00
-url: /?p=7607
+url: mkfs
 categories:
   - Inbox
 tags:

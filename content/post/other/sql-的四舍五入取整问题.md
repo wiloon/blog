@@ -2,7 +2,7 @@
 title: sql 的四舍五入取整问题
 author: "-"
 date: 2013-08-20T07:44:44+00:00
-url: /?p=5780
+url: sql-的四舍五入取整问题
 categories:
   - Database
 tags:

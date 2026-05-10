@@ -2,7 +2,7 @@
 title: VTune
 author: "-"
 date: 2012-10-15T04:56:11+00:00
-url: /?p=4457
+url: vtune
 categories:
   - Inbox
 tags:

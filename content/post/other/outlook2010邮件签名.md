@@ -2,7 +2,7 @@
 title: outlook2010邮件签名
 author: "-"
 date: 2014-03-19T05:41:39+00:00
-url: /?p=6402
+url: outlook2010邮件签名
 categories:
   - Inbox
 tags:

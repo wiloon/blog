@@ -2,7 +2,7 @@
 title: MySQL 大表 优化
 author: "-"
 date: 2015-12-22T07:57:32+00:00
-url: /?p=8581
+url: mysql-big-table
 categories:
   - Inbox
 tags:

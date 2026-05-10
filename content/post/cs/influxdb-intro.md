@@ -2,7 +2,7 @@
 title: 时间序列数据库
 author: "-"
 date: 2017-08-02T02:45:50+00:00
-url: /?p=10977
+url: influxdb-intro
 categories:
   - Database
 tags:

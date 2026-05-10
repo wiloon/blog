@@ -2,7 +2,7 @@
 title: cygwin 默认英文环境
 author: "-"
 date: 2016-01-14T05:46:02+00:00
-url: /?p=8669
+url: cygwin-默认英文环境
 categories:
   - Inbox
 tags:

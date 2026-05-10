@@ -2,7 +2,7 @@
 title: golang cron
 author: "-"
 date: 2018-03-16T05:57:12+00:00
-url: /?p=11990
+url: golang-cron
 categories:
   - inbox
 tags:

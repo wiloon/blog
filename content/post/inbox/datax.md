@@ -2,7 +2,7 @@
 title: DataX
 author: "-"
 date: 2015-09-25T00:58:41+00:00
-url: /?p=8356
+url: datax
 categories:
   - Java
 tags:

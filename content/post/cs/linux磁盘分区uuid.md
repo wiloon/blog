@@ -2,7 +2,7 @@
 title: Linux磁盘分区UUID, blkid
 author: "-"
 date: 2017-11-19T07:03:53+00:00
-url: /?p=11448
+url: linux磁盘分区uuid
 categories:
   - Inbox
 tags:

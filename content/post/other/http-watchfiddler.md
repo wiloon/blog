@@ -2,7 +2,7 @@
 title: tcp http 调试, 抓包工具, wireshark, Fiddler
 author: "-"
 date: 2013-12-13T06:14:32+00:00
-url: /?p=6037
+url: http-watchfiddler
 categories:
   - Network
 tags:

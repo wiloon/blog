@@ -2,7 +2,7 @@
 title: linux shell 文本 去重 – awk或者uniq
 author: "-"
 date: 2016-08-09T00:07:48+00:00
-url: /?p=9168
+url: 文本去重-awk或者uniq
 categories:
   - Linux
 tags:

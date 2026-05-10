@@ -2,7 +2,7 @@
 title: "ip-guard, [0x7FFFBB83E044] ANOMALY: use of REX.w is meaningless (default operand size is 64)"
 author: "-"
 date: 2011-10-19T02:49:26+00:00
-url: /?p=1190
+url: ip-guard
 categories:
   - Linux
 tags:

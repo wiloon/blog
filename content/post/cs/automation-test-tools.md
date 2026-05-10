@@ -2,7 +2,7 @@
 title: automation test tools
 author: "-"
 date: 2012-10-24T07:15:07+00:00
-url: /?p=4537
+url: automation-test-tools
 categories:
   - Agile
 tags:

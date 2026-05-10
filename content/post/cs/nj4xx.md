@@ -2,7 +2,7 @@
 title: mt4 nj4xx, ask bid sl tp …
 author: "-"
 date: 2016-09-03T03:27:15+00:00
-url: /?p=9186
+url: nj4xx
 categories:
   - Inbox
 tags:

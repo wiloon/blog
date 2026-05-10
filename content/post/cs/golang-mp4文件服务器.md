@@ -2,7 +2,7 @@
 title: golang MP4文件服务器
 author: "-"
 date: 2019-09-27T14:23:16+00:00
-url: /?p=14964
+url: golang-mp4文件服务器
 categories:
   - Inbox
 tags:

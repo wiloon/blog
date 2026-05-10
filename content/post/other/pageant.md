@@ -2,7 +2,7 @@
 title: Pageant
 author: "-"
 date: 2012-04-05T02:10:18+00:00
-url: /?p=2802
+url: pageant
 categories:
   - Inbox
 tags:

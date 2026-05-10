@@ -2,7 +2,7 @@
 title: Java反编译, jad, jd-gui
 author: "-"
 date: 2014-04-11T06:46:31+00:00
-url: /?p=6518
+url: java反编译class-goto
 categories:
   - inbox
 tags:

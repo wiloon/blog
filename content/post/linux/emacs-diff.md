@@ -2,7 +2,7 @@
 title: emacs diff
 author: "-"
 date: 2014-03-08T08:48:40+00:00
-url: /?p=6374
+url: emacs-diff
 categories:
   - Inbox
 tags:

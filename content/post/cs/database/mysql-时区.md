@@ -2,7 +2,7 @@
 title: MySQL 时区
 author: "-"
 date: 2016-10-24T11:42:29+00:00
-url: /?p=9328
+url: mysql-时区
 categories:
   - Inbox
 tags:

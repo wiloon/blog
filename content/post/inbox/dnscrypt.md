@@ -2,7 +2,7 @@
 title: dnscrypt
 author: "-"
 date: 2017-10-14T08:57:31+00:00
-url: /?p=11265
+url: dnscrypt
 categories:
   - Inbox
 tags:

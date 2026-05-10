@@ -2,7 +2,7 @@
 title: QCad
 author: "-"
 date: 2012-08-07T15:37:42+00:00
-url: /?p=3892
+url: qcad
 categories:
   - Inbox
 tags:

@@ -2,7 +2,7 @@
 title: Spring中bean的作用域
 author: "-"
 date: 2012-09-16T03:38:52+00:00
-url: /?p=4043
+url: spring中bean的作用域
 categories:
   - CS
   - Java

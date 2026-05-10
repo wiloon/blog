@@ -2,7 +2,7 @@
 title: IPtables中SNAT、DNAT和MASQUERADE的含义
 author: "-"
 date: 2020-04-12T14:12:10+00:00
-url: /?p=15927
+url: iptables中snat、dnat和masquerade的含义
 categories:
   - Inbox
 tags:

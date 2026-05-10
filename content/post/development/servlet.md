@@ -2,7 +2,7 @@
 title: Servlet
 author: "-"
 date: 2011-10-16T07:17:29+00:00
-url: /?p=1048
+url: servlet
 categories:
   - Java
 tags:

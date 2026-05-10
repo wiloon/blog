@@ -2,7 +2,7 @@
 title: 关于 XML standalone 的解释
 author: "-"
 date: 2011-11-08T05:44:54+00:00
-url: /?p=1462
+url: 关于-xml-standalone-的解释
 categories:
   - Inbox
 tags:

@@ -2,7 +2,7 @@
 title: 'go,  time.Tick, tick immediately'
 author: "-"
 date: 2017-11-23T05:28:42+00:00
-url: /?p=11472
+url: how-to-get-time-tick-to-tick-immediately
 categories:
   - Inbox
 tags:

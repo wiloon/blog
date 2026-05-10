@@ -2,7 +2,7 @@
 title: MP4
 author: "-"
 date: 2016-09-11T03:05:51+00:00
-url: /?p=9204
+url: mp4
 categories:
   - Inbox
 tags:

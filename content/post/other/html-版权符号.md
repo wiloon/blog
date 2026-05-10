@@ -2,7 +2,7 @@
 title: html 版权符号
 author: "-"
 date: 2012-11-21T02:11:57+00:00
-url: /?p=4740
+url: html-版权符号
 categories:
   - Web
 tags:
