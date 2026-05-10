@@ -1,14 +1,15 @@
 ---
 title: iptables basic
 author: "-"
-date: 2013-11-10T06:49:31+00:00
+date: 2026-05-10T12:28:32+08:00
 url: iptables
 categories:
-  - Network
+  - network
 tags:
   - Linux
-  - reprint
+  - iptables
   - remix
+  - AI-assisted
 ---
 ## iptables basic
 
@@ -627,8 +628,40 @@ SNAT
 
 ### target
 
-DNAT: DNAT之后数据包会走到nat 表 fowarad链
-  
+target（目标）是 iptables 规则中 `-j` 选项指定的值，决定当数据包匹配规则后如何处理。target 分为两类：
+
+- **内置 target**：`ACCEPT`、`DROP`、`REJECT`、`RETURN` 等，没有额外参数
+- **扩展 target（target extension）**：通过内核模块提供，有自己的参数，例如 `TPROXY`、`LOG`、`MARK`、`DNAT`、`SNAT` 等
+
+用 `-j <target> <target 的参数>` 的形式使用，例如：
+
+```bash
+-j TPROXY --on-port 15001 --tproxy-mark 0x1/0x1
+-j LOG --log-prefix "INPUT: "
+```
+
+按终止行为再细分：
+
+- **terminating target（终止目标）**：处理完成后停止遍历当前链的后续规则（ACCEPT、DROP、REJECT 等）
+- **non-terminating target（非终止目标）**：处理完成后继续遍历后续规则（LOG、MARK 等）
+
+`RETURN` 比较特殊：终止当前链的遍历，若当前链是子链则返回调用链继续执行，若是内建主链则按该链的默认策略处理。
+
+| target       | 终止         | 说明                                                                                           |
+| ------------ | ------------ | ---------------------------------------------------------------------------------------------- |
+| `ACCEPT`     | 是           | 放行数据包，跳往下一个规则链                                                                   |
+| `DROP`       | 是           | 静默丢弃数据包，不通知发送方                                                                   |
+| `REJECT`     | 是           | 丢弃数据包并向发送方返回错误（ICMP 或 TCP RST）                                                |
+| `RETURN`     | 是（当前链） | 终止当前链遍历，返回调用链或执行默认策略                                                       |
+| `LOG`        | 否           | 将包信息记录到内核日志，继续匹配后续规则                                                       |
+| `MARK`       | 否           | 给数据包打标记（用于后续策略路由等），继续匹配后续规则，仅限 mangle 表                         |
+| `SNAT`       | 是           | 修改源 IP 地址，仅限 nat 表 POSTROUTING 链                                                     |
+| `DNAT`       | 是           | 修改目的 IP 地址，仅限 nat 表 PREROUTING/OUTPUT 链；DNAT 之后数据包会走到 filter 表 forward 链 |
+| `MASQUERADE` | 是           | 动态 SNAT，源 IP 自动取出口网卡地址，适合拨号/DHCP 场景，仅限 nat 表 POSTROUTING 链            |
+| `REDIRECT`   | 是           | 将目的端口重定向到本机另一端口，仅限 nat 表 PREROUTING/OUTPUT 链                               |
+| `QUEUE`      | 是           | 将数据包传递到用户空间程序处理                                                                 |
+| `MIRROR`     | 是           | 交换源/目的 IP 后将包送回（实验性功能）                                                        |
+
 [http://www.zsythink.net/archives/tag/iptables/](http://www.zsythink.net/archives/tag/iptables/)
 
 ### ctstate
