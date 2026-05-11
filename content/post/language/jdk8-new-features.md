@@ -2,6 +2,7 @@
 title: JDK 8 新特性
 author: "-"
 date: 2026-04-25T10:10:10+08:00
+lastmod: 2026-05-11T08:43:11+08:00
 url: jdk8-new-features
 categories:
   - language
@@ -247,3 +248,9 @@ List<@NonNull String> items = new ArrayList<>();
 ## PermGen 移除
 
 移除永久代（PermGen），改用本地内存中的元空间（Metaspace），解决 `OutOfMemoryError: PermGen space` 问题。
+
+## 参考
+
+- [JDK 8 新特性 - IBM Developer](https://www.ibm.com/developerworks/cn/java/j-lo-jdk8newfeature/)
+- [函数式编程初探 - 阮一峰](http://www.ruanyifeng.com/blog/2012/04/functional_programming.html)
+- [Java 8 特性详解 - 简书](http://www.jianshu.com/p/5b800057f2d8)

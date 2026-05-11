@@ -2,6 +2,7 @@
 title: archlinux packages
 author: "-"
 date: "2026-05-06T08:27:13+08:00"
+lastmod: "2026-05-11T08:46:35+08:00"
 url: archlinux-packages
 categories:
   - Linux
@@ -38,6 +39,7 @@ tags:
 - `clang`: C 语言族编译器前端（基于 LLVM），包含 clang-analyzer 和 clang-tools-extra。当前系统被以下包依赖：`doxygen`（文档生成工具）、`kdevelop`（KDE 集成开发环境）、`shiboken6`（Qt6 Python 绑定代码生成器）。
 - `chrony`: Lightweight NTP client and server
 - `conmon`: OCI container runtime monitor
+- `cpio`: 将文件打包进或提取自 cpio/tar 归档的工具，当前系统被以下包依赖：`debugedit`（修改调试符号文件中源码路径的工具，被 `base-devel` 依赖）。
 - `cryptsetup`: Userspace setup tool for transparent encryption of block devices using dm-crypt
 - `dav1d`: AV1 cross-platform decoder focused on speed and correctness
 - `expat`: C 语言实现的流式 XML 解析库（libexpat），详见 [expat](#expat)
