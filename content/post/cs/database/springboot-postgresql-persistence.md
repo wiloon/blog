@@ -2,6 +2,7 @@
 title: Spring Boot + PostgreSQL 持久层框架
 author: "-"
 date: 2026-04-25T11:12:01+08:00
+lastmod: 2026-05-11T15:21:35+08:00
 url: springboot-postgresql-persistence
 categories:
   - development
@@ -109,7 +110,7 @@ spring:
 
 ## HikariCP 详解
 
-**HikariCP**（Hikari = 日语"光"）是目前 Java 生态中性能最好的 JDBC 连接池，由 Brett Wooldridge 开发，2012 年开源。
+**HikariCP**（发音：/hɪˈkɑːri siː piː/，Hikari = 日语「光」ひかり）是目前 Java 生态中性能最好的 JDBC 连接池，由 Brett Wooldridge 开发，2012 年开源。
 
 ### 核心特点
 
@@ -140,6 +141,46 @@ spring:
 | **DBCP2** | ⭐⭐⭐ | 一般 | Apache 项目 |
 
 Druid 在国内使用广泛，主要因为它提供了内置的 SQL 监控面板和慢查询统计功能，HikariCP 则在纯性能上更优。
+
+### HikariCP vs DBCP2 vs Druid 详细对比
+
+**性能**
+
+HikariCP 在各项基准测试中均领先，原因在于：
+
+- 使用 `ConcurrentBag` 无锁数据结构管理连接，减少线程争用
+- 字节码级别优化（通过 Javassist 生成代理），避免反射开销
+- 极少的对象分配，降低 GC 压力
+
+DBCP2 基于 Apache Commons Pool2，是标准实现，性能中规中矩。Druid 因内置了拦截器链（用于监控、SQL 统计），每次执行 SQL 都有额外开销，性能略低于 HikariCP，但差距在大多数业务场景下可忽略。
+
+**功能**
+
+| 功能 | HikariCP | DBCP2 | Druid |
+| --- | --- | --- | --- |
+| SQL 监控面板 | ❌ | ❌ | ✅ 内置 StatViewServlet |
+| 慢查询统计 | ❌ | ❌ | ✅ |
+| SQL 防火墙（拦截危险 SQL） | ❌ | ❌ | ✅ WallFilter |
+| 连接泄漏检测 | ✅ leakDetectionThreshold | ✅ | ✅ |
+| 连接有效性检测 | ✅ JDBC4 isValid() | ✅ validationQuery | ✅ |
+| Spring Boot 自动配置 | ✅ 默认 | 需手动引入 | 需引入 druid-spring-boot-starter |
+| 配置项数量 | 少（约 15 个） | 中 | 多（50+） |
+
+**Druid 的监控能力**
+
+Druid 通过内置的 `StatViewServlet` 提供 Web 监控页面，可以直接在浏览器访问 `/druid/index.html` 查看：
+
+- 每条 SQL 的执行次数、平均耗时、最慢耗时
+- 当前活跃连接数和等待线程数
+- 数据源基本配置信息
+
+这对于没有独立 APM 工具（如 SkyWalking、Datadog）的项目非常实用，是国内企业选择 Druid 的主要原因。
+
+**选型建议**
+
+- **新项目 / 云原生**：优先 HikariCP，Spring Boot 默认，零配置，配合 Prometheus + Grafana 做监控
+- **需要 SQL 级别监控但没有 APM**：选 Druid，监控面板开箱即用
+- **已有 Apache Commons 技术栈的老项目**：DBCP2 可继续使用，迁移成本高于收益
 
 ---
 
