@@ -2,6 +2,7 @@
 title: JDK 17 新特性
 author: "-"
 date: 2026-04-25T10:27:40+08:00
+lastmod: 2026-05-13T13:37:33+08:00
 url: jdk17-new-features
 categories:
   - language
@@ -161,26 +162,64 @@ try (MemorySegment segment = MemorySegment.allocateNative(100)) {
 
 ## 与 JDK 16 的主要区别
 
-| 特性 | JDK 16 | JDK 17 |
-|------|--------|--------|
-| 密封类 | 预览版（第二次） | 正式版 |
-| instanceof 模式匹配 | 正式版（JEP 394） | 继续支持 |
-| Record 类 | 正式版（JEP 395） | 继续支持 |
-| 随机数生成器 | 无 | 新增 API（JEP 356） |
-| 外部函数与内存 API | 孵化（JEP 393） | 第二次孵化（JEP 412） |
-| macOS Metal 渲染 | 无 | 新增（JEP 382） |
-| macOS AArch64 | 无 | 支持（JEP 391） |
-| 安全管理器 | 废弃（JEP 411 预告） | 废弃（JEP 411） |
-| RMI Activation | 废弃 | 移除（JEP 407） |
-| LTS 版本 | 否 | **是** |
+| 特性                | JDK 16               | JDK 17                |
+| ------------------- | -------------------- | --------------------- |
+| 密封类              | 预览版（第二次）     | 正式版                |
+| instanceof 模式匹配 | 正式版（JEP 394）    | 继续支持              |
+| Record 类           | 正式版（JEP 395）    | 继续支持              |
+| 随机数生成器        | 无                   | 新增 API（JEP 356）   |
+| 外部函数与内存 API  | 孵化（JEP 393）      | 第二次孵化（JEP 412） |
+| macOS Metal 渲染    | 无                   | 新增（JEP 382）       |
+| macOS AArch64       | 无                   | 支持（JEP 391）       |
+| 安全管理器          | 废弃（JEP 411 预告） | 废弃（JEP 411）       |
+| RMI Activation      | 废弃                 | 移除（JEP 407）       |
+| LTS 版本            | 否                   | **是**                |
 
 ## 版本信息
 
 - 发布日期：2021 年 9 月 14 日
-- 支持周期：LTS，Oracle 支持至 2029 年 9 月
-- JEP 数量：14 个
+- LTS 版本，JEP 数量：14 个
+
+### Oracle 官方支持周期
+
+| 阶段               | 截止时间         | 说明                                                                   |
+| ------------------ | ---------------- | ---------------------------------------------------------------------- |
+| Premier Support    | 2026 年 9 月     | 全面支持：bug 修复、安全补丁、新功能更新、性能改进                     |
+| Extended Support   | 2029 年 9 月     | 仅安全补丁和关键 bug 修复，不引入新功能，Oracle JDK 用户通常需额外付费 |
+| Sustaining Support | 2029 年 9 月之后 | 无限期，仅提供已有补丁的访问，不再产出新补丁                           |
+
+## 从 JDK 17 升级到 JDK 21 的策略
+
+JDK 17 的 Premier Support 于 2026 年 9 月到期，下一个 LTS 版本是 JDK 21。推荐采用三阶段迁移，而非一步到位：
+
+### 阶段一：替换废弃 API（在 JDK 17 上完成）
+
+1. 用 `jdeprscan --release 21` 扫描废弃 API 使用情况
+2. 替换 `SecurityManager`、`finalize()`、`Thread.stop()` 等将被移除的 API
+3. 检查所有未显式指定字符集的代码（如 `new String(bytes)`、`new FileReader(file)`），统一改为 `StandardCharsets.UTF_8`——JDK 18 起默认字符集改为 UTF-8，这是最常见的隐性 breaking change
+
+### 阶段二：升级第三方库（仍在 JDK 17 上运行）
+
+找到同时兼容 JDK 17 和 JDK 21 的库版本作为过渡版本，逐库升级，不要一次全换：
+
+- Spring Boot → 3.2+（同时支持 JDK 17 和 JDK 21）
+- Mockito → 5.x
+- ByteBuddy → 1.14+
+- 其他字节码增强类框架同步升级
+
+升级后部署上线，稳定运行一段时间再进行下一阶段。
+
+### 阶段三：升级 JDK 到 21
+
+代码和依赖都已验证稳定后，切换 JDK 版本，代码不动：
+
+1. 跑完整测试套件
+2. 上线，观察 GC 行为、线程池等运行指标
+
+这样每个阶段都有独立的回滚点，出问题能快速定位是代码变更还是运行时升级引入的。
 
 ## 参考
 
 - [JDK 17 Release Notes](https://www.oracle.com/java/technologies/javase/17-relnote-issues.html)
 - [OpenJDK JDK 17](https://openjdk.org/projects/jdk/17/)
+- [JDK 17 to JDK 21 Migration Guide](https://docs.oracle.com/en/java/javase/21/migrate/)

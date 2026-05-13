@@ -6,7 +6,7 @@ url: jdk
 categories:
   - Java
 tags:
-  - reprint
+  - remix
 ---
 ## openjdk
 
@@ -33,6 +33,9 @@ https://github.com/ojdkbuild/ojdkbuild/releases/download/java-1.8.0-openjdk-1.8.
 # openjdk
 sudo pacman -S jdk-openjdk
 sudo pacman -S openjdk-src
+
+# jdk 17
+sudo pacman -S jdk17-openjdk openjdk17-doc openjdk17-src
 
 # jdk8
 sudo pacman -S jdk8-openjdk openjdk8-src
