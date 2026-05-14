@@ -10,7 +10,7 @@ tags:
   - AI-assisted
 ---
 
-## 概念
+## Composite Pattern, 组合模式
 
 组合模式（Composite Pattern）将对象组合成**树状层次结构**，使客户端对单个对象（叶子节点）和组合对象（容器节点）具有**一致的访问方式**。
 

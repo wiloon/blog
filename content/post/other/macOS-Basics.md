@@ -2,6 +2,7 @@
 title: macOS Basics
 author: "-"
 date: 2026-01-10T20:30:00+08:00
+lastmod: 2026-05-14T19:49:52+08:00
 url: macos/basic
 categories:
   - Inbox
@@ -33,6 +34,23 @@ diskutil list
 - 清除当前行：control + u
 - 清除至当前行尾：control + k
 - 单词为单位移动：option + 方向键
+
+## 锁屏
+
+- Touch ID：带有 Touch ID 的 MacBook 或妙控键盘，轻按指纹识别键即可瞬间锁屏，比快捷键更快速。
+- `Command (⌘) + Control (⌃) + Q`：立即锁定屏幕。
+
+## 窗口切换
+
+macOS 的设计逻辑：`Command + Tab` 是在**应用程序**之间切换，而不是在**窗口**之间切换。
+
+- `Command (⌘) + ~`：切换同一应用程序的多个窗口（~ 是 Tab 键上方的波浪号键）。
+
+### 调度中心 (Mission Control)
+
+一眼看到所有打开的窗口并选择：
+
+- 触控板：三指（或四指）向上轻扫。
 
 ## terimnal 快捷键
 
