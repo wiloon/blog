@@ -4,6 +4,8 @@
 
 ### ⚠️ 每次编辑文章必做五件事（缺一不可）：
 
+> **无论改动大小——哪怕只是删除一行、修改一个词——都必须执行以下全部步骤。**
+
 1. ✅ **检查文件名和标题** → 文件名必须是英文，且与文章内容匹配；**如果文件名含中文，必须先用 `mv` 重命名再做任何其他修改**
 2. ✅ **检查并更新 URL** → 确保 URL 与文章标题匹配
 3. ✅ **检查并更新 categories** → 确保分类与文章实际内容匹配
@@ -24,8 +26,11 @@
 #### 文件名规范
 
 - 文件名**必须使用英文**，不允许中文或特殊字符
-- 使用小写字母和连字符（kebab-case），如 `java-exception-handling.md`
+- 使用小写字母和连字符（kebab-case），如 `exception-handling.md`
 - 文件名应简洁地反映文章的核心主题
+- **不要用父目录名做文件名前缀**：文件已经放在对应目录下，前缀重复冗余
+  - ❌ `java/java-exception-handling.md`（`java-` 前缀与目录重复）
+  - ✅ `java/exception-handling.md`
 - 如果发现文件名是中文或与内容不符，**用 `mv` 命令重命名**
 
 **示例：**
@@ -34,8 +39,11 @@
 # 错误示例（中文文件名）
 一篇不错的讲解java异常的文章.md  # ❌
 
-# 正确示例（英文、语义化）
-java-exception-handling-best-practices.md  # ✅
+# 错误示例（目录名重复做前缀）
+content/post/language/java/java-exception-handling.md  # ❌
+
+# 正确示例（英文、语义化、无冗余前缀）
+content/post/language/java/exception-handling.md  # ✅
 ```
 
 #### 标题（title）规范
@@ -93,6 +101,9 @@ title: 'Java Exception Handling: Anti-Patterns and Best Practices'  # ✅
 - 只包含英文字母、数字和连字符 `-`
 - 简洁明了，反映文章主题
 - 避免特殊字符、中文、下划线
+- **不要用所在目录名做 URL 前缀**：文章已归类在对应目录（Hugo 会生成分类页），URL 无需重复分类信息
+  - ❌ `java/exception-handling` 或 `java-exception-handling`（`java` 与目录重复）
+  - ✅ `exception-handling`
 
 **示例：**
 
@@ -107,13 +118,23 @@ url: ai-agent-development  # ✅ 语义化 URL
 ```
 
 ```yaml
+# 错误示例（目录名重复做前缀）
+title: Java 异常处理
+url: java-exception-handling  # ❌ java 与所在目录重复
+
+# 正确示例
+title: Java 异常处理
+url: exception-handling  # ✅ 不含目录前缀
+```
+
+```yaml
 # 需要更新的示例
 title: Docker 容器网络详解
 url: docker-basic  # ❌ 不够准确
 
 # 更新后
 title: Docker 容器网络详解
-url: docker-container-network  # ✅ 与标题匹配
+url: docker-container-network  # ✅ 与标题匹配（docker 是主题词，非目录名）
 ```
 
 #### URL 更新检查清单

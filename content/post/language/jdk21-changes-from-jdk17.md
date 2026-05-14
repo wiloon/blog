@@ -2,7 +2,7 @@
 title: JDK 17 升级到 JDK 21 的变更汇总
 author: "-"
 date: 2026-05-13T13:37:33+08:00
-lastmod: 2026-05-13T13:37:33+08:00
+lastmod: 2026-05-13T14:04:56+08:00
 url: jdk21-changes-from-jdk17
 categories:
   - language
@@ -29,6 +29,16 @@ JDK 17 到 JDK 21 跨越了 JDK 18、19、20 三个非 LTS 版本。本文汇总
 - `new FileReader(file)` — 未指定编码
 - `System.out.println()` 输出非 ASCII 字符
 - 读写文件时未显式指定编码
+
+**对 Linux 生产环境的实际影响**
+
+大多数现代 Linux 发行版默认 locale 是 `en_US.UTF-8` 或 `zh_CN.UTF-8`，JDK 17 在这类环境下默认字符集本来就是 UTF-8，因此 JDK 18 的这一变更对标准 Linux 服务器**基本无感**。
+
+真正有风险的场景：
+
+- **Windows 开发/测试环境** — Windows 默认编码是 GBK/CP936，本地测试通过但部署到 Linux 后行为不同
+- **精简容器镜像** — 某些极简 Docker 镜像不设置 locale，`LANG` 为空，JDK 17 此时默认字符集可能是 `US-ASCII`，升级到 JDK 18 后反而统一成了 UTF-8
+- **遗留系统** — 有意依赖 GBK 平台编码处理中文数据（如读老数据库导出文件）的项目会出问题
 
 修复方式：所有涉及字节/字符转换的地方显式指定 `StandardCharsets.UTF_8`。
 
@@ -209,27 +219,27 @@ try (var scope = new StructuredTaskScope.ShutdownOnFailure()) {
 
 ### LTS 版本支持周期
 
-| 阶段               | 截止时间         |
-| ------------------ | ---------------- |
-| Premier Support    | 2028 年 9 月     |
-| Extended Support   | 2031 年 9 月     |
+| 阶段             | 截止时间     |
+| ---------------- | ------------ |
+| Premier Support  | 2028 年 9 月 |
+| Extended Support | 2031 年 9 月 |
 
 ---
 
 ## 变更汇总对照表
 
-| 类别 | 变更项 | 引入版本 | 影响 |
-| --- | --- | --- | --- |
-| Breaking | 默认字符集改为 UTF-8 | JDK 18 | 未指定编码的字节/字符转换可能乱码 |
-| Breaking | `Thread.stop()` 抛异常 | JDK 21 | 调用直接失败 |
-| Breaking | `SecurityManager` 不可用 | JDK 21 | 调用直接抛异常 |
-| Breaking | `finalize()` 废弃 | JDK 18（废弃）| 将在后续版本移除 |
-| 新特性 | 虚拟线程 | JDK 21（正式）| 高并发 I/O 场景性能大幅提升 |
-| 新特性 | switch 模式匹配 | JDK 21（正式）| 替代繁琐的 instanceof 链 |
-| 新特性 | Record 模式 | JDK 21（正式）| 解构 record，配合 switch 使用 |
-| 新特性 | Sequenced Collections | JDK 21（正式）| 有序集合统一 API |
-| 新特性 | 结构化并发 | JDK 21（预览）| 简化并发任务管理 |
-| 新特性 | 作用域值 | JDK 21（预览）| 替代 ThreadLocal |
+| 类别     | 变更项                   | 引入版本       | 影响                              |
+| -------- | ------------------------ | -------------- | --------------------------------- |
+| Breaking | 默认字符集改为 UTF-8     | JDK 18         | 未指定编码的字节/字符转换可能乱码 |
+| Breaking | `Thread.stop()` 抛异常   | JDK 21         | 调用直接失败                      |
+| Breaking | `SecurityManager` 不可用 | JDK 21         | 调用直接抛异常                    |
+| Breaking | `finalize()` 废弃        | JDK 18（废弃） | 将在后续版本移除                  |
+| 新特性   | 虚拟线程                 | JDK 21（正式） | 高并发 I/O 场景性能大幅提升       |
+| 新特性   | switch 模式匹配          | JDK 21（正式） | 替代繁琐的 instanceof 链          |
+| 新特性   | Record 模式              | JDK 21（正式） | 解构 record，配合 switch 使用     |
+| 新特性   | Sequenced Collections    | JDK 21（正式） | 有序集合统一 API                  |
+| 新特性   | 结构化并发               | JDK 21（预览） | 简化并发任务管理                  |
+| 新特性   | 作用域值                 | JDK 21（预览） | 替代 ThreadLocal                  |
 
 ## 参考
 

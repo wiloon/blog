@@ -2,13 +2,15 @@
 title: pacman command
 author: "-"
 date: 2024-02-06T10:01:18+08:00
+lastmod: 2026-05-14T08:28:39+08:00
 url: pacman
 categories:
   - Linux
 tags:
   - Linux
-  - reprint
+  - pacman
   - remix
+  - AI-assisted
 ---
 ## pacman command
 
@@ -27,7 +29,7 @@ tags:
 -Qo /path/to/file # Check if the file is owned by any package, 查看某个文件属于哪个包
 -Qq, -q, --quiet          show less information for query and search, 省略版本号
 -Qs 关键字: 搜索已安装的软件包。
--Qi 软件名: 查看某个软件包信息，显示软件简介,构架, 依赖,大小等详细信息。
+-Qi 软件名: 查看某个软件包详细信息（简介、架构、依赖、大小、安装原因、Required By 等）
 -Qu: 列出所有可升级的软件包
 -Qdtq 显示了不必要的依赖关系列表
 -Qqe 列出所有显式安装（-e,explicitly显式安装；-n忽略外部包AUR）
@@ -62,12 +64,36 @@ pacman -Qq|wc -l
 # pactree 由 pacman-contrib 包提供
 pacman -S pacman-contrib
 
-# 查看 package_0 依赖了哪些软件包
+# 查看 package_0 依赖了哪些软件包（正向依赖树）
 pactree package_0
 
-# 查看 package_0 被哪些软件包依赖了
-# 查看哪些包依赖 package_0
+# 查看 package_0 被哪些软件包依赖（反向依赖树）
+# 追溯到顶层显式安装的包
 pactree -r package_0
+```
+
+### 用 `-Qi` 查看直接依赖
+
+```bash
+# Required By 字段列出直接依赖该包的包
+pacman -Qi package_0 | grep "Required By"
+```
+
+### 例：追踪 haskell-wai-app-static 属于哪个工具
+
+```bash
+pactree -r haskell-wai-app-static
+# haskell-wai-app-static
+# └─haskell-servant-server
+#   └─haskell-pandoc-server
+#     └─pandoc-cli        ← 顶层显式安装的包
+```
+
+### 删除 pandoc-cli 及其引入的全部依赖
+
+```bash
+# -Rs 递归删除仅被 pandoc-cli 依赖的包
+sudo pacman -Rs pandoc-cli
 ```
 
 ## 把 openssl 包安装到指定的目录

@@ -2,11 +2,13 @@
 title: openjdk
 author: "-"
 date: 2017-04-21T00:26:31+00:00
+lastmod: 2026-05-13T14:25:14+08:00
 url: jdk
 categories:
   - Java
 tags:
   - remix
+  - AI-assisted
 ---
 ## openjdk
 
@@ -36,15 +38,11 @@ sudo pacman -S openjdk-src
 
 # jdk 17
 sudo pacman -S jdk17-openjdk openjdk17-doc openjdk17-src
-
+# jdk 21
+sudo pacman -S jdk21-openjdk openjdk21-doc openjdk21-src
 # jdk8
 sudo pacman -S jdk8-openjdk openjdk8-src
 sudo pacman -S jdk11-openjdk
-
-# 查看已经安装的 jdk
-archlinux-java status
-sudo archlinux-java set java-11-openjdk
-sudo pacman -S jdk17-openjdk openjdk17-src
 ```
 
 ### 切换 jdk 版本
@@ -52,14 +50,10 @@ sudo pacman -S jdk17-openjdk openjdk17-src
 ```bash
 archlinux-java help
 archlinux-java status
-archlinux-java set  java-14-openjdk
-```
+archlinux-java set java-14-openjdk
 
-### 查看当前 java 版本
-
-```bash
+# 查看当前激活的版本
 java -version
-sudo archlinux-java status
 ```
 
 ## ubuntu openjdk
