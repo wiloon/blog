@@ -2,11 +2,11 @@
 title: Git
 author: "-"
 date: 2026-03-06T11:28:08+08:00
+lastmod: 2026-05-14T14:45:39+08:00
 url: git
 categories:
   - Tools
 tags:
-  - reprint
   - remix
   - AI-assisted
 ---
@@ -18,17 +18,19 @@ graph LR
     stage["Index / Staging Area<br/>暂存区"]
     repo["Local Repository<br/>本地仓库"]
     remote["Remote Repository<br/>远程仓库"]
-
+    discard["✖ discard<br/>丢弃"]
     work -->|add| stage
     stage -->|commit| repo
     repo -->|push| remote
     remote -->|pull| work
     remote -->|"fetch/clone"| repo
     stage -->|checkout| work
+    stage -->|"restore --staged"| work
     repo -->|merge| work
     repo -->|"reset --soft"| stage
     repo -->|rebase| stage
     repo -->|"reset --mixed"| work
+    repo -->|"reset --hard"| discard
 ```
 
 ### 工作区 (working tree)

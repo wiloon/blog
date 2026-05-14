@@ -2,14 +2,64 @@
 title: git reset
 author: "-"
 date: "2026-01-29T14:06:21+08:00"
+lastmod: "2026-05-14T14:55:43+08:00"
 url: "git/reset"
 categories:
   - "Git"
 tags:
-  - "reprint"
   - "remix"
   - "AI-assisted"
 ---
+## 丢弃单个文件的本地修改
+
+`git reset <file>` 只能**取消暂存**（把文件从 staging area 退回工作区），不能丢弃工作区的修改。
+
+要丢弃工作区对某个文件的修改，应使用 `git restore`：
+
+```bash
+# 丢弃工作区修改，还原为最近一次 commit 的版本
+git restore <file>
+
+# 等价的旧语法（Git 2.23 之前）
+git checkout -- <file>
+
+# 还原为远程分支的版本（先 fetch 确保远程是最新的）
+git fetch origin
+git restore --source=origin/main <file>
+
+# 或者用旧语法
+git checkout origin/main -- <file>
+```
+
+如果文件已经 `git add` 进了暂存区，需要先 unstage 再丢弃：
+
+```bash
+# Step 1: 取消暂存（推荐，Git 2.23+）
+git restore --staged <file>
+# 旧语法（Git 2.23 之前），效果相同但已不推荐
+git reset HEAD <file>
+
+# Step 2: 丢弃工作区修改
+git restore <file>
+```
+
+## git restore --staged
+
+`git restore --staged <file>` 是 Git 2.23 引入的新命令，用于**取消暂存**（unstage），即把文件从暂存区退回工作区，是 `git reset HEAD <file>` 的现代替代语法。
+
+```bash
+# 取消单个文件的暂存
+git restore --staged <file>
+
+# 取消所有已暂存的文件
+git restore --staged .
+
+# 旧语法（效果相同）
+git reset HEAD <file>
+```
+
+执行后文件的修改依然保留在工作区，只是撤销了 `git add`。如果还需要丢弃工作区的修改，再运行 `git restore <file>`。
+
 ## git reset
 
 git reset 是一个重置 (reset) 命令，
@@ -31,6 +81,35 @@ git reset
 git reset --hard
 # 等价于
 git reset --hard HEAD
+```
+
+### HEAD 是什么，可以换成其他值吗？
+
+`HEAD` 是一个指针，指向**当前分支最新的一次 commit**。`git reset --hard HEAD` 的意思就是：丢弃所有未提交的修改，恢复到最新一次 commit 的状态。
+
+`HEAD` 可以替换为任意合法的 commit 引用：
+
+| 引用 | 含义 |
+| --- | --- |
+| `HEAD` | 当前最新 commit |
+| `HEAD^` / `HEAD~1` | 上一个 commit |
+| `HEAD~n` | 往前第 n 个 commit |
+| `a1b2c3d` | 某个具体的 commit hash |
+| `main` / `master` | 某个分支的最新 commit |
+| `origin/main` | 远程分支的最新 commit |
+| `v1.0.0` | 某个 tag 对应的 commit |
+
+```bash
+# 丢弃修改并回到上一个 commit
+git reset --hard HEAD~1
+
+# 回到指定 commit
+git reset --hard a1b2c3d
+
+# 回到远程分支的最新状态
+git fetch origin
+git reset --hard origin/main
+```
 
 # reset 最近一次 commit
 git reset --hard HEAD^

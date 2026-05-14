@@ -1,6 +1,7 @@
 ---
 author: "-"
 date: 2026-05-05T14:02:11+08:00
+lastmod: 2026-05-14T13:56:02+08:00
 title: macos apps
 categories:
   - Desktop
@@ -37,6 +38,7 @@ tags:
 | Bob | cask:bob | 翻译/词典 |
 | Itsycal | cask:itsycal | 任务栏日历，显示周数 |
 | Stats | cask:stats | 任务栏 CPU/内存/网络监控 |
+| Shottr | cask:shottr | 截图+标注+OCR，轻量快速 |
 | Monosnap | cask:monosnap | 截图+标注 |
 | RealVNC Viewer | cask:vnc-viewer | 远程桌面 |
 
