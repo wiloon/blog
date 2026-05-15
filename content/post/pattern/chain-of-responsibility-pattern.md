@@ -2,6 +2,7 @@
 title: 责任链模式, Chain of Responsibility Pattern
 author: "-"
 date: 2026-04-16T18:27:55+08:00
+lastmod: 2026-05-15T13:51:47+08:00
 url: chain-of-responsibility
 categories:
   - Pattern
@@ -10,6 +11,7 @@ tags:
   - remix
   - AI-assisted
 ---
+## 责任链模式, Chain of Responsibility Pattern
 
 责任链模式（Chain of Responsibility）将请求沿着一条处理者链传递，每个处理者决定是否处理该请求，或将其传递给链上的下一个处理者。请求的发送者无需知道最终由哪个处理者来处理，从而实现了发送者与接收者的解耦。
 
@@ -23,105 +25,95 @@ tags:
 - **ConcreteHandler（具体处理者）**：实现处理逻辑，决定自己是否处理请求，如果不处理则转发给下一个处理者。
 - **Client（客户端）**：构建责任链并向链头发起请求。
 
-## 示例：请假审批
+## 示例：Java Servlet Filter 链
 
-不同级别的请假天数由不同层级的领导审批：组长审批 1 天以内，经理审批 3 天以内，总监审批 7 天以内，超过 7 天不予批准。
+Servlet 规范中，请求在到达 Servlet 之前会依次经过一组 Filter，每个 Filter 可以对请求/响应做处理，然后调用 `chain.doFilter()` 继续传递，或直接中断返回响应。
 
-抽象处理者：
+```
+Request → LogFilter → AuthFilter → Servlet
+                                      ↓
+Response ←         ←              ←
+```
+
+抽象处理者（Servlet 规范定义，无需自己写）：
 
 ```java
-public abstract class Approver {
-
-    protected Approver next;
-
-    public Approver setNext(Approver next) {
-        this.next = next;
-        return next;
-    }
-
-    public abstract void approve(int days);
+public interface Filter {
+    void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
+            throws IOException, ServletException;
 }
 ```
 
 具体处理者：
 
 ```java
-public class TeamLeader extends Approver {
+public class LogFilter implements Filter {
 
     @Override
-    public void approve(int days) {
-        if (days <= 1) {
-            System.out.println("组长批准了 " + days + " 天假。");
-        } else if (next != null) {
-            next.approve(days);
-        }
+    public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
+            throws IOException, ServletException {
+        System.out.println("→ 请求到达：" + ((HttpServletRequest) request).getRequestURI());
+        chain.doFilter(request, response);  // 继续传递给下一个 Filter
+        System.out.println("← 响应返回");   // 响应回传时也会经过这里
     }
 }
 ```
 
 ```java
-public class Manager extends Approver {
+public class AuthFilter implements Filter {
 
     @Override
-    public void approve(int days) {
-        if (days <= 3) {
-            System.out.println("经理批准了 " + days + " 天假。");
-        } else if (next != null) {
-            next.approve(days);
+    public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
+            throws IOException, ServletException {
+        String token = ((HttpServletRequest) request).getHeader("Authorization");
+        if (token == null || !isValid(token)) {
+            ((HttpServletResponse) response).sendError(401, "Unauthorized");
+            return;  // 中断链，不调用 chain.doFilter()
         }
+        chain.doFilter(request, response);  // 鉴权通过，继续传递
+    }
+
+    private boolean isValid(String token) {
+        return token.startsWith("Bearer ");
     }
 }
 ```
 
+`FilterChain` 的内部实现（容器负责构建，这里展示其原理）：
+
 ```java
-public class Director extends Approver {
+public class ApplicationFilterChain implements FilterChain {
+
+    private final List<Filter> filters;
+    private final Servlet servlet;
+    private int index = 0;
+
+    public ApplicationFilterChain(List<Filter> filters, Servlet servlet) {
+        this.filters = filters;
+        this.servlet = servlet;
+    }
 
     @Override
-    public void approve(int days) {
-        if (days <= 7) {
-            System.out.println("总监批准了 " + days + " 天假。");
+    public void doFilter(ServletRequest request, ServletResponse response)
+            throws IOException, ServletException {
+        if (index < filters.size()) {
+            // 取出下一个 Filter 并调用，index 自增
+            filters.get(index++).doFilter(request, response, this);
         } else {
-            System.out.println("请假 " + days + " 天，超出审批权限，不予批准。");
+            // 所有 Filter 执行完毕，到达 Servlet
+            servlet.service(request, response);
         }
     }
 }
 ```
 
-客户端构建链并发起请求：
-
-```java
-public class Client {
-
-    public static void main(String[] args) {
-        TeamLeader leader = new TeamLeader();
-        Manager manager = new Manager();
-        Director director = new Director();
-
-        // 构建责任链：组长 → 经理 → 总监
-        leader.setNext(manager).setNext(director);
-
-        leader.approve(1);   // 组长批准
-        leader.approve(3);   // 经理批准
-        leader.approve(7);   // 总监批准
-        leader.approve(10);  // 超出权限
-    }
-}
-```
-
-输出：
-
-```text
-组长批准了 1 天假。
-经理批准了 3 天假。
-总监批准了 7 天假。
-请假 10 天，超出审批权限，不予批准。
-```
+Servlet Filter 链的特别之处在于，每个 Filter 既可以在请求进入时处理（`chain.doFilter()` 之前），也可以在响应返回时处理（`chain.doFilter()` 之后），形成双向包裹。
 
 ## 两种变体
 
 **纯责任链**：请求必须被链上某个处理者处理，且只被处理一次。
 
-**不纯责任链**：处理者处理后请求仍可继续向下传递（如 Java Servlet 的 Filter 链、日志框架的 Appender 链）。
+**不纯责任链**：处理者处理后请求仍可继续向下传递。上面的 Servlet Filter 链就是典型——每个 Filter 都处理请求，然后调用 `chain.doFilter()` 传递给下一个。日志框架的 Appender 链也是同理。
 
 ## 优点
 

@@ -2,31 +2,69 @@
 title: GOF 23 种设计模式, Design pattern
 author: "-"
 date: 2011-10-29T07:59:18+00:00
+lastmod: 2026-05-15T14:23:52+08:00
 url: design-pattern
 categories:
   - Pattern
 tags:
-  - reprint
   - remix
+  - AI-assisted
 ---
 ## GOF 23 种设计模式, Design pattern
 
 在 1994 年，由 Erich Gamma、Richard Helm、Ralph Johnson 和 John Vlissides 四人合著出版了一本名为 Design Patterns - Elements of Reusable Object-Oriented Software（中文译名：设计模式 - 可复用的面向对象软件元素） 的书，该书首次提到了软件开发中设计模式的概念。 四位作者合称 GOF（四人帮，全拼 Gang of Four）。
 
-1. 单例 (Singleton）模式：某个类只能生成一个实例，该类提供了一个全局访问点供外部获取该实例，其拓展是有限多例模式 [[Singleton#单例模式 Singleton]]
-2. 原型 (Prototype）模式：将一个对象作为原型，通过对其进行复制而克隆出多个和原型类似的新实例。[[prototype模式#原型模式 Prototype]]
+## 分类
+
+### 创建模式, Creational Patterns
+
+- [Simple Factory, 简单工厂](/design-pattern-factory)
+- Factory Method 工厂方法
+- Abstract Factory 抽象工厂模式
+- [Prototype, 原型](/prototype-pattern)
+- [Builder, 建造者](/builder-pattern)
+- Singleton, 单例
+
+### 结构模式, Structural Patterns
+
+- [Facade, 外观](/facade-pattern)
+- [Proxy, 代理](/proxy)
+- [Adapter, 适配器](/Adapter)
+- [Composite, 组合](/composite-pattern)
+- [Decorator, 装饰器](/decorator)
+- Bridge, 桥接
+- Flyweight, 享元
+
+### 行为模式, Behavioral Patterns
+
+- [Template Method, 模板方法](/design-pattern/template-method)
+- Memento, 备忘录
+- Observer - 观察者 [https://wiloon.com/observer](https://wiloon.com/observer)
+- [Chain Of Responsibility, 责任链](/chain-of-responsibility)
+- Command, 命令模式 (别名: 动作模式(Action)或事务模式(Transaction))
+- [State, 状态](/state-pattern)
+- [Strategy, 策略](/strategy-pattern)
+- [Mediator, 中介者](/mediator-pattern)
+- Interpreter, 解释器
+- Visitor, 访问者
+- Iterator, 迭代器
+
+## 模式列表
+
+1. 单例 ( Singleton ）模式：某个类只能生成一个实例，该类提供了一个全局访问点供外部获取该实例，其拓展是有限多例模式。
+2. 原型 ( Prototype ）模式：将一个对象作为原型，通过对其进行复制而克隆出多个和原型类似的新实例。
 3. 工厂方法 (Factory Method）模式：定义一个用于创建产品的接口，由子类决定生产什么产品。
 4. 抽象工厂 (AbstractFactory）模式：提供一个创建产品族的接口，其每个子类可以生产一系列相关的产品。
-5. 建造者 (Builder）模式：将一个复杂对象分解成多个相对简单的部分，然后根据不同需要分别创建它们，最后构建成该复杂对象。[[创建者模式-builder#创建者模式 建造者模式 Builder]]
-6. 代理 (Proxy)模式：为某对象提供一种代理以控制对该对象的访问。即客户端通过代理间接地访问该对象，从而限制、增强或修改该对象的一些特性。[[proxy-pattern#代理模式 proxy pattern]]
-7. 适配器(Adapter)模式：将一个类的接口转换成客户希望的另外一个接口，使得原本由于接口不兼容而不能一起工作的那些类能一起工作。[[adapter]]
-8. 桥接(Bridge)模式：将抽象与实现分离，使它们可以独立变化。它是用组合关系代替继承关系来实现，从而降低了抽象和实现这两个可变维度的耦合度。
-9. 装饰(Decorator)模式：动态的给对象增加一些职责，即增加其额外的功能。
-10. 外观(Facade)模式：为多个复杂的子系统提供一个一致的接口，使这些子系统更加容易被访问。
+5. 建造者 (Builder）模式：将一个复杂对象分解成多个相对简单的部分，然后根据不同需要分别创建它们，最后构建成该复杂对象。
+6. 代理 (Proxy) 模式：为某对象提供一种代理以控制对该对象的访问。即客户端通过代理间接地访问该对象，从而限制、增强或修改该对象的一些特性。
+7. 适配器 (Adapter) 模式：将一个类的接口转换成客户希望的另外一个接口，使得原本由于接口不兼容而不能一起工作的那些类能一起工作。
+8. 桥接 (Bridge) 模式：将抽象与实现分离，使它们可以独立变化。它是用组合关系代替继承关系来实现，从而降低了抽象和实现这两个可变维度的耦合度。
+9. 装饰 (Decorator) 模式：动态的给对象增加一些职责，即增加其额外的功能。
+10. 外观 (Facade) 模式：为多个复杂的子系统提供一个一致的接口，使这些子系统更加容易被访问。
 11. 享元 (Flyweight）模式：运用共享技术来有效地支持大量细粒度对象的复用。
 12. 组合 (Composite）模式：将对象组合成树状层次结构，使用户对单个对象和组合对象具有一致的访问性。
-13. 模板方法 (TemplateMethod）模式：定义一个操作中的算法骨架，而将算法的一些步骤延迟到子类中，使得子类可以不改变该算法结构的情况下重定义该算法的某些特定步骤。[[Template-Method#设计模式 – 模板方法 Template Method]]
-14. 策略 (Strategy）模式：定义了一系列算法，并将每个算法封装起来，使它们可以相互替换，且算法的改变不会影响使用算法的客户。[[设计模式-策略strategy#设计模式 – 策略 Strategy]]
+13. 模板方法 (TemplateMethod）模式：定义一个操作中的算法骨架，而将算法的一些步骤延迟到子类中，使得子类可以不改变该算法结构的情况下重定义该算法的某些特定步骤。
+14. 策略 (Strategy）模式：定义了一系列算法，并将每个算法封装起来，使它们可以相互替换，且算法的改变不会影响使用算法的客户。
 15. 命令模式 (Command）：将一个请求封装为一个对象，使发出请求的责任和执行请求的责任分割开。
 16. 职责链 (Chain of Responsibility）模式：把请求从链中的一个对象传到下一个对象，直到请求被响应为止。通过这种方式去除对象之间的耦合。
 17. 状态 (State）模式：允许一个对象在其内部状态发生改变时改变其行为能力。
@@ -36,41 +74,6 @@ tags:
 21. 访问者 (Visitor）模式：在不改变集合元素的前提下，为一个集合中的每个元素提供多种访问方式，即每个元素有多个访问者对象访问。
 22. 备忘录 (Memento）模式：在不破坏封装性的前提下，获取并保存一个对象的内部状态，以便以后恢复它。
 23. 解释器 (Interpreter）模式：提供如何定义语言的文法，以及对语言句子的解释方法，即解释器。
-
-## 分类
-
-### 创建模式, Creational Patterns
-
-* Simple Factory 简单工厂模式 [https://blog.wiloon.com/?p=1399](https://blog.wiloon.com/?p=1399)
-* Factory Method 工厂方法
-* Abstract Factory 抽象工厂模式
-* [Prototype, 原型](/prototype-pattern)
-* [Builder, 建造者](/builder-pattern)
-* Singleton, 单例
-
-### 结构模式, Structural Patterns
-
-* [Facade, 外观](/facade-pattern)
-* [Proxy, 代理](/proxy)
-* [Adapter, 适配器](/Adapter)
-* [Composite, 组合](/composite-pattern)
-* Decorator, 装饰器 [https://blog.wiloon.com/?p=847](https://blog.wiloon.com/?p=847)
-* Bridge, 桥接
-* Flyweight, 享元
-
-### 行为模式, Behavioral Patterns
-
-* [Template Method, 模板方法](/design-pattern/template-method)
-* Memento, 备忘录
-* Observer - 观察者 [https://wiloon.com/observer](https://wiloon.com/observer)
-* [Chain Of Responsibility, 责任链](/chain-of-responsibility)
-* Command, 命令模式 (别名: 动作模式(Action)或事务模式(Transaction))
-* [State, 状态](/state-pattern)
-* [Strategy, 策略](/strategy-pattern)
-* [Mediator, 中介者](/mediator-pattern)
-* Interpreter, 解释器
-* Visitor, 访问者
-* Iterator, 迭代器
 
 ### GoF: (Gang of Four，GOF设计模式) - 四人组
 

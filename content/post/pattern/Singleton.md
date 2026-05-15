@@ -2,7 +2,7 @@
 title: 单例 Singleton
 author: "-"
 date: 2012-10-16T06:09:56+00:00
-url: Singleton
+url: singleton
 categories:
   - Java
 tags:

@@ -11,6 +11,8 @@ tags:
   - AI-assisted
 ---
 
+## 原型模式, Prototype Pattern
+
 原型模式（Prototype Pattern）是一种创建型模式，通过复制（克隆）一个已有对象来创建新对象，而不是通过 `new` 重新实例化。
 
 ## 核心思想

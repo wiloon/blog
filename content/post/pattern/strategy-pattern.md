@@ -10,6 +10,7 @@ tags:
   - remix
   - AI-assisted
 ---
+## 策略模式, Strategy Pattern
 
 策略模式（Strategy Pattern）定义了一系列算法，把这些算法一个个封装成单独的类，使它们可以相互替换，且算法的改变不会影响使用算法的客户。
 

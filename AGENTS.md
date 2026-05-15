@@ -393,6 +393,13 @@ print("Hello")
 ​```
 ```
 
+**Mermaid 图规范：**
+
+- Mermaid flowchart（`graph TD` / `graph LR`）节点标签内换行**必须用 `<br/>`**，不能用 `\n`
+  - ✅ 正确：`A[Adapter 转换<br/>dict → 对象]`
+  - ❌ 错误：`A[Adapter 转换\ndict → 对象]`（`\n` 在节点标签里会被忽略，不会渲染为换行）
+- `sequenceDiagram`、`classDiagram`、`stateDiagram-v2` 不涉及此问题，可正常使用文本
+
 **空行规范：**
 
 - front matter（YAML 区块）与正文之间有一个空行
