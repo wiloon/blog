@@ -2,6 +2,7 @@
 title: 创建者模式, 建造者模式, Builder
 author: "-"
 date: 2026-04-16T15:01:10+08:00
+lastmod: 2026-05-15T20:06:12+08:00
 url: builder-pattern
 categories:
   - Pattern
@@ -20,270 +21,285 @@ tags:
 1. 多个部件或零件，都可以装配到一个对象中，但产生的结果又不相同时。
 2. 当初始化一个对象特别复杂的时候，比如参数多，而且很多参数都有默认值。
 
-它分为抽象建造者 (Builder) 角色、具体建造者 (ConcreteBuilder) 角色、导演者 (Director) 角色、产品 (Product) 角色四个角色。
+GoF Builder 模式包含四个角色：
 
-抽象建造者 (Builder) 角色: 给 出一个抽象接口，以规范产品对象的各个组成成分的建造。
+- **抽象建造者 (Builder)**：给出一个抽象接口，以规范产品对象各个组成成分的建造。
+- **具体建造者 (ConcreteBuilder)**：实现抽象建造者声明的接口，一步一步完成创建产品实例的操作；建造完成后提供产品实例。
+- **指挥者 (Director)**：调用具体建造者以创建产品对象。
+- **产品 (Product)**：建造中的复杂对象。
 
-具体建造者 (ConcreteBuilder) 角色: 要完成的任务包括: 1.实现抽象建造者Builder所声明的接口，给出一步一步地完成创建产品实例的操作。2.在建造过程完成后，提供产品的实例。
+### GoF Builder 示例：RTF 文档转换器
 
-导演者 (Director) 角色: 担任这个角色的类调用具体建造者角色以创建产品对象。
+**RTF 背景**
 
-产品 (Product) 角色: 产品便是建造中的复杂对象。
+RTF（Rich Text Format，富文本格式）是微软 1987 年推出的一种文档格式，用纯文本加控制命令描述带格式的文档。一段 RTF 内容长这样：
 
-对于Builder模式很简单，但是一直想不明白为什么要这么设计，为什么要向builder要Product而不是向知道建造过程的Director要。刚才google到一篇文章，总算清楚了。在这里转贴一下这位richardluo的比喻。
-
-简单地说，就好象我要装修一套房子，可是我不懂施工——水电怎么走、木作怎么做，每个工种都有自己专注的领域；也不懂整体设计——用什么风格、先做哪道工序、各部分如何协调，这是设计师的职责。于是我需要找一支装修队，各工种各司其职；还得找个设计师，他来规划整体方案、协调各工种按图施工，而设计师本身不动手，只负责下命令。最后，我可以向工人要装修好的房间了。在这个过程中，设计师手里什么都没有，只有图纸和指令，所以要房间也是跟工人要，记住了！
-
-以下是richardluo的代码，我根据他的思路加上了相应的注释。
-
-1. 定义工人接口，即一支装修队所需具备的通用技能。
-
-```java
-// 工人接口。水电工负责布线，木工负责木作，油漆工负责涂装。
-// 装修完成后，由装修队把房间交还给房主。
-public interface Builder {
-    void doElectrical();  // 水电工
-    void doCarpentry();   // 木工
-    void doPainting();    // 油漆工
-    Room getRoom();
-}
+```
+{\rtf1 Hello {\b World}\par}
 ```
 
-2. 定义设计师（Director），他持有图纸，协调装修队按方案施工。
+- `{\b ... }` 表示加粗
+- `\par` 表示段落结束
+
+RTFReader（Director）的工作是逐个扫描这些 token：遇到 `\b` 就调 `convertFontBold(true)`，遇到普通字符就调 `convertCharacter(c)`，遇到 `\par` 就调 `convertParagraph()`。它自己不生产任何输出，只负责解析结构、驱动 Builder。虽然 RTF 现在已经很少用了，但"解析器解析 → 转换器输出不同格式"这个模型在现代依然普遍（如 Markdown 解析器输出 HTML / PDF / DOCX）。
+
+这是 GoF 原书使用的经典案例。同一份 RTF 文档，Director（RTFReader）负责解析 token 流，每遇到字符、加粗标记、段落标记就调用 Builder 对应的方法。**Director 只管读懂结构，Builder 只管决定输出，两者通过接口解耦**：`parse()` 接收的是 `TextConverter` 接口，不需要知道背后的具体类型，也不需要知道最终输出格式——它只是把 RTF 语义事件翻译成接口调用，由各 ConcreteBuilder 自己决定如何响应：ASCIIConverter 忽略格式标记只保留字符，HTMLConverter 将加粗转为 `<b>` 标签，TeXConverter 转为 `\textbf{}` 命令。
 
 ```java
-// 设计师（Director）。持有图纸，规定施工顺序，但不亲自动手。
-public class Designer {
-    public void coordinate(Builder builder) {
-        builder.doElectrical();
-        builder.doCarpentry();
-        builder.doPainting();
+// Product - 转换结果
+class Document {
+    private final StringBuilder content = new StringBuilder();
+
+    public void append(String text) { content.append(text); }
+
+    @Override
+    public String toString() { return content.toString(); }
+}
+
+// Builder 接口
+interface TextConverter {
+    void convertCharacter(char c);
+    void convertFontBold(boolean on);
+    void convertParagraph();
+    Document getResult();
+}
+
+// ConcreteBuilder - 纯文本（忽略所有格式标记）
+class ASCIIConverter implements TextConverter {
+    private Document doc = new Document();
+
+    public void convertCharacter(char c)    { doc.append(String.valueOf(c)); }
+    public void convertFontBold(boolean on) { /* 纯文本忽略粗体 */ }
+    public void convertParagraph()          { doc.append("\n"); }
+    public Document getResult()             { return doc; }
+}
+
+// ConcreteBuilder - HTML（格式标记 → HTML 标签）
+class HTMLConverter implements TextConverter {
+    private Document doc = new Document();
+
+    public void convertCharacter(char c)    { doc.append(String.valueOf(c)); }
+    public void convertFontBold(boolean on) { doc.append(on ? "<b>" : "</b>"); }
+    public void convertParagraph()          { doc.append("</p>\n<p>"); }
+    public Document getResult()             { return doc; }
+}
+
+// ConcreteBuilder - TeX（格式标记 → TeX 命令）
+class TeXConverter implements TextConverter {
+    private Document doc = new Document();
+
+    public void convertCharacter(char c)    { doc.append(String.valueOf(c)); }
+    public void convertFontBold(boolean on) { doc.append(on ? "\\textbf{" : "}"); }
+    public void convertParagraph()          { doc.append("\n\n"); }
+    public Document getResult()             { return doc; }
+}
+
+// Director - RTF 解析器，逐字符扫描 token 流，驱动 converter
+// 它只负责识别控制字和普通字符，不决定最终输出格式
+class RTFReader {
+    private final String rtf;
+
+    public RTFReader(String rtf) { this.rtf = rtf; }
+
+    public void parse(TextConverter converter) {
+        boolean inBold = false;
+        int i = 0;
+        while (i < rtf.length()) {
+            char c = rtf.charAt(i);
+            if (c == '{') {
+                i++;
+            } else if (c == '}') {
+                if (inBold) { converter.convertFontBold(false); inBold = false; }
+                i++;
+            } else if (c == '\\') {
+                // 解析控制字：\word[digit][ ]
+                i++;
+                StringBuilder word = new StringBuilder();
+                while (i < rtf.length() && Character.isLetter(rtf.charAt(i)))
+                    word.append(rtf.charAt(i++));
+                while (i < rtf.length() && Character.isDigit(rtf.charAt(i)))
+                    i++; // 跳过数字参数（如 \rtf1 中的 1）
+                if (i < rtf.length() && rtf.charAt(i) == ' ')
+                    i++; // 控制字后的空格是 RTF 分隔符，消耗掉
+                switch (word.toString()) {
+                    case "b":   converter.convertFontBold(true); inBold = true; break;
+                    case "par": converter.convertParagraph(); break;
+                    // 其他控制字（如 rtf1 文件头）忽略
+                }
+            } else {
+                converter.convertCharacter(c); // 普通字符（含内容里的空格）
+                i++;
+            }
+        }
+    }
+}
+
+// Client
+public class Client {
+    public static void main(String[] args) {
+        // 真实 RTF 文档片段："Hello " 普通文本，"World" 加粗，段落结束
+        RTFReader reader = new RTFReader("{\\rtf1 Hello {\\b World}\\par}");
+
+        TextConverter ascii = new ASCIIConverter();
+        reader.parse(ascii);
+        System.out.println(ascii.getResult());
+        // → Hello World
+
+        TextConverter html = new HTMLConverter();
+        reader.parse(html);
+        System.out.println(html.getResult());
+        // → Hello <b>World</b></p>
+
+        TextConverter tex = new TeXConverter();
+        reader.parse(tex);
+        System.out.println(tex.getResult());
+        // → Hello \textbf{World}
     }
 }
 ```
 
-3. 装修队（ConcreteBuilder），负责具体的施工实施。
+GoF Builder 和 AbstractFactory 都用于创建复杂对象：Builder 强调**一步步构建**，相同过程可得到不同结果，对象不直接返回；AbstractFactory 强调**直接返回**一组相互依赖的对象。
+
+### Builder vs 工厂方法
+
+工厂方法注重整体对象的创建，Builder 注重部件构建的过程。如要制造一个超人：
+
+- **工厂方法**：直接产生出一个力大无穷、能够飞翔、内裤外穿的超人
+- **Builder**：先组装手、头、脚、躯干，再把内裤外穿，一步一步构建
+
+工厂方法创建的产品粒度较粗，Builder 的产品粒度较细、可控制每个构建步骤。
+
+两者的关键区别不是"能创建几种产品"，而是**能否控制构建过程的细节**。工厂方法的可变点是"类型"（创建哪种产品），Builder 的可变点是"过程"（按什么步骤、用什么方式组装）。
+
+---
+
+## Java Builder 模式：可选参数与链式调用
+
+Joshua Bloch 在《Effective Java》中以 Pizza 为例，推荐用 Builder 解决可选参数过多的问题。Pizza 有必选的尺寸，以及若干可选配料——用构造方法重载会导致组合爆炸，用 set 方法又无法保证对象不可变。Builder 通过链式调用优雅地解决了这个问题：
 
 ```java
-// 各专职工人
-class ElectricalWorker {
-    public String work() { return "electrical done"; }
+public class Pizza {
+    private final int size;           // 必选：尺寸（英寸）
+    private final boolean cheese;     // 可选：加芝士
+    private final boolean pepperoni;  // 可选：加培根
+    private final boolean mushrooms;  // 可选：加蘑菇
+
+    private Pizza(Builder builder) {
+        this.size      = builder.size;
+        this.cheese    = builder.cheese;
+        this.pepperoni = builder.pepperoni;
+        this.mushrooms = builder.mushrooms;
+    }
+
+    public static class Builder {
+        private final int size;
+        private boolean cheese    = false;
+        private boolean pepperoni = false;
+        private boolean mushrooms = false;
+
+        public Builder(int size) {
+            this.size = size;
+        }
+
+        public Builder cheese(boolean val)    { cheese    = val; return this; }
+        public Builder pepperoni(boolean val) { pepperoni = val; return this; }
+        public Builder mushrooms(boolean val) { mushrooms = val; return this; }
+
+        public Pizza build() { return new Pizza(this); }
+    }
 }
-class Carpenter {
-    public String work() { return "carpentry done"; }
+```
+
+使用时：
+
+```java
+Pizza pizza = new Pizza.Builder(12)
+        .cheese(true)
+        .pepperoni(true)
+        .build();
+```
+
+### Builder 继承与协变返回类型
+
+子类继承父类 Builder 时，父类中返回 `Person.Builder` 的方法在子类中仍返回父类类型，链式调用会中断：
+
+```java
+Customer customer = new Customer.Builder("Tom", 13999999999L, "北京市")
+        .age(20)        // 此处返回 Person.Builder
+        .alias("昵称")  // 错误：Person.Builder 上没有 alias 方法
+        .build();
+```
+
+协变返回类型（Covariant Return Type）指子类覆写方法时，可以将返回类型改为父类返回类型的子类型。解决此问题有两种方案：
+
+**方案一：Override + 强制类型转换**
+
+在子类 Builder 中覆写父类每个设置方法，将返回值强转为子类类型：
+
+```java
+public static class Builder extends Person.Builder {
+    @Override
+    public Builder age(int age) {
+        return (Builder) super.age(age);
+    }
+
+    @Override
+    public Builder sex(String sex) {
+        return (Builder) super.sex(sex);
+    }
 }
-class Painter {
-    public String work() { return "painting done"; }
-}
+```
 
-// 装修队（ConcreteBuilder）。由水电工、木工、油漆工组成，各司其职。
-// 装修完成后，由装修队把房间交还给房主。
-public class WorkerTeam implements Builder {
-    private ElectricalWorker electrician = new ElectricalWorker();
-    private Carpenter        carpenter   = new Carpenter();
-    private Painter          painter     = new Painter();
+缺点：需要覆写父类所有设置方法，代码冗长。
 
-    private String electrical = "";
-    private String carpentry  = "";
-    private String painting   = "";
+**方案二：泛型递归类型参数（模拟 self-type）**
 
-    public void doElectrical() { electrical = electrician.work(); }
-    public void doCarpentry()  { carpentry  = carpenter.work(); }
-    public void doPainting()   { painting   = painter.work(); }
+将父类 Builder 声明为泛型类，用 `T extends Builder<T>` 表示"子类自身类型"：
 
-    // 把装修好的房间交还给房主
-    public Room getRoom() {
-        if (!electrical.equals("") && !carpentry.equals("") && !painting.equals("")) {
-            System.out.println("room ready!");
-            return new Room();
-        } else {
-            return null;
+```java
+public class Person {
+    public static class Builder<T extends Builder<T>> {
+        public T age(int age) {
+            this.age = age;
+            return (T) this;
+        }
+
+        public T sex(String sex) {
+            this.sex = sex;
+            return (T) this;
         }
     }
 }
 ```
 
-4. 房主（Client），雇人、收房。
+子类将自身类型传入泛型参数，无需覆写各设置方法：
 
 ```java
-// 房主。聘请一支装修队和一位设计师，让设计师协调装修队按图施工，最后从装修队手上收房。
-public class Client {
-    public static void main(String[] args) {
-        Builder team = new WorkerTeam();
-        Designer designer = new Designer();
-        designer.coordinate(team);
-        team.getRoom();
+public class Customer {
+    public static class Builder extends Person.Builder<Builder> {
+        @Override
+        public Customer build() {
+            return new Customer(this);
+        }
     }
 }
 ```
 
-好了，我觉得这样大概能说明白了。不知各位觉得如何呢？或者有更好的应用场景解释，敬请赐教。
-
-[GOF95]中，Builder模式将一个复杂对象的构建与它的表示分离，使得同样的构建过程可以创建不同的表示。
-
-Builder模式和AbstractFactory模式在功能上很相似，因为都是用来创建大的复杂的对象，它们的区别是: Builder模式强调的是一步步创建对象，并通过相同的创建过程可以获得不同的结果对象，一般来说Builder模式中对象不是直接返回的。而在AbstractFactory模式中对象是直接返回的，AbstractFactory模式强调的是为创建多个相互依赖的对象提供一个同一的接口。
+如果父类是抽象类，可将 `self()` 声明为抽象方法，由子类负责返回正确的 `this`：
 
 ```java
-class Room {}
+public abstract class Person {
+    public abstract static class Builder<T extends Builder<T>> {
+        public T age(int age) {
+            this.age = age;
+            return self();
+        }
 
-// 工人接口：每个工种都实现它
-interface Worker {
-    String work();
-}
+        public T sex(String sex) {
+            this.sex = sex;
+            return self();
+        }
 
-// 普通工种
-class StandardElectrician implements Worker { public String work() { return "standard electrical"; } }
-class StandardCarpenter    implements Worker { public String work() { return "standard carpentry"; } }
-class StandardTiler        implements Worker { public String work() { return "standard tiling"; } }
-class StandardPainter      implements Worker { public String work() { return "standard painting"; } }
-
-// 高端工种
-class PremiumElectrician implements Worker { public String work() { return "premium electrical"; } }
-class PremiumCarpenter    implements Worker { public String work() { return "premium carpentry"; } }
-class PremiumTiler        implements Worker { public String work() { return "premium marble tiling"; } }
-class PremiumPainter      implements Worker { public String work() { return "premium painting"; } }
-
-// Builder 抽象类 - 定义装修工种的通用接口
-abstract class Builder {
-    protected String electrical = "";
-    protected String carpentry  = "";
-    protected String tiling     = "";
-    protected String painting   = "";
-
-    public void doElectrical() {}
-    public void doCarpentry()  {}
-    public void doTiling()     {}
-    public void doPainting()   {}
-
-    public abstract Room getRoom();
-}
-
-// Director - 设计师，持有图纸，协调装修队按图施工
-abstract class Designer {
-    Builder builder;
-
-    public Designer(Builder builder) {
-        this.builder = builder;
-    }
-
-    public abstract void construct();
-}
-
-// 现代简约风格：白墙 + 木作，不贴瓷砖
-class ModernDesigner extends Designer {
-    public ModernDesigner(Builder builder) {
-        super(builder);
-    }
-
-    public void construct() {
-        builder.doElectrical();
-        builder.doCarpentry();
-        builder.doPainting();
+        abstract protected T self();
     }
 }
-
-// 中式古典风格：地砖 + 木作 + 涂装
-class ChineseDesigner extends Designer {
-    public ChineseDesigner(Builder builder) {
-        super(builder);
-    }
-
-    public void construct() {
-        builder.doElectrical();
-        builder.doTiling();
-        builder.doCarpentry();
-        builder.doPainting();
-    }
-}
-
-// 普通装修队：由各普通工种组成
-class GeneralTeam extends Builder {
-    private Worker electrician = new StandardElectrician();
-    private Worker carpenter   = new StandardCarpenter();
-    private Worker tiler       = new StandardTiler();
-    private Worker painter     = new StandardPainter();
-
-    public void doElectrical() { electrical = electrician.work(); }
-    public void doCarpentry()  { carpentry  = carpenter.work(); }
-    public void doTiling()     { tiling     = tiler.work(); }
-    public void doPainting()   { painting   = painter.work(); }
-
-    public Room getRoom() {
-        System.out.println("room ready!");
-        return new Room();
-    }
-}
-
-// 高端装修队：由各高端工种组成，用料和工艺更高端
-class PremiumTeam extends Builder {
-    private Worker electrician = new PremiumElectrician();
-    private Worker carpenter   = new PremiumCarpenter();
-    private Worker tiler       = new PremiumTiler();
-    private Worker painter     = new PremiumPainter();
-
-    public void doElectrical() { electrical = electrician.work(); }
-    public void doCarpentry()  { carpentry  = carpenter.work(); }
-    public void doTiling()     { tiling     = tiler.work(); }
-    public void doPainting()   { painting   = painter.work(); }
-
-    public Room getRoom() {
-        System.out.println("premium room ready!");
-        return new Room();
-    }
-}
-
-// 核心优势体现：同一支装修队，配合不同的设计师图纸，装出不同风格的房间。
-public class HomeOwner {
-    public static void main(String[] args) {
-        // 普通装修队 + 现代简约图纸
-        Builder team = new GeneralTeam();
-        new ModernDesigner(team).construct();
-        team.getRoom(); // → 现代简约风格
-
-        // 同一支普通装修队，换中式古典图纸
-        team = new GeneralTeam();
-        new ChineseDesigner(team).construct();
-        team.getRoom(); // → 中式古典风格
-
-        // 高端装修队 + 现代简约图纸，同样的施工顺序，用料更高端
-        Builder premiumTeam = new PremiumTeam();
-        new ModernDesigner(premiumTeam).construct();
-        premiumTeam.getRoom(); // → 高端现代简约风格
-    }
-}
-```
-
-工厂方法模式VS建造者模式
-工厂方法模式注重的是整体对象的创建方法，而建造者模式注重的是部件构建的过程，旨在通过一步一步地精确构造创建出一个复杂的对象。
-我们举个简单例子来说明两者的差异，如要制造一个超人，如果使用工厂方法模式，直接产生出来的就是一个力大无穷、能够飞翔、内裤外穿的超人；
-而如果使用建造者模式，则需要组装手、头、脚、躯干等部分，然后再把内裤外穿，于是一个超人就诞生了。
-
-工厂方法模式创建的产品一般都是单一性质产品，如成年超人，都是一个模样，而建造者模式创建的则是一个复合产品，它由各个部件复合而成，部件不同产品对象当然不同。
-这不是说工厂方法模式创建的对象简单，而是指它们的粒度大小不同。一般来说，工厂方法模式的对象粒度比较粗，建造者模式的产品对象粒度比较细。
-
-两者的区别有了，那在具体的应用中，我们该如何选择呢？
-是用工厂方法模式来创建对象，还是用建造者模式来创建对象，这完全取决于我们在做系统设计时的意图，如果需要详细关注一个产品部件的生产、安装步骤，则选择建造者，否则选择工厂方法模式。
-
-用装修领域来类比这两种模式的差异，会更直观：
-
-**工厂方法** 像开发商的精装交付——你只能在有限的户型里选择，拿到手就是成品，每套房子的装修风格是固定的。可以新增一种户型（新增工厂子类），但无法定制同一套房子的内部细节。
-
-**Builder** 像业主自己找设计师装修——同一支装修队，可以按现代简约图纸施工，也可以按中式古典图纸施工，每家的风格由图纸决定，装修的每个步骤和细节都可以控制。
-
-两者的关键区别不是"能创建几种产品"，而是**能否控制构建过程的细节**。工厂方法的可变点是"类型"（创建哪种产品），Builder 的可变点是"过程"（按什么步骤、用什么方式组装）。
-
-作者: ztzt123
-链接: [https://www.jianshu.com/p/15b001f5b95f](https://www.jianshu.com/p/15b001f5b95f)
-来源: 简书
-著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
-
----
-
-[http://blog.csdn.net/surprisesdu/article/details/621046](http://blog.csdn.net/surprisesdu/article/details/621046)
-
-[http://smartfool.iteye.com/blog/71175](http://smartfool.iteye.com/blog/71175)
-
-作者: ztzt123
-链接: [https://www.jianshu.com/p/15b001f5b95f](https://www.jianshu.com/p/15b001f5b95f)
-来源: 简书
-著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。

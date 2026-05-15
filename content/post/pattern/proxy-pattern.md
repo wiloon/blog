@@ -2,6 +2,7 @@
 title: 代理模式, proxy pattern
 author: "-"
 date: 2026-04-16T17:17:48+08:00
+lastmod: 2026-05-15T22:18:42+08:00
 url: proxy
 categories:
   - Pattern
@@ -94,13 +95,41 @@ APermissionProxy类：只实现A接口的权限检查代理。
 
 虚代理即Virtual Proxy，它让调用者先持有一个代理对象，但真正的对象尚未创建。如果没有必要，这个真正的对象是不会被创建的，直到客户端需要真的必须调用时，才创建真正的对象。JDBC的连接池返回的JDBC连接 (Connection对象）就可以是一个虚代理，即获取连接时根本没有任何实际的数据库连接，直到第一次执行JDBC查询或更新操作时，才真正创建实际的JDBC连接。
 
+```mermaid
+classDiagram
+    class Subject {
+        <<interface>>
+        +request()
+    }
+
+    class RealSubject {
+        +request()
+    }
+
+    class VirtualProxy {
+        -realSubject: RealSubject
+        +request()
+    }
+
+    class Client {
+        -subject: Subject
+    }
+
+    Subject <|.. RealSubject : implements
+    Subject <|.. VirtualProxy : implements
+    VirtualProxy o-- RealSubject : lazy creates
+    Client --> Subject : uses
+```
+
 ### 保护代理
 
 保护代理即Protection Proxy，它用代理对象控制对原始对象的访问，常用于鉴权。
 
-### 智能引用
+### 智能引用与缓存代理
 
-智能引用即Smart Reference，它也是一种代理对象，如果有很多客户端对它进行访问，通过内部的计数器可以在外部调用者都不使用后自动释放它。
+智能引用即 Smart Reference，它也是一种代理对象，如果有很多客户端对它进行访问，通过内部的计数器可以在外部调用者都不使用后自动释放它。C++ 的 `shared_ptr` 就是典型实现：每次拷贝引用计数加一，销毁时减一，归零后自动释放底层对象。
+
+Cache Proxy（缓存代理）是 Smart Reference 的一种变体，同属「访问时附加操作」这一类。区别在于附加的操作不同：Smart Reference 附加的是引用计数、加锁、日志等；Cache Proxy 附加的是缓存查找与写入——命中缓存则直接返回，否则才调用真实对象并将结果缓存起来。Cache Proxy 不是 GoF 定义的标准类型，但 refactoring.guru 等资料会单独列出，其最典型的应用场景是为 Remote Proxy 减少重复的网络请求。
 
 ### Decorator
 

@@ -2,7 +2,7 @@
 title: Conflict Check
 author: w1100n
 date: 2026-05-14T20:17:36+08:00
-lastmod: 2026-05-15T17:42:43+08:00
+lastmod: 2026-05-15T22:46:56+08:00
 url: conflict-check
 categories:
   - Pattern
@@ -13,34 +13,51 @@ tags:
   - firewall
 ---
 
-这个模块的重写发生在 2024 年，历时约 3 个月，当时我还没有开始大量使用 AI 辅助编程。业务代码约 5000 行，单元测试约 3.6 万行（其中有大量重复代码——当时急于覆盖各种边界情况，靠堆 case 保证覆盖率）。重写的时候注意力都在把功能做对上，并没有想过「我要用哪种设计模式」，只是在纠结怎么把问题拆清楚、用面向对象的方式把责任分开、把可能变化的部分封装起来。Redis 里的缓存数据是嵌套的树形结构，解析时写了几个递归调用——那几段递归是当时感觉最复杂的地方。
+这个 conflict check 模块的重写是在 2024 年，历时约 3 个月，当时我还没有开始大量使用 AI 辅助编程。业务代码约 5000 行，单元测试约 3.6 万行（其中有大量重复代码——当时急于覆盖各种边界情况，靠堆 case 保证覆盖率）。重写的时候注意力都在把功能做对上，并没有想过「我要用哪种设计模式」，只是在纠结怎么把问题拆清楚、用面向对象的方式把责任分开、把可能变化的部分封装起来。Redis 里的缓存数据是嵌套的树形结构，解析时写了几个递归调用——当时感觉最复杂的地方。
 
-这篇文档写于此后。某次和一个朋友聊天，对方问起对设计模式有没有了解，当时长期没有专门研究过，没说出个所以然。后来那个问题偶尔还会浮上来，然后有一天和 conflict check 关联到了一起——这是我开发过的比较复杂的模块，不如让 AI 帮我看看，里面有没有哪段代码接近某种设计模式，或者有哪些场景适合用设计模式来解决。就让 Copilot + Claude Sonnet 4.6 分析了一下——结果发现竟然有 9 种。当然，有些模式用得并不标准，还有些是因为 Python 的语言特性而采用了变通的实现方式。整理的过程中还发现了几处有性能优化空间的地方。
+这篇文档写于此后。某次和一个朋友聊天，对方问起对设计模式有没有了解，当时长期没有专门研究过，没说出个所以然。后来那个问题偶尔还会浮上来，然后有一天和 conflict check 关联到了一起——这是我开发过的比较复杂的一个模块，不如让 AI 帮我看看，里面有没有哪段代码接近某种设计模式，或者有哪些场景适合用设计模式来解决。Copilot + Claude Sonnet 4.6 分析了一下——
+结果发现竟然有 9 个场景适合用设计模式——有的接近标准实现，有的因业务结构或 Python 语言特性而有所偏差，还有两个（Builder 和 State）目前只是符合模式意图、需要重构才能达到标准结构。整理的过程中还发现了有性能优化空间的地方。
 
 ## 背景
 
-防火墙策略在应用到设备之前，需要先在缓存中进行冲突检测。防火墙策略由 “网络编排器” 缓存在 Redis 中，`address_object` 和 `service_object` 两类对象共用同一种数据结构，各自包含两种角色：
+防火墙策略在应用到设备之前，需要先在缓存中进行冲突检测。"网络编排器" 将每台设备的数据缓存在 Redis 中，每份 profile 包含三类数据：**地址对象和分组**、**服务对象和分组**，以及**策略列表**。
 
-- **object**：基础对象，`key` 是名称，`value` 是一个数组，元素是实际的 IP 地址/CIDR 网段（address_object）或协议/端口（service_object）
-- **group_object**：分组对象，有自己的 `name` 和 `value`，`value` 是一个数组，数组元素是 `object` 的 name 或另一个 `group_object` 的 name
+每条策略的关键字段：
 
-group 和 object 形成嵌套结构：一个 group 的 value 列表里，既可以直接引用 object，也可以引用其他 group，形成递归树。
-
-## 问题
-
-冲突检测模块的目标是比对用户提交的网络策略与 Redis 中的已有策略，决定后续应当新建、更新，还是无需操作。
-
-每条策略（用户输入或设备缓存）有以下几个关键属性：
-
-- **src**：源地址数组，每个元素是 `object_name` 或 `group_name`（address_object）
+- **src**：源地址数组，每个元素是一个 address object name 或 address group name
 - **dst**：目标地址数组，结构与 src 相同
-- **service**：协议和端口数组，每个元素是 `service_object_name` 或 `service_group_name`
+- **service**：服务数组，每个元素是一个 service object name 或 service group name
 
-src 和 dst 属于 address_object，service 属于 service_object。两种类型都具备 group/object 嵌套结构，因此 `PolicyObject` 类可以同时表达这两种类型的对象。
+地址对象和服务对象共用同一种数据结构，各自包含两种角色：
+
+- **object**：基础对象，`value` 是实际 IP 地址/CIDR 网段（address）或协议/端口（service）的数组
+- **group_object**：分组对象，`value` 是 object name 或另一个 group_object name 的数组
+
+group 和 object 形成嵌套结构：一个 group 的 value 列表里，既可以直接引用 object，也可以引用其他 group，形成递归树。地址对象和服务对象结构相同，因此 `PolicyObject` 类可以统一表达这两种类型，同时处理 src、dst、service 的解析。
+
+冲突检测模块的目标是比对用户提交的网络策略与 Redis 中的已有策略，决定后续应当新建、更新，还是无需操作。src、dst、service 三个字段与已有策略的对应字段各自存在匹配、子集、超集、不匹配四种关系，再叠加生效时间段，各字段结果的排列组合共同决定最终判定。
 
 ## 设计模式
 
-冲突检测模块共使用了 9 种设计模式，分布在数据表示与加载、对象构建和算法执行三个层次。
+冲突检测模块的设计模式，分布在数据表示与加载、对象构建和算法执行三个层次。
+
+**数据表示与加载**
+
+- **Composite**：GoF 标准模式，Python 实现有偏差——Leaf/Composite 共用同一个 `PolicyObject` 类，以 `is_leaf()` 运行时区分，而非标准的子类分离
+- **Facade**：GoF 标准实现
+- **Proxy**：GoF 标准实现，Cache Proxy 变体
+
+**对象构建**
+
+- **Static Factory Method**：非 GoF 工厂方法（GoF Factory Method 依赖子类多态），更接近 *Effective Java* 的静态工厂方法：以方法名区分变体，隐藏构建差异
+- **Builder**（待优化）：场景符合 GoF Builder 意图，但 Builder/Director/Product 三角色合并在 `DevicePolicy` 类自身的静态方法里，有重构方案
+
+**算法执行**
+
+- **Template Method**：GoF 标准模式，有偏差——`DstNatChecker`、`DeviceNatChecker` 覆盖了模板方法本身，不只是插入钩子
+- **Strategy**：GoF 标准模式，有两处偏差——用继承代替组合；用 `__class__` 赋值代替替换 Context 引用
+- **Special Case**：非 GoF 模式，来自 Martin Fowler 的 PoEAA；这里使用异常变体代替原书的无操作对象
+- **State**（待优化）：比较结果状态机场景符合 GoF State 意图，但当前用枚举字段 + 优先级累积实现，有重构方案
 
 ### 数据表示与加载
 
@@ -84,34 +101,13 @@ classDiagram
     Policy o-- PolicyObject : service
 ```
 
-#### Adapter — 原始数据适配
+**Python 实现与标准模式的差异**
 
-Redis 中存储的是 dict 格式的原始数据（对象名称到值数组的映射）。Adapter 将其转换成 `PolicyObject` 树，隔离了业务逻辑对缓存数据格式的直接依赖。地址对象和服务对象各有对应的 Adapter，另有一个 Adapter 将外部 API 返回的 dict 转换为内部策略领域对象。
-
-Adapter 与 Composite 的分工：**Adapter 是转换动作**，解决接口不兼容（dict → 对象）；**Composite 是转换结果的数据结构**，解决 group 嵌套引用 group 的树形数据表达问题。Adapter 内部用 Composite 来组织输出，两个模式嵌套配合。
-
-```mermaid
-classDiagram
-    class CacheData {
-        +object_dict: dict
-        +group_dict: dict
-    }
-    class ObjectAdapter {
-        +wrap(name) PolicyObject
-    }
-    class PolicyObject {
-        +name: str
-        +value: list~str~
-        +sub_objects: list~PolicyObject~
-        +leaf_objects: list~PolicyObject~
-    }
-    CacheData ..> ObjectAdapter : input
-    ObjectAdapter ..> PolicyObject : creates
-```
+标准 GoF Composite 通常定义一个 Component 接口，Leaf 和 Composite 分别作为子类实现。Python 没有 `interface` 关键字（可以用 `abc.ABC` + `@abstractmethod` 替代，但这里没有用），且这里的 object 和 group_object 在代码中**共用同一个 `PolicyObject` 类**，通过 `is_leaf()`（即检查 `sub_objects` 是否为空）在运行时区分两种角色。这省去了单独的子类，但两种角色的行为差异由条件判断而非类型分派处理——是 Python 惯用的扁平化写法，而非标准模式的类层次结构。
 
 #### Facade — 统一数据访问入口
 
-Facade = **Redis 读取 + Adapter 转换 + Composite 组织**，三件事全部封装在内部，外部只看到干净的对象接口。
+Facade = **Redis 读取 + Composite 组织**，两件事全部封装在内部，外部只看到干净的对象接口。
 
 内部数据流：
 
@@ -120,20 +116,19 @@ graph TD
     R[Redis raw data]
     subgraph Facade内部
         A[从 Redis 读取<br/>address_object / group<br/>service_object / group]
-        B[Adapter 转换<br/>dict → 结构化对象]
-        C[Composite 组织<br/>叶节点 + 嵌套组 → 树形]
-        A --> B --> C
+        C[Composite 组织<br/>dict → PolicyObject 树]
+        A --> C
     end
     P[调用方拿到 profile 对象<br/>封装好的地址/服务对象<br/>+ 原始策略列表：policies]
     R --> A
     C --> P
 ```
 
-调用方只需面对 profile 对象和封装好的 PolicyObject，无需关注 Redis 数据格式、Adapter 实现或 group 的嵌套层级。
+调用方只需面对 profile 对象和封装好的 PolicyObject，无需关注 Redis 数据格式、dict 转换细节或 group 的嵌套层级。
 
-**策略列表的后续处理**：Facade 的 `policies()` 返回的是 Redis 里的原始策略列表，不是封装好的领域对象。Checker 在比较循环里逐条取出原始策略，调用 `wrap_policy(raw, profile)` 逐一封装。`profile` 也作为参数传入，因为封装时需要通过 Facade 的 Adapter 方法查询地址/服务对象。
+**策略列表的后续处理**：Facade 的 `policies()` 返回的是 Redis 里的原始策略列表，不是封装好的领域对象。Checker 在比较循环里逐条取出原始策略，调用 `wrap_policy(raw, profile)` 逐一封装。`profile` 也作为参数传入，因为封装时需要通过 Facade 的转换方法查询地址/服务对象。
 
-Facade 并不在初始化时把所有 address object 批量转换成 PolicyObject 树——它只是把 Redis 的原始 dict（address_object、address_group 等）一次性 load 进内存字段。每封装一条策略时，才调用 Facade 的 Adapter 方法，用该策略的 src/dst name list 从内存 dict 里查出对应条目，实时组装 Composite 树。**dict 是预加载的，对象树是按需构建的。**
+Facade 并不在初始化时把所有 address object 批量转换成 PolicyObject 树——它只是把 Redis 的原始 dict（address_object、address_group 等）一次性 load 进内存字段。每封装一条策略时，才调用 Facade 的转换方法，用该策略的 src/dst name list 从内存 dict 里查出对应条目，实时组装 Composite 树。**dict 是预加载的，对象树是按需构建的。**
 
 ```mermaid
 classDiagram
@@ -173,9 +168,13 @@ sequenceDiagram
     end
 ```
 
+**与标准模式的一致性**
+
+这是 GoF Proxy 中的 Cache Proxy 变体，与标准模式结构一致。GoF Proxy 的核心意图是为另一个对象提供代理以控制对它的访问；这里 ProfileProxy 拦截调用方对 Redis 的每次请求，命中时直接返回缓存结果，未命中时才访问真实主体。调用方不感知请求是否被缓存拦截，接口对外完全透明。
+
 ### 对象构建
 
-#### 静态工厂方法 — 按变体创建策略对象
+#### Static Factory Method，静态工厂方法 — 按变体创建策略对象
 
 `DevicePolicy` 类上有四个 `@staticmethod` 工厂方法，对应 Redis 缓存的防火墙策略的四种变体。每个方法以名称区分变体，隐藏内部构建差异。这与 GoF 工厂方法（依赖子类多态）有所不同，更接近 *Effective Java* 中描述的静态工厂方法：方法名比构造函数更有表达力，内部实现可以随版本变化而不影响调用方。
 
@@ -189,32 +188,6 @@ classDiagram
         +createPolicyBase(raw, profile) DevicePolicy
     }
     DevicePolicy ..> DevicePolicy : creates
-```
-
-#### Builder — 分步组装复杂对象
-
-`DevicePolicy` 对象的各字段来自不同数据源（zone、service、schedule、address）。每个静态工厂方法充当 Builder 的 Director，编排构建步骤：`createPolicyBase()` 承担公共基础步骤（创建对象、填充 zone / service / schedule），各变体方法在此基础上分别组装不同的 src/dst 地址字段，最终返回完整对象。
-
-- **普通策略** `createPolicy()`：src 和 dst 均为普通地址
-- **源 NAT** `createSnatPolicy()`：src 携带 NAT 映射（IP pool → 转换后地址），dst 为普通地址
-- **目的 NAT** `createDnatPolicy()`：src 为普通地址，dst 携带 NAT 映射（VIP → 实际地址）
-
-P* 设备 NAT 变体的策略结构差异较大，不使用共享基础步骤，从头独立组装所有字段。
-
-```mermaid
-graph LR
-    subgraph createPolicyBase
-        A[create DevicePolicy] --> B[set zones]
-        B --> C[set service]
-        C --> D[set schedule]
-    end
-    D --> E1[createPolicy<br/>src+dst 普通地址]
-    D --> E2[createSnatPolicy<br/>src 含NAT映射]
-    D --> E3[createDnatPolicy<br/>dst 含NAT映射]
-    E1 --> G[return DevicePolicy]
-    E2 --> G
-    E3 --> G
-    H[P* 设备 NAT<br/>从头独立组装] --> G
 ```
 
 ### 算法执行层
@@ -271,6 +244,10 @@ classDiagram
     DeviceNatChecker <|-- DeviceDstNatChecker
 ```
 
+**Python 实现与标准模式的差异**
+
+标准 GoF Template Method 要求模板方法本身不可被覆盖（Java 中标记为 `final`），子类只能替换钩子方法。这里 `DstNatChecker` 和 `DeviceNatChecker` 均覆盖了 `check_conflict()` 本身，而不只是插入钩子——前者在骨架末尾追加 VIP 二次检测，后者完全替换为双阶段检测流程。Python 没有 `final`，这是语言层面的限制，但在结构上这两个子类已经部分承担了重新定义骨架的职责，不再是纯粹的钩子实现。
+
 #### Strategy — 运行时切换行为
 
 冲突检测对不同类型的策略（普通、源 NAT、目的 NAT）使用不同的检测逻辑，每种逻辑对应一个检测策略。策略对象初始均以基类创建，封装阶段根据节点属性通过 `__class__` 赋值直接替换运行时子类，无需重建对象。切换完成后进入冲突检测主逻辑，调用方只调用统一接口，各对象按自身运行时类型执行对应检测行为——策略切换对外层代码完全透明。
@@ -301,30 +278,36 @@ classDiagram
     BaseChecker <|-- DstNatChecker
 ```
 
+**Python 实现与标准模式的差异**
+
+标准 GoF Strategy 的结构是：Context 持有一个 Strategy 接口引用，切换行为时替换该引用指向的具体策略对象，Context 与策略对象是组合关系。这里有两处偏离：一是用继承代替了组合——Checker 子类本身就是策略的载体，没有独立的 Context 持有 Strategy 引用；二是切换方式是 `__class__` 赋値，直接改变对象自身的运行时类型，而非在 Context 上替换已持有的引用。`__class__` 变异是 Python 特有的机制，GoF 原书不存在这种操作，但达到了同样的目的：对调用方透明地改变对象的行为。
+
 #### Special Case — 以异常代替空返回
 
-当策略对象包含宽泛私网地址范围（如 `10.0.0.0/8`）时，该策略不具备比较意义。包装阶段直接抛出专用异常，由比较循环的第一个 `except` 子句静默消费，循环继续。这避免了返回 `None` 后在每个调用点进行 `None` 判断的扩散。严格来说这是 Martin Fowler 的 Special Case 模式：目标与 Null Object 相同（避免 null 判断扩散），但用异常代替无操作对象，语义更清晰。
+Special Case 来自 Martin Fowler 的 *Patterns of Enterprise Application Architecture*（PoEAA），不属于 GoF 的 23 种模式。原书中 Special Case 是一个封装了特殊情况处理行为的无操作对象，使调用方无需对特殊值做显式判断。
+
+当策略对象包含宽泛私网地址范围（如 `10.0.0.0/8`）时，该策略不具备比较意义。包装阶段直接抛出专用异常，由比较循环的第一个 `except` 子句静默消费，循环继续。这避免了返回 `None` 后在每个调用点进行 `None` 判断的扩散。目标与原书相同（避免 null 判断扩散），但以抛出 + 捕获代替返回特殊对象——是 PoEAA Special Case 的异常变体，语义更清晰。
 
 ```mermaid
 sequenceDiagram
     participant CmpLoop as Comparison Loop
-    participant Adapter
+    participant ObjectWrapper
 
-    CmpLoop->>Adapter: wrap policy object
-    Adapter->>Adapter: detect broad private range
-    Adapter-->>CmpLoop: throws SkipException
+    CmpLoop->>ObjectWrapper: wrap policy object
+    ObjectWrapper->>ObjectWrapper: detect broad private range
+    ObjectWrapper-->>CmpLoop: throws SkipException
     Note over CmpLoop: except clause catches<br/>silently skip, continue
 ```
 
 ## 模式组合
 
-这 9 种模式分层协作：
+这 7 种模式分层协作：
 
-**数据加载层**：缓存原始 dict → Adapter 转换成 PolicyObject → Composite 统一树形表达 → Facade 对外暴露简洁接口 → Proxy 控制缓存访问避免重复查询。
+**数据加载层**：缓存原始 dict → Composite 组织为 PolicyObject 树 → Facade 对外暴露简洁接口 → Proxy 控制缓存访问避免重复查询。
 
 **算法执行层**：Template Method 固定检测骨架 → Strategy 在运行时切换不同变体行为。
 
-**跨层**：静态工厂方法 + Builder 负责各类策略对象的分步组装，Special Case 在源头过滤无意义输入。
+**跨层**：静态工厂方法负责各类策略对象的创建，Special Case 在源头过滤无意义输入。
 
 ## 小结
 
@@ -353,7 +336,7 @@ graph LR
 
 ## 已知优化点
 
-### 比较结果状态机改用 GoF State 模式
+### State 模式， 比较结果状态机改用 GoF State 模式
 
 当前的比较结果跟踪用枚举字段 + `update_compare_result()` 实现，本质是优先级累积。从行为上看，四种结果之间存在明确的单向迁移规则，完全可以改用标准 GoF State 模式实现：每种结果对应一个 State 类，封装该状态下的 `update()`、`on_enter()`、`error_handler()` 行为，通过替换 Context 持有的 State 对象完成迁移，而非外部 if/elif 分支。
 
@@ -371,12 +354,74 @@ stateDiagram-v2
 
 收益：各状态的进入行为（如 MATCH 时绑定现有的 policy id、ERROR 时记录 error_type）内聚到 State 类内部，消除散落在比较循环中的多处 if/elif 判断，新增状态只需新增一个类。
 
-### PolicyObject 树的重复构建
+### 性能优化， PolicyObject 树的重复构建
 
-当前实现中，每封装一条设备缓存策略时，都会调用 Facade 的 Adapter 方法，从内存 dict 里实时递归组装 Composite 树。如果 100 条策略都引用了同一个 `server-group-A`，这棵树会被 rebuild 100 次。
+当前实现中，每封装一条设备缓存策略时，都会调用 Facade 的转换方法，从内存 dict 里实时递归组装 Composite 树。如果 100 条策略都引用了同一个 `server-group-A`，这棵树会被 rebuild 100 次。
 
 这个重复是可以消除的。Redis 的 address/service object dict 更新频率是天级的，对于同一个请求下的一组规则对应的冲突检测来说，dict 是完全稳定的；应用层也没有对 dict 的写操作。因此，同名 object 构建出的 PolicyObject 树是幂等且安全可复用的。
 
-优化方式是在 Facade 内部增加一层以 object name 为 key 的 dict 缓存，首次构建后存入，后续同名请求直接返回缓存结果，不再递归。这是对 Adapter 方法的 memoization，本质上也是 Flyweight 模式的变体——在同一 profile 作用域内共享不可变的 PolicyObject 实例。
+优化方式是在 Facade 内部增加一层以 object name 为 key 的 dict 缓存，首次构建后存入，后续同名请求直接返回缓存结果，不再递归。这是对 Facade 转换方法的 memoization，本质上也是 Flyweight 模式的变体——在同一 profile 作用域内共享不可变的 PolicyObject 实例。
+
+### Builder 模式， 重构为标准 GoF Builder 模式
+
+当前的 `DevicePolicy` 构建逻辑集中在 `DevicePolicy` 类自身的静态方法里：`createPolicyBase()` 承担公共基础步骤，各变体方法在其上追加 src/dst 字段——Builder 和 Director 两个角色均由静态方法兼任，构建逻辑与 Product 类耦合在一起。
+
+这个场景完全符合 GoF Builder 的适用条件：同一构建流程（创建对象 → 填充基础字段 → 组装 src/dst）需要生产出多种变体（普通策略、源 NAT、目的 NAT），仅 src/dst 的组装逻辑不同。Python 没有 `interface`，但可以用 `abc.ABC` + `@abstractmethod` 替代。
+
+**现有实现**：构建逻辑全部内联在 `DevicePolicy`（Product 类自身）的静态方法里——Builder、Director、Product 三个角色合并在同一个类里，方法同时充当 Director 和 ConcreteBuilder。
+
+```mermaid
+graph LR
+    subgraph createPolicyBase
+        A[create DevicePolicy] --> B[set zones]
+        B --> C[set service]
+        C --> D[set schedule]
+    end
+    D --> E1[createPolicy<br/>src+dst 普通地址]
+    D --> E2[createSnatPolicy<br/>src 含NAT映射]
+    D --> E3[createDnatPolicy<br/>dst 含NAT映射]
+    E1 --> G[return DevicePolicy]
+    E2 --> G
+    E3 --> G
+    H[P* 设备 NAT<br/>从头独立组装] --> G
+```
+
+**重构后的类结构**：Builder、Director、Product 三角色分离。
+
+```mermaid
+classDiagram
+    class DevicePolicyBuilder {
+        <<abstract>>
+        +reset()*
+        +set_base(raw, profile)*
+        +set_src(raw, profile)*
+        +set_dst(raw, profile)*
+        +build() DevicePolicy*
+    }
+    class StandardPolicyBuilder {
+        +set_src(raw, profile)
+        +set_dst(raw, profile)
+    }
+    class SnatPolicyBuilder {
+        +set_src(raw, profile)
+        +set_dst(raw, profile)
+    }
+    class DnatPolicyBuilder {
+        +set_src(raw, profile)
+        +set_dst(raw, profile)
+    }
+    class PolicyDirector {
+        -_builder: DevicePolicyBuilder
+        +construct(raw, profile) DevicePolicy
+    }
+    DevicePolicyBuilder <|-- StandardPolicyBuilder
+    DevicePolicyBuilder <|-- SnatPolicyBuilder
+    DevicePolicyBuilder <|-- DnatPolicyBuilder
+    PolicyDirector --> DevicePolicyBuilder : uses
+```
+
+P* 设备 NAT 变体结构差异较大，可单独提供 `DeviceNatPolicyBuilder`，覆盖全部步骤，与其他 Builder 共享同一个 `PolicyDirector`。
+
+收益：`set_src` / `set_dst` 的差异化逻辑内聚到各 Builder 子类，`PolicyDirector` 只编排通用步骤顺序，新增策略变体只需新增一个 Builder 子类，无需修改现有代码。
 
 > 相关：[Composite Pattern](/composite-pattern)

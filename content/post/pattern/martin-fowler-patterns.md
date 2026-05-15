@@ -17,6 +17,8 @@ Martin Fowler 是《重构》《企业应用架构模式》《领域特定语言
 
 本文选取其中最具代表性的几个模式进行介绍。关于企业应用架构模式中的 Repository、Unit of Work、Front Controller 等，见 [企业应用架构模式](enterprise-application-architecture-patterns)。
 
+《企业应用架构模式》 *Patterns of Enterprise Application Architecture*（PoEAA）
+
 ---
 
 ## Special Case（特殊情况）
