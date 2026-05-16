@@ -8,6 +8,10 @@ theme = "PaperMod"
 [pagination]
   pagerSize = 20
 
+# frontmatter 日期配置：lastmod 没有设置时回退到 date
+[frontmatter]
+  lastmod = ["lastmod", "date", "publishDate"]
+
 # 启用功能
 enableRobotsTXT = true
 enableEmoji = true
