@@ -11,6 +11,7 @@ tags:
 ## '命令行, curl  查询公网 ip'
 
 ```bash
+curl http://ip.3322.net/
 curl ifconfig.me
 
 curl whatismyip.akamai.com
