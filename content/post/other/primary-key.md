@@ -11,7 +11,7 @@ tags:
 ---
 ## 数据库主键设计
 
-## surrogate key (单主键), composite primary keys (联合主键)
+surrogate key (单主键), composite primary keys (联合主键)
 
 https://www.zhihu.com/question/265739203
 

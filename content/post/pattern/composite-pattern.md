@@ -2,6 +2,7 @@
 title: 组合模式, Composite Pattern
 author: "-"
 date: 2026-04-16T17:00:10+08:00
+lastmod: 2026-05-16T20:09:41+08:00
 url: composite-pattern
 categories:
   - Pattern
@@ -21,6 +22,40 @@ tags:
 - **Component**：抽象组件，定义叶子和容器的公共接口
 - **Leaf**：叶子节点，没有子节点，实现具体操作
 - **Composite**：容器节点，包含子组件，将操作委托给子节点
+
+## UML 类图
+
+```mermaid
+classDiagram
+    class FileSystemNode {
+        <<interface>>
+        +getName() String
+        +getSize() long
+        +print(indent String)
+    }
+
+    class File {
+        -name String
+        -size long
+        +getName() String
+        +getSize() long
+        +print(indent String)
+    }
+
+    class Directory {
+        -name String
+        -children List~FileSystemNode~
+        +add(node FileSystemNode)
+        +remove(node FileSystemNode)
+        +getName() String
+        +getSize() long
+        +print(indent String)
+    }
+
+    FileSystemNode <|.. File : implements
+    FileSystemNode <|.. Directory : implements
+    Directory o-- FileSystemNode : contains
+```
 
 ## 示例：文件系统
 

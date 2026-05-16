@@ -58,7 +58,7 @@ ByteBuf 支持 slice 操作, 因此可以将 ByteBuf 分解为多个共享同一
 
 下面我们就来简单了解一下这几种常见的零拷贝操作.
 
-### 通过 CompositeByteBuf 实现零拷贝
+- 通过 CompositeByteBuf 实现零拷贝
   
 假设我们有一份协议数据, 它由头部和消息体组成, 而头部和消息体是分别存放在两个 ByteBuf 中的, 即:
 
