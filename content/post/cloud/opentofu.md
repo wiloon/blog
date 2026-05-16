@@ -2,6 +2,7 @@
 title: OpenTofu 入门：用 IaC 在 AWS 创建 VPC 和 EC2
 author: "-"
 date: 2026-04-29T10:39:30+08:00
+lastmod: 2026-05-16T20:36:00+08:00
 url: opentofu-aws-vpc-ec2
 categories:
   - cloud
@@ -82,9 +83,72 @@ variable "ssh_public_key" {
 ssh_public_key = "ssh-ed25519 AAAA..."
 ```
 
+### State 文件
+
+State 文件（`terraform.tfstate`）是 OpenTofu 的核心机制，记录了"现实世界"中已创建的资源状态。
+
+**State 文件的作用：**
+
+- **追踪资源状态**：记录云上实际创建了哪些资源、它们的 ID 和属性
+- **计算增量变更**：`tofu plan` 对比 `.tf` 配置、State 文件、云上实际资源，只变更差异部分
+- **存储资源 ID**：保存 AWS 返回的各种 ID，供其他资源引用（如 `aws_vpc.main.id`）
+- **防止重复创建**：标记已存在的资源，避免重复创建
+
+**State 文件格式：**
+
+State 文件是 JSON 格式，人类可读，但不建议手动编辑：
+
+```json
+{
+  "version": 4,
+  "serial": 12,
+  "lineage": "a1b2c3d4-...",
+  "resources": [
+    {
+      "type": "aws_instance",
+      "name": "server",
+      "instances": [
+        {
+          "attributes": {
+            "id": "i-0abc123def456",
+            "instance_type": "t2.nano",
+            "public_ip": "54.199.1.2"
+          }
+        }
+      ]
+    }
+  ]
+}
+```
+
+| 字段 | 说明 |
+| --- | --- |
+| `version` | state 格式版本（目前是 4） |
+| `serial` | 每次修改递增，用于检测并发冲突 |
+| `lineage` | 唯一标识这套 state 的 UUID，防止混用不同环境的 state |
+| `resources` | 所有被管理资源的完整属性快照 |
+
+**操作 State 的命令：**
+
+```bash
+# 列出所有受管资源
+tofu state list
+
+# 查看某个资源的详细 state
+tofu state show aws_instance.server
+
+# 从 state 中移除资源记录（不删除云上资源）
+tofu state rm aws_instance.server
+
+# 将已有的云资源导入到 state
+tofu import aws_instance.server i-0abc123def456
+```
+
+⚠️ State 文件可能包含**明文敏感信息**（数据库密码、私钥等），不能提交 git。
+
 ### Backend
 
-State 文件存放位置，推荐存到 S3 而非本地，多台机器可共用且不怕丢失。
+Backend 配置 State 文件的存放位置，推荐存到 S3 而非本地，多台机器可共用且不怕丢失：
 
 ```hcl
 backend "s3" {
@@ -93,6 +157,8 @@ backend "s3" {
   region = "ap-southeast-1"
 }
 ```
+
+建议同时开启 S3 服务端加密（SSE），保护 state 中的敏感数据。
 
 ## 目录结构
 
@@ -246,6 +312,78 @@ tofu show
 # 查看输出值
 tofu output
 ```
+
+### tofu plan 输出说明
+
+`tofu plan` 用符号标识每个资源的变更类型：
+
+| 符号 | 含义 |
+| --- | --- |
+| `+` | 新增资源 |
+| `~` | 原地修改资源（资源不会重建） |
+| `-` | 删除资源 |
+| `-/+` | 先删除再重建（破坏性变更） |
+
+**新增资源（`+`）**
+
+```
+OpenTofu will perform the following actions:
+
+  # aws_instance.server will be created
+  + resource "aws_instance" "server" {
+      + ami           = "ami-0abcdef1234567890"
+      + instance_type = "t2.nano"
+      + id            = (known after apply)
+      + public_ip     = (known after apply)
+    }
+
+Plan: 1 to add, 0 to change, 0 to destroy.
+```
+
+**修改资源（`~`）**
+
+将 `instance_type` 从 `t2.nano` 改为 `t2.micro` 时：
+
+```
+  # aws_instance.server will be updated in-place
+  ~ resource "aws_instance" "server" {
+        id            = "i-0abc123def456"
+      ~ instance_type = "t2.nano" -> "t2.micro"
+    }
+
+Plan: 0 to add, 1 to change, 0 to destroy.
+```
+
+**删除资源（`-`）**
+
+从 `.tf` 文件中移除某个资源块时：
+
+```
+  # aws_eip.server will be destroyed
+  - resource "aws_eip" "server" {
+      - id          = "eipalloc-0abc123" -> null
+      - public_ip   = "54.199.1.2" -> null
+      - instance    = "i-0abc123def456" -> null
+    }
+
+Plan: 0 to add, 0 to change, 1 to destroy.
+```
+
+**先删后建（`-/+`）**
+
+修改了不支持原地更新的属性（如 AMI ID）时，OpenTofu 会销毁旧资源再重建：
+
+```
+  # aws_instance.server must be replaced
+-/+ resource "aws_instance" "server" {
+      ~ id  = "i-0abc123def456" -> (known after apply)
+      ~ ami = "ami-0000000000000001" -> "ami-0abcdef1234567890" # forces replacement
+    }
+
+Plan: 1 to add, 0 to change, 1 to destroy.
+```
+
+⚠️ `-/+` 变更会造成服务中断，执行前需格外注意。
 
 ## 踩坑记录
 
