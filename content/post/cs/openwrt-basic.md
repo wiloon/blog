@@ -5,10 +5,13 @@ date: 2022-08-11 08:27:40
 url: openwrt
 categories:
   - Network
+lastmod: 2026-05-16T12:14:08+08:00
 tags:
-  - reprint
+  - remix
+  - AI-assisted
   - HomeLab
   - OpenWrt
+  - Ansible
 ---
 ## openwrt basic, opkg basic, ipk
 
@@ -347,3 +350,55 @@ echo -e "Subject: Hello!\n\nHello, world!" |sendmail wiloon.wy@gmail.com
 [https://openwrt.club/93.html](https://openwrt.club/93.html)
 [https://openwrt.org/docs/techref/initscripts](https://openwrt.org/docs/techref/initscripts)
 [https://blog.csdn.net/weixin_42512245/article/details/88602272](https://blog.csdn.net/weixin_42512245/article/details/88602272)
+
+## Ansible 管理 OpenWrt
+
+### Python 依赖
+
+Ansible 有两种方式管理 OpenWrt：
+
+**方式一：只用 `raw` 模块（无需 Python）**
+
+`ansible.builtin.raw` 直接通过 SSH 执行 shell 命令，不依赖远端 Python 环境，适合简单的配置读取和命令执行。
+
+**方式二：使用标准 Ansible 模块（需要最小化 Python）**
+
+如果要用 `copy`、`template`、`lineinfile` 等模块，需要在 OpenWrt 上安装最小化 Python，不需要安装全量 `python3`：
+
+```bash
+opkg update
+opkg install python3-base python3-codecs python3-openssl
+```
+
+- `python3-base` — Python 解释器，Ansible 模块运行的基础
+- `python3-codecs` — 字符编码，Ansible JSON 通信必需
+- `python3-openssl` — SSL 支持，安全连接必需
+
+全量 `python3` 包含大量用不到的标准库（XML、email、数据库等），在 OpenWrt 的有限存储上没必要安装。
+
+### inventory 配置
+
+```ini
+[openwrt]
+192.168.50.1 ansible_user=root
+```
+
+### 使用 raw 模块备份配置示例
+
+```yaml
+- name: Backup OpenWrt configuration
+  hosts: openwrt
+  gather_facts: false
+  tasks:
+    - name: Read /etc/config/dhcp
+      ansible.builtin.raw: cat /etc/config/dhcp
+      register: dhcp_config
+      changed_when: false
+
+    - name: Save dhcp config locally
+      ansible.builtin.copy:
+        content: "{{ dhcp_config.stdout }}"
+        dest: "./config/dhcp"
+        mode: "0644"
+      delegate_to: localhost
+```

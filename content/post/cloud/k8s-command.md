@@ -2,6 +2,7 @@
 title: k8s command
 author: "-"
 date: 2026-03-10T10:38:17+08:00
+lastmod: 2026-05-16T12:48:34+08:00
 url: k8s/command
 categories:
   - Cloud
@@ -87,10 +88,16 @@ kubectl uncordon <node-name>
 kubectl get pods --all-namespaces
 
 # kubectl exec
+# 注意：旧语法 `kubectl exec -it pod0 bash` 已废弃，必须用 -- 分隔命令
+# "--" 用于将要传递给命令的参数与 kubectl 的参数分开，避免歧义
 kubectl exec -it pod0 -- sh
+kubectl exec -it pod0 -n namespace0 -- sh
 kubectl exec --stdin --tty shell-demo -- /bin/bash
+# 精简镜像（alpine/distroless）通常没有 bash，用 sh 代替
 
-# 双破折号 "--" 用于将要传递给命令的参数与 kubectl 的参数分开。
+# 不进入容器，直接执行单条命令并返回输出（不加 -it）
+kubectl exec pod0 -n namespace0 -- curl http://ip.3322.net
+kubectl exec pod0 -n namespace0 -- env
 
 # logs
 kubectl logs pod0
@@ -206,6 +213,41 @@ kubectl explain pod
 kubectl replace --force -f kube-flannel.yml
 
 ```
+
+## kubectl rollout
+
+`rollout` 是 Kubernetes 的**滚动发布**机制，不是简单的重启。它按策略逐步替换 Pod，新 Pod 健康检查通过后旧 Pod 才下线，全程不中断服务。
+
+之所以不叫 `restart`，是因为 `rollout` 是一个完整的生命周期管理过程，支持暂停、继续、回滚等操作。`restart` 只是其中一个子命令。
+
+| 子命令    | 作用             |
+| --------- | ---------------- |
+| `restart` | 触发滚动重启     |
+| `status`  | 查看发布进度     |
+| `pause`   | 暂停滚动更新     |
+| `resume`  | 继续滚动更新     |
+| `undo`    | 回滚到上一个版本 |
+| `history` | 查看发布历史     |
+
+### 滚动更新策略
+
+由 Deployment 的 `strategy` 字段控制：
+
+```yaml
+strategy:
+  type: RollingUpdate
+  rollingUpdate:
+    maxUnavailable: 1   # 最多允许几个 Pod 同时不可用
+    maxSurge: 1         # 最多允许超出期望副本数几个
+```
+
+默认值为 25%。以 4 个 Pod 为例，执行 `rollout restart` 时：
+
+1. 先启动 1 个新 Pod（总数变 5）
+2. 新 Pod 就绪后，终止 1 个旧 Pod（总数回到 4）
+3. 重复，直到所有旧 Pod 被替换
+
+整个过程中始终保持至少 3 个 Pod 在运行。
 
 ### kubectl cp
 ```Bash
