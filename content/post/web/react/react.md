@@ -2,7 +2,7 @@
 title: React 入门
 author: "-"
 date: 2026-05-17T13:28:28+08:00
-lastmod: 2026-05-17T13:28:28+08:00
+lastmod: 2026-05-17T17:48:36+08:00
 url: react-intro
 categories:
   - development
@@ -16,7 +16,7 @@ tags:
 
 React 是由 Meta（前 Facebook）开发并开源的 JavaScript UI 库，专注于构建用户界面。它于 2013 年开源，目前已成为最流行的前端技术之一。
 
-## 核心概念
+## react 核心概念
 
 ### 组件（Component）
 
@@ -35,7 +35,7 @@ function Greeting({ name }) {
 
 ### JSX
 
-JSX 是 JavaScript 的语法扩展，允许在 JS 文件中写类似 HTML 的结构。它不是 HTML，会被 Babel 等工具编译为 `React.createElement()` 调用。
+JSX 是 JavaScript 的语法扩展，允许在 JS 文件中写类似 HTML 的结构。它不是 HTML，会被编译工具（如 Babel、SWC）编译为 `React.createElement()` 调用。
 
 ```jsx
 const element = <div className="container">Hello</div>;

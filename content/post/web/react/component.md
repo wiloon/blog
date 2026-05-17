@@ -213,15 +213,15 @@ function useWindowSize() {
 
 ## 为什么现在推荐函数组件
 
-| 对比维度 | 函数组件 | 类组件 |
-| --- | --- | --- |
-| 代码量 | 少，简洁 | 多，模板代码多 |
-| `this` 问题 | 无 | 需要手动绑定 |
-| 逻辑组织 | 按关注点分组（useEffect） | 按生命周期强制分散 |
-| 逻辑复用 | 自定义 Hook，灵活 | HOC / Render Props，复杂 |
-| 性能优化 | `React.memo` + `useMemo` | `PureComponent` / `shouldComponentUpdate` |
-| React 未来方向 | ✅ 官方主推 | ⚠️ 不再新增特性 |
-| React Compiler 支持 | ✅ 完整支持 | ❌ 不支持 |
+| 对比维度            | 函数组件                 | 类组件                                    |
+|---------------------|--------------------------|-------------------------------------------|
+| 代码量              | 少，简洁                  | 多，模板代码多                             |
+| `this` 问题         | 无                       | 需要手动绑定                              |
+| 逻辑组织            | 按关注点分组（useEffect）  | 按生命周期强制分散                        |
+| 逻辑复用            | 自定义 Hook，灵活         | HOC / Render Props，复杂                   |
+| 性能优化            | `React.memo` + `useMemo` | `PureComponent` / `shouldComponentUpdate` |
+| React 未来方向      | ✅ 官方主推               | ⚠️ 不再新增特性                           |
+| React Compiler 支持 | ✅ 完整支持               | ❌ 不支持                                  |
 
 React 官方在 16.8 之后明确表示：**不会从类组件中移除任何功能，但新特性只会在函数组件中添加**。React 19 的 React Compiler（自动 memoization 优化）也仅支持函数组件。
 
