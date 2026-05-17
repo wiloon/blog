@@ -28,7 +28,7 @@ tags:
 
 6 打开intellij idea , File -> Settings,输入git,配置下git.exe
 
-## 7 选择 VCS -> Checkout from Version Control -> Git,将gitlab上面项目的ssh路径复制,点击Test,提示Connection successful,后面一路点击next即可
+7 选择 VCS -> Checkout from Version Control -> Git,将gitlab上面项目的ssh路径复制,点击Test,提示Connection successful,后面一路点击next即可
 
 作者: 叫我放猪之人
   
