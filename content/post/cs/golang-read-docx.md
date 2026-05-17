@@ -7,6 +7,8 @@ categories:
   - Inbox
 tags:
   - reprint
+aliases:
+  - /p15680/
 ---
 ## golang read docx
 https://github.com/unidoc/unioffice

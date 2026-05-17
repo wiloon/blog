@@ -8,6 +8,8 @@ categories:
 tags:
   - Raspberry Pi
 
+aliases:
+  - /p5417/
 ---
 ## raspberry pi omxplayer mplayer
 ```bash

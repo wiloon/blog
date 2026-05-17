@@ -7,6 +7,8 @@ categories:
   - Inbox
 tags:
   - reprint
+aliases:
+  - /p11045/
 ---
 ## ODX, OTX, UDS
 

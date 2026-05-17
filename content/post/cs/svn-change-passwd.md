@@ -7,6 +7,8 @@ categories:
   - Inbox
 tags:
   - reprint
+aliases:
+  - /p12505/
 ---
 ## svn change passwd
 svn change password

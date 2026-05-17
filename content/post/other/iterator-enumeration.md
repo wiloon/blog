@@ -8,6 +8,8 @@ categories:
 tags:
   - Java
 
+aliases:
+  - /p7910/
 ---
 ## Iterator, Enumeration
 

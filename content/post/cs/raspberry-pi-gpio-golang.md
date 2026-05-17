@@ -7,6 +7,8 @@ categories:
   - Hardware
 tags:
   - reprint
+aliases:
+  - /p14679/
 ---
 ## raspberry pi, gpio, golang
 https://github.com/stianeikeland/go-rpio

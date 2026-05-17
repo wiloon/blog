@@ -7,6 +7,8 @@ categories:
   - Inbox
 tags:
   - reprint
+aliases:
+  - /p14346/
 ---
 ## nginx gzip
 

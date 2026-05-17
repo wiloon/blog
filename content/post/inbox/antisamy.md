@@ -7,6 +7,8 @@ categories:
   - Inbox
 tags:
   - reprint
+aliases:
+  - /p13081/
 ---
 ## antisamy
 

@@ -7,6 +7,8 @@ categories:
   - Hardware
 tags:
   - reprint
+aliases:
+  - /p13430/
 ---
 ## raspberry pi nfs server
 ```bash

@@ -7,6 +7,10 @@ categories:
   - Inbox
 tags:
   - reprint
+aliases:
+  - /p12518/
+  - /p14622/
+  - /p15751/
 ---
 ## nexus go proxy
 

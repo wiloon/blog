@@ -7,6 +7,9 @@ categories:
   - Web
 tags:
   - reprint
+aliases:
+  - /p3872/
+  - /p7637/
 ---
 ## img width
 <img> 标签的 height 和 width 属性设置图像的尺寸。

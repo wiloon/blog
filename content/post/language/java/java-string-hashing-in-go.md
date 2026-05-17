@@ -7,6 +7,8 @@ categories:
   - Inbox
 tags:
   - reprint
+aliases:
+  - /p11810/
 ---
 ## Java string hashing in Go
 https://www.manniwood.com/2016_03_20/fun_with_java_string_hashing.html

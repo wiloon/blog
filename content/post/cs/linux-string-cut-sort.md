@@ -7,6 +7,9 @@ categories:
   - Inbox
 tags:
   - reprint
+aliases:
+  - /p12427/
+  - /p12784/
 ---
 ## linux string cut, sort
 https://www.cnblogs.com/farwish/p/4806018.html

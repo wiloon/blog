@@ -7,6 +7,9 @@ categories:
   - Linux
 tags:
   - reprint
+aliases:
+  - /p1543/
+  - /p4276/
 ---
 ## STDIN STDOUT, STDERR
 

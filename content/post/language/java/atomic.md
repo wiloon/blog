@@ -8,6 +8,8 @@ categories:
 tags:
   - Java
 
+aliases:
+  - /p6949/
 ---
 ## 原子操作
 

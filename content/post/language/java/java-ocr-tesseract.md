@@ -7,6 +7,8 @@ categories:
   - Java
 tags:
   - reprint
+aliases:
+  - /p4361/
 ---
 ## java ocr tesseract
 [http://ykf.iteye.com/blog/212431](http://ykf.iteye.com/blog/212431)

@@ -7,6 +7,8 @@ categories:
   - inbox
 tags:
   - reprint
+aliases:
+  - /p1255/
 ---
 ## HTTP basic
 

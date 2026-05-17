@@ -8,6 +8,8 @@ categories:
 tags:
   - Java
 
+aliases:
+  - /p5965/
 ---
 ## 'java 循环/loop  while,for,foreach'
 

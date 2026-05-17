@@ -7,6 +7,13 @@ categories:
   - Inbox
 tags:
   - reprint
+aliases:
+  - /p11188/
+  - /p12599/
+  - /p13349/
+  - /p15509/
+  - /p15598/
+  - /p15812/
 ---
 ## sftp
 

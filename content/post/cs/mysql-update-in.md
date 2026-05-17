@@ -7,6 +7,13 @@ categories:
   - inbox
 tags:
   - reprint
+aliases:
+  - /p11614/
+  - /p12066/
+  - /p14600/
+  - /p14860/
+  - /p14866/
+  - /p15081/
 ---
 ## MySQL update in
 ```sql

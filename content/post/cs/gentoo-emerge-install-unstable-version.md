@@ -7,6 +7,9 @@ categories:
   - Inbox
 tags:
   - reprint
+aliases:
+  - /p8368/
+  - /p8379/
 ---
 ## gentoo emerge install unstable version
 

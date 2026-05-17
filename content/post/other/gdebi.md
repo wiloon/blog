@@ -7,6 +7,8 @@ categories:
   - Linux
 tags:
   - reprint
+aliases:
+  - /p5192/
 ---
 ## GDebi
 **GDebi** is a tool that can install [.deb][1] packages. It is available with a graphical interface, but also has a command line option.

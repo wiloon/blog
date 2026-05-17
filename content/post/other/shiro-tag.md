@@ -7,6 +7,8 @@ categories:
   - Java
 tags:
   - reprint
+aliases:
+  - /p5121/
 ---
 ## shiro tag
 

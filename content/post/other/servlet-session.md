@@ -8,6 +8,8 @@ categories:
   - Web
 tags:
   - reprint
+aliases:
+  - /p3594/
 ---
 ## Servlet Session
 [http://developer.51cto.com/art/200907/134673.htm](http://developer.51cto.com/art/200907/134673.htm)

@@ -7,6 +7,8 @@ categories:
   - Network
 tags:
   - reprint
+aliases:
+  - /p1240/
 ---
 ## Conditional Get
   

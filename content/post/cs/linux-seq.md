@@ -7,6 +7,8 @@ categories:
   - Inbox
 tags:
   - reprint
+aliases:
+  - /p12331/
 ---
 ## linux seq
 seq命令用于产生从某个数到另外一个数之间的所有整数。

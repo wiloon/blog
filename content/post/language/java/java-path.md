@@ -7,6 +7,8 @@ categories:
   - Java
 tags:
   - reprint
+aliases:
+  - /p4009/
 ---
 ## java遍历目录及子目录下的文件
 http://blog.csdn.net/suncheng_hong/article/details/1671632

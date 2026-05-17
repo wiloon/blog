@@ -7,6 +7,10 @@ categories:
   - Network
 tags:
   - reprint
+aliases:
+  - /p4063/
+  - /p4065/
+  - /p11646/
 ---
 ## 网卡命名规则
 

@@ -8,6 +8,8 @@ categories:
   - Web
 tags:
   - reprint
+aliases:
+  - /p2118/
 ---
 ## golang log
 

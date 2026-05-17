@@ -7,6 +7,8 @@ categories:
   - inbox
 tags:
   - reprint
+aliases:
+  - /p8289/
 ---
 ## kill, killall, signal
 

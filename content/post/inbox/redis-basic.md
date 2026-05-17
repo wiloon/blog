@@ -7,6 +7,8 @@ categories:
   - Database
 tags:
   - Inbox
+aliases:
+  - /p2515/
 ---
 ## redis basic
 
@@ -476,6 +478,8 @@ spec:
     targetPort: 6379
   selector:
     app: redis
+aliases:
+  - /p2515/
 ---
 ## Deployment
 apiVersion: apps/v1

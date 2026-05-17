@@ -7,6 +7,8 @@ categories:
   - Java
 tags:
   - reprint
+aliases:
+  - /p649/
 ---
 ## jdk中的jar包, rt.jar ,dt.jar ,tool.jar
 重点包

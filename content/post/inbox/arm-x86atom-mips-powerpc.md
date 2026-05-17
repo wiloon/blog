@@ -7,6 +7,9 @@ categories:
   - inbox
 tags:
   - reprint
+aliases:
+  - /p11949/
+  - /p12804/
 ---
 ## ARM, X86/Atom, MIPS, PowerPC
 

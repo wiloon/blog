@@ -8,6 +8,9 @@ categories:
   - Inbox
 tags:
   - reprint
+aliases:
+  - /p10901/
+  - /p11086/
 ---
 ## linux run-parts
 https://superuser.com/questions/402781/what-is-run-parts-in-etc-crontab-and-how-do-i-use-it

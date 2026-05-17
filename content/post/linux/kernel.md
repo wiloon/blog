@@ -8,6 +8,9 @@ categories:
 tags:
   - reprint
   - remix
+aliases:
+  - /p2457/
+  - /p2483/
 ---
 ## linux 内核, kernel
 

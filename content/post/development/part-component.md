@@ -7,6 +7,9 @@ categories:
   - Inbox
 tags:
   - reprint
+aliases:
+  - /p7384/
+  - /p8342/
 ---
 ## part component
 

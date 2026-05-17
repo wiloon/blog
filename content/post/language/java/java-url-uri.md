@@ -8,6 +8,9 @@ categories:
 tags:
   - Java
 
+aliases:
+  - /p3371/
+  - /p6287/
 ---
 ## Java URL URI
 http://blog.csdn.net/majiabao123/article/details/4202158

@@ -7,6 +7,8 @@ categories:
   - CS
 tags:
   - reprint
+aliases:
+  - /p3393/
 ---
 ## codeswarm
 codeswarm 是个很有意思的工具，它把一个软件开发项目中开发者往代码管理工具(git/hg/svn等)提交代码的历史记录用视频的方式表现出来。

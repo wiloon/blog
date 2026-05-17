@@ -7,6 +7,8 @@ categories:
   - inbox
 tags:
   - reprint
+aliases:
+  - /p9746/
 ---
 ## nice, cpulimit, cgroups 限制 cpu 占用率
 

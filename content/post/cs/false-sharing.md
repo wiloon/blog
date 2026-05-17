@@ -7,6 +7,8 @@ categories:
   - Inbox
 tags:
   - reprint
+aliases:
+  - /p15356/
 ---
 ## 伪共享 (false sharing)
 

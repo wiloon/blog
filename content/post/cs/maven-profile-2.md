@@ -8,6 +8,8 @@ categories:
 tags:
   - Maven
 
+aliases:
+  - /p8651/
 ---
 ## maven profile
 

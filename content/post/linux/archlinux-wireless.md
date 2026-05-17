@@ -7,6 +7,8 @@ tags:
   - Linux
 categories:
   - inbox
+aliases:
+  - /p7520/
 ---
 ## archlinux wireless
     https://wiki.archlinux.org/index.php/Wireless_network_configuration

@@ -7,6 +7,8 @@ categories:
   - Linux
 tags:
   - reprint
+aliases:
+  - /p159/
 ---
 ## linux shell sleep,wait
 

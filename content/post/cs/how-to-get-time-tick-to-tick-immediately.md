@@ -7,6 +7,8 @@ categories:
   - Inbox
 tags:
   - reprint
+aliases:
+  - /p11472/
 ---
 ## 'go,  time.Tick, tick immediately'
 How to get time.Tick to tick immediately

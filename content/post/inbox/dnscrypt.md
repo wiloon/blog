@@ -7,6 +7,9 @@ categories:
   - Inbox
 tags:
   - reprint
+aliases:
+  - /p9142/
+  - /p11265/
 ---
 ## dnscrypt
 # Server

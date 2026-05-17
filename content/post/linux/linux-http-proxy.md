@@ -8,6 +8,8 @@ categories:
   - Network
 tags:
   - reprint
+aliases:
+  - /p2151/
 ---
 ## linux http proxy
 

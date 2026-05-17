@@ -7,6 +7,12 @@ categories:
   - Inbox
 tags:
   - reprint
+aliases:
+  - /p8572/
+  - /p8815/
+  - /p9013/
+  - /p11907/
+  - /p12040/
 ---
 ## netty tcp tls
 

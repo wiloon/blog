@@ -7,6 +7,8 @@ categories:
   - Hardware
 tags:
   - reprint
+aliases:
+  - /p13252/
 ---
 ## raspberry pi 3B
 Raspberry Pi 3 Specifications

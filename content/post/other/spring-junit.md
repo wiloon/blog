@@ -9,6 +9,8 @@ tags:
   - JUnit
   - Spring
 
+aliases:
+  - /p6279/
 ---
 ## spring junit
 **一.首先讲下注解,autowire 与 resource的区别**

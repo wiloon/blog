@@ -8,6 +8,10 @@ categories:
 tags:
   - Java
 
+aliases:
+  - /p712/
+  - /p3112/
+  - /p7065/
 ---
 ## websocket
 [https://docs.oracle.com/javaee/7/tutorial/doc/websocket.htm](https://docs.oracle.com/javaee/7/tutorial/doc/websocket.htm)

@@ -8,6 +8,8 @@ categories:
 tags:
   - RedHat
 
+aliases:
+  - /p2570/
 ---
 ## pathmunge
 

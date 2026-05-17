@@ -7,6 +7,8 @@ categories:
   - Inbox
 tags:
   - reprint
+aliases:
+  - /p12264/
 ---
 ## Java Flight Recorder, jfr
 ```bash

@@ -11,6 +11,8 @@ tags:
   - distributed
   - remix
   - AI-assisted
+aliases:
+  - /p9564/
 ---
 ## ZooKeeper 节点类型
 

@@ -7,6 +7,8 @@ categories:
   - Cloud
 tags:
   - reprint
+aliases:
+  - /p12733/
 ---
 ## aliyun docker
 

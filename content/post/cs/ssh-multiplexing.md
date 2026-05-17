@@ -7,6 +7,11 @@ categories:
   - inbox
 tags:
   - reprint
+aliases:
+  - /p11247/
+  - /p13336/
+  - /p13852/
+  - /p16030/
 ---
 ## ssh Multiplexing,mux
 

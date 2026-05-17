@@ -7,6 +7,10 @@ categories:
   - Inbox
 tags:
   - reprint
+aliases:
+  - /p4709/
+  - /p7468/
+  - /p14422/
 ---
 ## PXE booting
 

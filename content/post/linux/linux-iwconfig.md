@@ -8,6 +8,8 @@ categories:
   - Network
 tags:
   - reprint
+aliases:
+  - /p2065/
 ---
 ## linux iwconfig
 apt-get install wireless-tools

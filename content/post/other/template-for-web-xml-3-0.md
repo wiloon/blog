@@ -9,6 +9,8 @@ categories:
 tags:
   - Servlet
 
+aliases:
+  - /p3484/
 ---
 ## template for web.xml Servlet3.0
 ```xml

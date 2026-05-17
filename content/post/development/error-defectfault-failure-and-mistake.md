@@ -8,6 +8,9 @@ categories:
 tags:
   - English
 
+aliases:
+  - /p173/
+  - /p7424/
 ---
 ## Error, defect,fault, failure and mistake
 

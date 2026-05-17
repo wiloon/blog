@@ -7,6 +7,8 @@ categories:
   - Inbox
 tags:
   - reprint
+aliases:
+  - /p11977/
 ---
 ## archlinux 内网域名 ping 结果和 dig 结果不一致
 

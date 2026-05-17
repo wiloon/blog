@@ -8,6 +8,8 @@ categories:
 tags:
   - Raspberry Pi
 
+aliases:
+  - /p7599/
 ---
 ## respberry pi error
 omxplayer.bin: SubtitleRenderer.cpp:154: SubtitleRenderer::load_glyph(SubtitleRenderer::InternalChar)::<lambda(FT_Face, VGFont, bool)>: Assertion \`!vgGetError()' failed.

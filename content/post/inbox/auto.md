@@ -8,6 +8,8 @@ categories:
 tags:
   - Car
 
+aliases:
+  - /p4453/
 ---
 ## 汽车知识入门
 

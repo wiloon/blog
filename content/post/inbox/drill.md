@@ -8,6 +8,8 @@ categories:
 tags:
   - remix
   - AI-assisted
+aliases:
+  - /p9125/
 ---
 ## drill, dns tool, dig/drill, `dnsutils` to `ldns` dig -> `dirll`
 

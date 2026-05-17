@@ -7,6 +7,8 @@ categories:
   - Inbox
 tags:
   - reprint
+aliases:
+  - /p14484/
 ---
 ## angular pwa
 ng new project0

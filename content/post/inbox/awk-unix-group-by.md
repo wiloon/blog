@@ -7,6 +7,9 @@ categories:
   - Inbox
 tags:
   - reprint
+aliases:
+  - /p8716/
+  - /p12565/
 ---
 ## Awk/Unix group by
 ```bash

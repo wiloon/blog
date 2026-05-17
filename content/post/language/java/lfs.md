@@ -7,6 +7,14 @@ categories:
   - Linux
 tags:
   - reprint
+aliases:
+  - /p1611/
+  - /p1986/
+  - /p3299/
+  - /p4101/
+  - /p4120/
+  - /p4125/
+  - /p5046/
 ---
 ## LFS
 

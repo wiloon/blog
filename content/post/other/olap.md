@@ -8,6 +8,8 @@ categories:
 tags:
   - Jenkins
 
+aliases:
+  - /p5164/
 ---
 ## OLAP, OLTP
 [http://www.cnblogs.com/beyondstorm/archive/2006/08/12/475011.html](http://www.cnblogs.com/beyondstorm/archive/2006/08/12/475011.html)

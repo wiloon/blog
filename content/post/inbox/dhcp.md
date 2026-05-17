@@ -8,6 +8,8 @@ categories:
   - Inbox
 tags:
   - reprint
+aliases:
+  - /p12473/
 ---
 ## dhcp
 

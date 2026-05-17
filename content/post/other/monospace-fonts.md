@@ -7,6 +7,8 @@ categories:
   - Font
 tags:
   - reprint
+aliases:
+  - /p2341/
 ---
 ## Monospace fonts
 [http://www.lowing.org/fonts/](http://www.lowing.org/fonts/)

@@ -8,6 +8,11 @@ categories:
 tags:
   - MySQL
 
+aliases:
+  - /p2001/
+  - /p5117/
+  - /p6232/
+  - /p8114/
 ---
 ## MySQL replace into
 http://my.oschina.net/junn/blog/110213

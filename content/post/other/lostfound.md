@@ -7,6 +7,8 @@ categories:
   - Linux
 tags:
   - reprint
+aliases:
+  - /p1696/
 ---
 ## linux lost+found
 

@@ -7,6 +7,9 @@ categories:
   - Inbox
 tags:
   - reprint
+aliases:
+  - /p8501/
+  - /p11269/
 ---
 ## AUTOCONF, AUTOMAKE, configure, make, make install
 

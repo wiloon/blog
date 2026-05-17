@@ -7,6 +7,8 @@ categories:
   - Inbox
 tags:
   - reprint
+aliases:
+  - /p12641/
 ---
 ## Archlinux, Pixelbook, chromeos, Crostini
 

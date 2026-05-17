@@ -7,6 +7,9 @@ categories:
   - Inbox
 tags:
   - reprint
+aliases:
+  - /p8612/
+  - /p8806/
 ---
 ## java exit code
 

@@ -7,6 +7,9 @@ categories:
   - Inbox
 tags:
   - reprint
+aliases:
+  - /p59/
+  - /p8667/
 ---
 ## MySQL Fabric
 http://www.2cto.com/database/201408/327941.html

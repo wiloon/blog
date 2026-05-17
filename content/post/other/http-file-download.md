@@ -7,6 +7,8 @@ categories:
   - Go
 tags:
   - reprint
+aliases:
+  - /p6291/
 ---
 ## golang http 文件下载
 

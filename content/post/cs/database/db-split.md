@@ -7,6 +7,8 @@ categories:
   - Inbox
 tags:
   - reprint
+aliases:
+  - /p9656/
 ---
 
 ## 数据库水平拆分垂直拆分

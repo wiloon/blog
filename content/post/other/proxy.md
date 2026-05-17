@@ -7,6 +7,8 @@ categories:
   - Web
 tags:
   - reprint
+aliases:
+  - /p2144/
 ---
 ## 代理服务器
 

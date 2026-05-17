@@ -7,6 +7,8 @@ categories:
   - Inbox
 tags:
   - reprint
+aliases:
+  - /p12312/
 ---
 ## 温度监控, lm-sensors, temperature
 

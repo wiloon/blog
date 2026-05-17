@@ -7,6 +7,9 @@ categories:
   - Inbox
 tags:
   - reprint
+aliases:
+  - /p8042/
+  - /p8221/
 ---
 ## HTTP Header ETag
 

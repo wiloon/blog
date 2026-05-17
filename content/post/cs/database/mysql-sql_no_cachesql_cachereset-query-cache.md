@@ -7,6 +7,8 @@ categories:
   - Inbox
 tags:
   - reprint
+aliases:
+  - /p11488/
 ---
 ## MySQL SQL_NO_CACHE,sql_cache,RESET QUERY CACHE
 

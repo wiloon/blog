@@ -7,6 +7,8 @@ categories:
   - Inbox
 tags:
   - reprint
+aliases:
+  - /p12839/
 ---
 ## Trusting additional CAs in Centos
 place the certificate to be trusted (in PEM format) in /etc/pki/ca-trust/source/anchors/

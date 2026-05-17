@@ -7,6 +7,8 @@ categories:
   - Linux
 tags:
   - reprint
+aliases:
+  - /p3068/
 ---
 ## wine
 卸载wine中已经安装的软件

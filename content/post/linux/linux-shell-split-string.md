@@ -7,6 +7,9 @@ categories:
   - Linux
 tags:
   - reprint
+aliases:
+  - /p3728/
+  - /p3740/
 ---
 ## linux shell split string
 

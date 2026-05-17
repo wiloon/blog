@@ -7,6 +7,10 @@ categories:
   - Inbox
 tags:
   - reprint
+aliases:
+  - /p4561/
+  - /p6454/
+  - /p6467/
 ---
 ## golang 读系统环境变量
 

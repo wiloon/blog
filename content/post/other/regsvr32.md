@@ -7,6 +7,8 @@ categories:
   - Desktop
 tags:
   - reprint
+aliases:
+  - /p5182/
 ---
 ## Regsvr32
 

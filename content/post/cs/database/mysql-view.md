@@ -7,6 +7,18 @@ categories:
   - Inbox
 tags:
   - reprint
+aliases:
+  - /p69/
+  - /p8558/
+  - /p8718/
+  - /p8876/
+  - /p9328/
+  - /p9451/
+  - /p10066/
+  - /p11479/
+  - /p11863/
+  - /p12488/
+  - /p12526/
 ---
 ## MySQL view, MERGE, TEMPTABLE
 数据库视图

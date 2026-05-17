@@ -8,6 +8,9 @@ categories:
 tags:
   - English
 
+aliases:
+  - /p5989/
+  - /p7446/
 ---
 ## change, alter, vary, modify
 

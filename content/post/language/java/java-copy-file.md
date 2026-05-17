@@ -8,6 +8,8 @@ categories:
 tags:
   - Java
 
+aliases:
+  - /p7049/
 ---
 ## java copy file
 http://www.oschina.net/question/565065_58510

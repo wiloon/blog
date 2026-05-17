@@ -7,6 +7,8 @@ categories:
   - Inbox
 tags:
   - reprint
+aliases:
+  - /p837/
 ---
 ## OWL
 OWL Web本体语言指南

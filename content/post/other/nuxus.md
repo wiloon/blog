@@ -8,6 +8,8 @@ categories:
 tags:
   - Nexus
 
+aliases:
+  - /p1192/
 ---
 ## nuxus
 

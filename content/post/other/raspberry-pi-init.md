@@ -8,6 +8,8 @@ categories:
 tags:
   - Raspberry Pi
 
+aliases:
+  - /p6304/
 ---
 ## Raspberry Pi init
 

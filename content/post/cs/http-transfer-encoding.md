@@ -7,6 +7,9 @@ categories:
   - Inbox
 tags:
   - reprint
+aliases:
+  - /p9017/
+  - /p14286/
 ---
 ## 'HTTP   Transfer-Encoding'
 

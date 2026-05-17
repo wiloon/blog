@@ -7,6 +7,8 @@ categories:
   - Inbox
 tags:
   - reprint
+aliases:
+  - /p9866/
 ---
 ## autojump
 https://linux.cn/article-3401-1.html

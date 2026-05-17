@@ -7,6 +7,8 @@ categories:
   - Inbox
 tags:
   - reprint
+aliases:
+  - /p15348/
 ---
 ## tune2fs
 tune2fs命令

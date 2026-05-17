@@ -8,6 +8,8 @@ categories:
 tags:
   - JavaScript
 
+aliases:
+  - /p4595/
 ---
 ## javascript Location
 

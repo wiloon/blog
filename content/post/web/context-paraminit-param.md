@@ -9,6 +9,8 @@ categories:
 tags:
   - Servlet
 
+aliases:
+  - /p3498/
 ---
 ## 'context-param&init-param'
 <context-param>的作用:

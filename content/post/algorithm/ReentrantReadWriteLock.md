@@ -8,6 +8,8 @@ categories:
 tags:
   - reprint
   - lock
+aliases:
+  - /p5650/
 ---
 ## ReentrantReadWriteLock
 

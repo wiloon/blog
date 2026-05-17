@@ -7,6 +7,10 @@ categories:
   - chrome
 tags:
   - reprint
+aliases:
+  - /p7019/
+  - /p8219/
+  - /p14453/
 ---
 ## chrome sdch
 

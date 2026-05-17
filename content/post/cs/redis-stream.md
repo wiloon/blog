@@ -7,6 +7,8 @@ categories:
   - Database
 tags:
   - reprint
+aliases:
+  - /p14772/
 ---
 ## redis stream
 

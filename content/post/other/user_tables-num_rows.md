@@ -7,6 +7,8 @@ categories:
   - Inbox
 tags:
   - reprint
+aliases:
+  - /p7399/
 ---
 ## user_tables num_rows
 

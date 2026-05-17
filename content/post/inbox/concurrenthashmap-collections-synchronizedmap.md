@@ -7,6 +7,8 @@ categories:
   - Inbox
 tags:
   - reprint
+aliases:
+  - /p8599/
 ---
 ## ConcurrentHashMap Collections.synchronizedMap
 # ConcurrentHashMap, Collections.synchronizedMap和Hashtable讨论

@@ -8,6 +8,8 @@ categories:
 tags:
   - MySQL
 
+aliases:
+  - /p6643/
 ---
 ## MySQL "ON DUPLICATE KEY UPDATE"
 如果在INSERT语句末尾指定了ON DUPLICATE KEY UPDATE,并且插入行后会导致在一个UNIQUE索引或PRIMARY KEY中出现重复值,则在出现重复值的行执行UPDATE；如果不会导致唯一值列重复的问题,则插入新行。

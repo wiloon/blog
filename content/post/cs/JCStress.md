@@ -7,6 +7,8 @@ categories:
   - Inbox
 tags:
   - reprint
+aliases:
+  - /p7534/
 ---
 ## 'java 并发 测试  JCStress'
 

@@ -7,6 +7,8 @@ categories:
   - Inbox
 tags:
   - reprint
+aliases:
+  - /p8657/
 ---
 ## 'Netty 中 IOException,Connection reset by peer 与 java.nio.channels.ClosedChannelException,null'
 

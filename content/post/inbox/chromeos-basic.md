@@ -7,6 +7,8 @@ categories:
   - chrome
 tags:
   - reprint
+aliases:
+  - /p12855/
 ---
 ## chrome os, chromeos basic
 

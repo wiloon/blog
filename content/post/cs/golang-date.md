@@ -7,6 +7,8 @@ categories:
   - inbox
 tags:
   - reprint
+aliases:
+  - /p10959/
 ---
 ## golang date time, 日期, 时间
 

@@ -7,6 +7,9 @@ categories:
   - inbox
 tags:
   - reprint
+aliases:
+  - /p14064/
+  - /p15592/
 ---
 ## hyperv archlinux
 

@@ -8,6 +8,8 @@ categories:
 - Web
 tags:
   - reprint
+aliases:
+  - /p2105/
 ---
 ## Session
 

@@ -7,6 +7,8 @@ categories:
   - Database
 tags:
   - reprint
+aliases:
+  - /p5020/
 ---
 ## BLOB
 

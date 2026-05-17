@@ -7,6 +7,8 @@ categories:
   - Java
 tags:
   - reprint
+aliases:
+  - /p3615/
 ---
 ## java thread id, name
 Thread.currendThread().getName()

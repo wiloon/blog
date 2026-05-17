@@ -8,6 +8,12 @@ categories:
   - Network
 tags:
   - reprint
+aliases:
+  - /p1713/
+  - /p1718/
+  - /p1723/
+  - /p3160/
+  - /p4990/
 ---
 ## debian wlan0 wpa/psk
 1.添加wpa-psk支持，在debian下是这个插件wpasupplicant

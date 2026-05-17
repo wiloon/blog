@@ -7,6 +7,8 @@ categories:
   - Java
 tags:
   - reprint
+aliases:
+  - /p2879/
 ---
 ## JAR    WAR EAR
 ### jar: Java Archive file  

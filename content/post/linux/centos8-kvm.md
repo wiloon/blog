@@ -8,6 +8,8 @@ categories:
 tags:
   - KVM
 
+aliases:
+  - /p5942/
 ---
 ## centos8 kvm
 

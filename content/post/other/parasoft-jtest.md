@@ -7,6 +7,8 @@ categories:
   - Java
 tags:
   - reprint
+aliases:
+  - /p4005/
 ---
 ## Parasoft Jtest
 >http://www.parasoft.com/jsp/products/jtest.jsp>

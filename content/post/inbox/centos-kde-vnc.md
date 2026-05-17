@@ -7,6 +7,8 @@ categories:
   - Desktop
 tags:
   - reprint
+aliases:
+  - /p12150/
 ---
 ## centos, kde, vnc
 

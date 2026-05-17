@@ -7,6 +7,8 @@ categories:
   - Inbox
 tags:
   - reprint
+aliases:
+  - /p9999/
 ---
 ## Runtime freeMemory,totalMemory,maxMemory
 http://blog.csdn.net/zy_27_ok/article/details/8462385

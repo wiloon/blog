@@ -7,6 +7,8 @@ categories:
   - Inbox
 tags:
   - reprint
+aliases:
+  - /p11041/
 ---
 ## tp20 for can bus
 VW Transport Protocol 2.0 (TP 2.0) for CAN bus

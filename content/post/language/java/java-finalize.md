@@ -7,6 +7,8 @@ categories:
   - Inbox
 tags:
   - reprint
+aliases:
+  - /p9720/
 ---
 ## java finalize
 http://blog.csdn.net/walkerjong/article/details/6950091

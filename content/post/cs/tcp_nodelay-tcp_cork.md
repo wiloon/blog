@@ -8,6 +8,9 @@ categories:
 tags:
   - reprint
   - TCP
+aliases:
+  - /p8757/
+  - /p11179/
 ---
 ## TCP_NODELAY, TCP_CORK, Nagle
 

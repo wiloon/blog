@@ -8,6 +8,8 @@ categories:
 tags:
   - Linux
 
+aliases:
+  - /p7325/
 ---
 ## Linux 文件权限
 

@@ -7,6 +7,8 @@ categories:
   - Hardware
 tags:
   - reprint
+aliases:
+  - /p13205/
 ---
 ## raspberry pi disable ipv6
 ```bash

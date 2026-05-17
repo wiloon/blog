@@ -8,6 +8,14 @@ categories:
 tags:
   - MySQL
 
+aliases:
+  - /p6219/
+  - /p6241/
+  - /p6491/
+  - /p6645/
+  - /p7434/
+  - /p7947/
+  - /p8069/
 ---
 ## innodb_autoinc_lock_mode
 innodb_autoinc_lock_mode这个参数控制着在向有auto_increment 列的表插入数据时，相关锁的行为；

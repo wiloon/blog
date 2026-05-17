@@ -7,6 +7,8 @@ categories:
   - Inbox
 tags:
   - reprint
+aliases:
+  - /p12889/
 ---
 ## consumer group
 https://www.cnblogs.com/huxi2b/p/6223228.html

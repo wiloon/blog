@@ -7,6 +7,9 @@ categories:
   - Inbox
 tags:
   - reprint
+aliases:
+  - /p12768/
+  - /p16071/
 ---
 ## podman in crostini
 

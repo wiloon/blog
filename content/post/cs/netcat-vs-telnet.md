@@ -7,6 +7,9 @@ categories:
   - Inbox
 tags:
   - reprint
+aliases:
+  - /p11601/
+  - /p12551/
 ---
 ## test for a specific port from Linux,  shell> telnet> netcat> socat
 

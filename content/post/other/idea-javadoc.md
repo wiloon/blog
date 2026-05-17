@@ -8,6 +8,8 @@ categories:
 tags:
   - IDEA
 
+aliases:
+  - /p4000/
 ---
 ## IDEA JavaDoc
 [http://www.intellij.org.cn/bbs/viewtopic.php?t=1817&start=0](http://www.intellij.org.cn/bbs/viewtopic.php?t=1817&start=0)

@@ -7,6 +7,9 @@ categories:
   - Inbox
 tags:
   - reprint
+aliases:
+  - /p11389/
+  - /p14473/
 ---
 ## nginx plain html 部署静态页面
 

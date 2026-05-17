@@ -7,6 +7,8 @@ categories:
   - Cloud
 tags:
   - reprint
+aliases:
+  - /p3443/
 ---
 ## 监控系统 Pull, Push
 

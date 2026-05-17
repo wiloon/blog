@@ -7,6 +7,9 @@ categories:
   - Inbox
 tags:
   - reprint
+aliases:
+  - /p8015/
+  - /p8100/
 ---
 ## powermock
 

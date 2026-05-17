@@ -7,6 +7,8 @@ categories:
   - Java
 tags:
   - reprint
+aliases:
+  - /p4358/
 ---
 ## OCR之 Tesseract
 >http://www.cnblogs.com/brooks-dotnet/archive/2010/10/05/1844203.html

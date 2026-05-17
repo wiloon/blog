@@ -7,6 +7,8 @@ categories:
   - Cloud
 tags:
   - reprint
+aliases:
+  - /p13990/
 ---
 ## 'go > docker'
 

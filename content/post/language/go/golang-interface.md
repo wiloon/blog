@@ -7,6 +7,8 @@ categories:
   - inbox
 tags:
   - reprint
+aliases:
+  - /p4716/
 ---
 ## golang 方法, 接口, 继承
 

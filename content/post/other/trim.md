@@ -8,6 +8,8 @@ categories:
 tags:
   - JavaScript
 
+aliases:
+  - /p1449/
 ---
 ## trim
 去除多余空格

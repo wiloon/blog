@@ -7,6 +7,8 @@ categories:
   - Inbox
 tags:
   - reprint
+aliases:
+  - /p8602/
 ---
 ## apache ab/Apache Bench
 

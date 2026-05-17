@@ -7,6 +7,8 @@ categories:
   - inbox
 tags:
   - reprint
+aliases:
+  - /p13281/
 ---
 ## systemd-networkd, TAP
 

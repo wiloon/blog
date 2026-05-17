@@ -7,6 +7,8 @@ categories:
   - Inbox
 tags:
   - reprint
+aliases:
+  - /p16087/
 ---
 ## yum, dnf repo
 

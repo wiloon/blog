@@ -7,6 +7,8 @@ categories:
   - Inbox
 tags:
   - reprint
+aliases:
+  - /p12168/
 ---
 ## blender
 https://www.bilibili.com/video/av7257605/?p=1

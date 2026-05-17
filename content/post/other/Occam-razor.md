@@ -7,6 +7,8 @@ categories:
   - Inbox
 tags:
   - reprint
+aliases:
+  - /p853/
 ---
 ## 奥卡姆剃刀, Occam's Razor
 奥卡姆剃刀原理

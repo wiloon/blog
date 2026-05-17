@@ -8,6 +8,8 @@ categories:
 tags:
   - Go
 
+aliases:
+  - /p9093/
 ---
 ## golang flag 获取命令行参数
 

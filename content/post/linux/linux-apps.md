@@ -8,6 +8,8 @@ categories:
 tags:
   - original
   - AI-assisted
+aliases:
+  - /p4157/
 ---
 
 ## Linux Apps

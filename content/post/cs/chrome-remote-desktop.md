@@ -7,6 +7,8 @@ categories:
   - chrome
 tags:
   - reprint
+aliases:
+  - /p15904/
 ---
 ## chrome remote desktop
 

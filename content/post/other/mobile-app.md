@@ -7,6 +7,8 @@ categories:
   - Inbox
 tags:
   - original
+aliases:
+  - /p3731/
 ---
 ## mobile apps, iOS apps, android apps, app list, apk
 

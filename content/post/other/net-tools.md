@@ -7,6 +7,8 @@ tags:
   - Linux
 categories:
   - inbox
+aliases:
+  - /p7497/
 ---
 ## net-tools
 ### Deprecated @See iproute2

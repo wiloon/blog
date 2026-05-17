@@ -9,6 +9,9 @@ tags:
   - reprint
   - KVM
 
+aliases:
+  - /p6662/
+  - /p7255/
 ---
 ## libvirt, virsh
 

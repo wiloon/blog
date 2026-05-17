@@ -7,6 +7,11 @@ categories:
   - Java
 tags:
   - reprint
+aliases:
+  - /p2629/
+  - /p4043/
+  - /p4812/
+  - /p6695/
 ---
 ## SpringMVC
 http://www.iteye.com/blogs/subjects/springmvc-explore

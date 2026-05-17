@@ -7,6 +7,8 @@ categories:
   - Inbox
 tags:
   - reprint
+aliases:
+  - /p15770/
 ---
 ## git-am
 [https://blog.csdn.net/mliubing2532/article/details/7577905](https://blog.csdn.net/mliubing2532/article/details/7577905)

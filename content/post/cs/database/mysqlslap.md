@@ -7,6 +7,19 @@ categories:
   - Inbox
 tags:
   - reprint
+aliases:
+  - /p81/
+  - /p2267/
+  - /p4528/
+  - /p4532/
+  - /p5692/
+  - /p8664/
+  - /p8691/
+  - /p8731/
+  - /p9179/
+  - /p9333/
+  - /p10037/
+  - /p11501/
 ---
 ## MySQLslap
 

@@ -11,6 +11,8 @@ tags:
   - spring
   - remix
   - AI-assisted
+aliases:
+  - /p9800/
 ---
 
 ## 概述

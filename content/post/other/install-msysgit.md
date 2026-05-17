@@ -8,6 +8,10 @@ categories:
 tags:
   - Git
 
+aliases:
+  - /p3416/
+  - /p4097/
+  - /p4832/
 ---
 ## Install msysgit
 Choose the Run Git from the Windows Command Prompt option

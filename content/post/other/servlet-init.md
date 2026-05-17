@@ -8,6 +8,8 @@ categories:
 tags:
   - Servlet
 
+aliases:
+  - /p1401/
 ---
 ## servlet init()
 init方法是在Servlet实例化之后执行的，并且只执行一次。

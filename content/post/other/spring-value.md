@@ -8,6 +8,8 @@ categories:
 tags:
   - Spring
 
+aliases:
+  - /p7004/
 ---
 ## spring @value
 

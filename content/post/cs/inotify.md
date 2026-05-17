@@ -9,6 +9,8 @@ categories:
 tags:
   - remix
   - AI-assisted
+aliases:
+  - /p9619/
 ---
 ## Inotify 概述
 
@@ -96,6 +98,8 @@ int main() {
 - **开发工具**：如热重载、自动编译等
 - **安全审计**：监控关键文件的访问和修改
 
+aliases:
+  - /p9619/
 ---
 
 ## inotify-tools 工具集
@@ -247,6 +251,8 @@ inotifywait -mrq --timefmt '%Y-%m-%d %H:%M:%S' \
 done
 ```
 
+aliases:
+  - /p9619/
 ---
 
 ## 系统限制
@@ -519,6 +525,8 @@ echo "理论最大内存占用: $(($(cat /proc/sys/fs/inotify/max_user_watches) 
 5. **递归监控开销**：递归监控会为每个子目录创建 watch，要注意 `max_user_watches` 限制
 6. **内存限制**：增加 inotify 限制前，确保系统有足够的可用内存
 
+aliases:
+  - /p9619/
 ---
 
 ## 参考资料

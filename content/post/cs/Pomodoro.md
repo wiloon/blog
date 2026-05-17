@@ -7,6 +7,8 @@ categories:
   - Inbox
 tags:
   - reprint
+aliases:
+  - /p15628/
 ---
 ## '番茄工作法，  番茄钟， Pomodoro'
 

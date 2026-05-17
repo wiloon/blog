@@ -8,6 +8,8 @@ categories:
 tags:
   - Spring
 
+aliases:
+  - /p7286/
 ---
 ## BeanFactory, ApplicationContext
 

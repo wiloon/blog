@@ -7,6 +7,8 @@ categories:
   - inbox
 tags:
   - reprint
+aliases:
+  - /p15187/
 ---
 ## awk、grep、sed
 

@@ -7,6 +7,8 @@ categories:
   - Java
 tags:
   - reprint
+aliases:
+  - /p4166/
 ---
 ## java Constructor
 **一、构造器是干什么用的？ (what) **

@@ -8,6 +8,8 @@ categories:
 tags:
   - reprint
   - remix
+aliases:
+  - /p9397/
 ---
 ## c basic, c, c lang, c 语言
 

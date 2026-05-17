@@ -7,6 +7,8 @@ categories:
   - Tools
 tags:
   - reprint
+aliases:
+  - /p603/
 ---
 ## javadoc
 

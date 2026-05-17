@@ -8,6 +8,10 @@ categories:
 tags:
   - Java
 
+aliases:
+  - /p5044/
+  - /p6430/
+  - /p7311/
 ---
 ## apache commons StringUtils
 [http://vipcowrie.iteye.com/blog/1513017](http://vipcowrie.iteye.com/blog/1513017)

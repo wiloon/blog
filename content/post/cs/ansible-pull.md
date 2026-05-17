@@ -7,6 +7,9 @@ categories:
   - Inbox
 tags:
   - reprint
+aliases:
+  - /p15036/
+  - /p15315/
 ---
 ## ansible-pull
 

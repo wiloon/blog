@@ -7,6 +7,10 @@ categories:
   - chrome
 tags:
   - reprint
+aliases:
+  - /p8811/
+  - /p11753/
+  - /p12239/
 ---
 ## chrome os recover
 https://support.google.com/chromebook/answer/1080595?hl=zh-Hans

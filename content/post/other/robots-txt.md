@@ -7,6 +7,10 @@ categories:
   - Web
 tags:
   - reprint
+aliases:
+  - /p1841/
+  - /p3047/
+  - /p5430/
 ---
 ## robots.txt
 

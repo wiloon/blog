@@ -8,6 +8,8 @@ categories:
 tags:
   - reprint
   - OpenWrt
+aliases:
+  - /p8660/
 ---
 ## 'WNDR4300 openwrt'
 

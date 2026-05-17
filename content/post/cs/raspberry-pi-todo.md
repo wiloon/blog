@@ -7,6 +7,9 @@ categories:
   - Hardware
 tags:
   - reprint
+aliases:
+  - /p9199/
+  - /p12076/
 ---
 ## raspberry pi basic, install, init
 

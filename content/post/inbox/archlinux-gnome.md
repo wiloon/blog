@@ -8,6 +8,8 @@ categories:
 tags:
   - reprint
   - remix
+aliases:
+  - /p11032/
 ---
 ## gnome
 

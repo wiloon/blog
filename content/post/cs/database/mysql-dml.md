@@ -7,6 +7,8 @@ categories:
   - Inbox
 tags:
   - reprint
+aliases:
+  - /p13765/
 ---
 ## MySQL dml
 ### DML

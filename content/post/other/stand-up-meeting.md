@@ -8,6 +8,8 @@ categories:
 tags:
   - reprint
   - Agile
+aliases:
+  - /p5278/
 ---
 ## Daily Scrum, stand-up meeting, 站会
 

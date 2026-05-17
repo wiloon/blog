@@ -9,6 +9,8 @@ tags:
   - Go
   - TCP
 
+aliases:
+  - /p9088/
 ---
 ## golang tcp socket
 

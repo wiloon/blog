@@ -8,6 +8,8 @@ categories:
   - Web
 tags:
   - reprint
+aliases:
+  - /p1409/
 ---
 ## CXF Axis2
 [http://apache-cxf.group.iteye.com/group/wiki/1252](http://apache-cxf.group.iteye.com/group/wiki/1252)

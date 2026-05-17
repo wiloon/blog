@@ -7,6 +7,8 @@ categories:
   - Inbox
 tags:
   - reprint
+aliases:
+  - /p10305/
 ---
 ## Java8 jdeps
 http://blog.csdn.net/u013803262/article/details/70570161

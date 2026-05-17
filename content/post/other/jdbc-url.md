@@ -8,6 +8,8 @@ categories:
 tags:
   - Database
 
+aliases:
+  - /p6343/
 ---
 ## JDBC URL
 

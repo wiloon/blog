@@ -8,6 +8,8 @@ categories:
 tags:
   - remix
   - AI-assisted
+aliases:
+  - /p376/
 ---
 
 `netstat` 用于查看网络连接、路由表、接口统计等信息。在较新的 Linux 发行版中，推荐使用 `ss` 命令替代。

@@ -7,6 +7,8 @@ categories:
   - Inbox
 tags:
   - reprint
+aliases:
+  - /p832/
 ---
 ## XML RDF OWL
 XML, RDF, OWL

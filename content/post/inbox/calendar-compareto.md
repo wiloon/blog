@@ -7,6 +7,8 @@ categories:
   - Inbox
 tags:
   - reprint
+aliases:
+  - /p8859/
 ---
 ## Calendar compareTo
 http://www.pocketdigi.com/20110712/383.html

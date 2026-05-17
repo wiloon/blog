@@ -7,6 +7,9 @@ categories:
   - inbox
 tags:
   - reprint
+aliases:
+  - /p14690/
+  - /p14828/
 ---
 ## slf4j、jcl、jul、log4j1、log4j2、logback
 

@@ -8,6 +8,8 @@ categories:
 tags:
   - MT4
 
+aliases:
+  - /p6015/
 ---
 ## MACD
 

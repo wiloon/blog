@@ -8,6 +8,8 @@ categories:
 tags:
   - reprint
   - remix
+aliases:
+  - /p7472/
 ---
 ## MBR GPT
 

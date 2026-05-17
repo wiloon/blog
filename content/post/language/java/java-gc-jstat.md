@@ -8,6 +8,9 @@ categories:
 tags:
   - Java
 
+aliases:
+  - /p411/
+  - /p4229/
 ---
 ## java gc监控, jstat
 ```bash

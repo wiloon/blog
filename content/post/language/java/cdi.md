@@ -8,6 +8,8 @@ categories:
 tags:
   - Java
 
+aliases:
+  - /p2633/
 ---
 [http://www.infoq.com/cn/articles/cf-javaone-2011-cdi-google-dart](http://www.infoq.com/cn/articles/cf-javaone-2011-cdi-google-dart)
 

@@ -7,6 +7,8 @@ categories:
   - Database
 tags:
   - reprint
+aliases:
+  - /p1598/
 ---
 ## generate delete sql
 select 'delete from ' || ut.table_name || ';' from user_tables ut;

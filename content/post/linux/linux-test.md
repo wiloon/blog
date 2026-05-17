@@ -7,6 +7,8 @@ categories:
   - Linux
 tags:
   - reprint
+aliases:
+  - /p2717/
 ---
 ## linux test
 [http://www.ibm.com/developerworks/cn/linux/l-bash-test.html](http://www.ibm.com/developerworks/cn/linux/l-bash-test.html)

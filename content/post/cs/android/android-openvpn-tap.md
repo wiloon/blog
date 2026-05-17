@@ -7,6 +7,9 @@ categories:
   - Java
 tags:
   - reprint
+aliases:
+  - /p1066/
+  - /p6410/
 ---
 ## 'Android  OpenVPN-TAP 模式/策略路由'
 

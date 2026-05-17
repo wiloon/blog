@@ -8,6 +8,8 @@ categories:
 tags:
   - MySQL
 
+aliases:
+  - /p6221/
 ---
 ## 'MySQL 字符串连接  CONCAT()'
 ```sql

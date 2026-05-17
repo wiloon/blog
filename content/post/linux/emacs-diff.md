@@ -8,6 +8,8 @@ categories:
 tags:
   - Emacs
 
+aliases:
+  - /p6374/
 ---
 ## emacs diff
 

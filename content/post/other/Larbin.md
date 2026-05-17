@@ -8,6 +8,8 @@ categories:
 tags:
   - Crawler
 
+aliases:
+  - /p7174/
 ---
 ## 爬虫Labin,Nutch,Neritrix介绍和对比
 http://www.open-open.com/bbs/view/1325332257061

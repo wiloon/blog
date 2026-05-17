@@ -7,6 +7,8 @@ categories:
   - Inbox
 tags:
   - reprint
+aliases:
+  - /p10516/
 ---
 ## pstack
 http://linuxtools-rst.readthedocs.io/zh_CN/latest/tool/pstack.html

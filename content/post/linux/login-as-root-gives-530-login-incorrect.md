@@ -7,6 +7,8 @@ categories:
   - Linux
 tags:
   - reprint
+aliases:
+  - /p2197/
 ---
 ## login as root gives "530 Login incorrect."
 comment out root from both /etc/vsftpd/ftpusers and /etc/vsftpd/user_list

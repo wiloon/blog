@@ -7,6 +7,8 @@ categories:
   - Desktop
 tags:
   - reprint
+aliases:
+  - /p2534/
 ---
 ## Windows PowerShell
 

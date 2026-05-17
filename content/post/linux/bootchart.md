@@ -7,6 +7,8 @@ categories:
   - Linux
 tags:
   - reprint
+aliases:
+  - /p2494/
 ---
 ## Bootchart, systemd-analyze
 

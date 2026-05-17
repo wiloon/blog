@@ -7,6 +7,8 @@ categories:
   - Inbox
 tags:
   - reprint
+aliases:
+  - /p10225/
 ---
 ## Locked ownable synchronizers
 

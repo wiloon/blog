@@ -8,6 +8,8 @@ categories:
 tags:
   - reprint
   - Go
+aliases:
+  - /p14319/
 ---
 ## golang kafka
 

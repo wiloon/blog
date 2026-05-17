@@ -7,6 +7,8 @@ categories:
   - inbox
 tags:
   - reprint
+aliases:
+  - /p682/
 ---
 ## java 日期/date time
 日期计算

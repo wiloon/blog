@@ -7,6 +7,10 @@ categories:
   - Inbox
 tags:
   - reprint
+aliases:
+  - /p8683/
+  - /p8813/
+  - /p9362/
 ---
 ## gradle maven snapshot
 

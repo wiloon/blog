@@ -7,6 +7,8 @@ categories:
   - CS
 tags:
   - reprint
+aliases:
+  - /p4547/
 ---
 ## dictionary
 

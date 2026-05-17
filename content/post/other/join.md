@@ -7,6 +7,9 @@ categories:
   - Database
 tags:
   - reprint
+aliases:
+  - /p5326/
+  - /p7360/
 ---
 ## 左外连接，右外连接，全连接，内连接, left join, right join
 

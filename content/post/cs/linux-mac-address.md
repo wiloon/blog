@@ -7,6 +7,8 @@ categories:
   - inbox
 tags:
   - reprint
+aliases:
+  - /p12491/
 ---
 ## systemd-networkd MAC address spoofing
 

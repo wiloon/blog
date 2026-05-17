@@ -7,6 +7,9 @@ categories:
   - CS
 tags:
   - reprint
+aliases:
+  - /p1077/
+  - /p5732/
 ---
 ## CGI
 

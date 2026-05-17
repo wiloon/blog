@@ -8,6 +8,8 @@ categories:
 tags:
   - Java
 
+aliases:
+  - /p8091/
 ---
 ## A cycle was detected in the build path of project
 解决Eclipse中Java工程间循环引用而报错的问题

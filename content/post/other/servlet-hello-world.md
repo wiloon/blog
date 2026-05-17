@@ -8,6 +8,8 @@ categories:
 tags:
   - Servlet
 
+aliases:
+  - /p1274/
 ---
 ## servlet hello world
 要运行Servlet，则需要JSP/Servlet container，建议初学者用Tomcat.

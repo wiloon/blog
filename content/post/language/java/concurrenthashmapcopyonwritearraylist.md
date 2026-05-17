@@ -7,6 +7,9 @@ categories:
   - Java
 tags:
   - reprint
+aliases:
+  - /p3800/
+  - /p4273/
 ---
 ## ConcurrentHashMap/CopyOnWriteArrayList
 

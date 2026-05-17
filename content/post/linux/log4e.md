@@ -8,6 +8,8 @@ categories:
   - Java
 tags:
   - reprint
+aliases:
+  - /p332/
 ---
 ## log4e
 

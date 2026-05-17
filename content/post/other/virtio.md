@@ -8,6 +8,9 @@ categories:
   - Desktop
 tags:
   - reprint
+aliases:
+  - /p1709/
+  - /p7488/
 ---
 ## Virtio
 **半虚拟化驱动Virtio**

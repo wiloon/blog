@@ -8,6 +8,8 @@ categories:
 tags:
   - Java
 
+aliases:
+  - /p6043/
 ---
 ## 阻塞队列 BlockingQueue
 

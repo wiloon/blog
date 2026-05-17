@@ -8,6 +8,8 @@ categories:
 tags:
   - Database
 
+aliases:
+  - /p3712/
 ---
 ## Database – DDL,DML,DCL,TCL
 ### DDL (Data Definition Language) 

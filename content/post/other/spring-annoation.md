@@ -8,6 +8,8 @@ categories:
   - Web
 tags:
   - reprint
+aliases:
+  - /p4925/
 ---
 ## Spring annoation
 

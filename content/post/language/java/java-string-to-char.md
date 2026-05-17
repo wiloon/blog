@@ -7,6 +7,8 @@ categories:
   - Java
 tags:
   - reprint
+aliases:
+  - /p3528/
 ---
 ## java string api
 ### 按tab分割

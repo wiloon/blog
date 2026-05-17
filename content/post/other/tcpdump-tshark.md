@@ -8,6 +8,9 @@ categories:
   - Network
 tags:
   - reprint
+aliases:
+  - /p3671/
+  - /p5979/
 ---
 ## Linux网络协议分析工具tcpdump和tshark用法
 

@@ -8,6 +8,8 @@ categories:
 tags:
   - Maven
 
+aliases:
+  - /p7153/
 ---
 ## maven cmd utf8 error
 

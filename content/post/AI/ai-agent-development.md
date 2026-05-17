@@ -8,6 +8,8 @@ categories:
 tags:
   - remix
   - AI-assisted
+aliases:
+  - /p4058/
 ---
 
 ## AI Agent 开发的本质

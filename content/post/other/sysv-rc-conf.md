@@ -7,6 +7,8 @@ categories:
   - Linux
 tags:
   - reprint
+aliases:
+  - /p3225/
 ---
 ## sysv-rc-conf
 

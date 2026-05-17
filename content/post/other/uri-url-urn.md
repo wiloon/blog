@@ -7,6 +7,9 @@ categories:
   - CS
 tags:
   - reprint
+aliases:
+  - /p768/
+  - /p4601/
 ---
 ## URI, URL, URN
 

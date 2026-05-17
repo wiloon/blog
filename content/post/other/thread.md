@@ -7,6 +7,8 @@ categories:
   - Java
 tags:
   - reprint
+aliases:
+  - /p5708/
 ---
 ## 从JVM角度理解线程
 

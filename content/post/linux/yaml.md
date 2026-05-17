@@ -7,6 +7,13 @@ categories:
   - Linux
 tags:
   - reprint
+aliases:
+  - /p450/
+  - /p1485/
+  - /p1487/
+  - /p3171/
+  - /p4426/
+  - /p4522/
 ---
 ## yaml
 http://www.ruanyifeng.com/blog/2016/07/yaml.html

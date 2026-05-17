@@ -7,6 +7,8 @@ categories:
   - Java
 tags:
   - reprint
+aliases:
+  - /p4169/
 ---
 ## java hashcode
 ## java hash code

@@ -7,6 +7,9 @@ categories:
   - Linux
 tags:
   - reprint
+aliases:
+  - /p1507/
+  - /p1829/
 ---
 ## set -x
 set指令能设置所使用shell的执行方式，可依照不同的需求来做设置

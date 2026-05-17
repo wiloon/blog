@@ -7,6 +7,9 @@ categories:
   - Java
 tags:
   - reprint
+aliases:
+  - /p5807/
+  - /p6458/
 ---
 ## 进入safepoint时如何让Java线程全部阻塞
 

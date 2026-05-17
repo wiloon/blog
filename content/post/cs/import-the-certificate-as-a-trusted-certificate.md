@@ -7,6 +7,8 @@ categories:
   - Inbox
 tags:
   - reprint
+aliases:
+  - /p11936/
 ---
 ## Import the Certificate as a Trusted Certificate
 

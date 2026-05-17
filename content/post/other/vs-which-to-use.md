@@ -7,6 +7,9 @@ categories:
   - Web
 tags:
   - reprint
+aliases:
+  - /p3227/
+  - /p5797/
 ---
 ## 'button input, type="button"   Which to use?'
 

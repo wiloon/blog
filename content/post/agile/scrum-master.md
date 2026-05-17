@@ -7,6 +7,9 @@ categories:
   - Inbox
 tags:
   - reprint
+aliases:
+  - /p14210/
+  - /p14220/
 ---
 ## Scrum Master
 

@@ -7,6 +7,8 @@ categories:
   - Inbox
 tags:
   - reprint
+aliases:
+  - /p4670/
 ---
 ## jconsole
 http://jiajun.iteye.com/blog/810150

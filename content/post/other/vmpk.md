@@ -7,6 +7,9 @@ categories:
   - Inbox
 tags:
   - reprint
+aliases:
+  - /p1782/
+  - /p5919/
 ---
 ## vmpk
 

@@ -7,6 +7,11 @@ categories:
   - Inbox
 tags:
   - reprint
+aliases:
+  - /p6408/
+  - /p6506/
+  - /p6549/
+  - /p6990/
 ---
 ## apk Decompiler
 

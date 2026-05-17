@@ -7,6 +7,8 @@ categories:
   - chrome
 tags:
   - reprint
+aliases:
+  - /p11818/
 ---
 
 ## pixelbook, chromeos, developer mode, crouton

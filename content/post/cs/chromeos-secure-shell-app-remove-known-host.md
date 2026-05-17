@@ -7,6 +7,9 @@ categories:
   - chrome
 tags:
   - reprint
+aliases:
+  - /p6728/
+  - /p15741/
 ---
 ## chromeos Secure Shell App remove known host
 

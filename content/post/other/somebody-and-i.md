@@ -7,6 +7,8 @@ categories:
   - English
 tags:
   - reprint
+aliases:
+  - /p5766/
 ---
 ## Somebody and I
 

@@ -7,6 +7,8 @@ categories:
   - Java
 tags:
   - reprint
+aliases:
+  - /p8331/
 ---
 ## java.sql.Timestamp cannot be cast to java.sql.Date
 

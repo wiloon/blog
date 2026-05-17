@@ -7,6 +7,11 @@ categories:
   - Inbox
 tags:
   - reprint
+aliases:
+  - /p8742/
+  - /p9115/
+  - /p14306/
+  - /p15799/
 ---
 ## maven-shade-plugin
 maven build fat jar

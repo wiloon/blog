@@ -8,6 +8,9 @@ categories:
 tags:
   - Linux
 
+aliases:
+  - /p7575/
+  - /p8270/
 ---
 ## Linux /etc/init.d /etc/rc.local
 [http://blog.csdn.net/acs713/article/details/7322082](http://blog.csdn.net/acs713/article/details/7322082)

@@ -7,6 +7,9 @@ categories:
   - Inbox
 tags:
   - reprint
+aliases:
+  - /p12295/
+  - /p14170/
 ---
 ## X11 forwarding
 

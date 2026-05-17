@@ -7,6 +7,8 @@ categories:
   - inbox
 tags:
   - reprint
+aliases:
+  - /p12409/
 ---
 ## systemctl start networking.service
 

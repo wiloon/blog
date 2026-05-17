@@ -9,6 +9,8 @@ categories:
 tags:
   - Servlet
 
+aliases:
+  - /p3491/
 ---
 ## servlet3.0
 http://www.ibm.com/developerworks/cn/java/j-lo-servlet30/

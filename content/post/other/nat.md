@@ -8,6 +8,8 @@ categories:
 tags:
   - NAT
 
+aliases:
+  - /p5924/
 ---
 ## 网络地址转换 NAT,Network Address Translation
 

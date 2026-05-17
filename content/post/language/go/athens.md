@@ -8,6 +8,8 @@ categories:
 tags:
   - reprint
   - remix
+aliases:
+  - /p6168/
 ---
 ## athens, go package cache/repo 私服, go package 私有仓库, go package 服务器
 

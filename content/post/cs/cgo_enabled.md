@@ -7,6 +7,8 @@ categories:
   - inbox
 tags:
   - reprint
+aliases:
+  - /p14106/
 ---
 ## golang, cgo, CGO_ENABLED
 

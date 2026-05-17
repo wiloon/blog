@@ -8,6 +8,8 @@ categories:
 tags:
   - Linux
 
+aliases:
+  - /p2599/
 ---
 ## undefined reference to ...
 

@@ -7,6 +7,9 @@ categories:
   - English
 tags:
   - reprint
+aliases:
+  - /p4461/
+  - /p6402/
 ---
 ## out of the box
 out of the box:

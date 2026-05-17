@@ -7,6 +7,8 @@ categories:
   - Inbox
 tags:
   - reprint
+aliases:
+  - /p9186/
 ---
 ## mt4 nj4xx, ask bid sl tp …
 ASK/OFFER: 卖出价

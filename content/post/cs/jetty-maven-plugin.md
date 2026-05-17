@@ -7,6 +7,8 @@ categories:
   - Java
 tags:
   - reprint
+aliases:
+  - /p11958/
 ---
 ## jetty-maven-plugin, jetty maven plugin
 

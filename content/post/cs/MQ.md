@@ -8,6 +8,8 @@ categories:
 tags:
   - reprint
   - Queue
+aliases:
+  - /p4686/
 ---
 ## 消息队列/message queue/MQ, CORBA, DCOM, RMI, RPC
 

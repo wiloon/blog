@@ -7,6 +7,13 @@ categories:
   - Inbox
 tags:
   - reprint
+aliases:
+  - /p949/
+  - /p6564/
+  - /p6672/
+  - /p8117/
+  - /p8146/
+  - /p8234/
 ---
 ## maven Scope
 maven依赖关系中Scope的作用

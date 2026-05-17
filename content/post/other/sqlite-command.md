@@ -8,6 +8,10 @@ categories:
 tags:
   - SQLite
 
+aliases:
+  - /p2155/
+  - /p7250/
+  - /p7402/
 ---
 ## sqlite command
 

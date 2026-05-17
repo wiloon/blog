@@ -8,6 +8,9 @@ categories:
   - inbox
 tags:
   - reprint
+aliases:
+  - /p13228/
+  - /p15817/
 ---
 ## linux 剪贴板
 

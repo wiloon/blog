@@ -7,6 +7,8 @@ categories:
   - Inbox
 tags:
   - reprint
+aliases:
+  - /p13232/
 ---
 ## idea 插入当前日期,insert current datetime
 

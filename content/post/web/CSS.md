@@ -9,6 +9,8 @@ categories:
 tags:
   - CSS
 
+aliases:
+  - /p6783/
 ---
 ## CSS选择器 优先级 匹配原理
 

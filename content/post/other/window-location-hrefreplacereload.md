@@ -7,6 +7,8 @@ tags:
   - JavaScript
 categories:
   - inbox
+aliases:
+  - /p6309/
 ---
 ## Javascript 重定向 window.location.href / replace / reload()
 

@@ -7,6 +7,8 @@ categories:
   - Security
 tags:
   - reprint
+aliases:
+  - /p560/
 ---
 ## Hash， MAC, HMAC
 # HMAC

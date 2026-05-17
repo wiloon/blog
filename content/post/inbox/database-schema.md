@@ -7,6 +7,8 @@ categories:
   - Inbox
 tags:
   - reprint
+aliases:
+  - /p10866/
 ---
 ## database schema
 对于MySQL,schema和database可以理解为等价的.

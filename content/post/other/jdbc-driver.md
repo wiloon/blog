@@ -8,6 +8,8 @@ categories:
   - Java
 tags:
   - reprint
+aliases:
+  - /p4859/
 ---
 ## jdbc driver
 

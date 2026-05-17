@@ -7,6 +7,9 @@ categories:
   - Inbox
 tags:
   - reprint
+aliases:
+  - /p9052/
+  - /p16022/
 ---
 ## linux tc
 http://blog.csdn.net/qinyushuang/article/details/46611709

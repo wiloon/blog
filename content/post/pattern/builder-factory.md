@@ -11,6 +11,8 @@ tags:
   - remix
   - AI-assisted
 
+aliases:
+  - /p4449/
 ---
 
 > 原文：<http://www.cnblogs.com/shenfx318/archive/2007/01/28/632724.html>

@@ -8,6 +8,8 @@ categories:
 tags:
   - Linux
 
+aliases:
+  - /p6306/
 ---
 ## deluged
 ```bash

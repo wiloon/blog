@@ -8,6 +8,8 @@ categories:
 tags:
   - MT4
 
+aliases:
+  - /p7734/
 ---
 ## nj4x java config
 nj4x requires jdk 1.7 !!!

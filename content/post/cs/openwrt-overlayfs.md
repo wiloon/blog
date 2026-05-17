@@ -7,6 +7,8 @@ categories:
   - Inbox
 tags:
   - reprint
+aliases:
+  - /p12113/
 ---
 ## R7800, Build custom Netgear R7800 firmware for a larger flash size/root space
 

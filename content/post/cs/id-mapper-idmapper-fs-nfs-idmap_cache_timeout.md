@@ -7,6 +7,8 @@ categories:
   - Inbox
 tags:
   - reprint
+aliases:
+  - /p12603/
 ---
 ## ID Mapper, idmapper, fs.nfs.idmap_cache_timeout
 

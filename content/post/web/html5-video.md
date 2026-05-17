@@ -9,6 +9,9 @@ categories:
 tags:
   - HTML
 
+aliases:
+  - /p1427/
+  - /p2374/
 ---
 ## html5 video
 HTML5 video 元素支持三种视频格式: 

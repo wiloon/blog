@@ -8,6 +8,8 @@ categories:
 tags:
   - Maven
 
+aliases:
+  - /p6557/
 ---
 ## maven jvm opts
 

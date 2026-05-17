@@ -7,6 +7,8 @@ categories:
   - Linux
 tags:
   - reprint
+aliases:
+  - /p3422/
 ---
 ## ICEAuthority
 [http://serverfault.com/questions/119580/what-is-iceauthority-file-in-opensuse-11-2](http://serverfault.com/questions/119580/what-is-iceauthority-file-in-opensuse-11-2)

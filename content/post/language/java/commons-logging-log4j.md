@@ -7,6 +7,8 @@ categories:
   - Java
 tags:
   - reprint
+aliases:
+  - /p1525/
 ---
 ## commons-logging Log4J
 ## commons-logging vs Log4J

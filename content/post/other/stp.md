@@ -8,6 +8,8 @@ categories:
   - Network
 tags:
   - reprint
+aliases:
+  - /p1751/
 ---
 ## STP
 [http://hghhghwh.blog.163.com/blog/static/1338973120118413725683/](http://hghhghwh.blog.163.com/blog/static/1338973120118413725683/)

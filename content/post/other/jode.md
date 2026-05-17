@@ -8,6 +8,9 @@ categories:
 tags:
   - Java
 
+aliases:
+  - /p6521/
+  - /p7671/
 ---
 ## Jode
 

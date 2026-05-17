@@ -8,6 +8,10 @@ categories:
 tags:
   - Java
 
+aliases:
+  - /p2465/
+  - /p6524/
+  - /p6538/
 ---
 ## 'System.load  System.loadLibrary'
 

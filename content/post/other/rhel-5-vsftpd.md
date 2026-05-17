@@ -7,6 +7,8 @@ categories:
   - Linux
 tags:
   - reprint
+aliases:
+  - /p2195/
 ---
 ## RHEL 5 vsftpd
 vsftpd安装

@@ -7,6 +7,8 @@ categories:
   - Inbox
 tags:
   - reprint
+aliases:
+  - /p14558/
 ---
 ## 'debug1,expecting SSH2_MSG_KEX_ECDH_REPLY'
 

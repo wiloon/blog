@@ -7,6 +7,8 @@ categories:
   - Java
 tags:
   - reprint
+aliases:
+  - /p673/
 ---
 ## java timer
 ### Timer和TimerTask

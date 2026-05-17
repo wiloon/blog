@@ -7,6 +7,8 @@ categories:
   - Inbox
 tags:
   - reprint
+aliases:
+  - /p13042/
 ---
 ## nuc
 英特尔 「NUC」 (Next Unit of Computing) 

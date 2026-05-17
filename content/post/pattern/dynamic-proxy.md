@@ -8,6 +8,9 @@ categories:
 tags:
   - Pattern
 
+aliases:
+  - /p4430/
+  - /p4504/
 ---
 ## 动态代理 Dynamic Proxy
 

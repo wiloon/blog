@@ -8,6 +8,8 @@ categories:
 tags:
   - HTML
 
+aliases:
+  - /p2121/
 ---
 ## html tag
 [code lang=html]

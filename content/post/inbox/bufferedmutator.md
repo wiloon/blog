@@ -7,6 +7,8 @@ categories:
   - Inbox
 tags:
   - reprint
+aliases:
+  - /p10336/
 ---
 ## hbase BufferedMutator
 

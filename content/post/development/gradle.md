@@ -8,6 +8,9 @@ categories:
 tags:
   - Gradle
 
+aliases:
+  - /p6053/
+  - /p7107/
 ---
 ## Gradle, 目录
 

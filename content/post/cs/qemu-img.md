@@ -8,6 +8,9 @@ categories:
   - Desktop
 tags:
   - reprint
+aliases:
+  - /p1678/
+  - /p14624/
 ---
 ## 虚拟机硬盘格式的选择 qcow2, raw
 

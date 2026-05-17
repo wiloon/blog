@@ -7,6 +7,8 @@ categories:
   - English
 tags:
   - reprint
+aliases:
+  - /p800/
 ---
 ## keyboard character english, 键盘上特殊符号的英文读法
 

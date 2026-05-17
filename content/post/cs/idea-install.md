@@ -7,6 +7,9 @@ categories:
   - Inbox
 tags:
   - reprint
+aliases:
+  - /p9856/
+  - /p13646/
 ---
 ## idea install
 

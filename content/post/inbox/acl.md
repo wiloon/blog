@@ -7,6 +7,8 @@ categories:
   - Inbox
 tags:
   - reprint
+aliases:
+  - /p13432/
 ---
 ## ACL (Access Control List)
 

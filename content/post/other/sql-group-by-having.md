@@ -8,6 +8,9 @@ categories:
 tags:
   - SQL
 
+aliases:
+  - /p5780/
+  - /p6238/
 ---
 ## 'sql group by   having'
 

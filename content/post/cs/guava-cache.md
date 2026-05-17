@@ -7,6 +7,8 @@ categories:
   - Inbox
 tags:
   - reprint
+aliases:
+  - /p10004/
 ---
 ## Guava cache
 http://www.cnblogs.com/peida/p/Guava_Cache.html

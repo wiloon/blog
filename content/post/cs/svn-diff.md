@@ -7,6 +7,9 @@ categories:
   - Inbox
 tags:
   - reprint
+aliases:
+  - /p8454/
+  - /p14891/
 ---
 ## svn diff
 

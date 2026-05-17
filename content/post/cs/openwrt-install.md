@@ -9,6 +9,8 @@ tags:
   - reprint
   - HomeLab
   - OpenWrt
+aliases:
+  - /p12830/
 ---
 ## openwrt install
 

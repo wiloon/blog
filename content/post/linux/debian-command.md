@@ -8,6 +8,8 @@ categories:
 tags:
   - Linux
 
+aliases:
+  - /p7589/
 ---
 ## debian command
 

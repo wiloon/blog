@@ -7,6 +7,8 @@ categories:
   - Linux
 tags:
   - reprint
+aliases:
+  - /p2762/
 ---
 ## 交叉编译, cross compile
 

@@ -8,6 +8,8 @@ categories:
   - Web
 tags:
   - reprint
+aliases:
+  - /p3609/
 ---
 ## HttpSessionBindingListener
 捕获Session事件的意义: 

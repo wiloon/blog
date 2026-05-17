@@ -12,6 +12,8 @@ tags:
   - AOP
   - remix
   - AI-assisted
+aliases:
+  - /p2097/
 ---
 
 AOP（Aspect-Oriented Programming，面向切面编程）是对 OOP 的补充，用于将**横切关注点**（cross-cutting concerns）从业务逻辑中分离出来，集中管理。典型横切关注点包括：日志记录、事务管理、权限校验、性能监控、缓存、同步等——这些逻辑如果分散在每个方法里，既冗余又难以维护。

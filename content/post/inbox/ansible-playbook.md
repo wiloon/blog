@@ -8,6 +8,8 @@ categories:
 tags:
   - reprint
   - remix
+aliases:
+  - /p11019/
 ---
 ## ansible playbook
 

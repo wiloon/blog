@@ -7,6 +7,8 @@ categories:
   - Inbox
 tags:
   - reprint
+aliases:
+  - /p14394/
 ---
 ## gin
 https://github.com/gin-gonic/gin#quick-start

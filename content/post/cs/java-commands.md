@@ -7,6 +7,9 @@ categories:
   - Inbox
 tags:
   - reprint
+aliases:
+  - /p14814/
+  - /p15703/
 ---
 ## java commands
 java -cp

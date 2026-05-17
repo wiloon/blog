@@ -9,6 +9,8 @@ tags:
   - Java
   - Servlet
 
+aliases:
+  - /p1048/
 ---
 ## Servlet
 

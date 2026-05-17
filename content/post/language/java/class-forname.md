@@ -8,6 +8,8 @@ categories:
 tags:
   - Java
 
+aliases:
+  - /p6067/
 ---
 ## Class.forName
 

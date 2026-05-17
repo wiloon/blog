@@ -8,6 +8,8 @@ categories:
 tags:
   - reprint
   - Java
+aliases:
+  - /p3276/
 ---
 ## 一致性哈希算法与Java实现
 

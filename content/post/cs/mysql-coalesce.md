@@ -8,6 +8,8 @@ categories:
 tags:
   - MySQL
 
+aliases:
+  - /p6215/
 ---
 ## MySQL coalesce
 coalesce函数表示可以返回参数中的第一个非空表达式,当你有N个参数时选取第一个非空值 (从左到右) 。

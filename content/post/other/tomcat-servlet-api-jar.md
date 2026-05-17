@@ -8,6 +8,11 @@ categories:
 tags:
   - Tomcat
 
+aliases:
+  - /p1261/
+  - /p1491/
+  - /p4545/
+  - /p6194/
 ---
 ## servlet-api.jar
 用于在servlet环境下开发程序的一组api,虽然叫servlet-api.jar但其实包里除了大部分的接口外还有一些javabean和抽象类、之所以叫api是因为这个包是开发基于servlet规范的标准接口(这个接口的含义和java里的interface不同，不要混淆)。

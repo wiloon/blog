@@ -8,6 +8,8 @@ categories:
 tags:
   - English
 
+aliases:
+  - /p6608/
 ---
 ## 'Thank you very much & Thanks a lot'
 

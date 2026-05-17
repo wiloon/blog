@@ -9,6 +9,8 @@ tags:
   - reprint
   - VPN
   - Docker
+aliases:
+  - /p14273/
 ---
 ## openvpn docker
 

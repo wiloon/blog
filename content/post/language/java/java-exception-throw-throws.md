@@ -8,6 +8,8 @@ categories:
 tags:
   - Java
 
+aliases:
+  - /p7663/
 ---
 ## 'Java  exception throw throws'
  

@@ -7,6 +7,8 @@ categories:
   - inbox
 tags:
   - reprint
+aliases:
+  - /p13338/
 ---
 ## java Keytool
 ```bash

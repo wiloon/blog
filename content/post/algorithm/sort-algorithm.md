@@ -10,6 +10,8 @@ tags:
   - sort
   - remix
   - AI-assisted
+aliases:
+  - /p5132/
 ---
 
 常见排序算法：

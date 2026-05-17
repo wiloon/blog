@@ -7,6 +7,8 @@ categories:
   - Inbox
 tags:
   - reprint
+aliases:
+  - /p8728/
 ---
 ## nordfx server
 全部服务器均提供新版IP地址,如果您的连接仍有问题,不妨在MT4登录窗口服务器一栏输入以下地址重新尝试登录: 

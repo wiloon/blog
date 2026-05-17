@@ -7,6 +7,8 @@ categories:
   - Inbox
 tags:
   - reprint
+aliases:
+  - /p11034/
 ---
 ## CAN, Controller Area Network
 https://baike.baidu.com/item/CAN%E6%80%BB%E7%BA%BF/297754

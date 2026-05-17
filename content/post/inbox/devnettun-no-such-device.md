@@ -7,6 +7,8 @@ categories:
   - Inbox
 tags:
   - reprint
+aliases:
+  - /p10724/
 ---
 ## '/dev/net/tun,No such device'
 ```bash

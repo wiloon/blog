@@ -7,6 +7,9 @@ categories:
   - Inbox
 tags:
   - reprint
+aliases:
+  - /p3838/
+  - /p7081/
 ---
 ## google firstitemmsec
 Get subscription list. Each subscription contains a "category" if the user had created folders. It also has a field called `firstitemmsec` that denotes in milliseconds the time from which entries for that feed should be picked up.

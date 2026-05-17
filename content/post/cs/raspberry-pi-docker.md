@@ -7,6 +7,8 @@ categories:
   - Hardware
 tags:
   - reprint
+aliases:
+  - /p12926/
 ---
 ## raspberry pi docker
 ```bash

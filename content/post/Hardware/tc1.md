@@ -7,6 +7,9 @@ categories:
   - Inbox
 tags:
   - reprint
+aliases:
+  - /p14676/
+  - /p15104/
 ---
 ## TC1
 [https://ljr.im/articles/streamline-the-fibonacci-tc1-firmware/](https://ljr.im/articles/streamline-the-fibonacci-tc1-firmware/)

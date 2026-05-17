@@ -7,6 +7,9 @@ categories:
   - Inbox
 tags:
   - reprint
+aliases:
+  - /p10265/
+  - /p10802/
 ---
 ## HBase Compaction
 

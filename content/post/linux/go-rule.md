@@ -8,6 +8,11 @@ categories:
   - Network
 tags:
   - reprint
+aliases:
+  - /p1640/
+  - /p2071/
+  - /p2451/
+  - /p2833/
 ---
 ## Golang 命名规范
 

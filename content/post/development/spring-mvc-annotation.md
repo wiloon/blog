@@ -8,6 +8,8 @@ categories:
 tags:
   - SpringMVC
 
+aliases:
+  - /p6603/
 ---
 ## spring mvc annotation
 

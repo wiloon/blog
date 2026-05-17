@@ -7,6 +7,9 @@ categories:
   - Inbox
 tags:
   - reprint
+aliases:
+  - /p11294/
+  - /p11354/
 ---
 ## linux cut
 

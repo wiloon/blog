@@ -7,6 +7,8 @@ categories:
   - Inbox
 tags:
   - reprint
+aliases:
+  - /p9385/
 ---
 ## CUnit
 http://blog.csdn.net/scucj/article/details/4385630

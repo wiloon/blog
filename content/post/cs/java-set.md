@@ -7,6 +7,11 @@ categories:
   - Inbox
 tags:
   - reprint
+aliases:
+  - /p14808/
+  - /p15309/
+  - /p15637/
+  - /p15640/
 ---
 ## Java Set
 

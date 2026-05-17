@@ -7,6 +7,10 @@ categories:
   - Inbox
 tags:
   - reprint
+aliases:
+  - /p8781/
+  - /p9432/
+  - /p14513/
 ---
 ## gource
 

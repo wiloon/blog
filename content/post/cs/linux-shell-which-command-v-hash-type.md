@@ -7,6 +7,9 @@ categories:
   - Linux
 tags:
   - reprint
+aliases:
+  - /p9135/
+  - /p14537/
 ---
 ## linux shell 查找文件位置，which, command -v, hash, type
 

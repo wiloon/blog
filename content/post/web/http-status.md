@@ -9,6 +9,8 @@ tags:
   - reprint
   - remix
   - AI-assisted
+aliases:
+  - /p3648/
 ---
 ## HTTP status, HTTP code
 

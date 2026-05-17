@@ -8,6 +8,8 @@ categories:
 tags:
   - Java
 
+aliases:
+  - /p6102/
 ---
 ## META-INF, MANIFEST.MF
 

@@ -7,6 +7,8 @@ categories:
   - Inbox
 tags:
   - reprint
+aliases:
+  - /p9401/
 ---
 ## 'Juc中的同步辅助类,  CountDownLatch,CyclicBarrier,Semaphore'
 

@@ -7,6 +7,8 @@ categories:
   - Inbox
 tags:
   - reprint
+aliases:
+  - /p11214/
 ---
 ## 'Java 7   Phaser'
 http://www.oschina.net/question/12_35433

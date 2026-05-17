@@ -8,6 +8,8 @@ categories:
 tags:
   - English
 
+aliases:
+  - /p7119/
 ---
 ## nginx proxy_pass
 

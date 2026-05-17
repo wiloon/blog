@@ -8,6 +8,8 @@ categories:
 tags:
   - XML
 
+aliases:
+  - /p6472/
 ---
 ## XML CDATA
 

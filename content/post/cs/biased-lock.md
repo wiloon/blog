@@ -7,6 +7,8 @@ categories:
   - Java
 tags:
   - reprint
+aliases:
+  - /p5812/
 ---
 ## 偏向锁(Biased Locking)
 

@@ -7,6 +7,8 @@ categories:
   - Inbox
 tags:
   - reprint
+aliases:
+  - /p14425/
 ---
 ## Java诊断工具 – Arthas
 

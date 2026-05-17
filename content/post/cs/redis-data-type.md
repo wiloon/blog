@@ -7,6 +7,8 @@ categories:
   - Database
 tags:
   - reprint
+aliases:
+  - /p8329/
 ---
 ## redis data type, 数据类型
 

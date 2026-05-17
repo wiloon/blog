@@ -9,6 +9,8 @@ tags:
   - Java
   - Spring
 
+aliases:
+  - /p7002/
 ---
 ## spring quartz
 http://www.oschina.net/question/8676_9032

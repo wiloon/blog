@@ -9,6 +9,8 @@ tags:
   - Crawler
   - Nutch
 
+aliases:
+  - /p7187/
 ---
 ## Nutch hello world
 download and install ant

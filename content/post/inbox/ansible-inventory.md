@@ -7,6 +7,9 @@ categories:
   - Inbox
 tags:
   - reprint
+aliases:
+  - /p11704/
+  - /p13470/
 ---
 ## ansible inventory
 

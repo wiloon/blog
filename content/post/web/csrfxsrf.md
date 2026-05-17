@@ -7,6 +7,8 @@ categories:
   - CS
 tags:
   - reprint
+aliases:
+  - /p3857/
 ---
 ## CSRF/XSRF
 

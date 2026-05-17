@@ -7,6 +7,8 @@ categories:
   - inbox
 tags:
   - reprint
+aliases:
+  - /p6077/
 ---
 ## Yahei Consolas Hybrid
 

@@ -7,6 +7,8 @@ categories:
   - Tools
 tags:
   - reprint
+aliases:
+  - /p592/
 ---
 ## OpenVSCode Server
 

@@ -7,6 +7,8 @@ categories:
   - Hardware
 tags:
   - reprint
+aliases:
+  - /p13214/
 ---
 ## raspberry pi networking to systemd-networkd
 

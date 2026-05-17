@@ -7,6 +7,9 @@ categories:
   - Cloud
 tags:
   - reprint
+aliases:
+  - /p14168/
+  - /p15990/
 ---
 ## docker btrfs
 镜像分层与Btrfs共享

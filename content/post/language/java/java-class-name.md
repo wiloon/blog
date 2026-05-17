@@ -7,6 +7,8 @@ categories:
   - Inbox
 tags:
   - reprint
+aliases:
+  - /p5462/
 ---
 ## Java 取当前类名, 方法名
 

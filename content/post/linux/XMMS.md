@@ -7,6 +7,11 @@ categories:
   - Linux
 tags:
   - reprint
+aliases:
+  - /p1845/
+  - /p2530/
+  - /p7577/
+  - /p7728/
 ---
 ## XMMS
 X Multimedia System (XMMS)是一套自由的音频播放器，其外表极像Winamp，但是运行在Unix-like 操作系统。

@@ -8,6 +8,8 @@ categories:
 tags:
   - MySQL
 
+aliases:
+  - /p7943/
 ---
 ## MySQL 存储引擎
 

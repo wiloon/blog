@@ -7,6 +7,9 @@ categories:
   - Pattern
 tags:
   - reprint
+aliases:
+  - /p4618/
+  - /p4643/
 ---
 ## JUDE,Astah
 

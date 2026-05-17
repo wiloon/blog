@@ -9,6 +9,8 @@ tags:
   - reprint
   - remix
   - AI-assisted
+aliases:
+  - /p13672/
 ---
 ## nodejs basic
 

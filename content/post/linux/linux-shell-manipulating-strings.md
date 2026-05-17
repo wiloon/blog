@@ -7,6 +7,8 @@ categories:
   - Linux
 tags:
   - reprint
+aliases:
+  - /p2862/
 ---
 ## linux shell Manipulating Strings
 

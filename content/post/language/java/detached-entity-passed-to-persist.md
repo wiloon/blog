@@ -8,6 +8,8 @@ categories:
 tags:
   - JPA
 
+aliases:
+  - /p6697/
 ---
 ## detached entity passed to persist
 

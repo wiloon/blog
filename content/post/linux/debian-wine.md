@@ -7,6 +7,8 @@ categories:
   - Linux
 tags:
   - reprint
+aliases:
+  - /p3070/
 ---
 ## debian wine frozen throne
 download source  from [http://www.winehq.org/download/](http://www.winehq.org/download/)

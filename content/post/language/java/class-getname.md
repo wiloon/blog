@@ -8,6 +8,8 @@ categories:
 tags:
   - Java
 
+aliases:
+  - /p6140/
 ---
 ## class.getName
 [http://bbs.csdn.net/topics/70162498](http://bbs.csdn.net/topics/70162498)

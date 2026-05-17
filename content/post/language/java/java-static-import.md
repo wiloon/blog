@@ -7,6 +7,8 @@ categories:
   - Java
 tags:
   - reprint
+aliases:
+  - /p3135/
 ---
 ## java static import
 http://blog.csdn.net/ygc87/article/details/7371254

@@ -8,6 +8,8 @@ categories:
 tags:
   - Algorithm
 
+aliases:
+  - /p7288/
 ---
 ## 抽奖概率-三种算法
 

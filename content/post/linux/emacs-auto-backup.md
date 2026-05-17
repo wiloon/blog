@@ -7,6 +7,8 @@ categories:
   - Tools
 tags:
   - reprint
+aliases:
+  - /p106/
 ---
 ## emacs auto backup
 (setq backup-directory-alist '(("" . "~/backup/emacs/backup")))

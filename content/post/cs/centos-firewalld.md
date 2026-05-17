@@ -7,6 +7,8 @@ categories:
   - Inbox
 tags:
   - reprint
+aliases:
+  - /p15384/
 ---
 ## 'CentOS firewalld, firewall-cmd'
 

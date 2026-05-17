@@ -7,6 +7,8 @@ categories:
   - Java
 tags:
   - reprint
+aliases:
+  - /p1537/
 ---
 ## TimeUnit
 http://chenjumin.iteye.com/blog/2182171

@@ -7,6 +7,8 @@ categories:
   - Inbox
 tags:
   - reprint
+aliases:
+  - /p12271/
 ---
 ## java onerror
 http://hllvm.group.iteye.com/group/topic/40211

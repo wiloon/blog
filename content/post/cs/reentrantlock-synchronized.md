@@ -7,6 +7,9 @@ categories:
   - Inbox
 tags:
   - reprint
+aliases:
+  - /p9958/
+  - /p12277/
 ---
 ## Java ReentrantLock, synchronized
 

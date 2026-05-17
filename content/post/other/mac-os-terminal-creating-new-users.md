@@ -8,6 +8,8 @@ categories:
 tags:
   - macOS
 
+aliases:
+  - /p7330/
 ---
 ## 'mac os terminal,  Creating New Users'
 

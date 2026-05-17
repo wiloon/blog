@@ -7,6 +7,9 @@ categories:
   - Linux
 tags:
   - reprint
+aliases:
+  - /p164/
+  - /p8771/
 ---
 ## shell basic variable, 变量
 

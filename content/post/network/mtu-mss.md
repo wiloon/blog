@@ -7,6 +7,9 @@ categories:
   - Network
 tags:
   - reprint
+aliases:
+  - /p3749/
+  - /p9635/
 ---
 
 # tcp MTU MSS

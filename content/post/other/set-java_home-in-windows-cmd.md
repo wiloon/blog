@@ -8,6 +8,8 @@ categories:
 tags:
   - Windows
 
+aliases:
+  - /p7137/
 ---
 ## Set JAVA_HOME in windows cmd
 

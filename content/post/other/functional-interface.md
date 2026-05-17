@@ -7,6 +7,8 @@ categories:
   - Inbox
 tags:
   - reprint
+aliases:
+  - /p7127/
 ---
 ## Java 8 函数式接口 functional interface
 

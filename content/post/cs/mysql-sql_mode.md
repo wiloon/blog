@@ -7,6 +7,8 @@ categories:
   - Inbox
 tags:
   - reprint
+aliases:
+  - /p14344/
 ---
 ## MySQL, sql_mode
 [http://xstarcd.github.io/wiki/MySQL/MySQL-sql-mode.html](http://xstarcd.github.io/wiki/MySQL/MySQL-sql-mode.html)

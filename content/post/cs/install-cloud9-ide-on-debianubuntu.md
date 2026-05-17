@@ -7,6 +7,10 @@ categories:
   - Inbox
 tags:
   - reprint
+aliases:
+  - /p10819/
+  - /p11838/
+  - /p13731/
 ---
 ## install cloud9 ide on debian/ubuntu
 https://github.com/c9

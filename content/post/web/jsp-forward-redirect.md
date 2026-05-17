@@ -7,6 +7,9 @@ categories:
   - Java
 tags:
   - reprint
+aliases:
+  - /p4153/
+  - /p4173/
 ---
 ## forward redirect
 ## forward vs redirect

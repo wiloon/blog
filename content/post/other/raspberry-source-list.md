@@ -7,6 +7,8 @@ categories:
   - Hardware
 tags:
   - reprint
+aliases:
+  - /p7566/
 ---
 ## raspberry source list
 vi /etc/apt/sources.list

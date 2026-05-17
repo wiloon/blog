@@ -7,6 +7,8 @@ categories:
   - Database
 tags:
   - reprint
+aliases:
+  - /p5739/
 ---
 ## go epoll
 >https://colobu.com/2019/02/23/1m-go-tcp-connection/

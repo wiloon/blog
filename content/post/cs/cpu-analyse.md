@@ -7,6 +7,8 @@ categories:
   - CS
 tags:
   - reprint
+aliases:
+  - /p6032/
 ---
 ## cpu瓶颈分析
 

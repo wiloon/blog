@@ -9,5 +9,7 @@ tags:
   - MyBatis
   - Spring
 
+aliases:
+  - /p6588/
 ---
 ## spring mvc + mybatis

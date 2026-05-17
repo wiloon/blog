@@ -7,6 +7,8 @@ categories:
   - Inbox
 tags:
   - reprint
+aliases:
+  - /p15417/
 ---
 ## pixel2,pixel3 root, android root
 

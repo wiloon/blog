@@ -9,6 +9,8 @@ categories:
 tags:
   - Spring
 
+aliases:
+  - /p5031/
 ---
 ## Spring Annotation @Resource
 

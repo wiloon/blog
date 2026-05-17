@@ -8,6 +8,8 @@ categories:
 tags:
   - reprint
   - bat
+aliases:
+  - /p5211/
 ---
 ## 批处理获取当前时间
 

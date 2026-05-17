@@ -7,6 +7,8 @@ categories:
   - Inbox
 tags:
   - reprint
+aliases:
+  - /p684/
 ---
 ## junit performance test
 http://databene.org/contiperf.html

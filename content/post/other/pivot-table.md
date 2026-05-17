@@ -8,6 +8,10 @@ categories:
 tags:
   - Excel
 
+aliases:
+  - /p709/
+  - /p6417/
+  - /p7726/
 ---
 ## Pivot Table
 

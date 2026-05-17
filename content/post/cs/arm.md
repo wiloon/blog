@@ -7,6 +7,8 @@ categories:
   - Inbox
 tags:
   - reprint
+aliases:
+  - /p13967/
 ---
 ## armv6, armv7, rm处理器中a5 a8 a9，v6 v7，arm7 arm9 arm11
 

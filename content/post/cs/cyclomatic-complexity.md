@@ -7,6 +7,8 @@ categories:
   - Inbox
 tags:
   - reprint
+aliases:
+  - /p14915/
 ---
 ## 圈复杂度(Cyclomatic Complexity)
 

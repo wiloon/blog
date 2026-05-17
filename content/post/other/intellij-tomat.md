@@ -7,6 +7,10 @@ categories:
   - Inbox
 tags:
   - reprint
+aliases:
+  - /p7092/
+  - /p7457/
+  - /p7701/
 ---
 ## IntelliJ tomat
 

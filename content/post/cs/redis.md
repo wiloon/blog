@@ -9,6 +9,9 @@ tags:
   - cache
 categories:
   - inbox
+aliases:
+  - /p8023/
+  - /p14776/
 ---
 ## Redis
 

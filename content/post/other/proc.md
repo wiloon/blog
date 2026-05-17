@@ -7,6 +7,8 @@ categories:
   - Database
 tags:
   - reprint
+aliases:
+  - /p5402/
 ---
 ## 存储过程, proc
 

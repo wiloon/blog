@@ -7,6 +7,8 @@ categories:
   - CS
 tags:
   - reprint
+aliases:
+  - /p860/
 ---
 ## Apache License 2.0
 

@@ -7,6 +7,8 @@ categories:
   - Inbox
 tags:
   - reprint
+aliases:
+  - /p14849/
 ---
 ## Screeps
 https://screeps-cn.github.io/introduction.html

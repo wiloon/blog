@@ -7,6 +7,8 @@ categories:
   - Inbox
 tags:
   - reprint
+aliases:
+  - /p13735/
 ---
 ## java data convert
 NumberFormat formatter = new DecimalFormat("#0.00");

@@ -8,6 +8,8 @@ categories:
 tags:
   - reprint
   - remix
+aliases:
+  - /p913/
 ---
 ## ssh command, openssh
 

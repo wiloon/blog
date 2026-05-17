@@ -7,6 +7,8 @@ categories:
   - Java
 tags:
   - reprint
+aliases:
+  - /p4318/
 ---
 ## Java JAXB Unmarshaller
 ```java

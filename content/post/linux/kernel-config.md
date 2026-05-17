@@ -7,6 +7,9 @@ categories:
   - Linux
 tags:
   - reprint
+aliases:
+  - /p1711/
+  - /p2483/
 ---
 ## kernel config 3.2.8
 

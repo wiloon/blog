@@ -7,6 +7,8 @@ categories:
   - Go
 tags:
   - reprint
+aliases:
+  - /p7526/
 ---
 ## golang bufio 处理 TCP 粘包
 

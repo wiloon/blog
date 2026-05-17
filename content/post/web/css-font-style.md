@@ -8,6 +8,8 @@ categories:
 tags:
   - CSS
 
+aliases:
+  - /p3518/
 ---
 ## CSS font-style
 font-style 属性定义字体的风格。

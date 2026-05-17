@@ -8,6 +8,8 @@ categories:
   - Inbox
 tags:
   - reprint
+aliases:
+  - /p3833/
 ---
 ## HashMap遍历的两种方式
 ### 第一种:

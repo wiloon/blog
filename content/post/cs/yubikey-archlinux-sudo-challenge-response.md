@@ -7,6 +7,8 @@ categories:
   - Inbox
 tags:
   - reprint
+aliases:
+  - /p12361/
 ---
 ## yubikey, challenge-response
 

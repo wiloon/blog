@@ -7,6 +7,8 @@ categories:
   - Linux
 tags:
   - reprint
+aliases:
+  - /p353/
 ---
 ## ln command, 软连接和硬连接
 

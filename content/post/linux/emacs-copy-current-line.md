@@ -7,6 +7,8 @@ categories:
   - Tools
 tags:
   - reprint
+aliases:
+  - /p148/
 ---
 ## emacs copy current line
 ;;copy current line

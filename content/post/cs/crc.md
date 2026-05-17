@@ -7,6 +7,8 @@ categories:
   - Algorithm
 tags:
   - reprint
+aliases:
+  - /p13895/
 ---
 ## 循环冗余校验 (CRC)
 

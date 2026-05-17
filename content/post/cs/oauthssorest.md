@@ -7,6 +7,8 @@ categories:
   - Inbox
 tags:
   - reprint
+aliases:
+  - /p11115/
 ---
 ## OAuth,SSO,REST
 http://favccxx.blog.51cto.com/2890523/1635938

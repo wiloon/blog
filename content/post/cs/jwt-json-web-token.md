@@ -7,6 +7,8 @@ categories:
   - Inbox
 tags:
   - reprint
+aliases:
+  - /p12462/
 ---
 ## JWT, JSON Web Token
 

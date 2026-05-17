@@ -7,6 +7,10 @@ categories:
   - Inbox
 tags:
   - reprint
+aliases:
+  - /p8420/
+  - /p10453/
+  - /p12117/
 ---
 ## JFFS
 JFFS 是一个特别针对闪存的文件系统

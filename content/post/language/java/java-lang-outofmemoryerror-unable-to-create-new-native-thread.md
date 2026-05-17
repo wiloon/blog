@@ -7,6 +7,9 @@ categories:
   - Inbox
 tags:
   - reprint
+aliases:
+  - /p4047/
+  - /p8434/
 ---
 ## 'java.lang.OutOfMemoryError,unable to create new native thread'
 http://www.blogjava.net/ldd600/archive/2009/09/25/296397.html

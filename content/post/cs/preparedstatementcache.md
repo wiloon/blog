@@ -7,6 +7,8 @@ categories:
   - Inbox
 tags:
   - reprint
+aliases:
+  - /p9213/
 ---
 ## PreparedStatementCache
 http://www.cnblogs.com/alipayhutu/archive/2013/04/18/3029171.html

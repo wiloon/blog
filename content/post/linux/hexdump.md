@@ -7,6 +7,8 @@ categories:
   - Linux
 tags:
   - reprint
+aliases:
+  - /p2092/
 ---
 ## hexdump command, 以 16 进制查看文件, 以十六进制查看文件
 

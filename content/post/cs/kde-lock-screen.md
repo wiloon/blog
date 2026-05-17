@@ -7,6 +7,9 @@ categories:
   - Desktop
 tags:
   - reprint
+aliases:
+  - /p12348/
+  - /p13298/
 ---
 ## kde lock screen
 

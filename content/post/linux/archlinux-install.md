@@ -8,6 +8,8 @@ categories:
 tags:
   - Linux
   - remix
+aliases:
+  - /p1687/
 ---
 ## archlinux install
 

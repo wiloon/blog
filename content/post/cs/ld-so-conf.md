@@ -7,6 +7,9 @@ categories:
   - Inbox
 tags:
   - reprint
+aliases:
+  - /p9613/
+  - /p13489/
 ---
 ## ld.so.conf
 http://lsscto.blog.51cto.com/779396/904078

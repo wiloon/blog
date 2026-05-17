@@ -7,6 +7,8 @@ categories:
   - Inbox
 tags:
   - reprint
+aliases:
+  - /p12181/
 ---
 ## pet
 https://mp.weixin.qq.com/s/pccId4L674Y61Re7SZiLKg

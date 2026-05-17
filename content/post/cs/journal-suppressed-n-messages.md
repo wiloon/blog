@@ -7,6 +7,8 @@ categories:
   - Inbox
 tags:
   - reprint
+aliases:
+  - /p14736/
 ---
 ## journal suppressed N messages
 

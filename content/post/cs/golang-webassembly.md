@@ -7,6 +7,17 @@ categories:
   - Inbox
 tags:
   - reprint
+aliases:
+  - /p9287/
+  - /p9903/
+  - /p12719/
+  - /p13910/
+  - /p14254/
+  - /p14322/
+  - /p15099/
+  - /p15113/
+  - /p15626/
+  - /p15683/
 ---
 ## golang WebAssembly
 

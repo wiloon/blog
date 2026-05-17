@@ -7,6 +7,8 @@ categories:
   - Inbox
 tags:
   - reprint
+aliases:
+  - /p15986/
 ---
 ## goroutine pool
 ```go

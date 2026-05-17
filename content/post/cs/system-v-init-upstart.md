@@ -7,6 +7,8 @@ categories:
   - Inbox
 tags:
   - reprint
+aliases:
+  - /p11410/
 ---
 ## System V init, Upstart,Systemd
 

@@ -7,6 +7,8 @@ categories:
   - Inbox
 tags:
   - reprint
+aliases:
+  - /p14542/
 ---
 ## chained invocation (链式调用) 或者Method chaining
 https://www.zhihu.com/question/22006988

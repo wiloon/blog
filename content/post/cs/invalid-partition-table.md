@@ -7,6 +7,8 @@ categories:
   - Inbox
 tags:
   - reprint
+aliases:
+  - /p8911/
 ---
 ## Invalid partition table
 syslinux

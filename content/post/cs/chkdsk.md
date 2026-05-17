@@ -8,6 +8,9 @@ categories:
 tags:
   - Windows
 
+aliases:
+  - /p7579/
+  - /p15562/
 ---
 ## chkdsk
 

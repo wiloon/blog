@@ -7,6 +7,8 @@ categories:
   - Java
 tags:
   - reprint
+aliases:
+  - /p3563/
 ---
 ## java BC/Bouncy Castle
 

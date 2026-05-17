@@ -7,6 +7,8 @@ categories:
   - Inbox
 tags:
   - reprint
+aliases:
+  - /p10018/
 ---
 ## archlinux, tensorFlow, golang
 

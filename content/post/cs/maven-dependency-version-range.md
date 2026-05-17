@@ -7,6 +7,9 @@ categories:
   - Inbox
 tags:
   - reprint
+aliases:
+  - /p9758/
+  - /p15677/
 ---
 ## maven dependency version range
 

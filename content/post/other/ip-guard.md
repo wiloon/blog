@@ -7,6 +7,10 @@ categories:
   - Linux
 tags:
   - reprint
+aliases:
+  - /p1190/
+  - /p1762/
+  - /p3234/
 ---
 ## "ip-guard, [0x7FFFBB83E044] ANOMALY: use of REX.w is meaningless (default operand size is 64)"
 

@@ -8,6 +8,9 @@ categories:
 tags:
   - XML
 
+aliases:
+  - /p3481/
+  - /p6050/
 ---
 ## xml version
 There are two current versions of XML. The first (_XML 1.0_) was initially defined in 1998. It has undergone minor revisions since then, without being given a new version number, and is currently in its fifth edition, as published on November 26, 2008. It is widely implemented and still recommended for general use.

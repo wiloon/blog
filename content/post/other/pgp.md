@@ -7,6 +7,9 @@ categories:
   - Java
 tags:
   - reprint
+aliases:
+  - /p1068/
+  - /p3306/
 ---
 ## One or more PGP signatures could not be verified
 

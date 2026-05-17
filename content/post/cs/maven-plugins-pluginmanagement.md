@@ -7,6 +7,8 @@ categories:
   - Inbox
 tags:
   - reprint
+aliases:
+  - /p11959/
 ---
 ## maven plugins, pluginManagement
 https://www.jianshu.com/p/49acf1246eff

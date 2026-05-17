@@ -7,6 +7,8 @@ categories:
   - Inbox
 tags:
   - reprint
+aliases:
+  - /p2802/
 ---
 ## Pageant
 Pageant (an SSH authentication agent for PuTTY, PSCP, PSFTP, and Plink)

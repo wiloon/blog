@@ -8,6 +8,8 @@ categories:
 tags:
   - Java
 
+aliases:
+  - /p6533/
 ---
 ## Java JNI
 http://blog.csdn.net/u_xtian/article/details/6033963

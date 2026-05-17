@@ -8,5 +8,7 @@ categories:
 tags:
   - reprint
   - Agile
+aliases:
+  - /p5280/
 ---
 ## 'Scrum,Sprint Review Meeting'

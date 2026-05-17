@@ -7,6 +7,8 @@ categories:
   - inbox
 tags:
   - reprint
+aliases:
+  - /p11689/
 ---
 ## golang pdf,excel
 

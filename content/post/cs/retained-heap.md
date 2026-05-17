@@ -7,6 +7,8 @@ categories:
   - Inbox
 tags:
   - reprint
+aliases:
+  - /p9739/
 ---
 ## Retained Heap
 http://supercharles888.blog.51cto.com/609344/1347144

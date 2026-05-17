@@ -7,6 +7,9 @@ categories:
   - Inbox
 tags:
   - reprint
+aliases:
+  - /p8803/
+  - /p10508/
 ---
 ## Content-disposition
 

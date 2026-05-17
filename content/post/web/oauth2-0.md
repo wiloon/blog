@@ -7,6 +7,8 @@ categories:
   - Web
 tags:
   - reprint
+aliases:
+  - /p3646/
 ---
 ## OAuth2.0
 

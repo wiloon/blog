@@ -7,6 +7,8 @@ categories:
   - Java
 tags:
   - reprint
+aliases:
+  - /p4159/
 ---
 ## Java assertion
 as[http://www.ibm.com/developerworks/cn/java/l-javaassertion/index.html](http://www.ibm.com/developerworks/cn/java/l-javaassertion/index.html)

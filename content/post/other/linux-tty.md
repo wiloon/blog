@@ -7,6 +7,15 @@ tags:
   - Linux
 categories:
   - inbox
+aliases:
+  - /p5002/
+  - /p5335/
+  - /p5544/
+  - /p5645/
+  - /p6302/
+  - /p6932/
+  - /p7609/
+  - /p8204/
 ---
 ## linux tty
 

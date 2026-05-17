@@ -7,6 +7,8 @@ categories:
   - Algorithm
 tags:
   - Inbox
+aliases:
+  - /p3805/
 ---
 ## "SkipList, 跳表, 跳跃表"
 

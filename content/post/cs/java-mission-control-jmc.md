@@ -7,6 +7,8 @@ categories:
   - Inbox
 tags:
   - reprint
+aliases:
+  - /p15000/
 ---
 ## Java Mission Control, jmc
 https://github.com/JDKMissionControl/jmc

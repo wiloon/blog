@@ -7,6 +7,8 @@ categories:
   - Inbox
 tags:
   - reprint
+aliases:
+  - /p12217/
 ---
 ## 内网 dns dig 能解析出ip, ping 返回 Name or service not known
 

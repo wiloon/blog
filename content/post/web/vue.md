@@ -10,6 +10,9 @@ tags:
   - vite
   - remix
   - AI-assisted
+aliases:
+  - /p1444/
+  - /p4343/
 ---
 ## vue basic
 
@@ -516,6 +519,9 @@ this.$router.currentRoute.path
 
 >[https://blog.csdn.net/weixin_49696014/article/details/113180848](https://blog.csdn.net/weixin_49696014/article/details/113180848)
 
+aliases:
+  - /p1444/
+  - /p4343/
 ----
 
 [https://cli.vuejs.org/zh/guide/prototyping.html](https://cli.vuejs.org/zh/guide/prototyping.html)

@@ -7,6 +7,11 @@ categories:
   - Inbox
 tags:
   - reprint
+aliases:
+  - /p8485/
+  - /p9631/
+  - /p9639/
+  - /p14741/
 ---
 ## redis windows
 

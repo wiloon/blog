@@ -7,6 +7,9 @@ tags:
   - Java
 categories:
   - inbox
+aliases:
+  - /p3888/
+  - /p4183/
 ---
 ## java enum/枚举
 Java 5.0 引入了枚举类型,语法参见 JLS 8.9

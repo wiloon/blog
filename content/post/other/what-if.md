@@ -7,6 +7,8 @@ categories:
   - English
 tags:
   - reprint
+aliases:
+  - /p4768/
 ---
 ## what if
 

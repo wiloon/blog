@@ -8,6 +8,8 @@ categories:
 tags:
   - Dart
 
+aliases:
+  - /p7669/
 ---
 ## 'proxy setting  for dart editor'
 

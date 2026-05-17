@@ -7,6 +7,8 @@ categories:
   - Inbox
 tags:
   - reprint
+aliases:
+  - /p6504/
 ---
 ## dex2jar
 https://code.google.com/p/dex2jar/

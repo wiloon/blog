@@ -8,6 +8,8 @@ categories:
 tags:
   - CSS
 
+aliases:
+  - /p2398/
 ---
 ## overflow, hidden
 # 

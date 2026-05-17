@@ -7,6 +7,8 @@ categories:
   - Inbox
 tags:
   - reprint
+aliases:
+  - /p8293/
 ---
 ## linux DBUS
 D-Bus三层架构

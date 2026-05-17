@@ -8,6 +8,11 @@ categories:
 tags:
   - Windows
 
+aliases:
+  - /p5348/
+  - /p7133/
+  - /p7451/
+  - /p7813/
 ---
 ## windows command
 

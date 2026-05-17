@@ -7,6 +7,8 @@ categories:
   - Inbox
 tags:
   - reprint
+aliases:
+  - /p13759/
 ---
 ## google authenticator databases
 https://eduncan911.com/technology/hardware/google-authenticator-databases-move-copy-fix.html

@@ -8,6 +8,8 @@ categories:
   - Web
 tags:
   - reprint
+aliases:
+  - /p3318/
 ---
 ## tomcat server.xml
 http://www.importnew.com/26156.html

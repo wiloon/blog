@@ -8,6 +8,8 @@ categories:
 tags:
   - HTML
 
+aliases:
+  - /p200/
 ---
 ## px pt em
 px: pixel，像素，屏幕上显示的最小单位，用于网页设计；

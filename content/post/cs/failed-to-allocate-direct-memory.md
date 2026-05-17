@@ -7,6 +7,8 @@ categories:
   - Inbox
 tags:
   - reprint
+aliases:
+  - /p12037/
 ---
 ## failed to allocate direct memory
 

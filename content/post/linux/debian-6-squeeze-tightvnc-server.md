@@ -7,6 +7,8 @@ categories:
   - Linux
 tags:
   - reprint
+aliases:
+  - /p4857/
 ---
 ## Debian 6 squeeze TightVNC Server
 # 1 安装

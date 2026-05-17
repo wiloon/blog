@@ -8,6 +8,8 @@ categories:
 tags:
   - memory
 
+aliases:
+  - /p6547/
 ---
 ## 页缓存, Page Cache
 

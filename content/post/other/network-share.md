@@ -8,6 +8,8 @@ categories:
 tags:
   - reprint
   - Network
+aliases:
+  - /p6089/
 ---
 ## Windows 共享网络设置 (有线网络和无线网络）
 

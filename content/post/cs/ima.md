@@ -7,6 +7,8 @@ categories:
   - Inbox
 tags:
   - reprint
+aliases:
+  - /p9354/
 ---
 ## ima
 symbol  用来计算MA指标的货币代码,NULL表示用当前货币

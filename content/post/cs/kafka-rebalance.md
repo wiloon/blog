@@ -7,6 +7,10 @@ categories:
   - Inbox
 tags:
   - reprint
+aliases:
+  - /p14317/
+  - /p15152/
+  - /p15430/
 ---
 ## kafka rebalance
 

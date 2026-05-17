@@ -7,6 +7,8 @@ categories:
   - Inbox
 tags:
   - reprint
+aliases:
+  - /p8755/
 ---
 ## java unix socket
 <dependency>

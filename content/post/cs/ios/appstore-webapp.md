@@ -7,6 +7,9 @@ categories:
   - Inbox
 tags:
   - reprint
+aliases:
+  - /p7226/
+  - /p15927/
 ---
 ## 苹果 WebApp
 

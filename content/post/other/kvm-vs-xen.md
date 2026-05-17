@@ -8,6 +8,14 @@ categories:
   - Desktop
 tags:
   - reprint
+aliases:
+  - /p1625/
+  - /p1629/
+  - /p1739/
+  - /p1871/
+  - /p1881/
+  - /p4031/
+  - /p7541/
 ---
 ## KVM Xen
 

@@ -7,6 +7,8 @@ categories:
   - inbox
 tags:
   - reprint
+aliases:
+  - /p8161/
 ---
 ## Java Unix Socket
 http://www.oschina.net/p/juds/similar_projects?lang=0&sort=view

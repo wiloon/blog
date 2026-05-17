@@ -7,6 +7,8 @@ categories:
   - Web
 tags:
   - reprint
+aliases:
+  - /p5703/
 ---
 ## 长选项, 短选项, short options, long options
 

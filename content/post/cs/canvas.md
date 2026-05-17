@@ -8,6 +8,8 @@ categories:
 tags:
   - HTML
 
+aliases:
+  - /p7059/
 ---
 ## canvas
 

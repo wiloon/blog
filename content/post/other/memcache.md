@@ -8,6 +8,9 @@ categories:
 tags:
   - Memcache
 
+aliases:
+  - /p7465/
+  - /p7936/
 ---
 ## MemCache
 [http://blog.csdn.net/hjm4702192/article/details/7894080](http://blog.csdn.net/hjm4702192/article/details/7894080)

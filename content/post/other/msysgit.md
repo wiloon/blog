@@ -7,6 +7,8 @@ categories:
   - Tools
 tags:
   - reprint
+aliases:
+  - /p3025/
 ---
 ## msysgit
 Choose the Run Git from the Windows Command Prompt option

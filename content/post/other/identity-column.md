@@ -7,6 +7,8 @@ categories:
   - Inbox
 tags:
   - reprint
+aliases:
+  - /p5632/
 ---
 ## IDENTITY COLUMN
 一、标识列的定义以及特点

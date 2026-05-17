@@ -7,6 +7,8 @@ categories:
   - Java
 tags:
   - reprint
+aliases:
+  - /p4299/
 ---
 ## 'Java Hex To Byte & CRCChecker'
 ```java

@@ -7,6 +7,9 @@ categories:
   - Inbox
 tags:
   - reprint
+aliases:
+  - /p8469/
+  - /p14549/
 ---
 ## ODX(Open Diagnostic Data Exchange)
 

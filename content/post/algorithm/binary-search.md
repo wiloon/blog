@@ -8,6 +8,9 @@ categories:
 tags:
   - reprint
 
+aliases:
+  - /p3667/
+  - /p7929/
 ---
 ## 二分法, binary search algorithm
 

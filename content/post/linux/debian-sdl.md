@@ -7,6 +7,8 @@ categories:
   - Linux
 tags:
   - reprint
+aliases:
+  - /p5136/
 ---
 ## 'debian & SDL'
 **http://www.upubuntu.com/2012/01/how-to-install-sdl-12-simple.html**

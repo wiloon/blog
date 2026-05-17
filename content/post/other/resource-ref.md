@@ -9,6 +9,11 @@ categories:
 tags:
   - Servlet
 
+aliases:
+  - /p4171/
+  - /p4630/
+  - /p4632/
+  - /p4972/
 ---
 ## resource-ref
 

@@ -8,6 +8,8 @@ categories:
 tags:
   - JavaScript
 
+aliases:
+  - /p6293/
 ---
 ## js check platform
 

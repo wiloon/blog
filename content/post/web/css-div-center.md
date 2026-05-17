@@ -8,6 +8,8 @@ categories:
 tags:
   - CSS
 
+aliases:
+  - /p6771/
 ---
 ## CSS DIV居中
 CSS 如何使DIV层水平居中

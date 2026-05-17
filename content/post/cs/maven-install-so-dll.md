@@ -7,6 +7,8 @@ categories:
   - Inbox
 tags:
   - reprint
+aliases:
+  - /p8799/
 ---
 ## maven install so dll
 http://tonyking2010.iteye.com/blog/1845710

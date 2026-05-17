@@ -7,6 +7,8 @@ categories:
   - Linux
 tags:
   - reprint
+aliases:
+  - /p3530/
 ---
 ## hashtable, 哈希表, Hash表
 

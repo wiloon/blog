@@ -7,6 +7,9 @@ categories:
   - inbox
 tags:
   - reprint
+aliases:
+  - /p1417/
+  - /p1561/
 ---
 ## 技术大牛谈HTML 5设计原理
 [http://developer.51cto.com/art/201103/247880.htm](http://developer.51cto.com/art/201103/247880.htm)

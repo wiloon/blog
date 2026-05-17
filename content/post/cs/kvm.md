@@ -8,6 +8,9 @@ categories:
   - Desktop
 tags:
   - reprint
+aliases:
+  - /p1619/
+  - /p14053/
 ---
 ## 虚拟化, KVM
 ### intel 虚拟化 VT-d VT-x VT-c

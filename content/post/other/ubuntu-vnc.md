@@ -7,6 +7,8 @@ categories:
   - Linux
 tags:
   - reprint
+aliases:
+  - /p2165/
 ---
 ## ubuntu vnc
 第一步，获取安装文件

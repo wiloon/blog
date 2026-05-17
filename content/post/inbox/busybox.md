@@ -7,6 +7,9 @@ categories:
   - Inbox
 tags:
   - reprint
+aliases:
+  - /p9836/
+  - /p10381/
 ---
 ## busybox
 

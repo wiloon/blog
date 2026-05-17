@@ -7,6 +7,9 @@ categories:
   - Inbox
 tags:
   - reprint
+aliases:
+  - /p1267/
+  - /p5443/
 ---
 ## Dovecot, 邮件服务器
 

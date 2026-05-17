@@ -7,6 +7,8 @@ categories:
   - Inbox
 tags:
   - reprint
+aliases:
+  - /p8681/
 ---
 ## linux kvm nat nftables
 

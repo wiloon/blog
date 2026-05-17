@@ -7,6 +7,9 @@ categories:
   - Network
 tags:
   - reprint
+aliases:
+  - /p5059/
+  - /p5341/
 ---
 ## 队头阻塞, head-of-line blocking
 

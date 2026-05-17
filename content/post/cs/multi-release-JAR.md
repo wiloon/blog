@@ -8,6 +8,10 @@ categories:
   - Java
 tags:
   - reprint
+aliases:
+  - /p6601/
+  - /p12177/
+  - /p15716/
 ---
 ## multi-release JAR (MR JAR)
 

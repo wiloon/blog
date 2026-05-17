@@ -7,6 +7,8 @@ categories:
   - Inbox
 tags:
   - reprint
+aliases:
+  - /p7079/
 ---
 ## Create spring mvc project
 gradle plugin:

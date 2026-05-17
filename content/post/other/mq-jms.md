@@ -8,6 +8,8 @@ categories:
 tags:
   - Java
 
+aliases:
+  - /p6724/
 ---
 ## MQ JMS
 [http://blog.csdn.net/xyw_blog/article/details/9128165](http://blog.csdn.net/xyw_blog/article/details/9128165)

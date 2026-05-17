@@ -9,6 +9,11 @@ categories:
 tags:
   - Servlet
 
+aliases:
+  - /p1304/
+  - /p1398/
+  - /p3507/
+  - /p3580/
 ---
 ## ServletContextListener
 [http://www.cnblogs.com/kentyshang/archive/2007/06/26/795878.html](http://www.cnblogs.com/kentyshang/archive/2007/06/26/795878.html)

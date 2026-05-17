@@ -9,6 +9,9 @@ categories:
 tags:
   - Git
 
+aliases:
+  - /p177/
+  - /p181/
 ---
 ## gitosis install
 

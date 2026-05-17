@@ -8,6 +8,9 @@ categories:
   - Network
 tags:
   - reprint
+aliases:
+  - /p2110/
+  - /p4224/
 ---
 ## Dsniff
 

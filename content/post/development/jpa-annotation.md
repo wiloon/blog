@@ -8,6 +8,11 @@ categories:
 tags:
   - JPA
 
+aliases:
+  - /p6651/
+  - /p6676/
+  - /p6678/
+  - /p7692/
 ---
 ## jpa annotation, 注解
 http://mzhj.iteye.com/blog/711685

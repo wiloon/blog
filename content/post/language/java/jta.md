@@ -7,6 +7,8 @@ categories:
   - Java
 tags:
   - reprint
+aliases:
+  - /p1962/
 ---
 ## JTA
 JTA，即Java Transaction API，译为Java事务API。

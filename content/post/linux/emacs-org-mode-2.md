@@ -7,6 +7,19 @@ categories:
   - Tools
 tags:
   - reprint
+aliases:
+  - /p77/
+  - /p98/
+  - /p113/
+  - /p161/
+  - /p434/
+  - /p822/
+  - /p1512/
+  - /p1860/
+  - /p2327/
+  - /p3979/
+  - /p4007/
+  - /p5668/
 ---
 ## emacs org mode
 

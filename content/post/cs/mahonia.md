@@ -7,6 +7,8 @@ categories:
   - Inbox
 tags:
   - reprint
+aliases:
+  - /p11352/
 ---
 ## Mahonia
 Mahonia—a character-set conversion library for Go

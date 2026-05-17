@@ -7,6 +7,9 @@ categories:
   - Inbox
 tags:
   - reprint
+aliases:
+  - /p4740/
+  - /p7785/
 ---
 ## html input
 ```xml

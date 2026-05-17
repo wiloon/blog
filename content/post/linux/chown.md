@@ -7,6 +7,8 @@ categories:
   - Linux
 tags:
   - reprint
+aliases:
+  - /p1705/
 ---
 ## chown 更改文件拥有者
 

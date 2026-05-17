@@ -7,6 +7,8 @@ categories:
   - Inbox
 tags:
   - reprint
+aliases:
+  - /p11305/
 ---
 ## 正向代理, Forward Proxy, 反向代理, reverse proxy
 

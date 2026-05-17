@@ -7,6 +7,8 @@ categories:
   - Hardware
 tags:
   - reprint
+aliases:
+  - /p4932/
 ---
 ## SSD - Smart Response
 

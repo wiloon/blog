@@ -7,6 +7,8 @@ categories:
   - Java
 tags:
   - reprint
+aliases:
+  - /p4312/
 ---
 ## Java Spring LDAP
 ```java

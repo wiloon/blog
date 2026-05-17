@@ -7,6 +7,8 @@ categories:
   - Inbox
 tags:
   - reprint
+aliases:
+  - /p6540/
 ---
 ## classes.dex
   * `classes.dex`: The classes compiled in the [dex file format][1] understandable by the [Dalvik virtual machine][1]

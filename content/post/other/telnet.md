@@ -7,6 +7,8 @@ categories:
   - Network
 tags:
   - reprint
+aliases:
+  - /p1767/
 ---
 ## telnet, nc, socat
 

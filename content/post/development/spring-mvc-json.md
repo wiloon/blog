@@ -9,6 +9,8 @@ tags:
   - spirn
   - Spring
 
+aliases:
+  - /p5110/
 ---
 ## spring MVC json
 

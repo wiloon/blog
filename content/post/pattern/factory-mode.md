@@ -8,6 +8,8 @@ categories:
 tags:
   - Pattern
 
+aliases:
+  - /p1335/
 ---
 ## 工厂模式
 工厂模式是我们最常用的模式了,著名的Jive论坛 ,就大量使用了工厂模式，工厂模式在Java程序系统可以说是随处可见。

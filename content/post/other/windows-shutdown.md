@@ -7,6 +7,10 @@ categories:
   - Desktop
 tags:
   - reprint
+aliases:
+  - /p2301/
+  - /p5475/
+  - /p7143/
 ---
 ## windows shutdown script
 ### win10

@@ -8,6 +8,8 @@ categories:
 tags:
   - Java
 
+aliases:
+  - /p1057/
 ---
 ## Java EE
 Java EE，Java2平台企业版 (Java 2 Platform Enterprise Edition) ，是Sun公司为企业级应用推出的标准平台。Java平台共分为三个主要版本Java EE、Java SE和Java ME。

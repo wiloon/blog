@@ -7,6 +7,8 @@ categories:
   - Inbox
 tags:
   - reprint
+aliases:
+  - /p15208/
 ---
 ## DCEVM, HotSwapAgent
 https://blog.csdn.net/u013613428/article/details/51499911

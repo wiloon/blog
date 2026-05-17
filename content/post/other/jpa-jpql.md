@@ -8,6 +8,10 @@ categories:
 tags:
   - JPA
 
+aliases:
+  - /p6674/
+  - /p6688/
+  - /p6706/
 ---
 ## JPA JPQL
 

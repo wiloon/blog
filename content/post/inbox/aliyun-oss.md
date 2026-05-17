@@ -7,6 +7,8 @@ categories:
   - Cloud
 tags:
   - reprint
+aliases:
+  - /p13648/
 ---
 ## aliyun oss, 对象存储, ossutil
 

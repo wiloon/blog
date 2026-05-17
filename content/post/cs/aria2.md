@@ -8,6 +8,8 @@ categories:
   - inbox
 tags:
   - reprint
+aliases:
+  - /p14416/
 ---
 
 ## aria2

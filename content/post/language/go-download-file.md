@@ -8,6 +8,8 @@ categories:
 tags:
   - JBoss
 
+aliases:
+  - /p6358/
 ---
 ## golang download file
 http://www.open-open.com/code/view/1440512102513

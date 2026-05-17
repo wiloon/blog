@@ -7,6 +7,8 @@ categories:
   - Linux
 tags:
   - reprint
+aliases:
+  - /p11568/
 ---
 ## linux shell ctrl – s
 

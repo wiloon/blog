@@ -7,6 +7,9 @@ categories:
   - Java
 tags:
   - reprint
+aliases:
+  - /p4321/
+  - /p4338/
 ---
 ## Java HTTP Helper
 ```java

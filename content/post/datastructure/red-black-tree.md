@@ -9,6 +9,8 @@ tags:
   - Algorithm
   - Java
 
+aliases:
+  - /p7914/
 ---
 ## Red-Black Tree, 红黑树, R-B Tree
 

@@ -7,6 +7,8 @@ categories:
   - Java
 tags:
   - reprint
+aliases:
+  - /p3142/
 ---
 ## jautodoc
 http://jautodoc.sourceforge.net/update/

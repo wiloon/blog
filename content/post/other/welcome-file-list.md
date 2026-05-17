@@ -9,6 +9,8 @@ categories:
 tags:
   - Servlet
 
+aliases:
+  - /p3479/
 ---
 ## welcome-file-list
 

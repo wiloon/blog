@@ -9,6 +9,8 @@ categories:
 tags:
   - Tomcat
 
+aliases:
+  - /p1510/
 ---
 ## tomcat config, server, user
 server

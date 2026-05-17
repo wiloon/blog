@@ -8,6 +8,8 @@ categories:
 tags:
   - Java
 
+aliases:
+  - /p6479/
 ---
 ## ByteArrayInputStream ByteArrayOutputStream
 http://blog.csdn.net/rcoder/article/details/6118313

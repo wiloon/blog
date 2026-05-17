@@ -7,6 +7,9 @@ categories:
   - Linux
 tags:
   - reprint
+aliases:
+  - /p1502/
+  - /p6334/
 ---
 ## missing LSB tags and overrides
 update-rc.d tomcat defaults

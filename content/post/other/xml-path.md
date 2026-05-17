@@ -7,6 +7,8 @@ categories:
   - Database
 tags:
   - reprint
+aliases:
+  - /p5741/
 ---
 ## FOR XML PATH
 [http://www.cnblogs.com/doubleliang/archive/2011/07/06/2098775.html](http://www.cnblogs.com/doubleliang/archive/2011/07/06/2098775.html)

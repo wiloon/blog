@@ -8,6 +8,8 @@ categories:
 tags:
   - MySQL
 
+aliases:
+  - /p73/
 ---
 ## MySQL str to datatime
 str_to_date('29-AUG-10 03.26.32 PM','%d-%b-%y %h.%i.%s %p')

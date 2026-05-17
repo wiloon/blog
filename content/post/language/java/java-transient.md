@@ -8,6 +8,8 @@ categories:
 tags:
   - Java
 
+aliases:
+  - /p7964/
 ---
 ## java transient
 http://www.cnblogs.com/lanxuezaipiao/p/3369962.html

@@ -8,6 +8,8 @@ categories:
 tags:
   - Auto
 
+aliases:
+  - /p8615/
 ---
 ## BCM Body Control Module
 http://club.autohome.com.cn/bbs/thread-c-2137-14886528-1.html

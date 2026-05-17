@@ -7,6 +7,8 @@ categories:
   - Inbox
 tags:
   - reprint
+aliases:
+  - /p8630/
 ---
 ## appassembler-maven-plugin
 

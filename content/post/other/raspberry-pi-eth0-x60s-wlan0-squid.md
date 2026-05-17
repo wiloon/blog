@@ -8,6 +8,8 @@ categories:
 tags:
   - reprint
   - Network
+aliases:
+  - /p5828/
 ---
 ## raspberry pi eth0 x60s wlan0 squid
 raspberry pi

@@ -7,6 +7,9 @@ categories:
   - Inbox
 tags:
   - reprint
+aliases:
+  - /p8945/
+  - /p9834/
 ---
 ## archlinux netctl wifi
 

@@ -7,6 +7,8 @@ categories:
   - Inbox
 tags:
   - reprint
+aliases:
+  - /p2637/
 ---
 ## FileDisk
 FileDisk原理分析！

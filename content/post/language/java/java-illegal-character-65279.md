@@ -8,6 +8,9 @@ categories:
 tags:
   - Java
 
+aliases:
+  - /p4354/
+  - /p6081/
 ---
 ## 'java  illegal character  \65279'
 

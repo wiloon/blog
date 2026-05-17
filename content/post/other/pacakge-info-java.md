@@ -8,6 +8,8 @@ categories:
   - Java
 tags:
   - reprint
+aliases:
+  - /p3901/
 ---
 ## pacakge-info.java
 http://strong-life-126-com.iteye.com/blog/806246

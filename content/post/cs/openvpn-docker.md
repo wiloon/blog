@@ -7,6 +7,10 @@ categories:
   - Hardware
 tags:
   - reprint
+aliases:
+  - /p12844/
+  - /p12849/
+  - /p12939/
 ---
 ## raspberry pi openvpn docker
 ```bash

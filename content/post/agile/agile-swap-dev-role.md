@@ -7,6 +7,8 @@ categories:
   - Agile
 tags:
   - reprint
+aliases:
+  - /p5685/
 ---
 ## 角色互换, Swapping Roles
 

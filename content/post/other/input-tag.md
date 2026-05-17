@@ -8,6 +8,8 @@ categories:
 tags:
   - HTML
 
+aliases:
+  - /p1319/
 ---
 ## input tag
 Optional Attributes:

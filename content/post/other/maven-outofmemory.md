@@ -7,6 +7,9 @@ categories:
   - Inbox
 tags:
   - reprint
+aliases:
+  - /p3094/
+  - /p3548/
 ---
 ## Maven OutOfMemory
   

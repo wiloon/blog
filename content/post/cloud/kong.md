@@ -9,6 +9,8 @@ tags:
   - reprint
   - remix
   - AI-assisted
+aliases:
+  - /p8263/
 ---
 ## Kong 插件开发语言
 

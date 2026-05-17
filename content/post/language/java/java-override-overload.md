@@ -7,6 +7,8 @@ categories:
   - Java
 tags:
   - reprint
+aliases:
+  - /p3502/
 ---
 ## 'Java Override   Overload  重写、覆盖、重载、多态'
 重写、覆盖、重载、多态几个概念的区别分析

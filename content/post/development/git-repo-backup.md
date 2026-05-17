@@ -8,6 +8,8 @@ categories:
 tags:
   - Git
 
+aliases:
+  - /p2750/
 ---
 ## git repo backup
 

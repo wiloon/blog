@@ -7,6 +7,9 @@ categories:
   - Linux
 tags:
   - reprint
+aliases:
+  - /p2728/
+  - /p5901/
 ---
 ## FreeDOS USB Bootable Drive
 

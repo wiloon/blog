@@ -7,6 +7,10 @@ categories:
   - Inbox
 tags:
   - reprint
+aliases:
+  - /p8714/
+  - /p9988/
+  - /p15303/
 ---
 ## junit
 

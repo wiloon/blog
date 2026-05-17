@@ -8,6 +8,8 @@ categories:
 tags:
   - Jenkins
 
+aliases:
+  - /p990/
 ---
 ## Jenkins basic
 

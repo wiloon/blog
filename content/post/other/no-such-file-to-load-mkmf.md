@@ -8,6 +8,9 @@ categories:
   - Linux
 tags:
   - reprint
+aliases:
+  - /p2800/
+  - /p4759/
 ---
 ## no such file to load — mkmf
 ```bash

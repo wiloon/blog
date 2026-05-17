@@ -8,6 +8,8 @@ categories:
 tags:
   - Logistics
 
+aliases:
+  - /p6710/
 ---
 ## SKU
 

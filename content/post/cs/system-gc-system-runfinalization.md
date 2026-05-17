@@ -7,6 +7,8 @@ categories:
   - Inbox
 tags:
   - reprint
+aliases:
+  - /p10456/
 ---
 ## System.gc(), System.runFinalization()
 System.gc:

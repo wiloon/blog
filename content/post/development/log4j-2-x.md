@@ -8,6 +8,8 @@ categories:
 tags:
   - logging
 
+aliases:
+  - /p6079/
 ---
 ## Log4j 2.x
 

@@ -7,6 +7,8 @@ categories:
   - Java
 tags:
   - reprint
+aliases:
+  - /p3267/
 ---
 ## 'java.lang.OutOfMemoryError, PermGen space'
 http://peak.iteye.com/blog/52606

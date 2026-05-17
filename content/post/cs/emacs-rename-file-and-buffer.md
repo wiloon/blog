@@ -7,6 +7,8 @@ categories:
   - Inbox
 tags:
   - reprint
+aliases:
+  - /p10783/
 ---
 ## emacs rename file and buffer
 

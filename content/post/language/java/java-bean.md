@@ -7,6 +7,9 @@ categories:
   - Java
 tags:
   - reprint
+aliases:
+  - /p1062/
+  - /p8828/
 ---
 ## Java Bean
 

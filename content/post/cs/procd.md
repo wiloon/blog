@@ -7,6 +7,8 @@ categories:
   - Inbox
 tags:
   - reprint
+aliases:
+  - /p13512/
 ---
 ## procd
 https://openwrt.org/docs/guide-developer/procd-init-scripts

@@ -10,6 +10,8 @@ tags:
   - Derby
   - Java
 
+aliases:
+  - /p858/
 ---
 ## Derby
 Apache Derby, an Apache DB subproject, is an open source relational database implemented entirely in Java and available under the Apache License, Version 2.0. Some key advantages include:

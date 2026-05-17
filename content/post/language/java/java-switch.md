@@ -7,6 +7,8 @@ categories:
   - Java
 tags:
   - reprint
+aliases:
+  - /p3525/
 ---
 ## java switch
 关于java中switch使用的一些说明

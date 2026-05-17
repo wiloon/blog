@@ -7,6 +7,8 @@ categories:
   - Database
 tags:
   - reprint
+aliases:
+  - /p2384/
 ---
 ## 关系型数据库 VS 非关系型数据库
 

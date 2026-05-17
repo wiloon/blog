@@ -7,6 +7,8 @@ categories:
   - Linux
 tags:
   - reprint
+aliases:
+  - /p2189/
 ---
 ## debian, grub2, run level
 edit /boot/grub/grub.cfg

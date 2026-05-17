@@ -7,6 +7,8 @@ categories:
   - Inbox
 tags:
   - reprint
+aliases:
+  - /p13123/
 ---
 ## xss, AntiSamy
 https://blog.csdn.net/zhujq_icode/article/details/79154063

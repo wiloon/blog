@@ -9,6 +9,8 @@ tags:
   - Pattern
   - remix
   - AI-assisted
+aliases:
+  - /p356/
 ---
 ## 策略模式, Strategy Pattern
 

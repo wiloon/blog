@@ -7,6 +7,8 @@ categories:
   - Inbox
 tags:
   - reprint
+aliases:
+  - /p9327/
 ---
 ## tprofiler
 ```bash

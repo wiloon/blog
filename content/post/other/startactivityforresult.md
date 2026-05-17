@@ -7,6 +7,8 @@ categories:
   - Inbox
 tags:
   - reprint
+aliases:
+  - /p6964/
 ---
 ## startActivityForResult()
 
@@ -64,6 +66,8 @@ break;
   
 }
   
+aliases:
+  - /p6964/
 -----------------------------
   
 //- B.java -//

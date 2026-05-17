@@ -8,6 +8,8 @@ categories:
 tags:
   - Gradle
 
+aliases:
+  - /p7083/
 ---
 ## gradle cmd utf8 error
 ```bash

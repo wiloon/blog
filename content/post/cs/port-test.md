@@ -7,6 +7,8 @@ categories:
   - Inbox
 tags:
   - reprint
+aliases:
+  - /p12935/
 ---
 ## test for a specific port from Linux or Unix command line
 

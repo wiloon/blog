@@ -7,6 +7,8 @@ categories:
   - Linux
 tags:
   - reprint
+aliases:
+  - /p3216/
 ---
 ## ubuntu vsftpd
 sudo apt-get install vsftpd

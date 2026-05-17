@@ -7,6 +7,8 @@ categories:
   - Inbox
 tags:
   - reprint
+aliases:
+  - /p11170/
 ---
 ## golang 枚举, enum
 

@@ -7,6 +7,8 @@ categories:
   - Inbox
 tags:
   - reprint
+aliases:
+  - /p8261/
 ---
 ## Web服务 压力测试工具,goreplay gor, http_load、webbench、apabhe ab、siege
 

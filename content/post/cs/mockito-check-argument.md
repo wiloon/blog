@@ -7,6 +7,8 @@ categories:
   - Inbox
 tags:
   - reprint
+aliases:
+  - /p9435/
 ---
 ## mockito check argument
 ```bash

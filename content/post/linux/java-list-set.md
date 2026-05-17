@@ -8,6 +8,8 @@ categories:
 tags:
   - Java
 
+aliases:
+  - /p715/
 ---
 ## java 数组 list set, 数组转set
 http://jerval.iteye.com/blog/1001643

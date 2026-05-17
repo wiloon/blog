@@ -7,6 +7,9 @@ categories:
   - Inbox
 tags:
   - reprint
+aliases:
+  - /p8549/
+  - /p8671/
 ---
 http://www.cnblogs.com/zcy_soft/p/3566208.html
 

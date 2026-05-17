@@ -10,6 +10,8 @@ tags:
   - Java
   - logging
 
+aliases:
+  - /p6788/
 ---
 ## Log4j 日志级别
 

@@ -7,6 +7,9 @@ categories:
   - Inbox
 tags:
   - reprint
+aliases:
+  - /p8845/
+  - /p16004/
 ---
 ## json tool, jq command, json 格式化
 

@@ -8,6 +8,8 @@ categories:
   - Web
 tags:
   - reprint
+aliases:
+  - /p3545/
 ---
 ## web service
 http://www.cnblogs.com/hanlsheng/archive/2011/01/20/1940367.html

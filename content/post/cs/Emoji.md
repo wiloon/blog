@@ -9,6 +9,8 @@ categories:
 tags:
   - Java
 
+aliases:
+  - /p6737/
 ---
 ## 过滤字符串中的 Emoji 表情
 http://doombyte.com/blog/2013/03/20/filter-emoji-emotion-in-string/

@@ -7,6 +7,8 @@ categories:
   - Inbox
 tags:
   - reprint
+aliases:
+  - /p12893/
 ---
 ## the log
 http://www.cnblogs.com/foreach-break/p/notes_about_distributed_system_and_The_log.html

@@ -7,6 +7,8 @@ categories:
   - Inbox
 tags:
   - reprint
+aliases:
+  - /p12677/
 ---
 ## Execute bash script from URL
 

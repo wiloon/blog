@@ -8,6 +8,8 @@ categories:
 tags:
   - Linux
 
+aliases:
+  - /p6397/
 ---
 ## putty ssh 超时
 

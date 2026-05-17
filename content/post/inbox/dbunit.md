@@ -7,6 +7,9 @@ categories:
   - Inbox
 tags:
   - reprint
+aliases:
+  - /p8888/
+  - /p9133/
 ---
 ## DbUnit
 

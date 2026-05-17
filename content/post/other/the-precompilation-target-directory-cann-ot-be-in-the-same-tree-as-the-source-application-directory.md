@@ -7,6 +7,8 @@ categories:
   - Inbox
 tags:
   - reprint
+aliases:
+  - /p5697/
 ---
 ## 'The precompilation target directory  cann ot be in the same tree as the source application directory'
 

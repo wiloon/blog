@@ -7,6 +7,9 @@ categories:
   - Inbox
 tags:
   - reprint
+aliases:
+  - /p3751/
+  - /p6390/
 ---
 ## hacker/cracker
 hacker

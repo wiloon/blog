@@ -8,6 +8,8 @@ categories:
 tags:
   - Linux
 
+aliases:
+  - /p7607/
 ---
 ## linux disk format, mkfs,mke2fs 格式化磁盘
 

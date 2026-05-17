@@ -7,6 +7,9 @@ categories:
   - Inbox
 tags:
   - reprint
+aliases:
+  - /p13537/
+  - /p16040/
 ---
 ## usb win10
 

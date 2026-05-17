@@ -7,6 +7,9 @@ categories:
   - inbox
 tags:
   - reprint
+aliases:
+  - /p9219/
+  - /p10222/
 ---
 ## java jps
 

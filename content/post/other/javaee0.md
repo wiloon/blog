@@ -7,6 +7,8 @@ categories:
   - Inbox
 tags:
   - reprint
+aliases:
+  - /p7268/
 ---
 ## JaveEE
 http://www.iteye.com/topic/153734

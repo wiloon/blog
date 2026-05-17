@@ -10,6 +10,8 @@ tags:
   - monitoring
 categories:
   - inbox
+aliases:
+  - /p3443/
 ---
 ## 管程, monitor
 

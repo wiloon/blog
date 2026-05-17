@@ -7,6 +7,8 @@ categories:
   - Inbox
 tags:
   - reprint
+aliases:
+  - /p14198/
 ---
 ## Apache HttpClient 4.5 How to Get Server Certificates
 

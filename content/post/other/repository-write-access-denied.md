@@ -9,6 +9,8 @@ categories:
 tags:
   - Git
 
+aliases:
+  - /p1438/
 ---
 ## Repository write access denied
 Repository write access denied

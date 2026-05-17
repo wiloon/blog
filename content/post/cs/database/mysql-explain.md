@@ -7,6 +7,8 @@ categories:
   - Database
 tags:
   - reprint
+aliases:
+  - /p9439/
 ---
 ## MySQL explain, 执行计划, Query Execution Plan
 

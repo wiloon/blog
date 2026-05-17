@@ -7,6 +7,9 @@ categories:
   - Inbox
 tags:
   - reprint
+aliases:
+  - /p11365/
+  - /p15495/
 ---
 ## spring rabbitmq
 

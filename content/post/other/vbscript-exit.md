@@ -7,6 +7,10 @@ categories:
   - CS
 tags:
   - reprint
+aliases:
+  - /p1483/
+  - /p1899/
+  - /p2511/
 ---
 ## MySQL index
 http://book.51cto.com/art/201012/240956.htm

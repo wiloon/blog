@@ -7,6 +7,10 @@ categories:
   - Inbox
 tags:
   - reprint
+aliases:
+  - /p5495/
+  - /p5579/
+  - /p7444/
 ---
 ## Strict-Workflow
 

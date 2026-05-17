@@ -7,6 +7,8 @@ categories:
   - Hardware
 tags:
   - reprint
+aliases:
+  - /p11359/
 ---
 ## raspberry ntp
 http://raspberrypi.tomasgreno.cz/ntp-client-and-server.html

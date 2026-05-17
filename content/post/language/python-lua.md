@@ -8,6 +8,8 @@ categories:
 tags:
   - Lua
 
+aliases:
+  - /p8035/
 ---
 ## Python, Lua
 

@@ -8,6 +8,8 @@ categories:
 tags:
   - CSS
 
+aliases:
+  - /p4756/
 ---
 ## LESS CSS
 

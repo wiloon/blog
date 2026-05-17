@@ -8,6 +8,8 @@ categories:
 tags:
   - reprint
   - remix
+aliases:
+  - /p4041/
 ---
 ## MSVC, MinGW, GNU
   

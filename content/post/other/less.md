@@ -8,6 +8,8 @@ categories:
 tags:
   - CSS
 
+aliases:
+  - /p5324/
 ---
 ## Less
 CSS (层叠样式表) 是一门历史悠久的标记性语言,同 HTML 一道,被广泛应用于万维网 (World Wide Web) 中。HTML 主要负责文档结构的定义,CSS 负责文档表现形式或样式的定义。

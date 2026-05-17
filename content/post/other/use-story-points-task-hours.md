@@ -8,6 +8,8 @@ categories:
 tags:
   - reprint
   - Agile
+aliases:
+  - /p5223/
 ---
 ## Use Story Points, task hours
 

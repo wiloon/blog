@@ -7,6 +7,8 @@ categories:
   - Web
 tags:
   - reprint
+aliases:
+  - /p4388/
 ---
 ## DOM, BOM
 

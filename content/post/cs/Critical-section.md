@@ -7,6 +7,8 @@ tags:
   - Java
 categories:
   - inbox
+aliases:
+  - /p7791/
 ---
 ## 临界区, 竞态条件
 

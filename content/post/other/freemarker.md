@@ -7,6 +7,9 @@ categories:
   - Java
 tags:
   - reprint
+aliases:
+  - /p3238/
+  - /p4836/
 ---
 ## FreeMarker
   

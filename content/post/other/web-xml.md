@@ -10,6 +10,8 @@ tags:
   - JavaEE
   - Servlet
 
+aliases:
+  - /p3459/
 ---
 ## web.xml
 web.xml template

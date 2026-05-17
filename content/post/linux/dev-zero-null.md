@@ -7,6 +7,8 @@ categories:
   - Linux
 tags:
   - reprint
+aliases:
+  - /p3453/
 ---
 ## /dev/zero 和 /dev/null
 

@@ -9,6 +9,8 @@ tags:
   - ipv6
   - remix
   - AI-assisted
+aliases:
+  - /p11537/
 ---
 
 ## GUA（Global Unicast Address，全局单播地址）

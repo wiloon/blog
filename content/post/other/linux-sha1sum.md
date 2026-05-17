@@ -8,6 +8,8 @@ categories:
 tags:
   - Linux
 
+aliases:
+  - /p6438/
 ---
 ## linux sha1sum
 > Print or check SHA1 (160-bit) checksums. With no FILE, or when FILE is -, read standard input.

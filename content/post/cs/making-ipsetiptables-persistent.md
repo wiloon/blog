@@ -7,6 +7,8 @@ categories:
   - Inbox
 tags:
   - reprint
+aliases:
+  - /p14918/
 ---
 ## Making ipset,iptables persistent
 ```bash

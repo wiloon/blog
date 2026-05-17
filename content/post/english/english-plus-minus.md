@@ -7,6 +7,10 @@ categories:
   - English
 tags:
   - reprint
+aliases:
+  - /p631/
+  - /p3716/
+  - /p15130/
 ---
 ## 加减乘除,大于,小于,等于,分数,小数和百分数英文表达
 

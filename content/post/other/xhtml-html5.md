@@ -8,6 +8,8 @@ categories:
 tags:
   - HTML
 
+aliases:
+  - /p787/
 ---
 ## XHTML HTML5
 

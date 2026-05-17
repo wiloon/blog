@@ -7,6 +7,8 @@ categories:
   - Inbox
 tags:
   - reprint
+aliases:
+  - /p8587/
 ---
 ## Java cpu 占用调查
 

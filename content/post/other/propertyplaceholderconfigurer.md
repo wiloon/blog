@@ -7,6 +7,8 @@ categories:
   - Java
 tags:
   - reprint
+aliases:
+  - /p4865/
 ---
 PropertyPlaceholderConfigurer
 [http://callan.iteye.com/blog/161540](http://callan.iteye.com/blog/161540)

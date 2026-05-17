@@ -7,6 +7,8 @@ categories:
   - chrome
 tags:
   - reprint
+aliases:
+  - /p11277/
 ---
 ## chrome command
 

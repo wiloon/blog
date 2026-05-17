@@ -7,6 +7,8 @@ categories:
   - Inbox
 tags:
   - reprint
+aliases:
+  - /p4056/
 ---
 ## jodatime date
 function currentTime(){

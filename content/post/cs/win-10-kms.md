@@ -7,6 +7,8 @@ categories:
   - Inbox
 tags:
   - reprint
+aliases:
+  - /p12072/
 ---
 ## win 10 kms
 https://hqidi.com/36.html

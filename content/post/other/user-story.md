@@ -8,6 +8,8 @@ categories:
 tags:
   - reprint
   - Agile
+aliases:
+  - /p2578/
 ---
 ## us, 用户故事
 

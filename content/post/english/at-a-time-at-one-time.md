@@ -7,6 +7,8 @@ categories:
   - English
 tags:
   - reprint
+aliases:
+  - /p2212/
 ---
 ## at a time, at one time
 

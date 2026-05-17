@@ -9,6 +9,8 @@ tags:
   - reprint
   - remix
 
+aliases:
+  - /p7131/
 ---
 ## ssh-keygen, linux 生成 ssh 密钥
 

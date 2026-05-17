@@ -11,6 +11,9 @@ tags:
   - remix
   - AI-assisted
 
+aliases:
+  - /p12337/
+  - /p16093/
 ---
 
 ## MFA（多因素认证）

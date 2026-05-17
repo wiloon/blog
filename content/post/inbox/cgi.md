@@ -7,6 +7,8 @@ categories:
   - Inbox
 tags:
   - reprint
+aliases:
+  - /p11592/
 ---
 ## CGI
 CGI: 全拼(Common Gateway Interface)是能让web服务器和CGI脚本共同处理客户的请求的协议。Web服务器把请求转成CGI脚本,CGI脚本执行回复Web服务器,Web服务回复给客户端。

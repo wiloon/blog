@@ -7,6 +7,8 @@ categories:
   - Inbox
 tags:
   - reprint
+aliases:
+  - /p11683/
 ---
 ## itext commants, annotation
 https://gist.github.com/i000313/6372210

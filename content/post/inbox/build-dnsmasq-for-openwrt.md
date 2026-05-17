@@ -9,6 +9,8 @@ tags:
   - reprint
   - HomeLab
   - OpenWrt
+aliases:
+  - /p12034/
 ---
 ## R7800 openwrt
 

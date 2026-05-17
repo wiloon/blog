@@ -10,6 +10,8 @@ tags:
   - Spring
   - SpringMVC
 
+aliases:
+  - /p6181/
 ---
 ## ModelAndView
 http://itroop.iteye.com/blog/263845

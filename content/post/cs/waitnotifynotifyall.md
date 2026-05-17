@@ -7,6 +7,8 @@ categories:
   - Inbox
 tags:
   - reprint
+aliases:
+  - /p9921/
 ---
 ## wait(),notify(),notifyAll()
 notifyAll 是一个重的方法,它会带来大量的上下文切换和锁竞争。

@@ -7,6 +7,8 @@ categories:
   - inbox
 tags:
   - reprint
+aliases:
+  - /p5826/
 ---
 ## 程序计数器, The Program Counter, PC
 

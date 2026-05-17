@@ -7,6 +7,8 @@ categories:
 tags:
   - reprint
   - remix
+aliases:
+  - /p1936/
 ---
 ## rest client, HTTP Client
 

@@ -8,6 +8,8 @@ categories:
 tags:
   - Network
 
+aliases:
+  - /p6037/
 ---
 ## tcp http 调试, 抓包工具, wireshark, Fiddler
 

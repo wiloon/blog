@@ -7,6 +7,8 @@ categories:
   - Inbox
 tags:
   - reprint
+aliases:
+  - /p9726/
 ---
 ## NMT, Native Memory Tracking
 

@@ -8,6 +8,8 @@ categories:
 tags:
   - ETL
 
+aliases:
+  - /p7211/
 ---
 ## ETL
 http://baike.baidu.com/subview/69207/14676359.htm

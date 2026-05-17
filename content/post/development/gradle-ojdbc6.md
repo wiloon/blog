@@ -8,6 +8,8 @@ categories:
 tags:
   - Gradle
 
+aliases:
+  - /p6318/
 ---
 ## gradle ojdbc6
 install ojdbc into loacal repo  http://www.wiloon.com/?p=4863

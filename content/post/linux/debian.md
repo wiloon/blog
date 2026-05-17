@@ -7,6 +7,13 @@ categories:
   - inbox
 tags:
   - reprint
+aliases:
+  - /p458/
+  - /p1523/
+  - /p1831/
+  - /p1843/
+  - /p1856/
+  - /p3903/
 ---
 ## Debian
 

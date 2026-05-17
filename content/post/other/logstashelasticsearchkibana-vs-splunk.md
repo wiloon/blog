@@ -7,6 +7,8 @@ categories:
   - Inbox
 tags:
   - reprint
+aliases:
+  - /p8238/
 ---
 ## logstash+ElasticSearch+Kibana VS Splunk
 

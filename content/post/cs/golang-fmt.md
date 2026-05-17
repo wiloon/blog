@@ -7,6 +7,8 @@ categories:
   - inbox
 tags:
   - reprint
+aliases:
+  - /p9293/
 ---
 ## golang fmt/Println
 

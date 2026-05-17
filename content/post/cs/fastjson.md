@@ -7,6 +7,9 @@ categories:
   - Inbox
 tags:
   - reprint
+aliases:
+  - /p4712/
+  - /p8107/
 ---
 ## Fastjson
 

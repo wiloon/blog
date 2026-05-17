@@ -7,6 +7,8 @@ categories:
   - Database
 tags:
   - reprint
+aliases:
+  - /p10825/
 ---
 ## InfluxDB
 时间序列数据库 InfluxDB

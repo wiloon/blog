@@ -7,6 +7,8 @@ categories:
   - inbox
 tags:
   - reprint
+aliases:
+  - /p7103/
 ---
 ## 线程 工作内存
 

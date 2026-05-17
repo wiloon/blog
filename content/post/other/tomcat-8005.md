@@ -8,6 +8,9 @@ categories:
 tags:
   - Tomcat
 
+aliases:
+  - /p3122/
+  - /p3124/
 ---
 ## tomcat 8005
 [http://www.wellho.net/mouth/837_Tomcat-Shutdown-port.html](http://www.wellho.net/mouth/837_Tomcat-Shutdown-port.html)

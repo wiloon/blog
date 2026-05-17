@@ -8,6 +8,8 @@ categories:
 tags:
 - HTML
 
+aliases:
+  - /p2356/
 ---
 ## HTML template, 模板
 

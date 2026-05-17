@@ -8,6 +8,8 @@ categories:
 tags:
   - Java
 
+aliases:
+  - /p8148/
 ---
 ## java UDP
 

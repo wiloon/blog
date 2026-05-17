@@ -7,6 +7,8 @@ categories:
   - inbox
 tags:
   - reprint
+aliases:
+  - /p8723/
 ---
 ## archlinux kvm windows
 

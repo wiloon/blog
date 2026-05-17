@@ -7,6 +7,8 @@ categories:
   - chrome
 tags:
   - reprint
+aliases:
+  - /p12236/
 ---
 ## 'chromeos linux,  crostini'
 ```bash

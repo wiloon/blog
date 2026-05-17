@@ -7,6 +7,8 @@ categories:
   - Inbox
 tags:
   - reprint
+aliases:
+  - /p9109/
 ---
 ## linux mount, invalid argument, no such device
 

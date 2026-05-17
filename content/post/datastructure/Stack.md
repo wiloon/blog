@@ -7,6 +7,8 @@ categories:
   - Java
 tags:
   - reprint
+aliases:
+  - /p5814/
 ---
 ## 虚拟机栈(Virtual Machine Stack)，栈帧(Stack Frame)
 

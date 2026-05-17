@@ -7,6 +7,9 @@ categories:
   - Inbox
 tags:
   - reprint
+aliases:
+  - /p8534/
+  - /p12387/
 ---
 ## archlinux kvm qemu gentoo
 

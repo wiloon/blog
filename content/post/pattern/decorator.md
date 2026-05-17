@@ -8,6 +8,8 @@ categories:
 tags:
   - Pattern
 
+aliases:
+  - /p847/
 ---
 ## 设计模式 – Decorator
 Decorator设计模式是典型的结构型模式

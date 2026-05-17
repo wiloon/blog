@@ -7,6 +7,9 @@ categories:
   - Inbox
 tags:
   - reprint
+aliases:
+  - /p13881/
+  - /p15720/
 ---
 ## Linux 命令选项, 参数，括号, 可选, 必选
 

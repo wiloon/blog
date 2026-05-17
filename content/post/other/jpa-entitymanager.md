@@ -8,6 +8,8 @@ categories:
 tags:
   - JPA
 
+aliases:
+  - /p6571/
 ---
 ## JPA EntityManager
 1. 持久化上下文 (Persistence Context ) 

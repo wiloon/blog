@@ -7,6 +7,8 @@ categories:
   - Inbox
 tags:
   - reprint
+aliases:
+  - /p12714/
 ---
 ## visualbox share folder
 https://www.jianshu.com/p/21df1811133f

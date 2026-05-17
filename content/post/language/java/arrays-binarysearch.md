@@ -7,6 +7,8 @@ categories:
   - Java
 tags:
   - reprint
+aliases:
+  - /p4502/
 ---
 ## Arrays.binarySearch()
 

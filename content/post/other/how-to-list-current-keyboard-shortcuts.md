@@ -7,6 +7,8 @@ categories:
   - Inbox
 tags:
   - reprint
+aliases:
+  - /p5764/
 ---
 ## 'How to,List Current Keyboard Shortcuts'
   

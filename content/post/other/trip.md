@@ -8,6 +8,8 @@ categories:
 tags:
   - English
 
+aliases:
+  - /p7546/
 ---
 ## journey、voyage、trip、tour、travel
 

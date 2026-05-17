@@ -7,6 +7,8 @@ categories:
   - chrome
 tags:
   - reprint
+aliases:
+  - /p15888/
 ---
 ## chromeos nfs, SMB
 

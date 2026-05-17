@@ -7,6 +7,8 @@ categories:
   - Java
 tags:
   - reprint
+aliases:
+  - /p4308/
 ---
 ## Java Singleton
 public class ConnEnv {

@@ -7,6 +7,8 @@ categories:
   - Inbox
 tags:
   - reprint
+aliases:
+  - /p9192/
 ---
 ## JAX-RS
 JAX-RS - Java API for RESTful Web Services

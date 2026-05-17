@@ -7,6 +7,8 @@ categories:
   - Inbox
 tags:
   - reprint
+aliases:
+  - /p9004/
 ---
 ## MessageFormat
 MessageFormat用法

@@ -7,6 +7,8 @@ categories:
   - Inbox
 tags:
   - reprint
+aliases:
+  - /p4634/
 ---
 ## Web 服务编程,REST 与 SOAP的比较
 

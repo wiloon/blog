@@ -7,6 +7,8 @@ categories:
   - Java
 tags:
   - reprint
+aliases:
+  - /p2894/
 ---
 ## Maven内置属性、POM属性
 ## Maven内置属性、POM属性, maven properties

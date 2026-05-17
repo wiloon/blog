@@ -7,6 +7,8 @@ categories:
   - English
 tags:
   - reprint
+aliases:
+  - /p13495/
 ---
 ## 介词, Preposition, prep
 

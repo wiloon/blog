@@ -7,6 +7,8 @@ categories:
   - Inbox
 tags:
   - reprint
+aliases:
+  - /p9899/
 ---
 ## NoClassDefFoundError, ClassNotFoundException
 

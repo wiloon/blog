@@ -7,6 +7,9 @@ categories:
   - Java
 tags:
   - reprint
+aliases:
+  - /p1003/
+  - /p6298/
 ---
 ## java.io.tmpdir
 

@@ -8,6 +8,8 @@ categories:
 tags:
   - HTML
 
+aliases:
+  - /p6529/
 ---
 ## HTML DOM Hidden
 # 

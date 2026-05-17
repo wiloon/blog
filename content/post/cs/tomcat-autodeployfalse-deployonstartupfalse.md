@@ -7,6 +7,9 @@ categories:
   - Inbox
 tags:
   - reprint
+aliases:
+  - /p12646/
+  - /p13914/
 ---
 ## 'tomcat autoDeploy="false"  deployOnStartup="false"'
 [https://stackoverflow.com/questions/26884335/tomcat-deploy-only-manager-on-startup](https://stackoverflow.com/questions/26884335/tomcat-deploy-only-manager-on-startup)

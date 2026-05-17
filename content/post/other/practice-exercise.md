@@ -8,6 +8,8 @@ categories:
 tags:
   - reprint
 
+aliases:
+  - /p7524/
 ---
 ## drill、exercise、practice、training与discipline
 

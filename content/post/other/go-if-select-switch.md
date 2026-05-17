@@ -7,6 +7,8 @@ categories:
   - Inbox
 tags:
   - reprint
+aliases:
+  - /p5624/
 ---
 ## golang 控制语句 if, for, switch
 >http://www.cnblogs.com/howDo/archive/2013/06/01/GoLang-Control.html

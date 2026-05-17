@@ -7,6 +7,8 @@ categories:
   - CS
 tags:
   - reprint
+aliases:
+  - /p2793/
 ---
 ## Foo 是什么意思
 

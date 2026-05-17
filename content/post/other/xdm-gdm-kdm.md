@@ -7,6 +7,8 @@ tags:
   - Linux
 categories:
   - reprint
+aliases:
+  - /p5910/
 ---
 ## display manager(DM), 显示管理器, sddm, gdm3, lightdm
 

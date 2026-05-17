@@ -7,6 +7,8 @@ tags:
   - MySQL
 categories:
   - inbox
+aliases:
+  - /p19/
 ---
 ## MySQL 复制
 

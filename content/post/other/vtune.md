@@ -7,6 +7,8 @@ categories:
   - Inbox
 tags:
   - reprint
+aliases:
+  - /p4457/
 ---
 ## VTune
 英特尔VTune™ 性能分析器

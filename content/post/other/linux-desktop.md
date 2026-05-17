@@ -9,6 +9,9 @@ tags:
   - Linux
   - remix
   - AI-assisted
+aliases:
+  - /p7029/
+  - /p7597/
 ---
 
 ## Linux 桌面环境
@@ -350,6 +353,9 @@ sudo passwd testuser
 
 Linux 支持同时安装多个桌面环境，可以在登录时自由切换。
 
+aliases:
+  - /p7029/
+  - /p7597/
 ---
 
 ## Arch Linux + KDE 环境下安装 Xfce

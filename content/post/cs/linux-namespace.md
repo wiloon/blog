@@ -7,6 +7,8 @@ categories:
   - Inbox
 tags:
   - reprint
+aliases:
+  - /p12469/
 ---
 ## linux Namespace
 https://lwn.net/Articles/531114/

@@ -9,6 +9,8 @@ categories:
 tags:
   - Servlet
 
+aliases:
+  - /p3474/
 ---
 ## web.xml – mime-mapping
 关联文件与MIME类型

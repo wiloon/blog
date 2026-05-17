@@ -7,6 +7,8 @@ categories:
   - Inbox
 tags:
   - reprint
+aliases:
+  - /p3588/
 ---
 ## ServletContextAttributeListener
  ServletContext context = getServletContext();

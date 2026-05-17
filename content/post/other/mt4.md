@@ -8,6 +8,11 @@ categories:
 tags:
   - MT4
 
+aliases:
+  - /p3151/
+  - /p5069/
+  - /p5074/
+  - /p5762/
 ---
 ## linux mt4
 ### download mt4

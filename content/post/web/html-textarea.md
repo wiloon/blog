@@ -8,6 +8,8 @@ categories:
 tags:
   - HTML
 
+aliases:
+  - /p195/
 ---
 ## html textarea
 TextArea

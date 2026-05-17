@@ -7,6 +7,9 @@ categories:
   - Inbox
 tags:
   - reprint
+aliases:
+  - /p13322/
+  - /p15522/
 ---
 ## golang tcp tls
 

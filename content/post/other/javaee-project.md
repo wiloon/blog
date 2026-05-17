@@ -8,6 +8,8 @@ categories:
 tags:
   - JavaEE
 
+aliases:
+  - /p6383/
 ---
 ## javaEE project
 

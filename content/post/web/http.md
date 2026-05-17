@@ -8,6 +8,8 @@ categories:
   - Web
 tags:
   - reprint
+aliases:
+  - /p1075/
 ---
 ## HTTP protocol， HTTP response status codes, 状态码/响应代码
 

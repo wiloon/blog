@@ -7,6 +7,8 @@ categories:
   - Hardware
 tags:
   - reprint
+aliases:
+  - /p14659/
 ---
 ## raspberry pi gpio
 继电器: 树莓派的GPIO口是3.3V的，你需要把它转化成5V才能进行控制

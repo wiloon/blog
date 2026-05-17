@@ -7,6 +7,8 @@ categories:
   - Inbox
 tags:
   - reprint
+aliases:
+  - /p9713/
 ---
 ## jdk tool, java tool, jvm tool
 

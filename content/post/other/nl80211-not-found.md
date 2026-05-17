@@ -8,6 +8,8 @@ categories:
 tags:
   - Network
 
+aliases:
+  - /p5997/
 ---
 ## nl80211 not found
 

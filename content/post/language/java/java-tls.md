@@ -8,6 +8,8 @@ categories:
   - Inbox
 tags:
   - reprint
+aliases:
+  - /p13342/
 ---
 ## java tls 单向认证
 

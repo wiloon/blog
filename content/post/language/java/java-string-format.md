@@ -7,6 +7,8 @@ categories:
   - inbox
 tags:
   - reprint
+aliases:
+  - /p9890/
 ---
 ## JAVA String.format()
 flags

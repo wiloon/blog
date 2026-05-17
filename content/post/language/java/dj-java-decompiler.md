@@ -8,6 +8,11 @@ categories:
 tags:
   - Java
 
+aliases:
+  - /p3930/
+  - /p8834/
+  - /p9927/
+  - /p9930/
 ---
 ## Java 反编译
 

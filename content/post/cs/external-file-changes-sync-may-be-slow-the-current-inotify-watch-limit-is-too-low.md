@@ -7,6 +7,9 @@ categories:
   - Inbox
 tags:
   - reprint
+aliases:
+  - /p9906/
+  - /p11843/
 ---
 ## 'external file changes sync may be slow the current inotify watch limit is too low'
 

@@ -7,6 +7,8 @@ categories:
   - Java
 tags:
   - reprint
+aliases:
+  - /p3523/
 ---
 ## joda time, time zone
 ```java

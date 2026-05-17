@@ -7,6 +7,8 @@ categories:
   - Math
 tags:
   - reprint
+aliases:
+  - /p1475/
 ---
 ## 数字单位, 十亿，百亿，兆
 

@@ -8,6 +8,8 @@ categories:
 tags:
   - JPA
 
+aliases:
+  - /p6649/
 ---
 ## JPA
 

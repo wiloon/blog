@@ -8,6 +8,8 @@ categories:
 tags:
   - reprint
   - Agile
+aliases:
+  - /p8396/
 ---
 ## 迭代回顾, Sprint Retrospective
 

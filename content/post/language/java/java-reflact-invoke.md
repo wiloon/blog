@@ -7,6 +7,9 @@ categories:
   - Inbox
 tags:
   - reprint
+aliases:
+  - /p7335/
+  - /p8797/
 ---
 ## 'java  reflact invoke'
 http://blog.csdn.net/zhangzeyuaaa/article/details/42522015

@@ -7,6 +7,8 @@ categories:
   - Inbox
 tags:
   - reprint
+aliases:
+  - /p15386/
 ---
 ## Podman, Buildah, Skopeo
 

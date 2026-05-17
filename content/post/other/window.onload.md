@@ -8,6 +8,8 @@ categories:
   - Inbox
 tags:
   - reprint
+aliases:
+  - /p6854/
 ---
 ## JavaScript window.onload
 avaScript的window.onload使用: 

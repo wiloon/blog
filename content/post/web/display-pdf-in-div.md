@@ -7,6 +7,8 @@ categories:
   - Web
 tags:
   - reprint
+aliases:
+  - /p5491/
 ---
 ## display pdf in div
 [http://www.webdeveloper.com/forum/showthread.php?152923-PDF-within-a-DIV](http://www.webdeveloper.com/forum/showthread.php?152923-PDF-within-a-DIV)

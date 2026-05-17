@@ -7,6 +7,8 @@ categories:
   - Tools
 tags:
   - reprint
+aliases:
+  - /p5247/
 ---
 ## Emacs Markdown
 **安装与配置**

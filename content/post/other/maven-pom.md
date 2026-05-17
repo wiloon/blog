@@ -7,6 +7,8 @@ categories:
   - inbox
 tags:
   - reprint
+aliases:
+  - /p6575/
 ---
 ## maven pom
 基本内容: 

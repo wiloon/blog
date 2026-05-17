@@ -10,6 +10,8 @@ tags:
   - reprint
   - remix
   - AI-assisted
+aliases:
+  - /p4723/
 ---
 ## macOS Basic
 

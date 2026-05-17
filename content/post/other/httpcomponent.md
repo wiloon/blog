@@ -7,6 +7,8 @@ categories:
   - Inbox
 tags:
   - reprint
+aliases:
+  - /p7244/
 ---
 ## httpcomponent, httpclient proxy setting
 http://www.jianshu.com/p/f38a62efaa96

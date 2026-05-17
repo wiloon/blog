@@ -7,6 +7,8 @@ tags:
   - Network
 categories:
   - inbox
+aliases:
+  - /p12885/
 ---
 ## network namespace
 

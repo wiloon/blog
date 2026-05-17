@@ -7,6 +7,8 @@ categories:
   - Web
 tags:
   - reprint
+aliases:
+  - /p5282/
 ---
 ## User Agent Stylesheet
 

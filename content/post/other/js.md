@@ -8,6 +8,8 @@ categories:
   - inbox
 tags:
   - reprint
+aliases:
+  - /p4997/
 ---
 ## inline script 和外链script
 

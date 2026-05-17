@@ -8,6 +8,8 @@ categories:
   - Network
 tags:
   - reprint
+aliases:
+  - /p2620/
 ---
 ## tunctl
 tunctl is used to set up and maintain persistent TUN/TAP network interfaces, enabling user applications to simulate network traffic. Such interfaces is useful for VPN software, virtualization, emulation, simulation, and a number of other applications.

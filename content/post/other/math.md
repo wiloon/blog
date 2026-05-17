@@ -7,6 +7,8 @@ categories:
   - English
 tags:
   - reprint
+aliases:
+  - /p541/
 ---
 ## Math
 http://blog.csdn.net/jiutianhe/article/details/41349649

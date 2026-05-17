@@ -7,6 +7,8 @@ categories:
   - Inbox
 tags:
   - reprint
+aliases:
+  - /p14340/
 ---
 ## Brotli
 https://segmentfault.com/a/1190000009374437

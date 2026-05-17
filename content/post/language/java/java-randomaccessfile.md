@@ -8,6 +8,8 @@ tags:
   - mmap
 categories:
   - inbox
+aliases:
+  - /p7007/
 ---
 ## Java RandomAccessFile, MappedByteBuffer, mmap
 

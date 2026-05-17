@@ -8,6 +8,8 @@ categories:
 tags:
   - JavaScript
 
+aliases:
+  - /p7806/
 ---
 ## TypeScript
 

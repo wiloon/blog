@@ -7,6 +7,8 @@ categories:
   - Inbox
 tags:
   - reprint
+aliases:
+  - /p830/
 ---
 ## RDF OWL
 http://blogger.org.cn/blog/more.asp?name=babyblue&id=21546

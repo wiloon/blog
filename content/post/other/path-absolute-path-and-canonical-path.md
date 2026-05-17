@@ -7,6 +7,8 @@ categories:
   - Java
 tags:
   - reprint
+aliases:
+  - /p772/
 ---
 ## path, absolute path, and canonical path
 

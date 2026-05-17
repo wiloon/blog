@@ -7,6 +7,8 @@ categories:
   - Inbox
 tags:
   - reprint
+aliases:
+  - /p14030/
 ---
 ## nftables trace
 nhttps://wiki.nftables.org/wiki-nftables/index.php/Ruleset_debug/tracing

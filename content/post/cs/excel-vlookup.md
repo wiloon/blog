@@ -8,6 +8,8 @@ categories:
 tags:
   - Excel
 
+aliases:
+  - /p6420/
 ---
 ## excel vlookup
 http://www.utosee.com/post/vlookup.html 

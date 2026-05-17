@@ -8,6 +8,8 @@ categories:
   - Inbox
 tags:
   - reprint
+aliases:
+  - /p11589/
 ---
 ## go handle handleFunction
 

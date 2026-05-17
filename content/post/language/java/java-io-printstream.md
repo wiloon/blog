@@ -7,6 +7,8 @@ categories:
   - Inbox
 tags:
   - reprint
+aliases:
+  - /p9705/
 ---
 ## java io PrintStream
 http://www.cnblogs.com/skywang12345/p/io_16.html

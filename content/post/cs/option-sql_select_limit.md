@@ -7,6 +7,8 @@ categories:
   - Inbox
 tags:
   - reprint
+aliases:
+  - /p9629/
 ---
 ## OPTION SQL_SELECT_LIMIT
 http://lucifer119.blog.51cto.com/2914308/1344253

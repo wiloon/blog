@@ -7,6 +7,8 @@ categories:
   - Inbox
 tags:
   - reprint
+aliases:
+  - /p9825/
 ---
 ## golang 类/type
 ```java

@@ -7,6 +7,10 @@ categories:
   - Linux
 tags:
   - reprint
+aliases:
+  - /p1682/
+  - /p1835/
+  - /p3017/
 ---
 ## Brasero
 **Brasero**是类Unix系统下的一个自由的光盘刻录程序，作为cdrtools，growisofs以及libburn (可选) 的图形化前端 (使用GTK+) 。

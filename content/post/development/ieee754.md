@@ -7,6 +7,8 @@ categories:
   - inbox
 tags:
   - reprint
+aliases:
+  - /p263/
 ---
 ## IEEE754
 IEEE754代码

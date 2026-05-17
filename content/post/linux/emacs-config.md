@@ -7,6 +7,8 @@ categories:
   - Tools
 tags:
   - reprint
+aliases:
+  - /p41/
 ---
 ## emacs 配置/config
 中文环境

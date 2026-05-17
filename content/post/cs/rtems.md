@@ -7,6 +7,8 @@ categories:
   - Inbox
 tags:
   - reprint
+aliases:
+  - /p8655/
 ---
 ## RTEMS
 为什么需要操作系统？

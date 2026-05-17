@@ -7,6 +7,8 @@ categories:
   - Inbox
 tags:
   - reprint
+aliases:
+  - /p4881/
 ---
 ## TDD, 测试驱动
 

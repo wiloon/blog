@@ -7,6 +7,8 @@ categories:
   - Database
 tags:
   - reprint
+aliases:
+  - /p12252/
 ---
 ## kafka, rabbitmq
 

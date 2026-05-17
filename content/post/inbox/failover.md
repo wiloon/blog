@@ -7,6 +7,8 @@ categories:
   - inbox
 tags:
   - Inbox
+aliases:
+  - /p14235/
 ---
 ## "failover, failfast, failback, failsafe"
 

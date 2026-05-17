@@ -7,6 +7,8 @@ categories:
   - Tools
 tags:
   - reprint
+aliases:
+  - /p3011/
 ---
 ## Moving The Ctrl Key
 >http://emacswiki.org/emacs/MovingTheCtrlKey

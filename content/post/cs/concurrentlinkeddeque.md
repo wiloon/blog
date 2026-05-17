@@ -7,6 +7,8 @@ categories:
   - Inbox
 tags:
   - reprint
+aliases:
+  - /p15053/
 ---
 ## ConcurrentLinkedDeque
 非阻塞线程安全列表——ConcurrentLinkedDeque应用举例

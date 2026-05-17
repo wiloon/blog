@@ -7,6 +7,9 @@ categories:
   - Database
 tags:
   - reprint
+aliases:
+  - /p5235/
+  - /p7748/
 ---
 ## Hsqldb
 Hsqldb是一个开放源代码的JAVA数据库，其具有标准的SQL语法和JAVA接口，

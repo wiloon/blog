@@ -10,6 +10,8 @@ tags:
   - TCP
   - SSH
 
+aliases:
+  - /p5861/
 ---
 ## TCP Keep-Alives
 

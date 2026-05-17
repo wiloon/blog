@@ -7,6 +7,9 @@ categories:
   - Inbox
 tags:
   - reprint
+aliases:
+  - /p3081/
+  - /p6096/
 ---
 ## webUI test
 Selenium WebDriver, Watir, Sahi, cpress

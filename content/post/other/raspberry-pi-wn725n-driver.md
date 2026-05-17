@@ -7,6 +7,9 @@ categories:
   - Hardware
 tags:
   - reprint
+aliases:
+  - /p5994/
+  - /p5999/
 ---
 ## raspberry pi wn725n driver
 

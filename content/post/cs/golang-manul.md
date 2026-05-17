@@ -7,6 +7,9 @@ categories:
   - Inbox
 tags:
   - reprint
+aliases:
+  - /p9153/
+  - /p14964/
 ---
 ## golang manul
 

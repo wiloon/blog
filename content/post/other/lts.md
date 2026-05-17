@@ -8,6 +8,8 @@ categories:
 tags:
   - remix
 
+aliases:
+  - /p8111/
 ---
 ## Archlinux 安装 linux-lts 内核
 

@@ -7,6 +7,9 @@ categories:
   - Inbox
 tags:
   - reprint
+aliases:
+  - /p8594/
+  - /p8669/
 ---
 ## Curator
 

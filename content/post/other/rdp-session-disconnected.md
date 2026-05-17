@@ -8,6 +8,9 @@ categories:
 tags:
   - Linux
 
+aliases:
+  - /p2554/
+  - /p7738/
 ---
 ## RDP Session Disconnected
 

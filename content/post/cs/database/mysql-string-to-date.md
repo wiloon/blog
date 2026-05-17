@@ -8,6 +8,8 @@ categories:
 tags:
   - MySQL
 
+aliases:
+  - /p61/
 ---
 ## MySQL string to date
 MySQL中DATE_FORMAT(date, format)函数可根据format字符串格式化日期或日期和时间值date，返回结果串。

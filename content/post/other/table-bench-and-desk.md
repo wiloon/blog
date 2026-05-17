@@ -8,6 +8,8 @@ categories:
 tags:
   - English
 
+aliases:
+  - /p7422/
 ---
 ## table bench and desk
 

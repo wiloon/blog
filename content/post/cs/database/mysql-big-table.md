@@ -7,6 +7,10 @@ categories:
   - Inbox
 tags:
   - reprint
+aliases:
+  - /p8408/
+  - /p8581/
+  - /p12531/
 ---
 ## MySQL 大表 优化
 

@@ -7,6 +7,8 @@ categories:
   - Inbox
 tags:
   - reprint
+aliases:
+  - /p10873/
 ---
 ## guava-retrying
 http://blog.csdn.net/aitangyong/article/details/53840719

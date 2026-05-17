@@ -8,6 +8,8 @@ categories:
   - Network
 tags:
   - reprint
+aliases:
+  - /p2284/
 ---
 ## 'tap0, ERROR while getting interface flags'
 tap0: ERROR while getting interface flags: No such device

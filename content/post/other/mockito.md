@@ -6,6 +6,8 @@ url: mockito
 categories: []
 tags:
   - reprint
+aliases:
+  - /p8103/
 ---
 ## Mockito
 

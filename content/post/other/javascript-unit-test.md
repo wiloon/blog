@@ -8,6 +8,14 @@ categories:
 tags:
   - JavaScript
 
+aliases:
+  - /p1452/
+  - /p5008/
+  - /p5322/
+  - /p6271/
+  - /p6959/
+  - /p7346/
+  - /p7781/
 ---
 ## javascript unit test
 http://blog.sina.com.cn/s/blog_6768f2290100ubw5.html

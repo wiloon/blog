@@ -7,6 +7,9 @@ categories:
   - Inbox
 tags:
   - reprint
+aliases:
+  - /p8826/
+  - /p9389/
 ---
 ## String.regionMatches
 题目: 输入两个字符串,计算两个字符串的最大公共字串的长度,并输出,字符不区分大小写

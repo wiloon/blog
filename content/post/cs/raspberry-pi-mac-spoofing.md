@@ -7,6 +7,8 @@ categories:
   - Hardware
 tags:
   - reprint
+aliases:
+  - /p13203/
 ---
 ## raspberry pi mac spoofing
 ```bash

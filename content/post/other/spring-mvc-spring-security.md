@@ -7,6 +7,10 @@ categories:
   - inbox
 tags:
   - reprint
+aliases:
+  - /p5053/
+  - /p6274/
+  - /p6567/
 ---
 ## spring security
 
@@ -38,6 +42,10 @@ HttpSessionSecurityContextRepository.loadContext
 [https://github.com/Ceruleans/ssdemo](https://github.com/Ceruleans/ssdemo)
 [https://my.oschina.net/u/4257408/blog/3662569](https://my.oschina.net/u/4257408/blog/3662569)
 
+aliases:
+  - /p5053/
+  - /p6274/
+  - /p6567/
 ---
 
 ```xml

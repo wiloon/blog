@@ -7,6 +7,8 @@ categories:
   - inbox
 tags:
   - reprint
+aliases:
+  - /p12109/
 ---
 ## OverlayFS
 https://blog.csdn.net/styshoo/article/details/60715942

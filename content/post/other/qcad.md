@@ -7,6 +7,9 @@ categories:
   - Inbox
 tags:
   - reprint
+aliases:
+  - /p1701/
+  - /p3892/
 ---
 ## QCad
 QCad
