@@ -828,7 +828,6 @@ git rev-parse HEAD
 git checkout --ours file_0
 ```
 
-
 Switch branches or restore working tree files
 
 切换分支可以用新的命令 git switch, restore working tree 可以用 git reset
