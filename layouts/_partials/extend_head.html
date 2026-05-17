@@ -1,2 +1,9 @@
 <script defer src="https://cloud.umami.is/script.js" data-website-id="b252395f-0771-446a-8245-fe9686d63271"></script>
 <!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "fc618e67dd60471bbf20d508d842c359"}'></script><!-- End Cloudflare Web Analytics -->
+{{- if (findRE `class="mermaid"` .Content) }}
+<script type="module">
+  import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+  mermaid.initialize({ startOnLoad: false });
+  mermaid.run({ querySelector: '.mermaid' });
+</script>
+{{- end }}
