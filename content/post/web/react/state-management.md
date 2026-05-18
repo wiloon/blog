@@ -50,11 +50,11 @@ ComponentA    ComponentB
 
 ## React 主流状态管理方案对比
 
-| 库 | 定位 | 包大小 | 学习曲线 |
-| --- | --- | --- | --- |
-| **Zustand** | 轻量、直觉式 API | ~1 KB | 低 |
-| **Jotai** | 原子化状态，细粒度订阅 | ~3 KB | 低 |
-| **Redux Toolkit** | 功能完整，适合大型项目 | ~20 KB | 高 |
+| 库                | 定位                  | 包大小 | 学习曲线 |
+|-------------------|-----------------------|--------|----------|
+| **Zustand**       | 轻量、直觉式 API       | ~1 KB  | 低       |
+| **Jotai**         | 原子化状态，细粒度订阅 | ~3 KB  | 低       |
+| **Redux Toolkit** | 功能完整，适合大型项目 | ~20 KB | 高       |
 
 ---
 
@@ -221,14 +221,14 @@ function CounterProvider({ children }) {
 
 ## 与 Vue Pinia 的对比
 
-| 特性 | Pinia (Vue) | Zustand (React) |
-| --- | --- | --- |
-| 定义 Store | `defineStore()` | `create()` |
-| 读取状态 | `store.count` | `useStore((s) => s.count)` |
-| 修改状态 | 直接赋值 / action | `set()` 函数 |
-| 异步 action | 直接 async 函数 | 直接 async 函数 |
-| DevTools | ✅ Vue DevTools | ✅ Redux DevTools（可选插件） |
-| Provider 包裹 | 不需要 | 不需要 |
+| 特性          | Pinia (Vue)       | Zustand (React)            |
+|---------------|-------------------|----------------------------|
+| 定义 Store    | `defineStore()`   | `create()`                 |
+| 读取状态      | `store.count`     | `useStore((s) => s.count)` |
+| 修改状态      | 直接赋值 / action | `set()` 函数               |
+| 异步 action   | 直接 async 函数   | 直接 async 函数            |
+| DevTools      | ✅ Vue DevTools    | ✅ Redux DevTools（可选插件） |
+| Provider 包裹 | 不需要            | 不需要                     |
 
 两者设计理念非常接近，从 Pinia 切换到 Zustand 的学习成本很低。
 
