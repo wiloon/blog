@@ -192,7 +192,7 @@ categories:
 - `lastmod` — **最后修改日期**，每次编辑内容时更新
 
 **关键规则：**
-- ✅ 新建文章 → 同时添加 `date` 和 `lastmod`，均设为当前时间
+- ✅ 新建文章 → 同时添加 `date`、`lastmod` 和 `url`，日期均设为当前时间
 - ✅ 编辑已有文章，**有** `lastmod` 字段 → 只更新 `lastmod`，`date` 保持不变
 - ✅ 编辑已有文章，**没有** `lastmod` 字段 → 添加 `lastmod` 设为当前时间，`date` 保持不变
 - ❌ 仅移动文件到其他目录 → 不要更新任何日期
@@ -250,7 +250,7 @@ url: article-url
 ⚠️ **不要忘记：**
 - 编辑文章（无 `original` 标签）= 更新 `lastmod` + 添加 `remix` 和 `AI-assisted` 标签 + 删除 `reprint`（如有）
 - 编辑文章（有 `original` 标签）= 更新 `lastmod` + 添加 `AI-assisted` 标签 + 删除 `remix` 和 `reprint`（如有）
-- 新建文章 = 添加 `date` + `lastmod` + `remix` 和 `AI-assisted` 标签
+- 新建文章 = 添加 `date` + `lastmod` + `url` + `remix` 和 `AI-assisted` 标签
 
 示例：
 ```yaml

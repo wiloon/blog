@@ -1,7 +1,9 @@
 ---
 author: "-"
 date: "2026-05-18 11:00:00"
+lastmod: 2026-05-18T12:52:24+08:00
 title: "Pomodoro — A Minimal Timer PWA for Always-On Phone Display"
+url: pomodoro
 categories:
   - projects
 tags:
@@ -9,6 +11,7 @@ tags:
   - vue
   - pwa
   - cloudflare
+  - AI-assisted
 ---
 
 **Live:** [https://pomodoro.wiloon.com](https://pomodoro.wiloon.com) · **Source:** [github.com/wiloon/pomodoro-vue](https://github.com/wiloon/pomodoro-vue)
