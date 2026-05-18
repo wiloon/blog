@@ -1,6 +1,6 @@
 ---
 author: "-"
-date: "2026-05-18 11:00:00"
+date: 2026-05-18T11:00:00+08:00
 lastmod: 2026-05-18T12:52:24+08:00
 title: "Pomodoro — A Minimal Timer PWA for Always-On Phone Display"
 url: pomodoro
