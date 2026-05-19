@@ -2,12 +2,11 @@
 title: k8s command
 author: "-"
 date: 2026-03-10T10:38:17+08:00
-lastmod: 2026-05-16T12:48:34+08:00
+lastmod: 2026-05-19T16:59:26+08:00
 url: k8s/command
 categories:
   - Cloud
 tags:
-  - reprint
   - k8s
   - remix
   - AI-assisted
@@ -1545,15 +1544,41 @@ ctr -n k8s.io  image import kube-apiserver.v1.25.2.tar
 
 [https://kubernetes.io/docs/reference/](https://kubernetes.io/docs/reference/)
 
-## 不通过 yaml 文件运行 pod, 用 drill 查询 DNS
+## 不通过 yaml 运行调试 Pod，在集群内查询 DNS
 
-只创建一个pod,不需要创建一个ReplicationController来管理pod, 在--generator=run-pod/vl选项中，该选项让kubectl直接创建 pod,而不需要通过 ReplicationController 之类的资源来创建。
+用 `kubectl run` 直接起一个一次性调试 Pod（`--restart=Never --rm`），进集群里用 `drill` / `dig` 测 Service 名能否解析。不需要写 yaml，也不必长期保留 Pod。
+
+集群内完整域名格式：`<service>.<namespace>.svc.cluster.local`（同 namespace 可简写为 `<service>`）。
 
 ```bash
-# --generator 生成器参数已经被弃用 https://blog.csdn.net/CANGYE0504/article/details/106179563
+# 一条命令跑完：起 Pod → drill → 退出后自动删 Pod
+kubectl run -it --rm netshoot --restart=Never \
+  --image=nicolaka/netshoot:v0.13 \
+  -- drill kubernetes.default.svc.cluster.local
+
+# 交互式：进入 Pod 后手动排查
+kubectl run -it --rm netshoot --restart=Never \
+  --image=nicolaka/netshoot:v0.13 -- bash
+
+# 在 Pod 内执行（示例）
+drill kubernetes.default.svc.cluster.local
+dig +short kubernetes.default.svc.cluster.local
+nslookup kubernetes.default
+
+# 解析指定 namespace 的 Service（把 my-ns、my-svc 换成实际值）
+drill my-svc.my-ns.svc.cluster.local
+
+# 指定节点调度（可选）
+kubectl run -it --rm netshoot --restart=Never \
+  --image=nicolaka/netshoot:v0.13 \
+  --overrides='{"spec":{"nodeSelector":{"kubernetes.io/hostname":"k8s3"}}}' \
+  -- bash
+```
+
+旧写法（`--generator=run-pod/v1` 与 `tutum/dnsutils` 镜像）已弃用，仅作参考：
+
+```bash
+# --generator 已移除，见 https://blog.csdn.net/CANGYE0504/article/details/106179563
 # kubectl run dnsutils --image=tutum/dnsutils --generator=run-pod/v1 --command -- sleep infinity
-
-kubectl run -ti --rm netshoot --image=nicolaka/netshoot:v0.9 --overrides='{"spec": { "nodeSelector": {"kubernetes.io/hostname": "k8s3"}}}'
-
-kubectl delete pod dnsutils
+# kubectl exec -it dnsutils -- drill kubernetes.default.svc.cluster.local
 ```
