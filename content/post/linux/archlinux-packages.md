@@ -2,7 +2,7 @@
 title: archlinux packages
 author: "-"
 date: "2026-05-06T08:27:13+08:00"
-lastmod: "2026-05-11T08:46:35+08:00"
+lastmod: "2026-05-19T09:13:43+08:00"
 url: archlinux-packages
 categories:
   - Linux
@@ -44,6 +44,7 @@ tags:
 - `dav1d`: AV1 cross-platform decoder focused on speed and correctness
 - `expat`: C 语言实现的流式 XML 解析库（libexpat），详见 [expat](#expat)
 - `fftw`: A library for computing the discrete Fourier transform (DFT)
+- `fakeroot`: 在不具备 root 权限的情况下模拟超级用户权限，常用于 `makepkg` 构建时在归档中设置 root 属主/属组。当前系统被 `base-devel` 依赖
 - `fzf`: General-purpose command-line fuzzy finder
 - `gcr`: A library for bits of crypto UI and parsing
 - `glslang`: OpenGL Shading Language 编译器和验证器，详见 [glslang](#glslang)
