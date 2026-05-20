@@ -2,7 +2,7 @@
 title: Spring Boot 关系型数据库持久层概览
 author: "-"
 date: 2014-05-22T03:12:14+00:00
-lastmod: 2026-05-19T20:14:39+08:00
+lastmod: 2026-05-20T09:49:47+08:00
 url: spring-boot-relational-persistence
 categories:
   - development
@@ -29,48 +29,14 @@ aliases:
 ```text
 应用代码
     │
-    ├── JdbcTemplate / JDBI / jOOQ  ← SQL 路线（字符串或类型安全 DSL）
     ├── Spring Data JDBC        ← Repository 风格，底层仍是 JDBC
+    ├── Spring Data JPA         ← 对象为主，框架生成 SQL
+    │       └── JPA（标准）→ Hibernate（实现）
     ├── MyBatis (+ Plus)        ← SQL 手写 + 映射
-    └── Spring Data JPA         ← 对象为主，框架生成 SQL
-            └── JPA（标准）→ Hibernate（实现）
+    └── JdbcTemplate / JDBI / jOOQ  ← SQL 路线（字符串或类型安全 DSL）
 ```
 
-下面分别介绍 **JdbcTemplate**、**Spring Data JDBC**、**Spring Data JPA**、**MyBatis**、**JDBI**、**jOOQ**，并简要说明 **JPA** 本身是什么。
-
----
-
-## JdbcTemplate
-
-**JdbcTemplate** 是 **Spring Framework** 提供的工具类（`org.springframework.jdbc.core.JdbcTemplate`），**不是 JDK 原生 API**。JDK 提供的是 `Connection`、`PreparedStatement`、`ResultSet` 等 JDBC 接口；JdbcTemplate 在其上封装了连接获取、参数绑定、异常转换和 `RowMapper` 结果映射。
-
-| 项目     | 说明                                                  |
-|----------|-------------------------------------------------------|
-| 依赖     | `spring-boot-starter-jdbc`                            |
-| 是否 ORM | 否，需手写 SQL                                         |
-| 典型用法 | `jdbcTemplate.query(...)`、`update(...)` + `RowMapper` |
-
-示例：
-
-```java
-@Repository
-public class UserDao {
-    private final JdbcTemplate jdbcTemplate;
-
-    public User findByName(String name) {
-        return jdbcTemplate.queryForObject(
-            "SELECT * FROM users WHERE name = ?",
-            new UserRowMapper(),
-            name);
-    }
-}
-```
-
-**特点**：SQL 完全可控，适合简单 CRUD、复杂 JOIN、报表；样板代码比裸 JDBC 少，但比 JPA/MyBatis-Plus 多。
-
-**与 JPA 对比**：JdbcTemplate 是「SQL 优先」；JPA 是「对象优先」，由框架生成 SQL。
-
-**连接池**：项目里通常只配 `spring.datasource.url` 等少量属性；`spring-boot-starter-jdbc` 会由 Spring Boot 自动创建 **HikariCP** 连接池和 `DataSource`，再注入到 `JdbcTemplate`（约定优于配置）。
+下面分别介绍 **Spring Data JDBC**、**Spring Data JPA**、**MyBatis**、**JdbcTemplate**、**JDBI**、**jOOQ**，并简要说明 **JPA** 本身是什么。
 
 ---
 
@@ -116,6 +82,46 @@ JdbcTemplate（执行 SQL）
         ↓
 HikariCP DataSource → JDBC → 数据库
 ```
+
+### 不是 ORM，但有对象—表行映射
+
+在 Spring Data JDBC 这条路线里，**没有 JPA/Hibernate 那种意义上的 ORM**；并不是「Java 对象和数据库毫无关系」——它仍会把查询结果填进实体、把实体写成 `INSERT`/`UPDATE`，这叫 **row mapping（行映射）**，JdbcTemplate 的 `RowMapper` 也属于同一类。
+
+两种「映射」不要混在一起：
+
+| 能力 | 完整 ORM（JPA/Hibernate） | Spring Data JDBC |
+| ---- | ------------------------- | ---------------- |
+| 对象 ↔ 表行 | 有 | 有（`@Table`、`@Id` 等） |
+| 持久化上下文 / 一级缓存 | 有 | **无** |
+| 脏检查、自动 flush | 有 | **无** |
+| 懒加载、`@OneToMany` 对象图 | 有 | **无**（关联需手写 SQL 或拆查询） |
+| `merge` / `persist` 生命周期 | 有 | **无**（就是明确的 insert/update/delete） |
+| 跨表级联维护对象图 | 有 | **无** |
+
+表面上 Repository + `@Table` 实体很像 JPA，但行为不同：JPA 的 `findById` 可能带出懒加载的关联集合，改字段后提交时可能只更新脏列；Spring Data JDBC 的 `findById` 就是一次 `SELECT`，保存就是明确的写库，**没有「受管实体」概念**。Spring 官方也更强调 **Aggregate（聚合）**：以单表或简单聚合根为主，复杂多表关联不会像 ORM 那样自动维护双向关系。
+
+和 MyBatis 的定位对比：Spring Data JDBC 几乎不算 ORM；MyBatis 常称 **半自动 ORM**（有映射、SQL 你写）；JPA/Hibernate 是 **完整 ORM**。
+
+### 为何不需要 Hibernate 等 JPA 实现
+
+这不是 Spring Data 对两条路线「要求不同」，而是 **中间有没有 ORM 引擎层**：
+
+```text
+Spring Data JPA
+    → Spring Data JPA（Repository）
+    → JPA API（规范，本身不能运行）
+    → JPA 实现（Hibernate / EclipseLink 等）  ← 必须有
+    → JDBC → 数据库
+
+Spring Data JDBC
+    → Spring Data JDBC（Repository + 简单 SQL 生成）
+    → JdbcTemplate（Spring 自带）
+    → JDBC → 数据库
+```
+
+**JPA 是规范（合同）**，只定义 `EntityManager`、注解、JPQL 等接口和约定，具体映射、SQL 生成、缓存由 **Provider** 实现。Spring Data JPA 只负责 Repository 封装，不实现 ORM 核心，因此必须再挂一个实现；Spring Boot 默认选 Hibernate，换成 EclipseLink 也可以，但要自己配依赖。
+
+**JDBC 已是底层标准 API**（`Connection`、`PreparedStatement`…），JDK + 数据库驱动就是实现，没有「JDBC 的 Hibernate」要选。Spring Data JDBC 自己用 `JdbcTemplate` 执行 SQL，不管理对象图、持久化上下文，所以 **不需要再绑一个 ORM 引擎**。
 
 **与其它方案对比**：
 
@@ -208,6 +214,40 @@ userMapper.selectList(
 
 ---
 
+## JdbcTemplate
+
+**JdbcTemplate** 是 **Spring Framework** 提供的工具类（`org.springframework.jdbc.core.JdbcTemplate`），**不是 JDK 原生 API**。JDK 提供的是 `Connection`、`PreparedStatement`、`ResultSet` 等 JDBC 接口；JdbcTemplate 在其上封装了连接获取、参数绑定、异常转换和 `RowMapper` 结果映射。
+
+| 项目     | 说明                                                  |
+|----------|-------------------------------------------------------|
+| 依赖     | `spring-boot-starter-jdbc`                            |
+| 是否 ORM | 否，需手写 SQL                                         |
+| 典型用法 | `jdbcTemplate.query(...)`、`update(...)` + `RowMapper` |
+
+示例：
+
+```java
+@Repository
+public class UserDao {
+    private final JdbcTemplate jdbcTemplate;
+
+    public User findByName(String name) {
+        return jdbcTemplate.queryForObject(
+            "SELECT * FROM users WHERE name = ?",
+            new UserRowMapper(),
+            name);
+    }
+}
+```
+
+**特点**：SQL 完全可控，适合简单 CRUD、复杂 JOIN、报表；样板代码比裸 JDBC 少，但比 JPA/MyBatis-Plus 多。
+
+**与 JPA 对比**：JdbcTemplate 是「SQL 优先」；JPA 是「对象优先」，由框架生成 SQL。
+
+**连接池**：项目里通常只配 `spring.datasource.url` 等少量属性；`spring-boot-starter-jdbc` 会由 Spring Boot 自动创建 **HikariCP** 连接池和 `DataSource`，再注入到 `JdbcTemplate`（约定优于配置）。
+
+---
+
 ## JDBI
 
 **JDBI**（Java Database Interface，现多为 **JDBI 3**）是 **第三方**轻量级 JDBC 封装库，**不属于 Spring 或 JDK**。定位与 JdbcTemplate 接近：**SQL 优先、非 ORM**，API 更现代。
@@ -295,18 +335,18 @@ JDBC（共用 Spring Boot 的 DataSource / HikariCP）
 
 | 方案                        | 类型                     | SQL 谁写      | Spring Boot 常见度 |
 |-----------------------------|--------------------------|---------------|--------------------|
-| JdbcTemplate                | Spring JDBC 工具         | 你            | 中等               |
 | Spring Data JDBC            | JDBC + Repository 封装   | 你 + 部分自动 | 较低               |
 | Spring Data JPA + Hibernate | 标准 + ORM + Spring 封装 | 框架为主      | 很高               |
 | MyBatis / MyBatis-Plus      | 半自动 ORM + 增强        | 你为主        | 很高               |
+| JdbcTemplate                | Spring JDBC 工具         | 你            | 中等               |
 | JDBI                        | 第三方 JDBC 封装         | 你            | 较低               |
 | jOOQ                        | 类型安全 SQL DSL         | 你（DSL 生成） | 较低               |
 
-- **要完全掌控 SQL、项目简单**：JdbcTemplate 或 JDBI
-- **复杂 SQL 多、又要编译期类型安全**：jOOQ
 - **要 Repository 风格、但不想上 JPA/Hibernate**：Spring Data JDBC
 - **CRUD 多、实体关联多、团队熟悉 ORM**：Spring Data JPA
 - **复杂 SQL 多、习惯写 SQL、国内传统项目**：MyBatis / MyBatis-Plus
+- **要完全掌控 SQL、项目简单**：JdbcTemplate 或 JDBI
+- **复杂 SQL 多、又要编译期类型安全**：jOOQ
 
 ---
 
