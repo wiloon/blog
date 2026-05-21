@@ -1,7 +1,7 @@
 ---
 author: "-"
 date: 2026-05-05T14:02:11+08:00
-lastmod: 2026-05-14T13:56:02+08:00
+lastmod: 2026-05-21T12:12:45+08:00
 title: macos apps
 categories:
   - Desktop

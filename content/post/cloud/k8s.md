@@ -2,14 +2,14 @@
 title: "k8s"
 author: "-"
 date: "2026-04-10T21:39:51+08:00"
+lastmod: "2026-05-21T13:07:47+08:00"
 url: k8s
 categories:
   - Cloud
 tags:
   - k8s
-  - "reprint"
-  - "remix"
-  - "AI-assisted"
+  - remix
+  - AI-assisted
 ---
 ## k8s
 
@@ -23,6 +23,40 @@ Pod 还包含其容器的共享网络和存储资源：
 网络：系统会自动为 Pod 分配独一无二的 IP 地址。各 Pod 容器共用同一网络命名空间，包括 IP 地址和网络端口。Pod 中的各容器在 Pod 内通过 localhost 彼此通信。
 存储：Pod 可以指定一组可在各容器之间共用的共享存储卷。
 可以将 Pod 视为一个自成一体的独立“逻辑主机”，其中包含该 Pod 所服务于的应用的系统需求。
+
+## Secret
+
+Secret 用于存放敏感数据（密码、Token、TLS 证书、私有镜像仓库凭证等），用法与 ConfigMap 类似，但语义上表示不应明文写在 Pod YAML 里。
+
+与 ConfigMap 的区别：值在 etcd 中以 **base64** 存储，默认**不加密**；有权限的用户仍可通过 `kubectl get secret -o yaml` 查看。生产环境应配合 RBAC、etcd 加密或外部密钥方案（如 Sealed Secrets）。
+
+常见类型：
+
+| type | 用途 |
+| ---- | ---- |
+| `Opaque`（默认） | 任意键值，如数据库密码 |
+| `kubernetes.io/dockerconfigjson` | 私有镜像拉取（`imagePullSecrets`） |
+| `kubernetes.io/tls` | TLS 证书（Ingress、`tls.secretName`） |
+
+定义示例（`stringData` 写明文，API 自动转 base64）：
+
+```yaml
+apiVersion: v1
+kind: Secret
+metadata:
+  name: my-secret
+type: Opaque
+stringData:
+  password: "xxx"
+```
+
+Pod 引用方式：
+
+- **环境变量**：`secretKeyRef` 或 `envFrom.secretRef`
+- **挂载文件**：`volumes.secret.secretName`，每个 key 对应一个文件
+- **拉镜像**：`spec.imagePullSecrets` 引用 docker 类型 Secret
+
+修改 Secret 后，以环境变量注入的 Pod 通常需**重启**才生效；以卷挂载的会由 kubelet 周期性同步。
 
 ## K8s Service
 

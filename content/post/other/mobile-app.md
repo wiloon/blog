@@ -2,11 +2,13 @@
 title: mobile apps, iOS apps, android apps, app list, apk
 author: "-"
 date: 2011-12-24T07:04:18+00:00
+lastmod: 2026-05-21T12:14:34+08:00
 url: mobile/app
 categories:
   - Inbox
 tags:
   - original
+  - AI-assisted
 aliases:
   - /p3731/
 ---
@@ -16,6 +18,7 @@ aliases:
 
 - bitwarden
 - plex, 流媒体服务器
+- QuMagie, 威联通 NAS 相册
 - macrodroid, 设备自动化, 监控电池电量发 http 请求.
 - otter, 语音转文字
 - Ingress Prime, 一个 LBS 游戏
