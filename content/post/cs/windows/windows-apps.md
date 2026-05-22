@@ -2,6 +2,7 @@
 title: Windows apps
 author: "-"
 date: 2026-05-05T14:02:11+08:00
+lastmod: 2026-05-22T12:25:37+08:00
 url: windows/apps
 categories:
   - Desktop
@@ -29,6 +30,12 @@ tags:
 | PowerToys | winget:Microsoft.PowerToys | |
 | WSL2 | — | `wsl --install` |
 | T-Clock | — | 任务栏显示周数，[GitHub](https://github.com/White-Tiger/T-Clock/wiki) |
+
+## Screenshot
+
+| app | install | notes |
+| --- | --- | --- |
+| PixPin | winget:PixPin.PixPin | 截图+标注+钉图+OCR，替代 Flameshot |
 
 ## Disk Analysis
 
@@ -87,6 +94,7 @@ winget install WinSCP.WinSCP
 winget install Mozilla.Firefox
 winget install Microsoft.PowerShell
 winget install cURL.cURL
+winget install PixPin.PixPin
 ```
 
 ## choco packages
@@ -185,7 +193,7 @@ choco upgrade keepassxc
 |T-Clock           | 可以显示周数的任务栏时钟, 格式模板: "mm-dd HH:nn \nW Wi ddd", [https://github.com/White-Tiger/T-Clock/wiki](https://github.com/White-Tiger/T-Clock/wiki) |
 |VcXsrc            | x server           |
 |PowerToys||
-|截图工具|搜索 截图工具|
+| PixPin | winget:PixPin.PixPin | 截图+标注+钉图+OCR |
 
 MobaXterm
 

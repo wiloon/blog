@@ -2,11 +2,13 @@
 title: dev env
 author: "-"
 date: 2011-08-01T15:43:50+00:00
+lastmod: 2026-05-22T12:25:37+08:00
 url: dev/env
 categories:
   - inbox
 tags:
-  - reprint
+  - remix
+  - AI-assisted
 ---
 ## dev env
 
@@ -87,7 +89,7 @@ choco install python2
 - Firefox
 - Python
 - Go
-- Flameshot, Linux/Win
+- Flameshot（Linux）/ PixPin（Windows）
 
 ### palette
 

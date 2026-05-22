@@ -2,6 +2,7 @@
 title: my apps
 author: "-"
 date: 2026-05-05T14:02:11+08:00
+lastmod: 2026-05-22T12:25:37+08:00
 url: my-apps
 categories:
   - Desktop
@@ -38,7 +39,8 @@ tags:
 | kitty | kitty | — | — | kitty | — | terminal |
 | neovim | neovim | — | neovim | — | Neovim.Neovim | 编辑器 |
 | bitwarden | bitwarden | — | — | bitwarden | Bitwarden.Bitwarden | 密码管理 |
-| flameshot | flameshot | — | — | flameshot | Flameshot.Flameshot | 截图+标注 |
+| flameshot | flameshot | — | — | flameshot | — | 截图+标注（Linux/macOS） |
+| pixpin | — | — | — | — | PixPin.PixPin | 截图+标注+钉图+OCR（Windows） |
 | btop | btop | — | btop | — | — | top 替代 |
 | wechat | — | wechat | — | wechat | Tencent.WeChat | |
 | vscode | — | visual-studio-code-bin | — | visual-studio-code | Microsoft.VisualStudioCode | |
@@ -71,7 +73,8 @@ tags:
 
 | app | pacman | aur | brew | cask | win | notes |
 | --- | --- | --- | --- | --- | --- | --- |
-| flameshot | flameshot | — | — | flameshot | Flameshot.Flameshot | 截图+标注 |
+| flameshot | flameshot | — | — | flameshot | — | 截图+标注（Linux/macOS） |
+| pixpin | — | — | — | — | PixPin.PixPin | 截图+标注+钉图+OCR（Windows） |
 
 ## System Monitor
 

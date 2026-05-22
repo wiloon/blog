@@ -1,5 +1,19 @@
 # AI Agent 工作指南
 
+## 文章 SDD（Spec 驱动写作）
+
+部分文章采用 **SDD**：作者在 `.ai/specs/{slug}.md` 维护 Spec，AI 在 Spec 基础上润色并输出交付物 `content/post/**/*.md`。
+
+- **流程与 AI 约束**：见 [.ai/article-sdd.md](.ai/article-sdd.md)
+- **Spec 索引**：见 [.ai/README.md](.ai/README.md)
+- **Spec 不会渲染到最终 blog**（仅在 `content/` 下的 Markdown 会发布）
+
+编辑 **带有 Spec 的文章** 时：必须先读对应 Spec，以 Spec 的「必须包含 / 禁止包含」为准，并仍遵守下文 front matter、标签与 Markdown 规则。无 Spec 的文章按常规流程处理。
+
+**SDD 交付物标签**（作者写 Spec、AI 润色成稿）：必须使用 **`original`** + **`AI-assisted`**，**不得**使用 `remix` 或 `reprint`（与 §添加 AI 辅助标签 中 `original` 优先级规则一致）。详见 [.ai/article-sdd.md](.ai/article-sdd.md) §标签。
+
+---
+
 ## 🚨 编辑博客文章强制规则 🚨
 
 ### ⚠️ 每次编辑文章必做五件事（缺一不可）：
