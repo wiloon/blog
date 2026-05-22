@@ -1,8 +1,9 @@
 ---
 author: "-"
 date: 2026-05-05T14:02:11+08:00
-lastmod: 2026-05-21T12:12:45+08:00
+lastmod: 2026-05-23T06:52:22+08:00
 title: macos apps
+url: macos-apps
 categories:
   - Desktop
 tags:
@@ -29,6 +30,7 @@ tags:
 | stats | cask:stats | 任务栏系统资源监控 |
 | itsycal | cask:itsycal | 任务栏日历（显示周数） |
 | tunnelblick | cask:tunnelblick | OpenVPN GUI 客户端 |
+| Logi Options+ | cask:logi-options-plus | Logitech 键鼠配置工具 |
 
 ## Productivity
 
