@@ -8,7 +8,7 @@
 - **Spec 索引**：见 [.ai/README.md](.ai/README.md)
 - **Spec 不会渲染到最终 blog**（仅在 `content/` 下的 Markdown 会发布）
 
-编辑 **带有 Spec 的文章** 时：必须先读对应 Spec，以 Spec 的「必须包含 / 禁止包含」为准，并仍遵守下文 front matter、标签与 Markdown 规则。无 Spec 的文章按常规流程处理。
+编辑 **带有 Spec 的文章** 时：必须先读对应 Spec，以 Spec 的「必须包含 / 禁止包含」为准；正文 prose 风格（默认不加粗、人称适度用「我」等）另见 [.ai/delivery-style.md](.ai/delivery-style.md)。仍遵守下文 front matter、标签与 Markdown 规则。**无 Spec 的文章** 不读 delivery-style，只按常规流程与下文规则处理。
 
 **SDD 交付物标签**（作者写 Spec、AI 润色成稿）：必须使用 **`original`** + **`AI-assisted`**，**不得**使用 `remix` 或 `reprint`（与 §添加 AI 辅助标签 中 `original` 优先级规则一致）。详见 [.ai/article-sdd.md](.ai/article-sdd.md) §标签。
 
