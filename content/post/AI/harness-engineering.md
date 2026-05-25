@@ -2,6 +2,7 @@
 title: Harness Engineering 与状态锚点
 author: "-"
 date: 2026-04-20T13:03:41+08:00
+lastmod: 2026-05-24T14:24:06+08:00
 url: harness-engineering
 categories:
   - AI
@@ -229,25 +230,18 @@ ADR 是团队和 AI 理解「为什么这样设计」的关键依据，防止历
 
 ## SDD 与 Harness Engineering 的关系
 
-SDD（Spec-Driven Development，规格驱动开发）是一种 AI 辅助开发方法论：开发者先写详细的自然语言规格说明（Spec），AI 再根据 Spec 生成、验证或引导代码实现。
+SDD（Spec-Driven Development，规格驱动开发）是 AI 辅助开发的 **输入侧**：用结构化 Spec 告诉 AI「要做什么、边界在哪」。Harness Engineering 是 **验证侧**：用测试套件和状态锚点确认结果是否符合预期。
 
-两者联系紧密，分别覆盖开发闭环的不同侧：
+两者组合形成完整闭环：
 
-- **SDD 是输入侧**：用结构化的 Spec 告诉 AI "要做什么、边界在哪"
-- **Harness Engineering 是验证侧**：用测试套件和状态锚点确认 AI 生成的结果"是否符合预期"
-
-两者组合形成一个完整闭环：
-
-```
+```text
 Spec（SDD）→ AI 生成实现 → Test Harness 验证 → 状态锚点记录进度 → 下一轮 Spec
 ```
 
 具体交叉点：
 
-1. **Spec 驱动 Harness 构建**：Spec 里定义的接口契约、边界条件，天然就是 Test Harness 测试用例的来源
-2. **状态锚点引用 Spec**：`harness-state.md` 中记录"哪些 Spec 已实现、哪些还在进行"，Spec 成为进度追踪的粒度单元
-3. **共同目标一致**：都是为了让 AI agent 在没有人类实时监督的情况下也能做出正确决策，而不是靠"感觉"
+1. **Spec 驱动 Harness 构建**：Spec 里的接口契约、边界条件，天然就是测试用例来源
+2. **状态锚点引用 Spec**：记录哪些 Spec 已实现、哪些还在进行
+3. **共同目标**：让 AI 在没有实时监督时也能做出正确决策，而不是靠感觉
 
-SDD 提供了 Harness Engineering 中"脚手架文档"（Task Specs、Project Brief）那一层的方法论支撑。
-
-与 **Vibe Coding** 相对：Vibe Coding 是随意描述让 AI 猜，SDD 是结构化、可追溯的规格先行。
+SDD 与 Vibe Coding 的对比、Spec 怎么写、何时从 Vibe 收敛到 Spec，见 [Spec-Driven Development 与 Vibe Coding](spec-driven-development)。

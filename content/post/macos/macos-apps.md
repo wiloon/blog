@@ -1,7 +1,7 @@
 ---
 author: "-"
 date: 2026-05-05T14:02:11+08:00
-lastmod: 2026-05-23T06:52:22+08:00
+lastmod: 2026-05-24T13:57:58+08:00
 title: macos apps
 url: macos-apps
 categories:
@@ -31,6 +31,7 @@ tags:
 | itsycal | cask:itsycal | 任务栏日历（显示周数） |
 | tunnelblick | cask:tunnelblick | OpenVPN GUI 客户端 |
 | Logi Options+ | cask:logi-options-plus | Logitech 键鼠配置工具 |
+| Ice | cask:jordanbaird-ice@beta | 菜单栏图标管理、隐藏与分组 |
 
 ## Productivity
 
