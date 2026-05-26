@@ -2,7 +2,7 @@
 title: 开源离线词典
 author: "-"
 date: 2026-05-23T10:21:41+08:00
-lastmod: 2026-05-23T10:21:41+08:00
+lastmod: 2026-05-26T09:18:01+08:00
 url: open-source-dictionaries
 categories:
   - English
@@ -17,16 +17,17 @@ tags:
 
 离线查词依赖两样东西：**词典客户端**（软件）和**词库文件**（数据）。客户端负责检索、取词、发音；词库决定收词量、释义质量和标注信息。下面按数据来源和格式，整理几类常用的开源 / 开放词库。
 
-常见客户端：
+常见客户端与开放词库：
 
-| 客户端 | 平台 | 主要格式 |
-| --- | --- | --- |
-| [GoldenDict](https://github.com/goldendict/goldendict) | Linux / Windows / macOS | StarDict、MDX |
-| [StarDict / 星际译王](http://www.huzheng.org/stardict/index_cn.php) | Linux / Windows | StarDict |
-| [sdcv](https://dushistov.com/software/sdcv/) | 命令行 | StarDict |
-| [MDict](https://www.mdict.cn/) | Windows / Android / iOS | MDX / MDD |
-| [欧陆词典](https://www.eudic.net/) | 全平台 | 欧陆原生 / MDX |
-| [Bob](https://github.com/ripperhe/Bob) | macOS | 多种插件后端 |
+| 名称 | 类型 | 平台 | 主要格式 |
+| --- | --- | --- | --- |
+| [GoldenDict](https://github.com/goldendict/goldendict) | 客户端 | Linux / Windows / macOS | StarDict、MDX |
+| [StarDict / 星际译王](http://www.huzheng.org/stardict/index_cn.php) | 客户端 | Linux / Windows | StarDict |
+| [sdcv](https://dushistov.com/software/sdcv/) | 客户端 | 命令行 | StarDict |
+| [MDict](https://www.mdict.cn/) | 客户端 | Windows / Android / iOS | MDX / MDD |
+| [欧陆词典](https://www.eudic.net/) | 客户端 | 全平台 | 欧陆原生 / MDX |
+| [Bob](https://github.com/ripperhe/Bob) | 客户端 | macOS | 多种插件后端 |
+| [ECDICT](https://github.com/skywind3000/ECDICT) | 词库数据 | — | CSV、SQLite、StarDict、MDX、欧陆、MOBI |
 
 ## ECDICT
 
