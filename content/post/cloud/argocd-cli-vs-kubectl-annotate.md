@@ -2,7 +2,7 @@
 title: Argo CD CLI 与 kubectl annotate 对比
 author: "-"
 date: 2026-05-28T12:40:16+08:00
-lastmod: 2026-05-28T12:40:16+08:00
+lastmod: 2026-05-28T13:08:18+08:00
 url: argocd-cli-vs-kubectl-annotate
 categories:
   - Cloud
@@ -95,6 +95,53 @@ argocd app sync quantdinger
 
 登录方式因 Ingress、gRPC-Web、SSO 配置而异，以集群实际 Argo 入口为准。
 
+## 后续：Namespace 一直 OutOfSync 的收尾
+
+应急 `kubectl apply -k` 后，MiniMax 等业务资源（ConfigMap、Secret、Deployment 等）已与 Git 对齐，但 Application 仍显示 **OutOfSync**，且只有 **`Namespace/quantdinger`** 一项。
+
+### 原因
+
+| 差异项 | 来源 |
+| ------ | ---- |
+| 标签 `kubernetes.io/metadata.name` | K8s 1.22+ 给 Namespace 自动加，便于用 label 按名字选中 |
+| 注解 `kubectl.kubernetes.io/last-applied-configuration` | 手工 `kubectl apply` 写入 |
+
+Git 里的 `namespace.yaml` 通常只有自定义 label（如 `app.kubernetes.io/name`），不含上述系统字段，Argo 严格对比时会报 drift。
+
+**不建议**把 `kubernetes.io/metadata.name` 抄进 Git 来「消 diff」——这是控制面维护的标签。应在 Application 上声明忽略。
+
+### 做法：`ignoreDifferences`
+
+在 `homelab/k8s/argocd/application-quantdinger.yaml` 增加：
+
+```yaml
+spec:
+  ignoreDifferences:
+  - group: ""
+    kind: Namespace
+    jsonPointers:
+    - /metadata/labels/kubernetes.io~1metadata.name
+  - group: ""
+    kind: Namespace
+    jqPathExpressions:
+    - .metadata.annotations["kubectl.kubernetes.io/last-applied-configuration"]
+```
+
+说明：`kubernetes.io~1metadata.name` 是 JSON Pointer 对 `/` 的转义。
+
+改完后 `kubectl apply -f` 或 push 到 `w10n-config`，必要时再执行一次 hard refresh。本例 push 提交 `a9d70a6` 后，状态为：
+
+- `sync=Synced`，`health=Healthy`
+- `OutOfSync` 资源：**0**
+- QuantDinger 工作负载 revision 与 Git 一致（MiniMax 等配置已 Synced）
+
+### 与本文两种操作的关系
+
+- **refresh / sync**：解决「Git 新提交未反映到集群」
+- **ignoreDifferences**：解决「集群正常、但系统字段与 Git 永远不完全一致」
+
+二者可同时需要：先让业务 manifest 对齐，再对 Namespace 系统 drift 做长期忽略。
+
 ## 小结
 
 - **`kubectl annotate` + `refresh=hard`**：轻量、无 CLI，适合「让 Argo 重新读 Git」
@@ -102,3 +149,5 @@ argocd app sync quantdinger
 - **`kubectl apply -k`**：绕过 Argo 的应急手段，易造成 OutOfSync，不宜作为常态
 
 在 automated + selfHeal 的 homelab 里，日常改 manifest → push → 等 Argo 同步即可；只有「push 了但 revision 不动」时，再 refresh；需要立即对齐且不想等控制器时，用 `argocd app sync` 最干净。
+
+若仅 **Namespace** OutOfSync 且业务资源已 Synced，用 **`ignoreDifferences`** 忽略 `kubernetes.io/metadata.name` 与 `last-applied-configuration`，不要把这些系统字段写进 Git。
