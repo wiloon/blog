@@ -2,12 +2,58 @@
 title: 蓝牙配对
 author: "-"
 date: 2011-12-24T06:24:13+00:00
+lastmod: 2026-05-28T09:54:13+08:00
 url: bluetooth
 categories:
-  - Inbox
+  - cs
 tags:
-  - reprint
+  - bluetooth
+  - archlinux
+  - remix
+  - AI-assisted
 ---
+## Arch Linux 蓝牙连接键盘
+
+### 环境
+
+- 设备：SER8（AMD 小主机）
+- 系统：Arch Linux + KDE
+- 问题：KDE 系统设置蓝牙页面无法发现蓝牙键盘
+
+### 排查过程
+
+```bash
+# 检查蓝牙服务状态
+systemctl status bluetooth
+# → inactive (dead)，且 disabled
+
+# 检查硬件是否被识别
+ls /sys/class/bluetooth/
+# → hci0（硬件正常识别）
+
+# 检查软件包
+pacman -Q bluez bluedevil
+# → bluez 5.86-6 / bluedevil 1:6.6.5-1（已安装）
+```
+
+### 根本原因
+
+蓝牙硬件正常、驱动正常、软件包齐全，但 `bluetooth.service` 从未被启用，导致 KDE 蓝牙面板无法扫描任何设备。
+
+### 解决方法
+
+```bash
+# 启动蓝牙服务并设置开机自启
+sudo systemctl enable --now bluetooth
+
+# 可选：安装命令行调试工具
+sudo pacman -S bluez-utils
+```
+
+服务启动后，打开 KDE 系统设置 → 蓝牙，将键盘置于配对模式，即可正常发现并配对。
+
+---
+
 ## 蓝牙配对
 四中配对模式: Numeric Comparison, Just Works, Out of Band and Passkey Entry。
 
