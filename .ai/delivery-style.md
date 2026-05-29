@@ -10,8 +10,9 @@
 | 层级 | 文件 | 管什么 |
 | ---- | ---- | ------ |
 | 1 | [AGENTS.md](../AGENTS.md) | 全站改文底线：front matter、`url`、`lastmod`、标签、MD025、表格/代码块、中英文空格等 |
-| 2 | **本文（delivery-style.md）** | SDD **交付物正文** 的默认语气与格式（加粗、标题层级等） |
-| 3 | `.ai/specs/{slug}.md` | 本篇主题、必写/禁写、结构；**仅在本篇写明「例外」时**可覆盖本文默认 |
+| 2 | [content-constraints.md](content-constraints.md) | 全站内容约束（如 VPN 命名：WireGuard/OpenVPN 除外不写软件名） |
+| 3 | **本文（delivery-style.md）** | SDD **交付物正文** 的默认语气与格式（加粗、标题层级等） |
+| 4 | `.ai/specs/{slug}.md` | 本篇主题、必写/禁写、结构；**仅在本篇写明「例外」时**可覆盖本文默认 |
 
 单篇 Spec 的 §语气与风格 / §格式 应写 **本篇特有** 内容，并注明「其余见 [delivery-style.md](delivery-style.md)」。
 
@@ -61,7 +62,7 @@
 
 ## AI 改稿时
 
-1. 读单篇 Spec → **本文** → AGENTS.md → 再改正文。
+1. 读单篇 Spec → [content-constraints.md](content-constraints.md) → **本文** → AGENTS.md → 再改正文。
 2. 成稿后自查：正文加粗是否 **仅** 出现在 Spec 允许的例外列表中；若过多，删减加粗而非新增。
 3. 自查人称：技术段是否堆砌「我」；疑问、猜测、探索段是否 **过少** 以致不像个人笔记——必要处应保留「我」。
 
@@ -72,3 +73,4 @@
 | 2026-05-23 | 从 exploration / booster-recovery Spec 抽取共通格式与语气默认 |
 | 2026-05-23 | 新增 §人称：叙述默认淡化「我」，例外见单篇 Spec 或文末探索段 |
 | 2026-05-23 | §人称改为「适度用我」：必要处保留，技术段不堆砌 |
+| 2026-05-29 | 文档层级加入 [content-constraints.md](content-constraints.md)（VPN 命名等全站约束） |
