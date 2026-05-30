@@ -2,12 +2,11 @@
 title: macOS Basics
 author: "-"
 date: 2026-01-10T20:30:00+08:00
-lastmod: 2026-05-14T19:49:52+08:00
+lastmod: 2026-05-30T16:52:16+08:00
 url: macos/basic
 categories:
   - Inbox
 tags:
-  - reprint
   - remix
   - AI-assisted
 aliases:
@@ -28,6 +27,7 @@ diskutil list
 ## 快捷键
 
 - 截屏: Command + Shift + 3
+- 显示/隐藏 Dock: Option + Command + D
 - 显示隐藏文件: Command + Shift + .
 - 将光标移动到行首：control + a
 - 将光标移动到行尾：control + e
