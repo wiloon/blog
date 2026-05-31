@@ -7,12 +7,12 @@ url: hotspot
 categories:
   - language
 tags:
+  - AI-assisted
+  - hotspot
   - java
   - jvm
-  - hotspot
   - openjdk
   - remix
-  - AI-assisted
 ---
 
 ## 背景
@@ -25,11 +25,11 @@ tags:
 
 | 实现 | 说明 |
 | ---- | ---- |
-| **HotSpot** | OpenJDK 默认；[Attach](/attach-api)、[BTrace](/btrace)、JFR（JDK 11+ 开源）等文档均默认指它 |
+| **HotSpot** | OpenJDK 默认；[Attach](./attach-api.md)、[BTrace](./btrace.md)、JFR（JDK 11+ 开源）等文档均默认指它 |
 | Eclipse OpenJ9 | IBM J9 开源分支，attach/工具链与 HotSpot 不完全相同 |
 | GraalVM | 可含 HotSpot 作运行时，或 Native Image 等另一路径 |
 
-博客 [jvm](/jvm) 一文偏通用 JVM 概念（ inbox 状态）；**HotSpot 专文** 以本文为入口。
+博客 [jvm](./jvm.md) 一文偏通用 JVM 概念（ inbox 状态）；**HotSpot 专文** 以本文为入口。
 
 ## 核心组成（简图）
 
@@ -47,9 +47,9 @@ Java 源码 → javac → .class
 
 与诊断相关的 **HotSpot 内置能力**（不另挂 agent jar 也可部分使用）：
 
-- **AttachListener** + **Diagnostic Command**（[jcmd](/jcmd)、[Attach API](/attach-api)）
-- **JPDA / JVMTI** 调试后端（[JPDA](/java-debug-jpda)、[JVMTI](/jvmti)）
-- **JFR**（[Java Flight Recorder](/java-flight-recorder-jfr)）
+- **AttachListener** + **Diagnostic Command**（[jcmd](./jcmd.md)、[Attach API](./attach-api.md)）
+- **JPDA / JVMTI** 调试后端（[JPDA](./java-debug-JPDA.md)、[JVMTI](./jvmti.md)）
+- **JFR**（[Java Flight Recorder](./java-flight-recorder-jfr.md)）
 
 动态挂 **外部** agent（BTrace、Arthas）同样依赖 HotSpot 的 attach 与 instrument 实现。
 
@@ -57,13 +57,13 @@ Java 源码 → javac → .class
 
 | 主题 | 文章 |
 | ---- | ---- |
-| 通用 JVM / 执行引擎 | [jvm](/jvm) |
-| GC | [java-gc](/java-gc)、[parallel-scavenge](/parallel-scavenge) 等 |
-| 类加载 | [classloader](/classloader) |
-| Attach / jcmd | [attach-api](/attach-api)、[jcmd](/jcmd) |
-| 字节码织入 | [java-asm](/java-asm) |
-| 开发期热替换 | [DCEVM 与 HotSwapAgent](/dcevm-hotswapagent) |
-| Safepoint | [safepoint](/safepoint) |
+| 通用 JVM / 执行引擎 | [jvm](./jvm.md) |
+| GC | [java-gc](./java-gc.md)、[parallel-scavenge](../../cs/parallel-scavenge.md) 等 |
+| 类加载 | [classloader](./classloader.md) |
+| Attach / jcmd | [attach-api](./attach-api.md)、[jcmd](./jcmd.md) |
+| 字节码织入 | [java-asm](./java-asm.md) |
+| 开发期热替换 | [DCEVM 与 HotSwapAgent](../../cs/dcevm-hotswapagent.md) |
+| Safepoint | [safepoint](../../other/safepoint.md) |
 
 ## 参考
 

@@ -7,11 +7,11 @@ url: argocd
 categories:
   - Cloud
 tags:
-  - k8s
+  - AI-assisted
   - argocd
   - gitops
+  - k8s
   - remix
-  - AI-assisted
 ---
 
 ## 什么是 Argo CD
@@ -124,7 +124,7 @@ syncPolicy:
 | `selfHeal: true` | 有人用 `kubectl` 改了集群，会被拉回 Git 状态 |
 | `CreateNamespace=true` | 目标 namespace 不存在时自动创建 |
 
-因此日常应避免对已由 Argo 管理的资源长期 `kubectl apply -k` 旁路修改，否则会出现 OutOfSync，或与 selfHeal 互相覆盖。应急手段与正路 Sync 的对比，见 [Argo CD CLI 与 kubectl annotate 对比](/argocd-cli-vs-kubectl-annotate)。
+因此日常应避免对已由 Argo 管理的资源长期 `kubectl apply -k` 旁路修改，否则会出现 OutOfSync，或与 selfHeal 互相覆盖。应急手段与正路 Sync 的对比，见 [Argo CD CLI 与 kubectl annotate 对比](./argocd-cli-vs-kubectl-annotate.md)。
 
 ## 常用操作
 
@@ -176,6 +176,6 @@ sequenceDiagram
 
 - Argo CD 把 **Git 里的 K8s manifest** 持续对齐到集群，是 homelab GitOps 的 CD 层。
 - 日常以 **改 Git → push → 自动 Sync** 为主；`prune` + `selfHeal` 要求集群服从仓库。
-- UI、CLI、`kubectl` 查看 Application 各有用途；深度排障与 refresh/sync 区别见 [Argo CD CLI 与 kubectl annotate 对比](/argocd-cli-vs-kubectl-annotate)。
+- UI、CLI、`kubectl` 查看 Application 各有用途；深度排障与 refresh/sync 区别见 [Argo CD CLI 与 kubectl annotate 对比](./argocd-cli-vs-kubectl-annotate.md)。
 
 官方文档：[Argo CD Documentation](https://argo-cd.readthedocs.io/en/stable/)。

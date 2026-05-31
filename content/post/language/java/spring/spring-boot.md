@@ -6,17 +6,17 @@ lastmod: 2026-05-31T07:25:07+08:00
 url: spring-boot
 aliases:
   - /spring/boot/
-tags:
-  - java
-  - spring
-  - spring boot
-  - maven
-  - gradle
-  - restful
-  - remix
-  - AI-assisted
 categories:
   - java
+tags:
+  - AI-assisted
+  - gradle
+  - java
+  - maven
+  - remix
+  - restful
+  - spring
+  - spring boot
 ---
 
 ## Spring Boot 是什么
@@ -71,7 +71,7 @@ Spring Boot（2014）与微服务架构的兴起同期出现。2014 年 Martin F
 - **起步依赖（Starter）**：一组预定义的 Maven/Gradle 依赖集合，例如 `spring-boot-starter-web` 会自动引入 Spring MVC、Tomcat、Jackson 等全套依赖。
 - **内嵌服务器**：内置 Tomcat / Jetty / Undertow，打包为可执行 JAR，直接 `java -jar app.jar` 运行，无需单独部署到 Tomcat。切换只需在 `pom.xml` 排除默认 Tomcat、引入目标服务器的 Starter。
 - **Actuator**：内置生产级监控端点（health check、metrics 等）。
-- **DevTools**（开发可选）：快速 Restart、LiveReload；见 [Spring Boot DevTools](/spring-boot-devtools)。
+- **DevTools**（开发可选）：快速 Restart、LiveReload；见 [Spring Boot DevTools](../spring-boot-devtools.md)。
 - **Spring Initializr**：通过 [start.spring.io](https://start.spring.io) 快速生成项目骨架。
 
 ## Maven：`spring-boot-starter-parent`
@@ -527,7 +527,7 @@ public class OrderService {
 
 仍可能见到字段注入的场景：老项目遗留、快速原型、教程示例图省事。新代码与 `@Service` / `@Repository` / `@RestController` / `@Configuration` 等 Bean 应优先构造器注入；`@Value("${...}")` 注在字段上属于 **配置绑定**，与 **注入其他 Bean** 是不同问题。
 
-更系统的 IoC / DI 背景见 [Spring IoC 与依赖注入](/spring-ioc)。
+更系统的 IoC / DI 背景见 [Spring IoC 与依赖注入](../spring-ioc.md)。
 
 ## Bean Validation 常用约束（简述）
 

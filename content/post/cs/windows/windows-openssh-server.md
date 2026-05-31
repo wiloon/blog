@@ -7,16 +7,16 @@ url: openssh-server
 categories:
   - Network
 tags:
-  - windows
-  - openssh
-  - ssh
-  - remix
   - AI-assisted
+  - openssh
+  - remix
+  - ssh
+  - windows
 ---
 
 在 Windows 10（1809 及以后）和 Windows 11 上，系统自带 **OpenSSH Server**，安装并启动 **sshd** 服务后，Linux 或其他机器即可用 `ssh` 登录本机。
 
-与 [win11 ssh agent](/win11/ssh/agent) 的区别：
+与 [win11 ssh agent](./win11-ssh-agent.md) 的区别：
 
 | 组件 | 作用 |
 | ---- | ---- |
@@ -155,5 +155,5 @@ Restart-Service sshd
 
 ## 相关
 
-- 本机 SSH 客户端与 **ssh-agent**：[win11 ssh agent](/win11/ssh/agent)
+- 本机 SSH 客户端与 **ssh-agent**：[win11 ssh agent](./win11-ssh-agent.md)
 - Microsoft 文档：[OpenSSH for Windows overview](https://learn.microsoft.com/en-us/windows-server/administration/openssh/openssh_overview)

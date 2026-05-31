@@ -7,11 +7,11 @@ url: react-component
 categories:
   - development
 tags:
-  - react
-  - javascript
-  - frontend
-  - remix
   - AI-assisted
+  - frontend
+  - javascript
+  - react
+  - remix
 ---
 
 React 有两种组件写法：**函数组件（Function Component）** 和 **类组件（Class Component）**。现代 React 项目几乎全面使用函数组件，类组件属于历史遗留写法。
@@ -29,7 +29,7 @@ function Greeting({ name }) {
 const Greeting = ({ name }) => <h1>Hello, {name}!</h1>;
 ```
 
-React 16.8 引入 [Hooks](/react-hooks) 之后，函数组件可以使用状态和生命周期，成为主流写法。
+React 16.8 引入 [Hooks](./hooks.md) 之后，函数组件可以使用状态和生命周期，成为主流写法。
 
 ## 类组件
 
@@ -263,5 +263,5 @@ class ErrorBoundary extends Component {
 ## 参考资料
 
 - [React 官方文档 - 组件](https://react.dev/learn/your-first-component)
-- [React 入门](/react-intro)
-- [React Hooks 详解](/react-hooks)
+- [React 入门](./react.md)
+- [React Hooks 详解](./hooks.md)

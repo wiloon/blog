@@ -195,7 +195,7 @@ def migrate_file(
     new_body = "\n".join(new_lines)
     if body.endswith("\n"):
         new_body += "\n"
-    return f"---\n{fm}---\n{new_body}" if fm else new_body
+    return f"---\n{fm.rstrip()}\n---\n{new_body}" if fm else new_body
 
 
 def update_tags(fm: str, file_key: str) -> str:
@@ -219,7 +219,8 @@ def update_tags(fm: str, file_key: str) -> str:
             tag_set.add("AI-assisted")
         desired = sorted(tag_set)
 
-    fm = re.sub(r"^tags:\n(?:  - .+\n)*", "", fm, count=1, flags=re.MULTILINE)
+    fm = re.sub(r"^tags:\n(?:  - .+(?:\n|$))*", "", fm, count=1, flags=re.MULTILINE)
+    fm = re.sub(r"^categories:\n((?:  - .+\n)*)  - AI-assisted\n", r"categories:\n\1", fm, count=1, flags=re.MULTILINE)
     fm = fm.rstrip("\n") + "\n"
     tags_yaml = "tags:\n" + "".join(f"  - {t}\n" for t in desired)
     return fm + tags_yaml
@@ -230,7 +231,7 @@ def apply_write(md_path: Path, new_content: str, report: Report) -> None:
     fm, body = parse_frontmatter(new_content)
     if fm:
         fm = update_tags(fm, file_key)
-        final = f"---\n{fm}---\n{body}"
+        final = f"---\n{fm.rstrip()}\n---\n{body}"
     else:
         final = new_content
     md_path.write_text(final, encoding="utf-8")

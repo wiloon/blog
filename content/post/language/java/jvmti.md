@@ -7,18 +7,18 @@ url: jvmti
 categories:
   - language
 tags:
+  - AI-assisted
+  - hotspot
   - java
+  - jpda
   - jvm
   - jvmti
-  - jpda
-  - hotspot
   - remix
-  - AI-assisted
 ---
 
 ## 背景
 
-调试器断点、IDE 热替换、[jcmd](/jcmd) 部分能力、[Attach API](/attach-api) 的 `loadAgentLibrary`、native agent，底层都依赖 JVM 提供的 **native 级** 工具接口。在 HotSpot/OpenJDK 上，这一层主要是 **JVMTI**。
+调试器断点、IDE 热替换、[jcmd](./jcmd.md) 部分能力、[Attach API](./attach-api.md) 的 `loadAgentLibrary`、native agent，底层都依赖 JVM 提供的 **native 级** 工具接口。在 HotSpot/OpenJDK 上，这一层主要是 **JVMTI**。
 
 ## JVMTI 是什么
 
@@ -36,7 +36,7 @@ tags:
 | JVMDI | 调试 |
 | JVMPI | 性能分析 |
 
-JDK 5+ 由 **JVMTI** 统一替代（见 [JPDA](/java-debug-jpda) 文中的历史说明）。
+JDK 5+ 由 **JVMTI** 统一替代（见 [JPDA](./java-debug-JPDA.md) 文中的历史说明）。
 
 ## 与 JPDA、Instrumentation 的关系
 
@@ -57,13 +57,13 @@ java.lang.instrument（Java Agent，premain/agentmain）
 | **JPDA**（JDI + JDWP + JVMTI） | 调试体系 | Eclipse/IDEA 远程调试、JDB |
 | **`java.lang.instrument`** | Java | BTrace、Arthas、`-javaagent`、部分 APM |
 
-三者都落在 **同一 JVM 进程** 里，但入口不同：写 Java 诊断 agent 用 `instrument` + [Attach](/attach-api)；写调试器走 **JPDA**；写 native 库 agent 用 **JVMTI** + `loadAgentLibrary`。
+三者都落在 **同一 JVM 进程** 里，但入口不同：写 Java 诊断 agent 用 `instrument` + [Attach](./attach-api.md)；写调试器走 **JPDA**；写 native 库 agent 用 **JVMTI** + `loadAgentLibrary`。
 
-详见 [JAVA 调试与 JPDA](/java-debug-jpda)、[Java ASM 与运行时字节码织入](/java-asm)。
+详见 [JAVA 调试与 JPDA](./java-debug-JPDA.md)、[Java ASM 与运行时字节码织入](./java-asm.md)。
 
 ## 与 Attach、BTrace 的关系
 
-[Attach API](/attach-api) 的 `VirtualMachine.loadAgent(jar)` 走 **Java Agent**（`agentmain` + `Instrumentation`），一般不直接写 JVMTI。
+[Attach API](./attach-api.md) 的 `VirtualMachine.loadAgent(jar)` 走 **Java Agent**（`agentmain` + `Instrumentation`），一般不直接写 JVMTI。
 
 同一条 attach 通道上的 `loadAgentLibrary` / `loadAgentPath` 则加载 **native** agent（`.so` / `.dll`），入口是 JVMTI 的 `Agent_OnLoad`。
 
@@ -73,5 +73,5 @@ BTrace、async-profiler 等多数是 **JAR agent + instrument**，不是手写 J
 
 - [Java Platform Debugger Architecture](https://docs.oracle.com/javase/8/docs/technotes/guides/jpda/)（JPDA 总览）
 - [JVMTI 说明（OpenJDK）](https://openjdk.org/groups/hotspot/docs/Serviceability.html)
-- [JPDA 与远程调试](/java-debug-jpda)
-- [Attach API](/attach-api)
+- [JPDA 与远程调试](./java-debug-JPDA.md)
+- [Attach API](./attach-api.md)

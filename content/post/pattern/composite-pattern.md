@@ -7,8 +7,8 @@ url: composite-pattern
 categories:
   - Pattern
 tags:
-  - remix
   - AI-assisted
+  - remix
 ---
 
 ## Composite Pattern, 组合模式
@@ -188,7 +188,7 @@ Total size: 2850 bytes
 
 | 模式 | 关系 |
 |------|------|
-| [Builder](/builder-pattern) | Builder 有时用于构建 Composite 树结构 |
+| [Builder](./builder.md) | Builder 有时用于构建 Composite 树结构 |
 | Iterator | 可用于遍历 Composite 树 |
 | Visitor | 可在不修改 Composite 结构的前提下添加新操作 |
 | Decorator | 与 Composite 都依赖递归组合，但 Decorator 只有一个子节点 |

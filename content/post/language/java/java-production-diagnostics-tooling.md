@@ -7,25 +7,25 @@ url: production-diagnostics-tooling
 categories:
   - language
 tags:
-  - java
-  - btrace
-  - jfr
+  - AI-assisted
   - arthas
   - async-profiler
+  - btrace
+  - java
+  - jfr
   - jvm
   - remix
-  - AI-assisted
 ---
 
 ## 背景
 
-生产环境曾运行在 JDK 8。线上出现问题时，用 [BTrace](/btrace) attach 到运行中的 JVM：按条件过滤慢方法（例如耗时超过 9ms），持续输出，不改代码、不重启。
+生产环境曾运行在 JDK 8。线上出现问题时，用 [BTrace](./btrace.md) attach 到运行中的 JVM：按条件过滤慢方法（例如耗时超过 9ms），持续输出，不改代码、不重启。
 
 当时 JFR 仍是商业特性，attach 式动态追踪是可行且低成本的方案之一。本文先记录 JDK 8 时代的诉求与 BTrace 用法，其它 JDK 版本下的工具对照见文末章节。
 
 ## JDK 8 时代 BTrace 在解决什么
 
-从 [BTrace 使用笔记](/btrace) 中的脚本可以看出，核心需求是：
+从 [BTrace 使用笔记](./btrace.md) 中的脚本可以看出，核心需求是：
 
 1. attach 到运行中的 JVM，不重启
 2. 按条件过滤慢方法（例如大于 9ms）
@@ -57,7 +57,7 @@ jcmd -l
 
 ### Attach 原理（简述）
 
-BTrace 通过 JDK [Attach API](/attach-api) 把 agent JAR 加载进目标 JVM，在 `agentmain` 里注册 `ClassFileTransformer`，用 ASM 织入探针并对已加载类 `retransform`。客户端经 Socket 下发脚本、回收输出。细节见 [BTrace](/btrace) 中的「Attach 原理」一节。
+BTrace 通过 JDK [Attach API](./attach-api.md) 把 agent JAR 加载进目标 JVM，在 `agentmain` 里注册 `ClassFileTransformer`，用 ASM 织入探针并对已加载类 `retransform`。客户端经 Socket 下发脚本、回收输出。细节见 [BTrace](./btrace.md) 中的「Attach 原理」一节。
 
 ## JDK 8 下的结论
 
@@ -65,9 +65,9 @@ BTrace 通过 JDK [Attach API](/attach-api) 把 agent JAR 加载进目标 JVM，
 
 ## 参考（JDK 8 相关）
 
-- [BTrace 使用笔记](/btrace)
+- [BTrace 使用笔记](./btrace.md)
 - [BTrace 项目](https://github.com/btraceio/btrace)
-- [jcmd](/jcmd)
+- [jcmd](./jcmd.md)
 
 ## 其它 JDK 版本
 
@@ -75,7 +75,7 @@ BTrace 通过 JDK [Attach API](/attach-api) 把 agent JAR 加载进目标 JVM，
 
 ### JDK 11 及以后：JFR 与 BTrace 2.x
 
-从 JDK 11 起 JFR 免费，许多 GC、锁、分配类问题可用 `jcmd <pid> JFR.start` 等命令处理，见 [Java Flight Recorder](/java-flight-recorder-jfr)。
+从 JDK 11 起 JFR 免费，许多 GC、锁、分配类问题可用 `jcmd <pid> JFR.start` 等命令处理，见 [Java Flight Recorder](./java-flight-recorder-jfr.md)。
 
 BTrace 2.x 仍在维护，支持 oneliner，文档写明兼容 Java 8–25（更高版本需实测）：
 

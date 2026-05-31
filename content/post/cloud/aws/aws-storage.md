@@ -6,18 +6,19 @@ url: aws-storage
 categories:
   - cloud
 tags:
-  - aws
-  - s3
-  - rds
-  - dynamodb
   - AI-assisted
+  - aws
+  - dynamodb
+  - rds
+  - remix
+  - s3
 ---
 
 ## 概览
 
 | 服务        | 类型                        | 免费额度                     | 最低月费         |
 |-------------|-----------------------------|------------------------------|------------------|
-| S3          | 对象存储                    | 5 GB（前 12 个月）             | 极低，详见 [S3](/aws-s3) |
+| S3          | 对象存储                    | 5 GB（前 12 个月）             | 极低，详见 [S3](./s3.md) |
 | EBS         | 块存储                      | 30 GB（前 12 个月）            | 按容量计费       |
 | EFS         | 文件存储（NFS）               | 5 GB（前 12 个月）             | 按用量计费       |
 | RDS         | 关系型数据库                | db.t3.micro 750h（前 12 个月） | ~$15/月          |
@@ -79,7 +80,7 @@ AWS 自研全托管 NoSQL，完全 Serverless。
 
 ### S3
 
-Amazon Simple Storage Service，对象存储，详见 [AWS S3](/aws-s3)。
+Amazon Simple Storage Service，对象存储，详见 [AWS S3](./s3.md)。
 
 ---
 

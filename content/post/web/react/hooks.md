@@ -7,12 +7,12 @@ url: react-hooks
 categories:
   - development
 tags:
-  - react
+  - AI-assisted
+  - frontend
   - hooks
   - javascript
-  - frontend
+  - react
   - remix
-  - AI-assisted
 ---
 
 Hook 是 React 16.8 引入的一类特殊函数，命名以 `use` 开头。它让函数组件拥有了原本只有类组件才有的能力：**状态管理、生命周期、跨组件共享逻辑**。
@@ -376,4 +376,4 @@ function UserProfile({ userId }) {
 ## 参考资料
 
 - [React 官方文档 - Hooks](https://react.dev/reference/react/hooks)
-- [React 入门](/react-intro)
+- [React 入门](./react.md)

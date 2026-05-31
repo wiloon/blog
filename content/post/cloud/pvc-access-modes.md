@@ -7,11 +7,11 @@ url: pvc-access-modes
 categories:
   - cloud
 tags:
-  - k8s
-  - pvc
-  - longhorn
-  - remix
   - AI-assisted
+  - k8s
+  - longhorn
+  - pvc
+  - remix
 ---
 
 ## 是什么
@@ -80,6 +80,6 @@ spec:
 
 ## 相关
 
-- 集群命令与 PV/PVC 示例：[k8s-command](/k8s-command)
-- Tekton Workspace 里的 RWO 示例：[tekton-kaniko](/tekton-kaniko)
-- Pod 与存储卷概念：[k8s](/k8s)
+- 集群命令与 PV/PVC 示例：[k8s-command](./k8s-command.md)
+- Tekton Workspace 里的 RWO 示例：[tekton-kaniko](./tekton-kaniko.md)
+- Pod 与存储卷概念：[k8s](./k8s.md)

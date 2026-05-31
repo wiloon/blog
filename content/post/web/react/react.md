@@ -7,11 +7,11 @@ url: react-intro
 categories:
   - development
 tags:
-  - react
-  - javascript
-  - frontend
-  - remix
   - AI-assisted
+  - frontend
+  - javascript
+  - react
+  - remix
 ---
 
 React 是由 Meta（前 Facebook）开发并开源的 JavaScript UI 库，专注于构建用户界面。它于 2013 年开源，目前已成为最流行的前端技术之一。
@@ -44,7 +44,7 @@ const element = <div className="container">Hello</div>;
 const element = React.createElement("div", { className: "container" }, "Hello");
 ```
 
-详见：[JSX 介绍](/jsx)
+详见：[JSX 介绍](./jsx.md)
 
 ### Props
 
@@ -82,7 +82,7 @@ function Counter() {
 
 React 在内存中维护一棵虚拟 DOM 树。每次状态更新时，React 通过 **Diffing 算法**对比新旧虚拟 DOM，计算出最小变更集，再批量更新真实 DOM，从而提升性能。
 
-详见：[Virtual DOM](/virtual-dom)
+详见：[Virtual DOM](./virtual-dom.md)
 
 ## Hooks
 

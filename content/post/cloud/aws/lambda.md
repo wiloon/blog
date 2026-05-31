@@ -7,18 +7,18 @@ url: aws-lambda
 categories:
   - cloud
 tags:
+  - AI-assisted
   - aws
   - lambda
-  - serverless
   - remix
-  - AI-assisted
+  - serverless
 ---
 
 ## 概述
 
 **AWS Lambda** 是无服务器（Serverless）计算服务：上传函数代码，由 AWS 按事件触发执行，按实际运行时长计费，无需管理虚拟机。
 
-适合短任务、事件驱动、低频定时作业（配合 [EventBridge Scheduler](/aws-eventbridge-scheduler)）、轻量 API（API Gateway）、消息消费（SQS / SNS）等场景。不适合长时间常驻进程或持续高 CPU 负载。
+适合短任务、事件驱动、低频定时作业（配合 [EventBridge Scheduler](./eventbridge-scheduler.md)）、轻量 API（API Gateway）、消息消费（SQS / SNS）等场景。不适合长时间常驻进程或持续高 CPU 负载。
 
 ## 核心概念
 
@@ -62,7 +62,7 @@ EventBridge Scheduler ──(resource policy: lambda:InvokeFunction)──► La
                                                                    EC2 / SSM / …
 ```
 
-- **Execution Role** 信任策略 Principal 为 `lambda.amazonaws.com`（见 [AWS IAM](/aws-iam)）
+- **Execution Role** 信任策略 Principal 为 `lambda.amazonaws.com`（见 [AWS IAM](./iam.md)）
 - **调用方**（如 Scheduler）还需要自己的 Role 带 `lambda:InvokeFunction`；函数侧通常再加一条 `aws_lambda_permission` 限定 `source_arn`
 
 ## Handler 约定
@@ -77,16 +77,16 @@ def handler(event, context):
 ```
 
 - 同步调用：返回值会回传给调用方
-- 异步调用：返回值无意义；失败走重试 / DLQ（见 [AWS SQS](/aws-sqs)）
+- 异步调用：返回值无意义；失败走重试 / DLQ（见 [AWS SQS](./sqs.md)）
 - 超时或未捕获异常：Lambda 记为失败，CloudWatch 有 `Errors` 指标和日志
 
 ## 常见触发方式
 
 | 触发源 | 典型用途 | 相关笔记 |
 | ------ | -------- | -------- |
-| **EventBridge Scheduler** | 定时任务 | [EventBridge Scheduler](/aws-eventbridge-scheduler) |
-| **SNS** | 告警转发（邮件旁路 Telegram 等） | [AWS SNS](/aws-sns) |
-| **SQS** | 队列消费、异步解耦 | [AWS SQS](/aws-sqs) |
+| **EventBridge Scheduler** | 定时任务 | [EventBridge Scheduler](./eventbridge-scheduler.md) |
+| **SNS** | 告警转发（邮件旁路 Telegram 等） | [AWS SNS](./sns.md) |
+| **SQS** | 队列消费、异步解耦 | [AWS SQS](./sqs.md) |
 | **API Gateway / ALB** | HTTP API | — |
 | **S3 / DynamoDB 等** | 对象上传、表变更 | — |
 
@@ -98,7 +98,7 @@ def handler(event, context):
 
 | 函数 | 作用 |
 | ---- | ---- |
-| `enx-api-backup` | Scheduler 每周触发 → [SSM Run Command](/aws-systems-manager) 在 EC2 跑备份脚本 |
+| `enx-api-backup` | Scheduler 每周触发 → [SSM Run Command](./systems-manager.md) 在 EC2 跑备份脚本 |
 | `sns-telegram-notify` | SNS Topic 订阅 → 把告警推到 Telegram（可选） |
 
 链路示意：
@@ -185,7 +185,7 @@ SNS 触发 Lambda 时同样需要 `aws_lambda_permission`（`principal = "sns.am
 
 ## 日志与排错
 
-Lambda 自动把 stdout / stderr 写到 CloudWatch Logs，Log group 名为 `/aws/lambda/<函数名>`（见 [CloudWatch](/aws-cloudwatch)）。
+Lambda 自动把 stdout / stderr 写到 CloudWatch Logs，Log group 名为 `/aws/lambda/<函数名>`（见 [CloudWatch](./cloudwatch.md)）。
 
 ```bash
 # 手动同步调用（测试）

@@ -6,9 +6,9 @@ url: solid-principles
 categories:
   - Java
 tags:
+  - AI-assisted
   - Pattern
   - remix
-  - AI-assisted
 ---
 
 SOLID 是面向对象设计的五大基本原则的首字母缩写，由 Robert C. Martin（Uncle Bob）整理归纳。这五个原则是编写可维护、可扩展代码的基础。
@@ -25,7 +25,7 @@ SOLID 是面向对象设计的五大基本原则的首字母缩写，由 Robert 
 
 > 软件实体应该对扩展开放，对修改封闭。
 
-添加新功能时，应该通过新增代码实现，而不是修改已有代码。详见[开闭原则](/open-closed-principle)。
+添加新功能时，应该通过新增代码实现，而不是修改已有代码。详见[开闭原则](../other/open-closed-principle.md)。
 
 **反例：** 简单工厂的 `if/else` 判断链，每新增一种产品都要修改工厂方法。
 

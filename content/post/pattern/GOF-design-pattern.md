@@ -7,8 +7,8 @@ url: design-pattern
 categories:
   - Pattern
 tags:
-  - remix
   - AI-assisted
+  - remix
 ---
 ## GOF 23 种设计模式, Design pattern
 
@@ -18,33 +18,33 @@ tags:
 
 ### 创建模式, Creational Patterns
 
-- [Simple Factory, 简单工厂](/design-pattern-factory)
+- [Simple Factory, 简单工厂](./Factory.md)
 - Factory Method 工厂方法
 - Abstract Factory 抽象工厂模式
-- [Prototype, 原型](/prototype-pattern)
-- [Builder, 建造者](/builder-pattern)
+- [Prototype, 原型](./prototype-pattern.md)
+- [Builder, 建造者](./builder.md)
 - Singleton, 单例
 
 ### 结构模式, Structural Patterns
 
-- [Facade, 外观](/facade-pattern)
-- [Proxy, 代理](/proxy)
-- [Adapter, 适配器](/Adapter)
-- [Composite, 组合](/composite-pattern)
-- [Decorator, 装饰器](/decorator)
+- [Facade, 外观](./facade.md)
+- [Proxy, 代理](../cs/proxy.md)
+- [Adapter, 适配器](./adapter.md)
+- [Composite, 组合](./composite-pattern.md)
+- [Decorator, 装饰器](./decorator.md)
 - Bridge, 桥接
 - Flyweight, 享元
 
 ### 行为模式, Behavioral Patterns
 
-- [Template Method, 模板方法](/design-pattern/template-method)
+- [Template Method, 模板方法](./Template-Method.md)
 - Memento, 备忘录
 - Observer - 观察者 [https://wiloon.com/observer](https://wiloon.com/observer)
-- [Chain Of Responsibility, 责任链](/chain-of-responsibility)
+- [Chain Of Responsibility, 责任链](./chain-of-responsibility-pattern.md)
 - Command, 命令模式 (别名: 动作模式(Action)或事务模式(Transaction))
-- [State, 状态](/state-pattern)
-- [Strategy, 策略](/strategy-pattern)
-- [Mediator, 中介者](/mediator-pattern)
+- [State, 状态](./state-pattern.md)
+- [Strategy, 策略](./strategy-pattern.md)
+- [Mediator, 中介者](./mediator-pattern.md)
 - Interpreter, 解释器
 - Visitor, 访问者
 - Iterator, 迭代器

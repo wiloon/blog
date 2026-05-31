@@ -7,11 +7,11 @@ url: aws-systems-manager
 categories:
   - cloud
 tags:
+  - AI-assisted
   - aws
+  - remix
   - ssm
   - systems-manager
-  - remix
-  - AI-assisted
 ---
 
 ## 概述
@@ -58,7 +58,7 @@ tags:
 
 ## 实践：Lambda 远程跑备份脚本
 
-[EventBridge Scheduler](/aws-eventbridge-scheduler) 触发 Lambda，Lambda 用 SSM 在东京 EC2 上执行 `enx-api-backup.sh`（详见 enx 项目 `DATABASE_BACKUP.md`）：
+[EventBridge Scheduler](./eventbridge-scheduler.md) 触发 Lambda，Lambda 用 SSM 在东京 EC2 上执行 `enx-api-backup.sh`（详见 enx 项目 `DATABASE_BACKUP.md`）：
 
 ```text
 Scheduler → Lambda enx-api-backup

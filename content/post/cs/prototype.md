@@ -7,12 +7,11 @@ url: prototype
 categories:
   - development
 tags:
-  - reprint
-  - remix
   - AI-assisted
+  - remix
 ---
 
-> **注意**：本文讲的是**基于原型的编程范式**，不是 GoF 设计模式中的 [Prototype 模式](/prototype-pattern)。两者名字相同，但概念不同。
+> **注意**：本文讲的是**基于原型的编程范式**，不是 GoF 设计模式中的 [Prototype 模式](../pattern/prototype-pattern.md)。两者名字相同，但概念不同。
 
 ## 基于原型的编程是什么
 
