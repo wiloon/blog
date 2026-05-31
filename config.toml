@@ -22,6 +22,8 @@ hasCJKLanguage = true
 
 # 代码高亮 (Hugo 内置 Chroma)
 [markup]
+  [markup.goldmark.renderHooks.link]
+    useEmbedded = "always"
   [markup.highlight]
     anchorLineNos = false
     codeFences = true

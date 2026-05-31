@@ -161,6 +161,19 @@ url: docker-container-network  # ✅ 与标题匹配（docker 是主题词，非
 
 ---
 
+### 站内 Markdown 内链
+
+**核心规则：站内互链写相对 `.md` 路径，不写 `/permalink`。**
+
+1. ✅ 同目录：`[HotSpot](./hotspot.md)`；跨目录：`../../cs/dcevm-hotswapagent.md`
+2. ❌ 不要新建 `[text](/hotspot)` 形式的站内链接
+3. ✅ 保留 anchor：`./foo.md#section`；外链 `https://` 不变
+4. ✅ 代码块内的 `` `/hotspot` `` 字面量 **不要** 改为 `.md`
+
+细则与 Hugo 配置见 [`.ai/internal-links.md`](.ai/internal-links.md)。批量迁移用 `scripts/migrate-internal-links.py`（`--file` 单篇 / `--scope all` 全站）。
+
+---
+
 ### 检查并更新 categories
 
 **核心规则：每次编辑文章时必须检查 `categories` 是否与文章实际内容匹配**
@@ -293,16 +306,17 @@ tags:
 1. ✅ **检查文件名**：文件名必须是英文且与内容匹配，否则用 `mv` 重命名
 2. ✅ **检查标题**：`title` 是否准确描述文章内容，否则更新
 3. ✅ **检查 URL**：确认 URL 是否与标题匹配，转换数字 URL
-4. ✅ **检查 categories**：分类是否与文章内容匹配，否则更新
-5. ✅ **更新 lastmod**：更新或添加 `lastmod` 字段为当前东八区时间；`date` 字段**不要动**
-6. ✅ **添加标签**：先检查文章是否有 `original` 标签：
+4. ✅ **站内互链**：是否为相对 `.md`（见 [`.ai/internal-links.md`](.ai/internal-links.md)），而非 `/permalink`
+5. ✅ **检查 categories**：分类是否与文章内容匹配，否则更新
+6. ✅ **更新 lastmod**：更新或添加 `lastmod` 字段为当前东八区时间；`date` 字段**不要动**
+7. ✅ **添加标签**：先检查文章是否有 `original` 标签：
    - **有 `original` 标签**：只添加 `AI-assisted`，删除 `remix` 和 `reprint`（如有）
    - **无 `original` 标签**：确保包含 `remix` 和 `AI-assisted`，并删除 `reprint`（如有）
    - 同时添加与文章内容相关的具体技术标签（如 `java`、`go`、`docker` 等）
-7. ✅ **内容编辑**：完成实际的文章内容修改
-8. ✅ **格式检查**：确保 Markdown 格式正确
+8. ✅ **内容编辑**：完成实际的文章内容修改
+9. ✅ **格式检查**：确保 Markdown 格式正确
 
-**记忆口诀：编辑文章 = 改文件名 + 改标题 + 检查 URL + 检查分类 + 更新 lastmod（不改 date）+ 加标签 + 改内容**
+**记忆口诀：编辑文章 = 改文件名 + 改标题 + 检查 URL + 站内互链 + 检查分类 + 更新 lastmod（不改 date）+ 加标签 + 改内容**
 
 ### 其他注意事项
 - 保持文章格式的一致性

@@ -173,8 +173,8 @@ pattern.matcher("abcd1234567").matches();
 
       ◆截取http://地址
  //截取url
- Pattern pattern = Pattern.compile("([http://|https://](http://|https://)){1}[//w//.//-/:]+");
- Matcher matcher = pattern.matcher("dsdsds[http://dsds//gfgffdfd](http://dsds//gfgffdfd)fdf");
+ Pattern pattern = Pattern.compile("(\[http://|https://\]\(http://|https://\)){1}[//w//.//-/:]+");
+ Matcher matcher = pattern.matcher("dsdsds\[http://dsds//gfgffdfd\]\(http://dsds//gfgffdfd\)fdf");
  StringBuffer buffer = new StringBuffer();
  while(matcher.find()){
  buffer.append(matcher.group());

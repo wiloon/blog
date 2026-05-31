@@ -1,72 +1,100 @@
 ---
-title: DCEVM, HotSwapAgent
+title: 开发期热替换（HotSwap、DCEVM、HotSwapAgent）
 author: "-"
 date: 2019-12-17T04:29:09+00:00
+lastmod: 2026-05-31T07:25:07+08:00
 url: dcevm-hotswapagent
 categories:
-  - Inbox
+  - language
 tags:
-  - reprint
+  - java
+  - jvm
+  - hotswap
+  - hotspot
+  - jpda
+  - dcevm
+  - remix
+  - AI-assisted
 aliases:
   - /p15208/
 ---
-## DCEVM, HotSwapAgent
-https://blog.csdn.net/u013613428/article/details/51499911
 
-要高效的开发Java代码，那就必须要让java像js一样，修改过的代码可以实时的反应出来。要了解如何做到这一点，我们先要知道JVM是如何工作的: 
+## 背景
 
-我们知道，JAVA程序都是运行在java虚拟机上面 (当然JVM有两种类型，JDK和单纯的JRE，这里我们主要是指的JDK，因为只有JDK包含了debug功能，而我们只有在debug端口打开的情况下才能实现run time class load) ，我们的写的每一个Java文件，会被编译器编译成为class文件，然后根据选择不同的打包选择，比如说 (jar, war, ear) ，被打包存放到系统的classpath中。在运行一个java程序的时候，会有几个步骤, 包括装载，链接，初始化，翻译 (在翻译成机器码的时候同时会对代码进行优化，inline) ，运行，就如下图
+开发时希望改 Java 代码后 **少重启** 就能看到效果。这与生产上 [BTrace](/btrace) attach **观测** 不是同一条路。本文归纳 **HotSwap** 及相关工具，并说明各自边界。
 
-这里的关键，就是这个classloader。所有的类都会在jvm中生成为class对象，存放在内存当中， (这里，主要分成两部分，常量池和方法字节码) 当我们的程序生成一个类的实例或instance时候，就会根据这个类对象，分配和初始化内存用于存储对象的field，然后在调用对象方法的时候，则从class对象中获取方法字节码，如下图: 
+字节码织入与 `redefine` 机制见 [java-asm](/java-asm)；调试协议见 [JPDA](/java-debug-jpda)、[JVMTI](/jvmti)。
 
-因此，如果我们能够在JVM里面途欢这个class对象，那么我们创建的所有object或instance，在调用函数的时候，就可以动态获得你修改之后的代码。如下图: 
+## HotSwap 是什么
 
-hotswap的原理，就是替换jvm里面的class对象. Sun 在2002年把这项技术引入到java 1.4的JVM中，Hotswap需要和debuggerAPI一起协同工作，我们可以通过debugger来更新jvm里面同名的class bytecode
+**HotSwap**（热替换）泛指：**不重启整个 JVM**，把 **已在内存中的类** 换成新字节码。
 
-因此，这也就限制了，我们在使用hotswap的时候，必须使用debug mode.因此也就限制了java app必须是运行在jdk上，而不是jre上，JAVA_HOME必须指向JDK。
+HotSpot **自带** 的热替换能力很窄（通过 **调试器** 触发，底层 [JVMTI](/jvmti) / `redefine`）：
 
-说了这么多理论，回到我们最初的话题，如何做到hotswap呢，步骤很简单: 
+- 常见成功：改 **已有方法的方法体**
+- 常见失败：新增方法/字段、改签名、改继承、新 import 等
 
-用debug模式attach我们的app
-  
-修改你的java文件，并且编译
-  
-这时，神奇的事情发生了，如下图
+因此 IDE 在 **Debug** 下保存后提示 "Hot swap" 成功或失败，依赖的是 **JPDA → JDWP → JVMTI**，**不是** [Attach API](/attach-api) 加载 BTrace agent 那条栈。
 
-我们的class被reload了，我们可以不用重新把app部署到服务器上就可以直接看修改代码之后的结果。
+```text
+开发期 HotSwap（典型）
+  IDE 编译 .class → JDWP 命令 → JVM redefine 已加载类
 
-等等，天底下有这么容易的事情吗？！这个solution是有缺陷的，那就是我们只能简单修改class method的内容，如果我们新添加了Method,field，或者在method里面引用了新的lib，增加了Import语句，那么对不起，你会看到: 
+生产期 BTrace（对比）
+  loadAgent → Instrumentation + ASM retransform → 插探针（观测）
+```
 
-hot swap失败了。
+## 几种开发期方案
 
-那么有没有什么解决方案呢？有！收费的JRebel，或者免费的HotSwapAgent+DCEVM
+| 方案 | 怎么做 | 能力边界 |
+| ---- | ------ | -------- |
+| **IDE HotSwap** | Debug + JPDA | 方法体为主，标准 HotSpot 最严 |
+| **JRebel** | 商业 agent | 类加载/字节码策略更激进，需授权 |
+| **DCEVM** | 替换/并行使用 **修改版 HotSpot**（`-XXaltjvm=dcevm`） | 放宽 redefine：可加删方法/字段等 |
+| **HotSwapAgent** | `-javaagent:hotswapagent.jar` + 常配合 DCEVM | 用 **Javassist** 改字节码；插件重载 Spring/Hibernate 等配置 |
+| **Spring Boot DevTools** | 双 ClassLoader **快速 Restart** | 重建 Spring 上下文，**不是** JVM 级 HotSwap |
 
-让我们来看看什么是DCEVM:
+Spring DevTools 细节见 [Spring Boot DevTools](/spring-boot-devtools)。
 
-https://dcevm.github.io/
-  
-The Dynamic Code Evolution VirtualMachine (DCEVM)is a modification of the Java HotSpot(TM) VM that allows unlimited redefinitionof loaded classes at runtime. The current hotswapping mechanism of the HotSpot(TM) VM allows only changing methodbodies. Our enhanced VMallows adding and removing fields and methods as well as changes to the supertypes of a class.
-  
-什么是hotswapAgent:
-  
-uhttp://www.hotswapagent.org/
-  
-uHotswap agent does the work of reloadingresources and framework configuration (Spring, Hibernate, ...)
-  
-uHotswapagentis a plugin container with plugin manager, plugin registry, and several agentservices (e.g. to watch for class/resource change). It helps with common tasksand classloading issues. It scans classpath for class annotated with @Pluginannotation, injects agent services and registers reloading hooks. Runtimebytecode modification is provided by javaasist library.
+## DCEVM 是什么
 
-具体怎么用？
+**DCEVM**（Dynamic Code Evolution VM）是对 **HotSpot** 的补丁/替代 JVM，目标是运行时 **更自由地 redefine 已加载类**（加方法、改继承等），超出标准 HotSpot 调试热替换限制。
 
-照着我上头给的两个地址安装他们，具体怎么搞，我比较懒，就不写了 (注意，在安装DCEVM的时候，请用临时替换) "InstallDCEVM as altjvm" 
+- 项目：[dcevm.github.io](https://dcevm.github.io/)
+- 安装常见方式：用 DCEVM 安装器 **Install DCEVM as altjvm**，启动参数 `-XXaltjvm=dcevm`
 
-配置你的运行脚本 (假设你的APP是运行在各种服务器上，比如tomcat, jboss等) ，上头两个网站也有，别告诉我你看不懂英文，我还是懒，不想写
-  
-运行的程序，检查hotswapAgent有没有起来，有没有使用DCEVM(注意下图的 -XXaltjvm=dcevm)
+需与所用 **JDK 大版本** 匹配；属于 **开发机** 工具，不是生产 JVM 标配。
 
-然后，随意修改的java代码，享受编译之后直接替换的乐趣吧
-  
-————————————————
-  
-版权声明: 本文为CSDN博主「点火三周」的原创文章，遵循 CC 4.0 BY-SA 版权协议，转载请附上原文出处链接及本声明。
-  
-原文链接: https://blog.csdn.net/u013613428/article/details/51499911
+## HotSwapAgent 是什么
+
+[HotSwapAgent](https://www.hotswapagent.org/) 是 **开发用** 的 `-javaagent`：
+
+- 监听 classpath / 资源变更
+- 通过 **Javassist** 做运行时字节码修改
+- 插件体系：在类变更时触发 **Spring、MyBatis、Tomcat** 等框架的重新注册/刷新
+
+通常与 **DCEVM** 一起用：DCEVM 放宽 VM 的 redefine 规则，HotSwapAgent 负责「改完类之后框架层怎么跟上」。
+
+启动示例（示意，以官方文档为准）：
+
+```bash
+-javaagent:/path/hotswap-agent.jar
+-XXaltjvm=dcevm
+```
+
+## 与 BTrace / Arthas 的区别
+
+| | 开发 HotSwap / DCEVM | BTrace attach |
+| -- | -------------------- | ------------- |
+| 目的 | 改 **自己的** 业务代码并立刻跑 | **观测** 已上线进程 |
+| 入口 | Debug 或 dev javaagent | `loadAgent` + 脚本 |
+| 风险 | 开发环境可接受 | 生产需谨慎 |
+
+## 参考
+
+- [DCEVM](https://dcevm.github.io/)
+- [HotSwapAgent](https://www.hotswapagent.org/)
+- [java-asm](/java-asm)
+- [JPDA](/java-debug-jpda)
+- [JVMTI](/jvmti)
+- [HotSpot 简介](/hotspot)

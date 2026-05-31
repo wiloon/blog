@@ -9,6 +9,7 @@
 | [article-sdd.md](article-sdd.md) | **文章 SDD**：Spec 驱动写作流程、AI 约束、Spec 是否上线 |
 | [delivery-style.md](delivery-style.md) | **仅 SDD 交付物**：共通 prose 文风（加粗、人称适度用「我」、语气）；无 Spec 的文章不适用 |
 | [content-constraints.md](content-constraints.md) | **全站内容约束**：VPN 相关表述（WireGuard/OpenVPN 除外不写软件名）等 |
+| [internal-links.md](internal-links.md) | **全站内链**：相对 `.md` + Hugo embedded hook |
 | [specs/](specs/) | 各篇文章 Spec（**作者维护**；AI 按 Spec 润色/输出交付物） |
 
 ## 文章 Spec 一览
@@ -17,6 +18,7 @@
 | ---- | ------ |
 | [specs/exploration.md](specs/exploration.md) | [content/post/development/exploration.md](../content/post/development/exploration.md) |
 | [specs/booster-recovery.md](specs/booster-recovery.md) | [content/post/starship/booster-recovery.md](../content/post/starship/booster-recovery.md) |
+| [specs/java-knowledge-map.md](specs/java-knowledge-map.md) | [java-knowledge-map.md](../content/post/language/java/java-knowledge-map.md) + **全站**内链迁移（`scripts/migrate-internal-links.py --scope all`） |
 
 ## 工作流（SDD）
 

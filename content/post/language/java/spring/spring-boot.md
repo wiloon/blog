@@ -2,7 +2,7 @@
 title: Spring Boot
 author: wiloon
 date: 2026-05-11T14:24:31+08:00
-lastmod: 2026-05-20T11:18:20+08:00
+lastmod: 2026-05-31T07:25:07+08:00
 url: spring-boot
 aliases:
   - /spring/boot/
@@ -71,6 +71,7 @@ Spring Boot（2014）与微服务架构的兴起同期出现。2014 年 Martin F
 - **起步依赖（Starter）**：一组预定义的 Maven/Gradle 依赖集合，例如 `spring-boot-starter-web` 会自动引入 Spring MVC、Tomcat、Jackson 等全套依赖。
 - **内嵌服务器**：内置 Tomcat / Jetty / Undertow，打包为可执行 JAR，直接 `java -jar app.jar` 运行，无需单独部署到 Tomcat。切换只需在 `pom.xml` 排除默认 Tomcat、引入目标服务器的 Starter。
 - **Actuator**：内置生产级监控端点（health check、metrics 等）。
+- **DevTools**（开发可选）：快速 Restart、LiveReload；见 [Spring Boot DevTools](/spring-boot-devtools)。
 - **Spring Initializr**：通过 [start.spring.io](https://start.spring.io) 快速生成项目骨架。
 
 ## Maven：`spring-boot-starter-parent`

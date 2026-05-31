@@ -2,7 +2,7 @@
 title: Java Attach API
 author: "-"
 date: 2026-05-30T19:45:11+08:00
-lastmod: 2026-05-30T21:49:11+08:00
+lastmod: 2026-05-31T07:36:44+08:00
 url: attach-api
 categories:
   - language
@@ -22,7 +22,7 @@ JDK 8 生产排查里，[BTrace](/btrace)、[jcmd](/jcmd) 等工具都需要在 
 
 Attach 不是只有 `loadAgent` 一种用法。[jcmd](/jcmd) 的 `Thread.print`、`JFR.start` 等走 **JVM 内置 Diagnostic Command**，一般 **不需要** 再加载外部 agent JAR；[BTrace](/btrace) 等才典型地 `loadAgent`。
 
-本文说明 Attach 通道、公开 API、与 jcmd / BTrace 的关系。容器、新版 JDK 注意点见文末。
+本文说明 Attach 通道、公开 API、与 jcmd / BTrace 的关系。概念总图见 [Java 领域知识关系图](/java-knowledge-map)。容器、新版 JDK 注意点见文末。
 
 ## 是什么
 

@@ -2,13 +2,24 @@
 title: 'JAVA 调试, JPDA, Java Debug'
 author: "-"
 date: 2012-06-07T07:22:32+00:00
-url: java/remote/debugging
+lastmod: 2026-05-31T07:25:07+08:00
+url: java-debug-jpda
 categories:
-  - Java
+  - language
 tags:
-  - reprint
+  - java
+  - jpda
+  - jvmti
+  - jdwp
+  - debug
+  - remix
+  - AI-assisted
+aliases:
+  - java/remote/debugging
 ---
 ## JAVA 调试, JPDA, Java Debug
+
+JPDA 三层：**JDI**（调试器 Java API）→ **JDWP**（线协议）→ **JVMTI**（JVM native）。JVMTI 专文见 [JVMTI](/jvmti)。开发期改已加载类（HotSwap）走本体系，与 [BTrace](/btrace) attach 观测不是同一路；热替换总览见 [开发期热替换](/dcevm-hotswapagent)。
 
 远程调试
 远程调试分为主动连接调试，和被动连接调试。这里以Eclipse为例。
@@ -170,7 +181,7 @@ JPDA 定义了一个完整独立的体系，它由三个相对独立的层次共
 #### Java 虚拟机工具接口 (JVMTI)
 
 定义VM(虚拟机)的调试服务 JVM TI(Java VM Tool Interface)。该组件提供了查看Java所有状态的职责。包括但不限于: JVM分析，监控，调试，线程分析，以及覆盖率分析等功能。其由JVM提供，与具体语言无关.  
-JVMTI (Java Virtual Machine Tool Interface) 即指 Java 虚拟机工具接口，它是一套由虚拟机直接提供的 native 接口，它处于整个 JPDA 体系的最底层，所有调试功能本质上都需要通过 JVMTI 来提供。通过这些接口，开发人员不仅调试在该虚拟机上运行的 Java 程序，还能查看它们运行的状态，设置回调函数，控制某些环境变量，从而优化程序性能。我们知道，JVMTI 的前身是 JVMDI 和 JVMPI，它们原来分别被用于提供调试 Java 程序以及 Java 程序调节性能的功能。在 J2SE 5.0 之后 JDK 取代了 JVMDI 和 JVMPI 这两 socket ，JVMDI 在最新的 Java SE 6 中已经不提供支持，而 JVMPI 也计划在 Java SE 7 后被彻底取代。
+JVMTI (Java Virtual Machine Tool Interface) 即指 Java 虚拟机工具接口，它是一套由虚拟机直接提供的 native 接口，它处于整个 JPDA 体系的最底层，所有调试功能本质上都需要通过 JVMTI 来提供。详见 [JVMTI](/jvmti)。通过这些接口，开发人员不仅调试在该虚拟机上运行的 Java 程序，还能查看它们运行的状态，设置回调函数，控制某些环境变量，从而优化程序性能。我们知道，JVMTI 的前身是 JVMDI 和 JVMPI，它们原来分别被用于提供调试 Java 程序以及 Java 程序调节性能的功能。在 J2SE 5.0 之后 JDK 取代了 JVMDI 和 JVMPI 这两 socket ，JVMDI 在最新的 Java SE 6 中已经不提供支持，而 JVMPI 也计划在 Java SE 7 后被彻底取代。
 
 #### Java 调试线协议 (JDWP)
 

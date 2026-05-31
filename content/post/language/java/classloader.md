@@ -2,11 +2,16 @@
 title: java classloader
 author: "-"
 date: 2011-09-09T09:16:20+00:00
+lastmod: 2026-05-31T07:02:11+08:00
 url: classloader
 categories:
-  - Java
+  - language
 tags:
-  - reprint
+  - java
+  - jvm
+  - classloader
+  - remix
+  - AI-assisted
 ---
 ## java classloader
 
@@ -390,6 +395,31 @@ Student stu = c1.newInstance();
 [https://sourceforge.net/p/corn/corn-cps/code/HEAD/tree/corn-cps/trunk/src/main/java/net/sf/corn/cps/CPScanner.java](https://sourceforge.net/p/corn/corn-cps/code/HEAD/tree/corn-cps/trunk/src/main/java/net/sf/corn/cps/CPScanner.java)
 [https://blog.csdn.net/neosmith/article/details/43955963](https://blog.csdn.net/neosmith/article/details/43955963)
 [https://segmentfault.com/a/1190000023229787](https://segmentfault.com/a/1190000023229787)
+
+## 不同 ClassLoader：谁能看到谁
+
+JVM 里类的身份是 **全限定名 + 定义该类的 ClassLoader**（上文「命名空间」）。因此：
+
+| 关系 | 可见性 |
+| ---- | ------ |
+| 子加载器 → 父加载器已加载的类 | **可见**（双亲委托：先让父加载） |
+| 父加载器 → 子加载器加载的类 | **默认不可见** |
+| 两个无父子关系的加载器（兄弟） | **互不可见**（各自命名空间），除非用反射等方式桥接 |
+
+「互相看不到」指的是：**不能用 `Foo.class` 直接当同一个类型用**（`instanceof`、赋值会失败），不是进程里完全没有这份字节码。
+
+自定义 `URLClassLoader` 加载的 `com.app.Plugin` 与 `AppClassLoader` 加载的 `com.app.Plugin`，在 JVM 里是 **两个不同的 Class**。
+
+### 与 Java Agent 的关系
+
+[Attach](/attach-api) `loadAgent` 后，**agent JAR 里的类** 通常不走业务 `AppClassLoader` 去 `loadClass`，而是由 JVM 的 agent 机制装入（与业务 classpath 分离，减少版本冲突）。
+
+但这 **不意味着** agent 与业务「完全隔离、改不了业务」：
+
+- **`Instrumentation` + `ClassFileTransformer`** 改的是 **业务类对应的字节码**（定义类仍由业务 ClassLoader 加载，只是 `retransform` 换了方法体里的指令）。
+- 织入的探针里可以 `INVOKESTATIC` 到 agent 包里的类，或读写业务对象——运行时都在 **同一进程**。
+
+详见 [Java ASM 与运行时字节码织入](/java-asm)、[BTrace](/btrace)。
 
 ## PlatformClassLoader
 
