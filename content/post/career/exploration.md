@@ -2,10 +2,10 @@
 title: 裁员之后，我的一些探索
 author: "-"
 date: 2026-05-22T10:07:25+08:00
-lastmod: 2026-05-23T07:39:42+08:00
+lastmod: 2026-05-31T15:36:15+08:00
 url: exploration
 categories:
-  - development
+  - career
 tags:
   - career
   - AI

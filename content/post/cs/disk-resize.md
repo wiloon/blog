@@ -2,11 +2,11 @@
 title: 硬盘扩容, PVE, Archlinux
 author: "-"
 date: 2026-05-05T07:34:15+08:00
+lastmod: 2026-06-02T18:52:33+08:00
 url: disk/resize
 categories:
   - Linux
 tags:
-  - reprint
   - remix
   - disk
   - PVE
@@ -16,6 +16,8 @@ tags:
 
 
 ## PVE ext4 disk resize (parted)
+
+PVE 上 VG、瘦池、`local-lvm` 与多台 VM 如何抢空间，见 [Proxmox VE 存储：VG、瘦池与虚拟机磁盘](../cloud/pve-storage.md)。
 
 理论上 parted 可以在根分区正在被使用的情况下扩容根分区，但实际操作中发现根分区无法卸载，导致 parted 报错 `Error: /dev/sda: unrecognised disk label`，解决方法是直接进入 parted，parted 会提示修复，输入 Fix 即可修复分区表，然后就可以正常扩容了。
 
@@ -257,6 +259,49 @@ growpart /dev/sda 2
 xfs_growfs /dev/sda2
 # 然后 df -h 应该能看到正确的磁盘容量了。
 ```
+
+## cloud-guest-utils 和 growpart
+
+`growpart` 不是独立包，在 Arch Linux 场景下通常由 `cloud-guest-utils` 提供。
+
+### 安装和确认
+
+```bash
+# 安装 cloud-guest-utils（包含 growpart）
+pacman -S cloud-guest-utils
+
+# 确认 growpart 已可用
+command -v growpart
+growpart --help | head
+```
+
+### 常见扩容步骤（分区号为 2）
+
+```bash
+# 1) 先确认宿主层已经把虚拟磁盘扩大
+lsblk
+
+# 2) 用 growpart 扩分区边界
+growpart /dev/sda 2
+
+# 3) 按文件系统类型扩容
+# ext4:
+e2fsck -f /dev/sda2
+resize2fs /dev/sda2
+
+# xfs:
+xfs_growfs /dev/sda2
+
+# 4) 验证容量
+df -h
+lsblk
+```
+
+### 注意事项
+
+- `growpart` 只处理分区边界，不会自动扩展 ext4/xfs 文件系统。
+- 设备名和分区号要与实际一致，例如可能是 `/dev/vda 2` 或 `/dev/nvme0n1 3`。
+- 若提示命令不存在，先检查 `cloud-guest-utils` 是否安装成功。
 
 ## KVM 虚拟磁盘扩容, qemu-img resize
 

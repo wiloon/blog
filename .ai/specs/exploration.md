@@ -3,10 +3,11 @@
 | 字段 | 值 |
 | ---- | -- |
 | 状态 | published（初版已落地，后续修订走本 spec） |
-| 交付物 | `content/post/development/exploration.md` |
+| 交付物 | `content/post/career/exploration.md` |
 | Hugo `url` | `exploration` |
 | 标题 | 裁员之后，我的一些探索 |
-| 分类 | `development` |
+| 分类 | `career` |
+| 内容目录 | **`content/post/career/`**（2026-05-31 自 `development/` 迁入；**`url` 不变**） |
 | 创建日期 | `2026-05-22`（`date` 字段勿改，只改 `lastmod`） |
 
 ---

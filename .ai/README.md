@@ -16,9 +16,13 @@
 
 | Spec | 交付物 |
 | ---- | ------ |
-| [specs/exploration.md](specs/exploration.md) | [content/post/development/exploration.md](../content/post/development/exploration.md) |
+| [specs/exploration.md](specs/exploration.md) | [career/exploration.md](../content/post/career/exploration.md) |
 | [specs/booster-recovery.md](specs/booster-recovery.md) | [content/post/starship/booster-recovery.md](../content/post/starship/booster-recovery.md) |
 | [specs/java-knowledge-map.md](specs/java-knowledge-map.md) | [java-knowledge-map.md](../content/post/language/java/java-knowledge-map.md) + **全站**内链迁移（`scripts/migrate-internal-links.py --scope all`） |
+| [specs/iot-protocol-oom-mysql-influxdb.md](specs/iot-protocol-oom-mysql-influxdb.md) | （review）[career/iot-protocol-oom-mysql-influxdb.md](../content/post/career/iot-protocol-oom-mysql-influxdb.md) |
+| [specs/pve-storage.md](specs/pve-storage.md) | （review）[cloud/pve-storage.md](../content/post/cloud/pve-storage.md) |
+
+**内容目录 `content/post/career/`**：职业/面试向叙事与项目故事（[exploration](../content/post/career/exploration.md)、[conflict-check](../content/post/career/conflict-check.md)、OOM 案例等）。
 
 ## 工作流（SDD）
 

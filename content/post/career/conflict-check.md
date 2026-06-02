@@ -2,14 +2,14 @@
 title: Conflict Check
 author: w1100n
 date: 2026-05-14T20:17:36+08:00
-lastmod: 2026-05-15T22:46:56+08:00
+lastmod: 2026-05-31T15:35:41+08:00
 url: conflict-check
 categories:
-  - Pattern
-  - firewall
+  - career
 tags:
   - AI-assisted
   - original
+  - pattern
   - redis
 ---
 

@@ -1,16 +1,20 @@
 ---
 title: PVE
 author: "-"
-date: "2022-09-10 15:39:49"
-url: "pve"
+date: 2022-09-10T15:39:49+08:00
+lastmod: 2026-06-02T11:14:33+08:00
+url: pve
 categories:
   - Linux
 tags:
   - Linux
   - VM
   - remix
+  - AI-assisted
 ---
 ## PVE
+
+存储分层（VG、瘦池、`local-lvm`、与 K8s 节点根盘关系）见 [Proxmox VE 存储：VG、瘦池与虚拟机磁盘](./pve-storage.md)。
 
 ```bash
 # 查看 pve 版本

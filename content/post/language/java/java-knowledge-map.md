@@ -1,5 +1,5 @@
 ---
-title: Java 领域知识关系图
+title: Java Knowledge Map
 author: "-"
 date: 2026-05-31T07:36:44+08:00
 lastmod: 2026-05-31T07:36:44+08:00

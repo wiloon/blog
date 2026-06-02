@@ -2,7 +2,7 @@
 title: Java 诊断工具 BTrace
 author: "-"
 date: 2018-06-02T03:42:52+00:00
-lastmod: 2026-05-31T07:36:44+08:00
+lastmod: 2026-05-31T18:18:43+08:00
 url: btrace
 categories:
   - language
@@ -29,6 +29,8 @@ tags:
 | 不能停机 | 滚动重启成本高或 SLA 不允许 |
 | **保留故障现场** | 重启后偶现问题、特定请求参数、堆内对象态、当时流量下的慢调用往往 **难以复现**；需要在 **故障仍在发生时** 对当前 JVM 取样 |
 | 观测而非热修 | BTrace 用于 **慢调用过滤、参数、耗时、调用路径** 等可观测数据，不是用 agent 临时改业务逻辑修 Bug（机制上 agent 能改字节码，但 BTrace 产品侧用脚本校验限制为安全探针） |
+
+车联网协议解析 G4 因写 MySQL 偏慢导致 OOM、后迁移 InfluxDB 的完整案例见 [物联网平台协议解析服务生产环境 OOM：MySQL 迁移 InfluxDB](../../career/iot-protocol-oom-mysql-influxdb.md)（职业叙事；本文偏工具用法）。
 
 临时排查可配合 [生产环境诊断工具选型](./java-production-diagnostics-tooling.md)（Arthas、JFR 等）；BTrace 适合 **脚本化、持续输出** 的采集。
 
