@@ -2,17 +2,38 @@
 title: tcpdump
 author: "-"
 date: 2015-10-26T01:40:42+00:00
+lastmod: 2026-06-03T10:55:08+08:00
 url: tcpdump
 categories:
   - Network
 tags:
-  - reprint
+  - tcpdump
+  - network
+  - remix
+  - AI-assisted
 ---
 ## tcpdump
 
 用简单的话来定义 tcpdump, 就是: dump the traffic on a network, 根据使用者的定义对网络上的数据包进行截获的包分析工具。 tcpdump 可以将网络中传送的数据包的"头"完全截获下来提供分析。它支持针对网络层、协议、主机、网络或端口的过滤,并提供 and、or、not 等逻辑语句来帮助你去掉无用的信息。
 
 tcpdump 工作在数据链路层
+
+## commands
+
+```bash
+# tcpdump 默认读取第一个网络接口上所有流过的数据包。
+tcpcump
+
+# 按源地址抓包（常用）
+tcpdump -i eth0 src host 192.168.1.1
+
+# 保存抓包到文件，后续用 Wireshark 分析
+tcpdump -i eth1 src port 25 -w foo.cap
+
+# 按主机和端口过滤（常用）
+tcpdump host 192.168.1.1 and port 80
+tcpdump host 192.168.1.1
+```
 
 ## install
 
@@ -22,13 +43,6 @@ pacman -S tcpdump
 
 #redhat
 yum install -y tcpdump
-```
-
-## commands
-
-```bash
-# tcpdump 默认读取第一个网络接口上所有流过的数据包。
-tcpcump
 ```
 
 ## 过滤 tcp flag
@@ -58,11 +72,6 @@ tcpdump 'tcp[tcpflags] & (tcp-syn|tcp-fin) != 0 and not src and dst net localnet
 ### 指定主机
 
 ```bash
-# 过滤主机和端口
-tcpdump host 192.168.1.1 and port 80
-tcpdump host 192.168.1.1
-### 指定源地址, 只打印源地址是 192.168.1.1 的包
-tcpdump -i eth0 src host 192.168.1.1
 ### 指定目的地址, 只打印目的地址是 192.168.1.1 的包
 tcpdump -i eth1 dst host 192.168.1.1
 tcpdump -n -i eth0 host 192.168.1.2 and 192.168.1.3
@@ -92,12 +101,6 @@ tcpdump -nn -i wlp1s0  src host 192.168.50.115 and '! tcp port 22'
 # protocol name: arp, ip, tcp, udp, icmp
 tcpdump -i eth1 <protocol name>
 tcpdump -nn icmp
-```
-
-## 保存到文件, 然后用  Wireshark 分析
-
-```bash
-tcpdump -i eth1 src port 25 -w foo.cap
 ```
 
 ```bash
