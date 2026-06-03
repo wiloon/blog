@@ -2,7 +2,7 @@
 title: Netty 堆外内存
 author: "-"
 date: 2018-03-23T09:57:05+00:00
-lastmod: 2026-06-01T19:25:36+08:00
+lastmod: 2026-06-03T17:28:38+08:00
 url: netty-memory
 categories:
   - cs
@@ -41,12 +41,12 @@ ByteBuf
 
 每种又分 Pooled（池化）和 Unpooled（非池化）两个版本：
 
-| 类型 | 分配方式 | 适用场景 |
-| --- | --- | --- |
-| `PooledDirectByteBuf` | 从内存池取 | 高频、短生命周期 I/O |
-| `UnpooledDirectByteBuf` | 每次调用 `malloc` | 低频、大块、长期持有 |
-| `PooledHeapByteBuf` | 从内存池取 | 不需要 native I/O 的场景 |
-| `UnpooledHeapByteBuf` | 每次 `new byte[]` | 简单测试/工具代码 |
+| 类型                    | 分配方式          | 适用场景                 |
+| ----------------------- | ----------------- | ------------------------ |
+| `PooledDirectByteBuf`   | 从内存池取        | 高频、短生命周期 I/O     |
+| `UnpooledDirectByteBuf` | 每次调用 `malloc` | 低频、大块、长期持有     |
+| `PooledHeapByteBuf`     | 从内存池取        | 不需要 native I/O 的场景 |
+| `UnpooledHeapByteBuf`   | 每次 `new byte[]` | 简单测试/工具代码        |
 
 ## 零拷贝（Zero-copy）
 
@@ -179,12 +179,12 @@ Netty 内置基于弱引用的泄漏检测器 `ResourceLeakDetector`：
 -Dio.netty.leakDetection.level=PARANOID
 ```
 
-| 级别 | 采样率 | 性能开销 |
-| --- | --- | --- |
-| `DISABLED` | 0% | 无 |
-| `SIMPLE` | ~1% | 极低 |
-| `ADVANCED` | ~1%（含调用栈） | 低 |
-| `PARANOID` | 100% | 高，仅用于调试 |
+| 级别       | 采样率          | 性能开销       |
+| ---------- | --------------- | -------------- |
+| `DISABLED` | 0%              | 无             |
+| `SIMPLE`   | ~1%             | 极低           |
+| `ADVANCED` | ~1%（含调用栈） | 低             |
+| `PARANOID` | 100%            | 高，仅用于调试 |
 
 发生泄漏时，日志会打印类似：
 
@@ -224,16 +224,28 @@ Netty 的 `PooledByteBufAllocator` 还有自己的上限参数：
 
 ### 不放堆外的数据
 
-| 数据 | 位置 | 原因 |
-| --- | --- | --- |
-| Handler 的业务对象（POJO、String 等） | JVM 堆 | 正常对象，走 GC |
-| `PooledByteBufAllocator` 自身的元数据（Chunk 树、引用计数） | JVM 堆 | 管理结构，量小 |
-| `HeapByteBuf` 的 `byte[]` | JVM 堆 | 显式选择堆内分配器时 |
-| Encoder/Decoder 的中间状态 | JVM 堆 | 解码状态机等业务逻辑 |
+| 数据                                                        | 位置   | 原因                 |
+| ----------------------------------------------------------- | ------ | -------------------- |
+| Handler 的业务对象（POJO、String 等）                       | JVM 堆 | 正常对象，走 GC      |
+| `PooledByteBufAllocator` 自身的元数据（Chunk 树、引用计数） | JVM 堆 | 管理结构，量小       |
+| `HeapByteBuf` 的 `byte[]`                                   | JVM 堆 | 显式选择堆内分配器时 |
+| Encoder/Decoder 的中间状态                                  | JVM 堆 | 解码状态机等业务逻辑 |
 
 **一句话总结**：Netty 只把需要和内核直接交换的**字节流缓冲区**放在堆外，其余业务对象、元数据、解码状态全在 JVM 堆上。
 
 ## 消费速率不足时的堆外内存积压
+
+### 结合协议解析服务的 OOM 场景
+
+对应的生产事故复盘可见 [物联网平台协议解析服务生产环境 OOM：MySQL 迁移 InfluxDB](../career/iot-protocol-oom-mysql-influxdb.md)。
+
+可以把问题抽象成吞吐失衡：当入口速率 $\lambda_{in}$ 长时间大于处理速率 $\mu_{out}$ 时，积压量会持续增长，近似满足 $\Delta backlog \approx (\lambda_{in} - \mu_{out}) \times t$。
+
+在协议解析服务里，典型路径是：EventLoop 读 socket 数据并解码成 `ByteBuf`，然后投递到业务线程做后续写库。若下游 MySQL 写入延迟上升，业务线程处理变慢，消息在业务队列中排队；与此同时 EventLoop 仍在持续 read，新的 `DirectByteBuf` 继续分配。
+
+只要 `ByteBuf` 关联的处理链路没有走完，对应 direct memory 就不会释放。结果就是“分配速度 > 释放速度”，堆外内存占用不断抬升，最终触发 `OutOfDirectMemoryError`，或者被系统 OOM Killer 杀进程。
+
+如果此时节点重启并回放上游积压流量，单节点瞬时入口速率会进一步升高，`\lambda_{in}` 与 `\mu_{out}` 的差值被放大，因而容易出现短时间内连续 OOM 的滚动故障。
 
 ### 入方向（Inbound）
 
@@ -288,11 +300,11 @@ if (ctx.channel().isWritable()) {
 
 ### 积压场景汇总
 
-| 方向 | 积压位置 | 兜底机制 | 主动控制手段 |
-| --- | --- | --- | --- |
-| 入方向（同步处理） | socket 内核缓冲区 | TCP 流控 | 无需额外处理 |
-| 入方向（异步线程池） | 堆外 `DirectByteBuf` | **无自动兜底** | `setAutoRead(false)` |
-| 出方向 | 堆外 `ChannelOutboundBuffer` | 水位线告警 | 检查 `isWritable()` |
+| 方向                 | 积压位置                     | 兜底机制       | 主动控制手段         |
+| -------------------- | ---------------------------- | -------------- | -------------------- |
+| 入方向（同步处理）   | socket 内核缓冲区            | TCP 流控       | 无需额外处理         |
+| 入方向（异步线程池） | 堆外 `DirectByteBuf`         | **无自动兜底** | `setAutoRead(false)` |
+| 出方向               | 堆外 `ChannelOutboundBuffer` | 水位线告警     | 检查 `isWritable()`  |
 
 异步线程池 + 不控 `autoRead` 是生产中最常见的堆外内存 OOM 根因。
 

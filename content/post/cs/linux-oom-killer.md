@@ -1,16 +1,52 @@
 ---
-title: 'Linux oom killer'
+title: Linux OOM Killer
 author: "-"
 date: 2018-06-04T08:32:56+00:00
+lastmod: 2026-06-03T17:40:36+08:00
 url: linux-oom-killer
 categories:
-  - Inbox
+    - Linux
 tags:
-  - reprint
+    - linux
+    - kernel
+    - oom
+    - remix
+    - AI-assisted
 aliases:
   - /p12273/
 ---
-## 'Linux oom killer'
+## Linux OOM Killer
+
+## OOM Killer 会触发业务退出逻辑吗
+
+通常不会。
+
+Linux OOM Killer 选中目标进程后，现代内核通常会直接发送 `SIGKILL`（9）终止进程。`SIGKILL` 不能被捕获、阻塞或忽略，因此大多数“优雅退出”逻辑都不会执行，例如：
+
+- 注册的退出回调（如 `atexit`）
+- Java shutdown hook
+- 依赖信号捕获的清理代码
+
+所以 OOM 场景应按“强制中断”来设计：关键状态及时落盘、写操作幂等、依赖外部重启拉起，而不是依赖进程退出时做收尾。
+
+## 业务代码中的退出逻辑由什么触发
+
+通常由“可捕获的退出路径”触发，而不是 OOM Killer 这类强制终止。
+
+常见触发源：
+
+- 收到可处理信号（如 `SIGTERM`、`SIGINT`），应用捕获后进入优雅停机流程
+- 应用主动正常退出（如主流程结束、显式调用 `exit`）
+- 进程编排系统发起优雅终止（如 systemd、Kubernetes 先发 `SIGTERM`，宽限期后再决定是否 `SIGKILL`）
+
+不会触发退出逻辑的典型场景：
+
+- `SIGKILL`（包括 OOM Killer）
+- 内核崩溃、断电等非正常中断
+
+因此，退出回调适合做“尽力而为”的清理，不应承载必须完成的关键一致性动作。
+
+一个协议解析服务在生产环境被 OOM Killer 杀进程并引发滚动离线的案例，可参考 [物联网平台协议解析服务生产环境 OOM：MySQL 迁移 InfluxDB](../career/iot-protocol-oom-mysql-influxdb.md)。
 
 [https://blog.csdn.net/GugeMichael/article/details/24017515](https://blog.csdn.net/GugeMichael/article/details/24017515)
 
