@@ -1,14 +1,25 @@
 ---
-title: aliyun ddns
+title: ddns-go 与 aliyun-ddns-cli
 author: "-"
 date: 2019-01-26T09:51:46+00:00
-url: ddns
+lastmod: 2026-06-04T16:59:10+08:00
+url: ddns-go-and-aliyun-ddns-cli
 categories:
-  - Network
+  - network
 tags:
-  - reprint
+  - ddns
+  - aliyun
+  - cloudflare
+  - remix
+  - AI-assisted
 ---
-## aliyun ddns
+## ddns-go
+
+`ddns-go` 是一个轻量、可视化配置的 DDNS 工具，支持多家 DNS 服务商。这里主要用于检测家里公网 IP 变化后自动更新 Cloudflare 记录。
+
+[https://github.com/jeessy2/ddns-go](https://github.com/jeessy2/ddns-go)
+
+## aliyun-ddns-cli
 
 [https://github.com/honwen/aliyun-ddns-cli](https://github.com/honwen/aliyun-ddns-cli)
 
@@ -23,7 +34,3 @@ docker run -d \
     -e "TTL=600" \
     chenhw2/aliyun-ddns-cli
 ```
-
-## jeessy2/ddns-go
-
-[https://github.com/jeessy2/ddns-go](https://github.com/jeessy2/ddns-go)
