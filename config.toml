@@ -108,6 +108,15 @@ hasCJKLanguage = true
   
   # 显示阅读时间
   ShowReadingTime = true
+
+  # 显示最后更新时间（lastmod）
+  ShowLastMod = true
+
+  # 创建时间前缀文案
+  CreatedLabel = "Created"
+
+  # 最后更新时间前缀文案
+  LastModLabel = "Updated"
   
   # 显示分享按钮
   ShowShareButtons = false
