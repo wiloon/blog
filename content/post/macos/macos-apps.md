@@ -1,13 +1,14 @@
 ---
 author: "-"
 date: 2026-05-05T14:02:11+08:00
-lastmod: 2026-05-24T13:57:58+08:00
+lastmod: 2026-06-04T20:53:59+08:00
 title: macos apps
 url: macos-apps
 categories:
   - Desktop
 tags:
   - original
+  - macos
   - AI-assisted
 ---
 
@@ -32,6 +33,33 @@ tags:
 | tunnelblick | cask:tunnelblick | OpenVPN GUI 客户端 |
 | Logi Options+ | cask:logi-options-plus | Logitech 键鼠配置工具 |
 | Ice | cask:jordanbaird-ice@beta | 菜单栏图标管理、隐藏与分组 |
+
+## Input Method
+
+| app | install | notes |
+| --- | --- | --- |
+| 豆包输入法 | — | AI 语音输入；无 brew cask，安装见下文 |
+
+`brew install --cask doubao` 安装的是豆包 AI 聊天客户端，不是输入法。
+
+### 豆包输入法
+
+- 官网：[shurufa.doubao.com](https://shurufa.doubao.com)
+- 手动安装：官网下载 `DoubaoImeInstaller_*.zip`，双击安装器按 GUI 引导完成
+- Ansible 静默安装（写入 `/Library/Input Methods/`，不弹 GUI 安装器）：
+
+  ```bash
+  cd homelab/workstation   # w10n-config 仓库
+  task install-doubao-ime  # 需输入 sudo 密码
+  ```
+
+  Playbook 从官网 API 拉取最新包并执行包内 `install.sh`。
+
+装好后还需在系统设置中手动完成：
+
+1. 键盘 → 输入法：添加「豆包输入法」
+2. 隐私与安全性：为豆包输入法开启辅助功能；使用语音时需允许麦克风
+3. 若菜单栏或切换异常，注销或重启后再试
 
 ## Productivity
 
