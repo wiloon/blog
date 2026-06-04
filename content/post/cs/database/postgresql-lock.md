@@ -2,7 +2,7 @@
 title: PostgreSQL 锁机制
 author: "-"
 date: 2026-06-03T21:40:30+08:00
-lastmod: 2026-06-03T21:46:40+08:00
+lastmod: 2026-06-04T08:08:52+08:00
 url: postgresql-lock
 categories:
   - CS
@@ -10,6 +10,7 @@ tags:
   - postgresql
   - lock
   - original
+  - AI-assisted
 ---
 
 PostgreSQL 的锁机制分为多个层级，从应用层的 Advisory Lock 到行级、表级，再到内核内部的 LWLock，每一层都有其适用场景。
@@ -100,15 +101,33 @@ LOCK TABLE orders IN ACCESS EXCLUSIVE MODE NOWAIT;
 
 ### 阻塞行为选项
 
+`SELECT FOR UPDATE` 有三种等待策略：
+
+| 选项           | 行为                                 |
+| -------------- | ------------------------------------ |
+| 默认（无选项） | 阻塞等待，直到持有锁的事务提交或回滚 |
+| `NOWAIT`       | 无法立即获取锁时抛出错误，不等待     |
+| `SKIP LOCKED`  | 跳过已被锁定的行，继续处理其余行     |
+
 ```sql
--- 默认：阻塞等待直到获取成功
+-- 默认：阻塞等待，持有锁的事务提交或回滚后才能继续
+-- 如果对方事务长时间不结束，当前查询会一直挂起
+-- 可通过 SET lock_timeout = '5s' 设置最长等待时间，超时后报错
 SELECT * FROM orders WHERE id = 1 FOR UPDATE;
 
--- NOWAIT：获取不到立即报错
+-- NOWAIT：获取不到立即报错（ERROR: could not obtain lock on row in relation "orders"）
 SELECT * FROM orders WHERE id = 1 FOR UPDATE NOWAIT;
 
 -- SKIP LOCKED：跳过已被锁定的行（任务队列场景常用）
 SELECT * FROM tasks WHERE status = 'pending' FOR UPDATE SKIP LOCKED LIMIT 10;
+```
+
+`lock_timeout` 适合不想无限等待又不想立即失败的场景：
+
+```sql
+SET lock_timeout = '3s';
+SELECT * FROM orders WHERE id = 1 FOR UPDATE;
+-- 等待超过 3 秒仍未获取到锁，抛出 ERROR: canceling statement due to lock timeout
 ```
 
 ### `SKIP LOCKED` 实现任务队列
