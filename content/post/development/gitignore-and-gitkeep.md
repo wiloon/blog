@@ -1,15 +1,33 @@
 ---
-title: gitignore
+title: Git 中 .gitignore 与 .gitkeep
 author: "-"
 date: 2012-02-25T13:43:36+00:00
-url: gitignore
+lastmod: 2026-06-04T15:48:31+08:00
+url: gitignore-and-gitkeep
 categories:
   - Tools
 tags:
   - Git
+  - remix
+  - AI-assisted
 
 ---
-## gitignore
+## .gitignore
+
+`.gitignore` 用来告诉 Git 哪些文件或目录不需要纳入版本控制。
+
+一般在项目开发过程中会产生很多中间文件（例如构建产物、日志、IDE 临时文件），这些文件不适合提交到仓库。通过 `.gitignore`，可以让 `git status` 更干净，也能减少误提交。
+
+`.gitkeep` 则是另一个常见约定：它通常是一个空文件，放在原本为空的目录里用于占位。因为 Git 只跟踪文件，不直接跟踪空目录，所以如果希望目录结构被保留下来（例如 `logs/`、`tmp/`），就可以在目录中放一个 `.gitkeep` 并提交。
+
+常见组合方式：
+
+```bash
+logs/
+!logs/.gitkeep
+```
+
+上面的规则表示忽略 `logs/` 目录里的运行时文件，但保留 `logs/.gitkeep` 这个占位文件。
 
 ### 忽略子目录下所有某后缀的文件
 
@@ -17,15 +35,11 @@ tags:
 **/*.iml
 ```
 
-具体使用请看 man gitignore
+具体使用请看 `man gitignore`。
 
-一般某个项目dev过程中都会产生一些中间文件，这些文件是我们不想要追踪的。
-  
-git中可以使用.gitignore文件来忽略这些文件。
+在需要的目录下面添加 `.gitignore` 文件。
 
-在需要的目录下面 添加 .gitignore文件
-  
-文件中每一行表示需要忽略的文件的正则表达式。
+文件中每一行表示一个匹配规则（通常可理解为通配模式）。
   
 >cat .gitignore
 
