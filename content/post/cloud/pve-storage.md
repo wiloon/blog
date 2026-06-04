@@ -12,7 +12,7 @@ tags:
   - storage
   - homelab
   - k8s
-  - original
+  - remix
   - AI-assisted
 ---
 

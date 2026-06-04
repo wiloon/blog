@@ -9,7 +9,7 @@ categories:
 tags:
   - postgresql
   - lock
-  - original
+  - remix
   - AI-assisted
 ---
 

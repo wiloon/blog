@@ -9,7 +9,7 @@ categories:
   - windows
 tags:
   - windows
-  - original
+  - remix
   - AI-assisted
 ---
 
