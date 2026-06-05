@@ -1,8 +1,8 @@
 ---
-title: 物联网平台协议解析服务生产环境 OOM：MySQL 迁移 InfluxDB
+title: 物联网平台协议解析服务生产环境 OOM：MySQL 迁移 InfluxDB（2017）
 author: "-"
 date: 2026-05-31T18:18:43+08:00
-lastmod: 2026-06-03T17:54:20+08:00
+lastmod: 2026-06-05T11:29:29+08:00
 url: iot-protocol-oom-mysql-influxdb
 categories:
   - career

@@ -1,8 +1,8 @@
 ---
-title: Committer 服务分布式锁设计
+title: Committer 服务分布式锁设计（2023）
 author: "-"
 date: 2026-06-03T19:23:27+08:00
-lastmod: 2026-06-04T08:14:00+08:00
+lastmod: 2026-06-05T11:29:29+08:00
 url: committer-lock
 categories:
   - career

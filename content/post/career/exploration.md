@@ -1,8 +1,8 @@
 ---
-title: 裁员之后，我的一些探索
+title: 裁员之后，我的一些探索（2026）
 author: "-"
 date: 2026-05-22T10:07:25+08:00
-lastmod: 2026-05-31T15:36:15+08:00
+lastmod: 2026-06-05T11:29:29+08:00
 url: exploration
 categories:
   - career

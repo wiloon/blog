@@ -276,6 +276,8 @@ url: article-url
 
 ⚠️ **`original` 标签优先级最高，与 `remix`/`reprint` 互斥**：如果文章已有 `original` 标签，**不要添加** `remix` 或 `reprint` 标签；如果文章同时存在 `original` 和 `remix`/`reprint`，必须将 `remix` 和 `reprint` 删除。
 
+⚠️ **`content/post/career/` 目录特殊规则**：该目录下的文章全部是作者的真实工作经历，**必须带 `original` 标签，禁止添加 `remix` 或 `reprint` 标签**。无论新建还是编辑，标签规则等同于"有 `original` 标签"的情况。
+
 ⚠️ **不要忘记：**
 - 编辑文章（无 `original` 标签）= 更新 `lastmod` + 添加 `remix` 和 `AI-assisted` 标签 + 删除 `reprint`（如有）
 - 编辑文章（有 `original` 标签）= 更新 `lastmod` + 添加 `AI-assisted` 标签 + 删除 `remix` 和 `reprint`（如有）

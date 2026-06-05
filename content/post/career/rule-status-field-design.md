@@ -1,8 +1,8 @@
 ---
-title: Rule Status 字段的设计取舍
+title: Rule Status 字段的设计取舍（2022）
 author: "-"
 date: 2026-06-04T11:06:49+08:00
-lastmod: 2026-06-04T18:00:27+08:00
+lastmod: 2026-06-05T11:29:29+08:00
 url: rule-status-field-design
 categories:
   - career

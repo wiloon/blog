@@ -1,8 +1,8 @@
 ---
-title: Conflict Check
+title: Conflict Check（2024）
 author: w1100n
 date: 2026-05-14T20:17:36+08:00
-lastmod: 2026-05-31T15:35:41+08:00
+lastmod: 2026-06-05T11:29:29+08:00
 url: conflict-check
 categories:
   - career
