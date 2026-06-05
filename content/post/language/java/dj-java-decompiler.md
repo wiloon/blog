@@ -1,13 +1,15 @@
 ---
-title: Java 反编译
+title: Java 反编译工具：DJ Java Decompiler / JD-GUI
 author: "-"
 date: 2012-08-24T09:54:39+00:00
+lastmod: 2026-06-05T11:08:28+08:00
 url: dj-java-decompiler
 categories:
   - Java
 tags:
-  - Java
-
+  - java
+  - remix
+  - AI-assisted
 aliases:
   - /p3930/
   - /p8834/

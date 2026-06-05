@@ -2,11 +2,16 @@
 title: 加壳与脱壳
 author: "-"
 date: 2014-03-20T07:26:06+00:00
-url: 加壳与脱壳
+lastmod: 2026-06-05T11:05:50+08:00
+url: packing-unpacking
 categories:
-  - Inbox
+  - cs
 tags:
-  - reprint
+  - security
+  - remix
+  - AI-assisted
+aliases:
+  - /加壳与脱壳
 ---
 ## 加壳与脱壳
 http://blog.csdn.net/lzyzuixin/article/details/4104334

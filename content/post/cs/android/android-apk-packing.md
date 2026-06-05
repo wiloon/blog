@@ -1,12 +1,18 @@
 ---
-title: Android APK加壳技术方案
+title: Android APK 加壳技术方案
 author: "-"
 date: 2014-03-20T07:21:35+00:00
-url: android-apk加壳技术方案
+lastmod: 2026-06-05T11:08:28+08:00
+url: android-apk-packing
 categories:
-  - Inbox
+  - cs
 tags:
-  - reprint
+  - android
+  - security
+  - remix
+  - AI-assisted
+aliases:
+  - /android-apk加壳技术方案
 ---
 ## Android APK加壳技术方案
 本文章由Jack_Jia编写,转载请注明出处。

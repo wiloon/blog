@@ -1,12 +1,17 @@
 ---
-title: Java反编译, jad, jd-gui
+title: Java 反编译工具：jad、jd-gui
 author: "-"
 date: 2014-04-11T06:46:31+00:00
-url: java反编译class-goto
+lastmod: 2026-06-05T10:58:13+08:00
+url: java-decompiler-tools
 categories:
-  - inbox
+  - Java
 tags:
-  - reprint
+  - java
+  - remix
+  - AI-assisted
+aliases:
+  - /java反编译class-goto
 ---
 ## Java反编译, jad, jd-gui
 

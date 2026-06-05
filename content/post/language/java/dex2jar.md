@@ -2,11 +2,15 @@
 title: dex2jar
 author: "-"
 date: 2014-04-10T01:42:28+00:00
+lastmod: 2026-06-05T11:08:28+08:00
 url: dex2jar
 categories:
-  - Inbox
+  - Java
 tags:
-  - reprint
+  - java
+  - android
+  - remix
+  - AI-assisted
 aliases:
   - /p6504/
 ---

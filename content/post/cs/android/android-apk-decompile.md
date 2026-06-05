@@ -1,12 +1,17 @@
 ---
-title: Android APK反编译
+title: Android APK 反编译
 author: "-"
 date: 2014-12-30T02:19:52+00:00
-url: android-apk反编译
+lastmod: 2026-06-05T11:08:28+08:00
+url: android-apk-decompile
 categories:
-  - Inbox
+  - cs
 tags:
-  - reprint
+  - android
+  - remix
+  - AI-assisted
+aliases:
+  - /android-apk反编译
 ---
 ## Android APK反编译
 
