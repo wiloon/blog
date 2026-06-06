@@ -23,6 +23,8 @@
 | [specs/pve-storage.md](specs/pve-storage.md)                                         | （review）[cloud/pve-storage.md](../content/post/cloud/pve-storage.md)                                                                             |
 | [specs/android-apk-security-assessment.md](specs/android-apk-security-assessment.md) | `content/post/career/android-apk-security-assessment.md`                                                                                           |
 | [specs/weekly-2026-w23.md](specs/weekly-2026-w23.md)                                 | `content/post/career/weekly-2026-w23.md`                                                                                                           |
+| [specs/weekly-2026-w24.md](specs/weekly-2026-w24.md)                                 | `content/post/career/weekly-2026-w24.md`                                                                                                           |
+| [specs/starbucks-latte-vs-indie-cafe.md](specs/starbucks-latte-vs-indie-cafe.md)     | `content/post/life/starbucks-latte-vs-indie-cafe.md`                                                                                               |
 
 **内容目录 `content/post/career/`**：职业/面试向叙事与项目故事（[exploration](../content/post/career/exploration.md)、[conflict-check](../content/post/career/conflict-check.md)、OOM 案例等）。
 
