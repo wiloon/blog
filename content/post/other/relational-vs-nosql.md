@@ -1,18 +1,21 @@
 ---
-title: 关系型数据库 VS 非关系型数据库
+title: 关系型数据库与 NoSQL 对比
 author: "-"
 date: 2012-02-21T13:42:10+00:00
-url: relational-database
+lastmod: 2026-06-08T15:55:33+08:00
+url: relational-vs-nosql
 categories:
   - Database
 tags:
-  - reprint
+  - database
+  - sql
+  - nosql
+  - remix
+  - AI-assisted
 aliases:
   - /p2384/
 ---
-## 关系型数据库 VS 非关系型数据库
-
-## 关系型数据库(Relational database) VS 非关系型数据库
+## 关系型数据库与 NoSQL 对比
 
 一、关系型数据库？
 
@@ -56,9 +59,20 @@ aliases:
 
    NoSQL提出了另一种理念，以键值来存储，且结构不稳定，每一个元组都可以有不一样的字段，这种就不会局限于固定的结构，可以减少一些时间和空间的开销。使用这种方式，为了获取用户的不同信息，不需要像关系型数据库中，需要进行多表查询。仅仅需要根据key来取出对应的value值即可。
 
-2.分类
+2.NoSQL 命名的含义
 
- 非关系数据库大部分是开源的，实现比较简单，大都是针对一些特性的应用需求出现的。根据结构化方法和应用场景的不同，分为以下几类。
+NoSQL 并不是「完全不用 SQL」，而是**不以关系模型为核心**。NoSQL 的字面含义经过了演变：
+
+- 早期理解为 "No SQL"，意指不使用 SQL
+- 后来业界更倾向解读为 **"Not Only SQL"**，即「不只是 SQL」，强调对关系型数据库的补充而非替代
+
+区分一个数据库是不是 NoSQL，关键看**数据模型**（是否以关系/表来组织数据），而不是查询语言的语法。事实上很多 NoSQL 数据库都提供了类 SQL 的接口，例如：
+
+- Cassandra 有 CQL（Cassandra Query Language），语法与 SQL 非常接近
+- MongoDB 持续增强聚合查询能力
+- ClickHouse 支持 SQL 语法，但底层是列式存储，不基于关系模型
+
+3.分类
 
  (1）面向高性能并发读写的key-value数据库
 
