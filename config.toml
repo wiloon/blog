@@ -143,7 +143,7 @@ hasCJKLanguage = true
   ShowFullTextinRSS = true
   
   # 评论系统 (可选)
-  comments = false
+  comments = true
 
   # 首页信息
   [params.homeInfoParams]
