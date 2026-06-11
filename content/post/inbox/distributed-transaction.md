@@ -1,14 +1,17 @@
 ---
 title: "分布式事务 2PC, 3PC, TCC"
 author: "-"
-date: "2021-09-07 22:59:40"
-url: "分布式事务"
+date: 2021-09-07T22:59:40+08:00
+lastmod: 2026-06-11T15:53:19+08:00
+url: distributed-transaction
 categories:
-  - inbox
+  - development
 tags:
-  - Inbox
+  - distributed
+  - transaction
+  - remix
+  - AI-assisted
 ---
-## "分布式事务 2PC, 3PC, TCC"
 
 数据库事务的概念
 
