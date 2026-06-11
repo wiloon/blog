@@ -2,7 +2,7 @@
 title: macOS Basics
 author: "-"
 date: 2026-01-10T20:30:00+08:00
-lastmod: 2026-05-30T16:52:16+08:00
+lastmod: 2026-06-11T11:18:29+08:00
 url: macos/basic
 categories:
   - Inbox
@@ -83,78 +83,7 @@ Ctrl + y        粘贴最后一次被删除的单词
 
 ## brew
 
-https://brew.sh/
-
-- brew 会把软件安装在用户主目录里, 不需要 sudo
-- brew 装的主要是 command line tool。
-- brew cask 装的大多是有 gui 界面的 app 以及驱动，brew cask 是 brew 的一个官方源。
-
-```bash
-# 搜索
-brew search foo
-brew search golang
-
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-brew install ansible
-
-# uninstall package
-brew uninstall packageName
-brew list ansible
-
-# 看看有哪些过期的包
-brew update
-
-# 查看所有需要更新的包
-brew outdated
-
-# 更新某一个包
-brew upgrade package0
-
-# 更新所有包
-brew upgrade
-
-brew install --cask obsidian
-
-brew config
-brew doctor
-```
-
-### brew update install 慢
-
-网络问题, 换国内的源
-
-```Bash
-
-# 步骤一
-cd "$(brew --repo)"
-# 查看源
-git remote -v
-# 更新源
-git remote set-url origin https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/brew.git
-
-# 步骤二
-cd "$(brew --repo)/Library/Taps/homebrew/homebrew-core"
-git remote set-url origin https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/homebrew-core.git
-
-#步骤三
-brew update
-```
-
-恢复默认源
-
-```Bash
-cd "$(brew --repo)"
-git remote set-url origin https://github.com/Homebrew/brew.git
- 
-cd "$(brew --repo)/Library/Taps/homebrew/homebrew-core"
-git remote set-url origin https://github.com/Homebrew/homebrew-core
- 
-brew update
-```
-
-### all casks package
-
-[https://formulae.brew.sh/cask/](https://formulae.brew.sh/cask/)
+详见 [brew 使用指南](../macos/brew.md)。
 
 ## macos build linux bin
 
