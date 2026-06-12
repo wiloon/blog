@@ -2,7 +2,7 @@
 title: Argo CD 与 GitOps 持续部署
 author: "-"
 date: 2026-05-28T13:01:03+08:00
-lastmod: 2026-05-28T13:01:03+08:00
+lastmod: 2026-06-12T12:59:48+08:00
 url: argocd
 categories:
   - Cloud
@@ -20,10 +20,10 @@ tags:
 
 与 Tekton、GitHub Actions 等 **CI** 工具的分工常见如下：
 
-| 阶段 | 典型工具 | 做什么 |
-| ---- | -------- | ------ |
-| 构建 | Tekton、CI | 编译代码、打镜像、推 registry |
-| 部署 | Argo CD | 根据 Git 里的镜像 tag / manifest 更新集群 |
+| 阶段 | 典型工具   | 做什么                                    |
+| ---- | ---------- | ----------------------------------------- |
+| 构建 | Tekton、CI | 编译代码、打镜像、推 registry             |
+| 部署 | Argo CD    | 根据 Git 里的镜像 tag / manifest 更新集群 |
 
 在 homelab 里，配置仓库是 `w10n-config`：改 `homelab/k8s/` 下的 YAML 并 push，由 Argo CD 把变更落到集群；镜像版本往往由 Tekton Pipeline 改 Git 里的 deployment 镜像字段，再交给 Argo 滚动发布。
 
@@ -88,11 +88,11 @@ spec:
 
 ## homelab 中的部署方式
 
-| 项 | 说明 |
-| ---- | ---- |
-| UI | https://argocd.wiloon.com |
-| 命名空间 | `argocd` |
-| 配置目录 | `w10n-config` 仓库 `homelab/k8s/argocd/` |
+| 项               | 说明                                                              |
+| ---------------- | ----------------------------------------------------------------- |
+| UI               | https://argocd.wiloon.com                                         |
+| 命名空间         | `argocd`                                                          |
+| 配置目录         | `w10n-config` 仓库 `homelab/k8s/argocd/`                          |
 | Application 清单 | 同目录下 `application-*.yaml`（如 quantdinger、pathfinder、rssx） |
 
 典型工作流：
@@ -117,12 +117,12 @@ syncPolicy:
     - CreateNamespace=true
 ```
 
-| 选项 | 含义 |
-| ---- | ---- |
-| `automated` | Git 变更后自动同步，无需每次手点 Sync |
-| `prune: true` | Git 中已删除的资源，会从集群中删除 |
-| `selfHeal: true` | 有人用 `kubectl` 改了集群，会被拉回 Git 状态 |
-| `CreateNamespace=true` | 目标 namespace 不存在时自动创建 |
+| 选项                   | 含义                                         |
+| ---------------------- | -------------------------------------------- |
+| `automated`            | Git 变更后自动同步，无需每次手点 Sync        |
+| `prune: true`          | Git 中已删除的资源，会从集群中删除           |
+| `selfHeal: true`       | 有人用 `kubectl` 改了集群，会被拉回 Git 状态 |
+| `CreateNamespace=true` | 目标 namespace 不存在时自动创建              |
 
 因此日常应避免对已由 Argo 管理的资源长期 `kubectl apply -k` 旁路修改，否则会出现 OutOfSync，或与 selfHeal 互相覆盖。应急手段与正路 Sync 的对比，见 [Argo CD CLI 与 kubectl annotate 对比](./argocd-cli-vs-kubectl-annotate.md)。
 
@@ -179,3 +179,136 @@ sequenceDiagram
 - UI、CLI、`kubectl` 查看 Application 各有用途；深度排障与 refresh/sync 区别见 [Argo CD CLI 与 kubectl annotate 对比](./argocd-cli-vs-kubectl-annotate.md)。
 
 官方文档：[Argo CD Documentation](https://argo-cd.readthedocs.io/en/stable/)。
+
+## Helm 直接安装 vs ArgoCD 管理
+
+在 K8s 集群里部署一个服务（如 Loki）有两种常见方式：
+
+### 方式一：Helm chart 直接安装
+
+从本机命令行直接调用 `helm install`：
+
+```bash
+helm repo add grafana https://grafana.github.io/helm-charts
+helm install loki grafana/loki -n loki -f loki-values.yaml
+```
+
+- 状态存在于 **Helm release**（K8s Secret 内）和运行的 Pod。
+- 只要 `values.yaml` 没有纣入版本控制，就属于“本地手动操作”，难以追溯、不易回滚。
+- 升级：`helm upgrade loki grafana/loki -f loki-values.yaml`。
+- 适合快速验证和一次性部署。
+
+### 方式二：ArgoCD Application（GitOps 管理）
+
+将 Helm values 文件纳入 Git 仓库，由 ArgoCD 将其持续同步到集群。
+
+两种写法都可行：
+
+**a. Application 直接引用 Helm chart**：
+
+```yaml
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: loki
+  namespace: argocd
+spec:
+  source:
+    repoURL: https://grafana.github.io/helm-charts
+    chart: loki
+    targetRevision: "6.x.x"
+    helm:
+      valueFiles:
+        - values.yaml
+  destination:
+    namespace: loki
+```
+
+**b. Application 引用 Git 目录（目录内有 Helm `Chart.yaml` + `values.yaml`）**：
+
+```yaml
+spec:
+  source:
+    repoURL: git@github.com:wiloon/w10n-config.git
+    path: infra/homelab/k8s/observability/loki
+    targetRevision: main
+    helm:
+      valueFiles:
+        - loki-values.yaml
+```
+
+### 对比
+
+| 项                       | `helm install` 直接装                   | ArgoCD Application 管理                      |
+| ------------------------ | --------------------------------------- | -------------------------------------------- |
+| 配置存在于               | 本地 `values.yaml`（可能没进 Git）      | **Git 仓库**（带 commit 历史）               |
+| 回滚                     | `helm rollback`（仅限 Helm release 层） | `argocd app rollback`（回到任意 Git commit） |
+| 异常情况自愈（selfHeal） | 无                                      | 有（手动 kubectl 改了会被拉回）              |
+| 可观测性                 | 只看 Helm release                       | ArgoCD UI 展示资源树、diff、健康状态         |
+| 操作复杂度               | 低（一条命令）                          | 需要维护 Application CR                      |
+| 适合场景                 | 快速验证、一次性部署                    | **长期运维的生产服务**                       |
+
+### homelab 建议
+
+- 如果集群内**其他服务**（kube-prometheus-stack、rssx 等）已经由 ArgoCD 管理，**Loki 保持一致**也用 ArgoCD，第一次调试时稍快一些但后期维护更整齐。
+- 如果只是这次临时解决问题、不想引入 GitOps 复杂度，`helm install` 直接装也完全可行。
+
+## ArgoCD + Helm chart vs ArgoCD → git path（manifest / kustomize）
+
+同样由 ArgoCD 管理，`source` 的写法决定了背后截然不同的工作模式。
+
+### ArgoCD + Helm chart
+
+`source` 指向一个 Helm chart（来自 Helm repo 或 OCI registry），并通过 `helm.values` / `helm.valueFiles` 覆盖参数：
+
+```yaml
+spec:
+  source:
+    repoURL: https://grafana.github.io/helm-charts
+    chart: loki
+    targetRevision: "6.x.x"
+    helm:
+      values: |
+        loki:
+          commonConfig:
+            replication_factor: 1
+```
+
+- ArgoCD 在每次同步时执行 `helm template`，将渲染结果 apply 到集群；**不会**在集群内留下 Helm release，也不依赖 `helm` 命令行工具。
+- 升级 chart 版本只需改 `targetRevision`。
+- 适合部署**第三方 chart**（Prometheus、Loki、Cert-manager 等），无需维护 YAML 细节。
+
+### ArgoCD → git path（manifest / kustomize）
+
+`source` 指向 Git 仓库中的一个目录，Argo 检测目录内容来决定渲染引擎：
+
+- 目录内有 `kustomization.yaml` → **Kustomize 模式**，ArgoCD 执行 `kustomize build`。
+- 目录内只有普通 `.yaml` → **Directory 模式**，直接 apply 所有 manifest。
+
+```yaml
+spec:
+  source:
+    repoURL: git@github.com:wiloon/w10n-config.git
+    path: homelab/k8s/quantdinger
+    targetRevision: main
+```
+
+所有 YAML 完全由自己维护，集群里运行的资源就是 Git 里写的资源，没有任何模板层的隐式行为。
+
+### 对比
+
+| 维度               | Helm chart                                                            | git path（manifest / kustomize）            |
+| ------------------ | --------------------------------------------------------------------- | ------------------------------------------- |
+| 配置粒度           | chart 暴露什么参数就能改什么，其余固定在模板里                        | 全部 YAML 自己控制，想改什么都能改          |
+| 透明度             | 渲染结果在 ArgoCD UI 的 "Live Manifest" 里可见，但源码在上游 chart 里 | Git 里即是最终 YAML，所见即所得             |
+| 升级方式           | 改 `targetRevision`（chart 版本）                                     | 改 Git 里的 manifest（镜像 tag、字段等）    |
+| 适合的对象         | **第三方应用**（自己不维护 chart 细节）                               | **自研服务**或需要深度定制的应用            |
+| Kustomize 叠加能力 | 可配合 `patches` 但较少见                                             | 天然适合用 base + overlay 管理多环境差异    |
+| 排障难度           | 需了解上游 chart 结构，`helm template` 辅助排查                       | 直接读 YAML，出错点一目了然                 |
+| 版本追踪           | Git 里追踪 `targetRevision`（chart 版本号）                           | Git commit 即版本，`git log` 看所有变更历史 |
+
+### 选型建议
+
+- **第三方基础设施组件**（Prometheus、Loki、Cert-manager、Ingress-nginx 等）：用 **Helm chart**，跟随上游发版节奏，values 文件纳入 Git。
+- **自研服务**（QuantDinger、Pathfinder、rssx 等）：用 **git path**，直接维护 Deployment/Service/ConfigMap，改什么一目了然。
+- **多环境差异**（dev/staging/prod 不同副本数、不同镜像 tag）：git path + **Kustomize** 的 base/overlay 结构最直观，避免 Helm values 多层继承带来的认知负担。

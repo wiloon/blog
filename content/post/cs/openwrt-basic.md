@@ -5,7 +5,7 @@ date: 2022-08-11 08:27:40
 url: openwrt
 categories:
   - Network
-lastmod: 2026-05-16T12:14:08+08:00
+lastmod: 2026-06-12T10:21:41+08:00
 tags:
   - remix
   - AI-assisted
@@ -258,7 +258,39 @@ config redirect
 
 ### 查看日志
 
-logread
+```bash
+logread          # 查看内存 ring buffer 中的所有日志
+logread -f       # 实时跟踪日志（类似 tail -f）
+logread | grep pppoe   # 过滤关键词
+```
+
+> **注意**：OpenWrt 默认只用内存 ring buffer（`log_size` 默认 128KB），日志仅保留几小时，重启后全部清空，无法回溯历史故障。
+
+### 远程 syslog 转发
+
+OpenWrt 使用 **BusyBox syslogd**（不是 rsyslog/syslog-ng），支持将日志实时转发到远端 syslog server。
+
+远程转发本身是 **syslog 协议（RFC 3164）的标准功能**，但 OpenWrt 的配置方式是通过 **UCI** 完成的（BusyBox syslogd 没有 `/etc/rsyslog.conf`，参数由 UCI `system` 配置段控制）：
+
+```bash
+# 配置远端 syslog server
+uci set system.@system[0].log_ip='192.168.50.100'   # 远端 IP
+uci set system.@system[0].log_port='5140'            # 远端端口（默认 514）
+uci set system.@system[0].log_proto='udp'            # 协议：udp 或 tcp
+uci commit system
+service log restart
+```
+
+也可以直接编辑 `/etc/config/system`：
+
+```text
+config system
+    option log_ip    '192.168.50.100'
+    option log_port  '5140'
+    option log_proto 'udp'
+```
+
+配置后 OpenWrt 会将新产生的日志实时推送到远端，对本机内存 ring buffer 没有影响（两者并行）。典型用途：将日志推到集群里的 Grafana Alloy → Loki，实现持久化存储。
 
 ### 启动脚本位置
 

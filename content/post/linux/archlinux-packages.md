@@ -2,7 +2,7 @@
 title: archlinux packages
 author: "-"
 date: "2026-05-06T08:27:13+08:00"
-lastmod: "2026-05-19T09:13:43+08:00"
+lastmod: "2026-06-12T12:44:39+08:00"
 url: archlinux-packages
 categories:
   - Linux
@@ -56,6 +56,10 @@ tags:
 - `libgit2`: Git 功能的独立可嵌入 C 库，详见 [libgit2](#libgit2)
 - `libplist`: Library to handle Apple Property List files
 - `libx11`: X11 client-side library
+- `openjph`: JPEG 2000 Part-15（HTJ2K，高吞吐 JPEG 2000）的开源实现库。当前系统被以下包依赖：`openexr`（高动态范围图像格式库，被 `gst-plugins-bad` 和 `opencv` 依赖）。
+- `openexr`: 高动态范围（HDR）图像文件格式库，支持 32 位浮点像素，广泛用于视觉特效和专业图像处理领域。当前系统被以下包依赖：`gst-plugins-bad`（GStreamer 非稳定插件集合）、`opencv`（计算机视觉库）。
+- `pcsclite`: PC/SC 智能卡中间件库，提供跨平台的智能卡读卡器访问接口（libpcsclite），守护进程 `pcscd` 负责管理读卡器设备。当前系统被以下包依赖：`qt6-connectivity`（Qt6 蓝牙/NFC 等近场通信模块）、`wpa_supplicant`（Wi-Fi 认证客户端，支持基于智能卡的 EAP 认证）。
+- `python-cryptography`: 为 Python 提供密码学原语和高层加密接口（包括 AES、RSA、哈希、TLS、X.509 等），底层通过 `python-cffi` 调用 OpenSSL。当前系统被以下包依赖：`ansible-core`（Ansible 自动化工具核心）、`python-paramiko`（Python SSH 客户端库）、`python-pip`（Python 包安装器）。
 
 ### expat
 
