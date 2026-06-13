@@ -2,7 +2,7 @@
 title: Argo CD 与 GitOps 持续部署
 author: "-"
 date: 2026-05-28T13:01:03+08:00
-lastmod: 2026-06-12T12:59:48+08:00
+lastmod: 2026-06-13T19:28:06+08:00
 url: argocd
 categories:
   - Cloud
@@ -312,3 +312,50 @@ spec:
 - **第三方基础设施组件**（Prometheus、Loki、Cert-manager、Ingress-nginx 等）：用 **Helm chart**，跟随上游发版节奏，values 文件纳入 Git。
 - **自研服务**（QuantDinger、Pathfinder、rssx 等）：用 **git path**，直接维护 Deployment/Service/ConfigMap，改什么一目了然。
 - **多环境差异**（dev/staging/prod 不同副本数、不同镜像 tag）：git path + **Kustomize** 的 base/overlay 结构最直观，避免 Helm values 多层继承带来的认知负担。
+
+## 接管已有 helm install 资源（迁移到 ArgoCD）
+
+集群里已有 `helm install` 安装的服务，想改用 ArgoCD 管理，有一个常见陷阱：
+
+> ⚠️ **不要 `helm uninstall` 再重装**。对于有持久化数据的服务（如 Longhorn、Prometheus），`helm uninstall` 会触发资源级联删除，包括 PVC——数据会丢失。
+
+正确方式是**直接让 ArgoCD sync 覆盖 helm 的 ownership**，无需先卸载。
+
+### 为什么这样可行
+
+`helm install` 的本质是在 K8s 资源上打了一组 annotation 和 label（`helm.sh/chart`、`app.kubernetes.io/managed-by: Helm` 等）并在 `helm-system` 或对应 namespace 存了一个 release Secret。这些只是元数据，ArgoCD 用 **Server-Side Apply (SSA)** sync 时会以自己为 field-manager 直接覆盖这些字段，而不会删除底层资源。
+
+### 关键配置
+
+```yaml
+syncPolicy:
+  syncOptions:
+    - ServerSideApply=true   # SSA 模式，字段级覆盖，不删除资源
+spec:
+  sources:
+    - repoURL: https://charts.longhorn.io
+      chart: longhorn
+      targetRevision: "1.10.0"
+      helm:
+        releaseName: longhorn  # 必须与原 helm install 的 release name 一致
+```
+
+`releaseName` 与原 release 一致，ArgoCD 渲染出的资源 name 才能对上集群里的现有资源，SSA 才会是 update 而不是 create。
+
+### 迁移步骤概要
+
+1. **提取现有 values**：`helm get values <release> -n <namespace>`，存入 Git。
+2. **写 ArgoCD Application YAML**，`releaseName` 与原 release 一致，`ServerSideApply=true`，先设 `prune: false`。
+3. **`kubectl apply` 创建 Application**，ArgoCD 开始首次 sync。
+4. **观察 sync 结果**：看 ArgoCD UI diff，确认是 update 而非 recreate。
+5. **验证服务正常**后，将 `prune: false` 改为 `prune: true` 并 push。
+
+### 回滚
+
+如果 sync 出现问题，不想继续让 ArgoCD 管理，可以只删 Application CR，保留底层资源：
+
+```bash
+kubectl delete application -n argocd <name> --cascade=orphan
+```
+
+`--cascade=orphan` 使 K8s 只删除 Application 对象本身，不级联删除它管理的 Longhorn/Prometheus 等资源，回到手动管理状态。

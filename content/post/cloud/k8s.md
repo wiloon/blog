@@ -2,7 +2,7 @@
 title: "k8s"
 author: "-"
 date: "2026-04-10T21:39:51+08:00"
-lastmod: "2026-06-12T11:27:22+08:00"
+lastmod: "2026-06-13T19:42:13+08:00"
 url: k8s
 categories:
   - Cloud
@@ -295,3 +295,78 @@ spec:
 这些控制器都运行在 `kube-controller-manager` 进程中。
 
 裸 Pod（Bare Pod）没有控制器，Pod 挂了没有任何东西会去重建它，所以生产环境中不推荐使用裸 Pod。
+
+## CRD（CustomResourceDefinition）
+
+CRD 是 Kubernetes 的**扩展机制**，允许向集群注册新的资源类型。注册后，就可以像操作内置资源（Pod、Deployment、Service）一样，用 `kubectl` 创建、查看、删除这些自定义资源。
+
+### 为什么需要 CRD
+
+Kubernetes 内置资源（Pod、Deployment、Service 等）描述的是通用计算单元，但很多应用有自己的概念，比如：
+
+- Longhorn 的「Volume」「Replica」「Setting」
+- ArgoCD 的「Application」「AppProject」
+- Prometheus Operator 的「PrometheusRule」「ServiceMonitor」
+- cert-manager 的「Certificate」「Issuer」
+
+这些概念在标准 K8s 资源里没有对应物，CRD 让这些应用可以把自己的「业务对象」注册进 K8s API，用 K8s 统一的方式管理。
+
+### CRD 与自定义资源
+
+**CRD（CustomResourceDefinition）** 是类型定义，描述「这种资源叫什么、有哪些字段」；  
+**CR（Custom Resource）** 是具体实例，是按 CRD 定义创建的一个对象。
+
+类比：CRD 相当于 Go 里的 `struct` 定义，CR 是这个 struct 的一个值。
+
+```bash
+# 查看集群里注册了哪些 CRD
+kubectl get crd
+
+# Longhorn 的 CRD（部分）
+kubectl get crd | grep longhorn
+# volumes.longhorn.io
+# replicas.longhorn.io
+# settings.longhorn.io
+
+# 操作 Longhorn Setting（CR）
+kubectl get settings.longhorn.io -n longhorn-system
+kubectl get settings.longhorn.io node-down-pod-deletion-policy -n longhorn-system
+
+# ArgoCD Application 也是 CRD
+kubectl get application -n argocd
+```
+
+### CRD 的生命周期
+
+应用（如 Longhorn）安装时会一并创建 CRD；卸载时如果删除 CRD，所有对应的 CR 实例也会被级联删除。因此在 Helm 或 ArgoCD 管理的应用里，CRD 的处理往往需要格外谨慎：
+
+- Helm：`skipCrds: true` 跳过 CRD 安装/更新（手动管理），`skipCrds: false` 由 chart 管理
+- ArgoCD：通常用 `ignoreDifferences` 忽略 CRD 的 `.status` 字段，避免自动生成的 status 内容造成每次 sync 都显示 OutOfSync
+
+## Operator 模式
+
+Operator 是 CRD + 控制器的组合，是 Kubernetes 扩展的**标准模式**。
+
+- **CRD**：定义应用的「业务对象」（如 `PostgreSQLCluster`）
+- **控制器**：监听这些对象，执行对应的运维操作（创建 Pod、配置主从复制、触发备份等）
+
+```
+用户 kubectl apply PostgreSQLCluster CR
+         ↓
+控制器（Operator）检测到 CR 变化
+         ↓
+自动创建 StatefulSet、Service、ConfigMap
+自动处理主从切换、备份、扩容...
+```
+
+常见 Operator：
+
+| Operator | 管理对象 |
+|----------|----------|
+| Prometheus Operator | Prometheus、Alertmanager、告警规则 |
+| cert-manager | TLS 证书自动申请/续期 |
+| Longhorn | 分布式块存储 Volume、Replica、备份 |
+| ArgoCD | GitOps 应用同步 |
+| CloudNativePG | PostgreSQL 集群 |
+
+Operator 把运维知识编码进控制器，实现「声明式运维」：用户只描述期望状态（如「我要一个 3 节点 PostgreSQL 集群」），Operator 负责把集群驱动到这个状态，并在故障时自动恢复。
