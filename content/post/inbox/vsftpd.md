@@ -1,12 +1,17 @@
 ---
-title: Debian安装FTP服务器,使用vsftpd简单实现
+title: Debian 安装 FTP 服务器（vsftpd）
 author: "-"
 date: 2016-07-17T15:05:03+00:00
-url: debian安装ftp服务器，使用vsftpd简单实现
+lastmod: 2026-06-15T12:51:15+08:00
+url: vsftpd
 categories:
-  - Inbox
+  - Linux
 tags:
-  - reprint
+  - vsftpd
+  - ftp
+  - debian
+  - remix
+  - AI-assisted
 ---
 ## Debian安装FTP服务器,使用vsftpd简单实现
 
@@ -67,3 +72,9 @@ invoke-rc.d vsftpd restart
 chmod -R 777 /var/www/
 
 大功告成,这时候可以使用类似flashFXP这种FTP客户端登陆测试看看！
+
+## 维护记录
+
+| 时间 | 修改内容 | 原因 |
+| ---- | -------- | ---- |
+| 2026-06-15 | 文件从中文名重命名为 `vsftpd.md`；`url` 改为 `vsftpd`；`title` 整理为规范格式；`categories` 从 `Inbox` 改为 `Linux` | 文件名含中文不符合规范，URL 为中文无法正常使用，分类不准确 |
