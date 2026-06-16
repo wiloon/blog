@@ -3,7 +3,6 @@ title: "一人公司：我对个人运营的理解"
 author: "-"
 date: 2026-06-15T12:01:59+08:00
 lastmod: 2026-06-16T10:29:19+08:00
-draft: true
 url: one-person-company
 categories:
   - life
