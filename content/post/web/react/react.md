@@ -2,7 +2,7 @@
 title: React 入门
 author: "-"
 date: 2026-05-17T13:28:28+08:00
-lastmod: 2026-05-17T17:48:36+08:00
+lastmod: 2026-06-16T19:10:45+08:00
 url: react-intro
 categories:
   - development
@@ -160,29 +160,39 @@ React 遵循**单向数据流**：数据从父组件通过 Props 流向子组件
 
 函数组件通过 `useEffect` 模拟类组件的生命周期阶段：
 
-| 生命周期 | 类组件 | 函数组件 |
-| --- | --- | --- |
-| 挂载后 | `componentDidMount` | `useEffect(() => {}, [])` |
-| 更新后 | `componentDidUpdate` | `useEffect(() => {}, [dep])` |
-| 卸载前 | `componentWillUnmount` | `useEffect` 返回的清理函数 |
+| 生命周期 | 类组件                 | 函数组件                     |
+| -------- | ---------------------- | ---------------------------- |
+| 挂载后   | `componentDidMount`    | `useEffect(() => {}, [])`    |
+| 更新后   | `componentDidUpdate`   | `useEffect(() => {}, [dep])` |
+| 卸载前   | `componentWillUnmount` | `useEffect` 返回的清理函数   |
 
 ## 与框架的关系
 
 React 本身只是 UI 库，不包含路由、数据请求、SSR 等能力。实际项目通常搭配框架使用：
 
-| 框架 | 特点 |
-| --- | --- |
-| [Next.js](https://nextjs.org) | 生产首选，支持 SSR / SSG / RSC，Vercel 出品 |
-| [Remix](https://remix.run) | 以 Web 标准为中心，强调服务端渲染 |
-| [Vite + React](https://vitejs.dev) | 纯 SPA，构建快，适合后台管理系统 |
+| 框架                               | 特点                                        |
+| ---------------------------------- | ------------------------------------------- |
+| [Next.js](https://nextjs.org)      | 生产首选，支持 SSR / SSG / RSC，Vercel 出品 |
+| [Remix](https://remix.run)         | 以 Web 标准为中心，强调服务端渲染           |
+| [Vite + React](https://vitejs.dev) | 纯 SPA，构建快，适合后台管理系统            |
+
+## React 与 ReactJS 的关系
+
+React 和 ReactJS 是同一个东西，只是叫法不同。**React** 是 Meta（前 Facebook）在 2013 年开源时的官方名称；**ReactJS** 是早期社区的非正式叫法，加 "JS" 后缀是为了与其他同名项目区分。现在官方文档、npm 包（`react`）、GitHub 仓库全部统一使用 **React**，ReactJS 这一叫法已逐渐淡出。
 
 ## 版本演进
 
-| 版本 | 重要特性 |
-| --- | --- |
-| 16.8 | Hooks 正式发布 |
-| 18 | 并发渲染（Concurrent Mode）、`useTransition`、自动批处理 |
-| 19 | React Compiler（自动 memoization）、Server Components 稳定、Actions |
+| 版本  | 年份      | 关键变化                                                                              |
+| ----- | --------- | ------------------------------------------------------------------------------------- |
+| 0.x   | 2013–2015 | 早期版本，JSX 还在实验阶段                                                            |
+| v15   | 2016      | 稳定期，广泛采用                                                                      |
+| v16   | 2017      | 重写核心（Fiber 架构），引入 Error Boundary                                           |
+| v16.8 | 2019      | **Hooks** 正式发布，是最重大的 API 转折点，社区全面转向函数式组件                     |
+| v17   | 2020      | 过渡版，无新特性，主要改善升级体验                                                    |
+| v18   | 2022      | 并发模式（Concurrent Features）、`useTransition`、自动批处理                          |
+| v19   | 2024      | React Compiler（自动 memoization）、Server Components 稳定、Actions API、`use()` hook |
+
+v16.8（Hooks）是最关键的分界线：之前以 Class 组件为主，之后社区全面转向函数式组件 + Hooks 写法。
 
 ## 参考资料
 

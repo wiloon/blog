@@ -2,11 +2,14 @@
 title: 敏捷 Agile
 author: "-"
 date: 2019-04-21T16:09:03+00:00
+lastmod: 2026-06-16T13:17:12+08:00
 url: agile
 categories:
   - Agile
 tags:
-  - reprint
+  - agile
+  - remix
+  - AI-assisted
 ---
 ## 敏捷 Agile
 
@@ -87,3 +90,23 @@ tags:
 [https://www.agilesoftwaredevelopment.com/posts/10-agile-contracts](https://www.agilesoftwaredevelopment.com/posts/10-agile-contracts)
 
 [https://saat-network.ch/2019/05/ten-contracts-for-your-next-agile-project/](https://saat-network.ch/2019/05/ten-contracts-for-your-next-agile-project/)
+
+## Speed over Perfection
+
+**速度优于完美**，也常表述为 "Bias for Action"，是敏捷文化中的一条核心价值观。
+
+核心含义：不等方案完美再行动，先交付一个「够好」的版本，快速验证，再持续迭代改进。与之相对的反模式是「分析瘫痪」（Analysis Paralysis）——为追求最优方案而迟迟无法交付。
+
+实践含义：
+
+- 功能先上线，边运行边优化，而不是打磨很久再发布
+- 快速响应业务需求，给出可用方案，而不是等待一个「最优」设计
+- 容错文化：允许犯错，但要快速发现和修正
+
+注意这并不意味着可以忽视质量，而是在「交付速度」和「方案完备性」之间做出有意识的权衡，优先选择交付可工作的版本。
+
+## 维护记录
+
+| 时间       | 修改内容                        | 原因                 |
+| ---------- | ------------------------------- | -------------------- |
+| 2026-06-16 | 添加 Speed over Perfection 章节 | 记录新接触的敏捷概念 |
