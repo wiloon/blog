@@ -25,8 +25,7 @@
 | [specs/weekly-2026-w23.md](specs/weekly-2026-w23.md)                                 | `content/post/career/weekly-2026-w23.md`                                                                                                           |
 | [specs/weekly-2026-w24.md](specs/weekly-2026-w24.md)                                 | `content/post/career/weekly-2026-w24.md`                                                                                                           |
 | [specs/starbucks-latte-vs-indie-cafe.md](specs/starbucks-latte-vs-indie-cafe.md)     | `content/post/life/starbucks-latte-vs-indie-cafe.md`                                                                                               |
-| [specs/weekly-2026-w25.md](specs/weekly-2026-w25.md)                                 | `content/post/career/weekly-2026-w25.md`                                                                                                           |
-
+| [specs/weekly-2026-w25.md](specs/weekly-2026-w25.md)                                 | `content/post/career/weekly-2026-w25.md`                                                                                                           |  | [specs/iot-third-party-data-push.md](specs/iot-third-party-data-push.md) | `content/post/career/iot-third-party-data-push.md` |
 **内容目录 `content/post/career/`**：职业/面试向叙事与项目故事（[exploration](../content/post/career/exploration.md)、[conflict-check](../content/post/career/conflict-check.md)、OOM 案例等）。
 
 ## 工作流（SDD）
