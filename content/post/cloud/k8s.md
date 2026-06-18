@@ -2,7 +2,7 @@
 title: "k8s"
 author: "-"
 date: "2026-04-10T21:39:51+08:00"
-lastmod: "2026-06-13T19:42:13+08:00"
+lastmod: "2026-06-18T15:35:08+08:00"
 url: k8s
 categories:
   - Cloud
@@ -202,6 +202,10 @@ kubectl drain <node-name> --ignore-daemonsets --delete-emptydir-data
 
 维护完成后用 `kubectl uncordon <node-name>` 恢复节点调度。
 
+## Descheduler
+
+默认调度器只在 Pod **创建时**选节点，不会因为某节点变忙而把已有 Pod 迁走。若集群长期出现「个别 worker 堆很多 Pod、其他节点很空」，可部署 [Descheduler](./kubernetes-descheduler.md)：周期性按策略驱逐部分 Pod，由调度器重新分配到更合适的节点。它与 `drain` 互补——`drain` 用于维护窗口的一次性清空，Descheduler 用于日常负载重平衡。
+
 ## DaemonSet
 
 DaemonSet 确保集群中每个（或部分符合条件的）节点上都运行一个 Pod 副本。当有新节点加入集群时，DaemonSet 会自动在该节点上创建 Pod；当节点被移除时，对应的 Pod 也会被回收。
@@ -370,3 +374,9 @@ Operator 是 CRD + 控制器的组合，是 Kubernetes 扩展的**标准模式**
 | CloudNativePG | PostgreSQL 集群 |
 
 Operator 把运维知识编码进控制器，实现「声明式运维」：用户只描述期望状态（如「我要一个 3 节点 PostgreSQL 集群」），Operator 负责把集群驱动到这个状态，并在故障时自动恢复。
+
+## 维护记录
+
+| 时间 | 修改内容 | 原因 |
+| ---- | -------- | ---- |
+| 2026-06-18 | 新增 Descheduler 章节并链至独立文章 | 记录 Pod 重平衡与 homelab 调度实践 |
