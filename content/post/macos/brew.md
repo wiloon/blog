@@ -1,8 +1,8 @@
 ---
-title: Homebrew (brew) 使用指南
+title: Homebrew (brew)
 author: "-"
 date: 2026-06-11T11:18:29+08:00
-lastmod: 2026-06-11T14:20:33+08:00
+lastmod: 2026-06-19T13:51:22+08:00
 url: brew
 categories:
   - macOS
@@ -84,7 +84,8 @@ brew outdated
 # 更新某一个包
 brew upgrade package0
 
-# 更新所有包
+# 更新所有包，相当于 Arch Linux 的 pacman -Syu
+# brew upgrade 会自动先执行 brew update 刷新 formula 列表，再升级所有包
 brew upgrade
 
 # 配置信息
@@ -171,3 +172,9 @@ brew update
 ## 所有 cask 包
 
 <https://formulae.brew.sh/cask/>
+
+## 维护记录
+
+| 时间 | 修改内容 | 原因 |
+| ---- | -------- | ---- |
+| 2026-06-19 | 补充 `brew upgrade` 与 `pacman -Syu` 等价说明及自动 update 细节 | 对比 Arch Linux 用法，便于理解 |
