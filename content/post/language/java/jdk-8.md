@@ -1,9 +1,9 @@
 ---
-title: JDK 8 新特性
+title: JDK 8
 author: "-"
 date: 2026-04-25T10:10:10+08:00
-lastmod: 2026-05-11T08:43:11+08:00
-url: jdk8-new-features
+lastmod: 2026-06-20T12:53:11+08:00
+url: jdk-8
 categories:
   - language
 tags:
@@ -11,9 +11,12 @@ tags:
   - jdk
   - remix
   - AI-assisted
+aliases:
+  - jdk8-new-features
+  - jdk8-features
 ---
 
-JDK 8 相对于 JDK 7 引入的主要新特性：
+JDK 8 相对于 JDK 7 引入的主要特性：
 
 - Lambda 表达式
 - 函数式接口（Functional Interface）
@@ -254,3 +257,10 @@ List<@NonNull String> items = new ArrayList<>();
 - [JDK 8 新特性 - IBM Developer](https://www.ibm.com/developerworks/cn/java/j-lo-jdk8newfeature/)
 - [函数式编程初探 - 阮一峰](http://www.ruanyifeng.com/blog/2012/04/functional_programming.html)
 - [Java 8 特性详解 - 简书](http://www.jianshu.com/p/5b800057f2d8)
+
+## 维护记录
+
+| 时间 | 修改内容 | 原因 |
+| ---- | -------- | ---- |
+| 2026-06-20 | 开篇「主要新特性」改为「主要特性」 | 全系列统一命名 |
+| 2026-06-20 | 重命名为 `jdk-8.md`；title 改为「JDK 8」；url 改为 `jdk-8`；移至 `language/java/` | 全系列统一简洁命名 |

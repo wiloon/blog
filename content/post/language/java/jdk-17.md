@@ -1,9 +1,9 @@
 ---
-title: JDK 17 新特性
+title: JDK 17
 author: "-"
 date: 2026-04-25T10:27:40+08:00
-lastmod: 2026-05-13T13:37:33+08:00
-url: jdk17-new-features
+lastmod: 2026-06-20T12:53:11+08:00
+url: jdk-17
 categories:
   - language
 tags:
@@ -11,11 +11,14 @@ tags:
   - jdk
   - remix
   - AI-assisted
+aliases:
+  - jdk17-new-features
+  - jdk17-features
 ---
 
 ## 概述
 
-JDK 17 是 Java 的长期支持版本（LTS），于 2021 年 9 月发布。相比 JDK 16，JDK 17 引入了多项新特性和改进，同时也包含了一些孵化特性的正式毕业版本。
+JDK 17 是 Java 的长期支持版本（LTS），于 2021 年 9 月发布。相比 JDK 16，JDK 17 引入了多项特性与改进，同时也包含了一些孵化特性的正式毕业版本。
 
 ## 正式特性（JEP）
 
@@ -223,3 +226,10 @@ JDK 17 的 Premier Support 于 2026 年 9 月到期，下一个 LTS 版本是 JD
 - [JDK 17 Release Notes](https://www.oracle.com/java/technologies/javase/17-relnote-issues.html)
 - [OpenJDK JDK 17](https://openjdk.org/projects/jdk/17/)
 - [JDK 17 to JDK 21 Migration Guide](https://docs.oracle.com/en/java/javase/21/migrate/)
+
+## 维护记录
+
+| 时间 | 修改内容 | 原因 |
+| ---- | -------- | ---- |
+| 2026-06-20 | title 改为「JDK 17 特性」 | 全系列统一命名，去掉「新特性」 |
+| 2026-06-20 | 重命名为 `jdk-17.md`；title 改为「JDK 17」；url 改为 `jdk-17`；移至 `language/java/` | 全系列统一简洁命名 |

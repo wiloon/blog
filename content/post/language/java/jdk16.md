@@ -1,5 +1,5 @@
 ---
-title: "jdk16"
+title: jdk16
 author: "-"
 date: ""
 url: ""
