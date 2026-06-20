@@ -19,9 +19,16 @@ aliases:
 
 ## 概述
 
-Java 8 把一类特殊接口叫做**函数式接口**（functional interface）：可以作为 Lambda 表达式或方法引用的目标类型。判定这类接口是否合格，用的是 **SAM（Single Abstract Method）** 规则——详见下一节 [SAM 定义](#sam)。
+**函数式接口不是一种新类型**，而是 Java 8 对一类**早已存在的接口**给出的正式定义与命名：接口中恰好有一个抽象方法（**SAM，Single Abstract Method**），因此可以作为 Lambda 表达式或方法引用的**目标类型**。判定细节见下一节 [SAM 定义](#sam)。
 
-Java 8 没有新增独立的函数类型（arrow type），而是继续用 interface 承载「一段可传递的逻辑」。JDK 里已有不少接口符合 SAM 规则，例如 `Runnable`；Java 8 又新增 `java.util.function` 包。
+可以这样理解二者关系：
+
+| 概念 | 角色 |
+| ---- | ---- |
+| **Lambda / 方法引用** | Java 8 **新语法**，表达「一段可传递的逻辑」 |
+| **函数式接口** | **类型契约**——Lambda 不能单独存在，必须赋给通过 SAM 判定的接口 |
+
+Java 8 **没有**新增独立的函数类型（arrow type），而是继续用 `interface` 承载函数语义。JDK 8 之前已有不少接口在结构上符合 SAM（如 `Runnable`、`Comparator`），只是当时没有「函数式接口」这一术语，也不能写 Lambda 赋给它们；Java 8 把 SAM 规则写进语言规范，并新增 `java.util.function` 包中的标准函数式接口。
 
 函数式接口代表一种契约：在需要它的上下文中，实际期望的是符合该契约的函数。Lambda 不能脱离上下文存在，必须有一个明确的目标类型，而这个目标类型必须是通过 SAM 判定的函数式接口。
 
@@ -385,7 +392,9 @@ interface J {
 
 ## @FunctionalInterface {#functionalinterface} 注解
 
-Java 不强制用 `@FunctionalInterface` 标记函数式接口；作为 API 作者，加上该注解可以明确设计意图，也方便读者识别。
+`@FunctionalInterface` 随 **Java 8（JDK 8）** 引入，位于 `java.lang.FunctionalInterface`。它与 Lambda、SAM 判定规则同属 Java 8 函数式编程特性的一部分；**JDK 8 之前不存在此注解**。
+
+Java 不强制用 `@FunctionalInterface` 标记函数式接口；作为 API 作者，加上该注解可以明确设计意图，也方便读者识别。再次强调：有没有该注解**不影响**接口是否通过 SAM 判定为函数式接口——判定只看抽象方法个数与合并规则（见 [SAM 定义](#sam)）。
 
 ```java
 @FunctionalInterface
@@ -412,3 +421,4 @@ error: Unexpected @FunctionalInterface annotation
 | ---- | -------- | ---- |
 | 2026-06-20 | 重组章节结构；代码块添加语法高亮；分类改为 language；更新过时表述 | 提升可读性与 Markdown 规范 |
 | 2026-06-20 | 新增 §SAM  canonical 定义；说明 SAM 与函数式接口的判定关系 | 统一术语出处，供 lambda/jdk-8 互链 |
+| 2026-06-20 | 概述补充「非新类型、Lambda 与函数式接口分工」；`@FunctionalInterface` 注明 JDK 8 引入 | 澄清概念理解 |

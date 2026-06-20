@@ -2,11 +2,16 @@
 title: golang interface
 author: "-"
 date: 2020-02-11T05:42:52+00:00
-url: go/interface
+lastmod: 2026-06-20T22:04:17+08:00
+url: go-interface
+aliases:
+  - go/interface
 categories:
   - Go
 tags:
-  - reprint
+  - go
+  - remix
+  - AI-assisted
 ---
 ## golang interface
 
@@ -111,3 +116,9 @@ fmt.Println("b1.(type):", "other", v)
 原文链接: [https://blog.csdn.net/xia_xing/article/details/49423771](https://blog.csdn.net/xia_xing/article/details/49423771)
 
 [https://sanyuesha.com/2017/07/22/how-to-understand-go-interface/](https://sanyuesha.com/2017/07/22/how-to-understand-go-interface/)
+
+## 维护记录
+
+| 时间 | 修改内容 | 原因 |
+| ---- | -------- | ---- |
+| 2026-06-20 | 文件重命名为 `go-interface.md`；url 改为 `go-interface`；保留 `go/interface` 别名 | 与 Java interface 等主题区分，文件名加入 go 关键字 |

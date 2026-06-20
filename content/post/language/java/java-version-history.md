@@ -1,5 +1,5 @@
 ---
-title: Java 版本历史
+title: Java version history, jdk history
 author: "-"
 date: 2026-06-20T13:30:19+08:00
 lastmod: 2026-06-20T13:30:19+08:00
