@@ -2,7 +2,7 @@
 title: Java Knowledge Map
 author: "-"
 date: 2026-05-31T07:36:44+08:00
-lastmod: 2026-05-31T07:36:44+08:00
+lastmod: 2026-06-19T22:27:49+08:00
 url: java-knowledge-map
 categories:
   - language
@@ -76,8 +76,10 @@ flowchart TB
 
 | 概念 | 文章 |
 | ---- | ---- |
-| HotSpot 是什么、与 OpenJDK 关系 | [HotSpot 简介](./hotspot.md) |
-| JVM 组成、执行引擎（inbox） | [jvm](./jvm.md) |
+| JVM 生态、实现选型 | [Java 虚拟机生态与选型](./jvm.md) |
+| HotSpot 架构与站内索引 | [HotSpot 简介](./hotspot.md) |
+| HotSpot 启动参数 | [hotspot-options](./hotspot-options.md) |
+| JIT / C1·C2 / 分层编译 | [jvm-compiler](../../cs/jvm-compiler.md) |
 | GC、分代（多篇） | [java-gc](./java-gc.md) 等 |
 | Safepoint | [safepoint](../../other/safepoint.md) |
 
@@ -154,3 +156,7 @@ JVMTI / JPDA（对比调试）  →  /jvmti 、/java-debug-jpda
 ## 维护说明
 
 新增 Java 专题文时，可在本文对应主题表补一行链接，并在 mermaid 图中增加节点（保持可读即可，不必穷尽所有文章）。
+
+| 时间 | 修改内容 |
+| ---- | -------- |
+| 2026-06-19 | JVM 索引表拆分：jvm 生态、hotspot-options |
