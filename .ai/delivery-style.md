@@ -12,7 +12,7 @@
 | 层级 | 文件 | 管什么 |
 | ---- | ---- | ------ |
 | 1 | [AGENTS.md](../AGENTS.md) | 全站改文底线：front matter、`url`、`lastmod`、标签、MD025、表格/代码块、中英文空格等 |
-| 2 | [content-constraints.md](content-constraints.md) | 全站内容约束（如 VPN 命名：WireGuard/OpenVPN 除外不写软件名） |
+| 2 | [content-constraints.md](content-constraints.md) | 全站内容约束（如 VPN 命名；代码块注释用英文） |
 | 3 | **本文（delivery-style.md）** | SDD **交付物正文** 的默认语气与格式（加粗、标题层级等） |
 | 4 | `.ai/specs/{slug}.md` | 本篇主题、必写/禁写、结构；**仅在本篇写明「例外」时**可覆盖本文默认 |
 

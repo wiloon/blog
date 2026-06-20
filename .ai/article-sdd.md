@@ -84,7 +84,7 @@ spec-created → qa-in-progress → draft-written → annotating → published
 
 1. **先读** 对应 `.ai/specs/{slug}.md`，再读或改 `content/post/.../{slug}.md`。
 2. **以 Spec 为准**：§必须包含 / §禁止包含 优先于 AI 自行发挥；与 Spec 冲突时，**以 Spec 为准** 或向作者确认。
-3. **仍遵守** [AGENTS.md](../AGENTS.md) 中博客文章规则（文件名、`url`、`categories`、`lastmod`、`tags`、MD025、表格与代码块等）。Spec 可补充、不可削弱 AGENTS 底线；**全站内容约束**见 [content-constraints.md](content-constraints.md)（如 VPN 命名）。
+3. **仍遵守** [AGENTS.md](../AGENTS.md) 中博客文章规则（文件名、`url`、`categories`、`lastmod`、`tags`、MD025、表格与代码块等）。Spec 可补充、不可削弱 AGENTS 底线；**全站内容约束**见 [content-constraints.md](content-constraints.md)（如 VPN 命名、代码块注释用英文）。
 4. **润色范围**：语句、段落衔接、Markdown 格式、结构对齐 Spec 大纲；**不编造** Spec 未允许的事实（金额、承诺、客户名等）。交付物格式、人称（淡化「我」）与加粗默认遵守 [delivery-style.md](delivery-style.md)；单篇 Spec §格式 / §语气 仅写 **本篇例外**。
 5. **完成后**：按 Spec §验收清单逐项核对；在回复中简要说明已满足 / 未满足项。
 6. **更新 Spec**：仅当作者明确要求「同步 spec」或「把 xx 写进 spec」时修改 `.ai/specs/`；改交付物后 **不要** 默认改 Spec。

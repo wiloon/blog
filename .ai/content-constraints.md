@@ -34,14 +34,44 @@
 - homelab 内部文档路径若与公开 blog 无关，优先改为**中性描述**（如「同类 IPv6 PD 故障记录」「前缀监听脚本」），或省略链接。
 - 代码块内若必须出现真实配置（私有笔记），单篇 Spec 可在 §禁止包含 中声明例外；**无 Spec 时默认仍遵守上表**。
 
+## 代码块注释
+
+fenced code block（`` ```java ``、`bash` 等）内的行注释与块注释 **使用英文**，**不要**写中文。
+
+| 要求 | 说明 |
+| ---- | ---- |
+| 注释语言 | `//`、`/* */`、`#`、`--` 等注释内容用英文 |
+| 中文说明 | 放在代码块**外**的正文 prose（`##` / 段落 / 列表），不要塞进注释 |
+| 字符串字面量 | 演示输出、用户可见文案若需中文，可保留在字符串内；这与「注释用英文」不冲突 |
+| 引用原文 | 转载或摘录的外部代码若原样含中文注释，可在 Spec §禁止包含 或维护记录中说明例外；**无 Spec 时默认仍遵守上表** |
+
+**示例**
+
+```java
+// OK: interface type; anonymous class implements Runnable
+Runnable r1 = new Runnable() {
+    @Override
+    public void run() {
+        System.out.println("hello"); // demo output string may stay as-is
+    }
+};
+```
+
+```java
+// ❌ 不要在代码注释里写中文说明
+Runnable r1 = new Runnable() { ... }; // 匿名内部类 implements Runnable
+```
+
 ## AI 改稿时
 
-1. 新建或编辑涉及 VPN/代理 homelab 场景的文章时，**先读本文**。
-2. 成稿后全文检索常见被禁名称 WireGuard / OpenVPN 保留。
-3. SDD 文章：单篇 Spec §禁止包含 可补充本篇特例，**不得**默认允许写出被禁 VPN 软件名。
+1. 新建或编辑 `content/post/**/*.md` 时，**先读本文**（VPN 命名、代码块注释等）。
+2. 涉及 VPN/代理 homelab 场景：成稿后全文检索，WireGuard / OpenVPN 保留，其余 VPN 软件名须替换。
+3. 成稿后检查 fenced code block：注释是否为英文；中文解释是否已移到代码块外。
+4. SDD 文章：单篇 Spec §禁止包含 可补充本篇特例，**不得**默认放宽 VPN 或代码注释约束。
 
 ## 变更记录
 
 | 日期 | 变更 |
 | ---- | ---- |
 | 2026-05-29 | 初稿：VPN 命名约束（WireGuard / OpenVPN 除外，其余用 VPN） |
+| 2026-06-20 | 新增：代码块注释须用英文，中文说明放在代码块外 |

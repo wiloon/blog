@@ -1,26 +1,113 @@
 ---
 title: Lambda 表达式
 author: "-"
-date: 2012-11-17T07:17:38+00:00
+date: 2012-11-17T07:17:38+08:00
+lastmod: 2026-06-20T15:02:54+08:00
 url: lambda
 categories:
-  - CS
+  - language
 tags:
-  - reprint
+  - java
+  - remix
+  - AI-assisted
 ---
+## Lambda 与内部类
+
+JDK 8 之前，要把「一段逻辑」当作参数传给方法，常见写法是**匿名内部类**——创建一个没有名字的类，并实现目标接口。Lambda 表达式针对其中最常见的一类场景做了简化：目标类型是**函数式接口**（通过 [SAM](../other/functional-interface.md#sam) 判定的接口）时，可以用 `(参数) -> 表达式` 代替整个匿名类。
+
+### 同一件事，两种写法
+
+以 `Runnable` 为例：
+
+```java
+// Runnable is an interface (not a class); SAM: single abstract method void run()
+// Left: Runnable r1 — variable type is the interface
+// Right: new Runnable() { ... } — not "new interface"; defines an anonymous class
+//   that implements Runnable and overrides run(); compiler emits EnclosingClass$1.class
+Runnable r1 = new Runnable() {
+    @Override
+    public void run() {
+        System.out.println("hello");
+    }
+};
+
+// JDK 8 lambda; target type is still Runnable (functional interface)
+// Semantically same as the anonymous class above; often compiled via invokedynamic
+Runnable r2 = () -> System.out.println("hello");
+```
+
+以 `Comparator` 为例（同样是「接口 + 匿名实现类」）：
+
+```java
+// Comparator<Person> is also an interface; anonymous class implements it
+Arrays.sort(arr, new Comparator<Person>() {
+    @Override
+    public int compare(Person a, Person b) {
+        return a.getAge() - b.getAge();
+    }
+});
+
+// Lambda: compiler infers target type Comparator<Person> from Arrays.sort
+Arrays.sort(arr, (a, b) -> a.getAge() - b.getAge());
+```
+
+### 匿名类一定是内部类吗？
+
+在 Java 里，**匿名类一定是嵌套类（nested class）**，因此也属于广义的**内部类**——它只能写在外部类或某个方法的花括号里，不能单独作为顶层 `.java` 文件存在。
+
+两个词各强调一面：
+
+| 说法 | 含义 |
+| ---- | ---- |
+| **匿名** | 源码里没有类名；编译器生成 `Outer$1`、`Outer$2` 等合成名 |
+| **内部** | 相对**顶层类**（与 `public class Foo` 同级、能独立成文件的那个 class）；定义嵌套在外部类或方法内部 |
+
+所以 `new Runnable() { ... }` 完整叫法通常是**匿名内部类**：既没名字，又嵌套在当前类/方法的作用域里。它和 [Java 内部类](./java/inner-class.md) 里讲的成员内部类、局部内部类、静态嵌套类同属「类里再定义类」，只是匿名类没有 `class Xxx` 这一行声明。
+
+Lambda 不是新类型，而是**在函数式接口上下文中的一种语法糖**：编译器根据目标类型（如 `Runnable`、`Comparator<T>`）推断 Lambda 要实现哪个抽象方法。
+
+### 编译层面的关系
+
+两者都能「捕获」外部局部变量（必须是 final 或 effectively final），这一点与 [闭包](../cs/closure.md) 的讨论相关。
+
+实现机制不同：
+
+| | 匿名内部类 | Lambda |
+| ---- | ---------- | ------ |
+| 生成的 class 文件 | 通常有 `Outer$1.class` 等合成类 | 多数情况下**不**再生成独立内部类文件 |
+| 实现方式 | 传统 `new 接口() { ... }` | `invokedynamic` + `LambdaMetafactory` 等引导 |
+| 类型 | 是一个具体的（匿名）类 | 仍是函数式接口的实例，没有新的具名类 |
+
+因此可以说：**Lambda 接过了匿名内部类在 SAM 场景下的大部分工作**，但语言里成员内部类、静态嵌套类、局部内部类仍然存在，用途见 [Java 内部类](./java/inner-class.md)。
+
+### Lambda 不能替代内部类的场景
+
+Lambda 只能落在**函数式接口**上（须满足 [SAM](../other/functional-interface.md#sam) 判定）。下列情况仍需要内部类（含匿名内部类）：
+
+- 需要 **extends 一个类**（而不只是 implements 接口）
+- 需要 **implements 多个接口**
+- 匿名类里需要**多个方法**、**实例字段**、**显式的 `this`**（匿名类自己的 `this`，与外部类 `Outer.this` 区分）
+- 需要**具名的成员内部类 / 静态嵌套类**做封装（如 Builder、`Map.Entry`、Holder 单例）
+
+简记：Lambda 是「**一个抽象方法的回调**」的简写；内部类是更广的「**在类或方法内部再定义类型**」的机制，二者有交集，不是替代关系。
+
+### 和「封装一小段逻辑」的关系
+
+局部内部类、匿名内部类常用来封装**只在一处使用、且与外部类强相关**的逻辑——这个直觉大体成立。但内部类还有其它动机：访问外部类私有成员、把 helper 类型收进外部类命名空间、静态嵌套类做 Builder 等；静态嵌套类甚至可以在外部独立使用（如 `Person.Home`）。Lambda 则进一步把其中「**单次使用的 SAM 回调**」压缩成一行箭头表达式。
+
+---
+
 ## Lambda 表达式
 
 "Lambda 表达式"是一个匿名函数,它可以包含表达式和语句,并且可用于创建委托或表达式目录树类型。 所有 Lambda 表达式都使用 Lambda 运算符 =>,该运算符读为"goes to"。该 Lambda 运算符的左边是输入参数 (如果有) ,右边包含表达式或语句块。Lambda 表达式 x => x * x 读作"x goes to x times x"。
 
-### 函数式接口functional interface, @FunctionalInterface
+### 函数式接口 functional interface, @FunctionalInterface
 
-函数式接口(Functional Interface)是Java 8对一类特殊类型的接口的称呼。 这类接口只定义了唯一的抽象方法的接口 (除了隐含的Object对象的公共方法) , 因此最开始也就做SAM类型的接口 (Single Abstract Method) 。
+函数式接口的正式定义与 SAM 判定规则见 [Java 8 函数式接口](../other/functional-interface.md#sam)。简要地说：编译器按 SAM 数抽象方法——恰好一个（`Object` public 方法、`default` / `static` 另有规则）→ 该接口可作 Lambda 目标；`@FunctionalInterface` 只是可选注解，**不是**判定本身。
 
-为什么会单单从接口中定义出此类接口呢？ 原因是在 Java Lambda 的实现中, 开发组不想再为Lambda表达式单独定义一种特殊的Structural函数类型,称之为箭头类型 (arrow type) , 依然想采用Java既有的类型系统(class, interface, method等), 原因是增加一个结构化的函数类型会增加函数类型的复杂性,破坏既有的Java类型,并对成千上万的Java类库造成严重的影响。 权衡利弊, 因此最终还是利用SAM 接口作为 Lambda表达式的目标类型。
+Java 8 没有新增 arrow type，而是用 SAM 接口承载 Lambda 的目标类型，因此 `Runnable`、`java.util.function.*` 等都可作为 `(参数) -> 表达式` 的赋值类型。函数式接口代表一种契约：Lambda 不能脱离上下文，必须有一个通过 SAM 判定的明确目标类型。
 
-JDK中已有的一些接口本身就是函数式接口,如Runnable。 JDK 8中又增加了java.util.function包, 提供了常用的函数式接口。
-
-函数式接口代表的一种契约, 一种对某个特定函数类型的契约。 在它出现的地方,实际期望一个符合契约要求的函数。 Lambda表达式不能脱离上下文而存在,它必须要有一个明确的目标类型,而这个目标类型就是某个函数式接口。
+更完整的边界情况（继承合并、接口交集等）见 [functional-interface.md](../other/functional-interface.md)。
 
 ### 方法引用 (method reference)
 
@@ -218,40 +305,47 @@ ContainingClass::staticMethodName
 String::valueOf,等价于 Lambda: s -> String.valueOf(s)
 Math::pow 等价于lambda表达式 (x, y) -> Math.pow(x, y);
 前面举的例子 Person::compareByAge 就是一个静态方法引用
-从一个数字列表中找出最大的一个数字,方法引用方式:
-Function, Integer> maxFn = Collections::max;
-// 等价于 Lambda 表达式:
-// Function, Integer> maxFn = (numbers) -> Collections.max(numbers);
-maxFn.apply(Arrays.asList(1, 10, 3, 5))。
-字符串反转
-// 函数式接口  
-interface StringFunc {  
-    String func(String n);  
-}  
+从一个数字列表中找出最大的一个数字，方法引用方式：
 
-class MyStringOps {  
-    // 静态方法: 反转字符串  
-    public static String strReverse(String str) {  
-        String result = "";  
-        for (int i = str.length() - 1; i >= 0; i--) {  
-            result += str.charAt(i);  
-        }  
-        return result;  
-    }  
-}  
+```java
+Function<List<Integer>, Integer> maxFn = Collections::max;
+// equivalent lambda: (numbers) -> Collections.max(numbers)
+maxFn.apply(Arrays.asList(1, 10, 3, 5));
+```
 
-class MethodRefDemo {  
-    public static String stringOp(StringFunc sf, String s) {  
-        return sf.func(s);  
-    }  
-    public static void main(String[] args) {  
-        String inStr = "lambda add power to Java";  
-        // MyStringOps::strReverse 相当于实现了接口方法 func() ,并在接口方法 func() 中作了 MyStringOps.strReverse() 操作  
-        String outStr = stringOp(MyStringOps::strReverse, inStr);  
-        System.out.println("Original string: " + inStr);  
-        System.out.println("String reserved: " + outStr);  
-    }  
-}  
+字符串反转：
+
+```java
+// functional interface
+interface StringFunc {
+    String func(String n);
+}
+
+class MyStringOps {
+    // static helper: reverse a string
+    public static String strReverse(String str) {
+        String result = "";
+        for (int i = str.length() - 1; i >= 0; i--) {
+            result += str.charAt(i);
+        }
+        return result;
+    }
+}
+
+class MethodRefDemo {
+    public static String stringOp(StringFunc sf, String s) {
+        return sf.func(s);
+    }
+
+    public static void main(String[] args) {
+        String inStr = "lambda add power to Java";
+        // MyStringOps::strReverse implements func() by delegating to strReverse()
+        String outStr = stringOp(MyStringOps::strReverse, inStr);
+        System.out.println("Original string: " + inStr);
+        System.out.println("String reserved: " + outStr);
+    }
+}
+```
 
 ### 引用特定对象的实例方法
 
@@ -361,15 +455,18 @@ strings.add("a");
 strings.add("b");  
 Stream<Button> stream = strings.stream().map(Button::new);  
 List<Button> buttons = stream.collect(Collectors.toList());  
-数组构造方法引用
-TypeName[]::new
-int[]::new 是一个含有一个参数的构造器引用,这个参数就是数组的长度。等价于 lambda 表达式 x -> new int[x]
+数组构造方法引用 `TypeName[]::new`：`int[]::new` 是带一个参数的构造器引用，参数为数组长度，等价于 `x -> new int[x]`。
 
+```java
 IntFunction<int[]> arrayMaker = int[]::new;
-int[] array = arrayMaker.apply(10)     // 创建数组 int[10]
-引用特定对象的实例方法 与 引用特定类型的任意对象的实例方法 的区别
+int[] array = arrayMaker.apply(10); // creates int[10]
+```
+
+引用特定对象的实例方法 与 引用特定类型的任意对象的实例方法 的区别：
+
+```java
 class Person {
-    private String name;     // 省略 getter、setter
+    private String name; // getters/setters omitted
 
     public int compare(Person p1, Person p2) {
         return p1.getName().compareTo(p2.getName());
@@ -380,12 +477,13 @@ class Person {
     }
 }
 
-// 用特定对象的实例方法
+// bound instance method on a specific object
 Arrays.sort(persons, p1::compare);
 
-// 引用特定类型的任意对象的实例方法
+// unbound instance method on arbitrary Person
 Arrays.sort(persons, Person::compareTo);
-// 相当于 (p1, p2) -> p1.compareTo(p2)
+// equivalent to (p1, p2) -> p1.compareTo(p2)
+```
 什么场景适合使用方法引用
 当一个 Lambda 表达式调用了一个已存在的方法
 
@@ -405,4 +503,13 @@ IsReferable demo = () -> ReferenceDemo.commonMethod("Argument in method.");
 
 [http://ckjava.com/2019/05/14/understand-Java-8-method-reference/](http://ckjava.com/2019/05/14/understand-Java-8-method-reference/)  
 [https://liujiacai.net/blog/2014/10/12/lambda-calculus-introduction/](https://liujiacai.net/blog/2014/10/12/lambda-calculus-introduction/)
-[https://www.jianshu.com/p/4a3da6a11b58](https://www.jianshu.com/p/4a3da6a11b58)  
+[https://www.jianshu.com/p/4a3da6a11b58](https://www.jianshu.com/p/4a3da6a11b58)
+
+## 维护记录
+
+| 时间 | 修改内容 | 原因 |
+| ---- | -------- | ---- |
+| 2026-06-20 | 新增「Lambda 与内部类」；categories 改为 language；补充 tags 与 lastmod | 说明 Lambda 与匿名内部类的关系 |
+| 2026-06-20 | Runnable/Comparator 示例加注释；补充「匿名类与内部类」说明 | 澄清接口、匿名类与内部类概念 |
+| 2026-06-20 | 代码块注释改为英文；部分裸代码补 fenced block | 遵守 `.ai/content-constraints.md` 代码注释规范 |
+| 2026-06-20 | 函数式接口小节改为链到 functional-interface §SAM | 统一 SAM 定义出处 |

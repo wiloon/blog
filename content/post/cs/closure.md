@@ -26,7 +26,7 @@ tags:
 
 ### java内部类
 
->wiloon.com/inner-class
+详见 [Java 内部类](../language/java/inner-class.md)。
 
 ### golang 闭包
 

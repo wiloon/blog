@@ -117,14 +117,16 @@ Function<Integer, Integer> f = x -> {
 
 ## 函数式接口（Functional Interface）
 
-只有一个抽象方法的接口称为函数式接口，可用 `@FunctionalInterface` 注解标记。
+只有一个抽象方法的接口称为函数式接口——更准确地说，须通过 **SAM（Single Abstract Method）** 判定；定义与判定流程见 [Java 8 函数式接口](../../other/functional-interface.md#sam)。可用 `@FunctionalInterface` 注解标记（可选，用于文档与编译期约束，**不是**判定本身）。
 
 ```java
 @FunctionalInterface
 public interface MyFunction {
-    int apply(int x, int y);
+    int apply(int x, int y); // the one SAM
 }
 ```
+
+Lambda 与方法引用的目标类型必须是 SAM 成立的函数式接口，例如上面的 `MyFunction` 或 `Runnable`。
 
 ## Stream API
 
@@ -264,3 +266,4 @@ List<@NonNull String> items = new ArrayList<>();
 | ---- | -------- | ---- |
 | 2026-06-20 | 开篇「主要新特性」改为「主要特性」 | 全系列统一命名 |
 | 2026-06-20 | 重命名为 `jdk-8.md`；title 改为「JDK 8」；url 改为 `jdk-8`；移至 `language/java/` | 全系列统一简洁命名 |
+| 2026-06-20 | 函数式接口小节补充 SAM 术语并链到 functional-interface | 与 lambda 等文统一术语出处 |
