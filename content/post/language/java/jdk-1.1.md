@@ -2,7 +2,7 @@
 title: JDK 1.1
 author: "-"
 date: 2026-06-20T14:50:50+08:00
-lastmod: 2026-06-20T14:50:50+08:00
+lastmod: 2026-06-21T11:46:40+08:00
 url: jdk-1.1
 categories:
   - language
@@ -65,7 +65,7 @@ JDK 1.1 于 **1997 年 2 月 19 日**发布，是 [JDK 1.0](./jdk-1.0.md) 之后
 | ---- | ------------ |
 | Swing、集合框架（`HashMap` 等） | 1.2 |
 | `java.lang.ref`（软/弱/虚引用） | 1.2 |
-| HotSpot 默认 VM | 1.3～1.4 |
+| HotSpot 默认 VM | 1.3（1.4 起唯一，见 [HotSpot](./hotspot.md)） |
 | `assert`、NIO、标准正则 | 1.4 |
 | 泛型、enum、for-each、JUC | 5 |
 
@@ -90,7 +90,7 @@ button.addActionListener(new ActionListener() {
 
 ## 反射
 
-`java.lang.reflect` 允许在运行时获取 `Class` 对象并调用构造器、方法、字段：
+JDK 1.1 引入 `java.lang.reflect`，允许在运行时获取 [`Class`](./lang-class.md) 对象并调用构造器、方法、字段：
 
 ```java
 Class<?> clazz = Class.forName("com.example.Foo");
@@ -99,7 +99,7 @@ Method m = clazz.getMethod("bar", String.class);
 m.invoke(obj, "hello");
 ```
 
-反射为 JavaBeans、序列化、RMI、框架与 IDE 提供了基础设施；JDK 9 起的模块系统与后续**强封装**对深层反射做了更多限制（见 [JDK 17](./jdk-17.md) 等）。
+反射为 JavaBeans、序列化、RMI、框架与 IDE 提供了基础设施；`Class` 的含义与获取方式见 [java.lang.Class](./lang-class.md)。JDK 9 起的模块系统与后续**强封装**对深层反射做了更多限制（见 [JDK 17](./jdk-17.md) 等）。
 
 ---
 
@@ -196,6 +196,15 @@ button.addActionListener(new ActionListener() {
 | JVM | 以解释为主 | 引入 JIT |
 
 更完整的 1.0 基线见 [JDK 1.0](./jdk-1.0.md)。
+
+---
+
+## 维护记录
+
+| 时间 | 修改内容 | 原因 |
+| ---- | -------- | ---- |
+| 2026-06-21 | 反射章节链至 `java-lang-class.md` | Class 概念独立成文 |
+| 2026-06-21 | 修正 HotSpot 引入版本表述 | 与 hotspot.md 时间线对齐 |
 
 ---
 

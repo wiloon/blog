@@ -66,7 +66,11 @@ content/post/language/java/exception-handling.md  # ✅
 
 - `title` 字段应准确反映文章的实际内容
 - 如果原标题含糊或与内容不符，更新为更准确的标题
-- 标题可以是中文或英文，但要有实际语义
+- 标题要有实际语义；**须包含英文**（见下条），便于用 title 搜索
+- **须包含英文**：可以只写英文，也可以「英文 + 中文」混写；**不要只写中文**
+  - ✅ 纯英文：`Compress and Extract`
+  - ✅ 英中混写：`JPMS: Java 平台模块系统`、`Compress and Extract 压缩与解压`
+  - ❌ 纯中文：`压缩与解压`、`Java 模块系统`
 - **避免极端/夸张词汇**：不用「最佳实践」「终极指南」「深度解析」等，直接描述主题即可
   - ❌ `Shell 创建文件并写入内容的最佳实践`
   - ✅ `Shell 创建文件并写入内容`
@@ -77,8 +81,13 @@ content/post/language/java/exception-handling.md  # ✅
 # 错误示例（标题含糊）
 title: '一篇不错的讲解 Java 异常的文章（转载）'  # ❌ 不直接
 
-# 正确示例（标题准确）
-title: 'Java Exception Handling: Anti-Patterns and Best Practices'  # ✅
+# 错误示例（纯中文，不便 title 搜索）
+title: '压缩与解压'  # ❌
+
+# 正确示例（标题准确，且含英文）
+title: 'Java Exception Handling: Anti-Patterns and Best Practices'  # ✅ 纯英文
+title: 'JPMS: Java 平台模块系统'  # ✅ 英中混写
+title: 'Compress and Extract 压缩与解压'  # ✅ 英中混写
 ```
 
 #### 文件名和标题检查清单
@@ -86,6 +95,7 @@ title: 'Java Exception Handling: Anti-Patterns and Best Practices'  # ✅
 - ✅ 文件名是否为英文？如果不是，重命名为英文
 - ✅ 文件名是否反映文章主题？如果不符，重命名
 - ✅ `title` 是否准确描述文章内容？如果不符，更新
+- ✅ `title` 是否包含英文（可纯英文或英中混写，不可纯中文）？
 - ✅ 文件名、title、url 三者语义是否一致？
 
 ---
@@ -308,7 +318,7 @@ tags:
 每次编辑文章时，按以下顺序检查：
 
 1. ✅ **检查文件名**：文件名必须是英文且与内容匹配，否则用 `mv` 重命名
-2. ✅ **检查标题**：`title` 是否准确描述文章内容，否则更新
+2. ✅ **检查标题**：`title` 是否准确描述文章内容，且**包含英文**（可纯英文或英中混写，不可纯中文），否则更新
 3. ✅ **检查 URL**：确认 URL 是否与标题匹配，转换数字 URL
 4. ✅ **站内互链**：是否为相对 `.md`（见 [`.ai/internal-links.md`](.ai/internal-links.md)），而非 `/permalink`
 5. ✅ **检查 categories**：分类是否与文章内容匹配，否则更新

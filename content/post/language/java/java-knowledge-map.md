@@ -2,7 +2,7 @@
 title: Java Knowledge Map
 author: "-"
 date: 2026-05-31T07:36:44+08:00
-lastmod: 2026-06-19T22:27:49+08:00
+lastmod: 2026-06-21T11:46:40+08:00
 url: java-knowledge-map
 categories:
   - language
@@ -88,6 +88,7 @@ flowchart TB
 | 概念 | 文章 |
 | ---- | ---- |
 | 双亲委托、命名空间、Agent 与业务 ClassLoader | [java classloader](./classloader.md) |
+| `java.lang.Class`（类型元信息、获取方式） | [lang-class](./lang-class.md) |
 | `Class.forName` | [class-forname](./class-forname.md) |
 
 ### 调试体系（JPDA）
@@ -160,3 +161,4 @@ JVMTI / JPDA（对比调试）  →  /jvmti 、/java-debug-jpda
 | 时间 | 修改内容 |
 | ---- | -------- |
 | 2026-06-19 | JVM 索引表拆分：jvm 生态、hotspot-options |
+| 2026-06-21 | 类加载索引增加 `lang-class.md` | Class 概念独立成文 |

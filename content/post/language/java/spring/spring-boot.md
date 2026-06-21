@@ -2,7 +2,7 @@
 title: Spring Boot
 author: wiloon
 date: 2026-05-11T14:24:31+08:00
-lastmod: 2026-05-31T07:25:07+08:00
+lastmod: 2026-06-21T18:05:54+08:00
 url: spring-boot
 aliases:
   - /spring/boot/
@@ -733,7 +733,7 @@ ORM 层升级到 Hibernate 6，部分 HQL/JPQL 语法更严格，一些隐式类
 
 ### 5. AOT 与 GraalVM Native Image
 
-Spring Boot 3.x 正式支持 GraalVM Native Image 编译，可以将应用编译为原生可执行文件，启动时间从秒级降到毫秒级，但对反射、动态代理等有额外约束。
+Spring Boot 3.x 正式支持 GraalVM Native Image 编译，可以将应用编译为原生可执行文件，启动时间从秒级降到毫秒级，但对反射、动态代理等有额外约束。构建链依赖 **Spring AOT** 在打包前处理 IoC 容器；详见 [Spring AOT 简介](./spring-aot.md) 与 [GraalVM Native Image 简介](../graalvm-native-image.md)。
 
 ---
 
@@ -744,3 +744,9 @@ Spring Boot 3.x 正式支持 GraalVM Native Image 编译，可以将应用编译
 - [Spring Boot 3.0 Migration Guide](https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-3.0-Migration-Guide)
 - [Building a RESTful Web Service](https://spring.io/guides/gs/rest-service/)（官方入门）
 - [Spring MVC 官方文档](https://docs.spring.io/spring-framework/docs/current/reference/html/web.html)
+
+## 维护记录
+
+| 时间 | 修改内容 | 原因 |
+| ---- | -------- | ---- |
+| 2026-06-21 | Boot 3 Native 小节链到新建 [spring-aot.md](./spring-aot.md) | Spring AOT 专文拆分 |

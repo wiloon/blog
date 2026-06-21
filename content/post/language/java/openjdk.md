@@ -2,7 +2,7 @@
 title: openjdk
 author: "-"
 date: 2017-04-21T00:26:31+00:00
-lastmod: 2026-05-13T14:25:14+08:00
+lastmod: 2026-06-21T18:19:51+08:00
 url: jdk
 categories:
   - Java
@@ -10,7 +10,9 @@ tags:
   - remix
   - AI-assisted
 ---
-## openjdk
+## OpenJDK
+
+OpenJDK 源码项目与 **JDK 发行版**（Temurin、Corretto、Dragonwell 等）说明见 [OpenJDK JDK 发行版](./openjdk-distributions.md)。下文主要为各平台**安装命令**备忘。
 
 https://openjdk.org/projects/jdk/
 
@@ -164,3 +166,9 @@ ATK-Bridge.
 ```bash
 brew install openjdk
 ```
+
+## 维护记录
+
+| 时间 | 修改内容 | 原因 |
+| ---- | -------- | ---- |
+| 2026-06-21 | 文首链到 [openjdk-distributions.md](./openjdk-distributions.md) | 发行版说明与安装备忘拆分 |

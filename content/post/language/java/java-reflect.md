@@ -2,12 +2,19 @@
 title: 通过java反射机制获取该类的所有属性类型、值、
 author: "-"
 date: 2011-09-17T04:28:12+00:00
+lastmod: 2026-06-21T11:46:40+08:00
 url: reflect
 categories:
-  - Java
+  - language
 tags:
-  - reprint
+  - java
+  - reflection
+  - remix
+  - AI-assisted
 ---
+
+通过反射遍历对象字段的示例。`object.getClass()` 返回该实例类型的 [`Class`](./lang-class.md) 对象；反射 API 总览见 [Java 反射机制](./java反射机制.md)。
+
 ## 通过java反射机制获取该类的所有属性类型、值
 
 http://blog.csdn.net/sd4000784/article/details/7448221

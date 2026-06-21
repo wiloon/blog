@@ -2,7 +2,7 @@
 title: JDK 5
 author: "-"
 date: 2012-03-28T02:49:08+00:00
-lastmod: 2026-06-20T12:49:58+08:00
+lastmod: 2026-06-21T10:49:51+08:00
 url: jdk-5
 categories:
   - language
@@ -191,7 +191,7 @@ double area = PI * pow(r, 2);
 
 ## 注解
 
-为代码附加元数据，供编译器或运行时框架读取（如 `@Override`、`@Deprecated`；JDK 5 内置注解，也可自定义）：
+为代码附加元数据，供编译器或运行时框架读取（如 `@Override`、`@Deprecated`；JDK 5 内置注解，也可自定义；详见 [Java Annotation（注解）](./annotation.md)）：
 
 ```java
 @Override
@@ -229,3 +229,4 @@ JSR 166 引入的并发工具包，包括 `ExecutorService`、`ConcurrentHashMap
 | 2026-06-20 | 增强 for 循环章节补充语法糖说明 | 与变长参数章节表述一致 |
 | 2026-06-20 | 关联 [JDK 1.4](./jdk-1.4.md) | 新建 1.4 特性文档，互为引用 |
 | 2026-06-20 | 版本号说明精简，链到 [Java 版本历史](./java-version-history.md) | 集中维护命名演变 |
+| 2026-06-21 | 注解章节关联 `annotation.md` | 站内已有专题文档 |

@@ -2,7 +2,7 @@
 title: JDK 1.0
 author: "-"
 date: 2026-06-20T14:15:54+08:00
-lastmod: 2026-06-20T14:15:54+08:00
+lastmod: 2026-06-21T18:53:36+08:00
 url: jdk-1.0
 categories:
   - language
@@ -63,7 +63,7 @@ JDK 1.0 于 **1995 年 5 月 23 日**由 Sun Microsystems 正式发布，是 Jav
 | ---- | ------------ |
 | 内部类、反射、JAR | 1.1 |
 | Swing、集合框架、`java.lang.ref` | 1.2 |
-| HotSpot 成为默认 VM | 1.3～1.4（见 [HotSpot](./hotspot.md)） |
+| HotSpot 成为默认 VM | 1.3（Classic VM 于 1.4 移除，见 [HotSpot](./hotspot.md)） |
 | `assert`、NIO、标准正则 | 1.4 |
 | 泛型、enum、for-each、JUC | 5 |
 
@@ -76,6 +76,12 @@ JDK 1.0 于 **1995 年 5 月 23 日**由 Sun Microsystems 正式发布，是 Jav
 1995 年 Java 随 **Applet** 与 Netscape 等浏览器集成而迅速获得关注：「一次编写，到处运行」针对的是跨平台 GUI 与小段 Web 逻辑。企业级服务端大规模采用则要等到 1.1 的 JDBC、1.2 的集合与 Swing，以及 J2EE 时代之后。平台品牌从 J2SE 到 Java SE、发布节奏与 LTS 等，见 [Java 版本历史](./java-version-history.md)。
 
 就个人时间线而言，JDK 1.0 发布的 **1995 年 5 月**，我仍在读**小学六年级**，暑假后就要上初中。那时对**计算机**还是完全未知的状态——Java 在硅谷与浏览器里起步，与东北小城镇的课堂、日常没有任何交集；要到许多年之后，才会真正接触编程。
+
+## 维护记录
+
+| 时间 | 修改内容 | 原因 |
+| ---- | -------- | ---- |
+| 2026-06-21 | 修正 HotSpot 引入版本表述 | 与 hotspot.md 时间线对齐 |
 
 ## 参考
 

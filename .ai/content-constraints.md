@@ -3,6 +3,21 @@
 > **适用范围**：所有 `content/post/**/*.md` 交付物（含 SDD 与非 SDD）。  
 > 与 [AGENTS.md](../AGENTS.md) 的 front matter / Markdown 规则并列；**不**替代 Spec 单篇 §禁止包含。
 
+## 标题（title）须含英文
+
+`title` 用于搜索，**必须包含英文**：
+
+| 允许 | 示例 |
+| ---- | ---- |
+| 纯英文 | `Compress and Extract` |
+| 英文 + 中文 | `JPMS: Java 平台模块系统`、`Compress and Extract 压缩与解压` |
+
+| 禁止 | 示例 |
+| ---- | ---- |
+| 纯中文 | `压缩与解压`、`Java 模块系统` |
+
+详见 [AGENTS.md](../AGENTS.md) §标题（title）规范。
+
 ## VPN 相关表述
 
 涉及 **VPN 实现或 VPN 类软件** 时，正文、标题、摘要、列表与链接锚文本须遵守：

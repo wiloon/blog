@@ -2,7 +2,7 @@
 title: Java Annotation（注解）
 author: "-"
 date: 2011-12-26T05:36:33+00:00
-lastmod: 2026-06-19T16:45:45+08:00
+lastmod: 2026-06-21T10:44:34+08:00
 url: annotation
 categories:
   - Java
@@ -13,15 +13,21 @@ tags:
   - AI-assisted
 ---
 
-Annotation 是 Java 5 引入的语言特性，中文一般叫注解。它提供了一种类似注释的机制，用来将元数据（metadata）与程序元素（类、方法、成员变量等）关联起来。
+Annotation 是 [Java 5](./jdk-5.md) 引入的语言特性，中文一般叫注解。它提供了一种类似注释的机制，用来将元数据（metadata）与程序元素（类、方法、成员变量等）关联起来。
 
 更通俗地说，注解为程序元素加上与业务逻辑无关的说明信息，供框架或工具在编译期、类加载期或运行期读取和处理。注解本身不会改变程序的执行逻辑；JVM 执行字节码时会忽略注解，只有通过反射或注解处理器才能访问其中的信息。
 
-## Annotation 与 interface 的异同
+## 注解类型与 @interface
 
-1. Annotation 类型使用关键字 `@interface` 而不是 `interface`。该声明隐含继承了 `java.lang.annotation.Annotation` 接口，并非声明了一个普通 interface。
+Java 用 `@interface` **声明注解类型**（annotation type）。例如 `public @interface MyTag { ... }` 定义了一种名为 `MyTag` 的注解；在类、方法等上写 `@MyTag(...)` 则是**使用该注解**为程序元素附加元数据。二者不要混：前者是类型定义，后者是使用。
 
-2. Annotation 类型的方法定义受限制：必须是无参数、无异常声明的方法。方法名即成员名，返回值即成员类型。返回值只能是 primitive、`Class`、枚举、annotation，或这些类型的一维数组。可用 `default` 声明默认值，但不能用 `null` 作为默认值。Annotation 的方法不能使用泛型参数；只有返回 `Class` 的方法可以在 annotation 类型中使用泛型（通过类型转换处理）。
+`@interface` 在规范里叫**注解类型声明语法**，由 `@` 与关键字 `interface` 组合而成。它**不是** JLS 关键字表里的单独一项（不像 `class`、`interface` 那样单列），日常说「用 `@interface` 定义注解」指的就是这种声明形式。
+
+与普通 `interface` 相比：
+
+1. 声明方式不同：定义注解类型必须用 `@interface`，不能写成 `interface`。编译器会令该类型隐式实现 `java.lang.annotation.Annotation`；它是注解类型，不是用 `interface` 声明的普通接口。
+
+2. 成员与方法受限制：必须是无参数、无异常声明的方法。方法名即成员名，返回值即成员类型。返回值只能是 primitive、`Class`、枚举、annotation，或这些类型的一维数组。可用 `default` 声明默认值，但不能用 `null` 作为默认值。Annotation 的方法不能使用泛型参数；只有返回 `Class` 的方法可以在 annotation 类型中使用泛型（通过类型转换处理）。
 
    下面是一个合法的自定义注解，成员类型覆盖了上述几种允许的形式：
 
@@ -168,15 +174,17 @@ public void lintTrap() { /* ... */ }
 | 策略 | 说明 |
 | --- | --- |
 | `SOURCE` | 仅保留在源文件，编译后丢弃（如 `@Override`） |
-| `CLASS` | 保留在 `.class` 文件，JVM 加载时丢弃（默认值） |
+| `CLASS` | 保留在 `.class` 中，默认不暴露给运行时反射；编译期工具、字节码库仍可读取（默认值） |
 | `RUNTIME` | 保留在 `.class` 文件，JVM 加载后仍可通过反射读取（如 `@Deprecated`） |
 
-生命周期长度：`SOURCE` < `CLASS` < `RUNTIME`，前者能作用的地方后者也能作用。
+保留范围逐级扩大：`SOURCE` 最短，只到编译前；`CLASS` 会写入 `.class`，但运行时反射读不到；`RUNTIME` 最长，运行时仍可通过反射 API 读取。
+
+自定义注解若未写 `@Retention`，默认为 `CLASS`；此时 `Class.getAnnotation()` 等反射 API 读不到该注解。
 
 选择建议：
 
 - 运行时需要反射读取 → `RUNTIME`
-- 编译时生成辅助代码（如 ButterKnife）→ `CLASS`
+- 编译期注解处理器生成代码、运行时不需要反射读取 → `CLASS`
 - 仅做编译期检查（如 `@Override`、`@SuppressWarnings`）→ `SOURCE`
 
 ### @Inherited
@@ -294,7 +302,7 @@ public class Utility {
 
 ## 通过反射读取注解
 
-要通过反射读取注解，必须将 `@Retention` 设为 `RUNTIME`。
+要通过反射读取注解，必须将 `@Retention` 设为 `RUNTIME`。示例中的 `Class<?>` 表示任意类型的 [`Class`](./lang-class.md) 对象；获取方式见该文。
 
 ```java
 import java.lang.reflect.Method;
@@ -381,3 +389,7 @@ public class ReadAnnotationInfo {
 | ---- | -------- | ---- |
 | 2026-06-19 | 文件重命名为 `annotation.md`；去重合并多篇转载内容；修正代码块与标题层级；更新 front matter | 原文由多篇博客拼接，重复严重、格式混乱 |
 | 2026-06-19 | 在「Annotation 与 interface 的异同」第 2 点补充成员类型与限制示例 | 说明较抽象，补充可运行示例便于理解 |
+| 2026-06-21 | 首段「Java 5」链接至 `jdk-5.md` | 关联 JDK 5 专用文档 |
+| 2026-06-21 | 修订「@Retention」：澄清保留范围、默认 `CLASS` 与反射关系、更新选择建议表述 | 消除「前者能作用的地方」歧义，补充常见踩坑点 |
+| 2026-06-21 | 「Annotation 与 interface」改为「注解类型与 @interface」；补充声明语法术语与定义/使用区分 | 原文未点明 `@interface` 用途，且误称为关键字 |
+| 2026-06-21 | 「通过反射读取注解」链至 `java-lang-class.md` | Class 概念独立成文 |
