@@ -18,7 +18,7 @@ tags:
   - AI-assisted
 ---
 
-投递职位需要 PDF 版简历，但内容仍希望用 Markdown 维护。这次在 Arch Linux 上搭了一套 **Pandoc + XeLaTeX** 流程，把中英文简历稳定导出为 PDF，并沉淀了脚本和 LaTeX 模板。本文记录选型、依赖安装、流水线，以及排版上踩过的坑。
+投递职位需要 PDF 版简历，但内容仍希望用 Markdown 维护。这次在 Arch Linux 上搭了一套 **Pandoc + XeLaTeX** 流程，把中英文简历稳定导出为 PDF，并沉淀了定制 LaTeX 模板与一键脚本。本文记录选型、依赖安装、流水线、排版分工，以及模板优化上踩过的坑。
 
 ## 背景
 
@@ -37,22 +37,44 @@ tags:
 | **LaTeX** | 中间排版语言（`.tex`）；详见 [LaTeX 简介](./latex.md) |
 | **Pandoc** | Markdown → LaTeX（`--standalone`）；详见 [Pandoc 介绍](./pandoc.md) |
 | **XeLaTeX** | 编译 `.tex` 为 PDF；详见 [XeLaTeX 介绍](./xelatex.md) |
-| **resume-header.tex** | 自定义页边距、标题层级、列表间距、页眉样式 |
-| **inject-table-row-rules.py** | 在 Pandoc 生成的 `longtable` 数据行之间插入 `\midrule` |
+| **resume.latex** | 定制 Pandoc LaTeX 模板（基于默认模板，统一入口） |
+| **resume-style.tex** | 标题层级、列表间距、页眉样式、技能表行间线 |
 | **pandoc-pdf.sh** | 串联上述步骤的一键脚本 |
 
 整体流水线：
 
 ```text
 Resume.md
-  → pandoc（+ resume-header.tex + 字体变量）
+  → pandoc（--template resume.latex + resume-style.tex + 字体变量）
   → input.tex
-  → inject-table-row-rules.py
   → xelatex × 2
   → Resume.pdf
 ```
 
+相比早期实现，**已去掉 Python 后处理**：表格行间 `\midrule` 与标题样式一并写在 LaTeX 模板层（`resume-style.tex`），由 Pandoc 在生成 `.tex` 时注入导言区。
+
 XeLaTeX 跑两遍，是为了稳定生成目录、交叉引用和部分书签（即使简历里用得不多，习惯上保留）。
+
+## Markdown 与细排版的分工
+
+| 层级 | 文件 / 工具 | 负责什么 |
+| --- | --- | --- |
+| 内容与结构 | `Resume_*.md` | 文字、标题层级、列表、表格；页眉联系行可嵌 `\resumecontactline{...}` |
+| 全局参数 | `pandoc-pdf.sh` 的 `-V` | 页边距、行距、纸张、主字体（中/英分支） |
+| 版式规则 | `resume-style.tex` | 标题字号与间距、列表、段间距、表格行间线、`\resumecontactline` 宏 |
+| 模板骨架 | `resume.latex` | Pandoc 默认 LaTeX 结构 + 引入 `resume-style.tex` |
+| 结构翻译 | Pandoc 内置 | 把 `#` / 列表 / 表格 转成 LaTeX 命令（`$body$`） |
+| 编译 | XeLaTeX | 字体渲染、分页、输出 PDF |
+
+改内容只动 `.md`；改「看起来像不像简历」主要动 `resume-style.tex` 和脚本里的 `-V`。
+
+`input.tex` 默认在临时目录生成，脚本结束后删除。调试时可手动：
+
+```bash
+pandoc resume.md --standalone --template=resume/templates/resume.latex \
+  -V resumeStylePath=resume/templates/resume-style.tex \
+  ... -o resume.debug.tex
+```
 
 ## Arch Linux 依赖安装
 
@@ -89,8 +111,8 @@ resume/scripts/pandoc-pdf.sh path/to/Resume_wangyue_en_J68476.md
 输出与源文件同目录、同名 `.pdf`。脚本核心逻辑：
 
 1. 按文件名判断中/英，设置不同 `mainfont`
-2. `pandoc` 生成 `input.tex`（A4、自定义页边距、`--include-in-header` 引入模板）
-3. Python 脚本给技能表等 `longtable` 行间加 `\midrule`
+2. `pandoc` 使用 `--template resume.latex`，经 `resumeStylePath` 引入 `resume-style.tex`
+3. 生成 `input.tex`（A4、页边距、行距等 `-V` 变量）
 4. `xelatex` 编译两次
 
 Pandoc 侧关键参数示例：
@@ -98,8 +120,9 @@ Pandoc 侧关键参数示例：
 ```bash
 pandoc resume.md \
   --standalone \
+  --template=resume/templates/resume.latex \
   --pdf-engine=xelatex \
-  --include-in-header=resume-header.tex \
+  -V resumeStylePath=resume/templates/resume-style.tex \
   -V papersize=a4 \
   -V geometry:top=1.5cm \
   -V geometry:bottom=1.5cm \
@@ -123,12 +146,13 @@ pandoc resume.md \
 
 ## LaTeX 模板做了什么
 
-`resume-header.tex` 用 `titlesec` 控制标题层级，用 `enumitem` 拉开列表间距。要点：
+`resume-style.tex`（由定制模板 `resume.latex` 引入）用 `titlesec` 控制标题层级，用 `enumitem` 拉开列表间距。要点：
 
 - 姓名（`#` → `\section`）：左对齐 24pt
 - 联系信息：通过 `\resumecontactline{...}` 渲染为 10pt 灰色单行
 - `##` 章节：仅加粗，**不加**下划线（避免和表格顶线叠成双线）
 - 正文 10.5pt（`scrextend`），行距 1.35
+- 技能表行间线：在 `\endlastfoot` 后重定义 `\\`，于 `longtable` 数据行之间自动插入 `\midrule`（无需 Python 后处理）
 
 页眉示例（Markdown 内嵌 LaTeX，配合 `raw_tex`）：
 
@@ -148,7 +172,7 @@ pandoc resume.md \
 | 「个人信息」章节 | 欧美简历风格：姓名 + 一行联系信息即可，不设 `## 个人信息` |
 | 分组小标题 | 工作经历内用 `#####`，比加粗段落层次更清晰 |
 | 过长 bullet | 拆成主条 + 子列表，避免「文字墙」 |
-| 技能表行间线 | Pandoc `booktabs` 默认只有顶/底线；用 Python 后处理插入行间 `\midrule` |
+| 技能表行间线 | 由 `resume-style.tex` 在 `longtable` 导言区钩子处理，不再单独跑 Python |
 
 中文简历联系行写「大连」；英文写 `Dalian, China`。
 
@@ -183,15 +207,15 @@ pandoc resume.md \
 | **出 PDF 的路径** | md → tex → xelatex | 多数情况仍是 md → tex → xelatex | md → typ → typst compile，或直接写 `.typ` |
 | **依赖体积** | 大（`texlive-*` 约 1 GB） | 在 Pandoc/TeX 之上再加 Quarto CLI | 小（`typst` 单包，Arch 上远小于 TeX Live） |
 | **编译速度** | 慢（xelatex × 2） | 与底层引擎相同 | 快 |
-| **排版控制力** | 很强（`resume-header.tex` 等） | 与 Pandoc+LaTeX 同级（共用引擎） | 强，语法比 LaTeX 简洁 |
+| **排版控制力** | 很强（`resume-style.tex` + `resume.latex`） | 与 Pandoc+LaTeX 同级（共用引擎） | 强，语法比 LaTeX 简洁 |
 | **中文 / 系统字体** | 成熟（XeLaTeX + `fontspec` / `xeCJK`） | 同左 | 支持良好，需按 Typst 方式配置字体 |
 | **简历场景匹配度** | 已验证（脚本 + 模板已落地） | 功能偏多，简历只用 PDF 时收益有限 | 有潜力，需重写版式模板 |
-| **迁移成本** | — | 低：把现有 md 包进 `.qmd`，PDF 参数基本可复用 | 中高：`resume-header.tex` 要改写成 Typst 模板或 `#set` 规则 |
+| **迁移成本** | — | 低：把现有 md 包进 `.qmd`，PDF 参数基本可复用 | 中高：`resume-style.tex` 要改写成 Typst 模板或 `#set` 规则 |
 | **多格式同源** | 需另配 Pandoc 参数 | 强项（PDF / HTML / 幻灯片等一条命令） | 以 PDF 为主，其它格式非重点 |
 
 ### Quarto：换壳不换芯
 
-[Quarto](https://quarto.org/) 底层依赖 [Pandoc](./pandoc.md)。出 PDF 时通常仍指定 `--pdf-engine=xelatex`，仍要装 TeX Live，仍会遇到本文里的 LaTeX 模板、表格后处理等问题——**不是绕开 LaTeX，而是把配置收进 YAML 和项目结构**。
+[Quarto](https://quarto.org/) 底层依赖 [Pandoc](./pandoc.md)。出 PDF 时通常仍指定 `--pdf-engine=xelatex`，仍要装 TeX Live，版式仍由 LaTeX 模板控制——**不是绕开 LaTeX，而是把配置收进 YAML 和项目结构**。
 
 适合 Quarto 的情况：
 
@@ -225,11 +249,11 @@ sudo pacman -S typst
 
 - 安装与编译都更轻、更快
 - 表格、标题、间距用 Typst 语法表达，往往比 LaTeX 宏包组合更直观
-- 不必维护 `inject-table-row-rules.py` 这类 LaTeX 补丁（若版式在 Typst 模板里一次定义好）
+- 不必维护独立的后处理脚本（若版式在 Typst 模板里一次定义好）
 
 代价与风险：
 
-- 现有 `resume-header.tex` **不能复用**，要迁移为 Typst 模板或 Pandoc 的 typst 模板
+- 现有 `resume-style.tex` **不能复用**，要迁移为 Typst 模板或 Pandoc 的 typst 模板
 - Pandoc 的 Typst 后端与 LaTeX 后端成熟度、默认模板质量仍在演进，复杂简历需更多自测
 - 生态（简历范例、企业模板）不如 LaTeX 丰富
 
@@ -259,7 +283,7 @@ sudo pacman -S typst
 ### 为什么暂不切换主流程
 
 - 当前 `Pandoc + XeLaTeX` 已满足投递质量，且中英文版式已稳定
-- 现有 `resume-header.tex`、表格后处理脚本可复用，迁移成本已摊薄
+- 现有 `resume-style.tex`、定制 Pandoc 模板可复用，迁移成本已摊薄
 - 若立即切换 Typst，需要重写模板并重新做一轮版式回归
 
 ### 下次可执行的 Typst PoC（记录）
@@ -283,7 +307,9 @@ sudo pacman -S typst
 
 ## 小结
 
-对**结构复杂、需要精细排版**的 Markdown（简历、说明文档），**Pandoc + XeLaTeX + 自定义 `.tex` 头文件** 比 HTML 打印路线更可控。成本是 TeX 依赖体积和一点 LaTeX 学习曲线；收益是字体、间距、表格、分页都能稳定复现。
+对**结构复杂、需要精细排版**的 Markdown（简历、说明文档），**Pandoc + XeLaTeX + 定制 LaTeX 模板** 比 HTML 打印路线更可控。成本是 TeX 依赖体积和一点 LaTeX 学习曲线；收益是字体、间距、表格、分页都能稳定复现。
+
+当前实现将标题样式与表格行间线收进 **`resume.latex` + `resume-style.tex`**，去掉了 Python 后处理，流水线更短、更易维护。
 
 **Quarto** 并未替代 LaTeX，适合多格式出版，对「只出简历 PDF」偏重。**Typst** 是更轻的潜在替代引擎，值得在 TeX 体积成为瓶颈时再试，但需重写版式层。
 
