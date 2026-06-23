@@ -185,6 +185,18 @@ url: docker-container-network  # ✅ 与标题匹配（docker 是主题词，非
 
 ---
 
+### 文章插图（Page Bundle）
+
+**核心规则**：新文章插图进 git，用 **Page Bundle**（`content/post/.../slug/index.md` + 同目录图片），不用外链图床。
+
+1. 正文：`![alt](filename.png)`（相对 bundle 目录）
+2. PaperMod 封面：front matter `cover.image` 指向同目录文件
+3. `url` 字段不变；单文件 `.md` 迁 bundle 时若仅移动/加图，不改 `date` / `lastmod`
+
+细则见 [`.ai/page-bundle-images.md`](.ai/page-bundle-images.md)。本地预览：`task preview`。
+
+---
+
 ### 检查并更新 categories
 
 **核心规则：每次编辑文章时必须检查 `categories` 是否与文章实际内容匹配**

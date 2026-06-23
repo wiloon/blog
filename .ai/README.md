@@ -10,6 +10,7 @@
 | [delivery-style.md](delivery-style.md)           | **仅 SDD 交付物**：共通 prose 文风（加粗、人称适度用「我」、语气）；无 Spec 的文章不适用 |
 | [content-constraints.md](content-constraints.md) | **全站内容约束**：语气平实不拔高；VPN 相关表述（WireGuard/OpenVPN 除外不写软件名）；代码块注释用英文等 |
 | [internal-links.md](internal-links.md)           | **全站内链**：相对 `.md` + Hugo embedded hook                                            |
+| [page-bundle-images.md](page-bundle-images.md)   | **文章插图**：Page Bundle 目录结构、正文插图、PaperMod 封面、`task preview`              |
 | [specs/](specs/)                                 | 各篇文章 Spec（**作者维护**；AI 按 Spec 润色/输出交付物）                                |
 
 ## 文章 Spec 一览

@@ -30,6 +30,9 @@ Content ranges from carefully curated technical guides to raw bookmarks — cont
 ## Local Development
 
 ```bash
-# Requires Hugo Extended
-hugo server
+# Live preview (Hugo Extended required)
+task preview
+# → http://localhost:1313/
 ```
+
+文章插图（Page Bundle、PaperMod 封面）见 [`.ai/page-bundle-images.md`](.ai/page-bundle-images.md)。

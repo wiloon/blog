@@ -1,5 +1,5 @@
 ---
-title: Kubernetes Resource Requests: 调度与 Descheduler 在算什么
+title: "Kubernetes Resource Requests: 调度与 Descheduler 在算什么"
 author: "-"
 date: 2026-06-23T11:14:01+08:00
 lastmod: 2026-06-23T11:14:01+08:00

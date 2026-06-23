@@ -1,5 +1,5 @@
 ---
-title: Homelab K8s Node Rebalance: 从 Grafana 发现到 Descheduler 生效
+title: "Homelab K8s Node Rebalance: 从 Grafana 发现到 Descheduler 生效"
 author: "-"
 date: 2026-06-23T12:32:58+08:00
 lastmod: 2026-06-23T12:32:58+08:00
@@ -14,6 +14,10 @@ tags:
   - longhorn
   - remix
   - AI-assisted
+cover:
+  image: k8s-node-workloads-cover.png
+  alt: K8s Node Workloads 看板 — k8s-50 内存与 Pod 分布
+  caption: Grafana 看板 K8s Node Workloads（UID k8s-node-workloads）
 ---
 
 ## 概述

@@ -1,5 +1,5 @@
 ---
-title: Spring Boot Container Packaging: Fat JAR、分层 JAR 与 Buildpacks
+title: "Spring Boot Container Packaging: Fat JAR、分层 JAR 与 Buildpacks"
 author: "-"
 date: 2026-06-21T19:04:35+08:00
 lastmod: 2026-06-21T19:04:35+08:00

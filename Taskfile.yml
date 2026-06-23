@@ -5,6 +5,7 @@ vars:
   IMAGE_TAG: latest
   CONTAINER_NAME: blog
   PORT: 8090
+  PREVIEW_PORT: 1313
   REGISTRY: container-registry.wiloon.com
   # 根据操作系统自动选择容器工具
   CONTAINER_CMD:
@@ -111,6 +112,12 @@ tasks:
     deps: [stop, build, run]
     cmds:
       - echo "🚀 Dev mode started, visit http://localhost:{{.PORT}}"
+
+  preview:
+    desc: Hugo live preview (http://localhost:1313)
+    cmds:
+      - hugo server -D --bind 0.0.0.0 --baseURL http://localhost:{{.PREVIEW_PORT}}/ --port {{.PREVIEW_PORT}}
+    interactive: true
 
   inspect:
     desc: Inspect image details
