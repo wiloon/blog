@@ -6,7 +6,7 @@
 
 - **流程与 AI 约束**：见 [.ai/article-sdd.md](.ai/article-sdd.md)
 - **Spec 索引**：见 [.ai/README.md](.ai/README.md)
-- **内容约束（VPN 命名、代码块注释用英文等）**：见 [.ai/content-constraints.md](.ai/content-constraints.md)
+- **内容约束（语气平实、VPN 命名、代码块注释用英文等）**：见 [.ai/content-constraints.md](.ai/content-constraints.md)
 - **Spec 不会渲染到最终 blog**（仅在 `content/` 下的 Markdown 会发布）
 
 编辑 **带有 Spec 的文章** 时：必须先读对应 Spec，以 Spec 的「必须包含 / 禁止包含」为准；正文 prose 风格（默认不加粗、人称适度用「我」等）另见 [.ai/delivery-style.md](.ai/delivery-style.md)。涉及 VPN 等敏感表述时另见 [.ai/content-constraints.md](.ai/content-constraints.md)。仍遵守下文 front matter、标签与 Markdown 规则。**无 Spec 的文章** 不读 delivery-style，但 **仍须** 遵守 content-constraints；其余按常规流程与下文规则处理。

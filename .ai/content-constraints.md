@@ -1,7 +1,7 @@
 # 博客内容约束（AI 与作者）
 
 > **适用范围**：所有 `content/post/**/*.md` 交付物（含 SDD 与非 SDD）。  
-> 与 [AGENTS.md](../AGENTS.md) 的 front matter / Markdown 规则并列；**不**替代 Spec 单篇 §禁止包含。
+> 与 [AGENTS.md](../AGENTS.md) 的 front matter / Markdown 规则并列；**不**替代 Spec 单篇 §禁止包含。语气、VPN 命名、代码注释等 **全站** 适用。
 
 ## 标题（title）须含英文
 
@@ -17,6 +17,19 @@
 | 纯中文 | `压缩与解压`、`Java 模块系统` |
 
 详见 [AGENTS.md](../AGENTS.md) §标题（title）规范。
+
+## 语气：平实陈述，不刻意拔高
+
+正文 prose（含感谢、个人经历、站点说明等）须 **照实写、少拔高**：
+
+| 要求 | 说明 |
+| ---- | ---- |
+| 陈述事实 | 写发生了什么、谁说了什么、自己做了什么；不过度升华、不包装成价值观输出 |
+| 少用夸张词 | 避免「深刻体会」「人生转折」「受益匪浅」「意义重大」等空泛拔高；技术文亦不用「最佳实践」「终极指南」「深度解析」等（与 title 规范一致） |
+| 致谢具体 | 感谢写清人名与事由即可，不用空洞赞美或排比式歌颂 |
+| 情绪浓度 | 偏观察、低情绪；个人记录可以承认不足，不必写成励志叙事 |
+
+SDD 交付物在遵守本文的前提下，人称、加粗等另见 [delivery-style.md](delivery-style.md)。
 
 ## VPN 相关表述
 
@@ -79,7 +92,7 @@ Runnable r1 = new Runnable() { ... }; // 匿名内部类 implements Runnable
 
 ## AI 改稿时
 
-1. 新建或编辑 `content/post/**/*.md` 时，**先读本文**（VPN 命名、代码块注释等）。
+1. 新建或编辑 `content/post/**/*.md` 时，**先读本文**（语气平实、VPN 命名、代码块注释等）。
 2. 涉及 VPN/代理 homelab 场景：成稿后全文检索，WireGuard / OpenVPN 保留，其余 VPN 软件名须替换。
 3. 成稿后检查 fenced code block：注释是否为英文；中文解释是否已移到代码块外。
 4. SDD 文章：单篇 Spec §禁止包含 可补充本篇特例，**不得**默认放宽 VPN 或代码注释约束。
@@ -90,3 +103,4 @@ Runnable r1 = new Runnable() { ... }; // 匿名内部类 implements Runnable
 | ---- | ---- |
 | 2026-05-29 | 初稿：VPN 命名约束（WireGuard / OpenVPN 除外，其余用 VPN） |
 | 2026-06-20 | 新增：代码块注释须用英文，中文说明放在代码块外 |
+| 2026-06-23 | 新增：语气平实、不刻意拔高（全站 prose） |
