@@ -2,7 +2,7 @@
 title: "Markdown to PDF: Pandoc + XeLaTeX 简历导出实践"
 author: "-"
 date: 2026-06-22T13:55:16+08:00
-lastmod: 2026-06-22T13:55:16+08:00
+lastmod: 2026-06-23T10:44:50+08:00
 url: markdown-to-pdf-pandoc-xelatex
 categories:
   - development
@@ -104,8 +104,8 @@ sudo pacman -S --needed \
 脚本放在个人配置仓库的 `resume/scripts/pandoc-pdf.sh`：
 
 ```bash
-resume/scripts/pandoc-pdf.sh path/to/Resume_wangyue_cn_J68476.md
-resume/scripts/pandoc-pdf.sh path/to/Resume_wangyue_en_J68476.md
+resume/scripts/pandoc-pdf.sh path/to/Resume_cn_example.md
+resume/scripts/pandoc-pdf.sh path/to/Resume_en_example.md
 ```
 
 输出与源文件同目录、同名 `.pdf`。脚本核心逻辑：
@@ -157,7 +157,7 @@ pandoc resume.md \
 页眉示例（Markdown 内嵌 LaTeX，配合 `raw_tex`）：
 
 ```latex
-\resumecontactline{大连 · +86 ... · \href{mailto:you@example.com}{you@example.com} · \href{https://example.com}{example.com}}
+\resumecontactline{城市 · +86 1xx xxxx xxxx · \href{mailto:you@example.com}{you@example.com} · \href{https://example.com}{example.com}}
 ```
 
 `\href` 需要 `hyperref`（Pandoc 转 PDF 时会自动加载），链接在 PDF 里可点击。
@@ -174,7 +174,7 @@ pandoc resume.md \
 | 过长 bullet | 拆成主条 + 子列表，避免「文字墙」 |
 | 技能表行间线 | 由 `resume-style.tex` 在 `longtable` 导言区钩子处理，不再单独跑 Python |
 
-中文简历联系行写「大连」；英文写 `Dalian, China`。
+中文简历联系行写所在城市；英文写 `City, Country`。
 
 ## Typst 与 Quarto
 
@@ -291,7 +291,7 @@ sudo pacman -S typst
 目标：在不影响当前投递流程的前提下，评估 Typst 是否值得作为后续候选方案。
 
 1. 环境：安装 `typst`，保留现有 TeX 流程不动
-2. 输入：使用同一份中文简历 `Resume_wangyue_cn_J68476.md`
+2. 输入：使用同一份中文简历 `Resume_cn_example.md`
 3. 路线 A：`pandoc -t typst` 生成 `.typ`，再 `typst compile`
 4. 路线 B：手写最小 Typst 模板（姓名、联系行、技能表）验证版式控制
 5. 对比项：编译耗时、依赖体积、字体效果、表格可控性、模板维护复杂度
@@ -314,3 +314,9 @@ sudo pacman -S typst
 **Quarto** 并未替代 LaTeX，适合多格式出版，对「只出简历 PDF」偏重。**Typst** 是更轻的潜在替代引擎，值得在 TeX 体积成为瓶颈时再试，但需重写版式层。
 
 更完整的 Spec、脚本与模板见个人配置仓库中的 `resume/TASK-SPEC-markdown-to-pdf.md`（与本文同步维护）。
+
+## 维护记录
+
+| 时间 | 修改内容 | 原因 |
+| ---- | -------- | ---- |
+| 2026-06-23 | 示例文件名与联系行改为通用占位，去除可识别信息 | 周记引用需脱敏 |
