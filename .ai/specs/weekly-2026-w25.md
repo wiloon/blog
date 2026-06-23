@@ -2,7 +2,7 @@
 
 | 字段     | 值                                       |
 | -------- | ---------------------------------------- |
-| 状态     | ready-to-write                           |
+| 状态     | draft-written                            |
 | 交付物   | `content/post/career/weekly-2026-w25.md` |
 | Hugo url | `weekly-2026-w25`                        |
 | 标题     | 2026 W25                                 |
@@ -14,7 +14,8 @@
 
 - [ ] 标题、url、分类与 Spec 表一致
 - [ ] 正文从 `##` 起，无 `#`（MD025）
-- [ ] 标签（SDD）：`original`、`AI-assisted` + 内容标签；无 `remix`、`reprint`
+- [ ] 标签（SDD）：`weekly`、`original`、`AI-assisted` + 内容标签；无 `remix`、`reprint`
+- [ ] `date`：`2026-06-21T23:59:59+08:00`（W25 周日收尾）；`lastmod` 为实际撰写日（东八区）
 
 ---
 
@@ -77,7 +78,7 @@
 
 1. 周初：收到投递简历邀请，计划本周主攻简历，homelab 等暂缓
 2. 周中：SDD 式写简历、挖掘职业事例、搭建 pandoc PDF 流水线
-3. 简历收尾后：梳理 blog 既有 Java 文档（投递 Java 职位）
+3. 简历主体定稿后：梳理 blog 既有 Java 文档（投递 Java 职位）；日历上可能与简历收尾几日重叠，正文用「重心转到」而非「某天之后才开始」
 4. 梳理过程中：想到实际操作有助理解 → 决定给 enx 加 Java 后端作 playground
 5. 动手前：enx 有长期未合并的 Cognito 分支 → 先测试、合入 main，再开 Java 后端分支（6/22 实施见 W26）
 
@@ -93,23 +94,25 @@
 - 不出现公司名、职位编号、内推细节等可识别信息
 - 可写：收到投递简历邀请；SDD 式准备流程（spec → profile 挖故事 → 生成简历）；挖掘职业生涯事例
 - 可写：markdown → pandoc → PDF 流水线；动机是 Preview/打印 PDF 旧流程失效，与 AI 讨论后选型
-- 内链：[markdown-to-pdf-pandoc-xelatex.md](../../content/post/development/markdown-to-pdf-pandoc-xelatex.md)（示例已脱敏，可安全引用）
-- 挖掘事例示例内链（可选）：[iot-third-party-data-push.md](../../content/post/career/iot-third-party-data-push.md)
+- 内链（交付物 `content/post/career/weekly-2026-w25.md` 相对路径）：
+  - [markdown-to-pdf-pandoc-xelatex.md](../development/markdown-to-pdf-pandoc-xelatex.md)
+  - [iot-third-party-data-push.md](./iot-third-party-data-push.md)（可选）
+- Spec 内引用（`.ai/specs/` 视角）：`../../content/post/development/markdown-to-pdf-pandoc-xelatex.md`
 
 **Java 文档整理**
 
-- 动机：简历完成后，因投递 Java 职位梳理既有 blog Java 文档
-- 正文只链 2–4 篇代表性文章，不展开 Java 知识。候选：
-  - [java-knowledge-map.md](../../content/post/language/java/java-knowledge-map.md)（总览）
-  - [java-version-history.md](../../content/post/language/java/java-version-history.md)（版本脉络）
-  - [jvm.md](../../content/post/language/java/jvm.md) 或 [hotspot.md](../../content/post/language/java/hotspot.md)（运行时）
-  - 任选一篇本周新拆/重写的即可，如 [graalvm.md](../../content/post/language/java/graalvm.md)
+- 动机：简历主体定稿后，因投递 Java 职位梳理既有 blog Java 文档
+- 正文只链 2–4 篇代表性文章，不展开 Java 知识。候选（交付物相对路径）：
+  - [java-knowledge-map.md](../language/java/java-knowledge-map.md)（总览）
+  - [java-version-history.md](../language/java/java-version-history.md)（版本脉络）
+  - [jvm.md](../language/java/jvm.md)（运行时）
+  - [graalvm.md](../language/java/graalvm.md)（本周新拆/重写示例）
 
 **enx**
 
 - 动机：Java 职位 + enx 作 playground 练手；实际操作帮助理解正在梳理的文档
 - W25 叙事：Cognito 分支分叉已久 → 测试至可用 → 合入 main（避免与后续 Java 后端分支合并冲突）→ Homelab CI/CD 部署跑通 → 产生/确认 Java 后端方向
-- 技术细节内链：[enx-api-homelab-cicd.md](../../content/post/cloud/enx-api-homelab-cicd.md)
+- 技术细节内链：[enx-api-homelab-cicd.md](../cloud/enx-api-homelab-cicd.md)
 - **不写** 6/22 脚手架、Tekton、`deployment-java` 等实施细节 → 见 W26 Spec
 
 **其它**
@@ -117,8 +120,8 @@
 - homelab descheduler、域名方案暂缓：一句带过（6/18 descheduler 可写为简历主线之外的零星维护）
 - A 节 6/17 SDD 泛化感悟、输出强化记忆：保留，可独立小节
 - 公司刻章推迟、未来 blog 链「一人公司」管理文档：按 A 节原话或略写
-- 6/16 补写 [W24 周记](../../content/post/career/weekly-2026-w24.md)：开篇一句 meta 即可
-- Speed over Perfection（[agile.md](../../content/post/cs/agile.md)）：可选一句，正文写「看职位描述时」不写 JD
+- 6/16 补写 [W24 周记](./weekly-2026-w24.md)：开篇一句 meta 即可
+- Speed over Perfection（[agile.md](../cs/agile.md)）：可选一句，正文写「看职位描述时」不写 JD
 
 ---
 
@@ -133,7 +136,7 @@
 | 主题 | 大致时间 | 涉及仓库 |
 | --- | --- | --- |
 | 招聘 / 简历（脱敏叙述） | 6/15–6/21 | w10n-config、blog |
-| Java 知识图谱整理（面试准备） | 6/19–6/21 | blog、w10n-config |
+| Java 文档梳理 | 6/19–6/21 | blog、w10n-config |
 | enx 认证与 Homelab 部署 | 6/20–6/21 | enx、w10n-config、blog |
 | K8s Homelab 运维（descheduler 等） | 6/18 | w10n-config、blog |
 | 一人公司 / 工具选型 | 6/15–6/17 | blog、w10n-config |
@@ -155,9 +158,9 @@
 
 - 6/16：`agile.md` 补充「Speed over Perfection」；新建 `workflow-engine.md`；开始写 W25 Spec
 - 6/17：职业项目 `iot-third-party-data-push.md`（配合简历素材）
-- 6/19–6/21：大规模 Java 文章拆分/重写（见下节），与面试知识准备强相关
+- 6/19–6/21：大规模 Java 文章拆分/重写（见下节），与梳理 Java 文档同期进行
 
-6/22 仍有 resume PDF 相关 commit，若流水线叙述未写完可略带一句「翌日继续调排版」；细节不展开。
+6/22 仍有 resume PDF 相关 commit；正文可写「流程稳定后另文记录排版细节」，链 [markdown-to-pdf 一文](../development/markdown-to-pdf-pandoc-xelatex.md)。
 
 ---
 
@@ -224,12 +227,12 @@
 
 ### 周记正文建议结构（已确认）
 
-开篇可一句：补写了 [W24 周记](../../content/post/career/weekly-2026-w24.md)。
+开篇可一句：补写了 [W24 周记](./weekly-2026-w24.md)。
 
-1. **投递邀请与简历准备**（脱敏）— 周初计划 → SDD 流程 → 挖掘职业事例（可链 iot-third-party-data-push）→ pandoc PDF 流水线（链 markdown-to-pdf 一文）
-2. **Java 文档梳理** — 简历完成后动机 + 2–4 篇代表文章内链，不写 Java 知识
-3. **enx** — Cognito 分支合 main 的缘由与过程 + Homelab 部署（链 enx-api-homelab-cicd）；Java 后端 playground 想法
+1. **投递邀请与简历准备**（脱敏）— 周初计划 → SDD 流程 → 挖掘职业事例（可链 `./iot-third-party-data-push.md`）→ pandoc PDF 流水线（链 `../development/markdown-to-pdf-pandoc-xelatex.md`）
+2. **Java 文档梳理** — 简历主体定稿后动机 + 2–4 篇代表文章内链，不写 Java 知识
+3. **enx** — Cognito 分支合 main 的缘由与过程 + Homelab 部署（链 `../cloud/enx-api-homelab-cicd.md`）；Java 后端 playground 想法
 4. **Homelab 零星** — descheduler、域名方案暂缓（一句）
-5. **思考** — A 节 6/17 SDD 泛化、输出强化记忆；可选：Speed over Perfection（agile.md）
+5. **思考** — A 节 6/17 SDD 泛化、输出强化记忆；可选：Speed over Perfection（`../cs/agile.md`）
 
-**状态：** ready-to-write。
+**状态：** draft-written。
