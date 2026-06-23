@@ -16,9 +16,9 @@ tags:
 
 ## 问题从哪来
 
-homelab 里 k8s-50 在 Grafana 上 CPU 一度接近 80%，但 [Descheduler](./kubernetes-descheduler.md) 每 15 分钟跑一轮，日志里始终是 `evictedPods=0`。排查后发现：Grafana 看的是节点上**真实 CPU 占用**，而调度器和 Descheduler 的 `LowNodeUtilization` 看的是各 Pod 的 **`resources.requests` 之和**占节点可分配量的比例。两者不是同一套数。
+homelab 里 k8s-50 在 Grafana 上 CPU 一度接近 80%，但 [Descheduler](./kubernetes-descheduler.md) 每 15 分钟跑一轮，日志里始终是 `evictedPods=0`。排查、补 requests、放宽 Nexus affinity 后问题已解决；**完整时间线**见 [Homelab K8s Node Rebalance 案例](./homelab-k8s-node-rebalance.md)。
 
-本文说明 `requests` / `limits` 分别做什么、为什么没写 requests 会让 Descheduler「看不见」热点，以及 homelab 里我们补 requests 时在干什么。
+下文说明 `requests` / `limits` 分别做什么、为什么没写 requests 会让 Descheduler「看不见」热点。
 
 ## requests、limits、实际用量，三套数
 
@@ -33,6 +33,21 @@ homelab 里 k8s-50 在 Grafana 上 CPU 一度接近 80%，但 [Descheduler](./ku
 - **requests**：订座（调度与重平衡的依据）
 - **limits**：包厢上限（运行时保护）
 - **实际用量**：现场人数（监控里看到的负载）
+
+### CPU 怎么写：`m` 与「核」
+
+Kubernetes 把 **1 个 CPU 核**切成 **1000 份**来记账，每份叫 **1 millicore（毫核）**，YAML 里后缀 **`m`** 就是这个意思：
+
+| 写法 | 含义 |
+| ---- | ---- |
+| `1000m` | 1 核 |
+| `500m` | 0.5 核（半核） |
+| `200m` | 0.2 核 |
+| `50m` | 0.05 核 |
+
+也可以写成小数（如 `cpu: "0.5"`），与 `500m` 等价；文档和 manifest 里更常见 `500m` 这种整数毫核。
+
+`kubectl top`、Descheduler 日志、`kubectl describe node` 里的 **Allocated resources** 也用同一套：`1660m` 表示该节点上所有 Pod 的 CPU requests 合计 **1.66 核**。内存不用 `m`，而是 `Mi`、`Gi`（如 `768Mi`）。
 
 没写 `requests` 时，在调度器眼里该容器预订为 **0**；它仍可能把 CPU 跑满，但**不会**抬高节点在 Descheduler 中的「利用率」。
 
@@ -63,9 +78,9 @@ homelab 当前阈值（`infra/homelab/k8s/descheduler/values.yaml`）：
 
 因此：**先补 requests，再指望 Descheduler 按负载重平衡**；顺序不能反。
 
-## homelab 正在补什么
+## homelab 已补的 requests
 
-仓库里已用 `kubectl top` 对过一轮，优先给 **Git 管理的、常驻且缺 requests 的 workload** 补值，例如 Argo CD（`infra/homelab/k8s/argocd/resource-requests-patch.yaml`）：
+2026-06-23 按 `kubectl top` 对常驻 workload 补了一轮（详见 [案例文](./homelab-k8s-node-rebalance.md) §4.1）：
 
 | 组件 | requests（示例） | 依据 |
 | ---- | ---------------- | ---- |
@@ -74,7 +89,7 @@ homelab 当前阈值（`infra/homelab/k8s/descheduler/values.yaml`）：
 | `argocd-redis` | 50m / 64Mi | 轻量缓存 |
 | 其他 Argo CD Deployment | 50m / 64–128Mi | 控制面余量 |
 
-Prometheus / Grafana 等在 `kube-prometheus-stack/values.yaml` 里已有 requests 注释与取值。Kong、Tekton 等若由集群外 Helm 安装、未进本仓库，需在对应 values 里同样补上，否则 Descheduler 仍会把它们当 0。
+Prometheus / Grafana 等在 `kube-prometheus-stack/values.yaml` 里此前已有 requests。Kong、Tekton 已通过 `kong/values.yaml`、`tekton/platform/` 纳入 Git 与 ArgoCD。
 
 补 requests 的目的不是限流，而是让 **调度与 Descheduler 的账本** 接近真实负载；补完后 k8s-50 在 Descheduler 里的 CPU requests 占比会上升，才更可能触发 `LowNodeUtilization` 迁出。
 
@@ -112,6 +127,7 @@ limits 可以只设内存（CPU 不设 limit 时多为可突发），但 **reque
 
 ## 相关阅读
 
+- [Homelab K8s Node Rebalance: 从 Grafana 发现到 Descheduler 生效](./homelab-k8s-node-rebalance.md) — 发现、看板、治理、见效全过程
 - [Kubernetes Descheduler 与 Pod 重平衡](./kubernetes-descheduler.md) — 策略、阈值、PVC 与 nodeAffinity 限制
 - [k8s](./k8s.md) — cordon、drain、DaemonSet
 - [PVC 访问模式：RWO 简介](./pvc-access-modes.md) — 有状态 Pod 与卷挂载
