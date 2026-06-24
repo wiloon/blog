@@ -7,7 +7,7 @@ url: spring-boot-container-packaging
 categories:
   - language
 tags:
-  - original
+  - remix
   - AI-assisted
   - java
   - spring

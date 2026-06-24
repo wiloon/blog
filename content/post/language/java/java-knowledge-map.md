@@ -7,7 +7,7 @@ url: java-knowledge-map
 categories:
   - language
 tags:
-  - original
+  - remix
   - AI-assisted
   - java
   - jvm

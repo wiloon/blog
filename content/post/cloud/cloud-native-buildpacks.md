@@ -7,7 +7,7 @@ url: cloud-native-buildpacks
 categories:
   - cloud
 tags:
-  - original
+  - remix
   - AI-assisted
   - cloud
   - docker

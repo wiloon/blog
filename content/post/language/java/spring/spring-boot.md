@@ -187,11 +187,13 @@ org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguratio
 ...
 ```
 
-Spring Boot 启动时会扫描所有 JAR 包中的这份列表，加载每一个自动配置类。
+Spring Boot 启动时会扫描所有 JAR 包中的这份列表，加载每一个自动配置类。自动配置类本质也是 `@Configuration`，加载后同样要走 [@Configuration 解析](./spring-ioc.md#configuration-解析)（读出 `@Bean` 定义等），再经条件注解决定是否注册。
 
 ### @ConditionalOn* 条件注解
 
-自动配置类里大量使用**条件注解**，只有条件满足时才真正注册 Bean，避免乱注入：
+**条件装配**由 Spring Framework 的 `@Conditional`（`org.springframework.context.annotation.Conditional`）提供：标注在类或 `@Bean` 方法上，绑定一个 `Condition` 实现；容器在注册前评估，**条件不成立则跳过该 Bean 定义**。它不是 JDK 注解，也不是 Spring Boot 独创——Boot 在其上封装了 `@ConditionalOnClass`、`@ConditionalOnProperty` 等，专用于自动配置。
+
+自动配置类里大量使用这些**条件注解**，只有条件满足时才真正注册 Bean，避免乱注入：
 
 | 注解                                              | 含义                                                     |
 |---------------------------------------------------|----------------------------------------------------------|
@@ -216,6 +218,22 @@ public class DataSourceAutoConfiguration {
 ```
 
 这就是为什么：加了 `spring-boot-starter-data-jpa` + 配置了 `spring.datasource.url`，连接池就自动出现了；如果自己 `@Bean` 定义了 `DataSource`，自动配置就自动退让。
+
+若需手写条件 Bean，可直接用 Framework 的 `@Conditional`，或 Boot 的 `@ConditionalOn*`：
+
+```java
+@Configuration
+public class FeatureConfig {
+
+    @Bean
+    @ConditionalOnProperty(name = "feature.x.enabled", havingValue = "true")
+    public FeatureX featureX() {
+        return new FeatureX();
+    }
+}
+```
+
+走 [Spring AOT](./spring-aot.md) 构建时，上述条件在**构建期**评估并固化；依赖运行时环境变量、真实网络等才能成立的条件，构建期可能判不到，是 Native 构建常见踩坑点。
 
 ### 覆盖自动配置
 
@@ -739,6 +757,7 @@ Spring Boot 3.x 正式支持 GraalVM Native Image 编译，可以将应用编译
 
 ## 参考
 
+- [Spring IoC](./spring-ioc.md)（组件扫描、@Configuration 解析）
 - [Spring Boot 官方文档](https://docs.spring.io/spring-boot/docs/current/reference/html/)
 - [Spring Boot Gradle 插件参考](https://docs.spring.io/spring-boot/docs/current/gradle-plugin/reference/htmlsingle/)
 - [Spring Boot 3.0 Migration Guide](https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-3.0-Migration-Guide)
@@ -752,3 +771,4 @@ Spring Boot 3.x 正式支持 GraalVM Native Image 编译，可以将应用编译
 | 2026-06-21 | Boot 3 Native 小节链到新建 [spring-aot.md](./spring-aot.md) | Spring AOT 专文拆分 |
 | 2026-06-24 | 「XML 配置的复杂性」补充 2.5 混合期、Java Config 与 Boot 分工；链到 spring.md | 厘清谁简化了 XML |
 | 2026-06-24 | §启动应用 链到新建 [spring-boot-executable-jar.md](./spring-boot-executable-jar.md) | Fat JAR / JarLauncher 专文拆分 |
+| 2026-06-24 | 展开 `@Conditional` 来源与手写示例；链到 spring-ioc 配置解析、spring-aot | 澄清条件装配与 AOT 构建期评估 |
