@@ -11,6 +11,7 @@
 | [content-constraints.md](content-constraints.md) | **全站内容约束**：语气平实不拔高；VPN 相关表述（WireGuard/OpenVPN 除外不写软件名）；代码块注释用英文等 |
 | [internal-links.md](internal-links.md)           | **全站内链**：相对 `.md` + Hugo embedded hook                                            |
 | [page-bundle-images.md](page-bundle-images.md)   | **文章插图**：Page Bundle 目录结构、正文插图、PaperMod 封面、`task preview`              |
+| [build-and-deploy.md](build-and-deploy.md)       | **构建与部署**：`build.sh`（CF Pages）、`scripts/build-site.sh`、Pagefind、容器与 OpenTofu |
 | [specs/](specs/)                                 | 各篇文章 Spec（**作者维护**；AI 按 Spec 润色/输出交付物）                                |
 
 ## 文章 Spec 一览

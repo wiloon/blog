@@ -1,0 +1,37 @@
+{{- define "main" }}
+
+<header class="page-header">
+    <h1>{{- (printf "%s&nbsp;" .Title ) | htmlUnescape -}}
+        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+    </h1>
+    {{- if .Description }}
+    <div class="post-description">
+        {{ .Description }}
+    </div>
+    {{- end }}
+</header>
+
+<div class="pagefind-search" data-pagefind-ignore>
+    <div id="search"></div>
+    <link href="/pagefind/pagefind-ui.css" rel="stylesheet">
+    <script src="/pagefind/pagefind-ui.js" defer></script>
+    <script>
+        window.addEventListener('DOMContentLoaded', () => {
+            new PagefindUI({
+                element: "#search",
+                bundlePath: "/pagefind/",
+                showSubResults: true,
+                showImages: false,
+                resetStyles: false,
+                autofocus: true,
+                excerptLength: 24
+            });
+        });
+    </script>
+</div>
+
+{{- end }}{{/* end main */}}

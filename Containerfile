@@ -27,8 +27,18 @@ COPY . .
 RUN git clone --depth=1 https://github.com/adityatelange/hugo-PaperMod.git themes/PaperMod && \
     rm -rf themes/PaperMod/.git
 
-# Build the Hugo site
-RUN hugo
+# Install Pagefind extended (CJK indexing support)
+ENV PAGEFIND_VERSION=1.5.2
+RUN apk add --no-cache wget && \
+    wget -q "https://github.com/Pagefind/pagefind/releases/download/v${PAGEFIND_VERSION}/pagefind_extended-v${PAGEFIND_VERSION}-x86_64-unknown-linux-musl.tar.gz" && \
+    tar -xzf "pagefind_extended-v${PAGEFIND_VERSION}-x86_64-unknown-linux-musl.tar.gz" && \
+    mv pagefind_extended /usr/local/bin/pagefind && \
+    chmod +x /usr/local/bin/pagefind && \
+    rm "pagefind_extended-v${PAGEFIND_VERSION}-x86_64-unknown-linux-musl.tar.gz" && \
+    pagefind --version
+
+# Build the Hugo site and Pagefind index
+RUN hugo --minify && pagefind --site public
 
 # Stage 2: Create production image with Nginx
 FROM docker.io/library/nginx:1.29.3-alpine

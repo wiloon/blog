@@ -138,9 +138,9 @@ public class MyApp {
 
 **`@ComponentScan`**
 
-默认扫描**主类所在包及其所有子包**，将带有 `@Component`、`@Service`、`@Repository`、`@Controller` 等注解的类注册为 Spring Bean。
+默认扫描**主类所在包及其所有子包**，将带有 `@Component`、`@Service`、`@Repository`、`@Controller` 等注解的类注册为 Spring Bean。详见 [Spring IoC §@ComponentScan 与组件注解](./spring-ioc.md#componentscan-与组件注解)。
 
-这也是为什么通常把主类放在项目的**根包**下（如 `com.example.myapp.MyApp`），确保所有业务代码都能被扫描到。如果某个类放在主类包之外，就不会被自动发现。
+这也是为什么通常把主类放在项目的**根包**下（如 `com.example.myapp.MyApp`），确保所有业务代码都能被扫描到。如果某个类放在主类包之外，就不会被自动发现（可在其他 `@Configuration` 上再声明 `@ComponentScan` 扩大范围）。
 
 ### 常用属性
 
@@ -772,3 +772,4 @@ Spring Boot 3.x 正式支持 GraalVM Native Image 编译，可以将应用编译
 | 2026-06-24 | 「XML 配置的复杂性」补充 2.5 混合期、Java Config 与 Boot 分工；链到 spring.md | 厘清谁简化了 XML |
 | 2026-06-24 | §启动应用 链到新建 [spring-boot-executable-jar.md](./spring-boot-executable-jar.md) | Fat JAR / JarLauncher 专文拆分 |
 | 2026-06-24 | 展开 `@Conditional` 来源与手写示例；链到 spring-ioc 配置解析、spring-aot | 澄清条件装配与 AOT 构建期评估 |
+| 2026-06-24 | `@ComponentScan` 小节链到 spring-ioc 专节 | 避免与 IoC 文重复，集中写扫描机制 |

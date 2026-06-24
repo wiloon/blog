@@ -114,9 +114,21 @@ tasks:
       - echo "🚀 Dev mode started, visit http://localhost:{{.PORT}}"
 
   preview:
-    desc: Hugo live preview (http://localhost:1313)
+    desc: Hugo live preview (http://localhost:1313, search not indexed)
     cmds:
       - hugo server -D --bind 0.0.0.0 --baseURL http://localhost:{{.PREVIEW_PORT}}/ --port {{.PREVIEW_PORT}}
+    interactive: true
+
+  site:build:
+    desc: Build Hugo site and Pagefind search index
+    cmds:
+      - sh scripts/build-site.sh
+
+  preview:search:
+    desc: Build and preview with Pagefind search (http://localhost:1414)
+    cmds:
+      - sh scripts/build-site.sh
+      - npx -y pagefind@1.5.2 --site public --serve --port 1414
     interactive: true
 
   inspect:

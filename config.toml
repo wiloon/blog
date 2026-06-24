@@ -88,10 +88,10 @@ hasCJKLanguage = true
   url = "https://wiloon.github.io/running_page/"
   weight = 55
 
-# [[menu.main]]
-#   name = "搜索"
-#   url = "/search/"
-#   weight = 60
+[[menu.main]]
+  name = "搜索"
+  url = "/search/"
+  weight = 60
 
 # PaperMod 主题参数
 [params]
@@ -163,19 +163,9 @@ hasCJKLanguage = true
     name = "stackoverflow"
     url = "https://stackoverflow.com/users/1431884/w1100n"
 
-  # 搜索配置
-  [params.fuseOpts]
-    isCaseSensitive = false
-    shouldSort = true
-    location = 0
-    distance = 1000
-    threshold = 0.4
-    minMatchCharLength = 0
-    keys = ["title", "permalink", "summary", "content"]
-
 # 输出格式（全局禁用 RSS，避免超大文件超过 Cloudflare Pages 25MB 限制）
 [outputs]
-  home = ["HTML", "JSON"]
+  home = ["HTML"]
   section = ["HTML"]
   taxonomy = ["HTML"]
   term = ["HTML"]
