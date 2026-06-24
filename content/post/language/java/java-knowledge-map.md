@@ -2,7 +2,7 @@
 title: Java Knowledge Map
 author: "-"
 date: 2026-05-31T07:36:44+08:00
-lastmod: 2026-06-21T11:46:40+08:00
+lastmod: 2026-06-24T07:10:34+08:00
 url: java-knowledge-map
 categories:
   - language
@@ -119,7 +119,8 @@ flowchart TB
 | 概念 | 文章 |
 | ---- | ---- |
 | HotSwap、DCEVM、HotSwapAgent | [开发期热替换](../../cs/dcevm-hotswapagent.md) |
-| Spring Boot DevTools Restart | [Spring Boot DevTools](./spring-boot-devtools.md) |
+| Spring Framework 总览与演变 | [Spring](./spring/spring.md) |
+| Spring Boot DevTools Restart | [Spring Boot DevTools](./spring/spring-boot-devtools.md) |
 | Spring Boot 总览 | [Spring Boot](./spring/spring-boot.md) |
 | IDE / DCEVM 热更 vs attach 探针 | 见 [java-asm](./java-asm.md)、[BTrace](./btrace.md) |
 
@@ -153,6 +154,9 @@ JVMTI / JPDA（对比调试）  →  /jvmti 、/java-debug-jpda
 | Agent 与业务同一进程吗？ | 是；ClassLoader 路径不同 | [classloader](./classloader.md)、[BTrace](./btrace.md) |
 | 开发 HotSwap = BTrace？ | 否；JPDA vs attach 探针 | [dcevm-hotswapagent](../../cs/dcevm-hotswapagent.md)、[java-asm](./java-asm.md) |
 | JVM 限制 agent 只能监控？ | 否；BTrace 在校验脚本 | [java-asm](./java-asm.md)、[BTrace](./btrace.md) |
+| Spring = Spring MVC？ | 否；MVC 只是 Framework 的 Web 模块 | [Spring](./spring/spring.md) |
+| Spring 1.x 就用注解？ | 否；1.x 以 XML 为主，2.0 / 2.5 才注解化 | [Spring](./spring/spring.md)、[JDK 5](./jdk-5.md) |
+| `@Autowired` 是 JDK 内置注解？ | 否；Spring 自定义，依赖 JDK 5 注解机制 | [annotation](./annotation.md)、[Spring](./spring/spring.md) |
 
 ## 维护说明
 
@@ -162,3 +166,5 @@ JVMTI / JPDA（对比调试）  →  /jvmti 、/java-debug-jpda
 | ---- | -------- |
 | 2026-06-19 | JVM 索引表拆分：jvm 生态、hotspot-options |
 | 2026-06-21 | 类加载索引增加 `lang-class.md` | Class 概念独立成文 |
+| 2026-06-24 | 开发期热替换表增加 [Spring](./spring/spring.md) 链接 | 新建 Spring Framework 总览文 |
+| 2026-06-24 | 易混淆对照增加 Spring / MVC / 注解相关三行 | 与 spring.md、jdk-5.md 对话沉淀对齐 |

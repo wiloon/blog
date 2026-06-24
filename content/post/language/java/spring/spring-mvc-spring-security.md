@@ -118,3 +118,9 @@ add dispatcher servlet in web.xml
 
 [http://www.cnblogs.com/Beyond-bit/p/SpringMVC_And_SpringSecurity.html](http://www.cnblogs.com/Beyond-bit/p/SpringMVC_And_SpringSecurity.html)
 >[https://mp.weixin.qq.com/s/z6GeR5O-vBzY3SHehmccVA](https://mp.weixin.qq.com/s/z6GeR5O-vBzY3SHehmccVA)
+
+## 维护记录
+
+| 时间 | 修改内容 | 原因 |
+| ---- | -------- | ---- |
+| 2026-06-24 | 移至 `language/java/spring/spring-mvc-spring-security.md` | 与 Spring 专题文章同目录归类 |

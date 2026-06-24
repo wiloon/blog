@@ -2,7 +2,7 @@
 title: JDK 5
 author: "-"
 date: 2012-03-28T02:49:08+00:00
-lastmod: 2026-06-21T10:49:51+08:00
+lastmod: 2026-06-24T09:37:13+08:00
 url: jdk-5
 categories:
   - language
@@ -47,7 +47,24 @@ aliases:
   - /p8842/
 ---
 
-JDK 5（Java SE 5）于 2004 年 9 月发布，是 [JDK 1.4](./jdk-1.4.md) 之后的一次重大更新。**第一个对外以「Java 5」而非「Java 1.5」命名的版本**；平台品牌 J2SE → Java SE 的过渡亦在此前后。详见 [Java 版本历史](./java-version-history.md)。
+JDK 5（Java SE 5）于 **2004 年 9 月**正式发布，是 [JDK 1.4](./jdk-1.4.md) 之后的一次重大更新。**第一个对外以「Java 5」而非「Java 1.5」命名的版本**；平台品牌 J2SE → Java SE 的过渡亦在此前后。详见 [Java 版本历史](./java-version-history.md)。
+
+Tiger 语言特性（含注解）自 2002 年起在 JCP 并行规划（JSR 175 等于 JDK 1.4 发布后不久立项）；**2003 年 12 月**有 Early Access 构建，**2004 年 2 月**公开 Beta——均早于上述正式版。
+
+## 发布历程
+
+「2004 年 9 月」指 **GA（正式版）**；Tiger 在 JCP 与 Sun 产品线上的里程碑更早：
+
+| 阶段 | 大约时间 | 说明 |
+| ---- | -------- | ---- |
+| [JDK 1.4](./jdk-1.4.md) GA | 2002-02 | 1.4 落地后，Tiger 语言特性（含 JSR 175 注解）即在 JCP 并行推进 |
+| JSR 175 立项 | 2002-03～04 | JCP 评审通过，专家组成立 |
+| JSR 175 公开评审 | 2003-11 | 注解规范草案公开 |
+| Tiger Early Access | 2003-12 | 预发布 JDK（含注解等语言特性），面向早期测试 |
+| Tiger 公开 Beta | 2004-02 | 可在 `java.sun.com/j2se/1.5` 下载试用 |
+| **JDK 5 Final** | **2004-09-30** | 对外称 Java 5 / J2SE 5.0；`java.version` 仍为 `1.5.0_xxx` |
+
+同一 Tiger 版本还打包了泛型（JSR 14）、枚举与增强 for（JSR 201）、JUC（JSR 166）等；整体由 **JSR 176**（J2SE 5.0 Release Contents）归集交付。
 
 ## 版本号说明
 
@@ -200,6 +217,8 @@ public String toString() {
 }
 ```
 
+注解成为语言特性后，框架不必再只靠 XML 描述元数据，可在启动或类加载时通过反射读取。典型例子：[Spring](../spring/spring.md) 在 1.x 时代以 XML 配置 Bean；**Spring 2.0 / 2.5（2006–2007）** 起才大规模采用自定义注解（`@Autowired`、`@Transactional`、`@RequestMapping` 等）——这些注解本身由 Spring 用 `@interface` 定义，依赖的正是 JDK 5 提供的注解机制与 Java 5 基线。
+
 ---
 
 ## java.util.concurrent
@@ -230,3 +249,5 @@ JSR 166 引入的并发工具包，包括 `ExecutorService`、`ConcurrentHashMap
 | 2026-06-20 | 关联 [JDK 1.4](./jdk-1.4.md) | 新建 1.4 特性文档，互为引用 |
 | 2026-06-20 | 版本号说明精简，链到 [Java 版本历史](./java-version-history.md) | 集中维护命名演变 |
 | 2026-06-21 | 注解章节关联 `annotation.md` | 站内已有专题文档 |
+| 2026-06-24 | 补充 Tiger EA/Beta 时间线；注解章节关联 Spring 采用注解的历程 | 厘清 JDK 5 预览版与框架演进关系 |
+| 2026-06-24 | 新增「发布历程」表（JSR 175 / Tiger EA / Beta / GA） | 集中维护 JDK 5 预览与正式版时间线 |

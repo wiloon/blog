@@ -63,3 +63,9 @@ create springMvc.xml
 
 
 for eclipse project convert project to web project
+
+## 维护记录
+
+| 时间 | 修改内容 | 原因 |
+| ---- | -------- | ---- |
+| 2026-06-24 | 移至 `language/java/spring/spring-mvc-project.md` | 与 Spring 专题文章同目录归类 |

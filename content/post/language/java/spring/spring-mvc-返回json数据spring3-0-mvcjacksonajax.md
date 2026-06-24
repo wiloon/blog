@@ -125,3 +125,9 @@ jackson-mapper-asl-1.9.2.jar
 参考: [http://digdata.me/archives/96/](http://digdata.me/archives/96/)
 
 [http://angelbill3.iteye.com/blog/1985075](http://angelbill3.iteye.com/blog/1985075)
+
+## 维护记录
+
+| 时间 | 修改内容 | 原因 |
+| ---- | -------- | ---- |
+| 2026-06-24 | 移至 `language/java/spring/spring-mvc-返回json数据spring3-0-mvcjacksonajax.md` | 与 Spring 专题文章同目录归类 |

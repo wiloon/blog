@@ -40,3 +40,9 @@ public void hello(@ModelAttribute("currentUser") User user){
 }
 
 使用这种方案,还需要在 SpringMVC 配置文件的 ViewResolver 定义处,加上 p:allowSessionOverride="true",这样如果你对 User 对象做了修改,SpringMVC 就会在渲染 View 的同时覆写 Session 中的相关属性。
+
+## 维护记录
+
+| 时间 | 修改内容 | 原因 |
+| ---- | -------- | ---- |
+| 2026-06-24 | 移至 `language/java/spring/spring-modelattribute.md` | 与 Spring 专题文章同目录归类 |

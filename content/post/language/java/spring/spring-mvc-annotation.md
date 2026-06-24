@@ -79,3 +79,9 @@ aliases:
     http://yeak2001.iteye.com/blog/465336
     
     http://blog.sina.com.cn/s/blog_72827fb10101pl9j.html
+
+## 维护记录
+
+| 时间 | 修改内容 | 原因 |
+| ---- | -------- | ---- |
+| 2026-06-24 | 移至 `language/java/spring/spring-mvc-annotation.md` | 与 Spring 专题文章同目录归类 |
