@@ -12,7 +12,7 @@
 
 ## 1. 目的
 
-为 Spring Boot REST API 容器化部署提供一篇索引型说明：fat jar、分层 JAR、Cloud Native Buildpacks（`bootBuildImage`）、Paketo jlink 裁剪 JRE 的关系、官方文档入口与选型要点。
+为 Spring Boot REST API 容器化部署提供一篇索引型说明：分层 JAR、Cloud Native Buildpacks（`bootBuildImage`）、Paketo jlink 裁剪 JRE 的关系、官方文档入口与选型要点。fat jar / JarLauncher 见 [spring-boot-executable-jar.md](spring-boot-executable-jar.md)。
 
 ## 2. 读者
 
@@ -20,7 +20,7 @@
 
 ## 3. 核心信息（必须传达）
 
-- Fat jar 是可执行 uber jar，`java -jar` 即可跑；容器里可直接 COPY，但不是镜像缓存最优解。
+- 前置 fat jar 见 executable-jar 专文；容器里可直接 COPY 单层镜像，但不是缓存最优解。
 - 分层 JAR（`layers.idx`）把依赖与业务代码拆层，利于 Docker 层缓存；Boot 2.3+ 默认开启。
 - `spring-boot:build-image` / `bootBuildImage` 走 Paketo CNB；会读 `layers.idx` 切镜像层。
 - Paketo jlink 默认关闭，需 `BP_JVM_JLINK_ENABLED=true` 才裁剪 JRE；与 GraalVM Native 是不同路径。
@@ -31,7 +31,7 @@
 - [ ] 标题、url、分类与 Spec 表一致
 - [ ] 正文从 `##` 起，无 `#`（MD025）
 - [ ] 标签（SDD）：`original`、`AI-assisted` + 内容标签；无 `remix`、`reprint`
-- [ ] 三节主体：fat jar、分层 JAR + Buildpack、Buildpack + jlink
+- [ ] 三节主体：分层 JAR + Buildpack、Buildpack + jlink（fat jar 已拆至 executable-jar）
 - [ ] 路径关系图（mermaid 或 ascii）
 - [ ] 官方文档索引表
 - [ ] 与 [spring-boot.md](../content/post/language/java/spring/spring-boot.md)、[graalvm-native-image.md](../content/post/language/java/graalvm-native-image.md) 互链
@@ -49,13 +49,12 @@
 ## 7. 建议结构（大纲）
 
 1. 背景与三条路径总览
-2. Fat JAR
-3. 分层 JAR
-4. Cloud Native Buildpacks
-5. Buildpack + jlink
-6. 选型简表
-7. 官方文档索引
-8. 参考
+2. 分层 JAR（含最简 Dockerfile 过渡）
+3. Cloud Native Buildpacks
+4. Buildpack + jlink
+5. 选型简表
+6. 官方文档索引
+7. 参考
 
 ---
 
@@ -100,3 +99,4 @@
 | 日期 | 变更 |
 | ---- | ---- |
 | 2026-06-21 | 初版 Spec；直接输出正文（作者明确要 blog 文档） |
+| 2026-06-24 | Fat JAR 拆至 spring-boot-executable-jar Spec |

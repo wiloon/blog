@@ -156,6 +156,8 @@ JVMTI / JPDA（对比调试）  →  /jvmti 、/java-debug-jpda
 | JVM 限制 agent 只能监控？ | 否；BTrace 在校验脚本 | [java-asm](./java-asm.md)、[BTrace](./btrace.md) |
 | Spring = Spring MVC？ | 否；MVC 只是 Framework 的 Web 模块 | [Spring](./spring/spring.md) |
 | Spring 1.x 就用注解？ | 否；1.x 以 XML 为主，2.0 / 2.5 才注解化 | [Spring](./spring/spring.md)、[JDK 5](./jdk-5.md) |
+| 用了注解就不需要 XML？ | 否；2.5 后多年 XML 骨架 + 注解业务很常见 | [Spring](./spring/spring.md) |
+| 只有 Boot 才去掉 XML？ | 否；3.0 Java Config 已可零 XML；Boot 靠自动配置推到几乎零配置 | [Spring](./spring/spring.md)、[Spring Boot](./spring/spring-boot.md) |
 | `@Autowired` 是 JDK 内置注解？ | 否；Spring 自定义，依赖 JDK 5 注解机制 | [annotation](./annotation.md)、[Spring](./spring/spring.md) |
 
 ## 维护说明
@@ -168,3 +170,4 @@ JVMTI / JPDA（对比调试）  →  /jvmti 、/java-debug-jpda
 | 2026-06-21 | 类加载索引增加 `lang-class.md` | Class 概念独立成文 |
 | 2026-06-24 | 开发期热替换表增加 [Spring](./spring/spring.md) 链接 | 新建 Spring Framework 总览文 |
 | 2026-06-24 | 易混淆对照增加 Spring / MVC / 注解相关三行 | 与 spring.md、jdk-5.md 对话沉淀对齐 |
+| 2026-06-24 | 易混淆对照补充 XML 混合期、Boot 与 Java Config 分工 | 与 spring.md 配置演进章节对齐 |

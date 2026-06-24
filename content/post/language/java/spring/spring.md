@@ -144,6 +144,76 @@ Spring 1.0 发布时 **[JDK 5](./jdk-5.md) 尚未正式发布**（正式版在 2
 
 时间上有先后：**JDK 5 先提供注解基础设施（2004 GA）**，Spring 在 **2.0 / 2.5（2006–2007）** 才把注解做成主流配置方式；1.x 时代仍以 XML 为主。详见 [Java Annotation（注解）](../annotation.md)。
 
+### 注解之后，XML 为何还在
+
+**有了注解 ≠ 可以丢掉 XML。** Spring 2.5 之后很多年，企业项目常见 **「XML 搭基础设施 + 注解写业务类」** 的混合模式：
+
+| 仍常放在 XML / `web.xml` 里 | 常改用注解 |
+| ---- | ---- |
+| `<context:component-scan>` 开启包扫描 | 类上的 `@Service`、`@Repository`、`@Controller` |
+| `DataSource`、连接池、事务管理器 | 类之间的 `@Autowired` |
+| `<tx:annotation-driven>` 开启声明式事务 | 方法上的 `@Transactional` |
+| `DispatcherServlet` 注册、`web.xml` 映射 | Controller 上的 `@RequestMapping`（2.5 起） |
+| AOP 切点、部分 MVC 视图解析 | — |
+
+典型 2.5 时代片段：
+
+```xml
+<!-- applicationContext.xml：基础设施仍靠 XML -->
+<context:component-scan base-package="com.example"/>
+<bean id="dataSource" class="com.zaxxer.hikari.HikariDataSource">
+    <property name="jdbcUrl" value="jdbc:mysql://localhost/mydb"/>
+</bean>
+<tx:annotation-driven/>
+```
+
+```java
+@Service
+public class UserService {
+    @Autowired
+    private UserDao userDao;
+
+    @Transactional
+    public void register(User user) { /* ... */ }
+}
+```
+
+注解主要省掉 **逐个 `<bean>` 注册业务类** 和 **MVC URL 映射 XML**；数据源、事务开关、Servlet 容器等 **骨架配置在 XML（或 `web.xml`）里留了很久**（约 2008–2013 仍是主流写法）。
+
+### 从 Java Config 到 Spring Boot：谁简化了 XML
+
+去掉 XML 分 **两步**，Boot 不是唯一功臣：
+
+| 阶段 | 大约时间 | 配置方式 | 仍需手写什么 |
+| ---- | -------- | -------- | ------------ |
+| XML 为主 | 2004–2006 | `applicationContext.xml` | 几乎全部 Bean 与基础设施 |
+| XML + 注解 | 2007–2013 | XML 骨架 + `@Service` / `@Autowired` 等 | 数据源、扫描、事务、Web 容器等 XML |
+| **Java Config** | **2009（Spring 3.0）** | `@Configuration` + `@Bean` | 每个基础设施 Bean 要自己写 Java 配置类——**技术上可零 XML**，但样板多 |
+| **Spring Boot** | **2014** | 自动配置 + `application.yml` | 常见场景几乎不用 XML，也不用大量 `@Configuration` |
+
+**Spring 3.0 的 Java Config** 已能用纯 Java 替代 XML，例如：
+
+```java
+@Configuration
+@ComponentScan("com.example")
+@EnableTransactionManagement
+public class AppConfig {
+
+    @Bean
+    public DataSource dataSource() {
+        HikariDataSource ds = new HikariDataSource();
+        ds.setJdbcUrl("jdbc:mysql://localhost/mydb");
+        return ds;
+    }
+}
+```
+
+但 DataSource、事务、MVC、安全等 **每一块都要自己 `@Bean` 或 `@Enable*`**，上手成本仍高。
+
+**Spring Boot** 在此基础上做 **自动配置（Auto-configuration）**：classpath 里有 `spring-boot-starter-web` 就自动注册 Tomcat、`DispatcherServlet`、Jackson；有 `starter-data-jpa` 就按 `spring.datasource.*` 配连接池。开发者多数时候只写 `application.yml` 和业务注解，**不必再手写大段 XML，也不必为每个基础设施写 `@Configuration`**。详见 [Spring Boot](./spring-boot.md)。
+
+因此更准确的说法是：**Boot 把「简化 Spring 配置」推到日常开发的默认体验**；在此之前，Framework 3.x 已提供去 XML 的能力，只是未普及到「开箱即用」。
+
 ### Spring 与 Spring MVC 是否同时出现
 
 **同属 Spring Framework 1.0，但角色不同：**
@@ -235,6 +305,8 @@ Servlet（void + Request/Response 参数）
 | Spring 专为 Web 而生 | 初衷是简化 J2EE/EJB 企业开发；Web 是能力之一 |
 | Spring 1.x 就用注解配置 | 1.x 以 XML 为主；注解从 2.0 / 2.5 才成主流，且依赖 [JDK 5](../jdk-5.md) |
 | `@Autowired` 等是 JDK 内置注解 | 是 Spring **自定义**注解，借助 JDK 5 的注解机制与反射读取 |
+| 用了注解就不需要 XML | 2.5 后长期是 **XML + 注解混合**；基础设施多留 XML 直到 3.x / Boot 时代 |
+| 只有 Spring Boot 才去掉 XML | **3.0 Java Config 已可零 XML**；Boot 用自动配置把简化推到「几乎零配置」 |
 | 用了 Spring Boot 就不用 Spring MVC | Boot 的 Web Starter 底层仍是 Spring MVC（见 [Spring MVC](./spring-mvc.md)） |
 | Spring 必须配 Tomcat | 非 Web 应用可无 Servlet 容器；Web 场景才需要 |
 | 命令行工具不能用 Spring | 可以；不引入 `spring-boot-starter-web` 即可，见上文 §没有 Spring MVC 时 |
@@ -259,4 +331,6 @@ Servlet（void + Request/Response 参数）
 | Spring 为何诞生 | 简化 EJB 时代的企业 Java（IoC、AOP、声明式事务、JDBC 集成），不是缺 Web 框架 |
 | 与 MVC 是否同时出现 | 1.0 即含 MVC 模块，但成名靠 IoC；常见组合是 Struts + Spring |
 | 早期是否用注解 | 1.x 几乎全 XML；2.0 / 2.5 才注解化，且依赖 JDK 5 |
+| 注解后还要 XML 吗 | 2.5 后多年 **XML 骨架 + 注解业务** 很常见 |
+| 谁去掉 XML | 3.0 Java Config 技术上可零 XML；Boot 自动配置让「几乎零配置」成默认 |
 | JDK 5 与 Spring 注解 | JDK 5 提供语言机制；Spring 注解是框架自定义，靠反射扫描 |

@@ -2,7 +2,7 @@
 title: "Spring Boot Container Packaging: Fat JAR、分层 JAR 与 Buildpacks"
 author: "-"
 date: 2026-06-21T19:04:35+08:00
-lastmod: 2026-06-21T19:04:35+08:00
+lastmod: 2026-06-24T12:26:30+08:00
 url: spring-boot-container-packaging
 categories:
   - language
@@ -14,13 +14,14 @@ tags:
   - spring-boot
   - docker
   - container
+  - tekton
 ---
 
 ## 背景
 
-Spring Boot REST API 打成 jar 之后，放进容器常见有三层递进：先有一个能跑的 fat jar，再用分层 JAR 优化 Docker 缓存，最后用 Cloud Native Buildpacks 一键出镜像；若还要缩小运行时，可在 Buildpack 上显式开启 jlink 裁剪 JRE。
+Spring Boot REST API 打成 jar 之后，放进容器常见有三层递进：先有一个能跑的 fat jar，再用分层 JAR 优化 Docker 缓存，最后用 Cloud Native Buildpacks 一键出镜像；若还要缩小运行时，可在 Buildpack 上显式开启 jlink 裁剪 JRE。fat jar 布局与 `JarLauncher` 见专文 [Spring Boot Executable JAR](./spring-boot-executable-jar.md)。
 
-Spring Framework 本身几乎不讲容器镜像；相关说明集中在 Spring Boot Reference 的 Packaging → Container Images。本文把 fat jar、分层 JAR、`bootBuildImage`、Paketo jlink 串成一条阅读路径，并附上官方文档索引。GraalVM Native Image 是另一条路线，见 [GraalVM Native Image 简介](../graalvm-native-image.md)。
+Spring Framework 本身几乎不讲容器镜像；相关说明集中在 Spring Boot Reference 的 Packaging → Container Images。本文把分层 JAR、`bootBuildImage`、Paketo jlink 串成一条阅读路径，并附上官方文档索引。GraalVM Native Image 是另一条路线，见 [GraalVM Native Image 简介](../graalvm-native-image.md)。
 
 ## 三条路径总览
 
@@ -61,48 +62,11 @@ flowchart TB
 | Buildpack（`bootBuildImage`） | OCI 镜像，自动检测 jar | 零 Dockerfile、与 Paketo 生态一致 | 低～中 |
 | Buildpack + jlink | 同上，运行时 JRE 更小 | 缩小镜像体积 | 中（需调 env） |
 
-## Fat JAR
+## 分层 JAR
 
-Fat jar、uber jar、executable jar 在 Spring Boot 语境下指同一件事：一个「全包」可执行 jar。Fat jar 与 uber jar 只是不同叫法（uber 来自德语 über，意为「之上 / 全部」）；Spring 官方文档更常写 executable jar。
+分层 JAR 在 fat jar 布局不变的前提下，额外写入 `BOOT-INF/layers.idx`，声明哪些路径属于哪一层、层的写入顺序。Spring Boot 2.3 起默认开启；Maven `repackage` / Gradle `bootJar` 的 `layered` 无需额外配置即可得到。
 
-与 Maven/Gradle 默认打出的普通 jar（常称 thin jar / plain jar）对比如下：
-
-| | 普通 jar（thin / plain jar） | Fat jar（uber jar / executable jar） |
-| ---- | ---------------------------- | ------------------------------------ |
-| 内容 | 通常只有项目自己的 `.class` 与资源 | 应用代码 + 全部依赖 + `spring-boot-loader`（及内嵌服务器等） |
-| 依赖在哪 | 不在 jar 内，需 classpath 或外部 lib | 嵌在 `BOOT-INF/lib/*.jar` |
-| `java -jar` | 一般不能直接跑（缺依赖） | 可以，一条命令启动 |
-| Spring Boot 谁生成 | `jar` 任务 / `mvn package` 的原始产物（常被重命名为 `*.jar.original`） | `repackage` / `bootJar` 的产物 |
-| 典型用途 | 作为库被别的项目依赖 | 部署、容器镜像、`java -jar` 运行 |
-
-Fat jar 把应用类、第三方依赖、内嵌 Tomcat（或 Jetty/Undertow）和 `spring-boot-loader` 打成一个文件，`java -jar app.jar` 即可启动独立进程。这与 [Spring Boot](./spring-boot.md) 里「内嵌服务器 + 可执行 JAR」的设计一致。
-
-布局要点：
-
-```text
-app.jar
-├── META-INF/MANIFEST.MF     # Main-Class → JarLauncher，Start-Class → 你的 @SpringBootApplication
-├── org/springframework/boot/loader/   # 启动引导
-└── BOOT-INF/
-    ├── classes/             # 你的代码与配置
-    └── lib/                 # 依赖 jar
-```
-
-构建方式：
-
-- Maven：`spring-boot-maven-plugin` 的 `repackage`（使用 `spring-boot-starter-parent` 时通常已绑定到 `package` 阶段）
-- Gradle：`bootJar`（`build` / `assemble` 会自动执行）
-
-```bash
-./mvnw package
-java -jar target/myapp.jar
-
-# Gradle
-./gradlew bootJar
-java -jar build/libs/myapp.jar
-```
-
-容器里最直白的 Dockerfile：
+若暂不做分层，最简容器化是把整个 fat jar 放进单层镜像：
 
 ```dockerfile
 FROM eclipse-temurin:21-jre
@@ -111,11 +75,7 @@ COPY target/*.jar app.jar
 ENTRYPOINT ["java", "-jar", "app.jar"]
 ```
 
-能跑，但整个 uber jar 在一个 Docker layer 里：业务代码一改，依赖层也无法被缓存复用。官方 [Efficient Container Images](https://docs.spring.io/spring-boot/reference/packaging/container-images/efficient-images.html) 明确建议不要长期把 fat jar 原样塞进单层镜像。
-
-## 分层 JAR
-
-分层 JAR 在 fat jar 布局不变的前提下，额外写入 `BOOT-INF/layers.idx`，声明哪些路径属于哪一层、层的写入顺序。Spring Boot 2.3 起默认开启；Maven `repackage` / Gradle `bootJar` 的 `layered` 无需额外配置即可得到。
+能跑，但业务代码一改，依赖层也无法被 Docker 缓存复用。官方 [Efficient Container Images](https://docs.spring.io/spring-boot/reference/packaging/container-images/efficient-images.html) 明确建议不要长期把 fat jar 原样塞进单层镜像；下文分层 JAR 与 Buildpack 即为此优化。
 
 默认四层（从不易变到易变）：
 
@@ -209,6 +169,59 @@ Gradle 等价配置见 [BootBuildImage](https://docs.spring.io/spring-boot/gradl
 
 Buildpack 路径下，运行时默认安装的是 JRE（`BP_JVM_TYPE` 默认为 `JRE`），不是 GraalVM Native；Native 需另开 `BP_NATIVE_IMAGE=true` 等配置，见 [GraalVM Native Image 简介](../graalvm-native-image.md)。
 
+### K8s CI：Tekton + buildpacks-phases
+
+上一节的 `bootBuildImage` / `pack build` 属于 CNB 的 **Platform** 层：需要 Docker daemon 来拉 builder、起构建容器、把镜像写入本地。在 Kubernetes 里若已用 [Tekton 与 Kaniko](../../cloud/tekton-kaniko.md) 做无 daemon 构建，**不能**把 Paketo 塞进 Kaniko，也不能在 Pod 里挂 `docker.sock` 跑 `pack`——后者需要 privileged，与 Kaniko 的安全模型相反。
+
+CNB 真正干活的是 builder 镜像里的 **lifecycle**。无 Docker daemon 时，由 Platform 直接调 lifecycle 各 phase，并把镜像 **push 到 registry**。Tekton 侧官方做法是安装 Catalog 里的 [buildpacks-phases Task](https://buildpacks.io/docs/for-platform-operators/how-to/integrate-ci/tekton/)：把 prepare、detect、build、export 等步骤拆成多个 Tekton step，而不是用 `pack` CLI。
+
+```text
+PipelineRun
+  → git-clone
+  → buildpacks-phases（CNB lifecycle，无 daemon）
+  → update-gitops / 部署
+```
+
+与现有 **Tekton + Kaniko 完全并存**：二者只是不同的 Task，共用同一套 Tekton 平台、workspace、registry Secret（如 `nexus-docker-cred`）。Go 等有 Containerfile 的项目继续 `kaniko-build`；Spring Boot 想零 Dockerfile 的 Pipeline 把 build step 换成 `buildpacks-phases` 即可。homelab 落地示例见 [enx-api Homelab CI/CD](../../cloud/enx-api-homelab-cicd.md)。
+
+典型 Pipeline 片段（在 clone 之后；若 workspace 里已是 fat jar，可省略 Maven 编译 step）：
+
+```yaml
+- name: build-image
+  taskRef:
+    name: buildpacks-phases
+  params:
+  - name: APP_IMAGE
+    value: docker-hosted.example.com/myapp:$(tasks.fetch-source.results.commit)
+  - name: CNB_BUILDER_IMAGE
+    value: paketobuildpacks/builder-noble-java-tiny:latest
+  - name: SOURCE_SUBPATH
+    value: repo/my-spring-app
+  - name: CNB_ENV_VARS
+    value:
+    - BP_JVM_VERSION=21
+  workspaces:
+  - name: source
+    workspace: source-code
+```
+
+要点：
+
+- **输入**：源码目录（Paketo Maven buildpack 会编译）或已 `mvn package` 的 jar 所在目录；`SOURCE_SUBPATH` 指向 workspace 内相对路径。
+- **输出**：`APP_IMAGE` 指定的远程镜像；无 daemon 时必须 push 到 registry，不能 `--publish=false` 只留本地。
+- **环境变量**：与 `bootBuildImage` 相同，`BP_JVM_VERSION`、`BP_JVM_JLINK_ENABLED` 等通过 `CNB_ENV_VARS` 传入。
+- **产物行为**：仍走 Paketo Spring Boot buildpack，会读 `layers.idx` 切镜像层，与本地 `bootBuildImage` 一致。
+
+三种 K8s 构建路径对比：
+
+| 路径 | 需要 Docker daemon | 需要 Dockerfile | 典型场景 |
+| ---- | ------------------ | --------------- | -------- |
+| `bootBuildImage` / `pack` | 是 | 否 | 本机或 CI 有 Docker |
+| Tekton + Kaniko | 否 | 是（含分层 JAR 模板） | 已有 Containerfile、多语言混部 |
+| Tekton + buildpacks-phases | 否 | 否 | K8s 无 daemon、想走 Paketo |
+
+Kaniko 与 buildpacks-phases 不是二选一的全局策略，而是 **按项目选 Task**。若 Pipeline 里还要跑测试、lint，失败则不构建，Tekton 串 step 比单独装 kpack Operator 更直接；kpack 适合平台级声明式镜像治理，与 Tekton 职责不同，本文不展开。
+
 ## Buildpack + jlink 裁剪 JRE
 
 jlink（JDK 9+ 模块系统）可从完整 JDK 生成只含所需模块的定制 JRE，仍用 HotSpot 跑字节码，与 GraalVM Native Image（AOT 成本地二进制）不同。手工多阶段 Dockerfile 里常用 `jdeps` + `jlink`；走 Paketo 时由 Java buildpack 代为执行。
@@ -246,7 +259,9 @@ jlink 模块裁剪与 JPMS 关系见 [JPMS 与 Jigsaw](../../../cs/jpms-jigsaw.m
 | ---- | ---- |
 | 本地试容器、学习 | Fat jar + 简单 Dockerfile |
 | 自建 CI、要控制每一层 COPY | 分层 JAR + 官方 Dockerfile 模板 |
-| 团队想少维护 Dockerfile、与 Paketo 生态一致 | `bootBuildImage` / `spring-boot:build-image` |
+| 团队想少维护 Dockerfile、与 Paketo 生态一致 | `bootBuildImage` / `spring-boot:build-image`（本机有 Docker） |
+| K8s CI 无 Docker daemon、仍想走 Paketo | Tekton + `buildpacks-phases` Task（与 Kaniko 可并存） |
+| K8s CI 无 daemon、已有 Containerfile | Tekton + Kaniko + 分层 JAR Dockerfile |
 | 镜像体积敏感、仍要完整 JVM 语义 | Buildpack + `BP_JVM_JLINK_ENABLED=true`，或手写 jlink 多阶段构建 |
 | 冷启动毫秒级、接受 AOT 约束 | 见 [GraalVM Native Image 简介](../graalvm-native-image.md)，不是本文三条 JVM 路径的延伸 |
 
@@ -267,11 +282,22 @@ jlink 模块裁剪与 JPMS 关系见 [JPMS 与 Jigsaw](../../../cs/jpms-jigsaw.m
 | Gradle `bootJar` / 分层配置 | https://docs.spring.io/spring-boot/gradle-plugin/packaging.html |
 | Paketo Java（含 jlink env） | https://paketo.io/docs/howto/java/ |
 | Paketo Spring Boot buildpack | https://github.com/paketo-buildpacks/spring-boot |
+| CNB + Tekton（buildpacks-phases） | https://buildpacks.io/docs/for-platform-operators/how-to/integrate-ci/tekton/ |
 
 ## 参考
 
 - [CNB: Cloud Native Buildpacks 与 Paketo](../../cloud/cloud-native-buildpacks.md)
+- [Tekton 与 Kaniko](../../cloud/tekton-kaniko.md)
+- [enx-api Homelab CI/CD](../../cloud/enx-api-homelab-cicd.md)
 - [Spring Boot](./spring-boot.md)
+- [Spring Boot Executable JAR](./spring-boot-executable-jar.md)
 - [Spring AOT 简介](./spring-aot.md)
 - [GraalVM Native Image 简介](../graalvm-native-image.md)
 - [JPMS 与 Jigsaw](../../../cs/jpms-jigsaw.md)
+
+## 维护记录
+
+| 时间 | 修改内容 | 原因 |
+| ---- | -------- | ---- |
+| 2026-06-24 | 补充 K8s CI 小节（Tekton + buildpacks-phases）；更新选型表与文档索引 | 说明无 Docker daemon 时如何在 Tekton 中与 Kaniko 并存使用 Paketo |
+| 2026-06-24 | Fat JAR / JarLauncher 拆至 [spring-boot-executable-jar.md](./spring-boot-executable-jar.md)；精简本文为容器打包主线 | 机制专文与容器化索引分工 |

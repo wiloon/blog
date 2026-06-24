@@ -2,7 +2,7 @@
 title: Spring Boot
 author: wiloon
 date: 2026-05-11T14:24:31+08:00
-lastmod: 2026-06-21T18:05:54+08:00
+lastmod: 2026-06-24T11:19:49+08:00
 url: spring-boot
 aliases:
   - /spring/boot/
@@ -44,7 +44,7 @@ Spring Boot（2014）与微服务架构的兴起同期出现。2014 年 Martin F
 
 **1. XML 配置的复杂性**
 
-传统 Spring 项目需要用大量 XML 配置 Spring MVC、数据库连接池、事务管理、安全等模块。Spring Boot 通过自动配置和 Starter 依赖，将这些配置降到近乎为零。
+传统 Spring 项目需要用大量 XML 配置 Spring MVC、数据库连接池、事务管理、安全等模块。即便 Spring 2.5 起业务类已多用注解，**数据源、`component-scan`、事务开关、`web.xml` 等骨架配置仍长期留在 XML 里**；Spring 3.0 的 Java Config（`@Configuration` + `@Bean`）技术上可替代 XML，但每个基础设施都要手写配置类。Spring Boot 通过 **自动配置** 和 Starter 依赖，把上述样板降到近乎为零——多数场景只需 `application.yml` 与业务注解。配置演进脉络见 [Spring](./spring.md) §从 Java Config 到 Spring Boot。
 
 **2. WAR 包 + 外部 Tomcat 的部署复杂性**
 
@@ -273,7 +273,7 @@ Negative matches:
 
 ## 启动应用
 
-Spring Boot 应用打包后是一个可执行 JAR，通过 `java -jar` 启动：
+Spring Boot 应用打包后是一个可执行 JAR，通过 `java -jar` 启动。`MANIFEST.MF` 的 `Main-Class` 指向 `JarLauncher`，由 `spring-boot-loader` 加载 `BOOT-INF/classes` 与 `BOOT-INF/lib` 后再转调你的主类；布局与构建见 [Spring Boot Executable JAR](./spring-boot-executable-jar.md)。
 
 ```bash
 # 基本启动
@@ -750,3 +750,5 @@ Spring Boot 3.x 正式支持 GraalVM Native Image 编译，可以将应用编译
 | 时间 | 修改内容 | 原因 |
 | ---- | -------- | ---- |
 | 2026-06-21 | Boot 3 Native 小节链到新建 [spring-aot.md](./spring-aot.md) | Spring AOT 专文拆分 |
+| 2026-06-24 | 「XML 配置的复杂性」补充 2.5 混合期、Java Config 与 Boot 分工；链到 spring.md | 厘清谁简化了 XML |
+| 2026-06-24 | §启动应用 链到新建 [spring-boot-executable-jar.md](./spring-boot-executable-jar.md) | Fat JAR / JarLauncher 专文拆分 |
