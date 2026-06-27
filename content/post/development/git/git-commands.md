@@ -5,8 +5,9 @@ date: 2026-03-18T09:52:30+08:00
 url: git/basic
 categories:
 - Git
-lastmod: 2026-05-17T16:12:12+08:00
+lastmod: 2026-06-26T18:38:53+08:00
 tags:
+- git
 - remix
 - AI-assisted
 ---
@@ -34,9 +35,6 @@ winget install Git.Git
 # 显示工作树状态, (已经修改但是没 git add, 或者 没有 git commit)
 # 显示索引文件和当前HEAD提交有差异的路径，工作树和索引文件有差异的路径，以及工作树中不被Git追踪的路径（也不被gitignore[5]忽略）。前者是你通过运行 "git commit "会提交的东西；第二和第三者是你在运行 "git commit "之前通过运行 "git add "可以提交的东西。
 git status -s
-
-# 查看本地仓库的当前分支和远程分支的差异(已经 commit 但是还没 push), 只显示 commit id 和 comments
-git cherry -v
 
 # 查看本地仓库的当前分支和远程分支的差异(已经 commit 但是还没 push), 展示方式类似 git log
 git log master ^origin/master
@@ -1374,6 +1372,8 @@ git config credential.helper store
 
 ```bash
 git cherry
+
+# 查看本地仓库的当前分支和远程分支的差异(已经 commit 但是还没 push), 只显示 commit id 和 comments
 git cherry -v
 # 比较本地的 asa 分支和远程 master 的差别
 git cherry -v origin/master asa
@@ -1510,3 +1510,9 @@ git branch -r --contains <commit-hash>
 # 查看所有分支（本地和远程）
 git branch -a --contains <commit-hash>
 ```
+
+## 维护记录
+
+| 时间 | 修改内容 | 原因 |
+| ---- | -------- | ---- |
+| 2026-06-26 | 删除 commands 章节中重复的 `git cherry -v` | 与 `## git cherry` 章节内容重复 |

@@ -12,6 +12,7 @@
 | [internal-links.md](internal-links.md)           | **全站内链**：相对 `.md` + Hugo embedded hook                                            |
 | [page-bundle-images.md](page-bundle-images.md)   | **文章插图**：Page Bundle 目录结构、正文插图、PaperMod 封面、`task preview`              |
 | [build-and-deploy.md](build-and-deploy.md)       | **构建与部署**：`build.sh`（CF Pages）、`scripts/build-site.sh`、Pagefind、容器与 OpenTofu |
+| [doc-length-and-split.md](doc-length-and-split.md) | **文档长度与拆分**：行数参考、单一主题判断、hub 拆分；长文 AI 主动提示作者              |
 | [specs/](specs/)                                 | 各篇文章 Spec（**作者维护**；AI 按 Spec 润色/输出交付物）                                |
 
 ## 文章 Spec 一览

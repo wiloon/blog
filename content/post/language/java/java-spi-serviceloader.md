@@ -1,125 +1,137 @@
 ---
-title: java spi, ServiceLoader
+title: "Java SPI 与 ServiceLoader"
 author: "-"
 date: 2017-11-07T09:24:25+00:00
+lastmod: 2026-06-27T04:52:28+08:00
 url: java-spi-serviceloader
 categories:
-  - Inbox
+  - language
 tags:
-  - reprint
+  - java
+  - spi
+  - serviceloader
+  - remix
+  - AI-assisted
 aliases:
   - /p11372/
 ---
-## java spi, ServiceLoader
-ServiceLoader与ClassLoader是Java中2个即相互区别又相互联系的加载器.JVM利用ClassLoader将类载入内存,这是一个类声明周期的第一步 (一个java类的完整的生命周期会经历加载、连接、初始化、使用、和卸载五个阶段,当然也有在加载或者连接之后没有被初始化就直接被使用的情况) 。详情请参阅: 详解Java类的生命周期
 
-那ServiceLoader又是什么呢？ServiceLoader: 一个简单的服务提供者加载设施。服务 是一个熟知的接口和类 (通常为抽象类) 集合。服务提供者 是服务的特定实现。提供者中的类通常实现接口,并子类化在服务本身中定义的子类。服务提供者可以以扩展的形式安装在 Java 平台的实现中,也就是将 jar 文件放入任意常用的扩展目录中。也可通过将提供者加入应用程序类路径,或者通过其他某些特定于平台的方式使其可用。……唯一强制要求的是,提供者类必须具有不带参数的构造方法,以便它们可以在加载中被实例化。
+## 是什么
 
-通过在资源目录META-INF/services中放置提供者配置文件 来标识服务提供者。文件名称是服务类型的完全限定二进制名称。该文件包含一个具体提供者类的完全限定二进制名称列表,每行一个。忽略各名称周围的空格、制表符和空行。注释字符为'#'('\u0023', NUMBER SIGN)；忽略每行第一个注释字符后面的所有字符。文件必须使用 UTF-8 编码。
+SPI（Service Provider Interface，服务提供者接口）是 Java 内置的**插件机制**：允许第三方在不修改调用方代码的前提下，提供接口的实现。
 
-以延迟方式查找和实例化提供者,也就是说根据需要进行。服务加载器维护到目前为止已经加载的提供者缓存。每次调用 iterator 方法返回一个迭代器,它首先按照实例化顺序生成缓存的所有元素,然后以延迟方式查找和实例化所有剩余的提供者,依次将每个提供者添加到缓存。可以通过 reload 方法清除缓存。
+核心思路一句话：
 
-……
+```text
+调用方只依赖接口 → 实现由 ServiceLoader 在运行时发现
+```
 
-以上来源于Java API里的说明,也许说的很专业,让我们有点晕头转向,我们可以简单的认为: ServiceLoader也像ClassLoader一样,能装载类文件,但是使用时有区别,具体区别如下:  (1)  ServiceLoader装载的是一系列有某种共同特征的实现类,而ClassLoader是个万能加载器； (2) ServiceLoader装载时需要特殊的配置,使用时也与ClassLoader有所区别； (3) ServiceLoader还实现了Iterator接口。[如有错误或不到的地方敬请指出,互相学习: ) ]
+调用方编译期只认接口，不写死任何实现类；具体用哪个实现，由 classpath 上的实现库通过约定文件「自报家门」，由 `java.util.ServiceLoader` 在运行时加载并实例化。这与 IoC 的思想类似——把装配的控制权移到程序之外，在模块化设计里尤其重要。
 
-SPI 和 ServiceLoader
+## 三个组成部分
 
-1 SPI: Service Provider Interface
+| 组成 | 说明 |
+| ---- | ---- |
+| **接口（Service）** | 由框架或标准库定义，如 `java.sql.Driver` |
+| **实现（Provider）** | 由第三方库提供，如 `com.mysql.cj.jdbc.Driver` |
+| **注册文件** | `META-INF/services/<接口全限定名>`，内容是实现类的全限定名 |
 
-一个服务(Service)通常指的是已知的接口或者抽象类,服务提供方就是对这个接口或者抽象类的实现,然后按照SPI 标准存放到资源路径META-INF/services目录下,文件的命名为该服务接口的全限定名
+注册文件规则：
 
-许多开发框架都使用了Java的SPI机制,如java.sql.Driver的SPI实现 (MySQL驱动、oracle驱动等) 、common-logging的日志接口实现、dubbo的扩展实现等等。
+- 文件名是服务接口的完全限定二进制名称
+- 每行一个实现类的全限定名；空行、行首 `#` 注释会被忽略
+- 文件必须使用 **UTF-8** 编码
+- 提供者类必须有**无参构造方法**，以便被反射实例化
 
-我们系统里抽象的各个模块,往往有很多不同的实现方案,比如日志模块的方案,xml解析模块、jdbc模块的方案等。面向的对象的设计里,我们一般推荐模块之间基于接口编程,模块之间不对实现类进行硬编码。一旦代码里涉及具体的实现类,就违反了可拔插的原则,如果需要替换一种实现,就需要修改代码。
+## 工作流程
 
-为了实现在模块装配的时候能不在程序里动态指明,这就需要一种服务发现机制。java spi就是提供这样的一个机制: 为某个接口寻找服务实现的机制。有点类似IOC的思想,就是将装配的控制权移到程序之外,在模块化设计中这个机制尤其重要。
+```text
+① 调用方：ServiceLoader.load(Driver.class)
+      ↓
+② JVM 扫描 classpath 上所有 jar 里的
+   META-INF/services/java.sql.Driver
+      ↓
+③ 读出文件中的实现类名，反射实例化
+      ↓
+④ 返回一个可迭代所有实现的迭代器
+```
 
-java spi的具体约定如下: 当服务的提供者,提供了服务接口的一种实现之后,在jar包的META-INF/services/目录里同时创建一个以服务接口命名的文件。该文件里就是实现该服务接口的具体实现类。而当外部程序装配这个模块的时候,就能通过该jar包META-INF/services/里的配置文件找到具体的实现类名,并装载实例化,完成模块的注入
+`ServiceLoader` 以**延迟方式**查找并实例化：维护已加载实现的缓存，`iterator()` 先返回缓存中的元素，再按需查找剩余实现并依次加入缓存，可用 `reload()` 清缓存。
 
-1.例子
+## 一个完整例子
 
-第一步: 提供一个接口和它的若干个实现: 
-  
-有一个接口
+接口与两个实现：
 
-package com.xihe.api;
+```java
+package com.example.api;
 
-public interface XiheInterface {
-      
-public void sayHi();
-  
+public interface Greeting {
+    void sayHi();
 }
-  
-该接口有两个实现
 
-package com.xihe.api;
-
-public class XiheBJ implements XiheInterface {
-
-    public void sayHi() {
-         System.out.println("xihe in beijing "); 
-    } 
-    
-
+public class GreetingBeijing implements Greeting {
+    public void sayHi() { System.out.println("hi from beijing"); }
 }
-  
-public class XiheZZ implements XiheInterface {
 
-    public void sayHi() {
-        System.out.println("xihe in zhengzhou");
-    }
-    
-
+public class GreetingZhengzhou implements Greeting {
+    public void sayHi() { System.out.println("hi from zhengzhou"); }
 }
-  
-第二步:  在src下创建META-INF/services/目录 (maven工程META-INF放在src/main/resources里)
-  
-目录中创建一个名为com.xihe.api.XiheInterface 的文件,文件的内容是实现类的全名。
-  
-如果该Service有多个服务实现,则每一行写一个服务实现,如: 
+```
 
-com.xihe.api.XiheZZ
-  
-com.xihe.api.XiheBJ
-  
-第三步: 加载
+注册文件 `src/main/resources/META-INF/services/com.example.api.Greeting`：
 
+```text
+com.example.api.GreetingZhengzhou
+com.example.api.GreetingBeijing
+```
+
+加载并调用：
+
+```java
 public class Demo {
-
     public static void main(String[] args) {
-        ServiceLoader<XiheInterface> serviceLoader = ServiceLoader.load(XiheInterface.class);
-        Iterator<XiheInterface> it = serviceLoader.iterator();
-        while (it!=null && it.hasNext()) {
-            XiheInterface demoService = it.next();
-            System.out.println("class:"+demoService.getClass().getName());
-            demoService.sayHi();
+        ServiceLoader<Greeting> loader = ServiceLoader.load(Greeting.class);
+        for (Greeting g : loader) {
+            System.out.println(g.getClass().getName());
+            g.sayHi();
         }
     }
-    
-
 }
-  
-运行结果: 
-  
-class:com.xihe.api.XiheZZ
-  
-xihe in zhengzhou
-  
-class:com.xihe.api.XiheBJ
-  
-xihe in beijing
+```
 
-http://www.jianshu.com/p/32d3e108f30a
-  
-https://my.oschina.net/hanzhankang/blog/109794
-  
-http://mogu.io/serviceloader-106
-  
-http://shmilyaw-hotmail-com.iteye.com/blog/1926513
-  
-http://www.voidcn.com/blog/FX_SKY/article/p-6102785.html
-  
-https://yq.aliyun.com/articles/32452
-  
-http://blog.5ibc.net/p/40779.html
+## 常见用途
+
+| 接口 | 实现（第三方 jar） |
+| ---- | ------------------ |
+| `java.sql.Driver` | MySQL、PostgreSQL 驱动 |
+| `org.slf4j.spi.SLF4JServiceProvider` | Logback、Log4j2 |
+| `java.nio.file.spi.FileSystemProvider` | zip、嵌套 jar 文件系统 |
+| `javax.crypto.JceSecurity` | BouncyCastle 等加密提供者 |
+
+自 Java 6 起，JDBC 驱动通过 SPI 自注册，不再需要 `Class.forName("com.mysql.Driver")`。
+
+## ServiceLoader 与 ClassLoader
+
+两者都能加载类，但定位不同：
+
+- **ClassLoader** 是「万能加载器」，按双亲委托加载任意类（见 [classloader](./classloader.md)）。
+- **ServiceLoader** 装载的是「实现了某个共同接口的一组实现类」，依赖 `META-INF/services/` 约定文件，且实现了 `Iterable` 接口。
+
+## 与 Spring 自动配置的区别
+
+Spring Boot 的自动配置读取的是 `META-INF/spring/...AutoConfiguration.imports`，那是 **Spring Boot 自己的约定**，不是 JDK SPI；而 `META-INF/services/` 才是 JDK 标准的 `ServiceLoader` 机制。两者都用 `META-INF/` 下的声明文件，但分属不同体系，详见 [Spring Boot §Auto-configuration](./spring/spring-boot.md#auto-configuration自动配置)。
+
+Spring Boot 可执行 JAR 里也用到 SPI——`NestedFileSystemProvider` 就是通过 `META-INF/services/java.nio.file.spi.FileSystemProvider` 注册的，用于读取嵌套 jar，见 [Spring Boot Executable JAR](./spring/spring-boot-executable-jar.md)。
+
+## 参考
+
+- [classloader](./classloader.md)
+- [Spring Boot §Auto-configuration](./spring/spring-boot.md#auto-configuration自动配置)
+- [Spring Boot Executable JAR](./spring/spring-boot-executable-jar.md)
+- [ServiceLoader (Java SE API)](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/ServiceLoader.html)
+
+## 维护记录
+
+| 时间 | 修改内容 | 原因 |
+| ---- | -------- | ---- |
+| 2026-06-27 | 重写为结构化中文文档：补充 SPI 三要素、工作流程、与 Spring 自动配置区别；删除 reprint 标签 | 原文为低质量转载；合并 comments-tree 启动打包文档的 SPI 章节 |

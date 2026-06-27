@@ -2,7 +2,7 @@
 title: HotSpot JVM 简介
 author: "-"
 date: 2026-05-31T07:25:07+08:00
-lastmod: 2026-06-21T18:53:36+08:00
+lastmod: 2026-06-27T04:52:28+08:00
 url: hotspot
 categories:
   - language
@@ -71,6 +71,64 @@ Java 源码 → javac → .class
 
 动态挂外部 agent（BTrace、Arthas）同样依赖 HotSpot 的 attach 与 instrument 实现。
 
+## libjvm.so 与 JVM 主体
+
+`libjvm.so` 才是 JVM 的真正主体。`/usr/bin/java` 只是个极小的启动器（几 KB），它的全部工作是解析参数、定位 JRE 安装路径，然后 `dlopen("libjvm.so")`：
+
+```text
+java -jar app.jar
+  ↓
+java 启动器（几 KB）
+  → 找到 $JAVA_HOME/lib/server/libjvm.so
+  → dlopen(libjvm.so)   ← JVM 主体进入内存
+  ↓
+JVM 初始化：堆、栈、方法区、GC、JIT
+  ↓
+读 MANIFEST.MF → 加载主类 → ...
+```
+
+`libjvm.so` 位于 `$JAVA_HOME/lib/server/libjvm.so`，通常是 JDK 安装里最大的单个文件（数十 MB）。它包含：
+
+| 组成 | 说明 |
+| ---- | ---- |
+| 字节码解释器 | 执行 `.class` 字节码 |
+| JIT 编译器 | C1（client）、C2（server） |
+| GC 实现 | Serial、Parallel、G1、ZGC、Shenandoah |
+| 类加载器 | Java `ClassLoader` 的 C++ 实现 |
+| 运行时 | 线程管理、锁、内存管理 |
+
+Spring Boot fat jar 启动时 `libjvm.so` 何时进内存，见 [Spring Boot Executable JAR](./spring/spring-boot-executable-jar.md) §启动全流程。
+
+## 实现语言与自举
+
+HotSpot（OpenJDK / Oracle JDK 自带的 JVM）主要用 **C++** 编写，少量 C 与平台相关汇编：
+
+| 组成 | 语言 |
+| ---- | ---- |
+| 解释器、GC、类加载 | C++ |
+| OS 级原语（线程、内存映射） | C |
+| JIT 生成的机器码模板（Stub） | 汇编（x86 / ARM） |
+
+这是自然选择：管理裸内存、操作 CPU 寄存器、发起系统调用正是 C/C++ 擅长的。Java 无法用自己实现虚拟机——运行任何 Java 程序都已经需要一个现成的 JVM，这是「先有鸡还是先有蛋」的问题。JDK 标准库（`java.lang.*` 等）是 Java 写的，但任何触及 OS 的操作（文件、网络、线程）最终都会调到 `libjvm.so` 里的 `native` 方法。
+
+### Java vs Go vs Rust 的自举
+
+「自举」（self-hosting）指一门语言的编译器用它自己写，并能编译自己。
+
+| 语言 | 编译器 | 运行时 | 是否完全自举 |
+| ---- | ------ | ------ | ------------ |
+| Java | `javac`（Java） | JVM（C++） | **部分**：`javac` 能编译 `javac`，但 JVM 是 C++，且运行 `javac` 本身就需要现成 JVM |
+| Go | `gc`（Go，自 1.5 起） | 无独立 VM | **完全**：编译为本地机器码 |
+| Rust | `rustc`（Rust） | 无独立 VM | **完全**：编译为本地机器码 |
+
+```text
+Java:  .java → javac(Java) → .class → JVM(C++) 执行   ← 始终依赖 C++
+Go:    .go   → gc(Go)      → 机器码                   ← 完全脱离 C
+Rust:  .rs   → rustc(Rust) → 机器码                   ← 完全脱离 C
+```
+
+Go 与 Rust 能彻底摆脱 C 的关键，是它们**直接编译为本地机器码**，无需 C 写的运行时来执行编译器输出。Java 走 GraalVM Native Image 也能产出本地二进制（见 [GraalVM Native Image](./graalvm-native-image.md)）。
+
 ## 博客内相关文章
 
 | 主题 | 文章 |
@@ -97,3 +155,4 @@ Java 源码 → javac → .class
 | ---- | -------- | ---- |
 | 2026-06-19 | 明确 HotSpot 边界；索引表增加 hotspot-options、jvm-compiler | 与 jvm.md 职责拆分 |
 | 2026-06-21 | 新增「历史」节：1999 首次发布、1.3 默认、1.4 唯一 | 补充 HotSpot 起源与 JDK 集成时间线 |
+| 2026-06-27 | 新增「libjvm.so 与 JVM 主体」「实现语言与自举」（含 Java/Go/Rust 自举对比） | 合并 comments-tree 启动打包文档相关章节 |

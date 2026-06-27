@@ -21,7 +21,7 @@
 | ---- | ---- |
 | 同目录 | `[HotSpot](./hotspot.md)` |
 | 跨目录 | `[DCEVM](../../cs/dcevm-hotswapagent.md)` |
-| 带锚点 | `[Spring Boot](./spring/spring-boot.md#依赖注入方式)` |
+| 带锚点 | `[Spring Boot](./spring/spring-boot.md#auto-configuration自动配置)` |
 | 外链 | `[title](https://example.com)`（不变） |
 
 **禁止**新建站内互链 `[text](/permalink)`。

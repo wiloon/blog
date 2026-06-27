@@ -2,7 +2,7 @@
 title: Spring
 author: "-"
 date: 2026-06-24T07:10:34+08:00
-lastmod: 2026-06-24T09:37:13+08:00
+lastmod: 2026-06-26T21:44:56+08:00
 url: spring
 categories:
   - java
@@ -318,6 +318,7 @@ Servlet（void + Request/Response 参数）
 | IoC / 依赖注入 | [Spring IoC，依赖注入](./spring-ioc.md) |
 | HTTP 与 REST 实践 | [Spring MVC](./spring-mvc.md) |
 | 自动配置与部署 | [Spring Boot](./spring-boot.md) |
+| Boot 3.x 迁移 | [Spring Boot 3.x Migration](./spring-boot-3-migration.md) |
 | JDK 5 与注解语言特性 | [JDK 5](../jdk-5.md)、[Java Annotation（注解）](../annotation.md) |
 | AOP 与版本演进 | [aop](../aop.md) |
 | 原生镜像 / AOT | [Spring AOT](./spring-aot.md) |
@@ -334,3 +335,9 @@ Servlet（void + Request/Response 参数）
 | 注解后还要 XML 吗 | 2.5 后多年 **XML 骨架 + 注解业务** 很常见 |
 | 谁去掉 XML | 3.0 Java Config 技术上可零 XML；Boot 自动配置让「几乎零配置」成默认 |
 | JDK 5 与 Spring 注解 | JDK 5 提供语言机制；Spring 注解是框架自定义，靠反射扫描 |
+
+## 维护记录
+
+| 时间 | 修改内容 | 原因 |
+| ---- | -------- | ---- |
+| 2026-06-26 | 延伸阅读表增加 Boot 3.x 迁移链接 | spring-boot.md 拆分 |

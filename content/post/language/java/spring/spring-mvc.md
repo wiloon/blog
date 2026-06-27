@@ -2,7 +2,7 @@
 title: Spring MVC
 author: "-"
 date: 2012-11-30T08:01:33+00:00
-lastmod: 2026-06-24T06:46:20+08:00
+lastmod: 2026-06-27T04:52:28+08:00
 url: springmvc
 categories:
   - java
@@ -228,6 +228,46 @@ public class CreateUserRequest {
 
 ---
 
+## 为什么 Java Web 需要 Tomcat/Jetty
+
+### 没有 Tomcat，Java 能直接提供 HTTP 吗
+
+能。JDK 自带一个基础 HTTP server：
+
+```java
+// 裸 TCP socket，自己解析 HTTP
+ServerSocket ss = new ServerSocket(8080);
+
+// JDK 内置（JDK 6 起），非生产级
+HttpServer server = HttpServer.create(new InetSocketAddress(8080), 0);
+server.createContext("/", exchange -> { /* ... */ });
+server.start();
+```
+
+JDK 内置的 `HttpServer` 面向工具与测试，缺少连接池、HTTP/2、完善的 TLS 与可调线程模型，生产环境基本不用。
+
+### Servlet 规范 vs 实现
+
+Java EE（1990 年代末）追求可移植：**同一个 WAR 应当能部署到任意服务器**（Tomcat、JBoss、WebLogic、WebSphere）。
+
+```text
+应用层（WAR）
+  ↕  Servlet API（jakarta.servlet.*）   ← 标准接口，由 Sun/Oracle 定义
+Servlet 容器（Tomcat / Jetty / JBoss）
+  ↕  TCP / HTTP
+OS
+```
+
+Servlet API 是**规范**，Tomcat/Jetty 是**实现**。应用只依赖规范，理论上与容器无关。这与 Go 的哲学相反——Go 的 `net/http` 本身就是生产级标准库，没有「部署目标」的概念。
+
+### Tomcat/Jetty 实际解决了什么
+
+它们不只是「适配器」，而是承载了 20 多年生产打磨的实现：HTTP/1.1、HTTP/2、HTTP/3、WebSocket、TLS、连接池与 keep-alive、线程模型调优、慢连接攻击防护等。即便没有 Tomcat，也得有别的组件来解决这些问题——复杂度不会消失，只是被一个久经测试的库吸收了。
+
+Spring Boot 把 Tomcat/Jetty 内嵌进 fat jar，开发体验已接近 Go（`mvn package && java -jar app.jar`），但底层仍是这套 Servlet 实现。WebFlux 则用 Netty 替换 Servlet 容器，IO 模型与网络层选型见 [Spring WebFlux](./spring-webflux.md)。
+
+---
+
 ## 小结
 
 - Spring Framework 总览与演变（含 Struts 时代 Web 层脉络）见 [Spring](./spring.md)
@@ -245,3 +285,4 @@ public class CreateUserRequest {
 | 2026-06-24 | 移至 `language/java/spring/spring-mvc.md`；`categories` 改为 `java` | 与 Spring 专题文章同目录归类 |
 | 2026-06-24 | 同批迁入 `spring-ioc`、`spring-boot-devtools` 及 `other/`/`development/` 下 Spring MVC 老文 | 统一 Spring 专题目录 |
 | 2026-06-24 | 明确本文范围（MVC 实践）；小结链到 spring.md | 历史与整体定位由 spring.md 承载 |
+| 2026-06-27 | 新增「为什么 Java Web 需要 Tomcat/Jetty」（JDK HttpServer、Servlet 规范 vs 实现、与 Go 对比） | 合并 comments-tree 启动打包文档相关章节 |
