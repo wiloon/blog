@@ -15,6 +15,8 @@
 | [doc-length-and-split.md](doc-length-and-split.md) | **文档长度与拆分**：行数参考、单一主题判断、hub 拆分；长文 AI 主动提示作者              |
 | [specs/](specs/)                                 | 各篇文章 Spec（**作者维护**；AI 按 Spec 润色/输出交付物）                                |
 
+**周记 Spec** 不在本仓库，已迁入私有仓库 `w10n-config/ops/weekly/`（见 [ADR-0002](https://github.com/wiloon/w10n-config/blob/main/ops/ADR-0002-weekly-spec-to-private-repo.md)）。本仓库仅保留周记**交付物** `content/post/career/weekly-*.md`。
+
 ## 文章 Spec 一览
 
 | Spec                                                                                 | 交付物                                                                                                                                             |
@@ -25,11 +27,9 @@
 | [specs/iot-protocol-oom-mysql-influxdb.md](specs/iot-protocol-oom-mysql-influxdb.md) | （review）[career/iot-protocol-oom-mysql-influxdb.md](../content/post/career/iot-protocol-oom-mysql-influxdb.md)                                   |
 | [specs/pve-storage.md](specs/pve-storage.md)                                         | （review）[cloud/pve-storage.md](../content/post/cloud/pve-storage.md)                                                                             |
 | [specs/android-apk-security-assessment.md](specs/android-apk-security-assessment.md) | `content/post/career/android-apk-security-assessment.md`                                                                                           |
-| [specs/weekly-2026-w23.md](specs/weekly-2026-w23.md)                                 | `content/post/career/weekly-2026-w23.md`                                                                                                           |
-| [specs/weekly-2026-w24.md](specs/weekly-2026-w24.md)                                 | `content/post/career/weekly-2026-w24.md`                                                                                                           |
+| [specs/weekly-report-2026-w24/weekly-2026-w24.md](specs/weekly-report-2026-w24/weekly-2026-w24.md) | `content/post/career/weekly-2026-w24.md`（历史 Spec，仍留本仓） |
 | [specs/starbucks-latte-vs-indie-cafe.md](specs/starbucks-latte-vs-indie-cafe.md)     | `content/post/life/starbucks-latte-vs-indie-cafe.md`                                                                                               |
-| [specs/weekly-2026-w25.md](specs/weekly-2026-w25.md)                                 | `content/post/career/weekly-2026-w25.md`                                                                                                           |
-| [specs/weekly-2026-w26.md](specs/weekly-2026-w26.md)                                 | `content/post/career/weekly-2026-w26.md`                                                                                                           |
+| `w10n-config/ops/weekly/weekly-2026-w{23,25,26}.md`（私有仓）                        | `content/post/career/weekly-2026-w{23,25,26}.md`                                                                                                   |
 | [specs/spring-boot-container-packaging.md](specs/spring-boot-container-packaging.md) | [spring/spring-boot-container-packaging.md](../content/post/language/java/spring/spring-boot-container-packaging.md)                               |
 | [specs/spring-boot-executable-jar.md](specs/spring-boot-executable-jar.md)           | [spring/spring-boot-executable-jar.md](../content/post/language/java/spring/spring-boot-executable-jar.md)                                         |
 | [specs/cloud-native-buildpacks.md](specs/cloud-native-buildpacks.md)                 | [cloud/cloud-native-buildpacks.md](../content/post/cloud/cloud-native-buildpacks.md)                                                               |
