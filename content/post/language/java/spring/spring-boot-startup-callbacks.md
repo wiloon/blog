@@ -1,5 +1,5 @@
 ---
-title: Spring Boot Startup Callbacks: 应用启动后执行逻辑
+title: "Spring Boot Startup Callbacks: 应用启动后执行逻辑"
 author: wiloon
 date: 2026-06-26T21:44:56+08:00
 lastmod: 2026-06-26T21:44:56+08:00

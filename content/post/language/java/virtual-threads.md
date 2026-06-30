@@ -1,5 +1,5 @@
 ---
-title: Java Virtual Threads: 虚拟线程与高并发
+title: "Java Virtual Threads: 虚拟线程与高并发"
 author: wiloon
 date: 2026-06-26T21:44:56+08:00
 lastmod: 2026-06-26T21:44:56+08:00

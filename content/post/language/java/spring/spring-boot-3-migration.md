@@ -1,5 +1,5 @@
 ---
-title: Spring Boot 3.x Migration: 关键特性与约束
+title: "Spring Boot 3.x Migration: 关键特性与约束"
 author: wiloon
 date: 2026-06-26T21:44:56+08:00
 lastmod: 2026-06-26T21:44:56+08:00
