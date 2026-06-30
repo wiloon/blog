@@ -43,6 +43,9 @@
 {{- if .IsHome }}
 {{- $pages = where site.RegularPages "Type" "in" site.Params.mainSections }}
 {{- $pages = where $pages "Params.hiddenInHomeList" "!=" "true"  }}
+{{- with site.Params.homeTag }}
+{{- $pages = where $pages "Params.tags" "intersect" (slice .) }}
+{{- end }}
 {{- end }}
 
 {{- $pages = $pages.ByLastmod.Reverse }}

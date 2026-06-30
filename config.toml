@@ -145,10 +145,13 @@ hasCJKLanguage = true
   # 评论系统 (可选)
   comments = true
 
+  # 首页文章流仅展示带该标签的文章；留空或删除则恢复显示全部
+  homeTag = "original"
+
   # 首页信息
   [params.homeInfoParams]
     Title = "Hi, 我是 W10N"
-    Content = "这里收集整理了一些技术资料(大部分是转载的，经常用到的有整理过)，希望能帮助到有需要的人。"
+    Content = "这里主要是我的日常记录——周记、工作复盘和一些随笔。另外我也收集整理了一些技术资料，可从顶部导航「收集综合症/转载」「整理过的」查看。"
 
   # 社交链接
   [[params.socialIcons]]
