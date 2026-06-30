@@ -2,11 +2,15 @@
 title: Paxos
 author: "-"
 date: 2015-12-23T02:48:43+00:00
+lastmod: 2026-06-30T18:35:03+08:00
 url: paxos
 categories:
-  - Inbox
+  - Algorithm
 tags:
-  - reprint
+  - distributed-systems
+  - consensus
+  - remix
+  - AI-assisted
 aliases:
   - /p8592/
 ---
@@ -16,7 +20,7 @@ aliases:
 
 I thought, and still think, that Paxos is an important algorithm.  Inspired by my success at popularizing the consensus problem by describing it with Byzantine generals, I decided to cast the algorithm in terms of a parliament on an ancient Greek island.  Leo Guibas suggested the name Paxos for the island.
 
-为描述 Paxos 算法,Lamport 虚拟了一个叫做 Paxos 的希腊城邦,这个岛按照议会民主制的政治模式制订法律,但是没有人愿意将自己的全部时间和精力放在这种事情上。所以无论是议员,议长或者传递纸条的服务员都不能承诺别人需要时一定会出现,也无法承诺批准决议或者传递消息的时间。但是这里假设没有拜占庭将军问题 (Byzantine failure,即虽然有可能一个消息被传递了两次,但是绝对不会出现错误的消息) ；只要等待足够的时间,消息就会被传到。另外,Paxos 岛上的议员是不会反对其他议员提出的决议的[1]。
+为描述 Paxos 算法,Lamport 虚拟了一个叫做 Paxos 的希腊城邦,这个岛按照议会民主制的政治模式制订法律,但是没有人愿意将自己的全部时间和精力放在这种事情上。所以无论是议员,议长或者传递纸条的服务员都不能承诺别人需要时一定会出现,也无法承诺批准决议或者传递消息的时间。但是这里假设没有[拜占庭将军问题](./byzantine-generals-problem.md) (Byzantine failure,即虽然有可能一个消息被传递了两次,但是绝对不会出现错误的消息) ；只要等待足够的时间,消息就会被传到。另外,Paxos 岛上的议员是不会反对其他议员提出的决议的[1]。
 
 **http://www.cnblogs.com/endsock/p/3480093.html**
 
@@ -46,3 +50,9 @@ Acceptor初步接受 或者 Acceptor初步不接受
 Acceptor 最终接受 或者Acceptor 最终不接受
 
 >https://www.cnblogs.com/ychellboy/archive/2009/12/29/1634685.html
+
+## 维护记录
+
+| 时间 | 修改内容 | 原因 |
+| ---- | -------- | ---- |
+| 2026-06-30 | 给「拜占庭将军问题」加内链指向 [byzantine-generals-problem](./byzantine-generals-problem.md)；分类 `Inbox`→`Algorithm`，标签由 `reprint` 改为 `distributed-systems`/`consensus`/`remix`/`AI-assisted`，新增 `lastmod` | 与拜占庭将军问题一文互链；规范分类与标签 |
