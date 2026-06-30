@@ -80,6 +80,10 @@ content/post/language/java/exception-handling.md  # ✅
 - **避免极端/夸张词汇**：不用「最佳实践」「终极指南」「深度解析」等，直接描述主题即可
   - ❌ `Shell 创建文件并写入内容的最佳实践`
   - ✅ `Shell 创建文件并写入内容`
+- 🚨 **含特殊字符的标题必须加引号**：YAML 标量里 **冒号 + 空格 `: `**、以及行首的 `#`、`-`、`[`、`{`、`'`、`"`、`*`、`&`、`|`、`>` 等都有语法含义。`title` 一旦包含这些字符（最常见的就是英中混写里的 `Spring Boot 3.x: 迁移`），**必须用引号整体包起来**（推荐双引号 `"..."`），否则 Hugo 构建会因 YAML 解析失败而**整站构建中止**（参见下文「构建失败排查」）
+  - ❌ `title: Spring Boot 3.x Migration: 关键特性与约束`（冒号后被当作 YAML mapping，解析报错）
+  - ✅ `title: "Spring Boot 3.x Migration: 关键特性与约束"`
+  - 💡 拿不准时，统一给 `title` 加双引号最安全
 
 **示例：**
 
@@ -90,10 +94,13 @@ title: '一篇不错的讲解 Java 异常的文章（转载）'  # ❌ 不直接
 # 错误示例（纯中文，不便 title 搜索）
 title: '压缩与解压'  # ❌
 
-# 正确示例（标题准确，且含英文）
-title: 'Java Exception Handling: Anti-Patterns and Best Practices'  # ✅ 纯英文
-title: 'JPMS: Java 平台模块系统'  # ✅ 英中混写
-title: 'Compress and Extract 压缩与解压'  # ✅ 英中混写
+# 错误示例（含冒号却未加引号，会导致 Hugo 构建失败）
+title: Spring WebFlux: 响应式 Web 框架  # ❌ 冒号 + 空格未加引号
+
+# 正确示例（标题准确，含英文，特殊字符已加引号）
+title: "Java Exception Handling: Anti-Patterns and Best Practices"  # ✅ 纯英文 + 冒号已加引号
+title: "JPMS: Java 平台模块系统"  # ✅ 英中混写 + 冒号已加引号
+title: 'Compress and Extract 压缩与解压'  # ✅ 英中混写（无特殊字符，加不加引号均可）
 ```
 
 #### 文件名和标题检查清单
@@ -102,6 +109,7 @@ title: 'Compress and Extract 压缩与解压'  # ✅ 英中混写
 - ✅ 文件名是否反映文章主题？如果不符，重命名
 - ✅ `title` 是否准确描述文章内容？如果不符，更新
 - ✅ `title` 是否包含英文（可纯英文或英中混写，不可纯中文）？
+- ✅ `title` 是否含冒号 `: ` 等 YAML 特殊字符？若含，**必须加引号**（推荐双引号），否则 Hugo 构建失败
 - ✅ 文件名、title、url 三者语义是否一致？
 
 ---
@@ -513,6 +521,41 @@ print("Hello")
 > - MD040: 代码块缺少语言标识
 > - MD041: 文件第一行应该是顶级标题（通常忽略，因为有 front matter）
 > - MD060: 表格管道符风格不一致（分隔行应写 `| --- | --- |` 而非 `|---|---|`）
+
+---
+
+### 构建失败排查（YAML / front matter）
+
+**核心规则：编辑或新建文章后，front matter（`---` 之间的 YAML）必须能被正确解析，否则会导致整站构建失败。**
+
+#### 为什么严重：失败是「静默」的
+
+本博客部署在 **Cloudflare Pages**，构建命令 `bash build.sh`（`hugo --minify` + pagefind）。Hugo 在 assemble 阶段**只要有一篇文章的 front matter YAML 解析失败，就会中止整站构建**，一个页面都不生成。
+
+Cloudflare Pages 在构建失败时会**保留上一次成功的部署**：站点 `https://wiloon.com/` 仍可访问、表面无异常，但内容停在旧版本——**新文章不会出现，且不会有任何报错提示**。所以这类错误极易被忽略。
+
+#### 最常见的坑：标题里的冒号
+
+英中混写标题常出现 `冒号 + 空格`，未加引号时 YAML 会把它当成 mapping，解析报错：
+
+```text
+ERROR error building site: assemble: failed to create page ...:
+  mapping value is not allowed in this context
+>  1 | title: Spring Boot 3.x Migration: 关键特性与约束
+```
+
+修复：给 `title` 加引号（推荐双引号），详见上文「标题（title）规范」。除冒号外，`#`、`-`、`[`、`{`、`'`、`"`、`*`、`&`、`|`、`>` 等出现在标量里也需加引号。
+
+#### 提交前自查
+
+- ✅ 改动文章后，**本地跑一次构建**确认通过：`task preview`（或 `hugo`）。报 `mapping value is not allowed`、`could not find ...` 等即为 front matter 问题。
+- ✅ 一次性扫描所有「标题含冒号却未加引号」的文章：
+
+```bash
+rg -n --pcre2 '^title: (?!["\x27]).*: ' content/ -g '*.md'
+```
+
+- ✅ Hugo 一遇错即中止、一次只报一篇，**修完要重跑**直到构建干净（可能有多篇）。
 
 ---
 
