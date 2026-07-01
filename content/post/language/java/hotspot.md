@@ -139,7 +139,7 @@ Go 与 Rust 能彻底摆脱 C 的关键，是它们**直接编译为本地机器
 | GC 概念与算法 | [java-gc](./java-gc.md)、[jvm-gc](./jvm-gc.md) |
 | 类加载 | [classloader](./classloader.md) |
 | Attach / jcmd | [attach-api](./attach-api.md)、[jcmd](./jcmd.md) |
-| 字节码织入 | [java-asm](./java-asm.md) |
+| 字节码织入 | [java-asm](./asm.md) |
 | 开发期热替换 | [DCEVM 与 HotSwapAgent](../../cs/dcevm-hotswapagent.md) |
 | Safepoint | [safepoint](../../other/safepoint.md) |
 | JDK 版本变更 | [JDK 21→25](../jdk25-changes-from-jdk21.md)、[JDK 26](./jdk-26.md) |

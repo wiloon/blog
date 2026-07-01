@@ -23,7 +23,7 @@ tags:
 
 开发时希望改 Java 代码后 **少重启** 就能看到效果。这与生产上 [BTrace](../language/java/btrace.md) attach **观测** 不是同一条路。本文归纳 **HotSwap** 及相关工具，并说明各自边界。
 
-字节码织入与 `redefine` 机制见 [java-asm](../language/java/java-asm.md)；调试协议见 [JPDA](../language/java/java-debug-JPDA.md)、[JVMTI](../language/java/jvmti.md)。
+字节码织入与 `redefine` 机制见 [java-asm](../language/java/asm.md)；调试协议见 [JPDA](../language/java/java-debug-JPDA.md)、[JVMTI](../language/java/jvmti.md)。
 
 ## HotSwap 是什么
 
@@ -94,7 +94,7 @@ Spring DevTools 细节见 [Spring Boot DevTools](../language/java/spring/spring-
 
 - [DCEVM](https://dcevm.github.io/)
 - [HotSwapAgent](https://www.hotswapagent.org/)
-- [java-asm](../language/java/java-asm.md)
+- [java-asm](../language/java/asm.md)
 - [JPDA](../language/java/java-debug-JPDA.md)
 - [JVMTI](../language/java/jvmti.md)
 - [HotSpot 简介](../language/java/hotspot.md)

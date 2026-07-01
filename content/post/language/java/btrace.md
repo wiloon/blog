@@ -92,7 +92,7 @@ BTrace **全程依赖 Java / JVM**，且涉及 **两个进程、两个 JVM**：
 
 ## 概念厘清
 
-本节汇总 attach、Agent、ClassLoader、线程与开发热替换等易混点（与 [java-asm](./java-asm.md)、[Attach API](./attach-api.md) 一致）。
+本节汇总 attach、Agent、ClassLoader、线程与开发热替换等易混点（与 [java-asm](./asm.md)、[Attach API](./attach-api.md) 一致）。
 
 ### loadAgent 之后：不是 `main`，是 `agentmain`
 
@@ -131,7 +131,7 @@ attach 的是 **agent JAR**；脚本 **不以 jar 形式 attach**，而是织进
 
 | 层面 | 能力 |
 | ---- | ---- |
-| JVM + `Instrumentation` + [ASM](./java-asm.md) | 理论上可大幅改写已加载类（含改返回值等） |
+| JVM + `Instrumentation` + [ASM](./asm.md) | 理论上可大幅改写已加载类（含改返回值等） |
 | **BTrace 产品** | 脚本编译/校验：禁止 `new`、循环、抛异常等；API 限于 `BTraceUtils` → **以观测为主** |
 | 恶意 agent | 同进程、同用户权限下风险大；生产需管控 attach 与 agent 来源 |
 
@@ -202,7 +202,7 @@ jcmd -l
 BTrace 的 attach 走 JDK 官方的动态 attach + Java Agent + Instrumentation 字节码改写，不是重启进程。可概括为：
 
 ```text
-Client（Attach API + 脚本编译）+ Agent（[ASM](/java-asm) + Instrumentation）+ Socket
+Client（Attach API + 脚本编译）+ Agent（[ASM](./asm.md) + Instrumentation）+ Socket
 ```
 
 ### 执行流程（Attach 模式）
@@ -223,7 +223,7 @@ Client（Attach API + 脚本编译）+ Agent（[ASM](/java-asm) + Instrumentatio
 
    `attach(pid)` 通过操作系统本地机制连接目标 JVM（Linux 上常见为 `/tmp/.java_pid<pid>` 一类 socket）。通常要求同一台机器、同一用户。
 
-   `loadAgent` 把 **btrace-agent.jar** 载入业务 JVM，调用 **`agentmain`**（非 `main`），获得 `Instrumentation`。**不是** 载入脚本 jar。Agent 框架见 [java-asm](./java-asm.md) §Agent 框架、`ClassFileTransformer`。
+   `loadAgent` 把 **btrace-agent.jar** 载入业务 JVM，调用 **`agentmain`**（非 `main`），获得 `Instrumentation`。**不是** 载入脚本 jar。Agent 框架见 [java-asm](./asm.md) §Agent 框架、`ClassFileTransformer`。
 
 3. **Agent 在业务 JVM 内就绪**
 
@@ -238,11 +238,11 @@ Client（Attach API + 脚本编译）+ Agent（[ASM](/java-asm) + Instrumentatio
 5. **Agent 在业务 JVM 内织入探针**
 
    - 解析 hook 点（`@OnMethod`、`@Location` 等）
-   - 用 [ASM](./java-asm.md) 生成探针字节码，做 verification
+   - 用 [ASM](./asm.md) 生成探针字节码，做 verification
    - 注册 `ClassFileTransformer`，对目标类 `retransformClasses`，在方法入口/返回前插入探针
    - 探针在 **业务线程** 中执行；`println` 等经 Socket 回到客户端终端
 
-   这与 IDE 的 HotSwap（[JPDA](./java-debug-JPDA.md) / 有限 redefine）不同：是 Instrumentation 的 **retransform**，由 [ASM](./java-asm.md) 在已加载类上插探针字节码。
+   这与 IDE 的 HotSwap（[JPDA](./java-debug-JPDA.md) / 有限 redefine）不同：是 Instrumentation 的 **retransform**，由 [ASM](./asm.md) 在已加载类上插探针字节码。
 
 6. **结束**
 
@@ -363,7 +363,7 @@ public class BtraceCase {
 | ---- | ---- |
 | 知识关系总图 | [Java 领域知识关系图](./java-knowledge-map.md) |
 | Attach、`loadAgent`、jcmd | [Java Attach API](./attach-api.md) |
-| ASM、Instrumentation、retransform | [Java ASM 与运行时字节码织入](./java-asm.md) |
+| ASM、Instrumentation、retransform | [Java ASM 与运行时字节码织入](./asm.md) |
 | ClassLoader、Agent 与业务可见性 | [java classloader](./classloader.md) |
 | HotSpot、JVMTI、JPDA | [HotSpot 简介](./hotspot.md)、[JVMTI](./jvmti.md)、[JAVA 调试与 JPDA](./java-debug-JPDA.md) |
 | 开发热替换（对比用） | [开发期热替换](../../cs/dcevm-hotswapagent.md)、[Spring Boot DevTools](./spring/spring-boot-devtools.md) |

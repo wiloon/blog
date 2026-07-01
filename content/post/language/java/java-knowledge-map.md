@@ -109,7 +109,7 @@ flowchart TB
 
 | 概念 | 文章 |
 | ---- | ---- |
-| ASM、Instrumentation、retransform、INVOKESTATIC 示意 | [Java ASM 与运行时字节码织入](./java-asm.md) |
+| ASM、Instrumentation、retransform、INVOKESTATIC 示意 | [Java ASM 与运行时字节码织入](./asm.md) |
 | BTrace 安装、attach、脚本、慢调用 | [BTrace](./btrace.md) |
 | 生产诊断工具选型（BTrace / Arthas / JFR） | [生产环境诊断工具选型](./java-production-diagnostics-tooling.md) |
 | JFR | [Java Flight Recorder](./java-flight-recorder-jfr.md) |
@@ -126,7 +126,7 @@ flowchart TB
 | Spring WebFlux | [Spring WebFlux](./spring/spring-webflux.md) |
 | Java Virtual Threads | [Java Virtual Threads](./virtual-threads.md) |
 | Spring Boot 3.x 迁移 | [Spring Boot 3.x Migration](./spring/spring-boot-3-migration.md) |
-| IDE / DCEVM 热更 vs attach 探针 | 见 [java-asm](./java-asm.md)、[BTrace](./btrace.md) |
+| IDE / DCEVM 热更 vs attach 探针 | 见 [java-asm](./asm.md)、[BTrace](./btrace.md) |
 
 ### AOP / 其它织入
 
@@ -142,7 +142,7 @@ flowchart TB
 ```text
 HotSpot + Attach 通道     →  /hotspot 、/attach-api
 loadAgent / agentmain     →  /attach-api 、/btrace §概念厘清
-Instrumentation + ASM     →  /java-asm
+Instrumentation + ASM     →  /asm
 业务类 vs agent ClassLoader →  /classloader
 JVMTI / JPDA（对比调试）  →  /jvmti 、/java-debug-jpda
 开发热更（易混淆）        →  /dcevm-hotswapagent 、/spring-boot-devtools
@@ -156,8 +156,8 @@ JVMTI / JPDA（对比调试）  →  /jvmti 、/java-debug-jpda
 | `loadAgent` 会跑 agent 的 `main` 吗？ | 否，走 `agentmain` | [BTrace](./btrace.md)、[attach-api](./attach-api.md) |
 | attach 时脚本进 JVM 了吗？ | 否，先 agent，后 Socket 下发 | [BTrace](./btrace.md) |
 | Agent 与业务同一进程吗？ | 是；ClassLoader 路径不同 | [classloader](./classloader.md)、[BTrace](./btrace.md) |
-| 开发 HotSwap = BTrace？ | 否；JPDA vs attach 探针 | [dcevm-hotswapagent](../../cs/dcevm-hotswapagent.md)、[java-asm](./java-asm.md) |
-| JVM 限制 agent 只能监控？ | 否；BTrace 在校验脚本 | [java-asm](./java-asm.md)、[BTrace](./btrace.md) |
+| 开发 HotSwap = BTrace？ | 否；JPDA vs attach 探针 | [dcevm-hotswapagent](../../cs/dcevm-hotswapagent.md)、[java-asm](./asm.md) |
+| JVM 限制 agent 只能监控？ | 否；BTrace 在校验脚本 | [java-asm](./asm.md)、[BTrace](./btrace.md) |
 | Spring = Spring MVC？ | 否；MVC 只是 Framework 的 Web 模块 | [Spring](./spring/spring.md) |
 | Spring 1.x 就用注解？ | 否；1.x 以 XML 为主，2.0 / 2.5 才注解化 | [Spring](./spring/spring.md)、[JDK 5](./jdk-5.md) |
 | 用了注解就不需要 XML？ | 否；2.5 后多年 XML 骨架 + 注解业务很常见 | [Spring](./spring/spring.md) |

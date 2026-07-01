@@ -57,7 +57,7 @@ DevTools 默认启用 **Restart**：
 | **DevTools Restart** | Spring 上下文 + 双 ClassLoader | 本地改代码后几秒内重新跑 Bean |
 | **IDE HotSwap** | JVM + [JPDA](../java-debug-JPDA.md) / 有限 redefine | Debug 下改 **方法体** |
 | **DCEVM + HotSwapAgent** | 增强 HotSpot + javaagent | 开发机放宽 redefine、重载 Spring 配置 |
-| **BTrace attach** | [Attach](../attach-api.md) + [ASM](../java-asm.md) | **已运行** 进程观测，非开发热更 |
+| **BTrace attach** | [Attach](../attach-api.md) + [ASM](../asm.md) | **已运行** 进程观测，非开发热更 |
 
 DevTools **不** 使用 Attach API 给业务类插探针；也 **不** 替代 `mvn spring-boot:run` 外的生产部署。
 

@@ -59,7 +59,7 @@ java.lang.instrument（Java Agent，premain/agentmain）
 
 三者都落在 **同一 JVM 进程** 里，但入口不同：写 Java 诊断 agent 用 `instrument` + [Attach](./attach-api.md)；写调试器走 **JPDA**；写 native 库 agent 用 **JVMTI** + `loadAgentLibrary`。
 
-详见 [JAVA 调试与 JPDA](./java-debug-JPDA.md)、[Java ASM 与运行时字节码织入](./java-asm.md)。
+详见 [JAVA 调试与 JPDA](./java-debug-JPDA.md)、[Java ASM 与运行时字节码织入](./asm.md)。
 
 ## 与 Attach、BTrace 的关系
 
