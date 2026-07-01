@@ -1,8 +1,8 @@
 ---
 title: Spring Security
 author: "-"
-date: ""
-lastmod: 2026-05-12T15:08:48+08:00
+date: 2020-12-23T20:22:56+08:00
+lastmod: 2026-07-01T05:27:47+08:00
 url: spring-security
 categories:
   - java
@@ -10,6 +10,7 @@ tags:
   - java
   - spring
   - spring security
+  - authentication
   - remix
   - AI-assisted
 ---
@@ -20,7 +21,7 @@ tags:
 
 ### 底层机制：从 Servlet Filter 到 Spring Security
 
-Servlet 规范本身有 `Filter` 接口和 `FilterChain` 接口。Spring Security 通过以下两层代理接入这套机制：
+Servlet 规范本身有 [`Filter` 接口和 `FilterChain` 接口](../../other/servlet-filter.md)。Spring Security 通过以下两层代理接入这套机制：
 
 1. **`DelegatingFilterProxy`**：在 Servlet 容器（Tomcat）层面注册的 `Filter`，作用是把请求桥接到 Spring 容器中的 Bean。它本身不做安全逻辑，只是一个"入口代理"。
 2. **`FilterChainProxy`**：Spring 容器中的真正实现，也是一个特殊的 `Filter`。它持有所有注册的 `SecurityFilterChain` Bean，收到请求后，按顺序匹配第一条能处理该 URL 的链，然后依次执行链中的每个 `Filter`。
@@ -28,8 +29,8 @@ Servlet 规范本身有 `Filter` 接口和 `FilterChain` 接口。Spring Securit
 ```
 HTTP 请求
   → Tomcat FilterChain
-    → DelegatingFilterProxy（Servlet Filter，桥接到 Spring）
-      → FilterChainProxy（Spring Bean）
+    → DelegatingFilterProxy（Servlet Filter，桥接到 Spring，Bean 名固定为 springSecurityFilterChain）
+      → FilterChainProxy（Spring Bean，收集所有 SecurityFilterChain）
         → SecurityFilterChain 1（匹配 /api/**）
             UsernamePasswordAuthenticationFilter
             BearerTokenAuthenticationFilter
@@ -38,7 +39,21 @@ HTTP 请求
             ...
         → SecurityFilterChain 2（匹配 /**）
             ...
+      ← 链中最后一个 Filter 放行（chain.doFilter()），控制权交回 DelegatingFilterProxy
+  → Tomcat FilterChain 继续执行其余 Filter（如果有）
+    → DispatcherServlet
+      → HandlerMapping 找到目标 Controller 方法
+        → Controller
 ```
+
+### SecurityFilterChain Bean 如何被收集并接入请求
+
+在 `@Configuration` 类里写的 `@Bean public SecurityFilterChain filterChain(...)` 方法，只是往 IoC 容器里注册了一个数据对象——具体实现类是 `DefaultSecurityFilterChain`，内部就是一个 `Filter` 列表加一个 `RequestMatcher`。真正让这份数据接入请求处理流程，还需要另外两步：
+
+1. Spring Boot 的自动配置（`SecurityFilterAutoConfiguration`）会创建一个 `FilterChainProxy` Bean，构造时把容器里所有 `SecurityFilterChain` 类型的 Bean 都收集起来（可以有多个，用 `@Order` 排优先级），并以固定 Bean 名 `springSecurityFilterChain` 注册。
+2. `DelegatingFilterProxy` 是在 Servlet 容器层面注册的真正 `Filter`，它按名字 `springSecurityFilterChain` 到 Spring 容器里查找对应的 Bean（也就是上一步的 `FilterChainProxy`），把每个进来的请求都转发给它处理。
+
+所以一次请求要先经过 Tomcat 的 Filter 链，被 `DelegatingFilterProxy` 接住转发给 `FilterChainProxy`；`FilterChainProxy` 用 `matches()` 找到第一条匹配的 `SecurityFilterChain`，取出这条链的 `Filter` 列表逐个执行。认证、授权都通过后，链上最后一个 `Filter` 调用 `chain.doFilter()` 放行，请求才会继续往下走，最终到达 `DispatcherServlet` 并路由到 `Controller` 方法；一旦某个 `Filter` 判定失败（比如未认证），会直接短路返回响应（401/403），请求根本不会到达 `Controller`。
 
 ### 定义一个 SecurityFilterChain
 
@@ -95,6 +110,8 @@ public SecurityFilterChain webChain(HttpSecurity http) throws Exception {
 }
 ```
 
+多条 `SecurityFilterChain` 之间是**互斥的**，不是首尾相连、逐条执行：一次请求按 URL 分流，只会命中第一条 `securityMatcher` 匹配的链，其余链完全不参与这次请求。请求一旦流到某一条被选中的链上，才会依次流过这条链里的**每一个** `Filter`——只要没有 `Filter` 中途拦截（比如未认证被短路返回 401），就会在链尾放行，继续走到 `DispatcherServlet` 和 `Controller`。
+
 ### 链中的关键内置 Filter
 
 | Filter                                 | 作用                                                   |
@@ -106,6 +123,22 @@ public SecurityFilterChain webChain(HttpSecurity http) throws Exception {
 | `AuthorizationFilter`                  | 最终的权限校验（替代旧的 `FilterSecurityInterceptor`） |
 | `CsrfFilter`                           | CSRF Token 校验                                        |
 | `CorsFilter`                           | 处理跨域预检请求                                       |
+
+### 与 GoF 设计模式的关系
+
+`SecurityFilterChain`（以及底层 Servlet `Filter`/`FilterChain` 机制）最贴近 GoF 的 [责任链模式（Chain of Responsibility）](../../pattern/chain-of-responsibility-pattern.md)：
+
+```java
+public interface Filter {
+    void doFilter(ServletRequest request, ServletResponse response, FilterChain chain);
+}
+```
+
+- 每个 `Filter` 拿到的 `FilterChain` 就是"指向下一个处理者的引用"。
+- `chain.doFilter(request, response)` 就是"转交给下一个处理者"的动作。
+- 调用者（`FilterChainProxy`）不需要知道链里具体有多少个、哪些 `Filter`，只管触发第一个，后续完全由链自己传递——这正是责任链模式"发起者与处理者解耦"的意图。
+
+不完全严格的地方在于：GoF 经典责任链通常是"某一个处理者处理后就终止"（比如异常处理链，谁能处理谁就截胡），而 Servlet Filter 更常见的用法是环绕式——`doFilter` 在调用 `chain.doFilter()` 之前和之后都能插入逻辑（比如 `ExceptionTranslationFilter` 在调用链后半段捕获异常），这种"前置 + 调用下一个 + 后置"的写法带了一点装饰器模式（Decorator）的味道。但从"谁触发下一个"这个结构本质上看，还是责任链，装饰器更多是从"层层包装、增强职责"的角度补充解释，不影响结论。
 
 ### permitAll、authenticated、hasRole
 
@@ -124,96 +157,135 @@ http.authorizeHttpRequests(auth -> auth
 
 ---
 
-## authorizeRequests（旧 API）
+## 认证流程：Filter、AuthenticationManager、UserDetailsService 的职责划分
 
-Spring Security 5.x 之前的写法，6.x 已移除，仅供参考。
+一次完整的表单登录认证，会依次经过三层职责不同的组件：`Filter` 负责触发和收尾、`AuthenticationManager` 负责调度、`UserDetailsService` 负责加载用户数据。下面用 [comments-tree](https://github.com/wiloon/comments-tree) 项目里真实的 `SecurityConfig` 来说明每一层具体做了什么。
 
-## spring security
+### 整体链路
 
-### pom.xml
-
- ```xml
-    <dependency>
-        <!-- 由于我使用的spring boot所以我是引入spring-boot-starter-security而且我使用了spring io所以不需要填写依赖的版本号 -->
-        <groupId>org.springframework.boot</groupId>
-        spring-boot-starter-security</artifactId>
-    </dependency>
- ```
-
-### .authorizeRequests()
-通过 authorizeRequests() 方法来开始请求权限配置。
-authorizeRequests()方法有多个子节点，每个macher按照他们的声明顺序执行  
-可以在authorizeRequests() 后定义多个antMatchers()配置器来控制不同的url接受不同权限的用户访问，而其中 permitAll() 方法是运行所有权限用户包含匿名用户访问。
-而hasRole("权限")则是允许这个url给与参数中相等的权限访问。
-access("hasRole('权限') and hasRole('权限')") 是指允许访问这个url必须同时拥有参数中多个身份权限才可以访问。
-hasAnyRole("ADMIN", "DBA")是指允许访问这个url必须同时拥有参数中多个身份权限中的一个就可以访问该url。
-
- 
-.anyRequest().authenticated()
-对http所有的请求必须通过授权认证才可以访问。
-
-and()是返回一个securityBuilder对象，formLogin()和httpBasic()是授权的两种方式。
-
-.csrf().disable(); //取消csrf防护
-
-.sessionManagement() // 定制我们自己的 session 策略
-.sessionCreationPolicy(SessionCreationPolicy.STATELESS); // 调整为让 Spring Security 不创建和使用 session
-
-
-HttpSecurity 提供的 exceptionHandling() 方法用来提供异常处理。该方法构造出 ExceptionHandlingConfigurer 异常处理配置类。该配置类提供了两个实用接口: 
-
-
-AuthenticationEntryPoint 该类用来统一处理 AuthenticationException 异常
-AccessDeniedHandler  该类用来统一处理 AccessDeniedException 异常
-
-
-
-我们只要实现并配置这两个异常处理类即可实现对 Spring Security 认证授权相关的异常进行统一的自定义处理。
-
-作者: 码农小胖哥
-链接: https://juejin.cn/post/6844903988895154184
-来源: 掘金
-著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
-
-
-```puml
-@startuml
-class ExpressionInterceptUrlRegistry
-ExpressionInterceptUrlRegistry : public <H extends HttpSecurityBuilder<H> and()
-ExpressionInterceptUrlRegistry <|-- AbstractInterceptUrlRegistry
-AbstractInterceptUrlRegistry <|-- AbstractConfigAttributeRequestMatcherRegistry
-AbstractConfigAttributeRequestMatcherRegistry <|-- AbstractRequestMatcherRegistry
-
-class HttpSecurityBuilder
-class AuthorizedUrl
-class HttpSecurity
-HttpSecurity : public ExpressionUrlAuthorizationConfigurer<HttpSecurity>.ExpressionInterceptUrlRegistry authorizeRequests()
-@enduml
+```text
+POST /session (nameOrEmail + password)
+  -> UsernamePasswordAuthenticationFilter (generated from formLogin config)
+    -> AuthenticationManager.authenticate(token)
+      -> ProviderManager delegates to DaoAuthenticationProvider
+        -> UserDetailsService.loadUserByUsername(nameOrEmail)
+        -> PasswordEncoder.matches(rawPassword, encodedPassword)
+      <- returns authenticated Authentication
+  -> written into SecurityContext
+  -> AuthenticationSuccessHandler / AuthenticationFailureHandler
 ```
 
+### Filter：入口与出口
 
----
+comments-tree 用 `formLogin` 配置表单登录，Spring Security 在背后生成 `UsernamePasswordAuthenticationFilter`，拦截 `/session` 上的 POST 请求：
 
-https://www.jianshu.com/p/e6655328b211
+```java
+@Bean
+public SecurityFilterChain filterChain(HttpSecurity httpSecurity) throws Exception {
+    httpSecurity
+            .authorizeHttpRequests(auth -> auth
+                    .requestMatchers(HttpMethod.POST, "/session").permitAll()
+                    .requestMatchers(HttpMethod.GET, "/session").permitAll()
+                    .anyRequest().authenticated()
+            )
+            .exceptionHandling(ex -> ex
+                    .accessDeniedHandler(restfulAccessDeniedHandler())
+                    .authenticationEntryPoint(restAuthenticationEntryPoint())
+            )
+            .formLogin(form -> form
+                    .loginProcessingUrl("/session")
+                    .usernameParameter("nameOrEmail")
+                    .successHandler(loginAuthenticationSuccessHandler())
+                    .failureHandler(formLoginFailedHandler())
+            );
 
+    return httpSecurity.build();
+}
+```
 
-## spring security 拦截器
-1、ChannelProcessingFilter，使用它因为我们可能会指向不同的协议(如:Http,Https)
+Filter 层的职责有两块：
 
-2、SecurityContextPersistenceFilter，负责从SecurityContextRepository 获取或存储 SecurityContext。SecurityContext 代表了用户安全和认证过的session
+- **触发认证**：从请求里取出 `nameOrEmail` 和 `password`，封装成未认证的 `UsernamePasswordAuthenticationToken`，转交给 `AuthenticationManager`。
+- **收尾与异常翻译**：认证结果出来后，Filter 决定调用 `AuthenticationSuccessHandler` 还是 `AuthenticationFailureHandler`；未登录访问受保护资源时，由 `ExceptionTranslationFilter` 调用 `AuthenticationEntryPoint`（对应 comments-tree 的 `RestAuthenticationEntryPoint`，返回 401）；已登录但权限不足时调用 `AccessDeniedHandler`（`RestfulAccessDeniedHandler`，返回 403）。
 
-3、ConcurrentSessionFilter,使用SecurityContextHolder的功能，更新来自“安全对象”不间断的请求,进而更新SessionRegistry
+Filter 本身不做用户查找和密码比对，这部分工作全部委托出去。
 
-4、认证进行机制，UsernamePasswordAuthenticationFilter，CasAuthenticationFilter，BasicAuthenticationFilter等等--SecurityContextHolder可能会修改含有Authentication这样认证信息的token值
+### AuthenticationManager：只做调度，不做校验
 
-5、SecurityContextHolderAwareRequestFilter,如果你想用它的话，需要初始化spring security中的HttpServletRequestWrapper到你的servlet容器中。
+```java
+@Bean
+public AuthenticationManager authenticationManager(AuthenticationConfiguration config) throws Exception {
+    return config.getAuthenticationManager();
+}
+```
 
-6、JaasApiIntegrationFilter，如果JaasAuthenticationToken在SecurityContextHolder的上下文中，在过滤器链中JaasAuthenticationToken将作为一个对象。
+comments-tree 没有自定义 `AuthenticationProvider`，直接用 `AuthenticationConfiguration` 拿到 Spring Boot 组装好的 `ProviderManager`。`ProviderManager` 内部维护一组 `AuthenticationProvider`，收到 `UsernamePasswordAuthenticationToken` 后，找到能处理这个 Token 类型的 `DaoAuthenticationProvider`，把认证工作转交给它。
 
-7. RememberMeAuthenticationFilter, 如果还没有新的认证程序机制更新SecurityContextHolder，并且请求已经被一个“记住我”的服务替代，那么将会有一个Authentication对象将存放到这 (就是 已经作为cookie请求的内容）。
+`AuthenticationManager` 的职责因此很单一：接收未认证的 `Authentication`，选择合适的 `Provider`，返回认证结果（成功则是已认证的 `Authentication`，失败抛 `AuthenticationException`）。它自己不知道密码是怎么存的，也不知道用户数据从哪来。
 
-8、AnonymousAuthenticationFilter，如果没有任何认证程序机制更新SecurityContextHolder，一个匿名的对象将存放到这。
+### UserDetailsService：只管加载数据，不管比对密码
 
-9、ExceptionTranslationFilter，为了捕获spring security的错误，所以一个http响应将返回一个Exception或是触发AuthenticationEntryPoint。
+```java
+@Service
+public class UserService implements UserDetailsService {
 
-10、FilterSecurityInterceptor，当连接被拒绝时，保护web URLS并且抛出异常。
+    private final UserRepository userRepository;
+    private final PasswordEncoder passwordEncoder;
+
+    @Override
+    public UserDetails loadUserByUsername(String nameOrEmail) throws UsernameNotFoundException {
+        User user = getUserByNameOrEmail(nameOrEmail);
+        if (user == null) {
+            throw new UsernameNotFoundException("User not found: " + nameOrEmail);
+        }
+        return new CommentsTreeUserDetails(user);
+    }
+
+    public User getUserByNameOrEmail(String nameOrEmail) {
+        if (Utils.isEmail(nameOrEmail)) {
+            return getUserByEmail(nameOrEmail);
+        }
+        return getUserByName(nameOrEmail);
+    }
+}
+```
+
+`UserService` 同时承担业务层（注册、查询用户）和 `UserDetailsService` 两个角色。`loadUserByUsername` 支持用户名或邮箱两种方式登录，查不到人直接抛 `UsernameNotFoundException`，这是 `UserDetailsService` 唯一的契约方法。
+
+密码比对不在这里发生。`DaoAuthenticationProvider` 拿到 `loadUserByUsername` 返回的 `UserDetails`（内部含 BCrypt 加密后的密码）后，自己调用 `PasswordEncoder.matches(rawPassword, userDetails.getPassword())` 做比对，一致才算认证通过。
+
+### PasswordEncoder 为什么单独抽出一个 Configuration
+
+```java
+@Configuration
+public class PasswordEncoderConfig {
+
+    @Bean
+    public PasswordEncoder passwordEncoder() {
+        return new BCryptPasswordEncoder();
+    }
+}
+```
+
+`UserService` 的构造函数需要注入 `PasswordEncoder`（用于注册时哈希密码），而 `PasswordEncoder` 这个 Bean 原本是在 `SecurityConfig` 里定义的。如果放在一起，会形成 `SecurityConfig -> UserService（构造参数）-> PasswordEncoder（SecurityConfig 里定义）` 的循环依赖。把 `PasswordEncoder` 单独抽成一个 `@Configuration` 类，让两边都依赖这个更小的配置类，就消掉了这个环。
+
+### 三者职责小结
+
+| 组件                                                         | 职责                                                         | 不做的事                             |
+| ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------ |
+| `Filter`（`UsernamePasswordAuthenticationFilter`）           | 从请求提取凭证、触发认证、处理认证结果（成功/失败/异常翻译） | 不查用户、不比对密码                 |
+| `AuthenticationManager`（`ProviderManager`）                 | 调度合适的 `AuthenticationProvider`，返回认证结果            | 不知道用户数据来源、不知道密码怎么存 |
+| `UserDetailsService`（`UserService`）                        | 根据用户名/邮箱加载 `UserDetails`                            | 不做密码比对                         |
+| `PasswordEncoder`（在 `DaoAuthenticationProvider` 内部使用） | 比对明文密码与加密密码                                       | 不参与用户查找                       |
+
+这套划分本质上是单一职责原则的体现：账号来源变化（比如接入 LDAP）只需要换 `UserDetailsService` 的实现，认证方式变化（比如接入 OAuth2）只需要加新的 `AuthenticationProvider`，Filter 和调度逻辑都不用动。
+
+## 维护记录
+
+| 时间       | 修改内容                                                                                                                                                                                                                                                                                     | 原因                                                                   |
+| ---------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------- |
+| 2026-07-01 | 新增「认证流程：Filter、AuthenticationManager、UserDetailsService 的职责划分」章节，结合 comments-tree 项目真实的 SecurityConfig/UserService/PasswordEncoderConfig 代码说明各组件职责                                                                                                        | 面试准备时整理认证流程知识点，补充真实项目案例                         |
+| 2026-07-01 | 删除「authorizeRequests（旧 API）」「spring security」（含语法错误的 pom.xml、`.authorizeRequests()` 旧写法、过时 PlantUML 类图、掘金/简书转载内容）以及「spring security 拦截器」（含已被 6.x 替换的 `SecurityContextPersistenceFilter`、`FilterSecurityInterceptor` 等旧 Filter 列表）三节 | 内容过时、与前文已更新的 6.x 说明矛盾，且转载内容与 remix 标签定性不符 |
+| 2026-07-01 | 在「链中的关键内置 Filter」后新增「与 GoF 设计模式的关系」小节，说明 `SecurityFilterChain` 对应责任链模式，并站内链接到 [责任链模式](../../pattern/chain-of-responsibility-pattern.md)                                                                                                       | 补充设计模式视角，关联站内已有的责任链模式文章                         |
+| 2026-07-01 | 补充「SecurityFilterChain Bean 如何被收集并接入请求」小节，说明 `@Bean` 注册的 `SecurityFilterChain` 如何被 `FilterChainProxy` 收集、`DelegatingFilterProxy` 按 Bean 名桥接，并更新调用链图补充到 `DispatcherServlet`/`Controller` 的走向                                                    | 说明请求先经过 SecurityFilterChain 才到达 Controller 的完整机制        |
+| 2026-07-01 | 「底层机制」段落站内链接到 [Servlet Filter](../../other/servlet-filter.md)；「多条链」一节补充说明多个 SecurityFilterChain 互斥（按 URL 分流，只命中一条），命中的链上会依次流过每一个 Filter | 澄清多条 SecurityFilterChain 之间是互斥关系而非串联，避免与责任链模式内部 Filter 顺序执行混淆 |

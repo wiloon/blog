@@ -1,156 +1,134 @@
 ---
-title: Servlet.Filter
+title: Servlet Filter
 author: "-"
 date: 2012-06-10T09:53:07+00:00
+lastmod: 2026-07-01T05:27:47+08:00
 url: servlet-filter
 categories:
   - Java
   - Web
 tags:
   - Servlet
+  - java
+  - remix
+  - AI-assisted
 
 aliases:
   - /p3500/
 ---
-## Servlet.Filter
-filter功能.它使用户可以改变一个 request和修改一个response. Filter 不是一个servlet,它不能产生一个response,它能够在一个request到达servlet之前预处理request,也可以在离开 servlet时处理response.换种说法,filter其实是一个"servlet chaining"(servlet 链).一个filter 包括:
+## Servlet Filter
 
-1. 在servlet被调用之前截获;
+`Filter` 是 Servlet 规范里的一种组件，位于容器和目标资源（Servlet/JSP）之间，可以在请求到达目标资源之前、响应离开目标资源之后做统一处理。`Filter` 本身不产生响应内容，只负责预处理和后处理，典型用途包括：
 
-2. 在servlet被调用之前检查servlet request;
+- 身份校验、权限校验
+- 请求/响应日志记录
+- 请求头、响应头改写
+- 内容压缩、编码转换
 
-3. 根据需要修改request头和request数据;
+多个 `Filter` 可以按声明顺序串成一条链（Filter Chain），这也是 [责任链模式（Chain of Responsibility）](../pattern/chain-of-responsibility-pattern.md) 在 Servlet 规范里的经典实现；Spring Security 的 [SecurityFilterChain](../language/java/spring-security.md) 就是在这套机制上封装出来的应用。
 
-4. 根据需要修改response头和response数据;
-
-5. 在servlet被调用之后截获.
-
-你能够配置一个filter 到一个或多个servlet;单个servlet或servlet组能够被多个filter 使用.几个实用的filter 包括:用户辨认filter,日志filter,审核filter,加密filter,符号filter,能改变xml内容的XSLT filter等.
-
-一个filter必须实现javax.servlet.Filter接口并定义三个方法:
-
-1.void setFilterConfig(FilterConfig config) //设置filter 的配置对象;
-
-2. FilterConfig getFilterConfig() //返回filter的配置对象;
-
-3. void doFilter(ServletRequest req, ServletResponse res, FilterChain chain) //执行filter 的工作.
-
-服务器每次只调用setFilterConfig方法一次准备filter 的处理;调用doFilter方法多次以处理不同的请求.FilterConfig接口有方法可以找到filter名字及初始化参数信息.服务器可以设置 FilterConfig为空来指明filter已经终结.
-
-每一个filter从doFilter()方法中得到当前的request及response.在这个方法里,可以进行任何的针对request及 response的操作.(包括收集数据,包装数据等).filter调用chain.doFilter()方法把控制权交给下一个filter.一个 filter在doFilter()方法中结束.如果一个filter想停止request处理而获得对response的完全的控制,那它可以不调用下 一个filter.
-
-一个filter可以包装request 或response以改变几个方法和提供用户定制的属性.Api2.3提供了HttpServletRequestWrapper 和HttpServletResponseWrapper来实现.它们能分派最初的request和response.如果要改变一个方法的特性,必须继 承wapper和重写方法.下面是一段简单的日志filter用来记录所有request的持续时间.
+### Filter 接口
 
 ```java
-  
+public interface Filter {
+    default void init(FilterConfig filterConfig) throws ServletException {
+    }
+
+    void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
+            throws IOException, ServletException;
+
+    default void destroy() {
+    }
+}
+```
+
+- `init(FilterConfig)`：容器创建 `Filter` 实例后调用一次，用于读取初始化参数、保存 `FilterConfig`。
+- `doFilter(request, response, chain)`：每次请求都会调用，是 `Filter` 的核心方法。
+- `destroy()`：容器销毁 `Filter` 前调用一次，用于释放资源。
+
+`FilterConfig` 提供访问 `Filter` 名称、初始化参数、`ServletContext` 的方法。
+
+### doFilter：处理请求 + 放行链
+
+`doFilter` 方法里可以在调用 `chain.doFilter(request, response)` 之前和之后分别插入逻辑，形成"环绕"式处理：
+
+```java
 public class LogFilter implements Filter {
 
-FilterConfig config;
-   
-public FilterConfig getFilterConfig() {
+    private FilterConfig filterConfig;
 
-return config;
+    @Override
+    public void init(FilterConfig filterConfig) {
+        this.filterConfig = filterConfig;
+    }
 
+    @Override
+    public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
+            throws IOException, ServletException {
+        long start = System.currentTimeMillis();
+
+        chain.doFilter(request, response); // pass control to the next filter or target resource
+
+        long cost = System.currentTimeMillis() - start;
+        filterConfig.getServletContext()
+                .log("Request to " + request.getRemoteAddr() + ": " + cost + "ms");
+    }
+
+    @Override
+    public void destroy() {
+    }
 }
-
-@Override
-   
-public void init(FilterConfig filterConfig) throws ServletException {
-   
-this.config = filterConfig;
-   
-}
-
-@Override
-   
-public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
-   
-ServletContext context = getFilterConfig().getServletContext();
-
-long bef = System.currentTimeMillis();
-
-try {
-   
-System.out.println("before do filter");
-   
-chain.doFilter(request, response); // no chain parameter needed here
-   
-} catch (IOException e) {
-   
-e.printStackTrace(); //To change body of catch statement use File | Settings | File Templates.
-   
-} catch (ServletException e) {
-   
-e.printStackTrace(); //To change body of catch statement use File | Settings | File Templates.
-   
-}
-
-long aft = System.currentTimeMillis();
-
-context.log("Request to " + request.getRemoteAddr() + ": " + (aft - bef));
-   
-System.out.println("log filter..."+ (aft - bef));
-   
-}
-
-@Override
-   
-public void destroy() {
-   
-//To change body of implemented methods use File | Settings | File Templates.
-   
-}
-  
-}
-  
 ```
 
-当server调用setFilterConfig(),filter保存config信息.在doFilter()方法中通过config信息得到servletContext.如果要运行这个filter,必须去配置到web.xml中.以tomcat4.01为例:
+如果 `Filter` 想中断请求、不再往下传递（比如认证失败直接返回错误响应），只要不调用 `chain.doFilter()` 即可；这也是 Spring Security 里 `ExceptionTranslationFilter` 拦截未认证请求、直接返回 401/403 的原理。
+
+### 请求/响应包装（Wrapper）
+
+如果需要修改请求或响应的内容（比如统一编码、压缩响应体），可以用 `HttpServletRequestWrapper` / `HttpServletResponseWrapper` 包装原始对象，重写需要改变行为的方法，再把包装后的对象传给 `chain.doFilter()`，链上后续的 `Filter` 和目标资源拿到的就是包装后的版本。
+
+### 配置 Filter：web.xml
+
+传统 Servlet 应用通过 `web.xml` 声明 `Filter` 和它拦截的 URL：
 
 ```xml
-
 <filter>
-
-<filter-name>
-
-log //filter 名字
-
-</filter-name>
-
-<filter-class>
-
-LogFilter //filter class(上例的servlet)
-
-</filter-class>
-
+    <filter-name>logFilter</filter-name>
+    <filter-class>com.example.LogFilter</filter-class>
 </filter>
-
 <filter-mapping>
-
-<filter-name>log</filter-name>
-
-<servletname>servletname</servlet-name>
-
+    <filter-name>logFilter</filter-name>
+    <url-pattern>/*</url-pattern>
 </filter-mapping>
-
-<servlet>
-
-<servlet-name>servletname</servletname>
-
-<servletclass>servletclass</servlet-class>
-
-</servlet>
-
-<servlet-mapping>
-
-<servlet-name>servletname</servlet-name>
-
-<url-pattern>*</url-pattern>
-
-</servlet-mapping>
-
 ```
 
-把这个web.xml放到web-inf中(详请参考tomcat帮助文档).
+`filter-mapping` 决定了这个 `Filter` 拦截哪些 URL；一次请求可能匹配多个 `filter-mapping`，这些 `Filter` 会按声明顺序串成一条链，依次执行 `doFilter()`，最后才到达 `url-pattern` 对应的 Servlet。
 
-当每次请求一个request时(如index.jsp),先到LogFilter中去并调用doFilter()方法,然后才到各自的servlet中去.如果是一个简单的servlet(只是一个页面,无任何输出语句),那么可能的输出是: Request to /index.jsp: 10
+### 现代写法：@WebFilter 与 Spring Boot
+
+Servlet 3.0 之后可以用 `@WebFilter` 注解代替 `web.xml` 声明：
+
+```java
+@WebFilter(urlPatterns = "/*")
+public class LogFilter implements Filter {
+    // ...
+}
+```
+
+Spring Boot 应用里更常见的做法是注册一个 `FilterRegistrationBean`：
+
+```java
+@Bean
+public FilterRegistrationBean<LogFilter> logFilterRegistration() {
+    FilterRegistrationBean<LogFilter> registration = new FilterRegistrationBean<>(new LogFilter());
+    registration.addUrlPatterns("/*");
+    return registration;
+}
+```
+
+Spring Security 的 `SecurityFilterChain` 走的是另一条路径：由 `DelegatingFilterProxy` 把请求桥接到 Spring 容器管理的 `FilterChainProxy`，再由它执行一组 `Filter`，具体机制见 [Spring Security](../language/java/spring-security.md)。
+
+## 维护记录
+
+| 时间       | 修改内容                                                                                                                                                                                                                                                                                                                                     | 原因                                                                                                |
+| ---------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
+| 2026-07-01 | 整体重写：修正 Filter 接口方法说明（原文误写为 setFilterConfig/getFilterConfig，实际应为 init/doFilter/destroy）；修复示例 web.xml 中错误的标签闭合；补充 @WebFilter 与 Spring Boot FilterRegistrationBean 现代写法；站内链接到责任链模式与 Spring Security 文章；标题由 "Servlet.Filter" 改为 "Servlet Filter"；添加 remix/AI-assisted 标签 | 原内容存在事实错误、XML 语法错误、格式混乱（大量多余空行），且缺少现代 Servlet/Spring Boot 场景说明 |
