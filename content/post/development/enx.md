@@ -2,13 +2,17 @@
 title: enX
 author: "-"
 date: 2024-10-17T07:46:51+08:00
+lastmod: 2026-07-01T18:10:41+08:00
 url: enX
 categories:
   - Projects
 tags:
   - original
+  - AI-assisted
 ---
 ## enX
+
+GitHub 仓库：[wiloon/enx](https://github.com/wiloon/enx)
 
 ## 开发环境
 
@@ -40,3 +44,9 @@ Nginx: 192.168.50.130
 api: 192.168.50.36:8080
 
 [https://github.com/wiloon/enx/blob/main/enx-api/deploy.sh](https://github.com/wiloon/enx/blob/main/enx-api/deploy.sh)
+
+## 维护记录
+
+| 时间       | 修改内容               | 原因                                                                                                                  |
+| ---------- | ---------------------- | --------------------------------------------------------------------------------------------------------------------- |
+| 2026-07-01 | 顶部加 GitHub 仓库链接 | 供 [open-source-dictionaries.md](../english/open-source-dictionaries.md) 站内链接跳转到本文后，能继续跳到 GitHub 仓库 |
