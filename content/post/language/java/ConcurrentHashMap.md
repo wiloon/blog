@@ -2,16 +2,34 @@
 title: ConcurrentHashMap
 author: "-"
 date: 2015-08-12T02:39:42+00:00
+lastmod: 2026-07-03T03:17:48+08:00
 url: ConcurrentHashMap
 categories:
   - Java
 tags:
-  - Java
-
+  - java
+  - remix
+  - AI-assisted
 ---
 ## ConcurrentHashMap
 
 ConcurrentHashMap 是一个线程安全的Hash Table,它的主要功能是提供了一组和HashTable功能相同但是线程安全的方法。ConcurrentHashMap可以做到读取数据不加锁,并 且其内部的结构可以让其在进行写操作的时候能够将锁的粒度保持地尽量地小,不用对整个ConcurrentHashMap加锁。
+
+`ConcurrentHashMap` 由 JDK 5（2004 年）随 `java.util.concurrent` 包一起引入（JSR 166，Doug Lea 主导），是最早一批加入的并发容器之一，用于替代性能受限的 `Hashtable` 和外部同步的 `HashMap`。
+
+### 与 HashMap 的区别
+
+`ConcurrentHashMap` 和 `HashMap` 都基于数组 + 链表（JDK 1.8 后含红黑树）实现，核心区别在于线程安全性和并发设计：
+
+| 维度      | `HashMap`                                                  | `ConcurrentHashMap`                                                                       |
+| --------- | ---------------------------------------------------------- | ----------------------------------------------------------------------------------------- |
+| 线程安全  | 否，多线程并发写会导致死循环（1.7 扩容）或数据丢失         | 是，专为并发场景设计                                                                      |
+| 加锁粒度  | 无锁（需要外部自行同步，如 `Collections.synchronizedMap`） | 1.7：Segment 分段锁；1.8：CAS + 对单个桶 `synchronized`，粒度远小于对整表加锁             |
+| null 支持 | key、value 都允许 null                                     | key、value 都不允许 null（避免 `get()` 返回 null 时无法区分键不存在和值为 null 的二义性） |
+| 读操作    | 无锁，但非并发安全                                         | 无锁（`val`/`next` 用 `volatile` 修饰保证可见性），且并发安全                             |
+| 典型场景  | 单线程或已有外部同步的场景                                 | 多线程共享同一个 Map 的场景                                                               |
+
+简单说：`HashMap` 用来替代非线程安全场景下的 `Hashtable`，`ConcurrentHashMap` 用来替代线程安全场景下的 `Hashtable`——二者是 `Hashtable` 拆分出的两条演进路线，而不是互相替代的关系。历史背景与 `Hashtable` 的详细对比见 [HashMap 与 Hashtable 的区别](./hashmap-vs-hashtable.md)。
 
 ### jdk1.7
 
@@ -380,6 +398,12 @@ CurrentHashMap 的初始化一共有三个参数,一个initialCapacity,表示初
 
 整 个ConcurrentHashMap的初始化方法还是非常简单的,先是根据concurrentLevel来new出Segment,这里 Segment的数量是不大于concurrentLevel的最大的2的指数,就是说Segment的数量永远是2的指数个,这样的好处是方便采用移位 操作来进行hash,加快hash的过程。接下来就是根据intialCapacity确定Segment的容量的大小,每一个Segment的容量大小 也是2的指数,同样使为了加快hash的过程。
 
+## 维护记录
+
+| 时间       | 修改内容                                                | 原因                         |
+| ---------- | ------------------------------------------------------- | ---------------------------- |
+| 2026-07-03 | 补充 `ConcurrentHashMap` 引入版本（JDK 5，JSR 166）说明 | 读者询问引入版本，原文未提及 |
+
 这 边需要特别注意一下两个变量,分别是segmentShift和segmentMask,这两个变量在后面将会起到很大的作用,假设构造函数确定了 Segment的数量是2的n次方,那么segmentShift就等于32减去n,而segmentMask就等于2的n次方减一。
 
 ConcurrentHashMap的get操作
@@ -620,4 +644,11 @@ ConcurrentHashMap的size操作
 http://www.iteye.com/topic/1103980
 http://blog.csdn.net/imzoer/article/details/8621074
 https://crossoverjie.top/2018/07/23/java-senior/ConcurrentHashMap/
+
+## 维护记录
+
+| 时间       | 修改内容                                                                                                                                                                                                                     | 原因                                                  |
+| ---------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------- |
+| 2026-07-03 | 新增「与 HashMap 的区别」对比表格（线程安全、加锁粒度、null 支持、读操作、典型场景），并内链至 [hashmap-vs-hashtable.md](./hashmap-vs-hashtable.md)；补充 `lastmod`；标签由单一 `Java` 改为 `java` + `remix` + `AI-assisted` | 原文缺少与 HashMap 的直接对比说明；标签需符合当前规范 |
+>wiloon.com/hashmap
 >wiloon.com/hashmap
