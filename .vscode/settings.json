@@ -1,3 +1,14 @@
 {
-    "editor.fontFamily": "Consolas, 'Courier New', 'WenQuanYi Micro Hei Mono', monospace"
+    "editor.fontFamily": "Consolas, 'Courier New', 'WenQuanYi Micro Hei Mono', monospace",
+    "files.watcherExclude": {
+        "**/public/**": true,
+        "**/resources/_gen/**": true,
+        "**/tmp/**": true
+    },
+    "search.exclude": {
+        "**/public": true
+    },
+    "files.exclude": {
+        "**/public": true
+    }
 }
