@@ -9,7 +9,7 @@ categories:
 tags:
   - python
   - pandas
-  - original
+  - remix
   - AI-assisted
 ---
 

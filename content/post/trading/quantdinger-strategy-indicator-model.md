@@ -7,7 +7,7 @@ url: quantdinger-strategy-indicator-model
 categories:
   - trading
 tags:
-  - original
+  - remix
   - AI-assisted
   - quantdinger
   - python
