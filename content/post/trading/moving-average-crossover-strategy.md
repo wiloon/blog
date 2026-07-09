@@ -1,12 +1,15 @@
 ---
-title: 移动平均线交叉交易策略
+title: "Moving Average Crossover 移动平均线交叉交易策略"
 author: "-"
 date: 2015-06-08T15:13:24+00:00
-url: 移动平均线交叉
+lastmod: 2026-07-09T15:45:36+08:00
+url: moving-average-crossover-strategy
 categories:
-  - Inbox
+  - trading
 tags:
   - MT4
+  - remix
+  - AI-assisted
 
 ---
 ## 移动平均线交叉交易策略
@@ -28,3 +31,9 @@ http://www.earnforex.com/cn/%E5%A4%96%E6%B1%87%E7%AD%96%E7%95%A5/%E7%A7%BB%E5%8A
 http://www.voidcn.com/blog/zccz14/article/p-6305201.html
   
 https://www.zhihu.com/question/23245754
+
+## 维护记录
+
+| 时间 | 修改内容 | 原因 |
+| ---- | -------- | ---- |
+| 2026-07-09 | 文件从 `content/post/other/移动平均线交叉.md` 重命名为 `moving-average-crossover-strategy.md` 并移入 `trading` 目录；title 改为英中混写；url 改为英文；categories 从 `Inbox` 改为 `trading` | 文件名含中文且分类为 Inbox，不符合规范；内容属于 EMA/SMA 均线交叉策略，归类到 trading 目录更准确 |

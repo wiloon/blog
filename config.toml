@@ -24,6 +24,11 @@ hasCJKLanguage = true
 [markup]
   [markup.goldmark.renderHooks.link]
     useEmbedded = "always"
+  [markup.goldmark.extensions.passthrough]
+    enable = true
+    [markup.goldmark.extensions.passthrough.delimiters]
+      block = [['\[', '\]'], ['$$', '$$']]
+      inline = [['\(', '\)']]
   [markup.highlight]
     anchorLineNos = false
     codeFences = true
