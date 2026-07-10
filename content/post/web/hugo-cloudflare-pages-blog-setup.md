@@ -12,7 +12,7 @@ tags:
   - dns
   - cdn
   - github
-  - remix
+  - original
   - AI-assisted
 ---
 
