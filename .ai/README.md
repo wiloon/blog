@@ -4,36 +4,37 @@
 
 ## 文档索引
 
-| 文件                                             | 用途                                                                                     |
-| ------------------------------------------------ | ---------------------------------------------------------------------------------------- |
-| [article-sdd.md](article-sdd.md)                 | **文章 SDD**：Spec 驱动写作流程、AI 约束、Spec 是否上线                                  |
-| [delivery-style.md](delivery-style.md)           | **仅 SDD 交付物**：共通 prose 文风（加粗、人称适度用「我」、语气）；无 Spec 的文章不适用 |
-| [content-constraints.md](content-constraints.md) | **全站内容约束**：语气平实不拔高；VPN 相关表述（WireGuard/OpenVPN 除外不写软件名）；代码块注释用英文等 |
-| [internal-links.md](internal-links.md)           | **全站内链**：相对 `.md` + Hugo embedded hook                                            |
-| [page-bundle-images.md](page-bundle-images.md)   | **文章插图**：Page Bundle 目录结构、正文插图、PaperMod 封面、`task preview`              |
-| [build-and-deploy.md](build-and-deploy.md)       | **构建与部署**：`build.sh`（CF Pages）、`scripts/build-site.sh`、Pagefind、容器与 OpenTofu |
-| [doc-length-and-split.md](doc-length-and-split.md) | **文档长度与拆分**：行数参考、单一主题判断、hub 拆分；长文 AI 主动提示作者              |
-| [specs/](specs/)                                 | 各篇文章 Spec（**作者维护**；AI 按 Spec 润色/输出交付物）                                |
+| 文件                                               | 用途                                                                                                   |
+| -------------------------------------------------- | ------------------------------------------------------------------------------------------------------ |
+| [article-sdd.md](article-sdd.md)                   | **文章 SDD**：Spec 驱动写作流程、AI 约束、Spec 是否上线                                                |
+| [delivery-style.md](delivery-style.md)             | **仅 SDD 交付物**：共通 prose 文风（加粗、人称适度用「我」、语气）；无 Spec 的文章不适用               |
+| [content-constraints.md](content-constraints.md)   | **全站内容约束**：语气平实不拔高；VPN 相关表述（WireGuard/OpenVPN 除外不写软件名）；代码块注释用英文等 |
+| [internal-links.md](internal-links.md)             | **全站内链**：相对 `.md` + Hugo embedded hook                                                          |
+| [page-bundle-images.md](page-bundle-images.md)     | **文章插图**：Page Bundle 目录结构、正文插图、PaperMod 封面、`task preview`                            |
+| [build-and-deploy.md](build-and-deploy.md)         | **构建与部署**：`build.sh`（CF Pages）、`scripts/build-site.sh`、Pagefind、容器与 OpenTofu             |
+| [doc-length-and-split.md](doc-length-and-split.md) | **文档长度与拆分**：行数参考、单一主题判断、hub 拆分；长文 AI 主动提示作者                             |
+| [specs/](specs/)                                   | 各篇文章 Spec（**作者维护**；AI 按 Spec 润色/输出交付物）                                              |
 
 **周记 Spec** 不在本仓库，已迁入私有仓库 `w10n-config/ops/weekly/`（见 [ADR-0002](https://github.com/wiloon/w10n-config/blob/main/ops/ADR-0002-weekly-spec-to-private-repo.md)）。本仓库仅保留周记**交付物** `content/post/career/weekly-*.md`。
 
 ## 文章 Spec 一览
 
-| Spec                                                                                 | 交付物                                                                                                                                             |
-| ------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [specs/exploration.md](specs/exploration.md)                                         | [career/exploration.md](../content/post/career/exploration.md)                                                                                     |
-| [specs/booster-recovery.md](specs/booster-recovery.md)                               | [content/post/starship/booster-recovery.md](../content/post/starship/booster-recovery.md)                                                          |
-| [specs/java-knowledge-map.md](specs/java-knowledge-map.md)                           | [java-knowledge-map.md](../content/post/language/java/java-knowledge-map.md) + **全站**内链迁移（`scripts/migrate-internal-links.py --scope all`） |
-| [specs/iot-protocol-oom-mysql-influxdb.md](specs/iot-protocol-oom-mysql-influxdb.md) | （review）[career/iot-protocol-oom-mysql-influxdb.md](../content/post/career/iot-protocol-oom-mysql-influxdb.md)                                   |
-| [specs/pve-storage.md](specs/pve-storage.md)                                         | （review）[cloud/pve-storage.md](../content/post/cloud/pve-storage.md)                                                                             |
-| [specs/android-apk-security-assessment.md](specs/android-apk-security-assessment.md) | `content/post/career/android-apk-security-assessment.md`                                                                                           |
-| [specs/weekly-report-2026-w24/weekly-2026-w24.md](specs/weekly-report-2026-w24/weekly-2026-w24.md) | `content/post/career/weekly-2026-w24.md`（历史 Spec，仍留本仓） |
-| [specs/starbucks-latte-vs-indie-cafe.md](specs/starbucks-latte-vs-indie-cafe.md)     | `content/post/life/starbucks-latte-vs-indie-cafe.md`                                                                                               |
-| `w10n-config/ops/weekly/weekly-2026-w{23,25,26}.md`（私有仓）                        | `content/post/career/weekly-2026-w{23,25,26}.md`                                                                                                   |
-| [specs/spring-boot-container-packaging.md](specs/spring-boot-container-packaging.md) | [spring/spring-boot-container-packaging.md](../content/post/language/java/spring/spring-boot-container-packaging.md)                               |
-| [specs/spring-boot-executable-jar.md](specs/spring-boot-executable-jar.md)           | [spring/spring-boot-executable-jar.md](../content/post/language/java/spring/spring-boot-executable-jar.md)                                         |
-| [specs/cloud-native-buildpacks.md](specs/cloud-native-buildpacks.md)                 | [cloud/cloud-native-buildpacks.md](../content/post/cloud/cloud-native-buildpacks.md)                                                               |
-| [specs/iot-third-party-data-push.md](specs/iot-third-party-data-push.md)             | `content/post/career/iot-third-party-data-push.md`                                                                                                 |
+| Spec                                                                                               | 交付物                                                                                                                                             |
+| -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [specs/exploration.md](specs/exploration.md)                                                       | [career/exploration.md](../content/post/career/exploration.md)                                                                                     |
+| [specs/booster-recovery.md](specs/booster-recovery.md)                                             | [content/post/starship/booster-recovery.md](../content/post/starship/booster-recovery.md)                                                          |
+| [specs/java-knowledge-map.md](specs/java-knowledge-map.md)                                         | [java-knowledge-map.md](../content/post/language/java/java-knowledge-map.md) + **全站**内链迁移（`scripts/migrate-internal-links.py --scope all`） |
+| [specs/iot-protocol-oom-mysql-influxdb.md](specs/iot-protocol-oom-mysql-influxdb.md)               | （review）[career/iot-protocol-oom-mysql-influxdb.md](../content/post/career/iot-protocol-oom-mysql-influxdb.md)                                   |
+| [specs/pve-storage.md](specs/pve-storage.md)                                                       | （review）[cloud/pve-storage.md](../content/post/cloud/pve-storage.md)                                                                             |
+| [specs/android-apk-security-assessment.md](specs/android-apk-security-assessment.md)               | `content/post/career/android-apk-security-assessment.md`                                                                                           |
+| [specs/weekly-report-2026-w24/weekly-2026-w24.md](specs/weekly-report-2026-w24/weekly-2026-w24.md) | `content/post/career/weekly-2026-w24.md`（历史 Spec，仍留本仓）                                                                                    |
+| [specs/starbucks-latte-vs-indie-cafe.md](specs/starbucks-latte-vs-indie-cafe.md)                   | `content/post/life/starbucks-latte-vs-indie-cafe.md`                                                                                               |
+| `w10n-config/ops/weekly/weekly-2026-w{23,25,26}.md`（私有仓）                                      | `content/post/career/weekly-2026-w{23,25,26}.md`                                                                                                   |
+| [specs/spring-boot-container-packaging.md](specs/spring-boot-container-packaging.md)               | [spring/spring-boot-container-packaging.md](../content/post/language/java/spring/spring-boot-container-packaging.md)                               |
+| [specs/spring-boot-executable-jar.md](specs/spring-boot-executable-jar.md)                         | [spring/spring-boot-executable-jar.md](../content/post/language/java/spring/spring-boot-executable-jar.md)                                         |
+| [specs/cloud-native-buildpacks.md](specs/cloud-native-buildpacks.md)                               | [cloud/cloud-native-buildpacks.md](../content/post/cloud/cloud-native-buildpacks.md)                                                               |
+| [specs/iot-third-party-data-push.md](specs/iot-third-party-data-push.md)                           | `content/post/career/iot-third-party-data-push.md`                                                                                                 |
+| [specs/hugo-cloudflare-pages-blog-setup.md](specs/hugo-cloudflare-pages-blog-setup.md)             | `content/post/web/hugo-cloudflare-pages-blog-setup.md`                                                                                             |
 **内容目录 `content/post/career/`**：职业/面试向叙事与项目故事（[exploration](../content/post/career/exploration.md)、[conflict-check](../content/post/career/conflict-check.md)、OOM 案例等）。
 
 ## 工作流（SDD）
