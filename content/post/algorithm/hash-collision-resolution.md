@@ -11,6 +11,7 @@ tags:
   - algorithm
   - java
   - python
+  - go
   - remix
   - AI-assisted
 aliases:
@@ -20,7 +21,7 @@ aliases:
 
 ## 开链法与开放地址法，Separate Chaining and Open Addressing
 
-哈希表在插入元素时，如果两个不同的 key 计算出的哈希值落到了数组的同一个位置，就发生了**哈希冲突（hash collision）**。解决哈希冲突主要有两种思路：**开链法（Separate Chaining）**和**开放地址法（Open Addressing）**。Java 的 HashMap 用的是开链法；Python 的 dict 用的是开放地址法。
+哈希表在插入元素时，如果两个不同的 key 计算出的哈希值落到了数组的同一个位置，就发生了**哈希冲突（hash collision）**。解决哈希冲突主要有两种思路：**开链法（Separate Chaining）**和**开放地址法（Open Addressing）**。Java 的 HashMap 用的是开链法；Python 的 dict 用的是开放地址法。Java 里也有用开放地址法的例子，比如 `IdentityHashMap` 和 `ThreadLocal.ThreadLocalMap`，详见后文「在 Java 中的应用」一节。
 
 ## 开链法，Separate Chaining
 
@@ -127,6 +128,51 @@ p(key, i) = h2(key) * i
 
 Python 的 dict 就是使用开放地址法处理 hash 碰撞的典型例子。
 
+### Python dict 的实现演变与伪随机探测
+
+Python 的 dict 从很早的版本开始就是开放地址法，这一点从未变过；变化的是内存布局和探测函数的细节：
+
+- **3.6 之前**：dict 是一个纯粹的开放地址哈希表，槽位数组直接存 `(hash, key, value)`，不保证遍历顺序。
+- **3.6 引入"紧凑字典"（compact dict）**：把哈希表拆成两部分——一个稀疏的索引数组（只存整数下标，大小仍是 2 的幂），和一个按插入顺序紧密排列的 `(hash, key, value)` 数组。查找时先在索引数组里探测拿到下标，再去紧凑数组里取值。稀疏数组只需要存下标，不用像以前那样让每个槽位都留出 hash/key/value 三个字段的空间，这个改动省了不少内存，顺带带来了"dict 保序"这个副作用（3.7 正式写进语言规范）。但探测发生在索引数组这一层，**冲突解决的思路本身没变，仍是开放地址法**。
+- **探测函数**：CPython 没有用简单的线性探测（`i = (i+1) % size`），而是用一种伪随机探测：
+
+  ```text
+  perturb = hash            // 初始值就是 key 的 hash
+  i = hash & mask           // 第一个探测位置，mask = size - 1
+
+  // 每次探测失败后：
+  perturb >>= PERTURB_SHIFT   // PERTURB_SHIFT = 5
+  i = (i * 5 + perturb + 1) & mask
+  ```
+
+  这本质是一个线性同余生成器（LCG），但每一步都会混入 hash 剩余的高位（`perturb`）。纯线性探测容易让哈希值低位相同的 key 聚集在一起、越滚越大；伪随机探测让探测路径同时依赖 hash 的高位，即使两个 key 的初始位置相同，只要完整 hash 不同，很快就会分道扬镳。当 `perturb` 减到 0 后，根据 Hull–Dobell 定理，`i = (i*5+1) & mask` 这个纯 LCG 能保证遍历完所有 `2^n` 个槽位，不会死循环。`PERTURB_SHIFT = 5` 是 Tim Peters 通过大量实验选出的经验值。
+  - 从早期版本到目前最新的 3.14 系列，这套伪随机探测算法的核心思路一直没变。
+
+## 其他解决方法
+
+除了开链法和开放地址法这两大类，还有一些变体和混合方案：
+
+- **双重哈希（Double Hashing）**：开放地址法的一种探测函数，用第二个哈希函数计算探测步长（即前面 `p(key, i) = h2(key) * i` 的思路），让不同 key 的探测路径尽量不同，缓解聚集问题。
+- **公共溢出区法（Overflow Area）**：所有冲突的元素不再挂在原槽位的链表或往后探测，而是统一放进一个独立的"溢出表"。查找时先查主表，查不到再查溢出表。
+- **合并链地址法（Coalesced Hashing）**：开链法和开放地址法的混合——链表照常存在，但节点复用同一个数组里的空闲槽位，而不是另外分配内存，兼顾开链法的简单和开放地址法的内存连续性。
+- **布谷鸟哈希（Cuckoo Hashing）**：用两个（或多个）哈希函数和数组。插入时若目标位置已被占用，就把原来的元素"踢出去"，让它去自己的另一个哈希位置，可能引发连锁踢出。优点是查找最坏情况下只需检查固定几个位置，是 O(1)。
+- **Robin Hood 哈希**：开放地址法的变体。插入时如果新元素离自己理想位置的距离比当前占位元素离它理想位置的距离更远，就把旧元素换出来插到别处，从而让各元素的探测距离趋于均匀，减少方差和聚集。
+- **跳房子哈希（Hopscotch Hashing）**：开放地址法的变体，限制每个元素离理想位置的最大偏移量在一个邻域内，兼顾缓存局部性和删除效率。
+
+### 在 Java 中的应用
+
+- `HashMap`、`Hashtable`、`ConcurrentHashMap`、`LinkedHashMap` 用的都是开链法（前文已提到）。
+- `IdentityHashMap` 反而是开放地址法（线性探测），和 `HashMap` 正好相反，官方文档里明确写了它是 linear-probe hash table，细节见 [IdentityHashMap：基于引用相等的 Map 实现](../language/java/identity-hash-map.md)。
+- `ThreadLocal` 内部的 `ThreadLocal.ThreadLocalMap`（每个 `Thread` 持有一份）同样用开放地址法（线性探测）实现。
+- 第三方高性能集合库，比如 fastutil 的 `Object2IntOpenHashMap`、`Int2ObjectOpenHashMap` 等 `Open*Map` 系列，用的也是开放地址法线性探测，为了避免装箱开销和获得更好的缓存局部性。
+- Robin Hood 哈希、布谷鸟哈希这些方案在 JDK 和主流 Java 库里没有看到生产级应用，目前多见于学术论文和对比研究中的教学实现。
+
+### 在 Go 语言中的应用
+
+- **Go 1.24 之前**：内置 `map` 更接近开链法的变体——底层是 `2^B` 个桶（bucket），每个桶固定装 8 个 key-value，桶内还存了每个 key hash 的高 8 位（tophash）用于快速跳过明显不匹配的槽位；桶装满后会挂一个"溢出桶"（overflow bucket），形成一条短链，跟开链法思路很像，只是链表的最小单位是"8 个元素的桶"而不是单个节点。注意这里的"溢出桶"是**每个桶各自私有的一条链**（哪个桶满了就单独给它挂一个），并不是所有桶共享同一个"公共溢出区"——后者是前文提到的公共溢出区法（Overflow Area）那种不同槽位的冲突元素统一放进一张共享溢出表的做法，Go 的实现严格来说不是这一种，仍然是开链法变体。
+- **Go 1.24 起**：换成了基于 Swiss Table 的实现，思路更接近开放地址法，细节见 [Swiss Table 哈希表](./swiss-table.md)——8 个 slot 分为一组（group），组内用一个 64 位控制字保存每个 slot hash 的低 7 位，可以并行比较整组 8 个 slot，命中候选后再核对完整 key；一组探测不到就探测下一组，不再需要单独分配溢出桶。这次改动让 map 操作最多快 60%，内存占用最多降低 70%。
+- 所以 Go 的 map 前后两代实现分别对应开链法和开放地址法的工程变体：都不是教科书式的单节点链表或单 slot 探测，而是引入"批量分组 + tophash/控制字快速比较"来提升缓存局部性和 SIMD 利用率。
+
 ## 参考
 
 作者：老錢
@@ -138,4 +184,4 @@ Python 的 dict 就是使用开放地址法处理 hash 碰撞的典型例子。
 
 | 时间 | 修改内容 | 原因 |
 | ---- | -------- | ---- |
-| 2026-07-13 | 文件重命名为 `hash-collision-resolution.md`（原 `Open-Addressing.md`/`open-addressing.md`，保留两者为 alias）；标题改为「开链法与开放地址法」；categories/tags 从占位符 `Inbox` 改为 `algorithm`/`hash`/`java`/`python` 等；正文按「开链法」「开放地址法」拆分为两个平级章节，各自细分优缺点/负载因子/探测函数/删除/聚集问题等小节；补充负载因子（load factor）说明及与 hashmap.md 红黑树优化一节的互链；清理原文残留的「复制代码」等抓取噪音文本 | 原文档标题和文件名只覆盖开放地址法，但正文其实同时讲了开链法，两部分内容混写在一起；按主题重新组织，全站未发现其它讲开链法的文档，因此在这篇里补齐 |
+| 2026-07-13 | 文件重命名为 `hash-collision-resolution.md`（原 `Open-Addressing.md`/`open-addressing.md`，保留两者为 alias）；标题改为「开链法与开放地址法」；categories/tags 从占位符 `Inbox` 改为 `algorithm`/`hash`/`java`/`python` 等；正文按「开链法」「开放地址法」拆分为两个平级章节，各自细分优缺点/负载因子/探测函数/删除/聚集问题等小节；补充负载因子（load factor）说明及与 hashmap.md 红黑树优化一节的互链；清理原文残留的「复制代码」等抓取噪音文本；新增「其他解决方法」章节，介绍双重哈希、公共溢出区、合并链地址、布谷鸟哈希、Robin Hood 哈希、跳房子哈希，并补充这些方法在 Java 中的应用（`IdentityHashMap`/`ThreadLocalMap` 用线性探测，fastutil 的 `Open*Map` 同理）；开篇段落补充 Java 里开放地址法的例子，不再只提 Python dict；新增「Python dict 的实现演变与伪随机探测」小节，说明 3.6 紧凑字典改动只变内存布局、不变开放地址法本质，并给出 perturb 探测公式；新增「在 Go 语言中的应用」小节，说明 Go 1.24 前的桶+溢出桶实现接近开链法变体、1.24 起的 Swiss Table 实现接近开放地址法变体；补充 `go` 标签；澄清 Go 早期溢出桶是每个桶私有的链，不是「公共溢出区法」；Go 1.24 段落互链新建的 [Swiss Table 哈希表](./swiss-table.md)；`IdentityHashMap` 一条互链新建的 [IdentityHashMap：基于引用相等的 Map 实现](../language/java/identity-hash-map.md) | 原文档标题和文件名只覆盖开放地址法，但正文其实同时讲了开链法，两部分内容混写在一起；按主题重新组织，全站未发现其它讲开链法的文档，因此在这篇里补齐；读者追问除开链法和开放地址法外还有哪些方法及其在 Java 中的实际应用，补充完整；开篇段落只举了 Python 的例子未提 Java，做了补充；读者追问 Python dict 最新版本是否仍是开放地址法及伪随机探测细节，以及 Go 语言里有没有类似开链法/开放地址法的实现，逐一补充；读者追问 Go 早期实现是否属于公共溢出区法，予以澄清区分；读者追问站内是否已有 Swiss Table 专门的文档，没有则新建；站内没有 `IdentityHashMap` 专门文档，读者确认新建后补上互链 |
