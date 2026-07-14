@@ -18,7 +18,7 @@ tags:
 
 本文汇总 **OpenJDK HotSpot** 常用启动参数（`-`、`-X`、`-XX`）。这些开关 **不是 JVM 规范的一部分**，其他实现（OpenJ9 等）名称与语义可能不同。
 
-JVM 生态选型见 [jvm](./jvm.md)；HotSpot 架构索引见 [hotspot](./hotspot.md)。GC 算法细节见 [java-gc](./java-gc.md)；JIT 与分层编译见 [jvm-compiler](../../cs/jvm-compiler.md)。
+JVM 生态选型见 [jvm](./jvm.md)；HotSpot 架构索引见 [hotspot](./hotspot.md)。GC 算法细节见 [java-gc](./gc.md)；JIT 与分层编译见 [jvm-compiler](../../cs/jvm-compiler.md)。
 
 ## 参数分类
 
@@ -211,4 +211,4 @@ java -Xms2g -Xmx2g \
 
 - [Java HotSpot VM Options（JDK 21）](https://docs.oracle.com/en/java/javase/21/docs/specs/man/java.html)
 - [Unified JVM Logging](https://docs.oracle.com/en/java/javase/21/docs/specs/man/java.html#enable-logging-with-the-application-class-data-sharing-appcds-feature)
-- 本站：[java-gc](./java-gc.md)、[hotspot](./hotspot.md)
+- 本站：[java-gc](./gc.md)、[hotspot](./hotspot.md)

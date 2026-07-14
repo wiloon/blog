@@ -80,7 +80,7 @@ flowchart TB
 | HotSpot 架构与站内索引 | [HotSpot 简介](./hotspot.md) |
 | HotSpot 启动参数 | [hotspot-options](./hotspot-options.md) |
 | JIT / C1·C2 / 分层编译 | [jvm-compiler](../../cs/jvm-compiler.md) |
-| GC、分代（多篇） | [java-gc](./java-gc.md) 等 |
+| GC、分代（多篇） | [java-gc](./gc.md) 等 |
 | Safepoint | [safepoint](../../other/safepoint.md) |
 
 ### 类加载

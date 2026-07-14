@@ -82,7 +82,7 @@ HotSpot 的典型路径（细节见专文）：
 ```
 
 - JIT 与分层编译：[HotSpot JIT 编译器（C1/C2）](../../cs/jvm-compiler.md)
-- GC 算法与调优：[java-gc](./java-gc.md)
+- GC 算法与调优：[java-gc](./gc.md)
 - 启动参数： [HotSpot JVM 启动参数](./hotspot-options.md)
 
 ## 本站文档边界

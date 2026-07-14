@@ -49,7 +49,7 @@ JDK 1.4（J2SE 1.4）于 2002 年 2 月发布。对外称 **Java 2 Platform, Sta
 ### JVM 与性能
 
 - **HotSpot 成为唯一 VM**（1.4.0 起移除 Classic VM；HotSpot 自 JDK 1.3 起已是默认实现，见 [HotSpot](./hotspot.md)）
-- **Parallel Scavenge** 新生代收集器（1.4.0）；1.4.1 起 GC 调优选项增强（见 [Java GC](./java-gc.md)）
+- **Parallel Scavenge** 新生代收集器（1.4.0）；1.4.1 起 GC 调优选项增强（见 [Java GC](./gc.md)）
 - 1.4.2 引入**自旋锁**（`-XX:+UseSpinning`，见 [Java Lock](./java-lock.md)）
 
 ### 工具与诊断

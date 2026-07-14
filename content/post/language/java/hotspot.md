@@ -56,7 +56,7 @@ Java 源码 → javac → .class
                     ↓
          运行时数据区（堆、栈、元空间等）
                     ↓
-         垃圾收集器（见 [java-gc](./java-gc.md)）
+         垃圾收集器（见 [java-gc](./gc.md)）
 ```
 
 启动与调优通过 **JVM 启动参数**（`-X`、`-XX`）配置，见 [HotSpot JVM 启动参数](./hotspot-options.md)。
@@ -136,7 +136,7 @@ Go 与 Rust 能彻底摆脱 C 的关键，是它们**直接编译为本地机器
 | JVM 生态与选型 | [jvm](./jvm.md) |
 | JIT / 分层编译 / C1·C2 | [jvm-compiler](../../cs/jvm-compiler.md) |
 | 启动参数（堆、GC、日志、JIT） | [hotspot-options](./hotspot-options.md) |
-| GC 概念与算法 | [java-gc](./java-gc.md)、[jvm-gc](./jvm-gc.md) |
+| GC 概念与算法 | [java-gc](./gc.md)、[jvm-gc](./jvm-gc.md) |
 | 类加载 | [classloader](./classloader.md) |
 | Attach / jcmd | [attach-api](./attach-api.md)、[jcmd](./jcmd.md) |
 | 字节码织入 | [java-asm](./asm.md) |
