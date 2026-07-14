@@ -2,12 +2,15 @@
 title: Red-Black Tree,红黑树, R-B Tree
 author: "-"
 date: 2015-06-28T02:05:01+00:00
+lastmod: 2026-07-13T18:00:28+08:00
 url: red-black-tree
 categories:
   - Algorithm
 tags:
   - Algorithm
   - Java
+  - remix
+  - AI-assisted
 
 aliases:
   - /p7914/
@@ -125,3 +128,13 @@ AVL树的定义:
 反之，数据量较大，外存中占主要部分时，B树因其读磁盘次数少，而具有更快的速度。
 
 >[https://www.jianshu.com/p/e3506cee4010](https://www.jianshu.com/p/e3506cee4010)
+
+## 应用：JDK 8 HashMap
+
+JDK 8 的 `HashMap` 在某个桶（bucket）的链表长度超过阈值时会把链表转换成红黑树，将该桶最坏情况下的查找复杂度从 O(n) 降到 O(log n)，具体实现见 [HashMap](../language/java/hashmap.md#红黑树优化jdk-18-新增-treenode)。
+
+## 维护记录
+
+| 时间 | 修改内容 | 原因 |
+| ---- | -------- | ---- |
+| 2026-07-13 | 补充「应用：JDK 8 HashMap」一节，内链至 hashmap.md | 关联站内讲 HashMap 红黑树实现的文章 |

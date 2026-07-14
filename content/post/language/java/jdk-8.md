@@ -2,7 +2,7 @@
 title: JDK 8
 author: "-"
 date: 2026-04-25T10:10:10+08:00
-lastmod: 2026-06-20T12:53:11+08:00
+lastmod: 2026-07-13T18:00:28+08:00
 url: jdk-8
 categories:
   - language
@@ -31,6 +31,7 @@ JDK 8 相对于 JDK 7 引入的主要特性：
 - 重复注解（Repeating Annotations）
 - 类型注解（Type Annotations）
 - PermGen 移除，改用 Metaspace
+- HashMap 内部实现优化：链表转红黑树
 
 ---
 
@@ -254,6 +255,12 @@ List<@NonNull String> items = new ArrayList<>();
 
 移除永久代（PermGen），改用本地内存中的元空间（Metaspace），解决 `OutOfMemoryError: PermGen space` 问题。
 
+## HashMap 内部实现优化：链表转红黑树
+
+这是 `java.util.HashMap` 内部实现的优化，不涉及语言语法或公开 API 的变化，因此通常不会出现在"Java 8 新特性"这类面向开发者的概览清单里。
+
+当某个桶（bucket）里的链表长度超过 `TREEIFY_THRESHOLD`（默认 8），且数组容量已达到 `MIN_TREEIFY_CAPACITY`（默认 64）时，JDK 8 会把该桶的链表转换成红黑树，将该桶最坏情况下的查找复杂度从 O(n) 降到 O(log n)。详细实现见 [HashMap](./hashmap.md#红黑树优化jdk-18-新增-treenode)。
+
 ## 参考
 
 - [JDK 8 新特性 - IBM Developer](https://www.ibm.com/developerworks/cn/java/j-lo-jdk8newfeature/)
@@ -267,3 +274,4 @@ List<@NonNull String> items = new ArrayList<>();
 | 2026-06-20 | 开篇「主要新特性」改为「主要特性」 | 全系列统一命名 |
 | 2026-06-20 | 重命名为 `jdk-8.md`；title 改为「JDK 8」；url 改为 `jdk-8`；移至 `language/java/` | 全系列统一简洁命名 |
 | 2026-06-20 | 函数式接口小节补充 SAM 术语并链到 functional-interface | 与 lambda 等文统一术语出处 |
+| 2026-07-13 | 补充「HashMap 内部实现优化：链表转红黑树」一节，内链至 hashmap.md | 该特性是 JDK 8 的真实变化，但属于内部实现优化而非公开 API，之前遗漏 |
