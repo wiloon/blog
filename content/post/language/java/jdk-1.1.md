@@ -2,7 +2,7 @@
 title: JDK 1.1
 author: "-"
 date: 2026-06-20T14:50:50+08:00
-lastmod: 2026-06-21T11:46:40+08:00
+lastmod: 2026-07-14T22:49:29+08:00
 url: jdk-1.1
 categories:
   - language
@@ -23,7 +23,7 @@ JDK 1.1 于 **1997 年 2 月 19 日**发布，是 [JDK 1.0](./jdk-1.0.md) 之后
 | `java.version` | `1.1.x` |
 | class major version | 45（minor 3，即 45.3） |
 | 上一版本 | [JDK 1.0](./jdk-1.0.md) |
-| 下一版本 | Java 1.2（1998-12，集合框架与 Swing） |
+| 下一版本 | [JDK 1.2](./jdk-1.2.md)（1998-12，集合框架与 Swing） |
 
 ## 概览
 
@@ -178,6 +178,12 @@ button.addActionListener(new ActionListener() {
 
 ---
 
+## 垃圾回收（GC）
+
+**GC 基本没变化。** 1.1 仍附带 [Classic VM](./hotspot.md)（HotSpot 要到 1.3 才成为默认 VM），用的还是 1.0 那套固定的**标记-清除（Mark-Sweep）**收集器：单线程、Stop-The-World、不分代，同样没有任何切换收集算法的命令行参数，详见 [JDK 1.0](./jdk-1.0.md#垃圾回收gc)。
+
+1.1 引入的 **JIT 编译器**改善的是字节码的执行速度（解释 vs. 编译执行），跟 GC 是两回事——即便有了 JIT，回收对象时用的仍是同一个非分代 mark-sweep 收集器，谈不上分代模型、也谈不上收集器可选。真正让 GC 发生根本变化（分代模型、HotSpot 的 Serial 收集器等）要等到 [JDK 1.3](./jdk-1.3.md) 起 HotSpot 成为默认 VM 之后。
+
 ## 历史背景（简述）
 
 1997 年距 1.0 发布约 **21 个月**。浏览器里的 Applet 仍带热度，但 JDBC 与 RMI 让 Java 开始被服务端与中间件场景认真采用——为 1998 年 **Java 1.2**（Swing、集合框架、「Java 2 Platform」品牌）铺路。平台命名、发布节奏见 [Java 版本历史](./java-version-history.md)。
@@ -205,6 +211,7 @@ button.addActionListener(new ActionListener() {
 | ---- | -------- | ---- |
 | 2026-06-21 | 反射章节链至 `java-lang-class.md` | Class 概念独立成文 |
 | 2026-06-21 | 修正 HotSpot 引入版本表述 | 与 hotspot.md 时间线对齐 |
+| 2026-07-14 | 新增「垃圾回收（GC）」章节，说明 1.1 的 GC 与 1.0 相比基本无变化 | 用户询问 1.1 的 GC 是否有变化 |
 
 ---
 
