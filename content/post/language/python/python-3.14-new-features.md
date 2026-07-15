@@ -2,13 +2,14 @@
 title: Python 3.14 新特性探索
 author: "-"
 date: 2025-12-24T16:30:00+08:00
-url: python-3.14-new-features
+lastmod: 2026-07-15T04:28:17+08:00
+url: python-3-14-new-features
 categories:
   - Python
 tags:
-  - Python
-  - AI-assisted
+  - python
   - remix
+  - AI-assisted
 ---
 
 ## Python 3.14 概述
@@ -372,3 +373,9 @@ Python 3.14 是一个里程碑式的版本，带来了多项革命性改进：
 Python 3.14 展示了核心团队在性能、并发和开发者体验方面的雄心。随着 JIT 编译器的成熟和自由线程模式的推广，Python 的性能将迎来质的飞跃。
 
 **建议**：开发者应积极关注这些变化，在测试环境中体验新特性，为未来的生产环境迁移做好准备。
+
+## 维护记录
+
+| 时间 | 修改内容 | 原因 |
+| ---- | -------- | ---- |
+| 2026-07-15 | url 改为 `python-3-14-new-features` | URL 含 `.` 时 Cloudflare 误判 MIME，页面无法打开 |

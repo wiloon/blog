@@ -2,8 +2,8 @@
 title: JDK 1.2
 author: "-"
 date: 2026-07-14T22:56:38+08:00
-lastmod: 2026-07-14T22:56:38+08:00
-url: jdk-1.2
+lastmod: 2026-07-15T04:28:17+08:00
+url: jdk-1-2
 categories:
   - language
 tags:
@@ -178,3 +178,9 @@ grant codeBase "file:${java.home}/lib/ext/*" {
 - [Java version history（Wikipedia）](https://en.wikipedia.org/wiki/Java_version_history)
 - [HotSpot JVM 简介](./hotspot.md)
 - [Collection List Set Map 区别](./collection-list-set-map-区别.md)
+
+## 维护记录
+
+| 时间 | 修改内容 | 原因 |
+| ---- | -------- | ---- |
+| 2026-07-15 | url 改为 `jdk-1-2` | URL 含 `.` 时 Cloudflare 误判 MIME，页面无法打开 |

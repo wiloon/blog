@@ -2,8 +2,8 @@
 title: JDK 1.1
 author: "-"
 date: 2026-06-20T14:50:50+08:00
-lastmod: 2026-07-14T22:49:29+08:00
-url: jdk-1.1
+lastmod: 2026-07-15T04:28:17+08:00
+url: jdk-1-1
 categories:
   - language
 tags:
@@ -212,6 +212,7 @@ button.addActionListener(new ActionListener() {
 | 2026-06-21 | 反射章节链至 `java-lang-class.md` | Class 概念独立成文 |
 | 2026-06-21 | 修正 HotSpot 引入版本表述 | 与 hotspot.md 时间线对齐 |
 | 2026-07-14 | 新增「垃圾回收（GC）」章节，说明 1.1 的 GC 与 1.0 相比基本无变化 | 用户询问 1.1 的 GC 是否有变化 |
+| 2026-07-15 | url 改为 `jdk-1-1` | URL 含 `.` 时 Cloudflare 误判 MIME，页面无法打开 |
 
 ---
 

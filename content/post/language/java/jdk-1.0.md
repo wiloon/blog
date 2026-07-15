@@ -2,8 +2,8 @@
 title: JDK 1.0
 author: "-"
 date: 2026-06-20T14:15:54+08:00
-lastmod: 2026-07-14T22:13:29+08:00
-url: jdk-1.0
+lastmod: 2026-07-15T04:28:17+08:00
+url: jdk-1-0
 categories:
   - language
 tags:
@@ -98,6 +98,7 @@ Classic VM 内置的是一个固定的**标记-清除（Mark-Sweep）**收集器
 | ---- | -------- | ---- |
 | 2026-06-21 | 修正 HotSpot 引入版本表述 | 与 hotspot.md 时间线对齐 |
 | 2026-07-14 | 新增「垃圾回收（GC）」章节，说明 1.0 用的是 Classic VM 固定标记-清除收集器，无收集器可选 | 用户要求补充 GC 相关内容 |
+| 2026-07-15 | url 改为 `jdk-1-0` | URL 含 `.` 时 Cloudflare 误判 MIME，页面无法打开 |
 
 ## 参考
 

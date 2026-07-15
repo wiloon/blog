@@ -2,10 +2,13 @@
 title: Python 3.12 新特性探索
 author: "-"
 date: 2026-01-16T13:05:00+08:00
-url: python-3.12-new-features
+lastmod: 2026-07-15T04:28:17+08:00
+url: python-3-12-new-features
 categories:
   - Python
 tags:
+  - python
+  - remix
   - AI-assisted
 ---
 
@@ -424,3 +427,9 @@ Python 3.12 是一个重要的版本更新，主要改进包括：
 5. ✅ 更好的调试和性能分析工具
 
 对于生产环境，建议在充分测试后升级，特别注意 `distutils` 的移除和 f-string 语法的变化。
+
+## 维护记录
+
+| 时间 | 修改内容 | 原因 |
+| ---- | -------- | ---- |
+| 2026-07-15 | url 改为 `python-3-12-new-features` | URL 含 `.` 时 Cloudflare 误判 MIME，页面无法打开 |
