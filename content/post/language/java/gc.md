@@ -347,16 +347,37 @@ G1 收集器的运作大致可划分为以下几个步骤：
 | JDK 1.6（2006） | Parallel Old 出现，`-XX:+UseParallelOldGC` = Parallel Scavenge + Parallel Old |
 | JDK 6u14（2008） | G1 作为实验特性引入 |
 | JDK 7u4（2012） | G1 转为正式支持 |
-| JDK 9（2017） | G1 成为默认收集器；CMS 被标记废弃（JEP 291） |
+| JDK 8（2014） | JEP 173 标记 ParNew+SerialOld、DefNew+CMS 组合以及 CMS 增量模式（iCMS）为过时用法，启动时打印警告 |
+| JDK 9（2017） | G1 成为默认收集器；JEP 214 移除上述过时组合（使用即拒绝启动）；CMS 本身（ParNew+CMS 组合）被标记废弃（JEP 291），独立的 `-XX:+UseParNewGC` 开关也一并标记废弃 |
+| JDK 10（2018） | `-XX:+UseParNewGC` 开关被彻底移除，此后 ParNew 只能通过 `-XX:+UseConcMarkSweepGC` 隐式启用 |
 | JDK 11（2018） | Epsilon 无操作收集器引入（JEP 318）；ZGC 作为实验特性引入（JEP 333） |
 | JDK 12（2019） | Shenandoah 作为实验特性引入（JEP 189） |
-| JDK 14（2020） | CMS 正式移除（JEP 363），ParNew 随之失去存在意义 |
+| JDK 14（2020） | CMS 正式移除（JEP 363），ParNew 因此完全退场 |
 | JDK 15（2020） | ZGC（JEP 377）、Shenandoah（JEP 379）转为正式支持 |
 | JDK 21（2023） | 分代 ZGC 作为实验特性引入（JEP 439） |
 | JDK 23（2024） | 分代 ZGC 成为默认模式（JEP 474） |
 | JDK 24（2025） | 非分代 ZGC 模式被移除，ZGC 只保留分代模式（JEP 490） |
 
-需要注意两点：一是 Shenandoah 只存在于 OpenJDK 社区构建（如 Eclipse Temurin、Red Hat build），Oracle 官方 JDK 发行版不包含它；二是从 JDK 9 起，如无特殊配置，各版本默认收集器都是 G1。
+需要注意四点：
+
+1. Shenandoah 只存在于 OpenJDK 社区构建（如 Eclipse Temurin、Red Hat build），Oracle 官方 JDK 发行版不包含它。
+2. 从 JDK 9 起，如无特殊配置，各版本默认收集器都是 G1。
+3. 被移除的不止 CMS 一个：`ParNew+SerialOld`、`DefNew+CMS` 这类冷门组合，以及 CMS 增量模式，在 JDK 9（JEP 214）就已经移除；独立的 `-XX:+UseParNewGC` 开关在 JDK 10 移除；CMS 本体（连带隐式携带的 ParNew）则是 JDK 9 标记废弃、JDK 14（JEP 363）才真正移除。Serial、Parallel（含 Serial Old / Parallel Old）、G1、ZGC、Shenandoah 这几个主线收集器则从未被移除或废弃，参数一直可用。
+4. 两类移除的行为不同：JDK 9 移除 JEP 214 里的过时组合时，用了对应参数 JVM 会直接拒绝启动；而 JDK 14 移除 CMS 时只是打印 `Ignoring option UseConcMarkSweepGC; support was removed` 警告并回退到默认收集器，并不会启动失败。
+
+### JDK 17（LTS）可用收集器速查
+
+Oracle 官方为每个 JDK 版本都维护着「可用收集器」文档（[JDK 17 版](https://docs.oracle.com/en/java/javase/17/gctuning/available-collectors.html)），JDK 17 这一节列出的是：
+
+| 收集器 | 启用参数 | 说明 |
+| --- | --- | --- |
+| Serial | `-XX:+UseSerialGC` | 单线程，适合小数据量、单核场景 |
+| Parallel | `-XX:+UseParallelGC` | 多线程，吞吐量优先 |
+| G1（默认） | `-XX:+UseG1GC` | 大多数硬件/系统配置下的默认收集器 |
+| ZGC | `-XX:+UseZGC` | JDK 15 转正，全并发低延迟，停顿控制在几毫秒级 |
+| Shenandoah | `-XX:+UseShenandoahGC` | JDK 15 转正；仅 OpenJDK 社区构建提供，Oracle 官方 JDK 不含 |
+
+也就是说 JDK 17 并不是只剩 G1 和 ZGC 两个选项，Serial、Parallel 依然保留；只是生产环境常见配置是「默认 G1，延迟敏感场景切 ZGC/Shenandoah」。CMS 和 ParNew 在 JDK 17 里已经彻底不存在。
 
 ## 如何查看当前使用的 GC
 

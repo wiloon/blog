@@ -2,7 +2,7 @@
 title: JDK 8
 author: "-"
 date: 2026-04-25T10:10:10+08:00
-lastmod: 2026-07-13T18:00:28+08:00
+lastmod: 2026-07-14T17:48:06+08:00
 url: jdk-8
 categories:
   - language
@@ -32,6 +32,7 @@ JDK 8 相对于 JDK 7 引入的主要特性：
 - 类型注解（Type Annotations）
 - PermGen 移除，改用 Metaspace
 - HashMap 内部实现优化：链表转红黑树
+- GC 组合废弃（JEP 173）
 
 ---
 
@@ -261,6 +262,23 @@ List<@NonNull String> items = new ArrayList<>();
 
 当某个桶（bucket）里的链表长度超过 `TREEIFY_THRESHOLD`（默认 8），且数组容量已达到 `MIN_TREEIFY_CAPACITY`（默认 64）时，JDK 8 会把该桶的链表转换成红黑树，将该桶最坏情况下的查找复杂度从 O(n) 降到 O(log n)。详细实现见 [HashMap](./hashmap.md#红黑树优化jdk-18-新增-treenode)。
 
+## GC 组合废弃（JEP 173）
+
+JDK 8 通过 **JEP 173（Retire Some Rarely-Used GC Combinations）** 把几种冷门的垃圾收集器组合标记为过时：`ParNew + SerialOld`、`DefNew + CMS`，以及 CMS 的增量模式（Incremental CMS，iCMS）。这一步本身不移除任何功能，继续使用这些组合只会在启动时打印废弃警告，为后续正式移除做铺垫——这些组合在 JDK 9（JEP 214）就被直接移除，此后再传对应参数 JVM 会拒绝启动。完整的 GC 收集器废弃/移除时间线见 [Java GC](./gc.md#收集器发展时间线)。
+
+### JDK 8 可用收集器速查
+
+JDK 8 仍是传统分代模型的时代，G1 之后的 ZGC、Shenandoah、Epsilon 都还没出现（它们是 JDK 11/12 才引入的）。JDK 8 可用的收集器有：
+
+| 收集器 | 启用参数 | 说明 |
+| --- | --- | --- |
+| Serial | `-XX:+UseSerialGC` | 单线程，小数据量/单核场景 |
+| Parallel（默认） | `-XX:+UseParallelGC` | 新生代 Parallel Scavenge + 老年代 Parallel Old（随开关自动一起启用），吞吐量优先；JDK 8 在无特殊配置的服务端机器上默认使用它 |
+| CMS | `-XX:+UseConcMarkSweepGC` | ParNew + CMS 组合，低停顿；此时 CMS 尚未被标记废弃（废弃是 JDK 9 的 JEP 291 才发生的事） |
+| G1 | `-XX:+UseG1GC` | 自 JDK 7u4 起已转为正式支持，但在 JDK 8 里仍需显式开启，不是默认项 |
+
+上文提到的 `ParNew+SerialOld`、`DefNew+CMS`、CMS 增量模式这几个冷门组合在 JDK 8 里技术上仍可用，只是会打印废弃警告。JDK 9 及之后各版本的收集器变化（G1 转默认、CMS 移除、ZGC/Shenandoah 加入等），见 [Java GC](./gc.md#收集器发展时间线)。
+
 ## 参考
 
 - [JDK 8 新特性 - IBM Developer](https://www.ibm.com/developerworks/cn/java/j-lo-jdk8newfeature/)
@@ -275,3 +293,4 @@ List<@NonNull String> items = new ArrayList<>();
 | 2026-06-20 | 重命名为 `jdk-8.md`；title 改为「JDK 8」；url 改为 `jdk-8`；移至 `language/java/` | 全系列统一简洁命名 |
 | 2026-06-20 | 函数式接口小节补充 SAM 术语并链到 functional-interface | 与 lambda 等文统一术语出处 |
 | 2026-07-13 | 补充「HashMap 内部实现优化：链表转红黑树」一节，内链至 hashmap.md | 该特性是 JDK 8 的真实变化，但属于内部实现优化而非公开 API，之前遗漏 |
+| 2026-07-14 | 补充「GC 组合废弃（JEP 173）」一节，内链至 gc.md 的收集器发展时间线 | 原文未提及 JEP 173，属于 JDK 8 的真实 GC 相关变化，之前遗漏 |

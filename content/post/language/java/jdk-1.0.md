@@ -2,7 +2,7 @@
 title: JDK 1.0
 author: "-"
 date: 2026-06-20T14:15:54+08:00
-lastmod: 2026-06-21T18:53:36+08:00
+lastmod: 2026-07-14T22:13:29+08:00
 url: jdk-1.0
 categories:
   - language
@@ -71,6 +71,21 @@ JDK 1.0 于 **1995 年 5 月 23 日**由 Sun Microsystems 正式发布，是 Jav
 
 1.0 附带的是 Sun 自研的**解释型**虚拟机，以字节码解释执行为主；JIT 与 [HotSpot](./hotspot.md) 是此后若干年逐步演进的结果，与今天的 OpenJDK 默认 VM 不是同一套实现。
 
+## 垃圾回收（GC）
+
+1.0 没有「收集器可选」这件事——不存在任何切换 GC 算法的命令行参数，今天讨论的 Serial、Parallel、CMS、G1 等收集器全部是 **HotSpot** 的实现，而 1.0～1.2 附带的是 Sun 自研的 **Classic VM**，HotSpot 要到 JDK 1.3 才成为默认 VM（详见 [HotSpot](./hotspot.md)）。
+
+Classic VM 内置的是一个固定的**标记-清除（Mark-Sweep）**收集器：单线程、Stop-The-World，且**不分代**——不区分新生代 / 老年代，每次 GC 都要扫描整个堆，谈不上 Minor GC / Full GC 的区分。用户唯一能调的是堆大小本身（当时的参数写法是 `-ms` / `-mx`，即今天 `-Xms` / `-Xmx` 的前身），收集算法不可选。
+
+| 维度 | JDK 1.0 |
+| ---- | ------- |
+| 可选收集器数量 | 0（固定一种实现，无参数可切换） |
+| 收集算法 | 标记-清除，不分代，不压缩 |
+| 执行方式 | 单线程、Stop-The-World |
+| 所属 VM | Classic VM（非 HotSpot） |
+
+分代模型与 [Serial 收集器](./gc.md#新生代收集器)等要到 HotSpot 引入后才出现；完整的收集器演进时间线见 [Java GC](./gc.md#收集器发展时间线)（该表格从 JDK 1.3.1 起算，1.0～1.2 的 Classic VM 阶段严格来说还在这条时间线之前）。
+
 ## 历史背景（简述）
 
 1995 年 Java 随 **Applet** 与 Netscape 等浏览器集成而迅速获得关注：「一次编写，到处运行」针对的是跨平台 GUI 与小段 Web 逻辑。企业级服务端大规模采用则要等到 1.1 的 JDBC、1.2 的集合与 Swing，以及 J2EE 时代之后。平台品牌从 J2SE 到 Java SE、发布节奏与 LTS 等，见 [Java 版本历史](./java-version-history.md)。
@@ -82,6 +97,7 @@ JDK 1.0 于 **1995 年 5 月 23 日**由 Sun Microsystems 正式发布，是 Jav
 | 时间 | 修改内容 | 原因 |
 | ---- | -------- | ---- |
 | 2026-06-21 | 修正 HotSpot 引入版本表述 | 与 hotspot.md 时间线对齐 |
+| 2026-07-14 | 新增「垃圾回收（GC）」章节，说明 1.0 用的是 Classic VM 固定标记-清除收集器，无收集器可选 | 用户要求补充 GC 相关内容 |
 
 ## 参考
 
