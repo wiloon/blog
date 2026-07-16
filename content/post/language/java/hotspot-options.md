@@ -2,7 +2,7 @@
 title: HotSpot JVM 启动参数
 author: "-"
 date: 2026-06-19T22:27:49+08:00
-lastmod: 2026-06-19T22:27:49+08:00
+lastmod: 2026-07-15T22:37:23+08:00
 url: hotspot-options
 categories:
   - language
@@ -18,7 +18,7 @@ tags:
 
 本文汇总 **OpenJDK HotSpot** 常用启动参数（`-`、`-X`、`-XX`）。这些开关 **不是 JVM 规范的一部分**，其他实现（OpenJ9 等）名称与语义可能不同。
 
-JVM 生态选型见 [jvm](./jvm.md)；HotSpot 架构索引见 [hotspot](./hotspot.md)。GC 算法细节见 [java-gc](./gc.md)；JIT 与分层编译见 [jvm-compiler](../../cs/jvm-compiler.md)。
+JVM 生态选型见 [jvm](./jvm.md)；HotSpot 架构索引见 [hotspot](./hotspot.md)。GC 算法细节见 [java-gc](./gc.md)；JIT 与分层编译见 [hotspot-jit](./hotspot-jit.md)。
 
 ## 参数分类
 
@@ -163,7 +163,7 @@ GC 日志分析与 `jstat` 见 [java-gc-jstat](./java-gc-jstat.md)。
 | `-XX:ReservedCodeCacheSize` | 代码缓存上限；满后可能降级为仅解释执行 |
 | `-XX:+UseCodeCacheFlushing` | 代码缓存满时尝试淘汰部分已编译代码 |
 
-详见 [jvm-compiler](../../cs/jvm-compiler.md)。
+详见 [hotspot-jit](./hotspot-jit.md)。
 
 ## 诊断与排错
 
@@ -212,3 +212,9 @@ java -Xms2g -Xmx2g \
 - [Java HotSpot VM Options（JDK 21）](https://docs.oracle.com/en/java/javase/21/docs/specs/man/java.html)
 - [Unified JVM Logging](https://docs.oracle.com/en/java/javase/21/docs/specs/man/java.html#enable-logging-with-the-application-class-data-sharing-appcds-feature)
 - 本站：[java-gc](./gc.md)、[hotspot](./hotspot.md)
+
+## 维护记录
+
+| 时间 | 修改内容 | 原因 |
+| ---- | -------- | ---- |
+| 2026-07-15 | 更新 jvm-compiler 互链为 hotspot-jit | jvm-compiler.md 更名为 hotspot-jit.md |

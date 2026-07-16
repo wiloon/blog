@@ -141,6 +141,7 @@ title: 'Compress and Extract 压缩与解压'  # ✅ 英中混写（无特殊字
 - 只包含英文字母、数字和连字符 `-`
 - 简洁明了，反映文章主题
 - 避免特殊字符、中文、下划线
+- 🚨 **禁止包含 `.`（点号）**：含 `.` 的 `url` 会导致页面链接在浏览器里打不开；版本号等用 `-` 代替（如 `jdk-1-4`，不要写 `jdk-1.4`）
 - **不要用所在目录名做 URL 前缀**：文章已归类在对应目录（Hugo 会生成分类页），URL 无需重复分类信息
   - ❌ `java/exception-handling` 或 `java-exception-handling`（`java` 与目录重复）
   - ✅ `exception-handling`
@@ -155,6 +156,16 @@ url: /?p=4058  # ❌ 数字 URL
 # 正确示例
 title: AI Agent Development
 url: ai-agent-development  # ✅ 语义化 URL
+```
+
+```yaml
+# 错误示例（含点号）
+title: "JDK 1.4"
+url: jdk-1.4  # ❌ 含 `.`，浏览器打不开
+
+# 正确示例
+title: "JDK 1.4"
+url: jdk-1-4  # ✅ 用 `-` 代替 `.`
 ```
 
 ```yaml
@@ -182,7 +193,7 @@ url: docker-container-network  # ✅ 与标题匹配（docker 是主题词，非
 - ✅ 检查 `url` 字段是否存在，**如果不存在则添加**
 - ✅ 如果是 `/?p=数字` 格式，立即转换为语义化 URL
 - ✅ 如果是非数字 URL，检查是否与标题语义匹配
-- ✅ 确保 URL 遵循命名规范（小写、连字符分隔）
+- ✅ 确保 URL 遵循命名规范（小写、连字符分隔、**不含 `.`**）
 
 ---
 

@@ -8,7 +8,7 @@
 | -------------------------------------------------- | ------------------------------------------------------------------------------------------------------ |
 | [article-sdd.md](article-sdd.md)                   | **文章 SDD**：Spec 驱动写作流程、AI 约束、Spec 是否上线                                                |
 | [delivery-style.md](delivery-style.md)             | **仅 SDD 交付物**：共通 prose 文风（加粗、人称适度用「我」、语气）；无 Spec 的文章不适用               |
-| [content-constraints.md](content-constraints.md)   | **全站内容约束**：语气平实不拔高；VPN 相关表述（WireGuard/OpenVPN 除外不写软件名）；代码块注释用英文等 |
+| [content-constraints.md](content-constraints.md)   | **全站内容约束**：语气平实不拔高；`url` 禁止含 `.`；VPN 相关表述（WireGuard/OpenVPN 除外不写软件名）；代码块注释用英文等 |
 | [internal-links.md](internal-links.md)             | **全站内链**：相对 `.md` + Hugo embedded hook                                                          |
 | [page-bundle-images.md](page-bundle-images.md)     | **文章插图**：Page Bundle 目录结构、正文插图、PaperMod 封面、`task preview`                            |
 | [build-and-deploy.md](build-and-deploy.md)         | **构建与部署**：`build.sh`（CF Pages）、`scripts/build-site.sh`、Pagefind、容器与 OpenTofu             |

@@ -13,7 +13,7 @@ tags:
   - AI-assisted
 ---
 
-JDK 1.1 于 **1997 年 2 月 19 日**发布，是 [JDK 1.0](./jdk-1.0.md) 之后的首个重要更新。1.0 以 Applet 与 AWT 打开知名度，1.1 则补上了**企业开发**所需的一批基础能力：数据库、远程调用、反射、序列化、JAR 打包等。命名与后续演变见 [Java 版本历史](./java-version-history.md)。
+JDK 1.1 于 **1997 年 2 月 19 日**发布，是 [JDK 1.0](./jdk-1-0.md) 之后的首个重要更新。1.0 以 Applet 与 AWT 打开知名度，1.1 则补上了**企业开发**所需的一批基础能力：数据库、远程调用、反射、序列化、JAR 打包等。命名与后续演变见 [Java 版本历史](./java-version-history.md)。
 
 ## 版本号说明
 
@@ -22,8 +22,8 @@ JDK 1.1 于 **1997 年 2 月 19 日**发布，是 [JDK 1.0](./jdk-1.0.md) 之后
 | 对外名称 | Java 1.1 / JDK 1.1 |
 | `java.version` | `1.1.x` |
 | class major version | 45（minor 3，即 45.3） |
-| 上一版本 | [JDK 1.0](./jdk-1.0.md) |
-| 下一版本 | [JDK 1.2](./jdk-1.2.md)（1998-12，集合框架与 Swing） |
+| 上一版本 | [JDK 1.0](./jdk-1-0.md) |
+| 下一版本 | [JDK 1.2](./jdk-1-2.md)（1998-12，集合框架与 Swing） |
 
 ## 概览
 
@@ -180,9 +180,9 @@ button.addActionListener(new ActionListener() {
 
 ## 垃圾回收（GC）
 
-**GC 基本没变化。** 1.1 仍附带 [Classic VM](./hotspot.md)（HotSpot 要到 1.3 才成为默认 VM），用的还是 1.0 那套固定的**标记-清除（Mark-Sweep）**收集器：单线程、Stop-The-World、不分代，同样没有任何切换收集算法的命令行参数，详见 [JDK 1.0](./jdk-1.0.md#垃圾回收gc)。
+**GC 基本没变化。** 1.1 仍附带 [Classic VM](./hotspot.md)（HotSpot 要到 1.3 才成为默认 VM），用的还是 1.0 那套固定的**标记-清除（Mark-Sweep）**收集器：单线程、Stop-The-World、不分代，同样没有任何切换收集算法的命令行参数，详见 [JDK 1.0](./jdk-1-0.md#垃圾回收gc)。
 
-1.1 引入的 **JIT 编译器**改善的是字节码的执行速度（解释 vs. 编译执行），跟 GC 是两回事——即便有了 JIT，回收对象时用的仍是同一个非分代 mark-sweep 收集器，谈不上分代模型、也谈不上收集器可选。真正让 GC 发生根本变化（分代模型、HotSpot 的 Serial 收集器等）要等到 [JDK 1.3](./jdk-1.3.md) 起 HotSpot 成为默认 VM 之后。
+1.1 引入的 **JIT 编译器**改善的是字节码的执行速度（解释 vs. 编译执行），跟 GC 是两回事——即便有了 JIT，回收对象时用的仍是同一个非分代 mark-sweep 收集器，谈不上分代模型、也谈不上收集器可选。真正让 GC 发生根本变化（分代模型、HotSpot 的 Serial 收集器等）要等到 [JDK 1.3](./jdk-1-3.md) 起 HotSpot 成为默认 VM 之后。
 
 ## 历史背景（简述）
 
@@ -201,7 +201,7 @@ button.addActionListener(new ActionListener() {
 | GUI 事件 | `handleEvent()` | 监听器模型 |
 | JVM | 以解释为主 | 引入 JIT |
 
-更完整的 1.0 基线见 [JDK 1.0](./jdk-1.0.md)。
+更完整的 1.0 基线见 [JDK 1.0](./jdk-1-0.md)。
 
 ---
 

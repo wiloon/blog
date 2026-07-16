@@ -2,7 +2,7 @@
 title: Java Knowledge Map
 author: "-"
 date: 2026-05-31T07:36:44+08:00
-lastmod: 2026-06-26T21:44:56+08:00
+lastmod: 2026-07-15T22:37:23+08:00
 url: java-knowledge-map
 categories:
   - language
@@ -79,7 +79,7 @@ flowchart TB
 | JVM 生态、实现选型 | [Java 虚拟机生态与选型](./jvm.md) |
 | HotSpot 架构与站内索引 | [HotSpot 简介](./hotspot.md) |
 | HotSpot 启动参数 | [hotspot-options](./hotspot-options.md) |
-| JIT / C1·C2 / 分层编译 | [jvm-compiler](../../cs/jvm-compiler.md) |
+| JIT / C1·C2 / 分层编译 | [hotspot-jit](./hotspot-jit.md) |
 | GC、分代（多篇） | [java-gc](./gc.md) 等 |
 | Safepoint | [safepoint](../../other/safepoint.md) |
 
@@ -176,3 +176,4 @@ JVMTI / JPDA（对比调试）  →  /jvmti 、/java-debug-jpda
 | 2026-06-24 | 易混淆对照增加 Spring / MVC / 注解相关三行 | 与 spring.md、jdk-5.md 对话沉淀对齐 |
 | 2026-06-24 | 易混淆对照补充 XML 混合期、Boot 与 Java Config 分工 | 与 spring.md 配置演进章节对齐 |
 | 2026-06-26 | 开发期热替换表补充 IoC、WebFlux、虚拟线程、Boot 3 迁移链接 | spring-boot.md 拆分后更新索引 |
+| 2026-07-15 | JVM 与 HotSpot 表更新 jvm-compiler 链接为 hotspot-jit | jvm-compiler.md 更名为 hotspot-jit.md |

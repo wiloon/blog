@@ -18,6 +18,16 @@
 
 详见 [AGENTS.md](../AGENTS.md) §标题（title）规范。
 
+## URL 禁止包含 `.`
+
+front matter 的 `url` **不能含 `.`（点号）**。含 `.` 的 permalink 在浏览器里打不开。
+
+| 允许 | 禁止 |
+| ---- | ---- |
+| `jdk-1-4`、`spring-boot-3` | `jdk-1.4`、`spring.boot` |
+
+版本号、小数语义一律用 `-` 代替 `.`。详见 [AGENTS.md](../AGENTS.md) §URL 命名规范。
+
 ## 语气：平实陈述，不刻意拔高
 
 正文 prose（含感谢、个人经历、站点说明等）须 **照实写、少拔高**：

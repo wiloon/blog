@@ -1,5 +1,5 @@
 ---
-title: JDK 1.0
+title: "JDK 1.0"
 author: "-"
 date: 2026-06-20T14:15:54+08:00
 lastmod: 2026-07-15T04:28:17+08:00
@@ -27,7 +27,7 @@ JDK 1.0 于 **1995 年 5 月 23 日**由 Sun Microsystems 正式发布，是 Jav
 | Alpha / Beta | 1995 上半年 | 面向开发者的预览版，供 Applet 等场景试用 |
 | **JDK 1.0** | 1995-05 | 首个公开发布、可商用的 JDK |
 
-因此讨论「Java 最早版本」时，**1.0 就是起点**；Oak、Alpha、Beta 是开发史里的名称，不是 0.x 或更早的正式版本号。下一版为 [JDK 1.1](./jdk-1.1.md)（1997 年 2 月）。
+因此讨论「Java 最早版本」时，**1.0 就是起点**；Oak、Alpha、Beta 是开发史里的名称，不是 0.x 或更早的正式版本号。下一版为 [JDK 1.1](./jdk-1-1.md)（1997 年 2 月）。
 
 ## 版本号说明
 
@@ -36,7 +36,7 @@ JDK 1.0 于 **1995 年 5 月 23 日**由 Sun Microsystems 正式发布，是 Jav
 | 对外名称 | Java 1.0 / JDK 1.0 |
 | `java.version` | `1.0.x` |
 | class major version | 45（1.0.2 起常见为 45.3） |
-| 下一版本 | [JDK 1.1](./jdk-1.1.md) |
+| 下一版本 | [JDK 1.1](./jdk-1-1.md) |
 
 ## 概览
 
@@ -46,7 +46,7 @@ JDK 1.0 于 **1995 年 5 月 23 日**由 Sun Microsystems 正式发布，是 Jav
 
 - 面向对象基础语法与 checked exception 模型
 - `Thread` 与 `Runnable`，以及 `synchronized` 关键字（见 [Java 线程](./java-thread.md)）
-- 尚无内部类、反射、断言、`strictfp` 等（内部类在 1.1，断言在 [JDK 1.4](./jdk-1.4.md)）
+- 尚无内部类、反射、断言、`strictfp` 等（内部类在 1.1，断言在 [JDK 1.4](./jdk-1-4.md)）
 
 ### 类库（1.0 已有）
 
@@ -75,7 +75,7 @@ JDK 1.0 于 **1995 年 5 月 23 日**由 Sun Microsystems 正式发布，是 Jav
 
 1.0 没有「收集器可选」这件事——不存在任何切换 GC 算法的命令行参数，今天讨论的 Serial、Parallel、CMS、G1 等收集器全部是 **HotSpot** 的实现，而 1.0～1.2 附带的是 Sun 自研的 **Classic VM**，HotSpot 要到 JDK 1.3 才成为默认 VM（详见 [HotSpot](./hotspot.md)）。
 
-Classic VM 内置的是一个固定的**标记-清除（Mark-Sweep）**收集器：单线程、Stop-The-World，且**不分代**——不区分新生代 / 老年代，每次 GC 都要扫描整个堆，谈不上 Minor GC / Full GC 的区分。用户唯一能调的是堆大小本身（当时的参数写法是 `-ms` / `-mx`，即今天 `-Xms` / `-Xmx` 的前身），收集算法不可选。
+Classic VM 内置的是一个固定的标记-清除（Mark-Sweep）收集器：单线程、Stop-The-World，且不分代——不区分新生代 / 老年代，每次 GC 都要扫描整个堆，谈不上 Minor GC / Full GC 的区分。用户唯一能调的是堆大小本身（当时的参数写法是 `-ms` / `-mx`，即今天 `-Xms` / `-Xmx` 的前身），收集算法不可选。
 
 | 维度 | JDK 1.0 |
 | ---- | ------- |
@@ -104,3 +104,4 @@ Classic VM 内置的是一个固定的**标记-清除（Mark-Sweep）**收集器
 
 - [Java version history（Wikipedia）](https://en.wikipedia.org/wiki/Java_version_history)
 - [Java Class File Version Numbers（Wikipedia）](https://en.wikipedia.org/wiki/Java_class_file#General_layout)
+

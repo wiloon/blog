@@ -14,7 +14,7 @@ tags:
   - AI-assisted
 ---
 
-JDK 1.3（对外称 **Java 2 Platform, Standard Edition, v1.3**，代号 **Kestrel**）于 **2000 年 5 月 8 日**发布，是 [JDK 1.2](./jdk-1.2.md) 之后又一次以**运行时**为核心的升级——最重要的变化不在语言语法，而在 JVM 本身：**HotSpot 从此成为默认 VM**。命名与后续演变见 [Java 版本历史](./java-version-history.md)。
+JDK 1.3（对外称 **Java 2 Platform, Standard Edition, v1.3**，代号 **Kestrel**）于 **2000 年 5 月 8 日**发布，是 [JDK 1.2](./jdk-1-2.md) 之后又一次以**运行时**为核心的升级——最重要的变化不在语言语法，而在 JVM 本身：**HotSpot 从此成为默认 VM**。命名与后续演变见 [Java 版本历史](./java-version-history.md)。
 
 ## 版本号说明
 
@@ -24,14 +24,14 @@ JDK 1.3（对外称 **Java 2 Platform, Standard Edition, v1.3**，代号 **Kestr
 | 代号 | Kestrel |
 | `java.version` | `1.3.x` |
 | class major version | 47 |
-| 上一版本 | [JDK 1.2](./jdk-1.2.md) |
-| 下一版本 | [JDK 1.4](./jdk-1.4.md) |
+| 上一版本 | [JDK 1.2](./jdk-1-2.md) |
+| 下一版本 | [JDK 1.4](./jdk-1-4.md) |
 
 ## 概览
 
 ### JVM：HotSpot 成为默认 VM
 
-这是 1.3 最重要的变化。HotSpot 早在 **1999 年 4 月**就以独立产品 **Java HotSpot Performance Engine** 发布，可配合 JDK 1.2 使用，但当时不是默认项；**JDK 1.3 起 HotSpot 成为默认 VM**，旧的 **Classic VM 仍可通过参数选用**，直到 [JDK 1.4](./jdk-1.4.md) 才被彻底移除。详见 [HotSpot](./hotspot.md)。
+这是 1.3 最重要的变化。HotSpot 早在 **1999 年 4 月**就以独立产品 **Java HotSpot Performance Engine** 发布，可配合 JDK 1.2 使用，但当时不是默认项；**JDK 1.3 起 HotSpot 成为默认 VM**，旧的 **Classic VM 仍可通过参数选用**，直到 [JDK 1.4](./jdk-1-4.md) 才被彻底移除。详见 [HotSpot](./hotspot.md)。
 
 对使用者来说，这次切换意味着：
 
@@ -102,7 +102,7 @@ Context ctx = new InitialContext();
 Object obj = ctx.lookup("java:comp/env/jdbc/myDataSource");
 ```
 
-企业级应用（尤其后续 J2EE/EJB 场景）用它做资源查找，是这一时期「Java 走向服务端」的又一块拼图，与 [JDK 1.1](./jdk-1.1.md) 引入的 JDBC、RMI 属于同一条线。
+企业级应用（尤其后续 J2EE/EJB 场景）用它做资源查找，是这一时期「Java 走向服务端」的又一块拼图，与 [JDK 1.1](./jdk-1-1.md) 引入的 JDBC、RMI 属于同一条线。
 
 ---
 
@@ -127,7 +127,7 @@ Object proxy = Proxy.newProxyInstance(
 
 ## 历史背景（简述）
 
-2000 年距 [JDK 1.2](./jdk-1.2.md)（1998 年底，集合框架、Swing、「Java 2」品牌）约一年半。1.3 没有语法层面的大动作，重心全部放在**运行时质量**上——HotSpot 默认化、JNDI 并入核心，都是为随后几年 J2EE、Spring 等服务端生态的爆发做准备。平台命名、发布节奏见 [Java 版本历史](./java-version-history.md)。
+2000 年距 [JDK 1.2](./jdk-1-2.md)（1998 年底，集合框架、Swing、「Java 2」品牌）约一年半。1.3 没有语法层面的大动作，重心全部放在**运行时质量**上——HotSpot 默认化、JNDI 并入核心，都是为随后几年 J2EE、Spring 等服务端生态的爆发做准备。平台命名、发布节奏见 [Java 版本历史](./java-version-history.md)。
 
 ---
 
@@ -142,7 +142,7 @@ Object proxy = Proxy.newProxyInstance(
 | RMI / CORBA | Java IDL（ORB），尚无 RMI-IIOP | RMI 可选兼容 CORBA IIOP |
 | GUI 自动化 | 无标准 API | `java.awt.Robot` |
 
-更完整的 1.2 基线见 [JDK 1.2](./jdk-1.2.md)；下一版本见 [JDK 1.4](./jdk-1.4.md)。
+更完整的 1.2 基线见 [JDK 1.2](./jdk-1-2.md)；下一版本见 [JDK 1.4](./jdk-1-4.md)。
 
 ---
 

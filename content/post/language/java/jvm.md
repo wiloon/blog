@@ -2,7 +2,7 @@
 title: Java 虚拟机
 author: "-"
 date: 2021-05-19T18:06:35+08:00
-lastmod: 2026-06-21T18:02:02+08:00
+lastmod: 2026-07-15T22:37:23+08:00
 url: jvm
 categories:
   - language
@@ -81,7 +81,7 @@ HotSpot 的典型路径（细节见专文）：
 源码 → javac → .class → 类加载 → 解释器 / C1 / C2（JIT）→ 堆上对象 → GC
 ```
 
-- JIT 与分层编译：[HotSpot JIT 编译器（C1/C2）](../../cs/jvm-compiler.md)
+- JIT 与分层编译：[HotSpot JIT 编译器（C1/C2）](./hotspot-jit.md)
 - GC 算法与调优：[java-gc](./gc.md)
 - 启动参数： [HotSpot JVM 启动参数](./hotspot-options.md)
 
@@ -113,3 +113,4 @@ HotSpot 的典型路径（细节见专文）：
 | 2026-06-21 | 链到新建 [graalvm-native-image.md](./graalvm-native-image.md) | Native Image 专文拆分 |
 | 2026-06-21 | 链到 [graalvm.md](./graalvm.md) | GraalVM 总览专文 |
 | 2026-06-21 | 新增「JDK 发行版 vs JVM 实现」；链到 [openjdk-distributions.md](./openjdk-distributions.md) | 区分发行版与虚拟机 |
+| 2026-07-15 | 更新 jvm-compiler 互链为 hotspot-jit | jvm-compiler.md 更名为 hotspot-jit.md |
