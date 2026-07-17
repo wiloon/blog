@@ -1,8 +1,8 @@
 ---
-title: HotSpot JVM 简介
+title: HotSpot
 author: "-"
 date: 2026-05-31T07:25:07+08:00
-lastmod: 2026-07-15T22:37:23+08:00
+lastmod: 2026-07-16T03:19:01+08:00
 url: hotspot
 categories:
   - language
@@ -19,7 +19,7 @@ tags:
 
 OpenJDK 发行版里默认的 Java 虚拟机实现是 **HotSpot**（C++）。你安装的 `java` 命令、容器里的 JDK 镜像，除非明确换用 OpenJ9 或 GraalVM Native Image，否则跑的就是 HotSpot。
 
-**本文及子文描述 HotSpot**，不适用于 OpenJ9 的参数名、GC 实现与诊断工具。Java 领域还有哪些 JVM、如何选型，见 [Java 虚拟机生态与选型](./jvm.md)。
+Java 领域还有哪些 JVM，见 [Java 虚拟机](./jvm.md)。
 
 ## HotSpot 是什么
 
@@ -136,7 +136,8 @@ Go 与 Rust 能彻底摆脱 C 的关键，是它们**直接编译为本地机器
 | JVM 生态与选型 | [jvm](./jvm.md) |
 | JIT / 分层编译 / C1·C2 | [hotspot-jit](./hotspot-jit.md) |
 | 启动参数（堆、GC、日志、JIT） | [hotspot-options](./hotspot-options.md) |
-| GC 概念与算法 | [java-gc](./gc.md)、[jvm-gc](./jvm-gc.md) |
+| GC 概念与算法 | [java-gc](./gc.md) |
+| 对象内存布局与历史调优笔记 | [jvm-memory-tuning-notes](./jvm-memory-tuning-notes.md) |
 | 类加载 | [classloader](./classloader.md) |
 | Attach / jcmd | [attach-api](./attach-api.md)、[jcmd](./jcmd.md) |
 | 字节码织入 | [java-asm](./asm.md) |
@@ -157,3 +158,4 @@ Go 与 Rust 能彻底摆脱 C 的关键，是它们**直接编译为本地机器
 | 2026-06-21 | 新增「历史」节：1999 首次发布、1.3 默认、1.4 唯一 | 补充 HotSpot 起源与 JDK 集成时间线 |
 | 2026-06-27 | 新增「libjvm.so 与 JVM 主体」「实现语言与自举」（含 Java/Go/Rust 自举对比） | 合并 comments-tree 启动打包文档相关章节 |
 | 2026-07-15 | 更新 jvm-compiler 互链为 hotspot-jit | jvm-compiler.md 更名为 hotspot-jit.md |
+| 2026-07-16 | 相关文章表中删除失效的 jvm-gc 链接，改为 jvm-memory-tuning-notes | jvm-gc.md 更名为 jvm-memory-tuning-notes.md 并精简重复内容 |
