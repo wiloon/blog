@@ -2,18 +2,37 @@
 title: "CFS, Completely Fair Scheduler 完全公平调度器"
 author: "-"
 date: 2026-07-14T17:54:49+08:00
-lastmod: 2026-07-14T17:54:49+08:00
+lastmod: 2026-07-19T05:50:56+08:00
 url: cfs
 categories:
   - Linux
 tags:
   - Linux
   - kernel
+  - scheduler
+  - eevdf
   - remix
   - AI-assisted
 ---
 
-CFS（Completely Fair Scheduler，完全公平调度器）是 Linux 普通进程（`SCHED_NORMAL`/`SCHED_BATCH`/`SCHED_IDLE`）使用的调度算法，自 2007 年发布的 Linux 2.6.23 版本起取代了此前的 O(1) 调度器，用红黑树替代了原来的按优先级分桶的数组结构（调度器体系的整体介绍见 [Linux 进程调度](./scheduler.md)）。
+CFS（Completely Fair Scheduler，完全公平调度器）是 Linux 普通进程（`SCHED_NORMAL`/`SCHED_BATCH`/`SCHED_IDLE`）曾经使用的调度算法，自 2007 年发布的 Linux 2.6.23 版本起取代了此前的 O(1) 调度器，用红黑树替代了原来的按优先级分桶的数组结构（调度器体系的整体介绍见 [Linux 进程调度](./scheduler.md)）。
+
+需要先说明的是：**CFS 已经不是当前内核的默认实现**。从 2023 年 10 月发布的 Linux 6.6 起，普通进程的默认调度算法换成了 EEVDF，CFS 退居历史。本文仍以 CFS 为主，因为它的 vruntime 和红黑树是理解现在这套调度器的基础。
+
+## EEVDF：6.6 之后的默认调度器
+
+EEVDF（Earliest Eligible Virtual Deadline First，最早合格虚拟截止时间优先）由 Peter Zijlstra 实现并在 Linux 6.6 合入，取代 CFS 成为 `SCHED_NORMAL` 等普通调度策略的默认算法。算法本身并不新，出自 Ion Stoica 和 Hussein Abdel-Wahab 1995 年的一篇论文。
+
+它要解决的是 CFS 的一个短板：CFS 只保证长期的 CPU 时间份额公平，但对"什么时候该轮到我"没有约束，交互式任务的调度延迟不好控制。CFS 时期只能靠 `sched_latency_ns` 之类的旋钮和一些启发式补偿去调，效果有限。
+
+EEVDF 引入两个概念：
+
+- **lag**：进程"应得的 CPU 时间"与"实际获得的 CPU 时间"之差。lag 大于等于 0 说明它还欠着账，才有资格（eligible）被调度；lag 为负说明它已经超额使用，暂时靠边。
+- **virtual deadline**：在合格的进程中，按各自请求的时间片长度算出一个虚拟截止时间，调度器每次挑选**虚拟截止时间最早**的那个。
+
+这样一来，份额公平由 lag 保证，响应延迟由 deadline 保证，需要低延迟的任务可以通过请求更短的时间片来更频繁地被调度，而不必牺牲它的总 CPU 份额。
+
+实现上 EEVDF 并没有推倒重来：它仍然复用 CFS 的 `fair.c`、vruntime 和红黑树这套基础设施，主要换掉的是"挑选下一个进程"的判据——从"取 vruntime 最小的"变成"在合格进程里取虚拟截止时间最早的"。所以下面 CFS 的内容并没有过时，它依然是这套调度器的底座。
 
 ## 为什么会有 CFS：调度算法的演进
 
@@ -24,6 +43,7 @@ CFS（Completely Fair Scheduler，完全公平调度器）是 Linux 普通进程
 - **楼梯算法 SD**（Staircase，Con Kolivas 提出）：放弃了动态优先级估计，改为让进程每用完一次时间片就"下一级楼梯"（优先级降低一级），走到最低一级后回到起点的下一级，并给予双倍时间片，从根本上简化了代码，也证明了"完全公平"思路的可行性。
 - **RSDL**（Rotating Staircase Deadline，SD 的改进版）：为每个优先级组分配一个"组时间配额"，配额用完后无论组内进程是否都用完了自己的时间片，都强制整体降级，从而给低优先级进程一个可预期的调度延迟上限。
 - **CFS**（Ingo Molnar 在 RSDL 之后开发，2.6.23 起采用）：不再跟踪睡眠时间、不再区分交互式/批处理进程，用一个统一的"虚拟运行时间"指标对待所有进程，并用红黑树替代 140 个链表来维护进程的调度顺序。
+- **EEVDF**（Peter Zijlstra 实现，6.6 起采用）：在 CFS 的基础设施上，把选择依据从"vruntime 最小"改为"合格进程中虚拟截止时间最早"，在保持份额公平的同时给调度延迟一个可控的上界（见上文）。
 
 作者 Ingo Molnar 对 CFS 的概括是："CFS 在真实的硬件上模拟了完全理想的多任务处理器。"在理想的多任务处理器下，n 个可运行进程应该同时各获得 CPU 时间的 1/n；而真实硬件同一时刻只能运行一个进程，CFS 要做的就是让实际调度结果尽可能逼近这个理想状态。
 
@@ -86,3 +106,10 @@ CFS 抛弃了 O(1) 调度器的 active/expire 数组，改用一棵按 vruntime 
 - [知乎：Linux 调度器演进](https://zhuanlan.zhihu.com/p/75879578)
 - [稀土掘金：Linux 调度器发展简述](https://juejin.im/post/6844903556131061773)
 - [CSDN：Linux 调度器](https://blog.csdn.net/ctthuangcheng/article/details/8914309)
+- [LWN: An EEVDF CPU scheduler for Linux](https://lwn.net/Articles/925371/)
+
+## 维护记录
+
+| 时间 | 修改内容 | 原因 |
+| ---- | -------- | ---- |
+| 2026-07-19 | 开头补充 EEVDF 小节并说明 CFS 自 Linux 6.6 起已非默认实现；演进列表追加 EEVDF 条目；补充 `scheduler`、`eevdf` 标签与 LWN 参考链接 | 原文将 CFS 表述为当前内核使用的调度算法，与 6.6 之后的实际情况不符 |
