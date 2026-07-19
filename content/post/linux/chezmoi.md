@@ -2,7 +2,7 @@
 title: chezmoi
 author: "-"
 date: 2026-05-05T15:31:10+08:00
-lastmod: 2026-07-13T12:49:50+08:00
+lastmod: 2026-07-19T04:03:55+08:00
 url: chezmoi
 categories:
   - Linux
@@ -59,6 +59,7 @@ chezmoi edit ~/.zshrc
 
 # 2. 先看差异，再应用到本机 home
 chezmoi diff
+# apply: write source files into destination (home), e.g. ~/.zshrc
 chezmoi apply
 # 或只 apply 某一个目标：
 # chezmoi apply ~/.zshrc
@@ -308,4 +309,5 @@ ln -sf "$HOME/.config/Code/User/settings.json" \
 
 | 时间 | 修改内容 | 原因 |
 | ---- | ---- | ---- |
+| 2026-07-19 | `chezmoi apply` 旁补充注释：将 source 写入 destination（home） | 步骤里未单独说明 apply 含义 |
 | 2026-07-13 | 补充「日常改配置流程」（edit → apply → git push → 他机 update）；补充发音 shay-mwah /ʃeɪ mwɑ/；修正安装标题杂字符 | 流程原先分散；缺发音说明 |
