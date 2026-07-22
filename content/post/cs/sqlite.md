@@ -2,11 +2,12 @@
 title: SQLite
 author: "-"
 date: 2026-01-05T15:35:49+08:00
+lastmod: 2026-07-22T11:41:58+08:00
 url: sqlite
 categories:
   - Database
 tags:
-  - reprint
+  - sqlite
   - remix
   - AI-assisted
 ---
@@ -63,6 +64,88 @@ insert into table_1 (name) values ('Foo'); -- Runtime error: UNIQUE constraint f
 alter table feed
     rename to feeds;
 ```
+
+### COLLATE NOCASE
+
+列定义里的 `COLLATE NOCASE` 表示该列上的字符串比较**不区分大小写**（主要覆盖 ASCII 的 `A–Z` / `a–z`）。
+
+上例中 `name` 带了 `collate nocase` 且是 `PRIMARY KEY`，因此插入 `'foo'` 后再插入 `'Foo'` 会触发 UNIQUE 约束失败——两者被视为同一个值。
+
+SQLite 内置常见 collation：
+
+| Collation | 含义 |
+| ---- | ---- |
+| `BINARY`（默认） | 按字节比较，区分大小写 |
+| `NOCASE` | ASCII 字母不区分大小写 |
+| `RTRIM` | 比较时忽略尾部空格 |
+
+也可在单次比较中临时指定，而不改列定义：
+
+```sql
+SELECT * FROM table_1 WHERE name = 'Foo' COLLATE NOCASE;
+```
+
+### 普通列索引与大小写
+
+可以直接对列建普通索引，不必用表达式：
+
+```sql
+CREATE INDEX idx_words_english ON words (english);
+```
+
+会不会受大小写影响，取决于该列的 collation，不取决于「有没有建索引」。
+
+**默认 `BINARY`（区分大小写）**
+
+- 索引里 `'Foo'` 和 `'foo'` 是两条不同条目
+- `WHERE english = 'foo'`：只命中存成 `foo` 的行，找不到 `Foo`
+- 精确匹配能走索引；`WHERE LOWER(english) = LOWER(?)` 用不上这个普通索引
+
+**列上有 `COLLATE NOCASE`**
+
+```sql
+english TEXT COLLATE NOCASE;
+CREATE INDEX idx_words_english ON words (english);
+```
+
+- 索引按不区分大小写比较
+- `WHERE english = 'foo'` 能匹配 `Foo` / `FOO`，也能走索引
+- UNIQUE 也会把大小写不同的值当成冲突
+
+字段里存了大小写不同的数据，普通索引本身没问题；影响的是「查询能不能匹配到、能不能用上索引」。
+
+### `LOWER()` 表达式索引
+
+SQLite 3.9+ 支持对表达式建索引（不只对列）。常见写法：
+
+```sql
+CREATE INDEX idx_words_english_lower ON words (LOWER(english));
+```
+
+作用：让带 `LOWER(列)` 的查询能走索引，而不是全表扫描。
+
+```sql
+-- 能用到上面的表达式索引
+SELECT * FROM words WHERE LOWER(english) = LOWER(?);
+
+-- 用不了：查的是原列，不是 LOWER(english)
+SELECT * FROM words WHERE english = ?;
+```
+
+注意：
+
+1. 查询表达式要和索引一致（都写 `LOWER(english)`）
+2. GORM `AutoMigrate` 一般建不出这种索引，需要手动 `CREATE INDEX IF NOT EXISTS`
+
+### 大小写查询怎么选
+
+| 你想要的查询 | 做法 |
+| ---- | ---- |
+| `WHERE english = ?`（大小写必须一致） | 普通列索引即可 |
+| `WHERE english = ?`（希望忽略大小写） | 列加 `COLLATE NOCASE` + 普通索引 |
+| `WHERE LOWER(english) = LOWER(?)` | 普通列索引不够，用 `LOWER()` 表达式索引，或改列 collation |
+
+典型场景：列上已有精确匹配的普通/唯一索引（如 `UNIQUE(english)`），另外还要做大小写不敏感兜底查询时，普通索引帮不上忙，再加一条 `LOWER()` 表达式索引。列必须保持区分大小写、又要做大小写无关查询时，也适合用表达式索引；若业务整体都不区分大小写，优先列上 `COLLATE NOCASE` + 普通索引。
 
 ```sql
 -- query that returns the size of a table in a SQLite database
@@ -287,3 +370,9 @@ INSERT INTO users VALUES ('c31f5e0e-0e0c-4731-97dc-9c6675a0068c','admin','admin@
 [https://www.sqlite.org/download.html](https://www.sqlite.org/download.html)
 
 需要下载两个包: sqlite-dll-win-x64-3440000.zip, sqlite-tools-win-x64-3440000.zip, 解压之后把所有文件都放到同一个目录, 比如: C:\workspace\apps, 把这个目录加到环境变量 PATH.
+
+## 维护记录
+
+| 时间 | 修改内容 | 原因 |
+| ---- | -------- | ---- |
+| 2026-07-22 | 补充 `COLLATE NOCASE` 说明；删除 `reprint` 标签 | 原文仅有示例无解释；`reprint` 与 `remix` 互斥 |
