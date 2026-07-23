@@ -2,7 +2,7 @@
 title: "Tool Calling Patterns: ReAct 与其它工具调用方式"
 author: "-"
 date: 2026-04-26T14:39:27+08:00
-lastmod: 2026-07-23T00:30:26+08:00
+lastmod: 2026-07-23T15:30:26+08:00
 url: agent-tool-calling-patterns
 categories:
   - AI
