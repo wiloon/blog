@@ -2,7 +2,7 @@
 title: 星舰一级助推器为何最近都在塔外回收
 author: "-"
 date: 2026-05-23T07:03:38+08:00
-lastmod: 2026-05-23T17:17:16+08:00
+lastmod: 2026-07-24T17:51:53+08:00
 url: starship-booster-recovery
 categories:
   - starship
@@ -86,6 +86,10 @@ Flight 12 的 Booster 19 走的就是这条路径：公开计划为海面溅落�
 
 二级在印度洋受控溅落与热防护更成熟之后，才更可能看到第二座塔架和「夹飞船」的同类操作。在那之前，像 Flight 12 这样「能夹却选择下海」应理解为迭代过程中的策略取舍：对 V3 首飞是计划内落海（海面溅落），对 Flight 5 之后的若干次则可能是数据不完美时的自动分流落海，同时也用于保护发射台与试飞节奏。
 
+## Flight 13 延续了同样的策略
+
+2026-07-24 的 Flight 13 是 V3 箭型的第二次试飞，Booster 20 依旧按计划落墨西哥湾、不回塔捕获，说明「新箭型首飞谨慎」这个判断不只是 Flight 12 的个案，延续到了第二次试飞。当天着陆点火时 13 台发动机中有 3 台未按计划点燃，靠剩余 10 台完成减速，着陆速度偏高，但仍完成受控溅落——和 Flight 12「发动机未全部点燃」的问题类似，进一步印证塔架捕获要等临场数据更稳时才会启用。详见 [Starship Flight 13: 试飞要点](./flight-13.md)。
+
 ## 名词补充
 
 ### Mechazilla
@@ -103,3 +107,9 @@ Pad 2（Orbital Launch Pad 2）是 SpaceX 在得州 Starbase 建的第二座轨�
 成文过程：我和 Gemini 聊了一轮，把公开信息和对话整理成笔记，再经 AI 润色，属 AI 辅助生成。不是 SpaceX 官方口径。
 
 原文发布于 [wiloon.com/starship-booster-recovery](https://wiloon.com/starship-booster-recovery)。
+
+## 维护记录
+
+| 时间 | 修改内容 | 原因 |
+| ---- | -------- | ---- |
+| 2026-07-24 | 新增「Flight 13 延续了同样的策略」一节，链接到 [flight-13.md](./flight-13.md) | Flight 13（Booster 20）结果印证了本文关于新箭型首飞谨慎落海的判断 |
