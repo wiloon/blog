@@ -2,7 +2,7 @@
 title: Homelab 拓扑：硬件、PVE 宿主机与 K8s 集群
 author: "-"
 date: 2026-07-23T20:00:00+08:00
-lastmod: 2026-07-23T20:00:00+08:00
+lastmod: 2026-07-23T20:15:00+08:00
 url: homelab-topology
 categories:
   - cloud
@@ -25,15 +25,15 @@ homelab 里硬件、PVE 宿主机、K8s 节点、网络分散记录在多篇文�
 
 ```mermaid
 flowchart TB
-  onu["光猫 ONU"] -->|PPPoE WAN| owrt
+  onu["光猫 ONU"] -->|PPPoE WAN| openwrt
 
   subgraph n100_host["物理机 n100 · 192.168.50.6"]
-    owrt["VM openwrt-24-10<br/>软路由 · LAN 192.168.50.1"]
+    openwrt["VM openwrt-24-10<br/>软路由 · LAN 192.168.50.1"]
     k8s67["VM k8s-67<br/>control-plane"]
     k8s71["VM k8s-71<br/>worker"]
   end
 
-  owrt -->|vmbr0 LAN 口| lan["交换机 / LAN 192.168.50.0/24"]
+  openwrt -->|vmbr0 LAN 口| lan["交换机 / LAN 192.168.50.0/24"]
 
   lan --- j4125_host
   lan --- pve03_host
