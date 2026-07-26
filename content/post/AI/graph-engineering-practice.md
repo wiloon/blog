@@ -2,7 +2,7 @@
 title: "Graph Engineering：Python + LangGraph + Claude Code"
 author: "-"
 date: 2026-07-24T15:08:44+08:00
-lastmod: 2026-07-24T15:08:44+08:00
+lastmod: 2026-07-26T12:44:52+08:00
 url: graph-engineering-practice
 categories:
   - AI
@@ -51,7 +51,7 @@ Graph Engineering 的应对方式很直接：用有向图把复杂流程解耦�
 
 图不是为了「看起来高级」，而是为了把「该不该继续」和「这一步该谁做」从 Prompt 里抽出来，变成可审查、可测试的代码。
 
-## 架构：指挥官、执行者与硬闸门
+## 架构：指挥官、执行者与 quality gate
 
 一套相对稳的 Graph Engineering 系统，通常明确区分三类角色。
 
@@ -68,7 +68,9 @@ Graph Engineering 的应对方式很直接：用有向图把复杂流程解耦�
 
 关键点是：每个执行者拿到的是窄任务 + 干净（或刻意裁剪过）的上下文，而不是整段污染后的长对话。一次节点跑完，主控只回收结果摘要与必要产物，再进入下一节点。
 
-### 硬闸门：纯代码步骤（如 pytest）
+### quality gate：纯代码步骤（如 pytest）
+
+「硬闸门」不是 AI agent 领域里固定的中文术语；英文更常见的说法是 quality gate（质量闸门），agent engineering 材料里也会写成 verification gate 或 deterministic gate。含义接近：不经过模型裁决、对同一输入给出可重复的 pass/fail，用来挡住「Agent 自称做完了」这类不可信结论。文中的「硬」强调 blocking——失败就不能往下走，而不是 LLM review 那种可商量的 soft check。
 
 测试、lint、类型检查、构建这类步骤不要再「请模型判断是否通过」。用确定性命令跑，exit code 写进图状态，由边决定：通过则前进，失败则回到指定修复节点，或达到上限后失败退出。
 
@@ -84,7 +86,8 @@ Graph Engineering 的应对方式很直接：用有向图把复杂流程解耦�
                    v                v                v
       +-------------------+   +-----------+   +-------------------+
       | Claude Code 进程 A|   | pytest    |   | Claude Code 进程 B|
-      |  (backend)        |   | (hard gate)|  |  (frontend/refactor)|
+      |  (backend)        |   | (quality  |   |  (frontend/refactor)|
+      |                   |   |  gate)    |   |                   |
       +-------------------+   +-----------+   +-------------------+
 ```
 
@@ -104,9 +107,9 @@ Graph Engineering 的应对方式很直接：用有向图把复杂流程解耦�
 
 重试次数、是否允许改测试、是否允许扩大改动范围，都应是图配置或 Python 条件，而不是塞进 system prompt 指望模型遵守。LLM 适合在节点内做局部决策；全局编排应可静态阅读。
 
-### 硬闸门尽量不可旁路
+### quality gate 尽量不可旁路
 
-若「测试失败也能继续」完全由模型口头决定，硬闸门就失效了。失败路径可以回到修复节点，但「什么叫通过」必须由命令与断言定义。
+若「测试失败也能继续」完全由模型口头决定，quality gate 就失效了。失败路径可以回到修复节点，但「什么叫通过」必须由命令与断言定义。
 
 ### 与 Loop、Harness 的关系
 
@@ -114,4 +117,10 @@ Loop Engineering 仍然有用：它往往落在某一个修复节点内部（改
 
 ## 小结
 
-Graph Engineering 不是换一个更炫的 Agent 框架口号，而是一次职责回迁：把控制流从 Context 里拿回确定性代码，把长对话拆成专职短任务，把通过与否交给硬闸门。Python + LangGraph 负责画图与调度，Claude Code 负责窄范围内的改动，pytest 一类步骤负责说「停」或「过」。单任务 Loop 仍然可以嵌在节点里；一旦业务需要多角色、长流程、可预期停机，就该把 Loop 放进 Graph，而不是让 Graph 退化成一个更大的 Loop。
+Graph Engineering 不是换一个更炫的 Agent 框架口号，而是一次职责回迁：把控制流从 Context 里拿回确定性代码，把长对话拆成专职短任务，把通过与否交给 quality gate。Python + LangGraph 负责画图与调度，Claude Code 负责窄范围内的改动，pytest 一类步骤负责说「停」或「过」。单任务 Loop 仍然可以嵌在节点里；一旦业务需要多角色、长流程、可预期停机，就该把 Loop 放进 Graph，而不是让 Graph 退化成一个更大的 Loop。
+
+## 维护记录
+
+| 时间 | 修改内容 | 原因 |
+| ---- | -------- | ---- |
+| 2026-07-26 | 将「硬闸门」统一为 quality gate，并补充 verification / deterministic gate 口径说明 | 对齐 AI agent 领域更常见的英文术语 |

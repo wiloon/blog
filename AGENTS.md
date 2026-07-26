@@ -245,12 +245,12 @@ url: docker-container-network  # ✅ 与标题匹配（docker 是主题词，非
 
 ```yaml
 # 错误示例（分类与内容不符）
-title: Claude Code 使用指南
+title: Claude Code 使用笔记
 categories:
   - Linux   # ❌ 内容是 AI 工具，不是 Linux
 
 # 正确示例
-title: Claude Code 使用指南
+title: Claude Code 使用笔记
 categories:
   - AI      # ✅ 与内容匹配
 ```

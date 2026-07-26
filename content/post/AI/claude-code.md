@@ -2,7 +2,7 @@
 title: Claude Code 使用笔记
 author: "-"
 date: 2026-04-20T12:54:03+08:00
-lastmod: 2026-07-21T15:00:30+08:00
+lastmod: 2026-07-25T12:00:00+08:00
 url: claude-code
 categories:
   - AI
@@ -228,9 +228,103 @@ Claude Code 里有两种让任务重复执行的机制，容易混淆，核心�
 | 短时间、当前会话内的重复检查 | `/loop` |
 | 长期、每天/每周固定跑，不想一直开着电脑 | `/schedule` |
 
+## Headless 模式（非交互式）
+
+给任意 `claude` 命令加上 `-p`（或 `--print`）参数，就能把它变成非交互模式：跑一次 agent loop，打印结果，然后退出，不进入交互式 UI。适合脚本、CI/CD、构建流程里调用。
+
+```bash
+claude -p "What does the auth module do?"
+```
+
+### --bare：跳过本地配置，加快启动
+
+默认情况下 `claude -p` 会加载和交互式会话一样多的上下文：项目里的 hooks、skills、plugins、MCP servers、auto memory、`CLAUDE.md` 全部自动发现并加载。加上 `--bare` 可以跳过这些自动发现，只用显式传入的参数，启动更快，而且在不同机器上结果一致（不会因为某个人 `~/.claude` 里配的 hook 而跑出不同结果）。CI 和脚本场景推荐总是加 `--bare`。
+
+```bash
+claude --bare -p "Summarize this file" --allowedTools "Read"
+```
+
+bare 模式下默认只有 Bash、文件读、文件写权限，也跳过 OAuth/keychain 认证，需要用 `ANTHROPIC_API_KEY` 或 `--settings` 里的 `apiKeyHelper`。想额外加载系统提示、settings、MCP、自定义 agent、plugin，用对应的 `--append-system-prompt`、`--settings`、`--mcp-config`、`--agents`、`--plugin-dir` 参数显式传入。
+
+### 管道输入输出
+
+非交互模式会读 stdin，可以像普通命令行工具一样管道进出：
+
+```bash
+cat build-error.txt | claude -p '简要说明这个构建错误的根因' > output.txt
+```
+
+用在 `package.json` 脚本里做项目专属 lint/review 也很自然：
+
+```json
+{
+  "scripts": {
+    "lint:claude": "git diff main | claude -p \"you are a typo linter. for each typo in this diff, report filename:line on one line and the issue on the next. return nothing else.\""
+  }
+}
+```
+
+### 结构化输出：--output-format
+
+| 值 | 说明 |
+| ---- | ---- |
+| `text`（默认） | 纯文本 |
+| `json` | 结构化 JSON，含 `result`、`session_id`、`total_cost_usd` 等元数据 |
+| `stream-json` | 按行输出的 JSON 事件流，配合 `--verbose --include-partial-messages` 可实现逐 token 流式输出 |
+
+```bash
+claude -p "Summarize this project" --output-format json | jq -r '.result'
+```
+
+想让输出严格符合某个 JSON Schema，加 `--json-schema`，结果会放在 `structured_output` 字段：
+
+```bash
+claude -p "Extract the main function names from auth.py" \
+  --output-format json \
+  --json-schema '{"type":"object","properties":{"functions":{"type":"array","items":{"type":"string"}}},"required":["functions"]}'
+```
+
+### 自动放行工具：--allowedTools / --permission-mode
+
+交互模式下工具调用会弹窗确认，headless 模式没有人盯着，需要提前放行，否则遇到未授权的工具调用会直接中止：
+
+```bash
+claude -p "Run the test suite and fix any failures" \
+  --allowedTools "Bash,Read,Edit"
+```
+
+也可以用 `--permission-mode` 设置整个会话的基线：`acceptEdits` 允许写文件和 `mkdir`/`mv`/`cp` 等常见文件操作；`dontAsk` 则拒绝一切不在 `permissions.allow` 规则里的操作，适合锁死权限的 CI 场景。
+
+`--allowedTools` 支持前缀匹配，常用来只放行特定 git 子命令：
+
+```bash
+claude -p "Look at my staged changes and create an appropriate commit" \
+  --allowedTools "Bash(git diff *),Bash(git log *),Bash(git status *),Bash(git commit *)"
+```
+
+### 延续对话：--continue / --resume
+
+```bash
+claude -p "Review this codebase for performance issues"
+claude -p "Now focus on the database queries" --continue
+
+# 并行跑多个会话时，用 session id 精确恢复某一个
+session_id=$(claude -p "Start a review" --output-format json | jq -r '.session_id')
+claude -p "Continue that review" --resume "$session_id"
+```
+
+`--continue` 接续最近一次会话，`--resume <session_id>` 接续指定会话；session id 的查找范围是当前项目目录（含 git worktree），需要在同一目录下执行。
+
+### 典型用途
+
+- CI/CD 流水线：跑测试、修 lint、生成 PR review
+- 构建脚本里当项目专属 linter/reviewer 用
+- 批量/并行跑多个独立任务，用 JSON 输出做后续解析
+
 ## 维护记录
 
 | 时间 | 修改内容 | 原因 |
 | ---- | -------- | ---- |
 | 2026-07-13 | 标题改为「Claude Code 使用笔记」；补 AGENTS.md 踩坑与 `/add-dir` 会话内加目录说明 | 原标题过简；补规则未加载问题，以及已启动会话如何加目录 |
 | 2026-07-21 | 新增「/loop 与 /schedule」章节 | 原文档缺少定时/循环任务相关内容 |
+| 2026-07-25 | 新增「Headless 模式（非交互式）」章节 | 原文档缺少 `-p`/`--print` 非交互模式、CI/CD 自动化相关内容 |
