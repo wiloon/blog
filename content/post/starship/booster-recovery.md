@@ -2,7 +2,7 @@
 title: 星舰一级助推器为何最近都在塔外回收
 author: "-"
 date: 2026-05-23T07:03:38+08:00
-lastmod: 2026-07-24T17:51:53+08:00
+lastmod: 2026-07-25T11:51:06+08:00
 url: starship-booster-recovery
 categories:
   - starship
@@ -112,4 +112,4 @@ Pad 2（Orbital Launch Pad 2）是 SpaceX 在得州 Starbase 建的第二座轨�
 
 | 时间 | 修改内容 | 原因 |
 | ---- | -------- | ---- |
-| 2026-07-24 | 新增「Flight 13 延续了同样的策略」一节，链接到 [flight-13.md](./flight-13.md) | Flight 13（Booster 20）结果印证了本文关于新箭型首飞谨慎落海的判断 |
+| 2026-07-25 | 新增「Flight 13 延续了同样的策略」一节，链接到 [flight-13.md](./flight-13.md) | Flight 13（Booster 20）结果印证了本文关于新箭型首飞谨慎落海的判断 |
