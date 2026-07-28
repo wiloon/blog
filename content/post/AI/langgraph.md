@@ -2,11 +2,13 @@
 title: LangGraph - 构建状态化 AI 工作流的框架
 author: "-"
 date: 2026-01-18T10:45:00+08:00
+lastmod: 2026-07-26T23:14:18+08:00
 url: langgraph
 categories:
   - AI
 tags:
   - AI-assisted
+  - remix
   - LangChain
   - agent
   - workflow
@@ -651,6 +653,17 @@ result = app.invoke(inputs)
 - LangChain 官网：https://www.langchain.com/
 - 教程和示例：https://github.com/langchain-ai/langgraph/tree/main/examples
 
+## 相关文章
+
+- [LangChain](./langchain.md)
+- [LangSmith](./langsmith.md)
+
 ## 小结
 
 LangGraph 提供了一个强大的框架来构建复杂的、有状态的 AI 应用程序。通过图结构、状态管理和灵活的控制流，LangGraph 让开发者能够创建具有循环、分支、人机协作等高级特性的智能体系统。它是构建生产级 AI 应用的理想选择，特别适合需要复杂决策逻辑和长期状态维护的场景。
+
+## 维护记录
+
+| 时间 | 修改内容 | 原因 |
+| ---- | -------- | ---- |
+| 2026-07-26 | 补充「相关文章」章节，链接到 LangChain 与新增的 LangSmith 文章 | 完善内链，便于读者延伸阅读 |

@@ -2,7 +2,7 @@
 title: "LangChain"
 author: "-"
 date: 2026-04-26T14:39:27+08:00
-lastmod: 2026-07-23T15:30:26+08:00
+lastmod: 2026-07-26T23:14:18+08:00
 url: langchain
 categories:
   - AI
@@ -550,6 +550,7 @@ LangChain 在 AI Agent 生态中占据重要位置，尤其是在 RAG 和复杂�
 - [Output Constraint](./agent-output-constraint.md)
 - [LlamaIndex](./llamaindex.md)
 - [Agent Token Routing](./agent-token-routing.md)
+- [LangSmith](./langsmith.md)
 
 
 ## 维护记录
@@ -557,4 +558,5 @@ LangChain 在 AI Agent 生态中占据重要位置，尤其是在 RAG 和复杂�
 | 时间 | 修改内容 | 原因 |
 | ---- | -------- | ---- |
 | 2026-07-23 | 自 `ai-agent-development.md` 拆出为本篇 | 母文过长，按主题拆分为独立文档 |
+| 2026-07-26 | 「相关文章」补充链接到新增的 LangSmith 文章 | 完善内链，便于读者延伸阅读 |
 

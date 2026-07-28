@@ -2,7 +2,7 @@
 title: linux apps
 author: "w10n"
 date: 2026-05-05T14:02:11+08:00
-lastmod: 2026-06-03T16:52:02+08:00
+lastmod: 2026-07-28T12:15:50+08:00
 url: linux/apps
 categories:
   - Linux
@@ -139,6 +139,7 @@ sudo apt install ./google-chrome-stable_current_amd64.deb
 | binutils   | pacman | 二进制文件处理工具集 |
 | inetutils  | pacman | telnet 等网络工具    |
 | kotlin     | pacman |                      |
+| glow       | pacman | 命令行 markdown 预览 |
 
 ## Fonts
 
@@ -196,3 +197,9 @@ sudo pacman -S powerdevil kmix kscreen ark gwenview kcolorchooser
 ## References
 
 - [Arch Linux List of Applications](https://wiki.archlinux.org/index.php/List_of_applications)
+
+## 维护记录
+
+| 时间 | 修改内容 | 原因 |
+| ---- | -------- | ---- |
+| 2026-07-28 | Development Tools 表格补充 glow（命令行 markdown 预览工具） | 新增常用软件 |

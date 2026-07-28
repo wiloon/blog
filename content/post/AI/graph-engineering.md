@@ -119,6 +119,12 @@ Loop Engineering 仍然有用：它往往落在某一个修复节点内部（改
 
 Graph Engineering 不是换一个更炫的 Agent 框架口号，而是一次职责回迁：把控制流从 Context 里拿回确定性代码，把长对话拆成专职短任务，把通过与否交给 quality gate。Python + LangGraph 负责画图与调度，Claude Code 负责窄范围内的改动，pytest 一类步骤负责说「停」或「过」。单任务 Loop 仍然可以嵌在节点里；一旦业务需要多角色、长流程、可预期停机，就该把 Loop 放进 Graph，而不是让 Graph 退化成一个更大的 Loop。
 
+https://www.aibuilderclub.com/blog/graph-engineering-guide-2026
+https://www.eigent.ai/blog/graph-engineering-ai-agents
+https://www.langchain.com/blog/3-years-of-graph-engineering-with-langgraph
+https://theaioperator.io/p/what-is-graph-engineering-a-field
+
+
 ## 维护记录
 
 | 时间 | 修改内容 | 原因 |

@@ -1,13 +1,14 @@
 ---
-title: python 虚拟环境
+title: "Python venv, 虚拟环境与包管理工具（pdm、conda、pipx）"
 author: "-"
 date: 2025-11-24T08:30:00+08:00
+lastmod: 2026-07-28T12:20:01+08:00
 draft: true
 url: python/venv
 categories:
-  - Inbox
+  - language
 tags:
-  - reprint
+  - python
   - remix
   - AI-assisted
 ---
@@ -72,7 +73,39 @@ pyproject.toml
 https://zhuanlan.zhihu.com/p/554965293
 
 conda可以理解为一个工具，其核心功能是包管理与环境管理。
-conda 不会依赖于系统中已经存在的 python 进行运行。因此 conda 拥有较高的独立性以及强悍的跨版本支持，在多版本管理上
+conda 不会依赖于系统中已经存在的 python 进行运行。因此 conda 拥有较高的独立性以及强悍地跨版本支持，在多版本管理上
 每个虚拟环境中均包含了一个完整的 python
 conda 的虚拟环境更像是对整个开发环境的虚拟，而不是 poetry 和 pdm 那种在解释器层面的虚拟
-   jmyi86d57t44rwesadZq 3
+
+## pipx
+
+pipx 用来安装和运行 Python 写的命令行工具：每个工具会单独建一个虚拟环境（依赖互不干扰），但可执行文件会链接到 `~/.local/bin`，效果上就是"全局可用的命令"，不需要手动 activate。
+
+跟直接 `pip install` 或 `venv` 的区别：
+
+- `pip install xxx`：装到系统 Python 环境里，多个工具的依赖容易互相冲突；新版 Arch/Debian 出于 [PEP 668](https://peps.python.org/pep-0668/) 会直接拒绝，报 `externally-managed-environment` 错误
+- `venv`：需要 `source venv/bin/activate` 才能用，适合项目依赖隔离，不适合"随时在任意目录敲命令"的场景
+- `pipx`：专门解决"我要装一个 CLI 工具，装完就想在任何目录直接用"这个需求
+
+### 安装（Arch）
+
+```bash
+sudo pacman -S python-pipx
+pipx ensurepath   # 把 ~/.local/bin 加入 PATH，需要重开终端或 source 配置文件生效
+```
+
+### 常用命令
+
+```bash
+pipx install grip      # 安装一个 CLI 工具
+pipx list               # 查看已安装的工具
+pipx upgrade grip        # 升级
+pipx uninstall grip      # 卸载
+pipx run cowsay hello    # 不安装，临时运行一次
+```
+
+## 维护记录
+
+| 时间 | 修改内容 | 原因 |
+| ---- | -------- | ---- |
+| 2026-07-28 | 补充 pipx 章节；标题改为含英文；分类由 Inbox 改为 language；删除 reprint 标签，补 python 标签；新增 lastmod；清理文末乱码 | 完善 Python 环境/包管理工具文档，修正不符合规范的 front matter |
