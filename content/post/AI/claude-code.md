@@ -2,7 +2,7 @@
 title: Claude Code 使用笔记
 author: "-"
 date: 2026-04-20T12:54:03+08:00
-lastmod: 2026-07-25T12:00:00+08:00
+lastmod: 2026-07-30T13:14:28+08:00
 url: claude-code
 categories:
   - AI
@@ -321,6 +321,96 @@ claude -p "Continue that review" --resume "$session_id"
 - 构建脚本里当项目专属 linter/reviewer 用
 - 批量/并行跑多个独立任务，用 JSON 输出做后续解析
 
+## Subagents 子代理
+
+Subagent 是预先配置好的专用 AI 助手：有自己独立的**上下文窗口**、独立的 **system prompt**、可单独限定的**工具权限**，甚至可以指定不同的模型。主会话在合适的场景把任务委派给它，处理完只把结果带回主会话，中间过程不会塞进主对话的上下文。
+
+### 存放位置与定义格式
+
+Subagent 是一个带 YAML frontmatter 的 Markdown 文件：
+
+```markdown
+---
+name: code-reviewer
+description: Use this agent to review code changes for bugs, security issues, and style violations before committing.
+tools: Read, Grep, Glob, Bash
+model: sonnet
+---
+
+You are a senior code reviewer. Focus on correctness, security, and
+maintainability. Be specific: cite file paths and line numbers.
+```
+
+| 字段 | 是否必填 | 说明 |
+| ---- | ---- | ---- |
+| `name` | 必填 | 子代理标识，kebab-case |
+| `description` | 必填 | 决定 Claude 何时自动委派给它，写清楚适用场景 |
+| `tools` | 可选 | 限定可用工具；不写则继承主会话全部工具 |
+| `model` | 可选 | 覆盖默认模型（如指定 `haiku` 跑量大的简单任务省成本）；不写则继承主会话模型 |
+
+frontmatter 之后的正文就是这个子代理的 system prompt。
+
+存放路径两级，同名时**项目级覆盖用户级**：
+
+| 位置 | 作用范围 |
+| ---- | ---- |
+| `.claude/agents/*.md` | 仅当前项目，可随代码一起提交进 git，团队共享 |
+| `~/.claude/agents/*.md` | 当前用户的所有项目 |
+
+### 作用范围：项目级 / 用户级 / 内置通用
+
+自定义 subagent 不是全局共享的，而是跟你选择的存放位置绑定：
+
+- **项目级**（`.claude/agents/*.md`）：只在这个项目里可见，换到别的项目就用不了；优点是能随项目一起提交进 git，团队成员共用同一套子代理
+- **用户级**（`~/.claude/agents/*.md`）：跟具体项目无关，本机所有项目都能用，相当于个人工具箱；同名时项目级会覆盖用户级
+
+除此之外还有一类**内置通用 subagent**，不需要自己定义、开箱即用、不受项目限制，比如 `Explore`（只读代码搜索）、`general-purpose`（通用多步任务）、`Plan`（架构规划）。
+
+所以准确的说法是：自定义 subagent 默认跟特定范围（项目或用户）绑定，但这个范围可以自己选；同时系统还自带一批不受此限制的通用 subagent。
+
+### 创建与管理：/agents
+
+交互式管理入口是 `/agents`，可以新建、编辑、删除子代理，也能直接浏览内置的几种通用类型（如 `Explore`——只读代码搜索、`general-purpose`——通用多步任务、`Plan`——架构规划）。不想手写 frontmatter 时，用 `/agents` 走一遍向导即可生成文件。
+
+### 调用方式
+
+- **自动委派**：Claude 读取所有可用子代理的 `description`，判断当前任务是否匹配，匹配就自动派发，无需用户手动指定
+- **`@` 提及（推荐，强制生效）**：输入 `@` 会弹出子代理选择列表，或直接手打 `@agent-<name>`，例如 `@agent-code-reviewer 看一下这次改动`；plugin 里的子代理写作 `@agent-<plugin-name>:<agent-name>`。这种写法是**确定性调用**，不依赖 Claude 自己判断
+- **自然语言点名（启发式，不保证生效）**：直接在对话里说「用 code-reviewer 子代理看一下这次改动」，Claude 通常会据此委派，但最终是否触发仍取决于它的判断，不如 `@` 提及可靠
+- **整个会话固定用某个子代理**：启动时加 `claude --agent code-reviewer`，或在 `.claude/settings.json` 里配置 `"agent": "code-reviewer"`
+
+`/agents` 只负责新建、编辑、浏览子代理，**不能**用它来触发某次具体的调用。
+
+### 典型使用场景
+
+- **代码审查（code-reviewer）**：改动提交前自动审查安全漏洞、代码风格、逻辑问题。`tools` 只给 `Read/Grep/Glob/Bash`，不给 `Edit`，防止它顺手改代码
+- **测试与调试（test-runner / debugger）**：跑测试套件、分析失败原因、定位到具体代码行。这类任务过程会产生大量日志输出，丢进独立子代理的上下文里，不会把主对话塞满
+- **开放式调研（research / explore）**：比如「这个仓库里所有用到 Redis 的地方」这种需要读很多文件、试很多次 grep 才能收敛的搜索，交给子代理，只把结论带回主会话
+- **固定流程的内容生成**：把一套反复执行的规则（比如本博客 `AGENTS.md` 里「检查文件名、URL、标签、lastmod」的固定流程）封装成子代理的 system prompt，以后每次都能稳定复用，不用每次在主对话里重新讲一遍规则
+
+一个最小示例，`.claude/agents/test-runner.md`：
+
+```markdown
+---
+name: test-runner
+description: Use proactively after code changes to run the test suite and report failures with file:line references.
+tools: Bash, Read, Grep
+---
+
+You are a test automation specialist. Run the relevant test suite,
+parse failures, and report each as `file:line — reason`. Do not
+attempt to fix the code yourself, just report.
+```
+
+改完代码后，Claude 判断到有子代理的 `description` 匹配当前场景，就会自动委派给它去跑测试、汇总失败点，而不是主会话自己执行一堆测试命令、把大段日志堆进对话历史。
+
+### 为什么要用子代理
+
+- **上下文隔离**：子代理内部的搜索、读文件、试错过程不会污染主对话的上下文窗口，主会话只看到最终结果
+- **权限最小化**：给子代理配置的 `tools` 可以比主会话更窄，比如一个只读的审查类子代理没必要拿到 `Edit`/`Bash` 权限
+- **并行处理**：多个独立子任务可以同时派发给不同子代理并行跑，比串行一个个做更快
+- **可复用、可共享**：项目级子代理进 git 后，团队所有人用同一套审查/测试/调试规范，不用每人各自维护一份 prompt
+
 ## 维护记录
 
 | 时间 | 修改内容 | 原因 |
@@ -328,3 +418,4 @@ claude -p "Continue that review" --resume "$session_id"
 | 2026-07-13 | 标题改为「Claude Code 使用笔记」；补 AGENTS.md 踩坑与 `/add-dir` 会话内加目录说明 | 原标题过简；补规则未加载问题，以及已启动会话如何加目录 |
 | 2026-07-21 | 新增「/loop 与 /schedule」章节 | 原文档缺少定时/循环任务相关内容 |
 | 2026-07-25 | 新增「Headless 模式（非交互式）」章节 | 原文档缺少 `-p`/`--print` 非交互模式、CI/CD 自动化相关内容 |
+| 2026-07-30 | 新增「Subagents 子代理」章节 | 原文档缺少子代理定义格式、存放位置、`/agents` 管理、调用方式相关内容 |

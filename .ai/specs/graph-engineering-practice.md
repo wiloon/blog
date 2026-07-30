@@ -78,3 +78,4 @@
 | 日期 | 变更 |
 | ---- | ---- |
 | 2026-07-24 | 初版素材；Phase 4 输出正文，状态 → draft-written |
+| 2026-07-30 | 交付物将「纯 Claude Code」路径拆至 `content/post/AI/graph-engineering-claude-code.md`；本 Spec 交付物只保留 Python + LangGraph 主控路径（§A 素材未改） |
