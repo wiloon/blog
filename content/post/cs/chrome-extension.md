@@ -46,3 +46,19 @@ puzzle button: chrome extension 图标后面的拼图按钮
 ## background.js
 
 不能直接访问页面的内容, 只能发消息给 content.js
+
+## service worker 的 Inactive 状态 (Manifest V3)
+
+`chrome://extensions` 里 "Inspect views" 后面经常显示 `service worker (Inactive)`, 这是 MV3 的正常行为, 不是报错.
+
+- MV3 把 background 脚本做成事件驱动的 service worker, 空闲约 30 秒左右没有任务 (没有消息/网络请求/定时器) 就会被 Chrome 卸载, 回收内存, 页面上显示为 Inactive
+- 有新事件触发时 (点击扩展图标, popup/content script 发消息 `chrome.runtime.onMessage`, `chrome.alarms`, 收到通知点击等), Chrome 会自动重新拉起 service worker, 从头执行一遍顶层代码, 这个过程对用户透明, 只是首次唤醒有零点几秒延迟
+- **不能依赖 service worker 内存里的全局变量长期存活**, 每次被唤醒都是一次全新的执行上下文, 之前保存在内存变量里的状态 (比如 token, 计数器) 会丢失
+  - 需要跨生命周期保留的状态必须持久化到 `chrome.storage.local` / `chrome.storage.session`, 并在顶层初始化逻辑里主动读回内存
+  - 依赖内存去重的逻辑 (比如"合并并发请求, 只发一次" 的 in-flight Promise) 只在同一次 SW 存活期间有效, SW 重启会重置, 设计时要接受这种边界情况
+- 调试时点 "service worker (Inactive)" 链接会强制唤醒并打开对应的 DevTools
+
+## 参考
+
+- <https://developer.chrome.com/docs/extensions/develop/migrate/to-service-workers>
+- <https://developer.chrome.com/docs/extensions/develop/concepts/service-workers/basics>
