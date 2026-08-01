@@ -1,15 +1,20 @@
 ---
 author: "-"
-date: "2021-01-01 23:23:06" 
-title: "rust basic"
+date: 2021-01-01T23:23:06+08:00
+lastmod: 2026-08-01T11:26:10+08:00
+title: "Rust Basic"
+url: rust-basic
 categories:
-  - inbox
+  - language
 tags:
-  - reprint
+  - rust
+  - remix
+  - AI-assisted
 ---
-## "rust basic"
 
-Rust 是一种 预编译静态类型（ahead-of-time compiled）语言
+## Rust Basic
+
+Rust 是一种 **AOT 编译**（ahead-of-time compiled）的静态类型语言，编译型 / 解释型对照见 [Compiled vs Interpreted](../cs/compiled-vs-interpreted.md)。
 
 ## Rustup Rust 的工具链管理器
 
@@ -143,5 +148,11 @@ https://course.rs/into-rust.html
 
 https://zh.practice.rs/why-exercise.html
 
+## 维护记录
+
+| 时间 | 修改内容 | 原因 |
+| ---- | -------- | ---- |
+| 2026-08-01 | 修正开篇「预编译」表述为 AOT 编译型；补 url / lastmod；分类与标签；链到 compiled-vs-interpreted | 「预编译」易与 C 预处理混淆，且缺 front matter 规范字段 |
+| 2026-08-01 | 精简开篇描述，去掉预编译/预处理辨析的展开说明 | 本文主题是 Rust，辨析细节留给 compiled-vs-interpreted 专文 |
 
 
