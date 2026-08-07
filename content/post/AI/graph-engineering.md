@@ -11,7 +11,7 @@ tags:
   - langgraph
   - claude-code
   - agent
-  - original
+  - remix
   - AI-assisted
 ---
 
