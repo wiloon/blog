@@ -22,6 +22,8 @@ aliases:
 
 2026 年推荐的做法是刷 [MrChromebox](https://mrchromebox.tech/) 提供的 coreboot 固件，把 Pixelbook（代号 `eve`）变成一台标准 UEFI x86_64 笔记本，然后像普通 PC 一样从 U 盘装发行版。下面记录完整流程。
 
+> 计划：这台 Pixelbook 打算走 UEFI Full ROM 路线（不走 RW_LEGACY 双系统），先把方案和拆机教程记下来，找时间再动手拆机刷机。
+
 ## 进入开发者模式
 
 同时按住 Esc、Refresh、电源键，直到出现 Recovery Mode（提示插入 U 盘的界面），这时按 Ctrl-D（不需要插 U 盘，插了反而会自动进入恢复模式）。
@@ -44,9 +46,21 @@ MrChromebox 固件有两种刷法：
 1. **拆机**，断开主板上的电池排线
 2. **用 SuzyQ 调试线**，走 CCD（Case-Closed Debugging，不拆机调试）流程
 
-不想拆机的话，SuzyQ 线是更省心的方案。
+不想拆机的话，SuzyQ 线是更省心的方案；不想搞调试线的话，拆机免费但要多拧两次螺丝。
 
-### SuzyQ 调试线是什么
+### 方案一：拆机断开电池排线
+
+拆机教程：[Google Pixelbook Battery (Back Panel) Replacement (iFixit)](https://www.ifixit.com/Guide/Google+Pixelbook+Battery+(Back+Panel)+Replacement/103036)，需要 T5 Torx 螺丝刀 + 撬棒（spudger，用塑料/尼龙材质，别用金属的刮伤排线接口）。步骤大致是：拧掉底部 17 颗 T5 Torx 螺丝，撬开后盖，找到主板上那根黑色扁平电池排线，用撬棒断开。
+
+断开电池排线之后：
+
+1. 先合上后盖（不用拧螺丝也行，能通电稳定操作就行）
+2. 插上原装充电器供电——电池断开了，这时候机器唯一的电源就是充电头，必须插着才能开机
+3. 开机进开发者模式，进 crosh/shell，跑下文的刷机命令刷 UEFI Full ROM 固件
+4. 刷完之后关机，重新打开后盖，把电池排线插回去，装好
+5. 不用担心装回电池后写保护又变回开启状态——关闭写保护并刷完 Full ROM 固件之后，软件层面的写保护会保持关闭，以后再刷固件不用重新拆机
+
+### 方案二：SuzyQ 调试线是什么
 
 SuzyQ（也叫 SuzyQable）是 Google 设计的一种特制 USB-C 调试配件线。普通 USB-C 数据线两端都是"设备"角色，
 SuzyQ 的其中一端在 CC1/CC2 引脚上接了 22kΩ 和 56kΩ 的识别电阻，让主机把它识别成 "debug accessory mode"，从而暴露出芯片内部的调试通道。
@@ -99,6 +113,7 @@ GalliumOS 这类专门给 Chromebook 做的发行版已经在 2022 年左右停�
 
 ## 参考
 
+- [Google Pixelbook Battery (Back Panel) Replacement (iFixit)](https://www.ifixit.com/Guide/Google+Pixelbook+Battery+(Back+Panel)+Replacement/103036)
 - [MrChromebox Firmware Utility Script](https://docs.mrchromebox.tech/docs/fwscript.html)
 - [MrChromebox: Disabling Firmware Write Protection](https://docs.mrchromebox.tech/docs/firmware/wp/disabling.html)
 - [ArchWiki: Chrome OS devices/Custom firmware](https://wiki.archlinux.org/title/Chrome_OS_devices/Custom_firmware)
