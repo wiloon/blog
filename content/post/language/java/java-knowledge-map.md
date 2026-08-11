@@ -2,7 +2,7 @@
 title: Java Knowledge Map
 author: "-"
 date: 2026-05-31T07:36:44+08:00
-lastmod: 2026-07-15T22:37:23+08:00
+lastmod: 2026-08-11T12:01:33+08:00
 url: java-knowledge-map
 categories:
   - language
@@ -123,6 +123,7 @@ flowchart TB
 | Spring Boot DevTools Restart | [Spring Boot DevTools](./spring/spring-boot-devtools.md) |
 | Spring Boot 总览 | [Spring Boot](./spring/spring-boot.md) |
 | Spring IoC / 依赖注入 | [Spring IoC](./spring/spring-ioc.md) |
+| Spring Bean 生命周期 | [Spring Bean Lifecycle](./spring/spring-bean-lifecycle.md) |
 | Spring WebFlux | [Spring WebFlux](./spring/spring-webflux.md) |
 | Java Virtual Threads | [Java Virtual Threads](./virtual-threads.md) |
 | Spring Boot 3.x 迁移 | [Spring Boot 3.x Migration](./spring/spring-boot-3-migration.md) |
@@ -177,3 +178,4 @@ JVMTI / JPDA（对比调试）  →  /jvmti 、/java-debug-jpda
 | 2026-06-24 | 易混淆对照补充 XML 混合期、Boot 与 Java Config 分工 | 与 spring.md 配置演进章节对齐 |
 | 2026-06-26 | 开发期热替换表补充 IoC、WebFlux、虚拟线程、Boot 3 迁移链接 | spring-boot.md 拆分后更新索引 |
 | 2026-07-15 | JVM 与 HotSpot 表更新 jvm-compiler 链接为 hotspot-jit | jvm-compiler.md 更名为 hotspot-jit.md |
+| 2026-08-11 | 开发期热替换表增加 Spring Bean 生命周期链接 | spring-ioc.md 拆出 spring-bean-lifecycle.md |

@@ -2,7 +2,7 @@
 title: Spring IoC，依赖注入
 author: "-"
 date: 2026-05-12T14:10:03+08:00
-lastmod: 2026-07-01T01:18:54+08:00
+lastmod: 2026-08-11T12:01:33+08:00
 url: spring-ioc
 categories:
   - Java
@@ -78,78 +78,11 @@ private final Map<String, Object> earlySingletonObjects = new ConcurrentHashMap<
 ```
 
 - 一级 `singletonObjects` 就是「单例缓存」：key 是 Bean 名，value 是成品对象，`@Autowired` 最终从这里（及类型索引）取。
-- 另两级是为了解决**循环依赖**（A 依赖 B、B 又依赖 A）时提前暴露未完成的对象，普通场景用不到。
+- 另两级是为了解决**循环依赖**（A 依赖 B、B 又依赖 A）时提前暴露未完成的对象，普通场景用不到；三级缓存如何解决循环依赖的完整机制，见 [Spring Bean Lifecycle §三级缓存与循环依赖](./spring-bean-lifecycle.md#三级缓存与循环依赖)。
 
 所以「单例只创建一次、各处注入同一个引用」是因为它就缓存在这张 Map 里，不会重复 `new`。
 
-### 三级缓存如何解决循环依赖
-
-以 `A` 依赖 `B`、`B` 又依赖 `A`（字段注入或 Setter 注入场景）为例：
-
-```mermaid
-sequenceDiagram
-    participant C as Container
-    participant A as Bean A
-    participant B as Bean B
-
-    C->>A: new A()（原始对象，属性未填）
-    C->>C: A 的 ObjectFactory 放入三级缓存
-    C->>A: 注入属性，发现需要 B
-    C->>B: new B()（原始对象）
-    C->>C: B 的 ObjectFactory 放入三级缓存
-    C->>B: 注入属性，发现需要 A
-    C->>C: 查 A：一级 miss，二级 miss，三级 hit
-    C->>C: 调用 ObjectFactory 得到 A 的早期引用
-    C->>C: 早期引用移入二级缓存，移除三级缓存
-    C->>B: 注入 A 的早期引用，B 创建完成
-    C->>C: B 放入一级缓存
-    C->>A: 用完成态的 B 完成属性注入，A 创建完成
-    C->>C: A 放入一级缓存，清理二三级缓存里的临时数据
-```
-
-1. 容器创建 `A`：`new A()` 已经创建出 A 的**真实原始对象**（构造器已执行完毕，只是属性还没注入）。Spring 把「如何暴露这个已存在的原始对象」包装成一个 `ObjectFactory`（本质是个 `() -> getEarlyBeanReference(...)` 的 lambda，调用它才会决定返回原始对象还是 AOP 代理），再把这个**工厂本身**放进**三级缓存** `singletonFactories`，并把 `A` 标记为「正在创建中」。也就是说，三级缓存里存的是「怎么拿到早期引用」的工厂，不是对象本身；对象在 `new` 这一步就已经真实存在了。
-2. 给 `A` 注入属性时发现需要 `B`，转去创建 `B`，同理：`new B()` 创建出真实的原始对象，再把它的 `ObjectFactory` 放进三级缓存。
-3. 给 `B` 注入属性时发现需要 `A`：依次查一级（没有，`A` 还没做完）、二级（没有）、三级缓存——命中 `A` 的 `ObjectFactory`，调用它拿到 `A` 的**早期引用**，挪进二级缓存并从三级缓存移除。
-4. `B` 用这个早期引用完成注入、创建完成，放入一级缓存。
-5. 流程回到 `A`：用刚创建好的 `B` 完成属性注入，`A` 也创建完成，放入一级缓存。
-
-**三级缓存各自存的到底是什么**：
-
-| 缓存                         | 存的内容                                                         | 状态                                                      |
-| ---------------------------- | ---------------------------------------------------------------- | --------------------------------------------------------- |
-| 三级 `singletonFactories`    | `ObjectFactory`（还没被调用，即「要不要包装 AOP 代理」还没判断） | 决策未定                                                  |
-| 二级 `earlySingletonObjects` | 早期引用（原始对象还是代理对象已经定型）                         | 决策已定，但 `populateBean()`/`initializeBean()` 还没跑完 |
-| 一级 `singletonObjects`      | 成品对象                                                         | 属性注入、生命周期回调全部完成                            |
-
-**ObjectFactory 只会被调用一次**：一旦被调用（如步骤 3），Spring 立刻把它从三级缓存里 `remove` 掉，之后谁再查 `A` 都只会命中二级缓存里已经算好的引用，不会重复调用。
-
-**调用 `ObjectFactory` 时如何判断要不要包 AOP 代理**：调用的实际是 `getEarlyBeanReference()`，它委托给 `SmartInstantiationAwareBeanPostProcessor`（AOP 自动代理创建器的实现），用 `A` 的真实 Class 去匹配容器里所有已注册的 `Advisor`（`@Aspect` 切面、`@Transactional` 专属的 `BeanFactoryTransactionAttributeSourceAdvisor` 等切点表达式），命中则生成代理，否则返回原始对象——这与正常初始化流程里 `postProcessAfterInitialization()` 判断是否代理，走的是**同一套逻辑**。
-
-**为什么这个判断不在 `new A()` 之后立刻做，而是等调用时才做**：并不是因为信息不够——`A` 的 Class 和容器里的 `Advisor` 列表在 `new A()` 完成时其实已经具备。真正的原因是**惰性**：这个判断在正常流程里反正也要在 `A` 自己的 `initializeBean()` 里做一次；把它包成 `ObjectFactory` 延迟到「第一次真正有人需要早期引用」时才执行，就能保证——没有循环依赖的绝大多数 Bean 从头到尾只判断一次（在 `initializeBean()` 里）；只有真正发生循环依赖时，才会被提前触发，且同样只算一次。
-
-**"从三级挪到二级""从二级挪到一级"不是真的搬运数据**，而是容器在 `addSingleton()` 里同时做「登记 + 清理」：
-
-```java
-// 简化自 DefaultSingletonBeanRegistry.addSingleton()
-this.singletonObjects.put(beanName, singletonObject);   // 登记进一级
-this.singletonFactories.remove(beanName);                 // 清理三级
-this.earlySingletonObjects.remove(beanName);              // 清理二级
-```
-
-并且 `A` 最终登记进一级缓存前，容器会做一次**一致性检查**：如果发现 `A` 因为 `B` 的循环依赖已经在二级缓存里存在早期引用，就直接复用这个引用，而不是用 `initializeBean()` 另算出来的对象——这保证了 `B` 手里拿到的 `A` 和最终一级缓存里的 `A` 是同一个引用（同一份身份：要么都是原始对象，要么都是同一个代理对象）。
-
-**登记三级缓存是无条件的，读取/调用三级缓存才是有条件的**：只要是 singleton 且没关闭循环依赖检测（默认开启），**每个 Bean 实例化后都会**把自己的 `ObjectFactory` 放进三级缓存，跟它是否真的参与循环依赖无关。但这个 `ObjectFactory` 会不会被真正**调用**（进而在二级缓存留下条目），只在真的发生循环依赖时才会发生。绝大多数没有循环依赖的 Bean，三级缓存里的这个条目从头到尾没被任何人读取过，只是在自己创建完成、放入一级缓存的那一刻被顺手清除。
-
-**没有循环依赖时，`A` 不会在三级缓存里"等待"**：`B` 依赖 `A` 时调用的 `getBean("A")`，本身就是在**驱动** `A` 走完从实例化到属性注入、初始化回调、放入一级缓存的完整流程，然后**同步返回**成品对象给 `B`——不是 `B` 去查缓存、等 `A` 慢慢就绪。只有当 `A` 自己还卡在属性注入阶段、又被另一个也在创建中的 Bean 反过来需要时（即循环依赖），才会出现"半成品被提前取用"的情况。
-
-**为什么要三级而不是两级**：三级缓存存的是 `ObjectFactory`（工厂），不是现成对象。只有在调用工厂的这一刻，才真正决定「暴露原始对象」还是「暴露 AOP 代理后的对象」。如果没有这一层，AOP 代理场景下就可能出现「循环依赖提前拿到的是原始对象，其他地方后来拿到的是代理对象」这种不一致。
-
-**这套机制只对 `singleton` + 字段/Setter 注入生效**，两种情况解决不了：
-
-- **构造器注入的循环依赖**：对象必须执行完构造器才能被放进任何缓存，而构造器本身又需要对方实例作为参数，无解——Spring 会在启动时直接抛 `BeanCurrentlyInCreationException`。
-- **`prototype` scope 的循环依赖**：prototype bean 创建后容器不放入任何缓存，没有「早期引用」可提前暴露，Spring 会直接抛异常拒绝创建。
-
-> **三级缓存能解决循环依赖，不代表循环依赖是值得追求的设计**。它本质是历史遗留的兜底机制：把「字段/Setter 注入 + 单例」场景下原本无法创建的循环依赖，变成能凑合创建出来，但这掩盖了 `A`、`B` 互相依赖背后通常存在的职责划分问题。这也是为什么前文[「为什么推荐构造器注入」](#构造器注入推荐) 把「循环依赖的早期发现」列为优点之一——构造器注入会让循环依赖在启动时直接报错，倒逼重新设计（拆分职责、抽取第三个协作类、改用事件解耦），而不是依赖三级缓存蒙混过关。**遇到循环依赖，优先考虑的应是消除它，而不是依赖这套机制。**
+### 启动时 refresh() 概览
 
 主类上的 `@SpringBootApplication` 是组合注解，**不会创建容器**，而是为即将启动的 `ApplicationContext` 提供启动所需的配置元数据（可理解为「启动说明书」）。`SpringApplication.run(主类.class, args)` 会把该主类作为 **primary source** 传给容器；容器在 `refresh()` 里按这些元数据扫描、注册 Bean，再完成实例化与依赖注入。
 
@@ -160,8 +93,6 @@ this.earlySingletonObjects.remove(beanName);              // 清理二级
 | `@SpringBootConfiguration`（本质是 `@Configuration`） | 主类本身作为配置源，可配合 `@Bean` 注册 Bean |
 
 三者分工：`@SpringBootApplication` 声明容器该怎么启动 → `SpringApplication.run()` 创建 `ApplicationContext` → 容器执行 IoC（注册、实例化、注入）。
-
-### 启动时 refresh() 概览
 
 容器在 `ApplicationContext.refresh()` 中的启动过程：
 
@@ -705,21 +636,7 @@ public class BadService {
 
 ## Bean 的生命周期
 
-```java
-@Component
-public class CacheManager {
-
-    @PostConstruct           // 依赖注入完成后执行，用于初始化
-    public void init() {
-        System.out.println("缓存初始化...");
-    }
-
-    @PreDestroy              // 容器关闭前执行，用于释放资源
-    public void destroy() {
-        System.out.println("缓存清理...");
-    }
-}
-```
+从实例化、属性填充、`Aware` 回调、初始化回调（`@PostConstruct` / `InitializingBean` / init-method）到销毁回调的完整流程，见 [Spring Bean Lifecycle](./spring-bean-lifecycle.md)。
 
 ## 与 AOP 的关系
 
@@ -731,6 +648,7 @@ IoC 容器负责**管理对象**，AOP 负责**增强对象行为**，两者配�
 
 ## 参考
 
+- [Spring Bean Lifecycle](./spring-bean-lifecycle.md)（实例化到销毁的完整生命周期、三级缓存与循环依赖）
 - [Spring Boot §@ConditionalOn*](./spring-boot.md#conditionalon-条件注解)（条件装配与自动配置）
 - [Spring Boot Startup Callbacks](./spring-boot-startup-callbacks.md)（启动后回调）
 - [Spring AOT](./spring-aot.md)（构建期固化扫描、配置解析与条件装配结果）
@@ -757,3 +675,4 @@ IoC 容器负责**管理对象**，AOP 负责**增强对象行为**，两者配�
 | 2026-07-01 | 澄清 `new A()` 已创建真实原始对象，`ObjectFactory` 只是包装「如何暴露」的延迟决策工厂，两者不是替代关系                                                                             | 读者 Q&A 沉淀                                           |
 | 2026-07-01 | 补三级缓存精确定义表格；说明 AOP 代理决策机制与延迟到调用时的惰性原因；澄清"移入/移出缓存"是 `addSingleton()` 登记+清理、并复用早期引用的一致性检查；新增循环依赖应尽量避免的结论段 | 读者 Q&A 沉淀                                           |
 | 2026-07-01 | 新增"登记三级缓存是无条件的、读取才是有条件的"说明；澄清无循环依赖时 `getBean()` 会同步驱动 Bean 走完整个创建流程，不会在三级缓存里"等待"                                           | 读者 Q&A 沉淀                                           |
+| 2026-08-11 | 拆出 `spring-bean-lifecycle.md`：迁出「三级缓存如何解决循环依赖」与「Bean 的生命周期」两节并扩写为完整生命周期文档（Aware 回调、前置/后置 BeanPostProcessor、三种初始化方式顺序、三种销毁方式顺序）；原地保留指向链接 | 内容过薄且主题独立，拆分并补全生命周期各阶段 |

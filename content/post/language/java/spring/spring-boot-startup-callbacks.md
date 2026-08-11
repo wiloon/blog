@@ -2,7 +2,7 @@
 title: "Spring Boot Startup Callbacks: 应用启动后执行逻辑"
 author: wiloon
 date: 2026-06-26T21:44:56+08:00
-lastmod: 2026-06-26T21:44:56+08:00
+lastmod: 2026-08-11T12:01:33+08:00
 url: spring-boot-startup-callbacks
 categories:
   - java
@@ -66,4 +66,10 @@ public class CacheWarmer {
 ## 参考
 
 - [Spring Boot](./spring-boot.md)
-- [Spring IoC §Bean 的生命周期](./spring-ioc.md#bean-的生命周期)
+- [Spring Bean Lifecycle §初始化回调：三种方式与执行顺序](./spring-bean-lifecycle.md#初始化回调三种方式与执行顺序)
+
+## 维护记录
+
+| 时间       | 修改内容                                                                          | 原因                                                       |
+| ---------- | ---------------------------------------------------------------------------------- | ------------------------------------------------------------ |
+| 2026-08-11 | 参考链接从 `spring-ioc.md#bean-的生命周期` 改指向新拆出的 `spring-bean-lifecycle.md` | spring-ioc.md 的生命周期一节拆分并扩写为独立文档 |
