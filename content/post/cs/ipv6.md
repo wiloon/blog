@@ -188,6 +188,48 @@ cat /proc/sys/net/ipv6/conf/eth0/accept_ra
 
 ---
 
+## PD（Prefix Delegation，前缀委派）
+
+PD 是 DHCPv6 的一个扩展（DHCPv6-PD，RFC 3633），用于**上游给下游路由器委派一段可路由的 IPv6 前缀**，让下游路由器可以再把这段前缀拆分给自己的多个子网使用。
+
+**典型场景**
+
+```
+ISP（或上级路由器）
+  │  DHCPv6-PD：委派 2001:db8:1200::/56
+  ▼
+家用/办公路由器（如 OpenWrt）
+  │  拆分为多个 /64 子网
+  ├─→ LAN1: 2001:db8:1200:00::/64
+  ├─→ LAN2: 2001:db8:1200:01::/64
+  └─→ WLAN: 2001:db8:1200:02::/64
+        │  通过 RA + SLAAC
+        ▼
+      各子网主机自动生成 GUA 地址
+```
+
+- **委派方**（ISP / 上级路由器）：通过 DHCPv6-PD 分配一段前缀（常见 `/56`、`/60`、`/64`），并非单个地址
+- **请求方**（下游路由器，如 OpenWrt 的 WAN 口）：作为 DHCPv6 客户端申请前缀，拿到后再自行划分子网
+- **与 RA/SLAAC 的关系**：PD 解决的是"路由器从上游拿到多大一段前缀"，RA/SLAAC 解决的是"主机在子网内怎么用这段前缀生成地址"——两者是上下游配合的两个环节
+
+**为什么重要**
+
+- 下游路由器若拿不到 PD（PD 丢失/续约失败），LAN 内主机就没有可用的 GUA 前缀，只能退回 ULA 或纯 IPv4，无法被公网访问
+- PD 依赖上游（ISP 网络、上级路由器）的稳定性；PD 不稳定是一种常见故障模式，具体排查案例见 [accept-ra-gateway-forwarding.md](/accept-ra-gateway-forwarding)
+- 因为 PD 依赖外部稳定性，内部服务如果只需要局域网/隧道内可达，用 ULA 自建地址段可以完全绕开 PD 这个依赖
+
+**查看 PD 相关信息（OpenWrt / Linux）**
+
+```bash
+# OpenWrt：查看 WAN 口拿到的委派前缀
+ubus call network.interface.wan6 status
+
+# Linux（odhcp6c 等 DHCPv6 客户端）：查看日志
+logread | grep -i dhcpv6
+```
+
+---
+
 ## 禁用 ipv6
 
 ```bash
