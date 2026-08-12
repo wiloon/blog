@@ -90,6 +90,7 @@ r86s、n100 与 [Hardware](../Hardware/hardware.md) 里的 **ROCK 5B（R86S 型�
 | PVE 虚拟机内存/磁盘热扩容 | [pve-vm-memory-hotplug](./pve-vm-memory-hotplug.md) |
 | K8s 概念（Pod/Service/DaemonSet 等） | [k8s](./k8s.md) |
 | kube-vip VIP 与端口复用机制 | [kube-vip-loadbalancer-port-22](./kube-vip-loadbalancer-port-22.md) |
+| kube-vip cp/svc 双选举、双挂根因，与 keepalived+haproxy、MetalLB 对比 | [kube-vip-cp-svc-ha-comparison](./kube-vip-cp-svc-ha-comparison.md) |
 | 一次真实的节点负载排查 | [Homelab K8s Node Rebalance](./homelab-k8s-node-rebalance/index.md) |
 | 2021 年旧网络拓扑（单机软路由，已被本文取代） | [network topology](../network/network-topology.md) |
 
