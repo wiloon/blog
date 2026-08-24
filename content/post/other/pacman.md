@@ -1,5 +1,5 @@
 ---
-title: pacman command
+title: pacman
 author: "-"
 date: 2024-02-06T10:01:18+08:00
 lastmod: 2026-05-14T08:28:39+08:00
@@ -12,7 +12,7 @@ tags:
   - remix
   - AI-assisted
 ---
-## pacman command
+## pacman
 
 ## 参数, options
 

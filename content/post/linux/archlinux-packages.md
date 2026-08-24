@@ -2,7 +2,7 @@
 title: archlinux packages
 author: "-"
 date: "2026-05-06T08:27:13+08:00"
-lastmod: "2026-06-12T12:44:39+08:00"
+lastmod: "2026-08-24T09:48:15+08:00"
 url: archlinux-packages
 categories:
   - Linux
@@ -17,7 +17,7 @@ tags:
 
 - `aalib`: ASCII art graphic library
 - `aardvark-dns`: Authoritative DNS server for A/AAAA container records
-- `abseil-cpp`: Collection of C++ library code designed to augment the C++ standard library
+- `abseil-cpp`: Google 开源的 C++ 基础库，补充标准库能力，详见 [abseil-cpp](#abseil-cpp)
 - `adwaita-fonts`: GNOME Adwaita 字体，被 wechat 等应用依赖
 - `ansible`: IT automation tool
 - `ansible-core`: Ansible core engine
@@ -60,6 +60,24 @@ tags:
 - `openexr`: 高动态范围（HDR）图像文件格式库，支持 32 位浮点像素，广泛用于视觉特效和专业图像处理领域。当前系统被以下包依赖：`gst-plugins-bad`（GStreamer 非稳定插件集合）、`opencv`（计算机视觉库）。
 - `pcsclite`: PC/SC 智能卡中间件库，提供跨平台的智能卡读卡器访问接口（libpcsclite），守护进程 `pcscd` 负责管理读卡器设备。当前系统被以下包依赖：`qt6-connectivity`（Qt6 蓝牙/NFC 等近场通信模块）、`wpa_supplicant`（Wi-Fi 认证客户端，支持基于智能卡的 EAP 认证）。
 - `python-cryptography`: 为 Python 提供密码学原语和高层加密接口（包括 AES、RSA、哈希、TLS、X.509 等），底层通过 `python-cffi` 调用 OpenSSL。当前系统被以下包依赖：`ansible-core`（Ansible 自动化工具核心）、`python-paramiko`（Python SSH 客户端库）、`python-pip`（Python 包安装器）。
+
+### abseil-cpp
+
+Abseil 是 Google 开源的一套 C++ 基础库，用来补充 C++ 标准库（字符串、容器、同步、哈希、时间等）。2017 年从 Google 内部代码中抽出开源，C++ 命名空间一般是 `absl`。protobuf、gRPC、TensorFlow 等项目会依赖它。项目介绍见 [About Abseil](https://abseil.io/about/)。
+
+**为什么叫 Abseil？**
+
+Abseil 不是功能缩写。英文 abseil 来自德语 abseilen，登山用语，指用绳子沿岩壁下降（和 rappel 是同一类动作）。Google 用这个词作为项目名，对应 Arch 包是 `abseil-cpp`。
+
+**当前系统中的用途**
+
+`abseil-cpp` 不是单独使用的命令行工具，而是给其他 C++ 软件提供基础能力。当前系统被以下包直接依赖：`kosmindoormap`（KDE OpenStreetMap 室内地图库）、`libphonenumber`（Google 电话号码解析库）、`marble-common`（KDE Marble 地图公共组件）、`opencv`（计算机视觉库）、`protobuf`（Google Protocol Buffers 序列化库）、`re2`（Google 正则表达式库）、`telegram-desktop`（Telegram 桌面客户端）、`webrtc-audio-processing-1`（WebRTC 音频处理库）。
+
+查看完整反向依赖树：
+
+```bash
+pactree -r abseil-cpp
+```
 
 ### expat
 
@@ -129,3 +147,9 @@ Driver 和 firmware 没有直接关系，firmware 通常由驱动去加载。OS 
 ## gst-plugins-base
 
 GStreamer 流媒体框架的基础插件集合。
+
+## 维护记录
+
+| 时间 | 修改内容 | 原因 |
+| ---- | -------- | ---- |
+| 2026-08-24 | 补充 `abseil-cpp` 名称来源、项目背景与当前系统直接依赖 | 列表项原先只有英文简介，缺少背景说明 |
