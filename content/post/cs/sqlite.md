@@ -2,7 +2,7 @@
 title: SQLite
 author: "-"
 date: 2026-01-05T15:35:49+08:00
-lastmod: 2026-07-22T11:41:58+08:00
+lastmod: 2026-08-28T19:04:07+08:00
 url: sqlite
 categories:
   - Database
@@ -313,6 +313,8 @@ duck_conn.execute("""
 - **DuckDB**: 现代化的嵌入式 OLAP 数据库，适合数据分析和复杂查询
 - **不是替代关系**: 两者解决不同问题，可以根据场景选择或组合使用
 
+DuckDB 的独立介绍见 [DuckDB](database/duckdb.md)。
+
 ```sql
 sql-statement ::= CREATE [UNIQUE] INDEX [IF NOT EXISTS] [database-name .] index-name
 ON table-name ( column-name [, column-name]* )
@@ -376,3 +378,4 @@ INSERT INTO users VALUES ('c31f5e0e-0e0c-4731-97dc-9c6675a0068c','admin','admin@
 | 时间 | 修改内容 | 原因 |
 | ---- | -------- | ---- |
 | 2026-07-22 | 补充 `COLLATE NOCASE` 说明；删除 `reprint` 标签 | 原文仅有示例无解释；`reprint` 与 `remix` 互斥 |
+| 2026-08-28 | 新增指向独立文档 [DuckDB](database/duckdb.md) 的内链 | DuckDB 已拆出独立文章 |
