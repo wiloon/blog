@@ -1,7 +1,7 @@
 ---
 author: "-"
 date: 2026-05-05T14:02:11+08:00
-lastmod: 2026-07-10T11:11:06+08:00
+lastmod: 2026-08-31T16:47:52+08:00
 title: macos apps
 url: macos-apps
 categories:
@@ -59,6 +59,16 @@ tags:
 | ------ | ----------- | ----------------------- |
 | iterm2 | cask:iterm2 | macOS 最流行的 terminal |
 
+## Virtualization
+
+Mac 上跑 Windows / Linux 虚拟机，三款常见软件的对比见 [macOS Virtual Machines](./macos-virtual-machines.md)。UTM 的具体操作见 [UTM](../other/utm.md)。
+
+| app               | install            | notes                                      |
+| ----------------- | ------------------ | ------------------------------------------ |
+| Parallels Desktop | cask:parallels     | 付费；Windows 日常使用最省事                 |
+| VMware Fusion Pro | —                  | Broadcom 门户下载；2025-03 起免费            |
+| UTM               | cask:utm           | 开源；Apple Virtualization 或 QEMU 仿真     |
+
 ## VPN
 
 | app         | install          | notes                   |
@@ -81,3 +91,4 @@ tags:
 | ---------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------- |
 | 2026-07-09 | 新增 Squirrel（鼠须管）输入法条目及安装/五笔配置说明                                                                                                 | 补充 RIME 输入法方案，与豆包输入法并列         |
 | 2026-07-10 | 豆包输入法、Squirrel（鼠须管）详细内容拆分至独立文档；移除 `Productivity` 中重复的 `Itsycal`、`Stats` 条目；将 `my apps` 站内链接改为相对 `.md` 路径 | 保持本文简短，避免重复推荐，并统一站内链接写法 |
+| 2026-08-31 | 新增 Virtualization 小节，链到 Parallels / Fusion / UTM 对比文 | 补 macOS 虚拟机选型入口 |
