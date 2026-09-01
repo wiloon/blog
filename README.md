@@ -7,7 +7,7 @@ Personal knowledge base and blog, live at **[wiloon.com](https://wiloon.com)**.
 Backend Engineer / Full-Stack Developer
 
 - Languages: Java · Go · Python
-- Databases: MySQL · PostgreSQL · Redis · InfluxDB
+- Databases: PostgreSQL · Redis · InfluxDB · MySQL
 - Infrastructure: Docker · Kubernetes · AWS · Ansible · OpenTofu
 - Daily driver: Arch Linux + KDE
 
