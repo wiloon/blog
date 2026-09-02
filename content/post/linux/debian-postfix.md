@@ -1,16 +1,23 @@
 ---
-title: debian postfix dovecot
+title: Debian Postfix and Dovecot
 author: "-"
 date: 2013-05-12T03:36:01+00:00
+lastmod: 2026-09-02T17:36:40+08:00
 url: debian-postfix
 categories:
-  - Web
+  - Linux
 tags:
-  - reprint
+  - postfix
+  - dovecot
+  - remix
+  - AI-assisted
 aliases:
   - /p5455/
 ---
-## debian postfix dovecot
+
+## Debian Postfix and Dovecot
+
+这是 2013 年的 Debian 上手记录：本机装 Postfix + Dovecot，能本地收发。完整邮箱套件（Mailcow 等）和云端方案（AWS SES / Workspace）见 [Email Hosting: Mailcow、Postfix 与云端方案](./email-hosting.md)。
 
 install postfix
 
@@ -286,4 +293,10 @@ broken_sasl_auth_clients = yes
 [http://forum.ubuntu.org.cn/viewtopic.php?f=54&t=170026](http://forum.ubuntu.org.cn/viewtopic.php?f=54&t=170026)
 
 [http://myworkrecord.blog.51cto.com/3407230/649209](http://myworkrecord.blog.51cto.com/3407230/649209)
+
+## 维护记录
+
+| 时间 | 修改内容 | 原因 |
+| ---- | -------- | ---- |
+| 2026-09-02 | 标题改为 `Debian Postfix and Dovecot`；分类改为 Linux；文首增加指向 `email-hosting` 的方案对比链接 | 旧文只覆盖裸 Postfix 安装，需要和完整套件 / 云端方案分开说明 |
 
