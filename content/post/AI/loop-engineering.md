@@ -2,7 +2,7 @@
 title: "Loop Engineering：让 Agent 循环到可验证的完成状态"
 author: "-"
 date: 2026-07-31T09:01:25+08:00
-lastmod: 2026-07-31T09:01:25+08:00
+lastmod: 2026-09-02T14:18:35+08:00
 url: loop-engineering
 categories:
   - AI
@@ -172,6 +172,16 @@ Loop Engineering 适合围绕一个目标反复执行「修改 → 验证 → �
 
 两者的边界可以概括为：Loop 管理同一任务如何收敛，Graph 管理多个任务和角色如何流转。无论采用哪一种方式，完成条件都应该尽可能由独立、可重复执行的验证机制提供。
 
+## 一套按此组织的工作流
+
+Matt Pocock 的 Agent Skills 集合把 Loop Engineering、Spec-Driven Development 和 Harness Engineering 串成一条从想法到上线的流水线：前面用连续追问逼清需求、用 spec 和 ticket 固定范围，后面让 TDD 和验证循环自己收敛，人只在 checkpoint 看决策就绪的摘要。它是把本文思路组织成可照着走的步骤的一个例子，详见 [Matt Pocock 的 Agent Skills 与 Loop Engineering](./matt-pocock-skills.md)。
+
 ## 小结
 
 Loop Engineering 的重点不是让 Agent 无限制地运行，而是把循环设计成一个可观察、可验证、可停止的系统。目标要明确，反馈要及时，状态要能跨轮次保存，验收要尽量确定，权限和运行环境要隔离，同时始终保留失败上限。具备这些条件后，多轮 Agent 才从「反复试一试」变成可管理的工程流程。
+
+## 维护记录
+
+| 时间 | 修改内容 | 原因 |
+| ---- | -------- | ---- |
+| 2026-09-02 | 新增「一套按此组织的工作流」小节，链接到 Matt Pocock 的 Agent Skills 一文 | 补充与该 skills 集合的关系 |
