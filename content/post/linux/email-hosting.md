@@ -1,6 +1,5 @@
 ---
-
-## title: "Email Hosting: Mailcow、Postfix 与云端方案"
+title: "Email Hosting: Mailcow、Postfix 与云端方案"
 author: "-"
 date: 2026-09-02T17:36:40+08:00
 lastmod: 2026-09-02T17:36:40+08:00
@@ -16,6 +15,7 @@ tags:
   - ses
   - remix
   - AI-assisted
+---
 
 自建邮箱常被说成「装一套 Postfix」，云厂商又常被说成「AWS 有邮件服务」。这两句话都只对了一半：Postfix 只是 SMTP 引擎；AWS 现在给新用户提供的是发信 API，不是完整邮箱。下面按用途把常见方案摊开。
 
