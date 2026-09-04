@@ -1,7 +1,7 @@
 ---
 author: "-"
 date: 2026-05-05T14:02:11+08:00
-lastmod: 2026-08-31T16:47:52+08:00
+lastmod: 2026-09-04T13:19:49+08:00
 title: macos apps
 url: macos-apps
 categories:
@@ -32,7 +32,8 @@ tags:
 | itsycal       | cask:itsycal              | 任务栏日历（显示周数）     |
 | tunnelblick   | cask:tunnelblick          | OpenVPN GUI 客户端         |
 | Logi Options+ | cask:logi-options-plus    | Logitech 键鼠配置工具      |
-| Ice           | cask:jordanbaird-ice@beta | 菜单栏图标管理、隐藏与分组 |
+| Ice             | cask:jordanbaird-ice@beta | 菜单栏图标管理、隐藏与分组 |
+| KeepingYouAwake | cask:keepingyouawake      | 菜单栏咖啡杯，防止系统休眠 |
 
 ## Input Method
 
@@ -92,3 +93,4 @@ Mac 上跑 Windows / Linux 虚拟机，三款常见软件的对比见 [macOS Vir
 | 2026-07-09 | 新增 Squirrel（鼠须管）输入法条目及安装/五笔配置说明                                                                                                 | 补充 RIME 输入法方案，与豆包输入法并列         |
 | 2026-07-10 | 豆包输入法、Squirrel（鼠须管）详细内容拆分至独立文档；移除 `Productivity` 中重复的 `Itsycal`、`Stats` 条目；将 `my apps` 站内链接改为相对 `.md` 路径 | 保持本文简短，避免重复推荐，并统一站内链接写法 |
 | 2026-08-31 | 新增 Virtualization 小节，链到 Parallels / Fusion / UTM 对比文 | 补 macOS 虚拟机选型入口 |
+| 2026-09-04 | Essentials 新增 KeepingYouAwake | 补菜单栏防休眠工具 |
