@@ -2,7 +2,7 @@
 title: "Open Source Offline Dictionaries 开源离线词典"
 author: "-"
 date: 2026-05-23T10:21:41+08:00
-lastmod: 2026-07-01T18:10:39+08:00
+lastmod: 2026-09-08T18:18:51+08:00
 url: open-source-dictionaries
 description: 为 enx 挑选词典数据源时整理的资料，目前初步选定 ECDICT
 categories:
@@ -25,6 +25,7 @@ tags:
 | 名称                                                                | 类型     | 平台                    | 主要格式                               |
 | ------------------------------------------------------------------- | -------- | ----------------------- | -------------------------------------- |
 | [ECDICT](https://github.com/skywind3000/ECDICT)                     | 词库数据 | —                       | CSV、SQLite、StarDict、MDX、欧陆、MOBI |
+| [Wiktionary](https://www.wiktionary.org/)                           | 词库数据 | —                       | JSON（wiktextract）、XML dump、StarDict / MDX 转换版 |
 | [GoldenDict](https://github.com/goldendict/goldendict)              | 客户端   | Linux / Windows / macOS | StarDict、MDX                          |
 | [StarDict / 星际译王](http://www.huzheng.org/stardict/index_cn.php) | 客户端   | Linux / Windows         | StarDict                               |
 | [sdcv](https://dushistov.com/software/sdcv/)                        | 客户端   | 命令行                  | StarDict                               |
@@ -50,6 +51,18 @@ tags:
 | `ecdict-sqlite-28.zip`       | SQLite   | 供程序直接读取                   |
 
 GoldenDict 需 1.5 及以上版本才支持 MDX 格式。
+
+## Wiktionary
+
+[Wiktionary](https://www.wiktionary.org/) 是维基媒体基金会旗下的多语种开放词典，人人可编辑，内容按 CC BY-SA 4.0 与 GFDL 双授权。英文版（en.wiktionary.org）收词量在英语在线词典里居前列，词条除释义、词源、发音（IPA）、例句外，"Translations" 段落给出对应的中文（及其他语言）译词，"Derived terms"、"Descendants" 等段落标注派生与词形关系。相比多年未大改的传统词库，Wiktionary 对新词和新义项的跟进更快——例如 `drop-in` 的「随到随用 / 即插即用替代品」等现代义项，ECDICT 没有收录，Wiktionary 有。
+
+Wiktionary 本身是在线站点，离线使用有几条路径：
+
+- **机读提取**：[kaikki.org](https://kaikki.org/)（[wiktextract](https://github.com/tatuylonen/wiktextract) 项目）把词条解析成逐条 JSON，含释义、词性、翻译、例句，可按语言下载后自行入库，适合二次开发。
+- **数据库转储**：维基媒体官方 [dumps](https://dumps.wikimedia.org/) 提供 `enwiktionary` 的 XML 全量导出，但正文是 wikitext，需自行解析，一般直接用 wiktextract 的结果更省事。
+- **成品离线词典**：GoldenDict 支持把 Wiktionary 添加为在线词典源；社区也有转成 StarDict / MDX 的版本（huzheng 下载站的「维基词典离线版」即属此类），可离线加载。
+
+用于英中查词时的注意点：中文译词由志愿者填写，覆盖不均衡——常用词较全，专业术语和生僻义项可能缺中文，需要和其他词库配合。
 
 ## StarDict（星际译王）开放词库
 
@@ -101,12 +114,13 @@ MDX 词库可用于 GoldenDict（1.5+）、MDict 移动端、欧陆词典等客�
 - **日常桌面查词**：GoldenDict + ECDICT StarDict 版（轻量）或 MDX 版（排版更好）；macOS 可用 Bob 插件接入。
 - **终端 / 脚本**：`sdcv` + StarDict 词库，或直接用 ECDICT 的 SQLite + `stardict.py`。
 - **移动端**：MDict / 欧陆加载 MDX 词库；Kindle 用户用 ECDICT 的 MOBI 版。
-- **二次开发 / 制卡**：ECDICT CSV / SQLite 原始数据最灵活，词频和考纲标注可直接用于 Anki 筛词。
+- **二次开发 / 制卡**：ECDICT CSV / SQLite 原始数据最灵活，词频和考纲标注可直接用于 Anki 筛词；需要较新义项或成段释义文本时，用 wiktextract 提取的 Wiktionary JSON 作补充。
 
 ## 维护记录
 
 | 时间       | 修改内容                                                                                                                 | 原因                                                                         |
 | ---------- | ------------------------------------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------- |
+| 2026-09-08 | 新增「Wiktionary」章节；概述表补充 Wiktionary 数据源行；选用建议补充 wiktextract 作二次开发补充来源                      | 整理 enx 词典数据源时确认 Wiktionary 的覆盖与新义项优于 ECDICT，补入选型资料 |
 | 2026-07-01 | 标题改为「Open Source Offline Dictionaries 开源离线词典」；概述表格中 ECDICT 移到首位                                    | 标题需包含英文便于检索；ECDICT 是最常被检索/使用的词库数据，提升可见度       |
 | 2026-07-01 | 补充 `description` 字段；开头加一段背景，说明本文源于给 [enx](../development/enx.md) 挑选词典数据源，目前初步选定 ECDICT | 补充文档由来，解释为什么整理这篇资料                                         |
 | 2026-07-01 | 开头段落改为站内链接 [enx](../development/enx.md)（原为直链 GitHub 仓库）                                                | 遵循站内互链约定，由 enx.md 再关联 GitHub 仓库，避免依赖外部仓库反向维护链接 |
