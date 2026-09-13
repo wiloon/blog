@@ -1,7 +1,7 @@
 ---
 author: "-"
 date: 2026-05-05T14:02:11+08:00
-lastmod: 2026-09-04T13:19:49+08:00
+lastmod: 2026-09-13T13:18:10+08:00
 title: macos apps
 url: macos-apps
 categories:
@@ -54,6 +54,14 @@ tags:
 | Monosnap       | cask:monosnap   | 截图+标注               |
 | RealVNC Viewer | cask:vnc-viewer | 远程桌面                |
 
+## Screen Recording
+
+| app      | install | notes                                      |
+| -------- | ------- | ------------------------------------------ |
+| Recordly | —       | 开源录屏与编辑器，适合演示视频；需 macOS 14+ |
+
+官方 Homebrew 未收录 `recordly`。仓库里有 cask 文件，但公开 tap 尚未发布，`brew install --cask recordly` 不可用。从 [GitHub Releases](https://github.com/webadderallorg/Recordly/releases) 下载对应架构的 `.dmg` 安装。项目主页：[Recordly](https://github.com/webadderallorg/Recordly)。
+
 ## Terminal
 
 | app    | install     | notes                   |
@@ -94,3 +102,4 @@ Mac 上跑 Windows / Linux 虚拟机，三款常见软件的对比见 [macOS Vir
 | 2026-07-10 | 豆包输入法、Squirrel（鼠须管）详细内容拆分至独立文档；移除 `Productivity` 中重复的 `Itsycal`、`Stats` 条目；将 `my apps` 站内链接改为相对 `.md` 路径 | 保持本文简短，避免重复推荐，并统一站内链接写法 |
 | 2026-08-31 | 新增 Virtualization 小节，链到 Parallels / Fusion / UTM 对比文 | 补 macOS 虚拟机选型入口 |
 | 2026-09-04 | Essentials 新增 KeepingYouAwake | 补菜单栏防休眠工具 |
+| 2026-09-13 | 新增 Screen Recording 小节，记录 Recordly | 补充开源录屏/编辑器，并说明官方 brew 未收录 |
