@@ -55,6 +55,19 @@ pagefind --site public # 本地无二进制时用 npx pagefind@PAGEFIND_VERSION
 
 本地验证搜索请用 `task preview:search`，不要用 `task preview`。
 
+## RSS
+
+订阅地址：`https://wiloon.com/index.xml`。
+
+| 规则 | 实现位置 |
+| ---- | -------- |
+| 只有首页输出 RSS；section / taxonomy / term 不输出 | `config.toml` `[outputs]` |
+| 只保留最近 20 篇（按发布日期） | `config.toml` `[services.rss] limit`；`layouts/rss.xml` 排序 |
+| 只收录带 `original` 标签的文章（复用 `params.homeTag`） | `layouts/rss.xml`（覆盖主题模板） |
+| 只输出摘要，不输出全文 | `config.toml` `params.ShowFullTextinRSS = false` |
+
+**为什么这样限制**：2026-04 曾因 RSS 过大被整体关闭（`be2843925`）。Hugo 默认 feed 会收录全部约 3000 篇文章、带全文，并给每个 tag/category 各生成一份，文件超过 Cloudflare Pages 单文件 25MB 限制导致构建失败。**放开任何一条限制前，先本地构建确认 `public/**/index.xml` 大小。**
+
 ## 容器构建
 
 `Containerfile` 安装 `pagefind_extended` 二进制，执行：

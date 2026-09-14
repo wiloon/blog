@@ -144,8 +144,8 @@ hasCJKLanguage = true
   # 目录默认展开
   TocOpen = false
   
-  # 显示全文 RSS
-  ShowFullTextinRSS = true
+  # RSS 只输出摘要，不输出全文
+  ShowFullTextinRSS = false
   
   # 评论系统 (可选)
   comments = true
@@ -171,15 +171,22 @@ hasCJKLanguage = true
     name = "stackoverflow"
     url = "https://stackoverflow.com/users/1431884/w1100n"
 
-# 输出格式（全局禁用 RSS，避免超大文件超过 Cloudflare Pages 25MB 限制）
+  [[params.socialIcons]]
+    name = "rss"
+    url = "/index.xml"
+
+# 输出格式：RSS 只在首页开启（/index.xml）
+# section/taxonomy/term 不出 RSS，避免文件过多、过大（Cloudflare Pages 单文件 25MB 限制）
+# 首页 feed 的过滤逻辑见 layouts/rss.xml（homeTag = original）
 [outputs]
-  home = ["HTML"]
+  home = ["HTML", "RSS"]
   section = ["HTML"]
   taxonomy = ["HTML"]
   term = ["HTML"]
 
-# 禁用 RSS
-disableRSS = true
+# RSS 只保留最近 20 篇
+[services.rss]
+  limit = 20
 
 # Minify 配置：禁用 HTML 压缩（内嵌 JS 有 bug），保留 JSON/CSS 压缩
 [minify]
