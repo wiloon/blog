@@ -46,11 +46,13 @@ Diun 用 file provider 读一份 watch 列表，直接问 registry「这个仓�
 
 ## 当前监控目标
 
-只匹配 `x.y.z` 形式的稳定 tag（`include_tags: ^\d+\.\d+\.\d+$`），按 semver 排序，每个仓库最多看最近 15 个 tag。
+多数目标只匹配 `x.y.z` 稳定 tag（`include_tags: ^\d+\.\d+\.\d+$`）。Prometheus 现网是 `vX.Y.Z-distroless`，所以那一条用对应的 distroless 规则。按 semver 排序，每个仓库最多看最近 15 个 tag。
 
 | 镜像 | 实际对应什么 | 收到通知后 |
 | ---- | ------------ | ---------- |
 | `docker.io/vaultwarden/server` | AWS EC2 上的自建密码服务 | 改 Ansible 里的镜像 tag，再跑对应 playbook |
+| `docker.io/grafana/grafana` | 集群 Grafana（kube-prometheus-stack 默认镜像） | bump Helm chart 版本，镜像随 chart 走 |
+| `quay.io/prometheus/prometheus` | 集群 Prometheus（chart 用 distroless 变体） | 同上，bump Helm chart |
 | 上游官方容器镜像（二进制部署的服务） | 墙外 VPS 上用 Ansible 装的二进制，本身不跑容器；官方镜像 tag 与 GitHub release 一一对应，含 pre-release | 改 inventory 里的版本号，再走既有升级流程 |
 
 Vaultwarden 这一条的写法大致如下：
