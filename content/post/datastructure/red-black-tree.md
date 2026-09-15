@@ -2,7 +2,7 @@
 title: "Red-Black Tree, 红黑树, R-B Tree"
 author: "-"
 date: 2015-06-28T02:05:01+00:00
-lastmod: 2026-07-14T14:56:06+08:00
+lastmod: 2026-09-15T14:59:00+08:00
 url: red-black-tree
 categories:
   - Algorithm
@@ -16,13 +16,13 @@ aliases:
   - /p7914/
 ---
 
-## 二叉查找树
+## 二叉搜索树
 
-红黑树本质上就是一棵二叉查找树（Binary Search Tree, BST）。BST 的定义、性质与退化成链表后性能变差的问题，见 [二叉树与二叉查找树 §二叉查找树 Binary Search Tree](./binary-tree.md#二叉查找树-binary-search-tree)。
+红黑树本质上就是一棵二叉搜索树（Binary Search Tree, BST）。BST 的定义、性质与退化成链表后性能变差的问题，见 [二叉树与二叉搜索树 §二叉搜索树 Binary Search Tree](./binary-tree.md#二叉搜索树-binary-search-tree)。
 
 ## 红黑树的性质
 
-红黑树在二叉查找树的基础上增加了着色和相关的性质，使得树相对平衡，从而保证查找、插入、删除的时间复杂度最坏为 O(log n)。要保证一棵有 n 个结点的红黑树的高度始终保持在 O(log n)，需要满足以下 5 条性质：
+红黑树在二叉搜索树的基础上增加了着色和相关的性质，使得树相对平衡，从而保证查找、插入、删除的时间复杂度最坏为 O(log n)。要保证一棵有 n 个结点的红黑树的高度始终保持在 O(log n)，需要满足以下 5 条性质：
 
 1. 每个结点要么是红色，要么是黑色。
 1. 根结点是黑色。
@@ -200,7 +200,7 @@ graph TD
 
 ## AVL 树
 
-AVL 树是最早出现的自平衡二叉查找树，得名于发明者 G.M. Adelson-Velsky 和 E.M. Landis。它的严格平衡条件、四种失衡情况的旋转（LL/RR/LR/RL）、插入删除复杂度等细节见独立文章 [AVL Tree, AVL 树](./avl-tree.md)。
+AVL 树是最早出现的自平衡二叉搜索树，得名于发明者 G.M. Adelson-Velsky 和 E.M. Landis。它的严格平衡条件、四种失衡情况的旋转（LL/RR/LR/RL）、插入删除复杂度等细节见独立文章 [AVL Tree, AVL 树](./avl-tree.md)。
 
 ## 应用场景
 
@@ -221,3 +221,9 @@ JDK 8 的 `HashMap` 在某个桶（bucket）的链表长度超过阈值时会把
 - CSDN：[红黑树的好处及用途](http://blog.csdn.net/klarclm/article/details/7780319)
 - CSDN（作者 mmshixing，CC 4.0 BY-SA）：[红黑树与 AVL 树](https://blog.csdn.net/mmshixing/article/details/51692892)
 - 简书：[红黑树应用于内存数据库的说明](https://www.jianshu.com/p/e3506cee4010)
+
+## 维护记录
+
+| 时间 | 修改内容 | 原因 |
+| ---- | -------- | ---- |
+| 2026-09-15 | 正文「二叉查找树」改为「二叉搜索树」；内链锚点随 [二叉树与二叉搜索树](./binary-tree.md) 更新 | 系列文章译名对齐，避免标题锚点失效 |
