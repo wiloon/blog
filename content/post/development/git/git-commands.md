@@ -5,7 +5,7 @@ date: 2026-03-18T09:52:30+08:00
 url: git/basic
 categories:
 - Git
-lastmod: 2026-06-26T18:38:53+08:00
+lastmod: 2026-09-15T08:48:25+08:00
 tags:
 - git
 - remix
@@ -63,7 +63,7 @@ origin 是 Git 克隆时自动创建的远程仓库别名
 
 git pull 命令用于从另一个存储库或本地分支获取并集成(整合)。git pull 命令的作用是：取回远程主机某个分支的更新，再与本地的指定分支合并
 
-git pull: 首先，基于本地的 FETCH_HEAD 记录，比对本地的 FETCH_HEAD 记录与远程仓库的版本号，然后 git fetch 获得当前指向的远程分支的后续版本的数据，然后再利用 git merge 将其与本地的当前分支合并。所以可以认为 git pull 是 git fetch 和 git merge 两个步骤的结合。
+git pull 是 `git fetch` 加 `git merge`（或 rebase）。fetch 会重写 `.git/FETCH_HEAD`，第二步再把其中未标记 `not-for-merge` 的 tip 合进当前本地分支。FETCH_HEAD 是什么见 [FETCH_HEAD](./git.md#fetch_head)。
 
 git pull 的用法如下:
 
@@ -252,17 +252,17 @@ git log -g
 ## git fetch
 
 更新本地存储库中远程分支的引用
-git fetch 会同步远程仓库的新增和更新的分支到本地的远程分支引用（如 remotes/origin/main）。
+git fetch 会同步远程仓库的新增和更新的分支到本地的远程分支引用（如 .git/ref/remotes/origin/main）。
 远程已经删除的分支不会自动在本地消失，只是本地的远程分支引用还在。
 
 默认更新
 
-- 拉取所有分支更新, 从远程仓库拉取所有分支的最新提交(commit)
+- 拉取所有分支更新, 从远程仓库拉取所有分支的新提交(commit) （.git/objects/）
 - 拉取分支历史中引用的 tag
 - 不拉取"孤立"的 tag（不在任何分支历史中的 tag）
 - FETCH_HEAD
 
-git fetch 是更新(update) 在本地的远程跟踪分支（如origin/main 分支，注意远程跟踪分支是保存在本地，
+git fetch 是更新(update) 在本地的远程跟踪分支（如 origin/main 分支，注意远程跟踪分支是保存在本地，
 一般在 .git\refs\remotes\origin 目录下），并更新 (update) .git/FETCH_HEAD 文件。并不会和本地分支 merge，即不会更新本地分支。
 
 git fetch 命令用来拉取远程仓库的数据 (objects and refs).
@@ -287,16 +287,22 @@ git fetch --tags
 # 会获取远程仓库所有分支的最新提交和引用信息（包括新分支、标签等）。
 # 只会更新本地的远程分支（如 origin/main, origin/dev 等），不会更改你当前检出的分支的内容。
 git fetch
+
 # 跟上面的命令是一样的, git fetch 默认的远程仓库是 origin
 git fetch origin
+
 # 配置了多个远程仓库, 拉取指定远程仓库 upstream 的更新
 git fetch upstream
+
 # 更新所有远程仓库, 有多个远程仓库的时候, 会更新所有远程仓库, 不会单独拉取所有 tag，除非分支更新时带有 tag。
 git fetch --all
+
 # 只拉取 tag，不会更新分支
 git fetch --tags
+
 # 当前分支不是 dev 分支, 并且 dev 分支在本地没有修改的时候 更新 dev 分支
 git fetch origin dev:dev
+
 # 加了 --prune 参数, 不仅会拉取新建和更新的分支还会自动清理本地那些远程已经被删除的分支引用
 git fetch --prune
 ```
@@ -333,16 +339,9 @@ git fetch -p
 
 git pull 会默认先做一次 git fetch, 然后再做一次 git merge.
 
-git fetch 和 git pull 都可以将远端仓库更新至本地那么他们之间有何区别? 想要弄清楚这个问题有有几个概念不得不提。
+git fetch 和 git pull 都可以将远端仓库更新至本地，区别与 FETCH_HEAD 的含义见 [FETCH_HEAD](./git.md#fetch_head)。
 
-FETCH_HEAD: 是一个版本链接，记录在本地的一个文件中，指向着目前已经从远程仓库取下来的分支的末端版本。
-commit-id: 在每次本地工作完成后，都会做一个 git commit 操作来保存当前工作到本地的 repo， 此时会产生一个 commit-id，
-这是一个能唯一标识一个版本的序列号。 在使用 git push 后，这个 id 会同步到远程仓库。
-
-有了以上的概念再来说说 git fetch
-git fetch: 这将更新本地仓库关联的所有的远程仓库所包含所有分支的最新 commit-id,
-将其记录到 .git/FETCH_HEAD 文件中
-git fetch 更新远程仓库的方式如下:
+git fetch 会把这次取到的远程分支 tip 写进 `.git/FETCH_HEAD`。用 refspec 把远程分支写到本地某个分支名的写法如下:
 
 ```Bash
 git fetch origin master:tmp
@@ -1516,3 +1515,4 @@ git branch -a --contains <commit-hash>
 | 时间 | 修改内容 | 原因 |
 | ---- | -------- | ---- |
 | 2026-06-26 | 删除 commands 章节中重复的 `git cherry -v` | 与 `## git cherry` 章节内容重复 |
+| 2026-09-15 | FETCH_HEAD 概念改指向 `git.md`；精简 pull/fetch 处的重复定义 | 概念说明放到 git 总览文 |

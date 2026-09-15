@@ -2,10 +2,10 @@
 title: Git
 author: "-"
 date: 2026-03-06T11:28:08+08:00
-lastmod: 2026-09-01T15:08:26+08:00
+lastmod: 2026-09-15T08:48:25+08:00
 url: git
 categories:
-  - Tools
+  - Git
 tags:
   - git
   - remix
@@ -132,7 +132,62 @@ git diff main origin/main
 
 看完再 `git merge origin/main`（或 rebase）。这就是先取回来、再自己决定要不要合进去。
 
-日常记 `origin/main` 即可。`FETCH_HEAD` 是 fetch 顺带写的记录文件，指向这次取下来的分支 tip，一般不用手碰。
+日常记 `origin/main` 即可。`FETCH_HEAD` 是 fetch 顺带写的记录，见下一节。
+
+### FETCH_HEAD
+
+先记住一句：`.git/FETCH_HEAD` 记录的是**最近一次 `git fetch` 实际取回来的那些分支的 tip commit**。`git pull` 里也会先 fetch，所以同样会改它。每次 fetch 都会整份重写这个文件。
+
+它不是一个像 `HEAD` 那样的单指针。远程多个分支、各有不同的新 commit 时，每个被取到的分支各占一行，那一行的 commit id 就是**那条远程分支自己的 tip**，不会互相覆盖。
+
+本地只对应一个远程、且用默认 `git fetch` / `git fetch origin`（clone 后一般跟踪所有 `refs/heads/*`）时：远程有几条分支，文件里通常就几行。它记的是「这一次 fetch 取到了什么」，不是远程分支清单的永久副本：
+
+- `git fetch origin main`：远程即使有很多分支，往往只有 `main` 一行
+- `git clone --single-branch` 或改过 `remote.<name>.fetch`：行数可能少于远程分支总数
+- `git fetch --tags`：tag 也可能多占行
+
+它也不是本地当前分支，更不是 `HEAD`。`git switch` 换本地分支不会改这个文件；只有再 fetch / pull 才会更新。
+
+`git pull` 第二步 / `git merge FETCH_HEAD` 会合哪一行，看有没有 `not-for-merge` 标记，不看你此刻停在哪条本地分支。合并候选在 **fetch 当时**就定了：通常是当时当前分支的 upstream，或命令行指定的那个远程分支。
+
+#### 文件里每一列是什么
+
+下面是一次 fetch 之后 `.git/FETCH_HEAD` 的实际内容：
+
+```text
+0004c0599d1324cfba30373d5f95da98f6477907	not-for-merge	branch 'main' of github.com:wiloon/enx
+```
+
+三列之间是 TAB。
+
+| 列 | 本例 | 含义 |
+| ---- | ---- | ---- |
+| 1. commit | `0004c0599d1324cfba30373d5f95da98f6477907` | 这次取到的那个远程分支的 tip |
+| 2. 标记 | `not-for-merge` | 有这个词：只记录，默认不合进当前分支。这一列为空：本次的合并候选 |
+| 3. 说明 | `branch 'main' of github.com:wiloon/enx` | 远程哪条分支（或 tag）。本例是 `github.com:wiloon/enx` 上的 `main` |
+
+所以这一行说的是：远程 `main` 当时停在 `0004c059…`，不是本地当前分支的 tip。本例带了 `not-for-merge`，表示这次 fetch 虽然取到了远程 `main`，但 Git 没把它当作合并候选。常见原因是 fetch 当时本地当前分支并不跟踪 `origin/main`（例如在别的功能分支上），或命令行指定取的是别的 ref。
+
+如果当前本地分支跟踪 `origin/main`，无参数 `git fetch` 之后，`main` 那一行通常没有第二列的标记：
+
+```text
+0004c0599d1324cfba30373d5f95da98f6477907		branch 'main' of github.com:wiloon/enx
+```
+
+SHA 和说明之间是两个连续 TAB（中间那列为空）。`git pull` 的 merge / rebase，以及 `git merge FETCH_HEAD`，会合的是这种未标记 `not-for-merge` 的行。
+
+同一远程还有其他分支时会多行，例如（第二行的 SHA 是示意）：
+
+```text
+0004c0599d1324cfba30373d5f95da98f6477907		branch 'main' of github.com:wiloon/enx
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa	not-for-merge	branch 'dev' of github.com:wiloon/enx
+```
+
+这里不是「多个分支里挑一个 commit 写进去」：`main` 是 `0004c059…`，`dev` 是另一条 commit，各写各的。第一行是合并候选（fetch 当时当前分支的 upstream，或命令行指定的那个分支）；其余行只是顺便记下来。
+
+把 `FETCH_HEAD` 当成 revision 用时（例如 `git log FETCH_HEAD`、`git rev-parse FETCH_HEAD`），Git 只解析文件**第一行**的 commit，不管有没有 `not-for-merge`。文件本身仍是完整清单。
+
+日常看远程进度看 `origin/main` 即可。`FETCH_HEAD` 给这次 fetch 之后的 pull / merge 用，一般不用手改。
 
 ### git fetch 常见写法
 
@@ -153,6 +208,7 @@ git diff main origin/main
 | --- | --- | --- |
 | 下载新 commit 到对象库 | 会 | 会（内部先 fetch） |
 | 更新 `origin/main` | 会 | 会 |
+| 重写 `.git/FETCH_HEAD` | 会 | 会（内部先 fetch） |
 | 移动本地 `main`、改工作区 | 不会 | 会 |
 
 fetch 只同步「远程现在怎样」到 `origin/main`；pull 在此基础上还把它合进当前分支。
@@ -195,3 +251,4 @@ fetch 只同步「远程现在怎样」到 `origin/main`；pull 在此基础上�
 | 时间 | 修改内容 | 原因 |
 | ---- | -------- | ---- |
 | 2026-09-01 | 「分支，branch」由三级标题改为二级标题 | 该节讲分支本质，不应挂在「理解 git fetch, git pull」下 |
+| 2026-09-15 | 新增 FETCH_HEAD 字段说明；categories 改为 Git | 概念从命令笔记迁到本篇；分类与内容对齐 |
