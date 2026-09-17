@@ -161,6 +161,8 @@ Real, DivX HD
 
 ## Back-UPS Pro 550
 
+APC BR550G
+
 ## PC
 
 2015-09-05
