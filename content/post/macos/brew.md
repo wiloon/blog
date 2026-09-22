@@ -2,7 +2,7 @@
 title: Homebrew (brew)
 author: "-"
 date: 2026-06-11T11:18:29+08:00
-lastmod: 2026-06-19T13:51:22+08:00
+lastmod: 2026-09-22T08:43:14+08:00
 url: brew
 categories:
   - macOS
@@ -95,6 +95,39 @@ brew config
 brew doctor
 ```
 
+## 不认识的包怎么查
+
+`brew upgrade` 或 `brew outdated` 里经常出现一些不认识的包名，多数是别的软件的依赖，被顺带装上。按下面的顺序查：
+
+```bash
+# One-line description of the package
+brew desc harfbuzz
+
+# Details: version, homepage, license, and whether it was installed as a dependency
+brew info harfbuzz
+
+# Which installed packages depend on it (who pulled it in)
+brew uses --installed harfbuzz
+
+# What a package depends on, as a tree
+brew deps --tree openjdk
+
+# Packages you installed explicitly (not dependencies)
+brew leaves
+
+# Open the project homepage in the browser
+brew home harfbuzz
+```
+
+判断方法：
+
+- `brew info` 输出里有 `Installed (as dependency)`，说明是依赖，不是主动安装的
+- `brew uses --installed <pkg>` 列出的就是依赖它的软件，这些软件还在，它就不能删
+- 不在 `brew leaves` 列表里的包，基本都是依赖
+- 依赖没人用了，可以用 `brew autoremove` 清理
+
+底层库本身是跨平台的，Linux 上也有，功能介绍和各平台包名对照见 [System Libraries](../development/system-libraries.md)。
+
 ## Tap（第三方仓库）
 
 ### 什么是 tap
@@ -178,3 +211,4 @@ brew update
 | 时间 | 修改内容 | 原因 |
 | ---- | -------- | ---- |
 | 2026-06-19 | 补充 `brew upgrade` 与 `pacman -Syu` 等价说明及自动 update 细节 | 对比 Arch Linux 用法，便于理解 |
+| 2026-09-22 | 新增「不认识的包怎么查」一节，链接到 System Libraries | 升级时遇到不认识的依赖包（harfbuzz），需要查询方法 |
