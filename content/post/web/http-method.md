@@ -1,14 +1,17 @@
 ---
 author: "-"
 date: "" 
-title: "http method, get, head, post, options, put, delte, trace, connect"
+lastmod: 2026-09-29T15:58:22+08:00
+title: "HTTP Methods: GET, HEAD, POST, PUT, DELETE, OPTIONS, TRACE, CONNECT, QUERY"
+url: http-method
 categories:
   - Web
 tags:
-  - reprint
+  - http
   - remix
+  - AI-assisted
 ---
-## "http method, get, head, post, options, put, delete, trace, connect"
+## HTTP Methods: GET, HEAD, POST, PUT, DELETE, OPTIONS, TRACE, CONNECT, QUERY
 
 [https://www.cnblogs.com/machao/p/5788425.html](https://www.cnblogs.com/machao/p/5788425.html)
 
@@ -17,6 +20,7 @@ HTTP Method 的历史:
 - HTTP 0.9 这个版本只有 GET 方法
 - HTTP 1.0 这个版本有 GET HEAD POST 这三个方法
 - HTTP 1.1 这个版本是当前版本，包含 GET HEAD POST OPTIONS PUT DELETE TRACE CONNECT 这 8 个方法
+- 之后单独用 RFC 追加的方法：PATCH（RFC 5789，2010 年，部分修改资源）、QUERY（RFC 10008，2026 年 6 月，带请求体的安全查询，见下文 [QUERY](#query)）
 
 我们先看看HTTP 1.1 规范的中文翻译
 
@@ -259,6 +263,78 @@ HTTP1.1协议规范保留了CONNECT方法，此方法是为了能用于能动态
 
 例如，CONNECT 可以用来访问采用了 SSL (en-US) (HTTPS)  协议的站点。客户端要求代理服务器将 TCP 连接作为通往目的主机隧道。之后该服务器会代替客户端与目的主机建立连接。连接建立好之后，代理服务器会面向客户端发送或接收 TCP 消息流。
 
+### QUERY
+
+QUERY 是 2026 年 6 月由 RFC 10008（The HTTP QUERY Method）定义的新方法，标准轨道，作者来自 greenbytes、Cloudflare 和 Akamai。它解决的是一个长期存在的缺口：**查询条件放在请求体里，同时保持 GET 的安全和幂等语义**。
+
+#### 为什么需要它
+
+查询类请求过去只有两个选择，各有问题：
+
+- **GET**：安全、幂等、可缓存，但查询条件只能放在 URL 里。条件一多就会碰到 URL 长度上限；条件里有敏感内容时，会被访问日志、CDN 日志、浏览器历史、错误监控等一路记录下来。GET 带请求体在规范里没有定义语义，很多代理会直接丢掉，不能依赖。
+- **POST**：请求体随便放，但 POST 不保证安全和幂等。中间件和客户端不知道这个请求能不能自动重试，缓存也默认不存 POST 的响应。
+
+所以实践中大量"其实是查询"的接口用了 POST，比如 Elasticsearch 的 `POST /_search`、GraphQL 查询。QUERY 就是给这类请求一个语义准确的方法。
+
+#### 语义
+
+| 特性 | QUERY | GET | POST |
+| ---- | ----- | --- | ---- |
+| 请求体 | 有，而且必须有 `Content-Type` | 无（有也没有定义语义） | 有 |
+| 安全（不改服务器状态） | 是 | 是 | 否 |
+| 幂等（可自动重试） | 是 | 是 | 否 |
+| 响应可缓存 | 是，缓存键必须包含请求体 | 是 | 默认否 |
+| HTML 表单可用 | 否 | 是 | 是 |
+
+RFC 里的几条关键规则：
+
+- 客户端不要求、也不期望目标资源的状态发生变化，请求可以按需重试。
+- 缺少 `Content-Type`，或者它和请求体内容不一致时，服务器必须让请求失败。
+- 缓存可以用一个 QUERY 的响应满足后续的 QUERY 请求，但缓存键必须把请求体和相关的元数据算进去。只按 URL 做缓存键的缓存不能正确缓存 QUERY。
+- 服务器可以用响应头 `Accept-Query` 声明自己支持 QUERY，同时列出接受哪些查询格式（媒体类型）。
+- 服务器可以在响应里用 `Location` 给出一个"等价资源"的 URI，之后直接 GET 这个 URI 就能重复这次查询，不必再发一遍请求体。`Content-Location` 则指向"本次结果"对应的资源。
+- 返回 `303 See Other` 表示这个查询可以改用普通的 GET 请求 `Location` 里的 URI 来完成。
+
+#### 示例
+
+RFC 第 1 节的例子，把原本会写成 `GET /feed?q=foo&limit=10&sort=-published` 的查询条件，用表单编码放进请求体：
+
+```http
+QUERY /feed HTTP/1.1
+Host: example.org
+Content-Type: application/x-www-form-urlencoded
+
+q=foo&limit=10&sort=-published
+```
+
+用 JSON 描述查询条件也可以，只要 `Content-Type` 如实声明：
+
+```http
+QUERY /api/paragraph-words HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer <token>
+
+{"paragraph": "the words of a page ..."}
+```
+
+#### 支持情况（2026 年 9 月）
+
+- **浏览器**：没有专门的集成，表单不能提交 QUERY，但 `fetch()` 可以发。QUERY 不在 CORS 的简单方法（safelisted methods）里，跨域请求会先发一次 `OPTIONS` 预检，服务器要在 `Access-Control-Allow-Methods` 里列出 `QUERY`。
+- **服务端框架**：大多数路由器允许注册任意方法名，例如 Go 的 gin 用 `router.Handle("QUERY", path, handler)`。
+- **中间环节**：CDN、反向代理、API 网关、WAF 对新方法的处理不一。有的直接转发，有的返回 405 或 400，也有的缓存还不支持把请求体算进缓存键。上线前要在实际链路上逐跳验证，比如"浏览器 → CDN → nginx → 应用"。
+
+#### 什么时候用
+
+- 查询条件大，或者含敏感内容，不适合放进 URL；而且整条链路都验证过支持 QUERY：用 QUERY。
+- 链路上有环节不支持，或者没时间验证：用 POST，并在接口文档里写明"这是只读查询，可以安全重试"。这是 QUERY 出现之前的通行做法。
+- 条件简单、短、不敏感，希望被 CDN 或浏览器缓存：继续用 GET。
+
+参考：
+
+- RFC 10008: [https://www.rfc-editor.org/rfc/rfc10008.html](https://www.rfc-editor.org/rfc/rfc10008.html)
+- IETF datatracker: [https://datatracker.ietf.org/doc/draft-ietf-httpbis-safe-method-w-body/](https://datatracker.ietf.org/doc/draft-ietf-httpbis-safe-method-w-body/)
+- MDN: [https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Methods/QUERY](https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Methods/QUERY)
+
 ### 幂等性
 
 幂等的数学定义为
@@ -335,3 +411,9 @@ https://apifox.com/apiskills/the-difference-between-put-and-post/
 https://www.cnblogs.com/gzhjj/p/12633904.html
 
 https://cloud.tencent.com/developer/news/39873
+
+## 维护记录
+
+| 时间 | 修改内容 | 原因 |
+| ---- | -------- | ---- |
+| 2026-09-29 | 新增 QUERY 方法一节（RFC 10008）；方法历史补充 PATCH、QUERY；标题改为英文并修正拼写（delte → DELETE）；补 url、lastmod；标签 reprint 改为 remix + AI-assisted | QUERY 已于 2026 年 6 月成为正式 RFC，原文没有覆盖 |
