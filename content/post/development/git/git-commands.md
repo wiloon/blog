@@ -5,7 +5,7 @@ date: 2026-03-18T09:52:30+08:00
 url: git/basic
 categories:
 - Git
-lastmod: 2026-09-15T08:48:25+08:00
+lastmod: 2026-10-02T08:47:04+08:00
 tags:
 - git
 - remix
@@ -1015,6 +1015,8 @@ git clone https://user0:password0@git.foo.com/path/to/project.git
 
 depth 用于指定克隆深度, 为1即表示只克隆最近一次 commit.
 
+浅克隆、部分克隆（`--filter`）、稀疏检出以及浅克隆里推送的注意点，见 [Git Shallow Clone 浅克隆与部分克隆](./git-shallow-clone.md)。
+
 #git checkout main
 git switch main
 
@@ -1516,3 +1518,4 @@ git branch -a --contains <commit-hash>
 | ---- | -------- | ---- |
 | 2026-06-26 | 删除 commands 章节中重复的 `git cherry -v` | 与 `## git cherry` 章节内容重复 |
 | 2026-09-15 | FETCH_HEAD 概念改指向 `git.md`；精简 pull/fetch 处的重复定义 | 概念说明放到 git 总览文 |
+| 2026-10-02 | 「指定克隆深度」处加链接到 `git-shallow-clone.md` | 浅克隆内容单独成文 |
