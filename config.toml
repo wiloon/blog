@@ -1,5 +1,5 @@
 baseURL = "https://wiloon.com/"
-languageCode = "en"
+locale = "en"
 defaultContentLanguage = "en"
 title = "W10N"
 theme = "PaperMod"
