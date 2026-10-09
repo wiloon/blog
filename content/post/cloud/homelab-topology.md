@@ -1,8 +1,8 @@
 ---
-title: Homelab 拓扑：硬件、PVE 宿主机与 K8s 集群
+title: Homelab topology：硬件、PVE 宿主机与 K8s 集群
 author: "-"
 date: 2026-07-23T20:00:00+08:00
-lastmod: 2026-09-14T09:55:04+08:00
+lastmod: 2026-10-09T18:32:00+08:00
 url: homelab-topology
 categories:
   - cloud
@@ -40,6 +40,8 @@ flowchart TB
   lan --- r86s_host
   lan --- n100_host
   lan --- vip["kube-vip VIP<br/>192.168.50.100"]
+  lan --- ap["无线 AP<br/>Ruckus R310"]
+  ap -.->|Wi-Fi 2.4G / 5G| wifi_clients["无线终端<br/>手机 / 笔记本 / Switch"]
 
   subgraph j4125_host["物理机 j4125 · 192.168.50.2"]
     k8s21["VM k8s-21<br/>worker"]
@@ -60,6 +62,7 @@ flowchart TB
 
 - 4 台 PVE 宿主机（j4125、pve03、r86s、n100）**各自独立**，不组 Proxmox 集群，管理端口各自的 `https://<ip>:8006`。
 - 软路由本身是 **n100 上的一台 VM**（`openwrt-24-10`），不是独立硬件；n100 用 `vmbr1` 接光猫 WAN、`vmbr0` 接 LAN，其余三台 PVE 宿主机和局域网设备都挂在 `vmbr0` 这条 LAN 上。细节见 [pve + openwrt](./pve-openwrt.md)。
+- 家里的 Wi-Fi 由一台 **Ruckus R310** 提供，它有线接在 LAN 上，以胖 AP 方式工作，只负责无线接入，路由和 DHCP 仍然由 OpenWrt 处理，所以无线终端和有线设备在同一个 `192.168.50.0/24` 网段。型号参数见 [Hardware](../Hardware/hardware.md)，配置见 [Ruckus R310](../network/ruckus-r310.md)。
 - K8s 的对外入口是 **kube-vip** 维护的 VIP `192.168.50.100`，飘在某台 control-plane 节点上，Kong Ingress 走这个 VIP 的 443；VIP 与 22 端口共存的机制见 [kube-vip LoadBalancer 与节点 SSH 的 22 端口之争](./kube-vip-loadbalancer-port-22.md)。
 - 局域网里另有一台 VM（`192.168.50.61`）承担 K8s 节点的 VPN / 透明代理出网网关，与本文的物理/虚拟拓扑是两条独立的关注点，这里不展开。
 
@@ -88,6 +91,7 @@ r86s、n100 与 [Hardware](../Hardware/hardware.md) 里的 **ROCK 5B（R86S 型�
 | PVE 安装、日常命令、备份恢复 | [PVE](./proxmox-ve-pve.md) |
 | PVE 存储分层（VG/瘦池/local-lvm） | [Proxmox VE 存储](./pve-storage.md) |
 | 软路由 VM 怎么搭（vmbr0/vmbr1） | [pve + openwrt](./pve-openwrt.md) |
+| 无线 AP（Ruckus R310）配置 | [Ruckus R310](../network/ruckus-r310.md) |
 | PVE 虚拟机内存/磁盘热扩容 | [pve-vm-memory-hotplug](./pve-vm-memory-hotplug.md) |
 | K8s 概念（Pod/Service/DaemonSet 等） | [k8s](./k8s.md) |
 | kube-vip VIP 与端口复用机制 | [kube-vip-loadbalancer-port-22](./kube-vip-loadbalancer-port-22.md) |
@@ -102,3 +106,4 @@ r86s、n100 与 [Hardware](../Hardware/hardware.md) 里的 **ROCK 5B（R86S 型�
 | ---- | -------- | ---- |
 | 2026-07-23 | 新建本文，梳理硬件/PVE 宿主机/K8s 节点/网络关系图 | 现有文档各记一段，缺一篇串联全局的总览 |
 | 2026-09-14 | 相关文章表增加 Diun 镜像更新通知 | homelab 用 Diun 盯容器镜像新版本 |
+| 2026-10-09 | 拓扑图增加无线 AP（Ruckus R310）及无线终端；要点与相关文章表补充 AP 说明 | 原图只画了 PVE 与 K8s 节点，缺少家庭 Wi-Fi 接入部分 |
