@@ -2,12 +2,14 @@
 title: Collection, Array, Vector, ArrayList, List, LinkedList
 author: "-"
 date: 2011-11-09T05:46:13+00:00
+lastmod: 2026-10-09T21:22:13+08:00
 url: collection
 categories:
   - Java
 tags:
   - Java
-
+  - remix
+  - AI-assisted
 ---
 ## Collection, Array, Vector, ArrayList, List, LinkedList
 
@@ -32,11 +34,11 @@ Collection是最基本的集合接口，一个Collection代表一组Object，即
 ```java
 
 Iterator it = collection.iterator(); // 获得一个迭代子
-  
+
 while(it.hasNext()) {
-  
-Object obj = it.next(); // 得到下一个元素
-  
+
+    Object obj = it.next(); // 得到下一个元素
+
 }
 
 ```
@@ -75,7 +77,7 @@ ArrrayList底层的数据结构是数组，支持随机访问，而 LinkedList �
 
 为什么多线程环境下ArrayList是线程不安全的？因为在进行写操作（add方法）的时候，方法上为了保证并发性，没有添加synchronized修饰。
 
-ArrayList 不是线程安全的，Vector 是线程安全。而保障 Vector 线程安全的方式，是非常粗暴的在方法上用 synchronized 独占锁，将多线程执行变成串行化。要想将 ArrayList 变成线程安全的也可以使用Collections.synchronizedList(List<T> list)方法 ArrayList 转换成线程安全的，但这种转换方式依然是通过 synchronized 修饰方法实现的，很显然这不是一种高效的方式，
+ArrayList 不是线程安全的，Vector 是线程安全。而保障 Vector 线程安全的方式，是非常粗暴的在方法上用 synchronized 独占锁，将多线程执行变成串行化。要想将 ArrayList 变成线程安全的也可以使用`Collections.synchronizedList(List<T> list)` 方法 ArrayList 转换成线程安全的，但这种转换方式依然是通过 synchronized 修饰方法实现的，很显然这不是一种高效的方式，
 
 ### Vector
 
@@ -301,3 +303,8 @@ Serializable<|.. CopyOnWriteArrayList
 来源：稀土掘金
 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
 
+## 维护记录
+
+| 时间 | 修改内容 | 原因 |
+| ---- | -------- | ---- |
+| 2026-10-09 | 修复本地 Hugo 构建的 Raw HTML 警告：代码/配置放入代码块，正文中的尖括号占位符改为行内代码 | 正文中的 HTML/XML 片段被当作原始 HTML 丢弃；文件名/URL/标题按规范调整 |

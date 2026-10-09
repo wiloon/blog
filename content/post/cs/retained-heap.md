@@ -2,11 +2,14 @@
 title: Retained Heap
 author: "-"
 date: 2017-02-07T00:10:18+00:00
+lastmod: 2026-10-09T21:22:13+08:00
 url: retained-heap
 categories:
-  - Inbox
+  - Java
 tags:
-  - reprint
+  - jvm
+  - remix
+  - AI-assisted
 aliases:
   - /p9739/
 ---
@@ -23,99 +26,59 @@ http://supercharles888.blog.51cto.com/609344/1347144
   
 POJO类代码是: 
 
+```java
 package com.charles.research;
-  
 /**
-  
 *
-  
 * 这是一个Person类,我用它来撑满heap
-  
 * @author charles.wang
-  
 *
-  
 */
-  
 public class Person {
-
-private String name;
-  
-private String sex;
-  
-private int age;
-
-public Person( String name,String sex,int age){
-  
-this.name=name;
-  
-this.sex=sex;
-  
-this.age=age;
-
+    private String name;
+    private String sex;
+    private int age;
+    public Person( String name,String sex,int age){
+        this.name=name;
+        this.sex=sex;
+        this.age=age;
+    }
+    public String getName() {
+        return name;
+    }
+    public void setName(String name) {
+        this.name = name;
+    }
+    public String getSex() {
+        return sex;
+    }
+    public void setSex(String sex) {
+        this.sex = sex;
+    }
+    public int getAge() {
+        return age;
+    }
+    public void setAge(int age) {
+        this.age = age;
+    }
 }
-
-public String getName() {
-  
-return name;
-  
-}
-  
-public void setName(String name) {
-  
-this.name = name;
-  
-}
-  
-public String getSex() {
-  
-return sex;
-  
-}
-  
-public void setSex(String sex) {
-  
-this.sex = sex;
-  
-}
-  
-public int getAge() {
-  
-return age;
-  
-}
-  
-public void setAge(int age) {
-  
-this.age = age;
-  
-}
-
-}
+```
 
 然后我们创建ArrayList,并且无限向其中添加Person类对象的方法是: 
 
+```java
 /**
-  
 * 造成内存溢出,这次重复添加一个Person对象到一个列表中,因为列表是强引用,所以无法被回收,
-  
 * 从而最终导致内存溢出
-  
 */
-  
 public static void makeOutOfMemory1(){
-
-//无限往一个List中加对象,因为List是强引用,所以不会被GC,从而导致memory溢出
-  
-List<Person> persons = new ArrayList<Person> ();
-  
-while( 1>0){
-  
-persons.add( new Person("fakeperson","male",25));
-  
+    //无限往一个List中加对象,因为List是强引用,所以不会被GC,从而导致memory溢出
+    List<Person> persons = new ArrayList<Person> ();
+    while( 1>0){
+        persons.add( new Person("fakeperson","male",25));
+    }
 }
-  
-}
+```
   
 当运行上述代码时候,堆溢出了,产生了heap dump文件 (因为在准备工作部分,我们用VM参数指定了如果堆溢出则产生heap dump)
   
@@ -151,121 +114,70 @@ Retained Size=当前对象大小+当前对象可直接或间接引用到的对�
 
 我们现在来研究类引用其他类的例子,比如我们现在再定义新的POJO类,比如叫CompanyPerson,这个CompanyPerson类引用Person类作为其成员变量 (原谅我没用继承,我这里只是为了说明问题) ,还加了一些其他成员变量,这个新的类如下: 
 
+```java
 package com.charles.research;
-  
 /**
-  
 *
-  
 * 这是一个CompanyPerson类,它会引用到Person类,并且加入了一些额外属性,比如员工号,收入,职位
-  
 * @author charles.wang
-  
 *
-  
 */
-  
 public class CompanyPerson {
-
-//引用Person类
-  
-private Person person;
-
-private String employeeId;
-  
-private double salary;
-  
-private String position;
-
-public CompanyPerson( Person person, String employeeId, double salary,String position){
-  
-this.person = person;
-  
-this.employeeId = employeeId;
-  
-this.salary = salary;
-  
-this.position = position;
-  
+    //引用Person类
+    private Person person;
+    private String employeeId;
+    private double salary;
+    private String position;
+    public CompanyPerson( Person person, String employeeId, double salary,String position){
+        this.person = person;
+        this.employeeId = employeeId;
+        this.salary = salary;
+        this.position = position;
+    }
+    public Person getPerson() {
+        return person;
+    }
+    public void setPerson(Person person) {
+        this.person = person;
+    }
+    public String getEmployeeId() {
+        return employeeId;
+    }
+    public void setEmployeeId(String employeeId) {
+        this.employeeId = employeeId;
+    }
+    public double getSalary() {
+        return salary;
+    }
+    public void setSalary(double salary) {
+        this.salary = salary;
+    }
+    public String getPosition() {
+        return position;
+    }
+    public void setPosition(String position) {
+        this.position = position;
+    }
 }
-
-public Person getPerson() {
-  
-return person;
-  
-}
-  
-public void setPerson(Person person) {
-  
-this.person = person;
-  
-}
-  
-public String getEmployeeId() {
-  
-return employeeId;
-  
-}
-  
-public void setEmployeeId(String employeeId) {
-  
-this.employeeId = employeeId;
-  
-}
-  
-public double getSalary() {
-  
-return salary;
-  
-}
-  
-public void setSalary(double salary) {
-  
-this.salary = salary;
-  
-}
-  
-public String getPosition() {
-  
-return position;
-  
-}
-  
-public void setPosition(String position) {
-  
-this.position = position;
-  
-}
-
-}
+```
   
 然后,我们按照与实验一相同的方式,在无限循环中创建CompanyPerson类,然后将他们的实例添加到一个ArrayList中从而让其堆内存溢出: 
 
+```java
 /**
-  
 * 造成内存溢出,这次重复添加一个CompanyPerson对象到一个列表中,而CompanyPerson对象是引用Person对象的,因为列表是强引用,所以无法被回收,
-  
 * 从而最终导致内存溢出
-  
 */
-  
 public static void makeOutOfMemory2(){
-
-//无限往一个List中加对象,因为List是强引用,所以不会被GC,从而导致memory溢出
-  
-List<CompanyPerson> companyPersons = new ArrayList<CompanyPerson> ();
-  
-while( 1>0){
-  
-Person person = new Person("fackperson","male",25);
-  
-CompanyPerson cp = new CompanyPerson(person,"emp123",20000L,"SSE");
-  
-companyPersons.add( cp);
-  
+    //无限往一个List中加对象,因为List是强引用,所以不会被GC,从而导致memory溢出
+    List<CompanyPerson> companyPersons = new ArrayList<CompanyPerson> ();
+    while( 1>0){
+        Person person = new Person("fackperson","male",25);
+        CompanyPerson cp = new CompanyPerson(person,"emp123",20000L,"SSE");
+        companyPersons.add( cp);
+    }
 }
-
-}
+```
   
 我们在分析heap dump文件: 
 
@@ -310,3 +222,9 @@ Person person = new Person("fackperson","male",25);
 (2)对于一个不引用其他自定义类对象的对象,它的Shallow Heap大小和Retained Heap大小相等,并且这个大小为这个对象的对象头 (取决于平台是32位还是64位)  和所有成员变量的按照类型计算出的大小 (如果是对象引用就是4个byte或者8个byte,也取决于平台是32位还是64位,这决定了你寻址用的地址的尺寸) 的总和,并且做补位操作。
 
 (3)对于一个引用其他自定义类对象的对象,它的Shallow Heap大小和Retained Heap大小不相等,Retained Heap尺寸为该对象自己的Shallow Heap大小加上它所有直接或者间接引用到的对象的大小的总和 (不包括被GC Root直接间接引用的对象) 
+
+## 维护记录
+
+| 时间 | 修改内容 | 原因 |
+| ---- | -------- | ---- |
+| 2026-10-09 | 修复本地 Hugo 构建的 Raw HTML 警告：代码/配置放入代码块，正文中的尖括号占位符改为行内代码；categories 改为 Java | 正文中的 HTML/XML 片段被当作原始 HTML 丢弃；文件名/URL/标题按规范调整 |

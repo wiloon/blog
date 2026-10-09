@@ -2,12 +2,15 @@
 title: javascript unit test
 author: "-"
 date: 2014-08-25T01:30:34+00:00
+lastmod: 2026-10-09T21:22:13+08:00
 url: javascript-unit-test
 categories:
   - JavaScript
 tags:
   - JavaScript
-
+  - test
+  - remix
+  - AI-assisted
 aliases:
   - /p1452/
   - /p5008/
@@ -48,60 +51,39 @@ yui test: http://developer.yahoo.com/yui/yuitest/ 著名的yahoo web js toolkit 
   
 mycode.js
 
+```javascript
 function (a, b) {
-  
 return a + b;
-  
 }
+```
 
 test.html
 
+```html
 <html>
-  
 <head>
-  
-
-  
 <script src="http://code.jquery.com/jquery-latest.js"></script>
-  
 <script type="text/javascript" src="qunit.js"></script>
-
-<!- js to be tested ->
-  
+<!-- js to be tested -->
 <script type="text/javascript" src="mycode.js"></script>
-
-<!- unit test part ->
-  
+<!-- unit test part -->
 <script>
-  
 $(document).ready(function(){
-  
 test("a basic test example", function() {
-  
 var sum = add (1 + 1);
-  
 equal( sum, "2", "We expect value to be 2" );
-  
 });
-  
 });
-  
 </script>
-  
 </head>
-  
 <body>
-  
 QUnit example
-  
-
-  
-
-  
-
-  
-
-  
 test markup, will be hidden
-  
 </
+```
+
+## 维护记录
+
+| 时间 | 修改内容 | 原因 |
+| ---- | -------- | ---- |
+| 2026-10-09 | 修复本地 Hugo 构建的 Raw HTML 警告：代码/配置放入代码块，正文中的尖括号占位符改为行内代码 | 正文中的 HTML/XML 片段被当作原始 HTML 丢弃；文件名/URL/标题按规范调整 |

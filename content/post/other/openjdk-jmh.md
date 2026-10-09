@@ -2,11 +2,15 @@
 title: java openjdk JMH
 author: "-"
 date: 2014-09-03T01:04:10+00:00
+lastmod: 2026-10-09T21:22:13+08:00
 url: openjdk-jmh
 categories:
   - Java
 tags:
-  - reprint
+  - java
+  - jmh
+  - remix
+  - AI-assisted
 aliases:
   - /p6973/
 ---
@@ -14,7 +18,7 @@ aliases:
 
 create test project with maven
 
-```java
+```bash
 mvn archetype:generate \
 -DinteractiveMode=false \
 -DarchetypeGroupId=org.openjdk.jmh \
@@ -36,44 +40,31 @@ JMH 是一个由 OpenJDK/Oracle 里面那群开发了 Java 编译器的大牛们
 
 第一个例子
 
-如果你使用 maven 来管理你的 Java 项目的话，引入 JMH 是一件很简单的事情——只需要在 pom.xml 里增加 JMH 的依赖即可<properties> <jmh.version>1.14.1</jmh.version> </properties> 
+如果你使用 maven 来管理你的 Java 项目的话，引入 JMH 是一件很简单的事情——只需要在 pom.xml 里增加 JMH 的依赖即可`<properties>` `<jmh.version>`1.14.1`</jmh.version>` `</properties>` 
 
+```xml
 <dependencies>
-      
 <dependency>
-          
 <groupId>org.openjdk.jmh</groupId>
-          
 <artifactId>jmh-core</artifactId>
-          
 <version>${jmh.version}</version>
-      
 </dependency>
-      
 <dependency>
-          
 <groupId>org.openjdk.jmh</groupId>
-          
 jmh-generator-annprocess</artifactId>
-          
 <version>${jmh.version}</version>
-          
 <scope>provided</scope>
-      
 </dependency>
-  
 </dependencies>
+```
   
 接下来再创建我们的第一个 Benchmark
 
+```java
 @BenchmarkMode(Mode.AverageTime)
-  
 @OutputTimeUnit(TimeUnit.MICROSECONDS)
-  
 @State(Scope.Thread)
-  
 public class FirstBenchmark {
-
     @Benchmark
     public int sleepAWhile() {
         try {
@@ -83,7 +74,6 @@ public class FirstBenchmark {
         }
         return 0;
     }
-    
     public static void main(String[] args) throws RunnerException {
         Options opt = new OptionsBuilder()
                 .include(FirstBenchmark.class.getSimpleName())
@@ -91,72 +81,44 @@ public class FirstBenchmark {
                 .warmupIterations(5)
                 .measurementIterations(5)
                 .build();
-    
         new Runner(opt).run();
     }
-    
-
 }
+```
   
 有不少你可能是第一次见到的注解，不过不着急，接下来会解释这些注解的意义。我们先来跑一下这个 benchmark 吧 🙂
 
+```text
 # JMH 1.14.1 (released 39 days ago)
-
 # VM version: JDK 1.8.0_11, VM 25.11-b03
-
 # VM invoker: /Library/Java/JavaVirtualMachines/jdk1.8.0_11.jdk/Contents/Home/jre/bin/java
-
 # VM options: -Didea.launcher.port=7535 -Didea.launcher.bin.path=/Applications/IntelliJ IDEA 15 CE.app/Contents/bin -Dfile.encoding=UTF-8
-
 # Warmup: 5 iterations, 1 s each
-
 # Measurement: 5 iterations, 1 s each
-
 # Timeout: 10 min per iteration
-
 # Threads: 1 thread, will synchronize iterations
-
 # Benchmark mode: Average time, time/op
-
 # Benchmark: com.dyng.FirstBenchmark.sleepAWhile
-
 # Run progress: 0.00% complete, ETA 00:00:10
-
 # Fork: 1 of 1
-
 # Warmup Iteration 1: 503.440 ms/op
-
 # Warmup Iteration 2: 503.885 ms/op
-
 # Warmup Iteration 3: 503.714 ms/op
-
 # Warmup Iteration 4: 504.333 ms/op
-
 # Warmup Iteration 5: 502.596 ms/op
-
 Iteration 1: 504.352 ms/op
-  
 Iteration 2: 502.583 ms/op
-  
 Iteration 3: 501.256 ms/op
-  
 Iteration 4: 501.655 ms/op
-  
 Iteration 5: 504.212 ms/op
-
 Result "sleepAWhile":
-    
 502.811 ±(99.9%) 5.495 ms/op [Average]
-    
 (min, avg, max) = (501.256, 502.811, 504.352), stdev = 1.427
-    
 CI (99.9%): [497.316, 508.306] (assumes normal distribution)
-
 # Run complete. Total time: 00:00:12
-
 Benchmark Mode Cnt Score Error Units
-  
 FirstBenchmark.sleepAWhile avgt 5 502.811 ± 5.495 ms/op
+```
   
 对 sleepAWhile() 的测试结果显示执行时间平均约为502毫秒。因为我们的测试对象 sleepAWhile() 正好就是睡眠500毫秒，所以 JMH 显示的结果可以说很符合我们的预期。
 
@@ -188,15 +150,21 @@ Warmup 是指在实际进行 benchmark 前先进行预热的行为。为什么�
 
 现在来解释一下上面例子中使用到的注解，其实很多注解的意义完全可以望文生义 🙂
 
+```java
 @Benchmark
+```
   
 表示该方法是需要进行 benchmark 的对象，用法和 JUnit 的 @Test 类似。
 
+```java
 @Mode
+```
   
 Mode 如之前所说，表示 JMH 进行 Benchmark 时所使用的模式。
 
+```java
 @State
+```
   
 State 用于声明某个类是一个"状态"，然后接受一个 Scope 参数用来表示该状态的共享范围。因为很多 benchmark 会需要一些表示状态的类，JMH 允许你把这些类以依赖注入的方式注入到 benchmark 函数里。Scope 主要分为两种。
 
@@ -206,7 +174,9 @@ Benchmark: 该状态在所有线程间共享。
   
 关于State的用法，官方的 code sample 里有比较好的例子。
 
+```java
 @OutputTimeUnit
+```
   
 benchmark 结果所使用的时间单位。
 
@@ -214,19 +184,15 @@ benchmark 结果所使用的时间单位。
 
 解释完了注解，再来看看 JMH 在启动前设置的参数。
 
+```java
 Options opt = new OptionsBuilder()
-          
 .include(FirstBenchmark.class.getSimpleName())
-          
 .forks(1)
-          
 .warmupIterations(5)
-          
 .measurementIterations(5)
-          
 .build();
-
 new Runner(opt).run();
+```
   
 include
   
@@ -254,27 +220,20 @@ measurementIterations
 
 首先定义一个表示这两种实现的接口
 
+```java
 public interface Calculator {
-      
 /**
-       
 * calculate sum of an integer array
-       
 * @param numbers
-       
 * @return
-       
 */
-      
 public long sum(int[] numbers);
-
     /**
-     * shutdown pool or reclaim any related resources
-     */
-    public void shutdown();
-    
-
+* shutdown pool or reclaim any related resources
+ */
+public void shutdown();
 }
+```
   
 由于这两种算法的实现不是这篇文章的重点，而且本身并不困难，所以实际代码就不赘述了。如果真的感兴趣的话，可以看最后的附录。以下仅说明一下我所指的串行算法和并行算法的含义。
 
@@ -284,22 +243,16 @@ public long sum(int[] numbers);
   
 进行 benchmark 的代码如下
 
+```java
 @BenchmarkMode(Mode.AverageTime)
-  
 @OutputTimeUnit(TimeUnit.MICROSECONDS)
-  
 @State(Scope.Benchmark)
-  
 public class SecondBenchmark {
-      
 @Param({"10000", "100000", "1000000"})
-      
 private int length;
-
     private int[] numbers;
     private Calculator singleThreadCalc;
     private Calculator multiThreadCalc;
-    
     public static void main(String[] args) throws RunnerException {
         Options opt = new OptionsBuilder()
                 .include(SecondBenchmark.class.getSimpleName())
@@ -307,49 +260,43 @@ private int length;
                 .warmupIterations(5)
                 .measurementIterations(5)
                 .build();
-    
         new Runner(opt).run();
     }
-    
     @Benchmark
     public long singleThreadBench() {
         return singleThreadCalc.sum(numbers);
     }
-    
     @Benchmark
     public long multiThreadBench() {
         return multiThreadCalc.sum(numbers);
     }
-    
     @Setup
     public void prepare() {
         numbers = IntStream.rangeClosed(1, length).toArray();
         singleThreadCalc = new SinglethreadCalculator();
         multiThreadCalc = new MultithreadCalculator(Runtime.getRuntime().availableProcessors());
     }
-    
     @TearDown
     public void shutdown() {
         singleThreadCalc.shutdown();
         multiThreadCalc.shutdown();
     }
-    
-
 }
+```
   
 注意到这里用到了3个之前没有使用的注解。
 
-@Param
-  
-@Param 可以用来指定某项参数的多种情况。特别适合用来测试一个函数在不同的参数输入的情况下的性能。
+`@Param`
 
-@Setup
-  
-@Setup 会在执行 benchmark 之前被执行，正如其名，主要用于初始化。
+`@Param` 可以用来指定某项参数的多种情况。特别适合用来测试一个函数在不同的参数输入的情况下的性能。
 
-@TearDown
-  
-@TearDown 和 @Setup 相对的，会在所有 benchmark 执行结束以后执行，主要用于资源的回收等。
+`@Setup`
+
+`@Setup` 会在执行 benchmark 之前被执行，正如其名，主要用于初始化。
+
+`@TearDown`
+
+`@TearDown` 和 `@Setup` 相对的，会在所有 benchmark 执行结束以后执行，主要用于资源的回收等。
 
 最后来猜猜看实际结果如何？并行算法在哪个问题集下能够超越串行算法？
 
@@ -389,52 +336,36 @@ Jenkov 的 JMH 教程，相比于这篇文章介绍得更为详细，非常推�
 
 代码清单
 
+```java
 public class SinglethreadCalculator implements Calculator {
-      
 public long sum(int[] numbers) {
-          
 long total = 0L;
-          
 for (int i : numbers) {
-              
 total += i;
-          
 }
-          
 return total;
-      
 }
-
     @Override
     public void shutdown() {
         // nothing to do
     }
-    
-
 }
-
 public class MultithreadCalculator implements Calculator {
-      
 private final int nThreads;
-      
 private final ExecutorService pool;
-
     public MultithreadCalculator(int nThreads) {
         this.nThreads = nThreads;
         this.pool = Executors.newFixedThreadPool(nThreads);
     }
-    
     private class SumTask implements Callable<Long> {
         private int[] numbers;
         private int from;
         private int to;
-    
         public SumTask(int[] numbers, int from, int to) {
             this.numbers = numbers;
             this.from = from;
             this.to = to;
         }
-    
         public Long call() throws Exception {
             long total = 0L;
             for (int i = from; i < to; i++) {
@@ -443,10 +374,8 @@ private final ExecutorService pool;
             return total;
         }
     }
-    
     public long sum(int[] numbers) {
         int chunk = numbers.length / nThreads;
-    
         int from, to;
         List<SumTask> tasks = new ArrayList<SumTask>();
         for (int i = 1; i <= nThreads; i++) {
@@ -459,10 +388,8 @@ private final ExecutorService pool;
             }
             tasks.add(new SumTask(numbers, from, to));
         }
-    
         try {
             List<Future<Long>> futures = pool.invokeAll(tasks);
-    
             long total = 0L;
             for (Future<Long> future : futures) {
                 total += future.get();
@@ -473,15 +400,19 @@ private final ExecutorService pool;
             return 0;
         }
     }
-    
     @Override
     public void shutdown() {
         pool.shutdown();
     }
-    
-
 }
+```
 
 http://blog.dyngr.com/blog/2016/10/29/introduction-of-jmh/
   
 http://openjdk.java.net/projects/code-tools/jmh/
+
+## 维护记录
+
+| 时间 | 修改内容 | 原因 |
+| ---- | -------- | ---- |
+| 2026-10-09 | 修复本地 Hugo 构建的 Raw HTML 警告：代码/配置放入代码块，正文中的尖括号占位符改为行内代码 | 正文中的 HTML/XML 片段被当作原始 HTML 丢弃；文件名/URL/标题按规范调整 |

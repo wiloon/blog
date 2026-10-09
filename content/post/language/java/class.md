@@ -2,11 +2,15 @@
 title: Class 文件内容, 方法区, 常量池
 author: "-"
 date: 2012-04-15T13:05:03+00:00
+lastmod: 2026-10-09T21:22:13+08:00
 url: class
 categories:
   - Java
 tags:
-  - reprint
+  - java
+  - jvm
+  - remix
+  - AI-assisted
 ---
 ## Class 文件内容, 方法区, 常量池
 
@@ -146,53 +150,31 @@ CONSTANT_NameAndType 12 对一个字段或方法的部分符号引用
 
 三、TestClass.class 文件实例分析
 
-Java代码 收藏代码
-  
+```bash
 //源代码
-  
 package hr.test;
-  
 //ClassTest类
-  
 public class ClassTest {
-
-private int itemI=0; //itemI类字段
-
-private static String itemS="我们"; //itemS类字段
-
-private final float PI=3.1415926F; //PI类字段
-
-//构造器方法
-
-public ClassTest(){
-
+    private int itemI=0; //itemI类字段
+    private static String itemS="我们"; //itemS类字段
+    private final float PI=3.1415926F; //PI类字段
+    //构造器方法
+    public ClassTest(){
+    }
+    //getItemI方法
+    public int getItemI(){
+        return this.itemI;
+    }
+    //getItemS方法
+    public static String getItemS(){
+        return itemS;
+    }
+    //main主方法
+    public static void main(String[] args) {
+        ClassTest ct=new ClassTest();
+    }
 }
-
-//getItemI方法
-
-public int getItemI(){
-
-return this.itemI;
-
-}
-
-//getItemS方法
-
-public static String getItemS(){
-
-return itemS;
-
-}
-
-//main主方法
-
-public static void main(String[] args) {
-
-ClassTest ct=new ClassTest();
-
-}
-  
-}
+```
 
 TestClass.class 字节码分析(字节顺序从上到下，从左到右。每个字节用一个0-255的十进制整数表示)
 
@@ -228,7 +210,7 @@ TestClass.class 字节码分析(字节顺序从上到下，从左到右。每个
 
 (12) 4 64 73 15 218 — 第3个类字段float字面值,占4bytes(3.1415926)
   
-(13) 1 0 8 60 99 108 105 110 105 116 62 — <clinit> 初始化方法名
+(13) 1 0 8 60 99 108 105 110 105 116 62 — `<clinit>` 初始化方法名
   
 (14) 1 0 3 40 41 86 — ()V 方法的返回类型为void
 
@@ -246,7 +228,7 @@ TestClass.class 字节码分析(字节顺序从上到下，从左到右。每个
   
 (21) 0 18 76 111 99 97 108 86 97 114 105 97 98 108 101 84 97 98 108 101 — LocalVariableTable
   
-(22) 1 0 6 60 105 110 105 116 62 — <init> 表示初始化方法名
+(22) 1 0 6 60 105 110 105 116 62 — `<init>` 表示初始化方法名
   
 (23) 10 0 3 0 24 — 指向父类Object的构造器方法，0 3表示父类名常量表的索引，0 24表示存放该方法名称和描述符的引用的常量表的索引
   
@@ -392,4 +374,10 @@ TestClass.class 字节码分析(字节顺序从上到下，从左到右。每个
 
 (1)主方法main是作为ClassTest的类方法存在的，在字节码中main和其他的类方法并没有什么区别。 实际上，我们也确实可以通过ClassTest.main(..)来调用ClassTest中的main方法。
 
-(2)在class文件常量池字节码中有两个比较特别的方法名符号: <clinit>和<init>。其中<clinit>方法是编译器自己生成的，编译器会把类静态变量的直接初始化语句和静态初始化语句块的代码都放到了class文件的<clinit>方法中。而对所有非静态非常量数据域的初始化工作要靠<init>方法来完成。针对每一个类的构造方法，编译器都会产生一个<init>方法。即使是缺省构造器也不例外。
+(2)在class文件常量池字节码中有两个比较特别的方法名符号: `<clinit>`和`<init>`。其中`<clinit>`方法是编译器自己生成的，编译器会把类静态变量的直接初始化语句和静态初始化语句块的代码都放到了class文件的`<clinit>`方法中。而对所有非静态非常量数据域的初始化工作要靠`<init>`方法来完成。针对每一个类的构造方法，编译器都会产生一个`<init>`方法。即使是缺省构造器也不例外。
+
+## 维护记录
+
+| 时间 | 修改内容 | 原因 |
+| ---- | -------- | ---- |
+| 2026-10-09 | 修复本地 Hugo 构建的 Raw HTML 警告：代码/配置放入代码块，正文中的尖括号占位符改为行内代码 | 正文中的 HTML/XML 片段被当作原始 HTML 丢弃；文件名/URL/标题按规范调整 |

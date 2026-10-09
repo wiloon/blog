@@ -1,12 +1,16 @@
 ---
-title: 'Java 7   Phaser'
+title: "Java 7 Phaser"
 author: "-"
 date: 2017-09-27T06:05:52+00:00
+lastmod: 2026-10-09T21:22:13+08:00
 url: java-7-phaser
 categories:
-  - Inbox
+  - Java
 tags:
-  - reprint
+  - java
+  - juc
+  - remix
+  - AI-assisted
 aliases:
   - /p11214/
 ---
@@ -17,91 +21,51 @@ Java 7 引入了一个全新灵活的线程同步机制,名为 Phaser 。 如果
 
 首先看下面的代码: 
 
+```java
 import java.util.ArrayList;
-  
 import java.util.Date;
-  
 import java.util.List;
-  
 import java.util.concurrent.Phaser;
-
 public class PhaserExample {
-
-public static void main(String[] args) throws InterruptedException {
-
-List<runnable> tasks = new ArrayList<>();
-
-for (int i = 0; i < 2; i++) {
-
-Runnable runnable = new Runnable() {
-      
-@Override
-      
-public void run() {
-       
-int a = 0, b = 1;
-       
-for (int i = 0; i < 2000000000; i++) {
-        
-a = a + b;
-        
-b = a - b;
-       
+    public static void main(String[] args) throws InterruptedException {
+        List<Runnable> tasks = new ArrayList<>();
+        for (int i = 0; i < 2; i++) {
+            Runnable runnable = new Runnable() {
+                @Override
+                public void run() {
+                    int a = 0, b = 1;
+                    for (int i = 0; i < 2000000000; i++) {
+                        a = a + b;
+                        b = a - b;
+                    }
+                }
+            };
+            tasks.add(runnable);
+        }
+        new PhaserExample().runTasks(tasks);
+    }
+    void runTasks(List<Runnable> tasks) throws InterruptedException {
+        final Phaser phaser = new Phaser(1) {
+            protected boolean onAdvance(int phase, int registeredParties) {
+                return phase >= 1 || registeredParties == 0;
+            }
+        };
+        for (final Runnable task : tasks) {
+            phaser.register();
+            new Thread() {
+                public void run() {
+                    do {
+                        phaser.arriveAndAwaitAdvance();
+                        task.run();
+                    } while (!phaser.isTerminated());
+                }
+            }.start();
+            Thread.sleep(500);
+        }
+        phaser.arriveAndDeregister();
+    }
 }
-      
-}
-     
-};
-
-tasks.add(runnable);
-
-}
-
-new PhaserExample().runTasks(tasks);
-
-}
-
-void runTasks(List<runnable> tasks) throws InterruptedException {
-
-final Phaser phaser = new Phaser(1) {
-     
-protected boolean onAdvance(int phase, int registeredParties) {
-      
-return phase >= 1 || registeredParties == 0;
-     
-}
-    
-};
-
-for (final Runnable task : tasks) {
-     
-phaser.register();
-     
-new Thread() {
-      
-public void run() {
-       
-do {
-        
-phaser.arriveAndAwaitAdvance();
-        
-task.run();
-       
-} while (!phaser.isTerminated());
-      
-}
-     
-}.start();
-     
-Thread.sleep(500);
-    
-}
-
-phaser.arriveAndDeregister();
-   
-}
-
-}
+```
   
 这个例子让我们可以深入了解 Phaser 的使用,下面是对这个代码的分析: 
 
@@ -184,3 +148,9 @@ Line 8: since all threads are notified and start their work, two parties are una
 Line 14: After the threads executed their tasks once they arrive again (code line 46) the onAdvance-Method is called, now the 2nd cycle is executed
 
 英文链接: http://niklasschlimm.blogspot.com/2011/12/java-7-understanding-phaser.html
+
+## 维护记录
+
+| 时间 | 修改内容 | 原因 |
+| ---- | -------- | ---- |
+| 2026-10-09 | 修复本地 Hugo 构建的 Raw HTML 警告：代码/配置放入代码块，正文中的尖括号占位符改为行内代码；title 改为「Java 7 Phaser」；categories 改为 Java | 正文中的 HTML/XML 片段被当作原始 HTML 丢弃；文件名/URL/标题按规范调整 |

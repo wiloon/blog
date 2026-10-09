@@ -1,11 +1,15 @@
 ---
 author: "-"
 date: "2021-06-18 18:00:23" 
+lastmod: 2026-10-09T21:22:13+08:00
+url: redis-replication
 title: "Redis Replication, sentinel"
 categories:
-  - inbox
+  - Database
 tags:
-  - reprint
+  - redis
+  - remix
+  - AI-assisted
 ---
 ## "Redis Replication, sentinel"
 
@@ -89,10 +93,16 @@ Setting a slave to authenticate to a master
 
 如果master通过 requirepass 配置项设置了密码，slave每次同步操作都需要验证密码，可以通过在slave的配置文件中添加以下配置项:
 
+```text
 masterauth <password>
+```
+
 也可以通过客户端在运行时发送以下命令:
 
+```bash
 config set masterauth <password>
+```
+
 至少N个slave才允许向master写数据
 从redis2.8版本开始，master可以被配置为，只有当master当前有至少N个slave连接着的时候才接受写数据的请求。
 
@@ -111,8 +121,11 @@ master会记录下它上次收到某个slave的ping心跳是什么时候。
 
 有两个配置项用来配置上文中提到的N和M:
 
-    min-slaves-to-write <number of slaves>
-    min-slaves-max-lag <number of seconds>
+```text
+min-slaves-to-write <number of slaves>
+min-slaves-max-lag <number of seconds>
+```
+
 如果需要了解更多，请查阅redis.conf配置文件。
 
 ---
@@ -122,3 +135,9 @@ master会记录下它上次收到某个slave的ping心跳是什么时候。
 [https://segmentfault.com/a/1190000002680804](https://segmentfault.com/a/1190000002680804)
 
 [https://www.cnblogs.com/kevingrace/p/9004460.html](https://www.cnblogs.com/kevingrace/p/9004460.html)
+
+## 维护记录
+
+| 时间 | 修改内容 | 原因 |
+| ---- | -------- | ---- |
+| 2026-10-09 | 修复本地 Hugo 构建的 Raw HTML 警告：代码/配置放入代码块，正文中的尖括号占位符改为行内代码；url 改为 `redis-replication`；categories 改为 Database | 正文中的 HTML/XML 片段被当作原始 HTML 丢弃；文件名/URL/标题按规范调整 |

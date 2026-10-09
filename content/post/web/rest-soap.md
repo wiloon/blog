@@ -2,11 +2,15 @@
 title: Web 服务编程,REST 与 SOAP的比较
 author: lcf
 date: 2012-11-07T06:11:12+00:00
+lastmod: 2026-10-09T21:22:13+08:00
 url: rest-soap
 categories:
-  - Inbox
+  - Web
 tags:
-  - reprint
+  - rest
+  - soap
+  - remix
+  - AI-assisted
 aliases:
   - /p4634/
 ---
@@ -38,7 +42,7 @@ REST (Representational State Transfer) 是 Roy Fielding 提出的一个描述互
   
 **图 1. 需求用例图**
   
-<img src="http://www.ibm.com/developerworks/cn/webservices/0907_rest_soap/images/1.jpg" alt="REST" width="393" height="345" />
+![REST](http://www.ibm.com/developerworks/cn/webservices/0907_rest_soap/images/1.jpg)
 
 如图 1 所示,客户端 1 (Client1) 与客户端 2 (Client2) 对于信息的存取具有不同的权限,客户端 1 可以执行所有的操作,而客户端 2 只被允许执行用户查询 (Query User) 与用户列表查询 (Query User List) 。关于这一点,我们在对 REST Web 服务与 SOAP Web 服务安全控制对比时会具体谈到。下面我们将分别向您介绍如何使用 REST 和 SOAP 架构实现 Web 服务。
 
@@ -64,20 +68,19 @@ REST (Representational State Transfer) 是 Roy Fielding 提出的一个描述互
   
 **清单 1. 用户列表资源 Representation**
 
+```xml
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <users>
     <user>
             <name>tester</name>
-            http://localhost:8182/v1/users/tester</link>
-    </user>
-    <user>
-            <name>tester1</name>
-            http://localhost:8182/v1/users/tester1</link>
+http://localhost:8182/v1/users/tester</link>
+</user>
+<user>
+        <name>tester1</name>
+http://localhost:8182/v1/users/tester1</link>
     </user>
 </users>
-
 **清单 2. 用户资源 Representation**
-
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <user>
     <name>tester</name>
@@ -86,6 +89,7 @@ REST (Representational State Transfer) 是 Roy Fielding 提出的一个描述互
     <email>tester@cn.ibm.com</email>
     <description>testing!</description>
 </user>
+```
 
 客户端通过 User List Resource 提供的 LINK 信息 ( 如 :` http://localhost:8182/v1/users/tester</link> `) 获得具体的某个 USER Resource。
 
@@ -95,7 +99,7 @@ Restful Web 服务架构
   
 **图 2. REST 实现架构**
   
-<img src="http://www.ibm.com/developerworks/cn/webservices/0907_rest_soap/images/2.jpg" alt="REST" width="540" height="553" />
+![REST](http://www.ibm.com/developerworks/cn/webservices/0907_rest_soap/images/2.jpg)
 
 接下来,我们将基于该架构,使用 Restlet 给出应用的 RESTful Web 服务实现。
 
@@ -107,15 +111,14 @@ Restful Web 服务架构
   
 **清单 3. 客户端实现**
 
+```java
 public class UserRestHelper {
 //The root URI of our ROA implementation.
 public static final tring APPLICATION_URI = "http://localhost:8182/v1";
-
 //Get the URI of user resource by user name.
 private static String getUserUri(String name) {
     return APPLICATION_URI + "/users/" + name;
 }
-
 //Get the URI of user list resource.
 private static String getUsersUri() {
     return APPLICATION_URI + "/users";
@@ -124,7 +127,7 @@ private static String getUsersUri() {
 //使用 HTTP DELETE 方法经由 URI 删除用户资源
 public static void deleteFromServer(String name) {
     Response response = new Client(Protocol.HTTP).delete(getUserUri(name));
-    ……
+……
 }
 //Put user resource to server.
 //使用 HTTP PUT 方法经由 URI 增加或者修改用户资源
@@ -137,13 +140,12 @@ public static void putToServer(User user) {
      form.add("user[description]", user.getDescription());
     Response putResponse = new Client(Protocol.HTTP).put(
     getUserUri(user.getName()), form.getWebRepresentation());
-     ……
+……
 }
 //Output user resource to console.
 public static void printUser(String name) {
     printUserByURI(getUserUri(name));
 }
-
 //Output user list resource to console.
 //使用 HTTP GET 方法经由 URI 显示用户列表资源
 public static void printUserList() {
@@ -152,12 +154,11 @@ public static void printUserList() {
             DomRepresentation result = getResponse.getEntityAsDom();
  //The following code line will explore this XML document and output
  //each user resource to console.
-            ……
+……
     } else {
          System.out.println("Unexpected status:"+ getResponse.getStatus());
     }
 }
-
 //Output user resource to console.
 //使用 HTTP GET 方法经由 URI 显示用户资源
 private static void printUserByURI(String uri) {
@@ -166,12 +167,13 @@ private static void printUserByURI(String uri) {
          DomRepresentation result = getResponse.getEntityAsDom();
          //The following code line will explore this XML document and output
  //current user resource to console.
- ……
+……
      } else {
          System.out.println("unexpected status:"+ getResponse.getStatus());
      }
 }
 }
+```
 
 服务器端实现
 
@@ -179,6 +181,7 @@ private static void printUserByURI(String uri) {
   
 **清单 4. 服务器端实现**
 
+```java
 public class UserResource extends Resource {
 private User _user;
 private String_userName;
@@ -192,7 +195,6 @@ public void delete() {
     getContainer().remove(_userName);
      getResponse().setStatus(Status.SUCCESS_OK);
 }
-
 //This method will be called by handleGet.
 public Representation getRepresentation(Variant variant) {
  Representation result = null;
@@ -235,11 +237,16 @@ public void handleGet() {
 //build XML document for user resource.
 private Document createDocument(User user) {
  //The following code line will create XML document according to user info.
+```
+
     ……
+
+```text
 }
 //The remaining methods here
 ……
 }
+```
 
 UserResource 类是对用户资源类的抽象,包括了对该资源的创建修改 (put 方法) ,读取 (handleGet 方法 ) 和删除 (delete 方法) ,被创建出来的 UserResource 类实例被 Restlet 框架所托管,所有操纵资源的方法会在相应的 HTTP 请求到达后被自动回调。
 
@@ -255,7 +262,7 @@ SOAP Web 服务架构
   
 **图 3. SOAP 实现架构**
   
-<img src="http://www.ibm.com/developerworks/cn/webservices/0907_rest_soap/images/3.jpg" alt="REST" width="567" height="406" />
+![REST](http://www.ibm.com/developerworks/cn/webservices/0907_rest_soap/images/3.jpg)
 
 可以看到,与 REST 架构相比,SOAP 架构图明显不同的是: 所有的 SOAP 消息发送都使用 HTTP POST 方法,并且所有 SOAP 消息的 URI 都是一样的,这是基于 SOAP 的 Web 服务的基本实践特征。
 
@@ -265,17 +272,20 @@ SOAP Web 服务架构
   
 **清单 5. getUserList SOAP 消息**
 
+```xml
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
     <soap:Body>
         <p:getUserList xmlns:p="http://www.exmaple.com"/>
     </soap:Body>
 </soap:Envelope>
+```
 
 客户端将使用 HTTP 的 POST 方法,将上述的 SOAP 消息发送至 `http://localhost:8182/v1/soap/servlet/messagerouter` URI,SOAP SERVER 收到该 HTTP POST 请求,通过解码 SOAP 消息确定需要调用 getUserList 方法完成该 WEB 服务调用,返回如下的响应:
   
 **清单 6. getUserListResponse 消息**
 
+```xml
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
     <soap:Body>
@@ -284,16 +294,18 @@ SOAP Web 服务架构
                 <Users>
                 <username>tester<username>
                 <username>tester1<username>
-                ......
+......
                 </Users>
                 <p: getUserListResponse >
     </soap:Body>
 </soap:Envelope>
+```
 
 获得某一具体用户信息
   
 **清单 7. getUserByName SOAP 消息**
 
+```xml
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
     <soap:Body>
@@ -302,11 +314,13 @@ SOAP Web 服务架构
                 </p:getUserByName >
     </soap:Body>
 </soap:Envelope>
+```
 
 同样地,客户端将使用 HTTP 的 POST 方法,将上述的 SOAP 消息发送至 `http://localhost:8182/v1/soap/servlet/messagerouter`URI,SOAP SERVER 处理后返回的 Response 如下:
   
 **清单 8. getUserByNameResponse SOAP 消息**
 
+```xml
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
 <soap:Body>
@@ -319,6 +333,7 @@ SOAP Web 服务架构
     </p:getUserByNameResponse>
 </soap:Body>
 </soap:Envelope>
+```
 
 实际上,创建新的用户,过程也比较类似,在这里,就不一一列出,因为这两个例子对于本文在选定的点上对比 REST 与 SOAP 已经足够了。
 
@@ -362,7 +377,7 @@ HTTP 这些标准方法在原则上保证你的分布式系统具有这些特性
   
 **图 4. REST 与代理服务器 (Proxy Servers)**
   
-<img src="http://www.ibm.com/developerworks/cn/webservices/0907_rest_soap/images/4.jpg" alt="REST" width="547" height="187" />
+![REST](http://www.ibm.com/developerworks/cn/webservices/0907_rest_soap/images/4.jpg)
 
 一般代理服务器的实现根据 (URI, HTTP Method) 两元组来决定 HTTP 请求的安全合法性。
 
@@ -372,7 +387,7 @@ HTTP 这些标准方法在原则上保证你的分布式系统具有这些特性
   
 **图 5. SOAP 与代理服务器 (Proxy Servers)**
   
-<img src="http://www.ibm.com/developerworks/cn/webservices/0907_rest_soap/images/5.jpg" alt="REST" width="569" height="206" />
+![REST](http://www.ibm.com/developerworks/cn/webservices/0907_rest_soap/images/5.jpg)
 
 所有的 SOAP 消息经过代理服务器,只能看到 (`http://localhost:8182/v1/soap/servlet/messagerouter`, HTTP POST) 这样的信息,如果代理服务器想知道当前的 HTTP 请求具体做的是什么,必须对 SOAP 的消息体解码,这样的话,意味着要求第三方的代理服务器需要理解当前的 SOAP 消息语义,而这种 SOAP 应用与代理服务器之间的紧耦合关系是不合理的。
 
@@ -386,7 +401,7 @@ REST 的应用可以充分地挖掘 HTTP 协议对缓存支持的能力。当客
   
 **图 6. REST 与缓存服务器 (Cache Server)**
   
-<img src="http://www.ibm.com/developerworks/cn/webservices/0907_rest_soap/images/6.jpg" alt="REST" width="530" height="204" />
+![REST](http://www.ibm.com/developerworks/cn/webservices/0907_rest_soap/images/6.jpg)
 
 而对于 SOAP,情况又是怎样的呢？
 
@@ -394,7 +409,7 @@ REST 的应用可以充分地挖掘 HTTP 协议对缓存支持的能力。当客
   
 **图 7. SOAP 与缓存服务器 (Cache Server)**
   
-<img src="http://www.ibm.com/developerworks/cn/webservices/0907_rest_soap/images/7.jpg" alt="REST" width="569" height="115" />
+![REST](http://www.ibm.com/developerworks/cn/webservices/0907_rest_soap/images/7.jpg)
 
 两个因素决定了基于 SOAP 应用的缓存机制要远比 REST 复杂:
 
@@ -417,3 +432,9 @@ getUserList SOAP 消息获得所有的用户列表后,仍然无法通过既有�
 本文主要集中在以上的几个方面,对 SOAP 与 REST 进行了对比,可以看到,基于 REST 构建的系统其系统的扩展能力要强于 SOAP,这可以体现在它的统一接口抽象、代理服务器支持、缓存服务器支持等诸多方面。并且,伴随着 Web Site as Web Services 演进的趋势,基于 REST 设计和实现的简单性和强扩展性,有理由相信,REST 将会成为 Web 服务的一个重要架构实践领域。
 
  [1]: http://www.ibm.com/developerworks/cn/webservices/0907_rest_soap/#ibm-pcon
+
+## 维护记录
+
+| 时间 | 修改内容 | 原因 |
+| ---- | -------- | ---- |
+| 2026-10-09 | 修复本地 Hugo 构建的 Raw HTML 警告：代码/配置放入代码块，正文中的尖括号占位符改为行内代码；categories 改为 Web | 正文中的 HTML/XML 片段被当作原始 HTML 丢弃；文件名/URL/标题按规范调整 |

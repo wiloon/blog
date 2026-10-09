@@ -2,11 +2,14 @@
 title: FOR XML PATH
 author: "-"
 date: 2013-07-29T08:27:48+00:00
+lastmod: 2026-10-09T21:22:13+08:00
 url: xml-path
 categories:
   - Database
 tags:
-  - reprint
+  - sqlserver
+  - remix
+  - AI-assisted
 aliases:
   - /p5741/
 ---
@@ -25,107 +28,74 @@ SELECT * FROM @hobby FOR XML PATH
 
 结果: 
 
-复制代码
-
+```xml
 <row>
-
 <hobbyID>1</hobbyID>
-
 <hName>爬山</hName>
-
 </row>
-
 <row>
-
 <hobbyID>2</hobbyID>
-
 <hName>游泳</hName>
-
 </row>
-
 <row>
-
 <hobbyID>3</hobbyID>
-
 <hName>美食</hName>
-
 </row>
-
-复制代码
+```
 
 由此可见FOR XML PATH 可以将查询结果根据行输出成XML各式！
 
 那么，如何改变XML行节点的名称呢？代码如下: 
 
+```sql
 SELECT * FROM @hobby FOR XML PATH('MyHobby')
+```
 
-结果一定也可想而知了吧？没错原来的行节点<row> 变成了我们在PATH后面括号()中，自定义的名称<MyHobby>,结果如下: 
+结果一定也可想而知了吧？没错原来的行节点`<row>` 变成了我们在PATH后面括号()中，自定义的名称`<MyHobby>`,结果如下: 
 
-复制代码
-
+```xml
 <MyHobby>
-
 <hobbyID>1</hobbyID>
-
 <hName>爬山</hName>
-
 </MyHobby>
-
 <MyHobby>
-
 <hobbyID>2</hobbyID>
-
 <hName>游泳</hName>
-
 </MyHobby>
-
 <MyHobby>
-
 <hobbyID>3</hobbyID>
-
 <hName>美食</hName>
-
 </MyHobby>
-
-复制代码
+```
 
 这个时候细心的朋友一定又会问那么列节点如何改变呢？还记的给列起别名的关键字AS吗？对了就是用它!代码如下: 
 
+```sql
 SELECT hobbyID as 'MyCode',hName as 'MyName' FROM @hobby FOR XML PATH('MyHobby')
+```
 
-那么这个时候我们列的节点名称也会编程我们自定义的名称 <MyCode>与<MyName>结果如下: 
+那么这个时候我们列的节点名称也会编程我们自定义的名称 `<MyCode>`与`<MyName>`结果如下: 
 
-复制代码
-
+```xml
 <MyHobby>
-
 <MyCode>1</MyCode>
-
 <MyName>爬山</MyName>
-
 </MyHobby>
-
 <MyHobby>
-
 <MyCode>2</MyCode>
-
 <MyName>游泳</MyName>
-
 </MyHobby>
-
 <MyHobby>
-
 <MyCode>3</MyCode>
-
 <MyName>美食</MyName>
-
 </MyHobby>
-
-复制代码
+```
 
 噢！ 既然行的节点与列的节点我们都可以自定义，我们是否可以构建我们喜欢的输出方式呢？还是看代码: 
 
+```sql
 SELECT '[ '+hName+' ]' FROM @hobby FOR XML PATH(")
+```
 
 没错我们还可以通过符号+号，来对字符串类型字段的输出格式进行定义。结果如下: 
 
@@ -133,7 +103,9 @@ SELECT '[ '+hName+' ]' FROM @hobby FOR XML PATH(")
 
 那么其他类型的列怎么自定义？ 没关系，我们将它们转换成字符串类型就行啦！例如: 
 
+```sql
 SELECT '{'+STR(hobbyID)+'}','[ '+hName+' ]' FROM @hobby FOR XML PATH(")
+```
 
 好的 FOR XML PATH就基本介绍到这里吧，更多关于FOR XML的知识请查阅帮助文档！
 
@@ -145,25 +117,16 @@ SELECT '{'+STR(hobbyID)+'}','[ '+hName+' ]' FROM @hobby FOR XML PATH(")
 
 这时，我们的要求是查询学生表，显示所有学生的爱好的结果集，代码如下: 
 
-复制代码
-
+```sql
 SELECT B.sName,LEFT(StuList,LEN(StuList)-1) as hobby FROM (
-
 SELECT sName,
-
 (SELECT hobby+',' FROM student
-
 WHERE sName=A.sName
-
 FOR XML PATH(")) AS StuList
-
 FROM student A
-
 GROUP BY sName
-
 ) B
-
-复制代码
+```
 
 结果如下:
 
@@ -171,38 +134,29 @@ GROUP BY sName
 
 SELECT hobby+',' FROM student
 
+```text
 WHERE sName=A.sName
-
 FOR XML PATH(")
+```
 
 这句是通过FOR XML PATH 将某一姓名如张三的爱好，显示成格式为: " 爱好1，爱好2，爱好3，"的格式！
 
 那么接着看: 
 
-复制代码
-
+```sql
 SELECT B.sName,LEFT(StuList,LEN(StuList)-1) as hobby FROM (
-
 SELECT sName,
-
 (SELECT hobby+',' FROM student
-
 WHERE sName=A.sName
-
 FOR XML PATH(")) AS StuList
-
 FROM student A
-
 GROUP BY sName
-
 ) B
-
-复制代码
+```
 
 剩下的代码首先是将表分组，在执行FOR XML PATH 格式化，这时当还没有执行最外层的SELECT时查询出的结构为:
 
 可以看到StuList列里面的数据都会多出一个逗号，这时随外层的语句:SELECT B.sName,LEFT(StuList,LEN(StuList)-1) as hobby 就是来去掉逗号，并赋予有意义的列明！
-
 
 用在存储过程 里
 
@@ -239,3 +193,9 @@ FOR XML AUTO, TYPE
 [http://blogs.msdn.com/sqlprogrammability/articles/576095.aspx](http://blogs.msdn.com/sqlprogrammability/articles/576095.aspx)
 
 [http://stackoverflow.com/questions/914009/saving-the-for-xml-auto-results-to-variable-in-sql](http://stackoverflow.com/questions/914009/saving-the-for-xml-auto-results-to-variable-in-sql)
+
+## 维护记录
+
+| 时间 | 修改内容 | 原因 |
+| ---- | -------- | ---- |
+| 2026-10-09 | 修复本地 Hugo 构建的 Raw HTML 警告：代码/配置放入代码块，正文中的尖括号占位符改为行内代码 | 正文中的 HTML/XML 片段被当作原始 HTML 丢弃；文件名/URL/标题按规范调整 |

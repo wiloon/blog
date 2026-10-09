@@ -2,11 +2,15 @@
 title: kill, killall, signal
 author: "-"
 date: 2015-09-17T07:24:41+00:00
+lastmod: 2026-10-09T21:22:13+08:00
 url: kill
 categories:
-  - inbox
+  - Linux
 tags:
-  - reprint
+  - linux
+  - signal
+  - remix
+  - AI-assisted
 aliases:
   - /p8289/
 ---
@@ -33,9 +37,9 @@ kill命令用于终止指定的进程 (terminate a process) ，是Unix/Linux下�
   
 一 常用参数
   
-格式: kill <pid>
+格式: kill `<pid>`
   
-格式: kill -TERM <pid>
+格式: kill -TERM `<pid>`
   
 发送SIGTERM信号到指定进程，如果进程没有捕获该信号，则进程终止 (If no signal is specified, the TERM signal is sent.  The TERM signal will kill processes which do not catch this signal.)
 
@@ -51,20 +55,20 @@ KILL   9    强制终止
 CONT   18   继续 (与STOP相反， fg/bg命令)
 STOP   19   暂停 (同 Ctrl + Z)
 
-格式: kill -l <signame>
+格式: kill -l `<signame>`
 显示指定信号的数值。
 
-格式: kill -9 <pid>
-格式: kill -KILL <pid>
+格式: kill -9 `<pid>`
+格式: kill -KILL `<pid>`
 强制杀掉指定进程，无条件终止指定进程。
 
-格式: kill %<jobid>
-格式: kill -9 %<jobid>
+格式: kill %`<jobid>`
+格式: kill -9 %`<jobid>`
 杀掉指定的任务 (使用jobs命令可以列出)
 
-格式: kill -QUIT <pid>
+格式: kill -QUIT `<pid>`
 
-格式: kill -3 <pid>
+格式: kill -3 `<pid>`
 
 使得程序正常的退出。
 
@@ -113,7 +117,7 @@ kill 命令
   
 命令格式
 
-kill <pid> kill -TERM <pid> 发送 TERM 信号到指定进程，如果进程没有捕获该信号，则进程终止 (If no signal is specified, the TERM signal is sent. The TERM signal will kill processes which do not catch this signal.)
+kill `<pid>` kill -TERM `<pid>` 发送 TERM 信号到指定进程，如果进程没有捕获该信号，则进程终止 (If no signal is specified, the TERM signal is sent. The TERM signal will kill processes which do not catch this signal.)
 
 kill -l
 
@@ -189,7 +193,6 @@ pkill gaim
 pkill -f foo
 ```
 
-
 ## xkill
   
     作用: 杀死桌面图形界面的程序。
@@ -264,11 +267,15 @@ KNOWN bugS (已知 BUGS)
 
 根据进程名杀死进程 －kill进程名
   
-# pkill 进程名
-  
+```bash
+pkill 进程名
+```
+
 或是
-  
-# killall 进程名
+
+```bash
+killall 进程名
+```
   
 的确这个两个命令都能做到这些，而且我们平时一般知道进程名需要杀死进程的时候也都是用的这两个命令。可是他叫我用kill 命令来完成这个一操作。我们知道kill 要杀死进程是需要知道进程的id的即进程号，其实这个思路就是需要通过其他命令获取相应进程的进程号，然后用kill 杀掉。
   
@@ -454,3 +461,9 @@ root pts/0 10.2.0.68 18:01 0.00s 0.01s 0.00s w
 说明:
   
 运行命令: killall -9 bash 后,所有bash都会被卡掉了,所以当前所有连接丢失了。需要重新连接并登录。
+
+## 维护记录
+
+| 时间 | 修改内容 | 原因 |
+| ---- | -------- | ---- |
+| 2026-10-09 | 修复本地 Hugo 构建的 Raw HTML 警告：代码/配置放入代码块，正文中的尖括号占位符改为行内代码；categories 改为 Linux | 正文中的 HTML/XML 片段被当作原始 HTML 丢弃；文件名/URL/标题按规范调整 |

@@ -2,6 +2,7 @@
 title: grub
 author: "-"
 date: 2026-05-02T09:32:26+08:00
+lastmod: 2026-10-09T21:22:13+08:00
 url: grub
 categories:
   - Linux
@@ -205,17 +206,26 @@ set variable=value 设置变量的值
 
 查找设备。语法格式如下：
 
+```text
 search [-f, --file|--label|--fs-uuid] [--set [<var>]] [--no-floppy] <name>
+```
+
 注解：
 
 [--file|--label|--fs-uuid]
 
 分别表示按文件、文件系统标志、文件系统 UUID 查找设备。
 
-[--set [<var>]]
+[--set [`<var>`]]
 
 第一个找到的设备会被设置为环境变量 var 的值。默认变量是 root。
 
 [--no-floppy]
 
 防止搜索软盘。
+
+## 维护记录
+
+| 时间 | 修改内容 | 原因 |
+| ---- | -------- | ---- |
+| 2026-10-09 | 修复本地 Hugo 构建的 Raw HTML 警告：代码/配置放入代码块，正文中的尖括号占位符改为行内代码 | 正文中的 HTML/XML 片段被当作原始 HTML 丢弃；文件名/URL/标题按规范调整 |

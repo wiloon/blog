@@ -2,11 +2,15 @@
 title: Perf
 author: "-"
 date: 2018-08-31T02:11:12+00:00
+lastmod: 2026-10-09T21:22:13+08:00
 url: perf
 categories:
-  - Inbox
+  - Linux
 tags:
-  - reprint
+  - perf
+  - linux
+  - remix
+  - AI-assisted
 aliases:
   - /p12623/
 ---
@@ -27,9 +31,7 @@ perf
 Performance analysis tools for Linux.
 
 Performance counters for Linux are a new kernel-based subsystem that provide a framework for all things
-
 performance analysis. It covers hardware level (CPU/PMU, Performance Monitoring Unit) features and
-
 software features (software counters, tracepoints) as well.
 
 Perf是内置于Linux内核源码树中的性能剖析(profiling)工具。
@@ -80,25 +82,27 @@ tracepoint是基于内核的ftrace,主线2.6.3x以上的内核版本才支持。
 
 (2) 指定性能事件(以它的属性)
 
+```text
 -e <event> : u // userspace
-
 -e <event> : k // kernel
-
 -e <event> : h // hypervisor
-
 -e <event> : G // guest counting (in KVM guests)
-
 -e <event> : H // host counting (not in KVM guests)
+```
 
 (3) 使用例子
 
 显示内核和模块中,消耗最多CPU周期的函数:
 
+```bash
 # perf top -e cycles:k
+```
 
 显示分配高速缓存最多的函数:
 
+```bash
 # perf top -e kmem:kmem_cache_alloc
+```
 
 ### perf-top
 
@@ -108,7 +112,9 @@ System profiling tool.
   
 Generates and displays a performance counter profile in real time.
   
+```text
 perf top [-e <EVENT> | -event=EVENT] [<options>]
+```
   
 perf top主要用于实时分析各个函数在某个性能事件上的热度,能够快速的定位热点函数,包括应用程序函数、
   
@@ -116,9 +122,13 @@ perf top主要用于实时分析各个函数在某个性能事件上的热度,�
 
 (1) 输出格式
 
+```bash
 # perf top
+```
 
+```text
 Samples: 1M of event 'cycles', Event count (approx.): 73891391490
+```
 
 5.44% perf [.] 0x0000000000023256
 
@@ -158,17 +168,17 @@ P: 将当前信息保存到 perf.hist.N 中。
 
 (3) 常用命令行参数
 
--e <event>: 指明要分析的性能事件。
+-e `<event>`: 指明要分析的性能事件。
 
--p <pid>: Profile events on existing Process ID (comma sperated list). 仅分析目标进程及其创建的线程。
+-p `<pid>`: Profile events on existing Process ID (comma sperated list). 仅分析目标进程及其创建的线程。
 
--k <path>: Path to vmlinux. Required for annotation functionality. 带符号表的内核映像所在的路径。
+-k `<path>`: Path to vmlinux. Required for annotation functionality. 带符号表的内核映像所在的路径。
 
 -K: 不显示属于内核或模块的符号。
 
 -U: 不显示属于用户态程序的符号。
 
--d <n>: 界面的刷新周期,默认为2s,因为perf top默认每2s从mmap的内存区域读取一次性能数据。
+-d `<n>`: 界面的刷新周期,默认为2s,因为perf top默认每2s从mmap的内存区域读取一次性能数据。
 
 -G: 得到函数的调用关系图。
 
@@ -178,19 +188,15 @@ perf top -G graph,路径概率为绝对值,加起来为该函数的热度。
 
 (4) 使用例子
 
+```bash
 # perf top // 默认配置
-
 # perf top -G // 得到调用关系图
-
 # perf top -e cycles // 指定性能事件
-
 # perf top -p 23015,32476 // 查看这两个进程的cpu cycles使用情况
-
 # perf top -s comm,pid,symbol // 显示调用symbol的进程名和进程号
-
 # perf top -comms nginx,top // 仅显示属于指定进程的符号
-
 # perf top -symbols kfree // 仅显示指定的符号
+```
 
 perf-stat
   
@@ -198,13 +204,16 @@ perf-stat
 
 Run a command and gather performance counter statistics.
 
+```text
 perf stat [-e <EVENT> | -event=EVENT] [-a] <command>
-
 perf stat [-e <EVENT> | -event=EVENT] [-a] - <command> [<options>]
+```
 
 (1) 输出格式
 
+```bash
 # perf stat ls
+```
 
 Performance counter stats for 'ls':
 
@@ -270,31 +279,41 @@ branches: 遇到的分支指令数。branch-misses是预测错误的分支指令
 
 -o file: 指定输出文件,-append指定追加模式。
 
--pre <cmd>: 执行目标程序前先执行的程序。
+-pre `<cmd>`: 执行目标程序前先执行的程序。
 
--post <cmd>: 执行目标程序后再执行的程序。
+-post `<cmd>`: 执行目标程序后再执行的程序。
 
 (3) 使用例子
 
 执行10次程序,给出标准偏差与期望的比值:
 
+```text
 # perf stat -r 10 ls > /dev/null
+```
 
 显示更详细的信息:
 
+```text
 # perf stat -v ls > /dev/null
+```
 
 只显示任务执行时间,不显示性能计数器:
 
+```text
 # perf stat -n ls > /dev/null
+```
 
 单独给出每个CPU上的信息:
 
+```text
 # perf stat -a -A ls > /dev/null
+```
 
 ls命令执行了多少次系统调用:
 
+```bash
 # perf stat -e syscalls:sys_enter ls
+```
 
 perf-record
   
@@ -314,15 +333,13 @@ without displaying anything. This file can then be inspected later on, using per
 
 -a: System-wide collection from all CPUs.
 
+```text
 -p: Record events on existing process ID (comma separated list).
-
 -A: Append to the output file to do incremental profiling.
-
- -f: Overwrite existing data file.
-
+-f: Overwrite existing data file.
 -o: Output file name.
-
 -g: Do call-graph (stack chain/backtrace) recording.
+```
 
 -C: Collect samples only on the list of CPUs provided.
 
@@ -330,31 +347,43 @@ without displaying anything. This file can then be inspected later on, using per
 
 记录nginx进程的性能数据:
 
+```bash
 # perf record -p `pgrep -d ',' nginx`
+```
 
 记录执行ls时的性能数据:
 
+```bash
 # perf record ls -g
+```
 
 记录执行ls时的系统调用,可以知道哪些系统调用最频繁:
 
+```bash
 # perf record -e syscalls:sys_enter ls
+```
 
 perf-report
   
 读取perf record创建的数据文件,并给出热点分析结果。
 
+```text
 Read perf.data (created by perf record) and display the profile.
+```
 
 This command displays the performance counter profile information recorded via perf record.
 
 (1) 常用参数
 
+```text
 -i: Input file name. (default: perf.data)
+```
 
 (2) 使用例子
 
+```bash
 # perf report -i perf.data.2
+```
 
 More
   
@@ -368,7 +397,9 @@ perf-lock
 
 Analyze lock events.
 
+```text
 perf lock {record | report | script | info}
+```
 
 需要编译选项的支持: CONFIG_LOCKDEP、CONFIG_LOCK_STAT。
 
@@ -378,31 +409,28 @@ CONFIG_LOCK_STAT defines contended and acquired lock events.
 
 (1) 常用选项
 
--i <file>: 输入文件
+-i `<file>`: 输入文件
 
--k <value>: sorting key,默认为acquired,还可以按contended、wait_total、wait_max和wait_min来排序。
+-k `<value>`: sorting key,默认为acquired,还可以按contended、wait_total、wait_max和wait_min来排序。
 
 (2) 使用例子
 
+```bash
 # perf lock record ls // 记录
-
 # perf lock report // 报告
+```
 
 (3) 输出格式
 
-                Name   acquired  contended total wait (ns)   max wait (ns)   min wait (ns) 
-
+```text
+                Name   acquired  contended total wait (ns)   max wait (ns)   min wait (ns)
 &mm->page_table_... 382 0 0 0 0
-
 &mm->page_table_... 72 0 0 0 0
-
 &fs->lock 64 0 0 0 0
-
 dcache_lock 62 0 0 0 0
-
 vfsmount_lock 43 0 0 0 0
-
 &newf->file_lock... 41 0 0 0 0
+```
   
 Name: 内核锁的名字。
 
@@ -418,7 +446,9 @@ min wait: 为了获得该锁,最小的等待时间。
 
 最后还有一个Summary:
 
+```text
 === output for debug===
+```
 
 bad: 10, total: 246
   
@@ -438,33 +468,37 @@ perf-kmem
   
 slab分配器的性能分析。
 
+```text
 Tool to trace/measure kernel memory(slab) properties.
-
 perf kmem {record | stat} [<options>]
+```
 
 (1) 常用选项
 
--i <file>: 输入文件
+-i `<file>`: 输入文件
 
 -caller: show per-callsite statistics,显示内核中调用kmalloc和kfree的地方。
 
 -alloc: show per-allocation statistics,显示分配的内存地址。
 
--l <num>: print n lines only,只显示num行。
+-l `<num>`: print n lines only,只显示num行。
 
+```text
 -s <key[,key2...]>: sort the output (default: frag,hit,bytes)
+```
 
 (2) 使用例子
 
+```bash
 # perf kmem record ls // 记录
-
 # perf kmem stat -caller -alloc -l 20 // 报告
+```
 
 (3) 输出格式
 
 * * *
 
-## Callsite | Total_alloc/Per | Total_req/Per | Hit | Ping-pong | Frag
+Callsite | Total_alloc/Per | Total_req/Per | Hit | Ping-pong | Frag
 
 perf_event_mmap+ec | 311296/8192 | 155952/4104 | 38 | 0 | 49.902%
 
@@ -492,7 +526,9 @@ Frag: 碎片所占的百分比,碎片 = 分配的内存 - 请求的内存,这部
 
 最后还有一个Summary:
 
+```bash
 # SUMMARY
+```
 
 Total bytes requested: 290544
   
@@ -508,15 +544,20 @@ probe-sched
   
 调度模块分析。
 
+```text
 trace/measure scheduler properties (latencies)
-
 perf sched {record | latency | map | replay | script}
+```
 
 (1) 使用例子
 
+```text
 # perf sched record sleep 10 // perf sched record <command>
+```
 
+```bash
 # perf report latency -sort max
+```
 
 (2) 输出格式
 
@@ -556,15 +597,23 @@ Define new dynamic tracepoints.
 
 使用例子
 
+```text
 (1) Display which lines in schedule() can be probed
+```
 
+```bash
 # perf probe -line schedule
+```
 
 前面有行号的可以探测,没有行号的就不行了。
 
+```text
 (2) Add a probe on schedule() function 12th line.
+```
 
+```bash
 # perf probe -a schedule:12
+```
 
 在schedule函数的12处增加一个探测点。
 
@@ -587,3 +636,9 @@ Reference
 [https://www.ibm.com/developerworks/cn/linux/l-cn-perf1/index.html](https://www.ibm.com/developerworks/cn/linux/l-cn-perf1/index.html)
   
 [https://blog.csdn.net/zhangskd/article/details/37902159](https://blog.csdn.net/zhangskd/article/details/37902159)
+
+## 维护记录
+
+| 时间 | 修改内容 | 原因 |
+| ---- | -------- | ---- |
+| 2026-10-09 | 修复本地 Hugo 构建的 Raw HTML 警告：代码/配置放入代码块，正文中的尖括号占位符改为行内代码；categories 改为 Linux | 正文中的 HTML/XML 片段被当作原始 HTML 丢弃；文件名/URL/标题按规范调整 |

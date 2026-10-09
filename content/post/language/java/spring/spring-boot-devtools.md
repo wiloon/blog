@@ -17,7 +17,7 @@ tags:
 
 ## 背景
 
-开发 Spring Boot 时，`spring-boot-devtools` 提供 **快速重启** 与 **静态资源热刷新**，常被误认为「和 IDE HotSwap 一样改 Java 就能生效」。本文说明它实际做什么，并与 [开发期热替换](../../../cs/dcevm-hotswapagent.md)、[JPDA](../java-debug-JPDA.md) 区分。
+开发 Spring Boot 时，`spring-boot-devtools` 提供 **快速重启** 与 **静态资源热刷新**，常被误认为「和 IDE HotSwap 一样改 Java 就能生效」。本文说明它实际做什么，并与 [开发期热替换](../../../cs/dcevm-hotswapagent.md)、[JPDA](../debug-jpda.md) 区分。
 
 Spring Boot 总览见 [Spring Boot](./spring-boot.md)。
 
@@ -55,7 +55,7 @@ DevTools 默认启用 **Restart**：
 | 机制 | 层级 | 典型场景 |
 | ---- | ---- | -------- |
 | **DevTools Restart** | Spring 上下文 + 双 ClassLoader | 本地改代码后几秒内重新跑 Bean |
-| **IDE HotSwap** | JVM + [JPDA](../java-debug-JPDA.md) / 有限 redefine | Debug 下改 **方法体** |
+| **IDE HotSwap** | JVM + [JPDA](../debug-jpda.md) / 有限 redefine | Debug 下改 **方法体** |
 | **DCEVM + HotSwapAgent** | 增强 HotSpot + javaagent | 开发机放宽 redefine、重载 Spring 配置 |
 | **BTrace attach** | [Attach](../attach-api.md) + [ASM](../asm.md) | **已运行** 进程观测，非开发热更 |
 

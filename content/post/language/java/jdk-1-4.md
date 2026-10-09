@@ -38,7 +38,7 @@ JDK 1.4（J2SE 1.4）于 2002 年 2 月发布。对外称 **Java 2 Platform, Sta
 
 ### 类库
 
-- [`java.util.regex`](./java正则表达式.md) 正则表达式（详见 [分组与捕获](./java-正则表达式-分组与捕获.md)）
+- [`java.util.regex`](./java正则表达式.md) 正则表达式（详见 [分组与捕获](./regex-group-capture.md)）
 - **NIO**（`java.nio`）：Buffer、Channel、Selector、[内存映射文件](./java-randomaccessfile.md)
 - **`java.util.logging`**（JUL，Java 原生日志，见 [commons-logging 与 log4j](./commons-logging-log4j.md)、[jcl-over-slf4j](./jcl-over-slf4j.md)）
 - **`java.util.prefs`** Preferences API（用户/系统配置持久化）
@@ -54,7 +54,7 @@ JDK 1.4（J2SE 1.4）于 2002 年 2 月发布。对外称 **Java 2 Platform, Sta
 
 ### 工具与诊断
 
-- [JPDA](./java-debug-JPDA.md)（Java Platform Debugger Architecture）架构完善
+- [JPDA](./debug-jpda.md)（Java Platform Debugger Architecture）架构完善
 
 ---
 

@@ -2,12 +2,14 @@
 title: MemCache
 author: "-"
 date: 2015-06-28T04:51:46+00:00
+lastmod: 2026-10-09T21:22:13+08:00
 url: memcache
 categories:
-  - Inbox
+  - Database
 tags:
   - Memcache
-
+  - remix
+  - AI-assisted
 aliases:
   - /p7465/
   - /p7936/
@@ -193,75 +195,60 @@ Ok,安装memcached1.4.5成功。
 
 初始化: memcache
   
-Java代码
-  
+```java
 static {
-  
-String[] serverlist = { "server1.com:port", "server2.com:port" };
-
-SockIOPool pool = SockIOPool.getInstance();
-  
-pool.setServers(serverlist);
-  
-pool.initialize();
-  
+    String[] serverlist = { "server1.com:port", "server2.com:port" };
+    SockIOPool pool = SockIOPool.getInstance();
+    pool.setServers(serverlist);
+    pool.initialize();
 }
-  
+```
+
 创建一个client对象:
   
-Java代码
-  
+```java
 MemCachedClient mc = new MemCachedClient();
+```
 
 创建一个缓存:
   
-Java代码
-  
+```java
 MemCachedClient mc = new MemCachedClient();
-  
 String key = "cacheKey1";
-  
 Object value = SomeClass.getObject();
-  
 mc.set(key, value);
+```
 
 通过key删除一个缓存:
   
-Java代码
-  
+```java
 MemCachedClient mc = new MemCachedClient();
-  
 String key = "cacheKey1";
-  
 mc.delete(key);
+```
 
 通过key获取缓存对象:
   
-Java代码
-  
+```java
 MemCachedClient mc = new MemCachedClient();
-  
 String key = "key";
-  
 Object value = mc.get(key);
+```
 
 获取多个缓存对象:
   
-Java代码
-  
+```java
 MemCachedClient mc = new MemCachedClient();
-  
 String[] keys = { "key", "key1", "key2" };
-  
 Map<Object> values = mc.getMulti(keys);
+```
 
 刷新全部缓存:
   
-Java代码
-  
+```java
 MemCachedClient mc = new MemCachedClient();
-  
 mc.flushAll();
+```
 
 3. 如何在Java开发中使用Memcache
 
@@ -763,69 +750,40 @@ spymemcached当前版本是2.5版本,官方网址是: <http://code.google.com/p/
 
 示例代码如下:
 
+```java
 package temp;
-
 import java.net.InetSocketAddress;
-
 import java.util.concurrent.Future;
-
 import net.spy.memcached.MemcachedClient;
-
 public class TestSpyMemcache {
-
-public static void main(String[] args) {
-
-// 保存对象
-
-try {
-
-/*建立MemcachedClient 实例,并指定memcached服务的IP地址和端口号*/
-
-MemcachedClient mc = new MemcachedClient(new InetSocketAddress("10.11.15.222", 10000));
-
-Future<Boolean> b = null;
-
-/*将key值,过期时间(秒)和要缓存的对象set到memcached中*/
-
-b = mc.set("neea:testDaF:ksIdno", 900, "someObject");
-
-if (b.get().booleanValue() == true) {
-
-mc.shutdown();
-
+    public static void main(String[] args) {
+        // 保存对象
+        try {
+            /*建立MemcachedClient 实例,并指定memcached服务的IP地址和端口号*/
+            MemcachedClient mc = new MemcachedClient(new InetSocketAddress("10.11.15.222", 10000));
+            Future<Boolean> b = null;
+            /*将key值,过期时间(秒)和要缓存的对象set到memcached中*/
+            b = mc.set("neea:testDaF:ksIdno", 900, "someObject");
+            if (b.get().booleanValue() == true) {
+                mc.shutdown();
+            }
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+        // 取得对象
+        try {
+            /*建立MemcachedClient 实例,并指定memcached服务的IP地址和端口号*/
+            MemcachedClient mc = new MemcachedClient(new InetSocketAddress("10.11.15.222", 10000));
+            /*按照key值从memcached中查找缓存,不存在则返回null*/
+            Object b = mc.get("neea:testDaF:ksIdno");
+            System.out.println(b.toString());
+            mc.shutdown();
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+    }
 }
-
-} catch (Exception ex) {
-
-ex.printStackTrace();
-
-}
-
-// 取得对象
-
-try {
-
-/*建立MemcachedClient 实例,并指定memcached服务的IP地址和端口号*/
-
-MemcachedClient mc = new MemcachedClient(new InetSocketAddress("10.11.15.222", 10000));
-
-/*按照key值从memcached中查找缓存,不存在则返回null*/
-
-Object b = mc.get("neea:testDaF:ksIdno");
-
-System.out.println(b.toString());
-
-mc.shutdown();
-
-} catch (Exception ex) {
-
-ex.printStackTrace();
-
-}
-
-}
-
-}
+```
   
 3) xmemcached
   
@@ -995,43 +953,27 @@ memcached: error while loading shared libraries: libevent-1.2.so.1: cannot open 
 
 下面我们继续使用memcached -h做下测试,终于出现了如下信息:
 
+```text
 memcached 1.2.0
-
 -p <num>      port number to listen on
-
 -s <file>     unix socket path to listen on (disables network support)
-
 -l <ip_addr>  interface to listen on, default is INDRR_ANY
-
 -d            run as a daemon
-
 -r            maximize core file limit
-
 -u <username> assume identity of <username> (only when run as root)
-
 -m <num>      max memory to use for items in megabytes, default is 64 MB
-
 -M            return error on memory exhausted (rather than removing items)
-
 -c <num>      max simultaneous connections, default is 1024
-
 -k            lock down all paged memory
-
 -v            verbose (print errors/warnings while in event loop)
-
 -vv           very verbose (also print client commands/reponses)
-
 -h            print this help and exit
-
 -i            print memcached and libevent license
-
 -b            run a managed instanced (mnemonic: buckets)
-
 -P <file>     save PID in <file>, only used with -d option
-
 -f <factor>   chunk size growth factor, default 1.25
-
 -n <bytes>    minimum space allocated for key+value+flags, default 48
+```
 
 说明memcached安装成功。 (应该是机器是64位的原因,所以将so文件放到了lib64下面,而不是lib下面,使得memcached找不到了so文件) 。
 
@@ -1337,62 +1279,25 @@ view plain   copy
 
 memcached命令参数解释
   
-参数
-  
-参数解释及说明
-  
--p <num>
-  
-监听的端口
-  
--l <ip_addr>
-  
-连接的IP地址,,默认是本机。-l选项可以不使用,此时表示在所有网络接口地址上监听。建议是-l <ip_addr>指定一个内部网络IP地址,以避免成为外部网络攻击的对象
-  
--d start
-  
-启动memcached 服务
-  
--d restart
-  
-重起memcached 服务
-  
--d stop|shutdown
-  
-关闭正在运行的memcached 服务
-  
--d install
-  
-安装memcached 服务
-  
--d uninstall
-  
-卸载memcached 服务
-  
--u <username>
-  
-以<username>的身份运行 (仅在以root运行的时候有效)
-  
--m <num>
-  
-最大内存使用,单位MB。默认64MB
-  
--M
-  
-内存耗尽时返回错误,而不是删除项
-  
--c <num>
-  
-最大同时连接数,默认是1024
-  
--f <factor>
-  
-块大小增长因子,默认是1.25
-  
--n <bytes>
-  
-最小分配空间,key+value+flags默认是48
-  
--h
-  
-显示帮助
+| 参数 | 参数解释及说明 |
+| --- | --- |
+| `-p <num>` | 监听的端口 |
+| `-l <ip_addr>` | 连接的IP地址,,默认是本机。-l选项可以不使用,此时表示在所有网络接口地址上监听。建议是`-l <ip_addr>`指定一个内部网络IP地址,以避免成为外部网络攻击的对象 |
+| `-d start` | 启动memcached 服务 |
+| `-d restart` | 重起memcached 服务 |
+| `-d stop\|shutdown` | 关闭正在运行的memcached 服务 |
+| `-d install` | 安装memcached 服务 |
+| `-d uninstall` | 卸载memcached 服务 |
+| `-u <username>` | 以 `<username>`的身份运行 (仅在以root运行的时候有效) |
+| `-m <num>` | 最大内存使用,单位MB。默认64MB |
+| `-M` | 内存耗尽时返回错误,而不是删除项 |
+| `-c <num>` | 最大同时连接数,默认是1024 |
+| `-f <factor>` | 块大小增长因子,默认是1.25 |
+| `-n <bytes>` | 最小分配空间,key+value+flags默认是48 |
+| `-h` | 显示帮助 |
+
+## 维护记录
+
+| 时间 | 修改内容 | 原因 |
+| ---- | -------- | ---- |
+| 2026-10-09 | 修复本地 Hugo 构建的 Raw HTML 警告：代码/配置放入代码块，正文中的尖括号占位符改为行内代码；categories 改为 Database | 正文中的 HTML/XML 片段被当作原始 HTML 丢弃；文件名/URL/标题按规范调整 |

@@ -1,0 +1,10 @@
+/* Three-state theme toggle: icon reflects the selected mode (see extend_footer.html). */
+.theme-toggle svg {
+    display: none;
+}
+
+html[data-theme-mode="auto"] .theme-toggle .auto,
+html[data-theme-mode="light"] .theme-toggle .sun,
+html[data-theme-mode="dark"] .theme-toggle .moon {
+    display: inline;
+}

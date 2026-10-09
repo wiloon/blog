@@ -147,7 +147,7 @@ java -Xlog:gc*:file=gc.log:time,uptime,level,tags MyApp
 | `-XX:+PrintGCTimeStamps` | `-Xlog` 的 `time` / `uptime` |
 | `-Xloggc:file` | `-Xlog:gc*:file=...` |
 
-GC 日志分析与 `jstat` 见 [java-gc-jstat](./java-gc-jstat.md)。
+GC 日志分析与 `jstat` 见 [java-gc-jstat](./gc-jstat.md)。
 
 ## JIT 与编译
 

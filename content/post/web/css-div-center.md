@@ -1,13 +1,15 @@
 ---
-title: CSS DIV居中
+title: "CSS DIV 居中"
 author: "-"
 date: 2014-06-25T05:40:35+00:00
+lastmod: 2026-10-09T21:22:13+08:00
 url: css-div-center
 categories:
-  - Inbox
+  - Web
 tags:
   - CSS
-
+  - remix
+  - AI-assisted
 aliases:
   - /p6771/
 ---
@@ -26,9 +28,10 @@ CSS 如何使DIV层水平居中
   
 对需要水平居中的DIV层添加以下属性:
 
+```css
 margin-left: auto;
-  
 margin-right: auto;
+```
 
 经过这么一番设置问题似乎解决了,在FF中已经居中了,可是在IE中看竟然还是没有居中!
   
@@ -44,7 +47,9 @@ margin-right: auto;
   
 需要加上这样的代码才能使得上述设置有效果:
   
+```html
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+```
   
 如果您希望更为严格的XHTML 1.0 Strict或者XHTML 1.1请查阅相关文档.
   
@@ -54,9 +59,10 @@ margin-right: auto;
   
 主要的样式定义如下: 
   
+```css
 body {TEXT-ALIGN: center;}
-  
 #center { MARGIN-RIGHT: auto; MARGIN-LEFT: auto; }
+```
   
 说明: 
   
@@ -68,7 +74,9 @@ body {TEXT-ALIGN: center;}
 
 如何使图片在DIV 中垂直居中,用背景的方法。举例: 
   
+```css
 body{BACKGROUND: url(http://www.w3cn.org/style/001/logo_w3cn_194x79.gif) #FFF no-repeat center;}
+```
   
 关键就是最后的center,这个参数定义图片的位置。还可以写成"top left"(左上角)或者"bottom right"等,也可以直接写数值"50 30"
 
@@ -76,41 +84,26 @@ body{BACKGROUND: url(http://www.w3cn.org/style/001/logo_w3cn_194x79.gif) #FFF no
   
 如果是文字,便不能用背景方法,可以用增高行距的办法变通实现垂直居中,完整代码如下: 
   
+```html
 <html>
-  
 <head>
-  
 <style>
-  
 body{TEXT-ALIGN: center;}
-  
 #center{ MARGIN-RIGHT: auto;
-  
 MARGIN-LEFT: auto;
-  
 height:200px;
-  
 background:#F00;
-  
 width:400px;
-  
 vertical-align:middle;
-  
 line-height:200px;
-  
 }
-  
 </style>
-  
 </head>
-  
 <body >
-  
 test content
-  
 </body>
-  
 </html>
+```
   
 说明: 
   
@@ -118,68 +111,42 @@ vertical-align:middle;表示行内垂直居中,我们将行距增加到和整个
 
 CSS+DIV控制页面中元素垂直居中代码 全局和区域垂直居中
   
+```html
 <style type="text/css" media=screen>
-  
 body
-  
 {
-  
-text-align: center;
-  
+    text-align: center;
 }
-  
 #a
-  
 {
-  
-width: 200px;
-  
-height: 400px;
-  
-background: #000;
-  
+    width: 200px;
+    height: 400px;
+    background: #000;
 }
-  
 #b
-  
 {
-  
-margin-top: expression((a.clientHeight-50)/2);
-  
-width: 50px;
-  
-height: 50px;
-  
-background: #FFF;
-  
+    margin-top: expression((a.clientHeight-50)/2);
+    width: 50px;
+    height: 50px;
+    background: #FFF;
 }
-  
 #c
-  
 {
-  
-position: absolute;
-  
-left: expression((body.clientWidth-50)/2);
-  
-top: expression((body.clientHeight-50)/2);
-  
-width: 50px;
-  
-height: 50px;
-  
-background: #F00;
-  
+    position: absolute;
+    left: expression((body.clientWidth-50)/2);
+    top: expression((body.clientHeight-50)/2);
+    width: 50px;
+    height: 50px;
+    background: #F00;
 }
-  
 </style>
-  
+```
 
-  
-
-  
-  
-
-  
 另一方法:
   
+
+## 维护记录
+
+| 时间 | 修改内容 | 原因 |
+| ---- | -------- | ---- |
+| 2026-10-09 | 修复本地 Hugo 构建的 Raw HTML 警告：代码/配置放入代码块，正文中的尖括号占位符改为行内代码；title 改为「CSS DIV 居中」；categories 改为 Web | 正文中的 HTML/XML 片段被当作原始 HTML 丢弃；文件名/URL/标题按规范调整 |

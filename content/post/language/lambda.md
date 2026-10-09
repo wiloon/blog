@@ -2,7 +2,7 @@
 title: Lambda 表达式
 author: "-"
 date: 2012-11-17T07:17:38+08:00
-lastmod: 2026-06-20T15:02:54+08:00
+lastmod: 2026-10-09T21:22:13+08:00
 url: lambda
 categories:
   - language
@@ -19,7 +19,7 @@ JDK 8 之前，要把「一段逻辑」当作参数传给方法，常见写法�
 
 以 `Runnable` 为例：
 
-```java
+```bash
 // Runnable is an interface (not a class); SAM: single abstract method void run()
 // Left: Runnable r1 — variable type is the interface
 // Right: new Runnable() { ... } — not "new interface"; defines an anonymous class
@@ -38,7 +38,7 @@ Runnable r2 = () -> System.out.println("hello");
 
 以 `Comparator` 为例（同样是「接口 + 匿名实现类」）：
 
-```java
+```bash
 // Comparator<Person> is also an interface; anonymous class implements it
 Arrays.sort(arr, new Comparator<Person>() {
     @Override
@@ -315,7 +315,7 @@ maxFn.apply(Arrays.asList(1, 10, 3, 5));
 
 字符串反转：
 
-```java
+```bash
 // functional interface
 interface StringFunc {
     String func(String n);
@@ -370,9 +370,6 @@ class ComparisonProvider {
         return a.getBirthday().compareTo(b.getBirthday());
     }
 }
-```
-
-```java
 ComparisonProvider myComparisonProvider = new ComparisonProvider();
 Arrays.sort(rosterAsArray, myComparisonProvider::compareByName);
 ```
@@ -393,35 +390,43 @@ ClassName::methodName
 String::toString,对应的 Lambda: (s) -> s.toString()
 这里不太容易理解,实例方法要通过对象来调用,方法引用对应 Lambda,Lambda 的第一个参数会成为调用实例方法的对象。
 字符串数组中任意一个对象的 compareToIgnoreCase 方法:
+
+```java
 String[] stringArray = { "Barbara", "James", "Mary" };
 Arrays.sort(stringArray, String::compareToIgnoreCase);
+```
+
 在泛型类或泛型方法中,也可以使用方法引用
-interface MyFunc<T> {  
-    int func(T[] als, T v);  
-}  
-class MyArrayOps {  
-    public static <T> int countMatching(T[] vals, T v) {  
-        int count = 0;  
-        for (int i = 0; i < vals.length; i++) {  
-            if (vals[i] == v) count++;  
-        }  
-        return count;  
-    }  
-}  
-class GenericMethodRefDemo {  
-    public static <T> int myOp(MyFunc<T> f, T[] vals, T v) {  
-        return f.func(vals, v);  
-    }  
-    public static void main(String[] args){  
-        Integer[] vals = {1, 2, 3, 4, 2, 3, 4, 4, 5};  
-        String[] strs = {"One", "Two", "Three", "Two"};  
-        int count;  
-        count = myOp(MyArrayOps::<Integer>countMatching, vals, 4);  
-        System.out.println("vals contains " + count + " 4s");  
-        count = myOp(MyArrayOps::<String>countMatching, strs, "Two");  
-        System.out.println("strs contains " + count + " Twos");  
-    }  
-}  
+
+```java
+interface MyFunc<T> {
+    int func(T[] als, T v);
+}
+class MyArrayOps {
+    public static <T> int countMatching(T[] vals, T v) {
+        int count = 0;
+        for (int i = 0; i < vals.length; i++) {
+            if (vals[i] == v) count++;
+        }
+        return count;
+    }
+}
+class GenericMethodRefDemo {
+    public static <T> int myOp(MyFunc<T> f, T[] vals, T v) {
+        return f.func(vals, v);
+    }
+    public static void main(String[] args){
+        Integer[] vals = {1, 2, 3, 4, 2, 3, 4, 4, 5};
+        String[] strs = {"One", "Two", "Three", "Two"};
+        int count;
+        count = myOp(MyArrayOps::<Integer>countMatching, vals, 4);
+        System.out.println("vals contains " + count + " 4s");
+        count = myOp(MyArrayOps::<String>countMatching, strs, "Two");
+        System.out.println("strs contains " + count + " Twos");
+    }
+}
+```
+
 当把泛型方法指定为方法引用时,类型参数出现在 :: 之后、方法名之前。在这种情况下,并非必须显示指定类型参数,因为类型参数会被自动推断得出。对于指定泛型类的情况,类型参数位于类名的后面::的前面。
 
 构造方法引用
@@ -435,26 +440,27 @@ ClassName::new
 
 String::new,对应的 Lambda: () -> new String()
 Supplier
+
+```java
 class PersonFactory {
     private Supplier<Person> supplier;
-
     public PersonFactory(Supplier<Person> supplier) {
         this.supplier = supplier;
     }
-
     public Person getPerson() {
         return supplier.get();
     }
 }
-
 PersonFactory factory = new PersonFactory(Person::new);
 Person p1 = factory.getPerson();
 Stream
-List<String> strings = new ArrayList<String>();  
-strings.add("a");  
-strings.add("b");  
-Stream<Button> stream = strings.stream().map(Button::new);  
-List<Button> buttons = stream.collect(Collectors.toList());  
+List<String> strings = new ArrayList<String>();
+strings.add("a");
+strings.add("b");
+Stream<Button> stream = strings.stream().map(Button::new);
+List<Button> buttons = stream.collect(Collectors.toList());
+```
+
 数组构造方法引用 `TypeName[]::new`：`int[]::new` 是带一个参数的构造器引用，参数为数组长度，等价于 `x -> new int[x]`。
 
 ```java
@@ -490,7 +496,9 @@ Arrays.sort(persons, Person::compareTo);
 什么场景不适合使用方法引用
 需要往引用的方法传参数的时候不适合:
 
+```java
 IsReferable demo = () -> ReferenceDemo.commonMethod("Argument in method.");
+```
 
 作者: 杰哥长得帅
 链接: [https://www.jianshu.com/p/4a3da6a11b58](https://www.jianshu.com/p/4a3da6a11b58)
@@ -513,3 +521,4 @@ IsReferable demo = () -> ReferenceDemo.commonMethod("Argument in method.");
 | 2026-06-20 | Runnable/Comparator 示例加注释；补充「匿名类与内部类」说明 | 澄清接口、匿名类与内部类概念 |
 | 2026-06-20 | 代码块注释改为英文；部分裸代码补 fenced block | 遵守 `.ai/content-constraints.md` 代码注释规范 |
 | 2026-06-20 | 函数式接口小节改为链到 functional-interface §SAM | 统一 SAM 定义出处 |
+| 2026-10-09 | 修复本地 Hugo 构建的 Raw HTML 警告：代码/配置放入代码块，正文中的尖括号占位符改为行内代码 | 正文中的 HTML/XML 片段被当作原始 HTML 丢弃；文件名/URL/标题按规范调整 |

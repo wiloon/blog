@@ -81,7 +81,7 @@ tags:
 
 - **C / C++**：`gcc` / `clang` 等到机器码
 - **Go**：静态编译，产物是单一二进制（见 [go basic](./golang.md)）
-- **Rust**：AOT 静态类型语言（见 [rust basic](../rust/rust-basic.md)）
+- **Rust**：AOT 静态类型语言（见 [rust basic](../rust/basic.md)）
 - **Zig、Swift（多数场景）** 等
 
 特点：启动快、部署常是「拷贝二进制」；跨平台要为每个目标再编一次（或交叉编译）。
@@ -156,7 +156,7 @@ C# / .NET 类似：IL + CLR，另有 Native AOT 等路径。
 - [JavaScript](../web/javascript.md)
 - [TypeScript](../web/typescript.md)
 - [Lua](../language/lua.md)
-- [rust basic](../rust/rust-basic.md)
+- [rust basic](../rust/basic.md)
 - [go basic](./golang.md)
 - [Java 虚拟机](../language/java/jvm.md)
 - [HotSpot JIT](../language/java/hotspot-jit.md)

@@ -2,11 +2,15 @@
 title: hostapd
 author: "-"
 date: 2013-12-01T11:58:10+00:00
+lastmod: 2026-10-09T21:22:13+08:00
 url: hostapd
 categories:
-  - inbox
+  - Network
 tags:
-  - reprint
+  - wifi
+  - hostapd
+  - remix
+  - AI-assisted
 aliases:
   - /p6001/
 ---
@@ -24,7 +28,7 @@ hostapd是一个_IEEE 802.11的AP和IEEE 802.1X/WPA/WPA2/EAP/RADIUS验证器_.�
 
 所有新的基于mac80211的驱动实现AP功能被hostapd's **nl80211** 驱动支持
 
-The mac80211 子系统将所有的master模式已经移到用户空间.通过hostapd去处理客户端验证,设置加密密钥,建立密钥转化策略,以及无线公共部分的其他方面. 由此,老的使用'iwconfig <wireless interface> mode master'的方法已经不能使用了. 用户空间程序像hostapd目前使用netlink (the nl80211 driver)去创建master mode接口实现通信,monitor mode接口实现接收和发送管理框架
+The mac80211 子系统将所有的master模式已经移到用户空间.通过hostapd去处理客户端验证,设置加密密钥,建立密钥转化策略,以及无线公共部分的其他方面. 由此,老的使用`iwconfig <wireless interface> mode master`的方法已经不能使用了. 用户空间程序像hostapd目前使用netlink (the nl80211 driver)去创建master mode接口实现通信,monitor mode接口实现接收和发送管理框架
 
 ## 获得hostapd {#Getting_hostapd}
 
@@ -101,9 +105,7 @@ rmdir[ctrl_interface]: No such file or directory
 
 说明你设置了硬件不支持的hw_mode (a, b or g).
 
-
 ## 配置hostapd {#Configuring_hostapd}
-
 
 ### Establishing Baseline for Configuration {#Establishing_Baseline_for_Configuration}
 
@@ -182,7 +184,6 @@ wme_enabled=1
 ieee80211n=1
 ht_capab=[HT40+][SHORT-GI-40][DSSS_CCK-40]
 
-
 ### Authentication and Encryption {#Authentication_and_Encryption}
 
 hostapd有大量的验证和加密选项. 以下介绍基本的加密wep/wpa/wpa2和其他选项.
@@ -224,17 +225,13 @@ rsn_pairwise=CCMP
 
 That should be all of the settings that you'll need to change for a basic, secure, access point using hostapd with an AP enabled mac80211 driver.
 
-
 ### Additional Options {#Additional_Options}
 
-
 ### Extra Options {#Extra_Options}
-
 
 #### Dynamic VLAN tagging {#Dynamic_VLAN_tagging}
 
 hostapd can be configured to move STAs into separate VLANs based on RADIUS tunnel attributes (as specified in RFC3580, [http://tools.ietf.org/html/rfc3580#section-3.31](http://tools.ietf.org/html/rfc3580#section-3.31)):
-
 
 Tunnel-Type=VLAN (13)
 Tunnel-Medium-Type=802
@@ -260,3 +257,9 @@ This will create a wlan0.1 interface on top of wlan0 and move all STAs with the 
  [2]: http://linuxwireless.org/en/users/Drivers/madwifi
  [3]: http://linuxwireless.org/en/users/Drivers/prism54
  [4]: http://linuxwireless.org/en/developers/Documentation/nl80211
+
+## 维护记录
+
+| 时间 | 修改内容 | 原因 |
+| ---- | -------- | ---- |
+| 2026-10-09 | 修复本地 Hugo 构建的 Raw HTML 警告：代码/配置放入代码块，正文中的尖括号占位符改为行内代码；categories 改为 Network | 正文中的 HTML/XML 片段被当作原始 HTML 丢弃；文件名/URL/标题按规范调整 |

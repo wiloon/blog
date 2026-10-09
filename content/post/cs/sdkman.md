@@ -2,11 +2,14 @@
 title: sdkman
 author: "-"
 date: 2017-07-01T06:06:07+00:00
+lastmod: 2026-10-09T21:22:13+08:00
 url: sdkman
 categories:
-  - Inbox
+  - Tools
 tags:
-  - reprint
+  - sdkman
+  - remix
+  - AI-assisted
 aliases:
   - /p10735/
 ---
@@ -34,9 +37,7 @@ http://blog.csdn.net/jjlovefj/article/details/51103578
 sdkman(The Software Development Kit Manager), 中文名为:软件开发工具管理器．这个工具的主要用途是用来解决在类unix操作系统(如mac, Linux等)中多种版本开发工具的切换, 安装和卸载的工作．对于windows系统的用户可以使用Powershell CLI来体验．
 
 例如: 项目A使用Jdk7中某些特性在后续版本中被移除 (尽管这是不好的设计) ,项目B使用Jdk8,我们在切换开发这两个项目的时候,需要不断的切换系统中的JAVA_PATH,这样很不方便,如果存在很多个类似的版本依赖问题,就会给工作带来很多不必要的麻烦．
-  
 
-  
 sdkman这个工具就可以很好的解决这类问题,它的工作原理是自己维护多个版本,当用户需要指定版本时,sdkman会查询自己所管理的多版本软件中对应的版本号,并将它所在的路径设置到系统PATH.
 
 ２.安装
@@ -55,21 +56,16 @@ $ source "$HOME/.sdkman/bin/sdkman-init.sh"
 
 jiangjian@jiangjian-ThinkPad-E450c:~$ sdk help
 
+```text
 Usage: sdk <command> [candidate] [version]
-         
 sdk offline <enable|disable>
-
 commands:
-         
 install or i <candidate> [version]
-         
 uninstall or rm <candidate> <version>
-         
 list or ls [candidate]
-         
 use or u <candidate> [version]
-         
 default or d <candidate> [version]
+```
          
 current or c [candidate]
          
@@ -85,7 +81,9 @@ offline [enable|disable]
          
 selfupdate [force]
          
+```text
 flush <candidates|broadcast|archives|temp>
+```
 
 candidate : the SDK to install: groovy, scala, grails, akka, etc.use list command for comprehensive list of candidates
   
@@ -147,36 +145,30 @@ $ sdk list
 
 有些时候你需要了解当前工具存在哪些可安装的版本,你可以通过如下命令来查询:
 
+```text
 jiangjian@jiangjian-ThinkPad-E450c:~$ sdk list gradle
-
 ==========================================================
-
 # Available Gradle Versions
-
-     2.9                  2.0                  0.9.1                               
-     2.8                  1.9                  0.9                                 
-     2.7                  1.8                  0.8                                 
-     2.6                  1.7                  0.7                                 
-     2.5                  1.6                                                      
-     2.4                  1.5                                                      
-     2.3                  1.4                                                      
-     2.2.1                1.3                                                      
-     2.2                  1.2                                                      
-     2.13-rc-1            1.12                                                     
-     2.12-rc-1            1.11                                                     
-     2.12                 1.10                                                     
-     2.11                 1.1                                                      
-     2.10                 1.0                                                      
-     2.1                  0.9.2                                                    
-    
-
+     2.9                  2.0                  0.9.1
+     2.8                  1.9                  0.9
+     2.7                  1.8                  0.8
+     2.6                  1.7                  0.7
+     2.5                  1.6
+     2.4                  1.5
+     2.3                  1.4
+     2.2.1                1.3
+     2.2                  1.2
+     2.13-rc-1            1.12
+     2.12-rc-1            1.11
+     2.12                 1.10
+     2.11                 1.1
+     2.10                 1.0
+     2.1                  0.9.2
 ==========================================================
-  
 + - local version
-  
 * - installed
-
 # > - currently in use
+```
 
   1. 临时选用指定的版本
 
@@ -197,3 +189,9 @@ $ sdk default scala 2.11.6
 $ sdk current grails
 
 参考: http://sdkman.io/usage.html
+
+## 维护记录
+
+| 时间 | 修改内容 | 原因 |
+| ---- | -------- | ---- |
+| 2026-10-09 | 修复本地 Hugo 构建的 Raw HTML 警告：代码/配置放入代码块，正文中的尖括号占位符改为行内代码；categories 改为 Tools | 正文中的 HTML/XML 片段被当作原始 HTML 丢弃；文件名/URL/标题按规范调整 |

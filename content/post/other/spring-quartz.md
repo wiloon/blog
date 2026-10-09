@@ -2,36 +2,42 @@
 title: spring quartz
 author: "-"
 date: 2014-11-07T01:15:44+00:00
+lastmod: 2026-10-09T21:22:13+08:00
 url: spring-quartz
 categories:
-  - Inbox
+  - Java
 tags:
   - Java
   - Spring
-
+  - quartz
+  - remix
+  - AI-assisted
 aliases:
   - /p7002/
 ---
 ## spring quartz
 http://www.oschina.net/question/8676_9032
 
-<bean class="org.springframework.scheduling.quartz.SchedulerFactoryBean">  
-       <property name="triggers">  
-             
-              <ref bean="testTrigger"/>  
-           </list>  
-       </property>  
-       <property name="autoStartup" value="true"/>  
+```xml
+<bean class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+       <property name="triggers">
+              <ref bean="testTrigger"/>
+           </list>
+       </property>
+       <property name="autoStartup" value="true"/>
 </bean>
+```
 
 说明: Scheduler包含一个Trigger列表,每个Trigger表示一个作业。
 
 **2、Trigger的配置**
 
-<bean id="testTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">  
-       <property name="jobDetail" ref="testJobDetail"/>  
-       <property name="cronExpression" value="*/1 * * * * ?"/><!-- 每隔1秒钟触发一次 -->  
+```xml
+<bean id="testTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+       <property name="jobDetail" ref="testJobDetail"/>
+       <property name="cronExpression" value="*/1 * * * * ?"/><!-- 每隔1秒钟触发一次 -->
 </bean>
+```
 
 说明: 
 
@@ -89,28 +95,30 @@ http://www.oschina.net/question/8676_9032
 
 **3、JobDetail的配置**
 
-<bean id="testJobDetail" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">   
-        <property name="targetObject" ref="testJob"/>  
-        <property name="targetMethod" value="execute"/>  
+```xml
+<bean id="testJobDetail" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+        <property name="targetObject" ref="testJob"/>
+        <property name="targetMethod" value="execute"/>
         <property name="concurrent" value="false"/>
-        <!-- 是否允许任务并发执行。当值为false时,表示必须等到前一个线程处理完毕后才再启一个新的线程 -->  
+        <!-- 是否允许任务并发执行。当值为false时,表示必须等到前一个线程处理完毕后才再启一个新的线程 -->
 </bean>
-
 **4、业务类的配置**
-
 <bean id="testJob" class="com.cjm.web.service.quartz.TestJob"/>
+```
 
 **5、业务类源代码**
 
-public class TestJob {  
-    public void execute(){  
-        try{  
+```java
+public class TestJob {
+    public void execute(){
+        try{
               //.......
-         }catch(Exception ex){  
-             ex.printStackTrace();  
-         }  
-     }  
+         }catch(Exception ex){
+             ex.printStackTrace();
+         }
+     }
 }
+```
 
 说明: 业务类不需要继承任何父类,也不需要实现任何接口,只是一个普通的java类。
 
@@ -118,7 +126,12 @@ public class TestJob {
 
 在Spring配置和Quartz集成内容时,有两点需要注意
 
-１、在<Beans>中不能够设置default-lazy-init="true",否则定时任务不触发,如果不明确指明default-lazy-init的值,默认是false。
+１、在`<Beans>`中不能够设置default-lazy-init="true",否则定时任务不触发,如果不明确指明default-lazy-init的值,默认是false。
 
-２、在<Beans>中不能够设置default-autowire="byName"的属性,否则后台会报org.springframework.beans.factory.BeanCreationException错误,这样就不能通过Bean名称自动注入,必须通过明确引用注入
+２、在`<Beans>`中不能够设置default-autowire="byName"的属性,否则后台会报org.springframework.beans.factory.BeanCreationException错误,这样就不能通过Bean名称自动注入,必须通过明确引用注入
 
+## 维护记录
+
+| 时间 | 修改内容 | 原因 |
+| ---- | -------- | ---- |
+| 2026-10-09 | 修复本地 Hugo 构建的 Raw HTML 警告：代码/配置放入代码块，正文中的尖括号占位符改为行内代码；categories 改为 Java | 正文中的 HTML/XML 片段被当作原始 HTML 丢弃；文件名/URL/标题按规范调整 |

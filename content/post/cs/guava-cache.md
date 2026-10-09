@@ -2,11 +2,15 @@
 title: Guava cache
 author: "-"
 date: 2017-03-31T06:58:32+00:00
+lastmod: 2026-10-09T21:22:13+08:00
 url: guava-cache
 categories:
-  - Inbox
+  - Java
 tags:
-  - reprint
+  - java
+  - guava
+  - remix
+  - AI-assisted
 aliases:
   - /p10004/
 ---
@@ -45,43 +49,27 @@ Guava Cache有两种创建方式:
 
 cacheLoader方式实现实例: 
   
+```java
 @Test
-  
 public void TestLoadingCache() throws Exception{
-  
-LoadingCache<String,String> cahceBuilder=CacheBuilder
-  
-.newBuilder()
-  
-.build(new CacheLoader<String, String>(){
-  
-@Override
-  
-public String load(String key) throws Exception {
-  
-String strProValue="hello "+key+"!";
-  
-return strProValue;
-  
-}
-
+    LoadingCache<String,String> cahceBuilder=CacheBuilder
+    .newBuilder()
+    .build(new CacheLoader<String, String>(){
+        @Override
+        public String load(String key) throws Exception {
+            String strProValue="hello "+key+"!";
+            return strProValue;
+        }
 });
-
-System.out.println("jerry value:"+cahceBuilder.apply("jerry"));
-  
-System.out.println("jerry value:"+cahceBuilder.get("jerry"));
-  
-System.out.println("peida value:"+cahceBuilder.get("peida"));
-  
-System.out.println("peida value:"+cahceBuilder.apply("peida"));
-  
-System.out.println("lisa value:"+cahceBuilder.apply("lisa"));
-  
-cahceBuilder.put("harry", "ssdded");
-  
-System.out.println("harry value:"+cahceBuilder.get("harry"));
-  
+    System.out.println("jerry value:"+cahceBuilder.apply("jerry"));
+    System.out.println("jerry value:"+cahceBuilder.get("jerry"));
+    System.out.println("peida value:"+cahceBuilder.get("peida"));
+    System.out.println("peida value:"+cahceBuilder.apply("peida"));
+    System.out.println("lisa value:"+cahceBuilder.apply("lisa"));
+    cahceBuilder.put("harry", "ssdded");
+    System.out.println("harry value:"+cahceBuilder.get("harry"));
 }
+```
 
 输出: 
   
@@ -99,41 +87,26 @@ harry value:ssdded
 
 callable callback的实现: 
   
+```java
 @Test
-  
 public void testcallableCache()throws Exception{
-  
-Cache<String, String> cache = CacheBuilder.newBuilder().maximumSize(1000).build();
-  
-String resultVal = cache.get("jerry", new Callable<String>() {
-  
-public String call() {
-  
-String strProValue="hello "+"jerry"+"!";
-  
-return strProValue;
-  
-}
-  
+    Cache<String, String> cache = CacheBuilder.newBuilder().maximumSize(1000).build();
+    String resultVal = cache.get("jerry", new Callable<String>() {
+        public String call() {
+            String strProValue="hello "+"jerry"+"!";
+            return strProValue;
+        }
 });
-  
-System.out.println("jerry value : " + resultVal);
-
-resultVal = cache.get("peida", new Callable<String>() {
-  
-public String call() {
-  
-String strProValue="hello "+"peida"+"!";
-  
-return strProValue;
-  
-}
-  
+    System.out.println("jerry value : " + resultVal);
+    resultVal = cache.get("peida", new Callable<String>() {
+        public String call() {
+            String strProValue="hello "+"peida"+"!";
+            return strProValue;
+        }
 });
-  
-System.out.println("peida value : " + resultVal);
-  
+    System.out.println("peida value : " + resultVal);
 }
+```
 
 输出: 
   
@@ -165,95 +138,53 @@ refresh机制:
 
 基于泛型的实现: 
   
+```java
 /**
-  
 * 不需要延迟处理(泛型的方式封装)
-  
 * @return
-  
 */
-  
 public <K , V> LoadingCache<K , V> cached(CacheLoader<K , V> cacheLoader) {
-  
-LoadingCache<K , V> cache = CacheBuilder
-  
-.newBuilder()
-  
-.maximumSize(2)
-  
-.weakKeys()
-  
-.softValues()
-  
-.refreshAfterWrite(120, TimeUnit.SECONDS)
-  
-.expireAfterWrite(10, TimeUnit.MINUTES)
-  
-.removalListener(new RemovalListener<K, V>(){
-  
-@Override
-  
-public void onRemoval(RemovalNotification<K, V> rn) {
-  
-System.out.println(rn.getKey()+"被移除");
-
+    LoadingCache<K , V> cache = CacheBuilder
+    .newBuilder()
+    .maximumSize(2)
+    .weakKeys()
+    .softValues()
+    .refreshAfterWrite(120, TimeUnit.SECONDS)
+    .expireAfterWrite(10, TimeUnit.MINUTES)
+    .removalListener(new RemovalListener<K, V>(){
+        @Override
+        public void onRemoval(RemovalNotification<K, V> rn) {
+            System.out.println(rn.getKey()+"被移除");
 }})
-  
-.build(cacheLoader);
-  
-return cache;
-  
+    .build(cacheLoader);
+    return cache;
 }
-
 /**
-  
 * 通过key获取value
-  
 * 调用方式 commonCache.get(key) ; return String
-  
 * @param key
-  
 * @return
-  
 * @throws Exception
-  
 */
-
 public LoadingCache<String , String> commonCache(final String key) throws Exception{
-  
-LoadingCache<String , String> commonCache= cached(new CacheLoader<String , String>(){
-  
-@Override
-  
-public String load(String key) throws Exception {
-  
-return "hello "+key+"!";
-  
-}
-  
+    LoadingCache<String , String> commonCache= cached(new CacheLoader<String , String>(){
+        @Override
+        public String load(String key) throws Exception {
+            return "hello "+key+"!";
+        }
 });
-  
-return commonCache;
-  
+    return commonCache;
 }
-
 @Test
-  
 public void testCache() throws Exception{
-  
-LoadingCache<String , String> commonCache=commonCache("peida");
-  
-System.out.println("peida:"+commonCache.get("peida"));
-  
-commonCache.apply("harry");
-  
-System.out.println("harry:"+commonCache.get("harry"));
-  
-commonCache.apply("lisa");
-  
-System.out.println("lisa:"+commonCache.get("lisa"));
-  
+    LoadingCache<String , String> commonCache=commonCache("peida");
+    System.out.println("peida:"+commonCache.get("peida"));
+    commonCache.apply("harry");
+    System.out.println("harry:"+commonCache.get("harry"));
+    commonCache.apply("lisa");
+    System.out.println("lisa:"+commonCache.get("lisa"));
 }
+```
 
 输出: 
 
@@ -267,15 +198,17 @@ lisa:hello lisa!
   
 基于泛型的Callable Cache实现: 
   
+```java
 private static Cache<String, String> cacheFormCallable = null;
-  
 /**
+```
   
 * 对需要延迟处理的可以采用这个机制；(泛型的方式封装)
   
+```text
 * @param <K>
-  
 * @param <V>
+```
   
 * @param key
   
@@ -285,75 +218,43 @@ private static Cache<String, String> cacheFormCallable = null;
   
 * @throws Exception
   
+```bash
 */
-  
 public static <K,V> Cache<K , V> callableCached() throws Exception {
-  
-Cache<K, V> cache = CacheBuilder
-  
-.newBuilder()
-  
-.maximumSize(10000)
-  
-.expireAfterWrite(10, TimeUnit.MINUTES)
-  
-.build();
-  
-return cache;
-  
+    Cache<K, V> cache = CacheBuilder
+    .newBuilder()
+    .maximumSize(10000)
+    .expireAfterWrite(10, TimeUnit.MINUTES)
+    .build();
+    return cache;
 }
-  
 private String getCallableCache(final String userName) {
-  
-try {
-  
-//Callable只有在缓存值不存在时,才会调用
-  
-return cacheFormCallable.get(userName, new Callable<String>() {
-  
-@Override
-  
-public String call() throws Exception {
-  
-System.out.println(userName+" from db");
-  
-return "hello "+userName+"!";
-  
+    try {
+        //Callable只有在缓存值不存在时,才会调用
+        return cacheFormCallable.get(userName, new Callable<String>() {
+            @Override
+            public String call() throws Exception {
+                System.out.println(userName+" from db");
+                return "hello "+userName+"!";
+            }
+    });
+    } catch (ExecutionException e) {
+        e.printStackTrace();
+        return null;
+    }
 }
-  
-});
-  
-} catch (ExecutionException e) {
-  
-e.printStackTrace();
-  
-return null;
-  
-}
-  
-}
-
 @Test
-  
 public void testCallableCache() throws Exception{
-  
-final String u1name = "peida";
-  
-final String u2name = "jerry";
-  
-final String u3name = "lisa";
-  
-cacheFormCallable=callableCached();
-  
-System.out.println("peida:"+getCallableCache(u1name));
-  
-System.out.println("jerry:"+getCallableCache(u2name));
-  
-System.out.println("lisa:"+getCallableCache(u3name));
-  
-System.out.println("peida:"+getCallableCache(u1name));
-
+    final String u1name = "peida";
+    final String u2name = "jerry";
+    final String u3name = "lisa";
+    cacheFormCallable=callableCached();
+    System.out.println("peida:"+getCallableCache(u1name));
+    System.out.println("jerry:"+getCallableCache(u2name));
+    System.out.println("lisa:"+getCallableCache(u3name));
+    System.out.println("peida:"+getCallableCache(u1name));
 }
+```
 
 输出: 
   
@@ -408,3 +309,9 @@ expireAfterWrite(long, TimeUnit)  这个方法是根据某个键值对被创建�
 3.移除所有用 Cache.invalidateAll()
   
 如果需要在移除数据的时候有所动作还可以定义Removal Listener,但是有点需要注意的是默认Removal Listener中的行为是和移除动作同步执行的,如果需要改成异步形式,可以考虑使用RemovalListeners.asynchronous(RemovalListener, Executor)
+
+## 维护记录
+
+| 时间 | 修改内容 | 原因 |
+| ---- | -------- | ---- |
+| 2026-10-09 | 修复本地 Hugo 构建的 Raw HTML 警告：代码/配置放入代码块，正文中的尖括号占位符改为行内代码；categories 改为 Java | 正文中的 HTML/XML 片段被当作原始 HTML 丢弃；文件名/URL/标题按规范调整 |

@@ -2,12 +2,15 @@
 title: tomcat server.xml
 author: "-"
 date: 2012-06-02T02:54:38+00:00
+lastmod: 2026-10-09T21:22:13+08:00
 url: tomcat-server-xml-context
 categories:
   - Java
   - Web
 tags:
-  - reprint
+  - tomcat
+  - remix
+  - AI-assisted
 aliases:
   - /p3318/
 ---
@@ -24,40 +27,18 @@ Tomcat隶属于Apache基金会，是开源的轻量级Web应用服务器，使�
   
 server.xml位于$TOMCAT_HOME/conf目录下；下面是一个server.xml实例。后文中将结合该实例讲解server.xml中，各个元素的含义和作用；在阅读后续章节过程中，可以对照该xml文档便于理解。
 
+```xml
 <Server port="8005" shutdown="SHUTDOWN">
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-
 <GlobalNamingResources>
-      
 <Resource name="UserDatabase" auth="Container" type="org.apache.catalina.UserDatabase" description="User database that can be updated and saved" factory="org.apache.catalina.users.MemoryUserDatabaseFactory" pathname="conf/tomcat-users.xml" />
-    
 </GlobalNamingResources>
-
 <Service name="Catalina">
-      
 <Connector port="8080" protocol="HTTP/1.1" connectionTimeout="20000" redirectPort="8443" />
-      
 <Connector port="8009" protocol="AJP/1.3" redirectPort="8443" />
-      
 <Engine name="Catalina" defaultHost="localhost">
-        
 <Realm className="org.apache.catalina.realm.LockOutRealm">
-          
 <Realm className="org.apache.catalina.realm.UserDatabaseRealm" resourceName="UserDatabase"/>
-        
 </Realm>
-
       <Host name="localhost"  appBase="webapps"
             unpackWARs="true" autoDeploy="true">
         <Valve className="org.apache.catalina.valves.AccessLogValve" directory="logs"
@@ -65,11 +46,9 @@ server.xml位于$TOMCAT_HOME/conf目录下；下面是一个server.xml实例。�
                pattern="%h %l %u %t &quot;%r&quot; %s %b" />
       </Host>
     </Engine>
-    
-
 </Service>
-  
 </Server>
+```
   
 二、server.xml文档的元素分类和整体结构
   
@@ -77,28 +56,19 @@ server.xml位于$TOMCAT_HOME/conf目录下；下面是一个server.xml实例。�
   
 server.xml的整体结构如下: 
 
+```xml
 <Server>
-      
 <Service>
-          
 <Connector />
-          
 <Connector />
-          
 <Engine>
-              
 <Host>
-                  
 <Context /><!-- 现在常常使用自动部署，不推荐配置Context元素，Context小节有详细说明 -->
-
-              
 </Host>
-          
 </Engine>
-      
 </Service>
-  
 </Server>
+```
   
 该结构中只给出了Tomcat的核心组件，除了核心组件外，Tomcat还有一些其他组件，下面介绍一下组件的分类。
 
@@ -106,15 +76,15 @@ server.xml的整体结构如下:
   
 server.xml文件中的元素可以分为以下4类: 
 
- (1) 顶层元素: <Server>和<Service>
+ (1) 顶层元素: `<Server>`和`<Service>`
 
-<Server>元素是整个配置文件的根元素，<Service>元素则代表一个Engine元素以及一组与之相连的Connector元素。
+`<Server>`元素是整个配置文件的根元素，`<Service>`元素则代表一个Engine元素以及一组与之相连的Connector元素。
 
- (2) 连接器: <Connector>
+ (2) 连接器: `<Connector>`
 
-<Connector>代表了外部客户端发送请求到特定Service的接口；同时也是外部客户端从特定Service接收响应的接口。
+`<Connector>`代表了外部客户端发送请求到特定Service的接口；同时也是外部客户端从特定Service接收响应的接口。
 
- (3) 容器: <Engine><Host><Context>
+ (3) 容器: `<Engine><Host><Context>`
 
 容器的功能是处理Connector接收进来的请求，并产生相应的响应。Engine、Host和Context都是容器，但它们不是平行的关系，而是父子关系: Engine包含Host，Host包含Context。一个Engine组件可以处理Service中的所有请求，一个Host组件可以处理发向一个特定虚拟主机的所有请求，一个Context组件可以处理一个特定Web应用的所有请求。
 
@@ -130,7 +100,7 @@ server.xml文件中的元素可以分为以下4类:
   
 Server元素在最顶层，代表整个Tomcat容器，因此它必须是server.xml中唯一一个最外层的元素。一个Server元素中可以有一个或多个Service元素。
 
-在第一部分的例子中，在最外层有一个<Server>元素，shutdown属性表示关闭Server的指令；port属性表示Server接收shutdown指令的端口号，设为-1可以禁掉该端口。
+在第一部分的例子中，在最外层有一个`<Server>`元素，shutdown属性表示关闭Server的指令；port属性表示Server接收shutdown指令的端口号，设为-1可以禁掉该端口。
 
 Server的主要任务，就是提供一个接口让客户端能够访问到这个Service集合，同时维护它所包含的所有的Service的声明周期，包括如何初始化、如何结束服务、如何找到客户端要访问的Service。
 
@@ -146,9 +116,10 @@ Connector的主要功能，是接收连接请求，创建Request和Response对�
 
 通过配置Connector，可以控制请求Service的协议及端口号。在第一部分的例子中，Service包含两个Connector: 
 
+```xml
 <Connector port="8080" protocol="HTTP/1.1" connectionTimeout="20000" redirectPort="8443" />
-  
 <Connector port="8009" protocol="AJP/1.3" redirectPort="8443" />
+```
   
  (1) 通过配置第1个Connector，客户端可以通过8080端口号使用http协议访问Tomcat。其中，protocol属性规定了请求的协议，port规定了请求的端口号，redirectPort表示当强制要求https而请求是http时，重定向至端口号为8443的Connector，connectionTimeout表示连接的超时时间。
 
@@ -164,7 +135,9 @@ Engine组件在Service组件中有且只有一个；Engine是Service组件中的
 
 在第一部分的例子中，Engine的配置语句如下: 
 
+```xml
 <Engine name="Catalina" defaultHost="localhost">
+```
   
 其中，name属性用于日志和错误信息，在整个Server中应该唯一。defaultHost属性指定了默认的host名称，当发往本机的请求指定的host名称不存在时，一律使用defaultHost指定的host进行处理；因此，defaultHost的值，必须与Engine中的一个Host组件的name属性值匹配。
 
@@ -186,7 +159,9 @@ Host组件代表的虚拟主机，对应了服务器中一个网络名实体(如
 
 在第一部分的例子中，Host的配置如下: 
 
+```xml
 <Host name="localhost" appBase="webapps" unpackWARs="true" autoDeploy="true">
+```
   
 下面对其中配置的属性进行说明: 
 
@@ -216,7 +191,7 @@ Host的配置
 
 其中，appBase属性指定Web应用所在的目录，默认值是webapps，这是一个相对路径，代表Tomcat根目录下webapps文件夹。
 
-xmlBase属性指定Web应用的XML配置文件所在的目录，默认值为conf/<engine_name>/<host_name>，例如第一部分的例子中，主机localhost的xmlBase的默认值是$TOMCAT_HOME/conf/Catalina/localhost。
+xmlBase属性指定Web应用的XML配置文件所在的目录，默认值为conf/`<engine_name>`/`<host_name>`，例如第一部分的例子中，主机localhost的xmlBase的默认值是$TOMCAT_HOME/conf/Catalina/localhost。
 
 检查Web应用更新
 
@@ -230,7 +205,7 @@ B、扫描虚拟主机指定的appBase下的WAR文件
 
 C、扫描虚拟主机指定的appBase下的应用目录
 
-<Context>元素的配置
+`<Context>`元素的配置
 
 Context元素最重要的属性是docBase和path，此外reloadable属性也比较常用。
 
@@ -244,7 +219,9 @@ reloadable属性指示tomcat是否在运行时监控在WEB-INF/classes和WEB-INF
 
 下面来看自动部署时，xmlBase下的XML配置文件app1.xml的例子: 
 
+```xml
 <Context docBase="D:\Program Files\app1.war" reloadable="true"/>
+```
   
 在该例子中，docBase位于Host的appBase目录之外；path属性没有指定，而是根据app1.xml自动推导为"app1"；由于是在开发环境下，因此reloadable设置为true，便于开发调试。
 
@@ -256,11 +233,13 @@ reloadable属性指示tomcat是否在运行时监控在WEB-INF/classes和WEB-INF
 
  (3) server.xml中静态部署Web应用
 
-除了自动部署，我们也可以在server.xml中通过<context>元素静态部署Web应用。静态部署与自动部署是可以共存的。在实际应用中，并不推荐使用静态部署，因为server.xml 是不可动态重加载的资源，服务器一旦启动了以后，要修改这个文件，就得重启服务器才能重新加载。而自动部署可以在Tomcat运行时通过定期的扫描来实现，不需要重启服务器。
+除了自动部署，我们也可以在server.xml中通过`<context>`元素静态部署Web应用。静态部署与自动部署是可以共存的。在实际应用中，并不推荐使用静态部署，因为server.xml 是不可动态重加载的资源，服务器一旦启动了以后，要修改这个文件，就得重启服务器才能重新加载。而自动部署可以在Tomcat运行时通过定期的扫描来实现，不需要重启服务器。
 
 server.xml中使用Context元素配置Web应用，Context元素应该位于Host元素中。举例如下: 
 
+```xml
 <Context path="/" docBase="D:\Program Files \app1.war" reloadable="true"/>
+```
   
 docBase: 静态部署时，docBase可以在appBase目录下，也可以不在；本例中，docBase不在appBase目录下。
 
@@ -308,9 +287,9 @@ Service确定后，Tomcat在Service中寻找名称与域名/IP地址匹配的Hos
 
 在server.xml中配置多服务的方法非常简单，分为以下几步: 
 
- (1) 复制<Service>元素，放在当前<Service>后面。
+ (1) 复制`<Service>`元素，放在当前`<Service>`后面。
 
- (2) 修改端口号: 根据需要监听的端口号修改<Connector>元素的port属性；必须确保该端口没有被其他进程占用，否则Tomcat启动时会报错，而无法通过该端口访问Web应用。
+ (2) 修改端口号: 根据需要监听的端口号修改`<Connector>`元素的port属性；必须确保该端口没有被其他进程占用，否则Tomcat启动时会报错，而无法通过该端口访问Web应用。
 
 以Win7为例，可以用如下方法找出某个端口是否被其他进程占用: netstat -aon|findstr "8081″发现8081端口被PID为2064的进程占用，tasklist |findstr "2064″发现该进程为FrameworkService.exe(这是McAfee杀毒软件的进程)。
 
@@ -324,73 +303,38 @@ Service确定后，Tomcat在Service中寻找名称与域名/IP地址匹配的Hos
 
 以第一部分的server.xml为例，多个Service的配置如下: 
 
+```xml
 <?xml version='1.0' encoding='utf-8'?>
-  
 <Server port="8005" shutdown="SHUTDOWN">
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-
 <GlobalNamingResources>
-      
 <Resource name="UserDatabase" auth="Container" type="org.apache.catalina.UserDatabase" description="User database that can be updated and saved" factory="org.apache.catalina.users.MemoryUserDatabaseFactory" pathname="conf/tomcat-users.xml" />
-    
 </GlobalNamingResources>
-
 <Service name="Catalina">
-      
 <Connector port="8080" protocol="HTTP/1.1" connectionTimeout="20000" redirectPort="8443" />
-      
 <Connector port="8009" protocol="AJP/1.3" redirectPort="8443" />
-      
 <Engine name="Catalina" defaultHost="localhost">
-        
 <Realm className="org.apache.catalina.realm.LockOutRealm">
-          
 <Realm className="org.apache.catalina.realm.UserDatabaseRealm" resourceName="UserDatabase"/>
-        
 </Realm>
-
       <Host name="localhost"  appBase="/opt/project/webapps" unpackWARs="true" autoDeploy="true">
         <Valve className="org.apache.catalina.valves.AccessLogValve" directory="logs" prefix="localhost_access_log." suffix=".txt" pattern="%h %l %u %t &quot;%r&quot; %s %b" />
       </Host>
     </Engine>
-    
-
 </Service>
-
 <Service name="Catalina2">
-      
 <Connector port="8084" protocol="HTTP/1.1" connectionTimeout="20000" redirectPort="8443" />
-      
 <Connector port="8010" protocol="AJP/1.3" redirectPort="8443" />
-      
 <Engine name="Catalina2" defaultHost="localhost">
-        
 <Realm className="org.apache.catalina.realm.LockOutRealm">
-          
 <Realm className="org.apache.catalina.realm.UserDatabaseRealm" resourceName="UserDatabase"/>
-        
 </Realm>
-
       <Host name="localhost"  appBase="/opt/project/webapps2" unpackWARs="true" autoDeploy="true">
         <Valve className="org.apache.catalina.valves.AccessLogValve" directory="logs" prefix="localhost_access_log." suffix=".txt" pattern="%h %l %u %t &quot;%r&quot; %s %b" />
       </Host>
     </Engine>
-    
-
 </Service>
-  
 </Server>
+```
   
 再将原webapps下的docs目录拷贝到webapps2中，则通过如下两个接口都可以访问docs应用: 
 
@@ -403,19 +347,7 @@ http://localhost:8084/docs/
 除核心组件外，server.xml中还可以配置很多其他组件。下面只介绍第一部分例子中出现的组件，如果要了解更多内容，可以查看Tomcat官方文档。
 
 1. Listener
-  
 
-    
-
-    
-
-    
-
-    
-
-    
-
-  
 Listener(即监听器)定义的组件，可以在特定事件发生时执行特定的操作；被监听的事件通常是Tomcat的启动和停止。
 
 监听器可以在Server、Engine、Host或Context中，本例中的监听器都是在Server中。实际上，本例中定义的6个监听器，都只能存在于Server组件中。监听器不允许内嵌其他组件。
@@ -440,19 +372,19 @@ ThreadLocalLeakPreventionListener: 当Web应用因thread-local导致的内存泄
   
 第一部分的例子中，Engine组件下定义了Realm组件: 
 
+```xml
 <Realm className="org.apache.catalina.realm.LockOutRealm">
-          
 <Realm className="org.apache.catalina.realm.UserDatabaseRealm" resourceName="UserDatabase"/>
-  
 </Realm>
+```
   
 Realm，可以把它理解成"域"；Realm提供了一种用户密码与web应用的映射关系，从而达到角色安全管理的作用。在本例中，Realm的配置使用name为UserDatabase的资源实现。而该资源在Server元素中使用GlobalNamingResources配置: 
 
+```xml
 <GlobalNamingResources>
-      
 <Resource name="UserDatabase" auth="Container" type="org.apache.catalina.UserDatabase" description="User database that can be updated and saved" factory="org.apache.catalina.users.MemoryUserDatabaseFactory" pathname="conf/tomcat-users.xml" />
-    
 </GlobalNamingResources>
+```
   
 GlobalNamingResources元素定义了全局资源，通过配置可以看出，该配置是通过读取$TOMCAT_HOME/ conf/tomcat-users.xml实现的。
 
@@ -462,7 +394,9 @@ GlobalNamingResources元素定义了全局资源，通过配置可以看出，�
   
 在第一部分的例子中，Host元素内定义了Valve组件: 
 
+```xml
 <Valve className="org.apache.catalina.valves.AccessLogValve" directory="logs" prefix="localhost_access_log." suffix=".txt" pattern="%h %l %u %t "%r" %s %b" />
+```
   
 单词Valve的意思是"阀门"，在Tomcat中代表了请求处理流水线上的一个组件；Valve可以与Tomcat的容器(Engine、Host或Context)关联。
 
@@ -513,3 +447,9 @@ Tomcat官方文档
 Tomcat 6 —— Realm域管理
   
 Tomcat Port 8009 与AJP13协议
+
+## 维护记录
+
+| 时间 | 修改内容 | 原因 |
+| ---- | -------- | ---- |
+| 2026-10-09 | 修复本地 Hugo 构建的 Raw HTML 警告：代码/配置放入代码块，正文中的尖括号占位符改为行内代码 | 正文中的 HTML/XML 片段被当作原始 HTML 丢弃；文件名/URL/标题按规范调整 |

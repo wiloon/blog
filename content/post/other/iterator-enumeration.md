@@ -2,12 +2,14 @@
 title: Iterator, Enumeration
 author: "-"
 date: 2015-06-27T14:56:25+00:00
+lastmod: 2026-10-09T21:22:13+08:00
 url: iterator-enumeration
 categories:
-  - Inbox
+  - Java
 tags:
   - Java
-
+  - remix
+  - AI-assisted
 aliases:
   - /p7910/
 ---
@@ -23,29 +25,24 @@ Iterator和Enumeration区别
 
 Enumeration是一个接口，它的源码如下:
   
+```java
 package java.util;
-
 public interface Enumeration<E> {
-
-boolean hasMoreElements();
-
-E nextElement();
-  
+    boolean hasMoreElements();
+    E nextElement();
 }
+```
 
 Iterator也是一个接口，它的源码如下:
   
+```java
 package java.util;
-
 public interface Iterator<E> {
-  
-boolean hasNext();
-
-E next();
-
-void remove();
-  
+    boolean hasNext();
+    E next();
+    void remove();
 }
+```
 
 看完代码了，我们再来说说它们之间的区别。
 
@@ -78,3 +75,9 @@ time: 5ms
 从中，我们可以看出。Enumeration 比 Iterator 的遍历速度更快。为什么呢？
   
 这是因为，Hashtable中Iterator是通过Enumeration去实现的，而且Iterator添加了对fail-fast机制的支持；所以，执行的操作自然要多一些。
+
+## 维护记录
+
+| 时间 | 修改内容 | 原因 |
+| ---- | -------- | ---- |
+| 2026-10-09 | 修复本地 Hugo 构建的 Raw HTML 警告：代码/配置放入代码块，正文中的尖括号占位符改为行内代码；categories 改为 Java | 正文中的 HTML/XML 片段被当作原始 HTML 丢弃；文件名/URL/标题按规范调整 |

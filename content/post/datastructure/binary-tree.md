@@ -2,7 +2,7 @@
 title: "Binary Tree and BST 二叉树与二叉搜索树"
 author: "-"
 date: 2021-07-25T10:00:55+08:00
-lastmod: 2026-09-15T14:59:00+08:00
+lastmod: 2026-10-09T21:22:13+08:00
 url: binary-tree
 categories:
   - Algorithm
@@ -384,10 +384,10 @@ B 树 / B+ 树是平衡多路搜索树，不是二叉树。数据库索引、文
 
 ### 二叉树的一些性质
 
-- 第 i 层上至多有 2<sup>i−1</sup> 个节点（i ≥ 1）
-- 深度为 k 的二叉树至多有 2<sup>k</sup> − 1 个节点（k ≥ 1）
-- 叶子节点数为 n<sub>0</sub>、度为 2 的节点数为 n<sub>2</sub> 时，有 n<sub>0</sub> = n<sub>2</sub> + 1
-- 具有 n 个节点的完全二叉树深度为 ⌊log<sub>2</sub> n⌋ + 1
+- 第 i 层上至多有 \(2^{i-1}\) 个节点（i ≥ 1）
+- 深度为 k 的二叉树至多有 \(2^k - 1\) 个节点（k ≥ 1）
+- 叶子节点数为 \(n_0\)、度为 2 的节点数为 \(n_2\) 时，有 \(n_0 = n_2 + 1\)
+- 具有 n 个节点的完全二叉树深度为 \(\lfloor \log_2 n \rfloor + 1\)
 
 ### 存储结构
 
@@ -472,3 +472,4 @@ Go 版 BST 的中序结果见 [`BST.InOrder`](https://github.com/wiloon/leetcode
 | ---- | -------- | ---- |
 | 2026-07-14 | 「AVL 与常见自平衡树」一节补充内链至新文章 [AVL Tree, AVL 树](./avl-tree.md) 与 [Red-Black Tree, 红黑树](./red-black-tree.md) | `inbox/平衡二叉树.md` 已整理为正式文章 avl-tree.md，与本文形成完整的平衡树系列，互相内链 |
 | 2026-09-15 | 正文统一称「二叉搜索树」；补充 BST 默认不保证平衡、不必加「平衡」前缀 | 与 CLRS / 力扣 / 维基译名对齐；避免把普通 BST 和自平衡 BST 混为一谈 |
+| 2026-10-09 | 修复本地 Hugo 构建的 Raw HTML 警告：代码/配置放入代码块，正文中的尖括号占位符改为行内代码 | 正文中的 HTML/XML 片段被当作原始 HTML 丢弃；文件名/URL/标题按规范调整 |

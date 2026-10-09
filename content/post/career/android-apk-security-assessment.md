@@ -28,7 +28,7 @@ tags:
 
 拿到 APK 之后，我先去查了 Android APK 逆向的相关资料。
 
-APK 文件本质上是一个 zip 包，解压后可以看到 `classes.dex`——这是 Android Dalvik 虚拟机的字节码文件，而不是标准 Java 的 `.class` 文件。逆向的第一步是用 [dex2jar](../language/java/dex2jar.md) 把 `classes.dex` 转换成普通的 jar 包，再用 [jd-gui 等 Java 反编译工具](../language/java/java-decompiler-tools.md)将 jar 里的 `.class` 文件反编译成可读的 Java 源码。具体流程可以参考我当时整理的 [Android APK 反编译](../cs/android/android-apk-decompile.md)。
+APK 文件本质上是一个 zip 包，解压后可以看到 `classes.dex`——这是 Android Dalvik 虚拟机的字节码文件，而不是标准 Java 的 `.class` 文件。逆向的第一步是用 [dex2jar](../language/java/dex2jar.md) 把 `classes.dex` 转换成普通的 jar 包，再用 [jd-gui 等 Java 反编译工具](../language/java/decompiler-tools.md)将 jar 里的 `.class` 文件反编译成可读的 Java 源码。具体流程可以参考我当时整理的 [Android APK 反编译](../cs/android/android-apk-decompile.md)。
 
 第一版 APK 虽然有一些保护措施——把部分逻辑封装成单独的 jar 包作为依赖，密钥也不是直接明文写死，而是在运行时动态加载/生成——但通过反编译拿到全部源码之后，这些都可以被分析清楚。我新建了一个 Java 工程，把 APK 里的密钥加载逻辑复制进去单独执行，成功还原出了被保护的密钥。
 

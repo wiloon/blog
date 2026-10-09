@@ -23,7 +23,7 @@ aliases:
 - GC 分代模型、回收算法、收集器与发展时间线 → [Java GC](./gc.md)
 - HotSpot 启动参数（堆、分代比例、GC 日志、收集器选择等）→ [HotSpot JVM 启动参数](./hotspot-options.md)
 - 堆、栈、方法区基础概念 → [Java 堆栈方法区](./java-heap-stack-method.md)
-- 强引用 / 软引用 / 弱引用 / 虚引用 → [Java 引用类型](./java-强引用-软引用-弱引用-虚引用.md)
+- 强引用 / 软引用 / 弱引用 / 虚引用 → [Java 引用类型](./reference-types.md)
 - 生产环境诊断工具（Arthas、async-profiler、JFR 等）→ [Java 生产环境诊断工具选型](./java-production-diagnostics-tooling.md)
 
 本文只保留原文中站内暂未覆盖的部分：对象内存布局与大小计算、一份历史调优配置示例、内存泄漏排查思路，以及关于 JVM 内存设计的一点延伸思考。

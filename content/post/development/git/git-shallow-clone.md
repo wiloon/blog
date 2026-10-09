@@ -148,7 +148,7 @@ done
 
 ## 相关
 
-- [Git 常用命令](./git-commands.md)
+- [Git 常用命令](./commands.md)
 - [Git Worktree](./git-worktree.md)
 - [git-clone 文档](https://git-scm.com/docs/git-clone)
 - [git-sparse-checkout 文档](https://git-scm.com/docs/git-sparse-checkout)

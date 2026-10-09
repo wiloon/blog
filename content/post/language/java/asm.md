@@ -174,7 +174,7 @@ return writer.toByteArray();
 | ----------------- | --------------------------------------------------------------------------------------------------------------------------- |
 | 诊断 / 观测       | BTrace、async-profiler、部分 `-javaagent` 监控                                                                              |
 | 交互式临时改行为  | Arthas `watch`、`trace`、`return`/`mock`（有范围与版本限制）                                                                |
-| 开发期热替换      | IDE HotSwap（[JPDA](./java-debug-JPDA.md)）、JRebel、[开发期热替换](../../cs/dcevm-hotswapagent.md)（DCEVM + HotSwapAgent） |
+| 开发期热替换      | IDE HotSwap（[JPDA](./debug-jpda.md)）、JRebel、[开发期热替换](../../cs/dcevm-hotswapagent.md)（DCEVM + HotSwapAgent） |
 | `redefineClasses` | 用新字节码替换已加载类；整段方法实现可换成新逻辑，但需满足 JVM 校验（签名、结构变更等有限制，标准 HotSpot 比 DCEVM 严）     |
 
 对不能停机的关键系统：

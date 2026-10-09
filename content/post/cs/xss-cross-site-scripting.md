@@ -2,8 +2,8 @@
 title: XSS, Cross Site Scripting, CSRF, Cross-site request forgery, CORS
 author: "-"
 date: 2018-12-13T06:38:16.000+00:00
-lastmod: 2026-07-02T18:20:33+08:00
-url: XSS
+lastmod: 2026-10-09T21:22:13+08:00
+url: xss
 categories:
 - Web
 tags:
@@ -13,6 +13,8 @@ tags:
   - security
   - remix
   - AI-assisted
+aliases:
+  - /XSS/
 ---
 ## CORS, XSS, Cross Site Scripting, CSRF, Cross-site request forgery
 
@@ -48,7 +50,7 @@ http://example.com/page.html	                ❌ 不同源	域名不同 (缺少 
 1. DOM 访问限制
 不同源的网页不能通过 JavaScript 访问对方的 DOM:
 
-```bash
+```javascript
 // 页面 A: http://example.com
 // 页面 B: http://other.com (在 iframe 中)
 const iframe = document.getElementById('myIframe');
@@ -73,14 +75,16 @@ fetch('http://api.other.com/data')
 不受同源策略限制的情况
 以下资源可以跨域加载:
 
+```html
 <script> 标签: <script src="http://other.com/script.js"></script>
 <link> 标签: <link href="http://other.com/style.css">
 <img> 标签: <img src="http://other.com/image.jpg">
-<video> 和 <audio> 标签
-<iframe> 标签: 可以嵌入,但无法访问内容
-@font-face 字体文件
-表单提交: <form action="http://other.com/submit">
+```
 
+`<video>` 和 `<audio>` 标签
+`<iframe>` 标签: 可以嵌入,但无法访问内容
+@font-face 字体文件
+表单提交: `<form action="http://other.com/submit">`
 
 2. 跨域问题
 当前端代码(如 https://example.com)需要请求不同源的 API(如 https://api.other.com)时,浏览器会阻止这个请求。
@@ -105,7 +109,6 @@ CORS 需要浏览器和服务器同时支持。目前，所有浏览器都支持
 因此，实现 CORS 通信的关键是服务器。只要服务器实现了 CORS 接口，就可以跨源通信。
 
 [https://www.ruanyifeng.com/blog/2016/04/cors.html](https://www.ruanyifeng.com/blog/2016/04/cors.html)
-
 
 [https://www.ruanyifeng.com/blog/2016/04/cors.html](https://www.ruanyifeng.com/blog/2016/04/cors.html)  
 [https://tech.meituan.com/2018/09/27/fe-security.html](https://tech.meituan.com/2018/09/27/fe-security.html)  
@@ -202,17 +205,22 @@ body0
 Access-Control-Allow-Credentials: true
 另一方面，开发者必须在AJAX请求中打开withCredentials属性。
 
+```javascript
 var xhr = new XMLHttpRequest();
 xhr.withCredentials = true;
+```
+
 否则，即使服务器同意发送Cookie，浏览器也不会发送。或者，服务器要求设置Cookie，浏览器也不会处理。
 
 但是，如果省略withCredentials设置，有的浏览器还是会一起发送Cookie。这时，可以显式关闭withCredentials。
 
+```javascript
 xhr.withCredentials = false;
+```
+
 需要注意的是，如果要发送Cookie，Access-Control-Allow-Origin就不能设为星号，必须指定明确的、与请求网页一致的域名。同时，Cookie依然遵循同源政策，只有用服务器域名设置的Cookie才会上传，其他域名的Cookie并不会上传，且 (跨源）原网页代码中的document.cookie也无法读取服务器域名下的Cookie。
 
 >[https://www.ruanyifeng.com/blog/2016/04/cors.html](https://www.ruanyifeng.com/blog/2016/04/cors.html)
-
 
 ## XSS, Cross Site Scripting(CSS), CSRF, Cross-site request forgery， 跨站脚本攻击, CORS
 
@@ -280,4 +288,4 @@ CSRF 常被误解为"A 站读到了 B 站的 cookie，再发给 B 站"或者"把
 | 时间 | 修改内容 | 原因 |
 | ---- | -------- | ---- |
 | 2026-07-02 | 补充 lastmod；标签由 reprint 改为具体技术标签（xss/csrf/cors/security）+ remix + AI-assisted；在 CSRF 小节新增站内相关文章链接，并补充「CSRF 本质是浏览器自动附带 cookie、而非跨站读取转发」及「CSRF 会造成真实损失」的辨析 | 便于与站内其他 CSRF/JWT 相关文章互相跳转；澄清读者常见的两个误解 |
-
+| 2026-10-09 | 修复本地 Hugo 构建的 Raw HTML 警告：代码/配置放入代码块，正文中的尖括号占位符改为行内代码；url 改为 `xss`；旧 url 加入 aliases | 正文中的 HTML/XML 片段被当作原始 HTML 丢弃；文件名/URL/标题按规范调整 |

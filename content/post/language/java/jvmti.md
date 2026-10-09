@@ -36,7 +36,7 @@ tags:
 | JVMDI | 调试 |
 | JVMPI | 性能分析 |
 
-JDK 5+ 由 **JVMTI** 统一替代（见 [JPDA](./java-debug-JPDA.md) 文中的历史说明）。
+JDK 5+ 由 **JVMTI** 统一替代（见 [JPDA](./debug-jpda.md) 文中的历史说明）。
 
 ## 与 JPDA、Instrumentation 的关系
 
@@ -59,7 +59,7 @@ java.lang.instrument（Java Agent，premain/agentmain）
 
 三者都落在 **同一 JVM 进程** 里，但入口不同：写 Java 诊断 agent 用 `instrument` + [Attach](./attach-api.md)；写调试器走 **JPDA**；写 native 库 agent 用 **JVMTI** + `loadAgentLibrary`。
 
-详见 [JAVA 调试与 JPDA](./java-debug-JPDA.md)、[Java ASM 与运行时字节码织入](./asm.md)。
+详见 [JAVA 调试与 JPDA](./debug-jpda.md)、[Java ASM 与运行时字节码织入](./asm.md)。
 
 ## 与 Attach、BTrace 的关系
 
@@ -73,5 +73,5 @@ BTrace、async-profiler 等多数是 **JAR agent + instrument**，不是手写 J
 
 - [Java Platform Debugger Architecture](https://docs.oracle.com/javase/8/docs/technotes/guides/jpda/)（JPDA 总览）
 - [JVMTI 说明（OpenJDK）](https://openjdk.org/groups/hotspot/docs/Serviceability.html)
-- [JPDA 与远程调试](./java-debug-JPDA.md)
+- [JPDA 与远程调试](./debug-jpda.md)
 - [Attach API](./attach-api.md)

@@ -2,7 +2,7 @@
 title: MANIFEST.MF
 author: "-"
 date: 2012-04-08T11:42:35+00:00
-lastmod: 2026-06-27T04:52:28+08:00
+lastmod: 2026-10-09T21:22:13+08:00
 url: manifest-mf
 categories:
   - Java
@@ -88,11 +88,13 @@ Spring Boot 可执行 JAR 中 `Main-Class` / `Start-Class` 的分工，以及 JV
 1. Extendsion-List
 该属性指定了小程序需要的扩展信息列表，列表中的每个名字对应以下的属性
   
+```text
 2. <extension>-Extension-Name
 3. <extension>-Specification-Version
 4. <extension>-Implementation-Version
 5. <extension>-Implementation-Vendor-Id
 5. <extension>-Implementation-URL
+```
 
 ### 扩展标识属性
 1. Extension-Name
@@ -126,9 +128,10 @@ Name: javax/mail/Address.class
   
 Digest-Algorithms: SHA MD5
   
+```text
 SHA-Digest: AjR7RqnN//cdYGouxbd06mSVfI4=
-  
 MD5-Digest: ZnTIQ2aQAtSNIOWXI1pQpw==
+```
 
 这段内容定义类签名的类名、计算摘要的算法名以及对应的摘要内容(使用BASE64方法进行编码)
 
@@ -140,7 +143,9 @@ MicroEdition-Configuration: CLDC-1.0
   
 MIDlet-Name: J2ME_MOBBER Midlet Suite
   
+```text
 MIDlet-Info-URL: [http://www.javayou.com/](http://www.javayou.com/)
+```
   
 MIDlet-Icon: /icon.png
   
@@ -165,3 +170,4 @@ MIDlet-Description: Communicator
 | 时间 | 修改内容 | 原因 |
 | ---- | -------- | ---- |
 | 2026-06-27 | 顶部新增「字段速查」（含 Spring Boot `Start-Class`、72 字节/空行结尾等格式规则）与「历史」小节；删除 reprint 标签 | 合并 comments-tree 启动打包文档的 MANIFEST.MF 章节 |
+| 2026-10-09 | 修复本地 Hugo 构建的 Raw HTML 警告：代码/配置放入代码块，正文中的尖括号占位符改为行内代码 | 正文中的 HTML/XML 片段被当作原始 HTML 丢弃；文件名/URL/标题按规范调整 |

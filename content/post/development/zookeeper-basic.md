@@ -2,15 +2,20 @@
 title: zookeeper
 author: "-"
 date: 2015-01-14T09:32:00+00:00
+lastmod: 2026-10-09T21:22:13+08:00
 url: zookeeper
 categories:
-  - Inbox
+  - Cloud
 tags:
-  - reprint
+  - zookeeper
+  - remix
+  - AI-assisted
 ---
 ## zookeeper
 
+```text
 [16/11/21 03:20:30:030 CST] main-SendThread(192.168.50.100:2181)  WARN zookeeper.ClientCnxn: Session 0x0 for server 192.168.50.100/<unresolved>:2181, unexpected error, closing socket connection and attempting reconnect
+```
 
 检查zookeeper包版本和连接的服务端版本，有可能是版本不一致
 [https://blog.csdn.net/richie696/article/details/112910751](https://blog.csdn.net/richie696/article/details/112910751)
@@ -329,3 +334,9 @@ Imok
 ```bash
 sed -i '/sessionTimeout/s/300/1440/g' /var/app/config.cfg
 ```
+
+## 维护记录
+
+| 时间 | 修改内容 | 原因 |
+| ---- | -------- | ---- |
+| 2026-10-09 | 修复本地 Hugo 构建的 Raw HTML 警告：代码/配置放入代码块，正文中的尖括号占位符改为行内代码；categories 改为 Cloud | 正文中的 HTML/XML 片段被当作原始 HTML 丢弃；文件名/URL/标题按规范调整 |

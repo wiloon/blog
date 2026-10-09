@@ -1,5 +1,5 @@
 baseURL = "https://wiloon.com/"
-languageCode = "en"
+locale = "en"
 defaultContentLanguage = "en"
 title = "W10N"
 theme = "PaperMod"
@@ -97,6 +97,11 @@ hasCJKLanguage = true
   name = "搜索"
   url = "/search/"
   weight = 60
+
+[[menu.main]]
+  name = "RSS"
+  url = "/index.xml"
+  weight = 70
 
 # PaperMod 主题参数
 [params]

@@ -1,0 +1,66 @@
+{{- if (not site.Params.disableThemeToggle) }}
+<script>
+    // Three-state theme toggle: auto (follow system) -> light -> dark -> auto.
+    // Also keeps giscus in sync with the page theme.
+    (function () {
+        const html = document.documentElement;
+        const mql = window.matchMedia('(prefers-color-scheme: dark)');
+        const MODES = ['auto', 'light', 'dark'];
+        const TITLES = { auto: '主题：跟随系统', light: '主题：亮色', dark: '主题：暗色' };
+
+        function getMode() {
+            try {
+                return localStorage.getItem('pref-theme') || 'auto';
+            } catch (e) {
+                return 'auto';
+            }
+        }
+
+        function apply(mode) {
+            html.dataset.themeMode = mode;
+            html.dataset.theme = mode === 'auto' ? (mql.matches ? 'dark' : 'light') : mode;
+            const btn = document.getElementById('theme-toggle');
+            if (btn) btn.title = TITLES[mode] + ' (Alt + T)';
+        }
+
+        // Replace PaperMod's two-state button (cloning drops its click listener).
+        // Deferred: PaperMod attaches its listener in footer.html after this partial.
+        document.addEventListener('DOMContentLoaded', () => {
+            const old = document.getElementById('theme-toggle');
+            if (!old) return;
+            const btn = old.cloneNode(true);
+            btn.insertAdjacentHTML('beforeend',
+                '<svg class="auto" xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" ' +
+                'fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">' +
+                '<circle cx="12" cy="12" r="9"></circle><path d="M12 3a9 9 0 0 0 0 18z" fill="currentColor"></path></svg>');
+            btn.setAttribute('aria-label', 'Switch theme: auto / light / dark');
+            old.replaceWith(btn);
+            btn.addEventListener('click', () => {
+                const next = MODES[(MODES.indexOf(getMode()) + 1) % MODES.length];
+                try {
+                    if (next === 'auto') localStorage.removeItem('pref-theme');
+                    else localStorage.setItem('pref-theme', next);
+                } catch (e) {}
+                apply(next);
+            });
+            apply(getMode());
+        });
+
+        // Follow system changes live, only in auto mode.
+        mql.addEventListener('change', () => {
+            if (getMode() === 'auto') apply('auto');
+        });
+
+        function syncGiscus() {
+            const frame = document.querySelector('iframe.giscus-frame');
+            if (!frame) return;
+            frame.contentWindow.postMessage(
+                { giscus: { setConfig: { theme: html.dataset.theme === 'dark' ? 'dark' : 'light' } } },
+                'https://giscus.app'
+            );
+        }
+
+        new MutationObserver(syncGiscus).observe(html, { attributes: true, attributeFilter: ['data-theme'] });
+    })();
+</script>
+{{- end }}

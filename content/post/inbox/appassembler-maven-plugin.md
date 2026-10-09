@@ -2,11 +2,14 @@
 title: appassembler-maven-plugin
 author: "-"
 date: 2016-01-05T01:51:35+00:00
+lastmod: 2026-10-09T21:22:13+08:00
 url: appassembler-maven-plugin
 categories:
-  - Inbox
+  - Java
 tags:
-  - reprint
+  - maven
+  - remix
+  - AI-assisted
 aliases:
   - /p8630/
 ---
@@ -28,60 +31,35 @@ appassembler的配置比较简单,在pom.xml的配置文件加入插件配置。
 
 比如说不同的启动脚本,可以如下配置
 
-Xml代码
-  
+```xml
 <plugin>
-  
 <groupId>org.codehaus.mojo</groupId>
-  
 appassembler-maven-plugin</artifactId>
-  
 <version>1.2.1</version>
-  
 <configuration>
-  
 <configurationDirectory>conf</configurationDirectory>
-  
 <configurationSourceDirectory>src/main/resources</configurationSourceDirectory>
-  
 <copyConfigurationDirectory>true</copyConfigurationDirectory>
-  
 <includeConfigurationDirectoryInClasspath>true</includeConfigurationDirectoryInClasspath>
-  
 ${project.build.directory}/chj-search-client</assembleDirectory>
-  
 <extraJvmArguments>-Xms128m</extraJvmArguments>
-  
 <binFileExtensions>
-  
 <unix>.sh</unix>
-  
 </binFileExtensions>
-  
 <platforms>
-  
 <platform>windows</platform>
-  
 <platform>unix</platform>
-  
 </platforms>
-  
 <repositoryName>lib</repositoryName>
-  
 <programs>
-  
 <program>
-  
 <mainClass>com.chj360.search.client.App</mainClass>
-  
 </program>
-  
 </programs>
-  
 </configuration>
-  
 </plugin>
-  
+```
+
 然后运行maven命令 :mvn package appassembler:assemble
 
 就可以自动生成整个的依赖文件,配置文件和运行脚本了。
@@ -108,164 +86,93 @@ programs: 这个必须参数,启动的主class
 
 eg:
 
-Xml代码
-  
+```xml
 <plugin>
-  
 <groupId>org.codehaus.mojo</groupId>
-  
 appassembler-maven-plugin</artifactId>
-  
 <version>1.2.1</version>
-  
 <configuration>
-  
 <repositoryLayout>flat</repositoryLayout>
-  
 <repositoryName>lib</repositoryName>
-  
 <includeConfigurationDirectoryInClasspath>true</includeConfigurationDirectoryInClasspath>
-  
 <copyConfigurationDirectory>src/main/resources</copyConfigurationDirectory>
-  
 <target>${project.build.directory}</target>
-  
 <daemons>
-  
 <daemon>
-  
 <id>chj-search-client</id>
-  
 <mainClass>com.chj360.search.client.App</mainClass>
-  
 <commandLineArguments>
-  
 <commandLineArgument>start</commandLineArgument>
-  
 </commandLineArguments>
-  
 <platforms>
-  
 <platform>jsw</platform>
-  
 </platforms>
-  
 <generatorConfigurations>
-  
 <generatorConfiguration>
-  
 <generator>jsw</generator>
-  
 <includes>
-  
 <include>linux-x86-32</include>
-  
 <include>linux-x86-64</include>
-  
 <include>windows-x86-32</include>
-  
 <include>windows-x86-64</include>
-  
 </includes>
-  
 <configuration>
-  
 <property>
-  
 <name>configuration.directory.in.classpath.first</name>
-  
 <value>etc</value>
-  
 </property>
-  
 <property>
-  
 <name>set.default.REPO_DIR</name>
-  
 <value>lib</value>
-  
 </property>
-  
 <property>
-  
 <name>wrapper.logfile</name>
-  
 <value>../logs/wrapper.log</value>
-  
 </property>
-  
 <property>
-  
 <name>run.as.user.envvar</name>
-  
 <value>johndoe</value>
-  
 </property>
-  
 </configuration>
-  
 </generatorConfiguration>
-  
 </generatorConfigurations>
-  
 <jvmSettings>
-  
 <initialMemorySize>256M</initialMemorySize>
-  
 <maxMemorySize>512M</maxMemorySize>
-  
 <systemProperties>
-  
 <systemProperty>java.security.policy=conf/policy.all</systemProperty>
-  
 <systemProperty>com.sun.management.jmxremote</systemProperty>
-  
 <systemProperty>com.sun.management.jmxremote.port=8999</systemProperty>
-  
 <systemProperty>com.sun.management.jmxremote.authenticate=false</systemProperty>
-  
 <systemProperty>com.sun.management.jmxremote.ssl=false</systemProperty>
-  
 </systemProperties>
-  
 <extraArguments>
-  
 <extraArgument>-server</extraArgument>
-  
 </extraArguments>
-  
 </jvmSettings>
-  
 </daemon>
-  
 </daemons>
-  
 </configuration>
-  
 <executions>
-  
 <execution>
-  
 <id>generate-jsw-scripts</id>
-  
 <phase>package</phase>
-  
 <goals>
-  
 <goal>generate-daemons</goal>
-  
 </goals>
-  
 </execution>
-  
 </executions>
-  
 </plugin>
+```
 
 [http://lavafree.iteye.com/blog/1502594](http://lavafree.iteye.com/blog/1502594)
-
 [http://www.mojohaus.org/appassembler/appassembler-maven-plugin/](http://www.mojohaus.org/appassembler/appassembler-maven-plugin/)
-
  [1]: http://www.mojohaus.org/appassembler/appassembler-maven-plugin/assemble-mojo.html
  [2]: http://www.mojohaus.org/appassembler/appassembler-maven-plugin/create-repository-mojo.html
  [3]: http://www.mojohaus.org/appassembler/appassembler-maven-plugin/generate-daemons-mojo.html
+
+## 维护记录
+
+| 时间 | 修改内容 | 原因 |
+| ---- | -------- | ---- |
+| 2026-10-09 | 修复本地 Hugo 构建的 Raw HTML 警告：代码/配置放入代码块，正文中的尖括号占位符改为行内代码；categories 改为 Java | 正文中的 HTML/XML 片段被当作原始 HTML 丢弃；文件名/URL/标题按规范调整 |

@@ -2,12 +2,14 @@
 title: 远程桌面, freerdp, rdesktop
 author: "-"
 date: 2016-10-18T08:23:01+00:00
+lastmod: 2026-10-09T21:22:13+08:00
 url: rdesktop
 categories:
   - Desktop
 tags:
-  - reprint
-
+  - rdp
+  - remix
+  - AI-assisted
 ---
 ## 远程桌面, freerdp, rdesktop
 
@@ -96,7 +98,6 @@ rdesktop 的使用很简单，可通过#rdesktop-h得到使用的帮助。一般
 
 其中 "g 1024×768"设置分辨率为1024×768，"d 24"设置真彩24 位，hostname为 Windows 机器的主机名或者IP 地址。在输入了Windows XP的用户名和密码后，就可以登录并操作远程的Windows系统.
 
-
 https://ci.freerdp.com/job/freerdp-nightly-windows/
 
 freerdp         # Linux下的，an X11 Remote Desktop Protocol (RDP) client which is part of the FreeRDP project
@@ -105,7 +106,6 @@ sdl-freerdp.exe  # Windows下的，freerdp3.0 主程序，其基于SDL库，目�
 ————————————————
 版权声明：本文为CSDN博主「开源技术」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
 原文链接：https://blog.csdn.net/leopardsaga/article/details/133562802
-
 
 Windows运行环境
 Windows编译版的FreeRDP，是使用MinGW环境编译，所以wfreerdp.exe/sdl-freerdp.exe需要在MinGW环境下才能运行，即提供相关依赖库，否则直接退出不给提示。MobaXterm或Windows Git或直接安装MinGW都可以提供所需要库的Bash环境。下载地址：https://ci.freerdp.com/job/freerdp-nightly-windows/ ，包含文件：
@@ -127,8 +127,16 @@ winpr-hash.exe
 
 解决：先在启动时添加/smart-sizing参数，然后在打开的窗口标题栏调出上下文菜单，取消smart sizing。窗口如此就自适应远端桌面大小了。
 
+```bash
 ./wfreerdp.exe /u:<uname> /p:<pswd> /v:<host> /smart-sizing
+```
+
 ————————————————
 版权声明：本文为CSDN博主「开源技术」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
 原文链接：https://blog.csdn.net/leopardsaga/article/details/133562802
 
+## 维护记录
+
+| 时间 | 修改内容 | 原因 |
+| ---- | -------- | ---- |
+| 2026-10-09 | 修复本地 Hugo 构建的 Raw HTML 警告：代码/配置放入代码块，正文中的尖括号占位符改为行内代码 | 正文中的 HTML/XML 片段被当作原始 HTML 丢弃；文件名/URL/标题按规范调整 |

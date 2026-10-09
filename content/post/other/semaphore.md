@@ -2,11 +2,14 @@
 title: semaphore/信号量, mutex/互斥锁
 author: "-"
 date: 2014-10-31T02:46:50+00:00
+lastmod: 2026-10-09T21:22:13+08:00
 url: semaphore
 categories:
   - Linux
 tags:
-  - reprint
+  - concurrency
+  - remix
+  - AI-assisted
 ---
 ## 信号量 Semaphore
 
@@ -38,7 +41,10 @@ Semaphore/信号量 是一件可以容纳 N 人的房间，如果人不满就可
 Mutex 的发音是 /mjuteks/ ，其含义为互斥(体)，这个词是Mutual Exclude的缩写。
 
 Is a key to a toilet. One person can have the key - occupy the toilet - at the time. When finished, the person gives (frees) the key to the next person in the queue. Officially: "Mutexes are typically used to serialise access to a section of re-entrant code that cannot be executed concurrently by more than one thread. A mutex object only allows one thread into a controlled section, forcing other threads which attempt to gain access to that section to wait until the first thread has exited from that section."
+
+```text
 Ref: Symbian Developer Library(A mutex is really a semaphore with value 1.)
+```
 
 #### Semaphore
 
@@ -149,6 +155,8 @@ Semaphore分为单值和多值两种，前者只能被一个线程获得，后�
 Monitor， AutoResetEvent， ManualResetEvent，Mutex，ReadWriteLock和 InterLock。 其中 AutoResetEvent， ManualResetEvent，Mutex派生自WaitHandler，它们实际上是封装了操作系统提供的内核对象。而其它的应当是在.Net虚拟机中土生土长的。显然来自操作系统内核对象的设施使用起来效率要差一些。不过效率并不是我们这里要考虑的问题，我们将使用两个 Monitor 和 一个ManualResetEvent 对象来模拟一个信号量。
 代码如下:
 public class Semaphore
+
+```java
 {
     private ManualResetEvent waitEvent = new ManualResetEvent(false);
     private object syncObjWait = new object();
@@ -178,7 +186,7 @@ public bool Wait()
                        this.waitEvent.Reset();
                    }
                }
-         else
+else
           {
                System.Diagnostics.Debug.Assert( false, "Semaphore is not allow current count < 0" );
           }
@@ -209,7 +217,7 @@ public bool Wait( int millisecondsTimeout )
                         this.waitEvent.Reset();
                       }
                   }
-               else
+else
                {
                      System.Diagnostics.Debug.Assert( false, "Semaphore is not allow current count < 0" );
                 }
@@ -233,6 +241,7 @@ public bool Release()
       return true;
      }
 }
+```
 
  ---
 
@@ -256,25 +265,35 @@ mutex与semaphore的区别
 例如，任务1可能包含程序代码，当按下＂电源＂(power)按钮时，即可提出(如发送信号或增量)一个特别的semaphore; 任务2则依据相同的semaphore而用于唤醒显示器. 在这种情况下，其中一项任务是信号的生产者，另一项任务是信号的消费者．
 
 用一个例子来做总结，首先展示如何使用mutex:
+
+```java
 /*Task 1*/
 mutexWait(mutex_mens_room);
 // Safely use shared resource
 mutexRelease(mutex_mens_room);
-
 /*Task 2*/
 mutexWait(mutex_mens_room);
 // Safely use shared resource
 mutexRelease(mutex_mens_room);
+```
 
 相应地，你总是采用下列方法使用semaphore:
+
+```java
 /*Task 1 - Producer*/
 semPost(sem_power_btn); // Send the signal
-
 /*Task 2 - Consumer*/
 semPend(sem_power_btn); // Wait for signal
+```
 
 重 要的是，semaphores可以被interrupt service routine(ISR)中断服务程序用来向task发送信号．发送一个semaphore是一个非阻塞的RTOS行为，并且ISR安全．因为这种技术排 除了在task级别的为了是中断不使能而引起的错误的可能性，从ISR中发出信号是一种使嵌入式软件更加可靠的设计方式.
 
 ---
 
 [https://blog.51cto.com/sddai/3106478](https://blog.51cto.com/sddai/3106478)
+
+## 维护记录
+
+| 时间 | 修改内容 | 原因 |
+| ---- | -------- | ---- |
+| 2026-10-09 | 修复本地 Hugo 构建的 Raw HTML 警告：代码/配置放入代码块，正文中的尖括号占位符改为行内代码 | 正文中的 HTML/XML 片段被当作原始 HTML 丢弃；文件名/URL/标题按规范调整 |

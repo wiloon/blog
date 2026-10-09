@@ -2,7 +2,7 @@
 title: k8s command
 author: "-"
 date: 2026-03-10T10:38:17+08:00
-lastmod: 2026-05-19T16:59:26+08:00
+lastmod: 2026-10-09T21:22:13+08:00
 url: k8s/command
 categories:
   - Cloud
@@ -63,6 +63,7 @@ kubectl get node -L kubernetes.io/arch
 # delete lable
 kubectl label node minikube disktype-
 kubectl describe node node0
+```
 
 ## 节点关机操作
 
@@ -83,6 +84,7 @@ sudo poweroff
 kubectl uncordon <node-name>
 ```
 
+```bash
 # 查看 pod 状态
 kubectl get pods --all-namespaces
 
@@ -147,7 +149,6 @@ kubectl get nodes
 kubectl -o wide get pod
 kubectl describe svc svc0
 
-
 kubectl describe pods -n namespace0 pod0
 # ENDPOINTS
 kubectl get ep -n namespace0
@@ -181,7 +182,6 @@ kubectl get pods --all-namespaces -o wide
 kubectl get pods -A
 kubectl get pods -n kube-system  -o wide
 
-
 # 重启 pod
 kubectl replace --force -f  kube-flannel.yml
 kubectl delete node k8s-test-2.novalocal
@@ -189,8 +189,6 @@ kubectl delete node k8s-test-2.novalocal
 crictl ps
 
 kubeadm token list
-
-
 
 kubectl get svc nginx-app
 kubectl describe svc nginx-app
@@ -524,7 +522,6 @@ reboot
 kubeadm token list 
 # 如果 token 过期，可以使用 kubeadm token create 命令创建新的 token
 
-
 # 在worker节点 上执行
 kubeadm join 192.168.50.110:6443 --token abcdef.0123456789abcdef \
         --discovery-token-ca-cert-hash sha256:7f30f55875a14cbcf2ea309ce12a2d397a9755013f37afc73f2eab7d5154d013
@@ -731,7 +728,6 @@ kubectl apply -f calico.yaml
 kubectl get pods -n kube-system
 kubectl get nodes
 
-
 ## Test Kubernetes Installation
 kubectl create deployment nginx-app --image=nginx --replicas=1
 kubectl get deployment nginx-app
@@ -889,7 +885,7 @@ kubectl delete -f /tmp/k8s-rssx-ui-deployment.yaml
 
 [https://www.cnblogs.com/along21/p/10342788.html](https://www.cnblogs.com/along21/p/10342788.html)
 
-create nfs server <wiloon.com/nfs>
+create nfs server `wiloon.com/nfs`
 
 ### pv.yaml
 
@@ -1582,3 +1578,9 @@ kubectl run -it --rm netshoot --restart=Never \
 # kubectl run dnsutils --image=tutum/dnsutils --generator=run-pod/v1 --command -- sleep infinity
 # kubectl exec -it dnsutils -- drill kubernetes.default.svc.cluster.local
 ```
+
+## 维护记录
+
+| 时间 | 修改内容 | 原因 |
+| ---- | -------- | ---- |
+| 2026-10-09 | 修复本地 Hugo 构建的 Raw HTML 警告：代码/配置放入代码块，正文中的尖括号占位符改为行内代码 | 正文中的 HTML/XML 片段被当作原始 HTML 丢弃；文件名/URL/标题按规范调整 |

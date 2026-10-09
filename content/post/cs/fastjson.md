@@ -2,18 +2,22 @@
 title: Fastjson
 author: "-"
 date: 2015-08-13T07:49:03+00:00
+lastmod: 2026-10-09T21:22:13+08:00
 url: fastjson
 categories:
-  - Inbox
+  - Java
 tags:
-  - reprint
+  - java
+  - json
+  - remix
+  - AI-assisted
 aliases:
   - /p4712/
   - /p8107/
 ---
 ## Fastjson
 
-```java
+```bash
 // 序列化
 String text = JSON.toJSONString(obj);
 // 反序列化
@@ -30,61 +34,44 @@ private int totalCount;
 private boolean incompleteResults = false;
 ```
 
+```java
 Map<String, Object> userMap =
-
 JSON.parseObject(o, new TypeReference<Map<String, Object>>() {});
+```
   
 使用Fastjson序列化与反序列化对象
 
+```java
 public class JSONobject {
-
-private String obj;
-  
-private String color;
-
-public String getObj() { return obj; }
-  
-public void setObj(String obj) { this.obj = obj; }
-  
-public String getcolor() { return color; }
-  
-public void setcolor(String color) { this.color = color; }
-
+    private String obj;
+    private String color;
+    public String getObj() { return obj; }
+    public void setObj(String obj) { this.obj = obj; }
+    public String getcolor() { return color; }
+    public void setcolor(String color) { this.color = color; }
 }
-
 public class fastjson {
-
-public static void main(String[] args) {
-  
-// TODO Auto-generated method stub
-  
-JSONobject ins = new JSONobject();
-  
-ins.setColor("red");
-  
-ins.setObj("s");
-  
-//序列化
-  
-String text = JSON.toJSONString(ins);
-  
-System.out.println(text);
-  
-//反序列化
-  
-JSONobject ins1 = JSON.parseObject(text, JSONobject.class);
-  
-System.out.println(ins1.getColor());
-  
-System.out.println(ins1.getObj());
-  
+    public static void main(String[] args) {
+        // TODO Auto-generated method stub
+        JSONobject ins = new JSONobject();
+        ins.setColor("red");
+        ins.setObj("s");
+        //序列化
+        String text = JSON.toJSONString(ins);
+        System.out.println(text);
+        //反序列化
+        JSONobject ins1 = JSON.parseObject(text, JSONobject.class);
+        System.out.println(ins1.getColor());
+        System.out.println(ins1.getObj());
+    }
 }
-
-}
+```
   
 显示的结果是:
 
+```java
 {"color":"red","obj":"s"}
+```
   
 red
   
@@ -92,109 +79,67 @@ s
   
 先建立JSONobject类，对于类里面的每个变量分别都有两个配套函数，一个都不可以少，一个是set，一个是get,其中set,与get后面的字母必须以大写字母开头
 
-如果解析List<object[]>类型的话，需要新版本的fastjson,旧版本的会出错，而且一定要有默认的构造函数
+如果解析 `List<Object[]>` 类型的话，需要新版本的fastjson,旧版本的会出错，而且一定要有默认的构造函数
 
+```java
 public class part {
-  
-public String attr;
-  
-public String value;
-  
-public String obj;
-
-part(String obj,String attr,String value){
-  
-this.obj = obj;
-  
-this.attr = attr;
-  
-this.value = value;
-  
+    public String attr;
+    public String value;
+    public String obj;
+    part(String obj,String attr,String value){
+        this.obj = obj;
+        this.attr = attr;
+        this.value = value;
+    }
+    part(){
+    }
+    public String getObj() { return obj; }
+    public void setObj(String obj) { this.obj = obj; }
+    public String getAttr() { return attr; }
+    public void setAttr(String attr) { this.attr = attr; }
+    public String getValue() { return value; }
+    public void setValue(String value) { this.value = value; }
 }
-  
-part(){
-
-}
-  
-public String getObj() { return obj; }
-  
-public void setObj(String obj) { this.obj = obj; }
-  
-public String getAttr() { return attr; }
-  
-public void setAttr(String attr) { this.attr = attr; }
-  
-public String getValue() { return value; }
-  
-public void setValue(String value) { this.value = value; }
-  
-}
-
 import java.util.ArrayList;
-  
 import java.util.List;
-
 public class JSONobject {
-
-private String obj;
-  
-private String color;
-  
-private List<part> parts = new ArrayList<part>();
-
-public List<part> getPart() { return parts; }
-  
-public void setPart(List<part> parts) { this.parts = parts; }
-
-public String getObj() { return obj; }
-  
-public void setObj(String obj) { this.obj = obj; }
-
-public String getColor() { return color; }
-  
-public void setColor(String color) { this.color = color; }
-
+    private String obj;
+    private String color;
+    private List<part> parts = new ArrayList<part>();
+    public List<part> getPart() { return parts; }
+    public void setPart(List<part> parts) { this.parts = parts; }
+    public String getObj() { return obj; }
+    public void setObj(String obj) { this.obj = obj; }
+    public String getColor() { return color; }
+    public void setColor(String color) { this.color = color; }
 }
-
 import com.alibaba.fastjson.JSON;
-
 public class fastjson {
-
-public static void main(String[] args) {
-  
-// TODO Auto-generated method stub
-  
-JSONobject ins = new JSONobject();
-  
-ins.setColor("red");
-  
-ins.setObj("s");
-
-part p1 = new part("head","color","red");
-  
-part p2 = new part("foot","color","green");
-
-ins.getPart().add(p1);
-  
-ins.getPart().add(p2);
-  
-//序列化
-  
-String text = JSON.toJSONString(ins);
-  
-System.out.println(text);
-  
-//反序列化
-  
-JSONobject ins1 = JSON.parseObject(text, JSONobject.class);
-  
-System.out.println(ins1.getColor());
-  
-System.out.println(ins1.getObj());
-  
+    public static void main(String[] args) {
+        // TODO Auto-generated method stub
+        JSONobject ins = new JSONobject();
+        ins.setColor("red");
+        ins.setObj("s");
+        part p1 = new part("head","color","red");
+        part p2 = new part("foot","color","green");
+        ins.getPart().add(p1);
+        ins.getPart().add(p2);
+        //序列化
+        String text = JSON.toJSONString(ins);
+        System.out.println(text);
+        //反序列化
+        JSONobject ins1 = JSON.parseObject(text, JSONobject.class);
+        System.out.println(ins1.getColor());
+        System.out.println(ins1.getObj());
+    }
 }
+```
 
-}
+[http://code.alibabatech.com/wiki/display/FastJSON/Tutorial](http://code.alibabatech.com/wiki/display/FastJSON/Tutorial)
+[https://blog.csdn.net/quan20111992/article/details/88918585](https://blog.csdn.net/quan20111992/article/details/88918585)
 
-[http://code.alibabatech.com/wiki/display/FastJSON/Tutorial](http://code.alibabatech.com/wiki/display/FastJSON/Tutorial)  
-[https://blog.csdn.net/quan20111992/article/details/88918585](https://blog.csdn.net/quan20111992/article/details/88918585)  
+## 维护记录
+
+| 时间 | 修改内容 | 原因 |
+| ---- | -------- | ---- |
+| 2026-10-09 | 修复本地 Hugo 构建的 Raw HTML 警告：代码/配置放入代码块，正文中的尖括号占位符改为行内代码；categories 改为 Java | 正文中的 HTML/XML 片段被当作原始 HTML 丢弃；文件名/URL/标题按规范调整 |

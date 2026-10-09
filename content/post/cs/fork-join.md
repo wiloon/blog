@@ -2,11 +2,17 @@
 title: ForkJoin
 author: "-"
 date: 2017-06-22T02:11:10+00:00
-url: ForkJoin
+lastmod: 2026-10-09T21:22:13+08:00
+url: fork-join
 categories:
-  - CS
+  - Java
 tags:
-  - reprint
+  - java
+  - juc
+  - remix
+  - AI-assisted
+aliases:
+  - /ForkJoin/
 ---
 ## ForkJoin
 
@@ -59,16 +65,16 @@ public interface Calculator {
 ```java
 public class Main {
 
-public static void main(String[] args) {
+    public static void main(String[] args) {
 
-long[] numbers = LongStream.rangeClosed(1, 1000).toArray();
+        long[] numbers = LongStream.rangeClosed(1, 1000).toArray();
 
-Calculator calculator = new MyCalculator();
+        Calculator calculator = new MyCalculator();
 
-System.out.println(calculator.sumUp(numbers)); // 打印结果500500
+        System.out.println(calculator.sumUp(numbers)); // 打印结果500500
 
-}
-  
+    }
+
 }
 ```
 
@@ -77,20 +83,20 @@ System.out.println(calculator.sumUp(numbers)); // 打印结果500500
 ```java
 public class ForLoopCalculator implements Calculator {
 
-public long sumUp(long[] numbers) {
+    public long sumUp(long[] numbers) {
 
-long total = 0;
+        long total = 0;
 
-for (long i : numbers) {
+        for (long i : numbers) {
 
-total += i;
+            total += i;
 
-}
+        }
 
-return total;
+        return total;
 
-}
-  
+    }
+
 }
 ```
 
@@ -197,22 +203,17 @@ fork
 
 fork() 做的工作只有一件事,既是把任务推入当前工作线程的工作队列里。可以参看以下的源代码:
 
+```java
 public final ForkJoinTask<V> fork() {
-
-Thread t;
-
-if ((t = Thread.currentThread()) instanceof ForkJoinWorkerThread)
-
-((ForkJoinWorkerThread)t).workQueue.push(this);
-
-else
-
-ForkJoinPool.common.externalPush(this);
-
-return this;
-  
+    Thread t;
+    if ((t = Thread.currentThread()) instanceof ForkJoinWorkerThread)
+        ((ForkJoinWorkerThread)t).workQueue.push(this);
+    else
+        ForkJoinPool.common.externalPush(this);
+    return this;
 }
-  
+```
+
 join
 
 join() 的工作则复杂得多,也是 join() 可以使得线程免于被阻塞的原因——不像同名的 Thread.join()。
@@ -273,3 +274,9 @@ I’ve come to the conclusion that people forget about regular Java objects beca
 我得出一个结论：人们之所以总是忘记使用标准的 Java 对象是因为缺少一个足够装逼的名字（译注：类似于 Java Bean 这样的名字）。因此，在准备2000年的演讲时，Rebecca Parsons，Josh Mackenzie 和我给他们起了一个名字叫做 POJO （平淡无奇的 Java 对象）。
 
 [https://stackoverflow.com/questions/3326319/what-is-meaning-of-plain-old-java-object-pojo](https://stackoverflow.com/questions/3326319/what-is-meaning-of-plain-old-java-object-pojo)
+
+## 维护记录
+
+| 时间 | 修改内容 | 原因 |
+| ---- | -------- | ---- |
+| 2026-10-09 | 修复本地 Hugo 构建的 Raw HTML 警告：代码/配置放入代码块，正文中的尖括号占位符改为行内代码；url 改为 `fork-join`；旧 url 加入 aliases；categories 改为 Java | 正文中的 HTML/XML 片段被当作原始 HTML 丢弃；文件名/URL/标题按规范调整 |

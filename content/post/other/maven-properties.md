@@ -2,11 +2,14 @@
 title: Maven内置属性、POM属性
 author: "-"
 date: 2012-04-09T06:44:58+00:00
+lastmod: 2026-10-09T21:22:13+08:00
 url: maven-properties
 categories:
   - Java
 tags:
-  - reprint
+  - maven
+  - remix
+  - AI-assisted
 aliases:
   - /p2894/
 ---
@@ -22,9 +25,12 @@ ${maven.build.timestamp}表示项目构件开始时间;
 ${maven.build.timestamp.format}表示属性${maven.build.timestamp}的展示格式,默认值为yyyyMMdd-HHmm,可自定义其格式,其类型可参考java.text.SimpleDateFormat。
 
 用法：
+
+```xml
 <properties>
 <maven.build.timestamp.format>yyyy-MM-dd HH:mm:ss</maven.build.timestamp.format>
 </properties>
+```
 
 2. POM属性(使用pom属性可以引用到pom.xml文件对应元素的值)
 ${project.build.directory}  项目构建输出目录，默认为target/
@@ -39,8 +45,16 @@ ${project.groupId}:项目的groupId
 ${project.artifactId} 项目的artifactId
 
 用法：
+
+```xml
 <properties>
 <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 </properties>
-
 ${project.build.outputDirectory}/META-INF/xxx/xxx
+```
+
+## 维护记录
+
+| 时间 | 修改内容 | 原因 |
+| ---- | -------- | ---- |
+| 2026-10-09 | 修复本地 Hugo 构建的 Raw HTML 警告：代码/配置放入代码块，正文中的尖括号占位符改为行内代码 | 正文中的 HTML/XML 片段被当作原始 HTML 丢弃；文件名/URL/标题按规范调整 |

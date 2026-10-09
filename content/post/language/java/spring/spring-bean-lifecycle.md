@@ -29,7 +29,7 @@ graph TD
     H --> I["销毁回调<br/>PreDestroy → destroy → destroy-method"]
 ```
 
-singleton Bean 只走一次这套完整流程；`prototype` Bean 只做到"就绪可用"，容器交出对象后就不再管理，销毁阶段（`H`、`I`）不会发生——细节见 [Spring 中 Bean 的作用域](../../../other/spring中bean的作用域.md)。
+singleton Bean 只走一次这套完整流程；`prototype` Bean 只做到"就绪可用"，容器交出对象后就不再管理，销毁阶段（`H`、`I`）不会发生——细节见 [Spring 中 Bean 的作用域](../../../other/spring-bean-scope.md)。
 
 ## 实例化与属性填充
 
@@ -183,11 +183,11 @@ public class CacheManager {
 }
 ```
 
-**`prototype` Bean 不参与这一整套销毁流程**：容器创建完就把对象交给调用方，不会保留引用，也就无法在 `close()` 时找到它并回调销毁方法——清理 `prototype` 对象持有的资源是调用方自己的责任，详见 [Spring 中 Bean 的作用域](../../../other/spring中bean的作用域.md)。
+**`prototype` Bean 不参与这一整套销毁流程**：容器创建完就把对象交给调用方，不会保留引用，也就无法在 `close()` 时找到它并回调销毁方法——清理 `prototype` 对象持有的资源是调用方自己的责任，详见 [Spring 中 Bean 的作用域](../../../other/spring-bean-scope.md)。
 
 ## 参考
 
 - [Spring IoC](./spring-ioc.md)（容器概览、单例缓存底层结构、依赖注入三种方式）
-- [Spring 中 Bean 的作用域](../../../other/spring中bean的作用域.md)（prototype 为何不参与销毁回调）
+- [Spring 中 Bean 的作用域](../../../other/spring-bean-scope.md)（prototype 为何不参与销毁回调）
 - [Spring Boot Startup Callbacks](./spring-boot-startup-callbacks.md)（应用启动就绪后的回调，与 Bean 自身生命周期回调是两回事）
 - [Spring Framework 官方文档 - Bean 生命周期](https://docs.spring.io/spring-framework/reference/core/beans/factory-nature.html)

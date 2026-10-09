@@ -2,11 +2,17 @@
 title: "Java LockSupport, park unpark"
 author: "-"
 date: "2015-05-25T07:28:38+00:00"
-url: "lock"
+lastmod: 2026-10-09T21:22:13+08:00
+url: locksupport-park
 categories:
-  - CS
+  - Java
 tags:
   - Java
+  - juc
+  - remix
+  - AI-assisted
+aliases:
+  - /lock/
 ---
 ## "Java LockSupport, park unpark"
 
@@ -88,35 +94,23 @@ HotSpot里park/unpark的实现
 
 每个java线程都有一个Parker实例,Parker类是这样定义的: 
 
+```cpp
 class Parker : public os::PlatformParker {
-  
-private:
-    
-volatile int _counter ;
-    
-...
-  
-public:
-    
-void park(bool isAbsolute, jlong time);
-    
-void unpark();
-    
-...
-  
+    private:
+    volatile int _counter ;
+    ...
+    public:
+    void park(bool isAbsolute, jlong time);
+    void unpark();
+    ...
 }
-  
 class PlatformParker : public CHeapObj<mtInternal> {
-    
-protected:
-      
-pthread_mutex_t _mutex [1] ;
-      
-pthread_cond_t _cond [1] ;
-      
-...
-  
+    protected:
+    pthread_mutex_t _mutex [1] ;
+    pthread_cond_t _cond [1] ;
+    ...
 }
+```
   
 可以看到Parker类实际上用Posix的mutex,condition来实现的。
 
@@ -311,7 +305,6 @@ continue ;
         Tail->FreeNext = Arv ;
     }
     break ;
-    
 
 }
 
@@ -400,71 +393,71 @@ JUC(Java Util Concurrency)仅用简单的park, unpark和CAS指令就实现了各
 LockSupport.park() 中断响应
 
 ```java
-  
+
 import java.util.concurrent.locks.LockSupport;
-  
+
 public class LockSupportTest {
-      
-public static void main(String[] args) {
-          
-try {
-              
-t2();
-          
-} catch (Exception e) {
-              
-e.printStackTrace();
-          
-}
-      
-}
-      
-public static void t2() throws Exception {
-          
-Thread t = new Thread(new Runnable() {
-              
-private int count = 0;
 
-@Override
-              
-public void run() {
-                  
-long start = System.currentTimeMillis();
-                  
-long end = 0;
+    public static void main(String[] args) {
 
-while ((end - start) <= 1000) {
-                      
-count++;
-                      
-end = System.currentTimeMillis();
-                  
-}
+        try {
 
-System.out.println("after 1 second.count=" + count);
+            t2();
 
-//等待或许许可
-                  
-LockSupport.park();
-                  
-System.out.println("thread over." + Thread.currentThread().isInterrupted());
+        } catch (Exception e) {
 
-}
-          
-});
+            e.printStackTrace();
 
-t.start();
+        }
 
-Thread.sleep(2000);
+    }
 
-// 中断线程
-          
-t.interrupt();
+    public static void t2() throws Exception {
 
-System.out.println("main over");
-      
-}
-  
+        Thread t = new Thread(new Runnable() {
+
+            private int count = 0;
+
+            @Override
+
+            public void run() {
+
+                long start = System.currentTimeMillis();
+
+                long end = 0;
+
+                while ((end - start) <= 1000) {
+
+                    count++;
+
+                    end = System.currentTimeMillis();
+
+                }
+
+                System.out.println("after 1 second.count=" + count);
+
+                //等待或许许可
+
+                LockSupport.park();
+
+                System.out.println("thread over." + Thread.currentThread().isInterrupted());
+
+            }
+
+    });
+
+        t.start();
+
+        Thread.sleep(2000);
+
+        // 中断线程
+
+        t.interrupt();
+
+        System.out.println("main over");
+
+    }
+
 }
 
 ```
@@ -486,3 +479,9 @@ http://blog.dyngr.com/blog/2016/09/09/how-to-make-a-thread-wait/
 https://www.zhihu.com/question/26471972/answer/74773092
   
 http://blog.csdn.net/aitangyong/article/details/38373137
+
+## 维护记录
+
+| 时间 | 修改内容 | 原因 |
+| ---- | -------- | ---- |
+| 2026-10-09 | 修复本地 Hugo 构建的 Raw HTML 警告：代码/配置放入代码块，正文中的尖括号占位符改为行内代码；url 改为 `locksupport-park`；旧 url 加入 aliases；categories 改为 Java | 正文中的 HTML/XML 片段被当作原始 HTML 丢弃；文件名/URL/标题按规范调整 |

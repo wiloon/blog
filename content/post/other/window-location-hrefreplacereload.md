@@ -2,11 +2,14 @@
 title: Javascript 重定向 window.location.href / replace / reload()
 author: "-"
 date: 2014-03-03T02:41:06+00:00
+lastmod: 2026-10-09T21:22:13+08:00
 url: window-location-hrefreplacereload
 tags:
   - JavaScript
+  - remix
+  - AI-assisted
 categories:
-  - inbox
+  - JavaScript
 aliases:
   - /p6309/
 ---
@@ -14,17 +17,24 @@ aliases:
 
   location.href，可以点击浏览器的后退按钮返回本页。
 
+```text
 location.assign(URL)
+```
+
 assign() 方法可加载一个新的文档。效果与location.href相当。
   
-  location.reload(force)
+```text
+location.reload(force)
+```
   
     如果该方法没有规定参数，或者参数是 false，它就会用 HTTP 头 If-Modified-Since 来检测服务器上的文档是否已改变。如果文档已改变，reload() 会再次下载该文档。如果文档未改变，则该方法将从缓存中装载文档。这与用户单击浏览器的刷新按钮的效果是完全一样的。
-  
-  
+
     如果把该方法的参数设置为 true，那么无论文档的最后修改日期是什么，它都会绕过缓存，从服务器上重新下载该文档。这与用户在单击浏览器的刷新按钮时按住 Shift 健的效果是完全一样。
   
-  location.replace(newURL)
+```text
+location.replace(newURL)
+```
+
 不能点击浏览区的后退按钮返回本页。
 
 将地址替换成新url，该方法通过指定URL替换当前缓存在历史里 (客户端) 的项目，
@@ -37,9 +47,10 @@ http://jun1986.iteye.com/blog/1176909
 
 一、最外层top跳转页面，适合用于iframe框架集
 
+```javascript
 top.window.location.href("${pageContext.request.contextPath}/Login_goBack");
-
 ============================================================================================
+```
 
 二、window.location.href和window.location.replace的区别
 
@@ -51,25 +62,22 @@ top.window.location.href("${pageContext.request.contextPath}/Login_goBack");
 
 1.window.location.reload(): 强制刷新页面，从服务器重新请求！
 
+```text
 ============================================================================================
+```
 
 四、window.location.reload();页面实现跳转和刷新
 
+```text
 1 history.go(0)
-  
 2 location.reload()
-  
 3 location=location
-  
 4 location.assign(location)
-  
 5 document.execCommand('Refresh')
-  
 6 window.navigate(location)
-  
 7 location.replace(location)
-  
 8 document.URL=location.href
+```
   
 这几个都可以刷新
   
@@ -85,95 +93,68 @@ window.parent.close()是parent属性是当前窗口或框架的框架组
   
 页面实现跳转的九种方法实例: 
   
+```html
 <html>
-  
 <head>
-  
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-  
 <title>navigate</title>
-  
 <script language="javascript">
-  
 setTimeout('window.navigate("top.html");',2000);
-  
 setTimeout('window.document.location.href="top.html";',2000);
-  
 setTimeout('window.document.location="top.html";',2000);
-  
 setTimeout('window.location.href="top.html";',2000);
-  
 setTimeout('window.location="top.html";',2000);
-  
 setTimeout('document.location.href="top.html";',2000);
-  
 setTimeout('document.location="top.html";',2000);
-  
 setTimeout('location.href="top.html";',2000);
-  
 setTimeout('location.replace("top.html")',2000);
-  
 //window对象
-  
 //document对象
-  
 //location对象
-  
 //href属性
-  
 //1.window.document.location.href
-  
 //2.window.document.location
-  
 //3.window.location.href
-  
 //4.window.location
-
 //5.document.location.href
-  
 //6.document.location
-  
 //7.location.href
-  
 //8.window.navigate
-  
 //9.location.replace
-  
 //只要使用location方法，和任意的window对象，location对象，href属性连用，都可以页面的跳转////
-  
 </script>
-  
 </head>
-
 <body>
+```
   
 页面将在2秒后跳转
   
+```html
 </body>
-  
 </html>
+```
 
 解释: 
   
 location是个对象，比如本页的document.location和window.location的属性有
   
+```text
 location.hostname   =   community.csdn.net
-  
 location.href   =   http://community.csdn.net/Expert/topic/4033/4033372.xml?temp=2.695864E-02
-  
 location.host   =   community.csdn.net
-  
 location.hash   =
-  
 location.port   =
-  
 location.pathname   =   /Expert/topic/4033/4033372.xml
-  
 location.search   =   ?temp=2.695864E-02
-  
 location.protocol   =   http:
+```
   
 可见href是location的属性，类别是string。
 
-
 http://shawnfree.iteye.com/blog/390374
+
+## 维护记录
+
+| 时间 | 修改内容 | 原因 |
+| ---- | -------- | ---- |
+| 2026-10-09 | 修复本地 Hugo 构建的 Raw HTML 警告：代码/配置放入代码块，正文中的尖括号占位符改为行内代码；categories 改为 JavaScript | 正文中的 HTML/XML 片段被当作原始 HTML 丢弃；文件名/URL/标题按规范调整 |

@@ -2,13 +2,15 @@
 title: Spring Annotation @Resource
 author: "-"
 date: 2013-01-16T04:37:18+00:00
+lastmod: 2026-10-09T21:22:13+08:00
 url: spring-annotation-resource
 categories:
   - Java
   - Web
 tags:
   - Spring
-
+  - remix
+  - AI-assisted
 aliases:
   - /p5031/
 ---
@@ -48,39 +50,21 @@ Spring不但支持自己定义的@Autowired注解，还支持几个由JSR-250规
 2. @Autowired默认按类型装配 (这个注解是属业spring的) ，默认情况下必须要求依赖对象必须存在，如果要允许null值，可以设置它的required属性为false，如: @Autowired(required=false) ，如果我们想使用名称装配可以结合@Qualifier注解进行使用，如下:
 
             1
-          
-          
-          
+
             2
-          
-        
-        
-        
-          
-            
+
               @Autowired() @Qualifier("baseDao")
-            
-            
-            
+
               private BaseDao baseDao;
 
 3. @Resource (这个注解属于J2EE的) ，默认安装名称进行装配，名称可以通过name属性进行指定，如果没有指定name属性，当注解写在字段上时，默认取字段名进行安装名称查找，如果注解写在setter方法上默认取属性名进行装配。当找不到与名称匹配的bean时才按照类型进行装配。但是需要注意的是，如果name属性一旦指定，就只会按照名称进行装配。
 
             1
-          
-          
-          
+
             2
-          
-        
-        
-        
-          
-            
+
               @Resource(name="baseDao")
-            
-            
-            
+
               private BaseDao baseDao;
 
 推荐使用: @Resource注解在字段上，这样就不用写setter方法了，并且这个注解是属于J2EE的，减少了与spring的耦合。这样代码看起就比较优雅。
@@ -107,14 +91,15 @@ public class Boss {
 
 要让 JSR-250 的注释生效，除了在 Bean 类中标注这些注释外，还需要在 Spring 容器中注册一个负责处理这些注释的 `BeanPostProcessor`:
 
-      <bean
- />
+```xml
+<bean class="org.springframework.context.annotation.CommonAnnotationBeanPostProcessor"/>
+```
 
 `CommonAnnotationBeanPostProcessor` 实现了 `BeanPostProcessor` 接口，它负责扫描使用了 JSR-250 注释的 Bean，并对它们进行相应的操作。
 
 **@PostConstruct 和 @PreDestroy**
 
-Spring 容器中的 Bean 是有生命周期的，Spring 允许在 Bean 在初始化完成后以及 Bean 销毁前执行特定的操作，您既可以通过实现 InitializingBean/DisposableBean 接口来定制初始化之后 / 销毁之前的操作方法，也可以通过 <bean> 元素的 init-method/destroy-method 属性指定初始化之后 / 销毁之前调用的操作方法。关于 Spring 的生命周期，笔者在《精通 Spring 2.x—企业应用开发精解》第 3 章进行了详细的描述，有兴趣的读者可以查阅。
+Spring 容器中的 Bean 是有生命周期的，Spring 允许在 Bean 在初始化完成后以及 Bean 销毁前执行特定的操作，您既可以通过实现 InitializingBean/DisposableBean 接口来定制初始化之后 / 销毁之前的操作方法，也可以通过 `<bean>` 元素的 init-method/destroy-method 属性指定初始化之后 / 销毁之前调用的操作方法。关于 Spring 的生命周期，笔者在《精通 Spring 2.x—企业应用开发精解》第 3 章进行了详细的描述，有兴趣的读者可以查阅。
 
 JSR-250 为初始化之后/销毁之前方法的指定定义了两个注释类，分别是 @PostConstruct 和 @PreDestroy，这两个注释只能应用于方法上。标注了 @PostConstruct 注释的方法将在类实例化后调用，而标注了 @PreDestroy 的方法将在类销毁之前调用。
   
@@ -147,7 +132,7 @@ public class Boss {
 
 您只需要在方法前标注 `@PostConstruct` 或 `@PreDestroy`，这些方法就会在 Bean 初始化后或销毁之前被 Spring 容器执行了。
 
-我们知道，不管是通过实现 `InitializingBean`/`DisposableBean` 接口，还是通过 <bean> 元素的`init-method/destroy-method` 属性进行配置，都只能为 Bean 指定一个初始化 / 销毁的方法。但是使用`@PostConstruct` 和 `@PreDestroy` 注释却可以指定多个初始化 / 销毁方法，那些被标注 `@PostConstruct` 或`@PreDestroy` 注释的方法都会在初始化 / 销毁时被执行。
+我们知道，不管是通过实现 `InitializingBean`/`DisposableBean` 接口，还是通过 `<bean>` 元素的`init-method/destroy-method` 属性进行配置，都只能为 Bean 指定一个初始化 / 销毁的方法。但是使用`@PostConstruct` 和 `@PreDestroy` 注释却可以指定多个初始化 / 销毁方法，那些被标注 `@PostConstruct` 或`@PreDestroy` 注释的方法都会在初始化 / 销毁时被执行。
 
 通过以下的测试代码，您将可以看到 Bean 的初始化 / 销毁方法是如何被执行的:
   
@@ -172,3 +157,9 @@ public class AnnoIoCTest {
 这时，您将看到标注了 `@PostConstruct` 的 `postConstruct1()` 方法将在 Spring 容器启动时，创建 `Boss` Bean 的时候被触发执行，而标注了 `@PreDestroy` 注释的 `preDestroy1()` 方法将在 Spring 容器关闭前销毁 `Boss`Bean 的时候被触发执行。
 
 [http://blog.sina.com.cn/s/blog_4bc179a80100w7ap.html](http://blog.sina.com.cn/s/blog_4bc179a80100w7ap.html)
+
+## 维护记录
+
+| 时间 | 修改内容 | 原因 |
+| ---- | -------- | ---- |
+| 2026-10-09 | 修复本地 Hugo 构建的 Raw HTML 警告：代码/配置放入代码块，正文中的尖括号占位符改为行内代码 | 正文中的 HTML/XML 片段被当作原始 HTML 丢弃；文件名/URL/标题按规范调整 |

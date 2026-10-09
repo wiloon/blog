@@ -2,11 +2,15 @@
 title: DbUnit
 author: "-"
 date: 2016-04-13T01:54:26+00:00
+lastmod: 2026-10-09T21:22:13+08:00
 url: dbunit
 categories:
-  - Inbox
+  - Java
 tags:
-  - reprint
+  - dbunit
+  - test
+  - remix
+  - AI-assisted
 aliases:
   - /p8888/
   - /p9133/
@@ -129,33 +133,22 @@ student_pre.xml
   
 ---------------------------
   
+```xml
 <?xml version='1.0' encoding="gb2312"?>
-  
 <dataset>
-  
 <student id="0001" name=" 翁仔" sex="m" birthday="1979-12-31"/>
-  
 <student id="0002" name=" 王翠花" sex="f" birthday="1982-08-09"/>
-  
 </dataset>
-
 ---------------------------
-
 student_exp.xml
-
 ---------------------------
-  
 <?xml version='1.0' encoding="gb2312"?>
-  
 <dataset>
-  
 <student id="0001" name=" 翁仔" sex="m" birthday="1979-12-31"/>
-  
 <student id="0002" name=" 王翠花" sex="f" birthday="1982-08-09"/>
-  
 <student id="0088" name=" 王耳朵" sex="m" birthday="1982-01-01"/>
-  
 </dataset>
+```
 
 ---------------------------
 
@@ -163,57 +156,34 @@ student_exp.xml
   
 ---------------------------
   
+```java
 protected void setUp() {
-  
-IDatabaseConnection connection =null;
-  
-try{
-  
-super.setUp();
-  
-// 本例使用postgresql 数据库
-  
-Class.forName("org.postgresql.Driver");
-  
-// 连接DB
-  
-Connection conn=DriverManager.getConnection("jdbc:postgresql:testdb.test","postgres","postgres");
-  
-// 获得DB 连接
-  
-connection =new DatabaseConnection(conn);
-
-// 对数据库中的操作对象表student 进行备份
-  
-QueryDataSet backupDataSet = new QueryDataSet(connection);
-  
-backupDataSet.addTable("student");
-  
-file=File.createTempFile("student_back",".xml");// 备份文件
-  
-FlatXmlDataSet.write(backupDataSet,new FileOutputStream(file));
-
-// 准备数据的读入
-  
-IDataSet dataSet = new FlatXmlDataSet( new FileInputStream("student_pre.xml"));
-  
-DatabaseOperation.CLEAN_INSERT.execute(connection,dataSet);
-
-}catch(Exception e){
-  
-e.printStackTrace();
-  
-}finally{
-  
-try{
-  
-if(connection!=null) connection.close();
-  
-}catch(SQLException e){}
-  
+    IDatabaseConnection connection =null;
+    try{
+        super.setUp();
+        // 本例使用postgresql 数据库
+        Class.forName("org.postgresql.Driver");
+        // 连接DB
+        Connection conn=DriverManager.getConnection("jdbc:postgresql:testdb.test","postgres","postgres");
+        // 获得DB 连接
+        connection =new DatabaseConnection(conn);
+        // 对数据库中的操作对象表student 进行备份
+        QueryDataSet backupDataSet = new QueryDataSet(connection);
+        backupDataSet.addTable("student");
+        file=File.createTempFile("student_back",".xml");// 备份文件
+        FlatXmlDataSet.write(backupDataSet,new FileOutputStream(file));
+        // 准备数据的读入
+        IDataSet dataSet = new FlatXmlDataSet( new FileInputStream("student_pre.xml"));
+        DatabaseOperation.CLEAN_INSERT.execute(connection,dataSet);
+    }catch(Exception e){
+        e.printStackTrace();
+    }finally{
+        try{
+            if(connection!=null) connection.close();
+        }catch(SQLException e){}
+    }
 }
-  
-}
+```
 
 ---------------------------
   
@@ -223,79 +193,45 @@ if(connection!=null) connection.close();
 
 ---------------------------
   
+```bash
 // findStudent
-  
 public void testFindStudent() throws Exception{
-  
-// 执行findStudent 方法
-  
-StudentOpe studentOpe=new StudentOpe();
-  
-Student result = studentOpe.findStudent("0001");
-
-// 预想结果和实际结果的比较
-  
-assertEquals(" 翁仔",result.getName());
-  
-assertEquals("m",result.getSex());
-  
-assertEquals("1979-12-31",result.getBirthDay());
-  
+    // 执行findStudent 方法
+    StudentOpe studentOpe=new StudentOpe();
+    Student result = studentOpe.findStudent("0001");
+    // 预想结果和实际结果的比较
+    assertEquals(" 翁仔",result.getName());
+    assertEquals("m",result.getSex());
+    assertEquals("1979-12-31",result.getBirthDay());
 }
-
 ---------------------------
-
 * 更新,添加,删除等方法,可以利用Assertion.assertEquals() 方法,拿表的整体来比较。
-
 ---------------------------
-  
 public void testAddStudent() throws Exception{
-  
-// 执行addStudent 方法
-  
-StudentOpe studentOpe=new StudentOpe();
-  
-// 被追加的记录
-  
-Student newStudent = new Student("0088"," 王耳朵","m","1982-01-01");
-  
-// 执行追加方法
-  
-Student result = studentOpe.addStudent(newStudent);
-
-// 预想结果和实际结果的比较
-  
-IDatabaseConnection connection=null;
-
-try{
-
-// 预期结果取得
-  
-IDataSet expectedDataSet = new FlatXmlDataSet(new FileInputStream("student_exp.xml"));
-  
-ITable expectedTable = expectedDataSet.getTable("student");
-
-// 实际结果取得
-  
-Connection conn=getConnection();
-  
-connection =new DatabaseConnection(conn);
-
-IDataSet databaseDataSet = connection.createDataSet();
-  
-ITable actualTable = databaseDataSet.getTable("student");
-
-// 比较
-  
-Assertion.assertEquals(expectedTable, actualTable);
-
-}finally{
-  
-if(connection!=null) connection.close();
-  
+    // 执行addStudent 方法
+    StudentOpe studentOpe=new StudentOpe();
+    // 被追加的记录
+    Student newStudent = new Student("0088"," 王耳朵","m","1982-01-01");
+    // 执行追加方法
+    Student result = studentOpe.addStudent(newStudent);
+    // 预想结果和实际结果的比较
+    IDatabaseConnection connection=null;
+    try{
+        // 预期结果取得
+        IDataSet expectedDataSet = new FlatXmlDataSet(new FileInputStream("student_exp.xml"));
+        ITable expectedTable = expectedDataSet.getTable("student");
+        // 实际结果取得
+        Connection conn=getConnection();
+        connection =new DatabaseConnection(conn);
+        IDataSet databaseDataSet = connection.createDataSet();
+        ITable actualTable = databaseDataSet.getTable("student");
+        // 比较
+        Assertion.assertEquals(expectedTable, actualTable);
+    }finally{
+        if(connection!=null) connection.close();
+    }
 }
-  
-}
+```
 
 ---------------------------
 
@@ -305,11 +241,11 @@ if(connection!=null) connection.close();
 
 ---------------------------
   
+```java
 ITable filteredExpectedTable = DefaultColumnFilter.excludedColumnsTable(expectedTable, new String[]{"birthday"});
-  
 ITable filteredActualTable = DefaultColumnFilter.excludedColumnsTable(actualTable,new String[]{"birthday"});
-  
 Assertion.assertEquals(filteredExpectedTable, filteredActualTable);
+```
 
 ---------------------------
 
@@ -317,84 +253,58 @@ Assertion.assertEquals(filteredExpectedTable, filteredActualTable);
 
 ---------------------------
   
+```java
 protected void tearDown() throws Exception{
-
-IDatabaseConnection connection =null;
-  
-try{
-  
-super.tearDown();
-  
-Connection conn=getConnection();
-  
-connection =new DatabaseConnection(conn);
-
-IDataSet dataSet = new FlatXmlDataSet(file);
-  
-DatabaseOperation.CLEAN_INSERT.execute(connection,dataSet);
-
-}catch(Exception e){
-  
-e.printStackTrace();
-  
-}finally{
-  
-try{
-  
-if(connection!=null) connection.close();
-  
-}catch(SQLException e){}
-  
+    IDatabaseConnection connection =null;
+    try{
+        super.tearDown();
+        Connection conn=getConnection();
+        connection =new DatabaseConnection(conn);
+        IDataSet dataSet = new FlatXmlDataSet(file);
+        DatabaseOperation.CLEAN_INSERT.execute(connection,dataSet);
+    }catch(Exception e){
+        e.printStackTrace();
+    }finally{
+        try{
+            if(connection!=null) connection.close();
+        }catch(SQLException e){}
+    }
 }
-
-}
+```
 
 曾经一直把Dbunit当做是测试数据库的东西(其实本来也就是),最近在研究Appfuse是 时候发现Dbunit对数据库的数据进行load和export非常方便,尤其是在自动填充数据库,或者导出数据的时候(两个可以反向进行了),或者是 WebTest测试的时候,尤为重要了,简单的几句话,就能完成数据的装载,导出,或者是查询了,下面有个例子可以说明这情况.不过注意的一点就是,配置 路径了.在Eclipse中在设置Ant的ClassPath时候就要把Dbunit和数据库的驱动程序Jar包加进去,然后别的都通过下面的例子就OK 了
 
+```xml
 <project name="SimpleTest" basedir="." default="load">
-  
 <property name="dbDriver" value="oracle.jdbc.driver.OracleDriver" />
-  
 <property name="dbUrl" value="jdbc:oracle:thin:@192.168.104.47:1521:esample" />
-  
 <property name="dbUser" value="esample" />
-  
 <property name="dbPassword" value="esample" />
-  
 <taskdef name="dbunit" classname="org.dbunit.ant.DbUnitTask"  />
-  
 <target name="load" description="Loads the database with sample data">
-  
 <property name="operation" value="CLEAN_INSERT" />
-  
 <property name="file" value="partial.xml" />
-  
 <dbunit driver="${dbDriver}"  url="${dbUrl}"
-  
 userid="${dbUser}" password="${dbPassword}">
-  
 <operation type="${operation}" src="${file}" format="xml" />
-  
 </dbunit>
-  
 </target>
-  
 <target name="export">
-  
 <dbunit driver="${dbDriver}" url="${dbUrl}" userid="${dbUser}" password="${dbPassword}">
-  
 <export dest="partial.xml"  format="xml">
-  
 <query name="QueryExhibtion" sql="SELECT Exhibition_Id FROM Ex_exhibition " />
-  
 </export>
-  
 </dbunit>
-  
 </target>
-  
 </project>
+```
   
 要先执行export,这样就会自动生成一个数据导出文件,如果有的话就会覆盖,然后在用load方法就可以让数据库加载刚才生成的那些数据了,具体的加 载方式要设置dbunit中的operation属性了,有UPDATE, INSERT, DELETE, DELETE_ALL, REFRESH, CLEAN_INSERT, MSSQL_INSERT, MSSQL_REFRESH, MSSQL_CLEAN_INSERT等参数了
   
 这样的话项目在持续集成的时候就方便多了,关于数据库的东西都是有Dbunit自动生成了,也算是Xp方法的一个数据库的实践把.注dbunit的地址是:[http://www.dbunit.org/,上面的例子是在DBunit2.1中测试通过](http://www.dbunit.org/,上面的例子是在DBunit2.1中测试通过).
+
+## 维护记录
+
+| 时间 | 修改内容 | 原因 |
+| ---- | -------- | ---- |
+| 2026-10-09 | 修复本地 Hugo 构建的 Raw HTML 警告：代码/配置放入代码块，正文中的尖括号占位符改为行内代码；categories 改为 Java | 正文中的 HTML/XML 片段被当作原始 HTML 丢弃；文件名/URL/标题按规范调整 |
