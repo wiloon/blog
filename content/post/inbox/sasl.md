@@ -1,12 +1,15 @@
 ---
-title: "sasl"
+title: "SASL"
 author: "-"
 date: "2021-08-13 17:00:11"
+lastmod: 2026-10-09T21:22:13+08:00
 url: sasl
 categories:
-  - inbox
+  - Network
 tags:
-  - reprint
+  - sasl
+  - remix
+  - AI-assisted
 ---
 ## "sasl"
 
@@ -35,11 +38,17 @@ tags:
 
 分别以”C:”和”S:”代表客户端和服务端，SASL规定的验证信息交换的基本流程为:
 
-      C: 请求验证交换
-      S: 最初的挑战码
-      C: 最初的响应消息
+```text
+C: 请求验证交换
+S: 最初的挑战码
+C: 最初的响应消息
+```
+
       <额外的挑战码/响应消息>
-      S: 身份验证结果
+
+```text
+S: 身份验证结果
+```
 
 根据机制不同，流程略有差异。
 
@@ -53,6 +62,7 @@ http://www.iana.org/assignments/sasl-mechanisms/sasl-mechanisms.xhtml
 EXTERNAL:
 EXTERNAL机制允许客户端请求服务器使用其他途径获取的验证信息来验证该客户端。如通过TLS获取的验证信息。以ACAP(Application Configuration Access Protocol)协议来举例:
 
+```text
 S: * ACAP (SASL "DIGEST-MD5")
 C: a001 STARTTLS
 S: a001 OK "Begin TLS negotiation now"
@@ -62,15 +72,20 @@ C: a002 AUTHENTICATE "EXTERNAL"
 S: + ""
 C: + ""
 S: a002 OK "Authenticated"
+```
+
 在TLS安全层建立后，服务端通告它支持DIGEST-MD5和EXTERNAL机制，客户端选择使用EXTERNAL机制，并且不使用其他授权实体。服务器使用外部信息验证通过后，返回成功的响应。
 
 PLAIN
 PLAIN机制只需要传递一条消息，这个消息由授权实体，验证实体和密码三部分组成。如下图所示:
 
+```text
 authzid<NUL>authcid<NUL>passwd
+```
 授权实体authzid为可选的。如果提供了它，身份验证通过后，如果权限允许，将以authzid身份进行操作。如果权限不允许，则服务器返回授权失败。由于PLAIN机制直接传递密码本身，因而不应该在没有私密性保护的连接上使用。
 同样以ACAP协议举例:
 
+```text
 S: * ACAP (SASL "CRAM-MD5") (STARTTLS)
 C: a001 STARTTLS
 S: a001 OK "Begin TLS negotiation now"
@@ -79,6 +94,8 @@ S: * ACAP (SASL "CRAM-MD5" "PLAIN")
 C: a002 AUTHENTICATE "PLAIN" {20+}
 C: Ursel<NUL>Kurt<NUL>xipj3plmq
 S: a002 NO "Not authorized to requested authorization identity"
+```
+
 TLS安全层建立后，服务器通告它支持CRAM-MD5和PLAIN机制，客户端选择PLAIN机制，并发送身份验证消息，服务器返回授权失败，即Kurt身份验证通过，但不能以Ursel的身份进行操作。
 
 SCRAM-SHA-1
@@ -86,10 +103,13 @@ SCRAM是一系统机制的统称，具体机制名称后缀上算法所使用的
 
 下面的例子略去机制协商的过程, 用户名为”user”, 密码为”pencil”:
 
+```text
 C: n,,n=user,r=fyko+d2lbbFgONRv9qkxdawL
 S: r=fyko+d2lbbFgONRv9qkxdawL3rfcNHYJY1ZVvWVs7j,s=QSXCR+Q6sek8bf92, i=4096
 C: c=biws,r=fyko+d2lbbFgONRv9qkxdawL3rfcNHYJY1ZVvWVs7j,p=v0X8v3Bz2T0CJGbJQyF0X+HI4Ts=
 S: v=rmF9pqV8S7suAoZWja4dJRkFsKQ=
+```
+
 SCRAM机制的消息由多个属性构成，每个属性为”a=xxx”的形式，而且属性有顺序要求。
 
 客户端发送的首条消息包括了以下内容: 
@@ -119,58 +139,58 @@ ServerSignature := HMAC(ServerKey, AuthMessage)
 
 Hi(str, salt, i):
 
+```text
 U1 := HMAC(str, salt + INT(1))
 U2 := HMAC(str, U1)
 ...
 Ui-1 := HMAC(str, Ui-2)
 Ui := HMAC(str, Ui-1)
 Hi := U1 XOR U2 XOR ... XOR Ui
+```
+
 用PHP实现该算法来验证上述例子:
 
-
+```php
 function hi($str, $salt, $i) {
     $int1 = "\0\0\0\1";
     $ui = hash_hmac("sha1", $salt . $int1, $str, true);
     $result = $ui;
-
     for ($k = 1; $k < $i; $k++) {
         $ui = hash_hmac("sha1", $ui, $str, true);
         $result = $result ^ $ui;
     }
-
     return $result;
 }
-
 $password = "pencil";
 $salt = base64_decode('QSXCR+Q6sek8bf92');
 $i = 4096;
 $client_first_message_bare = 'n=user,r=fyko+d2lbbFgONRv9qkxdawL';
 $server_first_message = 'r=fyko+d2lbbFgONRv9qkxdawL3rfcNHYJY1ZVvWVs7j,s=QSXCR+Q6sek8bf92,i=4096';
 $client_final_message_without_proof = 'c=biws,r=fyko+d2lbbFgONRv9qkxdawL3rfcNHYJY1ZVvWVs7j';
-
 $salted_password = hi($password, $salt, $i);
 $client_key = hash_hmac("sha1", "Client Key", $salted_password, true);
 $stored_key = sha1($client_key, true);
 $auth_message = $client_first_message_bare . ","
-                . $server_first_message . ","
+. $server_first_message . ","
                 . $client_final_message_without_proof;
 $client_signature = hash_hmac("sha1", $auth_message, $stored_key, true);
 $client_proof = $client_key ^ $client_signature;
-
 $server_key = hash_hmac("sha1", "Server Key", $salted_password, true);
 $server_signature = hash_hmac("sha1", $auth_message, $server_key, true);
-
 echo "p=" . base64_encode($client_proof) . "\n";
 echo "v=" . base64_encode($server_signature) . "\n";
+```
 
 输出结果为:
 
+```text
 p=v0X8v3Bz2T0CJGbJQyF0X+HI4Ts=
 v=rmF9pqV8S7suAoZWja4dJRkFsKQ=
+```
+
 与上述例子中值相符。
 
 在实际项目中，一般不需要自己来实现这些验证算法。C语言可直接使用CyrusSASL库或GNU的libgsasl。
-
 
 SASL是一种用来扩充C/S模式验证能力的机制认证机制,  全称Simple Authentication and Security Layer.
 
@@ -218,9 +238,13 @@ sasl(Simple Authentication and Security Layer)是一个用于网络通信协议�
 250-AUTH DIGEST-MD5 CRAM-MD5 LOGIN PLAIN
 AUTH LOGIN 
 334 VXNlcm5hbWU6
+
+```text
 eHh4eAo=
 334 UGFzc3dvcmQ6
 b294eAo=
+```
+
 235 2.0.0 OK Authenticated
 1 和smtp sever建立连接后,server发送欢迎信息
 2 server发送自己支持的验证方式DIGEST-MD5 CRAM-MD5 LOGIN PLAIN
@@ -234,26 +258,45 @@ b294eAo=
 很简单的流程，服务端给出选择，客户端选一个，然后根据验证方式不同进行验证流程，由于sasl仅仅是个框架，具体怎么实现是由协议决定的，比如xmpp协议的sasl验证流程
 
 #client与server建立链接后发出一个strem头
+
+```text
 C:
+```
+
 #server回应一个steam头
+
+```text
 S:
+```
+
 #server发送自己支持的验证方式列表
+
+```text
 S:
-     
+```
+
        DIGEST-MD5
        PLAIN
-     
 
 #client 说它要用DIGEST-MD5做验证
+
+```text
 C:
+```
 
 #server 发送challenge code
+
+```text
 S:
-   cmVhbG09InNvbWVyZWFsbSIsbm9uY2U9Ik9BNk1HOXRFUUdtMmhoIixxb3A9ImF1dGgi
-   LGNoYXJzZXQ9dXRmLTgsYWxnb3JpdGhtPW1kNS1zZXNzCg==
+cmVhbG09InNvbWVyZWFsbSIsbm9uY2U9Ik9BNk1HOXRFUUdtMmhoIixxb3A9ImF1dGgi
+LGNoYXJzZXQ9dXRmLTgsYWxnb3JpdGhtPW1kNS1zZXNzCg==
+```
 
 #client 回应challenge
+
+```text
 C:
+```
 
    dXNlcm5hbWU9InNvbWVub2RlIixyZWFsbT0ic29tZXJlYWxtIixub25jZT0i
    T0E2TUc5dEVRR20yaGgiLGNub25jZT0iT0E2TUhYaDZWcVRyUmsiLG5jPTAw
@@ -262,7 +305,10 @@ C:
    YXJzZXQ9dXRmLTgK
    
 #server 回应验证结果
+
+```text
 S:
+```
 
 当你实现一个协议的sasl部分时，如果你仅仅打算实现一两种验证方式，那么寥寥代码便可以搞定，但是如果希望提供尽可能多的验证方式，那么使用一些开源类库将是最好的选择。
 对于C语言有两个成熟的lib:Cyrus SASL和libgsasl。以gsasl为例:
@@ -270,6 +316,7 @@ S:
 gsasl屏蔽了具体验证的细节，你要做的仅仅是为验证流程提供必要的信息，比如：用户名，密码，验证域等等
 还是以上面的smtp验证为例，假设我们是client端，现在收到的server的mechlist，即验证方式列表，我们使用gsasl实现这次验证(虽然是我虚构的代码，但理论是可行的:))：
 
+```c
 Gsasl *ctx = NULL;
 char buffer[BUFSIZ] = "";
 char *buf;
@@ -283,7 +330,6 @@ if ((rc = gsasl_init (&ctx)) != GSASL_OK)
         rc, gsasl_strerror (rc));
     return;
 }
-
 //创建一个使用LOGIN验证方式的客户端session
 if ((rc = gsasl_client_start (ctx, "LOGIN", &session)) != GSASL_OK)
 {
@@ -291,28 +337,23 @@ if ((rc = gsasl_client_start (ctx, "LOGIN", &session)) != GSASL_OK)
        rc, gsasl_strerror (rc));
     return;
 }
-
 //设置用户名和密码
 gsasl_property_set (session, GSASL_AUTHID, "username");
 gsasl_property_set (session, GSASL_PASSWORD, "password");
-
 //假设socket_fd为我们与server已经建立连接的描述字
-
 //告诉server我们选择使用LOGIN做验证
 buf = buffer;
 sprintf(buf, "AUTH LOGIN\r\n");
 write(socket_fd, buf, strlen(buf));
-
 do
  {
    buf = buffer;
    //从server读取一行，
    readline(buf, sizeof (buf) - 1, socket_fd);
-   //334 是多余的 
+   //334 是多余的
    buf += 4;
    //将challenge code 交给gsasl处理
    rc = gsasl_step64 (session, buf, &p);
-
    if (rc == GSASL_NEEDS_MORE || rc == GSASL_OK)
      {
        //将gsasl的处理结果发送给server
@@ -321,47 +362,46 @@ do
      }
  }
 while (rc == GSASL_NEEDS_MORE);
-
 if (rc != GSASL_OK)
  {
    printf ("Authentication error (%d): %s\n",
            rc, gsasl_strerror (rc));
    return;
  }
-
 printf("success!");
-
 gsasl_finish (session);
 gsasl_done (ctx);
+```
+
 使用gsasl可以让我们用类似上面代码处理所有的验证方式，唯一不同的就在于使用gsasl_property_set设置不同的字段。
 
 除了像上面一样直接设置验证字段,还可以通过回调函数设置,当gsasl需要某一字段时会触发回调函数
 
+```c
 int callback (Gsasl * ctx, Gsasl_session * sctx, Gsasl_property prop)
  {
    char buf[BUFSIZ] = "";
    int rc = GSASL_NO_CALLBACK;
-
    switch (prop)
      {
-     case GSASL_AUTHID:
-       gsasl_property_set (sctx, GSASL_AUTHID, "username");
-       rc = GSASL_OK;
-       break;
-     // .............. 
-     default:
+case GSASL_AUTHID:
+  gsasl_property_set (sctx, GSASL_AUTHID, "username");
+  rc = GSASL_OK;
+  break;
+// ..............
+default:
        printf ("Unknown property!  Don't worry.\n");
        break;
      }
- 
    return rc;
  }
 //.................
 gsasl_callback_set (ctx, callback);
+```
+
 好了，不能够再详细了，我的主要目的是分析jabberd2的验证逻辑，关于gsasl的更多请参考:http://www.gnu.org/software/gsasl/manual/gsasl.html
 
 其他参考:http://wiki.jabbercn.org/index.php?title=RFC3920&variant=zh-cn
-
 
 >https://bluehua.org/2010/12/01/1484.html
 
@@ -375,3 +415,9 @@ https://www.gnu.org/software/gsasl/doxygen/gsasl_8h_source.html
 pacman -S libidn11
 
 ```
+
+## 维护记录
+
+| 时间 | 修改内容 | 原因 |
+| ---- | -------- | ---- |
+| 2026-10-09 | 修复本地 Hugo 构建的 Raw HTML 警告：代码/配置放入代码块，正文中的尖括号占位符改为行内代码；title 改为「SASL」；categories 改为 Network | 正文中的 HTML/XML 片段被当作原始 HTML 丢弃；文件名/URL/标题按规范调整 |

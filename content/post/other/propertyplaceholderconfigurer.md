@@ -2,11 +2,14 @@
 title: PropertyPlaceholderConfigurer
 author: "-"
 date: 2012-12-08T11:42:57+00:00
+lastmod: 2026-10-09T21:22:13+08:00
 url: propertyplaceholderconfigurer
 categories:
   - Java
 tags:
-  - reprint
+  - spring
+  - remix
+  - AI-assisted
 aliases:
   - /p4865/
 ---
@@ -27,98 +30,42 @@ PropertyPlaceholderConfigurer,允许在spring的配置文件中加入properties�
 
 经过查看源码,发现可以使用locations属性定义多个配置文件: 
 
-Java代码  <img src="http://callan.iteye.com/images/icon_star.png" alt="收藏代码" />
-  
-  
-  
-    
-      <property name="locations">
-    
-    
-                  
-    
-    
-                      <value>classpath:config/maxid.properties</value>
-    
-    
-                      <value>classpath:config/jdoserver.properties</value>
-    
-    
-                  </list>
-    
-    
-      </property>
-    
-  
+```xml
+<bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+    <property name="locations">
+        <list>
+            <value>classpath:config/maxid.properties</value>
+            <value>classpath:config/jdoserver.properties</value>
+        </list>
+    </property>
+</bean>
+```
 
 使用外部属性后如下: 
 
-
-  
-    
-      Java代码  <img src="http://callan.iteye.com/images/icon_star.png" alt="收藏代码" />
-  
-  
-  
-    
-      <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
-    
-    
-              <property name="driverClassName" value="${jdbc.agent.driver}"/>
-    
-    
-              <property name="url" value="${jdbc.agent.main.url}"/>
-    
-    
-          </bean>
-    
-  
+```xml
+<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+    <property name="driverClassName" value="${jdbc.agent.driver}"/>
+    <property name="url" value="${jdbc.agent.main.url}"/>
+</bean>
+```
 
 PropertyOverrideConfigurer: 在spring所有的bean初使化以后,将bean的值强行改变
 
+```xml
+<bean id="configBean"
+      class="org.springframework.beans.factory.config.PropertyOverrideConfigurer">
+    <property name="location">
+        <value>hello.properties</value>
+    </property>
+</bean>
 
-  
-    
-      Xml代码  <img src="http://callan.iteye.com/images/icon_star.png" alt="收藏代码" />
-  
-  
-  
-    
-      <bean id="configBean"
-    
-    
-         class="org.springframework.beans.factory.config.PropertyOverrideConfigurer">
-    
-    
-               <property name="location">
-    
-    
-                   <value>hello.properties</value>
-    
-    
-               </property>
-    
-    
-           </bean>
-    
-    
-    
-    
-           <bean id="helloBean" class="com.HelloBean">
-    
-    
-               <property name="word">
-    
-    
-                   <value>Hello!</value>
-    
-    
-               </property>
-    
-    
-           </bean>
-    
-  
+<bean id="helloBean" class="com.HelloBean">
+    <property name="word">
+        <value>Hello!</value>
+    </property>
+</bean>
+```
 
 定义HelloBean,注入word的值为hello.
 
@@ -127,3 +74,9 @@ PropertyOverrideConfigurer: 在spring所有的bean初使化以后,将bean的值�
 helloBean.word=Welcome!
 
 word初使为hello后,当bean全加载完,PropertyOverrideConfigurer将helloBean.word的值改成为welcome.
+
+## 维护记录
+
+| 时间 | 修改内容 | 原因 |
+| ---- | -------- | ---- |
+| 2026-10-09 | 修复本地 Hugo 构建的 Raw HTML 警告：代码/配置放入代码块，正文中的尖括号占位符改为行内代码 | 正文中的 HTML/XML 片段被当作原始 HTML 丢弃；文件名/URL/标题按规范调整 |

@@ -2,11 +2,14 @@
 title: race condition, 竞态条件
 author: "-"
 date: "2021-07-01 21:56:55"
+lastmod: 2026-10-09T21:22:13+08:00
 url: race-condition
 categories:
   - CS
 tags:
-  - reprint
+  - concurrency
+  - remix
+  - AI-assisted
 ---
 ## race condition
 
@@ -52,17 +55,17 @@ bool racy_transfer(int& src, int& dst, int m)
   }
 }
 
-```
-
 // 将下面两个函数在两个线程分别运行
 racy_transfer(your_account, my_account, 50);
 racy_transfer(your_account, my_account, 80);
+```
+
 运行上面的的代码后，不光我们双方账号的余额不可预测，甚至整个系统会发生什么事情都无法保证。
 
 ### 竞态条件的例子
 
-```c
-#include
+```cpp
+#include <atomic>
 std::atomic<int> my_account = 0; //我的账户余额
 std::atomic<int> your_account = 100;  //你的账户余额
 
@@ -89,9 +92,11 @@ unsafe_transfer(your_account, my_account, 80);//[B]
 [A]执行结束后，your_account == my_account == 50，[B]再开始执行，然而条件不满足，转账失败；
 [B]执行结束后，your_account == 20 && my_account == 80，[A]再开始执行，然而条件不满足，转账失败；
 [A]和[B]交错执行，而且都进入了if块之内，最终结果变成your_account == -30 && my_account == 130，程序虽然能正常退出，但显然违反了不变性条件——存款余额≥0。
-对应于C++的std::atomic<int>、在Java有java.util.concurrent.atomic.AtomicInteger类 (或者volatile修饰的变量) 。
+对应于C++的 `std::atomic<int>`、在Java有java.util.concurrent.atomic.AtomicInteger类 (或者volatile修饰的变量) 。
 
 3.3.解决办法
+
+```cpp
 #include <mutex>
 int my_account = 0;//我的账户余额
 int your_account = 100; //你的账户余额
@@ -114,6 +119,8 @@ bool safe_transfer(int& src, int& dst, int m)
 //将下面两个函数在两个线程分别运行
 safe_transfer(your_account, my_account, 50);  // [A]
 safe_transfer(your_account, my_account, 80);  // [B]
+```
+
 这样程序只会产生以下两种结果: 
 
 [A]执行结束后，your_account == my_account == 50，[B]再开始执行，然而条件不满足，转账失败: 
@@ -123,7 +130,10 @@ safe_transfer(your_account, my_account, 80);  // [B]
 版权声明: 本文为CSDN博主「烧煤的快感」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
 原文链接: https://blog.csdn.net/gg_18826075157/article/details/72582939
 
-
-
-
 https://blog.csdn.net/gg_18826075157/article/details/72582939
+
+## 维护记录
+
+| 时间 | 修改内容 | 原因 |
+| ---- | -------- | ---- |
+| 2026-10-09 | 修复本地 Hugo 构建的 Raw HTML 警告：代码/配置放入代码块，正文中的尖括号占位符改为行内代码 | 正文中的 HTML/XML 片段被当作原始 HTML 丢弃；文件名/URL/标题按规范调整 |

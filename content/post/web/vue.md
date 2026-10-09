@@ -1,6 +1,7 @@
 ---
 author: "-"
 date: 2026-04-30T17:32:26+08:00
+lastmod: 2026-10-09T21:22:13+08:00
 title: "Vue"
 url: vue
 categories:
@@ -389,7 +390,7 @@ npm install --save vue vue-class-component
 修改在 Cache Storage 中的缓存名。
 程序保存在 Cache Storage 的默认缓存有两个，一个是预缓存一个是运行时缓存。
 
-缓存名的格式是 -<Cache ID>-<suffix>，通过修改缓存前缀和后缀，可以让缓存名独一无二，避免在使用 localhost 调试程序时因为端口号相同引发的冲突。
+缓存名的格式是 `-<Cache ID>-<suffix>`，通过修改缓存前缀和后缀，可以让缓存名独一无二，避免在使用 localhost 调试程序时因为端口号相同引发的冲突。
 修改前后缀:
 
         workbox.core.setCacheNameDetails({
@@ -531,3 +532,9 @@ aliases:
 [https://github.com/vuejs/vue-next](https://github.com/vuejs/vue-next)
 [https://qingbii.com/2019/10/10/building-vue3-from-scratch/](https://qingbii.com/2019/10/10/building-vue3-from-scratch/)
 [https://juejin.im/post/5dd3d4dae51d453d493092da](https://juejin.im/post/5dd3d4dae51d453d493092da)
+
+## 维护记录
+
+| 时间 | 修改内容 | 原因 |
+| ---- | -------- | ---- |
+| 2026-10-09 | 修复本地 Hugo 构建的 Raw HTML 警告：代码/配置放入代码块，正文中的尖括号占位符改为行内代码 | 正文中的 HTML/XML 片段被当作原始 HTML 丢弃；文件名/URL/标题按规范调整 |

@@ -2,12 +2,15 @@
 title: ThreadLocal
 author: "-"
 date: 2017-03-24T09:14:42+00:00
+lastmod: 2026-10-09T21:22:13+08:00
 url: threadlocal
 categories:
   - Java
 tags:
   - thread
-
+  - java
+  - remix
+  - AI-assisted
 ---
 ## ThreadLocal
 
@@ -102,36 +105,29 @@ ThreadLocal初始值
   
 为ThreadLocal设置默认的get初始值,需要重写initialValue方法,下面是一段代码,我们将默认值修改成了线程的名字
 
+```java
 ThreadLocal<String> mThreadLocal = new ThreadLocal<String>() {
-
-@Override
-
-protected String initialValue() {
-
-return Thread.currentThread().getName();
-
-}
-  
+    @Override
+    protected String initialValue() {
+        return Thread.currentThread().getName();
+    }
 };
-  
+```
+
 Android中的应用
   
 在Android中,Looper类就是利用了ThreadLocal的特性,保证每个线程只存在一个Looper对象。
 
+```java
 static final ThreadLocal<Looper> sThreadLocal = new ThreadLocal<Looper>();
-  
 private static void prepare(boolean quitAllowed) {
-
-if (sThreadLocal.get() != null) {
-
-throw new RuntimeException("Only one Looper may be created per thread");
-
+    if (sThreadLocal.get() != null) {
+        throw new RuntimeException("Only one Looper may be created per thread");
+    }
+    sThreadLocal.set(new Looper(quitAllowed));
 }
+```
 
-sThreadLocal.set(new Looper(quitAllowed));
-  
-}
-  
 如何实现
   
 为了更好的掌握ThreadLocal, 我认为了解其内部实现是很有必要的,这里我们以set方法从起始看一看ThreadLocal的实现原理。
@@ -275,38 +271,27 @@ this.stackSize = stackSize;
   
 上面的逻辑是清晰的,可是ThreadLocal并不会产生内存泄露,因为ThreadLocalMap在选择key的时候,并不是直接选择ThreadLocal实例,而是ThreadLocal实例的弱引用。
 
+```java
 static class ThreadLocalMap {
-
-/**
-  
-- The entries in this hash map extend WeakReference, using
-  
-- its main ref field as the key (which is always a
-  
-- ThreadLocal object). Note that null keys (i.e. entry.get()
-  
-- == null) mean that the key is no longer referenced, so the
-  
-- entry can be expunged from table. Such entries are referred to
-  
-- as "stale entries" in the code that follows.
-  
-*/
-
-static class Entry extends WeakReference<ThreadLocal<?>> {
-
-/*\* The value associated with this ThreadLocal.*/
-
-Object value;
-
+    /**
+    * The entries in this hash map extend WeakReference, using
+    * its main ref field as the key (which is always a
+    * ThreadLocal object). Note that null keys (i.e. entry.get()
+    * == null) mean that the key is no longer referenced, so the
+    * entry can be expunged from table. Such entries are referred to
+    * as "stale entries" in the code that follows.
+    */
+    static class Entry extends WeakReference<ThreadLocal<?>> {
+        /** The value associated with this ThreadLocal.*/
+        Object value;
         Entry(ThreadLocal<?> k, Object v) {
             super(k);
             value = v;
         }
     }
-
 }
-  
+```
+
 所以实际上从ThreadLocal设计角度来说是不会导致内存泄露的。关于弱引用,了解更多,请访问译文: 理解Java中的弱引用
 
 使用场景
@@ -405,3 +390,9 @@ ThreadLocal 往往存放的数据量不会特别大 (而且key 是弱引用又�
 [https://www.liaoxuefeng.com/wiki/1252599548343744/1306581251653666](https://www.liaoxuefeng.com/wiki/1252599548343744/1306581251653666)  
 [https://blog.csdn.net/Summer_And_Opencv/article/details/104632272](https://blog.csdn.net/Summer_And_Opencv/article/details/104632272)  
 [https://juejin.cn/post/6844903974454329358](https://juejin.cn/post/6844903974454329358)  
+
+## 维护记录
+
+| 时间 | 修改内容 | 原因 |
+| ---- | -------- | ---- |
+| 2026-10-09 | 修复本地 Hugo 构建的 Raw HTML 警告：代码/配置放入代码块，正文中的尖括号占位符改为行内代码 | 正文中的 HTML/XML 片段被当作原始 HTML 丢弃；文件名/URL/标题按规范调整 |

@@ -2,11 +2,15 @@
 title: antisamy
 author: "-"
 date: 2018-12-14T07:44:26+00:00
+lastmod: 2026-10-09T21:22:13+08:00
 url: antisamy
 categories:
-  - Inbox
+  - Web
 tags:
-  - reprint
+  - security
+  - xss
+  - remix
+  - AI-assisted
 aliases:
   - /p13081/
 ---
@@ -22,11 +26,7 @@ antisamy-slashdot.xml
   
 Slashdot不仅仅是目前同类中最酷的网站之一,而且同时也曾是最容易被成功攻击的网站之一。更不幸的是,导致大部分用户遭受攻击的原由是臭名昭着的goatse.cx 图片(请你不要刻意去看)。
   
-Slashdot的安全策略非常严格: 用户只能提交下列的html标签: **, <u>, _, ,
-
-  <
-
-  blockquote>,并且还不支持CSS.因此我们创建了这样的策略文件来实现类似的功能。它允许所有文本格式的标签来直接修饰字体、颜色或者强调作用。
+Slashdot的安全策略非常严格: 用户只能提交下列的html标签: `<b>`、`<u>`、`<i>`、`<a>`、`<blockquote>`，并且还不支持CSS.因此我们创建了这样的策略文件来实现类似的功能。它允许所有文本格式的标签来直接修饰字体、颜色或者强调作用。
 
   antisamy-ebay.xml
   众所周知,eBay ([http://www.ebay.com/)是当下最流行的在线拍卖网站之一。它是一个面向公众的站点,因此它允许任何人发布一系列富HTML的内容。我们对eBay成为一些复杂XSS攻击的目标,并对攻击者充满吸引力丝毫不感到奇怪。由于eBay允许输入的内容列表包含了比Slashdot](http://www.ebay.com/)是当下最流行的在线拍卖网站之一。它是一个面向公众的站点,因此它允许任何人发布一系列富HTML的内容。我们对eBay成为一些复杂XSS攻击的目标,并对攻击者充满吸引力丝毫不感到奇怪。由于eBay允许输入的内容列表包含了比Slashdot)更多的富文本内容,所以它的受攻击面也要大得多。
@@ -50,3 +50,9 @@ Slashdot的安全策略非常严格: 用户只能提交下列的html标签: **, 
  来源: CSDN
  原文: [https://blog.csdn.net/zhujq_icode/article/details/79154063](https://blog.csdn.net/zhujq_icode/article/details/79154063)
  版权声明: 本文为博主原创文章,转载请附上博文链接！
+
+## 维护记录
+
+| 时间 | 修改内容 | 原因 |
+| ---- | -------- | ---- |
+| 2026-10-09 | 修复本地 Hugo 构建的 Raw HTML 警告：代码/配置放入代码块，正文中的尖括号占位符改为行内代码；categories 改为 Web | 正文中的 HTML/XML 片段被当作原始 HTML 丢弃；文件名/URL/标题按规范调整 |

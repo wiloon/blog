@@ -2,11 +2,14 @@
 title: emacs
 author: "-"
 date: 2012-06-21T01:14:06+00:00
+lastmod: 2026-10-09T21:22:13+08:00
 url: emacs
 categories:
   - Tools
 tags:
-  - reprint
+  - emacs
+  - remix
+  - AI-assisted
 ---
 ## emacs
 
@@ -149,11 +152,11 @@ m-x flush-lines
 
 ## emacs 插入空行
 
+```lisp
 ;insert line
-  
 (global-set-key (kbd "S-<return>") '(lambda()(interactive)(move-end-of-line 1)(newline)))
-  
 (global-set-key (kbd "C-S-<return>") '(lambda()(interactive)(move-beginning-of-line 1)(newline)(previous-line)))
+```
 
 [http://www.gnu.org/software/emacs/manual/html_node/emacs/Moving-Point.html](http://www.gnu.org/software/emacs/manual/html_node/emacs/Moving-Point.html)
 
@@ -164,14 +167,11 @@ m-x flush-lines
 **Using carriage returns in query-replace / replace-string**
 
     Use C-Q C-J (control-Q control-J) each time you want to include a carriage return. e.g. to double-space everything
-  
-  
+
     M-x replace-string RET C-Q C-J RET C-Q C-J C-Q C-J RET
-  
-  
+
     Or to put "bloogie " at the beginning of every line
-  
-  
+
     M-x replace-string RET C-Q C-J RET C-Q C-J b l o o g i e SPACE RET
   
 ## Emacs 中以十六进制查看文件
@@ -182,3 +182,9 @@ m-x flush-lines
 m-x hexl-mode
 ```
   
+
+## 维护记录
+
+| 时间 | 修改内容 | 原因 |
+| ---- | -------- | ---- |
+| 2026-10-09 | 修复本地 Hugo 构建的 Raw HTML 警告：代码/配置放入代码块，正文中的尖括号占位符改为行内代码 | 正文中的 HTML/XML 片段被当作原始 HTML 丢弃；文件名/URL/标题按规范调整 |

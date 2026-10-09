@@ -2,11 +2,15 @@
 title: Linux 命令选项, 参数，括号, 可选, 必选
 author: "-"
 date: 2019-03-19T02:52:27+00:00
+lastmod: 2026-10-09T21:22:13+08:00
 url: linux-options
 categories:
-  - Inbox
+  - Linux
 tags:
-  - reprint
+  - linux
+  - shell
+  - remix
+  - AI-assisted
 aliases:
   - /p13881/
   - /p15720/
@@ -57,28 +61,34 @@ Transact-SQL 引用中的语法关系图使用下列规则。
 
 示例: [global options]、[source arguments]、[destination arguments]
 
-### 尖括号 <>
+### 尖括号 `<>`
   
 尖括号 ( < > ) 表示里面的元素(参数、值或信息) 是必需的。 您需要用相应的信息来替换尖括号里面的文本。 不要将尖括号本身也输入到命令行中。
 
-示例: -f <file name>、-printer <printer name>、-repeat <months> <days> <hours> <minutes>、date access <mm/dd/yyyy>
+示例: `-f <file name>`、`-printer <printer name>`、`-repeat <months> <days> <hours> <minutes>`、`date access <mm/dd/yyyy>`
 
 ### 省略号 CA ARCserve Backup
   
 由三个句点 ( ... ) 组成的省略号含义是"等等"，表示前述元素 (参数、值或信息) 可以在命令行中多次重复。
 
-示例: -jobid <job id1, job id2, job id3,...>、[-exitcode <exit code 1>、<exit code2>、<exit code3> ...]
+示例: `-jobid <job id1, job id2, job id3,...>`、`[-exitcode <exit code 1>、<exit code2>、<exit code3> ...]`
 
 ### 管道 |
   
 管道符号 (竖线) 含义是"或者"，它表示在一个元素内的一个选项。 如果两个参数由管道符号分隔开，您可以选择分隔符左边的元素，也可选择分隔符右边的元素。 在一次命令使用中不可同时选择两个元素。 在方括号中，这些选项是可选的。 在尖括号中，至少需要一个选项。
 
-示例: -ca_backup [-custom|-rotation|-gfsrotation]、-excludeday <Sun|Mon|Tue|Wed|Thu|Fri|Sat>、-runjob <start|stop>
+示例: `-ca_backup [-custom|-rotation|-gfsrotation]`、`-excludeday <Sun|Mon|Tue|Wed|Thu|Fri|Sat>`、`-runjob <start|stop>`
 
 ### 斜体
   
 斜体文本表示您必须通过相应的值提供的信息。 它是一个要用值来替换的选项或参数。
 
-示例: -sessionpassword session password、-f <file name>、-printer <printer name>
+示例: `-sessionpassword session password`、`-f <file name>`、`-printer <printer name>`
 
 注意: 命令行语法 (包括在 UNIX 和 Linux 平台中使用的用户名、密码和文件名) 是区分大小写的。 例如，commandline、CommandLine 和 COMMANDLINE 是不一样的。
+
+## 维护记录
+
+| 时间 | 修改内容 | 原因 |
+| ---- | -------- | ---- |
+| 2026-10-09 | 修复本地 Hugo 构建的 Raw HTML 警告：代码/配置放入代码块，正文中的尖括号占位符改为行内代码；categories 改为 Linux | 正文中的 HTML/XML 片段被当作原始 HTML 丢弃；文件名/URL/标题按规范调整 |

@@ -38,7 +38,7 @@ tags:
 | 字节码 | `javac` 产出 `.class`，由虚拟机解释或 JIT 编译后执行 |
 | 类加载 | 加载、链接、初始化；双亲委托等模型见 [classloader](./classloader.md) |
 | JNI | Java 与本地代码互操作规范，见 [java-jni](./java-jni.md) |
-| JPDA | 调试体系（JDI / JDWP / JVMTI），见 [java-debug-JPDA](./java-debug-JPDA.md) |
+| JPDA | 调试体系（JDI / JDWP / JVMTI），见 [java-debug-JPDA](./debug-jpda.md) |
 
 规范 **不** 规定用哪种垃圾收集器、有哪些 `-XX` 开关、是否提供 JFR——这些是实现细节。
 

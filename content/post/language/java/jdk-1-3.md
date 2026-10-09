@@ -49,7 +49,7 @@ JDK 1.3（对外称 **Java 2 Platform, Standard Edition, v1.3**，代号 **Kestr
 
 ### 工具与诊断
 
-- **JPDA**（Java Platform Debugger Architecture）从 1.3.x 起由 JDK **直接支持**（此前的 1.2.2 只是先推出工具集），详见 [Java 调试与 JPDA](./java-debug-JPDA.md)
+- **JPDA**（Java Platform Debugger Architecture）从 1.3.x 起由 JDK **直接支持**（此前的 1.2.2 只是先推出工具集），详见 [Java 调试与 JPDA](./debug-jpda.md)
 
 ### 1.3 尚未具备（后续版本才加入）
 

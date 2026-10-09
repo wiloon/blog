@@ -2,11 +2,14 @@
 title: maven plugins, pluginManagement
 author: "-"
 date: 2018-03-06T06:40:17+00:00
+lastmod: 2026-10-09T21:22:13+08:00
 url: maven-plugins-pluginmanagement
 categories:
-  - Inbox
+  - Java
 tags:
-  - reprint
+  - maven
+  - remix
+  - AI-assisted
 aliases:
   - /p11959/
 ---
@@ -19,32 +22,25 @@ plugins 和 pluginManagement 的区别,和我们前面研究过的 dependencies 
 
 2.pluginManagement使用实战
   
-假如存在两个项目,项目A为项目B的父项目,其关系通过pom文件的关系确定。项目A的父pom文件片段如下: <pluginManagement> <plugins> <plugin> <groupId>org.apache.maven.plugins</groupId>
+假如存在两个项目,项目A为项目B的父项目,其关系通过pom文件的关系确定。项目A的父pom文件片段如下: `<pluginManagement>` `<plugins>` `<plugin>` `<groupId>``org.apache.maven.plugins</groupId>`
 
-              
+```text
 maven-source-plugin</artifactId>
-              
 <version>2.1</version>
-              
 <configuration>
-                  
 true</attach>
-              
 </configuration>
-              
 <executions>
-                  
 <execution> <phase>compile</phase> <goals>
-                          
 <goal>jar</goal>
-                      
 </goals>
-                  
 </execution>
-              
-</executions> </plugin> </plugins> </pluginManagement> 如果项目B也想使用该plugin配置,则在项目B的子pom文件中只需要如下配置:  <plugins> <plugin> <groupId>org.apache.maven.plugins</groupId>
+</executions> </plugin> </plugins> </pluginManagement>
+```
+
+如果项目B也想使用该plugin配置,则在项目B的子pom文件中只需要如下配置:  `<plugins>` `<plugin>` `<groupId>``org.apache.maven.plugins</groupId>`
           
-maven-source-plugin</artifactId> </plugin> </plugins> 我们可以看到,子pom文件中,省去了版本、配置细节等信息,只需要指定groupId和artifactId,其他信息均从父pom文件继承。当然,如果子pom文件想定制自己的特定内容,可以另行设置,并会覆盖从父pom文件继承到的内容。 
+maven-source-`plugin</artifactId>` `</plugin>` `</plugins>` 我们可以看到,子pom文件中,省去了版本、配置细节等信息,只需要指定groupId和artifactId,其他信息均从父pom文件继承。当然,如果子pom文件想定制自己的特定内容,可以另行设置,并会覆盖从父pom文件继承到的内容。 
 
 需要注意的是,dependencies 和 dependencyManagement 均是 project 下的直接子元素,但是 plugins 和 pluginManagement 却是 project 下 build 的直接子元素。
 
@@ -55,3 +51,9 @@ maven-source-plugin</artifactId> </plugin> </plugins> 我们可以看到,子pom�
 來源: 简书
   
 著作权归作者所有。商业转载请联系作者获得授权,非商业转载请注明出处。
+
+## 维护记录
+
+| 时间 | 修改内容 | 原因 |
+| ---- | -------- | ---- |
+| 2026-10-09 | 修复本地 Hugo 构建的 Raw HTML 警告：代码/配置放入代码块，正文中的尖括号占位符改为行内代码；categories 改为 Java | 正文中的 HTML/XML 片段被当作原始 HTML 丢弃；文件名/URL/标题按规范调整 |

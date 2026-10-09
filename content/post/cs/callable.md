@@ -2,12 +2,16 @@
 title: Java Callable, Future 和 FutureTask
 author: "-"
 date: 2014-11-26T06:43:53+00:00
+lastmod: 2026-10-09T21:22:13+08:00
 url: callable
 categories:
   - Java
 tags:
-  - reprint
   - thread
+  - java
+  - juc
+  - remix
+  - AI-assisted
 ---
 ## Java Callable, Future 和 FutureTask
 
@@ -72,16 +76,16 @@ Future类位于java.util.concurrent包下，它是一个接口:
 
 ```java
 public interface Future<V> {
-      
-boolean cancel(boolean mayInterruptIfRunning);
-      
-boolean isCancelled();
-      
-boolean isDone();
-      
-V get() throws InterruptedException, ExecutionException;
-      
-V get(long timeout, TimeUnit unit) throws InterruptedException, ExecutionException, TimeoutException;
+
+    boolean cancel(boolean mayInterruptIfRunning);
+
+    boolean isCancelled();
+
+    boolean isDone();
+
+    V get() throws InterruptedException, ExecutionException;
+
+    V get(long timeout, TimeUnit unit) throws InterruptedException, ExecutionException, TimeoutException;
 }
 ```
 
@@ -130,8 +134,8 @@ FutureTask 类实现了RunnableFuture接口，我们看一下RunnableFuture接�
 
 public interface RunnableFuture<V> extends Runnable, Future<V> {
 
-void run();
-  
+    void run();
+
 }
 ```
 
@@ -139,11 +143,12 @@ void run();
 
 FutureTask 提供了2个构造器:
 
+```java
 public FutureTask(Callable<V> callable) {
 }
-  
 public FutureTask(Runnable runnable, V result) {
 }
+```
   
 事实上，FutureTask是 Future 接口的一个唯一实现类。
   
@@ -240,7 +245,7 @@ public class Callable0 {
 }
 ```
 
-如果为了可取消性而使用 Future 但又不提供可用的结果，则可以声明 Future<?> 形式类型、并返回 null 作为底层任务的结果。
+如果为了可取消性而使用 Future 但又不提供可用的结果，则可以声明 `Future<?>` 形式类型、并返回 null 作为底层任务的结果。
 
 [http://www.cnblogs.com/dolphin0520/p/3949310.html](http://www.cnblogs.com/dolphin0520/p/3949310.html)
 
@@ -251,3 +256,9 @@ public class Callable0 {
 ### Callable
 
 Runnable实现的是 void run() 方法，Callable实现的是 V call() 方法，并且可以返回执行结果，其中Runnable可以提交给Thread来包装下，直接启动一个线程来执行，而Callable则一般都是提交给ExecuteService来执行。通常在开发中结合ExecutorService使用,将任务的提交与任务的执行解耦开,同时也能更好地利用Executor提供的各种特性
+
+## 维护记录
+
+| 时间 | 修改内容 | 原因 |
+| ---- | -------- | ---- |
+| 2026-10-09 | 修复本地 Hugo 构建的 Raw HTML 警告：代码/配置放入代码块，正文中的尖括号占位符改为行内代码 | 正文中的 HTML/XML 片段被当作原始 HTML 丢弃；文件名/URL/标题按规范调整 |

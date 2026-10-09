@@ -2,11 +2,14 @@
 title: readelf
 author: "-"
 date: 2012-05-24T14:18:34+00:00
+lastmod: 2026-10-09T21:22:13+08:00
 url: readelf
 categories:
   - Linux
 tags:
-  - reprint
+  - elf
+  - remix
+  - AI-assisted
 ---
 ## readelf
 
@@ -14,13 +17,13 @@ tags:
 
 示例：
 
-# 查看静态库定义的函数
+### 查看静态库定义的函数
 
 ```Bash
 readelf -c xxx.a
 ```
 
-# 查看静态库定义的函数
+### 查看静态库定义的函数
 
 ```Bash
 readelf -A xxx.so
@@ -112,8 +115,8 @@ elf文件头描述elf文件的总体信息。包括：系统相关，类型相�
 -D
 --use-dynamic 使用动态段中的符号表显示符号，而不是使用符号段。
 
--x <number or name>
---hex-dump=<number or name> 以16进制方式显示指定段内内容。number指定段表中段的索引,或字符串指定文件中的段名。
+`-x <number or name>`
+`--hex-dump=<number or name>` 以16进制方式显示指定段内内容。number指定段表中段的索引,或字符串指定文件中的段名。
 
 -w[liaprmfFsoR] or
 --debug-dump[=line,=info,=abbrev,=pubnames,=aranges,=macro,=frames,=frames-interp,=str,=loc,=Ranges] 显示调试段中指定的内容。
@@ -138,8 +141,9 @@ elf文件头描述elf文件的总体信息。包括：系统相关，类型相�
 
 1)查看可执行程序的源代码如下：
 
+```cpp
 root@localhost [test]$ cat main.cpp
-# include <iostream>
+#include <iostream>
 using std::cout;
 using std::endl;
 void my_print();
@@ -155,46 +159,61 @@ void  my_print()
 {
         cout<<"print!"<<endl;
 }
+```
+
 2)编译如下：
 
+```text
 [root@localhost test]$ g++ main.cpp -o main
 [root@localhost test]$ g++ -g main.cpp -o main.debug
+```
+
 3)编译之后，查看生成的文件：
 
+```text
 [root@localhost test]$ ls -l
 总计 64
 -rwxr-xr-x 1 quietheart quietheart  6700 07-07 18:04 main
 -rw-r--r-- 1 quietheart quietheart   201 07-07 18:02 main.cpp
 -rwxr-xr-x 1 quietheart quietheart 38932 07-07 18:04 main.debug
+```
+
 这里，main.debug是带有调试信息的可执行文件，main是一般的可执行文件。
 
 2.对于库文件形式的elf格式文件：
 
 1)查看库的源代码如下：
 
+```cpp
 //myfile.h
-# ifndef __MYFILE_H
-# define __MYFILE_H
+#ifndef __MYFILE_H
+#define __MYFILE_H
 void printInfo();
-# endif
+#endif
 
 //myfile.cpp
-# include "myfile.h"
-# include <iostream>
+#include "myfile.h"
+#include <iostream>
 using std::cout;
 using std::endl;
 void printInfo()
 {
     cout<<"hello"<<endl;
 }
+```
+
 2)编译如下：
 
+```text
 [root@localhost test]$ g++ -c myfile.cpp
 [root@localhost test]$ g++ -shared -fPCI -o libmy.so myfile.o
 [root@localhost test]$ ar -r libmy.a myfile.o
 ar: creating libmy.a
+```
+
 3)编译之后，查看生成的文件：
 
+```text
 [root@localhost test]$ ls -l
 
 总计 44
@@ -205,12 +224,15 @@ ar: creating libmy.a
 -rwxr-xr-x 1 quietheart quietheart   63 07-08 16:08 myfile.h
 -rw-r--r-- 1 quietheart quietheart 2004 07-08 16:08 myfile.o
 libmy.a  libmy.so  myfile.cpp  myfile.h  myfile.o
+```
+
 这里，分别生成目标文件myfile.o，共享库文件libmy.so，和静态库文件libmy.a。
 
 基于以上可执行文件和库，这里给出一些常用的命令。
 
 读取可执行文件形式的elf文件头信息：
 
+```text
 [root@localhost test]$ readelf -h main
 ELF Header:
   Magic:   7f 45 4c 46 01 01 01 00 00 00 00 00 00 00 00 00
@@ -232,10 +254,13 @@ ELF Header:
   Size of section headers:           40 (bytes)
   Number of section headers:         29
   Section header string table index: 26
+```
+
 这里，可见可执行文件的elf文件，其类型为EXEC(可执行文件)。另外，含调试信息的"main.debug"和不含调试信息的"main"除了一些大小信息之外，其内容是一样的。并且由此可见文件的体系结构为Intel 80386。
 
 读取目标文件形式的elf文件头信息：
 
+```text
 [root@localhost test]$ readelf -h myfile.o
 ELF Header:
   Magic:   7f 45 4c 46 01 01 01 00 00 00 00 00 00 00 00 00
@@ -257,10 +282,13 @@ ELF Header:
   Size of section headers:           40 (bytes)
   Number of section headers:         15
   Section header string table index: 12
+```
+
 这里，可见目标文件的elf文件，其类型为REL(可重定位文件)。
 
 读取静态库文件形式的elf文件头信息：
 
+```text
 [root@localhost test]$ readelf -h libmy.a
 File: libmy.a(myfile.o)
 ELF Header:
@@ -283,10 +311,13 @@ ELF Header:
   Size of section headers:           40 (bytes)
   Number of section headers:         15
   Section header string table index: 12
+```
+
 这里，可见静态库文件的elf文件，其类型为REL(可重定位文件)。
 
 读取动态库文件形式的elf文件头信息：
 
+```text
 [root@localhost test]$ readelf -h libmy.so
 ELF Header:
   Magic:   7f 45 4c 46 01 01 01 00 00 00 00 00 00 00 00 00
@@ -308,10 +339,13 @@ ELF Header:
   Size of section headers:           40 (bytes)
   Number of section headers:         27
   Section header string table index: 24
+```
+
 这里，可见动态库文件的elf文件，其类型为DYN(共享目标文件)。
 
 查看可执行的elf文件程序头表信息：
 
+```text
 [root@localhost test]$ readelf -l main
 Elf file type is EXEC (Executable file)
 Entry point 0x8048580
@@ -339,23 +373,32 @@ Section to Segment mapping:
    05     .note.ABI-tag
    06     .eh_frame_hdr
    07
+```
+
 这里，含调试信息的"main.debug"和不含调试信息的"main"其内容是一样的。
 
 **查看目标文件的elf文件程序头表信息：**
 
+```text
 [root@localhost test]$ readelf -l myfile.o
 There are no program headers in this file.
+```
+
 这里可知，可重定位的目标文件，它没程序头表。
 
 查看静态库文件的elf文件程序头表信息：
 
+```text
 [root@localhost test]$ readelf -l libmy.a
 File: libmy.a(myfile.o)
 There are no program headers in this file.
+```
+
 这里可知，可重定位的静态库文件，它没程序头表。
 
 查看动态库文件的elf文件程序头表信息：
 
+```text
 [root@localhost test]$ readelf -l libmy.so
 Elf file type is DYN (Shared object file)
 Entry point 0x550
@@ -376,10 +419,13 @@ Section to Segment mapping:
    02     .dynamic
    03     .eh_frame_hdr
    04
+```
+
 这里可知，做为共享目标文件的动态库，它程序头表。
 
 查看一个可执行的elf文件的节信息：
 
+```text
 [root@localhost test]$ readelf -S main
 There are 29 section headers, starting at offset 0xca0:
 Section Headers:
@@ -417,10 +463,13 @@ Key to Flags:
   W (write), A (alloc), X (execute), M (merge), S (strings)
   I (info), L (link order), G (group), x (unknown)
   O (extra OS processing required) o (OS specific), p (processor specific)
+```
+
 这里，main是可执行文件，不含调试信息。
 
 查看一个包含调试信息的可执行的elf文件的节信息：
 
+```text
 [root@localhost test]$ readelf -S main.debug
 There are 37 section headers, starting at offset 0x88c8:
 
@@ -467,10 +516,13 @@ Key to Flags:
   W (write), A (alloc), X (execute), M (merge), S (strings)
   I (info), L (link order), G (group), x (unknown)
   O (extra OS processing required) o (OS specific), p (processor specific)
+```
+
 可见，相对非调试版本的可执行文件，多了".debug*"段的信息。
 
 查看一个目标文件的elf文件的节信息：
 
+```text
 [root@localhost test]$ readelf -S myfile.o
 There are 15 section headers, starting at offset 0x204:
 
@@ -495,8 +547,7 @@ Key to Flags:
   W (write), A (alloc), X (execute), M (merge), S (strings)
   I (info), L (link order), G (group), x (unknown)
   O (extra OS processing required) o (OS specific), p (processor specific)
-
-```shell
+```
 
  **查看一个静态库文件的elf文件的节信息：** 
 
@@ -564,5 +615,12 @@ Key to Flags:
   W (write), A (alloc), X (execute), M (merge), S (strings) 
   I (info), L (link order), G (group), x (unknown) 
   O (extra OS processing required) o (OS specific), p (processor specific) 
+```
 
 >https://wangchujiang.com/linux-command/c/readelf.html
+
+## 维护记录
+
+| 时间 | 修改内容 | 原因 |
+| ---- | -------- | ---- |
+| 2026-10-09 | 修复本地 Hugo 构建的 Raw HTML 警告：代码/配置放入代码块，正文中的尖括号占位符改为行内代码 | 正文中的 HTML/XML 片段被当作原始 HTML 丢弃；文件名/URL/标题按规范调整 |

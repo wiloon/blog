@@ -2,12 +2,14 @@
 title: JPA JPQL
 author: "-"
 date: 2014-06-06T08:04:51+00:00
+lastmod: 2026-10-09T21:22:13+08:00
 url: jpa-jpql
 categories:
-  - Inbox
+  - Java
 tags:
   - JPA
-
+  - remix
+  - AI-assisted
 aliases:
   - /p6674/
   - /p6688/
@@ -18,7 +20,9 @@ aliases:
 [http://flowercat.iteye.com/blog/667773](http://flowercat.iteye.com/blog/667773)
 
 max result
-entityManager.createQuery(SQL_QUERY).setParameter(arg0,arg1).setMaxResults(10).getResultList();```
+```java
+entityManager.createQuery(SQL_QUERY).setParameter(arg0,arg1).setMaxResults(10).getResultList();
+```
 
 JPQL就是一种查询语言,具有与 SQL 相 类似的特征, JPQL 是完全面向对象的,具备继承、多态和关联等特性,和hibernate HQL很相似。
 
@@ -296,57 +300,42 @@ select o from Order o inner join o.orderItems where o.ower.age=26 order by o.ord
   
 例:
   
+```java
 private String QueryInnerJoinLazyLoad(){
-  
-// 默认不关联集合属性变量 (orderItems) 对应的表
-  
-Query query = em.createQuery("select o from Order o inner join o.orderItems where o.ower.age=26 order by o.orderid");
-  
-List result = query.getResultList();
-  
-if (result!=null && result.size()>0){
-  
-// 这时获得 Order 实体中 orderItems( 集合属性变量 ) 为空
-  
-Order order = (Order) result.get(0);
-  
-// 当需要时, EJB3 Runtime 才会执行一条 SQL 语句来加载属于当前 Order 的
-  
-//OrderItems
-  
-Set<OrderItem> list = order.getOrderItems ();
-  
-Iterator<OrderItem> iterator = list.iterator();
-  
-if (iterator.hasNext()){
-  
-OrderItem orderItem =iterator.next();
-  
-System.out.println (" 订购产品名:  "+ orderItem.getProductname());
-  
-}
-  
-}
+    // 默认不关联集合属性变量 (orderItems) 对应的表
+    Query query = em.createQuery("select o from Order o inner join o.orderItems where o.ower.age=26 order by o.orderid");
+    List result = query.getResultList();
+    if (result!=null && result.size()>0){
+        // 这时获得 Order 实体中 orderItems( 集合属性变量 ) 为空
+        Order order = (Order) result.get(0);
+        // 当需要时, EJB3 Runtime 才会执行一条 SQL 语句来加载属于当前 Order 的
+        //OrderItems
+        Set<OrderItem> list = order.getOrderItems ();
+        Iterator<OrderItem> iterator = list.iterator();
+        if (iterator.hasNext()){
+            OrderItem orderItem =iterator.next();
+            System.out.println (" 订购产品名:  "+ orderItem.getProductname());
+        }
+    }
+```
 
 上面代码在执行 "select o from Order o inner join o.orderItems where o.ower.age=26 order by o.orderid" 时编译成的 SQL 如下 ( 他不包含集合属性变量 (orderItems) 对应表的字段 )  :
   
+```sql
 select order0_.orderid as orderid6_, order0_.amount as amount6_, order0_.person_id as
-  
 person4_6_, order0_.createdate as createdate6_from Orders order0_ inner join OrderItems
-  
 orderitems1_on order0_.orderid=orderitems1_.order_id, Person person2_ where
-  
 order0_.person_id=person2_.personid and person2_.age=26 order by order0_.orderid
+```
 
-上面代码当执行到 Set<OrderItem> list = order.getOrderItems(); 时才会执行一条 SQL 语句来加载 属于当前 Order 的 OrderItems ,编译成的 SQL 如下 :
+上面代码当执行到 Set`<OrderItem>` list = order.getOrderItems(); 时才会执行一条 SQL 语句来加载 属于当前 Order 的 OrderItems ,编译成的 SQL 如下 :
   
+```sql
 select orderitems0_.order_id as order4_1_, orderitems0_.id as id1_, orderitems0_.id as id7_0_,
-  
 orderitems0_.order_id as order4_7_0_, orderitems0_.productname as productn2_7_0_,
-  
 orderitems0_.price as price7_0_ from OrderItems orderitems0_where orderitems0_.order_id=?
-  
 order by orderitems0_.id ASC
+```
 
 这样的查询性能上有不足的地方 。为了查询 N 个 Order ,我们需要一条 SQL 语句获得所有的 Order 的 原始对象属性,但需要另外 N 条语句获得每个 Order 的 orderItems 集合属性。为了避免 N+1 的性能问题,我们可以利用 join fetch 一次过用一条 SQL 语句把 Order 的所有信息查询出来
 
@@ -581,3 +570,9 @@ em .clear(); // 分离内存中受EntityManager管理的 实体bean,让VM进行�
 return list;
   
 }
+
+## 维护记录
+
+| 时间 | 修改内容 | 原因 |
+| ---- | -------- | ---- |
+| 2026-10-09 | 修复本地 Hugo 构建的 Raw HTML 警告：代码/配置放入代码块，正文中的尖括号占位符改为行内代码；categories 改为 Java | 正文中的 HTML/XML 片段被当作原始 HTML 丢弃；文件名/URL/标题按规范调整 |

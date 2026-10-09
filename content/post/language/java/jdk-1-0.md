@@ -45,7 +45,7 @@ JDK 1.0 于 **1995 年 5 月 23 日**由 Sun Microsystems 正式发布，是 Jav
 ### 语言与并发
 
 - 面向对象基础语法与 checked exception 模型
-- `Thread` 与 `Runnable`，以及 `synchronized` 关键字（见 [Java 线程](./java-thread.md)）
+- `Thread` 与 `Runnable`，以及 `synchronized` 关键字（见 [Java 线程](./thread.md)）
 - 尚无内部类、反射、断言、`strictfp` 等（内部类在 1.1，断言在 [JDK 1.4](./jdk-1-4.md)）
 
 ### 类库（1.0 已有）

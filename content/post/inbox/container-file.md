@@ -2,12 +2,14 @@
 title: Containerfile
 author: "-"
 date: 2018-12-22T13:02:46+00:00
+lastmod: 2026-10-09T21:22:13+08:00
 url: containerfile
 categories:
   - Cloud
 tags:
-  - reprint
+  - container
   - remix
+  - AI-assisted
 ---
 
 ## Containerfile, Dockerfile
@@ -29,9 +31,6 @@ COPY config.toml config.toml
 COPY config.toml /data/config.toml
 ENV APPLICATION_NAME ${APP_NAME}
 CMD "/usr/local/bin/${APPLICATION_NAME}"
-```
-
-```bash
 FROM golang:1.12.4 AS build
 
 ENV GO111MODULE on
@@ -65,15 +64,17 @@ ENV 设置环境变量
   
 格式有两种:
 
+```text
 ENV <key> <value>
-  
 ENV <key1>=<value1> <key2>=<value2>...
+```
   
 这个指令很简单,就是设置环境变量而已,无论是后面的其它指令,如 RUN,还是运行时的应用,都可以直接使用这里定义的环境变量。
 
+```text
 ENV VERSION=1.0 DEBUG=on \
-
 NAME="Happy Feet"
+```
 
 FROM 指定基础镜像
   
@@ -83,9 +84,10 @@ ENV 设置环境变量
   
 格式有两种:
   
+```text
 ENV <key> <value>
-  
 ENV <key1>=<value1> <key2>=<value2>...
+```
   
 这个指令很简单,就是设置环境变量而已,无论是后面的其它指令,如 RUN,还是运行时的应用,都可以直接使用这里定义的环境变量
 
@@ -95,7 +97,7 @@ COPY 目标路径不存时会自动创建
 
 Same as 'ADD' but without the tar and remote url handling.
   
-COPY 的语法与功能与ADD相同,只是不支持上面讲到的<src>是远程URL、自动解压这两个特性,
+COPY 的语法与功能与ADD相同,只是不支持上面讲到的`<src>`是远程URL、自动解压这两个特性,
 但是Best Practices for Writing Dockerfiles 建议尽量使用COPY,并使用RUN与COPY的组合来代替ADD,
 这是因为虽然COPY只支持本地文件拷贝到container,但它的处理比ADD更加透明,建议只在复制tar文件时使用ADD,
 如ADD trusty-core-amd64.tar.gz /。
@@ -212,10 +214,11 @@ env 是容器构建好之后的环境变量, 不能在 Dockerfile 中当参数�
 
 FROM redis:3.2-alpine
 
+```text
 LABEL maintainer="GPF <5173180@qq.com>"
-
 ARG REDIS_SET_PASSWORD=developer
 ENV REDIS_PASSWORD ${REDIS_SET_PASSWORD}
+```
 
 VOLUME /data
 
@@ -227,8 +230,12 @@ CMD ["sh", "-c", "exec redis-server --requirepass \"$REDIS_PASSWORD\""]
 
 1
 2
+
+```text
 ARG REDIS_SET_PASSWORD=developer
 ENV REDIS_PASSWORD ${REDIS_SET_PASSWORD}
+```
+
 它是为
 
 1
@@ -239,7 +246,9 @@ CMD ["sh", "-c", "exec redis-server --requirepass \"$REDIS_PASSWORD\""]
 
 FROM nginx:1.13.1-alpine
 
+```text
 LABEL maintainer="GPF <5173180@qq.com>"
+```
 
 [https://yeasy.gitbooks.io/docker_practice/content/image/build.html](https://yeasy.gitbooks.io/docker_practice/content/image/build.html)
 
@@ -253,9 +262,11 @@ COPY ./cert/ /etc/nginx/cert/
 
 COPY ./sites /etc/nginx/sites/
 
+```text
 ARG PHP_UPSTREAM_CONTAINER=php-fpm
 ARG PHP_UPSTREAM_PORT=9000
 RUN echo "upstream php-upstream { server ${PHP_UPSTREAM_CONTAINER}:${PHP_UPSTREAM_PORT}; }" > /etc/nginx/conf.d/upstream.conf
+```
 
 VOLUME ["/var/log/nginx", "/var/www"]
 
@@ -263,9 +274,12 @@ WORKDIR /usr/share/nginx/html
 
 这里就只是用了ARG
 
+```text
 ARG PHP_UPSTREAM_CONTAINER=php-fpm
 ARG PHP_UPSTREAM_PORT=9000
 RUN echo "upstream php-upstream { server ${PHP_UPSTREAM_CONTAINER}:${PHP_UPSTREAM_PORT}; }" > /etc/nginx/conf.d/upstream.conf
+```
+
 这里的变量用的就是 ARG 而不是 ENV了,因为这条命令运行在 Dockerfile 当中的, 像这种临时使用一下的变量没必要存环境变量的值就很适合使用 ARG
 
 ## 调试用的 shell 脚本
@@ -286,3 +300,9 @@ done
 ## copy vs. add
 
 [https://www.cnblogs.com/sparkdev/p/9573248.html](https://www.cnblogs.com/sparkdev/p/9573248.html)
+
+## 维护记录
+
+| 时间 | 修改内容 | 原因 |
+| ---- | -------- | ---- |
+| 2026-10-09 | 修复本地 Hugo 构建的 Raw HTML 警告：代码/配置放入代码块，正文中的尖括号占位符改为行内代码 | 正文中的 HTML/XML 片段被当作原始 HTML 丢弃；文件名/URL/标题按规范调整 |

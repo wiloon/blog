@@ -2,6 +2,7 @@
 title: 'Exception Handling'
 author: "-"
 date: 2026-03-23T10:52:19+08:00
+lastmod: 2026-10-09T21:22:13+08:00
 url: exception-handling
 categories:
   - Java
@@ -10,7 +11,6 @@ tags:
   - Java
   - remix
   - AI-assisted
-
 ---
 
 异常捕捉的确是对性能有影响的,那是因为一旦异常被抛出,函数也就跟着 return 了。而程序在执行时需要处理 函数栈 的上下文,这会导致性能变得很慢,尤其是线程栈比较深的时候。但从另一方面来说,异常的抛出基本上表明程序的错误。程序在绝大多数情况下,应该是在没有异常的情况下运行的, 所以,有异常的情况应该是少数的情况,不会影响正常处理的性能问题。
@@ -21,41 +21,26 @@ tags:
 
 你觉得自己是一个Java专家吗？是否肯定自己  已经全面掌握了Java的异常处理机制？在下面这段代码中,你能够迅速找出异常处理的六个问题吗？
 
+```java
 1 OutputStreamWriter out = ...
-  
 2 java.sql.Connection conn = ...
-  
 3 try { // ⑸
-  
-4 Statement stat = conn.createStatement();
-  
-5 ResultSet rs = stat.executeQuery(
-  
-6 "select uid, name from user");
-  
-7 while (rs.next())
-  
-8 {
-  
-9 out.println("ID: " + rs.getString("uid") // ⑹
-  
-10 ",姓名: " + rs.getString("name"));
-  
-11 }
-  
-12 conn.close(); // ⑶
-  
-13 out.close();
-  
-14 }
-  
+    4 Statement stat = conn.createStatement();
+    5 ResultSet rs = stat.executeQuery(
+    6 "select uid, name from user");
+    7 while (rs.next())
+    8 {
+        9 out.println("ID: " + rs.getString("uid") // ⑹
+        10 ",姓名: " + rs.getString("name"));
+        11 }
+    12 conn.close(); // ⑶
+    13 out.close();
+    14 }
 15 catch(Exception ex) // ⑵
-  
 16 {
-  
-17 ex.printStackTrace(); //⑴,⑷
-  
-18 }
+    17 ex.printStackTrace(); //⑴,⑷
+    18 }
+```
   
 作为一个Java程序员,你至少应该能够找出两个问题。但是,如果你不能找出全部六个问题,请继续阅读本文。
 
@@ -145,85 +130,48 @@ printStackTrace的堆栈跟踪功能显示出程序运行到当前类的执行�
 
 根据上面的讨论,下面给出改写后的代码。也许有人会说它稍微有点?嗦,但是它有了比较完备的异常处理机制。
 
+```java
 OutputStreamWriter out = ...
-  
 java.sql.Connection conn = ...
-  
 try {
-  
-Statement stat = conn.createStatement();
-  
-ResultSet rs = stat.executeQuery(
-  
+    Statement stat = conn.createStatement();
+    ResultSet rs = stat.executeQuery(
 "select uid, name from user");
-  
-while (rs.next())
-  
-{
-  
-out.println("ID: " + rs.getString("uid") + ",姓名: " + rs.getString("name"));
-  
+    while (rs.next())
+    {
+        out.println("ID: " + rs.getString("uid") + ",姓名: " + rs.getString("name"));
+    }
 }
-  
-}
-  
 catch(SQLException sqlex)
-  
 {
-  
-out.println("警告: 数据不完整");
-  
-throw new ApplicationException("读取数据时出现SQL错误", sqlex);
-  
+    out.println("警告: 数据不完整");
+    throw new ApplicationException("读取数据时出现SQL错误", sqlex);
 }
-  
 catch(IOException ioex)
-  
 {
-  
-throw new ApplicationException("写入数据时出现IO错误", ioex);
-  
+    throw new ApplicationException("写入数据时出现IO错误", ioex);
 }
-  
 finally
-  
 {
-  
-if (conn != null) {
-  
-try {
-  
-conn.close();
-  
+    if (conn != null) {
+        try {
+            conn.close();
+        }
+        catch(SQLException sqlex2)
+        {
+            System.err(this.getClass().getName() + ".mymethod - 不能关闭数据库连接: " + sqlex2.toString());
+        }
+    }if (out != null) {
+        try {
+            out.close();
+        }
+        catch(IOException ioex2)
+        {
+            System.err(this.getClass().getName() + ".mymethod - 不能关闭输出文件" + ioex2.toString());
+        }
+    }
 }
-  
-catch(SQLException sqlex2)
-  
-{
-  
-System.err(this.getClass().getName() + ".mymethod - 不能关闭数据库连接: " + sqlex2.toString());
-  
-}
-  
-}if (out != null) {
-  
-try {
-  
-out.close();
-  
-}
-  
-catch(IOException ioex2)
-  
-{
-  
-System.err(this.getClass().getName() + ".mymethod - 不能关闭输出文件" + ioex2.toString());
-  
-}
-  
-}
-  
-}
+```
   
 本文的结论不是放之四海皆准的教条,有时常识和经验才是最好的老师。如果你对自己的做法没有百分之百的信心,务必加上详细、全面的注释。
 
@@ -250,7 +198,7 @@ def find_index(lst, value):
     return lst.index(value) if value in lst else -1
 ```
 
-```java
+```bash
 // Java 中臭名昭著的反模式：用异常结束循环
 try {
     int i = 0;
@@ -285,7 +233,7 @@ try {
 
 **异常链（Exception Chaining）示例：**
 
-```java
+```bash
 // Java 中保留原始异常上下文
 try {
     userRepository.findById(userId);
@@ -539,7 +487,7 @@ javax.servlet.jsp.JspException: Cannot retrieve mapping for action /Login  (/Log
 
 可能原因
   
-action没有再struts-config.xml 中定义,或没有找到匹配的action,例如在JSP文件中使用 <html:form action="Login.do".将表单提交给Login.do处理,如果出现上述异常,请查看struts-config.xml中的定义部分,有时可能是打错了字符或者是某些不符合规则,可以使用strutsconsole工具来检查。
+action没有再struts-config.xml 中定义,或没有找到匹配的action,例如在JSP文件中使用 `<html:form action="Login.do">` 将表单提交给Login.do处理,如果出现上述异常,请查看struts-config.xml中的定义部分,有时可能是打错了字符或者是某些不符合规则,可以使用strutsconsole工具来检查。
   
 --------------------------------------
   
@@ -575,7 +523,7 @@ javax.servlet.jsp.JspException: No getter method for property username of bean o
   
 没有位form bean中的某个变量定义getter 方法
 
-这个错误主要发生在表单提交的FormBean中,用struts标记<html:text property="username">时,在FormBean中必须有一个getUsername()方法。注意字母"U"。
+这个错误主要发生在表单提交的FormBean中,用struts标记`<html:text property="username">`时,在FormBean中必须有一个getUsername()方法。注意字母"U"。
   
 --------------------------------------
   
@@ -591,7 +539,9 @@ java.lang.NoClassDefFoundError: org/apache/struts/action/ActionForm
   
 异常
   
+```text
 javax.servlet.jsp.JspException: Exception creating bean of class org.apache.struts.action.ActionForm: {1}
+```
 
 可能原因
   
@@ -607,7 +557,7 @@ javax.servlet.jsp.JspException: Cannot find ActionMappings or ActionFormBeans co
 
 可能原因
   
-不是标识Struts actionServlet的<servlet>标记就是映射.do扩展名的<sevlet-mapping>标记或者两者都没有在web.xml中声明。
+不是标识Struts actionServlet的`<servlet>`标记就是映射.do扩展名的`<sevlet-mapping>`标记或者两者都没有在web.xml中声明。
 
 在struts-config.xml中的打字或者拼写错误也可导致这个异常的发生。例如缺少一个标记的关闭符号/>。最好使用struts console工具检查一下。
 
@@ -619,13 +569,17 @@ javax.servlet.jsp.JspException: Cannot find ActionMappings or ActionFormBeans co
   
 异常
   
+```text
 java.lang.NullPointerException at org.apache.struts.util.RequestUtils.forwardURL(RequestUtils.java:1223)
+```
 
 可能原因
   
 在struts-config.xml中的forward元素缺少path属性。例如应该是如下形式:
   
+```xml
 <forward name="userhome" path="/user/userhome.jsp"/>
+```
   
 --------------------------------------
   
@@ -635,7 +589,7 @@ javax.servlet.jsp.JspException: Cannot find bean org.apache.struts.taglib.html.B
   
 Probable Causes
   
-试图在Struts的form标记外使用form的子元素。这常常发生在你在</html:form>后面使用Struts的html标记。另外要注意可能你不经意使用的无主体的标记,如<html:form … />,这样web 服务器解析时就当作一个无主体的标记,随后使用的所有<html>标记都被认为是在这个标记之外的,如又使用了<html:text property="id">还有就是在使用taglib引入HTML标记库时,你使用的prefix的值不是html。
+试图在Struts的form标记外使用form的子元素。这常常发生在你在`</html:form>`后面使用Struts的html标记。另外要注意可能你不经意使用的无主体的标记,如`<html:form … />`,这样web 服务器解析时就当作一个无主体的标记,随后使用的所有`<html>`标记都被认为是在这个标记之外的,如又使用了`<html:text property="id">`还有就是在使用taglib引入HTML标记库时,你使用的prefix的值不是html。
   
 --------------------------------------
   
@@ -681,7 +635,9 @@ Strange and seemingly random characters in HTML and on screen, but not in origin
   
 "Document contained no data" in Netscape
 
+```text
 No data rendered (completely empty) page in Microsoft Internet Explorer
+```
 
 可能原因
   
@@ -703,11 +659,15 @@ ServletException: BeanUtils.populate
   
 1. 定义Action后, 如果指定了name, 那么必须要定义一个与它同名的FormBean才能进行form映射.2. 如果定义Action后, 提交页面时出现 "No input attribute for mapping path..." 错误, 则需要在其input属性中定义转向的页面.3. 如果插入新的数据时出现 "Batch update row count wrong:..." 错误, 则说明XXX.hbm.xml中指定的key的类型为原始类型(int, long),因为这种类型会自动分配值, 而这个值往往会让系统认为已经存在该记录, 正确的方法是使用java.lang.Integer或java.lang.Long对象.4. 如果插入数据时出现 "argument type mismatch" 错误, 可能是你使用了Date等特殊对象, 因为struts不能自动从String型转换成Date型,所以, 你需要在Action中手动把String型转换成Date型.5. Hibernate中, Query的iterator()比list()方法快很多.6. 如果出现 "equal symbol expected" 错误, 说明你的strtus标签中包含另一个标签或者变量, 例如:
   
+```xml
 <html:select property="test" onchange="<%=test%>"/>
+```
   
 或者
   
+```xml
 <html:hidden property="test" value="<bean:write name="t" property="p"/>"/>
+```
   
 这样的情况...
 
@@ -745,4 +705,10 @@ javax.servlet.jsp.JspException: Cannot retrieve mapping for action /settlementTy
   
 org.apache.jasper.JasperException: Failed to load or instantiate TagExtraInfo class: org.apache.struts.taglib.bean.CookieTei
   
-原因与解决:     <方案一>你的"html:"开头的标签没有放在一个<html:form>中       <方案二>重新启动你的应用服务器,自动就没有这个问题
+原因与解决:     <方案一>你的"html:"开头的标签没有放在一个`<html:form>`中       <方案二>重新启动你的应用服务器,自动就没有这个问题
+
+## 维护记录
+
+| 时间 | 修改内容 | 原因 |
+| ---- | -------- | ---- |
+| 2026-10-09 | 修复本地 Hugo 构建的 Raw HTML 警告：代码/配置放入代码块，正文中的尖括号占位符改为行内代码 | 正文中的 HTML/XML 片段被当作原始 HTML 丢弃；文件名/URL/标题按规范调整 |

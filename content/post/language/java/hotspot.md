@@ -66,7 +66,7 @@ Java 源码 → javac → .class
 不另挂 agent jar 也可使用的 HotSpot 能力：
 
 - **AttachListener** + **Diagnostic Command**（[jcmd](./jcmd.md)、[Attach API](./attach-api.md)）
-- **JPDA / JVMTI** 调试后端（[JPDA](./java-debug-JPDA.md)、[JVMTI](./jvmti.md)）
+- **JPDA / JVMTI** 调试后端（[JPDA](./debug-jpda.md)、[JVMTI](./jvmti.md)）
 - **JFR**（[Java Flight Recorder](./java-flight-recorder-jfr.md)）
 
 动态挂外部 agent（BTrace、Arthas）同样依赖 HotSpot 的 attach 与 instrument 实现。

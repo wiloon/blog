@@ -2,11 +2,14 @@
 title: Nginx config, 配置, nginx.conf
 author: "-"
 date: 2013-07-09T05:59:32+00:00
+lastmod: 2026-10-09T21:22:13+08:00
 url: nginx/config
 categories:
   - Web
 tags:
-  - reprint
+  - nginx
+  - remix
+  - AI-assisted
 ---
 ## Nginx config, 配置, nginx.conf
 
@@ -924,7 +927,7 @@ keepalive_timeout
 
 注意不同浏览器怎么处理"keep-alive"头
 
-MSIE 和Opera忽略掉"Keep-Alive: timeout=<N>" header.
+MSIE 和Opera忽略掉`Keep-Alive: timeout=<N>` header.
 
 MSIE 保持连接大约60-65秒，然后发送TCP RST
 
@@ -1070,3 +1073,9 @@ http {
   ...
 }
 ```
+
+## 维护记录
+
+| 时间 | 修改内容 | 原因 |
+| ---- | -------- | ---- |
+| 2026-10-09 | 修复本地 Hugo 构建的 Raw HTML 警告：代码/配置放入代码块，正文中的尖括号占位符改为行内代码 | 正文中的 HTML/XML 片段被当作原始 HTML 丢弃；文件名/URL/标题按规范调整 |

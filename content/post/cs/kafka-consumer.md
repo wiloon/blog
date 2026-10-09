@@ -2,11 +2,14 @@
 title: kafka consumer
 author: "-"
 date: 2019-05-21T02:54:18+00:00
+lastmod: 2026-10-09T21:22:13+08:00
 url: kafka/consumer/group
 categories:
   - Database
 tags:
-  - reprint
+  - kafka
+  - remix
+  - AI-assisted
 ---
 ## kafka consumer
 
@@ -90,7 +93,7 @@ Kafka 集群地址
 ### consumer.poll(1000)
 
 新版本的Consumer的Poll方法使用了类似于 Select I/O 机制，因此所有相关事件 (包括 reblance，消息获取等）都发生在一个事件循环之中。
-1000 是一个超时时间，一旦拿到足够多的数据 (参数设置），consumer.poll(1000)会立即返回 ConsumerRecords<String, String> records。
+1000 是一个超时时间，一旦拿到足够多的数据 (参数设置），consumer.poll(1000)会立即返回 `ConsumerRecords<String, String> records`。
 如果没有拿到足够多的数据，会阻塞1000ms，但不会超过1000ms就会返回。
 
 ### session.timeout.ms
@@ -232,7 +235,7 @@ rebalance 本质上是一种协议，规定了一个 consumer group 下的所有
 
 Kafka 提供了一个角色: coordinator 来执行对于 consumer group 的管理。坦率说 kafka 对于 coordinator 的设计与修改是一个很长的故事。最新版本的 coordinator 也与最初的设计有了很大的不同。这里我只想提及两次比较大的改变。
 
-首先是0.8版本的 coordinator，那时候的coordinator是依赖zookeeper来实现对于consumer group的管理的。Coordinator监听zookeeper的/consumers/<group>/ids的子节点变化以及/brokers/topics/<topic>数据变化来判断是否需要进行rebalance。group下的每个consumer都自己决定要消费哪些分区，并把自己的决定抢先在zookeeper中的/consumers/<group>/owners/<topic>/<partition>下注册。很明显，这种方案要依赖于zookeeper的帮助，而且每个consumer是单独做决定的，没有那种"大家属于一个组，要协商做事情"的精神。
+首先是0.8版本的 coordinator，那时候的coordinator是依赖zookeeper来实现对于consumer group的管理的。Coordinator监听zookeeper的`/consumers/<group>/ids`的子节点变化以及`/brokers/topics/<topic>`数据变化来判断是否需要进行rebalance。group下的每个consumer都自己决定要消费哪些分区，并把自己的决定抢先在zookeeper中的`/consumers/<group>/owners/<topic>/<partition>`下注册。很明显，这种方案要依赖于zookeeper的帮助，而且每个consumer是单独做决定的，没有那种"大家属于一个组，要协商做事情"的精神。
 
 基于这些潜在的弊端，0.9版本的kafka改进了coordinator的设计，提出了group coordinator——每个consumer group都会被分配一个这样的coordinator用于组管理和位移管理。这个group coordinator比原来承担了更多的责任，比如组成员管理、位移提交保护机制等。当新版本consumer group的第一个consumer启动的时候，它会去和kafka server确定谁是它们组的coordinator。之后该group内的所有成员都会和该coordinator进行协调通信。显而易见，这种coordinator设计不再需要zookeeper了，性能上可以得到很大的提升。后面的所有部分我们都将讨论最新版本的coordinator设计。
 
@@ -340,3 +343,9 @@ Stable: rebalance完成！可以开始消费了~
 [https://www.confluent.io/blog/apache-kafka-producer-improvements-sticky-partitioner/](https://www.confluent.io/blog/apache-kafka-producer-improvements-sticky-partitioner/)
 
 [https://cwiki.apache.org/confluence/display/KAFKA/KIP-54±+Sticky+Partition+Assignment+Strategy](https://cwiki.apache.org/confluence/display/KAFKA/KIP-54±+Sticky+Partition+Assignment+Strategy)
+
+## 维护记录
+
+| 时间 | 修改内容 | 原因 |
+| ---- | -------- | ---- |
+| 2026-10-09 | 修复本地 Hugo 构建的 Raw HTML 警告：代码/配置放入代码块，正文中的尖括号占位符改为行内代码 | 正文中的 HTML/XML 片段被当作原始 HTML 丢弃；文件名/URL/标题按规范调整 |

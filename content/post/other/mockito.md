@@ -2,10 +2,16 @@
 title: Mockito
 author: "-"
 date: 2015-08-13T04:13:05.000+00:00
+lastmod: 2026-10-09T21:22:13+08:00
 url: mockito
-categories: []
+categories:
+  - Java
 tags:
-  - reprint
+  - java
+  - mockito
+  - test
+  - remix
+  - AI-assisted
 aliases:
   - /p8103/
 ---
@@ -36,7 +42,7 @@ spy的原理是，如果不打桩默认都会执行真实的方法，如果打�
     when(channel.writeAndFlush(obj)).thenReturn(null);
 ```
 
-```java
+```bash
     // 重置 spy 对象，让 add(1,2) 调用真实方法，返回 3
         when(exampleService.add(1, 2)).thenCallRealMethod();
         Assert.assertEquals(3, exampleService.add(1, 2));
@@ -68,108 +74,45 @@ mock测试就是在测试过程中，对那些不容易构建的对象用一个�
 
 Maven依赖: (没用maven管理的可以下载相关jar包导入classpath)
 
-Xml代码
-
-      <embed src="http://liuzhijun.iteye.com/javascripts/syntaxhighlighter/clipboard_new.swf" type="application/x-shockwave-flash" width="14" height="15">
-      </embed> 
-      
-      <img class="star" src="http://liuzhijun.iteye.com/images/icon_star.png" alt="收藏代码" />
-
+```xml
 <dependencies>
-
 <dependency>
-
 <groupId>org.mockito</groupId>
-
 <artifactId>mockito-all</artifactId>
-
 <version>1.8.5</version>
-
 <scope>test</scope>
-
 </dependency>
-
 </dependencies>
+```
 
-Java代码
-
-      <embed src="http://liuzhijun.iteye.com/javascripts/syntaxhighlighter/clipboard_new.swf" type="application/x-shockwave-flash" width="14" height="15">
-      </embed> 
-      
-      <img class="star" src="http://liuzhijun.iteye.com/images/icon_star.png" alt="收藏代码" />
-
+```java
 import static org.mockito.Mockito.*;
-
 import java.util.List;
-
 import org.junit.Assert;
-
 import org.junit.Test;
-
 /**
-
 *
-
 * @author lzjun
-
 * @version 0.1
-
 * @date 2012-5-5
-
 * {@link [http://weibo.com/u/1697702241](http://weibo.com/u/1697702241)}
-
 *
-
  */
-
 public class SimpleTest {
-
     @Test
-
-
     public void simpleTest(){
-
-
-
-
         //创建mock对象，参数可以是类，也可以是接口
-
-
         List<String> list = mock(List.class);
-
-
-
-
         //设置方法的预期返回值
-
-
         when(list.get()).thenReturn("helloworld");
-
-
-
-
         String result = list.get();
-
-
-
-
         //验证方法调用(是否调用了get(0))
-
-
         verify(list).get();
-
-
-
-
         //junit测试
-
-
         Assert.assertEquals("helloworld", result);
-
-
     }
-
 }
+```
 
 好了，五分钟差不多了，还想继续了解那就可以往下面看![](http://liuzhijun.iteye.com/images/smiles/icon_biggrin.gif)
 
@@ -177,202 +120,82 @@ public class SimpleTest {
 
 可对方法设定返回异常
 
-Java代码
-
-      <embed src="http://liuzhijun.iteye.com/javascripts/syntaxhighlighter/clipboard_new.swf" type="application/x-shockwave-flash" width="14" height="15">
-      </embed> 
-      
-      <img class="star" src="http://liuzhijun.iteye.com/images/icon_star.png" alt="收藏代码" />
-
+```java
 when(list.get(1)).thenThrow(new RuntimeException("test excpetion"));
+```
 
 stubbing另一种语法(设置预期值的方法)，可读性不如前者
 
-Java代码
-
-      <embed src="http://liuzhijun.iteye.com/javascripts/syntaxhighlighter/clipboard_new.swf" type="application/x-shockwave-flash" width="14" height="15">
-      </embed> 
-      
-      <img class="star" src="http://liuzhijun.iteye.com/images/icon_star.png" alt="收藏代码" />
-
+```java
 doReturn("secondhello").when(list).get(1);
+```
 
 没有返回值的void方法与其设定(支持迭代风格，第一次调用donothing,第二次dothrow抛出runtime异常)
 
-Java代码
-
-      <embed src="http://liuzhijun.iteye.com/javascripts/syntaxhighlighter/clipboard_new.swf" type="application/x-shockwave-flash" width="14" height="15">
-      </embed> 
-      
-      <img class="star" src="http://liuzhijun.iteye.com/images/icon_star.png" alt="收藏代码" />
-
+```java
 doNothing().doThrow(new RuntimeException("void exception")).when(list).clear();
-
 list.clear();
-
 list.clear();
-
 verify(list,times(2)).clear();
+```
 
 五、参数匹配器(Argument Matcher)
 
 Matchers类内加你有很多参数匹配器  anyInt、anyString、anyMap…..Mockito类继承于Matchers,Stubbing时使用内建参数匹配器，下例:
 
-Java代码
-
-      <embed src="http://liuzhijun.iteye.com/javascripts/syntaxhighlighter/clipboard_new.swf" type="application/x-shockwave-flash" width="14" height="15">
-      </embed> 
-      
-      <img class="star" src="http://liuzhijun.iteye.com/images/icon_star.png" alt="收藏代码" />
-
+```java
 @Test
-
 public void argumentMatcherTest(){
-
     List<String> list = mock(List.class);
-
-
-
-
     when(list.get(anyInt())).thenReturn("hello","world");
-
-
-
-
     String result = list.get()+list.get(1);
-
-
-
-
     verify(list,times(2)).get(anyInt());
-
-
-
-
     Assert.assertEquals("helloworld", result);
-
 }
+```
 
 需要注意的是: 如果使用参数匹配器，那么所有的参数都要使用参数匹配器，不管是stubbing还是verify的时候都一样。
 
-Java代码
-
-      <embed src="http://liuzhijun.iteye.com/javascripts/syntaxhighlighter/clipboard_new.swf" type="application/x-shockwave-flash" width="14" height="15">
-      </embed> 
-      
-      <img class="star" src="http://liuzhijun.iteye.com/images/icon_star.png" alt="收藏代码" />
-
+```java
 @Test
-
 public void argumentMatcherTest2(){
-
     Map<Integer,String> map = mock(Map.class);
-
-
     when(map.put(anyInt(),anyString())).thenReturn("hello");//anyString()替换成"hello"就会报错
-
-
     map.put(1, "world");
-
-
     verify(map).put(eq(1), eq("world")); //eq("world")替换成"world"也会报错
-
 }
+```
 
 六、方法调用的验证(具体的调用次数、至少一次，一次也没有)
 
-Java代码
-
-      <embed src="http://liuzhijun.iteye.com/javascripts/syntaxhighlighter/clipboard_new.swf" type="application/x-shockwave-flash" width="14" height="15">
-      </embed> 
-      
-      <img class="star" src="http://liuzhijun.iteye.com/images/icon_star.png" alt="收藏代码" />
-
+```java
 @Test
-
 public void verifyInvocate(){
-
     List<String> mockedList = mock(List.class);
-
-
-    //using mock 
-
-
+    //using mock
      mockedList.add("once");
-
-
      mockedList.add("twice");
-
-
      mockedList.add("twice");
-
-
-
-
      mockedList.add("three times");
-
-
      mockedList.add("three times");
-
-
      mockedList.add("three times");
-
-
-
-
      /**
-
-
       * 基本的验证方法
-
-
       * verify方法验证mock对象是否有没有调用mockedList.add("once")方法
-
-
       * 不关心其是否有返回值，如果没有调用测试失败。
-
-
       */
-
-
      verify(mockedList).add("once");
-
-
      verify(mockedList, times(1)).add("once");//默认调用一次,times(1)可以省略
-
-
-
-
-
-
      verify(mockedList, times(2)).add("twice");
-
-
      verify(mockedList, times(3)).add("three times");
-
-
-
-
      //never()等同于time(0),一次也没有调用
-
-
      verify(mockedList, times()).add("never happened");
-
-
-
-
      //atLeastOnece/atLeast()/atMost()
-
-
      verify(mockedList, atLeastOnce()).add("three times");
-
-
      verify(mockedList, atLeast(2)).add("twice");
-
-
      verify(mockedList, atMost(5)).add("three times");
-
 }
+```
 
 一次写不完，慢慢分析。。。
 
@@ -419,3 +242,9 @@ Mock object and EasyMock framework
 [http://gojko.net/2009/10/23/mockito-in-six-easy-examples/](http://gojko.net/2009/10/23/mockito-in-six-easy-examples/)
 
 [http://liuzhijun.iteye.com/blog/1512780](http://liuzhijun.iteye.com/blog/1512780)
+
+## 维护记录
+
+| 时间 | 修改内容 | 原因 |
+| ---- | -------- | ---- |
+| 2026-10-09 | 修复本地 Hugo 构建的 Raw HTML 警告：代码/配置放入代码块，正文中的尖括号占位符改为行内代码；categories 改为 Java | 正文中的 HTML/XML 片段被当作原始 HTML 丢弃；文件名/URL/标题按规范调整 |

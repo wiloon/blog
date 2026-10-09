@@ -1,36 +1,32 @@
 ---
-title: java 数组 list set, 数组转set
+title: "Java 数组, List, Set, 数组转 Set"
 author: "-"
 date: 2011-09-08T06:42:29+00:00
+lastmod: 2026-10-09T21:22:13+08:00
 url: java-list-set
 categories:
   - Java
 tags:
   - Java
-
+  - remix
+  - AI-assisted
 aliases:
   - /p715/
 ---
 ## java 数组 list set, 数组转set
 http://jerval.iteye.com/blog/1001643
 
+```bash
 //数组->Set
-  
 String[] strs = {"AA","BB"};
-  
 Set<String> set2 = new HashSet<String>(Arrays.asList(strs));
-  
 System.out.println(set2);
-  
 //Set->数组
-  
 Set<String> set3 = new HashSet<String>(Arrays.asList("PP","OO"));
-  
 String[] strSet = new String[set3.size()];
-  
 set3.toArray(strSet);
-  
 System.out.println(Arrays.toString(strSet));
+```
 
 List(interface): 次序是List最重要的特点；它确保维护元素特定的顺序。List为Collection添加了许多方法，使得能够向List中间插入与移除元素(只推荐LinkedList使用)。一个List可以生成ListIterator，使用它可以从两个方向遍历List，也可以从List中间插入和删除元素。
 
@@ -49,3 +45,9 @@ TreeSet: 保持次序的Set，底层为树结构。使用它可以从Set中提�
 LinkedHashSet: 具有HashSet的查询速度，且内部使用链表维护元素的顺序(插入的次序)。于是在使用迭代器遍历Set时，结果会按元素插入的次序显示。LinkedHashSet内部使用散列以加快查询速度，同时使用链表维护元素的次序，使得看起来元素是以插入的顺序保存的。
 
 需要注意的是，生成自己的类时，Set需要维护元素的存储顺序，因此要实现Comparable接口并定义compareTo()方法。
+
+## 维护记录
+
+| 时间 | 修改内容 | 原因 |
+| ---- | -------- | ---- |
+| 2026-10-09 | 修复本地 Hugo 构建的 Raw HTML 警告：代码/配置放入代码块，正文中的尖括号占位符改为行内代码；title 改为「Java 数组, List, Set, 数组转 Set」 | 正文中的 HTML/XML 片段被当作原始 HTML 丢弃；文件名/URL/标题按规范调整 |

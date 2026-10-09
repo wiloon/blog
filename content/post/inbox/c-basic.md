@@ -2,12 +2,14 @@
 title:  c basic, c, c lang, c 语言
 author: "-"
 date: 2016-11-16T07:09:09+00:00
+lastmod: 2026-10-09T21:22:13+08:00
 url: c
 categories:
   - C
 tags:
-  - reprint
+  - c
   - remix
+  - AI-assisted
 aliases:
   - /p9397/
 ---
@@ -54,14 +56,19 @@ A simple practice in C 或 C++ 程序中,建议把所有的常量、宏、系统
 引用头文件的语法
 使用预处理指令 #include 可以引用用户和系统头文件。它的形式有以下两种:
 
-# include <file>
+```c
+#include <file>
+```
+
 这种形式用于引用系统头文件。它在系统的标准列表中搜索名为 file 的文件。在编译源代码时,您可以通过 -I 选项把目录前置在该列表前。
 
-# include "file"
+```c
+#include "file"
+```
 
 #### #include
 
-# include 命令是预处理命令的一种,预处理命令可以将别的源代码内容插入到所指定的位置；可以标识出只有在特定条件下才会被编译的某一段程序代码；可以定义类似标识符功能的宏,在编译时, 预处理器会用别的文本取代该宏。
+`#include` 命令是预处理命令的一种,预处理命令可以将别的源代码内容插入到所指定的位置；可以标识出只有在特定条件下才会被编译的某一段程序代码；可以定义类似标识符功能的宏,在编译时, 预处理器会用别的文本取代该宏。
 预处理器如何找到头文件
 由给定的 C 语言实现版本决定 #include 命令所指定文件的搜索路径。同时,也由实现版本决定文件名是否区分大小写。对于命令中使用尖括号指定的文件 (<文件名>) , 预处理器通常会在特定的系统路径下搜索, 例如, 在 Unix 系统中, 会搜索路径 `/usr/include`, `/usr/local/include`
 对于命令中用双引号指定的文件 ("文件名") , 预处理器通常首先在当前目录下寻找,也就是包含该程序其他源文件的目录。如果在当前目录下没有找到,那么预处理器也会搜索系统的 include 路径。 文件名中可以包含路径。 但如果文件名中包含了路径,则预处理器只会到该目录下寻找。
@@ -70,12 +77,12 @@ A simple practice in C 或 C++ 程序中,建议把所有的常量、宏、系统
 
 C中可以通过 `#include <stdio.h >` 和 `#include "stidio.h"`, 区别是:
 
-##### #include <stdio.h>
+##### `#include <stdio.h>`
 
 搜索路径: `/usr/include`, `/usr/local/include`
 
-# include <stdio.h>, 直接到系统指定目录去查找头文件。
-# include "stidio.h", 会先到当前目录查找头文件,如果没找到在到系统指定目录查找。
+- `#include <stdio.h>`, 直接到系统指定目录去查找头文件。
+- `#include "stidio.h"`, 会先到当前目录查找头文件,如果没找到在到系统指定目录查找。
 gcc编译时查找头文件, 按照以下路径顺序查找:
 
 1. gcc 编译时,可以设置 -I 选项以指定头文件的搜索路径,如果指定多个路径,则按照顺序依次查找。比如,
@@ -86,7 +93,7 @@ gcc编译时查找头文件, 按照以下路径顺序查找:
 
 3. 系统默认的路径,分别是/usr/include,/usr/local/include,/usr/lib/gcc-lib/i386-linux/2.95.2/include (gcc库文件的路径,各个系统不一致) 。
 
-同时,include也可以采用相对路径,比如,a.c需要包含/usr/local/include/node/v8.h,由于/usr/local/include是系统的默认搜索路径,所以在a.c中可以用相对路径包含,#include<node/v8.h>。
+同时,include也可以采用相对路径,比如,a.c需要包含/usr/local/include/node/v8.h,由于/usr/local/include是系统的默认搜索路径,所以在a.c中可以用相对路径包含,`#include <node/v8.h>`。
 
 ### c90,c99,c11
 
@@ -144,7 +151,7 @@ echo $PKG_CONFIG_PATH
 
 ### sleep
 
-头文件: #include <unistd.h>
+头文件: `#include <unistd.h>`
 
 定义函数: unsigned int sleep(unsigned int seconds);
 
@@ -196,3 +203,9 @@ TIME 包含当前时间的字符串
 [https://blog.csdn.net/chosen0ne/article/details/7210946](https://blog.csdn.net/chosen0ne/article/details/7210946)
 [https://ubuntuqa.com/article/1513.html](https://ubuntuqa.com/article/1513.html)
 [http://c.biancheng.net/cpp/html/345.html](http://c.biancheng.net/cpp/html/345.html)
+
+## 维护记录
+
+| 时间 | 修改内容 | 原因 |
+| ---- | -------- | ---- |
+| 2026-10-09 | 修复本地 Hugo 构建的 Raw HTML 警告：代码/配置放入代码块，正文中的尖括号占位符改为行内代码 | 正文中的 HTML/XML 片段被当作原始 HTML 丢弃；文件名/URL/标题按规范调整 |

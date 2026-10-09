@@ -2,11 +2,15 @@
 title: MIME
 author: "-"
 date: 2012-06-03T13:56:13.000+00:00
+lastmod: 2026-10-09T21:22:13+08:00
 url: mime
 categories:
 - Web
 tags:
-  - reprint
+  - mime
+  - email
+  - remix
+  - AI-assisted
 aliases:
   - /p3406/
 ---
@@ -85,6 +89,7 @@ Content-Transfer-Encoding: [mechanism]
 
 3. 下面是一封传统的电子邮件。
 
+```text
 From: "Tommy Lee" <lee@example.com>
 To: "Jack Zhang" <zhang@example.com>
 Subject: Test
@@ -92,6 +97,7 @@ Date: Wed, 17 May 2000 19:08:29 -0400
 Message-ID: <NDBBIAKOPKHFGPLCODIGIEKBCHAA.lee@example.com>
 
 Hello World.
+```
 
 从上面可以看出，这封信的发信人地址是lee@example.com，收信人地址是zhang@example.com，邮件主题是Test，发送时间是2000年5月17日，邮件内容是"Hello World."。
 
@@ -144,6 +150,7 @@ Content-transfer-encoding: base64
 
 下面是一封我收到的邮件的源码:
 
+```text
 Date: Wed, 18 Jun 2008 18:07:51 +0800 (CST)
 From: xxx <xxx@163.com>
 To: yifeng.ruan@gmail.com
@@ -151,7 +158,7 @@ Message-ID: <14410503.1073611213783671983.JavaMail.coremail@bj163app54.163.com>
 Subject: =?gbk?B?xOO6ww==?=
 MIME-Version: 1.0
 Content-Type: multipart/alternative;
-boundary=&quot;----=_Part_287491_22998031.1213783671982&quot;
+boundary="----=_Part_287491_22998031.1213783671982"
 
 ------=_Part_287491_22998031.1213783671982
 Content-Type: text/plain; charset=gbk
@@ -165,12 +172,13 @@ wO/D5g==
 Content-Type: text/html; charset=gbk
 Content-Transfer-Encoding: quoted-printable
 
-&amp;nbsp;</DIV>
+&nbsp;</DIV>
 =B8=F9=BE=DD=B2=BF=B6=D3=D3=D0=B9=D8=B9=E6=B6=A8=A3=AC=B2=BB=B5=C3=D4=
 =DA=B5=D8=B7=BD=C8=CE=BA=CE=CD=F8=D5=BE=C9=CF=B9=D2=CF=E0=D3=A6=B5=C4=B6=AB=
 =CE=F7=A3=AC=C7=EB=C4=E3=D4=DA=C4=E3=B5=C4=B2=A9=BF=CD=D6=D0</DIV>
-&amp;nbsp;
+&nbsp;
 ......
+```
 
 可以看到这封信的MIME语句是:
 
@@ -206,3 +214,9 @@ Content-Transfer-Encoding: quoted-printable
 ---
 
 [http://www.ruanyifeng.com/blog/2008/06/mime.html](http://www.ruanyifeng.com/blog/2008/06/mime.html)
+
+## 维护记录
+
+| 时间 | 修改内容 | 原因 |
+| ---- | -------- | ---- |
+| 2026-10-09 | 修复本地 Hugo 构建的 Raw HTML 警告：代码/配置放入代码块，正文中的尖括号占位符改为行内代码 | 正文中的 HTML/XML 片段被当作原始 HTML 丢弃；文件名/URL/标题按规范调整 |

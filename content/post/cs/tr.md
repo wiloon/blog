@@ -2,11 +2,15 @@
 title: tr command
 author: "-"
 date: 2020-02-14T02:56:46+00:00
+lastmod: 2026-10-09T21:22:13+08:00
 url: tr
 categories:
   - Linux
 tags:
-  - reprint
+  - linux
+  - shell
+  - remix
+  - AI-assisted
 ---
 ## tr command
 
@@ -63,7 +67,9 @@ tr用来从标准输入中通过替换或删除操作进行字符转换。tr主�
 
 带有最常用选项的tr命令格式为:
   
+```text
 tr -c -d -s ["string1_to_translate_from"]["string2_to_translate_to"] < input-file
+```
   
 这里:
   
@@ -111,7 +117,9 @@ tr中特定控制字符的不同表达方式
 
 、将文件file中出现的"abc"替换为"xyz"
 
+```text
 # cat file | tr "abc" "xyz" > new_file
+```
 
 【注意】这里，凡是在file中出现的"a"字母，都替换成"x"字母，"b"字母替换为"y"字母，"c"字母替换为"z"字母。而不是将字符串"abc"替换为字符串"xyz"。
 
@@ -119,51 +127,69 @@ tr中特定控制字符的不同表达方式
   
  (小写 -> 大写)
 
+```text
 # cat file | tr [a-z] [A-Z] > new_file
+```
 
  (大写 -> 小写)
 
+```text
 # cat file | tr [A-Z] [a-z] > new_file
+```
 
 3. 把文件中的数字0-9替换为a-j
 
+```text
 # cat file | tr [0-9] [a-j] > new_file
+```
 
 4. 删除文件file中出现的"Snail"字符
 
+```text
 # cat file | tr -d "Snail" > new_file
+```
 
 【注意】这里，凡是在file文件中出现的'S','n','a','i','l'字符都会被删除！而不是紧紧删除出现的"Snail"字符串。
 
 ## 删除文件file中出现的换行'\n'、制表'\t'字符
 
+```text
 # cat file | tr -d "\n\t" > new_file
+```
 
 不可见字符都得用转义字符来表示的，这个都是统一的。
 
 6. 删除"连续着的"重复字母，只保留第一个
 
+```text
 # cat file | tr -s [a-zA-Z] > new_file
-
-
+```
 
 8. 删除Windows文件"造成"的'^M'字符
 
+```text
 # cat file | tr -d "\r" > new_file
+```
 
 或者
 
+```text
 # cat file | tr -s "\r" "\n" > new_file
+```
 
 【注意】这里-s后面是两个参数"\r"和"\n"，用后者替换前者
 
 9. 用空格符\040替换制表符\011
 
+```text
 # cat file | tr -s "\011" "\040" >new_file
+```
 
 10. 把路径变量中的冒号":"，替换成换行符"\n"
 
+```bash
 # echo $PATH | tr -s ":" "\n"
+```
 
 * * *
 
@@ -175,7 +201,9 @@ tr用来从标准输入中通过替换或删除操作进行字符转换tr主要�
   
 带有最常用选项的tr命令格式为:
   
+```text
 tr -c -d -s ["string1_to_translate_from"] ["string2_to_translate_to"] < input-file
+```
   
 这里:
   
@@ -223,23 +251,27 @@ tr中特定控制字符的不同表达方式
   
  (1) 去除oops.txt里面的重复的小写字符
   
+```text
 tr -s "[a-z]"<oops.txt >result.txt
-  
+```
 
-  
  (3) 有时需要删除文件中的^M，并代之以换行
   
 tr -s "[\015]" "[\n]" < file 或 tr -s "[\r]" "[\n]" < file
   
  (4) 大写到小写
   
+```text
 cat a.txt |tr "[a-z]" "[A-Z]" >b.txt
+```
   
  (5) 删除指定字符
 
 一个星期的日程表任务是从其中删除所有数字，只保留日期日期有大写，也有小写格式因此需指定两个字符范围[a-z]和[A-Z]，命令tr -cs "[a-z][A-Z]" "[\012_]" 将文件每行所有不包含在[a-z]或[A-Z] (所有希腊字母) 的字符串放在字符串1中并转换为一新行-s选项表明压缩所有新行， -c表明保留所有字母不动原文件如下，后跟tr命令:
   
+```text
 tr -cs "[a-z][A-Z]" "[\012_]" <diary.txt
+```
   
  (6) 转换控制字符
 
@@ -259,15 +291,21 @@ apple bbas^^^^23^M
   
 用tab键替换^ ^ ^ ^ ^ ^，命令为"\136" "[\011_]"将结果重定向到临时工作文件stat.tmp
   
+```text
 tr -s "[\136]" "[\011_]" <stat.txt >stat.tmp
+```
   
 用新行替换每行末尾的^M，并用\n去除^Z，输入要来自于临时工作文件stat.tmp
   
+```text
 tr -s "[\015][\032]" "\n" <stat.tmp
+```
   
 要删除所有的tab键，代之以空格，使用命令
   
+```text
 tr -s "[\011]" "[\040*]" <input.file
+```
   
  (7) 替换passwd文件中所有冒号，代之以tab键，可以增加可读性
   
@@ -285,17 +323,20 @@ echo $PATH | tr ":" "\n"
 
 如果没有将文件保存为使用 UNIX 换行符来表示行结束这种格式，则需要将这样的文件转换成本机 UNIX 格式，否则一些命令实用程序不会正确地处理这些文件Mac OS 的行尾以回车字符(\r)结束，许多文本处理工具将这样的文件作为一行来处理为了纠正这个问题，可以用下列技巧:
   
+```text
 Mac -> UNIX: tr "\r" "\n"<macfile > unixfile
-  
 UNIX -> Mac: tr "\n" "\r"<unixfile > macfile
+```
   
 Microsoft DOS/Windows 约定，文本的每行以回车字符(\r)并后跟换行符(\n)结束为了纠正这个问题，可以使用下列命令:
   
+```text
 DOS -> UNIX: tr -d "\r"<dosfile > unixfile
+```
   
-UNIX -> DOS: 在这种情况下，需要用awk，因为tr不能插入两个字符来替换一个字符要使用的 awk 命令为 awk '{ print $0"\r" }'<unixfile > dosfile
+UNIX -> DOS: 在这种情况下，需要用awk，因为tr不能插入两个字符来替换一个字符要使用的 awk 命令为 `awk '{ print $0"\r" }' < unixfile > dosfile`
 
-# 注: 都可以用sed 来完成
+注: 都可以用sed 来完成
 
 用途
   
@@ -305,7 +346,9 @@ UNIX -> DOS: 在这种情况下，需要用awk，因为tr不能插入两个字�
   
 tr [ -c | -cds | -cs | -C | -Cds | -Cs | -ds | -s ] [ -A ] String1 String2
 
+```text
 tr { -cd | -cs | -Cd | -Cs | -d | -s } [ -A ] String1
+```
 
 描述
   
@@ -434,18 +477,26 @@ String2 指定一个字符串。
 > 0 发生错误。
 > 示例
 > 若要将大括号转换为小括号，请输入:
+
+```text
 > tr '{}' '()' < textfile > newfile
+```
+
 > 这便将每个 { (左大括号) 转换成 ( (左小括号) ，并将每个 } (右大括号) 转换成 ) (右小括号) 。所有其他的字符都保持不变。
 
 若要将大括号转换成方括号，请输入:
   
+```text
 tr '{}' '&#91;]' < textfile > newfile
+```
   
 这便将每个 { (左大括号) 转换成 [ (左方括号) ，并将每个 } (右大括号) 转换成 ] (右方括号) 。左方括号必须与一个 "\" (反斜扛) 转义字符一起输入。
 
 若要将小写字符转换成大写，请输入:
   
+```text
 tr 'a-z' 'A-Z' < textfile > newfile
+```
   
 若要创建一个文件中的单词列表，请输入:
   
@@ -457,24 +508,40 @@ tr -cs '[:lower:][:upper:]' '[\n_]' < textfile > newfile
 
 若要从某个文件中删除所有空字符，请输入:
   
+```text
 tr -d '\0' < textfile > newfile
+```
   
 若要用单独的换行替换每一序列的一个或多个换行，请输入:
   
+```text
 tr -s '\n' < textfile > newfile
+```
   
 或
 
+```text
 tr -s '\012' < textfile > newfile
+```
   
 若要以"？" (问号) 替换每个非显示字符 (有效控制字符除外) ，请输入:
   
+```text
 tr -c '[:print:][:cntrl:]' '[?*]' < textfile > newfile
+```
   
 这便对不同语言环境中创建的文件进行扫描，以查找当前语言环境下不能显示的字符。
 
-要以单个"#"字符替换 <space> 字符类中的每个字符序列，请输入:
+要以单个"#"字符替换 `<space>` 字符类中的每个字符序列，请输入:
   
 tr -s '[:space:]' '[#*]'
 
+```text
 >[https://www.cnblogs.com/amosli/p/3488306.html](https://www.cnblogs.com/amosli/p/3488306.html)
+```
+
+## 维护记录
+
+| 时间 | 修改内容 | 原因 |
+| ---- | -------- | ---- |
+| 2026-10-09 | 修复本地 Hugo 构建的 Raw HTML 警告：代码/配置放入代码块，正文中的尖括号占位符改为行内代码 | 正文中的 HTML/XML 片段被当作原始 HTML 丢弃；文件名/URL/标题按规范调整 |

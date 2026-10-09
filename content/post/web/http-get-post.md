@@ -2,12 +2,14 @@
 title: 从 HTTP GET 和 POST 的区别说起
 author: "-"
 date: 2012-06-03T11:45:35+00:00
+lastmod: 2026-10-09T21:22:13+08:00
 url: http-get-post
 categories:
   - Web
 tags:
-  - reprint
+  - http
   - remix
+  - AI-assisted
 ---
 ## 从 HTTP GET 和 POST 的区别说起
 
@@ -36,7 +38,10 @@ Cache 服务器缓存起来 (其中还有很多细节，但不影响这里的讨
 
 当学习概念 A 的时候，需要先了解概念 B，而概念 C 又是理解 B 的前提。当 B 和 C 都是新的需要学习的概念时，可以说 A 的理解半径是 2，如图:
 
+```text
 A --> B --> C
+```
+
 |--1--|--2--|
 
 在学习 Web 开发时，接触到 GET 和 POS T时，"理解的半径"可能包涵:
@@ -124,21 +129,27 @@ HTTP请求:
 在HTTP请求中，第一行必须是一个请求行 (request line) ，用来说明请求类型、要访问的资源以及使用的HTTP版本。紧接着是一个首部 (header) 小节，用来说明服务器要使用的附加信息。在首部之后是一个空行，再此之后可以添加任意的其他数据[称之为主体 (body) ]。
 
   GET与POST方法实例:
-  GET /books/?sex=man&name=Professional HTTP/1.1
-  Host: www.wrox.com
-  User-Agent: Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.7.6)
-  Gecko/20050225 Firefox/1.0.1
-  Connection: Keep-Alive
 
-  POST / HTTP/1.1
-  Host: www.wrox.com
-  User-Agent: Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.7.6)
+```text
+GET /books/?sex=man&name=Professional HTTP/1.1
+Host: www.wrox.com
+User-Agent: Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.7.6)
+Gecko/20050225 Firefox/1.0.1
+Connection: Keep-Alive
+POST / HTTP/1.1
+Host: www.wrox.com
+User-Agent: Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.7.6)
+```
+
   Gecko/20050225 Firefox/1.0.1
   Content-Type: application/x-www-form-urlencoded
   Content-Length: 40
   Connection: Keep-Alive
   (--此处空一行--)
-  name=Professional%20Ajax&publisher=Wiley
+
+```text
+name=Professional%20Ajax&publisher=Wiley
+```
 
   有了以上对HTTP请求的了解和示例，我们再来看两种提交方式的区别:
 
@@ -174,20 +185,24 @@ HTTP请求:
 ### HTTP响应
 
 1．HTTP响应格式:
- <status line>
 
- <blank line>
- [<response-body>]
+```xml
+<status line>
+<blank line>
+[<response-body>]
+```
 
     在响应中唯一真正的区别在于第一行中用状态信息代替了请求信息。状态行 (status line) 通过提供一个状态码来说明所请求的资源情况。
-  
-  
+
     HTTP响应实例: 
-  
-  
+
     HTTP/1.1 200 OK
 Date: Sat, 31 Dec 2005 23:59:59 GMT
+
+```text
 Content-Type: text/html;charset=ISO-8859-1
+```
+
 Content-Length: 122
 ＜html＞
 ＜head＞
@@ -206,24 +221,29 @@ Content-Length: 122
 ◆404 (NOT FOUND): 在指定的位置不存在所申请的资源。
 
     四 完整示例: 
-  
-  
+
     例子: 
 HTTP GET
 
     发送
-  
-  
-    GET /DEMOWebServices2.8/Service.asmx/CancelOrder?UserID=string&PWD=string&OrderConfirmation=string HTTP/1.1
+
+```text
+GET /DEMOWebServices2.8/Service.asmx/CancelOrder?UserID=string&PWD=string&OrderConfirmation=string HTTP/1.1
+```
+
 Host: api.efxnow.com
 
     回复
-  
-  
+
     HTTP/1.1 200 OK
+
+```text
 Content-Type: text/xml; charset=utf-8
+```
+
 Content-Length: length
 
+```xml
 <?xml version="1.0" encoding="utf-8"?>
  <objPlaceOrderResponse xmlns="https://api.efxnow.com/webservices2.3">
  <Success>boolean</Success>
@@ -233,6 +253,7 @@ Content-Length: length
  <OrderConfirmation>string</OrderConfirmation>
  <CustomerDealRef>string</CustomerDealRef>
  </objPlaceOrderResponse>
+```
 
 HTTP POST
 
@@ -243,404 +264,261 @@ Host: api.efxnow.com
 Content-Type: application/x-www-form-urlencoded
 Content-Length: length
 
-    UserID=string&PWD=string&OrderConfirmation=string
-  
-  
+```text
+UserID=string&PWD=string&OrderConfirmation=string
+```
+
     回复
-  
-  
+
     HTTP/1.1 200 OK
+
+```text
 Content-Type: text/xml; charset=utf-8
+```
+
 Content-Length: length
 
-    <?xml version="1.0" encoding="utf-8"?>
- <objPlaceOrderResponse xmlns="https://api.efxnow.com/webservices2.3">
- <Success>boolean</Success>
- <ErrorDescription>string</ErrorDescription>
- <ErrorNumber>int</ErrorNumber>
- <CustomerOrderReference>long</CustomerOrderReference>
- <OrderConfirmation>string</OrderConfirmation>
- <CustomerDealRef>string</CustomerDealRef>
- </objPlaceOrderResponse>
+```xml
+   <?xml version="1.0" encoding="utf-8"?>
+<objPlaceOrderResponse xmlns="https://api.efxnow.com/webservices2.3">
+<Success>boolean</Success>
+<ErrorDescription>string</ErrorDescription>
+<ErrorNumber>int</ErrorNumber>
+<CustomerOrderReference>long</CustomerOrderReference>
+<OrderConfirmation>string</OrderConfirmation>
+<CustomerDealRef>string</CustomerDealRef>
+</objPlaceOrderResponse>
+```
 
     SOAP 1.2
-  
-  
+
     发送
-  
-  
+
     POST /DEMOWebServices2.8/Service.asmx HTTP/1.1
 Host: api.efxnow.com
+
+```text
 Content-Type: application/soap+xml; charset=utf-8
+```
+
 Content-Length: length
 
-    <?xml version="1.0" encoding="utf-8"?>
- <soap12:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://www.w3.org/2003/05/soap-envelope">
- <soap12:Body>
- <CancelOrder xmlns="https://api.efxnow.com/webservices2.3">
- <UserID>string</UserID>
- <PWD>string</PWD>
- <OrderConfirmation>string</OrderConfirmation>
- </CancelOrder>
- </soap12:Body>
- </soap12:Envelope>
+```xml
+   <?xml version="1.0" encoding="utf-8"?>
+<soap12:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://www.w3.org/2003/05/soap-envelope">
+<soap12:Body>
+<CancelOrder xmlns="https://api.efxnow.com/webservices2.3">
+<UserID>string</UserID>
+<PWD>string</PWD>
+<OrderConfirmation>string</OrderConfirmation>
+</CancelOrder>
+</soap12:Body>
+</soap12:Envelope>
+```
 
     回复
-  
-  
+
     HTTP/1.1 200 OK
+
+```text
 Content-Type: application/soap+xml; charset=utf-8
+```
+
 Content-Length: length
 
-    <?xml version="1.0" encoding="utf-8"?>
- <soap12:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://www.w3.org/2003/05/soap-envelope">
- <soap12:Body>
- <CancelOrderResponse xmlns="https://api.efxnow.com/webservices2.3">
- <CancelOrderResult>
- <Success>boolean</Success>
- <ErrorDescription>string</ErrorDescription>
- <ErrorNumber>int</ErrorNumber>
- <CustomerOrderReference>long</CustomerOrderReference>
- <OrderConfirmation>string</OrderConfirmation>
- <CustomerDealRef>string</CustomerDealRef>
- </CancelOrderResult>
- </CancelOrderResponse>
- </soap12:Body>
- </soap12:Envelope>
+```xml
+   <?xml version="1.0" encoding="utf-8"?>
+<soap12:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://www.w3.org/2003/05/soap-envelope">
+<soap12:Body>
+<CancelOrderResponse xmlns="https://api.efxnow.com/webservices2.3">
+<CancelOrderResult>
+<Success>boolean</Success>
+<ErrorDescription>string</ErrorDescription>
+<ErrorNumber>int</ErrorNumber>
+<CustomerOrderReference>long</CustomerOrderReference>
+<OrderConfirmation>string</OrderConfirmation>
+<CustomerDealRef>string</CustomerDealRef>
+</CancelOrderResult>
+</CancelOrderResponse>
+</soap12:Body>
+</soap12:Envelope>
+```
 
       两种最常用的 HTTP 方法是: GET 和 POST。
-  
-  
-    
+
       什么是 HTTP？
-    
-    
-    
+
       超文本传输协议 (HTTP) 的设计目的是保证客户机与服务器之间的通信。
-    
-    
-    
+
       HTTP 的工作方式是客户机与服务器之间的请求-应答协议。
-    
-    
-    
+
       web 浏览器可能是客户端，而计算机上的网络应用程序也可能作为服务器端。
-    
-    
-    
+
       举例: 客户端 (浏览器) 向服务器提交 HTTP 请求；服务器向客户端返回响应。响应包含关于请求的状态信息以及可能被请求的内容。
-  
-  
-    
+
       两种 HTTP 请求方法: GET 和 POST
-    
-    
-    
+
       在客户机和服务器之间进行请求-响应时，两种最常被用到的方法是: GET 和 POST。
-    
-    
-    
-      
+
         GET - 从指定的资源请求数据。
-      
-      
+
         POST - 向指定的资源提交要被处理的数据
-      
-    
-  
-  
-    
+
       GET 方法
-    
-    
-    
+
       请注意，查询字符串 (名称/值对) 是在 GET 请求的 URL 中发送的: 
-    
-    
-    /test/demo_form.asp?name1=value1&name2=value2
-    
-    
+
+```text
+/test/demo_form.asp?name1=value1&name2=value2
+```
+
       有关 GET 请求的其他一些注释: 
-    
-    
-    
-      
+
         GET 请求可被缓存
-      
-      
+
         GET 请求保留在浏览器历史记录中
-      
-      
+
         GET 请求可被收藏为书签
-      
-      
+
         GET 请求不应在处理敏感数据时使用
-      
-      
+
         GET 请求有长度限制
-      
-      
+
         GET 请求只应当用于取回数据
-      
-    
-  
-  
-    
+
       POST 方法
-    
-    
-    
+
       请注意，查询字符串 (名称/值对) 是在 POST 请求的 HTTP 消息主体中发送的: 
-    
-    
+
     POST /test/demo_form.asp HTTP/1.1
 Host: w3schools.com
+
+```text
 name1=value1&name2=value2
+```
 
       有关 POST 请求的其他一些注释: 
-    
-    
-    
-      
+
         POST 请求不会被缓存
-      
-      
+
         POST 请求不会保留在浏览器历史记录中
-      
-      
+
         POST 不能被收藏为书签
-      
-      
+
         POST 请求对数据长度没有要求
-      
-    
-  
-  
-    
+
       比较 GET 与 POST
-    
-    
-    
+
       下面的表格比较了两种 HTTP 方法: GET 和 POST。
-    
-    
-    
-      
-        <th>
-        </th>
-        
-        <th>
-          GET
-        </th>
-        
-        <th>
-          POST
-        </th>
-      
-      
-      
-        
+
+```xml
+<th>
+</th>
+<th>
+GET
+</th>
+<th>
+POST
+</th>
+```
+
           后退按钮/刷新
-        
-        
-        
+
           无害
-        
-        
-        
+
           数据会被重新提交 (浏览器应该告知用户数据会被重新提交) 。
-        
-      
-      
-      
-        
+
           书签
-        
-        
-        
+
           可收藏为书签
-        
-        
-        
+
           不可收藏为书签
-        
-      
-      
-      
-        
+
           缓存
-        
-        
-        
+
           能被缓存
-        
-        
-        
+
           不能缓存
-        
-      
-      
-      
-        
+
           编码类型
-        
-        
-        
+
           application/x-www-form-urlencoded
-        
-        
-        
+
           application/x-www-form-urlencoded 或 multipart/form-data。为二进制数据使用多重编码。
-        
-      
-      
-      
-        
+
           历史
-        
-        
-        
+
           参数保留在浏览器历史中。
-        
-        
-        
+
           参数不会保存在浏览器历史中。
-        
-      
-      
-      
-        
+
           对数据长度的限制
-        
-        
-        
+
           是的。当发送数据时，GET 方法向 URL 添加数据；URL 的长度是受限制的 (URL 的最大长度是 2048 个字符) 。
-        
-        
-        
+
           无限制。
-        
-      
-      
-      
-        
+
           对数据类型的限制
-        
-        
-        
+
           只允许 ASCII 字符。
-        
-        
-        
+
           没有限制。也允许二进制数据。
-        
-      
-      
-      
-        
+
           安全性
-        
-        
-        
+
           与 POST 相比，GET 的安全性较差，因为所发送的数据是 URL 的一部分。 
-          
-          
+
             在发送密码或其他敏感信息时绝不要使用 GET ！ 
-            
-            
+
               POST 比 GET 更安全，因为参数不会被保存在浏览器历史或 web 服务器日志中。
-             
-            
-            
-              
+
                 可见性
-              
-              
-              
+
                 数据在 URL 中对所有人都是可见的。
-              
-              
-              
+
                 数据不会显示在 URL 中。
-              
-               
-            
-            
-              
+
                 其他 HTTP 请求方法
-              
-              
-              
+
                 下面的表格列出了其他一些 HTTP 请求方法: 
-              
-              
-              
-                
-                  <th>
+
+```xml
+<th>
+```
+
                     方法
-                  </th>
-                  
-                  <th>
+
+```xml
+</th>
+<th>
+```
+
                     描述
-                  </th>
-                
-                
-                
-                  
+
+```xml
+</th>
+```
+
                     HEAD
-                  
-                  
-                  
+
                     与 GET 相同，但只返回 HTTP 报头，不返回文档主体。
-                  
-                
-                
-                
-                  
+
                     PUT
-                  
-                  
-                  
+
                     上传指定的 URI 表示。
-                  
-                
-                
-                
-                  
+
                     DELETE
-                  
-                  
-                  
+
                     删除指定资源。
-                  
-                
-                
-                
-                  
+
                     OPTIONS
-                  
-                  
-                  
+
                     返回服务器支持的 HTTP 方法。
-                  
-                
-                
-                
-                  
+
                     CONNECT
-                  
-                  
-                  
+
                     把请求连接转换到透明的 TCP/IP 通道。
-                  
-                
-              
-              
-              
-                
-              
-              
-              
+
                 http://www.w3school.com.cn/tags/html_ref_httpmethods.asp
 
 ## GET与POST区别
@@ -660,21 +538,14 @@ Urlencoding是一种字符编码，保证被传送的参数由遵循规范的文
 
 get 是从服务器上获取数据，post 是向服务器传送数据, 比如上传文件只能用 Post
 
-
 在客户端，Get 方式在通过URL提交数据，数据在URL中可以看到；数据的按照variable=value的形式，添加到action所指向的URL后面，
 并且两者使用"?"连接，而各个变量之间使用"&"连接；POST方式，数据放置在HTML HEADER内提交。
 
-
-
 Get限制Form表单的数据集的值必须为ASCII字符；而Post支持整个ISO10646字符集。默认是用ISO-8859-1编码
-
 
 Get是Form的默认方法。
 
-
 get方法没有请求实体，含有数据的url都在请求头里面.
-
-
 
 注: 所谓安全的意味着该操作用于获取信息而非修改信息。幂等的意味着对同一 URL 的多个请求应该返回同样的结果。完整的定义并不像看起来那样严格。
 换句话说，GET 请求一般不应产生副作用。从根本上讲，其目标是当用户打开一个链接时，她可以确信从自身的角度来看没有改变资源。
@@ -683,3 +554,9 @@ get方法没有请求实体，含有数据的url都在请求头里面.
 仍然以新闻站点为例，读者对文章的注解应该通过 POST 请求实现，因为在注解提交之后站点已经不同了 (比方说文章下面出现一条注解) 。
 
 RFC2616 http://www.ietf.org/rfc/rfc2616.txt
+
+## 维护记录
+
+| 时间 | 修改内容 | 原因 |
+| ---- | -------- | ---- |
+| 2026-10-09 | 修复本地 Hugo 构建的 Raw HTML 警告：代码/配置放入代码块，正文中的尖括号占位符改为行内代码 | 正文中的 HTML/XML 片段被当作原始 HTML 丢弃；文件名/URL/标题按规范调整 |

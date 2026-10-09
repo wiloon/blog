@@ -2,11 +2,15 @@
 title: ConcurrentLinkedDeque
 author: "-"
 date: 2019-10-23T05:20:33+00:00
+lastmod: 2026-10-09T21:22:13+08:00
 url: concurrentlinkeddeque
 categories:
-  - Inbox
+  - Java
 tags:
-  - reprint
+  - java
+  - juc
+  - remix
+  - AI-assisted
 aliases:
   - /p15053/
 ---
@@ -20,20 +24,15 @@ aliases:
        一个将大量数据添加到一个列表中
        一个大量地从同样的列表中删除数据
       让我们为每个任务创建的线程: 
-    
 
+```java
 package com.howtodoinjava.demo.multithreading.concurrentLinkedDequeExample;
-
 import java.util.concurrent.ConcurrentLinkedDeque;
-
 public class AddTask implements Runnable {
-
     private ConcurrentLinkedDeque<String> list;
-    
     public AddTask(ConcurrentLinkedDeque<String> list) {
         this.list = list;
     }
-    
     @Override
     public void run() {
         String name = Thread.currentThread().getName();
@@ -41,24 +40,19 @@ public class AddTask implements Runnable {
             list.add(name + ": Element " + i);
         }
     }
-    
-
 }
+```
   
 和: 
 
+```java
 packagecom.howtodoinjava.demo.multithreading.concurrentLinkedDequeExample;
-
 importjava.util.concurrent.ConcurrentLinkedDeque;
-
 publicclass RemoveTask implementsRunnable {
-
     privateConcurrentLinkedDeque<String> list;
-    
     publicRemoveTask(ConcurrentLinkedDeque<String> list) {
         this.list = list;
     }
-    
     @Override
     publicvoid run() {
         for(inti = 0; i < 5000; i++) {
@@ -66,34 +60,25 @@ publicclass RemoveTask implementsRunnable {
             list.pollLast();
         }
     }
-    
-
 }
+```
 
        现在,让我们创建100个线程将数据添加到列表和100个线程从列表删除数据。如果真的是线程安全的和非阻塞,它会几乎立即给你最终结果。此外,列表大小最终将是零。
-    
 
+```java
 package com.howtodoinjava.demo.multithreading.concurrentLinkedDequeExample;
-
 import java.util.concurrent.ConcurrentLinkedDeque;
-
 public class Main {
-      
-public static void main(String[] args)
-      
-{
-          
-ConcurrentLinkedDeque<String> list = new ConcurrentLinkedDeque<>();
-          
-Thread threads[] = new Thread[100];
-
+    public static void main(String[] args)
+    {
+        ConcurrentLinkedDeque<String> list = new ConcurrentLinkedDeque<>();
+        Thread threads[] = new Thread[100];
         for (int i = 0; i < threads.length; i++) {
             AddTask task = new AddTask(list);
             threads[i] = new Thread(task);
             threads[i].start();
         }
         System.out.printf("Main: %d AddTask threads have been launched\n", threads.length);
-    
         for (int i = 0; i < threads.length; i++) {
             try {
                 threads[i].join();
@@ -102,14 +87,12 @@ Thread threads[] = new Thread[100];
             }
         }
         System.out.printf("Main: Size of the List: %d\n", list.size());
-    
         for (int i = 0; i < threads.length; i++) {
             RemoveTask task = new RemoveTask(list);
             threads[i] = new Thread(task);
             threads[i].start();
         }
         System.out.printf("Main: %d RemoveTask threads have been launched\n", threads.length);
-    
         for (int i = 0; i < threads.length; i++) {
             try {
                 threads[i].join();
@@ -119,19 +102,17 @@ Thread threads[] = new Thread[100];
         }
         System.out.printf("Main: Size of the List: %d\n", list.size());
     }
-    
-
 }
+```
 
 Output:
 
+```text
 Main: 100 AddTask threads have been launched
-  
 Main: Size of the List: 1000000
-  
 Main: 100 RemoveTask threads have been launched
-  
 Main: Size of the List: 0
+```
 
 让我们看看它如何工作:
 
@@ -158,3 +139,9 @@ remove(), removeFirst(), removeLast():这些方法返回列表的第一个和最
 快乐学习! !
 
 原文链接: http://howtodoinjava.com/2015/02/23/non-blocking-thread-safe-list-concurrentlinkeddeque-example/
+
+## 维护记录
+
+| 时间 | 修改内容 | 原因 |
+| ---- | -------- | ---- |
+| 2026-10-09 | 修复本地 Hugo 构建的 Raw HTML 警告：代码/配置放入代码块，正文中的尖括号占位符改为行内代码；categories 改为 Java | 正文中的 HTML/XML 片段被当作原始 HTML 丢弃；文件名/URL/标题按规范调整 |

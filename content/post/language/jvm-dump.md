@@ -2,11 +2,15 @@
 title: jmap
 author: "-"
 date: 2015-09-17T08:46:25+00:00
+lastmod: 2026-10-09T21:22:13+08:00
 url: jvm-dump
 categories:
-  - Inbox
+  - Java
 tags:
-  - reprint
+  - java
+  - jvm
+  - remix
+  - AI-assisted
 aliases:
   - /p8292/
 ---
@@ -14,7 +18,7 @@ aliases:
 
   2) 、基本参数:
 
-  -dump:[live,]format=b,file=<filename> 使用hprof二进制形式,输出jvm的heap内容到文件=. live子选项是可选的，假如指定live选项,那么只输出活的对象到文件.
+  `-dump:[live,]format=b,file=<filename>` 使用hprof二进制形式,输出jvm的heap内容到文件=. live子选项是可选的，假如指定live选项,那么只输出活的对象到文件.
 
   -finalizerinfo 打印正等候回收的对象的信息.
 
@@ -37,18 +41,18 @@ aliases:
   1)、[fenglb@ccbu-156-5 ~]$ jmap -histo 4939
 
     sudo ./jmap -dump:format=b,file=/tmp/917dump.dat 8949
-  
-  
-  
-  
+
     If you take a look at the source code for com.sun.tools.hat.internal.parser.Reader, you'll see that it's looking for the magic number 0x4a415641.
-  
-  
+
     This value is used to help identify valid heap dump files. jmap should append this value as the first four bytes of any heap dump file it creates.
-  
-  
+
     http://stackoverflow.com/questions/15507047/jhat-throwing-unrecognized-magic-number
-  
-  
+
     http://blog.csdn.net/gtuu0123/article/details/6039474
   
+
+## 维护记录
+
+| 时间 | 修改内容 | 原因 |
+| ---- | -------- | ---- |
+| 2026-10-09 | 修复本地 Hugo 构建的 Raw HTML 警告：代码/配置放入代码块，正文中的尖括号占位符改为行内代码；categories 改为 Java | 正文中的 HTML/XML 片段被当作原始 HTML 丢弃；文件名/URL/标题按规范调整 |

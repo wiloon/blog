@@ -2,12 +2,14 @@
 title: jpa annotation, 注解
 author: "-"
 date: 2014-05-28T09:17:04+00:00
+lastmod: 2026-10-09T21:22:13+08:00
 url: jpa-annotation
 categories:
-  - Inbox
+  - Java
 tags:
   - JPA
-
+  - remix
+  - AI-assisted
 aliases:
   - /p6651/
   - /p6676/
@@ -17,13 +19,11 @@ aliases:
 ## jpa annotation, 注解
 http://mzhj.iteye.com/blog/711685
 
-
 **@Embedded**
 
 你可以创建一个类被嵌套在实体类中，在这种情况下我们可以使用@Embedded注解。例如，在Hotel类中 可能会有一个Address。
   
 Address是Hotel不可分割的一部分，没有ID, 并且不会被存储在分开的collection中。在这种情况下我们可以使用@Embedded注解
-
 
 **@Entity**
 
@@ -31,15 +31,15 @@ Address是Hotel不可分割的一部分，没有ID, 并且不会被存储在分�
 
 Specifies that the class is an entity. This annotation is applied to the entity class.
 
-
+```java
 @Table (name= users )
-
 //指定表名为users
+```
 
-
+```java
 @Column
-
 @Column(name="DESC", nullable=false, length=512)
+```
 
 设置字段类型
   
@@ -59,64 +59,49 @@ Specifies that the class is an entity. This annotation is applied to the entity 
   
 .secondaryTable: 从表名。如果此列不建在主表上 (默认建在主表) ，该属性定义该列所在从表的名字。
 
+```java
 @Column(name = "user_code", nullable = false, length=32)//设置属性userCode对应的字段为user_code，长度为32，非空
-  
 private String userCode;
-  
 @Column(name = "user_wages", nullable = true, precision=12, scale=2)//设置属性wages对应的字段为user_wages，12位数字可保留两位小数，可以为空
-  
 private double wages;
-  
 @Temporal(TemporalType.DATE)//设置为时间类型
-  
 private Date joinDate;
+```
 
-
+```java
 @Id
+```
 
 设置主键
-
 
 字段排序
   
 在加载数据的时候可以为其指定顺序，使用@OrderBy注解实现
 
+```java
 @OrderBy(name = "group_name ASC, name DESC")
-
+```
 
 主键生成策略
 
+```java
 public class Users implements Serializable {
-  
-@Id
-  
-@GeneratedValue(strategy=GenerationType.IDENTITY)//主键自增，注意，这种方式依赖于具体的数据库，如果数据库不支持自增主键，那么这个类型是没法用的
-  
-@Column(name = "user_id", nullable = false)
-  
-private int userId;
-
-public class Users implements Serializable {
-  
-@Id
-  
-@GeneratedValue(strategy=GenerationType.TABLE)//通过一个表来实现主键id的自增，这种方式不依赖于具体的数据库，可以解决数据迁移的问题
-  
-@Column(name = "user_code", nullable = false)
-  
-private String userCode;
-
-public class Users implements Serializable {
-  
-@Id
-  
-@GeneratedValue(strategy=GenerationType.SEQUENCE)//通过Sequence来实现表主键自增，这种方式依赖于数据库是否有SEQUENCE，如果没有就不能用
-  
-@SequenceGenerator(name="seq_user")
-  
-@Column(name = "user_id", nullable = false)
-  
-private int userId;
+    @Id
+    @GeneratedValue(strategy=GenerationType.IDENTITY)//主键自增，注意，这种方式依赖于具体的数据库，如果数据库不支持自增主键，那么这个类型是没法用的
+    @Column(name = "user_id", nullable = false)
+    private int userId;
+    public class Users implements Serializable {
+        @Id
+        @GeneratedValue(strategy=GenerationType.TABLE)//通过一个表来实现主键id的自增，这种方式不依赖于具体的数据库，可以解决数据迁移的问题
+        @Column(name = "user_code", nullable = false)
+        private String userCode;
+        public class Users implements Serializable {
+            @Id
+            @GeneratedValue(strategy=GenerationType.SEQUENCE)//通过Sequence来实现表主键自增，这种方式依赖于数据库是否有SEQUENCE，如果没有就不能用
+            @SequenceGenerator(name="seq_user")
+            @Column(name = "user_id", nullable = false)
+            private int userId;
+```
 
 7.一对多映射关系
   
@@ -124,53 +109,36 @@ private int userId;
   
 主Pojo
 
+```java
 @Entity
-  
 @Table(name = "T_ONE")
-  
 public class One implements Serializable {
-  
-private static final long serialVersionUID = 1L;
-  
-@Id
-  
-@Column(name = "ONE_ID", nullable = false)
-  
-private String oneId;
-  
-@Column(name = "DESCRIPTION")
-  
-private String description;
-  
-@OneToMany(cascade = CascadeType.ALL, mappedBy = "oneId")//指向多的那方的pojo的关联外键字段
-  
-private Collection<Many> manyCollection;
+    private static final long serialVersionUID = 1L;
+    @Id
+    @Column(name = "ONE_ID", nullable = false)
+    private String oneId;
+    @Column(name = "DESCRIPTION")
+    private String description;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "oneId")//指向多的那方的pojo的关联外键字段
+    private Collection<Many> manyCollection;
+```
 
 子Pojo
 
+```java
 @Entity
-  
 @Table(name = "T_MANY")
-  
 public class Many implements Serializable {
-  
-private static final long serialVersionUID = 1L;
-  
-@Id
-  
-@Column(name = "MANY_ID", nullable = false)
-  
-private String manyId;
-  
-@Column(name = "DESCRIPTION")
-  
-private String description;
-
-@JoinColumn(name = "ONE_ID", referencedColumnName = "ONE_ID")//设置对应数据表的列名和引用的数据表的列名
-  
-@ManyToOne//设置在"一方"pojo的外键字段上
-  
-private One oneId;
+    private static final long serialVersionUID = 1L;
+    @Id
+    @Column(name = "MANY_ID", nullable = false)
+    private String manyId;
+    @Column(name = "DESCRIPTION")
+    private String description;
+    @JoinColumn(name = "ONE_ID", referencedColumnName = "ONE_ID")//设置对应数据表的列名和引用的数据表的列名
+    @ManyToOne//设置在"一方"pojo的外键字段上
+    private One oneId;
+```
 
 8.多对多映射关系
   
@@ -180,142 +148,101 @@ private One oneId;
 
 第一个Pojo
 
+```java
 @Entity
-  
 @Table(name = "T_MANYA")
-  
 public class ManyA implements Serializable {
-  
-private static final long serialVersionUID = 1L;
-  
-@Id
-  
-@Column(name = "MANYA_ID", nullable = false)
-  
-private String manyaId;
-  
-@Column(name = "DESCRIPTION")
-  
-private String description;
-  
-@ManyToMany
-  
-@JoinTable(name = "TMANY1_TMANY2", joinColumns = {@JoinColumn(name = "MANYA_ID", referencedColumnName = "MANYA_ID")}, inverseJoinColumns = {@JoinColumn(name = "MANYB_ID", referencedColumnName = "MANYB_ID")})
-  
-private Collection<ManyB> manybIdCollection;
+    private static final long serialVersionUID = 1L;
+    @Id
+    @Column(name = "MANYA_ID", nullable = false)
+    private String manyaId;
+    @Column(name = "DESCRIPTION")
+    private String description;
+    @ManyToMany
+    @JoinTable(name = "TMANY1_TMANY2", joinColumns = {@JoinColumn(name = "MANYA_ID", referencedColumnName = "MANYA_ID")}, inverseJoinColumns = {@JoinColumn(name = "MANYB_ID", referencedColumnName = "MANYB_ID")})
+    private Collection<ManyB> manybIdCollection;
+```
 
 第二个Pojo
 
+```java
 @Entity
-  
 @Table(name = "T_MANYB")
-  
 public class ManyB implements Serializable {
-  
-private static final long serialVersionUID = 1L;
-  
-@Id
-  
-@Column(name = "MANYB_ID", nullable = false)
-  
-private String manybId;
-  
-@Column(name = "DESCRIPTION")
-  
-private String description;
-  
-@ManyToMany(mappedBy = "manybIdCollection")
-  
-private Collection<ManyA> manyaIdCollection;
+    private static final long serialVersionUID = 1L;
+    @Id
+    @Column(name = "MANYB_ID", nullable = false)
+    private String manybId;
+    @Column(name = "DESCRIPTION")
+    private String description;
+    @ManyToMany(mappedBy = "manybIdCollection")
+    private Collection<ManyA> manyaIdCollection;
+```
 
 9.一对一映射关系
   
 主Pojo
 
+```java
 @Entity
-  
 @Table(name = "T_ONEA")
-  
 public class OneA implements Serializable {
-  
-private static final long serialVersionUID = 1L;
-  
-@Id
-  
-@Column(name = "ONEA_ID", nullable = false)
-  
-private String oneaId;
-  
-@Column(name = "DESCRIPTION")
-  
-private String description;
-  
-@OneToOne(cascade = CascadeType.ALL, mappedBy = "oneA")//主Pojo这方的设置比较简单，只要设置好级联和映射到从Pojo的外键就可以了。
-  
-private OneB oneB;
+    private static final long serialVersionUID = 1L;
+    @Id
+    @Column(name = "ONEA_ID", nullable = false)
+    private String oneaId;
+    @Column(name = "DESCRIPTION")
+    private String description;
+    @OneToOne(cascade = CascadeType.ALL, mappedBy = "oneA")//主Pojo这方的设置比较简单，只要设置好级联和映射到从Pojo的外键就可以了。
+    private OneB oneB;
+```
 
 从Pojo
 
+```java
 @Entity
-  
 @Table(name = "T_ONEB")
-  
 public class OneB implements Serializable {
-  
-private static final long serialVersionUID = 1L;
-  
-@Id
-  
-@Column(name = "ONEA_ID", nullable = false)
-  
-private String oneaId;
-  
-@Column(name = "DESCRIPTION")
-  
-private String description;
-  
-@JoinColumn(name = "ONEA_ID", referencedColumnName = "ONEA_ID", insertable = false, updatable = false)//设置从方指向主方的关联外键，这个ONEA_ID其实是表T_ONEA的主键
-  
-@OneToOne
-  
-private OneA oneA;
+    private static final long serialVersionUID = 1L;
+    @Id
+    @Column(name = "ONEA_ID", nullable = false)
+    private String oneaId;
+    @Column(name = "DESCRIPTION")
+    private String description;
+    @JoinColumn(name = "ONEA_ID", referencedColumnName = "ONEA_ID", insertable = false, updatable = false)//设置从方指向主方的关联外键，这个ONEA_ID其实是表T_ONEA的主键
+    @OneToOne
+    private OneA oneA;
+```
 
 10 大字段
 
+```java
 @Lob //对应Blob字段类型
-  
 @Column(name = "PHOTO")
-  
 private Serializable photo;
-  
 @Lob //对应Clob字段类型
-  
 @Column(name = "DESCRIPTION")
-  
 private String description;
+```
 
 11.瞬时字段
   
 不需要与数据库映射的字段，在保存的时候不需要保存倒数据库
 
+```java
 @Transient
-  
 private int tempValue;
-
 public int getTempValue(){
-  
-get tempValue;
-  
+    get tempValue;
 }
-
 public void setTempValue(int value){
-  
-this.tempValue = value;
-  
+    this.tempValue = value;
 }
+```
 
-
+```java
 @Inheritance(strategy = InheritanceType.JOINED)
+```
 
 Single Table    InheritanceType.SINGLE_TABLE 策略为类的继承体系采用同一个表。表名是基类的名称。例如: 
 
@@ -334,3 +261,9 @@ http://whitesock.iteye.com/blog/173543
 http://blog.csdn.net/small_love/article/details/6300310
 
 http://guyinglong.iteye.com/blog/520461
+
+## 维护记录
+
+| 时间 | 修改内容 | 原因 |
+| ---- | -------- | ---- |
+| 2026-10-09 | 修复本地 Hugo 构建的 Raw HTML 警告：代码/配置放入代码块，正文中的尖括号占位符改为行内代码；categories 改为 Java | 正文中的 HTML/XML 片段被当作原始 HTML 丢弃；文件名/URL/标题按规范调整 |

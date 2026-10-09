@@ -2,12 +2,14 @@
 title: maven setting, mirror, repository
 author: "-"
 date: 2014-05-18T09:11:15+00:00
+lastmod: 2026-10-09T21:22:13+08:00
 url: maven/setting
 categories:
   - Java
 tags:
-  - reprint
+  - maven
   - remix
+  - AI-assisted
 ---
 ## maven setting, mirror, repository
 
@@ -45,19 +47,27 @@ mirror相当于一个拦截器，它会拦截maven对remote repository的相关�
 
 如果仓库X可以提供仓库Y存储的所有内容，那么就可以认为X是Y的一个镜像。换句话说，任何一个可以从仓库Y获得的构件，都胡够从它的镜像中获取。
 
+```text
 2.3 <mirrorOf></mirrorOf>
+```
 
-<mirrorOf></mirrorOf>标签里面放置的是要被镜像的Repository ID。为了满足一些复杂的需求，Maven还支持更高级的镜像配置:
+`<mirrorOf></mirrorOf>`标签里面放置的是要被镜像的Repository ID。为了满足一些复杂的需求，Maven还支持更高级的镜像配置:
 
+```xml
 <mirrorOf>*</mirrorOf>
+```
   
 匹配所有远程仓库。
 
+```xml
 <mirrorOf>repo1,repo2</mirrorOf>
+```
   
 匹配仓库repo1和repo2，使用逗号分隔多个远程仓库。
 
+```xml
 <mirrorOf>*,!repo1</mirrorOf>
+```
   
 匹配所有远程仓库，repo1除外，使用感叹号将仓库从匹配中排除。
   
@@ -65,15 +75,15 @@ mirror相当于一个拦截器，它会拦截maven对remote repository的相关�
 
 3.1 定义
 
-其实，mirror表示的是两个Repository之间的关系，在maven配置文件 (setting.xml)里配置了<mirrors><mirror>……….</mirror></mirrors>，即定义了两个Repository之间的镜像关系。
+其实，mirror表示的是两个Repository之间的关系，在maven配置文件 (setting.xml)里配置了`<mirrors><mirror>`……….`</mirror></mirrors>`，即定义了两个Repository之间的镜像关系。
 
 3.2 目的
 
 配置两个Repository之间的镜像关系，一般是出于访问速度和下载速度考虑。
 
-例如， 有一个项目，需要在公司和住所都编码，并在项目pom.xml配置了A Maven库。在公司，是电信网络，访问A库很快，所以maven管理依赖和插件都从A库下载；在住所，是网通网络，访问A库很慢，但是访问B库很快。这时，在住所的setting.xml里，只要配置一下<mirrors><mirror>….</mirror></mirrors>，让B库成为A库的mirror，即可不用更改项目pom.xml里对于A库的相关配置。
+例如， 有一个项目，需要在公司和住所都编码，并在项目pom.xml配置了A Maven库。在公司，是电信网络，访问A库很快，所以maven管理依赖和插件都从A库下载；在住所，是网通网络，访问A库很慢，但是访问B库很快。这时，在住所的setting.xml里，只要配置一下`<mirrors><mirror>`….`</mirror></mirrors>`，让B库成为A库的mirror，即可不用更改项目pom.xml里对于A库的相关配置。
 
-如果该镜像仓库需要认证，则配置setting.xml中的<server></server>即可。
+如果该镜像仓库需要认证，则配置setting.xml中的`<server></server>`即可。
 
 3.3 注意
   
@@ -208,3 +218,9 @@ localRepository 必须是绝对路径
     <url>https://maven.aliyun.com/repository/public</url>
 </mirror>
 ```
+
+## 维护记录
+
+| 时间 | 修改内容 | 原因 |
+| ---- | -------- | ---- |
+| 2026-10-09 | 修复本地 Hugo 构建的 Raw HTML 警告：代码/配置放入代码块，正文中的尖括号占位符改为行内代码 | 正文中的 HTML/XML 片段被当作原始 HTML 丢弃；文件名/URL/标题按规范调整 |

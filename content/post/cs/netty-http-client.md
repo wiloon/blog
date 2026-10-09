@@ -2,11 +2,14 @@
 title: netty http client
 author: "-"
 date: 2015-12-17T01:29:08+00:00
+lastmod: 2026-10-09T21:22:13+08:00
 url: netty-http-client
 categories:
-  - Inbox
+  - Java
 tags:
-  - reprint
+  - netty
+  - remix
+  - AI-assisted
 aliases:
   - /p8569/
 ---
@@ -60,211 +63,115 @@ Netty中Http response消息格式:
 
 Http Server:
   
+```java
 package com.netty.test;
-
 import org.apache.commons.logging.Log;
-  
 import org.apache.commons.logging.LogFactory;
-
 import io.netty.bootstrap.ServerBootstrap;
-  
 import io.netty.channel.ChannelFuture;
-  
 import io.netty.channel.ChannelInitializer;
-  
 import io.netty.channel.ChannelOption;
-  
 import io.netty.channel.EventLoopGroup;
-  
 import io.netty.channel.nio.NioEventLoopGroup;
-  
 import io.netty.channel.socket.SocketChannel;
-  
 import io.netty.channel.socket.nio.NioServerSocketChannel;
-  
 import io.netty.handler.codec.http.HttpRequestDecoder;
-  
 import io.netty.handler.codec.http.HttpResponseEncoder;
-
 public class HttpServer {
-
-private static Log log = LogFactory.getLog(HttpServer.class);
-
-public void start(int port) throws Exception {
-  
-EventLoopGroup bossGroup = new NioEventLoopGroup();
-  
-EventLoopGroup workerGroup = new NioEventLoopGroup();
-  
-try {
-  
-ServerBootstrap b = new ServerBootstrap();
-  
-b.group(bossGroup, workerGroup).channel(NioServerSocketChannel.class)
-  
-.childHandler(new ChannelInitializer<SocketChannel>() {
-  
-@Override
-  
-public void initChannel(SocketChannel ch) throws Exception {
-  
-// server端发送的是httpResponse,所以要使用HttpResponseEncoder进行编码
-  
-ch.pipeline().addLast(new HttpResponseEncoder());
-  
-// server端接收到的是httpRequest,所以要使用HttpRequestDecoder进行解码
-  
-ch.pipeline().addLast(new HttpRequestDecoder());
-  
-ch.pipeline().addLast(new HttpServerInboundHandler());
-  
+    private static Log log = LogFactory.getLog(HttpServer.class);
+    public void start(int port) throws Exception {
+        EventLoopGroup bossGroup = new NioEventLoopGroup();
+        EventLoopGroup workerGroup = new NioEventLoopGroup();
+        try {
+            ServerBootstrap b = new ServerBootstrap();
+            b.group(bossGroup, workerGroup).channel(NioServerSocketChannel.class)
+            .childHandler(new ChannelInitializer<SocketChannel>() {
+                @Override
+                public void initChannel(SocketChannel ch) throws Exception {
+                    // server端发送的是httpResponse,所以要使用HttpResponseEncoder进行编码
+                    ch.pipeline().addLast(new HttpResponseEncoder());
+                    // server端接收到的是httpRequest,所以要使用HttpRequestDecoder进行解码
+                    ch.pipeline().addLast(new HttpRequestDecoder());
+                    ch.pipeline().addLast(new HttpServerInboundHandler());
+                }
+            }).option(ChannelOption.SO_BACKLOG, 128)
+            .childOption(ChannelOption.SO_KEEPALIVE, true);
+            ChannelFuture f = b.bind(port).sync();
+            f.channel().closeFuture().sync();
+        } finally {
+            workerGroup.shutdownGracefully();
+            bossGroup.shutdownGracefully();
+        }
+    }
+    public static void main(String[] args) throws Exception {
+        HttpServer server = new HttpServer();
+        log.info("Http Server listening on 8844 ...");
+        server.start(8844);
+    }
 }
-  
-}).option(ChannelOption.SO_BACKLOG, 128)
-  
-.childOption(ChannelOption.SO_KEEPALIVE, true);
-
-ChannelFuture f = b.bind(port).sync();
-
-f.channel().closeFuture().sync();
-  
-} finally {
-  
-workerGroup.shutdownGracefully();
-  
-bossGroup.shutdownGracefully();
-  
-}
-  
-}
-
-public static void main(String[] args) throws Exception {
-  
-HttpServer server = new HttpServer();
-  
-log.info("Http Server listening on 8844 ...");
-  
-server.start(8844);
-  
-}
-  
-}
+```
 
 响应请求的HttpServerInboundHandler:
   
+```java
 package com.netty.test;
-
 import static io.netty.handler.codec.http.HttpHeaders.Names.CONNECTION;
-  
 import static io.netty.handler.codec.http.HttpHeaders.Names.CONTENT_LENGTH;
-  
 import static io.netty.handler.codec.http.HttpHeaders.Names.CONTENT_TYPE;
-  
 import static io.netty.handler.codec.http.HttpResponseStatus.OK;
-  
 import static io.netty.handler.codec.http.HttpVersion.HTTP_1_1;
-
 import org.apache.commons.logging.Log;
-  
 import org.apache.commons.logging.LogFactory;
-
 import io.netty.buffer.ByteBuf;
-  
 import io.netty.buffer.Unpooled;
-  
 import io.netty.channel.ChannelHandlerContext;
-  
 import io.netty.channel.ChannelInboundHandlerAdapter;
-  
 import io.netty.handler.codec.http.DefaultFullHttpResponse;
-  
 import io.netty.handler.codec.http.FullHttpResponse;
-  
 import io.netty.handler.codec.http.HttpContent;
-  
 import io.netty.handler.codec.http.HttpHeaders;
-  
 import io.netty.handler.codec.http.HttpHeaders.Values;
-  
 import io.netty.handler.codec.http.HttpRequest;
-
 public class HttpServerInboundHandler extends ChannelInboundHandlerAdapter {
-
-private static Log log = LogFactory.getLog(HttpServerInboundHandler.class);
-
-private HttpRequest request;
-
-@Override
-  
-public void channelRead(ChannelHandlerContext ctx, Object msg)
-  
-throws Exception {
-  
-if (msg instanceof HttpRequest) {
-  
-request = (HttpRequest) msg;
-
-String uri = request.getUri();
-  
-System.out.println("Uri:" + uri);
-  
+    private static Log log = LogFactory.getLog(HttpServerInboundHandler.class);
+    private HttpRequest request;
+    @Override
+    public void channelRead(ChannelHandlerContext ctx, Object msg)
+    throws Exception {
+        if (msg instanceof HttpRequest) {
+            request = (HttpRequest) msg;
+            String uri = request.getUri();
+            System.out.println("Uri:" + uri);
+        }
+        if (msg instanceof HttpContent) {
+            HttpContent content = (HttpContent) msg;
+            ByteBuf buf = content.content();
+            System.out.println(buf.toString(io.netty.util.CharsetUtil.UTF_8));
+            buf.release();
+            String res = "I am OK";
+            FullHttpResponse response = new DefaultFullHttpResponse(HTTP_1_1,
+            OK, Unpooled.wrappedBuffer(res.getBytes("UTF-8")));
+            response.headers().set(CONTENT_TYPE, "text/plain");
+            response.headers().set(CONTENT_LENGTH,
+            response.content().readableBytes());
+            if (HttpHeaders.isKeepAlive(request)) {
+                response.headers().set(CONNECTION, Values.KEEP_ALIVE);
+            }
+            ctx.write(response);
+            ctx.flush();
+        }
+    }
+    @Override
+    public void channelReadComplete(ChannelHandlerContext ctx) throws Exception {
+        ctx.flush();
+    }
+    @Override
+    public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) {
+        log.error(cause.getMessage());
+        ctx.close();
+    }
 }
-  
-if (msg instanceof HttpContent) {
-  
-HttpContent content = (HttpContent) msg;
-  
-ByteBuf buf = content.content();
-  
-System.out.println(buf.toString(io.netty.util.CharsetUtil.UTF_8));
-  
-buf.release();
-
-String res = "I am OK";
-  
-FullHttpResponse response = new DefaultFullHttpResponse(HTTP_1_1,
-  
-OK, Unpooled.wrappedBuffer(res.getBytes("UTF-8")));
-  
-response.headers().set(CONTENT_TYPE, "text/plain");
-  
-response.headers().set(CONTENT_LENGTH,
-  
-response.content().readableBytes());
-  
-if (HttpHeaders.isKeepAlive(request)) {
-  
-response.headers().set(CONNECTION, Values.KEEP_ALIVE);
-  
-}
-  
-ctx.write(response);
-  
-ctx.flush();
-  
-}
-  
-}
-
-@Override
-  
-public void channelReadComplete(ChannelHandlerContext ctx) throws Exception {
-  
-ctx.flush();
-  
-}
-
-@Override
-  
-public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) {
-  
-log.error(cause.getMessage());
-  
-ctx.close();
-  
-}
-
-}
+```
 
 Http Client:
 
@@ -280,28 +187,24 @@ Http Client:
   
 log4j的配置:
 
+```properties
 # Root logger option
-  
 log4j.rootLogger=INFO, stdout, file
-
 # Direct log messages to stdout
-  
 log4j.appender.stdout=org.apache.log4j.ConsoleAppender
-  
 log4j.appender.stdout.Target=System.out
-  
 log4j.appender.stdout.layout=org.apache.log4j.PatternLayout
-  
 log4j.appender.stdout.layout.ConversionPattern=%d{ABSOLUTE} %5p %c{1}:%L - %m%n
-
 log4j.appender.file = org.apache.log4j.DailyRollingFileAppender
-  
 log4j.appender.file.File = logs/log.log
-  
 log4j.appender.file.Append = true
-  
 log4j.appender.file.Threshold = INFO
-  
 log4j.appender.file.layout = org.apache.log4j.PatternLayout
-  
 log4j.appender.file.layout.ConversionPattern = %-d{yyyy-MM-dd HH:mm:ss} %5p %c{1}:%L - %m%n
+```
+
+## 维护记录
+
+| 时间 | 修改内容 | 原因 |
+| ---- | -------- | ---- |
+| 2026-10-09 | 修复本地 Hugo 构建的 Raw HTML 警告：代码/配置放入代码块，正文中的尖括号占位符改为行内代码；categories 改为 Java | 正文中的 HTML/XML 片段被当作原始 HTML 丢弃；文件名/URL/标题按规范调整 |

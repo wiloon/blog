@@ -1,13 +1,16 @@
 ---
-title: 理解和使用 alsa 配置-默认静音,必须先用amixer解除主音量和pcm音量的静音
+title: "ALSA 配置: 默认静音时用 amixer 解除主音量和 PCM 音量静音"
 author: "-"
 date: 2020-01-01T00:00:00+08:00
+lastmod: 2026-10-09T21:22:13+08:00
 url: alsa
 categories:
-  - Inbox
+  - Linux
 tags:
   - Linux
-
+  - alsa
+  - remix
+  - AI-assisted
 aliases:
   - /p3627/
   - /p6412/
@@ -22,7 +25,7 @@ ALSA声卡驱动程序的配置
   
 对于声卡驱动程序，除了内核自带的驱动程序之外，您还可以使用Advanced Linux Sound Architecture (ALSA，http://www.alsa-project.org/) 提供的驱动程序。它支持一系列主流声卡，同时它和内核 的声音结构互相兼容，在某种程度上，可以说是内核的声卡驱动模块的补充。
   
-ALSA的声卡驱动程序的一般命名规则是snd-card-<soundcard>。soundcard代表不同类型的声卡。例如，对于所有 的16位Soundblaster声卡，它们对应的驱动程序模块为snd-card-sb16。
+ALSA的声卡驱动程序的一般命名规则是`snd-card-<soundcard>`。soundcard代表不同类型的声卡。例如，对于所有 的16位Soundblaster声卡，它们对应的驱动程序模块为snd-card-sb16。
   
 若与需要linux内核声音驱动的向后兼容性，您还需要两个模块snd-pcm-oss和snd-mixer-oss。对于amixer设置的多个混音 器，它们都是针对不同的设备的。比如CD通道的设置是针对CD播放器的。而很多应用程序，如象mpg123，xmms，realplayer，都要依赖 PCM通道的设置。MIC代表麦克风。不同的Gain部分对于不同的使用能提供特别的增益。
   
@@ -222,11 +225,11 @@ File plugin的作用是将PCM数据流存储到文件中。
   
 在aliases.conf 的结尾还有以下一段: 
 
+```text
 <confdir:pcm/default.conf>
-  
 <confdir:pcm/dmix.conf>
-  
 <confdir:pcm/dsnoop.conf>
+```
 
 用来读入/usr/share/alsa/pcm目录下所列的那3个文件
   
@@ -289,3 +292,9 @@ aplay -D plug:dmix sample.wav &
 Dump音频数据: 
   
 aplay -D "plug:'file:FILE=/tmp/dump.bin'" sample.wav
+
+## 维护记录
+
+| 时间 | 修改内容 | 原因 |
+| ---- | -------- | ---- |
+| 2026-10-09 | 修复本地 Hugo 构建的 Raw HTML 警告：代码/配置放入代码块，正文中的尖括号占位符改为行内代码；title 改为「ALSA 配置: 默认静音时用 amixer 解除主音量和 PCM 音量静音」；categories 改为 Linux | 正文中的 HTML/XML 片段被当作原始 HTML 丢弃；文件名/URL/标题按规范调整 |

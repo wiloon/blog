@@ -2,11 +2,15 @@
 title: ubuntu vnc
 author: "-"
 date: 2012-01-20T01:41:20+00:00
+lastmod: 2026-10-09T21:22:13+08:00
 url: ubuntu-vnc
 categories:
   - Linux
 tags:
-  - reprint
+  - vnc
+  - ubuntu
+  - remix
+  - AI-assisted
 aliases:
   - /p2165/
 ---
@@ -127,7 +131,6 @@ vncviewer remote-server:3
 
 ### ubuntu 11.10 vnc
 
-
 http://ubuntuforums.org/showthread.php?t=1861707&page=4
 
 Install vnc4server
@@ -142,11 +145,11 @@ sudo apt-get install gdm
   
 sudo apt-get install gnome-panel
   
-When you launch vnc4server for the first time, you will be asked to set a password and a /home/<user>/.vnc/xstartup will be created for you.
+When you launch vnc4server for the first time, you will be asked to set a password and a `/home/<user>/.vnc/xstartup` will be created for you.
   
-- vnc4server Example command: vnc4server -geometry 1024x768 :1 (creates a VNC instance of size 1024x768 an display 1) You can then use a VNC viewer on the client side to connect (I use RealVNC viewer with "<server-name>:<display-number> to connect).
+- vnc4server Example command: vnc4server -geometry 1024x768 :1 (creates a VNC instance of size 1024x768 an display 1) You can then use a VNC viewer on the client side to connect (I use RealVNC viewer with "`<server-name>`:`<display-number>` to connect).
   
-We need to change the contents of the /home/<user-name>/.vnc/xstartup file to get things working properly.
+We need to change the contents of the `/home/<user-name>/.vnc/xstartup` file to get things working properly.
   
 Contents should look like this:
   
@@ -187,3 +190,9 @@ gnome-session –session=ubuntu-2d & gives you Unity
 gnome-session –session=ubuntu & does not work!
   
 gnome-session & will not work because the default session is "ubuntu"
+
+## 维护记录
+
+| 时间 | 修改内容 | 原因 |
+| ---- | -------- | ---- |
+| 2026-10-09 | 修复本地 Hugo 构建的 Raw HTML 警告：代码/配置放入代码块，正文中的尖括号占位符改为行内代码 | 正文中的 HTML/XML 片段被当作原始 HTML 丢弃；文件名/URL/标题按规范调整 |

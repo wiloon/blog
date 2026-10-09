@@ -2,11 +2,17 @@
 title: "redis ziplist"
 author: "-"
 date: "2021-07-04 15:29:28"
-url: "template"
+lastmod: 2026-10-09T21:22:13+08:00
+url: redis-ziplist
 categories:
-  - inbox
+  - Database
 tags:
   - Inbox
+  - redis
+  - remix
+  - AI-assisted
+aliases:
+  - /template/
 ---
 ## "redis list"
 
@@ -21,7 +27,9 @@ ziplist是redis中实现的一个地址连续的链表。
 每次操作都需要重新分配内存  
 先看下官方对ziplist的整体描述
 
+```java
 /* The ziplist is a specially encoded dually linked list that is designed
+```
 
 * to be very memory efficient. It stores both strings and integer values,
 
@@ -29,7 +37,9 @@ ziplist是redis中实现的一个地址连续的链表。
 
 * characters. It allows push and pop operations on either side of the list
 
+```text
 * in O(1) time. However, because every operation requires a reallocation of
+```
 
 * the memory used by the ziplist, the actual complexity is related to the
 
@@ -55,11 +65,13 @@ ziplist为了节省内存，提高存储效率，对于值的存储采用了变�
 
 * The general layout of the ziplist is as follows:
 
+```text
 * <zlbytes><zltail><zllen><entry><entry><zlend>
+```
 
 *
 
-* <zlbytes> is an unsigned integer to hold the number of bytes that the
+* `<zlbytes>` is an unsigned integer to hold the number of bytes that the
 
 * ziplist occupies. This value needs to be stored to be able to resize the
 
@@ -67,19 +79,19 @@ ziplist为了节省内存，提高存储效率，对于值的存储采用了变�
 
 *
 
-* <zltail> is the offset to the last entry in the list. This allows a pop
+* `<zltail>` is the offset to the last entry in the list. This allows a pop
 
 * operation on the far side of the list without the need for full traversal.
 
 *
 
-* <zllen> is the number of entries.When this value is larger than 2**16-2,
+* `<zllen>` is the number of entries.When this value is larger than 2**16-2,
 
 * we need to traverse the entire list to know how many items it holds.
 
 *
 
-* <zlend> is a single byte special value, equal to 255, which indicates the
+* `<zlend>` is a single byte special value, equal to 255, which indicates the
 
 * end of the list.
 
@@ -89,15 +101,15 @@ ziplist为了节省内存，提高存储效率，对于值的存储采用了变�
 
 各个部分在内存上是前后相邻的并连续的，每一部分作用如下:
 
-zlbytes:  存储一个无符号整数，固定四个字节长度 (32bit) ，用于存储压缩列表所占用的字节 (也包括<zlbytes>本身占用的4个字节) ，当重新分配内存的时候使用，不需要遍历整个列表来计算内存大小。
+zlbytes:  存储一个无符号整数，固定四个字节长度 (32bit) ，用于存储压缩列表所占用的字节 (也包括`<zlbytes>`本身占用的4个字节) ，当重新分配内存的时候使用，不需要遍历整个列表来计算内存大小。
 
-zltail:  存储一个无符号整数，固定四个字节长度 (32bit) ，表示ziplist表中最后一项 (entry) 在ziplist中的偏移字节数。<zltail>的存在，使得我们可以很方便地找到最后一项 (不用遍历整个ziplist) ，从而可以在ziplist尾端快速地执行push或pop操作。
+zltail:  存储一个无符号整数，固定四个字节长度 (32bit) ，表示ziplist表中最后一项 (entry) 在ziplist中的偏移字节数。`<zltail>`的存在，使得我们可以很方便地找到最后一项 (不用遍历整个ziplist) ，从而可以在ziplist尾端快速地执行push或pop操作。
 
 zllen:  压缩列表包含的节点个数，固定两个字节长度 (16bit) ， 表示ziplist中数据项 (entry) 的个数。由于zllen字段只有16bit，所以可以表达的最大值为2^16-1。
 
       注意点: 如果ziplist中数据项个数超过了16bit能表达的最大值，ziplist仍然可以表示。ziplist是如何做到的？
 
-如果<zllen>小于等于2^16-2 (也就是不等于2^16-1) ，那么<zllen>就表示ziplist中数据项的个数；否则，也就是<zllen>等于16bit全为1的情况，那么<zllen>就不表示数据项个数了，这时候要想知道ziplist中数据项总数，那么必须对ziplist从头到尾遍历各个数据项，才能计数出来。
+如果`<zllen>`小于等于2^16-2 (也就是不等于2^16-1) ，那么`<zllen>`就表示ziplist中数据项的个数；否则，也就是`<zllen>`等于16bit全为1的情况，那么`<zllen>`就不表示数据项个数了，这时候要想知道ziplist中数据项总数，那么必须对ziplist从头到尾遍历各个数据项，才能计数出来。
 
 entry，表示真正存放数据的数据项，长度不定。一个数据项 (entry) 也有它自己的内部结构。
 
@@ -184,3 +196,9 @@ ziplist由于是一整块连续内存，所以存储效率很高。但是，它�
 [https://segmentfault.com/a/1190000027074753](https://segmentfault.com/a/1190000027074753)
 
 [http://zhangtielei.com/posts/blog-redis-quicklist.html](http://zhangtielei.com/posts/blog-redis-quicklist.html)
+
+## 维护记录
+
+| 时间 | 修改内容 | 原因 |
+| ---- | -------- | ---- |
+| 2026-10-09 | 修复本地 Hugo 构建的 Raw HTML 警告：代码/配置放入代码块，正文中的尖括号占位符改为行内代码；url 改为 `redis-ziplist`；旧 url 加入 aliases；categories 改为 Database | 正文中的 HTML/XML 片段被当作原始 HTML 丢弃；文件名/URL/标题按规范调整 |

@@ -2,11 +2,14 @@
 title: Git HEAD
 author: "-"
 date: 2018-08-03T02:51:50+00:00
+lastmod: 2026-10-09T21:22:13+08:00
 url: git-head
 categories:
   - Tools
 tags:
-  - reprint
+  - git
+  - remix
+  - AI-assisted
 ---
 ## Git HEAD
 
@@ -105,10 +108,9 @@ A~1表示A的父提交，A~2表示A的父提交的父提交，相当于A^^和A^1
 
 A~2^2表示A的父提交的父提交的第二个父提交，即为H
 
-
 1.“^”代表父提交,当一个提交有多个父提交时，可以通过在”^”后面跟上一个数字，表示第几个父提交，”^”相当于”^1”.
 
-2. ~<n>相当于连续的<n>个”^”.
+2. `~<n>` 相当于连续的 `<n>` 个 `^`。
    ————————————————
 
 版权声明：本文为博主原创文章，遵循 CC 4.0 BY-SA 版权协议，转载请附上原文出处链接和本声明。
@@ -195,7 +197,6 @@ dev -left- c2
 rectangle HEAD
 HEAD -left- dev
 
-
 c0 -down- c1
 c1 -down- c2
 
@@ -233,7 +234,7 @@ HEAD -left- dev
 
 这个时候输入 git status 查看当前状态发现我没有在任何本地分支上也验证了刚才的猜想, 而这时候我又作死的进行了 commit 操作, git 提示我
 
-使用的是 git checkout <commit id>, 即切换到指定的某一次提交,HEAD 就会处于 detached 状态 (游离状态) 。
+使用的是 `git checkout <commit id>`, 即切换到指定的某一次提交,HEAD 就会处于 detached 状态 (游离状态) 。
 HEAD 游离状态的利与弊
 HEAD 处于游离状态时, 我们可以很方便地在历史版本之间互相切换, 比如需要回到某次提交, 直接 checkout 对应的 commit id 或者 tag 名即可。
 
@@ -322,3 +323,9 @@ $ git branch
 master
 
 [https://blog.csdn.net/sinat_26415011/article/details/54346318](https://blog.csdn.net/sinat_26415011/article/details/54346318)
+
+## 维护记录
+
+| 时间 | 修改内容 | 原因 |
+| ---- | -------- | ---- |
+| 2026-10-09 | 修复本地 Hugo 构建的 Raw HTML 警告：代码/配置放入代码块，正文中的尖括号占位符改为行内代码 | 正文中的 HTML/XML 片段被当作原始 HTML 丢弃；文件名/URL/标题按规范调整 |

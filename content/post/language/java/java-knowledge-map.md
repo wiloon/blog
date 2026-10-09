@@ -95,7 +95,7 @@ flowchart TB
 
 | 概念 | 文章 |
 | ---- | ---- |
-| JPDA 三层 JDI / JDWP / JVMTI、远程调试 | [JAVA 调试与 JPDA](./java-debug-JPDA.md) |
+| JPDA 三层 JDI / JDWP / JVMTI、远程调试 | [JAVA 调试与 JPDA](./debug-jpda.md) |
 | JVMTI native 接口 | [JVMTI](./jvmti.md) |
 
 ### Attach 与内置诊断

@@ -2,11 +2,14 @@
 title: tmux
 author: "-"
 date: 2016-12-02T07:15:23+00:00
+lastmod: 2026-10-09T21:22:13+08:00
 url: tmux
 categories:
-  - Inbox
+  - Linux
 tags:
-  - reprint
+  - tmux
+  - remix
+  - AI-assisted
 aliases:
   - /p9444/
 ---
@@ -37,7 +40,6 @@ Tmux 是一个终端复用器 (terminal multiplexer)
     Ctrl+b Ctrl+: 按箭头方向调整窗格大小。
     Ctrl+b q: 显示窗格编号。
 
-
 https://www.ruanyifeng.com/blog/2019/10/tmux.html
 
 ```bash
@@ -62,9 +64,11 @@ tmux ls    查看当前的tmux服务中有哪些Session
 按完前缀ctrl+B后,再按冒号: 进入命令行模式,
 输入以下命令: 
 
+```bash
 set -g mouse on
-https://blog.csdn.net/ddydavie/article/details/79031564
+```
 
+https://blog.csdn.net/ddydavie/article/details/79031564
 
 ### tmux
 tmux的复制粘贴
@@ -74,10 +78,14 @@ tmux有面板的概念,这导致普通终端下的ctrl+shift+C的模式复制出
 
 ~/.tmux.conf
 
+```bash
 set-window-option -g mode-keys vi #可以设置为vi或emacs
 set-window-option -g utf8 on #开启窗口的UTF-8支持
+```
+
 tmux复制模式下可用的命令: 
 
+```text
 Function                 vi             emacs
 Back to indentation      ^              M-m
 Clear selection          Escape         C-g
@@ -109,6 +117,8 @@ Search forward           /              C-s
 Start of line            0              C-a
 Start selection          Space          C-Space
 Transpose chars                         C-t
+```
+
 复制模式步骤: 
 1. C-b [ 进入复制模式
 2. 参考上表移动鼠标到要复制的区域,移动鼠标时可用vim的搜索功能"/","?"
@@ -116,32 +126,41 @@ Transpose chars                         C-t
 4. 选择完成后安enter键退出
 5. C-b ] 粘贴
 
-
-
 接入会话
 tmux attach命令用于重新接入某个已存在的会话。
 
-
+```bash
 # 使用会话编号
 $ tmux attach -t 0
 
 # 使用会话名称
 $ tmux attach -t <session-name>
+```
+
 3.4 杀死会话
 tmux kill-session命令用于杀死某个会话。
 
-
+```bash
 # 使用会话编号
 $ tmux kill-session -t 0
 
 # 使用会话名称
 $ tmux kill-session -t <session-name>
+```
+
 3.5 切换会话
 tmux switch命令用于切换会话。
 
-
+```bash
 # 使用会话编号
 $ tmux switch -t 0
 
 # 使用会话名称
 $ tmux switch -t <session-name>
+```
+
+## 维护记录
+
+| 时间 | 修改内容 | 原因 |
+| ---- | -------- | ---- |
+| 2026-10-09 | 修复本地 Hugo 构建的 Raw HTML 警告：代码/配置放入代码块，正文中的尖括号占位符改为行内代码；categories 改为 Linux | 正文中的 HTML/XML 片段被当作原始 HTML 丢弃；文件名/URL/标题按规范调整 |

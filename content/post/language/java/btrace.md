@@ -142,7 +142,7 @@ Hook 点除方法入口/返回外，还有 `CALL`、`LINE`、异常相关等（�
 | | BTrace attach | IDE HotSwap / [DCEVM](../../cs/dcevm-hotswapagent.md) |
 | -- | ------------- | ------------------------------------------- |
 | 目的 | **观测** 已运行进程 | **修改** 自己的业务代码并立刻跑 |
-| 路径 | Attach + `retransform` 探针 | [JPDA](./java-debug-JPDA.md) → [JVMTI](./jvmti.md) / 增强 redefine |
+| 路径 | Attach + `retransform` 探针 | [JPDA](./debug-jpda.md) → [JVMTI](./jvmti.md) / 增强 redefine |
 | 与 Spring DevTools | 无关 | [DevTools](./spring/spring-boot-devtools.md) 是上下文 Restart，不是 JVM HotSwap |
 
 ## 打印慢调用
@@ -242,7 +242,7 @@ Client（Attach API + 脚本编译）+ Agent（[ASM](./asm.md) + Instrumentation
    - 注册 `ClassFileTransformer`，对目标类 `retransformClasses`，在方法入口/返回前插入探针
    - 探针在 **业务线程** 中执行；`println` 等经 Socket 回到客户端终端
 
-   这与 IDE 的 HotSwap（[JPDA](./java-debug-JPDA.md) / 有限 redefine）不同：是 Instrumentation 的 **retransform**，由 [ASM](./asm.md) 在已加载类上插探针字节码。
+   这与 IDE 的 HotSwap（[JPDA](./debug-jpda.md) / 有限 redefine）不同：是 Instrumentation 的 **retransform**，由 [ASM](./asm.md) 在已加载类上插探针字节码。
 
 6. **结束**
 
@@ -365,7 +365,7 @@ public class BtraceCase {
 | Attach、`loadAgent`、jcmd | [Java Attach API](./attach-api.md) |
 | ASM、Instrumentation、retransform | [Java ASM 与运行时字节码织入](./asm.md) |
 | ClassLoader、Agent 与业务可见性 | [java classloader](./classloader.md) |
-| HotSpot、JVMTI、JPDA | [HotSpot 简介](./hotspot.md)、[JVMTI](./jvmti.md)、[JAVA 调试与 JPDA](./java-debug-JPDA.md) |
+| HotSpot、JVMTI、JPDA | [HotSpot 简介](./hotspot.md)、[JVMTI](./jvmti.md)、[JAVA 调试与 JPDA](./debug-jpda.md) |
 | 开发热替换（对比用） | [开发期热替换](../../cs/dcevm-hotswapagent.md)、[Spring Boot DevTools](./spring/spring-boot-devtools.md) |
 | jcmd、工具选型 | [jcmd](./jcmd.md)、[生产环境诊断工具选型](./java-production-diagnostics-tooling.md) |
 

@@ -2,11 +2,15 @@
 title: nftables
 author: "-"
 date: 2016-05-25T15:41:20+00:00
+lastmod: 2026-10-09T21:22:13+08:00
 url: nftables
 categories:
   - Network
 tags:
-  - reprint
+  - nftables
+  - firewall
+  - remix
+  - AI-assisted
 ---
 ## nftables
 
@@ -35,7 +39,6 @@ nftables 相较于 iptables 的优点
 
 内核更新更少。
 使用 iptables 时，每一个匹配或投递都需要内核模块的支持。因此，如果你忘记一些东西或者要添加新的功能时都需要重新编译内核。而在 nftables 中就不存在这种情况了， 因为在 nftables 中，大部分工作是在用户态完成的，内核只知道一些基本指令（过滤是用伪状态机实现的）。例如，icmpv6 支持是通过 nft 工具的一个简单的补丁实现的，而在 iptables 中这种类型的更改需要内核和 iptables 都升级才可以。
-
 
 nftables 作为新一代的防火墙策略框架, 是从内核 3.13 版本引入的新的数据包过滤框架, 
 nftables 是一个致力于替换现有的 {ip,ip6,arp,eb} tables 框架 (也就是大家熟知的iptables) 的项目,而且提供了类似tc的带宽限速能力
@@ -73,7 +76,6 @@ ip（即 IPv4）是默认簇，如果未指定簇，则使用该簇。如果要�
 - `postrouting`
 - egress
 
-
 ## nftables 的链管理
 
 链是用来保存规则的，与 iptables 中的链不同，nftables 没有内置链。这意味着和表一样，链也需要被显示创建。链有以下两种类型：
@@ -90,38 +92,43 @@ $ nft add chain inet mytable tcpchain
 添加一个基本链，你必需指定钩子和优先级。基本链的类型可以是 filter、route 或者 nat。
 
 添加一个筛选输入数据包的基本链
+
+```text
 nft add chain inet mytable input { type filter hook input priority 0\; }
+```
 
 注意：命令中的反斜线 （\） 用来转义，这样 Shell 就不会将分号解释为命令的结尾。
 
 编辑链
 要编辑一个链，只需按名称调用并重新定义要更改的规则即可。
 
-1
-2
+```bash
 # 将默认表中的 input 链策略从 accept 更改为 drop
 $ nft chain inet mytable input { policy drop \; }
+```
+
 清空链中的规则
-1
-2
+```bash
 # 清空指定链中的规则，这里为 input
 $ nft flush chain inet mytable input
+```
 删除链
-1
-2
+```bash
 # 删除指定的链，这里为 input
 $ nft delete chain inet mytable input
+```
 注意：要删除的链中不能包含任何规则或者跳转目标。
 
 ## nftables 的规则管理
 
 nftables 规则由语句或表达式构成，包含在链中。以下为创建 nftables 规则的基本命令语法：
 
+```text
 nft add rule [<family>] <table> <chain> <matches> <statements>
 nft insert rule [<family>] <table> <chain> [position <position>] <matches> <statements>
 nft replace rule [<family>] <table> <chain> [handle <handle>] <matches> <statements>
 nft delete rule [<family>] <table> <chain> [handle <handle>]
-
+```
 
 其中 matches 是报文需要满足的条件。matches 的内容非常多，可以识别以下多种类型的报文。
 
@@ -150,22 +157,24 @@ meta        :  报文的基本信息
 对每一种类型的报文，你又可以同时检查多个字段，例如：
 
 ip dscp cs1
+
+```text
 ip dscp != cs1
 ip dscp 0x38
 ip dscp != 0x20
 ip dscp {cs0, cs1, cs2, cs3, cs4, cs5, cs6, cs7, af11, af12, af13, af21,
 af22, af23, af31, af32, af33, af41, af42, af43, ef}
-
 ip length 232
 ip length != 233
 ip length 333-435
 ip length != 333-453
 ip length { 333, 553, 673, 838}
-
 ip6 flowlabel 22
 ip6 flowlabel != 233
 ip6 flowlabel { 33, 55, 67, 88 }
 ip6 flowlabel { 33-55 }
+```
+
 而 statement 是报文匹配规则时触发的操作，大致有以下几种：
 
 Verdict statements :   动作
@@ -199,25 +208,39 @@ nft add rule inet mytable input tcp dport ssh accept
 
 默认情况下，add 表示将规则添加到链的末尾。如果你想从链的开头增加规则，可以使用 insert 来实现。
 
-1
+```bash
 $ nft insert rule inet mytable input tcp dport http accept
+```
+
 列出规则
+
 列出目前链中所有的规则
 
+```bash
 $ nft list ruleset
+```
+
+```text
 table inet mytable {
-chain input {
-type filter hook input priority 0; policy accept;
-tcp dport http accept
-tcp dport ssh accept
+    chain input {
+        type filter hook input priority 0; policy accept;
+        tcp dport http accept
+        tcp dport ssh accept
+    }
 }
-}
+```
+
 列出某个表中的所有规则
-1
+
+```bash
 $ nft list table inet mytable
+```
+
 列出某条链中的所有规则
-1
+
+```bash
 $ nft list chain inet mytable input
+```
 
 nftables 链支持钩子的类型
 
@@ -241,27 +264,19 @@ nftables 链支持的优先级
 
 优先级采用整数值表示，数字较小的链优先处理，并且可以是负数。可以使用的值有：
 
+```text
 NF_IP_PRI_CONNTRACK_DEFRAG (-400)
-
 NF_IP_PRI_RAW (-300)
-
 NF_IP_PRI_SELINUX_FIRST (-225)
-
 NF_IP_PRI_CONNTRACK (-200)
-
 NF_IP_PRI_MANGLE (-150)
-
 NF_IP_PRI_NAT_DST (-100)
-
 NF_IP_PRI_FILTER (0)
-
 NF_IP_PRI_SECURITY (50)
-
 NF_IP_PRI_NAT_SRC (100)
-
 NF_IP_PRI_SELINUX_LAST (225)
-
 NF_IP_PRI_CONNTRACK_HELPER (300)
+```
 
 nftables 链对报文数据支持采取的动作
 
@@ -274,9 +289,6 @@ queue
 continue
 
 return
-
-
-
 
 nftables 结构上分为 table(表), chain(链), rule(规则), 
 与 Iptables 不一致的地方在于, table 与 chain 允许不止一个, 名字也可以自由设置。
@@ -341,27 +353,19 @@ nftables 链支持的优先级
 
 优先级采用整数值表示，数字较小的链优先处理，并且可以是负数。可以使用的值有：
 
+```text
 NF_IP_PRI_CONNTRACK_DEFRAG (-400)
-
 NF_IP_PRI_RAW (-300)
-
 NF_IP_PRI_SELINUX_FIRST (-225)
-
 NF_IP_PRI_CONNTRACK (-200)
-
 NF_IP_PRI_MANGLE (-150)
-
 NF_IP_PRI_NAT_DST (-100)
-
 NF_IP_PRI_FILTER (0)
-
 NF_IP_PRI_SECURITY (50)
-
 NF_IP_PRI_NAT_SRC (100)
-
 NF_IP_PRI_SELINUX_LAST (225)
-
 NF_IP_PRI_CONNTRACK_HELPER (300)
+```
 
 nftables 链对报文数据支持采取的动作
 
@@ -374,3 +378,9 @@ queue
 continue
 
 return
+
+## 维护记录
+
+| 时间 | 修改内容 | 原因 |
+| ---- | -------- | ---- |
+| 2026-10-09 | 修复本地 Hugo 构建的 Raw HTML 警告：代码/配置放入代码块，正文中的尖括号占位符改为行内代码 | 正文中的 HTML/XML 片段被当作原始 HTML 丢弃；文件名/URL/标题按规范调整 |

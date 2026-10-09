@@ -2,11 +2,14 @@
 title: HTTP basic
 author: "-"
 date: 2011-10-23T04:26:37+00:00
+lastmod: 2026-10-09T21:22:13+08:00
 url: http-basic
 categories:
-  - inbox
+  - Network
 tags:
-  - reprint
+  - http
+  - remix
+  - AI-assisted
 aliases:
   - /p1255/
 ---
@@ -29,16 +32,18 @@ HTTP/1.1 302 Found
 Location: /hello
 当浏览器收到302响应后，它会立刻根据Location的指示发送一个新的GET /hello请求，这个过程就是重定向: 
 
+```text
 ┌───────┐   GET /hi     ┌───────────────┐
 │Browser│ ────────────> │RedirectServlet│
 │       │ <──────────── │               │
 └───────┘   302         └───────────────┘
 
-
 ┌───────┐  GET /hello   ┌───────────────┐
 │Browser│ ────────────> │ HelloServlet  │
 │       │ <──────────── │               │
 └───────┘   200 <html>  └───────────────┘
+```
+
 观察Chrome浏览器的网络请求，可以看到两次HTTP请求: 
 并且浏览器的地址栏路径自动更新为/hello。
 
@@ -132,3 +137,9 @@ Microsoft Internet Information Server(IIS)
 链接：[https://www.zhihu.com/question/21609463/answer/160100810](https://www.zhihu.com/question/21609463/answer/160100810)
 来源：知乎
 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
+
+## 维护记录
+
+| 时间 | 修改内容 | 原因 |
+| ---- | -------- | ---- |
+| 2026-10-09 | 修复本地 Hugo 构建的 Raw HTML 警告：代码/配置放入代码块，正文中的尖括号占位符改为行内代码；categories 改为 Network | 正文中的 HTML/XML 片段被当作原始 HTML 丢弃；文件名/URL/标题按规范调整 |

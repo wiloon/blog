@@ -140,7 +140,7 @@ HotSpot 在 **`java.io.tmpdir`**（Linux 上常见 `/tmp`）创建 **attach 专�
 | 路径示例 | 用途 |
 | -------- | ---- |
 | `/tmp/.java_pid<pid>` | Attach API / attach 通道 |
-| `/tmp/hsperfdata_<user>/<pid>` | 性能计数器共享；[jps](./java-command-jps.md) 等常靠它列进程 |
+| `/tmp/hsperfdata_<user>/<pid>` | 性能计数器共享；[jps](./jps.md) 等常靠它列进程 |
 
 注意：
 

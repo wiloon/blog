@@ -2,12 +2,16 @@
 title: JDBC URL
 author: "-"
 date: 2014-03-05T05:25:38+00:00
+lastmod: 2026-10-09T21:22:13+08:00
 url: jdbc-url
 categories:
-  - Inbox
+  - Database
 tags:
   - Database
-
+  - jdbc
+  - mysql
+  - remix
+  - AI-assisted
 aliases:
   - /p6343/
 ---
@@ -16,9 +20,11 @@ aliases:
 ### disable tls
 
 JDK8版本过高引起MySQL连接失败：javax.net.ssl.SSLHandshakeException: No appropriate protocol
->[https://juejin.cn/post/6969142310718144520](https://juejin.cn/post/6969142310718144520)
 
+```text
+>[https://juejin.cn/post/6969142310718144520](https://juejin.cn/post/6969142310718144520)
     jdbc:mysql://127.0.0.1/database0?useunicode=true&characterencoding=utf8&tinyInt1isBit=false&useSSL=false
+```
 
 MySQL
 
@@ -33,17 +39,17 @@ MySQL Connector/J Driver
 The general format for a JDBC URL for connecting to a MySQL server is as follows, with items in square brackets ([ ]) being optional:
 
 jdbc:MySQL://[host1][:port1][,[host2][:port2]]...[/[database]]
+
+```text
 [?propertyName1=propertyValue1[&propertyName2=propertyValue2]...]
-
 Here is a simple example for a connection URL:
-
 jdbc:MySQL://localhost:3306/sakila?profileSQL=true
-
 JDBC URL: jdbc:MySQL://<host>:<port>/<database_name>
+```
 
 默认端口3306，如果服务器使用默认端口则port可以省略
 
-MySQL Connector/J Driver 允许在URL中添加额外的连接属性jdbc:MySQL://<host>:<port>/<database_name>?property1=value1&property2=value2
+MySQL Connector/J Driver 允许在URL中添加额外的连接属性jdbc:MySQL://`<host>`:`<port>`/`<database_name>`?property1=value1&property2=value2
 
 常用的有两个，一个是gjt (Giant Java Tree) 组织提供的MySQL驱动，其JDBC Driver名称 (JAVA类名) 为: org.gjt.mm.MySQL.Driver
 
@@ -57,7 +63,9 @@ MySQL Connector/J Driver 允许在URL中添加额外的连接属性jdbc:MySQL://
 
 MySQL JDBC URL格式如下:
 
+```text
 jdbc:MySQL://[host:port],[host:port].../[database][?参数名1][=参数值1][&参数名2][=参数值2]...
+```
 
 现只列举几个重要的参数，如下表所示:
 
@@ -87,17 +95,22 @@ socketTimeout socket操作 (读写) 超时，单位: 毫秒。 0表示永不超�
 
 对应中文环境，通常MySQL连接URL可以设置为:
 
+```text
 jdbc:MySQL://localhost:3306/test?user=root&password=&useUnicode=true&characterEncoding=gbk&autoReconnect=true&failOverReadOnly=false
+```
 
 在使用数据库连接池的情况下，最好设置如下两个参数:
 
+```text
 autoReconnect=true&failOverReadOnly=false
+```
 
 需要注意的是，在xml配置文件中，url中的&符号需要转义成&。比如在tomcat的server.xml中配置数据库连接池时，MySQL jdbc url样例如下:
 
+```text
 jdbc:MySQL://localhost:3306/test?user=root&password=&useUnicode=true&characterEncoding=gbk
-
 &autoReconnect=true&failOverReadOnly=false
+```
 
 [http://blog.csdn.net/ring0hx/article/details/6152528](http://blog.csdn.net/ring0hx/article/details/6152528)
 
@@ -109,7 +122,9 @@ Microsoft SQL Server JDBC Driver  (一般用来连接 SQLServer 2000)
 
 驱动程序类名: com.microsoft.jdbc.sqlserver.SQLServerDriver
 
+```text
 JDBC URL: jdbc:microsoft:sqlserver://<server_name>:<port>
+```
 
 默认端口1433，如果服务器使用默认端口则port可以省略
 
@@ -119,7 +134,9 @@ Microsoft SQL Server 2005 JDBC Driver
 
 驱动程序类名: com.microsoft.sqlserver.jdbc.SQLServerDriver
 
+```text
 JDBC URL: jdbc:sqlserver://<server_name>:<port>
+```
 
 默认端口1433，如果服务器使用默认端口则port可以省略
 
@@ -133,11 +150,15 @@ Oracle Thin JDBC Driver
 
 JDBC URL:
 
+```text
 jdbc:oracle:thin:@//<host>:<port>/ServiceName
+```
 
 或
 
+```text
 jdbc:oracle:thin:@<host>:<port>:<SID>
+```
 
 IBM DB2
 
@@ -147,7 +168,9 @@ IBM DB2 Universal Driver Type 4
 
 驱动程序类名: com.ibm.db2.jcc.DB2Driver
 
+```text
 JDBC URL: jdbc:db2://<host>[:<port>]/<database_name>
+```
 
 IBM DB2 Universal Driver Type 2
 
@@ -155,7 +178,9 @@ IBM DB2 Universal Driver Type 2
 
 驱动程序类名: com.ibm.db2.jcc.DB2Driver
 
+```text
 JDBC URL: jdbc:db2:<database_name>
+```
 
 Informix
 
@@ -165,7 +190,9 @@ Informix JDBC Driver
 
 驱动程序类名: com.informix.jdbc.IfxDriver
 
+```text
 JDBC URL: jdbc:informix-sqli://{<ip-address>|<host-name>}:<port-number>[/<dbname>]: INFORMIXSERVER=<server-name>
+```
 
 Sybase
 
@@ -175,7 +202,7 @@ Sybase Adaptive Server Enterprise JDBC Driver
 
 驱动程序类名: com.sybase.jdbc2.jdbc.SybDriver (com.sybase.jdbc3.jdbc.SybDriver)
 
-JDBC URL: jdbc:sybase:Tds:<host>:<port>默认端口5000
+JDBC URL: jdbc:sybase:Tds:`<host>`:`<port>`默认端口5000
 
 Sybase Adaptive Server Anywhere or Sybase IQ JDBC Driver
 
@@ -183,7 +210,9 @@ Sybase Adaptive Server Anywhere or Sybase IQ JDBC Driver
 
 驱动程序类名: com.sybase.jdbc2.jdbc.SybDriver (com.sybase.jdbc3.jdbc.SybDriver)
 
+```text
 JDBC URL: jdbc:sybase:Tds:<host>:<port>?ServiceName=<database_name>
+```
 
 默认端口2638
 
@@ -193,7 +222,9 @@ PostgreSQL Native JDBC Driver
 
 驱动程序包名: 驱动程序类名: org.postgresql.Driver
 
+```text
 JDBC URL: jdbc:postgresql://<host>:<port>/<database_name>
+```
 
 默认端口5432
 
@@ -221,8 +252,16 @@ Netezza JDBC Driver
 
 驱动程序类名: org.netezza.Driver
 
+```text
 JDBC URL: jdbc:netezza://<host>:<port>/<database_name>
+```
 
 [http://www.2cto.com/database/201203/125168.html](http://www.2cto.com/database/201203/125168.html)
 
 [https://dev.MySQL.com/doc/connector-j/5.1/en/connector-j-reference-configuration-properties.html](https://dev.MySQL.com/doc/connector-j/5.1/en/connector-j-reference-configuration-properties.html)
+
+## 维护记录
+
+| 时间 | 修改内容 | 原因 |
+| ---- | -------- | ---- |
+| 2026-10-09 | 修复本地 Hugo 构建的 Raw HTML 警告：代码/配置放入代码块，正文中的尖括号占位符改为行内代码；categories 改为 Database | 正文中的 HTML/XML 片段被当作原始 HTML 丢弃；文件名/URL/标题按规范调整 |
