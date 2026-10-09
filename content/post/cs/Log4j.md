@@ -2,7 +2,6 @@
 title: Log4j 日志级别
 author: "-"
 date: 2020-01-01T00:00:00+08:00
-draft: true
 url: Log4j
 categories:
   - Inbox

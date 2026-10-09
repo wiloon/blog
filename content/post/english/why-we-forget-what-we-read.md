@@ -42,9 +42,3 @@ The book I forgot is still on my shelf. I plan to read it again, slowly this tim
 ---
 
 *I wrote this post partly as a demo text for Catglish, a browser extension I'm building that underlines the words you've looked up wherever they come back.*
-
-## 维护记录
-
-| 时间 | 修改内容 | 原因 |
-| ---- | -------- | ---- |
-| 2026-10-09 | 删除 `draft: true` | 文章被标为草稿，Hugo 构建时跳过，线上 404 |

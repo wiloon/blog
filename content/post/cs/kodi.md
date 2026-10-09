@@ -2,7 +2,6 @@
 title: kodi, openelec
 author: "-"
 date: 2022-10-14 17:47:44
-draft: true
 url: kodi
 categories:
   - Inbox

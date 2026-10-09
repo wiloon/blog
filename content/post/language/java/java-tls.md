@@ -2,7 +2,6 @@
 title: java tls 单向认证
 author: "-"
 date: 2020-01-01T00:00:00+08:00
-draft: true
 url: java-tls
 categories:
   - Inbox

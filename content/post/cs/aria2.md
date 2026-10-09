@@ -2,7 +2,6 @@
 title: aria2
 author: "-"
 date: "2021-05-13 14:53:02"
-draft: true
 url: aria2
 categories:
   - inbox

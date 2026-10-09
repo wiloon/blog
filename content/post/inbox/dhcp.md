@@ -3,7 +3,6 @@ title: DHCP 与 DNS（OpenWrt homelab）
 author: "-"
 date: 2020-08-28T10:00:55+08:00
 lastmod: 2026-05-24T14:43:58+08:00
-draft: true
 url: dhcp-dns-openwrt
 categories:
   - network

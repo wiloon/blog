@@ -2,7 +2,6 @@
 title: inline script 和外链script
 author: "-"
 date: ""
-draft: true
 url: js
 categories:
   - inbox

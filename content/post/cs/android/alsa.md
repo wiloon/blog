@@ -2,7 +2,6 @@
 title: 理解和使用 alsa 配置-默认静音,必须先用amixer解除主音量和pcm音量的静音
 author: "-"
 date: 2020-01-01T00:00:00+08:00
-draft: true
 url: alsa
 categories:
   - Inbox

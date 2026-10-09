@@ -2,7 +2,6 @@
 title: kindergarten，悦丽海湾幼儿园 
 author: "-"
 date: 2021-03-06 15:35:53
-draft: true
 url: kindergarten
 categories:
   - kindergarten

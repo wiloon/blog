@@ -2,7 +2,6 @@
 title: webpack, systemjs
 author: "-"
 date: 2020-01-01T00:00:00+08:00
-draft: true
 url: webpack
 categories:
   - Inbox

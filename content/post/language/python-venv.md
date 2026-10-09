@@ -3,7 +3,6 @@ title: "Python venv, 虚拟环境与包管理工具（pdm、conda、pipx）"
 author: "-"
 date: 2025-11-24T08:30:00+08:00
 lastmod: 2026-07-28T12:20:01+08:00
-draft: true
 url: python/venv
 categories:
   - language
