@@ -309,7 +309,7 @@ BIOS 也走不通：这台的 BIOS Version 字段只有 `5.19`，和 AMI Aptio �
 
 | 措施 | 配置 | 作用 |
 | ---- | ---- | ---- |
-| 硬件看门狗 | `/etc/default/pve-ha-manager`：`WATCHDOG_MODULE=iTCO_wdt` | 原来是 `softdog`，内核卡死时它也跟着失效，卡死后分别过了约 10.5 小时和 4 小时才恢复。换成芯片组 TCO 看门狗，`watchdog-mux` 停止喂狗约 10 秒后硬件复位（原理见 [硬件看门狗](hardware-watchdog.md)） |
+| 硬件看门狗 | `/etc/default/pve-ha-manager`：`WATCHDOG_MODULE=iTCO_wdt` | 原来是 `softdog`，内核卡死时它也跟着失效，卡死后分别过了约 10.5 小时和 4 小时才恢复。换成芯片组 TCO 看门狗，`watchdog-mux` 停止喂狗约 10 秒后硬件复位。注意：r86s 的固件开机时会关掉 ACPI 定时器，TCO 计数器跟着停，必须再用 `acpi-timer-enable` 把它打开，看门狗才真正生效（原理和实测见 [硬件看门狗](hardware-watchdog.md)） |
 | lockup 自动 panic | `/etc/sysctl.d/90-lockup-panic.conf`：`kernel.softlockup_panic=1`、`kernel.hardlockup_panic=1`、`kernel.panic=10` | 内核检测到 lockup 就 panic，10 秒后重启 |
 | EFI pstore | 默认已开（`efi_pstore` + `systemd-pstore`） | panic 时内核日志尾部存进 UEFI 变量，下次开机归档到 `/var/lib/systemd/pstore` |
 | netconsole | r86s 上 `netconsole.service`（`modprobe netconsole netconsole=6666@192.168.50.5/vmbr0,6666@192.168.50.6/<n100 MAC>`）；n100 上 `netconsole-r86s.service`（socat 收 UDP 6666 写进 journald） | 卡死时日志来不及落盘，之前的卡死日志都是突然中断。netconsole 实时把内核日志发到 n100，用 `journalctl -t netconsole-r86s` 查看。写 journald 受其总量上限约束，加上单元自身限速，不会写满磁盘 |

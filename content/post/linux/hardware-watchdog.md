@@ -2,7 +2,7 @@
 title: "硬件看门狗：主板上的倒计时复位电路"
 author: "-"
 date: 2026-10-10T11:00:00+08:00
-lastmod: 2026-10-10T11:00:00+08:00
+lastmod: 2026-10-10T12:00:00+08:00
 url: hardware-watchdog
 categories:
   - Linux
@@ -50,7 +50,8 @@ homelab 里的 r86s（R86S 小主机，Celeron N5100，跑 Proxmox VE）偶尔�
 
 - BIOS 可以设置并锁定 TCO 的 `NO_REBOOT` 位，这时定时器照样倒数，到点却不复位，驱动加载时会报 `unable to reset NO_REBOOT flag`；
 - 有些板子的复位线路接得不对，超时后什么也不发生；
-- 所以启用之后最好实际测一次（见文末）。
+- 定时器的时钟源被固件关掉了，倒计时根本不走。r86s 就是这种情况，而且驱动加载、sysfs 状态都看不出任何异常（见下文"实测"）；
+- 所以启用之后一定要实际测一次。
 
 **TCO** 是 Total Cost of Ownership 的缩写，是 Intel 当年为降低企业 PC 运维成本推出的一组芯片组功能，看门狗定时器是其中之一。Intel 的 TCO 定时器是两段式的：第一次超时只置状态位（可以触发 SMI），第二次超时才复位整机。`iTCO_wdt` 驱动会处理这个细节，对用户来说就是设一个超时时间。
 
@@ -61,7 +62,7 @@ iTCO_wdt iTCO_wdt: Found a Intel PCH TCO device (Version=6, TCOBASE=0x0400)
 iTCO_wdt iTCO_wdt: initialized. heartbeat=30 sec (nowayout=0)
 ```
 
-没有报 `NO_REBOOT` 错误，说明 BIOS 没锁。它一直都在 PCH 里，只是之前没人用。
+没有报 `NO_REBOOT` 错误，说明 BIOS 没锁"不复位"位。它一直都在 PCH 里，只是之前没人用。不过后来实测发现，光这样还不够。
 
 ## Linux 里的看门狗
 
@@ -140,6 +141,112 @@ ls -l /proc/$(pidof watchdog-mux)/fd | grep watchdog   # 3 -> /dev/watchdog
 
 注意一个坑：`/etc/default/pve-ha-manager` 原文件末尾没有换行，直接 `echo ... >>` 追加会把新行拼到最后一行注释后面，变成注释，配置不生效。
 
+## 实测：一只不会叫的狗
+
+硬件看门狗"能加载"不代表"真能复位"。测试方法是让 `watchdog-mux` 停止喂狗：
+
+```bash
+# WARNING: hard-resets the host in ~10s; VMs go down without a clean shutdown
+kill -STOP $(pidof watchdog-mux)
+```
+
+`SIGSTOP` 让进程暂停而不退出，`/dev/watchdog` 一直开着却没人喂狗，约 10 秒后机器应该直接复位。测试前先把 VM 正常关机，免得它们被硬复位。
+
+### 第一次测试：没有复位
+
+2026-10-10 11:04:18 执行，`watchdog-mux` 确实停住了（`ps` 状态 `T`），也没有其他进程打开 `/dev/watchdog`，但等了两分钟机器都没有复位。sysfs 里的 `timeleft` 一直停在 9，不往下走。
+
+于是直接读芯片组寄存器。TCO 寄存器在 I/O 端口 `TCOBASE=0x400`，ACPI 寄存器在 `0x1800`（见 `/proc/ioports`），可以用 Python 读 `/dev/port`：
+
+```python
+import os
+p = os.open("/dev/port", os.O_RDONLY)
+def io(addr, n):
+    os.lseek(p, addr, 0)
+    return int.from_bytes(os.read(p, n), "little")
+print(hex(io(0x400, 2)), hex(io(0x408, 2)), hex(io(0x1808, 4)))
+```
+
+| 寄存器 | 读数 | 含义 |
+| ------ | ---- | ---- |
+| `TCO_RLD`（`0x400`），TCO 当前计数 | 一直是 `0x10` | 倒计时停住了。`0x10` = 16 个 tick × 0.6 秒 ≈ 10 秒，是刚喂过狗的初始值 |
+| `TCO1_CNT`（`0x408`） | `0x1000` | 暂停位（bit 11）和 v6 的 `NO_REBOOT` 位（bit 0）都是 0，TCO 本身的配置没问题 |
+| ACPI PM 定时器（`0x1808`） | 一直是 `0x375c4b` | 本来是一个不停跳动的 3.58MHz 计数器，现在完全不动 |
+
+ACPI PM 定时器不走是关键：**TCO 定时器就是用 ACPI 定时器的时钟来计数的**。再看电源管理控制器（PMC）的 MMIO 寄存器 `ACPI_TMR_CTL`（`PWRMBASE 0xfe000000 + 0x18FC`）：
+
+```python
+import os, mmap
+f = os.open("/dev/mem", os.O_RDONLY | os.O_SYNC)
+m = mmap.mmap(f, 0x1000, mmap.MAP_SHARED, mmap.PROT_READ, offset=0xfe001000)
+print(hex(int.from_bytes(m[0x8fc:0x900], "little")))   # 0x2
+```
+
+读出来是 `0x2`，bit 1 `ACPI_TIM_DIS` = 1，**ACPI 定时器被关掉了**。所以 TCO 计数器永远停在初始值，看门狗永远不会到点。驱动正常加载，sysfs 显示 `active`，`watchdog-mux` 也在正常喂狗，表面上一切正常，实际上就是一只不会叫的狗。
+
+Intel 新平台的固件里有"关闭 ACPI 定时器以省电"的选项（coreboot 和 FSP 都有对应配置），代价就是 TCO 看门狗也跟着停。
+
+### 是谁关的
+
+- 开机时内核成功注册了 `acpi_pm` 时钟源，而内核注册前会检查这个定时器在不在走，说明那时它还在走，是开机过程中稍后才被关掉的；
+- 内核 2024 年给 `intel_pmc_core` 加过"休眠时关闭 ACPI 定时器"的功能，但只在系统休眠时生效。实测把这一位清零后卸载、重新加载 `intel_pmc_core`，这一位仍然是 0，不是它关的；
+- 清零后它一直保持为 0，系统运行期间没有再被关掉。
+
+结论是开机过程中由固件（ACPI 或 SMM 代码）关掉的一次性动作。具体是哪一步，要更细的开机追踪才能定位，意义不大，直接在开机后把它改回去就行。
+
+### 修复和第二次测试
+
+把 `ACPI_TIM_DIS` 清零：
+
+```python
+m = mmap.mmap(f, 0x1000, mmap.MAP_SHARED, mmap.PROT_READ | mmap.PROT_WRITE, offset=0xfe001000)
+v = int.from_bytes(m[0x8fc:0x900], "little")
+m[0x8fc:0x900] = (v & ~0x2).to_bytes(4, "little")
+```
+
+清零后 PM 定时器开始跳，`TCO_RLD` 也从 `0x10` 降到了 `0xf`。再测一次：
+
+| 时间 | 事件 |
+| ---- | ---- |
+| 11:17:18 | `kill -STOP watchdog-mux` |
+| 11:17:19 到 11:17:28 | `timeleft` 从 9 一秒一秒倒数到 0 |
+| 约 11:17:29 | 硬复位，SSH 断开 |
+| 11:17:58 | 重新开机，两台 VM（`onboot: 1`）自动起来 |
+
+上一次启动的日志停在 11:17:18，没有任何关机过程，这正是硬件复位的特征。
+
+### 让它每次开机都生效
+
+复位重启后 `ACPI_TMR_CTL` 又变回了 `0x2`，所以要在开机后自动清零。做成一个 systemd timer：开机 30 秒后运行一次，之后每 5 分钟检查一次。脚本把这一位清零，再读两次 PM 定时器，确认它在走：
+
+```python
+#!/usr/bin/python3
+import os, mmap, sys, syslog, time
+
+PWRM_PAGE, OFF, DIS = 0xfe001000, 0x8fc, 0x2      # ACPI_TMR_CTL = PWRMBASE + 0x18FC
+PM_TMR = 0x1808
+
+f = os.open("/dev/mem", os.O_RDWR | os.O_SYNC)
+m = mmap.mmap(f, 0x1000, mmap.MAP_SHARED, mmap.PROT_READ | mmap.PROT_WRITE, offset=PWRM_PAGE)
+v = int.from_bytes(m[OFF:OFF + 4], "little")
+if v & DIS:
+    m[OFF:OFF + 4] = (v & ~DIS).to_bytes(4, "little")
+    syslog.syslog(syslog.LOG_WARNING, f"ACPI_TIM_DIS was set (ACPI_TMR_CTL={v:#x}), cleared")
+
+p = os.open("/dev/port", os.O_RDONLY)
+def pm_tmr():
+    os.lseek(p, PM_TMR, 0)
+    return int.from_bytes(os.read(p, 4), "little")
+a = pm_tmr(); time.sleep(0.01); b = pm_tmr()
+if a == b:
+    syslog.syslog(syslog.LOG_ERR, f"ACPI PM timer still stopped ({a:#x}); iTCO watchdog will not fire")
+    sys.exit(1)
+```
+
+每 5 分钟检查一次，是为了防止固件在运行时又把它关掉，真关了也能自动恢复并留下日志（`journalctl -t acpi-timer-enable`）。开机后到第一次运行之间约 30 秒，看门狗是失效的，这个窗口很短，可以接受。
+
+`PWRMBASE`、寄存器偏移这些地址是 Jasper Lake 平台的，换别的平台要查对应的数据手册或 coreboot 源码。内核要允许 `/dev/mem` 访问这段 MMIO：PVE 内核是 `CONFIG_STRICT_DEVMEM=y`，但没有开 `CONFIG_IO_STRICT_DEVMEM`，这段区域也没有被驱动占用，所以可以访问。
+
 ## 在 r86s 这次排查中的作用
 
 ### 之前：卡死后没有任何东西能把机器拉起来
@@ -155,7 +262,7 @@ ls -l /proc/$(pidof watchdog-mux)/fd | grep watchdog   # 3 -> /dev/watchdog
 | ---- | ---- | ------------ |
 | netconsole | 内核日志实时发到 n100 | 卡死前最后的内核日志留在 n100 上 |
 | lockup 检测 + panic | `softlockup_panic=1`、`hardlockup_panic=1`、`panic=10` | 能检测到的 lockup：panic，调用栈发到 netconsole、存进 EFI pstore，10 秒后重启 |
-| 硬件看门狗 | `WATCHDOG_MODULE=iTCO_wdt` | 检测不到的整机卡死：`watchdog-mux` 停止喂狗，约 10 秒后 PCH 直接复位 |
+| 硬件看门狗 | `WATCHDOG_MODULE=iTCO_wdt`，加上开机后清除 `ACPI_TIM_DIS` 的 `acpi-timer-enable` | 检测不到的整机卡死：`watchdog-mux` 停止喂狗，约 10 秒后 PCH 直接复位（已实测） |
 
 硬件看门狗是最后一道兜底，作用是把卡死后的停机时间从几个小时缩短到一两分钟（10 秒超时，加上 BIOS 自检和系统启动）。
 
@@ -176,20 +283,28 @@ r86s 每天 04:00 跑一次 `apt full-upgrade` 加 `reboot`，当初加它就是
 结论：
 
 - 观察期（约两周）内先**保留**每天重启。这期间要验证看门狗、netconsole、声卡屏蔽是否有效，此时改掉定时重启等于多了一个变量（运行时长），出了问题分不清原因；
-- 观察期过后，如果确认看门狗能正常把卡死的机器拉起来，可以把定时任务改成每周一次升级加重启，减少 K8s 节点（k8s-51 是 control plane）每天被重启的扰动。
+- 观察期过后，如果真实的卡死也被看门狗正常拉起来了（`kill -STOP` 测试已经通过，但真实卡死可能是另一种形态），可以把定时任务改成每周一次升级加重启，减少 K8s 节点（k8s-51 是 control plane）每天被重启的扰动。
 
-## 测试看门狗
+## 2026-10-10 排查记录
 
-硬件看门狗"能加载"不代表"真能复位"，最好实际测一次。方法是让 `watchdog-mux` 停止喂狗：
+r86s 这一天做的事情，按顺序：
 
-```bash
-# WARNING: hard-resets the host in ~10s; VMs go down without a clean shutdown
-kill -STOP $(pidof watchdog-mux)
-```
+| 步骤 | 做了什么 | 发现或结果 |
+| ---- | -------- | ---------- |
+| 1. IRQ 16 告警 | 分析 `irq 16: nobody cared`，屏蔽声卡驱动 | 声卡探测空 codec 超时、退回共享 IRQ 16、运行时电源管理反复休眠唤醒引发中断风暴；告警基本无害，不是卡死主因（详见 [R86S IRQ 16 nobody cared](r86s-irq16-nobody-cared.md)） |
+| 2. 查网上资料 | IRQ 16 和 Jasper Lake 卡死 | IRQ 16 在 R86S 上没有公开报告；Jasper Lake 跑 Proxmox 随机卡死是有大量报告的平台问题，常见建议是更新 microcode 和 BIOS |
+| 3. microcode | 查当前版本 | 已是 Intel 发布的最新版 `0x24000026`，`intel-microcode` 包 2025-10 就装了，卡死都发生在最新 microcode 下 |
+| 4. BIOS | 查版本、问厂家 | BIOS 5.19（2022-04-12），Version 字段没有厂商版本号；厂家没有新 BIOS；AMI 不直接给用户 BIOS，跨品牌刷有变砖风险，暂不刷 |
+| 5. 卡死时的日志 | 统计最近 25 次开机 | 3 周内卡死 4 次；soft/hard lockup、hung task 日志一条都没有，卡死瞬间日志根本没落盘 |
+| 6. lockup 自动 panic | `softlockup_panic=1`、`hardlockup_panic=1`、`panic=10`、`printk=5` | 能检测到的 lockup 会 panic 并重启；EFI pstore 本来就开着，panic 现场会存进 UEFI 变量 |
+| 7. netconsole | r86s 发、n100 收（socat 写进 journald） | 绑在 `vmbr0` 上时报 `fwpr103p0 doesn't support polling`：VM 网卡 `firewall=1` 插入的 veth 不支持 netpoll。PVE 防火墙本来没开，把两台 VM 网卡改成 `firewall=0` 后正常 |
+| 8. 硬件看门狗 | `WATCHDOG_MODULE=iTCO_wdt` | 驱动正常加载、sysfs 显示 active |
+| 9. 测试看门狗 | `kill -STOP watchdog-mux` | 第一次没有复位：固件开机时设置了 `ACPI_TIM_DIS`，TCO 计数器不走 |
+| 10. 修复 | 清除 `ACPI_TIM_DIS`，做成开机后和每 5 分钟运行的 systemd timer | 第二次测试，停止喂狗约 10 秒后硬复位，VM 自动恢复 |
 
-`SIGSTOP` 让进程暂停而不退出，`/dev/watchdog` 一直开着却没人喂狗，约 10 秒后机器应该直接复位。重启后看 `journalctl --list-boots`，上一次启动的日志应该是突然中断的，没有关机过程。
+还没解决的：卡死的根因。接下来观察两周左右，如果再卡死，先看 n100 上的 netconsole 日志（`journalctl -t netconsole-r86s`）和 r86s 上的 `/var/lib/systemd/pstore`，再单独试 `intel_idle.max_cstate=1`。
 
-测试前先把 VM 关掉，或者确认能接受它们被硬复位。
+上面这些服务器配置都收进了 w10n-config 仓库的 `infra/homelab/pve-r86s-stability/`，用 Ansible 部署（`task deploy`），`task status` 查看看门狗、ACPI 定时器、IRQ 16 和 netconsole 的状态。
 
 ## 参考
 
