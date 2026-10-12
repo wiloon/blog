@@ -2,12 +2,12 @@
 title: "CNB: Cloud Native Buildpacks 与 Paketo"
 author: "-"
 date: 2026-06-21T19:40:12+08:00
-lastmod: 2026-06-21T19:40:12+08:00
+lastmod: 2026-10-12T14:56:05+08:00
 url: cloud-native-buildpacks
 categories:
   - cloud
 tags:
-  - remix
+  - original
   - AI-assisted
   - cloud
   - docker
@@ -45,7 +45,7 @@ Spring Boot 侧如何把 fat jar、分层 JAR、jlink 与 Buildpack 串起来，
 | 灵活度 | 最高 | 受 buildpack 能力与环境变量约束 |
 | 学习成本 | 要会 Docker 分层、多阶段构建 | 先理解 builder + buildpack + 几个 `BP_*` 变量 |
 
-CNB 不是取代 Dockerfile，而是另一种「声明应用、让工具生成镜像」的路径；复杂定制仍常用手写 Dockerfile 或多阶段构建。
+CNB 不是取代 Dockerfile，而是另一种「声明应用、让工具生成镜像」的路径；复杂定制仍常用手写 Dockerfile 或多阶段构建。为什么会出现 CNB、它和 Dockerfile + BuildKit 各自的优劣，见 [Dockerfile/BuildKit vs CNB](./dockerfile-buildkit-vs-cnb.md)。
 
 ## 核心概念
 
@@ -209,9 +209,16 @@ pack build my-app \
 ## 参考
 
 - [buildpacks.io 官方文档](https://buildpacks.io/docs/)
+- [Dockerfile/BuildKit vs CNB](./dockerfile-buildkit-vs-cnb.md)
 - [Paketo 文档](https://paketo.io/docs/)
 - [Paketo Java How-to](https://paketo.io/docs/howto/java/)
 - [Spring Boot — Cloud Native Buildpacks](https://docs.spring.io/spring-boot/reference/packaging/container-images/cloud-native-buildpacks.html)
 - [Spring Boot Container Packaging](../language/java/spring/spring-boot-container-packaging.md)
 - [Spring Boot](../language/java/spring/spring-boot.md)
 - [GraalVM Native Image 简介](../language/java/graalvm-native-image.md)
+
+## 维护记录
+
+| 时间 | 修改内容 | 原因 |
+| ---- | -------- | ---- |
+| 2026-10-12 | 增加到 Dockerfile/BuildKit vs CNB 的互链；标签 remix 改为 original | 新增对比文章；SDD 交付物应使用 original |
