@@ -59,7 +59,7 @@ hasCJKLanguage = true
   weight = 10
 
 [[menu.main]]
-  name = "收集综合症/转载"
+  name = "转载"
   url = "/tags/reprint/"
   weight = 14
 
@@ -161,7 +161,7 @@ hasCJKLanguage = true
   # 首页信息
   [params.homeInfoParams]
     Title = "Hi, 我是 W10N"
-    Content = "这里主要是我的日常记录——周记、工作复盘和一些随笔。另外我也收集整理了一些技术资料，可从顶部导航「收集综合症/转载」「整理过的」查看。"
+    Content = "这里主要是我的日常记录——周记、工作复盘和一些随笔。另外我也收集整理了一些技术资料，可从顶部导航「转载」「整理过的」查看。"
 
   # 社交链接
   [[params.socialIcons]]
