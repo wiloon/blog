@@ -29,27 +29,27 @@ content/post/.../{slug}.md   # Hugo 交付物（AI 在 Spec 基础上输出/改�
 
 ### 周记 Spec（跨仓库例外）
 
-周记（`weekly-*.md`）的 Spec 存放在**私有仓库** `w10n-config`，不在本仓库 `.ai/specs/`：
+周记（`weekly-*.md`）的 Spec 存放在**私有仓库** `w10n-personal`，不在本仓库 `.ai/specs/`：
 
 ```text
-w10n-config/ops/weekly/weekly-2026-wNN.md   # 周记 Spec / 原始素材（私有，无需脱敏）
+w10n-personal/ops/weekly/weekly-2026-wNN.md   # 周记 Spec / 原始素材（私有，无需脱敏）
 blog/content/post/career/weekly-2026-wNN.md # 周记交付物（公开成稿）
 ```
 
-决策依据见 `w10n-config/ops/ADR-0002-weekly-spec-to-private-repo.md`。
+决策依据见 `w10n-personal/ops/ADR-0002-weekly-spec-to-private-repo.md`。
 
 | 环节 | 一般 SDD | 周记 |
 | ---- | -------- | ---- |
-| Spec 位置 | `blog/.ai/specs/{slug}.md` | `w10n-config/ops/weekly/weekly-*.md` |
+| Spec 位置 | `blog/.ai/specs/{slug}.md` | `w10n-personal/ops/weekly/weekly-*.md` |
 | 交付物位置 | `blog/content/post/.../{slug}.md` | 不变 |
 | 脱敏时机 | 写 Spec 时注意口径 | Spec **不脱敏**；**润色成交付物时**脱敏与内容筛选 |
 | Phase 6 提交 | 同仓一次 commit | **两仓分别 commit**（见下文） |
 
 **周记 AI 额外约束**
 
-- 「先读 Spec」指向 `w10n-config/ops/weekly/weekly-*.md`，不是 `blog/.ai/specs/`。
+- 「先读 Spec」指向 `w10n-personal/ops/weekly/weekly-*.md`，不是 `blog/.ai/specs/`。
 - 交付物**禁止**逐字搬运私有 Spec §A 的敏感细节；只发布作者在 Spec 中标记为「可公开」或经筛选的内容。
-- **下一周 Spec 模板（强制）**：处理任意一周周记 Spec 时（补充素材、Phase 3–6、或其它对该 Spec 的操作），必须检查下一周 `w10n-config/ops/weekly/weekly-YYYY-w{NN+1}.md` 是否已存在；若不存在，立刻从 `w10n-config/ops/weekly/_template.md` 生成空 Spec（填元信息 + 该周 7 天日期，状态 `spec-created`，不填 §A 素材）。细则见 `w10n-config/ops/AGENTS.md` §下一周 Spec 模板。
+- **下一周 Spec 模板（强制）**：处理任意一周周记 Spec 时（补充素材、Phase 3–6、或其它对该 Spec 的操作），必须检查下一周 `w10n-personal/ops/weekly/weekly-YYYY-w{NN+1}.md` 是否已存在；若不存在，立刻从 `w10n-personal/ops/weekly/_template.md` 生成空 Spec（填元信息 + 该周 7 天日期，状态 `spec-created`，不填 §A 素材）。细则见 `w10n-personal/ops/AGENTS.md` §下一周 Spec 模板。
 
 ## Spec 不会出现在最终 Blog 里
 
@@ -106,7 +106,7 @@ spec-created → qa-in-progress → draft-written → annotating → published
 
 编辑或生成 **已有 Spec 的交付物** 时，AI **必须**：
 
-1. **先读** 对应 Spec，再读或改 `content/post/.../{slug}.md`。一般文章 Spec 在 `.ai/specs/{slug}.md`；**周记**在 `w10n-config/ops/weekly/weekly-*.md`（见上文 §周记 Spec）。处理周记时**同时检查**下一周空 Spec 是否已生成（见上文「下一周 Spec 模板」）。
+1. **先读** 对应 Spec，再读或改 `content/post/.../{slug}.md`。一般文章 Spec 在 `.ai/specs/{slug}.md`；**周记**在 `w10n-personal/ops/weekly/weekly-*.md`（见上文 §周记 Spec）。处理周记时**同时检查**下一周空 Spec 是否已生成（见上文「下一周 Spec 模板」）。
 2. **以 Spec 为准**：§必须包含 / §禁止包含 优先于 AI 自行发挥；与 Spec 冲突时，**以 Spec 为准** 或向作者确认。
 3. **仍遵守** [AGENTS.md](../AGENTS.md) 中博客文章规则（文件名、`url`、`categories`、`lastmod`、`tags`、MD025、表格与代码块等）。Spec 可补充、不可削弱 AGENTS 底线；**全站内容约束**见 [content-constraints.md](content-constraints.md)（如 VPN 命名、代码块注释用英文）。
 4. **润色范围**：语句、段落衔接、Markdown 格式、结构对齐 Spec 大纲；**不编造** Spec 未允许的事实（金额、承诺、客户名等）。交付物格式、人称（淡化「我」）与加粗默认遵守 [delivery-style.md](delivery-style.md)；单篇 Spec §格式 / §语气 仅写 **本篇例外**。
@@ -146,7 +146,7 @@ SDD 文章从主题到发布分为六个阶段，Spec 的 `状态` 字段追踪�
 | **Phase 3** 审阅 · 问答 | `qa-in-progress`（AI 自动设置） | 作者说"review 这个 spec" | 将状态更新为 `qa-in-progress`；读 §A 原始素材 + §B 已有内容，在 §B 末尾追加新 Round；每轮末尾说明是否建议输出正文 |
 | **Phase 4** 输出正文 | `draft-written`（AI 自动设置） | 作者说"输出正文"或"按 spec 生成交付物" | 将状态更新为 `draft-written`；综合 §A 原始素材 + §B 所有问答生成交付物 |
 | **Phase 5** 批注修改 | `annotating`（AI 自动设置） | 作者在 §C 写批注后说"按批注修改" | 将状态更新为 `annotating`；逐条读 §C，执行完毕后将 `[ ]` 改为 `[done]`；全部完成后提示可进入 Phase 6 发布 |
-| **Phase 6** 发布提交 | `published`（AI 自动设置） | 作者说"可以发布了" / "帮我提交" / "git commit" | 将 Spec 状态更新为 `published`；执行 `git add <交付物> <spec>`；`git commit -m "post: <title> (<slug>)"`；**默认不 push**；询问作者是否一起推送。**周记另须**：确认下一周空 Spec 已存在（见上文「下一周 Spec 模板」）；若本步新建了下一周 Spec，一并纳入 `w10n-config` 的 commit |
+| **Phase 6** 发布提交 | `published`（AI 自动设置） | 作者说"可以发布了" / "帮我提交" / "git commit" | 将 Spec 状态更新为 `published`；执行 `git add <交付物> <spec>`；`git commit -m "post: <title> (<slug>)"`；**默认不 push**；询问作者是否一起推送。**周记另须**：确认下一周空 Spec 已存在（见上文「下一周 Spec 模板」）；若本步新建了下一周 Spec，一并纳入 `w10n-personal` 的 commit |
 
 ### Phase 3 核心禁止行为
 
@@ -167,8 +167,8 @@ SDD 文章从主题到发布分为六个阶段，Spec 的 `状态` 字段追踪�
 
 - commit message 格式：`post: <文章标题> (<slug>)`
 - `git add` 只含交付物（`content/post/.../{slug}.md`）和对应 Spec（`.ai/specs/{slug}.md`），**不要** `git add .`
-- **周记例外**：Spec 在 `w10n-config/ops/weekly/`，交付物在 `blog/`。**两仓分别 commit**：
-  - `w10n-config`：`git add ops/weekly/weekly-*.md` → `post: 2026 WNN (weekly-2026-wNN)` 或 `spec: weekly-2026-wNN`
+- **周记例外**：Spec 在 `w10n-personal/ops/weekly/`，交付物在 `blog/`。**两仓分别 commit**：
+  - `w10n-personal`：`git add ops/weekly/weekly-*.md` → `post: 2026 WNN (weekly-2026-wNN)` 或 `spec: weekly-2026-wNN`
   - `blog`：`git add content/post/career/weekly-*.md` → `post: 2026 WNN (weekly-2026-wNN)`
 - **默认只做本地 commit，不 push**；push 必须作者确认或明确要求
 - 如果工作区有其他未提交文件，提示作者注意，但不将其包含在本次 commit 中
