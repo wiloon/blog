@@ -2,7 +2,7 @@
 title: Claude Code 使用笔记
 author: "-"
 date: 2026-04-20T12:54:03+08:00
-lastmod: 2026-07-30T13:14:28+08:00
+lastmod: 2026-10-17T07:17:29+08:00
 url: claude-code
 categories:
   - AI
@@ -343,7 +343,7 @@ claude -p "Run the test suite and fix any failures" \
   --allowedTools "Bash,Read,Edit"
 ```
 
-也可以用 `--permission-mode` 设置整个会话的基线：`acceptEdits` 允许写文件和 `mkdir`/`mv`/`cp` 等常见文件操作；`dontAsk` 则拒绝一切不在 `permissions.allow` 规则里的操作，适合锁死权限的 CI 场景。
+也可以用 `--permission-mode` 设置整个会话的基线：`acceptEdits` 允许写文件和 `mkdir`/`mv`/`cp` 等常见文件操作；`dontAsk` 则拒绝一切不在 `permissions.allow` 规则里的操作，适合锁死权限的 CI 场景。各个模式的区别见下文「权限模式（--permission-mode）」。
 
 `--allowedTools` 支持前缀匹配，常用来只放行特定 git 子命令：
 
@@ -394,6 +394,127 @@ done
 - CI/CD 流水线：跑测试、修 lint、生成 PR review
 - 构建脚本里当项目专属 linter/reviewer 用
 - 批量/并行跑多个独立任务，用 JSON 输出做后续解析
+
+## 权限模式（--permission-mode）
+
+Claude Code 每次调用工具（跑命令、改文件、联网）前都要过一道权限检查。权限模式决定「没有规则明确说可以或不可以」的那些调用怎么处理。启动时用 `--permission-mode <mode>` 指定，交互会话里也可以按 Shift+Tab 切换。以 2.1.301 版本的 `claude --help` 为准，可选值有：
+
+| 模式 | 没有匹配规则时 | 适合 |
+| ---- | ---- | ---- |
+| `manual` | 弹窗问人（即通常说的默认模式） | 日常交互 |
+| `acceptEdits` | 自动允许改文件和 `mkdir`/`mv`/`cp` 等文件操作，其余照常问 | 信任它改代码，但命令还想过目 |
+| `plan` | 只读，只能调研和出方案，不能改 | 先讨论方案再动手 |
+| `auto` | 由一个安全分类器判断风险，低风险直接放行，高风险拒绝 | 有人在旁边、但不想频繁点确认 |
+| `dontAsk` | **直接拒绝**，不弹窗 | 无人值守：只有 `permissions.allow` 里列出的操作能执行 |
+| `bypassPermissions` | 全部放行（等同 `--dangerously-skip-permissions`） | 只在一次性沙箱/容器里用 |
+
+几个要点：
+
+- 规则的优先级是 **deny > ask > allow**。`deny` 里写了的，哪怕 `allow` 里也有，照样拒绝。
+- `dontAsk` 和无人值守最搭：遇到白名单以外的操作，Claude 只是收到「被拒绝」，会换别的办法或停下汇报，**不会卡住等人点允许**。
+- headless 模式（`-p`）下还有一个 `--permission-prompts none`：任何本来要弹窗的地方都直接拒绝。和 `dontAsk` 一起用是双保险。
+- 规则写在 settings 的 `permissions` 里，Bash 规则按命令前缀匹配，复合命令（`a && b`）会拆开逐段检查：
+
+```json
+{
+  "permissions": {
+    "allow": ["Read", "Edit", "Bash(git *)", "Bash(go test *)", "Bash(pnpm *)"],
+    "deny":  ["Bash(git tag *)", "Bash(gh release *)", "Bash(kubectl *)"]
+  }
+}
+```
+
+## Hooks：在工具调用前后插入自己的脚本
+
+Hook 是 Claude Code 在特定事件发生时**由 harness 执行**的命令（不是让模型「记住」规则，而是确定性地每次都跑）。常用事件：
+
+| 事件 | 时机 | 典型用途 |
+| ---- | ---- | ---- |
+| `PreToolUse` | 工具调用执行**之前** | 拦截危险命令、限制可写目录 |
+| `PostToolUse` | 工具调用成功之后 | 改完文件自动跑 formatter/lint |
+| `UserPromptSubmit` | 用户提交 prompt 时 | 注入上下文、过滤输入 |
+| `Stop` | Claude 准备结束这一轮时 | 跑测试，不通过就让它继续（见上文 Stop Hook） |
+| `SessionStart` / `SessionEnd` | 会话开始/结束 | 加载环境、清理 |
+| `Notification` | 需要人关注时 | 转发到手机通知 |
+
+### PreToolUse 怎么工作
+
+1. Claude 决定调用某个工具，比如 `Bash` 执行 `git tag v1.0.0`
+2. harness 把这次调用以 JSON 形式从 stdin 传给 hook 脚本，主要字段有 `tool_name`、`tool_input`（Bash 是 `command`，Edit/Write 是 `file_path`）、`cwd`、`session_id`
+3. 脚本自己判断，然后：
+   - 什么都不输出、exit 0：不表态，交给正常的权限规则
+   - 输出 `permissionDecision: "deny"`：拒绝，`permissionDecisionReason` 会作为错误信息返回给 Claude
+   - 输出 `"allow"` / `"ask"`：直接放行 / 强制弹窗问人
+   - 或者 exit 2：拒绝，stderr 内容反馈给 Claude
+
+配置写在 settings 里，`matcher` 是匹配工具名的正则：
+
+```json
+{
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Bash|Edit|Write",
+        "hooks": [{ "type": "command", "command": "$HOME/bin/guard.sh" }]
+      }
+    ]
+  }
+}
+```
+
+一个最小的 guard 脚本：
+
+```bash
+#!/bin/zsh
+# Deny git tags; stay silent (no opinion) for everything else.
+input=$(cat)
+[[ $(jq -r '.tool_name' <<<"$input") == Bash ]] || exit 0
+cmd=$(jq -r '.tool_input.command' <<<"$input")
+if print -r -- "$cmd" | grep -qE '(^|[;&|])[[:space:]]*git[[:space:]]+tag\b'; then
+  jq -n '{hookSpecificOutput: {hookEventName: "PreToolUse",
+          permissionDecision: "deny",
+          permissionDecisionReason: "no git tags: v* deploys production"}}'
+fi
+exit 0
+```
+
+实测在 `claude -p` 里，Claude 收到的是 `PreToolUse:Bash hook error: <你的 reason>`，它会说明被拒并停止重试。
+
+### permissions 规则和 PreToolUse 的分工
+
+- **permissions 规则**：声明式、按前缀匹配，适合「哪些命令能用」的白名单/黑名单。
+- **PreToolUse hook**：可以写任意逻辑，适合规则表达不了的情况，比如「`git push` 可以，但不能推 tag、不能推 main、不能 force」，「只能写某个 worktree 里的文件」，「只在某个环境变量存在时才生效」。
+- 两者都只看命令字符串，不是沙箱。`pnpm test` 跑的脚本、`node -e` 里的代码它们都看不到。真正的底线要放在系统外面：GitHub 分支保护、独立账号、容器或单独的机器。
+
+## 没有 profile，用 settings 分层代替
+
+Claude Code 没有「切换 profile」这样的命名概念，但 settings 本身是分层合并的，加上几个启动参数，就能做出「有人在时宽松、无人值守时收紧」的两套配置。
+
+settings 的来源和优先级（高的覆盖低的，permissions 规则则合并起来一起生效）：
+
+1. 企业托管策略（managed settings，个人一般没有）
+2. 命令行参数，包括 `--settings <file>`
+3. 项目本地 `.claude/settings.local.json`（不进 git，个人在这个项目里点过的「总是允许」都在这）
+4. 项目共享 `.claude/settings.json`（进 git）
+5. 用户级 `~/.claude/settings.json`
+
+做法是：**交互用默认配置，无人值守的 agent 用一条固定的启动命令**：
+
+```bash
+# Unattended "profile": only user settings + an agent-specific file, nothing else.
+ENX_AGENT=1 claude -p "$prompt" \
+  --setting-sources user \
+  --settings ~/.local/share/enx-agent/settings.json \
+  --permission-mode dontAsk \
+  --permission-prompts none
+```
+
+- `--setting-sources user` 只加载用户级配置，不读项目的 `settings.json` / `settings.local.json`。这一点很重要：你在交互时点过的「总是允许 `kubectl *`」都存在 `settings.local.json` 里，不排除掉的话无人值守的 agent 会继承这些权限。
+- `--settings` 传入 agent 专用的白名单和 hook。
+- hook 脚本里检查 `ENX_AGENT` 这类环境变量，可以让同一个脚本只在 agent 模式下生效。
+- 把这条命令写成 shell 脚本或 alias，就相当于一个「agent profile」；交互时照常敲 `claude`，什么限制都不带。
+
+无人值守 agent 的完整搭建过程见 [让 Claude Code 自主处理 GitHub Issue](./afk-agent-github-issues.md)。
 
 ## Subagents 子代理
 
@@ -493,3 +614,4 @@ attempt to fix the code yourself, just report.
 | 2026-07-21 | 新增「/loop 与 /schedule」章节 | 原文档缺少定时/循环任务相关内容 |
 | 2026-07-25 | 新增「Headless 模式（非交互式）」章节 | 原文档缺少 `-p`/`--print` 非交互模式、CI/CD 自动化相关内容 |
 | 2026-07-30 | 新增「Subagents 子代理」章节 | 原文档缺少子代理定义格式、存放位置、`/agents` 管理、调用方式相关内容 |
+| 2026-10-17 | 新增「权限模式」「Hooks：PreToolUse」「没有 profile，用 settings 分层代替」三节 | 搭建无人值守 agent 时需要 `dontAsk`、PreToolUse hook 和两套权限配置 |

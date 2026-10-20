@@ -2,7 +2,7 @@
 title: OpenTofu 入门：用 IaC 在 AWS 创建 VPC 和 EC2
 author: "-"
 date: 2026-04-29T10:39:30+08:00
-lastmod: 2026-05-16T22:22:58+08:00
+lastmod: 2026-10-19T12:22:57+08:00
 url: opentofu-aws-vpc-ec2
 categories:
   - cloud
@@ -326,6 +326,120 @@ tofu show
 tofu output
 ```
 
+### tofu init 做了什么
+
+`tofu init` 是本地的准备工作：把这个目录需要的东西备齐。它不调用云厂商 API，不创建、修改或删除任何资源，也不改 state 的内容。可以重复执行，结果一样。
+
+按顺序做四件事：
+
+1. 初始化 backend。读取 `backend` 块，确认 state 存在哪里（本地文件或 S3 等），能不能连上，然后把 backend 配置缓存到 `.terraform/terraform.tfstate`。这个文件只是「state 在哪」的记录，不是真正的 state。
+2. 下载模块。配置里有 `module` 块且 `source` 指向远程时，把模块代码下载到 `.terraform/modules/`。
+3. 安装 provider。读取 `required_providers` 和 `.terraform.lock.hcl`，把对应版本、对应平台的插件下载到 `.terraform/providers/`。
+4. 写依赖锁文件。第一次 init 时生成 `.terraform.lock.hcl`，记录每个 provider 的确切版本和校验和。以后再 init，就按锁文件装同一个版本，换机器也一样。
+
+init 之后目录里多出来的东西，以一个 Stripe 配置目录为例：
+
+```text
+infra/stripe/opentofu/enx/
+├── .terraform.lock.hcl          # provider versions + hashes, commit to git
+└── .terraform/                  # local cache, do not commit
+    ├── terraform.tfstate        # where the real state lives (backend config)
+    ├── environment              # currently selected workspace, e.g. "live"
+    └── providers/
+        └── registry.opentofu.org/stripe/stripe/0.1.3/darwin_arm64/
+```
+
+`.terraform/` 删掉也没关系，重新 init 就会恢复。真正的 state 在 backend 里（这里是 S3），不在这个目录。
+
+#### 什么时候需要重新 init
+
+- 第一次克隆仓库，或者换了一台机器。
+- 改了 `required_providers` 的版本，或者加了新的 provider、新的 module。
+- 改了 `backend` 配置。
+
+如果需要 init 却没跑，`tofu plan` 会直接报错提示先 init，不会带着缺失的插件往下走。
+
+#### 唯一要留意的提示
+
+backend 配置变了之后再 init，它会问要不要把已有的 state 复制到新 backend：
+
+```text
+Do you want to copy existing state to the new backend?
+```
+
+这是 init 唯一会动到 state 的情况，而且会先问你。没想清楚就回答 no。
+
+#### 常用参数
+
+```bash
+# Upgrade providers to the newest version allowed by the constraints, and rewrite the lock file
+tofu init -upgrade
+
+# Backend config changed: start fresh with the new config, do not migrate state
+tofu init -reconfigure
+
+# Backend config changed: copy the existing state to the new backend
+tofu init -migrate-state
+
+# Install providers only, skip the backend (e.g. for tofu validate in CI)
+tofu init -backend=false
+
+# Fail instead of updating the lock file (CI)
+tofu init -lockfile=readonly
+```
+
+### workspace：一份配置，多套 state
+
+workspace 让同一份 `.tf` 配置对应多套互相隔离的 state，常用来区分测试和生产。比如 Stripe 的配置，`default` 对应 Sandbox，`live` 对应正式环境。
+
+```bash
+# Show the current workspace
+tofu workspace show
+
+# List all workspaces, the current one is marked with *
+tofu workspace list
+
+# Switch workspace
+tofu workspace select live
+
+# Create a new workspace
+tofu workspace new live
+```
+
+当前选中的 workspace 记在 `.terraform/environment` 里，跨终端、跨天都有效。上次切到 `live` 没切回来，下次打开终端它还是 `live`。所以 `plan` 之前先 `tofu workspace show` 确认一下，同时确认环境变量里的密钥（比如 `STRIPE_API_KEY`）和 workspace 对得上。
+
+#### tofu workspace select 做了什么
+
+`tofu workspace select default` 只做一件事：把「当前 workspace」切换成 `default`，也就是把 `.terraform/environment` 改成 `default`（`default` 时这个文件可能直接被删掉，效果一样）。它不读也不改任何资源，不改 state 内容，不调用云厂商 API。
+
+切换之后，后面的 `plan`、`apply`、`state list` 等命令读写的就是 `default` 那一套 state。
+
+`default` 有两点特殊：
+
+- 它永远存在，不用创建，也删不掉。
+- 没用过 workspace 的项目其实一直都在 `default` 里。
+
+用 S3 backend 时，不同 workspace 的 state 放在桶里不同的路径：
+
+| workspace | S3 里的 state 路径 |
+| --------- | ------------------ |
+| `default` | `<key>`，即 backend 块里写的 `key` |
+| 其他，如 `live` | `env:/live/<key>` |
+
+`env:` 是默认前缀，可以用 backend 的 `workspace_key_prefix` 改。所以切换 workspace 实际上是在换「读写桶里哪个文件」。
+
+另外两种情况：
+
+```bash
+# Select a workspace that does not exist yet: error, unless -or-create
+tofu workspace select -or-create staging
+
+# TF_WORKSPACE overrides the selected workspace for this shell only
+TF_WORKSPACE=live tofu plan
+```
+
+`TF_WORKSPACE` 适合在 CI 里用，不依赖 `.terraform/environment`。本地手动操作时还是用 `select` 加 `show` 更直观。
+
 ### tofu plan 输出说明
 
 `tofu plan` 用符号标识每个资源的变更类型：
@@ -415,3 +529,9 @@ Plan: 1 to add, 0 to change, 1 to destroy.
 **原因**：`tofu-deploy` IAM 用户缺少 EC2 相关权限。
 
 **解决**：在 AWS 控制台给该用户附加 `AmazonEC2FullAccess` 策略。
+
+## 维护记录
+
+| 日期       | 内容                                                         |
+| ---------- | ------------------------------------------------------------ |
+| 2026-10-19 | 新增「tofu init 做了什么」和「workspace：一份配置，多套 state」两节，说明 `tofu workspace select` 和 S3 里各 workspace 的 state 路径 |
