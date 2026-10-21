@@ -12,6 +12,8 @@ tags:
   - hyprland
   - pacman
   - aur
+  - ssh
+  - ufw
   - remix
   - AI-assisted
 ---
@@ -121,8 +123,86 @@ sudo systemctl restart sshd
 ps -eo pid,etime,args | grep -E 'omarchy-update|pacman' | grep -v grep
 ```
 
+## SSH 频繁连接被拒
+
+SER8 用来跑 AI Agent，我会从 MacBook 频繁 ssh 上去，Ansible 也走 SSH。默认配置下经常连不上，原因有两层限制，报错也不同。
+
+### 第一层：ufw 的 LIMIT 规则
+
+用 `omarchy-setup-security-sshd` 配 SSH 时，Omarchy 会加一条 `ufw limit 22/tcp`：同一来源 IP 在 30 秒内新建 6 个以上连接，后面的就被拒绝。客户端看到的是：
+
+```text
+ssh: connect to host 192.168.50.15 port 22: Connection refused
+```
+
+解决办法是对局域网放行，并且这条规则要排在 LIMIT 前面，因为 ufw 按顺序匹配：
+
+```bash
+sudo ufw insert 1 allow from 192.168.50.0/24 to any port 22 proto tcp comment 'ssh-lan-no-limit'
+sudo ufw status numbered    # the ALLOW must sit above "22/tcp LIMIT IN Anywhere"
+```
+
+局域网外的访问仍然受 LIMIT 限制。
+
+### 第二层：sshd 的 PerSourcePenalties
+
+OpenSSH 9.8 开始默认开启 `PerSourcePenalties`（SER8 上是 openssh 10.6）。sshd 会给每个来源 IP 记录"坏行为"并累计罚时：
+
+| 行为 | 罚时 |
+| ---- | ---- |
+| 连上后没认证就断开（noauth） | 1 秒 |
+| 认证失败（authfail） | 5 秒 |
+| 握手超时（grace-exceeded） | 10 秒 |
+
+累计达到 15 秒后，这个 IP 会被暂时拒绝，最长 600 秒。客户端看到的是：
+
+```text
+kex_exchange_identification: read: Connection reset by peer
+```
+
+另外 `MaxStartups` 默认 `10:30:100`：同时处于握手阶段的连接超过 10 个后，sshd 开始随机丢弃新连接。
+
+查看当前生效值：
+
+```bash
+sudo sshd -T | grep -iE '^(maxstartups|persourcepenalt)'
+```
+
+加一个 drop-in，让局域网免罚，并放宽握手并发：
+
+```bash
+printf '%s\n' \
+  '# LAN agents: no per-source penalties, more concurrent handshakes' \
+  'PerSourcePenaltyExemptList 192.168.50.0/24' \
+  'MaxStartups 50:30:200' |
+  sudo tee /etc/ssh/sshd_config.d/20-lan-agents.conf
+sudo sshd -t && sudo systemctl reload sshd    # reload keeps existing sessions
+```
+
+### 客户端：连接复用
+
+在 Mac 的 `~/.ssh/config` 里给这台机器开 `ControlMaster`，多次 ssh 共用一条 TCP 连接，从源头减少新建连接：
+
+```text
+Host ser8
+    HostName 192.168.50.15
+    ControlMaster auto
+    ControlPath ~/.ssh/cm-%r@%h:%p
+    ControlPersist 10m
+    ServerAliveInterval 30
+```
+
+`ServerAliveInterval` 让空闲会话定期发心跳，避免被路由器的 NAT 超时掐断。
+
+```bash
+ssh -O check ser8    # "Master running" means connections are being reused
+ssh -O exit ser8     # drop a stale master, e.g. after the remote host rebooted
+```
+
+SER8 上这些配置由 Ansible 管理（`configure-ai-mode` playbook），Mac 的 `~/.ssh/config` 由 chezmoi 管理，不手动改。
+
 ## 待确认 / TODO
 
 - `omarchy-update-pacman-guard` 的作用：`omarchy-update-system-pkgs` 调 pacman 时会设环境变量 `OMARCHY_UPDATE_PACMAN=1`，guard 可能是一个 pacman hook，用来拦截或提醒绕过 `omarchy-update` 的 `pacman -Syu`，还没读它的内容。
 - 4.x 的 Omarchy 菜单快捷键和 Install 菜单的具体层级（3.x 是 `Super + Alt + Space`）。
-- SER8 那次 SSH 被拒的原因，等更新结束后确认。
+- SER8 更新期间 SSH 被拒：当时 sshd 已在罚时（PerSourcePenalties）还是 openssh 升级后没重启，没有确认；更新后机器重启，sshd 正常。
