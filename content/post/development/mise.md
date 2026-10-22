@@ -2,7 +2,7 @@
 title: "mise: 按目录切换工具版本"
 author: "-"
 date: 2026-10-20T06:15:51+08:00
-lastmod: 2026-10-20T06:15:51+08:00
+lastmod: 2026-10-21T11:01:06+08:00
 url: mise
 categories:
   - development
@@ -116,7 +116,24 @@ mise exec go@1.27.0 -- go version
 - **语言包管理器**：`npm:`、`cargo:`、`pipx:`、`go:` 前缀，比如 `npm:@anthropic-ai/claude-code`。
 - **asdf 插件**：兜底，兼容老生态。
 
-装好的工具都在 `~/.local/share/mise/installs/` 下，按用户安装，不需要 root，也不碰系统包。这在 ser8 上很有用：那台机器的 pacman 数据库很久没同步，用 pacman 装新包得先全系统升级，而 mise 装的东西和系统包完全无关。
+装好的工具都在 `~/.local/share/mise/installs/` 下，按用户安装，不需要 root，也不碰系统包。
+
+## 和系统包的关系
+
+在 Arch 这种滚动更新的发行版上，系统包里的 Go 今天是 1.27，明天就可能变成 1.28。mise 锁定的版本不受影响，因为两者是两份完全独立的文件：
+
+| | pacman 装的 Go | mise 装的 Go 1.27.0 |
+| ---- | ---- | ---- |
+| 位置 | `/usr/bin/go`、`/usr/lib/go` | `~/.local/share/mise/installs/go/1.27.0/` |
+| 来源 | Arch 仓库 | Go 官方发布的压缩包 |
+| 更新 | `pacman -Syu` 时跟着升级 | 只有改 `mise.toml` 里的版本号才会变 |
+
+`pacman -Syu` 只会改 `/usr` 下的文件，不会碰 mise 的安装目录。至于运行 `go` 时用哪一个，取决于 `PATH` 里谁排在前面：mise 的 shims（或 `mise activate` 加进来的路径）放在 `/usr/bin` 前面，在 `mise.toml` 管辖的目录里运行 `go`，拿到的就是 1.27.0。出了这些目录，mise 没有可用版本时就落回系统的 `/usr/bin/go`；如果全局配置也没设、系统也没装，shim 会直接报错 `No version is set for shim: go`，而不是悄悄用错版本。
+
+所以两者分工是：
+
+- **系统级、常驻的工具交给系统包管理器**，比如 `cursor-cli`、`git`，跟着系统一起升级。Arch 不支持部分升级，pacman 数据库旧了就应该 `pacman -Syu` 全系统升级，不该为了绕开它改用 mise 装。
+- **需要按项目锁定版本的工具交给 mise**，比如 Go、Node、golangci-lint：项目要求的版本和 CI 一致，不随系统升级而变。
 
 ## 和 fnm、asdf 比较
 
@@ -129,3 +146,9 @@ mise exec go@1.27.0 -- go version
 | 环境变量、任务 | 无 | 无 | 有 |
 
 如果只写 Node，fnm 已经够用；同时用好几种语言和一堆 CLI 时，mise 能把它们收进一个配置文件。
+
+## 维护记录
+
+| 时间 | 修改内容 | 原因 |
+| ---- | -------- | ---- |
+| 2026-10-21 | 删掉"pacman 数据库没同步所以用 mise"的说法，新增「和系统包的关系」一节 | 旧的数据库应该 `pacman -Syu` 解决；补充滚动更新下 mise 锁定版本为什么不受影响 |

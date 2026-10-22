@@ -2,7 +2,7 @@
 title: "AFK Agent: 让 Claude Code 自主处理 GitHub Issue"
 author: "-"
 date: 2026-10-17T07:17:29+08:00
-lastmod: 2026-10-17T07:17:29+08:00
+lastmod: 2026-10-22T12:40:00+08:00
 url: afk-agent-github-issues
 draft: true
 categories:
@@ -17,6 +17,8 @@ tags:
 ---
 
 记录给 ENX 项目搭一个无人值守（AFK）agent 的过程：它定时从 GitHub 上挑一个标了 `ready-for-agent` 的 issue，在独立的 git worktree 里开发、测试、开 PR，满足条件就自己合并。人这边不再盯着它写代码，只负责把 issue 推进到 ready。
+
+这篇写的是基础设施：限额、权限、机器、工具链、定时触发，大部分仍然有效。2026-10-21 起分工变了：写代码的是在 ser8 本机运行的 Cursor，Claude 负责方案评审和代码评审，timer 也暂停了，改成手动触发。协作流程的变化和踩过的坑见 [Claude Code + Cursor: 两家 agent 在一台家用服务器上协作开发](/claude-cursor-cross-review-agents/)。
 
 Claude Code 相关的参数和 hook 机制在 [Claude Code 使用笔记](./claude-code.md) 里有单独的说明，这里只写怎么把它们组合起来。
 
@@ -47,8 +49,9 @@ Claude Code 相关的参数和 hook 机制在 [Claude Code 使用笔记](./claud
 
 **循环二：agent 自主工作（无人值守）**
 
-- 定时检查有没有 `ready-for-agent` 的 issue
-- 挑一个，建 worktree，按 TDD 开发，跑完测试/类型检查/lint/build
+- 定时检查有没有 `ready-for-agent` 的 issue（现在改成手动触发）
+- 挑一个，先由 Cursor 评审方案、Claude 修订
+- 建 worktree，由 Cursor 按 TDD 开发，跑完测试/类型检查/lint/build，再由 Claude 评审
 - 开 PR；CI 通过且不需要人工检查就自己合并
 - 遇到不确定的问题，不猜，在 issue 上留言提问后停下
 
@@ -73,6 +76,8 @@ Claude Code 相关的参数和 hook 机制在 [Claude Code 使用笔记](./claud
 | `agent-wip` | agent 正在做（防止重复领取） | 脚本 |
 | `needs-info` | agent 有问题要问，已在 issue 上留言 | agent |
 | `ready-for-human` | 需要人：人工检查或人来实现（PR 和 issue 都可以打） | agent / 人 |
+| `cursor-fix` | 人在 Cursor 的 PR 上留了意见，让 Cursor 按意见改 | 人 |
+| `agent-review` | 人自己写的 PR，交给 Cursor 评审、Claude 修改 | 人 |
 
 流转：
 
@@ -174,7 +179,7 @@ ser8 通过 WireGuard 连到局域网里的 50.73，那台机器上的 xray 做�
 
 ### ser8 上的工具链
 
-不改系统包。ser8 是 Arch 系，pacman 数据库已经一个多月没同步，用 pacman 装新包要先做全系统升级，所以改用 mise 按用户安装。agent 用的版本由 `~/enx-agent/mise.toml` 固定，和项目锁定的一致（gh、claude 用 wiloon 全局的 mise 配置；golangci-lint 2.14.0 全局也装了一份）：
+Go、Node 这类要和项目、CI 锁定同一版本的工具用 mise 按用户安装，不随 Arch 的滚动更新变化（原理见 [mise](../development/mise.md)）；系统级的工具（比如 `cursor-cli`）还是用 pacman 装，跟着 `pacman -Syu` 一起升级。agent 用的版本由 `~/enx-agent/mise.toml` 固定，和项目锁定的一致（gh、claude 用 wiloon 全局的 mise 配置；golangci-lint 2.14.0 全局也装了一份）：
 
 ```bash
 cd ~/enx-agent && mise trust mise.toml && mise install
@@ -213,7 +218,7 @@ Claude Code 有一个实验性的 agent teams 功能：一个会话当 lead，�
 
 ## 已经准备好的东西
 
-目前写在 MacBook 的 `~/.local/share/enx-agent/` 下，迁到 ser8 时照搬并改成 Linux 版本：
+最初写在 MacBook 的 `~/.local/share/enx-agent/` 下，后来改成 Linux 版本，现在由 w10n-config 仓库的 `infra/homelab/workstation/files/enx-agent/` 管理，用 `task configure-enx-agent` 部署到 ser8。下表是最初的版本；Claude 开发用的 `prompt.md` 已经删掉，另外加了 Cursor 开发、方案评审等角色的 prompt：
 
 | 文件 | 作用 |
 | ---- | ---- |
@@ -269,6 +274,8 @@ issue #117 是修 enx-api 的 57 个 errcheck/staticcheck 告警，并启用 gol
 
 ## 开发 agent + 审查 agent
 
+> 这一节记录的是只有 Claude 的阶段：Claude 开发、另一个 Claude 会话审查。2026-10-21 起这条路径已删除，改为 Cursor 实现、Claude 审查（谁写的就由另一个模型审），实现前还多了一步方案评审。下面“循环由 bash 控制”“只有必改项阻塞”“第 2 轮只验收”这些规则在新流程里照样沿用。
+
 第一轮之后加了审查步骤。最初想用 Claude Code 的 agent teams，但它在 `claude -p` 下不会创建 teammate，teammate 也不继承 `dontAsk`，无人值守用不了。所以改由 `run.sh` 依次启动几个独立的 `claude -p`，每个都是全新上下文：
 
 ```text
@@ -299,6 +306,8 @@ issue #117 是修 enx-api 的 57 个 errcheck/staticcheck 告警，并启用 gol
 
 ### 人的审查意见也走修改步骤
 
+> `agent-fix` 已经随 Claude 开发的路径一起删除。现在人对 Cursor 的 PR 有意见时打 `cursor-fix`，由 Cursor 修改；人自己写的 PR 打 `agent-review`，由 Cursor 评审、Claude 修改。只取仓库所有者的意见、用评论标记区分人和 agent 的做法不变。
+
 人在 PR 上写完审查意见后，给 PR 打 `agent-fix` 标签。下一轮 runner 优先处理这类 PR：回到原 worktree，把意见交给修改 run，改完再进审查循环（第 1 轮重点核对人的每条意见）。
 
 仓库是公开的，任何人都能评论，所以交给 agent 的意见**只取仓库所有者写的**（review、普通评论、行内评论），其他人的评论不传进去。agent 自己发的评论用 `<!-- enx-agent-review round=N -->`、`<!-- enx-agent-fix -->` 开头做标记，用来区分人和 agent（它们用的是同一个 GitHub 账号），也用来只取上次修改之后的新意见。
@@ -319,6 +328,8 @@ issue #117 是修 enx-api 的 57 个 errcheck/staticcheck 告警，并启用 gol
 ### 合并改由脚本执行
 
 三个 agent 都不能执行 `gh pr merge`（guard 拦截）。审查通过后，由 `run.sh` 检查：CI 全绿（`gh pr checks --watch`）、PR 正文的 `## Manual checks` 是 none，都满足才合并；`AUTO_MERGE=0` 时只打 `ready-for-human`。合并条件写在脚本里，比写在 prompt 里让 agent 自己判断更可靠。
+
+只改文档的 PR 不触发 CI，`gh pr checks` 会返回 “no checks reported”。脚本隔一分钟再看一次，仍然没有检查就算通过。
 
 ### systemd timer
 
@@ -349,7 +360,7 @@ WantedBy=timers.target
 - `Persistent=true`：机器关机错过的那次，开机后补跑一次
 - 上一轮还没跑完时，新一轮会因为拿不到 `flock` 锁直接退出
 
-装好后先不启用，需要时：
+2026-10-18 启用，10-20 停用。现在只手动触发，等流程跑顺再重新启用；timer 的开关由 w10n-config 里的 `enx_agent_timer` 变量控制，`task configure-enx-agent` 部署。手动操作：
 
 ```bash
 systemctl --user enable --now enx-agent.timer   # start
@@ -377,7 +388,18 @@ agent 只有在以下条件都满足时才会自己合并：
 - [x] 脚本改成 bash 的 Linux 版本；通知用 Telegram Bot
 - [x] 第一轮手动跑 #117：PR #204，CI 全绿
 - [x] 加审查循环；PR #204 处理人的审查意见并通过审查
-- [x] 安装并启用 systemd timer（每 2 小时，2026-10-18 启用）
+- [x] 安装并启用 systemd timer（每 2 小时，2026-10-18 启用，10-20 停用，改为手动触发）
+- [x] Cursor 加入：本机运行 `cursor-agent` 实现，Claude 评审（2026-10-21）
+- [x] 实现前加方案评审；只保留一条流程，删掉 Claude 开发的路径和 `agent-fix`（2026-10-21）
+- [ ] 测通 `cursor-fix`：人在 Cursor 的 PR 上提意见、由 Cursor 修改
+- [ ] 流程跑顺后重新启用 timer
 - [ ] ECDICT、`.env`、Playwright（需要时再准备）
 - [ ] 跑一周后再决定是否保持自动合并
 - [ ] 给 agent 单独的 GitHub 账号，加 tag ruleset
+
+## 维护记录
+
+| 时间 | 修改内容 | 原因 |
+| ---- | -------- | ---- |
+| 2026-10-22 | 按现状更新：Cursor 实现、Claude 评审，timer 停用，标签表加 `cursor-fix`/`agent-review`，旧段落加说明并链接新文章 | 2026-10-21 起分工和流程变了，详见新文章 |
+| 2026-10-21 | 改写 ser8 工具链为什么用 mise 的说明 | 原文说 pacman 数据库没同步所以用 mise，理由不对：旧数据库应该全系统升级；用 mise 是为了锁定项目版本 |
