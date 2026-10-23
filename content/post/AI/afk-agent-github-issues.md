@@ -2,9 +2,8 @@
 title: "AFK Agent: 让 Claude Code 自主处理 GitHub Issue"
 author: "-"
 date: 2026-10-17T07:17:29+08:00
-lastmod: 2026-10-22T12:40:00+08:00
+lastmod: 2026-10-23T10:36:32+08:00
 url: afk-agent-github-issues
-draft: true
 categories:
   - AI
 tags:
@@ -18,7 +17,7 @@ tags:
 
 记录给 ENX 项目搭一个无人值守（AFK）agent 的过程：它定时从 GitHub 上挑一个标了 `ready-for-agent` 的 issue，在独立的 git worktree 里开发、测试、开 PR，满足条件就自己合并。人这边不再盯着它写代码，只负责把 issue 推进到 ready。
 
-这篇写的是基础设施：限额、权限、机器、工具链、定时触发，大部分仍然有效。2026-10-21 起分工变了：写代码的是在 ser8 本机运行的 Cursor，Claude 负责方案评审和代码评审，timer 也暂停了，改成手动触发。协作流程的变化和踩过的坑见 [Claude Code + Cursor: 两家 agent 在一台家用服务器上协作开发](/claude-cursor-cross-review-agents/)。
+这篇写的是基础设施：限额、权限、机器、工具链、定时触发，大部分仍然有效。2026-10-21 起分工变了：写代码的是在 ser8 本机运行的 Cursor，Claude 负责方案评审和代码评审，timer 也暂停了，改成手动触发。协作流程的变化和踩过的坑见 [Claude Code + Cursor: 两家 agent 在一台家用服务器上协作开发](./claude-cursor-cross-review-agents.md)。
 
 Claude Code 相关的参数和 hook 机制在 [Claude Code 使用笔记](./claude-code.md) 里有单独的说明，这里只写怎么把它们组合起来。
 
@@ -175,7 +174,7 @@ ser8 上没有装 zsh，所以脚本都改写成 bash。目录布局：
 
 `mise.toml` 放在 `~/enx-agent/` 而不是仓库里：mise 会沿父目录向上找配置，所以 clone 和所有 worktree 里自动用项目锁定的版本，出了这个目录还是 wiloon 全局的 Node 26。
 
-ser8 通过 WireGuard 连到局域网里的 50.73，那台机器上的 xray 做透明代理和分流。wg-quick 的规则是整机流量都进隧道（不是按用户），所以 ser8 上任何用户都能连上 Telegram。
+ser8 通过 WireGuard 连到局域网里的 50.73，那台机器上的 VPN 做透明代理和分流。wg-quick 的规则是整机流量都进隧道（不是按用户），所以 ser8 上任何用户都能连上 Telegram。
 
 ### ser8 上的工具链
 
@@ -403,3 +402,4 @@ agent 只有在以下条件都满足时才会自己合并：
 | ---- | -------- | ---- |
 | 2026-10-22 | 按现状更新：Cursor 实现、Claude 评审，timer 停用，标签表加 `cursor-fix`/`agent-review`，旧段落加说明并链接新文章 | 2026-10-21 起分工和流程变了，详见新文章 |
 | 2026-10-21 | 改写 ser8 工具链为什么用 mise 的说明 | 原文说 pacman 数据库没同步所以用 mise，理由不对：旧数据库应该全系统升级；用 mise 是为了锁定项目版本 |
+| 2026-10-23 | 移除草稿状态；修正站内链接和 VPN 名称表述 | 发布文章并遵守内容规范 |
