@@ -144,6 +144,7 @@ fi
 
 几点说明：
 
+- `GH_TOKEN` 和 `TF_VAR_github_token` 这两个名字不是自己起的：`GH_TOKEN` 是 gh CLI 固定读取的变量名；`TF_VAR_<name>` 是 OpenTofu / Terraform 的约定，用来给模块里名为 `<name>` 的 input variable 赋值，这里对应模块里的 `variable "github_token"`。如果想要一个自己看得懂的名字，可以再导出一个 `GITHUB_ORG_TOKEN`，让上面两个都引用它。
 - `.envrc` 里**没有 token 本身**，只有一条读取命令，所以这个文件不算敏感。不过它不在任何 git 仓库里（放在仓库的上一级目录），本来也不会被提交。
 - 先判断 `rbw unlocked` 再读取，是因为 vault 锁定时，`rbw get` 会尝试弹出密码输入框；在某些场景下它弹不出来，只会返回空字符串。
 - 空 token 必须拦下来。`gh` 和 GitHub provider 发现 token 为空时，会**悄悄退回**去用别的凭据（环境变量 `GITHUB_TOKEN`，或者 gh 存的个人登录），结果就是用错 token，还不容易看出来。
