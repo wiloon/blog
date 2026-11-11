@@ -1,8 +1,8 @@
 ---
-title: AWS 服务
+title: AWS Services（AWS 服务）
 author: "-"
 date: 2026-05-06T09:28:36+08:00
-lastmod: 2026-07-05T22:58:23+08:00
+lastmod: 2026-11-06T11:57:49+08:00
 url: aws-services
 categories:
   - cloud
@@ -15,6 +15,14 @@ tags:
 ## EC2
 
 Amazon Elastic Compute Cloud，虚拟机服务。按需启动 Linux/Windows 实例，支持多种规格（Instance Type）。常用于部署应用服务器、代理节点等。
+
+## Internet Gateway (IGW)
+
+Internet Gateway 是附加到 VPC 的网关，为 VPC 与 Internet 之间的流量提供出入口。仅创建并附加 IGW 不会自动让 VPC 中的资源访问公网或接受公网连接，还需要配置路由和资源本身的网络条件。
+
+通常，把子网关联的路由表中配置了指向 IGW 的默认路由的子网称为公网子网。例如，IPv4 路由 `0.0.0.0/0` 指向 IGW；启用 IPv6 时，也可以配置 `::/0` 指向 IGW。实例还需要公网 IPv4 地址（自动分配的公网地址或 Elastic IP），或可路由的 IPv6 地址；安全组和网络 ACL 也必须允许相应流量。对于 IPv4，IGW 会在实例的私有地址与其公网地址之间进行映射。
+
+私有子网通常不直接配置到 IGW 的默认路由。若其中的实例需要主动访问 Internet（例如下载更新），常见做法是让路由表将出站流量指向 NAT Gateway；NAT Gateway 不会因此允许 Internet 主动发起到这些实例的连接。更完整的 VPC、路由表和 IGW 配置示例见 [OpenTofu AWS EC2 案例](./opentofu-ec2-case-study.md)。
 
 ## S3
 
@@ -143,3 +151,4 @@ Amazon DynamoDB，AWS 自研的全托管 NoSQL 数据库，支持键值（Key-Va
 | 时间       | 修改内容                                 | 原因                   |
 | ---------- | ---------------------------------------- | ---------------------- |
 | 2026-07-05 | 新增 DynamoDB 章节，含发音和核心概念说明 | 补充自研数据库服务介绍 |
+| 2026-11-06 | 补充 Internet Gateway 与公网/私有子网说明；更新标题 | 增加网络基础概念介绍 |

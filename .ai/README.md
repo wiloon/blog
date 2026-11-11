@@ -35,6 +35,7 @@
 | [specs/cloud-native-buildpacks.md](specs/cloud-native-buildpacks.md)                               | [cloud/cloud-native-buildpacks.md](../content/post/cloud/cloud-native-buildpacks.md)                                                               |
 | [specs/iot-third-party-data-push.md](specs/iot-third-party-data-push.md)                           | `content/post/career/iot-third-party-data-push.md`                                                                                                 |
 | [specs/hugo-cloudflare-pages-blog-setup.md](specs/hugo-cloudflare-pages-blog-setup.md)             | `content/post/web/hugo-cloudflare-pages-blog-setup.md`                                                                                             |
+| [specs/baton.md](specs/baton.md)                                                                   | `content/post/projects/baton.md`                                                                                                                   |
 **内容目录 `content/post/career/`**：职业/面试向叙事与项目故事（[exploration](../content/post/career/exploration.md)、[conflict-check](../content/post/career/conflict-check.md)、OOM 案例等）。
 
 ## 工作流（SDD）
