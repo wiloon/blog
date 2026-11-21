@@ -2,7 +2,10 @@
 title: Claude Code 使用笔记
 author: "-"
 date: 2026-04-20T12:54:03+08:00
-lastmod: 2026-10-17T07:17:29+08:00
+lastmod: 2026-11-22T05:42:32+08:00
+ShowToc: true
+TocOpen: true
+UseHugoToc: true
 url: claude-code
 categories:
   - AI
@@ -24,38 +27,7 @@ brew install --cask claude-code@latest
 npm install -g @anthropic-ai/claude-code
 ```
 
-## 安装 cc-switch（多账号切换工具）
-
-```bash
-brew install --cask cc-switch
-```
-
-安装后从 Launchpad 或用以下命令启动：
-
-```bash
-open -a cc-switch
-```
-
-## 认证冲突处理
-
-cc-switch 会设置 `ANTHROPIC_AUTH_TOKEN` 环境变量，若同时存在 `claude /login` 的 key，启动时会出现：
-
-```text
-⚠ Auth conflict: Both a token (ANTHROPIC_AUTH_TOKEN) and an API key (/login managed key) are set.
-```
-
-**想用 cc-switch 管理的账号：**
-
-```bash
-claude /logout
-```
-
-**想用 `/login` 的 key：**
-
-```bash
-unset ANTHROPIC_AUTH_TOKEN
-# 或从 ~/.zshrc 中删除该变量
-```
+以前用 cc-switch 切换多个账号，现在已不再使用，相关内容移到了 [cc-switch：Claude Code 多账号切换](./cc-switch.md)。
 
 ## claude command
 
@@ -73,43 +45,60 @@ claude
 不同 AI 编程工具各自识别不同的项目指令文件：
 
 | 工具 | 识别的指令文件 |
-|---|---|
+| --- | --- |
 | VS Code Copilot | `AGENTS.md`、`.github/copilot-instructions.md` |
-| Claude Code CLI | `CLAUDE.md`（项目根目录或父目录） |
+| Claude Code CLI | `CLAUDE.md`、`.claude/CLAUDE.md`、`CLAUDE.local.md`；v2.1.277 起也直接读 `AGENTS.md` |
 | OpenAI Codex CLI | `AGENTS.md` |
 
-两者**不会**自动识别对方的约定文件：
+官方文档：<https://code.claude.com/docs/en/memory>
 
-- 项目只有 `AGENTS.md`：Claude Code 不会加载它
-- 项目只有 `CLAUDE.md`：VS Code Copilot 不会加载它
+### Claude Code 什么时候读 AGENTS.md
 
-### 同时使用两个工具的方案
+从 v2.1.277 起，Claude Code 可以**直接加载 `AGENTS.md`**，不再需要 `CLAUDE.md`、软链接或 import。但默认是**二选一**，不是合并：
 
-**推荐：软链接**（以 `AGENTS.md` 为主文件）
+| 仓库里有什么（工作目录及其上级目录） | 默认加载 |
+| ---- | ---- |
+| 只有 `AGENTS.md` | 所有 `AGENTS.md` 和 `.claude/AGENTS.md` |
+| `AGENTS.md` + `CLAUDE.md`（或 `.claude/CLAUDE.md`、`CLAUDE.local.md`） | **只读 `CLAUDE.md`**，`AGENTS.md` 被忽略 |
 
-```bash
-ln -s AGENTS.md CLAUDE.md
-```
+几个细节：
 
-优点：单一事实来源，改一处两个工具都生效，不依赖任何工具特定语法。
+- 会话启动时加载工作目录及所有上级目录里的 `AGENTS.md`；子目录里的 `AGENTS.md` 在 Claude 用 Read 工具打开那个目录下的文件时才加载（前提是该子目录没有自己的 `CLAUDE.md`）
+- `AGENTS.md` 里同样支持 `@path` import，规则和 `CLAUDE.md` 一样（相对路径从当前文件算起，最多嵌套 4 层）
+- `AGENTS.local.md`、`AGENTS.override.md` 和 `.agents/` 目录下的文件**不会**加载
+- 坑：一个项目本来靠 `AGENTS.md` 工作，你又加了个 `CLAUDE.local.md` 放个人配置，`AGENTS.md` 就不读了
+- 早期版本有些例外：v2.1.281 之前，部分会话（比如走 Amazon Bedrock、关闭遥测）只读 `CLAUDE.md`；v2.1.280 之前，`/memory`、`/context` 里看不到直接加载的 `AGENTS.md`
 
-**不推荐：`@include`**
+### 用 /config 调整加载策略
 
-Claude Code 支持 `@path/to/file` 语法，但 VS Code Copilot 的 `AGENTS.md` 不支持 `@include`，只能单向引用，不是真正的双向共享。
+`/config` 里的 **Project instructions** 有四个取值：
 
-### 踩坑记录：项目里只有 AGENTS.md，规则被静默忽略
+| 值 | 行为 |
+| ---- | ---- |
+| `claude-md-or-agents-md`（默认） | 有 `CLAUDE.md` 就只读 `CLAUDE.md`，没有就读 `AGENTS.md` |
+| `claude-md-and-agents-md` | 两个都读，每个目录先 `CLAUDE.md` 后 `AGENTS.md` |
+| `claude-md` | 只读 `CLAUDE.md`（旧行为） |
+| `managed-only` | 只读托管策略的指令文件 |
 
-本博客仓库最初根目录只有 `AGENTS.md`（写了文件名、URL、categories、`lastmod`、标签等一整套强制规则），没有 `CLAUDE.md`。结果是：Claude Code 在编辑文章时完全没有加载这些规则，`lastmod` 没更新、标签也没按规则加，而且**不会报错或提示**——因为 Claude Code 本身就不认识 `AGENTS.md` 这个文件名，不是规则被违反，而是规则从没被读到过。
+这个设置也可以写进 `~/.claude/settings.json`（`pluginConfigs` → `cc-plugin-agents-md@builtin` → `options.instructionFiles`），但只有用户级设置、`--settings` 文件或托管设置里的这一项会生效，写在项目级 settings 里会被忽略。
 
-排查方法：确认项目根目录下是否存在 `CLAUDE.md`（或 `CLAUDE.local.md`），如果只有 `AGENTS.md`，Claude Code 不会自动读取。
+### 同时使用多个工具的方案
 
-修复：在根目录新建 `CLAUDE.md`，内容只写一行：
+现在多数情况下**只放一个 `AGENTS.md` 就够了**，Claude Code、Copilot、Codex 都能读到。
+
+需要给 Claude 加专属内容时，用 `CLAUDE.md` + import（以 `AGENTS.md` 为主文件）：
 
 ```markdown
 @AGENTS.md
+
+<!-- Claude Code-only additions go below -->
 ```
 
-这样每次会话都会通过 import 语法把 `AGENTS.md` 的内容加载进上下文，无需维护两份文件。
+一旦有了 `CLAUDE.md`，默认就不再直接读 `AGENTS.md`，所以第一行的 `@AGENTS.md` 不能省。这种写法也不会导致 `AGENTS.md` 被读两遍。设成 `claude-md`，或者会话本身读不了 `AGENTS.md` 时，也用这个写法。
+
+**软链接**（`ln -s AGENTS.md CLAUDE.md`）也能用，但 Claude Code 的 Edit/Write 工具拒绝透过软链接写文件，让 Claude 改规则时会碰壁；Windows 上更推荐 import。
+
+旧版本只放 `AGENTS.md`、规则被静默忽略的经历，见文末「踩坑记录」。
 
 ## 常见错误
 
@@ -202,20 +191,90 @@ Claude Code 里支持这个模式的机制有好几种，容易混淆，核心�
 /goal 所有 test/auth 下的测试通过，且 lint 检查干净
 ```
 
-写条件时注意几点：
+官方文档：<https://code.claude.com/docs/en/goal>
 
-- 给一个可衡量的终态：测试结果、构建退出码、文件数量等，而不是「做得不错」这类模糊描述
-- 写明验证方式：比如「`npm test` 退出码为 0」
-- 写清不能变的约束：比如「不要动其他测试文件」
-- 可以加轮次/时间上限：比如「或最多跑 20 轮后停止」
+#### 用法
 
-非交互模式下也能用，配合 headless 一起跑：
+| 命令 | 作用 |
+| ---- | ---- |
+| `/goal <条件>` | 设定目标，并**立刻**以这个条件为指令开始一轮；已有目标时直接替换（一个 session 同时只有一个目标） |
+| `/goal` | 不带参数：查看当前目标的状态，没有活跃目标时显示最近一次达成的目标 |
+| `/goal clear` | 提前取消目标；`stop`、`off`、`reset`、`none`、`cancel` 都是同义词，成功会提示 `Goal cleared: …` |
+| `/clear` | 开新对话，目标也一并清掉 |
+
+条件最长 4000 字符。**没有内置的轮次/时间上限参数**，想限制就直接写进条件里，比如「……或跑满 20 轮后停止」，Claude 每轮会汇报进度，评估器根据对话内容判断是否到限。
+
+#### 运行状态
+
+- 目标生效时界面上有 `◎ /goal active` 指示器，显示已运行时长
+- `/goal` 状态里能看到：条件、运行时长、已评估轮数、当前 token 花费、评估器最近一次给出的理由
+- 每次评估的结论会出现在 transcript（会话记录，见下文「Transcript：会话记录」）里，按 `Ctrl+O` 打开 transcript 视图可以看到理由
+
+#### 评估是怎么做的
+
+`/goal` 本质上是一个 **session 范围、基于 prompt 的 Stop hook**。每轮结束后，Claude Code 把「条件 + 到目前为止的对话」发给评估模型，得到三种结论之一：
+
+| 结论 | 后果 |
+| ---- | ---- |
+| 未满足（not yet met） | 继续下一轮，评估器给的理由会作为下一轮的指引 |
+| 已满足（met） | 目标清除，记一条「达成」记录 |
+| 不可能达成（impossible） | 目标清除，记一条「失败」记录并附理由 |
+
+关键限制：**评估器不调用工具、不跑命令、不读文件**，它只能看 Claude 已经在对话里展示出来的东西。所以条件里要写「怎么验证」，逼 Claude 每轮把证据摆出来——比如让它跑 `npm test`，测试输出出现在 transcript 里，评估器才有依据。写成「代码质量好」这种条件，评估器没法判断，只会无限循环或乱判。
+
+另一个保护：如果 Claude 连续好几轮只回话、不调用任何工具（原地空转），Claude Code 会停掉循环、打印警告、把控制权还给你，但目标仍保留，你下一次发消息后继续评估。
+
+#### 写好条件
+
+一个好的条件通常包含：
+
+- **一个可衡量的终态**：测试结果、退出码、文件数量、队列清空，而不是「做得不错」这类模糊描述
+- **明确的检查方式**：比如「`npm test` 退出码为 0」「`git status` 干净」
+- **不能变的约束**：比如「不修改其他测试文件」
+- **兜底上限**（可选）：比如「或跑满 20 轮后停止」
+
+几个例子：
+
+```text
+/goal src/legacy/ 下所有调用点都迁移到新 API，go build ./... 和 go test ./... 都通过，不修改 *_test.go 的断言
+/goal docs/design.md 里的每条验收标准都有对应测试且通过；每轮结束列出剩余未满足的标准
+/goal 拆分 big.ts，直到每个模块都小于 300 行，pnpm typecheck 退出码为 0
+/goal 处理完所有带 ready-for-agent 标签的 issue，gh issue list --label ready-for-agent 返回空；或跑满 30 轮停止
+```
+
+适合迁移大量调用点直到全部编译通过、按设计文档实现直到验收标准全部满足、拆分大文件直到每个模块都在体积预算内、清空一个 issue backlog 这类需要多轮迭代、又不想每轮手动确认「继续」的场景。一两轮能搞定的事不需要它。
+
+#### 和权限模式配合：无人值守要开 auto mode
+
+`/goal` **不改变权限模式**。手动模式下，Claude 遇到 settings 没放行的工具调用照样停下来问你，循环就卡在那。真想放手跑，要在 auto mode 下用 `/goal`（auto mode 的细节见下文「auto mode 详解」）：
+
+- auto mode 去掉的是「每次工具调用」的确认
+- `/goal` 去掉的是「每一轮」的确认（auto mode 本身不会主动开始新一轮）
+
+两者叠加才是真正的无人值守。
+
+#### 非交互模式（headless）
 
 ```bash
 claude -p "/goal CHANGELOG.md 里包含本周每个合并 PR 的条目"
 ```
 
-适合迁移大量调用点直到全部编译通过、按设计文档实现直到验收标准全部满足、拆分大文件直到每个模块都在体积预算内、清空一个 issue backlog 这类需要多轮迭代、又不想每轮手动确认「继续」的场景。
+一次调用就会跑到目标完成为止。默认文本输出只打印最终回复，想看过程用 `--output-format stream-json --verbose`；`Ctrl+C` 中止。桌面端和 Remote Control 里也能用。
+
+#### 出错、后台任务与 check-in
+
+- **必须人工处理的错误会清掉目标**：认证失败、额度用完、磁盘满、上下文溢出且自动压缩也救不回来、模型不可用等，提示以 `Goal cleared after an unrecoverable error` 开头，修好后重新 `/goal`
+- **其他错误目标保留**（v2.1.269+）：可重试的错误会显示 `Goal still active` 并自动重试，重试三次后暂停；遇到限流、用量上限或某个 hook 结束了本轮，会显示 `Goal paused` 并写明原因，等用量上限重置后会自动接着干。随时发一条消息就能立即开始下一轮
+- **后台任务**：一轮结束时如果还有 subagent 或后台 shell 在跑，这一轮跳过评估，等到某一轮结束时没有后台任务了再评估
+- **check-in**：后台任务把目标挂住 30 分钟后，Claude 会做一次 check-in——列出在跑的任务、读输出，判断是继续等还是修掉/停掉卡住的任务；之后间隔退避（30 分钟 → 1 小时 → 之后每 2 小时）。交互模式下空闲时也会主动 check-in，但两次用户输入之间最多 3 次。`-p` 模式只在轮次结束时 check-in
+- 环境变量 `CLAUDE_CODE_GOAL_CHECKIN_MINUTES` 调整首次 check-in 间隔（默认 30，后续间隔按比例缩放），设为 `0` 同时关闭 check-in 和自动重试
+- `claude --resume` 从 v2.1.239 起会恢复会话里的目标
+
+#### 评估模型、费用与限制
+
+- 评估器用的是「配置的小而快的模型」，跟主会话走同一个 provider。想换就设 `ANTHROPIC_DEFAULT_HAIKU_MODEL`——注意这会同时改掉 `haiku` 别名和其他后台任务（比如生成会话标题）用的模型
+- 评估消耗的 token **单独计费**，叠加在主轮次花费之上；长时间跑之前看一眼 `/goal` 状态里的 token 花费
+- `/goal` 跟 settings 里的 hooks 遵循同样的 workspace trust 规则；如果最终生效的设置里 `disableAllHooks: true`，或托管设置开了 `allowManagedHooksOnly`，`/goal` 不可用
 
 ### /loop 与 /schedule：定时/循环任务
 
@@ -404,7 +463,7 @@ Claude Code 每次调用工具（跑命令、改文件、联网）前都要过�
 | `manual` | 弹窗问人（即通常说的默认模式） | 日常交互 |
 | `acceptEdits` | 自动允许改文件和 `mkdir`/`mv`/`cp` 等文件操作，其余照常问 | 信任它改代码，但命令还想过目 |
 | `plan` | 只读，只能调研和出方案，不能改 | 先讨论方案再动手 |
-| `auto` | 由一个安全分类器判断风险，低风险直接放行，高风险拒绝 | 有人在旁边、但不想频繁点确认 |
+| `auto` | 由一个安全分类器判断风险，低风险直接放行，高风险拒绝（详见下文「auto mode 详解」） | 有人在旁边、但不想频繁点确认 |
 | `dontAsk` | **直接拒绝**，不弹窗 | 无人值守：只有 `permissions.allow` 里列出的操作能执行 |
 | `bypassPermissions` | 全部放行（等同 `--dangerously-skip-permissions`） | 只在一次性沙箱/容器里用 |
 
@@ -423,6 +482,99 @@ Claude Code 每次调用工具（跑命令、改文件、联网）前都要过�
   }
 }
 ```
+
+### auto mode 详解
+
+auto mode 的思路是：**不再逐个问你，而是让另一个模型（安全分类器）在每个动作执行前审一遍**。它会拦下超出你请求范围的操作、针对陌生基础设施的操作，以及看起来是被 Claude 读到的恶意内容（prompt injection）驱动的操作。官方原话也提醒了：auto mode 减少了确认弹窗，但**不保证安全**。
+
+官方文档：<https://code.claude.com/docs/en/permission-modes>、<https://code.claude.com/docs/en/auto-mode>
+
+#### 一个动作是怎么被判定的
+
+1. 先看 `permissions` 里的 allow / ask / deny 规则。deny 直接拒绝，ask 照样弹窗（即使在 auto mode 下）
+2. 只读操作、工作目录里的文件编辑直接放行
+3. 其余的交给分类器判断
+4. 被拦下时，Claude 会收到拒绝原因（通常是一个策略名，比如 `[Destructive or Unwanted Actions]`），然后可以换别的办法
+
+分类器看到的是：你的消息、Claude 的工具调用（文件读取、搜索这类只读查询除外）、`CLAUDE.md` 的内容。**工具返回的结果会被剥掉**，这样网页、文件里的恶意内容就没法直接「说服」分类器。它只信任工作目录和会话启动时已配置的 git remote。
+
+#### 默认拦什么、放什么
+
+| 默认拦下 | 默认放行 |
+| ---- | ---- |
+| 下载并执行代码，比如 `curl \| bash` | 工作目录里的本地文件操作 |
+| 把敏感数据发往外部、把密钥推出仓库 | 安装项目里已声明的依赖 |
+| 生产部署、数据库迁移 | 只读的 HTTP 请求 |
+| force push、`git reset --hard`、`git clean -fd` 等丢弃改动的操作 | push 到当前仓库的分支（包括默认分支，但 `production`、`gh-pages` 这类像部署目标的分支除外） |
+| `terraform destroy` 之类的销毁操作、删除已有文件 | |
+| 合并未经批准的 PR、关掉 CI 检查 | |
+
+#### 开启方式
+
+- **交互模式**：新版本（v2.1.283 起）交互式终端和 VS Code 会话默认就从 auto mode 开始。按 Shift+Tab 切换：在 `auto` 下按一次切到 `default`，之后按 `default` → `acceptEdits` → `plan` 循环
+- **命令行**：`claude --permission-mode auto`
+- **设置默认值**：`permissions.defaultMode: "auto"` 只能写在 `~/.claude/settings.json`；写在项目的 `.claude/settings.json` 或 `settings.local.json` 里**不生效**（防止仓库替你打开 auto mode）
+- **headless**：`claude -p` 默认是手动模式，要显式加 `--permission-mode auto`
+- 需要较新的模型，旧模型不支持；Team / Enterprise 管理员可以在托管设置里用 `permissions.disableAutoMode` 关掉
+
+#### 被拦下之后
+
+- 界面会弹通知，`/permissions` 的 **Recently blocked** 里能看到。按 `r` 批准后 Claude 可以重试，但这**不会**新增一条权限规则，重试时还会重新过一次检查
+- **连续被拦 3 次，或一个会话累计被拦 20 次**，auto mode 暂停，回到逐个弹窗确认；你批准一次后恢复。这两个阈值不能改
+- headless 模式下没有弹窗可以退回：被拦的动作就不执行，Claude 继续干别的，不会中止整个运行
+- 分类器模型不可用时，所有需要检查的动作都会被拒绝
+
+#### 自定义
+
+- 用 `permissions.allow` / `ask` / `deny` 规则做硬性约束，deny 在分类器之前生效
+- 用 settings 里的 `autoMode` 块，以**自然语言**告诉分类器你的环境：`environment`（比如「`*.internal.example.com` 是我们自己的服务」）、`allow`、`soft_deny`、`hard_deny`。每个列表里要带上 `"$defaults"`，否则会覆盖掉内置规则。`autoMode` 同样只从用户级设置、托管设置或 `--settings` 读取，项目级设置里写了也不生效
+- 工具：`claude auto-mode defaults` 看内置规则，`/auto-mode-setup` 帮你起草配置，`/permissions` 里有 **Auto mode** 标签页
+
+#### 费用
+
+走 API、Bedrock、Vertex、Foundry 或 Enterprise 计划时，分类器调用的 token 计入你的用量；每次检查也会多一次往返延迟。
+
+#### auto mode 和其他模式怎么选
+
+- 有人在旁边、想少点确认：`auto`
+- 无人值守、白名单之外一律拒绝：`dontAsk` + `permissions.allow`，行为完全可预测
+- 想让 `/goal` 自己跑完：`auto` + `/goal`（auto mode 去掉每次工具调用的确认，`/goal` 去掉每一轮的确认）
+- `bypassPermissions` 只在隔离的容器、虚拟机里用
+
+## Transcript：会话记录
+
+transcript 指的是**一次会话的完整记录**：你的消息、Claude 的回复、每次工具调用及其结果。它有两种形态。
+
+### 界面里的 transcript 视图（Ctrl+O）
+
+平时的聊天界面会把工具调用折叠成一行摘要，按 `Ctrl+O` 打开 transcript 视图，能看到每次工具调用的详细输入输出，每条回复还带时间戳和所用模型。`/goal` 每轮评估的结论和理由，也是在这里展开看的。
+
+视图里常用的键：
+
+| 键 | 作用 |
+| ---- | ---- |
+| `q` / `Esc` / `Ctrl+C` | 退出 transcript 视图 |
+| `{` / `}` | 跳到上一条/下一条用户消息（全屏渲染时） |
+| `[` | 把整段对话写到终端原生 scrollback，之后可以用 `Cmd+F` 搜索（全屏渲染时） |
+| `v` | 把对话写到临时文件，用 `$VISUAL` / `$EDITOR` 打开（全屏渲染时） |
+| `Ctrl+E` | 显示全部内容（经典渲染时） |
+| `?` | 快捷键帮助（全屏渲染时） |
+
+### 磁盘上的 transcript 文件
+
+所有经过工具的内容都会写进磁盘上的 transcript：
+
+```text
+~/.claude/projects/<project>/<session-id>.jsonl           # main session: messages, tool calls, tool results
+~/.claude/projects/<project>/<session-id>/subagents/      # subagent transcripts
+~/.claude/projects/<project>/<session-id>/tool-results/   # oversized tool outputs
+```
+
+- 格式是 JSONL，一行一条记录。`--resume`、`--continue` 和回退（rewind）都依赖这些文件，删掉 `~/.claude/projects/` 就没法恢复以前的会话了
+- **明文存储、不加密**，命令输出里出现过的密钥也会留在里面
+- 默认保留 30 天，用 settings 里的 `cleanupPeriodDays` 调整（最小 1，设 0 会报错）
+- 不想落盘：headless 模式加 `--no-session-persistence`，或者设环境变量 `CLAUDE_CODE_SKIP_PROMPT_HISTORY`
+- hook 的输入里有 `transcript_path` 字段指向这个文件。但它是异步写入的，hook 触发时可能还没写进本轮最新的消息；Stop hook 想拿 Claude 的最后一条回复，用输入里的 `last_assistant_message` 更可靠
 
 ## Hooks：在工具调用前后插入自己的脚本
 
@@ -606,6 +758,18 @@ attempt to fix the code yourself, just report.
 - **并行处理**：多个独立子任务可以同时派发给不同子代理并行跑，比串行一个个做更快
 - **可复用、可共享**：项目级子代理进 git 后，团队所有人用同一套审查/测试/调试规范，不用每人各自维护一份 prompt
 
+## 踩坑记录
+
+### 项目里只有 AGENTS.md，规则被静默忽略（v2.1.277 之前）
+
+> 这是旧版本的问题，v2.1.277 起只有 `AGENTS.md` 的项目也能正常加载规则，下面保留作为历史记录。
+
+本博客仓库最初根目录只有 `AGENTS.md`（写了文件名、URL、categories、`lastmod`、标签等一整套强制规则），没有 `CLAUDE.md`。结果是：Claude Code 在编辑文章时完全没有加载这些规则，`lastmod` 没更新、标签也没按规则加，而且**不会报错或提示**——因为当时的 Claude Code 不认识 `AGENTS.md` 这个文件名，不是规则被违反，而是规则从没被读到过。
+
+当时的修复：在根目录新建 `CLAUDE.md`，内容只写一行 `@AGENTS.md`。这个文件现在仍然保留着，在新版本里也没有副作用。
+
+现在排查「规则没生效」，先用 `/memory` 或 `/context` 看实际加载了哪些指令文件，再检查是不是同时存在 `CLAUDE.md` / `CLAUDE.local.md` 把 `AGENTS.md` 挡掉了。
+
 ## 维护记录
 
 | 时间 | 修改内容 | 原因 |
@@ -615,3 +779,6 @@ attempt to fix the code yourself, just report.
 | 2026-07-25 | 新增「Headless 模式（非交互式）」章节 | 原文档缺少 `-p`/`--print` 非交互模式、CI/CD 自动化相关内容 |
 | 2026-07-30 | 新增「Subagents 子代理」章节 | 原文档缺少子代理定义格式、存放位置、`/agents` 管理、调用方式相关内容 |
 | 2026-10-17 | 新增「权限模式」「Hooks：PreToolUse」「没有 profile，用 settings 分层代替」三节 | 搭建无人值守 agent 时需要 `dontAsk`、PreToolUse hook 和两套权限配置 |
+| 2026-11-21 | 扩充 `/goal` 小节；cc-switch 内容移到单独文档；重写「CLAUDE.md 与 AGENTS.md」 | 补充官方文档里的用法、评估机制和错误处理；已不再使用 cc-switch；Claude Code v2.1.277 起原生加载 AGENTS.md |
+| 2026-11-21 | 新增「auto mode 详解」「Transcript：会话记录」；「踩坑记录」移到文末 | 补充 auto mode 的判定机制和 transcript 的含义；踩坑记录集中放在最后 |
+| 2026-11-22 | 开启文章目录（`ShowToc`）；站内链接改为相对 `.md`；代码块注释改为英文 | 文章较长，需要从开头跳转到各章节；遵守博客内链与代码块规范 |

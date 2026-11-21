@@ -2,7 +2,7 @@
 title: Harness Engineering 与状态锚点
 author: "-"
 date: 2026-04-20T13:03:41+08:00
-lastmod: 2026-06-28T12:05:00+08:00
+lastmod: 2026-11-21T12:00:00+08:00
 url: harness-engineering
 categories:
   - AI
@@ -173,7 +173,7 @@ Harness Engineering 完整体系
 
 ### Project Brief — `AGENTS.md` / `CLAUDE.md`
 
-面向 AI 助手的项目说明文件。在对话开始时被 AI 工具自动读取（如 Claude Code 会自动加载 `CLAUDE.md`），用来让 AI 立刻理解：
+面向 AI 助手的项目说明文件。在对话开始时被 AI 工具自动读取（如 Claude Code 会自动加载 `CLAUDE.md`，v2.1.277 起没有 `CLAUDE.md` 时也会直接加载 `AGENTS.md`），用来让 AI 立刻理解：
 
 - 项目是什么、做什么用
 - 技术栈和架构决策
