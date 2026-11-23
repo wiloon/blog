@@ -2,11 +2,15 @@
 title: CAP, BASE
 author: "-"
 date: 2012-06-28T04:36:17+00:00
+lastmod: 2026-11-23T15:44:55+08:00
 url: cap
 categories:
-  - inbox
+  - CS
 tags:
-  - reprint
+  - cap
+  - distributed-system
+  - remix
+  - AI-assisted
 ---
 ## CAP, BASE
 
@@ -83,7 +87,7 @@ BASE，Basically Available Soft State Eventual Consistency 的简写:
 BA: Basically Available 基本可用，分布式系统在出现故障的时候，允许损失部分可用性，即保证核心可用。
 S: Soft State 软状态，允许系统存在中间状态，而该中间状态不会影响系统整体可用性。
 E: Consistency 最终一致性，系统中的所有数据副本经过一定时间后，最终能够达到一致的状态。
-BASE 理论本质上是对 CAP 理论的延伸，是对 CAP 中 AP 方案的一个补充。
+BASE 理论本质上是对 CAP 理论的延伸，是对 CAP 中 AP 方案的一个补充。很多 NoSQL 数据库按 BASE 思路设计，与关系型数据库的对比见 [关系型数据库与 NoSQL 对比](../other/relational-vs-nosql.md)。
 
 ### 柔性事务
 
@@ -98,3 +102,9 @@ BASE 理论本质上是对 CAP 理论的延伸，是对 CAP 中 AP 方案的一�
 [https://www.ruanyifeng.com/blog/2018/07/cap.html](https://www.ruanyifeng.com/blog/2018/07/cap.html)
 [https://zh.wikipedia.org/wiki/CAP%E5%AE%9A%E7%90%86](https://zh.wikipedia.org/wiki/CAP%E5%AE%9A%E7%90%86)
 [https://my.oschina.net/u/867417/blog/1865971](https://my.oschina.net/u/867417/blog/1865971)
+
+## 维护记录
+
+| 时间 | 修改内容 | 原因 |
+| ---- | -------- | ---- |
+| 2026-11-23 | BASE 理论一节加入关系型 vs NoSQL 对比文章的链接；分类改为 CS | 建立相关文章互链 |
