@@ -56,7 +56,7 @@ NFS 这一点容易误解：NAS 网页登录的用户名密码只管 SMB 和网�
 
 教程里另有一句「QuTS hero 只支持 QuObjects 2.3 及更早版本」，和产品页的说法对不上，装之前在 App Center 里看实际能装的版本为准。
 
-我家里的是 TS-453Bmini（Celeron J3455，x86），按 CPU 要求在支持范围内，跑的是 QTS。
+我家里的是 TS-453Bmini：Celeron J3455（x86）、16 GB 内存、QTS 5.2.11，三项都满足要求。
 
 ## 主要功能
 
@@ -160,10 +160,26 @@ resource "aws_s3_bucket" "longhorn" {
 
 风险：AWS provider 读取 `aws_s3_bucket` 时会顺带调用 ACL、CORS、website、logging、replication、tagging 等一串子接口。兼容 S3 的服务常有几个没实现，`tofu plan` 会报 `NotImplemented`。上面那份官方 API 清单里就缺了不少，所以能不能顺利跑通要实测。跑不通的话，bucket 在网页上手动建，写进文档也可以，毕竟它建完基本不会再动。
 
+## 社区反馈
+
+搜了 Veeam、Proxmox、QNAP 社区论坛和 GitHub 的讨论（2022–2025 年），整体结论是：能用，但不是开箱即用的 AWS 级兼容，常见问题集中在下面几类。
+
+| 问题 | 说明 |
+| --- | --- |
+| 必须用 path-style | Proxmox Backup Server 列 bucket 报 400，开 path-style 后解决 |
+| 自签证书 | 默认是 NAS 自签证书，校验证书的客户端走 HTTPS 会失败；换 Let's Encrypt 证书或给客户端配 CA |
+| 版本回归 | QuObjects 2.5.539 改了对 AWS S3 新校验和标准的处理，有用户每次上传都报 400，回退到 2.5.513 解决；Velero 的 AWS 插件也受影响 |
+| 签名版本 | 早期版本底层是 Swift，不支持 AWS Signature V4，Velero 内置的 restic 用不了（2022 年的 issue） |
+| 请求限流 | 有用户用 Velero 时 bucket 里空目录越积越多，过期扫描触发 `Too Many Requests`，最后换成了 MinIO |
+| Veeam | 官方认证，但 Veeam 的兼容列表注明要升级到 2.4.1785 以上，修了若干问题 |
+
+也有正面的例子：有人用 restic 加 Let's Encrypt 证书把 QuObjects 当备份仓库，用得没问题，并说明它免费。
+
+对 Longhorn 来说，要留意的是限流和版本回归：Longhorn 备份会把卷切成很多 2 MiB 的小块对象，请求数多。升级 QuObjects 前最好先跑一次备份和恢复验证。
+
 ## 待验证
 
-- TS-453Bmini 当前的 QTS 版本和内存是否满足要求，App Center 里能装的 QuObjects 版本。
-- 是否收费：产品页没有写价格。
+- App Center 里能装的 QuObjects 版本。
 - HTTPS 证书怎么配（自签还是导入）。
 - AWS provider 对 QuObjects 的兼容性。
 - Longhorn 的保留策略和 Object Lock 能否共存。
@@ -172,5 +188,12 @@ resource "aws_s3_bucket" "longhorn" {
 
 - [QuObjects 产品页](https://www.qnap.com/en/software/quobjects)
 - [QuObjects 设置教程](https://www.qnap.com/vi-vn/how-to/tutorial/con_show.php?cid=136)
+- [QuObjects 2.5.539 upload problem](https://community.qnap.com/t/quobjects-2-5-539-upload-problem/5911)
+- [Proxmox: PBS on QuObjects](https://forum.proxmox.com/threads/trying-to-set-up-pbs-to-use-s3-on-quobjects-app-qnap.176670/)
+- [QuObjects S3 and Duplicati](https://community.qnap.com/t/quobjects-s3-and-duplicati-local-network/7193)
+- [Velero issue #5587: Signature V4](https://github.com/vmware-tanzu/velero/issues/5587)
+- [QuObject directory automatic deletion](https://forum.qnap.com/viewtopic.php?t=162122&p=794518)
+- [Veeam: QNAP QuObjects](https://www.veeam.com/sys1242)
+- [Pull Backup with Restic to a QNAP NAS S3 store](https://harald.hoyer.xyz/restic/)
 - [NFS](./nfs.md)、[Samba](./samba.md)、[Litestream](./litestream.md)
 - [Hardware：QNAP TS453Bmini](../Hardware/hardware.md#qnap-ts453bmini)
