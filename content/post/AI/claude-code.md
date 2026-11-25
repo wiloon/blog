@@ -489,6 +489,8 @@ claude auth status --text
 - **撤销**：文档没写怎么撤销或列出 setup-token；GitHub Actions 文档还提到删掉 secret 不会让里面的凭证失效。当密码一样保管，不要提交进 git。
 - **GitHub Actions**：存成仓库 secret `CLAUDE_CODE_OAUTH_TOKEN`，在 `anthropics/claude-code-action@v1` 里写 `claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}`；`/install-github-app` 可以替你创建这个 secret。
 
+Codex、Cursor、Antigravity 的无人值守登录方式对比见 [Coding Agent Headless Auth](./coding-agent-headless-auth.md)。
+
 参考：[Authentication](https://code.claude.com/docs/en/authentication)、[GitHub Actions](https://code.claude.com/docs/en/github-actions)、[Headless](https://code.claude.com/docs/en/headless)
 
 ## 权限模式（--permission-mode）
