@@ -2,7 +2,7 @@
 title: Claude Code 使用笔记
 author: "-"
 date: 2026-04-20T12:54:03+08:00
-lastmod: 2026-11-22T05:42:32+08:00
+lastmod: 2026-11-25T15:32:16+08:00
 ShowToc: true
 TocOpen: true
 UseHugoToc: true
@@ -454,6 +454,43 @@ done
 - 构建脚本里当项目专属 linter/reviewer 用
 - 批量/并行跑多个独立任务，用 JSON 输出做后续解析
 
+### 无人值守机器上的登录：claude setup-token
+
+`claude auth login`（会话里的 `/login`）是交互式浏览器登录，凭证存在本机：macOS 存 Keychain，Linux 存 `~/.claude/.credentials.json`（权限 0600）。这种登录有到期日，用 Claude Code 不会延长它，到期后要再跑一次 `/login`。在服务器上跑 `claude -p` 时，到期前会看到这样的提示：
+
+```text
+Warning: this sign-in can end at any time from now until 2026-11-25. Renewing it does not move that date. Run claude auth login now, or use claude setup-token for unattended jobs.
+```
+
+`claude setup-token` 是官方给 CI、脚本、无人值守服务器准备的方式：
+
+- 走和 `/login` 一样的浏览器授权，批准后在终端打印一个**有效期一年**的 OAuth token
+- 它**不保存**这个 token，要自己复制下来，放进 `CLAUDE_CODE_OAUTH_TOKEN` 环境变量
+- 需要 Pro、Max、Ultra、Team 或 Enterprise 订阅，用量算在订阅里，不走 API 计费
+- 只能发模型请求：不能建立 Remote Control 会话，也拿不到 claude.ai 上配置的 connectors；本地配置的 MCP server 照常可用
+
+```bash
+# Run once on a machine with a browser; the token is printed, not saved
+claude setup-token
+
+# On the headless machine (keep the value in a secret store, not in shell history)
+export CLAUDE_CODE_OAUTH_TOKEN="$(rbw get claude/setup-token)"
+claude -p "Reply with OK"
+
+# Check which login is in use and when it ends (v2.1.318+)
+claude auth status --text
+```
+
+几个要注意的地方：
+
+- **优先级**：`ANTHROPIC_AUTH_TOKEN`、`ANTHROPIC_API_KEY`、`apiKeyHelper` 都排在 `CLAUDE_CODE_OAUTH_TOKEN` 前面；`-p` 模式下只要设了 `ANTHROPIC_API_KEY` 就一定用它，改走 API 计费。用 setup-token 时确认这几个变量没设。`/login` 存下的订阅登录排在最后。
+- **`--bare` 不读这个变量**：`--bare` 模式不读 OAuth 凭证和 Keychain，只能用 `ANTHROPIC_API_KEY` 或 `apiKeyHelper`。官方说 `--bare` 以后会变成 `-p` 的默认行为，到时候脚本要显式处理。
+- **token 绑定个人订阅**：它属于运行 `setup-token` 的那个人的订阅。多人共享、组织级的 CI secret，官方建议用 API key 或 workload identity federation。
+- **撤销**：文档没写怎么撤销或列出 setup-token；GitHub Actions 文档还提到删掉 secret 不会让里面的凭证失效。当密码一样保管，不要提交进 git。
+- **GitHub Actions**：存成仓库 secret `CLAUDE_CODE_OAUTH_TOKEN`，在 `anthropics/claude-code-action@v1` 里写 `claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}`；`/install-github-app` 可以替你创建这个 secret。
+
+参考：[Authentication](https://code.claude.com/docs/en/authentication)、[GitHub Actions](https://code.claude.com/docs/en/github-actions)、[Headless](https://code.claude.com/docs/en/headless)
+
 ## 权限模式（--permission-mode）
 
 Claude Code 每次调用工具（跑命令、改文件、联网）前都要过一道权限检查。权限模式决定「没有规则明确说可以或不可以」的那些调用怎么处理。启动时用 `--permission-mode <mode>` 指定，交互会话里也可以按 Shift+Tab 切换。以 2.1.301 版本的 `claude --help` 为准，可选值有：
@@ -782,3 +819,4 @@ attempt to fix the code yourself, just report.
 | 2026-11-21 | 扩充 `/goal` 小节；cc-switch 内容移到单独文档；重写「CLAUDE.md 与 AGENTS.md」 | 补充官方文档里的用法、评估机制和错误处理；已不再使用 cc-switch；Claude Code v2.1.277 起原生加载 AGENTS.md |
 | 2026-11-21 | 新增「auto mode 详解」「Transcript：会话记录」；「踩坑记录」移到文末 | 补充 auto mode 的判定机制和 transcript 的含义；踩坑记录集中放在最后 |
 | 2026-11-22 | 开启文章目录（`ShowToc`）；站内链接改为相对 `.md`；代码块注释改为英文 | 文章较长，需要从开头跳转到各章节；遵守博客内链与代码块规范 |
+| 2026-11-25 | 「Headless 模式」下新增「无人值守机器上的登录：claude setup-token」 | 服务器上的交互式登录会到期，需要长期 token 的用法 |
