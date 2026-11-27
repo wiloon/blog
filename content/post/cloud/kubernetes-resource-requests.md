@@ -16,7 +16,7 @@ tags:
 
 ## 问题从哪来
 
-homelab 里 k8s-50 在 Grafana 上 CPU 一度接近 80%，但 [Descheduler](./kubernetes-descheduler.md) 每 15 分钟跑一轮，日志里始终是 `evictedPods=0`。排查、补 requests、放宽 Nexus affinity 后问题已解决；**完整时间线**见 [Homelab K8s Node Rebalance 案例](./homelab-k8s-node-rebalance.md)。
+homelab 里 k8s-50 在 Grafana 上 CPU 一度接近 80%，但 [Descheduler](./kubernetes-descheduler.md) 每 15 分钟跑一轮，日志里始终是 `evictedPods=0`。排查、补 requests、放宽 Nexus affinity 后问题已解决；**完整时间线**见 [Homelab K8s Node Rebalance 案例](./homelab-k8s-node-rebalance/index.md)。
 
 下文说明 `requests` / `limits` 分别做什么、为什么没写 requests 会让 Descheduler「看不见」热点。
 
@@ -80,7 +80,7 @@ homelab 当前阈值（`infra/homelab/k8s/descheduler/values.yaml`）：
 
 ## homelab 已补的 requests
 
-2026-06-23 按 `kubectl top` 对常驻 workload 补了一轮（详见 [案例文](./homelab-k8s-node-rebalance.md) §4.1）：
+2026-06-23 按 `kubectl top` 对常驻 workload 补了一轮（详见 [案例文](./homelab-k8s-node-rebalance/index.md) §4.1）：
 
 | 组件 | requests（示例） | 依据 |
 | ---- | ---------------- | ---- |
@@ -127,7 +127,7 @@ limits 可以只设内存（CPU 不设 limit 时多为可突发），但 **reque
 
 ## 相关阅读
 
-- [Homelab K8s Node Rebalance: 从 Grafana 发现到 Descheduler 生效](./homelab-k8s-node-rebalance.md) — 发现、看板、治理、见效全过程
+- [Homelab K8s Node Rebalance: 从 Grafana 发现到 Descheduler 生效](./homelab-k8s-node-rebalance/index.md) — 发现、看板、治理、见效全过程
 - [Kubernetes Descheduler 与 Pod 重平衡](./kubernetes-descheduler.md) — 策略、阈值、PVC 与 nodeAffinity 限制
 - [k8s](./k8s.md) — cordon、drain、DaemonSet
 - [PVC 访问模式：RWO 简介](./pvc-access-modes.md) — 有状态 Pod 与卷挂载

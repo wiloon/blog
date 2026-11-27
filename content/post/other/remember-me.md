@@ -14,7 +14,7 @@ tags:
   - AI-assisted
 ---
 
-登录之外，很多系统还需要"关闭浏览器后仍保持登录"，这就是 remember-me（记住我）。Spring Security 提供两种实现，机制和安全性差别很大。`SecurityFilterChain` 整体认证流程见 [Spring Security](../../language/java/spring-security.md)。
+登录之外，很多系统还需要"关闭浏览器后仍保持登录"，这就是 remember-me（记住我）。Spring Security 提供两种实现，机制和安全性差别很大。`SecurityFilterChain` 整体认证流程见 [Spring Security](../language/java/spring-security.md)。
 
 ## 常见误解：不是"让 session 活得更久"
 

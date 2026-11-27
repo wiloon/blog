@@ -151,7 +151,7 @@ jdeps --print-module-deps myapp.jar
 | 反射 / SPI | 间接用到 AWT 等类时，可能运行期才发现缺模块 |
 | Classpath 应用 | 跑在 classpath 上的非模块化 JAR 仍在「未命名模块」，裁剪收益主要在模块化应用 + 定制 JRE |
 
-更多 JDK 9 平台变化见 [JDK 9](../../language/java/jdk-9.md)。
+更多 JDK 9 平台变化见 [JDK 9](../language/java/jdk-9.md)。
 
 ## 基础
 

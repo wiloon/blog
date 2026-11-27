@@ -19,7 +19,7 @@ tags:
 
 Kubernetes **默认调度器**只在 Pod **创建时**选一次节点。Pod 一旦跑起来，除非被删除、驱逐或所在节点不可用，否则**不会**因为目标节点变忙而自动迁走。
 
-homelab 里曾出现 worker 节点（如 k8s-50）堆了三十多个 Pod，而另一节点几乎空闲的情况。2026-06-23 在 Grafana 上确认 k8s-50 CPU 接近 80% 而 Descheduler 不驱逐，经补 requests、加 **K8s Node Workloads** 看板、放宽 Nexus affinity 后已见效；**全过程**见 [Homelab K8s Node Rebalance 案例](./homelab-k8s-node-rebalance.md)。
+homelab 里曾出现 worker 节点（如 k8s-50）堆了三十多个 Pod，而另一节点几乎空闲的情况。2026-06-23 在 Grafana 上确认 k8s-50 CPU 接近 80% 而 Descheduler 不驱逐，经补 requests、加 **K8s Node Workloads** 看板、放宽 Nexus affinity 后已见效；**全过程**见 [Homelab K8s Node Rebalance 案例](./homelab-k8s-node-rebalance/index.md)。
 
 当时节点内存压力指标仍为 `MemoryPressure=False`（kubelet 认为内存够用），但 CPU 争抢、有状态服务启动慢等问题已经很明显。手动 `kubectl drain` 后 Pod 能正常分散到其他节点，说明调度器本身没问题，缺的是**主动重平衡**机制。
 
@@ -57,7 +57,7 @@ homelab 里曾出现 worker 节点（如 k8s-50）堆了三十多个 Pod，而�
 
 1. **control-plane 污点**：`node-role.kubernetes.io/control-plane:NoSchedule`，三个 control-plane 不接普通工作负载
 2. **Longhorn 存储节点**：只有部分 worker 参与 Longhorn，带 PVC 的 Pod 受卷副本与 `volume.kubernetes.io/selected-node` 等约束
-3. **显式 nodeAffinity**：例如 Nexus 曾用 `required` 限定 `k8s-50` / `k8s-71`（已改为 `preferred`，见 [案例文](./homelab-k8s-node-rebalance.md)）
+3. **显式 nodeAffinity**：例如 Nexus 曾用 `required` 限定 `k8s-50` / `k8s-71`（已改为 `preferred`，见 [案例文](./homelab-k8s-node-rebalance/index.md)）
 4. **资源 requests**：Pod 未设 requests 时，调度器与 `LowNodeUtilization` 都几乎把它当 0；Grafana 上的实际 CPU 与 Descheduler 账本无关。见 [Kubernetes Resource Requests](./kubernetes-resource-requests.md)。
 
 Descheduler 只能驱逐**允许**被调度到其他节点的 Pod；上述硬约束不变。
@@ -163,7 +163,7 @@ Nexus 使用 Longhorn **2 副本**卷；曾用 `required` nodeAffinity 限定 k8
 
 ## 相关阅读
 
-- [Homelab K8s Node Rebalance: 从 Grafana 发现到 Descheduler 生效](./homelab-k8s-node-rebalance.md) — 发现、监控、治理、见效全过程
+- [Homelab K8s Node Rebalance: 从 Grafana 发现到 Descheduler 生效](./homelab-k8s-node-rebalance/index.md) — 发现、监控、治理、见效全过程
 - [Kubernetes Resource Requests: 调度与 Descheduler 在算什么](./kubernetes-resource-requests.md) — requests / limits / 实际用量
 - [k8s](./k8s.md) — cordon、drain、DaemonSet 等基础概念
 - [PVC 访问模式：RWO 简介](./pvc-access-modes.md) — 有状态 Pod 与节点绑定

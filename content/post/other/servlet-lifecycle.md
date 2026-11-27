@@ -42,7 +42,7 @@ Servlet 容器负责加载和实例化 Servlet。容器启动时，或在首次�
 
 ## 与 CGI 的对比
 
-Servlet 与 Web 容器运行在**同一 JVM 进程**内，对每个请求通常启动**一个线程**处理，实例可复用、一般不在每次请求后销毁。传统 **CGI** 往往为每个请求 **fork 新进程**，处理完即退出，进程创建与销毁开销大，高并发下效率通常低于 Servlet。更完整的对比见 [Servlet](../../development/servlet.md)。
+Servlet 与 Web 容器运行在**同一 JVM 进程**内，对每个请求通常启动**一个线程**处理，实例可复用、一般不在每次请求后销毁。传统 **CGI** 往往为每个请求 **fork 新进程**，处理完即退出，进程创建与销毁开销大，高并发下效率通常低于 Servlet。更完整的对比见 [Servlet](../development/servlet.md)。
 
 ## Spring Boot 中的 Servlet
 

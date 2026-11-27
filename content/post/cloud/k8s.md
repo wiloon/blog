@@ -204,7 +204,7 @@ kubectl drain <node-name> --ignore-daemonsets --delete-emptydir-data
 
 ## Descheduler
 
-默认调度器只在 Pod **创建时**选节点，不会因为某节点变忙而把已有 Pod 迁走。若集群长期出现「个别 worker 堆很多 Pod、其他节点很空」，可部署 [Descheduler](./kubernetes-descheduler.md)：周期性按策略驱逐部分 Pod，由调度器重新分配到更合适的节点。它与 `drain` 互补——`drain` 用于维护窗口的一次性清空，Descheduler 用于日常负载重平衡。homelab 一次从 Grafana 发现 k8s-50 高负载到 Descheduler 真正见效的排查记录见 [Homelab K8s Node Rebalance 案例](./homelab-k8s-node-rebalance.md)。
+默认调度器只在 Pod **创建时**选节点，不会因为某节点变忙而把已有 Pod 迁走。若集群长期出现「个别 worker 堆很多 Pod、其他节点很空」，可部署 [Descheduler](./kubernetes-descheduler.md)：周期性按策略驱逐部分 Pod，由调度器重新分配到更合适的节点。它与 `drain` 互补——`drain` 用于维护窗口的一次性清空，Descheduler 用于日常负载重平衡。homelab 一次从 Grafana 发现 k8s-50 高负载到 Descheduler 真正见效的排查记录见 [Homelab K8s Node Rebalance 案例](./homelab-k8s-node-rebalance/index.md)。
 
 ## DaemonSet
 

@@ -432,4 +432,4 @@ conflict check, 业务代码约 5000 行，单元测试约 3.6 万行（其中�
 
 ---
 
-> 相关：[Composite Pattern](./composite-pattern.md)
+> 相关：[Composite Pattern](../pattern/composite-pattern.md)
