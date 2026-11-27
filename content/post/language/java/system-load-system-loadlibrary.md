@@ -1,17 +1,25 @@
 ---
-title: System.load 和 System.loadLibrary
+title: 'System.load  System.loadLibrary'
 author: "-"
-date: 2014-04-14T01:20:24+00:00
-url: system-load-和-system-loadlibrary
+date: 2014-04-11T07:43:58+00:00
+url: system-load-system-loadlibrary
 categories:
   - Inbox
 tags:
   - Java
 
+aliases:
+  - /p2465/
+  - /p6524/
+  - /p6538/
 ---
-## System.load 和 System.loadLibrary
+## 'System.load  System.loadLibrary'
 
-[http://blog.csdn.net/ring0hx/article/details/3242245](http://blog.csdn.net/ring0hx/article/details/3242245)
+System.load 和 System.loadLibrary详解
+
+分类:  Java 2008-11-06 23:21 16051人阅读 评论(4) 收藏 举报
+
+jniwindowsjvm平台pathsystem
 
 System.load 和 System.loadLibrary详解
 
@@ -64,3 +72,6 @@ System.load("C://Documents and Settings// dependency.dll"); 让jvm先载入depen
 System. loadLibrary ("TestJNI");
 
 那么你只要把dependency.dll放在任何java.library.path包含的路径中即可,当然也包括和TestJNI.dll相同的目录。
+
+
+[http://blog.csdn.net/ring0hx/article/details/3242245](http://blog.csdn.net/ring0hx/article/details/3242245)
