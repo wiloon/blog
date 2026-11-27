@@ -326,4 +326,4 @@ netpoll: (null): fwpr103p0 doesn't support polling, aborting
 
 后续：观察两周左右。如果还有卡死，先看 n100 上的 netconsole 日志和 `/var/lib/systemd/pstore`，再单独试 `intel_idle.max_cstate=1`。
 
-R86S 的硬件配置见 [Hardware](../Hardware/hardware.md#r86s)。
+R86S 的硬件配置见 [Hardware](../hardware/hardware.md#r86s)。

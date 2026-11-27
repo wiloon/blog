@@ -17,7 +17,7 @@ tags:
 
 ## 背景
 
-homelab 里硬件、PVE 宿主机、K8s 节点、网络分散记录在多篇文章里：[Hardware](../Hardware/hardware.md) 记了全部硬件清单，[PVE](./proxmox-ve-pve.md)、[Proxmox VE 存储](./pve-storage.md)、[pve + openwrt](./pve-openwrt.md) 记了 PVE 与软路由操作，[k8s](./k8s.md) 记了 K8s 概念。但没有一篇把"哪台物理机 → 哪个 PVE 宿主机 → 跑了哪些 K8s 节点 → 怎么连网"串起来。
+homelab 里硬件、PVE 宿主机、K8s 节点、网络分散记录在多篇文章里：[Hardware](../hardware/hardware.md) 记了全部硬件清单，[PVE](./proxmox-ve-pve.md)、[Proxmox VE 存储](./pve-storage.md)、[pve + openwrt](./pve-openwrt.md) 记了 PVE 与软路由操作，[k8s](./k8s.md) 记了 K8s 概念。但没有一篇把"哪台物理机 → 哪个 PVE 宿主机 → 跑了哪些 K8s 节点 → 怎么连网"串起来。
 
 本文只画这条链路。集群里**部署了哪些服务**（RSSX、Diun、Grafana 等）见 [Homelab Services](../cs/homelab.md)。PVE 宿主机上除 K8s 节点外的其它虚拟机（win11-ltsc、VPN 客户端、netbird-router 等）不展开。数据来源于 `w10n-config` 仓库的 `infra/homelab/opentofu/pve/main.tf`（OpenTofu，宿主机与 VM 的权威定义）和 `infra/homelab/inventory/homelab-vms.ini`（IP 与节点角色）。
 
@@ -62,7 +62,7 @@ flowchart TB
 
 - 4 台 PVE 宿主机（j4125、pve03、r86s、n100）**各自独立**，不组 Proxmox 集群，管理端口各自的 `https://<ip>:8006`。
 - 软路由本身是 **n100 上的一台 VM**（`openwrt-24-10`），不是独立硬件；n100 用 `vmbr1` 接光猫 WAN、`vmbr0` 接 LAN，其余三台 PVE 宿主机和局域网设备都挂在 `vmbr0` 这条 LAN 上。细节见 [pve + openwrt](./pve-openwrt.md)。
-- 家里的 Wi-Fi 由一台 **Ruckus R310** 提供，它有线接在 LAN 上，以胖 AP 方式工作，只负责无线接入，路由和 DHCP 仍然由 OpenWrt 处理，所以无线终端和有线设备在同一个 `192.168.50.0/24` 网段。型号参数见 [Hardware](../Hardware/hardware.md)，配置见 [Ruckus R310](../network/ruckus-r310.md)。
+- 家里的 Wi-Fi 由一台 **Ruckus R310** 提供，它有线接在 LAN 上，以胖 AP 方式工作，只负责无线接入，路由和 DHCP 仍然由 OpenWrt 处理，所以无线终端和有线设备在同一个 `192.168.50.0/24` 网段。型号参数见 [Hardware](../hardware/hardware.md)，配置见 [Ruckus R310](../network/ruckus-r310.md)。
 - K8s 的对外入口是 **kube-vip** 维护的 VIP `192.168.50.100`，飘在某台 control-plane 节点上，Kong Ingress 走这个 VIP 的 443；VIP 与 22 端口共存的机制见 [kube-vip LoadBalancer 与节点 SSH 的 22 端口之争](./kube-vip-loadbalancer-port-22.md)。
 - 局域网里另有一台 VM（`192.168.50.61`）承担 K8s 节点的 VPN / 透明代理出网网关，与本文的物理/虚拟拓扑是两条独立的关注点，这里不展开。
 
@@ -80,14 +80,14 @@ flowchart TB
 
 7 个节点：3 control-plane（k8s-38 / k8s-51 / k8s-67）+ 4 worker（k8s-21 / k8s-39 / k8s-50 / k8s-71），K8s 概念性内容见站内 [k8s](./k8s.md)。
 
-r86s、n100 与 [Hardware](../Hardware/hardware.md) 里的 **ROCK 5B（R86S 型号）**、**畅网微控 n100** 是同一批硬件；pve03、j4125 这两台宿主机目前 Hardware 一文里还没有单独条目，是待补的空档。
+r86s、n100 与 [Hardware](../hardware/hardware.md) 里的 **ROCK 5B（R86S 型号）**、**畅网微控 n100** 是同一批硬件；pve03、j4125 这两台宿主机目前 Hardware 一文里还没有单独条目，是待补的空档。
 
 ## 与已有文章的关系
 
 | 主题 | 看哪篇 |
 | ---- | ------ |
 | 集群里部署了哪些服务 | [Homelab Services](../cs/homelab.md) |
-| 全量硬件清单（含非 PVE 设备） | [Hardware](../Hardware/hardware.md) |
+| 全量硬件清单（含非 PVE 设备） | [Hardware](../hardware/hardware.md) |
 | PVE 安装、日常命令、备份恢复 | [PVE](./proxmox-ve-pve.md) |
 | PVE 存储分层（VG/瘦池/local-lvm） | [Proxmox VE 存储](./pve-storage.md) |
 | 软路由 VM 怎么搭（vmbr0/vmbr1） | [pve + openwrt](./pve-openwrt.md) |

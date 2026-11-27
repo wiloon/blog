@@ -14,7 +14,7 @@ tags:
 
 ## Rust Basic
 
-Rust 是一种 **AOT 编译**（ahead-of-time compiled）的静态类型语言，编译型 / 解释型对照见 [Compiled vs Interpreted](../cs/compiled-vs-interpreted.md)。
+Rust 是一种 **AOT 编译**（ahead-of-time compiled）的静态类型语言，编译型 / 解释型对照见 [Compiled vs Interpreted](../../cs/compiled-vs-interpreted.md)。
 
 ## Rustup Rust 的工具链管理器
 

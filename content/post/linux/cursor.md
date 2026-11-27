@@ -112,5 +112,5 @@ AppImage 文件放在 `~/.local/bin/Cursor-<version>-x86_64.AppImage`，`cursor-
 
 ## 相关
 
-- 项目内 AI 文档布局（`.cursor/rules/`、`AGENTS.md` 等）：[项目里的 AI 文档怎么放](../AI/ai-docs-layout.md)
+- 项目内 AI 文档布局（`.cursor/rules/`、`AGENTS.md` 等）：[项目里的 AI 文档怎么放](../ai/ai-docs-layout.md)
 - AUR helper（paru / yay）：[archlinux AUR Helper, paru, yay](./aur-yay.md)

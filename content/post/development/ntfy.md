@@ -129,4 +129,4 @@ notify "enx-agent: #51 needs info" "Questions left on the issue" high \
 
 `|| true` 是为了推送失败时不影响主流程，`-m 10` 防止推送服务不可用时卡住脚本。
 
-无人值守 agent 的完整用法见 [让 Claude Code 自主处理 GitHub Issue](../AI/afk-agent-github-issues.md)。
+无人值守 agent 的完整用法见 [让 Claude Code 自主处理 GitHub Issue](../ai/afk-agent-github-issues.md)。

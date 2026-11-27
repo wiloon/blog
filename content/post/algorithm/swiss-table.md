@@ -18,7 +18,7 @@ tags:
 
 ## Swiss Table 是什么
 
-Swiss Table 是 Google 在 2017 年前后公开的一种高性能哈希表设计（最早用在 Abseil 库的 `absl::flat_hash_map` 里），本质上是**开放地址法**的一个工程变体：在经典的线性探测 / 二次探测之上，加入了按"组"批量比较的机制，充分利用 CPU 的 [SIMD 指令与缓存局部性](../Hardware/simd-and-cache-locality.md)。基本的开链法、开放地址法概念见 [开链法与开放地址法](./hash-collision-resolution.md)。
+Swiss Table 是 Google 在 2017 年前后公开的一种高性能哈希表设计（最早用在 Abseil 库的 `absl::flat_hash_map` 里），本质上是**开放地址法**的一个工程变体：在经典的线性探测 / 二次探测之上，加入了按"组"批量比较的机制，充分利用 CPU 的 [SIMD 指令与缓存局部性](../hardware/simd-and-cache-locality.md)。基本的开链法、开放地址法概念见 [开链法与开放地址法](./hash-collision-resolution.md)。
 
 它已经被多个主流项目采纳：Rust 的 `hashbrown`（`std::collections::HashMap` 自 1.36 起的底层实现）就是 Google SwissTable 的 Rust 移植版；Go 1.24 内置的 `map` 也从桶+溢出桶的实现换成了基于 Swiss Table 思路的新实现（细节见 [开链法与开放地址法#在-go-语言中的应用](./hash-collision-resolution.md)）。
 
@@ -73,7 +73,7 @@ Swiss Table 依然是开放地址法——只有一个数组，冲突时探测�
 
 ## 为什么是 2017 年才出现
 
-CPU 早在 1996 年（Intel MMX）就支持 SIMD 了（详见 [SIMD 指令与缓存局部性](../Hardware/simd-and-cache-locality.md#simd-的历史从超算到主流-cpu)），但通用哈希表直到 2017 年前后才用上这个特性，中间隔了二十年。严格来说 Swiss Table 也不是"第一次"把 SIMD 用在哈希表上：2013~2015 年，Balkesen/Teubner 等人已经发表过用 SIMD 加速数据库 hash join 探测的论文，Polychroniou 等人也做过向量化的 Bloom filter 和哈希表探测，只是这些都是数据库内核里的专用实现，没有变成一个通用语言能直接拿来用的哈希表库。Swiss Table 真正的贡献是把这套思路做成了第一个**通用、开箱即用**的哈希表（`absl::flat_hash_map`）。
+CPU 早在 1996 年（Intel MMX）就支持 SIMD 了（详见 [SIMD 指令与缓存局部性](../hardware/simd-and-cache-locality.md#simd-的历史从超算到主流-cpu)），但通用哈希表直到 2017 年前后才用上这个特性，中间隔了二十年。严格来说 Swiss Table 也不是"第一次"把 SIMD 用在哈希表上：2013~2015 年，Balkesen/Teubner 等人已经发表过用 SIMD 加速数据库 hash join 探测的论文，Polychroniou 等人也做过向量化的 Bloom filter 和哈希表探测，只是这些都是数据库内核里的专用实现，没有变成一个通用语言能直接拿来用的哈希表库。Swiss Table 真正的贡献是把这套思路做成了第一个**通用、开箱即用**的哈希表（`absl::flat_hash_map`）。
 
 真正拖了二十年的原因，主要不是硬件问题：
 
