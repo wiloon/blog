@@ -2,7 +2,7 @@
 title: CGI
 author: "-"
 date: 2017-12-16T05:15:10+00:00
-url: cgi
+url: cgi-fastcgi
 categories:
   - Inbox
 tags:

@@ -2,7 +2,7 @@
 title: kafka
 author: "-"
 date: 2016-07-26T13:24:33+00:00
-url: kafka
+url: kafka-notes
 categories:
   - Database
 tags:

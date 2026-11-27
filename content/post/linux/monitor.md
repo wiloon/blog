@@ -2,7 +2,7 @@
 title: monitor
 author: "-"
 date: 2012-01-31T09:13:17+00:00
-url: monitor
+url: display-monitor
 categories:
   - Linux
 tags:

@@ -2,7 +2,7 @@
 title: SSH 密钥类型 RSA, DSA, ecdsa, ed25519
 author: "-"
 date: 2018-05-13T16:02:13+00:00
-url: rsa
+url: ssh-key-types
 categories:
   - Security
 tags:

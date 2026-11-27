@@ -2,7 +2,7 @@
 title: influxdb basic
 author: "-"
 date: 2017-08-02T06:50:39+00:00
-url: influxdb
+url: influxdb-basic
 categories:
   - Database
 tags:

@@ -2,7 +2,7 @@
 title: 代理服务器
 author: "-"
 date: 2012-01-17T04:37:47+00:00
-url: proxy
+url: proxy-server
 categories:
   - Web
 tags:

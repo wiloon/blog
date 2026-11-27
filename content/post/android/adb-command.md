@@ -2,7 +2,7 @@
 title: adb command
 author: "-"
 date: 2014-08-07T02:40:16+00:00
-url: adb
+url: adb-command
 categories:
   - Inbox
 tags:
