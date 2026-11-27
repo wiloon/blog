@@ -14,6 +14,7 @@
 | [build-and-deploy.md](build-and-deploy.md)         | **构建与部署**：`build.sh`（CF Pages）、`scripts/build-site.sh`、Pagefind、容器与 OpenTofu             |
 | [doc-length-and-split.md](doc-length-and-split.md) | **文档长度与拆分**：行数参考、单一主题判断、hub 拆分；长文 AI 主动提示作者                             |
 | [specs/](specs/)                                   | 各篇文章 Spec（**作者维护**；AI 按 Spec 润色/输出交付物）                                              |
+| [tasks/](tasks/)                                   | 站点功能类任务 Spec（如 giscus 评论、首页原创 feed），非文章                                           |
 
 **周记 Spec** 不在本仓库，已迁入私有仓库 `w10n-personal/ops/weekly/`（见 [ADR-0002](https://github.com/wiloon/w10n-personal/blob/main/ops/ADR-0002-weekly-spec-to-private-repo.md)、ADR-0005）。本仓库仅保留周记**交付物** `content/post/career/weekly-*.md`。
 
@@ -36,6 +37,14 @@
 | [specs/iot-third-party-data-push.md](specs/iot-third-party-data-push.md)                           | `content/post/career/iot-third-party-data-push.md`                                                                                                 |
 | [specs/hugo-cloudflare-pages-blog-setup.md](specs/hugo-cloudflare-pages-blog-setup.md)             | `content/post/web/hugo-cloudflare-pages-blog-setup.md`                                                                                             |
 | [specs/baton.md](specs/baton.md)                                                                   | `content/post/projects/baton.md`                                                                                                                   |
+| [specs/committer-lock.md](specs/committer-lock.md)                                                 | `content/post/career/committer-lock.md`                                                                                                            |
+| [specs/rule-status-field-design.md](specs/rule-status-field-design.md)                             | `content/post/career/rule-status-field-design.md`                                                                                                  |
+| [specs/why-the-blog-looked-quiet.md](specs/why-the-blog-looked-quiet.md)                           | `content/post/career/why-the-blog-looked-quiet.md`                                                                                                 |
+| [specs/one-person-company.md](specs/one-person-company.md)                                         | `content/post/life/one-person-company.md`                                                                                                          |
+| [specs/graph-engineering-practice.md](specs/graph-engineering-practice.md)                         | `content/post/ai/graph-engineering.md`                                                                                                             |
+| [specs/personal-life-events.md](specs/personal-life-events.md)                                     | （draft，尚无交付物）                                                                                                                              |
+| [specs/coffee_caffeine_metabolism_blog.md](specs/coffee_caffeine_metabolism_blog.md)               | （素材稿，尚无交付物）                                                                                                                             |
+
 **内容目录 `content/post/career/`**：职业/面试向叙事与项目故事（[exploration](../content/post/career/exploration.md)、[conflict-check](../content/post/career/conflict-check.md)、OOM 案例等）。
 
 ## 工作流（SDD）

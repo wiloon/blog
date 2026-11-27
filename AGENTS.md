@@ -23,7 +23,7 @@
 
 ## 🚨 编辑博客文章强制规则 🚨
 
-### ⚠️ 每次编辑文章必做五件事（缺一不可）：
+### ⚠️ 每次编辑文章必做七件事（缺一不可）：
 
 > **无论改动大小——哪怕只是删除一行、修改一个词——都必须执行以下全部步骤。**
 
@@ -578,9 +578,9 @@ rg -n --pcre2 '^title: (?!["\x27]).*: ' content/ -g '*.md'
 ### 容器工具
 
 - 本地使用 **nerdctl** 而非 docker 或 podman
-- 需要使用 **sudo** 权限执行
-- 构建镜像时使用：`sudo nerdctl build`
-- 运行容器时使用：`sudo nerdctl run`
+- 优先通过 `task build` / `task run` 调用，`Taskfile.yml` 会按操作系统选择命令：
+  - macOS：`colima nerdctl -- build` / `colima nerdctl -- run`（经 Colima，不需要 sudo）
+  - Linux：`sudo nerdctl build` / `sudo nerdctl run`
 
 ### Hugo 博客信息
 
@@ -592,7 +592,9 @@ rg -n --pcre2 '^title: (?!["\x27]).*: ' content/ -g '*.md'
 
 ### 升级 Hugo 版本
 
-升级 Hugo 版本时，**必须同时修改以下两个文件**，否则本地构建与 CI 部署版本不一致：
+升级 Hugo 版本时，**必须同时修改以下两处**，否则本地容器构建与 Cloudflare Pages 生产构建版本不一致：
 
-1. `Containerfile` — `ENV HUGO_VERSION=x.x.x`（本地容器构建用）
-2. `.github/workflows/deploy.yml` — `hugo-version: 'x.x.x'`（GitHub Actions 生产部署用）
+1. 本仓库 `Containerfile` — `ENV HUGO_VERSION=x.x.x`（本地 / homelab 容器构建用）
+2. `w10n-config/infra/cloudflare/opentofu/blog/main.tf` — `environment_variables.HUGO_VERSION`（Cloudflare Pages 生产构建用，改后需 `tofu apply`）
+
+生产部署由 Cloudflare Pages 完成，本仓库没有 GitHub Actions workflow。详见 [.ai/build-and-deploy.md](.ai/build-and-deploy.md)。
