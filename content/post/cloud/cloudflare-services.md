@@ -1,8 +1,8 @@
 ---
-title: "Cloudflare Services: Cloudflare 服务一览与 R2 对象存储"
+title: "Cloudflare Services: Cloudflare 服务一览、R2 对象存储与 Tunnel"
 author: "-"
 date: 2026-10-14T21:28:59+08:00
-lastmod: 2026-10-14T21:28:59+08:00
+lastmod: 2026-10-20T06:41:47+08:00
 url: cloudflare-services
 categories:
   - cloud
@@ -12,11 +12,13 @@ tags:
   - object-storage
   - cdn
   - opentofu
+  - cloudflare-tunnel
+  - homelab
   - remix
   - AI-assisted
 ---
 
-Cloudflare 起家是 CDN 和 DNS，现在的产品线已经覆盖网络、安全、开发者平台和存储。这篇先按用途列一遍常用服务，再单独讲 R2 对象存储。各服务的额度和价格会调整，以官方文档为准（本文核对于 2026-10）。
+Cloudflare 起家是 CDN 和 DNS，现在的产品线已经覆盖网络、安全、开发者平台和存储。这篇先按用途列一遍常用服务，再单独讲 R2 对象存储和 Tunnel。各服务的额度和价格会调整，以官方文档为准（本文核对于 2026-10）。
 
 ## 服务一览
 
@@ -52,7 +54,7 @@ KV、D1、R2、Durable Objects、Queues 都可以通过 binding 注入 Worker �
 | --- | --- |
 | Email Routing | 把 `name@你的域名` 转发到真实邮箱，只转发不存储，免费 |
 | Web Analytics | 不用 Cookie 的访问统计，免费 |
-| Tunnel | 内网服务不开公网端口，由 `cloudflared` 主动连到 Cloudflare 后对外提供访问 |
+| Tunnel | 内网服务不开公网端口，由 `cloudflared` 主动连到 Cloudflare 后对外提供访问，见下文 |
 | Access | 在应用前面加一层身份认证（Zero Trust） |
 
 这些服务大多能用 OpenTofu / Terraform 的 `cloudflare/cloudflare` provider 管理，Pages 的例子见 [Cloudflare Pages with OpenTofu](./cloudflare-pages-opentofu.md)。
@@ -160,9 +162,78 @@ aws s3 cp demo.mp4 s3://example-media/demo-v1.mp4 \
 - **CORS 只在 JS 读取时需要**。`<video>`、`<img>` 直接引用不需要配 CORS；用 `fetch()` 读取或浏览器直传时，要给桶配 CORS 规则（`cloudflare_r2_bucket_cors`）
 - **从 S3 迁移**：R2 提供 Super Slurper（一次性整体迁移）和 Sippy（访问时按需从 S3 拉取）
 
+## Cloudflare Tunnel
+
+### 解决什么问题
+
+家里或公司内网的服务想让公网访问，传统做法是：路由器上做端口转发，再用 DDNS 把域名指向家里的出口 IP。这条路常常走不通，或者不想走：
+
+- **没有公网 IP**：很多宽带是运营商级 NAT（CGNAT），端口转发根本没用
+- **不想开入站端口**：开了端口，整个互联网都能扫到这台机器
+- **出口 IP 会变、会暴露**：DDNS 有更新延迟，而且别人一查域名就知道你家的 IP
+
+Tunnel 把方向反过来：内网里跑一个 `cloudflared` 进程，由它**主动向外**连到 Cloudflare。公网用户访问域名时，请求先到 Cloudflare 边缘节点，再顺着这条已经建好的连接送回内网。路由器上不用开任何入站端口，源站 IP 也不会暴露。免费版就能用。
+
+### 工作原理
+
+```text
+browser ──HTTPS──> Cloudflare edge ──(existing tunnel)──> cloudflared ──> http://localhost:8080
+                                       ^
+                                       └─ cloudflared dialed out, port 7844
+```
+
+- `cloudflared` 启动后向 Cloudflare 的 7844 端口建立几条长连接（QUIC，走不通时退回基于 TCP 的 HTTP/2），分布在至少两个数据中心，单条断了不影响服务
+- 每个 tunnel 有一个 UUID，域名用 CNAME 指向 `<UUID>.cfargotunnel.com`，必须打开代理（橙色云朵）
+- `cloudflared` 的配置里写 ingress 规则：哪个主机名转发到内网哪个地址
+- 内网这一侧只需要能出站，防火墙可以把入站全部关掉
+
+### 配置示例
+
+本地管理配置文件的方式：
+
+```bash
+# Log in once; writes cert.pem for this Cloudflare account
+cloudflared tunnel login
+# Create a named tunnel; prints its UUID and writes a credentials JSON
+cloudflared tunnel create homelab
+# Point a public hostname at the tunnel (creates the CNAME record)
+cloudflared tunnel route dns homelab app.example.com
+```
+
+```yaml
+# ~/.cloudflared/config.yml
+tunnel: <UUID>
+credentials-file: /home/user/.cloudflared/<UUID>.json
+ingress:
+  - hostname: app.example.com
+    service: http://localhost:8080
+  # Last rule must be a catch-all
+  - service: http_status:404
+```
+
+```bash
+cloudflared tunnel run homelab
+```
+
+也可以在 Zero Trust 控制台里创建 tunnel、配置主机名，本地只跑 `cloudflared tunnel run --token <token>`，配置都在 Cloudflare 那边（远程管理）。在 Kubernetes 里一般把 `cloudflared` 作为 Deployment 跑两个副本，ingress 规则指向集群内的 Service。
+
+### 用法要点
+
+- **公网访问只适合 HTTP(S)**。SSH、数据库这类 TCP 服务也能走 tunnel，但访问方同样要装 `cloudflared` 或 Cloudflare 的客户端，不能像网页那样直接打开
+- **tunnel 只解决"能访问到"，不解决"谁能访问"**。只给自己用的后台，前面再加一层 Access（Zero Trust）做登录认证
+- **给机器调用的入口不能用 Access 登录**。比如 GitHub webhook，GitHub 不会走 Access 的登录流程，只能靠请求签名校验（webhook secret 的 HMAC），再配合 WAF 规则只放行 GitHub 公布的 webhook IP 段
+- **如果只是想让内网服务接收某个平台的事件，先看看能不能反过来"由内网主动去拉"**。比如 GitHub Actions 的自托管 runner 就是由 runner 主动连 GitHub 取任务，不需要任何入站入口，也就用不着 tunnel
+
 ## 参考
 
 - [Cloudflare R2 文档](https://developers.cloudflare.com/r2/)
 - [R2 Pricing](https://developers.cloudflare.com/r2/pricing/)
 - [R2 Public buckets](https://developers.cloudflare.com/r2/buckets/public-buckets/)
 - [cloudflare_r2_bucket（OpenTofu Registry）](https://search.opentofu.org/provider/cloudflare/cloudflare/latest/docs/resources/r2_bucket)
+- [Cloudflare Tunnel 文档](https://developers.cloudflare.com/cloudflare-one/connections/connect-networks/)
+
+## 维护记录
+
+| 时间 | 修改内容 | 原因 |
+| ---- | -------- | ---- |
+| 2026-10-20 | 新增 Cloudflare Tunnel 一节，标题加上 Tunnel | 原文只在服务一览里提了一句 |

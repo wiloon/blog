@@ -2,12 +2,15 @@
 title: 事务, transaction
 author: "-"
 date: 2012-06-28T04:34:12+00:00
+lastmod: 2026-11-23T15:44:55+08:00
 url: transaction
 categories:
-  - Inbox
+  - Database
 tags:
-  - reprint
+  - transaction
+  - database
   - remix
+  - AI-assisted
 ---
 ## 事务, transaction
 
@@ -50,7 +53,7 @@ TRANSACTION（事务）是数据库管理系统执行过程中的一个逻辑单
 不保证在任意时刻任意节点上的同一份数据都是相同的，但是随着时间的迁移，不同节点上的同一份数据总是在向趋同的方向变化。简单说，就是在一段时间后，节点间的数据会最终达到一致状态
 事务处理过程中，会有短暂不一致的情况，但通过恢复系统，可以让事务的数据达到最终一致的目标。  
 最终一致性要求系统中数据副本最终能够一致，而不需要实时保证数据副本一致。例如，银行系统中的非实时转账操作，允许 24 小时内用户账户的状态在转账前后是不一致的，但 24 小时后账户数据必须正确。  
-最终一致性是 BASE 原理的核心，也是 NoSQL 数据库的主要特点，通过弱化一致性，提高系统的可伸缩性、可靠性和可用性。而且对于大多数 Web 应用，其实并不需要强一致性，因此牺牲一致性而换取高可用性，是多数分布式数据库产品的方向。  
+最终一致性是 [BASE 理论](../../cloud/cap.md#base-理论)的核心，也是很多 NoSQL 数据库的特点：通过弱化一致性，提高系统的可伸缩性和可用性。关系型数据库与 NoSQL 在一致性上的取舍见 [关系型数据库与 NoSQL 对比](../../other/relational-vs-nosql.md)。  
 
 #### 重试
 
@@ -127,4 +130,10 @@ ACID特性 (原子性、一致性、隔离性、持久性)
 
 [https://xiaomi-info.github.io/2020/01/02/distributed-transaction/](https://xiaomi-info.github.io/2020/01/02/distributed-transaction/)  
 [http://c.biancheng.net/view/6495.html](http://c.biancheng.net/view/6495.html)  
-[https://toutiao.io/posts/u97o5l/preview](https://toutiao.io/posts/u97o5l/preview)  
+[https://toutiao.io/posts/u97o5l/preview](https://toutiao.io/posts/u97o5l/preview)
+
+## 维护记录
+
+| 时间 | 修改内容 | 原因 |
+| ---- | -------- | ---- |
+| 2026-11-23 | 最终一致性段落精简，改为链接 CAP/BASE 与关系型 vs NoSQL 对比文章；分类改为 Database | 减少与对比文章的重复，建立互链 |

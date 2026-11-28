@@ -2,13 +2,17 @@
 title: Redis
 author: "-"
 date: 2015-07-13T09:06:18+00:00
+lastmod: 2026-11-23T15:44:55+08:00
 url: redis
 tags:
   - Database
   - Redis
   - cache
+  - nosql
+  - remix
+  - AI-assisted
 categories:
-  - inbox
+  - Database
 aliases:
   - /p8023/
   - /p14776/
@@ -19,7 +23,7 @@ REmote DIctionary Server(Redis) 是一个由SalvatoreSanfilippo写的key-value�
 
 Redis是一个开源的使用ANSI C语言编写、支持网络、可基于内存亦可持久化的日志型、Key-Value数据库,并提供多种语言的API。从2010年3月15日起,Redis的开发工作由VMware主持。从2013年5月开始,Redis的开发由Pivotal赞助。redis是一个key-value存储系统。和Memcached类似,它支持存储的value类型相对更多,包括string(字符串)、list(链表)、set(集合)、zset(sorted set –有序集合)和hash (哈希类型) 。这些数据类型都支持push/pop、add/remove及取交集并集和差集及更丰富的操作,而且这些操作都是原子性的。在此基础上,redis支持各种不同方式的排序。与memcached一样,为了保证效率,数据都是缓存在内存中。区别的是redis会周期性的把更新的数据写入磁盘或者把修改操作写入追加的记录文件,并且在此基础上实现了 master-slave (主从)同步。
   
-Redis 是一个高性能的key-value数据库。 redis的出现,很大程度补偿了memcached这类key/value存储的不足,在部分场合可以对关系数据库起到很好的补充作用。它提供了Java,C/C++,C#,PHP,JavaScript,Perl,Object-C,Python,Ruby,Erlang等客户端,使用很方便。
+Redis 是一个高性能的key-value数据库。 redis的出现,很大程度补偿了memcached这类key/value存储的不足,在部分场合可以对关系数据库起到很好的补充作用（键值数据库在 NoSQL 中的定位见 [关系型数据库与 NoSQL 对比](../other/relational-vs-nosql.md)）。它提供了Java,C/C++,C#,PHP,JavaScript,Perl,Object-C,Python,Ruby,Erlang等客户端,使用很方便。
   
 Redis支持主从同步。数据可以从主服务器向任意数量的从服务器上同步,从服务器可以是关联其他从服务器的主服务器。这使得Redis可执行单层树复制。存盘可以有意无意的对数据进行写操作。由于完全实现了发布/订阅机制,使得从数据库在任何地方同步树时,可订阅一个频道并接收主服务器完整的消息发布记录。同步对读取操作的可扩展性和数据冗余很有帮助。
   
@@ -227,3 +231,9 @@ CPU 是一个重要的影响因素,由于是单线程模型,Redis 更喜欢大�
 [http://redisbook.com/](http://redisbook.com/)
 
 [https://segmentfault.com/a/1190000017375843](https://segmentfault.com/a/1190000017375843)
+
+## 维护记录
+
+| 时间 | 修改内容 | 原因 |
+| ---- | -------- | ---- |
+| 2026-11-23 | 加入关系型 vs NoSQL 对比文章的链接；分类改为 Database | 建立相关文章互链 |

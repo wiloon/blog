@@ -2,7 +2,7 @@
 title: Dual Boot Windows 11 and Omarchy on Dell XPS 13 9310
 author: "-"
 date: 2026-09-04T14:15:01+08:00
-lastmod: 2026-09-04T14:15:01+08:00
+lastmod: 2026-10-20T19:27:01+08:00
 url: windows-omarchy-dual-boot-xps-13-9310
 categories:
   - Linux
@@ -23,6 +23,8 @@ tags:
 在一台 Dell XPS 13 9310 上装 Windows 11（最新版）和 Omarchy 双系统。
 
 关于 Omarchy：它是 DHH（David Heinemeier Hansson）在 2025 年做的一套基于 Arch Linux + Hyprland 的预配置系统，前身是基于 Ubuntu 的 Omakub。底层还是 Arch，用 pacman 和 AUR；桌面用 Hyprland（Wayland 平铺式合成器），配好了 Waybar、walker、终端、hyprlock 等，并带一套可一键切换的主题系统。引导器用 Limine。官网 omarchy.org，代码在 GitHub `basecamp/omarchy`。
+
+Omarchy 本身的介绍、系统更新和装软件的方法见 [Omarchy Linux](./omarchy.md)，本文只讲双系统安装。
 
 本文是一份安装顺序的初稿，实际操作前请再核对当前版本的官方文档（`basecamp/omarchy` 仓库 `manual/50-dual-boot-install.md`）。
 
@@ -218,3 +220,9 @@ sudo -n whoami        # should print root with no prompt
 - `limine-scan` 添加 Windows 后的启动项显示效果。
 - Secure Boot 保持开启 + `sbctl` 签名的完整流程（如果后续想开 Secure Boot）。
 - XPS 13 9310 在 Hyprland 下的缩放、外接显示器、休眠表现。
+
+## 维护记录
+
+| 时间 | 修改内容 | 原因 |
+| ---- | -------- | ---- |
+| 2026-10-20 | 开头加链接指向新文章 Omarchy Linux | Omarchy 的通用内容单独成篇，本文只讲双系统安装 |

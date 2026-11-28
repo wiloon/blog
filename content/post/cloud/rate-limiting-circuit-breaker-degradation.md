@@ -1,14 +1,18 @@
 ---
-title: "限流、熔断与降级"
+title: "Rate Limiting, Circuit Breaker and Degradation 限流、熔断与降级"
 author: "-"
 date: ""
-url: ""
+lastmod: 2026-10-16T10:45:00+08:00
+url: rate-limiting-circuit-breaker-degradation
 categories:
-  - inbox
+  - development
 tags:
-  - Inbox
+  - rate-limiting
+  - circuit-breaker
+  - remix
+  - AI-assisted
 ---
-## "限流、熔断与降级"
+## 限流、熔断与降级
 
 
 ### 限流 Rate Limiting
@@ -22,11 +26,13 @@ tags:
 令牌桶算法是网络流量整形 (Traffic Shaping) 和速率限制 (Rate Limiting) 中最常使用的一种算法。典型情况下，令牌桶算法用来控制发送到网络上的数据的数目，并允许突发数据的发送。
 令牌桶算法的原理是系统会以一个恒定的速度往桶里放入令牌，而如果请求需要被处理，则需要先从桶里获取一个令牌，当桶里没有令牌可取时，则拒绝服务。
 
+令牌桶的两个参数、和其他限流算法的比较、适用场景和 Go 示例，见 [Token Bucket: 令牌桶限流](../algorithm/token-bucket.md)。
+
 #### 漏桶
 漏桶算法思路很简单，水 (请求) 先进入到漏桶里，漏桶以一定的速度出水，当水流入速度过大会直接溢出，可以看出漏桶算法能强行限制数据的传输速率。
  
 |方法|优点|缺点|
-|--|-|-|-|-|
+|--|--|--|
 |计数器|简单方便|存在一下子被刷完计数器的情况|
 |令牌桶|可以处理瞬间突发的流量|~|
 |漏桶|限制请求的平均速率|不能处理瞬间流量的情况，当流量把漏桶装满后，大部分的请求都会被丢弃掉|
@@ -59,3 +65,8 @@ tags:
 ---
 
 https://xie.infoq.cn/article/2593d1a3b9e1e06cac6502c4f?utm_source=rss&utm_medium=article
+## 维护记录
+
+| 时间 | 修改内容 | 原因 |
+| ---- | -------- | ---- |
+| 2026-10-16 | 文件重命名为 `rate-limiting-circuit-breaker-degradation.md`；补 url、英文标题、lastmod、分类和标签；令牌桶一节链到新文章 [Token Bucket](../algorithm/token-bucket.md)；修正表格分隔行 | 文件名含中文；新增令牌桶专文 |

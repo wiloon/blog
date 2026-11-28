@@ -2,7 +2,7 @@
 title: Hardware
 author: "W10N"
 date: "2021-01-13 08:49:13"
-lastmod: 2026-07-23T18:30:27+08:00
+lastmod: 2026-11-25T14:45:57+08:00
 url: "hardware"
 categories:
   - Network
@@ -98,6 +98,8 @@ Realtek®以太网LAN 10 Mb/100 Mb/1 Gb铜缆RJ45,LAN唤醒
 
 - Intel® Celeron® J3455 4-core 1.5 GHz processor (burst up to 2.3 GHz)
 - DDR3L
+
+NAS 上可以装 QuObjects，提供 S3 兼容的对象存储，见 [QuObjects](../cloud/quobjects.md)。
 
 ## pixel3
 
@@ -497,3 +499,4 @@ https://launcher.keychron.com/#/not-connect
 | 时间 | 修改内容 | 原因 |
 | ---- | -------- | ---- |
 | 2026-07-23 | 目录与正文增加 Celeron J3455 Mini PC 链接；指向 `j3455-mini-pc.md` | 记录新购备用软路由硬件 |
+| 2026-11-25 | QNAP TS453Bmini 一节增加 QuObjects 链接 | 新增 QuObjects 文章，记录 NAS 的 S3 能力 |

@@ -2,7 +2,7 @@
 title: "Loop Engineering：让 Agent 循环到可验证的完成状态"
 author: "-"
 date: 2026-07-31T09:01:25+08:00
-lastmod: 2026-09-02T14:18:35+08:00
+lastmod: 2026-11-21T12:00:00+08:00
 url: loop-engineering
 categories:
   - AI
@@ -73,6 +73,13 @@ claude -p "/goal CHANGELOG.md 包含本周每个已合并 PR 的条目；最多�
 ```
 
 它适合需要多轮修复才能收敛的任务，例如迁移调用点直到编译通过、按设计文档实现功能直到验收通过、按体积预算拆分模块，或者逐项处理 Issue 列表。
+
+使用时有两点需要注意：
+
+- 评估模型不调用工具，也不读取文件，只根据对话中已有的内容判断。因此条件中应要求 Claude 每轮运行检查命令，并把结果输出到对话中。
+- `/goal` 不改变权限模式。只有在 auto mode 下，工具调用才不会逐个等待确认，循环才能无人值守地运行。
+
+`/goal clear` 用于取消目标，不带参数的 `/goal` 用于查看状态。更完整的用法、错误处理和 check-in 机制见 [Claude Code 使用笔记](./claude-code.md)。
 
 ### `/loop`：按间隔重复执行 Prompt
 
