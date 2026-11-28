@@ -15,7 +15,7 @@
 | [doc-length-and-split.md](doc-length-and-split.md) | **文档长度与拆分**：行数参考、单一主题判断、hub 拆分；长文 AI 主动提示作者                             |
 | [specs/](specs/)                                   | 各篇文章 Spec（**作者维护**；AI 按 Spec 润色/输出交付物）                                              |
 
-**周记 Spec** 不在本仓库，已迁入私有仓库 `w10n-personal/ops/weekly/`（见 [ADR-0002](https://github.com/wiloon/w10n-personal/blob/main/ops/ADR-0002-weekly-spec-to-private-repo.md)、ADR-0005）。本仓库仅保留周记**交付物** `content/post/career/weekly-*.md`。
+**周记 Spec** 不在本仓库，在私有仓库 `w10n-personal/ops/weekly/`（见 [ADR-0002](https://github.com/wiloon/w10n-personal/blob/main/ops/ADR-0002-weekly-spec-to-private-repo.md)；2026-10-15 由 `w10n-config` 迁入，见同目录 ADR-0005）。本仓库仅保留周记**交付物** `content/post/career/weekly-*.md`。
 
 ## 文章 Spec 一览
 
