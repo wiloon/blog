@@ -2,7 +2,7 @@
 title: "esp,ebp,栈指针,帧指针"
 author: "-"
 date: ""
-url: "template"
+url: esp-ebp
 categories:
   - inbox
 tags:

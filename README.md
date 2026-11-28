@@ -22,10 +22,10 @@ Content ranges from carefully curated technical guides to raw bookmarks — cont
 
 | | |
 | --- | --- |
-| Generator | Hugo Extended v0.159.1 |
+| Generator | Hugo Extended (version pinned in `Containerfile`) |
 | Theme | PaperMod |
 | Hosting | Cloudflare Pages |
-| CI/CD | GitHub Actions |
+| CI/CD | Cloudflare Pages build (`bash build.sh`), managed by OpenTofu |
 
 ## Local Development
 

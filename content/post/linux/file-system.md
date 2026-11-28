@@ -2,7 +2,7 @@
 title: 虚拟文件系统
 author: "-"
 date: 2014-04-14T08:06:08+00:00
-url: vfs
+url: virtual-file-system
 categories:
   - Linux
 tags:

@@ -2,7 +2,7 @@
 title: 内存, mem
 author: "-"
 date: 2019-06-11T04:19:16+00:00
-url: mem
+url: memory
 categories:
   - Linux
 tags:

@@ -2,7 +2,7 @@
 title: "UML 类的关系: 关联，聚合，组合的区别"
 author: "-"
 date: 2012-10-15T08:40:14+00:00
-url: uml
+url: uml-relation
 categories:
   - Pattern
 tags:

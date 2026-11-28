@@ -2,7 +2,7 @@
 title: shell basic, shell script, shell 脚本
 author: "-"
 date: 2019-05-06T04:27:52+00:00
-url: shell
+url: shell-script
 categories:
   - Linux
 tags:

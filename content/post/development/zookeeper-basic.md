@@ -3,7 +3,7 @@ title: zookeeper
 author: "-"
 date: 2015-01-14T09:32:00+00:00
 lastmod: 2026-10-09T21:22:13+08:00
-url: zookeeper
+url: zookeeper-basic
 categories:
   - Cloud
 tags:

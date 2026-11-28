@@ -2,7 +2,7 @@
 title: AspectJ 编译时织入(Compile Time Weaving, CTW)
 author: "-"
 date: 2014-01-08T05:03:45+00:00
-url: AspectJ
+url: aspectj-compile-time-weaving
 categories:
   - Inbox
 tags:

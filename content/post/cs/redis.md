@@ -3,7 +3,7 @@ title: Redis
 author: "-"
 date: 2015-07-13T09:06:18+00:00
 lastmod: 2026-11-23T15:44:55+08:00
-url: redis
+url: redis-notes
 tags:
   - Database
   - Redis

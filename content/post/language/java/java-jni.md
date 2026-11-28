@@ -20,7 +20,7 @@ Java 运行在虚拟机中，若要调用操作系统动态库，需声明 `nati
 
 Android NDK 开发同样建立在 JNI 之上。下文在纯 Java 环境下编译 C 动态库并用 Java 调用，由浅入深给出四个示例。原文参考：[CSDN - u_xtian](http://blog.csdn.net/u_xtian/article/details/6033963)。
 
-相关：[System.load 与 System.loadLibrary](../../other/system-load-和-system-loadlibrary.md)、[JNI 类型签名 `[B` `[C` 等](../../cs/jni左中括号bcc等.md)。JDK 22 起可用 [Project Panama / FFM API](./project-panama.md) 替代多数 JNI 场景；版本变更见 [JDK 21 升级到 JDK 25 的变更汇总](../jdk25-changes-from-jdk21.md)。
+相关：[System.load 与 System.loadLibrary](./system-load-system-loadlibrary.md)、[JNI 类型签名 `[B` `[C` 等](../../cs/jni左中括号bcc等.md)。JDK 22 起可用 [Project Panama / FFM API](./project-panama.md) 替代多数 JNI 场景；版本变更见 [JDK 21 升级到 JDK 25 的变更汇总](../jdk25-changes-from-jdk21.md)。
 
 ## 示例一：Hello World
 
@@ -356,7 +356,7 @@ JNIEXPORT jobject JNICALL Java_HelloJni_getUserList(JNIEnv *env, jobject thiz) {
 ## 参考
 
 - [JNI Specification](https://docs.oracle.com/en/java/javase/21/docs/specs/jni/index.html)
-- [System.load 和 System.loadLibrary](../../other/system-load-和-system-loadlibrary.md)
+- [System.load 和 System.loadLibrary](./system-load-system-loadlibrary.md)
 - [JNI 类型签名说明](../../cs/jni左中括号bcc等.md)
 - 原文：[http://blog.csdn.net/u_xtian/article/details/6033963](http://blog.csdn.net/u_xtian/article/details/6033963)
 

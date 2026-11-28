@@ -2,7 +2,7 @@
 title: /proc
 author: "-"
 date: 2011-10-27T23:19:33+00:00
-url: proc
+url: linux-proc
 categories:
   - Linux
 tags:

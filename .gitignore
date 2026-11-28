@@ -6,3 +6,4 @@ public
 **/.obsidian
 tmp/
 .codex/
+static/stats.json

@@ -20,11 +20,11 @@
 
 正文中涉及 Android APK 逆向工程和 Java 反编译的部分，关联以下 blog 已有文档：
 
-- [Android APK 反编译](../cs/android/android-apk-decompile.md) — APK 反编译完整流程（dex2jar 转 jar，再用 jd-gui 查看源码）
+- [Android APK 反编译](../android/android-apk-decompile.md) — APK 反编译完整流程（dex2jar 转 jar，再用 jd-gui 查看源码）
 - [dex2jar](../language/java/dex2jar.md) — dex2jar 工具介绍（将 classes.dex 转换为 jar 文件）
 - [Java 反编译工具（jad、jd-gui）](../language/java/java-decompiler-tools.md) — jad、jd-gui、uuDeJava 等 Java 反编译工具汇总（原文件名 `java反编译class-goto.md`，准备本文时重命名为 `java-decompiler-tools.md`，添加了 aliases 保持旧 url 可访问）
 - [DJ Java Decompiler / JD-GUI](../language/java/dj-java-decompiler.md) — JD-GUI 工具详细介绍
-- [Android APK 加壳技术方案](../cs/android/android-apk-packing.md) — Android Dex 文件加壳原理，加壳/解壳程序工作流程（DexClassLoader 动态加载）
+- [Android APK 加壳技术方案](../android/android-apk-packing.md) — Android Dex 文件加壳原理，加壳/解壳程序工作流程（DexClassLoader 动态加载）
 - [加壳与脱壳](../other/packing-unpacking.md) — 加壳/脱壳概念介绍，PC EXE 及病毒防护中的壳技术背景（原文件名 `加壳与脱壳.md`，准备本文时重命名为 `packing-unpacking.md`，添加 aliases 保持旧 url 可访问）
 
 ## 写作备注
@@ -42,8 +42,8 @@
 
 - `content/post/language/java/java反编译class-goto.md`：文件名含中文，重命名为 `java-decompiler-tools.md`；url 从 `java反编译class-goto` 改为 `java-decompiler-tools`；添加 `aliases: /java反编译class-goto` 保持旧链接可访问；categories 从 `inbox` 改为 `Java`；标题更新为「Java 反编译工具：jad、jd-gui」
 - `content/post/other/加壳与脱壳.md`：文件名含中文，重命名为 `packing-unpacking.md`；url 从 `加壳与脱壳` 改为 `packing-unpacking`；添加 `aliases: /加壳与脱壳` 保持旧链接可访问；categories 从 `Inbox` 改为 `cs`
-- `content/post/cs/android/android-apk反编译.md`：文件名含中文，重命名为 `android-apk-decompile.md`；url 从 `android-apk反编译` 改为 `android-apk-decompile`；添加 aliases 保持旧链接可访问；categories 从 `Inbox` 改为 `cs`
-- `content/post/cs/android/android-apk加壳技术方案.md`：文件名含中文，重命名为 `android-apk-packing.md`；url 从 `android-apk加壳技术方案` 改为 `android-apk-packing`；添加 aliases 保持旧链接可访问；categories 从 `Inbox` 改为 `cs`
+- `content/post/android/android-apk反编译.md`：文件名含中文，重命名为 `android-apk-decompile.md`；url 从 `android-apk反编译` 改为 `android-apk-decompile`；添加 aliases 保持旧链接可访问；categories 从 `Inbox` 改为 `cs`
+- `content/post/android/android-apk加壳技术方案.md`：文件名含中文，重命名为 `android-apk-packing.md`；url 从 `android-apk加壳技术方案` 改为 `android-apk-packing`；添加 aliases 保持旧链接可访问；categories 从 `Inbox` 改为 `cs`
 - `content/post/language/java/dex2jar.md`：categories 从 `Inbox` 改为 `Java`，标签加 `android`
 - `content/post/language/java/dj-java-decompiler.md`：标题更新为「Java 反编译工具：DJ Java Decompiler / JD-GUI」
 

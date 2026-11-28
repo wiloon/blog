@@ -132,7 +132,7 @@ ENTRYPOINT ["java", "-jar", "application.jar"]
 
 ## Cloud Native Buildpacks（bootBuildImage）
 
-CNB 规范与 Paketo 实现见专文 [CNB: Cloud Native Buildpacks 与 Paketo](../../cloud/cloud-native-buildpacks.md)。下文只保留与 Spring Boot 插件相关的要点。
+CNB 规范与 Paketo 实现见专文 [CNB: Cloud Native Buildpacks 与 Paketo](../../../cloud/cloud-native-buildpacks.md)。下文只保留与 Spring Boot 插件相关的要点。
 
 Spring Boot 内置 [Cloud Native Buildpacks](https://docs.spring.io/spring-boot/reference/packaging/container-images/cloud-native-buildpacks.html) 集成：插件把可执行 jar 交给 builder（默认 Paketo），buildpack 检测 artifact、安装 JRE、生成启动命令并产出 OCI 镜像。
 
@@ -171,7 +171,7 @@ Buildpack 路径下，运行时默认安装的是 JRE（`BP_JVM_TYPE` 默认为 
 
 ### K8s CI：Tekton + buildpacks-phases
 
-上一节的 `bootBuildImage` / `pack build` 属于 CNB 的 **Platform** 层：需要 Docker daemon 来拉 builder、起构建容器、把镜像写入本地。在 Kubernetes 里若已用 [Tekton 与 Kaniko](../../cloud/tekton-kaniko.md) 做无 daemon 构建，**不能**把 Paketo 塞进 Kaniko，也不能在 Pod 里挂 `docker.sock` 跑 `pack`——后者需要 privileged，与 Kaniko 的安全模型相反。
+上一节的 `bootBuildImage` / `pack build` 属于 CNB 的 **Platform** 层：需要 Docker daemon 来拉 builder、起构建容器、把镜像写入本地。在 Kubernetes 里若已用 [Tekton 与 Kaniko](../../../cloud/tekton-kaniko.md) 做无 daemon 构建，**不能**把 Paketo 塞进 Kaniko，也不能在 Pod 里挂 `docker.sock` 跑 `pack`——后者需要 privileged，与 Kaniko 的安全模型相反。
 
 CNB 真正干活的是 builder 镜像里的 **lifecycle**。无 Docker daemon 时，由 Platform 直接调 lifecycle 各 phase，并把镜像 **push 到 registry**。Tekton 侧官方做法是安装 Catalog 里的 [buildpacks-phases Task](https://buildpacks.io/docs/for-platform-operators/how-to/integrate-ci/tekton/)：把 prepare、detect、build、export 等步骤拆成多个 Tekton step，而不是用 `pack` CLI。
 
@@ -182,7 +182,7 @@ PipelineRun
   → update-gitops / 部署
 ```
 
-与现有 **Tekton + Kaniko 完全并存**：二者只是不同的 Task，共用同一套 Tekton 平台、workspace、registry Secret（如 `nexus-docker-cred`）。Go 等有 Containerfile 的项目继续 `kaniko-build`；Spring Boot 想零 Dockerfile 的 Pipeline 把 build step 换成 `buildpacks-phases` 即可。homelab 落地示例见 [enx-api Homelab CI/CD](../../cloud/enx-api-homelab-cicd.md)。
+与现有 **Tekton + Kaniko 完全并存**：二者只是不同的 Task，共用同一套 Tekton 平台、workspace、registry Secret（如 `nexus-docker-cred`）。Go 等有 Containerfile 的项目继续 `kaniko-build`；Spring Boot 想零 Dockerfile 的 Pipeline 把 build step 换成 `buildpacks-phases` 即可。homelab 落地示例见 [enx-api Homelab CI/CD](../../../cloud/enx-api-homelab-cicd.md)。
 
 典型 Pipeline 片段（在 clone 之后；若 workspace 里已是 fat jar，可省略 Maven 编译 step）：
 
@@ -286,9 +286,9 @@ jlink 模块裁剪与 JPMS 关系见 [JPMS 与 Jigsaw](../../../cs/jpms-jigsaw.m
 
 ## 参考
 
-- [CNB: Cloud Native Buildpacks 与 Paketo](../../cloud/cloud-native-buildpacks.md)
-- [Tekton 与 Kaniko](../../cloud/tekton-kaniko.md)
-- [enx-api Homelab CI/CD](../../cloud/enx-api-homelab-cicd.md)
+- [CNB: Cloud Native Buildpacks 与 Paketo](../../../cloud/cloud-native-buildpacks.md)
+- [Tekton 与 Kaniko](../../../cloud/tekton-kaniko.md)
+- [enx-api Homelab CI/CD](../../../cloud/enx-api-homelab-cicd.md)
 - [Spring Boot](./spring-boot.md)
 - [Spring Boot Executable JAR](./spring-boot-executable-jar.md)
 - [Spring AOT 简介](./spring-aot.md)

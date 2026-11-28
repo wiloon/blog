@@ -122,7 +122,7 @@ Spring 项目 2003 年启动，**2004 年 3 月发布 1.0**。首发能力以 **
 
 ### Spring 1.x：几乎全是 XML
 
-Spring 1.0 发布时 **[JDK 5](./jdk-5.md) 尚未正式发布**（正式版在 2004 年 9 月），框架基线为 **JDK 1.3 / 1.4**。这一时期的典型写法：
+Spring 1.0 发布时 **[JDK 5](../jdk-5.md) 尚未正式发布**（正式版在 2004 年 9 月），框架基线为 **JDK 1.3 / 1.4**。这一时期的典型写法：
 
 - Bean 定义与依赖注入：`applicationContext.xml` 里的 `<bean>`、`<property>`
 - AOP、声明式事务：XML 或编程式 API
@@ -132,7 +132,7 @@ Spring 1.0 发布时 **[JDK 5](./jdk-5.md) 尚未正式发布**（正式版在 2
 
 ### 与 JDK 5 注解的关系
 
-[JDK 5 注解](./jdk-5.md)（JSR 175）在语言层提供 **注解类型**（`@interface`）、**保留策略**（`@Retention`）、**反射读取**（`AnnotatedElement`）等能力。Spring 后来广泛使用的 `@Autowired`、`@Controller` 等，**不是 JDK 内置注解**，而是 **Spring 用 `@interface` 自定义的元数据**；容器在启动时扫描、解析它们。前提是运行在 **JDK 5+** 上——没有语言级元数据与反射 API，框架只能继续依赖 XML。
+[JDK 5 注解](../jdk-5.md)（JSR 175）在语言层提供 **注解类型**（`@interface`）、**保留策略**（`@Retention`）、**反射读取**（`AnnotatedElement`）等能力。Spring 后来广泛使用的 `@Autowired`、`@Controller` 等，**不是 JDK 内置注解**，而是 **Spring 用 `@interface` 自定义的元数据**；容器在启动时扫描、解析它们。前提是运行在 **JDK 5+** 上——没有语言级元数据与反射 API，框架只能继续依赖 XML。
 
 | Spring 版本 | 大约时间 | 注解相关变化 |
 | ---- | ---- | ---- |

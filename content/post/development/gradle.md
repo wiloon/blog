@@ -3,7 +3,7 @@ title: Gradle, 目录
 author: "-"
 date: 2013-12-20T15:52:04+00:00
 lastmod: 2026-06-20T18:47:15+08:00
-url: gradle
+url: gradle-notes
 categories:
   - development
 tags:

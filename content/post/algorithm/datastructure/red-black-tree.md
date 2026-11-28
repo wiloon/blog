@@ -196,7 +196,7 @@ graph TD
 - **查找**：AVL 树结构更严格平衡，查找效率略高于红黑树（红黑树允许多一层不平衡，查找最多多一次比较）。
 - **插入/删除频率**：AVL 树高度平衡带来的代价是插入、删除更容易触发再平衡，需要频繁调整；红黑树为维持红黑性质所做的旋转开销更小，因此在大量插入删除的场景下效率更高。
 
-综合来看：如果搜索次数远多于插入和删除，选 AVL 树；如果搜索、插入、删除的次数相差不大，选红黑树。多数关联容器需要在读写性能之间折中，因此红黑树凭借稳定的综合性能，成为 C++ STL、Java `TreeMap`/`TreeSet`、Linux 进程调度（[CFS](../linux/cfs.md)）等场景的常见选择。
+综合来看：如果搜索次数远多于插入和删除，选 AVL 树；如果搜索、插入、删除的次数相差不大，选红黑树。多数关联容器需要在读写性能之间折中，因此红黑树凭借稳定的综合性能，成为 C++ STL、Java `TreeMap`/`TreeSet`、Linux 进程调度（[CFS](../../linux/cfs.md)）等场景的常见选择。
 
 ## AVL 树
 
@@ -205,12 +205,12 @@ AVL 树是最早出现的自平衡二叉搜索树，得名于发明者 G.M. Adel
 ## 应用场景
 
 - **内存 vs 磁盘**：数据能完全放进内存时，红黑树的时间复杂度比 B 树低；数据量较大、以外存为主时，B 树因读磁盘次数少而更快。
-- **进程调度**：Linux 的完全公平调度器（CFS）用红黑树管理可运行进程，详见 [CFS, Completely Fair Scheduler 完全公平调度器](../linux/cfs.md)。
+- **进程调度**：Linux 的完全公平调度器（CFS）用红黑树管理可运行进程，详见 [CFS, Completely Fair Scheduler 完全公平调度器](../../linux/cfs.md)。
 - **关联容器**：红黑树的典型用途是实现关联数组，如 C++ STL 的 `map`/`set`、Java 的 `TreeMap`/`TreeSet`。
 
 ## 应用：JDK 8 HashMap
 
-JDK 8 的 `HashMap` 在某个桶（bucket）的链表长度超过阈值时会把链表转换成红黑树，将该桶最坏情况下的查找复杂度从 O(n) 降到 O(log n)，具体实现见 [HashMap](../language/java/hashmap.md#红黑树优化jdk-18-新增-treenode)。
+JDK 8 的 `HashMap` 在某个桶（bucket）的链表长度超过阈值时会把链表转换成红黑树，将该桶最坏情况下的查找复杂度从 O(n) 降到 O(log n)，具体实现见 [HashMap](../../language/java/hashmap.md#红黑树优化jdk-18-新增-treenode)。
 
 ## 参考
 

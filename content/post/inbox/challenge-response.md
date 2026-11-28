@@ -2,7 +2,7 @@
 title: challenge response, 挑战应答
 author: "-"
 date: 2021-02-18 11:00:34
-url: "template"
+url: challenge-response
 categories:
   - inbox
 tags:

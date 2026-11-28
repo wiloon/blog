@@ -20,9 +20,9 @@ tags:
 
 这一折腾就是一整天。WireGuard 走不通，魔法工具也依赖家里 HomeLab 的出口，整个链路都受影响。换运营商热点、尝试不同连接方式，绕了一圈之后结论是：需要一条在 UDP 被封时能自动回退 TCP 的内网穿透方案。
 
-最终选了 Netbird。P2P 优先，UDP 不通时自动走 TURN relay，可以走 TCP 443。同时支持 Subnet Router，HomeLab 里只需要一台节点宣告内网网段，不必给每台机器装 client。详细的部署记录见 [Netbird 自建笔记](../../network/netbird-homelab.md)。
+最终选了 Netbird。P2P 优先，UDP 不通时自动走 TURN relay，可以走 TCP 443。同时支持 Subnet Router，HomeLab 里只需要一台节点宣告内网网段，不必给每台机器装 client。详细的部署记录见 [Netbird 自建笔记](../network/netbird-homelab.md)。
 
-另一件顺带记录的小事：不同咖啡店的拿铁，各家的成分不同，对乳糖不耐体质的影响有明显差异，这个已经单独记录了一下：[星巴克拿铁 vs 独立咖啡店](../../life/starbucks-latte-vs-indie-cafe.md)。
+另一件顺带记录的小事：不同咖啡店的拿铁，各家的成分不同，对乳糖不耐体质的影响有明显差异，这个已经单独记录了一下：[星巴克拿铁 vs 独立咖啡店](../life/starbucks-latte-vs-indie-cafe.md)。
 
 ## Giscus 评论区
 

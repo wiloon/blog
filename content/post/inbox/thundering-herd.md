@@ -2,7 +2,7 @@
 title: "thundering herd, 惊群效应"
 author: "-"
 date: ""
-url: "template"
+url: thundering-herd
 categories:
   - inbox
 tags:

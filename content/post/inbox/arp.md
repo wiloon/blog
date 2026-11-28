@@ -2,7 +2,7 @@
 title: arp command
 author: "-"
 date: 2018-08-15T16:15:42+00:00
-url: arp
+url: arp-command
 categories:
   - Inbox
 tags:

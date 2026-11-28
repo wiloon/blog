@@ -2,7 +2,7 @@
 title: 'ansible  管理工作站配置, linux初始化'
 author: "-"
 date: 2019-03-16T09:52:21+00:00
-url: ansible
+url: ansible-workstation-setup
 categories:
   - Inbox
 tags:

@@ -72,7 +72,7 @@ A 等 B，B 又等 A，两边永远等不到对方。包管理里的循环依赖
 
 把节点排成一个「不违背任何依赖边」的线性顺序，叫拓扑排序（Topological Sort）。DAG 一定能拓扑排序；有环的有向图则不能（至少对成环的那部分不行）。
 
-这也是为什么 Airflow、Makefile、包管理器、CI pipeline、以及 [Graph Engineering 里用任务队列当图](../AI/graph-engineering-claude-code.md) 时，都爱用 DAG 这个词：它们要的不是随便一张网，而是「有先后、无死锁」的调度结构。
+这也是为什么 Airflow、Makefile、包管理器、CI pipeline、以及 [Graph Engineering 里用任务队列当图](../ai/graph-engineering-claude-code.md) 时，都爱用 DAG 这个词：它们要的不是随便一张网，而是「有先后、无死锁」的调度结构。
 
 ## 常见出现场景
 

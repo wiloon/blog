@@ -24,7 +24,7 @@ cover:
 
 2026 年 6 月，homelab 四 worker 集群里 **k8s-50** 在 Grafana 上 CPU 长期偏高（一度接近 80%），而同节点的 **Descheduler** 每 15 分钟跑一轮却从不驱逐 Pod。排查、加看板、补配置、放宽调度约束之后，**Nexus** 从 k8s-50 迁到了 **k8s-71**，节点负载肉眼可见地降了下来。
 
-本文按时间线记录全过程；概念细节见 [Descheduler](./kubernetes-descheduler.md) 与 [Resource Requests](./kubernetes-resource-requests.md)。
+本文按时间线记录全过程；概念细节见 [Descheduler](../kubernetes-descheduler.md) 与 [Resource Requests](../kubernetes-resource-requests.md)。
 
 ## 时间线
 
@@ -112,7 +112,7 @@ Grafana：**实际 CPU ~80%**。Descheduler：**requests 占比 42%**，低于 `
 
 ### 3.2 原因归纳
 
-1. **度量口径不同**：node_exporter / `kubectl top` = 实际用量；`LowNodeUtilization` = 各 Pod **`resources.requests` 之和 ÷ allocatable**（见 [Resource Requests](./kubernetes-resource-requests.md)）。
+1. **度量口径不同**：node_exporter / `kubectl top` = 实际用量；`LowNodeUtilization` = 各 Pod **`resources.requests` 之和 ÷ allocatable**（见 [Resource Requests](../kubernetes-resource-requests.md)）。
 2. **大量 Pod 无 requests**：Argo CD、Kong、Tekton 等在调度账本里接近 0，却可以占满 CPU。
 3. **部分 requests 偏低**：Nexus 声明 500m CPU，实测常 500m+，仍不足以单独把节点推过 60% 阈值。
 
@@ -120,7 +120,7 @@ Grafana：**实际 CPU ~80%**。Descheduler：**requests 占比 42%**，低于 `
 
 ### 3.3 其它误判点
 
-- **PVC 默认保护**：Descheduler v0.36 里 `PodsWithPVC` 在 `extraEnabled`，**未启用时不保护**；真正挡住迁移的是 **nodeAffinity**、DaemonSet、PDB 等（见 [Descheduler 文](./kubernetes-descheduler.md) §DefaultEvictor）。
+- **PVC 默认保护**：Descheduler v0.36 里 `PodsWithPVC` 在 `extraEnabled`，**未启用时不保护**；真正挡住迁移的是 **nodeAffinity**、DaemonSet、PDB 等（见 [Descheduler 文](../kubernetes-descheduler.md) §DefaultEvictor）。
 - **Nexus「两个副本」**：Deployment **`replicas: 1`**（只跑 1 个 Pod）；Longhorn Volume **`numberOfReplicas: 2`**（数据在 k8s-50 与 k8s-71 各一份 replica）。说的是两件不同的事。
 
 ---
@@ -202,7 +202,7 @@ Grafana：**1860** 看节点总负载；**k8s-node-workloads** 看该节点 Pod 
 
 ## 相关阅读
 
-- [Kubernetes Descheduler 与 Pod 重平衡](./kubernetes-descheduler.md)
-- [Kubernetes Resource Requests: 调度与 Descheduler 在算什么](./kubernetes-resource-requests.md)
-- [k8s](./k8s.md)
-- [PVC 访问模式：RWO 简介](./pvc-access-modes.md)
+- [Kubernetes Descheduler 与 Pod 重平衡](../kubernetes-descheduler.md)
+- [Kubernetes Resource Requests: 调度与 Descheduler 在算什么](../kubernetes-resource-requests.md)
+- [k8s](../k8s.md)
+- [PVC 访问模式：RWO 简介](../pvc-access-modes.md)

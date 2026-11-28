@@ -2,7 +2,7 @@
 title: spring annotation
 author: "-"
 date: 2014-04-30T01:55:01+00:00
-url: spring
+url: spring-annotation
 categories:
   - Java
 tags:

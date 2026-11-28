@@ -2,7 +2,7 @@
 title: firewall 防火墙
 author: "-"
 date: 2020-03-01T03:54:44+00:00
-url: firewall
+url: firewall-concepts
 categories:
   - Network
 tags:

@@ -3,7 +3,7 @@ title: "Thread, Process 线程与进程"
 author: "-"
 date: 2015-06-30T02:52:35+00:00
 lastmod: 2026-10-09T21:22:13+08:00
-url: thread
+url: thread-process
 categories:
   - Java
 tags:

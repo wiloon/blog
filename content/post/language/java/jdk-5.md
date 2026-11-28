@@ -217,7 +217,7 @@ public String toString() {
 }
 ```
 
-注解成为语言特性后，框架不必再只靠 XML 描述元数据，可在启动或类加载时通过反射读取。典型例子：[Spring](../spring/spring.md) 在 1.x 时代以 XML 配置 Bean；**Spring 2.0 / 2.5（2006–2007）** 起才大规模采用自定义注解（`@Autowired`、`@Transactional`、`@RequestMapping` 等）——这些注解本身由 Spring 用 `@interface` 定义，依赖的正是 JDK 5 提供的注解机制与 Java 5 基线。
+注解成为语言特性后，框架不必再只靠 XML 描述元数据，可在启动或类加载时通过反射读取。典型例子：[Spring](./spring/spring.md) 在 1.x 时代以 XML 配置 Bean；**Spring 2.0 / 2.5（2006–2007）** 起才大规模采用自定义注解（`@Autowired`、`@Transactional`、`@RequestMapping` 等）——这些注解本身由 Spring 用 `@interface` 定义，依赖的正是 JDK 5 提供的注解机制与 Java 5 基线。
 
 ---
 

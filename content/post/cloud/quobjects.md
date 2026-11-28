@@ -196,4 +196,4 @@ resource "aws_s3_bucket" "longhorn" {
 - [Veeam: QNAP QuObjects](https://www.veeam.com/sys1242)
 - [Pull Backup with Restic to a QNAP NAS S3 store](https://harald.hoyer.xyz/restic/)
 - [NFS](./nfs.md)、[Samba](./samba.md)、[Litestream](./litestream.md)
-- [Hardware：QNAP TS453Bmini](../Hardware/hardware.md#qnap-ts453bmini)
+- [Hardware：QNAP TS453Bmini](../hardware/hardware.md#qnap-ts453bmini)
